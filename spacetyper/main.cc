@@ -1,14 +1,7 @@
 #include <SDL2/SDL.h>
 #include <iostream>
 
-#ifdef __APPLE__
-#include <OpenGL/gl.h>
-#else
-#ifdef _WIN32
-#include <windows.h>
-#endif
-#include <GL/gl.h>
-#endif
+#include "spacetyper/gl.h"
 
 int main(int argc, char** argv) {
   if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_JOYSTICK | SDL_INIT_AUDIO) < 0) {
