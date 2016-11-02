@@ -88,7 +88,7 @@ int main(int argc, char** argv) {
 
     glClear(GL_COLOR_BUFFER_BIT);
 
-    renderer.DrawSprite(ship, glm::vec2(200, 100), glm::vec2(1, 1), 45.0f);
+    renderer.DrawSprite(ship, glm::vec2(200, 100), 45.0f);
 
     SDL_GL_SwapWindow(window);
   }

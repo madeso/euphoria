@@ -17,9 +17,9 @@ SpriteRenderer::SpriteRenderer(Shader* shader) : shader_(shader) {
 
 SpriteRenderer::~SpriteRenderer() { glDeleteVertexArrays(1, &vao_); }
 
-void SpriteRenderer::DrawSprite(const Texture2d& texture, glm::vec2 position,
-                                glm::vec2 scale, GLfloat rotate,
-                                glm::vec3 color) {
+void SpriteRenderer::DrawSprite(const Texture2d& texture, const glm::vec2& position,
+                                GLfloat rotate, const glm::vec2& scale,
+                                const glm::vec3& color) {
   const glm::vec2 size(scale.x * texture.width(), scale.y * texture.height());
   Use(shader_);
   glm::mat4 model;
