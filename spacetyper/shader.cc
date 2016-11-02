@@ -17,9 +17,11 @@
 #include "spacetyper/gl.h"
 
 ShaderId::ShaderId() : id_(glCreateProgram()) {
+  std::cout << "Generated shader\n";
 }
 
 ShaderId::~ShaderId() {
+  std::cout << "Deleting shader.\n";
   glDeleteProgram(id_);
 }
 
@@ -112,6 +114,7 @@ GLuint CompileShader(GLuint type, const GLchar* source, const std::string& name)
 
 void Shader::Compile(const GLchar* vertexSource, const GLchar* fragmentSource, const GLchar* geometrySource)
 {
+  std::cout << "Compiling shader...\n";
   GLuint sVertex = CompileShader(GL_VERTEX_SHADER, vertexSource, "VERTEX");
   GLuint sFragment = CompileShader(GL_FRAGMENT_SHADER, fragmentSource, "FRAGMENT");
 

@@ -21,7 +21,7 @@ int main(int argc, char** argv) {
   SDL_GL_SetAttribute(SDL_GL_ALPHA_SIZE, 4);
   SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
   SDL_GL_SetAttribute(SDL_GL_BUFFER_SIZE, 0);
-  SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 2);
+  SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 0);
   SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 0);
   SDL_GL_SetAttribute(SDL_GL_ACCUM_RED_SIZE, 0);
   SDL_GL_SetAttribute(SDL_GL_ACCUM_GREEN_SIZE, 0);
@@ -59,6 +59,12 @@ int main(int argc, char** argv) {
   shader.SetInteger("image", 0);
   shader.SetMatrix4("projection", projection);
 
+  glViewport(0, 0, width, height);
+  glDisable(GL_DEPTH_TEST);
+  glDisable(GL_CULL_FACE);
+  glEnable(GL_BLEND);
+  glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
   bool quit = false;
   SDL_Event e;
   while (!quit) {
@@ -70,7 +76,7 @@ int main(int argc, char** argv) {
 
     glClear(GL_COLOR_BUFFER_BIT);
 
-    renderer.DrawSprite(ship, glm::vec2(100, 100), glm::vec2(100, 100), 45.0f);
+    renderer.DrawSprite(ship, glm::vec2(200, 100), glm::vec2(200, 100), 45.0f);
 
     SDL_GL_SwapWindow(window);
   }
