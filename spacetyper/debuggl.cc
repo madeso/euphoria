@@ -128,7 +128,7 @@ void GLAPIENTRY OnOpenglError(GLenum source, GLenum type, GLuint id, GLenum seve
                               GLsizei length, const GLchar *message,
                               const GLvoid* userParam) {
   // ignore non-significant error/warning codes
-  if (id == 131169 || id == 131185 || id == 131218 || id == 131204) return;
+  if (type == GL_DEBUG_TYPE_OTHER) return;
 
   static int count = 0;
   if( count > 10 ) return;
