@@ -21,13 +21,9 @@ Texture2dLoadData::Texture2dLoadData()
 
 ////////////////////////////////////////////////////////////////////////////////
 
-TextureId::TextureId() {
-  glGenTextures(1, &id_);
-}
+TextureId::TextureId() { glGenTextures(1, &id_); }
 
-TextureId::~TextureId() {
-  glDeleteTextures(1, &id_);
-}
+TextureId::~TextureId() { glDeleteTextures(1, &id_); }
 
 void TextureId::Bind() const { glBindTexture(GL_TEXTURE_2D, id_); }
 
@@ -49,8 +45,8 @@ void Texture2d::Load(int width, int height, unsigned char* pixelData,
                      GLuint internalFormat, GLuint imageFormat,
                      const Texture2dLoadData& data) {
   Bind();
-  glTexImage2D(GL_TEXTURE_2D, 0, internalFormat, width, height, 0,
-               imageFormat, GL_UNSIGNED_BYTE, pixelData);
+  glTexImage2D(GL_TEXTURE_2D, 0, internalFormat, width, height, 0, imageFormat,
+               GL_UNSIGNED_BYTE, pixelData);
 
   width_ = width;
   height_ = height;
@@ -82,10 +78,6 @@ void Texture2d::LoadFromFile(const std::string& path, AlphaLoad alpha,
   Load(i.width, i.height, &i.components[0], internalFormat, imageFormat, data);
 }
 
-int Texture2d::width() const {
-  return width_;
-}
+int Texture2d::width() const { return width_; }
 
-int Texture2d::height() const {
-  return height_;
-}
+int Texture2d::height() const { return height_; }

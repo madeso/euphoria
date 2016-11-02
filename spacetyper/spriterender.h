@@ -15,7 +15,8 @@ class SpriteRenderer {
   ~SpriteRenderer();
 
   void DrawSprite(const Texture2d& texture, const glm::vec2& position,
-                  GLfloat rotate = 0.0f, const glm::vec2& scale = glm::vec2(1, 1),
+                  GLfloat rotate = 0.0f,
+                  const glm::vec2& scale = glm::vec2(1, 1),
                   const glm::vec3& color = glm::vec3(1.0f));
 
  private:

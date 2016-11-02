@@ -1,13 +1,3 @@
-
-
-/*******************************************************************
-** This code is part of Breakout.
-**
-** Breakout is free software: you can redistribute it and/or modify
-** it under the terms of the CC BY 4.0 license as published by
-** Creative Commons, either version 4 of the License, or (at your
-** option) any later version.
-******************************************************************/
 #include "spacetyper/spriterender.h"
 
 SpriteRenderer::SpriteRenderer(Shader* shader) : shader_(shader) {
@@ -17,8 +7,9 @@ SpriteRenderer::SpriteRenderer(Shader* shader) : shader_(shader) {
 
 SpriteRenderer::~SpriteRenderer() { glDeleteVertexArrays(1, &vao_); }
 
-void SpriteRenderer::DrawSprite(const Texture2d& texture, const glm::vec2& position,
-                                GLfloat rotate, const glm::vec2& scale,
+void SpriteRenderer::DrawSprite(const Texture2d& texture,
+                                const glm::vec2& position, GLfloat rotate,
+                                const glm::vec2& scale,
                                 const glm::vec3& color) {
   const glm::vec2 size(scale.x * texture.width(), scale.y * texture.height());
   Use(shader_);
@@ -30,11 +21,9 @@ void SpriteRenderer::DrawSprite(const Texture2d& texture, const glm::vec2& posit
   model =
       glm::translate(model, glm::vec3(-0.5f * size.x, -0.5f * size.y, 0.0f));
 
-  model = glm::scale(model, glm::vec3(size, 1.0f));  // Last scale
+  model = glm::scale(model, glm::vec3(size, 1.0f));
 
   shader_->SetMatrix4("model", model);
-
-  // Render textured quad
   shader_->SetVector3f("spriteColor", color);
 
   glActiveTexture(GL_TEXTURE0);
@@ -46,13 +35,10 @@ void SpriteRenderer::DrawSprite(const Texture2d& texture, const glm::vec2& posit
 }
 
 void SpriteRenderer::InitRenderData() {
-  // Configure VAO/VBO
   GLuint VBO;
-  GLfloat vertices[] = {
-      // Pos      // Tex
-      0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-
-      0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f, 0.0f};
+  GLfloat vertices[] = {0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f, 0.0f,
+                        0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f,
+                        1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f, 0.0f};
 
   glGenVertexArrays(1, &vao_);
   glGenBuffers(1, &VBO);
@@ -63,7 +49,7 @@ void SpriteRenderer::InitRenderData() {
   glBindVertexArray(vao_);
   glEnableVertexAttribArray(0);
   glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat),
-                        (GLvoid*)0);
+                        static_cast<GLvoid*>(nullptr));
   glBindBuffer(GL_ARRAY_BUFFER, 0);
   glBindVertexArray(0);
 }

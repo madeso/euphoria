@@ -16,12 +16,9 @@
 
 #include "spacetyper/gl.h"
 
-ShaderId::ShaderId() : id_(glCreateProgram()) {
-}
+ShaderId::ShaderId() : id_(glCreateProgram()) {}
 
-ShaderId::~ShaderId() {
-  glDeleteProgram(id_);
-}
+ShaderId::~ShaderId() { glDeleteProgram(id_); }
 
 GLuint ShaderId::id() const { return id_; }
 

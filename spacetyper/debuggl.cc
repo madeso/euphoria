@@ -123,20 +123,21 @@ std::string SeverityToString(GLenum severity) {
 
 }  // namespace
 
-
-void GLAPIENTRY OnOpenglError(GLenum source, GLenum type, GLuint id, GLenum severity,
-                              GLsizei length, const GLchar *message,
-                              const GLvoid* userParam) {
+void GLAPIENTRY OnOpenglError(GLenum source, GLenum type, GLuint id,
+                              GLenum severity, GLsizei length,
+                              const GLchar *message, const GLvoid *userParam) {
   // ignore non-significant error/warning codes
   if (type == GL_DEBUG_TYPE_OTHER) return;
 
   static int count = 0;
-  if( count > 10 ) return;
+  if (count > 10) return;
   ++count;
 
   std::cout << "---------------" << std::endl;
   std::cout << "Debug message (" << id << "): " << message << std::endl;
-  std::cout << "Source " << SourceToString(source) << " type: " << TypeToString(type) << " Severity: " << SeverityToString(severity) << "\n\n";
+  std::cout << "Source " << SourceToString(source)
+            << " type: " << TypeToString(type)
+            << " Severity: " << SeverityToString(severity) << "\n\n";
 }
 void SetupOpenglDebug() {
   GLint flags;
