@@ -23,15 +23,15 @@ ShaderId::~ShaderId() { glDeleteProgram(id_); }
 GLuint ShaderId::id() const { return id_; }
 
 namespace {
-ShaderId *&currentShader() {
-  static ShaderId *s = nullptr;
+const ShaderId *&currentShader() {
+  static const ShaderId *s = nullptr;
   return s;
 }
 }
 
 bool ShaderId::IsCurrentlyBound() const { return this == currentShader(); }
 
-void Use(ShaderId *shader) {
+void Use(const ShaderId *shader) {
   if (shader != nullptr) {
     glUseProgram(shader->id());
   }

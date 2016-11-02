@@ -19,11 +19,14 @@ class TextureId {
   TextureId();
   ~TextureId();
 
-  void Bind() const;
+  bool IsCurrentlyBound() const;
+  GLuint id() const;
 
  private:
   GLuint id_;
 };
+
+void Use(const TextureId* texture);
 
 class Texture2d : public TextureId {
  public:

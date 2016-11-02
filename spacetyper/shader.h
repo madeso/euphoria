@@ -20,7 +20,7 @@ class ShaderId {
   GLuint id_;
 };
 
-void Use(ShaderId *id);
+void Use(const ShaderId *id);
 
 class Shader : public ShaderId {
  public:

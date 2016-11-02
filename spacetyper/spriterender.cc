@@ -27,7 +27,7 @@ void SpriteRenderer::DrawSprite(const Texture2d& texture,
   shader_->SetVector3f("spriteColor", color);
 
   glActiveTexture(GL_TEXTURE0);
-  texture.Bind();
+  Use(&texture);
 
   glBindVertexArray(vao_);
   glDrawArrays(GL_TRIANGLES, 0, 6);

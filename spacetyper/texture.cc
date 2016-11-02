@@ -25,7 +25,23 @@ TextureId::TextureId() { glGenTextures(1, &id_); }
 
 TextureId::~TextureId() { glDeleteTextures(1, &id_); }
 
-void TextureId::Bind() const { glBindTexture(GL_TEXTURE_2D, id_); }
+GLuint TextureId::id() const { return id_; }
+
+namespace {
+const TextureId *&currentShader() {
+  static const TextureId *s = nullptr;
+  return s;
+}
+}
+
+bool TextureId::IsCurrentlyBound() const { return this == currentShader(); }
+
+void Use(const TextureId *texture) {
+  if (texture != nullptr) {
+    glBindTexture(GL_TEXTURE_2D, texture->id());
+  }
+  currentShader() = texture;
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -44,7 +60,7 @@ Texture2d::Texture2d(const std::string& path, AlphaLoad alpha,
 void Texture2d::Load(int width, int height, unsigned char* pixelData,
                      GLuint internalFormat, GLuint imageFormat,
                      const Texture2dLoadData& data) {
-  Bind();
+  Use(this);
   glTexImage2D(GL_TEXTURE_2D, 0, internalFormat, width, height, 0, imageFormat,
                GL_UNSIGNED_BYTE, pixelData);
 
