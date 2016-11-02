@@ -31,13 +31,15 @@ class Texture2d : public TextureId {
   explicit Texture2d(const std::string& path);
   Texture2d(const std::string& path, AlphaLoad alpha,
             const Texture2dLoadData& data);
-  ~Texture2d();
 
   void Load(int width, int height, unsigned char* pixelData,
             GLuint internalFormat, GLuint imageFormat,
             const Texture2dLoadData& data);
   void LoadFromFile(const std::string& path, AlphaLoad alpha,
                     const Texture2dLoadData& data);
+
+  int width() const;
+  int height() const;
 
  private:
   int width_, height_;

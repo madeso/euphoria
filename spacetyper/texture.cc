@@ -45,8 +45,6 @@ Texture2d::Texture2d(const std::string& path, AlphaLoad alpha,
   LoadFromFile(path, alpha, data);
 }
 
-Texture2d::~Texture2d() {}
-
 void Texture2d::Load(int width, int height, unsigned char* pixelData,
                      GLuint internalFormat, GLuint imageFormat,
                      const Texture2dLoadData& data) {
@@ -82,4 +80,12 @@ void Texture2d::LoadFromFile(const std::string& path, AlphaLoad alpha,
   }
 
   Load(i.width, i.height, &i.components[0], internalFormat, imageFormat, data);
+}
+
+int Texture2d::width() const {
+  return width_;
+}
+
+int Texture2d::height() const {
+  return height_;
 }
