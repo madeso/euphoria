@@ -52,9 +52,9 @@ bool GetShaderCompileStatus(GLuint object) {
   return r == GL_TRUE;
 }
 
-bool GetShaderLinkStatus(GLuint object) {
+bool GetProgramLinkStatus(GLuint object) {
   int r = GL_TRUE;
-  glGetShaderiv(object, GL_LINK_STATUS, &r);
+  glGetProgramiv(object, GL_LINK_STATUS, &r);
   return r == GL_TRUE;
 }
 
@@ -87,7 +87,7 @@ void ReportError(const std::string &log, const std::string &type) {
 }
 
 void PrintErrorProgram(GLuint program) {
-  if (GetShaderLinkStatus(program)) return;
+  if (GetProgramLinkStatus(program)) return;
   const std::string &log = GetProgramLog(program);
   ReportError(log, "PROGRAM");
 }
