@@ -102,10 +102,11 @@ int main(int argc, char** argv) {
     smallStars.Update(dt);
     bigStars.Update(dt);
 
+    glClearColor(42.0f/255, 45.0f/255, 51.0f/255, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
     smallStars.Render(&renderer);
     bigStars.Render(&renderer);
-    renderer.DrawSprite(ship, glm::vec2(200, 100), 45.0f);
+    renderer.DrawSprite(ship, glm::vec2(width/2, height-ship.height()/2-10), 0.0f);
     SDL_GL_SwapWindow(window);
   }
 
