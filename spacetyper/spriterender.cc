@@ -15,6 +15,8 @@ void SpriteRenderer::DrawSprite(const Texture2d& texture,
   Use(shader_);
   glm::mat4 model;
   model = glm::translate(model, glm::vec3(position, 0.0f));
+  model = // this lets us move the sprite according to the anchor/center point
+      glm::translate(model, glm::vec3(-0.5f * size.x, -0.5f * size.y, 0.0f));
 
   model = glm::translate(model, glm::vec3(0.5f * size.x, 0.5f * size.y, 0.0f));
   model = glm::rotate(model, rotate, glm::vec3(0.0f, 0.0f, 1.0f));
