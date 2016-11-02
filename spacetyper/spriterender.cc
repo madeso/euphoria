@@ -10,29 +10,26 @@
 ******************************************************************/
 #include "spacetyper/spriterender.h"
 
-
-SpriteRenderer::SpriteRenderer(Shader* shader) : shader_(shader)
-{
+SpriteRenderer::SpriteRenderer(Shader* shader) : shader_(shader) {
   shader_ = shader;
   InitRenderData();
 }
 
-SpriteRenderer::~SpriteRenderer()
-{
-  glDeleteVertexArrays(1, &vao_);
-}
+SpriteRenderer::~SpriteRenderer() { glDeleteVertexArrays(1, &vao_); }
 
-void SpriteRenderer::DrawSprite(const Texture2d &texture, glm::vec2 position, glm::vec2 size, GLfloat rotate, glm::vec3 color)
-{
+void SpriteRenderer::DrawSprite(const Texture2d& texture, glm::vec2 position,
+                                glm::vec2 size, GLfloat rotate,
+                                glm::vec3 color) {
   Use(shader_);
   glm::mat4 model;
   model = glm::translate(model, glm::vec3(position, 0.0f));
 
   model = glm::translate(model, glm::vec3(0.5f * size.x, 0.5f * size.y, 0.0f));
   model = glm::rotate(model, rotate, glm::vec3(0.0f, 0.0f, 1.0f));
-  model = glm::translate(model, glm::vec3(-0.5f * size.x, -0.5f * size.y, 0.0f));
+  model =
+      glm::translate(model, glm::vec3(-0.5f * size.x, -0.5f * size.y, 0.0f));
 
-  model = glm::scale(model, glm::vec3(size, 1.0f)); // Last scale
+  model = glm::scale(model, glm::vec3(size, 1.0f));  // Last scale
 
   shader_->SetMatrix4("model", model);
 
@@ -47,20 +44,14 @@ void SpriteRenderer::DrawSprite(const Texture2d &texture, glm::vec2 position, gl
   glBindVertexArray(0);
 }
 
-void SpriteRenderer::InitRenderData()
-{
+void SpriteRenderer::InitRenderData() {
   // Configure VAO/VBO
   GLuint VBO;
   GLfloat vertices[] = {
       // Pos      // Tex
-      0.0f, 1.0f, 0.0f, 1.0f,
-      1.0f, 0.0f, 1.0f, 0.0f,
-      0.0f, 0.0f, 0.0f, 0.0f,
+      0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
 
-      0.0f, 1.0f, 0.0f, 1.0f,
-      1.0f, 1.0f, 1.0f, 1.0f,
-      1.0f, 0.0f, 1.0f, 0.0f
-  };
+      0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f, 0.0f};
 
   glGenVertexArrays(1, &vao_);
   glGenBuffers(1, &VBO);
@@ -70,8 +61,8 @@ void SpriteRenderer::InitRenderData()
 
   glBindVertexArray(vao_);
   glEnableVertexAttribArray(0);
-  glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), (GLvoid*)0);
+  glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat),
+                        (GLvoid*)0);
   glBindBuffer(GL_ARRAY_BUFFER, 0);
   glBindVertexArray(0);
 }
-

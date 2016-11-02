@@ -1,13 +1,14 @@
 #include <SDL2/SDL.h>
-#include <iostream>
 #include <shaders.h>
+#include <iostream>
 
 #include "spacetyper/gl.h"
-#include "spacetyper/texture.h"
 #include "spacetyper/shader.h"
 #include "spacetyper/spriterender.h"
+#include "spacetyper/texture.h"
 
 #include "generated_shaders.h"
+#include "spacetyper/debuggl.h"
 
 int main(int argc, char** argv) {
   if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_JOYSTICK | SDL_INIT_AUDIO) < 0) {
@@ -32,15 +33,14 @@ int main(int argc, char** argv) {
   SDL_GL_SetAttribute(SDL_GL_RETAINED_BACKING, 1);
   SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
   SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
-  SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK,
-                      SDL_GL_CONTEXT_PROFILE_CORE);
+  SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
 
   int width = 800;
   int height = 600;
 
-  SDL_Window* window = SDL_CreateWindow(
-        "Space Typer", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
-        width, height, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
+  SDL_Window* window = SDL_CreateWindow("Space Typer", SDL_WINDOWPOS_UNDEFINED,
+                                        SDL_WINDOWPOS_UNDEFINED, width, height,
+                                        SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
 
   if (window == NULL) {
     std::cerr << "Failed to create window " << SDL_GetError() << "\n";
@@ -48,13 +48,25 @@ int main(int argc, char** argv) {
   }
 
   SDL_GL_CreateContext(window);
-  std::cout << "Created OpenGL " << glGetString(GL_VERSION) << " context" << "\n";
+  std::cout << "Created OpenGL " << glGetString(GL_VERSION) << " context"
+            << "\n";
+
+  const GLenum err = glewInit();
+  if (GLEW_OK != err) {
+    std::cerr << "Failed to init glew, error: " << glewGetErrorString(err)
+              << "\n";
+    return -4;
+  }
+
+  SetupOpenglDebug();
 
   Texture2d ship("player.png");
   Shader shader(shader_source_sprite_vert, shader_source_sprite_frag);
   SpriteRenderer renderer(&shader);
 
-  glm::mat4 projection = glm::ortho(0.0f, static_cast<GLfloat>(width), static_cast<GLfloat>(height), 0.0f, -1.0f, 1.0f);
+  glm::mat4 projection =
+      glm::ortho(0.0f, static_cast<GLfloat>(width),
+                 static_cast<GLfloat>(height), 0.0f, -1.0f, 1.0f);
   Use(&shader);
   shader.SetInteger("image", 0);
   shader.SetMatrix4("projection", projection);

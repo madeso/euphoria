@@ -14,9 +14,7 @@ class ImageLoadResult {
   std::string error;
 };
 
-enum class AlphaLoad {
-  Remove, Include
-};
+enum class AlphaLoad { Remove, Include };
 
 ImageLoadResult LoadImage(const std::string& path, AlphaLoad alpha);
 

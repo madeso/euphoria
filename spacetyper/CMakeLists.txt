@@ -7,6 +7,10 @@ include_directories(../external/glm/include)
 
 include_directories(../external/stb)
 
+include_directories(../external/glew/include)
+set(src_glew ../external/glew/glew.c ../external/glew/include/GL/glew.h)
+source_group("glew" FILES ${src_glew})
+
 set(app_src ${app_src_glob})
 source_group("" FILES ${app_src})
 
@@ -26,7 +30,7 @@ add_custom_command(OUTPUT ${CMAKE_BINARY_DIR}/generated_shaders.h ${CMAKE_BINARY
 )
 
 
-set(all_src ${app_src} ${src_shaders})
+set(all_src ${app_src} ${src_shaders} ${src_glew})
 
 add_executable(spacetyper WIN32 MACOSX_BUNDLE ${all_src})
 set_target_properties(spacetyper
