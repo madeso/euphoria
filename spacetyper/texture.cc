@@ -11,32 +11,74 @@
 #include <iostream>
 
 #include "spacetyper/texture.h"
+#include "spacetyper/image.h"
 
-
-Texture2D::Texture2D()
-    : Width(0), Height(0), Internal_Format(GL_RGB), Image_Format(GL_RGB), Wrap_S(GL_REPEAT), Wrap_T(GL_REPEAT), Filter_Min(GL_LINEAR), Filter_Max(GL_LINEAR)
-{
-  glGenTextures(1, &this->ID);
+Texture2dLoadData::Texture2dLoadData() : wrapS(GL_REPEAT), wrapT(GL_REPEAT), filterMin(GL_LINEAR), filterMax(GL_LINEAR) {
 }
 
-void Texture2D::Generate(GLuint width, GLuint height, unsigned char* data)
+////////////////////////////////////////////////////////////////////////////////
+
+TextureId::TextureId() {
+  glGenTextures(1, &id_);
+}
+
+TextureId::~TextureId() {
+  glDeleteTextures(1, &id_);
+}
+
+void TextureId::Bind() const
 {
-  this->Width = width;
-  this->Height = height;
-  // Create Texture
-  glBindTexture(GL_TEXTURE_2D, this->ID);
-  glTexImage2D(GL_TEXTURE_2D, 0, this->Internal_Format, width, height, 0, this->Image_Format, GL_UNSIGNED_BYTE, data);
-  // Set Texture wrap and filter modes
-  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, this->Wrap_S);
-  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, this->Wrap_T);
-  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, this->Filter_Min);
-  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, this->Filter_Max);
-  // Unbind texture
+  glBindTexture(GL_TEXTURE_2D, id_);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+Texture2D::Texture2D()
+    : width_(0), height_(0) {
+}
+
+Texture2D::Texture2D(const std::string& path)
+    : width_(0), height_(0) {
+  LoadFromFile(path, AlphaLoad::Include, Texture2dLoadData());
+}
+
+Texture2D::Texture2D(const std::string& path, AlphaLoad alpha, const Texture2dLoadData& data)
+    : width_(0), height_(0) {
+  LoadFromFile(path, alpha, data);
+}
+
+Texture2D::~Texture2D() {}
+
+void Texture2D::Load(int width, int height, unsigned char* pixelData, GLuint internalFormat, GLuint imageFormat, const Texture2dLoadData& data) {
+  Bind();
+  glTexImage2D(GL_TEXTURE_2D, 0, data.internalFormat, width, height, 0, data.imageFormat, GL_UNSIGNED_BYTE, pixelData);
+
+  width_ = width;
+  height_ = height;
+
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, data.wrapS);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, data.wrapT);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, data.filterMin);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, data.filterMax);
+
   glBindTexture(GL_TEXTURE_2D, 0);
 }
 
-void Texture2D::Bind() const
-{
-  glBindTexture(GL_TEXTURE_2D, this->ID);
-}
+void Texture2D::LoadFromFile(const std::string& path, AlphaLoad alpha, const Texture2dLoadData& data) {
+  ImageLoadResult i = LoadImage(path, alpha);
+  if(i.height <= 0 ) {
+    std::cerr << "Failed to load image " << path << "\n"
+              << "  " << i.error << "\n";
+    return;
+  }
 
+  GLuint internalFormat = GL_RGB;
+  GLuint imageFormat = GL_RGB;
+  if (i.has_alpha)
+  {
+    internalFormat = GL_RGBA;
+    imageFormat = GL_RGBA;
+  }
+
+  Load(i.width, i.height, &i.components[0], internalFormat, imageFormat, data);
+}
