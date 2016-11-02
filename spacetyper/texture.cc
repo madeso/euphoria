@@ -22,12 +22,10 @@ Texture2dLoadData::Texture2dLoadData()
 ////////////////////////////////////////////////////////////////////////////////
 
 TextureId::TextureId() {
-  std::cout << "Allocating texture\n";
   glGenTextures(1, &id_);
 }
 
 TextureId::~TextureId() {
-  std::cout << "Removing texture.\n";
   glDeleteTextures(1, &id_);
 }
 
@@ -59,8 +57,6 @@ void Texture2d::Load(int width, int height, unsigned char* pixelData,
   width_ = width;
   height_ = height;
 
-  std::cout << "Loading texture\n";
-
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, data.wrapS);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, data.wrapT);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, data.filterMin);
@@ -77,8 +73,6 @@ void Texture2d::LoadFromFile(const std::string& path, AlphaLoad alpha,
               << "  " << i.error << "\n";
     return;
   }
-
-  std::cout << "Loading image from " << path << "\n";
 
   GLuint internalFormat = GL_RGB;
   GLuint imageFormat = GL_RGB;
