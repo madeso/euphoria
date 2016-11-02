@@ -1,5 +1,4 @@
 #include <SDL2/SDL.h>
-#include <shaders.h>
 #include <iostream>
 
 #include "spacetyper/gl.h"

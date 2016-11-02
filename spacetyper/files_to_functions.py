@@ -25,13 +25,13 @@ files = args.input
 root = os.getcwd()
 
 # todo: improve this
-define = "GENERTED_HEADER"
+define = "GENERATED_HEADER"
 
 header.write('#ifndef ' + define + "\n")
 header.write('#define ' + define + "\n")
 header.write("\n")
 
-source.write('#include "shaders.h"\n')
+source.write('#include "generated_shaders.h"\n')
 source.write("\n")
 
 def escape_cpp(line):
