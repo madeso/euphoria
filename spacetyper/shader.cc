@@ -100,10 +100,11 @@ void PrintErrorShader(GLuint shader, const std::string &type) {
 
 GLuint CompileShader(GLuint type, const GLchar *source,
                      const std::string &name) {
-  GLuint sVertex = glCreateShader(type);
-  glShaderSource(sVertex, 1, &source, NULL);
-  glCompileShader(sVertex);
-  PrintErrorShader(sVertex, name);
+  GLuint shader = glCreateShader(type);
+  glShaderSource(shader, 1, &source, NULL);
+  glCompileShader(shader);
+  PrintErrorShader(shader, name);
+  return shader;
 }
 
 void Shader::Compile(const GLchar *vertexSource, const GLchar *fragmentSource,
