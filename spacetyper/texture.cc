@@ -53,8 +53,8 @@ void Texture2d::Load(int width, int height, unsigned char* pixelData,
                      GLuint internalFormat, GLuint imageFormat,
                      const Texture2dLoadData& data) {
   Bind();
-  glTexImage2D(GL_TEXTURE_2D, 0, data.internalFormat, width, height, 0,
-               data.imageFormat, GL_UNSIGNED_BYTE, pixelData);
+  glTexImage2D(GL_TEXTURE_2D, 0, internalFormat, width, height, 0,
+               imageFormat, GL_UNSIGNED_BYTE, pixelData);
 
   width_ = width;
   height_ = height;

@@ -8,9 +8,6 @@
 struct Texture2dLoadData {
   Texture2dLoadData();
 
-  GLuint internalFormat;
-  GLuint imageFormat;
-
   GLuint wrapS;
   GLuint wrapT;
   GLuint filterMin;
