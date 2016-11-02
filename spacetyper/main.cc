@@ -67,8 +67,8 @@ int main(int argc, char** argv) {
   Shader shader(shader_source_sprite_vert, shader_source_sprite_frag);
   SpriteRenderer renderer(&shader);
 
-  Background smallStars(10, width, height, &starSmall, 3.0f);
-  Background bigStars(10, width, height, &starBig, 1.0f);
+  Background smallStars(25, width, height, &starSmall, 20);
+  Background bigStars(15, width, height, &starBig, 50);
 
   glm::mat4 projection =
       glm::ortho(0.0f, static_cast<GLfloat>(width),
@@ -83,21 +83,29 @@ int main(int argc, char** argv) {
   glEnable(GL_BLEND);
   glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
+  Uint64 NOW = SDL_GetPerformanceCounter();
+  Uint64 LAST = 0;
+
   bool quit = false;
-  SDL_Event e;
   while (!quit) {
+    LAST = NOW;
+    NOW = SDL_GetPerformanceCounter();
+    const float dt = (NOW - LAST)*1.0f / SDL_GetPerformanceFrequency();
+    SDL_Event e;
+
     while (SDL_PollEvent(&e) != 0) {
       if (e.type == SDL_QUIT) {
         quit = true;
       }
     }
 
-    glClear(GL_COLOR_BUFFER_BIT);
+    smallStars.Update(dt);
+    bigStars.Update(dt);
 
+    glClear(GL_COLOR_BUFFER_BIT);
     smallStars.Render(&renderer);
     bigStars.Render(&renderer);
     renderer.DrawSprite(ship, glm::vec2(200, 100), 45.0f);
-
     SDL_GL_SwapWindow(window);
   }
 
