@@ -29,3 +29,6 @@
 *.app
 
 .idea
+
+dist/spacetyper
+dist/spacetyper-debug
