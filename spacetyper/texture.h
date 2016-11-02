@@ -28,13 +28,13 @@ class TextureId {
   GLuint id_;
 };
 
-class Texture2D : public TextureId
+class Texture2d : public TextureId
 {
  public:
-  Texture2D();
-  explicit Texture2D(const std::string& path);
-  Texture2D(const std::string& path, AlphaLoad alpha, const Texture2dLoadData& data);
-  ~Texture2D();
+  Texture2d();
+  explicit Texture2d(const std::string& path);
+  Texture2d(const std::string& path, AlphaLoad alpha, const Texture2dLoadData& data);
+  ~Texture2d();
 
   void Load(int width, int height, unsigned char* pixelData, GLuint internalFormat, GLuint imageFormat, const Texture2dLoadData& data);
   void LoadFromFile(const std::string& path, AlphaLoad alpha, const Texture2dLoadData& data);

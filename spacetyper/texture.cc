@@ -33,23 +33,23 @@ void TextureId::Bind() const
 
 ////////////////////////////////////////////////////////////////////////////////
 
-Texture2D::Texture2D()
+Texture2d::Texture2d()
     : width_(0), height_(0) {
 }
 
-Texture2D::Texture2D(const std::string& path)
+Texture2d::Texture2d(const std::string& path)
     : width_(0), height_(0) {
   LoadFromFile(path, AlphaLoad::Include, Texture2dLoadData());
 }
 
-Texture2D::Texture2D(const std::string& path, AlphaLoad alpha, const Texture2dLoadData& data)
+Texture2d::Texture2d(const std::string& path, AlphaLoad alpha, const Texture2dLoadData& data)
     : width_(0), height_(0) {
   LoadFromFile(path, alpha, data);
 }
 
-Texture2D::~Texture2D() {}
+Texture2d::~Texture2d() {}
 
-void Texture2D::Load(int width, int height, unsigned char* pixelData, GLuint internalFormat, GLuint imageFormat, const Texture2dLoadData& data) {
+void Texture2d::Load(int width, int height, unsigned char* pixelData, GLuint internalFormat, GLuint imageFormat, const Texture2dLoadData& data) {
   Bind();
   glTexImage2D(GL_TEXTURE_2D, 0, data.internalFormat, width, height, 0, data.imageFormat, GL_UNSIGNED_BYTE, pixelData);
 
@@ -64,7 +64,7 @@ void Texture2D::Load(int width, int height, unsigned char* pixelData, GLuint int
   glBindTexture(GL_TEXTURE_2D, 0);
 }
 
-void Texture2D::LoadFromFile(const std::string& path, AlphaLoad alpha, const Texture2dLoadData& data) {
+void Texture2d::LoadFromFile(const std::string& path, AlphaLoad alpha, const Texture2dLoadData& data) {
   ImageLoadResult i = LoadImage(path, alpha);
   if(i.height <= 0 ) {
     std::cerr << "Failed to load image " << path << "\n"
