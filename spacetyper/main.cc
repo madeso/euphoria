@@ -8,6 +8,7 @@
 
 #include "generated_shaders.h"
 #include "spacetyper/debuggl.h"
+#include "spacetyper/background.h"
 
 int main(int argc, char** argv) {
   if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_JOYSTICK | SDL_INIT_AUDIO) < 0) {
@@ -61,8 +62,11 @@ int main(int argc, char** argv) {
   SetupOpenglDebug();
 
   Texture2d ship("player.png");
+  Texture2d starSmall("starSmall.png");
   Shader shader(shader_source_sprite_vert, shader_source_sprite_frag);
   SpriteRenderer renderer(&shader);
+
+  Background smallStars(10, width, height, &starSmall);
 
   glm::mat4 projection =
       glm::ortho(0.0f, static_cast<GLfloat>(width),
@@ -88,6 +92,7 @@ int main(int argc, char** argv) {
 
     glClear(GL_COLOR_BUFFER_BIT);
 
+    smallStars.Render(&renderer);
     renderer.DrawSprite(ship, glm::vec2(200, 100), 45.0f);
 
     SDL_GL_SwapWindow(window);
