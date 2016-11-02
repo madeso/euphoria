@@ -1,11 +1,11 @@
 file(GLOB app_src_glob *.cpp;*.cc;*.h;*.inl)
 
 find_package(SDL2 REQUIRED)
-include_directories(${SDL2_INCLUDE_DIR})
+include_directories(SYSTEM ${SDL2_INCLUDE_DIR})
 
-include_directories(../external/glm/include)
+include_directories(SYSTEM ../external/glm/include)
 
-include_directories(../external/stb)
+include_directories(SYSTEM ../external/stb)
 
 include_directories(../external/glew/include)
 set(src_glew ../external/glew/glew.c ../external/glew/include/GL/glew.h)
@@ -45,4 +45,9 @@ target_link_libraries(spacetyper
                       ${OPENGL_LIBRARIES}
                       ${SDL2_LIBRARY}
                       )
+
+if(CMAKE_COMPILER_IS_GNUCC)
+  # This is tested
+  set_property(TARGET spacetyper APPEND_STRING PROPERTY COMPILE_FLAGS -Wall)
+endif()
 
