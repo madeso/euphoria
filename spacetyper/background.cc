@@ -20,7 +20,7 @@ std::uniform_real_distribution<float> GetDistribution(float window, float textur
   return rwidth;
 }
 
-Background::Background(int count, int width, int height, Texture2d* texture) : width_(width), height_(height), texture_(texture) {
+Background::Background(int count, int width, int height, Texture2d* texture, float speed) : width_(width), height_(height), speed_(speed), texture_(texture) {
   positions_.reserve(count);
 
   auto rwidth = GetDistribution(width, texture->width());

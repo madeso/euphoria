@@ -9,7 +9,7 @@ class SpriteRenderer;
 
 class Background {
  public:
-  Background(int count, int width, int height, Texture2d* texture);
+  Background(int count, int width, int height, Texture2d* texture, float speed);
 
   void Update(float delta);
   void Render(SpriteRenderer* renderer) const;

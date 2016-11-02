@@ -63,10 +63,12 @@ int main(int argc, char** argv) {
 
   Texture2d ship("player.png");
   Texture2d starSmall("starSmall.png");
+  Texture2d starBig("starBig.png");
   Shader shader(shader_source_sprite_vert, shader_source_sprite_frag);
   SpriteRenderer renderer(&shader);
 
-  Background smallStars(10, width, height, &starSmall);
+  Background smallStars(10, width, height, &starSmall, 3.0f);
+  Background bigStars(10, width, height, &starBig, 1.0f);
 
   glm::mat4 projection =
       glm::ortho(0.0f, static_cast<GLfloat>(width),
@@ -93,6 +95,7 @@ int main(int argc, char** argv) {
     glClear(GL_COLOR_BUFFER_BIT);
 
     smallStars.Render(&renderer);
+    bigStars.Render(&renderer);
     renderer.DrawSprite(ship, glm::vec2(200, 100), 45.0f);
 
     SDL_GL_SwapWindow(window);
