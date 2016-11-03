@@ -7,8 +7,8 @@
 #include "spacetyper/texture.h"
 
 #include "generated_shaders.h"
-#include "spacetyper/debuggl.h"
 #include "spacetyper/background.h"
+#include "spacetyper/debuggl.h"
 
 int main(int argc, char** argv) {
   if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_JOYSTICK | SDL_INIT_AUDIO) < 0) {
@@ -90,7 +90,7 @@ int main(int argc, char** argv) {
   while (!quit) {
     LAST = NOW;
     NOW = SDL_GetPerformanceCounter();
-    const float dt = (NOW - LAST)*1.0f / SDL_GetPerformanceFrequency();
+    const float dt = (NOW - LAST) * 1.0f / SDL_GetPerformanceFrequency();
     SDL_Event e;
 
     while (SDL_PollEvent(&e) != 0) {
@@ -102,11 +102,12 @@ int main(int argc, char** argv) {
     smallStars.Update(dt);
     bigStars.Update(dt);
 
-    glClearColor(42.0f/255, 45.0f/255, 51.0f/255, 1.0f);
+    glClearColor(42.0f / 255, 45.0f / 255, 51.0f / 255, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
     smallStars.Render(&renderer);
     bigStars.Render(&renderer);
-    renderer.DrawSprite(ship, glm::vec2(width/2, height-ship.height()/2-10), 0.0f);
+    renderer.DrawSprite(
+        ship, glm::vec2(width / 2, height - ship.height() / 2 - 10), 0.0f);
     SDL_GL_SwapWindow(window);
   }
 

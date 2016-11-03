@@ -28,15 +28,15 @@ TextureId::~TextureId() { glDeleteTextures(1, &id_); }
 GLuint TextureId::id() const { return id_; }
 
 namespace {
-const TextureId *&currentShader() {
-  static const TextureId *s = nullptr;
+const TextureId*& currentShader() {
+  static const TextureId* s = nullptr;
   return s;
 }
 }
 
 bool TextureId::IsCurrentlyBound() const { return this == currentShader(); }
 
-void Use(const TextureId *texture) {
+void Use(const TextureId* texture) {
   if (texture != nullptr) {
     glBindTexture(GL_TEXTURE_2D, texture->id());
   }

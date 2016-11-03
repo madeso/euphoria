@@ -6,8 +6,11 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
+#include <memory>
 #include "spacetyper/shader.h"
 #include "spacetyper/texture.h"
+
+class Vao;
 
 class SpriteRenderer {
  public:
@@ -21,7 +24,7 @@ class SpriteRenderer {
 
  private:
   Shader* shader_;
-  GLuint vao_;
+  std::unique_ptr<Vao> vao_;
 
   void InitRenderData();
 };

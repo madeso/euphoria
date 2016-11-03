@@ -1,8 +1,8 @@
 #ifndef SPACETYPER_BACKGROUND_H
 #define SPACETYPER_BACKGROUND_H
 
-#include "glm/vec2.hpp"
 #include <vector>
+#include "glm/vec2.hpp"
 
 class Texture2d;
 class SpriteRenderer;
@@ -13,6 +13,7 @@ class Background {
 
   void Update(float delta);
   void Render(SpriteRenderer* renderer) const;
+
  private:
   int width_;
   int height_;
