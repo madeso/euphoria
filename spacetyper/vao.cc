@@ -23,8 +23,8 @@ VaoBuilder& VaoBuilder::triangle(const Point& p1, const Point& p2,
 
 VaoBuilder& VaoBuilder::quad(const Point& a, const Point& b, const Point& c,
                              const Point& d) {
-  triangle(a, b, c);
-  triangle(a, d, b);
+  triangle(c, b, a);
+  triangle(c, d, b);
   return *this;
 }
 

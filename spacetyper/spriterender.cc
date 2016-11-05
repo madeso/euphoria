@@ -58,8 +58,12 @@ void SpriteRenderer::DrawNinepatch(const Ninepatch& ninepatch, const glm::vec2& 
 void SpriteRenderer::InitRenderData() {
   VaoBuilder data;
 
-  data.quad(Point(0.0f, 1.0f, 0.0f, 1.0f), Point(1.0f, 0.0f, 1.0f, 0.0f),
-            Point(0.0f, 0.0f, 0.0f, 0.0f), Point(1.0f, 1.0f, 1.0f, 1.0f));
+  Point a(0.0f, 1.0f, 0.0f, 1.0f);
+  Point b(1.0f, 0.0f, 1.0f, 0.0f);
+  Point c(0.0f, 0.0f, 0.0f, 0.0f);
+  Point d(1.0f, 1.0f, 1.0f, 1.0f);
+
+  data.quad(c, b, a, d);
 
   vao_.reset(new Vao(data));
 }
