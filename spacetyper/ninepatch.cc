@@ -20,10 +20,10 @@ void Ninepatch::SetInnerSize(const glm::vec2& new_size) {
 void Ninepatch::BuildVao() {
   VaoBuilder data;
 
-  // 00     01                02     03
+  // 00     10                20     30
   // +------+-----------------+------+
   // |      |                 |      |
-  // |10    |11               |12    | 13
+  // |01    |11               |21    | 31
   // +------+-----------------+------+
   // |      |                 |      |
   // |      |                 |      |
@@ -31,10 +31,10 @@ void Ninepatch::BuildVao() {
   // |      |                 |      |
   // |      |                 |      |
   // |      |                 |      |
-  // |20    |21               |22    | 23
+  // |02    |12               |22    | 32
   // +------+-----------------+------+
   // |      |                 |      |
-  // |30    |31               |32    | 33
+  // |03    |13               |23    | 33
   // +------+-----------------+------+
   //
 
@@ -58,7 +58,7 @@ void Ninepatch::BuildVao() {
 
   const float v0 = 0.0f;
   const float v1 = 0.0f + top_ / height;
-  const float v2 = 0.0f + bottom_ / height;
+  const float v2 = 1.0f - bottom_ / height;
   const float v3 = 1.0f;
 
 #define P(A, B) Point(x ## A, y ## B, u ## A, v ## B)
@@ -71,6 +71,9 @@ void Ninepatch::BuildVao() {
   data.quad(P(0,2), P(1,2), P(0,3), P(1,3))
       .quad(P(1,2), P(2,2), P(1,3), P(2,3))
       .quad(P(2,2), P(3,2), P(2,3), P(3,3));
+
+  // basic scale - like a sprite
+  // data.quad(P(0,0), P(3,0), P(0,3), P(3,3));
 #undef P
 
   vao_.reset(new Vao(data) );
