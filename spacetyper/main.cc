@@ -10,6 +10,7 @@
 #include "spacetyper/background.h"
 #include "spacetyper/debuggl.h"
 #include "spacetyper/ninepatch.h"
+#include "spacetyper/fonts.h"
 
 int main(int argc, char** argv) {
   if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_JOYSTICK | SDL_INIT_AUDIO) < 0) {
@@ -66,6 +67,7 @@ int main(int argc, char** argv) {
   Texture2d starSmall("starSmall.png");
   Texture2d starBig("starBig.png");
   Texture2d panel("metalPanel_blueCorner.png");
+  Font font("SourceCodePro-Regular.ttf", 25, L"abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ;:,.-_<>|1234567890!\"#¤%&/()=?@£$€¥{[]}\\'*");
   Ninepatch ninepatch(&panel, 62, 14, 33, 14, glm::vec2(240, 240));
   Shader shader(shader_source_sprite_vert, shader_source_sprite_frag);
   SpriteRenderer renderer(&shader);

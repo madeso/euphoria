@@ -16,9 +16,13 @@
 
 namespace {
 
-void Error(FT_Error) {
+void Error(FT_Error err) {
+  if( err == 0 ) return;
+  std::cerr << "FONT Error: " << err << "\n";
 }
-void ErrorNoThrow(FT_Error) {
+void ErrorNoThrow(FT_Error err) {
+  if( err == 0 ) return;
+  std::cerr << "FONT Error: " << err << "\n";
 }
 
 unsigned int ConvertWcharToIndex(wchar_t c) {
@@ -53,9 +57,8 @@ struct FontChar {
 struct Face {
   FT_Face face;
 
-  Face(Library* lib, const std::string& path) {
+  Face(Library* lib, const std::string& path, unsigned int size) {
     int face_index = 0;
-    unsigned int size = 16;
     Error(FT_New_Face(lib->library, path.c_str(), face_index, &face));
     Error(FT_Set_Pixel_Sizes(face, 0, size));
   }
@@ -63,8 +66,10 @@ struct Face {
   FontChar GetChar(unsigned int c) {
 
     const FT_Error error = FT_Load_Char( face, c, FT_LOAD_RENDER );
-    if ( error )
+    if ( error ) {
+      std::cerr << "Failed to get char\n";
       return FontChar();
+    }
 
     FT_GlyphSlot slot = face->glyph;
 
@@ -89,29 +94,8 @@ struct Face {
   }
 };
 
-struct CharData {
-  explicit CharData(const VaoBuilder& data) : vao(data) {
-  }
-
-  unsigned int c;
-  float advance;
-
-  // only useful when calculating font metrics for a specific text
-  float glyph_width;
-  float glyph_height;
-  float bearing_x;
-  float bearing_y;
-
-  Vao vao;
-};
-
-typedef std::map<unsigned int, std::shared_ptr<CharData>> CharDataMap;
-typedef std::map<std::pair<unsigned int, unsigned int>, int> KerningMap;
-struct LoadedFont {
-  std::unique_ptr<Texture2d> texture;
-  CharDataMap chars;
-  KerningMap kerning;
-};
+CharData::CharData(const VaoBuilder& data) : vao(data) {
+}
 
 struct Pixels {
   Pixels(int texture_width, int texture_height) : pixels(texture_width * texture_height * 4, 0), texture_width_(texture_width), texture_height_(texture_height) {
@@ -146,9 +130,9 @@ struct FontChars {
   KerningMap kerning;
 };
 
-FontChars GetCharactersFromFont(const std::string &font_file, const std::wstring& chars) {
+FontChars GetCharactersFromFont(const std::string &font_file, unsigned int font_size, const std::wstring& chars) {
   Library lib;
-  Face f(&lib, font_file);
+  Face f(&lib, font_file, font_size);
 
   FontChars fontchars;
   fontchars.chars.reserve(chars.length());
@@ -157,6 +141,8 @@ FontChars GetCharactersFromFont(const std::string &font_file, const std::wstring
     if(cc.glyph_width == 0) continue;
     fontchars.chars.push_back(cc);
   }
+
+  std::cout << "Loaded " << fontchars.chars.size() << " characters from " << font_file << "\n";
 
   FT_Bool use_kerning = FT_HAS_KERNING( f.face );
   if( use_kerning ) {
@@ -215,12 +201,11 @@ VaoBuilder BuildCharVao(const stbrp_rect &src_rect, const FontChar &src_char) {
   return builder;
 }
 
-LoadedFont LoadFont(const std::string& font_file, const std::wstring& possible_chars) {
+Font::Font(const std::string& font_file, unsigned int font_size, const std::wstring& possible_chars) {
   const int texture_width = 512;
   const int texture_height = 512;
 
-  const FontChars fontchars = GetCharactersFromFont(font_file, possible_chars);
-
+  const FontChars fontchars = GetCharactersFromFont(font_file, font_size, possible_chars);
 
   // pack char textures to a single texture
   const int num_rects = fontchars.chars.size();
@@ -262,11 +247,13 @@ LoadedFont LoadFont(const std::string& font_file, const std::wstring& possible_c
   }
 
   // load pixels into texture
-  LoadedFont ret;
-  ret.kerning = fontchars.kerning;
-  ret.chars = map;
+  kerning_ = fontchars.kerning;
+  chars_ = map;
   Texture2dLoadData load_data;
-  ret.texture.reset(new Texture2d());
-  ret.texture->Load(texture_width, texture_height, &pixels.pixels[0], GL_RGBA, GL_RGBA, load_data);
-  return ret;
+  texture_.reset(new Texture2d());
+  texture_->Load(texture_width, texture_height, &pixels.pixels[0], GL_RGBA, GL_RGBA, load_data);
+}
+
+void Font::Draw(const glm::vec2& p, const std::wstring& str) const {
+  // implement me
 }
