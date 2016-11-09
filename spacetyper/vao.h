@@ -4,6 +4,7 @@
 #include <vector>
 #include "glm/vec2.hpp"
 #include "spacetyper/gl.h"
+#include "spacetyper/noncopyable.h"
 
 class Point {
  public:
@@ -24,7 +25,7 @@ class VaoBuilder {
   std::vector<GLfloat> data;
 };
 
-class Vao {
+class Vao : Noncopyable {
  public:
   Vao(const VaoBuilder& data);
   ~Vao();

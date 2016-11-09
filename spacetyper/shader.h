@@ -6,8 +6,9 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include "spacetyper/gl.h"
+#include "spacetyper/noncopyable.h"
 
-class ShaderId {
+class ShaderId : Noncopyable {
  public:
   ShaderId();
   ~ShaderId();

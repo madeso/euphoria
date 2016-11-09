@@ -3,6 +3,7 @@
 
 #include "spacetyper/gl.h"
 #include "spacetyper/image.h"
+#include "spacetyper/noncopyable.h"
 
 struct Texture2dLoadData {
   Texture2dLoadData();
@@ -13,7 +14,7 @@ struct Texture2dLoadData {
   GLuint filterMax;
 };
 
-class TextureId {
+class TextureId : Noncopyable {
  public:
   TextureId();
   ~TextureId();

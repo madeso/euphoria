@@ -11,6 +11,10 @@ include_directories(../external/glew/include)
 set(src_glew ../external/glew/glew.c ../external/glew/include/GL/glew.h)
 source_group("glew" FILES ${src_glew})
 
+# freetype
+find_package(Freetype REQUIRED)
+include_directories(${FREETYPE_INCLUDE_DIRS})
+
 set(app_src ${app_src_glob})
 source_group("" FILES ${app_src})
 
@@ -44,6 +48,7 @@ set_target_properties(spacetyper
 target_link_libraries(spacetyper
                       ${OPENGL_LIBRARIES}
                       ${SDL2_LIBRARY}
+                      ${FREETYPE_LIBRARIES}
                       )
 
 if(CMAKE_COMPILER_IS_GNUCC)
