@@ -8,6 +8,8 @@
 #include "spacetyper/vao.h"
 #include "spacetyper/texture.h"
 
+class Shader;
+
 struct CharData {
   explicit CharData(const VaoBuilder& data);
 
@@ -28,9 +30,10 @@ typedef std::map<std::pair<unsigned int, unsigned int>, int> KerningMap;
 
 class Font {
  public:
-  Font(const std::string& path, unsigned int font_size, const std::wstring& chars);
+  Font(Shader* shader, const std::string& path, unsigned int font_size, const std::wstring& chars);
   void Draw(const glm::vec2& p, const std::wstring& str) const;
  private:
+  Shader* shader_;
   std::unique_ptr<Texture2d> texture_;
   CharDataMap chars_;
   KerningMap kerning_;

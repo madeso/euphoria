@@ -67,9 +67,10 @@ int main(int argc, char** argv) {
   Texture2d starSmall("starSmall.png");
   Texture2d starBig("starBig.png");
   Texture2d panel("metalPanel_blueCorner.png");
-  Font font("SourceCodePro-Regular.ttf", 25, L"abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ;:,.-_<>|1234567890!\"#¤%&/()=?@£$€¥{[]}\\'*");
-  Ninepatch ninepatch(&panel, 62, 14, 33, 14, glm::vec2(240, 240));
   Shader shader(shader_source_sprite_vert, shader_source_sprite_frag);
+  Shader font_shader(shader_source_font_vert, shader_source_font_frag);
+  Font font(&font_shader, "SourceCodePro-Regular.ttf", 50, L" abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ;:,.-_<>|1234567890!\"#¤%&/()=?@£$€¥{[]}\\'*");
+  Ninepatch ninepatch(&panel, 62, 14, 33, 14, glm::vec2(240, 240));
   SpriteRenderer renderer(&shader);
 
   Background smallStars(25, width, height, &starSmall, 20);
@@ -81,6 +82,10 @@ int main(int argc, char** argv) {
   Use(&shader);
   shader.SetInteger("image", 0);
   shader.SetMatrix4("projection", projection);
+
+  Use(&font_shader);
+  font_shader.SetInteger("image", 0);
+  font_shader.SetMatrix4("projection", projection);
 
   glViewport(0, 0, width, height);
   glDisable(GL_DEPTH_TEST);
@@ -114,6 +119,7 @@ int main(int argc, char** argv) {
     renderer.DrawSprite(
         ship, glm::vec2(width / 2, height - ship.height() / 2 - 10), 0.0f);
     renderer.DrawNinepatch(ninepatch, glm::vec2(200,200));
+    font.Draw(glm::vec2(200, 200), L"Helloworld!");
     SDL_GL_SwapWindow(window);
   }
 

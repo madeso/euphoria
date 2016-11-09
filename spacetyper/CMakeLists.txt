@@ -26,8 +26,10 @@ set(src_shaders
 source_group("generated shader" FILES ${src_shaders})
 add_custom_command(OUTPUT ${CMAKE_BINARY_DIR}/generated_shaders.h ${CMAKE_BINARY_DIR}/generated_shaders.cc
     COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/files_to_functions.py ${CMAKE_BINARY_DIR}/generated_shaders.h ${CMAKE_BINARY_DIR}/generated_shaders.cc shader_source_
+                   shaders/font.vert shaders/font.frag
                    shaders/sprite.vert shaders/sprite.frag
     DEPENDS files_to_functions.py
+                   shaders/font.vert shaders/font.frag
                    shaders/sprite.vert shaders/sprite.frag
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
     COMMENT "Generating shaders."

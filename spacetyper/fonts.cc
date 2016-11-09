@@ -2,11 +2,14 @@
 
 #include "spacetyper/vao.h"
 #include "spacetyper/texture.h"
+#include "spacetyper/shader.h"
 
 #include <vector>
 #include <memory>
 #include <map>
 #include <iostream>
+#include "glm/glm.hpp"
+#include <glm/gtc/matrix_transform.hpp>
 
 #define STB_RECT_PACK_IMPLEMENTATION
 #include "stb_rect_pack.h"
@@ -163,7 +166,7 @@ FontChars GetCharactersFromFont(const std::string &font_file, unsigned int font_
   return fontchars;
 }
 
-VaoBuilder BuildCharVao(const stbrp_rect &src_rect, const FontChar &src_char) {
+VaoBuilder BuildCharVao(const stbrp_rect &src_rect, const FontChar &src_char, int image_width, int image_height) {
   //
   //             width
   //          <--------->
@@ -182,6 +185,9 @@ VaoBuilder BuildCharVao(const stbrp_rect &src_rect, const FontChar &src_char) {
   const int vert_top = src_char.bearing_y;
   const int vert_bottom = vert_top - src_char.glyph_height;
 
+  const float iw = image_width;
+  const float ih = image_height;
+
   const stbrp_coord uv_left = src_rect.x;
   const stbrp_coord uv_right = uv_left + src_rect.w;
   const stbrp_coord uv_top = src_rect.y;
@@ -190,18 +196,18 @@ VaoBuilder BuildCharVao(const stbrp_rect &src_rect, const FontChar &src_char) {
   VaoBuilder builder;
   builder.quad(
       Point(vert_left, vert_top,
-            uv_left, uv_top),
+            uv_left/iw, uv_top/ih),
       Point(vert_right, vert_top,
-            uv_right, uv_top),
+            uv_right/iw, uv_top/ih),
       Point(vert_left, vert_bottom,
-            uv_left, uv_bottom),
+            uv_left/iw, uv_bottom/ih),
       Point(vert_right, vert_bottom,
-            uv_right, uv_bottom)
+            uv_right/iw, uv_bottom/ih)
   );
   return builder;
 }
 
-Font::Font(const std::string& font_file, unsigned int font_size, const std::wstring& possible_chars) {
+Font::Font(Shader* shader, const std::string& font_file, unsigned int font_size, const std::wstring& possible_chars) : shader_(shader) {
   const int texture_width = 512;
   const int texture_height = 512;
 
@@ -232,7 +238,7 @@ Font::Font(const std::string& font_file, unsigned int font_size, const std::wstr
     }
     const FontChar& src_char = fontchars.chars[src_rect.id];
     PasteCharacterToImage(pixels, src_rect, src_char);
-    const VaoBuilder builder = BuildCharVao(src_rect, src_char);
+    const VaoBuilder builder = BuildCharVao(src_rect, src_char, texture_width, texture_height);
 
     // store data in useful data
     std::shared_ptr<CharData> dest(new CharData(builder));
@@ -256,4 +262,28 @@ Font::Font(const std::string& font_file, unsigned int font_size, const std::wstr
 
 void Font::Draw(const glm::vec2& p, const std::wstring& str) const {
   // implement me
+  Use(shader_);
+
+  const glm::vec3& color = glm::vec3(1.0f);
+
+  glm::vec2 position = p;
+
+  glActiveTexture(GL_TEXTURE0);
+  Use(texture_.get());
+
+  for (std::wstring::const_iterator c = str.begin(); c != str.end(); c++) {
+    const unsigned int index = ConvertWcharToIndex(*c);
+    CharDataMap::const_iterator it = chars_.find(index);
+    if( it == chars_.end() ) {
+      std::cerr << "Failed to print\n";
+      continue;
+    }
+    std::shared_ptr<CharData> ch = it->second;
+
+    const glm::mat4 model = translate(glm::mat4(), glm::vec3(position, 0.0f));
+    shader_->SetMatrix4("model", model);
+    shader_->SetVector3f("spriteColor", color);
+    ch->vao.Draw();
+    position.x += ch->advance;
+  }
 }
