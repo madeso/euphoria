@@ -150,7 +150,9 @@ FontChars GetCharactersFromFont(const std::string &font_file, unsigned int font_
   std::cout << "Loaded " << fontchars.chars.size() << " characters from " << font_file << "\n";
 
   FT_Bool use_kerning = FT_HAS_KERNING( f.face );
+  std::cout << "kerning..." << static_cast<int>(use_kerning) << "\n";
   if( use_kerning ) {
+    std::cout << "kerning...\n";
     for(const FontChar& previous : fontchars.chars) {
       for(const FontChar& current : fontchars.chars) {
         if( previous.c == current.c) continue;
@@ -277,6 +279,7 @@ void Font::Draw(const glm::vec2& p, const std::wstring& str, glm::vec3 basec, gl
   }
 
   int index = 0;
+  unsigned int last_char_index = 0;
   for (std::wstring::const_iterator c = str.begin(); c != str.end(); c++) {
     const int this_index = index;
     ++index;
@@ -297,8 +300,9 @@ void Font::Draw(const glm::vec2& p, const std::wstring& str, glm::vec3 basec, gl
       shader_->SetVector3f("spriteColor", color);
     }
     ch->vao.Draw();
-    position.x += ch->advance;
-    // todo: kerning
+    KerningMap::const_iterator kerning = kerning_.find(std::make_pair(last_char_index, char_index));
+    int the_kerning = kerning == kerning_.end() ? 0 : kerning->second;
+    position.x += ch->advance + the_kerning;
   }
 }
 
