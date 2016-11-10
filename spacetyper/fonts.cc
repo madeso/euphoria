@@ -262,20 +262,21 @@ Font::Font(Shader* shader, const std::string& font_file, unsigned int font_size,
   texture_->Load(texture_width, texture_height, &pixels.pixels[0], GL_RGBA, GL_RGBA, load_data);
 }
 
-void Font::Draw(const glm::vec2& p, const std::wstring& str) const {
+void Font::Draw(const glm::vec2& p, const std::wstring& str, glm::vec3 basec, glm::vec3 hic, int hi_start, int hi_end) const {
   // implement me
   Use(shader_);
-
-  const glm::vec3& color = glm::vec3(1.0f);
 
   glm::vec2 position = p;
 
   glActiveTexture(GL_TEXTURE0);
   Use(texture_.get());
 
+  int index = 0;
   for (std::wstring::const_iterator c = str.begin(); c != str.end(); c++) {
-    const unsigned int index = ConvertWcharToIndex(*c);
-    CharDataMap::const_iterator it = chars_.find(index);
+    const int this_index = index;
+    ++index;
+    const unsigned int char_index = ConvertWcharToIndex(*c);
+    CharDataMap::const_iterator it = chars_.find(char_index);
     if( it == chars_.end() ) {
       std::cerr << "Failed to print\n";
       continue;
@@ -284,8 +285,44 @@ void Font::Draw(const glm::vec2& p, const std::wstring& str) const {
 
     const glm::mat4 model = translate(glm::mat4(), glm::vec3(position, 0.0f));
     shader_->SetMatrix4("model", model);
+
+    bool useHiColor =
+        (hi_end != -1 && hi_start != -1) ?
+        (hi_start <= this_index && this_index < hi_end) :
+        false;
+    const glm::vec3& color = useHiColor ? hic : basec;
     shader_->SetVector3f("spriteColor", color);
     ch->vao.Draw();
     position.x += ch->advance;
+    // todo: kerning
   }
+}
+
+Text::Text(Font* font) : font_(font), text_(L""), base_color_(0.0f), hi_color_(1.0f), hi_from_(-1), hi_to_(-1) {
+}
+
+Text::Text(const std::wstring& str, Font* font) : font_(font), text_(str), base_color_(0.0f), hi_color_(1.0f), hi_from_(-1), hi_to_(-1) {}
+
+Text::~Text() {}
+
+void Text::SetText(const std::wstring& str) {
+  text_ = str;
+}
+void Text::SetFont(Font* font) {
+  font_ = font;
+}
+void Text::SetBaseColor(const glm::vec3 color) {
+  base_color_ = color;
+}
+void Text::SetHighlightColor(const glm::vec3 color) {
+  hi_color_ = color;
+}
+void Text::SetHighlightRange(int from, int to) {
+  hi_from_ = from;
+  hi_to_ = to;
+}
+
+void Text::Draw(const glm::vec2& p) {
+  if( font_ == nullptr) return;
+  font_->Draw(p, text_, base_color_, hi_color_, hi_from_, hi_to_);
 }

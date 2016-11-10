@@ -93,6 +93,9 @@ int main(int argc, char** argv) {
   glEnable(GL_BLEND);
   glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
+  Text text(L"Hello world!", &font);
+  text.SetHighlightRange(0, 1);
+
   Uint64 NOW = SDL_GetPerformanceCounter();
   Uint64 LAST = 0;
 
@@ -120,7 +123,7 @@ int main(int argc, char** argv) {
     renderer.DrawSprite(
         ship, shipPos, 0.0f);
     renderer.DrawNinepatch(ninepatch, glm::vec2(200,200));
-    font.Draw(shipPos, L"Hello world!");
+    text.Draw(shipPos);
     SDL_GL_SwapWindow(window);
   }
 
