@@ -271,6 +271,11 @@ void Font::Draw(const glm::vec2& p, const std::wstring& str, glm::vec3 basec, gl
   glActiveTexture(GL_TEXTURE0);
   Use(texture_.get());
 
+  const bool applyHi = hi_end != -1 && hi_start != -1;
+  if(applyHi == false) {
+    shader_->SetVector3f("spriteColor", basec);
+  }
+
   int index = 0;
   for (std::wstring::const_iterator c = str.begin(); c != str.end(); c++) {
     const int this_index = index;
@@ -286,12 +291,11 @@ void Font::Draw(const glm::vec2& p, const std::wstring& str, glm::vec3 basec, gl
     const glm::mat4 model = translate(glm::mat4(), glm::vec3(position, 0.0f));
     shader_->SetMatrix4("model", model);
 
-    bool useHiColor =
-        (hi_end != -1 && hi_start != -1) ?
-        (hi_start <= this_index && this_index < hi_end) :
-        false;
-    const glm::vec3& color = useHiColor ? hic : basec;
-    shader_->SetVector3f("spriteColor", color);
+    if(applyHi) {
+      bool useHiColor = hi_start <= this_index && this_index < hi_end;
+      const glm::vec3& color = useHiColor ? hic : basec;
+      shader_->SetVector3f("spriteColor", color);
+    }
     ch->vao.Draw();
     position.x += ch->advance;
     // todo: kerning
