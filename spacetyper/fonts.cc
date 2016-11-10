@@ -48,7 +48,9 @@ struct Library {
 };
 
 struct FontChar {
+  FontChar() : valid(false) { }
   unsigned int c;
+  bool valid;
   int glyph_width;
   int glyph_height;
   int bearing_x;
@@ -67,7 +69,6 @@ struct Face {
   }
 
   FontChar GetChar(unsigned int c) {
-
     const FT_Error error = FT_Load_Char( face, c, FT_LOAD_RENDER );
     if ( error ) {
       std::cerr << "Failed to get char\n";
@@ -83,6 +84,7 @@ struct Face {
     ch.glyph_width = slot->bitmap.width;
     ch.bearing_x = slot->bitmap_left;
     ch.bearing_y = slot->bitmap_top;
+    ch.valid = true;
     ch.advance = slot->advance.x >> 6;
     // pen_y += slot->advance.y >> 6;
     const unsigned long size = ch.glyph_width*ch.glyph_height;
@@ -141,7 +143,7 @@ FontChars GetCharactersFromFont(const std::string &font_file, unsigned int font_
   fontchars.chars.reserve(chars.length());
   for (std::wstring::const_iterator c = chars.begin(); c != chars.end(); c++) {
     FontChar cc = f.GetChar(ConvertWcharToIndex(*c));
-    if(cc.glyph_width == 0) continue;
+    if(cc.valid == false) continue;
     fontchars.chars.push_back(cc);
   }
 

@@ -120,7 +120,7 @@ int main(int argc, char** argv) {
     renderer.DrawSprite(
         ship, shipPos, 0.0f);
     renderer.DrawNinepatch(ninepatch, glm::vec2(200,200));
-    font.Draw(shipPos, L"Helloworld!");
+    font.Draw(shipPos, L"Hello world!");
     SDL_GL_SwapWindow(window);
   }
 
