@@ -116,10 +116,11 @@ int main(int argc, char** argv) {
     glClear(GL_COLOR_BUFFER_BIT);
     smallStars.Render(&renderer);
     bigStars.Render(&renderer);
+    glm::vec2 shipPos(width / 2, height - ship.height() / 2 - 10);
     renderer.DrawSprite(
-        ship, glm::vec2(width / 2, height - ship.height() / 2 - 10), 0.0f);
+        ship, shipPos, 0.0f);
     renderer.DrawNinepatch(ninepatch, glm::vec2(200,200));
-    font.Draw(glm::vec2(200, 200), L"Helloworld!");
+    font.Draw(shipPos, L"Helloworld!");
     SDL_GL_SwapWindow(window);
   }
 

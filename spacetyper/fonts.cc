@@ -182,8 +182,8 @@ VaoBuilder BuildCharVao(const stbrp_rect &src_rect, const FontChar &src_char, in
   
   const int vert_left = src_char.bearing_x;
   const int vert_right = vert_left + src_char.glyph_width;
-  const int vert_top = src_char.bearing_y;
-  const int vert_bottom = vert_top - src_char.glyph_height;
+  const int vert_top = -src_char.bearing_y;
+  const int vert_bottom = vert_top + src_char.glyph_height;
 
   const float iw = image_width;
   const float ih = image_height;
