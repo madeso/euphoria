@@ -45,8 +45,12 @@ class Text {
   void SetHighlightColor(const glm::vec3 color);
   void SetHighlightRange(int from, int to);
 
+  void SetSize(float new_size);
+  void SetScale(float scale);
+
   void Draw(const glm::vec2& p);
  private:
+  float scale_;
   Font* font_;
   std::wstring text_;
   glm::vec3 base_color_;
@@ -58,11 +62,13 @@ class Text {
 class Font {
  public:
   Font(Shader* shader, const std::string& path, unsigned int font_size, const std::wstring& chars);
+  unsigned int GetFontSize() const;
  protected:
   friend void Text::Draw(const glm::vec2 &p);
-  void Draw(const glm::vec2& p, const std::wstring& str, glm::vec3 basec, glm::vec3 hic, int hi_start, int hi_end) const;
+  void Draw(const glm::vec2& p, const std::wstring& str, glm::vec3 basec, glm::vec3 hic, int hi_start, int hi_end, float scale) const;
  private:
   Shader* shader_;
+  unsigned int font_size_;
   std::unique_ptr<Texture2d> texture_;
   CharDataMap chars_;
   KerningMap kerning_;

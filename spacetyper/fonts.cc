@@ -7,6 +7,7 @@
 #include <vector>
 #include <memory>
 #include <map>
+#include <cassert>
 #include <iostream>
 #include "glm/glm.hpp"
 #include <glm/gtc/matrix_transform.hpp>
@@ -211,7 +212,7 @@ VaoBuilder BuildCharVao(const stbrp_rect &src_rect, const FontChar &src_char, in
   return builder;
 }
 
-Font::Font(Shader* shader, const std::string& font_file, unsigned int font_size, const std::wstring& possible_chars) : shader_(shader) {
+Font::Font(Shader* shader, const std::string& font_file, unsigned int font_size, const std::wstring& possible_chars) : shader_(shader), font_size_(font_size) {
   const int texture_width = 512;
   const int texture_height = 512;
 
@@ -264,8 +265,7 @@ Font::Font(Shader* shader, const std::string& font_file, unsigned int font_size,
   texture_->Load(texture_width, texture_height, &pixels.pixels[0], GL_RGBA, GL_RGBA, load_data);
 }
 
-void Font::Draw(const glm::vec2& p, const std::wstring& str, glm::vec3 basec, glm::vec3 hic, int hi_start, int hi_end) const {
-  // implement me
+void Font::Draw(const glm::vec2& p, const std::wstring& str, glm::vec3 basec, glm::vec3 hic, int hi_start, int hi_end, float scale) const {
   Use(shader_);
 
   glm::vec2 position = p;
@@ -291,7 +291,8 @@ void Font::Draw(const glm::vec2& p, const std::wstring& str, glm::vec3 basec, gl
     }
     std::shared_ptr<CharData> ch = it->second;
 
-    const glm::mat4 model = translate(glm::mat4(), glm::vec3(position, 0.0f));
+    glm::mat4 model = translate(glm::mat4(), glm::vec3(position, 0.0f));
+    model = glm::scale(model, glm::vec3(scale, scale, 1.0f));
     shader_->SetMatrix4("model", model);
 
     if(applyHi) {
@@ -302,14 +303,18 @@ void Font::Draw(const glm::vec2& p, const std::wstring& str, glm::vec3 basec, gl
     ch->vao.Draw();
     KerningMap::const_iterator kerning = kerning_.find(std::make_pair(last_char_index, char_index));
     int the_kerning = kerning == kerning_.end() ? 0 : kerning->second;
-    position.x += ch->advance + the_kerning;
+    position.x += (ch->advance + the_kerning)*scale;
   }
 }
 
-Text::Text(Font* font) : font_(font), text_(L""), base_color_(0.0f), hi_color_(1.0f), hi_from_(-1), hi_to_(-1) {
+unsigned int Font::GetFontSize() const {
+  return font_size_;
 }
 
-Text::Text(const std::wstring& str, Font* font) : font_(font), text_(str), base_color_(0.0f), hi_color_(1.0f), hi_from_(-1), hi_to_(-1) {}
+Text::Text(Font* font) : scale_(1.0f), font_(font), text_(L""), base_color_(0.0f), hi_color_(1.0f), hi_from_(-1), hi_to_(-1) {
+}
+
+Text::Text(const std::wstring& str, Font* font) : scale_(1.0f), font_(font), text_(str), base_color_(0.0f), hi_color_(1.0f), hi_from_(-1), hi_to_(-1) {}
 
 Text::~Text() {}
 
@@ -330,7 +335,16 @@ void Text::SetHighlightRange(int from, int to) {
   hi_to_ = to;
 }
 
+void Text::SetSize(float new_size) {
+  assert(font_);
+  SetScale(new_size/font_->GetFontSize());
+}
+
+void Text::SetScale(float scale) {
+  scale_ = scale;
+}
+
 void Text::Draw(const glm::vec2& p) {
   if( font_ == nullptr) return;
-  font_->Draw(p, text_, base_color_, hi_color_, hi_from_, hi_to_);
+  font_->Draw(p, text_, base_color_, hi_color_, hi_from_, hi_to_, scale_);
 }

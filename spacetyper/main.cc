@@ -94,6 +94,7 @@ int main(int argc, char** argv) {
   glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
   Text text(L"Hello Lobster!", &font);
+  text.SetSize(100);
   text.SetHighlightRange(0, 1);
 
   Uint64 NOW = SDL_GetPerformanceCounter();
