@@ -100,8 +100,8 @@ int main(int argc, char** argv) {
   Uint64 NOW = SDL_GetPerformanceCounter();
   Uint64 LAST = 0;
 
-  bool quit = false;
-  while (!quit) {
+  bool running = true;
+  while (running) {
     LAST = NOW;
     NOW = SDL_GetPerformanceCounter();
     const float dt = (NOW - LAST) * 1.0f / SDL_GetPerformanceFrequency();
@@ -109,7 +109,7 @@ int main(int argc, char** argv) {
 
     while (SDL_PollEvent(&e) != 0) {
       if (e.type == SDL_QUIT) {
-        quit = true;
+        running = false;
       }
     }
 
