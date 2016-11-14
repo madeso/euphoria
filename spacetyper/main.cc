@@ -102,7 +102,7 @@ int main(int argc, char** argv) {
 
   SDL_StartTextInput();
 
-  std::wstring data;
+  std::string data;
 
   bool running = true;
   while (running) {
@@ -116,7 +116,8 @@ int main(int argc, char** argv) {
         running = false;
       }
       else if( e.type == SDL_TEXTINPUT ) {
-        // data += e.text.text;
+        data += e.text.text;
+        text.SetText(data);
       }
     }
 
