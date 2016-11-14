@@ -36,10 +36,10 @@ class Font;
 class Text {
  public:
   Text(Font* font= nullptr);
-  Text(const std::wstring& str, Font* font= nullptr);
+  Text(const std::string& str, Font* font= nullptr);
   ~Text();
 
-  void SetText(const std::wstring& str);
+  void SetText(const std::string& str);
   void SetFont(Font* font);
   void SetBaseColor(const glm::vec3 color);
   void SetHighlightColor(const glm::vec3 color);
@@ -52,7 +52,7 @@ class Text {
  private:
   float scale_;
   Font* font_;
-  std::wstring text_;
+  std::string text_;
   glm::vec3 base_color_;
   glm::vec3 hi_color_;
   int hi_from_;
@@ -61,11 +61,11 @@ class Text {
 
 class Font {
  public:
-  Font(Shader* shader, const std::string& path, unsigned int font_size, const std::wstring& chars);
+  Font(Shader* shader, const std::string& path, unsigned int font_size, const std::string& chars);
   unsigned int GetFontSize() const;
  protected:
   friend void Text::Draw(const glm::vec2 &p);
-  void Draw(const glm::vec2& p, const std::wstring& str, glm::vec3 basec, glm::vec3 hic, int hi_start, int hi_end, float scale) const;
+  void Draw(const glm::vec2& p, const std::string& str, glm::vec3 basec, glm::vec3 hic, int hi_start, int hi_end, float scale) const;
  private:
   Shader* shader_;
   unsigned int font_size_;

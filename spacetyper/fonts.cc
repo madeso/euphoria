@@ -29,7 +29,7 @@ void ErrorNoThrow(FT_Error err) {
   std::cerr << "FONT Error: " << err << "\n";
 }
 
-unsigned int ConvertWcharToIndex(wchar_t c) {
+unsigned int ConvertCharToIndex(char c) {
   // not entirely sure this is correct
   return static_cast<unsigned int>(c);
 }
@@ -136,14 +136,14 @@ struct FontChars {
   KerningMap kerning;
 };
 
-FontChars GetCharactersFromFont(const std::string &font_file, unsigned int font_size, const std::wstring& chars) {
+FontChars GetCharactersFromFont(const std::string &font_file, unsigned int font_size, const std::string& chars) {
   Library lib;
   Face f(&lib, font_file, font_size);
 
   FontChars fontchars;
   fontchars.chars.reserve(chars.length());
-  for (std::wstring::const_iterator c = chars.begin(); c != chars.end(); c++) {
-    FontChar cc = f.GetChar(ConvertWcharToIndex(*c));
+  for (std::string::const_iterator c = chars.begin(); c != chars.end(); c++) {
+    FontChar cc = f.GetChar(ConvertCharToIndex(*c));
     if(cc.valid == false) continue;
     fontchars.chars.push_back(cc);
   }
@@ -212,7 +212,7 @@ VaoBuilder BuildCharVao(const stbrp_rect &src_rect, const FontChar &src_char, in
   return builder;
 }
 
-Font::Font(Shader* shader, const std::string& font_file, unsigned int font_size, const std::wstring& possible_chars) : shader_(shader), font_size_(font_size) {
+Font::Font(Shader* shader, const std::string& font_file, unsigned int font_size, const std::string& possible_chars) : shader_(shader), font_size_(font_size) {
   const int texture_width = 512;
   const int texture_height = 512;
 
@@ -265,7 +265,7 @@ Font::Font(Shader* shader, const std::string& font_file, unsigned int font_size,
   texture_->Load(texture_width, texture_height, &pixels.pixels[0], GL_RGBA, GL_RGBA, load_data);
 }
 
-void Font::Draw(const glm::vec2& p, const std::wstring& str, glm::vec3 basec, glm::vec3 hic, int hi_start, int hi_end, float scale) const {
+void Font::Draw(const glm::vec2& p, const std::string& str, glm::vec3 basec, glm::vec3 hic, int hi_start, int hi_end, float scale) const {
   Use(shader_);
 
   glm::vec2 position = p;
@@ -280,10 +280,10 @@ void Font::Draw(const glm::vec2& p, const std::wstring& str, glm::vec3 basec, gl
 
   int index = 0;
   unsigned int last_char_index = 0;
-  for (std::wstring::const_iterator c = str.begin(); c != str.end(); c++) {
+  for (std::string::const_iterator c = str.begin(); c != str.end(); c++) {
     const int this_index = index;
     ++index;
-    const unsigned int char_index = ConvertWcharToIndex(*c);
+    const unsigned int char_index = ConvertCharToIndex(*c);
     CharDataMap::const_iterator it = chars_.find(char_index);
     if( it == chars_.end() ) {
       std::cerr << "Failed to print\n";
@@ -311,14 +311,14 @@ unsigned int Font::GetFontSize() const {
   return font_size_;
 }
 
-Text::Text(Font* font) : scale_(1.0f), font_(font), text_(L""), base_color_(0.0f), hi_color_(1.0f), hi_from_(-1), hi_to_(-1) {
+Text::Text(Font* font) : scale_(1.0f), font_(font), text_(""), base_color_(0.0f), hi_color_(1.0f), hi_from_(-1), hi_to_(-1) {
 }
 
-Text::Text(const std::wstring& str, Font* font) : scale_(1.0f), font_(font), text_(str), base_color_(0.0f), hi_color_(1.0f), hi_from_(-1), hi_to_(-1) {}
+Text::Text(const std::string& str, Font* font) : scale_(1.0f), font_(font), text_(str), base_color_(0.0f), hi_color_(1.0f), hi_from_(-1), hi_to_(-1) {}
 
 Text::~Text() {}
 
-void Text::SetText(const std::wstring& str) {
+void Text::SetText(const std::string& str) {
   text_ = str;
 }
 void Text::SetFont(Font* font) {
