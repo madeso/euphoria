@@ -100,6 +100,10 @@ int main(int argc, char** argv) {
   Uint64 NOW = SDL_GetPerformanceCounter();
   Uint64 LAST = 0;
 
+  SDL_StartTextInput();
+
+  std::wstring data;
+
   bool running = true;
   while (running) {
     LAST = NOW;
@@ -110,6 +114,9 @@ int main(int argc, char** argv) {
     while (SDL_PollEvent(&e) != 0) {
       if (e.type == SDL_QUIT) {
         running = false;
+      }
+      else if( e.type == SDL_TEXTINPUT ) {
+        // data += e.text.text;
       }
     }
 
