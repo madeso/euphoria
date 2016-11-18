@@ -73,8 +73,9 @@ int main(int argc, char** argv) {
   Ninepatch ninepatch(&panel, 62, 14, 33, 14, glm::vec2(240, 240));
   SpriteRenderer renderer(&shader);
 
-  Background smallStars(25, width, height, &starSmall, 20);
-  Background bigStars(15, width, height, &starBig, 50);
+  Layer background(&renderer);
+  Background smallStars(25, width, height, &starSmall, 20, &background);
+  Background bigStars(15, width, height, &starBig, 50, &background);
 
   glm::mat4 projection =
       glm::ortho(0.0f, static_cast<GLfloat>(width),
@@ -126,8 +127,7 @@ int main(int argc, char** argv) {
 
     glClearColor(42.0f / 255, 45.0f / 255, 51.0f / 255, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
-    smallStars.Render(&renderer);
-    bigStars.Render(&renderer);
+    background.Render();
     glm::vec2 shipPos(width / 2, height - ship.height() / 2 - 10);
     renderer.DrawSprite(
         ship, shipPos, 0.0f);

@@ -3,23 +3,22 @@
 
 #include <vector>
 #include "glm/vec2.hpp"
+#include "spacetyper/sprite.h"
 
 class Texture2d;
 class SpriteRenderer;
 
 class Background {
  public:
-  Background(int count, int width, int height, Texture2d* texture, float speed);
+  Background(int count, int width, int height, Texture2d* texture, float speed, Layer* layer);
 
   void Update(float delta);
-  void Render(SpriteRenderer* renderer) const;
 
  private:
-  int width_;
-  int height_;
+  float width_;
+  float height_;
   float speed_;
-  Texture2d* texture_;
-  std::vector<glm::vec2> positions_;
+  std::vector<Sprite> positions_;
 };
 
 #endif  // SPACETYPER_BACKGROUND_H

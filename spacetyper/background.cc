@@ -23,33 +23,31 @@ std::uniform_real_distribution<float> GetDistribution(float window,
 }
 
 Background::Background(int count, int width, int height, Texture2d* texture,
-                       float speed)
-    : width_(width), height_(height), speed_(speed), texture_(texture) {
-  positions_.reserve(count);
-
+                       float speed, Layer* layer)
+    : width_(width), height_(height) , speed_(speed) {
   auto rwidth = GetDistribution(width, texture->width());
   auto rheight = GetDistribution(height, texture->height());
 
+  positions_.reserve(count);
   for (int i = 0; i < count; ++i) {
     glm::vec2 p(rwidth(Generator()), rheight(Generator()));
-    positions_.push_back(p);
+    Sprite sp(texture, p);
+    positions_.push_back(sp);
+    layer->Add(&*positions_.rbegin());
   }
 }
 
 void Background::Update(float delta) {
-  auto rwidth = GetDistribution(width_, texture_->width());
-  for (glm::vec2& p : positions_) {
+  for (Sprite& sp : positions_) {
+    glm::vec2 p = sp.GetPosition();
     p.y += delta * speed_;
 
-    if (p.y > height_ + texture_->height() / 2) {
-      p.y = -texture_->height() / 2;
+    if (p.y > height_ + sp.GetHeight() / 2) {
+      auto rwidth = GetDistribution(width_, sp.GetWidth());
+      p.y = -sp.GetHeight() / 2;
       p.x = rwidth(Generator());
     }
-  }
-}
 
-void Background::Render(SpriteRenderer* renderer) const {
-  for (const glm::vec2& p : positions_) {
-    renderer->DrawSprite(*texture_, p);
+    sp.SetPosition(p);
   }
 }
