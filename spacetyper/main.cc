@@ -65,7 +65,6 @@ int main(int argc, char** argv) {
   SetupOpenglDebug();
 
   TextureCache cache;
-  Texture2d ship("player.png");
   Shader shader(shader_source_sprite_vert, shader_source_sprite_frag);
   Shader font_shader(shader_source_font_vert, shader_source_font_frag);
   Font font(&font_shader, "Black Chancery.ttf", 50, " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ;:,.-_<>|1234567890!\"#¤%&/()'=?@£$€¥{[]}\\'*");
@@ -73,8 +72,15 @@ int main(int argc, char** argv) {
   SpriteRenderer renderer(&shader);
 
   Layer background(&renderer);
+  Layer objects(&renderer);
   Background smallStars(25, width, height, cache.GetTexture("starSmall.png"), 20, &background);
   Background bigStars(15, width, height, cache.GetTexture("starBig.png"), 50, &background);
+
+  Sprite player(cache.GetTexture("player.png"));
+  objects.Add(&player);
+
+  glm::vec2 shipPos(width / 2, height - player.GetHeight() / 2 - 10);
+  player.SetPosition(shipPos);
 
   glm::mat4 projection =
       glm::ortho(0.0f, static_cast<GLfloat>(width),
@@ -127,9 +133,7 @@ int main(int argc, char** argv) {
     glClearColor(42.0f / 255, 45.0f / 255, 51.0f / 255, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
     background.Render();
-    glm::vec2 shipPos(width / 2, height - ship.height() / 2 - 10);
-    renderer.DrawSprite(
-        ship, shipPos, 0.0f);
+    objects.Render();
     renderer.DrawNinepatch(ninepatch, glm::vec2(200,200));
     text.Draw(shipPos);
     SDL_GL_SwapWindow(window);
