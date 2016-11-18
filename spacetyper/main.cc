@@ -11,6 +11,7 @@
 #include "spacetyper/debuggl.h"
 #include "spacetyper/ninepatch.h"
 #include "spacetyper/fonts.h"
+#include "spacetyper/texturecache.h"
 
 int main(int argc, char** argv) {
   if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_JOYSTICK | SDL_INIT_AUDIO) < 0) {
@@ -63,19 +64,17 @@ int main(int argc, char** argv) {
 
   SetupOpenglDebug();
 
+  TextureCache cache;
   Texture2d ship("player.png");
-  Texture2d starSmall("starSmall.png");
-  Texture2d starBig("starBig.png");
-  Texture2d panel("metalPanel_blueCorner.png");
   Shader shader(shader_source_sprite_vert, shader_source_sprite_frag);
   Shader font_shader(shader_source_font_vert, shader_source_font_frag);
   Font font(&font_shader, "Black Chancery.ttf", 50, " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ;:,.-_<>|1234567890!\"#¤%&/()'=?@£$€¥{[]}\\'*");
-  Ninepatch ninepatch(&panel, 62, 14, 33, 14, glm::vec2(240, 240));
+  Ninepatch ninepatch(cache.GetTexture("metalPanel_blueCorner.png"), 62, 14, 33, 14, glm::vec2(240, 240));
   SpriteRenderer renderer(&shader);
 
   Layer background(&renderer);
-  Background smallStars(25, width, height, &starSmall, 20, &background);
-  Background bigStars(15, width, height, &starBig, 50, &background);
+  Background smallStars(25, width, height, cache.GetTexture("starSmall.png"), 20, &background);
+  Background bigStars(15, width, height, cache.GetTexture("starBig.png"), 50, &background);
 
   glm::mat4 projection =
       glm::ortho(0.0f, static_cast<GLfloat>(width),
