@@ -70,6 +70,7 @@ struct Face {
   }
 
   FontChar GetChar(unsigned int c) {
+    assert(this);
     const FT_Error error = FT_Load_Char( face, c, FT_LOAD_RENDER );
     if ( error ) {
       std::cerr << "Failed to get char\n";
@@ -108,6 +109,7 @@ struct Pixels {
   }
 
   void Set(int x, int y, unsigned char v) {
+    assert(this);
     const size_t id = (x + y*texture_width_)*4;
     pixels[id + 0] = 255;
     pixels[id + 1] = 255;
@@ -304,6 +306,7 @@ Font::Font(Shader* shader, const std::string& font_file, unsigned int font_size,
 }
 
 void Font::Draw(const glm::vec2& p, const std::string& str, glm::vec3 basec, glm::vec3 hic, int hi_start, int hi_end, float scale) const {
+  assert(this);
   Use(shader_);
 
   glm::vec2 position = p;
@@ -346,6 +349,7 @@ void Font::Draw(const glm::vec2& p, const std::string& str, glm::vec3 basec, glm
 }
 
 Extent Font::GetExtents(const std::string& str, float scale) const {
+  assert(this);
   unsigned int last_char_index = 0;
   glm::vec2 position(0.0f);
   Extent ret;
@@ -358,7 +362,6 @@ Extent Font::GetExtents(const std::string& str, float scale) const {
     }
     std::shared_ptr<CharData> ch = it->second;
 
-    // todo: increase extents
     ret.Include(ch->extent.AsTranslated(position));
 
     KerningMap::const_iterator kerning = kerning_.find(std::make_pair(last_char_index, char_index));
@@ -381,36 +384,46 @@ Text::Text(const std::string& str, Font* font) : scale_(1.0f), font_(font), text
 Text::~Text() {}
 
 void Text::SetText(const std::string& str) {
+  assert(this);
   text_ = str;
 }
 void Text::SetFont(Font* font) {
+  assert(this);
   font_ = font;
 }
 void Text::SetBaseColor(const glm::vec3 color) {
+  assert(this);
   base_color_ = color;
 }
 void Text::SetHighlightColor(const glm::vec3 color) {
+  assert(this);
   hi_color_ = color;
 }
 void Text::SetHighlightRange(int from, int to) {
+  assert(this);
   hi_from_ = from;
   hi_to_ = to;
 }
 
 void Text::SetAlignment(Align alignment) {
+  assert(this);
   alignment_ = alignment;
 }
 
 void Text::SetSize(float new_size) {
+  assert(this);
   assert(font_);
   SetScale(new_size/font_->GetFontSize());
 }
 
 void Text::SetScale(float scale) {
+  assert(this);
   scale_ = scale;
+  std::cout << "setting the scale to " << scale << "\n";
 }
 
 glm::vec2 GetOffset(Align alignment, const Extent& extent) {
+  // todo: test this more
   const float middle = -(extent.left + extent.right)/2;
   const float right = -extent.right;
   const float top = extent.top;
@@ -433,6 +446,7 @@ glm::vec2 GetOffset(Align alignment, const Extent& extent) {
 }
 
 void Text::Draw(const glm::vec2& p) {
+  assert(this);
   if( font_ == nullptr) return;
   const Extent e = font_->GetExtents(text_, scale_);
   const glm::vec2 off = GetOffset(alignment_, e);
