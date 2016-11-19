@@ -1,6 +1,7 @@
 #include "spacetyper/sprite.h"
 
 #include <cassert>
+#include <algorithm>
 
 #include "spacetyper/spriterender.h"
 
@@ -49,6 +50,13 @@ Layer::Layer(SpriteRenderer* render) : render_(render) {
 void Layer::Add(Sprite* sprite) {
   assert(this);
   sprites_[sprite->GetTexture()].push_back(sprite);
+}
+
+void Layer::Remove(Sprite* sprite) {
+  assert(this);
+  SpriteList& sprites = sprites_[sprite->GetTexture()];
+  sprites.erase(std::remove(sprites.begin(), sprites.end(), sprite),
+                sprites.end());
 }
 
 void Layer::Render() {

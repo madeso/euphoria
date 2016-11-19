@@ -35,6 +35,7 @@ class Layer {
  public:
   explicit Layer(SpriteRenderer* render);
   void Add(Sprite* sprite);
+  void Remove(Sprite* sprite);
   void Render();
  private:
   SpriteRenderer* render_;

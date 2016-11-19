@@ -13,6 +13,7 @@
 #include "spacetyper/fonts.h"
 #include "spacetyper/texturecache.h"
 #include "spacetyper/wordlist.h"
+#include "spacetyper/enemies.h"
 
 int main(int argc, char** argv) {
   if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_JOYSTICK | SDL_INIT_AUDIO) < 0) {
@@ -115,6 +116,9 @@ int main(int argc, char** argv) {
 
   std::string data;
 
+  Enemies enemies(&cache, &font, &objects, width);
+  for(int i=0; i<5; ++i) enemies.AddEnemy();
+
   bool running = true;
   while (running) {
     LAST = NOW;
@@ -134,11 +138,13 @@ int main(int argc, char** argv) {
 
     smallStars.Update(dt);
     bigStars.Update(dt);
+    enemies.Update(dt);
 
     glClearColor(42.0f / 255, 45.0f / 255, 51.0f / 255, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
     background.Render();
     objects.Render();
+    enemies.Render();
     renderer.DrawNinepatch(ninepatch, glm::vec2(200,200));
     text.Draw(shipPos);
     SDL_GL_SwapWindow(window);
