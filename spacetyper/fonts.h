@@ -87,6 +87,8 @@ class Font {
   unsigned int GetFontSize() const;
  protected:
   friend void Text::Draw(const glm::vec2 &p);
+
+  // todo: support drawing background color behind string
   void Draw(const glm::vec2& p, const std::string& str, glm::vec3 basec, glm::vec3 hic, int hi_start, int hi_end, float scale) const;
   Extent GetExtents(const std::string& str, float scale) const;
  private:

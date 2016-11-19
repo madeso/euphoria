@@ -16,6 +16,7 @@ Enemies::~Enemies() {
 void Enemies::AddEnemy() {
   assert(this);
 
+  // todo: use random words
   EnemyPtr e(new EnemyWord(cache_, font_, "dog"));
   e->AddSprite(layer_);
   e->Setup(&generator_, width_);
