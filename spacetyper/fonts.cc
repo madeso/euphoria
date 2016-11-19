@@ -373,10 +373,10 @@ unsigned int Font::GetFontSize() const {
   return font_size_;
 }
 
-Text::Text(Font* font) : scale_(1.0f), font_(font), text_(""), base_color_(0.0f), hi_color_(1.0f), hi_from_(-1), hi_to_(-1) {
+Text::Text(Font* font) : scale_(1.0f), font_(font), text_(""), base_color_(0.0f), hi_color_(1.0f), hi_from_(-1), hi_to_(-1), alignment_(Align::LEFT) {
 }
 
-Text::Text(const std::string& str, Font* font) : scale_(1.0f), font_(font), text_(str), base_color_(0.0f), hi_color_(1.0f), hi_from_(-1), hi_to_(-1) {}
+Text::Text(const std::string& str, Font* font) : scale_(1.0f), font_(font), text_(str), base_color_(0.0f), hi_color_(1.0f), hi_from_(-1), hi_to_(-1), alignment_(Align::LEFT) {}
 
 Text::~Text() {}
 
@@ -397,6 +397,9 @@ void Text::SetHighlightRange(int from, int to) {
   hi_to_ = to;
 }
 
+void SetAlignment() {
+}
+
 void Text::SetSize(float new_size) {
   assert(font_);
   SetScale(new_size/font_->GetFontSize());
@@ -406,7 +409,31 @@ void Text::SetScale(float scale) {
   scale_ = scale;
 }
 
+glm::vec2 GetOffset(Align alignment, const Extent& extent) {
+  const float middle = -(extent.left + extent.right)/2;
+  const float right = -extent.right;
+  const float top = extent.top;
+  const float bottom = -extent.bottom;
+
+  switch(alignment) {
+    case Align::TOP_LEFT:       return glm::vec2(0.0f, top);
+    case Align::TOP_CENTER:     return glm::vec2(middle, top);
+    case Align::TOP_RIGHT:      return glm::vec2(right, top);
+    case Align::MIDDLE_LEFT:    return glm::vec2(0.0f, 0.0f);
+    case Align::MIDDLE_CENTER:  return glm::vec2(middle, 0.0f);
+    case Align::MIDDLE_RIGHT:   return glm::vec2(right, 0.0f);
+    case Align::BOTTOM_LEFT:    return glm::vec2(0.0f, bottom);
+    case Align::BOTTOM_CENTER:  return glm::vec2(middle, bottom);
+    case Align::BOTTOM_RIGHT:   return glm::vec2(right, bottom);
+    default:
+      assert(false && "Unhandled case");
+      return glm::vec2(0.0f, 0.0f);
+  }
+}
+
 void Text::Draw(const glm::vec2& p) {
   if( font_ == nullptr) return;
-  font_->Draw(p, text_, base_color_, hi_color_, hi_from_, hi_to_, scale_);
+  const Extent e = font_->GetExtents(text_, scale_);
+  const glm::vec2 off = GetOffset(alignment_, e);
+  font_->Draw(p+off, text_, base_color_, hi_color_, hi_from_, hi_to_, scale_);
 }

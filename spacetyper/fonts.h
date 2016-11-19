@@ -46,6 +46,13 @@ typedef std::map<std::pair<unsigned int, unsigned int>, int> KerningMap;
 
 class Font;
 
+enum class Align {
+  TOP_LEFT, TOP_CENTER, TOP_RIGHT,
+  MIDDLE_LEFT, MIDDLE_CENTER, MIDDLE_RIGHT,
+  BOTTOM_LEFT, BOTTOM_CENTER, BOTTOM_RIGHT,
+  LEFT=MIDDLE_LEFT, CENTER=MIDDLE_CENTER, RIGHT=MIDDLE_RIGHT,
+};
+
 class Text {
  public:
   Text(Font* font= nullptr);
@@ -57,6 +64,7 @@ class Text {
   void SetBaseColor(const glm::vec3 color);
   void SetHighlightColor(const glm::vec3 color);
   void SetHighlightRange(int from, int to);
+  void SetAlignment(Align alignment);
 
   void SetSize(float new_size);
   void SetScale(float scale);
@@ -70,6 +78,7 @@ class Text {
   glm::vec3 hi_color_;
   int hi_from_;
   int hi_to_;
+  Align alignment_;
 };
 
 class Font {
