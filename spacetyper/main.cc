@@ -67,7 +67,7 @@ int main(int argc, char** argv) {
   TextureCache cache;
   Shader shader(shader_source_sprite_vert, shader_source_sprite_frag);
   Shader font_shader(shader_source_font_vert, shader_source_font_frag);
-  Font font(&font_shader, "Black Chancery.ttf", 25, " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ;:,.-_<>|1234567890!\"#¤%&/()'=?@£$€¥{[]}\\'*");
+  Font font(&font_shader, "SourceCodePro-Regular.ttf", 30, " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ;:,.-_<>|1234567890!\"#¤%&/()'=?@£$€¥{[]}\\'*");
   Ninepatch ninepatch(cache.GetTexture("metalPanel_blueCorner.png"), 62, 14, 33, 14, glm::vec2(240, 240));
   SpriteRenderer renderer(&shader);
 
@@ -100,7 +100,7 @@ int main(int argc, char** argv) {
   glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
   Text text("Hello Lobster!", &font);
-  text.SetSize(100);
+  text.SetSize(30);
   text.SetAlignment(Align::CENTER);
   text.SetHighlightRange(0, 1);
 
