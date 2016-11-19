@@ -12,6 +12,7 @@
 #include "spacetyper/ninepatch.h"
 #include "spacetyper/fonts.h"
 #include "spacetyper/texturecache.h"
+#include "spacetyper/wordlist.h"
 
 int main(int argc, char** argv) {
   if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_JOYSTICK | SDL_INIT_AUDIO) < 0) {
@@ -71,6 +72,9 @@ int main(int argc, char** argv) {
   Ninepatch ninepatch(cache.GetTexture("metalPanel_blueCorner.png"), 62, 14, 33, 14, glm::vec2(240, 240));
   SpriteRenderer renderer(&shader);
 
+  Wordlist adjectives("wordlist_adjective.txt");
+  Wordlist nouns("wordlist_noun.txt");
+
   Layer background(&renderer);
   Layer objects(&renderer);
   Background smallStars(25, width, height, cache.GetTexture("starSmall.png"), 20, &background);
@@ -99,7 +103,7 @@ int main(int argc, char** argv) {
   glEnable(GL_BLEND);
   glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-  Text text("Hello Lobster!", &font);
+  Text text(adjectives.RandomWord() + " " + nouns.RandomWord(), &font);
   text.SetSize(30);
   text.SetAlignment(Align::CENTER);
   text.SetHighlightRange(0, 1);
