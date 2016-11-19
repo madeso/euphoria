@@ -13,19 +13,32 @@
 
 class Shader;
 
+class Extent {
+ public:
+  Extent();
+ private:
+  Extent(float l, float r, float t, float d);
+ public:
+  static Extent FromLRTD(float l, float r, float t, float d);
+
+  void Translate(const glm::vec2& p);
+  void Include(const Extent& o);
+  Extent AsTranslated(const glm::vec2& p) const;
+  Extent AsIncluded(const Extent& o) const;
+
+  float left;
+  float right;
+  float top;
+  float bottom;
+};
+
 struct CharData {
-  explicit CharData(const VaoBuilder& data);
+  CharData(const VaoBuilder& data, const Extent& extent, unsigned int c, float advance);
+  Vao vao;
+  Extent extent;
 
   unsigned int c;
   float advance;
-
-  // only useful when calculating font metrics for a specific text
-  float glyph_width;
-  float glyph_height;
-  float bearing_x;
-  float bearing_y;
-
-  Vao vao;
 };
 
 typedef std::map<unsigned int, std::shared_ptr<CharData>> CharDataMap;
@@ -66,6 +79,7 @@ class Font {
  protected:
   friend void Text::Draw(const glm::vec2 &p);
   void Draw(const glm::vec2& p, const std::string& str, glm::vec3 basec, glm::vec3 hic, int hi_start, int hi_end, float scale) const;
+  Extent GetExtents(const std::string& str, float scale) const;
  private:
   Shader* shader_;
   unsigned int font_size_;

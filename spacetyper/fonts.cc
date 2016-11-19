@@ -100,7 +100,7 @@ struct Face {
   }
 };
 
-CharData::CharData(const VaoBuilder& data) : vao(data) {
+CharData::CharData(const VaoBuilder& data, const Extent& ex, unsigned int ch, float ad) : vao(data), extent(ex), c(ch), advance(ad) {
 }
 
 struct Pixels {
@@ -171,7 +171,7 @@ FontChars GetCharactersFromFont(const std::string &font_file, unsigned int font_
   return fontchars;
 }
 
-VaoBuilder BuildCharVao(const stbrp_rect &src_rect, const FontChar &src_char, int image_width, int image_height) {
+std::pair<VaoBuilder, Extent> BuildCharVao(const stbrp_rect &src_rect, const FontChar &src_char, int image_width, int image_height) {
   //
   //             width
   //          <--------->
@@ -209,8 +209,53 @@ VaoBuilder BuildCharVao(const stbrp_rect &src_rect, const FontChar &src_char, in
       Point(vert_right, vert_bottom,
             uv_right/iw, uv_bottom/ih)
   );
-  return builder;
+  return std::make_pair(builder, Extent::FromLRTD(vert_left, vert_right, vert_top, vert_bottom));
 }
+
+////////////////////////////////////////////////////////////////////////////////
+
+Extent::Extent() : left(0.0f), right(0.0f), top(0.0f), bottom(0.0f) {
+}
+
+Extent::Extent(float l, float r, float t, float b) : left(l), right(r), top(t), bottom(b)  {
+  assert(this);
+}
+
+Extent Extent::FromLRTD(float l, float r, float t, float d) {
+  return Extent(l, r, t, d);
+}
+
+void Extent::Translate(const glm::vec2& p) {
+  assert(this);
+  left += p.x;
+  right += p.x;
+  top += p.y;
+  bottom += p.y;
+}
+
+void Extent::Include(const Extent& o) {
+  assert(this);
+  left = std::min(left, o.left);
+  right = std::max(right, o.right);
+  top = std::min(top, o.top);
+  bottom = std::max(bottom, o.bottom);
+}
+
+Extent Extent::AsTranslated(const glm::vec2& p) const{
+  assert(this);
+  Extent r = *this;
+  r.Translate(p);
+  return r;
+}
+
+Extent Extent::AsIncluded(const Extent& o) const {
+  assert(this);
+  Extent r = *this;
+  r.Include(o);
+  return r;
+}
+
+////////////////////////////////////////////////////////////////////////////////
 
 Font::Font(Shader* shader, const std::string& font_file, unsigned int font_size, const std::string& possible_chars) : shader_(shader), font_size_(font_size) {
   const int texture_width = 512;
@@ -243,17 +288,10 @@ Font::Font(Shader* shader, const std::string& font_file, unsigned int font_size,
     }
     const FontChar& src_char = fontchars.chars[src_rect.id];
     PasteCharacterToImage(pixels, src_rect, src_char);
-    const VaoBuilder builder = BuildCharVao(src_rect, src_char, texture_width, texture_height);
+    const std::pair<VaoBuilder, Extent> char_vao = BuildCharVao(src_rect, src_char, texture_width, texture_height);
 
     // store data in useful data
-    std::shared_ptr<CharData> dest(new CharData(builder));
-    dest->glyph_width = src_char.glyph_width;
-    dest->glyph_height = src_char.glyph_height;
-    dest->advance = src_char.advance;
-    dest->bearing_x = src_char.bearing_x;
-    dest->bearing_y = src_char.bearing_y;
-    dest->c = src_char.c;
-
+    std::shared_ptr<CharData> dest(new CharData(char_vao.first, char_vao.second, src_char.c, src_char.advance));
     map.insert(CharDataMap::value_type(dest->c, dest));
   }
 
@@ -305,6 +343,30 @@ void Font::Draw(const glm::vec2& p, const std::string& str, glm::vec3 basec, glm
     int the_kerning = kerning == kerning_.end() ? 0 : kerning->second;
     position.x += (ch->advance + the_kerning)*scale;
   }
+}
+
+Extent Font::GetExtents(const std::string& str, float scale) const {
+  unsigned int last_char_index = 0;
+  glm::vec2 position(0.0f);
+  Extent ret;
+
+  for (std::string::const_iterator c = str.begin(); c != str.end(); c++) {
+    const unsigned int char_index = ConvertCharToIndex(*c);
+    CharDataMap::const_iterator it = chars_.find(char_index);
+    if( it == chars_.end() ) {
+      continue;
+    }
+    std::shared_ptr<CharData> ch = it->second;
+
+    // todo: increase extents
+    ret.Include(ch->extent.AsTranslated(position));
+
+    KerningMap::const_iterator kerning = kerning_.find(std::make_pair(last_char_index, char_index));
+    int the_kerning = kerning == kerning_.end() ? 0 : kerning->second;
+    position.x += (ch->advance + the_kerning)*scale;
+  }
+
+  return ret;
 }
 
 unsigned int Font::GetFontSize() const {
