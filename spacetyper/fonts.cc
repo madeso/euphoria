@@ -397,7 +397,8 @@ void Text::SetHighlightRange(int from, int to) {
   hi_to_ = to;
 }
 
-void SetAlignment() {
+void Text::SetAlignment(Align alignment) {
+  alignment_ = alignment;
 }
 
 void Text::SetSize(float new_size) {

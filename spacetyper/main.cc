@@ -101,6 +101,7 @@ int main(int argc, char** argv) {
 
   Text text("Hello Lobster!", &font);
   text.SetSize(50);
+  text.SetAlignment(Align::CENTER);
   text.SetHighlightRange(0, 1);
 
   Uint64 NOW = SDL_GetPerformanceCounter();
