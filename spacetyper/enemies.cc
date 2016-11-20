@@ -5,10 +5,11 @@
 #include "spacetyper/enemyword.h"
 #include "spacetyper/dictionary.h"
 
-Enemies::Enemies(TextureCache* cache, Font* font, Layer* layer, Dictionary* dictionary, float width)
+Enemies::Enemies(TextureCache* cache, Font* font, TextBackgroundRenderer* text_back, Layer* layer, Dictionary* dictionary, float width)
     : generator_(std::random_device()())
     , cache_(cache)
     , font_(font)
+    , text_back_(text_back)
     , layer_(layer)
     , dictionary_(dictionary)
     , width_(width)
@@ -31,7 +32,7 @@ void Enemies::SpawnEnemies(int count) {
 void Enemies::AddEnemy() {
   assert(this);
 
-  EnemyPtr e(new EnemyWord(cache_, font_, dictionary_->Generate()));
+  EnemyPtr e(new EnemyWord(cache_, font_, text_back_, dictionary_->Generate()));
   e->AddSprite(layer_);
   e->Setup(&generator_, width_);
   e->Update(0.0f);

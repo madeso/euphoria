@@ -9,10 +9,11 @@
 #include "glm/vec2.hpp"
 
 class TextureCache;
+class TextBackgroundRenderer;
 
 class EnemyWord {
  public:
-  EnemyWord(TextureCache* cache, Font* font, const std::string& word);
+  EnemyWord(TextureCache* cache, Font* font, TextBackgroundRenderer* text_back, const std::string& word);
   ~EnemyWord();
 
   void Setup(std::mt19937* generator, float screen_width);

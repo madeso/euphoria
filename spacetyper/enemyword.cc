@@ -4,9 +4,11 @@
 
 #include "spacetyper/texturecache.h"
 
-EnemyWord::EnemyWord(TextureCache* cache, Font* font, const std::string& word) : sprite_(cache->GetTexture("enemyShip.png")), text_(font), position_(0.0f), layer_(nullptr) {
+EnemyWord::EnemyWord(TextureCache* cache, Font* font, TextBackgroundRenderer* text_back, const std::string& word) : sprite_(cache->GetTexture("enemyShip.png")), text_(font, text_back), position_(0.0f), layer_(nullptr) {
   text_.SetText(word);
   text_.SetAlignment(Align::CENTER);
+  text_.SetBackground(true, 0.8f);
+  text_.SetBaseColor(glm::vec3(1.0f));
 }
 
 EnemyWord::~EnemyWord() {

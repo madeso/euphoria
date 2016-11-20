@@ -243,6 +243,15 @@ void Extent::Include(const Extent& o) {
   bottom = std::max(bottom, o.bottom);
 }
 
+void Extent::Extend(float value) {
+  assert(this);
+
+  left -= value;
+  right += value;
+  top -= value;
+  bottom += value;
+}
+
 Extent Extent::AsTranslated(const glm::vec2& p) const{
   assert(this);
   Extent r = *this;
@@ -255,6 +264,56 @@ Extent Extent::AsIncluded(const Extent& o) const {
   Extent r = *this;
   r.Include(o);
   return r;
+}
+
+Extent Extent::AsExtended(float value) const {
+  assert(this);
+  Extent r = *this;
+  r.Extend(value);
+  return r;
+}
+
+float Extent::GetWidth() const {
+  assert(this);
+
+  return right - left;
+}
+
+float Extent::GetHeight() const{
+  assert(this);
+
+  return bottom - top;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+VaoBuilder SimpleQuad() {
+  VaoBuilder data;
+
+  Point a(0.0f, 1.0f, 0.0f, 1.0f);
+  Point b(1.0f, 0.0f, 1.0f, 0.0f);
+  Point c(0.0f, 0.0f, 0.0f, 0.0f);
+  Point d(1.0f, 1.0f, 1.0f, 1.0f);
+
+  data.quad(c, b, a, d);
+
+  return data;
+}
+
+TextBackgroundRenderer::TextBackgroundRenderer(Shader* shader) : vao_(SimpleQuad()), shader_(shader) {
+  assert(shader);
+}
+
+void TextBackgroundRenderer::Draw(float alpha, const Extent& area) {
+  Use(shader_);
+  glm::mat4 model;
+  model = translate(model, glm::vec3(area.left, area.top, 0.0f));
+
+  model = glm::scale(model, glm::vec3(area.GetWidth(), area.GetHeight(), 1.0f));
+
+  shader_->SetMatrix4("model", model);
+  shader_->SetVector4f("backColor", glm::vec4(0.0f, 0.0f, 0.0f, alpha));
+  vao_.Draw();
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -376,10 +435,21 @@ unsigned int Font::GetFontSize() const {
   return font_size_;
 }
 
-Text::Text(Font* font) : scale_(1.0f), font_(font), text_(""), base_color_(0.0f), hi_color_(1.0f), hi_from_(-1), hi_to_(-1), alignment_(Align::LEFT) {
-}
+Text::Text(Font* font, TextBackgroundRenderer* back)
+    : font_(font)
+    , backgroundRenderer_(back)
+    , scale_(1.0f)
+    , text_("")
+    , base_color_(0.0f)
+    , hi_color_(1.0f)
+    , hi_from_(-1)
+    , hi_to_(-1)
+    , alignment_(Align::LEFT)
+    , use_background_(false)
+    , background_alpha_(0.0f)
 
-Text::Text(const std::string& str, Font* font) : scale_(1.0f), font_(font), text_(str), base_color_(0.0f), hi_color_(1.0f), hi_from_(-1), hi_to_(-1), alignment_(Align::LEFT) {}
+{
+}
 
 Text::~Text() {}
 
@@ -387,22 +457,28 @@ void Text::SetText(const std::string& str) {
   assert(this);
   text_ = str;
 }
-void Text::SetFont(Font* font) {
-  assert(this);
-  font_ = font;
-}
+
 void Text::SetBaseColor(const glm::vec3 color) {
   assert(this);
   base_color_ = color;
 }
+
 void Text::SetHighlightColor(const glm::vec3 color) {
   assert(this);
   hi_color_ = color;
 }
+
 void Text::SetHighlightRange(int from, int to) {
   assert(this);
   hi_from_ = from;
   hi_to_ = to;
+}
+
+void Text::SetBackground(bool use_background, float alpha) {
+  assert(this);
+
+  use_background_ = use_background;
+  background_alpha_ = alpha;
 }
 
 void Text::SetAlignment(Align alignment) {
@@ -450,5 +526,8 @@ void Text::Draw(const glm::vec2& p) {
   if( font_ == nullptr) return;
   const Extent e = font_->GetExtents(text_, scale_);
   const glm::vec2 off = GetOffset(alignment_, e);
+  if(use_background_) {
+    backgroundRenderer_->Draw(background_alpha_, e.AsExtended(5.0f).AsTranslated(p+off));
+  }
   font_->Draw(p+off, text_, base_color_, hi_color_, hi_from_, hi_to_, scale_);
 }

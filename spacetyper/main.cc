@@ -69,6 +69,7 @@ int main(int argc, char** argv) {
   TextureCache cache;
   Shader shader(shader_source_sprite_vert, shader_source_sprite_frag);
   Shader font_shader(shader_source_font_vert, shader_source_font_frag);
+  Shader back_shader(shader_source_back_vert, shader_source_back_frag);
   Font font(&font_shader, "SourceCodePro-Regular.ttf", 30, " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ;:,.-_<>|1234567890!\"#¤%&/()'=?@£$€¥{[]}\\'*");
   Ninepatch ninepatch(cache.GetTexture("metalPanel_blueCorner.png"), 62, 14, 33, 14, glm::vec2(240, 240));
   SpriteRenderer renderer(&shader);
@@ -97,13 +98,19 @@ int main(int argc, char** argv) {
   font_shader.SetInteger("image", 0);
   font_shader.SetMatrix4("projection", projection);
 
+  Use(&back_shader);
+  back_shader.SetMatrix4("projection", projection);
+
   glViewport(0, 0, width, height);
   glDisable(GL_DEPTH_TEST);
   glDisable(GL_CULL_FACE);
   glEnable(GL_BLEND);
   glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-  Text text(dictionary.Generate(), &font);
+  TextBackgroundRenderer text_back(&back_shader);
+
+  Text text(&font, &text_back);
+  text.SetText(dictionary.Generate());
   text.SetSize(30);
   text.SetAlignment(Align::CENTER);
   text.SetHighlightRange(0, 1);
@@ -115,7 +122,7 @@ int main(int argc, char** argv) {
 
   std::string data;
 
-  Enemies enemies(&cache, &font, &objects, &dictionary, width);
+  Enemies enemies(&cache, &font, &text_back, &objects, &dictionary, width);
 
   enemies.SpawnEnemies(5);
 

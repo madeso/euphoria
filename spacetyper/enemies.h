@@ -8,12 +8,13 @@
 class EnemyWord;
 class TextureCache;
 class Font;
+class TextBackgroundRenderer;
 class Layer;
 class Dictionary;
 
 class Enemies {
  public:
-  Enemies(TextureCache* cache, Font* font, Layer* layer, Dictionary* dictionary, float width);
+  Enemies(TextureCache* cache, Font* font, TextBackgroundRenderer* text_back, Layer* layer, Dictionary* dictionary, float width);
   ~Enemies();
 
   void SpawnEnemies(int count);
@@ -28,6 +29,7 @@ class Enemies {
   mutable std::mt19937 generator_;
   TextureCache* cache_;
   Font* font_;
+  TextBackgroundRenderer* text_back_;
   Layer* layer_;
   Dictionary* dictionary_;
   float width_;

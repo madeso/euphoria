@@ -23,8 +23,13 @@ class Extent {
 
   void Translate(const glm::vec2& p);
   void Include(const Extent& o);
+  void Extend(float value);
   Extent AsTranslated(const glm::vec2& p) const;
   Extent AsIncluded(const Extent& o) const;
+  Extent AsExtended(float value) const;
+
+  float GetWidth() const;
+  float GetHeight() const;
 
   float left;
   float right;
@@ -53,17 +58,26 @@ enum class Align {
   LEFT=MIDDLE_LEFT, CENTER=MIDDLE_CENTER, RIGHT=MIDDLE_RIGHT,
 };
 
+class TextBackgroundRenderer {
+ public:
+  TextBackgroundRenderer(Shader* shader);
+
+  void Draw(float alpha, const Extent& area);
+ private:
+  Vao vao_;
+  Shader* shader_;
+};
+
 class Text {
  public:
-  Text(Font* font= nullptr);
-  Text(const std::string& str, Font* font= nullptr);
+  Text(Font* font, TextBackgroundRenderer* back);
   ~Text();
 
   void SetText(const std::string& str);
-  void SetFont(Font* font);
   void SetBaseColor(const glm::vec3 color);
   void SetHighlightColor(const glm::vec3 color);
   void SetHighlightRange(int from, int to);
+  void SetBackground(bool use_background, float alpha=0.5f);
   void SetAlignment(Align alignment);
 
   void SetSize(float new_size);
@@ -71,14 +85,18 @@ class Text {
 
   void Draw(const glm::vec2& p);
  private:
-  float scale_;
   Font* font_;
+  TextBackgroundRenderer* backgroundRenderer_;
+  float scale_;
   std::string text_;
   glm::vec3 base_color_;
   glm::vec3 hi_color_;
   int hi_from_;
   int hi_to_;
   Align alignment_;
+
+  bool use_background_;
+  float background_alpha_;
 };
 
 class Font {
