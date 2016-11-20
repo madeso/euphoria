@@ -12,7 +12,7 @@
 #include "spacetyper/ninepatch.h"
 #include "spacetyper/fonts.h"
 #include "spacetyper/texturecache.h"
-#include "spacetyper/wordlist.h"
+#include "spacetyper/dictionary.h"
 #include "spacetyper/enemies.h"
 
 int main(int argc, char** argv) {
@@ -73,8 +73,7 @@ int main(int argc, char** argv) {
   Ninepatch ninepatch(cache.GetTexture("metalPanel_blueCorner.png"), 62, 14, 33, 14, glm::vec2(240, 240));
   SpriteRenderer renderer(&shader);
 
-  Wordlist adjectives("wordlist_adjective.txt");
-  Wordlist nouns("wordlist_noun.txt");
+  Dictionary dictionary;
 
   Layer background(&renderer);
   Layer objects(&renderer);
@@ -104,7 +103,7 @@ int main(int argc, char** argv) {
   glEnable(GL_BLEND);
   glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-  Text text(adjectives.RandomWord() + " " + nouns.RandomWord(), &font);
+  Text text(dictionary.Generate(), &font);
   text.SetSize(30);
   text.SetAlignment(Align::CENTER);
   text.SetHighlightRange(0, 1);
@@ -116,7 +115,7 @@ int main(int argc, char** argv) {
 
   std::string data;
 
-  Enemies enemies(&cache, &font, &objects, width);
+  Enemies enemies(&cache, &font, &objects, &dictionary, width);
 
   enemies.SpawnEnemies(5);
 

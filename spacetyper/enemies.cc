@@ -3,8 +3,18 @@
 #include <cassert>
 
 #include "spacetyper/enemyword.h"
+#include "spacetyper/dictionary.h"
 
-Enemies::Enemies(TextureCache* cache, Font* font, Layer* layer, float width) : generator_(std::random_device()()), cache_(cache), font_(font), layer_(layer), width_(width), spawn_count_(0), spawn_time_(-1.0f) {
+Enemies::Enemies(TextureCache* cache, Font* font, Layer* layer, Dictionary* dictionary, float width)
+    : generator_(std::random_device()())
+    , cache_(cache)
+    , font_(font)
+    , layer_(layer)
+    , dictionary_(dictionary)
+    , width_(width)
+    , spawn_count_(0)
+    , spawn_time_(-1.0f)
+{
   assert(cache);
   assert(font);
   assert(layer);
@@ -21,8 +31,7 @@ void Enemies::SpawnEnemies(int count) {
 void Enemies::AddEnemy() {
   assert(this);
 
-  // todo: use random words
-  EnemyPtr e(new EnemyWord(cache_, font_, "dog"));
+  EnemyPtr e(new EnemyWord(cache_, font_, dictionary_->Generate()));
   e->AddSprite(layer_);
   e->Setup(&generator_, width_);
   e->Update(0.0f);

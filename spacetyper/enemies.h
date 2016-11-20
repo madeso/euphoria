@@ -9,10 +9,11 @@ class EnemyWord;
 class TextureCache;
 class Font;
 class Layer;
+class Dictionary;
 
 class Enemies {
  public:
-  Enemies(TextureCache* cache, Font* font, Layer* layer, float width);
+  Enemies(TextureCache* cache, Font* font, Layer* layer, Dictionary* dictionary, float width);
   ~Enemies();
 
   void SpawnEnemies(int count);
@@ -28,6 +29,7 @@ class Enemies {
   TextureCache* cache_;
   Font* font_;
   Layer* layer_;
+  Dictionary* dictionary_;
   float width_;
 
   int spawn_count_;
