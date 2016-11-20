@@ -15,6 +15,8 @@ class Enemies {
   Enemies(TextureCache* cache, Font* font, Layer* layer, float width);
   ~Enemies();
 
+  void SpawnEnemies(int count);
+
   void AddEnemy();
   int EnemyCount();
 
@@ -27,6 +29,10 @@ class Enemies {
   Font* font_;
   Layer* layer_;
   float width_;
+
+  int spawn_count_;
+  float spawn_time_;
+
 
   typedef std::shared_ptr<EnemyWord> EnemyPtr;
   typedef std::vector<EnemyPtr> EnemyList;

@@ -118,8 +118,7 @@ int main(int argc, char** argv) {
 
   Enemies enemies(&cache, &font, &objects, width);
 
-  // todo: don't create all at once
-  for(int i=0; i<5; ++i) enemies.AddEnemy();
+  enemies.SpawnEnemies(5);
 
   bool running = true;
   while (running) {
