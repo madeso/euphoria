@@ -30,10 +30,25 @@ void Enemies::SpawnEnemies(int count) {
   spawn_count_ += count;
 }
 
+std::string GenerateUniqueWord(const std::string& start, Dictionary* dict) {
+  std::string word = dict->Generate();
+  unsigned int loop = 0;
+  while( start.find(word[0]) != std::string::npos && loop < 10 ) {
+    word = dict->Generate();
+    ++loop;
+  }
+  return word;
+}
+
 void Enemies::AddEnemy() {
   assert(this);
 
-  EnemyPtr e(new EnemyWord(cache_, font_, text_back_, dictionary_->Generate()));
+  std::string characters;
+  for(auto& w:enemies_) {
+    characters += w->GetWord()[0];
+  }
+
+  EnemyPtr e(new EnemyWord(cache_, font_, text_back_, GenerateUniqueWord(characters, dictionary_)));
   e->AddSprite(layer_);
   e->Setup(&generator_, width_);
   e->Update(0.0f);

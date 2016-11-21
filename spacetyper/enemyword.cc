@@ -83,3 +83,7 @@ bool EnemyWord::IsAlive() const {
   const std::string& t = text_.GetText();
   return index_ < t.length();
 }
+
+const std::string& EnemyWord::GetWord() const {
+  return text_.GetText();
+}

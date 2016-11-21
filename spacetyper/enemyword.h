@@ -28,6 +28,7 @@ class EnemyWord {
   bool Type(const std::string& input);
   bool IsAlive() const;
 
+  const std::string& GetWord() const;
 
  private:
   Sprite sprite_;
