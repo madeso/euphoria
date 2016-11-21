@@ -84,6 +84,8 @@ class Text {
   void SetScale(float scale);
 
   void Draw(const glm::vec2& p);
+
+  Extent GetExtents() const;
  private:
   Font* font_;
   TextBackgroundRenderer* backgroundRenderer_;
@@ -105,6 +107,7 @@ class Font {
   unsigned int GetFontSize() const;
  protected:
   friend void Text::Draw(const glm::vec2 &p);
+  friend Extent Text::GetExtents() const;
 
   // todo: support drawing background color behind string
   void Draw(const glm::vec2& p, const std::string& str, glm::vec3 basec, glm::vec3 hic, int hi_start, int hi_end, float scale) const;

@@ -524,10 +524,14 @@ glm::vec2 GetOffset(Align alignment, const Extent& extent) {
 void Text::Draw(const glm::vec2& p) {
   assert(this);
   if( font_ == nullptr) return;
-  const Extent e = font_->GetExtents(text_, scale_);
+  const Extent& e = GetExtents();
   const glm::vec2 off = GetOffset(alignment_, e);
   if(use_background_) {
     backgroundRenderer_->Draw(background_alpha_, e.AsExtended(5.0f).AsTranslated(p+off));
   }
   font_->Draw(p+off, text_, base_color_, hi_color_, hi_from_, hi_to_, scale_);
+}
+
+Extent Text::GetExtents() const {
+  return font_->GetExtents(text_, scale_);
 }

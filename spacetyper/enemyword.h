@@ -31,6 +31,7 @@ class EnemyWord {
   Text text_;
   glm::vec2 position_;
   Layer* layer_;
+  float speed_;
 };
 
 #endif  // SPACETYPER_ENEMYWORD_H
