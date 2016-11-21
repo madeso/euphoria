@@ -155,7 +155,8 @@ int main(int argc, char** argv) {
     background.Render();
     objects.Render();
     enemies.Render();
-    renderer.DrawNinepatch(ninepatch, glm::vec2(200,200));
+    // dont render ninepatch unless we are in a meny = not yet implemented :)
+    // renderer.DrawNinepatch(ninepatch, glm::vec2(200,200));
     SDL_GL_SwapWindow(window);
   }
 
