@@ -1,6 +1,7 @@
 #include "spacetyper/enemies.h"
 
 #include <cassert>
+#include <algorithm>
 
 #include "spacetyper/enemyword.h"
 #include "spacetyper/dictionary.h"
@@ -78,4 +79,11 @@ EnemyWord* Enemies::DetectWord(const std::string& input) {
   }
 
   return nullptr;
+}
+
+void Enemies::Remove(EnemyWord* word) {
+  assert(this);
+  assert(word);
+  enemies_.erase(std::remove_if(enemies_.begin(), enemies_.end(), [&word](EnemyPtr rhs){return rhs.get() == word; }),
+                enemies_.end());
 }

@@ -27,6 +27,7 @@ class Enemies {
   void Render();
 
   EnemyWord* DetectWord(const std::string& input);
+  void Remove(EnemyWord* word);
 
  private:
   mutable std::mt19937 generator_;

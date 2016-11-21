@@ -139,7 +139,7 @@ int main(int argc, char** argv) {
         else {
           current_word->Type(input);
           if( current_word->IsAlive() == false ) {
-            // enemies.Remove(current_word);
+            enemies.Remove(current_word);
             current_word = nullptr;
           }
         }
