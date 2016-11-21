@@ -458,6 +458,11 @@ void Text::SetText(const std::string& str) {
   text_ = str;
 }
 
+const std::string& Text::GetText() const {
+  assert(this);
+  return text_;
+}
+
 void Text::SetBaseColor(const glm::vec3 color) {
   assert(this);
   base_color_ = color;

@@ -4,6 +4,7 @@
 #include <vector>
 #include <memory>
 #include <random>
+#include <string>
 
 class EnemyWord;
 class TextureCache;
@@ -24,6 +25,8 @@ class Enemies {
 
   void Update(float delta);
   void Render();
+
+  EnemyWord* DetectWord(const std::string& input);
 
  private:
   mutable std::mt19937 generator_;

@@ -74,6 +74,7 @@ class Text {
   ~Text();
 
   void SetText(const std::string& str);
+  const std::string& GetText() const;
   void SetBaseColor(const glm::vec3 color);
   void SetHighlightColor(const glm::vec3 color);
   void SetHighlightRange(int from, int to);

@@ -14,6 +14,7 @@
 #include "spacetyper/texturecache.h"
 #include "spacetyper/dictionary.h"
 #include "spacetyper/enemies.h"
+#include "spacetyper/enemyword.h"
 
 int main(int argc, char** argv) {
   if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_JOYSTICK | SDL_INIT_AUDIO) < 0) {
@@ -109,20 +110,13 @@ int main(int argc, char** argv) {
 
   TextBackgroundRenderer text_back(&back_shader);
 
-  Text text(&font, &text_back);
-  text.SetText(dictionary.Generate());
-  text.SetSize(30);
-  text.SetAlignment(Align::CENTER);
-  text.SetHighlightRange(0, 1);
-
   Uint64 NOW = SDL_GetPerformanceCounter();
   Uint64 LAST = 0;
 
   SDL_StartTextInput();
 
-  std::string data;
-
   Enemies enemies(&cache, &font, &text_back, &objects, &dictionary, width);
+  EnemyWord* current_word = nullptr;
 
   enemies.SpawnEnemies(5);
 
@@ -138,8 +132,17 @@ int main(int argc, char** argv) {
         running = false;
       }
       else if( e.type == SDL_TEXTINPUT ) {
-        data += e.text.text;
-        text.SetText(data);
+        const std::string& input = e.text.text;
+        if( current_word == nullptr ) {
+          current_word = enemies.DetectWord(input);
+        }
+        else {
+          current_word->Type(input);
+          if( current_word->IsAlive() == false ) {
+            // enemies.Remove(current_word);
+            current_word = nullptr;
+          }
+        }
       }
     }
 
@@ -153,7 +156,6 @@ int main(int argc, char** argv) {
     objects.Render();
     enemies.Render();
     renderer.DrawNinepatch(ninepatch, glm::vec2(200,200));
-    text.Draw(shipPos);
     SDL_GL_SwapWindow(window);
   }
 

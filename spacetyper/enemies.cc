@@ -68,3 +68,14 @@ void Enemies::Render() {
     e->Render();
   }
 }
+
+EnemyWord* Enemies::DetectWord(const std::string& input) {
+  assert(this);
+  for(auto& e : enemies_) {
+    if( e->Type(input) ) {
+      return e.get();
+    }
+  }
+
+  return nullptr;
+}

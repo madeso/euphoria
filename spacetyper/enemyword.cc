@@ -1,6 +1,7 @@
 #include "spacetyper/enemyword.h"
 
 #include <cassert>
+#include <iostream>
 
 #include "spacetyper/texturecache.h"
 
@@ -10,11 +11,13 @@ EnemyWord::EnemyWord(TextureCache* cache, Font* font, TextBackgroundRenderer* te
     , position_(0.0f)
     , layer_(nullptr)
     , speed_(0.0f)
+    , index_(0)
 {
   text_.SetText(word);
   text_.SetAlignment(Align::CENTER);
   text_.SetBackground(true, 0.8f);
   text_.SetBaseColor(glm::vec3(1.0f));
+  text_.SetHighlightColor(glm::vec3(0.0f, 0.0f, 1.0f));
 }
 
 EnemyWord::~EnemyWord() {
@@ -59,4 +62,24 @@ void EnemyWord::Render() {
   glm::vec2 p = position_;
   p.y += sprite_.GetHeight() / 2.0f;
   text_.Draw(p);
+}
+
+bool EnemyWord::Type(const std::string& input) {
+  assert(IsAlive());
+  const std::string& t = text_.GetText();
+  const char c = t[index_];
+  const std::string cstr(1, c);
+  const bool is_same = cstr == input;
+
+  if( is_same ) {
+    index_ += 1;
+    text_.SetHighlightRange(0, index_);
+  }
+
+  return is_same;
+}
+
+bool EnemyWord::IsAlive() const {
+  const std::string& t = text_.GetText();
+  return index_ < t.length();
 }

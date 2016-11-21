@@ -25,6 +25,9 @@ class EnemyWord {
 
   void Render();
 
+  bool Type(const std::string& input);
+  bool IsAlive() const;
+
 
  private:
   Sprite sprite_;
@@ -32,6 +35,7 @@ class EnemyWord {
   glm::vec2 position_;
   Layer* layer_;
   float speed_;
+  unsigned int index_;
 };
 
 #endif  // SPACETYPER_ENEMYWORD_H
