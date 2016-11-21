@@ -72,8 +72,12 @@ void Enemies::Render() {
 
 EnemyWord* Enemies::DetectWord(const std::string& input) {
   assert(this);
-  for(auto& e : enemies_) {
+  for(EnemyList::iterator it = enemies_.begin(); it != enemies_.end(); ++it) {
+    EnemyPtr e = *it;
     if( e->Type(input) ) {
+      // move to back = move rendering to front
+      enemies_.erase(it);
+      enemies_.push_back(e);
       return e.get();
     }
   }
