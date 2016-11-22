@@ -28,6 +28,11 @@ void Sprite::SetPosition(const glm::vec2& p) {
   position_ = p;
 }
 
+void Sprite::SetRotation(float r) {
+  assert(this);
+  rotate_ = r;
+}
+
 float Sprite::GetHeight() const {
   assert(this);
   return texture_->height() * scale_.y;

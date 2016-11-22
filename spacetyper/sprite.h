@@ -19,6 +19,8 @@ class Sprite {
   const glm::vec2& GetPosition() const;
   void SetPosition(const glm::vec2& p);
 
+  void SetRotation(float r);
+
   float GetHeight() const;
   float GetWidth() const;
 

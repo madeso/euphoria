@@ -2,7 +2,6 @@
 
 #include <cassert>
 #include <algorithm>
-#include <iostream>
 
 #include "spacetyper/sprite.h"
 #include "spacetyper/enemyword.h"
@@ -22,8 +21,6 @@ void BulletList::Add(EnemyWord* word, Texture2d* t, const glm::vec2& pos) {
   b.sprite.reset( new Sprite(t, pos) );
   layer_->Add(b.sprite.get());
   bullets_.push_back(b);
-
-  std::cout << "spawn bullet\n";
 }
 
 void BulletList::Update(float dt) {
@@ -40,7 +37,13 @@ void BulletList::Update(float dt) {
       layer_->Remove(b.sprite.get());
     }
     else {
-      b.sprite->SetPosition(p + glm::normalize(d) * speed*dt);
+      const glm::vec2 dn = glm::normalize(d);
+      b.sprite->SetPosition(p + dn * speed*dt);
+
+      float aa = glm::dot(glm::vec2(0.0f, 1.0f), dn);
+      float a = acos(aa);
+      if( dn.x > 0 ) a = -a;
+      b.sprite->SetRotation(a);
     }
   }
 
