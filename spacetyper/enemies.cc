@@ -5,8 +5,10 @@
 
 #include "spacetyper/enemyword.h"
 #include "spacetyper/dictionary.h"
+#include "spacetyper/texturecache.h"
+#include "spacetyper/bulletlist.h"
 
-Enemies::Enemies(TextureCache* cache, Font* font, TextBackgroundRenderer* text_back, Layer* layer, Dictionary* dictionary, float width)
+Enemies::Enemies(TextureCache* cache, Font* font, TextBackgroundRenderer* text_back, Layer* layer, Dictionary* dictionary, float width, BulletList* bullets)
     : generator_(std::random_device()())
     , cache_(cache)
     , font_(font)
@@ -16,6 +18,7 @@ Enemies::Enemies(TextureCache* cache, Font* font, TextBackgroundRenderer* text_b
     , width_(width)
     , spawn_count_(0)
     , spawn_time_(-1.0f)
+    , bullets_(bullets)
 {
   assert(cache);
   assert(font);
@@ -76,6 +79,11 @@ void Enemies::Update(float delta) {
       }
     }
   }
+
+
+
+  destroyed_.erase(std::remove_if(destroyed_.begin(), destroyed_.end(), [](EnemyPtr enemy){return enemy->IsDestroyed(); }),
+                   destroyed_.end());
 }
 
 void Enemies::Render() {
@@ -103,6 +111,12 @@ EnemyWord* Enemies::DetectWord(const std::string& input) {
 void Enemies::Remove(EnemyWord* word) {
   assert(this);
   assert(word);
-  enemies_.erase(std::remove_if(enemies_.begin(), enemies_.end(), [&word](EnemyPtr rhs){return rhs.get() == word; }),
-                enemies_.end());
+  EnemyList::iterator found = std::find_if(enemies_.begin(), enemies_.end(), [&word](EnemyPtr rhs){return rhs.get() == word; });
+  assert(found != enemies_.end());
+  destroyed_.push_back(*found);
+  enemies_.erase(found);
+}
+
+void Enemies::FireAt(const glm::vec2& pos, EnemyWord* word) {
+  bullets_->Add(word, cache_->GetTexture("laserBlue07.png"), pos);
 }

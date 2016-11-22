@@ -29,6 +29,10 @@ class EnemyWord {
   bool IsAlive() const;
 
   const std::string& GetWord() const;
+  const glm::vec2& GetPosition() const;
+
+  void Damage();
+  bool IsDestroyed() const;
 
  private:
   Sprite sprite_;
@@ -37,6 +41,7 @@ class EnemyWord {
   Layer* layer_;
   float speed_;
   unsigned int index_;
+  int health_;
 };
 
 #endif  // SPACETYPER_ENEMYWORD_H

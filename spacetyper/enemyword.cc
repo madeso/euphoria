@@ -12,6 +12,7 @@ EnemyWord::EnemyWord(TextureCache* cache, Font* font, TextBackgroundRenderer* te
     , layer_(nullptr)
     , speed_(0.0f)
     , index_(0)
+    , health_(word.length())
 {
   text_.SetText(word);
   text_.SetAlignment(Align::CENTER);
@@ -59,12 +60,14 @@ void EnemyWord::RemoveSprite() {
 }
 
 void EnemyWord::Render() {
+  assert(this);
   glm::vec2 p = position_;
   p.y += sprite_.GetHeight() / 2.0f;
   text_.Draw(p);
 }
 
 bool EnemyWord::Type(const std::string& input) {
+  assert(this);
   assert(IsAlive());
   const std::string& t = text_.GetText();
   const char c = t[index_];
@@ -80,10 +83,27 @@ bool EnemyWord::Type(const std::string& input) {
 }
 
 bool EnemyWord::IsAlive() const {
+  assert(this);
   const std::string& t = text_.GetText();
   return index_ < t.length();
 }
 
 const std::string& EnemyWord::GetWord() const {
+  assert(this);
   return text_.GetText();
+}
+
+const glm::vec2& EnemyWord::GetPosition() const {
+  assert(this);
+  return sprite_.GetPosition();
+}
+
+void EnemyWord::Damage() {
+  assert(this);
+  health_ -= 1;
+}
+
+bool EnemyWord::IsDestroyed() const {
+  assert(this);
+  return health_ <= 0;
 }

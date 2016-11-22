@@ -15,6 +15,7 @@
 #include "spacetyper/dictionary.h"
 #include "spacetyper/enemies.h"
 #include "spacetyper/enemyword.h"
+#include "spacetyper/bulletlist.h"
 
 int main(int argc, char** argv) {
   if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_JOYSTICK | SDL_INIT_AUDIO) < 0) {
@@ -115,7 +116,8 @@ int main(int argc, char** argv) {
 
   SDL_StartTextInput();
 
-  Enemies enemies(&cache, &font, &text_back, &objects, &dictionary, width);
+  BulletList bullets(&objects);
+  Enemies enemies(&cache, &font, &text_back, &objects, &dictionary, width, &bullets);
   EnemyWord* current_word = nullptr;
 
   enemies.SpawnEnemies(5);
@@ -135,9 +137,15 @@ int main(int argc, char** argv) {
         const std::string& input = e.text.text;
         if( current_word == nullptr ) {
           current_word = enemies.DetectWord(input);
+          if( current_word != nullptr ) {
+            enemies.FireAt(shipPos, current_word);
+          }
         }
         else {
-          current_word->Type(input);
+          const bool hit = current_word->Type(input);
+          if( hit ) {
+            enemies.FireAt(shipPos, current_word);
+          }
           if( current_word->IsAlive() == false ) {
             enemies.Remove(current_word);
             current_word = nullptr;
@@ -149,6 +157,7 @@ int main(int argc, char** argv) {
     smallStars.Update(dt);
     bigStars.Update(dt);
     enemies.Update(dt);
+    bullets.Update(dt);
 
     glClearColor(42.0f / 255, 45.0f / 255, 51.0f / 255, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
