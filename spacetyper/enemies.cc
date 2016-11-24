@@ -70,6 +70,10 @@ void Enemies::Update(float delta) {
     e->Update(delta);
   }
 
+  for(auto& e : destroyed_) {
+    e->Update(delta);
+  }
+
   if( spawn_count_ > 0 ) {
     spawn_time_ -= delta;
     if( spawn_time_ < 0) {

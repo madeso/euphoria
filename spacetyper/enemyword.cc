@@ -6,6 +6,8 @@
 #include "spacetyper/texturecache.h"
 #include "spacetyper/spritefader.h"
 
+const int max_explosions = 20;
+
 EnemyWord::EnemyWord(SpriteFader* fader, TextureCache* cache, Font* font, TextBackgroundRenderer* text_back, const std::string& word)
     : fader_(fader)
     , sprite_(cache->GetTexture("enemyShip.png"))
@@ -15,6 +17,8 @@ EnemyWord::EnemyWord(SpriteFader* fader, TextureCache* cache, Font* font, TextBa
     , speed_(0.0f)
     , index_(0)
     , health_(word.length())
+    , explisiontimer_(0.0f)
+    , explosions_(0)
 {
   text_.SetText(word);
   text_.SetAlignment(Align::CENTER);
@@ -44,6 +48,18 @@ void EnemyWord::Update(float delta) {
   assert(this);
   position_.y += delta * speed_;
   sprite_.SetPosition(position_);
+
+  if( health_ <= 0 ) {
+    const float a = 1.0f - static_cast<float>(explosions_)/max_explosions;
+    sprite_.SetAlpha(a);
+    explisiontimer_ -= delta;
+    while( explisiontimer_ < 0.0f) {
+      float scale = 0.8f;
+      fader_->AddRandom(GetPosition(), 0.2f, sprite_.GetWidth() * scale, sprite_.GetHeight() * scale);
+      ++explosions_;
+      explisiontimer_ += 0.05f;
+    }
+  }
 }
 
 void EnemyWord::AddSprite(Layer* layer) {
@@ -104,6 +120,10 @@ void EnemyWord::Damage() {
   assert(this);
   health_ -= 1;
 
+  if( health_ <= 0 ) {
+    // speed_ = speed_ / 2.0f;
+  }
+
   const float scale = 0.8f;
   for(int i=0; i<4; ++i) {
     fader_->AddRandom(GetPosition(), 0.2f, sprite_.GetWidth() * scale, sprite_.GetHeight() * scale);
@@ -112,5 +132,5 @@ void EnemyWord::Damage() {
 
 bool EnemyWord::IsDestroyed() const {
   assert(this);
-  return health_ <= 0;
+  return health_ <= 0 && explosions_ > max_explosions;
 }

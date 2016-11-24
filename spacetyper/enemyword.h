@@ -44,6 +44,8 @@ class EnemyWord {
   float speed_;
   unsigned int index_;
   int health_;
+  float explisiontimer_;
+  int explosions_;
 };
 
 #endif  // SPACETYPER_ENEMYWORD_H
