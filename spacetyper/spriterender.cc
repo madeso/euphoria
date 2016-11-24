@@ -12,7 +12,7 @@ SpriteRenderer::~SpriteRenderer() { vao_.reset(); }
 void SpriteRenderer::DrawSprite(const Texture2d& texture,
                                 const glm::vec2& position, GLfloat rotate,
                                 const glm::vec2& scale,
-                                const glm::vec3& color) {
+                                const glm::vec4& color) {
   const glm::vec2 size(scale.x * texture.width(), scale.y * texture.height());
   CommonDraw(position, rotate, color, size, size);
 
@@ -23,7 +23,7 @@ void SpriteRenderer::DrawSprite(const Texture2d& texture,
 }
 
 void SpriteRenderer::CommonDraw(const glm::vec2 &position, GLfloat rotate,
-                                const glm::vec3 &color, const glm::vec2 &size, const glm::vec2 &scale) const {
+                                const glm::vec4 &color, const glm::vec2 &size, const glm::vec2 &scale) const {
   Use(shader_);
   glm::mat4 model;
   model = translate(model, glm::vec3(position, 0.0f));
@@ -38,13 +38,13 @@ void SpriteRenderer::CommonDraw(const glm::vec2 &position, GLfloat rotate,
   model = glm::scale(model, glm::vec3(scale, 1.0f));
 
   shader_->SetMatrix4("model", model);
-  shader_->SetVector3f("spriteColor", color);
+  shader_->SetVector4f("spriteColor", color);
 }
 
 void SpriteRenderer::DrawNinepatch(const Ninepatch& ninepatch, const glm::vec2& position,
                    GLfloat rotate,
                    const glm::vec2& scale,
-                   const glm::vec3& color){
+                   const glm::vec4& color){
   const glm::vec2 size(scale.x * ninepatch.width(), scale.y * ninepatch.height());
   CommonDraw(position, rotate, color, size, scale);
 

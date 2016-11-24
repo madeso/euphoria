@@ -8,8 +8,9 @@
 #include "spacetyper/texturecache.h"
 #include "spacetyper/bulletlist.h"
 
-Enemies::Enemies(TextureCache* cache, Font* font, TextBackgroundRenderer* text_back, Layer* layer, Dictionary* dictionary, float width, BulletList* bullets)
-    : generator_(std::random_device()())
+Enemies::Enemies(SpriteFader* fader, TextureCache* cache, Font* font, TextBackgroundRenderer* text_back, Layer* layer, Dictionary* dictionary, float width, BulletList* bullets)
+    : fader_(fader)
+    , generator_(std::random_device()())
     , cache_(cache)
     , font_(font)
     , text_back_(text_back)
@@ -51,7 +52,7 @@ void Enemies::AddEnemy() {
     characters += w->GetWord()[0];
   }
 
-  EnemyPtr e(new EnemyWord(cache_, font_, text_back_, GenerateUniqueWord(characters, dictionary_)));
+  EnemyPtr e(new EnemyWord(fader_, cache_, font_, text_back_, GenerateUniqueWord(characters, dictionary_)));
   e->AddSprite(layer_);
   e->Setup(&generator_, width_);
   e->Update(0.0f);

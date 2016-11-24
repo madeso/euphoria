@@ -1,0 +1,50 @@
+#include "spacetyper/spritefader.h"
+
+#include <cassert>
+#include <algorithm>
+
+#include "spacetyper/sprite.h"
+
+SpriteFader::SpriteFader(Layer* layer)
+    : generator_(std::random_device()())
+    , layer_(layer)
+{
+  assert(layer);
+}
+
+void SpriteFader::RegesterTexture(Texture2d* t) {
+  assert(this);
+  textures_.push_back(t);
+}
+
+void SpriteFader::AddRandom(const glm::vec2& pos, float time) {
+  assert(this);
+  assert(time > 0.0f);
+  assert(!textures_.empty());
+
+  Texture2d* t = textures_[ std::uniform_int_distribution<size_t>(0, textures_.size()-1)(generator_) ];
+
+  FadingSprite sp;
+  sp.time = time;
+  sp.start = time / 2;
+  sp.sprite.reset( new Sprite(t, pos) );
+
+  layer_->Add(sp.sprite.get());
+  sprites_.push_back(sp);
+}
+
+void SpriteFader::Update(float dt){
+  assert(this);
+
+  for(FadingSprite& sp : sprites_) {
+    sp.time -= dt;
+    const float a = sp.time/sp.start;
+    sp.sprite->SetAlpha( std::max(0.0f, std::min(a, 1.0f)) );
+    if( sp.time <= 0.0f ) {
+      layer_->Remove(sp.sprite.get());
+    }
+  }
+
+  sprites_.erase(std::remove_if(sprites_.begin(), sprites_.end(), [](const FadingSprite& sp){ return sp.time<=0.0f; } ),
+                 sprites_.end());
+}

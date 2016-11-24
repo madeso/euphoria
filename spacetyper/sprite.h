@@ -24,6 +24,8 @@ class Sprite {
   float GetHeight() const;
   float GetWidth() const;
 
+  void SetAlpha(float f);
+
   void Render(SpriteRenderer* render);
  private:
   Texture2d* texture_;
@@ -31,6 +33,7 @@ class Sprite {
   float rotate_;
   glm::vec2 scale_;
   glm::vec3 color_;
+  float alpha_;
 };
 
 class Layer {

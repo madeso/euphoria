@@ -16,10 +16,11 @@ class Layer;
 class Dictionary;
 class Sprite;
 class BulletList;
+class SpriteFader;
 
 class Enemies {
  public:
-  Enemies(TextureCache* cache, Font* font, TextBackgroundRenderer* text_back, Layer* layer, Dictionary* dictionary, float width, BulletList* bullets);
+  Enemies(SpriteFader* fader, TextureCache* cache, Font* font, TextBackgroundRenderer* text_back, Layer* layer, Dictionary* dictionary, float width, BulletList* bullets);
   ~Enemies();
 
   void SpawnEnemies(int count);
@@ -36,6 +37,7 @@ class Enemies {
   void FireAt(const glm::vec2& pos, EnemyWord* word);
 
  private:
+  SpriteFader* fader_;
   mutable std::mt19937 generator_;
   TextureCache* cache_;
   Font* font_;

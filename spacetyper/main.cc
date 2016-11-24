@@ -4,7 +4,7 @@
 #include "spacetyper/gl.h"
 #include "spacetyper/shader.h"
 #include "spacetyper/spriterender.h"
-#include "spacetyper/texture.h"
+#include "spacetyper/spritefader.h"
 
 #include "generated_shaders.h"
 #include "spacetyper/background.h"
@@ -76,12 +76,25 @@ int main(int argc, char** argv) {
   Ninepatch ninepatch(cache.GetTexture("metalPanel_blueCorner.png"), 62, 14, 33, 14, glm::vec2(240, 240));
   SpriteRenderer renderer(&shader);
 
+
   Dictionary dictionary;
 
   Layer background(&renderer);
   Layer objects(&renderer);
+  Layer foreground(&renderer);
   Background smallStars(25, width, height, cache.GetTexture("starSmall.png"), 20, &background);
   Background bigStars(15, width, height, cache.GetTexture("starBig.png"), 50, &background);
+
+  SpriteFader fader(&foreground);
+  fader.RegesterTexture(cache.GetTexture("spaceEffects_008.png"));
+  fader.RegesterTexture(cache.GetTexture("spaceEffects_009.png"));
+  fader.RegesterTexture(cache.GetTexture("spaceEffects_010.png"));
+  fader.RegesterTexture(cache.GetTexture("spaceEffects_011.png"));
+  fader.RegesterTexture(cache.GetTexture("spaceEffects_012.png"));
+  fader.RegesterTexture(cache.GetTexture("spaceEffects_013.png"));
+  fader.RegesterTexture(cache.GetTexture("spaceEffects_014.png"));
+  fader.RegesterTexture(cache.GetTexture("spaceEffects_015.png"));
+  fader.RegesterTexture(cache.GetTexture("spaceEffects_016.png"));
 
   Sprite player(cache.GetTexture("player.png"));
   objects.Add(&player);
@@ -117,7 +130,7 @@ int main(int argc, char** argv) {
   SDL_StartTextInput();
 
   BulletList bullets(&objects);
-  Enemies enemies(&cache, &font, &text_back, &objects, &dictionary, width, &bullets);
+  Enemies enemies(&fader, &cache, &font, &text_back, &objects, &dictionary, width, &bullets);
   EnemyWord* current_word = nullptr;
 
   enemies.SpawnEnemies(5);
@@ -158,12 +171,14 @@ int main(int argc, char** argv) {
     bigStars.Update(dt);
     enemies.Update(dt);
     bullets.Update(dt);
+    fader.Update(dt);
 
     glClearColor(42.0f / 255, 45.0f / 255, 51.0f / 255, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
     background.Render();
     objects.Render();
     enemies.Render();
+    foreground.Render();
     // dont render ninepatch unless we are in a meny = not yet implemented :)
     // renderer.DrawNinepatch(ninepatch, glm::vec2(200,200));
     SDL_GL_SwapWindow(window);

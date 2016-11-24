@@ -4,9 +4,11 @@
 #include <iostream>
 
 #include "spacetyper/texturecache.h"
+#include "spacetyper/spritefader.h"
 
-EnemyWord::EnemyWord(TextureCache* cache, Font* font, TextBackgroundRenderer* text_back, const std::string& word)
-    : sprite_(cache->GetTexture("enemyShip.png"))
+EnemyWord::EnemyWord(SpriteFader* fader, TextureCache* cache, Font* font, TextBackgroundRenderer* text_back, const std::string& word)
+    : fader_(fader)
+    , sprite_(cache->GetTexture("enemyShip.png"))
     , text_(font, text_back)
     , position_(0.0f)
     , layer_(nullptr)
@@ -101,6 +103,8 @@ const glm::vec2& EnemyWord::GetPosition() const {
 void EnemyWord::Damage() {
   assert(this);
   health_ -= 1;
+
+  fader_->AddRandom(GetPosition(), 0.2f);
 }
 
 bool EnemyWord::IsDestroyed() const {

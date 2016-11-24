@@ -3,7 +3,9 @@
 
 #include "spacetyper/gl.h"
 
-#include <glm/glm.hpp>
+#include <glm/vec2.hpp>
+#include <glm/vec3.hpp>
+#include <glm/vec4.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
 #include <memory>
@@ -21,11 +23,11 @@ class SpriteRenderer {
   void DrawSprite(const Texture2d& texture, const glm::vec2& position,
                   GLfloat rotate = 0.0f,
                   const glm::vec2& scale = glm::vec2(1, 1),
-                  const glm::vec3& color = glm::vec3(1.0f));
+                  const glm::vec4& color = glm::vec4(1.0f));
   void DrawNinepatch(const Ninepatch& ninepatch, const glm::vec2& position,
                   GLfloat rotate = 0.0f,
                   const glm::vec2& scale = glm::vec2(1, 1),
-                  const glm::vec3& color = glm::vec3(1.0f));
+                  const glm::vec4& color = glm::vec4(1.0f));
 
  private:
   Shader* shader_;
@@ -33,7 +35,7 @@ class SpriteRenderer {
 
   void InitRenderData();
 
-  void CommonDraw(const glm::vec2 &position, GLfloat rotate, const glm::vec3 &color,
+  void CommonDraw(const glm::vec2 &position, GLfloat rotate, const glm::vec4 &color,
              const glm::vec2 &size, const glm::vec2 &scale) const;
 };
 

@@ -10,10 +10,11 @@
 
 class TextureCache;
 class TextBackgroundRenderer;
+class SpriteFader;
 
 class EnemyWord {
  public:
-  EnemyWord(TextureCache* cache, Font* font, TextBackgroundRenderer* text_back, const std::string& word);
+  EnemyWord(SpriteFader* fader, TextureCache* cache, Font* font, TextBackgroundRenderer* text_back, const std::string& word);
   ~EnemyWord();
 
   void Setup(std::mt19937* generator, float screen_width);
@@ -35,6 +36,7 @@ class EnemyWord {
   bool IsDestroyed() const;
 
  private:
+  SpriteFader* fader_;
   Sprite sprite_;
   Text text_;
   glm::vec2 position_;
