@@ -86,15 +86,30 @@ int main(int argc, char** argv) {
   Background bigStars(15, width, height, cache.GetTexture("starBig.png"), 50, &background);
 
   SpriteFader fader(&foreground);
-  fader.RegesterTexture(cache.GetTexture("spaceEffects_008.png"));
-  fader.RegesterTexture(cache.GetTexture("spaceEffects_009.png"));
-  fader.RegesterTexture(cache.GetTexture("spaceEffects_010.png"));
-  fader.RegesterTexture(cache.GetTexture("spaceEffects_011.png"));
-  fader.RegesterTexture(cache.GetTexture("spaceEffects_012.png"));
-  fader.RegesterTexture(cache.GetTexture("spaceEffects_013.png"));
-  fader.RegesterTexture(cache.GetTexture("spaceEffects_014.png"));
-  fader.RegesterTexture(cache.GetTexture("spaceEffects_015.png"));
-  fader.RegesterTexture(cache.GetTexture("spaceEffects_016.png"));
+  fader.RegesterTexture(cache.GetTexture("explosion/spaceEffects_008.png"));
+  fader.RegesterTexture(cache.GetTexture("explosion/spaceEffects_009.png"));
+  fader.RegesterTexture(cache.GetTexture("explosion/spaceEffects_010.png"));
+  fader.RegesterTexture(cache.GetTexture("explosion/spaceEffects_011.png"));
+  fader.RegesterTexture(cache.GetTexture("explosion/spaceEffects_012.png"));
+  fader.RegesterTexture(cache.GetTexture("explosion/spaceEffects_013.png"));
+  fader.RegesterTexture(cache.GetTexture("explosion/spaceEffects_014.png"));
+  fader.RegesterTexture(cache.GetTexture("explosion/spaceEffects_015.png"));
+  fader.RegesterTexture(cache.GetTexture("explosion/spaceEffects_016.png"));
+
+  fader.RegesterTexture(cache.GetTexture("explosion/laserBlue08.png"));
+  // fader.RegesterTexture(cache.GetTexture("explosion/laserBlue09.png"));
+  fader.RegesterTexture(cache.GetTexture("explosion/laserBlue10.png"));
+  //fader.RegesterTexture(cache.GetTexture("explosion/laserBlue11.png"));
+
+  //fader.RegesterTexture(cache.GetTexture("explosion/laserGreen01.png"));
+  fader.RegesterTexture(cache.GetTexture("explosion/laserGreen14.png"));
+  //fader.RegesterTexture(cache.GetTexture("explosion/laserGreen15.png"));
+  fader.RegesterTexture(cache.GetTexture("explosion/laserGreen16.png"));
+  fader.RegesterTexture(cache.GetTexture("explosion/laserRed08.png"));
+  //fader.RegesterTexture(cache.GetTexture("explosion/laserRed09.png"));
+  fader.RegesterTexture(cache.GetTexture("explosion/laserRed10.png"));
+  //fader.RegesterTexture(cache.GetTexture("explosion/laserRed11.png"));
+  /**/
 
   Sprite player(cache.GetTexture("player.png"));
   objects.Add(&player);
