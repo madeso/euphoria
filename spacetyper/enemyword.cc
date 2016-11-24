@@ -104,7 +104,10 @@ void EnemyWord::Damage() {
   assert(this);
   health_ -= 1;
 
-  fader_->AddRandom(GetPosition(), 0.2f);
+  const float scale = 0.8f;
+  for(int i=0; i<4; ++i) {
+    fader_->AddRandom(GetPosition(), 0.2f, sprite_.GetWidth() * scale, sprite_.GetHeight() * scale);
+  }
 }
 
 bool EnemyWord::IsDestroyed() const {

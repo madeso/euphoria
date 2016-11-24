@@ -21,7 +21,7 @@ class SpriteFader {
  public:
   explicit SpriteFader(Layer* layer);
   void RegesterTexture(Texture2d* t);
-  void AddRandom(const glm::vec2& pos, float time);
+  void AddRandom(const glm::vec2& pos, float time, float width, float height);
 
   void Update(float dt);
 
