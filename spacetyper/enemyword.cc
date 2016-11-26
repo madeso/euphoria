@@ -19,6 +19,7 @@ EnemyWord::EnemyWord(SpriteFader* fader, TextureCache* cache, Font* font, TextBa
     , health_(word.length())
     , explisiontimer_(0.0f)
     , explosions_(0)
+    , knockback_(-1.0f)
 {
   text_.SetText(word);
   text_.SetAlignment(Align::CENTER);
@@ -46,7 +47,14 @@ void EnemyWord::Setup(std::mt19937* generator, float screen_width) {
 
 void EnemyWord::Update(float delta) {
   assert(this);
-  position_.y += delta * speed_;
+
+  const float speed = knockback_<=0.0f? speed_
+                      : speed_ * (1.0f - knockback_*2.0f);
+  if( knockback_ > 0.0f ) {
+    knockback_ -= delta * 5.0f;
+  }
+
+  position_.y += delta * speed;
   sprite_.SetPosition(position_);
 
   if( health_ <= 0 ) {
@@ -123,6 +131,9 @@ void EnemyWord::Damage() {
   if( health_ <= 0 ) {
     // speed_ = speed_ / 2.0f;
   }
+
+  knockback_ += 0.3f;
+  knockback_ = std::max(knockback_, 1.0f);
 
   const float scale = 0.8f;
   for(int i=0; i<4; ++i) {

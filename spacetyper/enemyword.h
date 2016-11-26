@@ -46,6 +46,7 @@ class EnemyWord {
   int health_;
   float explisiontimer_;
   int explosions_;
+  float knockback_;
 };
 
 #endif  // SPACETYPER_ENEMYWORD_H
