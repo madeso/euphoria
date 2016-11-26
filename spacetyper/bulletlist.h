@@ -24,7 +24,7 @@ class BulletType {
 class BulletList {
  public:
   explicit BulletList(Layer* layer);
-  void Add(EnemyWord* word, Texture2d* t, const glm::vec2& pos);
+  float Add(EnemyWord* word, Texture2d* t, const glm::vec2& pos);
   void Update(float d);
  private:
   Layer* layer_;

@@ -34,7 +34,7 @@ class Enemies {
   EnemyWord* DetectWord(const std::string& input);
   void Remove(EnemyWord* word);
 
-  void FireAt(const glm::vec2& pos, EnemyWord* word);
+  float FireAt(const glm::vec2& pos, EnemyWord* word);
 
  private:
   SpriteFader* fader_;

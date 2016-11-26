@@ -122,6 +122,6 @@ void Enemies::Remove(EnemyWord* word) {
   enemies_.erase(found);
 }
 
-void Enemies::FireAt(const glm::vec2& pos, EnemyWord* word) {
-  bullets_->Add(word, cache_->GetTexture("laserBlue07.png"), pos);
+float Enemies::FireAt(const glm::vec2& pos, EnemyWord* word) {
+  return bullets_->Add(word, cache_->GetTexture("laserBlue07.png"), pos);
 }

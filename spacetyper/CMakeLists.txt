@@ -11,6 +11,10 @@ include_directories(../external/glew/include)
 set(src_glew ../external/glew/glew.c ../external/glew/include/GL/glew.h)
 source_group("glew" FILES ${src_glew})
 
+include_directories(../external/aheasing)
+set(src_aheasing ../external/aheasing/aheasing/easing.c ../external/aheasing/aheasing/easing.h)
+source_group("AHEasing" FILES ${src_aheasing})
+
 # freetype
 find_package(Freetype REQUIRED)
 include_directories(${FREETYPE_INCLUDE_DIRS})
@@ -38,7 +42,7 @@ add_custom_command(OUTPUT ${CMAKE_BINARY_DIR}/generated_shaders.h ${CMAKE_BINARY
 )
 
 
-set(all_src ${app_src} ${src_shaders} ${src_glew})
+set(all_src ${app_src} ${src_shaders} ${src_glew} ${src_aheasing})
 
 add_executable(spacetyper WIN32 MACOSX_BUNDLE ${all_src})
 set_target_properties(spacetyper

@@ -14,13 +14,22 @@ BulletList::BulletList(Layer* layer) : layer_(layer) {
   assert(layer);
 }
 
-void BulletList::Add(EnemyWord* word, Texture2d* t, const glm::vec2& pos) {
+float BulletList::Add(EnemyWord* word, Texture2d* t, const glm::vec2& pos) {
   assert(this);
   BulletType b;
   b.word = word;
   b.sprite.reset( new Sprite(t, pos) );
   layer_->Add(b.sprite.get());
   bullets_.push_back(b);
+
+  const glm::vec2& p = pos;
+  const glm::vec2& w = word->GetPosition();
+  const glm::vec2 d = w-p;
+  const glm::vec2 dn = glm::normalize(d);
+  float aa = glm::dot(glm::vec2(0.0f, 1.0f), dn);
+  float a = acos(aa);
+  if( d.x > 0 ) a = -a;
+  return a;
 }
 
 void BulletList::Update(float dt) {
