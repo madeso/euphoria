@@ -8,6 +8,9 @@
 
 #include "glm/glm.hpp"
 
+// todo: improve resolution
+const float PI = 3.14;
+
 BulletType::~BulletType() {}
 
 BulletList::BulletList(Layer* layer) : layer_(layer) {
@@ -27,8 +30,8 @@ float BulletList::Add(EnemyWord* word, Texture2d* t, const glm::vec2& pos) {
   const glm::vec2 d = w-p;
   const glm::vec2 dn = glm::normalize(d);
   float aa = glm::dot(glm::vec2(0.0f, 1.0f), dn);
-  float a = acos(aa);
-  if( d.x > 0 ) a = -a;
+  float a = PI - acos(aa);
+  if( d.x < 0 ) a = -a;
   return a;
 }
 
@@ -50,8 +53,8 @@ void BulletList::Update(float dt) {
       b.sprite->SetPosition(p + dn * speed*dt);
 
       float aa = glm::dot(glm::vec2(0.0f, 1.0f), dn);
-      float a = acos(aa);
-      if( dn.x > 0 ) a = -a;
+      float a = PI - acos(aa);
+      if( dn.x < 0 ) a = -a;
       b.sprite->SetRotation(a);
     }
   }
