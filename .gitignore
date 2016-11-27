@@ -32,3 +32,6 @@
 
 dist/spacetyper
 dist/spacetyper-debug
+
+# clion build folder
+cmake-build-debug
