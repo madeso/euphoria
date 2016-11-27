@@ -13,7 +13,7 @@
 #include "spacetyper/texture.h"
 
 class Vao;
-class Ninepatch;
+class ScalableSprite;
 
 class SpriteRenderer {
  public:
@@ -24,7 +24,7 @@ class SpriteRenderer {
                   GLfloat rotate = 0.0f,
                   const glm::vec2& scale = glm::vec2(1, 1),
                   const glm::vec4& color = glm::vec4(1.0f));
-  void DrawNinepatch(const Ninepatch& ninepatch, const glm::vec2& position,
+  void DrawNinepatch(const ScalableSprite& ninepatch, const glm::vec2& position,
                   GLfloat rotate = 0.0f,
                   const glm::vec2& scale = glm::vec2(1, 1),
                   const glm::vec4& color = glm::vec4(1.0f));

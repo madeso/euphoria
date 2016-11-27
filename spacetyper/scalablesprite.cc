@@ -1,23 +1,23 @@
-#include "spacetyper/ninepatch.h"
+#include "spacetyper/scalablesprite.h"
 
 #include "spacetyper/vao.h"
 #include "spacetyper/texture.h"
 
-Ninepatch::Ninepatch(Texture2d* tex, int left, int right, int top, int bottom, const glm::vec2& inner_size)
+ScalableSprite::ScalableSprite(Texture2d* tex, int left, int right, int top, int bottom, const glm::vec2& inner_size)
 : texture_(tex), left_(left), right_(right), top_(top), bottom_(bottom), inner_size_(inner_size) {
   BuildVao();
 }
 
-Ninepatch::~Ninepatch() {
+ScalableSprite::~ScalableSprite() {
   vao_.reset();
 }
 
-void Ninepatch::SetInnerSize(const glm::vec2& new_size) {
+void ScalableSprite::SetInnerSize(const glm::vec2& new_size) {
   inner_size_ = new_size;
   BuildVao();
 }
 
-void Ninepatch::BuildVao() {
+void ScalableSprite::BuildVao() {
   VaoBuilder data;
 
   // 00     10                20     30
@@ -79,18 +79,18 @@ void Ninepatch::BuildVao() {
   vao_.reset(new Vao(data) );
 }
 
-float Ninepatch::width() const {
+float ScalableSprite::width() const {
   return inner_size_.x + left_ + right_;
 }
 
-float Ninepatch::height() const {
+float ScalableSprite::height() const {
   return inner_size_.y + top_ + bottom_;
 }
 
-const Texture2d* Ninepatch::texture_ptr() const {
+const Texture2d* ScalableSprite::texture_ptr() const {
   return texture_;
 }
 
-const Vao* Ninepatch::vao_ptr() const {
+const Vao* ScalableSprite::vao_ptr() const {
   return vao_.get();
 }

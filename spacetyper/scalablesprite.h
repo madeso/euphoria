@@ -1,5 +1,5 @@
-#ifndef SPACETYPER_NINEPATCH_H
-#define SPACETYPER_NINEPATCH_H
+#ifndef SPACETYPER_SCALABLESPRITE_H
+#define SPACETYPER_SCALABLESPRITE_H
 
 #include <memory>
 #include "glm/vec2.hpp"
@@ -7,10 +7,10 @@
 class Vao;
 class Texture2d;
 
-class Ninepatch {
+class ScalableSprite {
  public:
-  Ninepatch(Texture2d* tex, int left, int right, int top, int bottom, const glm::vec2& inner_size);
-  ~Ninepatch();
+  ScalableSprite(Texture2d* tex, int left, int right, int top, int bottom, const glm::vec2& inner_size);
+  ~ScalableSprite();
 
   void SetInnerSize(const glm::vec2& new_size);
 
@@ -32,4 +32,4 @@ class Ninepatch {
   std::unique_ptr<Vao> vao_;
 };
 
-#endif  // SPACETYPER_NINEPATCH_H
+#endif  // SPACETYPER_SCALABLESPRITE_H

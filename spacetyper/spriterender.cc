@@ -1,6 +1,6 @@
 #include "spacetyper/spriterender.h"
 #include "spacetyper/vao.h"
-#include "spacetyper/ninepatch.h"
+#include "spacetyper/scalablesprite.h"
 
 SpriteRenderer::SpriteRenderer(Shader* shader) : shader_(shader) {
   shader_ = shader;
@@ -41,7 +41,7 @@ void SpriteRenderer::CommonDraw(const glm::vec2 &position, GLfloat rotate,
   shader_->SetVector4f("spriteColor", color);
 }
 
-void SpriteRenderer::DrawNinepatch(const Ninepatch& ninepatch, const glm::vec2& position,
+void SpriteRenderer::DrawNinepatch(const ScalableSprite& ninepatch, const glm::vec2& position,
                    GLfloat rotate,
                    const glm::vec2& scale,
                    const glm::vec4& color){
