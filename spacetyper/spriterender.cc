@@ -45,7 +45,8 @@ void SpriteRenderer::DrawNinepatch(const ScalableSprite& ninepatch, const glm::v
                    GLfloat rotate,
                    const glm::vec2& scale,
                    const glm::vec4& color){
-  const glm::vec2 size(scale.x * ninepatch.width(), scale.y * ninepatch.height());
+  const glm::vec2 nps = ninepatch.GetSize();
+  const glm::vec2 size(scale.x * nps.x, scale.y * nps.y);
   CommonDraw(position, rotate, color, size, scale);
 
   glActiveTexture(GL_TEXTURE0);

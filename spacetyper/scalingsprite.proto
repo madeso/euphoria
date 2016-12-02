@@ -1,0 +1,17 @@
+package scalingsprite;
+
+message Rect {
+  optional int32 left = 1 [default=10];
+  optional int32 right = 2 [default=10];
+  optional int32 top = 3 [default=10];
+  optional int32 bottom = 4 [default=10];
+}
+
+message Ninepatch {
+  optional Rect client = 1;
+  optional Rect draw = 2;
+}
+
+message ScalingSprite {
+  optional Ninepatch ninepatch = 1;
+}

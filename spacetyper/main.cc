@@ -74,7 +74,8 @@ int main(int argc, char** argv) {
   Shader font_shader(shader_source_font_vert, shader_source_font_frag);
   Shader back_shader(shader_source_back_vert, shader_source_back_frag);
   Font font(&font_shader, "SourceCodePro-Regular.ttf", 30, " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ;:,.-_<>|1234567890!\"#¤%&/()'=?@£$€¥{[]}\\'*");
-  ScalableSprite ninepatch(cache.GetTexture("metalPanel_blueCorner.png"), 62, 14, 33, 14, glm::vec2(240, 240));
+  // (cache.GetTexture("metalPanel_blueCorner.png"), 62, 14, 33, 14, glm::vec2(240, 240));
+  std::shared_ptr<ScalableSprite> ninepatch = LoadScalableSprite("metalPanel_blueCorner.png", glm::vec2(240, 240), &cache);
   SpriteRenderer renderer(&shader);
 
 

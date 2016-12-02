@@ -3,6 +3,18 @@ file(GLOB app_src_glob *.cpp;*.cc;*.h;*.inl)
 find_package(SDL2 REQUIRED)
 include_directories(SYSTEM ${SDL2_INCLUDE_DIR})
 
+find_package(Protobuf REQUIRED)
+include_directories(${PROTOBUF_INCLUDE_DIRS})
+set(pbjson_src
+    ${CMAKE_SOURCE_DIR}/external/pbjson/src/pbjson.cpp
+    ${CMAKE_SOURCE_DIR}/external/pbjson/src/pbjson.hpp
+    ${CMAKE_SOURCE_DIR}/external/pbjson/src/bin2ascii.h
+    )
+include_directories(${CMAKE_SOURCE_DIR}/external/pbjson/src/)
+include_directories(${CMAKE_CURRENT_BINARY_DIR})
+
+PROTOBUF_GENERATE_CPP(SPRITE_PROTO_SRCS SPRITE_PROTO_HDRS scalingsprite.proto)
+
 include_directories(SYSTEM ../external/glm/include)
 
 include_directories(SYSTEM ../external/stb)
@@ -19,7 +31,7 @@ source_group("AHEasing" FILES ${src_aheasing})
 find_package(Freetype REQUIRED)
 include_directories(${FREETYPE_INCLUDE_DIRS})
 
-set(app_src ${app_src_glob})
+set(app_src ${app_src_glob} ${pbjson_src} ${SPRITE_PROTO_SRCS} ${SPRITE_PROTO_HDRS})
 source_group("" FILES ${app_src})
 
 # generate shader headers
@@ -57,10 +69,10 @@ target_link_libraries(spacetyper
                       ${OPENGL_LIBRARIES}
                       ${SDL2_LIBRARY}
                       ${FREETYPE_LIBRARIES}
+                      ${PROTOBUF_LIBRARIES}
                       )
 
 if(CMAKE_COMPILER_IS_GNUCC)
-  # This is tested
   set_property(TARGET spacetyper APPEND_STRING PROPERTY COMPILE_FLAGS -Wall)
 endif()
 
