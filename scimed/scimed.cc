@@ -14,19 +14,12 @@ class MyFrame: public wxFrame
   void OnHello(wxCommandEvent& event);
   void OnExit(wxCommandEvent& event);
   void OnAbout(wxCommandEvent& event);
-  wxDECLARE_EVENT_TABLE();
 };
 
 enum
 {
   ID_Hello = 1
 };
-
-wxBEGIN_EVENT_TABLE(MyFrame, wxFrame)
-  EVT_MENU(ID_Hello,   MyFrame::OnHello)
-  EVT_MENU(wxID_EXIT,  MyFrame::OnExit)
-  EVT_MENU(wxID_ABOUT, MyFrame::OnAbout)
-wxEND_EVENT_TABLE()
 
 wxIMPLEMENT_APP(MyApp);
 
@@ -53,6 +46,10 @@ MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
   SetMenuBar( menuBar );
   CreateStatusBar();
   SetStatusText( "Welcome to wxWidgets!" );
+
+  Bind(wxEVT_COMMAND_MENU_SELECTED, &MyFrame::OnExit, this, wxID_EXIT);
+  Bind(wxEVT_COMMAND_MENU_SELECTED, &MyFrame::OnAbout, this, wxID_ABOUT);
+  Bind(wxEVT_COMMAND_MENU_SELECTED, &MyFrame::OnHello, this, ID_Hello);
 }
 
 void MyFrame::OnExit(wxCommandEvent& event)
