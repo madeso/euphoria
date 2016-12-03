@@ -31,6 +31,9 @@ class ImagePanel : public wxPanel
   bool track_top;
   bool track_bottom;
 
+  int image_x;
+  int image_y;
+
   int draw_left;
   int draw_right;
   int draw_top;
@@ -40,6 +43,7 @@ class ImagePanel : public wxPanel
   explicit ImagePanel(wxFrame* parent)
       : wxPanel(parent), displayImage_(false), scale_(8.0f), left(10), right(10), top(10), bottom(10), last_cursor_(wxCURSOR_ARROW), left_mouse(false), last_left_mouse(false)
       , track_left(false), track_right(false), track_top(false), track_bottom(false)
+      , image_x(0), image_y(0)
   {
     Bind(wxEVT_SIZE, &ImagePanel::OnSize, this);
     Bind(wxEVT_PAINT, &ImagePanel::OnPaint, this);
@@ -52,8 +56,6 @@ class ImagePanel : public wxPanel
   static bool KindaTheSame(int lhs, int rhs) {
     return std::abs(lhs-rhs) < 5;
   }
-
-
 
   void OnMouseUp(const wxMouseEvent& me) {
     left_mouse = false;
@@ -70,6 +72,16 @@ class ImagePanel : public wxPanel
     OnMouse(me);
   }
 
+  void TrackUtil(int& left, int x, int image_x, float scale_, int width, bool track_left, bool inverted) {
+    if( track_left ) {
+      int new_left = std::min(width, std::max(0, static_cast<int>((x - image_x) / scale_)));
+      if( new_left != left) {
+        left = inverted ? width - new_left : new_left;
+        Refresh();
+      }
+    }
+  }
+
   void OnMouse(const wxMouseEvent& me) {
     const int x = me.GetX();
     const int y = me.GetY();
@@ -77,7 +89,13 @@ class ImagePanel : public wxPanel
     const bool is_tracking = track_left || track_right || track_top || track_bottom;
 
     if( is_tracking ) {
-      if( !left_mouse ) {
+      if( left_mouse ) {
+        TrackUtil(left, me.GetX(), image_x, scale_, image.GetWidth(), track_left, false);
+        TrackUtil(right, me.GetX(), image_x, scale_, image.GetWidth(), track_right, true);
+        TrackUtil(top, me.GetY(), image_y, scale_, image.GetHeight(), track_top, false);
+        TrackUtil(bottom, me.GetY(), image_y, scale_, image.GetHeight(), track_bottom, true);
+      }
+      else {
         track_left = track_right = track_top = track_bottom = false;
       }
     }
@@ -230,8 +248,8 @@ class ImagePanel : public wxPanel
     const int w = static_cast<int>(image.GetWidth() * scale_);
     const int h = static_cast<int>(image.GetHeight() * scale_);
 
-    const int image_x = (window_width - w)/2;
-    const int image_y = (window_height - h)/2;
+    image_x = (window_width - w)/2;
+    image_y = (window_height - h)/2;
 
     DrawImage(dc, image_x, image_y, w, h);
 
