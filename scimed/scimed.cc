@@ -1,5 +1,7 @@
 #include "scimed/wx.h"
 #include <wx/sizer.h>
+#include <wx/dcbuffer.h>
+#include <wx/dcgraph.h>
 
 // todo:
 // add loading, zooming and panning in image
@@ -15,9 +17,14 @@ class ImagePanel : public wxPanel
   bool displayImage_;
   float scale_;
 
+  int left;
+  int right;
+  int top;
+  int bottom;
+
  public:
   explicit ImagePanel(wxFrame* parent)
-      : wxPanel(parent), displayImage_(false), scale_(8.0f)
+      : wxPanel(parent), displayImage_(false), scale_(8.0f), left(10), right(10), top(10), bottom(10)
   {
     Bind(wxEVT_SIZE, &ImagePanel::OnSize, this);
     Bind(wxEVT_PAINT, &ImagePanel::OnPaint, this);
@@ -50,12 +57,60 @@ class ImagePanel : public wxPanel
     return displayImage_;
   }
 
+  static void VerticalLine(wxDC& dc, int left) {
+    int window_width, window_height;
+    dc.GetSize( &window_width, &window_height );
+    dc.DrawLine(left, 0, left, window_height);
+  }
+
+  static void HorizontalLine(wxDC& dc, int y) {
+    int window_width, window_height;
+    dc.GetSize( &window_width, &window_height );
+    dc.DrawLine(0, y, window_width, y);
+  }
+
   void OnPaint(wxPaintEvent & evt) {
+    const bool useBuffer = false;
+
+    if ( useBuffer )
+    {
+      wxBufferedPaintDC bpdc(this);
+      Draw(bpdc);
+    }
+    else
+    {
+      wxPaintDC pdc(this);
+      Draw(pdc);
+    }
+  }
+
+  void Draw(wxDC& pdc) {
+    wxGCDC gdc;
+
     if(displayImage_ == false) {
       return;
     }
 
-    wxPaintDC dc(this);
+    wxGraphicsRenderer* renderer = wxGraphicsRenderer::GetDefaultRenderer();
+    assert(renderer);
+
+    wxGraphicsContext* context;
+    if ( wxPaintDC *paintdc = wxDynamicCast(&pdc, wxPaintDC) )
+    {
+      context = renderer->CreateContext(*paintdc);
+    }
+    else if ( wxMemoryDC *memdc = wxDynamicCast(&pdc, wxMemoryDC) )
+    {
+      context = renderer->CreateContext(*memdc);
+    }
+    else
+    {
+      wxFAIL_MSG( "Unknown wxDC kind" );
+      return;
+    }
+
+    gdc.SetGraphicsContext(context);
+    wxDC &dc = (wxDC&) gdc;
 
     int window_width, window_height;
     dc.GetSize( &window_width, &window_height );
@@ -68,39 +123,55 @@ class ImagePanel : public wxPanel
 
     DrawImage(dc, image_x, image_y, w, h);
 
-    const int ruler_size = 20;
-    const int big_mark_size = 15;
-    const int small_mark_size = 5;
-    const int mark_index = 5;
+    const bool draw_ruler = true;
+    const bool draw_guides = true;
 
-    wxBrush ruler_background(wxColour(246, 247, 249), wxSOLID);
-    wxPen mark_color(wxColour(0, 0, 0), 1, wxSOLID);
-    // wxPen cursor_color(wxColour(255, 0, 0), 1, wxSHORT_DASH);
+    if( draw_guides ) {
+      wxPen guide_pen(wxColour(0, 255, 0));
+      guide_pen.SetStyle(wxPENSTYLE_SHORT_DASH);
+      dc.SetPen(guide_pen);
 
-    wxFont ruler_font(8, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL);
+      VerticalLine(dc, static_cast<int>(image_x + left * scale_));
+      VerticalLine(dc, static_cast<int>(image_x + (image.GetWidth()-right) * scale_));
 
-    dc.SetBrush(ruler_background);
-    dc.SetPen(*wxTRANSPARENT_PEN);
-    dc.DrawRectangle(0, 0, ruler_size, window_height);
-    dc.DrawRectangle(0, 0, window_width, ruler_size);
+      HorizontalLine(dc, static_cast<int>(image_y + top * scale_));
+      HorizontalLine(dc, static_cast<int>(image_y + (image.GetHeight()-bottom) * scale_));
+    }
 
-    dc.SetPen(mark_color);
-    dc.DrawLine(0, ruler_size, window_width, ruler_size);
-    dc.DrawLine(ruler_size, 0, ruler_size, window_height);
 
-    dc.SetFont(ruler_font);
-    DrawTopRuler(dc, image_x, mark_index, big_mark_size, small_mark_size, ruler_size, 0, window_width, scale_, 1);
-    DrawTopRuler(dc, image_x, mark_index, big_mark_size, small_mark_size, ruler_size, 0, window_width, scale_, -1);
+    if( draw_ruler ) {
+      const int ruler_size = 20;
+      const int big_mark_size = 15;
+      const int small_mark_size = 5;
+      const int mark_index = 5;
 
-    DrawLeftRuler(dc, image_y, mark_index, big_mark_size, small_mark_size, ruler_size, 0, window_height, scale_, 1);
-    DrawLeftRuler(dc, image_y, mark_index, big_mark_size, small_mark_size, ruler_size, 0, window_height, scale_, -1);
+      wxBrush ruler_background(wxColour(246, 247, 249), wxSOLID);
+      wxPen mark_color(wxColour(0, 0, 0), 1, wxSOLID);
+      wxFont ruler_font(8, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL);
 
-    dc.SetPen(*wxTRANSPARENT_PEN);
-    dc.DrawRectangle(0, 0, ruler_size, ruler_size);
-    dc.SetPen(mark_color);
-    wxString zoom_text = wxString::Format("%.0fx", scale_);
-    const int zoom_x = (ruler_size - dc.GetTextExtent(zoom_text).GetWidth()) / 2;
-    dc.DrawText(zoom_text, zoom_x, 4);
+      dc.SetBrush(ruler_background);
+      dc.SetPen(*wxTRANSPARENT_PEN);
+      dc.DrawRectangle(0, 0, ruler_size, window_height);
+      dc.DrawRectangle(0, 0, window_width, ruler_size);
+
+      dc.SetPen(mark_color);
+      dc.DrawLine(0, ruler_size, window_width, ruler_size);
+      dc.DrawLine(ruler_size, 0, ruler_size, window_height);
+
+      dc.SetFont(ruler_font);
+      DrawTopRuler(dc, image_x, mark_index, big_mark_size, small_mark_size, ruler_size, 0, window_width, scale_, 1);
+      DrawTopRuler(dc, image_x, mark_index, big_mark_size, small_mark_size, ruler_size, 0, window_width, scale_, -1);
+
+      DrawLeftRuler(dc, image_y, mark_index, big_mark_size, small_mark_size, ruler_size, 0, window_height, scale_, 1);
+      DrawLeftRuler(dc, image_y, mark_index, big_mark_size, small_mark_size, ruler_size, 0, window_height, scale_, -1);
+
+      dc.SetPen(*wxTRANSPARENT_PEN);
+      dc.DrawRectangle(0, 0, ruler_size, ruler_size);
+      dc.SetPen(mark_color);
+      wxString zoom_text = wxString::Format("%.0fx", scale_);
+      const int zoom_x = (ruler_size - dc.GetTextExtent(zoom_text).GetWidth()) / 2;
+      dc.DrawText(zoom_text, zoom_x, 4);
+    }
   }
 
   static void DrawTopRuler(wxDC& dc, int image_x, int mark_index, int big_mark_size, int small_mark_size, int ruler_size, int start_index, int end_index, float scale_, int step) {
@@ -138,7 +209,7 @@ class ImagePanel : public wxPanel
     }
   }
 
-  void DrawImage(wxPaintDC& dc, int x, int y, int neww, int newh) {
+  void DrawImage(wxDC& dc, int x, int y, int neww, int newh) {
     if( neww != w || newh != h ) {
       resized = wxBitmap( image.Scale( neww, newh /*, wxIMAGE_QUALITY_HIGH*/ ) );
       w = neww;
