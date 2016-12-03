@@ -23,6 +23,13 @@ class ImagePanel : public wxPanel
   int bottom;
 
   wxStockCursor last_cursor_;
+  bool left_mouse;
+  bool last_left_mouse;
+
+  bool track_left;
+  bool track_right;
+  bool track_top;
+  bool track_bottom;
 
   int draw_left;
   int draw_right;
@@ -31,12 +38,15 @@ class ImagePanel : public wxPanel
 
  public:
   explicit ImagePanel(wxFrame* parent)
-      : wxPanel(parent), displayImage_(false), scale_(8.0f), left(10), right(10), top(10), bottom(10), last_cursor_(wxCURSOR_ARROW)
+      : wxPanel(parent), displayImage_(false), scale_(8.0f), left(10), right(10), top(10), bottom(10), last_cursor_(wxCURSOR_ARROW), left_mouse(false), last_left_mouse(false)
+      , track_left(false), track_right(false), track_top(false), track_bottom(false)
   {
     Bind(wxEVT_SIZE, &ImagePanel::OnSize, this);
     Bind(wxEVT_PAINT, &ImagePanel::OnPaint, this);
     Bind(wxEVT_MOUSEWHEEL, &ImagePanel::OnMouseWheel, this);
     Bind(wxEVT_MOTION, &ImagePanel::OnMouseMove, this);
+    Bind(wxEVT_LEFT_DOWN, &ImagePanel::OnMouseDown, this);
+    Bind(wxEVT_LEFT_UP, &ImagePanel::OnMouseUp, this);
   }
 
   static bool KindaTheSame(int lhs, int rhs) {
@@ -45,34 +55,70 @@ class ImagePanel : public wxPanel
 
 
 
+  void OnMouseUp(const wxMouseEvent& me) {
+    left_mouse = false;
+    OnMouse(me);
+    OnMouse(me);
+  }
+
+  void OnMouseDown(const wxMouseEvent& me) {
+    left_mouse = true;
+    OnMouse(me);
+  }
+
   void OnMouseMove(const wxMouseEvent& me) {
+    OnMouse(me);
+  }
+
+  void OnMouse(const wxMouseEvent& me) {
     const int x = me.GetX();
     const int y = me.GetY();
 
-    const bool over_left = KindaTheSame(x, draw_left);
-    const bool over_right = KindaTheSame(x, draw_right);
-    const bool over_top = KindaTheSame(y, draw_top);
-    const bool over_bottom = KindaTheSame(y, draw_bottom);
+    const bool is_tracking = track_left || track_right || track_top || track_bottom;
 
-    const bool hor = over_left != over_right;
-    const bool vert = over_top != over_bottom;
+    if( is_tracking ) {
+      if( !left_mouse ) {
+        track_left = track_right = track_top = track_bottom = false;
+      }
+    }
+    else {
 
-    wxStockCursor cursor = last_cursor_;
+      const bool over_left = KindaTheSame(x, draw_left);
+      const bool over_right = KindaTheSame(x, draw_right);
+      const bool over_top = KindaTheSame(y, draw_top);
+      const bool over_bottom = KindaTheSame(y, draw_bottom);
 
-    if( hor && vert ) {
-      cursor = wxCURSOR_SIZENESW;
-    } else if (hor){
-      cursor = wxCURSOR_SIZEWE;
-    } else if (vert){
-      cursor = wxCURSOR_SIZENS;
-    } else {
-      cursor = wxCURSOR_ARROW;
+      const bool hor = over_left != over_right;
+      const bool vert = over_top != over_bottom;
+
+      const bool is_over = hor || vert;
+
+      if( left_mouse && !last_left_mouse && is_over ) {
+        track_left = over_left;
+        track_right = over_right;
+        track_top = over_top;
+        track_bottom = over_bottom;
+      }
+
+      wxStockCursor cursor = last_cursor_;
+
+      if( hor && vert ) {
+        cursor = wxCURSOR_SIZENESW;
+      } else if (hor){
+        cursor = wxCURSOR_SIZEWE;
+      } else if (vert){
+        cursor = wxCURSOR_SIZENS;
+      } else {
+        cursor = wxCURSOR_ARROW;
+      }
+
+      if( cursor != last_cursor_) {
+        SetCursor(wxCursor(cursor));
+        last_cursor_ = cursor;
+      }
     }
 
-    if( cursor != last_cursor_) {
-      SetCursor(wxCursor(cursor));
-      last_cursor_ = cursor;
-    }
+    last_left_mouse = left_mouse;
   }
 
   void OnMouseWheel(const wxMouseEvent& me) {
@@ -340,31 +386,7 @@ class ImagePanel : public wxPanel
     //skip the event.
     event.Skip();
   }
-
-  // some useful events
-  /*
-   void mouseMoved(wxMouseEvent& event);
-   void mouseDown(wxMouseEvent& event);
-   void mouseWheelMoved(wxMouseEvent& event);
-   void mouseReleased(wxMouseEvent& event);
-   void rightClick(wxMouseEvent& event);
-   void mouseLeftWindow(wxMouseEvent& event);
-   void keyPressed(wxKeyEvent& event);
-   void keyReleased(wxKeyEvent& event);
-   */
 };
-
-// some useful events
-/*
- void ImagePanel::mouseMoved(wxMouseEvent& event) {}
- void ImagePanel::mouseDown(wxMouseEvent& event) {}
- void ImagePanel::mouseWheelMoved(wxMouseEvent& event) {}
- void ImagePanel::mouseReleased(wxMouseEvent& event) {}
- void ImagePanel::rightClick(wxMouseEvent& event) {}
- void ImagePanel::mouseLeftWindow(wxMouseEvent& event) {}
- void ImagePanel::keyPressed(wxKeyEvent& event) {}
- void ImagePanel::keyReleased(wxKeyEvent& event) {}
- */
 
 class MyFrame: public wxFrame
 {
