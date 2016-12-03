@@ -92,6 +92,20 @@ class ImagePanel : public wxPanel
     dc.DrawLine(x, y, x+size, y);
   }
 
+  static void DrawHorizontalCenteredText(wxDC &dc, int left, int right, int y,
+                                         const wxString &s) {
+    const wxSize size = dc.GetTextExtent(s);
+    int x = left + (right-left)/2 - size.GetWidth()/2;
+    dc.DrawText(s, x, y - size.GetHeight());
+  }
+
+  static void DrawVerticalCenteredText(wxDC &dc, int top, int bottom, int x,
+                                         const wxString &s) {
+    const wxSize size = dc.GetTextExtent(s);
+    int y = top + (bottom-top)/2 - size.GetHeight()/2;
+    dc.DrawText(s, x - size.GetWidth() , y);
+  }
+
   void Draw(wxDC& pdc) {
     wxGCDC gdc;
 
@@ -152,25 +166,41 @@ class ImagePanel : public wxPanel
       const int anchor_size = 6;
 
       wxPen sizer_pen(wxColour(0, 0, 0));
+      wxFont sizer_font(8, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL);
       dc.SetPen(sizer_pen);
+      dc.SetFont(sizer_font);
 
       const int image_end_x = image_x + static_cast<int>(image.GetWidth()*scale_);
       const int anchor_y = image_y - distance;
-
-      const int image_end_y = image_y + static_cast<int>(image.GetHeight()*scale_);
-      const int anchor_x = image_x - distance;
+      const int at_left = image_x + static_cast<int>(left*scale_);
+      const int at_right = image_x + static_cast<int>((image.GetWidth() - right)*scale_);
+      const int text_y = anchor_y - 3;
 
       dc.DrawLine(image_x, anchor_y, image_end_x, anchor_y);
       DrawAnchorDown(dc, image_x, anchor_y, anchor_size);
-      DrawAnchorDown(dc, image_x + static_cast<int>(left*scale_), anchor_y, anchor_size);
-      DrawAnchorDown(dc, image_x + static_cast<int>((image.GetWidth() - right)*scale_), anchor_y, anchor_size);
+      DrawAnchorDown(dc, at_left, anchor_y, anchor_size);
+      DrawAnchorDown(dc, at_right, anchor_y, anchor_size);
       DrawAnchorDown(dc, image_end_x, anchor_y, anchor_size);
+
+      DrawHorizontalCenteredText(dc, image_x, at_left, text_y, wxString::Format("%d", left));
+      DrawHorizontalCenteredText(dc, at_left, at_right, text_y, wxString::Format("%d", image.GetWidth() - (left + right)));
+      DrawHorizontalCenteredText(dc, at_right, image_end_x, text_y, wxString::Format("%d", right));
+
+      const int image_end_y = image_y + static_cast<int>(image.GetHeight()*scale_);
+      const int anchor_x = image_x - distance;
+      const int at_top = image_y + static_cast<int>(top*scale_);
+      const int at_bottom = image_y + static_cast<int>((image.GetHeight() - bottom)*scale_);
+      const int text_x = anchor_x - 3;
 
       dc.DrawLine(anchor_x, image_y, anchor_x, image_end_y);
       DrawAnchorLeft(dc, anchor_x, image_y, anchor_size);
-      DrawAnchorLeft(dc, anchor_x, image_y + static_cast<int>(top*scale_), anchor_size);
-      DrawAnchorLeft(dc, anchor_x, image_y + static_cast<int>((image.GetHeight() - bottom)*scale_), anchor_size);
+      DrawAnchorLeft(dc, anchor_x, at_top, anchor_size);
+      DrawAnchorLeft(dc, anchor_x, at_bottom, anchor_size);
       DrawAnchorLeft(dc, anchor_x, image_end_y, anchor_size);
+
+      DrawVerticalCenteredText(dc, image_y, at_top, text_x, wxString::Format("%d", top));
+      DrawVerticalCenteredText(dc, at_top, at_bottom, text_x, wxString::Format("%d", image.GetHeight() - (top + bottom)));
+      DrawVerticalCenteredText(dc, at_bottom, image_end_y, text_x, wxString::Format("%d", bottom));
     }
 
     if( draw_ruler ) {
