@@ -84,6 +84,14 @@ class ImagePanel : public wxPanel
     }
   }
 
+  static void DrawAnchorDown(wxDC& dc, int x, int y, int size) {
+    dc.DrawLine(x, y, x, y+size);
+  }
+
+  static void DrawAnchorLeft(wxDC& dc, int x, int y, int size) {
+    dc.DrawLine(x, y, x+size, y);
+  }
+
   void Draw(wxDC& pdc) {
     wxGCDC gdc;
 
@@ -125,6 +133,7 @@ class ImagePanel : public wxPanel
 
     const bool draw_ruler = true;
     const bool draw_guides = true;
+    const bool draw_sizer = true;
 
     if( draw_guides ) {
       wxPen guide_pen(wxColour(0, 255, 0));
@@ -138,6 +147,31 @@ class ImagePanel : public wxPanel
       HorizontalLine(dc, static_cast<int>(image_y + (image.GetHeight()-bottom) * scale_));
     }
 
+    if( draw_sizer ) {
+      const int distance = 20;
+      const int anchor_size = 6;
+
+      wxPen sizer_pen(wxColour(0, 0, 0));
+      dc.SetPen(sizer_pen);
+
+      const int image_end_x = image_x + static_cast<int>(image.GetWidth()*scale_);
+      const int anchor_y = image_y - distance;
+
+      const int image_end_y = image_y + static_cast<int>(image.GetHeight()*scale_);
+      const int anchor_x = image_x - distance;
+
+      dc.DrawLine(image_x, anchor_y, image_end_x, anchor_y);
+      DrawAnchorDown(dc, image_x, anchor_y, anchor_size);
+      DrawAnchorDown(dc, image_x + static_cast<int>(left*scale_), anchor_y, anchor_size);
+      DrawAnchorDown(dc, image_x + static_cast<int>((image.GetWidth() - right)*scale_), anchor_y, anchor_size);
+      DrawAnchorDown(dc, image_end_x, anchor_y, anchor_size);
+
+      dc.DrawLine(anchor_x, image_y, anchor_x, image_end_y);
+      DrawAnchorLeft(dc, anchor_x, image_y, anchor_size);
+      DrawAnchorLeft(dc, anchor_x, image_y + static_cast<int>(top*scale_), anchor_size);
+      DrawAnchorLeft(dc, anchor_x, image_y + static_cast<int>((image.GetHeight() - bottom)*scale_), anchor_size);
+      DrawAnchorLeft(dc, anchor_x, image_end_y, anchor_size);
+    }
 
     if( draw_ruler ) {
       const int ruler_size = 20;
