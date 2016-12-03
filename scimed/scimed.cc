@@ -57,13 +57,54 @@ class ImagePanel : public wxPanel
 
     wxPaintDC dc(this);
 
-    int neww, newh;
-    dc.GetSize( &neww, &newh );
+    int window_width, window_height;
+    dc.GetSize( &window_width, &window_height );
 
     const int w = static_cast<int>(image.GetWidth() * scale_);
     const int h = static_cast<int>(image.GetHeight() * scale_);
 
-    DrawImage(dc, (neww - w)/2, (newh - h)/2, w, h);
+    const int image_x = (window_width - w)/2;
+    const int image_y = (window_height - h)/2;
+
+    DrawImage(dc, image_x, image_y, w, h);
+
+    const int ruler_size = 20;
+    const int big_mark_size = 15;
+    const int small_mark_size = 5;
+    const int mark_index = 5;
+
+    wxBrush ruler_background(wxColour(246, 247, 249), wxSOLID);
+    wxPen mark_color(wxColour(0, 0, 0), 1, wxSOLID);
+    // wxPen cursor_color(wxColour(255, 0, 0), 1, wxSHORT_DASH);
+
+    dc.SetBrush(ruler_background);
+    dc.SetPen(*wxTRANSPARENT_PEN);
+    dc.DrawRectangle(0, 0, ruler_size, window_height);
+    dc.DrawRectangle(0, 0, window_width, ruler_size);
+
+    dc.SetPen(mark_color);
+    dc.DrawLine(0, ruler_size, window_width, ruler_size);
+    dc.DrawLine(ruler_size, 0, ruler_size, window_height);
+
+    DrawTopRuler(dc, image_x, mark_index, big_mark_size, small_mark_size, ruler_size, 0, image.GetWidth(), scale_, 1);
+
+    DrawLeftRuler(dc, image_y, mark_index, big_mark_size, small_mark_size, ruler_size, 0, image.GetHeight(), scale_, 1);
+  }
+
+  static void DrawTopRuler(wxDC& dc, int image_x, int mark_index, int big_mark_size, int small_mark_size, int ruler_size, int start_index, int end_index, float scale_, int step) {
+    for(int index=start_index; index<end_index; index+=step) {
+      const int x = image_x + static_cast<int>(index * scale_);
+      const int size = (index % mark_index== 0)?big_mark_size:small_mark_size;
+      dc.DrawLine(x, ruler_size-size, x, ruler_size);
+    }
+  }
+
+  static void DrawLeftRuler(wxDC& dc, int image_y, int mark_index, int big_mark_size, int small_mark_size, int ruler_size, int start_index, int end_index, float scale_, int step) {
+    for(int index=start_index; index<end_index; index+=step) {
+      const int y = image_y + static_cast<int>(index * scale_);
+      const int size = (index % mark_index== 0)?big_mark_size:small_mark_size;
+      dc.DrawLine(ruler_size-size, y, ruler_size, y);
+    }
   }
 
   void DrawImage(wxPaintDC& dc, int x, int y, int neww, int newh) {
