@@ -7,7 +7,7 @@
 // add preview pane
 
 
-class wxImagePanel : public wxPanel
+class ImagePanel : public wxPanel
 {
   wxImage image;
   wxBitmap resized;
@@ -15,11 +15,11 @@ class wxImagePanel : public wxPanel
   bool displayImage_;
 
  public:
-  explicit wxImagePanel(wxFrame* parent)
+  explicit ImagePanel(wxFrame* parent)
       : wxPanel(parent), displayImage_(false)
   {
-    Bind(wxEVT_SIZE, &wxImagePanel::OnSize, this);
-    Bind(wxEVT_PAINT, &wxImagePanel::OnPaint, this);
+    Bind(wxEVT_SIZE, &ImagePanel::OnSize, this);
+    Bind(wxEVT_PAINT, &ImagePanel::OnPaint, this);
   }
 
   bool LoadImage(wxString file, wxBitmapType format) {
@@ -77,14 +77,14 @@ class wxImagePanel : public wxPanel
 
 // some useful events
 /*
- void wxImagePanel::mouseMoved(wxMouseEvent& event) {}
- void wxImagePanel::mouseDown(wxMouseEvent& event) {}
- void wxImagePanel::mouseWheelMoved(wxMouseEvent& event) {}
- void wxImagePanel::mouseReleased(wxMouseEvent& event) {}
- void wxImagePanel::rightClick(wxMouseEvent& event) {}
- void wxImagePanel::mouseLeftWindow(wxMouseEvent& event) {}
- void wxImagePanel::keyPressed(wxKeyEvent& event) {}
- void wxImagePanel::keyReleased(wxKeyEvent& event) {}
+ void ImagePanel::mouseMoved(wxMouseEvent& event) {}
+ void ImagePanel::mouseDown(wxMouseEvent& event) {}
+ void ImagePanel::mouseWheelMoved(wxMouseEvent& event) {}
+ void ImagePanel::mouseReleased(wxMouseEvent& event) {}
+ void ImagePanel::rightClick(wxMouseEvent& event) {}
+ void ImagePanel::mouseLeftWindow(wxMouseEvent& event) {}
+ void ImagePanel::keyPressed(wxKeyEvent& event) {}
+ void ImagePanel::keyReleased(wxKeyEvent& event) {}
  */
 
 class MyFrame: public wxFrame
@@ -96,7 +96,7 @@ class MyFrame: public wxFrame
     SetStatusText("");
 
     wxBoxSizer* sizer = new wxBoxSizer(wxHORIZONTAL);
-    drawPane = new wxImagePanel(this);
+    drawPane = new ImagePanel(this);
     sizer->Add(drawPane, 1, wxEXPAND);
     SetSizer(sizer);
 
@@ -108,7 +108,7 @@ class MyFrame: public wxFrame
   }
 
  private:
-  wxImagePanel * drawPane;
+  ImagePanel * drawPane;
   wxString title_;
   wxString filename_;
 
