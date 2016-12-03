@@ -5,11 +5,6 @@
 // add loading/saving and specifying areas
 // add preview pane
 
-enum
-{
-  ID_Hello = 1
-};
-
 class MyFrame: public wxFrame
 {
  public:
@@ -20,14 +15,17 @@ class MyFrame: public wxFrame
 
     Bind(wxEVT_COMMAND_MENU_SELECTED, &MyFrame::OnExit, this, wxID_EXIT);
     Bind(wxEVT_COMMAND_MENU_SELECTED, &MyFrame::OnAbout, this, wxID_ABOUT);
-    Bind(wxEVT_COMMAND_MENU_SELECTED, &MyFrame::OnHello, this, ID_Hello);
+    Bind(wxEVT_COMMAND_MENU_SELECTED, &MyFrame::OnSave, this, wxID_SAVE);
+    Bind(wxEVT_COMMAND_MENU_SELECTED, &MyFrame::OnSaveAs, this, wxID_SAVEAS);
+    Bind(wxEVT_COMMAND_MENU_SELECTED, &MyFrame::OnOpen, this, wxID_OPEN);
   }
 
  private:
   wxMenu* CreateFileMenu() {
     wxMenu *menuFile = new wxMenu;
-    menuFile->Append(ID_Hello, "&Hello...\tCtrl-H",
-                     "Help string shown in status bar for this menu item");
+    menuFile->Append(wxID_OPEN);
+    menuFile->Append(wxID_SAVE);
+    menuFile->Append(wxID_SAVEAS);
     menuFile->AppendSeparator();
     menuFile->Append(wxID_EXIT);
     return menuFile;
@@ -46,8 +44,13 @@ class MyFrame: public wxFrame
     return menuBar;
   }
 
-  void OnHello(wxCommandEvent& event){
-    wxLogMessage("Hello world from wxWidgets!");
+  void OnSave(wxCommandEvent& event){
+  }
+
+  void OnSaveAs(wxCommandEvent& event){
+  }
+
+  void OnOpen(wxCommandEvent& event){
   }
 
   void OnExit(wxCommandEvent& event){
