@@ -13,13 +13,28 @@ class ImagePanel : public wxPanel
   wxBitmap resized;
   int w, h;
   bool displayImage_;
+  float scale_;
 
  public:
   explicit ImagePanel(wxFrame* parent)
-      : wxPanel(parent), displayImage_(false)
+      : wxPanel(parent), displayImage_(false), scale_(1.0f)
   {
     Bind(wxEVT_SIZE, &ImagePanel::OnSize, this);
     Bind(wxEVT_PAINT, &ImagePanel::OnPaint, this);
+    Bind(wxEVT_MOUSEWHEEL, &ImagePanel::OnMouseWheel, this);
+  }
+
+  void OnMouseWheel(const wxMouseEvent& me) {
+    if( displayImage_ == false ) {
+      return;
+    }
+    if( me.GetWheelAxis() != wxMOUSE_WHEEL_VERTICAL) {
+      return;
+    }
+    const float scroll = me.GetWheelRotation()/static_cast<float>(me.GetWheelDelta());
+    scale_ =  std::max(0.1f, std::min(scale_ + scroll * 0.1f, 10.0f));
+
+    Refresh();
   }
 
   bool LoadImage(wxString file, wxBitmapType format) {
@@ -45,14 +60,21 @@ class ImagePanel : public wxPanel
     int neww, newh;
     dc.GetSize( &neww, &newh );
 
+    const int w = static_cast<int>(image.GetWidth() * scale_);
+    const int h = static_cast<int>(image.GetHeight() * scale_);
+
+    DrawImage(dc, (neww - w)/2, (newh - h)/2, w, h);
+  }
+
+  void DrawImage(wxPaintDC& dc, int x, int y, int neww, int newh) {
     if( neww != w || newh != h ) {
       resized = wxBitmap( image.Scale( neww, newh /*, wxIMAGE_QUALITY_HIGH*/ ) );
       w = neww;
       h = newh;
-      dc.DrawBitmap( resized, 0, 0, false );
+      dc.DrawBitmap( resized, x, y, false );
     }
     else {
-      dc.DrawBitmap( resized, 0, 0, false );
+      dc.DrawBitmap( resized, x, y, false );
     }
   }
 
