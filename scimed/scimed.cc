@@ -4,6 +4,7 @@
 #include <wx/dcgraph.h>
 
 #include "scalingsprite.pb.h"
+#include "scimed/wxproto.h"
 
 // todo:
 // add loading, zooming and panning in image
@@ -55,7 +56,7 @@ class ImagePanel : public wxPanel
     Bind(wxEVT_LEFT_UP, &ImagePanel::OnMouseUp, this);
   }
 
-  void SetRect(scalingsprite::Rect* r) {
+  void GetRect(scalingsprite::Rect* r) {
     r->set_left(left);
     r->set_right(right);
     r->set_top(top);
@@ -63,12 +64,26 @@ class ImagePanel : public wxPanel
     track_left = track_right = track_top = track_bottom = false;
   }
 
-  void GetRect(const scalingsprite::Rect& r) {
+  void SetRect(const scalingsprite::Rect& r) {
     left = r.left();
     right = r.right();
     top = r.top();
     bottom = r.bottom();
     track_left = track_right = track_top = track_bottom = false;
+    Refresh();
+  }
+
+  bool LoadImage(wxString file, wxBitmapType format) {
+    displayImage_ = image.LoadFile(file, format);
+    w = -1;
+    h = -1;
+    // displayImage_ = true;
+
+    if( displayImage_ ) {
+      Refresh();
+    }
+
+    return displayImage_;
   }
 
  private:
@@ -170,19 +185,6 @@ class ImagePanel : public wxPanel
     scale_ =  std::max(0.1f, std::min(scale_ + scroll * 0.1f, 10.0f));
 
     Refresh();
-  }
-
-  bool LoadImage(wxString file, wxBitmapType format) {
-    displayImage_ = image.LoadFile(file, format);
-    w = -1;
-    h = -1;
-    // displayImage_ = true;
-
-    if( displayImage_ ) {
-      Refresh();
-    }
-
-    return displayImage_;
   }
 
   static void VerticalLine(wxDC& dc, int left) {
@@ -491,6 +493,8 @@ class MyFrame: public wxFrame
     }
 
     // do saving...
+    drawPane->GetRect(data_.mutable_ninepatch()->mutable_draw());
+    SaveProtoText(data_, filename_ + ".txt");
   }
 
   void OnSaveAs(wxCommandEvent& event) {
@@ -511,6 +515,9 @@ class MyFrame: public wxFrame
 
     if( drawPane->LoadImage(openFileDialog.GetPath(), wxBITMAP_TYPE_PNG) ) {
       filename_ = openFileDialog.GetPath();
+
+      LoadProtoText(&data_, filename_ + ".txt");
+      drawPane->SetRect(data_.ninepatch().draw());
     }
     else {
       filename_ = "";
