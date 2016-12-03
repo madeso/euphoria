@@ -1,17 +1,104 @@
 #include "scimed/wx.h"
+#include <wx/sizer.h>
 
 // todo:
 // add loading, zooming and panning in image
 // add loading/saving and specifying areas
 // add preview pane
 
+
+class wxImagePanel : public wxPanel
+{
+  wxImage image;
+  wxBitmap resized;
+  int w, h;
+  bool displayImage_;
+
+ public:
+  explicit wxImagePanel(wxFrame* parent)
+      : wxPanel(parent), displayImage_(false)
+  {
+    Bind(wxEVT_SIZE, &wxImagePanel::OnSize, this);
+    Bind(wxEVT_PAINT, &wxImagePanel::OnPaint, this);
+  }
+
+  bool LoadImage(wxString file, wxBitmapType format) {
+    displayImage_ = image.LoadFile(file, format);
+    w = -1;
+    h = -1;
+    // displayImage_ = true;
+
+    if( displayImage_ ) {
+      Refresh();
+    }
+
+    return displayImage_;
+  }
+
+  void OnPaint(wxPaintEvent & evt) {
+    if(displayImage_ == false) {
+      return;
+    }
+
+    wxPaintDC dc(this);
+
+    int neww, newh;
+    dc.GetSize( &neww, &newh );
+
+    if( neww != w || newh != h ) {
+      resized = wxBitmap( image.Scale( neww, newh /*, wxIMAGE_QUALITY_HIGH*/ ) );
+      w = neww;
+      h = newh;
+      dc.DrawBitmap( resized, 0, 0, false );
+    }
+    else {
+      dc.DrawBitmap( resized, 0, 0, false );
+    }
+  }
+
+  void OnSize(wxSizeEvent& event){
+    Refresh();
+    //skip the event.
+    event.Skip();
+  }
+
+  // some useful events
+  /*
+   void mouseMoved(wxMouseEvent& event);
+   void mouseDown(wxMouseEvent& event);
+   void mouseWheelMoved(wxMouseEvent& event);
+   void mouseReleased(wxMouseEvent& event);
+   void rightClick(wxMouseEvent& event);
+   void mouseLeftWindow(wxMouseEvent& event);
+   void keyPressed(wxKeyEvent& event);
+   void keyReleased(wxKeyEvent& event);
+   */
+};
+
+// some useful events
+/*
+ void wxImagePanel::mouseMoved(wxMouseEvent& event) {}
+ void wxImagePanel::mouseDown(wxMouseEvent& event) {}
+ void wxImagePanel::mouseWheelMoved(wxMouseEvent& event) {}
+ void wxImagePanel::mouseReleased(wxMouseEvent& event) {}
+ void wxImagePanel::rightClick(wxMouseEvent& event) {}
+ void wxImagePanel::mouseLeftWindow(wxMouseEvent& event) {}
+ void wxImagePanel::keyPressed(wxKeyEvent& event) {}
+ void wxImagePanel::keyReleased(wxKeyEvent& event) {}
+ */
+
 class MyFrame: public wxFrame
 {
  public:
-  MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size) : wxFrame(NULL, wxID_ANY, title, pos, size) {
+  MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size) : wxFrame(NULL, wxID_ANY, title, pos, size), title_(title) {
     SetMenuBar(CreateMenuBar());
     CreateStatusBar();
-    SetStatusText("Welcome to wxWidgets!");
+    SetStatusText("");
+
+    wxBoxSizer* sizer = new wxBoxSizer(wxHORIZONTAL);
+    drawPane = new wxImagePanel(this);
+    sizer->Add(drawPane, 1, wxEXPAND);
+    SetSizer(sizer);
 
     Bind(wxEVT_COMMAND_MENU_SELECTED, &MyFrame::OnExit, this, wxID_EXIT);
     Bind(wxEVT_COMMAND_MENU_SELECTED, &MyFrame::OnAbout, this, wxID_ABOUT);
@@ -21,6 +108,19 @@ class MyFrame: public wxFrame
   }
 
  private:
+  wxImagePanel * drawPane;
+  wxString title_;
+  wxString filename_;
+
+  void UpdateTitle() {
+    if( filename_.IsEmpty() ) {
+      SetTitle( title_ );
+    }
+    else {
+      SetTitle( title_ + " - " + filename_ );
+    }
+  }
+
   wxMenu* CreateFileMenu() {
     wxMenu *menuFile = new wxMenu;
     menuFile->Append(wxID_OPEN);
@@ -45,12 +145,37 @@ class MyFrame: public wxFrame
   }
 
   void OnSave(wxCommandEvent& event){
+    if( filename_.IsEmpty() ) {
+      OnSaveAs(event);
+      return;
+    }
+
+    // do saving...
   }
 
-  void OnSaveAs(wxCommandEvent& event){
+  void OnSaveAs(wxCommandEvent& event) {
+    wxFileDialog saveFileDialog(this, _("Save scim file"), "", "", "SCIM files (*.png)|*.png", wxFD_SAVE|wxFD_OVERWRITE_PROMPT);
+    if (saveFileDialog.ShowModal() == wxID_CANCEL) {
+      return;
+    }
+    filename_ = saveFileDialog.GetPath();
+    UpdateTitle();
+    OnSave(event);
   }
 
-  void OnOpen(wxCommandEvent& event){
+  void OnOpen(wxCommandEvent& event) {
+    wxFileDialog openFileDialog(this, _("Open scim file"), "", "", "SCIM files (*.png)|*.png", wxFD_OPEN|wxFD_FILE_MUST_EXIST);
+    if (openFileDialog.ShowModal() == wxID_CANCEL) {
+      return;
+    }
+
+    if( drawPane->LoadImage(openFileDialog.GetPath(), wxBITMAP_TYPE_PNG) ) {
+      filename_ = openFileDialog.GetPath();
+    }
+    else {
+      filename_ = "";
+    }
+    UpdateTitle();
   }
 
   void OnExit(wxCommandEvent& event){
@@ -68,6 +193,7 @@ class MyApp: public wxApp
 {
  public:
   virtual bool OnInit() {
+    wxInitAllImageHandlers();
     MyFrame *frame = new MyFrame( "Scimed", wxPoint(50, 50), wxSize(450, 340) );
     frame->Show( true );
     return true;
