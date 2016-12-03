@@ -17,7 +17,7 @@ class ImagePanel : public wxPanel
 
  public:
   explicit ImagePanel(wxFrame* parent)
-      : wxPanel(parent), displayImage_(false), scale_(1.0f)
+      : wxPanel(parent), displayImage_(false), scale_(8.0f)
   {
     Bind(wxEVT_SIZE, &ImagePanel::OnSize, this);
     Bind(wxEVT_PAINT, &ImagePanel::OnPaint, this);
@@ -77,6 +77,8 @@ class ImagePanel : public wxPanel
     wxPen mark_color(wxColour(0, 0, 0), 1, wxSOLID);
     // wxPen cursor_color(wxColour(255, 0, 0), 1, wxSHORT_DASH);
 
+    wxFont ruler_font(10, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL);
+
     dc.SetBrush(ruler_background);
     dc.SetPen(*wxTRANSPARENT_PEN);
     dc.DrawRectangle(0, 0, ruler_size, window_height);
@@ -86,24 +88,46 @@ class ImagePanel : public wxPanel
     dc.DrawLine(0, ruler_size, window_width, ruler_size);
     dc.DrawLine(ruler_size, 0, ruler_size, window_height);
 
-    DrawTopRuler(dc, image_x, mark_index, big_mark_size, small_mark_size, ruler_size, 0, image.GetWidth(), scale_, 1);
+    dc.SetFont(ruler_font);
+    DrawTopRuler(dc, image_x, mark_index, big_mark_size, small_mark_size, ruler_size, 0, window_width, scale_, 1);
+    DrawTopRuler(dc, image_x, mark_index, big_mark_size, small_mark_size, ruler_size, 0, window_width, scale_, -1);
 
-    DrawLeftRuler(dc, image_y, mark_index, big_mark_size, small_mark_size, ruler_size, 0, image.GetHeight(), scale_, 1);
+    DrawLeftRuler(dc, image_y, mark_index, big_mark_size, small_mark_size, ruler_size, 0, window_height, scale_, 1);
+    DrawLeftRuler(dc, image_y, mark_index, big_mark_size, small_mark_size, ruler_size, 0, window_height, scale_, -1);
   }
 
   static void DrawTopRuler(wxDC& dc, int image_x, int mark_index, int big_mark_size, int small_mark_size, int ruler_size, int start_index, int end_index, float scale_, int step) {
-    for(int index=start_index; index<end_index; index+=step) {
+    for(int index=start_index; true; index+=step) {
       const int x = image_x + static_cast<int>(index * scale_);
-      const int size = (index % mark_index== 0)?big_mark_size:small_mark_size;
+      if( x < 0 && step < 0 ) return;
+      if( x > end_index ) return;
+      const bool big_size = index % mark_index== 0;
+      const int size = (big_size)?big_mark_size:small_mark_size;
       dc.DrawLine(x, ruler_size-size, x, ruler_size);
+
+      if( big_size ) {
+        wxString text;
+        text = wxString::Format("%d", index);
+        dc.DrawText(text, x+3, 0);
+      }
     }
   }
 
   static void DrawLeftRuler(wxDC& dc, int image_y, int mark_index, int big_mark_size, int small_mark_size, int ruler_size, int start_index, int end_index, float scale_, int step) {
-    for(int index=start_index; index<end_index; index+=step) {
+    for(int index=start_index; true; index+=step) {
       const int y = image_y + static_cast<int>(index * scale_);
-      const int size = (index % mark_index== 0)?big_mark_size:small_mark_size;
+      if( y < 0 && step < 0 ) return;
+      if( y > end_index ) return;
+      const bool big_size = index % mark_index== 0;
+      const int size = (big_size)?big_mark_size:small_mark_size;
       dc.DrawLine(ruler_size-size, y, ruler_size, y);
+
+      if( big_size ) {
+        wxString text;
+        text = wxString::Format("%d", index);
+        const wxSize extent = dc.GetTextExtent(text);
+        dc.DrawRotatedText(text, 3, y + 3 + extent.GetWidth(), 90);
+      }
     }
   }
 
