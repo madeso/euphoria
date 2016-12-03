@@ -242,13 +242,11 @@ std::shared_ptr<ScalableSprite> LoadScalableNinepatch(Texture2d* tex, ScalableSp
 }
 
 std::shared_ptr<ScalableSprite> LoadScalableSprite(const std::string& path, const glm::vec2& size, TextureCache* cache) {
-  std::string json_path = path + ".json";
   Texture2d* tex = cache->GetTexture(path);
   const ScalableSprite::SizeType size_type = ScalableSprite::SizeType::WORLD;
 
   scalingsprite::ScalingSprite sprite;
-  SaveProtoJson(sprite, path+".json");
-  SaveProtoJson(sprite, path+".txt");
+  LoadProtoText(&sprite, path+".txt");
 
   // only ninepatch supported...
   assert(sprite.has_ninepatch());
