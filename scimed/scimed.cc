@@ -22,13 +22,57 @@ class ImagePanel : public wxPanel
   int top;
   int bottom;
 
+  wxStockCursor last_cursor_;
+
+  int draw_left;
+  int draw_right;
+  int draw_top;
+  int draw_bottom;
+
  public:
   explicit ImagePanel(wxFrame* parent)
-      : wxPanel(parent), displayImage_(false), scale_(8.0f), left(10), right(10), top(10), bottom(10)
+      : wxPanel(parent), displayImage_(false), scale_(8.0f), left(10), right(10), top(10), bottom(10), last_cursor_(wxCURSOR_ARROW)
   {
     Bind(wxEVT_SIZE, &ImagePanel::OnSize, this);
     Bind(wxEVT_PAINT, &ImagePanel::OnPaint, this);
     Bind(wxEVT_MOUSEWHEEL, &ImagePanel::OnMouseWheel, this);
+    Bind(wxEVT_MOTION, &ImagePanel::OnMouseMove, this);
+  }
+
+  static bool KindaTheSame(int lhs, int rhs) {
+    return std::abs(lhs-rhs) < 5;
+  }
+
+
+
+  void OnMouseMove(const wxMouseEvent& me) {
+    const int x = me.GetX();
+    const int y = me.GetY();
+
+    const bool over_left = KindaTheSame(x, draw_left);
+    const bool over_right = KindaTheSame(x, draw_right);
+    const bool over_top = KindaTheSame(y, draw_top);
+    const bool over_bottom = KindaTheSame(y, draw_bottom);
+
+    const bool hor = over_left != over_right;
+    const bool vert = over_top != over_bottom;
+
+    wxStockCursor cursor = last_cursor_;
+
+    if( hor && vert ) {
+      cursor = wxCURSOR_SIZENESW;
+    } else if (hor){
+      cursor = wxCURSOR_SIZEWE;
+    } else if (vert){
+      cursor = wxCURSOR_SIZENS;
+    } else {
+      cursor = wxCURSOR_ARROW;
+    }
+
+    if( cursor != last_cursor_) {
+      SetCursor(wxCursor(cursor));
+      last_cursor_ = cursor;
+    }
   }
 
   void OnMouseWheel(const wxMouseEvent& me) {
@@ -149,6 +193,16 @@ class ImagePanel : public wxPanel
     const bool draw_guides = true;
     const bool draw_sizer = true;
 
+    const int at_left = image_x + static_cast<int>(left*scale_);
+    const int at_right = image_x + static_cast<int>((image.GetWidth() - right)*scale_);
+    const int at_top = image_y + static_cast<int>(top*scale_);
+    const int at_bottom = image_y + static_cast<int>((image.GetHeight() - bottom)*scale_);
+
+    draw_left = at_left;
+    draw_right = at_right;
+    draw_top = at_top;
+    draw_bottom = at_bottom;
+
     if( draw_guides ) {
       wxPen guide_pen(wxColour(0, 255, 0));
       guide_pen.SetStyle(wxPENSTYLE_SHORT_DASH);
@@ -172,8 +226,6 @@ class ImagePanel : public wxPanel
 
       const int image_end_x = image_x + static_cast<int>(image.GetWidth()*scale_);
       const int anchor_y = image_y - distance;
-      const int at_left = image_x + static_cast<int>(left*scale_);
-      const int at_right = image_x + static_cast<int>((image.GetWidth() - right)*scale_);
       const int text_y = anchor_y - 3;
 
       dc.DrawLine(image_x, anchor_y, image_end_x, anchor_y);
@@ -188,8 +240,6 @@ class ImagePanel : public wxPanel
 
       const int image_end_y = image_y + static_cast<int>(image.GetHeight()*scale_);
       const int anchor_x = image_x - distance;
-      const int at_top = image_y + static_cast<int>(top*scale_);
-      const int at_bottom = image_y + static_cast<int>((image.GetHeight() - bottom)*scale_);
       const int text_x = anchor_x - 3;
 
       dc.DrawLine(anchor_x, image_y, anchor_x, image_end_y);
