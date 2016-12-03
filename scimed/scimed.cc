@@ -3,6 +3,8 @@
 #include <wx/dcbuffer.h>
 #include <wx/dcgraph.h>
 
+#include "scalingsprite.pb.h"
+
 // todo:
 // add loading, zooming and panning in image
 // add loading/saving and specifying areas
@@ -52,6 +54,24 @@ class ImagePanel : public wxPanel
     Bind(wxEVT_LEFT_DOWN, &ImagePanel::OnMouseDown, this);
     Bind(wxEVT_LEFT_UP, &ImagePanel::OnMouseUp, this);
   }
+
+  void SetRect(scalingsprite::Rect* r) {
+    r->set_left(left);
+    r->set_right(right);
+    r->set_top(top);
+    r->set_bottom(bottom);
+    track_left = track_right = track_top = track_bottom = false;
+  }
+
+  void GetRect(const scalingsprite::Rect& r) {
+    left = r.left();
+    right = r.right();
+    top = r.top();
+    bottom = r.bottom();
+    track_left = track_right = track_top = track_bottom = false;
+  }
+
+ private:
 
   static bool KindaTheSame(int lhs, int rhs) {
     return std::abs(lhs-rhs) < 5;
@@ -430,6 +450,7 @@ class MyFrame: public wxFrame
   ImagePanel * drawPane;
   wxString title_;
   wxString filename_;
+  scalingsprite::ScalingSprite data_;
 
   void UpdateTitle() {
     if( filename_.IsEmpty() ) {

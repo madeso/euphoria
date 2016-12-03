@@ -5,6 +5,10 @@ file(GLOB app_src *.cc;*.h;*.inl)
 set(src ${app_src})
 source_group("" FILES ${app_src})
 
+include_directories(SYSTEM ${CMAKE_CURRENT_BINARY_DIR})
+PROTOBUF_GENERATE_CPP(SPRITE_PROTO_SRCS SPRITE_PROTO_HDRS ../proto/scalingsprite.proto)
+set(src ${src} ${SPRITE_PROTO_SRCS} ${SPRITE_PROTO_HDRS})
+
 add_executable(scimed WIN32 MACOSX_BUNDLE ${src})
 set_target_properties(scimed
                       PROPERTIES
