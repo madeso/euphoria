@@ -77,7 +77,7 @@ class ImagePanel : public wxPanel
     wxPen mark_color(wxColour(0, 0, 0), 1, wxSOLID);
     // wxPen cursor_color(wxColour(255, 0, 0), 1, wxSHORT_DASH);
 
-    wxFont ruler_font(10, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL);
+    wxFont ruler_font(8, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL);
 
     dc.SetBrush(ruler_background);
     dc.SetPen(*wxTRANSPARENT_PEN);
@@ -94,6 +94,13 @@ class ImagePanel : public wxPanel
 
     DrawLeftRuler(dc, image_y, mark_index, big_mark_size, small_mark_size, ruler_size, 0, window_height, scale_, 1);
     DrawLeftRuler(dc, image_y, mark_index, big_mark_size, small_mark_size, ruler_size, 0, window_height, scale_, -1);
+
+    dc.SetPen(*wxTRANSPARENT_PEN);
+    dc.DrawRectangle(0, 0, ruler_size, ruler_size);
+    dc.SetPen(mark_color);
+    wxString zoom_text = wxString::Format("%.0fx", scale_);
+    const int zoom_x = (ruler_size - dc.GetTextExtent(zoom_text).GetWidth()) / 2;
+    dc.DrawText(zoom_text, zoom_x, 4);
   }
 
   static void DrawTopRuler(wxDC& dc, int image_x, int mark_index, int big_mark_size, int small_mark_size, int ruler_size, int start_index, int end_index, float scale_, int step) {
