@@ -1,5 +1,10 @@
 #include "scimed/wx.h"
 
+// todo:
+// add loading, zooming and panning in image
+// add loading/saving and specifying areas
+// add preview pane
+
 class MyApp: public wxApp
 {
  public:
@@ -25,7 +30,7 @@ wxIMPLEMENT_APP(MyApp);
 
 bool MyApp::OnInit()
 {
-  MyFrame *frame = new MyFrame( "Hello World", wxPoint(50, 50), wxSize(450, 340) );
+  MyFrame *frame = new MyFrame( "Scimed", wxPoint(50, 50), wxSize(450, 340) );
   frame->Show( true );
   return true;
 }
@@ -38,12 +43,15 @@ MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
                    "Help string shown in status bar for this menu item");
   menuFile->AppendSeparator();
   menuFile->Append(wxID_EXIT);
+
   wxMenu *menuHelp = new wxMenu;
   menuHelp->Append(wxID_ABOUT);
+
   wxMenuBar *menuBar = new wxMenuBar;
   menuBar->Append( menuFile, "&File" );
   menuBar->Append( menuHelp, "&Help" );
   SetMenuBar( menuBar );
+
   CreateStatusBar();
   SetStatusText( "Welcome to wxWidgets!" );
 
@@ -59,8 +67,8 @@ void MyFrame::OnExit(wxCommandEvent& event)
 
 void MyFrame::OnAbout(wxCommandEvent& event)
 {
-  wxMessageBox( "This is a wxWidgets' Hello world sample",
-                "About Hello World", wxOK | wxICON_INFORMATION );
+  wxMessageBox( "Scimed - the Scalable Image Editor",
+                "About Scimed", wxOK | wxICON_INFORMATION );
 }
 
 void MyFrame::OnHello(wxCommandEvent& event)
