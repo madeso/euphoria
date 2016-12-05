@@ -31,6 +31,7 @@ class EnemyWord {
 
   const std::string& GetWord() const;
   const glm::vec2& GetPosition() const;
+  const glm::vec2 GetSize() const;
 
   void Damage();
   bool IsDestroyed() const;

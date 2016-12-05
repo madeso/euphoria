@@ -18,7 +18,7 @@ class Interpolate {
   explicit Interpolate(Type v) : value_(v), from_(v), delta_(0.0f) {}
 
   const Type& GetValue() const { assert(this); return value_; }
-  void SetValue(const Type& t) { assert(this); value_ = t; Clear(); }
+  This& SetValue(const Type& t) { assert(this); value_ = t; Clear(); return *this; }
   operator const Type&() const { assert(this); return GetValue(); }
   void operator=(const Type& rhs) { assert(this); SetValue(rhs); }
 
@@ -33,6 +33,7 @@ class Interpolate {
     delta_ += dt / d.time;
     if( delta_ > 1.0f) {
       delta_ -= 1.0f; // not really correct, but works for now
+      value_ = d.target;
       data_.pop_front();
       if( !data_.empty() ) {
         from_ = value_;

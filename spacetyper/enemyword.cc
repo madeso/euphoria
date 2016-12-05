@@ -124,6 +124,11 @@ const glm::vec2& EnemyWord::GetPosition() const {
   return sprite_.GetPosition();
 }
 
+const glm::vec2 EnemyWord::GetSize() const {
+  assert(this);
+  return glm::vec2(sprite_.GetWidth(), sprite_.GetHeight());
+}
+
 void EnemyWord::Damage() {
   assert(this);
   health_ -= 1;

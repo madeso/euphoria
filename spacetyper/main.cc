@@ -75,7 +75,7 @@ int main(int argc, char** argv) {
   Shader back_shader(shader_source_back_vert, shader_source_back_frag);
   Font font(&font_shader, "SourceCodePro-Regular.ttf", 30, " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ;:,.-_<>|1234567890!\"#¤%&/()'=?@£$€¥{[]}\\'*");
   // (cache.GetTexture("metalPanel_blueCorner.png"), 62, 14, 33, 14, glm::vec2(240, 240));
-  std::shared_ptr<ScalableSprite> ninepatch = LoadScalableSprite("metalPanel_blueCorner.png", glm::vec2(240, 240), &cache);
+  std::shared_ptr<ScalableSprite> target = LoadScalableSprite("crossair_white.png", glm::vec2(100, 100), &cache);
   SpriteRenderer renderer(&shader);
 
 
@@ -148,7 +148,9 @@ int main(int argc, char** argv) {
   enemies.SpawnEnemies(5);
 
   FloatInterpolate player_rotation(0.0f);
-  const float ROTATION_TIME = 0.3f;
+  const float ROTATION_TIME = 0.5f;
+
+  FloatInterpolate target_scale(1.0f);
 
   bool running = true;
   while (running) {
@@ -168,6 +170,7 @@ int main(int argc, char** argv) {
           if( current_word != nullptr ) {
             const float target_rotation = enemies.FireAt(shipPos, current_word);
             player_rotation.Clear().CircOut(target_rotation, ROTATION_TIME);
+            target_scale.SetValue(10.0f).Clear().CircOut(1.0f, ROTATION_TIME);
           }
         }
         else {
@@ -192,6 +195,7 @@ int main(int argc, char** argv) {
     bullets.Update(dt);
     fader.Update(dt);
     player_rotation.Update(dt);
+    target_scale.Update(dt);
     player.SetRotation(player_rotation);
 
     glClearColor(42.0f / 255, 45.0f / 255, 51.0f / 255, 1.0f);
@@ -201,7 +205,10 @@ int main(int argc, char** argv) {
     enemies.Render();
     foreground.Render();
     // dont render ninepatch unless we are in a meny = not yet implemented :)
-    // renderer.DrawNinepatch(ninepatch, glm::vec2(200,200));
+    if( current_word != nullptr ) {
+      target->SetClientSize(current_word->GetSize() * target_scale.GetValue());
+      renderer.DrawNinepatch(*target.get(), current_word->GetPosition() - target->GetSize()/2.0f - target->GetClientOffset());
+    }
     SDL_GL_SwapWindow(window);
   }
 
