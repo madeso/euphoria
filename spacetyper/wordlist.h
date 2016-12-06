@@ -9,7 +9,7 @@ class Wordlist {
  public:
   Wordlist(const std::string& path);
 
-  const std::string& RandomWord() const;
+  const std::string RandomWord() const;
 
  private:
   mutable std::mt19937 generator_;

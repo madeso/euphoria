@@ -14,7 +14,10 @@ Wordlist::Wordlist(const std::string& path) : generator_(std::random_device()())
   }
 }
 
-const std::string& Wordlist::RandomWord() const {
+const std::string Wordlist::RandomWord() const {
   const size_t index = std::uniform_int_distribution<size_t>(0, words_.size())(generator_);
-  return words_[index];
+  std::cout << index << " ";
+  std::string w = words_[index];
+  std::cout << w << "\n";
+  return w;
 }
