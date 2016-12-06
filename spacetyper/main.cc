@@ -171,7 +171,7 @@ int main(int argc, char** argv) {
           if( current_word != nullptr ) {
             const float target_rotation = enemies.FireAt(shipPos, current_word);
             player_rotation.Clear().BackOut(target_rotation, ROTATION_TIME);
-            target_scale.SetValue(15.0f).Clear().CircOut(1.0f, SCALE_TIME);
+            target_scale.SetValue(19.0f).Clear().CircOut(1.0f, SCALE_TIME);
           }
         }
         else {
