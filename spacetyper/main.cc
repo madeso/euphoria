@@ -149,6 +149,7 @@ int main(int argc, char** argv) {
 
   FloatInterpolate player_rotation(0.0f);
   const float ROTATION_TIME = 0.5f;
+  const float SCALE_TIME = 0.6f;
 
   FloatInterpolate target_scale(1.0f);
 
@@ -169,21 +170,21 @@ int main(int argc, char** argv) {
           current_word = enemies.DetectWord(input);
           if( current_word != nullptr ) {
             const float target_rotation = enemies.FireAt(shipPos, current_word);
-            player_rotation.Clear().CircOut(target_rotation, ROTATION_TIME);
-            target_scale.SetValue(10.0f).Clear().CircOut(1.0f, ROTATION_TIME);
+            player_rotation.Clear().BackOut(target_rotation, ROTATION_TIME);
+            target_scale.SetValue(15.0f).Clear().CircOut(1.0f, SCALE_TIME);
           }
         }
         else {
           const bool hit = current_word->Type(input);
           if( hit ) {
             const float target_rotation = enemies.FireAt(shipPos, current_word);
-            player_rotation.Clear().CircOut(target_rotation, ROTATION_TIME);
+            player_rotation.Clear().BackOut(target_rotation, ROTATION_TIME);
           }
           if( current_word->IsAlive() == false ) {
             enemies.Remove(current_word);
             current_word = nullptr;
             const float target_rotation = 0.0f;
-            player_rotation.Clear().CircOut(target_rotation, ROTATION_TIME);
+            player_rotation.Clear().BackOut(target_rotation, ROTATION_TIME);
           }
         }
       }
