@@ -15,3 +15,23 @@ message Ninepatch {
 message ScalingSprite {
   optional Ninepatch ninepatch = 1;
 }
+
+/*
+updated code
+package ui;
+
+message Rect {
+  optional int32 left = 1 [default=10];
+  optional int32 right = 2 [default=10];
+  optional int32 top = 3 [default=10];
+  optional int32 bottom = 4 [default=10];
+}
+
+message ScalingSprite {
+  / * positive = absolute size, negative=abs percent size  * /
+  repated float32 rows = 1;
+  repated float32 cols = 2;
+  / * todo: add hidden cells * /
+  repeated Rect rects = 5;
+}
+*/
