@@ -58,47 +58,6 @@
 # IN THE SOFTWARE.
 #=============================================================================
 
-
-function(_gmock_append_debugs _endvar _library)
-  if(${_library} AND ${_library}_DEBUG)
-    set(_output optimized ${${_library}} debug ${${_library}_DEBUG})
-  else()
-    set(_output ${${_library}})
-  endif()
-  set(${_endvar} ${_output} PARENT_SCOPE)
-endfunction()
-
-function(_gmock_find_library _name)
-  find_library(${_name}
-               NAMES ${ARGN}
-               HINTS
-               $ENV{GMOCK_ROOT}
-               ${GMOCK_ROOT}
-               ${GMOCK_ROOT}/make
-               PATH_SUFFIXES ${_gmock_libpath_suffixes}
-               )
-    message("make is ${GMOCK_ROOT}/make")
-  mark_as_advanced(${_name})
-endfunction()
-
-
-if(NOT DEFINED GMOCK_MSVC_SEARCH)
-  set(GMOCK_MSVC_SEARCH MD)
-endif()
-
-set(_gmock_libpath_suffixes lib)
-if(MSVC)
-  if(GMOCK_MSVC_SEARCH STREQUAL "MD")
-    list(APPEND _gmock_libpath_suffixes
-         msvc/gmock-md/Debug
-         msvc/gmock-md/Release)
-  elseif(GMOCK_MSVC_SEARCH STREQUAL "MT")
-    list(APPEND _gmock_libpath_suffixes
-         msvc/gmock/Debug
-         msvc/gmock/Release)
-  endif()
-endif()
-
 find_path(GMOCK_INCLUDE_DIR gmock/gmock.h
           HINTS
           $ENV{GMOCK_ROOT}/include
@@ -106,27 +65,33 @@ find_path(GMOCK_INCLUDE_DIR gmock/gmock.h
           )
 mark_as_advanced(GMOCK_INCLUDE_DIR)
 
-if(MSVC AND GMOCK_MSVC_SEARCH STREQUAL "MD")
-  # The provided /MD project files for Google Mock add -md suffixes to the
-  # library names.
-  _gmock_find_library(GMOCK_LIBRARY            gmock-md  gmock)
-  _gmock_find_library(GMOCK_LIBRARY_DEBUG      gmock-mdd gmockd)
-  _gmock_find_library(GMOCK_MAIN_LIBRARY       gmock_main-md  gmock_main)
-  _gmock_find_library(GMOCK_MAIN_LIBRARY_DEBUG gmock_main-mdd gmock_maind)
-else()
-  _gmock_find_library(GMOCK_LIBRARY            gmock)
-  _gmock_find_library(GMOCK_LIBRARY_DEBUG      gmockd)
-  _gmock_find_library(GMOCK_MAIN_LIBRARY       gmock_main)
-  _gmock_find_library(GMOCK_MAIN_LIBRARY_DEBUG gmock_maind)
-endif()
+find_path(GTEST_INCLUDE_DIR gtest/gtest.h
+          HINTS
+          $ENV{GMOCK_ROOT}/../googletest/include
+          ${GMOCK_ROOT}/../googletest/include
+          )
+mark_as_advanced(GTEST_INCLUDE_DIR)
+
+find_path(GMOCK_SOURCE_DIR src/gmock-all.cc
+          HINTS
+          $ENV{GMOCK_ROOT}/
+          ${GMOCK_ROOT}/
+          )
+mark_as_advanced(GMOCK_SOURCE_DIR)
+
+find_path(GTEST_SOURCE_DIR src/gtest-all.cc
+          HINTS
+          $ENV{GMOCK_ROOT}/../googletest/
+          ${GMOCK_ROOT}/../googletest/
+          )
+mark_as_advanced(GTEST_SOURCE_DIR)
+
 
 include(FindPackageHandleStandardArgs)
-FIND_PACKAGE_HANDLE_STANDARD_ARGS(GMock DEFAULT_MSG GMOCK_LIBRARY GMOCK_INCLUDE_DIR GMOCK_MAIN_LIBRARY)
+FIND_PACKAGE_HANDLE_STANDARD_ARGS(GMock DEFAULT_MSG GMOCK_INCLUDE_DIR GMOCK_SOURCE_DIR GTEST_SOURCE_DIR)
 
 if(GMOCK_FOUND)
-  set(GMOCK_INCLUDE_DIRS ${GMOCK_INCLUDE_DIR})
-  _gmock_append_debugs(GMOCK_LIBRARIES      GMOCK_LIBRARY)
-  _gmock_append_debugs(GMOCK_MAIN_LIBRARIES GMOCK_MAIN_LIBRARY)
-  set(GMOCK_BOTH_LIBRARIES ${GMOCK_LIBRARIES} ${GMOCK_MAIN_LIBRARIES})
+  set(GMOCK_INCLUDE_DIRS ${GMOCK_INCLUDE_DIR} ${GTEST_INCLUDE_DIR} ${GMOCK_SOURCE_DIR} ${GTEST_SOURCE_DIR})
+  set(GMOCK_SOURCES ${GMOCK_SOURCE_DIR}/src/gmock-all.cc ${GTEST_SOURCE_DIR}/src/gtest-all.cc)
 endif()
 
