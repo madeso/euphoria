@@ -15,7 +15,7 @@ class Rect {
   Rect(T aleft, T aright, T atop, T abottom) : left(aleft), right(aright), bottom(abottom), top(atop) { }
  public:
   static Rect FromLeftRightTopBottom(T aleft, T aright, T atop, T abottom) { return Rect(aleft, aright, atop, abottom); }
-  static Rect FromTopLeftWidthHeight(T aleft, T atop, T width, T height) { return Rect(aleft, aleft + width, atop, atop + height); }
+  static Rect FromTopLeftWidthHeight(T atop, T aleft, T width, T height) { return Rect(aleft, aleft + width, atop, atop + height); }
   static Rect FromWidthHeight(T width, T height) { return Rect(0, width, 0, height); }
 
   T GetRelativeCenterX() const { return GetWidth() / 2;}
@@ -73,7 +73,7 @@ class Rect {
   }
 
   void OffsetTo(T newLeft, T newTop) {
-    *this = FromTopLeftWidthHeight(newLeft, newTop, GetWidth(), GetHeight());
+    *this = FromTopLeftWidthHeight(newTop, newLeft, GetWidth(), GetHeight());
   }
 
   Rect<T> OffsetToCopy(T newLeft, T newTop) const {

@@ -6,7 +6,7 @@
 // constructor tests
 
 GTEST(constructor_topleftwidthheight) {
-  auto r = Rect<int>::FromTopLeftWidthHeight(1, 2, 3, 4);
+  auto r = Rect<int>::FromTopLeftWidthHeight(2, 1, 3, 4);
 
   ASSERT_EQ(1, r.left);
   ASSERT_EQ(4, r.right); // left: 1, width: 3
@@ -135,7 +135,7 @@ GTEST(offset) {
 }
 
 GTEST(offset_to) {
-  const auto r = Rect<int>::FromTopLeftWidthHeight(12, 10, 5, 10).OffsetToCopy(1, 2);
+  const auto r = Rect<int>::FromTopLeftWidthHeight(10, 12, 5, 10).OffsetToCopy(1, 2);
 
   ASSERT_EQ(1, r.left);
   ASSERT_EQ(6, r.right);
@@ -165,7 +165,7 @@ GTEST(sizes) {
 }
 
 GTEST(center) {
-  const auto r = Rect<int>::FromTopLeftWidthHeight(2, 3, 6, 10);
+  const auto r = Rect<int>::FromTopLeftWidthHeight(3, 2, 6, 10);
   ASSERT_EQ(3, r.GetRelativeCenterX());
   ASSERT_EQ(5, r.GetRelativeCenterY());
 
