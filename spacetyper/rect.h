@@ -16,6 +16,7 @@ class Rect {
  public:
   static Rect FromLeftRightTopBottom(T aleft, T aright, T atop, T abottom) { return Rect(aleft, aright, atop, abottom); }
   static Rect FromLeftTopWidthHeight(T aleft, T atop, T width, T height) { return Rect(aleft, aleft + width, atop, atop + height); }
+  static Rect FromWidthHeight(T width, T height) { return Rect(0, width, 0, height); }
 
   T GetCenterX() const { return left + GetWidth() / 2;}
   T GetCenterY() const { return top + GetHeight() / 2; }
@@ -27,9 +28,16 @@ class Rect {
         && top < r.top && bottom > r.bottom;
   }
 
-  bool Contains(T x, T y) const {
+  // on the border is NOT considered included
+  bool ContainsExclusive(T x, T y) const {
     return left < x && right > x
            && top < y && bottom > y;
+  }
+
+  // on the border is considered included
+  bool ContainsInclusive(T x, T y) const {
+    return left <= x && right >= x
+           && top <= y && bottom >= y;
   }
 
   void Inset(T dx, T dy) {

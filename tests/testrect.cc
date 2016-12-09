@@ -3,11 +3,89 @@
 
 #define GTEST(X) TEST(rect, X)
 
-GTEST(basic) {
+// constructor tests
+
+GTEST(constructor_topleftwidthheight) {
   auto r = Rect<int>::FromLeftTopWidthHeight(1, 2, 3, 4);
 
   ASSERT_EQ(1, r.left);
+  ASSERT_EQ(4, r.right); // left: 1, width: 3
   ASSERT_EQ(2, r.top);
   ASSERT_EQ(6, r.bottom); // top: 2, height: 4
-  ASSERT_EQ(4, r.right); // left: 1, width: 3
+
+  ASSERT_FALSE(r.IsEmpty());
+}
+
+GTEST(constructor_widthheight) {
+  auto r = Rect<int>::FromWidthHeight(3, 4);
+
+  ASSERT_EQ(0, r.left);
+  ASSERT_EQ(3, r.right);
+  ASSERT_EQ(0, r.top);
+  ASSERT_EQ(4, r.bottom);
+
+  ASSERT_FALSE(r.IsEmpty());
+}
+
+GTEST(constructor_leftrighttopbottom) {
+  auto r = Rect<int>::FromLeftRightTopBottom(1, 2, 3, 4);
+
+  ASSERT_EQ(1, r.left);
+  ASSERT_EQ(2, r.right);
+  ASSERT_EQ(3, r.top);
+  ASSERT_EQ(4, r.bottom);
+
+  ASSERT_FALSE(r.IsEmpty());
+}
+
+// operation tests
+
+GTEST(contains_point_exclusive) {
+  const auto r = Rect<int>::FromWidthHeight(5, 5);
+
+  // inside
+  ASSERT_TRUE(r.ContainsExclusive(2, 2));
+
+  // outside negative
+  ASSERT_FALSE(r.ContainsExclusive(-2, 2));
+  ASSERT_FALSE(r.ContainsExclusive(2, -2));
+  ASSERT_FALSE(r.ContainsExclusive(-2, -2));
+
+  // outside positive
+  ASSERT_FALSE(r.ContainsExclusive(7, 2));
+  ASSERT_FALSE(r.ContainsExclusive(2, 7));
+  ASSERT_FALSE(r.ContainsExclusive(7, 7));
+
+  // on the border
+  ASSERT_FALSE(r.ContainsExclusive(0, 2));
+  ASSERT_FALSE(r.ContainsExclusive(2, 0));
+  ASSERT_FALSE(r.ContainsExclusive(0, 0));
+  ASSERT_FALSE(r.ContainsExclusive(2, 5));
+  ASSERT_FALSE(r.ContainsExclusive(5, 2));
+  ASSERT_FALSE(r.ContainsExclusive(5, 5));
+}
+
+GTEST(contains_point_inclusive) {
+  const auto r = Rect<int>::FromWidthHeight(5, 5);
+
+  // inside
+  ASSERT_TRUE(r.ContainsInclusive(2, 2));
+
+  // outside negative
+  ASSERT_FALSE(r.ContainsInclusive(-2, 2));
+  ASSERT_FALSE(r.ContainsInclusive(2, -2));
+  ASSERT_FALSE(r.ContainsInclusive(-2, -2));
+
+  // outside positive
+  ASSERT_FALSE(r.ContainsInclusive(7, 2));
+  ASSERT_FALSE(r.ContainsInclusive(2, 7));
+  ASSERT_FALSE(r.ContainsInclusive(7, 7));
+
+  // on the border
+  ASSERT_TRUE(r.ContainsInclusive(0, 2));
+  ASSERT_TRUE(r.ContainsInclusive(2, 0));
+  ASSERT_TRUE(r.ContainsInclusive(0, 0));
+  ASSERT_TRUE(r.ContainsInclusive(2, 5));
+  ASSERT_TRUE(r.ContainsInclusive(5, 2));
+  ASSERT_TRUE(r.ContainsInclusive(5, 5));
 }
