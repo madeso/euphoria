@@ -89,3 +89,61 @@ GTEST(contains_point_inclusive) {
   ASSERT_TRUE(r.ContainsInclusive(5, 2));
   ASSERT_TRUE(r.ContainsInclusive(5, 5));
 }
+
+GTEST(insert) {
+  const auto r = Rect<int>::FromWidthHeight(5, 10).Inseted(1, 2);
+
+  ASSERT_EQ(1, r.left);
+  ASSERT_EQ(4, r.right);
+  ASSERT_EQ(2, r.top);
+  ASSERT_EQ(8, r.bottom);
+}
+
+GTEST(offset) {
+  const auto r = Rect<int>::FromWidthHeight(5, 10).Offseted(1, 2);
+
+  ASSERT_EQ(1, r.left);
+  ASSERT_EQ(6, r.right);
+  ASSERT_EQ(2, r.top);
+  ASSERT_EQ(12, r.bottom);
+}
+
+GTEST(offset_to) {
+  const auto r = Rect<int>::FromLeftTopWidthHeight(12, 10, 5, 10).OffsetToCopy(1, 2);
+
+  ASSERT_EQ(1, r.left);
+  ASSERT_EQ(6, r.right);
+  ASSERT_EQ(2, r.top);
+  ASSERT_EQ(12, r.bottom);
+}
+
+GTEST(empty) {
+  auto r = Rect<int>::FromWidthHeight(5, 10);
+
+  ASSERT_FALSE(r.IsEmpty());
+
+  r.SetEmpty();
+
+  ASSERT_TRUE(r.IsEmpty());
+}
+
+GTEST(default_empty) {
+  Rect<int> r;
+  ASSERT_TRUE(r.IsEmpty());
+}
+
+GTEST(sizes) {
+  const auto r = Rect<int>::FromWidthHeight(5, 10);
+  ASSERT_EQ(5, r.GetWidth());
+  ASSERT_EQ(10, r.GetHeight());
+}
+
+GTEST(center) {
+  const auto r = Rect<int>::FromLeftTopWidthHeight(2, 3, 6, 10);
+  ASSERT_EQ(3, r.GetRelativeCenterX());
+  ASSERT_EQ(5, r.GetRelativeCenterY());
+
+  ASSERT_EQ(5, r.GetAbsoluteCenterX());
+  ASSERT_EQ(8, r.GetAbsoluteCenterY());
+}
+

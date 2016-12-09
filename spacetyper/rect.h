@@ -18,14 +18,20 @@ class Rect {
   static Rect FromLeftTopWidthHeight(T aleft, T atop, T width, T height) { return Rect(aleft, aleft + width, atop, atop + height); }
   static Rect FromWidthHeight(T width, T height) { return Rect(0, width, 0, height); }
 
-  T GetCenterX() const { return left + GetWidth() / 2;}
-  T GetCenterY() const { return top + GetHeight() / 2; }
+  T GetRelativeCenterX() const { return GetWidth() / 2;}
+  T GetRelativeCenterY() const { return GetHeight() / 2; }
 
-  bool Contains(T left, T right, T top, T bottom) const { return Contains(FromLeftRightTopBottom(left, right, top, bottom)); }
+  T GetAbsoluteCenterX() const { return left + GetRelativeCenterX();}
+  T GetAbsoluteCenterY() const { return top + GetRelativeCenterY(); }
 
-  bool 	Contains(const Rect<T>& r) const {
+  bool ContainsExclusive(const Rect<T>& r) const {
     return left < r.left && right > r.right
         && top < r.top && bottom > r.bottom;
+  }
+
+  bool ContainsInclusive(const Rect<T>& r) const {
+    return left <= r.left && right >= r.right
+           && top <= r.top && bottom >= r.bottom;
   }
 
   // on the border is NOT considered included
@@ -65,8 +71,20 @@ class Rect {
     bottom += dy;
   }
 
+  Rect<T> Offseted(T dx, T dy) const {
+    Rect<T> ret = *this;
+    ret.Offset(dx, dy);
+    return ret;
+  }
+
   void OffsetTo(T newLeft, T newTop) {
     *this = FromLeftTopWidthHeight(newLeft, newTop, GetWidth(), GetHeight());
+  }
+
+  Rect<T> OffsetToCopy(T newLeft, T newTop) const {
+    Rect<T> ret = *this;
+    ret.OffsetTo(newLeft, newTop);
+    return ret;
   }
 
   void SetEmpty() {
