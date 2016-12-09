@@ -15,7 +15,7 @@ class Rect {
   Rect(T aleft, T aright, T atop, T abottom) : left(aleft), right(aright), bottom(abottom), top(atop) { }
  public:
   static Rect FromLeftRightTopBottom(T aleft, T aright, T atop, T abottom) { return Rect(aleft, aright, atop, abottom); }
-  static Rect FromLeftTopWidthHeight(T aleft, T atop, T width, T height) { return Rect(aleft, atop, aleft + width, atop + height); }
+  static Rect FromLeftTopWidthHeight(T aleft, T atop, T width, T height) { return Rect(aleft, aleft + width, atop, atop + height); }
 
   T GetCenterX() const { return left + GetWidth() / 2;}
   T GetCenterY() const { return top + GetHeight() / 2; }
