@@ -12,6 +12,10 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH}
 
 find_package(OpenGL REQUIRED)
 
+find_package(GMock REQUIRED)
+
+FIND_PACKAGE(Threads REQUIRED) # for gmock
+
 find_package(Protobuf REQUIRED)
 include_directories(${PROTOBUF_INCLUDE_DIRS})
 
@@ -51,4 +55,5 @@ include_directories(${CMAKE_SOURCE_DIR}/external/pbjson/src/)
 
 add_subdirectory(scimed)
 add_subdirectory(spacetyper)
+add_subdirectory(tests)
 
