@@ -29,11 +29,6 @@ class Rect {
         && top < r.top && bottom > r.bottom;
   }
 
-  bool ContainsInclusive(const Rect<T>& r) const {
-    return left <= r.left && right >= r.right
-           && top <= r.top && bottom >= r.bottom;
-  }
-
   // on the border is NOT considered included
   bool ContainsExclusive(T x, T y) const {
     return left < x && right > x

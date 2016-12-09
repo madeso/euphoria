@@ -90,6 +90,32 @@ GTEST(contains_point_inclusive) {
   ASSERT_TRUE(r.ContainsInclusive(5, 5));
 }
 
+
+GTEST(contains_rect_exclusive) {
+  const auto r = Rect<int>::FromWidthHeight(10, 10);
+
+  // inside
+  ASSERT_TRUE(r.ContainsExclusive( Rect<int>::FromWidthHeight(2, 2).OffsetToCopy(2, 2) ));
+
+  // outside negative
+  ASSERT_FALSE(r.ContainsExclusive( Rect<int>::FromWidthHeight(2, 2).OffsetToCopy(-3, 3) ));
+  ASSERT_FALSE(r.ContainsExclusive( Rect<int>::FromWidthHeight(2, 2).OffsetToCopy(3, -3) ));
+  ASSERT_FALSE(r.ContainsExclusive( Rect<int>::FromWidthHeight(2, 2).OffsetToCopy(-3, -3) ));
+
+  // outside positive
+  ASSERT_FALSE(r.ContainsExclusive( Rect<int>::FromWidthHeight(2, 2).OffsetToCopy(15, 3) ));
+  ASSERT_FALSE(r.ContainsExclusive( Rect<int>::FromWidthHeight(2, 2).OffsetToCopy(3, 15) ));
+  ASSERT_FALSE(r.ContainsExclusive( Rect<int>::FromWidthHeight(2, 2).OffsetToCopy(15, 15) ));
+
+  // over border
+  ASSERT_FALSE(r.ContainsExclusive( Rect<int>::FromWidthHeight(15, 5).OffsetToCopy(-2, 2) ));
+  ASSERT_FALSE(r.ContainsExclusive( Rect<int>::FromWidthHeight(5, 15).OffsetToCopy(2, -2) ));
+
+  // all are outside
+  ASSERT_FALSE(r.ContainsExclusive( Rect<int>::FromWidthHeight(15, 15).OffsetToCopy(-2, -2) ));
+}
+
+
 GTEST(insert) {
   const auto r = Rect<int>::FromWidthHeight(5, 10).Inseted(1, 2);
 
