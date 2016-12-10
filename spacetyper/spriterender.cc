@@ -27,12 +27,10 @@ void SpriteRenderer::CommonDraw(const vec2f &position, GLfloat rotate,
   Use(shader_);
   const mat4f model = mat4f::Identity()
     .Translate(vec3f(position, 0.0f))
-    // this lets us move the sprite according to the anchor/center point
-    .Translate(vec3f(-0.5f * size.x, -0.5f * size.y, 0.0f))
-
-  .Translate(vec3f(0.5f * size.x, 0.5f * size.y, 0.0f))
-  .Rotate(rotate, vec3f(0.0f, 0.0f, 1.0f))
-  .Translate(vec3f(-0.5f * size.x, -0.5f * size.y, 0.0f))
+    .Translate(vec3f(-0.5f * size.x, -0.5f * size.y, 0.0f)) // this lets us move the sprite according to the anchor/center point
+    .Translate(vec3f(0.5f * size.x, 0.5f * size.y, 0.0f)) // translate sprite to center
+    .Rotate(rotate, vec3f(0.0f, 0.0f, 1.0f)) // rotate around center
+    .Translate(vec3f(-0.5f * size.x, -0.5f * size.y, 0.0f)) // translate back
 
   .Scale(vec3f(scale, 1.0f));
 
