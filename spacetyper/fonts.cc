@@ -9,8 +9,6 @@
 #include <map>
 #include <cassert>
 #include <iostream>
-#include "glm/glm.hpp"
-#include <glm/gtc/matrix_transform.hpp>
 
 #define STB_RECT_PACK_IMPLEMENTATION
 #include "stb_rect_pack.h"
@@ -227,7 +225,7 @@ Extent Extent::FromLRTD(float l, float r, float t, float d) {
   return Extent(l, r, t, d);
 }
 
-void Extent::Translate(const glm::vec2& p) {
+void Extent::Translate(const vec2f& p) {
   assert(this);
   left += p.x;
   right += p.x;
@@ -252,7 +250,7 @@ void Extent::Extend(float value) {
   bottom += value;
 }
 
-Extent Extent::AsTranslated(const glm::vec2& p) const{
+Extent Extent::AsTranslated(const vec2f& p) const{
   assert(this);
   Extent r = *this;
   r.Translate(p);
@@ -306,13 +304,12 @@ TextBackgroundRenderer::TextBackgroundRenderer(Shader* shader) : vao_(SimpleQuad
 
 void TextBackgroundRenderer::Draw(float alpha, const Extent& area) {
   Use(shader_);
-  glm::mat4 model;
-  model = translate(model, glm::vec3(area.left, area.top, 0.0f));
-
-  model = glm::scale(model, glm::vec3(area.GetWidth(), area.GetHeight(), 1.0f));
+  const mat4f model = mat4f::Identity()
+    .Translate(vec3f(area.left, area.top, 0.0f))
+    .Scale(vec3f(area.GetWidth(), area.GetHeight(), 1.0f));
 
   shader_->SetMatrix4("model", model);
-  shader_->SetVector4f("backColor", glm::vec4(0.0f, 0.0f, 0.0f, alpha));
+  shader_->SetVector4f("backColor", vec4f(0.0f, 0.0f, 0.0f, alpha));
   vao_.Draw();
 }
 
@@ -364,11 +361,11 @@ Font::Font(Shader* shader, const std::string& font_file, unsigned int font_size,
   texture_->Load(texture_width, texture_height, &pixels.pixels[0], GL_RGBA, GL_RGBA, load_data);
 }
 
-void Font::Draw(const glm::vec2& p, const std::string& str, glm::vec3 basec, glm::vec3 hic, int hi_start, int hi_end, float scale) const {
+void Font::Draw(const vec2f& p, const std::string& str, vec3f basec, vec3f hic, int hi_start, int hi_end, float scale) const {
   assert(this);
   Use(shader_);
 
-  glm::vec2 position = p;
+  vec2f position = p;
 
   glActiveTexture(GL_TEXTURE0);
   Use(texture_.get());
@@ -391,13 +388,13 @@ void Font::Draw(const glm::vec2& p, const std::string& str, glm::vec3 basec, glm
     }
     std::shared_ptr<CharData> ch = it->second;
 
-    glm::mat4 model = translate(glm::mat4(), glm::vec3(position, 0.0f));
-    model = glm::scale(model, glm::vec3(scale, scale, 1.0f));
+    const mat4f model = mat4f::Identity().Translate(vec3f(position, 0.0f))
+    .Scale(vec3f(scale, scale, 1.0f));
     shader_->SetMatrix4("model", model);
 
     if(applyHi) {
       bool useHiColor = hi_start <= this_index && this_index < hi_end;
-      const glm::vec3& color = useHiColor ? hic : basec;
+      const vec3f& color = useHiColor ? hic : basec;
       shader_->SetVector3f("spriteColor", color);
     }
     ch->vao.Draw();
@@ -410,7 +407,7 @@ void Font::Draw(const glm::vec2& p, const std::string& str, glm::vec3 basec, glm
 Extent Font::GetExtents(const std::string& str, float scale) const {
   assert(this);
   unsigned int last_char_index = 0;
-  glm::vec2 position(0.0f);
+  vec2f position(0.0f);
   Extent ret;
 
   for (std::string::const_iterator c = str.begin(); c != str.end(); c++) {
@@ -463,12 +460,12 @@ const std::string& Text::GetText() const {
   return text_;
 }
 
-void Text::SetBaseColor(const glm::vec3 color) {
+void Text::SetBaseColor(const vec3f color) {
   assert(this);
   base_color_ = color;
 }
 
-void Text::SetHighlightColor(const glm::vec3 color) {
+void Text::SetHighlightColor(const vec3f color) {
   assert(this);
   hi_color_ = color;
 }
@@ -503,7 +500,7 @@ void Text::SetScale(float scale) {
   std::cout << "setting the scale to " << scale << "\n";
 }
 
-glm::vec2 GetOffset(Align alignment, const Extent& extent) {
+vec2f GetOffset(Align alignment, const Extent& extent) {
   // todo: test this more
   const float middle = -(extent.left + extent.right)/2;
   const float right = -extent.right;
@@ -511,26 +508,26 @@ glm::vec2 GetOffset(Align alignment, const Extent& extent) {
   const float bottom = -extent.bottom;
 
   switch(alignment) {
-    case Align::TOP_LEFT:       return glm::vec2(0.0f, top);
-    case Align::TOP_CENTER:     return glm::vec2(middle, top);
-    case Align::TOP_RIGHT:      return glm::vec2(right, top);
-    case Align::MIDDLE_LEFT:    return glm::vec2(0.0f, 0.0f);
-    case Align::MIDDLE_CENTER:  return glm::vec2(middle, 0.0f);
-    case Align::MIDDLE_RIGHT:   return glm::vec2(right, 0.0f);
-    case Align::BOTTOM_LEFT:    return glm::vec2(0.0f, bottom);
-    case Align::BOTTOM_CENTER:  return glm::vec2(middle, bottom);
-    case Align::BOTTOM_RIGHT:   return glm::vec2(right, bottom);
+    case Align::TOP_LEFT:       return vec2f(0.0f, top);
+    case Align::TOP_CENTER:     return vec2f(middle, top);
+    case Align::TOP_RIGHT:      return vec2f(right, top);
+    case Align::MIDDLE_LEFT:    return vec2f(0.0f, 0.0f);
+    case Align::MIDDLE_CENTER:  return vec2f(middle, 0.0f);
+    case Align::MIDDLE_RIGHT:   return vec2f(right, 0.0f);
+    case Align::BOTTOM_LEFT:    return vec2f(0.0f, bottom);
+    case Align::BOTTOM_CENTER:  return vec2f(middle, bottom);
+    case Align::BOTTOM_RIGHT:   return vec2f(right, bottom);
     default:
       assert(false && "Unhandled case");
-      return glm::vec2(0.0f, 0.0f);
+      return vec2f(0.0f, 0.0f);
   }
 }
 
-void Text::Draw(const glm::vec2& p) {
+void Text::Draw(const vec2f& p) {
   assert(this);
   if( font_ == nullptr) return;
   const Extent& e = GetExtents();
-  const glm::vec2 off = GetOffset(alignment_, e);
+  const vec2f off = GetOffset(alignment_, e);
   if(use_background_) {
     backgroundRenderer_->Draw(background_alpha_, e.AsExtended(5.0f).AsTranslated(p+off));
   }

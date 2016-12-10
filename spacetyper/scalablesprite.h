@@ -2,7 +2,7 @@
 #define SPACETYPER_SCALABLESPRITE_H
 
 #include <memory>
-#include "glm/vec2.hpp"
+#include "spacetyper/vec2.h"
 
 class Vao;
 class Texture2d;
@@ -14,18 +14,18 @@ class ScalableSprite {
  public:
   enum class SizeType {CLIENT, WORLD};
 
-  ScalableSprite(Texture2d* texture, const glm::vec2& min_size, SizeType size_type, const glm::vec2& size);
+  ScalableSprite(Texture2d* texture, const vec2f& min_size, SizeType size_type, const vec2f& size);
   virtual ~ScalableSprite();
 
-  void SetClientSize(const glm::vec2& new_size);
-  const glm::vec2 GetClientSize() const;
-  const glm::vec2 GetClientOffset() const;
+  void SetClientSize(const vec2f& new_size);
+  const vec2f GetClientSize() const;
+  const vec2f GetClientOffset() const;
 
-  void SetSize(const glm::vec2& new_size);
-  const glm::vec2 GetSize() const;
+  void SetSize(const vec2f& new_size);
+  const vec2f GetSize() const;
 
-  const glm::vec2 GetMinimumSize() const;
-  const glm::vec2 GetMinimumSize(const glm::vec2& extra) const;
+  const vec2f GetMinimumSize() const;
+  const vec2f GetMinimumSize(const vec2f& extra) const;
 
 
 
@@ -34,22 +34,22 @@ class ScalableSprite {
   const Vao* vao_ptr() const;
 
  protected:
-  std::pair<SizeType, glm::vec2> GetSizeData() const;
+  std::pair<SizeType, vec2f> GetSizeData() const;
 
  private:
   virtual ScalableSpriteData* BuildData() const = 0;
 
   void PrepareData() const;
 
-  void SetSizeSub(const glm::vec2& new_size, SizeType type);
+  void SetSizeSub(const vec2f& new_size, SizeType type);
   Texture2d* texture_;
-  glm::vec2 min_size_;
+  vec2f min_size_;
   SizeType size_type_;
-  glm::vec2 size_;
+  vec2f size_;
 
   mutable std::unique_ptr<ScalableSpriteData> data_; // empty = dirty
 };
 
-std::shared_ptr<ScalableSprite> LoadScalableSprite(const std::string& path, const glm::vec2& size, TextureCache* cache);
+std::shared_ptr<ScalableSprite> LoadScalableSprite(const std::string& path, const vec2f& size, TextureCache* cache);
 
 #endif  // SPACETYPER_SCALABLESPRITE_H

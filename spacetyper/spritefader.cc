@@ -17,7 +17,7 @@ void SpriteFader::RegesterTexture(Texture2d* t) {
   textures_.push_back(t);
 }
 
-void SpriteFader::AddRandom(const glm::vec2& pos, float time, float width, float height) {
+void SpriteFader::AddRandom(const vec2f& pos, float time, float width, float height) {
   assert(this);
   assert(time > 0.0f);
   assert(!textures_.empty());
@@ -30,7 +30,7 @@ void SpriteFader::AddRandom(const glm::vec2& pos, float time, float width, float
   FadingSprite sp;
   sp.time = time;
   sp.start = time / 2;
-  sp.sprite.reset( new Sprite(t, pos + glm::vec2(dx, dy)) );
+  sp.sprite.reset( new Sprite(t, pos + vec2f(dx, dy)) );
 
   layer_->Add(sp.sprite.get());
   sprites_.push_back(sp);

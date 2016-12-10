@@ -6,7 +6,7 @@
 #include <random>
 #include <string>
 
-#include "glm/vec2.hpp"
+#include "spacetyper/vec3.h"
 
 class EnemyWord;
 class TextureCache;
@@ -34,7 +34,7 @@ class Enemies {
   EnemyWord* DetectWord(const std::string& input);
   void Remove(EnemyWord* word);
 
-  float FireAt(const glm::vec2& pos, EnemyWord* word);
+  float FireAt(const vec2f& pos, EnemyWord* word);
 
  private:
   SpriteFader* fader_;

@@ -6,7 +6,7 @@
 #include "spacetyper/sprite.h"
 #include "spacetyper/fonts.h"
 
-#include "glm/vec2.hpp"
+#include "spacetyper/vec2.h"
 
 class TextureCache;
 class TextBackgroundRenderer;
@@ -30,8 +30,8 @@ class EnemyWord {
   bool IsAlive() const;
 
   const std::string& GetWord() const;
-  const glm::vec2& GetPosition() const;
-  const glm::vec2 GetSize() const;
+  const vec2f& GetPosition() const;
+  const vec2f GetSize() const;
 
   void Damage();
   bool IsDestroyed() const;
@@ -40,7 +40,7 @@ class EnemyWord {
   SpriteFader* fader_;
   Sprite sprite_;
   Text text_;
-  glm::vec2 position_;
+  vec2f position_;
   Layer* layer_;
   float speed_;
   unsigned int index_;

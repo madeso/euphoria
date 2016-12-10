@@ -2,7 +2,7 @@
 
 Point::Point(float x, float y, float u, float v) : pos(x, y), vert(u, v) {}
 
-Point::Point(const glm::vec2& apos, const glm::vec2& avert)
+Point::Point(const vec2f& apos, const vec2f& avert)
     : pos(apos), vert(avert) {}
 
 VaoBuilder& VaoBuilder::vertex(const Point& p) {

@@ -3,13 +3,12 @@
 
 #include "spacetyper/gl.h"
 
-#include <glm/vec2.hpp>
-#include <glm/vec4.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-
 #include <memory>
 #include "spacetyper/shader.h"
 #include "spacetyper/texture.h"
+
+#include "spacetyper/vec2.h"
+#include "spacetyper/vec4.h"
 
 class Vao;
 class ScalableSprite;
@@ -19,14 +18,14 @@ class SpriteRenderer {
   SpriteRenderer(Shader* shader);
   ~SpriteRenderer();
 
-  void DrawSprite(const Texture2d& texture, const glm::vec2& position,
+  void DrawSprite(const Texture2d& texture, const vec2f& position,
                   GLfloat rotate = 0.0f,
-                  const glm::vec2& scale = glm::vec2(1, 1),
-                  const glm::vec4& color = glm::vec4(1.0f));
-  void DrawNinepatch(const ScalableSprite& ninepatch, const glm::vec2& position,
+                  const vec2f& scale = vec2f(1, 1),
+                  const vec4f& color = vec4f(1.0f));
+  void DrawNinepatch(const ScalableSprite& ninepatch, const vec2f& position,
                   GLfloat rotate = 0.0f,
-                  const glm::vec2& scale = glm::vec2(1, 1),
-                  const glm::vec4& color = glm::vec4(1.0f));
+                  const vec2f& scale = vec2f(1, 1),
+                  const vec4f& color = vec4f(1.0f));
 
  private:
   Shader* shader_;
@@ -34,8 +33,8 @@ class SpriteRenderer {
 
   void InitRenderData();
 
-  void CommonDraw(const glm::vec2 &position, GLfloat rotate, const glm::vec4 &color,
-             const glm::vec2 &size, const glm::vec2 &scale) const;
+  void CommonDraw(const vec2f& position, GLfloat rotate, const vec4f &color,
+             const vec2f &size, const vec2f &scale) const;
 };
 
 #endif

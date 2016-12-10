@@ -129,7 +129,7 @@ void Shader::SetVector2f(const GLchar *name, GLfloat x, GLfloat y) {
   glUniform2f(glGetUniformLocation(id(), name), x, y);
 }
 
-void Shader::SetVector2f(const GLchar *name, const glm::vec2 &value) {
+void Shader::SetVector2f(const GLchar *name, const vec2f &value) {
   assert(IsCurrentlyBound());
   glUniform2f(glGetUniformLocation(id(), name), value.x, value.y);
 }
@@ -139,7 +139,7 @@ void Shader::SetVector3f(const GLchar *name, GLfloat x, GLfloat y, GLfloat z) {
   glUniform3f(glGetUniformLocation(id(), name), x, y, z);
 }
 
-void Shader::SetVector3f(const GLchar *name, const glm::vec3 &value) {
+void Shader::SetVector3f(const GLchar *name, const vec3f &value) {
   assert(IsCurrentlyBound());
   glUniform3f(glGetUniformLocation(id(), name), value.x, value.y, value.z);
 }
@@ -150,16 +150,16 @@ void Shader::SetVector4f(const GLchar *name, GLfloat x, GLfloat y, GLfloat z,
   glUniform4f(glGetUniformLocation(id(), name), x, y, z, w);
 }
 
-void Shader::SetVector4f(const GLchar *name, const glm::vec4 &value) {
+void Shader::SetVector4f(const GLchar *name, const vec4f &value) {
   assert(IsCurrentlyBound());
   glUniform4f(glGetUniformLocation(id(), name), value.x, value.y, value.z,
               value.w);
 }
 
-void Shader::SetMatrix4(const GLchar *name, const glm::mat4 &matrix) {
+void Shader::SetMatrix4(const GLchar *name, const mat4f &matrix) {
   assert(IsCurrentlyBound());
   glUniformMatrix4fv(glGetUniformLocation(id(), name), 1, GL_FALSE,
-                     glm::value_ptr(matrix));
+                     matrix.GetDataPtr());
 }
 
 Shader::Shader() {}

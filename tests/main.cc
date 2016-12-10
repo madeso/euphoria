@@ -19,10 +19,12 @@ class QuietConsolePrinter : public ::testing::TestEventListener
   virtual void OnEnvironmentsSetUpEnd(const ::testing::UnitTest&) { }
 
   // Fired before the test case starts.
-  virtual void OnTestCaseStart(const ::testing::TestCase&) { }
+  virtual void OnTestCaseStart(const ::testing::TestCase& i) {
+  }
 
   // Fired before the test starts.
-  virtual void OnTestStart(const ::testing::TestInfo&) { }
+  virtual void OnTestStart(const ::testing::TestInfo&) {
+  }
 
   // Fired after a failed assertion or a SUCCESS().
   virtual void OnTestPartResult(const ::testing::TestPartResult& r)

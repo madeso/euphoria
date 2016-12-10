@@ -2,17 +2,17 @@
 #define SPACETYPER_VAO_H
 
 #include <vector>
-#include "glm/vec2.hpp"
+#include "spacetyper/vec2.h"
 #include "spacetyper/gl.h"
 #include "spacetyper/noncopyable.h"
 
 class Point {
  public:
   Point(float x, float y, float u, float v);
-  Point(const glm::vec2& pos, const glm::vec2& vert);
+  Point(const vec2f& pos, const vec2f& vert);
 
-  const glm::vec2 pos;
-  const glm::vec2 vert;
+  const vec2f pos;
+  const vec2f vert;
 };
 
 class VaoBuilder {

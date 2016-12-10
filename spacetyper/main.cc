@@ -74,8 +74,8 @@ int main(int argc, char** argv) {
   Shader font_shader(shader_source_font_vert, shader_source_font_frag);
   Shader back_shader(shader_source_back_vert, shader_source_back_frag);
   Font font(&font_shader, "SourceCodePro-Regular.ttf", 30, " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ;:,.-_<>|1234567890!\"#¤%&/()'=?@£$€¥{[]}\\'*");
-  // (cache.GetTexture("metalPanel_blueCorner.png"), 62, 14, 33, 14, glm::vec2(240, 240));
-  std::shared_ptr<ScalableSprite> target = LoadScalableSprite("crossair_white.png", glm::vec2(100, 100), &cache);
+  // (cache.GetTexture("metalPanel_blueCorner.png"), 62, 14, 33, 14, vec2f(240, 240));
+  std::shared_ptr<ScalableSprite> target = LoadScalableSprite("crossair_white.png", vec2f(100, 100), &cache);
   SpriteRenderer renderer(&shader);
 
 
@@ -111,11 +111,11 @@ int main(int argc, char** argv) {
   Sprite player(cache.GetTexture("player.png"));
   objects.Add(&player);
 
-  glm::vec2 shipPos(width / 2, height - player.GetHeight() / 2 - 10);
+  vec2f shipPos(width / 2, height - player.GetHeight() / 2 - 10);
   player.SetPosition(shipPos);
 
-  glm::mat4 projection =
-      glm::ortho(0.0f, static_cast<GLfloat>(width),
+  mat4f projection =
+      mat4f::Ortho(0.0f, static_cast<GLfloat>(width),
                  static_cast<GLfloat>(height), 0.0f, -1.0f, 1.0f);
   Use(&shader);
   shader.SetInteger("image", 0);

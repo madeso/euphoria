@@ -24,8 +24,8 @@ EnemyWord::EnemyWord(SpriteFader* fader, TextureCache* cache, Font* font, TextBa
   text_.SetText(word);
   text_.SetAlignment(Align::CENTER);
   text_.SetBackground(true, 0.8f);
-  text_.SetBaseColor(glm::vec3(1.0f));
-  text_.SetHighlightColor(glm::vec3(0.0f, 0.0f, 1.0f));
+  text_.SetBaseColor(vec3f(1.0f));
+  text_.SetHighlightColor(vec3f(0.0f, 0.0f, 1.0f));
 }
 
 EnemyWord::~EnemyWord() {
@@ -87,7 +87,7 @@ void EnemyWord::RemoveSprite() {
 
 void EnemyWord::Render() {
   assert(this);
-  glm::vec2 p = position_;
+  vec2f p = position_;
   p.y += sprite_.GetHeight() / 2.0f;
   text_.Draw(p);
 }
@@ -119,14 +119,14 @@ const std::string& EnemyWord::GetWord() const {
   return text_.GetText();
 }
 
-const glm::vec2& EnemyWord::GetPosition() const {
+const vec2f& EnemyWord::GetPosition() const {
   assert(this);
   return sprite_.GetPosition();
 }
 
-const glm::vec2 EnemyWord::GetSize() const {
+const vec2f EnemyWord::GetSize() const {
   assert(this);
-  return glm::vec2(sprite_.GetWidth(), sprite_.GetHeight());
+  return vec2f(sprite_.GetWidth(), sprite_.GetHeight());
 }
 
 void EnemyWord::Damage() {

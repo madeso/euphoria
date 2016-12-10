@@ -6,7 +6,7 @@
 #include "spacetyper/sprite.h"
 #include "spacetyper/enemyword.h"
 
-#include "glm/glm.hpp"
+#include "spacetyper/vec2.h"
 
 // todo: improve resolution
 const float PI = 3.14;
@@ -17,7 +17,7 @@ BulletList::BulletList(Layer* layer) : layer_(layer) {
   assert(layer);
 }
 
-float BulletList::Add(EnemyWord* word, Texture2d* t, const glm::vec2& pos) {
+float BulletList::Add(EnemyWord* word, Texture2d* t, const vec2f& pos) {
   assert(this);
   BulletType b;
   b.word = word;
@@ -25,11 +25,11 @@ float BulletList::Add(EnemyWord* word, Texture2d* t, const glm::vec2& pos) {
   layer_->Add(b.sprite.get());
   bullets_.push_back(b);
 
-  const glm::vec2& p = pos;
-  const glm::vec2& w = word->GetPosition();
-  const glm::vec2 d = w-p;
-  const glm::vec2 dn = glm::normalize(d);
-  float aa = glm::dot(glm::vec2(0.0f, 1.0f), dn);
+  const vec2f& p = pos;
+  const vec2f& w = word->GetPosition();
+  const vec2f d = w-p;
+  const vec2f dn = d.GetNormalized();
+  float aa = dot(vec2f(0.0f, 1.0f), dn);
   float a = PI - acos(aa);
   if( d.x < 0 ) a = -a;
   return a;
@@ -39,20 +39,20 @@ void BulletList::Update(float dt) {
   assert(this);
   const float speed = 1000.0f;
   for(BulletType& b : bullets_) {
-    const glm::vec2& p = b.sprite->GetPosition();
-    const glm::vec2& w = b.word->GetPosition();
+    const vec2f& p = b.sprite->GetPosition();
+    const vec2f& w = b.word->GetPosition();
 
-    const glm::vec2 d = w-p;
-    if( glm::length(d) < speed*dt ) {
+    const vec2f d = w-p;
+    if( d.GetLength() < speed*dt ) {
       b.word->Damage();
       b.word = nullptr;
       layer_->Remove(b.sprite.get());
     }
     else {
-      const glm::vec2 dn = glm::normalize(d);
+      const vec2f dn = d.GetNormalized();
       b.sprite->SetPosition(p + dn * speed*dt);
 
-      float aa = glm::dot(glm::vec2(0.0f, 1.0f), dn);
+      float aa = dot(vec2f(0.0f, 1.0f), dn);
       float a = PI - acos(aa);
       if( dn.x < 0 ) a = -a;
       b.sprite->SetRotation(a);

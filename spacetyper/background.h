@@ -2,7 +2,6 @@
 #define SPACETYPER_BACKGROUND_H
 
 #include <vector>
-#include "glm/vec2.hpp"
 #include "spacetyper/sprite.h"
 
 class Texture2d;

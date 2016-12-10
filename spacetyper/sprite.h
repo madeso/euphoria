@@ -4,20 +4,20 @@
 #include <vector>
 #include <map>
 
-#include "glm/vec2.hpp"
-#include "glm/vec3.hpp"
+#include "spacetyper/vec2.h"
+#include "spacetyper/vec3.h"
 
 class Texture2d;
 class SpriteRenderer;
 
 class Sprite {
  public:
-  explicit Sprite(Texture2d* texture, const glm::vec2& position = glm::vec2(0.0f));
+  explicit Sprite(Texture2d* texture, const vec2f& position = vec2f(0.0f));
 
   Texture2d* GetTexture();
 
-  const glm::vec2& GetPosition() const;
-  void SetPosition(const glm::vec2& p);
+  const vec2f& GetPosition() const;
+  void SetPosition(const vec2f& p);
 
   void SetRotation(float r);
 
@@ -29,10 +29,10 @@ class Sprite {
   void Render(SpriteRenderer* render);
  private:
   Texture2d* texture_;
-  glm::vec2 position_;
+  vec2f position_;
   float rotate_;
-  glm::vec2 scale_;
-  glm::vec3 color_;
+  vec2f scale_;
+  vec3f color_;
   float alpha_;
 };
 

@@ -4,7 +4,7 @@
 #include <vector>
 #include <memory>
 
-#include "glm/vec2.hpp"
+#include "spacetyper/vec2.h"
 
 #include "spacetyper/sprite.h"
 
@@ -24,7 +24,7 @@ class BulletType {
 class BulletList {
  public:
   explicit BulletList(Layer* layer);
-  float Add(EnemyWord* word, Texture2d* t, const glm::vec2& pos);
+  float Add(EnemyWord* word, Texture2d* t, const vec2f& pos);
   void Update(float d);
  private:
   Layer* layer_;

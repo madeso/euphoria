@@ -5,8 +5,8 @@
 #include <map>
 #include <memory>
 
-#include "glm/vec2.hpp"
-#include "glm/vec3.hpp"
+#include "spacetyper/vec2.h"
+#include "spacetyper/vec3.h"
 
 #include "spacetyper/vao.h"
 #include "spacetyper/texture.h"
@@ -21,10 +21,10 @@ class Extent {
  public:
   static Extent FromLRTD(float l, float r, float t, float d);
 
-  void Translate(const glm::vec2& p);
+  void Translate(const vec2f& p);
   void Include(const Extent& o);
   void Extend(float value);
-  Extent AsTranslated(const glm::vec2& p) const;
+  Extent AsTranslated(const vec2f& p) const;
   Extent AsIncluded(const Extent& o) const;
   Extent AsExtended(float value) const;
 
@@ -75,8 +75,8 @@ class Text {
 
   void SetText(const std::string& str);
   const std::string& GetText() const;
-  void SetBaseColor(const glm::vec3 color);
-  void SetHighlightColor(const glm::vec3 color);
+  void SetBaseColor(const vec3f color);
+  void SetHighlightColor(const vec3f color);
   void SetHighlightRange(int from, int to);
   void SetBackground(bool use_background, float alpha=0.5f);
   void SetAlignment(Align alignment);
@@ -84,7 +84,7 @@ class Text {
   void SetSize(float new_size);
   void SetScale(float scale);
 
-  void Draw(const glm::vec2& p);
+  void Draw(const vec2f& p);
 
   Extent GetExtents() const;
  private:
@@ -92,8 +92,8 @@ class Text {
   TextBackgroundRenderer* backgroundRenderer_;
   float scale_;
   std::string text_;
-  glm::vec3 base_color_;
-  glm::vec3 hi_color_;
+  vec3f base_color_;
+  vec3f hi_color_;
   int hi_from_;
   int hi_to_;
   Align alignment_;
@@ -107,11 +107,11 @@ class Font {
   Font(Shader* shader, const std::string& path, unsigned int font_size, const std::string& chars);
   unsigned int GetFontSize() const;
  protected:
-  friend void Text::Draw(const glm::vec2 &p);
+  friend void Text::Draw(const vec2f &p);
   friend Extent Text::GetExtents() const;
 
   // todo: support drawing background color behind string
-  void Draw(const glm::vec2& p, const std::string& str, glm::vec3 basec, glm::vec3 hic, int hi_start, int hi_end, float scale) const;
+  void Draw(const vec2f& p, const std::string& str, vec3f basec, vec3f hic, int hi_start, int hi_end, float scale) const;
   Extent GetExtents(const std::string& str, float scale) const;
  private:
   Shader* shader_;

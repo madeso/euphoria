@@ -30,7 +30,7 @@ Background::Background(int count, int width, int height, Texture2d* texture,
 
   positions_.reserve(count);
   for (int i = 0; i < count; ++i) {
-    glm::vec2 p(rwidth(Generator()), rheight(Generator()));
+    vec2f p(rwidth(Generator()), rheight(Generator()));
     Sprite sp(texture, p);
     positions_.push_back(sp);
     layer->Add(&*positions_.rbegin());
@@ -39,7 +39,7 @@ Background::Background(int count, int width, int height, Texture2d* texture,
 
 void Background::Update(float delta) {
   for (Sprite& sp : positions_) {
-    glm::vec2 p = sp.GetPosition();
+    vec2f p = sp.GetPosition();
     p.y += delta * speed_;
 
     if (p.y > height_ + sp.GetHeight() / 2) {

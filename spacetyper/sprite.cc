@@ -3,16 +3,16 @@
 #include <cassert>
 #include <algorithm>
 
-#include "glm/vec4.hpp"
+#include "spacetyper/vec4.h"
 
 #include "spacetyper/spriterender.h"
 
-Sprite::Sprite(Texture2d* texture, const glm::vec2& position)
+Sprite::Sprite(Texture2d* texture, const vec2f& position)
     : texture_(texture)
     , position_(position)
     , rotate_(0.0f)
-    , scale_(glm::vec2(1, 1))
-    , color_(glm::vec3(1.0f))
+    , scale_(vec2f(1, 1))
+    , color_(vec3f(1.0f))
     , alpha_(1.0f)
 { }
 
@@ -21,12 +21,12 @@ Texture2d* Sprite::GetTexture() {
   return texture_;
 }
 
-const glm::vec2& Sprite::GetPosition() const {
+const vec2f& Sprite::GetPosition() const {
   assert(this);
   return position_;
 }
 
-void Sprite::SetPosition(const glm::vec2& p) {
+void Sprite::SetPosition(const vec2f& p) {
   assert(this);
   position_ = p;
 }
@@ -54,7 +54,7 @@ void Sprite::SetAlpha(float a) {
 
 void Sprite::Render(SpriteRenderer* render) {
   assert(this);
-  render->DrawSprite(*texture_, position_, rotate_, scale_, glm::vec4(color_, alpha_));
+  render->DrawSprite(*texture_, position_, rotate_, scale_, vec4f(color_, alpha_));
 }
 
 Layer::Layer(SpriteRenderer* render) : render_(render) {

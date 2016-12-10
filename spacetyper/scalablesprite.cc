@@ -16,17 +16,17 @@
 
 class ScalableSpriteData {
  public:
-  ScalableSpriteData(const VaoBuilder& avao, const glm::vec2& aworld_size, const glm::vec2& aclient_size, const glm::vec2& aclient_offset)
+  ScalableSpriteData(const VaoBuilder& avao, const vec2f& aworld_size, const vec2f& aclient_size, const vec2f& aclient_offset)
       : vao(avao), world_size(aworld_size), client_size(aclient_size), client_offset(aclient_offset) {}
   Vao vao;
-  glm::vec2 world_size;
-  glm::vec2 client_size;
-  glm::vec2 client_offset;
+  vec2f world_size;
+  vec2f client_size;
+  vec2f client_offset;
 };
 
 ////////////////////////////////////////////////////////////////////////////////
 
-ScalableSprite::ScalableSprite(Texture2d* texture, const glm::vec2& min_size, SizeType size_type, const glm::vec2& size)
+ScalableSprite::ScalableSprite(Texture2d* texture, const vec2f& min_size, SizeType size_type, const vec2f& size)
   : texture_(texture)
   , min_size_(min_size)
   , size_type_(size_type)
@@ -37,44 +37,44 @@ ScalableSprite::ScalableSprite(Texture2d* texture, const glm::vec2& min_size, Si
 ScalableSprite::~ScalableSprite() {
 }
 
-void ScalableSprite::SetClientSize(const glm::vec2 &new_size) {
+void ScalableSprite::SetClientSize(const vec2f &new_size) {
   assert(this);
   SetSizeSub(new_size, SizeType::CLIENT);
 }
 
-const glm::vec2 ScalableSprite::GetClientSize() const {
+const vec2f ScalableSprite::GetClientSize() const {
   assert(this);
   if( size_type_ == SizeType::CLIENT) return size_;
   PrepareData();
   return data_->client_size;
 }
 
-const glm::vec2 ScalableSprite::GetClientOffset() const {
+const vec2f ScalableSprite::GetClientOffset() const {
   assert(this);
   PrepareData();
   return data_->client_offset;
 }
 
-void ScalableSprite::SetSize(const glm::vec2 &new_size) {
+void ScalableSprite::SetSize(const vec2f &new_size) {
   assert(this);
   SetSizeSub(new_size, SizeType::WORLD);
 }
 
-const glm::vec2 ScalableSprite::GetSize() const {
+const vec2f ScalableSprite::GetSize() const {
   assert(this);
   if( size_type_ == SizeType::WORLD) return size_;
   PrepareData();
   return data_->world_size;
 }
 
-const glm::vec2 ScalableSprite::GetMinimumSize() const {
+const vec2f ScalableSprite::GetMinimumSize() const {
   assert(this);
   return min_size_;
 }
 
-const glm::vec2 ScalableSprite::GetMinimumSize(const glm::vec2& extra) const {
+const vec2f ScalableSprite::GetMinimumSize(const vec2f& extra) const {
   assert(this);
-  return glm::vec2(min_size_.x + extra.x, min_size_.y + extra.y);
+  return vec2f(min_size_.x + extra.x, min_size_.y + extra.y);
 }
 
 const Texture2d* ScalableSprite::texture_ptr() const {
@@ -88,8 +88,8 @@ const Vao* ScalableSprite::vao_ptr() const {
   return &data_->vao;
 }
 
-std::pair<ScalableSprite::SizeType, glm::vec2> ScalableSprite::GetSizeData() const {
-  return std::pair<SizeType, glm::vec2>(size_type_, size_);
+std::pair<ScalableSprite::SizeType, vec2f> ScalableSprite::GetSizeData() const {
+  return std::pair<SizeType, vec2f>(size_type_, size_);
 };
 
 void ScalableSprite::PrepareData() const {
@@ -99,7 +99,7 @@ void ScalableSprite::PrepareData() const {
   }
 }
 
-void ScalableSprite::SetSizeSub(const glm::vec2& new_size, SizeType type) {
+void ScalableSprite::SetSizeSub(const vec2f& new_size, SizeType type) {
   assert(this);
   if( data_.get() != nullptr && size_type_ == type && size_ == new_size) {
     // if we have built the data and the size & type is the same
@@ -114,11 +114,11 @@ void ScalableSprite::SetSizeSub(const glm::vec2& new_size, SizeType type) {
 ////////////////////////////////////////////////////////////////////////////////
 
 namespace {
-  glm::vec2 DetermineSize(const glm::vec2 real_size, Rect<int> pixel_data) {
-    return glm::vec2( real_size.x - pixel_data.GetWidth() , real_size.y - pixel_data.GetHeight());
+  vec2f DetermineSize(const vec2f real_size, Rect<int> pixel_data) {
+    return vec2f( real_size.x - pixel_data.GetWidth() , real_size.y - pixel_data.GetHeight());
   }
 
-  VaoBuilder BuildNinepatchVao(const Texture2d* texture_, const Rect<int> draw, const glm::vec2& inner_size_) {
+  VaoBuilder BuildNinepatchVao(const Texture2d* texture_, const Rect<int> draw, const vec2f& inner_size_) {
     VaoBuilder data;
 
     // 00     10                20     30
@@ -187,23 +187,23 @@ namespace {
 
 class ScalableSpriteNinepatch : public ScalableSprite {
  public:
-  ScalableSpriteNinepatch(Texture2d* texture, SizeType size_type, const glm::vec2& size, const Rect<int>& da, const Rect<int>& ca)
-      : ScalableSprite(texture, glm::vec2(ca.GetWidth(), ca.GetHeight()), size_type, size)
+  ScalableSpriteNinepatch(Texture2d* texture, SizeType size_type, const vec2f& size, const Rect<int>& da, const Rect<int>& ca)
+      : ScalableSprite(texture, vec2f(ca.GetWidth(), ca.GetHeight()), size_type, size)
       , draw_area_(da), client_area_(ca) {}
 
-  glm::vec2 DetermineRealSize() const {
+  vec2f DetermineRealSize() const {
     auto data = GetSizeData();
     const auto size = data.second;
     switch (data.first) {
       case ScalableSprite::SizeType::CLIENT:
-        return glm::vec2(size.x + client_area_.GetWidth(), size.y + client_area_.GetHeight());
+        return vec2f(size.x + client_area_.GetWidth(), size.y + client_area_.GetHeight());
       case ScalableSprite::SizeType::WORLD:
         return size;
     }
     assert(false && "unhandled SizeType");
   }
 
-  bool ValidateCalculatedSize(const glm::vec2& real_size, const glm::vec2& client_size) const {
+  bool ValidateCalculatedSize(const vec2f& real_size, const vec2f& client_size) const {
     auto data = GetSizeData();
     const auto size = data.second;
     switch (data.first) {
@@ -216,13 +216,13 @@ class ScalableSpriteNinepatch : public ScalableSprite {
   }
 
   ScalableSpriteData* BuildData() const override {
-    const glm::vec2 real_size = DetermineRealSize();
-    const glm::vec2 draw_size = DetermineSize(real_size, draw_area_);
-    const glm::vec2 client_size = DetermineSize(real_size, client_area_);
+    const vec2f real_size = DetermineRealSize();
+    const vec2f draw_size = DetermineSize(real_size, draw_area_);
+    const vec2f client_size = DetermineSize(real_size, client_area_);
 
     assert(ValidateCalculatedSize(real_size, client_size));
 
-    return new ScalableSpriteData(BuildNinepatchVao(texture_ptr(), draw_area_, draw_size), real_size, client_size, glm::vec2(client_area_.left, client_area_.top));
+    return new ScalableSpriteData(BuildNinepatchVao(texture_ptr(), draw_area_, draw_size), real_size, client_size, vec2f(client_area_.left, client_area_.top));
   }
 
   Rect<int> draw_area_;
@@ -236,12 +236,12 @@ Rect<int> Convert(const scalingsprite::Rect& r) {
   return Rect<int>::FromLeftRightTopBottom(r.left(), r.right(), r.top(), r.bottom());
 }
 
-std::shared_ptr<ScalableSprite> LoadScalableNinepatch(Texture2d* tex, ScalableSprite::SizeType size_type, glm::vec2 size, const scalingsprite::Ninepatch& data) {
+std::shared_ptr<ScalableSprite> LoadScalableNinepatch(Texture2d* tex, ScalableSprite::SizeType size_type, vec2f size, const scalingsprite::Ninepatch& data) {
   std::shared_ptr<ScalableSprite> ret ( new ScalableSpriteNinepatch(tex, size_type, size, Convert(data.draw()), Convert(data.client())) );
   return ret;
 }
 
-std::shared_ptr<ScalableSprite> LoadScalableSprite(const std::string& path, const glm::vec2& size, TextureCache* cache) {
+std::shared_ptr<ScalableSprite> LoadScalableSprite(const std::string& path, const vec2f& size, TextureCache* cache) {
   Texture2d* tex = cache->GetTexture(path);
   const ScalableSprite::SizeType size_type = ScalableSprite::SizeType::WORLD;
 
