@@ -55,22 +55,22 @@ class mat4 {
 
   static mat4<T> FromTranslation(const vec3<T>& v) {
     const T one = 1;
-    const T zero = 0;
+    const T z = 0;
     return FromRowMajor(
-        one, zero, zero, v.x,
-        zero, one, zero, v.y,
-        zero, zero, one, v.z,
-        zero, zero, zero, one
+        one, z, z, v.x,
+        z, one, z, v.y,
+        z, z, one, v.z,
+        z, z, z, one
     );
   }
 
   static mat4<T> FromScalar(T scalar) {
-    const T zero = 0;
+    const T z = 0;
     return FromRowMajor(
-        scalar, zero, zero, zero,
-        zero, scalar, zero, zero,
-        zero, zero, scalar, zero,
-        zero, zero, zero, scalar
+        scalar, z, z, z,
+        z, scalar, z, z,
+        z, z, scalar, z,
+        z, z, z, scalar
     );
   }
 
@@ -108,29 +108,30 @@ class mat4 {
 #define u axis.x
 #define v axis.y
 #define w axis.z
-    matrix(0,0) =      rcos + u*u*(1-rcos);
-    matrix(1,0) =  w * rsin + v*u*(1-rcos);
-    matrix(2,0) = -v * rsin + w*u*(1-rcos);
-    matrix(3,0) = 0;
+    return mat4<T>::FromColMajor(
+          rcos + u*u*(1-rcos),
+      w * rsin + v*u*(1-rcos),
+     -v * rsin + w*u*(1-rcos),
+     0,
 
-    matrix(0,1) = -w * rsin + u*v*(1-rcos);
-    matrix(1,1) =      rcos + v*v*(1-rcos);
-    matrix(2,1) =  u * rsin + w*v*(1-rcos);
-    matrix(3,1) =  0;
+     -w * rsin + u*v*(1-rcos),
+          rcos + v*v*(1-rcos),
+      u * rsin + w*v*(1-rcos),
+      0,
 
-    matrix(0,2) =  v * rsin + u*w*(1-rcos);
-    matrix(1,2) = -u * rsin + v*w*(1-rcos);
-    matrix(2,2) =      rcos + w*w*(1-rcos);
-    matrix(3,2) = 0;
+     v * rsin + u*w*(1-rcos),
+    -u * rsin + v*w*(1-rcos),
+         rcos + w*w*(1-rcos),
+    0,
 
-    matrix(3,0) = 0;
-    matrix(3,1) = 0;
-    matrix(3,2) = 0;
-    matrix(3,3) = 1;
+    0,
+    0,
+    0,
+    1
+    );
 #undef u
 #undef v
 #undef w
-    return matrix;
   }
 
   static mat4<T> Identity() {
