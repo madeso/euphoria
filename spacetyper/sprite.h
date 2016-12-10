@@ -20,6 +20,7 @@ class Sprite {
   void SetPosition(const vec2f& p);
 
   void SetRotation(float r);
+  float GetRotation() const;
 
   float GetHeight() const;
   float GetWidth() const;

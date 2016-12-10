@@ -36,6 +36,11 @@ void Sprite::SetRotation(float r) {
   rotate_ = r;
 }
 
+float Sprite::GetRotation() const {
+  assert(this);
+  return rotate_;
+}
+
 float Sprite::GetHeight() const {
   assert(this);
   return texture_->height() * scale_.y;
