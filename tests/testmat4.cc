@@ -91,9 +91,12 @@ GTEST(multiply) {
                           20, 21, 22, 23,
                           24, 25, 26, 27,
                           28, 29, 30, 31);
-  EXPECT_EQ(mat4i::FromRowMajor(0, 1, 2, 3,
-                                4, 5, 6, 7,
-                                8, 9, 10, 11,
-                                12, 13, 14, 15), m);
+  // thanks wolfram alpha for the result
+  // http://www.wolframalpha.com/widgets/view.jsp?id=cc71c2e95a80c217564d530fd8297b0e
+  // simplify({{0,1,2,3},{4,5,6,7},{8,9,10,11},{12,13,14,15}}.{{16,17,18,19},{20,21,22,23},{24,25,26,27},{28,29,30,31}})
+  EXPECT_EQ(mat4i::FromRowMajor(152, 158, 164, 170,
+                                504, 526, 548, 570,
+                                856, 894, 932, 970,
+                                1208, 1262, 1316, 1370), m);
 }
 
