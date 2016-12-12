@@ -15,6 +15,23 @@ class vec3 {
   vec3(const vec2<T>& a, const T& az) : x(a.x), y(a.y), z(az) {}
 };
 
+
+template <typename T>
+bool operator==(const vec3<T>& lhs, const vec3<T>& rhs) {
+  return
+      lhs.x == rhs.x
+      && lhs.y==rhs.y
+      && lhs.z==rhs.z
+      ;
+}
+
+template <typename T>
+std::ostream& operator<<(std::ostream& stream, const vec3<T>& v)
+{
+  return stream << "(" << v.x << ", " << v.y << ", " << v.z << ")";
+}
+
+
 typedef vec3<float> vec3f;
 typedef vec3<int> vec3i;
 

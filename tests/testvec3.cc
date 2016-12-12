@@ -23,3 +23,8 @@ GTEST(constructor_vec2) {
   EXPECT_EQ(2, v.y);
   EXPECT_EQ(3, v.z);
 }
+
+GTEST(equal) {
+  EXPECT_TRUE(vec3i(1, 2, 3) == vec3i(1, 2, 3));
+  EXPECT_FALSE(vec3i(1, 2, 3) == vec3i(3, 2, 1));
+}
