@@ -81,6 +81,13 @@ GTEST(transposed) {
                                 12, 13, 14, 15), m);
 }
 
+GTEST(axis) {
+  const auto m = mat4i::Identity();
+  EXPECT_EQ(vec3i(1, 0, 0), m.GetXAxis());
+  EXPECT_EQ(vec3i(0, 1, 0), m.GetYAxis());
+  EXPECT_EQ(vec3i(0, 0, 1), m.GetZAxis());
+}
+
 GTEST(multiply) {
   const auto m = mat4i::FromRowMajor(0, 1, 2, 3,
                                      4, 5, 6, 7,
@@ -98,5 +105,37 @@ GTEST(multiply) {
                                 504, 526, 548, 570,
                                 856, 894, 932, 970,
                                 1208, 1262, 1316, 1370), m);
+}
+
+GTEST(add) {
+  const auto m = mat4i::FromRowMajor(0, 1, 2, 3,
+                                     4, 5, 6, 7,
+                                     8 , 9 ,10 , 11,
+                                     12, 13, 14, 15)
+                 +
+                 mat4i::FromRowMajor(16, 17, 18, 19,
+                                     20, 21, 22, 23,
+                                     24, 25, 26, 27,
+                                     28, 29, 30, 31);
+  EXPECT_EQ(mat4i::FromRowMajor(16, 18, 20, 22,
+                                24, 26, 28, 30,
+                                32, 34, 36, 38,
+                                40, 42, 44, 46), m);
+}
+
+GTEST(sub) {
+  const auto m = mat4i::FromRowMajor(16, 17, 18, 19,
+                                     20, 21, 22, 23,
+                                     24, 25, 26, 27,
+                                     28, 29, 30, 31)
+                 -
+                 mat4i::FromRowMajor(0, 1, 2, 3,
+                                     4, 5, 6, 7,
+                                     8 , 9 ,10 , 11,
+                                     12, 13, 14, 15);
+  EXPECT_EQ(mat4i::FromRowMajor(16, 16, 16, 16,
+                                16, 16, 16, 16,
+                                16, 16, 16, 16,
+                                16, 16, 16, 16), m);
 }
 
