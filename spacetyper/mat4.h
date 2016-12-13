@@ -64,6 +64,15 @@ class mat4 {
     );
   }
 
+  vec3<T> GetTransform(const vec3<T>& p) const {
+    const vec4<T> r =  *this * vec4<T>(p, 1);
+    return static_cast<vec3<T>>(r);
+  }
+
+  vec3<T> GetTranslation() const {
+    return vec3<T>( Get(0,3), Get(1,3), Get(2,3) );
+  }
+
   static mat4<T> FromScalar(T scalar) {
     const T z = 0;
     return FromRowMajor(
@@ -250,6 +259,10 @@ class mat4 {
     return data[col*4+row];
   }
 
+  T Get(int row, int col) const {
+    return data[col*4+row];
+  }
+
   vec4<T> GetColumn(int c) const {
     return vec4<T>(&data[c*4]);
   }
@@ -298,6 +311,18 @@ mat4<T> operator*(const mat4<T>& lhs, const mat4<T> rhs) {
       OP(1,0), OP(1,1), OP(1,2), OP(1,3),
       OP(2,0), OP(2,1), OP(2,2), OP(2,3),
       OP(3,0), OP(3,1), OP(3,2), OP(3,3)
+  );
+#undef OP
+}
+
+template<typename T>
+vec4<T> operator*(const mat4<T>& lhs, const vec4<T> rhs) {
+#define OP(r) ComponentMultiply(lhs.GetRow(r), rhs).GetComponentSum()
+  return vec4<T>(
+      OP(0),
+      OP(1),
+      OP(2),
+      OP(3)
   );
 #undef OP
 }

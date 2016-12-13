@@ -13,6 +13,16 @@ class vec3 {
   explicit vec3(const T& a) : x(a), y(a), z(a) {}
   vec3(const T& ax, const T& ay, const T& az) : x(ax), y(ay), z(az) {}
   vec3(const vec2<T>& a, const T& az) : x(a.x), y(a.y), z(az) {}
+
+  static vec3<T> XAxis() {
+    return vec3(1, 0, 0);
+  }
+  static vec3<T> YAxis() {
+    return vec3(0, 1, 0);
+  }
+  static vec3<T> ZAxis() {
+    return vec3(0, 0, 1);
+  }
 };
 
 

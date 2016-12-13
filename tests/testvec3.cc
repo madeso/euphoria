@@ -28,3 +28,9 @@ GTEST(equal) {
   EXPECT_TRUE(vec3i(1, 2, 3) == vec3i(1, 2, 3));
   EXPECT_FALSE(vec3i(1, 2, 3) == vec3i(3, 2, 1));
 }
+
+GTEST(axis_test) {
+  EXPECT_EQ(vec3i(1, 0, 0), vec3i::XAxis());
+  EXPECT_EQ(vec3i(0, 1, 0), vec3i::YAxis());
+  EXPECT_EQ(vec3i(0, 0, 1), vec3i::ZAxis());
+}

@@ -139,3 +139,71 @@ GTEST(sub) {
                                 16, 16, 16, 16), m);
 }
 
+
+
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+GTEST(TestTransormation)
+{
+  EXPECT_EQ(vec3i(1,2,3), mat4i::FromTranslation(vec3i(1,2,3)).GetTranslation());
+}
+
+
+GTEST(TestRight)
+{
+  EXPECT_EQ(vec3i::XAxis(), mat4i::Identity().GetXAxis());
+}
+
+
+GTEST(TestUp)
+{
+  EXPECT_EQ(vec3i::YAxis(), mat4i::Identity().GetYAxis());
+}
+
+
+GTEST(TestIn)
+{
+  EXPECT_EQ(vec3i::ZAxis(), mat4i::Identity().GetZAxis());
+}
+
+GTEST(TestTranslation)
+{
+  const vec3i r = mat4i::Identity()
+      .Translate(vec3i(1, 2, 3))
+      .GetTransform(vec3i(7, 8, 9));
+  EXPECT_EQ(vec3i(8, 10, 12), r);
+}
+
+
+GTEST(TestIentityTransform)
+{
+  const vec3i r = mat4i::Identity().GetTransform(vec3i(1, 2, 3));
+  EXPECT_EQ(vec3i(1, 2, 3), r);
+}
+
+
+GTEST(TestIentityMultiply)
+{
+  EXPECT_EQ(mat4i::Identity(), mat4i::Identity() * mat4i::Identity());
+}
+
+GTEST(TestVec4Multiply)
+{
+  const auto m = mat4i::FromRowMajor(0, 1, 2, 3,
+                                     4, 5, 6, 7,
+                                     8 , 9 ,10 , 11,
+                                     12, 13, 14, 15)
+                 * vec4i(16, 17, 18, 19);
+  // simplify({{0,1,2,3},{4,5,6,7},{8,9,10,11},{12,13,14,15}}.{16,17,18,19})
+  EXPECT_EQ(vec4i(110, 390, 670, 950), m);
+}
+
