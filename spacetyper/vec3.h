@@ -2,6 +2,7 @@
 #define SPACETYPER_VEC3_H
 
 #include "spacetyper/vec2.h"
+#include <ostream>
 
 template<typename T>
 class vec3 {
