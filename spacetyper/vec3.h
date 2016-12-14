@@ -24,6 +24,48 @@ class vec3 {
   static vec3<T> ZAxis() {
     return vec3(0, 0, 1);
   }
+
+  void operator+=(const vec3<T>& rhs) {
+    x += rhs.x;
+    y += rhs.y;
+    z += rhs.z;
+  }
+
+  void operator-=(const vec3<T>& rhs) {
+    x -= rhs.x;
+    y -= rhs.y;
+    z -= rhs.z;
+  }
+
+  void operator/=(const T& rhs) {
+    x /= rhs;
+    y /= rhs;
+    z /= rhs;
+  }
+
+  void operator*=(const T& rhs) {
+    x *= rhs;
+    y *= rhs;
+    z *= rhs;
+  }
+
+  T GetLengthSquared() const {
+    return x*x + y*y + z*z;
+  }
+
+  T GetLength() const {
+    return sqrt(GetLengthSquared());
+  }
+
+  void Normalize() {
+    *this /= GetLength();
+  }
+
+  vec3<T> GetNormalized() const {
+    vec3<T> r = *this;
+    r.Normalize();
+    return r;
+  }
 };
 
 
