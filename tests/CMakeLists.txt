@@ -2,10 +2,19 @@ file(GLOB app_src *.cc;*.h;*.inl)
 set(src ${app_src})
 source_group("" FILES ${app_src})
 
+# todo: move to core and make a library
+set(src ${src}
+    "../spacetyper/numeric.cc"
+    "../spacetyper/angle.cc"
+    )
+
+
 set(src ${src} ${GMOCK_SOURCES})
 source_group("gmock" FILES ${GMOCK_SOURCES})
 include_directories(${GMOCK_INCLUDE_DIRS})
 # add_definitions(-DGTEST_USE_OWN_TR1_TUPLE=1)
+
+
 
 add_executable(tests ${src})
 
