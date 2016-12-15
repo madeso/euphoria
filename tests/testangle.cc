@@ -42,16 +42,23 @@ GTEST(wrap) {
 }
 
 GTEST(add) {
-  const auto a = Angle::FromDegrees(90) + Angle::FromRadians(Pi()/2.0f);
+  auto a = Angle::FromDegrees(90);
+  a += Angle::FromRadians(Pi()/2.0f);
   EXPECT_FLOAT_EQ(180.0f, a.inDegrees());
+  EXPECT_FLOAT_EQ(180.0f, (Angle::FromDegrees(90) + Angle::FromRadians(Pi()/2.0f)).inDegrees());
 }
 
 GTEST(sub) {
-  const auto a = Angle::FromDegrees(180) - Angle::FromRadians(Pi()/2.0f);
+  auto a = Angle::FromDegrees(180);
+  a -= Angle::FromRadians(Pi()/2.0f);
   EXPECT_FLOAT_EQ(90.0f, a.inDegrees());
+  EXPECT_FLOAT_EQ(90.0f, (Angle::FromDegrees(180) - Angle::FromRadians(Pi()/2.0f)).inDegrees());
 }
 
 GTEST(multi) {
-  const auto a = Angle::FromDegrees(90) * 2.0f;
+  auto a = Angle::FromDegrees(90);
+  a *= 2.0f;
   EXPECT_FLOAT_EQ(180.0f, a.inDegrees());
+  EXPECT_FLOAT_EQ(180.0f, (Angle::FromDegrees(90) * 2.0f).inDegrees());
+  EXPECT_FLOAT_EQ(180.0f, (2.0f * Angle::FromDegrees(90)).inDegrees());
 }
