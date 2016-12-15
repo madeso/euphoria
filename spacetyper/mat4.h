@@ -3,6 +3,8 @@
 
 #include "spacetyper/vec3.h"
 #include "spacetyper/vec4.h"
+#include "spacetyper/angle.h"
+#include "spacetyper/axisangle.h"
 
 #include <vector>
 
@@ -83,40 +85,46 @@ class mat4 {
     );
   }
 
-  static mat4<T> FromRotX(T A) {
+  static mat4<T> FromRotX(const Angle& a) {
+    const auto c = Cos(a);
+    const auto s = Sin(a);
     return FromRowMajor(
-        1,  0,       0,       0,
-        0,  cos(A), -sin(A),  0,
-        0,  sin(A),  cos(A),  0,
-        0,  0,       0,       1
+        1,  0,  0,  0,
+        0,  c, -s,  0,
+        0,  s,  c,  0,
+        0,  0,  0,  1
     );
   }
 
-  static mat4<T> FromRotY(T A) {
+  static mat4<T> FromRotY(const Angle& a) {
+    const auto c = Cos(a);
+    const auto s = Sin(a);
     return FromRowMajor(
-            cos(A),  0,   sin(A),  0,
-            0,       1,   0,       0,
-            -sin(A),  0,  cos(A),  0,
-            0,       0,   0,       1
+             c,  0,   s,  0,
+             0,  1,   0,  0,
+            -s,  0,   c,  0,
+             0,  0,   0,  1
     );
   }
 
-  static mat4<T> FromRotZ(T A) {
+  static mat4<T> FromRotZ(const Angle& a) {
+    const auto c = Cos(a);
+    const auto s = Sin(a);
     return FromRowMajor(
-           cos(A),  -sin(A),   0,   0,
-           sin(A),   cos(A),   0,   0,
-           0,        0,        1,   0,
-           0,        0,        0,   1
+           c,  -s,   0,   0,
+           s,   c,   0,   0,
+           0,   0,   1,   0,
+           0,   0,   0,   1
     );
   }
 
-  static mat4<T> FromAxisAngle(const vec3<T>& axis, const T angle) {
-    const T rcos = cos(angle);
-    const T rsin = sin(angle);
+  static mat4<T> FromAxisAngle(const AxisAngle aa) {
+    const T rcos = Cos(aa.angle);
+    const T rsin = Sin(aa.angle);
     mat4<T> matrix;
-#define u axis.x
-#define v axis.y
-#define w axis.z
+#define u aa.axis.x
+#define v aa.axis.y
+#define w aa.axis.z
     return mat4<T>::FromColMajor(
           rcos + u*u*(1-rcos),
       w * rsin + v*u*(1-rcos),
@@ -240,8 +248,8 @@ class mat4 {
     return *this * FromTranslation(t);
   }
 
-  mat4<T> Rotate(T angle, const vec3<T>& axis) const {
-    return *this * FromAxisAngle(axis, angle);
+  mat4<T> Rotate(const AxisAngle& aa) const {
+    return *this * FromAxisAngle(aa);
   }
 
   mat4<T> Scale(const vec3<T>& scale) const {
