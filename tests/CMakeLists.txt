@@ -5,6 +5,7 @@ source_group("" FILES ${app_src})
 # todo: move to core and make a library
 set(src ${src}
     "../spacetyper/numeric.cc"
+    "../spacetyper/axisangle.cc"
     "../spacetyper/angle.cc"
     )
 
