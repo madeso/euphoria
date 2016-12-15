@@ -30,7 +30,7 @@ float ZeroOrValue(float r)
 
 const int Sign(const float r)
 {
-  if(r > 0.0f)
+  if(r >= 0.0f)
   {
     return 1;
   }

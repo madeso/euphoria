@@ -121,3 +121,23 @@ GTEST(round) {
   EXPECT_FLOAT_EQ(2.0f, Round(2.9f, 2.0f));
   EXPECT_FLOAT_EQ(3.0f, Round(2.9f, 1.0f));
 }
+
+GTEST(increment_and_wrap) {
+  float f = 8.0f;
+  EXPECT_EQ(0, IncrementAndWrap(0.0f, &f, 1.0f, 10.0f));
+  EXPECT_FLOAT_EQ(9.0f, f);
+  EXPECT_EQ(0, IncrementAndWrap(0.0f, &f, 1.0f, 10.0f));
+  EXPECT_FLOAT_EQ(10.0f, f);
+  EXPECT_EQ(1, IncrementAndWrap(0.0f, &f, 1.0f, 10.0f));
+  EXPECT_FLOAT_EQ(1.0f, f);
+}
+
+GTEST(increment_and_wrapi) {
+  int f = 8.0f;
+  EXPECT_EQ(0, IncrementAndWrapi(0, &f, 1, 10));
+  EXPECT_EQ(9, f);
+  EXPECT_EQ(0, IncrementAndWrapi(0, &f, 1, 10));
+  EXPECT_EQ(10, f);
+  EXPECT_EQ(1, IncrementAndWrapi(0, &f, 1, 10));
+  EXPECT_EQ(0, f);
+}
