@@ -2,6 +2,7 @@
 #include "gmock/gmock-generated-matchers.h"
 
 #include "spacetyper/mat4.h"
+#include "spacetyper/numeric.h"
 
 #define GTEST(X) TEST(mat4, X)
 using namespace testing;
@@ -175,6 +176,89 @@ GTEST(TestIn)
   EXPECT_EQ(vec3i::ZAxis(), mat4i::Identity().GetZAxis());
 }
 
+::testing::AssertionResult almost_equal(const char* lhs_expression, const char* rhs_expression, const vec3f& lhs_value, const vec3f& rhs_value) {
+  const bool almost_equal = ::IsEqual(lhs_value.x, rhs_value.x)
+         && ::IsEqual(lhs_value.y, rhs_value.y)
+         && ::IsEqual(lhs_value.z, rhs_value.z);
+  if( almost_equal) return ::testing::AssertionSuccess();
+
+  ::std::stringstream lhs_ss;
+  lhs_ss << std::setprecision(std::numeric_limits<float>::digits10 + 2)
+         << lhs_value;
+
+  ::std::stringstream rhs_ss;
+  rhs_ss << std::setprecision(std::numeric_limits<float>::digits10 + 2)
+         << rhs_value;
+
+  return ::testing::internal::EqFailure(lhs_expression,
+                                        rhs_expression,
+                                        ::testing::internal::StringStreamToString(&lhs_ss),
+                                        ::testing::internal::StringStreamToString(&rhs_ss),
+                                        false);
+}
+
+
+struct TestRotationFixture : ::testing::Test
+{
+  mat4f start;
+  AxisAngle aa;
+  vec3f toTransform;
+  vec3f result;
+
+  TestRotationFixture()
+      : start(mat4f::Identity())
+      , aa(AxisAngle::RightHandAround(vec3f::Up(), Angle::FromDegrees(-90)))
+      , toTransform(0, 0, -5)
+      , result(5, 0, 0)
+  {
+  }
+};
+
+TEST_F(TestRotationFixture, TestRotationAxisAngle)
+{
+  const auto r = start
+      .Rotate(aa)
+      .GetTransform(toTransform);
+  EXPECT_PRED_FORMAT2(almost_equal, result, r);
+}
+
+/*
+TEST_F(TestRotationFixture, TestRotationQuat)
+{
+  const auto r = start
+      .Rotate(cquat(aa))
+      .GetTransform(toTransform);
+  EXPECT_FLOAT_EQ(result, r);
+}
+*/
+
+GTEST(TestCombined_RT)
+{
+  const auto r = mat4f::Identity()
+      .Rotate(AxisAngle::RightHandAround(vec3f::Up(), Angle::FromDegrees(-90)))
+      .Translate(vec3f(0, 0, -5))
+      .GetTransform(vec3f(0, 0, 0));
+  EXPECT_PRED_FORMAT2(almost_equal, vec3f(5, 0, 0), r);
+}
+
+GTEST(TestCombined2_RT)
+{
+  const auto r = mat4f::Identity()
+      .Rotate(AxisAngle::RightHandAround(vec3f::Up(), Angle::FromDegrees(90)))
+      .Translate(vec3f(0, 0, -5))
+      .GetTransform(vec3f(0, 0, 0));
+  EXPECT_PRED_FORMAT2(almost_equal, vec3f(-5, 0, 0), r);
+}
+
+GTEST(TestCombined_TR)
+{
+  const auto r = mat4f::Identity()
+      .Translate(vec3f(0, 0, 5))
+      .Rotate(AxisAngle::RightHandAround(vec3f::Up(), Angle::FromDegrees(-90)))
+      .GetTransform(vec3f(0, 0, 0));
+  EXPECT_PRED_FORMAT2(almost_equal, vec3f(0, 0, 5), r);
+}
+
 GTEST(TestTranslation)
 {
   const vec3i r = mat4i::Identity()
@@ -189,7 +273,6 @@ GTEST(TestIentityTransform)
   const vec3i r = mat4i::Identity().GetTransform(vec3i(1, 2, 3));
   EXPECT_EQ(vec3i(1, 2, 3), r);
 }
-
 
 GTEST(TestIentityMultiply)
 {
