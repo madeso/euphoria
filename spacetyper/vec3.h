@@ -25,6 +25,13 @@ class vec3 {
     return vec3(0, 0, 1);
   }
 
+  static vec3<T> Up() {return YAxis();}
+  static vec3<T> Down() {return -YAxis();}
+  static vec3<T> Right() {return XAxis();}
+  static vec3<T> Left() {return -XAxis();}
+  static vec3<T> In() {return -ZAxis();}
+  static vec3<T> Out() {return ZAxis();}
+
   void operator+=(const vec3<T>& rhs) {
     x += rhs.x;
     y += rhs.y;
@@ -47,6 +54,10 @@ class vec3 {
     x *= rhs;
     y *= rhs;
     z *= rhs;
+  }
+
+  vec3<T> operator-() const {
+    return vec3<T>(-x, -y, -z);
   }
 
   T GetLengthSquared() const {
