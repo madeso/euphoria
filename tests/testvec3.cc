@@ -40,3 +40,9 @@ GTEST(neg_test) {
   EXPECT_EQ(vec3i(1, -2, -3), -vec3i(-1, 2, 3));
   EXPECT_EQ(vec3i(1, 2, 3), -vec3i(-1, -2, -3));
 }
+
+GTEST(from_to) {
+  EXPECT_EQ(vec3i(0, 0, 0), vec3i::FromTo(vec3i(0, 0, 0), vec3i(0, 0, 0)) );
+  EXPECT_EQ(vec3i(1, 0, 0), vec3i::FromTo(vec3i(0, 0, 0), vec3i(1, 0, 0)) );
+  EXPECT_EQ(vec3i(0, 30, 0), vec3i::FromTo(vec3i(0, -5, 0), vec3i(0, 25, 0)) );
+}
