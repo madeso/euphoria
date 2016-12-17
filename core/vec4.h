@@ -1,5 +1,5 @@
-#ifndef SPACETYPER_VEC4_H
-#define SPACETYPER_VEC4_H
+#ifndef CORE_VEC4_H
+#define CORE_VEC4_H
 
 #include "core/vec3.h"
 
@@ -51,4 +51,4 @@ vec4<T> ComponentMultiply(const vec4<T>& lhs, const vec4<T>& rhs) {
 typedef vec4<float> vec4f;
 typedef vec4<int> vec4i;
 
-#endif  // SPACETYPER_VEC4_H
+#endif  // CORE_VEC4_H

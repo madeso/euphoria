@@ -1,5 +1,5 @@
-#ifndef SPACETYPER_AXISANGLE_H
-#define SPACETYPER_AXISANGLE_H
+#ifndef CORE_AXISANGLE_H
+#define CORE_AXISANGLE_H
 
 #include "core/vec3.h"
 #include "core/angle.h"
@@ -21,4 +21,4 @@ class AxisAngle
   AxisAngle(const vec3f& axis, const Angle& angle);
 };
 
-#endif  // SPACETYPER_AXISANGLE_H
+#endif  // CORE_AXISANGLE_H

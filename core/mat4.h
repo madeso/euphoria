@@ -1,5 +1,5 @@
-#ifndef SPACETYPER_MAT4_H
-#define SPACETYPER_MAT4_H
+#ifndef CORE_MAT4_H
+#define CORE_MAT4_H
 
 #include "core/vec3.h"
 #include "core/vec4.h"
@@ -338,4 +338,4 @@ vec4<T> operator*(const mat4<T>& lhs, const vec4<T> rhs) {
 typedef mat4<float> mat4f;
 typedef mat4<int> mat4i;
 
-#endif  // SPACETYPER_MAT4_H
+#endif  // CORE_MAT4_H

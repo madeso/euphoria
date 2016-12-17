@@ -1,5 +1,5 @@
-#ifndef SPACETYPER_NUMERIC_H
-#define SPACETYPER_NUMERIC_H
+#ifndef CORE_NUMERIC_H
+#define CORE_NUMERIC_H
 
 bool IsEqual(float lhs, float rhs);
 bool IsZero(float r);
@@ -192,4 +192,4 @@ const bool kTrue();
 */
 const bool kFalse();
 
-#endif  // SPACETYPER_NUMERIC_H
+#endif  // CORE_NUMERIC_H

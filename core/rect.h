@@ -1,5 +1,5 @@
-#ifndef SPACETYPER_RECT_H
-#define SPACETYPER_RECT_H
+#ifndef CORE_RECT_H
+#define CORE_RECT_H
 
 template <typename T>
 class Rect {
@@ -97,4 +97,4 @@ class Rect {
   }
 };
 
-#endif  // SPACETYPER_RECT_H
+#endif  // CORE_RECT_H

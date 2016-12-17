@@ -1,5 +1,5 @@
-#ifndef SPACETYPER_RGB_H
-#define SPACETYPER_RGB_H
+#ifndef CORE_RGB_H
+#define CORE_RGB_H
 
 // from http://www.uize.com/examples/sortable-color-table.html
 enum class Color
@@ -203,4 +203,4 @@ class Rgba
   float a;
 };
 
-#endif  // SPACETYPER_RGB_H
+#endif  // CORE_RGB_H

@@ -1,5 +1,5 @@
-#ifndef SPACETYPER_VEC2_H
-#define SPACETYPER_VEC2_H
+#ifndef CORE_VEC2_H
+#define CORE_VEC2_H
 
 #include <cmath>
 
@@ -102,4 +102,4 @@ T dot(const vec2<T>& lhs, const vec2<T>& rhs) {
 typedef vec2<float> vec2f;
 typedef vec2<int> vec2i;
 
-#endif  // SPACETYPER_VEC2_H
+#endif  // CORE_VEC2_H

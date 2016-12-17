@@ -1,5 +1,5 @@
-#ifndef SPACETYPER_ANGLE_H
-#define SPACETYPER_ANGLE_H
+#ifndef CORE_ANGLE_H
+#define CORE_ANGLE_H
 
 class Angle
 {
@@ -39,4 +39,4 @@ const Angle operator-(const Angle& lhs, const Angle& rhs);
 const Angle operator*(const Angle& lhs, const float rhs);
 const Angle operator*(const float rhs, const Angle& lhs);
 
-#endif  // SPACETYPER_ANGLE_H
+#endif  // CORE_ANGLE_H

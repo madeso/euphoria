@@ -1,5 +1,5 @@
-#ifndef SPACETYPER_VEC3_H
-#define SPACETYPER_VEC3_H
+#ifndef CORE_VEC3_H
+#define CORE_VEC3_H
 
 #include "core/vec2.h"
 #include <ostream>
@@ -99,4 +99,4 @@ std::ostream& operator<<(std::ostream& stream, const vec3<T>& v)
 typedef vec3<float> vec3f;
 typedef vec3<int> vec3i;
 
-#endif  // SPACETYPER_VEC3_H
+#endif  // CORE_VEC3_H

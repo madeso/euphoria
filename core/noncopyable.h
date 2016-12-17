@@ -1,5 +1,5 @@
-#ifndef SPACETYPER_NONCOPYABLE_H
-#define SPACETYPER_NONCOPYABLE_H
+#ifndef CORE_NONCOPYABLE_H
+#define CORE_NONCOPYABLE_H
 
 class Noncopyable {
  public:
@@ -12,4 +12,4 @@ class Noncopyable {
   void operator=(Noncopyable&&);
 };
 
-#endif  // SPACETYPER_NONCOPYABLE_H
+#endif  // CORE_NONCOPYABLE_H
