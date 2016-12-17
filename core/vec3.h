@@ -2,12 +2,21 @@
 #define CORE_VEC3_H
 
 #include "core/vec2.h"
+#include "core/numeric.h"
 #include <ostream>
+#include <cassert>
+
+template<typename T>
+class vec3;
+
+template<typename T>
+class unit;
 
 template<typename T>
 class vec3 {
  public:
   typedef vec3<T> Vec;
+  typedef unit<T> Unit;
   T x;
   T y;
   T z;
@@ -19,22 +28,16 @@ class vec3 {
     return to - from;
   }
 
-  static Vec XAxis() {
-    return vec3(1, 0, 0);
-  }
-  static Vec YAxis() {
-    return vec3(0, 1, 0);
-  }
-  static Vec ZAxis() {
-    return vec3(0, 0, 1);
-  }
+  static Unit XAxis();
+  static Unit YAxis();
+  static Unit ZAxis();
 
-  static Vec Up() {return YAxis();}
-  static Vec Down() {return -YAxis();}
-  static Vec Right() {return XAxis();}
-  static Vec Left() {return -XAxis();}
-  static Vec In() {return -ZAxis();}
-  static Vec Out() {return ZAxis();}
+  static Unit Up();
+  static Unit Down();
+  static Unit Right();
+  static Unit Left();
+  static Unit In();
+  static Unit Out();
 
   void operator+=(const Vec& rhs) {
     x += rhs.x;
@@ -76,13 +79,68 @@ class vec3 {
     *this /= GetLength();
   }
 
-  Vec GetNormalized() const {
-    Vec r = *this;
-    r.Normalize();
-    return r;
-  }
+  Unit GetNormalized() const;
 };
 
+////////////////////////////////////////////////////////////////////////////////
+
+template <typename T>
+class unit : public vec3<T> {
+ public:
+  typedef unit<T> Unit;
+  bool IsValid() const {
+    return ::IsEqual(vec3<T>::GetLengthSquared(), 1);
+  }
+  Unit operator-() const {
+    return Unit(-*this);
+  }
+ private:
+  unit(T x, T y, T z) : vec3<T>(x, y, z) { assert(IsValid()); }
+  unit(const vec3<T>& o) : vec3<T>(o) { assert(IsValid()); }
+  friend class vec3<T>;
+};
+
+template<typename T>
+unit<T> vec3<T>::XAxis() {
+  return Unit(1, 0, 0);
+}
+
+template<typename T>
+unit<T> vec3<T>::YAxis() {
+  return Unit(0, 1, 0);
+}
+
+template<typename T>
+unit<T> vec3<T>::ZAxis() {
+  return Unit(0, 0, 1);
+}
+
+template<typename T>
+unit<T> vec3<T>::Up() {return YAxis();}
+
+template<typename T>
+unit<T> vec3<T>::Down() {return -YAxis();}
+
+template<typename T>
+unit<T> vec3<T>::Right() {return XAxis();}
+
+template<typename T>
+unit<T> vec3<T>::Left() {return -XAxis();}
+
+template<typename T>
+unit<T> vec3<T>::In() {return -ZAxis();}
+
+template<typename T>
+unit<T> vec3<T>::Out() {return ZAxis();}
+
+template<typename T>
+unit<T> vec3<T>::GetNormalized() const {
+  Vec r = *this;
+  r.Normalize();
+  return Unit(r);
+}
+
+////////////////////////////////////////////////////////////////////////////////
 
 template <typename T>
 bool operator==(const vec3<T>& lhs, const vec3<T>& rhs) {

@@ -7,7 +7,7 @@
 class AxisAngle
 {
  public:
-  static const AxisAngle RightHandAround(const vec3f& axis, const Angle& angle);
+  static const AxisAngle RightHandAround(const vec3f::Unit& axis, const Angle& angle);
 
   /** a unit-vector.
   */
@@ -18,7 +18,7 @@ class AxisAngle
   Angle angle;
 
  private:
-  AxisAngle(const vec3f& axis, const Angle& angle);
+  AxisAngle(const vec3f::Unit& axis, const Angle& angle);
 };
 
 #endif  // CORE_AXISANGLE_H

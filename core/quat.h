@@ -40,10 +40,10 @@ class quat {
   static Q Identity() {
     return Q(1, Vec(0, 0, 0));
   }
-  static Q LookAt(const Vec& from, const Vec& to, const Vec up) {
+  static Q LookAt(const Vec& from, const Vec& to, const typename Vec::Unit up) {
     return LookInDirection(Vec::FromTo(from, to).GetNormalized(), up);
   }
-  static Q LookInDirection(const Vec& dir, const Vec& up) {
+  static Q LookInDirection(const Vec& dir, const typename Vec::Unit& up) {
     float dot = ::dot(Vec::In(), dir);
 
     if (Abs(dot - (-1.0f)) < 0.000001f)
@@ -56,7 +56,7 @@ class quat {
     }
 
     const auto rotAngle = Acos(dot);
-    const Vec rotAxis = cross(Vec::In(), dir).GetNormalized();
+    const typename Vec::Unit rotAxis = cross(Vec::In(), dir).GetNormalized();
     return Q(AxisAngle::RightHandAround(rotAxis, rotAngle));
   }
 
