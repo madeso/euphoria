@@ -56,9 +56,14 @@ void Angle::operator-=(const Angle& rhs)
   mRad -= rhs.mRad;
 }
 
-void Angle::operator *=(const float rhs)
+void Angle::operator*=(const float rhs)
 {
   mRad *= rhs;
+}
+
+void Angle::operator/=(const float rhs)
+{
+  mRad /= rhs;
 }
 
 const float Sin(const Angle& ang)
@@ -113,6 +118,13 @@ const Angle operator-(const Angle& lhs, const Angle& rhs)
 {
   Angle temp(lhs);
   temp -= rhs;
+  return temp;
+}
+
+const Angle operator/(const Angle& lhs, const float rhs)
+{
+  Angle temp(lhs);
+  temp /= rhs;
   return temp;
 }
 

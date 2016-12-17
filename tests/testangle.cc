@@ -63,6 +63,13 @@ GTEST(multi) {
   EXPECT_FLOAT_EQ(180.0f, (2.0f * Angle::FromDegrees(90)).inDegrees());
 }
 
+GTEST(div) {
+  auto a = Angle::FromDegrees(180);
+  a /= 2;
+  EXPECT_FLOAT_EQ(90.0f, a.inDegrees());
+  EXPECT_FLOAT_EQ(90.0f, (Angle::FromDegrees(180) / 2.0f).inDegrees());
+}
+
 struct KnownConstantsFromWikipedia : public ::testing::Test {
   // https://en.wikipedia.org/wiki/Trigonometric_functions#Explicit_values
   // https://en.wikipedia.org/wiki/Trigonometric_constants_expressed_in_real_radicals#Table_of_some_common_angles

@@ -21,6 +21,7 @@ class Angle
   void operator-=(const Angle& rhs);
 
   void operator*=(const float r);
+  void operator/=(const float r);
  private:
   explicit Angle(float rad);
   float mRad;
@@ -37,6 +38,7 @@ const Angle Atan(const float v);
 const Angle operator+(const Angle& lhs, const Angle& rhs);
 const Angle operator-(const Angle& lhs, const Angle& rhs);
 const Angle operator*(const Angle& lhs, const float rhs);
+const Angle operator/(const Angle& lhs, const float rhs);
 const Angle operator*(const float rhs, const Angle& lhs);
 
 #endif  // CORE_ANGLE_H
