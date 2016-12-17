@@ -141,3 +141,11 @@ GTEST(increment_and_wrapi) {
   EXPECT_EQ(1, IncrementAndWrapi(0, &f, 1, 10));
   EXPECT_EQ(0, f);
 }
+
+GTEST(close_to_zero) {
+  EXPECT_FLOAT_EQ(10.0f, DefaultIfCloseToZero<float>(10.0f, 42.0f, 0.1f));
+  EXPECT_FLOAT_EQ(-10.0f, DefaultIfCloseToZero<float>(-10.0f, 42.0f, 0.1f));
+  EXPECT_FLOAT_EQ(42.0f, DefaultIfCloseToZero<float>(0.09f, 42.0f, 0.1f));
+  EXPECT_FLOAT_EQ(42.0f, DefaultIfCloseToZero<float>(-0.09f, 42.0f, 0.1f));
+
+}
