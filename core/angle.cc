@@ -1,6 +1,6 @@
-#include "spacetyper/angle.h"
+#include "core/angle.h"
 
-#include "spacetyper/numeric.h"
+#include "core/numeric.h"
 #include <cmath>
 #include <cassert>
 

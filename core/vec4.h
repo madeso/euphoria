@@ -1,7 +1,7 @@
 #ifndef SPACETYPER_VEC4_H
 #define SPACETYPER_VEC4_H
 
-#include "spacetyper/vec3.h"
+#include "core/vec3.h"
 
 #include <ostream>
 

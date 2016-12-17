@@ -2,7 +2,7 @@
 #define SPACETYPER_SCALABLESPRITE_H
 
 #include <memory>
-#include "spacetyper/vec2.h"
+#include "core/vec2.h"
 
 class Vao;
 class Texture2d;

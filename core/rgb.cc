@@ -1,4 +1,4 @@
-#include "spacetyper/rgb.h"
+#include "core/rgb.h"
 #include <iostream>
 
 Rgb::Rgb(const float red, const float green, const float blue)

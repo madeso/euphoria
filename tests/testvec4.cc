@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "spacetyper/vec4.h"
+#include "core/vec4.h"
 
 #define GTEST(X) TEST(vec4, X)
 

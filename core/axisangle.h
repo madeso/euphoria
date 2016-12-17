@@ -1,8 +1,8 @@
 #ifndef SPACETYPER_AXISANGLE_H
 #define SPACETYPER_AXISANGLE_H
 
-#include "spacetyper/vec3.h"
-#include "spacetyper/angle.h"
+#include "core/vec3.h"
+#include "core/angle.h"
 
 class AxisAngle
 {

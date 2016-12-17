@@ -1,7 +1,7 @@
 #ifndef SPACETYPER_VEC3_H
 #define SPACETYPER_VEC3_H
 
-#include "spacetyper/vec2.h"
+#include "core/vec2.h"
 #include <ostream>
 
 template<typename T>

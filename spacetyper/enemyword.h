@@ -6,7 +6,7 @@
 #include "spacetyper/sprite.h"
 #include "spacetyper/fonts.h"
 
-#include "spacetyper/vec2.h"
+#include "core/vec2.h"
 
 class TextureCache;
 class TextBackgroundRenderer;

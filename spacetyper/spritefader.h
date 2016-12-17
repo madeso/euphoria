@@ -5,7 +5,7 @@
 #include <vector>
 #include <random>
 
-#include "spacetyper/vec2.h"
+#include "core/vec2.h"
 
 class Texture2d;
 class Layer;

@@ -5,8 +5,8 @@
 #include <map>
 #include <memory>
 
-#include "spacetyper/vec2.h"
-#include "spacetyper/vec3.h"
+#include "core/vec2.h"
+#include "core/vec3.h"
 
 #include "spacetyper/vao.h"
 #include "spacetyper/texture.h"

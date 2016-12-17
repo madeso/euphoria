@@ -57,6 +57,7 @@ set_target_properties(spacetyper
                       )
 
 target_link_libraries(spacetyper
+                      libcore
                       ${OPENGL_LIBRARIES}
                       ${SDL2_LIBRARY}
                       ${FREETYPE_LIBRARIES}

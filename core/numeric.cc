@@ -1,9 +1,9 @@
-#include "spacetyper/numeric.h"
+#include "core/numeric.h"
 
 #include <cmath>
 #include <cassert>
 
-#include "spacetyper/angle.h"
+#include "core/angle.h"
 
 bool IsEqual(float lhs, float rhs)
 {

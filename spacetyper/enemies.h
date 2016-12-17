@@ -6,7 +6,7 @@
 #include <random>
 #include <string>
 
-#include "spacetyper/vec3.h"
+#include "core/vec2.h"
 
 class EnemyWord;
 class TextureCache;

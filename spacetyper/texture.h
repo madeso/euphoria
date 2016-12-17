@@ -3,7 +3,7 @@
 
 #include "spacetyper/gl.h"
 #include "spacetyper/image.h"
-#include "spacetyper/noncopyable.h"
+#include "core/noncopyable.h"
 
 struct Texture2dLoadData {
   Texture2dLoadData();

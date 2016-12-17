@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "spacetyper/rect.h"
+#include "core/rect.h"
 
 #define GTEST(X) TEST(rect, X)
 

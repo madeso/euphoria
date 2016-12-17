@@ -3,13 +3,13 @@
 
 #include <string>
 
-#include "spacetyper/vec2.h"
-#include "spacetyper/vec3.h"
-#include "spacetyper/vec4.h"
-#include "spacetyper/mat4.h"
+#include "core/vec2.h"
+#include "core/vec3.h"
+#include "core/vec4.h"
+#include "core/mat4.h"
 
 #include "spacetyper/gl.h"
-#include "spacetyper/noncopyable.h"
+#include "core/noncopyable.h"
 
 class ShaderId : Noncopyable {
  public:

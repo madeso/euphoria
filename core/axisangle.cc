@@ -1,4 +1,4 @@
-#include "spacetyper/axisangle.h"
+#include "core/axisangle.h"
 
 AxisAngle::AxisAngle(const vec3f& ax, const Angle& ang)
     : axis(ax.GetNormalized())

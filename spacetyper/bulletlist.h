@@ -4,7 +4,7 @@
 #include <vector>
 #include <memory>
 
-#include "spacetyper/vec2.h"
+#include "core/vec2.h"
 
 #include "spacetyper/sprite.h"
 

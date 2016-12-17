@@ -1,6 +1,6 @@
 #include "gtest/gtest.h"
-#include "spacetyper/angle.h"
-#include "spacetyper/numeric.h"
+#include "core/angle.h"
+#include "core/numeric.h"
 
 #define GTEST(X) TEST(angle, X)
 

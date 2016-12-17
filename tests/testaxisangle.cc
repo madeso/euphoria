@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "spacetyper/axisangle.h"
+#include "core/axisangle.h"
 
 #define GTEST(X) TEST(axisangle, X)
 

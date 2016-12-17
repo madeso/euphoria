@@ -6,7 +6,7 @@
 #include "spacetyper/sprite.h"
 #include "spacetyper/enemyword.h"
 
-#include "spacetyper/vec2.h"
+#include "core/vec2.h"
 
 // todo: improve resolution
 const float PI = 3.14;

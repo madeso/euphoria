@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "spacetyper/numeric.h"
+#include "core/numeric.h"
 
 #define GTEST(X) TEST(numeric, X)
 

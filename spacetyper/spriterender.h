@@ -7,8 +7,8 @@
 #include "spacetyper/shader.h"
 #include "spacetyper/texture.h"
 
-#include "spacetyper/vec2.h"
-#include "spacetyper/vec4.h"
+#include "core/vec2.h"
+#include "core/vec4.h"
 
 class Vao;
 class ScalableSprite;

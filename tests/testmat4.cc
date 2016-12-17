@@ -1,8 +1,8 @@
 #include "gtest/gtest.h"
 #include "gmock/gmock-generated-matchers.h"
 
-#include "spacetyper/mat4.h"
-#include "spacetyper/numeric.h"
+#include "core/mat4.h"
+#include "core/numeric.h"
 
 #define GTEST(X) TEST(mat4, X)
 using namespace testing;

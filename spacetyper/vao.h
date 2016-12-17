@@ -2,9 +2,9 @@
 #define SPACETYPER_VAO_H
 
 #include <vector>
-#include "spacetyper/vec2.h"
+#include "core/vec2.h"
 #include "spacetyper/gl.h"
-#include "spacetyper/noncopyable.h"
+#include "core/noncopyable.h"
 
 class Point {
  public:

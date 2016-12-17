@@ -3,7 +3,7 @@
 #include <cassert>
 #include <algorithm>
 
-#include "spacetyper/vec4.h"
+#include "core/vec4.h"
 
 #include "spacetyper/spriterender.h"
 

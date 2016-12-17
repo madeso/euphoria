@@ -1,10 +1,10 @@
 #ifndef SPACETYPER_MAT4_H
 #define SPACETYPER_MAT4_H
 
-#include "spacetyper/vec3.h"
-#include "spacetyper/vec4.h"
-#include "spacetyper/angle.h"
-#include "spacetyper/axisangle.h"
+#include "core/vec3.h"
+#include "core/vec4.h"
+#include "core/angle.h"
+#include "core/axisangle.h"
 
 #include <vector>
 

@@ -4,8 +4,8 @@
 #include <vector>
 #include <map>
 
-#include "spacetyper/vec2.h"
-#include "spacetyper/vec3.h"
+#include "core/vec2.h"
+#include "core/vec3.h"
 
 class Texture2d;
 class SpriteRenderer;

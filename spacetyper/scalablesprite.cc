@@ -5,7 +5,7 @@
 #include <algorithm>
 
 #include "spacetyper/vao.h"
-#include "spacetyper/rect.h"
+#include "core/rect.h"
 #include "spacetyper/texture.h"
 #include "spacetyper/texturecache.h"
 
