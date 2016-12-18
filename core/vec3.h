@@ -76,7 +76,13 @@ class vec3 {
   }
 
   void Normalize() {
-    *this /= GetLength();
+    const T l2 = GetLengthSquared();
+    if( IsEqual(l2, 0) ) {
+      *this = Up();
+    }
+    else {
+      *this /= Sqrt(l2);
+    }
   }
 
   Unit GetNormalized() const;
@@ -92,7 +98,7 @@ class unit : public vec3<T> {
     return ::IsEqual(vec3<T>::GetLengthSquared(), 1);
   }
   Unit operator-() const {
-    return Unit(-*this);
+    return Unit(-vec3<T>::x, -vec3<T>::y, -vec3<T>::z);
   }
  private:
   unit(T x, T y, T z) : vec3<T>(x, y, z) { assert(IsValid()); }
