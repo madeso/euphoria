@@ -277,11 +277,22 @@ class ImagePanel : public wxPanel
           const bool on_top_side = y < image_y-SIZER_DISTANCE && y > RULER_SIZE;
           const bool on_left_side = x < image_x-SIZER_DISTANCE && x > RULER_SIZE;
 
-          if( within_x && !within_y && on_top_side) {
+          if( within_x && !within_y ) {
             const int dx = static_cast<int>((x - image_x)/scale_);
             TextRenderData d = col.GetTextOver(dx);
-            col.data[d.index] = -col.data[d.index];
-            Refresh();
+
+            if( on_top_side ) {
+              col.data[d.index] = -col.data[d.index];
+              Refresh();
+            }
+            else if( y < RULER_SIZE) {
+              int value = col.data[d.index];
+              const int sign = Sign(value);
+              col.data[d.index] = value /2;
+              const int new_value = sign*(sign*value - sign*col.data[d.index]);
+              col.data.insert(col.data.begin()+d.index, new_value);
+              Refresh();
+            }
           }
 
           if( within_y && !within_x && on_left_side) {
