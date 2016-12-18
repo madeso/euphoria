@@ -11,49 +11,39 @@
 // negative = scaling size
 // if available size < min_size scaling areas will have "zero" and absolute areas will be resized
 template <typename T>
-class PerformTableLayout{
- public:
-  const std::vector<T> pieces;
-  const T zero;
-  T min_size;
-  T total_percentage;
+std::vector<T> PerformTableLayout(const std::vector<T>& pieces, T size, T zero = 0) {
+  assert(size >= 0);
+  assert(zero <= 0);
 
-  PerformTableLayout(const std::vector<T>& p, T z = 0) : pieces(p), zero(z), min_size(0), total_percentage(0) {
-    assert(zero <= 0);
-
-    for(T f: pieces) {
-      if( f > 0 ) min_size += f;
-      else total_percentage += -f;
-    }
+  T min_size = 0;
+  T total_percentage = 0;
+  for(T f: pieces) {
+    if( f > 0 ) min_size += f;
+    else total_percentage += -f;
   }
+  const T size_left = size - min_size;
+  const T fixed_scale = min_size < size ? 1 : size/min_size;
 
-  std::vector<T> GetLayoutTableLayout(T size) {
-    assert(size >= 0);
-
-    const T size_left = size - min_size;
-    const T fixed_scale = min_size < size ? 1 : size/min_size;
-
-    std::vector<T> ret;
-    ret.reserve(pieces.size());
-    for(T f: pieces) {
-      if( f > 0 ) {
-        ret.push_back(f * fixed_scale);
+  std::vector<T> ret;
+  ret.reserve(pieces.size());
+  for(T f: pieces) {
+    if( f > 0 ) {
+      ret.push_back(f * fixed_scale);
+    }
+    else {
+      if( size_left <= 0 ) {
+        // no more room, add 0
+        ret.push_back(zero);
       }
       else {
-        if( size_left <= 0 ) {
-          // no more room, add 0
-          ret.push_back(zero);
-        }
-        else {
-          const T p = (-f / total_percentage);
-          const T size = p * size_left;
-          ret.push_back(size);
-        }
+        const T p = (-f / total_percentage);
+        const T size = p * size_left;
+        ret.push_back(size);
       }
     }
-    return ret;
   }
-};
+  return ret;
+}
 
 
 #endif  // CORE_TABLELAYOUT_H
