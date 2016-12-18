@@ -3,13 +3,80 @@
 #include <wx/dcbuffer.h>
 #include <wx/dcgraph.h>
 
+#include <vector>
+#include <sstream>
+
 #include "scalingsprite.pb.h"
 #include "scimed/wxproto.h"
 
-// todo:
-// add loading, zooming and panning in image
-// add loading/saving and specifying areas
-// add preview pane
+class Line {
+ public:
+  static Line Null() { return Line(); }
+
+  operator bool() const {
+    return isValid_;
+  }
+ private:
+  Line() : isValid_(false) {
+  }
+  bool isValid_;
+};
+
+class TextRenderData {
+ public:
+  TextRenderData(std::string t, int aleft, int aright) : text(t), position(aleft + (aright-aleft) / 2), left(aleft), right(aright) {}
+  std::string text;
+  int position;
+  int left;
+  int right;
+};
+
+class Data {
+ public:
+  int GetTotalPercentage() const {
+    int total = 0;
+    for(int i: data) {
+      if( i < 0 ) total += -i;
+    }
+    return total;
+  }
+  Line GetTracking(int d) const {
+    return Line::Null();
+  }
+  std::vector<TextRenderData> GetText() const {
+    std::vector<TextRenderData> ret;
+    const int total_percentage = GetTotalPercentage();
+    int x = 0;
+    for(int i: data) {
+      const int d = abs(i);
+      std::ostringstream ss;
+      if( i > 0) ss << i << "px";
+      else ss << static_cast<float>(-i*100.0f/total_percentage) << "%";
+      ret.push_back(TextRenderData(ss.str(), x, x + d));
+      x += d;
+    }
+    return ret;
+  }
+
+  // lines lie between datapoints
+  std::vector<float> GetLines() const {
+    std::vector<float> ret;
+    bool has_data = false;
+    int x = 0;
+    for(int i: data) {
+      int dx = std::abs(i);
+      if( has_data ) {
+        ret.push_back(x);
+      }
+      else {
+        has_data = true;
+      }
+      x += dx;
+    }
+    return ret;
+  }
+  std::vector<int> data;
+};
 
 
 class ImagePanel : public wxPanel
@@ -20,33 +87,23 @@ class ImagePanel : public wxPanel
   bool displayImage_;
   float scale_;
 
-  int left;
-  int right;
-  int top;
-  int bottom;
-
   wxStockCursor last_cursor_;
   bool left_mouse;
   bool last_left_mouse;
 
-  bool track_left;
-  bool track_right;
-  bool track_top;
-  bool track_bottom;
-
   int image_x;
   int image_y;
 
-  int draw_left;
-  int draw_right;
-  int draw_top;
-  int draw_bottom;
+  Data col;
+  Data row;
+  Line track_col;
+  Line track_row;
 
  public:
   explicit ImagePanel(wxFrame* parent)
-      : wxPanel(parent), displayImage_(false), scale_(8.0f), left(10), right(10), top(10), bottom(10), last_cursor_(wxCURSOR_ARROW), left_mouse(false), last_left_mouse(false)
-      , track_left(false), track_right(false), track_top(false), track_bottom(false)
+      : wxPanel(parent), displayImage_(false), scale_(8.0f), last_cursor_(wxCURSOR_ARROW), left_mouse(false), last_left_mouse(false)
       , image_x(0), image_y(0)
+      , track_col(Line::Null()), track_row(Line::Null())
   {
     Bind(wxEVT_SIZE, &ImagePanel::OnSize, this);
     Bind(wxEVT_PAINT, &ImagePanel::OnPaint, this);
@@ -56,20 +113,20 @@ class ImagePanel : public wxPanel
     Bind(wxEVT_LEFT_UP, &ImagePanel::OnMouseUp, this);
   }
 
-  void GetRect(scalingsprite::Rect* r) {
-    r->set_left(left);
-    r->set_right(right);
-    r->set_top(top);
-    r->set_bottom(bottom);
-    track_left = track_right = track_top = track_bottom = false;
+  void GetRect(scalingsprite::ScalingSprite* r) {
   }
 
-  void SetRect(const scalingsprite::Rect& r) {
-    left = r.left();
-    right = r.right();
-    top = r.top();
-    bottom = r.bottom();
-    track_left = track_right = track_top = track_bottom = false;
+  void SetRect(const scalingsprite::ScalingSprite& r) {
+    row.data.clear();
+    row.data.push_back(12);
+    row.data.push_back(-20);
+    row.data.push_back(30);
+
+    col.data.clear();
+    col.data.push_back(12);
+    col.data.push_back(-10);
+    col.data.push_back(20);
+
     Refresh();
   }
 
@@ -107,53 +164,49 @@ class ImagePanel : public wxPanel
     OnMouse(me);
   }
 
-  void TrackUtil(int& left, int x, int image_x, float scale_, int width, bool track_left, bool inverted) {
-    if( track_left ) {
+  void TrackUtil(Data* data, Line* line, int x, int image_x, float scale_, int width) {
+    /*
+     if( track_left ) {
       int new_left = std::min(width, std::max(0, static_cast<int>((x - image_x) / scale_)));
       if( new_left != left) {
-        left = inverted ? width - new_left : new_left;
+        left = new_left;
         Refresh();
       }
     }
+     */
   }
 
   void OnMouse(const wxMouseEvent& me) {
     const int x = me.GetX();
     const int y = me.GetY();
 
-    const bool is_tracking = track_left || track_right || track_top || track_bottom;
+    const bool is_tracking = track_col || track_row;
 
     if( is_tracking ) {
       if( left_mouse ) {
-        TrackUtil(left, me.GetX(), image_x, scale_, image.GetWidth(), track_left, false);
-        TrackUtil(right, me.GetX(), image_x, scale_, image.GetWidth(), track_right, true);
-        TrackUtil(top, me.GetY(), image_y, scale_, image.GetHeight(), track_top, false);
-        TrackUtil(bottom, me.GetY(), image_y, scale_, image.GetHeight(), track_bottom, true);
+        TrackUtil(&row, &track_row, me.GetX(), image_x, scale_, image.GetWidth());
+        TrackUtil(&col, &track_col, me.GetY(), image_y, scale_, image.GetHeight());
       }
       else {
-        track_left = track_right = track_top = track_bottom = false;
+        track_col = Line::Null();
+        track_row = Line::Null();
       }
     }
     else {
+      Line over_col = col.GetTracking(x);
+      Line over_row = row.GetTracking(y);
 
-      const bool over_left = KindaTheSame(x, draw_left);
-      const bool over_right = KindaTheSame(x, draw_right);
-      const bool over_top = KindaTheSame(y, draw_top);
-      const bool over_bottom = KindaTheSame(y, draw_bottom);
-
-      const bool hor = over_left != over_right;
-      const bool vert = over_top != over_bottom;
-
-      const bool is_over = hor || vert;
+      const bool is_over = over_col || over_row;
 
       if( left_mouse && !last_left_mouse && is_over ) {
-        track_left = over_left;
-        track_right = over_right;
-        track_top = over_top;
-        track_bottom = over_bottom;
+        track_col = over_col;
+        track_row = over_row;
       }
 
       wxStockCursor cursor = last_cursor_;
+
+      const bool hor = over_col;
+      const bool vert = over_row;
 
       if( hor && vert ) {
         cursor = wxCURSOR_SIZENESW;
@@ -279,26 +332,21 @@ class ImagePanel : public wxPanel
     const bool draw_guides = true;
     const bool draw_sizer = true;
 
-    const int at_left = image_x + static_cast<int>(left*scale_);
-    const int at_right = image_x + static_cast<int>((image.GetWidth() - right)*scale_);
-    const int at_top = image_y + static_cast<int>(top*scale_);
-    const int at_bottom = image_y + static_cast<int>((image.GetHeight() - bottom)*scale_);
-
-    draw_left = at_left;
-    draw_right = at_right;
-    draw_top = at_top;
-    draw_bottom = at_bottom;
-
     if( draw_guides ) {
       wxPen guide_pen(wxColour(0, 255, 0));
       guide_pen.SetStyle(wxPENSTYLE_SHORT_DASH);
       dc.SetPen(guide_pen);
 
-      VerticalLine(dc, static_cast<int>(image_x + left * scale_));
-      VerticalLine(dc, static_cast<int>(image_x + (image.GetWidth()-right) * scale_));
+      const auto vert = col.GetLines();
+      const auto hor = row.GetLines();
 
-      HorizontalLine(dc, static_cast<int>(image_y + top * scale_));
-      HorizontalLine(dc, static_cast<int>(image_y + (image.GetHeight()-bottom) * scale_));
+      for (auto v : vert) {
+        VerticalLine(dc, static_cast<int>(image_x + v * scale_));
+      }
+
+      for (auto h : hor) {
+        HorizontalLine(dc, static_cast<int>(image_y + h * scale_));
+      }
     }
 
     if( draw_sizer ) {
@@ -314,29 +362,39 @@ class ImagePanel : public wxPanel
       const int anchor_y = image_y - distance;
       const int text_y = anchor_y - 3;
 
-      dc.DrawLine(image_x, anchor_y, image_end_x, anchor_y);
-      DrawAnchorDown(dc, image_x, anchor_y, anchor_size);
-      DrawAnchorDown(dc, at_left, anchor_y, anchor_size);
-      DrawAnchorDown(dc, at_right, anchor_y, anchor_size);
-      DrawAnchorDown(dc, image_end_x, anchor_y, anchor_size);
+      const auto col_text = col.GetText();
+      const auto row_text = row.GetText();
 
-      DrawHorizontalCenteredText(dc, image_x, at_left, text_y, wxString::Format("%d", left));
-      DrawHorizontalCenteredText(dc, at_left, at_right, text_y, wxString::Format("%d", image.GetWidth() - (left + right)));
-      DrawHorizontalCenteredText(dc, at_right, image_end_x, text_y, wxString::Format("%d", right));
+      DrawAnchorDown(dc, image_x, anchor_y, anchor_size);
+      int end = image_end_x;
+      for(const auto t : col_text) {
+        // DrawAnchorDown(dc, image_x + t.position * scale_, anchor_y, anchor_size);
+        end = image_x + t.right * scale_;
+      }
+      dc.DrawLine(image_x, anchor_y, end, anchor_y);
+      DrawAnchorDown(dc, end, anchor_y, anchor_size);
+
+      for(const auto t: col_text) {
+        DrawHorizontalCenteredText(dc, image_x + t.left * scale_, image_x + t.right * scale_, text_y, wxString::Format("%s", t.text.c_str()));
+      }
 
       const int image_end_y = image_y + static_cast<int>(image.GetHeight()*scale_);
       const int anchor_x = image_x - distance;
       const int text_x = anchor_x - 3;
 
-      dc.DrawLine(anchor_x, image_y, anchor_x, image_end_y);
-      DrawAnchorLeft(dc, anchor_x, image_y, anchor_size);
-      DrawAnchorLeft(dc, anchor_x, at_top, anchor_size);
-      DrawAnchorLeft(dc, anchor_x, at_bottom, anchor_size);
-      DrawAnchorLeft(dc, anchor_x, image_end_y, anchor_size);
 
-      DrawVerticalCenteredText(dc, image_y, at_top, text_x, wxString::Format("%d", top));
-      DrawVerticalCenteredText(dc, at_top, at_bottom, text_x, wxString::Format("%d", image.GetHeight() - (top + bottom)));
-      DrawVerticalCenteredText(dc, at_bottom, image_end_y, text_x, wxString::Format("%d", bottom));
+      DrawAnchorLeft(dc, anchor_x, image_y, anchor_size);
+      end = image_end_y;
+      for(const auto t : row_text) {
+        // DrawAnchorLeft(dc, anchor_x, image_y + t.position * scale_, anchor_size);
+        end = image_y + t.right * scale_;
+      }
+      dc.DrawLine(anchor_x, image_y, anchor_x, end);
+      DrawAnchorLeft(dc, anchor_x, end, anchor_size);
+
+      for(const auto t: row_text) {
+        DrawVerticalCenteredText(dc, image_y + t.left * scale_, image_y + t.right * scale_, text_x, wxString::Format("%s", t.text.c_str()));
+      }
     }
 
     if( draw_ruler ) {
@@ -493,7 +551,7 @@ class MyFrame: public wxFrame
     }
 
     // do saving...
-    drawPane->GetRect(data_.mutable_ninepatch()->mutable_draw());
+    drawPane->GetRect(&data_);
     SaveProtoText(data_, filename_ + ".txt");
   }
 
@@ -517,7 +575,7 @@ class MyFrame: public wxFrame
       filename_ = openFileDialog.GetPath();
 
       LoadProtoText(&data_, filename_ + ".txt");
-      drawPane->SetRect(data_.ninepatch().draw());
+      drawPane->SetRect(data_);
     }
     else {
       filename_ = "";

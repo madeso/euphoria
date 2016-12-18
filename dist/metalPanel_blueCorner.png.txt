@@ -1,8 +1,0 @@
-ninepatch {
-  draw {
-    left: 61
-    right: 12
-    top: 31
-    bottom: 12
-  }
-}
