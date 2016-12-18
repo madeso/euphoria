@@ -1,6 +1,8 @@
 #ifndef CORE_AXISANGLE_H
 #define CORE_AXISANGLE_H
 
+#include <iostream>
+
 #include "core/vec3.h"
 #include "core/angle.h"
 
@@ -11,7 +13,7 @@ class AxisAngle
 
   /** a unit-vector.
   */
-  vec3f axis;
+  vec3f::Unit axis;
 
   /** rotation according to right-hand rule.
   */
@@ -20,5 +22,7 @@ class AxisAngle
  private:
   AxisAngle(const vec3f::Unit& axis, const Angle& angle);
 };
+
+std::ostream& operator<<(std::ostream& stream, const AxisAngle& aa);
 
 #endif  // CORE_AXISANGLE_H

@@ -20,6 +20,18 @@ bool IsEqual(const quatf& lhs_value, const quatf& rhs_value) {
   */
 }
 
+bool IsEqual(const AxisAngle& lhs, const AxisAngle& rhs) {
+  if(IsEqual(lhs.angle.inDegrees(), rhs.angle.inDegrees()) && IsEqual(lhs.angle.inDegrees(), 0))
+  {
+    return true;   // zero rotation is always equal zero
+  }
+
+  const bool a = (IsEqual(rhs.axis, lhs.axis) && IsEqual(rhs.angle.inDegrees(), lhs.angle.inDegrees()));
+  const bool inv = (IsEqual(rhs.axis, -lhs.axis) && IsEqual(rhs.angle.inDegrees(), -lhs.angle.inDegrees()));
+  return a || inv;
+}
+
+
 template<typename T>
 ::testing::AssertionResult almost_equal_base(const char* lhs_expression, const char* rhs_expression, const T& lhs_value, const T& rhs_value) {
   const bool almost_equal = ::IsEqual(lhs_value, rhs_value);
@@ -45,5 +57,9 @@ template<typename T>
 }
 
 ::testing::AssertionResult almost_equal_quat(const char* lhs_expression, const char* rhs_expression, const quatf& lhs_value, const quatf& rhs_value) {
+  return almost_equal_base(lhs_expression, rhs_expression, lhs_value, rhs_value);
+}
+
+::testing::AssertionResult almost_equal_axisangle(const char* lhs_expression, const char* rhs_expression, const AxisAngle& lhs_value, const AxisAngle& rhs_value) {
   return almost_equal_base(lhs_expression, rhs_expression, lhs_value, rhs_value);
 }

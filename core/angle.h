@@ -1,6 +1,8 @@
 #ifndef CORE_ANGLE_H
 #define CORE_ANGLE_H
 
+#include <iostream>
+
 class Angle
 {
  public:
@@ -40,5 +42,7 @@ const Angle operator-(const Angle& lhs, const Angle& rhs);
 const Angle operator*(const Angle& lhs, const float rhs);
 const Angle operator/(const Angle& lhs, const float rhs);
 const Angle operator*(const float rhs, const Angle& lhs);
+
+std::ostream& operator<<(std::ostream& stream, const Angle& a);
 
 #endif  // CORE_ANGLE_H

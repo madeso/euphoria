@@ -149,3 +149,9 @@ const Angle Angle::Zero()
 {
   return Angle::FromRadians(0);
 }
+
+std::ostream& operator<<(std::ostream& stream, const Angle& a)
+{
+  return stream << a.inDegrees() << " deg";
+}
+

@@ -14,3 +14,8 @@ const AxisAngle AxisAngle::RightHandAround(const vec3f::Unit& axis, const Angle&
   assert(axis.IsValid());
   return AxisAngle(axis, Angle::FromRadians(angle.inRadians()));
 }
+
+std::ostream& operator<<(std::ostream& stream, const AxisAngle& aa)
+{
+  return stream << "(" << aa.axis << " " << aa.angle << ")";
+}
