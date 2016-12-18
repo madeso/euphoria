@@ -12,14 +12,18 @@
 class Line {
  public:
   static Line Null() { return Line(); }
+  static Line FromIndex(int index) { return Line(index); }
 
   operator bool() const {
     return isValid_;
   }
  private:
-  Line() : isValid_(false) {
+  Line() : isValid_(false), index_(-1) {
+  }
+  Line(int index) : isValid_(true), index_(index) {
   }
   bool isValid_;
+  int index_;
 };
 
 class TextRenderData {
@@ -31,6 +35,10 @@ class TextRenderData {
   int right;
 };
 
+bool KindaTheSame(int a, int b) {
+  return std::abs(a-b) < 5;
+}
+
 class Data {
  public:
   int GetTotalPercentage() const {
@@ -40,7 +48,12 @@ class Data {
     }
     return total;
   }
-  Line GetTracking(int d) const {
+  Line GetTracking(int d, float initial, float scale) const {
+    const auto lines = GetLines();
+    for(int i=0; i<lines.size(); ++i) {
+      const int l = static_cast<int>(initial + scale*lines[i]);
+      if( KindaTheSame(d, l) ) return Line::FromIndex(i);
+    }
     return Line::Null();
   }
   std::vector<TextRenderData> GetText() const {
@@ -59,8 +72,8 @@ class Data {
   }
 
   // lines lie between datapoints
-  std::vector<float> GetLines() const {
-    std::vector<float> ret;
+  std::vector<int> GetLines() const {
+    std::vector<int> ret;
     bool has_data = false;
     int x = 0;
     for(int i: data) {
@@ -144,11 +157,6 @@ class ImagePanel : public wxPanel
   }
 
  private:
-
-  static bool KindaTheSame(int lhs, int rhs) {
-    return std::abs(lhs-rhs) < 5;
-  }
-
   void OnMouseUp(const wxMouseEvent& me) {
     left_mouse = false;
     OnMouse(me);
@@ -193,8 +201,8 @@ class ImagePanel : public wxPanel
       }
     }
     else {
-      Line over_col = col.GetTracking(x);
-      Line over_row = row.GetTracking(y);
+      Line over_col = col.GetTracking(x, image_x, scale_);
+      Line over_row = row.GetTracking(y, image_y, scale_);
 
       const bool is_over = over_col || over_row;
 
