@@ -20,6 +20,7 @@ set_target_properties(scimed
                       )
 
 target_link_libraries(scimed
+                      libcore
                       ${wxWidgets_LIBRARIES}
                       ${PROTOBUF_LIBRARIES}
                       )

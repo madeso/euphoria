@@ -3,24 +3,31 @@
 #include <wx/dcbuffer.h>
 #include <wx/dcgraph.h>
 
+#include "core/numeric.h"
+
 #include <vector>
 #include <sstream>
 
 #include "scalingsprite.pb.h"
 #include "scimed/wxproto.h"
 
-class Line {
+class TrackingLine {
  public:
-  static Line Null() { return Line(); }
-  static Line FromIndex(int index) { return Line(index); }
+  static TrackingLine Null() { return TrackingLine(); }
+  static TrackingLine FromIndex(int index) { return TrackingLine(index); }
+
+  int GetIndex() const {
+    assert(isValid_);
+    return index_;
+  }
 
   operator bool() const {
     return isValid_;
   }
  private:
-  Line() : isValid_(false), index_(-1) {
+  TrackingLine() : isValid_(false), index_(-1) {
   }
-  Line(int index) : isValid_(true), index_(index) {
+  TrackingLine(int index) : isValid_(true), index_(index) {
   }
   bool isValid_;
   int index_;
@@ -39,6 +46,14 @@ bool KindaTheSame(int a, int b) {
   return std::abs(a-b) < 5;
 }
 
+class LineData {
+ public:
+  LineData(int p, int mi, int ma) : position(p), min_value(mi), max_value(ma) {}
+  int position;
+  int min_value;
+  int max_value;
+};
+
 class Data {
  public:
   int GetTotalPercentage() const {
@@ -48,13 +63,25 @@ class Data {
     }
     return total;
   }
-  Line GetTracking(int d, float initial, float scale) const {
+  int GetSizeExceptForLine(int index) const {
+    int r = 0;
+    for(int i=0; i<data.size(); ++i) {
+      if( i == index || i+i == index) {
+      }
+      else {
+        r += std::abs(data[i]);
+      }
+    }
+    return r;
+  }
+  TrackingLine GetTracking(int d, float initial, float scale) const {
     const auto lines = GetLines();
     for(int i=0; i<lines.size(); ++i) {
-      const int l = static_cast<int>(initial + scale*lines[i]);
-      if( KindaTheSame(d, l) ) return Line::FromIndex(i);
+      const LineData& data = lines[i];
+      const int l = static_cast<int>(initial + scale*data.position);
+      if( KindaTheSame(d, l) ) return TrackingLine::FromIndex(i);
     }
-    return Line::Null();
+    return TrackingLine::Null();
   }
   std::vector<TextRenderData> GetText() const {
     std::vector<TextRenderData> ret;
@@ -72,18 +99,20 @@ class Data {
   }
 
   // lines lie between datapoints
-  std::vector<int> GetLines() const {
-    std::vector<int> ret;
+  std::vector<LineData> GetLines() const {
+    std::vector<LineData> ret;
     bool has_data = false;
     int x = 0;
+    int last_x = 0;
     for(int i: data) {
       int dx = std::abs(i);
       if( has_data ) {
-        ret.push_back(x);
+        ret.push_back(LineData(x, last_x, x+dx));
       }
       else {
         has_data = true;
       }
+      last_x = x;
       x += dx;
     }
     return ret;
@@ -109,14 +138,14 @@ class ImagePanel : public wxPanel
 
   Data col;
   Data row;
-  Line track_col;
-  Line track_row;
+  TrackingLine track_col;
+  TrackingLine track_row;
 
  public:
   explicit ImagePanel(wxFrame* parent)
       : wxPanel(parent), displayImage_(false), scale_(8.0f), last_cursor_(wxCURSOR_ARROW), left_mouse(false), last_left_mouse(false)
       , image_x(0), image_y(0)
-      , track_col(Line::Null()), track_row(Line::Null())
+      , track_col(TrackingLine::Null()), track_row(TrackingLine::Null())
   {
     Bind(wxEVT_SIZE, &ImagePanel::OnSize, this);
     Bind(wxEVT_PAINT, &ImagePanel::OnPaint, this);
@@ -172,16 +201,27 @@ class ImagePanel : public wxPanel
     OnMouse(me);
   }
 
-  void TrackUtil(Data* data, Line* line, int x, int image_x, float scale_, int width) {
-    /*
-     if( track_left ) {
-      int new_left = std::min(width, std::max(0, static_cast<int>((x - image_x) / scale_)));
-      if( new_left != left) {
-        left = new_left;
-        Refresh();
-      }
+  void TrackUtil(Data* data, TrackingLine* line, int x, int image_x, float scale_, int total_size) {
+     if( *line ) {
+       const int line_index = line->GetIndex();
+       const LineData& d = data->GetLines()[line_index];
+       const int line_x = std::min(d.max_value-1, std::max(d.min_value+1, static_cast<int>((x - image_x) / scale_)));
+       const int size_except_at_line = data->GetSizeExceptForLine(line_index);
+       const int remaining_size = total_size - size_except_at_line;
+       const int left_size = line_x - d.min_value;
+       const int right_size = d.max_value - line_x;
+       /*
+       const int diff = remaining_size - (left_size + right_size);
+       if( diff != 0) {
+         std::cout << "diff " << diff;
+         std::cout << "\n";
+       }
+       assert(diff == 0); // diff should be zero if we use all the image
+       */
+       data->data[line_index] = Sign(data->data[line_index]) * left_size;
+       data->data[line_index+1] = Sign(data->data[line_index+1]) * right_size;
+       Refresh();
     }
-     */
   }
 
   void OnMouse(const wxMouseEvent& me) {
@@ -192,17 +232,17 @@ class ImagePanel : public wxPanel
 
     if( is_tracking ) {
       if( left_mouse ) {
-        TrackUtil(&row, &track_row, me.GetX(), image_x, scale_, image.GetWidth());
-        TrackUtil(&col, &track_col, me.GetY(), image_y, scale_, image.GetHeight());
+        TrackUtil(&row, &track_row, me.GetY(), image_y, scale_, image.GetHeight());
+        TrackUtil(&col, &track_col, me.GetX(), image_x, scale_, image.GetWidth());
       }
       else {
-        track_col = Line::Null();
-        track_row = Line::Null();
+        track_col = TrackingLine::Null();
+        track_row = TrackingLine::Null();
       }
     }
     else {
-      Line over_col = col.GetTracking(x, image_x, scale_);
-      Line over_row = row.GetTracking(y, image_y, scale_);
+      TrackingLine over_col = col.GetTracking(x, image_x, scale_);
+      TrackingLine over_row = row.GetTracking(y, image_y, scale_);
 
       const bool is_over = over_col || over_row;
 
@@ -349,11 +389,11 @@ class ImagePanel : public wxPanel
       const auto hor = row.GetLines();
 
       for (auto v : vert) {
-        VerticalLine(dc, static_cast<int>(image_x + v * scale_));
+        VerticalLine(dc, static_cast<int>(image_x + v.position * scale_));
       }
 
       for (auto h : hor) {
-        HorizontalLine(dc, static_cast<int>(image_y + h * scale_));
+        HorizontalLine(dc, static_cast<int>(image_y + h.position * scale_));
       }
     }
 
