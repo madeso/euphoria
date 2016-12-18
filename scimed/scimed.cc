@@ -11,6 +11,9 @@
 #include "scalingsprite.pb.h"
 #include "scimed/wxproto.h"
 
+constexpr int RULER_SIZE = 20;
+constexpr int SIZER_DISTANCE = 20;
+
 class TrackingLine {
  public:
   static TrackingLine Null() { return TrackingLine(); }
@@ -35,11 +38,12 @@ class TrackingLine {
 
 class TextRenderData {
  public:
-  TextRenderData(std::string t, int aleft, int aright) : text(t), position(aleft + (aright-aleft) / 2), left(aleft), right(aright) {}
+  TextRenderData(std::string t, int aleft, int aright, int i) : text(t), position(aleft + (aright-aleft) / 2), left(aleft), right(aright), index(i) {}
   std::string text;
   int position;
   int left;
   int right;
+  int index;
 };
 
 bool KindaTheSame(int a, int b) {
@@ -87,15 +91,29 @@ class Data {
     std::vector<TextRenderData> ret;
     const int total_percentage = GetTotalPercentage();
     int x = 0;
-    for(int i: data) {
+    for(int index=0; index<data.size(); ++index) {
+      const int i = data[index];
       const int d = abs(i);
       std::ostringstream ss;
       if( i > 0) ss << i << "px";
       else ss << static_cast<float>(-i*100.0f/total_percentage) << "%";
-      ret.push_back(TextRenderData(ss.str(), x, x + d));
+      ret.push_back(TextRenderData(ss.str(), x, x + d, index));
       x += d;
     }
     return ret;
+  }
+
+  TextRenderData GetTextOver(int x) const {
+    const auto data = GetText();
+    TextRenderData last("", -1, -1, 0);
+    for(const auto d : data) {
+      last = d;
+      if( x < d.right ) {
+        return d;
+      }
+    }
+    assert(false && "shouldnt happen");
+    return last;
   }
 
   // lines lie between datapoints
@@ -104,7 +122,7 @@ class Data {
     bool has_data = false;
     int x = 0;
     int last_x = 0;
-    for(int i: data) {
+    for(const auto i:data) {
       int dx = std::abs(i);
       if( has_data ) {
         ret.push_back(LineData(x, last_x, x+dx));
@@ -119,7 +137,6 @@ class Data {
   }
   std::vector<int> data;
 };
-
 
 class ImagePanel : public wxPanel
 {
@@ -245,11 +262,37 @@ class ImagePanel : public wxPanel
       TrackingLine over_row = row.GetTracking(y, image_y, scale_);
 
       const bool is_over = over_col || over_row;
+      if( left_mouse && !last_left_mouse ) {
+        if( is_over ) {
+          track_col = over_col;
+          track_row = over_row;
+        }
+        else {
+          const int image_end_x = image_x + static_cast<int>(image.GetWidth()*scale_);
+          const int image_end_y = image_y + static_cast<int>(image.GetHeight()*scale_);
 
-      if( left_mouse && !last_left_mouse && is_over ) {
-        track_col = over_col;
-        track_row = over_row;
+          const bool within_x = x > image_x && x < image_end_x;
+          const bool within_y = y > image_y && y < image_end_y;
+
+          const bool on_top_side = y < image_y-SIZER_DISTANCE && y > RULER_SIZE;
+          const bool on_left_side = x < image_x-SIZER_DISTANCE && x > RULER_SIZE;
+
+          if( within_x && !within_y && on_top_side) {
+            const int dx = static_cast<int>((x - image_x)/scale_);
+            TextRenderData d = col.GetTextOver(dx);
+            col.data[d.index] = -col.data[d.index];
+            Refresh();
+          }
+
+          if( within_y && !within_x && on_left_side) {
+            const int dx = static_cast<int>((y - image_y)/scale_);
+            TextRenderData d = row.GetTextOver(dx);
+            row.data[d.index] = -row.data[d.index];
+            Refresh();
+          }
+        }
       }
+
 
       wxStockCursor cursor = last_cursor_;
 
@@ -398,7 +441,7 @@ class ImagePanel : public wxPanel
     }
 
     if( draw_sizer ) {
-      const int distance = 20;
+      const int distance = SIZER_DISTANCE;
       const int anchor_size = 6;
 
       wxPen sizer_pen(wxColour(0, 0, 0));
@@ -446,7 +489,7 @@ class ImagePanel : public wxPanel
     }
 
     if( draw_ruler ) {
-      const int ruler_size = 20;
+      const int ruler_size = RULER_SIZE;
       const int big_mark_size = 15;
       const int small_mark_size = 5;
       const int mark_index = 5;
