@@ -18,7 +18,7 @@ class quat {
 
   Vec vec() const { return Vec(x, y , z); }
 
-  quat(T w, const Vec& v) : w(w), x(v.x), y(v.y), z(v.z) {}
+  quat(T w, const Vec& v) : w(w), x(v.x), y(v.y), z(v.z) { }
 
   quat(const AxisAngle& aa) {
     const T sin_a = Sin( aa.angle / 2 );
@@ -32,7 +32,8 @@ class quat {
     const T cos_a = w;
     const auto angle = Acos( cos_a ) * 2;
     const T sin_a = DefaultIfCloseToZero<T>(Sqrt(1.0 - cos_a * cos_a), 1, 0.0005);
-    return AxisAngle::RightHandAround(vec()/sin_a, angle);
+    // todo: do we need to normalize here?
+    return AxisAngle::RightHandAround((vec()/sin_a).GetNormalized(), angle);
   }
 
   // static Q FromAngles(T x, T y, T z);
@@ -43,8 +44,9 @@ class quat {
   static Q LookAt(const Vec& from, const Vec& to, const typename Vec::Unit up) {
     return LookInDirection(Vec::FromTo(from, to).GetNormalized(), up);
   }
-  static Q LookInDirection(const Vec& dir, const typename Vec::Unit& up) {
-    float dot = ::dot(Vec::In(), dir);
+  static Q LookInDirection(const typename Vec::Unit& dir, const typename Vec::Unit& up) {
+    const Vec in = Vec::In();
+    float dot = ::dot(in, dir);
 
     if (Abs(dot - (-1.0f)) < 0.000001f)
     {
@@ -56,15 +58,22 @@ class quat {
     }
 
     const auto rotAngle = Acos(dot);
-    const typename Vec::Unit rotAxis = cross(Vec::In(), dir).GetNormalized();
+    const auto rotAxis = cross(in, dir).GetNormalized();
     return Q(AxisAngle::RightHandAround(rotAxis, rotAngle));
+  }
+
+  Q Rotate(const Q& q) const {
+    return q * *this;
   }
 
   Q GetConjugate() const {
     return quat(w, -vec());
   }
   Q GetIdentity() const {
-    return quat(w/GetLength(), -vec());
+    const T l2 = GetLengthSquared();
+    if(IsEqual(l2, 0)) return Identity();
+    else if(IsEqual(l2, 1)) return GetConjugate();
+    else return quat(w/Sqrt(l2), -vec());
   }
   T GetLength() const {
     return Sqrt(GetLengthSquared());
@@ -152,7 +161,6 @@ class quat {
   }
 
   static Q SlerpShortway(const Q& f, const T scale, const Q& t) {
-
     if(dot(f, t) < 0)
     {
       return Slerp(f.GetConjugate(), scale, t);
