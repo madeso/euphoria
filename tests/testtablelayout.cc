@@ -47,30 +47,35 @@ std::vector<T> MakeVec(std::initializer_list<T> args) {
 }
 
 GTEST(basic) {
-  EXPECT_EQ(MakeVec({3, 2}), PerformTableLayout<int>({3,2}, 12));
+  EXPECT_EQ(MakeVec({3, 2}), PerformTableLayout<int>({3,2}).GetLayoutTableLayout(12));
 }
 
 GTEST(one_expand) {
-  EXPECT_EQ(MakeVec({3, 10, 2}), PerformTableLayout<int>({3, -1, 2}, 15));
+  EXPECT_EQ(MakeVec({3, 10, 2}), PerformTableLayout<int>({3, -1, 2}).GetLayoutTableLayout(15));
 }
 
 GTEST(two_expand) {
-  EXPECT_EQ(MakeVec({5.0f, 3.0f, 2.0f, 5.0f}), PerformTableLayout<float>({-1, 3, 2, -1}, 15));
+  EXPECT_EQ(MakeVec({5.0f, 3.0f, 2.0f, 5.0f}), PerformTableLayout<float>({-1, 3, 2, -1}).GetLayoutTableLayout(15));
 }
 
 GTEST(min_size) {
-  EXPECT_EQ(MakeVec({5, 0, 5}), PerformTableLayout<int>({5, -1, 5}, 10));
+  EXPECT_EQ(MakeVec({5, 0, 5}), PerformTableLayout<int>({5, -1, 5}).GetLayoutTableLayout(10));
 }
 
 GTEST(min_size_not_default) {
-  EXPECT_EQ(MakeVec({5, -10, 5}), PerformTableLayout<int>({5, -1, 5}, 10, -10));
+  EXPECT_EQ(MakeVec({5, -10, 5}), PerformTableLayout<int>({5, -1, 5}, -10).GetLayoutTableLayout(10));
 }
 
 GTEST(smaller_size) {
-  EXPECT_EQ(MakeVec({2.5f, 0.0f, 2.5f}), PerformTableLayout<float>({5, -1, 5}, 5));
+  EXPECT_EQ(MakeVec({2.5f, 0.0f, 2.5f}), PerformTableLayout<float>({5, -1, 5}).GetLayoutTableLayout(5));
 }
 
 GTEST(smaller_size_not_default) {
-  EXPECT_EQ(MakeVec({2.5f, -2.0f, 2.5f}), PerformTableLayout<float>({5, -1, 5}, 5, -2));
+  EXPECT_EQ(MakeVec({2.5f, -2.0f, 2.5f}), PerformTableLayout<float>({5, -1, 5}, -2).GetLayoutTableLayout(5));
 }
 
+/*
+GTEST(basic_string) {
+  EXPECT_EQ(MakeVec({"3 px", "2 px"}), GetString<int>({3,2}, 12));
+}
+*/
