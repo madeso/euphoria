@@ -78,19 +78,21 @@ class Data {
     const bool on_top_side = y < image_start-SIZER_DISTANCE && y > RULER_SIZE;
 
     const int dx = static_cast<int>((y - image_start)/scale_);
-    TextRenderData d = GetTextOver(dx);
 
     if( on_top_side ) {
+      TextRenderData d = GetTextOver(dx);
       return PositionClassification(PositionType::ON_TEXT, d.index);
     }
     else if( within_image ) {
+      TextRenderData d = GetTextOver(dx);
       return PositionClassification(PositionType::ON_IMAGE, d.index);
     }
     else if( y < RULER_SIZE) {
+      TextRenderData d = GetTextOver(dx);
       return PositionClassification(PositionType::ON_RULER, d.index);
     }
     else {
-      return PositionClassification(PositionType::ON_OTHER, d.index);
+      return PositionClassification(PositionType::ON_OTHER, -1);
     }
   }
 
@@ -146,7 +148,8 @@ class Data {
         return d;
       }
     }
-    assert(false && "shouldnt happen");
+    // std::cout << "index " << x << "\n";
+    // assert(false && "shouldnt happen"); // but will if our data is less than the image size
     return last;
   }
 
@@ -204,6 +207,7 @@ class ImagePanel : public wxPanel
     Bind(wxEVT_MOTION, &ImagePanel::OnMouseMove, this);
     Bind(wxEVT_LEFT_DOWN, &ImagePanel::OnMouseDown, this);
     Bind(wxEVT_LEFT_UP, &ImagePanel::OnMouseUp, this);
+    Bind(wxEVT_LEFT_DCLICK, &ImagePanel::OnMouseDouble, this);
   }
 
   void GetRect(scalingsprite::ScalingSprite* r) {
@@ -246,6 +250,34 @@ class ImagePanel : public wxPanel
   void OnMouseDown(const wxMouseEvent& me) {
     left_mouse = true;
     OnMouse(me);
+  }
+
+  void SplitData(Data& data, const PositionClassification &class_y,
+               const PositionClassification &class_x) {
+    if (class_y.type == PositionType::ON_RULER && class_x.type != PositionType::ON_RULER) {
+      int value = data.data[class_x.index];
+      const int sign = Sign(value);
+      data.data[class_x.index] = value / 2;
+      const int new_value =
+          sign * (sign * value - sign * data.data[class_x.index]);
+      data.data.insert(data.data.begin() + class_x.index, new_value);
+      Refresh();
+    }
+  }
+
+  void OnMouseDouble(const wxMouseEvent& me) {
+    const int x = me.GetX();
+    const int y = me.GetY();
+
+    const bool is_tracking = track_col || track_row;
+
+    if( is_tracking ) return;
+
+    const auto class_y = row.Classify(y, image_y, image.GetHeight(), scale_);
+    const auto class_x = col.Classify(x, image_x, image.GetWidth(), scale_);
+
+    SplitData(col, class_y, class_x);
+    SplitData(row, class_x, class_y);
   }
 
   void OnMouseMove(const wxMouseEvent& me) {
@@ -296,6 +328,7 @@ class ImagePanel : public wxPanel
       TrackingLine over_row = row.GetTracking(y, image_y, scale_);
 
       const bool is_over = over_col || over_row;
+
       if( left_mouse && !last_left_mouse ) {
         if( is_over ) {
           track_col = over_col;
@@ -308,14 +341,6 @@ class ImagePanel : public wxPanel
           if( class_x.type == PositionType::ON_IMAGE ) {
             if( class_y.type == PositionType::ON_TEXT ) {
               col.data[class_x.index] = -col.data[class_x.index];
-              Refresh();
-            }
-            else if( class_y.type == PositionType ::ON_RULER) {
-              int value = col.data[class_x.index];
-              const int sign = Sign(value);
-              col.data[class_x.index] = value /2;
-              const int new_value = sign*(sign*value - sign*col.data[class_x.index]);
-              col.data.insert(col.data.begin()+class_x.index, new_value);
               Refresh();
             }
           }
