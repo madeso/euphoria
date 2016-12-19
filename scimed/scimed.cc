@@ -215,14 +215,10 @@ class ImagePanel : public wxPanel
 
   void SetRect(const scalingsprite::ScalingSprite& r) {
     row.data.clear();
-    row.data.push_back(12);
-    row.data.push_back(-20);
-    row.data.push_back(30);
+    row.data.push_back( image.GetHeight() );
 
     col.data.clear();
-    col.data.push_back(12);
-    col.data.push_back(-10);
-    col.data.push_back(20);
+    col.data.push_back( image.GetWidth() );
 
     Refresh();
   }
