@@ -58,8 +58,42 @@ class LineData {
   int max_value;
 };
 
+enum class PositionType {
+  ON_RULER, ON_TEXT, ON_IMAGE, ON_OTHER
+};
+
+class PositionClassification {
+ public:
+  PositionClassification(PositionType t, int i) : type(t), index(i) {}
+  PositionType type;
+  int index;
+};
+
 class Data {
  public:
+  PositionClassification Classify(int y, int image_start, int image_size, float scale_) const {
+    const int image_end_y = image_start + static_cast<int>(image_size*scale_);
+
+    const bool within_image = y > image_start && y < image_end_y;
+    const bool on_top_side = y < image_start-SIZER_DISTANCE && y > RULER_SIZE;
+
+    const int dx = static_cast<int>((y - image_start)/scale_);
+    TextRenderData d = GetTextOver(dx);
+
+    if( on_top_side ) {
+      return PositionClassification(PositionType::ON_TEXT, d.index);
+    }
+    else if( within_image ) {
+      return PositionClassification(PositionType::ON_IMAGE, d.index);
+    }
+    else if( y < RULER_SIZE) {
+      return PositionClassification(PositionType::ON_RULER, d.index);
+    }
+    else {
+      return PositionClassification(PositionType::ON_OTHER, d.index);
+    }
+  }
+
   int GetTotalPercentage() const {
     int total = 0;
     for(int i: data) {
@@ -268,37 +302,25 @@ class ImagePanel : public wxPanel
           track_row = over_row;
         }
         else {
-          const int image_end_x = image_x + static_cast<int>(image.GetWidth()*scale_);
-          const int image_end_y = image_y + static_cast<int>(image.GetHeight()*scale_);
+          const auto class_y = row.Classify(y, image_y, image.GetHeight(), scale_);
+          const auto class_x = col.Classify(x, image_x, image.GetWidth(), scale_);
 
-          const bool within_x = x > image_x && x < image_end_x;
-          const bool within_y = y > image_y && y < image_end_y;
-
-          const bool on_top_side = y < image_y-SIZER_DISTANCE && y > RULER_SIZE;
-          const bool on_left_side = x < image_x-SIZER_DISTANCE && x > RULER_SIZE;
-
-          if( within_x && !within_y ) {
-            const int dx = static_cast<int>((x - image_x)/scale_);
-            TextRenderData d = col.GetTextOver(dx);
-
-            if( on_top_side ) {
-              col.data[d.index] = -col.data[d.index];
+          if( class_x.type == PositionType::ON_IMAGE ) {
+            if( class_y.type == PositionType::ON_TEXT ) {
+              col.data[class_x.index] = -col.data[class_x.index];
               Refresh();
             }
-            else if( y < RULER_SIZE) {
-              int value = col.data[d.index];
+            else if( class_y.type == PositionType ::ON_RULER) {
+              int value = col.data[class_x.index];
               const int sign = Sign(value);
-              col.data[d.index] = value /2;
-              const int new_value = sign*(sign*value - sign*col.data[d.index]);
-              col.data.insert(col.data.begin()+d.index, new_value);
+              col.data[class_x.index] = value /2;
+              const int new_value = sign*(sign*value - sign*col.data[class_x.index]);
+              col.data.insert(col.data.begin()+class_x.index, new_value);
               Refresh();
             }
           }
-
-          if( within_y && !within_x && on_left_side) {
-            const int dx = static_cast<int>((y - image_y)/scale_);
-            TextRenderData d = row.GetTextOver(dx);
-            row.data[d.index] = -row.data[d.index];
+          if( class_y.type == PositionType::ON_IMAGE && class_x.type == PositionType::ON_TEXT) {
+            row.data[class_y.index] = -row.data[class_y.index];
             Refresh();
           }
         }
