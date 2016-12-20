@@ -96,6 +96,19 @@ class Data {
     }
   }
 
+  std::pair<int, int> GetExtentsForRange(int index) {
+    int min = 0;
+    for(int i=0; i<=index; ++i) {
+      const int value = std::abs(data[i]);
+      if( i == index ) {
+        return std::pair<int, int>(min, min+value);
+      }
+      min += value;
+    }
+    assert(false && "invalid index");
+    return std::pair<int, int>(min, min+2);
+  }
+
   int GetTotalPercentage() const {
     int total = 0;
     for(int i: data) {
@@ -249,14 +262,19 @@ class ImagePanel : public wxPanel
   }
 
   void SplitData(Data& data, const PositionClassification &class_y,
-               const PositionClassification &class_x) {
+               const PositionClassification &class_x, int x, int image_x, float scale_) {
     if (class_y.type == PositionType::ON_RULER && class_x.type != PositionType::ON_RULER) {
+
+      const std::pair<int, int> size = data.GetExtentsForRange(class_x.index);
+      const int mouse_x = std::min(size.second-1, std::max(size.first+1, static_cast<int>((x - image_x) / scale_)));
+      const int split_x = mouse_x - size.first;
       int value = data.data[class_x.index];
       const int sign = Sign(value);
-      data.data[class_x.index] = value / 2;
+      // data.data[class_x.index] = value / 2;
+      data.data[class_x.index] = split_x * sign; // value / 2;
       const int new_value =
           sign * (sign * value - sign * data.data[class_x.index]);
-      data.data.insert(data.data.begin() + class_x.index, new_value);
+      data.data.insert(data.data.begin() + class_x.index+1, new_value);
       Refresh();
     }
   }
@@ -272,8 +290,8 @@ class ImagePanel : public wxPanel
     const auto class_y = row.Classify(y, image_y, image.GetHeight(), scale_);
     const auto class_x = col.Classify(x, image_x, image.GetWidth(), scale_);
 
-    SplitData(col, class_y, class_x);
-    SplitData(row, class_x, class_y);
+    SplitData(col, class_y, class_x, me.GetX(), image_x, scale_);
+    SplitData(row, class_x, class_y, me.GetY(), image_y, scale_);
   }
 
   void OnMouseMove(const wxMouseEvent& me) {
