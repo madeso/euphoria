@@ -64,6 +64,7 @@ enum class PositionType {
 
 class PositionClassification {
  public:
+  PositionClassification() : type(PositionType::ON_OTHER), index(-1) {}
   PositionClassification(PositionType t, int i) : type(t), index(i) {}
   PositionType type;
   int index;
@@ -188,6 +189,32 @@ class Data {
   std::vector<int> data;
 };
 
+struct RightClickContext {
+  // split data
+  Data* data;
+  PositionClassification class_x;
+  int x;
+  int image_x;
+
+  void Clear() {
+    data = nullptr;
+    class_x = PositionClassification();
+    x = -1;
+    image_x = -42;
+  }
+
+  void SetupSplit(Data* adata, const PositionClassification& aclass_x, int ax, int aimage_x) {
+    data = adata;
+    class_x = aclass_x;
+    x = ax;
+    image_x = aimage_x;
+  }
+};
+
+enum RightClickEvent {
+  RCE_NEW_DIVIDER = 2001
+};
+
 class ImagePanel : public wxPanel
 {
   wxImage image;
@@ -221,6 +248,7 @@ class ImagePanel : public wxPanel
     Bind(wxEVT_LEFT_DOWN, &ImagePanel::OnMouseDown, this);
     Bind(wxEVT_LEFT_UP, &ImagePanel::OnMouseUp, this);
     Bind(wxEVT_LEFT_DCLICK, &ImagePanel::OnMouseDouble, this);
+    Bind(wxEVT_RIGHT_DOWN, &ImagePanel::OnRightClick, this);
   }
 
   void GetRect(scalingsprite::ScalingSprite* r) {
@@ -261,21 +289,25 @@ class ImagePanel : public wxPanel
     OnMouse(me);
   }
 
-  void SplitData(Data& data, const PositionClassification &class_y,
-               const PositionClassification &class_x, int x, int image_x, float scale_) {
-    if (class_y.type == PositionType::ON_RULER && class_x.type != PositionType::ON_RULER) {
-
-      const std::pair<int, int> size = data.GetExtentsForRange(class_x.index);
-      const int mouse_x = std::min(size.second-1, std::max(size.first+1, static_cast<int>((x - image_x) / scale_)));
-      const int split_x = mouse_x - size.first;
-      int value = data.data[class_x.index];
-      const int sign = Sign(value);
-      // data.data[class_x.index] = value / 2;
-      data.data[class_x.index] = split_x * sign; // value / 2;
-      const int new_value =
+  void DoSplitData(Data &data, const PositionClassification &class_x, int x,
+                 int image_x) {
+    const std::pair<int, int> size = data.GetExtentsForRange(class_x.index);
+    const int mouse_x = std::min(size.second - 1, std::max(size.first + 1, static_cast<int>((x - image_x) / scale_)));
+    const int split_x = mouse_x - size.first;
+    int value = data.data[class_x.index];
+    const int sign = Sign(value);
+    // data.data[class_x.index] = value / 2;
+    data.data[class_x.index] = split_x * sign; // value / 2;
+    const int new_value =
           sign * (sign * value - sign * data.data[class_x.index]);
-      data.data.insert(data.data.begin() + class_x.index+1, new_value);
-      Refresh();
+    data.data.insert(data.data.begin() + class_x.index+1, new_value);
+    Refresh();
+  }
+
+  void SplitData(Data& data, const PositionClassification &class_y,
+                 const PositionClassification &class_x, int x, int image_x) {
+    if (class_y.type == PositionType::ON_RULER && class_x.type != PositionType::ON_RULER) {
+      DoSplitData(data, class_x, x, image_x);
     }
   }
 
@@ -290,8 +322,54 @@ class ImagePanel : public wxPanel
     const auto class_y = row.Classify(y, image_y, image.GetHeight(), scale_);
     const auto class_x = col.Classify(x, image_x, image.GetWidth(), scale_);
 
-    SplitData(col, class_y, class_x, me.GetX(), image_x, scale_);
-    SplitData(row, class_x, class_y, me.GetY(), image_y, scale_);
+    SplitData(col, class_y, class_x, me.GetX(), image_x);
+    SplitData(row, class_x, class_y, me.GetY(), image_y);
+  }
+
+  void OnRightClick(const wxMouseEvent& me) {
+    const int x = me.GetX();
+    const int y = me.GetY();
+
+    const bool is_tracking = track_col || track_row;
+
+    if( is_tracking ) return;
+
+    const auto class_y = row.Classify(y, image_y, image.GetHeight(), scale_);
+    const auto class_x = col.Classify(x, image_x, image.GetWidth(), scale_);
+
+    bool show = false;
+    static RightClickContext context;
+    context.Clear();
+
+    wxMenu mnu;
+    mnu.SetClientData( &context );
+
+    if (class_x.type == PositionType::ON_RULER && class_y.type != PositionType::ON_RULER) {
+      context.SetupSplit(&row, class_x, me.GetY(), image_y);
+      show = true;
+
+      mnu.Append(RCE_NEW_DIVIDER, "New divider");
+    }
+
+    if (class_y.type == PositionType::ON_RULER && class_x.type != PositionType::ON_RULER) {
+      context.SetupSplit(&col, class_y, me.GetX(), image_x);
+      show = true;
+      mnu.Append(RCE_NEW_DIVIDER, "New divider");
+    }
+
+    if( show ) {
+      mnu.Connect(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler(ImagePanel::OnPopupClick), NULL, this);
+      PopupMenu(&mnu);
+    }
+  }
+
+  void OnPopupClick(wxCommandEvent& evt) {
+    RightClickContext* data= static_cast<RightClickContext*>(static_cast<wxMenu *>(evt.GetEventObject())->GetClientData());
+    switch(evt.GetId()) {
+      case RCE_NEW_DIVIDER:
+        DoSplitData(*data->data, data->class_x, data->x, data->image_x);
+        break;
+    }
   }
 
   void OnMouseMove(const wxMouseEvent& me) {
