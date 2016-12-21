@@ -162,7 +162,6 @@ class Data {
         return d;
       }
     }
-    // std::cout << "index " << x << "\n";
     // assert(false && "shouldnt happen"); // but will if our data is less than the image size
     return last;
   }
@@ -189,30 +188,39 @@ class Data {
   std::vector<int> data;
 };
 
-struct RightClickContext {
+struct RightClickSplitData {
   // split data
   Data* data;
   PositionClassification class_x;
   int x;
   int image_x;
 
-  void Clear() {
-    data = nullptr;
-    class_x = PositionClassification();
-    x = -1;
-    image_x = -42;
+  RightClickSplitData() : data(nullptr), x(-1), image_x(42)
+  {
   }
 
-  void SetupSplit(Data* adata, const PositionClassification& aclass_x, int ax, int aimage_x) {
-    data = adata;
-    class_x = aclass_x;
-    x = ax;
-    image_x = aimage_x;
+  RightClickSplitData(Data* adata, const PositionClassification& aclass_x, int ax, int aimage_x) :
+    data(adata),
+    class_x(aclass_x),
+    x(ax),
+    image_x(aimage_x)
+  {
+  }
+};
+
+struct RightClickContext {
+  RightClickSplitData hor;
+  RightClickSplitData vert;
+
+  void Clear() {
+    hor = RightClickSplitData();
+    vert = RightClickSplitData();
   }
 };
 
 enum RightClickEvent {
-  RCE_NEW_DIVIDER = 2001
+  RCE_NEW_DIVIDER_HOR = 2001,
+  RCE_NEW_DIVIDER_VERT
 };
 
 class ImagePanel : public wxPanel
@@ -345,16 +353,15 @@ class ImagePanel : public wxPanel
     mnu.SetClientData( &context );
 
     if (class_x.type == PositionType::ON_RULER && class_y.type != PositionType::ON_RULER) {
-      context.SetupSplit(&row, class_x, me.GetY(), image_y);
       show = true;
-
-      mnu.Append(RCE_NEW_DIVIDER, "New divider");
+      context.hor = RightClickSplitData(&row, class_y, me.GetY(), image_y);
+      mnu.Append(RCE_NEW_DIVIDER_HOR, "New horizontal divider");
     }
 
     if (class_y.type == PositionType::ON_RULER && class_x.type != PositionType::ON_RULER) {
-      context.SetupSplit(&col, class_y, me.GetX(), image_x);
       show = true;
-      mnu.Append(RCE_NEW_DIVIDER, "New divider");
+      context.vert = RightClickSplitData(&col, class_x, me.GetX(), image_x);
+      mnu.Append(RCE_NEW_DIVIDER_VERT, "New vertical divider");
     }
 
     if( show ) {
@@ -363,11 +370,18 @@ class ImagePanel : public wxPanel
     }
   }
 
+  void DoSplitOnRightClick(const RightClickSplitData& data) {
+    DoSplitData(*data.data, data.class_x, data.x, data.image_x);
+  }
+
   void OnPopupClick(wxCommandEvent& evt) {
     RightClickContext* data= static_cast<RightClickContext*>(static_cast<wxMenu *>(evt.GetEventObject())->GetClientData());
     switch(evt.GetId()) {
-      case RCE_NEW_DIVIDER:
-        DoSplitData(*data->data, data->class_x, data->x, data->image_x);
+      case RCE_NEW_DIVIDER_HOR:
+        DoSplitOnRightClick(data->hor);
+        break;
+      case RCE_NEW_DIVIDER_VERT:
+        DoSplitOnRightClick(data->vert);
         break;
     }
   }
@@ -385,14 +399,6 @@ class ImagePanel : public wxPanel
        const int remaining_size = total_size - size_except_at_line;
        const int left_size = line_x - d.min_value;
        const int right_size = d.max_value - line_x;
-       /*
-       const int diff = remaining_size - (left_size + right_size);
-       if( diff != 0) {
-         std::cout << "diff " << diff;
-         std::cout << "\n";
-       }
-       assert(diff == 0); // diff should be zero if we use all the image
-       */
        data->data[line_index] = Sign(data->data[line_index]) * left_size;
        data->data[line_index+1] = Sign(data->data[line_index+1]) * right_size;
        Refresh();
