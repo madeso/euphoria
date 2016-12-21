@@ -314,7 +314,7 @@ class ImagePanel : public wxPanel
 
   void SplitData(Data& data, const PositionClassification &class_y,
                  const PositionClassification &class_x, int x, int image_x) {
-    if (class_y.type == PositionType::ON_RULER && class_x.type != PositionType::ON_RULER) {
+    if (class_y.type == PositionType::ON_RULER && class_x.type == PositionType::ON_IMAGE) {
       DoSplitData(data, class_x, x, image_x);
     }
   }
@@ -352,13 +352,13 @@ class ImagePanel : public wxPanel
     wxMenu mnu;
     mnu.SetClientData( &context );
 
-    if (class_x.type == PositionType::ON_RULER && class_y.type != PositionType::ON_RULER) {
+    if (class_y.type == PositionType::ON_IMAGE) {
       show = true;
       context.hor = RightClickSplitData(&row, class_y, me.GetY(), image_y);
       mnu.Append(RCE_NEW_DIVIDER_HOR, "New horizontal divider");
     }
 
-    if (class_y.type == PositionType::ON_RULER && class_x.type != PositionType::ON_RULER) {
+    if (class_x.type == PositionType::ON_IMAGE) {
       show = true;
       context.vert = RightClickSplitData(&col, class_x, me.GetX(), image_x);
       mnu.Append(RCE_NEW_DIVIDER_VERT, "New vertical divider");
