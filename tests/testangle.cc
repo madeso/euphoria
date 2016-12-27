@@ -80,6 +80,7 @@ struct KnownConstantsFromWikipedia : public ::testing::Test {
 const float NEAR  = 0.0000001f;
 const float NEAR2 = 0.000001f;
 const float NEAR3 = 0.00001f;
+const float NEAR4 = 0.0001f;
 
 TEST_F(KnownConstantsFromWikipedia, sin) {
   EXPECT_NEAR(0.0f, Sin(Angle::FromDegrees(0.0f)), NEAR);
@@ -109,7 +110,7 @@ GTEST(tan) {
 
 TEST_F(KnownConstantsFromWikipedia, asin) {
   EXPECT_NEAR(0.0f, Asin(0.0f).inDegrees(), NEAR);
-  EXPECT_NEAR(90.0f, Asin(1.0f).inDegrees(), NEAR);
+  EXPECT_NEAR(90.0f, Asin(1.0f).inDegrees(), NEAR3);
   EXPECT_NEAR(30.0f, Asin(0.5f).inDegrees(), NEAR);
   EXPECT_NEAR(15.0f, Asin(a).inDegrees(), NEAR2);
   EXPECT_NEAR(75.0f, Asin(b).inDegrees(), NEAR3);
@@ -118,8 +119,8 @@ TEST_F(KnownConstantsFromWikipedia, asin) {
 TEST_F(KnownConstantsFromWikipedia, acos) {
   EXPECT_NEAR(0.0f, Acos(1.0f).inDegrees(), NEAR);
   EXPECT_NEAR(90.0f, Acos(0.0f).inDegrees(), NEAR);
-  EXPECT_NEAR(180.0f, Acos(-1.0f).inDegrees(), NEAR);
-  EXPECT_NEAR(60.0f, Acos(0.5f).inDegrees(), NEAR);
+  EXPECT_NEAR(180.0f, Acos(-1.0f).inDegrees(), NEAR4);
+  EXPECT_NEAR(60.0f, Acos(0.5f).inDegrees(), NEAR3);
   EXPECT_NEAR(15.0f, Acos(b).inDegrees(), NEAR3);
   EXPECT_NEAR(75.0f, Acos(a).inDegrees(), NEAR3);
 }
