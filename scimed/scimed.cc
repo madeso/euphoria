@@ -460,7 +460,7 @@ class ImagePanel : public wxPanel
       const bool vert = over_row;
 
       if( hor && vert ) {
-        cursor = wxCURSOR_SIZENESW;
+        cursor = wxCURSOR_SIZING;
       } else if (hor){
         cursor = wxCURSOR_SIZEWE;
       } else if (vert){
