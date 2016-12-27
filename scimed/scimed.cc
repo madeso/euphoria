@@ -320,6 +320,7 @@ class ImagePanel : public wxPanel
   }
 
   void OnMouseDouble(const wxMouseEvent& me) {
+    if( displayImage_ == false ) return;
     const int x = me.GetX();
     const int y = me.GetY();
 
@@ -335,6 +336,8 @@ class ImagePanel : public wxPanel
   }
 
   void OnRightClick(const wxMouseEvent& me) {
+    if( displayImage_ == false ) return;
+
     const int x = me.GetX();
     const int y = me.GetY();
 
@@ -406,6 +409,7 @@ class ImagePanel : public wxPanel
   }
 
   void OnMouse(const wxMouseEvent& me) {
+    if( displayImage_ == false ) return;
     const int x = me.GetX();
     const int y = me.GetY();
 
