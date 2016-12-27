@@ -19,6 +19,8 @@ FIND_PACKAGE(Threads REQUIRED) # for gmock
 find_package(Protobuf REQUIRED)
 include_directories(${PROTOBUF_INCLUDE_DIRS})
 
+SET(MACOSX_BUNDLE_INFO_PLIST "${CMAKE_CURRENT_SOURCE_DIR}/osx-bundle.plist")
+
 if(${APPLE})
   # disabling http://stackoverflow.com/questions/32626171/xcode-7-how-to-suppress-warning-overrides-a-member-function-but-is-not-marked
   # that apple-clang spews out for wx headers

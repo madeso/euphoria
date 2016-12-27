@@ -24,3 +24,7 @@ target_link_libraries(scimed
                       ${wxWidgets_LIBRARIES}
                       ${PROTOBUF_LIBRARIES}
                       )
+
+if (APPLE)
+    set_target_properties(scimed PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${MACOSX_BUNDLE_INFO_PLIST})
+endif ()
