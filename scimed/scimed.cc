@@ -185,6 +185,27 @@ class Data {
     }
     return ret;
   }
+
+  void Get(google::protobuf::RepeatedField<int>* d) const {
+    d->Clear();
+    d->Reserve(data.size());
+    for(auto da: data) {
+      d->Add(da);
+    }
+  }
+
+  void Set(const google::protobuf::RepeatedField<int>& d) {
+    data.resize(0);
+    data.reserve(d.size());
+    for(int da: d) {
+      data.push_back(da);
+    }
+  }
+
+  bool IsOk() const {
+    return data.empty() == false;
+  }
+
   std::vector<int> data;
 };
 
@@ -260,9 +281,23 @@ class ImagePanel : public wxPanel
   }
 
   void GetRect(scalingsprite::ScalingSprite* r) {
+    row.Get(r->mutable_rows());
+    col.Get(r->mutable_cols());
   }
 
   void SetRect(const scalingsprite::ScalingSprite& r) {
+    row.Set(r.rows());
+    col.Set(r.cols());
+
+    if( row.IsOk() == false || col.IsOk() == false ) {
+      SetClearedData();
+    }
+    else {
+      Refresh();
+    }
+  }
+
+  void SetClearedData() {
     row.data.clear();
     row.data.push_back( image.GetHeight() );
 

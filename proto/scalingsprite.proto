@@ -9,8 +9,8 @@ message Rect {
 
 message ScalingSprite {
   /* positive = absolute size, negative=abs percent size  */
-  repeated float rows = 1;
-  repeated float cols = 2;
+  repeated int32 rows = 1;
+  repeated int32 cols = 2;
   /* todo: add hidden cells */
   repeated Rect rects = 5;
 }
