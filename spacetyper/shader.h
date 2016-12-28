@@ -29,8 +29,7 @@ void Use(const ShaderId *id);
 class Shader : public ShaderId {
  public:
   Shader();
-  Shader(const GLchar *vertexSource, const GLchar *fragmentSource,
-         const GLchar *geometrySource = nullptr);
+  Shader(const std::string& file_path);
 
   void Compile(const GLchar *vertexSource, const GLchar *fragmentSource,
                const GLchar *geometrySource = nullptr);

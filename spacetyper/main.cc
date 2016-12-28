@@ -6,7 +6,6 @@
 #include "spacetyper/spriterender.h"
 #include "spacetyper/spritefader.h"
 
-#include "generated_shaders.h"
 #include "spacetyper/background.h"
 #include "spacetyper/debuggl.h"
 #include "spacetyper/scalablesprite.h"
@@ -70,9 +69,9 @@ int main(int argc, char** argv) {
   SetupOpenglDebug();
 
   TextureCache cache;
-  Shader shader(shader_source_sprite_vert, shader_source_sprite_frag);
-  Shader font_shader(shader_source_font_vert, shader_source_font_frag);
-  Shader back_shader(shader_source_back_vert, shader_source_back_frag);
+  Shader shader("shaders/sprite");
+  Shader font_shader("shaders/font");
+  Shader back_shader("shaders/back");
   Font font(&font_shader, "SourceCodePro-Regular.ttf", 30, " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ;:,.-_<>|1234567890!\"#¤%&/()'=?@£$€¥{[]}\\'*");
   // (cache.GetTexture("metalPanel_blueCorner.png"), 62, 14, 33, 14, vec2f(240, 240));
   std::shared_ptr<ScalableSprite> target = LoadScalableSprite("crossair_white.png", vec2f(100, 100), &cache);

@@ -3,6 +3,7 @@
 #include <cassert>
 #include <iostream>
 #include <vector>
+#include <fstream>
 
 #include "spacetyper/gl.h"
 
@@ -164,7 +165,27 @@ void Shader::SetMatrix4(const GLchar *name, const mat4f &matrix) {
 
 Shader::Shader() {}
 
-Shader::Shader(const GLchar *vertexSource, const GLchar *fragmentSource,
-               const GLchar *geometrySource) {
-  Compile(vertexSource, fragmentSource, geometrySource);
+std::string LoadPath(const std::string& path) {
+  std::ifstream t(path.c_str());
+
+  if( !t ) {
+    return "";
+  }
+
+  std::string str;
+
+  t.seekg(0, std::ios::end);
+  str.reserve(t.tellg());
+  t.seekg(0, std::ios::beg);
+
+  str.assign((std::istreambuf_iterator<char>(t)),
+             std::istreambuf_iterator<char>());
+  return str;
+}
+
+Shader::Shader(const std::string& file_path) {
+  auto vert = LoadPath(file_path + ".vert");
+  auto frag = LoadPath(file_path + ".frag");
+  auto geom = LoadPath(file_path + ".geom");
+  Compile(vert.c_str(), frag.c_str(), geom.empty() ? nullptr : geom.c_str());
 }

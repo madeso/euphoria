@@ -25,26 +25,6 @@ include_directories(${FREETYPE_INCLUDE_DIRS})
 set(app_src ${app_src_glob} ${pbjson_src} ${SPRITE_PROTO_SRCS} ${SPRITE_PROTO_HDRS})
 source_group("" FILES ${app_src})
 
-# generate shader headers
-set(src_shaders
-    ${CMAKE_BINARY_DIR}/generated_shaders.h
-    ${CMAKE_BINARY_DIR}/generated_shaders.cc
-    )
-source_group("generated shader" FILES ${src_shaders})
-add_custom_command(OUTPUT ${CMAKE_BINARY_DIR}/generated_shaders.h ${CMAKE_BINARY_DIR}/generated_shaders.cc
-    COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/files_to_functions.py ${CMAKE_BINARY_DIR}/generated_shaders.h ${CMAKE_BINARY_DIR}/generated_shaders.cc shader_source_
-                   shaders/font.vert shaders/font.frag
-                   shaders/sprite.vert shaders/sprite.frag
-                   shaders/back.vert shaders/back.frag
-    DEPENDS files_to_functions.py
-                   shaders/font.vert shaders/font.frag
-                   shaders/sprite.vert shaders/sprite.frag
-                   shaders/back.vert shaders/back.frag
-    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
-    COMMENT "Generating shaders."
-)
-
-
 set(all_src ${app_src} ${src_shaders} ${src_glew} ${src_aheasing})
 
 add_executable(spacetyper WIN32 MACOSX_BUNDLE ${all_src})
