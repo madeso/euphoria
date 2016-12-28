@@ -355,22 +355,26 @@ class ImagePanel : public wxPanel
     wxMenu mnu;
     mnu.SetClientData( &context );
 
+    auto* hor_div = mnu.Append(RCE_NEW_DIVIDER_HOR, "New horizontal divider");
+
     if (class_y.type == PositionType::ON_IMAGE) {
-      show = true;
       context.hor = RightClickSplitData(&row, class_y, me.GetY(), image_y);
-      mnu.Append(RCE_NEW_DIVIDER_HOR, "New horizontal divider");
     }
+    else {
+      hor_div->Enable(false);
+    }
+
+    auto* ver_div = mnu.Append(RCE_NEW_DIVIDER_VERT, "New vertical divider");
 
     if (class_x.type == PositionType::ON_IMAGE) {
-      show = true;
       context.vert = RightClickSplitData(&col, class_x, me.GetX(), image_x);
-      mnu.Append(RCE_NEW_DIVIDER_VERT, "New vertical divider");
+    }
+    else {
+      ver_div->Enable(false);
     }
 
-    if( show ) {
-      mnu.Connect(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler(ImagePanel::OnPopupClick), NULL, this);
-      PopupMenu(&mnu);
-    }
+    mnu.Connect(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler(ImagePanel::OnPopupClick), NULL, this);
+    PopupMenu(&mnu);
   }
 
   void DoSplitOnRightClick(const RightClickSplitData& data) {
