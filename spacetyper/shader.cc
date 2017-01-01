@@ -187,5 +187,17 @@ Shader::Shader(const std::string& file_path) {
   auto vert = LoadPath(file_path + ".vert");
   auto frag = LoadPath(file_path + ".frag");
   auto geom = LoadPath(file_path + ".geom");
+  bool fail = false;
+  if( vert.empty() ) {
+    std::cerr << "Failed to load vert shader " << file_path << "\n";
+    fail = true;
+  }
+  if( frag.empty() ) {
+    std::cerr << "Failed to load frag shader " << file_path << "\n";
+    fail = true;
+  }
+  if( fail ) {
+    return;
+  }
   Compile(vert.c_str(), frag.c_str(), geom.empty() ? nullptr : geom.c_str());
 }
