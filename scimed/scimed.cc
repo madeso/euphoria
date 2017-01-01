@@ -864,6 +864,7 @@ class MyFrame: public wxFrame
     if( drawPane->LoadImage(openFileDialog.GetPath(), wxBITMAP_TYPE_PNG) ) {
       filename_ = openFileDialog.GetPath();
 
+      data_ = scalingsprite::ScalingSprite();
       LoadProtoText(&data_, filename_ + ".txt");
       drawPane->SetRect(data_);
     }
