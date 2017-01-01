@@ -74,7 +74,7 @@ int main(int argc, char** argv) {
   Shader back_shader("shaders/back");
   Font font(&font_shader, "SourceCodePro-Regular.ttf", 30, " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ;:,.-_<>|1234567890!\"#¤%&/()'=?@£$€¥{[]}\\'*");
   // (cache.GetTexture("metalPanel_blueCorner.png"), 62, 14, 33, 14, vec2f(240, 240));
-  std::shared_ptr<ScalableSprite> target = LoadScalableSprite("crossair_white.png", vec2f(100, 100), &cache);
+  std::shared_ptr<ScalableSprite> target { new ScalableSprite("crossair_white.png", vec2f(100, 100), &cache) };
   SpriteRenderer renderer(&shader);
 
 
@@ -206,8 +206,8 @@ int main(int argc, char** argv) {
     foreground.Render();
     // dont render ninepatch unless we are in a meny = not yet implemented :)
     if( current_word != nullptr ) {
-      target->SetClientSize(current_word->GetSize() * target_scale.GetValue());
-      renderer.DrawNinepatch(*target.get(), current_word->GetPosition() - target->GetSize()/2.0f - target->GetClientOffset());
+      target->SetSize(current_word->GetSize() * target_scale.GetValue());
+      renderer.DrawNinepatch(*target.get(), current_word->GetPosition() - target->GetSize()/2.0f);
     }
     SDL_GL_SwapWindow(window);
   }
