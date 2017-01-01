@@ -18,7 +18,11 @@ class Point {
 class VaoBuilder {
  public:
   VaoBuilder& vertex(const Point& p);
+
+  // clockwise
   VaoBuilder& triangle(const Point& p1, const Point& p2, const Point& p3);
+
+  // clockwise
   VaoBuilder& quad(const Point& a, const Point& b, const Point& c,
                    const Point& d);
 
