@@ -12,7 +12,7 @@ SpriteFader::SpriteFader(Layer* layer)
   assert(layer);
 }
 
-void SpriteFader::RegesterTexture(Texture2d* t) {
+void SpriteFader::RegisterTexture(Texture2d *t) {
   assert(this);
   textures_.push_back(t);
 }

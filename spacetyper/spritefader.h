@@ -20,7 +20,7 @@ struct FadingSprite {
 class SpriteFader {
  public:
   explicit SpriteFader(Layer* layer);
-  void RegesterTexture(Texture2d* t);
+  void RegisterTexture(Texture2d *t);
   void AddRandom(const vec2f& pos, float time, float width, float height);
 
   void Update(float dt);

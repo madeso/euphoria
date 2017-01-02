@@ -9,8 +9,6 @@ class Vao;
 class Texture2d;
 class TextureCache;
 
-class ScalableSpriteData;
-
 class ScalableSprite {
  public:
   ScalableSprite(const std::string& path, const vec2f& size, TextureCache* cache);
