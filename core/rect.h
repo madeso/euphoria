@@ -1,6 +1,8 @@
 #ifndef CORE_RECT_H
 #define CORE_RECT_H
 
+#include "core/vec2.h"
+
 template <typename T>
 class Rect {
  public:
@@ -30,12 +32,20 @@ class Rect {
   }
 
   // on the border is NOT considered included
+  bool ContainsExclusive(const vec2<T>& p) const {
+    return ContainsExclusive(p.x, p.y);
+  }
+
   bool ContainsExclusive(T x, T y) const {
     return left < x && right > x
            && top < y && bottom > y;
   }
 
   // on the border is considered included
+  bool ContainsInclusive(const vec2<T>& p) const {
+    return ContainsInclusive(p.x, p.y);
+  }
+
   bool ContainsInclusive(T x, T y) const {
     return left <= x && right >= x
            && top <= y && bottom >= y;
