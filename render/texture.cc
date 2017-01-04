@@ -3,6 +3,7 @@
 
 #include "render/image.h"
 #include "render/texture.h"
+#include "render/gl.h"
 
 Texture2dLoadData::Texture2dLoadData()
     : wrapS(GL_REPEAT),

@@ -1,17 +1,17 @@
 #ifndef TEXTURE_H
 #define TEXTURE_H
 
-#include "render/gl.h"
 #include "render/image.h"
+#include "render/gltypes.h"
 #include "core/noncopyable.h"
 
 struct Texture2dLoadData {
   Texture2dLoadData();
 
-  GLuint wrapS;
-  GLuint wrapT;
-  GLuint filterMin;
-  GLuint filterMax;
+  gluint wrapS;
+  gluint wrapT;
+  gluint filterMin;
+  gluint filterMax;
 };
 
 class TextureId : Noncopyable {
@@ -20,10 +20,10 @@ class TextureId : Noncopyable {
   ~TextureId();
 
   bool IsCurrentlyBound() const;
-  GLuint id() const;
+  gluint id() const;
 
  private:
-  GLuint id_;
+  gluint id_;
 };
 
 void Use(const TextureId* texture);
@@ -36,7 +36,7 @@ class Texture2d : public TextureId {
             const Texture2dLoadData& data);
 
   void Load(int width, int height, unsigned char* pixelData,
-            GLuint internalFormat, GLuint imageFormat,
+            gluint internalFormat, gluint imageFormat,
             const Texture2dLoadData& data);
   void LoadFromFile(const std::string& path, AlphaLoad alpha,
                     const Texture2dLoadData& data);

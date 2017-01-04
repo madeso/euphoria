@@ -1,5 +1,14 @@
 #include "render/vao.h"
 
+#include "render/gl.h"
+
+#include <cassert>
+
+void test_size() {
+  static_assert(sizeof(GLfloat) == sizeof(glfloat), "invalid float size");
+  static_assert(sizeof(GLuint) == sizeof(gluint), "invalid uint size");
+}
+
 Point::Point(float x, float y, float u, float v) : pos(x, y), vert(u, v) {}
 
 Point::Point(const vec2f& apos, const vec2f& avert)

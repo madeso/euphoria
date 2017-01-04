@@ -3,7 +3,7 @@
 #include <cassert>
 #include <algorithm>
 
-#include "spacetyper/sprite.h"
+#include "render/sprite.h"
 #include "spacetyper/enemyword.h"
 
 #include "core/vec2.h"

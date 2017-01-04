@@ -3,8 +3,8 @@
 
 #include <random>
 
-#include "spacetyper/sprite.h"
-#include "spacetyper/fonts.h"
+#include "render/sprite.h"
+#include "render/fonts.h"
 
 #include "core/vec2.h"
 

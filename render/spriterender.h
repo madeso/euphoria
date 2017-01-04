@@ -1,8 +1,6 @@
 #ifndef SPRITE_RENDERER_H
 #define SPRITE_RENDERER_H
 
-#include "render/gl.h"
-
 #include <memory>
 #include "render/shader.h"
 #include "render/texture.h"
@@ -19,11 +17,11 @@ class SpriteRenderer {
   ~SpriteRenderer();
 
   void DrawSprite(const Texture2d& texture, const vec2f& position,
-                  GLfloat rotate = 0.0f,
+                  float rotate = 0.0f,
                   const vec2f& scale = vec2f(1, 1),
                   const vec4f& color = vec4f(1.0f));
   void DrawNinepatch(const ScalableSprite& ninepatch, const vec2f& position,
-                  GLfloat rotate = 0.0f,
+                  float rotate = 0.0f,
                   const vec2f& scale = vec2f(1, 1),
                   const vec4f& color = vec4f(1.0f));
 
@@ -33,7 +31,7 @@ class SpriteRenderer {
 
   void InitRenderData();
 
-  void CommonDraw(const vec2f& position, GLfloat rotate, const vec4f &color,
+  void CommonDraw(const vec2f& position, float rotate, const vec4f &color,
              const vec2f &size, const vec2f &scale) const;
 };
 

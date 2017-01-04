@@ -2,6 +2,7 @@
 
 #include "render/vao.h"
 #include "render/texture.h"
+#include "render/gl.h"
 #include "render/shader.h"
 
 #include <vector>

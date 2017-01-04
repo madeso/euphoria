@@ -3,8 +3,9 @@
 
 #include <vector>
 #include "core/vec2.h"
-#include "render/gl.h"
 #include "core/noncopyable.h"
+
+#include "render/gltypes.h"
 
 class Point {
  public:
@@ -26,7 +27,7 @@ class VaoBuilder {
   VaoBuilder& quad(const Point& a, const Point& b, const Point& c,
                    const Point& d);
 
-  std::vector<GLfloat> data;
+  std::vector<glfloat> data;
 };
 
 class Vao : Noncopyable {
@@ -37,7 +38,7 @@ class Vao : Noncopyable {
   void Draw() const;
 
  private:
-  GLuint vao_;
+  gluint vao_;
   unsigned long count_;
 };
 

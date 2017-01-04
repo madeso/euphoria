@@ -8,7 +8,7 @@
 #include "core/vec4.h"
 #include "core/mat4.h"
 
-#include "render/gl.h"
+#include "render/gltypes.h"
 #include "core/noncopyable.h"
 
 class ShaderId : Noncopyable {
@@ -18,10 +18,10 @@ class ShaderId : Noncopyable {
 
   bool IsCurrentlyBound() const;
 
-  GLuint id() const;
+  gluint id() const;
 
  private:
-  GLuint id_;
+  gluint id_;
 };
 
 void Use(const ShaderId *id);
@@ -31,19 +31,19 @@ class Shader : public ShaderId {
   Shader();
   Shader(const std::string& file_path);
 
-  void Compile(const GLchar *vertexSource, const GLchar *fragmentSource,
-               const GLchar *geometrySource = nullptr);
+  void Compile(const glchar *vertexSource, const glchar *fragmentSource,
+               const glchar *geometrySource = nullptr);
 
-  void SetFloat(const GLchar *name, GLfloat value);
-  void SetInteger(const GLchar *name, GLint value);
-  void SetVector2f(const GLchar *name, GLfloat x, GLfloat y);
-  void SetVector2f(const GLchar *name, const vec2f &value);
-  void SetVector3f(const GLchar *name, GLfloat x, GLfloat y, GLfloat z);
-  void SetVector3f(const GLchar *name, const vec3f &value);
-  void SetVector4f(const GLchar *name, GLfloat x, GLfloat y, GLfloat z,
-                   GLfloat w);
-  void SetVector4f(const GLchar *name, const vec4f &value);
-  void SetMatrix4(const GLchar *name, const mat4f &matrix);
+  void SetFloat(const glchar *name, glfloat value);
+  void SetInteger(const glchar *name, glint value);
+  void SetVector2f(const glchar *name, glfloat x, glfloat y);
+  void SetVector2f(const glchar *name, const vec2f &value);
+  void SetVector3f(const glchar *name, glfloat x, glfloat y, glfloat z);
+  void SetVector3f(const glchar *name, const vec3f &value);
+  void SetVector4f(const glchar *name, glfloat x, glfloat y, glfloat z,
+                   glfloat w);
+  void SetVector4f(const glchar *name, const vec4f &value);
+  void SetMatrix4(const glchar *name, const mat4f &matrix);
 };
 
 #endif

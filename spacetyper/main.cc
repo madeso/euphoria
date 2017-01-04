@@ -1,21 +1,22 @@
 #include <SDL2/SDL.h>
 #include <iostream>
 
-#include "spacetyper/gl.h"
-#include "spacetyper/shader.h"
-#include "spacetyper/spriterender.h"
+#include "render/shader.h"
+#include "render/spriterender.h"
 #include "spacetyper/spritefader.h"
 
 #include "spacetyper/background.h"
-#include "spacetyper/debuggl.h"
-#include "spacetyper/scalablesprite.h"
-#include "spacetyper/fonts.h"
-#include "spacetyper/texturecache.h"
+#include "render/debuggl.h"
+#include "render/scalablesprite.h"
+#include "render/fonts.h"
+#include "render/texturecache.h"
 #include "spacetyper/dictionary.h"
 #include "spacetyper/enemies.h"
 #include "spacetyper/enemyword.h"
 #include "spacetyper/bulletlist.h"
-#include "spacetyper/interpolate.h"
+#include "core/interpolate.h"
+#include "render/init.h"
+#include "render/viewport.h"
 
 int main(int argc, char** argv) {
   if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_JOYSTICK | SDL_INIT_AUDIO) < 0) {
@@ -56,13 +57,9 @@ int main(int argc, char** argv) {
   }
 
   SDL_GL_CreateContext(window);
-  std::cout << "Created OpenGL " << glGetString(GL_VERSION) << " context"
-            << "\n";
+  Init init;
 
-  const GLenum err = glewInit();
-  if (GLEW_OK != err) {
-    std::cerr << "Failed to init glew, error: " << glewGetErrorString(err)
-              << "\n";
+  if (init.ok == false) {
     return -4;
   }
 
@@ -114,8 +111,8 @@ int main(int argc, char** argv) {
   player.SetPosition(shipPos);
 
   mat4f projection =
-      mat4f::Ortho(0.0f, static_cast<GLfloat>(width),
-                 static_cast<GLfloat>(height), 0.0f, -1.0f, 1.0f);
+      mat4f::Ortho(0.0f, static_cast<float>(width),
+                 static_cast<float>(height), 0.0f, -1.0f, 1.0f);
   Use(&shader);
   shader.SetInteger("image", 0);
   shader.SetMatrix4("projection", projection);
@@ -127,11 +124,7 @@ int main(int argc, char** argv) {
   Use(&back_shader);
   back_shader.SetMatrix4("projection", projection);
 
-  glViewport(0, 0, width, height);
-  glDisable(GL_DEPTH_TEST);
-  glDisable(GL_CULL_FACE);
-  glEnable(GL_BLEND);
-  glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+  SetupFullViewport(width, height);
 
   TextBackgroundRenderer text_back(&back_shader);
 
@@ -198,8 +191,8 @@ int main(int argc, char** argv) {
     target_scale.Update(dt);
     player.SetRotation(player_rotation);
 
-    glClearColor(42.0f / 255, 45.0f / 255, 51.0f / 255, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT);
+    init.ClearScreen();
+
     background.Render();
     objects.Render();
     enemies.Render();

@@ -3,7 +3,7 @@
 #include <cassert>
 #include <algorithm>
 
-#include "spacetyper/sprite.h"
+#include "render/sprite.h"
 
 SpriteFader::SpriteFader(Layer* layer)
     : generator_(std::random_device()())

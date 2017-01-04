@@ -2,7 +2,7 @@
 #define SPACETYPER_BACKGROUND_H
 
 #include <vector>
-#include "spacetyper/sprite.h"
+#include "render/sprite.h"
 
 class Texture2d;
 class SpriteRenderer;

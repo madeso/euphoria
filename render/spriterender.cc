@@ -1,6 +1,7 @@
 #include "render/spriterender.h"
 #include "render/vao.h"
 #include "render/scalablesprite.h"
+#include "render/gl.h"
 
 SpriteRenderer::SpriteRenderer(Shader* shader) : shader_(shader) {
   shader_ = shader;
@@ -10,7 +11,7 @@ SpriteRenderer::SpriteRenderer(Shader* shader) : shader_(shader) {
 SpriteRenderer::~SpriteRenderer() { vao_.reset(); }
 
 void SpriteRenderer::DrawSprite(const Texture2d& texture,
-                                const vec2f& position, GLfloat rotate,
+                                const vec2f& position, float rotate,
                                 const vec2f& scale,
                                 const vec4f& color) {
   const vec2f size(scale.x * texture.width(), scale.y * texture.height());
@@ -22,7 +23,7 @@ void SpriteRenderer::DrawSprite(const Texture2d& texture,
   vao_->Draw();
 }
 
-void SpriteRenderer::CommonDraw(const vec2f &position, GLfloat rotate,
+void SpriteRenderer::CommonDraw(const vec2f &position, float rotate,
                                 const vec4f &color, const vec2f &size, const vec2f &scale) const {
   Use(shader_);
   const mat4f model = mat4f::Identity()
@@ -39,7 +40,7 @@ void SpriteRenderer::CommonDraw(const vec2f &position, GLfloat rotate,
 }
 
 void SpriteRenderer::DrawNinepatch(const ScalableSprite& ninepatch, const vec2f& position,
-                   GLfloat rotate,
+                                   float rotate,
                    const vec2f& scale,
                    const vec4f& color){
   const vec2f nps = vec2f(1.0f, 1.0f); // ninepatch.GetSize();

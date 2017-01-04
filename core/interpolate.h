@@ -4,7 +4,62 @@
 #include <cassert>
 #include <deque>
 
-#include "aheasing/easing.h"
+namespace easing {
+#define FUN(NAME, FUNC) float NAME(float value);
+// Linear interpolation (no easing)
+FUN(Linear, LinearInterpolation)
+
+// Quadratic easing; p^2
+FUN(QuadIn, QuadraticEaseIn)
+FUN(QuadOut, QuadraticEaseOut)
+FUN(Quad, QuadraticEaseInOut)
+
+// Cubic easing; p^3
+FUN(CubicIn, CubicEaseIn)
+FUN(CubicOut, CubicEaseOut)
+FUN(Cubic, CubicEaseInOut)
+
+// Quartic easing; p^4
+FUN(QuartIn, QuarticEaseIn)
+FUN(QuartOut, QuarticEaseOut)
+FUN(Quart, QuarticEaseInOut)
+
+// Quintic easing; p^5
+FUN(QuintIn, QuinticEaseIn)
+FUN(QuintOut, QuinticEaseOut)
+FUN(Quint, QuinticEaseInOut)
+
+// Sine wave easing; sin(p * PI/2)
+FUN(SineIn, SineEaseIn)
+FUN(SineOut, SineEaseOut)
+FUN(Sine, SineEaseInOut)
+
+// Circular easing; sqrt(1 - p^2)
+FUN(CircIn, CircularEaseIn)
+FUN(CircOut, CircularEaseOut)
+FUN(Circ, CircularEaseInOut)
+
+// Exponential easing, base 2
+FUN(ExpIn, ExponentialEaseIn)
+FUN(ExpOut, ExponentialEaseOut)
+FUN(Exp, ExponentialEaseInOut)
+
+// Exponentially-damped sine wave easing
+FUN(ElasticIn, ElasticEaseIn)
+FUN(ElasticOut, ElasticEaseOut)
+FUN(Elastic, ElasticEaseInOut)
+
+// Overshooting cubic easing;
+FUN(BackIn, BackEaseIn)
+FUN(BackOut, BackEaseOut)
+FUN(Back, BackEaseInOut)
+
+// Exponentially-decaying bounce easing
+FUN(BounceIn, BounceEaseIn)
+FUN(BounceOut, BounceEaseOut)
+FUN(Bounce, BounceEaseInOut)
+#undef FUN
+}
 
 struct FloatTransform {
   static float Transform(float from, float v, float to);
@@ -45,7 +100,7 @@ class Interpolate {
 
   This& Sleep(float time) {assert(this); AddInterpolation(nullptr, value_, time); return *this; }
 
-#define FUN(NAME, FUNC) This& NAME(const Type& target, float time) {assert(this); AddInterpolation(FUNC, target, time); return *this; }
+#define FUN(NAME, FUNC) This& NAME(const Type& target, float time) {assert(this); AddInterpolation(easing::NAME, target, time); return *this; }
   // Linear interpolation (no easing)
   FUN(Linear, LinearInterpolation)
 
@@ -101,8 +156,9 @@ class Interpolate {
 #undef FUN
 
  private:
+  typedef float (*EasingFunction)(float);
   struct InterpolationData {
-    AHEasingFunction type; // how to interpolate
+    EasingFunction type; // how to interpolate
     Type target; // target value
     float time; // time to transition
   };
@@ -112,7 +168,7 @@ class Interpolate {
   float delta_; // goes from 0 to 1
   std::deque<InterpolationData> data_;
 
-  void AddInterpolation(AHEasingFunction type, const Type& target, float time) {
+  void AddInterpolation(EasingFunction type, const Type& target, float time) {
     assert(this);
     assert(time > 0.0f);
 

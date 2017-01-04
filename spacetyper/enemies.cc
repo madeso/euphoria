@@ -3,9 +3,10 @@
 #include <cassert>
 #include <algorithm>
 
+#include "render/texturecache.h"
+
 #include "spacetyper/enemyword.h"
 #include "spacetyper/dictionary.h"
-#include "spacetyper/texturecache.h"
 #include "spacetyper/bulletlist.h"
 
 Enemies::Enemies(SpriteFader* fader, TextureCache* cache, Font* font, TextBackgroundRenderer* text_back, Layer* layer, Dictionary* dictionary, float width, BulletList* bullets)

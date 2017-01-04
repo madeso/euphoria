@@ -6,7 +6,7 @@
 
 #include "core/vec2.h"
 
-#include "spacetyper/sprite.h"
+#include "render/sprite.h"
 
 class EnemyWord;
 class Layer;

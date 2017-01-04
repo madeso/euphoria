@@ -3,7 +3,7 @@
 #include <cassert>
 #include <iostream>
 
-#include "spacetyper/texturecache.h"
+#include "render/texturecache.h"
 #include "spacetyper/spritefader.h"
 
 const int max_explosions = 20;
