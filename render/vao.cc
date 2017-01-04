@@ -1,4 +1,4 @@
-#include "spacetyper/vao.h"
+#include "render/vao.h"
 
 Point::Point(float x, float y, float u, float v) : pos(x, y), vert(u, v) {}
 

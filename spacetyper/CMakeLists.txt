@@ -8,20 +8,6 @@ PROTOBUF_GENERATE_CPP(SPRITE_PROTO_SRCS SPRITE_PROTO_HDRS ../proto/scalingsprite
 
 # include_directories(SYSTEM ../external/glm/include)
 
-include_directories(SYSTEM ../external/stb)
-
-include_directories(../external/glew/include)
-set(src_glew ../external/glew/glew.c ../external/glew/include/GL/glew.h)
-source_group("glew" FILES ${src_glew})
-
-include_directories(../external/aheasing)
-set(src_aheasing ../external/aheasing/aheasing/easing.c ../external/aheasing/aheasing/easing.h)
-source_group("AHEasing" FILES ${src_aheasing})
-
-# freetype
-find_package(Freetype REQUIRED)
-include_directories(${FREETYPE_INCLUDE_DIRS})
-
 set(app_src ${app_src_glob} ${pbjson_src} ${SPRITE_PROTO_SRCS} ${SPRITE_PROTO_HDRS})
 source_group("" FILES ${app_src})
 
@@ -39,10 +25,9 @@ set_target_properties(spacetyper
 target_link_libraries(spacetyper
                       libcore
                       gui
+                      render
                       ${OPENGL_LIBRARIES}
                       ${SDL2_LIBRARY}
-                      ${FREETYPE_LIBRARIES}
-                      ${PROTOBUF_LIBRARIES}
                       )
 
 if(CMAKE_COMPILER_IS_GNUCC)

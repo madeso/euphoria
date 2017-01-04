@@ -1,11 +1,11 @@
-#include "spacetyper/sprite.h"
+#include "render/sprite.h"
 
 #include <cassert>
 #include <algorithm>
 
 #include "core/vec4.h"
 
-#include "spacetyper/spriterender.h"
+#include "render/spriterender.h"
 
 Sprite::Sprite(Texture2d* texture, const vec2f& position)
     : texture_(texture)

@@ -1,8 +1,8 @@
-#include "spacetyper/fonts.h"
+#include "render/fonts.h"
 
-#include "spacetyper/vao.h"
-#include "spacetyper/texture.h"
-#include "spacetyper/shader.h"
+#include "render/vao.h"
+#include "render/texture.h"
+#include "render/shader.h"
 
 #include <vector>
 #include <memory>

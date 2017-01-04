@@ -1,11 +1,11 @@
 #ifndef SPRITE_RENDERER_H
 #define SPRITE_RENDERER_H
 
-#include "spacetyper/gl.h"
+#include "render/gl.h"
 
 #include <memory>
-#include "spacetyper/shader.h"
-#include "spacetyper/texture.h"
+#include "render/shader.h"
+#include "render/texture.h"
 
 #include "core/vec2.h"
 #include "core/vec4.h"

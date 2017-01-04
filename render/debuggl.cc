@@ -1,7 +1,7 @@
-#include "spacetyper/debuggl.h"
+#include "render/debuggl.h"
 
 #include <iostream>
-#include "spacetyper/gl.h"
+#include "render/gl.h"
 
 std::string OpenglErrorToString(GLenum errorCode) {
   switch (errorCode) {

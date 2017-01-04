@@ -1,16 +1,16 @@
-#include "spacetyper/scalablesprite.h"
+#include "render/scalablesprite.h"
 
 #include <cassert>
 #include <iostream>
 #include <algorithm>
 
-#include "spacetyper/vao.h"
+#include "render/vao.h"
 #include "core/rect.h"
-#include "spacetyper/texture.h"
-#include "spacetyper/texturecache.h"
+#include "render/texture.h"
+#include "render/texturecache.h"
 
 #include "scalingsprite.pb.h"
-#include "spacetyper/proto.h"
+#include "core/proto.h"
 
 #include "core/tablelayout.h"
 

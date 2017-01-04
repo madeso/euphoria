@@ -8,7 +8,7 @@
 #include "core/vec4.h"
 #include "core/mat4.h"
 
-#include "spacetyper/gl.h"
+#include "render/gl.h"
 #include "core/noncopyable.h"
 
 class ShaderId : Noncopyable {

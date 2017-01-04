@@ -1,6 +1,6 @@
-#include "spacetyper/spriterender.h"
-#include "spacetyper/vao.h"
-#include "spacetyper/scalablesprite.h"
+#include "render/spriterender.h"
+#include "render/vao.h"
+#include "render/scalablesprite.h"
 
 SpriteRenderer::SpriteRenderer(Shader* shader) : shader_(shader) {
   shader_ = shader;

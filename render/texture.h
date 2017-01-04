@@ -1,8 +1,8 @@
 #ifndef TEXTURE_H
 #define TEXTURE_H
 
-#include "spacetyper/gl.h"
-#include "spacetyper/image.h"
+#include "render/gl.h"
+#include "render/image.h"
 #include "core/noncopyable.h"
 
 struct Texture2dLoadData {

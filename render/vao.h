@@ -3,7 +3,7 @@
 
 #include <vector>
 #include "core/vec2.h"
-#include "spacetyper/gl.h"
+#include "render/gl.h"
 #include "core/noncopyable.h"
 
 class Point {

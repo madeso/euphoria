@@ -1,8 +1,8 @@
 
 #include <iostream>
 
-#include "spacetyper/image.h"
-#include "spacetyper/texture.h"
+#include "render/image.h"
+#include "render/texture.h"
 
 Texture2dLoadData::Texture2dLoadData()
     : wrapS(GL_REPEAT),

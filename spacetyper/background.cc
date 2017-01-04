@@ -2,8 +2,8 @@
 
 #include <random>
 
-#include "spacetyper/spriterender.h"
-#include "spacetyper/texture.h"
+#include "render/spriterender.h"
+#include "render/texture.h"
 
 namespace {
 std::mt19937& Generator() {

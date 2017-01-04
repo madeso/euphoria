@@ -1,7 +1,7 @@
-#include "spacetyper/texturecache.h"
+#include "render/texturecache.h"
 
 #include <cassert>
-#include "spacetyper/texture.h"
+#include "render/texture.h"
 
 TextureCache::TextureCache() {
 }

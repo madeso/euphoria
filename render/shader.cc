@@ -1,11 +1,11 @@
-#include "spacetyper/shader.h"
+#include "render/shader.h"
 
 #include <cassert>
 #include <iostream>
 #include <vector>
 #include <fstream>
 
-#include "spacetyper/gl.h"
+#include "render/gl.h"
 
 ShaderId::ShaderId() : id_(glCreateProgram()) {}
 

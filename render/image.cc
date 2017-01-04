@@ -1,4 +1,4 @@
-#include "spacetyper/image.h"
+#include "render/image.h"
 
 #include <cassert>
 #include <iostream>
