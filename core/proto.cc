@@ -1,6 +1,6 @@
 // Copyright (2015) Gustav
 
-#include "spacetyper/proto.h"
+#include "core/proto.h"
 
 #include <google/protobuf/text_format.h>
 
