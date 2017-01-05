@@ -71,7 +71,7 @@ int main(int argc, char** argv) {
   Shader back_shader("shaders/back");
   Font font(&font_shader, "SourceCodePro-Regular.ttf", 30, " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ;:,.-_<>|1234567890!\"#¤%&/()'=?@£$€¥{[]}\\'*");
   // (cache.GetTexture("metalPanel_blueCorner.png"), 62, 14, 33, 14, vec2f(240, 240));
-  ScalableSprite target("crossair_white.png", vec2f(100, 100), &cache);
+  ScalableSprite target("crosshair.png", vec2f(100, 100), &cache);
   SpriteRenderer renderer(&shader);
 
 
