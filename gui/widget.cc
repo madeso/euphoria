@@ -20,12 +20,12 @@ bool Widget::IsHot() const {
   return state_->hot == this;
 }
 
-Recti Widget::GetRect() const {
+Rectf Widget::GetRect() const {
   assert(this);
   return rect_;
 }
 
-void Widget::SetRect(const Recti& r) {
+void Widget::SetRect(const Rectf& r) {
   assert(this);
   rect_ = r;
 }
@@ -40,9 +40,9 @@ const LayoutData& Widget::Layout() const {
   return layout_;
 }
 
-Sizei Widget::GetPreferredSize() const {
-  const Sizei min = this->CalculateMinimumSize();
-  return Sizei::FromWidthHeight( Max(min.GetWidth(), Layout().GetPreferredWidth()), Max(min.GetHeight(), Layout().GetPreferredHeight()) );
+Sizef Widget::GetPreferredSize() const {
+  const Sizef min = this->CalculateMinimumSize();
+  return Sizef::FromWidthHeight( Max(min.GetWidth(), Layout().GetPreferredWidth()), Max(min.GetHeight(), Layout().GetPreferredHeight()) );
 }
 
 const UiState& Widget::GetState() const {

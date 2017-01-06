@@ -12,17 +12,17 @@ public:
   int GetRow() const;
   LayoutData& SetRow(int r);
 
-  int GetPreferredWidth() const;
-  LayoutData& SetPreferredWidth(int w);
+  float GetPreferredWidth() const;
+  LayoutData& SetPreferredWidth(float w);
 
-  int GetPreferredHeight() const;
-  LayoutData& SetPreferredHeight(int h);
+  float GetPreferredHeight() const;
+  LayoutData& SetPreferredHeight(float h);
 
 private:
   int column_;
   int row_;
-  int preferred_width_;
-  int preferred_height_;
+  float preferred_width_;
+  float preferred_height_;
 };
 
 #endif  // GUI_LAYOUTDATA_H

@@ -22,8 +22,8 @@ void Button::Step() {
   }
 }
 
-Sizei Button::CalculateMinimumSize() const {
-  Sizei size = Sizei::FromWidthHeight(0,0);
+Sizef Button::CalculateMinimumSize() const {
+  Sizef size = Sizef::FromWidthHeight(0,0);
   if( sprite_.get() != nullptr ) {
     const Sizef ms = sprite_->GetMinimumSize();
     size.SetWidth( size.GetWidth() + ms.GetWidth() );

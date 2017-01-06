@@ -9,7 +9,7 @@ class UiState {
 public:
   UiState();
 
-  vec2i mouse;
+  vec2f mouse;
   bool mouse_down;
 
   Widget* hot;

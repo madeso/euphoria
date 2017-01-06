@@ -3,12 +3,12 @@
 
 #include <cassert>
 
-std::shared_ptr<Layout> CreateTableLayout(const std::vector<bool> expandable_rows, const std::vector<bool> expandable_cols, int combined_padding) {
+std::shared_ptr<Layout> CreateTableLayout(const std::vector<bool> expandable_rows, const std::vector<bool> expandable_cols, float combined_padding) {
   std::shared_ptr<Layout> ret { new TableLayout(expandable_rows, expandable_cols, combined_padding) };
   return ret;
 }
 
-std::shared_ptr<Layout> CreateSingleRowLayout(int padding) {
+std::shared_ptr<Layout> CreateSingleRowLayout(float padding) {
   std::shared_ptr<Layout> ret { new SingleRowLayout(padding) };
   return ret;
 }
@@ -27,13 +27,13 @@ std::shared_ptr<Layout> LayoutContainer::GetLayout() {
   return layout_;
 }
 
-void LayoutContainer::DoLayout(Recti area) {
+void LayoutContainer::DoLayout(Rectf area) {
   assert(this);
   assert(layout_.get());
   layout_->DoLayout(&widgets_, area);
 }
 
-Sizei LayoutContainer::CalculateMinimumArea() const {
+Sizef LayoutContainer::CalculateMinimumArea() const {
   assert(this);
   assert(layout_.get());
   return layout_->CalculateMinimumArea(widgets_);

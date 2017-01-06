@@ -19,15 +19,15 @@ public:
 
   virtual void Step() = 0;
 
-  Recti GetRect() const;
-  void SetRect(const Recti& r);
+  Rectf GetRect() const;
+  void SetRect(const Rectf& r);
 
   LayoutData& Layout();
   const LayoutData& Layout() const;
 
-  Sizei GetPreferredSize() const;
+  Sizef GetPreferredSize() const;
 
-  virtual Sizei CalculateMinimumSize() const = 0;
+  virtual Sizef CalculateMinimumSize() const = 0;
 
   virtual void Render(SpriteRenderer* renderer) const = 0;
 
@@ -38,7 +38,7 @@ protected:
 private:
   UiState* state_;
   LayoutData layout_;
-  Recti rect_;
+  Rectf rect_;
 };
 
 #endif  // GUI_WIDGET_H

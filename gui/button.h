@@ -18,7 +18,7 @@ public:
   virtual void OnClicked() = 0;
 
   void Step() override;
-  Sizei CalculateMinimumSize() const override;
+  Sizef CalculateMinimumSize() const override;
 
   void Render(SpriteRenderer* renderer) const override;
 

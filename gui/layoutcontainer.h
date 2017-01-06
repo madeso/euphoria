@@ -10,8 +10,8 @@
 
 class Layout;
 
-std::shared_ptr<Layout> CreateTableLayout(const std::vector<bool> expandable_rows, const std::vector<bool> expandable_cols, int combined_padding);
-std::shared_ptr<Layout> CreateSingleRowLayout(int padding);
+std::shared_ptr<Layout> CreateTableLayout(const std::vector<bool> expandable_rows, const std::vector<bool> expandable_cols, float combined_padding);
+std::shared_ptr<Layout> CreateSingleRowLayout(float padding);
 
 class LayoutContainer : public Container {
 public:
@@ -21,8 +21,8 @@ public:
   void SetLayout(std::shared_ptr<Layout> layout);
   std::shared_ptr<Layout> GetLayout();
 
-  void DoLayout(Recti area);
-  Sizei CalculateMinimumArea() const;
+  void DoLayout(Rectf area);
+  Sizef CalculateMinimumArea() const;
 private:
   std::shared_ptr<Layout> layout_;
 };

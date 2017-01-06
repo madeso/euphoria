@@ -28,23 +28,23 @@ LayoutData& LayoutData::SetRow(int r) {
   return *this;
 }
 
-int LayoutData::GetPreferredWidth() const {
+float LayoutData::GetPreferredWidth() const {
   assert(this);
   return preferred_width_;
 }
 
-LayoutData& LayoutData::SetPreferredWidth(int w) {
+LayoutData& LayoutData::SetPreferredWidth(float w) {
   assert(this);
   preferred_width_ = w;
   return *this;
 }
 
-int LayoutData::GetPreferredHeight() const {
+float LayoutData::GetPreferredHeight() const {
   assert(this);
   return preferred_height_;
 }
 
-LayoutData& LayoutData::SetPreferredHeight(int h) {
+LayoutData& LayoutData::SetPreferredHeight(float h) {
   assert(this);
   preferred_height_ = h;
   return *this;

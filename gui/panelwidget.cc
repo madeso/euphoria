@@ -2,7 +2,7 @@
 
 #include <cassert>
 
-Sizei PanelWidget::CalculateMinimumSize() const {
+Sizef PanelWidget::CalculateMinimumSize() const {
   return container.CalculateMinimumArea();
 }
 

@@ -6,7 +6,7 @@
 
 class PanelWidget : Widget {
 public:
-  Sizei CalculateMinimumSize() const override;
+  Sizef CalculateMinimumSize() const override;
   void Step() override;
   LayoutContainer container;
 };
