@@ -28,4 +28,14 @@ public:
   int combined_padding_;
 };
 
+class SingleRowLayout : public Layout {
+public:
+  SingleRowLayout(int padding);
+  virtual Recti CalculateMinimumArea(std::vector<std::shared_ptr<Widget>>& widgets) override;
+  virtual void DoLayout(std::vector<std::shared_ptr<Widget>>* widgets, const Recti& area) override;
+
+private:
+  int padding_;
+};
+
 #endif  // GUI_LAYOUT_H

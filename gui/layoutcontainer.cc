@@ -8,6 +8,11 @@ std::shared_ptr<Layout> CreateTableLayout(const std::vector<bool> expandable_row
   return ret;
 }
 
+std::shared_ptr<Layout> CreateSingleRowLayout(int padding) {
+  std::shared_ptr<Layout> ret { new SingleRowLayout(padding) };
+  return ret;
+}
+
 LayoutContainer::LayoutContainer() {}
 
 LayoutContainer::~LayoutContainer() {}
