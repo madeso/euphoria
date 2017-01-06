@@ -12,27 +12,31 @@ Layout::~Layout() {}
 TableLayout::TableLayout(const std::vector<bool> expandable_rows, const std::vector<bool> expandable_cols, int combined_padding)
     : expandable_rows_(expandable_rows), expandable_cols_(expandable_cols), combined_padding_(combined_padding) {}
 
-Sizei TableLayout::CalculateMinimumArea(std::vector<std::shared_ptr<Widget>>& widgets) {
+Sizei TableLayout::CalculateMinimumArea(const std::vector<std::shared_ptr<Widget>>& widgets) const {
+  // todo: include padding
   std::vector<int> width(expandable_cols_.size(), 0);
   std::vector<int> height(expandable_rows_.size(), 0);
 
   for (auto w: widgets) {
     const LayoutData& d = w->Layout();
-    UpdateMax(&width[d.GetColumn()], d.GetPreferredWidth());
-    UpdateMax(&height[d.GetRow()], d.GetPreferredHeight());
+    const Sizei& s = w->GetPreferredSize();
+    UpdateMax(&width[d.GetColumn()], s.GetWidth());
+    UpdateMax(&height[d.GetRow()], s.GetHeight());
   }
 
   return Sizei::FromWidthHeight(std::accumulate(width.begin(), width.end(), 0), std::accumulate(height.begin(), height.end(), 0));
 }
 
-void TableLayout::DoLayout(std::vector<std::shared_ptr<Widget>>* widgets, const Recti &area) {
+void TableLayout::DoLayout(std::vector<std::shared_ptr<Widget>>* widgets, const Recti &area) const {
+  // todo: include padding
   std::vector<int> width(expandable_cols_.size(), 0);
   std::vector<int> height(expandable_rows_.size(), 0);
 
   for (auto w: *widgets) {
     const LayoutData& d = w->Layout();
-    UpdateMax(&width[d.GetColumn()], d.GetPreferredWidth());
-    UpdateMax(&height[d.GetRow()], d.GetPreferredHeight());
+    const Sizei& s = w->GetPreferredSize();
+    UpdateMax(&width[d.GetColumn()], s.GetWidth());
+    UpdateMax(&height[d.GetRow()], s.GetHeight());
   }
 
   const int total_width = std::accumulate(width.begin(), width.end(), 0);
@@ -79,26 +83,27 @@ void TableLayout::DoLayout(std::vector<std::shared_ptr<Widget>>* widgets, const 
 
 SingleRowLayout::SingleRowLayout(int padding) : padding_(padding) {}
 
-Sizei SingleRowLayout::CalculateMinimumArea(std::vector<std::shared_ptr<Widget>> &widgets) {
+Sizei SingleRowLayout::CalculateMinimumArea(const std::vector<std::shared_ptr<Widget>> &widgets) const {
   int width = 0;
   int height = 0;
   bool first = false;
 
   for (auto w: widgets) {
-    width += w->Layout().GetPreferredWidth();
+    const auto& s = w->GetPreferredSize();
+    width += s.GetWidth();
     if( !first ) width += padding_;
     first = false;
-    UpdateMax(&height, w->Layout().GetPreferredHeight());
+    UpdateMax(&height, s.GetHeight());
   }
 
   return Sizei::FromWidthHeight(width, height);
 }
 
-void SingleRowLayout::DoLayout(std::vector<std::shared_ptr<Widget>> *widgets, const Recti &area) {
+void SingleRowLayout::DoLayout(std::vector<std::shared_ptr<Widget>> *widgets, const Recti &area) const {
   int x = area.GetX();
   for (auto w: *widgets) {
-    const auto l = w->Layout();
-    w->SetRect( Recti::FromTopLeftWidthHeight(area.GetY(), x, l.GetPreferredWidth(), l.GetPreferredHeight()) );
-    x += l.GetPreferredWidth() + padding_;
+    const auto& s = w->GetPreferredSize();
+    w->SetRect( Recti::FromTopLeftWidthHeight(area.GetY(), x, s.GetWidth(), s.GetHeight()) );
+    x += s.GetWidth() + padding_;
   }
 }

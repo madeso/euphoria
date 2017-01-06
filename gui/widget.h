@@ -2,6 +2,8 @@
 #define GUI_WIDGET_H
 
 #include "core/rect.h"
+#include "core/size.h"
+
 #include "gui/layoutdata.h"
 
 class UiState;
@@ -21,6 +23,10 @@ public:
 
   LayoutData& Layout();
   const LayoutData& Layout() const;
+
+  Sizei GetPreferredSize() const;
+
+  virtual Sizei CalculateMinimumSize() const = 0;
 
 protected:
   const UiState& GetState() const;

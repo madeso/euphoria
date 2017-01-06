@@ -47,13 +47,14 @@ const float Abs(const float r);
 @see KeepWithin()
 */
 const float Min(const float lhs, const float rhs);
+const int Min(const int lhs, const int rhs);
 
 /** Calculates the maximum of two values.
 @see Min()
 @see KeepWithin()
 */
 const float Max(const float lhs, const float rhs);
-const float Max(const int lhs, const int rhs);
+const int Max(const int lhs, const int rhs);
 
 template<typename T>
 void UpdateMax(T* t, T value) {

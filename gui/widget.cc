@@ -40,6 +40,11 @@ const LayoutData& Widget::Layout() const {
   return layout_;
 }
 
+Sizei Widget::GetPreferredSize() const {
+  const Sizei min = this->CalculateMinimumSize();
+  return Sizei::FromWidthHeight( Max(min.GetWidth(), Layout().GetPreferredWidth()), Max(min.GetHeight(), Layout().GetPreferredHeight()) );
+}
+
 const UiState& Widget::GetState() const {
   assert(this);
   return *state_;

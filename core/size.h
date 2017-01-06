@@ -1,6 +1,8 @@
 #ifndef CORE_SIZE_H
 #define CORE_SIZE_H
 
+#include "core/numeric.h"
+
 template<typename T>
 class Size {
 public:
@@ -31,6 +33,16 @@ private:
   T width_;
   T height_;
 };
+
+template<typename T>
+Size<T> Min(const Size<T>lhs, const Size<T> rhs) {
+  return Size<T>::FromWidthHeight(Min(lhs.GetWidth(), rhs.GetWidth()), Min(lhs.GetHeight(), rhs.GetHeight()));
+}
+
+template<typename T>
+Size<T> Max(const Size<T>lhs, const Size<T> rhs) {
+  return Size<T>::FromWidthHeight(Max(lhs.GetWidth(), rhs.GetWidth()), Max(lhs.GetHeight(), rhs.GetHeight()));
+}
 
 typedef Size<int> Sizei;
 typedef Size<float> Sizef;

@@ -3,6 +3,7 @@
 
 #include "gui/container.h"
 #include "core/rect.h"
+#include "core/size.h"
 
 #include <memory>
 #include <vector>
@@ -21,6 +22,7 @@ public:
   std::shared_ptr<Layout> GetLayout();
 
   void DoLayout(Recti area);
+  Sizei CalculateMinimumArea() const;
 private:
   std::shared_ptr<Layout> layout_;
 };

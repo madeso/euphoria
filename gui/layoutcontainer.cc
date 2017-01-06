@@ -32,3 +32,9 @@ void LayoutContainer::DoLayout(Recti area) {
   assert(layout_.get());
   layout_->DoLayout(&widgets_, area);
 }
+
+Sizei LayoutContainer::CalculateMinimumArea() const {
+  assert(this);
+  assert(layout_.get());
+  return layout_->CalculateMinimumArea(widgets_);
+}
