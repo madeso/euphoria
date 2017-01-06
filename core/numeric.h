@@ -53,6 +53,12 @@ const float Min(const float lhs, const float rhs);
 @see KeepWithin()
 */
 const float Max(const float lhs, const float rhs);
+const float Max(const int lhs, const int rhs);
+
+template<typename T>
+void UpdateMax(T* t, T value) {
+  *t = Max(*t, value);
+}
 
 /** Transforms a value from one range to the 0-1 range.
 This function does not limmit the value, so if it's below the lower bound it will be below 0.

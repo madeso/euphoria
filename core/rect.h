@@ -20,6 +20,14 @@ class Rect {
   static Rect FromTopLeftWidthHeight(T atop, T aleft, T width, T height) { return Rect(aleft, aleft + width, atop, atop + height); }
   static Rect FromWidthHeight(T width, T height) { return Rect(0, width, 0, height); }
 
+  T GetX() const {
+    return left;
+  }
+
+  T GetY() const {
+    return top;
+  }
+
   T GetRelativeCenterX() const { return GetWidth() / 2;}
   T GetRelativeCenterY() const { return GetHeight() / 2; }
 
@@ -106,5 +114,8 @@ class Rect {
     return right - left;
   }
 };
+
+typedef Rect<int> Recti;
+typedef Rect<float> Rectf;
 
 #endif  // CORE_RECT_H

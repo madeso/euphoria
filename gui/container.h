@@ -15,7 +15,7 @@ public:
 
   void Step();
 
-private:
+protected:
   std::vector<std::shared_ptr<Widget>> widgets_;
 };
 

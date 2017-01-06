@@ -107,6 +107,20 @@ const float Max(const float lhs, const float rhs)
   }
 }
 
+const float Max(const int lhs, const int rhs)
+{
+  if(lhs > rhs)
+  {
+    return lhs;
+  }
+  else
+  {
+    return rhs;
+  }
+}
+
+
+
 const float To01(const float L, const float v, const float U)
 {
   return (v - L) / (U - L);

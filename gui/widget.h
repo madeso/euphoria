@@ -2,6 +2,7 @@
 #define GUI_WIDGET_H
 
 #include "core/rect.h"
+#include "gui/layoutdata.h"
 
 class UiState;
 
@@ -15,7 +16,11 @@ public:
 
   virtual void Step() = 0;
 
-  Rect<int> GetRect() const;
+  Recti GetRect() const;
+  void SetRect(const Recti& r);
+
+  LayoutData& Layout();
+  const LayoutData& Layout() const;
 
 protected:
   const UiState& GetState() const;
@@ -23,7 +28,8 @@ protected:
 
 private:
   UiState* state_;
-  Rect<int> rect_;
+  LayoutData layout_;
+  Recti rect_;
 };
 
 #endif  // GUI_WIDGET_H
