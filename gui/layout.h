@@ -2,6 +2,7 @@
 #define GUI_LAYOUT_H
 
 #include "core/rect.h"
+#include "core/size.h"
 
 #include <vector>
 #include <memory>
@@ -13,14 +14,14 @@ public:
   Layout();
   virtual ~Layout();
 
-  virtual Recti CalculateMinimumArea(std::vector<std::shared_ptr<Widget>>& widgets) = 0;
+  virtual Sizei CalculateMinimumArea(std::vector<std::shared_ptr<Widget>>& widgets) = 0;
   virtual void DoLayout(std::vector<std::shared_ptr<Widget>>* widgets, const Recti& area) = 0;
 };
 
 class TableLayout : public Layout {
 public:
   TableLayout(const std::vector<bool> expandable_rows, const std::vector<bool> expandable_cols, int combined_padding);
-  virtual Recti CalculateMinimumArea(std::vector<std::shared_ptr<Widget>>& widgets) override;
+  virtual Sizei CalculateMinimumArea(std::vector<std::shared_ptr<Widget>>& widgets) override;
   virtual void DoLayout(std::vector<std::shared_ptr<Widget>>* widgets, const Recti& area) override;
 
   std::vector<bool> expandable_rows_;
@@ -31,7 +32,7 @@ public:
 class SingleRowLayout : public Layout {
 public:
   SingleRowLayout(int padding);
-  virtual Recti CalculateMinimumArea(std::vector<std::shared_ptr<Widget>>& widgets) override;
+  virtual Sizei CalculateMinimumArea(std::vector<std::shared_ptr<Widget>>& widgets) override;
   virtual void DoLayout(std::vector<std::shared_ptr<Widget>>* widgets, const Recti& area) override;
 
 private:
