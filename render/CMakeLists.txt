@@ -20,7 +20,7 @@ set(src ${src} ${pbjson_src} ${SPRITE_PROTO_SRCS} ${SPRITE_PROTO_HDRS})
 add_library(render STATIC ${src})
 
 target_link_libraries(render
-                      libcore
+                      core
     ${OPENGL_LIBRARIES}
     ${PROTOBUF_LIBRARIES}
     ${FREETYPE_LIBRARIES}

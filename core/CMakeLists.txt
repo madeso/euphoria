@@ -7,8 +7,8 @@ set(src_aheasing ../external/aheasing/aheasing/easing.c ../external/aheasing/ahe
 set(src ${src} ${src_aheasing})
 source_group("AHEasing" FILES ${src_aheasing})
 
-add_library(libcore STATIC ${src})
+add_library(core STATIC ${src})
 
-target_link_libraries(libcore
+target_link_libraries(core
     ${PROTOBUF_LIBRARIES}
     )

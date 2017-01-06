@@ -23,7 +23,7 @@ set_target_properties(spacetyper
                       )
 
 target_link_libraries(spacetyper
-                      libcore
+                      core
                       gui
                       render
                       ${OPENGL_LIBRARIES}
