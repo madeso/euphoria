@@ -36,7 +36,7 @@ float CopyData(std::vector<float>* dest, const google::protobuf::RepeatedField<i
 }
 }
 
-ScalableSprite::ScalableSprite(const std::string& path, const vec2f& size, TextureCache* cache) : texture_(cache->GetTexture(path)), size_(size), dirty_(true) {
+ScalableSprite::ScalableSprite(const std::string& path, const Sizef& size, TextureCache* cache) : texture_(cache->GetTexture(path)), size_(size), dirty_(true) {
   scalingsprite::ScalingSprite sprite;
   LoadProtoText(&sprite, path+".txt");
 
@@ -47,15 +47,31 @@ ScalableSprite::ScalableSprite(const std::string& path, const vec2f& size, Textu
 ScalableSprite::~ScalableSprite() {
 }
 
-void ScalableSprite::SetSize(const vec2f &new_size) {
+void ScalableSprite::SetSize(const Sizef &new_size) {
   assert(this);
   size_ = new_size;
   dirty_ = true;
 }
 
-const vec2f ScalableSprite::GetSize() const {
+const Sizef ScalableSprite::GetSize() const {
   assert(this);
   return size_;
+}
+
+namespace {
+  float GetConstantSize(const std::vector<float>& data) {
+    float r = 0;
+    for(float f: data) {
+      if( f > 0 ) {
+        r += f;
+      }
+    }
+    return r;
+  }
+}
+
+const Sizef ScalableSprite::GetMinimumSize() const {
+  return Sizef::FromWidthHeight(GetConstantSize(cols_), GetConstantSize(rows_));
 }
 
 const Texture2d* ScalableSprite::texture_ptr() const {
@@ -73,8 +89,8 @@ const Vao* ScalableSprite::vao_ptr() const {
 
 void ScalableSprite::BuildData() const {
   if( dirty_ == false) return;
-  const auto position_cols = PerformTableLayout(cols_, size_.x);
-  const auto position_rows = PerformTableLayout(rows_, size_.y);
+  const auto position_cols = PerformTableLayout(cols_, size_.GetWidth());
+  const auto position_rows = PerformTableLayout(rows_, size_.GetHeight());
 
   const auto cols_size = cols_.size();
   const auto rows_size = rows_.size();

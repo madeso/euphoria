@@ -124,9 +124,9 @@ const vec2f& EnemyWord::GetPosition() const {
   return sprite_.GetPosition();
 }
 
-const vec2f EnemyWord::GetSize() const {
+const Sizef EnemyWord::GetSize() const {
   assert(this);
-  return vec2f(sprite_.GetWidth(), sprite_.GetHeight());
+  return Sizef::FromHeightWidth(sprite_.GetWidth(), sprite_.GetHeight());
 }
 
 void EnemyWord::Damage() {

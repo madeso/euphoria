@@ -3,7 +3,7 @@
 
 #include <memory>
 #include <vector>
-#include "core/vec2.h"
+#include "core/size.h"
 
 class Vao;
 class Texture2d;
@@ -11,21 +11,25 @@ class TextureCache;
 
 class ScalableSprite {
  public:
-  ScalableSprite(const std::string& path, const vec2f& size, TextureCache* cache);
+  ScalableSprite(const std::string& path, const Sizef& size, TextureCache* cache);
   ~ScalableSprite();
 
-  void SetSize(const vec2f& new_size);
-  const vec2f GetSize() const;
+  void SetSize(const Sizef& new_size);
+  const Sizef GetSize() const;
+
+  const Sizef GetMinimumSize() const;
 
   // for rendering...
   const Texture2d* texture_ptr() const;
   const Vao* vao_ptr() const;
 
+
+
  private:
   void BuildData() const;
 
   Texture2d* texture_;
-  vec2f size_;
+  Sizef size_;
 
   mutable bool dirty_;
   mutable std::unique_ptr<Vao> vao_;

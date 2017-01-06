@@ -5,6 +5,7 @@
 #include <vector>
 
 class Widget;
+class SpriteRenderer;
 
 class Container {
 public:
@@ -14,6 +15,8 @@ public:
   void Add(Widget* widget);
 
   void Step();
+
+  void Render(SpriteRenderer* renderer) const;
 
 protected:
   std::vector<std::shared_ptr<Widget>> widgets_;

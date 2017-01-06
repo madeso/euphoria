@@ -7,6 +7,7 @@
 #include "gui/layoutdata.h"
 
 class UiState;
+class SpriteRenderer;
 
 class Widget {
 public:
@@ -27,6 +28,8 @@ public:
   Sizei GetPreferredSize() const;
 
   virtual Sizei CalculateMinimumSize() const = 0;
+
+  virtual void Render(SpriteRenderer* renderer) const = 0;
 
 protected:
   const UiState& GetState() const;

@@ -71,7 +71,7 @@ int main(int argc, char** argv) {
   Shader back_shader("shaders/back");
   Font font(&font_shader, "SourceCodePro-Regular.ttf", 30, " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ;:,.-_<>|1234567890!\"#¤%&/()'=?@£$€¥{[]}\\'*");
   // (cache.GetTexture("metalPanel_blueCorner.png"), 62, 14, 33, 14, vec2f(240, 240));
-  ScalableSprite target("crosshair.png", vec2f(100, 100), &cache);
+  ScalableSprite target("crosshair.png", Sizef::FromWidthHeight(100, 100), &cache);
   SpriteRenderer renderer(&shader);
 
 
@@ -199,12 +199,13 @@ int main(int argc, char** argv) {
     foreground.Render();
     // dont render ninepatch unless we are in a meny = not yet implemented :)
     if( current_word != nullptr ) {
-      const vec2f extra_size(40, 40);
-      const vec2f size = current_word->GetSize();
-      const vec2f size_and_extra = size + extra_size;
-      const vec2f scaled_size = size_and_extra * target_scale.GetValue();
+      const Sizef extra_size = Sizef::FromWidthHeight(40, 40);
+      const Sizef size = current_word->GetSize();
+      const Sizef size_and_extra = size + extra_size;
+      const Sizef scaled_size = size_and_extra * target_scale.GetValue();
+      const vec2f scaled_size_vec = scaled_size;
       target.SetSize(scaled_size);
-      renderer.DrawNinepatch(target, current_word->GetPosition() - scaled_size/2.0f);
+      renderer.DrawNinepatch(target, current_word->GetPosition() - scaled_size_vec/2.0f);
     }
     SDL_GL_SwapWindow(window);
   }

@@ -7,6 +7,7 @@
 #include "render/fonts.h"
 
 #include "core/vec2.h"
+#include "core/size.h"
 
 class TextureCache;
 class TextBackgroundRenderer;
@@ -31,7 +32,7 @@ class EnemyWord {
 
   const std::string& GetWord() const;
   const vec2f& GetPosition() const;
-  const vec2f GetSize() const;
+  const Sizef GetSize() const;
 
   void Damage();
   bool IsDestroyed() const;

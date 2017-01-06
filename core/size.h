@@ -1,6 +1,7 @@
 #ifndef CORE_SIZE_H
 #define CORE_SIZE_H
 
+#include "core/vec2.h"
 #include "core/numeric.h"
 
 template<typename T>
@@ -28,6 +29,30 @@ public:
     height_ = h;
   }
 
+  void operator+=(const Self& rhs) {
+    width_ += rhs.width_;
+    height_ += rhs.height_;
+  }
+
+  void operator-=(const Self& rhs) {
+    width_ -= rhs.width_;
+    height_ -= rhs.height_;
+  }
+
+  void operator*=(const T& rhs) {
+    width_ *= rhs;
+    height_ *= rhs;
+  }
+
+  void operator/=(const T& rhs) {
+    width_ /= rhs;
+    height_ /= rhs;
+  }
+
+  operator vec2<T>() const {
+    return vec2<T>(width_, height_);
+  }
+
 private:
   Size(T w, T h) : width_(w), height_(h) {}
   T width_;
@@ -42,6 +67,41 @@ Size<T> Min(const Size<T>lhs, const Size<T> rhs) {
 template<typename T>
 Size<T> Max(const Size<T>lhs, const Size<T> rhs) {
   return Size<T>::FromWidthHeight(Max(lhs.GetWidth(), rhs.GetWidth()), Max(lhs.GetHeight(), rhs.GetHeight()));
+}
+
+template<typename T>
+Size<T> operator+(const Size<T>& lhs, const Size<T>& rhs) {
+  Size<T> t = lhs;
+  t += rhs;
+  return t;
+}
+
+template<typename T>
+Size<T> operator-(const Size<T>& lhs, const Size<T>& rhs) {
+  Size<T> t = lhs;
+  t -= rhs;
+  return t;
+}
+
+template<typename T>
+Size<T> operator*(const Size<T>& lhs, const T& rhs) {
+  Size<T> t = lhs;
+  t *= rhs;
+  return t;
+}
+
+template<typename T>
+Size<T> operator*(const T& lhs, const Size<T>& rhs) {
+  Size<T> t = rhs;
+  t *= lhs;
+  return t;
+}
+
+template<typename T>
+Size<T> operator/(const Size<T>& lhs, const T& rhs) {
+  Size<T> t = lhs;
+  t /= rhs;
+  return t;
 }
 
 typedef Size<int> Sizei;

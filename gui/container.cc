@@ -17,3 +17,9 @@ void Container::Step() {
     w->Step();
   }
 }
+
+void Container::Render(SpriteRenderer* renderer) const {
+  for(auto w: widgets_) {
+    w->Render(renderer);
+  }
+}
