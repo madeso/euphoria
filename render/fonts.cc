@@ -100,7 +100,7 @@ struct Face {
   }
 };
 
-CharData::CharData(const VaoBuilder& data, const Extent& ex, unsigned int ch, float ad) : vao(data), extent(ex), c(ch), advance(ad) {
+CharData::CharData(const VaoBuilder& data, const Rectf& ex, unsigned int ch, float ad) : vao(data), extent(ex), c(ch), advance(ad) {
 }
 
 struct Pixels {
@@ -172,7 +172,7 @@ FontChars GetCharactersFromFont(const std::string &font_file, unsigned int font_
   return fontchars;
 }
 
-std::pair<VaoBuilder, Extent> BuildCharVao(const stbrp_rect &src_rect, const FontChar &src_char, int image_width, int image_height) {
+std::pair<VaoBuilder, Rectf> BuildCharVao(const stbrp_rect &src_rect, const FontChar &src_char, int image_width, int image_height) {
   //
   //             width
   //          <--------->
@@ -210,78 +210,7 @@ std::pair<VaoBuilder, Extent> BuildCharVao(const stbrp_rect &src_rect, const Fon
       Point(vert_right, vert_bottom,
             uv_right/iw, uv_bottom/ih)
   );
-  return std::make_pair(builder, Extent::FromLRTD(vert_left, vert_right, vert_top, vert_bottom));
-}
-
-////////////////////////////////////////////////////////////////////////////////
-
-Extent::Extent() : left(0.0f), right(0.0f), top(0.0f), bottom(0.0f) {
-}
-
-Extent::Extent(float l, float r, float t, float b) : left(l), right(r), top(t), bottom(b)  {
-  assert(this);
-}
-
-Extent Extent::FromLRTD(float l, float r, float t, float d) {
-  return Extent(l, r, t, d);
-}
-
-void Extent::Translate(const vec2f& p) {
-  assert(this);
-  left += p.x;
-  right += p.x;
-  top += p.y;
-  bottom += p.y;
-}
-
-void Extent::Include(const Extent& o) {
-  assert(this);
-  left = std::min(left, o.left);
-  right = std::max(right, o.right);
-  top = std::min(top, o.top);
-  bottom = std::max(bottom, o.bottom);
-}
-
-void Extent::Extend(float value) {
-  assert(this);
-
-  left -= value;
-  right += value;
-  top -= value;
-  bottom += value;
-}
-
-Extent Extent::AsTranslated(const vec2f& p) const{
-  assert(this);
-  Extent r = *this;
-  r.Translate(p);
-  return r;
-}
-
-Extent Extent::AsIncluded(const Extent& o) const {
-  assert(this);
-  Extent r = *this;
-  r.Include(o);
-  return r;
-}
-
-Extent Extent::AsExtended(float value) const {
-  assert(this);
-  Extent r = *this;
-  r.Extend(value);
-  return r;
-}
-
-float Extent::GetWidth() const {
-  assert(this);
-
-  return right - left;
-}
-
-float Extent::GetHeight() const{
-  assert(this);
-
-  return bottom - top;
+  return std::make_pair(builder, Rectf::FromLeftRightTopBottom(vert_left, vert_right, vert_top, vert_bottom));
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -303,7 +232,7 @@ TextBackgroundRenderer::TextBackgroundRenderer(Shader* shader) : vao_(SimpleQuad
   assert(shader);
 }
 
-void TextBackgroundRenderer::Draw(float alpha, const Extent& area) {
+void TextBackgroundRenderer::Draw(float alpha, const Rectf& area) {
   Use(shader_);
   const mat4f model = mat4f::Identity()
     .Translate(vec3f(area.left, area.top, 0.0f))
@@ -347,7 +276,7 @@ Font::Font(Shader* shader, const std::string& font_file, unsigned int font_size,
     }
     const FontChar& src_char = fontchars.chars[src_rect.id];
     PasteCharacterToImage(pixels, src_rect, src_char);
-    const std::pair<VaoBuilder, Extent> char_vao = BuildCharVao(src_rect, src_char, texture_width, texture_height);
+    const std::pair<VaoBuilder, Rectf> char_vao = BuildCharVao(src_rect, src_char, texture_width, texture_height);
 
     // store data in useful data
     std::shared_ptr<CharData> dest(new CharData(char_vao.first, char_vao.second, src_char.c, src_char.advance));
@@ -405,11 +334,11 @@ void Font::Draw(const vec2f& p, const std::string& str, vec3f basec, vec3f hic, 
   }
 }
 
-Extent Font::GetExtents(const std::string& str, float scale) const {
+Rectf Font::GetExtents(const std::string& str, float scale) const {
   assert(this);
   unsigned int last_char_index = 0;
   vec2f position(0.0f);
-  Extent ret;
+  Rectf ret;
 
   for (std::string::const_iterator c = str.begin(); c != str.end(); c++) {
     const unsigned int char_index = ConvertCharToIndex(*c);
@@ -419,7 +348,7 @@ Extent Font::GetExtents(const std::string& str, float scale) const {
     }
     std::shared_ptr<CharData> ch = it->second;
 
-    ret.Include(ch->extent.AsTranslated(position));
+    ret.Include(ch->extent.OffsetCopy(position));
 
     KerningMap::const_iterator kerning = kerning_.find(std::make_pair(last_char_index, char_index));
     int the_kerning = kerning == kerning_.end() ? 0 : kerning->second;
@@ -501,7 +430,7 @@ void Text::SetScale(float scale) {
   std::cout << "setting the scale to " << scale << "\n";
 }
 
-vec2f GetOffset(Align alignment, const Extent& extent) {
+vec2f GetOffset(Align alignment, const Rectf& extent) {
   // todo: test this more
   const float middle = -(extent.left + extent.right)/2;
   const float right = -extent.right;
@@ -527,14 +456,14 @@ vec2f GetOffset(Align alignment, const Extent& extent) {
 void Text::Draw(const vec2f& p) const{
   assert(this);
   if( font_ == nullptr) return;
-  const Extent& e = GetExtents();
+  const Rectf& e = GetExtents();
   const vec2f off = GetOffset(alignment_, e);
   if(use_background_) {
-    backgroundRenderer_->Draw(background_alpha_, e.AsExtended(5.0f).AsTranslated(p+off));
+    backgroundRenderer_->Draw(background_alpha_, e.ExtendCopy(5.0f).OffsetCopy(p+off));
   }
   font_->Draw(p+off, text_, base_color_, hi_color_, hi_from_, hi_to_, scale_);
 }
 
-Extent Text::GetExtents() const {
+Rectf Text::GetExtents() const {
   return font_->GetExtents(text_, scale_);
 }

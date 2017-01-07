@@ -7,40 +7,17 @@
 
 #include "core/vec2.h"
 #include "core/vec3.h"
+#include "core/rect.h"
 
 #include "render/vao.h"
 #include "render/texture.h"
 
 class Shader;
 
-class Extent {
- public:
-  Extent();
- private:
-  Extent(float l, float r, float t, float d);
- public:
-  static Extent FromLRTD(float l, float r, float t, float d);
-
-  void Translate(const vec2f& p);
-  void Include(const Extent& o);
-  void Extend(float value);
-  Extent AsTranslated(const vec2f& p) const;
-  Extent AsIncluded(const Extent& o) const;
-  Extent AsExtended(float value) const;
-
-  float GetWidth() const;
-  float GetHeight() const;
-
-  float left;
-  float right;
-  float top;
-  float bottom;
-};
-
 struct CharData {
-  CharData(const VaoBuilder& data, const Extent& extent, unsigned int c, float advance);
+  CharData(const VaoBuilder& data, const Rectf& extent, unsigned int c, float advance);
   Vao vao;
-  Extent extent;
+  Rectf extent;
 
   unsigned int c;
   float advance;
@@ -62,7 +39,7 @@ class TextBackgroundRenderer {
  public:
   TextBackgroundRenderer(Shader* shader);
 
-  void Draw(float alpha, const Extent& area);
+  void Draw(float alpha, const Rectf& area);
  private:
   Vao vao_;
   Shader* shader_;
@@ -86,7 +63,7 @@ class Text {
 
   void Draw(const vec2f& p) const;
 
-  Extent GetExtents() const;
+  Rectf GetExtents() const;
  private:
   Font* font_;
   TextBackgroundRenderer* backgroundRenderer_;
@@ -108,11 +85,11 @@ class Font {
   unsigned int GetFontSize() const;
  protected:
   friend void Text::Draw(const vec2f &p) const;
-  friend Extent Text::GetExtents() const;
+  friend Rectf Text::GetExtents() const;
 
   // todo: support drawing background color behind string
   void Draw(const vec2f& p, const std::string& str, vec3f basec, vec3f hic, int hi_start, int hi_end, float scale) const;
-  Extent GetExtents(const std::string& str, float scale) const;
+  Rectf GetExtents(const std::string& str, float scale) const;
  private:
   Shader* shader_;
   unsigned int font_size_;

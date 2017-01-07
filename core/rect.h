@@ -78,11 +78,33 @@ class Rect {
     return ret;
   }
 
+  void Extend(T dx, T dy) {
+    Inset(-dx, -dy);
+  }
+
+  Rect<T> ExtendCopy(T dx, T dy) const {
+    Rect<T> ret = *this;
+    ret.Extend(dx, dy);
+    return ret;
+  }
+
+  Rect<T> ExtendCopy(T d) const {
+    return ExtendCopy(d, d);
+  }
+
+  void Include(const Rect& o) {
+    left = Min(left, o.left);
+    right = Max(right, o.right);
+    top = Min(top, o.top);
+    bottom = Max(bottom, o.bottom);
+  }
+
   // Returns true if the rectangle is empty (left >= right or top >= bottom)
   bool IsEmpty() const {
     return left >= right || top >= bottom;
   }
 
+  // Translate
   void Offset(T dx, T dy) {
     left += dx;
     right += dx;
@@ -94,6 +116,9 @@ class Rect {
     Rect<T> ret = *this;
     ret.Offset(dx, dy);
     return ret;
+  }
+  Rect<T> OffsetCopy(const vec2<T>& d) const {
+    return OffsetCopy(d.x, d.y);
   }
 
   void OffsetTo(T newLeft, T newTop) {
