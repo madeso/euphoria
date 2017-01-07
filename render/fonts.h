@@ -84,7 +84,7 @@ class Text {
   void SetSize(float new_size);
   void SetScale(float scale);
 
-  void Draw(const vec2f& p);
+  void Draw(const vec2f& p) const;
 
   Extent GetExtents() const;
  private:
@@ -107,7 +107,7 @@ class Font {
   Font(Shader* shader, const std::string& path, unsigned int font_size, const std::string& chars);
   unsigned int GetFontSize() const;
  protected:
-  friend void Text::Draw(const vec2f &p);
+  friend void Text::Draw(const vec2f &p) const;
   friend Extent Text::GetExtents() const;
 
   // todo: support drawing background color behind string

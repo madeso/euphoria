@@ -3,6 +3,7 @@
 
 #include "render/scalablesprite.h"
 #include "render/spriterender.h"
+#include "render/fonts.h"
 
 Button::Button(UiState* state) : Widget(state) {}
 
@@ -30,10 +31,26 @@ Sizef Button::CalculateMinimumSize() const {
     size.SetHeight( size.GetHeight() + ms.GetHeight() );
   }
 
+  if( text_.HasText() ) {
+    const auto e = text_.GetText().GetExtents();
+    Sizef ms = Sizef::FromWidthHeight(e.GetWidth(), e.GetHeight());
+    size.SetWidth( size.GetWidth() + ms.GetWidth() );
+    size.SetHeight( size.GetHeight() + ms.GetHeight() );
+  }
+
   return size;
 }
 
 void Button::Render(SpriteRenderer* renderer) const {
-  // todo: change ui to float instead of ints
-  // renderer->DrawNinepatch(*sprite_.get(), GetRect().GetPosition());
+  if( sprite_.get() != nullptr ) {
+    renderer->DrawNinepatch(*sprite_.get(), GetRect().GetPosition());
+  }
+  if( text_.HasText() ) {
+    // const auto p = GetRect().GetAbsoluteCenterPos() - text_.GetText().GetExtents().GetRelativeCenterPos();
+    // text_.GetText().Draw(p);
+  }
+}
+
+TextData& Button::Text() {
+  return text_;
 }

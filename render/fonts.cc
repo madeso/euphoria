@@ -524,7 +524,7 @@ vec2f GetOffset(Align alignment, const Extent& extent) {
   }
 }
 
-void Text::Draw(const vec2f& p) {
+void Text::Draw(const vec2f& p) const{
   assert(this);
   if( font_ == nullptr) return;
   const Extent& e = GetExtents();

@@ -34,9 +34,11 @@ class Rect {
 
   T GetRelativeCenterX() const { return GetWidth() / 2;}
   T GetRelativeCenterY() const { return GetHeight() / 2; }
+  vec2<T> GetRelativeCenterPos() const { return vec2<T>(GetRelativeCenterX(), GetRelativeCenterY()); }
 
   T GetAbsoluteCenterX() const { return left + GetRelativeCenterX();}
   T GetAbsoluteCenterY() const { return top + GetRelativeCenterY(); }
+  vec2<T> GetAbsoluteCenterPos() const { return vec2<T>(GetAbsoluteCenterX(), GetAbsoluteCenterY()); }
 
   bool ContainsExclusive(const Rect<T>& r) const {
     return left < r.left && right > r.right

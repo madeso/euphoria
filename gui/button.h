@@ -3,10 +3,9 @@
 
 #include <core/rect.h>
 #include "gui/widget.h"
+#include "gui/textdata.h"
 
 #include <memory>
-
-
 
 class ScalableSprite;
 
@@ -22,8 +21,12 @@ public:
 
   void Render(SpriteRenderer* renderer) const override;
 
+  TextData& Text();
+
 private:
   std::shared_ptr<ScalableSprite> sprite_;
+  TextData text_;
+
 };
 
 #endif  // GUI_BUTTON_H
