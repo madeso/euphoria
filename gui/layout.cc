@@ -4,6 +4,7 @@
 #include "core/numeric.h"
 
 #include <numeric>
+#include <algorithm>
 
 Layout::Layout() {}
 
@@ -45,8 +46,8 @@ void TableLayout::DoLayout(std::vector<std::shared_ptr<Widget>>* widgets, const 
   const float leftover_width = area.GetWidth() - total_width;
   const float leftover_height = area.GetHeight() - total_height;
 
-  const size_t expandable_rows_count = std::count(expandable_rows_.begin(), expandable_rows_.end(), true);
-  const size_t expandable_cols_count = std::count(expandable_cols_.begin(), expandable_cols_.end(), true);
+  const long expandable_rows_count = std::count(expandable_rows_.begin(), expandable_rows_.end(), true);
+  const long expandable_cols_count = std::count(expandable_cols_.begin(), expandable_cols_.end(), true);
 
   if(expandable_rows_count != 0) {
     const float extra = leftover_height / expandable_rows_count;
