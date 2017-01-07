@@ -46,8 +46,8 @@ void Button::Render(SpriteRenderer* renderer) const {
     renderer->DrawNinepatch(*sprite_.get(), GetRect().GetPosition());
   }
   if( text_.HasText() ) {
-    // const auto p = GetRect().GetAbsoluteCenterPos() - text_.GetText().GetExtents().GetRelativeCenterPos();
-    // text_.GetText().Draw(p);
+    const auto p = GetRect().GetAbsoluteCenterPos() - text_.GetText().GetExtents().GetRelativeCenterPos();
+    text_.GetText().Draw(p);
   }
 }
 
