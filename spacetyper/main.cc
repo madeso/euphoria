@@ -106,13 +106,6 @@ int main(int argc, char** argv) {
   fader.RegisterTexture(cache.GetTexture("explosion/laserRed08.png"));
   fader.RegisterTexture(cache.GetTexture("explosion/laserRed10.png"));
 
-  Root gui(Sizef::FromWidthHeight(width, height));
-  const bool gui_loaded = gui.Load(&font, "gui.json", &cache);
-
-  if( gui_loaded == false ) {
-    std::cerr << "Failed to load gui\n";
-  }
-
   Sprite player(cache.GetTexture("player.png"));
   objects.Add(&player);
 
@@ -136,6 +129,13 @@ int main(int argc, char** argv) {
   SetupFullViewport(width, height);
 
   TextBackgroundRenderer text_back(&back_shader);
+
+  Root gui(Sizef::FromWidthHeight(width, height));
+  const bool gui_loaded = gui.Load(&font, "gui.json", &cache, &text_back);
+
+  if( gui_loaded == false ) {
+    std::cerr << "Failed to load gui\n";
+  }
 
   Uint64 NOW = SDL_GetPerformanceCounter();
   Uint64 LAST = 0;

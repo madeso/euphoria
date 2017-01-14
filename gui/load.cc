@@ -39,7 +39,7 @@ class CmdButton : public Button {
   std::string cmd;
 };
 
-void BuildLayoutContainer(UiState* state, Font* font, LayoutContainer* root, const gui::LayoutContainer& c, TextureCache* cache);
+void BuildLayoutContainer(UiState* state, Font* font, LayoutContainer* root, const gui::LayoutContainer& c, TextureCache* cache, TextBackgroundRenderer* br);
 
 void SetupLayout(LayoutData* data, const gui::Widget& src) {
   data->SetColumn(src.column());
@@ -48,7 +48,7 @@ void SetupLayout(LayoutData* data, const gui::Widget& src) {
   data->SetPreferredHeight(src.preferred_height());
 }
 
-std::shared_ptr<Widget> CreateWidget(UiState* state, Font* font, const gui::Widget& w, TextureCache* cache) {
+std::shared_ptr<Widget> CreateWidget(UiState* state, Font* font, const gui::Widget& w, TextureCache* cache, TextBackgroundRenderer* br) {
   std::shared_ptr<Widget> ret;
 
   if( w.has_button() ) {
@@ -59,11 +59,12 @@ std::shared_ptr<Widget> CreateWidget(UiState* state, Font* font, const gui::Widg
     b->cmd = w.button().command();
     b->Text().SetString(w.button().text());
     b->Text().SetFont(font);
+    b->Text().SetBackgroundRenderer(br);
   }
   else {
     PanelWidget* l = new PanelWidget(state);
     ret.reset(l);
-    BuildLayoutContainer(state, font, &l->container, w.panel().container(), cache);
+    BuildLayoutContainer(state, font, &l->container, w.panel().container(), cache, br);
   }
 
   assert(ret.get());
@@ -73,14 +74,14 @@ std::shared_ptr<Widget> CreateWidget(UiState* state, Font* font, const gui::Widg
   return ret;
 }
 
-void BuildLayoutContainer(UiState* state, Font* font, LayoutContainer* root, const gui::LayoutContainer& c, TextureCache* cache) {
+void BuildLayoutContainer(UiState* state, Font* font, LayoutContainer* root, const gui::LayoutContainer& c, TextureCache* cache, TextBackgroundRenderer* br) {
   root->SetLayout( GetLayout(c.layout()) );
   for(const gui::Widget& widget: c.widgets()) {
-    root->Add(CreateWidget(state, font, widget, cache));
+    root->Add(CreateWidget(state, font, widget, cache, br));
   }
 }
 
-bool Load(UiState* state, Font* font, LayoutContainer* root, const std::string& path, TextureCache* cache) {
+bool Load(UiState* state, Font* font, LayoutContainer* root, const std::string& path, TextureCache* cache, TextBackgroundRenderer* br) {
   gui::LayoutContainer c;
   const std::string load_result = LoadProtoJson(&c, path);
   if( false == load_result.empty() ) {
@@ -88,7 +89,7 @@ bool Load(UiState* state, Font* font, LayoutContainer* root, const std::string& 
     return false;
   }
 
-  BuildLayoutContainer(state, font, root, c, cache);
+  BuildLayoutContainer(state, font, root, c, cache, br);
 
   return root->HasWidgets();
 }

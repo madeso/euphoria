@@ -8,11 +8,12 @@
 
 class Font;
 class TextureCache;
+class TextBackgroundRenderer;
 
 class Root {
  public:
   Root(const Sizef& size);
-  bool Load(Font* font, const std::string& path, TextureCache* cache);
+  bool Load(Font* font, const std::string& path, TextureCache* cache, TextBackgroundRenderer* br);
 
   void Step();
   void Render(SpriteRenderer* sp) const ;

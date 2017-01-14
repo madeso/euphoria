@@ -7,7 +7,8 @@ class LayoutContainer;
 class TextureCache;
 class UiState;
 class Font;
+class TextBackgroundRenderer;
 
-bool Load(UiState* state, Font* font, LayoutContainer* root, const std::string& path, TextureCache* cache);
+bool Load(UiState* state, Font* font, LayoutContainer* root, const std::string& path, TextureCache* cache, TextBackgroundRenderer* br);
 
 #endif  // GUI_LOAD_H
