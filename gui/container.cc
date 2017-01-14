@@ -7,6 +7,10 @@ Container::Container() {
 Container::~Container() {
 }
 
+bool Container::HasWidgets() const {
+  return widgets_.empty() == false;
+}
+
 void Container::Add(std::shared_ptr<Widget> widget) {
   widgets_.push_back(widget);
 }

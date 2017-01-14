@@ -90,5 +90,5 @@ bool Load(UiState* state, Font* font, LayoutContainer* root, const std::string& 
 
   BuildLayoutContainer(state, font, root, c, cache);
 
-  return true;
+  return root->HasWidgets();
 }

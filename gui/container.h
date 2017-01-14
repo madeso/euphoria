@@ -12,6 +12,8 @@ public:
   Container();
   ~Container();
 
+  bool HasWidgets() const;
+
   void Add(std::shared_ptr<Widget> widget);
 
   void Step();

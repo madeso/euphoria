@@ -18,6 +18,8 @@
 #include "render/init.h"
 #include "render/viewport.h"
 
+#include "gui/root.h"
+
 int main(int argc, char** argv) {
   if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_JOYSTICK | SDL_INIT_AUDIO) < 0) {
     std::cerr << "Failed to init SDL: " << SDL_GetError() << "\n";
@@ -104,6 +106,13 @@ int main(int argc, char** argv) {
   fader.RegisterTexture(cache.GetTexture("explosion/laserRed08.png"));
   fader.RegisterTexture(cache.GetTexture("explosion/laserRed10.png"));
 
+  Root gui(Sizef::FromWidthHeight(width, height));
+  const bool gui_loaded = gui.Load(&font, "gui.json", &cache);
+
+  if( gui_loaded == false ) {
+    std::cerr << "Failed to load gui\n";
+  }
+
   Sprite player(cache.GetTexture("player.png"));
   objects.Add(&player);
 
@@ -145,6 +154,7 @@ int main(int argc, char** argv) {
 
   FloatInterpolate target_scale(1.0f);
 
+  bool gui_running = gui_loaded;
   bool running = true;
   while (running) {
     LAST = NOW;
@@ -182,14 +192,19 @@ int main(int argc, char** argv) {
       }
     }
 
-    smallStars.Update(dt);
-    bigStars.Update(dt);
-    enemies.Update(dt);
-    bullets.Update(dt);
-    fader.Update(dt);
-    player_rotation.Update(dt);
-    target_scale.Update(dt);
-    player.SetRotation(player_rotation);
+    if( gui_running ) {
+      gui.Step();
+    }
+    else {
+      smallStars.Update(dt);
+      bigStars.Update(dt);
+      enemies.Update(dt);
+      bullets.Update(dt);
+      fader.Update(dt);
+      player_rotation.Update(dt);
+      target_scale.Update(dt);
+      player.SetRotation(player_rotation);
+    }
 
     init.ClearScreen();
 
@@ -197,7 +212,7 @@ int main(int argc, char** argv) {
     objects.Render();
     enemies.Render();
     foreground.Render();
-    // dont render ninepatch unless we are in a meny = not yet implemented :)
+
     if( current_word != nullptr ) {
       const Sizef extra_size = Sizef::FromWidthHeight(40, 40);
       const Sizef size = current_word->GetSize();
@@ -207,6 +222,11 @@ int main(int argc, char** argv) {
       target.SetSize(scaled_size);
       renderer.DrawNinepatch(target, current_word->GetPosition() - scaled_size_vec/2.0f);
     }
+
+    if( gui_running ) {
+      gui.Render(&renderer);
+    }
+
     SDL_GL_SwapWindow(window);
   }
 
