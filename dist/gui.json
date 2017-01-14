@@ -12,8 +12,8 @@
       "panel": {
         "container": {
           "widgets": [
-            {"button": {"text": "hello", "cmd": "said hello"}},
-            {"button": {"text": "world", "cmd": "said world"}}
+            {"button": {"text": "hello", "command": "said hello"}},
+            {"button": {"text": "world", "command": "said world"}}
           ]
         }
       }

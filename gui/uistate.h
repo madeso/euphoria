@@ -13,7 +13,7 @@ public:
   bool mouse_down;
 
   Widget* hot;
-  Widget* active  ;
+  Widget* active;
   bool has_active;
 
   void Begin();

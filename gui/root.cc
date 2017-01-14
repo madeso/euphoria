@@ -13,8 +13,15 @@ bool Root::Load(Font* font, const std::string& path, TextureCache* cache, TextBa
   return result;
 }
 
+void Root::SetInputMouse(const vec2f& pos, bool down) {
+  state_.mouse = pos;
+  state_.mouse_down = down;
+}
+
 void Root::Step() {
+  state_.Begin();
   container_.Step();
+  state_.End();
 }
 
 void Root::Render(SpriteRenderer* sp) const {

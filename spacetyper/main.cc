@@ -156,6 +156,11 @@ int main(int argc, char** argv) {
 
   bool gui_running = gui_loaded;
   bool running = true;
+
+  int mouse_x = 0;
+  int mouse_y = 0;
+  bool mouse_lmb_down = false;
+
   while (running) {
     LAST = NOW;
     NOW = SDL_GetPerformanceCounter();
@@ -166,33 +171,50 @@ int main(int argc, char** argv) {
       if (e.type == SDL_QUIT) {
         running = false;
       }
+      else if( e.type == SDL_MOUSEMOTION ) {
+        mouse_x = e.motion.x;
+        mouse_y = e.motion.y;
+      }
+      else if( e.type == SDL_MOUSEBUTTONDOWN || e.type == SDL_MOUSEBUTTONUP ) {
+        const bool down = e.type == SDL_MOUSEBUTTONDOWN;
+        mouse_x = e.button.x;
+        mouse_y = e.button.y;
+        if( e.button.button == SDL_BUTTON_LEFT) {
+          mouse_lmb_down = down;
+        }
+      }
       else if( e.type == SDL_TEXTINPUT ) {
         const std::string& input = e.text.text;
-        if( current_word == nullptr ) {
-          current_word = enemies.DetectWord(input);
-          if( current_word != nullptr ) {
-            const float target_rotation = enemies.FireAt(shipPos, current_word);
-            player_rotation.Clear().BackOut(target_rotation, ROTATION_TIME);
-            target_scale.SetValue(19.0f).Clear().CircOut(1.0f, SCALE_TIME);
-          }
+        if(gui_running) {
         }
         else {
-          const bool hit = current_word->Type(input);
-          if( hit ) {
-            const float target_rotation = enemies.FireAt(shipPos, current_word);
-            player_rotation.Clear().BackOut(target_rotation, ROTATION_TIME);
+          if( current_word == nullptr ) {
+            current_word = enemies.DetectWord(input);
+            if( current_word != nullptr ) {
+              const float target_rotation = enemies.FireAt(shipPos, current_word);
+              player_rotation.Clear().BackOut(target_rotation, ROTATION_TIME);
+              target_scale.SetValue(19.0f).Clear().CircOut(1.0f, SCALE_TIME);
+            }
           }
-          if( current_word->IsAlive() == false ) {
-            enemies.Remove(current_word);
-            current_word = nullptr;
-            const float target_rotation = 0.0f;
-            player_rotation.Clear().BackOut(target_rotation, ROTATION_TIME);
+          else {
+            const bool hit = current_word->Type(input);
+            if( hit ) {
+              const float target_rotation = enemies.FireAt(shipPos, current_word);
+              player_rotation.Clear().BackOut(target_rotation, ROTATION_TIME);
+            }
+            if( current_word->IsAlive() == false ) {
+              enemies.Remove(current_word);
+              current_word = nullptr;
+              const float target_rotation = 0.0f;
+              player_rotation.Clear().BackOut(target_rotation, ROTATION_TIME);
+            }
           }
         }
       }
     }
 
     if( gui_running ) {
+      gui.SetInputMouse(vec2f(mouse_x, mouse_y), mouse_lmb_down);
       gui.Step();
     }
     else {
