@@ -16,6 +16,7 @@ void UiState::Begin() {
 void UiState::End() {
   if( IsMouseDown() == false) {
     active = nullptr;
+    has_active = false;
   }
   else {
     if( has_active==false && active == nullptr) {
