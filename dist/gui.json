@@ -1,8 +1,8 @@
 {
   "layout" : {
     "table": {
-      "expanded_cols": [false, true, false],
-      "expanded_rows": [false, true, false]
+      "expanded_cols": [true, false, true],
+      "expanded_rows": [true, false, true]
     }
   },
 
