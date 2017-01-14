@@ -20,6 +20,10 @@ bool Widget::IsHot() const {
   return state_->hot == this;
 }
 
+void Widget::OnSize() {
+  assert(this);
+}
+
 Rectf Widget::GetRect() const {
   assert(this);
   return rect_;
@@ -28,6 +32,7 @@ Rectf Widget::GetRect() const {
 void Widget::SetRect(const Rectf& r) {
   assert(this);
   rect_ = r;
+  OnSize();
 }
 
 LayoutData& Widget::Layout() {

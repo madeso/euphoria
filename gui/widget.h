@@ -18,6 +18,7 @@ public:
   bool IsHot() const;
 
   virtual void Step() = 0;
+  virtual void OnSize();
 
   Rectf GetRect() const;
   void SetRect(const Rectf& r);

@@ -12,7 +12,7 @@ public:
   Container();
   ~Container();
 
-  void Add(Widget* widget);
+  void Add(std::shared_ptr<Widget> widget);
 
   void Step();
 

@@ -7,9 +7,8 @@ Container::Container() {
 Container::~Container() {
 }
 
-void Container::Add(Widget* widget) {
-  std::shared_ptr<Widget> widget_ptr(widget);
-  widgets_.push_back(widget_ptr);
+void Container::Add(std::shared_ptr<Widget> widget) {
+  widgets_.push_back(widget);
 }
 
 void Container::Step() {

@@ -1,0 +1,67 @@
+package gui;
+
+message Button {
+  optional string skin = 1 [default="default"];
+  optional string text = 2;
+  optional string command = 3;
+}
+
+message Panel {
+  optional LayoutContainer container = 1;
+}
+
+message Widget {
+  // common data
+  optional int32 column = 1;
+  optional int32 row = 2;
+  optional float preferred_width = 3;
+  optional float preferred_height = 4;
+
+
+  // implementations, only one is valid
+  optional Button button = 100;
+  optional Panel panel = 101;
+}
+
+message TableLayout {
+  repeated bool expanded_cols = 1;
+  repeated bool expanded_rows = 2;
+  optional float padding = 3;
+}
+
+message SingleRowLayout {
+  optional float padding = 1;
+}
+
+message Layout {
+  // only one is valid
+  optional TableLayout table = 1;
+  optional SingleRowLayout single_row = 2;
+}
+
+message LayoutContainer {
+  optional Layout layout = 1;
+  repeated Widget widgets = 2;
+}
+
+message Rgb {
+  optional float r = 1  [default=1];
+  optional float g = 2  [default=1];
+  optional float b = 3  [default=1];
+}
+
+message ButtonState {
+  optional string image = 1;
+  optional float scale = 2 [default=1];
+  optional Rgb image_color = 3;
+  optional Rgb font_color = 4;
+  optional float dx = 5;
+  optional float dy = 6;
+}
+
+message Skin {
+  optional string name = 1 [default="default"];
+  optional string font = 2;
+  optional ButtonState button_idle = 3;
+  optional ButtonState button_over = 4;
+}

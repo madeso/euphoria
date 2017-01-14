@@ -16,7 +16,7 @@ std::shared_ptr<Layout> CreateSingleRowLayout(float padding);
 class LayoutContainer : public Container {
 public:
   LayoutContainer();
-  ~LayoutContainer();
+  virtual ~LayoutContainer();
 
   void SetLayout(std::shared_ptr<Layout> layout);
   std::shared_ptr<Layout> GetLayout();

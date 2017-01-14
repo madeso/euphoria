@@ -54,3 +54,7 @@ void Button::Render(SpriteRenderer* renderer) const {
 TextData& Button::Text() {
   return text_;
 }
+
+void Button::SetSprite(std::shared_ptr<ScalableSprite> sprite) {
+  sprite_ = sprite;
+}

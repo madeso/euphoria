@@ -23,6 +23,8 @@ public:
 
   TextData& Text();
 
+  void SetSprite(std::shared_ptr<ScalableSprite> sprite);
+
 private:
   std::shared_ptr<ScalableSprite> sprite_;
   TextData text_;
