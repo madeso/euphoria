@@ -25,6 +25,8 @@ public:
 
   void SetSprite(std::shared_ptr<ScalableSprite> sprite);
 
+  void OnSize() override;
+
 private:
   std::shared_ptr<ScalableSprite> sprite_;
   TextData text_;

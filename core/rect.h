@@ -146,6 +146,10 @@ class Rect {
   T GetWidth() const {
     return right - left;
   }
+
+  Size<T> GetSize() const {
+    return Size<T>::FromWidthHeight(GetWidth(), GetHeight());
+  }
 };
 
 typedef Rect<int> Recti;

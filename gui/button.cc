@@ -58,3 +58,9 @@ TextData& Button::Text() {
 void Button::SetSprite(std::shared_ptr<ScalableSprite> sprite) {
   sprite_ = sprite;
 }
+
+void Button::OnSize() {
+  if( sprite_.get() != nullptr) {
+    sprite_->SetSize(GetRect().GetSize());
+  }
+}

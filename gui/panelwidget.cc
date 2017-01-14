@@ -18,4 +18,6 @@ void PanelWidget::Step() {
   container.Step();
 }
 
-void PanelWidget::Render(SpriteRenderer* renderer) const {}
+void PanelWidget::Render(SpriteRenderer* renderer) const {
+  container.Render(renderer);
+}
