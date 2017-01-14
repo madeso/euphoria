@@ -17,6 +17,7 @@ public:
   const Font& GetFont() const;
   void SetBackgroundRenderer(TextBackgroundRenderer* renderer);
   void SetString(const std::string& str);
+  const std::string& GetString() const;
 
   bool HasText() const;
   const Text& GetText() const;

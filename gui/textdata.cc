@@ -4,7 +4,7 @@
 
 #include "render/fonts.h"
 
-TextData::TextData() {
+TextData::TextData() : font_(nullptr), backgroundRenderer_(nullptr) {
 }
 TextData::~TextData() {
 }
@@ -33,6 +33,11 @@ void TextData::SetString(const std::string& str) {
   assert(this);
   string_ = str;
   UpdateText();
+}
+
+const std::string& TextData::GetString() const {
+  assert(this);
+  return string_;
 }
 
 bool TextData::HasText() const {
