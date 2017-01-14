@@ -1,0 +1,22 @@
+{
+  "layout" : {
+    "table": {
+      "expanded_cols": [false, true, false],
+      "expanded_rows": [false, true, false]
+    }
+  },
+
+  "widgets:" : [
+    {
+      "column": 1, "row": 1,
+      "panel": {
+        "container": {
+          "widgets": [
+            {"button": {"text": "hello", "cmd": "said hello"}},
+            {"button": {"text": "world", "cmd": "said world"}}
+          ]
+        }
+      }
+    }
+  ]
+}
