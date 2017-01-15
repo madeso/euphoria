@@ -12,7 +12,7 @@ Button::Button(UiState* state) : Widget(state), last_state_(nullptr), scale_(1.0
 
 Button::~Button() {}
 
-void Button::Step() {
+void Button::Step(float dt) {
   if( GetRect().ContainsExclusive(GetState().mouse) ) {
     GetStatePtr()->SetHot(this);
     if( GetState().IsMouseDown() ) {
@@ -42,7 +42,6 @@ void Button::Step() {
       position_displacement_.Clear().Add(type, vec2f(state->dx, state->dy), time);
     }
 
-    const float dt = 0.1f; // todo: fix this
     scale_.Update(dt);
     image_color_.Update(dt);
     text_color_.Update(dt);

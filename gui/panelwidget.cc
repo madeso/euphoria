@@ -13,9 +13,9 @@ Sizef PanelWidget::CalculateMinimumSize() const {
   return container.CalculateMinimumArea();
 }
 
-void PanelWidget::Step() {
+void PanelWidget::Step(float dt) {
   assert(this);
-  container.Step();
+  container.Step(dt);
 }
 
 void PanelWidget::Render(SpriteRenderer* renderer) const {

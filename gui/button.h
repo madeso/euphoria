@@ -22,7 +22,7 @@ public:
 
   virtual void OnClicked() = 0;
 
-  void Step() override;
+  void Step(float dt) override;
   Sizef CalculateMinimumSize() const override;
 
   void Render(SpriteRenderer* renderer) const override;

@@ -12,7 +12,7 @@ public:
 
   void OnSize() override;
   Sizef CalculateMinimumSize() const override;
-  void Step() override;
+  void Step(float dt) override;
   LayoutContainer container;
 };
 

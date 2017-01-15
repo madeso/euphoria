@@ -20,9 +20,9 @@ void Root::SetInputMouse(const vec2f& pos, bool down) {
   state_.mouse_down = down;
 }
 
-void Root::Step() {
+void Root::Step(float dt) {
   state_.Begin();
-  container_.Step();
+  container_.Step(dt);
   state_.End();
 }
 

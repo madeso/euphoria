@@ -16,7 +16,7 @@ public:
 
   void Add(std::shared_ptr<Widget> widget);
 
-  void Step();
+  void Step(float dt);
 
   void Render(SpriteRenderer* renderer) const;
 

@@ -15,9 +15,9 @@ void Container::Add(std::shared_ptr<Widget> widget) {
   widgets_.push_back(widget);
 }
 
-void Container::Step() {
+void Container::Step(float dt) {
   for(auto w: widgets_) {
-    w->Step();
+    w->Step(dt);
   }
 }
 

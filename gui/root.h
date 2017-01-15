@@ -21,7 +21,7 @@ class Root {
   bool Load(Font* font, const std::string& path, TextureCache* cache, TextBackgroundRenderer* br);
 
   void SetInputMouse(const vec2f& pos, bool down);
-  void Step();
+  void Step(float dt);
   void Render(SpriteRenderer* sp) const ;
 
  private:

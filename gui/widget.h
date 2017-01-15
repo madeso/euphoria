@@ -17,7 +17,7 @@ public:
   bool IsActive() const;
   bool IsHot() const;
 
-  virtual void Step() = 0;
+  virtual void Step(float dt) = 0;
   virtual void OnSize();
 
   Rectf GetRect() const;

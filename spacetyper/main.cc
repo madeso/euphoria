@@ -215,7 +215,7 @@ int main(int argc, char** argv) {
 
     if( gui_running ) {
       gui.SetInputMouse(vec2f(mouse_x, mouse_y), mouse_lmb_down);
-      gui.Step();
+      gui.Step(dt);
     }
     else {
       smallStars.Update(dt);
