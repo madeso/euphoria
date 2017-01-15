@@ -18,12 +18,17 @@ class QuietConsolePrinter : public ::testing::TestEventListener
   // Fired after environment set-up for each iteration of tests ends.
   virtual void OnEnvironmentsSetUpEnd(const ::testing::UnitTest&) { }
 
+  std::string test_case_name_;
+  std::string test_name_;
+
   // Fired before the test case starts.
   virtual void OnTestCaseStart(const ::testing::TestCase& i) {
+    test_case_name_ = i.name();
   }
 
   // Fired before the test starts.
-  virtual void OnTestStart(const ::testing::TestInfo&) {
+  virtual void OnTestStart(const ::testing::TestInfo& i) {
+    test_name_ = i.name();
   }
 
   // Fired after a failed assertion or a SUCCESS().
@@ -33,7 +38,7 @@ class QuietConsolePrinter : public ::testing::TestEventListener
     {
       return;
     }
-    const std::string errname = "error"; //r.nonfatally_failed() ? "warning" : "error";
+    const std::string errname = "error in " + test_case_name_ + "/" + test_name_; //r.nonfatally_failed() ? "warning" : "error";
     // ::std::cout << r.file_name() << "(" << r.line_number() << ") : " << errname << " C4242: " << r.summary() << std::endl;// << r.message() << std::endl;
     ::std::cout << r.file_name() << ":" << r.line_number() << ": " << errname << "\n" << r.summary() << std::endl;// << r.message() << std::endl;
     // message seems to be the same as summary()
