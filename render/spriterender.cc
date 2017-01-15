@@ -43,9 +43,10 @@ void SpriteRenderer::DrawNinepatch(const ScalableSprite& ninepatch, const vec2f&
                                    float rotate,
                                    const vec2f& scale,
                                    const Rgba& color){
-  const vec2f nps = vec2f(1.0f, 1.0f); // ninepatch.GetSize();
-  const vec2f size(scale.x * nps.x, scale.y * nps.y);
-  CommonDraw(position, rotate, color, size, scale);
+  // const vec2f size = scale;
+  const auto half = ninepatch.GetSize()/2.0f;
+  const vec2f d(half.GetWidth()*(scale.x-1.0f), half.GetHeight()*(scale.y-1.0f));
+  CommonDraw(position-d, rotate, color, scale, scale);
 
   glActiveTexture(GL_TEXTURE0);
   Use(ninepatch.texture_ptr());
