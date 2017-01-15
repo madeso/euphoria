@@ -130,6 +130,9 @@ class Interpolate {
   typedef Interpolate<Type, Transform> This;
   explicit Interpolate(Type v) : value_(v), from_(v), position_in_current_interpolation_(0.0f) {}
 
+  bool HasSteps() const { return !data_.empty(); }
+
+  const Type& Debug_GetFrom() const { assert(this); return from_; }
   const Type& GetValue() const { assert(this); return value_; }
   This& SetValue(const Type& t) { assert(this); value_ = t; Clear(); return *this; }
   operator const Type&() const { assert(this); return GetValue(); }
@@ -167,7 +170,7 @@ class Interpolate {
         dt = -1;
       }
 
-      if( over >= 1.0f) {
+      if( over ) {
         position_in_current_interpolation_ -= 1.0f;
         value_ = d.target;
         data_.pop_front();

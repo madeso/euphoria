@@ -19,6 +19,14 @@ GTEST(basic) {
   EXPECT_NEAR(f.GetValue(), 0.1f, 0.0001f);
 }
 
+GTEST(basic_negative) {
+  FloatInterpolate f {1.0f};
+  f.Linear(0.0f, 1.0f);
+  f.Update(0.1f);
+
+  EXPECT_NEAR(f.GetValue(), 0.9f, 0.0001f);
+}
+
 GTEST(basic_with_clear) {
   FloatInterpolate f {0.0f};
   f.Clear().Linear(1.0f, 1.0f);
@@ -32,6 +40,7 @@ GTEST(huge_step) {
   f.Linear(1.0f, 1.0f);
   f.Update(5.0f);
 
+  EXPECT_FALSE(f.HasSteps());
   EXPECT_NEAR(f.GetValue(), 1.0f, 0.0001f);
 }
 
@@ -39,8 +48,10 @@ GTEST(clear_after_a_time) {
   FloatInterpolate f {0.0f};
   f.Linear(1.0f, 1.0f);
   f.Update(0.5f);
+  EXPECT_TRUE(f.HasSteps());
   f.Clear();
 
+  EXPECT_FALSE(f.HasSteps());
   EXPECT_NEAR(f.GetValue(), 0.5f, 0.0001f);
 }
 
@@ -50,7 +61,10 @@ GTEST(change_after_some_time) {
   f.Update(0.5f); // go half
   EXPECT_NEAR(f.GetValue(), 1.0f, 0.0001f);
   f.Clear().Linear(0.0f, 1.0f); // go back to 0
+  EXPECT_NEAR(f.GetValue(), 1.0f, 0.0001f);
+  EXPECT_NEAR(f.Debug_GetFrom(), 1.0f, 0.0001f);
   f.Update(0.5f);
+  EXPECT_TRUE(f.HasSteps());
   EXPECT_NEAR(f.GetValue(), 0.5f, 0.0001f);
 }
 
