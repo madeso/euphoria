@@ -54,7 +54,7 @@ message ButtonState {
   optional string image = 1;
   optional float scale = 2 [default=1];
   optional Rgb image_color = 3;
-  optional Rgb font_color = 4;
+  optional Rgb text_color = 4;
   optional float dx = 5;
   optional float dy = 6;
 }
@@ -63,5 +63,11 @@ message Skin {
   optional string name = 1 [default="default"];
   optional string font = 2;
   optional ButtonState button_idle = 3;
-  optional ButtonState button_over = 4;
+  optional ButtonState button_hot = 4;
+  optional ButtonState button_active_hot = 5;
+}
+
+message File {
+  repeated Skin skins = 1;
+  optional LayoutContainer root = 2;
 }

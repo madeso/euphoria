@@ -4,6 +4,7 @@
 #include "render/scalablesprite.h"
 #include "render/spriterender.h"
 #include "render/fonts.h"
+#include "skin.h"
 
 Button::Button(UiState* state) : Widget(state) {}
 
@@ -42,12 +43,22 @@ Sizef Button::CalculateMinimumSize() const {
 }
 
 void Button::Render(SpriteRenderer* renderer) const {
-  if( sprite_.get() != nullptr ) {
-    renderer->DrawNinepatch(*sprite_.get(), GetRect().GetPosition());
-  }
-  if( text_.HasText() ) {
-    const auto p = GetRect().GetAbsoluteCenterPos() - text_.GetText().GetExtents().GetRelativeCenterPos();
-    text_.GetText().Draw(p);
+  if( skin_ ) {
+    const ButtonState& state = (IsHot()?
+                                (
+                                    (IsActive()? skin_->button_active_hot : skin_->button_hot)
+                                )
+                                       : skin_->button_idle);
+
+    const vec2f displace(state.dx, state.dy);
+
+    if( sprite_.get() != nullptr ) {
+      renderer->DrawNinepatch(*sprite_.get(), GetRect().GetPosition() + displace, 0.0f, vec2f(state.scale, state.scale), state.image_color);
+    }
+    if( text_.HasText() ) {
+      const auto p = GetRect().GetAbsoluteCenterPos() - text_.GetText().GetExtents().GetRelativeCenterPos() + displace;
+      text_.GetText().Draw(p, state.text_color);
+    }
   }
 }
 
@@ -63,4 +74,8 @@ void Button::OnSize() {
   if( sprite_.get() != nullptr) {
     sprite_->SetSize(GetRect().GetSize());
   }
+}
+
+void Button::SetSkin(Skin* skin) {
+  skin_ = skin;
 }

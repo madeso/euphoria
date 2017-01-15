@@ -8,6 +8,7 @@
 #include <memory>
 
 class ScalableSprite;
+class Skin;
 
 class Button : public Widget {
 public:
@@ -26,11 +27,12 @@ public:
   void SetSprite(std::shared_ptr<ScalableSprite> sprite);
 
   void OnSize() override;
+  void SetSkin(Skin* skin);
 
 private:
   std::shared_ptr<ScalableSprite> sprite_;
   TextData text_;
-
+  Skin* skin_;
 };
 
 #endif  // GUI_BUTTON_H

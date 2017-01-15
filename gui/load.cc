@@ -8,6 +8,7 @@
 #include "gui/layout.h"
 #include "gui/button.h"
 #include "gui/panelwidget.h"
+#include "gui/skin.h"
 
 #include "render/scalablesprite.h"
 
@@ -39,7 +40,7 @@ class CmdButton : public Button {
   std::string cmd;
 };
 
-void BuildLayoutContainer(UiState* state, Font* font, LayoutContainer* root, const gui::LayoutContainer& c, TextureCache* cache, TextBackgroundRenderer* br);
+void BuildLayoutContainer(UiState* state, Font* font, LayoutContainer* root, const gui::LayoutContainer& c, TextureCache* cache, TextBackgroundRenderer* br, const std::map<std::string, Skin*>& skins);
 
 void SetupLayout(LayoutData* data, const gui::Widget& src) {
   data->SetColumn(src.column());
@@ -48,7 +49,7 @@ void SetupLayout(LayoutData* data, const gui::Widget& src) {
   data->SetPreferredHeight(src.preferred_height());
 }
 
-std::shared_ptr<Widget> CreateWidget(UiState* state, Font* font, const gui::Widget& w, TextureCache* cache, TextBackgroundRenderer* br) {
+std::shared_ptr<Widget> CreateWidget(UiState* state, Font* font, const gui::Widget& w, TextureCache* cache, TextBackgroundRenderer* br, const std::map<std::string, Skin*>& skins) {
   std::shared_ptr<Widget> ret;
 
   if( w.has_button() ) {
@@ -60,11 +61,20 @@ std::shared_ptr<Widget> CreateWidget(UiState* state, Font* font, const gui::Widg
     b->Text().SetString(w.button().text());
     b->Text().SetFont(font);
     b->Text().SetBackgroundRenderer(br);
+
+    const std::string skin_name = w.button().skin();
+    const auto skin_it = skins.find(skin_name);
+    if( skin_it != skins.end()) {
+      b->SetSkin(skin_it->second);
+    }
+    else {
+      std::cerr<< "Failed to find skin " << skin_name << "\n";
+    }
   }
   else {
     PanelWidget* l = new PanelWidget(state);
     ret.reset(l);
-    BuildLayoutContainer(state, font, &l->container, w.panel().container(), cache, br);
+    BuildLayoutContainer(state, font, &l->container, w.panel().container(), cache, br, skins);
   }
 
   assert(ret.get());
@@ -74,22 +84,54 @@ std::shared_ptr<Widget> CreateWidget(UiState* state, Font* font, const gui::Widg
   return ret;
 }
 
-void BuildLayoutContainer(UiState* state, Font* font, LayoutContainer* root, const gui::LayoutContainer& c, TextureCache* cache, TextBackgroundRenderer* br) {
+void BuildLayoutContainer(UiState* state, Font* font, LayoutContainer* root, const gui::LayoutContainer& c, TextureCache* cache, TextBackgroundRenderer* br, const std::map<std::string, Skin*>& skins) {
   root->SetLayout( GetLayout(c.layout()) );
   for(const gui::Widget& widget: c.widgets()) {
-    root->Add(CreateWidget(state, font, widget, cache, br));
+    root->Add(CreateWidget(state, font, widget, cache, br, skins));
   }
 }
 
-bool Load(UiState* state, Font* font, LayoutContainer* root, const std::string& path, TextureCache* cache, TextBackgroundRenderer* br) {
-  gui::LayoutContainer c;
-  const std::string load_result = LoadProtoJson(&c, path);
+Rgb Load(const gui::Rgb& src) {
+  return Rgb(src.r(), src.g(), src.b());
+}
+
+ButtonState LoadButton(const gui::ButtonState& src) {
+  ButtonState ret;
+  ret.image = src.image();
+  ret.scale = src.scale();
+  ret.image_color = Load(src.image_color());
+  ret.text_color = Load(src.text_color());
+  ret.dx = src.dx();
+  ret.dy = src.dy();
+  return ret;
+}
+
+std::shared_ptr<Skin> LoadSkin(const gui::Skin& src) {
+  std::shared_ptr<Skin> skin(new Skin());
+  skin->name = src.name();
+  skin->button_idle = LoadButton(src.button_idle());
+  skin->button_hot = LoadButton(src.button_hot());
+  skin->button_active_hot = LoadButton(src.button_active_hot());
+  return skin;
+}
+
+bool Load(UiState* state, Font* font, LayoutContainer* root, const std::string& path, TextureCache* cache, TextBackgroundRenderer* br, std::vector<std::shared_ptr<Skin>>* skins) {
+  gui::File f;
+  const std::string load_result = LoadProtoJson(&f, path);
   if( false == load_result.empty() ) {
     std::cerr << "Failed to load gui from " << path << ": " << load_result << "\n";
     return false;
   }
 
-  BuildLayoutContainer(state, font, root, c, cache, br);
+  std::map<std::string, Skin*> skin_map;
+
+  for(const gui::Skin& skin: f.skins()) {
+    std::shared_ptr<Skin> skin_ptr = LoadSkin(skin);
+    skin_map.insert(std::make_pair(skin.name(), skin_ptr.get()));
+    skins->push_back(skin_ptr);
+  }
+
+  BuildLayoutContainer(state, font, root, f.root(), cache, br, skin_map);
 
   return root->HasWidgets();
 }

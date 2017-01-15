@@ -291,7 +291,7 @@ Font::Font(Shader* shader, const std::string& font_file, unsigned int font_size,
   texture_->Load(texture_width, texture_height, &pixels.pixels[0], GL_RGBA, GL_RGBA, load_data);
 }
 
-void Font::Draw(const vec2f& p, const std::string& str, vec3f basec, vec3f hic, int hi_start, int hi_end, float scale) const {
+void Font::Draw(const vec2f& p, const std::string& str, const Rgb& basec, const Rgb& hic, int hi_start, int hi_end, float scale) const {
   assert(this);
   Use(shader_);
 
@@ -302,7 +302,7 @@ void Font::Draw(const vec2f& p, const std::string& str, vec3f basec, vec3f hic, 
 
   const bool applyHi = hi_end != -1 && hi_start != -1;
   if(applyHi == false) {
-    shader_->SetVector3f("spriteColor", basec);
+    shader_->SetRgb("spriteColor", basec);
   }
 
   int index = 0;
@@ -324,8 +324,8 @@ void Font::Draw(const vec2f& p, const std::string& str, vec3f basec, vec3f hic, 
 
     if(applyHi) {
       bool useHiColor = hi_start <= this_index && this_index < hi_end;
-      const vec3f& color = useHiColor ? hic : basec;
-      shader_->SetVector3f("spriteColor", color);
+      const Rgb& color = useHiColor ? hic : basec;
+      shader_->SetRgb("spriteColor", color);
     }
     ch->vao.Draw();
     KerningMap::const_iterator kerning = kerning_.find(std::make_pair(last_char_index, char_index));
@@ -390,12 +390,12 @@ const std::string& Text::GetText() const {
   return text_;
 }
 
-void Text::SetBaseColor(const vec3f color) {
+void Text::SetBaseColor(const Rgb& color) {
   assert(this);
   base_color_ = color;
 }
 
-void Text::SetHighlightColor(const vec3f color) {
+void Text::SetHighlightColor(const Rgb& color) {
   assert(this);
   hi_color_ = color;
 }
@@ -455,13 +455,18 @@ vec2f GetOffset(Align alignment, const Rectf& extent) {
 
 void Text::Draw(const vec2f& p) const{
   assert(this);
+  Draw(p, base_color_);
+}
+
+void Text::Draw(const vec2f& p, const Rgb& override_color) const {
+  assert(this);
   if( font_ == nullptr) return;
   const Rectf& e = GetExtents();
   const vec2f off = GetOffset(alignment_, e);
   if(use_background_) {
     backgroundRenderer_->Draw(background_alpha_, e.ExtendCopy(5.0f).OffsetCopy(p+off));
   }
-  font_->Draw(p+off, text_, base_color_, hi_color_, hi_from_, hi_to_, scale_);
+  font_->Draw(p+off, text_, override_color, hi_color_, hi_from_, hi_to_, scale_);
 }
 
 Rectf Text::GetExtents() const {

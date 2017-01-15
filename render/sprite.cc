@@ -12,7 +12,7 @@ Sprite::Sprite(Texture2d* texture, const vec2f& position)
     , position_(position)
     , rotate_(0.0f)
     , scale_(vec2f(1, 1))
-    , color_(vec3f(1.0f))
+    , color_(Rgb(1.0f))
     , alpha_(1.0f)
 { }
 
@@ -59,7 +59,7 @@ void Sprite::SetAlpha(float a) {
 
 void Sprite::Render(SpriteRenderer* render) {
   assert(this);
-  render->DrawSprite(*texture_, position_, rotate_, scale_, vec4f(color_, alpha_));
+  render->DrawSprite(*texture_, position_, rotate_, scale_, Rgba(color_, alpha_));
 }
 
 Layer::Layer(SpriteRenderer* render) : render_(render) {

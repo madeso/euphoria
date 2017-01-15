@@ -24,8 +24,8 @@ EnemyWord::EnemyWord(SpriteFader* fader, TextureCache* cache, Font* font, TextBa
   text_.SetText(word);
   text_.SetAlignment(Align::CENTER);
   text_.SetBackground(true, 0.8f);
-  text_.SetBaseColor(vec3f(1.0f));
-  text_.SetHighlightColor(vec3f(0.0f, 0.0f, 1.0f));
+  text_.SetBaseColor(Rgb(1.0f));
+  text_.SetHighlightColor(Rgb(0.0f, 0.0f, 1.0f));
 }
 
 EnemyWord::~EnemyWord() {

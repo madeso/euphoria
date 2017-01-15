@@ -6,6 +6,7 @@
 
 #include "core/vec2.h"
 #include "core/vec3.h"
+#include "core/rgb.h"
 
 class Texture2d;
 class SpriteRenderer;
@@ -33,7 +34,7 @@ class Sprite {
   vec2f position_;
   float rotate_;
   vec2f scale_;
-  vec3f color_;
+  Rgb color_;
   float alpha_;
 };
 

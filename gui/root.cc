@@ -1,12 +1,14 @@
 #include "gui/root.h"
 #include "gui/load.h"
+#include "gui/skin.h"
 
 Root::Root(const Sizef& size) : size_(size) {
-
 }
 
+Root::~Root() {}
+
 bool Root::Load(Font* font, const std::string& path, TextureCache* cache, TextBackgroundRenderer* br) {
-  const bool result = ::Load(&state_, font, &container_, path, cache, br);
+  const bool result = ::Load(&state_, font, &container_, path, cache, br, &skins_);
   if( result ) {
     container_.DoLayout(Rectf::FromWidthHeight(size_));
   }

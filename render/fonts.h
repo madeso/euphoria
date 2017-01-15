@@ -7,6 +7,7 @@
 
 #include "core/vec2.h"
 #include "core/vec3.h"
+#include "core/rgb.h"
 #include "core/rect.h"
 
 #include "render/vao.h"
@@ -52,8 +53,8 @@ class Text {
 
   void SetText(const std::string& str);
   const std::string& GetText() const;
-  void SetBaseColor(const vec3f color);
-  void SetHighlightColor(const vec3f color);
+  void SetBaseColor(const Rgb& color);
+  void SetHighlightColor(const Rgb& color);
   void SetHighlightRange(int from, int to);
   void SetBackground(bool use_background, float alpha=0.5f);
   void SetAlignment(Align alignment);
@@ -62,6 +63,7 @@ class Text {
   void SetScale(float scale);
 
   void Draw(const vec2f& p) const;
+  void Draw(const vec2f& p, const Rgb& override_color) const;
 
   Rectf GetExtents() const;
  private:
@@ -69,8 +71,8 @@ class Text {
   TextBackgroundRenderer* backgroundRenderer_;
   float scale_;
   std::string text_;
-  vec3f base_color_;
-  vec3f hi_color_;
+  Rgb base_color_;
+  Rgb hi_color_;
   int hi_from_;
   int hi_to_;
   Align alignment_;
@@ -84,11 +86,11 @@ class Font {
   Font(Shader* shader, const std::string& path, unsigned int font_size, const std::string& chars);
   unsigned int GetFontSize() const;
  protected:
-  friend void Text::Draw(const vec2f &p) const;
+  friend void Text::Draw(const vec2f &p, const Rgb& c) const;
   friend Rectf Text::GetExtents() const;
 
   // todo: support drawing background color behind string
-  void Draw(const vec2f& p, const std::string& str, vec3f basec, vec3f hic, int hi_start, int hi_end, float scale) const;
+  void Draw(const vec2f& p, const std::string& str, const Rgb& basec, const Rgb& hic, int hi_start, int hi_end, float scale) const;
   Rectf GetExtents(const std::string& str, float scale) const;
  private:
   Shader* shader_;

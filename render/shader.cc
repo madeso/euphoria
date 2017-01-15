@@ -145,6 +145,11 @@ void Shader::SetVector3f(const GLchar *name, const vec3f &value) {
   glUniform3f(glGetUniformLocation(id(), name), value.x, value.y, value.z);
 }
 
+void Shader::SetRgb(const GLchar *name, const Rgb& value) {
+  assert(IsCurrentlyBound());
+  glUniform3f(glGetUniformLocation(id(), name), value.GetRed(), value.GetGreen(), value.GetBlue());
+}
+
 void Shader::SetVector4f(const GLchar *name, GLfloat x, GLfloat y, GLfloat z,
                          GLfloat w) {
   assert(IsCurrentlyBound());
@@ -155,6 +160,12 @@ void Shader::SetVector4f(const GLchar *name, const vec4f &value) {
   assert(IsCurrentlyBound());
   glUniform4f(glGetUniformLocation(id(), name), value.x, value.y, value.z,
               value.w);
+}
+
+void Shader::SetRgba(const GLchar *name, const Rgba &value) {
+  assert(IsCurrentlyBound());
+  glUniform4f(glGetUniformLocation(id(), name), value.GetRed(), value.GetGreen(), value.GetBlue(),
+              value.GetAlpha());
 }
 
 void Shader::SetMatrix4(const GLchar *name, const mat4f &matrix) {

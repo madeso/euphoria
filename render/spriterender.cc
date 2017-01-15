@@ -13,7 +13,7 @@ SpriteRenderer::~SpriteRenderer() { vao_.reset(); }
 void SpriteRenderer::DrawSprite(const Texture2d& texture,
                                 const vec2f& position, float rotate,
                                 const vec2f& scale,
-                                const vec4f& color) {
+                                const Rgba& color) {
   const vec2f size(scale.x * texture.width(), scale.y * texture.height());
   CommonDraw(position, rotate, color, size, size);
 
@@ -24,7 +24,7 @@ void SpriteRenderer::DrawSprite(const Texture2d& texture,
 }
 
 void SpriteRenderer::CommonDraw(const vec2f &position, float rotate,
-                                const vec4f &color, const vec2f &size, const vec2f &scale) const {
+                                const Rgba &color, const vec2f &size, const vec2f &scale) const {
   Use(shader_);
   const mat4f model = mat4f::Identity()
     .Translate(vec3f(position, 0.0f))
@@ -36,13 +36,13 @@ void SpriteRenderer::CommonDraw(const vec2f &position, float rotate,
   .Scale(vec3f(scale, 1.0f));
 
   shader_->SetMatrix4("model", model);
-  shader_->SetVector4f("spriteColor", color);
+  shader_->SetRgba("spriteColor", color);
 }
 
 void SpriteRenderer::DrawNinepatch(const ScalableSprite& ninepatch, const vec2f& position,
                                    float rotate,
-                   const vec2f& scale,
-                   const vec4f& color){
+                                   const vec2f& scale,
+                                   const Rgba& color){
   const vec2f nps = vec2f(1.0f, 1.0f); // ninepatch.GetSize();
   const vec2f size(scale.x * nps.x, scale.y * nps.y);
   CommonDraw(position, rotate, color, size, scale);

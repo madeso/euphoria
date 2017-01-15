@@ -6,6 +6,7 @@
 #include "core/vec2.h"
 #include "core/vec3.h"
 #include "core/vec4.h"
+#include "core/rgb.h"
 #include "core/mat4.h"
 
 #include "render/gltypes.h"
@@ -40,8 +41,10 @@ class Shader : public ShaderId {
   void SetVector2f(const glchar *name, const vec2f &value);
   void SetVector3f(const glchar *name, glfloat x, glfloat y, glfloat z);
   void SetVector3f(const glchar *name, const vec3f &value);
+  void SetRgb(const glchar *name, const Rgb& value);
   void SetVector4f(const glchar *name, glfloat x, glfloat y, glfloat z,
                    glfloat w);
+  void SetRgba(const glchar *name, const Rgba& value);
   void SetVector4f(const glchar *name, const vec4f &value);
   void SetMatrix4(const glchar *name, const mat4f &matrix);
 };

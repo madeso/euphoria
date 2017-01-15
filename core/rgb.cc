@@ -366,23 +366,18 @@ const Rgb Rgb::From(Color color) {
   }
 }
 
-Rgba::Rgba(const float ar, const float ag, const float ab, const float aa)
-    : r(ar), g(ag), b(ab), a(aa)
-{
-}
-
 Rgba::Rgba(const Rgb& c, const float aa)
     : r(c.GetRed()), g(c.GetGreen()), b(c.GetBlue()), a(aa)
 {
 }
 
-Rgba::Rgba(const float ar, const float ag, const float ab)
-    : r(ar), g(ag), b(ab), a(1)
+Rgba::Rgba(const float ar, const float ag, const float ab, const float aa)
+    : r(ar), g(ag), b(ab), a(aa)
 {
 }
 
-Rgba::Rgba(const float gray)
-    : r(gray), g(gray), b(gray), a(1)
+Rgba::Rgba(const float gray, const float aa)
+    : r(gray), g(gray), b(gray), a(aa)
 {
 }
 

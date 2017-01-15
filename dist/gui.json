@@ -1,22 +1,40 @@
 {
-  "layout" : {
-    "table": {
-      "expanded_cols": [true, false, true],
-      "expanded_rows": [true, false, true]
-    }
-  },
-
-  "widgets" : [
+  "skins": [
     {
-      "column": 1, "row": 1,
-      "panel": {
-        "container": {
-          "widgets": [
-            {"button": {"text": "hello", "command": "said hello"}},
-            {"button": {"text": "world", "command": "said world"}}
-          ]
-        }
+      "font": "",
+      "button_idle": {
+        "image_color": {"r": 1, "g": 0, "b": 0},
+        "text_color": {"r": 0, "g": 0, "b": 1}
+      },
+      "button_hot": {
+        "scale": 2
+      },
+      "button_active_hot": {
+        "dx": -5,
+        "dy": -5
       }
     }
-  ]
+  ],
+  "root": {
+    "layout" : {
+      "table": {
+        "expanded_cols": [true, false, true],
+        "expanded_rows": [true, false, true]
+      }
+    },
+
+    "widgets" : [
+      {
+        "column": 1, "row": 1,
+        "panel": {
+          "container": {
+            "widgets": [
+              {"button": {"text": "hello", "command": "said hello"}},
+              {"button": {"text": "world", "command": "said world"}}
+            ]
+          }
+        }
+      }
+    ]
+  }
 }

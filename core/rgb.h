@@ -178,10 +178,9 @@ class Rgb
 class Rgba
 {
  public:
-  Rgba(const Rgb& rgb, const float a);
-  Rgba(const float r, const float g, const float b, const float a);
-  Rgba(const float r, const float g, const float b);
-  explicit Rgba(const float gray);
+  Rgba(const Rgb& rgb, const float a=1.0f);
+  Rgba(const float r, const float g, const float b, const float a=1.0f);
+  explicit Rgba(const float gray, const float a=1.0f);
 
   const float* GetData() const;
 
