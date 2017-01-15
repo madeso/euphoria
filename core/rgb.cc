@@ -1,4 +1,5 @@
 #include "core/rgb.h"
+#include "interpolate.h"
 #include <iostream>
 
 Rgb::Rgb(const float red, const float green, const float blue)
@@ -364,6 +365,13 @@ const Rgb Rgb::From(Color color) {
       std::cerr << "invalid color name\n";
       return Rgb(0x9acd32);
   }
+}
+
+
+Rgb RgbTransform::Transform(const Rgb& from, float v, const Rgb to) {
+  return Rgb( FloatTransform::Transform(from.GetRed(), v, to.GetRed()),
+              FloatTransform::Transform(from.GetGreen(), v, to.GetGreen()),
+              FloatTransform::Transform(from.GetBlue(), v, to.GetBlue()) );
 }
 
 Rgba::Rgba(const Rgb& c, const float aa)

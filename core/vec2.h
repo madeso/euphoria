@@ -3,6 +3,8 @@
 
 #include <cmath>
 
+#include "core/interpolate.h"
+
 template<typename T>
 class vec2 {
  public:
@@ -104,7 +106,16 @@ T dot(const vec2<T>& lhs, const vec2<T>& rhs) {
   return lhs.x * rhs.x + lhs.y * rhs.y;
 }
 
+template<typename T>
+struct Vec2Transform {
+  static vec2<T> Transform(const vec2<T>& from, float v, const vec2<T> to){
+    return vec2<T>( FloatTransform::Transform(from.x, v, to.x),
+                FloatTransform::Transform(from.y, v, to.y));
+  }
+};
+
 typedef vec2<float> vec2f;
+typedef Vec2Transform<float> Vec2fTransform;
 typedef vec2<int> vec2i;
 
 #endif  // CORE_VEC2_H

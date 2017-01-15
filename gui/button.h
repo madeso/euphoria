@@ -1,14 +1,19 @@
 #ifndef GUI_BUTTON_H
 #define GUI_BUTTON_H
 
-#include <core/rect.h>
+#include "core/rect.h"
+#include "core/rgb.h"
+#include "core/vec2.h"
+#include "core/interpolate.h"
 #include "gui/widget.h"
 #include "gui/textdata.h"
 
 #include <memory>
 
+
 class ScalableSprite;
 class Skin;
+class ButtonState;
 
 class Button : public Widget {
 public:
@@ -30,9 +35,15 @@ public:
   void SetSkin(Skin* skin);
 
 private:
+  ButtonState* last_state_;
   std::shared_ptr<ScalableSprite> sprite_;
   TextData text_;
   Skin* skin_;
+
+  Interpolate<float, FloatTransform> scale_;
+  Interpolate<Rgb, RgbTransform> image_color_;
+  Interpolate<Rgb, RgbTransform> text_color_;
+  Interpolate<vec2f, Vec2fTransform> position_displacement_;
 };
 
 #endif  // GUI_BUTTON_H

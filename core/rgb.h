@@ -175,6 +175,10 @@ class Rgb
   float b;
 };
 
+struct RgbTransform {
+  static Rgb Transform(const Rgb& from, float v, const Rgb to);
+};
+
 class Rgba
 {
  public:
