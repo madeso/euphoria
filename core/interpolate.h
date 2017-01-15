@@ -128,30 +128,54 @@ template<typename Type, typename Transform>
 class Interpolate {
  public:
   typedef Interpolate<Type, Transform> This;
-  explicit Interpolate(Type v) : value_(v), from_(v), delta_(0.0f) {}
+  explicit Interpolate(Type v) : value_(v), from_(v), position_in_current_interpolation_(0.0f) {}
 
   const Type& GetValue() const { assert(this); return value_; }
   This& SetValue(const Type& t) { assert(this); value_ = t; Clear(); return *this; }
   operator const Type&() const { assert(this); return GetValue(); }
   void operator=(const Type& rhs) { assert(this); SetValue(rhs); }
 
-  void Update(float dt) {
-    assert(this);
-    if( data_.empty()) return;
+  bool UpdateValueFromInterpolationPosition() {
+    if( data_.empty()) return false;
     const InterpolationData<Type>& d = data_.front();
     if( d.type != nullptr ) {
-      const float interpolated = d.type(delta_);
+      const float interpolated = d.type(position_in_current_interpolation_);
       value_ = Transform::Transform(from_, interpolated, d.target);
     }
-    delta_ += dt / d.time;
-    if( delta_ > 1.0f) {
-      delta_ -= 1.0f; // not really correct, but works for now
-      value_ = d.target;
-      data_.pop_front();
-      if( !data_.empty() ) {
+    return true;
+  }
+
+  void Update(float adt) {
+    assert(this);
+
+    float dt = adt;
+
+    while(dt > 0.0f) {
+      if( data_.empty()) {
+        UpdateValueFromInterpolationPosition();
+        return;
+      }
+      const InterpolationData<Type>& d = data_.front();
+      position_in_current_interpolation_ += dt / d.time;
+      const bool over = position_in_current_interpolation_ >= 1.0f;
+
+      // update the delta time for the next interpolation step
+      if( over ) {
+        dt = (1-position_in_current_interpolation_)*d.time;
+      }
+      else {
+        dt = -1;
+      }
+
+      if( over >= 1.0f) {
+        position_in_current_interpolation_ -= 1.0f;
+        value_ = d.target;
+        data_.pop_front();
         from_ = value_;
       }
     }
+
+    UpdateValueFromInterpolationPosition();
   }
 
   This& Clear() {assert(this); data_.clear(); return *this; }
@@ -289,7 +313,7 @@ class Interpolate {
   Type value_; // current value
 
   Type from_; // starting value
-  float delta_; // goes from 0 to 1
+  float position_in_current_interpolation_; // goes from 0 to 1
   std::deque<InterpolationData<Type>> data_;
 
   void AddInterpolation(EasingFunction type, const Type& target, float time) {
