@@ -181,7 +181,7 @@ class Interpolate {
     UpdateValueFromInterpolationPosition();
   }
 
-  This& Clear() {assert(this); data_.clear(); return *this; }
+  This& Clear() {assert(this); data_.clear(); position_in_current_interpolation_ = 0.0f; return *this; }
 
   This& Sleep(float time) {assert(this); AddInterpolation(nullptr, value_, time); return *this; }
 
