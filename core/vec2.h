@@ -6,6 +6,7 @@
 template<typename T>
 class vec2 {
  public:
+  typedef vec2<T> Self;
   T x;
   T y;
 
@@ -44,10 +45,14 @@ class vec2 {
     *this /= GetLength();
   }
 
-  vec2<T> GetNormalized() const {
-    vec2<T> r = *this;
+  Self GetNormalized() const {
+    Self r = *this;
     r.Normalize();
     return r;
+  }
+
+  Self GetFlippedY() const {
+    return Self(x, -y);
   }
 };
 

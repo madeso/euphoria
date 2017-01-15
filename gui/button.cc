@@ -56,7 +56,7 @@ void Button::Render(SpriteRenderer* renderer) const {
       renderer->DrawNinepatch(*sprite_.get(), GetRect().GetPosition() + displace, 0.0f, vec2f(state.scale, state.scale), state.image_color);
     }
     if( text_.HasText() ) {
-      const auto p = GetRect().GetAbsoluteCenterPos() - text_.GetText().GetExtents().GetRelativeCenterPos() + displace;
+      const auto p = GetRect().GetAbsoluteCenterPos() - text_.GetText().GetExtents().GetRelativeCenterPos().GetFlippedY() + displace;
       text_.GetText().Draw(p, state.text_color);
     }
   }
