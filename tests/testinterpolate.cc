@@ -4,6 +4,13 @@
 
 #define GTEST(X) TEST(interpolate, X)
 
+GTEST(do_nothing) {
+  FloatInterpolate f {5.0f};
+  f.Update(0.1f);
+
+  EXPECT_NEAR(f.GetValue(), 5.0f, 0.0001f);
+}
+
 GTEST(basic) {
   FloatInterpolate f {0.0f};
   f.Linear(1.0f, 1.0f);
