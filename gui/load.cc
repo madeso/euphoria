@@ -95,6 +95,67 @@ Rgb Load(const gui::Rgb& src) {
   return Rgb(src.r(), src.g(), src.b());
 }
 
+InterpolationType Load(gui::InterpolationType t) {
+  switch(t) {
+#define FUN(NAME, FUNC) case gui::NAME: return InterpolationType::NAME;
+// Linear interpolation (no easing)
+    FUN(Linear, LinearInterpolation)
+
+// Quadratic easing; p^2
+    FUN(QuadIn, QuadraticEaseIn)
+    FUN(QuadOut, QuadraticEaseOut)
+    FUN(Quad, QuadraticEaseInOut)
+
+// Cubic easing; p^3
+    FUN(CubicIn, CubicEaseIn)
+    FUN(CubicOut, CubicEaseOut)
+    FUN(Cubic, CubicEaseInOut)
+
+// Quartic easing; p^4
+    FUN(QuartIn, QuarticEaseIn)
+    FUN(QuartOut, QuarticEaseOut)
+    FUN(Quart, QuarticEaseInOut)
+
+// Quintic easing; p^5
+    FUN(QuintIn, QuinticEaseIn)
+    FUN(QuintOut, QuinticEaseOut)
+    FUN(Quint, QuinticEaseInOut)
+
+// Sine wave easing; sin(p * PI/2)
+    FUN(SineIn, SineEaseIn)
+    FUN(SineOut, SineEaseOut)
+    FUN(Sine, SineEaseInOut)
+
+// Circular easing; sqrt(1 - p^2)
+    FUN(CircIn, CircularEaseIn)
+    FUN(CircOut, CircularEaseOut)
+    FUN(Circ, CircularEaseInOut)
+
+// Exponential easing, base 2
+    FUN(ExpIn, ExponentialEaseIn)
+    FUN(ExpOut, ExponentialEaseOut)
+    FUN(Exp, ExponentialEaseInOut)
+
+// Exponentially-damped sine wave easing
+    FUN(ElasticIn, ElasticEaseIn)
+    FUN(ElasticOut, ElasticEaseOut)
+    FUN(Elastic, ElasticEaseInOut)
+
+// Overshooting cubic easing;
+    FUN(BackIn, BackEaseIn)
+    FUN(BackOut, BackEaseOut)
+    FUN(Back, BackEaseInOut)
+
+// Exponentially-decaying bounce easing
+    FUN(BounceIn, BounceEaseIn)
+    FUN(BounceOut, BounceEaseOut)
+    FUN(Bounce, BounceEaseInOut)
+#undef FUN
+    default:
+      return InterpolationType::INVALID;
+  }
+}
+
 ButtonState LoadButton(const gui::ButtonState& src) {
   ButtonState ret;
   ret.image = src.image();
@@ -103,6 +164,13 @@ ButtonState LoadButton(const gui::ButtonState& src) {
   ret.text_color = Load(src.text_color());
   ret.dx = src.dx();
   ret.dy = src.dy();
+  ret.interpolationColor = Load(src.interpolate_color());
+  ret.interpolationSize = Load(src.interpolate_size());
+  ret.interpolationPosition = Load(src.interpolate_position());
+
+  ret.interpolationColorTime = src.interpolate_color_time();
+  ret.interpolationSizeTime = src.interpolate_size_time();
+  ret.interpolationPositionTime = src.interpolate_position_time();
   return ret;
 }
 

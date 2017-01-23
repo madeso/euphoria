@@ -1,10 +1,11 @@
 #ifndef GUI_SKIN_H
 #define GUI_SKIN_H
 
-#include "core/rgb.h"
-
 #include <string>
 #include <memory>
+
+#include "core/rgb.h"
+#include "core/interpolate.h"
 
 class Font;
 
@@ -19,6 +20,15 @@ class ButtonState {
   Rgb text_color;
   float dx;
   float dy;
+
+  InterpolationType interpolationPosition;
+  float interpolationPositionTime;
+
+  InterpolationType interpolationColor;
+  float interpolationColorTime;
+
+  InterpolationType interpolationSize;
+  float interpolationSizeTime;
 };
 
 class Skin {

@@ -4,14 +4,20 @@
       "font": "",
       "button_idle": {
         "image_color": {"r": 1, "g": 0, "b": 0},
-        "text_color": {"r": 0, "g": 0, "b": 1}
+        "text_color": {"r": 0, "g": 0, "b": 1},
+        "interpolate_size": "ElasticOut",
+        "interpolate_size_time": 1.0
       },
       "button_hot": {
-        "scale": 2
+        "scale": 2,
+        "interpolate_size": "ElasticOut",
+        "interpolate_size_time": 1.0
       },
       "button_active_hot": {
         "dx": -5,
-        "dy": -5
+        "dy": -5,
+        "interpolate_size": "BounceOut",
+        "interpolate_size_time": 1.0
       }
     }
   ],

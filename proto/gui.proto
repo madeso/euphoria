@@ -1,5 +1,59 @@
 package gui;
 
+enum InterpolationType {
+  Linear=1;
+
+  // Quadratic easing; p^2
+  QuadIn=11;
+  QuadOut=12;
+  Quad=13;
+
+  // Cubic easing; p^3
+  CubicIn=21;
+  CubicOut=22;
+  Cubic=23;
+
+  // Quartic easing; p^4
+  QuartIn=31;
+  QuartOut=32;
+  Quart=33;
+
+  // Quintic easing; p^5
+  QuintIn=41;
+  QuintOut=42;
+  Quint=43;
+
+  // Sine wave easing; sin(p * PI/2
+  SineIn=51;
+  SineOut=52;
+  Sine=53;
+
+  // Circular easing; sqrt(1 - p^2
+  CircIn=61;
+  CircOut=62;
+  Circ=63;
+
+  // Exponential easing, base 2
+  ExpIn=71;
+  ExpOut=72;
+  Exp=73;
+
+  // Exponentially-damped sine wave easing
+  ElasticIn=81;
+  ElasticOut=82;
+  Elastic=83;
+
+  // Overshooting cubic easing;
+  BackIn=91;
+  BackOut=92;
+  Back=93;
+
+  // Exponentially-decaying bounce easing
+  BounceIn=101;
+  BounceOut=102;
+  Bounce=103;
+}
+
 message Button {
   optional string skin = 1 [default="default"];
   optional string text = 2;
@@ -57,6 +111,15 @@ message ButtonState {
   optional Rgb text_color = 4;
   optional float dx = 5;
   optional float dy = 6;
+
+  optional InterpolationType interpolate_position = 100 [default=Linear];
+  optional float interpolate_position_time = 101 [default=0.1];
+
+  optional InterpolationType interpolate_color = 102 [default=Linear];
+  optional float interpolate_color_time = 103 [default=0.1];
+
+  optional InterpolationType interpolate_size = 104 [default=Linear];
+  optional float interpolate_size_time = 105 [default=0.1];
 }
 
 message Skin {
@@ -65,6 +128,8 @@ message Skin {
   optional ButtonState button_idle = 3;
   optional ButtonState button_hot = 4;
   optional ButtonState button_active_hot = 5;
+
+
 }
 
 message File {

@@ -33,13 +33,10 @@ void Button::Step(float dt) {
                                        : &skin_->button_idle);
     if( last_state_ != state) {
       last_state_ = state;
-      const float time = 1.3f; // todo: get this from skin
-      InterpolationType type = InterpolationType::Cubic; // todo: get this from skin
-
-      scale_.Clear().Add(type, state->scale, time);
-      image_color_.Clear().Add(type, state->image_color, time);
-      text_color_.Clear().Add(type, state->text_color, time);
-      position_displacement_.Clear().Add(type, vec2f(state->dx, state->dy), time);
+      scale_.Clear().Add(state->interpolationSize, state->scale, state->interpolationSizeTime);
+      image_color_.Clear().Add(state->interpolationColor, state->image_color, state->interpolationColorTime);
+      text_color_.Clear().Add(state->interpolationColor, state->text_color, state->interpolationColorTime);
+      position_displacement_.Clear().Add(state->interpolationPosition, vec2f(state->dx, state->dy), state->interpolationPositionTime);
     }
 
     scale_.Update(dt);
