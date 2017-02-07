@@ -9,7 +9,8 @@ enum class AttributeSize {
   VEC1 = 1,
   VEC2 = 2,
   VEC3 = 3,
-  VEC4 = 4
+  VEC4 = 4,
+  MAT44 = 16
 };
 
 class Attribute {

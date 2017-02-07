@@ -124,35 +124,41 @@ void Shader::Compile(const GLchar *vertexSource, const GLchar *fragmentSource,
 void Shader::SetUniform(const Attribute& attribute, glint val) {
   assert(this);
   assert(IsCurrentlyBound());
+  assert(attribute.size == AttributeSize::VEC1);
   glUniform1i(attribute.id, val);
 }
 
 void Shader::SetUniform(const Attribute& attribute, const Rgb& val) {
   assert(this);
   assert(IsCurrentlyBound());
+  assert(attribute.size == AttributeSize::VEC3);
   glUniform3f(attribute.id, val.GetRed(), val.GetGreen(), val.GetBlue());
 }
 
 void Shader::SetUniform(const Attribute& attribute, const Rgba& val)  {
   assert(this);
   assert(IsCurrentlyBound());
+  assert(attribute.size == AttributeSize::VEC4);
   glUniform4f(attribute.id, val.GetRed(), val.GetGreen(), val.GetBlue(), val.GetAlpha());
 }
 
 void Shader::SetUniform(const Attribute& attribute, const vec4f& val) {
   assert(this);
   assert(IsCurrentlyBound());
+  assert(attribute.size == AttributeSize::VEC4);
   glUniform4f(attribute.id, val.x, val.y, val.z, val.w);
 }
 
 void Shader::SetUniform(const Attribute& attribute, const mat4f& val) {
   assert(this);
   assert(IsCurrentlyBound());
+  assert(attribute.size == AttributeSize::MAT44);
   glUniformMatrix4fv(attribute.id, 1, GL_FALSE, val.GetDataPtr());
 }
 
 Shader::Shader() {}
 
+namespace {
 std::string LoadPath(const std::string& path) {
   std::ifstream t(path.c_str());
 
@@ -169,6 +175,7 @@ std::string LoadPath(const std::string& path) {
   str.assign((std::istreambuf_iterator<char>(t)),
              std::istreambuf_iterator<char>());
   return str;
+}
 }
 
 bool Shader::Load(const std::string& file_path) {
