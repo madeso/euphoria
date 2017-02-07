@@ -12,6 +12,8 @@
 #include "render/gltypes.h"
 #include "core/noncopyable.h"
 
+#include "render/shaderattribute.h"
+
 class ShaderId : Noncopyable {
  public:
   ShaderId();
@@ -30,23 +32,18 @@ void Use(const ShaderId *id);
 class Shader : public ShaderId {
  public:
   Shader();
-  Shader(const std::string& file_path);
+
+  void PreBind(const Attribute& attribute);
+  bool Load(const std::string& file_path);
 
   void Compile(const glchar *vertexSource, const glchar *fragmentSource,
                const glchar *geometrySource = nullptr);
 
-  void SetFloat(const glchar *name, glfloat value);
-  void SetInteger(const glchar *name, glint value);
-  void SetVector2f(const glchar *name, glfloat x, glfloat y);
-  void SetVector2f(const glchar *name, const vec2f &value);
-  void SetVector3f(const glchar *name, glfloat x, glfloat y, glfloat z);
-  void SetVector3f(const glchar *name, const vec3f &value);
-  void SetRgb(const glchar *name, const Rgb& value);
-  void SetVector4f(const glchar *name, glfloat x, glfloat y, glfloat z,
-                   glfloat w);
-  void SetRgba(const glchar *name, const Rgba& value);
-  void SetVector4f(const glchar *name, const vec4f &value);
-  void SetMatrix4(const glchar *name, const mat4f &matrix);
+  void SetUniform(const Attribute& attribute, glint val);
+  void SetUniform(const Attribute& attribute, const Rgb& val);
+  void SetUniform(const Attribute& attribute, const Rgba& val);
+  void SetUniform(const Attribute& attribute, const vec4f& val);
+  void SetUniform(const Attribute& attribute, const mat4f& val);
 };
 
 #endif

@@ -93,6 +93,12 @@ GLuint CompileShader(GLuint type, const GLchar *source,
   return shader;
 }
 
+void Shader::PreBind(const Attribute& attribute) {
+  assert(this);
+  assert(IsCurrentlyBound());
+  glBindAttribLocation(id(), attribute.id, attribute.name.c_str());
+}
+
 void Shader::Compile(const GLchar *vertexSource, const GLchar *fragmentSource,
                      const GLchar *geometrySource) {
   GLuint sVertex = CompileShader(GL_VERTEX_SHADER, vertexSource, "VERTEX");
@@ -115,63 +121,34 @@ void Shader::Compile(const GLchar *vertexSource, const GLchar *fragmentSource,
   if (geometrySource != nullptr) glDeleteShader(gShader);
 }
 
-void Shader::SetFloat(const GLchar *name, GLfloat value) {
+void Shader::SetUniform(const Attribute& attribute, glint val) {
+  assert(this);
   assert(IsCurrentlyBound());
-  glUniform1f(glGetUniformLocation(id(), name), value);
+  glUniform1i(attribute.id, val);
 }
 
-void Shader::SetInteger(const GLchar *name, GLint value) {
+void Shader::SetUniform(const Attribute& attribute, const Rgb& val) {
+  assert(this);
   assert(IsCurrentlyBound());
-  glUniform1i(glGetUniformLocation(id(), name), value);
+  glUniform3f(attribute.id, val.GetRed(), val.GetGreen(), val.GetBlue());
 }
 
-void Shader::SetVector2f(const GLchar *name, GLfloat x, GLfloat y) {
+void Shader::SetUniform(const Attribute& attribute, const Rgba& val)  {
+  assert(this);
   assert(IsCurrentlyBound());
-  glUniform2f(glGetUniformLocation(id(), name), x, y);
+  glUniform4f(attribute.id, val.GetRed(), val.GetGreen(), val.GetBlue(), val.GetAlpha());
 }
 
-void Shader::SetVector2f(const GLchar *name, const vec2f &value) {
+void Shader::SetUniform(const Attribute& attribute, const vec4f& val) {
+  assert(this);
   assert(IsCurrentlyBound());
-  glUniform2f(glGetUniformLocation(id(), name), value.x, value.y);
+  glUniform4f(attribute.id, val.x, val.y, val.z, val.w);
 }
 
-void Shader::SetVector3f(const GLchar *name, GLfloat x, GLfloat y, GLfloat z) {
+void Shader::SetUniform(const Attribute& attribute, const mat4f& val) {
+  assert(this);
   assert(IsCurrentlyBound());
-  glUniform3f(glGetUniformLocation(id(), name), x, y, z);
-}
-
-void Shader::SetVector3f(const GLchar *name, const vec3f &value) {
-  assert(IsCurrentlyBound());
-  glUniform3f(glGetUniformLocation(id(), name), value.x, value.y, value.z);
-}
-
-void Shader::SetRgb(const GLchar *name, const Rgb& value) {
-  assert(IsCurrentlyBound());
-  glUniform3f(glGetUniformLocation(id(), name), value.GetRed(), value.GetGreen(), value.GetBlue());
-}
-
-void Shader::SetVector4f(const GLchar *name, GLfloat x, GLfloat y, GLfloat z,
-                         GLfloat w) {
-  assert(IsCurrentlyBound());
-  glUniform4f(glGetUniformLocation(id(), name), x, y, z, w);
-}
-
-void Shader::SetVector4f(const GLchar *name, const vec4f &value) {
-  assert(IsCurrentlyBound());
-  glUniform4f(glGetUniformLocation(id(), name), value.x, value.y, value.z,
-              value.w);
-}
-
-void Shader::SetRgba(const GLchar *name, const Rgba &value) {
-  assert(IsCurrentlyBound());
-  glUniform4f(glGetUniformLocation(id(), name), value.GetRed(), value.GetGreen(), value.GetBlue(),
-              value.GetAlpha());
-}
-
-void Shader::SetMatrix4(const GLchar *name, const mat4f &matrix) {
-  assert(IsCurrentlyBound());
-  glUniformMatrix4fv(glGetUniformLocation(id(), name), 1, GL_FALSE,
-                     matrix.GetDataPtr());
+  glUniformMatrix4fv(attribute.id, 1, GL_FALSE, val.GetDataPtr());
 }
 
 Shader::Shader() {}
@@ -194,7 +171,7 @@ std::string LoadPath(const std::string& path) {
   return str;
 }
 
-Shader::Shader(const std::string& file_path) {
+bool Shader::Load(const std::string& file_path) {
   auto vert = LoadPath(file_path + ".vert");
   auto frag = LoadPath(file_path + ".frag");
   auto geom = LoadPath(file_path + ".geom");
@@ -208,7 +185,9 @@ Shader::Shader(const std::string& file_path) {
     fail = true;
   }
   if( fail ) {
-    return;
+    return false;
   }
+
   Compile(vert.c_str(), frag.c_str(), geom.empty() ? nullptr : geom.c_str());
+  return true;
 }
