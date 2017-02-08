@@ -16,7 +16,7 @@ enum class AttributeSize {
 class Attribute {
  public:
   std::string name;
-  glid id;
+  gluint id;
   AttributeSize size;
 };
 
