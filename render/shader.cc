@@ -93,7 +93,7 @@ GLuint CompileShader(GLuint type, const GLchar *source,
   return shader;
 }
 
-void Shader::PreBind(const Attribute& attribute) {
+void Shader::PreBind(const ShaderAttribute& attribute) {
   assert(this);
   assert(IsCurrentlyBound());
   glBindAttribLocation(id(), attribute.id, attribute.name.c_str());
@@ -121,38 +121,38 @@ void Shader::Compile(const GLchar *vertexSource, const GLchar *fragmentSource,
   if (geometrySource != nullptr) glDeleteShader(gShader);
 }
 
-void Shader::SetUniform(const Attribute& attribute, glint val) {
+void Shader::SetUniform(const ShaderAttribute& attribute, glint val) {
   assert(this);
   assert(IsCurrentlyBound());
-  assert(attribute.size == AttributeSize::VEC1);
+  assert(attribute.size == ShaderAttributeSize::VEC1);
   glUniform1i(attribute.id, val);
 }
 
-void Shader::SetUniform(const Attribute& attribute, const Rgb& val) {
+void Shader::SetUniform(const ShaderAttribute& attribute, const Rgb& val) {
   assert(this);
   assert(IsCurrentlyBound());
-  assert(attribute.size == AttributeSize::VEC3);
+  assert(attribute.size == ShaderAttributeSize::VEC3);
   glUniform3f(attribute.id, val.GetRed(), val.GetGreen(), val.GetBlue());
 }
 
-void Shader::SetUniform(const Attribute& attribute, const Rgba& val)  {
+void Shader::SetUniform(const ShaderAttribute& attribute, const Rgba& val)  {
   assert(this);
   assert(IsCurrentlyBound());
-  assert(attribute.size == AttributeSize::VEC4);
+  assert(attribute.size == ShaderAttributeSize::VEC4);
   glUniform4f(attribute.id, val.GetRed(), val.GetGreen(), val.GetBlue(), val.GetAlpha());
 }
 
-void Shader::SetUniform(const Attribute& attribute, const vec4f& val) {
+void Shader::SetUniform(const ShaderAttribute& attribute, const vec4f& val) {
   assert(this);
   assert(IsCurrentlyBound());
-  assert(attribute.size == AttributeSize::VEC4);
+  assert(attribute.size == ShaderAttributeSize::VEC4);
   glUniform4f(attribute.id, val.x, val.y, val.z, val.w);
 }
 
-void Shader::SetUniform(const Attribute& attribute, const mat4f& val) {
+void Shader::SetUniform(const ShaderAttribute& attribute, const mat4f& val) {
   assert(this);
   assert(IsCurrentlyBound());
-  assert(attribute.size == AttributeSize::MAT44);
+  assert(attribute.size == ShaderAttributeSize::MAT44);
   glUniformMatrix4fv(attribute.id, 1, GL_FALSE, val.GetDataPtr());
 }
 

@@ -33,17 +33,17 @@ class Shader : public ShaderId {
  public:
   Shader();
 
-  void PreBind(const Attribute& attribute);
+  void PreBind(const ShaderAttribute& attribute);
   bool Load(const std::string& file_path);
 
   void Compile(const glchar *vertexSource, const glchar *fragmentSource,
                const glchar *geometrySource = nullptr);
 
-  void SetUniform(const Attribute& attribute, glint val);
-  void SetUniform(const Attribute& attribute, const Rgb& val);
-  void SetUniform(const Attribute& attribute, const Rgba& val);
-  void SetUniform(const Attribute& attribute, const vec4f& val);
-  void SetUniform(const Attribute& attribute, const mat4f& val);
+  void SetUniform(const ShaderAttribute& attribute, glint val);
+  void SetUniform(const ShaderAttribute& attribute, const Rgb& val);
+  void SetUniform(const ShaderAttribute& attribute, const Rgba& val);
+  void SetUniform(const ShaderAttribute& attribute, const vec4f& val);
+  void SetUniform(const ShaderAttribute& attribute, const mat4f& val);
 };
 
 #endif

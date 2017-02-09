@@ -33,7 +33,7 @@ Vao::Vao() { glGenVertexArrays(1, &id_); }
 
 Vao::~Vao(){ glDeleteVertexArrays(1, &id_); }
 
-void Vao::BindVboData(const Attribute& attribute, int stride, int offset)  {
+void Vao::BindVboData(const ShaderAttribute& attribute, int stride, int offset)  {
   assert(this);
   assert(GetBound() == this);
   assert(Vbo::GetBound() == nullptr);

@@ -5,7 +5,7 @@
 
 #include "render/id.h"
 
-class Attribute;
+class ShaderAttribute;
 
 class Vbo : public Id {
  public:
@@ -23,7 +23,7 @@ class Vao : public Id {
   Vao();
   ~Vao();
 
-  void BindVboData(const Attribute& attribute, int stride, int offset);
+  void BindVboData(const ShaderAttribute& attribute, int stride, int offset);
 
   static void Bind(Vao* vao);
   static Vao*& GetBound();

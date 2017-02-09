@@ -5,7 +5,7 @@
 
 #include "render/gltypes.h"
 
-enum class AttributeSize {
+enum class ShaderAttributeSize {
   VEC1 = 1,
   VEC2 = 2,
   VEC3 = 3,
@@ -13,11 +13,11 @@ enum class AttributeSize {
   MAT44 = 16
 };
 
-class Attribute {
+class ShaderAttribute {
  public:
   std::string name;
   gluint id;
-  AttributeSize size;
+  ShaderAttributeSize size;
 };
 
 #endif  // RENDER_SHADERATTRIBUTE_H
