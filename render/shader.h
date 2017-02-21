@@ -2,6 +2,7 @@
 #define SHADER_H
 
 #include <string>
+#include <vector>
 
 #include "core/vec2.h"
 #include "core/vec3.h"
@@ -44,6 +45,11 @@ class Shader : public ShaderId {
   void SetUniform(const ShaderAttribute& attribute, const Rgba& val);
   void SetUniform(const ShaderAttribute& attribute, const vec4f& val);
   void SetUniform(const ShaderAttribute& attribute, const mat4f& val);
+
+ private:
+  // debug
+  std::vector<ShaderAttribute> bound_attributes_;
+  bool HasBoundAttribute(const ShaderAttribute& attribute) const;
 };
 
 #endif

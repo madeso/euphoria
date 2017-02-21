@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
+#include <algorithm>
 
 #include "render/gl.h"
 
@@ -97,6 +98,7 @@ void Shader::PreBind(const ShaderAttribute& attribute) {
   assert(this);
   assert(IsCurrentlyBound());
   glBindAttribLocation(id(), attribute.id, attribute.name.c_str());
+  bound_attributes_.push_back(attribute);
 }
 
 void Shader::Compile(const GLchar *vertexSource, const GLchar *fragmentSource,
@@ -124,6 +126,7 @@ void Shader::Compile(const GLchar *vertexSource, const GLchar *fragmentSource,
 void Shader::SetUniform(const ShaderAttribute& attribute, glint val) {
   assert(this);
   assert(IsCurrentlyBound());
+  assert(HasBoundAttribute(attribute));
   assert(attribute.size == ShaderAttributeSize::VEC1);
   glUniform1i(attribute.id, val);
 }
@@ -131,6 +134,7 @@ void Shader::SetUniform(const ShaderAttribute& attribute, glint val) {
 void Shader::SetUniform(const ShaderAttribute& attribute, const Rgb& val) {
   assert(this);
   assert(IsCurrentlyBound());
+  assert(HasBoundAttribute(attribute));
   assert(attribute.size == ShaderAttributeSize::VEC3);
   glUniform3f(attribute.id, val.GetRed(), val.GetGreen(), val.GetBlue());
 }
@@ -138,6 +142,7 @@ void Shader::SetUniform(const ShaderAttribute& attribute, const Rgb& val) {
 void Shader::SetUniform(const ShaderAttribute& attribute, const Rgba& val)  {
   assert(this);
   assert(IsCurrentlyBound());
+  assert(HasBoundAttribute(attribute));
   assert(attribute.size == ShaderAttributeSize::VEC4);
   glUniform4f(attribute.id, val.GetRed(), val.GetGreen(), val.GetBlue(), val.GetAlpha());
 }
@@ -145,6 +150,7 @@ void Shader::SetUniform(const ShaderAttribute& attribute, const Rgba& val)  {
 void Shader::SetUniform(const ShaderAttribute& attribute, const vec4f& val) {
   assert(this);
   assert(IsCurrentlyBound());
+  assert(HasBoundAttribute(attribute));
   assert(attribute.size == ShaderAttributeSize::VEC4);
   glUniform4f(attribute.id, val.x, val.y, val.z, val.w);
 }
@@ -152,6 +158,7 @@ void Shader::SetUniform(const ShaderAttribute& attribute, const vec4f& val) {
 void Shader::SetUniform(const ShaderAttribute& attribute, const mat4f& val) {
   assert(this);
   assert(IsCurrentlyBound());
+  assert(HasBoundAttribute(attribute));
   assert(attribute.size == ShaderAttributeSize::MAT44);
   glUniformMatrix4fv(attribute.id, 1, GL_FALSE, val.GetDataPtr());
 }
@@ -197,4 +204,9 @@ bool Shader::Load(const std::string& file_path) {
 
   Compile(vert.c_str(), frag.c_str(), geom.empty() ? nullptr : geom.c_str());
   return true;
+}
+
+bool Shader::HasBoundAttribute(const ShaderAttribute &attribute) const {
+  return std::find(bound_attributes_.begin(), bound_attributes_.end(), attribute)
+      != bound_attributes_.end();
 }
