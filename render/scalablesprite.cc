@@ -4,7 +4,8 @@
 #include <iostream>
 #include <algorithm>
 
-#include "render/vao.h"
+#include "render/buffer.h"
+#include "render/bufferbuilder2d.h"
 #include "core/rect.h"
 #include "render/texture.h"
 #include "render/texturecache.h"
@@ -79,12 +80,12 @@ const Texture2d* ScalableSprite::texture_ptr() const {
   return texture_;
 }
 
-const Vao* ScalableSprite::vao_ptr() const {
+const Ebo* ScalableSprite::ebo_ptr() const {
   assert(this);
   BuildData();
   assert(dirty_ == false);
-  assert(vao_.get() != nullptr);
-  return vao_.get();
+  assert(ebo_.get() != nullptr);
+  return ebo_.get();
 }
 
 void ScalableSprite::BuildData() const {
@@ -98,7 +99,7 @@ void ScalableSprite::BuildData() const {
   assert(position_rows.size() == rows_size);
   assert(position_cols.size() == cols_size);
 
-  VaoBuilder data;
+  BufferBuilder2d data;
   float position_current_col = 0;
   float uv_current_col = 0;
   for(unsigned int c=0; c<cols_size; ++c) {
@@ -135,7 +136,7 @@ void ScalableSprite::BuildData() const {
       const Point b (MAKE_POINT(next_col, current_row));
       const Point c (MAKE_POINT(current_col, next_row));
       const Point d (MAKE_POINT(next_col, next_row));
-      data.quad(a, b, c, d);
+      data.AddQuad(a, b, c, d);
 #undef MAKE_POINT
 
       position_current_row = position_next_row;
@@ -146,6 +147,9 @@ void ScalableSprite::BuildData() const {
   }
 
   dirty_ = false;
-  vao_.reset(new Vao(data));
+  vao_.reset(new Vao());
+  ebo_.reset(new Ebo());
+  data.SetupVao(vao_.get());
+  data.SetupEbo(ebo_.get());
 }
 

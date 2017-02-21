@@ -1,6 +1,11 @@
 #ifndef RENDER_BUFFERBUILDER2D_H
 #define RENDER_BUFFERBUILDER2D_H
 
+class Vao;
+class Ebo;
+
+#include <vector>
+
 #include "core/vec2.h"
 
 class Point {
@@ -20,9 +25,12 @@ class BufferBuilder2d {
   void AddTriangle(unsigned int a, unsigned int b, unsigned int c);
   void AddQuad(const Point& a, const Point& b, const Point& c,
                    const Point& d);
+
+  void SetupVao(Vao* vao) const;
+  void SetupEbo(Ebo* ebo) const;
  private:
   std::vector<float> data;
-  std::vector<unsiged int> tris;
+  std::vector<unsigned int> tris;
 };
 
 #endif  // RENDER_BUFFERBUILDER2D_H

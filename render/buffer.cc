@@ -65,7 +65,7 @@ void Ebo::SetData(const std::vector<unsigned int>& indices){
   glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int), &indices[0], GL_STATIC_DRAW);
 }
 
-void Ebo::Draw(int count) {
+void Ebo::Draw(int count) const {
   assert(this);
   assert(GetBound() == this);
   glDrawElements(GL_TRIANGLES, count, GL_UNSIGNED_INT, 0);

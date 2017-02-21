@@ -1,7 +1,9 @@
 #include "render/spriterender.h"
-#include "render/vao.h"
+#include "render/buffer.h"
 #include "render/scalablesprite.h"
+#include "render/shaderattribute2d.h"
 #include "render/gl.h"
+#include "bufferbuilder2d.h"
 
 SpriteRenderer::SpriteRenderer(Shader* shader) : shader_(shader) {
   shader_ = shader;
@@ -20,7 +22,7 @@ void SpriteRenderer::DrawSprite(const Texture2d& texture,
   glActiveTexture(GL_TEXTURE0);
   Use(&texture);
 
-  vao_->Draw();
+  ebo_->Draw(2);
 }
 
 void SpriteRenderer::CommonDraw(const vec2f &position, float rotate,
@@ -35,8 +37,8 @@ void SpriteRenderer::CommonDraw(const vec2f &position, float rotate,
 
   .Scale(vec3f(scale, 1.0f));
 
-  shader_->SetMatrix4("model", model);
-  shader_->SetRgba("spriteColor", color);
+  shader_->SetUniform(attributes2d::Model(), model);
+  shader_->SetUniform(attributes2d::Color(), color);
 }
 
 void SpriteRenderer::DrawNinepatch(const ScalableSprite& ninepatch, const vec2f& position,
@@ -51,19 +53,22 @@ void SpriteRenderer::DrawNinepatch(const ScalableSprite& ninepatch, const vec2f&
   glActiveTexture(GL_TEXTURE0);
   Use(ninepatch.texture_ptr());
 
-  ninepatch.vao_ptr()->Draw();
+  ninepatch.ebo_ptr()->Draw(2); // todo: fix this
   // vao_->Draw();
 }
 
 void SpriteRenderer::InitRenderData() {
-  VaoBuilder data;
+  BufferBuilder2d data;
 
   Point a(0.0f, 1.0f, 0.0f, 1.0f);
   Point b(1.0f, 0.0f, 1.0f, 0.0f);
   Point c(0.0f, 0.0f, 0.0f, 0.0f);
   Point d(1.0f, 1.0f, 1.0f, 1.0f);
 
-  data.quad(c, b, a, d);
+  data.AddQuad(c, b, a, d);
 
-  vao_.reset(new Vao(data));
+  vao_.reset(new Vao());
+  ebo_.reset(new Ebo());
+  data.SetupVao(vao_.get());
+  data.SetupEbo(ebo_.get());
 }

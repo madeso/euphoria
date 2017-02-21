@@ -22,4 +22,6 @@ class ShaderAttribute {
   ShaderAttributeSize size;
 };
 
+bool operator==(const ShaderAttribute& lhs, const ShaderAttribute& rhs);
+
 #endif  // RENDER_SHADERATTRIBUTE_H

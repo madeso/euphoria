@@ -35,7 +35,7 @@ class Ebo : public Id {
   ~Ebo();
 
   void SetData(const std::vector<unsigned int>& indices);
-  void Draw(int count);
+  void Draw(int count) const;
 
   static void Bind(Ebo* ebo);
   static Ebo*& GetBound();

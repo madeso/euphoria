@@ -6,6 +6,7 @@
 #include "core/size.h"
 
 class Vao;
+class Ebo;
 class Texture2d;
 class TextureCache;
 
@@ -21,7 +22,7 @@ class ScalableSprite {
 
   // for rendering...
   const Texture2d* texture_ptr() const;
-  const Vao* vao_ptr() const;
+  const Ebo* ebo_ptr() const;
 
 
 
@@ -33,6 +34,7 @@ class ScalableSprite {
 
   mutable bool dirty_;
   mutable std::unique_ptr<Vao> vao_;
+  mutable std::unique_ptr<Ebo> ebo_;
 
   std::vector<float> cols_;
   std::vector<float> rows_;

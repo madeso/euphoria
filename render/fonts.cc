@@ -1,6 +1,5 @@
 #include "render/fonts.h"
 
-#include "render/vao.h"
 #include "render/texture.h"
 #include "render/gl.h"
 #include "render/shader.h"
@@ -10,6 +9,9 @@
 #include <map>
 #include <cassert>
 #include <iostream>
+
+#include "render/bufferbuilder2d.h"
+#include "render/shaderattribute2d.h"
 
 #define STB_RECT_PACK_IMPLEMENTATION
 #include "stb_rect_pack.h"
@@ -100,7 +102,9 @@ struct Face {
   }
 };
 
-CharData::CharData(const VaoBuilder& data, const Rectf& ex, unsigned int ch, float ad) : vao(data), extent(ex), c(ch), advance(ad) {
+CharData::CharData(const BufferBuilder2d& data, const Rectf& ex, unsigned int ch, float ad) : extent(ex), c(ch), advance(ad) {
+  data.SetupVao(&vao);
+  data.SetupEbo(&ebo);
 }
 
 struct Pixels {
@@ -172,7 +176,7 @@ FontChars GetCharactersFromFont(const std::string &font_file, unsigned int font_
   return fontchars;
 }
 
-std::pair<VaoBuilder, Rectf> BuildCharVao(const stbrp_rect &src_rect, const FontChar &src_char, int image_width, int image_height) {
+std::pair<BufferBuilder2d, Rectf> BuildCharVao(const stbrp_rect &src_rect, const FontChar &src_char, int image_width, int image_height) {
   //
   //             width
   //          <--------->
@@ -199,8 +203,8 @@ std::pair<VaoBuilder, Rectf> BuildCharVao(const stbrp_rect &src_rect, const Font
   const stbrp_coord uv_top = src_rect.y;
   const stbrp_coord uv_bottom = uv_top + src_rect.h;
 
-  VaoBuilder builder;
-  builder.quad(
+  BufferBuilder2d builder;
+  builder.AddQuad(
       Point(vert_left, vert_top,
             uv_left/iw, uv_top/ih),
       Point(vert_right, vert_top,
@@ -215,21 +219,25 @@ std::pair<VaoBuilder, Rectf> BuildCharVao(const stbrp_rect &src_rect, const Font
 
 ////////////////////////////////////////////////////////////////////////////////
 
-VaoBuilder SimpleQuad() {
-  VaoBuilder data;
+BufferBuilder2d SimpleQuad() {
+  BufferBuilder2d data;
 
   Point a(0.0f, 1.0f, 0.0f, 1.0f);
   Point b(1.0f, 0.0f, 1.0f, 0.0f);
   Point c(0.0f, 0.0f, 0.0f, 0.0f);
   Point d(1.0f, 1.0f, 1.0f, 1.0f);
 
-  data.quad(c, b, a, d);
+  data.AddQuad(c, b, a, d);
 
   return data;
 }
 
-TextBackgroundRenderer::TextBackgroundRenderer(Shader* shader) : vao_(SimpleQuad()), shader_(shader) {
+TextBackgroundRenderer::TextBackgroundRenderer(Shader* shader) : shader_(shader) {
   assert(shader);
+
+  const auto quad = SimpleQuad();
+  quad.SetupVao(&vao_);
+  quad.SetupEbo(&ebo_);
 }
 
 void TextBackgroundRenderer::Draw(float alpha, const Rectf& area) {
@@ -238,9 +246,9 @@ void TextBackgroundRenderer::Draw(float alpha, const Rectf& area) {
     .Translate(vec3f(area.left, area.top, 0.0f))
     .Scale(vec3f(area.GetWidth(), area.GetHeight(), 1.0f));
 
-  shader_->SetMatrix4("model", model);
-  shader_->SetVector4f("backColor", vec4f(0.0f, 0.0f, 0.0f, alpha));
-  vao_.Draw();
+  shader_->SetUniform(attributes2d::Model(), model);
+  shader_->SetUniform(attributes2d::Color(), Rgba(0.0f, 0.0f, 0.0f, alpha));
+  ebo_.Draw(2);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -276,7 +284,7 @@ Font::Font(Shader* shader, const std::string& font_file, unsigned int font_size,
     }
     const FontChar& src_char = fontchars.chars[src_rect.id];
     PasteCharacterToImage(pixels, src_rect, src_char);
-    const std::pair<VaoBuilder, Rectf> char_vao = BuildCharVao(src_rect, src_char, texture_width, texture_height);
+    const auto char_vao = BuildCharVao(src_rect, src_char, texture_width, texture_height);
 
     // store data in useful data
     std::shared_ptr<CharData> dest(new CharData(char_vao.first, char_vao.second, src_char.c, src_char.advance));
@@ -302,7 +310,7 @@ void Font::Draw(const vec2f& p, const std::string& str, const Rgb& basec, const 
 
   const bool applyHi = hi_end != -1 && hi_start != -1;
   if(applyHi == false) {
-    shader_->SetRgb("spriteColor", basec);
+    shader_->SetUniform(attributes2d::Color(), basec);
   }
 
   int index = 0;
@@ -320,14 +328,14 @@ void Font::Draw(const vec2f& p, const std::string& str, const Rgb& basec, const 
 
     const mat4f model = mat4f::Identity().Translate(vec3f(position, 0.0f))
     .Scale(vec3f(scale, scale, 1.0f));
-    shader_->SetMatrix4("model", model);
+    shader_->SetUniform(attributes2d::Model(), model);
 
     if(applyHi) {
       bool useHiColor = hi_start <= this_index && this_index < hi_end;
       const Rgb& color = useHiColor ? hic : basec;
-      shader_->SetRgb("spriteColor", color);
+      shader_->SetUniform(attributes2d::Color(), color);
     }
-    ch->vao.Draw();
+    ch->ebo.Draw(2);
     KerningMap::const_iterator kerning = kerning_.find(std::make_pair(last_char_index, char_index));
     int the_kerning = kerning == kerning_.end() ? 0 : kerning->second;
     position.x += (ch->advance + the_kerning)*scale;

@@ -9,6 +9,8 @@
 #include "core/rgb.h"
 
 class Vao;
+class Ebo;
+
 class ScalableSprite;
 
 class SpriteRenderer {
@@ -28,6 +30,7 @@ class SpriteRenderer {
  private:
   Shader* shader_;
   std::unique_ptr<Vao> vao_;
+  std::unique_ptr<Ebo> ebo_;
 
   void InitRenderData();
 

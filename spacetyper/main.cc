@@ -17,6 +17,7 @@
 #include "core/interpolate.h"
 #include "render/init.h"
 #include "render/viewport.h"
+#include "render/shaderattribute2d.h"
 
 #include "gui/root.h"
 
@@ -68,9 +69,15 @@ int main(int argc, char** argv) {
   SetupOpenglDebug();
 
   TextureCache cache;
-  Shader shader("shaders/sprite");
-  Shader font_shader("shaders/font");
-  Shader back_shader("shaders/back");
+  Shader shader;
+  attributes2d::PrebindShader(&shader);
+  shader.Load("shaders/sprite");
+  Shader font_shader;
+  attributes2d::PrebindShader(&font_shader);
+  font_shader.Load("shaders/font");
+  Shader back_shader;
+  attributes2d::PrebindShader(&back_shader);
+  back_shader.Load("shaders/back");
   Font font(&font_shader, "SourceCodePro-Regular.ttf", 30, " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ;:,.-_<>|1234567890!\"#¤%&/()'=?@£$€¥{[]}\\'*");
   // (cache.GetTexture("metalPanel_blueCorner.png"), 62, 14, 33, 14, vec2f(240, 240));
   ScalableSprite target("crosshair.png", Sizef::FromWidthHeight(100, 100), &cache);
@@ -116,15 +123,15 @@ int main(int argc, char** argv) {
       mat4f::Ortho(0.0f, static_cast<float>(width),
                  static_cast<float>(height), 0.0f, -1.0f, 1.0f);
   Use(&shader);
-  shader.SetInteger("image", 0);
-  shader.SetMatrix4("projection", projection);
+  shader.SetUniform(attributes2d::Image(), 0);
+  shader.SetUniform(attributes2d::Projection(), projection);
 
   Use(&font_shader);
-  font_shader.SetInteger("image", 0);
-  font_shader.SetMatrix4("projection", projection);
+  font_shader.SetUniform(attributes2d::Image(), 0);
+  font_shader.SetUniform(attributes2d::Projection(), projection);
 
   Use(&back_shader);
-  back_shader.SetMatrix4("projection", projection);
+  back_shader.SetUniform(attributes2d::Projection(), projection);
 
   SetupFullViewport(width, height);
 
