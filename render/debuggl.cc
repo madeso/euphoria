@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include "render/gl.h"
+#include "core/assert.h"
 
 std::string OpenglErrorToString(GLenum errorCode) {
   switch (errorCode) {
@@ -138,6 +139,7 @@ void GLAPIENTRY OnOpenglError(GLenum source, GLenum type, GLuint id,
   std::cout << "Source " << SourceToString(source)
             << " type: " << TypeToString(type)
             << " Severity: " << SeverityToString(severity) << "\n\n";
+  Assert(false);
 }
 void SetupOpenglDebug() {
   GLint flags;
