@@ -5,7 +5,7 @@
 #include <google/protobuf/text_format.h>
 
 #include <streambuf>
-#include <cassert>
+#include "core/assert.h"
 #include <fstream>  // NOLINT this is how we use fstrean
 #include <sstream>  // NOLINT this is how we use sstream
 

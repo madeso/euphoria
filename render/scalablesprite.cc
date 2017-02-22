@@ -1,6 +1,6 @@
 #include "render/scalablesprite.h"
 
-#include <cassert>
+#include "core/assert.h"
 #include <iostream>
 #include <algorithm>
 

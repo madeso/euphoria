@@ -1,7 +1,7 @@
 #include "render/spritebatch.h"
 #include "render/gl.h"
 
-#include <cassert>
+#include "core/assert.h"
 
 // vertex + uv + color
 const int QUAD_COUNT = 10;

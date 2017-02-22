@@ -1,6 +1,6 @@
 #include "gui/layoutdata.h"
 
-#include <cassert>
+#include "core/assert.h"
 
 LayoutData::LayoutData() {}
 

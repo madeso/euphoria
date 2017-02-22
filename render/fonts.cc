@@ -7,7 +7,7 @@
 #include <vector>
 #include <memory>
 #include <map>
-#include <cassert>
+#include "core/assert.h"
 #include <iostream>
 
 #include "render/bufferbuilder2d.h"

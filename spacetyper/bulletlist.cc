@@ -1,6 +1,6 @@
 #include "spacetyper/bulletlist.h"
 
-#include <cassert>
+#include "core/assert.h"
 #include <algorithm>
 
 #include "render/sprite.h"

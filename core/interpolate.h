@@ -1,7 +1,7 @@
 #ifndef SPACETYPER_INTERPOLATE_H
 #define SPACETYPER_INTERPOLATE_H
 
-#include <cassert>
+#include "core/assert.h"
 #include <deque>
 
 namespace easing {

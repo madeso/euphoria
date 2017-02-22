@@ -2,7 +2,7 @@
 
 #include "core/numeric.h"
 #include <cmath>
-#include <cassert>
+#include "core/assert.h"
 
 namespace // local
 {

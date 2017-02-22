@@ -1,7 +1,7 @@
 #include "core/numeric.h"
 
 #include <cmath>
-#include <cassert>
+#include "core/assert.h"
 
 #include "core/angle.h"
 

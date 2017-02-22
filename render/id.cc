@@ -1,6 +1,6 @@
 #include "render/id.h"
 
-#include <cassert>
+#include "core/assert.h"
 
 Id::Id() : id_(0) {}
 

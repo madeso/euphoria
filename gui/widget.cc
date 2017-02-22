@@ -2,7 +2,7 @@
 
 #include "gui/uistate.h"
 
-#include <cassert>
+#include "core/assert.h"
 
 Widget::Widget(UiState* state) : state_(state) {
 }

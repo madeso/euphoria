@@ -1,6 +1,6 @@
 #include "render/buffer.h"
 
-#include <cassert>
+#include "core/assert.h"
 
 #include "render/gl.h"
 #include "render/shaderattribute.h"

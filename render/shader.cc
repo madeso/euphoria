@@ -1,6 +1,6 @@
 #include "render/shader.h"
 
-#include <cassert>
+#include "core/assert.h"
 #include <iostream>
 #include <vector>
 #include <fstream>

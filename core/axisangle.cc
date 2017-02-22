@@ -1,6 +1,6 @@
 #include "core/axisangle.h"
 
-#include <cassert>
+#include "core/assert.h"
 
 AxisAngle::AxisAngle(const vec3f::Unit& ax, const Angle& ang)
     : axis(ax.GetNormalized())

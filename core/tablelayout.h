@@ -3,7 +3,7 @@
 
 #include "core/numeric.h"
 
-#include <cassert>
+#include "core/assert.h"
 #include <vector>
 
 // positive = absolute pixel size

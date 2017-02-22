@@ -1,6 +1,6 @@
 #include "spacetyper/enemyword.h"
 
-#include <cassert>
+#include "core/assert.h"
 #include <iostream>
 
 #include "render/texturecache.h"

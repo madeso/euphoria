@@ -1,6 +1,6 @@
 #include "render/texturecache.h"
 
-#include <cassert>
+#include "core/assert.h"
 #include "render/texture.h"
 
 TextureCache::TextureCache() {

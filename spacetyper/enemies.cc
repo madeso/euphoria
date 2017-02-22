@@ -1,6 +1,6 @@
 #include "spacetyper/enemies.h"
 
-#include <cassert>
+#include "core/assert.h"
 #include <algorithm>
 
 #include "render/texturecache.h"

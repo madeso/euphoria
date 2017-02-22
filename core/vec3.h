@@ -4,7 +4,7 @@
 #include "core/vec2.h"
 #include "core/numeric.h"
 #include <ostream>
-#include <cassert>
+#include "core/assert.h"
 
 template<typename T>
 class vec3;

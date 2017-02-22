@@ -1,6 +1,6 @@
 #include "gui/textdata.h"
 
-#include <cassert>
+#include "core/assert.h"
 
 #include "render/fonts.h"
 

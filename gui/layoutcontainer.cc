@@ -1,7 +1,7 @@
 #include "gui/layoutcontainer.h"
 #include "gui/layout.h"
 
-#include <cassert>
+#include "core/assert.h"
 
 std::shared_ptr<Layout> CreateTableLayout(const std::vector<bool> expandable_rows, const std::vector<bool> expandable_cols, float combined_padding) {
   std::shared_ptr<Layout> ret { new TableLayout(expandable_rows, expandable_cols, combined_padding) };

@@ -1,6 +1,6 @@
 #include "render/image.h"
 
-#include <cassert>
+#include "core/assert.h"
 #include <iostream>
 
 #define STB_IMAGE_IMPLEMENTATION

@@ -1,6 +1,6 @@
 #include "gui/panelwidget.h"
 
-#include <cassert>
+#include "core/assert.h"
 
 PanelWidget::PanelWidget(UiState* state) : Widget(state) {
 }
