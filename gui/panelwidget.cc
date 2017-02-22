@@ -14,7 +14,7 @@ Sizef PanelWidget::CalculateMinimumSize() const {
 }
 
 void PanelWidget::Step(float dt) {
-  assert(this);
+  Assert(this);
   container.Step(dt);
 }
 

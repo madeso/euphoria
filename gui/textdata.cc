@@ -10,49 +10,49 @@ TextData::~TextData() {
 }
 
 void TextData::SetFont(Font* font) {
-  assert(this);
+  Assert(this);
   font_ = font;
   text_.reset();
   UpdateText();
 }
 
 const Font& TextData::GetFont() const {
-  assert(this);
-  assert(font_);
+  Assert(this);
+  Assert(font_);
   return *font_;
 }
 
 void TextData::SetBackgroundRenderer(TextBackgroundRenderer* renderer) {
-  assert(this);
+  Assert(this);
   backgroundRenderer_ = renderer;
   text_.reset();
   UpdateText();
 }
 
 void TextData::SetString(const std::string& str) {
-  assert(this);
+  Assert(this);
   string_ = str;
   UpdateText();
 }
 
 const std::string& TextData::GetString() const {
-  assert(this);
+  Assert(this);
   return string_;
 }
 
 bool TextData::HasText() const {
-  assert(this);
+  Assert(this);
   return text_.get() != nullptr;
 }
 
 const Text& TextData::GetText() const {
-  assert(this);
-  assert(text_.get());
+  Assert(this);
+  Assert(text_.get());
   return *text_.get();
 }
 
 void TextData::UpdateText() {
-  assert(this);
+  Assert(this);
   if( text_.get() == nullptr && backgroundRenderer_ != nullptr && font_ != nullptr ) {
     text_.reset( new Text {font_, backgroundRenderer_} );
   }

@@ -11,37 +11,37 @@ Widget::~Widget() {
 }
 
 bool Widget::IsActive() const {
-  assert(this);
+  Assert(this);
   return state_->active == this;
 }
 
 bool Widget::IsHot() const {
-  assert(this);
+  Assert(this);
   return state_->hot == this;
 }
 
 void Widget::OnSize() {
-  assert(this);
+  Assert(this);
 }
 
 Rectf Widget::GetRect() const {
-  assert(this);
+  Assert(this);
   return rect_;
 }
 
 void Widget::SetRect(const Rectf& r) {
-  assert(this);
+  Assert(this);
   rect_ = r;
   OnSize();
 }
 
 LayoutData& Widget::Layout() {
-  assert(this);
+  Assert(this);
   return layout_;
 }
 
 const LayoutData& Widget::Layout() const {
-  assert(this);
+  Assert(this);
   return layout_;
 }
 
@@ -51,11 +51,11 @@ Sizef Widget::GetPreferredSize() const {
 }
 
 const UiState& Widget::GetState() const {
-  assert(this);
+  Assert(this);
   return *state_;
 }
 
 UiState* Widget::GetStatePtr() {
-  assert(this);
+  Assert(this);
   return state_;
 }

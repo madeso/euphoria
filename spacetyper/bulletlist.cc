@@ -14,11 +14,11 @@ const float PI = 3.14;
 BulletType::~BulletType() {}
 
 BulletList::BulletList(Layer* layer) : layer_(layer) {
-  assert(layer);
+  Assert(layer);
 }
 
 float BulletList::Add(EnemyWord* word, Texture2d* t, const vec2f& pos) {
-  assert(this);
+  Assert(this);
   BulletType b;
   b.word = word;
   b.sprite.reset( new Sprite(t, pos) );
@@ -36,7 +36,7 @@ float BulletList::Add(EnemyWord* word, Texture2d* t, const vec2f& pos) {
 }
 
 void BulletList::Update(float dt) {
-  assert(this);
+  Assert(this);
   const float speed = 1000.0f;
   for(BulletType& b : bullets_) {
     const vec2f& p = b.sprite->GetPosition();

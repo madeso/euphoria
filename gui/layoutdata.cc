@@ -7,45 +7,45 @@ LayoutData::LayoutData() {}
 LayoutData::~LayoutData() {}
 
 int LayoutData::GetColumn() const {
-  assert(this);
+  Assert(this);
   return column_;
 }
 
 LayoutData& LayoutData::SetColumn(int c) {
-  assert(this);
+  Assert(this);
   column_ = c;
   return *this;
 }
 
 int LayoutData::GetRow() const {
-  assert(this);
+  Assert(this);
   return row_;
 }
 
 LayoutData& LayoutData::SetRow(int r) {
-  assert(this);
+  Assert(this);
   row_ = r;
   return *this;
 }
 
 float LayoutData::GetPreferredWidth() const {
-  assert(this);
+  Assert(this);
   return preferred_width_;
 }
 
 LayoutData& LayoutData::SetPreferredWidth(float w) {
-  assert(this);
+  Assert(this);
   preferred_width_ = w;
   return *this;
 }
 
 float LayoutData::GetPreferredHeight() const {
-  assert(this);
+  Assert(this);
   return preferred_height_;
 }
 
 LayoutData& LayoutData::SetPreferredHeight(float h) {
-  assert(this);
+  Assert(this);
   preferred_height_ = h;
   return *this;
 }

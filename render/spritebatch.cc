@@ -16,14 +16,14 @@ SpriteBatch::~SpriteBatch() {
 }
 
 void SpriteBatch::Begin() {
-  assert(this);
-  assert(inside_ == false && "Already open, missing call to end.");
+  Assert(this);
+  Assert(inside_ == false && "Already open, missing call to end.");
   rendercalls_ = 0;
 }
 
 void SpriteBatch::Quad(const vec2f& pos, const Sizef& quad, const Rectf& uv, const vec2f& center, const Angle& rotation, const Rgba& color) {
-  assert(this);
-  assert(inside_ && "batch need to be open");
+  Assert(this);
+  Assert(inside_ && "batch need to be open");
 
   if( (count_+1) >= QUAD_COUNT ) {
     Flush();
@@ -87,14 +87,14 @@ void SpriteBatch::Quad(const vec2f& pos, const Sizef& quad, const Rectf& uv, con
 }
 
 void SpriteBatch::End() {
-  assert(this);
-  assert(inside_ && "not open, missing begin.");
+  Assert(this);
+  Assert(inside_ && "not open, missing begin.");
   Flush();
   inside_ = false;
 }
 
 void SpriteBatch::Flush() {
-  assert(this);
+  Assert(this);
   if( count_ == 0 ) {
     return;
   }

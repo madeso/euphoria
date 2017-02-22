@@ -67,7 +67,7 @@ const float Square(const float r)
 
 const float Sqrt(const float r)
 {
-  assert(r >= 0 && "input must be bigger than 0");
+  Assert(r >= 0 && "input must be bigger than 0");
   return std::sqrt(r);
 }
 
@@ -183,7 +183,7 @@ const bool IsWithinInclusive(const float min, const float c, const float max)
 const float Wrap(const float min, const float v, const float max)
 {
   const float diff = max - min;
-  assert(diff > 0);
+  Assert(diff > 0);
   float value = v - min;
   while(value < 0.0f)
   {

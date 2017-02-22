@@ -22,16 +22,16 @@ Enemies::Enemies(SpriteFader* fader, TextureCache* cache, Font* font, TextBackgr
     , spawn_time_(-1.0f)
     , bullets_(bullets)
 {
-  assert(cache);
-  assert(font);
-  assert(layer);
+  Assert(cache);
+  Assert(font);
+  Assert(layer);
 }
 
 Enemies::~Enemies() {
 }
 
 void Enemies::SpawnEnemies(int count) {
-  assert(this);
+  Assert(this);
   spawn_count_ += count;
 }
 
@@ -46,7 +46,7 @@ std::string GenerateUniqueWord(const std::string& start, Dictionary* dict) {
 }
 
 void Enemies::AddEnemy() {
-  assert(this);
+  Assert(this);
 
   std::string characters;
   for(auto& w:enemies_) {
@@ -61,12 +61,12 @@ void Enemies::AddEnemy() {
 }
 
 int Enemies::EnemyCount() {
-  assert(this);
+  Assert(this);
   return enemies_.size();
 }
 
 void Enemies::Update(float delta) {
-  assert(this);
+  Assert(this);
   for(auto& e : enemies_) {
     e->Update(delta);
   }
@@ -93,14 +93,14 @@ void Enemies::Update(float delta) {
 }
 
 void Enemies::Render() {
-  assert(this);
+  Assert(this);
   for(auto& e : enemies_) {
     e->Render();
   }
 }
 
 EnemyWord* Enemies::DetectWord(const std::string& input) {
-  assert(this);
+  Assert(this);
   for(EnemyList::iterator it = enemies_.begin(); it != enemies_.end(); ++it) {
     EnemyPtr e = *it;
     if( e->Type(input) ) {
@@ -115,10 +115,10 @@ EnemyWord* Enemies::DetectWord(const std::string& input) {
 }
 
 void Enemies::Remove(EnemyWord* word) {
-  assert(this);
-  assert(word);
+  Assert(this);
+  Assert(word);
   EnemyList::iterator found = std::find_if(enemies_.begin(), enemies_.end(), [&word](EnemyPtr rhs){return rhs.get() == word; });
-  assert(found != enemies_.end());
+  Assert(found != enemies_.end());
   destroyed_.push_back(*found);
   enemies_.erase(found);
 }

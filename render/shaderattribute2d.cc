@@ -37,7 +37,7 @@ const ShaderAttribute& Image() {
 }
 
 void PrebindShader(Shader* shader) {
-  assert(shader);
+  Assert(shader);
   shader->PreBind(Texture());
   shader->PreBind(Rgba());
   shader->PreBind(Color());

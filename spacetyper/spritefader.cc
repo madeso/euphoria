@@ -9,18 +9,18 @@ SpriteFader::SpriteFader(Layer* layer)
     : generator_(std::random_device()())
     , layer_(layer)
 {
-  assert(layer);
+  Assert(layer);
 }
 
 void SpriteFader::RegisterTexture(Texture2d *t) {
-  assert(this);
+  Assert(this);
   textures_.push_back(t);
 }
 
 void SpriteFader::AddRandom(const vec2f& pos, float time, float width, float height) {
-  assert(this);
-  assert(time > 0.0f);
-  assert(!textures_.empty());
+  Assert(this);
+  Assert(time > 0.0f);
+  Assert(!textures_.empty());
 
   const float dx = std::uniform_real_distribution<float>(-width/2, width/2)(generator_);
   const float dy = std::uniform_real_distribution<float>(-height/2, height/2)(generator_);
@@ -37,7 +37,7 @@ void SpriteFader::AddRandom(const vec2f& pos, float time, float width, float hei
 }
 
 void SpriteFader::Update(float dt){
-  assert(this);
+  Assert(this);
 
   for(FadingSprite& sp : sprites_) {
     sp.time -= dt;

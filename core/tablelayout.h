@@ -12,8 +12,8 @@
 // if available size < min_size scaling areas will have "zero" and absolute areas will be resized
 template <typename T>
 std::vector<T> PerformTableLayout(const std::vector<T>& pieces, T size, T zero = 0) {
-  assert(size >= 0);
-  assert(zero <= 0);
+  Assert(size >= 0);
+  Assert(zero <= 0);
 
   T min_size = 0;
   T total_percentage = 0;

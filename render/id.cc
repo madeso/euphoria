@@ -7,6 +7,6 @@ Id::Id() : id_(0) {}
 Id::~Id() {}
 
 gluint Id::id() const {
-  assert(this);
+  Assert(this);
   return id_;
 }

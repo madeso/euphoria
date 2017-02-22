@@ -19,7 +19,7 @@ unsigned char Select(int ch, unsigned char a, unsigned char b, unsigned char c,
     case 4:
       return d;
     default:
-      assert(false && "unhandled Select channel");
+      Assert(false && "unhandled Select channel");
       return 0;
   }
 }

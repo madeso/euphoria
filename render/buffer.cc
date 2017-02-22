@@ -10,8 +10,8 @@ Vbo::Vbo() { glGenBuffers(1, &id_); }
 Vbo::~Vbo() { glDeleteBuffers(1, &id_); }
 
 void Vbo::SetData(const std::vector<float>& data) {
-  assert(this);
-  assert(GetBound() == this);
+  Assert(this);
+  Assert(GetBound() == this);
   // use GL_DYNAMIC_DRAW or GL_STREAM_DRAW instead?
   glBufferData(GL_ARRAY_BUFFER, sizeof(float) * data.size(), &data[0], GL_STATIC_DRAW);
 }
@@ -34,11 +34,11 @@ Vao::Vao() { glGenVertexArrays(1, &id_); }
 Vao::~Vao(){ glDeleteVertexArrays(1, &id_); }
 
 void Vao::BindVboData(const ShaderAttribute& attribute, int stride, int offset)  {
-  assert(this);
-  assert(GetBound() == this);
-  assert(Vbo::GetBound() == nullptr);
+  Assert(this);
+  Assert(GetBound() == this);
+  Assert(Vbo::GetBound() == nullptr);
   int size = static_cast<int>(attribute.size);
-  assert(size >= 1 && size <= 4);
+  Assert(size >= 1 && size <= 4);
   glVertexAttribPointer(attribute.id, size, GL_FLOAT, GL_FALSE, stride, reinterpret_cast<GLvoid*>(offset));
   glEnableVertexAttribArray(attribute.id);
 }
@@ -60,14 +60,14 @@ Ebo::Ebo() { glGenBuffers(1, &id_); }
 Ebo::~Ebo() { glDeleteBuffers(1, &id_); }
 
 void Ebo::SetData(const std::vector<unsigned int>& indices){
-  assert(this);
-  assert(GetBound() == this);
+  Assert(this);
+  Assert(GetBound() == this);
   glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int), &indices[0], GL_STATIC_DRAW);
 }
 
 void Ebo::Draw(int count) const {
-  assert(this);
-  assert(GetBound() == this);
+  Assert(this);
+  Assert(GetBound() == this);
   glDrawElements(GL_TRIANGLES, count, GL_UNSIGNED_INT, 0);
 }
 

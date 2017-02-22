@@ -132,11 +132,11 @@ class Interpolate {
 
   bool HasSteps() const { return !data_.empty(); }
 
-  const Type& Debug_GetFrom() const { assert(this); return from_; }
-  const Type& GetValue() const { assert(this); return value_; }
-  This& SetValue(const Type& t) { assert(this); value_ = t; Clear(); return *this; }
-  operator const Type&() const { assert(this); return GetValue(); }
-  void operator=(const Type& rhs) { assert(this); SetValue(rhs); }
+  const Type& Debug_GetFrom() const { Assert(this); return from_; }
+  const Type& GetValue() const { Assert(this); return value_; }
+  This& SetValue(const Type& t) { Assert(this); value_ = t; Clear(); return *this; }
+  operator const Type&() const { Assert(this); return GetValue(); }
+  void operator=(const Type& rhs) { Assert(this); SetValue(rhs); }
 
   bool UpdateValueFromInterpolationPosition() {
     if( data_.empty()) return false;
@@ -149,7 +149,7 @@ class Interpolate {
   }
 
   void Update(float adt) {
-    assert(this);
+    Assert(this);
 
     float dt = adt;
 
@@ -181,11 +181,11 @@ class Interpolate {
     UpdateValueFromInterpolationPosition();
   }
 
-  This& Clear() {assert(this); data_.clear(); position_in_current_interpolation_ = 0.0f; return *this; }
+  This& Clear() {Assert(this); data_.clear(); position_in_current_interpolation_ = 0.0f; return *this; }
 
-  This& Sleep(float time) {assert(this); AddInterpolation(nullptr, value_, time); return *this; }
+  This& Sleep(float time) {Assert(this); AddInterpolation(nullptr, value_, time); return *this; }
 
-#define FUN(NAME, FUNC) This& NAME(const Type& target, float time) {assert(this); AddInterpolation(easing::NAME, target, time); return *this; }
+#define FUN(NAME, FUNC) This& NAME(const Type& target, float time) {Assert(this); AddInterpolation(easing::NAME, target, time); return *this; }
   // Linear interpolation (no easing)
   FUN(Linear, LinearInterpolation)
 
@@ -240,7 +240,7 @@ class Interpolate {
   FUN(Bounce, BounceEaseInOut)
 #undef FUN
 
-  This& Add(InterpolationType type, const Type& target, float time) {assert(this);
+  This& Add(InterpolationType type, const Type& target, float time) {Assert(this);
 #define FUN(NAME, FUNC) case InterpolationType::NAME: AddInterpolation(easing::NAME, target, time); return *this;
     switch(type) {
   // Linear interpolation (no easing)
@@ -320,8 +320,8 @@ class Interpolate {
   std::deque<InterpolationData<Type>> data_;
 
   void AddInterpolation(EasingFunction type, const Type& target, float time) {
-    assert(this);
-    assert(time > 0.0f);
+    Assert(this);
+    Assert(time > 0.0f);
 
     if( data_.empty() ) {
       from_ = value_;

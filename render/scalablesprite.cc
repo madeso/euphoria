@@ -49,13 +49,13 @@ ScalableSprite::~ScalableSprite() {
 }
 
 void ScalableSprite::SetSize(const Sizef &new_size) {
-  assert(this);
+  Assert(this);
   size_ = new_size;
   dirty_ = true;
 }
 
 const Sizef ScalableSprite::GetSize() const {
-  assert(this);
+  Assert(this);
   return size_;
 }
 
@@ -76,15 +76,15 @@ const Sizef ScalableSprite::GetMinimumSize() const {
 }
 
 const Texture2d* ScalableSprite::texture_ptr() const {
-  assert(this);
+  Assert(this);
   return texture_;
 }
 
 const Ebo* ScalableSprite::ebo_ptr() const {
-  assert(this);
+  Assert(this);
   BuildData();
-  assert(dirty_ == false);
-  assert(ebo_.get() != nullptr);
+  Assert(dirty_ == false);
+  Assert(ebo_.get() != nullptr);
   return ebo_.get();
 }
 
@@ -96,8 +96,8 @@ void ScalableSprite::BuildData() const {
   const auto cols_size = cols_.size();
   const auto rows_size = rows_.size();
 
-  assert(position_rows.size() == rows_size);
-  assert(position_cols.size() == cols_size);
+  Assert(position_rows.size() == rows_size);
+  Assert(position_cols.size() == cols_size);
 
   BufferBuilder2d data;
   float position_current_col = 0;

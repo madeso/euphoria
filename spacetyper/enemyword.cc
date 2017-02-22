@@ -33,8 +33,8 @@ EnemyWord::~EnemyWord() {
 }
 
 void EnemyWord::Setup(std::mt19937* generator, float screen_width) {
-  assert(this);
-  assert(generator);
+  Assert(this);
+  Assert(generator);
 
   const float w = std::max(sprite_.GetWidth(), text_.GetExtents().GetWidth());
   const float x = std::uniform_real_distribution<float>(w/2.0f, screen_width - w/2.0f)(*generator);
@@ -46,7 +46,7 @@ void EnemyWord::Setup(std::mt19937* generator, float screen_width) {
 }
 
 void EnemyWord::Update(float delta) {
-  assert(this);
+  Assert(this);
 
   const float speed = knockback_<=0.0f? speed_
                       : speed_ * (1.0f - knockback_*2.0f);
@@ -71,14 +71,14 @@ void EnemyWord::Update(float delta) {
 }
 
 void EnemyWord::AddSprite(Layer* layer) {
-  assert(this);
-  assert(layer_ == nullptr);
+  Assert(this);
+  Assert(layer_ == nullptr);
   layer_ = layer;
   layer_->Add(&sprite_);
 }
 
 void EnemyWord::RemoveSprite() {
-  assert(this);
+  Assert(this);
   if( layer_ != nullptr ) {
     layer_->Remove(&sprite_);
     layer_ = nullptr;
@@ -86,15 +86,15 @@ void EnemyWord::RemoveSprite() {
 }
 
 void EnemyWord::Render() {
-  assert(this);
+  Assert(this);
   vec2f p = position_;
   p.y += sprite_.GetHeight() / 2.0f;
   text_.Draw(p);
 }
 
 bool EnemyWord::Type(const std::string& input) {
-  assert(this);
-  assert(IsAlive());
+  Assert(this);
+  Assert(IsAlive());
   const std::string& t = text_.GetText();
   const char c = t[index_];
   const std::string cstr(1, c);
@@ -109,28 +109,28 @@ bool EnemyWord::Type(const std::string& input) {
 }
 
 bool EnemyWord::IsAlive() const {
-  assert(this);
+  Assert(this);
   const std::string& t = text_.GetText();
   return index_ < t.length();
 }
 
 const std::string& EnemyWord::GetWord() const {
-  assert(this);
+  Assert(this);
   return text_.GetText();
 }
 
 const vec2f& EnemyWord::GetPosition() const {
-  assert(this);
+  Assert(this);
   return sprite_.GetPosition();
 }
 
 const Sizef EnemyWord::GetSize() const {
-  assert(this);
+  Assert(this);
   return Sizef::FromHeightWidth(sprite_.GetWidth(), sprite_.GetHeight());
 }
 
 void EnemyWord::Damage() {
-  assert(this);
+  Assert(this);
   health_ -= 1;
 
   if( health_ <= 0 ) {
@@ -147,6 +147,6 @@ void EnemyWord::Damage() {
 }
 
 bool EnemyWord::IsDestroyed() const {
-  assert(this);
+  Assert(this);
   return health_ <= 0 && explosions_ > max_explosions;
 }

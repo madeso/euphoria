@@ -101,8 +101,8 @@ class unit : public vec3<T> {
     return Unit(-vec3<T>::x, -vec3<T>::y, -vec3<T>::z);
   }
  private:
-  unit(T x, T y, T z) : vec3<T>(x, y, z) { assert(IsValid()); }
-  unit(const vec3<T>& o) : vec3<T>(o) { assert(IsValid()); }
+  unit(T x, T y, T z) : vec3<T>(x, y, z) { Assert(IsValid()); }
+  unit(const vec3<T>& o) : vec3<T>(o) { Assert(IsValid()); }
   friend class vec3<T>;
 };
 

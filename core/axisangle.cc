@@ -6,12 +6,12 @@ AxisAngle::AxisAngle(const vec3f::Unit& ax, const Angle& ang)
     : axis(ax.GetNormalized())
     , angle(ang)
 {
-  assert(ax.IsValid());
+  Assert(ax.IsValid());
 }
 
 const AxisAngle AxisAngle::RightHandAround(const vec3f::Unit& axis, const Angle& angle)
 {
-  assert(axis.IsValid());
+  Assert(axis.IsValid());
   return AxisAngle(axis, Angle::FromRadians(angle.inRadians()));
 }
 

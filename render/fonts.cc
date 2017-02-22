@@ -71,7 +71,7 @@ struct Face {
   }
 
   FontChar GetChar(unsigned int c) {
-    assert(this);
+    Assert(this);
     const FT_Error error = FT_Load_Char( face, c, FT_LOAD_RENDER );
     if ( error ) {
       std::cerr << "Failed to get char\n";
@@ -112,7 +112,7 @@ struct Pixels {
   }
 
   void Set(int x, int y, unsigned char v) {
-    assert(this);
+    Assert(this);
     const size_t id = (x + y*texture_width_)*4;
     pixels[id + 0] = 255;
     pixels[id + 1] = 255;
@@ -233,7 +233,7 @@ BufferBuilder2d SimpleQuad() {
 }
 
 TextBackgroundRenderer::TextBackgroundRenderer(Shader* shader) : shader_(shader) {
-  assert(shader);
+  Assert(shader);
 
   const auto quad = SimpleQuad();
   quad.SetupVao(&vao_);
@@ -300,7 +300,7 @@ Font::Font(Shader* shader, const std::string& font_file, unsigned int font_size,
 }
 
 void Font::Draw(const vec2f& p, const std::string& str, const Rgb& basec, const Rgb& hic, int hi_start, int hi_end, float scale) const {
-  assert(this);
+  Assert(this);
   Use(shader_);
 
   vec2f position = p;
@@ -343,7 +343,7 @@ void Font::Draw(const vec2f& p, const std::string& str, const Rgb& basec, const 
 }
 
 Rectf Font::GetExtents(const std::string& str, float scale) const {
-  assert(this);
+  Assert(this);
   unsigned int last_char_index = 0;
   vec2f position(0.0f);
   Rectf ret;
@@ -389,51 +389,51 @@ Text::Text(Font* font, TextBackgroundRenderer* back)
 Text::~Text() {}
 
 void Text::SetText(const std::string& str) {
-  assert(this);
+  Assert(this);
   text_ = str;
 }
 
 const std::string& Text::GetText() const {
-  assert(this);
+  Assert(this);
   return text_;
 }
 
 void Text::SetBaseColor(const Rgb& color) {
-  assert(this);
+  Assert(this);
   base_color_ = color;
 }
 
 void Text::SetHighlightColor(const Rgb& color) {
-  assert(this);
+  Assert(this);
   hi_color_ = color;
 }
 
 void Text::SetHighlightRange(int from, int to) {
-  assert(this);
+  Assert(this);
   hi_from_ = from;
   hi_to_ = to;
 }
 
 void Text::SetBackground(bool use_background, float alpha) {
-  assert(this);
+  Assert(this);
 
   use_background_ = use_background;
   background_alpha_ = alpha;
 }
 
 void Text::SetAlignment(Align alignment) {
-  assert(this);
+  Assert(this);
   alignment_ = alignment;
 }
 
 void Text::SetSize(float new_size) {
-  assert(this);
-  assert(font_);
+  Assert(this);
+  Assert(font_);
   SetScale(new_size/font_->GetFontSize());
 }
 
 void Text::SetScale(float scale) {
-  assert(this);
+  Assert(this);
   scale_ = scale;
   std::cout << "setting the scale to " << scale << "\n";
 }
@@ -456,18 +456,18 @@ vec2f GetOffset(Align alignment, const Rectf& extent) {
     case Align::BOTTOM_CENTER:  return vec2f(middle, bottom);
     case Align::BOTTOM_RIGHT:   return vec2f(right, bottom);
     default:
-      assert(false && "Unhandled case");
+      Assert(false && "Unhandled case");
       return vec2f(0.0f, 0.0f);
   }
 }
 
 void Text::Draw(const vec2f& p) const{
-  assert(this);
+  Assert(this);
   Draw(p, base_color_);
 }
 
 void Text::Draw(const vec2f& p, const Rgb& override_color) const {
-  assert(this);
+  Assert(this);
   if( font_ == nullptr) return;
   const Rectf& e = GetExtents();
   const vec2f off = GetOffset(alignment_, e);
