@@ -96,7 +96,6 @@ GLuint CompileShader(GLuint type, const GLchar *source,
 
 void Shader::PreBind(const ShaderAttribute& attribute) {
   Assert(this);
-  Assert(IsCurrentlyBound());
   glBindAttribLocation(id(), attribute.id, attribute.name.c_str());
   bound_attributes_.push_back(attribute);
 }

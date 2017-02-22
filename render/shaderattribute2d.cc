@@ -38,14 +38,12 @@ const ShaderAttribute& Image() {
 
 void PrebindShader(Shader* shader) {
   Assert(shader);
-  Use(shader);
   shader->PreBind(Texture());
   shader->PreBind(Rgba());
   shader->PreBind(Color());
   shader->PreBind(Model());
   shader->PreBind(Image());
   shader->PreBind(Projection());
-  Use(nullptr);
 }
 
 }
