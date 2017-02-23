@@ -28,6 +28,9 @@ void Use(const ShaderId *shader) {
   if (shader != nullptr) {
     glUseProgram(shader->id());
   }
+  else {
+    glUseProgram(0);
+  }
   currentShader() = shader;
 }
 
