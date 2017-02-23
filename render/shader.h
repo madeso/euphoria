@@ -37,7 +37,7 @@ class Shader : public ShaderId {
   void PreBind(const ShaderAttribute& attribute);
   bool Load(const std::string& file_path);
 
-  void Compile(const glchar *vertexSource, const glchar *fragmentSource,
+  bool Compile(const glchar *vertexSource, const glchar *fragmentSource,
                const glchar *geometrySource = nullptr);
 
   void SetUniform(const ShaderAttribute& attribute, glint val);

@@ -5,6 +5,7 @@
 #include <vector>
 #include <fstream>
 #include <algorithm>
+#include <sstream>
 
 #include "render/gl.h"
 
@@ -73,10 +74,11 @@ void ReportError(const std::string &log, const std::string &type) {
             << std::endl;
 }
 
-void PrintErrorProgram(GLuint program) {
-  if (GetProgramLinkStatus(program)) return;
+bool PrintErrorProgram(GLuint program) {
+  if (GetProgramLinkStatus(program)) return true;
   const std::string &log = GetProgramLog(program);
   ReportError(log, "PROGRAM");
+  return false;
 }
 
 void PrintErrorShader(GLuint shader, const std::string &type) {
@@ -100,8 +102,10 @@ void Shader::PreBind(const ShaderAttribute& attribute) {
   bound_attributes_.push_back(attribute);
 }
 
-void Shader::Compile(const GLchar *vertexSource, const GLchar *fragmentSource,
+bool Shader::Compile(const GLchar *vertexSource, const GLchar *fragmentSource,
                      const GLchar *geometrySource) {
+  bool ret = true;
+
   GLuint sVertex = CompileShader(GL_VERTEX_SHADER, vertexSource, "VERTEX");
   GLuint sFragment =
       CompileShader(GL_FRAGMENT_SHADER, fragmentSource, "FRAGMENT");
@@ -115,11 +119,35 @@ void Shader::Compile(const GLchar *vertexSource, const GLchar *fragmentSource,
   glAttachShader(id(), sFragment);
   if (geometrySource != nullptr) glAttachShader(id(), gShader);
   glLinkProgram(id());
-  PrintErrorProgram(id());
+  const bool link_error = PrintErrorProgram(id());
+  if( link_error == false ) {
+    ret = false;
+  }
 
   glDeleteShader(sVertex);
   glDeleteShader(sFragment);
   if (geometrySource != nullptr) glDeleteShader(gShader);
+
+  std::vector<std::string> failures;
+  for(const auto& attribute : bound_attributes_) {
+    int attribute_id = glGetUniformLocation(id(), attribute.name.c_str());
+    if( attribute_id == attribute.id ) continue;
+    if( attribute_id == -1 ) continue;
+    std::stringstream ss;
+    ss << attribute.name << " was bound to " << attribute_id << " but was requested to " << attribute.id;
+    failures.push_back(ss.str());
+  }
+
+  if( failures.empty() == false) {
+    std::cerr << "Failed to bind shader!\n";
+    for(const auto& f : failures) {
+      std::cerr << "  " << f << "\n";
+    }
+
+    ret = false;
+  }
+
+  return ret;
 }
 
 void Shader::SetUniform(const ShaderAttribute& attribute, glint val) {
@@ -201,8 +229,11 @@ bool Shader::Load(const std::string& file_path) {
     return false;
   }
 
-  Compile(vert.c_str(), frag.c_str(), geom.empty() ? nullptr : geom.c_str());
-  return true;
+  fail = Compile(vert.c_str(), frag.c_str(), geom.empty() ? nullptr : geom.c_str());
+  if( fail == false ) {
+    std::cerr << "Failed to compile shader " << file_path << "\n";
+  }
+  return fail;
 }
 
 bool Shader::HasBoundAttribute(const ShaderAttribute &attribute) const {
