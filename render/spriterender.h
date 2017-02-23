@@ -7,6 +7,7 @@
 
 #include "core/vec2.h"
 #include "core/rgb.h"
+#include "render/shaderuniform.h"
 
 class Vao;
 class Ebo;
@@ -29,6 +30,8 @@ class SpriteRenderer {
 
  private:
   Shader* shader_;
+  ShaderUniform color_;
+  ShaderUniform model_;
   std::unique_ptr<Vao> vao_;
   std::unique_ptr<Ebo> ebo_;
 

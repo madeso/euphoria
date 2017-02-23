@@ -14,6 +14,7 @@
 #include "core/noncopyable.h"
 
 #include "render/shaderattribute.h"
+#include "render/shaderuniform.h"
 
 class ShaderId : Noncopyable {
  public:
@@ -37,19 +38,27 @@ class Shader : public ShaderId {
   void PreBind(const ShaderAttribute& attribute);
   bool Load(const std::string& file_path);
 
+ private:
   bool Compile(const glchar *vertexSource, const glchar *fragmentSource,
                const glchar *geometrySource = nullptr);
 
-  void SetUniform(const ShaderAttribute& attribute, glint val);
-  void SetUniform(const ShaderAttribute& attribute, const Rgb& val);
-  void SetUniform(const ShaderAttribute& attribute, const Rgba& val);
-  void SetUniform(const ShaderAttribute& attribute, const vec4f& val);
-  void SetUniform(const ShaderAttribute& attribute, const mat4f& val);
+ public:
+
+  ShaderUniform GetUniform(const std::string& name);
+
+  void SetUniform(const ShaderUniform& attribute, glint val);
+  void SetUniform(const ShaderUniform& attribute, const Rgb& val);
+  void SetUniform(const ShaderUniform& attribute, const Rgba& val);
+  void SetUniform(const ShaderUniform& attribute, const vec4f& val);
+  void SetUniform(const ShaderUniform& attribute, const mat4f& val);
 
  private:
   // debug
   std::vector<ShaderAttribute> bound_attributes_;
   bool HasBoundAttribute(const ShaderAttribute& attribute) const;
+  std::vector<ShaderUniform> bound_uniforms_;
+  bool HasBoundUniform(const ShaderUniform& uniform) const;
+  std::string shader_name_;
 };
 
 #endif

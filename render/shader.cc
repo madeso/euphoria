@@ -153,43 +153,55 @@ bool Shader::Compile(const GLchar *vertexSource, const GLchar *fragmentSource,
   return ret;
 }
 
-void Shader::SetUniform(const ShaderAttribute& attribute, glint val) {
+ShaderUniform Shader::GetUniform(const std::string& name) {
+  Assert(this);
+  int uniform_id = glGetUniformLocation(id(), name.c_str());
+  ShaderUniform uniform(name, uniform_id, this);
+  bound_uniforms_.push_back(uniform);
+
+  if(uniform.id == -1) {
+    std::cerr << "Failed to load " << uniform.name << " from shader " << shader_name_ << "\n";
+  }
+
+  return uniform;
+}
+
+void Shader::SetUniform(const ShaderUniform& attribute, glint val) {
   Assert(this);
   Assert(IsCurrentlyBound());
-  Assert(HasBoundAttribute(attribute));
-  Assert(attribute.size == ShaderAttributeSize::VEC1);
+  Assert(HasBoundUniform(attribute));
   glUniform1i(attribute.id, val);
 }
 
-void Shader::SetUniform(const ShaderAttribute& attribute, const Rgb& val) {
+void Shader::SetUniform(const ShaderUniform& attribute, const Rgb& val) {
   Assert(this);
   Assert(IsCurrentlyBound());
-  Assert(HasBoundAttribute(attribute));
-  Assert(attribute.size == ShaderAttributeSize::VEC3);
+  Assert(HasBoundUniform(attribute));
+  if(attribute.id == -1) return;
   glUniform3f(attribute.id, val.GetRed(), val.GetGreen(), val.GetBlue());
 }
 
-void Shader::SetUniform(const ShaderAttribute& attribute, const Rgba& val)  {
+void Shader::SetUniform(const ShaderUniform& attribute, const Rgba& val)  {
   Assert(this);
   Assert(IsCurrentlyBound());
-  Assert(HasBoundAttribute(attribute));
-  Assert(attribute.size == ShaderAttributeSize::VEC4);
+  Assert(HasBoundUniform(attribute));
+  if(attribute.id == -1) return;
   glUniform4f(attribute.id, val.GetRed(), val.GetGreen(), val.GetBlue(), val.GetAlpha());
 }
 
-void Shader::SetUniform(const ShaderAttribute& attribute, const vec4f& val) {
+void Shader::SetUniform(const ShaderUniform& attribute, const vec4f& val) {
   Assert(this);
   Assert(IsCurrentlyBound());
-  Assert(HasBoundAttribute(attribute));
-  Assert(attribute.size == ShaderAttributeSize::VEC4);
+  Assert(HasBoundUniform(attribute));
+  if(attribute.id == -1) return;
   glUniform4f(attribute.id, val.x, val.y, val.z, val.w);
 }
 
-void Shader::SetUniform(const ShaderAttribute& attribute, const mat4f& val) {
+void Shader::SetUniform(const ShaderUniform& attribute, const mat4f& val) {
   Assert(this);
   Assert(IsCurrentlyBound());
-  Assert(HasBoundAttribute(attribute));
-  Assert(attribute.size == ShaderAttributeSize::MAT44);
+  Assert(HasBoundUniform(attribute));
+  if(attribute.id == -1) return;
   glUniformMatrix4fv(attribute.id, 1, GL_FALSE, val.GetDataPtr());
 }
 
@@ -216,6 +228,7 @@ std::string LoadPath(const std::string& path) {
 }
 
 bool Shader::Load(const std::string& file_path) {
+  shader_name_ = file_path;
   auto vert = LoadPath(file_path + ".vert");
   auto frag = LoadPath(file_path + ".frag");
   auto geom = LoadPath(file_path + ".geom");
@@ -242,4 +255,9 @@ bool Shader::Load(const std::string& file_path) {
 bool Shader::HasBoundAttribute(const ShaderAttribute &attribute) const {
   return std::find(bound_attributes_.begin(), bound_attributes_.end(), attribute)
       != bound_attributes_.end();
+}
+
+bool Shader::HasBoundUniform(const ShaderUniform& uniform) const {
+  return std::find(bound_uniforms_.begin(), bound_uniforms_.end(), uniform)
+         != bound_uniforms_.end();
 }

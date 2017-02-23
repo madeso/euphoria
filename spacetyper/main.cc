@@ -123,15 +123,15 @@ int main(int argc, char** argv) {
       mat4f::Ortho(0.0f, static_cast<float>(width),
                  static_cast<float>(height), 0.0f, -1.0f, 1.0f);
   Use(&shader);
-  shader.SetUniform(attributes2d::Image(), 0);
-  shader.SetUniform(attributes2d::Projection(), projection);
+  shader.SetUniform(shader.GetUniform("image"), 0);
+  shader.SetUniform(shader.GetUniform("projection"), projection);
 
   Use(&font_shader);
-  font_shader.SetUniform(attributes2d::Image(), 0);
-  font_shader.SetUniform(attributes2d::Projection(), projection);
+  font_shader.SetUniform(font_shader.GetUniform("image"), 0);
+  font_shader.SetUniform(font_shader.GetUniform("projection"), projection);
 
   Use(&back_shader);
-  back_shader.SetUniform(attributes2d::Projection(), projection);
+  back_shader.SetUniform(back_shader.GetUniform("projection"), projection);
 
   SetupFullViewport(width, height);
 

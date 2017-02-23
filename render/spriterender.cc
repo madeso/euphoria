@@ -5,7 +5,11 @@
 #include "render/gl.h"
 #include "bufferbuilder2d.h"
 
-SpriteRenderer::SpriteRenderer(Shader* shader) : shader_(shader) {
+SpriteRenderer::SpriteRenderer(Shader* shader)
+    : shader_(shader)
+    , color_(shader->GetUniform("color"))
+    , model_(shader->GetUniform("model"))
+{
   shader_ = shader;
   InitRenderData();
 }
@@ -37,8 +41,8 @@ void SpriteRenderer::CommonDraw(const vec2f &position, float rotate,
 
   .Scale(vec3f(scale, 1.0f));
 
-  shader_->SetUniform(attributes2d::Model(), model);
-  shader_->SetUniform(attributes2d::Color(), color);
+  shader_->SetUniform(model_, model);
+  shader_->SetUniform(color_, color);
 }
 
 void SpriteRenderer::DrawNinepatch(const ScalableSprite& ninepatch, const vec2f& position,

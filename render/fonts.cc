@@ -232,7 +232,11 @@ BufferBuilder2d SimpleQuad() {
   return data;
 }
 
-TextBackgroundRenderer::TextBackgroundRenderer(Shader* shader) : shader_(shader) {
+TextBackgroundRenderer::TextBackgroundRenderer(Shader* shader)
+    : shader_(shader)
+    , model_(shader->GetUniform("model"))
+    , color_(shader->GetUniform("color"))
+{
   Assert(shader);
 
   const auto quad = SimpleQuad();
@@ -246,14 +250,19 @@ void TextBackgroundRenderer::Draw(float alpha, const Rectf& area) {
     .Translate(vec3f(area.left, area.top, 0.0f))
     .Scale(vec3f(area.GetWidth(), area.GetHeight(), 1.0f));
 
-  shader_->SetUniform(attributes2d::Model(), model);
-  shader_->SetUniform(attributes2d::Color(), Rgba(0.0f, 0.0f, 0.0f, alpha));
+  shader_->SetUniform(model_, model);
+  shader_->SetUniform(color_, Rgba(0.0f, 0.0f, 0.0f, alpha));
   ebo_.Draw(2);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 
-Font::Font(Shader* shader, const std::string& font_file, unsigned int font_size, const std::string& possible_chars) : shader_(shader), font_size_(font_size) {
+Font::Font(Shader* shader, const std::string& font_file, unsigned int font_size, const std::string& possible_chars)
+    : shader_(shader)
+    , font_size_(font_size)
+    , color_(shader->GetUniform("color"))
+    , model_(shader->GetUniform("model"))
+{
   const int texture_width = 512;
   const int texture_height = 512;
 
@@ -310,7 +319,7 @@ void Font::Draw(const vec2f& p, const std::string& str, const Rgb& basec, const 
 
   const bool applyHi = hi_end != -1 && hi_start != -1;
   if(applyHi == false) {
-    shader_->SetUniform(attributes2d::Color(), basec);
+    shader_->SetUniform(color_, basec);
   }
 
   int index = 0;
@@ -328,12 +337,12 @@ void Font::Draw(const vec2f& p, const std::string& str, const Rgb& basec, const 
 
     const mat4f model = mat4f::Identity().Translate(vec3f(position, 0.0f))
     .Scale(vec3f(scale, scale, 1.0f));
-    shader_->SetUniform(attributes2d::Model(), model);
+    shader_->SetUniform(model_, model);
 
     if(applyHi) {
       bool useHiColor = hi_start <= this_index && this_index < hi_end;
       const Rgb& color = useHiColor ? hic : basec;
-      shader_->SetUniform(attributes2d::Color(), color);
+      shader_->SetUniform(color_, color);
     }
     ch->ebo.Draw(2);
     KerningMap::const_iterator kerning = kerning_.find(std::make_pair(last_char_index, char_index));

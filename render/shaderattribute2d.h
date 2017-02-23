@@ -7,11 +7,7 @@ class Shader;
 
 namespace attributes2d {
 
-const ShaderAttribute& Rgba();
-const ShaderAttribute& Color();
-const ShaderAttribute& Model();
-const ShaderAttribute& Image();
-const ShaderAttribute& Projection();
+const ShaderAttribute& Vertex();
 
 void PrebindShader(Shader* shader);
 }

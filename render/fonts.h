@@ -12,6 +12,7 @@
 
 #include "render/buffer.h"
 #include "render/texture.h"
+#include "render/shaderuniform.h"
 
 class Shader;
 class BufferBuilder2d;
@@ -47,6 +48,8 @@ class TextBackgroundRenderer {
   Vao vao_;
   Ebo ebo_;
   Shader* shader_;
+  ShaderUniform model_;
+  ShaderUniform color_;
 };
 
 class Text {
@@ -98,6 +101,8 @@ class Font {
  private:
   Shader* shader_;
   unsigned int font_size_;
+  ShaderUniform color_;
+  ShaderUniform model_;
   std::unique_ptr<Texture2d> texture_;
   CharDataMap chars_;
   KerningMap kerning_;
