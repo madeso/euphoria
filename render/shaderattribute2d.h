@@ -7,7 +7,6 @@ class Shader;
 
 namespace attributes2d {
 
-const ShaderAttribute& Texture();
 const ShaderAttribute& Rgba();
 const ShaderAttribute& Color();
 const ShaderAttribute& Model();
