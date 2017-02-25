@@ -131,22 +131,11 @@ bool Shader::Compile(const GLchar *vertexSource, const GLchar *fragmentSource,
   glDeleteShader(sFragment);
   if (geometrySource != nullptr) glDeleteShader(gShader);
 
-  std::vector<std::string> failures;
   for(const auto& attribute : bound_attributes_) {
-    int attribute_id = glGetUniformLocation(id(), attribute.name.c_str());
+    int attribute_id = glGetAttribLocation(id(), attribute.name.c_str());
     if( attribute_id == attribute.id ) continue;
     if( attribute_id == -1 ) continue;
-    std::stringstream ss;
-    ss << attribute.name << " was bound to " << attribute_id << " but was requested to " << attribute.id;
-    failures.push_back(ss.str());
-  }
-
-  if( failures.empty() == false) {
-    std::cerr << "Failed to bind shader!\n";
-    for(const auto& f : failures) {
-      std::cerr << "  " << f << "\n";
-    }
-
+    std::cerr << attribute.name << " was bound to " << attribute_id << " but was requested at " << attribute.id << "\n";
     ret = false;
   }
 
