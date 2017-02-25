@@ -202,16 +202,11 @@ std::pair<BufferBuilder2d, Rectf> BuildCharVao(const stbrp_rect &src_rect, const
   const stbrp_coord uv_bottom = uv_top + src_rect.h;
 
   BufferBuilder2d builder;
-  builder.AddQuad(
-      Point(vert_left, vert_top,
-            uv_left/iw, uv_top/ih),
-      Point(vert_right, vert_top,
-            uv_right/iw, uv_top/ih),
-      Point(vert_left, vert_bottom,
-            uv_left/iw, uv_bottom/ih),
-      Point(vert_right, vert_bottom,
-            uv_right/iw, uv_bottom/ih)
-  );
+  const auto a = Point(vert_left, vert_top, uv_left/iw, uv_top/ih);
+  const auto b = Point(vert_right, vert_top, uv_right/iw, uv_top/ih);
+  const auto c = Point(vert_left, vert_bottom, uv_left/iw, uv_bottom/ih);
+  const auto d = Point(vert_right, vert_bottom, uv_right/iw, uv_bottom/ih);
+  builder.AddQuad(a, b, c, d);
   return std::make_pair(builder, Rectf::FromLeftRightTopBottom(vert_left, vert_right, vert_top, vert_bottom));
 }
 
@@ -330,8 +325,9 @@ void Font::Draw(const vec2f& p, const std::string& str, const Rgb& basec, const 
     }
     std::shared_ptr<CharData> ch = it->second;
 
-    const mat4f model = mat4f::Identity().Translate(vec3f(position, 0.0f))
-    .Scale(vec3f(scale, scale, 1.0f));
+    const mat4f model = mat4f::Identity()
+      .Translate(vec3f(position, 0.0f))
+      .Scale(vec3f(scale, scale, 1.0f));
     shader_->SetUniform(model_, model);
 
     if(applyHi) {
