@@ -67,7 +67,7 @@ void Ebo::SetData(const std::vector<unsigned int>& indices){
 
 void Ebo::Draw(int count) const {
   Assert(this);
-  Assert(GetBound() == this);
+  Assert(Vao::GetBound() != nullptr);
   glDrawElements(GL_TRIANGLES, count, GL_UNSIGNED_INT, 0);
 }
 
