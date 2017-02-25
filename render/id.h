@@ -1,9 +1,10 @@
 #ifndef RENDER_ID_H
 #define RENDER_ID_H
 
+#include "core/noncopyable.h"
 #include "render/gltypes.h"
 
-class Id {
+class Id : Noncopyable {
  public:
   Id();
   ~Id();
