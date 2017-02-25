@@ -12,7 +12,7 @@ class Buffer2d {
   void Draw() const;
 
  private:
-  int tri_count_;
+  unsigned int index_count_;
   Vbo vbo_;
   Vao vao_;
   Ebo ebo_;

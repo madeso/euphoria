@@ -5,7 +5,7 @@
 #include "render/shaderattribute2d.h"
 
 Buffer2d::Buffer2d(const BufferBuilder2d& bb)
-  : tri_count_(bb.GetTriangleIndices().size()/3)
+  : index_count_(bb.GetTriangleIndices().size())
 {
   Vao::Bind(&vao_);
   Vbo::Bind(&vbo_);
@@ -26,6 +26,6 @@ Buffer2d::Buffer2d(const BufferBuilder2d& bb)
 void Buffer2d::Draw() const {
   Assert(this);
   Vao::Bind(&vao_);
-  ebo_.Draw(tri_count_);
+  ebo_.Draw(index_count_);
   Vao::Bind(nullptr);
 }
