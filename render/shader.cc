@@ -16,15 +16,15 @@ ShaderId::~ShaderId() { glDeleteProgram(id_); }
 GLuint ShaderId::id() const { return id_; }
 
 namespace {
-const ShaderId *&currentShader() {
-  static const ShaderId *s = nullptr;
+const Shader *&currentShader() {
+  static const Shader *s = nullptr;
   return s;
 }
 }
 
 bool ShaderId::IsCurrentlyBound() const { return this == currentShader(); }
 
-void Use(const ShaderId *shader) {
+void Use(const Shader *shader) {
   if (shader != nullptr) {
     glUseProgram(shader->id());
   }
@@ -32,6 +32,10 @@ void Use(const ShaderId *shader) {
     glUseProgram(0);
   }
   currentShader() = shader;
+}
+
+const Shader* Shader::CurrentlyBound() {
+  return currentShader();
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -239,6 +243,16 @@ bool Shader::Load(const std::string& file_path) {
     std::cerr << "Failed to compile shader " << file_path << "\n";
   }
   return fail;
+}
+
+const std::vector<ShaderAttribute>& Shader::GetAttributes() const {
+  Assert(this);
+  return bound_attributes_;
+}
+
+const std::string& Shader::GetName() const {
+  Assert(this);
+  return shader_name_;
 }
 
 bool Shader::HasBoundAttribute(const ShaderAttribute &attribute) const {

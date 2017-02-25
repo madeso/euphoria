@@ -4,8 +4,7 @@
 #include <vector>
 
 #include "render/id.h"
-
-class ShaderAttribute;
+#include "render/shaderattribute.h"
 
 class Vbo : public Id {
  public:
@@ -27,6 +26,9 @@ class Vao : public Id {
 
   static void Bind(const Vao* vao);
   static const Vao*& GetBound();
+
+  // debug
+  std::vector<ShaderAttribute> attributes;
 };
 
 class Ebo : public Id {

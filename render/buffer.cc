@@ -3,7 +3,8 @@
 #include "core/assert.h"
 
 #include "render/gl.h"
-#include "render/shaderattribute.h"
+#include "render/shader.h"
+#include <algorithm>
 
 Vbo::Vbo() { glGenBuffers(1, &id_); }
 
@@ -41,6 +42,8 @@ void Vao::BindVboData(const ShaderAttribute& attribute, int stride, int offset) 
   Assert(size >= 1 && size <= 4);
   glVertexAttribPointer(attribute.id, size, GL_FLOAT, GL_FALSE, stride, reinterpret_cast<GLvoid*>(offset));
   glEnableVertexAttribArray(attribute.id);
+
+  attributes.push_back(attribute);
 }
 
 void Vao::Bind(const Vao* vao) {
@@ -68,6 +71,23 @@ void Ebo::SetData(const std::vector<unsigned int>& indices){
 void Ebo::Draw(int count) const {
   Assert(this);
   Assert(Vao::GetBound() != nullptr);
+  Assert(Shader::CurrentlyBound() != nullptr);
+
+  const Vao* vao = Vao::GetBound();
+  const Shader* shader = Shader::CurrentlyBound();
+  Assert(vao);
+  Assert(shader);
+
+  const auto& a = shader->GetAttributes();
+  for(const auto& attribute: vao->attributes) {
+    const bool found_in_shader = std::find(a.begin(), a.end(), attribute) != a.end();
+    if(found_in_shader == false) {
+      std::cerr << "Failed to find attribute " << attribute.name << " bound in shader " << shader->GetName() << "\n";
+      Assert(false);
+    }
+  }
+
+
   glDrawElements(GL_TRIANGLES, count, GL_UNSIGNED_INT, 0);
 }
 

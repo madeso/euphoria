@@ -29,7 +29,7 @@ class ShaderId : Noncopyable {
   gluint id_;
 };
 
-void Use(const ShaderId *id);
+void Use(const Shader *id);
 
 class Shader : public ShaderId {
  public:
@@ -51,6 +51,11 @@ class Shader : public ShaderId {
   void SetUniform(const ShaderUniform& attribute, const Rgba& val);
   void SetUniform(const ShaderUniform& attribute, const vec4f& val);
   void SetUniform(const ShaderUniform& attribute, const mat4f& val);
+
+  // debug
+  static const Shader* CurrentlyBound();
+  const std::vector<ShaderAttribute>& GetAttributes() const;
+  const std::string& GetName() const;
 
  private:
   // debug
