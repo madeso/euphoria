@@ -14,8 +14,8 @@ class Vbo : public Id {
 
   void SetData(const std::vector<float>& data);
 
-  static void Bind(Vbo* vbo);
-  static Vbo*& GetBound();
+  static void Bind(const Vbo* vbo);
+  static const Vbo*& GetBound();
 };
 
 class Vao : public Id {
@@ -25,8 +25,8 @@ class Vao : public Id {
 
   void BindVboData(const ShaderAttribute& attribute, int stride, int offset);
 
-  static void Bind(Vao* vao);
-  static Vao*& GetBound();
+  static void Bind(const Vao* vao);
+  static const Vao*& GetBound();
 };
 
 class Ebo : public Id {
@@ -37,8 +37,8 @@ class Ebo : public Id {
   void SetData(const std::vector<unsigned int>& indices);
   void Draw(int count) const;
 
-  static void Bind(Ebo* ebo);
-  static Ebo*& GetBound();
+  static void Bind(const Ebo* ebo);
+  static const Ebo*& GetBound();
 };
 
 

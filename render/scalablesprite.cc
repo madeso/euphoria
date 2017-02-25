@@ -4,7 +4,7 @@
 #include <iostream>
 #include <algorithm>
 
-#include "render/buffer.h"
+#include "render/buffer2d.h"
 #include "render/bufferbuilder2d.h"
 #include "core/rect.h"
 #include "render/texture.h"
@@ -80,12 +80,12 @@ const Texture2d* ScalableSprite::texture_ptr() const {
   return texture_;
 }
 
-const Ebo* ScalableSprite::ebo_ptr() const {
+const Buffer2d* ScalableSprite::buffer_ptr() const {
   Assert(this);
   BuildData();
   Assert(dirty_ == false);
-  Assert(ebo_.get() != nullptr);
-  return ebo_.get();
+  Assert(buffer_.get() != nullptr);
+  return buffer_.get();
 }
 
 void ScalableSprite::BuildData() const {
@@ -147,9 +147,6 @@ void ScalableSprite::BuildData() const {
   }
 
   dirty_ = false;
-  vao_.reset(new Vao());
-  ebo_.reset(new Ebo());
-  data.SetupVao(vao_.get());
-  data.SetupEbo(ebo_.get());
+  buffer_.reset(new Buffer2d(data));
 }
 

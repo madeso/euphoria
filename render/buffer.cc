@@ -16,14 +16,14 @@ void Vbo::SetData(const std::vector<float>& data) {
   glBufferData(GL_ARRAY_BUFFER, sizeof(float) * data.size(), &data[0], GL_STATIC_DRAW);
 }
 
-void Vbo::Bind(Vbo* vbo){
+void Vbo::Bind(const Vbo* vbo){
   const gluint id = vbo ? vbo->id_ : 0;
   glBindBuffer(GL_ARRAY_BUFFER, id);
   GetBound() = vbo;
 }
 
-Vbo*& Vbo::GetBound(){
-  static Vbo* vbo = nullptr;
+const Vbo*& Vbo::GetBound(){
+  static const Vbo* vbo = nullptr;
   return vbo;
 }
 
@@ -43,14 +43,14 @@ void Vao::BindVboData(const ShaderAttribute& attribute, int stride, int offset) 
   glEnableVertexAttribArray(attribute.id);
 }
 
-void Vao::Bind(Vao* vao) {
+void Vao::Bind(const Vao* vao) {
   const gluint id = vao ? vao->id_ : 0;
   glBindVertexArray(id);
   GetBound() = vao;
 }
 
-Vao*& Vao::GetBound() {
-  static Vao* vao = nullptr;
+const Vao*& Vao::GetBound() {
+  static const Vao* vao = nullptr;
   return vao;
 }
 
@@ -71,14 +71,14 @@ void Ebo::Draw(int count) const {
   glDrawElements(GL_TRIANGLES, count, GL_UNSIGNED_INT, 0);
 }
 
-void Ebo::Bind(Ebo* ebo){
+void Ebo::Bind(const Ebo* ebo){
   const gluint id = ebo ? ebo->id_ : 0;
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, id);
   GetBound() = ebo;
 }
 
-Ebo*& Ebo::GetBound() {
-  static Ebo* ebo = nullptr;
+const Ebo*& Ebo::GetBound() {
+  static const Ebo* ebo = nullptr;
   return ebo;
 }
 

@@ -9,10 +9,9 @@
 #include "core/rgb.h"
 #include "render/shaderuniform.h"
 
-class Vao;
-class Ebo;
-
 class ScalableSprite;
+
+class Buffer2d;
 
 class SpriteRenderer {
  public:
@@ -32,8 +31,7 @@ class SpriteRenderer {
   Shader* shader_;
   ShaderUniform color_;
   ShaderUniform model_;
-  std::unique_ptr<Vao> vao_;
-  std::unique_ptr<Ebo> ebo_;
+  std::unique_ptr<Buffer2d> buffer_;
 
   void InitRenderData();
 

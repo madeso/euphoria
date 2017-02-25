@@ -5,8 +5,7 @@
 #include <vector>
 #include "core/size.h"
 
-class Vao;
-class Ebo;
+class Buffer2d;
 class Texture2d;
 class TextureCache;
 
@@ -22,7 +21,7 @@ class ScalableSprite {
 
   // for rendering...
   const Texture2d* texture_ptr() const;
-  const Ebo* ebo_ptr() const;
+  const Buffer2d* buffer_ptr() const;
 
 
 
@@ -33,8 +32,7 @@ class ScalableSprite {
   Sizef size_;
 
   mutable bool dirty_;
-  mutable std::unique_ptr<Vao> vao_;
-  mutable std::unique_ptr<Ebo> ebo_;
+  mutable std::unique_ptr<Buffer2d> buffer_;
 
   std::vector<float> cols_;
   std::vector<float> rows_;

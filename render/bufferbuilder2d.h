@@ -26,8 +26,8 @@ class BufferBuilder2d {
   void AddQuad(const Point& a, const Point& b, const Point& c,
                    const Point& d);
 
-  void SetupVao(Vao* vao) const;
-  void SetupEbo(Ebo* ebo) const;
+  const std::vector<float>& GetVertexData() const;
+  const std::vector<unsigned int>& GetTriangleIndices() const;
  private:
   std::vector<float> data;
   std::vector<unsigned int> tris;

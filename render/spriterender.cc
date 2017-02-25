@@ -1,9 +1,9 @@
 #include "render/spriterender.h"
-#include "render/buffer.h"
+#include "render/buffer2d.h"
 #include "render/scalablesprite.h"
 #include "render/shaderattribute2d.h"
 #include "render/gl.h"
-#include "bufferbuilder2d.h"
+#include "render/bufferbuilder2d.h"
 
 SpriteRenderer::SpriteRenderer(Shader* shader)
     : shader_(shader)
@@ -14,7 +14,7 @@ SpriteRenderer::SpriteRenderer(Shader* shader)
   InitRenderData();
 }
 
-SpriteRenderer::~SpriteRenderer() { vao_.reset(); }
+SpriteRenderer::~SpriteRenderer() { buffer_.reset(); }
 
 void SpriteRenderer::DrawSprite(const Texture2d& texture,
                                 const vec2f& position, float rotate,
@@ -26,7 +26,7 @@ void SpriteRenderer::DrawSprite(const Texture2d& texture,
   glActiveTexture(GL_TEXTURE0);
   Use(&texture);
 
-  ebo_->Draw(2);
+  buffer_->Draw();
 }
 
 void SpriteRenderer::CommonDraw(const vec2f &position, float rotate,
@@ -57,7 +57,7 @@ void SpriteRenderer::DrawNinepatch(const ScalableSprite& ninepatch, const vec2f&
   glActiveTexture(GL_TEXTURE0);
   Use(ninepatch.texture_ptr());
 
-  ninepatch.ebo_ptr()->Draw(2); // todo: fix this
+  ninepatch.buffer_ptr()->Draw(); // todo: fix this
   // vao_->Draw();
 }
 
@@ -71,8 +71,5 @@ void SpriteRenderer::InitRenderData() {
 
   data.AddQuad(c, b, a, d);
 
-  vao_.reset(new Vao());
-  ebo_.reset(new Ebo());
-  data.SetupVao(vao_.get());
-  data.SetupEbo(ebo_.get());
+  buffer_.reset(new Buffer2d(data));
 }

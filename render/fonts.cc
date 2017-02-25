@@ -102,9 +102,7 @@ struct Face {
   }
 };
 
-CharData::CharData(const BufferBuilder2d& data, const Rectf& ex, unsigned int ch, float ad) : extent(ex), c(ch), advance(ad) {
-  data.SetupVao(&vao);
-  data.SetupEbo(&ebo);
+CharData::CharData(const BufferBuilder2d& data, const Rectf& ex, unsigned int ch, float ad) : extent(ex), c(ch), advance(ad), buffer(data) {
 }
 
 struct Pixels {
@@ -233,15 +231,12 @@ BufferBuilder2d SimpleQuad() {
 }
 
 TextBackgroundRenderer::TextBackgroundRenderer(Shader* shader)
-    : shader_(shader)
+    : buffer_(SimpleQuad())
+    , shader_(shader)
     , model_(shader->GetUniform("model"))
     , color_(shader->GetUniform("color"))
 {
   Assert(shader);
-
-  const auto quad = SimpleQuad();
-  quad.SetupVao(&vao_);
-  quad.SetupEbo(&ebo_);
 }
 
 void TextBackgroundRenderer::Draw(float alpha, const Rectf& area) {
@@ -252,7 +247,7 @@ void TextBackgroundRenderer::Draw(float alpha, const Rectf& area) {
 
   shader_->SetUniform(model_, model);
   shader_->SetUniform(color_, Rgba(0.0f, 0.0f, 0.0f, alpha));
-  ebo_.Draw(2);
+  buffer_.Draw();
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -344,7 +339,7 @@ void Font::Draw(const vec2f& p, const std::string& str, const Rgb& basec, const 
       const Rgb& color = useHiColor ? hic : basec;
       shader_->SetUniform(color_, color);
     }
-    ch->ebo.Draw(2);
+    ch->buffer.Draw();
     KerningMap::const_iterator kerning = kerning_.find(std::make_pair(last_char_index, char_index));
     int the_kerning = kerning == kerning_.end() ? 0 : kerning->second;
     position.x += (ch->advance + the_kerning)*scale;

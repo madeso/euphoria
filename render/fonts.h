@@ -10,7 +10,7 @@
 #include "core/rgb.h"
 #include "core/rect.h"
 
-#include "render/buffer.h"
+#include "render/buffer2d.h"
 #include "render/texture.h"
 #include "render/shaderuniform.h"
 
@@ -19,8 +19,7 @@ class BufferBuilder2d;
 
 struct CharData {
   CharData(const BufferBuilder2d& data, const Rectf& extent, unsigned int c, float advance);
-  Vao vao;
-  Ebo ebo;
+  Buffer2d buffer;
   Rectf extent;
 
   unsigned int c;
@@ -45,8 +44,7 @@ class TextBackgroundRenderer {
 
   void Draw(float alpha, const Rectf& area);
  private:
-  Vao vao_;
-  Ebo ebo_;
+  Buffer2d buffer_;
   Shader* shader_;
   ShaderUniform model_;
   ShaderUniform color_;
