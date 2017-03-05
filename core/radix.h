@@ -39,12 +39,17 @@ std::vector<T> CountSort(const std::vector<T>& arr, int exp)
     sum[i] += sum[i - 1];
   }
 
-  std::vector<T> ret;
-  ret.reserve(size);
+  // cant use reserve since that will not set the size, and we cant use resize
+  // or something else since that requires our object to be default constructable
+  // so we copy the array instead
+  // todo: look into swapping the input array instead?
+  std::vector<T> ret = arr;
 
   for (int i = size - 1; i >= 0; i--) {
-    ret[sum[ Bucket::GetIndex(IdExtractor::GetId(arr[i]), exp)] - 1] = arr[i];
-    sum[ Bucket::GetIndex(IdExtractor::GetId(arr[i]), exp) ]--;
+    auto index = Bucket::GetIndex(IdExtractor::GetId(arr[i]), exp);
+    auto target = sum[ index ] - 1;
+    ret[target] = arr[i];
+    sum[ index ]--;
   }
 
   return ret;
