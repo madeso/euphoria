@@ -1,39 +1,60 @@
-#include "gtest/gtest.h"
+#include "gmock/gmock.h"
 #include "core/radix.h"
-#include <vector>
 
-#define GTEST(X) TEST(radix, X)
+#include "testbase.h"
+
+#include <vector>
+#include <string>
 
 struct Dummy {
   int id;
+  std::string name;
 
-  Dummy(int i) : id(i) {}
+  Dummy(int i, const std::string& n) : id(i), name(n) {}
 
   static int GetId(const Dummy& d) {
     return d.id;
   }
+
+  bool operator==(const Dummy& rhs) const {
+    return id == rhs.id && name == rhs.name;
+  }
 };
 
+struct Builder {
+  Builder& operator()(int i, const std::string& n) {
+    data.push_back(Dummy{i, n});
+    return *this;
+  }
+
+  operator const std::vector<Dummy>&() const {
+    return data;
+  }
+
+  std::vector<Dummy> data;
+};
+
+struct RadixTest : public ::testing::Test {
+  RadixTest()
+  : sorted1( Builder()(1, "dog")(2, "cat")(5, "pony")(24, "bird")(25, "horse")(123, "fish")(8390, "badger") )
+  , unsorted1( Builder()(25, "horse")(24, "bird")(5, "pony")(1, "dog")(8390, "badger")(123, "fish")(2, "cat") )
+  { }
+
+  std::vector<Dummy> sorted1;
+  std::vector<Dummy> unsorted1;
+};
+
+#define GTEST(X) TEST_F(RadixTest, X)
+
 GTEST(already_sorted) {
-  std::vector<Dummy> d;
-  d.push_back(3);
-  d.push_back(5);
-  d.push_back(9);
+  std::vector<Dummy> d = sorted1;
   RadixSort<Dummy, Dummy, Bucket10base<int>, int>(&d);
-  EXPECT_EQ(3, d[0].id);
-  EXPECT_EQ(5, d[1].id);
-  EXPECT_EQ(9, d[2].id);
+  ASSERT_THAT(d, ::testing::ElementsAreArray(sorted1));
 }
 
 GTEST(not_sorted) {
-  std::vector<Dummy> d;
-  d.push_back(9);
-  d.push_back(3);
-  d.push_back(5);
-
+  std::vector<Dummy> d = unsorted1;
   RadixSort<Dummy, Dummy, Bucket10base<int>, int>(&d);
-  EXPECT_EQ(3, d[0].id);
-  EXPECT_EQ(5, d[1].id);
-  EXPECT_EQ(9, d[2].id);
+  ASSERT_THAT(d, ::testing::ElementsAreArray(sorted1));
 }
 
