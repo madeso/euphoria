@@ -235,6 +235,13 @@ int main(int argc, char** argv) {
       player.SetRotation(player_rotation);
     }
 
+    /*
+    // uncomment for infinite enemies!!
+    if(enemies.EnemyCount() == 0 ) {
+      enemies.SpawnEnemies(5);
+    }
+    */
+
     init.ClearScreen();
 
     background.Render();
