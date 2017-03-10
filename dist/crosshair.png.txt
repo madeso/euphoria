@@ -1,6 +1,0 @@
-rows: 14
-rows: -4
-rows: 14
-cols: 14
-cols: -4
-cols: 14
