@@ -4,6 +4,7 @@
 #include <wx/dcgraph.h>
 
 #include "core/numeric.h"
+#include "core/assert.h"
 
 #include <vector>
 #include <sstream>
