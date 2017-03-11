@@ -15,4 +15,5 @@ The following table lists how the sorces are structured
 | `proto` | protobuf files, for sharing between projects |
 | `tests` | unit tests |
 | `external` | external libraries |
+| `cmake_modules` | find scripts for CMake |
 
