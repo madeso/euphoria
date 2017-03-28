@@ -1,14 +1,14 @@
 cmake_minimum_required(VERSION 3.1.0)
 set_property(GLOBAL PROPERTY USE_FOLDERS OFF)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-project(spacetyper)
+project(euphoria)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH}
-    "${PROJECT_SOURCE_DIR}/cmake-modules")
+    "${CMAKE_CURRENT_SOURCE_DIR}/cmake-modules")
 
 find_package(OpenGL REQUIRED)
 
@@ -43,17 +43,17 @@ if(CMAKE_CONFIGURATION_TYPES)
 	set(CMAKE_CONFIGURATION_TYPES "${CMAKE_CONFIGURATION_TYPES}" CACHE STRING "Reset the configurations to what we need" FORCE)
 endif()
 
-include_directories(${CMAKE_SOURCE_DIR})
+include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 include_directories(SYSTEM ${CMAKE_CURRENT_BINARY_DIR})
 
 find_package(Protobuf REQUIRED)
 include_directories(${PROTOBUF_INCLUDE_DIRS})
 set(pbjson_src
-		${CMAKE_SOURCE_DIR}/external/pbjson/src/pbjson.cpp
-		${CMAKE_SOURCE_DIR}/external/pbjson/src/pbjson.hpp
-		${CMAKE_SOURCE_DIR}/external/pbjson/src/bin2ascii.h
+		${CMAKE_CURRENT_SOURCE_DIR}/external/pbjson/src/pbjson.cpp
+		${CMAKE_CURRENT_SOURCE_DIR}/external/pbjson/src/pbjson.hpp
+		${CMAKE_CURRENT_SOURCE_DIR}/external/pbjson/src/bin2ascii.h
 		)
-include_directories(${CMAKE_SOURCE_DIR}/external/pbjson/src/)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/external/pbjson/src/)
 
 add_subdirectory(core)
 add_subdirectory(render)
