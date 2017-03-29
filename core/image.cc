@@ -95,13 +95,13 @@ namespace {
 unsigned char Select(int ch, unsigned char a, unsigned char b, unsigned char c,
                      unsigned char d) {
   switch (ch) {
-    case 1:
+    case 1: // grey
       return a;
-    case 2:
+    case 2: // grey, alpha
       return b;
-    case 3:
+    case 3: // red, green, blue
       return c;
-    case 4:
+    case 4: // red, green, blue, alpha
       return d;
     default:
       Assert(false && "unhandled Select channel");
@@ -111,14 +111,13 @@ unsigned char Select(int ch, unsigned char a, unsigned char b, unsigned char c,
 }
 
 ImageLoadResult LoadImage(const std::string& path, AlphaLoad alpha) {
-  ImageLoadResult result;
-
   int channels = 0;
   int image_width = 0;
   int image_height = 0;
   unsigned char* data = stbi_load(path.c_str(), &image_width, &image_height, &channels, 0);
 
   if (data == NULL) {
+    ImageLoadResult result;
     result.error = stbi_failure_reason();
     result.image.Clear();
     std::cerr << "Failed to load " << path << ": " << result.error << "\n";
@@ -134,21 +133,24 @@ ImageLoadResult LoadImage(const std::string& path, AlphaLoad alpha) {
             << " alpha " << has_alpha << " channels " << channels
             << ".\n";
 
+  ImageLoadResult result;
   result.image.Setup(image_width, image_height, has_alpha, -1);
 
   for (int y = 0; y < image_height; ++y) {
     for (int x = 0; x < image_width; ++x) {
-      const unsigned long src = (y * image_width + x) * channels;
+      const unsigned long src_index = (y * image_width + x) * channels;
 
-      const unsigned char c1 = data[src + 0];
-      const unsigned char c2 = (channels <= 1 ? 0 : data[src + 1]);
-      const unsigned char c3 = (channels <= 2 ? 0 : data[src + 2]);
-      const unsigned char c4 = (channels <= 3 ? 0 : data[src + 3]);
+      // get component values
+      const unsigned char c1 = data[src_index + 0];
+      const unsigned char c2 = (channels <= 1 ? 0 : data[src_index + 1]);
+      const unsigned char c3 = (channels <= 2 ? 0 : data[src_index + 2]);
+      const unsigned char c4 = (channels <= 3 ? 0 : data[src_index + 3]);
 
-      const unsigned char r = c1;
-      const unsigned char g = Select(channels, c1, c1, c2, c2);
-      const unsigned char b = Select(channels, c1, c1, c3, c3);
-      const unsigned char a = Select(channels, 255, c2, 255, c4);
+      // Gray, Gray+alpha, RGB, RGB+alpha:     gr   gra  rgb  rgba
+      const unsigned char r = c1; //           c1   c1   c1    c1
+      const unsigned char g = Select(channels, c1,  c1,  c2,   c2);
+      const unsigned char b = Select(channels, c1,  c1,  c3,   c3);
+      const unsigned char a = Select(channels, 255, c2,  255,  c4);
 
       result.image.SetPixel(x, y, r, g, b, a);
     }
