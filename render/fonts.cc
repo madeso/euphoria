@@ -176,7 +176,7 @@ FontChars GetCharactersFromFont(const std::string &font_file, unsigned int font_
 
 std::pair<BufferBuilder2d, Rectf> BuildCharVao(const stbrp_rect &src_rect, const FontChar &src_char, int image_width, int image_height) {
   //
-  //             width
+  //             width_
   //          <--------->
   //          A---------B
   // bearingX |         |   |              |

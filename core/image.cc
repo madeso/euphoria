@@ -10,71 +10,80 @@
 void Image::Clear() {
   Assert(this);
   components.resize(0);
-  width = height = 0;
-  has_alpha = false;
+  width_ = 0;
+  height_ = 0;
+  has_alpha_ = false;
 
   Assert(IsValid() == false);
 }
 
 int Image::GetPixelByteSize() const {
   Assert(this);
-  return has_alpha ? 4 : 3;
+  return has_alpha_ ? 4 : 3;
 }
 
-void Image::Setup(int image_width, int image_height, bool alpha) {
+void Image::Setup(int image_width, int image_height, bool alpha, int default_value) {
   Assert(this);
   Assert(image_width > 0);
   Assert(image_height > 0);
 
-  width = image_width;
-  height = image_height;
-  has_alpha = alpha;
+  width_ = image_width;
+  height_ = image_height;
+  has_alpha_ = alpha;
 
-  components.resize(width * height * GetPixelByteSize(), 0);
+  components.resize(0); // clear all pixels
+  const size_t size = width_ * height_ * GetPixelByteSize();
+  if(default_value < 0) {
+    components.resize(size);
+  }
+  else {
+    Assert(default_value<=255);
+    components.resize(size, static_cast<unsigned char>(default_value));
+  }
 
   Assert(IsValid());
 }
 
 unsigned long Image::GetPixelIndex(int x, int y) const {
   Assert(this);
-  Assert(x >= 0 && x<width);
-  Assert(y >= 0 && y<height);
+  Assert(x >= 0 && x<width_);
+  Assert(y >= 0 && y<height_);
 
-  return (y * width + x) * GetPixelByteSize();
+  return (y * width_ + x) * GetPixelByteSize();
 }
 
 void Image::SetPixel(int x, int y, unsigned char r, unsigned char g,
                      unsigned char b, unsigned char a) {
   Assert(this);
 
-  const unsigned long dest = GetPixelIndex(x, y);
-  components[dest + 0] = r;
-  components[dest + 1] = g;
-  components[dest + 2] = b;
+  const unsigned long base_index = GetPixelIndex(x, y);
+  components[base_index + 0] = r;
+  components[base_index + 1] = g;
+  components[base_index + 2] = b;
 
-  if (has_alpha) {
-    components[dest + 3] = a;
+  if (has_alpha_) {
+    components[base_index + 3] = a;
   }
 }
 
 bool Image::IsValid() const {
   Assert(this);
-  return width > 0 && height > 0;
+  return width_ > 0 && height_ > 0;
 }
 
 int Image::GetWidth() const {
   Assert(this);
-  return width;
+  return width_;
 }
 
 int Image::GetHeight() const {
   Assert(this);
-  return height;
+  return height_;
 }
 
 bool Image::HasAlpha() const {
   Assert(this);
-  return has_alpha;
+  return has_alpha_;
 }
 
 const unsigned char* Image::GetPixelData() const {
@@ -82,6 +91,7 @@ const unsigned char* Image::GetPixelData() const {
   return &components[0];
 }
 
+namespace {
 unsigned char Select(int ch, unsigned char a, unsigned char b, unsigned char c,
                      unsigned char d) {
   switch (ch) {
@@ -97,6 +107,7 @@ unsigned char Select(int ch, unsigned char a, unsigned char b, unsigned char c,
       Assert(false && "unhandled Select channel");
       return 0;
   }
+}
 }
 
 ImageLoadResult LoadImage(const std::string& path, AlphaLoad alpha) {
@@ -123,9 +134,7 @@ ImageLoadResult LoadImage(const std::string& path, AlphaLoad alpha) {
             << " alpha " << has_alpha << " channels " << channels
             << ".\n";
 
-  // const unsigned char dest_c = result.image.has_alpha ? 4 : 3;
-  // result.image.components.resize(result.image.width * result.image.height * dest_c, 0);
-  result.image.Setup(image_width, image_height, has_alpha);
+  result.image.Setup(image_width, image_height, has_alpha, -1);
 
   for (int y = 0; y < image_height; ++y) {
     for (int x = 0; x < image_width; ++x) {

@@ -7,7 +7,7 @@
 class Image {
  public:
   void Clear();
-  void Setup(int image_width, int image_height, bool alpha);
+  void Setup(int image_width, int image_height, bool alpha, int default_value=0);
   void SetPixel(int x, int y, unsigned char r, unsigned char g, unsigned char b, unsigned char a);
   bool IsValid() const;
 
@@ -21,9 +21,9 @@ class Image {
   unsigned long GetPixelIndex(int x, int y) const;
 
   std::vector<unsigned char> components;
-  int width;
-  int height;
-  bool has_alpha;
+  int width_;
+  int height_;
+  bool has_alpha_;
 };
 
 class ImageLoadResult {
