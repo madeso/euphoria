@@ -17,6 +17,9 @@ class Image {
   const unsigned char* GetPixelData() const;
 
  private:
+  int GetPixelByteSize() const;
+  unsigned long GetPixelIndex(int x, int y) const;
+
   std::vector<unsigned char> components;
   int width;
   int height;

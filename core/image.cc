@@ -8,25 +8,46 @@
 #include "stb_image.h"
 
 void Image::Clear() {
+  Assert(this);
   components.resize(0);
   width = height = 0;
   has_alpha = false;
+
+  Assert(IsValid() == false);
+}
+
+int Image::GetPixelByteSize() const {
+  Assert(this);
+  return has_alpha ? 4 : 3;
 }
 
 void Image::Setup(int image_width, int image_height, bool alpha) {
+  Assert(this);
+  Assert(image_width > 0);
+  Assert(image_height > 0);
+
   width = image_width;
   height = image_height;
   has_alpha = alpha;
 
-  const unsigned char dest_c = has_alpha ? 4 : 3;
-  components.resize(width * height * dest_c, 0);
+  components.resize(width * height * GetPixelByteSize(), 0);
+
+  Assert(IsValid());
+}
+
+unsigned long Image::GetPixelIndex(int x, int y) const {
+  Assert(this);
+  Assert(x >= 0 && x<width);
+  Assert(y >= 0 && y<height);
+
+  return (y * width + x) * GetPixelByteSize();
 }
 
 void Image::SetPixel(int x, int y, unsigned char r, unsigned char g,
                      unsigned char b, unsigned char a) {
-  const unsigned char dest_c = has_alpha ? 4 : 3;
+  Assert(this);
 
-  const unsigned long dest = (y * width + x) * dest_c;
+  const unsigned long dest = GetPixelIndex(x, y);
   components[dest + 0] = r;
   components[dest + 1] = g;
   components[dest + 2] = b;
@@ -37,22 +58,27 @@ void Image::SetPixel(int x, int y, unsigned char r, unsigned char g,
 }
 
 bool Image::IsValid() const {
+  Assert(this);
   return width > 0 && height > 0;
 }
 
 int Image::GetWidth() const {
+  Assert(this);
   return width;
 }
 
 int Image::GetHeight() const {
+  Assert(this);
   return height;
 }
 
 bool Image::HasAlpha() const {
+  Assert(this);
   return has_alpha;
 }
 
 const unsigned char* Image::GetPixelData() const {
+  Assert(this);
   return &components[0];
 }
 
