@@ -6,6 +6,17 @@
 
 class Image {
  public:
+  void Clear();
+  void Setup(int image_width, int image_height, bool alpha);
+  void SetPixel(int x, int y, unsigned char r, unsigned char g, unsigned char b, unsigned char a);
+  bool IsValid() const;
+
+  int GetWidth() const;
+  int GetHeight() const;
+  bool HasAlpha() const;
+  const unsigned char* GetPixelData() const;
+
+ private:
   std::vector<unsigned char> components;
   int width;
   int height;

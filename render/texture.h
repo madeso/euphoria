@@ -35,7 +35,7 @@ class Texture2d : public TextureId {
   Texture2d(const std::string& path, AlphaLoad alpha,
             const Texture2dLoadData& data);
 
-  void Load(int width, int height, unsigned char* pixelData,
+  void Load(int width, int height, const unsigned char* pixelData,
             gluint internalFormat, gluint imageFormat,
             const Texture2dLoadData& data);
   void LoadFromFile(const std::string& path, AlphaLoad alpha,

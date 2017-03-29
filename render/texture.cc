@@ -49,7 +49,7 @@ Texture2d::Texture2d(const std::string& path, AlphaLoad alpha,
   LoadFromFile(path, alpha, data);
 }
 
-void Texture2d::Load(int width, int height, unsigned char* pixelData,
+void Texture2d::Load(int width, int height, const unsigned char* pixelData,
                      GLuint internalFormat, GLuint imageFormat,
                      const Texture2dLoadData& data) {
   Use(this);
@@ -70,7 +70,7 @@ void Texture2d::Load(int width, int height, unsigned char* pixelData,
 void Texture2d::LoadFromFile(const std::string& path, AlphaLoad alpha,
                              const Texture2dLoadData& data) {
   ImageLoadResult i = LoadImage(path, alpha);
-  if (i.image.height <= 0) {
+  if (i.image.IsValid() == false) {
     std::cerr << "Failed to load image " << path << "\n"
               << "  " << i.error << "\n";
     return;
@@ -78,12 +78,12 @@ void Texture2d::LoadFromFile(const std::string& path, AlphaLoad alpha,
 
   GLuint internalFormat = GL_RGB;
   GLuint imageFormat = GL_RGB;
-  if (i.image.has_alpha) {
+  if (i.image.HasAlpha()) {
     internalFormat = GL_RGBA;
     imageFormat = GL_RGBA;
   }
 
-  Load(i.image.width, i.image.height, &i.image.components[0], internalFormat, imageFormat, data);
+  Load(i.image.GetWidth(), i.image.GetHeight(), i.image.GetPixelData(), internalFormat, imageFormat, data);
 }
 
 int Texture2d::width() const { return width_; }
