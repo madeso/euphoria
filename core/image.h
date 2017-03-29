@@ -4,12 +4,17 @@
 #include <string>
 #include <vector>
 
-class ImageLoadResult {
+class Image {
  public:
   std::vector<unsigned char> components;
   int width;
   int height;
   bool has_alpha;
+};
+
+class ImageLoadResult {
+ public:
+  Image image;
 
   std::string error;
 };
