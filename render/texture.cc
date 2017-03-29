@@ -1,7 +1,7 @@
 
 #include <iostream>
 
-#include "render/image.h"
+#include "core/image.h"
 #include "render/texture.h"
 #include "render/gl.h"
 

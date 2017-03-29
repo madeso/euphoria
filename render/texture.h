@@ -1,7 +1,7 @@
 #ifndef TEXTURE_H
 #define TEXTURE_H
 
-#include "render/image.h"
+#include "core/image.h"
 #include "render/gltypes.h"
 #include "core/noncopyable.h"
 

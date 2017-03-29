@@ -2,6 +2,9 @@ file(GLOB app_src *.cc;*.h;*.inl)
 set(src ${app_src})
 source_group("" FILES ${app_src})
 
+# todo: move image loading to a io library instead
+include_directories(SYSTEM ../external/stb)
+
 include_directories(../external/aheasing)
 set(src_aheasing
     ../external/aheasing/aheasing/easing.c
