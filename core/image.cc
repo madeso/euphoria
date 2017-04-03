@@ -49,7 +49,7 @@ unsigned long Image::GetPixelIndex(int x, int y) const {
   Assert(x >= 0 && x<width_);
   Assert(y >= 0 && y<height_);
 
-  return (y * width_ + x) * GetPixelByteSize();
+  return (y * static_cast<unsigned long>(width_) + x) * GetPixelByteSize();
 }
 
 void Image::SetPixel(int x, int y, unsigned char r, unsigned char g,
@@ -138,13 +138,14 @@ ImageLoadResult LoadImage(const std::string& path, AlphaLoad alpha) {
 
   for (int y = 0; y < image_height; ++y) {
     for (int x = 0; x < image_width; ++x) {
-      const unsigned long src_index = (y * image_width + x) * channels;
+      const unsigned long src_index = (y * static_cast<unsigned long>(image_width) + x) * channels;
 
       // get component values
+      const unsigned char zero = 0;
       const unsigned char c1 = data[src_index + 0];
-      const unsigned char c2 = (channels <= 1 ? 0 : data[src_index + 1]);
-      const unsigned char c3 = (channels <= 2 ? 0 : data[src_index + 2]);
-      const unsigned char c4 = (channels <= 3 ? 0 : data[src_index + 3]);
+      const unsigned char c2 = (channels <= 1) ? zero : data[src_index + 1];
+      const unsigned char c3 = (channels <= 2) ? zero : data[src_index + 2];
+      const unsigned char c4 = (channels <= 3) ? zero : data[src_index + 3];
 
       // Gray, Gray+alpha, RGB, RGB+alpha:     gr   gra  rgb  rgba
       const unsigned char r = c1; //           c1   c1   c1    c1
