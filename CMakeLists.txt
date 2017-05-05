@@ -12,7 +12,9 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH}
 
 find_package(OpenGL REQUIRED)
 
-find_package(GMock REQUIRED)
+if(EUPHORIA_TEST)
+  find_package(GMock REQUIRED)
+endif(EUPHORIA_TEST)
 
 FIND_PACKAGE(Threads REQUIRED) # for gmock
 
@@ -59,5 +61,8 @@ add_subdirectory(core)
 add_subdirectory(render)
 add_subdirectory(gui)
 add_subdirectory(scimed)
-add_subdirectory(tests)
+
+if(EUPHORIA_TEST)
+  add_subdirectory(tests)
+endif(EUPHORIA_TEST)
 
