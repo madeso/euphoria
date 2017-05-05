@@ -2,6 +2,10 @@ file(GLOB app_src *.cc;*.h;*.inl)
 set(src ${app_src})
 source_group("" FILES ${app_src})
 
+find_package(AssImp REQUIRED)
+
+include_directories(SYSTEM ${ASSIMP_INCLUDE_DIR})
+
 # todo: move image loading to a io library instead
 include_directories(SYSTEM ../external/stb)
 
@@ -23,6 +27,9 @@ source_group("AHEasing" FILES ${src_aheasing})
 
 add_library(core STATIC ${src})
 
+message(STATUS "assim libraries ${ASSIMP_LIBRARIES}")
+
 target_link_libraries(core
     ${PROTOBUF_LIBRARIES}
+    ${ASSIMP_LIBRARIES}
     )
