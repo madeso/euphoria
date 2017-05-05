@@ -10,7 +10,8 @@
 
 
 
-MeshPart::MeshPart() : material(0) {}
+MeshPart::MeshPart() : material(0), facecount(0) {}
+
 void MeshPart::AddPoint(float x, float y, float z, float u, float v) {
   points.push_back(x);
   points.push_back(y);
@@ -24,6 +25,7 @@ void MeshPart::AddFace(int a, int b, int c) {
   faces.push_back(a);
   faces.push_back(b);
   faces.push_back(c);
+  facecount += 1;
 }
 
 Material::Material()

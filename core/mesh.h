@@ -18,6 +18,7 @@ public:
   int material;
   std::vector<float> points;
   std::vector<int> faces;
+  int facecount;
 
   void AddPoint(float x, float y, float z, float u, float v);
   void AddFace(int a, int b, int c);
