@@ -53,6 +53,12 @@ public:
     return vec2<T>(width_, height_);
   }
 
+  vec2<T> CalculateCenterOffsetFor(const Self& o) {
+    const T x = (GetWidth() - o.GetWidth()) / 2;
+    const T y = (GetHeight() - o.GetHeight()) / 2;
+    return vec2<T>(x,y);
+  }
+
 private:
   Size(T w, T h) : width_(w), height_(h) {}
   T width_;
