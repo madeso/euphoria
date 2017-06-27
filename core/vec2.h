@@ -15,6 +15,10 @@ class vec2 {
   explicit vec2(const T& a) : x(a), y(a) {}
   vec2(const T& ax, const T& ay) : x(ax), y(ay) {}
 
+  static Self FromTo(const Self& from, const Self& to) {
+    return to - from;
+  }
+
   void operator+=(const vec2<T>& rhs) {
     x += rhs.x;
     y += rhs.y;
