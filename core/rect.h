@@ -3,6 +3,7 @@
 
 #include "core/vec2.h"
 #include "core/size.h"
+#include "core/line2.h"
 
 template <typename T>
 class Rect {
@@ -11,6 +12,9 @@ class Rect {
   T right;
   T bottom;
   T top;
+
+  typedef line2<T> Line;
+  typedef vec2<T> vec;
 
   Rect() : left(0), right(0), bottom(0), top(0) {}
 
@@ -149,6 +153,45 @@ class Rect {
 
   Size<T> GetSize() const {
     return Size<T>::FromWidthHeight(GetWidth(), GetHeight());
+  }
+
+  const vec TopLeft() const {
+    return vec(left, top);
+  }
+
+  const vec TopRight() const {
+    return vec(right, top);
+  }
+
+  const vec BottomLeft() const {
+    return vec(left, bottom);
+  }
+
+  const vec BottomRight() const {
+    return vec(right, bottom);
+  }
+
+  const Line LeftEdge() const {
+    return Line::FromTo(TopLeft(), BottomLeft());
+  }
+
+  const Line RightEdge() const {
+    return Line::FromTo(TopRight(), BottomRight());
+  }
+
+  const Line TopEdge() const {
+    return Line::FromTo(TopLeft(), TopRight());
+  }
+
+  const Line BottomEdge() const {
+    return Line::FromTo(BottomLeft(), BottomRight());
+  }
+
+  const typename Line::Collision GetPointOnEdge(const Line& line) {
+    return Line::Collision::GetClosestCollision(
+      Line::Collision::GetClosestCollision(line.GetIntersection(TopEdge()), line.GetIntersection(BottomEdge())),
+      Line::Collision::GetClosestCollision(line.GetIntersection(LeftEdge()), line.GetIntersection(RightEdge()))
+    );
   }
 };
 
