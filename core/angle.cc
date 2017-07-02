@@ -66,6 +66,10 @@ void Angle::operator/=(const float rhs)
   mRad /= rhs;
 }
 
+Angle Angle::operator-() const {
+  return Angle::FromRadians(-mRad);
+}
+
 const float Sin(const Angle& ang)
 {
   return std::sin(ang.inRadians());

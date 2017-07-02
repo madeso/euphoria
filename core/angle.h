@@ -24,6 +24,8 @@ class Angle
 
   void operator*=(const float r);
   void operator/=(const float r);
+
+  Angle operator-() const;
  private:
   explicit Angle(float rad);
   float mRad;
