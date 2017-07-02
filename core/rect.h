@@ -187,7 +187,7 @@ class Rect {
     return Line::FromTo(BottomLeft(), BottomRight());
   }
 
-  const typename Line::Collision GetPointOnEdge(const Line& line) {
+  const typename Line::Collision GetPointOnEdge(const Line& line) const {
     return Line::Collision::GetClosestCollision(
       Line::Collision::GetClosestCollision(line.GetIntersection(TopEdge()), line.GetIntersection(BottomEdge())),
       Line::Collision::GetClosestCollision(line.GetIntersection(LeftEdge()), line.GetIntersection(RightEdge()))
