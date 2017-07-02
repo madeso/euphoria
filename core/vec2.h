@@ -4,6 +4,7 @@
 #include <cmath>
 
 #include "core/interpolate.h"
+#include "core/angle.h"
 
 template<typename T>
 class vec2 {
@@ -55,6 +56,12 @@ class vec2 {
     Self r = *this;
     r.Normalize();
     return r;
+  }
+
+  Self GetRotated(const Angle& a) const {
+    const T nx = x * Cos(a) - y * Sin(a);
+    const T ny = x * Sin(a) + y * Cos(a);
+    return Self(nx, ny);
   }
 
   Self GetFlippedY() const {
