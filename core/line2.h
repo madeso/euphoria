@@ -2,6 +2,16 @@
 #define CORE_LINE2_H
 
 template<typename T>
+class lineseg2 {
+ public:
+  typedef vec2<T> vec;
+  lineseg2(const vec& f, const vec& t) : from(f), to(t) {}
+
+  vec from;
+  vec to;
+};
+
+template<typename T>
 class line2 {
  public:
   typedef line2<T> Self;
@@ -114,5 +124,8 @@ class line2 {
 
 typedef line2<float> line2f;
 typedef line2<int> line2i;
+
+typedef lineseg2<float> lineseg2f;
+typedef lineseg2<int> lineseg2i;
 
 #endif // CORE_LINE2_H
