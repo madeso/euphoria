@@ -118,6 +118,19 @@ class Rect {
     bottom += dy;
   }
 
+  void Expand(T expand) {
+    left -= expand;
+    right += expand;
+    top -= expand;
+    bottom += expand;
+  }
+
+  Rect<T> ExpandCopy(T expand) {
+    Rect<T> r = *this;
+    r.Expand(expand);
+    return r;
+  }
+
   Rect<T> OffsetCopy(T dx, T dy) const {
     Rect<T> ret = *this;
     ret.Offset(dx, dy);
