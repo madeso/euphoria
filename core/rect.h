@@ -25,6 +25,7 @@ class Rect {
   static Rect FromTopLeftWidthHeight(T atop, T aleft, T width, T height) { return FromLeftRightTopBottom(aleft, aleft + width, atop, atop + height); }
   static Rect FromWidthHeight(T width, T height) { return FromLeftRightTopBottom(0, width, 0, height); }
   static Rect FromWidthHeight(const Size<T>& s) { return FromWidthHeight(s.GetWidth(), s.GetHeight()); }
+  static Rect FromPoint(const vec& point) { return FromTopLeftWidthHeight(point.y, point.x, 0, 0); }
 
   T GetX() const {
     return left;
