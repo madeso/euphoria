@@ -40,6 +40,10 @@ class vec2 {
     y *= rhs;
   }
 
+  Self operator-() const {
+    return Self(-x, -y);
+  }
+
   T GetLengthSquared() const {
     return x*x + y*y;
   }
