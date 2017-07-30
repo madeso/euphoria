@@ -1,6 +1,7 @@
 #ifndef RENDER_INIT_H
 #define RENDER_INIT_H
 
+// todo: come up with a better name
 class Init {
  public:
   Init();

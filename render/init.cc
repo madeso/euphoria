@@ -5,6 +5,7 @@
 #include <iostream>
 
 Init::Init() : ok(true) {
+  // todo: replace glew
   const GLenum err = glewInit();
   if (GLEW_OK != err) {
     std::cerr << "Failed to init glew, error: " << glewGetErrorString(err)
@@ -17,6 +18,7 @@ Init::Init() : ok(true) {
   std::cout << "Version OpenGL: " << glGetString(GL_VERSION) << "\n";
   std::cout << "Version GLSL:   " << glGetString(GL_SHADING_LANGUAGE_VERSION) << "\n";
 
+  // todo: move this to a better place
   glDisable(GL_DEPTH_TEST);
   glDisable(GL_CULL_FACE);
   glEnable(GL_BLEND);
