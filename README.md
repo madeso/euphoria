@@ -13,6 +13,7 @@ The following table lists how the sources are structured
 | `render`        | the library that uses opengl for rendering |
 | `gui`           | a 2d system for rendering gui |
 | `proto`         | protobuf files, for sharing between projects |
+| `demo`          | a 3d demo project |
 | `tests`         | unit tests |
 | `external`      | external libraries |
 | `cmake_modules` | find scripts for CMake |

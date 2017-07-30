@@ -66,3 +66,4 @@ if(EUPHORIA_TEST)
   add_subdirectory(tests)
 endif(EUPHORIA_TEST)
 
+add_subdirectory(demo)
