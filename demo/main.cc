@@ -44,9 +44,63 @@ class SdlTimer {
   Uint64 last_time_;
 };
 
+class Sdl {
+ public:
+  Sdl() : ok(false) {
+    if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_JOYSTICK | SDL_INIT_AUDIO) < 0) {
+      std::cerr << "Failed to init SDL: " << SDL_GetError() << "\n";
+      return;
+    }
+
+    ok = true;
+  }
+
+  ~Sdl() {
+    SDL_Quit();
+  }
+
+  bool ok;
+};
+
+class SdlWindow {
+ public:
+  SdlWindow(const std::string& title, int width, int height) : window(nullptr) {
+    window = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_UNDEFINED,
+                                          SDL_WINDOWPOS_UNDEFINED, width, height,
+                                          SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
+
+    if (window == nullptr) {
+      std::cerr << "Failed to create window " << SDL_GetError() << "\n";
+    }
+  }
+
+  ~SdlWindow() {
+    SDL_DestroyWindow(window);
+  }
+
+  SDL_Window* window;
+};
+
+class SdlGlContext {
+ public:
+  SdlGlContext(SdlWindow* window) : context(nullptr) {
+    context = SDL_GL_CreateContext(window->window);
+    if (context == nullptr) {
+      std::cerr << "Failed to create GL context " << SDL_GetError() << "\n";
+      return;
+    }
+  }
+
+  ~SdlGlContext() {
+    SDL_GL_DeleteContext(context);
+  }
+
+  SDL_GLContext context;
+};
+
 int main(int argc, char** argv) {
-  if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_JOYSTICK | SDL_INIT_AUDIO) < 0) {
-    std::cerr << "Failed to init SDL: " << SDL_GetError() << "\n";
+  Sdl sdl;
+  if (sdl.ok == false) {
     return -1;
   }
 
@@ -55,19 +109,14 @@ int main(int argc, char** argv) {
   int width = 800;
   int height = 600;
 
-  SDL_Window* window = SDL_CreateWindow("Euphoria Demo", SDL_WINDOWPOS_UNDEFINED,
-                                        SDL_WINDOWPOS_UNDEFINED, width, height,
-                                        SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
-
-  if (window == nullptr) {
-    std::cerr << "Failed to create window " << SDL_GetError() << "\n";
+  SdlWindow window {"Euphoria Demo", 800, 600};
+  if (window.window == nullptr) {
     return -1;
   }
 
-  SDL_GLContext context = SDL_GL_CreateContext(window);
+  SdlGlContext context {&window};
 
-  if (context == nullptr) {
-    std::cerr << "Failed to create GL context " << SDL_GetError() << "\n";
+  if (context.context == nullptr) {
     return -1;
   }
 
@@ -99,11 +148,8 @@ int main(int argc, char** argv) {
 
     init.ClearScreen();
 
-    SDL_GL_SwapWindow(window);
+    SDL_GL_SwapWindow(window.window);
   }
 
-  SDL_GL_DeleteContext(context);
-  SDL_DestroyWindow(window);
-  SDL_Quit();
   return 0;
 }
