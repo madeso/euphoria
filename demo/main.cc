@@ -122,14 +122,13 @@ int main(int argc, char** argv) {
   }
 
   Init init;
-
-  SetupOpenglDebug();
-
   if (init.ok == false) {
     return -4;
   }
 
-  // SetupOpenglDebug();
+  SetupOpenglDebug();
+
+  init.SetViewport( Recti::FromTopLeftWidthHeight(0,0, width, height) );
 
   mat4f projection =
       mat4f::Ortho(0.0f, static_cast<float>(width),
@@ -144,8 +143,29 @@ int main(int argc, char** argv) {
 
     SDL_Event e;
     while (SDL_PollEvent(&e) != 0) {
-      if (e.type == SDL_QUIT) {
-        running = false;
+      switch (e.type) {
+        case SDL_QUIT:
+          running = false;
+          break;
+        case SDL_KEYDOWN:
+        case SDL_KEYUP:
+          {
+            const bool down = e.type == SDL_KEYDOWN;
+            switch( e.key.keysym.sym ) {
+              case SDLK_ESCAPE:
+                if(down) {
+                  running = false;
+                }
+                break;
+              default:
+                // ignore other keys
+                break;
+            }
+          }
+          break;
+        default:
+          // ignore other events
+          break;
       }
     }
 
