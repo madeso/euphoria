@@ -36,7 +36,7 @@ class Vao : public Id {
 };
 
 // Element Buffer Object
-// Reuse points
+// Reuses points
 class Ebo : public Id {
  public:
   Ebo();
