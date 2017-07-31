@@ -4,6 +4,8 @@
 #include <render/init.h>
 #include <render/debuggl.h>
 #include <render/shader.h>
+#include <memory>
+#include <render/compiledmesh.h>
 #include "render/shaderattribute3d.h"
 
 void SetupSdlOpenGlAttributes() {
@@ -162,6 +164,19 @@ int main(int argc, char** argv) {
 
   SdlTimer timer;
 
+  MeshPart quad;
+  const float size = 0.3f;
+  const float z = -0.3f;
+  quad.AddPoint(size,  size, z, 0, 1);   // top right
+  quad.AddPoint(size, -size, z, 0, 1);   // bottom right
+  quad.AddPoint(-size, -size, z, 0, 1);  // bottom left
+  quad.AddPoint(-size,  size, z, 0, 1);  // top left
+  quad.AddFace(0, 1, 3);   // first triangle
+  quad.AddFace(1, 2, 3);   // second triangle
+  Mesh mesh_src;
+  mesh_src.parts.push_back(quad);
+  std::shared_ptr<CompiledMesh> mesh = CompileMesh(mesh_src);
+
   while (running) {
     const float delta = timer.Update();
 
@@ -193,7 +208,9 @@ int main(int argc, char** argv) {
       }
     }
 
-    init.ClearScreen(Rgb::From(Color::Black));
+    init.ClearScreen(Rgb::From(Color::DarkslateGray));
+    Use(&shader);
+    mesh->Render();
 
     SDL_GL_SwapWindow(window.window);
   }
