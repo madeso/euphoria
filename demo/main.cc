@@ -2,6 +2,7 @@
 #include <iostream>
 #include <core/mat4.h>
 #include <render/init.h>
+#include <render/debuggl.h>
 
 void SetupSdlOpenGlAttributes() {
   SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 4);
@@ -121,6 +122,8 @@ int main(int argc, char** argv) {
   }
 
   Init init;
+
+  SetupOpenglDebug();
 
   if (init.ok == false) {
     return -4;

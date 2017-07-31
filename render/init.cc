@@ -1,14 +1,14 @@
 #include "render/init.h"
 
+#include <SDL2/SDL_video.h>
 #include "render/gl.h"
 
 #include <iostream>
 
 Init::Init() : ok(true) {
-  // todo: replace glew
-  const GLenum err = glewInit();
-  if (GLEW_OK != err) {
-    std::cerr << "Failed to init glew, error: " << glewGetErrorString(err)
+  const int glad_result = gladLoadGLLoader(SDL_GL_GetProcAddress);
+  if(!glad_result) {
+    std::cerr << "Failed to init glad, error: " << glad_result
               << "\n";
     ok = false;
   }
