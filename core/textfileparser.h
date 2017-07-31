@@ -3,6 +3,8 @@
 
 #include <string>
 
+bool IsIdentStart(const char c);
+
 class TextFileParser {
  public:
   TextFileParser(const std::string& str);

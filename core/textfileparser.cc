@@ -42,6 +42,10 @@ bool IsIdentChar(char c, bool first_char) {
 }
 }
 
+bool IsIdentStart(const char c) {
+  return IsIdentChar(c, true);
+}
+
 std::string TextFileParser::ReadIdent() {
   std::ostringstream ss;
   bool first = true;
