@@ -3,6 +3,8 @@
 #include <core/mat4.h>
 #include <render/init.h>
 #include <render/debuggl.h>
+#include <render/shader.h>
+#include "render/shaderattribute3d.h"
 
 void SetupSdlOpenGlAttributes() {
   SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 4);
@@ -130,6 +132,28 @@ int main(int argc, char** argv) {
 
   init.SetViewport( Recti::FromTopLeftWidthHeight(0,0, width, height) );
 
+  Shader shader;
+  attributes3d::PrebindShader(&shader);
+  const bool shader_compile = shader.Compile(
+      "#version 330 core\n"
+          "in vec3 vertex;\n"
+          "\n"
+          "void main()\n"
+          "{\n"
+          "    gl_Position = vec4(vertex.x, vertex.y, vertex.z, 1.0);\n"
+          "}\n",
+      "#version 330 core\n"
+          "out vec4 FragColor;\n"
+          "\n"
+          "void main()\n"
+          "{\n"
+          "    FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
+          "}\n");
+
+  if(shader_compile == false) {
+    return -3;
+  }
+
   mat4f projection =
       mat4f::Ortho(0.0f, static_cast<float>(width),
                    static_cast<float>(height), 0.0f, -1.0f, 1.0f);
@@ -176,3 +200,44 @@ int main(int argc, char** argv) {
 
   return 0;
 }
+
+#if 0
+class View {
+Camera[] cameras;
+};
+
+class Camera {
+Mode mode;
+World world;
+};
+
+// normal, thermo optics/powerup
+class Mode {
+Pass[] passes;
+};
+
+class Pass {
+tag/list
+Shader shader;
+};
+
+class Shader {
+material list: diffuse at 0, normal map at 2
+};
+
+class World {
+Object[] objects;
+};
+
+class Object {
+MeshPart[] meshParts;
+};
+
+class MeshPart {
+Material material;
+};
+
+class Material {
+Texture[] textures;
+};
+#endif

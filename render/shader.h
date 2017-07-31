@@ -38,7 +38,7 @@ class Shader : public ShaderId {
   void PreBind(const ShaderAttribute& attribute);
   bool Load(const std::string& file_path);
 
- private:
+  // todo: make private when compiled assets are available
   bool Compile(const glchar *vertexSource, const glchar *fragmentSource,
                const glchar *geometrySource = nullptr);
 
