@@ -35,6 +35,7 @@ class Shader : public ShaderId {
  public:
   Shader();
 
+  // shader attribute =
   void PreBind(const ShaderAttribute& attribute);
   bool Load(const std::string& file_path);
 
@@ -43,7 +44,7 @@ class Shader : public ShaderId {
                const glchar *geometrySource = nullptr);
 
  public:
-
+  // uniform = shader global
   ShaderUniform GetUniform(const std::string& name);
 
   void SetUniform(const ShaderUniform& attribute, glint val);
