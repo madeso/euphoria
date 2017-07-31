@@ -2,6 +2,7 @@
 #define RENDER_INIT_H
 
 #include "core/rect.h"
+#include "core/rgb.h"
 
 // todo: come up with a better name
 class Init {
@@ -12,7 +13,7 @@ class Init {
   void SetViewport(const Recti& viewport);
 
   // todo: move to some place better
-  void ClearScreen();
+  void ClearScreen(const Rgb& color);
 
   bool ok;
 };

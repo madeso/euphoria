@@ -33,7 +33,8 @@ void Init::SetViewport(const Recti &viewport) {
   glViewport(top_left.x, top_left.y, viewport.GetWidth(), viewport.GetHeight());
 }
 
-void Init::ClearScreen() {
-  glClearColor(42.0f / 255, 45.0f / 255, 51.0f / 255, 1.0f);
+void Init::ClearScreen(const Rgb& color) {
+  // 42.0f / 255, 45.0f / 255, 51.0f / 255
+  glClearColor(color.GetRed(), color.GetGreen(), color.GetBlue(), 1.0f);
   glClear(GL_COLOR_BUFFER_BIT);
 }

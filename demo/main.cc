@@ -169,7 +169,7 @@ int main(int argc, char** argv) {
       }
     }
 
-    init.ClearScreen();
+    init.ClearScreen(Rgb::From(Color::Black));
 
     SDL_GL_SwapWindow(window.window);
   }
