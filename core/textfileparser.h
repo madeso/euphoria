@@ -7,7 +7,7 @@ class TextFileParser {
  public:
   TextFileParser(const std::string& str);
 
-  char PeekChar();
+  char PeekChar(unsigned int advance=0);
 
   void AdvanceChar();
   char ReadChar();

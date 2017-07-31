@@ -10,9 +10,10 @@ TextFileParser::TextFileParser(const std::string& str)
     ,position_(0)
 { }
 
-char TextFileParser::PeekChar() {
-  if(HasMore()) {
-    return string_[position_];
+char TextFileParser::PeekChar(unsigned int advance) {
+  const auto p = position_ + advance;
+  if(p < length_) {
+    return string_[p];
   }
   else {
     return 0;

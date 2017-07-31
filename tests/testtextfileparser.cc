@@ -65,6 +65,15 @@ GTEST(read_to_eol) {
   EXPECT_EQ(false, test.HasMore());
 }
 
+GTEST(peek_char) {
+  TextFileParser test{
+      "abc"
+  };
 
-
+  EXPECT_EQ(true, test.HasMore());
+  EXPECT_EQ('a', test.PeekChar());
+  EXPECT_EQ('a', test.PeekChar(0));
+  EXPECT_EQ('b', test.PeekChar(1));
+  EXPECT_EQ(0, static_cast<int>(test.PeekChar(3)));
+}
 
