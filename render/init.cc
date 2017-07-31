@@ -18,6 +18,10 @@ Init::Init() : ok(true) {
   std::cout << "Version OpenGL: " << glGetString(GL_VERSION) << "\n";
   std::cout << "Version GLSL:   " << glGetString(GL_SHADING_LANGUAGE_VERSION) << "\n";
 
+  int attribute_count;
+  glGetIntegerv(GL_MAX_VERTEX_ATTRIBS, &attribute_count);
+  std::cout << "Max shader attribute count: " << attribute_count << "\n";
+
   // todo: move this to a better place
   glDisable(GL_DEPTH_TEST);
   glDisable(GL_CULL_FACE);
