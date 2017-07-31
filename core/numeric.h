@@ -131,6 +131,8 @@ const bool IsWithin(const float min, const float c, const float max);
 */
 const bool IsWithinInclusive(const float min, const float c, const float max);
 
+const bool IsWithinInclusivei(const int min, const int c, const int max);
+
 /** Keeps a value within a range.
 Wraps it to the others side if it gets outside.
 @param min is the lower range

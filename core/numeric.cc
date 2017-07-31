@@ -180,6 +180,10 @@ const bool IsWithinInclusive(const float min, const float c, const float max)
   return c >= min && c <= max;
 }
 
+const bool IsWithinInclusivei(const int min, const int c, const int max) {
+  return c >= min && c <= max;
+}
+
 const float Wrap(const float min, const float v, const float max)
 {
   const float diff = max - min;
