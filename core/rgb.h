@@ -146,6 +146,14 @@ enum class Color
   YellowGreen
 };
 
+namespace colorutil {
+// internal function, exposed for unit tests
+const int GetComponent(unsigned int i, int steps);
+const int GetRed(unsigned int i);
+const int GetGreen(unsigned int i);
+const int GetBlue(unsigned int i);
+}
+
 class Rgb
 {
  public:

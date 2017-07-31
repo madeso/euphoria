@@ -63,20 +63,33 @@ void Rgb::SetRgb(const float red, const float green, const float blue)
   b = blue;
 }
 
-namespace // local
+namespace colorutil {
+const int GetComponent(unsigned int i, int steps)
 {
-const float GetComponent(int i, int steps)
-{
-  const int value = ((i >> 4 * steps) & 0xff);
-  return value / 255.0f;
+  const int value = ((i >> 8 * steps) & 0xff);
+  return value;
 }
+
+const int GetRed(unsigned int rgb) {
+  return GetComponent(rgb, 2);
 }
+
+const int GetGreen(unsigned int rgb) {
+  return GetComponent(rgb, 1);
+}
+
+const int GetBlue(unsigned int rgb) {
+  return GetComponent(rgb, 0);
+}
+
+}
+
 void Rgb::SetRgb(int rgb)
 {
-  const float b = GetComponent(rgb, 0);
-  const float g = GetComponent(rgb, 1);
-  const float r = GetComponent(rgb, 2);
-  SetRgb(r, g, b);
+  const auto b = colorutil::GetBlue(rgb);
+  const auto g = colorutil::GetGreen(rgb);
+  const auto r = colorutil::GetRed(rgb);
+  SetRgb(r/ 255.0f, g/ 255.0f, b/ 255.0f);
 }
 
 const Rgb Rgb::From(Color color) {
