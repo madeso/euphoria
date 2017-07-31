@@ -88,7 +88,7 @@ void Ebo::Draw(int count) const {
   }
 
 
-  glDrawElements(GL_TRIANGLES, count, GL_UNSIGNED_INT, 0);
+  glDrawElements(GL_TRIANGLES, count*3, GL_UNSIGNED_INT, 0);
 }
 
 void Ebo::Bind(const Ebo* ebo){

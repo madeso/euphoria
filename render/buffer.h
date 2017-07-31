@@ -43,6 +43,8 @@ class Ebo : public Id {
   ~Ebo();
 
   void SetData(const std::vector<unsigned int>& indices);
+
+  // count = the number of triangles
   void Draw(int count) const;
 
   static void Bind(const Ebo* ebo);
