@@ -6,6 +6,8 @@
 #include "render/id.h"
 #include "render/shaderattribute.h"
 
+// Vertex Buffer Object
+// Stores vertices, uv, etc
 class Vbo : public Id {
  public:
   Vbo();
@@ -17,6 +19,8 @@ class Vbo : public Id {
   static const Vbo*& GetBound();
 };
 
+// Vertex Array Object
+// Stores what the data in the Vbo is and how it is laid out/used
 class Vao : public Id {
  public:
   Vao();
@@ -31,6 +35,8 @@ class Vao : public Id {
   std::vector<ShaderAttribute> attributes;
 };
 
+// Element Buffer Object
+// Reuse points
 class Ebo : public Id {
  public:
   Ebo();
