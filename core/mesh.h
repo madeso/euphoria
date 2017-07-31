@@ -17,11 +17,11 @@ public:
 
   int material;
   std::vector<float> points;
-  std::vector<int> faces;
+  std::vector<unsigned int> faces;
   int facecount;
 
   void AddPoint(float x, float y, float z, float u, float v);
-  void AddFace(int a, int b, int c);
+  void AddFace(unsigned int a, unsigned int b, unsigned int c);
 };
 
 class Material {

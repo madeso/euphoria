@@ -21,7 +21,7 @@ void MeshPart::AddPoint(float x, float y, float z, float u, float v) {
   points.push_back(v);
 }
 
-void MeshPart::AddFace(int a, int b, int c) {
+void MeshPart::AddFace(unsigned int a, unsigned int b, unsigned int c) {
   faces.push_back(a);
   faces.push_back(b);
   faces.push_back(c);
@@ -148,14 +148,14 @@ namespace {
 
     const aiScene* scene = importer.ReadFileFromMemory(
       nff.c_str(), nff.length() + 1, kAssimpFlags, format.c_str());
-    if (!scene) {
-      throw importer.GetErrorString();
+    if (scene == nullptr) {
+      throw std::string { importer.GetErrorString()};
     }
     return ConvertScene(scene);
   }
 
-  const std::string kFormatNff = "nff";
-  const std::string kFormatObj = "obj";
+  const char* const kFormatNff = "nff";
+  const char* kFormatObj = "obj";
 
 }  // namespace
 
@@ -164,7 +164,7 @@ MeshLoadResult LoadMesh(const std::string& path) {
   MeshLoadResult res;
 
   const aiScene* scene = importer.ReadFile(path, kAssimpFlags);
-  if (!scene) {
+  if (scene == nullptr) {
     res.error = importer.GetErrorString();
   }
   else {
