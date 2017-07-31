@@ -9,6 +9,7 @@ class Shader;
 namespace attributes3d {
 
 const ShaderAttribute& Vertex();
+const ShaderAttribute& TexCoord();
 
 void PrebindShader(Shader* shader);
 }

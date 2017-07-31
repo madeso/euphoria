@@ -11,9 +11,15 @@ const ShaderAttribute& Vertex() {
   return attribute;
 }
 
+const ShaderAttribute& TexCoord() {
+  static ShaderAttribute attribute{"texcoord", 4, ShaderAttributeSize::VEC2};
+  return attribute;
+}
+
 void PrebindShader(Shader* shader) {
   Assert(shader);
   shader->PreBind(Vertex());
+  shader->PreBind(TexCoord());
 }
 
 }
