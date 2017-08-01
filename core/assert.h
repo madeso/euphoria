@@ -9,6 +9,7 @@
 #else
 
 namespace assertlib {
+void StartThrowing();
 void OnAssert(const char* const expression, int line, const char* const file, const char* const function);
 }
 

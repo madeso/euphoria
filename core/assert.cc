@@ -70,6 +70,15 @@ std::vector<std::string> RunBacktrace(int skip)
 
 namespace assertlib {
 
+bool& ShouldThrow() {
+  static bool should_throw = false;
+  return should_throw;
+}
+
+void StartThrowing() {
+  ShouldThrow() = true;
+}
+
 void OnAssert(const char* const expression, int line, const char* const file, const char* const function) {
   std::cerr << "Assertion failed: " << expression << "\n"
             << "Function: " << function << "\n"
@@ -83,7 +92,12 @@ void OnAssert(const char* const expression, int line, const char* const file, co
     }
   }
 
-  exit(-1);
+  if(ShouldThrow()) {
+    throw "assertion_failed";
+  }
+  else {
+    exit(-1);
+  }
 }
 
 }

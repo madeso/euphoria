@@ -2,6 +2,8 @@
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
 
+#include "core/assert.h"
+
 class QuietConsolePrinter : public ::testing::TestEventListener
 {
  public:
@@ -84,6 +86,7 @@ class QuietConsolePrinter : public ::testing::TestEventListener
 };
 
 GTEST_API_ int main(int argc, char **argv) {
+  assertlib::StartThrowing();
   QuietConsolePrinter::Setup();
   ::testing::InitGoogleMock(&argc, argv);
   testing::InitGoogleTest(&argc, argv);
