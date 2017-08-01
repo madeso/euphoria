@@ -4,12 +4,71 @@
 #include "core/image.h"
 #include "render/texture.h"
 #include "render/gl.h"
+#include "core/assert.h"
+
+namespace // local
+{
+
+gluint C(TextureWrap v) {
+  switch(v) {
+    case TextureWrap::REPEAT:
+      return GL_REPEAT;
+    case TextureWrap::MIRRORED_REPEAT:
+      return GL_MIRRORED_REPEAT;
+    case TextureWrap::CLAMP_TO_EDGE:
+      return GL_CLAMP_TO_EDGE;
+  }
+
+  Assert(false);
+  return GL_REPEAT;
+}
+
+gluint C(FilterMagnification v) {
+  switch(v) {
+    case FilterMagnification::NEAREST:
+      return GL_NEAREST;
+    case FilterMagnification::LINEAR:
+      return GL_LINEAR;
+  }
+
+
+  Assert(false);
+  return GL_LINEAR;
+}
+
+gluint C(FilterMinification v) {
+  switch(v) {
+    case FilterMinification::NEAREST:
+      return GL_NEAREST;
+    case FilterMinification::LINEAR:
+      return GL_LINEAR;
+  }
+
+  Assert(false);
+  return GL_LINEAR;
+}
+}
+
 
 Texture2dLoadData::Texture2dLoadData()
-    : wrapS(GL_REPEAT),
-      wrapT(GL_REPEAT),
-      filterMin(GL_LINEAR),
-      filterMax(GL_LINEAR) {}
+    : wrap(TextureWrap::REPEAT),
+      min(FilterMinification::LINEAR),
+      mag(FilterMagnification ::LINEAR) {}
+
+Texture2dLoadData& Texture2dLoadData::SetWrap(TextureWrap v) {
+  wrap = v;
+  return *this;
+}
+
+Texture2dLoadData& Texture2dLoadData::SetFilterMag(FilterMagnification v) {
+  mag = v;
+  return *this;
+}
+
+Texture2dLoadData& Texture2dLoadData::SetFilterMin(FilterMinification v) {
+  min = v;
+  return *this;
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -59,10 +118,10 @@ void Texture2d::Load(int width, int height, const unsigned char* pixelData,
   width_ = width;
   height_ = height;
 
-  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, data.wrapS);
-  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, data.wrapT);
-  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, data.filterMin);
-  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, data.filterMax);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, C(data.wrap));
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, C(data.wrap));
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, C(data.min));
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, C(data.mag));
 
   glBindTexture(GL_TEXTURE_2D, 0);
 }

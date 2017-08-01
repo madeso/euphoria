@@ -5,13 +5,29 @@
 #include "render/gltypes.h"
 #include "core/noncopyable.h"
 
+enum class TextureWrap {
+  REPEAT, MIRRORED_REPEAT, CLAMP_TO_EDGE
+};
+
+enum class FilterMagnification {
+  NEAREST, LINEAR
+};
+
+enum class FilterMinification {
+  NEAREST, LINEAR
+  // todo: add mipmap
+};
+
 struct Texture2dLoadData {
   Texture2dLoadData();
 
-  gluint wrapS;
-  gluint wrapT;
-  gluint filterMin;
-  gluint filterMax;
+  Texture2dLoadData& SetWrap(TextureWrap v);
+  Texture2dLoadData& SetFilterMag(FilterMagnification v);
+  Texture2dLoadData& SetFilterMin(FilterMinification v);
+
+  TextureWrap wrap;
+  FilterMagnification mag;
+  FilterMinification min;
 };
 
 class TextureId : Noncopyable {
