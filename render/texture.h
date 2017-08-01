@@ -31,6 +31,9 @@ void Use(const TextureId* texture);
 class Texture2d : public TextureId {
  public:
   Texture2d();
+
+  // todo: there are too many contructors here, remove
+
   explicit Texture2d(const std::string& path);
   Texture2d(const std::string& path, AlphaLoad alpha,
             const Texture2dLoadData& data);

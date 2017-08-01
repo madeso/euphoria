@@ -8,12 +8,20 @@
 #include <string>
 #include <map>
 
+// todo: add path class
+
 class FileSystem {
  public:
   FileSystem();
   virtual ~FileSystem();
 
+  // todo: load file to string should be a util and this should load file to memory
+  // todo: need to support paging too
   virtual bool LoadFileToString(const std::string& path, std::string* source) = 0;
+
+  // todo: support different roots such as real file system, zip/container file etc
+  // todo: support encryption
+  // todo: support listing/enumerating files
 };
 
 class CatalogFileSystem : public FileSystem {
