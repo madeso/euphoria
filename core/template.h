@@ -7,6 +7,8 @@
 #include <memory>
 #include <vector>
 
+#include "core/filesystem.h"
+
 class Defines {
  public:
   Defines();
@@ -38,6 +40,7 @@ class TemplateNodeList;
 class Template {
  public:
   explicit Template(const std::string& text);
+  Template(FileSystem* fs, const std::string& path);
   ~Template();
 
   std::string Evaluate(const Defines& defines);

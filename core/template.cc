@@ -155,6 +155,8 @@ class TemplateNodeEval : public TemplateNode {
   std::string name_;
 };
 
+// -----------------------------------------------------------------------------
+
 class TemplateNodeSet : public TemplateNode {
  public:
   TemplateNodeSet(const std::string& name, const std::string& value)
@@ -178,7 +180,7 @@ class TemplateNodeSet : public TemplateNode {
 ////////////////////////////////////////////////////////////////////////////////
 
 enum class LexType {
-  TEXT, IFDEF, EVAL, IDENT, END, SET, STRING, END_OF_FILE
+  TEXT, IFDEF, EVAL, IDENT, END, SET, STRING, INCLUDE, END_OF_FILE
 };
 
 std::string LexTypeToString(LexType t) {
@@ -190,6 +192,7 @@ std::string LexTypeToString(LexType t) {
     CASE(IDENT);
     CASE(END);
     CASE(SET);
+    CASE(INCLUDE);
     CASE(STRING);
     CASE(END_OF_FILE);
 #undef CASE
@@ -251,6 +254,9 @@ std::vector<Lex> Lexer(const std::string& str, TemplateError* error, const std::
         }
         else if(ident == "set") {
           r.push_back(Lex{ LexType::SET, line, column });
+        }
+        else if(ident == "include") {
+          r.push_back(Lex{ LexType::INCLUDE, line, column });
         }
         else {
           r.push_back(Lex{ LexType::IDENT, line, column, ident});
@@ -365,9 +371,27 @@ class LexReader {
 
 ////////////////////////////////////////////////////////////////////////////////
 
-std::shared_ptr<TemplateNodeList> ReadTemplateList(LexReader* reader, TemplateError* errors, const std::string& file, bool expect_end);
+std::shared_ptr<TemplateNodeList> ReadTemplateList(LexReader* reader, TemplateError* errors, const std::string& file, bool expect_end, FileSystem* fs);
 
-std::shared_ptr<TemplateNodeString> ReadText(LexReader* reader, TemplateError* errors, const std::string& file) {
+void LoadFromFilesystemToNodeList(FileSystem* fs, const std::string& path, TemplateError* error, std::shared_ptr<TemplateNodeList>* nodes)
+{
+  if(fs == nullptr) {
+    error->AddError(path, 0,0, Str() << "Missing filesystem, Failed to read " << path);
+    return;
+  }
+  Assert(nodes);
+  std::string content;
+  if( !fs->LoadFileToString(path, &content) ) {
+    error->AddError(path, 0,0, Str() << "Failed to open " << path);
+    return;
+  }
+  LexReader reader(Lexer(content, error, path));
+  *nodes = ReadTemplateList(&reader, error, path, false, fs);
+}
+
+// -----------------------------------------------------------------------------
+
+std::shared_ptr<TemplateNodeString> ReadText(LexReader* reader, TemplateError* errors, const std::string& file, FileSystem* fs) {
   Assert(reader);
   const Lex& lex = reader->Read();
   Assert(lex.type == LexType::TEXT);
@@ -377,7 +401,7 @@ std::shared_ptr<TemplateNodeString> ReadText(LexReader* reader, TemplateError* e
   return ret;
 }
 
-std::shared_ptr<TemplateNodeEval> ReadEval(LexReader* reader, TemplateError* errors, const std::string& file) {
+std::shared_ptr<TemplateNodeEval> ReadEval(LexReader* reader, TemplateError* errors, const std::string& file, FileSystem* fs) {
   Assert(reader);
   const Lex& lex = reader->Read();
 
@@ -391,7 +415,7 @@ std::shared_ptr<TemplateNodeEval> ReadEval(LexReader* reader, TemplateError* err
   return ret;
 }
 
-std::shared_ptr<TemplateNodeSet> ReadSet(LexReader* reader, TemplateError* errors, const std::string& file) {
+std::shared_ptr<TemplateNodeSet> ReadSet(LexReader* reader, TemplateError* errors, const std::string& file, FileSystem* fs) {
   Assert(reader);
   const Lex& name = reader->Read();
 
@@ -413,23 +437,36 @@ std::shared_ptr<TemplateNodeSet> ReadSet(LexReader* reader, TemplateError* error
   return ret;
 }
 
-std::shared_ptr<TemplateNodeIfdef> ReadIfdef(LexReader* reader, TemplateError* errors, const std::string& file) {
+std::shared_ptr<TemplateNodeIfdef> ReadIfdef(LexReader* reader, TemplateError* errors, const std::string& file, FileSystem* fs) {
   Assert(reader);
   const Lex& lex = reader->Read();
 
   if(lex.type == LexType::IDENT) {
-    std::shared_ptr<TemplateNode> children = ReadTemplateList(reader, errors, file, true);
+    std::shared_ptr<TemplateNode> children = ReadTemplateList(reader, errors, file, true, fs);
     std::shared_ptr<TemplateNodeIfdef> ret { new TemplateNodeIfdef { lex.value, children} };
     return ret;
   }
-  // todo: handle parse error
   errors->AddError(file, reader->GetLine(), reader->GetColumn(), Str() << "Reading IFDEF, expected IDENT but found " << lex.ToString());
   std::shared_ptr<TemplateNodeString> dummy { new TemplateNodeString{"parse_error"} };
   std::shared_ptr<TemplateNodeIfdef> ret { new TemplateNodeIfdef { "parse_error", dummy } };
   return ret;
 }
 
-std::shared_ptr<TemplateNodeList> ReadTemplateList(LexReader* reader, TemplateError* errors, const std::string& file, bool expect_end)
+std::shared_ptr<TemplateNodeList> ReadInclude(LexReader* reader, TemplateError* errors, const std::string& file, FileSystem* fs) {
+  Assert(reader);
+  const Lex& lex = reader->Read();
+
+  if(lex.type == LexType::STRING) {
+    std::shared_ptr<TemplateNodeList> ret { new TemplateNodeList { } };
+    LoadFromFilesystemToNodeList(fs, lex.value, errors, &ret);
+    return ret;
+  }
+  errors->AddError(file, reader->GetLine(), reader->GetColumn(), Str() << "Reading INCLUDE, expected STRING but found " << lex.ToString());
+  std::shared_ptr<TemplateNodeList> ret { new TemplateNodeList { } };
+  return ret;
+}
+
+std::shared_ptr<TemplateNodeList> ReadTemplateList(LexReader* reader, TemplateError* errors, const std::string& file, bool expect_end, FileSystem* fs)
 {
   Assert(reader);
 
@@ -438,22 +475,25 @@ std::shared_ptr<TemplateNodeList> ReadTemplateList(LexReader* reader, TemplateEr
   while(!errors->HasErrors() && reader->HasMore() && (!expect_end || reader->Peek().type != LexType::END)) {
     switch(reader->Peek().type) {
       case LexType::TEXT:
-        list->Add(ReadText(reader, errors, file));
+        list->Add(ReadText(reader, errors, file, fs));
         break;
       case LexType::EVAL:
         reader->Advance();
-        list->Add(ReadEval(reader, errors, file));
+        list->Add(ReadEval(reader, errors, file, fs));
         break;
       case LexType::IFDEF:
         reader->Advance();
-        list->Add(ReadIfdef(reader, errors, file));
+        list->Add(ReadIfdef(reader, errors, file, fs));
         break;
       case LexType::SET:
         reader->Advance();
-        list->Add(ReadSet(reader, errors, file));
+        list->Add(ReadSet(reader, errors, file, fs));
+        break;
+      case LexType::INCLUDE:
+        reader->Advance();
+        list->Add(ReadInclude(reader, errors, file, fs));
         break;
       default:
-        // todo: handle parser error
         errors->AddError(file, reader->GetLine(), reader->GetColumn(), Str() << "Reading LIST "<< expect_end <<", Found " << reader->Peek().ToString());
         return list;
     }
@@ -475,15 +515,21 @@ std::shared_ptr<TemplateNodeList> ReadTemplateList(LexReader* reader, TemplateEr
 
 ////////////////////////////////////////////////////////////////////////////////
 
-Template::~Template()
-{ }
-
 Template::Template(const std::string& text)
 {
   const std::string file = "from_string";
   LexReader reader(Lexer(text, &errors_, file));
-  nodes_ = ReadTemplateList(&reader, &errors_, file, false);
+  nodes_ = ReadTemplateList(&reader, &errors_, file, false, nullptr);
 }
+
+Template::Template(FileSystem* fs, const std::string& path)
+{
+  Assert(fs);
+  LoadFromFilesystemToNodeList(fs, path, &errors_, &nodes_);
+}
+
+Template::~Template()
+{ }
 
 std::string Template::Evaluate(const Defines& defines) {
   std::ostringstream ss;
@@ -492,11 +538,11 @@ std::string Template::Evaluate(const Defines& defines) {
     return "";
   }
 
-  Assert(nodes_);
+  if(nodes_) {
+    Defines my_defines = defines;
+    nodes_->Eval(&my_defines, &ss, &errors_);
+  }
 
-  Defines my_defines = defines;
-
-  nodes_->Eval(&my_defines, &ss, &errors_);
   return ss.str();
 }
 
