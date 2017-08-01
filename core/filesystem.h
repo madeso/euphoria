@@ -16,7 +16,7 @@ class FileSystem {
   virtual bool LoadFileToString(const std::string& path, std::string* source) = 0;
 };
 
-class CatalogFileSystem : FileSystem {
+class CatalogFileSystem : public FileSystem {
  public:
   explicit CatalogFileSystem(FileSystem* backing_filesys);
 
