@@ -19,59 +19,12 @@ class Defines {
   std::map<std::string, std::string> values_;
 };
 
-class TemplateNode {
- public:
-  TemplateNode();
-  virtual ~TemplateNode();
-
-  virtual void Eval(const Defines& defines, std::ostringstream* out) = 0;
-};
-
-class TemplateNodeString : public TemplateNode {
- public:
-  TemplateNodeString(const std::string& text);
-  void Eval(const Defines& defines, std::ostringstream* out) override;
-
- private:
-  std::string text_;
-};
-
-class TemplateNodeList : public TemplateNode {
- public:
-  TemplateNodeList();
-
-  void Eval(const Defines& defines, std::ostringstream* out) override;
-
-  void Add(std::shared_ptr<TemplateNode> node);
-
- private:
-  std::vector<std::shared_ptr<TemplateNode>> nodes_;
-};
-
-class TemplateNodeIfdef : public TemplateNode {
- public:
-  TemplateNodeIfdef(const std::string& name, std::shared_ptr<TemplateNode> node);
-
-  void Eval(const Defines& defines, std::ostringstream* out) override;
-
- private:
-  std::string name_;
-  std::shared_ptr<TemplateNode> node_;
-};
-
-class TemplateNodeEval : public TemplateNode {
- public:
-  TemplateNodeEval(const std::string& name);
-
-  void Eval(const Defines& defines, std::ostringstream* out) override;
-
- private:
-  std::string name_;
-};
+class TemplateNodeList;
 
 class Template {
  public:
   explicit Template(const std::string& text);
+  ~Template();
 
   std::string Evaluate(const Defines& defines);
  private:

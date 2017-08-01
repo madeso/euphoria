@@ -8,6 +8,8 @@
 #include "textfileparser.h"
 #include "assert.h"
 
+////////////////////////////////////////////////////////////////////////////////
+
 Defines::Defines()
 {}
 
@@ -36,49 +38,92 @@ void Defines::Define(const std::string& name, const std::string& value) {
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-TemplateNode::TemplateNode() {}
 
-TemplateNode::~TemplateNode() {}
+class TemplateNode {
+ public:
+  TemplateNode() {}
+  virtual ~TemplateNode() {}
 
+  virtual void Eval(const Defines& defines, std::ostringstream* out) = 0;
+};
 
-TemplateNodeString::TemplateNodeString(const std::string& text) : text_(text) {}
-void TemplateNodeString::Eval(const Defines& defines, std::ostringstream* out) {
-  Assert(out);
-  *out << text_;
-}
+// -----------------------------------------------------------------------------
 
-TemplateNodeList::TemplateNodeList() {
-}
-
-void TemplateNodeList::Eval(const Defines& defines, std::ostringstream* out) {
-  for(auto node : nodes_) {
-    node->Eval(defines, out);
+class TemplateNodeString : public TemplateNode {
+ public:
+  TemplateNodeString(const std::string& text)
+      : text_(text) {}
+  void Eval(const Defines& defines, std::ostringstream* out) override
+  {
+    Assert(out);
+    *out << text_;
   }
-}
 
-void TemplateNodeList::Add(std::shared_ptr<TemplateNode> node) {
-  nodes_.push_back(node);
-}
+ private:
+  std::string text_;
+};
 
-TemplateNodeIfdef::TemplateNodeIfdef(const std::string& name, std::shared_ptr<TemplateNode> node)
-: name_(name)
-, node_(node)
-{ }
+// -----------------------------------------------------------------------------
 
-void TemplateNodeIfdef::Eval(const Defines& defines, std::ostringstream* out) {
-  if(defines.IsDefined(name_)) {
-    node_->Eval(defines, out);
+class TemplateNodeList : public TemplateNode {
+ public:
+  TemplateNodeList()
+  { }
+
+  void Eval(const Defines& defines, std::ostringstream* out) override
+  {
+    for(auto node : nodes_) {
+      node->Eval(defines, out);
+    }
   }
-}
 
-TemplateNodeEval::TemplateNodeEval(const std::string& name)
-: name_(name)
-{ }
+  void Add(std::shared_ptr<TemplateNode> node) {
+    nodes_.push_back(node);
+  }
 
-void TemplateNodeEval::Eval(const Defines& defines, std::ostringstream* out) {
-  Assert(out);
-  *out << defines.GetValue(name_);
-}
+ private:
+  std::vector<std::shared_ptr<TemplateNode>> nodes_;
+};
+
+// -----------------------------------------------------------------------------
+
+class TemplateNodeIfdef : public TemplateNode {
+ public:
+  TemplateNodeIfdef(const std::string& name, std::shared_ptr<TemplateNode> node)
+      : name_(name)
+      , node_(node)
+  { }
+
+  void Eval(const Defines& defines, std::ostringstream* out) override
+  {
+    if(defines.IsDefined(name_)) {
+      node_->Eval(defines, out);
+    }
+  }
+
+ private:
+  std::string name_;
+  std::shared_ptr<TemplateNode> node_;
+};
+
+// -----------------------------------------------------------------------------
+
+class TemplateNodeEval : public TemplateNode {
+ public:
+  TemplateNodeEval(const std::string& name)
+      : name_(name)
+  { }
+
+  void Eval(const Defines& defines, std::ostringstream* out) override
+  {
+    Assert(out);
+    *out << defines.GetValue(name_);
+  }
+
+ private:
+  std::string name_;
+};
+
 ////////////////////////////////////////////////////////////////////////////////
 
 enum class LexType {
@@ -269,6 +314,9 @@ std::shared_ptr<TemplateNodeList> ReadTemplateList(LexReader* reader)
 }
 
 ////////////////////////////////////////////////////////////////////////////////
+
+Template::~Template()
+{ }
 
 Template::Template(const std::string& text)
 {
