@@ -369,7 +369,7 @@ std::shared_ptr<TemplateNodeList> ReadTemplateList(LexReader* reader, TemplateEr
 
   std::shared_ptr<TemplateNodeList> list { new TemplateNodeList{} };
 
-  while(!errors->HasErrors() && reader->HasMore() && (expect_end || reader->Peek().type != LexType::END)) {
+  while(!errors->HasErrors() && reader->HasMore() && (!expect_end || reader->Peek().type != LexType::END)) {
     switch(reader->Peek().type) {
       case LexType::TEXT:
         list->Add(ReadText(reader, errors, file));
@@ -384,7 +384,7 @@ std::shared_ptr<TemplateNodeList> ReadTemplateList(LexReader* reader, TemplateEr
         break;
       default:
         // todo: handle parser error
-        errors->AddError(file, reader->GetLine(), reader->GetColumn(), Str() << "Reading LIST, Found " << reader->Peek().ToString());
+        errors->AddError(file, reader->GetLine(), reader->GetColumn(), Str() << "Reading LIST "<< expect_end <<", Found " << reader->Peek().ToString());
         return list;
     }
   }
