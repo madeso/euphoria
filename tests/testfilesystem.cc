@@ -3,48 +3,42 @@
 
 #define GTEST(X) TEST(filesystem, X)
 
-class AlwaysExist : public FileSystem {
+class AlwaysExist : public FileSystemRoot {
  public:
-  bool LoadFileToString(const std::string& path, std::string* source) override {
-    return true;
+  std::shared_ptr<FileInMemory> ReadFile(const std::string& path) override {
+    // alloc some garbage
+    return FileInMemory::Alloc(32);
   }
 };
 
-class NeverExist : public FileSystem {
+class NeverExist : public FileSystemRoot {
  public:
-  bool LoadFileToString(const std::string& path, std::string* source) override {
-    return false;
+  std::shared_ptr<FileInMemory> ReadFile(const std::string& path) override {
+    return FileInMemory::Null();
   }
 };
 
 GTEST(test_basic) {
-  AlwaysExist always;
-  EXPECT_TRUE(always.LoadFileToString("dog", nullptr));
+  FileSystem always;
+  always.AddRoot(std::make_shared<AlwaysExist>());
+  EXPECT_NE(nullptr, always.ReadFile("dog"));
 
-  NeverExist never;
-  EXPECT_FALSE(never.LoadFileToString("dog", nullptr));
+  FileSystem never;
+  never.AddRoot(std::make_shared<NeverExist>());
+  EXPECT_EQ(nullptr, never.ReadFile("dog"));
 }
 
 GTEST(test_catalog_with_null) {
-  CatalogFileSystem catalog {nullptr};
-  catalog.RegisterFile("dog", "happy");
+  FileSystem fs;
+  auto catalog = FileSystemRootCatalog::AddRoot(&fs);
+  catalog->RegisterFileString("dog", "happy");
 
   std::string content;
-  EXPECT_TRUE(catalog.LoadFileToString("dog", &content));
+  EXPECT_TRUE(fs.ReadFileToString("dog", &content));
   EXPECT_EQ("happy", content);
 
-  EXPECT_FALSE(catalog.LoadFileToString("cat", &content));
+  EXPECT_FALSE(fs.ReadFileToString("cat", &content));
 }
 
 
-GTEST(test_catalog_with_backing_never) {
-  NeverExist never;
-  CatalogFileSystem catalog {&never};
-  catalog.RegisterFile("dog", "happy");
-
-  std::string content;
-  EXPECT_TRUE(catalog.LoadFileToString("dog", &content));
-  EXPECT_EQ("happy", content);
-
-  EXPECT_FALSE(catalog.LoadFileToString("cat", &content));
-}
+// todo: add test with overriding files from different roots

@@ -54,8 +54,9 @@ GTEST(test_only_code) {
 }
 
 GTEST(test_basic_filesystem) {
-  CatalogFileSystem filesys {nullptr};
-  filesys.RegisterFile("main", "main");
+  FileSystem filesys;
+  auto catalog = FileSystemRootCatalog::AddRoot(&filesys);
+  catalog->RegisterFileString("main", "main");
 
   Template t {&filesys, "main"};
   EXPECT_EQ(false, t.GetErrors().HasErrors());
@@ -67,9 +68,10 @@ GTEST(test_basic_filesystem) {
 }
 
 GTEST(test_include_filesystem) {
-  CatalogFileSystem filesys {nullptr};
-  filesys.RegisterFile("main", "{{include \"included\"}}");
-  filesys.RegisterFile("included", "included");
+  FileSystem filesys;
+  auto catalog = FileSystemRootCatalog::AddRoot(&filesys);
+  catalog->RegisterFileString("main", "{{include \"included\"}}");
+  catalog->RegisterFileString("included", "included");
 
   Template t {&filesys, "main"};
   ASSERT_EQ("", t.GetErrors().GetCombinedErrors());
@@ -81,9 +83,10 @@ GTEST(test_include_filesystem) {
 }
 
 GTEST(test_scoping_filesystem) {
-  CatalogFileSystem filesys {nullptr};
-  filesys.RegisterFile("main", "{{include \"included\"}} {{@var}}!");
-  filesys.RegisterFile("included", "{{set var \"hello\" @var}}");
+  FileSystem filesys;
+  auto catalog = FileSystemRootCatalog::AddRoot(&filesys);
+  catalog->RegisterFileString("main", "{{include \"included\"}} {{@var}}!");
+  catalog->RegisterFileString("included", "{{set var \"hello\" @var}}");
 
   Template t {&filesys, "main"};
   ASSERT_EQ("", t.GetErrors().GetCombinedErrors());

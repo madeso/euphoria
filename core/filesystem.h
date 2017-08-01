@@ -1,39 +1,67 @@
-//
-// Created by gustav on 2017-08-01.
-//
-
 #ifndef EUPHORIA_FILESYSTEM_H
 #define EUPHORIA_FILESYSTEM_H
 
 #include <string>
 #include <map>
+#include <memory>
+#include <vector>
 
 // todo: add path class
+
+class FileInMemory {
+ public:
+  unsigned char* GetData();
+  const unsigned char* GetData() const;
+
+  unsigned long GetSize() const;
+
+  static std::shared_ptr<FileInMemory> Alloc(unsigned long size);
+  static std::shared_ptr<FileInMemory> Null();
+ private:
+  FileInMemory(unsigned int size);
+  std::unique_ptr<unsigned char[]> data_;
+  unsigned long size_;
+};
+
+class FileSystemRoot {
+ public:
+  virtual ~FileSystemRoot();
+
+  virtual std::shared_ptr<FileInMemory> ReadFile(const std::string& path) = 0;
+};
 
 class FileSystem {
  public:
   FileSystem();
-  virtual ~FileSystem();
+  ~FileSystem();
 
-  // todo: load file to string should be a util and this should load file to memory
+  void AddRoot(std::shared_ptr<FileSystemRoot> root);
+
+  std::shared_ptr<FileInMemory> ReadFile(const std::string& path);
+
   // todo: need to support paging too
-  virtual bool LoadFileToString(const std::string& path, std::string* source) = 0;
+  bool ReadFileToString(const std::string& path, std::string* source);
 
   // todo: support different roots such as real file system, zip/container file etc
   // todo: support encryption
   // todo: support listing/enumerating files
+
+ private:
+  std::vector<std::shared_ptr<FileSystemRoot>> roots_;
 };
 
-class CatalogFileSystem : public FileSystem {
+class FileSystemRootCatalog : public FileSystemRoot {
  public:
-  explicit CatalogFileSystem(FileSystem* backing_filesys);
+  FileSystemRootCatalog();
 
-  void RegisterFile(const std::string& path, const std::string& content);
+  void RegisterFileString(const std::string& path, const std::string& content);
+  void RegisterFileData(const std::string& path, const std::shared_ptr<FileInMemory> content);
 
-  bool LoadFileToString(const std::string& path, std::string* source) override;
+  static std::shared_ptr<FileSystemRootCatalog> AddRoot(FileSystem* fs);
+
+  std::shared_ptr<FileInMemory> ReadFile(const std::string& path) override;
  private:
-  FileSystem* backing_filesystem_;
-  std::map<std::string, std::string> catalog_;
+  std::map<std::string, std::shared_ptr<FileInMemory>> catalog_;
 };
 
 #endif //EUPHORIA_FILESYSTEM_H

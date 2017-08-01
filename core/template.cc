@@ -396,7 +396,7 @@ void LoadFromFilesystemToNodeList(FileSystem* fs, const std::string& path, Templ
   }
   Assert(nodes);
   std::string content;
-  if( !fs->LoadFileToString(path, &content) ) {
+  if( !fs->ReadFileToString(path, &content) ) {
     error->AddError(path, 0,0, Str() << "Failed to open " << path);
     return;
   }
