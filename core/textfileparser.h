@@ -20,10 +20,16 @@ class TextFileParser {
   void SkipSpaces(bool include_newline);
   bool HasMore() const;
 
+  unsigned int GetLine();
+  unsigned int GetColumn();
+
  private:
   std::string string_;
   unsigned int length_;
   unsigned int position_;
+
+  unsigned int line_;
+  unsigned int column_;
 };
 
 

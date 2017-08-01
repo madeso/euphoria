@@ -153,48 +153,89 @@ enum class LexType {
   TEXT, IFDEF, EVAL, IDENT, END, END_OF_FILE
 };
 
+std::string LexTypeToString(LexType t) {
+  switch(t) {
+#define CASE(V) case LexType::V: return #V
+    CASE(TEXT);
+    CASE(IFDEF);
+    CASE(EVAL);
+    CASE(IDENT);
+    CASE(END);
+    CASE(END_OF_FILE);
+#undef CASE
+  }
+}
+
+std::string FirstChars(const std::string& str, int count=10) {
+  if(str.length()>count) {
+    return str.substr(0, count) + "...";
+  }
+
+  return str;
+}
+
 class Lex {
  public:
-  Lex(LexType t, const std::string& v = "")
-      : type(t), value(v)
+  Lex(LexType t, unsigned int l, unsigned int c, const std::string& v = "")
+      : type(t), value(v), line(l), column(c)
   {}
+
+  std::string ToString() const {
+    return Str() << LexTypeToString(type) << "(" << FirstChars(value) << ")";
+  }
+
   LexType type;
   std::string value;
+  unsigned int line;
+  unsigned int column;
 };
 
-std::vector<Lex> Lexer(const std::string& str)
+std::vector<Lex> Lexer(const std::string& str, TemplateError* error, const std::string& file)
 {
+  Assert(error);
+
   TextFileParser parser(str);
   std::vector<Lex> r;
 
   bool inside = false;
 
   std::ostringstream buffer;
+  unsigned int buffer_line = parser.GetLine();
+  unsigned int buffer_column = parser.GetColumn();
+
   while(parser.HasMore()) {
     if(inside) {
       parser.SkipSpaces(true);
       if( IsIdentStart(parser.PeekChar()) ) {
+        const unsigned int line = parser.GetLine();
+        const unsigned int column = parser.GetColumn();
         const std::string ident = parser.ReadIdent();
         if(ident == "ifdef") {
-          r.push_back(Lex{ LexType::IFDEF });
+          r.push_back(Lex{ LexType::IFDEF, line, column });
         }
         else if(ident == "end") {
-          r.push_back(Lex{ LexType::END });
+          r.push_back(Lex{ LexType::END, line, column });
         }
         else if(ident == "eval") {
-          r.push_back(Lex{ LexType::EVAL });
+          r.push_back(Lex{ LexType::EVAL, line, column });
         }
         else {
-          r.push_back(Lex{ LexType::IDENT, ident});
+          r.push_back(Lex{ LexType::IDENT, line, column, ident});
         }
       }
       else if( parser.PeekChar() == '@' ) {
+        const unsigned int line = parser.GetLine();
+        const unsigned int column = parser.GetColumn();
         parser.AdvanceChar();
-        r.push_back(Lex{ LexType::EVAL});
+        r.push_back(Lex{ LexType::EVAL, line, column});
       }
       else if( parser.PeekChar(0) == '}' && parser.PeekChar(1) == '}') {
         parser.AdvanceChar();
         parser.AdvanceChar();
+        inside = false;
+        buffer.str("");
+        buffer_line = parser.GetLine();
+        buffer_column = parser.GetColumn();
       }
       else {
         // parser error
@@ -208,7 +249,9 @@ std::vector<Lex> Lexer(const std::string& str)
         const std::string b = buffer.str();
         if(b.empty() == false) {
           buffer.str("");
-          r.push_back(Lex{LexType::TEXT, b});
+          buffer_line = parser.GetLine();
+          buffer_column = parser.GetColumn();
+          r.push_back(Lex{LexType::TEXT, buffer_line, buffer_column, b});
         }
         parser.AdvanceChar();
         parser.AdvanceChar();
@@ -221,7 +264,10 @@ std::vector<Lex> Lexer(const std::string& str)
     }
   }
 
-  Assert(inside);
+  if(inside) {
+    error->AddError(file, parser.GetLine(), parser.GetColumn(), "Expected end marker }}");
+  }
+
   return r;
 }
 
@@ -245,7 +291,7 @@ class LexReader {
     {
       return lex_[pos_];
     }
-    static const Lex end_of_file { LexType::END_OF_FILE};
+    static const Lex end_of_file { LexType::END_OF_FILE, 0, 0};
     return end_of_file;
   }
 
@@ -259,6 +305,14 @@ class LexReader {
     return lex;
   }
 
+  unsigned int GetLine() const {
+    return Peek().line;
+  }
+
+  unsigned int GetColumn() const {
+    return Peek().column;
+  }
+
  private:
   std::vector<Lex> lex_;
   unsigned int pos_;
@@ -267,18 +321,19 @@ class LexReader {
 
 ////////////////////////////////////////////////////////////////////////////////
 
-std::shared_ptr<TemplateNodeList> ReadTemplateList(LexReader* reader);
+std::shared_ptr<TemplateNodeList> ReadTemplateList(LexReader* reader, TemplateError* errors, const std::string& file, bool expect_end);
 
-std::shared_ptr<TemplateNodeString> ReadText(LexReader* reader) {
+std::shared_ptr<TemplateNodeString> ReadText(LexReader* reader, TemplateError* errors, const std::string& file) {
   Assert(reader);
   const Lex& lex = reader->Read();
   Assert(lex.type == LexType::TEXT);
+
 
   std::shared_ptr<TemplateNodeString> ret{ new TemplateNodeString { lex.value } };
   return ret;
 }
 
-std::shared_ptr<TemplateNodeEval> ReadEval(LexReader* reader) {
+std::shared_ptr<TemplateNodeEval> ReadEval(LexReader* reader, TemplateError* errors, const std::string& file) {
   Assert(reader);
   const Lex& lex = reader->Read();
 
@@ -287,51 +342,63 @@ std::shared_ptr<TemplateNodeEval> ReadEval(LexReader* reader) {
     return ret;
   }
   // todo: handle parse error
+  errors->AddError(file, reader->GetLine(), reader->GetColumn(), Str() << "Reading EVAL, expected IDENT but found " << lex.ToString());
   std::shared_ptr<TemplateNodeEval> ret { new TemplateNodeEval { "parse_error" } };
   return ret;
 }
 
-std::shared_ptr<TemplateNodeIfdef> ReadIfdef(LexReader* reader) {
+std::shared_ptr<TemplateNodeIfdef> ReadIfdef(LexReader* reader, TemplateError* errors, const std::string& file) {
   Assert(reader);
   const Lex& lex = reader->Read();
 
   if(lex.type == LexType::IDENT) {
-    std::shared_ptr<TemplateNode> children = ReadTemplateList(reader);
+    std::shared_ptr<TemplateNode> children = ReadTemplateList(reader, errors, file, true);
     std::shared_ptr<TemplateNodeIfdef> ret { new TemplateNodeIfdef { lex.value, children} };
     return ret;
   }
   // todo: handle parse error
+  errors->AddError(file, reader->GetLine(), reader->GetColumn(), Str() << "Reading IFDEF, expected IDENT but found " << lex.ToString());
   std::shared_ptr<TemplateNodeString> dummy { new TemplateNodeString{"parse_error"} };
   std::shared_ptr<TemplateNodeIfdef> ret { new TemplateNodeIfdef { "parse_error", dummy } };
   return ret;
 }
 
-std::shared_ptr<TemplateNodeList> ReadTemplateList(LexReader* reader)
+std::shared_ptr<TemplateNodeList> ReadTemplateList(LexReader* reader, TemplateError* errors, const std::string& file, bool expect_end)
 {
   Assert(reader);
 
   std::shared_ptr<TemplateNodeList> list { new TemplateNodeList{} };
 
-  while(reader->HasMore() && reader->Peek().type != LexType::END) {
+  while(!errors->HasErrors() && reader->HasMore() && (expect_end || reader->Peek().type != LexType::END)) {
     switch(reader->Peek().type) {
       case LexType::TEXT:
-        list->Add(ReadText(reader));
+        list->Add(ReadText(reader, errors, file));
         break;
       case LexType::EVAL:
         reader->Advance();
-        list->Add(ReadEval(reader));
+        list->Add(ReadEval(reader, errors, file));
         break;
       case LexType::IFDEF:
         reader->Advance();
-        list->Add(ReadIfdef(reader));
+        list->Add(ReadIfdef(reader, errors, file));
         break;
       default:
         // todo: handle parser error
+        errors->AddError(file, reader->GetLine(), reader->GetColumn(), Str() << "Reading LIST, Found " << reader->Peek().ToString());
         return list;
     }
   }
 
-  reader->Advance(); // skip end
+  if(errors->HasErrors()) {
+    return list;
+  }
+
+  if(expect_end) {
+    Lex end = reader->Read(); // skip end
+    if(end.type != LexType::END) {
+      errors->AddError(file, reader->GetLine(), reader->GetColumn(), Str() << "Reading LIST, expected END but found " << end.ToString());
+    }
+  }
 
   return list;
 }
@@ -343,8 +410,9 @@ Template::~Template()
 
 Template::Template(const std::string& text)
 {
-  LexReader reader(Lexer(text));
-  nodes_ = ReadTemplateList(&reader);
+  const std::string file = "from_string";
+  LexReader reader(Lexer(text, &errors_, file));
+  nodes_ = ReadTemplateList(&reader, &errors_, file, false);
 }
 
 std::string Template::Evaluate(const Defines& defines) {

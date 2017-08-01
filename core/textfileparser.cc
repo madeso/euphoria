@@ -4,10 +4,21 @@
 
 #include "core/numeric.h"
 
+namespace  // local
+{
+bool IsNewline(const char c) {
+  if (c == '\n') return true;
+  else if (c == '\r') return true;
+  else return false;
+}
+}
+
 TextFileParser::TextFileParser(const std::string& str)
     : string_(str)
-    ,length_(str.length())
-    ,position_(0)
+    , length_(str.length())
+    , position_(0)
+    , line_(1)
+    , column_(1)
 { }
 
 char TextFileParser::PeekChar(unsigned int advance) {
@@ -22,12 +33,21 @@ char TextFileParser::PeekChar(unsigned int advance) {
 
 char TextFileParser::ReadChar() {
   const char r = PeekChar();
-  AdvanceChar();
+
+  if(IsNewline(r)) {
+    column_ = 1;
+    line_ += 1;
+  }
+  else {
+    column_ += 1;
+  }
+
+  ++position_;
   return r;
 }
 
 void TextFileParser::AdvanceChar() {
-  ++position_;
+  ReadChar();
 }
 
 namespace // local
@@ -92,15 +112,6 @@ std::string TextFileParser::ReadString() {
   return ss.str();
 }
 
-namespace  // local
-{
-bool IsNewline(const char c) {
-  if( c == '\n') return true;
-  else if( c == '\r') return true;
-  else return false;
-}
-}
-
 std::string TextFileParser::ReadToEndOfLine() {
   std::ostringstream ss;
   while(IsNewline(PeekChar()) == false) {
@@ -136,4 +147,12 @@ void TextFileParser::SkipSpaces(bool include_newline) {
 
 bool TextFileParser::HasMore() const {
   return position_ < length_;
+}
+
+unsigned int TextFileParser::GetLine() {
+  return line_;
+}
+
+unsigned int TextFileParser::GetColumn() {
+  return column_;
 }
