@@ -110,6 +110,21 @@ class TemplateNodeList : public TemplateNode {
 
 // -----------------------------------------------------------------------------
 
+class TemplateNodeScopedList : public TemplateNodeList {
+ public:
+  TemplateNodeScopedList()
+  { }
+
+  void Eval(Defines* defines, std::ostringstream* out, TemplateError* error) override
+  {
+    Assert(defines);
+    Defines my_defines = *defines;
+    TemplateNodeList::Eval(&my_defines, out, error);
+  }
+};
+
+// -----------------------------------------------------------------------------
+
 class TemplateNodeIfdef : public TemplateNode {
  public:
   TemplateNodeIfdef(const std::string& name, std::shared_ptr<TemplateNode> node)
@@ -371,7 +386,7 @@ class LexReader {
 
 ////////////////////////////////////////////////////////////////////////////////
 
-std::shared_ptr<TemplateNodeList> ReadTemplateList(LexReader* reader, TemplateError* errors, const std::string& file, bool expect_end, FileSystem* fs);
+void ReadTemplateList(std::shared_ptr<TemplateNodeList>* nodes, LexReader* reader, TemplateError* errors, const std::string& file, bool expect_end, FileSystem* fs);
 
 void LoadFromFilesystemToNodeList(FileSystem* fs, const std::string& path, TemplateError* error, std::shared_ptr<TemplateNodeList>* nodes)
 {
@@ -386,7 +401,7 @@ void LoadFromFilesystemToNodeList(FileSystem* fs, const std::string& path, Templ
     return;
   }
   LexReader reader(Lexer(content, error, path));
-  *nodes = ReadTemplateList(&reader, error, path, false, fs);
+  ReadTemplateList(nodes, &reader, error, path, false, fs);
 }
 
 // -----------------------------------------------------------------------------
@@ -442,7 +457,8 @@ std::shared_ptr<TemplateNodeIfdef> ReadIfdef(LexReader* reader, TemplateError* e
   const Lex& lex = reader->Read();
 
   if(lex.type == LexType::IDENT) {
-    std::shared_ptr<TemplateNode> children = ReadTemplateList(reader, errors, file, true, fs);
+    std::shared_ptr<TemplateNodeList> children { new TemplateNodeList{} };
+    ReadTemplateList(&children, reader, errors, file, true, fs);
     std::shared_ptr<TemplateNodeIfdef> ret { new TemplateNodeIfdef { lex.value, children} };
     return ret;
   }
@@ -457,7 +473,7 @@ std::shared_ptr<TemplateNodeList> ReadInclude(LexReader* reader, TemplateError* 
   const Lex& lex = reader->Read();
 
   if(lex.type == LexType::STRING) {
-    std::shared_ptr<TemplateNodeList> ret { new TemplateNodeList { } };
+    std::shared_ptr<TemplateNodeList> ret { new TemplateNodeScopedList { } };
     LoadFromFilesystemToNodeList(fs, lex.value, errors, &ret);
     return ret;
   }
@@ -466,12 +482,12 @@ std::shared_ptr<TemplateNodeList> ReadInclude(LexReader* reader, TemplateError* 
   return ret;
 }
 
-std::shared_ptr<TemplateNodeList> ReadTemplateList(LexReader* reader, TemplateError* errors, const std::string& file, bool expect_end, FileSystem* fs)
+void ReadTemplateList(std::shared_ptr<TemplateNodeList>* nodes, LexReader* reader, TemplateError* errors, const std::string& file, bool expect_end, FileSystem* fs)
 {
+  Assert(nodes);
+  std::shared_ptr<TemplateNodeList>& list = *nodes;
+
   Assert(reader);
-
-  std::shared_ptr<TemplateNodeList> list { new TemplateNodeList{} };
-
   while(!errors->HasErrors() && reader->HasMore() && (!expect_end || reader->Peek().type != LexType::END)) {
     switch(reader->Peek().type) {
       case LexType::TEXT:
@@ -495,12 +511,12 @@ std::shared_ptr<TemplateNodeList> ReadTemplateList(LexReader* reader, TemplateEr
         break;
       default:
         errors->AddError(file, reader->GetLine(), reader->GetColumn(), Str() << "Reading LIST "<< expect_end <<", Found " << reader->Peek().ToString());
-        return list;
+        return;
     }
   }
 
   if(errors->HasErrors()) {
-    return list;
+    return;
   }
 
   if(expect_end) {
@@ -510,19 +526,21 @@ std::shared_ptr<TemplateNodeList> ReadTemplateList(LexReader* reader, TemplateEr
     }
   }
 
-  return list;
+  return;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 
 Template::Template(const std::string& text)
+    : nodes_(new TemplateNodeList{})
 {
   const std::string file = "from_string";
   LexReader reader(Lexer(text, &errors_, file));
-  nodes_ = ReadTemplateList(&reader, &errors_, file, false, nullptr);
+  ReadTemplateList(&nodes_, &reader, &errors_, file, false, nullptr);
 }
 
 Template::Template(FileSystem* fs, const std::string& path)
+    : nodes_(new TemplateNodeList{})
 {
   Assert(fs);
   LoadFromFilesystemToNodeList(fs, path, &errors_, &nodes_);

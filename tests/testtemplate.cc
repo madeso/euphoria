@@ -82,7 +82,7 @@ GTEST(test_include_filesystem) {
 
 GTEST(test_scoping_filesystem) {
   CatalogFileSystem filesys {nullptr};
-  filesys.RegisterFile("main", "{{include \"included\"}} {{@var}}");
+  filesys.RegisterFile("main", "{{include \"included\"}} {{@var}}!");
   filesys.RegisterFile("included", "{{set var \"hello\" @var}}");
 
   Template t {&filesys, "main"};
@@ -91,6 +91,6 @@ GTEST(test_scoping_filesystem) {
 
   Defines defines;
   defines.Define("var", "world");
-  EXPECT_EQ("included", t.Evaluate(defines));
+  EXPECT_EQ("hello world!", t.Evaluate(defines));
   ASSERT_EQ("", t.GetErrors().GetCombinedErrors());
 }
