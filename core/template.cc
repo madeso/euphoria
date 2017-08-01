@@ -274,6 +274,11 @@ std::vector<Lex> Lexer(const std::string& str, TemplateError* error, const std::
     error->AddError(file, parser.GetLine(), parser.GetColumn(), "Expected end marker }}");
   }
 
+  const std::string buffer_str = buffer.str();
+  if(buffer_str.empty() == false) {
+    r.push_back(Lex{LexType::TEXT, buffer_line, buffer_column, buffer_str});
+  }
+
   return r;
 }
 
