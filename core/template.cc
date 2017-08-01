@@ -67,7 +67,7 @@ class TemplateNode {
   TemplateNode() {}
   virtual ~TemplateNode() {}
 
-  virtual void Eval(const Defines& defines, std::ostringstream* out, TemplateError* error) = 0;
+  virtual void Eval(Defines* defines, std::ostringstream* out, TemplateError* error) = 0;
 };
 
 // -----------------------------------------------------------------------------
@@ -76,7 +76,7 @@ class TemplateNodeString : public TemplateNode {
  public:
   TemplateNodeString(const std::string& text)
       : text_(text) {}
-  void Eval(const Defines& defines, std::ostringstream* out, TemplateError* error) override
+  void Eval(Defines* defines, std::ostringstream* out, TemplateError* error) override
   {
     Assert(out);
     *out << text_;
@@ -93,7 +93,7 @@ class TemplateNodeList : public TemplateNode {
   TemplateNodeList()
   { }
 
-  void Eval(const Defines& defines, std::ostringstream* out, TemplateError* error) override
+  void Eval(Defines* defines, std::ostringstream* out, TemplateError* error) override
   {
     for(auto node : nodes_) {
       node->Eval(defines, out, error);
@@ -117,9 +117,10 @@ class TemplateNodeIfdef : public TemplateNode {
       , node_(node)
   { }
 
-  void Eval(const Defines& defines, std::ostringstream* out, TemplateError* error) override
+  void Eval(Defines* defines, std::ostringstream* out, TemplateError* error) override
   {
-    if(defines.IsDefined(name_)) {
+    Assert(defines);
+    if(defines->IsDefined(name_)) {
       node_->Eval(defines, out, error);
     }
   }
@@ -137,26 +138,47 @@ class TemplateNodeEval : public TemplateNode {
       : name_(name)
   { }
 
-  void Eval(const Defines& defines, std::ostringstream* out, TemplateError* error) override
+  void Eval(Defines* defines, std::ostringstream* out, TemplateError* error) override
   {
     Assert(out);
+    Assert(defines);
 
-    if(error && !defines.IsDefined(name_)) {
+    if(error && !defines->IsDefined(name_)) {
       // todo: add file, line and column
       error->AddError("", 0, 0, Str() << name_ << " is not defined");
     }
 
-    *out << defines.GetValue(name_);
+    *out << defines->GetValue(name_);
   }
 
  private:
   std::string name_;
 };
 
+class TemplateNodeSet : public TemplateNode {
+ public:
+  TemplateNodeSet(const std::string& name, const std::string& value)
+      : name_(name)
+      , value_(value)
+  { }
+
+  void Eval(Defines* defines, std::ostringstream* out, TemplateError* error) override
+  {
+    Assert(out);
+    Assert(defines);
+
+    defines->Define(name_, value_);
+  }
+
+ private:
+  std::string name_;
+  std::string value_;
+};
+
 ////////////////////////////////////////////////////////////////////////////////
 
 enum class LexType {
-  TEXT, IFDEF, EVAL, IDENT, END, END_OF_FILE
+  TEXT, IFDEF, EVAL, IDENT, END, SET, STRING, END_OF_FILE
 };
 
 std::string LexTypeToString(LexType t) {
@@ -167,6 +189,8 @@ std::string LexTypeToString(LexType t) {
     CASE(EVAL);
     CASE(IDENT);
     CASE(END);
+    CASE(SET);
+    CASE(STRING);
     CASE(END_OF_FILE);
 #undef CASE
   }
@@ -225,6 +249,9 @@ std::vector<Lex> Lexer(const std::string& str, TemplateError* error, const std::
         else if(ident == "eval") {
           r.push_back(Lex{ LexType::EVAL, line, column });
         }
+        else if(ident == "set") {
+          r.push_back(Lex{ LexType::SET, line, column });
+        }
         else {
           r.push_back(Lex{ LexType::IDENT, line, column, ident});
         }
@@ -234,6 +261,12 @@ std::vector<Lex> Lexer(const std::string& str, TemplateError* error, const std::
         const unsigned int column = parser.GetColumn();
         parser.AdvanceChar();
         r.push_back(Lex{ LexType::EVAL, line, column});
+      }
+      else if( parser.PeekChar() == '\"' ) {
+        const unsigned int line = parser.GetLine();
+        const unsigned int column = parser.GetColumn();
+        const std::string& str = parser.ReadString();
+        r.push_back(Lex{ LexType::STRING, line, column, str});
       }
       else if( parser.PeekChar(0) == '}' && parser.PeekChar(1) == '}') {
         parser.AdvanceChar();
@@ -352,9 +385,31 @@ std::shared_ptr<TemplateNodeEval> ReadEval(LexReader* reader, TemplateError* err
     std::shared_ptr<TemplateNodeEval> ret { new TemplateNodeEval { lex.value } };
     return ret;
   }
-  // todo: handle parse error
+
   errors->AddError(file, reader->GetLine(), reader->GetColumn(), Str() << "Reading EVAL, expected IDENT but found " << lex.ToString());
   std::shared_ptr<TemplateNodeEval> ret { new TemplateNodeEval { "parse_error" } };
+  return ret;
+}
+
+std::shared_ptr<TemplateNodeSet> ReadSet(LexReader* reader, TemplateError* errors, const std::string& file) {
+  Assert(reader);
+  const Lex& name = reader->Read();
+
+  if(name.type != LexType::IDENT) {
+    errors->AddError(file, reader->GetLine(), reader->GetColumn(), Str() << "Reading SET, expected IDENT but found " << name.ToString());
+    std::shared_ptr<TemplateNodeSet> ret { new TemplateNodeSet { "parse_error", "parse_error" } };
+    return ret;
+  }
+
+  const Lex& val = reader->Read();
+
+  if(val.type != LexType::STRING) {
+    errors->AddError(file, reader->GetLine(), reader->GetColumn(), Str() << "Reading SET, expected STRING but found " << val.ToString());
+    std::shared_ptr<TemplateNodeSet> ret { new TemplateNodeSet { name.value, "parse_error" } };
+    return ret;
+  }
+
+  std::shared_ptr<TemplateNodeSet> ret { new TemplateNodeSet { name.value, val.value } };
   return ret;
 }
 
@@ -392,6 +447,10 @@ std::shared_ptr<TemplateNodeList> ReadTemplateList(LexReader* reader, TemplateEr
       case LexType::IFDEF:
         reader->Advance();
         list->Add(ReadIfdef(reader, errors, file));
+        break;
+      case LexType::SET:
+        reader->Advance();
+        list->Add(ReadSet(reader, errors, file));
         break;
       default:
         // todo: handle parser error
@@ -434,7 +493,10 @@ std::string Template::Evaluate(const Defines& defines) {
   }
 
   Assert(nodes_);
-  nodes_->Eval(defines, &ss, &errors_);
+
+  Defines my_defines = defines;
+
+  nodes_->Eval(&my_defines, &ss, &errors_);
   return ss.str();
 }
 

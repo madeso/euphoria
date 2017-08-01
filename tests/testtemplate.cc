@@ -29,3 +29,14 @@ GTEST(test_if) {
   EXPECT_EQ("Hello Buffy!", t.Evaluate(defines_with_sender));
   ASSERT_EQ("", t.GetErrors().GetCombinedErrors());
 }
+
+GTEST(test_define) {
+  Template t { "{{set sender \"Buffy\"}}Hello {{@sender}}!" };
+  EXPECT_EQ(false, t.GetErrors().HasErrors());
+  ASSERT_EQ("", t.GetErrors().GetCombinedErrors());
+
+  Defines defines;
+  EXPECT_EQ("Hello Buffy!", t.Evaluate(defines));
+  EXPECT_EQ(false, defines.IsDefined("sender"));
+  ASSERT_EQ("", t.GetErrors().GetCombinedErrors());
+}
