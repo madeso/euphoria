@@ -11,6 +11,7 @@ GTEST(test_replace) {
   Defines defines;
   defines.Define("sender", "Buffy");
   EXPECT_EQ("Hello Buffy!", t.Evaluate(defines));
+  ASSERT_EQ("", t.GetErrors().GetCombinedErrors());
 }
 
 GTEST(test_if) {
@@ -23,5 +24,8 @@ GTEST(test_if) {
   Defines empty_define;
 
   EXPECT_EQ("", t.Evaluate(empty_define));
+  ASSERT_EQ("", t.GetErrors().GetCombinedErrors());
+
   EXPECT_EQ("Hello Buffy!", t.Evaluate(defines_with_sender));
+  ASSERT_EQ("", t.GetErrors().GetCombinedErrors());
 }

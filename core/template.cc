@@ -67,7 +67,7 @@ class TemplateNode {
   TemplateNode() {}
   virtual ~TemplateNode() {}
 
-  virtual void Eval(const Defines& defines, std::ostringstream* out) = 0;
+  virtual void Eval(const Defines& defines, std::ostringstream* out, TemplateError* error) = 0;
 };
 
 // -----------------------------------------------------------------------------
@@ -76,7 +76,7 @@ class TemplateNodeString : public TemplateNode {
  public:
   TemplateNodeString(const std::string& text)
       : text_(text) {}
-  void Eval(const Defines& defines, std::ostringstream* out) override
+  void Eval(const Defines& defines, std::ostringstream* out, TemplateError* error) override
   {
     Assert(out);
     *out << text_;
@@ -93,10 +93,10 @@ class TemplateNodeList : public TemplateNode {
   TemplateNodeList()
   { }
 
-  void Eval(const Defines& defines, std::ostringstream* out) override
+  void Eval(const Defines& defines, std::ostringstream* out, TemplateError* error) override
   {
     for(auto node : nodes_) {
-      node->Eval(defines, out);
+      node->Eval(defines, out, error);
     }
   }
 
@@ -117,10 +117,10 @@ class TemplateNodeIfdef : public TemplateNode {
       , node_(node)
   { }
 
-  void Eval(const Defines& defines, std::ostringstream* out) override
+  void Eval(const Defines& defines, std::ostringstream* out, TemplateError* error) override
   {
     if(defines.IsDefined(name_)) {
-      node_->Eval(defines, out);
+      node_->Eval(defines, out, error);
     }
   }
 
@@ -137,9 +137,15 @@ class TemplateNodeEval : public TemplateNode {
       : name_(name)
   { }
 
-  void Eval(const Defines& defines, std::ostringstream* out) override
+  void Eval(const Defines& defines, std::ostringstream* out, TemplateError* error) override
   {
     Assert(out);
+
+    if(error && !defines.IsDefined(name_)) {
+      // todo: add file, line and column
+      error->AddError("", 0, 0, Str() << name_ << " is not defined");
+    }
+
     *out << defines.GetValue(name_);
   }
 
@@ -417,9 +423,13 @@ Template::Template(const std::string& text)
 
 std::string Template::Evaluate(const Defines& defines) {
   std::ostringstream ss;
-  if(nodes_) {
-    nodes_->Eval(defines, &ss);
+
+  if(errors_.HasErrors()) {
+    return "";
   }
+
+  Assert(nodes_);
+  nodes_->Eval(defines, &ss, &errors_);
   return ss.str();
 }
 
