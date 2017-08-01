@@ -1,12 +1,10 @@
-//
-// Created by gustav on 2017-07-31.
-//
+#include "core/template.h"
 
 #include <vector>
 #include <sstream>
-#include "template.h"
-#include "textfileparser.h"
-#include "assert.h"
+#include "core/textfileparser.h"
+#include "core/assert.h"
+#include "core/str.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -35,6 +33,31 @@ void Defines::Undefine(const std::string& name) {
 
 void Defines::Define(const std::string& name, const std::string& value) {
   values_[name] = value;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+TemplateError::TemplateError()
+{}
+
+bool TemplateError::HasErrors() const
+{
+  return errors_.empty() == false;
+}
+
+bool TemplateError::AddError(const std::string& file, int line, int column, const std::string& error) {
+  const std::string message = Str() << file << ":" << line << ":" << " " << error;
+  errors_.push_back(message);
+}
+
+std::string TemplateError::GetCombinedErrors() const {
+  std::ostringstream ss;
+
+  for(const auto& mess : errors_) {
+    ss << mess << "\n";
+  }
+
+  return ss.str();
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -330,4 +353,8 @@ std::string Template::Evaluate(const Defines& defines) {
     nodes_->Eval(defines, &ss);
   }
   return ss.str();
+}
+
+const TemplateError& Template::GetErrors() const {
+  return errors_;
 }

@@ -5,6 +5,7 @@
 #include <string>
 #include <sstream>
 #include <memory>
+#include <vector>
 
 class Defines {
  public:
@@ -19,6 +20,19 @@ class Defines {
   std::map<std::string, std::string> values_;
 };
 
+class TemplateError {
+ public:
+  TemplateError();
+
+  bool HasErrors() const;
+  bool AddError(const std::string& file, int line, int column, const std::string& error);
+
+  std::string GetCombinedErrors() const;
+
+ private:
+  std::vector<std::string> errors_;
+};
+
 class TemplateNodeList;
 
 class Template {
@@ -27,7 +41,9 @@ class Template {
   ~Template();
 
   std::string Evaluate(const Defines& defines);
+  const TemplateError& GetErrors() const;
  private:
+  TemplateError errors_;
   std::shared_ptr<TemplateNodeList> nodes_;
 };
 
