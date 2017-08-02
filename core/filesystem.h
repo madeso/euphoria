@@ -1,27 +1,14 @@
 #ifndef EUPHORIA_FILESYSTEM_H
 #define EUPHORIA_FILESYSTEM_H
 
+#include "core/memorychunk.h"
+
 #include <string>
 #include <map>
 #include <memory>
 #include <vector>
 
 // todo: add path class
-
-class MemoryChunk {
- public:
-  unsigned char* GetData();
-  const unsigned char* GetData() const;
-
-  unsigned long GetSize() const;
-
-  static std::shared_ptr<MemoryChunk> Alloc(unsigned long size);
-  static std::shared_ptr<MemoryChunk> Null();
- private:
-  explicit MemoryChunk(unsigned int size);
-  std::unique_ptr<unsigned char[]> data_;
-  unsigned long size_;
-};
 
 class FileSystemRoot {
  public:
