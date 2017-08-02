@@ -67,4 +67,7 @@ class Shader : public ShaderId {
   std::string shader_name_;
 };
 
+class Texture2d;
+void BindTextureToShader(Texture2d* texture, Shader* shader, const ShaderUniform& attribute, unsigned int index);
+
 #endif

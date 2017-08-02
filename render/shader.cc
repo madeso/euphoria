@@ -8,6 +8,7 @@
 #include <sstream>
 
 #include "render/gl.h"
+#include "render/texture.h"
 
 ShaderId::ShaderId() : id_(glCreateProgram()) {}
 
@@ -263,4 +264,13 @@ bool Shader::HasBoundAttribute(const ShaderAttribute &attribute) const {
 bool Shader::HasBoundUniform(const ShaderUniform& uniform) const {
   return std::find(bound_uniforms_.begin(), bound_uniforms_.end(), uniform)
          != bound_uniforms_.end();
+}
+
+void BindTextureToShader(Texture2d* texture, Shader* shader, const ShaderUniform& attribute, unsigned int index)
+{
+  Assert(index < 16); // at most 16 texture units
+  GLenum gl_id = GL_TEXTURE0 + index;
+  glActiveTexture(gl_id);
+  Use(texture);
+  shader->SetUniform(attribute, index);
 }

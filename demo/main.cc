@@ -7,6 +7,7 @@
 #include <memory>
 #include <render/compiledmesh.h>
 #include "render/shaderattribute3d.h"
+#include "render/texture.h"
 
 void SetupSdlOpenGlAttributes() {
   SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 4);
@@ -138,23 +139,35 @@ int main(int argc, char** argv) {
   attributes3d::PrebindShader(&shader);
   const bool shader_compile = shader.Compile(
       "#version 330 core\n"
-          "in vec3 vertex;\n"
+          "in vec3 aPosition;\n"
+          "in vec2 aTexCoord;\n"
+          "\n"
+          "out vec2 texCoord;\n"
           "\n"
           "void main()\n"
           "{\n"
-          "    gl_Position = vec4(vertex.x, vertex.y, vertex.z, 1.0);\n"
+          "    gl_Position = vec4(aPosition, 1.0);\n"
+          "    texCoord = aTexCoord;\n"
           "}\n",
       "#version 330 core\n"
           "out vec4 FragColor;\n"
           "\n"
+          "in vec2 texCoord;\n"
+          "\n"
+          "uniform sampler2D uTexture;\n"
+          "\n"
           "void main()\n"
           "{\n"
-          "    FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
+          "    FragColor = texture(uTexture, texCoord);\n"
           "}\n");
 
   if(shader_compile == false) {
     return -3;
   }
+
+  auto texture_uniform = shader.GetUniform("uTexture");
+
+  Texture2d texture {"wooden-crate.jpg"};
 
   mat4f projection =
       mat4f::Ortho(0.0f, static_cast<float>(width),
@@ -167,9 +180,9 @@ int main(int argc, char** argv) {
   MeshPart quad;
   const float size = 0.3f;
   const float z = -0.3f;
-  quad.AddPoint(size,  size, z, 0, 1);   // top right
-  quad.AddPoint(size, -size, z, 0, 1);   // bottom right
-  quad.AddPoint(-size, -size, z, 0, 1);  // bottom left
+  quad.AddPoint(size,  size, z, 1, 1);   // top right
+  quad.AddPoint(size, -size, z, 1, 0);   // bottom right
+  quad.AddPoint(-size, -size, z, 0, 0);  // bottom left
   quad.AddPoint(-size,  size, z, 0, 1);  // top left
   quad.AddFace(0, 1, 3);   // first triangle
   quad.AddFace(1, 2, 3);   // second triangle
@@ -210,6 +223,7 @@ int main(int argc, char** argv) {
 
     init.ClearScreen(Rgb::From(Color::DarkslateGray));
     Use(&shader);
+    BindTextureToShader(&texture, &shader, texture_uniform, 0);
     mesh->Render();
 
     SDL_GL_SwapWindow(window.window);
@@ -239,7 +253,7 @@ Shader shader;
 };
 
 class Shader {
-material list: diffuse at 0, normal map at 2
+material list: list of material names mapped to shader variables
 };
 
 class World {
@@ -252,6 +266,10 @@ MeshPart[] meshParts;
 
 class MeshPart {
 Material material;
+};
+
+class MaterialList {
+maps id, material name, shader variable
 };
 
 class Material {
