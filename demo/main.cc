@@ -8,6 +8,7 @@
 #include <render/compiledmesh.h>
 #include "render/shaderattribute3d.h"
 #include "render/texture.h"
+#include "core/filesystem.h"
 
 void SetupSdlOpenGlAttributes() {
   SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 4);
@@ -135,33 +136,38 @@ int main(int argc, char** argv) {
 
   init.SetViewport( Recti::FromTopLeftWidthHeight(0,0, width, height) );
 
+  FileSystem file_system;
+  auto catalog = FileSystemRootCatalog::AddRoot(&file_system);
+  catalog->RegisterFileString("default_shader.vert",
+                              "#version 330 core\n"
+                                  "in vec3 aPosition;\n"
+                                  "in vec2 aTexCoord;\n"
+                                  "\n"
+                                  "out vec2 texCoord;\n"
+                                  "\n"
+                                  "void main()\n"
+                                  "{\n"
+                                  "    gl_Position = vec4(aPosition, 1.0);\n"
+                                  "    texCoord = aTexCoord;\n"
+                                  "}\n");
+  catalog->RegisterFileString("default_shader.frag",
+                              "#version 330 core\n"
+                                  "out vec4 FragColor;\n"
+                                  "\n"
+                                  "in vec2 texCoord;\n"
+                                  "\n"
+                                  "uniform sampler2D uTexture;\n"
+                                  "\n"
+                                  "void main()\n"
+                                  "{\n"
+                                  "    FragColor = texture(uTexture, texCoord);\n"
+                                  "}\n");
+
   Shader shader;
   attributes3d::PrebindShader(&shader);
-  const bool shader_compile = shader.Compile(
-      "#version 330 core\n"
-          "in vec3 aPosition;\n"
-          "in vec2 aTexCoord;\n"
-          "\n"
-          "out vec2 texCoord;\n"
-          "\n"
-          "void main()\n"
-          "{\n"
-          "    gl_Position = vec4(aPosition, 1.0);\n"
-          "    texCoord = aTexCoord;\n"
-          "}\n",
-      "#version 330 core\n"
-          "out vec4 FragColor;\n"
-          "\n"
-          "in vec2 texCoord;\n"
-          "\n"
-          "uniform sampler2D uTexture;\n"
-          "\n"
-          "void main()\n"
-          "{\n"
-          "    FragColor = texture(uTexture, texCoord);\n"
-          "}\n");
+  const bool shader_compile = shader.Load(&file_system, "default_shader");
 
-  if(shader_compile == false) {
+  if(!shader_compile) {
     return -3;
   }
 

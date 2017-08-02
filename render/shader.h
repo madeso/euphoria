@@ -31,15 +31,17 @@ class ShaderId : Noncopyable {
 
 void Use(const Shader *id);
 
+class FileSystem; // core
+
 class Shader : public ShaderId {
  public:
   Shader();
 
   // shader attribute =
   void PreBind(const ShaderAttribute& attribute);
-  bool Load(const std::string& file_path);
+  bool Load(FileSystem* fs, const std::string& file_path);
 
-  // todo: make private when compiled assets are available
+ private:
   bool Compile(const glchar *vertexSource, const glchar *fragmentSource,
                const glchar *geometrySource = nullptr);
 

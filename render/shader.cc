@@ -10,6 +10,8 @@
 #include "render/gl.h"
 #include "render/texture.h"
 
+#include "core/filesystem.h"
+
 ShaderId::ShaderId() : id_(glCreateProgram()) {}
 
 ShaderId::~ShaderId() { glDeleteProgram(id_); }
@@ -202,7 +204,15 @@ void Shader::SetUniform(const ShaderUniform& attribute, const mat4f& val) {
 Shader::Shader() {}
 
 namespace {
-std::string LoadPath(const std::string& path) {
+std::string LoadPath(FileSystem* fs, const std::string& path) {
+  std::string content;
+  if( false == fs->ReadFileToString(path, &content) ) {
+    return "";
+  }
+  else {
+    return content;
+  }
+#if 0
   std::ifstream t(path.c_str());
 
   if( !t ) {
@@ -218,14 +228,15 @@ std::string LoadPath(const std::string& path) {
   str.assign((std::istreambuf_iterator<char>(t)),
              std::istreambuf_iterator<char>());
   return str;
+#endif
 }
 }
 
-bool Shader::Load(const std::string& file_path) {
+bool Shader::Load(FileSystem* fs, const std::string& file_path) {
   shader_name_ = file_path;
-  auto vert = LoadPath(file_path + ".vert");
-  auto frag = LoadPath(file_path + ".frag");
-  auto geom = LoadPath(file_path + ".geom");
+  auto vert = LoadPath(fs, file_path + ".vert");
+  auto frag = LoadPath(fs, file_path + ".frag");
+  auto geom = LoadPath(fs, file_path + ".geom");
   bool fail = false;
   if( vert.empty() ) {
     std::cerr << "Failed to load vert shader " << file_path << "\n";
