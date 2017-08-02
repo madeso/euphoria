@@ -5,16 +5,16 @@
 
 class AlwaysExist : public FileSystemRoot {
  public:
-  std::shared_ptr<FileInMemory> ReadFile(const std::string& path) override {
+  std::shared_ptr<MemoryChunk> ReadFile(const std::string& path) override {
     // alloc some garbage
-    return FileInMemory::Alloc(32);
+    return MemoryChunk::Alloc(32);
   }
 };
 
 class NeverExist : public FileSystemRoot {
  public:
-  std::shared_ptr<FileInMemory> ReadFile(const std::string& path) override {
-    return FileInMemory::Null();
+  std::shared_ptr<MemoryChunk> ReadFile(const std::string& path) override {
+    return MemoryChunk::Null();
   }
 };
 

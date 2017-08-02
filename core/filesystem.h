@@ -8,17 +8,17 @@
 
 // todo: add path class
 
-class FileInMemory {
+class MemoryChunk {
  public:
   unsigned char* GetData();
   const unsigned char* GetData() const;
 
   unsigned long GetSize() const;
 
-  static std::shared_ptr<FileInMemory> Alloc(unsigned long size);
-  static std::shared_ptr<FileInMemory> Null();
+  static std::shared_ptr<MemoryChunk> Alloc(unsigned long size);
+  static std::shared_ptr<MemoryChunk> Null();
  private:
-  FileInMemory(unsigned int size);
+  explicit MemoryChunk(unsigned int size);
   std::unique_ptr<unsigned char[]> data_;
   unsigned long size_;
 };
@@ -27,7 +27,7 @@ class FileSystemRoot {
  public:
   virtual ~FileSystemRoot();
 
-  virtual std::shared_ptr<FileInMemory> ReadFile(const std::string& path) = 0;
+  virtual std::shared_ptr<MemoryChunk> ReadFile(const std::string& path) = 0;
 };
 
 class FileSystem {
@@ -37,7 +37,7 @@ class FileSystem {
 
   void AddRoot(std::shared_ptr<FileSystemRoot> root);
 
-  std::shared_ptr<FileInMemory> ReadFile(const std::string& path);
+  std::shared_ptr<MemoryChunk> ReadFile(const std::string& path);
 
   // todo: need to support paging too
   bool ReadFileToString(const std::string& path, std::string* source);
@@ -55,13 +55,13 @@ class FileSystemRootCatalog : public FileSystemRoot {
   FileSystemRootCatalog();
 
   void RegisterFileString(const std::string& path, const std::string& content);
-  void RegisterFileData(const std::string& path, const std::shared_ptr<FileInMemory> content);
+  void RegisterFileData(const std::string& path, const std::shared_ptr<MemoryChunk> content);
 
   static std::shared_ptr<FileSystemRootCatalog> AddRoot(FileSystem* fs);
 
-  std::shared_ptr<FileInMemory> ReadFile(const std::string& path) override;
+  std::shared_ptr<MemoryChunk> ReadFile(const std::string& path) override;
  private:
-  std::map<std::string, std::shared_ptr<FileInMemory>> catalog_;
+  std::map<std::string, std::shared_ptr<MemoryChunk>> catalog_;
 };
 
 #endif //EUPHORIA_FILESYSTEM_H
