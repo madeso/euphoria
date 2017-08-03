@@ -143,7 +143,8 @@ enum class Color
   Violet,
   Wheat,
   WhiteSmoke,
-  YellowGreen
+  YellowGreen,
+  MAX_VALUE
 };
 
 namespace colorutil {

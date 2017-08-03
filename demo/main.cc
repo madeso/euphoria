@@ -10,6 +10,7 @@
 #include "render/texture.h"
 #include "core/filesystem.h"
 #include "core/draw.h"
+#include "core/random.h"
 
 void SetupSdlOpenGlAttributes() {
   SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 4);
@@ -179,8 +180,16 @@ int main(int argc, char** argv) {
   Draw drawer{&image};
   const auto wi = drawer.WholeImage();
   drawer
-      .Clear(Rgb::From(Color::Red))
-      .Circle(Rgb::From(Color::AntiqueWhite), drawer.WholeImage().GetAbsoluteCenterPos(), 100, 10, 50)
+      .Clear(Rgb::From(Color::Red));
+  Random random {42};
+  for(int i=0; i<20; i+= 1) {
+    const auto color = Rgb::From(random.NextColor());
+    const auto pos = random.NextPoint(wi);
+    const auto outer = random.NextRange(55.0f, 100.0f);
+    const auto inner = random.NextRange(50.0f);
+    drawer.Circle(color, pos, outer, 10, inner);
+  }
+  drawer
       .LineAntialiased(Rgb::From(Color::Black), wi.TopLeft(), wi.BottomRight())
       .LineAntialiased(Rgb::From(Color::Black), wi.BottomLeft(), wi.TopRight())
       ;
