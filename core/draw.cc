@@ -92,11 +92,21 @@ Draw& Draw::Line(const Rgb &color, const vec2i &from, const vec2i &to)
   float error = deltaerr - 0.5;
   int y = y0;
   for(int x=x0; x<x1; x+=1) {
-    image_->SetPixel(x, y, color);
+    const bool valid_x = IsWithinInclusivei(0, x, image_->GetWidth()-1);
+    const bool valid_y = IsWithinInclusivei(0, y, image_->GetHeight()-1);
+    if(valid_x && valid_y) {
+      image_->SetPixel(x, y, color);
+    }
+
     if(deltaerr > 0) {
       error = error + deltaerr;
       if(error >= 0.5) {
+        if(deltay>0) {
           y = y + 1;
+        }
+        else {
+          y = y - 1;
+        }
       }
       error = error - 1.0;
     }

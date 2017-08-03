@@ -175,12 +175,12 @@ int main(int argc, char** argv) {
   auto texture_uniform = shader.GetUniform("uTexture");
 
   Image image;
-  image.Setup(512, 512, false);
+  image.Setup(256, 256, false);
   Draw drawer{&image};
   const auto wi = drawer.WholeImage();
   drawer
       .Clear(Rgb::From(Color::Red))
-      .Circle(Rgb::From(Color::AntiqueWhite), drawer.WholeImage().GetAbsoluteCenterPos(), 200, 100, 50)
+      .Circle(Rgb::From(Color::AntiqueWhite), drawer.WholeImage().GetAbsoluteCenterPos(), 100, 10, 50)
       .Line(Rgb::From(Color::Black), wi.TopLeft(), wi.BottomRight())
       .Line(Rgb::From(Color::Black), wi.BottomLeft(), wi.TopRight())
       ;
