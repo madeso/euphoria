@@ -1,5 +1,7 @@
 #include "draw.h"
 
+#include <utility>
+
 #include "core/assert.h"
 
 Draw::Draw(Image* image)
@@ -79,12 +81,14 @@ Draw& Draw::Circle(const Rgb& color, const vec2i& center, float radius, float so
   return *this;
 }
 
-Draw& Draw::Line(const Rgb &color, const vec2i &from, const vec2i &to)
+Draw& Draw::LineFast(const Rgb &color, const vec2i &from, const vec2i &to)
 {
-  int x0 = from.x;
-  int y0 = from.y;
-  int x1 = to.x;
-  int y1 = to.y;
+  // https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm
+
+  const int x0 = from.x;
+  const int y0 = from.y;
+  const int x1 = to.x;
+  const int y1 = to.y;
 
   int deltax = x1 - x0;
   int deltay = y1 - y0;
@@ -112,5 +116,108 @@ Draw& Draw::Line(const Rgb &color, const vec2i &from, const vec2i &to)
     }
   }
 
+  return *this;
+}
+
+int ipart(float x) {
+  return floor(x);
+}
+
+int round(float x) {
+  return ipart(x + 0.5f);
+}
+
+// fractional part of x
+float fpart(float x) {
+  return x - floor(x);
+}
+
+float rfpart(float x) {
+  return 1 - fpart(x);
+}
+
+void plot(int x, int y, float brightness, const Rgb& color, Image* image) {
+  const bool valid_x = IsWithinInclusivei(0, x, image->GetWidth()-1);
+  const bool valid_y = IsWithinInclusivei(0, y, image->GetHeight()-1);
+  if(valid_x && valid_y) {
+    const Rgb paint_color = RgbTransform::Transform(Rgb{image->GetPixel(x,y)}, brightness, color);
+    image->SetPixel(x, y, paint_color);
+  }
+}
+
+Draw& Draw::LineAntialiased(const Rgb& color, const vec2i& from, const vec2i& to) {
+  return LineAntialiased(color, from.StaticCast<float>(), to.StaticCast<float>());
+}
+
+Draw& Draw::LineAntialiased(const Rgb& color, const vec2f& from, const vec2f& to) {
+  // https://en.wikipedia.org/wiki/Xiaolin_Wu%27s_line_algorithm
+  float x0 = from.x;
+  float y0 = from.y;
+  float x1 = to.x;
+  float y1 = to.y;
+
+
+  bool steep = Abs(y1 - y0) > Abs(x1 - x0);
+
+  if(steep) {
+    std::swap(x0, y0);
+    std::swap(x1, y1);
+  }
+  if (x0 > x1) {
+    std::swap(x0, x1);
+    std::swap(y0, y1);
+  }
+
+  float dx = x1 - x0;
+  float dy = y1 - y0;
+  float gradient = dx == 0.0 ? 1.0 : dy / dx;
+
+    // handle first endpoint
+  int xend = round(x0);
+  float yend = y0 + gradient * (xend - x0);
+  float xgap = rfpart(x0 + 0.5);
+  int xpxl1 = xend; // this will be used in the main loop
+  float ypxl1 = ipart(yend);
+  if(steep) {
+    plot(ypxl1,   xpxl1, rfpart(yend) * xgap, color, image_);
+    plot(ypxl1+1, xpxl1,  fpart(yend) * xgap, color, image_);
+  }
+  else {
+    plot(xpxl1, ypxl1  , rfpart(yend) * xgap, color, image_);
+    plot(xpxl1, ypxl1+1,  fpart(yend) * xgap, color, image_);
+  }
+  int intery = yend + gradient; // first y-intersection for the main loop
+
+  // handle second endpoint
+  xend = round(x1);
+  yend = y1 + gradient * (xend - x1);
+  xgap = fpart(x1 + 0.5);
+  int xpxl2 = xend; //this will be used in the main loop
+  int ypxl2 = ipart(yend);
+  if(steep) {
+    plot(ypxl2  , xpxl2, rfpart(yend) * xgap, color, image_);
+    plot(ypxl2+1, xpxl2,  fpart(yend) * xgap, color, image_);
+  }
+  else {
+    plot(xpxl2, ypxl2,  rfpart(yend) * xgap, color, image_);
+    plot(xpxl2, ypxl2+1, fpart(yend) * xgap, color, image_);
+  }
+
+  // main loop
+  if(steep) {
+    for(int x=xpxl1 + 1; x<xpxl2 - 1; x+=1)
+    {
+      plot(ipart(intery), x, rfpart(intery), color, image_);
+      plot(ipart(intery) + 1, x, fpart(intery), color, image_);
+      intery = intery + gradient;
+    }
+  }
+  else {
+    for(int x = xpxl1 + 1; x< xpxl2 - 1; x+=1) {
+      plot(x, ipart(intery),  rfpart(intery), color, image_);
+      plot(x, ipart(intery)+1, fpart(intery), color, image_);
+      intery = intery + gradient;
+     }
+   }
   return *this;
 }

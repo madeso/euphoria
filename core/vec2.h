@@ -20,6 +20,11 @@ class vec2 {
     return to - from;
   }
 
+  template<typename F>
+  vec2<F> StaticCast() const {
+    return vec2<F>(static_cast<F>(x), static_cast<F>(y));
+  }
+
   void operator+=(const vec2<T>& rhs) {
     x += rhs.x;
     y += rhs.y;

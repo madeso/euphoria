@@ -181,8 +181,8 @@ int main(int argc, char** argv) {
   drawer
       .Clear(Rgb::From(Color::Red))
       .Circle(Rgb::From(Color::AntiqueWhite), drawer.WholeImage().GetAbsoluteCenterPos(), 100, 10, 50)
-      .Line(Rgb::From(Color::Black), wi.TopLeft(), wi.BottomRight())
-      .Line(Rgb::From(Color::Black), wi.BottomLeft(), wi.TopRight())
+      .LineAntialiased(Rgb::From(Color::Black), wi.TopLeft(), wi.BottomRight())
+      .LineAntialiased(Rgb::From(Color::Black), wi.BottomLeft(), wi.TopRight())
       ;
 
 
