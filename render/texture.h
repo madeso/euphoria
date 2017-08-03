@@ -28,8 +28,8 @@ struct Texture2dLoadData {
   Texture2dLoadData& SetFilterMin(FilterMinification v);
 
   TextureWrap wrap;
-  FilterMagnification mag;
   FilterMinification min;
+  FilterMagnification mag;
 };
 
 class TextureId : Noncopyable {
