@@ -16,6 +16,11 @@ Rgb::Rgb(const int all)
   SetRgb(all);
 }
 
+Rgb::Rgb(const Rgba& rgb) {
+  SetRgb(rgb.GetRed(), rgb.GetGreen(), rgb.GetBlue());
+}
+
+
 const float Rgb::GetRed() const
 {
   return r;

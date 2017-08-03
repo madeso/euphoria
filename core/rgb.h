@@ -154,12 +154,15 @@ const int GetGreen(unsigned int i);
 const int GetBlue(unsigned int i);
 }
 
+class Rgba;
+
 class Rgb
 {
  public:
   Rgb(const float r, const float g, const float b);
   explicit Rgb(const float gray);
   explicit Rgb(const int rgb);
+  explicit Rgb(const Rgba& rgb);
   static const Rgb From(Color color);
 
   const float GetRed() const;
