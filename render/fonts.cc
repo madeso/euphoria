@@ -71,7 +71,6 @@ struct Face {
   }
 
   FontChar GetChar(unsigned int c) {
-    Assert(this);
     const FT_Error error = FT_Load_Char( face, c, FT_LOAD_RENDER );
     if ( error ) {
       std::cerr << "Failed to get char\n";
@@ -110,7 +109,6 @@ struct Pixels {
   }
 
   void Set(int x, int y, unsigned char v) {
-    Assert(this);
     const size_t id = (x + y*texture_width_)*4;
     pixels[id + 0] = 255;
     pixels[id + 1] = 255;
