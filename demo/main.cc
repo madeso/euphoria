@@ -11,6 +11,7 @@
 #include "core/filesystem.h"
 #include "core/draw.h"
 #include "core/random.h"
+#include "core/shufflebag.h"
 
 void SetupSdlOpenGlAttributes() {
   SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 4);
@@ -182,8 +183,14 @@ int main(int argc, char** argv) {
   drawer
       .Clear(Rgb::From(Color::Red));
   Random random {42};
+
+  ShuffleBag<int> colors;
+  for(int i=0; i<static_cast<int>(Color::MAX_VALUE); i+=1){
+    colors.Add(i, 5);
+  }
+
   for(int i=0; i<20; i+= 1) {
-    const auto color = Rgb::From(random.NextColor());
+    const auto color = Rgb::From(static_cast<Color>(colors.Next(&random)));
     const auto pos = random.NextPoint(wi);
     const auto outer = random.NextRange(55.0f, 100.0f);
     const auto inner = random.NextRange(50.0f);
