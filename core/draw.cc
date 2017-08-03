@@ -101,4 +101,6 @@ Draw& Draw::Line(const Rgb &color, const vec2i &from, const vec2i &to)
       error = error - 1.0;
     }
   }
+
+  return *this;
 }
