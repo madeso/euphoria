@@ -173,7 +173,8 @@ int main(int argc, char** argv) {
 
   auto texture_uniform = shader.GetUniform("uTexture");
 
-  Texture2d texture {"wooden-crate.jpg"};
+  Texture2d texture;
+  texture.LoadFromFile("wooden-crate.jpg", AlphaLoad::Remove, Texture2dLoadData{});
 
   mat4f projection =
       mat4f::Ortho(0.0f, static_cast<float>(width),

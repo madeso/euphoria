@@ -295,7 +295,7 @@ Font::Font(Shader* shader, const std::string& font_file, unsigned int font_size,
   chars_ = map;
   Texture2dLoadData load_data;
   texture_.reset(new Texture2d());
-  texture_->Load(texture_width, texture_height, &pixels.pixels[0], GL_RGBA, GL_RGBA, load_data);
+  texture_->LoadFromPixels(texture_width, texture_height, &pixels.pixels[0], GL_RGBA, GL_RGBA, load_data);
 }
 
 void Font::Draw(const vec2f& p, const std::string& str, const Rgb& basec, const Rgb& hic, int hi_start, int hi_end, float scale) const {

@@ -98,17 +98,7 @@ void Use(const TextureId* texture) {
 
 Texture2d::Texture2d() : width_(0), height_(0) {}
 
-Texture2d::Texture2d(const std::string& path) : width_(0), height_(0) {
-  LoadFromFile(path, AlphaLoad::Include, Texture2dLoadData());
-}
-
-Texture2d::Texture2d(const std::string& path, AlphaLoad alpha,
-                     const Texture2dLoadData& data)
-    : width_(0), height_(0) {
-  LoadFromFile(path, alpha, data);
-}
-
-void Texture2d::Load(int width, int height, const unsigned char* pixelData,
+void Texture2d::LoadFromPixels(int width, int height, const unsigned char* pixelData,
                      GLuint internalFormat, GLuint imageFormat,
                      const Texture2dLoadData& data) {
   Use(this);
@@ -129,20 +119,24 @@ void Texture2d::Load(int width, int height, const unsigned char* pixelData,
 void Texture2d::LoadFromFile(const std::string& path, AlphaLoad alpha,
                              const Texture2dLoadData& data) {
   ImageLoadResult i = LoadImage(path, alpha);
-  if (i.image.IsValid() == false) {
+  if (!i.image.IsValid()) {
     std::cerr << "Failed to load image " << path << "\n"
               << "  " << i.error << "\n";
     return;
   }
+  LoadFromImage(i.image, alpha, data);
+}
 
+void Texture2d::LoadFromImage(const Image& image, AlphaLoad alpha,
+                   const Texture2dLoadData& data) {
   GLuint internalFormat = GL_RGB;
   GLuint imageFormat = GL_RGB;
-  if (i.image.HasAlpha()) {
+  if (image.HasAlpha() && alpha == AlphaLoad::Include ) {
     internalFormat = GL_RGBA;
     imageFormat = GL_RGBA;
   }
 
-  Load(i.image.GetWidth(), i.image.GetHeight(), i.image.GetPixelData(), internalFormat, imageFormat, data);
+  LoadFromPixels(image.GetWidth(), image.GetHeight(), image.GetPixelData(), internalFormat, imageFormat, data);
 }
 
 int Texture2d::width() const { return width_; }

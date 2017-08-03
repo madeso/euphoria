@@ -5,6 +5,8 @@
 #include "render/gltypes.h"
 #include "core/noncopyable.h"
 
+class Image;
+
 enum class TextureWrap {
   REPEAT, MIRRORED_REPEAT, CLAMP_TO_EDGE
 };
@@ -48,15 +50,11 @@ class Texture2d : public TextureId {
  public:
   Texture2d();
 
-  // todo: there are too many contructors here, remove
-
-  explicit Texture2d(const std::string& path);
-  Texture2d(const std::string& path, AlphaLoad alpha,
-            const Texture2dLoadData& data);
-
-  void Load(int width, int height, const unsigned char* pixelData,
+  void LoadFromPixels(int width, int height, const unsigned char* pixelData,
             gluint internalFormat, gluint imageFormat,
             const Texture2dLoadData& data);
+  void LoadFromImage(const Image& image, AlphaLoad alpha,
+                    const Texture2dLoadData& data);
   void LoadFromFile(const std::string& path, AlphaLoad alpha,
                     const Texture2dLoadData& data);
 
