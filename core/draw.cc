@@ -40,7 +40,7 @@ Draw& Draw::Circle(const Rgb& color, const vec2i& center, float radius, float so
   const int left =  Max(0, floor(center.x - radius - softness));
   const int right = Min(image_->GetWidth(), ceil(center.x + radius + softness));
   const int top = Max(0, floor(center.y - radius - softness));
-  const int bottom = Min(image_->GetWidth(), ceil(center.x + radius + softness));
+  const int bottom = Min(image_->GetHeight(), ceil(center.y + radius + softness));
 
   // color modes
   // nothing INNER-SOFTNESS fade INNER full RADIUS fade RADIUS+SOFTNESS nothing
