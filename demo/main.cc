@@ -9,6 +9,7 @@
 #include "render/shaderattribute3d.h"
 #include "render/texture.h"
 #include "core/filesystem.h"
+#include "core/draw.h"
 
 void SetupSdlOpenGlAttributes() {
   SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 4);
@@ -173,8 +174,18 @@ int main(int argc, char** argv) {
 
   auto texture_uniform = shader.GetUniform("uTexture");
 
+  Image image;
+  image.Setup(512, 512, false);
+  Draw drawer{&image};
+  drawer
+      .Clear(Rgb::From(Color::Red))
+      .Circle(Rgb::From(Color::AntiqueWhite), drawer.WholeImage().GetAbsoluteCenterPos(), 200, 100, 50)
+      ;
+
+
   Texture2d texture;
-  texture.LoadFromFile("wooden-crate.jpg", AlphaLoad::Remove, Texture2dLoadData{});
+  texture.LoadFromImage(image, AlphaLoad::Remove, Texture2dLoadData{});
+  // texture.LoadFromFile("wooden-crate.jpg", AlphaLoad::Remove, Texture2dLoadData{});
 
   mat4f projection =
       mat4f::Ortho(0.0f, static_cast<float>(width),
