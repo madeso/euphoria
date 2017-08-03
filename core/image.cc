@@ -7,7 +7,9 @@
 
 #define STB_IMAGE_IMPLEMENTATION
 #define STBI_FAILURE_USERMSG
+#define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "stb_image.h"
+#include "stb_image_write.h"
 
 void Image::MakeInvalid() {
   components.resize(0);
@@ -119,6 +121,44 @@ bool Image::HasAlpha() const {
 
 const unsigned char* Image::GetPixelData() const {
   return &components[0];
+}
+
+namespace // local
+{
+void DetermineImageSize(void *context, void *data, int size)
+{
+  Assert(size >= 0);
+  auto* total_size = static_cast<unsigned long*>(context);
+  *total_size += size;
+}
+
+void WriteToMemoryChunkFile(void *context, void *data, int size)
+{
+  Assert(size >= 0);
+  auto* file = static_cast<MemoryChunkFile*>(context);
+  file->Write(data, size);
+}
+}
+
+std::shared_ptr<MemoryChunk> Image::Write() const
+{
+  unsigned long size = 0;
+  const int comp = has_alpha_ ? 4 : 3;
+  int size_result = stbi_write_bmp_to_func(DetermineImageSize, &size, GetWidth(), GetHeight(), comp, GetPixelData());
+  if(size_result == 0)
+  {
+    return MemoryChunk::Null();
+  }
+
+  Assert(size > 0);
+  MemoryChunkFile file {MemoryChunk::Alloc(size)};
+  int write_result = stbi_write_bmp_to_func(WriteToMemoryChunkFile, &file, GetWidth(), GetHeight(), comp, GetPixelData());
+  if(write_result == 0)
+  {
+    return MemoryChunk::Null();
+  }
+
+  return file.data;
 }
 
 namespace {

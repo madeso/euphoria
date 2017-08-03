@@ -3,7 +3,9 @@
 
 #include <string>
 #include <vector>
+#include <memory>
 #include "core/rgb.h"
+#include "core/memorychunk.h"
 
 class Image {
  public:
@@ -23,6 +25,8 @@ class Image {
   bool HasAlpha() const;
 
   const unsigned char* GetPixelData() const;
+
+  std::shared_ptr<MemoryChunk> Write() const;
 
  private:
   int GetPixelByteSize() const;

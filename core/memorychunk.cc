@@ -35,3 +35,13 @@ MemoryChunk::MemoryChunk(unsigned long size) : size_(size){
 void CopyToMemory(MemoryChunk* file, const void* src) {
   std::memcpy(file->GetData(), src, sizeof(unsigned char) * file->GetSize());
 }
+
+MemoryChunkFile::MemoryChunkFile(std::shared_ptr<MemoryChunk> d)
+: data(d), position(0)
+{}
+
+void MemoryChunkFile::Write(void* src, unsigned long size)
+{
+  Assert(position + size < data->GetSize());
+  std::memcpy(data->GetData() + position, src, sizeof(unsigned char) * size);
+}
