@@ -177,9 +177,12 @@ int main(int argc, char** argv) {
   Image image;
   image.Setup(512, 512, false);
   Draw drawer{&image};
+  const auto wi = drawer.WholeImage();
   drawer
       .Clear(Rgb::From(Color::Red))
       .Circle(Rgb::From(Color::AntiqueWhite), drawer.WholeImage().GetAbsoluteCenterPos(), 200, 100, 50)
+      .Line(Rgb::From(Color::Black), wi.TopLeft(), wi.BottomRight())
+      .Line(Rgb::From(Color::Black), wi.BottomLeft(), wi.TopRight())
       ;
 
 

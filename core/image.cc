@@ -1,7 +1,9 @@
 #include "core/image.h"
 
-#include "core/assert.h"
 #include <iostream>
+
+#include "core/assert.h"
+#include "core/numeric.h"
 
 #define STB_IMAGE_IMPLEMENTATION
 #define STBI_FAILURE_USERMSG
@@ -76,6 +78,9 @@ void Image::SetPixel(int x, int y, unsigned char r, unsigned char g, unsigned ch
 {
   Assert(this);
 
+  Assert(IsWithinInclusivei(0, x, GetWidth()-1));
+  Assert(IsWithinInclusivei(0, y, GetHeight()-1));
+
   const unsigned long base_index = GetPixelIndex(x, y);
   components[base_index + 0] = r;
   components[base_index + 1] = g;
@@ -88,6 +93,9 @@ void Image::SetPixel(int x, int y, unsigned char r, unsigned char g, unsigned ch
 
 Rgba Image::GetPixel(int x, int y) const {
   Assert(this);
+
+  Assert(IsWithinInclusivei(0, x, GetWidth()-1));
+  Assert(IsWithinInclusivei(0, y, GetHeight()-1));
 
   const unsigned long base_index = GetPixelIndex(x, y);
 
