@@ -39,6 +39,10 @@ class Rect {
     return vec2<T>(GetX(), GetY());
   }
 
+  vec2<T> GetPosition(const vec2<T> v) const {
+    return vec2<T>(v.x + GetX(), v.y + GetY());
+  }
+
   T GetRelativeCenterX() const { return GetWidth() / 2;}
   T GetRelativeCenterY() const { return GetHeight() / 2; }
   vec2<T> GetRelativeCenterPos() const { return vec2<T>(GetRelativeCenterX(), GetRelativeCenterY()); }
