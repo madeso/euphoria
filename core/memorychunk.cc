@@ -20,7 +20,7 @@ unsigned long MemoryChunk::GetSize() const
 std::shared_ptr<MemoryChunk> MemoryChunk::Alloc(unsigned long size) {
   std::shared_ptr<MemoryChunk> ret { new MemoryChunk(size) };
   return ret;
-};
+}
 
 std::shared_ptr<MemoryChunk> MemoryChunk::Null() {
   std::shared_ptr<MemoryChunk> ret;

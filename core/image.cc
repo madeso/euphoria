@@ -10,7 +10,6 @@
 #include "stb_image.h"
 
 void Image::MakeInvalid() {
-  Assert(this);
   components.resize(0);
   width_ = 0;
   height_ = 0;
@@ -20,12 +19,10 @@ void Image::MakeInvalid() {
 }
 
 int Image::GetPixelByteSize() const {
-  Assert(this);
   return has_alpha_ ? 4 : 3;
 }
 
 void Image::Setup(int image_width, int image_height, bool alpha, int default_value) {
-  Assert(this);
   Assert(image_width > 0);
   Assert(image_height > 0);
 
@@ -47,7 +44,6 @@ void Image::Setup(int image_width, int image_height, bool alpha, int default_val
 }
 
 unsigned long Image::GetPixelIndex(int x, int y) const {
-  Assert(this);
   Assert(x >= 0 && x<width_);
   Assert(y >= 0 && y<height_);
 
@@ -65,7 +61,6 @@ void Image::SetPixel(int x, int y, const Rgb& color) {
 }
 
 void Image::SetPixel(int x, int y, const Rgba& color) {
-  Assert(this);
   SetPixel(x,y,
            ToUnsignedChar(color.GetRed()),
            ToUnsignedChar(color.GetGreen()),
@@ -76,8 +71,6 @@ void Image::SetPixel(int x, int y, const Rgba& color) {
 
 void Image::SetPixel(int x, int y, unsigned char r, unsigned char g, unsigned char b, unsigned char a)
 {
-  Assert(this);
-
   Assert(IsWithinInclusivei(0, x, GetWidth()-1));
   Assert(IsWithinInclusivei(0, y, GetHeight()-1));
 
@@ -92,8 +85,6 @@ void Image::SetPixel(int x, int y, unsigned char r, unsigned char g, unsigned ch
 }
 
 Rgba Image::GetPixel(int x, int y) const {
-  Assert(this);
-
   Assert(IsWithinInclusivei(0, x, GetWidth()-1));
   Assert(IsWithinInclusivei(0, y, GetHeight()-1));
 
@@ -111,27 +102,22 @@ Rgba Image::GetPixel(int x, int y) const {
 }
 
 bool Image::IsValid() const {
-  Assert(this);
   return width_ > 0 && height_ > 0;
 }
 
 int Image::GetWidth() const {
-  Assert(this);
   return width_;
 }
 
 int Image::GetHeight() const {
-  Assert(this);
   return height_;
 }
 
 bool Image::HasAlpha() const {
-  Assert(this);
   return has_alpha_;
 }
 
 const unsigned char* Image::GetPixelData() const {
-  Assert(this);
   return &components[0];
 }
 

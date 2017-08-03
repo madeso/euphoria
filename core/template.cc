@@ -45,7 +45,7 @@ bool TemplateError::HasErrors() const
   return errors_.empty() == false;
 }
 
-bool TemplateError::AddError(const std::string& file, int line, int column, const std::string& error) {
+void TemplateError::AddError(const std::string& file, int line, int column, const std::string& error) {
   const std::string message = Str() << file << ":" << line << ":" << " " << error;
   errors_.push_back(message);
 }
@@ -212,9 +212,11 @@ std::string LexTypeToString(LexType t) {
     CASE(END_OF_FILE);
 #undef CASE
   }
+
+  return "<UNHANDLED_CASE>";
 }
 
-std::string FirstChars(const std::string& str, int count=10) {
+std::string FirstChars(const std::string& str, unsigned int count=10) {
   if(str.length()>count) {
     return str.substr(0, count) + "...";
   }

@@ -27,7 +27,7 @@ class TemplateError {
   TemplateError();
 
   bool HasErrors() const;
-  bool AddError(const std::string& file, int line, int column, const std::string& error);
+  void AddError(const std::string& file, int line, int column, const std::string& error);
 
   std::string GetCombinedErrors() const;
 

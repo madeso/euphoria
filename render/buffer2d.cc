@@ -24,7 +24,6 @@ Buffer2d::Buffer2d(const BufferBuilder2d& bb)
 }
 
 void Buffer2d::Draw() const {
-  Assert(this);
   Vao::Bind(&vao_);
   ebo_.Draw(index_count_);
   Vao::Bind(nullptr);

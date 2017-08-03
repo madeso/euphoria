@@ -49,13 +49,11 @@ ScalableSprite::~ScalableSprite() {
 }
 
 void ScalableSprite::SetSize(const Sizef &new_size) {
-  Assert(this);
   size_ = new_size;
   dirty_ = true;
 }
 
 const Sizef ScalableSprite::GetSize() const {
-  Assert(this);
   return size_;
 }
 
@@ -76,12 +74,10 @@ const Sizef ScalableSprite::GetMinimumSize() const {
 }
 
 const Texture2d* ScalableSprite::texture_ptr() const {
-  Assert(this);
   return texture_;
 }
 
 const Buffer2d* ScalableSprite::buffer_ptr() const {
-  Assert(this);
   BuildData();
   Assert(dirty_ == false);
   Assert(buffer_.get() != nullptr);

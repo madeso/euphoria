@@ -107,7 +107,6 @@ GLuint CompileShader(GLuint type, const GLchar *source,
 }
 
 void Shader::PreBind(const ShaderAttribute& attribute) {
-  Assert(this);
   glBindAttribLocation(id(), attribute.id, attribute.name.c_str());
   bound_attributes_.push_back(attribute);
 }
@@ -150,7 +149,6 @@ bool Shader::Compile(const GLchar *vertexSource, const GLchar *fragmentSource,
 }
 
 ShaderUniform Shader::GetUniform(const std::string& name) {
-  Assert(this);
   int uniform_id = glGetUniformLocation(id(), name.c_str());
   ShaderUniform uniform(name, uniform_id, this);
   bound_uniforms_.push_back(uniform);
@@ -163,14 +161,12 @@ ShaderUniform Shader::GetUniform(const std::string& name) {
 }
 
 void Shader::SetUniform(const ShaderUniform& attribute, glint val) {
-  Assert(this);
   Assert(IsCurrentlyBound());
   Assert(HasBoundUniform(attribute));
   glUniform1i(attribute.id, val);
 }
 
 void Shader::SetUniform(const ShaderUniform& attribute, const Rgb& val) {
-  Assert(this);
   Assert(IsCurrentlyBound());
   Assert(HasBoundUniform(attribute));
   if(attribute.id == -1) return;
@@ -178,7 +174,6 @@ void Shader::SetUniform(const ShaderUniform& attribute, const Rgb& val) {
 }
 
 void Shader::SetUniform(const ShaderUniform& attribute, const Rgba& val)  {
-  Assert(this);
   Assert(IsCurrentlyBound());
   Assert(HasBoundUniform(attribute));
   if(attribute.id == -1) return;
@@ -186,7 +181,6 @@ void Shader::SetUniform(const ShaderUniform& attribute, const Rgba& val)  {
 }
 
 void Shader::SetUniform(const ShaderUniform& attribute, const vec4f& val) {
-  Assert(this);
   Assert(IsCurrentlyBound());
   Assert(HasBoundUniform(attribute));
   if(attribute.id == -1) return;
@@ -194,7 +188,6 @@ void Shader::SetUniform(const ShaderUniform& attribute, const vec4f& val) {
 }
 
 void Shader::SetUniform(const ShaderUniform& attribute, const mat4f& val) {
-  Assert(this);
   Assert(IsCurrentlyBound());
   Assert(HasBoundUniform(attribute));
   if(attribute.id == -1) return;
@@ -259,12 +252,10 @@ bool Shader::Load(FileSystem* fs, const std::string& file_path) {
 }
 
 const std::vector<ShaderAttribute>& Shader::GetAttributes() const {
-  Assert(this);
   return bound_attributes_;
 }
 
 const std::string& Shader::GetName() const {
-  Assert(this);
   return shader_name_;
 }
 

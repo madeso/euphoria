@@ -102,7 +102,7 @@ struct Face {
   }
 };
 
-CharData::CharData(const BufferBuilder2d& data, const Rectf& ex, unsigned int ch, float ad) : extent(ex), c(ch), advance(ad), buffer(data) {
+CharData::CharData(const BufferBuilder2d& data, const Rectf& ex, unsigned int ch, float ad) : buffer(data), extent(ex), c(ch), advance(ad) {
 }
 
 struct Pixels {
@@ -299,7 +299,6 @@ Font::Font(Shader* shader, const std::string& font_file, unsigned int font_size,
 }
 
 void Font::Draw(const vec2f& p, const std::string& str, const Rgb& basec, const Rgb& hic, int hi_start, int hi_end, float scale) const {
-  Assert(this);
   Use(shader_);
 
   vec2f position = p;
@@ -343,7 +342,6 @@ void Font::Draw(const vec2f& p, const std::string& str, const Rgb& basec, const 
 }
 
 Rectf Font::GetExtents(const std::string& str, float scale) const {
-  Assert(this);
   unsigned int last_char_index = 0;
   vec2f position(0.0f);
   Rectf ret;
@@ -389,51 +387,41 @@ Text::Text(Font* font, TextBackgroundRenderer* back)
 Text::~Text() {}
 
 void Text::SetText(const std::string& str) {
-  Assert(this);
   text_ = str;
 }
 
 const std::string& Text::GetText() const {
-  Assert(this);
   return text_;
 }
 
 void Text::SetBaseColor(const Rgb& color) {
-  Assert(this);
   base_color_ = color;
 }
 
 void Text::SetHighlightColor(const Rgb& color) {
-  Assert(this);
   hi_color_ = color;
 }
 
 void Text::SetHighlightRange(int from, int to) {
-  Assert(this);
   hi_from_ = from;
   hi_to_ = to;
 }
 
 void Text::SetBackground(bool use_background, float alpha) {
-  Assert(this);
-
   use_background_ = use_background;
   background_alpha_ = alpha;
 }
 
 void Text::SetAlignment(Align alignment) {
-  Assert(this);
   alignment_ = alignment;
 }
 
 void Text::SetSize(float new_size) {
-  Assert(this);
   Assert(font_);
   SetScale(new_size/font_->GetFontSize());
 }
 
 void Text::SetScale(float scale) {
-  Assert(this);
   scale_ = scale;
   std::cout << "setting the scale to " << scale << "\n";
 }
@@ -462,12 +450,10 @@ vec2f GetOffset(Align alignment, const Rectf& extent) {
 }
 
 void Text::Draw(const vec2f& p) const{
-  Assert(this);
   Draw(p, base_color_);
 }
 
 void Text::Draw(const vec2f& p, const Rgb& override_color) const {
-  Assert(this);
   if( font_ == nullptr) return;
   const Rectf& e = GetExtents();
   const vec2f off = GetOffset(alignment_, e);

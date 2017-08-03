@@ -136,7 +136,6 @@ void APIENTRY OnOpenglError(GLenum source, GLenum type, GLuint id,
 }
 
 void SetupOpenglDebug() {
-  GLint flags;
   if (GLAD_GL_ARB_debug_output) {
     std::cout << "Enabling OpenGL debug output\n";
     glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS_ARB);
