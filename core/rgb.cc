@@ -385,6 +385,31 @@ const Rgb Rgb::From(Color color) {
   }
 }
 
+const Rgb Rgb::From(DawnbringerPalette color)
+{
+  switch(color)
+  {
+    case DawnbringerPalette::Blackcurrant   : return Rgb(0x140C1C);
+    case DawnbringerPalette::Castro         : return Rgb(0x442434);
+    case DawnbringerPalette::ToreaBay       : return Rgb(0x30346D);
+    case DawnbringerPalette::Liver          : return Rgb(0x4E4A4E);
+    case DawnbringerPalette::Korma          : return Rgb(0x854C30);
+    case DawnbringerPalette::SanFelix       : return Rgb(0x346524);
+    case DawnbringerPalette::Valencia       : return Rgb(0xD04648);
+    case DawnbringerPalette::Flint          : return Rgb(0x757161);
+    case DawnbringerPalette::HavelockBlue   : return Rgb(0x597DCE);
+    case DawnbringerPalette::Tango          : return Rgb(0xD27D2C);
+    case DawnbringerPalette::BaliHai        : return Rgb(0x8595A1);
+    case DawnbringerPalette::Sushi          : return Rgb(0x6DAA2C);
+    case DawnbringerPalette::Cashmere       : return Rgb(0xD2AA99);
+    case DawnbringerPalette::Seagull        : return Rgb(0x6DC2CA);
+    case DawnbringerPalette::Goldenrod      : return Rgb(0xDAD45E);
+    case DawnbringerPalette::Tara           : return Rgb(0xDEEED6);
+    default:
+      std::cerr << "invalid dawnbringer palette name\n";
+      return Rgb(0x9acd32);
+  }
+}
 
 Rgb RgbTransform::Transform(const Rgb& from, float v, const Rgb to) {
   return Rgb( FloatTransform::Transform(from.GetRed(), v, to.GetRed()),

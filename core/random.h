@@ -23,6 +23,7 @@ class Random {
   int NextRange(int max);
 
   Color NextColor();
+  DawnbringerPalette NextDawnbringerPalette();
   Rgb NextRgb();
   Rgb NextGrey();
 

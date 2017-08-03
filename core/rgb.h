@@ -147,6 +147,29 @@ enum class Color
   MAX_VALUE
 };
 
+// RGB source
+// http://pixeljoint.com/forum/forum_posts.asp?TID=12795
+// http://www.color-blindness.com/color-name-hue/ gave names
+enum class DawnbringerPalette {
+  Blackcurrant ,
+  Castro       ,
+  ToreaBay     ,
+  Liver        ,
+  Korma        ,
+  SanFelix     ,
+  Valencia     ,
+  Flint        ,
+  HavelockBlue ,
+  Tango        ,
+  BaliHai      ,
+  Sushi        ,
+  Cashmere     ,
+  Seagull      ,
+  Goldenrod    ,
+  Tara         ,
+  MAX_VALUE
+};
+
 namespace colorutil {
 // internal function, exposed for unit tests
 const int GetComponent(unsigned int i, int steps);
@@ -165,6 +188,7 @@ class Rgb
   explicit Rgb(const int rgb);
   explicit Rgb(const Rgba& rgb);
   static const Rgb From(Color color);
+  static const Rgb From(DawnbringerPalette color);
 
   const float GetRed() const;
   const float GetGreen() const;
