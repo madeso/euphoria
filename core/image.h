@@ -8,6 +8,10 @@
 #include "core/memorychunk.h"
 #include "core/filesystem.h"
 
+enum class ImageWriteFormat {
+  PNG, BMP, TGA, JPEG
+};
+
 class Image {
  public:
   void MakeInvalid();
@@ -27,7 +31,7 @@ class Image {
 
   const unsigned char* GetPixelData() const;
 
-  std::shared_ptr<MemoryChunk> Write() const;
+  std::shared_ptr<MemoryChunk> Write(ImageWriteFormat format, int jpeg_quality=100) const;
 
  private:
   int GetPixelByteSize() const;

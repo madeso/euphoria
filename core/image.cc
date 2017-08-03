@@ -140,11 +140,28 @@ void WriteToMemoryChunkFile(void *context, void *data, int size)
 }
 }
 
-std::shared_ptr<MemoryChunk> Image::Write() const
+int WriteImageData(stbi_write_func *func, void *context, int w, int h, int comp, const void  *data, ImageWriteFormat format, int jpeg_quality)
+{
+  switch(format) {
+    case ImageWriteFormat::PNG:
+      return stbi_write_png_to_func(func, context, w, h, comp, data, 0);
+    case ImageWriteFormat::BMP:
+      return stbi_write_bmp_to_func(func, context, w, h, comp, data);
+    case ImageWriteFormat::TGA:
+      return stbi_write_tga_to_func(func, context, w, h, comp, data);
+    case ImageWriteFormat::JPEG:
+      return stbi_write_jpg_to_func(func, context, w, h, comp, data, jpeg_quality);
+    default:
+      Assert(false && "Unhandled case");
+      return 0;
+  }
+}
+
+std::shared_ptr<MemoryChunk> Image::Write(ImageWriteFormat format, int jpeg_quality) const
 {
   unsigned long size = 0;
   const int comp = has_alpha_ ? 4 : 3;
-  int size_result = stbi_write_bmp_to_func(DetermineImageSize, &size, GetWidth(), GetHeight(), comp, GetPixelData());
+  int size_result = WriteImageData(DetermineImageSize, &size, GetWidth(), GetHeight(), comp, GetPixelData(), format, jpeg_quality);
   if(size_result == 0)
   {
     return MemoryChunk::Null();
@@ -152,7 +169,7 @@ std::shared_ptr<MemoryChunk> Image::Write() const
 
   Assert(size > 0);
   MemoryChunkFile file {MemoryChunk::Alloc(size)};
-  int write_result = stbi_write_bmp_to_func(WriteToMemoryChunkFile, &file, GetWidth(), GetHeight(), comp, GetPixelData());
+  int write_result = WriteImageData(WriteToMemoryChunkFile, &file, GetWidth(), GetHeight(), comp, GetPixelData(), format, jpeg_quality);
   if(write_result == 0)
   {
     return MemoryChunk::Null();

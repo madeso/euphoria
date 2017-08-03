@@ -197,7 +197,7 @@ int main(int argc, char** argv) {
       .LineAntialiased(Rgb::From(Color::Black), wi.BottomLeft(), wi.TopRight())
     .Text(wi.GetAbsoluteCenterPos(), "Hello world", Rgb::From(Color::Black), 2)
       ;
-  catalog->RegisterFileData("image", image.Write());
+  catalog->RegisterFileData("image", image.Write(ImageWriteFormat::PNG));
 
 
   Texture2d texture;
