@@ -205,6 +205,7 @@ Shader::Shader() {}
 
 namespace {
 std::string LoadPath(FileSystem* fs, const std::string& path) {
+  // todo: replace with a template instead of basic string
   std::string content;
   if( false == fs->ReadFileToString(path, &content) ) {
     return "";
