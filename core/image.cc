@@ -7,7 +7,7 @@
 #define STBI_FAILURE_USERMSG
 #include "stb_image.h"
 
-void Image::Clear() {
+void Image::MakeInvalid() {
   Assert(this);
   components.resize(0);
   width_ = 0;
@@ -52,8 +52,28 @@ unsigned long Image::GetPixelIndex(int x, int y) const {
   return (y * static_cast<unsigned long>(width_) + x) * GetPixelByteSize();
 }
 
-void Image::SetPixel(int x, int y, unsigned char r, unsigned char g,
-                     unsigned char b, unsigned char a) {
+namespace // local
+{
+float ToFloat(unsigned char c) {return c/255.0f;}
+unsigned char ToUnsignedChar(float f) {return static_cast<unsigned char>(f*255.0f);}
+}
+
+void Image::SetPixel(int x, int y, const Rgb& color) {
+  SetPixel(x, y, Rgba{color});
+}
+
+void Image::SetPixel(int x, int y, const Rgba& color) {
+  Assert(this);
+  SetPixel(x,y,
+           ToUnsignedChar(color.GetRed()),
+           ToUnsignedChar(color.GetGreen()),
+           ToUnsignedChar(color.GetBlue()),
+           ToUnsignedChar(color.GetAlpha())
+  );
+}
+
+void Image::SetPixel(int x, int y, unsigned char r, unsigned char g, unsigned char b, unsigned char a)
+{
   Assert(this);
 
   const unsigned long base_index = GetPixelIndex(x, y);
@@ -64,6 +84,22 @@ void Image::SetPixel(int x, int y, unsigned char r, unsigned char g,
   if (has_alpha_) {
     components[base_index + 3] = a;
   }
+}
+
+Rgba Image::GetPixel(int x, int y) const {
+  Assert(this);
+
+  const unsigned long base_index = GetPixelIndex(x, y);
+
+  const float red = ToFloat(components[base_index + 0]);
+  const float green = ToFloat(components[base_index + 1]);
+  const float blue = ToFloat(components[base_index + 2]);
+
+  const float alpha = has_alpha_
+                      ? ToFloat(components[base_index + 3])
+                      : 1.0f;
+
+  return Rgba{red, green, blue, alpha};
 }
 
 bool Image::IsValid() const {
@@ -119,7 +155,7 @@ ImageLoadResult LoadImage(const std::string& path, AlphaLoad alpha) {
   if (data == NULL) {
     ImageLoadResult result;
     result.error = stbi_failure_reason();
-    result.image.Clear();
+    result.image.MakeInvalid();
     std::cerr << "Failed to load " << path << ": " << result.error << "\n";
     return result;
   }

@@ -3,17 +3,25 @@
 
 #include <string>
 #include <vector>
+#include "core/rgb.h"
 
 class Image {
  public:
-  void Clear();
-  void Setup(int image_width, int image_height, bool alpha, int default_value=0);
-  void SetPixel(int x, int y, unsigned char r, unsigned char g, unsigned char b, unsigned char a);
+  void MakeInvalid();
   bool IsValid() const;
+
+  void Setup(int image_width, int image_height, bool alpha, int default_value=0);
+
+  void SetPixel(int x, int y, const Rgb& color);
+  void SetPixel(int x, int y, const Rgba& color);
+  void SetPixel(int x, int y, unsigned char r, unsigned char g, unsigned char b, unsigned char a);
+
+  Rgba GetPixel(int x, int y) const;
 
   int GetWidth() const;
   int GetHeight() const;
   bool HasAlpha() const;
+
   const unsigned char* GetPixelData() const;
 
  private:
