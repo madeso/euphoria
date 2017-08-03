@@ -202,11 +202,12 @@ int main(int argc, char** argv) {
       .LineAntialiased(Rgb::From(Color::Black), wi.BottomLeft(), wi.TopRight())
     .Text(wi.GetAbsoluteCenterPos(), "Hello world", Rgb::From(Color::Black), 2)
       ;
+  catalog->RegisterFileData("image", image.Write());
 
 
   Texture2d texture;
   // texture.LoadFromImage(image, AlphaLoad::Remove, Texture2dLoadData{});
-  texture.LoadFromFile(&file_system, "wooden-crate.jpg", AlphaLoad::Remove, Texture2dLoadData{});
+  texture.LoadFromFile(&file_system, "image", AlphaLoad::Remove, Texture2dLoadData{});
 
   mat4f projection =
       mat4f::Ortho(0.0f, static_cast<float>(width),
