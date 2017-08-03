@@ -1,5 +1,38 @@
 #include "core/filesystem.h"
+
+#include <fstream>
+
 #include "core/assert.h"
+#include "core/stringutils.h"
+
+////////////////////////////////////////////////////////////////////////////////
+// copied from https://stackoverflow.com/a/145309/180307
+
+#include <stdio.h>  /* defines FILENAME_MAX */
+#ifdef WINDOWS
+#include <direct.h>
+    #define GetCurrentDir _getcwd
+#else
+#include <unistd.h>
+#define GetCurrentDir getcwd
+#endif
+
+namespace
+{
+std::string GetCurrentDirectory()
+{
+  char current_directory[FILENAME_MAX];
+
+  if (!GetCurrentDir(current_directory, sizeof(current_directory)))
+  {
+    return "";
+  }
+
+  current_directory[sizeof(current_directory) - 1] = 0;
+
+  return current_directory;
+}
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -73,4 +106,49 @@ std::shared_ptr<MemoryChunk> FileSystemRootCatalog::ReadFile(const std::string& 
   }
 
   return found->second;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+FileSystemRootFolder::FileSystemRootFolder(const std::string& folder) : folder_(folder) {}
+
+std::shared_ptr<MemoryChunk> FileSystemRootFolder::ReadFile(const std::string& path)
+{
+  const std::string& full_path = folder_ + path;
+  std::ifstream is(full_path, std::ifstream::binary );
+  if(!is) {
+    return MemoryChunk::Null();
+  }
+
+  is.seekg (0, is.end);
+  long length = is.tellg();
+  is.seekg (0, is.beg);
+
+  if(length <= 0 ) {
+    return MemoryChunk::Null();
+  }
+
+  auto memory = MemoryChunk::Alloc(length);
+  is.read(static_cast<char*>(static_cast<void*>(memory->GetData())), memory->GetSize());
+
+  return memory;
+}
+
+void FileSystemRootFolder::AddRoot(FileSystem* fs, const std::string& folder)
+{
+  Assert(fs);
+
+  const std::string slash = "/";
+
+  const std::string the_folder = EndsWith(folder, slash) ? folder : folder + slash;
+
+  auto catalog = std::make_shared<FileSystemRootFolder>(the_folder);
+
+  fs->AddRoot(catalog);
+}
+
+void FileSystemRootFolder::AddRoot(FileSystem* fs)
+{
+  const std::string folder = GetCurrentDirectory();
+  return FileSystemRootFolder::AddRoot(fs, folder);
 }

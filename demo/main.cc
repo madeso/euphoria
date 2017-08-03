@@ -141,6 +141,7 @@ int main(int argc, char** argv) {
 
   FileSystem file_system;
   auto catalog = FileSystemRootCatalog::AddRoot(&file_system);
+  FileSystemRootFolder::AddRoot(&file_system);
   catalog->RegisterFileString("default_shader.vert",
                               "#version 330 core\n"
                                   "in vec3 aPosition;\n"
