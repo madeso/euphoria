@@ -116,9 +116,9 @@ void Texture2d::LoadFromPixels(int width, int height, const unsigned char* pixel
   glBindTexture(GL_TEXTURE_2D, 0);
 }
 
-void Texture2d::LoadFromFile(const std::string& path, AlphaLoad alpha,
+void Texture2d::LoadFromFile(FileSystem* fs, const std::string& path, AlphaLoad alpha,
                              const Texture2dLoadData& data) {
-  ImageLoadResult i = LoadImage(path, alpha);
+  ImageLoadResult i = LoadImage(fs, path, alpha);
   if (!i.image.IsValid()) {
     std::cerr << "Failed to load image " << path << "\n"
               << "  " << i.error << "\n";

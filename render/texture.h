@@ -4,6 +4,7 @@
 #include "core/image.h"
 #include "render/gltypes.h"
 #include "core/noncopyable.h"
+#include "core/filesystem.h"
 
 class Image;
 
@@ -55,7 +56,7 @@ class Texture2d : public TextureId {
             const Texture2dLoadData& data);
   void LoadFromImage(const Image& image, AlphaLoad alpha,
                     const Texture2dLoadData& data);
-  void LoadFromFile(const std::string& path, AlphaLoad alpha,
+  void LoadFromFile(FileSystem* fs, const std::string& path, AlphaLoad alpha,
                     const Texture2dLoadData& data);
 
   int width() const;

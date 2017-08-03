@@ -6,15 +6,17 @@
 #include <map>
 
 class Texture2d;
+class FileSystem;
 
 class TextureCache {
  public:
-  TextureCache();
+  explicit TextureCache(FileSystem* fs);
   ~TextureCache();
 
   Texture2d* GetTexture(const std::string& path);
 
  private:
+  FileSystem* filesystem_;
   typedef std::shared_ptr<Texture2d> Ptr;
   typedef std::map<std::string, Ptr> Map;
   Map map_;

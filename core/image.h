@@ -6,6 +6,7 @@
 #include <memory>
 #include "core/rgb.h"
 #include "core/memorychunk.h"
+#include "core/filesystem.h"
 
 class Image {
  public:
@@ -48,6 +49,6 @@ class ImageLoadResult {
 enum class AlphaLoad { Remove, Include };
 
 // todo: move image loading to a io library instead
-ImageLoadResult LoadImage(const std::string& path, AlphaLoad alpha);
+ImageLoadResult LoadImage(FileSystem* fs, const std::string& path, AlphaLoad alpha);
 
 #endif  // CORE_IMAGE_H

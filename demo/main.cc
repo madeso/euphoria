@@ -204,8 +204,8 @@ int main(int argc, char** argv) {
 
 
   Texture2d texture;
-  texture.LoadFromImage(image, AlphaLoad::Remove, Texture2dLoadData{});
-  // texture.LoadFromFile("wooden-crate.jpg", AlphaLoad::Remove, Texture2dLoadData{});
+  // texture.LoadFromImage(image, AlphaLoad::Remove, Texture2dLoadData{});
+  texture.LoadFromFile(&file_system, "wooden-crate.jpg", AlphaLoad::Remove, Texture2dLoadData{});
 
   mat4f projection =
       mat4f::Ortho(0.0f, static_cast<float>(width),

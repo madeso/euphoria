@@ -180,17 +180,29 @@ unsigned char Select(int ch, unsigned char a, unsigned char b, unsigned char c,
 }
 }
 
-ImageLoadResult LoadImage(const std::string& path, AlphaLoad alpha) {
+ImageLoadResult LoadImage(FileSystem* fs, const std::string& path, AlphaLoad alpha) {
   int channels = 0;
   int image_width = 0;
   int image_height = 0;
-  unsigned char* data = stbi_load(path.c_str(), &image_width, &image_height, &channels, 0);
 
-  if (data == NULL) {
+  auto file_memory = fs->ReadFile(path);
+  if (file_memory == nullptr) {
+    ImageLoadResult result;
+    result.error = "File doesnt exist";
+    result.image.MakeInvalid();
+    std::cerr << "Failed to open " << path << ": File doesnt exist.\n";
+    return result;
+  }
+
+  unsigned char* data = stbi_load_from_memory(file_memory->GetData(), file_memory->GetSize(),
+                                              &image_width, &image_height, &channels, 0);
+  // unsigned char* data = stbi_load(path.c_str(), &image_width, &image_height, &channels, 0);
+
+  if (data == nullptr) {
     ImageLoadResult result;
     result.error = stbi_failure_reason();
     result.image.MakeInvalid();
-    std::cerr << "Failed to load " << path << ": " << result.error << "\n";
+    std::cerr << "Failed to read " << path << ": " << result.error << "\n";
     return result;
   }
 

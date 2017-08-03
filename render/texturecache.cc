@@ -3,7 +3,7 @@
 #include "core/assert.h"
 #include "render/texture.h"
 
-TextureCache::TextureCache() {
+TextureCache::TextureCache(FileSystem* fs) : filesystem_(fs) {
 }
 
 TextureCache::~TextureCache() {
@@ -14,7 +14,7 @@ Texture2d* TextureCache::GetTexture(const std::string& path) {
   if( it != map_.end()) return it->second.get();
 
   Ptr t( new Texture2d {} );
-  t->LoadFromFile(path, AlphaLoad::Include, Texture2dLoadData{});
+  t->LoadFromFile(filesystem_, path, AlphaLoad::Include, Texture2dLoadData{});
   map_.insert(Map::value_type(path, t));
   return t.get();
 }
