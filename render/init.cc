@@ -13,6 +13,7 @@ Init::Init() : ok(true) {
     ok = false;
   }
 
+  // todo: replace cout with log system
   std::cout << "Vendor:         " << glGetString(GL_VENDOR) << "\n";
   std::cout << "Renderer:       " << glGetString(GL_RENDERER) << "\n";
   std::cout << "Version OpenGL: " << glGetString(GL_VERSION) << "\n";
