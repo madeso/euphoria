@@ -4,6 +4,9 @@
 #include "core/image.h"
 #include "core/rgb.h"
 #include "core/rect.h"
+
+#include <string>
+
 class Draw {
  public:
   Draw(Image* image);
@@ -18,6 +21,8 @@ class Draw {
   Draw& LineFast(const Rgb& color, const vec2i& from, const vec2i& to);
   Draw& LineAntialiased(const Rgb& color, const vec2f& from, const vec2f& to);
   Draw& LineAntialiased(const Rgb& color, const vec2i& from, const vec2i& to);
+
+  Draw& Text(const vec2i& pos, const std::string& text, const Rgb& color, int scale);
 
  private:
   Image* image_;

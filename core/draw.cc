@@ -4,6 +4,8 @@
 
 #include "core/assert.h"
 
+#include "font8x8/font8x8_basic.h"
+
 Draw::Draw(Image* image)
 : image_(image)
 {
@@ -219,5 +221,54 @@ Draw& Draw::LineAntialiased(const Rgb& color, const vec2f& from, const vec2f& to
       intery = intery + gradient;
      }
    }
+  return *this;
+}
+
+const unsigned char* GetCharGlyph(char ac) {
+  int c = static_cast<int>(ac);
+  Assert(c >= 0);
+  Assert(c<128);
+  return font8x8_basic[c];
+}
+
+void DrawSquare(Draw* image, int x, int y, const Rgb& color, int size)
+{
+  image->Square(color, Recti::FromTopLeftWidthHeight(x, y, size, size));
+}
+
+void PrintCharAt(Draw* image, const vec2i pos, char c, const Rgb& color, int scale) {
+  Assert(image);
+  const unsigned char* glyph = GetCharGlyph(c);
+  for(int y=0; y<8; y+=1)
+  {
+    for(int x=0; x<8; x+=1)
+    {
+      bool pixel = 0 != (glyph[y] & 1 << x);
+      if(pixel)
+      {
+        DrawSquare(image, pos.x+x*scale, pos.y + y*scale, color, scale);
+        // image->SetPixel(pos.x+x*scale, pos.y + y*scale, color);
+      }
+    }
+  }
+
+}
+
+Draw& Draw::Text(const vec2i& start_pos, const std::string& text, const Rgb& color, int scale)
+{
+  Assert(scale>0);
+  vec2i pos = start_pos;
+  for(unsigned int i=0; i<text.length(); i+=1) {
+    const char c = text[i];
+
+    if(pos.x + 8*scale > image_->GetWidth()) {
+      pos.x = start_pos.x;
+      pos.y += 8*scale;
+    }
+
+    PrintCharAt(this, pos, c, color, scale);
+    pos.x += 8*scale; // move to next char
+  }
+
   return *this;
 }

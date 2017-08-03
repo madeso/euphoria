@@ -22,6 +22,8 @@ set(pbjson_src
     ../external/pbjson/src/bin2ascii.h
     )
 
+include_directories(../external/font8x8/)
+
 set(src ${src} ${src_aheasing} ${pbjson_src})
 source_group("AHEasing" FILES ${src_aheasing})
 

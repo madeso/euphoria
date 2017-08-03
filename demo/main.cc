@@ -199,6 +199,7 @@ int main(int argc, char** argv) {
   drawer
       .LineAntialiased(Rgb::From(Color::Black), wi.TopLeft(), wi.BottomRight())
       .LineAntialiased(Rgb::From(Color::Black), wi.BottomLeft(), wi.TopRight())
+    .Text(wi.GetAbsoluteCenterPos(), "Hello world", Rgb::From(Color::Black), 2)
       ;
 
 
