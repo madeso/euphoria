@@ -3,7 +3,7 @@
 #include <core/mat4.h>
 #include <render/init.h>
 #include <render/debuggl.h>
-#include <render/shader.h>
+#include <render/materialshader.h>
 #include <memory>
 #include <render/compiledmesh.h>
 #include "render/shaderattribute3d.h"
@@ -174,19 +174,14 @@ int main(int argc, char** argv) {
                                   "    FragColor = texture(uTexture, texCoord);\n"
                                   "}\n");
 
-  Shader shader;
-  attributes3d::PrebindShader(&shader);
+  MaterialShader shader;
   const bool shader_compile = shader.Load(&file_system, "default_shader");
 
   if(!shader_compile) {
     return -3;
   }
 
-  auto texture_uniform = shader.GetUniform("uTexture");
-
-  auto projection_uniform = shader.GetUniform("uProjection");
-  auto view_uniform = shader.GetUniform("uView");
-  auto model_uniform = shader.GetUniform("uModel");
+  auto texture_uniform = shader.shader_.GetUniform("uTexture");
 
   Image image;
   image.Setup(256, 256, false);
@@ -258,11 +253,11 @@ int main(int argc, char** argv) {
     }
 
     init.ClearScreen(Rgb::From(Color::DarkslateGray));
-    Use(&shader);
-    shader.SetUniform(view_uniform, view_matrix);
-    shader.SetUniform(model_uniform, model_transform_matrix);
-    shader.SetUniform(projection_uniform, projection_matrix);
-    BindTextureToShader(&texture, &shader, texture_uniform, 0);
+    shader.UseShader();
+    shader.SetView(view_matrix);
+    shader.SetModel(model_transform_matrix);
+    shader.SetProjection(projection_matrix);
+    BindTextureToShader(&texture, &shader.shader_, texture_uniform, 0);
     mesh->Render();
 
     SDL_GL_SwapWindow(window.window);
@@ -310,10 +305,10 @@ material list: list of material names mapped to shader variables
 };
 
 class World {
-Object[] objects;
+Actor[] objects;
 };
 
-class Object {
+class Actor {
 Mesh mesh;
 position;
 rotation;
