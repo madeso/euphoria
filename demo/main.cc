@@ -282,9 +282,23 @@ class View {
 Camera[] cameras;
 };
 
+class CameraView {
+Camera;
+ViewPort area; // glViewport
+};
+
 class Camera {
 Mode mode;
 World world;
+culling info from world, created when camera is added to world
+viewMatrix; // position + rotation
+projectionMatrix; // ortho/perspective
+
+// 4 planes from the projection matrix
+getFrustum();
+
+toViewSpace(); // camera space, eye space
+toWorldSpace();
 };
 
 // normal, thermo optics/powerup
@@ -306,6 +320,15 @@ Object[] objects;
 };
 
 class Object {
+Mesh mesh;
+position;
+rotation;
+modelMatrix;
+ToLocalSpace();
+ToWorldSpace();
+};
+
+class Mesh {
 MeshPart[] meshParts;
 };
 
