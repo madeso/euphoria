@@ -30,6 +30,8 @@ class vec3 {
 
   static Vec Origo() { return Vec {0,0,0}; }
 
+  static Unit ToUnit(T x, T y, T z);
+
   static Unit XAxis();
   static Unit YAxis();
   static Unit ZAxis();
@@ -102,11 +104,17 @@ class unit : public vec3<T> {
   Unit operator-() const {
     return Unit(-vec3<T>::x, -vec3<T>::y, -vec3<T>::z);
   }
+  unit(const Unit&) = default;
  private:
   unit(T x, T y, T z) : vec3<T>(x, y, z) { Assert(IsValid()); }
   unit(const vec3<T>& o) : vec3<T>(o) { Assert(IsValid()); }
   friend class vec3<T>;
 };
+
+template<typename T>
+unit<T> vec3<T>::ToUnit(T x, T y, T z) {
+  return Unit{x, y, z};
+}
 
 template<typename T>
 unit<T> vec3<T>::XAxis() {

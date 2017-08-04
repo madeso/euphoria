@@ -4,7 +4,11 @@
 #include "core/ints.h"
 #include "core/rgb.h"
 #include "core/vec2.h"
+#include "core/vec3.h"
+#include "core/polarcoord.h"
+#include "core/quat.h"
 #include "core/rect.h"
+#include "core/aabb.h"
 
 /** WEL512 Random Number Generator.
  */
@@ -33,6 +37,12 @@ class Random {
 
   vec2f NextPoint(const Rectf& rect);
   vec2i NextPoint(const Recti& rect);
+
+  PolarCoord NextPolar();
+  vec3f::Unit NextUnit3();
+  quatf NextQuatf();
+
+  vec3f NextVec3(const Aabb& extents);
 
  private:
   uint32 index_;

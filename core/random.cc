@@ -118,3 +118,32 @@ vec2i Random::NextPoint(const Recti& rect)
   const int y = NextRange(rect.GetHeight());
   return rect.GetPosition(vec2i{x, y});
 }
+
+PolarCoord Random::NextPolar()
+{
+  const Angle az = Angle::FromDegrees( Random::NextRange(360.0f) );
+  const Angle polar = Angle::FromDegrees( Random::NextRange(180.0f) );
+  return PolarCoord { az, polar};
+}
+
+vec3f::Unit Random::NextUnit3()
+{
+  return NextPolar().ToCartesian();
+}
+
+quatf Random::NextQuatf()
+{
+  const auto axis = NextUnit3();
+  const auto angle = Angle::FromDegrees( Random::NextRange(360.0f) );
+
+  return quatf::FromAxisAngle(AxisAngle::RightHandAround(axis, angle));
+}
+
+vec3f Random::NextVec3(const Aabb& extents)
+{
+  const auto x = NextRange(extents.GetMin().x, extents.GetMax().x);
+  const auto y = NextRange(extents.GetMin().y, extents.GetMax().y);
+  const auto z = NextRange(extents.GetMin().z, extents.GetMax().z);
+
+  return vec3f{x, y , z};
+}

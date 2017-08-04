@@ -17,6 +17,7 @@
 #include "render/camera.h"
 #include "core/mat4.h"
 #include "core/axisangle.h"
+#include "core/aabb.h"
 
 void SetupSdlOpenGlAttributes() {
   SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 4);
@@ -217,11 +218,19 @@ int main(int argc, char** argv) {
   SdlTimer timer;
 
   World world;
-  std::shared_ptr<Actor> actor = std::make_shared<Actor>(CompileMesh(meshes::CreateCube(0.5f)));
-  world.AddActor(actor);
 
-  actor->SetPosition(vec3f{0,0.5f,0});
-  actor->SetRotation(quatf::FromAxisAngle(AxisAngle::RightHandAround(vec3f::XAxis(), Angle::FromDegrees(-55))));
+  auto box = CompileMesh(meshes::CreateCube(0.5f));
+
+  Aabb box_extents
+    { vec3f{-3, -3, -3}, vec3f{3, 3, 3} };
+
+  for(int i=0; i<20; ++i)
+  {
+    std::shared_ptr<Actor> actor = std::make_shared<Actor>(box);
+    world.AddActor(actor);
+    actor->SetPosition( random.NextVec3(box_extents) );
+    actor->SetRotation( random.NextQuatf() );
+  }
 
   Camera camera;
   camera.SetPosition(vec3f(0,0,3));
