@@ -24,10 +24,10 @@ Init::Init() : ok(true) {
   std::cout << "Max shader attribute count: " << attribute_count << "\n";
 
   // todo: move this to a better place
-  glDisable(GL_DEPTH_TEST);
-  glDisable(GL_CULL_FACE);
-  glEnable(GL_BLEND);
-  glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+  glEnable(GL_DEPTH_TEST);
+  // glDisable(GL_CULL_FACE);
+  // glEnable(GL_BLEND);
+  // glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
 
 Init::~Init() {
@@ -41,5 +41,5 @@ void Init::SetViewport(const Recti &viewport) {
 void Init::ClearScreen(const Rgb& color) {
   // 42.0f / 255, 45.0f / 255, 51.0f / 255
   glClearColor(color.GetRed(), color.GetGreen(), color.GetBlue(), 1.0f);
-  glClear(GL_COLOR_BUFFER_BIT);
+  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }

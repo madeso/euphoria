@@ -159,6 +159,8 @@ namespace {
 
 }  // namespace
 
+namespace meshes {
+
 MeshLoadResult LoadMesh(const std::string& path) {
   Assimp::Importer importer;
   MeshLoadResult res;
@@ -174,9 +176,7 @@ MeshLoadResult LoadMesh(const std::string& path) {
 }
 
 Mesh CreateCube(float size) {
-  std::ostringstream ss;
-  ss << "shader texture.png" << std::endl << "hex 0 0 0 " << size;
-  return LoadFromString(ss.str(), kFormatNff);
+  return CreateBox(size, size, size);
 }
 
 Mesh CreateSphere(float size, const std::string& texture) {
@@ -221,4 +221,6 @@ Mesh CreateBox(float width, float height, float depth) {
      << "f 5/1/20 6/2/23 2/3/11 1/4/8" << std::endl;
 
   return LoadFromString(ss.str(), kFormatObj);
+}
+
 }

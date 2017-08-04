@@ -23,7 +23,7 @@ void SetupSdlOpenGlAttributes() {
   SDL_GL_SetAttribute(SDL_GL_ALPHA_SIZE, 4);
   SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
   SDL_GL_SetAttribute(SDL_GL_BUFFER_SIZE, 0);
-  SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 0);
+  SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 16);
   SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 0);
   SDL_GL_SetAttribute(SDL_GL_ACCUM_RED_SIZE, 0);
   SDL_GL_SetAttribute(SDL_GL_ACCUM_GREEN_SIZE, 0);
@@ -212,25 +212,13 @@ int main(int argc, char** argv) {
 
 
   Texture2d texture;
-  // texture.LoadFromImage(image, AlphaLoad::Remove, Texture2dLoadData{});
   texture.LoadFromFile(&file_system, "image", AlphaLoad::Remove, Texture2dLoadData{});
 
   bool running = true;
 
   SdlTimer timer;
 
-  MeshPart quad;
-  const float size = 0.3f;
-  const float z = -0.3f;
-  quad.AddPoint(size,  size, z, 1, 1);   // top right
-  quad.AddPoint(size, -size, z, 1, 0);   // bottom right
-  quad.AddPoint(-size, -size, z, 0, 0);  // bottom left
-  quad.AddPoint(-size,  size, z, 0, 1);  // top left
-  quad.AddFace(0, 1, 3);   // first triangle
-  quad.AddFace(1, 2, 3);   // second triangle
-  Mesh mesh_src;
-  mesh_src.parts.push_back(quad);
-  std::shared_ptr<CompiledMesh> mesh = CompileMesh(mesh_src);
+  std::shared_ptr<CompiledMesh> mesh = CompileMesh(meshes::CreateCube(0.5f));
 
   const mat4f model_transform_matrix = mat4f::FromAxisAngle(AxisAngle::RightHandAround(vec3f::XAxis(), Angle::FromDegrees(-55)));
 

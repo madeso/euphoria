@@ -47,10 +47,14 @@ public:
   std::string error;
 };
 
+namespace meshes {
+
 MeshLoadResult LoadMesh(const std::string& path);
 
 Mesh CreateCube(float size);
 Mesh CreateSphere(float size, const std::string& texture);
 Mesh CreateBox(float width, float height, float depth);
+
+}
 
 #endif // CORE_MESH_H
