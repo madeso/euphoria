@@ -233,8 +233,10 @@ int main(int argc, char** argv) {
 
   auto box = CompileMesh(meshes::CreateCube(0.5f));
 
+  const float box_extent_value = 4;
   Aabb box_extents
-    { vec3f{-3, -3, -3}, vec3f{3, 3, 3} };
+    { vec3f{-box_extent_value, -box_extent_value, -box_extent_value},
+      vec3f{box_extent_value, box_extent_value, box_extent_value} };
 
   std::vector<CubeAnimation> animation_handler;
 
