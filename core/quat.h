@@ -74,6 +74,10 @@ class quat {
   Q GetConjugate() const {
     return quat(w, -vec());
   }
+  // the inverse represent the same rotation
+  Q GetInverse() const {
+    return quat(-w, -vec());
+  }
   Q GetIdentity() const {
     const T l2 = GetLengthSquared();
     if(IsEqual(l2, 0)) return Identity();
@@ -172,7 +176,7 @@ class quat {
   static Q SlerpShortway(const Q& f, const T scale, const Q& t) {
     if(dot(f, t) < 0)
     {
-      return Slerp(f.GetConjugate(), scale, t);
+      return Slerp(f.GetInverse(), scale, t);
     }
     else
     {
