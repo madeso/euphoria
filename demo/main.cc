@@ -12,6 +12,7 @@
 #include "core/draw.h"
 #include "core/random.h"
 #include "core/shufflebag.h"
+#include "render/world.h"
 
 #include "core/mat4.h"
 #include "core/axisangle.h"
@@ -213,9 +214,12 @@ int main(int argc, char** argv) {
 
   SdlTimer timer;
 
-  std::shared_ptr<CompiledMesh> mesh = CompileMesh(meshes::CreateCube(0.5f));
+  World world;
+  std::shared_ptr<Actor> actor = std::make_shared<Actor>(CompileMesh(meshes::CreateCube(0.5f)));
+  world.AddActor(actor);
 
-  const mat4f model_transform_matrix = mat4f::FromAxisAngle(AxisAngle::RightHandAround(vec3f::XAxis(), Angle::FromDegrees(-55)));
+  actor->SetPosition(vec3f{0,0.5f,0});
+  actor->SetRotation(quatf::FromAxisAngle(AxisAngle::RightHandAround(vec3f::XAxis(), Angle::FromDegrees(-55))));
 
   const mat4f view_matrix = mat4f::FromTranslation(vec3f(0,0,-3));
 
@@ -255,10 +259,9 @@ int main(int argc, char** argv) {
     init.ClearScreen(Rgb::From(Color::DarkslateGray));
     shader.UseShader();
     shader.SetView(view_matrix);
-    shader.SetModel(model_transform_matrix);
     shader.SetProjection(projection_matrix);
     BindTextureToShader(&texture, &shader.shader_, texture_uniform, 0);
-    mesh->Render();
+    world.Render(&shader);
 
     SDL_GL_SwapWindow(window.window);
   }

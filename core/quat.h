@@ -4,6 +4,7 @@
 #include "core/vec3.h"
 #include "core/numeric.h"
 #include "core/axisangle.h"
+#include "core/mat4.h"
 
 template <typename T>
 class quat {
@@ -20,12 +21,16 @@ class quat {
 
   quat(T w, const Vec& v) : w(w), x(v.x), y(v.y), z(v.z) { }
 
-  quat(const AxisAngle& aa) {
+  static Q FromAxisAngle(const AxisAngle& aa) {
     const T sin_a = Sin( aa.angle / 2 );
     const T cos_a = Cos( aa.angle / 2 );
     Q r(cos_a, aa.axis*sin_a);
     r.Normalize();
-    *this = r;
+    return r;
+  }
+
+  mat4<T> ToMat4() const {
+    return mat4<T>::FromAxisAngle(ToAxisAngle());
   }
 
   AxisAngle ToAxisAngle() const {
