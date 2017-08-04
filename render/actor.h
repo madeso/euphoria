@@ -12,6 +12,9 @@ class Actor {
  public:
   Actor(std::shared_ptr<CompiledMesh> mesh);
 
+  const vec3f& GetPosition();
+  const quatf& GetRotation();
+
   void SetPosition(const vec3f& position);
   void SetRotation(const quatf& rotation);
 

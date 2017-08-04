@@ -10,6 +10,16 @@ Actor::Actor(std::shared_ptr<CompiledMesh> mesh)
   Assert(mesh);
 }
 
+const vec3f& Actor::GetPosition()
+{
+  return position_;
+}
+
+const quatf& Actor::GetRotation()
+{
+  return rotation_;
+}
+
 void Actor::SetPosition(const vec3f& position)
 {
   position_ = position;

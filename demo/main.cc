@@ -116,13 +116,14 @@ class SdlGlContext {
 
 struct CubeAnimation
 {
-  CubeAnimation() : timer(0), from(quatf::Identity()), to(quatf::Identity()) {}
+  CubeAnimation() : timer(0), from(quatf::Identity()), to(quatf::Identity()), rotation_speed(1.0f), move_speed(1.0f) {}
 
   std::shared_ptr<Actor> actor;
   float timer;
   quatf from;
   quatf to;
-  float speed;
+  float rotation_speed;
+  float move_speed;
 };
 
 int main(int argc, char** argv) {
@@ -246,7 +247,8 @@ int main(int argc, char** argv) {
     anim.actor = actor;
     anim.from = random.NextQuatf();
     anim.to = random.NextQuatf();
-    anim.speed = random.NextRange(0.5f, 1.0f);
+    anim.rotation_speed = random.NextRange(0.5f, 1.0f);
+    anim.move_speed = random.NextRange(0.5f, 1.0f);
     anim.timer = random.NextFloat01();
 
 
@@ -271,7 +273,7 @@ int main(int argc, char** argv) {
 
     for(auto& anim: animation_handler)
     {
-      anim.timer += delta * anim.speed;
+      anim.timer += delta * anim.rotation_speed;
       int count = 0;
       while(anim.timer > 1.0f)
       {
@@ -279,10 +281,14 @@ int main(int argc, char** argv) {
         anim.timer -= 1.0f;
         anim.from = anim.to;
         anim.to = random.NextQuatf();
-        anim.speed = random.NextRange(0.3f, 1.0f);
+        anim.rotation_speed = random.NextRange(0.3f, 1.0f);
+        anim.move_speed = random.NextRange(0.5f, 1.0f);
       }
       Assert(count < 2);
-      anim.actor->SetRotation(quatf::SlerpShortway(anim.from, anim.timer, anim.to));
+      quatf q = quatf::SlerpShortway(anim.from, anim.timer, anim.to);
+      anim.actor->SetRotation(q);
+      const vec3f movement = q.In()*anim.move_speed*delta;
+      anim.actor->SetPosition( anim.actor->GetPosition() + movement );
     }
 
     SDL_Event e;
