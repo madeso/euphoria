@@ -11,10 +11,10 @@ class quat {
   typedef quat<T> Q;
   typedef vec3<T> Vec;
 
+  T w;
   T x;
   T y;
   T z;
-  T w;
 
   Vec vec() const { return Vec(x, y , z); }
 
