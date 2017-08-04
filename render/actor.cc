@@ -22,7 +22,7 @@ void Actor::SetRotation(const quatf& rotation)
 
 mat4f Actor::GetModelMatrix() const
 {
-  return rotation_.ToMat4() * mat4f::FromTranslation(position_);
+  return mat4f::FromTranslation(position_) * rotation_.ToMat4();
 }
 
 void Actor::Render()
