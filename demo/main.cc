@@ -288,7 +288,8 @@ int main(int argc, char** argv) {
       quatf q = quatf::SlerpShortway(anim.from, anim.timer, anim.to);
       anim.actor->SetRotation(q);
       const vec3f movement = q.In()*anim.move_speed*delta;
-      anim.actor->SetPosition( anim.actor->GetPosition() + movement );
+      const vec3f new_pos = box_extents.Wrap(anim.actor->GetPosition() + movement);
+      anim.actor->SetPosition( new_pos );
     }
 
     SDL_Event e;

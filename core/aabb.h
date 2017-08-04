@@ -10,6 +10,8 @@ class Aabb {
   const vec3f& GetMin() const;
   const vec3f& GetMax() const;
 
+  vec3f Wrap(const vec3f& vec) const;
+
   vec3f min_;
   vec3f max_;
 };
