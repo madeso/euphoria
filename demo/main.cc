@@ -13,6 +13,9 @@
 #include "core/random.h"
 #include "core/shufflebag.h"
 
+#include "core/mat4.h"
+#include "core/axisangle.h"
+
 void SetupSdlOpenGlAttributes() {
   SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 4);
   SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 4);
@@ -149,9 +152,11 @@ int main(int argc, char** argv) {
                                   "\n"
                                   "out vec2 texCoord;\n"
                                   "\n"
+                                  "uniform mat4 uTransform;\n"
+                                  "\n"
                                   "void main()\n"
                                   "{\n"
-                                  "    gl_Position = vec4(aPosition, 1.0);\n"
+                                  "    gl_Position = uTransform * vec4(aPosition, 1.0);\n"
                                   "    texCoord = aTexCoord;\n"
                                   "}\n");
   catalog->RegisterFileString("default_shader.frag",
@@ -176,6 +181,8 @@ int main(int argc, char** argv) {
   }
 
   auto texture_uniform = shader.GetUniform("uTexture");
+
+  auto transform_uniform = shader.GetUniform("uTransform");
 
   Image image;
   image.Setup(256, 256, false);
@@ -225,6 +232,8 @@ int main(int argc, char** argv) {
   mesh_src.parts.push_back(quad);
   std::shared_ptr<CompiledMesh> mesh = CompileMesh(mesh_src);
 
+  mat4f mat = mat4f::Identity() * mat4f::FromAxisAngle(AxisAngle::RightHandAround(vec3f::ZAxis(), Angle::FromDegrees(45))) * mat4f::FromScale(vec3f{1.5f,1.5f,1.5f});
+
   while (running) {
     const float delta = timer.Update();
 
@@ -258,6 +267,7 @@ int main(int argc, char** argv) {
 
     init.ClearScreen(Rgb::From(Color::DarkslateGray));
     Use(&shader);
+    shader.SetUniform(transform_uniform, mat);
     BindTextureToShader(&texture, &shader, texture_uniform, 0);
     mesh->Render();
 
