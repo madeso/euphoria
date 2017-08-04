@@ -152,11 +152,13 @@ int main(int argc, char** argv) {
                                   "\n"
                                   "out vec2 texCoord;\n"
                                   "\n"
-                                  "uniform mat4 uTransform;\n"
+                                  "uniform mat4 uProjection;\n"
+                                  "uniform mat4 uView;\n"
+                                  "uniform mat4 uModel;\n"
                                   "\n"
                                   "void main()\n"
                                   "{\n"
-                                  "    gl_Position = uTransform * vec4(aPosition, 1.0);\n"
+                                  "    gl_Position = uProjection * uView * uModel * vec4(aPosition, 1.0);\n"
                                   "    texCoord = aTexCoord;\n"
                                   "}\n");
   catalog->RegisterFileString("default_shader.frag",
@@ -182,7 +184,9 @@ int main(int argc, char** argv) {
 
   auto texture_uniform = shader.GetUniform("uTexture");
 
-  auto transform_uniform = shader.GetUniform("uTransform");
+  auto projection_uniform = shader.GetUniform("uProjection");
+  auto view_uniform = shader.GetUniform("uView");
+  auto model_uniform = shader.GetUniform("uModel");
 
   Image image;
   image.Setup(256, 256, false);
@@ -211,10 +215,6 @@ int main(int argc, char** argv) {
   // texture.LoadFromImage(image, AlphaLoad::Remove, Texture2dLoadData{});
   texture.LoadFromFile(&file_system, "image", AlphaLoad::Remove, Texture2dLoadData{});
 
-  mat4f projection =
-      mat4f::Ortho(0.0f, static_cast<float>(width),
-                   static_cast<float>(height), 0.0f, -1.0f, 1.0f);
-
   bool running = true;
 
   SdlTimer timer;
@@ -232,7 +232,11 @@ int main(int argc, char** argv) {
   mesh_src.parts.push_back(quad);
   std::shared_ptr<CompiledMesh> mesh = CompileMesh(mesh_src);
 
-  mat4f mat = mat4f::Identity() * mat4f::FromAxisAngle(AxisAngle::RightHandAround(vec3f::ZAxis(), Angle::FromDegrees(45))) * mat4f::FromScale(vec3f{1.5f,1.5f,1.5f});
+  const mat4f model_transform_matrix = mat4f::FromAxisAngle(AxisAngle::RightHandAround(vec3f::XAxis(), Angle::FromDegrees(-55)));
+
+  const mat4f view_matrix = mat4f::FromTranslation(vec3f(0,0,-3));
+
+  const mat4f projection_matrix = mat4f::Perspective(Angle::FromDegrees(45), width/height, 0.1f, 100.0f);
 
   while (running) {
     const float delta = timer.Update();
@@ -267,7 +271,9 @@ int main(int argc, char** argv) {
 
     init.ClearScreen(Rgb::From(Color::DarkslateGray));
     Use(&shader);
-    shader.SetUniform(transform_uniform, mat);
+    shader.SetUniform(view_uniform, view_matrix);
+    shader.SetUniform(model_uniform, model_transform_matrix);
+    shader.SetUniform(projection_uniform, projection_matrix);
     BindTextureToShader(&texture, &shader, texture_uniform, 0);
     mesh->Render();
 

@@ -244,6 +244,18 @@ class mat4 {
     );
   }
 
+  static mat4<T> Perspective(const Angle& fov, T a, T near, T far) {
+    const T t = 1 / Tan(fov/2);
+    const T zm = far - near;
+    const T zp = far + near;
+    return FromRowMajor(
+      t/a, 0, 0, 0,
+      0, t, 0, 0,
+      0, 0, -zp/zm, (-2*far*near)/zm,
+      0,0,-1,0
+    );
+  }
+
   mat4<T> Translate(const vec3<T>& t) const {
     return *this * FromTranslation(t);
   }
