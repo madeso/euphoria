@@ -4,7 +4,7 @@
 
 Actor::Actor(std::shared_ptr<CompiledMesh> mesh)
 : mesh_(mesh)
-, position_(vec3f(0,0,0))
+, position_(vec3f::Origo())
 , rotation_(quatf::Identity())
 {
   Assert(mesh);

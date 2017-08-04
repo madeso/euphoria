@@ -28,6 +28,8 @@ class vec3 {
     return to - from;
   }
 
+  static Vec Origo() { return Vec {0,0,0}; }
+
   static Unit XAxis();
   static Unit YAxis();
   static Unit ZAxis();
