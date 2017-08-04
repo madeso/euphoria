@@ -158,7 +158,11 @@ class quat {
     if (Abs(sinHalfTheta) < 0.001) {
       // if theta = 180 degrees then result is not fully defined
       // we could rotate around any axis normal to qa or qb
-      return (qa + qb) * 0.5;
+      const Q qt = qa + qb;
+      return Q { static_cast<T>(qt.w * 0.5),
+                 Vec{static_cast<T>(qt.x*0.5), static_cast<T>(qt.y*0.5),
+                     static_cast<T>(qt.z*0.5)} };
+      // return (qa + qb) * 0.5;
     }
     const T ratioA = sin((1 - t) * halfTheta) / sinHalfTheta;
     const T ratioB = sin(t * halfTheta) / sinHalfTheta;

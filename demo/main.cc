@@ -114,6 +114,16 @@ class SdlGlContext {
   SDL_GLContext context;
 };
 
+struct CubeAnimation
+{
+  CubeAnimation() : timer(0), from(quatf::Identity()), to(quatf::Identity()) {}
+
+  std::shared_ptr<Actor> actor;
+  float timer;
+  quatf from;
+  quatf to;
+};
+
 int main(int argc, char** argv) {
   Sdl sdl;
   if (sdl.ok == false) {
@@ -224,12 +234,22 @@ int main(int argc, char** argv) {
   Aabb box_extents
     { vec3f{-3, -3, -3}, vec3f{3, 3, 3} };
 
+  std::vector<CubeAnimation> animation_handler;
+
   for(int i=0; i<20; ++i)
   {
     std::shared_ptr<Actor> actor = std::make_shared<Actor>(box);
     world.AddActor(actor);
+
+    CubeAnimation anim;
+    anim.actor = actor;
+    anim.from = random.NextQuatf();
+    anim.to = random.NextQuatf();
+
     actor->SetPosition( random.NextVec3(box_extents) );
-    actor->SetRotation( random.NextQuatf() );
+    actor->SetRotation( anim.from );
+
+    animation_handler.push_back(anim);
   }
 
   Camera camera;
@@ -237,6 +257,18 @@ int main(int argc, char** argv) {
 
   while (running) {
     const float delta = timer.Update();
+
+    for(auto& anim: animation_handler)
+    {
+      anim.timer += delta;
+      if(anim.timer > 1.0f)
+      {
+        anim.timer -= 1.0f;
+        anim.from = anim.to;
+        anim.to = random.NextQuatf();
+      }
+      anim.actor->SetRotation(quatf::SlerpShortway(anim.from, anim.timer, anim.to));
+    }
 
     SDL_Event e;
     while (SDL_PollEvent(&e) != 0) {
