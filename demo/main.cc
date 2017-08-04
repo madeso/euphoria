@@ -126,6 +126,142 @@ struct CubeAnimation
   float move_speed;
 };
 
+// todo: move to a better place
+class FpsController {
+ public:
+  FpsController();
+
+  void MoveX(float delta);
+  void MoveY(float delta);
+
+  void MoveLeft(bool down);
+  void MoveRight(bool down);
+  void MoveForward(bool down);
+  void MoveBackward(bool down);
+  void MoveUp(bool down);
+  void MoveDown(bool down);
+
+  void HandleSdlKey(int key, bool down);
+
+  void Update(float delta);
+
+  vec3f GetPosition() const;
+  void SetPosition(const vec3f& pos);
+  quatf GetRotation() const;
+
+ private:
+  Angle rotation_;
+  Angle look_;
+
+  vec3f pos_;
+
+  bool left_down_ = false;
+  bool right_down_ = false;
+  bool forward_down_ = false;
+  bool backward_down_ = false;
+  bool up_down_ = false;
+  bool down_down_ = false;
+
+  float speed_ = 3.0f;
+};
+
+FpsController::FpsController()
+: rotation_(Angle::Zero())
+, look_(Angle::Zero())
+, pos_(vec3f::Origo())
+{
+}
+
+void FpsController::MoveX(float delta)
+{
+  rotation_ += Angle::FromDegrees(delta);
+}
+void FpsController::MoveY(float delta)
+{
+  look_ += Angle::FromDegrees(delta);
+}
+
+void FpsController::MoveLeft(bool down)
+{
+  left_down_ = down;
+}
+void FpsController::MoveRight(bool down)
+{
+  right_down_ = down;
+}
+void FpsController::MoveForward(bool down)
+{
+  forward_down_ = down;
+}
+void FpsController::MoveBackward(bool down)
+{
+  backward_down_ = down;
+}
+void FpsController::MoveUp(bool down)
+{
+  up_down_ = down;
+}
+void FpsController::MoveDown(bool down)
+{
+  down_down_ = down;
+}
+
+void FpsController::HandleSdlKey(int key, bool down)
+{
+  switch(key)
+  {
+    case SDLK_w: case SDLK_UP:
+      MoveForward(down); return;
+    case SDLK_s: case SDLK_DOWN:
+      MoveBackward(down); return;
+    case SDLK_a: case SDLK_LEFT:
+      MoveLeft(down); return;
+    case SDLK_d: case SDLK_RIGHT:
+      MoveRight(down); return;
+
+    case SDLK_SPACE: MoveUp(down); return;
+    case SDLK_LCTRL: MoveDown(down); return;
+  }
+}
+
+void FpsController::Update(float delta)
+{
+  int forward = 0;
+  int right = 0;
+  int up = 0;
+
+  if(forward_down_) forward += 1;
+  if(backward_down_) forward -= 1;
+
+  if(right_down_) right += 1;
+  if(left_down_) right -= 1;
+
+  if(up_down_) up += 1;
+  if(down_down_) up -= 1;
+
+  if(forward == 0 && right == 0 && up == 0) return;
+
+  const vec3f input = GetRotation().RightUpIn(vec3f(right, up, forward)).GetNormalized();
+  const vec3f movement = input * speed_ * delta;
+
+  pos_ += movement;
+}
+
+void FpsController::SetPosition(const vec3f& pos)
+{
+  pos_ = pos;
+}
+vec3f FpsController::GetPosition() const
+{
+  return pos_;
+}
+quatf FpsController::GetRotation() const
+{
+  const auto rotation = quatf::FromAxisAngle(AxisAngle::RightHandAround(vec3f::YAxis(), rotation_));
+  const auto look = quatf::FromAxisAngle(AxisAngle::RightHandAround(vec3f::XAxis(), look_));
+  return rotation * look;
+}
+
 int main(int argc, char** argv) {
   Sdl sdl;
   if (sdl.ok == false) {
@@ -260,7 +396,6 @@ int main(int argc, char** argv) {
       position = random.NextVec3(box_extents);
     } while(position.GetLength() < 1.4f);
 
-
     actor->SetPosition( position );
     actor->SetRotation( anim.from );
 
@@ -269,6 +404,9 @@ int main(int argc, char** argv) {
 
   Camera camera;
   camera.SetPosition(vec3f(0,0,3));
+
+  FpsController fps;
+  fps.SetPosition(vec3f(0,0,3));
 
   while (running) {
     const float delta = timer.Update();
@@ -291,7 +429,7 @@ int main(int argc, char** argv) {
       anim.actor->SetRotation(q);
       const vec3f movement = q.In()*anim.move_speed*delta;
       const vec3f new_pos = box_extents.Wrap(anim.actor->GetPosition() + movement);
-      anim.actor->SetPosition( new_pos );
+      // anim.actor->SetPosition( new_pos ); // hard to see movement when everything is moving
     }
 
     SDL_Event e;
@@ -304,6 +442,9 @@ int main(int argc, char** argv) {
         case SDL_KEYUP:
           {
             const bool down = e.type == SDL_KEYDOWN;
+
+            fps.HandleSdlKey(e.key.keysym.sym, down);
+
             switch( e.key.keysym.sym ) {
               case SDLK_ESCAPE:
                 if(down) {
@@ -321,6 +462,10 @@ int main(int argc, char** argv) {
           break;
       }
     }
+
+    fps.Update(delta);
+    camera.SetPosition(fps.GetPosition());
+    camera.SetRotation(fps.GetRotation());
 
     init.ClearScreen(Rgb::From(Color::DarkslateGray));
     shader.UseShader();
