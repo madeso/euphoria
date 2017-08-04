@@ -33,11 +33,6 @@ Init::Init() : ok(true) {
 Init::~Init() {
 }
 
-void Init::SetViewport(const Recti &viewport) {
-  const vec2i top_left = viewport.TopLeft();
-  glViewport(top_left.x, top_left.y, viewport.GetWidth(), viewport.GetHeight());
-}
-
 void Init::ClearScreen(const Rgb& color) {
   // 42.0f / 255, 45.0f / 255, 51.0f / 255
   glClearColor(color.GetRed(), color.GetGreen(), color.GetBlue(), 1.0f);

@@ -13,7 +13,8 @@
 #include "core/random.h"
 #include "core/shufflebag.h"
 #include "render/world.h"
-
+#include "render/viewport.h"
+#include "render/camera.h"
 #include "core/mat4.h"
 #include "core/axisangle.h"
 
@@ -141,7 +142,8 @@ int main(int argc, char** argv) {
 
   SetupOpenglDebug();
 
-  init.SetViewport( Recti::FromTopLeftWidthHeight(0,0, width, height) );
+  Viewport viewport { Recti::FromTopLeftWidthHeight(0,0, width, height) };
+  viewport.Activate();
 
   FileSystem file_system;
   auto catalog = FileSystemRootCatalog::AddRoot(&file_system);
@@ -221,9 +223,8 @@ int main(int argc, char** argv) {
   actor->SetPosition(vec3f{0,0.5f,0});
   actor->SetRotation(quatf::FromAxisAngle(AxisAngle::RightHandAround(vec3f::XAxis(), Angle::FromDegrees(-55))));
 
-  const mat4f view_matrix = mat4f::FromTranslation(vec3f(0,0,-3));
-
-  const mat4f projection_matrix = mat4f::Perspective(Angle::FromDegrees(45), width/height, 0.1f, 100.0f);
+  Camera camera;
+  camera.SetPosition(vec3f(0,0,3));
 
   while (running) {
     const float delta = timer.Update();
@@ -258,10 +259,8 @@ int main(int argc, char** argv) {
 
     init.ClearScreen(Rgb::From(Color::DarkslateGray));
     shader.UseShader();
-    shader.SetView(view_matrix);
-    shader.SetProjection(projection_matrix);
     BindTextureToShader(&texture, &shader.shader_, texture_uniform, 0);
-    world.Render(&shader);
+    world.Render(viewport, camera, &shader);
 
     SDL_GL_SwapWindow(window.window);
   }

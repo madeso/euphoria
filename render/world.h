@@ -6,6 +6,8 @@
 
 #include "render/actor.h"
 
+class Camera;
+class Viewport;
 class MaterialShader;
 
 class World {
@@ -13,7 +15,7 @@ class World {
   void AddActor(std::shared_ptr<Actor> actor);
 
   // todo: remove shader requirement
-  void Render(MaterialShader* shader);
+  void Render(const Viewport& viewport, const Camera& camera, MaterialShader* shader);
 
  private:
   std::vector<std::shared_ptr<Actor>> actors_;

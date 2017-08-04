@@ -10,8 +10,6 @@ class Init {
   Init();
   ~Init();
 
-  void SetViewport(const Recti& viewport);
-
   // todo: move to some place better
   void ClearScreen(const Rgb& color);
 
