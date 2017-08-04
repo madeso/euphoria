@@ -122,6 +122,7 @@ struct CubeAnimation
   float timer;
   quatf from;
   quatf to;
+  float speed;
 };
 
 int main(int argc, char** argv) {
@@ -245,8 +246,18 @@ int main(int argc, char** argv) {
     anim.actor = actor;
     anim.from = random.NextQuatf();
     anim.to = random.NextQuatf();
+    anim.speed = random.NextRange(0.5f, 1.0f);
+    anim.timer = random.NextFloat01();
 
-    actor->SetPosition( random.NextVec3(box_extents) );
+
+    // generate a position not too close to the center
+    vec3f position = vec3f::Origo();
+    do {
+      position = random.NextVec3(box_extents);
+    } while(position.GetLength() < 1.4f);
+
+
+    actor->SetPosition( position );
     actor->SetRotation( anim.from );
 
     animation_handler.push_back(anim);
@@ -260,13 +271,17 @@ int main(int argc, char** argv) {
 
     for(auto& anim: animation_handler)
     {
-      anim.timer += delta;
-      if(anim.timer > 1.0f)
+      anim.timer += delta * anim.speed;
+      int count = 0;
+      while(anim.timer > 1.0f)
       {
+        count += 1;
         anim.timer -= 1.0f;
         anim.from = anim.to;
         anim.to = random.NextQuatf();
+        anim.speed = random.NextRange(0.3f, 1.0f);
       }
+      Assert(count < 2);
       anim.actor->SetRotation(quatf::SlerpShortway(anim.from, anim.timer, anim.to));
     }
 
