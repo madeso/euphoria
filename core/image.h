@@ -37,6 +37,7 @@ class Image {
   int GetPixelByteSize() const;
   unsigned long GetPixelIndex(int x, int y) const;
 
+  // todo: replace with a array instead of a vector
   std::vector<unsigned char> components;
   int width_;
   int height_;
