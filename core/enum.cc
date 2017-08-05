@@ -1,3 +1,4 @@
+#include <iostream>
 #include "core/enum.h"
 #include "core/assert.h"
 
@@ -10,7 +11,13 @@ EnumType::EnumType()
 EnumType::~EnumType()
 {
   Assert(isAdding_ == false);
-  Assert(createdButNotAddedList.empty() == true);
+
+  if(!createdButNotAddedList.empty())
+  {
+    std::cout << "EnumType error\n";
+  }
+
+  // Assert(createdButNotAddedList.empty() == true);
 }
 
 const std::string& EnumType::ToString(size_t v) const
@@ -94,7 +101,25 @@ void EnumType::StopAdding()
 {
   Assert(isAdding_ == true);
   isAdding_ = false;
-  Assert(createdButNotAddedList.empty() == true); // if this isn't empty, some enums have not been added or misspelling has occured, see throw above
+
+  if( !createdButNotAddedList.empty() )
+  {
+    for(const auto name: createdButNotAddedList)
+    {
+      std::cout << "Invalid type detected: " << name.second << "\n";
+    }
+
+    std::cout << "\n";
+    std::cout << "Valid names: \n";
+    std::cout << "============\n";
+    for(const auto name: valueToName_)
+    {
+      std::cout << " * " << name.second << "\n";
+    }
+  }
+
+  // if this isn't empty, some enums have not been added or misspelling has occured, see throw above
+  // Assert(createdButNotAddedList.empty() == true);
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
