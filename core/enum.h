@@ -55,5 +55,10 @@ class EnumValue
 
 std::ostream& operator<<(std::ostream& s, const EnumValue& v);
 
+#define DECLARE_ENUM_TYPE(NAME) EnumType& NAME##_EnumType();
+#define IMPLEMENT_ENUM_TYPE(NAME) EnumType& NAME##_EnumType() { static EnumType type; return type; }
+#define SET_ENUM_VALUES(NAME, FUNC) do { FUNC(NAME##_EnumType()); NAME##_EnumType().StopAdding(); } while(false)
+#define DEFINE_ENUM_VALUE(TYPE, NAME, STRING) const EnumValue NAME = TYPE##_EnumType().ToEnum(STRING)
+
 
 #endif //EUPHORIA_ENUM_H

@@ -20,6 +20,7 @@
 #include "core/axisangle.h"
 #include "core/aabb.h"
 #include "render/materialshadercache.h"
+#include "core/texturetypes.h"
 
 void SetupSdlOpenGlAttributes() {
   SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 4);
@@ -268,6 +269,12 @@ quatf FpsController::GetRotation() const
   return rotation * look;
 }
 
+// todo: read from file instead
+void SetupTextureNames(EnumType& type)
+{
+  type.AddEnum("Diffuse");
+}
+
 int main(int argc, char** argv) {
   Sdl sdl;
   if (sdl.ok == false) {
@@ -333,6 +340,8 @@ int main(int argc, char** argv) {
                                   "}\n");
 
   MaterialShaderCache material_shader_cache {&file_system};
+
+  SET_ENUM_VALUES(TextureType, SetupTextureNames);
 
   auto shader = material_shader_cache.Get("default_shader");
 

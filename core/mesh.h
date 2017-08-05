@@ -6,6 +6,7 @@
 
 #include "core/vec3.h"
 #include "core/rgb.h"
+#include "core/enum.h"
 
 enum class WrapMode {
   REPEAT, CLAMP_TO_EDGE, MIRROR_REPEAT
@@ -24,13 +25,20 @@ public:
   void AddFace(unsigned int a, unsigned int b, unsigned int c);
 };
 
+class MaterialTexture {
+ public:
+  MaterialTexture(const std::string& p, EnumValue t);
+  std::string path;
+  EnumValue type;
+};
+
 class Material {
 public:
   Material();
 
   Rgb diffuse;
   float alpha;
-  std::string texture;
+  std::vector<MaterialTexture> textures;
   WrapMode wraps;
   WrapMode wrapt;
 };

@@ -7,6 +7,7 @@
 #include <assimp/postprocess.h>
 
 #include "core/str.h"
+#include "core/texturetypes.h"
 
 
 
@@ -28,6 +29,11 @@ void MeshPart::AddFace(unsigned int a, unsigned int b, unsigned int c) {
   facecount += 1;
 }
 
+MaterialTexture::MaterialTexture(const std::string& p, EnumValue t)
+  : path(p)
+  , type(t)
+{}
+
 Material::Material()
   : diffuse(Rgb::From(Color::White))
   , alpha(1.0f)
@@ -35,6 +41,10 @@ Material::Material()
   , wrapt(WrapMode::REPEAT)
 {}
 
+namespace // local
+{
+DEFINE_ENUM_VALUE(TextureType, DiffuseType, "Diffuse");
+}
 
 namespace {
   const unsigned int kAssimpFlags =
@@ -69,16 +79,10 @@ namespace {
       Material material;
 
       if (mat->GetTextureCount(aiTextureType_DIFFUSE) <= 0) {
-        /*
-        const std::string error = Str() << "Missing texture"; throw error;
-        */
-        /// @todo change to a better path, possible configurable or a auto
-        /// generated one
-        material.texture = "hazard.png";
       } else {
         aiString texture;
         mat->GetTexture(aiTextureType_DIFFUSE, 0, &texture);
-        material.texture = texture.C_Str();
+        material.textures.push_back( MaterialTexture{texture.C_Str(), DiffuseType} );
       }
 
       int u = 0;
