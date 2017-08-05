@@ -408,28 +408,32 @@ int main(int argc, char** argv) {
   FpsController fps;
   fps.SetPosition(vec3f(0,0,3));
 
+  bool paused = true;
+
   while (running) {
     const float delta = timer.Update();
 
     for(auto& anim: animation_handler)
     {
-      anim.timer += delta * anim.rotation_speed;
-      int count = 0;
-      while(anim.timer > 1.0f)
-      {
-        count += 1;
-        anim.timer -= 1.0f;
-        anim.from = anim.to;
-        anim.to = random.NextQuatf();
-        anim.rotation_speed = random.NextRange(0.3f, 1.0f);
-        anim.move_speed = random.NextRange(0.2f, 3.0f);
+      if(paused == false) {
+        anim.timer += delta * anim.rotation_speed;
+        int count = 0;
+        while(anim.timer > 1.0f)
+        {
+          count += 1;
+          anim.timer -= 1.0f;
+          anim.from = anim.to;
+          anim.to = random.NextQuatf();
+          anim.rotation_speed = random.NextRange(0.3f, 1.0f);
+          anim.move_speed = random.NextRange(0.2f, 3.0f);
+        }
+        Assert(count < 2);
+        quatf q = quatf::SlerpShortway(anim.from, anim.timer, anim.to);
+        anim.actor->SetRotation(q);
+        const vec3f movement = q.In()*anim.move_speed*delta;
+        const vec3f new_pos = box_extents.Wrap(anim.actor->GetPosition() + movement);
+        anim.actor->SetPosition( new_pos ); // hard to see movement when everything is moving
       }
-      Assert(count < 2);
-      quatf q = quatf::SlerpShortway(anim.from, anim.timer, anim.to);
-      anim.actor->SetRotation(q);
-      const vec3f movement = q.In()*anim.move_speed*delta;
-      const vec3f new_pos = box_extents.Wrap(anim.actor->GetPosition() + movement);
-      // anim.actor->SetPosition( new_pos ); // hard to see movement when everything is moving
     }
 
     SDL_Event e;
@@ -449,6 +453,11 @@ int main(int argc, char** argv) {
               case SDLK_ESCAPE:
                 if(down) {
                   running = false;
+                }
+                break;
+              case SDLK_p:
+                if( !down ) {
+                  paused = !paused;
                 }
                 break;
               default:
