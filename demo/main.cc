@@ -540,7 +540,7 @@ Shader shader;
 };
 
 class Shader {
-material list: list of material names mapped to shader variables
+texture list: list of texture names mapped to shader variables
 };
 
 class World {
