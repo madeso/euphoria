@@ -1,6 +1,7 @@
 #include "draw.h"
 
 #include <utility>
+#include "core/numeric.h"
 
 #include "core/assert.h"
 
@@ -94,7 +95,7 @@ Draw& Draw::LineFast(const Rgb &color, const vec2i &from, const vec2i &to)
 
   int deltax = x1 - x0;
   int deltay = y1 - y0;
-  const float deltaerr = deltax == 0 ? -1 : abs(deltay / static_cast<float>(deltax));
+  const float deltaerr = deltax == 0 ? -1 : Abs(deltay / static_cast<float>(deltax));
   float error = deltaerr - 0.5;
   int y = y0;
   for(int x=x0; x<x1; x+=1) {

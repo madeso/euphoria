@@ -153,7 +153,7 @@ class quat {
     // Calculate angle between them.
     const T cosHalfTheta = qa.w * qb.w + qa.x * qb.x + qa.y * qb.y + qa.z * qb.z;
     // if qa=qb or qa=-qb then theta = 0 and we can return qa
-    if (abs(cosHalfTheta) >= 1.0){
+    if (Abs(cosHalfTheta) >= 1.0){
       return qa;
     }
     // Calculate temporary values.

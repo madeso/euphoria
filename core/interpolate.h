@@ -296,6 +296,10 @@ class Interpolate {
   FUN(BounceOut, BounceEaseOut)
   FUN(Bounce, BounceEaseInOut)
 #undef FUN
+
+      case InterpolationType::INVALID:
+      default:
+        Assert(false && "Unhandled case");
     }
     // ignore invalid interpolation type
     return *this;
