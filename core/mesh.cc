@@ -76,13 +76,16 @@ namespace {
          ++material_id) {
       const aiMaterial* mat = scene->mMaterials[material_id];
 
+      bool found_diffuse_texture = false;
       Material material;
 
       if (mat->GetTextureCount(aiTextureType_DIFFUSE) <= 0) {
+        // do nothing
       } else {
         aiString texture;
         mat->GetTexture(aiTextureType_DIFFUSE, 0, &texture);
         material.textures.push_back( MaterialTexture{texture.C_Str(), DiffuseType} );
+        found_diffuse_texture = true;
       }
 
       int u = 0;
@@ -91,6 +94,12 @@ namespace {
       mat->Get(AI_MATKEY_MAPPINGMODE_V(aiTextureType_DIFFUSE, 0), v);
       material.wraps = GetTextureWrappingMode(u);
       material.wrapt = GetTextureWrappingMode(v);
+
+      // todo: get color from assimp material
+      material.diffuse = Rgb::From(Color::White);
+
+      // todo: improve texture detection?
+      material.shader = found_diffuse_texture ? "default" : "basic";
       ret->materials.push_back(material);
     }
   }

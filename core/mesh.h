@@ -36,6 +36,8 @@ class Material {
 public:
   Material();
 
+  std::string shader;
+
   Rgb diffuse;
   float alpha;
   std::vector<MaterialTexture> textures;
