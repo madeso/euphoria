@@ -4,7 +4,10 @@ source_group("" FILES ${app_src})
 
 find_package(AssImp REQUIRED)
 
-include_directories(SYSTEM ${ASSIMP_INCLUDE_DIR})
+message(STATUS "Assimp includes at ${assimp_INCLUDE_DIRS}")
+message(STATUS "Assimp libraries at ${assimp_LIBRARIES}")
+
+include_directories(SYSTEM ${assimp_INCLUDE_DIRS})
 
 # todo: move image loading to a io library instead
 include_directories(SYSTEM ../external/stb)
@@ -29,9 +32,7 @@ source_group("AHEasing" FILES ${src_aheasing})
 
 add_library(core STATIC ${src})
 
-message(STATUS "assim libraries ${ASSIMP_LIBRARIES}")
-
 target_link_libraries(core
     ${PROTOBUF_LIBRARIES}
-    ${ASSIMP_LIBRARIES}
+    ${assimp_LIBRARIES}
     )
