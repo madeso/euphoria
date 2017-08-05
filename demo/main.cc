@@ -6,6 +6,7 @@
 #include <render/materialshader.h>
 #include <memory>
 #include <render/compiledmesh.h>
+#include <render/texturecache.h>
 #include "render/shaderattribute3d.h"
 #include "render/texture.h"
 #include "core/filesystem.h"
@@ -359,9 +360,10 @@ int main(int argc, char** argv) {
       ;
   catalog->RegisterFileData("image", image.Write(ImageWriteFormat::PNG));
 
+  TextureCache texture_cache {&file_system};
 
-  Texture2d texture;
-  texture.LoadFromFile(&file_system, "image", AlphaLoad::Remove, Texture2dLoadData{});
+
+  std::shared_ptr<Texture2d>texture = texture_cache.GetTexture("image");
 
   bool running = true;
 
@@ -494,7 +496,7 @@ int main(int argc, char** argv) {
 
     init.ClearScreen(Rgb::From(Color::DarkslateGray));
     shader->UseShader();
-    BindTextureToShader(&texture, &shader->shader_, texture_uniform, 0);
+    BindTextureToShader(texture.get(), &shader->shader_, texture_uniform, 0);
     world.Render(viewport, camera, shader.get());
 
     SDL_GL_SwapWindow(window.window);

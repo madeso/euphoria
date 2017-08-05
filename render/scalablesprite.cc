@@ -74,7 +74,8 @@ const Sizef ScalableSprite::GetMinimumSize() const {
 }
 
 const Texture2d* ScalableSprite::texture_ptr() const {
-  return texture_;
+  Assert(false && "is this correct return value, why is this function even here?");
+  return texture_.get();
 }
 
 const Buffer2d* ScalableSprite::buffer_ptr() const {

@@ -28,7 +28,7 @@ class ScalableSprite {
  private:
   void BuildData() const;
 
-  Texture2d* texture_;
+  std::shared_ptr<Texture2d> texture_;
   Sizef size_;
 
   mutable bool dirty_;

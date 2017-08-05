@@ -13,13 +13,11 @@ class TextureCache {
   explicit TextureCache(FileSystem* fs);
   ~TextureCache();
 
-  Texture2d* GetTexture(const std::string& path);
+  std::shared_ptr<Texture2d> GetTexture(const std::string& path);
 
  private:
-  FileSystem* filesystem_;
-  typedef std::shared_ptr<Texture2d> Ptr;
-  typedef std::map<std::string, Ptr> Map;
-  Map map_;
+  struct TextureCachePimpl;
+  std::unique_ptr<TextureCachePimpl> pimp_;
 };
 
 #endif  // SPACETYPER_TEXTURECACHE_H
