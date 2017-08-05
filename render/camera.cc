@@ -68,6 +68,6 @@ mat4f Camera::CalculateProjectionMatrix(float aspect) const
 
 mat4f Camera::CalculateViewMatrix() const
 {
-  return mat4f::FromTranslation(-position_) * rotation_.GetConjugate().ToMat4();
+  return rotation_.GetConjugate().ToMat4() * mat4f::FromTranslation(-position_);
 }
 

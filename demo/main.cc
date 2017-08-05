@@ -94,6 +94,12 @@ class SdlWindow {
     SDL_DestroyWindow(window);
   }
 
+  void KeepWithin(bool k)
+  {
+    SDL_SetWindowGrab(window, k ? SDL_TRUE : SDL_FALSE);
+    SDL_WarpMouseInWindow()
+  }
+
   SDL_Window* window;
 };
 
@@ -131,8 +137,7 @@ class FpsController {
  public:
   FpsController();
 
-  void MoveX(float delta);
-  void MoveY(float delta);
+  void Look(float delta_rot, float delta_look);
 
   void MoveLeft(bool down);
   void MoveRight(bool down);
@@ -163,6 +168,7 @@ class FpsController {
   bool down_down_ = false;
 
   float speed_ = 3.0f;
+  float sensitivity_ = 0.10f;
 };
 
 FpsController::FpsController()
@@ -172,13 +178,10 @@ FpsController::FpsController()
 {
 }
 
-void FpsController::MoveX(float delta)
+void FpsController::Look(float x, float y)
 {
-  rotation_ += Angle::FromDegrees(delta);
-}
-void FpsController::MoveY(float delta)
-{
-  look_ += Angle::FromDegrees(delta);
+  rotation_ += Angle::FromDegrees(-x * sensitivity_);
+  look_ += Angle::FromDegrees(-y * sensitivity_);
 }
 
 void FpsController::MoveLeft(bool down)
@@ -410,6 +413,8 @@ int main(int argc, char** argv) {
 
   bool paused = true;
 
+  window.KeepWithin(true);
+
   while (running) {
     const float delta = timer.Update();
 
@@ -441,6 +446,9 @@ int main(int argc, char** argv) {
       switch (e.type) {
         case SDL_QUIT:
           running = false;
+          break;
+        case SDL_MOUSEMOTION:
+          fps.Look(e.motion.xrel, e.motion.yrel);
           break;
         case SDL_KEYDOWN:
         case SDL_KEYUP:
