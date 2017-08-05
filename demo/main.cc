@@ -96,8 +96,9 @@ class SdlWindow {
 
   void KeepWithin(bool k)
   {
-    SDL_SetWindowGrab(window, k ? SDL_TRUE : SDL_FALSE);
-    SDL_WarpMouseInWindow()
+    // SDL_SetWindowGrab(window, k ? SDL_TRUE : SDL_FALSE);
+    // SDL_ShowCursor(k ? SDL_DISABLE : SDL_ENABLE);
+    SDL_SetRelativeMouseMode(k ? SDL_TRUE : SDL_FALSE);
   }
 
   SDL_Window* window;
@@ -379,6 +380,8 @@ int main(int argc, char** argv) {
 
   std::vector<CubeAnimation> animation_handler;
 
+  bool capturing_mouse_movement = false;
+
   for(int i=0; i<20; ++i)
   {
     std::shared_ptr<Actor> actor = std::make_shared<Actor>(box);
@@ -413,8 +416,6 @@ int main(int argc, char** argv) {
 
   bool paused = true;
 
-  window.KeepWithin(true);
-
   while (running) {
     const float delta = timer.Update();
 
@@ -448,7 +449,10 @@ int main(int argc, char** argv) {
           running = false;
           break;
         case SDL_MOUSEMOTION:
-          fps.Look(e.motion.xrel, e.motion.yrel);
+          if(capturing_mouse_movement)
+          {
+            fps.Look(e.motion.xrel, e.motion.yrel);
+          }
           break;
         case SDL_KEYDOWN:
         case SDL_KEYUP:
@@ -466,6 +470,12 @@ int main(int argc, char** argv) {
               case SDLK_p:
                 if( !down ) {
                   paused = !paused;
+                }
+                break;
+              case SDLK_TAB:
+                if(!down) {
+                  capturing_mouse_movement = !capturing_mouse_movement;
+                  window.KeepWithin(capturing_mouse_movement);
                 }
                 break;
               default:
