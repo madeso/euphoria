@@ -4,6 +4,8 @@
 #include <map>
 #include <memory>
 
+// todo: support hotloading
+
 template<typename Key, typename Data, typename Loader>
 class Cache {
  public:
