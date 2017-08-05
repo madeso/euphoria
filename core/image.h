@@ -50,7 +50,7 @@ class ImageLoadResult {
   std::string error;
 };
 
-enum class AlphaLoad { Remove, Include };
+enum class AlphaLoad { Remove, Keep };
 
 // todo: move image loading to a io library instead
 ImageLoadResult LoadImage(FileSystem* fs, const std::string& path, AlphaLoad alpha);

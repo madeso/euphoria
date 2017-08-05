@@ -131,7 +131,7 @@ void Texture2d::LoadFromImage(const Image& image, AlphaLoad alpha,
                    const Texture2dLoadData& data) {
   GLuint internalFormat = GL_RGB;
   GLuint imageFormat = GL_RGB;
-  if (image.HasAlpha() && alpha == AlphaLoad::Include ) {
+  if (image.HasAlpha() && alpha == AlphaLoad::Keep ) {
     internalFormat = GL_RGBA;
     imageFormat = GL_RGBA;
   }

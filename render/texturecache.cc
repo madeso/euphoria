@@ -14,7 +14,7 @@ Texture2d* TextureCache::GetTexture(const std::string& path) {
   if( it != map_.end()) return it->second.get();
 
   Ptr t( new Texture2d {} );
-  t->LoadFromFile(filesystem_, path, AlphaLoad::Include, Texture2dLoadData{});
+  t->LoadFromFile(filesystem_, path, AlphaLoad::Keep, Texture2dLoadData{});
   map_.insert(Map::value_type(path, t));
   return t.get();
 }

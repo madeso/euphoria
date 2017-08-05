@@ -224,7 +224,7 @@ ImageLoadResult LoadImage(FileSystem* fs, const std::string& path, AlphaLoad alp
   }
 
   bool has_alpha = false;
-  if (alpha == AlphaLoad::Include) {
+  if (alpha == AlphaLoad::Keep) {
     has_alpha = channels == 2 || channels == 4;
   }
 
