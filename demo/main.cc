@@ -18,6 +18,7 @@
 #include "core/mat4.h"
 #include "core/axisangle.h"
 #include "core/aabb.h"
+#include "render/materialshadercache.h"
 
 void SetupSdlOpenGlAttributes() {
   SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 4);
@@ -330,14 +331,11 @@ int main(int argc, char** argv) {
                                   "    FragColor = texture(uTexture, texCoord);\n"
                                   "}\n");
 
-  MaterialShader shader;
-  const bool shader_compile = shader.Load(&file_system, "default_shader");
+  MaterialShaderCache material_shader_cache {&file_system};
 
-  if(!shader_compile) {
-    return -3;
-  }
+  auto shader = material_shader_cache.Get("default_shader");
 
-  auto texture_uniform = shader.shader_.GetUniform("uTexture");
+  auto texture_uniform = shader->shader_.GetUniform("uTexture");
 
   Image image;
   image.Setup(256, 256, false);
@@ -495,9 +493,9 @@ int main(int argc, char** argv) {
     camera.SetRotation(fps.GetRotation());
 
     init.ClearScreen(Rgb::From(Color::DarkslateGray));
-    shader.UseShader();
-    BindTextureToShader(&texture, &shader.shader_, texture_uniform, 0);
-    world.Render(viewport, camera, &shader);
+    shader->UseShader();
+    BindTextureToShader(&texture, &shader->shader_, texture_uniform, 0);
+    world.Render(viewport, camera, shader.get());
 
     SDL_GL_SwapWindow(window.window);
   }
