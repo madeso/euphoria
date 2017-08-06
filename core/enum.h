@@ -16,22 +16,23 @@ class EnumValue;
 class EnumType
 {
  public:
-  EnumType();
+  EnumType(const std::string& name);
   ~EnumType();
 
   const std::string& ToString(size_t v) const;
   const EnumValue ToEnum(const std::string &name);
-  void AddEnum(const std::string &name);
-  void StopAdding();
+
+  void AddEnums(const std::vector<std::string>& names);
  private:
   typedef std::map<size_t, std::string> ValueToName;
   typedef std::map<std::string, size_t> NameToValue;
 
+  void AddEnum(const std::string& name);
+
+  std::string name_;
+
   ValueToName valueToName_;
   NameToValue nameToValue_;
-
-  ValueToName createdButNotAddedList;
-  NameToValue createdButNotAddedMap;
 
   bool isAdding_;
   size_t nextIndex_;
@@ -61,7 +62,7 @@ std::ostream& operator<<(std::ostream& s, const EnumValue& v);
 void LoadEnumType(EnumType* type, FileSystem* fs, const std::string& path);
 
 #define DECLARE_ENUM_TYPE(NAME) EnumType& NAME##_EnumType();
-#define IMPLEMENT_ENUM_TYPE(NAME) EnumType& NAME##_EnumType() { static EnumType type; return type; }
+#define IMPLEMENT_ENUM_TYPE(NAME) EnumType& NAME##_EnumType() { static EnumType type{#NAME}; return type; }
 #define SET_ENUM_VALUES(NAME, FUNC) do { FUNC(NAME##_EnumType()); NAME##_EnumType().StopAdding(); } while(false)
 #define DEFINE_ENUM_VALUE(TYPE, NAME, STRING) const EnumValue NAME = TYPE##_EnumType().ToEnum(STRING)
 #define SET_ENUM_FROM_FILE(FS, PATH, TYPE) LoadEnumType(&TYPE##_EnumType(), FS, PATH)

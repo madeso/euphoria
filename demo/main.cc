@@ -269,12 +269,6 @@ quatf FpsController::GetRotation() const
   return rotation * look;
 }
 
-// todo: read from file instead
-void SetupTextureNames(EnumType& type)
-{
-  type.AddEnum("Diffuse");
-}
-
 int main(int argc, char** argv) {
   Sdl sdl;
   if (sdl.ok == false) {
@@ -386,7 +380,9 @@ int main(int argc, char** argv) {
 
   World world;
 
-  auto box = CompileMesh(meshes::CreateCube(0.5f));
+  auto box_mesh = meshes::CreateCube(0.5f);
+  box_mesh.materials[0].SetTexture("Diffuse", "image");
+  auto box = CompileMesh(box_mesh, &material_shader_cache, &texture_cache);
 
   const float box_extent_value = 4;
   Aabb box_extents

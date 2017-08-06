@@ -9,11 +9,14 @@
 class MaterialShaderBinding
 {
 public:
-  MaterialShaderBinding(const ShaderUniform& uniform, const EnumValue& texture_name);
+  MaterialShaderBinding(const ShaderUniform& uniform, const EnumValue& name);
+
+  const ShaderUniform& GetUniform() const;
+  const EnumValue& GetName() const;
 
 private:
   ShaderUniform uniform_;
-  EnumValue texture_name_;
+  EnumValue name_;
 };
 
 class MaterialShader
@@ -28,6 +31,8 @@ class MaterialShader
   void SetProjection(const mat4f& projection);
   void SetView(const mat4f& view);
   void SetModel(const mat4f& model);
+
+   const std::vector<MaterialShaderBinding>& GetBindings() const;
 
   // todo: move to private when we support material textures and stuff
   Shader shader_;

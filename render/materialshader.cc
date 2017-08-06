@@ -7,10 +7,20 @@
 
 #include "materialshader.pb.h"
 
-MaterialShaderBinding::MaterialShaderBinding(const ShaderUniform &uniform, const EnumValue &texture_name)
+MaterialShaderBinding::MaterialShaderBinding(const ShaderUniform& uniform, const EnumValue& name)
   : uniform_(uniform)
-  , texture_name_(texture_name)
+  , name_(name)
 {}
+
+const ShaderUniform& MaterialShaderBinding::GetUniform() const
+{
+  return uniform_;
+}
+
+const EnumValue& MaterialShaderBinding::GetName() const
+{
+  return name_;
+}
 
 MaterialShader::MaterialShader()
   : projection_(ShaderUniform::Null())
@@ -66,4 +76,9 @@ void MaterialShader::SetView(const mat4f& view)
 void MaterialShader::SetModel(const mat4f& model)
 {
   shader_.SetUniform(model_, model);
+}
+
+const std::vector<MaterialShaderBinding>& MaterialShader::GetBindings() const
+{
+  return bindings_;
 }

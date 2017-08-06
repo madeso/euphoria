@@ -36,6 +36,10 @@ class Material {
 public:
   Material();
 
+  void SetTexture(const std::string& texture_name, const std::string& texture_path);
+
+  std::string name;
+
   std::string shader;
 
   Rgb diffuse;

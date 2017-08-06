@@ -41,6 +41,12 @@ Material::Material()
   , wrapt(WrapMode::REPEAT)
 {}
 
+void Material::SetTexture(const std::string& texture_name, const std::string& texture_path)
+{
+  DEFINE_ENUM_VALUE(TextureType, texture_type, texture_name);
+  textures.push_back(MaterialTexture{texture_path, texture_type});
+}
+
 namespace // local
 {
 DEFINE_ENUM_VALUE(TextureType, DiffuseType, "Diffuse");
@@ -76,7 +82,6 @@ namespace {
          ++material_id) {
       const aiMaterial* mat = scene->mMaterials[material_id];
 
-      bool found_diffuse_texture = false;
       Material material;
 
       if (mat->GetTextureCount(aiTextureType_DIFFUSE) <= 0) {
@@ -85,7 +90,6 @@ namespace {
         aiString texture;
         mat->GetTexture(aiTextureType_DIFFUSE, 0, &texture);
         material.textures.push_back( MaterialTexture{texture.C_Str(), DiffuseType} );
-        found_diffuse_texture = true;
       }
 
       int u = 0;
@@ -99,7 +103,7 @@ namespace {
       material.diffuse = Rgb::From(Color::White);
 
       // todo: improve texture detection?
-      material.shader = found_diffuse_texture ? "default" : "basic";
+      material.shader = "";
       ret->materials.push_back(material);
     }
   }

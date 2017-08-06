@@ -1,136 +1,89 @@
-#include <iostream>
 #include "core/enum.h"
+
+#include <iostream>
+#include <set>
 #include "core/assert.h"
 #include "core/proto.h"
 
 #include "enum.pb.h"
 
-EnumType::EnumType()
-  : isAdding_(true)
+EnumType::EnumType(const std::string& name)
+  : name_(name)
+  , isAdding_(true)
   , nextIndex_(0)
 {
 }
 
 EnumType::~EnumType()
 {
-  Assert(isAdding_ == false);
-
-  if(!createdButNotAddedList.empty())
-  {
-    std::cout << "EnumType error\n";
-  }
-
-  // Assert(createdButNotAddedList.empty() == true);
+  Assert(!isAdding_);
 }
 
 const std::string& EnumType::ToString(size_t v) const
 {
   Assert(v < nextIndex_);
-  ValueToName::const_iterator f = valueToName_.find(v);
+  auto f = valueToName_.find(v);
   if(f != valueToName_.end())
   {
     return f->second;
   }
-  else
-  {
-    ValueToName::const_iterator i = createdButNotAddedList.find(v);
-    if(i == createdButNotAddedList.end())
-    {
-      throw "unknown index";
-    }
-    else
-    {
-      return i->second;
-    }
-  }
+
+  // Assert(false && "Invalid index");
+  const static std::string invalid = "<invalid>";
+  return invalid;
 }
 
 const EnumValue EnumType::ToEnum(const std::string &name)
 {
   NameToValue::const_iterator r = nameToValue_.find(name);
-  if(r == nameToValue_.end())
-  {
-    if(isAdding_)
-    {
-      const size_t id = nextIndex_;
-      ++nextIndex_;
-      createdButNotAddedList.insert(ValueToName::value_type(id, name));
-      createdButNotAddedMap.insert(NameToValue::value_type(name, id));
-      nameToValue_.insert(NameToValue::value_type(name, id));
-      return EnumValue(this, id);
-    }
-    else
-    {
-      throw "loading has finished, enum doesnt exist or is misspelled";
-    }
-  }
-  else
-  {
+  if(r != nameToValue_.end()) {
     return EnumValue(this, r->second);
   }
+
+  if(!isAdding_) {
+    std::cerr << "Enum value doesnt exist, " << name << "\n";
+    return EnumValue(this, 0);
+  }
+  const size_t id = nextIndex_;
+  ++nextIndex_;
+  AddEnum(name);
+  return EnumValue(this, id);
+}
+
+void EnumType::AddEnums(const std::vector<std::string>& names)
+{
+  Assert(isAdding_);
+  std::set<std::string> valid_names;
+  for(const auto& name : names)
+  {
+    AddEnum(name);
+    valid_names.insert(name);
+  }
+
+  // validate all names against true names
+  for(const auto& name : nameToValue_)
+  {
+    const bool missing = valid_names.find(name.first) == valid_names.end();
+    if(missing)
+    {
+      std::cerr << "Enum " << name_ << " was registered with name " << name.first << " but that is invalid.\n";
+    }
+  }
+
+  isAdding_ = false;
 }
 
 void EnumType::AddEnum(const std::string &name)
 {
-  Assert(isAdding_ == true);
+  Assert(isAdding_);
   NameToValue::const_iterator r = nameToValue_.find(name);
-  if(r == nameToValue_.end())
-  {
-    const size_t id = nextIndex_;
-    ++nextIndex_;
-    valueToName_.insert(ValueToName::value_type(id, name));
-    nameToValue_.insert(NameToValue::value_type(name, id));
+  if(r != nameToValue_.end()) {
+    return;
   }
-  else
-  {
-    NameToValue::const_iterator f = createdButNotAddedMap.find(name);
-    if(f == createdButNotAddedMap.end())
-    {
-      throw "enum already added";
-    }
-    else
-    {
-      // move to list
-      const size_t id = f->second;
-      ValueToName::const_iterator i = createdButNotAddedList.find(id);
-      Assert(i != createdButNotAddedList.end()); // createdButNotAdded list/map inconsistencies
-      createdButNotAddedList.erase(i);
-      createdButNotAddedMap.erase(f);
-    }
-  }
-}
-
-void EnumType::StopAdding()
-{
-  Assert(isAdding_ == true);
-  isAdding_ = false;
-
-  if( !createdButNotAddedList.empty() )
-  {
-    for(const auto name: createdButNotAddedList)
-    {
-      std::cout << "Invalid type detected: " << name.second << "\n";
-    }
-
-    std::cout << "\n";
-    std::cout << "Valid names: \n";
-    std::cout << "============\n";
-
-    if(valueToName_.empty())
-    {
-      std::cout << "Zero valid names detected!!!\n";
-    }
-    else
-    {
-      for(const auto name: valueToName_)
-      {
-        std::cout << " * " << name.second << "\n";
-      }
-    }
-  }
-
-  // if this isn't empty, some enums have not been added or misspelling has occured, see throw above
-  // Assert(createdButNotAddedList.empty() == true);
+  const size_t id = nextIndex_;
+  ++nextIndex_;
+  valueToName_.insert(ValueToName::value_type(id, name));
+  nameToValue_.insert(NameToValue::value_type(name, id));
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -181,6 +134,9 @@ void LoadEnumType(EnumType* type, FileSystem* fs, const std::string& path)
 
   enumlist::Enumroot root;
   const std::string load_error = LoadProtoJson(fs, &root, path);
+
+  std::vector<std::string> names;
+
   if(!load_error.empty())
   {
     std::cerr << "Failed to load enums " << path << ": " << load_error << "\n";
@@ -189,9 +145,9 @@ void LoadEnumType(EnumType* type, FileSystem* fs, const std::string& path)
   {
     for(const auto name: root.name())
     {
-      type->AddEnum(name);
+      names.push_back(name);
     }
   }
 
-  type->StopAdding();
+  type->AddEnums(names);
 }

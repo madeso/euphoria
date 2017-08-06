@@ -2,9 +2,16 @@
 #define EUPHORIA_COMPILEDMESH_H
 
 #include <memory>
+#include <map>
 
 #include "core/mesh.h"
 #include "render/buffer.h"
+
+class Texture2d;
+class MaterialShader;
+
+class MaterialShaderCache;
+class TextureCache;
 
 // one part of the mesh, single material
 class CompiledMeshPart {
@@ -13,16 +20,35 @@ class CompiledMeshPart {
   Vao config;
   Ebo tris;
   int tri_count;
+  int material;
+};
+
+class CompiledMeshMaterial {
+public:
+  CompiledMeshMaterial();
+
+  void SetShader(std::shared_ptr<MaterialShader> shader);
+  void SetDiffuse(const Rgb& color);
+
+  void SetTexture(const EnumValue& name, std::shared_ptr<Texture2d> texture);
+
+  // asks the shader if all the textures are set, and if more than necessary are set
+  bool Validate() const;
+private:
+  Rgb diffuse_;
+  std::shared_ptr<MaterialShader> shader_;
+  std::map<EnumValue, std::shared_ptr<Texture2d>> textures_;
 };
 
 // a collection of parts making up a mesh
 class CompiledMesh {
  public:
   std::vector<std::shared_ptr<CompiledMeshPart>> parts;
+  std::vector<CompiledMeshMaterial> materials;
 
   void Render();
 };
 
-std::shared_ptr<CompiledMesh> CompileMesh(const Mesh& mesh);
+std::shared_ptr<CompiledMesh> CompileMesh(const Mesh& mesh, MaterialShaderCache* shader_cache, TextureCache* texture_cache);
 
 #endif //EUPHORIA_COMPILEDMESH_H
