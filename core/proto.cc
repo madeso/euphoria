@@ -2,14 +2,15 @@
 
 #include "core/proto.h"
 
-#include <google/protobuf/text_format.h>
-
 #include <streambuf>
-#include "core/assert.h"
 #include <fstream>  // NOLINT this is how we use fstrean
 #include <sstream>  // NOLINT this is how we use sstream
-
 #include <string>
+
+#include "core/assert.h"
+#include "core/filesystem.h"
+
+#include <google/protobuf/text_format.h>
 
 #include "pbjson.hpp"  // NOLINT this is how we use pbjson
 
@@ -58,12 +59,34 @@ bool SaveProtoBinary(const google::protobuf::Message& message,
   return message.SerializeToOstream(&config_stream);
 }
 
-std::string LoadProtoJson(google::protobuf::Message* message,
+std::string LoadProtoJson(FileSystem* fs, google::protobuf::Message* message,
                        const std::string& path) {
+
+  std::string source;
+
+  const bool load_result = fs->ReadFileToString(path, &source);
+  if(!load_result) {
+    // todo: add file to error
+    return "Unable to load file";
+  }
+
+  rapidjson::Document doc;
+  // todo: look up insitu parsing
+  // todo: look upo json/sjson parsing options
+  doc.Parse(source.c_str());
+
+  if(doc.HasParseError()) {
+    // todo: add file and parse error to error
+    return "JSON parse error";
+  }
+
   std::string err;
-  int load_result = pbjson::json2pb_file(path.c_str(), message, err);
-  if (load_result < 0) {
-    return err.c_str();
+
+  const int proto_parse = pbjson::jsonobject2pb(&doc, message, err);
+
+  // int proto_parse = pbjson::json2pb_file(path.c_str(), message, err);
+  if (proto_parse < 0) {
+    return err;
   }
 
   return "";

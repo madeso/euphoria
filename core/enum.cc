@@ -1,6 +1,9 @@
 #include <iostream>
 #include "core/enum.h"
 #include "core/assert.h"
+#include "core/proto.h"
+
+#include "enum.pb.h"
 
 EnumType::EnumType()
   : isAdding_(true)
@@ -112,9 +115,17 @@ void EnumType::StopAdding()
     std::cout << "\n";
     std::cout << "Valid names: \n";
     std::cout << "============\n";
-    for(const auto name: valueToName_)
+
+    if(valueToName_.empty())
     {
-      std::cout << " * " << name.second << "\n";
+      std::cout << "Zero valid names detected!!!\n";
+    }
+    else
+    {
+      for(const auto name: valueToName_)
+      {
+        std::cout << " * " << name.second << "\n";
+      }
     }
   }
 
@@ -146,17 +157,41 @@ bool EnumValue::operator==(const EnumValue& other) const
   Assert(type_ == other.type_);
   return value_ == other.value_;
 }
+
 bool EnumValue::operator!=(const EnumValue& other) const
 {
   return !(*this == other);
 }
+
 bool EnumValue::operator<(const EnumValue& other) const
 {
   Assert(type_ == other.type_);
   return value_ < other.value_;
 }
+
 std::ostream& operator<<(std::ostream& s, const EnumValue& v)
 {
   s << v.ToString();
   return s;
+}
+
+void LoadEnumType(EnumType* type, FileSystem* fs, const std::string& path)
+{
+  Assert(type);
+
+  enumlist::Enumroot root;
+  const std::string load_error = LoadProtoJson(fs, &root, path);
+  if(!load_error.empty())
+  {
+    std::cerr << "Failed to load enums " << path << ": " << load_error << "\n";
+  }
+  else
+  {
+    for(const auto name: root.name())
+    {
+      type->AddEnum(name);
+    }
+  }
+
+  type->StopAdding();
 }

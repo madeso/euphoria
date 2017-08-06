@@ -1,0 +1,6 @@
+package enumlist;
+
+message Enumroot
+{
+  repeated string name = 1;
+}

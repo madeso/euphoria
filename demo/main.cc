@@ -339,9 +339,13 @@ int main(int argc, char** argv) {
                                   "    FragColor = texture(uTexture, texCoord);\n"
                                   "}\n");
 
+  catalog->RegisterFileString("texture_types.json",
+                              "{\"name\" : [\"Diffuse\"]}");
+
   MaterialShaderCache material_shader_cache {&file_system};
 
-  SET_ENUM_VALUES(TextureType, SetupTextureNames);
+  // SET_ENUM_VALUES(TextureType, SetupTextureNames);
+  SET_ENUM_FROM_FILE(&file_system, "texture_types.json", TextureType);
 
   auto shader = material_shader_cache.Get("default_shader");
 

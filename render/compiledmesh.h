@@ -1,7 +1,3 @@
-//
-// Created by gustav on 2017-07-31.
-//
-
 #ifndef EUPHORIA_COMPILEDMESH_H
 #define EUPHORIA_COMPILEDMESH_H
 

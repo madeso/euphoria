@@ -4,11 +4,14 @@
 #include <string>
 #include <map>
 
+class FileSystem;
+
 class EnumValue;
 
 // todo: as a compile option, use a hash instead of the string enum
 
-/// Represents a enum type. Declare globally grab specific enums before or after load, and load adds new, verifies created and asserts misspelled values.
+/// Represents a enum type. Declare globally grab specific enums before or after load, and load adds new,
+/// verifies created and asserts misspelled values.
 // Advantages over hashes: type safety, catches bad spelling, no collisions and  perhaps faster to generate?
 class EnumType
 {
@@ -55,10 +58,12 @@ class EnumValue
 
 std::ostream& operator<<(std::ostream& s, const EnumValue& v);
 
+void LoadEnumType(EnumType* type, FileSystem* fs, const std::string& path);
+
 #define DECLARE_ENUM_TYPE(NAME) EnumType& NAME##_EnumType();
 #define IMPLEMENT_ENUM_TYPE(NAME) EnumType& NAME##_EnumType() { static EnumType type; return type; }
 #define SET_ENUM_VALUES(NAME, FUNC) do { FUNC(NAME##_EnumType()); NAME##_EnumType().StopAdding(); } while(false)
 #define DEFINE_ENUM_VALUE(TYPE, NAME, STRING) const EnumValue NAME = TYPE##_EnumType().ToEnum(STRING)
-
+#define SET_ENUM_FROM_FILE(FS, PATH, TYPE) LoadEnumType(&TYPE##_EnumType(), FS, PATH)
 
 #endif //EUPHORIA_ENUM_H
