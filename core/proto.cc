@@ -9,10 +9,13 @@
 
 #include "core/assert.h"
 #include "core/filesystem.h"
+#include "core/str.h"
 
 #include <google/protobuf/text_format.h>
 
 #include "pbjson.hpp"  // NOLINT this is how we use pbjson
+#include "rapidjson/error/en.h"
+
 
 // #include "ride/stringutils.h"
 
@@ -77,7 +80,7 @@ std::string LoadProtoJson(FileSystem* fs, google::protobuf::Message* message,
 
   if(doc.HasParseError()) {
     // todo: add file and parse error to error
-    return "JSON parse error";
+    return Str{} << "JSON parse error: " << rapidjson::GetParseError_En(doc.GetParseError());
   }
 
   std::string err;
