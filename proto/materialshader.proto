@@ -1,0 +1,12 @@
+package materialshader;
+
+message Binding
+{
+  optional string texture = 1;
+  optional string uniform = 2;
+}
+
+message MaterialShader
+{
+  repeated Binding textures = 1;
+}

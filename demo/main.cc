@@ -310,6 +310,8 @@ int main(int argc, char** argv) {
   FileSystem file_system;
   auto catalog = FileSystemRootCatalog::AddRoot(&file_system);
   FileSystemRootFolder::AddRoot(&file_system);
+  catalog->RegisterFileString("default_shader.json",
+                              R"(  {"textures": [ {"texture": "Diffuse", "uniform": "uTexture"} ]}  )");
   catalog->RegisterFileString("default_shader.vert",
                               "#version 330 core\n"
                                   "in vec3 aPosition;\n"
@@ -340,7 +342,7 @@ int main(int argc, char** argv) {
                                   "}\n");
 
   catalog->RegisterFileString("texture_types.json",
-                              "{\"name\" : [\"Diffuse\"]}");
+                              R"({"name" : ["Diffuse"]})");
 
   MaterialShaderCache material_shader_cache {&file_system};
 

@@ -14,8 +14,11 @@ set(src ${src} ${src_glad})
 source_group("glad" FILES ${src_glad})
 
 include_directories(SYSTEM ${CMAKE_CURRENT_BINARY_DIR})
-PROTOBUF_GENERATE_CPP(SPRITE_PROTO_SRCS SPRITE_PROTO_HDRS ../proto/scalingsprite.proto)
-set(src ${src} ${pbjson_src} ${SPRITE_PROTO_SRCS} ${SPRITE_PROTO_HDRS})
+PROTOBUF_GENERATE_CPP(PROTO_SRCS PROTO_HDRS
+  ../proto/scalingsprite.proto
+  ../proto/materialshader.proto
+  )
+set(src ${src} ${pbjson_src} ${PROTO_SRCS} ${PROTO_HDRS})
 
 add_library(render STATIC ${src})
 

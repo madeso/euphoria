@@ -1,9 +1,23 @@
 #ifndef EUPHORIA_MATERIALSHADER_H
 #define EUPHORIA_MATERIALSHADER_H
 
+#include <vector>
+
+#include "core/enum.h"
 #include "render/shader.h"
 
-class MaterialShader {
+class MaterialShaderBinding
+{
+public:
+  MaterialShaderBinding(const ShaderUniform& uniform, const EnumValue& texture_name);
+
+private:
+  ShaderUniform uniform_;
+  EnumValue texture_name_;
+};
+
+class MaterialShader
+{
  public:
   MaterialShader();
 
@@ -21,6 +35,7 @@ class MaterialShader {
   ShaderUniform projection_;
   ShaderUniform view_;
   ShaderUniform model_;
+  std::vector<MaterialShaderBinding> bindings_;
 };
 
 
