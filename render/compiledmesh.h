@@ -5,6 +5,7 @@
 #include <map>
 
 #include "core/mesh.h"
+#include "core/mat4.h"
 #include "render/buffer.h"
 
 class Texture2d;
@@ -32,6 +33,8 @@ public:
 
   void SetTexture(const EnumValue& name, std::shared_ptr<Texture2d> texture);
 
+  void Apply(const mat4f& model_matrix, const mat4f& projection_matrix, const mat4f& view_matrix) const;
+
   // asks the shader if all the textures are set, and if more than necessary are set
   bool Validate() const;
 private:
@@ -46,7 +49,7 @@ class CompiledMesh {
   std::vector<std::shared_ptr<CompiledMeshPart>> parts;
   std::vector<CompiledMeshMaterial> materials;
 
-  void Render();
+  void Render(const mat4f& model_matrix, const mat4f& projection_matrix, const mat4f& view_matrix);
 };
 
 std::shared_ptr<CompiledMesh> CompileMesh(const Mesh& mesh, MaterialShaderCache* shader_cache, TextureCache* texture_cache);

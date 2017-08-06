@@ -343,10 +343,6 @@ int main(int argc, char** argv) {
   // SET_ENUM_VALUES(TextureType, SetupTextureNames);
   SET_ENUM_FROM_FILE(&file_system, "texture_types.json", TextureType);
 
-  auto shader = material_shader_cache.Get("default_shader");
-
-  auto texture_uniform = shader->shader_.GetUniform("uTexture");
-
   Image image;
   image.Setup(256, 256, false);
   Draw drawer{&image};
@@ -506,9 +502,7 @@ int main(int argc, char** argv) {
     camera.SetRotation(fps.GetRotation());
 
     init.ClearScreen(Rgb::From(Color::DarkslateGray));
-    shader->UseShader();
-    BindTextureToShader(texture.get(), &shader->shader_, texture_uniform, 0);
-    world.Render(viewport, camera, shader.get());
+    world.Render(viewport, camera);
 
     SDL_GL_SwapWindow(window.window);
   }

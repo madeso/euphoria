@@ -15,7 +15,7 @@ class World {
   void AddActor(std::shared_ptr<Actor> actor);
 
   // todo: remove shader requirement
-  void Render(const Viewport& viewport, const Camera& camera, MaterialShader* shader);
+  void Render(const Viewport& viewport, const Camera& camera);
 
  private:
   std::vector<std::shared_ptr<Actor>> actors_;

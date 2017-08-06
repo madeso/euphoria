@@ -41,6 +41,32 @@ void CompiledMeshMaterial::SetTexture(const EnumValue& name, std::shared_ptr<Tex
   textures_[name] = texture;
 }
 
+void CompiledMeshMaterial::Apply(const mat4f& model_matrix, const mat4f& projection_matrix, const mat4f& view_matrix) const
+{
+  shader_->UseShader();
+
+  // set common constants
+  shader_->SetModel(model_matrix);
+  shader_->SetProjection(projection_matrix);
+  shader_->SetView(view_matrix);
+
+  // bind all textures
+  const auto& bindings = shader_->GetBindings();
+
+  int texture_index = 0;
+  for(const auto& binding : bindings)
+  {
+    const auto name = binding.GetName();
+    auto texture = textures_.find(name);
+    if(texture == textures_.end()) {
+      // todo: this is a error and should have been caught by the Validate, abort?
+      continue;
+    }
+    BindTextureToShader(texture->second.get(), &shader_->shader_, binding.GetUniform(), texture_index);
+    texture_index += 1;
+  }
+}
+
 // asks the shader if all the textures are set, and if more than necessary are set
 bool CompiledMeshMaterial::Validate() const
 {
@@ -150,8 +176,12 @@ std::shared_ptr<CompiledMesh> CompileMesh(const Mesh& mesh, MaterialShaderCache*
   return ret;
 }
 
-void CompiledMesh::Render() {
+void CompiledMesh::Render(const mat4f& model_matrix, const mat4f& projection_matrix, const mat4f& view_matrix) {
   for(const auto& part : parts) {
+    const CompiledMeshMaterial& material = materials[part->material];
+
+    material.Apply(model_matrix, projection_matrix, view_matrix);
+
     Vao::Bind(&part->config);
     Ebo::Bind(&part->tris);
     part->tris.Draw(part->tri_count);

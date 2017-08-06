@@ -35,7 +35,7 @@ mat4f Actor::GetModelMatrix() const
   return mat4f::FromTranslation(position_) * rotation_.ToMat4();
 }
 
-void Actor::Render()
+void Actor::Render(const mat4f& projection_matrix, const mat4f& view_matrix)
 {
-  mesh_->Render();
+  mesh_->Render(GetModelMatrix(), projection_matrix, view_matrix);
 }

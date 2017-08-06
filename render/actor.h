@@ -19,7 +19,7 @@ class Actor {
   void SetRotation(const quatf& rotation);
 
   mat4f GetModelMatrix() const;
-  void Render();
+  void Render(const mat4f& projection_matrix, const mat4f& view_matrix);
 
  private:
   std::shared_ptr<CompiledMesh> mesh_;
