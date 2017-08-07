@@ -13,10 +13,14 @@
 
 MeshPart::MeshPart() : material(0), facecount(0) {}
 
-void MeshPart::AddPoint(float x, float y, float z, float u, float v) {
+void MeshPart::AddPoint(float x, float y, float z, float nx, float ny, float nz, float u, float v) {
   points.push_back(x);
   points.push_back(y);
   points.push_back(z);
+
+  points.push_back(nx);
+  points.push_back(ny);
+  points.push_back(nz);
 
   points.push_back(u);
   points.push_back(v);
@@ -118,6 +122,7 @@ namespace {
   void AddPoints(MeshPart* part, const aiMesh* mesh) {
     for (unsigned int index = 0; index < mesh->mNumVertices; ++index) {
       const aiVector3D& vertex = mesh->mVertices[index];
+      const aiVector3D& normal = mesh->mNormals[index];
       float u = 0;
       float v = 0;
       if (mesh->HasTextureCoords(0)) {
@@ -125,7 +130,7 @@ namespace {
         u = uv.x;
         v = uv.y;
       }
-      part->AddPoint(vertex.x, vertex.y, vertex.z, u, v);
+      part->AddPoint(vertex.x, vertex.y, vertex.z, normal.x, normal.y, normal.z, u, v);
     }
   }
 

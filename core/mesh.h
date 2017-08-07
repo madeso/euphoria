@@ -21,7 +21,7 @@ public:
   std::vector<unsigned int> faces;
   int facecount;
 
-  void AddPoint(float x, float y, float z, float u, float v);
+  void AddPoint(float x, float y, float z, float nx, float ny, float nz, float u, float v);
   void AddFace(unsigned int a, unsigned int b, unsigned int c);
 };
 

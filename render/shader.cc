@@ -191,6 +191,13 @@ void Shader::SetUniform(const ShaderUniform& attribute, const Rgba& val)  {
   glUniform4f(attribute.id, val.GetRed(), val.GetGreen(), val.GetBlue(), val.GetAlpha());
 }
 
+void Shader::SetUniform(const ShaderUniform& attribute, const vec3f& val) {
+  Assert(IsCurrentlyBound());
+  Assert(HasBoundUniform(attribute));
+  if(attribute.id == -1) return;
+  glUniform3f(attribute.id, val.x, val.y, val.z);
+}
+
 void Shader::SetUniform(const ShaderUniform& attribute, const vec4f& val) {
   Assert(IsCurrentlyBound());
   Assert(HasBoundUniform(attribute));

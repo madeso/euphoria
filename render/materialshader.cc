@@ -32,6 +32,7 @@ MaterialShader::MaterialShader()
   , hasLight_(false)
   , ambientLight_(ShaderUniform::Null())
   , lightColor_(ShaderUniform::Null())
+  , lightPosition_(ShaderUniform::Null())
 {
 }
 
@@ -68,6 +69,7 @@ bool MaterialShader::Load(FileSystem* file_system, const std::string& path) {
   {
     ambientLight_ = shader_.GetUniform("uAmbient");
     lightColor_ = shader_.GetUniform("uLightColor");
+    lightPosition_ = shader_.GetUniform("uLightPosition");
   }
 
   return shader_compile;
@@ -102,6 +104,7 @@ void MaterialShader::SetupLight()
   // todo: get light from the actual light and not a hardcoded constant
   shader_.SetUniform(ambientLight_, 0.3f);
   shader_.SetUniform(lightColor_, Rgb::From(Color::White));
+  shader_.SetUniform(lightPosition_, vec3f(0,0,0));
 }
 
 const std::vector<MaterialShaderBinding>& MaterialShader::GetBindings() const

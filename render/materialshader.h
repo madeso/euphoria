@@ -46,6 +46,7 @@ class MaterialShader
   bool hasLight_;
   ShaderUniform ambientLight_;
   ShaderUniform lightColor_;
+  ShaderUniform lightPosition_;
 
   std::vector<MaterialShaderBinding> bindings_;
 };

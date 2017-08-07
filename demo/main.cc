@@ -309,9 +309,12 @@ int main(int argc, char** argv) {
   catalog->RegisterFileString("default_shader.vert",
                               "#version 330 core\n"
                                   "in vec3 aPosition;\n"
+                                  "in vec3 aNormal;\n"
                                   "in vec2 aTexCoord;\n"
                                   "\n"
                                   "out vec2 texCoord;\n"
+                                  "out vec3 normal;\n"
+                                  "out vec3 fragPositionWorld;\n"
                                   "\n"
                                   "uniform mat4 uProjection;\n"
                                   "uniform mat4 uView;\n"
@@ -320,25 +323,35 @@ int main(int argc, char** argv) {
                                   "void main()\n"
                                   "{\n"
                                   "    gl_Position = uProjection * uView * uModel * vec4(aPosition, 1.0);\n"
+                                  "    fragPositionWorld = vec3(uModel * vec4(aPosition, 1.0));\n"
                                   "    texCoord = aTexCoord;\n"
+                                  "    normal = aNormal;\n"
                                   "}\n");
   catalog->RegisterFileString("default_shader.frag",
                               "#version 330 core\n"
                                   "out vec4 FragColor;\n"
                                   "\n"
                                   "in vec2 texCoord;\n"
+                                  "in vec3 normal;\n"
+                                  "in vec3 fragPositionWorld;\n"
                                   "\n"
                                   "uniform sampler2D uTexture;\n"
                                   "uniform float uAmbient;\n"
                                   "uniform vec3 uLightColor;\n"
+                                  "uniform vec3 uLightPosition;\n"
                                   "\n"
                                   "void main()\n"
                                   "{\n"
                                   "    vec3 ambient = uAmbient * uLightColor;\n"
                                   "    \n"
+                                  "    vec3 norm = normalize(normal);\n"
+                                  "    vec3 lightDir = normalize(uLightPosition - fragPositionWorld);\n"
+                                  "    float diffuse_factor = max(0.0, dot(norm, lightDir));\n"
+                                  "    vec3 diffuse = diffuse_factor * uLightColor;\n"
+                                  "    \n"
                                   "    vec3 object_color = texture(uTexture, texCoord).rgb;\n"
                                   "    \n"
-                                  "    vec3 result = ambient * object_color;\n"
+                                  "    vec3 result = (ambient+diffuse) * object_color;\n"
                                   "    \n"
                                   "    FragColor = vec4(result, 1.0);\n"
                                   "}\n");
@@ -453,14 +466,15 @@ int main(int argc, char** argv) {
   }
 
   auto light_actor = std::make_shared<Actor>(light);
-  light_actor->SetPosition(vec3f(0,0,-3));
+  // todo: use light position
+  // light_actor->SetPosition(vec3f(0,0,-3));
   world.AddActor(light_actor);
 
   Camera camera;
   camera.SetPosition(vec3f(0,0,0));
 
   FpsController fps;
-  fps.SetPosition(vec3f(0,0,0));
+  fps.SetPosition(vec3f(0,0,3));
 
   bool paused = true;
 

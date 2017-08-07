@@ -190,6 +190,7 @@ std::shared_ptr<CompiledMesh> CompileMesh(const Mesh& mesh, MaterialShaderCache*
     part->data.SetData(part_src.points);
     AttributeBinder binder;
     binder.Register(attributes3d::Vertex(), 3 * sizeof(float));
+    binder.Register(attributes3d::Normal(), 3 * sizeof(float));
     binder.Register(attributes3d::TexCoord(), 2 * sizeof(float));
     binder.Bind(part);
 
