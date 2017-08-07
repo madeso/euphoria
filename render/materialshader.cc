@@ -35,7 +35,8 @@ MaterialShader::MaterialShader()
 bool MaterialShader::Load(FileSystem* file_system, const std::string& path) {
   attributes3d::PrebindShader(&shader_);
   const bool shader_compile = shader_.Load(file_system, path);
-  if (!shader_compile) { return false; }
+
+  // if (!shader_compile) { return false; }
 
   materialshader::MaterialShader material_shader_file;
   const std::string proto_path = path + ".json";
