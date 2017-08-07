@@ -97,7 +97,7 @@ bool CompiledMeshMaterial::Validate() const
     const auto name = texture.first;
     const bool missing = values.find(name) == values.end();
     if(missing) {
-      LOG_ERROR("Texture " << name.ToString() << " is specified but is missing in shader");
+      LOG_ERROR("Texture " << name.ToString() << "[" << name.ToValue() << "] is specified but is missing in shader");
       ok = false;
     }
   }
