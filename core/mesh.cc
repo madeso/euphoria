@@ -221,48 +221,17 @@ Mesh CreateBox(float width, float height, float depth) {
      << "v " << x << " " << " " << y << " " << -z << std::endl
      << "v " << x << " " << " " << y << " " << z << std::endl
      << "" << std::endl
-     << "vn 0 0 -1" << std::endl
-     << "vn 0 0 1" << std::endl
-     << "vn -1 0 0" << std::endl
-     << "vn 1 0 0" << std::endl
-     << "vn 0 1 0" << std::endl
-     << "vn 0 -1 0" << std::endl
-     << "vn 0 0 -1" << std::endl
-     << "vn 0 -1 0" << std::endl
-     << "vn -1 0 0" << std::endl
-     << "vn 0 0 1" << std::endl
-     << "vn 0 -1 0" << std::endl
-     << "vn -1 0 0" << std::endl
-     << "vn 0 0 -1" << std::endl
-     << "vn 0 1 0" << std::endl
-     << "vn -1 0 0" << std::endl
-     << "vn 0 0 1" << std::endl
-     << "vn 0 1 0" << std::endl
-     << "vn -1 0 0" << std::endl
-     << "vn 0 0 -1" << std::endl
-     << "vn 0 -1 0" << std::endl
-     << "vn 1 0 0" << std::endl
-     << "vn 0 0 1" << std::endl
-     << "vn 0 -1 0" << std::endl
-     << "vn 1 0 0" << std::endl
-     << "vn 0 0 -1" << std::endl
-     << "vn 0 1 0" << std::endl
-     << "vn 1 0 0" << std::endl
-     << "vn 0 0 1" << std::endl
-     << "vn 0 1 0" << std::endl
-     << "vn 1 0 0" << std::endl
-     << "" << std::endl
      << "vt 0 0" << std::endl
      << "vt 0 1" << std::endl
      << "vt 1 1" << std::endl
      << "vt 1 0" << std::endl
      << "" << std::endl
-     << "f 3/1/13 7/2/25 5/3/19 1/4/7" << std::endl
-     << "f 6/1/22 8/2/28 4/3/16 2/4/10" << std::endl
-     << "f 2/1/12 4/2/18 3/3/15 1/4/9" << std::endl
-     << "f 7/1/27 8/2/30 6/3/24 5/4/21" << std::endl
-     << "f 4/1/17 8/2/29 7/3/26 3/4/14" << std::endl
-     << "f 5/1/20 6/2/23 2/3/11 1/4/8" << std::endl;
+     << "f 3/1 7/2 5/3 1/4" << std::endl
+     << "f 6/1 8/2 4/3 2/4" << std::endl
+     << "f 2/1 4/2 3/3 1/4" << std::endl
+     << "f 7/1 8/2 6/3 5/4" << std::endl
+     << "f 4/1 8/2 7/3 3/4" << std::endl
+     << "f 5/1 6/2 2/3 1/4" << std::endl;
 
   return LoadFromString(ss.str(), kFormatObj);
 }

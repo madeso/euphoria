@@ -102,7 +102,7 @@ void MaterialShader::SetupLight()
   }
 
   // todo: get light from the actual light and not a hardcoded constant
-  shader_.SetUniform(ambientLight_, 0.3f);
+  shader_.SetUniform(ambientLight_, 0.1f);
   shader_.SetUniform(lightColor_, Rgb::From(Color::White));
   shader_.SetUniform(lightPosition_, vec3f(0,0,0));
 }
