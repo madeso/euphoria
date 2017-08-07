@@ -325,7 +325,7 @@ int main(int argc, char** argv) {
                                   "    gl_Position = uProjection * uView * uModel * vec4(aPosition, 1.0);\n"
                                   "    fragPositionWorld = vec3(uModel * vec4(aPosition, 1.0));\n"
                                   "    texCoord = aTexCoord;\n"
-                                  "    normal = aNormal;\n"
+                                  "    normal = mat3(transpose(inverse(uModel))) * aNormal;\n"
                                   "}\n");
   catalog->RegisterFileString("default_shader.frag",
                               "#version 330 core\n"
@@ -422,8 +422,8 @@ int main(int argc, char** argv) {
   box_mesh1.materials[0].SetTexture("Diffuse", "image");
   auto box1 = CompileMesh(box_mesh1, &material_shader_cache, &texture_cache);
 
-  auto box_mesh2 = meshes::CreateCube(0.5f);
-  box_mesh2.materials[0].SetTexture("Diffuse", "wooden-crate.jpg");
+  auto box_mesh2 = meshes::CreateSphere(0.5f,  "wooden-crate.jpg");
+  // box_mesh2.materials[0].SetTexture("Diffuse", "wooden-crate.jpg");
   auto box2 = CompileMesh(box_mesh2, &material_shader_cache, &texture_cache);
 
   auto light_mesh = meshes::CreateCube(0.2f);
