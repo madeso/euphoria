@@ -373,9 +373,13 @@ int main(int argc, char** argv) {
 
   World world;
 
-  auto box_mesh = meshes::CreateCube(0.5f);
-  box_mesh.materials[0].SetTexture("Diffuse", "image");
-  auto box = CompileMesh(box_mesh, &material_shader_cache, &texture_cache);
+  auto box_mesh1 = meshes::CreateCube(0.5f);
+  box_mesh1.materials[0].SetTexture("Diffuse", "image");
+  auto box1 = CompileMesh(box_mesh1, &material_shader_cache, &texture_cache);
+
+  auto box_mesh2 = meshes::CreateCube(0.5f);
+  box_mesh2.materials[0].SetTexture("Diffuse", "wooden-crate.jpg");
+  auto box2 = CompileMesh(box_mesh2, &material_shader_cache, &texture_cache);
 
   const float box_extent_value = 4;
   Aabb box_extents
@@ -388,7 +392,7 @@ int main(int argc, char** argv) {
 
   for(int i=0; i<20; ++i)
   {
-    std::shared_ptr<Actor> actor = std::make_shared<Actor>(box);
+    std::shared_ptr<Actor> actor = std::make_shared<Actor>(random.NextBool() ? box1 : box2);
     world.AddActor(actor);
 
     CubeAnimation anim;
