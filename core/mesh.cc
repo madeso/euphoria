@@ -212,29 +212,51 @@ Mesh CreateBox(float width, float height, float depth) {
   const float y = height / 2;
   const float z = depth / 2;
   std::ostringstream ss;
-  ss << "v " << -x << " "
-     << " " << -y << " " << -z << std::endl << "v " << -x << " "
-     << " " << -y << " " << z << std::endl << "v " << -x << " "
-     << " " << y << " " << -z << std::endl << "v " << -x << " "
-     << " " << y << " " << z << std::endl << "v " << x << " "
-     << " " << -y << " " << -z << std::endl << "v " << x << " "
-     << " " << -y << " " << z << std::endl << "v " << x << " "
-     << " " << y << " " << -z << std::endl << "v " << x << " "
-     << " " << y << " " << z << std::endl << "" << std::endl << "vn 0 0 -1"
-     << std::endl << "vn 0 0 1" << std::endl << "vn -1 0 0" << std::endl
-     << "vn 1 0 0" << std::endl << "vn 0 1 0" << std::endl << "vn 0 -1 0"
-     << std::endl << "vn 0 0 -1" << std::endl << "vn 0 -1 0" << std::endl
-     << "vn -1 0 0" << std::endl << "vn 0 0 1" << std::endl << "vn 0 -1 0"
-     << std::endl << "vn -1 0 0" << std::endl << "vn 0 0 -1" << std::endl
-     << "vn 0 1 0" << std::endl << "vn -1 0 0" << std::endl << "vn 0 0 1"
-     << std::endl << "vn 0 1 0" << std::endl << "vn -1 0 0" << std::endl
-     << "vn 0 0 -1" << std::endl << "vn 0 -1 0" << std::endl << "vn 1 0 0"
-     << std::endl << "vn 0 0 1" << std::endl << "vn 0 -1 0" << std::endl
-     << "vn 1 0 0" << std::endl << "vn 0 0 -1" << std::endl << "vn 0 1 0"
-     << std::endl << "vn 1 0 0" << std::endl << "vn 0 0 1" << std::endl
-     << "vn 0 1 0" << std::endl << "vn 1 0 0" << std::endl << "" << std::endl
-     << "vt 0 0" << std::endl << "vt 0 1" << std::endl << "vt 1 1" << std::endl
-     << "vt 1 0" << std::endl << "" << std::endl
+  ss << "v " << -x << " " << " " << -y << " " << -z << std::endl
+     << "v " << -x << " " << " " << -y << " " << z << std::endl
+     << "v " << -x << " " << " " << y << " " << -z << std::endl
+     << "v " << -x << " " << " " << y << " " << z << std::endl
+     << "v " << x << " " << " " << -y << " " << -z << std::endl
+     << "v " << x << " " << " " << -y << " " << z << std::endl
+     << "v " << x << " " << " " << y << " " << -z << std::endl
+     << "v " << x << " " << " " << y << " " << z << std::endl
+     << "" << std::endl
+     << "vn 0 0 -1" << std::endl
+     << "vn 0 0 1" << std::endl
+     << "vn -1 0 0" << std::endl
+     << "vn 1 0 0" << std::endl
+     << "vn 0 1 0" << std::endl
+     << "vn 0 -1 0" << std::endl
+     << "vn 0 0 -1" << std::endl
+     << "vn 0 -1 0" << std::endl
+     << "vn -1 0 0" << std::endl
+     << "vn 0 0 1" << std::endl
+     << "vn 0 -1 0" << std::endl
+     << "vn -1 0 0" << std::endl
+     << "vn 0 0 -1" << std::endl
+     << "vn 0 1 0" << std::endl
+     << "vn -1 0 0" << std::endl
+     << "vn 0 0 1" << std::endl
+     << "vn 0 1 0" << std::endl
+     << "vn -1 0 0" << std::endl
+     << "vn 0 0 -1" << std::endl
+     << "vn 0 -1 0" << std::endl
+     << "vn 1 0 0" << std::endl
+     << "vn 0 0 1" << std::endl
+     << "vn 0 -1 0" << std::endl
+     << "vn 1 0 0" << std::endl
+     << "vn 0 0 -1" << std::endl
+     << "vn 0 1 0" << std::endl
+     << "vn 1 0 0" << std::endl
+     << "vn 0 0 1" << std::endl
+     << "vn 0 1 0" << std::endl
+     << "vn 1 0 0" << std::endl
+     << "" << std::endl
+     << "vt 0 0" << std::endl
+     << "vt 0 1" << std::endl
+     << "vt 1 1" << std::endl
+     << "vt 1 0" << std::endl
+     << "" << std::endl
      << "f 3/1/13 7/2/25 5/3/19 1/4/7" << std::endl
      << "f 6/1/22 8/2/28 4/3/16 2/4/10" << std::endl
      << "f 2/1/12 4/2/18 3/3/15 1/4/9" << std::endl
