@@ -32,6 +32,8 @@ class MaterialShader
   void SetView(const mat4f& view);
   void SetModel(const mat4f& model);
 
+  void SetupLight();
+
    const std::vector<MaterialShaderBinding>& GetBindings() const;
 
   // todo: move to private when we support material textures and stuff
@@ -40,6 +42,11 @@ class MaterialShader
   ShaderUniform projection_;
   ShaderUniform view_;
   ShaderUniform model_;
+
+  bool hasLight_;
+  ShaderUniform ambientLight_;
+  ShaderUniform lightColor_;
+
   std::vector<MaterialShaderBinding> bindings_;
 };
 

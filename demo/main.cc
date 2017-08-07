@@ -305,7 +305,7 @@ int main(int argc, char** argv) {
   auto catalog = FileSystemRootCatalog::AddRoot(&file_system);
   FileSystemRootFolder::AddRoot(&file_system);
   catalog->RegisterFileString("default_shader.json",
-                              R"(  {"textures": [ {"texture": "Diffuse", "uniform": "uTexture"} ]}  )");
+                              R"(  {"has_light": true, "textures": [ {"texture": "Diffuse", "uniform": "uTexture"} ]}  )");
   catalog->RegisterFileString("default_shader.vert",
                               "#version 330 core\n"
                                   "in vec3 aPosition;\n"
@@ -329,10 +329,18 @@ int main(int argc, char** argv) {
                                   "in vec2 texCoord;\n"
                                   "\n"
                                   "uniform sampler2D uTexture;\n"
+                                  "uniform float uAmbient;\n"
+                                  "uniform vec3 uLightColor;\n"
                                   "\n"
                                   "void main()\n"
                                   "{\n"
-                                  "    FragColor = texture(uTexture, texCoord);\n"
+                                  "    vec3 ambient = uAmbient * uLightColor;\n"
+                                  "    \n"
+                                  "    vec3 object_color = texture(uTexture, texCoord).rgb;\n"
+                                  "    \n"
+                                  "    vec3 result = ambient * object_color;\n"
+                                  "    \n"
+                                  "    FragColor = vec4(result, 1.0);\n"
                                   "}\n");
 
   catalog->RegisterFileString("basic_shader.json",

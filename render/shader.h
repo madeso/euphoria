@@ -50,6 +50,7 @@ class Shader : public ShaderId {
   ShaderUniform GetUniform(const std::string& name);
 
   void SetUniform(const ShaderUniform& attribute, glint val);
+  void SetUniform(const ShaderUniform& attribute, float val);
   void SetUniform(const ShaderUniform& attribute, const Rgb& val);
   void SetUniform(const ShaderUniform& attribute, const Rgba& val);
   void SetUniform(const ShaderUniform& attribute, const vec4f& val);
@@ -70,6 +71,6 @@ class Shader : public ShaderId {
 };
 
 class Texture2d;
-void BindTextureToShader(Texture2d* texture, Shader* shader, const ShaderUniform& attribute, unsigned int index);
+void BindTextureToShader(Texture2d* texture, Shader* shader, const ShaderUniform& attribute, glint index);
 
 #endif

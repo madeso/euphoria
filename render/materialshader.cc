@@ -29,6 +29,9 @@ MaterialShader::MaterialShader()
   : projection_(ShaderUniform::Null())
   , view_(ShaderUniform::Null())
   , model_(ShaderUniform::Null())
+  , hasLight_(false)
+  , ambientLight_(ShaderUniform::Null())
+  , lightColor_(ShaderUniform::Null())
 {
 }
 
@@ -46,6 +49,8 @@ bool MaterialShader::Load(FileSystem* file_system, const std::string& path) {
     // todo: set default shader names
   }
 
+  hasLight_ = material_shader_file.has_light();
+
   for (const auto& texture : material_shader_file.textures())
   {
     const auto uniform = shader_.GetUniform(texture.uniform());
@@ -58,6 +63,12 @@ bool MaterialShader::Load(FileSystem* file_system, const std::string& path) {
   projection_ = shader_.GetUniform("uProjection");
   view_ = shader_.GetUniform("uView");
   model_ = shader_.GetUniform("uModel");
+
+  if(hasLight_)
+  {
+    ambientLight_ = shader_.GetUniform("uAmbient");
+    lightColor_ = shader_.GetUniform("uLightColor");
+  }
 
   return shader_compile;
 }
@@ -80,6 +91,17 @@ void MaterialShader::SetView(const mat4f& view)
 void MaterialShader::SetModel(const mat4f& model)
 {
   shader_.SetUniform(model_, model);
+}
+
+void MaterialShader::SetupLight()
+{
+  if(!hasLight_) {
+    return;
+  }
+
+  // todo: get light from the actual light and not a hardcoded constant
+  shader_.SetUniform(ambientLight_, 0.3f);
+  shader_.SetUniform(lightColor_, Rgb::From(Color::White));
 }
 
 const std::vector<MaterialShaderBinding>& MaterialShader::GetBindings() const

@@ -52,6 +52,7 @@ void CompiledMeshMaterial::Apply(const mat4f& model_matrix, const mat4f& project
   shader_->SetModel(model_matrix);
   shader_->SetProjection(projection_matrix);
   shader_->SetView(view_matrix);
+  shader_->SetupLight();
 
   // bind all textures
   const auto& bindings = shader_->GetBindings();

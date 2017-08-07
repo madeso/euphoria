@@ -164,6 +164,13 @@ ShaderUniform Shader::GetUniform(const std::string& name) {
   return uniform;
 }
 
+void Shader::SetUniform(const ShaderUniform& attribute, float val) {
+  Assert(IsCurrentlyBound());
+  Assert(HasBoundUniform(attribute));
+  glUniform1f(attribute.id, val);
+}
+
+
 void Shader::SetUniform(const ShaderUniform& attribute, glint val) {
   Assert(IsCurrentlyBound());
   Assert(HasBoundUniform(attribute));
@@ -273,7 +280,7 @@ bool Shader::HasBoundUniform(const ShaderUniform& uniform) const {
          != bound_uniforms_.end();
 }
 
-void BindTextureToShader(Texture2d* texture, Shader* shader, const ShaderUniform& attribute, unsigned int index)
+void BindTextureToShader(Texture2d* texture, Shader* shader, const ShaderUniform& attribute, glint index)
 {
   Assert(index < 16); // at most 16 texture units
   GLenum gl_id = GL_TEXTURE0 + index;
