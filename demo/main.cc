@@ -335,6 +335,30 @@ int main(int argc, char** argv) {
                                   "    FragColor = texture(uTexture, texCoord);\n"
                                   "}\n");
 
+  catalog->RegisterFileString("basic_shader.json",
+                              R"(  {"textures": []}  )");
+  catalog->RegisterFileString("basic_shader.vert",
+                              "#version 330 core\n"
+                                "in vec3 aPosition;\n"
+                                "\n"
+                                "\n"
+                                "uniform mat4 uProjection;\n"
+                                "uniform mat4 uView;\n"
+                                "uniform mat4 uModel;\n"
+                                "\n"
+                                "void main()\n"
+                                "{\n"
+                                "    gl_Position = uProjection * uView * uModel * vec4(aPosition, 1.0);\n"
+                                "}\n");
+  catalog->RegisterFileString("basic_shader.frag",
+                              "#version 330 core\n"
+                                "out vec4 FragColor;\n"
+                                "\n"
+                                "void main()\n"
+                                "{\n"
+                                "    FragColor = vec4(1.0, 1.0, 1.0, 1.0);\n"
+                                "}\n");
+
   catalog->RegisterFileString("texture_types.json",
                               R"({"name" : ["Diffuse"]})");
 
@@ -381,6 +405,10 @@ int main(int argc, char** argv) {
   box_mesh2.materials[0].SetTexture("Diffuse", "wooden-crate.jpg");
   auto box2 = CompileMesh(box_mesh2, &material_shader_cache, &texture_cache);
 
+  auto light_mesh = meshes::CreateCube(0.2f);
+  light_mesh.materials[0].shader = "basic_shader";
+  auto light = CompileMesh(light_mesh, &material_shader_cache, &texture_cache);
+
   const float box_extent_value = 4;
   Aabb box_extents
     { vec3f{-box_extent_value, -box_extent_value, -box_extent_value},
@@ -416,11 +444,15 @@ int main(int argc, char** argv) {
     animation_handler.push_back(anim);
   }
 
+  auto light_actor = std::make_shared<Actor>(light);
+  light_actor->SetPosition(vec3f(0,0,-3));
+  world.AddActor(light_actor);
+
   Camera camera;
-  camera.SetPosition(vec3f(0,0,3));
+  camera.SetPosition(vec3f(0,0,0));
 
   FpsController fps;
-  fps.SetPosition(vec3f(0,0,3));
+  fps.SetPosition(vec3f(0,0,0));
 
   bool paused = true;
 
