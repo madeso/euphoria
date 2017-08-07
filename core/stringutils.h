@@ -7,6 +7,9 @@ String utility functions
 
 #include <string>
 #include <vector>
+#include <map>
+
+#include "core/str.h"
 
 /** @defgroup string String utility functions.
 @{
@@ -92,6 +95,18 @@ void Copy(char* dst, const std::string& src,
           const std::string::size_type& count);
 
 std::string RemoveFromEnd(const std::string& str, const std::string& end);
+
+template<typename Key, typename Value>
+std::vector<std::string> MapToStringVector(const std::map<Key,Value>& map)
+{
+  std::vector<std::string> ret;
+  for(const auto& m : map)
+  {
+    const std::string str = Str() << "(" << m.first << ":" << m.second << ")";
+    ret.emplace_back(str);
+  }
+  return ret;
+}
 
 /** @} */
 
