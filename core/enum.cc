@@ -2,15 +2,18 @@
 
 #include <iostream>
 #include <set>
+
 #include "core/assert.h"
 #include "core/proto.h"
-
+#include "core/str.h"
+#include "core/stringmerger.h"
+#include "core/stringutils.h"
 #include "enum.pb.h"
 
 EnumType::EnumType(const std::string& name)
   : name_(name)
   , isAdding_(true)
-  , nextIndex_(0)
+  , nextIndex_(1)
 {
 }
 
@@ -19,7 +22,7 @@ EnumType::~EnumType()
   Assert(!isAdding_);
 }
 
-const std::string& EnumType::ToString(size_t v) const
+std::string EnumType::ToString(size_t v) const
 {
   Assert(v < nextIndex_);
   auto f = valueToName_.find(v);
@@ -29,7 +32,8 @@ const std::string& EnumType::ToString(size_t v) const
   }
 
   // Assert(false && "Invalid index");
-  const static std::string invalid = "<invalid>";
+  const auto values = StringMerger::EnglishOr().Generate(MapToStringVector(nameToValue_));
+  const std::string invalid = Str() << "<invalid value " << v << " of "<< values <<">";
   return invalid;
 }
 
@@ -45,7 +49,6 @@ const EnumValue EnumType::ToEnum(const std::string &name)
     return EnumValue(this, 0);
   }
   const size_t id = nextIndex_;
-  ++nextIndex_;
   AddEnum(name);
   return EnumValue(this, id);
 }

@@ -19,7 +19,7 @@ class EnumType
   EnumType(const std::string& name);
   ~EnumType();
 
-  const std::string& ToString(size_t v) const;
+  std::string ToString(size_t v) const;
   const EnumValue ToEnum(const std::string &name);
 
   void AddEnums(const std::vector<std::string>& names);
