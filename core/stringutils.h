@@ -17,6 +17,9 @@ String utility functions
  */
 const std::string kSpaceCharacters = " \n\r\t";
 
+// for a hello.dog and . gets hello
+std::string StripLastString(const std::string& str, char sep);
+
 /** Remove characters from the right, stops at a invalid character.
 @param stringToTrim the string to remove characters from.
 @param trimCharacters the characters to remove.

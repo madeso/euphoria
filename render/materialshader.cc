@@ -2,10 +2,13 @@
 
 #include "render/shaderattribute3d.h"
 #include "core/proto.h"
+#include "core/log.h"
 
 #include "core/texturetypes.h"
 
 #include "materialshader.pb.h"
+
+LOG_SPECIFY_DEFAULT_LOGGER("render.materialshader")
 
 MaterialShaderBinding::MaterialShaderBinding(const ShaderUniform& uniform, const EnumValue& name)
   : uniform_(uniform)
@@ -46,7 +49,7 @@ bool MaterialShader::Load(FileSystem* file_system, const std::string& path) {
   {
     const auto uniform = shader_.GetUniform(texture.uniform());
     DEFINE_ENUM_VALUE(TextureType, texture_name, texture.texture());
-    std::cout << "Defining shader " << path << ": "<< texture.uniform() << " to " << texture.texture() << "\n";
+    LOG_INFO( "Defining shader " << path << ": "<< texture.uniform() << " to " << texture.texture() );
     bindings_.push_back( MaterialShaderBinding{uniform, texture_name} );
   }
 

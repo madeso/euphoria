@@ -367,9 +367,6 @@ int main(int argc, char** argv) {
 
   TextureCache texture_cache {&file_system};
 
-
-  std::shared_ptr<Texture2d>texture = texture_cache.GetTexture("image");
-
   bool running = true;
 
   SdlTimer timer;

@@ -6,6 +6,14 @@
 #include <cstring>
 #include <vector>
 
+std::string StripLastString(const std::string& str, char sep)
+{
+  auto result = str.find(sep);
+  if(result == std::string::npos) return str;
+
+  return str.substr(result);
+}
+
 std::string TrimRight(const std::string& stringToTrim,
                       const std::string& trimCharacters) {
   return std::string(stringToTrim)

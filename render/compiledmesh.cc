@@ -6,12 +6,15 @@
 #include "core/assert.h"
 #include "core/enum.h"
 #include "core/texturetypes.h"
+#include "core/log.h"
 
 #include "render/materialshader.h"
 #include "render/shaderattribute3d.h"
 
 #include "materialshadercache.h"
 #include "texturecache.h"
+
+LOG_SPECIFY_DEFAULT_LOGGER("core.mesh")
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -36,7 +39,7 @@ void CompiledMeshMaterial::SetTexture(const EnumValue& name, std::shared_ptr<Tex
 {
   if(textures_.find(name) != textures_.end())
   {
-    std::cout << name.ToString() << " is already assigned, overwriting...\n";
+    LOG_WARN(name.ToString() << " is already assigned, overwriting...");
   }
   textures_[name] = texture;
 }
@@ -84,7 +87,7 @@ bool CompiledMeshMaterial::Validate() const
     values.insert(name);
     const bool missing = textures_.find(name) == textures_.end();
     if(missing) {
-      std::cerr << "Material is missing shader required texture " << name.ToString();
+      LOG_ERROR("Material is missing shader required texture " << name.ToString());
       ok = false;
     }
   }
@@ -93,7 +96,7 @@ bool CompiledMeshMaterial::Validate() const
     const auto name = texture.first;
     const bool missing = values.find(name) == values.end();
     if(missing) {
-      std::cerr << "Texture " << name.ToString() << " is specified but is missing in shader\n";
+      LOG_ERROR("Texture " << name.ToString() << " is specified but is missing in shader");
       ok = false;
     }
   }
@@ -136,7 +139,7 @@ std::shared_ptr<CompiledMesh> CompileMesh(const Mesh& mesh, MaterialShaderCache*
 
     if(!mat.Validate())
     {
-      std::cout << "Material " << material_src.name << "(" << material_index << ") failed validation.\n";
+      LOG_WARN("Material " << material_src.name << "(" << material_index << ") failed validation.");
     }
 
     ret->materials.push_back(mat);
@@ -166,7 +169,7 @@ std::shared_ptr<CompiledMesh> CompileMesh(const Mesh& mesh, MaterialShaderCache*
     part->material = part_src.material;
 
     if( part->material >= material_count ) {
-      std::cerr << "Mesh part is using a invalid material, defaulting to first.\n.";
+      LOG_ERROR("Mesh part is using a invalid material, defaulting to first.");
       part->material = 0;
     }
 

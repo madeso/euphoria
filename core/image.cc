@@ -11,6 +11,10 @@
 #include "stb_image.h"
 #include "stb_image_write.h"
 
+#include "core/log.h"
+
+LOG_SPECIFY_DEFAULT_LOGGER("core.image")
+
 void Image::MakeInvalid() {
   components.resize(0);
   width_ = 0;
@@ -140,7 +144,8 @@ void WriteToMemoryChunkFile(void *context, void *data, int size)
 }
 }
 
-int WriteImageData(stbi_write_func *func, void *context, int w, int h, int comp, const void  *data, ImageWriteFormat format, int jpeg_quality)
+int WriteImageData(stbi_write_func *func, void *context, int w, int h, int comp, const void  *data,
+                   ImageWriteFormat format, int jpeg_quality)
 {
   switch(format) {
     case ImageWriteFormat::PNG:
@@ -219,7 +224,7 @@ ImageLoadResult LoadImage(FileSystem* fs, const std::string& path, AlphaLoad alp
     ImageLoadResult result;
     result.error = stbi_failure_reason();
     result.image.MakeInvalid();
-    std::cerr << "Failed to read " << path << ": " << result.error << "\n";
+    LOG_ERROR("Failed to read " << path << ": " << result.error);
     return result;
   }
 
@@ -228,9 +233,8 @@ ImageLoadResult LoadImage(FileSystem* fs, const std::string& path, AlphaLoad alp
     has_alpha = channels == 2 || channels == 4;
   }
 
-  std::cout << "Image: " << path << " " << image_width << "x" << image_height
-            << " alpha " << has_alpha << " channels " << channels
-            << ".\n";
+  LOG_INFO("Image: " << path << " " << image_width << "x" << image_height
+            << " alpha " << has_alpha << " channels " << channels);
 
   ImageLoadResult result;
   result.image.Setup(image_width, image_height, has_alpha, -1);
