@@ -113,6 +113,38 @@ namespace // local
   DEFINE_ENUM_VALUE(TextureType, DiffuseType, "Diffuse");
 }
 
+class AttributeBinder
+{
+public:
+  void Register(const ShaderAttribute& attribute, int size)
+  {
+    datas.emplace_back(BindData{attribute, size});
+    total_size += size;
+  }
+
+  void Bind(std::shared_ptr<CompiledMeshPart> part)
+  {
+    int stride = 0;
+    for(const auto& d: datas)
+    {
+      part->config.BindVboData(d.attribute, total_size, stride);
+      stride += d.size;
+    }
+  }
+
+private:
+
+  struct BindData
+  {
+    BindData(const ShaderAttribute& a, int s) : attribute(a), size(s) {}
+    ShaderAttribute attribute;
+    int size;
+  };
+
+  int total_size = 0;
+  std::vector<BindData> datas;
+};
+
 std::shared_ptr<CompiledMesh> CompileMesh(const Mesh& mesh, MaterialShaderCache* shader_cache, TextureCache* texture_cache) {
   std::shared_ptr<CompiledMesh> ret { new CompiledMesh {} };
 
@@ -156,8 +188,10 @@ std::shared_ptr<CompiledMesh> CompileMesh(const Mesh& mesh, MaterialShaderCache*
     Ebo::Bind(&part->tris);
 
     part->data.SetData(part_src.points);
-    part->config.BindVboData(attributes3d::Vertex(), 5 * sizeof(float), 0);
-    part->config.BindVboData(attributes3d::TexCoord(), 5 * sizeof(float), 3 * sizeof(float));
+    AttributeBinder binder;
+    binder.Register(attributes3d::Vertex(), 3 * sizeof(float));
+    binder.Register(attributes3d::TexCoord(), 2 * sizeof(float));
+    binder.Bind(part);
 
 
     part->tris.SetData(part_src.faces);
