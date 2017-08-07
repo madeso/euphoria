@@ -1,6 +1,9 @@
 #include "render/shader.h"
 
 #include "core/assert.h"
+#include "core/log.h"
+#include "core/stringutils.h"
+
 #include <iostream>
 #include <vector>
 #include <fstream>
@@ -11,6 +14,8 @@
 #include "render/texture.h"
 
 #include "core/filesystem.h"
+
+LOG_SPECIFY_DEFAULT_LOGGER("render.shader")
 
 ShaderId::ShaderId() : id_(glCreateProgram()) {}
 
@@ -78,10 +83,9 @@ std::string GetProgramLog(GLuint shader) {
 }
 
 void ReportError(const std::string &log, const std::string &type) {
-  std::cerr << "| ERROR::SHADER: Compile-time error: Type: " << type << "\n"
-            << log
-            << "\n -- --------------------------------------------------- -- "
-            << std::endl;
+  LOG_ERROR("ERROR::SHADER: Compile-time error: Type: " << type
+            << Trim(log)
+            << "\n --------------------------------------------------------- ");
 }
 
 bool PrintErrorProgram(GLuint program) {
