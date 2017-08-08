@@ -144,9 +144,31 @@ GTEST(sub) {
 
 
 
+GTEST(mat3) {
+  const auto m4 = mat4i::FromColMajor(0, 1, 2, 3,
+                                     4, 5, 6, 7,
+                                     8 , 9 ,10 , 11,
+                                     12, 13, 14, 15);
+  const auto m3 = m4.GetMat3();
+  EXPECT_EQ(vec3i(0, 1, 2), m3.GetColumn(0));
+  EXPECT_EQ(vec3i(4, 5, 6), m3.GetColumn(1));
+  EXPECT_EQ(vec3i(8, 9, 10), m3.GetColumn(2));
+}
 
 
+GTEST(inverse) {
+  const auto Mat0 = mat4f::FromColMajor(
+    0.6f, 0.2f, 0.3f, 0.4f,
+    0.2f, 0.7f, 0.5f, 0.3f,
+    0.3f, 0.5f, 0.7f, 0.2f,
+    0.4f, 0.3f, 0.2f, 0.6f);
 
+  auto Inv0 = Mat0; // glm::inverse(Mat0);
+  ASSERT_TRUE(Inv0.Invert());
+  ASSERT_TRUE(Inv0.Invert());
+
+  // EXPECT_EQ(Mat0, Inv0);
+}
 
 
 

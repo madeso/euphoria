@@ -177,6 +177,7 @@ class mat4 {
     return GetAxis(2);
   }
 
+  // https://www.j3d.org/matrix_faq/matrfaq_latest.html
   mat4<T> GetTransposed() const {
     const mat4<T>& self = *this;
     return FromColMajor(
@@ -187,53 +188,147 @@ class mat4 {
     );
   }
 
-  mat3<T>	GetSubmatrix(int i, int j) const {
-    const mat4<T>& self = *this;
-    mat3<T> ret = mat3<T>::Identity();
-    // loop through 3x3 submatrix
-    for(int di = 0; di < 3; di ++ ) {
-      for(int dj = 0; dj < 3; dj ++ ) {
-        // map 3x3 element (destination) to 4x4 element (source)
-        const int si = di + ( ( di >= i ) ? 1 : 0 );
-        const int sj = dj + ( ( dj >= j ) ? 1 : 0 );
-        ret(dj, di) = self(sj, si);
-      }
-    }
-    return ret;
-  }
-
-  // The determinant of a 4x4 matrix can be calculated as follows:
-
-  float GetDeterminant() const {
-    T result = 0, i = 1;
-    for (int n = 0; n < 4; n++, i *= -1 )
-    {
-
-      const auto msub3 = GetSubmatrix(0, n);
-      float det = msub3.GetDeterminant();
-      result += data[n] * det * i;
-    }
-    return result;
-  }
-
   bool Invert()
   {
-    mat4<T>& self = *this;
-    const float mdet = GetDeterminant();
-    if ( fabs( mdet ) < 0.0005 ) {
-      *this = Identity();
+    float inv[16], det;
+    int i;
+
+    float* m = data;
+
+    inv[0] = m[5]  * m[10] * m[15] -
+             m[5]  * m[11] * m[14] -
+             m[9]  * m[6]  * m[15] +
+             m[9]  * m[7]  * m[14] +
+             m[13] * m[6]  * m[11] -
+             m[13] * m[7]  * m[10];
+
+    inv[4] = -m[4]  * m[10] * m[15] +
+             m[4]  * m[11] * m[14] +
+             m[8]  * m[6]  * m[15] -
+             m[8]  * m[7]  * m[14] -
+             m[12] * m[6]  * m[11] +
+             m[12] * m[7]  * m[10];
+
+    inv[8] = m[4]  * m[9] * m[15] -
+             m[4]  * m[11] * m[13] -
+             m[8]  * m[5] * m[15] +
+             m[8]  * m[7] * m[13] +
+             m[12] * m[5] * m[11] -
+             m[12] * m[7] * m[9];
+
+    inv[12] = -m[4]  * m[9] * m[14] +
+              m[4]  * m[10] * m[13] +
+              m[8]  * m[5] * m[14] -
+              m[8]  * m[6] * m[13] -
+              m[12] * m[5] * m[10] +
+              m[12] * m[6] * m[9];
+
+    inv[1] = -m[1]  * m[10] * m[15] +
+             m[1]  * m[11] * m[14] +
+             m[9]  * m[2] * m[15] -
+             m[9]  * m[3] * m[14] -
+             m[13] * m[2] * m[11] +
+             m[13] * m[3] * m[10];
+
+    inv[5] = m[0]  * m[10] * m[15] -
+             m[0]  * m[11] * m[14] -
+             m[8]  * m[2] * m[15] +
+             m[8]  * m[3] * m[14] +
+             m[12] * m[2] * m[11] -
+             m[12] * m[3] * m[10];
+
+    inv[9] = -m[0]  * m[9] * m[15] +
+             m[0]  * m[11] * m[13] +
+             m[8]  * m[1] * m[15] -
+             m[8]  * m[3] * m[13] -
+             m[12] * m[1] * m[11] +
+             m[12] * m[3] * m[9];
+
+    inv[13] = m[0]  * m[9] * m[14] -
+              m[0]  * m[10] * m[13] -
+              m[8]  * m[1] * m[14] +
+              m[8]  * m[2] * m[13] +
+              m[12] * m[1] * m[10] -
+              m[12] * m[2] * m[9];
+
+    inv[2] = m[1]  * m[6] * m[15] -
+             m[1]  * m[7] * m[14] -
+             m[5]  * m[2] * m[15] +
+             m[5]  * m[3] * m[14] +
+             m[13] * m[2] * m[7] -
+             m[13] * m[3] * m[6];
+
+    inv[6] = -m[0]  * m[6] * m[15] +
+             m[0]  * m[7] * m[14] +
+             m[4]  * m[2] * m[15] -
+             m[4]  * m[3] * m[14] -
+             m[12] * m[2] * m[7] +
+             m[12] * m[3] * m[6];
+
+    inv[10] = m[0]  * m[5] * m[15] -
+              m[0]  * m[7] * m[13] -
+              m[4]  * m[1] * m[15] +
+              m[4]  * m[3] * m[13] +
+              m[12] * m[1] * m[7] -
+              m[12] * m[3] * m[5];
+
+    inv[14] = -m[0]  * m[5] * m[14] +
+              m[0]  * m[6] * m[13] +
+              m[4]  * m[1] * m[14] -
+              m[4]  * m[2] * m[13] -
+              m[12] * m[1] * m[6] +
+              m[12] * m[2] * m[5];
+
+    inv[3] = -m[1] * m[6] * m[11] +
+             m[1] * m[7] * m[10] +
+             m[5] * m[2] * m[11] -
+             m[5] * m[3] * m[10] -
+             m[9] * m[2] * m[7] +
+             m[9] * m[3] * m[6];
+
+    inv[7] = m[0] * m[6] * m[11] -
+             m[0] * m[7] * m[10] -
+             m[4] * m[2] * m[11] +
+             m[4] * m[3] * m[10] +
+             m[8] * m[2] * m[7] -
+             m[8] * m[3] * m[6];
+
+    inv[11] = -m[0] * m[5] * m[11] +
+              m[0] * m[7] * m[9] +
+              m[4] * m[1] * m[11] -
+              m[4] * m[3] * m[9] -
+              m[8] * m[1] * m[7] +
+              m[8] * m[3] * m[5];
+
+    inv[15] = m[0] * m[5] * m[10] -
+              m[0] * m[6] * m[9] -
+              m[4] * m[1] * m[10] +
+              m[4] * m[2] * m[9] +
+              m[8] * m[1] * m[6] -
+              m[8] * m[2] * m[5];
+
+    det = m[0] * inv[0] + m[1] * inv[4] + m[2] * inv[8] + m[3] * inv[12];
+
+    if (det == 0)
       return false;
-    }
-    for (int row = 0; row < 4; row++ )
-      for (int col = 0; col < 4; col++ )
-      {
-        int sign = 1 - ( (row + col) % 2 ) * 2;
-        const auto mtemp = GetSubmatrix(row, col);
-        self(row, col) = ( mtemp.GetDeterminant() * sign ) / mdet;
-      }
+
+    det = 1.0f / det;
+
+    float* invOut = data;
+
+    for (i = 0; i < 16; i++)
+      invOut[i] = inv[i] * det;
+
     return true;
   }
 
+  mat3<T> GetMat3() const {
+    const mat4<T>& m = *this;
+    return mat3<T>::FromRowMajor(m(0,0), m(0,1), m(0,2),
+                                 m(1,0), m(1,1), m(1,2),
+                                 m(2,0), m(2,1), m(2,2)
+    );
+  }
 
   void operator+=(const mat4<T> rhs) {
 #define OP(i) data[i] += rhs.data[i]

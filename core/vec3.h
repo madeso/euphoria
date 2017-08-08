@@ -24,6 +24,7 @@ class vec3 {
   explicit vec3(const T& a) : x(a), y(a), z(a) {}
   vec3(const T& ax, const T& ay, const T& az) : x(ax), y(ay), z(az) {}
   vec3(const vec2<T>& a, const T& az) : x(a.x), y(a.y), z(az) {}
+  vec3(const T* a) : x(a[0]), y(a[1]), z(a[2]) {}
   static Vec FromTo(const Vec& from, const Vec& to) {
     return to - from;
   }

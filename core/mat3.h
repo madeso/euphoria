@@ -2,7 +2,6 @@
 #define CORE_MAT3_H
 
 #include "core/vec3.h"
-#include "core/vec4.h"
 #include "core/angle.h"
 #include "core/axisangle.h"
 
@@ -181,13 +180,6 @@ public:
     OP(7);
     OP(8);
 #undef OP
-  }
-
-  float GetDeterminant() const
-  {
-    return  data[0] * ( data[4]*data[8] - data[7]*data[5] )
-          - data[1] * ( data[3]*data[8] - data[6]*data[5] )
-          + data[2] * ( data[3]*data[7] - data[6]*data[4] );
   }
 
   mat3<T> Rotate(const AxisAngle& aa) const {
