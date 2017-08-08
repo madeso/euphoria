@@ -319,14 +319,14 @@ int main(int argc, char** argv) {
                                   "uniform mat4 uProjection;\n"
                                   "uniform mat4 uView;\n"
                                   "uniform mat4 uModel;\n"
-                                  "uniform mat4 uNormalMatrix;\n"
+                                  "uniform mat3 uNormalMatrix;\n"
                                   "\n"
                                   "void main()\n"
                                   "{\n"
                                   "    gl_Position = uProjection * uView * uModel * vec4(aPosition, 1.0);\n"
                                   "    fragPositionWorld = vec3(uModel * vec4(aPosition, 1.0));\n"
                                   "    texCoord = aTexCoord;\n"
-                                  "    normal = mat3(uNormalMatrix) * aNormal;\n"
+                                  "    normal = uNormalMatrix * aNormal;\n"
                                   "}\n");
   catalog->RegisterFileString("default_shader.frag",
                               "#version 330 core\n"

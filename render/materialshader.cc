@@ -100,7 +100,7 @@ void MaterialShader::SetModel(const mat4f& model)
     const bool inverted = normal.Invert();
     Assert(inverted);
     normal = normal.GetTransposed();
-    shader_.SetUniform(normalMatrix_, normal);
+    shader_.SetUniform(normalMatrix_, normal.GetMat3());
   }
 }
 
