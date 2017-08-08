@@ -64,7 +64,7 @@ class quat {
 
     const auto rotAngle = Acos(dot);
     const auto rotAxis = cross(in, dir).GetNormalized();
-    return Q(AxisAngle::RightHandAround(rotAxis, rotAngle));
+    return Q::FromAxisAngle(AxisAngle::RightHandAround(rotAxis, rotAngle));
   }
 
   Q Rotate(const Q& q) const {
