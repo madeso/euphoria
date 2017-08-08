@@ -89,6 +89,10 @@ class vec3 {
     }
   }
 
+  T GetComponentSum() const {
+    return x + y + z;
+  }
+
   Unit GetNormalized() const;
 };
 
@@ -187,6 +191,11 @@ template <typename T>
 std::ostream& operator<<(std::ostream& stream, const vec3<T>& v)
 {
   return stream << "(" << v.x << ", " << v.y << ", " << v.z << ")";
+}
+
+template <typename T>
+vec3<T> ComponentMultiply(const vec3<T>& lhs, const vec3<T>& rhs) {
+  return vec3<T>(lhs.x*rhs.x, lhs.y*rhs.y, lhs.z*rhs.z);
 }
 
 template<typename T>

@@ -33,6 +33,7 @@ MaterialShader::MaterialShader()
   , ambientLight_(ShaderUniform::Null())
   , lightColor_(ShaderUniform::Null())
   , lightPosition_(ShaderUniform::Null())
+  , normalMatrix_(ShaderUniform::Null())
 {
 }
 
@@ -70,6 +71,7 @@ bool MaterialShader::Load(FileSystem* file_system, const std::string& path) {
     ambientLight_ = shader_.GetUniform("uAmbient");
     lightColor_ = shader_.GetUniform("uLightColor");
     lightPosition_ = shader_.GetUniform("uLightPosition");
+    normalMatrix_ = shader_.GetUniform("uNormalMatrix");
   }
 
   return shader_compile;
@@ -93,6 +95,13 @@ void MaterialShader::SetView(const mat4f& view)
 void MaterialShader::SetModel(const mat4f& model)
 {
   shader_.SetUniform(model_, model);
+  if(hasLight_) {
+    mat4f normal = model;
+    const bool inverted = normal.Invert();
+    Assert(inverted);
+    normal = normal.GetTransposed();
+    shader_.SetUniform(normalMatrix_, normal);
+  }
 }
 
 void MaterialShader::SetupLight()

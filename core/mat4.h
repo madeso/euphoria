@@ -5,6 +5,7 @@
 #include "core/vec4.h"
 #include "core/angle.h"
 #include "core/axisangle.h"
+#include "core/mat3.h"
 
 #include <vector>
 
@@ -185,6 +186,54 @@ class mat4 {
         self(3,0), self(3,1), self(3,2), self(3,3)
     );
   }
+
+  mat3<T>	GetSubmatrix(int i, int j) const {
+    const mat4<T>& self = *this;
+    mat3<T> ret = mat3<T>::Identity();
+    // loop through 3x3 submatrix
+    for(int di = 0; di < 3; di ++ ) {
+      for(int dj = 0; dj < 3; dj ++ ) {
+        // map 3x3 element (destination) to 4x4 element (source)
+        const int si = di + ( ( di >= i ) ? 1 : 0 );
+        const int sj = dj + ( ( dj >= j ) ? 1 : 0 );
+        ret(dj, di) = self(sj, si);
+      }
+    }
+    return ret;
+  }
+
+  // The determinant of a 4x4 matrix can be calculated as follows:
+
+  float GetDeterminant() const {
+    T result = 0, i = 1;
+    for (int n = 0; n < 4; n++, i *= -1 )
+    {
+
+      const auto msub3 = GetSubmatrix(0, n);
+      float det = msub3.GetDeterminant();
+      result += data[n] * det * i;
+    }
+    return result;
+  }
+
+  bool Invert()
+  {
+    mat4<T>& self = *this;
+    const float mdet = GetDeterminant();
+    if ( fabs( mdet ) < 0.0005 ) {
+      *this = Identity();
+      return false;
+    }
+    for (int row = 0; row < 4; row++ )
+      for (int col = 0; col < 4; col++ )
+      {
+        int sign = 1 - ( (row + col) % 2 ) * 2;
+        const auto mtemp = GetSubmatrix(row, col);
+        self(row, col) = ( mtemp.GetDeterminant() * sign ) / mdet;
+      }
+    return true;
+  }
+
 
   void operator+=(const mat4<T> rhs) {
 #define OP(i) data[i] += rhs.data[i]
