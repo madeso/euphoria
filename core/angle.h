@@ -13,6 +13,7 @@ class Angle
   static const Angle FromRadians(float rad);
 
   static const Angle FromPercentOf360(const float percent);
+  static const Angle FromPercentOf180(const float percent);
   static const Angle Zero();
 
   const Angle GetWrapped() const;

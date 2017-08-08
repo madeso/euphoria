@@ -121,8 +121,8 @@ vec2i Random::NextPoint(const Recti& rect)
 
 PolarCoord Random::NextPolar()
 {
-  const Angle az = Angle::FromDegrees( Random::NextRange(360.0f) );
-  const Angle polar = Angle::FromDegrees( Random::NextRange(180.0f) );
+  const float az = Random::NextFloat01();
+  const float polar = Random::NextFloat01();
   return PolarCoord { az, polar};
 }
 

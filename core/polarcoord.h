@@ -8,7 +8,7 @@
 
 class PolarCoord {
  public:
-  PolarCoord(Angle azimuthal, Angle polar);
+  PolarCoord(float azimuthal01, float polar01);
 
   vec3f::Unit ToCartesian() const;
  private:

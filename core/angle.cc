@@ -149,6 +149,11 @@ const Angle Angle::FromPercentOf360(const float percent)
   return Angle::FromRadians(percent * Pi() * 2.0f);
 }
 
+const Angle Angle::FromPercentOf180(const float percent)
+{
+  return Angle::FromRadians(percent * Pi());
+}
+
 const Angle Angle::Zero()
 {
   return Angle::FromRadians(0);

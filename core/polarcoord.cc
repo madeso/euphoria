@@ -3,12 +3,12 @@
 #include "core/numeric.h"
 #include "core/assert.h"
 
-PolarCoord::PolarCoord(Angle azimuthal, Angle polar)
-  : azimuthal_(azimuthal)
-  , polar_(polar)
+PolarCoord::PolarCoord(float azimuthal01, float polar01)
+  : azimuthal_( Angle::FromPercentOf360(azimuthal01)  )
+  , polar_(Angle::FromPercentOf180(polar01))
 {
-  Assert(IsWithinInclusive(0, azimuthal.inDegrees(), 360));
-  Assert(IsWithinInclusive(0, polar.inDegrees(), 180));
+  Assert(IsWithinInclusive(0, azimuthal01, 1.0f));
+  Assert(IsWithinInclusive(0, polar01, 1.0f));
 }
 
 vec3f::Unit PolarCoord::ToCartesian() const
