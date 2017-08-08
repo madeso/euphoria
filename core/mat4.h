@@ -188,6 +188,7 @@ class mat4 {
     );
   }
 
+  // from the glu source? https://stackoverflow.com/questions/1148309/inverting-a-4x4-matrix
   bool Invert()
   {
     float inv[16], det;
