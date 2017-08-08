@@ -34,6 +34,7 @@ MaterialShader::MaterialShader()
   , lightColor_(ShaderUniform::Null())
   , lightPosition_(ShaderUniform::Null())
   , normalMatrix_(ShaderUniform::Null())
+  , viewPosition_(ShaderUniform::Null())
 {
 }
 
@@ -72,6 +73,7 @@ bool MaterialShader::Load(FileSystem* file_system, const std::string& path) {
     lightColor_ = shader_.GetUniform("uLightColor");
     lightPosition_ = shader_.GetUniform("uLightPosition");
     normalMatrix_ = shader_.GetUniform("uNormalMatrix");
+    viewPosition_ = shader_.GetUniform("uViewPosition");
   }
 
   return shader_compile;
@@ -104,7 +106,7 @@ void MaterialShader::SetModel(const mat4f& model)
   }
 }
 
-void MaterialShader::SetupLight()
+void MaterialShader::SetupLight(const vec3f& camera)
 {
   if(!hasLight_) {
     return;
@@ -114,6 +116,7 @@ void MaterialShader::SetupLight()
   shader_.SetUniform(ambientLight_, 0.1f);
   shader_.SetUniform(lightColor_, Rgb::From(Color::White));
   shader_.SetUniform(lightPosition_, vec3f(0,0,0));
+  shader_.SetUniform(viewPosition_, camera);
 }
 
 const std::vector<MaterialShaderBinding>& MaterialShader::GetBindings() const

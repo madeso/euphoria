@@ -32,7 +32,7 @@ class MaterialShader
   void SetView(const mat4f& view);
   void SetModel(const mat4f& model);
 
-  void SetupLight();
+  void SetupLight(const vec3f& camera);
 
    const std::vector<MaterialShaderBinding>& GetBindings() const;
 
@@ -48,6 +48,7 @@ class MaterialShader
   ShaderUniform lightColor_;
   ShaderUniform lightPosition_;
   ShaderUniform normalMatrix_;
+  ShaderUniform viewPosition_;
 
   std::vector<MaterialShaderBinding> bindings_;
 };

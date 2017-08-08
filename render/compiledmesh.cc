@@ -44,7 +44,7 @@ void CompiledMeshMaterial::SetTexture(const EnumValue& name, std::shared_ptr<Tex
   textures_[name] = texture;
 }
 
-void CompiledMeshMaterial::Apply(const mat4f& model_matrix, const mat4f& projection_matrix, const mat4f& view_matrix) const
+void CompiledMeshMaterial::Apply(const mat4f& model_matrix, const mat4f& projection_matrix, const mat4f& view_matrix, const vec3f& camera) const
 {
   shader_->UseShader();
 
@@ -52,7 +52,7 @@ void CompiledMeshMaterial::Apply(const mat4f& model_matrix, const mat4f& project
   shader_->SetModel(model_matrix);
   shader_->SetProjection(projection_matrix);
   shader_->SetView(view_matrix);
-  shader_->SetupLight();
+  shader_->SetupLight(camera);
 
   // bind all textures
   const auto& bindings = shader_->GetBindings();
@@ -215,11 +215,11 @@ std::shared_ptr<CompiledMesh> CompileMesh(const Mesh& mesh, MaterialShaderCache*
   return ret;
 }
 
-void CompiledMesh::Render(const mat4f& model_matrix, const mat4f& projection_matrix, const mat4f& view_matrix) {
+void CompiledMesh::Render(const mat4f& model_matrix, const mat4f& projection_matrix, const mat4f& view_matrix, const vec3f& camera) {
   for(const auto& part : parts) {
     const CompiledMeshMaterial& material = materials[part->material];
 
-    material.Apply(model_matrix, projection_matrix, view_matrix);
+    material.Apply(model_matrix, projection_matrix, view_matrix, camera);
 
     Vao::Bind(&part->config);
     Ebo::Bind(&part->tris);
