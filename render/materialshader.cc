@@ -1,10 +1,11 @@
 #include "render/materialshader.h"
 
-#include "render/shaderattribute3d.h"
 #include "core/proto.h"
 #include "core/log.h"
-
 #include "core/texturetypes.h"
+
+#include "render/shaderattribute3d.h"
+#include "render/light.h"
 
 #include "materialshader.pb.h"
 
@@ -106,7 +107,7 @@ void MaterialShader::SetModel(const mat4f& model)
   }
 }
 
-void MaterialShader::SetupLight(const vec3f& camera)
+void MaterialShader::SetupLight(const Light& light, const vec3f& camera)
 {
   if(!hasLight_) {
     return;
@@ -115,7 +116,7 @@ void MaterialShader::SetupLight(const vec3f& camera)
   // todo: get light from the actual light and not a hardcoded constant
   shader_.SetUniform(ambientLight_, 0.1f);
   shader_.SetUniform(lightColor_, Rgb::From(Color::White));
-  shader_.SetUniform(lightPosition_, vec3f(0,0,0));
+  shader_.SetUniform(lightPosition_, light.GetPosition());
   shader_.SetUniform(viewPosition_, camera);
 }
 

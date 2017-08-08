@@ -22,6 +22,6 @@ void World::Render(const Viewport& viewport, const Camera& camera)
   for(const auto& actor: actors_)
   {
     // todo: instead of direct rendering, move to a material sorting/render command system
-    actor->Render(projection_matrix, view_matrix, camera.GetPosition());
+    actor->Render(projection_matrix, view_matrix, camera.GetPosition(), light);
   }
 }

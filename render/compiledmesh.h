@@ -10,6 +10,7 @@
 
 class Texture2d;
 class MaterialShader;
+class Light;
 
 class MaterialShaderCache;
 class TextureCache;
@@ -33,7 +34,7 @@ public:
 
   void SetTexture(const EnumValue& name, std::shared_ptr<Texture2d> texture);
 
-  void Apply(const mat4f& model_matrix, const mat4f& projection_matrix, const mat4f& view_matrix, const vec3f& camera) const;
+  void Apply(const mat4f& model_matrix, const mat4f& projection_matrix, const mat4f& view_matrix, const vec3f& camera, const Light& light) const;
 
   // asks the shader if all the textures are set, and if more than necessary are set
   bool Validate() const;
@@ -49,7 +50,7 @@ class CompiledMesh {
   std::vector<std::shared_ptr<CompiledMeshPart>> parts;
   std::vector<CompiledMeshMaterial> materials;
 
-  void Render(const mat4f& model_matrix, const mat4f& projection_matrix, const mat4f& view_matrix, const vec3f& camera);
+  void Render(const mat4f& model_matrix, const mat4f& projection_matrix, const mat4f& view_matrix, const vec3f& camera, const Light& light);
 };
 
 std::shared_ptr<CompiledMesh> CompileMesh(const Mesh& mesh, MaterialShaderCache* shader_cache, TextureCache* texture_cache);

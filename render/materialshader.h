@@ -6,6 +6,8 @@
 #include "core/enum.h"
 #include "render/shader.h"
 
+class Light;
+
 class MaterialShaderBinding
 {
 public:
@@ -32,7 +34,7 @@ class MaterialShader
   void SetView(const mat4f& view);
   void SetModel(const mat4f& model);
 
-  void SetupLight(const vec3f& camera);
+  void SetupLight(const Light& light, const vec3f& camera);
 
    const std::vector<MaterialShaderBinding>& GetBindings() const;
 
