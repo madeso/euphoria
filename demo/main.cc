@@ -337,14 +337,14 @@ int main(int argc, char** argv) {
                                   "in vec3 fragPositionWorld;\n"
                                   "\n"
                                   "uniform sampler2D uTexture;\n"
-                                  "uniform float uAmbient;\n"
+                                  "uniform float uAmbientLight;\n"
                                   "uniform vec3 uLightColor;\n"
                                   "uniform vec3 uLightPosition;\n"
                                   "uniform vec3 uViewPosition;\n"
                                   "\n"
                                   "void main()\n"
                                   "{\n"
-                                  "    vec3 ambient = uAmbient * uLightColor;\n"
+                                  "    vec3 ambient = uAmbientLight * uLightColor;\n"
                                   "    \n"
                                   "    vec3 norm = normalize(normal);\n"
                                   "    vec3 lightDir = normalize(uLightPosition - fragPositionWorld);\n"
@@ -476,8 +476,6 @@ int main(int argc, char** argv) {
   }
 
   auto light_actor = std::make_shared<Actor>(light);
-  // todo: use light position
-  // light_actor->SetPosition(vec3f(0,0,-3));
   world.AddActor(light_actor);
 
   Camera camera;

@@ -30,7 +30,7 @@ public:
   CompiledMeshMaterial();
 
   void SetShader(std::shared_ptr<MaterialShader> shader);
-  void SetDiffuse(const Rgb& color);
+  void SetColors(const Rgb& ambient, const Rgb& diffuse, const Rgb& specular);
 
   void SetTexture(const EnumValue& name, std::shared_ptr<Texture2d> texture);
 
@@ -39,7 +39,9 @@ public:
   // asks the shader if all the textures are set, and if more than necessary are set
   bool Validate() const;
 private:
+  Rgb ambient_;
   Rgb diffuse_;
+  Rgb specular_;
   std::shared_ptr<MaterialShader> shader_;
   std::map<EnumValue, std::shared_ptr<Texture2d>> textures_;
 };

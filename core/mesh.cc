@@ -39,7 +39,9 @@ MaterialTexture::MaterialTexture(const std::string& p, EnumValue t)
 {}
 
 Material::Material()
-  : diffuse(Rgb::From(Color::White))
+  : ambient(Rgb::From(Color::White))
+  , diffuse(Rgb::From(Color::White))
+  , specular(Rgb::From(Color::White))
   , alpha(1.0f)
   , wraps(WrapMode::REPEAT)
   , wrapt(WrapMode::REPEAT)
@@ -81,6 +83,11 @@ namespace {
     }
   }
 
+  Rgb C(const aiColor3D c)
+  {
+    return Rgb{c.r, c.g, c.b};
+  }
+
   void AddMaterials(Mesh* ret, const aiScene* scene) {
     for (unsigned int material_id = 0; material_id < scene->mNumMaterials;
          ++material_id) {
@@ -96,15 +103,26 @@ namespace {
         material.textures.push_back( MaterialTexture{texture.C_Str(), DiffuseType} );
       }
 
+      aiString aiName;
+      mat->Get(AI_MATKEY_NAME, aiName);
+      material.name = aiName.C_Str();
+
+      aiColor3D aiAmbient;
+      aiColor3D aiDiffuse;
+      aiColor3D aiSpecular;
+      mat->Get(AI_MATKEY_COLOR_AMBIENT, aiAmbient);
+      mat->Get(AI_MATKEY_COLOR_DIFFUSE, aiDiffuse);
+      mat->Get(AI_MATKEY_COLOR_SPECULAR, aiSpecular);
+      material.ambient = C(aiAmbient);
+      material.diffuse = C(aiDiffuse);
+      material.specular = C(aiSpecular);
+
       int u = 0;
       int v = 0;
       mat->Get(AI_MATKEY_MAPPINGMODE_U(aiTextureType_DIFFUSE, 0), u);
       mat->Get(AI_MATKEY_MAPPINGMODE_V(aiTextureType_DIFFUSE, 0), v);
       material.wraps = GetTextureWrappingMode(u);
       material.wrapt = GetTextureWrappingMode(v);
-
-      // todo: get color from assimp material
-      material.diffuse = Rgb::From(Color::White);
 
       // todo: improve texture detection?
       material.shader = "";

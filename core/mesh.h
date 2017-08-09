@@ -42,7 +42,11 @@ public:
 
   std::string shader;
 
+  // tints
+  Rgb ambient;
   Rgb diffuse;
+  Rgb specular;
+
   float alpha;
   std::vector<MaterialTexture> textures;
   WrapMode wraps;

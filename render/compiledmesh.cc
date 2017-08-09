@@ -20,7 +20,9 @@ LOG_SPECIFY_DEFAULT_LOGGER("core.mesh")
 
 
 CompiledMeshMaterial::CompiledMeshMaterial()
-  : diffuse_( Rgb::From(Color::White) )
+  : ambient_( Rgb::From(Color::White) )
+  , diffuse_( Rgb::From(Color::White) )
+  , specular_( Rgb::From(Color::White) )
 {
 }
 
@@ -30,9 +32,11 @@ void CompiledMeshMaterial::SetShader(std::shared_ptr<MaterialShader> shader)
   shader_ = shader;
 }
 
-void CompiledMeshMaterial::SetDiffuse(const Rgb& color)
+void CompiledMeshMaterial::SetColors(const Rgb& ambient, const Rgb& diffuse, const Rgb& specular)
 {
-  diffuse_ = color;
+  ambient_ = ambient;
+  diffuse_ = diffuse;
+  specular_ = specular;
 }
 
 void CompiledMeshMaterial::SetTexture(const EnumValue& name, std::shared_ptr<Texture2d> texture)
@@ -54,6 +58,8 @@ void CompiledMeshMaterial::Apply(const mat4f& model_matrix, const mat4f& project
   shader_->SetView(view_matrix);
   shader_->SetupLight(light, camera);
 
+  shader_->SetColors(ambient_, diffuse_, specular_);
+
   // bind all textures
   const auto& bindings = shader_->GetBindings();
 
@@ -66,6 +72,8 @@ void CompiledMeshMaterial::Apply(const mat4f& model_matrix, const mat4f& project
       // todo: this is a error and should have been caught by the Validate, abort?
       continue;
     }
+
+    // todo: refactor to material shader
     BindTextureToShader(texture->second.get(), &shader_->shader_, binding.GetUniform(), texture_index);
     texture_index += 1;
   }
@@ -155,7 +163,7 @@ std::shared_ptr<CompiledMesh> CompileMesh(const Mesh& mesh, MaterialShaderCache*
   for(const auto& material_src: mesh.materials) {
     material_index += 1;
     CompiledMeshMaterial mat;
-    mat.SetDiffuse(material_src.diffuse);
+    mat.SetColors(material_src.ambient, material_src.diffuse, material_src.specular);
 
     std::string shader_name = material_src.shader;
     if(shader_name.empty())

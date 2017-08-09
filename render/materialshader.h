@@ -35,15 +35,19 @@ class MaterialShader
   void SetModel(const mat4f& model);
 
   void SetupLight(const Light& light, const vec3f& camera);
+  void SetColors(const Rgb& ambient, const Rgb& diffuse, const Rgb& specular);
 
-   const std::vector<MaterialShaderBinding>& GetBindings() const;
+  const std::vector<MaterialShaderBinding>& GetBindings() const;
 
-  // todo: move to private when we support material textures and stuff
   Shader shader_;
- private:
+private:
   ShaderUniform projection_;
   ShaderUniform view_;
   ShaderUniform model_;
+
+  ShaderUniform ambient_;
+  ShaderUniform diffuse_;
+  ShaderUniform specular_;
 
   bool hasLight_;
   ShaderUniform ambientLight_;
