@@ -22,7 +22,7 @@ class CompiledMeshPart {
   Vao config;
   Ebo tris;
   int tri_count;
-  int material;
+  unsigned int material;
 };
 
 class CompiledMeshMaterial {
