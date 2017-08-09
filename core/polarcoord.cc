@@ -8,7 +8,7 @@ PolarCoord::PolarCoord(float azimuthal01, float polar01)
   , polar_(Angle::FromPercentOf180(polar01))
 {
   Assert(IsWithinInclusive(0, azimuthal01, 1.0f));
-  Assert(IsWithinInclusive(0, polar01, 1.0f));
+  Assert(IsWithinInclusive(0, polar01, 2.0f));
 }
 
 vec3f::Unit PolarCoord::ToCartesian() const

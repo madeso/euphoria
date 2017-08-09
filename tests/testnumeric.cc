@@ -3,6 +3,21 @@
 
 #define GTEST(X) TEST(numeric, X)
 
+GTEST(pingpong01) {
+  EXPECT_FLOAT_EQ(0.5f, PingPong01(0.5f));
+  EXPECT_FLOAT_EQ(0.5f, PingPong01(-0.5f));
+  EXPECT_FLOAT_EQ(0.5f, PingPong01(1.5f));
+}
+
+GTEST(pingpong) {
+  EXPECT_FLOAT_EQ(0.5f, PingPong(0.0f, 0.5f, 2.0f));
+  EXPECT_FLOAT_EQ(0.5f, PingPong(0.0f, -0.5f, 2.0f));
+  EXPECT_FLOAT_EQ(1.5f, PingPong(0.0f, 2.5f, 2.0f));
+
+  EXPECT_FLOAT_EQ(1.8f, PingPong(0.0f, 2.2f, 2.0f));
+  EXPECT_FLOAT_EQ(0.2f, PingPong(0.0f, -0.2f, 2.0f));
+}
+
 GTEST(is_equal) {
   EXPECT_TRUE(IsEqual(1.2f, 1.2f));
   EXPECT_TRUE(IsEqual(21.12f, 21.12f));

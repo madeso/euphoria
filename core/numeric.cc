@@ -200,6 +200,22 @@ const float Wrap(const float min, const float v, const float max)
   return min + value;
 }
 
+float PingPong01(float v) {
+  int iter = 0;
+
+  while(!IsWithinInclusive(0, v, 1) && iter<100) {
+    iter += 1;
+    if(v > 1) v = 1-(v-1);
+    if(v < 0) v = -v;
+  }
+
+  return v;
+}
+
+float PingPong(float min, float v, float max) {
+  return From01(min, PingPong01(To01(min, v, max)), max);
+}
+
 const int Wrapi(const int min, const int v, const int max)
 {
   const int diff = max - min + 1;

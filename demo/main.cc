@@ -438,6 +438,7 @@ int main(int argc, char** argv) {
   auto light_mesh = meshes::CreateCube(0.2f);
   light_mesh.materials[0].shader = "basic_shader";
   auto light = CompileMesh(light_mesh, &material_shader_cache, &texture_cache);
+  float light_position = 0.0f;
 
   const float box_extent_value = 4;
   Aabb box_extents
@@ -489,6 +490,12 @@ int main(int argc, char** argv) {
 
   while (running) {
     const float delta = timer.Update();
+
+    light_position = Wrap(0, light_position+delta*0.1f, 1);
+    const auto light_pos = PolarCoord{light_position, light_position*2}.ToCartesian() * 2.0f;
+    world.light.SetPosition( light_pos );
+    light_actor->SetPosition(light_pos);
+
 
     for(auto& anim: animation_handler)
     {

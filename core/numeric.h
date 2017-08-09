@@ -145,6 +145,9 @@ Wraps it to the others side if it gets outside.
 */
 const float Wrap(const float min, const float v, const float max);
 
+float PingPong01(float v);
+float PingPong(float min, float v, float max);
+
 /** Keeps a value within a range.
 Wraps it to the others side if it gets outside.
 @param min is the lower range
