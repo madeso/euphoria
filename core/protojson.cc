@@ -1,6 +1,11 @@
 #include <iostream>
 #include "protojson.h"
 #include "core/assert.h"
+#include "core/str.h"
+
+// todo: add proto-> json
+// todo: add error path
+// todo: fix naming
 
 namespace
 {
@@ -217,8 +222,7 @@ namespace protojson
       if (field == nullptr)
         field = ref->FindKnownExtensionByName(name);
       if (field == nullptr) {
-        std::cerr << "Failed to find field " << name << " in json\n";
-        continue; // todo: we should not fail here, instead write this value into an unknown field
+        return Str() << "Failed to find json field " << name << " in proto";
       }
       if (itr->value.GetType() == rapidjson::kNullType) {
         ref->ClearField(msg, field);
