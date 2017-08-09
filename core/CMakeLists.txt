@@ -5,7 +5,7 @@ set(src ${app_src})
 
 
 
-find_package(AssImp REQUIRED)
+find_package(assimp REQUIRED)
 # message(STATUS "Assimp includes at ${assimp_INCLUDE_DIRS}")
 # message(STATUS "Assimp libraries at ${assimp_LIBRARIES}")
 include_directories(SYSTEM ${assimp_INCLUDE_DIRS})
