@@ -16,6 +16,8 @@
 #include "pbjson.hpp"  // NOLINT this is how we use pbjson
 #include "rapidjson/error/en.h"
 
+#include "core/protojson.h"
+
 
 // #include "ride/stringutils.h"
 
@@ -85,14 +87,16 @@ std::string LoadProtoJson(FileSystem* fs, google::protobuf::Message* message,
 
   std::string err;
 
-  const int proto_parse = pbjson::jsonobject2pb(&doc, message, err);
+  return protojson::ToProto(doc, message);
+
+  // const int proto_parse = pbjson::jsonobject2pb(&doc, message, err);
 
   // int proto_parse = pbjson::json2pb_file(path.c_str(), message, err);
-  if (proto_parse < 0) {
-    return err;
-  }
+  // if (proto_parse < 0) {
+  //   return err;
+  // }
 
-  return "";
+  // return "";
 }
 
 std::string SaveProtoJson(const google::protobuf::Message& t,

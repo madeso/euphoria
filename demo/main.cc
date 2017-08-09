@@ -305,7 +305,7 @@ int main(int argc, char** argv) {
   auto catalog = FileSystemRootCatalog::AddRoot(&file_system);
   FileSystemRootFolder::AddRoot(&file_system);
   catalog->RegisterFileString("default_shader.json",
-                              R"(  {"has_light": true, "textures": [ {"texture": "Diffuse", "uniform": "uTexture"} ]}  )");
+                              R"(  {"has_light": true, "has_color": true, "textures": [ {"texture": "Diffuse", "uniform": "uTexture"} ]}  )");
   catalog->RegisterFileString("default_shader.vert",
                               "#version 330 core\n"
                                   "in vec3 aPosition;\n"
