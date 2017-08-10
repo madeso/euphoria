@@ -303,7 +303,7 @@ namespace protojson
       if (field == nullptr)
       {
         // todo: list all fields
-        return Str() << "Failed to find json field " << name << " in proto at " << self_path << " value could be " << StringMerger::EnglishOr().Generate(FieldNamesToList(descriptor));
+        return Str() << "Failed to find json field " << name << " in proto "<< descriptor->name() << " at " << self_path << ". Value could be " << StringMerger::EnglishOr().Generate(FieldNamesToList(descriptor));
       }
       if (itr->value.GetType() == rapidjson::kNullType) {
         reflection->ClearField(msg, field);
