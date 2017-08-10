@@ -34,6 +34,7 @@ MaterialShader::MaterialShader()
   , ambient_(ShaderUniform::Null())
   , diffuse_(ShaderUniform::Null())
   , specular_(ShaderUniform::Null())
+  , shininess_(ShaderUniform::Null())
   , hasLight_(false)
   , ambientLight_(ShaderUniform::Null())
   , lightColor_(ShaderUniform::Null())
@@ -77,6 +78,7 @@ bool MaterialShader::Load(FileSystem* file_system, const std::string& path) {
     ambient_ = shader_.GetUniform("uMaterial.ambient");
     diffuse_ = shader_.GetUniform("uMaterial.diffuse");
     specular_ = shader_.GetUniform("uMaterial.specular");
+    shininess_ = shader_.GetUniform("uMaterial.shininess");
   }
 
   if(hasLight_)
@@ -132,13 +134,22 @@ void MaterialShader::SetupLight(const Light& light, const vec3f& camera)
   shader_.SetUniform(viewPosition_, camera);
 }
 
-void MaterialShader::SetColors(const Rgb &ambient, const Rgb &diffuse, const Rgb &specular)
+void MaterialShader::SetColors(const Rgb &ambient, const Rgb &diffuse, const Rgb &specular, float shininess)
 {
   if(has_color_)
   {
     shader_.SetUniform(ambient_, ambient);
     shader_.SetUniform(diffuse_, diffuse);
-    shader_.SetUniform(specular_, specular);
+    if(shininess > 0)
+    {
+      shader_.SetUniform(specular_, specular);
+      shader_.SetUniform(shininess_, shininess);
+    }
+    else
+    {
+      shader_.SetUniform(specular_, Rgb::From(Color::Black));
+      shader_.SetUniform(shininess_, 1.0f);
+    }
   }
 }
 

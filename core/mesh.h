@@ -16,7 +16,7 @@ class MeshPart {
 public:
   MeshPart();
 
-  int material;
+  unsigned int material;
   std::vector<float> points;
   std::vector<unsigned int> faces;
   int facecount;
@@ -46,6 +46,8 @@ public:
   Rgb ambient;
   Rgb diffuse;
   Rgb specular;
+
+  float shininess;
 
   float alpha;
   std::vector<MaterialTexture> textures;

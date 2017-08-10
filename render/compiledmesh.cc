@@ -23,6 +23,7 @@ CompiledMeshMaterial::CompiledMeshMaterial()
   : ambient_( Rgb::From(Color::White) )
   , diffuse_( Rgb::From(Color::White) )
   , specular_( Rgb::From(Color::White) )
+  , shininess_(135.0f)
 {
 }
 
@@ -32,11 +33,12 @@ void CompiledMeshMaterial::SetShader(std::shared_ptr<MaterialShader> shader)
   shader_ = shader;
 }
 
-void CompiledMeshMaterial::SetColors(const Rgb& ambient, const Rgb& diffuse, const Rgb& specular)
+void CompiledMeshMaterial::SetColors(const Rgb& ambient, const Rgb& diffuse, const Rgb& specular, float shininess)
 {
   ambient_ = ambient;
   diffuse_ = diffuse;
   specular_ = specular;
+  shininess_ = shininess;
 }
 
 void CompiledMeshMaterial::SetTexture(const EnumValue& name, std::shared_ptr<Texture2d> texture)
@@ -58,7 +60,7 @@ void CompiledMeshMaterial::Apply(const mat4f& model_matrix, const mat4f& project
   shader_->SetView(view_matrix);
   shader_->SetupLight(light, camera);
 
-  shader_->SetColors(ambient_, diffuse_, specular_);
+  shader_->SetColors(ambient_, diffuse_, specular_, shininess_);
 
   // bind all textures
   const auto& bindings = shader_->GetBindings();
@@ -163,7 +165,7 @@ std::shared_ptr<CompiledMesh> CompileMesh(const Mesh& mesh, MaterialShaderCache*
   for(const auto& material_src: mesh.materials) {
     material_index += 1;
     CompiledMeshMaterial mat;
-    mat.SetColors(material_src.ambient, material_src.diffuse, material_src.specular);
+    mat.SetColors(material_src.ambient, material_src.diffuse, material_src.specular, material_src.shininess);
 
     std::string shader_name = material_src.shader;
     if(shader_name.empty())

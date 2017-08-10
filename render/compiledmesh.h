@@ -30,7 +30,7 @@ public:
   CompiledMeshMaterial();
 
   void SetShader(std::shared_ptr<MaterialShader> shader);
-  void SetColors(const Rgb& ambient, const Rgb& diffuse, const Rgb& specular);
+  void SetColors(const Rgb& ambient, const Rgb& diffuse, const Rgb& specular, float shininess);
 
   void SetTexture(const EnumValue& name, std::shared_ptr<Texture2d> texture);
 
@@ -42,6 +42,7 @@ private:
   Rgb ambient_;
   Rgb diffuse_;
   Rgb specular_;
+  float shininess_;
   std::shared_ptr<MaterialShader> shader_;
   std::map<EnumValue, std::shared_ptr<Texture2d>> textures_;
 };

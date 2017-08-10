@@ -335,6 +335,7 @@ int main(int argc, char** argv) {
                                   "  vec3 ambient;\n"
                                   "  vec3 diffuse;\n"
                                   "  vec3 specular;\n"
+                                  "  float shininess;\n"
                                   "};\n"
                                   "\n"
                                   "out vec4 FragColor;\n"
@@ -359,11 +360,10 @@ int main(int argc, char** argv) {
                                   "    float diffuse_factor = max(0.0, dot(norm, lightDir));\n"
                                   "    vec3 diffuse = diffuse_factor * uMaterial.diffuse * uLightColor;\n"
                                   "    \n"
-                                  "    int shininess = 256;\n"
                                   "    float specularStrength = 0.5;\n"
                                   "    vec3 viewDir = normalize(uViewPosition - fragPositionWorld);\n"
                                   "    vec3 reflectDir = reflect(-lightDir, norm);\n"
-                                  "    float spec = pow(max(0, dot(viewDir, reflectDir)), shininess);\n"
+                                  "    float spec = pow(max(0, dot(viewDir, reflectDir)), uMaterial.shininess);\n"
                                   "    vec3 specular = specularStrength * uMaterial.specular * spec * uLightColor;\n"
                                   "    \n"
                                   "    vec3 object_color = texture(uTexture, texCoord).rgb;\n"
@@ -437,10 +437,12 @@ int main(int argc, char** argv) {
 
   auto box_mesh1 = meshes::CreateCube(0.5f);
   box_mesh1.materials[0].SetTexture("Diffuse", "image");
+  box_mesh1.materials[0].ambient = Rgb::From(Color::White); // fix ambient color on material
   auto box1 = CompileMesh(box_mesh1, &material_shader_cache, &texture_cache);
 
   auto box_mesh2 = meshes::CreateSphere(0.5f,  "wooden-crate.jpg");
   // box_mesh2.materials[0].SetTexture("Diffuse", "wooden-crate.jpg");
+  box_mesh2.materials[0].ambient = Rgb::From(Color::White); // fix ambient color on material
   auto box2 = CompileMesh(box_mesh2, &material_shader_cache, &texture_cache);
 
   auto light_mesh = meshes::CreateCube(0.2f);

@@ -35,7 +35,7 @@ class MaterialShader
   void SetModel(const mat4f& model);
 
   void SetupLight(const Light& light, const vec3f& camera);
-  void SetColors(const Rgb& ambient, const Rgb& diffuse, const Rgb& specular);
+  void SetColors(const Rgb& ambient, const Rgb& diffuse, const Rgb& specular, float shininess);
 
   const std::vector<MaterialShaderBinding>& GetBindings() const;
 
@@ -49,6 +49,7 @@ private:
   ShaderUniform ambient_;
   ShaderUniform diffuse_;
   ShaderUniform specular_;
+  ShaderUniform shininess_;
 
   bool hasLight_;
   ShaderUniform ambientLight_;

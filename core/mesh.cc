@@ -10,7 +10,6 @@
 #include "core/texturetypes.h"
 
 
-
 MeshPart::MeshPart() : material(0), facecount(0) {}
 
 void MeshPart::AddPoint(float x, float y, float z, float nx, float ny, float nz, float u, float v) {
@@ -42,6 +41,7 @@ Material::Material()
   : ambient(Rgb::From(Color::White))
   , diffuse(Rgb::From(Color::White))
   , specular(Rgb::From(Color::White))
+  , shininess(42.0f)
   , alpha(1.0f)
   , wraps(WrapMode::REPEAT)
   , wrapt(WrapMode::REPEAT)
@@ -107,6 +107,17 @@ namespace {
       mat->Get(AI_MATKEY_NAME, aiName);
       material.name = aiName.C_Str();
 
+      const bool got_shininess = aiReturn_SUCCESS == mat->Get(AI_MATKEY_SHININESS, material.shininess);
+      const bool got_alpha = aiReturn_SUCCESS == mat->Get(AI_MATKEY_OPACITY, material.alpha);
+
+      if(!got_shininess) {
+        material.shininess = 0.0f;
+      }
+
+      if(!got_alpha) {
+        material.alpha = 1.0f;
+      }
+
       aiColor3D aiAmbient;
       aiColor3D aiDiffuse;
       aiColor3D aiSpecular;
@@ -116,6 +127,7 @@ namespace {
       material.ambient = C(aiAmbient);
       material.diffuse = C(aiDiffuse);
       material.specular = C(aiSpecular);
+
 
       int u = 0;
       int v = 0;
