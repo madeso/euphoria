@@ -30,6 +30,7 @@ MaterialShader::MaterialShader()
   : projection_(ShaderUniform::Null())
   , view_(ShaderUniform::Null())
   , model_(ShaderUniform::Null())
+  , has_color_(false)
   , ambient_(ShaderUniform::Null())
   , diffuse_(ShaderUniform::Null())
   , specular_(ShaderUniform::Null())
@@ -57,6 +58,7 @@ bool MaterialShader::Load(FileSystem* file_system, const std::string& path) {
   }
 
   hasLight_ = material_shader_file.has_light();
+  has_color_ = material_shader_file.has_color();
 
   for (const auto& texture : material_shader_file.textures())
   {
@@ -71,15 +73,18 @@ bool MaterialShader::Load(FileSystem* file_system, const std::string& path) {
   view_ = shader_.GetUniform("uView");
   model_ = shader_.GetUniform("uModel");
 
-  ambient_ = shader_.GetUniform("uAmbient");
-  diffuse_ = shader_.GetUniform("uDiffuse");
-  specular_ = shader_.GetUniform("uSpecular");
+  if(has_color_) {
+    ambient_ = shader_.GetUniform("uMaterial.ambient");
+    diffuse_ = shader_.GetUniform("uMaterial.diffuse");
+    specular_ = shader_.GetUniform("uMaterial.specular");
+  }
 
   if(hasLight_)
   {
     ambientLight_ = shader_.GetUniform("uAmbientLight");
     lightColor_ = shader_.GetUniform("uLightColor");
     lightPosition_ = shader_.GetUniform("uLightPosition");
+
     normalMatrix_ = shader_.GetUniform("uNormalMatrix");
     viewPosition_ = shader_.GetUniform("uViewPosition");
   }
@@ -129,9 +134,12 @@ void MaterialShader::SetupLight(const Light& light, const vec3f& camera)
 
 void MaterialShader::SetColors(const Rgb &ambient, const Rgb &diffuse, const Rgb &specular)
 {
-  shader_.SetUniform(ambient_, ambient);
-  shader_.SetUniform(diffuse_, diffuse);
-  shader_.SetUniform(specular_, specular);
+  if(has_color_)
+  {
+    shader_.SetUniform(ambient_, ambient);
+    shader_.SetUniform(diffuse_, diffuse);
+    shader_.SetUniform(specular_, specular);
+  }
 }
 
 const std::vector<MaterialShaderBinding>& MaterialShader::GetBindings() const

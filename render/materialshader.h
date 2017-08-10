@@ -45,6 +45,7 @@ private:
   ShaderUniform view_;
   ShaderUniform model_;
 
+  bool has_color_;
   ShaderUniform ambient_;
   ShaderUniform diffuse_;
   ShaderUniform specular_;
