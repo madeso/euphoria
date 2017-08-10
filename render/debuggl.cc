@@ -132,7 +132,7 @@ void APIENTRY OnOpenglError(GLenum source, GLenum type, GLuint id,
   std::cout << "Source " << SourceToString(source)
             << " type: " << TypeToString(type)
             << " Severity: " << SeverityToString(severity) << "\n\n";
-  Assert(false);
+  // Assert(false);
 }
 
 void SetupOpenglDebug() {

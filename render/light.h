@@ -11,15 +11,19 @@ public:
   void SetPosition(const vec3f& pos);
   const vec3f& GetPosition() const;
 
-  void SetColor(const Rgb& color);
-  const Rgb& GetColor() const;
+  void SetAmbient(const Rgb& c);
+  const Rgb& GetAmbient() const;
 
-  void SetAmbient(float amb);
-  float GetAmbient() const;
+  void SetDiffuse(const Rgb& c);
+  const Rgb& GetDiffuse() const;
+
+  void SetSpecular(const Rgb& c);
+  const Rgb& GetSpecular() const;
 private:
   vec3f position_;
-  Rgb color_;
-  float ambient_;
+  Rgb ambient_;
+  Rgb diffuse_;
+  Rgb specular_;
 };
 
 

@@ -52,9 +52,11 @@ private:
   ShaderUniform shininess_;
 
   bool hasLight_;
-  ShaderUniform ambientLight_;
-  ShaderUniform lightColor_;
+  ShaderUniform lightAmbient_;
+  ShaderUniform lightDiffuse_;
+  ShaderUniform lightSpecular_;
   ShaderUniform lightPosition_;
+
   ShaderUniform normalMatrix_;
   ShaderUniform viewPosition_;
 

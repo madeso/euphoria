@@ -338,6 +338,15 @@ int main(int argc, char** argv) {
                                   "  float shininess;\n"
                                   "};\n"
                                   "\n"
+                                  "struct Light\n"
+                                  "{\n"
+                                  "  vec3 ambient;\n"
+                                  "  vec3 diffuse;\n"
+                                  "  vec3 specular;\n"
+                                  "  \n"
+                                  "  vec3 position;\n"
+                                  "};\n"
+                                  "\n"
                                   "out vec4 FragColor;\n"
                                   "\n"
                                   "in vec2 texCoord;\n"
@@ -345,26 +354,25 @@ int main(int argc, char** argv) {
                                   "in vec3 fragPositionWorld;\n"
                                   "\n"
                                   "uniform sampler2D uTexture;\n"
-                                  "uniform float uAmbientLight;\n"
-                                  "uniform vec3 uLightColor;\n"
-                                  "uniform vec3 uLightPosition;\n"
+                                  "\n"
+                                  "uniform Light uLight;\n"
                                   "uniform vec3 uViewPosition;\n"
                                   "uniform Material uMaterial;\n"
                                   "\n"
                                   "void main()\n"
                                   "{\n"
-                                  "    vec3 ambient = uAmbientLight * uMaterial.ambient * uLightColor;\n"
+                                  "    vec3 ambient = uMaterial.ambient * uLight.ambient;\n"
                                   "    \n"
                                   "    vec3 norm = normalize(normal);\n"
-                                  "    vec3 lightDir = normalize(uLightPosition - fragPositionWorld);\n"
+                                  "    vec3 lightDir = normalize(uLight.position - fragPositionWorld);\n"
                                   "    float diffuse_factor = max(0.0, dot(norm, lightDir));\n"
-                                  "    vec3 diffuse = diffuse_factor * uMaterial.diffuse * uLightColor;\n"
+                                  "    vec3 diffuse = diffuse_factor * uMaterial.diffuse * uLight.diffuse;\n"
                                   "    \n"
                                   "    float specularStrength = 0.5;\n"
                                   "    vec3 viewDir = normalize(uViewPosition - fragPositionWorld);\n"
                                   "    vec3 reflectDir = reflect(-lightDir, norm);\n"
                                   "    float spec = pow(max(0, dot(viewDir, reflectDir)), uMaterial.shininess);\n"
-                                  "    vec3 specular = specularStrength * uMaterial.specular * spec * uLightColor;\n"
+                                  "    vec3 specular = specularStrength * uMaterial.specular * spec * uLight.specular;\n"
                                   "    \n"
                                   "    vec3 object_color = texture(uTexture, texCoord).rgb;\n"
                                   "    \n"
@@ -438,11 +446,15 @@ int main(int argc, char** argv) {
   auto box_mesh1 = meshes::CreateCube(0.5f);
   box_mesh1.materials[0].SetTexture("Diffuse", "image");
   box_mesh1.materials[0].ambient = Rgb::From(Color::White); // fix ambient color on material
+  box_mesh1.materials[0].specular = Rgb::From(Color::White);
+  box_mesh1.materials[0].shininess = 10.0f;
   auto box1 = CompileMesh(box_mesh1, &material_shader_cache, &texture_cache);
 
   auto box_mesh2 = meshes::CreateSphere(0.5f,  "wooden-crate.jpg");
   // box_mesh2.materials[0].SetTexture("Diffuse", "wooden-crate.jpg");
   box_mesh2.materials[0].ambient = Rgb::From(Color::White); // fix ambient color on material
+  box_mesh2.materials[0].specular = Rgb::From(Color::White);
+  box_mesh2.materials[0].shininess = 80.0f;
   auto box2 = CompileMesh(box_mesh2, &material_shader_cache, &texture_cache);
 
   auto light_mesh = meshes::CreateCube(0.2f);

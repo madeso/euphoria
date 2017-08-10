@@ -36,8 +36,9 @@ MaterialShader::MaterialShader()
   , specular_(ShaderUniform::Null())
   , shininess_(ShaderUniform::Null())
   , hasLight_(false)
-  , ambientLight_(ShaderUniform::Null())
-  , lightColor_(ShaderUniform::Null())
+  , lightAmbient_(ShaderUniform::Null())
+  , lightDiffuse_(ShaderUniform::Null())
+  , lightSpecular_(ShaderUniform::Null())
   , lightPosition_(ShaderUniform::Null())
   , normalMatrix_(ShaderUniform::Null())
   , viewPosition_(ShaderUniform::Null())
@@ -83,9 +84,10 @@ bool MaterialShader::Load(FileSystem* file_system, const std::string& path) {
 
   if(hasLight_)
   {
-    ambientLight_ = shader_.GetUniform("uAmbientLight");
-    lightColor_ = shader_.GetUniform("uLightColor");
-    lightPosition_ = shader_.GetUniform("uLightPosition");
+    lightAmbient_ = shader_.GetUniform("uLight.ambient");
+    lightDiffuse_ = shader_.GetUniform("uLight.diffuse");
+    lightSpecular_ = shader_.GetUniform("uLight.specular");
+    lightPosition_ = shader_.GetUniform("uLight.position");
 
     normalMatrix_ = shader_.GetUniform("uNormalMatrix");
     viewPosition_ = shader_.GetUniform("uViewPosition");
@@ -128,8 +130,9 @@ void MaterialShader::SetupLight(const Light& light, const vec3f& camera)
   }
 
   // todo: get light from the actual light and not a hardcoded constant
-  shader_.SetUniform(ambientLight_, 0.1f);
-  shader_.SetUniform(lightColor_, Rgb::From(Color::White));
+  shader_.SetUniform(lightAmbient_, Rgb{0.1f});
+  shader_.SetUniform(lightDiffuse_, Rgb::From(Color::White));
+  shader_.SetUniform(lightSpecular_, Rgb::From(Color::White));
   shader_.SetUniform(lightPosition_, light.GetPosition());
   shader_.SetUniform(viewPosition_, camera);
 }

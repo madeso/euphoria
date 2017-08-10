@@ -2,8 +2,9 @@
 
 Light::Light()
   : position_(0,0,0)
-  , color_(Rgb::From(Color::White))
   , ambient_(0.1f)
+  , diffuse_(Rgb::From(Color::White))
+  , specular_(Rgb::From(Color::White))
 {}
 
 void Light::SetPosition(const vec3f& pos)
@@ -16,22 +17,30 @@ const vec3f& Light::GetPosition() const
   return position_;
 }
 
-void Light::SetColor(const Rgb& color)
+void Light::SetAmbient(const Rgb& c)
 {
-  color_ = color;
+  ambient_ = c;
 }
-
-const Rgb& Light::GetColor() const
-{
-  return color_;
-}
-
-void Light::SetAmbient(float amb)
-{
-  ambient_ = amb;
-}
-
-float Light::GetAmbient() const
+const Rgb& Light::GetAmbient() const
 {
   return ambient_;
+}
+
+void Light::SetDiffuse(const Rgb& c)
+{
+  diffuse_ = c;
+}
+const Rgb& Light::GetDiffuse() const
+{
+  return diffuse_;
+}
+
+void Light::SetSpecular(const Rgb& c)
+{
+  specular_ = c;
+}
+
+const Rgb& Light::GetSpecular() const
+{
+  return specular_;
 }
