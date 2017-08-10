@@ -3,6 +3,7 @@
 #include "protojson.h"
 #include "core/assert.h"
 #include "core/str.h"
+#include "stringmerger.h"
 
 // todo: add proto-> json
 // todo: fix naming
@@ -264,6 +265,17 @@ std::string ToString(const rapidjson::Value& val)
     }
     return "";
   }
+
+std::vector<std::string> FieldNamesToList(const google::protobuf::Descriptor* descriptor) {
+  std::vector<std::string> ret;
+  for (int field_id = 0; field_id < descriptor->field_count(); field_id += 1)
+  {
+    const auto* field = descriptor->field(field_id);
+    ret.push_back(field->name());
+  }
+  return ret;
+}
+
 }
 
 namespace protojson
@@ -275,9 +287,9 @@ namespace protojson
     {
       return Str() << "JSON root is not a object at " << self_path;;
     }
-    const  auto* d = msg->GetDescriptor();
-    const auto* ref = msg->GetReflection();
-    if (d == nullptr || ref == nullptr)
+    const  auto* descriptor = msg->GetDescriptor();
+    const auto* reflection = msg->GetReflection();
+    if (descriptor == nullptr || reflection == nullptr)
     {
       return Str() << "Protobuf object has no reflection at " << self_path;
     }
@@ -285,15 +297,16 @@ namespace protojson
     for (rapidjson::Value::ConstMemberIterator itr = json.MemberBegin(); itr != json.MemberEnd(); ++itr)
     {
       const char* name = itr->name.GetString();
-      const auto* field = d->FindFieldByName(name);
+      const auto* field = descriptor->FindFieldByName(name);
       if (field == nullptr)
-        field = ref->FindKnownExtensionByName(name);
-      if (field == nullptr) {
+        field = reflection->FindKnownExtensionByName(name);
+      if (field == nullptr)
+      {
         // todo: list all fields
-        return Str() << "Failed to find json field " << name << " in proto at " << self_path;;
+        return Str() << "Failed to find json field " << name << " in proto at " << self_path << " value could be " << StringMerger::EnglishOr().Generate(FieldNamesToList(descriptor));
       }
       if (itr->value.GetType() == rapidjson::kNullType) {
-        ref->ClearField(msg, field);
+        reflection->ClearField(msg, field);
         continue;
       }
       if (field->is_repeated())
