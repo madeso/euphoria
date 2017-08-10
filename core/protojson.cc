@@ -1,123 +1,177 @@
 #include <iostream>
+#include <google/protobuf/descriptor.pb.h>
 #include "protojson.h"
 #include "core/assert.h"
 #include "core/str.h"
 
 // todo: add proto-> json
-// todo: add error path
 // todo: fix naming
 
 namespace
 {
-  std::string json2field(const rapidjson::Value* json, google::protobuf::Message* msg, const google::protobuf::FieldDescriptor *field)
+const char* const TypeToString(rapidjson::Type type)
+{
+  switch(type)
   {
+    case rapidjson::kNullType  : return "null"  ;
+    case rapidjson::kFalseType : return "false" ;
+    case rapidjson::kTrueType  : return "true"  ;
+    case rapidjson::kObjectType: return "object";
+    case rapidjson::kArrayType : return "array" ;
+    case rapidjson::kStringType: return "string";
+    case rapidjson::kNumberType: return "number";
+    default: return "<unknown>";
+  }
+}
+
+std::string ToString(const rapidjson::Value& val)
+{
+  // todo: add more printing
+  return TypeToString(val.GetType());
+}
+
+  class JsonPath {
+   public:
+    JsonPath(const JsonPath* p, const rapidjson::Value& s)
+      : parent(p), self(ToString(s))
+    {
+    }
+
+    static void Print(const JsonPath* path, std::ostringstream& ss)
+    {
+      if(path != nullptr) {
+        Print(path->parent, ss);
+        ss << "/" << path->self;
+      }
+      else {
+        // todo: print root sign?
+        ss << "<root>";
+      }
+    }
+
+   private:
+    const JsonPath* parent;
+    std::string self;
+  };
+
+  std::ostringstream& operator<<(std::ostringstream& o, const JsonPath& path)
+  {
+    JsonPath::Print(&path, o);
+    return o;
+  }
+
+
+
+  std::string JsonToProtoField(const rapidjson::Value& json, google::protobuf::Message* msg, const google::protobuf::FieldDescriptor *field, const JsonPath* path)
+  {
+    const JsonPath self_path {path, json};
     const auto* ref = msg->GetReflection();
     const bool repeated = field->is_repeated();
     switch (field->cpp_type())
     {
       case google::protobuf::FieldDescriptor::CPPTYPE_INT32:
       {
-        if (json->GetType() != rapidjson::kNumberType)
+        if (json.GetType() != rapidjson::kNumberType)
         {
-          return "Not a number";
+          return Str() << "Not a number(int32), found a " << TypeToString(json.GetType()) << " at " << self_path;
         }
         if (repeated)
         {
-          ref->AddInt32(msg, field, (int32_t) json->GetInt());
+          ref->AddInt32(msg, field, (int32_t) json.GetInt());
         }
         else
         {
-          ref->SetInt32(msg, field, (int32_t) json->GetInt());
+          ref->SetInt32(msg, field, (int32_t) json.GetInt());
         }
         break;
       }
       case google::protobuf::FieldDescriptor::CPPTYPE_UINT32:
       {
-        if (json->GetType() != rapidjson::kNumberType)
+        if (json.GetType() != rapidjson::kNumberType)
         {
-          return "Not a number";
+          return Str() << "Not a number(uint32), found a " << TypeToString(json.GetType()) << " at " << self_path;
         }
         if (repeated)
         {
-          ref->AddUInt32(msg, field, json->GetUint());
+          ref->AddUInt32(msg, field, json.GetUint());
         }
         else
         {
-          ref->SetUInt32(msg, field, json->GetUint());
+          ref->SetUInt32(msg, field, json.GetUint());
         }
         break;
       }
       case google::protobuf::FieldDescriptor::CPPTYPE_INT64:
       {
-        if (json->GetType() != rapidjson::kNumberType)
+        if (json.GetType() != rapidjson::kNumberType)
         {
-          return "Not a number";
+          return Str() << "Not a number(int64), found a " << TypeToString(json.GetType()) << " at " << self_path;
         }
         if (repeated)
         {
-          ref->AddInt64(msg, field, json->GetInt64());
+          ref->AddInt64(msg, field, json.GetInt64());
         }
         else
         {
-          ref->SetInt64(msg, field, json->GetInt64());
+          ref->SetInt64(msg, field, json.GetInt64());
         }
         break;
       }
       case google::protobuf::FieldDescriptor::CPPTYPE_UINT64:
       {
-        if (json->GetType() != rapidjson::kNumberType)
+        if (json.GetType() != rapidjson::kNumberType)
         {
-          return "Not a number";
+          return Str() << "Not a number(uint64), found a " << TypeToString(json.GetType()) << " at " << self_path;
         }
         if (repeated)
         {
-          ref->AddUInt64(msg, field, json->GetUint64());
+          ref->AddUInt64(msg, field, json.GetUint64());
         }
         else
         {
-          ref->SetUInt64(msg, field, json->GetUint64());
+          ref->SetUInt64(msg, field, json.GetUint64());
         }
         break;
       }
       case google::protobuf::FieldDescriptor::CPPTYPE_DOUBLE:
       {
-        if (json->GetType() != rapidjson::kNumberType)
+        if (json.GetType() != rapidjson::kNumberType)
         {
-          return "Not a number";
+          return Str() << "Not a number(double), found a " << TypeToString(json.GetType()) << " at " << self_path;
         }
         if (repeated)
         {
-          ref->AddDouble(msg, field, json->GetDouble());
+          ref->AddDouble(msg, field, json.GetDouble());
         }
         else
         {
-          ref->SetDouble(msg, field, json->GetDouble());
+          ref->SetDouble(msg, field, json.GetDouble());
         }
         break;
       }
       case google::protobuf::FieldDescriptor::CPPTYPE_FLOAT:
       {
-        if (json->GetType() != rapidjson::kNumberType)
+        if (json.GetType() != rapidjson::kNumberType)
         {
-          return "Not a number";
+          return Str() << "Not a number(float), found a " << TypeToString(json.GetType()) << " at " << self_path;
         }
         if (repeated)
         {
-          ref->AddFloat(msg, field, json->GetDouble());
+          ref->AddFloat(msg, field, json.GetDouble());
         }
         else
         {
-          ref->SetFloat(msg, field, json->GetDouble());
+          ref->SetFloat(msg, field, json.GetDouble());
         }
         break;
       }
       case google::protobuf::FieldDescriptor::CPPTYPE_BOOL:
       {
-        if (json->GetType() != rapidjson::kTrueType && json->GetType() != rapidjson::kFalseType)
+        if (json.GetType() != rapidjson::kTrueType && json.GetType() != rapidjson::kFalseType)
         {
-          return "Not a bool";
+          return Str() << "Not true or false, found a " << TypeToString(json.GetType()) << " at " << self_path;
         }
-        bool v = json->GetBool();
+        bool v = json.GetBool();
         if (repeated)
         {
           ref->AddBool(msg, field, v);
@@ -130,12 +184,12 @@ namespace
       }
       case google::protobuf::FieldDescriptor::CPPTYPE_STRING:
       {
-        if (json->GetType() != rapidjson::kStringType)
+        if (json.GetType() != rapidjson::kStringType)
         {
-          return "Not a string";
+          return Str() << "Not a string, found a " << TypeToString(json.GetType()) << " at " << self_path;
         }
-        const char* value = json->GetString();
-        uint32_t str_size = json->GetStringLength();
+        const char* value = json.GetString();
+        uint32_t str_size = json.GetStringLength();
         std::string str_value(value, str_size);
         if (field->type() == google::protobuf::FieldDescriptor::TYPE_BYTES)
         {
@@ -166,23 +220,35 @@ namespace
       case google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE:
       {
         google::protobuf::Message *mf = (repeated) ? ref->AddMessage(msg, field) : ref->MutableMessage(msg, field);
-        return protojson::ToProto(*json, mf);
+        return protojson::ToProto(json, mf);
       }
       case google::protobuf::FieldDescriptor::CPPTYPE_ENUM:
       {
         const auto* ed = field->enum_type();
         const google::protobuf::EnumValueDescriptor* ev = nullptr;
-        if (json->GetType() == rapidjson::kNumberType)
+        if (json.GetType() == rapidjson::kNumberType)
         {
-          ev = ed->FindValueByNumber(json->GetInt());
+          const auto value = json.GetInt();
+          ev = ed->FindValueByNumber(value);
+          if (!ev)
+          {
+            return Str() << "Enum value " << value << "not found, " << " at " << self_path;
+          }
         }
-        else if (json->GetType() == rapidjson::kStringType)
+        else if (json.GetType() == rapidjson::kStringType)
         {
-          ev = ed->FindValueByName(json->GetString());
+          const std::string value = json.GetString();
+          ev = ed->FindValueByName(value);
+          if (!ev)
+          {
+            // todo: list all values, guess based on shortest edit distance?
+            return Str() << "Enum value " << value << "not found, " << " at " << self_path;
+          }
         }
-        else return "Not an integer or string";
-        if (!ev)
-          return "Enum value not found";
+        else
+        {
+          return Str() << "Neither integer or string(enum), found a " << TypeToString(json.GetType()) << " at " << self_path;
+        }
         if (repeated)
         {
           ref->AddEnum(msg, field, ev);
@@ -194,7 +260,7 @@ namespace
         break;
       }
       default:
-        break;
+        return Str() << "Unhandled json type, found a " << TypeToString(json.GetType()) << " at " << self_path;
     }
     return "";
   }
@@ -202,17 +268,18 @@ namespace
 
 namespace protojson
 {
-  std::string ToProto(const rapidjson::Value& json, google::protobuf::Message* msg)
+  std::string ToProto(const rapidjson::Value& json, google::protobuf::Message* msg, JsonPath* path)
   {
+    JsonPath self_path {path, json};
     if (json.GetType() != rapidjson::kObjectType)
     {
-      return "JSON root is not a object";
+      return Str() << "JSON root is not a object at " << self_path;;
     }
     const  auto* d = msg->GetDescriptor();
     const auto* ref = msg->GetReflection();
     if (d == nullptr || ref == nullptr)
     {
-      return "Protobuf object has no reflection";
+      return Str() << "Protobuf object has no reflection at " << self_path;
     }
     
     for (rapidjson::Value::ConstMemberIterator itr = json.MemberBegin(); itr != json.MemberEnd(); ++itr)
@@ -222,7 +289,8 @@ namespace protojson
       if (field == nullptr)
         field = ref->FindKnownExtensionByName(name);
       if (field == nullptr) {
-        return Str() << "Failed to find json field " << name << " in proto";
+        // todo: list all fields
+        return Str() << "Failed to find json field " << name << " in proto at " << self_path;;
       }
       if (itr->value.GetType() == rapidjson::kNullType) {
         ref->ClearField(msg, field);
@@ -231,11 +299,12 @@ namespace protojson
       if (field->is_repeated())
       {
         if (itr->value.GetType() != rapidjson::kArrayType) {
-          return "Protobuf is repeated but json didnt specify an array";
+          return Str() << "Protobuf is repeated but json didn't specify an array at " << self_path;
         }
         for (rapidjson::Value::ConstValueIterator ait = itr->value.Begin(); ait != itr->value.End(); ++ait)
         {
-          const auto ret = json2field(ait, msg, field);
+          const rapidjson::Value* val = ait;
+          const auto ret = JsonToProtoField(*val, msg, field, &self_path);
           if (!ret.empty())
           {
             return ret;
@@ -244,7 +313,7 @@ namespace protojson
       }
       else
       {
-        const auto ret = json2field(&(itr->value), msg, field);
+        const auto ret = JsonToProtoField(itr->value, msg, field, &self_path);
         if (!ret.empty())
         {
           return ret;
@@ -252,5 +321,10 @@ namespace protojson
       }
     }
     return "";
+  }
+
+  std::string ToProto(const rapidjson::Value& json, google::protobuf::Message* msg)
+  {
+    return ToProto(json, msg, nullptr);
   }
 }
