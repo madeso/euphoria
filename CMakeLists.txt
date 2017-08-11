@@ -75,6 +75,19 @@ set(pbjson_src
 		)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/external/pbjson/src/)
 
+
+find_program(
+  CLANG_TIDY_EXE
+  NAMES "clang-tidy"
+  DOC "Path to clang-tidy executable"
+)
+if(NOT CLANG_TIDY_EXE)
+  message(STATUS "clang-tidy not found.")
+else()
+  message(STATUS "clang-tidy found: ${CLANG_TIDY_EXE}")
+endif()
+
+
 add_subdirectory(core)
 add_subdirectory(render)
 add_subdirectory(gui)

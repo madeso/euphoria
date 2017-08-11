@@ -1,4 +1,5 @@
 file(GLOB app_src *.cc;*.h;*.inl)
+file(GLOB app_only_src *.cc)
 set(src ${app_src})
 source_group("" FILES ${app_src})
 set(src ${app_src})
@@ -47,10 +48,16 @@ source_group("pbjson" FILES ${pbjson_src})
 
 include_directories(../external/font8x8/)
 
-
-
 add_library(core STATIC ${src})
 target_link_libraries(core
     ${PROTOBUF_LIBRARIES}
     ${assimp_LIBRARIES}
     )
+
+if(CLANG_TIDY_EXE)
+  # -fix
+  ADD_CUSTOM_TARGET(core-tidy
+                    COMMAND ${CLANG_TIDY_EXE} -p=${CMAKE_BINARY_DIR} ${app_only_src}
+                    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
+endif()
+
