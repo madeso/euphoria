@@ -37,3 +37,10 @@ if(CLANG_TIDY_EXE)
                     COMMAND ${CLANG_TIDY_EXE} -p=${CMAKE_BINARY_DIR} ${app_only_src}
                     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
 endif()
+
+if(CLANG_FORMAT_EXE)
+  # -fix
+  ADD_CUSTOM_TARGET(format-render
+                    COMMAND ${CLANG_FORMAT_EXE} -i ${app_src}
+                    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
+endif()

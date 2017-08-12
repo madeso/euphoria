@@ -122,6 +122,8 @@ if(CLANG_FORMAT_EXE)
   ADD_CUSTOM_TARGET(format)
   ADD_DEPENDENCIES(format
                    format-core
+                   format-render
+                   format-demo
                    )
 endif()
 
