@@ -10,11 +10,17 @@ namespace  // local
   IsNewline(const char c)
   {
     if(c == '\n')
+    {
       return true;
+    }
     else if(c == '\r')
+    {
       return true;
+    }
     else
+    {
       return false;
+    }
   }
 }
 
@@ -72,13 +78,21 @@ namespace  // local
   IsIdentChar(char c, bool first_char)
   {
     if(IsWithinInclusivei('a', c, 'z'))
+    {
       return true;
+    }
     if(IsWithinInclusivei('A', c, 'Z'))
+    {
       return true;
+    }
     if(IsWithinInclusivei('0', c, '9'))
+    {
       return !first_char;
+    }
     if(c == '_')
+    {
       return true;
+    }
 
     return false;
   }
@@ -109,7 +123,9 @@ TextFileParser::ReadString()
   std::ostringstream ss;
   const char         quote = '\"';
   if(PeekChar() != quote)
+  {
     return "";
+  }
   AdvanceChar();  // skip " char
   while(PeekChar() != quote)
   {
@@ -159,7 +175,9 @@ TextFileParser::ReadToEndOfLine()
   {
     const char c = ReadChar();
     if(c == 0)
+    {
       return ss.str();
+    }
     ss << c;
   }
   AdvanceChar();  // skip the newline

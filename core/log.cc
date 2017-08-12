@@ -56,7 +56,9 @@ Logger::GetLogger(const std::string& name)
 
   auto result = storage.find(name);
   if(result != storage.end())
+  {
     return result->second;
+  }
 
   const auto parent_category = StripLastString(name, '.');
   auto       parent =

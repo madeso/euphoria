@@ -26,14 +26,18 @@ namespace
   Error(FT_Error err)
   {
     if(err == 0)
+    {
       return;
+    }
     std::cerr << "FONT Error: " << err << "\n";
   }
   void
   ErrorNoThrow(FT_Error err)
   {
     if(err == 0)
+    {
       return;
+    }
     std::cerr << "FONT Error: " << err << "\n";
   }
 
@@ -206,7 +210,9 @@ GetCharactersFromFont(const std::string& font_file, unsigned int font_size,
   {
     FontChar cc = f.GetChar(ConvertCharToIndex(*c));
     if(cc.valid == false)
+    {
       continue;
+    }
     fontchars.chars.push_back(cc);
   }
 
@@ -223,7 +229,9 @@ GetCharactersFromFont(const std::string& font_file, unsigned int font_size,
       for(const FontChar& current : fontchars.chars)
       {
         if(previous.c == current.c)
+        {
           continue;
+        }
         FT_Vector delta{};
         FT_Get_Kerning(f.face, previous.c, current.c, FT_KERNING_DEFAULT,
                        &delta);
@@ -591,7 +599,9 @@ void
 Text::Draw(const vec2f& p, const Rgb& override_color) const
 {
   if(font_ == nullptr)
+  {
     return;
+  }
   const Rectf& e   = GetExtents();
   const vec2f  off = GetOffset(alignment_, e);
   if(use_background_)

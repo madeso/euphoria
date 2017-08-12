@@ -232,9 +232,13 @@ PingPong01(float v)
   {
     iter += 1;
     if(v > 1)
+    {
       v = 1 - (v - 1);
+    }
     if(v < 0)
+    {
       v = -v;
+    }
   }
 
   return v;

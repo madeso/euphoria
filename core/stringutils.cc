@@ -11,7 +11,9 @@ StripLastString(const std::string& str, char sep)
 {
   auto result = str.find(sep);
   if(result == std::string::npos)
+  {
     return str;
+  }
 
   return str.substr(result);
 }
@@ -108,7 +110,9 @@ RemoveFromEnd(const std::string& str, const std::string& end)
   {
     const auto new_length = str.length() - end.length();
     if(new_length == 0)
+    {
       return "";
+    }
     assert(new_length > 0);
     return str.substr(0, new_length);
   }

@@ -137,12 +137,16 @@ OnOpenglError(GLenum source, GLenum type, GLuint id, GLenum severity,
 {
   // ignore non-significant error/warning codes
   if(type == GL_DEBUG_TYPE_OTHER_ARB)
+  {
     return;
+  }
 
   // only display the first 10
   static int count = 0;
   if(count > 10)
+  {
     return;
+  }
   ++count;
 
   std::cout << "---------------" << std::endl;

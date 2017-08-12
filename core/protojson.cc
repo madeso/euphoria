@@ -337,7 +337,9 @@ namespace protojson
       const char* name  = itr->name.GetString();
       const auto* field = descriptor->FindFieldByName(name);
       if(field == nullptr)
+      {
         field = reflection->FindKnownExtensionByName(name);
+      }
       if(field == nullptr)
       {
         // todo: list all fields

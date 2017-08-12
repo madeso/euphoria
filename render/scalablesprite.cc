@@ -118,7 +118,9 @@ void
 ScalableSprite::BuildData() const
 {
   if(dirty_ == false)
+  {
     return;
+  }
   const auto position_cols = PerformTableLayout(cols_, size_.GetWidth());
   const auto position_rows = PerformTableLayout(rows_, size_.GetHeight());
 

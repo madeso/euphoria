@@ -27,11 +27,15 @@ LoadProtoText(google::protobuf::Message* t, const std::string& file_name)
   Assert(t);
   std::ifstream file(file_name.c_str());
   if(!file)
+  {
     return false;
+  }
   std::string data((std::istreambuf_iterator<char>(file)),
                    std::istreambuf_iterator<char>());
   if(false == google::protobuf::TextFormat::ParseFromString(data, t))
+  {
     return false;
+  }
   return true;
 }
 
@@ -43,7 +47,9 @@ SaveProtoText(const google::protobuf::Message& t, const std::string& file_name)
   std::ofstream output(file_name.c_str());
   std::string   data;
   if(false == google::protobuf::TextFormat::PrintToString(t, &data))
+  {
     return false;
+  }
   output << data;
   return true;
 }

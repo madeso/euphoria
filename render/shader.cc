@@ -95,7 +95,9 @@ namespace
     int length = 0;
     glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &length);
     if(length <= 0)
+    {
       return "";
+    }
     const int         max_length = length + 1;
     std::vector<char> str(max_length, 0);
     glGetShaderInfoLog(shader, max_length, &length, &str[0]);
@@ -108,7 +110,9 @@ namespace
     int length = 0;
     glGetProgramiv(shader, GL_INFO_LOG_LENGTH, &length);
     if(length <= 0)
+    {
       return "";
+    }
     const int         max_length = length + 1;
     std::vector<char> str(max_length, 0);
     glGetProgramInfoLog(shader, max_length, &length, &str[0]);
@@ -128,7 +132,9 @@ bool
 PrintErrorProgram(GLuint program)
 {
   if(GetProgramLinkStatus(program))
+  {
     return true;
+  }
   const std::string& log = GetProgramLog(program);
   ReportError(log, "PROGRAM");
   return false;
@@ -138,7 +144,9 @@ void
 PrintErrorShader(GLuint shader, const std::string& type)
 {
   if(GetShaderCompileStatus(shader))
+  {
     return;
+  }
   const std::string& log = GetShaderLog(shader);
   ReportError(log, type);
 }
@@ -179,7 +187,9 @@ Shader::Compile(const GLchar* vertexSource, const GLchar* fragmentSource,
   glAttachShader(id(), sVertex);
   glAttachShader(id(), sFragment);
   if(geometrySource != nullptr)
+  {
     glAttachShader(id(), gShader);
+  }
   glLinkProgram(id());
   const bool link_error = PrintErrorProgram(id());
   if(link_error == false)
@@ -190,15 +200,21 @@ Shader::Compile(const GLchar* vertexSource, const GLchar* fragmentSource,
   glDeleteShader(sVertex);
   glDeleteShader(sFragment);
   if(geometrySource != nullptr)
+  {
     glDeleteShader(gShader);
+  }
 
   for(const auto& attribute : bound_attributes_)
   {
     int attribute_id = glGetAttribLocation(id(), attribute.name.c_str());
     if(attribute_id == attribute.id)
+    {
       continue;
+    }
     if(attribute_id == -1)
+    {
       continue;
+    }
     std::cerr << attribute.name << " was bound to " << attribute_id
               << " but was requested at " << attribute.id << "\n";
     ret = false;
@@ -246,7 +262,9 @@ Shader::SetUniform(const ShaderUniform& attribute, const Rgb& val)
   Assert(IsCurrentlyBound());
   Assert(HasBoundUniform(attribute));
   if(attribute.id == -1)
+  {
     return;
+  }
   glUniform3f(attribute.id, val.GetRed(), val.GetGreen(), val.GetBlue());
 }
 
@@ -256,7 +274,9 @@ Shader::SetUniform(const ShaderUniform& attribute, const Rgba& val)
   Assert(IsCurrentlyBound());
   Assert(HasBoundUniform(attribute));
   if(attribute.id == -1)
+  {
     return;
+  }
   glUniform4f(attribute.id, val.GetRed(), val.GetGreen(), val.GetBlue(),
               val.GetAlpha());
 }
@@ -267,7 +287,9 @@ Shader::SetUniform(const ShaderUniform& attribute, const vec3f& val)
   Assert(IsCurrentlyBound());
   Assert(HasBoundUniform(attribute));
   if(attribute.id == -1)
+  {
     return;
+  }
   glUniform3f(attribute.id, val.x, val.y, val.z);
 }
 
@@ -277,7 +299,9 @@ Shader::SetUniform(const ShaderUniform& attribute, const vec4f& val)
   Assert(IsCurrentlyBound());
   Assert(HasBoundUniform(attribute));
   if(attribute.id == -1)
+  {
     return;
+  }
   glUniform4f(attribute.id, val.x, val.y, val.z, val.w);
 }
 
@@ -287,7 +311,9 @@ Shader::SetUniform(const ShaderUniform& attribute, const mat3f& val)
   Assert(IsCurrentlyBound());
   Assert(HasBoundUniform(attribute));
   if(attribute.id == -1)
+  {
     return;
+  }
   glUniformMatrix3fv(attribute.id, 1, GL_FALSE, val.GetDataPtr());
 }
 
@@ -297,7 +323,9 @@ Shader::SetUniform(const ShaderUniform& attribute, const mat4f& val)
   Assert(IsCurrentlyBound());
   Assert(HasBoundUniform(attribute));
   if(attribute.id == -1)
+  {
     return;
+  }
   glUniformMatrix4fv(attribute.id, 1, GL_FALSE, val.GetDataPtr());
 }
 
