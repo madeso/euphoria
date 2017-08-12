@@ -476,7 +476,8 @@ Rgba::Rgba(const Rgb& rgb, const float alpha)
 {
 }
 
-Rgba::Rgba(const float red, const float green, const float blue, const float alpha)
+Rgba::Rgba(const float red, const float green, const float blue,
+           const float alpha)
     : r(red)
     , g(green)
     , b(blue)

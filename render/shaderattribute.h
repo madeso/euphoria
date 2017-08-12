@@ -17,7 +17,8 @@ enum class ShaderAttributeSize
 class ShaderAttribute
 {
  public:
-  ShaderAttribute(const std::string& aname, glint aid, ShaderAttributeSize asize);
+  ShaderAttribute(const std::string& aname, glint aid,
+                  ShaderAttributeSize asize);
 
   std::string         name;
   glint               id;

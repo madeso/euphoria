@@ -40,7 +40,8 @@ LoadProtoText(google::protobuf::Message* message, const std::string& file_name)
 }
 
 bool
-SaveProtoText(const google::protobuf::Message& message, const std::string& file_name)
+SaveProtoText(const google::protobuf::Message& message,
+              const std::string&               file_name)
 {
   // if (false == VerifyFileForWriting(file_name)) return false;
 
@@ -55,7 +56,8 @@ SaveProtoText(const google::protobuf::Message& message, const std::string& file_
 }
 
 bool
-LoadProtoBinary(google::protobuf::Message* message, const std::string& file_name)
+LoadProtoBinary(google::protobuf::Message* message,
+                const std::string&         file_name)
 {
   std::fstream input(file_name.c_str(), std::ios::in | std::ios::binary);
   const bool   parse_result = message->ParseFromIstream(&input);
@@ -72,7 +74,7 @@ SaveProtoBinary(const google::protobuf::Message& message,
                 const std::string&               file_name)
 {
   std::fstream config_stream(
-    file_name.c_str(), std::ios::out | std::ios::trunc | std::ios::binary);
+      file_name.c_str(), std::ios::out | std::ios::trunc | std::ios::binary);
   return message.SerializeToOstream(&config_stream);
 }
 
@@ -107,7 +109,8 @@ LoadProtoJson(FileSystem* fs, google::protobuf::Message* message,
 }
 
 std::string
-SaveProtoJson(const google::protobuf::Message& message, const std::string& file_name)
+SaveProtoJson(const google::protobuf::Message& message,
+              const std::string&               file_name)
 {
   bool write_result = pbjson::pb2json_file(&message, file_name, true);
   if(write_result == false)

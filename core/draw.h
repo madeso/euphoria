@@ -32,7 +32,8 @@ class Draw
   LineAntialiased(const Rgb& color, const vec2i& from, const vec2i& to);
 
   Draw&
-  Text(const vec2i& start_pos, const std::string& text, const Rgb& color, int scale);
+  Text(const vec2i& start_pos, const std::string& text, const Rgb& color,
+       int scale);
 
  private:
   Image* image_;

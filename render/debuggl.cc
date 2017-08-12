@@ -133,7 +133,8 @@ namespace
 
 void APIENTRY
 OnOpenglError(GLenum source, GLenum type, GLuint id, GLenum severity,
-              GLsizei /*length*/, const GLchar *message, const GLvoid* /*userParam*/)
+              GLsizei /*length*/, const GLchar *message,
+              const GLvoid * /*userParam*/)
 {
   // ignore non-significant error/warning codes
   if(type == GL_DEBUG_TYPE_OTHER_ARB)

@@ -529,8 +529,7 @@ LoadFromFilesystemToNodeList(FileSystem* fs, const std::string& path,
 // -----------------------------------------------------------------------------
 
 std::shared_ptr<TemplateNodeString>
-ReadText(LexReader* reader, TemplateError*, const std::string&,
-         FileSystem*)
+ReadText(LexReader* reader, TemplateError*, const std::string&, FileSystem*)
 {
   Assert(reader);
   const Lex& lex = reader->Read();

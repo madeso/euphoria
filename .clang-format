@@ -22,6 +22,7 @@ AlwaysBreakAfterReturnType: All
 SpaceBeforeParens: Never
 SpaceInEmptyParentheses: false
 SpacesInParentheses: false
+PointerAlignment: Left
 
 #temporary, need to look into better sorting first
 SortIncludes: false

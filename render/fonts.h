@@ -22,8 +22,8 @@ struct CharData
   CharData(const BufferBuilder2d& data, const Rectf& ex, unsigned int ch,
            float ad);
 
-  Buffer2d buffer;
-  Rectf    extent;
+  Buffer2d     buffer;
+  Rectf        extent;
   unsigned int c;
   float        advance;
 };
