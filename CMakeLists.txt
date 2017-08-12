@@ -102,7 +102,7 @@ add_subdirectory(demo)
 if(CLANG_TIDY_EXE)
   ADD_CUSTOM_TARGET(tidy)
   ADD_DEPENDENCIES(tidy
-                   core-tidy
-                   render-tidy
+                   tidy-core
+                   tidy-render
                    )
 endif()
