@@ -172,10 +172,8 @@ KeepWithin(const float min, const float v, const float max)
   {
     return min;
   }
-  else
-  {
-    return v;
-  }
+
+  return v;
 }
 
 const bool

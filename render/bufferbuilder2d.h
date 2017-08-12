@@ -12,7 +12,7 @@ class Point
 {
  public:
   Point(float x, float y, float u, float v);
-  Point(const vec2f& pos, const vec2f& vert);
+  Point(const vec2f& apos, const vec2f& avert);
 
   const vec2f pos;
   const vec2f vert;

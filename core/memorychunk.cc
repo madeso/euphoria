@@ -42,9 +42,9 @@ MemoryChunk::MemoryChunk(unsigned long size)
 }
 
 void
-CopyToMemory(MemoryChunk* file, const void* src)
+CopyToMemory(MemoryChunk* memory, const void* src)
 {
-  std::memcpy(file->GetData(), src, sizeof(unsigned char) * file->GetSize());
+  std::memcpy(memory->GetData(), src, sizeof(unsigned char) * memory->GetSize());
 }
 
 MemoryChunkFile::MemoryChunkFile(std::shared_ptr<MemoryChunk> d)

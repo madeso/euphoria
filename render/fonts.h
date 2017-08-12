@@ -19,11 +19,11 @@ class BufferBuilder2d;
 
 struct CharData
 {
-  CharData(const BufferBuilder2d& data, const Rectf& extent, unsigned int c,
-           float advance);
+  CharData(const BufferBuilder2d& data, const Rectf& ex, unsigned int ch,
+           float ad);
+
   Buffer2d buffer;
   Rectf    extent;
-
   unsigned int c;
   float        advance;
 };
@@ -116,14 +116,14 @@ class Text
 class Font
 {
  public:
-  Font(Shader* shader, const std::string& path, unsigned int font_size,
-       const std::string& chars);
+  Font(Shader* shader, const std::string& font_file, unsigned int font_size,
+       const std::string& possible_chars);
   unsigned int
   GetFontSize() const;
 
  protected:
   friend void
-  Text::Draw(const vec2f& p, const Rgb& c) const;
+  Text::Draw(const vec2f& p, const Rgb& override_color) const;
   friend Rectf
   Text::GetExtents() const;
 

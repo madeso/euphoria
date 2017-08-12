@@ -33,7 +33,7 @@ class ShaderId : Noncopyable
 };
 
 void
-Use(const Shader* id);
+Use(const Shader* shader);
 
 class FileSystem;  // core
 

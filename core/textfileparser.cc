@@ -13,14 +13,13 @@ namespace  // local
     {
       return true;
     }
+
     if(c == '\r')
     {
       return true;
     }
-    else
-    {
-      return false;
-    }
+
+    return false;
   }
 }
 

@@ -33,7 +33,7 @@ Example:
 @returns The smoothed result.
 */
 const float
-Curve(const float target, const float current, const float smoothing);
+Curve(const float newValue, const float oldValue, const float smoothingValue);
 
 /** Calculates the square of the argument.
 @see Sqrt()

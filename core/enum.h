@@ -49,7 +49,7 @@ class EnumType
 class EnumValue
 {
  public:
-  EnumValue(EnumType* type, size_t value);
+  EnumValue(EnumType* t, size_t v);
 
   // todo: add EnumType to the parameter to verify against stored member
   // so

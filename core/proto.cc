@@ -22,9 +22,9 @@
 // #include "ride/stringutils.h"
 
 bool
-LoadProtoText(google::protobuf::Message* t, const std::string& file_name)
+LoadProtoText(google::protobuf::Message* message, const std::string& file_name)
 {
-  Assert(t);
+  Assert(message);
   std::ifstream file(file_name.c_str());
   if(!file)
   {
@@ -32,7 +32,7 @@ LoadProtoText(google::protobuf::Message* t, const std::string& file_name)
   }
   std::string data((std::istreambuf_iterator<char>(file)),
                    std::istreambuf_iterator<char>());
-  if(false == google::protobuf::TextFormat::ParseFromString(data, t))
+  if(false == google::protobuf::TextFormat::ParseFromString(data, message))
   {
     return false;
   }
@@ -40,13 +40,13 @@ LoadProtoText(google::protobuf::Message* t, const std::string& file_name)
 }
 
 bool
-SaveProtoText(const google::protobuf::Message& t, const std::string& file_name)
+SaveProtoText(const google::protobuf::Message& message, const std::string& file_name)
 {
   // if (false == VerifyFileForWriting(file_name)) return false;
 
   std::ofstream output(file_name.c_str());
   std::string   data;
-  if(false == google::protobuf::TextFormat::PrintToString(t, &data))
+  if(false == google::protobuf::TextFormat::PrintToString(message, &data))
   {
     return false;
   }
@@ -55,9 +55,9 @@ SaveProtoText(const google::protobuf::Message& t, const std::string& file_name)
 }
 
 bool
-LoadProtoBinary(google::protobuf::Message* message, const std::string& path)
+LoadProtoBinary(google::protobuf::Message* message, const std::string& file_name)
 {
-  std::fstream input(path.c_str(), std::ios::in | std::ios::binary);
+  std::fstream input(file_name.c_str(), std::ios::in | std::ios::binary);
   const bool   parse_result = message->ParseFromIstream(&input);
   if(false == parse_result)
   {
@@ -69,20 +69,20 @@ LoadProtoBinary(google::protobuf::Message* message, const std::string& path)
 
 bool
 SaveProtoBinary(const google::protobuf::Message& message,
-                const std::string&               config_path)
+                const std::string&               file_name)
 {
   std::fstream config_stream(
-      config_path.c_str(), std::ios::out | std::ios::trunc | std::ios::binary);
+    file_name.c_str(), std::ios::out | std::ios::trunc | std::ios::binary);
   return message.SerializeToOstream(&config_stream);
 }
 
 std::string
 LoadProtoJson(FileSystem* fs, google::protobuf::Message* message,
-              const std::string& path)
+              const std::string& file_name)
 {
   std::string source;
 
-  const bool load_result = fs->ReadFileToString(path, &source);
+  const bool load_result = fs->ReadFileToString(file_name, &source);
   if(!load_result)
   {
     // todo: add file to error
@@ -104,21 +104,12 @@ LoadProtoJson(FileSystem* fs, google::protobuf::Message* message,
   std::string err;
 
   return protojson::ToProto(doc, message);
-
-  // const int proto_parse = pbjson::jsonobject2pb(&doc, message, err);
-
-  // int proto_parse = pbjson::json2pb_file(path.c_str(), message, err);
-  // if (proto_parse < 0) {
-  //   return err;
-  // }
-
-  // return "";
 }
 
 std::string
-SaveProtoJson(const google::protobuf::Message& t, const std::string& path)
+SaveProtoJson(const google::protobuf::Message& message, const std::string& file_name)
 {
-  bool write_result = pbjson::pb2json_file(&t, path, true);
+  bool write_result = pbjson::pb2json_file(&message, file_name, true);
   if(write_result == false)
   {
     return "Unable to write to file";

@@ -18,12 +18,12 @@ Rgb::Rgb(const float gray)
   SetRgb(gray, gray, gray);
 }
 
-Rgb::Rgb(const int all)
+Rgb::Rgb(const int rgb)
     : r(0)
     , g(0)
     , b(0)
 {
-  SetRgb(all);
+  SetRgb(rgb);
 }
 
 Rgb::Rgb(const Rgba& rgb)
@@ -468,27 +468,27 @@ RgbTransform::Transform(const Rgb& from, float v, const Rgb to)
              FloatTransform::Transform(from.GetBlue(), v, to.GetBlue()));
 }
 
-Rgba::Rgba(const Rgb& c, const float aa)
-    : r(c.GetRed())
-    , g(c.GetGreen())
-    , b(c.GetBlue())
-    , a(aa)
+Rgba::Rgba(const Rgb& rgb, const float alpha)
+    : r(rgb.GetRed())
+    , g(rgb.GetGreen())
+    , b(rgb.GetBlue())
+    , a(alpha)
 {
 }
 
-Rgba::Rgba(const float ar, const float ag, const float ab, const float aa)
-    : r(ar)
-    , g(ag)
-    , b(ab)
-    , a(aa)
+Rgba::Rgba(const float red, const float green, const float blue, const float alpha)
+    : r(red)
+    , g(green)
+    , b(blue)
+    , a(alpha)
 {
 }
 
-Rgba::Rgba(const float gray, const float aa)
+Rgba::Rgba(const float gray, const float alpha)
     : r(gray)
     , g(gray)
     , b(gray)
-    , a(aa)
+    , a(alpha)
 {
 }
 
@@ -541,10 +541,10 @@ Rgba::SetAlpha(const float v)
 }
 
 void
-Rgba::SetRgb(const float ar, const float ag, const float ab)
+Rgba::SetRgb(const float red, const float green, const float blue)
 {
-  SetRed(ar);
-  SetGreen(ag);
-  SetBlue(ab);
+  SetRed(red);
+  SetGreen(green);
+  SetBlue(blue);
   SetAlpha(1);
 }

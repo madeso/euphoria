@@ -35,7 +35,7 @@ class Sprite
   GetWidth() const;
 
   void
-  SetAlpha(float f);
+  SetAlpha(float a);
 
   void
   Render(SpriteRenderer* render);

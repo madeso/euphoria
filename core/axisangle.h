@@ -21,7 +21,7 @@ class AxisAngle
   Angle angle;
 
  private:
-  AxisAngle(const vec3f::Unit& axis, const Angle& angle);
+  AxisAngle(const vec3f::Unit& ax, const Angle& ang);
 };
 
 std::ostream&

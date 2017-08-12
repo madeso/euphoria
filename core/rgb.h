@@ -177,11 +177,11 @@ namespace colorutil
   const int
   GetComponent(unsigned int i, int steps);
   const int
-  GetRed(unsigned int i);
+  GetRed(unsigned int rgb);
   const int
-  GetGreen(unsigned int i);
+  GetGreen(unsigned int rgb);
   const int
-  GetBlue(unsigned int i);
+  GetBlue(unsigned int rgb);
 }
 
 class Rgba;
@@ -189,7 +189,7 @@ class Rgba;
 class Rgb
 {
  public:
-  Rgb(const float r, const float g, const float b);
+  Rgb(const float red, const float green, const float blue);
   explicit Rgb(const float gray);
   explicit Rgb(const int rgb);
   explicit Rgb(const Rgba& rgb);
@@ -218,7 +218,7 @@ class Rgb
   // const float& operator[](int index) const;
 
   void
-  SetRgb(const float r, const float g, const float b);
+  SetRgb(const float red, const float green, const float blue);
   void
   SetRgb(int rgb);
 
@@ -237,9 +237,9 @@ struct RgbTransform
 class Rgba
 {
  public:
-  Rgba(const Rgb& rgb, const float a = 1.0f);
-  Rgba(const float r, const float g, const float b, const float a = 1.0f);
-  explicit Rgba(const float gray, const float a = 1.0f);
+  Rgba(const Rgb& rgb, const float alpha = 1.0f);
+  Rgba(const float red, const float green, const float blue, const float alpha = 1.0f);
+  explicit Rgba(const float gray, const float alpha = 1.0f);
 
   const float*
   GetData() const;
@@ -263,7 +263,7 @@ class Rgba
   SetAlpha(const float v);
 
   void
-  SetRgb(const float r, const float g, const float b);
+  SetRgb(const float red, const float green, const float blue);
 
  private:
   float r;

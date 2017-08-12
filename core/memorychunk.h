@@ -34,7 +34,7 @@ class MemoryChunkFile
   explicit MemoryChunkFile(std::shared_ptr<MemoryChunk> d);
 
   void
-  Write(void* data, unsigned long size);
+  Write(void* src, unsigned long size);
 
   std::shared_ptr<MemoryChunk> data;
   unsigned long                position;
