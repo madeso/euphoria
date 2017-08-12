@@ -64,7 +64,7 @@ endif()
 if(CLANG_FORMAT_EXE)
   # -fix
   ADD_CUSTOM_TARGET(format-core
-                    COMMAND ${CLANG_FORMAT_EXE} -i ${app_only_src}
+                    COMMAND ${CLANG_FORMAT_EXE} -i ${app_src}
                     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
 endif()
 
