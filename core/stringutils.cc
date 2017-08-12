@@ -116,8 +116,7 @@ RemoveFromEnd(const std::string& str, const std::string& end)
     assert(new_length > 0);
     return str.substr(0, new_length);
   }
-  else
-  {
-    return str;
-  }
+
+
+  return str;
 }

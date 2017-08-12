@@ -13,7 +13,7 @@ namespace  // local
     {
       return true;
     }
-    else if(c == '\r')
+    if(c == '\r')
     {
       return true;
     }
@@ -41,10 +41,9 @@ TextFileParser::PeekChar(unsigned int advance)
   {
     return string_[p];
   }
-  else
-  {
-    return 0;
-  }
+
+
+  return 0;
 }
 
 char

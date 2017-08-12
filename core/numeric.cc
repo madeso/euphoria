@@ -25,10 +25,8 @@ ZeroOrValue(float r)
   {
     return 0;
   }
-  else
-  {
-    return r;
-  }
+
+  return r;
 }
 
 const int
@@ -38,10 +36,8 @@ Sign(const float r)
   {
     return 1;
   }
-  else
-  {
-    return -1;
-  }
+
+  return -1;
 }
 
 const float
@@ -60,10 +56,9 @@ Curve(const float newValue, const float oldValue, const float smoothingValue)
   {
     return newValue;
   }
-  else
-  {
-    return val;
-  }
+
+
+  return val;
 }
 
 const float
@@ -86,10 +81,9 @@ Abs(const float r)
   {
     return -r;
   }
-  else
-  {
-    return r;
-  }
+
+
+  return r;
 }
 
 const float
@@ -99,10 +93,9 @@ Min(const float lhs, const float rhs)
   {
     return lhs;
   }
-  else
-  {
-    return rhs;
-  }
+
+
+  return rhs;
 }
 
 const int
@@ -112,10 +105,9 @@ Min(const int lhs, const int rhs)
   {
     return lhs;
   }
-  else
-  {
-    return rhs;
-  }
+
+
+  return rhs;
 }
 
 const float
@@ -125,10 +117,9 @@ Max(const float lhs, const float rhs)
   {
     return lhs;
   }
-  else
-  {
-    return rhs;
-  }
+
+
+  return rhs;
 }
 
 const int
@@ -138,10 +129,9 @@ Max(const int lhs, const int rhs)
   {
     return lhs;
   }
-  else
-  {
-    return rhs;
-  }
+
+
+  return rhs;
 }
 
 
@@ -178,7 +168,7 @@ KeepWithin(const float min, const float v, const float max)
   {
     return max;
   }
-  else if(v < min)
+  if(v < min)
   {
     return min;
   }
@@ -335,10 +325,9 @@ Round(const float num, const float gran)
   {
     return upper;
   }
-  else
-  {
-    return lower;
-  }
+
+
+  return lower;
 }
 
 const float

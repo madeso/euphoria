@@ -344,27 +344,8 @@ namespace
     {
       return "";
     }
-    else
-    {
-      return content;
-    }
-#if 0
-  std::ifstream t(path.c_str());
 
-  if( !t ) {
-    return "";
-  }
-
-  std::string str;
-
-  t.seekg(0, std::ios::end);
-  str.reserve(t.tellg());
-  t.seekg(0, std::ios::beg);
-
-  str.assign((std::istreambuf_iterator<char>(t)),
-             std::istreambuf_iterator<char>());
-  return str;
-#endif
+    return content;
   }
 }
 

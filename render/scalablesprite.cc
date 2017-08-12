@@ -37,10 +37,8 @@ namespace
       dest->push_back(-100.0f);
       return 100.0f;
     }
-    else
-    {
-      return size;
-    }
+
+    return size;
   }
 }
 

@@ -22,10 +22,8 @@ namespace
     {
       return demangled.get();
     }
-    else
-    {
-      return symbol;
-    }
+
+    return symbol;
   }
 
   std::vector<std::string>
@@ -116,9 +114,7 @@ namespace assertlib
     {
       throw "assertion_failed";
     }
-    else
-    {
-      exit(-1);
-    }
+
+    exit(-1);
   }
 }
