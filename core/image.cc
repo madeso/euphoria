@@ -37,7 +37,7 @@ void Image::Setup(int image_width, int image_height, bool alpha, int default_val
   has_alpha_ = alpha;
 
   components.resize(0); // clear all pixels
-  const size_t size = width_ * height_ * GetPixelByteSize();
+  const unsigned int size = width_ * height_ * GetPixelByteSize();
   if(default_value < 0) {
     components.resize(size);
   }

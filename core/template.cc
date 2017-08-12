@@ -5,6 +5,7 @@
 #include "core/textfileparser.h"
 #include "core/assert.h"
 #include "core/str.h"
+#include "core/noncopyable.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -66,6 +67,11 @@ class TemplateNode {
  public:
   TemplateNode() {}
   virtual ~TemplateNode() {}
+
+  NONCOPYABLE_CONSTRUCTOR(TemplateNode);
+  NONCOPYABLE_ASSIGNMENT(TemplateNode);
+  NONCOPYABLE_MOVE_CONSTRUCTOR(TemplateNode);
+  NONCOPYABLE_MOVE_ASSIGNMENT(TemplateNode);
 
   virtual void Eval(Defines* defines, std::ostringstream* out, TemplateError* error) = 0;
 };
