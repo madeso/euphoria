@@ -87,6 +87,17 @@ else()
   message(STATUS "clang-tidy found: ${CLANG_TIDY_EXE}")
 endif()
 
+find_program(
+  CLANG_FORMAT_EXE
+  NAMES "clang-format"
+  DOC "Path to clang-format executable"
+)
+if(NOT CLANG_FORMAT_EXE)
+  message(STATUS "clang-format not found.")
+else()
+  message(STATUS "clang-format found: ${CLANG_FORMAT_EXE}")
+endif()
+
 
 add_subdirectory(core)
 add_subdirectory(render)
@@ -106,3 +117,11 @@ if(CLANG_TIDY_EXE)
                    tidy-render
                    )
 endif()
+
+if(CLANG_FORMAT_EXE)
+  ADD_CUSTOM_TARGET(format)
+  ADD_DEPENDENCIES(format
+                   format-core
+                   )
+endif()
+
