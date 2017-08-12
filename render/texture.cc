@@ -72,7 +72,7 @@ Texture2dLoadData& Texture2dLoadData::SetFilterMin(FilterMinification v) {
 
 ////////////////////////////////////////////////////////////////////////////////
 
-TextureId::TextureId() { glGenTextures(1, &id_); }
+TextureId::TextureId() : id_(0) { glGenTextures(1, &id_); }
 
 TextureId::~TextureId() { glDeleteTextures(1, &id_); }
 

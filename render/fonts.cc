@@ -8,6 +8,7 @@
 #include <memory>
 #include <map>
 #include "core/assert.h"
+#include "core/noncopyable.h"
 #include <iostream>
 
 #include "render/bufferbuilder2d.h"
@@ -38,9 +39,14 @@ unsigned int ConvertCharToIndex(char c) {
 }
 
 struct Library {
+  NONCOPYABLE_CONSTRUCTOR(Library);
+  NONCOPYABLE_ASSIGNMENT(Library);
+  NONCOPYABLE_MOVE_CONSTRUCTOR(Library);
+  NONCOPYABLE_MOVE_ASSIGNMENT(Library);
+
   FT_Library  library;
 
-  Library() {
+  Library() : library(nullptr) {
     Error(FT_Init_FreeType( &library ));
   }
 
@@ -50,7 +56,15 @@ struct Library {
 };
 
 struct FontChar {
-  FontChar() : valid(false) { }
+  FontChar()
+    : c(0)
+    , valid(false)
+    , glyph_width(0)
+    , glyph_height(0)
+    , bearing_x(0)
+    , bearing_y(0)
+    , advance(0)
+  { }
   unsigned int c;
   bool valid;
   int glyph_width;
@@ -64,7 +78,12 @@ struct FontChar {
 struct Face {
   FT_Face face;
 
-  Face(Library* lib, const std::string& path, unsigned int size) {
+  NONCOPYABLE_CONSTRUCTOR(Face);
+  NONCOPYABLE_ASSIGNMENT(Face);
+  NONCOPYABLE_MOVE_CONSTRUCTOR(Face);
+  NONCOPYABLE_MOVE_ASSIGNMENT(Face);
+
+  Face(Library* lib, const std::string& path, unsigned int size) : face(nullptr) {
     int face_index = 0;
     Error(FT_New_Face(lib->library, path.c_str(), face_index, &face));
     Error(FT_Set_Pixel_Sizes(face, 0, size));
@@ -89,7 +108,7 @@ struct Face {
     ch.valid = true;
     ch.advance = slot->advance.x >> 6;
     // pen_y += slot->advance.y >> 6;
-    const unsigned long size = ch.glyph_width*ch.glyph_height;
+    const int size = ch.glyph_width*ch.glyph_height;
     ch.pixels.resize(size, 0);
     memcpy(&ch.pixels[0], slot->bitmap.buffer, size);
 
@@ -158,7 +177,7 @@ FontChars GetCharactersFromFont(const std::string &font_file, unsigned int font_
     for(const FontChar& previous : fontchars.chars) {
       for(const FontChar& current : fontchars.chars) {
         if( previous.c == current.c) continue;
-        FT_Vector delta;
+        FT_Vector delta {};
         FT_Get_Kerning( f.face, previous.c, current.c,
                         FT_KERNING_DEFAULT, &delta);
         int dx = delta.x  >> 6;
@@ -265,7 +284,7 @@ Font::Font(Shader* shader, const std::string& font_file, unsigned int font_size,
     r.w = fontchars.chars[i].glyph_width;
     r.h = fontchars.chars[i].glyph_height;
   }
-  stbrp_context context;
+  stbrp_context context {};
   const int num_nodes = texture_width;
   std::vector<stbrp_node> nodes(num_nodes);
   stbrp_init_target(&context, texture_width, texture_height, &nodes[0], num_nodes);
