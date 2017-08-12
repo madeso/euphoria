@@ -81,7 +81,7 @@ const Texture2d* ScalableSprite::texture_ptr() const {
 const Buffer2d* ScalableSprite::buffer_ptr() const {
   BuildData();
   Assert(dirty_ == false);
-  Assert(buffer_.get() != nullptr);
+  Assert(buffer_ != nullptr);
   return buffer_.get();
 }
 

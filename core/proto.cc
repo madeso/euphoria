@@ -100,7 +100,7 @@ std::string LoadProtoJson(FileSystem* fs, google::protobuf::Message* message,
 
 std::string SaveProtoJson(const google::protobuf::Message& t,
                        const std::string& path) {
-  bool write_result = pbjson::pb2json_file(&t, path.c_str(), true);
+  bool write_result = pbjson::pb2json_file(&t, path, true);
   if (write_result == false) {
     return "Unable to write to file";
   }
