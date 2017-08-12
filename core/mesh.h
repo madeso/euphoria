@@ -8,35 +8,45 @@
 #include "core/rgb.h"
 #include "core/enum.h"
 
-enum class WrapMode {
-  REPEAT, CLAMP_TO_EDGE, MIRROR_REPEAT
+enum class WrapMode
+{
+  REPEAT,
+  CLAMP_TO_EDGE,
+  MIRROR_REPEAT
 };
 
-class MeshPart {
-public:
+class MeshPart
+{
+ public:
   MeshPart();
 
-  unsigned int material;
-  std::vector<float> points;
+  unsigned int              material;
+  std::vector<float>        points;
   std::vector<unsigned int> faces;
-  int facecount;
+  int                       facecount;
 
-  void AddPoint(float x, float y, float z, float nx, float ny, float nz, float u, float v);
-  void AddFace(unsigned int a, unsigned int b, unsigned int c);
+  void
+  AddPoint(float x, float y, float z, float nx, float ny, float nz, float u,
+           float v);
+  void
+  AddFace(unsigned int a, unsigned int b, unsigned int c);
 };
 
-class MaterialTexture {
+class MaterialTexture
+{
  public:
   MaterialTexture(const std::string& p, EnumValue t);
   std::string path;
-  EnumValue type;
+  EnumValue   type;
 };
 
-class Material {
-public:
+class Material
+{
+ public:
   Material();
 
-  void SetTexture(const std::string& texture_name, const std::string& texture_path);
+  void
+  SetTexture(const std::string& texture_name, const std::string& texture_path);
 
   std::string name;
 
@@ -49,32 +59,37 @@ public:
 
   float shininess;
 
-  float alpha;
+  float                        alpha;
   std::vector<MaterialTexture> textures;
-  WrapMode wraps;
-  WrapMode wrapt;
+  WrapMode                     wraps;
+  WrapMode                     wrapt;
 };
 
-class Mesh {
-public:
+class Mesh
+{
+ public:
   std::vector<Material> materials;
   std::vector<MeshPart> parts;
 };
 
-class MeshLoadResult {
-public:
-  Mesh mesh;
+class MeshLoadResult
+{
+ public:
+  Mesh        mesh;
   std::string error;
 };
 
-namespace meshes {
+namespace meshes
+{
+  MeshLoadResult
+  LoadMesh(const std::string& path);
 
-MeshLoadResult LoadMesh(const std::string& path);
-
-Mesh CreateCube(float size);
-Mesh CreateSphere(float size, const std::string& texture);
-Mesh CreateBox(float width, float height, float depth);
-
+  Mesh
+  CreateCube(float size);
+  Mesh
+  CreateSphere(float size, const std::string& texture);
+  Mesh
+  CreateBox(float width, float height, float depth);
 }
 
-#endif // CORE_MESH_H
+#endif  // CORE_MESH_H

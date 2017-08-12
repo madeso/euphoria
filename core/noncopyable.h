@@ -3,13 +3,16 @@
 
 #define NONCOPYABLE_CONSTRUCTOR(CLASS) CLASS(const CLASS& other) = delete
 #define NONCOPYABLE_ASSIGNMENT(CLASS) void operator=(const CLASS&) = delete
-#define NONCOPYABLE_MOVE_CONSTRUCTOR(CLASS) CLASS(CLASS&& other) = delete
+#define NONCOPYABLE_MOVE_CONSTRUCTOR(CLASS) CLASS(CLASS&& other)   = delete
 #define NONCOPYABLE_MOVE_ASSIGNMENT(CLASS) void operator=(CLASS&&) = delete
 
 
-class Noncopyable {
+class Noncopyable
+{
  public:
-  Noncopyable() {}
+  Noncopyable()
+  {
+  }
 
   NONCOPYABLE_CONSTRUCTOR(Noncopyable);
   NONCOPYABLE_ASSIGNMENT(Noncopyable);

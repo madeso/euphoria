@@ -6,16 +6,23 @@
 
 // todo: support hotloading
 
-template<typename Key, typename Data, typename Loader>
-class Cache {
+template <typename Key, typename Data, typename Loader>
+class Cache
+{
  public:
-  std::shared_ptr<Data> Get(const Key& key) {
+  std::shared_ptr<Data>
+  Get(const Key& key)
+  {
     auto found = cache.find(key);
-    if (found != cache.end()) {
+    if(found != cache.end())
+    {
       auto cached = found->second.lock();
-      if (cached) {
+      if(cached)
+      {
         return cached;
-      } else {
+      }
+      else
+      {
         cache.erase(found);
       }
     }
@@ -29,4 +36,4 @@ class Cache {
   std::map<Key, std::weak_ptr<Data>> cache;
 };
 
-#endif //EUPHORIA_CACHE_H
+#endif  // EUPHORIA_CACHE_H

@@ -6,8 +6,9 @@
 
 /** Basic string builder.
  */
-class Str {
-public:
+class Str
+{
+ public:
   /** Generate a string.
   @see toString()
   @return the generated string.
@@ -18,21 +19,24 @@ public:
   @see operator std::string()
   @return the generated string.
    */
-  std::string ToString() const;
+  std::string
+  ToString() const;
 
   /** Add stuff to the stream.
   @param t object to add to the stream.
   @return this
    */
   template <typename Type>
-  Str& operator<<(const Type& t) {
+  Str&
+  operator<<(const Type& t)
+  {
     stream_ << t;
     return *this;
   }
 
-private:
+ private:
   std::ostringstream stream_;
 };
 
 
-#endif // CORE_STR_H
+#endif  // CORE_STR_H

@@ -21,14 +21,16 @@ better numbers than Mersenne. How can you go wrong? :)
 // http://stackoverflow.com/questions/1046714/what-is-a-good-random-number-generator-for-a-game
 // http://stackoverflow.com/a/1227137
 
-uint32 Random::TimeSeed() {
+uint32
+Random::TimeSeed()
+{
   // idea from http://www.eternallyconfuzzled.com/arts/jsw_art_rand.aspx
   time_t now = time(nullptr);
 
-  auto* p = reinterpret_cast<unsigned char*>(&now);
+  auto*  p    = reinterpret_cast<unsigned char*>(&now);
   uint32 seed = 0;
 
-  for (size_t i = 0; i < sizeof(time_t); i++)
+  for(size_t i = 0; i < sizeof(time_t); i++)
   {
     seed = seed * (std::numeric_limits<unsigned char>().max() + 2U) + p[i];
   }
@@ -36,13 +38,19 @@ uint32 Random::TimeSeed() {
   return seed;
 }
 
-Random::Random(uint32 seed) : index_(0), state_{0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0} {
-  for (uint32 i = 0; i < 16; ++i) {
+Random::Random(uint32 seed)
+    : index_(0)
+    , state_{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+{
+  for(uint32 i = 0; i < 16; ++i)
+  {
     state_[i] = seed * i;
   }
 }
 
-uint32 Random::NextInteger() {
+uint32
+Random::NextInteger()
+{
   uint32 a, b, c, d;
   a = state_[index_];
   c = state_[(index_ + 13) & 15];
@@ -50,100 +58,126 @@ uint32 Random::NextInteger() {
   c = state_[(index_ + 9) & 15];
   c ^= (c >> 11);
   a = state_[index_] = b ^ c;
-  d = a ^ ((a << 5) & 0xDA442D24UL);
-  index_ = (index_ + 15) & 15;
-  a = state_[index_];
-  state_[index_] = a ^ b ^ d ^ (a << 2) ^ (b << 18) ^ (c << 28);
+  d                  = a ^ ((a << 5) & 0xDA442D24UL);
+  index_             = (index_ + 15) & 15;
+  a                  = state_[index_];
+  state_[index_]     = a ^ b ^ d ^ (a << 2) ^ (b << 18) ^ (c << 28);
   return state_[index_];
 }
 
-float Random::NextFloat01() {
-  return static_cast<float>(NextInteger()) / std::numeric_limits<uint32>().max();
+float
+Random::NextFloat01()
+{
+  return static_cast<float>(NextInteger()) /
+         std::numeric_limits<uint32>().max();
 }
 
-float Random::NextRange(float min, float max) {
+float
+Random::NextRange(float min, float max)
+{
   return From01(min, NextFloat01(), max);
 }
 
-float Random::NextRange(float max) {
+float
+Random::NextRange(float max)
+{
   return NextRange(0.0f, max);
 }
 
-int Random::NextRange(int min, int max) {
+int
+Random::NextRange(int min, int max)
+{
   return static_cast<int>(min + NextFloat01() * (max - min));
 }
 
-int Random::NextRange(int max) {
+int
+Random::NextRange(int max)
+{
   return NextRange(0, max);
 }
 
-Color Random::NextColor()
+Color
+Random::NextColor()
 {
   return static_cast<Color>(NextRange(static_cast<int>(Color::MAX_VALUE)));
 }
 
-DawnbringerPalette Random::NextDawnbringerPalette()
+DawnbringerPalette
+Random::NextDawnbringerPalette()
 {
-  return static_cast<DawnbringerPalette>(NextRange(static_cast<int>(DawnbringerPalette::MAX_VALUE)));
+  return static_cast<DawnbringerPalette>(
+      NextRange(static_cast<int>(DawnbringerPalette::MAX_VALUE)));
 }
 
-Rgb Random::NextRgb()
+Rgb
+Random::NextRgb()
 {
-  return Rgb { NextFloat01(), NextFloat01(), NextFloat01() };
+  return Rgb{NextFloat01(), NextFloat01(), NextFloat01()};
 }
 
-Rgb Random::NextGrey()
+Rgb
+Random::NextGrey()
 {
-  return Rgb { NextFloat01() };
+  return Rgb{NextFloat01()};
 }
 
-bool Random::NextBool() {
+bool
+Random::NextBool()
+{
   return NextFloat01() > 0.5f;
 }
 
-int Random::NextSign() {
+int
+Random::NextSign()
+{
   return NextBool() ? 1 : -1;
 }
 
-vec2f Random::NextPoint(const Rectf& rect)
+vec2f
+Random::NextPoint(const Rectf& rect)
 {
   const float x = NextRange(rect.GetWidth());
   const float y = NextRange(rect.GetHeight());
   return rect.GetPosition(vec2f{x, y});
 }
 
-vec2i Random::NextPoint(const Recti& rect)
+vec2i
+Random::NextPoint(const Recti& rect)
 {
   const int x = NextRange(rect.GetWidth());
   const int y = NextRange(rect.GetHeight());
   return rect.GetPosition(vec2i{x, y});
 }
 
-PolarCoord Random::NextPolar()
+PolarCoord
+Random::NextPolar()
 {
-  const float az = Random::NextFloat01();
+  const float az    = Random::NextFloat01();
   const float polar = Random::NextFloat01();
-  return PolarCoord { az, polar};
+  return PolarCoord{az, polar};
 }
 
-vec3f::Unit Random::NextUnit3()
+vec3f::Unit
+Random::NextUnit3()
 {
   return NextPolar().ToCartesian();
 }
 
-quatf Random::NextQuatf()
+quatf
+Random::NextQuatf()
 {
-  const auto axis = NextUnit3();
-  const auto angle = Angle::FromDegrees( Random::NextRange(360.0f) );
+  const auto axis  = NextUnit3();
+  const auto angle = Angle::FromDegrees(Random::NextRange(360.0f));
 
   return quatf::FromAxisAngle(AxisAngle::RightHandAround(axis, angle));
 }
 
-vec3f Random::NextVec3(const Aabb& extents)
+vec3f
+Random::NextVec3(const Aabb& extents)
 {
   const auto x = NextRange(extents.GetMin().x, extents.GetMax().x);
   const auto y = NextRange(extents.GetMin().y, extents.GetMax().y);
   const auto z = NextRange(extents.GetMin().z, extents.GetMax().z);
 
-  return vec3f{x, y , z};
+  return vec3f{x, y, z};
 }

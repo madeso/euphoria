@@ -6,15 +6,18 @@
 
 // source: http://mathworld.wolfram.com/SphericalCoordinates.html
 
-class PolarCoord {
+class PolarCoord
+{
  public:
   PolarCoord(float azimuthal01, float polar01);
 
-  vec3f::Unit ToCartesian() const;
+  vec3f::Unit
+  ToCartesian() const;
+
  private:
-  Angle azimuthal_; // longitude, 0-2pi
-  Angle polar_; // zenith, colatitude, 0-pi
+  Angle azimuthal_;  // longitude, 0-2pi
+  Angle polar_;      // zenith, colatitude, 0-pi
 };
 
 
-#endif //EUPHORIA_POLARCOORD_H
+#endif  // EUPHORIA_POLARCOORD_H

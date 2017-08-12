@@ -4,34 +4,40 @@
 #include <cmath>
 #include "core/assert.h"
 
-namespace // local
+namespace  // local
 {
-const float rad2deg(const float rad)
-{
-  return (180.0f / Pi()) * rad;
-}
-const float deg2rad(const float deg)
-{
-  return Pi() / 180.0f * deg;
-}
+  const float
+  rad2deg(const float rad)
+  {
+    return (180.0f / Pi()) * rad;
+  }
+  const float
+  deg2rad(const float deg)
+  {
+    return Pi() / 180.0f * deg;
+  }
 }
 
-const float Angle::inDegrees() const
+const float
+Angle::inDegrees() const
 {
   return rad2deg(mRad);
 }
 
-const float Angle::inRadians() const
+const float
+Angle::inRadians() const
 {
   return mRad;
 }
 
-const Angle Angle::FromDegrees(float deg)
+const Angle
+Angle::FromDegrees(float deg)
 {
   return Angle(deg2rad(deg));
 }
 
-const Angle Angle::FromRadians(float rad)
+const Angle
+Angle::FromRadians(float rad)
 {
   return Angle(rad);
 }
@@ -41,91 +47,116 @@ Angle::Angle(float rad)
 {
 }
 
-void Angle::Wrap()
+void
+Angle::Wrap()
 {
   mRad = ::Wrap(0.0f, mRad, Pi() * 2.0f);
 }
 
-void Angle::operator+=(const Angle& rhs)
+void
+Angle::operator+=(const Angle& rhs)
 {
   mRad += rhs.mRad;
 }
 
-void Angle::operator-=(const Angle& rhs)
+void
+Angle::operator-=(const Angle& rhs)
 {
   mRad -= rhs.mRad;
 }
 
-void Angle::operator*=(const float rhs)
+void
+Angle::operator*=(const float rhs)
 {
   mRad *= rhs;
 }
 
-void Angle::operator/=(const float rhs)
+void
+Angle::operator/=(const float rhs)
 {
   mRad /= rhs;
 }
 
-Angle Angle::operator-() const {
+Angle
+Angle::operator-() const
+{
   return Angle::FromRadians(-mRad);
 }
 
-const float Sin(const Angle& ang)
+const float
+Sin(const Angle& ang)
 {
   return std::sin(ang.inRadians());
 }
 
-const float Cos(const Angle& ang)
+const float
+Cos(const Angle& ang)
 {
   return std::cos(ang.inRadians());
 }
 
-const float Tan(const Angle& ang)
+const float
+Tan(const Angle& ang)
 {
   return std::tan(ang.inRadians());
 }
 
-const Angle Asin(const float v)
+const Angle
+Asin(const float v)
 {
-  Assert(v <= 1 && "v must be smaller than 1, use Limmit or Max on the value to not trigger this Assert");
-  Assert(v >= -1 && "v must be greater than -1, use Limmit or Min on the value to not trigger this Assert");
+  Assert(v <= 1 &&
+         "v must be smaller than 1, use Limmit or Max on the value to not "
+         "trigger this Assert");
+  Assert(v >= -1 &&
+         "v must be greater than -1, use Limmit or Min on the value to not "
+         "trigger this Assert");
   return Angle::FromRadians(std::asin(v));
 }
 
-const Angle Acos(const float v)
+const Angle
+Acos(const float v)
 {
-  Assert(v <= 1 && "v must be smaller than 1, use Limmit or Max on the value to not trigger this Assert");
-  Assert(v >= -1 && "v must be greater than -1, use Limmit or Min on the value to not trigger this Assert");
+  Assert(v <= 1 &&
+         "v must be smaller than 1, use Limmit or Max on the value to not "
+         "trigger this Assert");
+  Assert(v >= -1 &&
+         "v must be greater than -1, use Limmit or Min on the value to not "
+         "trigger this Assert");
   return Angle::FromRadians(std::acos(v));
 }
 
-const Angle Atan(const float v)
+const Angle
+Atan(const float v)
 {
   return Angle::FromRadians(std::atan(v));
 }
 
-const Angle Angle::GetWrapped() const
+const Angle
+Angle::GetWrapped() const
 {
   Angle temp = *this;
   temp.Wrap();
   return temp;
 }
 
-const Angle operator+(const Angle& lhs, const Angle& rhs)
+const Angle
+operator+(const Angle& lhs, const Angle& rhs)
 {
   Angle temp(lhs);
   temp += rhs;
   return temp;
 }
 
-const Angle operator-(const Angle& lhs, const Angle& rhs)
+const Angle
+operator-(const Angle& lhs, const Angle& rhs)
 {
   Angle temp(lhs);
   temp -= rhs;
   return temp;
 }
 
-const Angle operator/(const Angle& lhs, const float rhs)
+const Angle
+operator/(const Angle& lhs, const float rhs)
 {
   Angle temp(lhs);
   temp /= rhs;
@@ -144,23 +175,26 @@ const Angle operator*(const float rhs, const Angle& lhs)
   return lhs * rhs;
 }
 
-const Angle Angle::FromPercentOf360(const float percent)
+const Angle
+Angle::FromPercentOf360(const float percent)
 {
   return Angle::FromRadians(percent * Pi() * 2.0f);
 }
 
-const Angle Angle::FromPercentOf180(const float percent)
+const Angle
+Angle::FromPercentOf180(const float percent)
 {
   return Angle::FromRadians(percent * Pi());
 }
 
-const Angle Angle::Zero()
+const Angle
+Angle::Zero()
 {
   return Angle::FromRadians(0);
 }
 
-std::ostream& operator<<(std::ostream& stream, const Angle& a)
+std::ostream&
+operator<<(std::ostream& stream, const Angle& a)
 {
   return stream << a.inDegrees() << " deg";
 }
-

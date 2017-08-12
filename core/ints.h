@@ -3,6 +3,6 @@
 
 #include <cstdint>
 
-typedef uint32_t  uint32;
+typedef uint32_t uint32;
 
-#endif //EUPHORIA_INTS_H
+#endif  // EUPHORIA_INTS_H

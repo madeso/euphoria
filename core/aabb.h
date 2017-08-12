@@ -3,18 +3,22 @@
 
 #include "core/vec3.h"
 
-class Aabb {
+class Aabb
+{
  public:
   Aabb(const vec3f& min, const vec3f& max);
 
-  const vec3f& GetMin() const;
-  const vec3f& GetMax() const;
+  const vec3f&
+  GetMin() const;
+  const vec3f&
+  GetMax() const;
 
-  vec3f Wrap(const vec3f& vec) const;
+  vec3f
+  Wrap(const vec3f& vec) const;
 
   vec3f min_;
   vec3f max_;
 };
 
 
-#endif //EUPHORIA_AABB_H
+#endif  // EUPHORIA_AABB_H

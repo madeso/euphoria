@@ -9,7 +9,8 @@
 class AxisAngle
 {
  public:
-  static const AxisAngle RightHandAround(const vec3f::Unit& axis, const Angle& angle);
+  static const AxisAngle
+  RightHandAround(const vec3f::Unit& axis, const Angle& angle);
 
   /** a unit-vector.
   */
@@ -23,6 +24,7 @@ class AxisAngle
   AxisAngle(const vec3f::Unit& axis, const Angle& angle);
 };
 
-std::ostream& operator<<(std::ostream& stream, const AxisAngle& aa);
+std::ostream&
+operator<<(std::ostream& stream, const AxisAngle& aa);
 
 #endif  // CORE_AXISANGLE_H

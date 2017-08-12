@@ -11,9 +11,9 @@
 #include "enum.pb.h"
 
 EnumType::EnumType(const std::string& name)
-  : name_(name)
-  , isAdding_(true)
-  , nextIndex_(1)
+    : name_(name)
+    , isAdding_(true)
+    , nextIndex_(1)
 {
 }
 
@@ -22,7 +22,8 @@ EnumType::~EnumType()
   Assert(!isAdding_);
 }
 
-std::string EnumType::ToString(size_t v) const
+std::string
+EnumType::ToString(size_t v) const
 {
   Assert(v < nextIndex_);
   auto f = valueToName_.find(v);
@@ -32,19 +33,24 @@ std::string EnumType::ToString(size_t v) const
   }
 
   // Assert(false && "Invalid index");
-  const auto values = StringMerger::EnglishOr().Generate(MapToStringVector(nameToValue_));
-  const std::string invalid = Str() << "<invalid value " << v << " of "<< values <<">";
+  const auto values =
+      StringMerger::EnglishOr().Generate(MapToStringVector(nameToValue_));
+  const std::string invalid = Str() << "<invalid value " << v << " of "
+                                    << values << ">";
   return invalid;
 }
 
-const EnumValue EnumType::ToEnum(const std::string &name)
+const EnumValue
+EnumType::ToEnum(const std::string& name)
 {
   NameToValue::const_iterator r = nameToValue_.find(name);
-  if(r != nameToValue_.end()) {
+  if(r != nameToValue_.end())
+  {
     return EnumValue(this, r->second);
   }
 
-  if(!isAdding_) {
+  if(!isAdding_)
+  {
     std::cerr << "Enum value doesnt exist, " << name << "\n";
     return EnumValue(this, 0);
   }
@@ -53,7 +59,8 @@ const EnumValue EnumType::ToEnum(const std::string &name)
   return EnumValue(this, id);
 }
 
-void EnumType::AddEnums(const std::vector<std::string>& names)
+void
+EnumType::AddEnums(const std::vector<std::string>& names)
 {
   Assert(isAdding_);
   std::set<std::string> valid_names;
@@ -69,18 +76,21 @@ void EnumType::AddEnums(const std::vector<std::string>& names)
     const bool missing = valid_names.find(name.first) == valid_names.end();
     if(missing)
     {
-      std::cerr << "Enum " << name_ << " was registered with name " << name.first << " but that is invalid.\n";
+      std::cerr << "Enum " << name_ << " was registered with name "
+                << name.first << " but that is invalid.\n";
     }
   }
 
   isAdding_ = false;
 }
 
-void EnumType::AddEnum(const std::string &name)
+void
+EnumType::AddEnum(const std::string& name)
 {
   Assert(isAdding_);
   NameToValue::const_iterator r = nameToValue_.find(name);
-  if(r != nameToValue_.end()) {
+  if(r != nameToValue_.end())
+  {
     return;
   }
   const size_t id = nextIndex_;
@@ -93,50 +103,57 @@ void EnumType::AddEnum(const std::string &name)
 // Enum Value
 
 EnumValue::EnumValue(EnumType* t, size_t v)
-  : type_(t)
-  , value_(v)
+    : type_(t)
+    , value_(v)
 {
 }
 
-const std::string EnumValue::ToString() const
+const std::string
+EnumValue::ToString() const
 {
   return type_->ToString(value_);
 }
 
-const size_t EnumValue::ToValue() const
+const size_t
+EnumValue::ToValue() const
 {
   return value_;
 }
 
-bool EnumValue::operator==(const EnumValue& other) const
+bool
+EnumValue::operator==(const EnumValue& other) const
 {
   Assert(type_ == other.type_);
   return value_ == other.value_;
 }
 
-bool EnumValue::operator!=(const EnumValue& other) const
+bool
+EnumValue::operator!=(const EnumValue& other) const
 {
   return !(*this == other);
 }
 
-bool EnumValue::operator<(const EnumValue& other) const
+bool
+EnumValue::operator<(const EnumValue& other) const
 {
   Assert(type_ == other.type_);
   return value_ < other.value_;
 }
 
-std::ostream& operator<<(std::ostream& s, const EnumValue& v)
+std::ostream&
+operator<<(std::ostream& s, const EnumValue& v)
 {
   s << v.ToString();
   return s;
 }
 
-void LoadEnumType(EnumType* type, FileSystem* fs, const std::string& path)
+void
+LoadEnumType(EnumType* type, FileSystem* fs, const std::string& path)
 {
   Assert(type);
 
   enumlist::Enumroot root;
-  const std::string load_error = LoadProtoJson(fs, &root, path);
+  const std::string  load_error = LoadProtoJson(fs, &root, path);
 
   std::vector<std::string> names;
 
@@ -146,7 +163,7 @@ void LoadEnumType(EnumType* type, FileSystem* fs, const std::string& path)
   }
   else
   {
-    for(const auto name: root.name())
+    for(const auto name : root.name())
     {
       names.push_back(name);
     }

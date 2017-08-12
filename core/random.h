@@ -12,37 +12,57 @@
 
 /** WEL512 Random Number Generator.
  */
-class Random {
+class Random
+{
  public:
-  static uint32 TimeSeed();
+  static uint32
+  TimeSeed();
   explicit Random(uint32 seed = TimeSeed());
 
-  uint32 NextInteger();
-  float NextFloat01();
+  uint32
+  NextInteger();
+  float
+  NextFloat01();
 
-  float NextRange(float min, float max);
-  float NextRange(float max);
+  float
+  NextRange(float min, float max);
+  float
+  NextRange(float max);
 
-  int NextRange(int min, int max);
-  int NextRange(int max);
+  int
+  NextRange(int min, int max);
+  int
+  NextRange(int max);
 
-  Color NextColor();
-  DawnbringerPalette NextDawnbringerPalette();
-  Rgb NextRgb();
-  Rgb NextGrey();
+  Color
+  NextColor();
+  DawnbringerPalette
+  NextDawnbringerPalette();
+  Rgb
+  NextRgb();
+  Rgb
+  NextGrey();
 
-  bool NextBool();
+  bool
+  NextBool();
 
-  int NextSign();
+  int
+  NextSign();
 
-  vec2f NextPoint(const Rectf& rect);
-  vec2i NextPoint(const Recti& rect);
+  vec2f
+  NextPoint(const Rectf& rect);
+  vec2i
+  NextPoint(const Recti& rect);
 
-  PolarCoord NextPolar();
-  vec3f::Unit NextUnit3();
-  quatf NextQuatf();
+  PolarCoord
+  NextPolar();
+  vec3f::Unit
+  NextUnit3();
+  quatf
+  NextQuatf();
 
-  vec3f NextVec3(const Aabb& extents);
+  vec3f
+  NextVec3(const Aabb& extents);
 
  private:
   uint32 index_;
@@ -50,4 +70,4 @@ class Random {
 };
 
 
-#endif //EUPHORIA_RANDOM_H
+#endif  // EUPHORIA_RANDOM_H

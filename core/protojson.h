@@ -8,8 +8,9 @@
 
 namespace protojson
 {
-  std::string ToProto(const rapidjson::Value& json, google::protobuf::Message* msg);
+  std::string
+  ToProto(const rapidjson::Value& json, google::protobuf::Message* msg);
 }
 
 
-#endif //EUPHORIA_PROTOJSON_H
+#endif  // EUPHORIA_PROTOJSON_H

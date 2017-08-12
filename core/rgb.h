@@ -150,32 +150,38 @@ enum class Color
 // RGB source
 // http://pixeljoint.com/forum/forum_posts.asp?TID=12795
 // http://www.color-blindness.com/color-name-hue/ gave names
-enum class DawnbringerPalette {
-  Blackcurrant ,
-  Castro       ,
-  ToreaBay     ,
-  Liver        ,
-  Korma        ,
-  SanFelix     ,
-  Valencia     ,
-  Flint        ,
-  HavelockBlue ,
-  Tango        ,
-  BaliHai      ,
-  Sushi        ,
-  Cashmere     ,
-  Seagull      ,
-  Goldenrod    ,
-  Tara         ,
+enum class DawnbringerPalette
+{
+  Blackcurrant,
+  Castro,
+  ToreaBay,
+  Liver,
+  Korma,
+  SanFelix,
+  Valencia,
+  Flint,
+  HavelockBlue,
+  Tango,
+  BaliHai,
+  Sushi,
+  Cashmere,
+  Seagull,
+  Goldenrod,
+  Tara,
   MAX_VALUE
 };
 
-namespace colorutil {
-// internal function, exposed for unit tests
-const int GetComponent(unsigned int i, int steps);
-const int GetRed(unsigned int i);
-const int GetGreen(unsigned int i);
-const int GetBlue(unsigned int i);
+namespace colorutil
+{
+  // internal function, exposed for unit tests
+  const int
+  GetComponent(unsigned int i, int steps);
+  const int
+  GetRed(unsigned int i);
+  const int
+  GetGreen(unsigned int i);
+  const int
+  GetBlue(unsigned int i);
 }
 
 class Rgba;
@@ -187,54 +193,78 @@ class Rgb
   explicit Rgb(const float gray);
   explicit Rgb(const int rgb);
   explicit Rgb(const Rgba& rgb);
-  static const Rgb From(Color color);
-  static const Rgb From(DawnbringerPalette color);
+  static const Rgb
+  From(Color color);
+  static const Rgb
+  From(DawnbringerPalette color);
 
-  const float GetRed() const;
-  const float GetGreen() const;
-  const float GetBlue() const;
+  const float
+  GetRed() const;
+  const float
+  GetGreen() const;
+  const float
+  GetBlue() const;
 
-  //const float* data() const;
+  // const float* data() const;
 
-  void SetRed(const float v);
-  void SetGreen(const float v);
-  void SetBlue(const float v);
+  void
+  SetRed(const float v);
+  void
+  SetGreen(const float v);
+  void
+  SetBlue(const float v);
 
-  //float& operator[](int index);
-  //const float& operator[](int index) const;
+  // float& operator[](int index);
+  // const float& operator[](int index) const;
 
-  void SetRgb(const float r, const float g, const float b);
-  void SetRgb(int rgb);
+  void
+  SetRgb(const float r, const float g, const float b);
+  void
+  SetRgb(int rgb);
+
  private:
   float r;
   float g;
   float b;
 };
 
-struct RgbTransform {
-  static Rgb Transform(const Rgb& from, float v, const Rgb to);
+struct RgbTransform
+{
+  static Rgb
+  Transform(const Rgb& from, float v, const Rgb to);
 };
 
 class Rgba
 {
  public:
-  Rgba(const Rgb& rgb, const float a=1.0f);
-  Rgba(const float r, const float g, const float b, const float a=1.0f);
-  explicit Rgba(const float gray, const float a=1.0f);
+  Rgba(const Rgb& rgb, const float a = 1.0f);
+  Rgba(const float r, const float g, const float b, const float a = 1.0f);
+  explicit Rgba(const float gray, const float a = 1.0f);
 
-  const float* GetData() const;
+  const float*
+  GetData() const;
 
-  const float GetRed() const;
-  const float GetGreen() const;
-  const float GetBlue() const;
-  const float GetAlpha() const;
+  const float
+  GetRed() const;
+  const float
+  GetGreen() const;
+  const float
+  GetBlue() const;
+  const float
+  GetAlpha() const;
 
-  void SetRed(const float v);
-  void SetGreen(const float v);
-  void SetBlue(const float v);
-  void SetAlpha(const float v);
+  void
+  SetRed(const float v);
+  void
+  SetGreen(const float v);
+  void
+  SetBlue(const float v);
+  void
+  SetAlpha(const float v);
 
-  void SetRgb(const float r, const float g, const float b);
+  void
+  SetRgb(const float r, const float g, const float b);
+
  private:
   float r;
   float g;

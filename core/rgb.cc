@@ -3,39 +3,50 @@
 #include <iostream>
 
 Rgb::Rgb(const float red, const float green, const float blue)
-  : r(0), g(0), b(0)
+    : r(0)
+    , g(0)
+    , b(0)
 {
   SetRgb(red, green, blue);
 }
 
 Rgb::Rgb(const float gray)
-  : r(0), g(0), b(0)
+    : r(0)
+    , g(0)
+    , b(0)
 {
   SetRgb(gray, gray, gray);
 }
 
 Rgb::Rgb(const int all)
-  : r(0), g(0), b(0)
+    : r(0)
+    , g(0)
+    , b(0)
 {
   SetRgb(all);
 }
 
 Rgb::Rgb(const Rgba& rgb)
-  : r(0), g(0), b(0)
+    : r(0)
+    , g(0)
+    , b(0)
 {
   SetRgb(rgb.GetRed(), rgb.GetGreen(), rgb.GetBlue());
 }
 
 
-const float Rgb::GetRed() const
+const float
+Rgb::GetRed() const
 {
   return r;
 }
-const float Rgb::GetGreen() const
+const float
+Rgb::GetGreen() const
 {
   return g;
 }
-const float Rgb::GetBlue() const
+const float
+Rgb::GetBlue() const
 {
   return b;
 }
@@ -45,15 +56,18 @@ const float Rgb::GetBlue() const
   return mdata.array;
 }*/
 
-void Rgb::SetRed(const float v)
+void
+Rgb::SetRed(const float v)
 {
   r = v;
 }
-void Rgb::SetGreen(const float v)
+void
+Rgb::SetGreen(const float v)
 {
   g = v;
 }
-void Rgb::SetBlue(const float v)
+void
+Rgb::SetBlue(const float v)
 {
   b = v;
 }
@@ -67,44 +81,56 @@ const float& Rgb::operator[](int index) const
   return mdata.array[index];
 }*/
 
-void Rgb::SetRgb(const float red, const float green, const float blue)
+void
+Rgb::SetRgb(const float red, const float green, const float blue)
 {
   r = red;
   g = green;
   b = blue;
 }
 
-namespace colorutil {
-const int GetComponent(unsigned int i, int steps)
+namespace colorutil
 {
-  const int value = ((i >> 8 * steps) & 0xff);
-  return value;
+  const int
+  GetComponent(unsigned int i, int steps)
+  {
+    const int value = ((i >> 8 * steps) & 0xff);
+    return value;
+  }
+
+  const int
+  GetRed(unsigned int rgb)
+  {
+    return GetComponent(rgb, 2);
+  }
+
+  const int
+  GetGreen(unsigned int rgb)
+  {
+    return GetComponent(rgb, 1);
+  }
+
+  const int
+  GetBlue(unsigned int rgb)
+  {
+    return GetComponent(rgb, 0);
+  }
 }
 
-const int GetRed(unsigned int rgb) {
-  return GetComponent(rgb, 2);
-}
-
-const int GetGreen(unsigned int rgb) {
-  return GetComponent(rgb, 1);
-}
-
-const int GetBlue(unsigned int rgb) {
-  return GetComponent(rgb, 0);
-}
-
-}
-
-void Rgb::SetRgb(int rgb)
+void
+Rgb::SetRgb(int rgb)
 {
   const auto b = colorutil::GetBlue(rgb);
   const auto g = colorutil::GetGreen(rgb);
   const auto r = colorutil::GetRed(rgb);
-  SetRgb(r/ 255.0f, g/ 255.0f, b/ 255.0f);
+  SetRgb(r / 255.0f, g / 255.0f, b / 255.0f);
 }
 
-const Rgb Rgb::From(Color color) {
-  switch (color) {
+const Rgb
+Rgb::From(Color color)
+{
+  switch(color)
+  {
     case Color::White:
       return Rgb(0xffffff);
     case Color::Silver:
@@ -391,97 +417,134 @@ const Rgb Rgb::From(Color color) {
   }
 }
 
-const Rgb Rgb::From(DawnbringerPalette color)
+const Rgb
+Rgb::From(DawnbringerPalette color)
 {
   switch(color)
   {
-    case DawnbringerPalette::Blackcurrant   : return Rgb(0x140C1C);
-    case DawnbringerPalette::Castro         : return Rgb(0x442434);
-    case DawnbringerPalette::ToreaBay       : return Rgb(0x30346D);
-    case DawnbringerPalette::Liver          : return Rgb(0x4E4A4E);
-    case DawnbringerPalette::Korma          : return Rgb(0x854C30);
-    case DawnbringerPalette::SanFelix       : return Rgb(0x346524);
-    case DawnbringerPalette::Valencia       : return Rgb(0xD04648);
-    case DawnbringerPalette::Flint          : return Rgb(0x757161);
-    case DawnbringerPalette::HavelockBlue   : return Rgb(0x597DCE);
-    case DawnbringerPalette::Tango          : return Rgb(0xD27D2C);
-    case DawnbringerPalette::BaliHai        : return Rgb(0x8595A1);
-    case DawnbringerPalette::Sushi          : return Rgb(0x6DAA2C);
-    case DawnbringerPalette::Cashmere       : return Rgb(0xD2AA99);
-    case DawnbringerPalette::Seagull        : return Rgb(0x6DC2CA);
-    case DawnbringerPalette::Goldenrod      : return Rgb(0xDAD45E);
-    case DawnbringerPalette::Tara           : return Rgb(0xDEEED6);
+    case DawnbringerPalette::Blackcurrant:
+      return Rgb(0x140C1C);
+    case DawnbringerPalette::Castro:
+      return Rgb(0x442434);
+    case DawnbringerPalette::ToreaBay:
+      return Rgb(0x30346D);
+    case DawnbringerPalette::Liver:
+      return Rgb(0x4E4A4E);
+    case DawnbringerPalette::Korma:
+      return Rgb(0x854C30);
+    case DawnbringerPalette::SanFelix:
+      return Rgb(0x346524);
+    case DawnbringerPalette::Valencia:
+      return Rgb(0xD04648);
+    case DawnbringerPalette::Flint:
+      return Rgb(0x757161);
+    case DawnbringerPalette::HavelockBlue:
+      return Rgb(0x597DCE);
+    case DawnbringerPalette::Tango:
+      return Rgb(0xD27D2C);
+    case DawnbringerPalette::BaliHai:
+      return Rgb(0x8595A1);
+    case DawnbringerPalette::Sushi:
+      return Rgb(0x6DAA2C);
+    case DawnbringerPalette::Cashmere:
+      return Rgb(0xD2AA99);
+    case DawnbringerPalette::Seagull:
+      return Rgb(0x6DC2CA);
+    case DawnbringerPalette::Goldenrod:
+      return Rgb(0xDAD45E);
+    case DawnbringerPalette::Tara:
+      return Rgb(0xDEEED6);
     default:
       std::cerr << "invalid dawnbringer palette name\n";
       return Rgb(0x9acd32);
   }
 }
 
-Rgb RgbTransform::Transform(const Rgb& from, float v, const Rgb to) {
-  return Rgb( FloatTransform::Transform(from.GetRed(), v, to.GetRed()),
-              FloatTransform::Transform(from.GetGreen(), v, to.GetGreen()),
-              FloatTransform::Transform(from.GetBlue(), v, to.GetBlue()) );
+Rgb
+RgbTransform::Transform(const Rgb& from, float v, const Rgb to)
+{
+  return Rgb(FloatTransform::Transform(from.GetRed(), v, to.GetRed()),
+             FloatTransform::Transform(from.GetGreen(), v, to.GetGreen()),
+             FloatTransform::Transform(from.GetBlue(), v, to.GetBlue()));
 }
 
 Rgba::Rgba(const Rgb& c, const float aa)
-    : r(c.GetRed()), g(c.GetGreen()), b(c.GetBlue()), a(aa)
+    : r(c.GetRed())
+    , g(c.GetGreen())
+    , b(c.GetBlue())
+    , a(aa)
 {
 }
 
 Rgba::Rgba(const float ar, const float ag, const float ab, const float aa)
-    : r(ar), g(ag), b(ab), a(aa)
+    : r(ar)
+    , g(ag)
+    , b(ab)
+    , a(aa)
 {
 }
 
 Rgba::Rgba(const float gray, const float aa)
-    : r(gray), g(gray), b(gray), a(aa)
+    : r(gray)
+    , g(gray)
+    , b(gray)
+    , a(aa)
 {
 }
 
-const float* Rgba::GetData() const
+const float*
+Rgba::GetData() const
 {
   return &r;
 }
 
-const float Rgba::GetRed() const
+const float
+Rgba::GetRed() const
 {
   return r;
 }
-const float Rgba::GetGreen() const
+const float
+Rgba::GetGreen() const
 {
   return g;
 }
-const float Rgba::GetBlue() const
+const float
+Rgba::GetBlue() const
 {
   return b;
 }
-const float Rgba::GetAlpha() const
+const float
+Rgba::GetAlpha() const
 {
   return a;
 }
 
-void Rgba::SetRed(const float v)
+void
+Rgba::SetRed(const float v)
 {
   r = v;
 }
-void Rgba::SetGreen(const float v)
+void
+Rgba::SetGreen(const float v)
 {
   g = v;
 }
-void Rgba::SetBlue(const float v)
+void
+Rgba::SetBlue(const float v)
 {
   b = v;
 }
-void Rgba::SetAlpha(const float v)
+void
+Rgba::SetAlpha(const float v)
 {
   a = v;
 }
 
-void Rgba::SetRgb(const float ar, const float ag, const float ab)
+void
+Rgba::SetRgb(const float ar, const float ag, const float ab)
 {
   SetRed(ar);
   SetGreen(ag);
   SetBlue(ab);
   SetAlpha(1);
 }
-

@@ -6,31 +6,40 @@
 #include "core/assert.h"
 #include "core/random.h"
 
-template<typename T>
+template <typename T>
 class ShuffleBag
 {
  public:
-  unsigned long GetSize() const { return data_.size(); }
+  unsigned long
+  GetSize() const
+  {
+    return data_.size();
+  }
 
-  void Reserve(unsigned long count)
+  void
+  Reserve(unsigned long count)
   {
     data_.reserve(count);
   }
 
-  void Add(const T& item, int amount) {
-    Assert(amount>0);
+  void
+  Add(const T& item, int amount)
+  {
+    Assert(amount > 0);
 
-    for (int i = 0; i < amount; i++)
+    for(int i = 0; i < amount; i++)
       data_.push_back(item);
 
     cursor_ = GetSize() - 1;
   }
 
-  const T& Next(Random* random) {
+  const T&
+  Next(Random* random)
+  {
     Assert(random);
-    Assert(!data_.empty()); // needs data
+    Assert(!data_.empty());  // needs data
 
-    if (cursor_ < 1)
+    if(cursor_ < 1)
     {
       cursor_ = GetSize() - 1;
       return data_[0];
@@ -46,7 +55,7 @@ class ShuffleBag
 
  private:
   std::vector<T> data_;
-  unsigned long cursor_ = 0;
+  unsigned long  cursor_ = 0;
 };
 
-#endif //EUPHORIA_SHUFFLEBAG_H
+#endif  // EUPHORIA_SHUFFLEBAG_H
