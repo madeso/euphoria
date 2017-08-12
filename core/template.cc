@@ -527,8 +527,6 @@ void ReadTemplateList(std::shared_ptr<TemplateNodeList>* nodes, LexReader* reade
       errors->AddError(file, reader->GetLine(), reader->GetColumn(), Str() << "Reading LIST, expected END but found " << end.ToString());
     }
   }
-
-  return;
 }
 
 ////////////////////////////////////////////////////////////////////////////////

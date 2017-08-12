@@ -25,7 +25,7 @@ uint32 Random::TimeSeed() {
   // idea from http://www.eternallyconfuzzled.com/arts/jsw_art_rand.aspx
   time_t now = time(nullptr);
 
-  auto* p = (unsigned char*) &now;
+  auto* p = reinterpret_cast<unsigned char*>(&now);
   uint32 seed = 0;
 
   for (size_t i = 0; i < sizeof(time_t); i++)
@@ -36,7 +36,7 @@ uint32 Random::TimeSeed() {
   return seed;
 }
 
-Random::Random(uint32 seed) : index_(0) {
+Random::Random(uint32 seed) : index_(0), state_{0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0} {
   for (uint32 i = 0; i < 16; ++i) {
     state_[i] = seed * i;
   }

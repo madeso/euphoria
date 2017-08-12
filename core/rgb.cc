@@ -3,20 +3,26 @@
 #include <iostream>
 
 Rgb::Rgb(const float red, const float green, const float blue)
+  : r(0), g(0), b(0)
 {
   SetRgb(red, green, blue);
 }
 
 Rgb::Rgb(const float gray)
+  : r(0), g(0), b(0)
 {
   SetRgb(gray, gray, gray);
 }
+
 Rgb::Rgb(const int all)
+  : r(0), g(0), b(0)
 {
   SetRgb(all);
 }
 
-Rgb::Rgb(const Rgba& rgb) {
+Rgb::Rgb(const Rgba& rgb)
+  : r(0), g(0), b(0)
+{
   SetRgb(rgb.GetRed(), rgb.GetGreen(), rgb.GetBlue());
 }
 

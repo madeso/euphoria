@@ -35,9 +35,8 @@ bool LoadProtoText(google::protobuf::Message* t, const std::string& file_name) {
 bool SaveProtoText(const google::protobuf::Message& t,
                    const std::string& file_name) {
   // if (false == VerifyFileForWriting(file_name)) return false;
-  const std::string path = file_name;
 
-  std::ofstream output(path.c_str());
+  std::ofstream output(file_name.c_str());
   std::string data;
   if (false == google::protobuf::TextFormat::PrintToString(t, &data))
     return false;
