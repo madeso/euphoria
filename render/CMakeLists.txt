@@ -1,4 +1,5 @@
 file(GLOB app_src *.cc;*.h;*.inl)
+file(GLOB app_only_src *.cc)
 set(src ${app_src})
 source_group("" FILES ${app_src})
 
@@ -29,3 +30,10 @@ target_link_libraries(render
                       ${FREETYPE_LIBRARIES}
                       ${CMAKE_DL_LIBS}
                       )
+
+if(CLANG_TIDY_EXE)
+  # -fix
+  ADD_CUSTOM_TARGET(render-tidy
+                    COMMAND ${CLANG_TIDY_EXE} -p=${CMAKE_BINARY_DIR} ${app_only_src}
+                    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
+endif()
