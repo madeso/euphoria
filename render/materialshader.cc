@@ -129,10 +129,9 @@ void MaterialShader::SetupLight(const Light& light, const vec3f& camera)
     return;
   }
 
-  // todo: get light from the actual light and not a hardcoded constant
-  shader_.SetUniform(lightAmbient_, Rgb{0.1f});
-  shader_.SetUniform(lightDiffuse_, Rgb::From(Color::White));
-  shader_.SetUniform(lightSpecular_, Rgb::From(Color::White));
+  shader_.SetUniform(lightAmbient_, light.GetAmbient());
+  shader_.SetUniform(lightDiffuse_, light.GetDiffuse());
+  shader_.SetUniform(lightSpecular_, light.GetSpecular());
   shader_.SetUniform(lightPosition_, light.GetPosition());
   shader_.SetUniform(viewPosition_, camera);
 }

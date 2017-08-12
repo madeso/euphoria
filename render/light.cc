@@ -2,7 +2,7 @@
 
 Light::Light()
   : position_(0,0,0)
-  , ambient_(0.1f)
+  , ambient_(0.3f)
   , diffuse_(Rgb::From(Color::White))
   , specular_(Rgb::From(Color::White))
 {}
