@@ -98,3 +98,11 @@ if(EUPHORIA_TEST)
 endif(EUPHORIA_TEST)
 
 add_subdirectory(demo)
+
+if(CLANG_TIDY_EXE)
+  ADD_CUSTOM_TARGET(tidy)
+  ADD_DEPENDENCIES(tidy
+                   core-tidy
+                   render-tidy
+                   )
+endif()
