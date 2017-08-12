@@ -11,41 +11,57 @@
 class Texture2d;
 class SpriteRenderer;
 
-class Sprite {
+class Sprite
+{
  public:
   explicit Sprite(Texture2d* texture, const vec2f& position = vec2f(0.0f));
 
-  Texture2d* GetTexture();
+  Texture2d*
+  GetTexture();
 
-  const vec2f& GetPosition() const;
-  void SetPosition(const vec2f& p);
+  const vec2f&
+  GetPosition() const;
+  void
+  SetPosition(const vec2f& p);
 
-  void SetRotation(float r);
-  float GetRotation() const;
+  void
+  SetRotation(float r);
+  float
+  GetRotation() const;
 
-  float GetHeight() const;
-  float GetWidth() const;
+  float
+  GetHeight() const;
+  float
+  GetWidth() const;
 
-  void SetAlpha(float f);
+  void
+  SetAlpha(float f);
 
-  void Render(SpriteRenderer* render);
+  void
+  Render(SpriteRenderer* render);
+
  private:
   Texture2d* texture_;
-  vec2f position_;
-  float rotate_;
-  vec2f scale_;
-  Rgb color_;
-  float alpha_;
+  vec2f      position_;
+  float      rotate_;
+  vec2f      scale_;
+  Rgb        color_;
+  float      alpha_;
 };
 
-class Layer {
+class Layer
+{
  public:
   explicit Layer(SpriteRenderer* render);
-  void Add(Sprite* sprite);
-  void Remove(Sprite* sprite);
-  void Render();
+  void
+  Add(Sprite* sprite);
+  void
+  Remove(Sprite* sprite);
+  void
+  Render();
+
  private:
-  SpriteRenderer* render_;
+  SpriteRenderer*              render_;
   typedef std::vector<Sprite*> SpriteList;
   typedef std::map<Texture2d*, SpriteList> SpriteMap;
   SpriteMap sprites_;

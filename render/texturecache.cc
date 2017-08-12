@@ -4,13 +4,18 @@
 #include "render/texture.h"
 #include "core/cache.h"
 
-struct TextureCache::TextureCachePimpl : Cache<std::string, Texture2d, TextureCache::TextureCachePimpl> {
+struct TextureCache::TextureCachePimpl
+    : Cache<std::string, Texture2d, TextureCache::TextureCachePimpl>
+{
  public:
-  TextureCachePimpl(FileSystem *fs) : fs_(fs) {
+  TextureCachePimpl(FileSystem* fs)
+      : fs_(fs)
+  {
     Assert(fs);
   }
 
-  std::shared_ptr<Texture2d> Create(const std::string &file)
+  std::shared_ptr<Texture2d>
+  Create(const std::string& file)
   {
     auto ret = std::make_shared<Texture2d>();
     ret->LoadFromFile(fs_, file, AlphaLoad::Keep, Texture2dLoadData{});
@@ -21,13 +26,17 @@ struct TextureCache::TextureCachePimpl : Cache<std::string, Texture2d, TextureCa
   FileSystem* fs_;
 };
 
-TextureCache::TextureCache(FileSystem* fs) {
-  pimp_.reset(new TextureCachePimpl {fs} );
+TextureCache::TextureCache(FileSystem* fs)
+{
+  pimp_.reset(new TextureCachePimpl{fs});
 }
 
-TextureCache::~TextureCache() {
+TextureCache::~TextureCache()
+{
 }
 
-std::shared_ptr<Texture2d> TextureCache::GetTexture(const std::string& path) {
+std::shared_ptr<Texture2d>
+TextureCache::GetTexture(const std::string& path)
+{
   return pimp_->Get(path);
 }

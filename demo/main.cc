@@ -22,7 +22,9 @@
 #include "render/materialshadercache.h"
 #include "core/texturetypes.h"
 
-void SetupSdlOpenGlAttributes() {
+void
+SetupSdlOpenGlAttributes()
+{
   SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 4);
   SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 4);
   SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 4);
@@ -44,17 +46,22 @@ void SetupSdlOpenGlAttributes() {
   SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, SDL_GL_CONTEXT_DEBUG_FLAG);
 }
 
-class SdlTimer {
+class SdlTimer
+{
  public:
   SdlTimer()
       : current_time_(SDL_GetPerformanceCounter())
       , last_time_(0)
-  { }
+  {
+  }
 
-  float Update() {
-    last_time_ = current_time_;
+  float
+  Update()
+  {
+    last_time_    = current_time_;
     current_time_ = SDL_GetPerformanceCounter();
-    const float dt = (current_time_ - last_time_) * 1.0f / SDL_GetPerformanceFrequency();
+    const float dt =
+        (current_time_ - last_time_) * 1.0f / SDL_GetPerformanceFrequency();
     return dt;
   }
 
@@ -63,10 +70,14 @@ class SdlTimer {
   Uint64 last_time_;
 };
 
-class Sdl {
+class Sdl
+{
  public:
-  Sdl() : ok(false) {
-    if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_JOYSTICK | SDL_INIT_AUDIO) < 0) {
+  Sdl()
+      : ok(false)
+  {
+    if(SDL_Init(SDL_INIT_VIDEO | SDL_INIT_JOYSTICK | SDL_INIT_AUDIO) < 0)
+    {
       std::cerr << "Failed to init SDL: " << SDL_GetError() << "\n";
       return;
     }
@@ -74,30 +85,37 @@ class Sdl {
     ok = true;
   }
 
-  ~Sdl() {
+  ~Sdl()
+  {
     SDL_Quit();
   }
 
   bool ok;
 };
 
-class SdlWindow {
+class SdlWindow
+{
  public:
-  SdlWindow(const std::string& title, int width, int height) : window(nullptr) {
+  SdlWindow(const std::string& title, int width, int height)
+      : window(nullptr)
+  {
     window = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_UNDEFINED,
-                                          SDL_WINDOWPOS_UNDEFINED, width, height,
-                                          SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
+                              SDL_WINDOWPOS_UNDEFINED, width, height,
+                              SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
 
-    if (window == nullptr) {
+    if(window == nullptr)
+    {
       std::cerr << "Failed to create window " << SDL_GetError() << "\n";
     }
   }
 
-  ~SdlWindow() {
+  ~SdlWindow()
+  {
     SDL_DestroyWindow(window);
   }
 
-  void KeepWithin(bool k)
+  void
+  KeepWithin(bool k)
   {
     // SDL_SetWindowGrab(window, k ? SDL_TRUE : SDL_FALSE);
     // SDL_ShowCursor(k ? SDL_DISABLE : SDL_ENABLE);
@@ -107,17 +125,22 @@ class SdlWindow {
   SDL_Window* window;
 };
 
-class SdlGlContext {
+class SdlGlContext
+{
  public:
-  SdlGlContext(SdlWindow* window) : context(nullptr) {
+  SdlGlContext(SdlWindow* window)
+      : context(nullptr)
+  {
     context = SDL_GL_CreateContext(window->window);
-    if (context == nullptr) {
+    if(context == nullptr)
+    {
       std::cerr << "Failed to create GL context " << SDL_GetError() << "\n";
       return;
     }
   }
 
-  ~SdlGlContext() {
+  ~SdlGlContext()
+  {
     SDL_GL_DeleteContext(context);
   }
 
@@ -126,37 +149,57 @@ class SdlGlContext {
 
 struct CubeAnimation
 {
-  CubeAnimation() : timer(0), from(quatf::Identity()), to(quatf::Identity()), rotation_speed(1.0f), move_speed(1.0f) {}
+  CubeAnimation()
+      : timer(0)
+      , from(quatf::Identity())
+      , to(quatf::Identity())
+      , rotation_speed(1.0f)
+      , move_speed(1.0f)
+  {
+  }
 
   std::shared_ptr<Actor> actor;
-  float timer;
-  quatf from;
-  quatf to;
-  float rotation_speed;
-  float move_speed;
+  float                  timer;
+  quatf                  from;
+  quatf                  to;
+  float                  rotation_speed;
+  float                  move_speed;
 };
 
 // todo: move to a better place
-class FpsController {
+class FpsController
+{
  public:
   FpsController();
 
-  void Look(float delta_rot, float delta_look);
+  void
+  Look(float delta_rot, float delta_look);
 
-  void MoveLeft(bool down);
-  void MoveRight(bool down);
-  void MoveForward(bool down);
-  void MoveBackward(bool down);
-  void MoveUp(bool down);
-  void MoveDown(bool down);
+  void
+  MoveLeft(bool down);
+  void
+  MoveRight(bool down);
+  void
+  MoveForward(bool down);
+  void
+  MoveBackward(bool down);
+  void
+  MoveUp(bool down);
+  void
+  MoveDown(bool down);
 
-  void HandleSdlKey(int key, bool down);
+  void
+  HandleSdlKey(int key, bool down);
 
-  void Update(float delta);
+  void
+  Update(float delta);
 
-  vec3f GetPosition() const;
-  void SetPosition(const vec3f& pos);
-  quatf GetRotation() const;
+  vec3f
+  GetPosition() const;
+  void
+  SetPosition(const vec3f& pos);
+  quatf
+  GetRotation() const;
 
  private:
   Angle rotation_;
@@ -164,266 +207,313 @@ class FpsController {
 
   vec3f pos_;
 
-  bool left_down_ = false;
-  bool right_down_ = false;
-  bool forward_down_ = false;
+  bool left_down_     = false;
+  bool right_down_    = false;
+  bool forward_down_  = false;
   bool backward_down_ = false;
-  bool up_down_ = false;
-  bool down_down_ = false;
+  bool up_down_       = false;
+  bool down_down_     = false;
 
-  float speed_ = 3.0f;
+  float speed_       = 3.0f;
   float sensitivity_ = 0.10f;
 };
 
 FpsController::FpsController()
-: rotation_(Angle::Zero())
-, look_(Angle::Zero())
-, pos_(vec3f::Origo())
+    : rotation_(Angle::Zero())
+    , look_(Angle::Zero())
+    , pos_(vec3f::Origo())
 {
 }
 
-void FpsController::Look(float x, float y)
+void
+FpsController::Look(float x, float y)
 {
   rotation_ += Angle::FromDegrees(-x * sensitivity_);
   look_ += Angle::FromDegrees(-y * sensitivity_);
 }
 
-void FpsController::MoveLeft(bool down)
+void
+FpsController::MoveLeft(bool down)
 {
   left_down_ = down;
 }
-void FpsController::MoveRight(bool down)
+void
+FpsController::MoveRight(bool down)
 {
   right_down_ = down;
 }
-void FpsController::MoveForward(bool down)
+void
+FpsController::MoveForward(bool down)
 {
   forward_down_ = down;
 }
-void FpsController::MoveBackward(bool down)
+void
+FpsController::MoveBackward(bool down)
 {
   backward_down_ = down;
 }
-void FpsController::MoveUp(bool down)
+void
+FpsController::MoveUp(bool down)
 {
   up_down_ = down;
 }
-void FpsController::MoveDown(bool down)
+void
+FpsController::MoveDown(bool down)
 {
   down_down_ = down;
 }
 
-void FpsController::HandleSdlKey(int key, bool down)
+void
+FpsController::HandleSdlKey(int key, bool down)
 {
   switch(key)
   {
-    case SDLK_w: case SDLK_UP:
-      MoveForward(down); return;
-    case SDLK_s: case SDLK_DOWN:
-      MoveBackward(down); return;
-    case SDLK_a: case SDLK_LEFT:
-      MoveLeft(down); return;
-    case SDLK_d: case SDLK_RIGHT:
-      MoveRight(down); return;
+    case SDLK_w:
+    case SDLK_UP:
+      MoveForward(down);
+      return;
+    case SDLK_s:
+    case SDLK_DOWN:
+      MoveBackward(down);
+      return;
+    case SDLK_a:
+    case SDLK_LEFT:
+      MoveLeft(down);
+      return;
+    case SDLK_d:
+    case SDLK_RIGHT:
+      MoveRight(down);
+      return;
 
-    case SDLK_SPACE: MoveUp(down); return;
-    case SDLK_LCTRL: MoveDown(down); return;
+    case SDLK_SPACE:
+      MoveUp(down);
+      return;
+    case SDLK_LCTRL:
+      MoveDown(down);
+      return;
   }
 }
 
-void FpsController::Update(float delta)
+void
+FpsController::Update(float delta)
 {
   int forward = 0;
-  int right = 0;
-  int up = 0;
+  int right   = 0;
+  int up      = 0;
 
-  if(forward_down_) forward += 1;
-  if(backward_down_) forward -= 1;
+  if(forward_down_)
+    forward += 1;
+  if(backward_down_)
+    forward -= 1;
 
-  if(right_down_) right += 1;
-  if(left_down_) right -= 1;
+  if(right_down_)
+    right += 1;
+  if(left_down_)
+    right -= 1;
 
-  if(up_down_) up += 1;
-  if(down_down_) up -= 1;
+  if(up_down_)
+    up += 1;
+  if(down_down_)
+    up -= 1;
 
-  if(forward == 0 && right == 0 && up == 0) return;
+  if(forward == 0 && right == 0 && up == 0)
+    return;
 
-  const vec3f input = GetRotation().RightUpIn(vec3f(right, up, forward)).GetNormalized();
+  const vec3f input =
+      GetRotation().RightUpIn(vec3f(right, up, forward)).GetNormalized();
   const vec3f movement = input * speed_ * delta;
 
   pos_ += movement;
 }
 
-void FpsController::SetPosition(const vec3f& pos)
+void
+FpsController::SetPosition(const vec3f& pos)
 {
   pos_ = pos;
 }
-vec3f FpsController::GetPosition() const
+vec3f
+FpsController::GetPosition() const
 {
   return pos_;
 }
-quatf FpsController::GetRotation() const
+quatf
+FpsController::GetRotation() const
 {
-  const auto rotation = quatf::FromAxisAngle(AxisAngle::RightHandAround(vec3f::YAxis(), rotation_));
-  const auto look = quatf::FromAxisAngle(AxisAngle::RightHandAround(vec3f::XAxis(), look_));
+  const auto rotation = quatf::FromAxisAngle(
+      AxisAngle::RightHandAround(vec3f::YAxis(), rotation_));
+  const auto look =
+      quatf::FromAxisAngle(AxisAngle::RightHandAround(vec3f::XAxis(), look_));
   return rotation * look;
 }
 
-int main(int argc, char** argv) {
+int
+main(int argc, char** argv)
+{
   Sdl sdl;
-  if (sdl.ok == false) {
+  if(sdl.ok == false)
+  {
     return -1;
   }
 
   SetupSdlOpenGlAttributes();
 
-  int width = 800;
+  int width  = 800;
   int height = 600;
 
-  SdlWindow window {"Euphoria Demo", 800, 600};
-  if (window.window == nullptr) {
+  SdlWindow window{"Euphoria Demo", 800, 600};
+  if(window.window == nullptr)
+  {
     return -1;
   }
 
-  SdlGlContext context {&window};
+  SdlGlContext context{&window};
 
-  if (context.context == nullptr) {
+  if(context.context == nullptr)
+  {
     return -1;
   }
 
   Init init;
-  if (init.ok == false) {
+  if(init.ok == false)
+  {
     return -4;
   }
 
   SetupOpenglDebug();
 
-  Viewport viewport { Recti::FromTopLeftWidthHeight(0,0, width, height) };
+  Viewport viewport{Recti::FromTopLeftWidthHeight(0, 0, width, height)};
   viewport.Activate();
 
   FileSystem file_system;
-  auto catalog = FileSystemRootCatalog::AddRoot(&file_system);
+  auto       catalog = FileSystemRootCatalog::AddRoot(&file_system);
   FileSystemRootFolder::AddRoot(&file_system);
-  catalog->RegisterFileString("default_shader.json",
-                              R"(  {"has_light": true, "has_color": true, "textures": [ {"texture": "Diffuse", "uniform": "uTexture"} ]}  )");
-  catalog->RegisterFileString("default_shader.vert",
-                              "#version 330 core\n"
-                                  "in vec3 aPosition;\n"
-                                  "in vec3 aNormal;\n"
-                                  "in vec2 aTexCoord;\n"
-                                  "\n"
-                                  "out vec2 texCoord;\n"
-                                  "out vec3 normal;\n"
-                                  "out vec3 fragPositionWorld;\n"
-                                  "\n"
-                                  "uniform mat4 uProjection;\n"
-                                  "uniform mat4 uView;\n"
-                                  "uniform mat4 uModel;\n"
-                                  "uniform mat3 uNormalMatrix;\n"
-                                  "\n"
-                                  "void main()\n"
-                                  "{\n"
-                                  "    gl_Position = uProjection * uView * uModel * vec4(aPosition, 1.0);\n"
-                                  "    fragPositionWorld = vec3(uModel * vec4(aPosition, 1.0));\n"
-                                  "    texCoord = aTexCoord;\n"
-                                  "    normal = uNormalMatrix * aNormal;\n"
-                                  "}\n");
-  catalog->RegisterFileString("default_shader.frag",
-                              "#version 330 core\n"
-                                  "struct Material\n"
-                                  "{\n"
-                                  "  vec3 ambient;\n"
-                                  "  vec3 diffuse;\n"
-                                  "  vec3 specular;\n"
-                                  "  float shininess;\n"
-                                  "};\n"
-                                  "\n"
-                                  "struct Light\n"
-                                  "{\n"
-                                  "  vec3 ambient;\n"
-                                  "  vec3 diffuse;\n"
-                                  "  vec3 specular;\n"
-                                  "  \n"
-                                  "  vec3 position;\n"
-                                  "};\n"
-                                  "\n"
-                                  "out vec4 FragColor;\n"
-                                  "\n"
-                                  "in vec2 texCoord;\n"
-                                  "in vec3 normal;\n"
-                                  "in vec3 fragPositionWorld;\n"
-                                  "\n"
-                                  "uniform sampler2D uTexture;\n"
-                                  "\n"
-                                  "uniform Light uLight;\n"
-                                  "uniform vec3 uViewPosition;\n"
-                                  "uniform Material uMaterial;\n"
-                                  "\n"
-                                  "void main()\n"
-                                  "{\n"
-                                  "    vec3 ambient = uMaterial.ambient * uLight.ambient;\n"
-                                  "    \n"
-                                  "    vec3 norm = normalize(normal);\n"
-                                  "    vec3 lightDir = normalize(uLight.position - fragPositionWorld);\n"
-                                  "    float diffuse_factor = max(0.0, dot(norm, lightDir));\n"
-                                  "    vec3 diffuse = diffuse_factor * uMaterial.diffuse * uLight.diffuse;\n"
-                                  "    \n"
-                                  "    float specularStrength = 0.5;\n"
-                                  "    vec3 viewDir = normalize(uViewPosition - fragPositionWorld);\n"
-                                  "    vec3 reflectDir = reflect(-lightDir, norm);\n"
-                                  "    float spec = pow(max(0, dot(viewDir, reflectDir)), uMaterial.shininess);\n"
-                                  "    vec3 specular = specularStrength * uMaterial.specular * spec * uLight.specular;\n"
-                                  "    \n"
-                                  "    vec3 object_color = texture(uTexture, texCoord).rgb;\n"
-                                  "    \n"
-                                  "    vec3 result = (ambient + diffuse + specular) * object_color;\n"
-                                  "    \n"
-                                  "    FragColor = vec4(result, 1.0);\n"
-                                  "}\n");
+  catalog->RegisterFileString(
+      "default_shader.json",
+      R"(  {"has_light": true, "has_color": true, "textures": [ {"texture": "Diffuse", "uniform": "uTexture"} ]}  )");
+  catalog->RegisterFileString(
+      "default_shader.vert",
+      "#version 330 core\n"
+      "in vec3 aPosition;\n"
+      "in vec3 aNormal;\n"
+      "in vec2 aTexCoord;\n"
+      "\n"
+      "out vec2 texCoord;\n"
+      "out vec3 normal;\n"
+      "out vec3 fragPositionWorld;\n"
+      "\n"
+      "uniform mat4 uProjection;\n"
+      "uniform mat4 uView;\n"
+      "uniform mat4 uModel;\n"
+      "uniform mat3 uNormalMatrix;\n"
+      "\n"
+      "void main()\n"
+      "{\n"
+      "    gl_Position = uProjection * uView * uModel * vec4(aPosition, 1.0);\n"
+      "    fragPositionWorld = vec3(uModel * vec4(aPosition, 1.0));\n"
+      "    texCoord = aTexCoord;\n"
+      "    normal = uNormalMatrix * aNormal;\n"
+      "}\n");
+  catalog->RegisterFileString(
+      "default_shader.frag",
+      "#version 330 core\n"
+      "struct Material\n"
+      "{\n"
+      "  vec3 ambient;\n"
+      "  vec3 diffuse;\n"
+      "  vec3 specular;\n"
+      "  float shininess;\n"
+      "};\n"
+      "\n"
+      "struct Light\n"
+      "{\n"
+      "  vec3 ambient;\n"
+      "  vec3 diffuse;\n"
+      "  vec3 specular;\n"
+      "  \n"
+      "  vec3 position;\n"
+      "};\n"
+      "\n"
+      "out vec4 FragColor;\n"
+      "\n"
+      "in vec2 texCoord;\n"
+      "in vec3 normal;\n"
+      "in vec3 fragPositionWorld;\n"
+      "\n"
+      "uniform sampler2D uTexture;\n"
+      "\n"
+      "uniform Light uLight;\n"
+      "uniform vec3 uViewPosition;\n"
+      "uniform Material uMaterial;\n"
+      "\n"
+      "void main()\n"
+      "{\n"
+      "    vec3 ambient = uMaterial.ambient * uLight.ambient;\n"
+      "    \n"
+      "    vec3 norm = normalize(normal);\n"
+      "    vec3 lightDir = normalize(uLight.position - fragPositionWorld);\n"
+      "    float diffuse_factor = max(0.0, dot(norm, lightDir));\n"
+      "    vec3 diffuse = diffuse_factor * uMaterial.diffuse * "
+      "uLight.diffuse;\n"
+      "    \n"
+      "    float specularStrength = 0.5;\n"
+      "    vec3 viewDir = normalize(uViewPosition - fragPositionWorld);\n"
+      "    vec3 reflectDir = reflect(-lightDir, norm);\n"
+      "    float spec = pow(max(0, dot(viewDir, reflectDir)), "
+      "uMaterial.shininess);\n"
+      "    vec3 specular = specularStrength * uMaterial.specular * spec * "
+      "uLight.specular;\n"
+      "    \n"
+      "    vec3 object_color = texture(uTexture, texCoord).rgb;\n"
+      "    \n"
+      "    vec3 result = (ambient + diffuse + specular) * object_color;\n"
+      "    \n"
+      "    FragColor = vec4(result, 1.0);\n"
+      "}\n");
 
   catalog->RegisterFileString("basic_shader.json",
                               R"(  {"textures": []}  )");
-  catalog->RegisterFileString("basic_shader.vert",
-                              "#version 330 core\n"
-                                "in vec3 aPosition;\n"
-                                "\n"
-                                "\n"
-                                "uniform mat4 uProjection;\n"
-                                "uniform mat4 uView;\n"
-                                "uniform mat4 uModel;\n"
-                                "\n"
-                                "void main()\n"
-                                "{\n"
-                                "    gl_Position = uProjection * uView * uModel * vec4(aPosition, 1.0);\n"
-                                "}\n");
+  catalog->RegisterFileString(
+      "basic_shader.vert",
+      "#version 330 core\n"
+      "in vec3 aPosition;\n"
+      "\n"
+      "\n"
+      "uniform mat4 uProjection;\n"
+      "uniform mat4 uView;\n"
+      "uniform mat4 uModel;\n"
+      "\n"
+      "void main()\n"
+      "{\n"
+      "    gl_Position = uProjection * uView * uModel * vec4(aPosition, 1.0);\n"
+      "}\n");
   catalog->RegisterFileString("basic_shader.frag",
                               "#version 330 core\n"
-                                "out vec4 FragColor;\n"
-                                "\n"
-                                "void main()\n"
-                                "{\n"
-                                "    FragColor = vec4(1.0, 1.0, 1.0, 1.0);\n"
-                                "}\n");
+                              "out vec4 FragColor;\n"
+                              "\n"
+                              "void main()\n"
+                              "{\n"
+                              "    FragColor = vec4(1.0, 1.0, 1.0, 1.0);\n"
+                              "}\n");
 
   catalog->RegisterFileString("texture_types.json",
                               R"({"name" : ["Diffuse"]})");
 
-  MaterialShaderCache material_shader_cache {&file_system};
+  MaterialShaderCache material_shader_cache{&file_system};
 
   // SET_ENUM_VALUES(TextureType, SetupTextureNames);
   SET_ENUM_FROM_FILE(&file_system, "texture_types.json", TextureType);
 
   Image image;
   image.Setup(256, 256, false);
-  Draw drawer{&image};
+  Draw       drawer{&image};
   const auto wi = drawer.WholeImage();
-  drawer
-      .Clear(Rgb::From(Color::Red));
-  Random random {42};
+  drawer.Clear(Rgb::From(Color::Red));
+  Random random{42};
 
-  for(int i=0; i<20; i+= 1) {
+  for(int i = 0; i < 20; i += 1)
+  {
     const auto color = Rgb::From(random.NextDawnbringerPalette());
-    const auto pos = random.NextPoint(wi);
+    const auto pos   = random.NextPoint(wi);
     const auto outer = random.NextRange(55.0f, 100.0f);
     const auto inner = random.NextRange(50.0f);
     drawer.Circle(color, pos, outer, 10, inner);
@@ -431,11 +521,11 @@ int main(int argc, char** argv) {
   drawer
       .LineAntialiased(Rgb::From(Color::Black), wi.TopLeft(), wi.BottomRight())
       .LineAntialiased(Rgb::From(Color::Black), wi.BottomLeft(), wi.TopRight())
-    .Text(wi.GetAbsoluteCenterPos(), "Hello world", Rgb::From(Color::Black), 2)
-      ;
+      .Text(wi.GetAbsoluteCenterPos(), "Hello world", Rgb::From(Color::Black),
+            2);
   catalog->RegisterFileData("image", image.Write(ImageWriteFormat::PNG));
 
-  TextureCache texture_cache {&file_system};
+  TextureCache texture_cache{&file_system};
 
   bool running = true;
 
@@ -445,54 +535,58 @@ int main(int argc, char** argv) {
 
   auto box_mesh1 = meshes::CreateCube(0.5f);
   box_mesh1.materials[0].SetTexture("Diffuse", "image");
-  box_mesh1.materials[0].ambient = Rgb::From(Color::White); // fix ambient color on material
-  box_mesh1.materials[0].specular = Rgb::From(Color::White);
+  box_mesh1.materials[0].ambient =
+      Rgb::From(Color::White);  // fix ambient color on material
+  box_mesh1.materials[0].specular  = Rgb::From(Color::White);
   box_mesh1.materials[0].shininess = 10.0f;
   auto box1 = CompileMesh(box_mesh1, &material_shader_cache, &texture_cache);
 
-  auto box_mesh2 = meshes::CreateSphere(0.5f,  "wooden-crate.jpg");
+  auto box_mesh2 = meshes::CreateSphere(0.5f, "wooden-crate.jpg");
   // box_mesh2.materials[0].SetTexture("Diffuse", "wooden-crate.jpg");
-  box_mesh2.materials[0].ambient = Rgb::From(Color::White); // fix ambient color on material
-  box_mesh2.materials[0].specular = Rgb::From(Color::White);
+  box_mesh2.materials[0].ambient =
+      Rgb::From(Color::White);  // fix ambient color on material
+  box_mesh2.materials[0].specular  = Rgb::From(Color::White);
   box_mesh2.materials[0].shininess = 80.0f;
   auto box2 = CompileMesh(box_mesh2, &material_shader_cache, &texture_cache);
 
-  auto light_mesh = meshes::CreateCube(0.2f);
+  auto light_mesh                = meshes::CreateCube(0.2f);
   light_mesh.materials[0].shader = "basic_shader";
-  auto light = CompileMesh(light_mesh, &material_shader_cache, &texture_cache);
+  auto  light = CompileMesh(light_mesh, &material_shader_cache, &texture_cache);
   float light_position = 0.0f;
 
   const float box_extent_value = 4;
-  Aabb box_extents
-    { vec3f{-box_extent_value, -box_extent_value, -box_extent_value},
-      vec3f{box_extent_value, box_extent_value, box_extent_value} };
+  Aabb        box_extents{
+      vec3f{-box_extent_value, -box_extent_value, -box_extent_value},
+      vec3f{box_extent_value, box_extent_value, box_extent_value}};
 
   std::vector<CubeAnimation> animation_handler;
 
   bool capturing_mouse_movement = false;
 
-  for(int i=0; i<20; ++i)
+  for(int i = 0; i < 20; ++i)
   {
-    std::shared_ptr<Actor> actor = std::make_shared<Actor>(random.NextBool() ? box1 : box2);
+    std::shared_ptr<Actor> actor =
+        std::make_shared<Actor>(random.NextBool() ? box1 : box2);
     world.AddActor(actor);
 
     CubeAnimation anim;
-    anim.actor = actor;
-    anim.from = random.NextQuatf();
-    anim.to = random.NextQuatf();
+    anim.actor          = actor;
+    anim.from           = random.NextQuatf();
+    anim.to             = random.NextQuatf();
     anim.rotation_speed = random.NextRange(0.5f, 1.0f);
-    anim.move_speed = random.NextRange(0.5f, 1.0f);
-    anim.timer = random.NextFloat01();
+    anim.move_speed     = random.NextRange(0.5f, 1.0f);
+    anim.timer          = random.NextFloat01();
 
 
     // generate a position not too close to the center
     vec3f position = vec3f::Origo();
-    do {
+    do
+    {
       position = random.NextVec3(box_extents);
     } while(position.GetLength() < 1.4f);
 
-    actor->SetPosition( position );
-    actor->SetRotation( anim.from );
+    actor->SetPosition(position);
+    actor->SetRotation(anim.from);
 
     animation_handler.push_back(anim);
   }
@@ -501,48 +595,55 @@ int main(int argc, char** argv) {
   world.AddActor(light_actor);
 
   Camera camera;
-  camera.SetPosition(vec3f(0,0,0));
+  camera.SetPosition(vec3f(0, 0, 0));
 
   FpsController fps;
-  fps.SetPosition(vec3f(0,0,3));
+  fps.SetPosition(vec3f(0, 0, 3));
 
   bool paused = true;
 
-  while (running) {
+  while(running)
+  {
     const float delta = timer.Update();
 
-    light_position = Wrap(0, light_position+delta*0.1f, 1);
-    const auto light_pos = PolarCoord{light_position, light_position*2}.ToCartesian() * 2.0f;
-    world.light.SetPosition( light_pos );
+    light_position = Wrap(0, light_position + delta * 0.1f, 1);
+    const auto light_pos =
+        PolarCoord{light_position, light_position * 2}.ToCartesian() * 2.0f;
+    world.light.SetPosition(light_pos);
     light_actor->SetPosition(light_pos);
 
 
-    for(auto& anim: animation_handler)
+    for(auto& anim : animation_handler)
     {
-      if(paused == false) {
+      if(paused == false)
+      {
         anim.timer += delta * anim.rotation_speed;
         int count = 0;
         while(anim.timer > 1.0f)
         {
           count += 1;
           anim.timer -= 1.0f;
-          anim.from = anim.to;
-          anim.to = random.NextQuatf();
+          anim.from           = anim.to;
+          anim.to             = random.NextQuatf();
           anim.rotation_speed = random.NextRange(0.3f, 1.0f);
-          anim.move_speed = random.NextRange(0.2f, 3.0f);
+          anim.move_speed     = random.NextRange(0.2f, 3.0f);
         }
         Assert(count < 2);
         quatf q = quatf::SlerpShortway(anim.from, anim.timer, anim.to);
         anim.actor->SetRotation(q);
-        const vec3f movement = q.In()*anim.move_speed*delta;
-        const vec3f new_pos = box_extents.Wrap(anim.actor->GetPosition() + movement);
-        anim.actor->SetPosition( new_pos ); // hard to see movement when everything is moving
+        const vec3f movement = q.In() * anim.move_speed * delta;
+        const vec3f new_pos =
+            box_extents.Wrap(anim.actor->GetPosition() + movement);
+        anim.actor->SetPosition(
+            new_pos);  // hard to see movement when everything is moving
       }
     }
 
     SDL_Event e;
-    while (SDL_PollEvent(&e) != 0) {
-      switch (e.type) {
+    while(SDL_PollEvent(&e) != 0)
+    {
+      switch(e.type)
+      {
         case SDL_QUIT:
           running = false;
           break;
@@ -554,34 +655,38 @@ int main(int argc, char** argv) {
           break;
         case SDL_KEYDOWN:
         case SDL_KEYUP:
+        {
+          const bool down = e.type == SDL_KEYDOWN;
+
+          fps.HandleSdlKey(e.key.keysym.sym, down);
+
+          switch(e.key.keysym.sym)
           {
-            const bool down = e.type == SDL_KEYDOWN;
-
-            fps.HandleSdlKey(e.key.keysym.sym, down);
-
-            switch( e.key.keysym.sym ) {
-              case SDLK_ESCAPE:
-                if(down) {
-                  running = false;
-                }
-                break;
-              case SDLK_p:
-                if( !down ) {
-                  paused = !paused;
-                }
-                break;
-              case SDLK_TAB:
-                if(!down) {
-                  capturing_mouse_movement = !capturing_mouse_movement;
-                  window.KeepWithin(capturing_mouse_movement);
-                }
-                break;
-              default:
-                // ignore other keys
-                break;
-            }
+            case SDLK_ESCAPE:
+              if(down)
+              {
+                running = false;
+              }
+              break;
+            case SDLK_p:
+              if(!down)
+              {
+                paused = !paused;
+              }
+              break;
+            case SDLK_TAB:
+              if(!down)
+              {
+                capturing_mouse_movement = !capturing_mouse_movement;
+                window.KeepWithin(capturing_mouse_movement);
+              }
+              break;
+            default:
+              // ignore other keys
+              break;
           }
-          break;
+        }
+        break;
         default:
           // ignore other events
           break;

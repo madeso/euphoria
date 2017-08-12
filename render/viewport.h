@@ -3,19 +3,22 @@
 
 #include "core/rect.h"
 
-class Viewport {
+class Viewport
+{
  public:
   Viewport(const Recti& viewport);
 
-  void Activate(); // sets the gl viewport
-  float GetAspectRatio() const;
+  void
+  Activate();  // sets the gl viewport
+  float
+  GetAspectRatio() const;
 
   // debug
-  bool IsActive() const;
+  bool
+  IsActive() const;
 
  private:
   Recti viewport_;
-
 };
 
 #endif  // RENDER_VIEWPORT_H

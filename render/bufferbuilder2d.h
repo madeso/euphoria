@@ -8,7 +8,8 @@ class Ebo;
 
 #include "core/vec2.h"
 
-class Point {
+class Point
+{
  public:
   Point(float x, float y, float u, float v);
   Point(const vec2f& pos, const vec2f& vert);
@@ -17,19 +18,25 @@ class Point {
   const vec2f vert;
 };
 
-class BufferBuilder2d {
+class BufferBuilder2d
+{
  public:
   BufferBuilder2d();
 
-  void AddVertex(const Point& p);
-  void AddTriangle(unsigned int a, unsigned int b, unsigned int c);
-  void AddQuad(const Point& a, const Point& b, const Point& c,
-                   const Point& d);
+  void
+  AddVertex(const Point& p);
+  void
+  AddTriangle(unsigned int a, unsigned int b, unsigned int c);
+  void
+  AddQuad(const Point& a, const Point& b, const Point& c, const Point& d);
 
-  const std::vector<float>& GetVertexData() const;
-  const std::vector<unsigned int>& GetTriangleIndices() const;
+  const std::vector<float>&
+  GetVertexData() const;
+  const std::vector<unsigned int>&
+  GetTriangleIndices() const;
+
  private:
-  std::vector<float> data;
+  std::vector<float>        data;
   std::vector<unsigned int> tris;
 };
 

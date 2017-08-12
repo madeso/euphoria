@@ -2,28 +2,38 @@
 
 #include "render/gl.h"
 
-Viewport::Viewport(const Recti& viewport) : viewport_(viewport) {}
-
-namespace // local
+Viewport::Viewport(const Recti& viewport)
+    : viewport_(viewport)
 {
-Viewport*& ActiveViewport()
-{
-  static Viewport* viewport = nullptr;
-  return viewport;
-}
 }
 
-void Viewport::Activate() {
+namespace  // local
+{
+  Viewport*&
+  ActiveViewport()
+  {
+    static Viewport* viewport = nullptr;
+    return viewport;
+  }
+}
+
+void
+Viewport::Activate()
+{
   const vec2i top_left = viewport_.TopLeft();
-  glViewport(top_left.x, top_left.y, viewport_.GetWidth(), viewport_.GetHeight());
+  glViewport(top_left.x, top_left.y, viewport_.GetWidth(),
+             viewport_.GetHeight());
   ActiveViewport() = this;
 }
 
-float Viewport::GetAspectRatio() const {
-  return viewport_.GetWidth()/ static_cast<float>(viewport_.GetHeight());
+float
+Viewport::GetAspectRatio() const
+{
+  return viewport_.GetWidth() / static_cast<float>(viewport_.GetHeight());
 }
 
-bool Viewport::IsActive() const
+bool
+Viewport::IsActive() const
 {
   return ActiveViewport() == this;
 }

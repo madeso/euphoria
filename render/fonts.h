@@ -17,13 +17,15 @@
 class Shader;
 class BufferBuilder2d;
 
-struct CharData {
-  CharData(const BufferBuilder2d& data, const Rectf& extent, unsigned int c, float advance);
+struct CharData
+{
+  CharData(const BufferBuilder2d& data, const Rectf& extent, unsigned int c,
+           float advance);
   Buffer2d buffer;
-  Rectf extent;
+  Rectf    extent;
 
   unsigned int c;
-  float advance;
+  float        advance;
 };
 
 typedef std::map<unsigned int, std::shared_ptr<CharData>> CharDataMap;
@@ -31,79 +33,115 @@ typedef std::map<std::pair<unsigned int, unsigned int>, int> KerningMap;
 
 class Font;
 
-enum class Align {
-  TOP_LEFT, TOP_CENTER, TOP_RIGHT,
-  MIDDLE_LEFT, MIDDLE_CENTER, MIDDLE_RIGHT,
-  BOTTOM_LEFT, BOTTOM_CENTER, BOTTOM_RIGHT,
-  LEFT=MIDDLE_LEFT, CENTER=MIDDLE_CENTER, RIGHT=MIDDLE_RIGHT,
+enum class Align
+{
+  TOP_LEFT,
+  TOP_CENTER,
+  TOP_RIGHT,
+  MIDDLE_LEFT,
+  MIDDLE_CENTER,
+  MIDDLE_RIGHT,
+  BOTTOM_LEFT,
+  BOTTOM_CENTER,
+  BOTTOM_RIGHT,
+  LEFT   = MIDDLE_LEFT,
+  CENTER = MIDDLE_CENTER,
+  RIGHT  = MIDDLE_RIGHT,
 };
 
-class TextBackgroundRenderer {
+class TextBackgroundRenderer
+{
  public:
   TextBackgroundRenderer(Shader* shader);
 
-  void Draw(float alpha, const Rectf& area);
+  void
+  Draw(float alpha, const Rectf& area);
+
  private:
-  Buffer2d buffer_;
-  Shader* shader_;
+  Buffer2d      buffer_;
+  Shader*       shader_;
   ShaderUniform model_;
   ShaderUniform color_;
 };
 
-class Text {
+class Text
+{
  public:
   Text(Font* font, TextBackgroundRenderer* back);
   ~Text();
 
-  void SetText(const std::string& str);
-  const std::string& GetText() const;
-  void SetBaseColor(const Rgb& color);
-  void SetHighlightColor(const Rgb& color);
-  void SetHighlightRange(int from, int to);
-  void SetBackground(bool use_background, float alpha=0.5f);
-  void SetAlignment(Align alignment);
+  void
+  SetText(const std::string& str);
+  const std::string&
+  GetText() const;
+  void
+  SetBaseColor(const Rgb& color);
+  void
+  SetHighlightColor(const Rgb& color);
+  void
+  SetHighlightRange(int from, int to);
+  void
+  SetBackground(bool use_background, float alpha = 0.5f);
+  void
+  SetAlignment(Align alignment);
 
-  void SetSize(float new_size);
-  void SetScale(float scale);
+  void
+  SetSize(float new_size);
+  void
+  SetScale(float scale);
 
-  void Draw(const vec2f& p) const;
-  void Draw(const vec2f& p, const Rgb& override_color) const;
+  void
+  Draw(const vec2f& p) const;
+  void
+  Draw(const vec2f& p, const Rgb& override_color) const;
 
-  Rectf GetExtents() const;
+  Rectf
+  GetExtents() const;
+
  private:
-  Font* font_;
+  Font*                   font_;
   TextBackgroundRenderer* backgroundRenderer_;
-  float scale_;
-  std::string text_;
-  Rgb base_color_;
-  Rgb hi_color_;
-  int hi_from_;
-  int hi_to_;
-  Align alignment_;
+  float                   scale_;
+  std::string             text_;
+  Rgb                     base_color_;
+  Rgb                     hi_color_;
+  int                     hi_from_;
+  int                     hi_to_;
+  Align                   alignment_;
 
-  bool use_background_;
+  bool  use_background_;
   float background_alpha_;
 };
 
-class Font {
+class Font
+{
  public:
-  Font(Shader* shader, const std::string& path, unsigned int font_size, const std::string& chars);
-  unsigned int GetFontSize() const;
+  Font(Shader* shader, const std::string& path, unsigned int font_size,
+       const std::string& chars);
+  unsigned int
+  GetFontSize() const;
+
  protected:
-  friend void Text::Draw(const vec2f &p, const Rgb& c) const;
-  friend Rectf Text::GetExtents() const;
+  friend void
+  Text::Draw(const vec2f& p, const Rgb& c) const;
+  friend Rectf
+  Text::GetExtents() const;
 
   // todo: support drawing background color behind string
-  void Draw(const vec2f& p, const std::string& str, const Rgb& basec, const Rgb& hic, int hi_start, int hi_end, float scale) const;
-  Rectf GetExtents(const std::string& str, float scale) const;
+  void
+  Draw(const vec2f& p, const std::string& str, const Rgb& basec, const Rgb& hic,
+       int hi_start, int hi_end, float scale) const;
+  Rectf
+  GetExtents(const std::string& str, float scale) const;
+
  private:
-  Shader* shader_;
-  unsigned int font_size_;
-  ShaderUniform color_;
-  ShaderUniform model_;
+  Shader*                    shader_;
+  unsigned int               font_size_;
+  ShaderUniform              color_;
+  ShaderUniform              model_;
   std::unique_ptr<Texture2d> texture_;
-  CharDataMap chars_;
-  KerningMap kerning_;
+  CharDataMap                chars_;
+  KerningMap                 kerning_;
 };
 
 #endif  // SPACETYPER_FONTS_H

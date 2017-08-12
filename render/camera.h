@@ -5,25 +5,38 @@
 #include "core/vec3.h"
 #include "core/quat.h"
 
-class Camera {
+class Camera
+{
  public:
   Camera();
 
-  const vec3f& GetPosition() const;
-  const quatf& GetRotation() const;
-  float GetFov() const;
-  float GetNear() const;
-  float GetFar() const;
+  const vec3f&
+  GetPosition() const;
+  const quatf&
+  GetRotation() const;
+  float
+  GetFov() const;
+  float
+  GetNear() const;
+  float
+  GetFar() const;
 
-  void SetPosition(const vec3f& position);
-  void SetRotation(const quatf& rotation);
-  void SetFov(float fov);
-  void SetNear(float near);
-  void SetFar(float far);
+  void
+  SetPosition(const vec3f& position);
+  void
+  SetRotation(const quatf& rotation);
+  void
+  SetFov(float fov);
+  void
+  SetNear(float near);
+  void
+  SetFar(float far);
 
-  mat4f CalculateProjectionMatrix(float aspect) const;
+  mat4f
+  CalculateProjectionMatrix(float aspect) const;
 
-  mat4f CalculateViewMatrix() const;
+  mat4f
+  CalculateViewMatrix() const;
 
  private:
   vec3f position_;
@@ -34,4 +47,4 @@ class Camera {
 };
 
 
-#endif //EUPHORIA_CAMERA_H
+#endif  // EUPHORIA_CAMERA_H

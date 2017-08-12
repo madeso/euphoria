@@ -1,12 +1,15 @@
 #ifndef DEBUGGL_H
 #define DEBUGGL_H
 
-void PrintAllOpenglErrors(const char *file, int line);
-void SetupOpenglDebug();
+void
+PrintAllOpenglErrors(const char *file, int line);
+void
+SetupOpenglDebug();
 
 #define CheckOpenglError()                    \
-  do {                                        \
+  do                                          \
+  {                                           \
     PrintAllOpenglErrors(__FILE__, __LINE__); \
-  } while (false)
+  } while(false)
 
 #endif  // DEBUGGL_H

@@ -6,14 +6,18 @@
 
 class Shader;
 
-namespace attributes3d {
+namespace attributes3d
+{
+  const ShaderAttribute&
+  Vertex();
+  const ShaderAttribute&
+  Normal();
+  const ShaderAttribute&
+  TexCoord();
 
-const ShaderAttribute& Vertex();
-const ShaderAttribute& Normal();
-const ShaderAttribute& TexCoord();
-
-void PrebindShader(Shader* shader);
+  void
+  PrebindShader(Shader* shader);
 }
 
 
-#endif //EUPHORIA_SHADERATTRIBUTE3D_H
+#endif  // EUPHORIA_SHADERATTRIBUTE3D_H

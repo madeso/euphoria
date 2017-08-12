@@ -9,21 +9,28 @@
 #include "core/rgb.h"
 
 // texture & shader will be handled by 2d world and sprite
-class SpriteBatch {
+class SpriteBatch
+{
  public:
   SpriteBatch();
   ~SpriteBatch();
 
-  void Begin();
-  void Quad(const vec2f& pos, const Sizef& quad, const Rectf& uv, const vec2f& center, const Angle& rotation, const Rgba& color);
-  void End();
-  void Flush();
+  void
+  Begin();
+  void
+  Quad(const vec2f& pos, const Sizef& quad, const Rectf& uv,
+       const vec2f& center, const Angle& rotation, const Rgba& color);
+  void
+  End();
+  void
+  Flush();
+
  private:
-  bool inside_;
-  int count_;
-  unsigned int rendercalls_;
+  bool               inside_;
+  int                count_;
+  unsigned int       rendercalls_;
   std::vector<float> data_;
-  std::vector<int> index_;
+  std::vector<int>   index_;
 };
 
 #endif  // RENDER_SPRITEBATCH_H

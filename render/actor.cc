@@ -3,39 +3,47 @@
 #include "core/assert.h"
 
 Actor::Actor(std::shared_ptr<CompiledMesh> mesh)
-: mesh_(mesh)
-, position_(vec3f::Origo())
-, rotation_(quatf::Identity())
+    : mesh_(mesh)
+    , position_(vec3f::Origo())
+    , rotation_(quatf::Identity())
 {
   Assert(mesh);
 }
 
-const vec3f& Actor::GetPosition()
+const vec3f&
+Actor::GetPosition()
 {
   return position_;
 }
 
-const quatf& Actor::GetRotation()
+const quatf&
+Actor::GetRotation()
 {
   return rotation_;
 }
 
-void Actor::SetPosition(const vec3f& position)
+void
+Actor::SetPosition(const vec3f& position)
 {
   position_ = position;
 }
 
-void Actor::SetRotation(const quatf& rotation)
+void
+Actor::SetRotation(const quatf& rotation)
 {
   rotation_ = rotation;
 }
 
-mat4f Actor::GetModelMatrix() const
+mat4f
+Actor::GetModelMatrix() const
 {
   return mat4f::FromTranslation(position_) * rotation_.ToMat4();
 }
 
-void Actor::Render(const mat4f& projection_matrix, const mat4f& view_matrix, const vec3f& camera, const Light& light)
+void
+Actor::Render(const mat4f& projection_matrix, const mat4f& view_matrix,
+              const vec3f& camera, const Light& light)
 {
-  mesh_->Render(GetModelMatrix(), projection_matrix, view_matrix, camera, light);
+  mesh_->Render(GetModelMatrix(), projection_matrix, view_matrix, camera,
+                light);
 }

@@ -6,95 +6,139 @@
 #include "render/shader.h"
 #include <algorithm>
 
-Vbo::Vbo() { glGenBuffers(1, &id_); }
-
-Vbo::~Vbo() { glDeleteBuffers(1, &id_); }
-
-void Vbo::SetData(const std::vector<float>& data) {
-  Assert(GetBound() == this);
-  // use GL_DYNAMIC_DRAW or GL_STREAM_DRAW instead?
-  glBufferData(GL_ARRAY_BUFFER, sizeof(float) * data.size(), &data[0], GL_STATIC_DRAW);
+Vbo::Vbo()
+{
+  glGenBuffers(1, &id_);
 }
 
-void Vbo::Bind(const Vbo* vbo){
+Vbo::~Vbo()
+{
+  glDeleteBuffers(1, &id_);
+}
+
+void
+Vbo::SetData(const std::vector<float>& data)
+{
+  Assert(GetBound() == this);
+  // use GL_DYNAMIC_DRAW or GL_STREAM_DRAW instead?
+  glBufferData(GL_ARRAY_BUFFER, sizeof(float) * data.size(), &data[0],
+               GL_STATIC_DRAW);
+}
+
+void
+Vbo::Bind(const Vbo* vbo)
+{
   const gluint id = vbo ? vbo->id_ : 0;
   glBindBuffer(GL_ARRAY_BUFFER, id);
   GetBound() = vbo;
 }
 
-const Vbo*& Vbo::GetBound(){
+const Vbo*&
+Vbo::GetBound()
+{
   static const Vbo* vbo = nullptr;
   return vbo;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 
-Vao::Vao() { glGenVertexArrays(1, &id_); }
+Vao::Vao()
+{
+  glGenVertexArrays(1, &id_);
+}
 
-Vao::~Vao(){ glDeleteVertexArrays(1, &id_); }
+Vao::~Vao()
+{
+  glDeleteVertexArrays(1, &id_);
+}
 
-void Vao::BindVboData(const ShaderAttribute& attribute, int stride, int offset)  {
+void
+Vao::BindVboData(const ShaderAttribute& attribute, int stride, int offset)
+{
   Assert(GetBound() == this);
   Assert(Vbo::GetBound() != nullptr);
   int size = static_cast<int>(attribute.size);
   Assert(size >= 1 && size <= 4);
-  glVertexAttribPointer(attribute.id, size, GL_FLOAT, GL_FALSE, stride, reinterpret_cast<GLvoid*>(offset));
+  glVertexAttribPointer(attribute.id, size, GL_FLOAT, GL_FALSE, stride,
+                        reinterpret_cast<GLvoid*>(offset));
   glEnableVertexAttribArray(attribute.id);
 
   attributes.push_back(attribute);
 }
 
-void Vao::Bind(const Vao* vao) {
+void
+Vao::Bind(const Vao* vao)
+{
   const gluint id = vao ? vao->id_ : 0;
   glBindVertexArray(id);
   GetBound() = vao;
 }
 
-const Vao*& Vao::GetBound() {
+const Vao*&
+Vao::GetBound()
+{
   static const Vao* vao = nullptr;
   return vao;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 
-Ebo::Ebo() { glGenBuffers(1, &id_); }
-Ebo::~Ebo() { glDeleteBuffers(1, &id_); }
-
-void Ebo::SetData(const std::vector<unsigned int>& indices){
-  Assert(GetBound() == this);
-  glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int), &indices[0], GL_STATIC_DRAW);
+Ebo::Ebo()
+{
+  glGenBuffers(1, &id_);
+}
+Ebo::~Ebo()
+{
+  glDeleteBuffers(1, &id_);
 }
 
-void Ebo::Draw(int count) const {
+void
+Ebo::SetData(const std::vector<unsigned int>& indices)
+{
+  Assert(GetBound() == this);
+  glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int),
+               &indices[0], GL_STATIC_DRAW);
+}
+
+void
+Ebo::Draw(int count) const
+{
   Assert(Vao::GetBound() != nullptr);
   Assert(Shader::CurrentlyBound() != nullptr);
 
-  const Vao* vao = Vao::GetBound();
+  const Vao*    vao    = Vao::GetBound();
   const Shader* shader = Shader::CurrentlyBound();
   Assert(vao);
   Assert(shader);
 
   const auto& a = shader->GetAttributes();
-  for(const auto& attribute: vao->attributes) {
-    const bool found_in_shader = std::find(a.begin(), a.end(), attribute) != a.end();
-    if(found_in_shader == false) {
-      std::cerr << "Failed to find attribute " << attribute.name << " bound in shader " << shader->GetName() << "\n";
+  for(const auto& attribute : vao->attributes)
+  {
+    const bool found_in_shader =
+        std::find(a.begin(), a.end(), attribute) != a.end();
+    if(found_in_shader == false)
+    {
+      std::cerr << "Failed to find attribute " << attribute.name
+                << " bound in shader " << shader->GetName() << "\n";
       Assert(false);
     }
   }
 
 
-  glDrawElements(GL_TRIANGLES, count*3, GL_UNSIGNED_INT, 0);
+  glDrawElements(GL_TRIANGLES, count * 3, GL_UNSIGNED_INT, 0);
 }
 
-void Ebo::Bind(const Ebo* ebo){
+void
+Ebo::Bind(const Ebo* ebo)
+{
   const gluint id = ebo ? ebo->id_ : 0;
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, id);
   GetBound() = ebo;
 }
 
-const Ebo*& Ebo::GetBound() {
+const Ebo*&
+Ebo::GetBound()
+{
   static const Ebo* ebo = nullptr;
   return ebo;
 }
-

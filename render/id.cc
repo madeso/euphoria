@@ -2,10 +2,17 @@
 
 #include "core/assert.h"
 
-Id::Id() : id_(0) {}
+Id::Id()
+    : id_(0)
+{
+}
 
-Id::~Id() {}
+Id::~Id()
+{
+}
 
-gluint Id::id() const {
+gluint
+Id::id() const
+{
   return id_;
 }

@@ -8,12 +8,14 @@
 class Texture2d;
 class FileSystem;
 
-class TextureCache {
+class TextureCache
+{
  public:
   explicit TextureCache(FileSystem* fs);
   ~TextureCache();
 
-  std::shared_ptr<Texture2d> GetTexture(const std::string& path);
+  std::shared_ptr<Texture2d>
+  GetTexture(const std::string& path);
 
  private:
   struct TextureCachePimpl;

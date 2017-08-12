@@ -10,15 +10,17 @@ class Light;
 
 class MaterialShaderBinding
 {
-public:
+ public:
   MaterialShaderBinding(const ShaderUniform& uniform, const EnumValue& name);
 
-  const ShaderUniform& GetUniform() const;
-  const EnumValue& GetName() const;
+  const ShaderUniform&
+  GetUniform() const;
+  const EnumValue&
+  GetName() const;
 
-private:
+ private:
   ShaderUniform uniform_;
-  EnumValue name_;
+  EnumValue     name_;
 };
 
 class MaterialShader
@@ -26,32 +28,42 @@ class MaterialShader
  public:
   MaterialShader();
 
-  bool Load(FileSystem* file_system, const std::string& path);
+  bool
+  Load(FileSystem* file_system, const std::string& path);
 
-  void UseShader();
+  void
+  UseShader();
 
-  void SetProjection(const mat4f& projection);
-  void SetView(const mat4f& view);
-  void SetModel(const mat4f& model);
+  void
+  SetProjection(const mat4f& projection);
+  void
+  SetView(const mat4f& view);
+  void
+  SetModel(const mat4f& model);
 
-  void SetupLight(const Light& light, const vec3f& camera);
-  void SetColors(const Rgb& ambient, const Rgb& diffuse, const Rgb& specular, float shininess);
+  void
+  SetupLight(const Light& light, const vec3f& camera);
+  void
+  SetColors(const Rgb& ambient, const Rgb& diffuse, const Rgb& specular,
+            float shininess);
 
-  const std::vector<MaterialShaderBinding>& GetBindings() const;
+  const std::vector<MaterialShaderBinding>&
+  GetBindings() const;
 
   Shader shader_;
-private:
+
+ private:
   ShaderUniform projection_;
   ShaderUniform view_;
   ShaderUniform model_;
 
-  bool has_color_;
+  bool          has_color_;
   ShaderUniform ambient_;
   ShaderUniform diffuse_;
   ShaderUniform specular_;
   ShaderUniform shininess_;
 
-  bool hasLight_;
+  bool          hasLight_;
   ShaderUniform lightAmbient_;
   ShaderUniform lightDiffuse_;
   ShaderUniform lightSpecular_;
@@ -64,4 +76,4 @@ private:
 };
 
 
-#endif //EUPHORIA_MATERIALSHADER_H
+#endif  // EUPHORIA_MATERIALSHADER_H

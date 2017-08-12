@@ -7,19 +7,22 @@
 
 class Shader;
 
-class ShaderUniform {
+class ShaderUniform
+{
  public:
   ShaderUniform(const std::string& name, glint id, Shader* shader);
-  static ShaderUniform Null();
+  static ShaderUniform
+  Null();
 
   std::string name;
-  glint id;
-  Shader* shader;
+  glint       id;
+  Shader*     shader;
 
  private:
   ShaderUniform();  // creates a null shader
 };
 
-bool operator==(const ShaderUniform& lhs, const ShaderUniform& rhs);
+bool
+operator==(const ShaderUniform& lhs, const ShaderUniform& rhs);
 
 #endif  // RENDER_SHADERUNIFORM_H

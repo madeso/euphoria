@@ -5,13 +5,15 @@
 #include "core/rgb.h"
 
 // todo: come up with a better name
-class Init {
+class Init
+{
  public:
   Init();
   ~Init();
 
   // todo: move to some place better
-  void ClearScreen(const Rgb& color);
+  void
+  ClearScreen(const Rgb& color);
 
   bool ok;
 };

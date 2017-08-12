@@ -5,11 +5,13 @@
 
 class Shader;
 
-namespace attributes2d {
+namespace attributes2d
+{
+  const ShaderAttribute&
+  Vertex();
 
-const ShaderAttribute& Vertex();
-
-void PrebindShader(Shader* shader);
+  void
+  PrebindShader(Shader* shader);
 }
 
 #endif  // RENDER_SHADERATTRIBUTE2D_H

@@ -16,63 +16,87 @@
 #include "render/shaderattribute.h"
 #include "render/shaderuniform.h"
 
-class ShaderId : Noncopyable {
+class ShaderId : Noncopyable
+{
  public:
   ShaderId();
   ~ShaderId();
 
-  bool IsCurrentlyBound() const;
+  bool
+  IsCurrentlyBound() const;
 
-  gluint id() const;
+  gluint
+  id() const;
 
  private:
   gluint id_;
 };
 
-void Use(const Shader *id);
+void
+Use(const Shader* id);
 
-class FileSystem; // core
+class FileSystem;  // core
 
-class Shader : public ShaderId {
+class Shader : public ShaderId
+{
  public:
   Shader();
 
   // shader attribute =
-  void PreBind(const ShaderAttribute& attribute);
-  bool Load(FileSystem* fs, const std::string& file_path);
+  void
+  PreBind(const ShaderAttribute& attribute);
+  bool
+  Load(FileSystem* fs, const std::string& file_path);
 
  private:
-  bool Compile(const glchar *vertexSource, const glchar *fragmentSource,
-               const glchar *geometrySource = nullptr);
+  bool
+  Compile(const glchar* vertexSource, const glchar* fragmentSource,
+          const glchar* geometrySource = nullptr);
 
  public:
   // uniform = shader global
-  ShaderUniform GetUniform(const std::string& name);
+  ShaderUniform
+  GetUniform(const std::string& name);
 
-  void SetUniform(const ShaderUniform& attribute, glint val);
-  void SetUniform(const ShaderUniform& attribute, float val);
-  void SetUniform(const ShaderUniform& attribute, const Rgb& val);
-  void SetUniform(const ShaderUniform& attribute, const Rgba& val);
-  void SetUniform(const ShaderUniform& attribute, const vec3f& val);
-  void SetUniform(const ShaderUniform& attribute, const vec4f& val);
-  void SetUniform(const ShaderUniform& attribute, const mat3f& val);
-  void SetUniform(const ShaderUniform& attribute, const mat4f& val);
+  void
+  SetUniform(const ShaderUniform& attribute, glint val);
+  void
+  SetUniform(const ShaderUniform& attribute, float val);
+  void
+  SetUniform(const ShaderUniform& attribute, const Rgb& val);
+  void
+  SetUniform(const ShaderUniform& attribute, const Rgba& val);
+  void
+  SetUniform(const ShaderUniform& attribute, const vec3f& val);
+  void
+  SetUniform(const ShaderUniform& attribute, const vec4f& val);
+  void
+  SetUniform(const ShaderUniform& attribute, const mat3f& val);
+  void
+  SetUniform(const ShaderUniform& attribute, const mat4f& val);
 
   // debug
-  static const Shader* CurrentlyBound();
-  const std::vector<ShaderAttribute>& GetAttributes() const;
-  const std::string& GetName() const;
+  static const Shader*
+  CurrentlyBound();
+  const std::vector<ShaderAttribute>&
+  GetAttributes() const;
+  const std::string&
+  GetName() const;
 
  private:
   // debug
   std::vector<ShaderAttribute> bound_attributes_;
-  bool HasBoundAttribute(const ShaderAttribute& attribute) const;
+  bool
+  HasBoundAttribute(const ShaderAttribute& attribute) const;
   std::vector<ShaderUniform> bound_uniforms_;
-  bool HasBoundUniform(const ShaderUniform& uniform) const;
+  bool
+  HasBoundUniform(const ShaderUniform& uniform) const;
   std::string shader_name_;
 };
 
 class Texture2d;
-void BindTextureToShader(Texture2d* texture, Shader* shader, const ShaderUniform& attribute, glint index);
+void
+BindTextureToShader(Texture2d* texture, Shader* shader,
+                    const ShaderUniform& attribute, glint index);
 
 #endif

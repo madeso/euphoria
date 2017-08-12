@@ -4,12 +4,14 @@
 #include "core/noncopyable.h"
 #include "render/gltypes.h"
 
-class Id : Noncopyable {
+class Id : Noncopyable
+{
  public:
   Id();
   ~Id();
 
-  gluint id() const;
+  gluint
+  id() const;
 
  protected:
   gluint id_;

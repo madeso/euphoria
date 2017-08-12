@@ -9,9 +9,12 @@
 
 LOG_SPECIFY_DEFAULT_LOGGER("render.init")
 
-Init::Init() : ok(true) {
+Init::Init()
+    : ok(true)
+{
   const int glad_result = gladLoadGLLoader(SDL_GL_GetProcAddress);
-  if(!glad_result) {
+  if(!glad_result)
+  {
     LOG_ERROR("Failed to init glad, error: " << glad_result);
     ok = false;
   }
@@ -33,10 +36,13 @@ Init::Init() : ok(true) {
   // glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
 
-Init::~Init() {
+Init::~Init()
+{
 }
 
-void Init::ClearScreen(const Rgb& color) {
+void
+Init::ClearScreen(const Rgb& color)
+{
   // 42.0f / 255, 45.0f / 255, 51.0f / 255
   glClearColor(color.GetRed(), color.GetGreen(), color.GetBlue(), 1.0f);
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
