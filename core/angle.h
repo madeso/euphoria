@@ -23,8 +23,8 @@ class Angle
 
   void operator-=(const Angle& rhs);
 
-  void operator*=(const float r);
-  void operator/=(const float r);
+  void operator*=(const float rhs);
+  void operator/=(const float rhs);
 
   Angle operator-() const;
  private:
