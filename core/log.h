@@ -23,7 +23,7 @@ typedef std::shared_ptr<Logger> LoggerPtr;
 class Logger
 {
  public:
-  Logger(Logger* parent, const std::string& name);
+  Logger(Logger* parent, std::string name);
   bool
   IsEnabledForLevel(LogLevel level) const;
   void

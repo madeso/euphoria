@@ -1,5 +1,6 @@
 #include "core/template.h"
 
+#include <utility>
 #include <vector>
 #include <sstream>
 #include "core/textfileparser.h"
@@ -96,8 +97,8 @@ class TemplateNode
 class TemplateNodeString : public TemplateNode
 {
  public:
-  TemplateNodeString(const std::string& text)
-      : text_(text)
+  TemplateNodeString(std::string text)
+      : text_(std::move(text))
   {
   }
   void
@@ -158,9 +159,9 @@ class TemplateNodeScopedList : public TemplateNodeList
 class TemplateNodeIfdef : public TemplateNode
 {
  public:
-  TemplateNodeIfdef(const std::string& name, std::shared_ptr<TemplateNode> node)
-      : name_(name)
-      , node_(node)
+  TemplateNodeIfdef(std::string name, std::shared_ptr<TemplateNode> node)
+      : name_(std::move(name))
+      , node_(std::move(node))
   {
   }
 
@@ -184,8 +185,8 @@ class TemplateNodeIfdef : public TemplateNode
 class TemplateNodeEval : public TemplateNode
 {
  public:
-  TemplateNodeEval(const std::string& name)
-      : name_(name)
+  TemplateNodeEval(std::string name)
+      : name_(std::move(name))
   {
   }
 
@@ -213,9 +214,9 @@ class TemplateNodeEval : public TemplateNode
 class TemplateNodeSet : public TemplateNode
 {
  public:
-  TemplateNodeSet(const std::string& name, const std::string& value)
-      : name_(name)
-      , value_(value)
+  TemplateNodeSet(std::string name, std::string value)
+      : name_(std::move(name))
+      , value_(std::move(value))
   {
   }
 
@@ -285,9 +286,9 @@ FirstChars(const std::string& str, unsigned int count = 10)
 class Lex
 {
  public:
-  Lex(LexType t, unsigned int l, unsigned int c, const std::string& v = "")
+  Lex(LexType t, unsigned int l, unsigned int c, std::string v = "")
       : type(t)
-      , value(v)
+      , value(std::move(v))
       , line(l)
       , column(c)
   {

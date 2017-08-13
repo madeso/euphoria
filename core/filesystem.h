@@ -68,7 +68,7 @@ class FileSystemRootCatalog : public FileSystemRoot
 class FileSystemRootFolder : public FileSystemRoot
 {
  public:
-  explicit FileSystemRootFolder(const std::string& folder);
+  explicit FileSystemRootFolder(std::string folder);
 
   std::shared_ptr<MemoryChunk>
   ReadFile(const std::string& path) override;

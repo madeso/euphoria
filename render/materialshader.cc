@@ -1,5 +1,7 @@
 #include "render/materialshader.h"
 
+#include <utility>
+
 #include "core/proto.h"
 #include "core/log.h"
 #include "core/texturetypes.h"
@@ -11,9 +13,9 @@
 
 LOG_SPECIFY_DEFAULT_LOGGER("render.materialshader")
 
-MaterialShaderBinding::MaterialShaderBinding(const ShaderUniform& uniform,
-                                             const EnumValue&     name)
-    : uniform_(uniform)
+MaterialShaderBinding::MaterialShaderBinding(ShaderUniform    uniform,
+                                             const EnumValue& name)
+    : uniform_(std::move(uniform))
     , name_(name)
 {
 }

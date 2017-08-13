@@ -35,7 +35,7 @@ class MeshPart
 class MaterialTexture
 {
  public:
-  MaterialTexture(const std::string& p, EnumValue t);
+  MaterialTexture(std::string p, EnumValue t);
   std::string path;
   EnumValue   type;
 };

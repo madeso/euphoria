@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <set>
+#include <utility>
 
 #include "core/assert.h"
 #include "core/proto.h"
@@ -10,8 +11,8 @@
 #include "core/stringutils.h"
 #include "enum.pb.h"
 
-EnumType::EnumType(const std::string& name)
-    : name_(name)
+EnumType::EnumType(std::string name)
+    : name_(std::move(name))
     , isAdding_(true)
     , nextIndex_(1)
 {

@@ -1,8 +1,9 @@
 #include "render/shaderuniform.h"
 
-ShaderUniform::ShaderUniform(const std::string& aname, glint aid,
-                             Shader* ashader)
-    : name(aname)
+#include <utility>
+
+ShaderUniform::ShaderUniform(std::string aname, glint aid, Shader* ashader)
+    : name(std::move(aname))
     , id(aid)
     , shader(ashader)
 {

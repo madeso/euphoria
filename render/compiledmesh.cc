@@ -1,6 +1,7 @@
 #include "render/compiledmesh.h"
 
 #include <set>
+#include <utility>
 
 #include "core/rgb.h"
 #include "core/assert.h"
@@ -166,8 +167,8 @@ class AttributeBinder
  private:
   struct BindData
   {
-    BindData(const ShaderAttribute& a, int s)
-        : attribute(a)
+    BindData(ShaderAttribute a, int s)
+        : attribute(std::move(a))
         , size(s)
     {
     }

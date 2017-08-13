@@ -1,6 +1,7 @@
 #include "core/memorychunk.h"
 #include "core/assert.h"
 #include <cstring>  // for memcpy
+#include <utility>
 
 unsigned char*
 MemoryChunk::GetData()
@@ -49,7 +50,7 @@ CopyToMemory(MemoryChunk* memory, const void* src)
 }
 
 MemoryChunkFile::MemoryChunkFile(std::shared_ptr<MemoryChunk> d)
-    : data(d)
+    : data(std::move(d))
     , position(0)
 {
 }

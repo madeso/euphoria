@@ -3,6 +3,7 @@
 #include <sstream>
 
 #include <assimp/Importer.hpp>
+#include <utility>
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
 
@@ -41,8 +42,8 @@ MeshPart::AddFace(unsigned int a, unsigned int b, unsigned int c)
   facecount += 1;
 }
 
-MaterialTexture::MaterialTexture(const std::string& p, EnumValue t)
-    : path(p)
+MaterialTexture::MaterialTexture(std::string p, EnumValue t)
+    : path(std::move(p))
     , type(t)
 {
 }

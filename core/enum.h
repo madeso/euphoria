@@ -19,7 +19,7 @@ class EnumValue;
 class EnumType
 {
  public:
-  EnumType(const std::string& name);
+  EnumType(std::string name);
   ~EnumType();
 
   std::string

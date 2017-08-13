@@ -9,6 +9,7 @@
 // copied from https://stackoverflow.com/a/145309/180307
 
 #include <cstdio> /* defines FILENAME_MAX */
+#include <utility>
 #ifdef WINDOWS
 #include <direct.h>
 #define GetCurrentDir _getcwd
@@ -127,8 +128,8 @@ FileSystemRootCatalog::ReadFile(const std::string& path)
 
 ////////////////////////////////////////////////////////////////////////////////
 
-FileSystemRootFolder::FileSystemRootFolder(const std::string& folder)
-    : folder_(folder)
+FileSystemRootFolder::FileSystemRootFolder(std::string folder)
+    : folder_(std::move(folder))
 {
 }
 

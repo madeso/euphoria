@@ -11,7 +11,7 @@ class Light;
 class MaterialShaderBinding
 {
  public:
-  MaterialShaderBinding(const ShaderUniform& uniform, const EnumValue& name);
+  MaterialShaderBinding(ShaderUniform uniform, const EnumValue& name);
 
   const ShaderUniform&
   GetUniform() const;

@@ -10,7 +10,7 @@ class Shader;
 class ShaderUniform
 {
  public:
-  ShaderUniform(const std::string& aname, glint aid, Shader* ashader);
+  ShaderUniform(std::string aname, glint aid, Shader* ashader);
   static ShaderUniform
   Null();
 

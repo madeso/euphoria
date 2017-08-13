@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <map>
+#include <utility>
 
 #include "core/assert.h"
 #include "core/stringutils.h"
@@ -12,9 +13,9 @@ namespace  // local
                                          "warning", "error", "fatal"};
 }
 
-Logger::Logger(Logger* parent, const std::string& name)
+Logger::Logger(Logger* parent, std::string name)
     : parent_(parent)
-    , name_(name)
+    , name_(std::move(name))
     , level_(LogLevel::Info)
 {
 }
