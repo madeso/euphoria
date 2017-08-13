@@ -30,7 +30,7 @@ namespace assertlib
     }                                                                     \
   } while(false)
 
-#define DIE(message)                                                         \
+#define DIE(message) \
   ::assertlib::OnAssert(message, __LINE__, __FILE__, __PRETTY_FUNCTION__)
 
 #endif

@@ -9,9 +9,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 
-Defines::Defines()
-{
-}
+Defines::Defines() = default;
 
 bool
 Defines::IsDefined(const std::string& name) const
@@ -46,9 +44,7 @@ Defines::Define(const std::string& name, const std::string& value)
 
 ////////////////////////////////////////////////////////////////////////////////
 
-TemplateError::TemplateError()
-{
-}
+TemplateError::TemplateError() = default;
 
 bool
 TemplateError::HasErrors() const
@@ -83,12 +79,8 @@ TemplateError::GetCombinedErrors() const
 class TemplateNode
 {
  public:
-  TemplateNode()
-  {
-  }
-  virtual ~TemplateNode()
-  {
-  }
+  TemplateNode()          = default;
+  virtual ~TemplateNode() = default;
 
   NONCOPYABLE_CONSTRUCTOR(TemplateNode);
   NONCOPYABLE_ASSIGNMENT(TemplateNode);
@@ -124,9 +116,7 @@ class TemplateNodeString : public TemplateNode
 class TemplateNodeList : public TemplateNode
 {
  public:
-  TemplateNodeList()
-  {
-  }
+  TemplateNodeList() = default;
 
   void
   Eval(Defines* defines, std::ostringstream* out, TemplateError* error) override
@@ -152,9 +142,7 @@ class TemplateNodeList : public TemplateNode
 class TemplateNodeScopedList : public TemplateNodeList
 {
  public:
-  TemplateNodeScopedList()
-  {
-  }
+  TemplateNodeScopedList() = default;
 
   void
   Eval(Defines* defines, std::ostringstream* out, TemplateError* error) override
@@ -207,7 +195,7 @@ class TemplateNodeEval : public TemplateNode
     Assert(out);
     Assert(defines);
 
-    if(error!=nullptr && !defines->IsDefined(name_))
+    if(error != nullptr && !defines->IsDefined(name_))
     {
       // todo: add file, line and column
       error->AddError("", 0, 0, Str() << name_ << " is not defined");
@@ -343,27 +331,27 @@ Lexer(const std::string& str, TemplateError* error, const std::string& file)
         const std::string  ident  = parser.ReadIdent();
         if(ident == "ifdef")
         {
-          r.push_back(Lex{LexType::IFDEF, line, column});
+          r.emplace_back(LexType::IFDEF, line, column);
         }
         else if(ident == "end")
         {
-          r.push_back(Lex{LexType::END, line, column});
+          r.emplace_back(LexType::END, line, column);
         }
         else if(ident == "eval")
         {
-          r.push_back(Lex{LexType::EVAL, line, column});
+          r.emplace_back(LexType::EVAL, line, column);
         }
         else if(ident == "set")
         {
-          r.push_back(Lex{LexType::SET, line, column});
+          r.emplace_back(LexType::SET, line, column);
         }
         else if(ident == "include")
         {
-          r.push_back(Lex{LexType::INCLUDE, line, column});
+          r.emplace_back(LexType::INCLUDE, line, column);
         }
         else
         {
-          r.push_back(Lex{LexType::IDENT, line, column, ident});
+          r.emplace_back(LexType::IDENT, line, column, ident);
         }
       }
       else if(parser.PeekChar() == '@')
@@ -371,14 +359,14 @@ Lexer(const std::string& str, TemplateError* error, const std::string& file)
         const unsigned int line   = parser.GetLine();
         const unsigned int column = parser.GetColumn();
         parser.AdvanceChar();
-        r.push_back(Lex{LexType::EVAL, line, column});
+        r.emplace_back(LexType::EVAL, line, column);
       }
       else if(parser.PeekChar() == '\"')
       {
         const unsigned int line   = parser.GetLine();
         const unsigned int column = parser.GetColumn();
         const std::string& str    = parser.ReadString();
-        r.push_back(Lex{LexType::STRING, line, column, str});
+        r.emplace_back(LexType::STRING, line, column, str);
       }
       else if(parser.PeekChar(0) == '}' && parser.PeekChar(1) == '}')
       {
@@ -407,7 +395,7 @@ Lexer(const std::string& str, TemplateError* error, const std::string& file)
           buffer.str("");
           buffer_line   = parser.GetLine();
           buffer_column = parser.GetColumn();
-          r.push_back(Lex{LexType::TEXT, buffer_line, buffer_column, b});
+          r.emplace_back(LexType::TEXT, buffer_line, buffer_column, b);
         }
         parser.AdvanceChar();
         parser.AdvanceChar();
@@ -430,7 +418,7 @@ Lexer(const std::string& str, TemplateError* error, const std::string& file)
   const std::string buffer_str = buffer.str();
   if(!buffer_str.empty())
   {
-    r.push_back(Lex{LexType::TEXT, buffer_line, buffer_column, buffer_str});
+    r.emplace_back(LexType::TEXT, buffer_line, buffer_column, buffer_str);
   }
 
   return r;
@@ -714,9 +702,7 @@ Template::Template(FileSystem* fs, const std::string& path)
   LoadFromFilesystemToNodeList(fs, path, &errors_, &nodes_);
 }
 
-Template::~Template()
-{
-}
+Template::~Template() = default;
 
 std::string
 Template::Evaluate(const Defines& defines)

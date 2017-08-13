@@ -63,7 +63,7 @@ Material::SetTexture(const std::string& texture_name,
                      const std::string& texture_path)
 {
   DEFINE_ENUM_VALUE(TextureType, texture_type, texture_name);
-  textures.push_back(MaterialTexture{texture_path, texture_type});
+  textures.emplace_back(texture_path, texture_type);
 }
 
 namespace  // local
@@ -124,8 +124,7 @@ namespace
       {
         aiString texture;
         mat->GetTexture(aiTextureType_DIFFUSE, 0, &texture);
-        material.textures.push_back(
-            MaterialTexture{texture.C_Str(), DiffuseType});
+        material.textures.emplace_back(texture.C_Str(), DiffuseType);
       }
 
       aiString aiName;

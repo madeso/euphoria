@@ -77,7 +77,7 @@ MaterialShader::Load(FileSystem* file_system, const std::string& path)
     DEFINE_ENUM_VALUE(TextureType, texture_name, texture.texture());
     LOG_INFO("Defining shader " << path << ": " << texture.uniform() << " to "
                                 << texture.texture());
-    bindings_.push_back(MaterialShaderBinding{uniform, texture_name});
+    bindings_.emplace_back(uniform, texture_name);
   }
 
   // todo: get the shader names from a trusted source

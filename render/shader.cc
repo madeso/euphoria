@@ -155,7 +155,7 @@ GLuint
 CompileShader(GLuint type, const GLchar* source, const std::string& name)
 {
   GLuint shader = glCreateShader(type);
-  glShaderSource(shader, 1, &source, NULL);
+  glShaderSource(shader, 1, &source, nullptr);
   glCompileShader(shader);
   PrintErrorShader(shader, name);
   return shader;
@@ -329,9 +329,7 @@ Shader::SetUniform(const ShaderUniform& attribute, const mat4f& val)
   glUniformMatrix4fv(attribute.id, 1, GL_FALSE, val.GetDataPtr());
 }
 
-Shader::Shader()
-{
-}
+Shader::Shader() = default;
 
 namespace
 {
@@ -352,11 +350,11 @@ namespace
 bool
 Shader::Load(FileSystem* fs, const std::string& file_path)
 {
-  shader_name_ = file_path;
-  auto vert    = LoadPath(fs, file_path + ".vert");
-  auto frag    = LoadPath(fs, file_path + ".frag");
-  auto geom    = LoadPath(fs, file_path + ".geom");
-  bool loaded_files    = true;
+  shader_name_      = file_path;
+  auto vert         = LoadPath(fs, file_path + ".vert");
+  auto frag         = LoadPath(fs, file_path + ".frag");
+  auto geom         = LoadPath(fs, file_path + ".geom");
+  bool loaded_files = true;
   if(vert.empty())
   {
     std::cerr << "Failed to load vert shader " << file_path << "\n";
@@ -375,7 +373,7 @@ Shader::Load(FileSystem* fs, const std::string& file_path)
   }
 
   const bool shader_compiled = Compile(vert.c_str(), frag.c_str(),
-                 geom.empty() ? nullptr : geom.c_str());
+                                       geom.empty() ? nullptr : geom.c_str());
   if(!shader_compiled)
   {
     std::cerr << "Failed to compile shader " << file_path << "\n";

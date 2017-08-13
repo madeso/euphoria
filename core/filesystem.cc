@@ -8,7 +8,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 // copied from https://stackoverflow.com/a/145309/180307
 
-#include <stdio.h> /* defines FILENAME_MAX */
+#include <cstdio> /* defines FILENAME_MAX */
 #ifdef WINDOWS
 #include <direct.h>
 #define GetCurrentDir _getcwd
@@ -37,19 +37,13 @@ namespace
 
 ////////////////////////////////////////////////////////////////////////////////
 
-FileSystemRoot::~FileSystemRoot()
-{
-}
+FileSystemRoot::~FileSystemRoot() = default;
 
 ////////////////////////////////////////////////////////////////////////////////
 
-FileSystem::FileSystem()
-{
-}
+FileSystem::FileSystem() = default;
 
-FileSystem::~FileSystem()
-{
-}
+FileSystem::~FileSystem() = default;
 
 void
 FileSystem::AddRoot(std::shared_ptr<FileSystemRoot> root)
@@ -91,9 +85,7 @@ FileSystem::ReadFileToString(const std::string& path, std::string* source)
 
 ////////////////////////////////////////////////////////////////////////////////
 
-FileSystemRootCatalog::FileSystemRootCatalog()
-{
-}
+FileSystemRootCatalog::FileSystemRootCatalog() = default;
 
 void
 FileSystemRootCatalog::RegisterFileString(const std::string& path,

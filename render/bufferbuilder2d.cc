@@ -13,9 +13,7 @@ Point::Point(const vec2f& apos, const vec2f& avert)
 {
 }
 
-BufferBuilder2d::BufferBuilder2d()
-{
-}
+BufferBuilder2d::BufferBuilder2d() = default;
 
 void
 BufferBuilder2d::AddVertex(const Point& p)

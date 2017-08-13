@@ -280,7 +280,7 @@ Draw::LineAntialiased(const Rgb& color, const vec2f& from, const vec2f& to)
 const unsigned char*
 GetCharGlyph(char ac)
 {
-  int c = static_cast<int>(ac);
+  auto c = static_cast<int>(ac);
   Assert(c >= 0);
   Assert(c < 128);
   return font8x8_basic[c];

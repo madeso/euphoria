@@ -32,7 +32,8 @@ LoadProtoText(google::protobuf::Message* message, const std::string& file_name)
   }
   std::string data((std::istreambuf_iterator<char>(file)),
                    std::istreambuf_iterator<char>());
-  const bool parse_result = google::protobuf::TextFormat::ParseFromString(data, message);
+  const bool parse_result =
+      google::protobuf::TextFormat::ParseFromString(data, message);
   return parse_result;
 }
 
@@ -44,7 +45,8 @@ SaveProtoText(const google::protobuf::Message& message,
 
   std::ofstream output(file_name.c_str());
   std::string   data;
-  const bool written_to_string = google::protobuf::TextFormat::PrintToString(message, &data);
+  const bool    written_to_string =
+      google::protobuf::TextFormat::PrintToString(message, &data);
   if(!written_to_string)
   {
     return false;

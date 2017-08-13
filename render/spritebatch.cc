@@ -16,9 +16,7 @@ SpriteBatch::SpriteBatch()
   index_.reserve(6 * QUAD_COUNT);
 }
 
-SpriteBatch::~SpriteBatch()
-{
-}
+SpriteBatch::~SpriteBatch() = default;
 
 void
 SpriteBatch::Begin()

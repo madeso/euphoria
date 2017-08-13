@@ -7,9 +7,7 @@ Id::Id()
 {
 }
 
-Id::~Id()
-{
-}
+Id::~Id() = default;
 
 gluint
 Id::id() const

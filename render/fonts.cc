@@ -56,10 +56,9 @@ struct Library
   NONCOPYABLE_MOVE_CONSTRUCTOR(Library);
   NONCOPYABLE_MOVE_ASSIGNMENT(Library);
 
-  FT_Library library;
+  FT_Library library{nullptr};
 
   Library()
-      : library(nullptr)
   {
     Error(FT_Init_FreeType(&library));
   }
@@ -72,23 +71,13 @@ struct Library
 
 struct FontChar
 {
-  FontChar()
-      : c(0)
-      , valid(false)
-      , glyph_width(0)
-      , glyph_height(0)
-      , bearing_x(0)
-      , bearing_y(0)
-      , advance(0)
-  {
-  }
-  unsigned int               c;
-  bool                       valid;
-  int                        glyph_width;
-  int                        glyph_height;
-  int                        bearing_x;
-  int                        bearing_y;
-  int                        advance;
+  unsigned int               c{0};
+  bool                       valid{false};
+  int                        glyph_width{0};
+  int                        glyph_height{0};
+  int                        bearing_x{0};
+  int                        bearing_y{0};
+  int                        advance{0};
   std::vector<unsigned char> pixels;
 };
 
@@ -204,11 +193,11 @@ GetCharactersFromFont(const std::string& font_file, unsigned int font_size,
   Library lib;
   Face    f(&lib, font_file, font_size);
 
-  FontChars fontchars {};
+  FontChars fontchars{};
   fontchars.chars.reserve(chars.length());
-  for(std::string::const_iterator c = chars.begin(); c != chars.end(); c++)
+  for(char c : chars)
   {
-    FontChar cc = f.GetChar(ConvertCharToIndex(*c));
+    FontChar cc = f.GetChar(ConvertCharToIndex(c));
     if(!cc.valid)
     {
       continue;
@@ -410,12 +399,12 @@ Font::Draw(const vec2f& p, const std::string& str, const Rgb& basec,
 
   int          index           = 0;
   unsigned int last_char_index = 0;
-  for(std::string::const_iterator c = str.begin(); c != str.end(); c++)
+  for(char c : str)
   {
     const int this_index = index;
     ++index;
-    const unsigned int          char_index = ConvertCharToIndex(*c);
-    CharDataMap::const_iterator it         = chars_.find(char_index);
+    const unsigned int char_index = ConvertCharToIndex(c);
+    auto               it         = chars_.find(char_index);
     if(it == chars_.end())
     {
       std::cerr << "Failed to print\n";
@@ -435,9 +424,8 @@ Font::Draw(const vec2f& p, const std::string& str, const Rgb& basec,
       shader_->SetUniform(color_, color);
     }
     ch->buffer.Draw();
-    KerningMap::const_iterator kerning =
-        kerning_.find(std::make_pair(last_char_index, char_index));
-    int the_kerning = kerning == kerning_.end() ? 0 : kerning->second;
+    auto kerning = kerning_.find(std::make_pair(last_char_index, char_index));
+    int  the_kerning = kerning == kerning_.end() ? 0 : kerning->second;
     position.x += (ch->advance + the_kerning) * scale;
   }
 }
@@ -449,10 +437,10 @@ Font::GetExtents(const std::string& str, float scale) const
   vec2f        position(0.0f);
   Rectf        ret;
 
-  for(std::string::const_iterator c = str.begin(); c != str.end(); c++)
+  for(char c : str)
   {
-    const unsigned int          char_index = ConvertCharToIndex(*c);
-    CharDataMap::const_iterator it         = chars_.find(char_index);
+    const unsigned int char_index = ConvertCharToIndex(c);
+    auto               it         = chars_.find(char_index);
     if(it == chars_.end())
     {
       continue;
@@ -461,9 +449,8 @@ Font::GetExtents(const std::string& str, float scale) const
 
     ret.Include(ch->extent.OffsetCopy(position));
 
-    KerningMap::const_iterator kerning =
-        kerning_.find(std::make_pair(last_char_index, char_index));
-    int the_kerning = kerning == kerning_.end() ? 0 : kerning->second;
+    auto kerning = kerning_.find(std::make_pair(last_char_index, char_index));
+    int  the_kerning = kerning == kerning_.end() ? 0 : kerning->second;
     position.x += (ch->advance + the_kerning) * scale;
   }
 
@@ -492,9 +479,7 @@ Text::Text(Font* font, TextBackgroundRenderer* back)
 {
 }
 
-Text::~Text()
-{
-}
+Text::~Text() = default;
 
 void
 Text::SetText(const std::string& str)

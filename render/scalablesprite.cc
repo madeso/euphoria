@@ -27,7 +27,7 @@ namespace
     float size = 0;
     for(const int s : src)
     {
-      const float f = static_cast<float>(s);
+      const auto f = static_cast<float>(s);
       dest->push_back(f);
       size += Abs(f);
     }
@@ -55,9 +55,7 @@ ScalableSprite::ScalableSprite(const std::string& path, const Sizef& size,
   max_col_ = CopyData(&cols_, sprite.cols());
 }
 
-ScalableSprite::~ScalableSprite()
-{
-}
+ScalableSprite::~ScalableSprite() = default;
 
 void
 ScalableSprite::SetSize(const Sizef& new_size)

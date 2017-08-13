@@ -31,9 +31,7 @@ TextureCache::TextureCache(FileSystem* fs)
   pimp_.reset(new TextureCachePimpl{fs});
 }
 
-TextureCache::~TextureCache()
-{
-}
+TextureCache::~TextureCache() = default;
 
 std::shared_ptr<Texture2d>
 TextureCache::GetTexture(const std::string& path)

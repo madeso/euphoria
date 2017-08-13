@@ -57,7 +57,7 @@ Vao::BindVboData(const ShaderAttribute& attribute, int stride, int offset)
 {
   Assert(GetBound() == this);
   Assert(Vbo::GetBound() != nullptr);
-  int size = static_cast<int>(attribute.size);
+  auto size = static_cast<int>(attribute.size);
   Assert(size >= 1 && size <= 4);
   glVertexAttribPointer(attribute.id, size, GL_FLOAT, GL_FALSE, stride,
                         reinterpret_cast<GLvoid*>(offset));
@@ -125,7 +125,7 @@ Ebo::Draw(int count) const
   }
 
 
-  glDrawElements(GL_TRIANGLES, count * 3, GL_UNSIGNED_INT, 0);
+  glDrawElements(GL_TRIANGLES, count * 3, GL_UNSIGNED_INT, nullptr);
 }
 
 void

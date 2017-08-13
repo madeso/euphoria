@@ -36,9 +36,7 @@ Init::Init()
   // glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
 
-Init::~Init()
-{
-}
+Init::~Init() = default;
 
 void
 Init::ClearScreen(const Rgb& color)
