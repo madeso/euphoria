@@ -3,6 +3,7 @@
 #define EUPHORIA_MATERIALSHADERCACHE_H
 
 #include "core/cache.h"
+#include "core/assert.h"
 #include "render/materialshader.h"
 
 class MaterialShaderCache
@@ -12,6 +13,7 @@ class MaterialShaderCache
   MaterialShaderCache(FileSystem* fs)
       : fs_(fs)
   {
+    Assert(fs);
   }
 
   std::shared_ptr<MaterialShader>
