@@ -27,7 +27,7 @@ class SpriteBatch
 
  private:
   bool               inside_;
-  int                count_;
+  unsigned int       count_;
   unsigned int       rendercalls_;
   std::vector<float> data_;
   std::vector<int>   index_;

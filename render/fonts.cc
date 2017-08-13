@@ -154,7 +154,7 @@ struct Pixels
   void
   Set(int x, int y, unsigned char v)
   {
-    const size_t id = (x + y * texture_width_) * 4;
+    const size_t id = (x + static_cast<size_t>(y) * texture_width_) * 4;
     pixels[id + 0]  = 255;
     pixels[id + 1]  = 255;
     pixels[id + 2]  = 255;
