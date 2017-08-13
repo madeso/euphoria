@@ -98,8 +98,7 @@ ScalableSprite::GetMinimumSize() const
 const Texture2d*
 ScalableSprite::texture_ptr() const
 {
-  Assert(false &&
-         "is this correct return value, why is this function even here?");
+  DIE("is this correct return value, why is this function even here?");
   return texture_.get();
 }
 
@@ -107,7 +106,7 @@ const Buffer2d*
 ScalableSprite::buffer_ptr() const
 {
   BuildData();
-  Assert(dirty_ == false);
+  Assert(!dirty_);
   Assert(buffer_ != nullptr);
   return buffer_.get();
 }
@@ -115,7 +114,7 @@ ScalableSprite::buffer_ptr() const
 void
 ScalableSprite::BuildData() const
 {
-  if(dirty_ == false)
+  if(!dirty_)
   {
     return;
   }

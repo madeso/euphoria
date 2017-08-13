@@ -23,7 +23,7 @@ SpriteBatch::~SpriteBatch()
 void
 SpriteBatch::Begin()
 {
-  Assert(inside_ == false && "Already open, missing call to end.");
+  Assert(!inside_ && "Already open, missing call to end.");
   rendercalls_ = 0;
 }
 

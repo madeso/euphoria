@@ -101,7 +101,7 @@ namespace assertlib
               << "File: " << file << ":" << line << "\n";
 
     const auto trace = RunBacktrace(2);
-    if(trace.empty() == false)
+    if(!trace.empty())
     {
       std::cerr << "Backtrace:\n";
       for(const auto& b : trace)

@@ -53,7 +53,7 @@ TemplateError::TemplateError()
 bool
 TemplateError::HasErrors() const
 {
-  return errors_.empty() == false;
+  return !errors_.empty();
 }
 
 void
@@ -402,7 +402,7 @@ Lexer(const std::string& str, TemplateError* error, const std::string& file)
       if(parser.PeekChar(0) == '{' && parser.PeekChar(1) == '{')
       {
         const std::string b = buffer.str();
-        if(b.empty() == false)
+        if(!b.empty())
         {
           buffer.str("");
           buffer_line   = parser.GetLine();
@@ -428,7 +428,7 @@ Lexer(const std::string& str, TemplateError* error, const std::string& file)
   }
 
   const std::string buffer_str = buffer.str();
-  if(buffer_str.empty() == false)
+  if(!buffer_str.empty())
   {
     r.push_back(Lex{LexType::TEXT, buffer_line, buffer_column, buffer_str});
   }

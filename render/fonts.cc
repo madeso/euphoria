@@ -204,12 +204,12 @@ GetCharactersFromFont(const std::string& font_file, unsigned int font_size,
   Library lib;
   Face    f(&lib, font_file, font_size);
 
-  FontChars fontchars;
+  FontChars fontchars {};
   fontchars.chars.reserve(chars.length());
   for(std::string::const_iterator c = chars.begin(); c != chars.end(); c++)
   {
     FontChar cc = f.GetChar(ConvertCharToIndex(*c));
-    if(cc.valid == false)
+    if(!cc.valid)
     {
       continue;
     }
@@ -403,7 +403,7 @@ Font::Draw(const vec2f& p, const std::string& str, const Rgb& basec,
   Use(texture_.get());
 
   const bool applyHi = hi_end != -1 && hi_start != -1;
-  if(applyHi == false)
+  if(!applyHi)
   {
     shader_->SetUniform(color_, basec);
   }
@@ -584,7 +584,7 @@ GetOffset(Align alignment, const Rectf& extent)
     case Align::BOTTOM_RIGHT:
       return vec2f(right, bottom);
     default:
-      Assert(false && "Unhandled case");
+      DIE("Unhandled case");
       return vec2f(0.0f, 0.0f);
   }
 }

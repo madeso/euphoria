@@ -169,7 +169,7 @@ std::string
 TextFileParser::ReadToEndOfLine()
 {
   std::ostringstream ss;
-  while(IsNewline(PeekChar()) == false)
+  while(!IsNewline(PeekChar()))
   {
     const char c = ReadChar();
     if(c == 0)

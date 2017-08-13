@@ -32,11 +32,8 @@ LoadProtoText(google::protobuf::Message* message, const std::string& file_name)
   }
   std::string data((std::istreambuf_iterator<char>(file)),
                    std::istreambuf_iterator<char>());
-  if(false == google::protobuf::TextFormat::ParseFromString(data, message))
-  {
-    return false;
-  }
-  return true;
+  const bool parse_result = google::protobuf::TextFormat::ParseFromString(data, message);
+  return parse_result;
 }
 
 bool
@@ -47,7 +44,8 @@ SaveProtoText(const google::protobuf::Message& message,
 
   std::ofstream output(file_name.c_str());
   std::string   data;
-  if(false == google::protobuf::TextFormat::PrintToString(message, &data))
+  const bool written_to_string = google::protobuf::TextFormat::PrintToString(message, &data);
+  if(!written_to_string)
   {
     return false;
   }
@@ -61,12 +59,7 @@ LoadProtoBinary(google::protobuf::Message* message,
 {
   std::fstream input(file_name.c_str(), std::ios::in | std::ios::binary);
   const bool   parse_result = message->ParseFromIstream(&input);
-  if(false == parse_result)
-  {
-    return false;
-  }
-
-  return true;
+  return parse_result;
 }
 
 bool
@@ -113,7 +106,7 @@ SaveProtoJson(const google::protobuf::Message& message,
               const std::string&               file_name)
 {
   bool write_result = pbjson::pb2json_file(&message, file_name, true);
-  if(write_result == false)
+  if(!write_result)
   {
     return "Unable to write to file";
   }

@@ -21,7 +21,7 @@ namespace  // local
         return GL_CLAMP_TO_EDGE;
     }
 
-    Assert(false);
+    DIE("Unhandled texture wrap value");
     return GL_REPEAT;
   }
 
@@ -37,7 +37,7 @@ namespace  // local
     }
 
 
-    Assert(false);
+    DIE("Unhandled filter magnification value");
     return GL_LINEAR;
   }
 
@@ -52,7 +52,7 @@ namespace  // local
         return GL_LINEAR;
     }
 
-    Assert(false);
+    DIE("Unhandled filter minification value");
     return GL_LINEAR;
   }
 }

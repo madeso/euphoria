@@ -192,7 +192,7 @@ Shader::Compile(const GLchar* vertexSource, const GLchar* fragmentSource,
   }
   glLinkProgram(id());
   const bool link_error = PrintErrorProgram(id());
-  if(link_error == false)
+  if(!link_error)
   {
     ret = false;
   }
@@ -340,7 +340,7 @@ namespace
   {
     // todo: replace with a template instead of basic string
     std::string content;
-    if(false == fs->ReadFileToString(path, &content))
+    if(!fs->ReadFileToString(path, &content))
     {
       return "";
     }
@@ -356,29 +356,31 @@ Shader::Load(FileSystem* fs, const std::string& file_path)
   auto vert    = LoadPath(fs, file_path + ".vert");
   auto frag    = LoadPath(fs, file_path + ".frag");
   auto geom    = LoadPath(fs, file_path + ".geom");
-  bool fail    = false;
+  bool loaded_files    = true;
   if(vert.empty())
   {
     std::cerr << "Failed to load vert shader " << file_path << "\n";
-    fail = true;
+    loaded_files = false;
   }
+
   if(frag.empty())
   {
     std::cerr << "Failed to load frag shader " << file_path << "\n";
-    fail = true;
+    loaded_files = false;
   }
-  if(fail)
+
+  if(!loaded_files)
   {
     return false;
   }
 
-  fail = Compile(vert.c_str(), frag.c_str(),
+  const bool shader_compiled = Compile(vert.c_str(), frag.c_str(),
                  geom.empty() ? nullptr : geom.c_str());
-  if(fail == false)
+  if(!shader_compiled)
   {
     std::cerr << "Failed to compile shader " << file_path << "\n";
   }
-  return fail;
+  return shader_compiled;
 }
 
 const std::vector<ShaderAttribute>&

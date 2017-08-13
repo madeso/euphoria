@@ -223,12 +223,12 @@ namespace
         {
           if(repeated)
           {
-            Assert(false);
+            DIE("b64 decoding not supported yet");
             // ref->AddString(msg, field, b64_decode(str_value));
           }
           else
           {
-            Assert(false);
+            DIE("b64 decoding not supported yet");
             // ref->SetString(msg, field, b64_decode(str_value));
           }
         }

@@ -116,11 +116,11 @@ Ebo::Draw(int count) const
   {
     const bool found_in_shader =
         std::find(a.begin(), a.end(), attribute) != a.end();
-    if(found_in_shader == false)
+    if(!found_in_shader)
     {
       std::cerr << "Failed to find attribute " << attribute.name
                 << " bound in shader " << shader->GetName() << "\n";
-      Assert(false);
+      Assert(found_in_shader);
     }
   }
 

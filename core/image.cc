@@ -23,7 +23,7 @@ Image::MakeInvalid()
   height_    = 0;
   has_alpha_ = false;
 
-  Assert(IsValid() == false);
+  Assert(!IsValid());
 }
 
 int
@@ -194,7 +194,7 @@ WriteImageData(stbi_write_func* func, void* context, int w, int h, int comp,
       return stbi_write_jpg_to_func(func, context, w, h, comp, data,
                                     jpeg_quality);
     default:
-      Assert(false && "Unhandled case");
+      DIE("Unhandled case");
       return 0;
   }
 }
@@ -242,7 +242,7 @@ namespace
       case 4:  // red, green, blue, alpha
         return d;
       default:
-        Assert(false && "unhandled Select channel");
+        DIE("unhandled Select channel");
         return 0;
     }
   }
