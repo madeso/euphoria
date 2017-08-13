@@ -38,7 +38,7 @@ MemoryChunk::MemoryChunk(unsigned long size)
     : size_(size)
 {
   Assert(size > 0);
-  data_.reset(new unsigned char[size]);
+  data_ = std::make_unique<unsigned char[]>(size);
 }
 
 void

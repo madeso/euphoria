@@ -175,6 +175,6 @@ ScalableSprite::BuildData() const
     uv_current_col       = uv_next_col;
   }
 
-  dirty_ = false;
-  buffer_.reset(new Buffer2d(data));
+  dirty_  = false;
+  buffer_ = std::make_unique<Buffer2d>(data);
 }

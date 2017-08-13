@@ -88,5 +88,5 @@ SpriteRenderer::InitRenderData()
 
   data.AddQuad(c, b, a, d);
 
-  buffer_.reset(new Buffer2d(data));
+  buffer_ = std::make_unique<Buffer2d>(data);
 }

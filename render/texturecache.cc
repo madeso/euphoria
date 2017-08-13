@@ -28,7 +28,7 @@ struct TextureCache::TextureCachePimpl
 
 TextureCache::TextureCache(FileSystem* fs)
 {
-  pimp_.reset(new TextureCachePimpl{fs});
+  pimp_ = std::make_unique<TextureCache::TextureCachePimpl>(fs);
 }
 
 TextureCache::~TextureCache() = default;

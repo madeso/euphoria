@@ -375,7 +375,7 @@ Font::Font(Shader* shader, const std::string& font_file, unsigned int font_size,
   kerning_ = fontchars.kerning;
   chars_   = map;
   Texture2dLoadData load_data;
-  texture_.reset(new Texture2d());
+  texture_ = std::make_unique<Texture2d>();
   texture_->LoadFromPixels(texture_width, texture_height, &pixels.pixels[0],
                            GL_RGBA, GL_RGBA, load_data);
 }
