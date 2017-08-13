@@ -161,7 +161,8 @@ OnOpenglError(GLenum source, GLenum type, GLuint id, GLenum severity,
 void
 SetupOpenglDebug()
 {
-  if(GLAD_GL_ARB_debug_output)
+  const bool has_debug = GLAD_GL_ARB_debug_output == 1;
+  if(has_debug)
   {
     std::cout << "Enabling OpenGL debug output\n";
     glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS_ARB);

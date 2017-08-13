@@ -43,7 +43,7 @@ namespace
       // extract the "real" symbols that represent the mangled names.
       char* const symbol = symbols.get()[i];
       char*       end    = symbol;
-      while(*end)
+      while(*end != 0)
       {
         ++end;
       }

@@ -113,7 +113,7 @@ struct Face
   GetChar(unsigned int c)
   {
     const FT_Error error = FT_Load_Char(face, c, FT_LOAD_RENDER);
-    if(error)
+    if(error != 0)
     {
       std::cerr << "Failed to get char\n";
       return FontChar();
@@ -221,7 +221,7 @@ GetCharactersFromFont(const std::string& font_file, unsigned int font_size,
 
   FT_Bool use_kerning = FT_HAS_KERNING(f.face);
   std::cout << "kerning..." << static_cast<int>(use_kerning) << "\n";
-  if(use_kerning)
+  if(use_kerning == 1)
   {
     std::cout << "kerning...\n";
     for(const FontChar& previous : fontchars.chars)

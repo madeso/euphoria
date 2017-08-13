@@ -28,7 +28,7 @@ Vbo::SetData(const std::vector<float>& data)
 void
 Vbo::Bind(const Vbo* vbo)
 {
-  const gluint id = vbo ? vbo->id_ : 0;
+  const gluint id = vbo != nullptr ? vbo->id_ : 0;
   glBindBuffer(GL_ARRAY_BUFFER, id);
   GetBound() = vbo;
 }
@@ -69,7 +69,7 @@ Vao::BindVboData(const ShaderAttribute& attribute, int stride, int offset)
 void
 Vao::Bind(const Vao* vao)
 {
-  const gluint id = vao ? vao->id_ : 0;
+  const gluint id = vao != nullptr ? vao->id_ : 0;
   glBindVertexArray(id);
   GetBound() = vao;
 }
@@ -131,7 +131,7 @@ Ebo::Draw(int count) const
 void
 Ebo::Bind(const Ebo* ebo)
 {
-  const gluint id = ebo ? ebo->id_ : 0;
+  const gluint id = ebo != nullptr ? ebo->id_ : 0;
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, id);
   GetBound() = ebo;
 }

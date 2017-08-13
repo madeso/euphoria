@@ -260,7 +260,7 @@ namespace
         {
           const auto value = json.GetInt();
           ev               = ed->FindValueByNumber(value);
-          if(!ev)
+          if(ev == nullptr)
           {
             return Str() << "Enum value " << value << "not found, "
                          << " at " << self_path;
@@ -270,7 +270,7 @@ namespace
         {
           const std::string value = json.GetString();
           ev                      = ed->FindValueByName(value);
-          if(!ev)
+          if(ev == nullptr)
           {
             // todo: list all values, guess based on shortest edit distance?
             return Str() << "Enum value " << value << "not found, "

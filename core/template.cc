@@ -207,7 +207,7 @@ class TemplateNodeEval : public TemplateNode
     Assert(out);
     Assert(defines);
 
-    if(error && !defines->IsDefined(name_))
+    if(error!=nullptr && !defines->IsDefined(name_))
     {
       // todo: add file, line and column
       error->AddError("", 0, 0, Str() << name_ << " is not defined");

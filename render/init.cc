@@ -13,7 +13,7 @@ Init::Init()
     : ok(true)
 {
   const int glad_result = gladLoadGLLoader(SDL_GL_GetProcAddress);
-  if(!glad_result)
+  if(glad_result == 0)
   {
     LOG_ERROR("Failed to init glad, error: " << glad_result);
     ok = false;
