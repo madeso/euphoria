@@ -98,6 +98,17 @@ else()
   message(STATUS "clang-format found: ${CLANG_FORMAT_EXE}")
 endif()
 
+find_program(
+  CLOC_EXE
+  NAMES "cloc"
+  DOC "Path to cloc executable"
+)
+if(CLOC_EXE)
+  add_custom_target(codestat
+                  ${CLOC_EXE} core demo gui proto render scimed tests CMakeLists.txt
+                  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+                  COMMENT "Running cloc")
+endif()
 
 add_subdirectory(core)
 add_subdirectory(render)
