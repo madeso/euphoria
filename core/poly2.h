@@ -5,6 +5,8 @@
 #include <vector>
 #include <cassert>
 
+#include "core/vec2.h"
+
 // isLeft(): tests if a point is Left|On|Right of an infinite line.
 //    Input:  three points P0, P1, and P2
 //    Return: >0 for P2 left of the line through P0 and P1
