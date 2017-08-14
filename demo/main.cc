@@ -600,7 +600,13 @@ main(int argc, char** argv)
       if (show_test_window)
       {
         ImGui::SetNextWindowPos(ImVec2(650, 20), ImGuiSetCond_FirstUseEver);
-        ImGui::ShowTestWindow(&show_test_window);
+
+        ImGui::SetNextWindowSize(ImVec2(200,100), ImGuiSetCond_FirstUseEver);
+        ImGui::Begin("Light");
+        ImGui::ColorEdit3("Abmient", world.light.ModifyAmbient()->GetData());
+        ImGui::ColorEdit3("Diffuse", world.light.ModifyDiffuse()->GetData());
+        ImGui::ColorEdit3("Specular", world.light.ModifySpecular()->GetData());
+        ImGui::End();
       }
     }
 

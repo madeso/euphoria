@@ -205,6 +205,13 @@ class Rgb
   const float
   GetBlue() const;
 
+  float*
+  GetData();
+
+  const float* const
+  GetData() const;
+
+
   // const float* data() const;
 
   void

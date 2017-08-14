@@ -16,18 +16,30 @@ class Light
 
   void
   SetAmbient(const Rgb& c);
+
   const Rgb&
   GetAmbient() const;
 
+  Rgb*
+  ModifyAmbient();
+
   void
   SetDiffuse(const Rgb& c);
+
   const Rgb&
   GetDiffuse() const;
 
+  Rgb*
+  ModifyDiffuse();
+
   void
   SetSpecular(const Rgb& c);
+
   const Rgb&
   GetSpecular() const;
+
+  Rgb*
+  ModifySpecular();
 
  private:
   vec3f position_;

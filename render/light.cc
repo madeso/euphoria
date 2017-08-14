@@ -25,10 +25,18 @@ Light::SetAmbient(const Rgb& c)
 {
   ambient_ = c;
 }
+
 const Rgb&
 Light::GetAmbient() const
 {
   return ambient_;
+}
+
+
+Rgb*
+Light::ModifyAmbient()
+{
+  return &ambient_;
 }
 
 void
@@ -36,10 +44,17 @@ Light::SetDiffuse(const Rgb& c)
 {
   diffuse_ = c;
 }
+
 const Rgb&
 Light::GetDiffuse() const
 {
   return diffuse_;
+}
+
+Rgb*
+Light::ModifyDiffuse()
+{
+  return &diffuse_;
 }
 
 void
@@ -52,4 +67,10 @@ const Rgb&
 Light::GetSpecular() const
 {
   return specular_;
+}
+
+Rgb*
+Light::ModifySpecular()
+{
+  return &specular_;
 }

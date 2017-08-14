@@ -51,6 +51,18 @@ Rgb::GetBlue() const
   return b;
 }
 
+float*
+Rgb::GetData()
+{
+  return &r;
+}
+
+const float* const
+Rgb::GetData() const
+{
+  return &r;
+}
+
 /*const float* Rgb::data() const
 {
   return mdata.array;
