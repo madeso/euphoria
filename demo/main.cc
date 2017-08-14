@@ -22,6 +22,8 @@
 #include "render/materialshadercache.h"
 #include "core/texturetypes.h"
 
+#include "window/timer.h"
+
 void
 SetupSdlOpenGlAttributes()
 {
@@ -45,30 +47,6 @@ SetupSdlOpenGlAttributes()
   SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
   SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, SDL_GL_CONTEXT_DEBUG_FLAG);
 }
-
-class SdlTimer
-{
- public:
-  SdlTimer()
-      : current_time_(SDL_GetPerformanceCounter())
-      , last_time_(0)
-  {
-  }
-
-  float
-  Update()
-  {
-    last_time_    = current_time_;
-    current_time_ = SDL_GetPerformanceCounter();
-    const float dt =
-        (current_time_ - last_time_) * 1.0f / SDL_GetPerformanceFrequency();
-    return dt;
-  }
-
- private:
-  Uint64 current_time_;
-  Uint64 last_time_;
-};
 
 class Sdl
 {

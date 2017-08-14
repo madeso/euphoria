@@ -55,7 +55,7 @@ elseif(CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUCXX)
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wno-long-long -pedantic")
 endif()
 
-
+find_package(SDL2 REQUIRED)
 
 # force visual studio and the like to only have debug and release builds
 if(CMAKE_CONFIGURATION_TYPES)
@@ -112,6 +112,7 @@ endif()
 
 add_subdirectory(core)
 add_subdirectory(render)
+add_subdirectory(window)
 add_subdirectory(gui)
 add_subdirectory(scimed)
 

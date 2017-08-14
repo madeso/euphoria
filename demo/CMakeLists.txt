@@ -1,8 +1,5 @@
 file(GLOB app_src_glob *.cpp;*.cc;*.h;*.inl)
 
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH}
-    "${PROJECT_SOURCE_DIR}/cmake-modules")
-find_package(SDL2 REQUIRED)
 include_directories(SYSTEM ${SDL2_INCLUDE_DIR})
 
 set(app_src ${app_src_glob})
@@ -15,6 +12,7 @@ add_executable(demo WIN32 MACOSX_BUNDLE ${all_src})
 target_link_libraries(demo
                       core
                       render
+                      window
                       ${SDL2_LIBRARY}
                       )
 
