@@ -10,10 +10,13 @@ include_directories(SYSTEM ../external/glad/include)
 #source_group("glad" FILES ${src_glad})
 
 # imgui
-include_directories(SYSTEM ../external/imgui-1.50/)
+include_directories(SYSTEM
+                    ../external/imgui-1.50/
+                    ../external/imgui-1.50/imgui/examples/sdl_opengl3_example/
+                    )
 set(src_imgui
-    ../external/imgui-1.50/examples/sdl_opengl3_example/imgui_impl_sdl_gl3.cpp
-    ../external/imgui-1.50/examples/sdl_opengl3_example/imgui_impl_sdl_gl3.h
+    ../external/imgui-1.50/imgui/examples/sdl_opengl3_example/imgui_impl_sdl_gl3.cpp
+    ../external/imgui-1.50/imgui/examples/sdl_opengl3_example/imgui_impl_sdl_gl3.h
     )
 set(src ${src} ${src_imgui})
 source_group("imgui" FILES ${src_imgui})

@@ -7,6 +7,11 @@ source_group("" FILES ${app_src})
 
 set(all_src ${app_src} ${src_glew})
 
+# imgui
+include_directories(SYSTEM
+                    ../external/imgui-1.50/
+                    )
+
 add_executable(demo WIN32 MACOSX_BUNDLE ${all_src})
 
 target_link_libraries(demo

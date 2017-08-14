@@ -22,6 +22,9 @@
 #include "render/materialshadercache.h"
 #include "core/texturetypes.h"
 
+#include "window/imgui.h"
+#include "imgui/imgui.h"
+
 #include "window/timer.h"
 
 void
@@ -335,10 +338,10 @@ main(int argc, char** argv)
 
   SetupSdlOpenGlAttributes();
 
-  int width  = 800;
-  int height = 600;
+  int width  = 1280;
+  int height = 720;
 
-  SdlWindow window{"Euphoria Demo", 800, 600};
+  SdlWindow window{"Euphoria Demo", 1280, 720};
   if(window.window == nullptr)
   {
     return -1;
@@ -358,6 +361,8 @@ main(int argc, char** argv)
   }
 
   SetupOpenglDebug();
+
+  Imgui imgui {window.window};
 
   Viewport viewport{Recti::FromTopLeftWidthHeight(0, 0, width, height)};
   viewport.Activate();
@@ -580,9 +585,24 @@ main(int argc, char** argv)
 
   bool paused = true;
 
+  bool show_test_window = true;
+
   while(running)
   {
+    const bool show_imgui = !capturing_mouse_movement;
     const float delta = timer.Update();
+
+    if(show_imgui)
+    {
+      imgui.Begin();
+
+      // 3. Show the ImGui test window. Most of the sample code is in ImGui::ShowTestWindow()
+      if (show_test_window)
+      {
+        ImGui::SetNextWindowPos(ImVec2(650, 20), ImGuiSetCond_FirstUseEver);
+        ImGui::ShowTestWindow(&show_test_window);
+      }
+    }
 
     light_position = Wrap(0, light_position + delta * 0.1f, 1);
     const auto light_pos =
@@ -620,6 +640,10 @@ main(int argc, char** argv)
     SDL_Event e;
     while(SDL_PollEvent(&e) != 0)
     {
+      if(show_imgui)
+      {
+        imgui.ProcessEvents(&e);
+      }
       switch(e.type)
       {
         case SDL_QUIT:
@@ -677,6 +701,11 @@ main(int argc, char** argv)
 
     init.ClearScreen(Rgb::From(Color::DarkslateGray));
     world.Render(viewport, camera);
+
+    if(show_imgui)
+    {
+      imgui.Render();
+    }
 
     SDL_GL_SwapWindow(window.window);
   }

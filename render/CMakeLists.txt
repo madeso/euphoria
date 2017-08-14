@@ -9,10 +9,28 @@ include_directories(SYSTEM ../external/stb)
 find_package(Freetype REQUIRED)
 include_directories(${FREETYPE_INCLUDE_DIRS})
 
+# glad
 include_directories(SYSTEM ../external/glad/include)
 set(src_glad ../external/glad/src/glad.c ../external/glad/include/glad/glad.h)
 set(src ${src} ${src_glad})
 source_group("glad" FILES ${src_glad})
+
+# imgui
+include_directories(SYSTEM ../external/imgui-1.50/)
+set(src_imgui
+    ../external/imgui-1.50/imgui/imgui.cpp
+    ../external/imgui-1.50/imgui/imgui.h
+    ../external/imgui-1.50/imgui/imgui_demo.cpp
+    ../external/imgui-1.50/imgui/imgui_draw.cpp
+    ../external/imgui-1.50/imgui/imgui_internal.h
+    ../external/imgui-1.50/imgui/imconfig.h
+    # look into how different stb libs work together
+    ../external/imgui-1.50/imgui/stb_rect_pack.h
+    ../external/imgui-1.50/imgui/stb_textedit.h
+    ../external/imgui-1.50/imgui/stb_truetype.h
+    )
+set(src ${src} ${src_imgui})
+source_group("imgui" FILES ${src_imgui})
 
 include_directories(SYSTEM ${CMAKE_CURRENT_BINARY_DIR})
 PROTOBUF_GENERATE_CPP(PROTO_SRCS PROTO_HDRS
