@@ -28,8 +28,8 @@ World::Render(const Viewport& viewport, const Camera& camera)
     // command system
     // general design: http://realtimecollisiondetection.net/blog/?p=86
     // distance from camera: https://gamedev.stackexchange.com/questions/56810/how-do-games-deal-with-z-sorting-partially-transparent-foliage-textures
-    // dinstance in integer: http://aras-p.info/blog/2014/01/16/rough-sorting-by-depth/
-    // ueful? // https://gamedev.stackexchange.com/questions/45626/how-to-organize-rendering
+    // distance in integer: http://aras-p.info/blog/2014/01/16/rough-sorting-by-depth/
+    // useful? // https://gamedev.stackexchange.com/questions/45626/how-to-organize-rendering
     actor->Render(projection_matrix, view_matrix, camera.GetPosition(), light);
   }
 }
