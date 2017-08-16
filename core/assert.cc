@@ -75,7 +75,7 @@ namespace
 
     return ret;
   }
-}
+}  // namespace
 
 namespace assertlib
 {
@@ -117,4 +117,4 @@ namespace assertlib
 
     exit(-1);
   }
-}
+}  // namespace assertlib

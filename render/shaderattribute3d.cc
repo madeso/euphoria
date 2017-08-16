@@ -35,4 +35,4 @@ namespace attributes3d
     shader->PreBind(Normal());
     shader->PreBind(TexCoord());
   }
-}
+}  // namespace attributes3d

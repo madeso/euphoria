@@ -21,7 +21,7 @@ namespace  // local
 
     return false;
   }
-}
+}  // namespace
 
 TextFileParser::TextFileParser(const std::string& str)
     : string_(str)
@@ -94,7 +94,7 @@ namespace  // local
 
     return false;
   }
-}
+}  // namespace
 
 bool
 IsIdentStart(const char c)
@@ -199,7 +199,7 @@ namespace  // local
         return false;
     }
   }
-}
+}  // namespace
 
 void
 TextFileParser::SkipSpaces(bool include_newline)

@@ -16,7 +16,7 @@ namespace  // local
   {
     return Pi() / 180.0f * deg;
   }
-}
+}  // namespace
 
 const float
 Angle::inDegrees() const

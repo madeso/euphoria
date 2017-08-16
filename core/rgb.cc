@@ -127,7 +127,7 @@ namespace colorutil
   {
     return GetComponent(rgb, 0);
   }
-}
+}  // namespace colorutil
 
 void
 Rgb::SetRgb(int rgb)

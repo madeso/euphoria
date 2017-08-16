@@ -19,4 +19,4 @@ namespace attributes2d
     Assert(shader);
     shader->PreBind(Vertex());
   }
-}
+}  // namespace attributes2d

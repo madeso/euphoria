@@ -55,7 +55,7 @@ namespace  // local
     DIE("Unhandled filter minification value");
     return GL_LINEAR;
   }
-}
+}  // namespace
 
 
 Texture2dLoadData::Texture2dLoadData()

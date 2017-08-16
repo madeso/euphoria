@@ -118,7 +118,7 @@ namespace
     glGetProgramInfoLog(shader, max_length, &length, &str[0]);
     return &str[0];
   }
-}
+}  // namespace
 
 void
 ReportError(const std::string& log, const std::string& type)
@@ -345,7 +345,7 @@ namespace
 
     return content;
   }
-}
+}  // namespace
 
 bool
 Shader::Load(FileSystem* fs, const std::string& file_path)

@@ -47,7 +47,7 @@ namespace
     // not entirely sure this is correct
     return static_cast<unsigned int>(c);
   }
-}
+}  // namespace
 
 struct Library
 {

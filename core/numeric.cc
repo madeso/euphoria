@@ -308,7 +308,7 @@ namespace  // internal
   {
     return std::ceil(num / gran) * gran;
   }
-}
+}  // namespace
 
 const float
 Round(const float num, const float gran)

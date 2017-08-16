@@ -329,4 +329,4 @@ namespace meshes
 
     return LoadFromString(ss.str(), kFormatObj);
   }
-}
+}  // namespace meshes

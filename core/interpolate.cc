@@ -67,4 +67,4 @@ namespace easing
   FUN(BounceOut, BounceEaseOut)
   FUN(Bounce, BounceEaseInOut)
 #undef FUN
-}
+}  // namespace easing

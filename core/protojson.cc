@@ -310,7 +310,7 @@ namespace
     }
     return ret;
   }
-}
+}  // namespace
 
 namespace protojson
 {
@@ -390,4 +390,4 @@ namespace protojson
   {
     return ToProto(json, msg, nullptr);
   }
-}
+}  // namespace protojson

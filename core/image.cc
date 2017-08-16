@@ -78,7 +78,7 @@ namespace  // local
   {
     return static_cast<unsigned char>(f * 255.0f);
   }
-}
+}  // namespace
 
 void
 Image::SetPixel(int x, int y, const Rgb& color)
@@ -176,7 +176,7 @@ namespace  // local
     auto* file = static_cast<MemoryChunkFile*>(context);
     file->Write(data, size);
   }
-}
+}  // namespace
 
 int
 WriteImageData(stbi_write_func* func, void* context, int w, int h, int comp,
@@ -246,7 +246,7 @@ namespace
         return 0;
     }
   }
-}
+}  // namespace
 
 ImageLoadResult
 LoadImage(FileSystem* fs, const std::string& path, AlphaLoad alpha)

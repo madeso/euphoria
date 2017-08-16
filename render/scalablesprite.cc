@@ -40,7 +40,7 @@ namespace
 
     return size;
   }
-}
+}  // namespace
 
 ScalableSprite::ScalableSprite(const std::string& path, const Sizef& size,
                                TextureCache* cache)
@@ -85,7 +85,7 @@ namespace
     }
     return r;
   }
-}
+}  // namespace
 
 const Sizef
 ScalableSprite::GetMinimumSize() const
