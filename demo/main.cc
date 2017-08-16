@@ -362,7 +362,7 @@ main(int argc, char** argv)
 
   SetupOpenglDebug();
 
-  Imgui imgui {window.window};
+  Imgui imgui{window.window};
 
   Viewport viewport{Recti::FromTopLeftWidthHeight(0, 0, width, height)};
   viewport.Activate();
@@ -589,19 +589,20 @@ main(int argc, char** argv)
 
   while(running)
   {
-    const bool show_imgui = !capturing_mouse_movement;
-    const float delta = timer.Update();
+    const bool  show_imgui = !capturing_mouse_movement;
+    const float delta      = timer.Update();
 
     if(show_imgui)
     {
       imgui.Begin();
 
-      // 3. Show the ImGui test window. Most of the sample code is in ImGui::ShowTestWindow()
-      if (show_test_window)
+      // 3. Show the ImGui test window. Most of the sample code is in
+      // ImGui::ShowTestWindow()
+      if(show_test_window)
       {
         ImGui::SetNextWindowPos(ImVec2(650, 20), ImGuiSetCond_FirstUseEver);
 
-        ImGui::SetNextWindowSize(ImVec2(200,100), ImGuiSetCond_FirstUseEver);
+        ImGui::SetNextWindowSize(ImVec2(200, 100), ImGuiSetCond_FirstUseEver);
         ImGui::Begin("Light");
         ImGui::ColorEdit3("Abmient", world.light.ModifyAmbient()->GetData());
         ImGui::ColorEdit3("Diffuse", world.light.ModifyDiffuse()->GetData());
