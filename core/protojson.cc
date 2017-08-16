@@ -97,11 +97,11 @@ namespace
         }
         if(repeated)
         {
-          ref->AddInt32(msg, field, (int32_t)json.GetInt());
+          ref->AddInt32(msg, field, json.GetInt());
         }
         else
         {
-          ref->SetInt32(msg, field, (int32_t)json.GetInt());
+          ref->SetInt32(msg, field, json.GetInt());
         }
         break;
       }
