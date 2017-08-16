@@ -167,15 +167,16 @@ struct Pixels
 };
 
 void
-PasteCharacterToImage(Pixels& pixels, const stbrp_rect& r, const FontChar& ch)
+PasteCharacterToImage(Pixels* pixels, const stbrp_rect& r, const FontChar& ch)
 {
+  Assert(pixels);
   for(int y = 0; y < ch.glyph_height; ++y)
   {
     for(int x = 0; x < ch.glyph_width; ++x)
     {
       const int           id  = x + y * ch.glyph_width;
       const unsigned char val = ch.pixels[id];
-      pixels.Set(r.x + x, r.y + y, val);
+      pixels->Set(r.x + x, r.y + y, val);
     }
   }
 }
@@ -361,7 +362,7 @@ Font::Font(Shader* shader, const std::string& font_file, unsigned int font_size,
       continue;
     }
     const FontChar& src_char = fontchars.chars[src_rect.id];
-    PasteCharacterToImage(pixels, src_rect, src_char);
+    PasteCharacterToImage(&pixels, src_rect, src_char);
     const auto char_vao =
         BuildCharVao(src_rect, src_char, texture_width, texture_height);
 
