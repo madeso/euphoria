@@ -28,6 +28,9 @@ class MaterialShader
  public:
   MaterialShader();
 
+  // todo: add default textures, so we can optionally bind a white texture
+  // to Diffuse if Diffuse is missing on the material
+
   bool
   Load(FileSystem* file_system, const std::string& path);
 
@@ -36,13 +39,16 @@ class MaterialShader
 
   void
   SetProjection(const mat4f& projection);
+
   void
   SetView(const mat4f& view);
+
   void
   SetModel(const mat4f& model);
 
   void
   SetupLight(const Light& light, const vec3f& camera);
+
   void
   SetColors(const Rgb& ambient, const Rgb& diffuse, const Rgb& specular,
             float shininess);

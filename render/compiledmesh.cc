@@ -201,6 +201,8 @@ CompileMesh(const Mesh& mesh, MaterialShaderCache* shader_cache,
     if(shader_name.empty())
     {
       // todo: determine better shader name
+      // perhaps by setting a few default shaders on a "project" and we try to
+      // match a shader to the object
       shader_name = "default_shader";
     }
     mat.SetShader(shader_cache->Get(shader_name));
