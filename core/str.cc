@@ -2,7 +2,7 @@
 #include <cassert>
 #include <string>
 
-Str::operator std::string() const
+Str::operator std::string() const  // NOLINT
 {
   return ToString();
 }

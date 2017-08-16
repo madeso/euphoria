@@ -97,7 +97,7 @@ class TemplateNode
 class TemplateNodeString : public TemplateNode
 {
  public:
-  TemplateNodeString(std::string text)
+  explicit TemplateNodeString(std::string text)
       : text_(std::move(text))
   {
   }
@@ -185,7 +185,7 @@ class TemplateNodeIfdef : public TemplateNode
 class TemplateNodeEval : public TemplateNode
 {
  public:
-  TemplateNodeEval(std::string name)
+  explicit TemplateNodeEval(std::string name)
       : name_(std::move(name))
   {
   }
@@ -430,7 +430,7 @@ Lexer(const std::string& str, TemplateError* error, const std::string& file)
 class LexReader
 {
  public:
-  LexReader(const std::vector<Lex>& input)
+  explicit LexReader(const std::vector<Lex>& input)
       : lex_(input)
       , pos_(0)
       , size_(input.size())

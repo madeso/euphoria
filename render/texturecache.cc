@@ -8,7 +8,7 @@ struct TextureCache::TextureCachePimpl
     : Cache<std::string, Texture2d, TextureCache::TextureCachePimpl>
 {
  public:
-  TextureCachePimpl(FileSystem* fs)
+  explicit TextureCachePimpl(FileSystem* fs)
       : fs_(fs)
   {
     Assert(fs);
