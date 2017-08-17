@@ -12,10 +12,10 @@
 #include <utility>
 #ifdef WINDOWS
 #include <direct.h>
-#define GetCurrentDir _getcwd
+#define GET_CURRENT_DIR _getcwd
 #else
 #include <unistd.h>
-#define GetCurrentDir getcwd
+#define GET_CURRENT_DIR getcwd
 #endif
 
 namespace
@@ -25,7 +25,7 @@ namespace
   {
     char current_directory[FILENAME_MAX];
 
-    if(!GetCurrentDir(current_directory, sizeof(current_directory)))
+    if(!GET_CURRENT_DIR(current_directory, sizeof(current_directory)))
     {
       return "";
     }

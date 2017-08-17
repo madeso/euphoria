@@ -149,17 +149,17 @@ class AttributeBinder
   void
   Register(const ShaderAttribute& attribute, int size)
   {
-    datas.emplace_back(BindData{attribute, size});
-    total_size += size;
+    bind_datas_.emplace_back(BindData{attribute, size});
+    total_size_ += size;
   }
 
   void
   Bind(std::shared_ptr<CompiledMeshPart> part)
   {
     int stride = 0;
-    for(const auto& d : datas)
+    for(const auto& d : bind_datas_)
     {
-      part->config.BindVboData(d.attribute, total_size, stride);
+      part->config.BindVboData(d.attribute, total_size_, stride);
       stride += d.size;
     }
   }
@@ -176,8 +176,8 @@ class AttributeBinder
     int             size;
   };
 
-  int                   total_size = 0;
-  std::vector<BindData> datas;
+  int                   total_size_ = 0;
+  std::vector<BindData> bind_datas_;
 };
 
 std::shared_ptr<CompiledMesh>

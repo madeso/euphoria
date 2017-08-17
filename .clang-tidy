@@ -30,5 +30,7 @@ CheckOptions:
     value:           'k'
   - key:             readability-identifier-naming.StaticVariablePrefix
     value:           's_'
+  - key:             readability-identifier-naming.StaticVariableCase
+    value:           'CamelCase'
   - key:             readability-identifier-naming.MacroDefinitionCase
     value:           UPPER_CASE

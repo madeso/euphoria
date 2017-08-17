@@ -45,8 +45,8 @@ namespace
   {
    public:
     JsonPath(const JsonPath* p, const rapidjson::Value& s)
-        : parent(p)
-        , self(ToString(s))
+        : parent_(p)
+        , self_(ToString(s))
     {
     }
 
@@ -55,8 +55,8 @@ namespace
     {
       if(path != nullptr)
       {
-        Print(path->parent, ss);
-        ss << "/" << path->self;
+        Print(path->parent_, ss);
+        ss << "/" << path->self_;
       }
       else
       {
@@ -66,8 +66,8 @@ namespace
     }
 
    private:
-    const JsonPath* parent;
-    std::string     self;
+    const JsonPath* parent_;
+    std::string     self_;
   };
 
   std::ostringstream&

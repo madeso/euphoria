@@ -10,7 +10,7 @@ Id::Id()
 Id::~Id() = default;
 
 gluint
-Id::id() const
+Id::GetId() const
 {
   return id_;
 }

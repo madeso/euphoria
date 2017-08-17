@@ -23,7 +23,7 @@ void
 SpriteRenderer::DrawSprite(const Texture2d& texture, const vec2f& position,
                            float rotate, const vec2f& scale, const Rgba& color)
 {
-  const vec2f size(scale.x * texture.width(), scale.y * texture.height());
+  const vec2f size(scale.x * texture.GetWidth(), scale.y * texture.GetHeight());
   CommonDraw(position, rotate, color, size, size);
 
   glActiveTexture(GL_TEXTURE0);
@@ -70,9 +70,9 @@ SpriteRenderer::DrawNinepatch(const ScalableSprite& ninepatch,
   CommonDraw(position - d, rotate, color, scale, scale);
 
   glActiveTexture(GL_TEXTURE0);
-  Use(ninepatch.texture_ptr());
+  Use(ninepatch.GetTexturePtr());
 
-  ninepatch.buffer_ptr()->Draw();  // todo: fix this
+  ninepatch.GetBufferPtr()->Draw();  // todo: fix this
   // vao_->Draw();
 }
 

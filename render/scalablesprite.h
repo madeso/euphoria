@@ -26,9 +26,9 @@ class ScalableSprite
 
   // for rendering...
   const Texture2d*
-  texture_ptr() const;
+  GetTexturePtr() const;
   const Buffer2d*
-  buffer_ptr() const;
+  GetBufferPtr() const;
 
 
  private:

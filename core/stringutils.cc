@@ -1,10 +1,11 @@
 #include "core/stringutils.h"
 
-#include <cassert>
 #include <string>
 #include <algorithm>
 #include <cstring>
 #include <vector>
+
+#include "core/assert.h"
 
 std::string
 StripLastString(const std::string& str, char sep)
@@ -19,80 +20,81 @@ StripLastString(const std::string& str, char sep)
 }
 
 std::string
-TrimRight(const std::string& stringToTrim, const std::string& trimCharacters)
+TrimRight(const std::string& string_to_trim, const std::string& trim_characters)
 {
-  return std::string(stringToTrim)
-      .erase(stringToTrim.find_last_not_of(trimCharacters) + 1);
+  return std::string(string_to_trim)
+      .erase(string_to_trim.find_last_not_of(trim_characters) + 1);
 }
 
 std::string
-TrimLeft(const std::string& stringToTrim, const std::string& trimCharacters)
+TrimLeft(const std::string& string_to_trim, const std::string& trim_characters)
 {
-  return std::string(stringToTrim)
-      .erase(0, stringToTrim.find_first_not_of(trimCharacters));
+  return std::string(string_to_trim)
+      .erase(0, string_to_trim.find_first_not_of(trim_characters));
 }
 
 std::string
-Trim(const std::string& stringToTrim, const std::string& trimCharacters)
+Trim(const std::string& string_to_trim, const std::string& trim_characters)
 {
-  return TrimRight(TrimLeft(stringToTrim, trimCharacters), trimCharacters);
+  return TrimRight(TrimLeft(string_to_trim, trim_characters), trim_characters);
 }
 
 bool
-StartsWith(const std::string& stringToTest, const std::string& start)
+StartsWith(const std::string& string_to_test, const std::string& start)
 {
   const std::string::size_type length      = start.length();
-  const std::string::size_type otherLength = stringToTest.length();
-  if(otherLength < length)
+  const std::string::size_type other_length = string_to_test.length();
+  if(other_length < length)
   {
     return false;
   }
-  const std::string actualStart = stringToTest.substr(0, length);
-  return start == actualStart;
+  const std::string actual_start = string_to_test.substr(0, length);
+  return start == actual_start;
 }
 
 bool
-EndsWith(const std::string& stringToTest, const std::string& end)
+EndsWith(const std::string& string_to_test, const std::string& end)
 {
   const std::string::size_type length      = end.length();
-  const std::string::size_type otherLength = stringToTest.length();
-  if(otherLength < length)
+  const std::string::size_type other_length = string_to_test.length();
+  if(other_length < length)
   {
     return false;
   }
-  const std::string actualEnd =
-      stringToTest.substr(otherLength - length, length);
-  return end == actualEnd;
+  const std::string actual_end =
+      string_to_test.substr(other_length - length, length);
+  return end == actual_end;
 }
 
 std::string
-ToLower(const std::string& string)
+ToLower(const std::string& str)
 {
-  std::string result = string;
+  std::string result = str;
   std::transform(result.begin(), result.end(), result.begin(), tolower);
   return result;
 }
 
 void
-StringReplace(std::string* string, const std::string& toFind,
-              const std::string& toReplace)
+StringReplace(std::string* string, const std::string& to_find,
+              const std::string& to_replace)
 {
-  std::size_t       index      = string->find(toFind);
-  const std::size_t findLength = toFind.length();
+  std::size_t       index      = string->find(to_find);
+  const std::size_t find_length = to_find.length();
+  Assert(find_length > 0);
   while(index != std::string::npos)
   {
-    string->erase(index, findLength);
-    string->insert(index, toReplace);
-    index = string->find(toFind, index);
+    string->erase(index, find_length);
+    string->insert(index, to_replace);
+    index = string->find(to_find, index);
   }
 }
 
 const std::string
-StringReplace(const std::string& string, const std::string& toFind,
-              const std::string& toReplace)
+StringReplace(const std::string& string, const std::string& to_find,
+              const std::string& to_replace)
 {
   std::string temp = string;
-  StringReplace(&temp, toFind, toReplace);
+  StringReplace(&temp, to_find, to_replace);
   return temp;
 }
 
@@ -113,10 +115,9 @@ RemoveFromEnd(const std::string& str, const std::string& end)
     {
       return "";
     }
-    assert(new_length > 0);
+    Assert(new_length > 0);
     return str.substr(0, new_length);
   }
-
 
   return str;
 }

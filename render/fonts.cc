@@ -382,20 +382,20 @@ Font::Font(Shader* shader, const std::string& font_file, unsigned int font_size,
 }
 
 void
-Font::Draw(const vec2f& p, const std::string& str, const Rgb& basec,
-           const Rgb& hic, int hi_start, int hi_end, float scale) const
+Font::Draw(const vec2f& start_position, const std::string& str, const Rgb& base_color,
+           const Rgb& hi_color, int hi_start, int hi_end, float scale) const
 {
   Use(shader_);
 
-  vec2f position = p;
+  vec2f position = start_position;
 
   glActiveTexture(GL_TEXTURE0);
   Use(texture_.get());
 
-  const bool applyHi = hi_end != -1 && hi_start != -1;
-  if(!applyHi)
+  const bool apply_highlight = hi_end != -1 && hi_start != -1;
+  if(!apply_highlight)
   {
-    shader_->SetUniform(color_, basec);
+    shader_->SetUniform(color_, base_color);
   }
 
   int          index           = 0;
@@ -418,10 +418,10 @@ Font::Draw(const vec2f& p, const std::string& str, const Rgb& basec,
                             .Scale(vec3f(scale, scale, 1.0f));
     shader_->SetUniform(model_, model);
 
-    if(applyHi)
+    if(apply_highlight)
     {
-      bool       useHiColor = hi_start <= this_index && this_index < hi_end;
-      const Rgb& color      = useHiColor ? hic : basec;
+      bool       use_hi_color = hi_start <= this_index && this_index < hi_end;
+      const Rgb& color      = use_hi_color ? hi_color : base_color;
       shader_->SetUniform(color_, color);
     }
     ch->buffer.Draw();

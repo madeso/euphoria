@@ -100,7 +100,7 @@ TextureId::~TextureId()
 }
 
 GLuint
-TextureId::id() const
+TextureId::GetId() const
 {
   return id_;
 }
@@ -108,17 +108,17 @@ TextureId::id() const
 namespace
 {
   const TextureId*&
-  currentShader()
+  GetCurrentShader()
   {
-    static const TextureId* s = nullptr;
-    return s;
+    static const TextureId* sCurrentShader = nullptr;
+    return sCurrentShader;
   }
 }
 
 bool
 TextureId::IsCurrentlyBound() const
 {
-  return this == currentShader();
+  return this == GetCurrentShader();
 }
 
 void
@@ -126,9 +126,9 @@ Use(const TextureId* texture)
 {
   if(texture != nullptr)
   {
-    glBindTexture(GL_TEXTURE_2D, texture->id());
+    glBindTexture(GL_TEXTURE_2D, texture->GetId());
   }
-  currentShader() = texture;
+  GetCurrentShader() = texture;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -140,13 +140,13 @@ Texture2d::Texture2d()
 }
 
 void
-Texture2d::LoadFromPixels(int width, int height, const unsigned char* pixelData,
-                          GLuint internalFormat, GLuint imageFormat,
+Texture2d::LoadFromPixels(int width, int height, const unsigned char* pixel_data,
+                          GLuint internal_format, GLuint image_format,
                           const Texture2dLoadData& data)
 {
   Use(this);
-  glTexImage2D(GL_TEXTURE_2D, 0, internalFormat, width, height, 0, imageFormat,
-               GL_UNSIGNED_BYTE, pixelData);
+  glTexImage2D(GL_TEXTURE_2D, 0, internal_format, width, height, 0, image_format,
+               GL_UNSIGNED_BYTE, pixel_data);
 
   width_  = width;
   height_ = height;
@@ -177,26 +177,26 @@ void
 Texture2d::LoadFromImage(const Image& image, AlphaLoad alpha,
                          const Texture2dLoadData& data)
 {
-  GLuint internalFormat = GL_RGB;
-  GLuint imageFormat    = GL_RGB;
+  GLuint internal_format = GL_RGB;
+  GLuint image_format    = GL_RGB;
   if(image.HasAlpha() && alpha == AlphaLoad::Keep)
   {
-    internalFormat = GL_RGBA;
-    imageFormat    = GL_RGBA;
+    internal_format = GL_RGBA;
+    image_format    = GL_RGBA;
   }
 
   LoadFromPixels(image.GetWidth(), image.GetHeight(), image.GetPixelData(),
-                 internalFormat, imageFormat, data);
+                 internal_format, image_format, data);
 }
 
 int
-Texture2d::width() const
+Texture2d::GetWidth() const
 {
   return width_;
 }
 
 int
-Texture2d::height() const
+Texture2d::GetHeight() const
 {
   return height_;
 }

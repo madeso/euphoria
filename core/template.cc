@@ -238,15 +238,15 @@ class TemplateNodeSet : public TemplateNode
 
 enum class LexType
 {
-  TEXT,
-  IFDEF,
-  EVAL,
-  IDENT,
-  END,
-  SET,
-  STRING,
-  INCLUDE,
-  END_OF_FILE
+  Text,
+  IfDef,
+  Eval,
+  Ident,
+  End,
+  Set,
+  String,
+  Include,
+  EndOfFile
 };
 
 std::string
@@ -257,15 +257,15 @@ LexTypeToString(LexType t)
 #define CASE(V)    \
   case LexType::V: \
     return #V
-    CASE(TEXT);
-    CASE(IFDEF);
-    CASE(EVAL);
-    CASE(IDENT);
-    CASE(END);
-    CASE(SET);
-    CASE(INCLUDE);
-    CASE(STRING);
-    CASE(END_OF_FILE);
+    CASE(Text);
+    CASE(IfDef);
+    CASE(Eval);
+    CASE(Ident);
+    CASE(End);
+    CASE(Set);
+    CASE(Include);
+    CASE(String);
+    CASE(EndOfFile);
 #undef CASE
   }
 
@@ -332,27 +332,27 @@ Lexer(const std::string& str, TemplateError* error, const std::string& file)
         const std::string  ident  = parser.ReadIdent();
         if(ident == "ifdef")
         {
-          r.emplace_back(LexType::IFDEF, line, column);
+          r.emplace_back(LexType::IfDef, line, column);
         }
         else if(ident == "end")
         {
-          r.emplace_back(LexType::END, line, column);
+          r.emplace_back(LexType::End, line, column);
         }
         else if(ident == "eval")
         {
-          r.emplace_back(LexType::EVAL, line, column);
+          r.emplace_back(LexType::Eval, line, column);
         }
         else if(ident == "set")
         {
-          r.emplace_back(LexType::SET, line, column);
+          r.emplace_back(LexType::Set, line, column);
         }
         else if(ident == "include")
         {
-          r.emplace_back(LexType::INCLUDE, line, column);
+          r.emplace_back(LexType::Include, line, column);
         }
         else
         {
-          r.emplace_back(LexType::IDENT, line, column, ident);
+          r.emplace_back(LexType::Ident, line, column, ident);
         }
       }
       else if(parser.PeekChar() == '@')
@@ -360,14 +360,14 @@ Lexer(const std::string& str, TemplateError* error, const std::string& file)
         const unsigned int line   = parser.GetLine();
         const unsigned int column = parser.GetColumn();
         parser.AdvanceChar();
-        r.emplace_back(LexType::EVAL, line, column);
+        r.emplace_back(LexType::Eval, line, column);
       }
       else if(parser.PeekChar() == '\"')
       {
         const unsigned int line   = parser.GetLine();
         const unsigned int column = parser.GetColumn();
         const std::string& str    = parser.ReadString();
-        r.emplace_back(LexType::STRING, line, column, str);
+        r.emplace_back(LexType::String, line, column, str);
       }
       else if(parser.PeekChar(0) == '}' && parser.PeekChar(1) == '}')
       {
@@ -396,7 +396,7 @@ Lexer(const std::string& str, TemplateError* error, const std::string& file)
           buffer.str("");
           buffer_line   = parser.GetLine();
           buffer_column = parser.GetColumn();
-          r.emplace_back(LexType::TEXT, buffer_line, buffer_column, b);
+          r.emplace_back(LexType::Text, buffer_line, buffer_column, b);
         }
         parser.AdvanceChar();
         parser.AdvanceChar();
@@ -419,7 +419,7 @@ Lexer(const std::string& str, TemplateError* error, const std::string& file)
   const std::string buffer_str = buffer.str();
   if(!buffer_str.empty())
   {
-    r.emplace_back(LexType::TEXT, buffer_line, buffer_column, buffer_str);
+    r.emplace_back(LexType::Text, buffer_line, buffer_column, buffer_str);
   }
 
   return r;
@@ -450,7 +450,7 @@ class LexReader
     {
       return lex_[pos_];
     }
-    static const Lex end_of_file{LexType::END_OF_FILE, 0, 0};
+    static const Lex end_of_file{LexType::EndOfFile, 0, 0};
     return end_of_file;
   }
 
@@ -522,7 +522,7 @@ ReadText(LexReader* reader, TemplateError*, const std::string&, FileSystem*)
 {
   Assert(reader);
   const Lex& lex = reader->Read();
-  Assert(lex.type == LexType::TEXT);
+  Assert(lex.type == LexType::Text);
 
 
   std::shared_ptr<TemplateNodeString> ret{new TemplateNodeString{lex.value}};
@@ -536,7 +536,7 @@ ReadEval(LexReader* reader, TemplateError* errors, const std::string& file,
   Assert(reader);
   const Lex& lex = reader->Read();
 
-  if(lex.type == LexType::IDENT)
+  if(lex.type == LexType::Ident)
   {
     std::shared_ptr<TemplateNodeEval> ret{new TemplateNodeEval{lex.value}};
     return ret;
@@ -556,7 +556,7 @@ ReadSet(LexReader* reader, TemplateError* errors, const std::string& file,
   Assert(reader);
   const Lex& name = reader->Read();
 
-  if(name.type != LexType::IDENT)
+  if(name.type != LexType::Ident)
   {
     errors->AddError(
         file, reader->GetLine(), reader->GetColumn(),
@@ -568,7 +568,7 @@ ReadSet(LexReader* reader, TemplateError* errors, const std::string& file,
 
   const Lex& val = reader->Read();
 
-  if(val.type != LexType::STRING)
+  if(val.type != LexType::String)
   {
     errors->AddError(
         file, reader->GetLine(), reader->GetColumn(),
@@ -590,7 +590,7 @@ ReadIfdef(LexReader* reader, TemplateError* errors, const std::string& file,
   Assert(reader);
   const Lex& lex = reader->Read();
 
-  if(lex.type == LexType::IDENT)
+  if(lex.type == LexType::Ident)
   {
     std::shared_ptr<TemplateNodeList> children{new TemplateNodeList{}};
     ReadTemplateList(&children, reader, errors, file, true, fs);
@@ -615,7 +615,7 @@ ReadInclude(LexReader* reader, TemplateError* errors, const std::string& file,
   Assert(reader);
   const Lex& lex = reader->Read();
 
-  if(lex.type == LexType::STRING)
+  if(lex.type == LexType::String)
   {
     std::shared_ptr<TemplateNodeList> ret{new TemplateNodeScopedList{}};
     LoadFromFilesystemToNodeList(fs, lex.value, errors, &ret);
@@ -638,26 +638,26 @@ ReadTemplateList(std::shared_ptr<TemplateNodeList>* nodes, LexReader* reader,
 
   Assert(reader);
   while(!errors->HasErrors() && reader->HasMore() &&
-        (!expect_end || reader->Peek().type != LexType::END))
+        (!expect_end || reader->Peek().type != LexType::End))
   {
     switch(reader->Peek().type)
     {
-      case LexType::TEXT:
+      case LexType::Text:
         list->Add(ReadText(reader, errors, file, fs));
         break;
-      case LexType::EVAL:
+      case LexType::Eval:
         reader->Advance();
         list->Add(ReadEval(reader, errors, file, fs));
         break;
-      case LexType::IFDEF:
+      case LexType::IfDef:
         reader->Advance();
         list->Add(ReadIfdef(reader, errors, file, fs));
         break;
-      case LexType::SET:
+      case LexType::Set:
         reader->Advance();
         list->Add(ReadSet(reader, errors, file, fs));
         break;
-      case LexType::INCLUDE:
+      case LexType::Include:
         reader->Advance();
         list->Add(ReadInclude(reader, errors, file, fs));
         break;
@@ -677,7 +677,7 @@ ReadTemplateList(std::shared_ptr<TemplateNodeList>* nodes, LexReader* reader,
   if(expect_end)
   {
     Lex end = reader->Read();  // skip end
-    if(end.type != LexType::END)
+    if(end.type != LexType::End)
     {
       errors->AddError(
           file, reader->GetLine(), reader->GetColumn(),

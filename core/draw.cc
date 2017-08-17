@@ -149,32 +149,32 @@ Draw::LineFast(const Rgb& color, const vec2i& from, const vec2i& to)
 }
 
 int
-ipart(float x)
+FloorToInt(float x)
 {
   return floor(x);
 }
 
 int
-round(float x)
+Round(float x)
 {
-  return ipart(x + 0.5f);
+  return FloorToInt(x + 0.5f);
 }
 
 // fractional part of x
 float
-fpart(float x)
+GetFractionalPart(float x)
 {
   return x - floor(x);
 }
 
 float
-rfpart(float x)
+GetOneMinusFractionalPart(float x)
 {
-  return 1 - fpart(x);
+  return 1 - GetFractionalPart(x);
 }
 
 void
-plot(int x, int y, float brightness, const Rgb& color, Image* image)
+Plot(int x, int y, float brightness, const Rgb &color, Image *image)
 {
   const bool valid_x = IsWithinInclusivei(0, x, image->GetWidth() - 1);
   const bool valid_y = IsWithinInclusivei(0, y, image->GetHeight() - 1);
@@ -221,38 +221,38 @@ Draw::LineAntialiased(const Rgb& color, const vec2f& from, const vec2f& to)
   float gradient = dx == 0.0 ? 1.0 : dy / dx;
 
   // handle first endpoint
-  int   xend  = round(x0);
+  int   xend  = Round(x0);
   float yend  = y0 + gradient * (xend - x0);
-  float xgap  = rfpart(x0 + 0.5);
+  float xgap  = GetOneMinusFractionalPart(x0 + 0.5);
   int   xpxl1 = xend;  // this will be used in the main loop
-  float ypxl1 = ipart(yend);
+  float ypxl1 = FloorToInt(yend);
   if(steep)
   {
-    plot(ypxl1, xpxl1, rfpart(yend) * xgap, color, image_);
-    plot(ypxl1 + 1, xpxl1, fpart(yend) * xgap, color, image_);
+    Plot(ypxl1, xpxl1, GetOneMinusFractionalPart(yend) * xgap, color, image_);
+    Plot(ypxl1 + 1, xpxl1, GetFractionalPart(yend) * xgap, color, image_);
   }
   else
   {
-    plot(xpxl1, ypxl1, rfpart(yend) * xgap, color, image_);
-    plot(xpxl1, ypxl1 + 1, fpart(yend) * xgap, color, image_);
+    Plot(xpxl1, ypxl1, GetOneMinusFractionalPart(yend) * xgap, color, image_);
+    Plot(xpxl1, ypxl1 + 1, GetFractionalPart(yend) * xgap, color, image_);
   }
   int intery = yend + gradient;  // first y-intersection for the main loop
 
   // handle second endpoint
-  xend      = round(x1);
+  xend      = Round(x1);
   yend      = y1 + gradient * (xend - x1);
-  xgap      = fpart(x1 + 0.5);
+  xgap      = GetFractionalPart(x1 + 0.5);
   int xpxl2 = xend;  // this will be used in the main loop
-  int ypxl2 = ipart(yend);
+  int ypxl2 = FloorToInt(yend);
   if(steep)
   {
-    plot(ypxl2, xpxl2, rfpart(yend) * xgap, color, image_);
-    plot(ypxl2 + 1, xpxl2, fpart(yend) * xgap, color, image_);
+    Plot(ypxl2, xpxl2, GetOneMinusFractionalPart(yend) * xgap, color, image_);
+    Plot(ypxl2 + 1, xpxl2, GetFractionalPart(yend) * xgap, color, image_);
   }
   else
   {
-    plot(xpxl2, ypxl2, rfpart(yend) * xgap, color, image_);
-    plot(xpxl2, ypxl2 + 1, fpart(yend) * xgap, color, image_);
+    Plot(xpxl2, ypxl2, GetOneMinusFractionalPart(yend) * xgap, color, image_);
+    Plot(xpxl2, ypxl2 + 1, GetFractionalPart(yend) * xgap, color, image_);
   }
 
   // main loop
@@ -260,8 +260,9 @@ Draw::LineAntialiased(const Rgb& color, const vec2f& from, const vec2f& to)
   {
     for(int x = xpxl1 + 1; x < xpxl2 - 1; x += 1)
     {
-      plot(ipart(intery), x, rfpart(intery), color, image_);
-      plot(ipart(intery) + 1, x, fpart(intery), color, image_);
+      Plot(FloorToInt(intery), x, GetOneMinusFractionalPart(intery), color,
+           image_);
+      Plot(FloorToInt(intery) + 1, x, GetFractionalPart(intery), color, image_);
       intery = intery + gradient;
     }
   }
@@ -269,8 +270,9 @@ Draw::LineAntialiased(const Rgb& color, const vec2f& from, const vec2f& to)
   {
     for(int x = xpxl1 + 1; x < xpxl2 - 1; x += 1)
     {
-      plot(x, ipart(intery), rfpart(intery), color, image_);
-      plot(x, ipart(intery) + 1, fpart(intery), color, image_);
+      Plot(x, FloorToInt(intery), GetOneMinusFractionalPart(intery), color,
+           image_);
+      Plot(x, FloorToInt(intery) + 1, GetFractionalPart(intery), color, image_);
       intery = intery + gradient;
     }
   }

@@ -28,7 +28,7 @@ ShaderId::~ShaderId()
 }
 
 GLuint
-ShaderId::id() const
+ShaderId::GetId() const
 {
   return id_;
 }
@@ -36,17 +36,17 @@ ShaderId::id() const
 namespace
 {
   const Shader*&
-  currentShader()
+  GetCurrentShader()
   {
-    static const Shader* s = nullptr;
-    return s;
+    static const Shader* sShader = nullptr;
+    return sShader;
   }
 }
 
 bool
 ShaderId::IsCurrentlyBound() const
 {
-  return this == currentShader();
+  return this == GetCurrentShader();
 }
 
 void
@@ -54,19 +54,19 @@ Use(const Shader* shader)
 {
   if(shader != nullptr)
   {
-    glUseProgram(shader->id());
+    glUseProgram(shader->GetId());
   }
   else
   {
     glUseProgram(0);
   }
-  currentShader() = shader;
+  GetCurrentShader() = shader;
 }
 
 const Shader*
 Shader::CurrentlyBound()
 {
-  return currentShader();
+  return GetCurrentShader();
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -164,49 +164,49 @@ CompileShader(GLuint type, const GLchar* source, const std::string& name)
 void
 Shader::PreBind(const ShaderAttribute& attribute)
 {
-  glBindAttribLocation(id(), attribute.id, attribute.name.c_str());
+  glBindAttribLocation(GetId(), attribute.id, attribute.name.c_str());
   bound_attributes_.push_back(attribute);
 }
 
 bool
-Shader::Compile(const GLchar* vertexSource, const GLchar* fragmentSource,
-                const GLchar* geometrySource)
+Shader::Compile(const GLchar* vertex_source, const GLchar* fragment_source,
+                const GLchar* geometry_source)
 {
   bool ret = true;
 
-  GLuint sVertex = CompileShader(GL_VERTEX_SHADER, vertexSource, "VERTEX");
-  GLuint sFragment =
-      CompileShader(GL_FRAGMENT_SHADER, fragmentSource, "FRAGMENT");
+  GLuint vertex_shader_id = CompileShader(GL_VERTEX_SHADER, vertex_source, "VERTEX");
+  GLuint fragment_shader_id =
+      CompileShader(GL_FRAGMENT_SHADER, fragment_source, "FRAGMENT");
 
-  GLuint gShader = 0;
-  if(geometrySource != nullptr)
+  GLuint geometry_shader_id = 0;
+  if(geometry_source != nullptr)
   {
-    gShader = CompileShader(GL_GEOMETRY_SHADER, geometrySource, "GEOMETRY");
+    geometry_shader_id = CompileShader(GL_GEOMETRY_SHADER, geometry_source, "GEOMETRY");
   }
 
-  glAttachShader(id(), sVertex);
-  glAttachShader(id(), sFragment);
-  if(geometrySource != nullptr)
+  glAttachShader(GetId(), vertex_shader_id);
+  glAttachShader(GetId(), fragment_shader_id);
+  if(geometry_source != nullptr)
   {
-    glAttachShader(id(), gShader);
+    glAttachShader(GetId(), geometry_shader_id);
   }
-  glLinkProgram(id());
-  const bool link_error = PrintErrorProgram(id());
+  glLinkProgram(GetId());
+  const bool link_error = PrintErrorProgram(GetId());
   if(!link_error)
   {
     ret = false;
   }
 
-  glDeleteShader(sVertex);
-  glDeleteShader(sFragment);
-  if(geometrySource != nullptr)
+  glDeleteShader(vertex_shader_id);
+  glDeleteShader(fragment_shader_id);
+  if(geometry_source != nullptr)
   {
-    glDeleteShader(gShader);
+    glDeleteShader(geometry_shader_id);
   }
 
   for(const auto& attribute : bound_attributes_)
   {
-    int attribute_id = glGetAttribLocation(id(), attribute.name.c_str());
+    int attribute_id = glGetAttribLocation(GetId(), attribute.name.c_str());
     if(attribute_id == attribute.id)
     {
       continue;
@@ -226,7 +226,7 @@ Shader::Compile(const GLchar* vertexSource, const GLchar* fragmentSource,
 ShaderUniform
 Shader::GetUniform(const std::string& name)
 {
-  int           uniform_id = glGetUniformLocation(id(), name.c_str());
+  int           uniform_id = glGetUniformLocation(GetId(), name.c_str());
   ShaderUniform uniform(name, uniform_id, this);
   bound_uniforms_.push_back(uniform);
 

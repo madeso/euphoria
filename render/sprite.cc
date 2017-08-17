@@ -49,13 +49,13 @@ Sprite::GetRotation() const
 float
 Sprite::GetHeight() const
 {
-  return texture_->height() * scale_.y;
+  return texture_->GetHeight() * scale_.y;
 }
 
 float
 Sprite::GetWidth() const
 {
-  return texture_->width() * scale_.x;
+  return texture_->GetWidth() * scale_.x;
 }
 
 void

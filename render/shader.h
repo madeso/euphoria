@@ -26,7 +26,7 @@ class ShaderId : Noncopyable
   IsCurrentlyBound() const;
 
   gluint
-  id() const;
+  GetId() const;
 
  private:
   gluint id_;
@@ -50,8 +50,8 @@ class Shader : public ShaderId
 
  private:
   bool
-  Compile(const glchar* vertexSource, const glchar* fragmentSource,
-          const glchar* geometrySource = nullptr);
+  Compile(const glchar* vertex_source, const glchar* fragment_source,
+          const glchar* geometry_source = nullptr);
 
  public:
   // uniform = shader global

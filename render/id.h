@@ -11,7 +11,7 @@ class Id : Noncopyable
   ~Id();
 
   gluint
-  id() const;
+  GetId() const;
 
  protected:
   gluint id_;

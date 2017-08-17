@@ -4,8 +4,8 @@
 #include "core/assert.h"
 
 // vertex + uv + color
-const unsigned int QUAD_COUNT = 10;
-const unsigned int STRIDE     = 2 * 4 + 2 * 4 + 4 * 4;
+const unsigned int kQuadCount = 10;
+const unsigned int kStride     = 2 * 4 + 2 * 4 + 4 * 4;
 
 SpriteBatch::SpriteBatch()
     : inside_(false)
@@ -14,8 +14,8 @@ SpriteBatch::SpriteBatch()
 {
   // the static casts are weird, but they stop clang-tidy from complaining about
   // 'misplaced widening casts'
-  data_.reserve(static_cast<size_t>(STRIDE) * QUAD_COUNT);
-  index_.reserve(static_cast<size_t>(6) * QUAD_COUNT);
+  data_.reserve(static_cast<size_t>(kStride) * kQuadCount);
+  index_.reserve(static_cast<size_t>(6) * kQuadCount);
 }
 
 SpriteBatch::~SpriteBatch() = default;
@@ -33,7 +33,7 @@ SpriteBatch::Quad(const vec2f& pos, const Sizef& quad, const Rectf& uv,
 {
   Assert(inside_ && "batch need to be open");
 
-  if((count_ + 1) >= QUAD_COUNT)
+  if((count_ + 1) >= kQuadCount)
   {
     Flush();
   }
@@ -46,22 +46,22 @@ SpriteBatch::Quad(const vec2f& pos, const Sizef& quad, const Rectf& uv,
   const float right      = pos.x + (-center.x * w + w) * sy;
   const float top        = pos.y + (-center.y * h) * sy;
   const float bottom     = pos.y + (-center.y * h + h) * sy;
-  const vec2f upperLeft  = vec2f(left, top);
-  const vec2f upperRight = vec2f(right, top);
-  const vec2f lowerLeft  = vec2f(left, bottom);
-  const vec2f lowerRight = vec2f(right, bottom);
+  const vec2f upper_left  = vec2f(left, top);
+  const vec2f upper_right = vec2f(right, top);
+  const vec2f lower_left  = vec2f(left, bottom);
+  const vec2f lower_right = vec2f(right, bottom);
 
-  data_.push_back(upperLeft.x);
-  data_.push_back(upperLeft.y);
+  data_.push_back(upper_left.x);
+  data_.push_back(upper_left.y);
 
-  data_.push_back(upperRight.x);
-  data_.push_back(upperRight.y);
+  data_.push_back(upper_right.x);
+  data_.push_back(upper_right.y);
 
-  data_.push_back(lowerRight.x);
-  data_.push_back(lowerRight.y);
+  data_.push_back(lower_right.x);
+  data_.push_back(lower_right.y);
 
-  data_.push_back(lowerLeft.x);
-  data_.push_back(lowerLeft.y);
+  data_.push_back(lower_left.x);
+  data_.push_back(lower_left.y);
 
   // add uv coordinate
   data_.push_back(uv.left);

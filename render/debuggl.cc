@@ -5,9 +5,9 @@
 #include "core/assert.h"
 
 std::string
-OpenglErrorToString(GLenum errorCode)
+OpenglErrorToString(GLenum error_code)
 {
-  switch(errorCode)
+  switch(error_code)
   {
     case GL_INVALID_ENUM:
       return "INVALID_ENUM";
@@ -43,11 +43,11 @@ OpenglErrorToString(GLenum errorCode)
 void
 PrintAllOpenglErrors(const char *file, int line)
 {
-  GLenum errorCode;
-  while((errorCode = glGetError()) != GL_NO_ERROR)
+  GLenum error_code;
+  while((error_code = glGetError()) != GL_NO_ERROR)
   {
     std::string error;
-    error = OpenglErrorToString(errorCode);
+    error = OpenglErrorToString(error_code);
     std::cout << error << " | " << file << " (" << line << ")" << std::endl;
   }
 }
@@ -143,12 +143,12 @@ OnOpenglError(GLenum source, GLenum type, GLuint id, GLenum severity,
   }
 
   // only display the first 10
-  static int count = 0;
-  if(count > 10)
+  static int s_ErrorCount = 0;
+  if(s_ErrorCount > 10)
   {
     return;
   }
-  ++count;
+  ++s_ErrorCount;
 
   std::cout << "---------------" << std::endl;
   std::cout << "Debug message (" << id << "): " << message << std::endl;

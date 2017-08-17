@@ -14,8 +14,8 @@ IsEqual(float lhs, float rhs)
 bool
 IsZero(float r)
 {
-  const float kRange = 0.0001f;
-  return IsWithin(-kRange, r, kRange);
+  const float epsilon = 0.0001f;
+  return IsWithin(-epsilon, r, epsilon);
 }
 
 float
@@ -47,14 +47,14 @@ Lerp(const float f, float scale, const float t)
 }
 
 const float
-Curve(const float newValue, const float oldValue, const float smoothingValue)
+Curve(const float new_value, const float old_value, const float smoothing_value)
 {
-  const int   sign = Sign(oldValue - newValue);
-  const float slip = (oldValue - newValue) / smoothingValue;
-  const float val  = oldValue - slip;
-  if(sign != Sign(val - newValue))
+  const int   sign = Sign(old_value - new_value);
+  const float slip = (old_value - new_value) / smoothing_value;
+  const float val  = old_value - slip;
+  if(sign != Sign(val - new_value))
   {
-    return newValue;
+    return new_value;
   }
 
 
@@ -136,9 +136,9 @@ Max(const int lhs, const int rhs)
 
 
 const float
-To01(const float L, const float v, const float U)
+To01(const float lower_bound, const float value, const float upper_bound)
 {
-  return (v - L) / (U - L);
+  return (value - lower_bound) / (upper_bound - lower_bound);
 }
 
 const float
@@ -341,13 +341,13 @@ HalfPi()
 }
 
 const bool
-kTrue()
+TrueValue()
 {
   return true;
 }
 
 const bool
-kFalse()
+FalseValue()
 {
   return false;
 }

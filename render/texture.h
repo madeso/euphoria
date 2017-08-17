@@ -53,7 +53,7 @@ class TextureId : Noncopyable
   bool
   IsCurrentlyBound() const;
   gluint
-  id() const;
+  GetId() const;
 
  private:
   gluint id_;
@@ -68,8 +68,8 @@ class Texture2d : public TextureId
   Texture2d();
 
   void
-  LoadFromPixels(int width, int height, const unsigned char* pixelData,
-                 gluint internalFormat, gluint imageFormat,
+  LoadFromPixels(int width, int height, const unsigned char* pixel_data,
+                 gluint internal_format, gluint image_format,
                  const Texture2dLoadData& data);
   void
   LoadFromImage(const Image& image, AlphaLoad alpha,
@@ -79,9 +79,9 @@ class Texture2d : public TextureId
                const Texture2dLoadData& data);
 
   int
-  width() const;
+  GetWidth() const;
   int
-  height() const;
+  GetHeight() const;
 
  private:
   int width_, height_;

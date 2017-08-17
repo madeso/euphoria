@@ -36,8 +36,8 @@ Vbo::Bind(const Vbo* vbo)
 const Vbo*&
 Vbo::GetBound()
 {
-  static const Vbo* vbo = nullptr;
-  return vbo;
+  static const Vbo* s_Vbo = nullptr;
+  return s_Vbo;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -77,8 +77,8 @@ Vao::Bind(const Vao* vao)
 const Vao*&
 Vao::GetBound()
 {
-  static const Vao* vao = nullptr;
-  return vao;
+  static const Vao* s_Vao = nullptr;
+  return s_Vao;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -139,6 +139,6 @@ Ebo::Bind(const Ebo* ebo)
 const Ebo*&
 Ebo::GetBound()
 {
-  static const Ebo* ebo = nullptr;
-  return ebo;
+  static const Ebo* s_Ebo = nullptr;
+  return s_Ebo;
 }

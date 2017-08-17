@@ -25,73 +25,73 @@ std::string
 StripLastString(const std::string& str, char sep);
 
 /** Remove characters from the right, stops at a invalid character.
-@param stringToTrim the string to remove characters from.
-@param trimCharacters the characters to remove.
+@param string_to_trim the string to remove characters from.
+@param trim_characters the characters to remove.
 @returns the trimmed string.
  */
 std::string
-TrimRight(const std::string& stringToTrim,
-          const std::string& trimCharacters = kSpaceCharacters);
+TrimRight(const std::string& string_to_trim,
+          const std::string& trim_characters = kSpaceCharacters);
 
 /** Remove characters from the left, stops at invalid character.
-@param stringToTrim the string to remove characters from.
-@param trimCharacters the characters to remove.
+@param string_to_trim the string to remove characters from.
+@param trim_characters the characters to remove.
 @returns the trimmed string.
  */
 std::string
-TrimLeft(const std::string& stringToTrim,
-         const std::string& trimCharacters = kSpaceCharacters);
+TrimLeft(const std::string& string_to_trim,
+         const std::string& trim_characters = kSpaceCharacters);
 
 /** Remove characters from both the start and the end.
-@param stringToTrim the string to remove characters from.
-@param trimCharacters the characters to remove.
+@param string_to_trim the string to remove characters from.
+@param trim_characters the characters to remove.
 @returns the trimmed string.
  */
 std::string
-Trim(const std::string& stringToTrim,
-     const std::string& trimCharacters = kSpaceCharacters);
+Trim(const std::string& string_to_trim,
+     const std::string& trim_characters = kSpaceCharacters);
 
 /** Tests if a string starts with another string.
-@param stringToTest the string to test.
+@param string_to_test the string to test.
 @param start the start of the string.
 @returns true if the start match, false if not.
  */
 bool
-StartsWith(const std::string& stringToTest, const std::string& start);
+StartsWith(const std::string& string_to_test, const std::string& start);
 
 /** Tests if a string ends with another string.
-@param stringToTest the string to test.
+@param string_to_test the string to test.
 @param end the end of the string.
 @returns true if the end match, false if not.
  */
 bool
-EndsWith(const std::string& stringToTest, const std::string& end);
+EndsWith(const std::string& string_to_test, const std::string& end);
 
 /** Generate a string containing only lower characters.
-@param string the string to lower.
+@param str the string to lower.
 @returns the lowered string.
  */
 std::string
-ToLower(const std::string& string);
+ToLower(const std::string& str);
 
 /** Replace all occurrences in a string.
 @param string the source string.
-@param toFind the string to find.
-@param toReplace the string to replace it.
+@param to_find the string to find.
+@param to_replace the string to replace it.
  */
 void
-StringReplace(std::string* string, const std::string& toFind,
-              const std::string& toReplace);
+StringReplace(std::string* string, const std::string& to_find,
+              const std::string& to_replace);
 
 /** Replace all occurrences in a string.
 @param string the source string.
-@param toFind the string to find.
-@param toReplace the string to replace it.
+@param to_find the string to find.
+@param to_replace the string to replace it.
 @returns the modified string.
  */
 const std::string
-StringReplace(const std::string& string, const std::string& toFind,
-              const std::string& toReplace);
+StringReplace(const std::string& string, const std::string& to_find,
+              const std::string& to_replace);
 
 /** Copy a string to a character buffer, adding null terminator at the end.
 @param dst the destination buffer.

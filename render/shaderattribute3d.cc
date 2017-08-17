@@ -9,22 +9,22 @@ namespace attributes3d
   const ShaderAttribute&
   Vertex()
   {
-    static ShaderAttribute attribute{"aPosition", 1, ShaderAttributeSize::VEC3};
-    return attribute;
+    static ShaderAttribute sAttribute{"aPosition", 1, ShaderAttributeSize::VEC3};
+    return sAttribute;
   }
 
   const ShaderAttribute&
   Normal()
   {
-    static ShaderAttribute attribute{"aNormal", 2, ShaderAttributeSize::VEC3};
-    return attribute;
+    static ShaderAttribute sAttribute{"aNormal", 2, ShaderAttributeSize::VEC3};
+    return sAttribute;
   }
 
   const ShaderAttribute&
   TexCoord()
   {
-    static ShaderAttribute attribute{"aTexCoord", 3, ShaderAttributeSize::VEC2};
-    return attribute;
+    static ShaderAttribute sAttribute{"aTexCoord", 3, ShaderAttributeSize::VEC2};
+    return sAttribute;
   }
 
   void

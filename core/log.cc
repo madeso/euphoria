@@ -9,7 +9,7 @@
 
 namespace  // local
 {
-  const char* const LOG_LEVEL_NAMES[] = {"trace",   "debug", "info",
+  const char* const kLogLevelNames[] = {"trace",   "debug", "info",
                                          "warning", "error", "fatal"};
 }
 
@@ -31,10 +31,10 @@ Logger::AddLog(LogLevel level, const std::string& message)
 {
   Assert(IsEnabledForLevel(level));
 
-  // Assert(sizeof(LOG_LEVEL_NAMES) == static_cast<int>(LogLevel::MAX_VALUE)+1);
+  // Assert(sizeof(kLogLevelNames) == static_cast<int>(LogLevel::MAX_VALUE)+1);
 
   (level >= LogLevel::Warning ? std::cerr : std::cout)
-      << "[" << name_ << " " << LOG_LEVEL_NAMES[static_cast<int>(level)] << "] "
+      << "[" << name_ << " " << kLogLevelNames[static_cast<int>(level)] << "] "
       << message << "\n";
 }
 
@@ -43,8 +43,8 @@ namespace  // local
   std::map<std::string, std::shared_ptr<Logger>>&
   Storage()
   {
-    static std::map<std::string, std::shared_ptr<Logger>> ret;
-    return ret;
+    static std::map<std::string, std::shared_ptr<Logger>> s_Storage;
+    return s_Storage;
   }
 }
 

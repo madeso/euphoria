@@ -128,9 +128,9 @@ namespace
         material.textures.emplace_back(texture.C_Str(), DiffuseType);
       }
 
-      aiString aiName;
-      mat->Get(AI_MATKEY_NAME, aiName);
-      material.name = aiName.C_Str();
+      aiString ai_name;
+      mat->Get(AI_MATKEY_NAME, ai_name);
+      material.name = ai_name.C_Str();
 
       const bool got_shininess =
           aiReturn_SUCCESS == mat->Get(AI_MATKEY_SHININESS, material.shininess);
@@ -147,15 +147,15 @@ namespace
         material.alpha = 1.0f;
       }
 
-      aiColor3D aiAmbient;
-      aiColor3D aiDiffuse;
-      aiColor3D aiSpecular;
-      mat->Get(AI_MATKEY_COLOR_AMBIENT, aiAmbient);
-      mat->Get(AI_MATKEY_COLOR_DIFFUSE, aiDiffuse);
-      mat->Get(AI_MATKEY_COLOR_SPECULAR, aiSpecular);
-      material.ambient  = C(aiAmbient);
-      material.diffuse  = C(aiDiffuse);
-      material.specular = C(aiSpecular);
+      aiColor3D ai_ambient;
+      aiColor3D ai_diffuse;
+      aiColor3D ai_specular;
+      mat->Get(AI_MATKEY_COLOR_AMBIENT, ai_ambient);
+      mat->Get(AI_MATKEY_COLOR_DIFFUSE, ai_diffuse);
+      mat->Get(AI_MATKEY_COLOR_SPECULAR, ai_specular);
+      material.ambient  = C(ai_ambient);
+      material.diffuse  = C(ai_diffuse);
+      material.specular = C(ai_specular);
 
 
       int u = 0;
@@ -252,8 +252,8 @@ namespace
     return ConvertScene(scene);
   }
 
-  const char* const kFormatNff = "nff";
-  const char*       kFormatObj = "obj";
+  const char* const FILE_FORMAT_NFF = "nff";
+  const char*       FILE_FORMAT_OBJ = "obj";
 
 }  // namespace
 
@@ -288,7 +288,7 @@ namespace meshes
   {
     std::ostringstream ss;
     ss << "shader " << texture << std::endl << "s 0 0 0 " << size;
-    return LoadFromString(ss.str(), kFormatNff);
+    return LoadFromString(ss.str(), FILE_FORMAT_NFF);
   }
 
   Mesh
@@ -327,6 +327,6 @@ namespace meshes
        << "f 4/1 8/2 7/3 3/4" << std::endl
        << "f 5/1 6/2 2/3 1/4" << std::endl;
 
-    return LoadFromString(ss.str(), kFormatObj);
+    return LoadFromString(ss.str(), FILE_FORMAT_OBJ);
   }
 }  // namespace meshes

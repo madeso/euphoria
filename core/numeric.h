@@ -33,7 +33,7 @@ Example:
 @returns The smoothed result.
 */
 const float
-Curve(const float newValue, const float oldValue, const float smoothingValue);
+Curve(const float new_value, const float old_value, const float smoothing_value);
 
 /** Calculates the square of the argument.
 @see Sqrt()
@@ -81,16 +81,16 @@ UpdateMax(T* t, T value)
 /** Transforms a value from one range to the 0-1 range.
 This function does not limmit the value, so if it's below the lower bound it
 will be below 0.
-@param L the lower bound of the range
-@param v the value
-@param U the upper bound of the range
+@param lower_bound the lower bound of the range
+@param value the value
+@param upper_bound the upper bound of the range
 @returns The tranformed value.
 @see From01()
 @see Remap()
 @see KeepWithin()
 */
 const float
-To01(const float L, const float v, const float U);
+To01(const float lower_bound, const float value, const float upper_bound);
 
 /** Transforms a value from the 0-1 range to another range.
 This function does not limmit he value, so if it's below 0 the result will be
@@ -239,13 +239,13 @@ HalfPi();
 @see kFalse()
 */
 const bool
-kTrue();
+TrueValue();
 
 /** The boolean value false.
 @see kTrue()
 */
 const bool
-kFalse();
+FalseValue();
 
 template <typename T>
 T

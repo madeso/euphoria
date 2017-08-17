@@ -44,30 +44,30 @@ StringMerger::Generate(const std::vector<std::string>& strings) const
 const StringMerger&
 StringMerger::EnglishAnd()
 {
-  static const StringMerger sep =
-      StringMerger().set_separator(", ", " and ").SetStartEnd("", "");
-  return sep;
+  static const StringMerger sEnglishAnd =
+    StringMerger().SetSeparator(", ", " and ").SetSeparator("", "");
+  return sEnglishAnd;
 }
 
 const StringMerger&
 StringMerger::EnglishOr()
 {
-  static const StringMerger sep =
-      StringMerger().set_separator(", ", " or ").SetStartEnd("", "");
-  return sep;
+  static const StringMerger sEnglishOr =
+    StringMerger().SetSeparator(", ", " or ").SetSeparator("", "");
+  return sEnglishOr;
 }
 
 const StringMerger&
 StringMerger::Array()
 {
-  static const StringMerger sep =
-      StringMerger().set_separator(", ").SetStartEnd("[", "]");
-  return sep;
+  static const StringMerger sArray =
+    StringMerger().SetSeparator(", ").SetSeparator("[", "]");
+  return sArray;
 }
 
 StringMerger&
-StringMerger::set_separator(const std::string& separator,
-                            const std::string& final_separator)
+StringMerger::SetSeparator(const std::string &separator,
+                           const std::string &final_separator)
 {
   separator_       = separator;
   final_separator_ = final_separator;
@@ -75,7 +75,7 @@ StringMerger::set_separator(const std::string& separator,
 }
 
 StringMerger&
-StringMerger::set_separator(const std::string& separator)
+StringMerger::SetSeparator(const std::string &separator)
 {
   separator_       = separator;
   final_separator_ = separator;
@@ -83,14 +83,14 @@ StringMerger::set_separator(const std::string& separator)
 }
 
 StringMerger&
-StringMerger::set_empty(const std::string& empty)
+StringMerger::SetEmpty(const std::string &empty)
 {
   empty_ = empty;
   return *this;
 }
 
 StringMerger&
-StringMerger::SetStartEnd(const std::string& start, const std::string& end)
+StringMerger::SetStartAndEnd(const std::string &start, const std::string &end)
 {
   start_ = start;
   end_   = end;
