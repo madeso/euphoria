@@ -7,12 +7,32 @@
 #include "core/assert.h"
 #include "core/stringutils.h"
 
-const char* const kLogLevelNames[] = {"trace",   "debug", "info",
-                                      "warning", "error", "fatal"};
 
 namespace  // local
 {
-}
+  char const* const
+  LevelToString(LogLevel level)
+  {
+    switch(level)
+    {
+      case LogLevel::Trace:
+        return "trace";
+      case LogLevel::Debug:
+        return "debug";
+      case LogLevel::Info:
+        return "info";
+      case LogLevel::Warning:
+        return "warning";
+      case LogLevel::Error:
+        return "error";
+      case LogLevel::Fatal:
+        return "fatal";
+      default:
+        DIE("Unhandled LogLevel case");
+        return "<UNHANDLED LOGLEVEL>";
+    }
+  }
+}  // namespace
 
 Logger::Logger(Logger* parent, std::string name)
     : parent_(parent)
@@ -35,8 +55,7 @@ Logger::AddLog(LogLevel level, const std::string& message)
   // Assert(sizeof(kLogLevelNames) == static_cast<int>(LogLevel::MAX_VALUE)+1);
 
   (level >= LogLevel::Warning ? std::cerr : std::cout)
-      << "[" << name_ << " " << kLogLevelNames[static_cast<int>(level)] << "] "
-      << message << "\n";
+      << "[" << name_ << " " << LevelToString(level) << "] " << message << "\n";
 }
 
 namespace  // local

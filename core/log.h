@@ -12,8 +12,7 @@ enum class LogLevel
   Info,
   Warning,
   Error,
-  Fatal,
-  MAX_VALUE
+  Fatal
 };
 
 class Logger;
