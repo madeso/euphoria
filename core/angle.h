@@ -7,24 +7,29 @@ class Angle
 {
  public:
   const float
-  inDegrees() const;
+  InDegrees() const;
+
   const float
-  inRadians() const;
+  InRadians() const;
 
   static const Angle
   FromDegrees(float deg);
+
   static const Angle
   FromRadians(float rad);
 
   static const Angle
   FromPercentOf360(const float percent);
+
   static const Angle
   FromPercentOf180(const float percent);
+
   static const Angle
   Zero();
 
   const Angle
   GetWrapped() const;
+
   void
   Wrap();
 

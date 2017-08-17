@@ -21,13 +21,16 @@ bool IsEqual(const quatf& lhs_value, const quatf& rhs_value) {
 }
 
 bool IsEqual(const AxisAngle& lhs, const AxisAngle& rhs) {
-  if(IsEqual(lhs.angle.inDegrees(), rhs.angle.inDegrees()) && IsEqual(lhs.angle.inDegrees(), 0))
+  if(IsEqual(lhs.angle.InDegrees(), rhs.angle.InDegrees()) && IsEqual(
+    lhs.angle.InDegrees(), 0))
   {
     return true;   // zero rotation is always equal zero
   }
 
-  const bool a = (IsEqual(rhs.axis, lhs.axis) && IsEqual(rhs.angle.inDegrees(), lhs.angle.inDegrees()));
-  const bool inv = (IsEqual(rhs.axis, -lhs.axis) && IsEqual(rhs.angle.inDegrees(), -lhs.angle.inDegrees()));
+  const bool a = (IsEqual(rhs.axis, lhs.axis) && IsEqual(rhs.angle.InDegrees(),
+                                                         lhs.angle.InDegrees()));
+  const bool inv = (IsEqual(rhs.axis, -lhs.axis) && IsEqual(
+    rhs.angle.InDegrees(), -lhs.angle.InDegrees()));
   return a || inv;
 }
 

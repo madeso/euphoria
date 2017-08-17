@@ -13,7 +13,7 @@ const AxisAngle
 AxisAngle::RightHandAround(const vec3f::Unit& axis, const Angle& angle)
 {
   Assert(axis.IsValid());
-  return AxisAngle(axis, Angle::FromRadians(angle.inRadians()));
+  return AxisAngle(axis, Angle::FromRadians(angle.InRadians()));
 }
 
 std::ostream&

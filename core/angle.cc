@@ -7,25 +7,26 @@
 namespace  // local
 {
   const float
-  rad2deg(const float rad)
+  RadianToDegrees(const float rad)
   {
     return (180.0f / Pi()) * rad;
   }
+
   const float
-  deg2rad(const float deg)
+  DegreesToRadian(const float deg)
   {
     return Pi() / 180.0f * deg;
   }
 }  // namespace
 
 const float
-Angle::inDegrees() const
+Angle::InDegrees() const
 {
-  return rad2deg(mRad);
+  return RadianToDegrees(mRad);
 }
 
 const float
-Angle::inRadians() const
+Angle::InRadians() const
 {
   return mRad;
 }
@@ -33,7 +34,7 @@ Angle::inRadians() const
 const Angle
 Angle::FromDegrees(float deg)
 {
-  return Angle(deg2rad(deg));
+  return Angle(DegreesToRadian(deg));
 }
 
 const Angle
@@ -86,19 +87,19 @@ Angle::operator-() const
 const float
 Sin(const Angle& ang)
 {
-  return std::sin(ang.inRadians());
+  return std::sin(ang.InRadians());
 }
 
 const float
 Cos(const Angle& ang)
 {
-  return std::cos(ang.inRadians());
+  return std::cos(ang.InRadians());
 }
 
 const float
 Tan(const Angle& ang)
 {
-  return std::tan(ang.inRadians());
+  return std::tan(ang.InRadians());
 }
 
 const Angle
@@ -196,5 +197,5 @@ Angle::Zero()
 std::ostream&
 operator<<(std::ostream& stream, const Angle& a)
 {
-  return stream << a.inDegrees() << " deg";
+  return stream << a.InDegrees() << " deg";
 }

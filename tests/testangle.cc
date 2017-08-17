@@ -6,68 +6,70 @@
 
 GTEST(constructor_degrees) {
   const auto a = Angle::FromDegrees(180);
-  EXPECT_FLOAT_EQ(180, a.inDegrees());
+  EXPECT_FLOAT_EQ(180, a.InDegrees());
 }
 
 GTEST(constructor_degrees_pi) {
   const auto a = Angle::FromDegrees(180);
-  EXPECT_FLOAT_EQ(Pi(), a.inRadians());
+  EXPECT_FLOAT_EQ(Pi(), a.InRadians());
 }
 
 GTEST(zero) {
   const auto a = Angle::Zero();
-  EXPECT_FLOAT_EQ(0.0f, a.inDegrees());
+  EXPECT_FLOAT_EQ(0.0f, a.InDegrees());
 }
 
 GTEST(constructor_radians) {
   const auto a = Angle::FromRadians(Pi());
-  EXPECT_FLOAT_EQ(180, a.inDegrees());
+  EXPECT_FLOAT_EQ(180, a.InDegrees());
 }
 
 GTEST(constructor_percent) {
   const auto a = Angle::FromPercentOf360(0.5f);
-  EXPECT_FLOAT_EQ(180, a.inDegrees());
+  EXPECT_FLOAT_EQ(180, a.InDegrees());
 }
 
 GTEST(wrapped) {
   const auto a = Angle::FromDegrees(360+90).GetWrapped();
-  EXPECT_FLOAT_EQ(90.0f, a.inDegrees());
+  EXPECT_FLOAT_EQ(90.0f, a.InDegrees());
 }
 
 GTEST(wrap) {
   auto a = Angle::FromDegrees(360+90);
-  EXPECT_FLOAT_EQ(360.0f + 90.0f, a.inDegrees());
+  EXPECT_FLOAT_EQ(360.0f + 90.0f, a.InDegrees());
   a.Wrap();
-  EXPECT_FLOAT_EQ(90.0f, a.inDegrees());
+  EXPECT_FLOAT_EQ(90.0f, a.InDegrees());
 }
 
 GTEST(add) {
   auto a = Angle::FromDegrees(90);
   a += Angle::FromRadians(Pi()/2.0f);
-  EXPECT_FLOAT_EQ(180.0f, a.inDegrees());
-  EXPECT_FLOAT_EQ(180.0f, (Angle::FromDegrees(90) + Angle::FromRadians(Pi()/2.0f)).inDegrees());
+  EXPECT_FLOAT_EQ(180.0f, a.InDegrees());
+  EXPECT_FLOAT_EQ(180.0f, (Angle::FromDegrees(90) +
+                           Angle::FromRadians(Pi() / 2.0f)).InDegrees());
 }
 
 GTEST(sub) {
   auto a = Angle::FromDegrees(180);
   a -= Angle::FromRadians(Pi()/2.0f);
-  EXPECT_FLOAT_EQ(90.0f, a.inDegrees());
-  EXPECT_FLOAT_EQ(90.0f, (Angle::FromDegrees(180) - Angle::FromRadians(Pi()/2.0f)).inDegrees());
+  EXPECT_FLOAT_EQ(90.0f, a.InDegrees());
+  EXPECT_FLOAT_EQ(90.0f, (Angle::FromDegrees(180) -
+                          Angle::FromRadians(Pi() / 2.0f)).InDegrees());
 }
 
 GTEST(multi) {
   auto a = Angle::FromDegrees(90);
   a *= 2.0f;
-  EXPECT_FLOAT_EQ(180.0f, a.inDegrees());
-  EXPECT_FLOAT_EQ(180.0f, (Angle::FromDegrees(90) * 2.0f).inDegrees());
-  EXPECT_FLOAT_EQ(180.0f, (2.0f * Angle::FromDegrees(90)).inDegrees());
+  EXPECT_FLOAT_EQ(180.0f, a.InDegrees());
+  EXPECT_FLOAT_EQ(180.0f, (Angle::FromDegrees(90) * 2.0f).InDegrees());
+  EXPECT_FLOAT_EQ(180.0f, (2.0f * Angle::FromDegrees(90)).InDegrees());
 }
 
 GTEST(div) {
   auto a = Angle::FromDegrees(180);
   a /= 2;
-  EXPECT_FLOAT_EQ(90.0f, a.inDegrees());
-  EXPECT_FLOAT_EQ(90.0f, (Angle::FromDegrees(180) / 2.0f).inDegrees());
+  EXPECT_FLOAT_EQ(90.0f, a.InDegrees());
+  EXPECT_FLOAT_EQ(90.0f, (Angle::FromDegrees(180) / 2.0f).InDegrees());
 }
 
 struct KnownConstantsFromWikipedia : public ::testing::Test {
@@ -109,24 +111,24 @@ GTEST(tan) {
 }
 
 TEST_F(KnownConstantsFromWikipedia, asin) {
-  EXPECT_NEAR(0.0f, Asin(0.0f).inDegrees(), NEAR);
-  EXPECT_NEAR(90.0f, Asin(1.0f).inDegrees(), NEAR3);
-  EXPECT_NEAR(30.0f, Asin(0.5f).inDegrees(), NEAR);
-  EXPECT_NEAR(15.0f, Asin(a).inDegrees(), NEAR2);
-  EXPECT_NEAR(75.0f, Asin(b).inDegrees(), NEAR3);
+  EXPECT_NEAR(0.0f, Asin(0.0f).InDegrees(), NEAR);
+  EXPECT_NEAR(90.0f, Asin(1.0f).InDegrees(), NEAR3);
+  EXPECT_NEAR(30.0f, Asin(0.5f).InDegrees(), NEAR);
+  EXPECT_NEAR(15.0f, Asin(a).InDegrees(), NEAR2);
+  EXPECT_NEAR(75.0f, Asin(b).InDegrees(), NEAR3);
 }
 
 TEST_F(KnownConstantsFromWikipedia, acos) {
-  EXPECT_NEAR(0.0f, Acos(1.0f).inDegrees(), NEAR);
-  EXPECT_NEAR(90.0f, Acos(0.0f).inDegrees(), NEAR);
-  EXPECT_NEAR(180.0f, Acos(-1.0f).inDegrees(), NEAR4);
-  EXPECT_NEAR(60.0f, Acos(0.5f).inDegrees(), NEAR3);
-  EXPECT_NEAR(15.0f, Acos(b).inDegrees(), NEAR3);
-  EXPECT_NEAR(75.0f, Acos(a).inDegrees(), NEAR3);
+  EXPECT_NEAR(0.0f, Acos(1.0f).InDegrees(), NEAR);
+  EXPECT_NEAR(90.0f, Acos(0.0f).InDegrees(), NEAR);
+  EXPECT_NEAR(180.0f, Acos(-1.0f).InDegrees(), NEAR4);
+  EXPECT_NEAR(60.0f, Acos(0.5f).InDegrees(), NEAR3);
+  EXPECT_NEAR(15.0f, Acos(b).InDegrees(), NEAR3);
+  EXPECT_NEAR(75.0f, Acos(a).InDegrees(), NEAR3);
 }
 
 GTEST(atan) {
-  EXPECT_NEAR(0, Atan(0.0f).inDegrees(), NEAR);
-  EXPECT_NEAR(45.0f, Atan(1.0f).inDegrees(), NEAR);
-  EXPECT_NEAR(60.0f, Atan(Sqrt(3.0f)).inDegrees(), NEAR2);
+  EXPECT_NEAR(0, Atan(0.0f).InDegrees(), NEAR);
+  EXPECT_NEAR(45.0f, Atan(1.0f).InDegrees(), NEAR);
+  EXPECT_NEAR(60.0f, Atan(Sqrt(3.0f)).InDegrees(), NEAR2);
 }
