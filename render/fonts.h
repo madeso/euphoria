@@ -129,8 +129,9 @@ class Font
 
   // todo: support drawing background color behind string
   void
-  Draw(const vec2f& start_position, const std::string& str, const Rgb& base_color, const Rgb& hi_color,
-       int hi_start, int hi_end, float scale) const;
+  Draw(const vec2f& start_position, const std::string& str,
+       const Rgb& base_color, const Rgb& hi_color, int hi_start, int hi_end,
+       float scale) const;
   Rectf
   GetExtents(const std::string& str, float scale) const;
 

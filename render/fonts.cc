@@ -382,8 +382,9 @@ Font::Font(Shader* shader, const std::string& font_file, unsigned int font_size,
 }
 
 void
-Font::Draw(const vec2f& start_position, const std::string& str, const Rgb& base_color,
-           const Rgb& hi_color, int hi_start, int hi_end, float scale) const
+Font::Draw(const vec2f& start_position, const std::string& str,
+           const Rgb& base_color, const Rgb& hi_color, int hi_start, int hi_end,
+           float scale) const
 {
   Use(shader_);
 
@@ -421,7 +422,7 @@ Font::Draw(const vec2f& start_position, const std::string& str, const Rgb& base_
     if(apply_highlight)
     {
       bool       use_hi_color = hi_start <= this_index && this_index < hi_end;
-      const Rgb& color      = use_hi_color ? hi_color : base_color;
+      const Rgb& color        = use_hi_color ? hi_color : base_color;
       shader_->SetUniform(color_, color);
     }
     ch->buffer.Draw();

@@ -174,7 +174,7 @@ GetOneMinusFractionalPart(float x)
 }
 
 void
-Plot(int x, int y, float brightness, const Rgb &color, Image *image)
+Plot(int x, int y, float brightness, const Rgb& color, Image* image)
 {
   const bool valid_x = IsWithinInclusivei(0, x, image->GetWidth() - 1);
   const bool valid_y = IsWithinInclusivei(0, y, image->GetHeight() - 1);

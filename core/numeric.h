@@ -33,7 +33,8 @@ Example:
 @returns The smoothed result.
 */
 const float
-Curve(const float new_value, const float old_value, const float smoothing_value);
+Curve(const float new_value, const float old_value,
+      const float smoothing_value);
 
 /** Calculates the square of the argument.
 @see Sqrt()
@@ -95,33 +96,34 @@ To01(const float lower_bound, const float value, const float upper_bound);
 /** Transforms a value from the 0-1 range to another range.
 This function does not limmit he value, so if it's below 0 the result will be
 below the lower bound.
-@param L the lower bound of the range
-@param v the value
-@param U the upper bound of the range
+@param lower_bound the lower bound of the range
+@param value the value
+@param upper_bound the upper bound of the range
 @returns The tranformed value
 @see To01()
 @see KeepWithin()
 @see Remap()
 */
 const float
-From01(const float L, const float v, const float U);
+From01(const float lower_bound, const float value, const float upper_bound);
 
 /** Remaps/tranforms from one range to another.
 This function does not limmit it's input, so if the value is outside the
 original range, it will be outside the new range.
-@param ol old lower range
-@param ou old upper range
-@param v the value
-@param nl new lower range
-@param nu new upper range
+@param old_lower_bound old lower range
+@param old_upper_bound old upper range
+@param value the value
+@param new_lower_bound new lower range
+@param new_upper_bound new upper range
 @returns The transformed value
 @see From01()
 @see To01()
 @see KeepWithin()
 */
 const float
-Remap(const float ol, const float ou, const float v, const float nl,
-      const float nu);
+Remap(const float old_lower_bound, const float old_upper_bound,
+      const float value, const float new_lower_bound,
+      const float new_upper_bound);
 
 /** Calculate smooth value suitable for infinite looping.
 @param min is the minimum output value

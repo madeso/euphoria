@@ -35,15 +35,15 @@ class StringMerger
   @returns this for easy chaining.
    */
   StringMerger&
-  SetSeparator(const std::string &separator,
-               const std::string &final_separator);
+  SetSeparator(const std::string& separator,
+               const std::string& final_separator);
 
   /** Sets the separator arguments.
   @param separator the separator to use.
   @returns this for easy chaining.
    */
   StringMerger&
-  SetSeparator(const std::string &separator);
+  SetSeparator(const std::string& separator);
 
   /** Sets the empty string.
   This string is returned when a request is made on a a empty set.
@@ -51,7 +51,7 @@ class StringMerger
   @returns this for easy chaining.
    */
   StringMerger&
-  SetEmpty(const std::string &empty);
+  SetEmpty(const std::string& empty);
 
   /** Sets the start and end text. This data is always added.
   @param start the start string.
@@ -59,7 +59,7 @@ class StringMerger
   @returns this for easy chaining.
    */
   StringMerger&
-  SetStartAndEnd(const std::string &start, const std::string &end);
+  SetStartAndEnd(const std::string& start, const std::string& end);
 
   /** Generate a string representation based on the current settings.
   @param strings the strings.

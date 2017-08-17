@@ -44,30 +44,30 @@ StringMerger::Generate(const std::vector<std::string>& strings) const
 const StringMerger&
 StringMerger::EnglishAnd()
 {
-  static const StringMerger sEnglishAnd =
-    StringMerger().SetSeparator(", ", " and ").SetSeparator("", "");
-  return sEnglishAnd;
+  static const StringMerger s_EnglishAnd =
+      StringMerger().SetSeparator(", ", " and ").SetSeparator("", "");
+  return s_EnglishAnd;
 }
 
 const StringMerger&
 StringMerger::EnglishOr()
 {
-  static const StringMerger sEnglishOr =
-    StringMerger().SetSeparator(", ", " or ").SetSeparator("", "");
-  return sEnglishOr;
+  static const StringMerger s_EnglishOr =
+      StringMerger().SetSeparator(", ", " or ").SetSeparator("", "");
+  return s_EnglishOr;
 }
 
 const StringMerger&
 StringMerger::Array()
 {
-  static const StringMerger sArray =
-    StringMerger().SetSeparator(", ").SetSeparator("[", "]");
-  return sArray;
+  static const StringMerger s_Array =
+      StringMerger().SetSeparator(", ").SetSeparator("[", "]");
+  return s_Array;
 }
 
 StringMerger&
-StringMerger::SetSeparator(const std::string &separator,
-                           const std::string &final_separator)
+StringMerger::SetSeparator(const std::string& separator,
+                           const std::string& final_separator)
 {
   separator_       = separator;
   final_separator_ = final_separator;
@@ -75,7 +75,7 @@ StringMerger::SetSeparator(const std::string &separator,
 }
 
 StringMerger&
-StringMerger::SetSeparator(const std::string &separator)
+StringMerger::SetSeparator(const std::string& separator)
 {
   separator_       = separator;
   final_separator_ = separator;
@@ -83,14 +83,14 @@ StringMerger::SetSeparator(const std::string &separator)
 }
 
 StringMerger&
-StringMerger::SetEmpty(const std::string &empty)
+StringMerger::SetEmpty(const std::string& empty)
 {
   empty_ = empty;
   return *this;
 }
 
 StringMerger&
-StringMerger::SetStartAndEnd(const std::string &start, const std::string &end)
+StringMerger::SetStartAndEnd(const std::string& start, const std::string& end)
 {
   start_ = start;
   end_   = end;

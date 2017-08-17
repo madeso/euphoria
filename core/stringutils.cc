@@ -42,7 +42,7 @@ Trim(const std::string& string_to_trim, const std::string& trim_characters)
 bool
 StartsWith(const std::string& string_to_test, const std::string& start)
 {
-  const std::string::size_type length      = start.length();
+  const std::string::size_type length       = start.length();
   const std::string::size_type other_length = string_to_test.length();
   if(other_length < length)
   {
@@ -55,7 +55,7 @@ StartsWith(const std::string& string_to_test, const std::string& start)
 bool
 EndsWith(const std::string& string_to_test, const std::string& end)
 {
-  const std::string::size_type length      = end.length();
+  const std::string::size_type length       = end.length();
   const std::string::size_type other_length = string_to_test.length();
   if(other_length < length)
   {
@@ -78,7 +78,7 @@ void
 StringReplace(std::string* string, const std::string& to_find,
               const std::string& to_replace)
 {
-  std::size_t       index      = string->find(to_find);
+  std::size_t       index       = string->find(to_find);
   const std::size_t find_length = to_find.length();
   Assert(find_length > 0);
   while(index != std::string::npos)

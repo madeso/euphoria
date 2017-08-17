@@ -450,8 +450,8 @@ class LexReader
     {
       return lex_[pos_];
     }
-    static const Lex end_of_file{LexType::EndOfFile, 0, 0};
-    return end_of_file;
+    static const Lex s_EndOfFile{LexType::EndOfFile, 0, 0};
+    return s_EndOfFile;
   }
 
   void

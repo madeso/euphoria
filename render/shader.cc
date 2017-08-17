@@ -38,8 +38,8 @@ namespace
   const Shader*&
   GetCurrentShader()
   {
-    static const Shader* sShader = nullptr;
-    return sShader;
+    static const Shader* s_CurrentShader = nullptr;
+    return s_CurrentShader;
   }
 }
 
@@ -174,14 +174,16 @@ Shader::Compile(const GLchar* vertex_source, const GLchar* fragment_source,
 {
   bool ret = true;
 
-  GLuint vertex_shader_id = CompileShader(GL_VERTEX_SHADER, vertex_source, "VERTEX");
+  GLuint vertex_shader_id =
+      CompileShader(GL_VERTEX_SHADER, vertex_source, "VERTEX");
   GLuint fragment_shader_id =
       CompileShader(GL_FRAGMENT_SHADER, fragment_source, "FRAGMENT");
 
   GLuint geometry_shader_id = 0;
   if(geometry_source != nullptr)
   {
-    geometry_shader_id = CompileShader(GL_GEOMETRY_SHADER, geometry_source, "GEOMETRY");
+    geometry_shader_id =
+        CompileShader(GL_GEOMETRY_SHADER, geometry_source, "GEOMETRY");
   }
 
   glAttachShader(GetId(), vertex_shader_id);

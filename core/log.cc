@@ -7,10 +7,11 @@
 #include "core/assert.h"
 #include "core/stringutils.h"
 
+const char* const kLogLevelNames[] = {"trace",   "debug", "info",
+                                      "warning", "error", "fatal"};
+
 namespace  // local
 {
-  const char* const kLogLevelNames[] = {"trace",   "debug", "info",
-                                         "warning", "error", "fatal"};
 }
 
 Logger::Logger(Logger* parent, std::string name)

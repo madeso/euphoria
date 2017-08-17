@@ -142,23 +142,26 @@ To01(const float lower_bound, const float value, const float upper_bound)
 }
 
 const float
-From01(const float L, const float v, const float U)
+From01(const float lower_bound, const float value, const float upper_bound)
 {
-  return v * (U - L) + L;
+  return value * (upper_bound - lower_bound) + lower_bound;
 }
 
 const float
-Remap(const float ol, const float ou, const float v, const float nl,
-      const float nu)
+Remap(const float old_lower_bound, const float old_upper_bound,
+      const float value, const float new_lower_bound,
+      const float new_upper_bound)
 {
-  return From01(nl, To01(ol, v, ou), nu);
+  return From01(new_lower_bound, To01(old_lower_bound, value, old_upper_bound),
+                new_upper_bound);
 }
 
 const float
 Get360Angular(const float min, const float value, const float max)
 {
-  const float halfdiff = (max - min) / 2.0f;
-  return min + halfdiff - halfdiff * Cos(Angle::FromDegrees(value * 360.0f));
+  const float half_difference = (max - min) / 2.0f;
+  return min + half_difference -
+         half_difference * Cos(Angle::FromDegrees(value * 360.0f));
 }
 
 const float

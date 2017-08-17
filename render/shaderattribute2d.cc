@@ -9,8 +9,8 @@ namespace attributes2d
   const ShaderAttribute&
   Vertex()
   {
-    static ShaderAttribute sAttribute{"vertex", 1, ShaderAttributeSize::VEC4};
-    return sAttribute;
+    static ShaderAttribute s_Attribute{"vertex", 1, ShaderAttributeSize::VEC4};
+    return s_Attribute;
   }
 
   void

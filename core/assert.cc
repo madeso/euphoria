@@ -14,7 +14,7 @@ namespace
   // http://stackoverflow.com/questions/19190273/how-to-print-call-stack-in-c-c-more-beautifully
 
   std::string
-  Demangle(const char *const symbol)
+  Demangle(const char* const symbol)
   {
     const std::unique_ptr<char, decltype(&std::free)> demangled(
         abi::__cxa_demangle(symbol, nullptr, nullptr, nullptr), &std::free);
@@ -82,8 +82,8 @@ namespace assertlib
   bool&
   ShouldThrow()
   {
-    static bool sShouldThrow = false;
-    return sShouldThrow;
+    static bool s_ShouldThrow = false;
+    return s_ShouldThrow;
   }
 
   void

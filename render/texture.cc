@@ -110,8 +110,8 @@ namespace
   const TextureId*&
   GetCurrentShader()
   {
-    static const TextureId* sCurrentShader = nullptr;
-    return sCurrentShader;
+    static const TextureId* s_CurrentShader = nullptr;
+    return s_CurrentShader;
   }
 }
 
@@ -140,13 +140,14 @@ Texture2d::Texture2d()
 }
 
 void
-Texture2d::LoadFromPixels(int width, int height, const unsigned char* pixel_data,
+Texture2d::LoadFromPixels(int width, int height,
+                          const unsigned char* pixel_data,
                           GLuint internal_format, GLuint image_format,
                           const Texture2dLoadData& data)
 {
   Use(this);
-  glTexImage2D(GL_TEXTURE_2D, 0, internal_format, width, height, 0, image_format,
-               GL_UNSIGNED_BYTE, pixel_data);
+  glTexImage2D(GL_TEXTURE_2D, 0, internal_format, width, height, 0,
+               image_format, GL_UNSIGNED_BYTE, pixel_data);
 
   width_  = width;
   height_ = height;

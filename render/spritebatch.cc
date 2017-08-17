@@ -5,7 +5,7 @@
 
 // vertex + uv + color
 const unsigned int kQuadCount = 10;
-const unsigned int kStride     = 2 * 4 + 2 * 4 + 4 * 4;
+const unsigned int kStride    = 2 * 4 + 2 * 4 + 4 * 4;
 
 SpriteBatch::SpriteBatch()
     : inside_(false)
@@ -39,13 +39,13 @@ SpriteBatch::Quad(const vec2f& pos, const Sizef& quad, const Rectf& uv,
   }
 
   // add vertices
-  const float w          = quad.GetWidth();
-  const float h          = quad.GetHeight();
-  const float sy         = -Sin(rotation);
-  const float left       = pos.x + (-center.x * w) * sy;
-  const float right      = pos.x + (-center.x * w + w) * sy;
-  const float top        = pos.y + (-center.y * h) * sy;
-  const float bottom     = pos.y + (-center.y * h + h) * sy;
+  const float w           = quad.GetWidth();
+  const float h           = quad.GetHeight();
+  const float sy          = -Sin(rotation);
+  const float left        = pos.x + (-center.x * w) * sy;
+  const float right       = pos.x + (-center.x * w + w) * sy;
+  const float top         = pos.y + (-center.y * h) * sy;
+  const float bottom      = pos.y + (-center.y * h + h) * sy;
   const vec2f upper_left  = vec2f(left, top);
   const vec2f upper_right = vec2f(right, top);
   const vec2f lower_left  = vec2f(left, bottom);

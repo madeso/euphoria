@@ -252,8 +252,8 @@ namespace
     return ConvertScene(scene);
   }
 
-  const char* const FILE_FORMAT_NFF = "nff";
-  const char*       FILE_FORMAT_OBJ = "obj";
+  const char* const kFileFormatNff = "nff";
+  const char* const kFileFormatObj = "obj";
 
 }  // namespace
 
@@ -288,7 +288,7 @@ namespace meshes
   {
     std::ostringstream ss;
     ss << "shader " << texture << std::endl << "s 0 0 0 " << size;
-    return LoadFromString(ss.str(), FILE_FORMAT_NFF);
+    return LoadFromString(ss.str(), kFileFormatNff);
   }
 
   Mesh
@@ -327,6 +327,6 @@ namespace meshes
        << "f 4/1 8/2 7/3 3/4" << std::endl
        << "f 5/1 6/2 2/3 1/4" << std::endl;
 
-    return LoadFromString(ss.str(), FILE_FORMAT_OBJ);
+    return LoadFromString(ss.str(), kFileFormatObj);
   }
 }  // namespace meshes
