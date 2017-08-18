@@ -299,10 +299,10 @@ LoadImage(FileSystem* fs, const std::string& path, AlphaLoad alpha)
 
       // get component values
       const unsigned char zero = 0;
-      const unsigned char c1   = data[src_index + 0]; // NOLINT no garbage value
-      const unsigned char c2   = (channels <= 1) ? zero : data[src_index + 1];
-      const unsigned char c3   = (channels <= 2) ? zero : data[src_index + 2];
-      const unsigned char c4   = (channels <= 3) ? zero : data[src_index + 3];
+      const unsigned char c1 = data[src_index + 0];  // NOLINT no garbage value
+      const unsigned char c2 = (channels <= 1) ? zero : data[src_index + 1];
+      const unsigned char c3 = (channels <= 2) ? zero : data[src_index + 2];
+      const unsigned char c4 = (channels <= 3) ? zero : data[src_index + 3];
 
       // Gray, Gray+alpha, RGB, RGB+alpha:     gr   gra  rgb  rgba
       const unsigned char r = c1;  //           c1   c1   c1    c1

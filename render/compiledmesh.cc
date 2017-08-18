@@ -140,7 +140,7 @@ CompiledMeshMaterial::Validate() const
 
 namespace  // local
 {
-  DEFINE_ENUM_VALUE(TextureType, DiffuseType, "Diffuse"); // NOLINT
+  DEFINE_ENUM_VALUE(TextureType, DiffuseType, "Diffuse");  // NOLINT
 }  // namespace
 
 class AttributeBinder

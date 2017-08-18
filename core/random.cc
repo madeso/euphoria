@@ -59,10 +59,10 @@ Random::NextInteger()
   c = gsl::at(state_, (index_ + 9) & 15);
   c ^= (c >> 11);
   a = gsl::at(state_, index_) = b ^ c;
-  d                  = a ^ ((a << 5) & 0xDA442D24UL);
-  index_             = (index_ + 15) & 15;
-  a                  = gsl::at(state_, index_);
-  gsl::at(state_, index_)     = a ^ b ^ d ^ (a << 2) ^ (b << 18) ^ (c << 28);
+  d      = a ^ ((a << 5) & 0xDA442D24UL);
+  index_ = (index_ + 15) & 15;
+  a      = gsl::at(state_, index_);
+  gsl::at(state_, index_) = a ^ b ^ d ^ (a << 2) ^ (b << 18) ^ (c << 28);
   return gsl::at(state_, index_);
 }
 
