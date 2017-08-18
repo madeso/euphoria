@@ -3,13 +3,13 @@
 #include <cstring>  // for memcpy
 #include <utility>
 
-unsigned char*
+char*
 MemoryChunk::GetData()
 {
   return data_.get();
 }
 
-const unsigned char*
+const char*
 MemoryChunk::GetData() const
 {
   return data_.get();
@@ -39,14 +39,13 @@ MemoryChunk::MemoryChunk(unsigned long size)
     : size_(size)
 {
   Assert(size > 0);
-  data_ = std::make_unique<unsigned char[]>(size);
+  data_ = std::make_unique<char[]>(size);
 }
 
 void
 CopyToMemory(MemoryChunk* memory, const void* src)
 {
-  std::memcpy(memory->GetData(), src,
-              sizeof(unsigned char) * memory->GetSize());
+  std::memcpy(memory->GetData(), src, sizeof(char) * memory->GetSize());
 }
 
 MemoryChunkFile::MemoryChunkFile(std::shared_ptr<MemoryChunk> d)
@@ -59,6 +58,6 @@ void
 MemoryChunkFile::Write(void* src, unsigned long size)
 {
   Assert(position + size <= data->GetSize());
-  std::memcpy(data->GetData() + position, src, sizeof(unsigned char) * size);
+  std::memcpy(data->GetData() + position, src, sizeof(char) * size);
   position += size;
 }

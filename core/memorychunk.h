@@ -6,9 +6,10 @@
 class MemoryChunk
 {
  public:
-  unsigned char*
+  char*
   GetData();
-  const unsigned char*
+
+  const char*
   GetData() const;
 
   unsigned long
@@ -16,12 +17,13 @@ class MemoryChunk
 
   static std::shared_ptr<MemoryChunk>
   Alloc(unsigned long size);
+
   static std::shared_ptr<MemoryChunk>
   Null();
 
  private:
   explicit MemoryChunk(unsigned long size);
-  std::unique_ptr<unsigned char[]>   data_;
+  std::unique_ptr<char[]>            data_;
   unsigned long                      size_;
 };
 

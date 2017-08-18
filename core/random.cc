@@ -28,7 +28,7 @@ Random::TimeSeed()
   // idea from http://www.eternallyconfuzzled.com/arts/jsw_art_rand.aspx
   time_t now = time(nullptr);
 
-  auto*  p    = reinterpret_cast<unsigned char*>(&now);
+  auto*  p    = reinterpret_cast<unsigned char*>(&now);  // NOLINT
   uint32 seed = 0;
 
   for(size_t i = 0; i < sizeof(time_t); i++)

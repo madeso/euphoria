@@ -265,9 +265,12 @@ LoadImage(FileSystem* fs, const std::string& path, AlphaLoad alpha)
     return result;
   }
 
-  unsigned char* data =
-      stbi_load_from_memory(file_memory->GetData(), file_memory->GetSize(),
-                            &image_width, &image_height, &channels, 0);
+  // signed to unsigned cast is probably ok since both are considered to be
+  // a chuck of memory
+  // https://stackoverflow.com/questions/310451/should-i-use-static-cast-or-reinterpret-cast-when-casting-a-void-to-whatever
+  unsigned char* data = stbi_load_from_memory(
+      reinterpret_cast<unsigned char*>(file_memory->GetData()),  // NOLINT
+      file_memory->GetSize(), &image_width, &image_height, &channels, 0);
 
   if(data == nullptr)
   {

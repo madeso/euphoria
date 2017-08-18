@@ -79,8 +79,7 @@ FileSystem::ReadFileToString(const std::string& path, std::string* source)
   }
 
   // data is unsigned char, cast it to char and assume it is a string
-  *source = std::string(reinterpret_cast<char*>(file->GetData()),
-                        file->GetSize() - 1);
+  *source = std::string(file->GetData(), file->GetSize() - 1);
   return true;
 }
 

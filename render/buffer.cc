@@ -59,8 +59,10 @@ Vao::BindVboData(const ShaderAttribute& attribute, int stride, int offset)
   Assert(Vbo::GetBound() != nullptr);
   auto size = static_cast<int>(attribute.size);
   Assert(size >= 1 && size <= 4);
+  // reinterpret_cast is probably ok since the void* is an offset
+  // and not a actual pointer
   glVertexAttribPointer(attribute.id, size, GL_FLOAT, GL_FALSE, stride,
-                        reinterpret_cast<GLvoid*>(offset));
+                        reinterpret_cast<GLvoid*>(offset));  // NOLINT
   glEnableVertexAttribArray(attribute.id);
 
   attributes.push_back(attribute);
