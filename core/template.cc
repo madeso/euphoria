@@ -122,7 +122,7 @@ class TemplateNodeList : public TemplateNode
   void
   Eval(Defines* defines, std::ostringstream* out, TemplateError* error) override
   {
-    for(auto node : nodes_)
+    for(const auto& node : nodes_)
     {
       node->Eval(defines, out, error);
     }

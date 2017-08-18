@@ -55,7 +55,7 @@ FileSystem::AddRoot(std::shared_ptr<FileSystemRoot> root)
 std::shared_ptr<MemoryChunk>
 FileSystem::ReadFile(const std::string& path)
 {
-  for(auto root : roots_)
+  for(auto& root : roots_)
   {
     std::shared_ptr<MemoryChunk> file = root->ReadFile(path);
     if(file != nullptr)

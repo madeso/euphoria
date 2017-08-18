@@ -50,9 +50,10 @@ Draw&
 Draw::Circle(const Rgb& color, const vec2i& center, float radius,
              float softness, float inner)
 {
-  const int left  = Max(0, Floori(center.x - radius - softness));
-  const int right = Min(image_->GetWidth(), Ceili(center.x + radius + softness));
-  const int top   = Max(0, Floori(center.y - radius - softness));
+  const int left = Max(0, Floori(center.x - radius - softness));
+  const int right =
+      Min(image_->GetWidth(), Ceili(center.x + radius + softness));
+  const int top = Max(0, Floori(center.y - radius - softness));
   const int bottom =
       Min(image_->GetHeight(), Ceili(center.y + radius + softness));
 
@@ -256,8 +257,7 @@ Draw::LineAntialiased(const Rgb& color, const vec2f& from, const vec2f& to)
   {
     for(int x = xpxl1 + 1; x < xpxl2 - 1; x += 1)
     {
-      Plot(Floori(intery), x, GetOneMinusFractionalPart(intery), color,
-           image_);
+      Plot(Floori(intery), x, GetOneMinusFractionalPart(intery), color, image_);
       Plot(Floori(intery) + 1, x, GetFractionalPart(intery), color, image_);
       intery = intery + gradient;
     }
@@ -266,8 +266,7 @@ Draw::LineAntialiased(const Rgb& color, const vec2f& from, const vec2f& to)
   {
     for(int x = xpxl1 + 1; x < xpxl2 - 1; x += 1)
     {
-      Plot(x, Floori(intery), GetOneMinusFractionalPart(intery), color,
-           image_);
+      Plot(x, Floori(intery), GetOneMinusFractionalPart(intery), color, image_);
       Plot(x, Floori(intery) + 1, GetFractionalPart(intery), color, image_);
       intery = intery + gradient;
     }

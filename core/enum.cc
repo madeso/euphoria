@@ -164,7 +164,7 @@ LoadEnumType(EnumType* type, FileSystem* fs, const std::string& path)
   }
   else
   {
-    for(const auto name : root.name())
+    for(const auto& name : root.name())
     {
       names.push_back(name);
     }
