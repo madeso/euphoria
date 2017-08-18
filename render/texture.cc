@@ -113,7 +113,7 @@ namespace
     static const TextureId* s_CurrentShader = nullptr;
     return s_CurrentShader;
   }
-}
+}  // namespace
 
 bool
 TextureId::IsCurrentlyBound() const

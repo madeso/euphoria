@@ -66,7 +66,7 @@ namespace  // local
     static std::map<std::string, std::shared_ptr<Logger>> s_Storage;
     return s_Storage;
   }
-}
+}  // namespace
 
 LoggerPtr
 Logger::GetLogger(const std::string& name)

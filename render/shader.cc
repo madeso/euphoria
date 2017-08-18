@@ -41,7 +41,7 @@ namespace
     static const Shader* s_CurrentShader = nullptr;
     return s_CurrentShader;
   }
-}
+}  // namespace
 
 bool
 ShaderId::IsCurrentlyBound() const

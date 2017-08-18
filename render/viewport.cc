@@ -15,7 +15,7 @@ namespace  // local
     static Viewport* s_ActiveViewport = nullptr;
     return s_ActiveViewport;
   }
-}
+}  // namespace
 
 void
 Viewport::Activate()

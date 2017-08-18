@@ -70,7 +70,7 @@ Material::SetTexture(const std::string& texture_name,
 namespace  // local
 {
   DEFINE_ENUM_VALUE(TextureType, DiffuseType, "Diffuse");
-}
+}  // namespace
 
 namespace
 {
