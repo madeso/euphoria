@@ -4,6 +4,7 @@
 #include <ctime>
 
 #include "core/numeric.h"
+#include "gsl.h"
 
 /*
 There are much better choices than Mersenne Twister nowadays. Here is a RNG
@@ -44,7 +45,7 @@ Random::Random(uint32 seed)
 {
   for(uint32 i = 0; i < 16; ++i)
   {
-    state_[i] = seed * i;
+    gsl::at(state_, i) = seed * i;
   }
 }
 
@@ -52,17 +53,17 @@ uint32
 Random::NextInteger()
 {
   uint32 a, b, c, d;
-  a = state_[index_];
-  c = state_[(index_ + 13) & 15];
+  a = gsl::at(state_, index_);
+  c = gsl::at(state_, (index_ + 13) & 15);
   b = a ^ c ^ (a << 16) ^ (c << 15);
-  c = state_[(index_ + 9) & 15];
+  c = gsl::at(state_, (index_ + 9) & 15);
   c ^= (c >> 11);
-  a = state_[index_] = b ^ c;
+  a = gsl::at(state_, index_) = b ^ c;
   d                  = a ^ ((a << 5) & 0xDA442D24UL);
   index_             = (index_ + 15) & 15;
-  a                  = state_[index_];
-  state_[index_]     = a ^ b ^ d ^ (a << 2) ^ (b << 18) ^ (c << 28);
-  return state_[index_];
+  a                  = gsl::at(state_, index_);
+  gsl::at(state_, index_)     = a ^ b ^ d ^ (a << 2) ^ (b << 18) ^ (c << 28);
+  return gsl::at(state_, index_);
 }
 
 float

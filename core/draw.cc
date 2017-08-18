@@ -7,6 +7,8 @@
 
 #include "font8x8/font8x8_basic.h"
 
+#include "gsl.h"
+
 Draw::Draw(Image* image)
     : image_(image)
 {
@@ -285,7 +287,7 @@ GetCharGlyph(char ac)
   auto c = static_cast<int>(ac);
   Assert(c >= 0);
   Assert(c < 128);
-  return font8x8_basic[c];
+  return gsl::at(font8x8_basic, c);
 }
 
 void
