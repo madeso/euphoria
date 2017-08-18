@@ -19,7 +19,9 @@ endif(EUPHORIA_TEST)
 FIND_PACKAGE(Threads REQUIRED) # for gmock
 
 find_package(Protobuf REQUIRED)
-include_directories(${PROTOBUF_INCLUDE_DIRS})
+include_directories(SYSTEM ${PROTOBUF_INCLUDE_DIRS})
+
+include_directories(SYSTEM ${CMAKE_CURRENT_SOURCE_DIR}/external/gsl-lite/include)
 
 SET(MACOSX_BUNDLE_INFO_PLIST "${CMAKE_CURRENT_SOURCE_DIR}/osx-bundle.plist")
 
