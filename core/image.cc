@@ -268,8 +268,6 @@ LoadImage(FileSystem* fs, const std::string& path, AlphaLoad alpha)
   unsigned char* data =
       stbi_load_from_memory(file_memory->GetData(), file_memory->GetSize(),
                             &image_width, &image_height, &channels, 0);
-  // unsigned char* data = stbi_load(path.c_str(), &image_width, &image_height,
-  // &channels, 0);
 
   if(data == nullptr)
   {
@@ -301,7 +299,7 @@ LoadImage(FileSystem* fs, const std::string& path, AlphaLoad alpha)
 
       // get component values
       const unsigned char zero = 0;
-      const unsigned char c1   = data[src_index + 0];
+      const unsigned char c1   = data[src_index + 0]; // NOLINT no garbage value
       const unsigned char c2   = (channels <= 1) ? zero : data[src_index + 1];
       const unsigned char c3   = (channels <= 2) ? zero : data[src_index + 2];
       const unsigned char c4   = (channels <= 3) ? zero : data[src_index + 3];
