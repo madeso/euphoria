@@ -29,6 +29,30 @@ ZeroOrValue(float r)
   return r;
 }
 
+float
+Floor(float v)
+{
+  return std::floor(v);
+}
+
+float
+Ceil(float v)
+{
+  return std::ceil(v);
+}
+
+int
+Floori(float v)
+{
+  return std::floor(v);
+}
+
+int
+Ceili(float v)
+{
+  return std::ceil(v);
+}
+
 const int
 Sign(const float r)
 {

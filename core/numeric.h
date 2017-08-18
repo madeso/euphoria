@@ -8,6 +8,18 @@ IsZero(float r);
 float
 ZeroOrValue(float r);
 
+float
+Floor(float v);
+
+float
+Ceil(float v);
+
+int
+Floori(float v);
+
+int
+Ceili(float v);
+
 /** Calculates the sign as a positive or a negative int.
 @returns 1 if r is greater than 0, -1 if not.
 @see Abs()
