@@ -1,4 +1,4 @@
-Checks: "*,-readability-named-parameter,-cppcoreguidelines-pro-bounds-array-to-pointer-decay,-cppcoreguidelines-pro-bounds-pointer-arithmetic,-cppcoreguidelines-pro-bounds-constant-array-index,-performance-*,-cppcoreguidelines-pro-type-reinterpret-cast,-cert-err58-cpp,-llvm-include-order,-google-runtime-int,-google-readability-todo"
+Checks: "*,-readability-named-parameter,-cppcoreguidelines-pro-bounds-array-to-pointer-decay,-cppcoreguidelines-pro-bounds-pointer-arithmetic,-cppcoreguidelines-pro-bounds-constant-array-index,-performance-*,-cppcoreguidelines-pro-type-reinterpret-cast,-llvm-include-order,-google-runtime-int,-google-readability-todo"
 CheckOptions:
   - key:             readability-identifier-naming.ClassCase
     value:           CamelCase

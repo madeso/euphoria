@@ -69,7 +69,7 @@ Material::SetTexture(const std::string& texture_name,
 
 namespace  // local
 {
-  DEFINE_ENUM_VALUE(TextureType, DiffuseType, "Diffuse");
+  DEFINE_ENUM_VALUE(TextureType, DiffuseType, "Diffuse"); // NOLINT
 }  // namespace
 
 namespace
