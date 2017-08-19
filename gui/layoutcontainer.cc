@@ -18,23 +18,23 @@ LayoutContainer::LayoutContainer() {}
 LayoutContainer::~LayoutContainer() {}
 
 void LayoutContainer::SetLayout(std::shared_ptr<Layout> layout) {
-  Assert(this);
+  ASSERT(this);
   layout_ = layout;
 }
 
 std::shared_ptr<Layout> LayoutContainer::GetLayout() {
-  Assert(this);
+  ASSERT(this);
   return layout_;
 }
 
 void LayoutContainer::DoLayout(Rectf area) {
-  Assert(this);
-  Assert(layout_.get());
+  ASSERT(this);
+  ASSERT(layout_.get());
   layout_->DoLayout(&widgets_, area);
 }
 
 Sizef LayoutContainer::CalculateMinimumArea() const {
-  Assert(this);
-  Assert(layout_.get());
+  ASSERT(this);
+  ASSERT(layout_.get());
   return layout_->CalculateMinimumArea(widgets_);
 }

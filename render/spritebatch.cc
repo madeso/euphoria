@@ -23,7 +23,7 @@ SpriteBatch::~SpriteBatch() = default;
 void
 SpriteBatch::Begin()
 {
-  Assert(!inside_ && "Already open, missing call to end.");
+  ASSERT(!inside_ && "Already open, missing call to end.");
   rendercalls_ = 0;
 }
 
@@ -31,7 +31,7 @@ void
 SpriteBatch::Quad(const vec2f& pos, const Sizef& quad, const Rectf& uv,
                   const vec2f& center, const Angle& rotation, const Rgba& color)
 {
-  Assert(inside_ && "batch need to be open");
+  ASSERT(inside_ && "batch need to be open");
 
   if((count_ + 1) >= kQuadCount)
   {
@@ -99,7 +99,7 @@ SpriteBatch::Quad(const vec2f& pos, const Sizef& quad, const Rectf& uv,
 void
 SpriteBatch::End()
 {
-  Assert(inside_ && "not open, missing begin.");
+  ASSERT(inside_ && "not open, missing begin.");
   Flush();
   inside_ = false;
 }

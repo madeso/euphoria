@@ -106,10 +106,10 @@ Tan(const Angle& ang)
 const Angle
 Asin(const float v)
 {
-  Assert(v <= 1 &&
+  ASSERT(v <= 1 &&
          "v must be smaller than 1, use Limmit or Max on the value to not "
          "trigger this Assert");
-  Assert(v >= -1 &&
+  ASSERT(v >= -1 &&
          "v must be greater than -1, use Limmit or Min on the value to not "
          "trigger this Assert");
   return Angle::FromRadians(std::asin(v));
@@ -118,10 +118,10 @@ Asin(const float v)
 const Angle
 Acos(const float v)
 {
-  Assert(v <= 1 &&
+  ASSERT(v <= 1 &&
          "v must be smaller than 1, use Limmit or Max on the value to not "
          "trigger this Assert");
-  Assert(v >= -1 &&
+  ASSERT(v >= -1 &&
          "v must be greater than -1, use Limmit or Min on the value to not "
          "trigger this Assert");
   return Angle::FromRadians(std::acos(v));

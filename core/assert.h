@@ -4,7 +4,7 @@
 #if 0
 
 #include <cassert>
-#define Assert(x) assert(x)
+#define ASSERT(x) assert(x)
 
 #else
 
@@ -18,7 +18,7 @@ namespace assertlib
 }
 
 // todo: stb libraries and rapidjson aren't using our assert
-#define Assert(x)                                               \
+#define ASSERT(x)                                               \
   do                                                            \
   {                                                             \
     if(x)                                                       \

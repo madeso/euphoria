@@ -169,7 +169,7 @@ struct Pixels
 void
 PasteCharacterToImage(Pixels* pixels, const stbrp_rect& r, const FontChar& ch)
 {
-  Assert(pixels);
+  ASSERT(pixels);
   for(int y = 0; y < ch.glyph_height; ++y)
   {
     for(int x = 0; x < ch.glyph_width; ++x)
@@ -302,7 +302,7 @@ TextBackgroundRenderer::TextBackgroundRenderer(Shader* shader)
     , model_(shader->GetUniform("model"))
     , color_(shader->GetUniform("color"))
 {
-  Assert(shader);
+  ASSERT(shader);
 }
 
 void
@@ -530,7 +530,7 @@ Text::SetAlignment(Align alignment)
 void
 Text::SetSize(float new_size)
 {
-  Assert(font_);
+  ASSERT(font_);
   SetScale(new_size / font_->GetFontSize());
 }
 

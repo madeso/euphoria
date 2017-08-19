@@ -244,8 +244,8 @@ Shader::GetUniform(const std::string& name)
 void
 Shader::SetUniform(const ShaderUniform& attribute, float val)
 {
-  Assert(IsCurrentlyBound());
-  Assert(HasBoundUniform(attribute));
+  ASSERT(IsCurrentlyBound());
+  ASSERT(HasBoundUniform(attribute));
   glUniform1f(attribute.id, val);
 }
 
@@ -253,16 +253,16 @@ Shader::SetUniform(const ShaderUniform& attribute, float val)
 void
 Shader::SetUniform(const ShaderUniform& attribute, glint val)
 {
-  Assert(IsCurrentlyBound());
-  Assert(HasBoundUniform(attribute));
+  ASSERT(IsCurrentlyBound());
+  ASSERT(HasBoundUniform(attribute));
   glUniform1i(attribute.id, val);
 }
 
 void
 Shader::SetUniform(const ShaderUniform& attribute, const Rgb& val)
 {
-  Assert(IsCurrentlyBound());
-  Assert(HasBoundUniform(attribute));
+  ASSERT(IsCurrentlyBound());
+  ASSERT(HasBoundUniform(attribute));
   if(attribute.id == -1)
   {
     return;
@@ -273,8 +273,8 @@ Shader::SetUniform(const ShaderUniform& attribute, const Rgb& val)
 void
 Shader::SetUniform(const ShaderUniform& attribute, const Rgba& val)
 {
-  Assert(IsCurrentlyBound());
-  Assert(HasBoundUniform(attribute));
+  ASSERT(IsCurrentlyBound());
+  ASSERT(HasBoundUniform(attribute));
   if(attribute.id == -1)
   {
     return;
@@ -286,8 +286,8 @@ Shader::SetUniform(const ShaderUniform& attribute, const Rgba& val)
 void
 Shader::SetUniform(const ShaderUniform& attribute, const vec3f& val)
 {
-  Assert(IsCurrentlyBound());
-  Assert(HasBoundUniform(attribute));
+  ASSERT(IsCurrentlyBound());
+  ASSERT(HasBoundUniform(attribute));
   if(attribute.id == -1)
   {
     return;
@@ -298,8 +298,8 @@ Shader::SetUniform(const ShaderUniform& attribute, const vec3f& val)
 void
 Shader::SetUniform(const ShaderUniform& attribute, const vec4f& val)
 {
-  Assert(IsCurrentlyBound());
-  Assert(HasBoundUniform(attribute));
+  ASSERT(IsCurrentlyBound());
+  ASSERT(HasBoundUniform(attribute));
   if(attribute.id == -1)
   {
     return;
@@ -310,8 +310,8 @@ Shader::SetUniform(const ShaderUniform& attribute, const vec4f& val)
 void
 Shader::SetUniform(const ShaderUniform& attribute, const mat3f& val)
 {
-  Assert(IsCurrentlyBound());
-  Assert(HasBoundUniform(attribute));
+  ASSERT(IsCurrentlyBound());
+  ASSERT(HasBoundUniform(attribute));
   if(attribute.id == -1)
   {
     return;
@@ -322,8 +322,8 @@ Shader::SetUniform(const ShaderUniform& attribute, const mat3f& val)
 void
 Shader::SetUniform(const ShaderUniform& attribute, const mat4f& val)
 {
-  Assert(IsCurrentlyBound());
-  Assert(HasBoundUniform(attribute));
+  ASSERT(IsCurrentlyBound());
+  ASSERT(HasBoundUniform(attribute));
   if(attribute.id == -1)
   {
     return;
@@ -413,7 +413,7 @@ void
 BindTextureToShader(Texture2d* texture, Shader* shader,
                     const ShaderUniform& attribute, glint index)
 {
-  Assert(index < 16);  // at most 16 texture units
+  ASSERT(index < 16);  // at most 16 texture units
   GLenum gl_id = GL_TEXTURE0 + index;
   glActiveTexture(gl_id);
   Use(texture);

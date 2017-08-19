@@ -73,7 +73,7 @@ FileSystem::ReadFile(const std::string& path)
 bool
 FileSystem::ReadFileToString(const std::string& path, std::string* source)
 {
-  Assert(source);
+  ASSERT(source);
 
   std::shared_ptr<MemoryChunk> file = ReadFile(path);
   if(file == nullptr)
@@ -109,7 +109,7 @@ FileSystemRootCatalog::RegisterFileData(
 std::shared_ptr<FileSystemRootCatalog>
 FileSystemRootCatalog::AddRoot(FileSystem* fs)
 {
-  Assert(fs);
+  ASSERT(fs);
   auto catalog = std::make_shared<FileSystemRootCatalog>();
   fs->AddRoot(catalog);
   return catalog;
@@ -164,7 +164,7 @@ FileSystemRootFolder::ReadFile(const std::string& path)
 void
 FileSystemRootFolder::AddRoot(FileSystem* fs, const std::string& folder)
 {
-  Assert(fs);
+  ASSERT(fs);
 
   const std::string slash = "/";
 

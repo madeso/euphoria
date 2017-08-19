@@ -50,9 +50,9 @@ Logger::IsEnabledForLevel(LogLevel level) const
 void
 Logger::AddLog(LogLevel level, const std::string& message)
 {
-  Assert(IsEnabledForLevel(level));
+  ASSERT(IsEnabledForLevel(level));
 
-  // Assert(sizeof(kLogLevelNames) == static_cast<int>(LogLevel::MAX_VALUE)+1);
+  // ASSERT(sizeof(kLogLevelNames) == static_cast<int>(LogLevel::MAX_VALUE)+1);
 
   (level >= LogLevel::Warning ? std::cerr : std::cout)
       << "[" << name_ << " " << LevelToString(level) << "] " << message << "\n";
@@ -73,7 +73,7 @@ Logger::GetLogger(const std::string& name)
 {
   auto& storage = Storage();
 
-  Assert(ToLower(name) == name);  // name should be lower string
+  ASSERT(ToLower(name) == name);  // name should be lower string
 
   auto result = storage.find(name);
   if(result != storage.end())

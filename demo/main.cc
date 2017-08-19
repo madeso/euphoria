@@ -633,7 +633,7 @@ main(int argc, char** argv)
           anim.rotation_speed = random.NextRange(0.3f, 1.0f);
           anim.move_speed     = random.NextRange(0.2f, 3.0f);
         }
-        Assert(count < 2);
+        ASSERT(count < 2);
         quatf q = quatf::SlerpShortway(anim.from, anim.timer, anim.to);
         anim.actor->SetRotation(q);
         const vec3f movement = q.In() * anim.move_speed * delta;

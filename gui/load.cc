@@ -77,7 +77,7 @@ std::shared_ptr<Widget> CreateWidget(UiState* state, Font* font, const gui::Widg
     BuildLayoutContainer(state, font, &l->container, w.panel().container(), cache, br, skins);
   }
 
-  Assert(ret.get());
+  ASSERT(ret.get());
 
   SetupLayout(&ret->Layout(), w);
 

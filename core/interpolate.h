@@ -137,32 +137,32 @@ class Interpolate
   const Type&
   Debug_GetFrom() const
   {
-    Assert(this);
+    ASSERT(this);
     return from_;
   }
   const Type&
   GetValue() const
   {
-    Assert(this);
+    ASSERT(this);
     return value_;
   }
   This&
   SetValue(const Type& t)
   {
-    Assert(this);
+    ASSERT(this);
     value_ = t;
     Clear();
     return *this;
   }
   operator const Type&() const
   {
-    Assert(this);
+    ASSERT(this);
     return GetValue();
   }
   void
   operator=(const Type& rhs)
   {
-    Assert(this);
+    ASSERT(this);
     SetValue(rhs);
   }
 
@@ -183,7 +183,7 @@ class Interpolate
   void
   Update(float adt)
   {
-    Assert(this);
+    ASSERT(this);
 
     float dt = adt;
 
@@ -223,7 +223,7 @@ class Interpolate
   This&
   Clear()
   {
-    Assert(this);
+    ASSERT(this);
     data_.clear();
     position_in_current_interpolation_ = 0.0f;
     return *this;
@@ -232,7 +232,7 @@ class Interpolate
   This&
   Sleep(float time)
   {
-    Assert(this);
+    ASSERT(this);
     AddInterpolation(nullptr, value_, time);
     return *this;
   }
@@ -240,7 +240,7 @@ class Interpolate
 #define FUN(NAME, FUNC)                           \
   This& NAME(const Type& target, float time)      \
   {                                               \
-    Assert(this);                                 \
+    ASSERT(this);                                 \
     AddInterpolation(easing::NAME, target, time); \
     return *this;                                 \
   }
@@ -301,7 +301,7 @@ class Interpolate
   This&
   Add(InterpolationType type, const Type& target, float time)
   {
-    Assert(this);
+    ASSERT(this);
 #define FUN(NAME, FUNC)                           \
   case InterpolationType::NAME:                   \
     AddInterpolation(easing::NAME, target, time); \
@@ -364,7 +364,7 @@ class Interpolate
 
       case InterpolationType::INVALID:
       default:
-        Assert(false && "Unhandled case");
+        ASSERT(false && "Unhandled case");
     }
     // ignore invalid interpolation type
     return *this;
@@ -395,8 +395,8 @@ class Interpolate
   void
   AddInterpolation(EasingFunction type, const Type& target, float time)
   {
-    Assert(this);
-    Assert(time > 0.0f);
+    ASSERT(this);
+    ASSERT(time > 0.0f);
 
     if(data_.empty())
     {

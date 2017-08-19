@@ -155,7 +155,7 @@ OnOpenglError(GLenum source, GLenum type, GLuint id, GLenum severity,
   std::cout << "Source " << SourceToString(source)
             << " type: " << TypeToString(type)
             << " Severity: " << SeverityToString(severity) << "\n\n";
-  // Assert(false);
+  // ASSERT(false);
 }
 
 void

@@ -178,12 +178,12 @@ class unit : public vec3<T>
   unit(T x, T y, T z)
       : vec3<T>(x, y, z)
   {
-    Assert(IsValid());
+    ASSERT(IsValid());
   }
   unit(const vec3<T>& o)
       : vec3<T>(o)
   {
-    Assert(IsValid());
+    ASSERT(IsValid());
   }
   friend class vec3<T>;
 };

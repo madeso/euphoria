@@ -13,7 +13,7 @@ class MaterialShaderCache
   MaterialShaderCache(FileSystem* fs)
       : fs_(fs)
   {
-    Assert(fs);
+    ASSERT(fs);
   }
 
   std::shared_ptr<MaterialShader>

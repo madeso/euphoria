@@ -19,7 +19,7 @@ Vbo::~Vbo()
 void
 Vbo::SetData(const std::vector<float>& data)
 {
-  Assert(GetBound() == this);
+  ASSERT(GetBound() == this);
   // use GL_DYNAMIC_DRAW or GL_STREAM_DRAW instead?
   glBufferData(GL_ARRAY_BUFFER, sizeof(float) * data.size(), &data[0],
                GL_STATIC_DRAW);
@@ -55,10 +55,10 @@ Vao::~Vao()
 void
 Vao::BindVboData(const ShaderAttribute& attribute, int stride, int offset)
 {
-  Assert(GetBound() == this);
-  Assert(Vbo::GetBound() != nullptr);
+  ASSERT(GetBound() == this);
+  ASSERT(Vbo::GetBound() != nullptr);
   auto size = static_cast<int>(attribute.size);
-  Assert(size >= 1 && size <= 4);
+  ASSERT(size >= 1 && size <= 4);
   // reinterpret_cast is probably ok since the void* is an offset
   // and not a actual pointer
   glVertexAttribPointer(attribute.id, size, GL_FLOAT, GL_FALSE, stride,
@@ -97,7 +97,7 @@ Ebo::~Ebo()
 void
 Ebo::SetData(const std::vector<unsigned int>& indices)
 {
-  Assert(GetBound() == this);
+  ASSERT(GetBound() == this);
   glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int),
                &indices[0], GL_STATIC_DRAW);
 }
@@ -105,13 +105,13 @@ Ebo::SetData(const std::vector<unsigned int>& indices)
 void
 Ebo::Draw(int count) const
 {
-  Assert(Vao::GetBound() != nullptr);
-  Assert(Shader::CurrentlyBound() != nullptr);
+  ASSERT(Vao::GetBound() != nullptr);
+  ASSERT(Shader::CurrentlyBound() != nullptr);
 
   const Vao*    vao    = Vao::GetBound();
   const Shader* shader = Shader::CurrentlyBound();
-  Assert(vao);
-  Assert(shader);
+  ASSERT(vao);
+  ASSERT(shader);
 
   const auto& a = shader->GetAttributes();
   for(const auto& attribute : vao->attributes)
@@ -122,7 +122,7 @@ Ebo::Draw(int count) const
     {
       std::cerr << "Failed to find attribute " << attribute.name
                 << " bound in shader " << shader->GetName() << "\n";
-      Assert(found_in_shader);
+      ASSERT(found_in_shader);
     }
   }
 

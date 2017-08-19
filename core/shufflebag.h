@@ -25,7 +25,7 @@ class ShuffleBag
   void
   Add(const T& item, int amount)
   {
-    Assert(amount > 0);
+    ASSERT(amount > 0);
 
     for(int i = 0; i < amount; i++)
       data_.push_back(item);
@@ -36,8 +36,8 @@ class ShuffleBag
   const T&
   Next(Random* random)
   {
-    Assert(random);
-    Assert(!data_.empty());  // needs data
+    ASSERT(random);
+    ASSERT(!data_.empty());  // needs data
 
     if(cursor_ < 1)
     {

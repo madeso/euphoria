@@ -106,7 +106,7 @@ class TemplateNodeString : public TemplateNode
   Eval(Defines* /*defines*/, std::ostringstream* out,
        TemplateError* /*error*/) override
   {
-    Assert(out);
+    ASSERT(out);
     *out << text_;
   }
 
@@ -150,7 +150,7 @@ class TemplateNodeScopedList : public TemplateNodeList
   void
   Eval(Defines* defines, std::ostringstream* out, TemplateError* error) override
   {
-    Assert(defines);
+    ASSERT(defines);
     Defines my_defines = *defines;
     TemplateNodeList::Eval(&my_defines, out, error);
   }
@@ -170,7 +170,7 @@ class TemplateNodeIfdef : public TemplateNode
   void
   Eval(Defines* defines, std::ostringstream* out, TemplateError* error) override
   {
-    Assert(defines);
+    ASSERT(defines);
     if(defines->IsDefined(name_))
     {
       node_->Eval(defines, out, error);
@@ -195,8 +195,8 @@ class TemplateNodeEval : public TemplateNode
   void
   Eval(Defines* defines, std::ostringstream* out, TemplateError* error) override
   {
-    Assert(out);
-    Assert(defines);
+    ASSERT(out);
+    ASSERT(defines);
 
     if(error != nullptr && !defines->IsDefined(name_))
     {
@@ -226,8 +226,8 @@ class TemplateNodeSet : public TemplateNode
   Eval(Defines* defines, std::ostringstream* out,
        TemplateError* /*error*/) override
   {
-    Assert(out);
-    Assert(defines);
+    ASSERT(out);
+    ASSERT(defines);
 
     defines->Define(name_, value_);
   }
@@ -312,7 +312,7 @@ class Lex
 std::vector<Lex>
 Lexer(const std::string& str, TemplateError* error, const std::string& file)
 {
-  Assert(error);
+  ASSERT(error);
 
   TextFileParser   parser(str);
   std::vector<Lex> r;
@@ -507,7 +507,7 @@ LoadFromFilesystemToNodeList(FileSystem* fs, const std::string& path,
                     Str() << "Missing filesystem, Failed to read " << path);
     return;
   }
-  Assert(nodes);
+  ASSERT(nodes);
   std::string content;
   if(!fs->ReadFileToString(path, &content))
   {
@@ -524,9 +524,9 @@ std::shared_ptr<TemplateNodeString>
 ReadText(LexReader* reader, TemplateError* /*unused*/,
          const std::string& /*unused*/, FileSystem* /*unused*/)
 {
-  Assert(reader);
+  ASSERT(reader);
   const Lex& lex = reader->Read();
-  Assert(lex.type == LexType::Text);
+  ASSERT(lex.type == LexType::Text);
 
 
   std::shared_ptr<TemplateNodeString> ret{new TemplateNodeString{lex.value}};
@@ -537,7 +537,7 @@ std::shared_ptr<TemplateNodeEval>
 ReadEval(LexReader* reader, TemplateError* errors, const std::string& file,
          FileSystem* /*unused*/)
 {
-  Assert(reader);
+  ASSERT(reader);
   const Lex& lex = reader->Read();
 
   if(lex.type == LexType::Ident)
@@ -557,7 +557,7 @@ std::shared_ptr<TemplateNodeSet>
 ReadSet(LexReader* reader, TemplateError* errors, const std::string& file,
         FileSystem* /*unused*/)
 {
-  Assert(reader);
+  ASSERT(reader);
   const Lex& name = reader->Read();
 
   if(name.type != LexType::Ident)
@@ -591,7 +591,7 @@ std::shared_ptr<TemplateNodeIfdef>
 ReadIfdef(LexReader* reader, TemplateError* errors, const std::string& file,
           FileSystem* fs)
 {
-  Assert(reader);
+  ASSERT(reader);
   const Lex& lex = reader->Read();
 
   if(lex.type == LexType::Ident)
@@ -616,7 +616,7 @@ std::shared_ptr<TemplateNodeList>
 ReadInclude(LexReader* reader, TemplateError* errors, const std::string& file,
             FileSystem* fs)
 {
-  Assert(reader);
+  ASSERT(reader);
   const Lex& lex = reader->Read();
 
   if(lex.type == LexType::String)
@@ -637,10 +637,10 @@ ReadTemplateList(std::shared_ptr<TemplateNodeList>* nodes, LexReader* reader,
                  TemplateError* errors, const std::string& file,
                  bool expect_end, FileSystem* fs)
 {
-  Assert(nodes);
+  ASSERT(nodes);
   std::shared_ptr<TemplateNodeList>& list = *nodes;
 
-  Assert(reader);
+  ASSERT(reader);
   while(!errors->HasErrors() && reader->HasMore() &&
         (!expect_end || reader->Peek().type != LexType::End))
   {
@@ -703,7 +703,7 @@ Template::Template(const std::string& text)
 Template::Template(FileSystem* fs, const std::string& path)
     : nodes_(new TemplateNodeList{})
 {
-  Assert(fs);
+  ASSERT(fs);
   LoadFromFilesystemToNodeList(fs, path, &errors_, &nodes_);
 }
 

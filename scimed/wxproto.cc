@@ -17,7 +17,7 @@
 #include "pbjson.hpp"  // NOLINT this is how we use tinyxml2
 
 bool LoadProtoText(google::protobuf::Message* t, const wxFileName& file_name) {
-  Assert(t);
+  ASSERT(t);
   if (file_name.FileExists() == false) return true;
 
   const wxString path = file_name.GetFullPath();

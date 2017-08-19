@@ -104,8 +104,8 @@ const Buffer2d*
 ScalableSprite::GetBufferPtr() const
 {
   BuildData();
-  Assert(!dirty_);
-  Assert(buffer_ != nullptr);
+  ASSERT(!dirty_);
+  ASSERT(buffer_ != nullptr);
   return buffer_.get();
 }
 
@@ -122,8 +122,8 @@ ScalableSprite::BuildData() const
   const auto cols_size = cols_.size();
   const auto rows_size = rows_.size();
 
-  Assert(position_rows.size() == rows_size);
-  Assert(position_cols.size() == cols_size);
+  ASSERT(position_rows.size() == rows_size);
+  ASSERT(position_cols.size() == cols_size);
 
   BufferBuilder2d data;
   float           position_current_col = 0;

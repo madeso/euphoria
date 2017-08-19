@@ -31,7 +31,7 @@ CompiledMeshMaterial::CompiledMeshMaterial()
 void
 CompiledMeshMaterial::SetShader(const std::shared_ptr<MaterialShader>& shader)
 {
-  Assert(shader);
+  ASSERT(shader);
   shader_ = shader;
 }
 
@@ -101,7 +101,7 @@ CompiledMeshMaterial::Validate() const
 {
   std::set<EnumValue> values;
 
-  Assert(shader_);
+  ASSERT(shader_);
 
   const auto bindings = shader_->GetBindings();
 

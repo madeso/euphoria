@@ -80,7 +80,7 @@ StringReplace(std::string* string, const std::string& to_find,
 {
   std::size_t       index       = string->find(to_find);
   const std::size_t find_length = to_find.length();
-  Assert(find_length > 0);
+  ASSERT(find_length > 0);
   while(index != std::string::npos)
   {
     string->erase(index, find_length);
@@ -115,7 +115,7 @@ RemoveFromEnd(const std::string& str, const std::string& end)
     {
       return "";
     }
-    Assert(new_length > 0);
+    ASSERT(new_length > 0);
     return str.substr(0, new_length);
   }
 

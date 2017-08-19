@@ -21,7 +21,7 @@ class TrackingLine {
   static TrackingLine FromIndex(int index) { return TrackingLine(index); }
 
   int GetIndex() const {
-    Assert(isValid_);
+    ASSERT(isValid_);
     return index_;
   }
 
@@ -107,7 +107,7 @@ class Data {
       }
       min += value;
     }
-    Assert(false && "invalid index");
+    ASSERT(false && "invalid index");
     return std::pair<int, int>(min, min+2);
   }
 
@@ -163,7 +163,7 @@ class Data {
         return d;
       }
     }
-    // Assert(false && "shouldnt happen"); // but will if our data is less than the image size
+    // ASSERT(false && "shouldnt happen"); // but will if our data is less than the image size
     return last;
   }
 
@@ -588,7 +588,7 @@ class ImagePanel : public wxPanel
     }
 
     wxGraphicsRenderer* renderer = wxGraphicsRenderer::GetDefaultRenderer();
-    Assert(renderer);
+    ASSERT(renderer);
 
     wxGraphicsContext* context;
     if ( wxPaintDC *paintdc = wxDynamicCast(&pdc, wxPaintDC) )

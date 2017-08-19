@@ -16,7 +16,7 @@ World::AddActor(const std::shared_ptr<Actor>& actor)
 void
 World::Render(const Viewport& viewport, const Camera& camera)
 {
-  Assert(viewport.IsActive());
+  ASSERT(viewport.IsActive());
 
   const auto projection_matrix =
       camera.CalculateProjectionMatrix(viewport.GetAspectRatio());

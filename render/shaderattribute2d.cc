@@ -16,7 +16,7 @@ namespace attributes2d
   void
   PrebindShader(Shader* shader)
   {
-    Assert(shader);
+    ASSERT(shader);
     shader->PreBind(Vertex());
   }
 }  // namespace attributes2d

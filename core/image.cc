@@ -23,7 +23,7 @@ Image::MakeInvalid()
   height_    = 0;
   has_alpha_ = false;
 
-  Assert(!IsValid());
+  ASSERT(!IsValid());
 }
 
 int
@@ -35,8 +35,8 @@ Image::GetPixelByteSize() const
 void
 Image::Setup(int image_width, int image_height, bool alpha, int default_value)
 {
-  Assert(image_width > 0);
-  Assert(image_height > 0);
+  ASSERT(image_width > 0);
+  ASSERT(image_height > 0);
 
   width_     = image_width;
   height_    = image_height;
@@ -50,18 +50,18 @@ Image::Setup(int image_width, int image_height, bool alpha, int default_value)
   }
   else
   {
-    Assert(default_value <= 255);
+    ASSERT(default_value <= 255);
     components.resize(size, static_cast<unsigned char>(default_value));
   }
 
-  Assert(IsValid());
+  ASSERT(IsValid());
 }
 
 fuint64
 Image::GetPixelIndex(int x, int y) const
 {
-  Assert(x >= 0 && x < width_);
-  Assert(y >= 0 && y < height_);
+  ASSERT(x >= 0 && x < width_);
+  ASSERT(y >= 0 && y < height_);
 
   return (y * static_cast<fuint64>(width_) + x) * GetPixelByteSize();
 }
@@ -98,8 +98,8 @@ void
 Image::SetPixel(int x, int y, unsigned char r, unsigned char g, unsigned char b,
                 unsigned char a)
 {
-  Assert(IsWithinInclusivei(0, x, GetWidth() - 1));
-  Assert(IsWithinInclusivei(0, y, GetHeight() - 1));
+  ASSERT(IsWithinInclusivei(0, x, GetWidth() - 1));
+  ASSERT(IsWithinInclusivei(0, y, GetHeight() - 1));
 
   const auto base_index      = GetPixelIndex(x, y);
   components[base_index + 0] = r;
@@ -115,8 +115,8 @@ Image::SetPixel(int x, int y, unsigned char r, unsigned char g, unsigned char b,
 Rgba
 Image::GetPixel(int x, int y) const
 {
-  Assert(IsWithinInclusivei(0, x, GetWidth() - 1));
-  Assert(IsWithinInclusivei(0, y, GetHeight() - 1));
+  ASSERT(IsWithinInclusivei(0, x, GetWidth() - 1));
+  ASSERT(IsWithinInclusivei(0, y, GetHeight() - 1));
 
   const auto base_index = GetPixelIndex(x, y);
 
@@ -164,7 +164,7 @@ namespace  // local
   void
   DetermineImageSize(void* context, void* /*unused*/, int size)
   {
-    Assert(size >= 0);
+    ASSERT(size >= 0);
     auto* total_size = static_cast<fuint64*>(context);
     *total_size += size;
   }
@@ -172,7 +172,7 @@ namespace  // local
   void
   WriteToMemoryChunkFile(void* context, void* data, int size)
   {
-    Assert(size >= 0);
+    ASSERT(size >= 0);
     auto* file = static_cast<MemoryChunkFile*>(context);
     file->Write(data, size);
   }
@@ -212,7 +212,7 @@ Image::Write(ImageWriteFormat format, int jpeg_quality) const
     return MemoryChunk::Null();
   }
 
-  Assert(size > 0);
+  ASSERT(size > 0);
   MemoryChunkFile file{MemoryChunk::Alloc(size)};
   int             write_result =
       WriteImageData(WriteToMemoryChunkFile, &file, GetWidth(), GetHeight(),

@@ -11,7 +11,7 @@ struct TextureCache::TextureCachePimpl
   explicit TextureCachePimpl(FileSystem* fs)
       : fs_(fs)
   {
-    Assert(fs);
+    ASSERT(fs);
   }
 
   std::shared_ptr<Texture2d>

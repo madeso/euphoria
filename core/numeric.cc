@@ -95,7 +95,7 @@ Square(const float r)
 const float
 Sqrt(const float r)
 {
-  Assert(r >= 0 && "input must be bigger than 0");
+  ASSERT(r >= 0 && "input must be bigger than 0");
   return std::sqrt(r);
 }
 
@@ -226,7 +226,7 @@ const float
 Wrap(const float min, const float v, const float max)
 {
   const float diff = max - min;
-  Assert(diff > 0);
+  ASSERT(diff > 0);
   float value = v - min;
   while(value < 0.0f)
   {

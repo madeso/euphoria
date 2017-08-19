@@ -32,7 +32,7 @@ namespace attributes3d
   void
   PrebindShader(Shader* shader)
   {
-    Assert(shader);
+    ASSERT(shader);
     shader->PreBind(Vertex());
     shader->PreBind(Normal());
     shader->PreBind(TexCoord());

@@ -7,9 +7,9 @@ Aabb::Aabb(const vec3f& min, const vec3f& max)
     : min_(min)
     , max_(max)
 {
-  Assert(min.x < max.x);
-  Assert(min.y < max.y);
-  Assert(min.z < max.z);
+  ASSERT(min.x < max.x);
+  ASSERT(min.y < max.y);
+  ASSERT(min.z < max.z);
 }
 
 const vec3f&

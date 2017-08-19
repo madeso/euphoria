@@ -19,7 +19,7 @@
 bool
 LoadProtoText(google::protobuf::Message* message, const std::string& file_name)
 {
-  Assert(message);
+  ASSERT(message);
   std::ifstream file(file_name.c_str());
   if(!file)
   {

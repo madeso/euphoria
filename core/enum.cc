@@ -20,20 +20,20 @@ EnumType::EnumType(std::string name)
 
 EnumType::~EnumType()
 {
-  Assert(!isAdding_);
+  ASSERT(!isAdding_);
 }
 
 std::string
 EnumType::ToString(size_t v) const
 {
-  Assert(v < nextIndex_);
+  ASSERT(v < nextIndex_);
   auto f = valueToName_.find(v);
   if(f != valueToName_.end())
   {
     return f->second;
   }
 
-  // Assert(false && "Invalid index");
+  // ASSERT(false && "Invalid index");
   const auto values =
       StringMerger::EnglishOr().Generate(MapToStringVector(nameToValue_));
   const std::string invalid = Str() << "<invalid value " << v << " of "
@@ -63,7 +63,7 @@ EnumType::ToEnum(const std::string& name)
 void
 EnumType::AddEnums(const std::vector<std::string>& names)
 {
-  Assert(isAdding_);
+  ASSERT(isAdding_);
   std::set<std::string> valid_names;
   for(const auto& name : names)
   {
@@ -88,7 +88,7 @@ EnumType::AddEnums(const std::vector<std::string>& names)
 void
 EnumType::AddEnum(const std::string& name)
 {
-  Assert(isAdding_);
+  ASSERT(isAdding_);
   NameToValue::const_iterator r = nameToValue_.find(name);
   if(r != nameToValue_.end())
   {
@@ -124,7 +124,7 @@ EnumValue::ToValue() const
 bool
 EnumValue::operator==(const EnumValue& other) const
 {
-  Assert(type_ == other.type_);
+  ASSERT(type_ == other.type_);
   return value_ == other.value_;
 }
 
@@ -137,7 +137,7 @@ EnumValue::operator!=(const EnumValue& other) const
 bool
 EnumValue::operator<(const EnumValue& other) const
 {
-  Assert(type_ == other.type_);
+  ASSERT(type_ == other.type_);
   return value_ < other.value_;
 }
 
@@ -151,7 +151,7 @@ operator<<(std::ostream& s, const EnumValue& v)
 void
 LoadEnumType(EnumType* type, FileSystem* fs, const std::string& path)
 {
-  Assert(type);
+  ASSERT(type);
 
   enumlist::Enumroot root;
   const std::string  load_error = LoadProtoJson(fs, &root, path);

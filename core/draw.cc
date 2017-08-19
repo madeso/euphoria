@@ -11,7 +11,7 @@
 Draw::Draw(Image* image)
     : image_(image)
 {
-  Assert(image);
+  ASSERT(image);
 }
 
 Recti
@@ -277,8 +277,8 @@ const unsigned char*
 GetCharGlyph(char ac)
 {
   auto c = static_cast<int>(ac);
-  Assert(c >= 0);
-  Assert(c < 128);
+  ASSERT(c >= 0);
+  ASSERT(c < 128);
   return static_cast<const unsigned char*>(gsl::at(font8x8_basic, c));
 }
 
@@ -291,7 +291,7 @@ DrawSquare(Draw* image, int x, int y, const Rgb& color, int size)
 void
 PrintCharAt(Draw* image, const vec2i pos, char c, const Rgb& color, int scale)
 {
-  Assert(image);
+  ASSERT(image);
   const unsigned char* glyph = GetCharGlyph(c);
   for(int y = 0; y < 8; y += 1)
   {
@@ -311,7 +311,7 @@ Draw&
 Draw::Text(const vec2i& start_pos, const std::string& text, const Rgb& color,
            int scale)
 {
-  Assert(scale > 0);
+  ASSERT(scale > 0);
   vec2i pos = start_pos;
   for(unsigned int i = 0; i < text.length(); i += 1)
   {
