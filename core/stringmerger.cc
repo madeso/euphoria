@@ -45,7 +45,7 @@ const StringMerger&
 StringMerger::EnglishAnd()
 {
   static const StringMerger s_EnglishAnd =
-      StringMerger().SetSeparator(", ", " and ").SetSeparator("", "");
+      StringMerger().SetSeparator(", ", " and ");
   return s_EnglishAnd;
 }
 
@@ -53,7 +53,7 @@ const StringMerger&
 StringMerger::EnglishOr()
 {
   static const StringMerger s_EnglishOr =
-      StringMerger().SetSeparator(", ", " or ").SetSeparator("", "");
+      StringMerger().SetSeparator(", ", " or ");
   return s_EnglishOr;
 }
 
