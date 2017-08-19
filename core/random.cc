@@ -1,10 +1,10 @@
 #include "core/random.h"
 
+#include "core/numeric.h"
+
 #include <limits>
 #include <ctime>
-
-#include "core/numeric.h"
-#include "gsl.h"
+#include <gsl.h>
 
 /*
 There are much better choices than Mersenne Twister nowadays. Here is a RNG

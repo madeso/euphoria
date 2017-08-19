@@ -1,9 +1,10 @@
 #include "core/numeric.h"
 
-#include <cmath>
 #include "core/assert.h"
-
 #include "core/angle.h"
+
+#include <cmath>
+
 
 bool
 IsEqual(float lhs, float rhs)

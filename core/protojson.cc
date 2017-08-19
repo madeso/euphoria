@@ -1,9 +1,12 @@
-#include <iostream>
-#include <google/protobuf/descriptor.pb.h>
-#include "protojson.h"
+#include "core/protojson.h"
+
 #include "core/assert.h"
 #include "core/str.h"
-#include "stringmerger.h"
+#include "core/stringmerger.h"
+
+#include <google/protobuf/descriptor.pb.h>
+
+#include <iostream>
 
 // todo: add proto-> json
 // todo: fix naming

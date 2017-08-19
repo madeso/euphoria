@@ -1,11 +1,11 @@
 #include "core/stringutils.h"
 
+#include "core/assert.h"
+
 #include <string>
 #include <algorithm>
 #include <cstring>
 #include <vector>
-
-#include "core/assert.h"
 
 std::string
 StripLastString(const std::string& str, char sep)

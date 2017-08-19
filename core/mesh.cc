@@ -1,15 +1,14 @@
 #include "core/mesh.h"
 
-#include <sstream>
-
-#include <assimp/Importer.hpp>
-#include <utility>
-#include <assimp/scene.h>
-#include <assimp/postprocess.h>
-
 #include "core/str.h"
 #include "core/texturetypes.h"
 
+#include <assimp/Importer.hpp>
+#include <assimp/scene.h>
+#include <assimp/postprocess.h>
+
+#include <sstream>
+#include <utility>
 
 MeshPart::MeshPart()
     : material(0)

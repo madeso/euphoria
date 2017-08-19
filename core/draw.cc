@@ -1,13 +1,12 @@
 #include "draw.h"
 
-#include <utility>
 #include "core/numeric.h"
-
 #include "core/assert.h"
 
-#include "font8x8/font8x8_basic.h"
+#include <font8x8/font8x8_basic.h>
 
-#include "gsl.h"
+#include <utility>
+#include <gsl.h>
 
 Draw::Draw(Image* image)
     : image_(image)

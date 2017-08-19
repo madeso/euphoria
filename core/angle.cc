@@ -1,8 +1,9 @@
 #include "core/angle.h"
 
 #include "core/numeric.h"
-#include <cmath>
 #include "core/assert.h"
+
+#include <cmath>
 
 namespace  // local
 {

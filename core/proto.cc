@@ -2,24 +2,19 @@
 
 #include "core/proto.h"
 
-#include <streambuf>
-#include <fstream>  // NOLINT this is how we use fstrean
-#include <sstream>  // NOLINT this is how we use sstream
-#include <string>
-
 #include "core/assert.h"
 #include "core/filesystem.h"
 #include "core/str.h"
-
-#include <google/protobuf/text_format.h>
-
-#include "pbjson.hpp"  // NOLINT this is how we use pbjson
-#include "rapidjson/error/en.h"
-
 #include "core/protojson.h"
 
+#include <pbjson.hpp>
+#include <rapidjson/error/en.h>
+#include <google/protobuf/text_format.h>
 
-// #include "ride/stringutils.h"
+#include <streambuf>
+#include <fstream>
+#include <sstream>
+#include <string>
 
 bool
 LoadProtoText(google::protobuf::Message* message, const std::string& file_name)

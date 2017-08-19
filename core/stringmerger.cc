@@ -1,10 +1,10 @@
 #include "core/stringmerger.h"
 
+#include "core/str.h"
+
 #include <string>
 #include <sstream>
 #include <vector>
-
-#include "core/str.h"
 
 std::string
 StringMerger::Generate(const std::vector<std::string>& strings) const

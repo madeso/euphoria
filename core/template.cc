@@ -1,12 +1,13 @@
 #include "core/template.h"
 
-#include <utility>
-#include <vector>
-#include <sstream>
 #include "core/textfileparser.h"
 #include "core/assert.h"
 #include "core/str.h"
 #include "core/noncopyable.h"
+
+#include <utility>
+#include <vector>
+#include <sstream>
 
 ////////////////////////////////////////////////////////////////////////////////
 
