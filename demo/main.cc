@@ -520,19 +520,19 @@ main(int argc, char** argv)
   World world;
 
   auto box_mesh1 = meshes::CreateCube(0.5f);
-  box_mesh1.materials[0].SetTexture("Diffuse", "image");
+  box_mesh1.materials[0].SetTexture("Diffuse", "wooden-crate.jpg");
   box_mesh1.materials[0].ambient =
       Rgb::From(Color::White);  // fix ambient color on material
   box_mesh1.materials[0].specular  = Rgb::From(Color::White);
-  box_mesh1.materials[0].shininess = 10.0f;
+  box_mesh1.materials[0].shininess = 120.0f;
   auto box1 = CompileMesh(box_mesh1, &material_shader_cache, &texture_cache);
 
-  auto box_mesh2 = meshes::CreateSphere(0.5f, "wooden-crate.jpg");
+  auto box_mesh2 = meshes::CreateSphere(0.5f, "image");
   // box_mesh2.materials[0].SetTexture("Diffuse", "wooden-crate.jpg");
   box_mesh2.materials[0].ambient =
       Rgb::From(Color::White);  // fix ambient color on material
   box_mesh2.materials[0].specular  = Rgb::From(Color::White);
-  box_mesh2.materials[0].shininess = 80.0f;
+  box_mesh2.materials[0].shininess = 10.0f;
   auto box2 = CompileMesh(box_mesh2, &material_shader_cache, &texture_cache);
 
   auto light_mesh                = meshes::CreateCube(0.2f);
