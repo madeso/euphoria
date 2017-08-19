@@ -74,7 +74,7 @@ class CompiledMesh
   Render(const mat4f& model_matrix, const mat4f& projection_matrix,
          const mat4f& view_matrix, const vec3f& camera, const Light& light,
          const std::vector<std::shared_ptr<CompiledMeshMaterial>>&
-             override_materials);
+             overridden_materials);
 };
 
 std::shared_ptr<CompiledMesh>

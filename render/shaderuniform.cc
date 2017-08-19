@@ -14,9 +14,9 @@ ShaderUniform::ShaderUniform(std::string aname, glint aid, Shader* ashader)
 const ShaderUniform&
 ShaderUniform::Null()
 {
-  static ShaderUniform sNull{};
-  ASSERT(sNull.IsNull());
-  return sNull;
+  static ShaderUniform s_Null{};
+  ASSERT(s_Null.IsNull());
+  return s_Null;
 }
 
 bool
