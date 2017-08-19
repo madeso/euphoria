@@ -1,6 +1,8 @@
 #ifndef CORE_RGB_H
 #define CORE_RGB_H
 
+#include <string>
+
 // from http://www.uize.com/examples/sortable-color-table.html
 enum class Color
 {
@@ -146,6 +148,15 @@ enum class Color
   YellowGreen,
   MAX_VALUE
 };
+
+namespace color
+{
+  bool
+  IsValidLowerCase(const std::string& name);
+
+  Color
+  GetColorFromLowerCaseString(const std::string& name);
+}
 
 // RGB source
 // http://pixeljoint.com/forum/forum_posts.asp?TID=12795
