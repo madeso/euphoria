@@ -11,8 +11,12 @@ class ShaderUniform
 {
  public:
   ShaderUniform(std::string aname, glint aid, Shader* ashader);
-  static ShaderUniform
+
+  static const ShaderUniform&
   Null();
+
+  bool
+  IsNull() const;
 
   std::string name;
   glint       id;

@@ -372,7 +372,7 @@ main(int argc, char** argv)
   FileSystemRootFolder::AddRoot(&file_system);
   catalog->RegisterFileString(
       "default_shader.json",
-      R"(  {"has_light": true, "has_color": true, "textures": [ {"texture": "Diffuse", "uniform": "uTexture"} ]}  )");
+      R"(  {"has_light": true, "ambient": "uMaterial.ambient", "diffuse": "uMaterial.diffuse", "specular": "uMaterial.specular", "shininess": "uMaterial.shininess", "textures": [ {"texture": "Diffuse", "uniform": "uTexture"} ]}  )");
   catalog->RegisterFileString(
       "default_shader.vert",
       "#version 330 core\n"
@@ -454,7 +454,7 @@ main(int argc, char** argv)
       "}\n");
 
   catalog->RegisterFileString("basic_shader.json",
-                              R"(  {"has_color": true, "textures": []}  )");
+                              R"(  {"diffuse": "uDiffuse", "textures": []}  )");
   catalog->RegisterFileString(
       "basic_shader.vert",
       "#version 330 core\n"
@@ -472,18 +472,13 @@ main(int argc, char** argv)
   catalog->RegisterFileString("basic_shader.frag",
                               "#version 330 core\n"
                               "\n"
-                              "struct Material\n"
-                              "{\n"
-                              "  vec3 diffuse;\n"
-                              "};\n"
-                              "\n"
-                              "uniform Material uMaterial;\n"
+                              "uniform vec3 uDiffuse;\n"
                               "\n"
                               "out vec4 FragColor;\n"
                               "\n"
                               "void main()\n"
                               "{\n"
-                              "    FragColor = vec4(uMaterial.diffuse, 1.0);\n"
+                              "    FragColor = vec4(uDiffuse, 1.0);\n"
                               "}\n");
 
   catalog->RegisterFileString("texture_types.json",

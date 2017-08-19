@@ -36,7 +36,6 @@ MaterialShader::MaterialShader()
     : projection_(ShaderUniform::Null())
     , view_(ShaderUniform::Null())
     , model_(ShaderUniform::Null())
-    , has_color_(false)
     , ambient_(ShaderUniform::Null())
     , diffuse_(ShaderUniform::Null())
     , specular_(ShaderUniform::Null())
@@ -70,8 +69,7 @@ MaterialShader::Load(FileSystem* file_system, const std::string& path)
     // todo: set default shader names
   }
 
-  hasLight_  = material_shader_file.has_light();
-  has_color_ = material_shader_file.has_color();
+  hasLight_ = material_shader_file.has_light();
 
   for(const auto& texture : material_shader_file.textures())
   {
@@ -87,12 +85,21 @@ MaterialShader::Load(FileSystem* file_system, const std::string& path)
   view_       = shader_.GetUniform("uView");
   model_      = shader_.GetUniform("uModel");
 
-  if(has_color_)
+  if(material_shader_file.has_ambient())
   {
-    ambient_   = shader_.GetUniform("uMaterial.ambient");
-    diffuse_   = shader_.GetUniform("uMaterial.diffuse");
-    specular_  = shader_.GetUniform("uMaterial.specular");
-    shininess_ = shader_.GetUniform("uMaterial.shininess");
+    ambient_ = shader_.GetUniform(material_shader_file.ambient());
+  }
+  if(material_shader_file.has_diffuse())
+  {
+    diffuse_ = shader_.GetUniform(material_shader_file.diffuse());
+  }
+  if(material_shader_file.has_specular())
+  {
+    specular_ = shader_.GetUniform(material_shader_file.specular());
+  }
+  if(material_shader_file.has_shininess())
+  {
+    shininess_ = shader_.GetUniform(material_shader_file.shininess());
   }
 
   if(hasLight_)
@@ -160,20 +167,27 @@ void
 MaterialShader::SetColors(const Rgb& ambient, const Rgb& diffuse,
                           const Rgb& specular, float shininess)
 {
-  if(has_color_)
+  if(!ambient_.IsNull())
   {
     shader_.SetUniform(ambient_, ambient);
+  }
+
+  if(!diffuse_.IsNull())
+  {
     shader_.SetUniform(diffuse_, diffuse);
-    if(shininess > 0)
-    {
-      shader_.SetUniform(specular_, specular);
-      shader_.SetUniform(shininess_, shininess);
-    }
-    else
-    {
-      shader_.SetUniform(specular_, Rgb::From(Color::Black));
-      shader_.SetUniform(shininess_, 1.0f);
-    }
+  }
+
+  if(!specular_.IsNull())
+  {
+    const auto the_specular =
+        shininess > 0 ? specular : Rgb::From(Color::Black);
+    shader_.SetUniform(specular_, the_specular);
+  }
+
+  if(!shininess_.IsNull())
+  {
+    const auto the_shininess = shininess > 0 ? shininess : 1.0f;
+    shader_.SetUniform(shininess_, the_shininess);
   }
 }
 

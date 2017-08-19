@@ -10,5 +10,9 @@ message MaterialShader
 {
   repeated Binding textures = 1;
   optional bool has_light = 2;
-  optional bool has_color = 3;
+
+  optional string ambient = 3;
+  optional string diffuse = 4;
+  optional string specular = 5;
+  optional string shininess = 6;
 }
