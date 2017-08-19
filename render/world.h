@@ -16,7 +16,7 @@ class World
 {
  public:
   void
-  AddActor(std::shared_ptr<Actor> actor);
+  AddActor(const std::shared_ptr<Actor>& actor);
 
   // todo: improve light support
   Light light;

@@ -8,7 +8,7 @@
 #include "core/assert.h"
 
 void
-World::AddActor(std::shared_ptr<Actor> actor)
+World::AddActor(const std::shared_ptr<Actor>& actor)
 {
   actors_.push_back(actor);
 }

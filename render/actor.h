@@ -11,7 +11,7 @@
 class Actor
 {
  public:
-  Actor(std::shared_ptr<CompiledMesh> mesh);
+  Actor(const std::shared_ptr<CompiledMesh>& mesh);
 
   const vec3f&
   GetPosition();

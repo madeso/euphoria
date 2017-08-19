@@ -32,7 +32,7 @@ class CompiledMeshMaterial
   CompiledMeshMaterial();
 
   void
-  SetShader(std::shared_ptr<MaterialShader> shader);
+  SetShader(const std::shared_ptr<MaterialShader>& shader);
 
   void
   SetColors(const Rgb& ambient, const Rgb& diffuse, const Rgb& specular,

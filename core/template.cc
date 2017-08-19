@@ -129,7 +129,7 @@ class TemplateNodeList : public TemplateNode
   }
 
   void
-  Add(std::shared_ptr<TemplateNode> node)
+  Add(const std::shared_ptr<TemplateNode>& node)
   {
     nodes_.push_back(node);
   }

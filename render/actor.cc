@@ -2,7 +2,7 @@
 
 #include "core/assert.h"
 
-Actor::Actor(std::shared_ptr<CompiledMesh> mesh)
+Actor::Actor(const std::shared_ptr<CompiledMesh>& mesh)
     : mesh_(mesh)
     , position_(vec3f::Origo())
     , rotation_(quatf::Identity())

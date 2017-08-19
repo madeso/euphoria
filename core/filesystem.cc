@@ -47,7 +47,7 @@ FileSystem::FileSystem() = default;
 FileSystem::~FileSystem() = default;
 
 void
-FileSystem::AddRoot(std::shared_ptr<FileSystemRoot> root)
+FileSystem::AddRoot(const std::shared_ptr<FileSystemRoot>& root)
 {
   roots_.push_back(root);
 }
@@ -98,7 +98,7 @@ FileSystemRootCatalog::RegisterFileString(const std::string& path,
 
 void
 FileSystemRootCatalog::RegisterFileData(
-    const std::string& path, const std::shared_ptr<MemoryChunk> content)
+    const std::string& path, const std::shared_ptr<MemoryChunk>& content)
 {
   catalog_.insert(std::make_pair(path, content));
 }

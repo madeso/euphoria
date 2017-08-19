@@ -29,7 +29,7 @@ CompiledMeshMaterial::CompiledMeshMaterial()
 }
 
 void
-CompiledMeshMaterial::SetShader(std::shared_ptr<MaterialShader> shader)
+CompiledMeshMaterial::SetShader(const std::shared_ptr<MaterialShader>& shader)
 {
   Assert(shader);
   shader_ = shader;
@@ -53,7 +53,7 @@ CompiledMeshMaterial::SetTexture(const EnumValue&           name,
   {
     LOG_WARN(name.ToString() << " is already assigned, overwriting...");
   }
-  textures_[name] = texture;
+  textures_[name] = std::move(texture);
 }
 
 void
@@ -154,7 +154,7 @@ class AttributeBinder
   }
 
   void
-  Bind(std::shared_ptr<CompiledMeshPart> part)
+  Bind(const std::shared_ptr<CompiledMeshPart>& part)
   {
     int stride = 0;
     for(const auto& d : bind_datas_)
