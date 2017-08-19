@@ -1,31 +1,34 @@
-#include <SDL2/SDL.h>
-#include <iostream>
 #include <core/mat4.h>
+#include "core/draw.h"
+#include "core/random.h"
+#include "core/shufflebag.h"
+#include "core/filesystem.h"
+#include "core/mat4.h"
+#include "core/axisangle.h"
+#include "core/aabb.h"
+#include "core/texturetypes.h"
+#include "core/filesystemimagegenerator.h"
+
 #include <render/init.h>
 #include <render/debuggl.h>
 #include <render/materialshader.h>
-#include <memory>
 #include <render/compiledmesh.h>
 #include <render/texturecache.h>
 #include "render/shaderattribute3d.h"
 #include "render/texture.h"
-#include "core/filesystem.h"
-#include "core/draw.h"
-#include "core/random.h"
-#include "core/shufflebag.h"
 #include "render/world.h"
 #include "render/viewport.h"
 #include "render/camera.h"
-#include "core/mat4.h"
-#include "core/axisangle.h"
-#include "core/aabb.h"
 #include "render/materialshadercache.h"
-#include "core/texturetypes.h"
 
 #include "window/imgui.h"
-#include "imgui/imgui.h"
-
 #include "window/timer.h"
+
+#include "imgui/imgui.h"
+#include <SDL2/SDL.h>
+#include <iostream>
+#include <memory>
+
 
 void
 SetupSdlOpenGlAttributes()
@@ -370,9 +373,10 @@ main(int argc, char** argv)
   FileSystem file_system;
   auto       catalog = FileSystemRootCatalog::AddRoot(&file_system);
   FileSystemRootFolder::AddRoot(&file_system);
+  FileSystemImageGenerator::AddRoot(&file_system, "img-plain");
   catalog->RegisterFileString(
       "default_shader.json",
-      R"(  {"has_light": true, "ambient": "uMaterial.ambient", "diffuse": "uMaterial.diffuse", "specular": "uMaterial.specular", "shininess": "uMaterial.shininess", "textures": [ {"texture": "Diffuse", "uniform": "uTexture"} ]}  )");
+      R"(  {"has_light": true, "ambient": "uMaterial.ambient", "diffuse": "uMaterial.diffuse", "specular": "uMaterial.specular", "shininess": "uMaterial.shininess", "textures": [ {"texture": "Diffuse", "uniform": "uDiffuseMap"}, {"texture": "Specular", "uniform": "uSpecularMap"} ]}  )");
   catalog->RegisterFileString(
       "default_shader.vert",
       "#version 330 core\n"
@@ -422,7 +426,8 @@ main(int argc, char** argv)
       "in vec3 normal;\n"
       "in vec3 fragPositionWorld;\n"
       "\n"
-      "uniform sampler2D uTexture;\n"
+      "uniform sampler2D uDiffuseMap;\n"
+      "uniform sampler2D uSpecularMap;\n"
       "\n"
       "uniform Light uLight;\n"
       "uniform vec3 uViewPosition;\n"
@@ -446,9 +451,11 @@ main(int argc, char** argv)
       "    vec3 specular = specularStrength * uMaterial.specular * spec * "
       "uLight.specular;\n"
       "    \n"
-      "    vec3 object_color = texture(uTexture, texCoord).rgb;\n"
+      "    vec3 object_color = texture(uDiffuseMap, texCoord).rgb;\n"
+      "    vec3 specular_map = texture(uSpecularMap, texCoord).rgb;\n"
       "    \n"
-      "    vec3 result = (ambient + diffuse + specular) * object_color;\n"
+      "    vec3 result = (ambient + diffuse) * object_color + "
+      "specular * specular_map;\n"
       "    \n"
       "    FragColor = vec4(result, 1.0);\n"
       "}\n");
@@ -482,7 +489,7 @@ main(int argc, char** argv)
                               "}\n");
 
   catalog->RegisterFileString("texture_types.json",
-                              R"({"name" : ["Diffuse"]})");
+                              R"({"name" : ["Diffuse", "Specular"]})");
 
   MaterialShaderCache material_shader_cache{&file_system};
 
@@ -520,7 +527,8 @@ main(int argc, char** argv)
   World world;
 
   auto box_mesh1 = meshes::CreateCube(0.5f);
-  box_mesh1.materials[0].SetTexture("Diffuse", "wooden-crate.jpg");
+  box_mesh1.materials[0].SetTexture("Diffuse", "container2.png");
+  box_mesh1.materials[0].SetTexture("Specular", "container2_specular.png");
   box_mesh1.materials[0].ambient =
       Rgb::From(Color::White);  // fix ambient color on material
   box_mesh1.materials[0].specular  = Rgb::From(Color::White);
@@ -528,7 +536,7 @@ main(int argc, char** argv)
   auto box1 = CompileMesh(box_mesh1, &material_shader_cache, &texture_cache);
 
   auto box_mesh2 = meshes::CreateSphere(0.5f, "image");
-  // box_mesh2.materials[0].SetTexture("Diffuse", "wooden-crate.jpg");
+  box_mesh2.materials[0].SetTexture("Specular", "img-plain/white");
   box_mesh2.materials[0].ambient =
       Rgb::From(Color::White);  // fix ambient color on material
   box_mesh2.materials[0].specular  = Rgb::From(Color::White);
@@ -609,7 +617,7 @@ main(int argc, char** argv)
 
         ImGui::SetNextWindowSize(ImVec2(200, 100), ImGuiSetCond_FirstUseEver);
         ImGui::Begin("Light");
-        ImGui::ColorEdit3("Abmient", world.light.ModifyAmbient()->GetData());
+        ImGui::ColorEdit3("Ambient", world.light.ModifyAmbient()->GetData());
         ImGui::ColorEdit3("Diffuse", world.light.ModifyDiffuse()->GetData());
         ImGui::ColorEdit3("Specular", world.light.ModifySpecular()->GetData());
         ImGui::End();
