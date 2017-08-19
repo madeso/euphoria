@@ -260,14 +260,35 @@ CompileMesh(const Mesh& mesh, MaterialShaderCache* shader_cache,
   return ret;
 }
 
+std::vector<std::shared_ptr<CompiledMeshMaterial>>
+CompiledMesh::GetNoOverriddenMaterials() const
+{
+  std::vector<std::shared_ptr<CompiledMeshMaterial>> ret;
+  ret.reserve(materials.size());
+
+  for(unsigned int i = 0; i < materials.size(); ++i)
+  {
+    ret.push_back(nullptr);
+  }
+
+  return ret;
+}
+
 void
 CompiledMesh::Render(const mat4f& model_matrix, const mat4f& projection_matrix,
                      const mat4f& view_matrix, const vec3f& camera,
-                     const Light& light)
+                     const Light& light,
+                     const std::vector<std::shared_ptr<CompiledMeshMaterial>>&
+                         overridden_materials)
 {
+  ASSERT(materials.size() == overridden_materials.size());
+
   for(const auto& part : parts)
   {
-    const CompiledMeshMaterial& material = materials[part->material];
+    const auto& base_material       = materials[part->material];
+    const auto& overridden_material = overridden_materials[part->material];
+    const auto& material =
+        overridden_material == nullptr ? base_material : *overridden_material;
 
     material.Apply(model_matrix, projection_matrix, view_matrix, camera, light);
 

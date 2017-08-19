@@ -326,6 +326,7 @@ namespace meshes
        << "f 4/1 8/2 7/3 3/4" << std::endl
        << "f 5/1 6/2 2/3 1/4" << std::endl;
 
-    return LoadFromString(ss.str(), kFileFormatObj);
+    auto box = LoadFromString(ss.str(), kFileFormatObj);
+    return box;
   }
 }  // namespace meshes

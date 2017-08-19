@@ -15,24 +15,40 @@ class Actor
 
   const vec3f&
   GetPosition();
+
   const quatf&
   GetRotation();
 
   void
   SetPosition(const vec3f& position);
+
   void
   SetRotation(const quatf& rotation);
 
+  void
+  BeginMaterialOverride(unsigned int index);
+
+  bool
+  IsMaterialOverridden(unsigned int index) const;
+
+  CompiledMeshMaterial*
+  GetOverriddenMaterial(unsigned int index);
+
+  void
+  EndMaterialOverride(unsigned int index);
+
   mat4f
   GetModelMatrix() const;
+
   void
   Render(const mat4f& projection_matrix, const mat4f& view_matrix,
          const vec3f& camera, const Light& light);
 
  private:
-  std::shared_ptr<CompiledMesh> mesh_;
-  vec3f                         position_;
-  quatf                         rotation_;
+  std::shared_ptr<CompiledMesh>                      mesh_;
+  vec3f                                              position_;
+  quatf                                              rotation_;
+  std::vector<std::shared_ptr<CompiledMeshMaterial>> overridden_materials_;
 };
 
 

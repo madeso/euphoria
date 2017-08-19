@@ -6,6 +6,7 @@ Actor::Actor(const std::shared_ptr<CompiledMesh>& mesh)
     : mesh_(mesh)
     , position_(vec3f::Origo())
     , rotation_(quatf::Identity())
+    , overridden_materials_(mesh->GetNoOverriddenMaterials())
 {
   ASSERT(mesh);
 }
@@ -34,6 +35,38 @@ Actor::SetRotation(const quatf& rotation)
   rotation_ = rotation;
 }
 
+void
+Actor::BeginMaterialOverride(unsigned int index)
+{
+  ASSERT(index < overridden_materials_.size());
+  ASSERT(!IsMaterialOverridden(index));
+  overridden_materials_[index] =
+      std::make_shared<CompiledMeshMaterial>(mesh_->materials[index]);
+}
+
+bool
+Actor::IsMaterialOverridden(unsigned int index) const
+{
+  ASSERT(index < overridden_materials_.size());
+  return overridden_materials_[index] != nullptr;
+}
+
+CompiledMeshMaterial*
+Actor::GetOverriddenMaterial(unsigned int index)
+{
+  ASSERT(index < overridden_materials_.size());
+  ASSERT(IsMaterialOverridden(index));
+  return overridden_materials_[index].get();
+}
+
+void
+Actor::EndMaterialOverride(unsigned int index)
+{
+  ASSERT(index < overridden_materials_.size());
+  ASSERT(!IsMaterialOverridden(index));
+  overridden_materials_[index] = nullptr;
+}
+
 mat4f
 Actor::GetModelMatrix() const
 {
@@ -44,6 +77,6 @@ void
 Actor::Render(const mat4f& projection_matrix, const mat4f& view_matrix,
               const vec3f& camera, const Light& light)
 {
-  mesh_->Render(GetModelMatrix(), projection_matrix, view_matrix, camera,
-                light);
+  mesh_->Render(GetModelMatrix(), projection_matrix, view_matrix, camera, light,
+                overridden_materials_);
 }

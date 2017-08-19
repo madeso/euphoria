@@ -454,7 +454,7 @@ main(int argc, char** argv)
       "}\n");
 
   catalog->RegisterFileString("basic_shader.json",
-                              R"(  {"textures": []}  )");
+                              R"(  {"has_color": true, "textures": []}  )");
   catalog->RegisterFileString(
       "basic_shader.vert",
       "#version 330 core\n"
@@ -471,11 +471,19 @@ main(int argc, char** argv)
       "}\n");
   catalog->RegisterFileString("basic_shader.frag",
                               "#version 330 core\n"
+                              "\n"
+                              "struct Material\n"
+                              "{\n"
+                              "  vec3 diffuse;\n"
+                              "};\n"
+                              "\n"
+                              "uniform Material uMaterial;\n"
+                              "\n"
                               "out vec4 FragColor;\n"
                               "\n"
                               "void main()\n"
                               "{\n"
-                              "    FragColor = vec4(1.0, 1.0, 1.0, 1.0);\n"
+                              "    FragColor = vec4(uMaterial.diffuse, 1.0);\n"
                               "}\n");
 
   catalog->RegisterFileString("texture_types.json",
@@ -576,6 +584,8 @@ main(int argc, char** argv)
 
   auto light_actor = std::make_shared<Actor>(light);
   world.AddActor(light_actor);
+  light_actor->BeginMaterialOverride(0);
+  auto* light_material = light_actor->GetOverriddenMaterial(0);
 
   Camera camera;
   camera.SetPosition(vec3f(0, 0, 0));
@@ -608,6 +618,10 @@ main(int argc, char** argv)
         ImGui::ColorEdit3("Diffuse", world.light.ModifyDiffuse()->GetData());
         ImGui::ColorEdit3("Specular", world.light.ModifySpecular()->GetData());
         ImGui::End();
+
+        light_material->SetColors(world.light.GetAmbient(),
+                                  world.light.GetDiffuse(),
+                                  world.light.GetSpecular(), 10);
       }
     }
 
