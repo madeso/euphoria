@@ -3,6 +3,8 @@
 
 #include <memory>
 
+#include "core/ints.h"
+
 class MemoryChunk
 {
  public:
@@ -12,19 +14,19 @@ class MemoryChunk
   const char*
   GetData() const;
 
-  unsigned long
+  fuint64
   GetSize() const;
 
   static std::shared_ptr<MemoryChunk>
-  Alloc(unsigned long size);
+  Alloc(fuint64 size);
 
   static std::shared_ptr<MemoryChunk>
   Null();
 
  private:
-  explicit MemoryChunk(unsigned long size);
-  std::unique_ptr<char[]>            data_;
-  unsigned long                      size_;
+  explicit MemoryChunk(fuint64 size);
+  std::unique_ptr<char[]>      data_;
+  fuint64                      size_;
 };
 
 void
@@ -36,10 +38,10 @@ class MemoryChunkFile
   explicit MemoryChunkFile(std::shared_ptr<MemoryChunk> d);
 
   void
-  Write(void* src, unsigned long size);
+  Write(void* src, fuint64 size);
 
   std::shared_ptr<MemoryChunk> data;
-  unsigned long                position;
+  fuint64                      position;
 };
 
 

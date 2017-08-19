@@ -4,6 +4,8 @@
 #include <string>
 #include <vector>
 #include <memory>
+
+#include "core/ints.h"
 #include "core/rgb.h"
 #include "core/memorychunk.h"
 #include "core/filesystem.h"
@@ -54,7 +56,8 @@ class Image
  private:
   int
   GetPixelByteSize() const;
-  unsigned long
+
+  fuint64
   GetPixelIndex(int x, int y) const;
 
   // todo: replace with a array instead of a vector

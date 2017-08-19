@@ -57,13 +57,13 @@ Image::Setup(int image_width, int image_height, bool alpha, int default_value)
   Assert(IsValid());
 }
 
-unsigned long
+fuint64
 Image::GetPixelIndex(int x, int y) const
 {
   Assert(x >= 0 && x < width_);
   Assert(y >= 0 && y < height_);
 
-  return (y * static_cast<unsigned long>(width_) + x) * GetPixelByteSize();
+  return (y * static_cast<fuint64>(width_) + x) * GetPixelByteSize();
 }
 
 namespace  // local
@@ -101,10 +101,10 @@ Image::SetPixel(int x, int y, unsigned char r, unsigned char g, unsigned char b,
   Assert(IsWithinInclusivei(0, x, GetWidth() - 1));
   Assert(IsWithinInclusivei(0, y, GetHeight() - 1));
 
-  const unsigned long base_index = GetPixelIndex(x, y);
-  components[base_index + 0]     = r;
-  components[base_index + 1]     = g;
-  components[base_index + 2]     = b;
+  const auto base_index      = GetPixelIndex(x, y);
+  components[base_index + 0] = r;
+  components[base_index + 1] = g;
+  components[base_index + 2] = b;
 
   if(has_alpha_)
   {
@@ -118,7 +118,7 @@ Image::GetPixel(int x, int y) const
   Assert(IsWithinInclusivei(0, x, GetWidth() - 1));
   Assert(IsWithinInclusivei(0, y, GetHeight() - 1));
 
-  const unsigned long base_index = GetPixelIndex(x, y);
+  const auto base_index = GetPixelIndex(x, y);
 
   const float red   = ToFloat(components[base_index + 0]);
   const float green = ToFloat(components[base_index + 1]);
@@ -165,7 +165,7 @@ namespace  // local
   DetermineImageSize(void* context, void* /*unused*/, int size)
   {
     Assert(size >= 0);
-    auto* total_size = static_cast<unsigned long*>(context);
+    auto* total_size = static_cast<fuint64*>(context);
     *total_size += size;
   }
 
@@ -202,9 +202,9 @@ WriteImageData(stbi_write_func* func, void* context, int w, int h, int comp,
 std::shared_ptr<MemoryChunk>
 Image::Write(ImageWriteFormat format, int jpeg_quality) const
 {
-  unsigned long size = 0;
-  const int     comp = has_alpha_ ? 4 : 3;
-  int           size_result =
+  fuint64   size = 0;
+  const int comp = has_alpha_ ? 4 : 3;
+  int       size_result =
       WriteImageData(DetermineImageSize, &size, GetWidth(), GetHeight(), comp,
                      GetPixelData(), format, jpeg_quality);
   if(size_result == 0)
@@ -297,8 +297,8 @@ LoadImage(FileSystem* fs, const std::string& path, AlphaLoad alpha)
   {
     for(int x = 0; x < image_width; ++x)
     {
-      const unsigned long src_index =
-          (y * static_cast<unsigned long>(image_width) + x) * channels;
+      const fuint64 src_index =
+          (y * static_cast<fuint64>(image_width) + x) * channels;
 
       // get component values
       const unsigned char zero = 0;

@@ -15,14 +15,14 @@ MemoryChunk::GetData() const
   return data_.get();
 }
 
-unsigned long
+fuint64
 MemoryChunk::GetSize() const
 {
   return size_;
 }
 
 std::shared_ptr<MemoryChunk>
-MemoryChunk::Alloc(unsigned long size)
+MemoryChunk::Alloc(fuint64 size)
 {
   std::shared_ptr<MemoryChunk> ret{new MemoryChunk(size)};
   return ret;
@@ -35,7 +35,7 @@ MemoryChunk::Null()
   return ret;
 }
 
-MemoryChunk::MemoryChunk(unsigned long size)
+MemoryChunk::MemoryChunk(fuint64 size)
     : size_(size)
 {
   Assert(size > 0);
@@ -55,7 +55,7 @@ MemoryChunkFile::MemoryChunkFile(std::shared_ptr<MemoryChunk> d)
 }
 
 void
-MemoryChunkFile::Write(void* src, unsigned long size)
+MemoryChunkFile::Write(void* src, fuint64 size)
 {
   Assert(position + size <= data->GetSize());
   std::memcpy(data->GetData() + position, src, sizeof(char) * size);

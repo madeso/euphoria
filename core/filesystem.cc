@@ -3,6 +3,7 @@
 #include <fstream>
 
 #include "core/assert.h"
+#include "core/ints.h"
 #include "core/stringutils.h"
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -145,7 +146,7 @@ FileSystemRootFolder::ReadFile(const std::string& path)
   }
 
   is.seekg(0, is.end);
-  long length = is.tellg();
+  fint64 length = is.tellg();
   is.seekg(0, is.beg);
 
   if(length <= 0)
