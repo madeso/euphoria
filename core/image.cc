@@ -162,7 +162,7 @@ Image::GetPixelData() const
 namespace  // local
 {
   void
-  DetermineImageSize(void* context, void*, int size)
+  DetermineImageSize(void* context, void* /*unused*/, int size)
   {
     Assert(size >= 0);
     auto* total_size = static_cast<unsigned long*>(context);

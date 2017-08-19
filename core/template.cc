@@ -54,7 +54,7 @@ TemplateError::HasErrors() const
 }
 
 void
-TemplateError::AddError(const std::string& file, int line, int,
+TemplateError::AddError(const std::string& file, int line, int /*unused*/,
                         const std::string& error)
 {
   const std::string message = Str() << file << ":" << line << ":"
@@ -102,7 +102,8 @@ class TemplateNodeString : public TemplateNode
   {
   }
   void
-  Eval(Defines*, std::ostringstream* out, TemplateError*) override
+  Eval(Defines* /*defines*/, std::ostringstream* out,
+       TemplateError* /*error*/) override
   {
     Assert(out);
     *out << text_;
@@ -221,7 +222,8 @@ class TemplateNodeSet : public TemplateNode
   }
 
   void
-  Eval(Defines* defines, std::ostringstream* out, TemplateError*) override
+  Eval(Defines* defines, std::ostringstream* out,
+       TemplateError* /*error*/) override
   {
     Assert(out);
     Assert(defines);
@@ -518,7 +520,8 @@ LoadFromFilesystemToNodeList(FileSystem* fs, const std::string& path,
 // -----------------------------------------------------------------------------
 
 std::shared_ptr<TemplateNodeString>
-ReadText(LexReader* reader, TemplateError*, const std::string&, FileSystem*)
+ReadText(LexReader* reader, TemplateError* /*unused*/,
+         const std::string& /*unused*/, FileSystem* /*unused*/)
 {
   Assert(reader);
   const Lex& lex = reader->Read();
@@ -531,7 +534,7 @@ ReadText(LexReader* reader, TemplateError*, const std::string&, FileSystem*)
 
 std::shared_ptr<TemplateNodeEval>
 ReadEval(LexReader* reader, TemplateError* errors, const std::string& file,
-         FileSystem*)
+         FileSystem* /*unused*/)
 {
   Assert(reader);
   const Lex& lex = reader->Read();
@@ -551,7 +554,7 @@ ReadEval(LexReader* reader, TemplateError* errors, const std::string& file,
 
 std::shared_ptr<TemplateNodeSet>
 ReadSet(LexReader* reader, TemplateError* errors, const std::string& file,
-        FileSystem*)
+        FileSystem* /*unused*/)
 {
   Assert(reader);
   const Lex& name = reader->Read();
