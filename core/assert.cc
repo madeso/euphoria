@@ -29,7 +29,7 @@ namespace
   std::vector<std::string>
   RunBacktrace(int skip)
   {
-    // TODO: replace hardcoded limit?
+    // todo replace hardcoded limit?
     void*     addresses[256];
     const int n = ::backtrace(static_cast<void**>(addresses),
                               std::extent<decltype(addresses)>::value);

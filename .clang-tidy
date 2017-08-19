@@ -1,4 +1,4 @@
-Checks: "*,-cppcoreguidelines-pro-bounds-pointer-arithmetic,-llvm-include-order,-google-readability-todo"
+Checks: "*,-cppcoreguidelines-pro-bounds-pointer-arithmetic,-llvm-include-order"
 CheckOptions:
   - key:             readability-identifier-naming.ClassCase
     value:           CamelCase
