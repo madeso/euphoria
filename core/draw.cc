@@ -280,7 +280,7 @@ GetCharGlyph(char ac)
   auto c = static_cast<int>(ac);
   Assert(c >= 0);
   Assert(c < 128);
-  return gsl::at(font8x8_basic, c);
+  return static_cast<const unsigned char*>(gsl::at(font8x8_basic, c));
 }
 
 void

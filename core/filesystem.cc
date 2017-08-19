@@ -25,14 +25,16 @@ namespace
   {
     char current_directory[FILENAME_MAX];
 
-    if(!GET_CURRENT_DIR(current_directory, sizeof(current_directory)))
+    if(!GET_CURRENT_DIR(static_cast<char*>(current_directory),
+                        sizeof(current_directory)))
     {
       return "";
     }
 
     current_directory[sizeof(current_directory) - 1] = 0;
 
-    return current_directory;
+    const std::string ret = static_cast<char*>(current_directory);
+    return ret;
   }
 }  // namespace
 

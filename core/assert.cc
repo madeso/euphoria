@@ -31,10 +31,11 @@ namespace
   {
     // TODO: replace hardcoded limit?
     void*     addresses[256];
-    const int n =
-        ::backtrace(addresses, std::extent<decltype(addresses)>::value);
+    const int n = ::backtrace(static_cast<void**>(addresses),
+                              std::extent<decltype(addresses)>::value);
     const std::unique_ptr<char*, decltype(&std::free)> symbols(
-        ::backtrace_symbols(addresses, n), &std::free);
+        ::backtrace_symbols(static_cast<void* const*>(addresses), n),
+        &std::free);
 
     std::vector<std::string> ret;
     for(int i = skip; i < n; ++i)

@@ -18,20 +18,23 @@ namespace assertlib
 }
 
 // todo: stb libraries and rapidjson aren't using our assert
-#define Assert(x)                                                         \
-  do                                                                      \
-  {                                                                       \
-    if(x)                                                                 \
-    {                                                                     \
-    }                                                                     \
-    else                                                                  \
-    {                                                                     \
-      ::assertlib::OnAssert(#x, __LINE__, __FILE__, __PRETTY_FUNCTION__); \
-    }                                                                     \
+#define Assert(x)                                               \
+  do                                                            \
+  {                                                             \
+    if(x)                                                       \
+    {                                                           \
+    }                                                           \
+    else                                                        \
+    {                                                           \
+      ::assertlib::OnAssert(                                    \
+          #x, __LINE__, __FILE__,                               \
+          static_cast<const char* const>(__PRETTY_FUNCTION__)); \
+    }                                                           \
   } while(false)
 
-#define DIE(message) \
-  ::assertlib::OnAssert(message, __LINE__, __FILE__, __PRETTY_FUNCTION__)
+#define DIE(message)                                 \
+  ::assertlib::OnAssert(message, __LINE__, __FILE__, \
+                        static_cast<const char* const>(__PRETTY_FUNCTION__))
 
 #endif
 
