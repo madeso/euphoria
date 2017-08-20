@@ -74,6 +74,10 @@ class MaterialShader
   ShaderUniform lightSpecular_;
   ShaderUniform lightPosition_;
   ShaderUniform lightDirection_;
+  ShaderUniform lightType_;
+  ShaderUniform lightAttenuationConstant_;
+  ShaderUniform lightAttenuationLinear_;
+  ShaderUniform lightAttenuationQuadratic_;
 
   ShaderUniform normalMatrix_;
   ShaderUniform viewPosition_;

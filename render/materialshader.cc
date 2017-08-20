@@ -46,6 +46,10 @@ MaterialShader::MaterialShader()
     , lightSpecular_(ShaderUniform::Null())
     , lightPosition_(ShaderUniform::Null())
     , lightDirection_(ShaderUniform::Null())
+    , lightType_(ShaderUniform::Null())
+    , lightAttenuationConstant_(ShaderUniform::Null())
+    , lightAttenuationLinear_(ShaderUniform::Null())
+    , lightAttenuationQuadratic_(ShaderUniform::Null())
     , normalMatrix_(ShaderUniform::Null())
     , viewPosition_(ShaderUniform::Null())
 {
@@ -110,6 +114,11 @@ MaterialShader::Load(FileSystem* file_system, const std::string& path)
     lightSpecular_  = shader_.GetUniform("uLight.specular");
     lightPosition_  = shader_.GetUniform("uLight.position");
     lightDirection_ = shader_.GetUniform("uLight.direction");
+    lightType_      = shader_.GetUniform("uLight.type");
+
+    lightAttenuationConstant_  = shader_.GetUniform("uLight.attConst");
+    lightAttenuationLinear_    = shader_.GetUniform("uLight.attLin");
+    lightAttenuationQuadratic_ = shader_.GetUniform("uLight.attQuad");
 
     normalMatrix_ = shader_.GetUniform("uNormalMatrix");
     viewPosition_ = shader_.GetUniform("uViewPosition");
@@ -163,6 +172,12 @@ MaterialShader::SetupLight(const Light& light, const vec3f& camera)
   shader_.SetUniform(lightSpecular_, light.GetSpecular());
   shader_.SetUniform(lightPosition_, light.GetPosition());
   shader_.SetUniform(lightDirection_, light.GetDirection());
+  const auto att = light.GetAttenuation();
+  shader_.SetUniform(lightAttenuationConstant_, att.GetConstant());
+  shader_.SetUniform(lightAttenuationLinear_, att.GetLinear());
+  shader_.SetUniform(lightAttenuationQuadratic_, att.GetQuadratic());
+
+  shader_.SetUniform(lightType_, static_cast<int>(light.GetType()));
   shader_.SetUniform(viewPosition_, camera);
 }
 

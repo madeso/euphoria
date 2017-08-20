@@ -1,5 +1,32 @@
 #include "render/light.h"
 
+LightAttenuation::LightAttenuation()
+    : constant_(1.0f)
+    , linear_(0.09f)
+    , quadratic_(0.032f)
+{
+}
+
+float
+LightAttenuation::GetConstant() const
+{
+  return constant_;
+}
+
+float
+LightAttenuation::GetLinear() const
+{
+  return linear_;
+}
+
+float
+LightAttenuation::GetQuadratic() const
+{
+  return quadratic_;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
 Light::Light()
     : type_(Type::Directional)
     , position_(0, 0, 0)
@@ -7,6 +34,7 @@ Light::Light()
     , ambient_(0.3f)
     , diffuse_(Rgb::From(Color::White))
     , specular_(Rgb::From(Color::White))
+
 {
 }
 
@@ -105,4 +133,10 @@ Rgb*
 Light::ModifySpecular()
 {
   return &specular_;
+}
+
+const LightAttenuation&
+Light::GetAttenuation() const
+{
+  return attenuation_;
 }

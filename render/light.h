@@ -4,12 +4,32 @@
 #include "core/vec3.h"
 #include "core/rgb.h"
 
+class LightAttenuation
+{
+ public:
+  LightAttenuation();
+
+  float
+  GetConstant() const;
+
+  float
+  GetLinear() const;
+
+  float
+  GetQuadratic() const;
+
+ private:
+  float constant_;
+  float linear_;
+  float quadratic_;
+};
+
 class Light
 {
  public:
   Light();
 
-  enum class Type
+  enum class Type : int
   {
     Directional,
     Point
@@ -60,6 +80,9 @@ class Light
   Rgb*
   ModifySpecular();
 
+  const LightAttenuation&
+  GetAttenuation() const;
+
  private:
   Type        type_;
   vec3f       position_;
@@ -67,6 +90,8 @@ class Light
   Rgb         ambient_;
   Rgb         diffuse_;
   Rgb         specular_;
+
+  LightAttenuation attenuation_;
 };
 
 
