@@ -1,12 +1,31 @@
 #include "render/light.h"
 
 Light::Light()
-    : position_(0, 0, 0)
+    : type_(Type::Directional)
+    , position_(0, 0, 0)
     , direction_(vec3f{-0.2f, -1.0f, -0.3f}.GetNormalized())
     , ambient_(0.3f)
     , diffuse_(Rgb::From(Color::White))
     , specular_(Rgb::From(Color::White))
 {
+}
+
+void
+Light::SetType(Type type)
+{
+  type_ = type;
+}
+
+Light::Type
+Light::GetType() const
+{
+  return type_;
+}
+
+Light::Type*
+Light::GetTypeMod()
+{
+  return &type_;
 }
 
 void

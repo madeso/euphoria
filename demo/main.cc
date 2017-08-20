@@ -619,6 +619,8 @@ main(int argc, char** argv)
 
         ImGui::SetNextWindowSize(ImVec2(200, 100), ImGuiSetCond_FirstUseEver);
         ImGui::Begin("Light");
+        ImGui::Combo("Type", reinterpret_cast<int*>(world.light.GetTypeMod()),
+                     "Directional\0Point\0Spot\0\0");
         ImGui::ColorEdit3("Ambient", world.light.ModifyAmbient()->GetData());
         ImGui::ColorEdit3("Diffuse", world.light.ModifyDiffuse()->GetData());
         ImGui::ColorEdit3("Specular", world.light.ModifySpecular()->GetData());

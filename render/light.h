@@ -9,6 +9,19 @@ class Light
  public:
   Light();
 
+  enum class Type
+  {
+    Directional,
+    Point
+  };
+
+  void
+  SetType(Type type);
+  Type
+  GetType() const;
+  Type*
+  GetTypeMod();
+
   void
   SetPosition(const vec3f& pos);
   const vec3f&
@@ -48,6 +61,7 @@ class Light
   ModifySpecular();
 
  private:
+  Type        type_;
   vec3f       position_;
   vec3f::Unit direction_;
   Rgb         ambient_;
