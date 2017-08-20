@@ -23,6 +23,7 @@
 
 #include "window/imguilibrary.h"
 #include "window/timer.h"
+#include "window/imgui.h"
 
 #include "imgui/imgui.h"
 #include <SDL2/SDL.h>
@@ -658,9 +659,8 @@ main(int argc, char** argv)
         ImGui::Combo("Update", &light_update,
                      "Do nothing\0Follow actor\0Follow camera\0\0");
 
-        float angle = world.light.GetCutoffAngle().InDegrees();
-        ImGui::SliderFloat("Cutoff Angle", &angle, 0, 45);
-        world.light.SetCutoffAngle(Angle::FromDegrees(angle));
+        ImguiAngleSlider("Cutoff Angle", world.light.GetCutoffAngleMod(), 0,
+                         45);
 
         ImGui::End();
 

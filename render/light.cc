@@ -152,3 +152,9 @@ Light::SetCutoffAngle(const Angle& angle)
 {
   cutoffAngle_ = angle;
 }
+
+Angle*
+Light::GetCutoffAngleMod()
+{
+  return &cutoffAngle_;
+}
