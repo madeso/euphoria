@@ -2,6 +2,7 @@
 
 Light::Light()
     : position_(0, 0, 0)
+    , direction_(vec3f{-0.2f, -1.0f, -0.3f}.GetNormalized())
     , ambient_(0.3f)
     , diffuse_(Rgb::From(Color::White))
     , specular_(Rgb::From(Color::White))
@@ -18,6 +19,18 @@ const vec3f&
 Light::GetPosition() const
 {
   return position_;
+}
+
+void
+Light::SetDirection(const vec3f::Unit& direction)
+{
+  direction_ = direction;
+}
+
+const vec3f::Unit&
+Light::GetDirection() const
+{
+  return direction_;
 }
 
 void

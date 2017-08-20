@@ -15,6 +15,12 @@ class Light
   GetPosition() const;
 
   void
+  SetDirection(const vec3f::Unit& direction);
+
+  const vec3f::Unit&
+  GetDirection() const;
+
+  void
   SetAmbient(const Rgb& c);
 
   const Rgb&
@@ -42,10 +48,11 @@ class Light
   ModifySpecular();
 
  private:
-  vec3f position_;
-  Rgb   ambient_;
-  Rgb   diffuse_;
-  Rgb   specular_;
+  vec3f       position_;
+  vec3f::Unit direction_;
+  Rgb         ambient_;
+  Rgb         diffuse_;
+  Rgb         specular_;
 };
 
 

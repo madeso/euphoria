@@ -73,6 +73,7 @@ class MaterialShader
   ShaderUniform lightDiffuse_;
   ShaderUniform lightSpecular_;
   ShaderUniform lightPosition_;
+  ShaderUniform lightDirection_;
 
   ShaderUniform normalMatrix_;
   ShaderUniform viewPosition_;
