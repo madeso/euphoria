@@ -11,6 +11,7 @@
 
 #include "render/materialshader.h"
 #include "render/shaderattribute3d.h"
+#include "render/attributebinder.h"
 
 #include "materialshadercache.h"
 #include "texturecache.h"
@@ -142,43 +143,6 @@ namespace  // local
 {
   DEFINE_ENUM_VALUE(TextureType, DiffuseType, "Diffuse");  // NOLINT
 }  // namespace
-
-class AttributeBinder
-{
- public:
-  void
-  Register(const ShaderAttribute& attribute, int size)
-  {
-    bind_datas_.emplace_back(BindData{attribute, size});
-    total_size_ += size;
-  }
-
-  void
-  Bind(const std::shared_ptr<CompiledMeshPart>& part)
-  {
-    int stride = 0;
-    for(const auto& d : bind_datas_)
-    {
-      part->config.BindVboData(d.attribute, total_size_, stride);
-      stride += d.size;
-    }
-  }
-
- private:
-  struct BindData
-  {
-    BindData(ShaderAttribute a, int s)
-        : attribute(std::move(a))
-        , size(s)
-    {
-    }
-    ShaderAttribute attribute;
-    int             size;
-  };
-
-  int                   total_size_ = 0;
-  std::vector<BindData> bind_datas_;
-};
 
 std::shared_ptr<CompiledMesh>
 CompileMesh(const Mesh& mesh, MaterialShaderCache* shader_cache,
