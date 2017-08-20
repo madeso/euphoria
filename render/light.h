@@ -87,6 +87,9 @@ class Light
   const Angle&
   GetCutoffAngle() const;
 
+  void
+  SetCutoffAngle(const Angle& angle);
+
  private:
   Type        type_;
   vec3f       position_;

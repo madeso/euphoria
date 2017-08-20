@@ -658,6 +658,10 @@ main(int argc, char** argv)
         ImGui::Combo("Update", &light_update,
                      "Do nothing\0Follow actor\0Follow camera\0\0");
 
+        float angle = world.light.GetCutoffAngle().InDegrees();
+        ImGui::SliderFloat("Cutoff Angle", &angle, 0, 45);
+        world.light.SetCutoffAngle(Angle::FromDegrees(angle));
+
         ImGui::End();
 
         light_material->SetColors(world.light.GetAmbient(),

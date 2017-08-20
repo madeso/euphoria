@@ -146,3 +146,9 @@ Light::GetCutoffAngle() const
 {
   return cutoffAngle_;
 }
+
+void
+Light::SetCutoffAngle(const Angle& angle)
+{
+  cutoffAngle_ = angle;
+}
