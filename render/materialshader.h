@@ -78,6 +78,7 @@ class MaterialShader
   ShaderUniform lightAttenuationConstant_;
   ShaderUniform lightAttenuationLinear_;
   ShaderUniform lightAttenuationQuadratic_;
+  ShaderUniform lightCutoffAngle_;
 
   ShaderUniform normalMatrix_;
   ShaderUniform viewPosition_;

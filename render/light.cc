@@ -34,7 +34,7 @@ Light::Light()
     , ambient_(0.3f)
     , diffuse_(Rgb::From(Color::White))
     , specular_(Rgb::From(Color::White))
-
+    , cutoffAngle_(Angle::FromDegrees(13.37f))
 {
 }
 
@@ -139,4 +139,10 @@ const LightAttenuation&
 Light::GetAttenuation() const
 {
   return attenuation_;
+}
+
+const Angle&
+Light::GetCutoffAngle() const
+{
+  return cutoffAngle_;
 }

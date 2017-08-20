@@ -3,6 +3,7 @@
 
 #include "core/vec3.h"
 #include "core/rgb.h"
+#include "core/angle.h"
 
 class LightAttenuation
 {
@@ -83,6 +84,9 @@ class Light
   const LightAttenuation&
   GetAttenuation() const;
 
+  const Angle&
+  GetCutoffAngle() const;
+
  private:
   Type        type_;
   vec3f       position_;
@@ -90,6 +94,7 @@ class Light
   Rgb         ambient_;
   Rgb         diffuse_;
   Rgb         specular_;
+  Angle       cutoffAngle_;
 
   LightAttenuation attenuation_;
 };
