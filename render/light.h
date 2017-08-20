@@ -85,13 +85,22 @@ class Light
   GetAttenuation() const;
 
   const Angle&
-  GetCutoffAngle() const;
+  GetCutoffAngleOuter() const;
 
   void
-  SetCutoffAngle(const Angle& angle);
+  SetCutoffAngleOuter(const Angle& angle);
 
   Angle*
-  GetCutoffAngleMod();
+  GetCutoffAngleOuterMod();
+
+  const Angle&
+  GetCutoffAngleInner() const;
+
+  void
+  SetCutoffAngleInner(const Angle& angle);
+
+  Angle*
+  GetCutoffAngleInnerMod();
 
  private:
   Type        type_;
@@ -100,7 +109,8 @@ class Light
   Rgb         ambient_;
   Rgb         diffuse_;
   Rgb         specular_;
-  Angle       cutoffAngle_;
+  Angle       cutoffAngleOuter_;
+  Angle       cutoffAngleInner_;
 
   LightAttenuation attenuation_;
 };

@@ -50,7 +50,8 @@ MaterialShader::MaterialShader()
     , lightAttenuationConstant_(ShaderUniform::Null())
     , lightAttenuationLinear_(ShaderUniform::Null())
     , lightAttenuationQuadratic_(ShaderUniform::Null())
-    , lightCutoffAngle_(ShaderUniform::Null())
+    , lightCutoffAngleOuter_(ShaderUniform::Null())
+    , lightCutoffAngleInner_(ShaderUniform::Null())
     , normalMatrix_(ShaderUniform::Null())
     , viewPosition_(ShaderUniform::Null())
 {
@@ -110,13 +111,14 @@ MaterialShader::Load(FileSystem* file_system, const std::string& path)
 
   if(hasLight_)
   {
-    lightAmbient_     = shader_.GetUniform("uLight.ambient");
-    lightDiffuse_     = shader_.GetUniform("uLight.diffuse");
-    lightSpecular_    = shader_.GetUniform("uLight.specular");
-    lightPosition_    = shader_.GetUniform("uLight.position");
-    lightDirection_   = shader_.GetUniform("uLight.direction");
-    lightType_        = shader_.GetUniform("uLight.type");
-    lightCutoffAngle_ = shader_.GetUniform("uLight.cosCutoffAngle");
+    lightAmbient_          = shader_.GetUniform("uLight.ambient");
+    lightDiffuse_          = shader_.GetUniform("uLight.diffuse");
+    lightSpecular_         = shader_.GetUniform("uLight.specular");
+    lightPosition_         = shader_.GetUniform("uLight.position");
+    lightDirection_        = shader_.GetUniform("uLight.direction");
+    lightType_             = shader_.GetUniform("uLight.type");
+    lightCutoffAngleOuter_ = shader_.GetUniform("uLight.cosCutoffAngleOuter");
+    lightCutoffAngleInner_ = shader_.GetUniform("uLight.cosCutoffAngleInner");
 
     lightAttenuationConstant_  = shader_.GetUniform("uLight.attConst");
     lightAttenuationLinear_    = shader_.GetUniform("uLight.attLin");
@@ -174,7 +176,8 @@ MaterialShader::SetupLight(const Light& light, const vec3f& camera)
   shader_.SetUniform(lightSpecular_, light.GetSpecular());
   shader_.SetUniform(lightPosition_, light.GetPosition());
   shader_.SetUniform(lightDirection_, light.GetDirection());
-  shader_.SetUniform(lightCutoffAngle_, Cos(light.GetCutoffAngle()));
+  shader_.SetUniform(lightCutoffAngleOuter_, Cos(light.GetCutoffAngleOuter()));
+  shader_.SetUniform(lightCutoffAngleInner_, Cos(light.GetCutoffAngleInner()));
 
   const auto att = light.GetAttenuation();
   shader_.SetUniform(lightAttenuationConstant_, att.GetConstant());

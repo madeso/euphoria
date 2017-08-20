@@ -422,7 +422,8 @@ main(int argc, char** argv)
       "  float attConst;\n"
       "  float attLin;\n"
       "  float attQuad;\n"
-      "  float cosCutoffAngle;\n"
+      "  float cosCutoffAngleInner;\n"
+      "  float cosCutoffAngleOuter;\n"
       "  \n"
       "  vec3 position;\n"
       "  vec3 direction;\n"
@@ -462,8 +463,13 @@ main(int argc, char** argv)
       "    \n"
       "    if(uLight.type == 2) {\n"
       "      float theta = dot(lightDir, normalize(-uLight.direction));\n"
-      "      if(theta > uLight.cosCutoffAngle) {\n"
-      "        // light\n"
+      "      if(theta > uLight.cosCutoffAngleOuter) {\n"
+      "        float epsilon = uLight.cosCutoffAngleInner - "
+      "                        uLight.cosCutoffAngleOuter;\n"
+      "        float intensity = clamp((theta - uLight.cosCutoffAngleOuter)\n"
+      "                                / epsilon, 0.0, 1.0); \n"
+      "        diffuse  *= intensity;\n"
+      "        specular *= intensity;\n"
       "      }\n"
       "      else {\n"
       "        // outside of spotlight\n"
@@ -659,8 +665,10 @@ main(int argc, char** argv)
         ImGui::Combo("Update", &light_update,
                      "Do nothing\0Follow actor\0Follow camera\0\0");
 
-        ImguiAngleSlider("Cutoff Angle", world.light.GetCutoffAngleMod(), 0,
-                         45);
+        ImguiAngleSlider("Cutoff Angle Inner",
+                         world.light.GetCutoffAngleInnerMod(), 0, 45);
+        ImguiAngleSlider("Cutoff Angle Outer",
+                         world.light.GetCutoffAngleOuterMod(), 0, 90);
 
         ImGui::End();
 

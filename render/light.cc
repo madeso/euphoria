@@ -34,7 +34,8 @@ Light::Light()
     , ambient_(0.3f)
     , diffuse_(Rgb::From(Color::White))
     , specular_(Rgb::From(Color::White))
-    , cutoffAngle_(Angle::FromDegrees(13.37f))
+    , cutoffAngleOuter_(Angle::FromDegrees(18.0f))
+    , cutoffAngleInner_(Angle::FromDegrees(13.37f))
 {
 }
 
@@ -142,19 +143,37 @@ Light::GetAttenuation() const
 }
 
 const Angle&
-Light::GetCutoffAngle() const
+Light::GetCutoffAngleOuter() const
 {
-  return cutoffAngle_;
+  return cutoffAngleOuter_;
 }
 
 void
-Light::SetCutoffAngle(const Angle& angle)
+Light::SetCutoffAngleOuter(const Angle& angle)
 {
-  cutoffAngle_ = angle;
+  cutoffAngleOuter_ = angle;
 }
 
 Angle*
-Light::GetCutoffAngleMod()
+Light::GetCutoffAngleOuterMod()
 {
-  return &cutoffAngle_;
+  return &cutoffAngleOuter_;
+}
+
+const Angle&
+Light::GetCutoffAngleInner() const
+{
+  return cutoffAngleInner_;
+}
+
+void
+Light::SetCutoffAngleInner(const Angle& angle)
+{
+  cutoffAngleInner_ = angle;
+}
+
+Angle*
+Light::GetCutoffAngleInnerMod()
+{
+  return &cutoffAngleInner_;
 }
