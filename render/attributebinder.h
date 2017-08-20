@@ -13,7 +13,7 @@ class AttributeBinder
 {
  public:
   void
-  Register(const ShaderAttribute& attribute, int size);
+  Register(const ShaderAttribute& attribute);
 
   void
   Bind(const std::shared_ptr<CompiledMeshPart>& part);

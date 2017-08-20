@@ -2,9 +2,31 @@
 
 #include "render/compiledmesh.h"
 
-void
-AttributeBinder::Register(const ShaderAttribute& attribute, int size)
+int
+GetCount(ShaderAttributeSize size)
 {
+  switch(size)
+  {
+    case ShaderAttributeSize::VEC1:
+      return 1;
+    case ShaderAttributeSize::VEC2:
+      return 2;
+    case ShaderAttributeSize::VEC3:
+      return 3;
+    case ShaderAttributeSize::VEC4:
+      return 4;
+    case ShaderAttributeSize::MAT44:
+      return 4 * 4;
+  }
+  DIE("Unhandled case");
+  return 1;
+}
+
+void
+AttributeBinder::Register(const ShaderAttribute& attribute)
+{
+  const int single_size = sizeof(float);
+  const int size        = single_size * GetCount(attribute.size);
   bind_datas_.emplace_back(BindData{attribute, size});
   total_size_ += size;
 }

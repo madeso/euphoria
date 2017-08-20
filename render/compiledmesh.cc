@@ -198,9 +198,9 @@ CompileMesh(const Mesh& mesh, MaterialShaderCache* shader_cache,
     part->data.SetData(part_src.points);
     AttributeBinder binder;
     // todo: move this to a data file, load the mesh dynamically
-    binder.Register(attributes3d::Vertex(), 3 * sizeof(float));
-    binder.Register(attributes3d::Normal(), 3 * sizeof(float));
-    binder.Register(attributes3d::TexCoord(), 2 * sizeof(float));
+    binder.Register(attributes3d::Vertex());
+    binder.Register(attributes3d::Normal());
+    binder.Register(attributes3d::TexCoord());
     binder.Bind(part);
 
 
