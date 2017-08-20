@@ -21,7 +21,7 @@
 #include "render/camera.h"
 #include "render/materialshadercache.h"
 
-#include "window/imgui.h"
+#include "window/imguilibrary.h"
 #include "window/timer.h"
 
 #include "imgui/imgui.h"
@@ -365,7 +365,7 @@ main(int argc, char** argv)
 
   SetupOpenglDebug();
 
-  Imgui imgui{window.window};
+  ImguiLibrary imgui{window.window};
 
   Viewport viewport{Recti::FromTopLeftWidthHeight(0, 0, width, height)};
   viewport.Activate();

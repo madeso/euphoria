@@ -4,10 +4,10 @@
 struct SDL_Window;
 typedef union SDL_Event SDL_Event;
 
-class Imgui {
+class ImguiLibrary {
  public:
-  explicit Imgui(SDL_Window* window);
-  ~Imgui();
+  explicit ImguiLibrary(SDL_Window* window);
+  ~ImguiLibrary();
 
   void ProcessEvents(SDL_Event*);
 

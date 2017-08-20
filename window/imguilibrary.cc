@@ -1,31 +1,31 @@
-#include "window/imgui.h"
+#include "window/imguilibrary.h"
 
 #include "imgui/imgui.h"
 #include "imgui_impl_sdl_gl3.h"
 
-Imgui::Imgui(SDL_Window *window)
+ImguiLibrary::ImguiLibrary(SDL_Window *window)
   : window_(window)
 {
   ImGui_ImplSdlGL3_Init(window);
   ImGui::GetIO().IniFilename = nullptr;
 }
 
-Imgui::~Imgui()
+ImguiLibrary::~ImguiLibrary()
 {
   ImGui_ImplSdlGL3_Shutdown();
 }
 
-void Imgui::ProcessEvents(SDL_Event* event)
+void ImguiLibrary::ProcessEvents(SDL_Event* event)
 {
   ImGui_ImplSdlGL3_ProcessEvent(event);
 }
 
-void Imgui::Begin()
+void ImguiLibrary::Begin()
 {
   ImGui_ImplSdlGL3_NewFrame(window_);
 }
 
-void Imgui::Render()
+void ImguiLibrary::Render()
 {
   ImGui::Render();
 }
