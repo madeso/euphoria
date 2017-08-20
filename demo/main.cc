@@ -587,6 +587,9 @@ main(int argc, char** argv)
 
   bool capturing_mouse_movement = false;
 
+  // 0=do nothing, 1=use light actor, 2=follow camera
+  int light_update = 1;
+
   for(int i = 0; i < 20; ++i)
   {
     std::shared_ptr<Actor> actor =
@@ -652,6 +655,9 @@ main(int argc, char** argv)
         ImGui::ColorEdit3("Ambient", world.light.ModifyAmbient()->GetData());
         ImGui::ColorEdit3("Diffuse", world.light.ModifyDiffuse()->GetData());
         ImGui::ColorEdit3("Specular", world.light.ModifySpecular()->GetData());
+        ImGui::Combo("Update", &light_update,
+                     "Do nothing\0Follow actor\0Follow camera\0\0");
+
         ImGui::End();
 
         light_material->SetColors(world.light.GetAmbient(),
@@ -663,8 +669,17 @@ main(int argc, char** argv)
     light_position = Wrap(0, light_position + delta * 0.1f, 1);
     const auto light_pos =
         PolarCoord{light_position, light_position * 2}.ToCartesian() * 2.0f;
-    world.light.SetPosition(light_pos);
     light_actor->SetPosition(light_pos);
+
+    switch(light_update)
+    {
+      case 1:
+        world.light.SetPosition(light_pos);
+        break;
+      case 2:
+        world.light.SetPosition(fps.GetPosition());
+        world.light.SetDirection(fps.GetRotation().In().GetNormalized());
+    }
 
 
     for(auto& anim : animation_handler)
