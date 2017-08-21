@@ -30,10 +30,9 @@
 
 .idea
 
-dist/spacetyper
-dist/spacetyper-debug
-dist/scimed
-dist/scimed-debug
+#unignore samples files
+!samples/*
+!samples/*/*
 
 # clion build folder
 cmake-build-debug
