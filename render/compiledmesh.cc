@@ -95,8 +95,21 @@ CompiledMeshMaterial::Apply(const mat4f& model_matrix,
   }
 }
 
-// asks the shader if all the textures are set, and if more than necessary are
-// set
+void
+CompiledMeshMaterial::LoadDefaultMaterialsFromShader(TextureCache* cache)
+{
+  const auto textures = shader_->GetDefaultTextures();
+
+  for(const auto& texture : textures)
+  {
+    const bool missing = textures_.find(texture.GetName()) == textures_.end();
+    if(missing)
+    {
+      textures_[texture.GetName()] = cache->GetTexture(texture.GetPath());
+    }
+  }
+}
+
 bool
 CompiledMeshMaterial::Validate() const
 {
@@ -175,6 +188,8 @@ CompileMesh(const Mesh& mesh, MaterialShaderCache* shader_cache,
       auto texture = texture_cache->GetTexture(texture_src.path);
       mat.SetTexture(texture_src.type, texture);
     }
+
+    mat.LoadDefaultMaterialsFromShader(texture_cache);
 
     if(!mat.Validate())
     {

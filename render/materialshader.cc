@@ -13,6 +13,29 @@
 
 LOG_SPECIFY_DEFAULT_LOGGER("render.materialshader")
 
+////////////////////////////////////////////////////////////////////////////////
+
+MaterialShaderDefaultTexture::MaterialShaderDefaultTexture(
+    const EnumValue& name, const std::string& path)
+    : name_(name)
+    , path_(path)
+{
+}
+
+const EnumValue&
+MaterialShaderDefaultTexture::GetName() const
+{
+  return name_;
+}
+
+const std::string&
+MaterialShaderDefaultTexture::GetPath() const
+{
+  return path_;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
 MaterialShaderBinding::MaterialShaderBinding(ShaderUniform    uniform,
                                              const EnumValue& name)
     : uniform_(std::move(uniform))
@@ -31,6 +54,9 @@ MaterialShaderBinding::GetName() const
 {
   return name_;
 }
+
+
+////////////////////////////////////////////////////////////////////////////////
 
 MaterialShader::MaterialShader()
     : projection_(ShaderUniform::Null())
@@ -85,6 +111,12 @@ MaterialShader::Load(FileSystem* file_system, const std::string& path)
     LOG_INFO("Defining shader " << path << ": " << texture.uniform() << " to "
                                 << texture.texture());
     bindings_.emplace_back(uniform, texture_name);
+  }
+
+  for(const auto& texture : material_shader_file.default_texture())
+  {
+    DEFINE_ENUM_VALUE(TextureType, texture_name, texture.texture());
+    default_textures_.emplace_back(texture_name, texture.path());
   }
 
   // todo: get the shader names from a trusted source
@@ -220,4 +252,10 @@ const std::vector<MaterialShaderBinding>&
 MaterialShader::GetBindings() const
 {
   return bindings_;
+}
+
+const std::vector<MaterialShaderDefaultTexture>&
+MaterialShader::GetDefaultTextures()
+{
+  return default_textures_;
 }

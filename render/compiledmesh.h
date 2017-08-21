@@ -46,6 +46,10 @@ class CompiledMeshMaterial
         const mat4f& view_matrix, const vec3f& camera,
         const Light& light) const;
 
+  // gets the default materials from the shader if they are null/not set
+  void
+  LoadDefaultMaterialsFromShader(TextureCache* cache);
+
   // asks the shader if all the textures are set, and if more than necessary are
   // set
   bool

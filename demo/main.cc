@@ -377,7 +377,7 @@ main(int argc, char** argv)
   FileSystemImageGenerator::AddRoot(&file_system, "img-plain");
   catalog->RegisterFileString(
       "default_shader.json",
-      R"(  {"has_light": true, "ambient": "uMaterial.ambient", "diffuse": "uMaterial.diffuse", "specular": "uMaterial.specular", "shininess": "uMaterial.shininess", "textures": [ {"texture": "Diffuse", "uniform": "uDiffuseMap"}, {"texture": "Specular", "uniform": "uSpecularMap"} ]}  )");
+      R"(  {"has_light": true, "ambient": "uMaterial.ambient", "diffuse": "uMaterial.diffuse", "specular": "uMaterial.specular", "shininess": "uMaterial.shininess", "textures": [ {"texture": "Diffuse", "uniform": "uDiffuseMap"}, {"texture": "Specular", "uniform": "uSpecularMap"} ],   "default_texture": [ {"texture": "Diffuse", "path": "img-plain/white"}, {"texture": "Specular", "path": "img-plain/white"} ]        }  )");
   catalog->RegisterFileString(
       "default_shader.vert",
       "#version 330 core\n"

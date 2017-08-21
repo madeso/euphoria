@@ -8,6 +8,22 @@
 
 class Light;
 
+class MaterialShaderDefaultTexture
+{
+ public:
+  MaterialShaderDefaultTexture(const EnumValue& name, const std::string& path);
+
+  const EnumValue&
+  GetName() const;
+
+  const std::string&
+  GetPath() const;
+
+ private:
+  EnumValue   name_;
+  std::string path_;
+};
+
 class MaterialShaderBinding
 {
  public:
@@ -15,6 +31,7 @@ class MaterialShaderBinding
 
   const ShaderUniform&
   GetUniform() const;
+
   const EnumValue&
   GetName() const;
 
@@ -56,6 +73,9 @@ class MaterialShader
   const std::vector<MaterialShaderBinding>&
   GetBindings() const;
 
+  const std::vector<MaterialShaderDefaultTexture>&
+  GetDefaultTextures();
+
   Shader shader_;
 
  private:
@@ -84,7 +104,8 @@ class MaterialShader
   ShaderUniform normalMatrix_;
   ShaderUniform viewPosition_;
 
-  std::vector<MaterialShaderBinding> bindings_;
+  std::vector<MaterialShaderBinding>        bindings_;
+  std::vector<MaterialShaderDefaultTexture> default_textures_;
 };
 
 

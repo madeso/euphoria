@@ -6,6 +6,12 @@ message Binding
   optional string uniform = 2;
 }
 
+message DefaultTexture
+{
+  optional string texture = 1;
+  optional string path = 2;
+}
+
 message MaterialShader
 {
   repeated Binding textures = 1;
@@ -15,4 +21,6 @@ message MaterialShader
   optional string diffuse = 4;
   optional string specular = 5;
   optional string shininess = 6;
+
+  repeated DefaultTexture default_texture = 100;
 }
