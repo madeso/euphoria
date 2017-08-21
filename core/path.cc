@@ -100,6 +100,11 @@ Path::GetFile(const std::string& name) const
   ASSERT(IsDirectory());
   ASSERT(!EndsWith(name, DIRECTORY_STRING()));
 
+  if(StartsWith(name, "~"))
+  {
+    return FromFile(name.substr(1));
+  }
+
   return FromFile(absolute_path_ + name);
 }
 
