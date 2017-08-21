@@ -8,6 +8,8 @@
 #include "core/rgb.h"
 #include "core/enum.h"
 
+class FileSystem;
+
 enum class WrapMode
 {
   REPEAT,
@@ -82,7 +84,7 @@ class MeshLoadResult
 namespace meshes
 {
   MeshLoadResult
-  LoadMesh(const std::string& path);
+  LoadMesh(FileSystem* fs, const std::string& path);
 
   Mesh
   CreateCube(float size);

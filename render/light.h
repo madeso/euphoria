@@ -30,6 +30,8 @@ class Light
  public:
   Light();
 
+  // todo: move this to a light def file and let it be specified in a editor
+
   enum class Type : int
   {
     Directional,

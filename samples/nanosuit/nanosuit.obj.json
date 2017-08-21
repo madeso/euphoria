@@ -1,0 +1,41 @@
+{
+  "materials":
+  [
+    {
+      "name": "Arm",
+      "textures": [
+        { "type": "Specular", "path": "~img-plain/white" }
+      ]
+    },
+    {
+      "name": "Body",
+      "textures": [
+        { "type": "Specular", "path": "~img-plain/white" }
+      ]
+    },
+    {
+      "name": "Glass",
+      "textures": [
+        { "type": "Specular", "path": "~img-plain/white" }
+      ]
+    },
+    {
+      "name": "Hand",
+      "textures": [
+        { "type": "Specular", "path": "~img-plain/white" }
+      ]
+    },
+    {
+      "name": "Helmet",
+      "textures": [
+        { "type": "Specular", "path": "~img-plain/white" }
+      ]
+    },
+    {
+      "name": "Leg",
+      "textures": [
+        { "type": "Specular", "path": "~img-plain/white" }
+      ]
+    }
+  ]
+}

@@ -2,6 +2,9 @@
 
 #include "core/str.h"
 #include "core/texturetypes.h"
+#include "core/proto.h"
+#include "core/log.h"
+#include "core/stringmerger.h"
 
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>
@@ -9,6 +12,22 @@
 
 #include <sstream>
 #include <utility>
+
+#include "mesh.pb.h"
+
+LOG_SPECIFY_DEFAULT_LOGGER("mesh")
+
+template <typename K, typename V>
+std::vector<K>
+KeysOf(const std::map<K, V>& m)
+{
+  std::vector<K> r;
+  for(const auto& p : m)
+  {
+    r.emplace_back(p.first);
+  }
+  return r;
+}
 
 MeshPart::MeshPart()
     : material(0)
@@ -254,12 +273,48 @@ namespace
   const char* const kFileFormatNff = "nff";
   const char* const kFileFormatObj = "obj";
 
+  void
+  DecorateMesh(FileSystem* fs, Mesh* mesh, const std::string& json_path)
+  {
+    mesh::Mesh json;
+    const auto error = LoadProtoJson(fs, &json, json_path);
+    if(!error.empty())
+    {
+      return;
+    }
+
+    std::map<std::string, Material*> mesh_materials;
+    for(auto& material : mesh->materials)
+    {
+      mesh_materials[material.name] = &material;
+    }
+
+    for(const auto& material : json.materials())
+    {
+      auto found = mesh_materials.find(material.name());
+      if(found == mesh_materials.end())
+      {
+        LOG_ERROR("Unable to find " << material.name() << " in mesh "
+                                    << json_path << " valid names are: "
+                                    << StringMerger::EnglishOr().Generate(
+                                           KeysOf(mesh_materials)));
+        continue;
+      }
+
+      auto* other = found->second;
+      for(const auto& src_texture : material.textures())
+      {
+        other->SetTexture(src_texture.type(), src_texture.path());
+      }
+    }
+  }
+
 }  // namespace
 
 namespace meshes
 {
   MeshLoadResult
-  LoadMesh(const std::string& path)
+  LoadMesh(FileSystem* fs, const std::string& path)
   {
     Assimp::Importer importer;
     MeshLoadResult   res;
@@ -272,6 +327,7 @@ namespace meshes
     else
     {
       res.mesh = ConvertScene(scene);
+      DecorateMesh(fs, &res.mesh, path + ".json");
     }
     return res;
   }

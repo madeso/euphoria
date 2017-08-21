@@ -1,0 +1,18 @@
+package mesh;
+
+message Texture
+{
+  optional string type = 1;
+  optional string path = 2;
+}
+
+message Material
+{
+  optional string name = 1;
+  repeated Texture textures = 2;
+}
+
+message Mesh
+{
+  repeated Material materials = 1;
+}

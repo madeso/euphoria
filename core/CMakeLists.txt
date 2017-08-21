@@ -19,7 +19,10 @@ include_directories(SYSTEM ../external/stb)
 
 
 include_directories(SYSTEM ${CMAKE_CURRENT_BINARY_DIR})
-PROTOBUF_GENERATE_CPP(PROTO_SRCS PROTO_HDRS ../proto/enum.proto)
+PROTOBUF_GENERATE_CPP(PROTO_SRCS PROTO_HDRS
+                      ../proto/enum.proto
+                      ../proto/mesh.proto
+                      )
 set(src ${src} ${PROTO_SRCS} ${PROTO_HDRS})
 
 

@@ -583,7 +583,7 @@ main(int argc, char** argv)
   auto box2 = CompileMesh(box_mesh2, &material_shader_cache, &texture_cache,
                           Path::FromRoot());
 
-  auto loaded_dude = meshes::LoadMesh("nanosuit/nanosuit.obj");
+  auto loaded_dude = meshes::LoadMesh(&file_system, "nanosuit/nanosuit.obj");
   if(!loaded_dude.error.empty())
   {
     std::cerr << "Failed to load dude: " << loaded_dude.error << "\n";

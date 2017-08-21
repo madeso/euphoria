@@ -13,7 +13,7 @@ StripLastString(const std::string& str, char sep)
   auto result = str.find(sep);
   if(result == std::string::npos)
   {
-    return str;
+    return "";
   }
 
   return str.substr(result);
