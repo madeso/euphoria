@@ -137,32 +137,27 @@ class Interpolate
   const Type&
   Debug_GetFrom() const
   {
-    ASSERT(this);
     return from_;
   }
   const Type&
   GetValue() const
   {
-    ASSERT(this);
     return value_;
   }
   This&
   SetValue(const Type& t)
   {
-    ASSERT(this);
     value_ = t;
     Clear();
     return *this;
   }
   operator const Type&() const
   {
-    ASSERT(this);
     return GetValue();
   }
   void
   operator=(const Type& rhs)
   {
-    ASSERT(this);
     SetValue(rhs);
   }
 
@@ -183,8 +178,6 @@ class Interpolate
   void
   Update(float adt)
   {
-    ASSERT(this);
-
     float dt = adt;
 
     while(dt > 0.0f)
@@ -223,7 +216,6 @@ class Interpolate
   This&
   Clear()
   {
-    ASSERT(this);
     data_.clear();
     position_in_current_interpolation_ = 0.0f;
     return *this;
@@ -232,7 +224,6 @@ class Interpolate
   This&
   Sleep(float time)
   {
-    ASSERT(this);
     AddInterpolation(nullptr, value_, time);
     return *this;
   }
@@ -240,7 +231,6 @@ class Interpolate
 #define FUN(NAME, FUNC)                           \
   This& NAME(const Type& target, float time)      \
   {                                               \
-    ASSERT(this);                                 \
     AddInterpolation(easing::NAME, target, time); \
     return *this;                                 \
   }
@@ -301,7 +291,6 @@ class Interpolate
   This&
   Add(InterpolationType type, const Type& target, float time)
   {
-    ASSERT(this);
 #define FUN(NAME, FUNC)                           \
   case InterpolationType::NAME:                   \
     AddInterpolation(easing::NAME, target, time); \
@@ -395,7 +384,6 @@ class Interpolate
   void
   AddInterpolation(EasingFunction type, const Type& target, float time)
   {
-    ASSERT(this);
     ASSERT(time > 0.0f);
 
     if(data_.empty())
