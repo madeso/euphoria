@@ -23,6 +23,13 @@ Path::FromDirectory(const std::string& path)
 }
 
 Path
+Path::FromRoot()
+{
+  return Path{""};
+}
+
+
+Path
 Path::FromFile(const std::string& path)
 {
   return Path{path};
@@ -79,7 +86,7 @@ Path::GetParentDirectory() const
 }
 
 const Path
-Path::GetSubDirectory(const std::string& name)
+Path::GetSubDirectory(const std::string& name) const
 {
   ASSERT(IsDirectory());
   ASSERT(name.find(DIRECTORY_CHAR()) == std::string::npos);
@@ -88,10 +95,10 @@ Path::GetSubDirectory(const std::string& name)
 }
 
 const Path
-Path::GetFile(const std::string& name)
+Path::GetFile(const std::string& name) const
 {
   ASSERT(IsDirectory());
-  ASSERT(name.find(DIRECTORY_CHAR()) == std::string::npos);
+  ASSERT(!EndsWith(name, DIRECTORY_STRING()));
 
   return FromFile(absolute_path_ + name);
 }

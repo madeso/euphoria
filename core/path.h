@@ -9,6 +9,8 @@ class Path
   static Path
   FromDirectory(const std::string& path);
   static Path
+  FromRoot();
+  static Path
   FromFile(const std::string& path);
   static Path
   FromGuess(const std::string& path);
@@ -22,9 +24,9 @@ class Path
   GetParentDirectory() const;
 
   const Path
-  GetSubDirectory(const std::string& name);
+  GetSubDirectory(const std::string& name) const;
   const Path
-  GetFile(const std::string& name);
+  GetFile(const std::string& name) const;
 
   bool
   IsDirectory() const;

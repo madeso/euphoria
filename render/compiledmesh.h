@@ -14,6 +14,7 @@ class Light;
 
 class MaterialShaderCache;
 class TextureCache;
+class Path;
 
 // one part of the mesh, single material
 class CompiledMeshPart
@@ -83,6 +84,6 @@ class CompiledMesh
 
 std::shared_ptr<CompiledMesh>
 CompileMesh(const Mesh& mesh, MaterialShaderCache* shader_cache,
-            TextureCache* texture_cache);
+            TextureCache* texture_cache, const Path& texture_folder);
 
 #endif  // EUPHORIA_COMPILEDMESH_H

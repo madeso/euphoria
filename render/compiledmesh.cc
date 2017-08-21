@@ -8,13 +8,13 @@
 #include "core/enum.h"
 #include "core/texturetypes.h"
 #include "core/log.h"
+#include "core/path.h"
 
 #include "render/materialshader.h"
 #include "render/shaderattribute3d.h"
 #include "render/attributebinder.h"
-
-#include "materialshadercache.h"
-#include "texturecache.h"
+#include "render/materialshadercache.h"
+#include "render/texturecache.h"
 
 LOG_SPECIFY_DEFAULT_LOGGER("core.mesh")
 
@@ -159,7 +159,7 @@ namespace  // local
 
 std::shared_ptr<CompiledMesh>
 CompileMesh(const Mesh& mesh, MaterialShaderCache* shader_cache,
-            TextureCache* texture_cache)
+            TextureCache* texture_cache, const Path& texture_folder)
 {
   std::shared_ptr<CompiledMesh> ret{new CompiledMesh{}};
 
@@ -185,7 +185,8 @@ CompileMesh(const Mesh& mesh, MaterialShaderCache* shader_cache,
     mat.SetShader(shader_cache->Get(shader_name));
     for(const auto& texture_src : material_src.textures)
     {
-      auto texture = texture_cache->GetTexture(texture_src.path);
+      const auto texture_path = texture_folder.GetFile(texture_src.path).GetAbsolutePath();
+      auto       texture      = texture_cache->GetTexture(texture_path);
       mat.SetTexture(texture_src.type, texture);
     }
 
