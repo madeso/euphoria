@@ -79,50 +79,9 @@ struct CubeAnimation
   float                  move_speed;
 };
 
-int
-main(int argc, char** argv)
+void
+SetupDefaultFiles(std::shared_ptr<FileSystemRootCatalog> catalog)
 {
-  SdlLibrary sdl;
-  if(sdl.ok == false)
-  {
-    return -1;
-  }
-
-  SetupSdlOpenGlAttributes();
-
-  int width  = 1280;
-  int height = 720;
-
-  SdlWindow window{"Euphoria Demo", 1280, 720};
-  if(window.window == nullptr)
-  {
-    return -1;
-  }
-
-  SdlGlContext context{&window};
-
-  if(context.context == nullptr)
-  {
-    return -1;
-  }
-
-  Init init;
-  if(init.ok == false)
-  {
-    return -4;
-  }
-
-  SetupOpenglDebug();
-
-  ImguiLibrary imgui{window.window};
-
-  Viewport viewport{Recti::FromTopLeftWidthHeight(0, 0, width, height)};
-  viewport.Activate();
-
-  FileSystem file_system;
-  auto       catalog = FileSystemRootCatalog::AddRoot(&file_system);
-  FileSystemRootFolder::AddRoot(&file_system);
-  FileSystemImageGenerator::AddRoot(&file_system, "img-plain");
   catalog->RegisterFileString(
       "default_shader.json",
       R"(  {"has_light": true, "ambient": "uMaterial.ambient", "diffuse": "uMaterial.diffuse", "specular": "uMaterial.specular", "shininess": "uMaterial.shininess", "textures": [ {"texture": "Diffuse", "uniform": "uDiffuseMap"}, {"texture": "Specular", "uniform": "uSpecularMap"} ],   "default_texture": [ {"texture": "Diffuse", "path": "img-plain/white"}, {"texture": "Specular", "path": "img-plain/white"} ]        }  )");
@@ -275,6 +234,54 @@ main(int argc, char** argv)
 
   catalog->RegisterFileString("texture_types.json",
                               R"({"name" : ["Diffuse", "Specular"]})");
+}
+
+int
+main(int argc, char** argv)
+{
+  SdlLibrary sdl;
+  if(sdl.ok == false)
+  {
+    return -1;
+  }
+
+  SetupSdlOpenGlAttributes();
+
+  int width  = 1280;
+  int height = 720;
+
+  SdlWindow window{"Euphoria Demo", 1280, 720};
+  if(window.window == nullptr)
+  {
+    return -1;
+  }
+
+  SdlGlContext context{&window};
+
+  if(context.context == nullptr)
+  {
+    return -1;
+  }
+
+  Init init;
+  if(init.ok == false)
+  {
+    return -4;
+  }
+
+  SetupOpenglDebug();
+
+  ImguiLibrary imgui{window.window};
+
+  Viewport viewport{Recti::FromTopLeftWidthHeight(0, 0, width, height)};
+  viewport.Activate();
+
+  FileSystem file_system;
+  auto       catalog = FileSystemRootCatalog::AddRoot(&file_system);
+  FileSystemRootFolder::AddRoot(&file_system);
+  FileSystemImageGenerator::AddRoot(&file_system, "img-plain");
+
+  SetupDefaultFiles(catalog);
 
   MaterialShaderCache material_shader_cache{&file_system};
 
