@@ -280,6 +280,7 @@ namespace
     const auto error = LoadProtoJson(fs, &json, json_path);
     if(!error.empty())
     {
+      LOG_WARN("Mesh " << json_path << " failed to load: " << error);
       return;
     }
 
