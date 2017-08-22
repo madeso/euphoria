@@ -28,6 +28,7 @@
 #include "window/fpscontroller.h"
 #include "window/sdllibrary.h"
 #include "window/sdlwindow.h"
+#include "window/sdlglcontext.h"
 
 #include "imgui/imgui.h"
 #include <SDL2/SDL.h>
@@ -58,28 +59,6 @@ SetupSdlOpenGlAttributes()
   SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
   SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, SDL_GL_CONTEXT_DEBUG_FLAG);
 }
-
-class SdlGlContext
-{
- public:
-  SdlGlContext(SdlWindow* window)
-      : context(nullptr)
-  {
-    context = SDL_GL_CreateContext(window->window);
-    if(context == nullptr)
-    {
-      std::cerr << "Failed to create GL context " << SDL_GetError() << "\n";
-      return;
-    }
-  }
-
-  ~SdlGlContext()
-  {
-    SDL_GL_DeleteContext(context);
-  }
-
-  SDL_GLContext context;
-};
 
 struct CubeAnimation
 {
