@@ -26,6 +26,7 @@
 #include "window/timer.h"
 #include "window/imgui.h"
 #include "window/fpscontroller.h"
+#include "window/sdllibrary.h"
 
 #include "imgui/imgui.h"
 #include <SDL2/SDL.h>
@@ -57,28 +58,6 @@ SetupSdlOpenGlAttributes()
   SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, SDL_GL_CONTEXT_DEBUG_FLAG);
 }
 
-class Sdl
-{
- public:
-  Sdl()
-      : ok(false)
-  {
-    if(SDL_Init(SDL_INIT_VIDEO | SDL_INIT_JOYSTICK | SDL_INIT_AUDIO) < 0)
-    {
-      std::cerr << "Failed to init SDL: " << SDL_GetError() << "\n";
-      return;
-    }
-
-    ok = true;
-  }
-
-  ~Sdl()
-  {
-    SDL_Quit();
-  }
-
-  bool ok;
-};
 
 class SdlWindow
 {
@@ -156,7 +135,7 @@ struct CubeAnimation
 int
 main(int argc, char** argv)
 {
-  Sdl sdl;
+  SdlLibrary sdl;
   if(sdl.ok == false)
   {
     return -1;
