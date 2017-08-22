@@ -68,7 +68,7 @@ main(int argc, char** argv)
   int width  = 1280;
   int height = 720;
 
-  SdlWindow window{"Euphoria Demo", 1280, 720};
+  SdlWindow window{"Euphoria Demo", width, height};
   if(window.window == nullptr)
   {
     return -1;
