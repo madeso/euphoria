@@ -27,6 +27,7 @@
 #include "window/imgui.h"
 #include "window/fpscontroller.h"
 #include "window/sdllibrary.h"
+#include "window/sdlwindow.h"
 
 #include "imgui/imgui.h"
 #include <SDL2/SDL.h>
@@ -57,39 +58,6 @@ SetupSdlOpenGlAttributes()
   SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
   SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, SDL_GL_CONTEXT_DEBUG_FLAG);
 }
-
-
-class SdlWindow
-{
- public:
-  SdlWindow(const std::string& title, int width, int height)
-      : window(nullptr)
-  {
-    window = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_UNDEFINED,
-                              SDL_WINDOWPOS_UNDEFINED, width, height,
-                              SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
-
-    if(window == nullptr)
-    {
-      std::cerr << "Failed to create window " << SDL_GetError() << "\n";
-    }
-  }
-
-  ~SdlWindow()
-  {
-    SDL_DestroyWindow(window);
-  }
-
-  void
-  KeepWithin(bool k)
-  {
-    // SDL_SetWindowGrab(window, k ? SDL_TRUE : SDL_FALSE);
-    // SDL_ShowCursor(k ? SDL_DISABLE : SDL_ENABLE);
-    SDL_SetRelativeMouseMode(k ? SDL_TRUE : SDL_FALSE);
-  }
-
-  SDL_Window* window;
-};
 
 class SdlGlContext
 {
