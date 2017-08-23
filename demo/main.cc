@@ -155,15 +155,6 @@ main(int argc, char** argv)
   auto box2 = CompileMesh(box_mesh2, &material_shader_cache, &texture_cache,
                           Path::FromRoot());
 
-  auto loaded_dude = meshes::LoadMesh(&file_system, "nanosuit/nanosuit.obj");
-  if(!loaded_dude.error.empty())
-  {
-    std::cerr << "Failed to load dude: " << loaded_dude.error << "\n";
-    return -5;
-  }
-  auto dude_mesh = CompileMesh(loaded_dude.mesh, &material_shader_cache,
-                               &texture_cache, Path::FromDirectory("nanosuit"));
-
   auto light_mesh                = meshes::CreateCube(0.2f);
   light_mesh.materials[0].shader = "basic_shader";
   auto light = CompileMesh(light_mesh, &material_shader_cache, &texture_cache,
@@ -215,8 +206,19 @@ main(int argc, char** argv)
   light_actor->BeginMaterialOverride(0);
   auto* light_material = light_actor->GetOverriddenMaterial(0);
 
+#if 0
+  auto loaded_dude = meshes::LoadMesh(&file_system, "nanosuit/nanosuit.obj");
+  if(!loaded_dude.error.empty())
+  {
+    std::cerr << "Failed to load dude: " << loaded_dude.error << "\n";
+    return -5;
+  }
+  auto dude_mesh =
+      CompileMesh(loaded_dude.mesh, &material_shader_cache, &texture_cache,
+                  Path::FromDirectory("nanosuit"));
   auto dude_actor = std::make_shared<Actor>(dude_mesh);
   world.AddActor(dude_actor);
+#endif
 
   Camera camera;
   camera.SetPosition(vec3f(0, 0, 0));
