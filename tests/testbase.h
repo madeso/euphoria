@@ -1,14 +1,30 @@
 #ifndef TESTS_TESTBASE_H
 #define TESTS_TESTBASE_H
 
-#include "gtest/gtest.h"
+#include "tests/approx.h"
 
 #include "core/vec3.h"
-#include "core/quat.h"
 #include "core/axisangle.h"
+#include "core/quat.h"
 
-::testing::AssertionResult almost_equal(const char* lhs_expression, const char* rhs_expression, const vec3f& lhs_value, const vec3f& rhs_value);
-::testing::AssertionResult almost_equal_quat(const char* lhs_expression, const char* rhs_expression, const quatf& lhs_value, const quatf& rhs_value);
-::testing::AssertionResult almost_equal_axisangle(const char* lhs_expression, const char* rhs_expression, const AxisAngle& lhs_value, const AxisAngle& rhs_value);
+
+template <>
+bool
+approximately_equal(vec3f const& lhs, vec3f const& rhs, const ApproxData& data);
+
+template <>
+bool
+approximately_equal(vec3f::Unit const& lhs, vec3f::Unit const& rhs,
+                    const ApproxData& data);
+
+template <>
+bool
+approximately_equal(quatf const& lhs, quatf const& rhs, const ApproxData& data);
+
+template <>
+bool
+approximately_equal(AxisAngle const& lhs, AxisAngle const& rhs,
+                    const ApproxData& data);
+
 
 #endif  // TESTS_TESTBASE_H

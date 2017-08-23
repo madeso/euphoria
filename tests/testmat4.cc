@@ -1,294 +1,240 @@
-#include "gtest/gtest.h"
-#include "gmock/gmock-generated-matchers.h"
-
 #include "core/mat4.h"
 #include "core/numeric.h"
 
 #include "tests/testbase.h"
 
-#define GTEST(X) TEST(mat4, X)
-using namespace testing;
+#include "catch.hpp"
 
-GTEST(colmajor) {
-  const auto m = mat4i::FromColMajor(0, 1, 2, 3,
-                                     4, 5, 6, 7,
-                                     8 , 9 ,10 , 11,
-                                     12, 13, 14, 15);
-  EXPECT_EQ(vec4i(0, 1, 2, 3), m.GetColumn(0));
-  EXPECT_EQ(vec4i(4, 5, 6, 7), m.GetColumn(1));
-  EXPECT_EQ(vec4i(8, 9, 10, 11), m.GetColumn(2));
-  EXPECT_EQ(vec4i(12, 13, 14, 15), m.GetColumn(3));
+TEST_CASE("mat4-colmajor", "[mat]")
+{
+  const auto m =
+      mat4i::FromColMajor(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
+  REQUIRE(vec4i(0, 1, 2, 3) == m.GetColumn(0));
+  REQUIRE(vec4i(4, 5, 6, 7) == m.GetColumn(1));
+  REQUIRE(vec4i(8, 9, 10, 11) == m.GetColumn(2));
+  REQUIRE(vec4i(12, 13, 14, 15) == m.GetColumn(3));
 }
 
-GTEST(rowmajor) {
-  const auto m = mat4i::FromRowMajor(0, 1, 2, 3,
-                                     4, 5, 6, 7,
-                                     8 , 9 ,10 , 11,
-                                     12, 13, 14, 15);
-  EXPECT_EQ(vec4i(0, 4, 8, 12), m.GetColumn(0));
-  EXPECT_EQ(vec4i(1, 5, 9, 13), m.GetColumn(1));
-  EXPECT_EQ(vec4i(2, 6, 10, 14), m.GetColumn(2));
-  EXPECT_EQ(vec4i(3, 7, 11, 15), m.GetColumn(3));
+TEST_CASE("mat4-rowmajor", "[mat]")
+{
+  const auto m =
+      mat4i::FromRowMajor(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
+  REQUIRE(vec4i(0, 4, 8, 12) == m.GetColumn(0));
+  REQUIRE(vec4i(1, 5, 9, 13) == m.GetColumn(1));
+  REQUIRE(vec4i(2, 6, 10, 14) == m.GetColumn(2));
+  REQUIRE(vec4i(3, 7, 11, 15) == m.GetColumn(3));
 }
 
-GTEST(rowmajor_row) {
-  const auto m = mat4i::FromRowMajor(0, 1, 2, 3,
-                                     4, 5, 6, 7,
-                                     8 , 9 ,10 , 11,
-                                     12, 13, 14, 15);
-  EXPECT_EQ(vec4i(0, 1, 2, 3), m.GetRow(0));
-  EXPECT_EQ(vec4i(4, 5, 6, 7), m.GetRow(1));
-  EXPECT_EQ(vec4i(8, 9, 10, 11), m.GetRow(2));
-  EXPECT_EQ(vec4i(12, 13, 14, 15), m.GetRow(3));
+TEST_CASE("mat4-rowmajor_row", "[mat]")
+{
+  const auto m =
+      mat4i::FromRowMajor(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
+  REQUIRE(vec4i(0, 1, 2, 3) == m.GetRow(0));
+  REQUIRE(vec4i(4, 5, 6, 7) == m.GetRow(1));
+  REQUIRE(vec4i(8, 9, 10, 11) == m.GetRow(2));
+  REQUIRE(vec4i(12, 13, 14, 15) == m.GetRow(3));
 }
 
-GTEST(identity) {
-  const auto m = mat4i::FromRowMajor(1, 0, 0, 0,
-                                     0, 1, 0, 0,
-                                     0, 0, 1, 0,
-                                     0, 0, 0, 1);
+TEST_CASE("mat4-identity", "[mat]")
+{
+  const auto m =
+      mat4i::FromRowMajor(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
   const auto i = mat4i::Identity();
-  EXPECT_EQ(i.GetColumn(0), m.GetColumn(0));
-  EXPECT_EQ(i.GetColumn(1), m.GetColumn(1));
-  EXPECT_EQ(i.GetColumn(2), m.GetColumn(2));
-  EXPECT_EQ(i.GetColumn(3), m.GetColumn(3));
+  REQUIRE(i.GetColumn(0) == m.GetColumn(0));
+  REQUIRE(i.GetColumn(1) == m.GetColumn(1));
+  REQUIRE(i.GetColumn(2) == m.GetColumn(2));
+  REQUIRE(i.GetColumn(3) == m.GetColumn(3));
 }
 
-GTEST(index) {
-  const auto m = mat4i::FromRowMajor(0, 1, 2, 3,
-                                     4, 5, 6, 7,
-                                     8 , 9 ,10 , 11,
-                                     12, 13, 14, 15);
-  EXPECT_EQ(3, m(0, 3));
-  EXPECT_EQ(15, m(3, 3));
+TEST_CASE("mat4-index", "[mat]")
+{
+  const auto m =
+      mat4i::FromRowMajor(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
+  REQUIRE(3 == m(0, 3));
+  REQUIRE(15 == m(3, 3));
 }
 
-GTEST(major) {
-  const auto m = mat4i::FromRowMajor(0, 1, 2, 3,
-                                     4, 5, 6, 7,
-                                     8 , 9 ,10 , 11,
-                                     12, 13, 14, 15).GetMajor();
-  EXPECT_EQ(vec4i(0, 5, 10, 15), m);
+TEST_CASE("mat4-major", "[mat]")
+{
+  const auto m =
+      mat4i::FromRowMajor(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15)
+          .GetMajor();
+  REQUIRE(vec4i(0, 5, 10, 15) == m);
 }
 
 
-GTEST(transposed) {
-  const auto m = mat4i::FromRowMajor(0, 1, 2, 3,
-                                     4, 5, 6, 7,
-                                     8 , 9 ,10 , 11,
-                                     12, 13, 14, 15)
-                                     .GetTransposed();
-  EXPECT_EQ(mat4i::FromColMajor(0, 1, 2, 3,
-                                4, 5, 6, 7,
-                                8, 9, 10, 11,
-                                12, 13, 14, 15), m);
+TEST_CASE("mat4-transposed", "[mat]")
+{
+  const auto m =
+      mat4i::FromRowMajor(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15)
+          .GetTransposed();
+  REQUIRE(m == mat4i::FromColMajor(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+                                   14, 15));
 }
 
-GTEST(axis) {
+TEST_CASE("mat4-axis", "[mat]")
+{
   const auto m = mat4i::Identity();
-  EXPECT_EQ(vec3i(1, 0, 0), m.GetXAxis());
-  EXPECT_EQ(vec3i(0, 1, 0), m.GetYAxis());
-  EXPECT_EQ(vec3i(0, 0, 1), m.GetZAxis());
+  REQUIRE(vec3i(1, 0, 0) == m.GetXAxis());
+  REQUIRE(vec3i(0, 1, 0) == m.GetYAxis());
+  REQUIRE(vec3i(0, 0, 1) == m.GetZAxis());
 }
 
-GTEST(multiply) {
-  const auto m = mat4i::FromRowMajor(0, 1, 2, 3,
-                                     4, 5, 6, 7,
-                                     8 , 9 ,10 , 11,
-                                     12, 13, 14, 15)
-      *
-      mat4i::FromRowMajor(16, 17, 18, 19,
-                          20, 21, 22, 23,
-                          24, 25, 26, 27,
-                          28, 29, 30, 31);
+TEST_CASE("mat4-multiply", "[mat]")
+{
+  const auto m = mat4i::FromRowMajor(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
+                                     13, 14, 15) *
+                 mat4i::FromRowMajor(16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26,
+                                     27, 28, 29, 30, 31);
   // thanks wolfram alpha for the result
   // http://www.wolframalpha.com/widgets/view.jsp?id=cc71c2e95a80c217564d530fd8297b0e
   // simplify({{0,1,2,3},{4,5,6,7},{8,9,10,11},{12,13,14,15}}.{{16,17,18,19},{20,21,22,23},{24,25,26,27},{28,29,30,31}})
-  EXPECT_EQ(mat4i::FromRowMajor(152, 158, 164, 170,
-                                504, 526, 548, 570,
-                                856, 894, 932, 970,
-                                1208, 1262, 1316, 1370), m);
+  REQUIRE(m == mat4i::FromRowMajor(152, 158, 164, 170, 504, 526, 548, 570, 856,
+                                   894, 932, 970, 1208, 1262, 1316, 1370));
 }
 
-GTEST(add) {
-  const auto m = mat4i::FromRowMajor(0, 1, 2, 3,
-                                     4, 5, 6, 7,
-                                     8 , 9 ,10 , 11,
-                                     12, 13, 14, 15)
-                 +
-                 mat4i::FromRowMajor(16, 17, 18, 19,
-                                     20, 21, 22, 23,
-                                     24, 25, 26, 27,
-                                     28, 29, 30, 31);
-  EXPECT_EQ(mat4i::FromRowMajor(16, 18, 20, 22,
-                                24, 26, 28, 30,
-                                32, 34, 36, 38,
-                                40, 42, 44, 46), m);
+TEST_CASE("mat4-add", "[mat]")
+{
+  const auto m = mat4i::FromRowMajor(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
+                                     13, 14, 15) +
+                 mat4i::FromRowMajor(16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26,
+                                     27, 28, 29, 30, 31);
+  REQUIRE(m == mat4i::FromRowMajor(16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36,
+                                   38, 40, 42, 44, 46));
 }
 
-GTEST(sub) {
-  const auto m = mat4i::FromRowMajor(16, 17, 18, 19,
-                                     20, 21, 22, 23,
-                                     24, 25, 26, 27,
-                                     28, 29, 30, 31)
-                 -
-                 mat4i::FromRowMajor(0, 1, 2, 3,
-                                     4, 5, 6, 7,
-                                     8 , 9 ,10 , 11,
-                                     12, 13, 14, 15);
-  EXPECT_EQ(mat4i::FromRowMajor(16, 16, 16, 16,
-                                16, 16, 16, 16,
-                                16, 16, 16, 16,
-                                16, 16, 16, 16), m);
+TEST_CASE("mat4-sub", "[mat]")
+{
+  const auto m =
+      mat4i::FromRowMajor(16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28,
+                          29, 30, 31) -
+      mat4i::FromRowMajor(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
+  REQUIRE(m == mat4i::FromRowMajor(16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16,
+                                   16, 16, 16, 16, 16));
 }
 
 
-
-GTEST(mat3) {
-  const auto m4 = mat4i::FromColMajor(0, 1, 2, 3,
-                                     4, 5, 6, 7,
-                                     8 , 9 ,10 , 11,
-                                     12, 13, 14, 15);
+TEST_CASE("mat4-mat3", "[mat]")
+{
+  const auto m4 =
+      mat4i::FromColMajor(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
   const auto m3 = m4.GetMat3();
-  EXPECT_EQ(vec3i(0, 1, 2), m3.GetColumn(0));
-  EXPECT_EQ(vec3i(4, 5, 6), m3.GetColumn(1));
-  EXPECT_EQ(vec3i(8, 9, 10), m3.GetColumn(2));
+  REQUIRE(vec3i(0, 1, 2) == m3.GetColumn(0));
+  REQUIRE(vec3i(4, 5, 6) == m3.GetColumn(1));
+  REQUIRE(vec3i(8, 9, 10) == m3.GetColumn(2));
 }
 
 
-GTEST(inverse) {
-  const auto Mat0 = mat4f::FromColMajor(
-    0.6f, 0.2f, 0.3f, 0.4f,
-    0.2f, 0.7f, 0.5f, 0.3f,
-    0.3f, 0.5f, 0.7f, 0.2f,
-    0.4f, 0.3f, 0.2f, 0.6f);
+TEST_CASE("mat4-inverse", "[mat]")
+{
+  const auto Mat0 =
+      mat4f::FromColMajor(0.6f, 0.2f, 0.3f, 0.4f, 0.2f, 0.7f, 0.5f, 0.3f, 0.3f,
+                          0.5f, 0.7f, 0.2f, 0.4f, 0.3f, 0.2f, 0.6f);
 
-  auto Inv0 = Mat0; // glm::inverse(Mat0);
-  ASSERT_TRUE(Inv0.Invert());
-  ASSERT_TRUE(Inv0.Invert());
+  auto Inv0 = Mat0;  // glm::inverse(Mat0);
+  REQUIRE(Inv0.Invert());
+  REQUIRE(Inv0.Invert());
 
   // EXPECT_EQ(Mat0, Inv0);
 }
 
 
-
-
-
-
 ////////////////////////////////////////////////////////////////////////////////
 
-GTEST(TestTransormation)
+TEST_CASE("mat4-TestTransormation", "[mat]")
 {
-  EXPECT_EQ(vec3i(1,2,3), mat4i::FromTranslation(vec3i(1,2,3)).GetTranslation());
+  REQUIRE(vec3i(1, 2, 3) ==
+          mat4i::FromTranslation(vec3i(1, 2, 3)).GetTranslation());
 }
 
 
-GTEST(TestRight)
+TEST_CASE("mat4-TestRight", "[mat]")
 {
-  EXPECT_EQ(vec3i::XAxis(), mat4i::Identity().GetXAxis());
+  REQUIRE(vec3i::XAxis() == mat4i::Identity().GetXAxis());
 }
 
 
-GTEST(TestUp)
+TEST_CASE("mat4-TestUp", "[mat]")
 {
-  EXPECT_EQ(vec3i::YAxis(), mat4i::Identity().GetYAxis());
+  REQUIRE(vec3i::YAxis() == mat4i::Identity().GetYAxis());
 }
 
 
-GTEST(TestIn)
+TEST_CASE("mat4-TestIn", "[mat]")
 {
-  EXPECT_EQ(vec3i::ZAxis(), mat4i::Identity().GetZAxis());
+  REQUIRE(vec3i::ZAxis() == mat4i::Identity().GetZAxis());
 }
 
-struct TestRotationFixture : ::testing::Test
+TEST_CASE("mat4-test", "[mat]")
 {
-  mat4f start;
-  AxisAngle aa;
-  vec3f toTransform;
-  vec3f result;
+  const mat4f start = mat4f::Identity();
+  AxisAngle   aa =
+      AxisAngle::RightHandAround(vec3f::Up(), Angle::FromDegrees(-90));
+  const vec3f toTransform(0, 0, -5);
+  const vec3f result(5, 0, 0);
 
-  TestRotationFixture()
-      : start(mat4f::Identity())
-      , aa(AxisAngle::RightHandAround(vec3f::Up(), Angle::FromDegrees(-90)))
-      , toTransform(0, 0, -5)
-      , result(5, 0, 0)
+  SECTION("TestRotationAxisAngle")
   {
+    const auto r = start.Rotate(aa).GetTransform(toTransform);
+    REQUIRE(r == approx(result));
   }
-};
-
-TEST_F(TestRotationFixture, TestRotationAxisAngle)
-{
-  const auto r = start
-      .Rotate(aa)
-      .GetTransform(toTransform);
-  EXPECT_PRED_FORMAT2(almost_equal, result, r);
 }
 
-/*
-TEST_F(TestRotationFixture, TestRotationQuat)
-{
-  const auto r = start
-      .Rotate(cquat(aa))
-      .GetTransform(toTransform);
-  EXPECT_FLOAT_EQ(result, r);
-}
-*/
 
-GTEST(TestCombined_RT)
+TEST_CASE("mat4-TestCombined_RT", "[mat]")
 {
   const auto r = mat4f::Identity()
-      .Rotate(AxisAngle::RightHandAround(vec3f::Up(), Angle::FromDegrees(-90)))
-      .Translate(vec3f(0, 0, -5))
-      .GetTransform(vec3f(0, 0, 0));
-  EXPECT_PRED_FORMAT2(almost_equal, vec3f(5, 0, 0), r);
+                     .Rotate(AxisAngle::RightHandAround(
+                         vec3f::Up(), Angle::FromDegrees(-90)))
+                     .Translate(vec3f(0, 0, -5))
+                     .GetTransform(vec3f(0, 0, 0));
+  REQUIRE(r == approx(vec3f(5, 0, 0)));
 }
 
-GTEST(TestCombined2_RT)
+TEST_CASE("mat4-TestCombined2_RT", "[mat]")
 {
   const auto r = mat4f::Identity()
-      .Rotate(AxisAngle::RightHandAround(vec3f::Up(), Angle::FromDegrees(90)))
-      .Translate(vec3f(0, 0, -5))
-      .GetTransform(vec3f(0, 0, 0));
-  EXPECT_PRED_FORMAT2(almost_equal, vec3f(-5, 0, 0), r);
+                     .Rotate(AxisAngle::RightHandAround(vec3f::Up(),
+                                                        Angle::FromDegrees(90)))
+                     .Translate(vec3f(0, 0, -5))
+                     .GetTransform(vec3f(0, 0, 0));
+  REQUIRE(r == approx(vec3f(-5, 0, 0)));
 }
 
-GTEST(TestCombined_TR)
+TEST_CASE("mat4-TestCombined_TR", "[mat]")
 {
   const auto r = mat4f::Identity()
-      .Translate(vec3f(0, 0, 5))
-      .Rotate(AxisAngle::RightHandAround(vec3f::Up(), Angle::FromDegrees(-90)))
-      .GetTransform(vec3f(0, 0, 0));
-  EXPECT_PRED_FORMAT2(almost_equal, vec3f(0, 0, 5), r);
+                     .Translate(vec3f(0, 0, 5))
+                     .Rotate(AxisAngle::RightHandAround(
+                         vec3f::Up(), Angle::FromDegrees(-90)))
+                     .GetTransform(vec3f(0, 0, 0));
+  REQUIRE(r == approx(vec3f(0, 0, 5)));
 }
 
-GTEST(TestTranslation)
+TEST_CASE("mat4-TestTranslation", "[mat]")
 {
-  const vec3i r = mat4i::Identity()
-      .Translate(vec3i(1, 2, 3))
-      .GetTransform(vec3i(7, 8, 9));
-  EXPECT_EQ(vec3i(8, 10, 12), r);
+  const vec3i r =
+      mat4i::Identity().Translate(vec3i(1, 2, 3)).GetTransform(vec3i(7, 8, 9));
+  REQUIRE(r == vec3i(8, 10, 12));
 }
 
 
-GTEST(TestIentityTransform)
+TEST_CASE("mat4-TestIentityTransform", "[mat]")
 {
   const vec3i r = mat4i::Identity().GetTransform(vec3i(1, 2, 3));
-  EXPECT_EQ(vec3i(1, 2, 3), r);
+  REQUIRE(r == vec3i(1, 2, 3));
 }
 
-GTEST(TestIentityMultiply)
+TEST_CASE("mat4-TestIentityMultiply", "[mat]")
 {
-  EXPECT_EQ(mat4i::Identity(), mat4i::Identity() * mat4i::Identity());
+  REQUIRE(mat4i::Identity() * mat4i::Identity() == mat4i::Identity());
 }
 
-GTEST(TestVec4Multiply)
+TEST_CASE("mat4-TestVec4Multiply", "[mat]")
 {
-  const auto m = mat4i::FromRowMajor(0, 1, 2, 3,
-                                     4, 5, 6, 7,
-                                     8 , 9 ,10 , 11,
-                                     12, 13, 14, 15)
-                 * vec4i(16, 17, 18, 19);
+  const auto m = mat4i::FromRowMajor(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
+                                     13, 14, 15) *
+                 vec4i(16, 17, 18, 19);
   // simplify({{0,1,2,3},{4,5,6,7},{8,9,10,11},{12,13,14,15}}.{16,17,18,19})
-  EXPECT_EQ(vec4i(110, 390, 670, 950), m);
+  REQUIRE(m == vec4i(110, 390, 670, 950));
 }
-

@@ -1,79 +1,77 @@
-#include "gtest/gtest.h"
 #include "core/textfileparser.h"
 
-#define GTEST(X) TEST(textfileparser, X)
+#include "catch.hpp"
 
-GTEST(test_basic_ident) {
+TEST_CASE("textfileparser-test_basic_ident", "[textfileparser]") {
   TextFileParser test{
       "Hello"
   };
 
-  EXPECT_EQ(true, test.HasMore());
-  EXPECT_EQ("Hello", test.ReadIdent());
-  EXPECT_EQ(false, test.HasMore());
-  EXPECT_EQ("", test.ReadIdent());
-  EXPECT_EQ(false, test.HasMore());
+  REQUIRE(test.HasMore() == true);
+  REQUIRE(test.ReadIdent() == "Hello");
+  REQUIRE(test.HasMore() == false);
+  REQUIRE(test.ReadIdent() == "");
+  REQUIRE(test.HasMore() == false);
 }
 
-GTEST(test_two_idents) {
+TEST_CASE("textfileparser-test_two_idents", "[textfileparser]") {
   TextFileParser test{
       "Hello world"
   };
 
-  EXPECT_EQ(true, test.HasMore());
-  EXPECT_EQ("Hello", test.ReadIdent());
-  EXPECT_EQ(true, test.HasMore());
-  EXPECT_EQ("", test.ReadIdent());
+  REQUIRE(test.HasMore() == true);
+  REQUIRE(test.ReadIdent() == "Hello");
+  REQUIRE(test.HasMore() == true);
+  REQUIRE(test.ReadIdent() == "");
   test.SkipSpaces(true);
-  EXPECT_EQ("world", test.ReadIdent());
-  EXPECT_EQ(false, test.HasMore());
-  EXPECT_EQ("", test.ReadIdent());
-  EXPECT_EQ(false, test.HasMore());
+  REQUIRE(test.ReadIdent() == "world");
+  REQUIRE(test.HasMore() == false);
+  REQUIRE(test.ReadIdent() == "");
+  REQUIRE(test.HasMore() == false);
 }
 
-GTEST(read_string_fail) {
+TEST_CASE("textfileparser-read_string_fail", "[textfileparser]") {
   TextFileParser test{
       "Hello"
   };
 
-  EXPECT_EQ(true, test.HasMore());
-  EXPECT_EQ("", test.ReadString());
-  EXPECT_EQ(true, test.HasMore());
-  EXPECT_EQ("Hello", test.ReadIdent());
+  REQUIRE(test.HasMore() == true);
+  REQUIRE(test.ReadString() == "");
+  REQUIRE(test.HasMore() == true);
+  REQUIRE(test.ReadIdent() == "Hello");
 }
 
-GTEST(read_string) {
+TEST_CASE("textfileparser-read_string", "[textfileparser]") {
   TextFileParser test{
       "\"Hello\""
   };
 
-  EXPECT_EQ(true, test.HasMore());
-  EXPECT_EQ("Hello", test.ReadString());
-  EXPECT_EQ(false, test.HasMore());
-  EXPECT_EQ("", test.ReadString());
+  REQUIRE(test.HasMore() == true);
+  REQUIRE(test.ReadString() == "Hello");
+  REQUIRE(test.HasMore() == false);
+  REQUIRE(test.ReadString() == "");
 }
 
-GTEST(read_to_eol) {
+TEST_CASE("textfileparser-read_to_eol", "[textfileparser]") {
   TextFileParser test{
       "hello world\nhello dog"
   };
 
-  EXPECT_EQ(true, test.HasMore());
-  EXPECT_EQ("hello world", test.ReadToEndOfLine());
-  EXPECT_EQ("hello", test.ReadIdent());
-  EXPECT_EQ(" dog", test.ReadToEndOfLine());
-  EXPECT_EQ(false, test.HasMore());
+  REQUIRE(test.HasMore() == true);
+  REQUIRE(test.ReadToEndOfLine() == "hello world");
+  REQUIRE(test.ReadIdent() == "hello");
+  REQUIRE(test.ReadToEndOfLine() == " dog");
+  REQUIRE(test.HasMore() == false);
 }
 
-GTEST(peek_char) {
+TEST_CASE("textfileparser-peek_char", "[textfileparser]") {
   TextFileParser test{
       "abc"
   };
 
-  EXPECT_EQ(true, test.HasMore());
-  EXPECT_EQ('a', test.PeekChar());
-  EXPECT_EQ('a', test.PeekChar(0));
-  EXPECT_EQ('b', test.PeekChar(1));
-  EXPECT_EQ(0, static_cast<int>(test.PeekChar(3)));
+  REQUIRE(test.HasMore() == true);
+  REQUIRE(test.PeekChar() == 'a');
+  REQUIRE(test.PeekChar(0) == 'a');
+  REQUIRE(test.PeekChar(1) == 'b');
+  REQUIRE(static_cast<int>(test.PeekChar(3)) == 0);
 }
-

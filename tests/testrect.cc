@@ -1,175 +1,197 @@
-#include "gtest/gtest.h"
 #include "core/rect.h"
 
-#define GTEST(X) TEST(rect, X)
+#include "catch.hpp"
 
 // constructor tests
 
-GTEST(constructor_topleftwidthheight) {
+TEST_CASE("rect-constructor_topleftwidthheight", "[rect]")
+{
   auto r = Rect<int>::FromTopLeftWidthHeight(2, 1, 3, 4);
 
-  ASSERT_EQ(1, r.left);
-  ASSERT_EQ(4, r.right); // left: 1, width_: 3
-  ASSERT_EQ(2, r.top);
-  ASSERT_EQ(6, r.bottom); // top: 2, height: 4
+  REQUIRE(r.left == 1);
+  REQUIRE(r.right == 4);  // left: 1, width_: 3
+  REQUIRE(r.top == 2);
+  REQUIRE(r.bottom == 6);  // top: 2, height: 4
 
-  ASSERT_FALSE(r.IsEmpty());
+  REQUIRE_FALSE(r.IsEmpty());
 }
 
-GTEST(constructor_widthheight) {
+TEST_CASE("rect-constructor_widthheight", "[rect]")
+{
   auto r = Rect<int>::FromWidthHeight(3, 4);
 
-  ASSERT_EQ(0, r.left);
-  ASSERT_EQ(3, r.right);
-  ASSERT_EQ(0, r.top);
-  ASSERT_EQ(4, r.bottom);
+  REQUIRE(r.left == 0);
+  REQUIRE(r.right == 3);
+  REQUIRE(r.top == 0);
+  REQUIRE(r.bottom == 4);
 
-  ASSERT_FALSE(r.IsEmpty());
+  REQUIRE_FALSE(r.IsEmpty());
 }
 
-GTEST(constructor_leftrighttopbottom) {
+TEST_CASE("rect-constructor_leftrighttopbottom", "[rect]")
+{
   auto r = Rect<int>::FromLeftRightTopBottom(1, 2, 3, 4);
 
-  ASSERT_EQ(1, r.left);
-  ASSERT_EQ(2, r.right);
-  ASSERT_EQ(3, r.top);
-  ASSERT_EQ(4, r.bottom);
+  REQUIRE(r.left == 1);
+  REQUIRE(r.right == 2);
+  REQUIRE(r.top == 3);
+  REQUIRE(r.bottom == 4);
 
-  ASSERT_FALSE(r.IsEmpty());
+  REQUIRE_FALSE(r.IsEmpty());
 }
 
 // operation tests
 
-GTEST(contains_point_exclusive) {
+TEST_CASE("rect-contains_point_exclusive", "[rect]")
+{
   const auto r = Rect<int>::FromWidthHeight(5, 5);
 
   // inside
-  ASSERT_TRUE(r.ContainsExclusive(2, 2));
+  REQUIRE(r.ContainsExclusive(2, 2));
 
   // outside negative
-  ASSERT_FALSE(r.ContainsExclusive(-2, 2));
-  ASSERT_FALSE(r.ContainsExclusive(2, -2));
-  ASSERT_FALSE(r.ContainsExclusive(-2, -2));
+  REQUIRE_FALSE(r.ContainsExclusive(-2, 2));
+  REQUIRE_FALSE(r.ContainsExclusive(2, -2));
+  REQUIRE_FALSE(r.ContainsExclusive(-2, -2));
 
   // outside positive
-  ASSERT_FALSE(r.ContainsExclusive(7, 2));
-  ASSERT_FALSE(r.ContainsExclusive(2, 7));
-  ASSERT_FALSE(r.ContainsExclusive(7, 7));
+  REQUIRE_FALSE(r.ContainsExclusive(7, 2));
+  REQUIRE_FALSE(r.ContainsExclusive(2, 7));
+  REQUIRE_FALSE(r.ContainsExclusive(7, 7));
 
   // on the border
-  ASSERT_FALSE(r.ContainsExclusive(0, 2));
-  ASSERT_FALSE(r.ContainsExclusive(2, 0));
-  ASSERT_FALSE(r.ContainsExclusive(0, 0));
-  ASSERT_FALSE(r.ContainsExclusive(2, 5));
-  ASSERT_FALSE(r.ContainsExclusive(5, 2));
-  ASSERT_FALSE(r.ContainsExclusive(5, 5));
+  REQUIRE_FALSE(r.ContainsExclusive(0, 2));
+  REQUIRE_FALSE(r.ContainsExclusive(2, 0));
+  REQUIRE_FALSE(r.ContainsExclusive(0, 0));
+  REQUIRE_FALSE(r.ContainsExclusive(2, 5));
+  REQUIRE_FALSE(r.ContainsExclusive(5, 2));
+  REQUIRE_FALSE(r.ContainsExclusive(5, 5));
 }
 
-GTEST(contains_point_inclusive) {
+TEST_CASE("rect-contains_point_inclusive", "[rect]")
+{
   const auto r = Rect<int>::FromWidthHeight(5, 5);
 
   // inside
-  ASSERT_TRUE(r.ContainsInclusive(2, 2));
+  REQUIRE(r.ContainsInclusive(2, 2));
 
   // outside negative
-  ASSERT_FALSE(r.ContainsInclusive(-2, 2));
-  ASSERT_FALSE(r.ContainsInclusive(2, -2));
-  ASSERT_FALSE(r.ContainsInclusive(-2, -2));
+  REQUIRE_FALSE(r.ContainsInclusive(-2, 2));
+  REQUIRE_FALSE(r.ContainsInclusive(2, -2));
+  REQUIRE_FALSE(r.ContainsInclusive(-2, -2));
 
   // outside positive
-  ASSERT_FALSE(r.ContainsInclusive(7, 2));
-  ASSERT_FALSE(r.ContainsInclusive(2, 7));
-  ASSERT_FALSE(r.ContainsInclusive(7, 7));
+  REQUIRE_FALSE(r.ContainsInclusive(7, 2));
+  REQUIRE_FALSE(r.ContainsInclusive(2, 7));
+  REQUIRE_FALSE(r.ContainsInclusive(7, 7));
 
   // on the border
-  ASSERT_TRUE(r.ContainsInclusive(0, 2));
-  ASSERT_TRUE(r.ContainsInclusive(2, 0));
-  ASSERT_TRUE(r.ContainsInclusive(0, 0));
-  ASSERT_TRUE(r.ContainsInclusive(2, 5));
-  ASSERT_TRUE(r.ContainsInclusive(5, 2));
-  ASSERT_TRUE(r.ContainsInclusive(5, 5));
+  REQUIRE(r.ContainsInclusive(0, 2));
+  REQUIRE(r.ContainsInclusive(2, 0));
+  REQUIRE(r.ContainsInclusive(0, 0));
+  REQUIRE(r.ContainsInclusive(2, 5));
+  REQUIRE(r.ContainsInclusive(5, 2));
+  REQUIRE(r.ContainsInclusive(5, 5));
 }
 
 
-GTEST(contains_rect_exclusive) {
+TEST_CASE("rect-contains_rect_exclusive", "[rect]")
+{
   const auto r = Rect<int>::FromWidthHeight(10, 10);
 
   // inside
-  ASSERT_TRUE(r.ContainsExclusive( Rect<int>::FromWidthHeight(2, 2).OffsetToCopy(2, 2) ));
+  REQUIRE(
+      r.ContainsExclusive(Rect<int>::FromWidthHeight(2, 2).OffsetToCopy(2, 2)));
 
   // outside negative
-  ASSERT_FALSE(r.ContainsExclusive( Rect<int>::FromWidthHeight(2, 2).OffsetToCopy(-3, 3) ));
-  ASSERT_FALSE(r.ContainsExclusive( Rect<int>::FromWidthHeight(2, 2).OffsetToCopy(3, -3) ));
-  ASSERT_FALSE(r.ContainsExclusive( Rect<int>::FromWidthHeight(2, 2).OffsetToCopy(-3, -3) ));
+  REQUIRE_FALSE(r.ContainsExclusive(
+      Rect<int>::FromWidthHeight(2, 2).OffsetToCopy(-3, 3)));
+  REQUIRE_FALSE(r.ContainsExclusive(
+      Rect<int>::FromWidthHeight(2, 2).OffsetToCopy(3, -3)));
+  REQUIRE_FALSE(r.ContainsExclusive(
+      Rect<int>::FromWidthHeight(2, 2).OffsetToCopy(-3, -3)));
 
   // outside positive
-  ASSERT_FALSE(r.ContainsExclusive( Rect<int>::FromWidthHeight(2, 2).OffsetToCopy(15, 3) ));
-  ASSERT_FALSE(r.ContainsExclusive( Rect<int>::FromWidthHeight(2, 2).OffsetToCopy(3, 15) ));
-  ASSERT_FALSE(r.ContainsExclusive( Rect<int>::FromWidthHeight(2, 2).OffsetToCopy(15, 15) ));
+  REQUIRE_FALSE(r.ContainsExclusive(
+      Rect<int>::FromWidthHeight(2, 2).OffsetToCopy(15, 3)));
+  REQUIRE_FALSE(r.ContainsExclusive(
+      Rect<int>::FromWidthHeight(2, 2).OffsetToCopy(3, 15)));
+  REQUIRE_FALSE(r.ContainsExclusive(
+      Rect<int>::FromWidthHeight(2, 2).OffsetToCopy(15, 15)));
 
   // over border
-  ASSERT_FALSE(r.ContainsExclusive( Rect<int>::FromWidthHeight(15, 5).OffsetToCopy(-2, 2) ));
-  ASSERT_FALSE(r.ContainsExclusive( Rect<int>::FromWidthHeight(5, 15).OffsetToCopy(2, -2) ));
+  REQUIRE_FALSE(r.ContainsExclusive(
+      Rect<int>::FromWidthHeight(15, 5).OffsetToCopy(-2, 2)));
+  REQUIRE_FALSE(r.ContainsExclusive(
+      Rect<int>::FromWidthHeight(5, 15).OffsetToCopy(2, -2)));
 
   // all are outside
-  ASSERT_FALSE(r.ContainsExclusive( Rect<int>::FromWidthHeight(15, 15).OffsetToCopy(-2, -2) ));
+  REQUIRE_FALSE(r.ContainsExclusive(
+      Rect<int>::FromWidthHeight(15, 15).OffsetToCopy(-2, -2)));
 }
 
 
-GTEST(insert) {
+TEST_CASE("rect-insert", "[rect]")
+{
   const auto r = Rect<int>::FromWidthHeight(5, 10).InsetCopy(1, 2);
 
-  ASSERT_EQ(1, r.left);
-  ASSERT_EQ(4, r.right);
-  ASSERT_EQ(2, r.top);
-  ASSERT_EQ(8, r.bottom);
+  REQUIRE(r.left == 1);
+  REQUIRE(r.right == 4);
+  REQUIRE(r.top == 2);
+  REQUIRE(r.bottom == 8);
 }
 
-GTEST(offset) {
+TEST_CASE("rect-offset", "[rect]")
+{
   const auto r = Rect<int>::FromWidthHeight(5, 10).OffsetCopy(1, 2);
 
-  ASSERT_EQ(1, r.left);
-  ASSERT_EQ(6, r.right);
-  ASSERT_EQ(2, r.top);
-  ASSERT_EQ(12, r.bottom);
+  REQUIRE(r.left == 1);
+  REQUIRE(r.right == 6);
+  REQUIRE(r.top == 2);
+  REQUIRE(r.bottom == 12);
 }
 
-GTEST(offset_to) {
-  const auto r = Rect<int>::FromTopLeftWidthHeight(10, 12, 5, 10).OffsetToCopy(1, 2);
+TEST_CASE("rect-offset_to", "[rect]")
+{
+  const auto r =
+      Rect<int>::FromTopLeftWidthHeight(10, 12, 5, 10).OffsetToCopy(1, 2);
 
-  ASSERT_EQ(1, r.left);
-  ASSERT_EQ(6, r.right);
-  ASSERT_EQ(2, r.top);
-  ASSERT_EQ(12, r.bottom);
+  REQUIRE(r.left == 1);
+  REQUIRE(r.right == 6);
+  REQUIRE(r.top == 2);
+  REQUIRE(r.bottom == 12);
 }
 
-GTEST(empty) {
+TEST_CASE("rect-empty", "[rect]")
+{
   auto r = Rect<int>::FromWidthHeight(5, 10);
 
-  ASSERT_FALSE(r.IsEmpty());
+  REQUIRE_FALSE(r.IsEmpty());
 
   r.SetEmpty();
 
-  ASSERT_TRUE(r.IsEmpty());
+  REQUIRE(r.IsEmpty());
 }
 
-GTEST(default_empty) {
+TEST_CASE("rect-default_empty", "[rect]")
+{
   Rect<int> r;
-  ASSERT_TRUE(r.IsEmpty());
+  REQUIRE(r.IsEmpty());
 }
 
-GTEST(sizes) {
+TEST_CASE("rect-sizes", "[rect]")
+{
   const auto r = Rect<int>::FromWidthHeight(5, 10);
-  ASSERT_EQ(5, r.GetWidth());
-  ASSERT_EQ(10, r.GetHeight());
+  REQUIRE(r.GetWidth() == 5);
+  REQUIRE(r.GetHeight() == 10);
 }
 
-GTEST(center) {
+TEST_CASE("rect-center", "[rect]")
+{
   const auto r = Rect<int>::FromTopLeftWidthHeight(3, 2, 6, 10);
-  ASSERT_EQ(3, r.GetRelativeCenterX());
-  ASSERT_EQ(5, r.GetRelativeCenterY());
+  REQUIRE(r.GetRelativeCenterX() == 3);
+  REQUIRE(r.GetRelativeCenterY() == 5);
 
-  ASSERT_EQ(5, r.GetAbsoluteCenterX());
-  ASSERT_EQ(8, r.GetAbsoluteCenterY());
+  REQUIRE(r.GetAbsoluteCenterX() == 5);
+  REQUIRE(r.GetAbsoluteCenterY() == 8);
 }
-

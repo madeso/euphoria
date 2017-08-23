@@ -1,166 +1,189 @@
-#include "gtest/gtest.h"
 #include "core/numeric.h"
 
-#define GTEST(X) TEST(numeric, X)
+#include "catch.hpp"
 
-GTEST(pingpong01) {
-  EXPECT_FLOAT_EQ(0.5f, PingPong01(0.5f));
-  EXPECT_FLOAT_EQ(0.5f, PingPong01(-0.5f));
-  EXPECT_FLOAT_EQ(0.5f, PingPong01(1.5f));
+TEST_CASE("num-pingpong01", "[numeric]")
+{
+  REQUIRE(PingPong01(0.5f) == Approx(0.5f));
+  REQUIRE(PingPong01(-0.5f) == Approx(0.5f));
+  REQUIRE(PingPong01(1.5f) == Approx(0.5f));
 }
 
-GTEST(pingpong) {
-  EXPECT_FLOAT_EQ(0.5f, PingPong(0.0f, 0.5f, 2.0f));
-  EXPECT_FLOAT_EQ(0.5f, PingPong(0.0f, -0.5f, 2.0f));
-  EXPECT_FLOAT_EQ(1.5f, PingPong(0.0f, 2.5f, 2.0f));
+TEST_CASE("num-pingpong", "[numeric]")
+{
+  REQUIRE(PingPong(0.0f, 0.5f, 2.0f) == Approx(0.5f));
+  REQUIRE(PingPong(0.0f, -0.5f, 2.0f) == Approx(0.5f));
+  REQUIRE(PingPong(0.0f, 2.5f, 2.0f) == Approx(1.5f));
 
-  EXPECT_FLOAT_EQ(1.8f, PingPong(0.0f, 2.2f, 2.0f));
-  EXPECT_FLOAT_EQ(0.2f, PingPong(0.0f, -0.2f, 2.0f));
+  REQUIRE(PingPong(0.0f, 2.2f, 2.0f) == Approx(1.8f));
+  REQUIRE(PingPong(0.0f, -0.2f, 2.0f) == Approx(0.2f));
 }
 
-GTEST(is_equal) {
-  EXPECT_TRUE(IsEqual(1.2f, 1.2f));
-  EXPECT_TRUE(IsEqual(21.12f, 21.12f));
-  EXPECT_FALSE(IsEqual(2.1f, 1.2f));
+TEST_CASE("num-is_equal", "[numeric]")
+{
+  REQUIRE(IsEqual(1.2f, 1.2f));
+  REQUIRE(IsEqual(21.12f, 21.12f));
+  REQUIRE_FALSE(IsEqual(2.1f, 1.2f));
 }
 
-GTEST(is_zero) {
-  EXPECT_TRUE(IsZero(0.000001f));
-  EXPECT_TRUE(IsZero(-0.000001f));
-  EXPECT_FALSE(IsZero(1.2f));
+TEST_CASE("num-is_zero", "[numeric]")
+{
+  REQUIRE(IsZero(0.000001f));
+  REQUIRE(IsZero(-0.000001f));
+  REQUIRE_FALSE(IsZero(1.2f));
 }
 
-GTEST(zero_or_value) {
-  EXPECT_EQ(0.0f, ZeroOrValue(0.000001f));
-  EXPECT_EQ(12.0f, ZeroOrValue(12.0f));
+TEST_CASE("num-zero_or_value", "[numeric]")
+{
+  REQUIRE(ZeroOrValue(0.000001f) == 0.0f);
+  REQUIRE(ZeroOrValue(12.0f) == 12.0f);
 }
 
-GTEST(sign) {
-  EXPECT_EQ(-1, Sign(-12.0f));
-  EXPECT_EQ(1, Sign(32.0f));
-  EXPECT_EQ(1, Sign(0.0f));
+TEST_CASE("num-sign", "[numeric]")
+{
+  REQUIRE(Sign(-12.0f) == -1);
+  REQUIRE(Sign(32.0f) == 1);
+  REQUIRE(Sign(0.0f) == 1);
 }
 
-GTEST(lerp) {
-  EXPECT_FLOAT_EQ(1.0f, Lerp(0.0f, 0.5f, 2.0f));
-  EXPECT_FLOAT_EQ(0.0f, Lerp(-1.0f, 0.5f, 1.0f));
-  EXPECT_FLOAT_EQ(1.0f, Lerp(0.0f, 0.25f, 4.0f));
+TEST_CASE("num-lerp", "[numeric]")
+{
+  REQUIRE(Lerp(0.0f, 0.5f, 2.0f) == Approx(1.0f));
+  REQUIRE(Lerp(-1.0f, 0.5f, 1.0f) == Approx(0.0f));
+  REQUIRE(Lerp(0.0f, 0.25f, 4.0f) == Approx(1.0f));
 }
 
-GTEST(square) {
-  EXPECT_FLOAT_EQ(9.0f, Square(3.0f));
+TEST_CASE("num-square", "[numeric]")
+{
+  REQUIRE(Square(3.0f) == Approx(9.0f));
 }
 
-GTEST(sqrt) {
-  EXPECT_FLOAT_EQ(3.0f, Sqrt(9.0f));
+TEST_CASE("num-sqrt", "[numeric]")
+{
+  REQUIRE(Sqrt(9.0f) == Approx(3.0f));
 }
 
-GTEST(abs) {
-  EXPECT_FLOAT_EQ(34.0f, Abs(34.0f));
-  EXPECT_FLOAT_EQ(14.0f, Abs(-14.0f));
+TEST_CASE("num-abs", "[numeric]")
+{
+  REQUIRE(Abs(34.0f) == Approx(34.0f));
+  REQUIRE(Abs(-14.0f) == Approx(14.0f));
 }
 
-GTEST(min) {
-  EXPECT_FLOAT_EQ(1.0f, Min(1.0f, 2.0f));
-  EXPECT_FLOAT_EQ(-2.0f, Min(1.0f, -2.0f));
+TEST_CASE("num-min", "[numeric]")
+{
+  REQUIRE(Min(1.0f, 2.0f) == Approx(1.0f));
+  REQUIRE(Min(1.0f, -2.0f) == Approx(-2.0f));
 }
 
-GTEST(max) {
-  EXPECT_FLOAT_EQ(2.0f, Max(1.0f, 2.0f));
-  EXPECT_FLOAT_EQ(1.0f, Max(1.0f, -2.0f));
+TEST_CASE("num-max", "[numeric]")
+{
+  REQUIRE(Max(1.0f, 2.0f) == Approx(2.0f));
+  REQUIRE(Max(1.0f, -2.0f) == Approx(1.0f));
 }
 
-GTEST(to01) {
-  EXPECT_FLOAT_EQ(0.5f, To01(1.0f, 2.0f, 3.0f));
-  EXPECT_FLOAT_EQ(0.5f, To01(-1.0f, 0.0f, 1.0f));
-  EXPECT_FLOAT_EQ(1.5f, To01(-1.0f, 2.0f, 1.0f));
+TEST_CASE("num-to01", "[numeric]")
+{
+  REQUIRE(To01(1.0f, 2.0f, 3.0f) == Approx(0.5f));
+  REQUIRE(To01(-1.0f, 0.0f, 1.0f) == Approx(0.5f));
+  REQUIRE(To01(-1.0f, 2.0f, 1.0f) == Approx(1.5f));
 }
 
-GTEST(from01) {
-  EXPECT_FLOAT_EQ(1.0f, From01(0.0f, 0.5f, 2.0f));
-  EXPECT_FLOAT_EQ(0.0f, From01(-2.0f, 0.5f, 2.0f));
-  EXPECT_FLOAT_EQ(4.0f, From01(-2.0f, 1.5f, 2.0f));
+TEST_CASE("num-from01", "[numeric]")
+{
+  REQUIRE(From01(0.0f, 0.5f, 2.0f) == Approx(1.0f));
+  REQUIRE(From01(-2.0f, 0.5f, 2.0f) == Approx(0.0f));
+  REQUIRE(From01(-2.0f, 1.5f, 2.0f) == Approx(4.0f));
 }
 
-GTEST(remap) {
-  EXPECT_FLOAT_EQ(1.0f, Remap(0.0f, 3.0f, 1.5f, 0.0f, 2.0f));
+TEST_CASE("num-remap", "[numeric]")
+{
+  REQUIRE(Remap(0.0f, 3.0f, 1.5f, 0.0f, 2.0f) == Approx(1.0f));
 }
 
-GTEST(get360angular) {
-  EXPECT_FLOAT_EQ(0.5f, Get360Angular(0.0f, 0.25f, 1.0f));
-  EXPECT_FLOAT_EQ(0.5f, Get360Angular(0.0f, 0.75f, 1.0f));
-  EXPECT_FLOAT_EQ(1.0f, Get360Angular(0.0f, 0.5f, 1.0f));
-  EXPECT_FLOAT_EQ(0.0f, Get360Angular(0.0f, 0.0f, 1.0f));
-  EXPECT_FLOAT_EQ(0.0f, Get360Angular(0.0f, 1.0f, 1.0f));
+TEST_CASE("num-get360angular", "[numeric]")
+{
+  REQUIRE(Get360Angular(0.0f, 0.25f, 1.0f) == Approx(0.5f));
+  REQUIRE(Get360Angular(0.0f, 0.75f, 1.0f) == Approx(0.5f));
+  REQUIRE(Get360Angular(0.0f, 0.5f, 1.0f) == Approx(1.0f));
+  REQUIRE(Get360Angular(0.0f, 0.0f, 1.0f) == Approx(0.0f));
+  REQUIRE(Get360Angular(0.0f, 1.0f, 1.0f) == Approx(0.0f));
 }
 
-GTEST(keep_within) {
-  EXPECT_FLOAT_EQ(0, KeepWithin(0, -4, 1));
-  EXPECT_FLOAT_EQ(2, KeepWithin(0, 2, 4));
-  EXPECT_FLOAT_EQ(4, KeepWithin(0, 8, 4));
+TEST_CASE("num-keep_within", "[numeric]")
+{
+  REQUIRE(KeepWithin(0, -4, 1) == Approx(0));
+  REQUIRE(KeepWithin(0, 2, 4) == Approx(2));
+  REQUIRE(KeepWithin(0, 8, 4) == Approx(4));
 }
 
-GTEST(is_within) {
-  EXPECT_FALSE(IsWithin(0, -4, 1));
-  EXPECT_TRUE(IsWithin(0, 2, 4));
-  EXPECT_FALSE(IsWithin(0, 8, 4));
-  EXPECT_FALSE(IsWithin(0, 4, 4));
+TEST_CASE("num-is_within", "[numeric]")
+{
+  REQUIRE_FALSE(IsWithin(0, -4, 1));
+  REQUIRE(IsWithin(0, 2, 4));
+  REQUIRE_FALSE(IsWithin(0, 8, 4));
+  REQUIRE_FALSE(IsWithin(0, 4, 4));
 }
 
-GTEST(is_within_inclusive) {
-  EXPECT_FALSE(IsWithinInclusive(0, -4, 1));
-  EXPECT_TRUE(IsWithinInclusive(0, 2, 4));
-  EXPECT_FALSE(IsWithinInclusive(0, 8, 4));
-  EXPECT_TRUE(IsWithinInclusive(0, 4, 4));
+TEST_CASE("num-is_within_inclusive", "[numeric]")
+{
+  REQUIRE_FALSE(IsWithinInclusive(0, -4, 1));
+  REQUIRE(IsWithinInclusive(0, 2, 4));
+  REQUIRE_FALSE(IsWithinInclusive(0, 8, 4));
+  REQUIRE(IsWithinInclusive(0, 4, 4));
 }
 
-GTEST(wrap) {
-  EXPECT_FLOAT_EQ(0.5f, Wrap(0.0f, 0.5f, 1.0f));
-  EXPECT_FLOAT_EQ(0.5f, Wrap(0.0f, 1.5f, 1.0f));
-  EXPECT_FLOAT_EQ(0.5f, Wrap(0.0f, 55.5f, 1.0f));
+TEST_CASE("num-wrap", "[numeric]")
+{
+  REQUIRE(Wrap(0.0f, 0.5f, 1.0f) == Approx(0.5f));
+  REQUIRE(Wrap(0.0f, 1.5f, 1.0f) == Approx(0.5f));
+  REQUIRE(Wrap(0.0f, 55.5f, 1.0f) == Approx(0.5f));
 
-  EXPECT_FLOAT_EQ(-0.5f, Wrap(-1.0f, 1.5f, 1.0f));
+  REQUIRE(Wrap(-1.0f, 1.5f, 1.0f) == Approx(-0.5f));
 }
 
-GTEST(wrapi) {
-  EXPECT_EQ(2, Wrapi(0, 2, 4));
-  EXPECT_EQ(1, Wrapi(0, 6, 4));
-  EXPECT_EQ(1, Wrapi(0, 9, 1));
+TEST_CASE("num-wrapi", "[numeric]")
+{
+  REQUIRE(Wrapi(0, 2, 4) == 2);
+  REQUIRE(Wrapi(0, 6, 4) == 1);
+  REQUIRE(Wrapi(0, 9, 1) == 1);
 
-  EXPECT_EQ(-3, Wrapi(-4, 6, 4));
+  REQUIRE(Wrapi(-4, 6, 4) == -3);
 }
 
-GTEST(round) {
-  EXPECT_FLOAT_EQ(1.0f, Round(0.9f, 1.0f));
-  EXPECT_FLOAT_EQ(1.5f, Round(1.493f, 0.5f));
-  EXPECT_FLOAT_EQ(2.0f, Round(2.9f, 2.0f));
-  EXPECT_FLOAT_EQ(3.0f, Round(2.9f, 1.0f));
+TEST_CASE("num-round", "[numeric]")
+{
+  REQUIRE(Round(0.9f, 1.0f) == Approx(1.0f));
+  REQUIRE(Round(1.493f, 0.5f) == Approx(1.5f));
+  REQUIRE(Round(2.9f, 2.0f) == Approx(2.0f));
+  REQUIRE(Round(2.9f, 1.0f) == Approx(3.0f));
 }
 
-GTEST(increment_and_wrap) {
+TEST_CASE("num-increment_and_wrap", "[numeric]")
+{
   float f = 8.0f;
-  EXPECT_EQ(0, IncrementAndWrap(0.0f, &f, 1.0f, 10.0f));
-  EXPECT_FLOAT_EQ(9.0f, f);
-  EXPECT_EQ(0, IncrementAndWrap(0.0f, &f, 1.0f, 10.0f));
-  EXPECT_FLOAT_EQ(10.0f, f);
-  EXPECT_EQ(1, IncrementAndWrap(0.0f, &f, 1.0f, 10.0f));
-  EXPECT_FLOAT_EQ(1.0f, f);
+  REQUIRE(IncrementAndWrap(0.0f, &f, 1.0f, 10.0f) == 0);
+  REQUIRE(f == Approx(9.0f));
+  REQUIRE(IncrementAndWrap(0.0f, &f, 1.0f, 10.0f) == 0);
+  REQUIRE(f == Approx(10.0f));
+  REQUIRE(IncrementAndWrap(0.0f, &f, 1.0f, 10.0f) == 1);
+  REQUIRE(f == Approx(1.0f));
 }
 
-GTEST(increment_and_wrapi) {
+TEST_CASE("num-increment_and_wrapi", "[numeric]")
+{
   int f = 8.0f;
-  EXPECT_EQ(0, IncrementAndWrapi(0, &f, 1, 10));
-  EXPECT_EQ(9, f);
-  EXPECT_EQ(0, IncrementAndWrapi(0, &f, 1, 10));
-  EXPECT_EQ(10, f);
-  EXPECT_EQ(1, IncrementAndWrapi(0, &f, 1, 10));
-  EXPECT_EQ(0, f);
+  REQUIRE(IncrementAndWrapi(0, &f, 1, 10) == 0);
+  REQUIRE(f == 9);
+  REQUIRE(IncrementAndWrapi(0, &f, 1, 10) == 0);
+  REQUIRE(f == 10);
+  REQUIRE(IncrementAndWrapi(0, &f, 1, 10) == 1);
+  REQUIRE(f == 0);
 }
 
-GTEST(close_to_zero) {
-  EXPECT_FLOAT_EQ(10.0f, DefaultIfCloseToZero<float>(10.0f, 42.0f, 0.1f));
-  EXPECT_FLOAT_EQ(-10.0f, DefaultIfCloseToZero<float>(-10.0f, 42.0f, 0.1f));
-  EXPECT_FLOAT_EQ(42.0f, DefaultIfCloseToZero<float>(0.09f, 42.0f, 0.1f));
-  EXPECT_FLOAT_EQ(42.0f, DefaultIfCloseToZero<float>(-0.09f, 42.0f, 0.1f));
-
+TEST_CASE("num-close_to_zero", "[numeric]")
+{
+  REQUIRE(DefaultIfCloseToZero<float>(10.0f, 42.0f, 0.1f) == Approx(10.0f));
+  REQUIRE(DefaultIfCloseToZero<float>(-10.0f, 42.0f, 0.1f) == Approx(-10.0f));
+  REQUIRE(DefaultIfCloseToZero<float>(0.09f, 42.0f, 0.1f) == Approx(42.0f));
+  REQUIRE(DefaultIfCloseToZero<float>(-0.09f, 42.0f, 0.1f) == Approx(42.0f));
 }

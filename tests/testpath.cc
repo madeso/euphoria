@@ -1,69 +1,68 @@
-#include "gtest/gtest.h"
 #include "core/path.h"
 
-#define GTEST(X) TEST(path, X)
+#include "catch.hpp"
 
-GTEST(test_empty_create_guess)
+TEST_CASE("path-test_empty_create_guess", "[path]")
 {
   auto p = Path::FromGuess("");
-  ASSERT_FALSE(p.IsFile());
-  ASSERT_TRUE(p.IsDirectory());
-  ASSERT_EQ(p.GetAbsolutePath(), "");
-  ASSERT_EQ(p.GetParentDirectory().GetAbsolutePath(), "");
+  REQUIRE_FALSE(p.IsFile());
+  REQUIRE(p.IsDirectory());
+  REQUIRE("" == p.GetAbsolutePath());
+  REQUIRE("" == p.GetParentDirectory().GetAbsolutePath());
 }
 
-GTEST(test_empty_create_dir)
+TEST_CASE("path-test_empty_create_dir", "[path]")
 {
   auto p = Path::FromDirectory("");
-  ASSERT_FALSE(p.IsFile());
-  ASSERT_TRUE(p.IsDirectory());
-  ASSERT_EQ(p.GetAbsolutePath(), "");
-  ASSERT_EQ(p.GetParentDirectory().GetAbsolutePath(), "");
+  REQUIRE_FALSE(p.IsFile());
+  REQUIRE(p.IsDirectory());
+  REQUIRE("" == p.GetAbsolutePath());
+  REQUIRE("" == p.GetParentDirectory().GetAbsolutePath());
 }
 
-GTEST(test_create_file)
+TEST_CASE("path-test_create_file", "[path]")
 {
   auto p = Path::FromFile("hello");
-  ASSERT_TRUE(p.IsFile());
-  ASSERT_FALSE(p.IsDirectory());
-  ASSERT_EQ(p.GetAbsolutePath(), "hello");
-  ASSERT_EQ(p.GetDirectory().GetAbsolutePath(), "");
+  REQUIRE(p.IsFile());
+  REQUIRE_FALSE(p.IsDirectory());
+  REQUIRE("hello" == p.GetAbsolutePath());
+  REQUIRE("" == p.GetDirectory().GetAbsolutePath());
 }
 
-GTEST(test_create_directory)
+TEST_CASE("path-test_create_directory", "[path]")
 {
   auto p = Path::FromDirectory("hello");
-  ASSERT_FALSE(p.IsFile());
-  ASSERT_TRUE(p.IsDirectory());
-  ASSERT_EQ(p.GetAbsolutePath(), "hello/");
-  ASSERT_EQ(p.GetParentDirectory().GetAbsolutePath(), "");
+  REQUIRE_FALSE(p.IsFile());
+  REQUIRE(p.IsDirectory());
+  REQUIRE("hello/" == p.GetAbsolutePath());
+  REQUIRE("" == p.GetParentDirectory().GetAbsolutePath());
 }
 
-GTEST(test_create_sub_directory)
+TEST_CASE("path-test_create_sub_directory", "[path]")
 {
   auto p = Path::FromDirectory("hello/world");
-  ASSERT_FALSE(p.IsFile());
-  ASSERT_TRUE(p.IsDirectory());
-  ASSERT_EQ(p.GetAbsolutePath(), "hello/world/");
-  ASSERT_EQ(p.GetParentDirectory().GetAbsolutePath(), "hello/");
+  REQUIRE_FALSE(p.IsFile());
+  REQUIRE(p.IsDirectory());
+  REQUIRE("hello/world/" == p.GetAbsolutePath());
+  REQUIRE("hello/" == p.GetParentDirectory().GetAbsolutePath());
 }
 
-GTEST(test_get_sub_directory)
+TEST_CASE("path-test_get_sub_directory", "[path]")
 {
   auto p = Path::FromDirectory("hello");
   p      = p.GetSubDirectory("world");
-  ASSERT_FALSE(p.IsFile());
-  ASSERT_TRUE(p.IsDirectory());
-  ASSERT_EQ(p.GetAbsolutePath(), "hello/world/");
-  ASSERT_EQ(p.GetParentDirectory().GetAbsolutePath(), "hello/");
+  REQUIRE_FALSE(p.IsFile());
+  REQUIRE(p.IsDirectory());
+  REQUIRE("hello/world/" == p.GetAbsolutePath());
+  REQUIRE("hello/" == p.GetParentDirectory().GetAbsolutePath());
 }
 
-GTEST(test_get_file)
+TEST_CASE("path-test_get_file", "[path]")
 {
   auto p = Path::FromDirectory("hello");
   p      = p.GetFile("world");
-  ASSERT_TRUE(p.IsFile());
-  ASSERT_FALSE(p.IsDirectory());
-  ASSERT_EQ(p.GetAbsolutePath(), "hello/world");
-  ASSERT_EQ(p.GetDirectory().GetAbsolutePath(), "hello/");
+  REQUIRE(p.IsFile());
+  REQUIRE_FALSE(p.IsDirectory());
+  REQUIRE("hello/world" == p.GetAbsolutePath());
+  REQUIRE("hello/" == p.GetDirectory().GetAbsolutePath());
 }

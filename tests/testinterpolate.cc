@@ -1,70 +1,75 @@
-#include "gtest/gtest.h"
 #include "core/interpolate.h"
 #include "tests/testbase.h"
 
-#define GTEST(X) TEST(interpolate, X)
+#include "catch.hpp"
 
-GTEST(do_nothing) {
-  FloatInterpolate f {5.0f};
+TEST_CASE("interpolate-do_nothing", "[interpolate]")
+{
+  FloatInterpolate f{5.0f};
   f.Update(0.1f);
 
-  EXPECT_NEAR(f.GetValue(), 5.0f, 0.0001f);
+  REQUIRE(f.GetValue() == Approx(5.0f));
 }
 
-GTEST(basic) {
-  FloatInterpolate f {0.0f};
+TEST_CASE("interpolate-basic", "[interpolate]")
+{
+  FloatInterpolate f{0.0f};
   f.Linear(1.0f, 1.0f);
   f.Update(0.1f);
 
-  EXPECT_NEAR(f.GetValue(), 0.1f, 0.0001f);
+  REQUIRE(f.GetValue() == Approx(0.1f));
 }
 
-GTEST(basic_negative) {
-  FloatInterpolate f {1.0f};
+TEST_CASE("interpolate-basic_negative", "[interpolate]")
+{
+  FloatInterpolate f{1.0f};
   f.Linear(0.0f, 1.0f);
   f.Update(0.1f);
 
-  EXPECT_NEAR(f.GetValue(), 0.9f, 0.0001f);
+  REQUIRE(f.GetValue() == Approx(0.9f));
 }
 
-GTEST(basic_with_clear) {
-  FloatInterpolate f {0.0f};
+TEST_CASE("interpolate-basic_with_clear", "[interpolate]")
+{
+  FloatInterpolate f{0.0f};
   f.Clear().Linear(1.0f, 1.0f);
   f.Update(0.1f);
 
-  EXPECT_NEAR(f.GetValue(), 0.1f, 0.0001f);
+  REQUIRE(f.GetValue() == Approx(0.1f));
 }
 
-GTEST(huge_step) {
-  FloatInterpolate f {0.0f};
+TEST_CASE("interpolate-huge_step", "[interpolate]")
+{
+  FloatInterpolate f{0.0f};
   f.Linear(1.0f, 1.0f);
   f.Update(5.0f);
 
-  EXPECT_FALSE(f.HasSteps());
-  EXPECT_NEAR(f.GetValue(), 1.0f, 0.0001f);
+  REQUIRE(!f.HasSteps());
+  REQUIRE(f.GetValue() == Approx(1.0f));
 }
 
-GTEST(clear_after_a_time) {
-  FloatInterpolate f {0.0f};
+TEST_CASE("interpolate-clear_after_a_time", "[interpolate]")
+{
+  FloatInterpolate f{0.0f};
   f.Linear(1.0f, 1.0f);
   f.Update(0.5f);
-  EXPECT_TRUE(f.HasSteps());
+  REQUIRE(f.HasSteps());
   f.Clear();
 
-  EXPECT_FALSE(f.HasSteps());
-  EXPECT_NEAR(f.GetValue(), 0.5f, 0.0001f);
+  REQUIRE(!f.HasSteps());
+  REQUIRE(f.GetValue() == Approx(0.5f));
 }
 
-GTEST(change_after_some_time) {
-  FloatInterpolate f {0.0f};
-  f.Linear(2.0f, 1.0f); // go to 2 this time
-  f.Update(0.5f); // go half
-  EXPECT_NEAR(f.GetValue(), 1.0f, 0.0001f);
-  f.Clear().Linear(0.0f, 1.0f); // go back to 0
-  EXPECT_NEAR(f.GetValue(), 1.0f, 0.0001f);
-  EXPECT_NEAR(f.Debug_GetFrom(), 1.0f, 0.0001f);
+TEST_CASE("interpolate-change_after_some_time", "[interpolate]")
+{
+  FloatInterpolate f{0.0f};
+  f.Linear(2.0f, 1.0f);  // go to 2 this time
+  f.Update(0.5f);        // go half
+  REQUIRE(f.GetValue() == Approx(1.0f));
+  f.Clear().Linear(0.0f, 1.0f);  // go back to 0
+  REQUIRE(f.GetValue() == Approx(1.0f));
+  REQUIRE(f.Debug_GetFrom() == Approx(1.0f));
   f.Update(0.5f);
-  EXPECT_TRUE(f.HasSteps());
-  EXPECT_NEAR(f.GetValue(), 0.5f, 0.0001f);
+  REQUIRE(f.HasSteps());
+  REQUIRE(f.GetValue() == Approx(0.5f));
 }
-

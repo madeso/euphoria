@@ -1,12 +1,15 @@
-#include "gtest/gtest.h"
 #include "core/axisangle.h"
 
-#define GTEST(X) TEST(axisangle, X)
+#include "catch.hpp"
 
-GTEST(righthand) {
-  const auto aa = AxisAngle::RightHandAround(vec3f::XAxis(), Angle::FromDegrees(12.0f));
-  EXPECT_FLOAT_EQ(12.0f, aa.angle.InDegrees());
-  EXPECT_FLOAT_EQ(1, aa.axis.x);
-  EXPECT_FLOAT_EQ(0, aa.axis.y);
-  EXPECT_FLOAT_EQ(0, aa.axis.z);
+TEST_CASE("aa-righthand", "[aa]")
+{
+  const auto aa =
+      AxisAngle::RightHandAround(vec3f::XAxis(), Angle::FromDegrees(12.0f));
+  REQUIRE(aa.angle.InDegrees() == Approx(12.0f));
+
+  // todo: replace one require
+  REQUIRE(aa.axis.x == Approx(1.0f));
+  REQUIRE(aa.axis.y == Approx(0.0f));
+  REQUIRE(aa.axis.z == Approx(0.0f));
 }

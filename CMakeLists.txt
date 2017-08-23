@@ -12,12 +12,6 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH}
 
 find_package(OpenGL REQUIRED)
 
-if(EUPHORIA_TEST)
-  find_package(GMock REQUIRED)
-endif(EUPHORIA_TEST)
-
-FIND_PACKAGE(Threads REQUIRED) # for gmock
-
 find_package(Protobuf REQUIRED)
 include_directories(SYSTEM ${PROTOBUF_INCLUDE_DIRS})
 
@@ -117,11 +111,7 @@ add_subdirectory(render)
 add_subdirectory(window)
 add_subdirectory(gui)
 add_subdirectory(scimed)
-
-if(EUPHORIA_TEST)
-  add_subdirectory(tests)
-endif(EUPHORIA_TEST)
-
+add_subdirectory(tests)
 add_subdirectory(demo)
 
 if(CLANG_TIDY_EXE)

@@ -1,56 +1,62 @@
-#include "gtest/gtest.h"
 #include "core/vec4.h"
 
-#define GTEST(X) TEST(vec4, X)
+#include "catch.hpp"
 
 
-GTEST(constructor_same) {
+TEST_CASE("vec4-constructor_same", "[vec4]")
+{
   const auto v = vec4i(42);
-  EXPECT_EQ(42, v.x);
-  EXPECT_EQ(42, v.y);
-  EXPECT_EQ(42, v.z);
-  EXPECT_EQ(42, v.w);
+  REQUIRE(v.x == 42);
+  REQUIRE(v.y == 42);
+  REQUIRE(v.z == 42);
+  REQUIRE(v.w == 42);
 }
 
-GTEST(constructor_unique) {
+TEST_CASE("vec4-constructor_unique", "[vec4]")
+{
   const auto v = vec4i(1, 2, 3, 4);
-  EXPECT_EQ(1, v.x);
-  EXPECT_EQ(2, v.y);
-  EXPECT_EQ(3, v.z);
-  EXPECT_EQ(4, v.w);
+  REQUIRE(v.x == 1);
+  REQUIRE(v.y == 2);
+  REQUIRE(v.z == 3);
+  REQUIRE(v.w == 4);
 }
 
-GTEST(constructor_vec3) {
+TEST_CASE("vec4-constructor_vec3", "[vec4]")
+{
   const auto v = vec4i(vec3i(1, 2, 3), 4);
-  EXPECT_EQ(1, v.x);
-  EXPECT_EQ(2, v.y);
-  EXPECT_EQ(3, v.z);
-  EXPECT_EQ(4, v.w);
+  REQUIRE(v.x == 1);
+  REQUIRE(v.y == 2);
+  REQUIRE(v.z == 3);
+  REQUIRE(v.w == 4);
 }
 
-GTEST(constructor_array) {
-  int arr[4] = {1, 2, 3, 4};
-  const auto v = vec4i(arr);
-  EXPECT_EQ(1, v.x);
-  EXPECT_EQ(2, v.y);
-  EXPECT_EQ(3, v.z);
-  EXPECT_EQ(4, v.w);
+TEST_CASE("vec4-constructor_array", "[vec4]")
+{
+  int        arr[4] = {1, 2, 3, 4};
+  const auto v      = vec4i(arr);
+  REQUIRE(v.x == 1);
+  REQUIRE(v.y == 2);
+  REQUIRE(v.z == 3);
+  REQUIRE(v.w == 4);
 }
 
-GTEST(cast_vec3) {
+TEST_CASE("vec4-cast_vec3", "[vec4]")
+{
   const auto v = static_cast<vec3i>(vec4i(1, 2, 3, 4));
-  EXPECT_EQ(1, v.x);
-  EXPECT_EQ(2, v.y);
-  EXPECT_EQ(3, v.z);
+  REQUIRE(v.x == 1);
+  REQUIRE(v.y == 2);
+  REQUIRE(v.z == 3);
 }
 
-GTEST(componentsum) {
+TEST_CASE("vec4-componentsum", "[vec4]")
+{
   const auto v = vec4i(1, 2, 3, 4);
-  EXPECT_EQ(10, v.GetComponentSum());
+  REQUIRE(v.GetComponentSum() == 10);
 }
 
-GTEST(component_multipl) {
+TEST_CASE("vec4-component_multipl", "[vec4]")
+{
   const auto v = ComponentMultiply(vec4i(1, 2, 3, 4), vec4i(4, 3, 2, 1));
-  EXPECT_EQ(vec4i(4, 6, 6, 4), v);
+  REQUIRE(v == vec4i(4, 6, 6, 4));
 }
 

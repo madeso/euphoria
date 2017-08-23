@@ -1,99 +1,98 @@
-#include "gtest/gtest.h"
 #include "core/template.h"
 #include "core/filesystem.h"
 
-#define GTEST(X) TEST(template, X)
+#include "catch.hpp"
 
-GTEST(test_replace) {
+TEST_CASE("template-test_replace", "[template]") {
   Template t { "Hello {{@sender}}!" };
-  EXPECT_EQ(false, t.GetErrors().HasErrors());
-  ASSERT_EQ("", t.GetErrors().GetCombinedErrors());
+  REQUIRE(t.GetErrors().HasErrors() == false);
+  REQUIRE(t.GetErrors().GetCombinedErrors() == "");
 
   Defines defines;
   defines.Define("sender", "Buffy");
-  EXPECT_EQ("Hello Buffy!", t.Evaluate(defines));
-  ASSERT_EQ("", t.GetErrors().GetCombinedErrors());
+  REQUIRE(t.Evaluate(defines) == "Hello Buffy!");
+  REQUIRE(t.GetErrors().GetCombinedErrors() == "");
 }
 
-GTEST(test_if) {
+TEST_CASE("template-test_if", "[template]") {
   Template t { "{{ifdef sender}}Hello {{@sender}}!{{end}}" };
-  EXPECT_EQ(false, t.GetErrors().HasErrors());
-  ASSERT_EQ("", t.GetErrors().GetCombinedErrors());
+  REQUIRE(t.GetErrors().HasErrors() == false);
+  REQUIRE(t.GetErrors().GetCombinedErrors() == "");
 
   Defines defines_with_sender;
   defines_with_sender.Define("sender", "Buffy");
   Defines empty_define;
 
-  EXPECT_EQ("", t.Evaluate(empty_define));
-  ASSERT_EQ("", t.GetErrors().GetCombinedErrors());
+  REQUIRE(t.Evaluate(empty_define) == "");
+  REQUIRE(t.GetErrors().GetCombinedErrors() == "");
 
-  EXPECT_EQ("Hello Buffy!", t.Evaluate(defines_with_sender));
-  ASSERT_EQ("", t.GetErrors().GetCombinedErrors());
+  REQUIRE(t.Evaluate(defines_with_sender) == "Hello Buffy!");
+  REQUIRE(t.GetErrors().GetCombinedErrors() == "");
 }
 
-GTEST(test_define) {
+TEST_CASE("template-test_define", "[template]") {
   Template t { "{{set sender \"Buffy\"}}Hello {{@sender}}!" };
-  EXPECT_EQ(false, t.GetErrors().HasErrors());
-  ASSERT_EQ("", t.GetErrors().GetCombinedErrors());
+  REQUIRE(t.GetErrors().HasErrors() == false);
+  REQUIRE(t.GetErrors().GetCombinedErrors() == "");
 
   Defines defines;
-  EXPECT_EQ("Hello Buffy!", t.Evaluate(defines));
-  EXPECT_EQ(false, defines.IsDefined("sender"));
-  ASSERT_EQ("", t.GetErrors().GetCombinedErrors());
+  REQUIRE(t.Evaluate(defines) == "Hello Buffy!");
+  REQUIRE(defines.IsDefined("sender") == false);
+  REQUIRE(t.GetErrors().GetCombinedErrors() == "");
 }
 
-GTEST(test_only_code) {
+TEST_CASE("template-test_only_code", "[template]") {
   Template t { "{{set sender \"Buffy\" @sender}}" };
-  EXPECT_EQ(false, t.GetErrors().HasErrors());
-  ASSERT_EQ("", t.GetErrors().GetCombinedErrors());
+  REQUIRE(t.GetErrors().HasErrors() == false);
+  REQUIRE(t.GetErrors().GetCombinedErrors() == "");
 
   Defines defines;
-  EXPECT_EQ("Buffy", t.Evaluate(defines));
-  EXPECT_EQ(false, defines.IsDefined("sender"));
-  ASSERT_EQ("", t.GetErrors().GetCombinedErrors());
+  REQUIRE(t.Evaluate(defines) == "Buffy");
+  REQUIRE(defines.IsDefined("sender") == false);
+  REQUIRE(t.GetErrors().GetCombinedErrors() == "");
 }
 
-GTEST(test_basic_filesystem) {
+TEST_CASE("template-test_basic_filesystem", "[template]") {
   FileSystem filesys;
   auto catalog = FileSystemRootCatalog::AddRoot(&filesys);
   catalog->RegisterFileString("main", "main");
 
   Template t {&filesys, "main"};
-  EXPECT_EQ(false, t.GetErrors().HasErrors());
-  ASSERT_EQ("", t.GetErrors().GetCombinedErrors());
+  REQUIRE(t.GetErrors().HasErrors() == false);
+  REQUIRE(t.GetErrors().GetCombinedErrors() == "");
 
   Defines defines;
-  EXPECT_EQ("main", t.Evaluate(defines));
-  ASSERT_EQ("", t.GetErrors().GetCombinedErrors());
+  REQUIRE(t.Evaluate(defines) == "main");
+  REQUIRE(t.GetErrors().GetCombinedErrors() == "");
 }
 
-GTEST(test_include_filesystem) {
+TEST_CASE("template-test_include_filesystem", "[template]") {
   FileSystem filesys;
   auto catalog = FileSystemRootCatalog::AddRoot(&filesys);
   catalog->RegisterFileString("main", "{{include \"included\"}}");
   catalog->RegisterFileString("included", "included");
 
   Template t {&filesys, "main"};
-  ASSERT_EQ("", t.GetErrors().GetCombinedErrors());
-  EXPECT_EQ(false, t.GetErrors().HasErrors());
+  REQUIRE(t.GetErrors().GetCombinedErrors() == "");
+  REQUIRE(t.GetErrors().HasErrors() == false);
 
   Defines defines;
-  EXPECT_EQ("included", t.Evaluate(defines));
-  ASSERT_EQ("", t.GetErrors().GetCombinedErrors());
+  REQUIRE(t.Evaluate(defines) == "included");
+  REQUIRE(t.GetErrors().GetCombinedErrors() == "");
 }
 
-GTEST(test_scoping_filesystem) {
+TEST_CASE("template-test_scoping_filesystem", "[template]") {
   FileSystem filesys;
   auto catalog = FileSystemRootCatalog::AddRoot(&filesys);
   catalog->RegisterFileString("main", "{{include \"included\"}} {{@var}}!");
   catalog->RegisterFileString("included", "{{set var \"hello\" @var}}");
 
   Template t {&filesys, "main"};
-  ASSERT_EQ("", t.GetErrors().GetCombinedErrors());
-  EXPECT_EQ(false, t.GetErrors().HasErrors());
+  REQUIRE(t.GetErrors().GetCombinedErrors() == "");
+  REQUIRE(t.GetErrors().HasErrors() == false);
 
   Defines defines;
   defines.Define("var", "world");
-  EXPECT_EQ("hello world!", t.Evaluate(defines));
-  ASSERT_EQ("", t.GetErrors().GetCombinedErrors());
+  REQUIRE(t.Evaluate(defines) == "hello world!");
+  REQUIRE(t.GetErrors().GetCombinedErrors() == "");
 }

@@ -1,48 +1,61 @@
-#include "gtest/gtest.h"
 #include "core/vec3.h"
 
-#define GTEST(X) TEST(vec3, X)
+#include "catch.hpp"
 
-GTEST(constructor_same) {
+TEST_CASE("axis_test", "[vec3]")
+{
+  REQUIRE(vec3i(1, 0, 0) == vec3i::XAxis());
+  REQUIRE(vec3i(0, 1, 0) == vec3i::YAxis());
+  REQUIRE(vec3i(0, 0, 1) == vec3i::ZAxis());
+}
+
+TEST_CASE("vec3-constructor_same", "[vec3]")
+{
   const auto v = vec3i(42);
-  EXPECT_EQ(42, v.x);
-  EXPECT_EQ(42, v.y);
-  EXPECT_EQ(42, v.z);
+  REQUIRE(v.x == 42);
+  REQUIRE(v.y == 42);
+  REQUIRE(v.z == 42);
 }
 
-GTEST(constructor_unique) {
+TEST_CASE("vec3-constructor_unique", "[vec3]")
+{
   const auto v = vec3i(1, 2, 3);
-  EXPECT_EQ(1, v.x);
-  EXPECT_EQ(2, v.y);
-  EXPECT_EQ(3, v.z);
+  REQUIRE(v.x == 1);
+  REQUIRE(v.y == 2);
+  REQUIRE(v.z == 3);
 }
 
-GTEST(constructor_vec2) {
+TEST_CASE("vec3-constructor_vec2", "[vec3]")
+{
   const auto v = vec3i(vec2i(1, 2), 3);
-  EXPECT_EQ(1, v.x);
-  EXPECT_EQ(2, v.y);
-  EXPECT_EQ(3, v.z);
+  REQUIRE(v.x == 1);
+  REQUIRE(v.y == 2);
+  REQUIRE(v.z == 3);
 }
 
-GTEST(equal) {
-  EXPECT_TRUE(vec3i(1, 2, 3) == vec3i(1, 2, 3));
-  EXPECT_FALSE(vec3i(1, 2, 3) == vec3i(3, 2, 1));
+TEST_CASE("vec3-equal", "[vec3]")
+{
+  REQUIRE(vec3i(1, 2, 3) == vec3i(1, 2, 3));
+  REQUIRE_FALSE(vec3i(1, 2, 3) == vec3i(3, 2, 1));
 }
 
-GTEST(axis_test) {
-  EXPECT_EQ(vec3i(1, 0, 0), vec3i::XAxis());
-  EXPECT_EQ(vec3i(0, 1, 0), vec3i::YAxis());
-  EXPECT_EQ(vec3i(0, 0, 1), vec3i::ZAxis());
+TEST_CASE("vec3-axis_test", "[vec3]")
+{
+  REQUIRE(vec3i::XAxis() == vec3i(1, 0, 0));
+  REQUIRE(vec3i::YAxis() == vec3i(0, 1, 0));
+  REQUIRE(vec3i::ZAxis() == vec3i(0, 0, 1));
 }
 
-GTEST(neg_test) {
-  EXPECT_EQ(vec3i(-1, -2, -3), -vec3i(1, 2, 3));
-  EXPECT_EQ(vec3i(1, -2, -3), -vec3i(-1, 2, 3));
-  EXPECT_EQ(vec3i(1, 2, 3), -vec3i(-1, -2, -3));
+TEST_CASE("vec3-neg_test", "[vec3]")
+{
+  REQUIRE(-vec3i(1, 2, 3) == vec3i(-1, -2, -3));
+  REQUIRE(-vec3i(-1, 2, 3) == vec3i(1, -2, -3));
+  REQUIRE(-vec3i(-1, -2, -3) == vec3i(1, 2, 3));
 }
 
-GTEST(from_to) {
-  EXPECT_EQ(vec3i(0, 0, 0), vec3i::FromTo(vec3i(0, 0, 0), vec3i(0, 0, 0)) );
-  EXPECT_EQ(vec3i(1, 0, 0), vec3i::FromTo(vec3i(0, 0, 0), vec3i(1, 0, 0)) );
-  EXPECT_EQ(vec3i(0, 30, 0), vec3i::FromTo(vec3i(0, -5, 0), vec3i(0, 25, 0)) );
+TEST_CASE("vec3-from_to", "[vec3]")
+{
+  REQUIRE(vec3i::FromTo(vec3i(0, 0, 0), vec3i(0, 0, 0)) == vec3i(0, 0, 0));
+  REQUIRE(vec3i::FromTo(vec3i(0, 0, 0), vec3i(1, 0, 0)) == vec3i(1, 0, 0));
+  REQUIRE(vec3i::FromTo(vec3i(0, -5, 0), vec3i(0, 25, 0)) == vec3i(0, 30, 0));
 }

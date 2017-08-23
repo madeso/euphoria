@@ -1,134 +1,148 @@
-#include "gtest/gtest.h"
 #include "core/angle.h"
 #include "core/numeric.h"
 
-#define GTEST(X) TEST(angle, X)
+#include "catch.hpp"
 
-GTEST(constructor_degrees) {
+TEST_CASE("angle-constructor_degrees", "[angle]")
+{
   const auto a = Angle::FromDegrees(180);
-  EXPECT_FLOAT_EQ(180, a.InDegrees());
+  REQUIRE(a.InDegrees() == Approx(180.0f));
 }
 
-GTEST(constructor_degrees_pi) {
+TEST_CASE("angle-constructor_degrees_pi", "[angle]")
+{
   const auto a = Angle::FromDegrees(180);
-  EXPECT_FLOAT_EQ(Pi(), a.InRadians());
+  REQUIRE(a.InRadians() == Approx(Pi()));
 }
 
-GTEST(zero) {
+TEST_CASE("angle-zero", "[angle]")
+{
   const auto a = Angle::Zero();
-  EXPECT_FLOAT_EQ(0.0f, a.InDegrees());
+  REQUIRE(a.InDegrees() == Approx(0.0f));
 }
 
-GTEST(constructor_radians) {
+TEST_CASE("angle-constructor_radians", "[angle]")
+{
   const auto a = Angle::FromRadians(Pi());
-  EXPECT_FLOAT_EQ(180, a.InDegrees());
+  REQUIRE(a.InDegrees() == Approx(180.0f));
 }
 
-GTEST(constructor_percent) {
+TEST_CASE("angle-constructor_percent", "[angle]")
+{
   const auto a = Angle::FromPercentOf360(0.5f);
-  EXPECT_FLOAT_EQ(180, a.InDegrees());
+  REQUIRE(a.InDegrees() == Approx(180.0f));
 }
 
-GTEST(wrapped) {
-  const auto a = Angle::FromDegrees(360+90).GetWrapped();
-  EXPECT_FLOAT_EQ(90.0f, a.InDegrees());
+TEST_CASE("angle-wrapped", "[angle]")
+{
+  const auto a = Angle::FromDegrees(360 + 90).GetWrapped();
+  REQUIRE(a.InDegrees() == Approx(90.0f));
 }
 
-GTEST(wrap) {
-  auto a = Angle::FromDegrees(360+90);
-  EXPECT_FLOAT_EQ(360.0f + 90.0f, a.InDegrees());
+TEST_CASE("angle-wrap", "[angle]")
+{
+  auto a = Angle::FromDegrees(360 + 90);
+  REQUIRE(a.InDegrees() == Approx(360.0f + 90.0f));
   a.Wrap();
-  EXPECT_FLOAT_EQ(90.0f, a.InDegrees());
+  REQUIRE(a.InDegrees() == Approx(90.0f));
 }
 
-GTEST(add) {
+TEST_CASE("angle-add", "[angle]")
+{
   auto a = Angle::FromDegrees(90);
-  a += Angle::FromRadians(Pi()/2.0f);
-  EXPECT_FLOAT_EQ(180.0f, a.InDegrees());
-  EXPECT_FLOAT_EQ(180.0f, (Angle::FromDegrees(90) +
-                           Angle::FromRadians(Pi() / 2.0f)).InDegrees());
+  a += Angle::FromRadians(Pi() / 2.0f);
+  REQUIRE(a.InDegrees() == Approx(180.0f));
+  REQUIRE(
+      (Angle::FromDegrees(90) + Angle::FromRadians(Pi() / 2.0f)).InDegrees() ==
+      Approx(180.0f));
 }
 
-GTEST(sub) {
+TEST_CASE("angle-sub", "[angle]")
+{
   auto a = Angle::FromDegrees(180);
-  a -= Angle::FromRadians(Pi()/2.0f);
-  EXPECT_FLOAT_EQ(90.0f, a.InDegrees());
-  EXPECT_FLOAT_EQ(90.0f, (Angle::FromDegrees(180) -
-                          Angle::FromRadians(Pi() / 2.0f)).InDegrees());
+  a -= Angle::FromRadians(Pi() / 2.0f);
+  REQUIRE(a.InDegrees() == Approx(90.0f));
+  REQUIRE(
+      (Angle::FromDegrees(180) - Angle::FromRadians(Pi() / 2.0f)).InDegrees() ==
+      Approx(90.0f));
 }
 
-GTEST(multi) {
+TEST_CASE("angle-multi", "[angle]")
+{
   auto a = Angle::FromDegrees(90);
   a *= 2.0f;
-  EXPECT_FLOAT_EQ(180.0f, a.InDegrees());
-  EXPECT_FLOAT_EQ(180.0f, (Angle::FromDegrees(90) * 2.0f).InDegrees());
-  EXPECT_FLOAT_EQ(180.0f, (2.0f * Angle::FromDegrees(90)).InDegrees());
+  REQUIRE(a.InDegrees() == Approx(180.0f));
+  REQUIRE((Angle::FromDegrees(90) * 2.0f).InDegrees() == Approx(180.0f));
+  REQUIRE((2.0f * Angle::FromDegrees(90)).InDegrees() == Approx(180.0f));
 }
 
-GTEST(div) {
+TEST_CASE("angle-div", "[angle]")
+{
   auto a = Angle::FromDegrees(180);
   a /= 2;
-  EXPECT_FLOAT_EQ(90.0f, a.InDegrees());
-  EXPECT_FLOAT_EQ(90.0f, (Angle::FromDegrees(180) / 2.0f).InDegrees());
+  REQUIRE(a.InDegrees() == Approx(90.0f));
+  REQUIRE((Angle::FromDegrees(180) / 2.0f).InDegrees() == Approx(90.0f));
 }
 
-struct KnownConstantsFromWikipedia : public ::testing::Test {
+TEST_CASE("angle-atan", "[angle]")
+{
+  REQUIRE(Atan(0.0f).InDegrees() == Approx(0.0f));
+  REQUIRE(Atan(1.0f).InDegrees() == Approx(45.0f));
+  REQUIRE(Atan(Sqrt(3.0f)).InDegrees() == Approx(60.0f));
+}
+
+TEST_CASE("angle-tan", "[angle]")
+{
+  REQUIRE(Tan(Angle::FromDegrees(0.0f)) == Approx(0.0f));
+  REQUIRE(Tan(Angle::FromDegrees(45.0f)) == Approx(1.0f));
+  REQUIRE(Tan(Angle::FromDegrees(180.0f)) == Approx(0.0f));
+  REQUIRE(Tan(Angle::FromDegrees(225.0f)) == Approx(1.0f));
+  REQUIRE(Tan(Angle::FromDegrees(60.0f)) == Approx(Sqrt(3.0f)));
+}
+
+TEST_CASE("angle-Wikipedia constants", "[angle]")
+{
   // https://en.wikipedia.org/wiki/Trigonometric_functions#Explicit_values
   // https://en.wikipedia.org/wiki/Trigonometric_constants_expressed_in_real_radicals#Table_of_some_common_angles
   const float a = (Sqrt(6.0f) - Sqrt(2.0f)) / 4.0f;
   const float b = (Sqrt(2.0f) + Sqrt(6.0f)) / 4.0f;
-};
 
-const float NEAR  = 0.0000001f;
-const float NEAR2 = 0.000001f;
-const float NEAR3 = 0.00001f;
-const float NEAR4 = 0.0001f;
+  SECTION("sin")
+  {
+    REQUIRE(Sin(Angle::FromDegrees(0.0f)) == Approx(0.0f));
+    REQUIRE(Sin(Angle::FromDegrees(90.0f)) == Approx(1.0f));
+    REQUIRE(Sin(Angle::FromDegrees(180.0f)) == Approx(0.0f));
+    REQUIRE(Sin(Angle::FromDegrees(30.0f)) == Approx(0.5f));
+    REQUIRE(Sin(Angle::FromDegrees(15.0f)) == Approx(a));
+    REQUIRE(Sin(Angle::FromDegrees(75.0f)) == Approx(b));
+  }
 
-TEST_F(KnownConstantsFromWikipedia, sin) {
-  EXPECT_NEAR(0.0f, Sin(Angle::FromDegrees(0.0f)), NEAR);
-  EXPECT_NEAR(1.0f, Sin(Angle::FromDegrees(90.0f)), NEAR);
-  EXPECT_NEAR(0.0f, Sin(Angle::FromDegrees(180.0f)), NEAR);
-  EXPECT_NEAR(0.5f, Sin(Angle::FromDegrees(30.0f)), NEAR);
-  EXPECT_NEAR(a, Sin(Angle::FromDegrees(15.0f)), NEAR);
-  EXPECT_NEAR(b, Sin(Angle::FromDegrees(75.0f)), NEAR);
-}
+  SECTION("cos")
+  {
+    REQUIRE(Cos(Angle::FromDegrees(0.0f)) == Approx(1.0f));
+    REQUIRE(Cos(Angle::FromDegrees(90.0f)) == Approx(0.0f));
+    REQUIRE(Cos(Angle::FromDegrees(180.0f)) == Approx(-1.0f));
+    REQUIRE(Cos(Angle::FromDegrees(60.0f)) == Approx(0.5f));
+    REQUIRE(Cos(Angle::FromDegrees(15.0f)) == Approx(b));
+    REQUIRE(Cos(Angle::FromDegrees(75.0f)) == Approx(a));
+  }
 
-TEST_F(KnownConstantsFromWikipedia, cos) {
-  EXPECT_NEAR(1.0f, Cos(Angle::FromDegrees(0.0f)), NEAR);
-  EXPECT_NEAR(0.0f, Cos(Angle::FromDegrees(90.0f)), NEAR);
-  EXPECT_NEAR(-1.0f, Cos(Angle::FromDegrees(180.0f)), NEAR);
-  EXPECT_NEAR(0.5f, Cos(Angle::FromDegrees(60.0f)), NEAR);
-  EXPECT_NEAR(b, Cos(Angle::FromDegrees(15.0f)), NEAR);
-  EXPECT_NEAR(a, Cos(Angle::FromDegrees(75.0f)), NEAR);
-}
+  SECTION("asin")
+  {
+    REQUIRE(Asin(0.0f).InDegrees() == Approx(0.0f));
+    REQUIRE(Asin(1.0f).InDegrees() == Approx(90.0f));
+    REQUIRE(Asin(0.5f).InDegrees() == Approx(30.0f));
+    REQUIRE(Asin(a).InDegrees() == Approx(15.0f));
+    REQUIRE(Asin(b).InDegrees() == Approx(75.0f));
+  }
 
-GTEST(tan) {
-  EXPECT_NEAR(0.0f, Tan(Angle::FromDegrees(0.0f)), NEAR);
-  EXPECT_NEAR(1.0f, Tan(Angle::FromDegrees(45.0f)), NEAR);
-  EXPECT_NEAR(0.0f, Tan(Angle::FromDegrees(180.0f)), NEAR);
-  EXPECT_NEAR(1.0f, Tan(Angle::FromDegrees(225.0f)), NEAR2);
-  EXPECT_NEAR(Sqrt(3.0f), Tan(Angle::FromDegrees(60.0f)), NEAR2);
-}
-
-TEST_F(KnownConstantsFromWikipedia, asin) {
-  EXPECT_NEAR(0.0f, Asin(0.0f).InDegrees(), NEAR);
-  EXPECT_NEAR(90.0f, Asin(1.0f).InDegrees(), NEAR3);
-  EXPECT_NEAR(30.0f, Asin(0.5f).InDegrees(), NEAR);
-  EXPECT_NEAR(15.0f, Asin(a).InDegrees(), NEAR2);
-  EXPECT_NEAR(75.0f, Asin(b).InDegrees(), NEAR3);
-}
-
-TEST_F(KnownConstantsFromWikipedia, acos) {
-  EXPECT_NEAR(0.0f, Acos(1.0f).InDegrees(), NEAR);
-  EXPECT_NEAR(90.0f, Acos(0.0f).InDegrees(), NEAR);
-  EXPECT_NEAR(180.0f, Acos(-1.0f).InDegrees(), NEAR4);
-  EXPECT_NEAR(60.0f, Acos(0.5f).InDegrees(), NEAR3);
-  EXPECT_NEAR(15.0f, Acos(b).InDegrees(), NEAR3);
-  EXPECT_NEAR(75.0f, Acos(a).InDegrees(), NEAR3);
-}
-
-GTEST(atan) {
-  EXPECT_NEAR(0, Atan(0.0f).InDegrees(), NEAR);
-  EXPECT_NEAR(45.0f, Atan(1.0f).InDegrees(), NEAR);
-  EXPECT_NEAR(60.0f, Atan(Sqrt(3.0f)).InDegrees(), NEAR2);
+  SECTION("acos")
+  {
+    REQUIRE(Acos(1.0f).InDegrees() == Approx(0.0f));
+    REQUIRE(Acos(0.0f).InDegrees() == Approx(90.0f));
+    REQUIRE(Acos(-1.0f).InDegrees() == Approx(180.0f));
+    REQUIRE(Acos(0.5f).InDegrees() == Approx(60.0f));
+    REQUIRE(Acos(b).InDegrees() == Approx(15.0f));
+    REQUIRE(Acos(a).InDegrees() == Approx(75.0f));
+  }
 }

@@ -1,102 +1,101 @@
-#include "gtest/gtest.h"
 #include "core/vec2.h"
 
-#define GTEST(X) TEST(vec2, X)
+#include "catch.hpp"
 
-GTEST(constructor_both) {
+TEST_CASE("vec2-constructor_both", "[vec2]") {
   const auto v = vec2i(42);
-  EXPECT_EQ(42, v.x);
-  EXPECT_EQ(42, v.y);
+  REQUIRE(v.x == 42);
+  REQUIRE(v.y == 42);
 }
 
-GTEST(constructor_explicit) {
+TEST_CASE("vec2-constructor_explicit", "[vec2]") {
   const auto v = vec2i(10, 20);
-  EXPECT_EQ(10, v.x);
-  EXPECT_EQ(20, v.y);
+  REQUIRE(v.x == 10);
+  REQUIRE(v.y == 20);
 }
 
-GTEST(add) {
+TEST_CASE("vec2-add", "[vec2]") {
   const auto v = vec2i(10, 20) + vec2i(1, 2);
-  EXPECT_EQ(11, v.x);
-  EXPECT_EQ(22, v.y);
+  REQUIRE(v.x == 11);
+  REQUIRE(v.y == 22);
 }
 
-GTEST(add_assign) {
+TEST_CASE("vec2-add_assign", "[vec2]") {
   auto v = vec2i(1, 2);
   v += vec2i(10, 20);
-  EXPECT_EQ(11, v.x);
-  EXPECT_EQ(22, v.y);
+  REQUIRE(v.x == 11);
+  REQUIRE(v.y == 22);
 }
 
 
-GTEST(sub) {
+TEST_CASE("vec2-sub", "[vec2]") {
   const auto v = vec2i(11, 22) - vec2i(1, 2);
-  EXPECT_EQ(10, v.x);
-  EXPECT_EQ(20, v.y);
+  REQUIRE(v.x == 10);
+  REQUIRE(v.y == 20);
 }
 
-GTEST(sub_assign) {
+TEST_CASE("vec2-sub_assign", "[vec2]") {
   auto v = vec2i(1, 2);
   v -= vec2i(2, 4);
-  EXPECT_EQ(-1, v.x);
-  EXPECT_EQ(-2, v.y);
+  REQUIRE(v.x == -1);
+  REQUIRE(v.y == -2);
 }
 
-GTEST(times) {
+TEST_CASE("vec2-times", "[vec2]") {
   const auto v = vec2i(1, 2) * 2;
-  EXPECT_EQ(2, v.x);
-  EXPECT_EQ(4, v.y);
+  REQUIRE(v.x == 2);
+  REQUIRE(v.y == 4);
 }
 
-GTEST(times_assign) {
+TEST_CASE("vec2-times_assign", "[vec2]") {
   auto v = vec2i(1, 2);
   v *= 2;
-  EXPECT_EQ(2, v.x);
-  EXPECT_EQ(4, v.y);
+  REQUIRE(v.x == 2);
+  REQUIRE(v.y == 4);
 }
 
-GTEST(div) {
+TEST_CASE("vec2-div", "[vec2]") {
   const auto v = vec2i(2, 4) / 2;
-  EXPECT_EQ(1, v.x);
-  EXPECT_EQ(2, v.y);
+  REQUIRE(v.x == 1);
+  REQUIRE(v.y == 2);
 }
 
-GTEST(div_assign) {
+TEST_CASE("vec2-div_assign", "[vec2]") {
   auto v = vec2i(2, 4);
   v /= 2;
-  EXPECT_EQ(1, v.x);
-  EXPECT_EQ(2, v.y);
+  REQUIRE(v.x == 1);
+  REQUIRE(v.y == 2);
 }
 
-GTEST(length_squared) {
+TEST_CASE("vec2-length_squared", "[vec2]") {
   const auto v = vec2i(1, 2).GetLengthSquared();
-  EXPECT_EQ(5, v);
+  REQUIRE(v == 5);
 }
 
-GTEST(length) {
+TEST_CASE("vec2-length", "[vec2]") {
   const auto v = vec2i(0, 3).GetLength();
-  EXPECT_EQ(3, v);
+  REQUIRE(v == 3);
 }
 
-GTEST(get_normalized) {
+TEST_CASE("vec2-get_normalized", "[vec2]") {
   const auto v = vec2i(0, 3).GetNormalized();
-  EXPECT_EQ(0, v.x);
-  EXPECT_EQ(1, v.y);
+  REQUIRE(v.x == 0);
+  REQUIRE(v.y == 1);
 }
 
-GTEST(normalize) {
+TEST_CASE("vec2-normalize", "[vec2]") {
   auto v = vec2i(0, 3);
   v.Normalize();
-  EXPECT_EQ(0, v.x);
-  EXPECT_EQ(1, v.y);
+  REQUIRE(v.x == 0);
+  REQUIRE(v.y == 1);
 }
 
-GTEST(equal) {
-  EXPECT_TRUE(vec2i(1, 2) == vec2i(1, 2));
-  EXPECT_FALSE(vec2i(1, 2) == vec2i(2, 1));
+TEST_CASE("vec2-equal", "[vec2]") {
+  REQUIRE(vec2i(1, 2) == vec2i(1, 2));
+  REQUIRE_FALSE(vec2i(1, 2) == vec2i(2, 1));
 }
 
-GTEST(dot) {
+TEST_CASE("vec2-dot", "[vec2]") {
   const auto r = dot(vec2i(1, 2), vec2i(3, 4));
-  EXPECT_EQ(11, r);
+  REQUIRE(r == 11);
 }
