@@ -155,32 +155,37 @@ class quat
     return r;
   }
 
-  Vec
+  typename Vec::Unit
   In() const
   {
     return RotateAroundOrigo(-Vec::ZAxis());
   }
-  Vec
+
+  typename Vec::Unit
   Out() const
   {
     return RotateAroundOrigo(Vec::ZAxis());
   }
-  Vec
+
+  typename Vec::Unit
   Right() const
   {
     return RotateAroundOrigo(Vec::XAxis());
   }
-  Vec
+
+  typename Vec::Unit
   Left() const
   {
     return RotateAroundOrigo(-Vec::XAxis());
   }
-  Vec
+
+  typename Vec::Unit
   Up() const
   {
     return RotateAroundOrigo(Vec::YAxis());
   }
-  Vec
+
+  typename Vec::Unit
   Down() const
   {
     return RotateAroundOrigo(-Vec::YAxis());
@@ -193,14 +198,14 @@ class quat
     return In() * v.z + Right() * v.x + Up() * v.y;
   }
 
-  Vec
-  RotateAroundOrigo(const Vec v) const
+  typename Vec::Unit
+  RotateAroundOrigo(const typename Vec::Unit v) const
   {
     // http://gamedev.stackexchange.com/questions/28395/rotating-vector3-by-a-quaternion
     const Q pure(0, v);
     const Q a   = *this * pure;
     const Q ret = a * GetConjugate();
-    return ret.vec();
+    return ret.vec().GetNormalized();
   }
 
   static Q
