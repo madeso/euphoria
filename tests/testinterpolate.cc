@@ -44,7 +44,7 @@ TEST_CASE("interpolate-huge_step", "[interpolate]")
   f.Linear(1.0f, 1.0f);
   f.Update(5.0f);
 
-  REQUIRE(!f.HasSteps());
+  REQUIRE_FALSE(f.HasSteps());
   REQUIRE(f.GetValue() == Approx(1.0f));
 }
 
@@ -56,7 +56,7 @@ TEST_CASE("interpolate-clear_after_a_time", "[interpolate]")
   REQUIRE(f.HasSteps());
   f.Clear();
 
-  REQUIRE(!f.HasSteps());
+  REQUIRE_FALSE(f.HasSteps());
   REQUIRE(f.GetValue() == Approx(0.5f));
 }
 

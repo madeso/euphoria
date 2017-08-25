@@ -57,7 +57,7 @@ TEST_CASE("vfs-test_catalog_with_null", "[vfs]")
 
   SECTION("error when trying to read missing file")
   {
-    REQUIRE(!fs.ReadFileToString("cat", &content));
+    REQUIRE_FALSE(fs.ReadFileToString("cat", &content));
   }
 }
 
