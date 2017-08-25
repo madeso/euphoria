@@ -5,7 +5,7 @@
 
 TEST_CASE("template-test_replace", "[template]") {
   Template t { "Hello {{@sender}}!" };
-  REQUIRE(t.GetErrors().HasErrors() == false);
+  REQUIRE_FALSE(t.GetErrors().HasErrors() );
   REQUIRE(t.GetErrors().GetCombinedErrors() == "");
 
   Defines defines;
@@ -16,7 +16,7 @@ TEST_CASE("template-test_replace", "[template]") {
 
 TEST_CASE("template-test_if", "[template]") {
   Template t { "{{ifdef sender}}Hello {{@sender}}!{{end}}" };
-  REQUIRE(t.GetErrors().HasErrors() == false);
+  REQUIRE_FALSE(t.GetErrors().HasErrors() );
   REQUIRE(t.GetErrors().GetCombinedErrors() == "");
 
   Defines defines_with_sender;
@@ -32,23 +32,23 @@ TEST_CASE("template-test_if", "[template]") {
 
 TEST_CASE("template-test_define", "[template]") {
   Template t { "{{set sender \"Buffy\"}}Hello {{@sender}}!" };
-  REQUIRE(t.GetErrors().HasErrors() == false);
+  REQUIRE_FALSE(t.GetErrors().HasErrors() );
   REQUIRE(t.GetErrors().GetCombinedErrors() == "");
 
   Defines defines;
   REQUIRE(t.Evaluate(defines) == "Hello Buffy!");
-  REQUIRE(defines.IsDefined("sender") == false);
+  REQUIRE_FALSE(defines.IsDefined("sender") );
   REQUIRE(t.GetErrors().GetCombinedErrors() == "");
 }
 
 TEST_CASE("template-test_only_code", "[template]") {
   Template t { "{{set sender \"Buffy\" @sender}}" };
-  REQUIRE(t.GetErrors().HasErrors() == false);
+  REQUIRE_FALSE(t.GetErrors().HasErrors() );
   REQUIRE(t.GetErrors().GetCombinedErrors() == "");
 
   Defines defines;
   REQUIRE(t.Evaluate(defines) == "Buffy");
-  REQUIRE(defines.IsDefined("sender") == false);
+  REQUIRE_FALSE(defines.IsDefined("sender") );
   REQUIRE(t.GetErrors().GetCombinedErrors() == "");
 }
 
@@ -58,7 +58,7 @@ TEST_CASE("template-test_basic_filesystem", "[template]") {
   catalog->RegisterFileString("main", "main");
 
   Template t {&filesys, "main"};
-  REQUIRE(t.GetErrors().HasErrors() == false);
+  REQUIRE_FALSE(t.GetErrors().HasErrors() );
   REQUIRE(t.GetErrors().GetCombinedErrors() == "");
 
   Defines defines;
@@ -74,7 +74,7 @@ TEST_CASE("template-test_include_filesystem", "[template]") {
 
   Template t {&filesys, "main"};
   REQUIRE(t.GetErrors().GetCombinedErrors() == "");
-  REQUIRE(t.GetErrors().HasErrors() == false);
+  REQUIRE_FALSE(t.GetErrors().HasErrors() );
 
   Defines defines;
   REQUIRE(t.Evaluate(defines) == "included");
@@ -89,7 +89,7 @@ TEST_CASE("template-test_scoping_filesystem", "[template]") {
 
   Template t {&filesys, "main"};
   REQUIRE(t.GetErrors().GetCombinedErrors() == "");
-  REQUIRE(t.GetErrors().HasErrors() == false);
+  REQUIRE_FALSE(t.GetErrors().HasErrors() );
 
   Defines defines;
   defines.Define("var", "world");
