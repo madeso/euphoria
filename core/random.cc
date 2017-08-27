@@ -139,7 +139,7 @@ Random::NextPoint(const Rectf& rect)
 {
   const float x = NextRange(rect.GetWidth());
   const float y = NextRange(rect.GetHeight());
-  return rect.GetPosition(vec2f{x, y});
+  return rect.GetPositionFromBottomLeft(vec2f{x, y});
 }
 
 vec2i
@@ -147,7 +147,7 @@ Random::NextPoint(const Recti& rect)
 {
   const int x = NextRange(rect.GetWidth());
   const int y = NextRange(rect.GetHeight());
-  return rect.GetPosition(vec2i{x, y});
+  return rect.GetPositionFromBottomLeft(vec2i{x, y});
 }
 
 PolarCoord

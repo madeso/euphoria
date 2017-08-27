@@ -1,9 +1,13 @@
 #ifndef CORE_RECT_H
 #define CORE_RECT_H
 
+#include "core/assert.h"
 #include "core/vec2.h"
 #include "core/size.h"
 #include "core/line2.h"
+
+// Bottom, Left of screen is (0,0)
+// X-axis is positive right, Y-axis is positive up
 
 template <typename T>
 class Rect
@@ -11,8 +15,8 @@ class Rect
  public:
   T left;
   T right;
-  T bottom;
   T top;
+  T bottom;
 
   typedef line2<T> Line;
   typedef vec2<T>  vec;
@@ -20,8 +24,8 @@ class Rect
   Rect()
       : left(0)
       , right(0)
-      , bottom(0)
       , top(0)
+      , bottom(0)
   {
   }
 
@@ -29,12 +33,17 @@ class Rect
   Rect(T aleft, T aright, T atop, T abottom)
       : left(aleft)
       , right(aright)
-      , bottom(abottom)
       , top(atop)
+      , bottom(abottom)
   {
   }
 
  public:
+  static Rect
+  FromLeftRightBottomTop(T aleft, T aright, T abottom, T atop)
+  {
+    return Rect(aleft, aright, atop, abottom);
+  }
   static Rect
   FromLeftRightTopBottom(T aleft, T aright, T atop, T abottom)
   {
@@ -43,12 +52,12 @@ class Rect
   static Rect
   FromTopLeftWidthHeight(T atop, T aleft, T width, T height)
   {
-    return FromLeftRightTopBottom(aleft, aleft + width, atop, atop + height);
+    return FromLeftRightTopBottom(aleft, aleft + width, atop, atop - height);
   }
   static Rect
   FromWidthHeight(T width, T height)
   {
-    return FromLeftRightTopBottom(0, width, 0, height);
+    return FromLeftRightBottomTop(0, width, 0, height);
   }
   static Rect
   FromWidthHeight(const Size<T>& s)
@@ -61,79 +70,89 @@ class Rect
     return FromTopLeftWidthHeight(point.y, point.x, 0, 0);
   }
 
-  T
-  GetX() const
+  vec2<T>
+  GetBottomLeft() const
   {
-    return left;
-  }
-
-  T
-  GetY() const
-  {
-    return top;
+    return vec2<T>(bottom, left);
   }
 
   vec2<T>
-  GetPosition() const
+  GetPositionFromBottomLeft(const vec2<T> v) const
   {
-    return vec2<T>(GetX(), GetY());
-  }
-
-  vec2<T>
-  GetPosition(const vec2<T> v) const
-  {
-    return vec2<T>(v.x + GetX(), v.y + GetY());
+    return GetBottomLeft() + v;
   }
 
   T
-  GetRelativeCenterX() const
+  GetRelativeCenterXFromBottomLeft() const
   {
     return GetWidth() / 2;
   }
+
   T
-  GetRelativeCenterY() const
+  GetRelativeCenterYFromBottomLeft() const
   {
     return GetHeight() / 2;
   }
+
   vec2<T>
-  GetRelativeCenterPos() const
+  GetRelativeCenterPosFromBottomLeft() const
   {
-    return vec2<T>(GetRelativeCenterX(), GetRelativeCenterY());
+    return vec2<T>(GetRelativeCenterXFromBottomLeft(),
+                   GetRelativeCenterYFromBottomLeft());
   }
 
   T
   GetAbsoluteCenterX() const
   {
-    return left + GetRelativeCenterX();
+    return left + GetRelativeCenterXFromBottomLeft();
   }
+
   T
   GetAbsoluteCenterY() const
   {
-    return top + GetRelativeCenterY();
+    return bottom + GetRelativeCenterYFromBottomLeft();
   }
+
   vec2<T>
   GetAbsoluteCenterPos() const
   {
     return vec2<T>(GetAbsoluteCenterX(), GetAbsoluteCenterY());
   }
 
+  // does this contains the argument?
   bool
   ContainsExclusive(const Rect<T>& r) const
   {
-    return left < r.left && right > r.right && top < r.top && bottom > r.bottom;
+    ASSERT(IsValid());
+    if(!IsValid())
+    {
+      return false;
+    }
+    ASSERT(r.IsValid());
+    if(!r.IsValid())
+    {
+      return false;
+    }
+
+    return left < r.left && right > r.right && top > r.top && bottom < r.bottom;
   }
 
   // on the border is NOT considered included
   bool
   ContainsExclusive(const vec2<T>& p) const
   {
+    ASSERT(IsValid());
     return ContainsExclusive(p.x, p.y);
   }
 
   bool
   ContainsExclusive(T x, T y) const
   {
-    return left < x && right > x && top < y && bottom > y;
+    if(!IsValid())
+    {
+      return false;
+    }
+    return left < x && x < right && bottom < y && y < top;
   }
 
   // on the border is considered included
@@ -146,7 +165,11 @@ class Rect
   bool
   ContainsInclusive(T x, T y) const
   {
-    return left <= x && right >= x && top <= y && bottom >= y;
+    if(!IsValid())
+    {
+      return false;
+    }
+    return left <= x && x <= right && bottom <= y && y <= top;
   }
 
   void
@@ -154,8 +177,8 @@ class Rect
   {
     left += dx;
     right -= dx;
-    top += dy;
-    bottom -= dy;
+    top -= dy;
+    bottom += dy;
   }
 
   Rect<T>
@@ -195,11 +218,18 @@ class Rect
     bottom = Max(bottom, o.bottom);
   }
 
-  // Returns true if the rectangle is empty (left >= right or top >= bottom)
+  // Returns true if the rectangle is empty (left >= right or top <= bottom)
   bool
   IsEmpty() const
   {
-    return left >= right || top >= bottom;
+    return left >= right || top <= bottom;
+  }
+
+  // doe this represent a rectangle? A 0 width/height is also considered valid
+  bool
+  IsValid() const
+  {
+    return GetWidth() >= 0 && GetHeight() >= 0;
   }
 
   // Translate
@@ -245,15 +275,13 @@ class Rect
   void
   OffsetTo(T newLeft, T newTop)
   {
-    *this = FromTopLeftWidthHeight(newTop, newLeft, GetWidth(), GetHeight());
+    *this = SetTopLeftToCopy(newTop, newLeft);
   }
 
   Rect<T>
-  OffsetToCopy(T newLeft, T newTop) const
+  SetTopLeftToCopy(T newLeft, T newTop) const
   {
-    Rect<T> ret = *this;
-    ret.OffsetTo(newLeft, newTop);
-    return ret;
+    return FromTopLeftWidthHeight(newTop, newLeft, GetWidth(), GetHeight());
   }
 
   void
@@ -267,7 +295,7 @@ class Rect
   T
   GetHeight() const
   {
-    return bottom - top;
+    return top - bottom;
   }
 
   T
