@@ -17,6 +17,9 @@ class MemoryChunk
   fuint64
   GetSize() const;
 
+  char operator[](fuint64 index) const;
+  char& operator[](fuint64 index);
+
   static std::shared_ptr<MemoryChunk>
   Alloc(fuint64 size);
 
@@ -38,7 +41,7 @@ class MemoryChunkFile
   explicit MemoryChunkFile(std::shared_ptr<MemoryChunk> d);
 
   void
-  Write(void* src, fuint64 size);
+  Write(const void* src, fuint64 size);
 
   std::shared_ptr<MemoryChunk> data;
   fuint64                      position;

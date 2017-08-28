@@ -21,6 +21,16 @@ MemoryChunk::GetSize() const
   return size_;
 }
 
+char MemoryChunk::operator[](fuint64 index) const
+{
+  return data_[index];
+}
+
+char& MemoryChunk::operator[](fuint64 index)
+{
+  return data_[index];
+}
+
 std::shared_ptr<MemoryChunk>
 MemoryChunk::Alloc(fuint64 size)
 {
@@ -55,7 +65,7 @@ MemoryChunkFile::MemoryChunkFile(std::shared_ptr<MemoryChunk> d)
 }
 
 void
-MemoryChunkFile::Write(void* src, fuint64 size)
+MemoryChunkFile::Write(const void* src, fuint64 size)
 {
   ASSERT(position + size <= data->GetSize());
   std::memcpy(data->GetData() + position, src, sizeof(char) * size);
