@@ -20,8 +20,8 @@ namespace  // local
 void
 Viewport::Activate()
 {
-  const vec2i top_left = viewport_.TopLeft();
-  glViewport(top_left.x, top_left.y, viewport_.GetWidth(),
+  const vec2i bottom_left = viewport_.BottomLeft();
+  glViewport(bottom_left.x, bottom_left.y, viewport_.GetWidth(),
              viewport_.GetHeight());
   ActiveViewport() = this;
 }

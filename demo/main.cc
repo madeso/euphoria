@@ -91,7 +91,8 @@ main(int argc, char** argv)
 
   ImguiLibrary imgui{window.window};
 
-  Viewport viewport{Recti::FromTopLeftWidthHeight(0, 0, width, height)};
+  Viewport viewport{
+      Recti::FromWidthHeight(width, height).SetBottomLeftToCopy(0, 0)};
   viewport.Activate();
 
   FileSystem file_system;

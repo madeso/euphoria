@@ -124,15 +124,7 @@ class Rect
   ContainsExclusive(const Rect<T>& r) const
   {
     ASSERT(IsValid());
-    if(!IsValid())
-    {
-      return false;
-    }
     ASSERT(r.IsValid());
-    if(!r.IsValid())
-    {
-      return false;
-    }
 
     return left < r.left && right > r.right && top > r.top && bottom < r.bottom;
   }
@@ -148,10 +140,7 @@ class Rect
   bool
   ContainsExclusive(T x, T y) const
   {
-    if(!IsValid())
-    {
-      return false;
-    }
+    ASSERT(IsValid());
     return left < x && x < right && bottom < y && y < top;
   }
 
@@ -165,10 +154,7 @@ class Rect
   bool
   ContainsInclusive(T x, T y) const
   {
-    if(!IsValid())
-    {
-      return false;
-    }
+    ASSERT(IsValid());
     return left <= x && x <= right && bottom <= y && y <= top;
   }
 
@@ -282,6 +268,13 @@ class Rect
   SetTopLeftToCopy(T newLeft, T newTop) const
   {
     return FromTopLeftWidthHeight(newTop, newLeft, GetWidth(), GetHeight());
+  }
+
+  Rect<T>
+  SetBottomLeftToCopy(T newLeft, T newBottom) const
+  {
+    return FromTopLeftWidthHeight(newBottom + GetHeight(), newLeft, GetWidth(),
+                                  GetHeight());
   }
 
   void
