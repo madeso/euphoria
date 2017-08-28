@@ -2,6 +2,8 @@
 
 #include <sstream>
 
+// source: https://en.wikipedia.org/wiki/Base64
+
 namespace base64
 {
   namespace
