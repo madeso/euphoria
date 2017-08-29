@@ -74,9 +74,17 @@ Actor::GetModelMatrix() const
 }
 
 void
-Actor::Render(const mat4f& projection_matrix, const mat4f& view_matrix,
-              const vec3f& camera, const Light& light)
+Actor::Render(
+    const mat4f& projection_matrix,
+    const mat4f& view_matrix,
+    const vec3f& camera,
+    const Light& light)
 {
-  mesh_->Render(GetModelMatrix(), projection_matrix, view_matrix, camera, light,
-                overridden_materials_);
+  mesh_->Render(
+      GetModelMatrix(),
+      projection_matrix,
+      view_matrix,
+      camera,
+      light,
+      overridden_materials_);
 }

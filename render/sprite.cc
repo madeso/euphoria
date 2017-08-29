@@ -68,8 +68,8 @@ Sprite::SetAlpha(float a)
 void
 Sprite::Render(SpriteRenderer* render)
 {
-  render->DrawSprite(*texture_, position_, rotate_, scale_,
-                     Rgba(color_, alpha_));
+  render->DrawSprite(
+      *texture_, position_, rotate_, scale_, Rgba(color_, alpha_));
 }
 
 Layer::Layer(SpriteRenderer* render)
@@ -87,8 +87,8 @@ void
 Layer::Remove(Sprite* sprite)
 {
   SpriteList& sprites = sprites_[sprite->GetTexture()];
-  sprites.erase(std::remove(sprites.begin(), sprites.end(), sprite),
-                sprites.end());
+  sprites.erase(
+      std::remove(sprites.begin(), sprites.end(), sprite), sprites.end());
 }
 
 void

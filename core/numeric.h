@@ -45,8 +45,8 @@ Example:
 @returns The smoothed result.
 */
 const float
-Curve(const float new_value, const float old_value,
-      const float smoothing_value);
+Curve(
+    const float new_value, const float old_value, const float smoothing_value);
 
 /** Calculates the square of the argument.
 @see Sqrt()
@@ -133,9 +133,12 @@ original range, it will be outside the new range.
 @see KeepWithin()
 */
 const float
-Remap(const float old_lower_bound, const float old_upper_bound,
-      const float value, const float new_lower_bound,
-      const float new_upper_bound);
+Remap(
+    const float old_lower_bound,
+    const float old_upper_bound,
+    const float value,
+    const float new_lower_bound,
+    const float new_upper_bound);
 
 /** Calculate smooth value suitable for infinite looping.
 @param min is the minimum output value
@@ -222,8 +225,8 @@ Round(const float num, const float gran);
 @see Wrap()
 */
 const int
-IncrementAndWrap(const float min, float* current, const float change,
-                 const float max);
+IncrementAndWrap(
+    const float min, float* current, const float change, const float max);
 
 /** Increment and wrap a value.
 @returns return number of wraps (with sign)

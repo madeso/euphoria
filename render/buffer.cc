@@ -21,8 +21,8 @@ Vbo::SetData(const std::vector<float>& data)
 {
   ASSERT(GetBound() == this);
   // use GL_DYNAMIC_DRAW or GL_STREAM_DRAW instead?
-  glBufferData(GL_ARRAY_BUFFER, sizeof(float) * data.size(), &data[0],
-               GL_STATIC_DRAW);
+  glBufferData(
+      GL_ARRAY_BUFFER, sizeof(float) * data.size(), &data[0], GL_STATIC_DRAW);
 }
 
 void
@@ -61,8 +61,13 @@ Vao::BindVboData(const ShaderAttribute& attribute, int stride, int offset)
   ASSERT(size >= 1 && size <= 4);
   // reinterpret_cast is probably ok since the void* is an offset
   // and not a actual pointer
-  glVertexAttribPointer(attribute.id, size, GL_FLOAT, GL_FALSE, stride,
-                        reinterpret_cast<GLvoid*>(offset));  // NOLINT
+  glVertexAttribPointer(
+      attribute.id,
+      size,
+      GL_FLOAT,
+      GL_FALSE,
+      stride,
+      reinterpret_cast<GLvoid*>(offset));  // NOLINT
   glEnableVertexAttribArray(attribute.id);
 
   attributes.push_back(attribute);
@@ -98,8 +103,11 @@ void
 Ebo::SetData(const std::vector<unsigned int>& indices)
 {
   ASSERT(GetBound() == this);
-  glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int),
-               &indices[0], GL_STATIC_DRAW);
+  glBufferData(
+      GL_ELEMENT_ARRAY_BUFFER,
+      indices.size() * sizeof(unsigned int),
+      &indices[0],
+      GL_STATIC_DRAW);
 }
 
 void

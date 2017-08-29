@@ -36,16 +36,22 @@ class CompiledMeshMaterial
   SetShader(const std::shared_ptr<MaterialShader>& shader);
 
   void
-  SetColors(const Rgb& ambient, const Rgb& diffuse, const Rgb& specular,
-            float shininess);
+  SetColors(
+      const Rgb& ambient,
+      const Rgb& diffuse,
+      const Rgb& specular,
+      float      shininess);
 
   void
   SetTexture(const EnumValue& name, std::shared_ptr<Texture2d> texture);
 
   void
-  Apply(const mat4f& model_matrix, const mat4f& projection_matrix,
-        const mat4f& view_matrix, const vec3f& camera,
-        const Light& light) const;
+  Apply(
+      const mat4f& model_matrix,
+      const mat4f& projection_matrix,
+      const mat4f& view_matrix,
+      const vec3f& camera,
+      const Light& light) const;
 
   // gets the default materials from the shader if they are null/not set
   void
@@ -76,14 +82,21 @@ class CompiledMesh
   GetNoOverriddenMaterials() const;
 
   void
-  Render(const mat4f& model_matrix, const mat4f& projection_matrix,
-         const mat4f& view_matrix, const vec3f& camera, const Light& light,
-         const std::vector<std::shared_ptr<CompiledMeshMaterial>>&
-             overridden_materials);
+  Render(
+      const mat4f& model_matrix,
+      const mat4f& projection_matrix,
+      const mat4f& view_matrix,
+      const vec3f& camera,
+      const Light& light,
+      const std::vector<std::shared_ptr<CompiledMeshMaterial>>&
+          overridden_materials);
 };
 
 std::shared_ptr<CompiledMesh>
-CompileMesh(const Mesh& mesh, MaterialShaderCache* shader_cache,
-            TextureCache* texture_cache, const Path& texture_folder);
+CompileMesh(
+    const Mesh&          mesh,
+    MaterialShaderCache* shader_cache,
+    TextureCache*        texture_cache,
+    const Path&          texture_folder);
 
 #endif  // EUPHORIA_COMPILEDMESH_H

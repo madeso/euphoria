@@ -36,8 +36,8 @@ class mat3
   FromMajor(const vec3<T>& major)
   {
     const T zero = 0;
-    return FromRowMajor(major.x, zero, zero, zero, major.y, zero, zero, zero,
-                        major.z);
+    return FromRowMajor(
+        major.x, zero, zero, zero, major.y, zero, zero, zero, major.z);
   }
 
   static mat3<T>
@@ -87,13 +87,16 @@ class mat3
 #define v aa.axis.y
 #define w aa.axis.z
     return mat3<T>::FromColMajor(
-        rcos + u * u * (1 - rcos), w * rsin + v * u * (1 - rcos),
+        rcos + u * u * (1 - rcos),
+        w * rsin + v * u * (1 - rcos),
         -v * rsin + w * u * (1 - rcos),
 
-        -w * rsin + u * v * (1 - rcos), rcos + v * v * (1 - rcos),
+        -w * rsin + u * v * (1 - rcos),
+        rcos + v * v * (1 - rcos),
         u * rsin + w * v * (1 - rcos),
 
-        v * rsin + u * w * (1 - rcos), -u * rsin + v * w * (1 - rcos),
+        v * rsin + u * w * (1 - rcos),
+        -u * rsin + v * w * (1 - rcos),
         rcos + w * w * (1 - rcos));
 #undef u
 #undef v
@@ -141,9 +144,16 @@ class mat3
   GetTransposed() const
   {
     const mat3<T>& self = *this;
-    return FromColMajor(self(0, 0), self(0, 1), self(0, 2), self(1, 0),
-                        self(1, 1), self(1, 2), self(2, 0), self(2, 1),
-                        self(2, 2));
+    return FromColMajor(
+        self(0, 0),
+        self(0, 1),
+        self(0, 2),
+        self(1, 0),
+        self(1, 1),
+        self(1, 2),
+        self(2, 0),
+        self(2, 1),
+        self(2, 2));
   }
 
   void
@@ -277,8 +287,16 @@ mat3<T> operator*(const mat3<T>& lhs, const mat3<T> rhs)
 {
 #define OP(r, c) \
   ComponentMultiply(lhs.GetRow(r), rhs.GetColumn(c)).GetComponentSum()
-  return mat3<T>::FromRowMajor(OP(0, 0), OP(0, 1), OP(0, 2), OP(1, 0), OP(1, 1),
-                               OP(1, 2), OP(2, 0), OP(2, 1), OP(2, 2));
+  return mat3<T>::FromRowMajor(
+      OP(0, 0),
+      OP(0, 1),
+      OP(0, 2),
+      OP(1, 0),
+      OP(1, 1),
+      OP(1, 2),
+      OP(2, 0),
+      OP(2, 1),
+      OP(2, 2));
 #undef OP
 }
 

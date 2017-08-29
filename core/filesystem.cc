@@ -26,8 +26,8 @@ namespace
   {
     char current_directory[FILENAME_MAX];
 
-    if(!GET_CURRENT_DIR(static_cast<char*>(current_directory),
-                        sizeof(current_directory)))
+    if(!GET_CURRENT_DIR(
+           static_cast<char*>(current_directory), sizeof(current_directory)))
     {
       return "";
     }
@@ -91,8 +91,8 @@ FileSystem::ReadFileToString(const std::string& path, std::string* source)
 FileSystemRootCatalog::FileSystemRootCatalog() = default;
 
 void
-FileSystemRootCatalog::RegisterFileString(const std::string& path,
-                                          const std::string& content)
+FileSystemRootCatalog::RegisterFileString(
+    const std::string& path, const std::string& content)
 {
   std::shared_ptr<MemoryChunk> file = MemoryChunk::Alloc(content.length() + 1);
   CopyToMemory(file.get(), &content[0]);
@@ -155,8 +155,9 @@ FileSystemRootFolder::ReadFile(const std::string& path)
   }
 
   auto memory = MemoryChunk::Alloc(length);
-  is.read(static_cast<char*>(static_cast<void*>(memory->GetData())),
-          memory->GetSize());
+  is.read(
+      static_cast<char*>(static_cast<void*>(memory->GetData())),
+      memory->GetSize());
 
   return memory;
 }

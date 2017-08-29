@@ -140,14 +140,25 @@ Texture2d::Texture2d()
 }
 
 void
-Texture2d::LoadFromPixels(int width, int height,
-                          const unsigned char* pixel_data,
-                          GLuint internal_format, GLuint image_format,
-                          const Texture2dLoadData& data)
+Texture2d::LoadFromPixels(
+    int                      width,
+    int                      height,
+    const unsigned char*     pixel_data,
+    GLuint                   internal_format,
+    GLuint                   image_format,
+    const Texture2dLoadData& data)
 {
   Use(this);
-  glTexImage2D(GL_TEXTURE_2D, 0, internal_format, width, height, 0,
-               image_format, GL_UNSIGNED_BYTE, pixel_data);
+  glTexImage2D(
+      GL_TEXTURE_2D,
+      0,
+      internal_format,
+      width,
+      height,
+      0,
+      image_format,
+      GL_UNSIGNED_BYTE,
+      pixel_data);
 
   width_  = width;
   height_ = height;
@@ -161,8 +172,11 @@ Texture2d::LoadFromPixels(int width, int height,
 }
 
 void
-Texture2d::LoadFromFile(FileSystem* fs, const std::string& path,
-                        AlphaLoad alpha, const Texture2dLoadData& data)
+Texture2d::LoadFromFile(
+    FileSystem*              fs,
+    const std::string&       path,
+    AlphaLoad                alpha,
+    const Texture2dLoadData& data)
 {
   ImageLoadResult i = LoadImage(fs, path, alpha);
   if(!i.image.IsValid())
@@ -175,8 +189,8 @@ Texture2d::LoadFromFile(FileSystem* fs, const std::string& path,
 }
 
 void
-Texture2d::LoadFromImage(const Image& image, AlphaLoad alpha,
-                         const Texture2dLoadData& data)
+Texture2d::LoadFromImage(
+    const Image& image, AlphaLoad alpha, const Texture2dLoadData& data)
 {
   GLuint internal_format = GL_RGB;
   GLuint image_format    = GL_RGB;
@@ -186,8 +200,13 @@ Texture2d::LoadFromImage(const Image& image, AlphaLoad alpha,
     image_format    = GL_RGBA;
   }
 
-  LoadFromPixels(image.GetWidth(), image.GetHeight(), image.GetPixelData(),
-                 internal_format, image_format, data);
+  LoadFromPixels(
+      image.GetWidth(),
+      image.GetHeight(),
+      image.GetPixelData(),
+      internal_format,
+      image_format,
+      data);
 }
 
 int

@@ -89,14 +89,23 @@ Image::SetPixel(int x, int y, const Rgb& color)
 void
 Image::SetPixel(int x, int y, const Rgba& color)
 {
-  SetPixel(x, y, ToUnsignedChar(color.GetRed()),
-           ToUnsignedChar(color.GetGreen()), ToUnsignedChar(color.GetBlue()),
-           ToUnsignedChar(color.GetAlpha()));
+  SetPixel(
+      x,
+      y,
+      ToUnsignedChar(color.GetRed()),
+      ToUnsignedChar(color.GetGreen()),
+      ToUnsignedChar(color.GetBlue()),
+      ToUnsignedChar(color.GetAlpha()));
 }
 
 void
-Image::SetPixel(int x, int y, unsigned char r, unsigned char g, unsigned char b,
-                unsigned char a)
+Image::SetPixel(
+    int           x,
+    int           y,
+    unsigned char r,
+    unsigned char g,
+    unsigned char b,
+    unsigned char a)
 {
   ASSERT(IsWithinInclusivei(0, x, GetWidth() - 1));
   ASSERT(IsWithinInclusivei(0, y, GetHeight() - 1));
@@ -179,8 +188,15 @@ namespace  // local
 }  // namespace
 
 int
-WriteImageData(stbi_write_func* func, void* context, int w, int h, int comp,
-               const void* data, ImageWriteFormat format, int jpeg_quality)
+WriteImageData(
+    stbi_write_func* func,
+    void*            context,
+    int              w,
+    int              h,
+    int              comp,
+    const void*      data,
+    ImageWriteFormat format,
+    int              jpeg_quality)
 {
   switch(format)
   {
@@ -191,8 +207,8 @@ WriteImageData(stbi_write_func* func, void* context, int w, int h, int comp,
     case ImageWriteFormat::TGA:
       return stbi_write_tga_to_func(func, context, w, h, comp, data);
     case ImageWriteFormat::JPEG:
-      return stbi_write_jpg_to_func(func, context, w, h, comp, data,
-                                    jpeg_quality);
+      return stbi_write_jpg_to_func(
+          func, context, w, h, comp, data, jpeg_quality);
     default:
       DIE("Unhandled case");
       return 0;
@@ -202,11 +218,17 @@ WriteImageData(stbi_write_func* func, void* context, int w, int h, int comp,
 std::shared_ptr<MemoryChunk>
 Image::Write(ImageWriteFormat format, int jpeg_quality) const
 {
-  fuint64   size = 0;
-  const int comp = has_alpha_ ? 4 : 3;
-  int       size_result =
-      WriteImageData(DetermineImageSize, &size, GetWidth(), GetHeight(), comp,
-                     GetPixelData(), format, jpeg_quality);
+  fuint64   size        = 0;
+  const int comp        = has_alpha_ ? 4 : 3;
+  int       size_result = WriteImageData(
+      DetermineImageSize,
+      &size,
+      GetWidth(),
+      GetHeight(),
+      comp,
+      GetPixelData(),
+      format,
+      jpeg_quality);
   if(size_result == 0)
   {
     return MemoryChunk::Null();
@@ -214,9 +236,15 @@ Image::Write(ImageWriteFormat format, int jpeg_quality) const
 
   ASSERT(size > 0);
   MemoryChunkFile file{MemoryChunk::Alloc(size)};
-  int             write_result =
-      WriteImageData(WriteToMemoryChunkFile, &file, GetWidth(), GetHeight(),
-                     comp, GetPixelData(), format, jpeg_quality);
+  int             write_result = WriteImageData(
+      WriteToMemoryChunkFile,
+      &file,
+      GetWidth(),
+      GetHeight(),
+      comp,
+      GetPixelData(),
+      format,
+      jpeg_quality);
   if(write_result == 0)
   {
     return MemoryChunk::Null();
@@ -228,8 +256,12 @@ Image::Write(ImageWriteFormat format, int jpeg_quality) const
 namespace
 {
   unsigned char
-  Select(int ch, unsigned char a, unsigned char b, unsigned char c,
-         unsigned char d)
+  Select(
+      int           ch,
+      unsigned char a,
+      unsigned char b,
+      unsigned char c,
+      unsigned char d)
   {
     switch(ch)
     {
@@ -270,7 +302,11 @@ LoadImage(FileSystem* fs, const std::string& path, AlphaLoad alpha)
   // https://stackoverflow.com/questions/310451/should-i-use-static-cast-or-reinterpret-cast-when-casting-a-void-to-whatever
   unsigned char* data = stbi_load_from_memory(
       reinterpret_cast<unsigned char*>(file_memory->GetData()),  // NOLINT
-      file_memory->GetSize(), &image_width, &image_height, &channels, 0);
+      file_memory->GetSize(),
+      &image_width,
+      &image_height,
+      &channels,
+      0);
 
   if(data == nullptr)
   {
@@ -287,8 +323,12 @@ LoadImage(FileSystem* fs, const std::string& path, AlphaLoad alpha)
     has_alpha = channels == 2 || channels == 4;
   }
 
-  LOG_INFO("Image: " << path << " " << image_width << "x" << image_height
-                     << " alpha " << has_alpha << " channels " << channels);
+  LOG_INFO(
+      "Image: " << path << " " << image_width << "x" << image_height
+                << " alpha "
+                << has_alpha
+                << " channels "
+                << channels);
 
   ImageLoadResult result;
   result.image.Setup(image_width, image_height, has_alpha, -1);

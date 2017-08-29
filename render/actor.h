@@ -41,8 +41,11 @@ class Actor
   GetModelMatrix() const;
 
   void
-  Render(const mat4f& projection_matrix, const mat4f& view_matrix,
-         const vec3f& camera, const Light& light);
+  Render(
+      const mat4f& projection_matrix,
+      const mat4f& view_matrix,
+      const vec3f& camera,
+      const Light& light);
 
  private:
   std::shared_ptr<CompiledMesh>                      mesh_;

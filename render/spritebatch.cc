@@ -28,8 +28,13 @@ SpriteBatch::Begin()
 }
 
 void
-SpriteBatch::Quad(const vec2f& pos, const Sizef& quad, const Rectf& uv,
-                  const vec2f& center, const Angle& rotation, const Rgba& color)
+SpriteBatch::Quad(
+    const vec2f& pos,
+    const Sizef& quad,
+    const Rectf& uv,
+    const vec2f& center,
+    const Angle& rotation,
+    const Rgba&  color)
 {
   ASSERT(inside_ && "batch need to be open");
 

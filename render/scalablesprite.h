@@ -12,8 +12,8 @@ class TextureCache;
 class ScalableSprite
 {
  public:
-  ScalableSprite(const std::string& path, const Sizef& size,
-                 TextureCache* cache);
+  ScalableSprite(
+      const std::string& path, const Sizef& size, TextureCache* cache);
   ~ScalableSprite();
 
   void

@@ -123,9 +123,11 @@ namespace
 void
 ReportError(const std::string& log, const std::string& type)
 {
-  LOG_ERROR("ERROR::SHADER: Compile-time error: Type: "
-            << type << Trim(log)
-            << "\n --------------------------------------------------------- ");
+  LOG_ERROR(
+      "ERROR::SHADER: Compile-time error: Type: "
+      << type
+      << Trim(log)
+      << "\n --------------------------------------------------------- ");
 }
 
 bool
@@ -169,8 +171,10 @@ Shader::PreBind(const ShaderAttribute& attribute)
 }
 
 bool
-Shader::Compile(const GLchar* vertex_source, const GLchar* fragment_source,
-                const GLchar* geometry_source)
+Shader::Compile(
+    const GLchar* vertex_source,
+    const GLchar* fragment_source,
+    const GLchar* geometry_source)
 {
   bool ret = true;
 
@@ -279,8 +283,12 @@ Shader::SetUniform(const ShaderUniform& attribute, const Rgba& val)
   {
     return;
   }
-  glUniform4f(attribute.id, val.GetRed(), val.GetGreen(), val.GetBlue(),
-              val.GetAlpha());
+  glUniform4f(
+      attribute.id,
+      val.GetRed(),
+      val.GetGreen(),
+      val.GetBlue(),
+      val.GetAlpha());
 }
 
 void
@@ -374,8 +382,8 @@ Shader::Load(FileSystem* fs, const std::string& file_path)
     return false;
   }
 
-  const bool shader_compiled = Compile(vert.c_str(), frag.c_str(),
-                                       geom.empty() ? nullptr : geom.c_str());
+  const bool shader_compiled = Compile(
+      vert.c_str(), frag.c_str(), geom.empty() ? nullptr : geom.c_str());
   if(!shader_compiled)
   {
     std::cerr << "Failed to compile shader " << file_path << "\n";
@@ -398,8 +406,9 @@ Shader::GetName() const
 bool
 Shader::HasBoundAttribute(const ShaderAttribute& attribute) const
 {
-  return std::find(bound_attributes_.begin(), bound_attributes_.end(),
-                   attribute) != bound_attributes_.end();
+  return std::find(
+             bound_attributes_.begin(), bound_attributes_.end(), attribute) !=
+         bound_attributes_.end();
 }
 
 bool
@@ -410,8 +419,11 @@ Shader::HasBoundUniform(const ShaderUniform& uniform) const
 }
 
 void
-BindTextureToShader(Texture2d* texture, Shader* shader,
-                    const ShaderUniform& attribute, glint index)
+BindTextureToShader(
+    Texture2d*           texture,
+    Shader*              shader,
+    const ShaderUniform& attribute,
+    glint                index)
 {
   ASSERT(index < 16);  // at most 16 texture units
   GLenum gl_id = GL_TEXTURE0 + index;

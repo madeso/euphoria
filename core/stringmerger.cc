@@ -66,8 +66,8 @@ StringMerger::Array()
 }
 
 StringMerger&
-StringMerger::SetSeparator(const std::string& separator,
-                           const std::string& final_separator)
+StringMerger::SetSeparator(
+    const std::string& separator, const std::string& final_separator)
 {
   separator_       = separator;
   final_separator_ = final_separator;

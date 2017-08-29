@@ -21,8 +21,11 @@ void
 Viewport::Activate()
 {
   const vec2i bottom_left = viewport_.BottomLeft();
-  glViewport(bottom_left.x, bottom_left.y, viewport_.GetWidth(),
-             viewport_.GetHeight());
+  glViewport(
+      bottom_left.x,
+      bottom_left.y,
+      viewport_.GetWidth(),
+      viewport_.GetHeight());
   ActiveViewport() = this;
 }
 

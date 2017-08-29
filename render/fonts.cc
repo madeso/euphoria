@@ -133,8 +133,8 @@ struct Face
   }
 };
 
-CharData::CharData(const BufferBuilder2d& data, const Rectf& ex,
-                   unsigned int ch, float ad)
+CharData::CharData(
+    const BufferBuilder2d& data, const Rectf& ex, unsigned int ch, float ad)
     : buffer(data)
     , extent(ex)
     , c(ch)
@@ -188,8 +188,10 @@ struct FontChars
 };
 
 FontChars
-GetCharactersFromFont(const std::string& font_file, unsigned int font_size,
-                      const std::string& chars)
+GetCharactersFromFont(
+    const std::string& font_file,
+    unsigned int       font_size,
+    const std::string& chars)
 {
   Library lib;
   Face    f(&lib, font_file, font_size);
@@ -223,8 +225,8 @@ GetCharactersFromFont(const std::string& font_file, unsigned int font_size,
           continue;
         }
         FT_Vector delta{};
-        FT_Get_Kerning(f.face, previous.c, current.c, FT_KERNING_DEFAULT,
-                       &delta);
+        FT_Get_Kerning(
+            f.face, previous.c, current.c, FT_KERNING_DEFAULT, &delta);
         int dx = delta.x >> 6;
         if(dx != 0)
         {
@@ -239,8 +241,11 @@ GetCharactersFromFont(const std::string& font_file, unsigned int font_size,
 }
 
 std::pair<BufferBuilder2d, Rectf>
-BuildCharVao(const stbrp_rect& src_rect, const FontChar& src_char,
-             int image_width, int image_height)
+BuildCharVao(
+    const stbrp_rect& src_rect,
+    const FontChar&   src_char,
+    int               image_width,
+    int               image_height)
 {
   //
   //             width_
@@ -275,8 +280,9 @@ BuildCharVao(const stbrp_rect& src_rect, const FontChar& src_char,
   const auto d = Point(vert_right, vert_bottom, uv_right / iw, uv_bottom / ih);
   builder.AddQuad(a, b, c, d);
   return std::make_pair(
-      builder, Rectf::FromLeftRightTopBottom(vert_left, vert_right, vert_top,
-                                             vert_bottom));
+      builder,
+      Rectf::FromLeftRightTopBottom(
+          vert_left, vert_right, vert_top, vert_bottom));
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -321,8 +327,11 @@ TextBackgroundRenderer::Draw(float alpha, const Rectf& area)
 
 ////////////////////////////////////////////////////////////////////////////////
 
-Font::Font(Shader* shader, const std::string& font_file, unsigned int font_size,
-           const std::string& possible_chars)
+Font::Font(
+    Shader*            shader,
+    const std::string& font_file,
+    unsigned int       font_size,
+    const std::string& possible_chars)
     : shader_(shader)
     , font_size_(font_size)
     , color_(shader->GetUniform("color"))
@@ -347,8 +356,8 @@ Font::Font(Shader* shader, const std::string& font_file, unsigned int font_size,
   stbrp_context           context{};
   const int               num_nodes = texture_width;
   std::vector<stbrp_node> nodes(num_nodes);
-  stbrp_init_target(&context, texture_width, texture_height, &nodes[0],
-                    num_nodes);
+  stbrp_init_target(
+      &context, texture_width, texture_height, &nodes[0], num_nodes);
   stbrp_pack_rects(&context, &rects[0], num_rects);
 
   CharDataMap map;
@@ -367,8 +376,8 @@ Font::Font(Shader* shader, const std::string& font_file, unsigned int font_size,
         BuildCharVao(src_rect, src_char, texture_width, texture_height);
 
     // store data in useful data
-    std::shared_ptr<CharData> dest(new CharData(char_vao.first, char_vao.second,
-                                                src_char.c, src_char.advance));
+    std::shared_ptr<CharData> dest(new CharData(
+        char_vao.first, char_vao.second, src_char.c, src_char.advance));
     map.insert(CharDataMap::value_type(dest->c, dest));
   }
 
@@ -377,14 +386,24 @@ Font::Font(Shader* shader, const std::string& font_file, unsigned int font_size,
   chars_   = map;
   Texture2dLoadData load_data;
   texture_ = std::make_unique<Texture2d>();
-  texture_->LoadFromPixels(texture_width, texture_height, &pixels.pixels[0],
-                           GL_RGBA, GL_RGBA, load_data);
+  texture_->LoadFromPixels(
+      texture_width,
+      texture_height,
+      &pixels.pixels[0],
+      GL_RGBA,
+      GL_RGBA,
+      load_data);
 }
 
 void
-Font::Draw(const vec2f& start_position, const std::string& str,
-           const Rgb& base_color, const Rgb& hi_color, int hi_start, int hi_end,
-           float scale) const
+Font::Draw(
+    const vec2f&       start_position,
+    const std::string& str,
+    const Rgb&         base_color,
+    const Rgb&         hi_color,
+    int                hi_start,
+    int                hi_end,
+    float              scale) const
 {
   Use(shader_);
 
@@ -593,11 +612,11 @@ Text::Draw(const vec2f& p, const Rgb& override_color) const
   const vec2f  off = GetOffset(alignment_, e);
   if(use_background_)
   {
-    backgroundRenderer_->Draw(background_alpha_,
-                              e.ExtendCopy(5.0f).OffsetCopy(p + off));
+    backgroundRenderer_->Draw(
+        background_alpha_, e.ExtendCopy(5.0f).OffsetCopy(p + off));
   }
-  font_->Draw(p + off, text_, override_color, hi_color_, hi_from_, hi_to_,
-              scale_);
+  font_->Draw(
+      p + off, text_, override_color, hi_color_, hi_from_, hi_to_, scale_);
 }
 
 Rectf

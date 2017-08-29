@@ -109,16 +109,18 @@ template <typename T>
 Size<T>
 Min(const Size<T> lhs, const Size<T> rhs)
 {
-  return Size<T>::FromWidthHeight(Min(lhs.GetWidth(), rhs.GetWidth()),
-                                  Min(lhs.GetHeight(), rhs.GetHeight()));
+  return Size<T>::FromWidthHeight(
+      Min(lhs.GetWidth(), rhs.GetWidth()),
+      Min(lhs.GetHeight(), rhs.GetHeight()));
 }
 
 template <typename T>
 Size<T>
 Max(const Size<T> lhs, const Size<T> rhs)
 {
-  return Size<T>::FromWidthHeight(Max(lhs.GetWidth(), rhs.GetWidth()),
-                                  Max(lhs.GetHeight(), rhs.GetHeight()));
+  return Size<T>::FromWidthHeight(
+      Max(lhs.GetWidth(), rhs.GetWidth()),
+      Max(lhs.GetHeight(), rhs.GetHeight()));
 }
 
 template <typename T>

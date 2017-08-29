@@ -37,8 +37,11 @@ CompiledMeshMaterial::SetShader(const std::shared_ptr<MaterialShader>& shader)
 }
 
 void
-CompiledMeshMaterial::SetColors(const Rgb& ambient, const Rgb& diffuse,
-                                const Rgb& specular, float shininess)
+CompiledMeshMaterial::SetColors(
+    const Rgb& ambient,
+    const Rgb& diffuse,
+    const Rgb& specular,
+    float      shininess)
 {
   ambient_   = ambient;
   diffuse_   = diffuse;
@@ -47,8 +50,8 @@ CompiledMeshMaterial::SetColors(const Rgb& ambient, const Rgb& diffuse,
 }
 
 void
-CompiledMeshMaterial::SetTexture(const EnumValue&           name,
-                                 std::shared_ptr<Texture2d> texture)
+CompiledMeshMaterial::SetTexture(
+    const EnumValue& name, std::shared_ptr<Texture2d> texture)
 {
   if(textures_.find(name) != textures_.end())
   {
@@ -58,10 +61,12 @@ CompiledMeshMaterial::SetTexture(const EnumValue&           name,
 }
 
 void
-CompiledMeshMaterial::Apply(const mat4f& model_matrix,
-                            const mat4f& projection_matrix,
-                            const mat4f& view_matrix, const vec3f& camera,
-                            const Light& light) const
+CompiledMeshMaterial::Apply(
+    const mat4f& model_matrix,
+    const mat4f& projection_matrix,
+    const mat4f& view_matrix,
+    const vec3f& camera,
+    const Light& light) const
 {
   shader_->UseShader();
 
@@ -89,8 +94,11 @@ CompiledMeshMaterial::Apply(const mat4f& model_matrix,
     }
 
     // todo: refactor to material shader
-    BindTextureToShader(texture->second.get(), &shader_->shader_,
-                        binding.GetUniform(), texture_index);
+    BindTextureToShader(
+        texture->second.get(),
+        &shader_->shader_,
+        binding.GetUniform(),
+        texture_index);
     texture_index += 1;
   }
 }
@@ -128,8 +136,8 @@ CompiledMeshMaterial::Validate() const
     const bool missing = textures_.find(name) == textures_.end();
     if(missing)
     {
-      LOG_ERROR("Material is missing shader required texture "
-                << name.ToString());
+      LOG_ERROR(
+          "Material is missing shader required texture " << name.ToString());
       ok = false;
     }
   }
@@ -140,8 +148,9 @@ CompiledMeshMaterial::Validate() const
     const bool missing = values.find(name) == values.end();
     if(missing)
     {
-      LOG_ERROR("Texture " << name.ToString()
-                           << " is specified but is missing in shader");
+      LOG_ERROR(
+          "Texture " << name.ToString()
+                     << " is specified but is missing in shader");
       ok = false;
     }
   }
@@ -158,8 +167,11 @@ namespace  // local
 }  // namespace
 
 std::shared_ptr<CompiledMesh>
-CompileMesh(const Mesh& mesh, MaterialShaderCache* shader_cache,
-            TextureCache* texture_cache, const Path& texture_folder)
+CompileMesh(
+    const Mesh&          mesh,
+    MaterialShaderCache* shader_cache,
+    TextureCache*        texture_cache,
+    const Path&          texture_folder)
 {
   std::shared_ptr<CompiledMesh> ret{new CompiledMesh{}};
 
@@ -171,8 +183,11 @@ CompileMesh(const Mesh& mesh, MaterialShaderCache* shader_cache,
   {
     material_index += 1;
     CompiledMeshMaterial mat;
-    mat.SetColors(material_src.ambient, material_src.diffuse,
-                  material_src.specular, material_src.shininess);
+    mat.SetColors(
+        material_src.ambient,
+        material_src.diffuse,
+        material_src.specular,
+        material_src.shininess);
 
     std::string shader_name = material_src.shader;
     if(shader_name.empty())
@@ -185,8 +200,9 @@ CompileMesh(const Mesh& mesh, MaterialShaderCache* shader_cache,
     mat.SetShader(shader_cache->Get(shader_name));
     for(const auto& texture_src : material_src.textures)
     {
-      const auto texture_path = texture_folder.GetFile(texture_src.path).GetAbsolutePath();
-      auto       texture      = texture_cache->GetTexture(texture_path);
+      const auto texture_path =
+          texture_folder.GetFile(texture_src.path).GetAbsolutePath();
+      auto texture = texture_cache->GetTexture(texture_path);
       mat.SetTexture(texture_src.type, texture);
     }
 
@@ -194,8 +210,9 @@ CompileMesh(const Mesh& mesh, MaterialShaderCache* shader_cache,
 
     if(!mat.Validate())
     {
-      LOG_WARN("Material " << material_src.name << "(" << material_index
-                           << ") failed validation.");
+      LOG_WARN(
+          "Material " << material_src.name << "(" << material_index
+                      << ") failed validation.");
     }
 
     ret->materials.push_back(mat);
@@ -256,11 +273,14 @@ CompiledMesh::GetNoOverriddenMaterials() const
 }
 
 void
-CompiledMesh::Render(const mat4f& model_matrix, const mat4f& projection_matrix,
-                     const mat4f& view_matrix, const vec3f& camera,
-                     const Light& light,
-                     const std::vector<std::shared_ptr<CompiledMeshMaterial>>&
-                         overridden_materials)
+CompiledMesh::Render(
+    const mat4f& model_matrix,
+    const mat4f& projection_matrix,
+    const mat4f& view_matrix,
+    const vec3f& camera,
+    const Light& light,
+    const std::vector<std::shared_ptr<CompiledMeshMaterial>>&
+        overridden_materials)
 {
   ASSERT(materials.size() == overridden_materials.size());
 

@@ -36,8 +36,8 @@ MaterialShaderDefaultTexture::GetPath() const
 
 ////////////////////////////////////////////////////////////////////////////////
 
-MaterialShaderBinding::MaterialShaderBinding(ShaderUniform    uniform,
-                                             const EnumValue& name)
+MaterialShaderBinding::MaterialShaderBinding(
+    ShaderUniform uniform, const EnumValue& name)
     : uniform_(std::move(uniform))
     , name_(name)
 {
@@ -108,8 +108,9 @@ MaterialShader::Load(FileSystem* file_system, const std::string& path)
   {
     const auto uniform = shader_.GetUniform(texture.uniform());
     DEFINE_ENUM_VALUE(TextureType, texture_name, texture.texture());
-    LOG_INFO("Defining shader " << path << ": " << texture.uniform() << " to "
-                                << texture.texture());
+    LOG_INFO(
+        "Defining shader " << path << ": " << texture.uniform() << " to "
+                           << texture.texture());
     bindings_.emplace_back(uniform, texture_name);
   }
 
@@ -221,8 +222,11 @@ MaterialShader::SetupLight(const Light& light, const vec3f& camera)
 }
 
 void
-MaterialShader::SetColors(const Rgb& ambient, const Rgb& diffuse,
-                          const Rgb& specular, float shininess)
+MaterialShader::SetColors(
+    const Rgb& ambient,
+    const Rgb& diffuse,
+    const Rgb& specular,
+    float      shininess)
 {
   if(!ambient_.IsNull())
   {

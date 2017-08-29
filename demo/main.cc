@@ -125,8 +125,8 @@ main(int argc, char** argv)
   drawer
       .LineAntialiased(Rgb::From(Color::Black), wi.TopLeft(), wi.BottomRight())
       .LineAntialiased(Rgb::From(Color::Black), wi.BottomLeft(), wi.TopRight())
-      .Text(wi.GetAbsoluteCenterPos(), "Hello world", Rgb::From(Color::Black),
-            2);
+      .Text(
+          wi.GetAbsoluteCenterPos(), "Hello world", Rgb::From(Color::Black), 2);
   catalog->RegisterFileData("image", image.Write(ImageWriteFormat::PNG));
 
   TextureCache texture_cache{&file_system};
@@ -144,8 +144,8 @@ main(int argc, char** argv)
       Rgb::From(Color::White);  // fix ambient color on material
   box_mesh1.materials[0].specular  = Rgb::From(Color::White);
   box_mesh1.materials[0].shininess = 120.0f;
-  auto box1 = CompileMesh(box_mesh1, &material_shader_cache, &texture_cache,
-                          Path::FromRoot());
+  auto box1                        = CompileMesh(
+      box_mesh1, &material_shader_cache, &texture_cache, Path::FromRoot());
 
   auto box_mesh2 = meshes::CreateSphere(0.5f, "image");
   box_mesh2.materials[0].SetTexture("Specular", "img-plain/white");
@@ -153,13 +153,13 @@ main(int argc, char** argv)
       Rgb::From(Color::White);  // fix ambient color on material
   box_mesh2.materials[0].specular  = Rgb::From(Color::White);
   box_mesh2.materials[0].shininess = 10.0f;
-  auto box2 = CompileMesh(box_mesh2, &material_shader_cache, &texture_cache,
-                          Path::FromRoot());
+  auto box2                        = CompileMesh(
+      box_mesh2, &material_shader_cache, &texture_cache, Path::FromRoot());
 
   auto light_mesh                = meshes::CreateCube(0.2f);
   light_mesh.materials[0].shader = "basic_shader";
-  auto light = CompileMesh(light_mesh, &material_shader_cache, &texture_cache,
-                           Path::FromRoot());
+  auto light                     = CompileMesh(
+      light_mesh, &material_shader_cache, &texture_cache, Path::FromRoot());
   float light_position = 0.0f;
 
   const float box_extent_value = 4;
@@ -248,24 +248,30 @@ main(int argc, char** argv)
 
         ImGui::SetNextWindowSize(ImVec2(200, 100), ImGuiSetCond_FirstUseEver);
         ImGui::Begin("Light");
-        ImGui::Combo("Type", reinterpret_cast<int*>(world.light.GetTypeMod()),
-                     "Directional\0Point\0Spot\0\0");
+        ImGui::Combo(
+            "Type",
+            reinterpret_cast<int*>(world.light.GetTypeMod()),
+            "Directional\0Point\0Spot\0\0");
         ImGui::ColorEdit3("Ambient", world.light.ModifyAmbient()->GetData());
         ImGui::ColorEdit3("Diffuse", world.light.ModifyDiffuse()->GetData());
         ImGui::ColorEdit3("Specular", world.light.ModifySpecular()->GetData());
-        ImGui::Combo("Update", &light_update,
-                     "Do nothing\0Follow actor\0Follow camera\0\0");
+        ImGui::Combo(
+            "Update",
+            &light_update,
+            "Do nothing\0Follow actor\0Follow camera\0\0");
 
-        ImguiAngleSlider("Cutoff Angle Inner",
-                         world.light.GetCutoffAngleInnerMod(), 0, 45);
-        ImguiAngleSlider("Cutoff Angle Outer",
-                         world.light.GetCutoffAngleOuterMod(), 0, 90);
+        ImguiAngleSlider(
+            "Cutoff Angle Inner", world.light.GetCutoffAngleInnerMod(), 0, 45);
+        ImguiAngleSlider(
+            "Cutoff Angle Outer", world.light.GetCutoffAngleOuterMod(), 0, 90);
 
         ImGui::End();
 
-        light_material->SetColors(world.light.GetAmbient(),
-                                  world.light.GetDiffuse(),
-                                  world.light.GetSpecular(), 10);
+        light_material->SetColors(
+            world.light.GetAmbient(),
+            world.light.GetDiffuse(),
+            world.light.GetSpecular(),
+            10);
       }
     }
 

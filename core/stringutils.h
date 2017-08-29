@@ -30,8 +30,9 @@ StripLastString(const std::string& str, char sep);
 @returns the trimmed string.
  */
 std::string
-TrimRight(const std::string& string_to_trim,
-          const std::string& trim_characters = kSpaceCharacters);
+TrimRight(
+    const std::string& string_to_trim,
+    const std::string& trim_characters = kSpaceCharacters);
 
 /** Remove characters from the left, stops at invalid character.
 @param string_to_trim the string to remove characters from.
@@ -39,8 +40,9 @@ TrimRight(const std::string& string_to_trim,
 @returns the trimmed string.
  */
 std::string
-TrimLeft(const std::string& string_to_trim,
-         const std::string& trim_characters = kSpaceCharacters);
+TrimLeft(
+    const std::string& string_to_trim,
+    const std::string& trim_characters = kSpaceCharacters);
 
 /** Remove characters from both the start and the end.
 @param string_to_trim the string to remove characters from.
@@ -48,8 +50,9 @@ TrimLeft(const std::string& string_to_trim,
 @returns the trimmed string.
  */
 std::string
-Trim(const std::string& string_to_trim,
-     const std::string& trim_characters = kSpaceCharacters);
+Trim(
+    const std::string& string_to_trim,
+    const std::string& trim_characters = kSpaceCharacters);
 
 /** Tests if a string starts with another string.
 @param string_to_test the string to test.
@@ -80,8 +83,10 @@ ToLower(const std::string& str);
 @param to_replace the string to replace it.
  */
 void
-StringReplace(std::string* string, const std::string& to_find,
-              const std::string& to_replace);
+StringReplace(
+    std::string*       string,
+    const std::string& to_find,
+    const std::string& to_replace);
 
 /** Replace all occurrences in a string.
 @param string the source string.
@@ -90,8 +95,10 @@ StringReplace(std::string* string, const std::string& to_find,
 @returns the modified string.
  */
 const std::string
-StringReplace(const std::string& string, const std::string& to_find,
-              const std::string& to_replace);
+StringReplace(
+    const std::string& string,
+    const std::string& to_find,
+    const std::string& to_replace);
 
 /** Copy a string to a character buffer, adding null terminator at the end.
 @param dst the destination buffer.

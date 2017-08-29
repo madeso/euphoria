@@ -19,8 +19,8 @@ class BufferBuilder2d;
 
 struct CharData
 {
-  CharData(const BufferBuilder2d& data, const Rectf& ex, unsigned int ch,
-           float ad);
+  CharData(
+      const BufferBuilder2d& data, const Rectf& ex, unsigned int ch, float ad);
 
   Buffer2d     buffer;
   Rectf        extent;
@@ -116,8 +116,11 @@ class Text
 class Font
 {
  public:
-  Font(Shader* shader, const std::string& font_file, unsigned int font_size,
-       const std::string& possible_chars);
+  Font(
+      Shader*            shader,
+      const std::string& font_file,
+      unsigned int       font_size,
+      const std::string& possible_chars);
   unsigned int
   GetFontSize() const;
 
@@ -129,9 +132,14 @@ class Font
 
   // todo: support drawing background color behind string
   void
-  Draw(const vec2f& start_position, const std::string& str,
-       const Rgb& base_color, const Rgb& hi_color, int hi_start, int hi_end,
-       float scale) const;
+  Draw(
+      const vec2f&       start_position,
+      const std::string& str,
+      const Rgb&         base_color,
+      const Rgb&         hi_color,
+      int                hi_start,
+      int                hi_end,
+      float              scale) const;
   Rectf
   GetExtents(const std::string& str, float scale) const;
 

@@ -13,8 +13,11 @@ namespace assertlib
   void
   StartThrowing();
   void
-  OnAssert(const char* const expression, int line, const char* const file,
-           const char* const function);
+  OnAssert(
+      const char* const expression,
+      int               line,
+      const char* const file,
+      const char* const function);
 }
 
 // todo: stb libraries and rapidjson aren't using our assert
@@ -27,14 +30,19 @@ namespace assertlib
     else                                                        \
     {                                                           \
       ::assertlib::OnAssert(                                    \
-          #x, __LINE__, __FILE__,                               \
+          #x,                                                   \
+          __LINE__,                                             \
+          __FILE__,                                             \
           static_cast<const char* const>(__PRETTY_FUNCTION__)); \
     }                                                           \
   } while(false)
 
-#define DIE(message)                                 \
-  ::assertlib::OnAssert(message, __LINE__, __FILE__, \
-                        static_cast<const char* const>(__PRETTY_FUNCTION__))
+#define DIE(message)     \
+  ::assertlib::OnAssert( \
+      message,           \
+      __LINE__,          \
+      __FILE__,          \
+      static_cast<const char* const>(__PRETTY_FUNCTION__))
 
 #endif
 

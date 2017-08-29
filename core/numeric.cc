@@ -173,12 +173,17 @@ From01(const float lower_bound, const float value, const float upper_bound)
 }
 
 const float
-Remap(const float old_lower_bound, const float old_upper_bound,
-      const float value, const float new_lower_bound,
-      const float new_upper_bound)
+Remap(
+    const float old_lower_bound,
+    const float old_upper_bound,
+    const float value,
+    const float new_lower_bound,
+    const float new_upper_bound)
 {
-  return From01(new_lower_bound, To01(old_lower_bound, value, old_upper_bound),
-                new_upper_bound);
+  return From01(
+      new_lower_bound,
+      To01(old_lower_bound, value, old_upper_bound),
+      new_upper_bound);
 }
 
 const float
@@ -283,8 +288,8 @@ Wrapi(const int min, const int v, const int max)
 }
 
 const int
-IncrementAndWrap(const float min, float* current, const float change,
-                 const float max)
+IncrementAndWrap(
+    const float min, float* current, const float change, const float max)
 {
   const float diff  = max - min;
   float       value = *current + change;

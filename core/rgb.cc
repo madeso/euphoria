@@ -74,83 +74,83 @@ namespace
     ADD("ghostwhite", GhostWhite);
     ADD("gold", Gold);
     ADD("goldenrod", GoldenRod);
-    ADD("greenyellow", GreenYellow );
-    ADD("honeydew", Honeydew    );
+    ADD("greenyellow", GreenYellow);
+    ADD("honeydew", Honeydew);
     ADD("hotpink", Hotpink);
-    ADD("indianred", IndianRed   );
+    ADD("indianred", IndianRed);
     ADD("indigo", Indigo);
     ADD("ivory", Ivory);
     ADD("khaki", Khaki);
-    ADD("lavender", Lavender    );
+    ADD("lavender", Lavender);
     ADD("lavenderblush", LavenderBlush);
-    ADD("lawngreen", Lawngreen   );
+    ADD("lawngreen", Lawngreen);
     ADD("lemonchiffon", LemonChiffon);
-    ADD("lightblue", LightBlue   );
-    ADD("lightcoral", LightCoral  );
-    ADD("lightcyan", LightCyan   );
+    ADD("lightblue", LightBlue);
+    ADD("lightcoral", LightCoral);
+    ADD("lightcyan", LightCyan);
     ADD("lightgoldenrodyellow", LightGoldenRodYellow);
-    ADD("lightgray", LightGray   );
-    ADD("lightgreen", LightGreen  );
-    ADD("lightpink", LightPink   );
-    ADD("lightsalmon", LightSalmon );
+    ADD("lightgray", LightGray);
+    ADD("lightgreen", LightGreen);
+    ADD("lightpink", LightPink);
+    ADD("lightsalmon", LightSalmon);
     ADD("lightseagreen", LightSeaGreen);
     ADD("lightskyblue", LightskyBlue);
     ADD("lightslategray", LightslateGray);
     ADD("lightsteelblue", LightSteelBlue);
-    ADD("lightyellow", LightYellow );
-    ADD("limegreen", LimeGreen   );
+    ADD("lightyellow", LightYellow);
+    ADD("limegreen", LimeGreen);
     ADD("linen", Linen);
     ADD("magenta", Magenta);
-    ADD("mediumaquamarine", MediumAquaMarine    );
-    ADD("mediumblue", MediumBlue  );
+    ADD("mediumaquamarine", MediumAquaMarine);
+    ADD("mediumblue", MediumBlue);
     ADD("mediumorchid", MediumOrchid);
     ADD("mediumpurple", MediumPurple);
     ADD("mediumseagreen", MediumSeaGreen);
     ADD("mediumslateblue", MediumslateBlue);
-    ADD("mediumspringgreen", MediumSpringGreen   );
+    ADD("mediumspringgreen", MediumSpringGreen);
     ADD("mediumturquoise", MediumTurquoise);
     ADD("mediumvioletred", MediumVioletRed);
     ADD("midnightblue", MidnightBlue);
-    ADD("mintcream", Mintcream   );
-    ADD("mistyrose", Mistyrose   );
-    ADD("moccasin", Moccasin    );
-    ADD("navajowhite", NavajoWhite );
+    ADD("mintcream", Mintcream);
+    ADD("mistyrose", Mistyrose);
+    ADD("moccasin", Moccasin);
+    ADD("navajowhite", NavajoWhite);
     ADD("oldlace", Oldlace);
-    ADD("olivedrab", OliveDrab   );
-    ADD("orangered", OrangeRed   );
+    ADD("olivedrab", OliveDrab);
+    ADD("orangered", OrangeRed);
     ADD("orchid", Orchid);
     ADD("palegoldenrod", PaleGoldenRod);
-    ADD("palegreen", PaleGreen   );
+    ADD("palegreen", PaleGreen);
     ADD("paleturquoise", PaleTurquoise);
     ADD("palevioletred", PaleVioletRed);
-    ADD("papayawhip", Papayawhip  );
-    ADD("peachpuff", Peachpuff   );
+    ADD("papayawhip", Papayawhip);
+    ADD("peachpuff", Peachpuff);
     ADD("peru", Peru);
     ADD("pink", Pink);
     ADD("plum", Plum);
-    ADD("powderblue", PowderBlue  );
-    ADD("rosybrown", Rosybrown   );
-    ADD("royalblue", Royalblue   );
-    ADD("saddlebrown", SaddleBrown );
+    ADD("powderblue", PowderBlue);
+    ADD("rosybrown", Rosybrown);
+    ADD("royalblue", Royalblue);
+    ADD("saddlebrown", SaddleBrown);
     ADD("salmon", Salmon);
-    ADD("sandybrown", SandyBrown  );
-    ADD("seagreen", Seagreen    );
-    ADD("seashell", Seashell    );
+    ADD("sandybrown", SandyBrown);
+    ADD("seagreen", Seagreen);
+    ADD("seashell", Seashell);
     ADD("sienna", Sienna);
     ADD("skyblue", SkyBlue);
-    ADD("slateblue", SlateBlue   );
-    ADD("slategray", SlateGray   );
+    ADD("slateblue", SlateBlue);
+    ADD("slategray", SlateGray);
     ADD("snow", Snow);
-    ADD("springgreen", SpringGreen );
-    ADD("steelblue", SteelBlue   );
-    ADD("tan", Tan );
+    ADD("springgreen", SpringGreen);
+    ADD("steelblue", SteelBlue);
+    ADD("tan", Tan);
     ADD("thistle", Thistle);
     ADD("tomato", Tomato);
-    ADD("turquoise", Turquoise   );
+    ADD("turquoise", Turquoise);
     ADD("violet", Violet);
     ADD("wheat", Wheat);
-    ADD("whitesmoke", WhiteSmoke  );
-    ADD("yellowgreen", YellowGreen );
+    ADD("whitesmoke", WhiteSmoke);
+    ADD("yellowgreen", YellowGreen);
 #undef ADD
     return map;
   }
@@ -661,9 +661,10 @@ Rgb::From(DawnbringerPalette color)
 Rgb
 RgbTransform::Transform(const Rgb& from, float v, const Rgb to)
 {
-  return Rgb(FloatTransform::Transform(from.GetRed(), v, to.GetRed()),
-             FloatTransform::Transform(from.GetGreen(), v, to.GetGreen()),
-             FloatTransform::Transform(from.GetBlue(), v, to.GetBlue()));
+  return Rgb(
+      FloatTransform::Transform(from.GetRed(), v, to.GetRed()),
+      FloatTransform::Transform(from.GetGreen(), v, to.GetGreen()),
+      FloatTransform::Transform(from.GetBlue(), v, to.GetBlue()));
 }
 
 Rgba::Rgba(const Rgb& rgb, const float alpha)
@@ -674,8 +675,8 @@ Rgba::Rgba(const Rgb& rgb, const float alpha)
 {
 }
 
-Rgba::Rgba(const float red, const float green, const float blue,
-           const float alpha)
+Rgba::Rgba(
+    const float red, const float green, const float blue, const float alpha)
     : r(red)
     , g(green)
     , b(blue)

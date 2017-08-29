@@ -68,15 +68,22 @@ class Texture2d : public TextureId
   Texture2d();
 
   void
-  LoadFromPixels(int width, int height, const unsigned char* pixel_data,
-                 gluint internal_format, gluint image_format,
-                 const Texture2dLoadData& data);
+  LoadFromPixels(
+      int                      width,
+      int                      height,
+      const unsigned char*     pixel_data,
+      gluint                   internal_format,
+      gluint                   image_format,
+      const Texture2dLoadData& data);
   void
-  LoadFromImage(const Image& image, AlphaLoad alpha,
-                const Texture2dLoadData& data);
+  LoadFromImage(
+      const Image& image, AlphaLoad alpha, const Texture2dLoadData& data);
   void
-  LoadFromFile(FileSystem* fs, const std::string& path, AlphaLoad alpha,
-               const Texture2dLoadData& data);
+  LoadFromFile(
+      FileSystem*              fs,
+      const std::string&       path,
+      AlphaLoad                alpha,
+      const Texture2dLoadData& data);
 
   int
   GetWidth() const;

@@ -2,7 +2,7 @@
 #define DEBUGGL_H
 
 void
-PrintAllOpenglErrors(const char *file, int line);
+PrintAllOpenglErrors(const char* file, int line);
 void
 SetupOpenglDebug();
 

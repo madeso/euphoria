@@ -2,8 +2,8 @@
 
 #include <utility>
 
-ShaderAttribute::ShaderAttribute(std::string aname, glint aid,
-                                 ShaderAttributeSize asize)
+ShaderAttribute::ShaderAttribute(
+    std::string aname, glint aid, ShaderAttributeSize asize)
     : name(std::move(aname))
     , id(aid)
     , size(asize)

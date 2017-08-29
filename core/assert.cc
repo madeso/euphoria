@@ -32,8 +32,9 @@ namespace
   {
     // todo replace hardcoded limit?
     void*     addresses[256];
-    const int n = ::backtrace(static_cast<void**>(addresses),
-                              std::extent<decltype(addresses)>::value);
+    const int n = ::backtrace(
+        static_cast<void**>(addresses),
+        std::extent<decltype(addresses)>::value);
     const std::unique_ptr<char*, decltype(&std::free)> symbols(
         ::backtrace_symbols(static_cast<void* const*>(addresses), n),
         &std::free);
@@ -95,8 +96,11 @@ namespace assertlib
   }
 
   void
-  OnAssert(const char* const expression, int line, const char* const file,
-           const char* const function)
+  OnAssert(
+      const char* const expression,
+      int               line,
+      const char* const file,
+      const char* const function)
   {
     std::cerr << "Assertion failed: " << expression << "\n"
               << "Function: " << function << "\n"

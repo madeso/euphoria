@@ -33,8 +33,8 @@ BufferBuilder2d::AddTriangle(unsigned int a, unsigned int b, unsigned int c)
 }
 
 void
-BufferBuilder2d::AddQuad(const Point& a, const Point& b, const Point& c,
-                         const Point& d)
+BufferBuilder2d::AddQuad(
+    const Point& a, const Point& b, const Point& c, const Point& d)
 {
   const unsigned int ai = data.size() / 4;
   const unsigned int bi = ai + 1;

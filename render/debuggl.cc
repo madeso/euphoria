@@ -41,7 +41,7 @@ OpenglErrorToString(GLenum error_code)
 }
 
 void
-PrintAllOpenglErrors(const char *file, int line)
+PrintAllOpenglErrors(const char* file, int line)
 {
   GLenum error_code;
   while((error_code = glGetError()) != GL_NO_ERROR)
@@ -132,9 +132,14 @@ namespace
 }  // namespace
 
 void APIENTRY
-OnOpenglError(GLenum source, GLenum type, GLuint id, GLenum severity,
-              GLsizei /*length*/, const GLchar *message,
-              const GLvoid * /*userParam*/)
+     OnOpenglError(
+    GLenum source,
+    GLenum type,
+    GLuint id,
+    GLenum severity,
+    GLsizei /*length*/,
+    const GLchar* message,
+    const GLvoid* /*userParam*/)
 {
   // ignore non-significant error/warning codes
   if(type == GL_DEBUG_TYPE_OTHER_ARB)
@@ -168,7 +173,7 @@ SetupOpenglDebug()
     glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS_ARB);
     glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS_ARB);
     glDebugMessageCallbackARB(OnOpenglError, nullptr);
-    glDebugMessageControlARB(GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0,
-                             nullptr, GL_TRUE);
+    glDebugMessageControlARB(
+        GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, nullptr, GL_TRUE);
   }
 }

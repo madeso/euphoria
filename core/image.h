@@ -34,8 +34,13 @@ class Image
   void
   SetPixel(int x, int y, const Rgba& color);
   void
-  SetPixel(int x, int y, unsigned char r, unsigned char g, unsigned char b,
-           unsigned char a);
+  SetPixel(
+      int           x,
+      int           y,
+      unsigned char r,
+      unsigned char g,
+      unsigned char b,
+      unsigned char a);
 
   Rgba
   GetPixel(int x, int y) const;

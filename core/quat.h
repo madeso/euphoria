@@ -236,7 +236,8 @@ class quat
       // we could rotate around any axis normal to qa or qb
       const Q qt = qa + qb;
       return Q{static_cast<T>(qt.w * 0.5),
-               Vec{static_cast<T>(qt.x * 0.5), static_cast<T>(qt.y * 0.5),
+               Vec{static_cast<T>(qt.x * 0.5),
+                   static_cast<T>(qt.y * 0.5),
                    static_cast<T>(qt.z * 0.5)}};
       // return (qa + qb) * 0.5;
     }

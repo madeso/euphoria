@@ -127,8 +127,9 @@ SetupDefaultFiles(std::shared_ptr<FileSystemRootCatalog> catalog)
       "    FragColor = vec4(result, 1.0);\n"
       "}\n");
 
-  catalog->RegisterFileString("basic_shader.json",
-                              R"(  {"diffuse": "uDiffuse", "textures": []}  )");
+  catalog->RegisterFileString(
+      "basic_shader.json",
+      R"(  {"diffuse": "uDiffuse", "textures": []}  )");
   catalog->RegisterFileString(
       "basic_shader.vert",
       "#version 330 core\n"
@@ -143,18 +144,20 @@ SetupDefaultFiles(std::shared_ptr<FileSystemRootCatalog> catalog)
       "{\n"
       "    gl_Position = uProjection * uView * uModel * vec4(aPosition, 1.0);\n"
       "}\n");
-  catalog->RegisterFileString("basic_shader.frag",
-                              "#version 330 core\n"
-                              "\n"
-                              "uniform vec3 uDiffuse;\n"
-                              "\n"
-                              "out vec4 FragColor;\n"
-                              "\n"
-                              "void main()\n"
-                              "{\n"
-                              "    FragColor = vec4(uDiffuse, 1.0);\n"
-                              "}\n");
+  catalog->RegisterFileString(
+      "basic_shader.frag",
+      "#version 330 core\n"
+      "\n"
+      "uniform vec3 uDiffuse;\n"
+      "\n"
+      "out vec4 FragColor;\n"
+      "\n"
+      "void main()\n"
+      "{\n"
+      "    FragColor = vec4(uDiffuse, 1.0);\n"
+      "}\n");
 
-  catalog->RegisterFileString("texture_types.json",
-                              R"({"name" : ["Diffuse", "Specular"]})");
+  catalog->RegisterFileString(
+      "texture_types.json",
+      R"({"name" : ["Diffuse", "Specular"]})");
 }

@@ -17,35 +17,139 @@ class mat4
   mat4()
   {
   }
-  mat4(T t00, T t01, T t02, T t03, T t10, T t11, T t12, T t13, T t20, T t21,
-       T t22, T t23, T t30, T t31, T t32, T t33)
-      : data{t00, t01, t02, t03, t10, t11, t12, t13,
-             t20, t21, t22, t23, t30, t31, t32, t33}
+  mat4(
+      T t00,
+      T t01,
+      T t02,
+      T t03,
+      T t10,
+      T t11,
+      T t12,
+      T t13,
+      T t20,
+      T t21,
+      T t22,
+      T t23,
+      T t30,
+      T t31,
+      T t32,
+      T t33)
+      : data{t00,
+             t01,
+             t02,
+             t03,
+             t10,
+             t11,
+             t12,
+             t13,
+             t20,
+             t21,
+             t22,
+             t23,
+             t30,
+             t31,
+             t32,
+             t33}
   {
   }
 
  public:
   static mat4<T>
-  FromColMajor(T t00, T t01, T t02, T t03, T t10, T t11, T t12, T t13, T t20,
-               T t21, T t22, T t23, T t30, T t31, T t32, T t33)
+  FromColMajor(
+      T t00,
+      T t01,
+      T t02,
+      T t03,
+      T t10,
+      T t11,
+      T t12,
+      T t13,
+      T t20,
+      T t21,
+      T t22,
+      T t23,
+      T t30,
+      T t31,
+      T t32,
+      T t33)
   {
-    return mat4<T>(t00, t01, t02, t03, t10, t11, t12, t13, t20, t21, t22, t23,
-                   t30, t31, t32, t33);
+    return mat4<T>(
+        t00,
+        t01,
+        t02,
+        t03,
+        t10,
+        t11,
+        t12,
+        t13,
+        t20,
+        t21,
+        t22,
+        t23,
+        t30,
+        t31,
+        t32,
+        t33);
   }
   static mat4<T>
-  FromRowMajor(T t00, T t10, T t20, T t30, T t01, T t11, T t21, T t31, T t02,
-               T t12, T t22, T t32, T t03, T t13, T t23, T t33)
+  FromRowMajor(
+      T t00,
+      T t10,
+      T t20,
+      T t30,
+      T t01,
+      T t11,
+      T t21,
+      T t31,
+      T t02,
+      T t12,
+      T t22,
+      T t32,
+      T t03,
+      T t13,
+      T t23,
+      T t33)
   {
-    return mat4<T>(t00, t01, t02, t03, t10, t11, t12, t13, t20, t21, t22, t23,
-                   t30, t31, t32, t33);
+    return mat4<T>(
+        t00,
+        t01,
+        t02,
+        t03,
+        t10,
+        t11,
+        t12,
+        t13,
+        t20,
+        t21,
+        t22,
+        t23,
+        t30,
+        t31,
+        t32,
+        t33);
   }
 
   static mat4<T>
   FromMajor(const vec4<T>& major)
   {
     const T zero = 0;
-    return FromRowMajor(major.x, zero, zero, zero, zero, major.y, zero, zero,
-                        zero, zero, major.z, zero, zero, zero, zero, major.w);
+    return FromRowMajor(
+        major.x,
+        zero,
+        zero,
+        zero,
+        zero,
+        major.y,
+        zero,
+        zero,
+        zero,
+        zero,
+        major.z,
+        zero,
+        zero,
+        zero,
+        zero,
+        major.w);
   }
 
   static mat4<T>
@@ -59,8 +163,8 @@ class mat4
   {
     const T one = 1;
     const T z   = 0;
-    return FromRowMajor(one, z, z, v.x, z, one, z, v.y, z, z, one, v.z, z, z, z,
-                        one);
+    return FromRowMajor(
+        one, z, z, v.x, z, one, z, v.y, z, z, one, v.z, z, z, z, one);
   }
 
   vec3<T>
@@ -80,8 +184,8 @@ class mat4
   FromScalar(T scalar)
   {
     const T z = 0;
-    return FromRowMajor(scalar, z, z, z, z, scalar, z, z, z, z, scalar, z, z, z,
-                        z, scalar);
+    return FromRowMajor(
+        scalar, z, z, z, z, scalar, z, z, z, z, scalar, z, z, z, z, scalar);
   }
 
   static mat4<T>
@@ -118,16 +222,25 @@ class mat4
 #define v aa.axis.y
 #define w aa.axis.z
     return mat4<T>::FromColMajor(
-        rcos + u * u * (1 - rcos), w * rsin + v * u * (1 - rcos),
-        -v * rsin + w * u * (1 - rcos), 0,
+        rcos + u * u * (1 - rcos),
+        w * rsin + v * u * (1 - rcos),
+        -v * rsin + w * u * (1 - rcos),
+        0,
 
-        -w * rsin + u * v * (1 - rcos), rcos + v * v * (1 - rcos),
-        u * rsin + w * v * (1 - rcos), 0,
+        -w * rsin + u * v * (1 - rcos),
+        rcos + v * v * (1 - rcos),
+        u * rsin + w * v * (1 - rcos),
+        0,
 
-        v * rsin + u * w * (1 - rcos), -u * rsin + v * w * (1 - rcos),
-        rcos + w * w * (1 - rcos), 0,
+        v * rsin + u * w * (1 - rcos),
+        -u * rsin + v * w * (1 - rcos),
+        rcos + w * w * (1 - rcos),
+        0,
 
-        0, 0, 0, 1);
+        0,
+        0,
+        0,
+        1);
 #undef u
 #undef v
 #undef w
@@ -175,10 +288,23 @@ class mat4
   GetTransposed() const
   {
     const mat4<T>& self = *this;
-    return FromColMajor(self(0, 0), self(0, 1), self(0, 2), self(0, 3),
-                        self(1, 0), self(1, 1), self(1, 2), self(1, 3),
-                        self(2, 0), self(2, 1), self(2, 2), self(2, 3),
-                        self(3, 0), self(3, 1), self(3, 2), self(3, 3));
+    return FromColMajor(
+        self(0, 0),
+        self(0, 1),
+        self(0, 2),
+        self(0, 3),
+        self(1, 0),
+        self(1, 1),
+        self(1, 2),
+        self(1, 3),
+        self(2, 0),
+        self(2, 1),
+        self(2, 2),
+        self(2, 3),
+        self(3, 0),
+        self(3, 1),
+        self(3, 2),
+        self(3, 3));
   }
 
   // from the glu source?
@@ -261,8 +387,16 @@ class mat4
   GetMat3() const
   {
     const mat4<T>& m = *this;
-    return mat3<T>::FromRowMajor(m(0, 0), m(0, 1), m(0, 2), m(1, 0), m(1, 1),
-                                 m(1, 2), m(2, 0), m(2, 1), m(2, 2));
+    return mat3<T>::FromRowMajor(
+        m(0, 0),
+        m(0, 1),
+        m(0, 2),
+        m(1, 0),
+        m(1, 1),
+        m(1, 2),
+        m(2, 0),
+        m(2, 1),
+        m(2, 2));
   }
 
   void
@@ -321,9 +455,23 @@ class mat4
   Ortho(T l, T r, T b, T t, T n, T f)
   {
     // http://www.songho.ca/opengl/gl_projectionmatrix.html
-    return FromRowMajor(2 / (r - l), 0, 0, -(r + l) / (r - l), 0, 2 / (t - b),
-                        0, -(t + b) / (t - b), 0, 0, -2 / (f - n),
-                        -(f + n) / (f - n), 0, 0, 0, 1);
+    return FromRowMajor(
+        2 / (r - l),
+        0,
+        0,
+        -(r + l) / (r - l),
+        0,
+        2 / (t - b),
+        0,
+        -(t + b) / (t - b),
+        0,
+        0,
+        -2 / (f - n),
+        -(f + n) / (f - n),
+        0,
+        0,
+        0,
+        1);
   }
 
   static mat4<T>
@@ -332,8 +480,23 @@ class mat4
     const T t  = 1 / Tan(fov / 2);
     const T zm = far - near;
     const T zp = far + near;
-    return FromRowMajor(t / a, 0, 0, 0, 0, t, 0, 0, 0, 0, -zp / zm,
-                        (-2 * far * near) / zm, 0, 0, -1, 0);
+    return FromRowMajor(
+        t / a,
+        0,
+        0,
+        0,
+        0,
+        t,
+        0,
+        0,
+        0,
+        0,
+        -zp / zm,
+        (-2 * far * near) / zm,
+        0,
+        0,
+        -1,
+        0);
   }
 
   mat4<T>
@@ -438,10 +601,23 @@ mat4<T> operator*(const mat4<T>& lhs, const mat4<T> rhs)
 {
 #define OP(r, c) \
   ComponentMultiply(lhs.GetRow(r), rhs.GetColumn(c)).GetComponentSum()
-  return mat4<T>::FromRowMajor(OP(0, 0), OP(0, 1), OP(0, 2), OP(0, 3), OP(1, 0),
-                               OP(1, 1), OP(1, 2), OP(1, 3), OP(2, 0), OP(2, 1),
-                               OP(2, 2), OP(2, 3), OP(3, 0), OP(3, 1), OP(3, 2),
-                               OP(3, 3));
+  return mat4<T>::FromRowMajor(
+      OP(0, 0),
+      OP(0, 1),
+      OP(0, 2),
+      OP(0, 3),
+      OP(1, 0),
+      OP(1, 1),
+      OP(1, 2),
+      OP(1, 3),
+      OP(2, 0),
+      OP(2, 1),
+      OP(2, 2),
+      OP(2, 3),
+      OP(3, 0),
+      OP(3, 1),
+      OP(3, 2),
+      OP(3, 3));
 #undef OP
 }
 

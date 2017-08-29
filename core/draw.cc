@@ -17,8 +17,8 @@ Draw::Draw(Image* image)
 Recti
 Draw::WholeImage() const
 {
-  return Recti::FromTopLeftWidthHeight(0, 0, image_->GetWidth(),
-                                       image_->GetHeight());
+  return Recti::FromTopLeftWidthHeight(
+      0, 0, image_->GetWidth(), image_->GetHeight());
 }
 
 Draw&
@@ -46,8 +46,12 @@ Draw::Square(const Rgb& color, const Recti& rect)
 }
 
 Draw&
-Draw::Circle(const Rgb& color, const vec2i& center, float radius,
-             float softness, float inner)
+Draw::Circle(
+    const Rgb&   color,
+    const vec2i& center,
+    float        radius,
+    float        softness,
+    float        inner)
 {
   const int left = Max(0, Floori(center.x - radius - softness));
   const int right =
@@ -93,8 +97,8 @@ Draw::Circle(const Rgb& color, const vec2i& center, float radius,
       }
 
       const Rgb paint_color =
-          blend ? RgbTransform::Transform(Rgb{image_->GetPixel(x, y)},
-                                          blend_factor, color)
+          blend ? RgbTransform::Transform(
+                      Rgb{image_->GetPixel(x, y)}, blend_factor, color)
                 : color;
 
       image_->SetPixel(x, y, paint_color);
@@ -185,8 +189,8 @@ Plot(int x, int y, float brightness, const Rgb& color, Image* image)
 Draw&
 Draw::LineAntialiased(const Rgb& color, const vec2i& from, const vec2i& to)
 {
-  return LineAntialiased(color, from.StaticCast<float>(),
-                         to.StaticCast<float>());
+  return LineAntialiased(
+      color, from.StaticCast<float>(), to.StaticCast<float>());
 }
 
 Draw&
@@ -308,8 +312,11 @@ PrintCharAt(Draw* image, const vec2i pos, char c, const Rgb& color, int scale)
 }
 
 Draw&
-Draw::Text(const vec2i& start_pos, const std::string& text, const Rgb& color,
-           int scale)
+Draw::Text(
+    const vec2i&       start_pos,
+    const std::string& text,
+    const Rgb&         color,
+    int                scale)
 {
   ASSERT(scale > 0);
   vec2i pos = start_pos;

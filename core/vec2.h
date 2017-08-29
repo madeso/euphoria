@@ -179,8 +179,9 @@ struct Vec2Transform
   static vec2<T>
   Transform(const vec2<T>& from, float v, const vec2<T> to)
   {
-    return vec2<T>(FloatTransform::Transform(from.x, v, to.x),
-                   FloatTransform::Transform(from.y, v, to.y));
+    return vec2<T>(
+        FloatTransform::Transform(from.x, v, to.x),
+        FloatTransform::Transform(from.y, v, to.y));
   }
 };
 

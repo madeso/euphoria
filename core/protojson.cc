@@ -82,9 +82,11 @@ namespace
 
 
   std::string
-  JsonToProtoField(const rapidjson::Value& json, google::protobuf::Message* msg,
-                   const google::protobuf::FieldDescriptor* field,
-                   const JsonPath*                          path)
+  JsonToProtoField(
+      const rapidjson::Value&                  json,
+      google::protobuf::Message*               msg,
+      const google::protobuf::FieldDescriptor* field,
+      const JsonPath*                          path)
   {
     const JsonPath self_path{path, json};
     const auto*    ref      = msg->GetReflection();
@@ -318,8 +320,10 @@ namespace
 namespace protojson
 {
   std::string
-  ToProto(const rapidjson::Value& json, google::protobuf::Message* msg,
-          JsonPath* path)
+  ToProto(
+      const rapidjson::Value&    json,
+      google::protobuf::Message* msg,
+      JsonPath*                  path)
   {
     JsonPath self_path{path, json};
     if(json.GetType() != rapidjson::kObjectType)
@@ -335,7 +339,8 @@ namespace protojson
     }
 
     for(rapidjson::Value::ConstMemberIterator itr = json.MemberBegin();
-        itr != json.MemberEnd(); ++itr)
+        itr != json.MemberEnd();
+        ++itr)
     {
       const char* name  = itr->name.GetString();
       const auto* field = descriptor->FindFieldByName(name);
@@ -366,7 +371,8 @@ namespace protojson
                  << self_path;
         }
         for(rapidjson::Value::ConstValueIterator ait = itr->value.Begin();
-            ait != itr->value.End(); ++ait)
+            ait != itr->value.End();
+            ++ait)
         {
           const rapidjson::Value* val = ait;
           const auto ret = JsonToProtoField(*val, msg, field, &self_path);

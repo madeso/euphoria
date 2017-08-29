@@ -50,8 +50,10 @@ class Shader : public ShaderId
 
  private:
   bool
-  Compile(const glchar* vertex_source, const glchar* fragment_source,
-          const glchar* geometry_source = nullptr);
+  Compile(
+      const glchar* vertex_source,
+      const glchar* fragment_source,
+      const glchar* geometry_source = nullptr);
 
  public:
   // uniform = shader global
@@ -96,7 +98,10 @@ class Shader : public ShaderId
 
 class Texture2d;
 void
-BindTextureToShader(Texture2d* texture, Shader* shader,
-                    const ShaderUniform& attribute, glint index);
+BindTextureToShader(
+    Texture2d*           texture,
+    Shader*              shader,
+    const ShaderUniform& attribute,
+    glint                index);
 
 #endif

@@ -25,16 +25,16 @@ LoadProtoText(google::protobuf::Message* message, const std::string& file_name)
   {
     return false;
   }
-  std::string data((std::istreambuf_iterator<char>(file)),
-                   std::istreambuf_iterator<char>());
+  std::string data(
+      (std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
   const bool parse_result =
       google::protobuf::TextFormat::ParseFromString(data, message);
   return parse_result;
 }
 
 bool
-SaveProtoText(const google::protobuf::Message& message,
-              const std::string&               file_name)
+SaveProtoText(
+    const google::protobuf::Message& message, const std::string& file_name)
 {
   // if (false == VerifyFileForWriting(file_name)) return false;
 
@@ -51,8 +51,8 @@ SaveProtoText(const google::protobuf::Message& message,
 }
 
 bool
-LoadProtoBinary(google::protobuf::Message* message,
-                const std::string&         file_name)
+LoadProtoBinary(
+    google::protobuf::Message* message, const std::string& file_name)
 {
   std::fstream input(file_name.c_str(), std::ios::in | std::ios::binary);
   const bool   parse_result = message->ParseFromIstream(&input);
@@ -60,8 +60,8 @@ LoadProtoBinary(google::protobuf::Message* message,
 }
 
 bool
-SaveProtoBinary(const google::protobuf::Message& message,
-                const std::string&               file_name)
+SaveProtoBinary(
+    const google::protobuf::Message& message, const std::string& file_name)
 {
   std::fstream config_stream(
       file_name.c_str(), std::ios::out | std::ios::trunc | std::ios::binary);
@@ -69,8 +69,10 @@ SaveProtoBinary(const google::protobuf::Message& message,
 }
 
 std::string
-LoadProtoJson(FileSystem* fs, google::protobuf::Message* message,
-              const std::string& file_name)
+LoadProtoJson(
+    FileSystem*                fs,
+    google::protobuf::Message* message,
+    const std::string&         file_name)
 {
   std::string source;
 
@@ -99,8 +101,8 @@ LoadProtoJson(FileSystem* fs, google::protobuf::Message* message,
 }
 
 std::string
-SaveProtoJson(const google::protobuf::Message& message,
-              const std::string&               file_name)
+SaveProtoJson(
+    const google::protobuf::Message& message, const std::string& file_name)
 {
   bool write_result = pbjson::pb2json_file(&message, file_name, true);
   if(!write_result)

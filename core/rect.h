@@ -97,8 +97,8 @@ class Rect
   vec2<T>
   GetRelativeCenterPosFromBottomLeft() const
   {
-    return vec2<T>(GetRelativeCenterXFromBottomLeft(),
-                   GetRelativeCenterYFromBottomLeft());
+    return vec2<T>(
+        GetRelativeCenterXFromBottomLeft(), GetRelativeCenterYFromBottomLeft());
   }
 
   T
@@ -273,8 +273,8 @@ class Rect
   Rect<T>
   SetBottomLeftToCopy(T newLeft, T newBottom) const
   {
-    return FromTopLeftWidthHeight(newBottom + GetHeight(), newLeft, GetWidth(),
-                                  GetHeight());
+    return FromTopLeftWidthHeight(
+        newBottom + GetHeight(), newLeft, GetWidth(), GetHeight());
   }
 
   void

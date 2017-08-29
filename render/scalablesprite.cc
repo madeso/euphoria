@@ -20,8 +20,8 @@
 namespace
 {
   float
-  CopyData(std::vector<float>*                         dest,
-           const google::protobuf::RepeatedField<int>& src)
+  CopyData(
+      std::vector<float>* dest, const google::protobuf::RepeatedField<int>& src)
   {
     dest->reserve(src.size());
     float size = 0;
@@ -42,8 +42,8 @@ namespace
   }
 }  // namespace
 
-ScalableSprite::ScalableSprite(const std::string& path, const Sizef& size,
-                               TextureCache* cache)
+ScalableSprite::ScalableSprite(
+    const std::string& path, const Sizef& size, TextureCache* cache)
     : texture_(cache->GetTexture(path))
     , size_(size)
     , dirty_(true)

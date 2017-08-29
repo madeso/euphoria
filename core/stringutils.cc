@@ -75,8 +75,10 @@ ToLower(const std::string& str)
 }
 
 void
-StringReplace(std::string* string, const std::string& to_find,
-              const std::string& to_replace)
+StringReplace(
+    std::string*       string,
+    const std::string& to_find,
+    const std::string& to_replace)
 {
   std::size_t       index       = string->find(to_find);
   const std::size_t find_length = to_find.length();
@@ -90,8 +92,10 @@ StringReplace(std::string* string, const std::string& to_find,
 }
 
 const std::string
-StringReplace(const std::string& string, const std::string& to_find,
-              const std::string& to_replace)
+StringReplace(
+    const std::string& string,
+    const std::string& to_find,
+    const std::string& to_replace)
 {
   std::string temp = string;
   StringReplace(&temp, to_find, to_replace);

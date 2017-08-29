@@ -52,8 +52,8 @@ class FileSystemRootCatalog : public FileSystemRoot
   void
   RegisterFileString(const std::string& path, const std::string& content);
   void
-  RegisterFileData(const std::string&                  path,
-                   const std::shared_ptr<MemoryChunk>& content);
+  RegisterFileData(
+      const std::string& path, const std::shared_ptr<MemoryChunk>& content);
 
   static std::shared_ptr<FileSystemRootCatalog>
   AddRoot(FileSystem* fs);

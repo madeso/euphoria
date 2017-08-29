@@ -67,8 +67,11 @@ class MaterialShader
   SetupLight(const Light& light, const vec3f& camera);
 
   void
-  SetColors(const Rgb& ambient, const Rgb& diffuse, const Rgb& specular,
-            float shininess);
+  SetColors(
+      const Rgb& ambient,
+      const Rgb& diffuse,
+      const Rgb& specular,
+      float      shininess);
 
   const std::vector<MaterialShaderBinding>&
   GetBindings() const;

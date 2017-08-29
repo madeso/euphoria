@@ -36,8 +36,8 @@ MeshPart::MeshPart()
 }
 
 void
-MeshPart::AddPoint(float x, float y, float z, float nx, float ny, float nz,
-                   float u, float v)
+MeshPart::AddPoint(
+    float x, float y, float z, float nx, float ny, float nz, float u, float v)
 {
   points.push_back(x);
   points.push_back(y);
@@ -78,8 +78,8 @@ Material::Material()
 }
 
 void
-Material::SetTexture(const std::string& texture_name,
-                     const std::string& texture_path)
+Material::SetTexture(
+    const std::string& texture_name, const std::string& texture_path)
 {
   DEFINE_ENUM_VALUE(TextureType, texture_type, texture_name);
   textures.emplace_back(texture_path, texture_type);
@@ -214,8 +214,8 @@ namespace
         u                   = uv.x;
         v                   = uv.y;
       }
-      part->AddPoint(vertex.x, vertex.y, vertex.z, normal.x, normal.y, normal.z,
-                     u, v);
+      part->AddPoint(
+          vertex.x, vertex.y, vertex.z, normal.x, normal.y, normal.z, u, v);
     }
   }
 
@@ -295,10 +295,11 @@ namespace
       auto found = mesh_materials.find(material.name());
       if(found == mesh_materials.end())
       {
-        LOG_ERROR("Unable to find " << material.name() << " in mesh "
-                                    << json_path << " valid names are: "
-                                    << StringMerger::EnglishOr().Generate(
-                                           KeysOf(mesh_materials)));
+        LOG_ERROR(
+            "Unable to find " << material.name() << " in mesh " << json_path
+                              << " valid names are: "
+                              << StringMerger::EnglishOr().Generate(
+                                     KeysOf(mesh_materials)));
         continue;
       }
 

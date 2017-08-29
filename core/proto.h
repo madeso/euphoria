@@ -10,21 +10,23 @@ class FileSystem;
 bool
 LoadProtoText(google::protobuf::Message* message, const std::string& file_name);
 bool
-SaveProtoText(const google::protobuf::Message& message,
-              const std::string&               file_name);
+SaveProtoText(
+    const google::protobuf::Message& message, const std::string& file_name);
 
 bool
-LoadProtoBinary(google::protobuf::Message* message,
-                const std::string&         file_name);
+LoadProtoBinary(
+    google::protobuf::Message* message, const std::string& file_name);
 bool
-SaveProtoBinary(const google::protobuf::Message& message,
-                const std::string&               file_name);
+SaveProtoBinary(
+    const google::protobuf::Message& message, const std::string& file_name);
 
 std::string
-LoadProtoJson(FileSystem* fs, google::protobuf::Message* message,
-              const std::string& file_name);
+LoadProtoJson(
+    FileSystem*                fs,
+    google::protobuf::Message* message,
+    const std::string&         file_name);
 std::string
-SaveProtoJson(const google::protobuf::Message& message,
-              const std::string&               file_name);
+SaveProtoJson(
+    const google::protobuf::Message& message, const std::string& file_name);
 
 #endif  // SPACETYPER_PROTO_H_
