@@ -246,6 +246,9 @@ class Rgb
   float b;
 };
 
+std::ostream&
+operator<<(std::ostream& stream, const Rgb& v);
+
 struct RgbTransform
 {
   static Rgb
@@ -293,5 +296,8 @@ class Rgba
   float b;
   float a;
 };
+
+std::ostream&
+operator<<(std::ostream& stream, const Rgba& v);
 
 #endif  // CORE_RGB_H

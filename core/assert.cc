@@ -102,23 +102,28 @@ namespace assertlib
       const char* const file,
       const char* const function)
   {
-    std::cerr << "Assertion failed: " << expression << "\n"
-              << "Function: " << function << "\n"
-              << "File: " << file << ":" << line << "\n";
+    std::ostringstream ss;
+    ss << "Assertion failed: " << expression << "\n"
+       << "Function: " << function << "\n"
+       << "File: " << file << ":" << line << "\n";
 
     const auto trace = RunBacktrace(2);
     if(!trace.empty())
     {
-      std::cerr << "Backtrace:\n";
+      ss << "Backtrace:\n";
       for(const auto& b : trace)
       {
-        std::cerr << b << "\n";
+        ss << b << "\n";
       }
     }
 
     if(ShouldThrow())
     {
-      throw "assertion_failed";
+      throw ss.str();
+    }
+    else
+    {
+      std::cerr << ss.str();
     }
 
     exit(-1);

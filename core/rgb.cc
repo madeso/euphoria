@@ -658,6 +658,13 @@ Rgb::From(DawnbringerPalette color)
   }
 }
 
+std::ostream&
+operator<<(std::ostream& stream, const Rgb& v)
+{
+  return stream << "(" << v.GetRed() << ", " << v.GetGreen() << ", "
+                << v.GetBlue() << ")";
+}
+
 Rgb
 RgbTransform::Transform(const Rgb& from, float v, const Rgb to)
 {
@@ -747,4 +754,11 @@ Rgba::SetRgb(const float red, const float green, const float blue)
   SetGreen(green);
   SetBlue(blue);
   SetAlpha(1);
+}
+
+std::ostream&
+operator<<(std::ostream& stream, const Rgba& v)
+{
+  return stream << "(" << v.GetRed() << ", " << v.GetGreen() << ", "
+                << v.GetBlue() << ", " << v.GetAlpha() << ")";
 }

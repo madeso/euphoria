@@ -107,6 +107,7 @@ if(CLOC_EXE)
 endif()
 
 add_subdirectory(core)
+add_subdirectory(base64)
 add_subdirectory(render)
 add_subdirectory(window)
 add_subdirectory(gui)

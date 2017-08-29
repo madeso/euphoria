@@ -24,8 +24,8 @@ approximately_equal(const T& lhs, const T& rhs, const ApproxData& data);
 
 template <>
 bool
-approximately_equal(double const& lhs, double const& rhs,
-                    const ApproxData& data);
+approximately_equal(
+    double const& lhs, double const& rhs, const ApproxData& data);
 
 template <>
 bool
@@ -114,19 +114,12 @@ namespace custom
   };
 }
 
-#if 0
-namespace Catch
+template <typename T>
+std::ostream&
+operator<<(std::ostream& stream, const custom::Approx<T>& v)
 {
-  template <>
-  // template <typename T>
-  inline std::string
-  toString<::custom::Approx<T>>(::custom::Approx<T> const& value)
-  {
-    return value.toString();
-  }
+  return stream << v.toString();
 }
-#endif
-
 
 ////////////////////////////////////////////////////////////////////////////////
 

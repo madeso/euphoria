@@ -1,4 +1,6 @@
-#include "base64.h"
+#include "core/base64.h"
+
+#include "core/assert.h"
 
 #include <sstream>
 
@@ -58,10 +60,13 @@ namespace base64
     const std::string codes = CODES;
     if(input.length() % 4 == 0)
     {
+      ASSERT(!input.empty());
       auto    asize = (input.length() * 3) / 4;
       auto    found = input.find('=') != std::string::npos;
       auto    bsize = found ? (input.length() - input.find('=')) : 0;
       fuint64 size  = asize - bsize;
+
+      ASSERT(size > 0);
 
       auto          ret     = MemoryChunk::Alloc(size);
       MemoryChunk&  decoded = *ret;
