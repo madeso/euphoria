@@ -35,21 +35,21 @@ TEST_CASE("image-load", "[img]")
   SECTION("load-red")
   {
     const auto pixel = loaded.image.GetPixel(1, 0);
-    const auto white = Rgba{1.0f, 0.0f, 0.0f, 1.0f};
-    REQUIRE(pixel == approx(white));
+    const auto red   = Rgba{1.0f, 0.0f, 0.0f, 1.0f};
+    REQUIRE(pixel == approx(red));
   }
 
   SECTION("load-green")
   {
     const auto pixel = loaded.image.GetPixel(0, 1);
-    const auto white = Rgba{0.0f, 1.0f, 0.0f, 1.0f};
-    REQUIRE(pixel == approx(white));
+    const auto green = Rgba{0.0f, 1.0f, 0.0f, 1.0f};
+    REQUIRE(pixel == approx(green));
   }
 
   SECTION("load-blue")
   {
     const auto pixel = loaded.image.GetPixel(1, 1);
-    const auto white = Rgba{0.0f, 0.0f, 1.0f, 1.0f};
-    REQUIRE(pixel == approx(white));
+    const auto blue  = Rgba{0.0f, 0.0f, 1.0f, 1.0f};
+    REQUIRE(pixel == approx(blue));
   }
 }
