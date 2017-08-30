@@ -25,30 +25,37 @@ TEST_CASE("image-load", "[img]")
   REQUIRE(loaded.error == "");
   REQUIRE_FALSE(loaded.image.HasAlpha());
 
+  REQUIRE(loaded.image.GetHeight() == 2);
+  REQUIRE(loaded.image.GetWidth() == 2);
+
+  // upper left
   SECTION("load-white")
   {
-    const auto pixel = loaded.image.GetPixel(0, 0);
+    const auto pixel = loaded.image.GetPixel(0, 1);
     const auto white = Rgba{1.0f, 1.0f, 1.0f, 1.0f};
     REQUIRE(pixel == approx(white));
   }
 
+  // upper right
   SECTION("load-red")
   {
-    const auto pixel = loaded.image.GetPixel(1, 0);
+    const auto pixel = loaded.image.GetPixel(1, 1);
     const auto red   = Rgba{1.0f, 0.0f, 0.0f, 1.0f};
     REQUIRE(pixel == approx(red));
   }
 
+  // lower left
   SECTION("load-green")
   {
-    const auto pixel = loaded.image.GetPixel(0, 1);
+    const auto pixel = loaded.image.GetPixel(0, 0);
     const auto green = Rgba{0.0f, 1.0f, 0.0f, 1.0f};
     REQUIRE(pixel == approx(green));
   }
 
+  // lower right
   SECTION("load-blue")
   {
-    const auto pixel = loaded.image.GetPixel(1, 1);
+    const auto pixel = loaded.image.GetPixel(1, 0);
     const auto blue  = Rgba{0.0f, 0.0f, 1.0f, 1.0f};
     REQUIRE(pixel == approx(blue));
   }

@@ -353,7 +353,7 @@ LoadImage(FileSystem* fs, const std::string& path, AlphaLoad alpha)
       const unsigned char b = Select(channels, c1, c1, c3, c3);
       const unsigned char a = Select(channels, 255, c2, 255, c4);
 
-      result.image.SetPixel(x, y, r, g, b, a);
+      result.image.SetPixel(x, image_height-(y+1), r, g, b, a);
     }
   }
 
