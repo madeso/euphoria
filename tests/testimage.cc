@@ -60,3 +60,45 @@ TEST_CASE("image-load", "[img]")
     REQUIRE(pixel == approx(blue));
   }
 }
+
+TEST_CASE("image solid", "[img]")
+{
+  Image img;
+  img.Setup(3, 3, false);
+
+  SECTION("default-is-black")
+  {
+    REQUIRE(img.GetPixel(0, 0) == approx(Rgba(0, 0, 0, 1)));
+    REQUIRE(img.GetPixel(1, 0) == approx(Rgba(0, 0, 0, 1)));
+  }
+
+  SECTION("can set and get color")
+  {
+    REQUIRE(img.GetPixel(0, 0) == approx(Rgba(0, 0, 0, 1)));
+    Rgba color{1, 1, 1, 1};
+    img.SetPixel(0, 0, color);
+    REQUIRE(img.GetPixel(0, 0) == approx(color));
+  }
+}
+
+TEST_CASE("image transparent", "[img]")
+{
+  Image img;
+  img.Setup(4, 4, true);
+
+  SECTION("default-is-black")
+  {
+    REQUIRE(img.GetPixel(0, 0) == approx(Rgba(0, 0, 0, 0)));
+    REQUIRE(img.GetPixel(1, 1) == approx(Rgba(0, 0, 0, 0)));
+  }
+
+  SECTION("can set and get color")
+  {
+    REQUIRE(img.GetPixel(0, 0) == approx(Rgba(0, 0, 0, 0)));
+    Rgba color{1, 1, 1, 1};
+    img.SetPixel(0, 0, color);
+    REQUIRE(img.GetPixel(0, 0) == approx(color));
+  }
+}
+
+// todo: add paint test
