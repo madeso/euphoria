@@ -9,7 +9,7 @@ set(all_src ${app_src} ${src_glew})
 
 # imgui
 include_directories(SYSTEM
-                    ../external/imgui-1.50/
+                    ../external/imgui/
                     )
 
 add_executable(demo WIN32 MACOSX_BUNDLE ${all_src})

@@ -18,16 +18,16 @@ source_group("glad" FILES ${src_glad})
 # imgui
 include_directories(SYSTEM ../external/imgui-1.50/)
 set(src_imgui
-    ../external/imgui-1.50/imgui/imgui.cpp
-    ../external/imgui-1.50/imgui/imgui.h
-    ../external/imgui-1.50/imgui/imgui_demo.cpp
-    ../external/imgui-1.50/imgui/imgui_draw.cpp
-    ../external/imgui-1.50/imgui/imgui_internal.h
-    ../external/imgui-1.50/imgui/imconfig.h
-    # look into how different stb libs work together
-    ../external/imgui-1.50/imgui/stb_rect_pack.h
-    ../external/imgui-1.50/imgui/stb_textedit.h
-    ../external/imgui-1.50/imgui/stb_truetype.h
+    ../external/imgui/imgui/imgui.cpp
+    ../external/imgui/imgui/imgui.h
+    ../external/imgui/imgui/imgui_demo.cpp
+    ../external/imgui/imgui/imgui_draw.cpp
+    ../external/imgui/imgui/imgui_internal.h
+    ../external/imgui/imgui/imconfig.h
+    # todo: look into how different stb libs work together
+    ../external/imgui/imgui/stb_rect_pack.h
+    ../external/imgui/imgui/stb_textedit.h
+    ../external/imgui/imgui/stb_truetype.h
     )
 set(src ${src} ${src_imgui})
 source_group("imgui" FILES ${src_imgui})
