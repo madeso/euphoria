@@ -61,7 +61,7 @@ const StringMerger&
 StringMerger::Array()
 {
   static const StringMerger s_Array =
-      StringMerger().SetSeparator(", ").SetSeparator("[", "]");
+      StringMerger().SetSeparator(", ").SetStartAndEnd("[", "]");
   return s_Array;
 }
 
