@@ -1,4 +1,5 @@
 #include "core/assert.h"
+#include "stringmerger.h"
 
 #include <iostream>
 
@@ -97,15 +98,28 @@ namespace assertlib
 
   void
   OnAssert(
-      const char* const expression,
-      int               line,
-      const char* const file,
-      const char* const function)
+      const char* const                  expression,
+      int                                line,
+      const char* const                  file,
+      const char* const                  argstr,
+      const std::vector<AssertValueArg>& arguments,
+      const char* const                  function)
   {
     std::ostringstream ss;
     ss << "Assertion failed: " << expression << "\n"
        << "Function: " << function << "\n"
        << "File: " << file << ":" << line << "\n";
+
+    if(!arguments.empty())
+    {
+      std::vector<std::string> args;
+      for(const auto& a : arguments)
+      {
+        args.push_back(a.value);
+      }
+      ss << "(" << argstr << ") = " << StringMerger::Array().Generate(args)
+         << "\n";
+    }
 
     const auto trace = RunBacktrace(2);
     if(!trace.empty())
