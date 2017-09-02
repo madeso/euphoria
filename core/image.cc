@@ -107,8 +107,8 @@ Image::SetPixel(
     unsigned char b,
     unsigned char a)
 {
-  ASSERT(IsWithinInclusivei(0, x, GetWidth() - 1));
-  ASSERT(IsWithinInclusivei(0, y, GetHeight() - 1));
+  ASSERTX(IsWithinInclusivei(0, x, GetWidth() - 1), x, GetWidth() - 1);
+  ASSERTX(IsWithinInclusivei(0, y, GetHeight() - 1), y, GetHeight() - 1);
 
   const auto base_index      = GetPixelIndex(x, y);
   components[base_index + 0] = r;
@@ -353,7 +353,7 @@ LoadImage(FileSystem* fs, const std::string& path, AlphaLoad alpha)
       const unsigned char b = Select(channels, c1, c1, c3, c3);
       const unsigned char a = Select(channels, 255, c2, 255, c4);
 
-      result.image.SetPixel(x, image_height-(y+1), r, g, b, a);
+      result.image.SetPixel(x, image_height - (y + 1), r, g, b, a);
     }
   }
 

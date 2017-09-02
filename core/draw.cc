@@ -18,7 +18,7 @@ Recti
 Draw::WholeImage() const
 {
   return Recti::FromTopLeftWidthHeight(
-      0, 0, image_->GetWidth(), image_->GetHeight());
+      image_->GetHeight(), 0, image_->GetWidth(), image_->GetHeight());
 }
 
 Draw&
@@ -34,7 +34,7 @@ Draw::Square(const Rgb& color, const Recti& rect)
   const int right  = rect.TopRight().x;
   const int top    = rect.TopLeft().y;
   const int bottom = rect.BottomLeft().y;
-  for(int y = top; y < bottom; ++y)
+  for(int y = bottom; y < top; ++y)
   {
     for(int x = left; x < right; ++x)
     {

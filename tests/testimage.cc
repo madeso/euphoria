@@ -3,6 +3,7 @@
 #include "core/base64.h"
 #include "core/rgb.h"
 #include "tests/testbase.h"
+#include "core/draw.h"
 
 #include "catch.hpp"
 
@@ -102,3 +103,52 @@ TEST_CASE("image transparent", "[img]")
 }
 
 // todo: add paint test
+TEST_CASE("image draw", "[img]")
+{
+  Image     img;
+  const int width  = 10;
+  const int height = 12;
+  img.Setup(width, height, false);
+  Draw draw{&img};
+
+  SECTION("draw size is image size")
+  {
+    const auto size = draw.WholeImage();
+    CHECK(size.bottom == 0);
+    CHECK(size.left == 0);
+    CHECK(size.GetWidth() == width);
+    CHECK(size.GetHeight() == height);
+  }
+
+  Rgb  color{1, 1, 0};
+  Rgba colora{color, 1};
+
+  SECTION("fill")
+  {
+    CHECK_FALSE(img.GetPixel(0, 0) == approx(colora));
+    CHECK_FALSE(img.GetPixel(3, 3) == approx(colora));
+    CHECK_FALSE(img.GetPixel(width - 1, height - 1) == approx(colora));
+
+    draw.Square(color, draw.WholeImage());
+    REQUIRE(img.GetPixel(0, 0) == approx(colora));
+    REQUIRE(img.GetPixel(3, 3) == approx(colora));
+    REQUIRE(img.GetPixel(width - 1, height - 1) == approx(colora));
+  }
+
+  SECTION("circle")
+  {
+    CHECK_FALSE(img.GetPixel(5, 5) == approx(colora));
+    draw.Circle(color, vec2i{5, 5}, 4);
+    CHECK_FALSE(img.GetPixel(0, 0) == approx(colora));
+    REQUIRE(img.GetPixel(5, 5) == approx(colora));
+  }
+
+  SECTION("circle with hole")
+  {
+    CHECK_FALSE(img.GetPixel(0, 0) == approx(colora));
+    CHECK_FALSE(img.GetPixel(5, 5) == approx(colora));
+    draw.Circle(color, vec2i{5, 5}, 20, 0, 3);
+    CHECK_FALSE(img.GetPixel(5, 5) == approx(colora));
+    REQUIRE(img.GetPixel(0, 0) == approx(colora));
+  }
+}
