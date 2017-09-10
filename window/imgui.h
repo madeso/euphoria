@@ -2,10 +2,13 @@
 #define EUPHORIA_IMGUI_H
 
 class Angle;
+class Texture2d;
+void
+ImguiAngleSlider(
+    const char* const name, Angle* angle, float mindeg, float maxdeg);
+
 
 void
-ImguiAngleSlider(const char* const name, Angle* angle, float mindeg,
-                 float maxdeg);
-
+ImguiImage(Texture2d* texture);
 
 #endif  // EUPHORIA_IMGUI_H

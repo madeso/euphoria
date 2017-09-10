@@ -156,6 +156,8 @@ main(int argc, char** argv)
   auto box2                        = CompileMesh(
       box_mesh2, &material_shader_cache, &texture_cache, Path::FromRoot());
 
+  auto debug_texture = texture_cache.GetTexture("image");
+
   auto light_mesh                = meshes::CreateCube(0.2f);
   light_mesh.materials[0].shader = "basic_shader";
   auto light                     = CompileMesh(
@@ -229,8 +231,6 @@ main(int argc, char** argv)
 
   bool paused = true;
 
-  bool show_test_window = true;
-
   while(running)
   {
     const bool  show_imgui = !capturing_mouse_movement;
@@ -240,39 +240,36 @@ main(int argc, char** argv)
     {
       imgui.Begin();
 
-      // 3. Show the ImGui test window. Most of the sample code is in
-      // ImGui::ShowTestWindow()
-      if(show_test_window)
-      {
-        ImGui::SetNextWindowPos(ImVec2(650, 20), ImGuiSetCond_FirstUseEver);
+      ImGui::SetNextWindowPos(ImVec2(650, 20), ImGuiSetCond_FirstUseEver);
 
-        ImGui::SetNextWindowSize(ImVec2(200, 100), ImGuiSetCond_FirstUseEver);
-        ImGui::Begin("Light");
-        ImGui::Combo(
-            "Type",
-            reinterpret_cast<int*>(world.light.GetTypeMod()),
-            "Directional\0Point\0Spot\0\0");
-        ImGui::ColorEdit3("Ambient", world.light.ModifyAmbient()->GetData());
-        ImGui::ColorEdit3("Diffuse", world.light.ModifyDiffuse()->GetData());
-        ImGui::ColorEdit3("Specular", world.light.ModifySpecular()->GetData());
-        ImGui::Combo(
-            "Update",
-            &light_update,
-            "Do nothing\0Follow actor\0Follow camera\0\0");
+      ImGui::SetNextWindowSize(ImVec2(200, 100), ImGuiSetCond_FirstUseEver);
+      ImGui::Begin("Light");
+      ImGui::Combo(
+          "Type",
+          reinterpret_cast<int*>(world.light.GetTypeMod()),
+          "Directional\0Point\0Spot\0\0");
+      ImGui::ColorEdit3("Ambient", world.light.ModifyAmbient()->GetData());
+      ImGui::ColorEdit3("Diffuse", world.light.ModifyDiffuse()->GetData());
+      ImGui::ColorEdit3("Specular", world.light.ModifySpecular()->GetData());
+      ImGui::Combo(
+          "Update",
+          &light_update,
+          "Do nothing\0Follow actor\0Follow camera\0\0");
 
-        ImguiAngleSlider(
-            "Cutoff Angle Inner", world.light.GetCutoffAngleInnerMod(), 0, 45);
-        ImguiAngleSlider(
-            "Cutoff Angle Outer", world.light.GetCutoffAngleOuterMod(), 0, 90);
+      ImguiAngleSlider(
+          "Cutoff Angle Inner", world.light.GetCutoffAngleInnerMod(), 0, 45);
+      ImguiAngleSlider(
+          "Cutoff Angle Outer", world.light.GetCutoffAngleOuterMod(), 0, 90);
 
-        ImGui::End();
+      ImguiImage(debug_texture.get());
 
-        light_material->SetColors(
-            world.light.GetAmbient(),
-            world.light.GetDiffuse(),
-            world.light.GetSpecular(),
-            10);
-      }
+      ImGui::End();
+
+      light_material->SetColors(
+          world.light.GetAmbient(),
+          world.light.GetDiffuse(),
+          world.light.GetSpecular(),
+          10);
     }
 
     light_position = Wrap(0, light_position + delta * 0.1f, 1);
