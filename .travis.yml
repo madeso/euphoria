@@ -18,6 +18,7 @@ addons:
       - g++-5
       - libsdl2-dev
       - libprotobuf-dev
+      - libassimp-dev
 
 script:
   - CXX=/usr/bin/g++-5 CC=/usr/bin/gcc-5 cmake .
