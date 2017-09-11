@@ -18,6 +18,7 @@ addons:
       - g++-5
       - libsdl2-dev
       - libprotobuf-dev
+      - protobuf-compiler
       - libassimp-dev
       - libwxgtk3.0-dev
 
