@@ -3,7 +3,13 @@
 
 #include <string>
 
-#include <google/protobuf/message.h>
+namespace google
+{
+  namespace protobuf
+  {
+    class Message;
+  }  // namespace protobuf
+}  // namespace google
 
 class FileSystem;
 
@@ -25,6 +31,7 @@ LoadProtoJson(
     FileSystem*                fs,
     google::protobuf::Message* message,
     const std::string&         file_name);
+
 std::string
 SaveProtoJson(
     const google::protobuf::Message& message, const std::string& file_name);
