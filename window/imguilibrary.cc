@@ -3,11 +3,12 @@
 #include "imgui/imgui.h"
 #include "imgui_impl_sdl_gl3.h"
 
-ImguiLibrary::ImguiLibrary(SDL_Window* window)
+ImguiLibrary::ImguiLibrary(SDL_Window* window, const std::string& path)
     : window_(window)
+    , path_(path + "imgui.ini")
 {
   ImGui_ImplSdlGL3_Init(window);
-  ImGui::GetIO().IniFilename = nullptr;
+  ImGui::GetIO().IniFilename = path_.c_str();
 }
 
 ImguiLibrary::~ImguiLibrary()

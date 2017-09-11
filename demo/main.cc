@@ -30,6 +30,7 @@
 #include "window/sdllibrary.h"
 #include "window/sdlwindow.h"
 #include "window/sdlglcontext.h"
+#include "window/filesystem.h"
 
 #include "imgui/imgui.h"
 #include <SDL2/SDL.h>
@@ -89,7 +90,11 @@ main(int argc, char** argv)
 
   SetupOpenglDebug();
 
-  ImguiLibrary imgui{window.window};
+  const auto current_directory = GetCurrentDirectory();
+  const auto base_path         = GetBasePath();
+  const auto pref_path         = GetPrefPath();
+
+  ImguiLibrary imgui{window.window, pref_path};
 
   Viewport viewport{
       Recti::FromWidthHeight(width, height).SetBottomLeftToCopy(0, 0)};
@@ -97,7 +102,8 @@ main(int argc, char** argv)
 
   FileSystem file_system;
   auto       catalog = FileSystemRootCatalog::AddRoot(&file_system);
-  FileSystemRootFolder::AddRoot(&file_system);
+
+  FileSystemRootFolder::AddRoot(&file_system, current_directory);
   FileSystemImageGenerator::AddRoot(&file_system, "img-plain");
 
   SetupDefaultFiles(catalog);
