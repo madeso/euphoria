@@ -75,12 +75,16 @@ class FileSystemRootFolder : public FileSystemRoot
 
   static void
   AddRoot(FileSystem* fs, const std::string& folder);
+
   static void
   AddRoot(FileSystem* fs);
 
  private:
   std::string folder_;
 };
+
+std::string
+GetCurrentDirectory();
 
 
 #endif  // EUPHORIA_FILESYSTEM_H

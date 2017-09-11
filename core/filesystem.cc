@@ -19,8 +19,6 @@
 #define GET_CURRENT_DIR getcwd
 #endif
 
-namespace
-{
   std::string
   GetCurrentDirectory()
   {
@@ -37,7 +35,6 @@ namespace
     const std::string ret = static_cast<char*>(current_directory);
     return ret;
   }
-}  // namespace
 
 ////////////////////////////////////////////////////////////////////////////////
 
