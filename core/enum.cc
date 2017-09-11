@@ -3,6 +3,7 @@
 #include <iostream>
 #include <set>
 #include <utility>
+#include <cassert>
 
 #include "core/assert.h"
 #include "core/proto.h"
