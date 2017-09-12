@@ -1,9 +1,13 @@
 image:
   - Visual Studio 2017
+
 clone_folder: c:\projects\euphoria
+
+install:
+  - cmd: 'c:\projects\euphoria\scripts\windows.py install'
+
+before_build:
+  - cmd: 'c:\projects\euphoria\scripts\windows.py cmake'
+
 build_script:
-- cmd: >-
-    dir
-    mkdir build
-    dir
-    windows_build.bat
+  - cmd: 'c:\projects\euphoria\scripts\windows.py build'
