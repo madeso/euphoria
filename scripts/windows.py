@@ -4,20 +4,29 @@ import os
 import subprocess
 
 
+def get_root_folder():
+    return os.getcwd()
+
+
+def get_build_folder():
+    return os.path.join(get_root_folder(), 'build')
+
+
+def mkdir(path):
+    os.mkdir(path)
+
+
 def on_cmd_install(args):
-    root = os.getcwd()
-    print('The root is ', root)
+    pass
 
 
 def on_cmd_cmake(args):
-    root = os.getcwd()
-    print('The root is ', root)
-    subprocess.call(['cmake', 'c:\projects\source', '-G', 'Visual Studio 15'])
+    mkdir(get_build_folder())
+    subprocess.call(['cmake', get_root_folder(), '-G', 'Visual Studio 15'], cwd=get_build_folder())
 
 
 def on_cmd_build(args):
-    root = os.getcwd()
-    print('The root is ', root)
+    subprocess.call(['cmake', '--build'], cwd=get_build_folder())
 
 
 def main():
