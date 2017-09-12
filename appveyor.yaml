@@ -3,5 +3,7 @@ image:
 clone_folder: c:\projects\euphoria
 build_script:
 - cmd: >-
+    dir
     mkdir build
+    dir
     windows_build.bat
