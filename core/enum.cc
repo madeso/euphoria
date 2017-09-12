@@ -3,13 +3,18 @@
 #include <iostream>
 #include <set>
 #include <utility>
-#include <cassert>
 
 #include "core/assert.h"
 #include "core/proto.h"
 #include "core/str.h"
 #include "core/stringmerger.h"
 #include "core/stringutils.h"
+
+#ifdef assert
+#undef assert
+#endif
+#include <cassert>
+
 #include "enum.pb.h"
 
 EnumType::EnumType(std::string name)
