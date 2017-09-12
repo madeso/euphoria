@@ -1,0 +1,7 @@
+image:
+  - Visual Studio 2017
+clone_folder: c:\projects\euphoria
+build_script:
+- cmd: >-
+    mkdir build
+    windows_build.bat
