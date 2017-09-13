@@ -1,10 +1,11 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 import os
 import sys
 import re
 import typing
 import zipfile
 import subprocess
+
 
 class TextReplacer:
     def __init__(self):
@@ -22,8 +23,13 @@ class TextReplacer:
         return text
 
 
+def is_windows() -> bool:
+    import platform
+    return platform.system() == 'Windows'
+
+
 def get_vs_root():
-    if os.name == 'nt':
+    if is_windows():
         vs = subprocess.check_output(
             ['reg', 'QUERY', r"HKLM\SOFTWARE\Microsoft\VisualStudio\14.0", '/v', 'InstallDir', '/reg:32'])
         print("This is the vs solution path...", vs)
@@ -62,10 +68,13 @@ def verify_dir_exist(path: str):
 
 
 def download_file(url: str, path: str):
-    import urllib
+    import urllib.request
+    import shutil
     if not os.path.isfile(path):
         print("Downloading ", path)
-        urllib.request.urlretrieve(url, path)
+        # urllib.request.urlretrieve(url, path)
+        with urllib.request.urlopen(url) as response, open(path, 'wb') as out_file:
+            shutil.copyfileobj(response, out_file)
     else:
         print("Already downloaded", path)
 
@@ -79,7 +88,11 @@ def list_projects_in_solution(path: str) -> typing.List[str]:
             # Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "richtext", "wx_richtext.vcxproj", "{7FB0902D-8579-5DCE-B883-DAF66A885005}"
             m = pl.match(line)
             if m:
-                ret.append(os.path.join(dir, m.group(1)))
+                subfolder = m.group(1)
+                if not is_windows():
+                    subfolder = subfolder.replace('\\', '/')
+                print(subfolder)
+                ret.append(os.path.join(dir, subfolder))
     return ret
 
 
@@ -205,7 +218,8 @@ def install_dependency_wx(install_dist: str, wx_root: str, build: bool, platform
     if build:
         sys.stdout.flush()
         wx_msbuild_cmd = ['msbuild', '/p:Configuration=Release', '/p:Platform='+platform, appveyor_msbuild(), wx_sln]
-        subprocess.check_call(wx_msbuild_cmd)
+        if is_windows():
+            subprocess.check_call(wx_msbuild_cmd)
 
 
 def install_dependency_proto(install_dist: str, proto_root: str, build: bool, vs_root: str, platform: str):
@@ -225,7 +239,8 @@ def install_dependency_proto(install_dist: str, proto_root: str, build: bool, vs
     devenv = os.path.join(vs_root, 'devenv.exe')
     if build:
         sys.stdout.flush()
-        subprocess.check_call([devenv, proto_sln, '/upgrade'])
+        if is_windows():
+            subprocess.check_call([devenv, proto_sln, '/upgrade'])
     add_definition_to_solution(proto_sln, '_SILENCE_STDEXT_HASH_DEPRECATION_WARNINGS')
 
     print("changing proto to static")
@@ -240,5 +255,6 @@ def install_dependency_proto(install_dist: str, proto_root: str, build: bool, vs
     if build:
         sys.stdout.flush()
         proto_msbuild_cmd = ['msbuild', '/t:libprotobuf;protoc', '/p:Configuration=Release', '/p:Platform='+platform, appveyor_msbuild(), proto_sln]
-        subprocess.check_call(proto_msbuild_cmd)
+        if is_windows():
+            subprocess.check_call(proto_msbuild_cmd)
 

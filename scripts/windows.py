@@ -27,16 +27,19 @@ def on_cmd_install(args):
 
 def on_cmd_cmake(args):
     core.verify_dir_exist(get_build_folder())
-    subprocess.check_call(['cmake', get_root_folder(), '-G', 'Visual Studio 15'], cwd=get_build_folder())
+    if core.is_windows():
+        subprocess.check_call(['cmake', get_root_folder(), '-G', 'Visual Studio 15'], cwd=get_build_folder())
 
 
 def on_cmd_build(args):
-    subprocess.check_call(['cmake', '--build'], cwd=get_build_folder())
+    if core.is_windows():
+        subprocess.check_call(['cmake', '--build'], cwd=get_build_folder())
 
 
 def main():
     import argparse
     parser = argparse.ArgumentParser(description='Does the windows build')
+    parser.set_defaults(func=None)
     subparsers = parser.add_subparsers()
 
     install_parser = subparsers.add_parser('install')
@@ -51,7 +54,7 @@ def main():
     args = parser.parse_args()
 
     if args.func is None:
-        pass
+        parser.print_help()
     else:
         args.func(args)
 
