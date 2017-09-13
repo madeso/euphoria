@@ -52,7 +52,7 @@ def globals():
 
 
 def appveyor_msbuild():
-    return r' /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"'
+    return r'/logger:%programfiles%\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll'
 
 
 def get_current_platform() -> str:
