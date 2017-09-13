@@ -55,11 +55,24 @@ def appveyor_msbuild():
     return r'/logger:%programfiles%\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll'
 
 
-def get_current_platform() -> str:
-    platform = 'x64'
+def is_platform_64bit() -> bool:
     if os.environ.get('PLATFORM', 'unknown') == 'x86':
-        platform = 'Win32'
-    return platform
+        return False
+    else:
+        return True
+
+def platform_as_string():
+    if is_platform_64bit():
+        return 'x64'
+    else:
+        return 'win32'
+
+
+def visual_studio_generator():
+    if is_platform_64bit():
+        return 'Visual Studio 15 Win64'
+    else:
+        return 'Visual Studio 15'
 
 
 def verify_dir_exist(path: str):
@@ -198,7 +211,7 @@ def convert_sln_to_64(sln: str):
     make_projects_64(sln)
 
 
-def install_dependency_wx(install_dist: str, wx_root: str, build: bool, platform: str):
+def install_dependency_wx(install_dist: str, wx_root: str, build: bool):
     wx_url = "https://github.com/wxWidgets/wxWidgets/releases/download/v3.1.0/wxWidgets-3.1.0.zip"
     wx_zip = os.path.join(install_dist, "wx.zip")
     wx_sln = os.path.join(wx_root, 'build', 'msw', 'wx_vc14.sln')
@@ -217,12 +230,12 @@ def install_dependency_wx(install_dist: str, wx_root: str, build: bool, platform
 
     if build:
         sys.stdout.flush()
-        wx_msbuild_cmd = ['msbuild', '/p:Configuration=Release', '/p:Platform='+platform, appveyor_msbuild(), wx_sln]
+        wx_msbuild_cmd = ['msbuild', '/p:Configuration=Release', '/p:Platform='+platform_as_string(), appveyor_msbuild(), wx_sln]
         if is_windows():
             subprocess.check_call(wx_msbuild_cmd)
 
 
-def install_dependency_proto(install_dist: str, proto_root: str, build: bool, vs_root: str, platform: str):
+def install_dependency_proto(install_dist: str, proto_root: str, build: bool, vs_root: str):
     proto_url = "https://github.com/google/protobuf/releases/download/v2.6.1/protobuf-2.6.1.zip"
     proto_root_root = os.path.join(proto_root, 'protobuf-2.6.1')
     proto_zip = os.path.join(install_dist, 'proto.zip')
@@ -246,7 +259,7 @@ def install_dependency_proto(install_dist: str, proto_root: str, build: bool, vs
     print("changing proto to static")
     change_all_projects_to_static(proto_sln)
 
-    if platform == 'x64':
+    if is_platform_64bit():
         print('64 bit build, hacking proto to 64 bit')
         convert_sln_to_64(proto_sln)
 
@@ -254,7 +267,7 @@ def install_dependency_proto(install_dist: str, proto_root: str, build: bool, vs
     print("-----------------------------------")
     if build:
         sys.stdout.flush()
-        proto_msbuild_cmd = ['msbuild', '/t:libprotobuf;protoc', '/p:Configuration=Release', '/p:Platform='+platform, proto_sln]
+        proto_msbuild_cmd = ['msbuild', '/t:libprotobuf;protoc', '/p:Configuration=Release', '/p:Platform='+platform_as_string(), proto_sln]
         if is_windows():
             subprocess.check_call(proto_msbuild_cmd)
 

@@ -22,13 +22,13 @@ def get_proto_folder():
 
 
 def on_cmd_install(args):
-    core.install_dependency_proto(get_dependency_folder(), get_proto_folder(), True, core.get_vs_root(), core.get_current_platform())
+    core.install_dependency_proto(get_dependency_folder(), get_proto_folder(), True, core.get_vs_root())
 
 
 def on_cmd_cmake(args):
     core.verify_dir_exist(get_build_folder())
     if core.is_windows():
-        subprocess.check_call(['cmake', get_root_folder(), '-G', 'Visual Studio 15'], cwd=get_build_folder())
+        subprocess.check_call(['cmake', "-DPROTOBUF_SRC_ROOT_FOLDER="+get_proto_folder(), get_root_folder(), '-G', core.visual_studio_generator()], cwd=get_build_folder())
 
 
 def on_cmd_build(args):
