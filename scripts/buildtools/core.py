@@ -254,7 +254,7 @@ def install_dependency_proto(install_dist: str, proto_root: str, build: bool, vs
     print("-----------------------------------")
     if build:
         sys.stdout.flush()
-        proto_msbuild_cmd = ['msbuild', '/t:libprotobuf;protoc', '/p:Configuration=Release', '/p:Platform='+platform, appveyor_msbuild(), proto_sln]
+        proto_msbuild_cmd = ['msbuild', '/t:libprotobuf;protoc', '/p:Configuration=Release', '/p:Platform='+platform, proto_sln]
         if is_windows():
             subprocess.check_call(proto_msbuild_cmd)
 
