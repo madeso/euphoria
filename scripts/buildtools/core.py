@@ -237,7 +237,8 @@ def install_dependency_wx(install_dist: str, wx_root: str, build: bool):
 
 def install_dependency_proto(install_dist: str, proto_root: str, build: bool, vs_root: str):
     proto_url = "https://github.com/google/protobuf/releases/download/v2.6.1/protobuf-2.6.1.zip"
-    proto_root_root = os.path.join(proto_root, 'protobuf-2.6.1')
+    # why are we building to a subroot of our proto folder?
+    proto_root_root = proto_root # os.path.join(proto_root, 'protobuf-2.6.1')
     proto_zip = os.path.join(install_dist, 'proto.zip')
     proto_sln = os.path.join(proto_root_root, 'vsprojects', 'protobuf.sln')
     verify_dir_exist(install_dist)
