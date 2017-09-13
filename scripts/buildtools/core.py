@@ -5,7 +5,7 @@ import re
 import typing
 import zipfile
 import subprocess
-
+import shutil
 
 class TextReplacer:
     def __init__(self):
@@ -82,7 +82,6 @@ def verify_dir_exist(path: str):
 
 def download_file(url: str, path: str):
     import urllib.request
-    import shutil
     if not os.path.isfile(path):
         print("Downloading ", path)
         # urllib.request.urlretrieve(url, path)
@@ -237,10 +236,8 @@ def install_dependency_wx(install_dist: str, wx_root: str, build: bool):
 
 def install_dependency_proto(install_dist: str, proto_root: str, build: bool, vs_root: str):
     proto_url = "https://github.com/google/protobuf/releases/download/v2.6.1/protobuf-2.6.1.zip"
-    # why are we building to a subroot of our proto folder?
-    proto_root_root = proto_root # os.path.join(proto_root, 'protobuf-2.6.1')
     proto_zip = os.path.join(install_dist, 'proto.zip')
-    proto_sln = os.path.join(proto_root_root, 'vsprojects', 'protobuf.sln')
+    proto_sln = os.path.join(proto_root, 'vsprojects', 'protobuf.sln')
     verify_dir_exist(install_dist)
     verify_dir_exist(proto_root)
     print("downloding proto...")
@@ -248,6 +245,12 @@ def install_dependency_proto(install_dist: str, proto_root: str, build: bool, vs
     print("extracting proto")
     with zipfile.ZipFile(proto_zip, 'r') as z:
         z.extractall(proto_root)
+    print('moving proto files from subfolder to root')
+    proto_root_root = os.path.join(proto_root, 'protobuf-2.6.1')
+    for fidir in os.listdir(proto_root_root):
+        tof = os.path.join(proto_root, fidir)
+        fromf = os.path.join(proto_root_root, fidir)
+        shutil.move(fromf, tof)
     print("upgrading protobuf")
     print("-----------------------------------")
     devenv = os.path.join(vs_root, 'devenv.exe')
