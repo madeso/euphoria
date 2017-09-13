@@ -2,6 +2,7 @@
 
 import os
 import subprocess
+import buildtools.core as core
 
 
 def get_root_folder():
@@ -9,24 +10,28 @@ def get_root_folder():
 
 
 def get_build_folder():
-    return os.path.join(get_root_folder(), 'build')
+    return os.path.join(get_root_folder(), 'build', 'euph')
 
 
-def mkdir(path):
-    os.mkdir(path)
+def get_dependency_folder():
+    return os.path.join(get_root_folder(), 'build', 'deps')
+
+
+def get_proto_folder():
+    return os.path.join(get_dependency_folder(), 'proto')
 
 
 def on_cmd_install(args):
-    pass
+    core.install_dependency_proto(get_dependency_folder(), get_proto_folder(), True, core.get_vs_root(), core.get_current_platform())
 
 
 def on_cmd_cmake(args):
-    mkdir(get_build_folder())
-    subprocess.call(['cmake', get_root_folder(), '-G', 'Visual Studio 15'], cwd=get_build_folder())
+    core.verify_dir_exist(get_build_folder())
+    subprocess.check_call(['cmake', get_root_folder(), '-G', 'Visual Studio 15'], cwd=get_build_folder())
 
 
 def on_cmd_build(args):
-    subprocess.call(['cmake', '--build'], cwd=get_build_folder())
+    subprocess.check_call(['cmake', '--build'], cwd=get_build_folder())
 
 
 def main():
