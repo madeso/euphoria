@@ -12,7 +12,7 @@ def get_vs_root():
         vs = subprocess.check_output(
             ['reg', 'QUERY', r"HKLM\SOFTWARE\Microsoft\VisualStudio\14.0", '/v', 'InstallDir', '/reg:32'])
         print("This is the vs solution path...", vs)
-        sys.stdout.flush()
+        core.flush()
     vs_root = r'C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE'
     return vs_root
 

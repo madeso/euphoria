@@ -21,6 +21,10 @@ class TextReplacer:
         return text
 
 
+def flush():
+    sys.stdout.flush()
+
+
 def is_windows() -> bool:
     import platform
     return platform.system() == 'Windows'
@@ -32,7 +36,7 @@ def dir_exist(path: str) -> bool:
 
 def globals():
     vs_root = r'C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE'
-    sys.stdout.flush()
+    flush()
 
     root = os.getcwd()
     install_dist = os.path.join(root, 'install-dist')

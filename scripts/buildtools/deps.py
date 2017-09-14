@@ -29,9 +29,9 @@ def install_dependency_wx(install_dist: str, wx_root: str, build: bool):
         print("----------------------------------")
 
         if build:
-            sys.stdout.flush()
-            wx_msbuild_cmd = ['msbuild', '/p:Configuration=Release', '/p:Platform='+platform_as_string(), appveyor_msbuild(), wx_sln]
+            wx_msbuild_cmd = ['msbuild', '/p:Configuration=Release', '/p:Platform='+core.platform_as_string(), core.appveyor_msbuild(), wx_sln]
             if core.is_windows():
+                core.flush()
                 subprocess.check_call(wx_msbuild_cmd)
 
 
@@ -54,8 +54,8 @@ def install_dependency_proto(install_dist: str, proto_root: str, build: bool, vs
         print("-----------------------------------")
         devenv = os.path.join(vs_root, 'devenv.exe')
         if build:
-            sys.stdout.flush()
             if core.is_windows():
+                core.flush()
                 subprocess.check_call([devenv, proto_sln, '/upgrade'])
         visualstudio.add_definition_to_solution(proto_sln, '_SILENCE_STDEXT_HASH_DEPRECATION_WARNINGS')
 
@@ -69,9 +69,9 @@ def install_dependency_proto(install_dist: str, proto_root: str, build: bool, vs
         print("building protobuf")
         print("-----------------------------------")
         if build:
-            sys.stdout.flush()
             proto_msbuild_cmd = ['msbuild', '/t:libprotobuf;protoc', '/p:Configuration=Release', '/p:Platform='+core.platform_as_string(), proto_sln]
             if core.is_windows():
+                core.flush()
                 subprocess.check_call(proto_msbuild_cmd)
 
 

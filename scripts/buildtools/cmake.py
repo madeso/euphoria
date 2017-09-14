@@ -27,12 +27,14 @@ class CMake:
         command.append(self.generator)
         core.verify_dir_exist(self.build_folder)
         if core.is_windows():
+            core.flush()
             subprocess.check_call(command, cwd=self.build_folder)
         else:
             print('Configuring cmake', command)
 
     def build(self):
         if core.is_windows():
+            core.flush()
             subprocess.check_call(['cmake', '--build'], cwd=self.build_folder)
         else:
             print('Calling build on cmake', self.build_folder)
