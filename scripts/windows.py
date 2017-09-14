@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 
 import os
-import subprocess
-import buildtools.core as core
+import buildtools.visualstudio as visualstudio
+import buildtools.deps as deps
+import buildtools.cmake as cmake
 
 
 def get_root_folder():
@@ -21,19 +22,30 @@ def get_proto_folder():
     return os.path.join(get_dependency_folder(), 'proto')
 
 
+def get_sdl2_folder():
+    return os.path.join(get_dependency_folder(), 'sdl2')
+
+
+def get_sdl2_build_folder():
+    return os.path.join(get_sdl2_folder(), 'cmake-build')
+
+
 def on_cmd_install(args):
-    core.install_dependency_proto(get_dependency_folder(), get_proto_folder(), True, core.get_vs_root())
+    deps.install_dependency_proto(get_dependency_folder(), get_proto_folder(), True, visualstudio.get_vs_root())
+    deps.install_dependency_sdl2(get_dependency_folder(), get_sdl2_folder(), get_sdl2_build_folder())
+
+
+def cmake_project():
+    return cmake.CMake(build_folder=get_build_folder(), source_folder=get_root_folder())\
+        .add_argument('PROTOBUF_SRC_ROOT_FOLDER', get_proto_folder())
 
 
 def on_cmd_cmake(args):
-    core.verify_dir_exist(get_build_folder())
-    if core.is_windows():
-        subprocess.check_call(['cmake', "-DPROTOBUF_SRC_ROOT_FOLDER="+get_proto_folder(), get_root_folder(), '-G', core.visual_studio_generator()], cwd=get_build_folder())
+    cmake_project().config()
 
 
 def on_cmd_build(args):
-    if core.is_windows():
-        subprocess.check_call(['cmake', '--build'], cwd=get_build_folder())
+    cmake_project().build()
 
 
 def main():
