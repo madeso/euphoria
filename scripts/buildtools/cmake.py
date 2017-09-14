@@ -35,7 +35,7 @@ class CMake:
     def build(self):
         if core.is_windows():
             core.flush()
-            subprocess.check_call(['cmake', '--build'], cwd=self.build_folder)
+            subprocess.check_call(['cmake', '--build', '.'], cwd=self.build_folder)
         else:
             print('Calling build on cmake', self.build_folder)
 
