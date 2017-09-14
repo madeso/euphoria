@@ -7,6 +7,12 @@ import buildtools.core as core
 import buildtools.visualstudio as visualstudio
 
 
+class Argument:
+    def __init__(self, name: str, value: str):
+        self.name = name
+        self.value = value
+
+
 class CMake:
     def __init__(self, build_folder: str, source_folder: str, generator: typing.Optional[str] = None):
         self.generator = generator if generator is not None else visualstudio.visual_studio_generator()
@@ -15,7 +21,7 @@ class CMake:
         self.arguments = []
 
     def add_argument(self, name: str, value: str) -> 'CMake':
-        self.arguments.append( {name: name, value: value} )
+        self.arguments.append( Argument(name, value) )
         return self
 
     def config(self):
