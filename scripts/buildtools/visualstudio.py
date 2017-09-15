@@ -156,6 +156,9 @@ def msbuild(sln: str, libraries: typing.Optional[typing.List[str]]):
     if libraries is not None:
         msbuild_cmd.append('/t:' +';'.join(libraries))
     msbuild_cmd.append('/p:Configuration=Release')
+    # https://blogs.msdn.microsoft.com/vcblog/2016/02/24/stuck-on-an-older-toolset-version-move-to-visual-studio-2015-without-upgrading-your-toolset/
+    # 2017 = 141
+    msbuild_cmd.append('/p:PlatformToolset=v141')
     msbuild_cmd.append('/p:Platform=' + core.platform_as_string())
     msbuild_cmd.append(sln)
     if core.is_windows():
