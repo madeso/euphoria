@@ -95,9 +95,11 @@ def setup_freetype_dependencies(root: str):
 
     # is x64 the right sub folder?
     build_folder = os.path.join(obj_folder, 'vc2010', 'x64')
-    # core.print_files_and_folders(obj_folder, '  ')
-    os.environ["FREETYPE_DIR"] = root
-    os.environ["GTKMM_BASEPATH"] = build_folder
+    core.print_files_and_folders(obj_folder, '  ')
+    print('build folder')
+    core.print_files_and_folders(build_folder, '  ')
+    os.environ["FREETYPE_DIR"] = build_folder
+    os.environ["GTKMM_BASEPATH"] = root
 
 
 def install_dependency_freetype(deps, root):
