@@ -90,20 +90,14 @@ def install_dependency_sdl2(deps, root, build):
         project.build()
 
 
-def get_freetype_sln_folder(root: str):
-    return os.path.join(root, 'builds', 'windows', 'vc2010')
-
-
 def setup_freetype_dependencies(root: str):
-    build_dir = get_freetype_sln_folder(root)
-    print(build_dir)
-    core.print_files_and_folders(build_dir, '  ')
-    print('obj directory....')
     obj_folder = os.path.join(root, 'objs')
-    print(obj_folder)
-    core.print_files_and_folders(obj_folder, '  ')
+
+    # is x64 the right sub folder?
+    build_folder = os.path.join(obj_folder, 'vc2010', 'x64')
+    # core.print_files_and_folders(obj_folder, '  ')
     os.environ["FREETYPE_DIR"] = root
-    os.environ["GTKMM_BASEPATH"] = build_dir
+    os.environ["GTKMM_BASEPATH"] = build_folder
 
 
 def install_dependency_freetype(deps, root):
@@ -120,7 +114,7 @@ def install_dependency_freetype(deps, root):
         core.download_file(url, zip)
         core.extract_zip(zip, root)
         core.movefiles(os.path.join(root, 'freetype-2.8'), root)
-        sln = os.path.join(get_freetype_sln_folder(root), 'freetype.sln')
+        sln = os.path.join(root, 'builds', 'windows', 'vc2010', 'freetype.sln')
         visualstudio.upgrade_sln(sln)
         visualstudio.change_all_projects_to_static(sln)
         visualstudio.msbuild(sln, ['freetype'])
