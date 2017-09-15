@@ -103,5 +103,8 @@ def print_files_and_folders(root, start: str = ''):
 
 
 def rename_file(from_path: str, to_path: str):
-    os.rename(from_path, to_path)
+    if os.path.isfile(from_path):
+        os.rename(from_path, to_path)
+    else:
+        print('Missing ', from_path)
 
