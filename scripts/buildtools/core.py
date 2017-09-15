@@ -112,3 +112,13 @@ def rename_file(from_path: str, to_path: str):
 def print_dashes():
     print('-----------------------------------------------------------------------------------------------------------')
 
+
+def print_file(path: str):
+    if os.path.isfile(path):
+        print_dashes()
+        print(path)
+        print()
+        with open(path, 'r') as fin:
+            print(fin.read())
+    else:
+        print('Could not open file', path)

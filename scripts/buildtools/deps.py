@@ -24,7 +24,7 @@ def install_dependency_wx(install_dist: str, wx_root: str):
         print('Upgrading wx sln')
         core.print_dashes()
         visualstudio.upgrade_sln(wx_sln)
-        core.print_files_and_folders(os.path.join(wx_root, 'build', 'msw'))
+        core.print_file(os.path.join(wx_root, 'build', 'msw', 'UpgradeLog.htm'))
 
         print('Changing wx to static')
         core.print_dashes()
