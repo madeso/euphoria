@@ -10,7 +10,7 @@ import buildtools.core as core
 import buildtools.visualstudio as visualstudio
 
 
-def install_dependency_wx(install_dist: str, wx_root: str, build: bool):
+def install_dependency_wx(install_dist: str, wx_root: str):
     print('Installing dependency wxWidgets')
     wx_url = "https://github.com/wxWidgets/wxWidgets/releases/download/v3.1.0/wxWidgets-3.1.0.zip"
     wx_zip = os.path.join(install_dist, "wx.zip")
@@ -28,11 +28,7 @@ def install_dependency_wx(install_dist: str, wx_root: str, build: bool):
         print("building wxwidgets")
         print("----------------------------------")
 
-        if build:
-            wx_msbuild_cmd = ['msbuild', '/p:Configuration=Release', '/p:Platform='+core.platform_as_string(), core.appveyor_msbuild(), wx_sln]
-            if core.is_windows():
-                core.flush()
-                subprocess.check_call(wx_msbuild_cmd)
+        visualstudio.msbuild(wx_sln, None)
 
 
 def install_dependency_proto(install_dist: str, proto_root: str):

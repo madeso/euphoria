@@ -151,9 +151,13 @@ def upgrade_sln(proto_sln: str):
         subprocess.check_call([devenv, proto_sln, '/upgrade'])
 
 
-def msbuild(sln: str, libraries: typing.List[str]):
-    msbuild_cmd = ['msbuild', '/t:' +';'.join(libraries), '/p:Configuration=Release',
-                   '/p:Platform=' + core.platform_as_string(), sln]
+def msbuild(sln: str, libraries: typing.Optional[typing.List[str]]):
+    msbuild_cmd = ['msbuild']
+    if libraries is not None:
+        msbuild_cmd.append('/t:' +';'.join(libraries))
+    msbuild_cmd.append('/p:Configuration=Release')
+    msbuild_cmd.append('/p:Platform=' + core.platform_as_string())
+    msbuild_cmd.append(sln)
     if core.is_windows():
         core.flush()
         subprocess.check_call(msbuild_cmd)
