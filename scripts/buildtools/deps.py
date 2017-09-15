@@ -93,3 +93,19 @@ def install_dependency_sdl2(deps, root, build):
         project.config()
         project.build()
 
+
+def install_dependency_freetype(deps, root):
+    print('Installing dependency freetype2')
+    url = 'http://download.savannah.gnu.org/releases/freetype/ft28.zip'
+    zip = os.path.join(deps, 'ft.zip')
+    if core.dir_exist(root):
+        print('removing sdl2 root')
+        shutil.rmtree(root)
+    if not core.dir_exist(root):
+        core.verify_dir_exist(root)
+        core.verify_dir_exist(deps)
+        print('downloading freetype2')
+        core.download_file(url, zip)
+        core.extract_zip(zip, root)
+        core.movefiles(os.path.join(root, 'freetype-2.8'), root)
+

@@ -26,6 +26,10 @@ def get_sdl2_folder():
     return os.path.join(get_dependency_folder(), 'sdl2')
 
 
+def get_freetype2_folder():
+    return os.path.join(get_dependency_folder(), 'freetype')
+
+
 def get_sdl2_build_folder():
     return os.path.join(get_sdl2_folder(), 'cmake-build')
 
@@ -33,6 +37,7 @@ def get_sdl2_build_folder():
 def on_cmd_install(args):
     deps.install_dependency_proto(get_dependency_folder(), get_proto_folder(), True, visualstudio.get_vs_root())
     deps.install_dependency_sdl2(get_dependency_folder(), get_sdl2_folder(), get_sdl2_build_folder())
+    deps.install_dependency_freetype(get_dependency_folder(), get_freetype2_folder())
 
 
 def cmake_project():
