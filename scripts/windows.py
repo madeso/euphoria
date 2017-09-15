@@ -44,11 +44,11 @@ def cmake_project():
     return cmake.CMake(build_folder=get_build_folder(), source_folder=get_root_folder())\
         .add_argument('SDL2_HINT_ROOT', get_sdl2_folder())\
         .add_argument('SDL2_HINT_BUILD', get_sdl2_build_folder())\
-        .add_argument('FREETYPE_DIR', get_freetype2_folder())\
         .add_argument('PROTOBUF_SRC_ROOT_FOLDER', get_proto_folder())
 
 
 def on_cmd_cmake(args):
+    os.environ["FREETYPE_DIR"] = get_freetype2_folder()
     cmake_project().config()
 
 
