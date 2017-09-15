@@ -48,7 +48,7 @@ def cmake_project():
 
 
 def on_cmd_cmake(args):
-    os.environ["FREETYPE_DIR"] = get_freetype2_folder()
+    deps.setup_freetype_dependencies(get_freetype2_folder())
     cmake_project().config()
 
 

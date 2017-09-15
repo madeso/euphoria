@@ -92,3 +92,12 @@ def movefiles(from_directory, to_directory):
         shutil.move(from_entry, to_entry)
 
 
+def print_files_and_folders(root, start: str = ''):
+    for f in os.listdir(root):
+        path = os.path.join(root, f)
+        if os.path.isfile(path):
+            print(start + f)
+        else:
+            print(start + f + '/')
+            print_files_and_folders(path, start + '  ')
+
