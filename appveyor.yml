@@ -4,6 +4,7 @@ image:
 clone_folder: c:\projects\euphoria
 
 install:
+  - cmd: git submodule update --init --recursive
   - cmd: 'c:\projects\euphoria\scripts\windows.py install'
 
 before_build:
