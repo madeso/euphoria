@@ -35,7 +35,7 @@ def install_dependency_wx(install_dist: str, wx_root: str, build: bool):
                 subprocess.check_call(wx_msbuild_cmd)
 
 
-def install_dependency_proto(install_dist: str, proto_root: str, build: bool, vs_root: str):
+def install_dependency_proto(install_dist: str, proto_root: str):
     print('Installing dependency protobuf')
     proto_url = "https://github.com/google/protobuf/releases/download/v2.6.1/protobuf-2.6.1.zip"
     proto_zip = os.path.join(install_dist, 'proto.zip')
@@ -52,11 +52,7 @@ def install_dependency_proto(install_dist: str, proto_root: str, build: bool, vs
         core.movefiles(proto_root_root, proto_root)
         print("upgrading protobuf")
         print("-----------------------------------")
-        devenv = os.path.join(vs_root, 'devenv.exe')
-        if build:
-            if core.is_windows():
-                core.flush()
-                subprocess.check_call([devenv, proto_sln, '/upgrade'])
+        visualstudio.upgrade_sln(proto_sln)
         visualstudio.add_definition_to_solution(proto_sln, '_SILENCE_STDEXT_HASH_DEPRECATION_WARNINGS')
 
         print("changing proto to static")
@@ -68,11 +64,11 @@ def install_dependency_proto(install_dist: str, proto_root: str, build: bool, vs
 
         print("building protobuf")
         print("-----------------------------------")
-        if build:
-            proto_msbuild_cmd = ['msbuild', '/t:libprotobuf;protoc', '/p:Configuration=Release', '/p:Platform='+core.platform_as_string(), proto_sln]
-            if core.is_windows():
-                core.flush()
-                subprocess.check_call(proto_msbuild_cmd)
+        visualstudio.msbuild(proto_sln, ['libprotobuf', 'protoc'])
+        proto_msbuild_cmd = ['msbuild', '/t:libprotobuf;protoc', '/p:Configuration=Release', '/p:Platform='+core.platform_as_string(), proto_sln]
+        if core.is_windows():
+            core.flush()
+            subprocess.check_call(proto_msbuild_cmd)
 
 
 def install_dependency_sdl2(deps, root, build):
@@ -108,4 +104,7 @@ def install_dependency_freetype(deps, root):
         core.download_file(url, zip)
         core.extract_zip(zip, root)
         core.movefiles(os.path.join(root, 'freetype-2.8'), root)
-
+        sln = os.path.join(root, 'builds', 'windows', 'vc2010', 'freetype.sln')
+        visualstudio.upgrade_sln(sln)
+        visualstudio.change_all_projects_to_static(sln)
+        visualstudio.msbuild(sln, ['freetype'])

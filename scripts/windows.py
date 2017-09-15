@@ -35,7 +35,7 @@ def get_sdl2_build_folder():
 
 
 def on_cmd_install(args):
-    deps.install_dependency_proto(get_dependency_folder(), get_proto_folder(), True, visualstudio.get_vs_root())
+    deps.install_dependency_proto(get_dependency_folder(), get_proto_folder())
     deps.install_dependency_sdl2(get_dependency_folder(), get_sdl2_folder(), get_sdl2_build_folder())
     deps.install_dependency_freetype(get_dependency_folder(), get_freetype2_folder())
 
@@ -44,6 +44,7 @@ def cmake_project():
     return cmake.CMake(build_folder=get_build_folder(), source_folder=get_root_folder())\
         .add_argument('SDL2_HINT_ROOT', get_sdl2_folder())\
         .add_argument('SDL2_HINT_BUILD', get_sdl2_build_folder())\
+        .add_argument('FREETYPE_DIR', get_freetype2_folder())\
         .add_argument('PROTOBUF_SRC_ROOT_FOLDER', get_proto_folder())
 
 

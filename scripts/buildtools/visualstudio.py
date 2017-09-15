@@ -7,6 +7,7 @@ import sys
 import buildtools.core as core
 import typing
 
+
 def get_vs_root():
     if core.is_windows():
         vs = subprocess.check_output(
@@ -141,3 +142,20 @@ def make_solution_64(sln: str):
 def convert_sln_to_64(sln: str):
     make_solution_64(sln)
     make_projects_64(sln)
+
+
+def upgrade_sln(proto_sln: str):
+    devenv = os.path.join(get_vs_root(), 'devenv.exe')
+    if core.is_windows():
+        core.flush()
+        subprocess.check_call([devenv, proto_sln, '/upgrade'])
+
+
+def msbuild(sln: str, libraries: typing.List[str]):
+    msbuild_cmd = ['msbuild', '/t:' +';'.join(libraries), '/p:Configuration=Release',
+                   '/p:Platform=' + core.platform_as_string(), sln]
+    if core.is_windows():
+        core.flush()
+        subprocess.check_call(msbuild_cmd)
+    else:
+        print(msbuild_cmd)
