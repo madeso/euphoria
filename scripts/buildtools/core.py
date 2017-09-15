@@ -101,3 +101,7 @@ def print_files_and_folders(root, start: str = ''):
             print(start + f + '/')
             print_files_and_folders(path, start + '  ')
 
+
+def rename_file(from_path: str, to_path: str):
+    os.rename(from_path, to_path)
+

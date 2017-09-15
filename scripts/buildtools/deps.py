@@ -95,11 +95,11 @@ def setup_freetype_dependencies(root: str):
 
     # is x64 the right sub folder?
     build_folder = os.path.join(obj_folder, 'vc2010', 'x64')
-    core.print_files_and_folders(obj_folder, '  ')
-    print('build folder')
-    core.print_files_and_folders(build_folder, '  ')
-    os.environ["FREETYPE_DIR"] = build_folder
-    os.environ["GTKMM_BASEPATH"] = root
+    #  core.print_files_and_folders(obj_folder, '  ')
+    #  print('build folder')
+    #  core.print_files_and_folders(build_folder, '  ')
+    os.environ["FREETYPE_DIR"] = root
+    os.environ["GTKMM_BASEPATH"] = build_folder
 
 
 def install_dependency_freetype(deps, root):
@@ -120,3 +120,6 @@ def install_dependency_freetype(deps, root):
         visualstudio.upgrade_sln(sln)
         visualstudio.change_all_projects_to_static(sln)
         visualstudio.msbuild(sln, ['freetype'])
+
+        build_folder = os.path.join(root, 'objs', 'vc2010', 'x64')
+        core.rename_file(os.path.join(build_folder, 'freetype28.lib'), os.path.join(build_folder, 'freetype.lib'))
