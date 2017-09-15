@@ -20,12 +20,18 @@ def install_dependency_wx(install_dist: str, wx_root: str):
         core.verify_dir_exist(wx_root)
         core.download_file(wx_url, os.path.join(install_dist, wx_zip))
         core.extract_zip(wx_zip, wx_root)
+
+        print('Upgrading wx sln')
+        core.print_dashes()
         visualstudio.upgrade_sln(wx_sln)
+        core.print_files_and_folders(os.path.join(wx_root, 'build', 'msw'))
+
+        print('Changing wx to static')
+        core.print_dashes()
         visualstudio.change_all_projects_to_static(wx_sln)
 
-        print("building wxwidgets")
-        print("----------------------------------")
-
+        print("Building wxwidgets")
+        core.print_dashes()
         visualstudio.msbuild(wx_sln, None)
 
 
@@ -45,7 +51,8 @@ def install_dependency_proto(install_dist: str, proto_root: str):
         proto_root_root = os.path.join(proto_root, 'protobuf-2.6.1')
         core.movefiles(proto_root_root, proto_root)
         print("upgrading protobuf")
-        print("-----------------------------------")
+        core.print_dashes()
+
         visualstudio.upgrade_sln(proto_sln)
         visualstudio.add_definition_to_solution(proto_sln, '_SILENCE_STDEXT_HASH_DEPRECATION_WARNINGS')
 
@@ -57,7 +64,7 @@ def install_dependency_proto(install_dist: str, proto_root: str):
             visualstudio.convert_sln_to_64(proto_sln)
 
         print("building protobuf")
-        print("-----------------------------------")
+        core.print_dashes()
         visualstudio.msbuild(proto_sln, ['libprotobuf', 'protoc'])
         proto_msbuild_cmd = ['msbuild', '/t:libprotobuf;protoc', '/p:Configuration=Release', '/p:Platform='+core.platform_as_string(), proto_sln]
         if core.is_windows():

@@ -108,3 +108,7 @@ def rename_file(from_path: str, to_path: str):
     else:
         print('Missing ', from_path)
 
+
+def print_dashes():
+    print('-----------------------------------------------------------------------------------------------------------')
+
