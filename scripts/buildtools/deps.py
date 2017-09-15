@@ -18,11 +18,9 @@ def install_dependency_wx(install_dist: str, wx_root: str):
     core.verify_dir_exist(install_dist)
     if not core.dir_exist(wx_root):
         core.verify_dir_exist(wx_root)
-        print("downloading wx...")
         core.download_file(wx_url, os.path.join(install_dist, wx_zip))
-        print("extracting wx")
         core.extract_zip(wx_zip, wx_root)
-        print("changing wx to static")
+        visualstudio.upgrade_sln(wx_sln)
         visualstudio.change_all_projects_to_static(wx_sln)
 
         print("building wxwidgets")
