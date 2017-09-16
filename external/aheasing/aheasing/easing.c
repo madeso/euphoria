@@ -13,6 +13,16 @@
 #include <math.h>
 #include "easing.h"
 
+
+// from non-standard M_PI
+
+/* pi */
+#define kPi		3.14159265358979323846
+
+/* pi/2 */
+#define kPi_2		1.57079632679489661923
+
+
 // Modeled after the line y = x
 AHFloat LinearInterpolation(AHFloat p)
 {
@@ -136,19 +146,19 @@ AHFloat QuinticEaseInOut(AHFloat p)
 // Modeled after quarter-cycle of sine wave
 AHFloat SineEaseIn(AHFloat p)
 {
-	return sin((p - 1) * M_PI_2) + 1;
+	return sin((p - 1) * kPi_2) + 1;
 }
 
 // Modeled after quarter-cycle of sine wave (different phase)
 AHFloat SineEaseOut(AHFloat p)
 {
-	return sin(p * M_PI_2);
+	return sin(p * kPi_2);
 }
 
 // Modeled after half sine wave
 AHFloat SineEaseInOut(AHFloat p)
 {
-	return 0.5 * (1 - cos(p * M_PI));
+	return 0.5 * (1 - cos(p * kPi));
 }
 
 // Modeled after shifted quadrant IV of unit circle
@@ -210,13 +220,13 @@ AHFloat ExponentialEaseInOut(AHFloat p)
 // Modeled after the damped sine wave y = sin(13pi/2*x)*pow(2, 10 * (x - 1))
 AHFloat ElasticEaseIn(AHFloat p)
 {
-	return sin(13 * M_PI_2 * p) * pow(2, 10 * (p - 1));
+	return sin(13 * kPi_2 * p) * pow(2, 10 * (p - 1));
 }
 
 // Modeled after the damped sine wave y = sin(-13pi/2*(x + 1))*pow(2, -10x) + 1
 AHFloat ElasticEaseOut(AHFloat p)
 {
-	return sin(-13 * M_PI_2 * (p + 1)) * pow(2, -10 * p) + 1;
+	return sin(-13 * kPi_2 * (p + 1)) * pow(2, -10 * p) + 1;
 }
 
 // Modeled after the piecewise exponentially-damped sine wave:
@@ -226,25 +236,25 @@ AHFloat ElasticEaseInOut(AHFloat p)
 {
 	if(p < 0.5)
 	{
-		return 0.5 * sin(13 * M_PI_2 * (2 * p)) * pow(2, 10 * ((2 * p) - 1));
+		return 0.5 * sin(13 * kPi_2 * (2 * p)) * pow(2, 10 * ((2 * p) - 1));
 	}
 	else
 	{
-		return 0.5 * (sin(-13 * M_PI_2 * ((2 * p - 1) + 1)) * pow(2, -10 * (2 * p - 1)) + 2);
+		return 0.5 * (sin(-13 * kPi_2 * ((2 * p - 1) + 1)) * pow(2, -10 * (2 * p - 1)) + 2);
 	}
 }
 
 // Modeled after the overshooting cubic y = x^3-x*sin(x*pi)
 AHFloat BackEaseIn(AHFloat p)
 {
-	return p * p * p - p * sin(p * M_PI);
+	return p * p * p - p * sin(p * kPi);
 }
 
 // Modeled after overshooting cubic y = 1-((1-x)^3-(1-x)*sin((1-x)*pi))
 AHFloat BackEaseOut(AHFloat p)
 {
 	AHFloat f = (1 - p);
-	return 1 - (f * f * f - f * sin(f * M_PI));
+	return 1 - (f * f * f - f * sin(f * kPi));
 }
 
 // Modeled after the piecewise overshooting cubic function:
@@ -255,12 +265,12 @@ AHFloat BackEaseInOut(AHFloat p)
 	if(p < 0.5)
 	{
 		AHFloat f = 2 * p;
-		return 0.5 * (f * f * f - f * sin(f * M_PI));
+		return 0.5 * (f * f * f - f * sin(f * kPi));
 	}
 	else
 	{
 		AHFloat f = (1 - (2*p - 1));
-		return 0.5 * (1 - (f * f * f - f * sin(f * M_PI))) + 0.5;
+		return 0.5 * (1 - (f * f * f - f * sin(f * kPi))) + 0.5;
 	}
 }
 
