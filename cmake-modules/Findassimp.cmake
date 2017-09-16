@@ -39,11 +39,15 @@ if(WIN32)
 		# release should be assimp-vc140-mt.dll
 		find_library(ASSIMP_LIBRARY_RELEASE				assimp-${ASSIMP_MSVC_VERSION}-mt.lib 			PATHS ${ASSIMP_LIBRARY_DIR})
 		find_library(ASSIMP_LIBRARY_DEBUG				assimp-${ASSIMP_MSVC_VERSION}-mtd.lib			PATHS ${ASSIMP_LIBRARY_DIR})
-		
-		set(assimp_LIBRARIES
-			optimized 	${ASSIMP_LIBRARY_RELEASE}
-			debug		${ASSIMP_LIBRARY_DEBUG}
-		)
+
+		if(ASSIMP_LIBRARY_DEBUG)
+      set(assimp_LIBRARIES
+        optimized 	${ASSIMP_LIBRARY_RELEASE}
+        debug		${ASSIMP_LIBRARY_DEBUG}
+      )
+		else()
+      set(assimp_LIBRARIES ${ASSIMP_LIBRARY_RELEASE} )
+		endif()
 	
 		FUNCTION(ASSIMP_COPY_BINARIES TargetDirectory)
 			ADD_CUSTOM_TARGET(AssimpCopyBinaries
