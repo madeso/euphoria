@@ -9,7 +9,7 @@ if(WIN32)
 	message(STATUS "CMAKE Finding assimp ${ASSIMP_ROOT_DIR}")
 
 	# Find path of each library
-	find_path(ASSIMP_INCLUDE_DIR
+	find_path(assimp_INCLUDE_DIRS
 		NAMES
 			assimp/anim.h
 		HINTS
@@ -34,12 +34,10 @@ if(WIN32)
 		find_library(ASSIMP_LIBRARY_RELEASE				assimp-${ASSIMP_MSVC_VERSION}-mt.lib 			PATHS ${ASSIMP_LIBRARY_DIR})
 		find_library(ASSIMP_LIBRARY_DEBUG				assimp-${ASSIMP_MSVC_VERSION}-mtd.lib			PATHS ${ASSIMP_LIBRARY_DIR})
 		
-		set(ASSIMP_LIBRARY 
+		set(assimp_LIBRARIES
 			optimized 	${ASSIMP_LIBRARY_RELEASE}
 			debug		${ASSIMP_LIBRARY_DEBUG}
 		)
-		
-		set(ASSIMP_LIBRARIES "ASSIMP_LIBRARY_RELEASE" "ASSIMP_LIBRARY_DEBUG")
 	
 		FUNCTION(ASSIMP_COPY_BINARIES TargetDirectory)
 			ADD_CUSTOM_TARGET(AssimpCopyBinaries
