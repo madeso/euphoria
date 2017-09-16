@@ -155,3 +155,4 @@ def install_dependency_assimp(deps, root: str, install: str):
         project.build()
         print('Installing assimp')
         project.install()
+
