@@ -21,6 +21,8 @@ if(WIN32)
 	elseif(MSVC14)	
 		set(ASSIMP_MSVC_VERSION "vc140")
 	endif(MSVC12)
+
+	message(STATUS "CMAKE assimp msvc version ${ASSIMP_MSVC_VERSION}")
 	
 	if(MSVC12 OR MSVC14)
 	
@@ -29,8 +31,12 @@ if(WIN32)
 				assimp-${ASSIMP_MSVC_VERSION}-mt.lib
 			HINTS
 				${ASSIMP_ROOT_DIR}/lib${ASSIMP_ARCHITECTURE}
+				${ASSIMP_ROOT_DIR}/lib
 		)
-		
+
+		message(STATUS "Assimp library directory ${ASSIMP_LIBRARY_DIR}")
+
+		# release should be assimp-vc140-mt.dll
 		find_library(ASSIMP_LIBRARY_RELEASE				assimp-${ASSIMP_MSVC_VERSION}-mt.lib 			PATHS ${ASSIMP_LIBRARY_DIR})
 		find_library(ASSIMP_LIBRARY_DEBUG				assimp-${ASSIMP_MSVC_VERSION}-mtd.lib			PATHS ${ASSIMP_LIBRARY_DIR})
 		
