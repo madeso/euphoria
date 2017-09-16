@@ -38,7 +38,7 @@ def get_assimp_folder():
     return os.path.join(get_dependency_folder(), 'assimp')
 
 def get_assimp_install_folder():
-    return os.path.join(get_assimp_folder(), 'install')
+    return os.path.join(get_assimp_folder(), 'cmake-install')
 
 
 def get_sdl2_build_folder():

@@ -65,7 +65,12 @@ def platform_as_string():
 
 
 def verify_dir_exist(path: str):
-    if not os.path.isdir(path):
+    if os.path.isdir(path):
+        print('Directory exist', path)
+    if os.path.isfile(path):
+        print('ERROR: Not a directory, file!!!', path)
+    if not os.path.exists(path):
+        print('Not a directory, creating', path)
         os.makedirs(path)
 
 
