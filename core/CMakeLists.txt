@@ -5,10 +5,9 @@ source_group("" FILES ${app_src})
 set(src ${app_src})
 
 
-
 find_package(assimp REQUIRED)
-# message(STATUS "Assimp includes at ${assimp_INCLUDE_DIRS}")
-# message(STATUS "Assimp libraries at ${assimp_LIBRARIES}")
+message(STATUS "Assimp includes at ${assimp_INCLUDE_DIRS}")
+message(STATUS "Assimp libraries at ${assimp_LIBRARIES}")
 include_directories(SYSTEM ${assimp_INCLUDE_DIRS})
 
 
