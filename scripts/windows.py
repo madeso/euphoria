@@ -37,13 +37,16 @@ def get_wx_folder():
 def get_assimp_folder():
     return os.path.join(get_dependency_folder(), 'assimp')
 
+def get_assimp_install_folder():
+    return os.path.join(get_assimp_folder(), 'install')
+
 
 def get_sdl2_build_folder():
     return os.path.join(get_sdl2_folder(), 'cmake-build')
 
 
 def on_cmd_install(args):
-    deps.install_dependency_assimp(get_dependency_folder(), get_assimp_folder())
+    deps.install_dependency_assimp(get_dependency_folder(), get_assimp_folder(), get_assimp_install_folder())
     deps.install_dependency_proto(get_dependency_folder(), get_proto_folder())
     deps.install_dependency_sdl2(get_dependency_folder(), get_sdl2_folder(), get_sdl2_build_folder())
     deps.install_dependency_freetype(get_dependency_folder(), get_freetype2_folder())
@@ -55,7 +58,7 @@ def cmake_project():
         .add_argument('SDL2_HINT_ROOT', get_sdl2_folder())\
         .add_argument('SDL2_HINT_BUILD', get_sdl2_build_folder())\
         .add_argument('wxWidgets_ROOT_DIR', get_wx_folder())\
-        .add_argument('ASSIMP_ROOT_DIR', get_assimp_folder())\
+        .add_argument('ASSIMP_ROOT_DIR', get_assimp_install_folder())\
         .add_argument('PROTOBUF_SRC_ROOT_FOLDER', get_proto_folder())
 
 

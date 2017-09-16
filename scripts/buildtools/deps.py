@@ -12,6 +12,7 @@ import buildtools.visualstudio as visualstudio
 
 def install_dependency_wx(install_dist: str, wx_root: str):
     print('Installing dependency wxWidgets')
+    core.print_dashes()
     wx_url = "https://github.com/wxWidgets/wxWidgets/releases/download/v3.1.0/wxWidgets-3.1.0.zip"
     wx_zip = os.path.join(install_dist, "wx.zip")
     wx_sln = os.path.join(wx_root, 'build', 'msw', 'wx_vc14.sln')
@@ -36,6 +37,7 @@ def install_dependency_wx(install_dist: str, wx_root: str):
 
 def install_dependency_proto(install_dist: str, proto_root: str):
     print('Installing dependency protobuf')
+    core.print_dashes()
     proto_url = "https://github.com/google/protobuf/releases/download/v2.6.1/protobuf-2.6.1.zip"
     proto_zip = os.path.join(install_dist, 'proto.zip')
     proto_sln = os.path.join(proto_root, 'vsprojects', 'protobuf.sln')
@@ -73,6 +75,7 @@ def install_dependency_proto(install_dist: str, proto_root: str):
 
 def install_dependency_sdl2(deps, root, build):
     print('Installing dependency sdl2')
+    core.print_dashes()
     url = "https://www.libsdl.org/release/SDL2-2.0.5.zip"
     zip = os.path.join(deps, 'sdl2.zip')
     if core.dir_exist(root):
@@ -104,6 +107,7 @@ def setup_freetype_dependencies(root: str):
 
 def install_dependency_freetype(deps, root):
     print('Installing dependency freetype2')
+    core.print_dashes()
     url = 'http://download.savannah.gnu.org/releases/freetype/ft28.zip'
     zip = os.path.join(deps, 'ft.zip')
     if core.dir_exist(root):
@@ -125,8 +129,9 @@ def install_dependency_freetype(deps, root):
         core.rename_file(os.path.join(build_folder, 'freetype28.lib'), os.path.join(build_folder, 'freetype.lib'))
 
 
-def install_dependency_assimp(deps, root):
+def install_dependency_assimp(deps, root: str, install: str):
     print('Installing dependency assimp')
+    core.print_dashes()
     url = "https://github.com/assimp/assimp/archive/v4.0.1.zip"
     zip = os.path.join(deps, 'assimp.zip')
     if core.dir_exist(root):
@@ -142,5 +147,8 @@ def install_dependency_assimp(deps, root):
         core.movefiles(os.path.join(root, 'assimp-4.0.1'), root)
         project = cmake.CMake(build_folder=build, source_folder=root)
         project.add_argument('ASSIMP_BUILD_X3D_IMPORTER', '0')
+        project.set_install_folder(install)
         project.config()
         project.build()
+        print('Installing assimp')
+        project.install()
