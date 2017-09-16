@@ -148,6 +148,7 @@ def install_dependency_assimp(deps, root: str, install: str):
         project = cmake.CMake(build_folder=build, source_folder=root)
         project.add_argument('ASSIMP_BUILD_X3D_IMPORTER', '0')
         project.set_install_folder(install)
+        core.verify_dir_exist(install)
         project.config()
         project.build()
         print('Installing assimp')
