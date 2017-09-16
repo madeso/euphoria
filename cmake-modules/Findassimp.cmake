@@ -6,7 +6,7 @@ endif(CMAKE_SIZEOF_VOID_P EQUAL 8)
 	
 if(WIN32)
 	set(ASSIMP_ROOT_DIR CACHE PATH "ASSIMP root directory")
-	message(STATUS "CMAKE Finding assimp {ASSIMP_ROOT_DIR}")
+	message(STATUS "CMAKE Finding assimp ${ASSIMP_ROOT_DIR}")
 
 	# Find path of each library
 	find_path(ASSIMP_INCLUDE_DIR

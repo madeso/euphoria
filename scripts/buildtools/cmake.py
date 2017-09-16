@@ -36,10 +36,9 @@ class CMake:
     def config(self):
         command = ['cmake']
         for arg in self.arguments:
-            if arg.type is None:
-                command.append('-D{}={}'.format(arg.name, arg.value))
-            else:
-                command.append('-D{}:{}={}'.format(arg.name, arg.type, arg.value))
+            argument = '-D{}={}'.format(arg.name, arg.value) if arg.type is None else '-D{}:{}={}'.format(arg.name, arg.type, arg.value)
+            print('Setting CMake argument for config', argument)
+            command.append(argument)
         command.append(self.source_folder)
         command.append('-G')
         command.append(self.generator)
