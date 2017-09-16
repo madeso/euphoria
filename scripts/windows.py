@@ -55,7 +55,7 @@ def cmake_project():
         .add_argument('SDL2_HINT_ROOT', get_sdl2_folder())\
         .add_argument('SDL2_HINT_BUILD', get_sdl2_build_folder())\
         .add_argument('wxWidgets_ROOT_DIR', get_wx_folder())\
-        .add_argument('ASSIMP_ROOT', get_assimp_folder())\
+        .add_argument('ASSIMP_ROOT_DIR', get_assimp_folder())\
         .add_argument('PROTOBUF_SRC_ROOT_FOLDER', get_proto_folder())
 
 
