@@ -1,6 +1,8 @@
 #include "core/assert.h"
 #include "stringmerger.h"
 
+#ifdef IMPLEMENT_ASSERT_LIB
+
 #include <iostream>
 
 #include <cxxabi.h>
@@ -143,3 +145,6 @@ namespace assertlib
     exit(-1);
   }
 }  // namespace assertlib
+
+
+#endif  // IMPLEMENT_ASSERT_LIB

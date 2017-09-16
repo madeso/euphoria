@@ -5,30 +5,17 @@
 #include <vector>
 #include <sstream>
 
-namespace assertlib
-{
-  struct AssertValueArg
-  {
-    std::string value;
-    template <typename T>
-    AssertValueArg(const T& t)
-    {
-      std::ostringstream ss;
-      ss << t;
-      value = ss.str();
-    }
-  };
-  void
-  StartThrowing();
-  void
-  OnAssert(
-      const char* const                  expression,
-      int                                line,
-      const char* const                  file,
-      const char* const                  argstr,
-      const std::vector<AssertValueArg>& arguments,
-      const char* const                  function);
-}
+#ifdef _MSC_VER
+
+// todo: implement assert for windows...
+
+#define ASSERT(x)
+#define ASSERTX(x, ...)
+#define DIE(message)
+
+#else
+
+#define IMPLEMENT_ASSERT_LIB
 
 // todo: stb libraries and rapidjson aren't using our assert
 #define ASSERT(x)                                               \
@@ -75,5 +62,36 @@ namespace assertlib
       "",                \
       {},                \
       static_cast<const char* const>(__PRETTY_FUNCTION__))
+
+#endif  // _MSC_VER
+
+#ifdef IMPLEMENT_ASSERT_LIB
+namespace assertlib
+{
+  struct AssertValueArg
+  {
+    std::string value;
+    template <typename T>
+    AssertValueArg(const T& t)
+    {
+      std::ostringstream ss;
+      ss << t;
+      value = ss.str();
+    }
+  };
+
+  void
+  StartThrowing();
+  void
+  OnAssert(
+      const char* const                  expression,
+      int                                line,
+      const char* const                  file,
+      const char* const                  argstr,
+      const std::vector<AssertValueArg>& arguments,
+      const char* const                  function);
+}
+#endif  // IMPLEMENT_ASSERT_LIB
+
 
 #endif  // CORE_ASSERT_H

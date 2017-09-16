@@ -3,10 +3,13 @@
 
 #include "core/assert.h"
 
-int main( int argc, char** argv)
+int
+main(int argc, char** argv)
 {
+#ifdef IMPLEMENT_ASSERT_LIB
   assertlib::StartThrowing();
+#endif
 
-  int result = Catch::Session().run( argc, argv );
-  return ( result < 0xff ? result : 0xff );
+  int result = Catch::Session().run(argc, argv);
+  return (result < 0xff ? result : 0xff);
 }
