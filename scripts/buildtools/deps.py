@@ -123,3 +123,23 @@ def install_dependency_freetype(deps, root):
 
         build_folder = os.path.join(root, 'objs', 'vc2010', 'x64')
         core.rename_file(os.path.join(build_folder, 'freetype28.lib'), os.path.join(build_folder, 'freetype.lib'))
+
+
+def install_dependency_assimp(deps, root):
+    print('Installing dependency assimp')
+    url = "https://github.com/assimp/assimp/archive/v4.0.1.zip"
+    zip = os.path.join(deps, 'assimp.zip')
+    if core.dir_exist(root):
+        print('removing assimp root')
+        shutil.rmtree(root)
+    if not core.dir_exist(root):
+        core.verify_dir_exist(root)
+        core.verify_dir_exist(deps)
+        print('downloading assimp')
+        core.download_file(url, zip)
+        core.extract_zip(zip, root)
+        build = os.path.join(root, 'build')
+        core.movefiles(os.path.join(root, 'assimp-4.0.1'), root)
+        project = cmake.CMake(build_folder=build, source_folder=root)
+        project.config()
+        project.build()
