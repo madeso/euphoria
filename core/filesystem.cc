@@ -11,7 +11,7 @@
 
 #include <cstdio> /* defines FILENAME_MAX */
 #include <utility>
-#ifdef WINDOWS
+#ifdef _MSC_VER
 #include <direct.h>
 #define GET_CURRENT_DIR _getcwd
 #else
@@ -19,22 +19,22 @@
 #define GET_CURRENT_DIR getcwd
 #endif
 
-  std::string
-  GetCurrentDirectory()
+std::string
+GetCurrentDirectory()
+{
+  char current_directory[FILENAME_MAX];
+
+  if(!GET_CURRENT_DIR(
+         static_cast<char*>(current_directory), sizeof(current_directory)))
   {
-    char current_directory[FILENAME_MAX];
-
-    if(!GET_CURRENT_DIR(
-           static_cast<char*>(current_directory), sizeof(current_directory)))
-    {
-      return "";
-    }
-
-    current_directory[sizeof(current_directory) - 1] = 0;
-
-    const std::string ret = static_cast<char*>(current_directory);
-    return ret;
+    return "";
   }
+
+  current_directory[sizeof(current_directory) - 1] = 0;
+
+  const std::string ret = static_cast<char*>(current_directory);
+  return ret;
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 
