@@ -2,9 +2,17 @@
 #include <iostream>
 
 #include "core/image.h"
+#include "core/assert.h"
+
 #include "render/texture.h"
 #include "render/gl.h"
-#include "core/assert.h"
+
+// todo: move this to a better place
+// also who defines min...?
+#ifdef min
+#undef min
+#endif
+
 
 namespace  // local
 {
