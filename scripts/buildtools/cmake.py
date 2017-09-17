@@ -55,6 +55,8 @@ class CMake:
         if install:
             cmd.append('--target')
             cmd.append('install')
+        cmd.append('--config')
+        cmd.append('Release')
         if core.is_windows():
             core.flush()
             subprocess.check_call(cmd, cwd=self.build_folder)
