@@ -18,7 +18,6 @@
 #undef LoadImage
 #endif
 
-
 namespace  // local
 {
   gluint
