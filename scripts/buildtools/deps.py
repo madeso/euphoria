@@ -26,9 +26,9 @@ def install_dependency_wx(install_dist: str, wx_root: str):
         core.print_dashes()
         visualstudio.upgrade_sln(wx_sln)
 
-        print('Changing wx to static')
-        core.print_dashes()
-        visualstudio.change_all_projects_to_static(wx_sln)
+        #  print('Changing wx to static')
+        #  core.print_dashes()
+        #  visualstudio.change_all_projects_to_static(wx_sln)
 
         print("Building wxwidgets")
         core.print_dashes()
@@ -57,8 +57,8 @@ def install_dependency_proto(install_dist: str, proto_root: str):
         visualstudio.upgrade_sln(proto_sln)
         visualstudio.add_definition_to_solution(proto_sln, '_SILENCE_STDEXT_HASH_DEPRECATION_WARNINGS')
 
-        print("changing proto to static")
-        visualstudio.change_all_projects_to_static(proto_sln)
+        #  print("changing proto to static")
+        #  visualstudio.change_all_projects_to_static(proto_sln)
 
         if core.is_platform_64bit():
             print('64 bit build, hacking proto to 64 bit')
@@ -89,7 +89,7 @@ def install_dependency_sdl2(deps, root, build):
         core.extract_zip(zip, root)
         core.movefiles(os.path.join(root, 'SDL2-2.0.5'), root)
         project = cmake.CMake(build_folder=build, source_folder=root)
-        project.make_static_library()
+        #  project.make_static_library()
         project.config()
         project.build()
 
@@ -123,7 +123,7 @@ def install_dependency_freetype(deps, root):
         core.movefiles(os.path.join(root, 'freetype-2.8'), root)
         sln = os.path.join(root, 'builds', 'windows', 'vc2010', 'freetype.sln')
         visualstudio.upgrade_sln(sln)
-        visualstudio.change_all_projects_to_static(sln)
+        #  visualstudio.change_all_projects_to_static(sln)
         visualstudio.msbuild(sln, ['freetype'])
 
         build_folder = os.path.join(root, 'objs', 'vc2010', 'x64')
@@ -148,7 +148,7 @@ def install_dependency_assimp(deps, root: str, install: str):
         core.movefiles(os.path.join(root, 'assimp-4.0.1'), root)
         project = cmake.CMake(build_folder=build, source_folder=root)
         project.add_argument('ASSIMP_BUILD_X3D_IMPORTER', '0')
-        project.make_static_library()
+        #  project.make_static_library()
         print('Installing cmake to', install)
         core.flush()
         project.set_install_folder(install)
