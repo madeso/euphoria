@@ -2,17 +2,16 @@
 
 #include "core/log.h"
 
-#include <SDL2/SDL_video.h>
 #include "render/gl.h"
 
 #include <iostream>
 
 LOG_SPECIFY_DEFAULT_LOGGER("render.init")
 
-Init::Init()
+Init::Init(LoaderFunction loader)
     : ok(true)
 {
-  const int glad_result = gladLoadGLLoader(SDL_GL_GetProcAddress);
+  const int glad_result = gladLoadGLLoader(loader);
   if(glad_result == 0)
   {
     LOG_ERROR("Failed to init glad, error: " << glad_result);

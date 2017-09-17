@@ -82,7 +82,7 @@ main(int argc, char** argv)
     return -1;
   }
 
-  Init init;
+  Init init{SDL_GL_GetProcAddress};
   if(init.ok == false)
   {
     return -4;
