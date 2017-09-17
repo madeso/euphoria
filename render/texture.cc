@@ -2,9 +2,22 @@
 #include <iostream>
 
 #include "core/image.h"
+#include "core/assert.h"
+
 #include "render/texture.h"
 #include "render/gl.h"
-#include "core/assert.h"
+
+// todo: move this to a better place
+// also who defines min...?
+// given that LoadImage also is defined, a big contender seems to be gl.h
+#ifdef min
+#undef min
+#endif
+
+#ifdef LoadImage
+#undef LoadImage
+#endif
+
 
 namespace  // local
 {
