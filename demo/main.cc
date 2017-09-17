@@ -33,7 +33,7 @@
 #include "window/filesystem.h"
 
 #include "imgui/imgui.h"
-#include <SDL2/SDL.h>
+#include <SDL.h>
 #include <iostream>
 #include <memory>
 

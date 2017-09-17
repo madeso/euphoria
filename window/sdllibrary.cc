@@ -2,7 +2,7 @@
 
 #include "core/log.h"
 
-#include <SDL2/SDL.h>
+#include <SDL.h>
 
 LOG_SPECIFY_DEFAULT_LOGGER("sdl")
 

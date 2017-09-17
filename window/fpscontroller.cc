@@ -1,5 +1,5 @@
 #include "window/fpscontroller.h"
-#include <SDL2/SDL.h>
+#include <SDL.h>
 
 FpsController::FpsController()
     : rotation_(Angle::Zero())
