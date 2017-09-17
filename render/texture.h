@@ -28,12 +28,6 @@ enum class FilterMinification
   // todo: add mipmap
 };
 
-// todo: move this to a better place
-// also who defines min...?
-#ifdef min
-#undef min
-#endif
-
 struct Texture2dLoadData
 {
   Texture2dLoadData();
