@@ -52,6 +52,7 @@ elseif(CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUCXX)
 endif()
 
 find_package(SDL2 REQUIRED)
+message(STATUS "sdl2 include directory ${SDL2_INCLUDE_DIR}")
 
 # force visual studio and the like to only have debug and release builds
 if(CMAKE_CONFIGURATION_TYPES)
@@ -131,4 +132,3 @@ if(CLANG_FORMAT_EXE)
                    format-demo
                    )
 endif()
-
