@@ -149,6 +149,12 @@ IF(SDL2_LIBRARY_TEMP)
 		SET(SDL2_LIBRARY_TEMP ${SDL2_LIBRARY_TEMP} ${CMAKE_THREAD_LIBS_INIT})
 	ENDIF(NOT APPLE)
 
+  IF(WIN32)
+    # https://forums.libsdl.org/viewtopic.php?p=39921
+    MESSAGE(STATUS "Including win32 libraries")
+    SET(SDL2_LIBRARY_TEMP ${SDL2_LIBRARY_TEMP} version.lib imm32.lib winmm.lib)
+  ENDIF(WIN32)
+
 	# For MinGW library
 	IF(MINGW)
 		SET(SDL2_LIBRARY_TEMP ${MINGW32_LIBRARY} ${SDL2_LIBRARY_TEMP})
