@@ -33,6 +33,10 @@ class CMake:
         self.add_argument_with_type('CMAKE_INSTALL_PREFIX', folder, 'PATH')
         return self
 
+    def make_static_library(self) -> 'CMake':
+        self.add_argument('BUILD_SHARED_LIBS', '0')
+        return self
+
     def config(self):
         command = ['cmake']
         for arg in self.arguments:

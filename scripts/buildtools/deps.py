@@ -89,6 +89,7 @@ def install_dependency_sdl2(deps, root, build):
         core.extract_zip(zip, root)
         core.movefiles(os.path.join(root, 'SDL2-2.0.5'), root)
         project = cmake.CMake(build_folder=build, source_folder=root)
+        project.make_static_library()
         project.config()
         project.build()
 
@@ -147,6 +148,7 @@ def install_dependency_assimp(deps, root: str, install: str):
         core.movefiles(os.path.join(root, 'assimp-4.0.1'), root)
         project = cmake.CMake(build_folder=build, source_folder=root)
         project.add_argument('ASSIMP_BUILD_X3D_IMPORTER', '0')
+        project.make_static_library()
         print('Installing cmake to', install)
         core.flush()
         project.set_install_folder(install)

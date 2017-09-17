@@ -54,7 +54,8 @@ def on_cmd_install(args):
 
 
 def cmake_project():
-    return cmake.CMake(build_folder=get_build_folder(), source_folder=get_root_folder())\
+    return cmake.CMake(build_folder=get_build_folder(), source_folder=get_root_folder()) \
+        .make_static_library() \
         .add_argument('SDL2_HINT_ROOT', get_sdl2_folder())\
         .add_argument('SDL2_HINT_BUILD', get_sdl2_build_folder())\
         .add_argument('wxWidgets_ROOT_DIR', get_wx_folder())\
