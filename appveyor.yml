@@ -16,3 +16,8 @@ build_script:
 
 cache:
   - build\deps
+
+test:
+  assemblies:
+    only:
+      - build\euph\tests\Release\tests.exe
