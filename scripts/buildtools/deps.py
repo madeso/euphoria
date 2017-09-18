@@ -11,14 +11,16 @@ import buildtools.visualstudio as visualstudio
 
 
 def install_dependency_wx(install_dist: str, wx_root: str):
-    print('Installing dependency wxWidgets')
     core.print_dashes()
+    print('Installing dependency wxWidgets')
     wx_url = "https://github.com/wxWidgets/wxWidgets/releases/download/v3.1.0/wxWidgets-3.1.0.zip"
     wx_zip = os.path.join(install_dist, "wx.zip")
     wx_sln = os.path.join(wx_root, 'build', 'msw', 'wx_vc14.sln')
-    core.verify_dir_exist(install_dist)
     if not core.dir_exist(wx_root):
+        core.verify_dir_exist(install_dist)
         core.verify_dir_exist(wx_root)
+        # hrm, this looks weird but seems to be working
+        # wx_zip is based on install_dist, and is later joined by install_dist again...
         core.download_file(wx_url, os.path.join(install_dist, wx_zip))
         core.extract_zip(wx_zip, wx_root)
 
@@ -33,16 +35,18 @@ def install_dependency_wx(install_dist: str, wx_root: str):
         print("Building wxwidgets")
         core.print_dashes()
         visualstudio.msbuild(wx_sln, None)
+    else:
+        print('wxWidgets build exist, not building again...')
 
 
 def install_dependency_proto(install_dist: str, proto_root: str):
-    print('Installing dependency protobuf')
     core.print_dashes()
+    print('Installing dependency protobuf')
     proto_url = "https://github.com/google/protobuf/releases/download/v2.6.1/protobuf-2.6.1.zip"
     proto_zip = os.path.join(install_dist, 'proto.zip')
     proto_sln = os.path.join(proto_root, 'vsprojects', 'protobuf.sln')
-    core.verify_dir_exist(install_dist)
     if not core.dir_exist(proto_root):
+        core.verify_dir_exist(install_dist)
         core.verify_dir_exist(proto_root)
         print("downloding proto...")
         core.download_file(proto_url, os.path.join(install_dist, proto_zip))
@@ -71,16 +75,15 @@ def install_dependency_proto(install_dist: str, proto_root: str):
         if core.is_windows():
             core.flush()
             subprocess.check_call(proto_msbuild_cmd)
+    else:
+        print('Protobuf build exist, not building again...')
 
 
 def install_dependency_sdl2(deps, root, build):
-    print('Installing dependency sdl2')
     core.print_dashes()
+    print('Installing dependency sdl2')
     url = "https://www.libsdl.org/release/SDL2-2.0.5.zip"
     zip = os.path.join(deps, 'sdl2.zip')
-    if core.dir_exist(root):
-        print('removing sdl2 root')
-        shutil.rmtree(root)
     if not core.dir_exist(root):
         core.verify_dir_exist(root)
         core.verify_dir_exist(deps)
@@ -92,6 +95,8 @@ def install_dependency_sdl2(deps, root, build):
         #  project.make_static_library()
         project.config()
         project.build()
+    else:
+        print('SDL2 build exist, not building again...')
 
 
 def setup_freetype_dependencies(root: str):
@@ -107,13 +112,10 @@ def setup_freetype_dependencies(root: str):
 
 
 def install_dependency_freetype(deps, root):
-    print('Installing dependency freetype2')
     core.print_dashes()
+    print('Installing dependency freetype2')
     url = 'http://download.savannah.gnu.org/releases/freetype/ft28.zip'
     zip = os.path.join(deps, 'ft.zip')
-    if core.dir_exist(root):
-        print('removing sdl2 root')
-        shutil.rmtree(root)
     if not core.dir_exist(root):
         core.verify_dir_exist(root)
         core.verify_dir_exist(deps)
@@ -128,16 +130,15 @@ def install_dependency_freetype(deps, root):
 
         build_folder = os.path.join(root, 'objs', 'vc2010', 'x64')
         core.rename_file(os.path.join(build_folder, 'freetype28.lib'), os.path.join(build_folder, 'freetype.lib'))
+    else:
+        print('Freetype build exist, not building again...')
 
 
 def install_dependency_assimp(deps, root: str, install: str):
-    print('Installing dependency assimp')
     core.print_dashes()
+    print('Installing dependency assimp')
     url = "https://github.com/assimp/assimp/archive/v4.0.1.zip"
     zip = os.path.join(deps, 'assimp.zip')
-    if core.dir_exist(root):
-        print('removing assimp root')
-        shutil.rmtree(root)
     if not core.dir_exist(root):
         core.verify_dir_exist(root)
         core.verify_dir_exist(deps)
@@ -157,4 +158,6 @@ def install_dependency_assimp(deps, root: str, install: str):
         project.build()
         print('Installing assimp')
         project.install()
+    else:
+        print('Assimp build exist, not building again...')
 
