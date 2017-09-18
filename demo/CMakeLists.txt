@@ -20,6 +20,8 @@ target_link_libraries(demo
                       window
                       ${SDL2_LIBRARY}
                       )
+MESSAGE(STATUS "SDL2 libraries are ${SDL2_LIBRARY}")
+MESSAGE(STATUS "SDL2 main library is ${SDL2MAIN_LIBRARY}")
 
 if(CMAKE_COMPILER_IS_GNUCC)
   set_property(TARGET demo APPEND_STRING PROPERTY COMPILE_FLAGS -Wall)
