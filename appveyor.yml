@@ -13,3 +13,6 @@ before_build:
 
 build_script:
   - cmd: 'c:\projects\euphoria\scripts\windows.py build'
+
+cache:
+  - build\deps
