@@ -72,10 +72,16 @@ def on_cmd_build(args):
     cmake_project().build()
 
 
+def run(args) -> str:
+    try:
+        return subprocess.check_output(args)
+    except subprocess.CalledProcessError as e:
+        return e.output
+
+
 def on_cmd_test(args):
     tests = os.path.join(get_build_folder(), 'tests', 'Release', 'tests.exe')
-    p = subprocess.run([tests, '-r', 'junit'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-    lines = '\n'.join(p.stdout.readlines())
+    lines = run([tests, '-r', 'junit'])
     print('Test result', lines)
     url = 'https://ci.appveyor.com/api/testresults/junit/' + os.environ['APPVEYOR_JOB_ID']
     print('Uploading to appveyour', url)
