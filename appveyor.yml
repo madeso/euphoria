@@ -6,7 +6,7 @@ clone_folder: c:\projects\euphoria
 install:
   - cmd: sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
   - cmd: git submodule update --init --recursive
-  - cmd: pip install requests
+  - cmd: pip3 install requests
   - cmd: 'c:\projects\euphoria\scripts\windows.py install'
 
 before_build:
