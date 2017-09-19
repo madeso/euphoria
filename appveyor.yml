@@ -3,20 +3,25 @@ image:
 
 clone_folder: c:\projects\euphoria
 
+# Python 3.4 has outdated pip
+# https://github.com/jakubroztocil/httpie/blob/master/appveyor.yml
+environment:
+  PYTHON: "C:\Python36"
+
 install:
   - cmd: sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
   - cmd: git submodule update --init --recursive
-  - cmd: pip3 install requests
-  - cmd: 'c:\projects\euphoria\scripts\windows.py install'
+  - cmd: '%PYTHON%\Scripts\pip.exe install requests'
+  - cmd: '%PYTHON%\python.exe c:\projects\euphoria\scripts\windows.py install'
 
 before_build:
-  - cmd: 'c:\projects\euphoria\scripts\windows.py cmake'
+  - cmd: '%PYTHON%\python.exe c:\projects\euphoria\scripts\windows.py cmake'
 
 build_script:
-  - cmd: 'c:\projects\euphoria\scripts\windows.py build'
+  - cmd: '%PYTHON%\python.exe c:\projects\euphoria\scripts\windows.py build'
 
 cache:
   - build\deps
 
 test_script:
-  - c:\projects\euphoria\scripts\windows.py test
+  - cmd: '%PYTHON%\python.exe c:\projects\euphoria\scripts\windows.py test'
