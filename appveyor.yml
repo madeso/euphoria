@@ -6,7 +6,7 @@ clone_folder: c:\projects\euphoria
 # Python 3.4 has outdated pip
 # https://github.com/jakubroztocil/httpie/blob/master/appveyor.yml
 environment:
-  PYTHON: "C:\Python36"
+  PYTHON: 'C:\Python36'
 
 install:
   - cmd: sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
