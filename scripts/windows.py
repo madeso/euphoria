@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 
 import os
-import buildtools.visualstudio as visualstudio
+import requests
+import subprocess
 import buildtools.deps as deps
 import buildtools.cmake as cmake
 
@@ -71,6 +72,17 @@ def on_cmd_build(args):
     cmake_project().build()
 
 
+def on_cmd_test(args):
+    tests = os.path.join(get_build_folder(), 'tests', 'Release', 'tests.exe')
+    p = subprocess.run([tests, '-r', 'junit'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    lines = '\n'.join(p.stdout.readlines())
+    print('Test result', lines)
+    url = 'https://ci.appveyor.com/api/testresults/junit/' + os.environ['APPVEYOR_JOB_ID']
+    print('Uploading to appveyour', url)
+    r = requests.post(url, files={'catch.json': lines})
+    print(r.text)
+
+
 def main():
     import argparse
     parser = argparse.ArgumentParser(description='Does the windows build')
@@ -85,6 +97,9 @@ def main():
 
     build_parser = subparsers.add_parser('build')
     build_parser.set_defaults(func=on_cmd_build)
+
+    test_parser = subparsers.add_parser('test')
+    test_parser.set_defaults(func=on_cmd_test)
 
     args = parser.parse_args()
 
