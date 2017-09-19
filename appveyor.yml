@@ -11,7 +11,7 @@ environment:
 install:
   - cmd: sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
   - cmd: git submodule update --init --recursive
-  - cmd: '%PYTHON%\Scripts\pip.exe install requests'
+  - cmd: '%PYTHON%\python.exe -m pip install requests'
   - cmd: '%PYTHON%\python.exe c:\projects\euphoria\scripts\windows.py install'
 
 before_build:
