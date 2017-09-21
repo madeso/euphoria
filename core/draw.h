@@ -35,6 +35,7 @@ class Draw
   Draw&
   LineAntialiased(const Rgb& color, const vec2i& from, const vec2i& to);
 
+  // position is lower left of text
   Draw&
   Text(
       const vec2i&       start_pos,

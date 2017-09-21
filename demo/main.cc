@@ -130,9 +130,11 @@ main(int argc, char** argv)
   }
   drawer
       .LineAntialiased(Rgb::From(Color::Black), wi.TopLeft(), wi.BottomRight())
+      .Square(
+          Rgb::From(Color::AliceBlue),
+          Recti::FromTopLeftWidthHeight(256, 0, 100, 25))
       .LineAntialiased(Rgb::From(Color::Black), wi.BottomLeft(), wi.TopRight())
-      .Text(
-          wi.GetAbsoluteCenterPos(), "Hello world", Rgb::From(Color::Black), 2);
+      .Text(vec2i(0, 0), "Hello world", Rgb::From(Color::Black), 2);
   catalog->RegisterFileData("image", image.Write(ImageWriteFormat::PNG));
 
   TextureCache texture_cache{&file_system};

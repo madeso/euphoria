@@ -289,7 +289,7 @@ GetCharGlyph(char ac)
 void
 DrawSquare(Draw* image, int x, int y, const Rgb& color, int size)
 {
-  image->Square(color, Recti::FromTopLeftWidthHeight(x, y, size, size));
+  image->Square(color, Recti::FromTopLeftWidthHeight(y, x, size, size));
 }
 
 void
@@ -301,7 +301,9 @@ PrintCharAt(Draw* image, const vec2i pos, char c, const Rgb& color, int scale)
   {
     for(int x = 0; x < 8; x += 1)
     {
-      bool pixel = 0 != (glyph[y] & 1 << x);
+      // extract pixel from character
+      // glyph is defined in "y down" order, fix by inverting sample point on y
+      bool pixel = 0 != (glyph[7 - y] & 1 << x);
       if(pixel)
       {
         DrawSquare(image, pos.x + x * scale, pos.y + y * scale, color, scale);
@@ -327,7 +329,7 @@ Draw::Text(
     if(pos.x + 8 * scale > image_->GetWidth())
     {
       pos.x = start_pos.x;
-      pos.y += 8 * scale;
+      pos.y -= 8 * scale;
     }
 
     PrintCharAt(this, pos, c, color, scale);
