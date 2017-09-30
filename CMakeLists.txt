@@ -114,6 +114,7 @@ add_subdirectory(window)
 # add_subdirectory(gui)
 add_subdirectory(scimed)
 add_subdirectory(tests)
+add_subdirectory(editor)
 add_subdirectory(demo)
 
 if(CLANG_TIDY_EXE)
