@@ -16,18 +16,19 @@ set(src ${src} ${src_glad})
 source_group("glad" FILES ${src_glad})
 
 # imgui
-include_directories(SYSTEM ../external/imgui-1.50/)
+set(IMGUI_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../external/imgui/")
+include_directories(SYSTEM ${IMGUI_DIR})
 set(src_imgui
-    ../external/imgui/imgui/imgui.cpp
-    ../external/imgui/imgui/imgui.h
-    ../external/imgui/imgui/imgui_demo.cpp
-    ../external/imgui/imgui/imgui_draw.cpp
-    ../external/imgui/imgui/imgui_internal.h
-    ../external/imgui/imgui/imconfig.h
+    ${IMGUI_DIR}/imgui/imgui.cpp
+    ${IMGUI_DIR}/imgui/imgui.h
+    ${IMGUI_DIR}/imgui/imgui_demo.cpp
+    ${IMGUI_DIR}/imgui/imgui_draw.cpp
+    ${IMGUI_DIR}/imgui/imgui_internal.h
+    ${IMGUI_DIR}/imgui/imconfig.h
     # todo: look into how different stb libs work together
-    ../external/imgui/imgui/stb_rect_pack.h
-    ../external/imgui/imgui/stb_textedit.h
-    ../external/imgui/imgui/stb_truetype.h
+    ${IMGUI_DIR}/imgui/stb_rect_pack.h
+    ${IMGUI_DIR}/imgui/stb_textedit.h
+    ${IMGUI_DIR}/imgui/stb_truetype.h
     )
 set(src ${src} ${src_imgui})
 source_group("imgui" FILES ${src_imgui})
