@@ -83,8 +83,5 @@ class FileSystemRootFolder : public FileSystemRoot
   std::string folder_;
 };
 
-std::string
-GetCurrentDirectory();
-
 
 #endif  // EUPHORIA_FILESYSTEM_H
