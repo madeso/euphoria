@@ -7,6 +7,7 @@
 #include "core/vec3.h"
 #include "core/rgb.h"
 #include "core/enum.h"
+#include "core/aabb.h"
 
 class FileSystem;
 
@@ -37,8 +38,12 @@ class MeshPart
       float nz,
       float u,
       float v);
+
   void
   AddFace(unsigned int a, unsigned int b, unsigned int c);
+
+  Aabb
+  CalculateAabb() const;
 };
 
 class MaterialTexture
@@ -79,6 +84,9 @@ class Mesh
  public:
   std::vector<Material> materials;
   std::vector<MeshPart> parts;
+
+  Aabb
+  CalculateAabb() const;
 };
 
 class MeshLoadResult

@@ -35,10 +35,20 @@ MeshPart::MeshPart()
 {
 }
 
+namespace  // local
+{
+  enum
+  {
+    NUMBER_OF_COMPONENTS = 8
+  };
+}  // local
+
 void
 MeshPart::AddPoint(
     float x, float y, float z, float nx, float ny, float nz, float u, float v)
 {
+  auto start_size = points.size();
+
   points.push_back(x);
   points.push_back(y);
   points.push_back(z);
@@ -49,6 +59,8 @@ MeshPart::AddPoint(
 
   points.push_back(u);
   points.push_back(v);
+
+  ASSERT(start_size + NUMBER_OF_COMPONENTS == points.size());
 }
 
 void
@@ -58,6 +70,19 @@ MeshPart::AddFace(unsigned int a, unsigned int b, unsigned int c)
   faces.push_back(b);
   faces.push_back(c);
   facecount += 1;
+}
+
+Aabb
+MeshPart::CalculateAabb() const
+{
+  Aabb aabb = Aabb::Empty();
+
+  for(unsigned int i = 0; i < points.size(); i += NUMBER_OF_COMPONENTS)
+  {
+    aabb.Extend(vec3f{&points[i]});
+  }
+
+  return aabb;
 }
 
 MaterialTexture::MaterialTexture(std::string p, EnumValue t)
@@ -83,6 +108,19 @@ Material::SetTexture(
 {
   DEFINE_ENUM_VALUE(TextureType, texture_type, texture_name);
   textures.emplace_back(texture_path, texture_type);
+}
+
+Aabb
+Mesh::CalculateAabb() const
+{
+  Aabb aabb = Aabb::Empty();
+
+  for(const auto& part : parts)
+  {
+    aabb.Extend(part.CalculateAabb());
+  }
+
+  return aabb;
 }
 
 namespace  // local
