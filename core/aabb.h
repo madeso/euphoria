@@ -16,6 +16,24 @@ class Aabb
   vec3f
   Wrap(const vec3f& vec) const;
 
+  void
+  Extend(const vec3f& vec);
+
+  void
+  Extend(const Aabb& aabb);
+
+  static Aabb
+  Empty();
+
+  vec3f
+  GetSize() const;
+
+  bool
+  IsValid() const;
+
+  vec3f
+  GetOffset() const;
+
   vec3f min_;
   vec3f max_;
 };
