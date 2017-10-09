@@ -6,4 +6,7 @@
 std::string
 GetCurrentDirectory();
 
+void
+ListDirectory();
+
 #endif  // EUPHORIA_OS_H
