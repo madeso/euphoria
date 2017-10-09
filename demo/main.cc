@@ -9,6 +9,7 @@
 #include "core/texturetypes.h"
 #include "core/filesystemimagegenerator.h"
 #include "core/path.h"
+#include "core/os.h"
 
 #include <render/init.h>
 #include <render/debuggl.h>
