@@ -24,6 +24,9 @@ const std::string kSpaceCharacters = " \n\r\t";
 std::string
 StripLastString(const std::string& str, char sep);
 
+std::pair<std::string, std::string>
+LastStrings(const std::string& str, char sep);
+
 /** Remove characters from the right, stops at a invalid character.
 @param string_to_trim the string to remove characters from.
 @param trim_characters the characters to remove.

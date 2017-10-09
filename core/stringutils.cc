@@ -7,6 +7,20 @@
 #include <cstring>
 #include <vector>
 
+std::pair<std::string, std::string>
+LastStrings(const std::string& str, char sep)
+{
+  auto result = str.find(sep);
+  if(result == std::string::npos)
+  {
+    return std::make_pair(str, "");
+  }
+
+  const auto parent = str.substr(0, result);
+  const auto child  = str.substr(result, str.length() - parent.length());
+  return std::make_pair(parent, child);
+}
+
 std::string
 StripLastString(const std::string& str, char sep)
 {
@@ -16,7 +30,7 @@ StripLastString(const std::string& str, char sep)
     return "";
   }
 
-  return str.substr(result);
+  return str.substr(0, result);
 }
 
 std::string
