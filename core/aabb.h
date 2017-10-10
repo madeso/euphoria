@@ -38,5 +38,13 @@ class Aabb
   vec3f max_;
 };
 
+template <typename Stream>
+Stream&
+operator<<(Stream& s, const Aabb& a)
+{
+  s << "{" << a.GetMin() << ", " << a.GetMax() << "}";
+  return s;
+}
+
 
 #endif  // EUPHORIA_AABB_H
