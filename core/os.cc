@@ -1,4 +1,5 @@
-#include "os.h"
+#include "core/os.h"
+#include "core/stringutils.h"
 
 #include <dirent.h>
 #include <iostream>
@@ -36,13 +37,6 @@ GetCurrentDirectory()
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-
-struct DirectoryList
-{
-  std::vector<std::string> files;
-  std::vector<std::string> directories;
-  bool                     valid;
-};
 
 DirectoryList
 ListDirectory(const std::string& path)
@@ -86,8 +80,6 @@ ListDirectory(const std::string& path)
   }
 }
 
-const char PATH_SEPARATOR = '/';
-
 bool
 EndsWith(const std::string& str, char c)
 {
@@ -114,21 +106,29 @@ JoinPath(const std::string& left, const std::string& right)
   }
 }
 
-////////////////////////////////////////////////////////////////////////////////
-
-void
-ListDirectory()
+std::string
+GetExtension(const std::string& path)
 {
-  auto dirs = ListDirectory("/home/gustav/dev");
-  std::cout << "Directories:\n";
-  for(const auto& d : dirs.directories)
-  {
-    std::cout << " - " << d << "\n";
-  }
+  return LastStrings(path, '.').second;
+}
 
-  std::cout << "Files:\n";
-  for(const auto& d : dirs.files)
+std::string
+GetFileNameIncludingExtension(const std::string& path)
+{
+  const auto r = LastStrings(path, PATH_SEPARATOR).second;
+  if(r.empty())
   {
-    std::cout << " - " << d << "\n";
+    return r;
   }
+  else
+  {
+    // skip leading path_separator
+    return r.substr(1);
+  }
+}
+
+std::string
+GetFileNameWithoutExtension(const std::string& path)
+{
+  return LastStrings(GetFileNameIncludingExtension(path), '.').first;
 }
