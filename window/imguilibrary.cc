@@ -23,7 +23,7 @@ ImguiLibrary::ProcessEvents(SDL_Event* event)
 }
 
 void
-ImguiLibrary::Begin()
+ImguiLibrary::StartNewFrame()
 {
   ImGui_ImplSdlGL3_NewFrame(window_);
 }

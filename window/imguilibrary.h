@@ -16,7 +16,7 @@ class ImguiLibrary
   ProcessEvents(SDL_Event*);
 
   void
-  Begin();
+  StartNewFrame();
 
   void
   Render();
