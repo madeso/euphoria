@@ -17,6 +17,9 @@ class SdlWindow
   void
   KeepWithin(bool k);
 
+  void
+  EnableCharEvent(bool enable);
+
   SDL_Window* window;
 };
 
