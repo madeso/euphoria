@@ -4,15 +4,15 @@
 FpsController::FpsController()
     : rotation_(Angle::Zero())
     , look_(Angle::Zero())
-    , pos_(vec3f::Origo())
+    , position(vec3f::Origo())
 {
 }
 
 void
 FpsController::Look(float x, float y)
 {
-  rotation_ += Angle::FromDegrees(-x * sensitivity_);
-  look_ += Angle::FromDegrees(-y * sensitivity_);
+  rotation_ += Angle::FromDegrees(-x * sensitivity);
+  look_ += Angle::FromDegrees(-y * sensitivity);
 }
 
 void
@@ -104,21 +104,11 @@ FpsController::Update(float delta)
 
   const vec3f input =
       GetRotation().RightUpIn(vec3f(right, up, forward)).GetNormalized();
-  const vec3f movement = input * speed_ * delta;
+  const vec3f movement = input * speed * delta;
 
-  pos_ += movement;
+  position += movement;
 }
 
-void
-FpsController::SetPosition(const vec3f& pos)
-{
-  pos_ = pos;
-}
-vec3f
-FpsController::GetPosition() const
-{
-  return pos_;
-}
 quatf
 FpsController::GetRotation() const
 {

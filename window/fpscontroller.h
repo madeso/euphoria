@@ -32,18 +32,12 @@ class FpsController
   void
   Update(float delta);
 
-  vec3f
-  GetPosition() const;
-  void
-  SetPosition(const vec3f& pos);
   quatf
   GetRotation() const;
 
  private:
   Angle rotation_;
   Angle look_;
-
-  vec3f pos_;
 
   bool left_down_     = false;
   bool right_down_    = false;
@@ -52,8 +46,10 @@ class FpsController
   bool up_down_       = false;
   bool down_down_     = false;
 
-  float speed_       = 3.0f;
-  float sensitivity_ = 0.10f;
+ public:
+  vec3f position;
+  float speed       = 3.0f;
+  float sensitivity = 0.10f;
 };
 
 
