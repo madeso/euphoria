@@ -312,16 +312,9 @@ namespace
   const char* const kFileFormatObj = "obj";
 
   void
-  DecorateMesh(FileSystem* fs, Mesh* mesh, const std::string& json_path)
+  DecorateMeshMaterials(
+      Mesh* mesh, const std::string& json_path, const mesh::Mesh& json)
   {
-    mesh::Mesh json;
-    const auto error = LoadProtoJson(fs, &json, json_path);
-    if(!error.empty())
-    {
-      LOG_WARN("Mesh " << json_path << " failed to load: " << error);
-      return;
-    }
-
     std::map<std::string, Material*> mesh_materials;
     for(auto& material : mesh->materials)
     {
@@ -348,6 +341,23 @@ namespace
       }
     }
   }
+
+  void
+  DecorateMesh(FileSystem* fs, Mesh* mesh, const std::string& json_path)
+  {
+    mesh::Mesh json;
+    const auto error = LoadProtoJson(fs, &json, json_path);
+    if(!error.empty())
+    {
+      LOG_WARN("Mesh " << json_path << " failed to load: " << error);
+    }
+
+    if(!json.materials().empty())
+    {
+      DecorateMeshMaterials(mesh, json_path, json);
+    }
+  }
+
 
 }  // namespace
 
