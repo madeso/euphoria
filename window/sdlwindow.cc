@@ -41,12 +41,10 @@ SdlWindow::EnableCharEvent(bool enable)
 {
   if(enable)
   {
-    LOG_INFO("Begin");
     SDL_StartTextInput();
   }
   else
   {
-    LOG_INFO("End");
     SDL_StopTextInput();
   }
 }
