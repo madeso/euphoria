@@ -343,6 +343,15 @@ namespace
   }
 
   void
+  DecorateMeshMaterialsIgnoreAmbient(Mesh* mesh)
+  {
+    for(auto& material : mesh->materials)
+    {
+      material.ambient = material.diffuse;
+    }
+  }
+
+  void
   DecorateMesh(FileSystem* fs, Mesh* mesh, const std::string& json_path)
   {
     mesh::Mesh json;
@@ -350,6 +359,11 @@ namespace
     if(!error.empty())
     {
       LOG_WARN("Mesh " << json_path << " failed to load: " << error);
+    }
+
+    if(json.diffuse_and_ambient_are_same())
+    {
+      DecorateMeshMaterialsIgnoreAmbient(mesh);
     }
 
     if(!json.materials().empty())
