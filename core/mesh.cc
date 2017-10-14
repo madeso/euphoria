@@ -351,6 +351,14 @@ namespace
     }
   }
 
+  template <typename T>
+  bool
+  IsEmpty(const google::protobuf::RepeatedPtrField<T>& field)
+  {
+    const bool has_items = field.begin() < field.end();
+    return !has_items;
+  }
+
   void
   DecorateMesh(FileSystem* fs, Mesh* mesh, const std::string& json_path)
   {
@@ -366,7 +374,7 @@ namespace
       DecorateMeshMaterialsIgnoreAmbient(mesh);
     }
 
-    if(!json.materials().empty())
+    if(!IsEmpty(json.materials()))
     {
       DecorateMeshMaterials(mesh, json_path, json);
     }
