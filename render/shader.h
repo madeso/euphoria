@@ -48,7 +48,6 @@ class Shader : public ShaderId
   bool
   Load(FileSystem* fs, const std::string& file_path);
 
- private:
   bool
   Compile(
       const glchar* vertex_source,

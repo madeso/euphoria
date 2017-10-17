@@ -90,6 +90,13 @@ class CompiledMesh
       const Light& light,
       const std::vector<std::shared_ptr<CompiledMeshMaterial>>&
           overridden_materials);
+
+  void
+  BasicRender(
+      const mat4f&                    model_matrix,
+      const mat4f&                    projection_matrix,
+      const mat4f&                    view_matrix,
+      std::shared_ptr<MaterialShader> shader);
 };
 
 std::shared_ptr<CompiledMesh>

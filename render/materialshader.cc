@@ -83,12 +83,79 @@ MaterialShader::MaterialShader()
 {
 }
 
+void
+PostBuild(
+    MaterialShader*                       sh,
+    const materialshader::MaterialShader& material_shader_file,
+    const std::string&                    path)
+{
+  sh->hasLight_ = material_shader_file.has_light();
+
+  for(const auto& texture : material_shader_file.textures())
+  {
+    const auto uniform = sh->shader_.GetUniform(texture.uniform());
+    DEFINE_ENUM_VALUE(TextureType, texture_name, texture.texture());
+    LOG_INFO(
+        "Defining shader " << path << ": " << texture.uniform() << " to "
+                           << texture.texture());
+    sh->bindings_.emplace_back(uniform, texture_name);
+  }
+
+  for(const auto& texture : material_shader_file.default_texture())
+  {
+    DEFINE_ENUM_VALUE(TextureType, texture_name, texture.texture());
+    sh->default_textures_.emplace_back(texture_name, texture.path());
+  }
+
+  // todo: get the shader names from a trusted source
+  sh->projection_ = sh->shader_.GetUniform("uProjection");
+  sh->view_       = sh->shader_.GetUniform("uView");
+  sh->model_      = sh->shader_.GetUniform("uModel");
+
+  if(material_shader_file.has_ambient())
+  {
+    sh->ambient_ = sh->shader_.GetUniform(material_shader_file.ambient());
+  }
+  if(material_shader_file.has_diffuse())
+  {
+    sh->diffuse_ = sh->shader_.GetUniform(material_shader_file.diffuse());
+  }
+  if(material_shader_file.has_specular())
+  {
+    sh->specular_ = sh->shader_.GetUniform(material_shader_file.specular());
+  }
+  if(material_shader_file.has_shininess())
+  {
+    sh->shininess_ = sh->shader_.GetUniform(material_shader_file.shininess());
+  }
+
+  if(sh->hasLight_)
+  {
+    sh->lightAmbient_   = sh->shader_.GetUniform("uLight.ambient");
+    sh->lightDiffuse_   = sh->shader_.GetUniform("uLight.diffuse");
+    sh->lightSpecular_  = sh->shader_.GetUniform("uLight.specular");
+    sh->lightPosition_  = sh->shader_.GetUniform("uLight.position");
+    sh->lightDirection_ = sh->shader_.GetUniform("uLight.direction");
+    sh->lightType_      = sh->shader_.GetUniform("uLight.type");
+    sh->lightCutoffAngleOuter_ =
+        sh->shader_.GetUniform("uLight.cosCutoffAngleOuter");
+    sh->lightCutoffAngleInner_ =
+        sh->shader_.GetUniform("uLight.cosCutoffAngleInner");
+
+    sh->lightAttenuationConstant_  = sh->shader_.GetUniform("uLight.attConst");
+    sh->lightAttenuationLinear_    = sh->shader_.GetUniform("uLight.attLin");
+    sh->lightAttenuationQuadratic_ = sh->shader_.GetUniform("uLight.attQuad");
+
+    sh->normalMatrix_ = sh->shader_.GetUniform("uNormalMatrix");
+    sh->viewPosition_ = sh->shader_.GetUniform("uViewPosition");
+  }
+}
+
 bool
 MaterialShader::Load(FileSystem* file_system, const std::string& path)
 {
   attributes3d::PrebindShader(&shader_);
   const bool shader_compile = shader_.Load(file_system, path);
-
   // if (!shader_compile) { return false; }
 
   materialshader::MaterialShader material_shader_file;
@@ -102,67 +169,25 @@ MaterialShader::Load(FileSystem* file_system, const std::string& path)
     // todo: set default shader names
   }
 
-  hasLight_ = material_shader_file.has_light();
-
-  for(const auto& texture : material_shader_file.textures())
-  {
-    const auto uniform = shader_.GetUniform(texture.uniform());
-    DEFINE_ENUM_VALUE(TextureType, texture_name, texture.texture());
-    LOG_INFO(
-        "Defining shader " << path << ": " << texture.uniform() << " to "
-                           << texture.texture());
-    bindings_.emplace_back(uniform, texture_name);
-  }
-
-  for(const auto& texture : material_shader_file.default_texture())
-  {
-    DEFINE_ENUM_VALUE(TextureType, texture_name, texture.texture());
-    default_textures_.emplace_back(texture_name, texture.path());
-  }
-
-  // todo: get the shader names from a trusted source
-  projection_ = shader_.GetUniform("uProjection");
-  view_       = shader_.GetUniform("uView");
-  model_      = shader_.GetUniform("uModel");
-
-  if(material_shader_file.has_ambient())
-  {
-    ambient_ = shader_.GetUniform(material_shader_file.ambient());
-  }
-  if(material_shader_file.has_diffuse())
-  {
-    diffuse_ = shader_.GetUniform(material_shader_file.diffuse());
-  }
-  if(material_shader_file.has_specular())
-  {
-    specular_ = shader_.GetUniform(material_shader_file.specular());
-  }
-  if(material_shader_file.has_shininess())
-  {
-    shininess_ = shader_.GetUniform(material_shader_file.shininess());
-  }
-
-  if(hasLight_)
-  {
-    lightAmbient_          = shader_.GetUniform("uLight.ambient");
-    lightDiffuse_          = shader_.GetUniform("uLight.diffuse");
-    lightSpecular_         = shader_.GetUniform("uLight.specular");
-    lightPosition_         = shader_.GetUniform("uLight.position");
-    lightDirection_        = shader_.GetUniform("uLight.direction");
-    lightType_             = shader_.GetUniform("uLight.type");
-    lightCutoffAngleOuter_ = shader_.GetUniform("uLight.cosCutoffAngleOuter");
-    lightCutoffAngleInner_ = shader_.GetUniform("uLight.cosCutoffAngleInner");
-
-    lightAttenuationConstant_  = shader_.GetUniform("uLight.attConst");
-    lightAttenuationLinear_    = shader_.GetUniform("uLight.attLin");
-    lightAttenuationQuadratic_ = shader_.GetUniform("uLight.attQuad");
-
-    normalMatrix_ = shader_.GetUniform("uNormalMatrix");
-    viewPosition_ = shader_.GetUniform("uViewPosition");
-  }
+  PostBuild(this, material_shader_file, path);
 
   return shader_compile;
 }
+
+bool
+MaterialShader::Compile(
+    const glchar* vertex, const glchar* fragment, const glchar* geom)
+{
+  attributes3d::PrebindShader(&shader_);
+  const bool shader_compile = shader_.Compile(vertex, fragment, geom);
+  // if (!shader_compile) { return false; }
+
+  materialshader::MaterialShader material_shader_file;
+  PostBuild(this, material_shader_file, "[source compile]");
+
+  return shader_compile;
+}
+
 
 void
 MaterialShader::UseShader()

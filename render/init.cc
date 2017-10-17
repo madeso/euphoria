@@ -30,6 +30,8 @@ Init::Init(LoaderFunction loader)
 
   // todo: move this to a better place
   glEnable(GL_DEPTH_TEST);
+  glEnable(GL_STENCIL_TEST);
+
   // glDisable(GL_CULL_FACE);
   // glEnable(GL_BLEND);
   // glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -42,5 +44,6 @@ Init::ClearScreen(const Rgb& color)
 {
   // 42.0f / 255, 45.0f / 255, 51.0f / 255
   glClearColor(color.GetRed(), color.GetGreen(), color.GetBlue(), 1.0f);
-  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+  // glClearStencil(0xFF);
+  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 }

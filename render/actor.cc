@@ -7,6 +7,8 @@ Actor::Actor(const std::shared_ptr<CompiledMesh>& mesh)
     , position_(vec3f::Origo())
     , rotation_(quatf::Identity())
     , overridden_materials_(mesh->GetNoOverriddenMaterials())
+    , has_outline(false)
+    , outline_color(Rgb::From(Color::White))
 {
   ASSERT(mesh);
 }
@@ -87,4 +89,13 @@ Actor::Render(
       camera,
       light,
       overridden_materials_);
+}
+
+void
+Actor::BasicRender(
+    const mat4f&                    projection_matrix,
+    const mat4f&                    view_matrix,
+    std::shared_ptr<MaterialShader> shader)
+{
+  mesh_->BasicRender(GetModelMatrix(), projection_matrix, view_matrix, shader);
 }

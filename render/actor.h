@@ -6,6 +6,7 @@
 #include "core/mat4.h"
 #include "core/vec3.h"
 #include "core/quat.h"
+#include "core/rgb.h"
 #include "render/compiledmesh.h"
 
 class Actor
@@ -47,11 +48,21 @@ class Actor
       const vec3f& camera,
       const Light& light);
 
+  void
+  BasicRender(
+      const mat4f&                    projection_matrix,
+      const mat4f&                    view_matrix,
+      std::shared_ptr<MaterialShader> shader);
+
  private:
   std::shared_ptr<CompiledMesh>                      mesh_;
   vec3f                                              position_;
   quatf                                              rotation_;
   std::vector<std::shared_ptr<CompiledMeshMaterial>> overridden_materials_;
+
+ public:
+  bool has_outline;
+  Rgb  outline_color;
 };
 
 

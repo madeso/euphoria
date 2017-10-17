@@ -51,6 +51,12 @@ class MaterialShader
   bool
   Load(FileSystem* file_system, const std::string& path);
 
+  bool
+  Compile(
+      const glchar* vertex,
+      const glchar* fragment,
+      const glchar* geom = nullptr);
+
   void
   UseShader();
 
@@ -81,7 +87,7 @@ class MaterialShader
 
   Shader shader_;
 
- private:
+  // private:
   ShaderUniform projection_;
   ShaderUniform view_;
   ShaderUniform model_;

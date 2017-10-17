@@ -300,3 +300,24 @@ CompiledMesh::Render(
     Vao::Bind(nullptr);
   }
 }
+
+void
+CompiledMesh::BasicRender(
+    const mat4f&                    model_matrix,
+    const mat4f&                    projection_matrix,
+    const mat4f&                    view_matrix,
+    std::shared_ptr<MaterialShader> shader)
+{
+  shader->SetProjection(projection_matrix);
+  shader->SetModel(model_matrix);
+  shader->SetView(view_matrix);
+
+  for(const auto& part : parts)
+  {
+    Vao::Bind(&part->config);
+    Ebo::Bind(&part->tris);
+    part->tris.Draw(part->tri_count);
+    Ebo::Bind(nullptr);
+    Vao::Bind(nullptr);
+  }
+}
