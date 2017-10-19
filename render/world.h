@@ -10,6 +10,7 @@
 class Camera;
 class Viewport;
 class MaterialShader;
+class ShaderUniform;
 
 
 class World
@@ -25,6 +26,7 @@ class World
 
   // todo: move to a better place
   std::shared_ptr<MaterialShader> outline_shader;
+  std::shared_ptr<ShaderUniform>  outline_color;
 
   void
   Render(const Viewport& viewport, const Camera& camera);

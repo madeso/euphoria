@@ -30,10 +30,13 @@ World::World()
       "}\n",
       "#version 330 core\n"
       "out vec4 FragColor;\n"
+      "uniform vec3 uColor;\n"
       "void main()\n"
       "{\n"
-      "    FragColor = vec4(0.04, 0.28, 0.26, 1.0);\n"
+      "    FragColor = vec4(uColor, 1.0);\n"
       "}\n");
+  outline_color.reset(
+      new ShaderUniform{outline_shader->shader_.GetUniform("uColor")});
 }
 
 void
@@ -96,6 +99,8 @@ World::Render(const Viewport& viewport, const Camera& camera)
     {
       if(actor->has_outline)
       {
+        outline_shader->shader_.SetUniform(
+            *outline_color, actor->outline_color);
         actor->BasicRender(projection_matrix, view_matrix, outline_shader);
       }
     }
