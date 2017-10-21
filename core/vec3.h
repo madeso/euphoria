@@ -46,6 +46,19 @@ class vec3
       , z(a[2])
   {
   }
+
+  T*
+  GetDataPtr()
+  {
+    return &x;
+  }
+
+  const T*
+  GetDataPtr() const
+  {
+    return &x;
+  }
+
   static Vec
   FromTo(const Vec& from, const Vec& to)
   {

@@ -25,6 +25,18 @@ class vec2
   {
   }
 
+  T*
+  GetDataPtr()
+  {
+    return &x;
+  }
+
+  const T*
+  GetDataPtr() const
+  {
+    return &x;
+  }
+
   static Self
   FromTo(const Self& from, const Self& to)
   {

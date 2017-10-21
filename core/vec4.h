@@ -43,7 +43,20 @@ class vec4
   {
   }
 
-  explicit operator vec3<T>() const
+  T*
+  GetDataPtr()
+  {
+    return &x;
+  }
+
+  const T*
+  GetDataPtr() const
+  {
+    return &x;
+  }
+
+  vec3<T>
+  ToVec3() const
   {
     return vec3<T>(x, y, z);
   }

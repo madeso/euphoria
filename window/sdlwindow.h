@@ -1,6 +1,7 @@
 #ifndef EUPHORIA_SDLWINDOW_H
 #define EUPHORIA_SDLWINDOW_H
 
+#include "core/vec2.h"
 #include <string>
 
 extern "C" {
@@ -19,6 +20,10 @@ class SdlWindow
 
   void
   EnableCharEvent(bool enable);
+
+  // 0-(size-1)
+  const vec2i
+  GetMousePosition() const;
 
   SDL_Window* window;
 };

@@ -2,35 +2,40 @@
 #define EUPHORIA_CAMERA_H
 
 #include "core/mat4.h"
+#include "core/vec2.h"
 #include "core/vec3.h"
 #include "core/quat.h"
+#include "core/ray.h"
+
+
+class CompiledCamera
+{
+ public:
+  CompiledCamera(const mat4f& view_, const mat4f& projection_);
+
+  vec3f
+  WorldToClip(const vec3f& in_world) const;
+
+  vec3f
+  ClipToWorld(const vec3f& in_clip) const;
+
+  Ray3f
+  ClipToWorldRay(const vec2f& p) const;
+
+  mat4f view;
+  mat4f projection;
+  mat4f inverted_view;
+  mat4f inverted_projection;
+};
+
 
 class Camera
 {
  public:
   Camera();
 
-  const vec3f&
-  GetPosition() const;
-  const quatf&
-  GetRotation() const;
-  float
-  GetFov() const;
-  float
-  GetNear() const;
-  float
-  GetFar() const;
-
-  void
-  SetPosition(const vec3f& position);
-  void
-  SetRotation(const quatf& rotation);
-  void
-  SetFov(float fov);
-  void
-  SetNear(float near);
-  void
-  SetFar(float far);
+  CompiledCamera
+  Compile(float aspect) const;
 
   mat4f
   CalculateProjectionMatrix(float aspect) const;
@@ -38,12 +43,11 @@ class Camera
   mat4f
   CalculateViewMatrix() const;
 
- private:
-  vec3f position_;
-  quatf rotation_;
-  float fov_;
-  float near_;
-  float far_;
+  vec3f position;
+  quatf rotation;
+  float fov;
+  float near;
+  float far;
 };
 
 

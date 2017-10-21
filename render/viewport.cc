@@ -3,7 +3,7 @@
 #include "render/gl.h"
 
 Viewport::Viewport(const Recti& viewport)
-    : viewport_(viewport)
+    : viewport(viewport)
 {
 }
 
@@ -20,19 +20,16 @@ namespace  // local
 void
 Viewport::Activate()
 {
-  const vec2i bottom_left = viewport_.BottomLeft();
+  const vec2i bottom_left = viewport.BottomLeft();
   glViewport(
-      bottom_left.x,
-      bottom_left.y,
-      viewport_.GetWidth(),
-      viewport_.GetHeight());
+      bottom_left.x, bottom_left.y, viewport.GetWidth(), viewport.GetHeight());
   ActiveViewport() = this;
 }
 
 float
 Viewport::GetAspectRatio() const
 {
-  return viewport_.GetWidth() / static_cast<float>(viewport_.GetHeight());
+  return viewport.GetWidth() / static_cast<float>(viewport.GetHeight());
 }
 
 bool

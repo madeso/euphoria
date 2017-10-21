@@ -364,6 +364,25 @@ class Rect
   }
 };
 
+
+template <typename T, typename R>
+const vec2<R>
+To01(const Rect<T>& rect, const vec2<R>& from)
+{
+  const auto x = To01(rect.left, from.x, rect.right);
+  const auto y = To01(rect.bottom, from.y, rect.top);
+  return vec2<R>{x, y};
+}
+
+template <typename T, typename R>
+const vec2<R>
+From01(const Rect<T>& rect, const vec2<R>& from)
+{
+  const auto x = From01(rect.left, from.x, rect.right);
+  const auto y = From01(rect.bottom, from.y, rect.top);
+  return vec2<R>{x, y};
+}
+
 typedef Rect<int>   Recti;
 typedef Rect<float> Rectf;
 

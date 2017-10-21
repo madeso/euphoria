@@ -48,11 +48,19 @@ World::AddActor(const std::shared_ptr<Actor>& actor)
 void
 World::Render(const Viewport& viewport, const Camera& camera)
 {
+  Render(viewport, camera, camera.Compile(viewport.GetAspectRatio()));
+}
+
+void
+World::Render(
+    const Viewport&       viewport,
+    const Camera&         camera,
+    const CompiledCamera& compiled)
+{
   ASSERT(viewport.IsActive());
 
-  const auto projection_matrix =
-      camera.CalculateProjectionMatrix(viewport.GetAspectRatio());
-  const auto view_matrix = camera.CalculateViewMatrix();
+  const auto projection_matrix = compiled.projection;
+  const auto view_matrix       = compiled.view;
 
   if(use_outline)
   {
@@ -84,7 +92,7 @@ World::Render(const Viewport& viewport, const Camera& camera)
         glStencilMask(0x00);
       }
     }
-    actor->Render(projection_matrix, view_matrix, camera.GetPosition(), light);
+    actor->Render(projection_matrix, view_matrix, camera.position, light);
   }
 
   if(use_outline)

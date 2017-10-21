@@ -10,6 +10,7 @@ class Viewport
 
   void
   Activate();  // sets the gl viewport
+
   float
   GetAspectRatio() const;
 
@@ -17,8 +18,7 @@ class Viewport
   bool
   IsActive() const;
 
- private:
-  Recti viewport_;
+  const Recti viewport;
 };
 
 #endif  // RENDER_VIEWPORT_H

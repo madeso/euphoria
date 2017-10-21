@@ -7,6 +7,7 @@
 #include "render/actor.h"
 #include "render/light.h"
 
+class CompiledCamera;
 class Camera;
 class Viewport;
 class MaterialShader;
@@ -30,6 +31,12 @@ class World
 
   void
   Render(const Viewport& viewport, const Camera& camera);
+
+  void
+  Render(
+      const Viewport&       viewport,
+      const Camera&         camera,
+      const CompiledCamera& compiled);
 
   bool use_outline = false;
 

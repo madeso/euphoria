@@ -48,3 +48,15 @@ SdlWindow::EnableCharEvent(bool enable)
     SDL_StopTextInput();
   }
 }
+
+const vec2i
+SdlWindow::GetMousePosition() const
+{
+  vec2i ret{0, 0};
+  int   width  = 0;
+  int   height = 0;
+  SDL_GetWindowSize(window, &width, &height);
+  SDL_GetMouseState(&ret.x, &ret.y);
+  ret.y = height - (ret.y + 1);
+  return ret;
+}
