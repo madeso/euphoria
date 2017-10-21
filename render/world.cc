@@ -1,12 +1,10 @@
 #include "render/world.h"
 
-#include "render/materialshader.h"
-
-#include "render/camera.h"
-#include "render/viewport.h"
-
 #include "core/assert.h"
+#include "core/camera.h"
 
+#include "render/materialshader.h"
+#include "render/viewport.h"
 #include "render/gl.h"
 
 World::World()

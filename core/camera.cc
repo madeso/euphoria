@@ -1,4 +1,4 @@
-#include "render/camera.h"
+#include "core/camera.h"
 
 #include "core/assert.h"
 
@@ -23,7 +23,7 @@ namespace
 vec3f
 CompiledCamera::WorldToClip(const vec3f& in_world) const
 {
-  mat4f m = projection * view;
+  mat4f       m       = projection * view;
   const vec4f in_view = m * vec4f{in_world, POINT_VALUE};
   return in_view.ToVec3();
 }
@@ -33,7 +33,7 @@ CompiledCamera::ClipToWorld(const vec3f& in_clip) const
 {
   mat4f m = projection * view;
   m.Invert();
-  const vec4f in_view  = m * vec4f{in_clip, POINT_VALUE};
+  const vec4f in_view = m * vec4f{in_clip, POINT_VALUE};
   return in_view.ToVec3();
 }
 
