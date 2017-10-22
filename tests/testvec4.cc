@@ -42,7 +42,7 @@ TEST_CASE("vec4-constructor_array", "[vec4]")
 
 TEST_CASE("vec4-cast_vec3", "[vec4]")
 {
-  const auto v = static_cast<vec3i>(vec4i(1, 2, 3, 4));
+  const auto v = vec4i(1, 2, 3, 4).ToVec3();
   REQUIRE(v.x == 1);
   REQUIRE(v.y == 2);
   REQUIRE(v.z == 3);

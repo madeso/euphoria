@@ -5,36 +5,31 @@
 CompiledCamera::CompiledCamera(const mat4f& view_, const mat4f& projection_)
     : view(view_)
     , projection(projection_)
-    , inverted_view(view_)
-    , inverted_projection(projection_)
+    , combined(view_ * projection_)
+    , combined_inverted(projection_ * view_)
 {
-  const bool view_was_inverted       = inverted_view.Invert();
-  const bool projection_was_inverted = inverted_projection.Invert();
-
-  ASSERT(view_was_inverted);
-  ASSERT(projection_was_inverted);
-}
-
-namespace
-{
-  const float POINT_VALUE = 0.0;
+  const bool was_inverted = combined_inverted.Invert();
+  ASSERT(was_inverted);
 }
 
 vec3f
 CompiledCamera::WorldToClip(const vec3f& in_world) const
 {
-  mat4f       m       = projection * view;
-  const vec4f in_view = m * vec4f{in_world, POINT_VALUE};
-  return in_view.ToVec3();
+  const vec4f v = combined * vec4f{in_world, 1.0f};
+
+  // divide by w to get back to the 1.0f coordinate space
+  const vec3f r{v.x, v.y, v.z};
+  return r / v.w;
 }
 
 vec3f
 CompiledCamera::ClipToWorld(const vec3f& in_clip) const
 {
-  mat4f m = projection * view;
-  m.Invert();
-  const vec4f in_view = m * vec4f{in_clip, POINT_VALUE};
-  return in_view.ToVec3();
+  const vec4f v = combined_inverted * vec4f{in_clip, 1.0f};
+
+  // divide by w to get back to the 1.0f coordinate space
+  const vec3f r{v.x, v.y, v.z};
+  return r / v.w;
 }
 
 Ray3f

@@ -171,7 +171,7 @@ class mat4
   GetTransform(const vec3<T>& p) const
   {
     const vec4<T> r = *this * vec4<T>(p, 1);
-    return static_cast<vec3<T>>(r);
+    return r.ToVec3();
   }
 
   vec3<T>
@@ -262,7 +262,7 @@ class mat4
   vec3<T>
   GetAxis(int col) const
   {
-    return static_cast<vec3<T>>(GetColumn(col));
+    return GetColumn(col).ToVec3();
   }
 
   vec3<T>

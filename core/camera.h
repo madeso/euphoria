@@ -24,8 +24,8 @@ class CompiledCamera
 
   mat4f view;
   mat4f projection;
-  mat4f inverted_view;
-  mat4f inverted_projection;
+  mat4f combined;
+  mat4f combined_inverted;
 };
 
 
