@@ -6,7 +6,7 @@
 class Aabb
 {
  public:
-  Aabb(const vec3f& min, const vec3f& max);
+  Aabb(const vec3f& amin, const vec3f& amax);
 
   const vec3f&
   GetMin() const;
@@ -34,8 +34,8 @@ class Aabb
   vec3f
   GetOffset() const;
 
-  vec3f min_;
-  vec3f max_;
+  vec3f min;
+  vec3f max;
 };
 
 template <typename Stream>

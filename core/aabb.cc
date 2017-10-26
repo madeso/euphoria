@@ -3,9 +3,9 @@
 #include "core/assert.h"
 #include "core/numeric.h"
 
-Aabb::Aabb(const vec3f& min, const vec3f& max)
-    : min_(min)
-    , max_(max)
+Aabb::Aabb(const vec3f& amin, const vec3f& amax)
+    : min(amin)
+    , max(amax)
 {
   ASSERT(IsValid());
 }
@@ -14,21 +14,21 @@ const vec3f&
 Aabb::GetMin() const
 {
   ASSERT(IsValid());
-  return min_;
+  return min;
 }
 
 const vec3f&
 Aabb::GetMax() const
 {
   ASSERT(IsValid());
-  return max_;
+  return max;
 }
 
 vec3f
 Aabb::Wrap(const vec3f& vec) const
 {
   ASSERT(IsValid());
-#define COMP(C) const auto C = ::Wrap(min_.C, vec.C, max_.C)
+#define COMP(C) const auto C = ::Wrap(min.C, vec.C, max.C)
   COMP(x);
   COMP(y);
   COMP(z);
@@ -56,16 +56,16 @@ void
 Aabb::Extend(const vec3f& vec)
 {
   ASSERT(IsValid());
-  min_ = Min(min_, vec);
-  max_ = Max(max_, vec);
+  min = Min(min, vec);
+  max = Max(max, vec);
 }
 
 void
 Aabb::Extend(const Aabb& aabb)
 {
   ASSERT(IsValid());
-  min_ = Min(min_, aabb.min_);
-  max_ = Max(max_, aabb.max_);
+  min = Min(min, aabb.min);
+  max = Max(max, aabb.max);
 }
 
 Aabb
@@ -78,13 +78,13 @@ vec3f
 Aabb::GetSize() const
 {
   ASSERT(IsValid());
-  return max_ - min_;
+  return max - min;
 }
 
 bool
 Aabb::IsValid() const
 {
-#define M(var) min_.var <= max_.var
+#define M(var) min.var <= max.var
   return M(x) && M(y) && M(z);
 #undef M
 }
@@ -93,5 +93,5 @@ vec3f
 Aabb::GetOffset() const
 {
   ASSERT(IsValid());
-  return -min_;
+  return -min;
 }

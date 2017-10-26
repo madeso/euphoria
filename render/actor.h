@@ -54,10 +54,12 @@ class Actor
       const mat4f&                    view_matrix,
       std::shared_ptr<MaterialShader> shader);
 
+
+  std::shared_ptr<CompiledMesh> mesh_;
+  vec3f                         position_;
+  quatf                         rotation_;
+
  private:
-  std::shared_ptr<CompiledMesh>                      mesh_;
-  vec3f                                              position_;
-  quatf                                              rotation_;
   std::vector<std::shared_ptr<CompiledMeshMaterial>> overridden_materials_;
 
  public:

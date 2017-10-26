@@ -363,6 +363,14 @@ operator/(const vec3<T>& lhs, T rhs)
   return r;
 }
 
+template <typename T>
+vec3<T>
+operator/(T lhs, const vec3<T>& rhs)
+{
+  const vec3<T> r{1 / rhs.x, 1 / rhs.y, 1 / rhs.z};
+  return r;
+}
+
 typedef vec3<float> vec3f;
 typedef vec3<int>   vec3i;
 
