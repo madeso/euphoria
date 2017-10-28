@@ -10,14 +10,14 @@ template <typename T>
 class vec3;
 
 template <typename T>
-class unit;
+class unit3;
 
 template <typename T>
 class vec3
 {
  public:
   typedef vec3<T> Vec;
-  typedef unit<T> Unit;
+  typedef unit3<T> Unit;
   T               x;
   T               y;
   T               z;
@@ -171,10 +171,10 @@ class vec3
 ////////////////////////////////////////////////////////////////////////////////
 
 template <typename T>
-class unit : public vec3<T>
+class unit3 : public vec3<T>
 {
  public:
-  typedef unit<T> Unit;
+  typedef unit3<T> Unit;
   bool
   IsValid() const
   {
@@ -185,15 +185,15 @@ class unit : public vec3<T>
   {
     return Unit(-vec3<T>::x, -vec3<T>::y, -vec3<T>::z);
   }
-  unit(const Unit&) = default;
+  unit3(const Unit&) = default;
 
  private:
-  unit(T x, T y, T z)
+  unit3(T x, T y, T z)
       : vec3<T>(x, y, z)
   {
     ASSERT(IsValid());
   }
-  unit(const vec3<T>& o)
+  unit3(const vec3<T>& o)
       : vec3<T>(o)
   {
     ASSERT(IsValid());
@@ -202,77 +202,77 @@ class unit : public vec3<T>
 };
 
 template <typename T>
-unit<T>
+unit3<T>
 vec3<T>::ToUnit(T x, T y, T z)
 {
   return Unit{x, y, z};
 }
 
 template <typename T>
-unit<T>
+unit3<T>
 vec3<T>::XAxis()
 {
   return Unit(1, 0, 0);
 }
 
 template <typename T>
-unit<T>
+unit3<T>
 vec3<T>::YAxis()
 {
   return Unit(0, 1, 0);
 }
 
 template <typename T>
-unit<T>
+unit3<T>
 vec3<T>::ZAxis()
 {
   return Unit(0, 0, 1);
 }
 
 template <typename T>
-unit<T>
+unit3<T>
 vec3<T>::Up()
 {
   return YAxis();
 }
 
 template <typename T>
-unit<T>
+unit3<T>
 vec3<T>::Down()
 {
   return -YAxis();
 }
 
 template <typename T>
-unit<T>
+unit3<T>
 vec3<T>::Right()
 {
   return XAxis();
 }
 
 template <typename T>
-unit<T>
+unit3<T>
 vec3<T>::Left()
 {
   return -XAxis();
 }
 
 template <typename T>
-unit<T>
+unit3<T>
 vec3<T>::In()
 {
   return -ZAxis();
 }
 
 template <typename T>
-unit<T>
+unit3<T>
 vec3<T>::Out()
 {
   return ZAxis();
 }
 
 template <typename T>
-unit<T>
+unit3<T>
 vec3<T>::GetNormalized() const
 {
   Vec r = *this;
