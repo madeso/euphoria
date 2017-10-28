@@ -10,6 +10,7 @@
 #include "core/filesystemimagegenerator.h"
 #include "core/path.h"
 #include "core/os.h"
+#include "core/camera.h"
 
 #include <render/init.h>
 #include <render/debuggl.h>
@@ -20,7 +21,6 @@
 #include "render/texture.h"
 #include "render/world.h"
 #include "render/viewport.h"
-#include "render/camera.h"
 #include "render/materialshadercache.h"
 #include "render/defaultfiles.h"
 
@@ -233,7 +233,7 @@ main(int argc, char** argv)
 #endif
 
   Camera camera;
-  camera.SetPosition(vec3f(0, 0, 0));
+  camera.position = vec3f(0, 0, 0);
 
   FpsController fps;
   fps.position = vec3f(0, 0, 3);
@@ -382,8 +382,8 @@ main(int argc, char** argv)
     }
 
     fps.Update(delta);
-    camera.SetPosition(fps.position);
-    camera.SetRotation(fps.GetRotation());
+    camera.position = fps.position;
+    camera.rotation = fps.GetRotation();
 
     init.ClearScreen(Rgb::From(Color::DarkslateGray));
     world.Render(viewport, camera);
