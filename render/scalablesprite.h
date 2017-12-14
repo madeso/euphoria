@@ -7,6 +7,7 @@
 
 class Buffer2d;
 class Texture2d;
+class TextureId;
 class TextureCache;
 
 class ScalableSprite
@@ -27,6 +28,10 @@ class ScalableSprite
   // for rendering...
   const Texture2d*
   GetTexturePtr() const;
+
+  const TextureId*
+  GetTextureId() const;
+
   const Buffer2d*
   GetBufferPtr() const;
 

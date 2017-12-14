@@ -84,7 +84,7 @@ SpriteRenderer::DrawNinepatch(
   CommonDraw(position - d, rotate, color, scale, scale);
 
   glActiveTexture(GL_TEXTURE0);
-  Use(ninepatch.GetTexturePtr());
+  Use(ninepatch.GetTextureId());
 
   ninepatch.GetBufferPtr()->Draw();  // todo: fix this
   // vao_->Draw();

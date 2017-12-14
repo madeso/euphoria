@@ -100,6 +100,12 @@ ScalableSprite::GetTexturePtr() const
   return texture_.get();
 }
 
+const TextureId*
+ScalableSprite::GetTextureId() const
+{
+  return texture_.get();
+}
+
 const Buffer2d*
 ScalableSprite::GetBufferPtr() const
 {
