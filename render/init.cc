@@ -32,9 +32,11 @@ Init::Init(LoaderFunction loader)
   glEnable(GL_DEPTH_TEST);
   glEnable(GL_STENCIL_TEST);
 
-  // glDisable(GL_CULL_FACE);
-  // glEnable(GL_BLEND);
-  // glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+  // need to be enabled for shitty 2d rendering to work
+  // todo: fix a proper blending/backface culling render stack
+  glDisable(GL_CULL_FACE);
+  glEnable(GL_BLEND);
+  glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
 
 Init::~Init() = default;
