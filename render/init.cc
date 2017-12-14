@@ -8,7 +8,7 @@
 
 LOG_SPECIFY_DEFAULT_LOGGER("render.init")
 
-Init::Init(LoaderFunction loader)
+Init::Init(LoaderFunction loader, Init::BlendHack blend_hack)
     : ok(true)
 {
   const int glad_result = gladLoadGLLoader(loader);
@@ -32,11 +32,14 @@ Init::Init(LoaderFunction loader)
   glEnable(GL_DEPTH_TEST);
   glEnable(GL_STENCIL_TEST);
 
-  // need to be enabled for shitty 2d rendering to work
-  // todo: fix a proper blending/backface culling render stack
-  glDisable(GL_CULL_FACE);
-  glEnable(GL_BLEND);
-  glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+  if(blend_hack == Init::BlendHack::EnableHack)
+  {
+    // need to be enabled for shitty 2d rendering to work
+    // todo: fix a proper blending/backface culling render stack
+    glDisable(GL_CULL_FACE);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+  }
 }
 
 Init::~Init() = default;

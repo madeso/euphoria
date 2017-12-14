@@ -10,7 +10,14 @@ typedef void* (*LoaderFunction)(const char* name);
 class Init
 {
  public:
-  explicit Init(LoaderFunction loader);
+  enum class BlendHack
+  {
+    NoHack,
+    EnableHack
+  };
+
+  explicit Init(
+      LoaderFunction loader, BlendHack blend_hack = BlendHack::NoHack);
   ~Init();
 
   // todo: move to some place better
