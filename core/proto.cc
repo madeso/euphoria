@@ -9,12 +9,10 @@
 
 #include <pbjson.hpp>
 #include <rapidjson/error/en.h>
+
 #include <google/protobuf/text_format.h>
 
-#include <streambuf>
 #include <fstream>
-#include <sstream>
-#include <string>
 
 bool
 LoadProtoText(google::protobuf::Message* message, const std::string& file_name)

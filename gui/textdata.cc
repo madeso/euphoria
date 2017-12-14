@@ -4,60 +4,76 @@
 
 #include "render/fonts.h"
 
-TextData::TextData() : font_(nullptr), backgroundRenderer_(nullptr) {
-}
-TextData::~TextData() {
+TextData::TextData()
+    : font_(nullptr)
+    , backgroundRenderer_(nullptr)
+{
 }
 
-void TextData::SetFont(Font* font) {
-  ASSERT(this);
+TextData::~TextData()
+{
+}
+
+void
+TextData::SetFont(Font* font)
+{
   font_ = font;
   text_.reset();
   UpdateText();
 }
 
-const Font& TextData::GetFont() const {
-  ASSERT(this);
+const Font&
+TextData::GetFont() const
+{
   ASSERT(font_);
   return *font_;
 }
 
-void TextData::SetBackgroundRenderer(TextBackgroundRenderer* renderer) {
-  ASSERT(this);
+void
+TextData::SetBackgroundRenderer(TextBackgroundRenderer* renderer)
+{
   backgroundRenderer_ = renderer;
   text_.reset();
   UpdateText();
 }
 
-void TextData::SetString(const std::string& str) {
-  ASSERT(this);
+void
+TextData::SetString(const std::string& str)
+{
   string_ = str;
   UpdateText();
 }
 
-const std::string& TextData::GetString() const {
-  ASSERT(this);
+const std::string&
+TextData::GetString() const
+{
   return string_;
 }
 
-bool TextData::HasText() const {
-  ASSERT(this);
+bool
+TextData::HasText() const
+{
   return text_.get() != nullptr;
 }
 
-const Text& TextData::GetText() const {
-  ASSERT(this);
+const Text&
+TextData::GetText() const
+{
   ASSERT(text_.get());
   return *text_.get();
 }
 
-void TextData::UpdateText() {
-  ASSERT(this);
-  if( text_.get() == nullptr && backgroundRenderer_ != nullptr && font_ != nullptr ) {
-    text_.reset( new Text {font_, backgroundRenderer_} );
+void
+TextData::UpdateText()
+{
+  if(text_.get() == nullptr && backgroundRenderer_ != nullptr &&
+     font_ != nullptr)
+  {
+    text_.reset(new Text{font_, backgroundRenderer_});
   }
 
-  if( text_.get() != nullptr) {
+  if(text_.get() != nullptr)
+  {
     text_->SetText(string_);
   }
 }
