@@ -9,6 +9,8 @@
 
 #include <pbjson.hpp>
 #include <rapidjson/error/en.h>
+#include <rapidjson/stream.h>
+#include <rapidjson/cursorstreamwrapper.h>
 
 #include <google/protobuf/text_format.h>
 
@@ -84,13 +86,20 @@ LoadProtoJson(
   rapidjson::Document doc;
   // todo: look up insitu parsing
   // todo: look upo json/sjson parsing options
-  doc.Parse(source.c_str());
+
+  typedef rapidjson::CursorStreamWrapper<rapidjson::StringStream> InputStream;
+  rapidjson::StringStream ss{source.c_str()};
+  InputStream             stream{ss};
+  constexpr unsigned int  ParseFlags =
+      rapidjson::kParseCommentsFlag | rapidjson::kParseTrailingCommasFlag;
+  doc.ParseStream<ParseFlags, rapidjson::UTF8<>, InputStream>(stream);
 
   if(doc.HasParseError())
   {
     // todo: add file and parse error to error
-    return Str{} << "JSON parse error: "
-                 << rapidjson::GetParseError_En(doc.GetParseError());
+    return Str{} << "JSON parse error(" << stream.GetLine() << ":"
+                 << stream.GetColumn()
+                 << "): " << rapidjson::GetParseError_En(doc.GetParseError());
   }
 
   std::string err;

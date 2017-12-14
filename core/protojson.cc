@@ -328,8 +328,8 @@ namespace protojson
     JsonPath self_path{path, json};
     if(json.GetType() != rapidjson::kObjectType)
     {
-      return Str() << "JSON root is not a object at " << self_path;
-      ;
+      return Str() << "JSON root is not a object at " << self_path << ", was "
+                   << TypeToString(json.GetType());
     }
     const auto* descriptor = msg->GetDescriptor();
     const auto* reflection = msg->GetReflection();
