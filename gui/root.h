@@ -13,22 +13,33 @@ class Font;
 class TextureCache;
 class TextBackgroundRenderer;
 class Skin;
+class FileSystem;
 
-class Root {
+class Root
+{
  public:
   Root(const Sizef& size);
   ~Root();
-  bool Load(Font* font, const std::string& path, TextureCache* cache, TextBackgroundRenderer* br);
+  bool
+  Load(
+      FileSystem*             fs,
+      Font*                   font,
+      const std::string&      path,
+      TextureCache*           cache,
+      TextBackgroundRenderer* br);
 
-  void SetInputMouse(const vec2f& pos, bool down);
-  void Step(float dt);
-  void Render(SpriteRenderer* sp) const ;
+  void
+  SetInputMouse(const vec2f& pos, bool down);
+  void
+  Step(float dt);
+  void
+  Render(SpriteRenderer* sp) const;
 
  private:
   std::vector<std::shared_ptr<Skin>> skins_;
-  Sizef size_;
-  UiState state_;
-  LayoutContainer container_;
+  Sizef                              size_;
+  UiState                            state_;
+  LayoutContainer                    container_;
 };
 
 #endif  // GUI_ROOT_H

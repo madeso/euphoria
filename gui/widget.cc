@@ -2,60 +2,74 @@
 
 #include "gui/uistate.h"
 
-#include "core/assert.h"
-
-Widget::Widget(UiState* state) : state_(state) {
+Widget::Widget(UiState* state)
+    : state_(state)
+{
 }
 
-Widget::~Widget() {
+Widget::~Widget()
+{
 }
 
-bool Widget::IsActive() const {
-  ASSERT(this);
+bool
+Widget::IsActive() const
+{
   return state_->active == this;
 }
 
-bool Widget::IsHot() const {
-  ASSERT(this);
+bool
+Widget::IsHot() const
+{
   return state_->hot == this;
 }
 
-void Widget::OnSize() {
-  ASSERT(this);
+void
+Widget::OnSize()
+{
 }
 
-Rectf Widget::GetRect() const {
-  ASSERT(this);
+Rectf
+Widget::GetRect() const
+{
   return rect_;
 }
 
-void Widget::SetRect(const Rectf& r) {
-  ASSERT(this);
+void
+Widget::SetRect(const Rectf& r)
+{
   rect_ = r;
   OnSize();
 }
 
-LayoutData& Widget::Layout() {
-  ASSERT(this);
+LayoutData&
+Widget::Layout()
+{
   return layout_;
 }
 
-const LayoutData& Widget::Layout() const {
-  ASSERT(this);
+const LayoutData&
+Widget::Layout() const
+{
   return layout_;
 }
 
-Sizef Widget::GetPreferredSize() const {
+Sizef
+Widget::GetPreferredSize() const
+{
   const Sizef min = this->CalculateMinimumSize();
-  return Sizef::FromWidthHeight( Max(min.GetWidth(), Layout().GetPreferredWidth()), Max(min.GetHeight(), Layout().GetPreferredHeight()) );
+  return Sizef::FromWidthHeight(
+      Max(min.GetWidth(), Layout().GetPreferredWidth()),
+      Max(min.GetHeight(), Layout().GetPreferredHeight()));
 }
 
-const UiState& Widget::GetState() const {
-  ASSERT(this);
+const UiState&
+Widget::GetState() const
+{
   return *state_;
 }
 
-UiState* Widget::GetStatePtr() {
-  ASSERT(this);
+UiState*
+Widget::GetStatePtr()
+{
   return state_;
 }

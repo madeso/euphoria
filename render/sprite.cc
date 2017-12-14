@@ -6,7 +6,7 @@
 
 #include "render/spriterender.h"
 
-Sprite::Sprite(Texture2d* texture, const vec2f& position)
+Sprite::Sprite(std::shared_ptr<Texture2d> texture, const vec2f& position)
     : texture_(texture)
     , position_(position)
     , rotate_(0.0f)
@@ -16,7 +16,7 @@ Sprite::Sprite(Texture2d* texture, const vec2f& position)
 {
 }
 
-Texture2d*
+std::shared_ptr<Texture2d>
 Sprite::GetTexture()
 {
   return texture_;

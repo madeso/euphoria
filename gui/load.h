@@ -11,7 +11,17 @@ class UiState;
 class Font;
 class TextBackgroundRenderer;
 class Skin;
+class FileSystem;
 
-bool Load(UiState* state, Font* font, LayoutContainer* root, const std::string& path, TextureCache* cache, TextBackgroundRenderer* br, std::vector<std::shared_ptr<Skin>>* skins);
+bool
+Load(
+    FileSystem*                         fs,
+    UiState*                            state,
+    Font*                               font,
+    LayoutContainer*                    root,
+    const std::string&                  path,
+    TextureCache*                       cache,
+    TextBackgroundRenderer*             br,
+    std::vector<std::shared_ptr<Skin>>* skins);
 
 #endif  // GUI_LOAD_H
