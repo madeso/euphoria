@@ -278,6 +278,8 @@ BuildCharVao(
   const auto      b = Point(vert_right, vert_top, uv_right / iw, uv_top / ih);
   const auto c = Point(vert_left, vert_bottom, uv_left / iw, uv_bottom / ih);
   const auto d = Point(vert_right, vert_bottom, uv_right / iw, uv_bottom / ih);
+
+  // todo: add ability to be a quad for tighter fit
   builder.AddQuad(a, b, c, d);
   return std::make_pair(
       builder,
@@ -317,7 +319,7 @@ TextBackgroundRenderer::Draw(float alpha, const Rectf& area)
   Use(shader_);
   const mat4f model =
       mat4f::Identity()
-          .Translate(vec3f(area.left, area.top, 0.0f))
+          .Translate(vec3f(area.left, area.bottom, 0.0f))
           .Scale(vec3f(area.GetWidth(), area.GetHeight(), 1.0f));
 
   shader_->SetUniform(model_, model);
@@ -460,6 +462,7 @@ Font::GetExtents(const std::string& str, float scale) const
 
   for(char c : str)
   {
+    // todo: support character ligatures
     const unsigned int char_index = ConvertCharToIndex(c);
     auto               it         = chars_.find(char_index);
     if(it == chars_.end())
