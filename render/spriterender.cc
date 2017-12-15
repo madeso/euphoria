@@ -95,10 +95,10 @@ SpriteRenderer::InitRenderData()
 {
   BufferBuilder2d data;
 
-  Point a(0.0f, 1.0f, 0.0f, 1.0f);
-  Point b(1.0f, 0.0f, 1.0f, 0.0f);
-  Point c(0.0f, 0.0f, 0.0f, 0.0f);
-  Point d(1.0f, 1.0f, 1.0f, 1.0f);
+  Point a(0.0f, 1.0f, 0.0f, 0.0f);
+  Point b(1.0f, 0.0f, 1.0f, 1.0f);
+  Point c(0.0f, 0.0f, 0.0f, 1.0f);
+  Point d(1.0f, 1.0f, 1.0f, 0.0f);
 
   data.AddQuad(c, b, a, d);
 
