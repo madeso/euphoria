@@ -42,21 +42,29 @@ class Rect
   static Rect
   FromLeftRightBottomTop(T aleft, T aright, T abottom, T atop)
   {
+    ASSERTX(aleft <= aright, aleft, aright);
+    ASSERTX(atop >= abottom, atop, abottom);
     return Rect(aleft, aright, atop, abottom);
   }
   static Rect
   FromLeftRightTopBottom(T aleft, T aright, T atop, T abottom)
   {
+    ASSERTX(aleft <= aright, aleft, aright);
+    ASSERTX(atop >= abottom, atop, abottom);
     return Rect(aleft, aright, atop, abottom);
   }
   static Rect
   FromTopLeftWidthHeight(T atop, T aleft, T width, T height)
   {
+    ASSERT(width >= 0);
+    ASSERT(height >= 0);
     return FromLeftRightTopBottom(aleft, aleft + width, atop, atop - height);
   }
   static Rect
   FromWidthHeight(T width, T height)
   {
+    ASSERT(width >= 0);
+    ASSERT(height >= 0);
     return FromLeftRightBottomTop(0, width, 0, height);
   }
   static Rect
@@ -200,8 +208,8 @@ class Rect
   {
     left   = Min(left, o.left);
     right  = Max(right, o.right);
-    top    = Min(top, o.top);
-    bottom = Max(bottom, o.bottom);
+    top    = Max(top, o.top);
+    bottom = Min(bottom, o.bottom);
   }
 
   // Returns true if the rectangle is empty (left >= right or top <= bottom)
