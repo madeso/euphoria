@@ -391,6 +391,15 @@ From01(const Rect<T>& rect, const vec2<R>& from)
   return vec2<R>{x, y};
 }
 
+template <typename S, typename T>
+S&
+operator<<(S& s, const Rect<T>& r)
+{
+  s << "(" << r.left << ", " << r.bottom << " / " << r.GetWidth() << " x "
+    << r.GetHeight() << ")";
+  return s;
+}
+
 typedef Rect<int>   Recti;
 typedef Rect<float> Rectf;
 
