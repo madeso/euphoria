@@ -3,6 +3,7 @@
 #include "render/texture.h"
 #include "render/gl.h"
 #include "render/shader.h"
+#include "core/log.h"
 
 #include <vector>
 #include <memory>
@@ -19,6 +20,8 @@
 
 #include <ft2build.h>
 #include FT_FREETYPE_H
+
+LOG_SPECIFY_DEFAULT_LOGGER("core.font")
 
 namespace
 {
@@ -208,11 +211,12 @@ GetCharactersFromFont(
     fontchars.chars.push_back(cc);
   }
 
-  std::cout << "Loaded " << fontchars.chars.size() << " characters from "
-            << font_file << "\n";
+  const FT_Bool use_kerning = FT_HAS_KERNING(f.face);
 
-  FT_Bool use_kerning = FT_HAS_KERNING(f.face);
-  std::cout << "kerning..." << static_cast<int>(use_kerning) << "\n";
+  LOG_INFO(
+      "Loaded " << fontchars.chars.size() << " characters from " << font_file);
+  LOG_INFO("kerning..." << static_cast<int>(use_kerning));
+
   if(use_kerning == 1)
   {
     std::cout << "kerning...\n";
@@ -265,6 +269,9 @@ BuildCharVao(
   const int vert_top    = -src_char.bearing_y;
   const int vert_bottom = vert_top + src_char.glyph_height;
 
+  const int xvert_top    = 0;
+  const int xvert_bottom = -src_char.glyph_height;
+
   const float iw = image_width;
   const float ih = image_height;
 
@@ -279,12 +286,12 @@ BuildCharVao(
   const auto c = Point(vert_left, vert_bottom, uv_left / iw, uv_bottom / ih);
   const auto d = Point(vert_right, vert_bottom, uv_right / iw, uv_bottom / ih);
 
+  const auto extent = Rectf::FromLeftRightTopBottom(
+      vert_left, vert_right, xvert_top, xvert_bottom);
+
   // todo: add ability to be a quad for tighter fit
   builder.AddQuad(a, b, c, d);
-  return std::make_pair(
-      builder,
-      Rectf::FromLeftRightTopBottom(
-          vert_left, vert_right, vert_top, vert_bottom));
+  return std::make_pair(builder, extent);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
