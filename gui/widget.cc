@@ -1,6 +1,10 @@
 #include "gui/widget.h"
 
+#include "core/log.h"
+
 #include "gui/uistate.h"
+
+LOG_SPECIFY_DEFAULT_LOGGER("gui.widget")
 
 Widget::Widget(UiState* state)
     : state_(state)
@@ -37,6 +41,7 @@ Widget::GetRect() const
 void
 Widget::SetRect(const Rectf& r)
 {
+  LOG_INFO("Setting gui rect" << r);
   rect_ = r;
   OnSize();
 }

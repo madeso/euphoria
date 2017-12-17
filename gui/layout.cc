@@ -1,10 +1,15 @@
 #include "gui/layout.h"
-#include "gui/widget.h"
 
 #include "core/numeric.h"
+#include "core/log.h"
+
+#include "gui/widget.h"
 
 #include <numeric>
 #include <algorithm>
+
+
+LOG_SPECIFY_DEFAULT_LOGGER("gui.layout")
 
 Layout::Layout()
 {
@@ -49,6 +54,7 @@ void
 TableLayout::DoLayout(
     std::vector<std::shared_ptr<Widget>>* widgets, const Rectf& area) const
 {
+  LOG_INFO("Doing table layout in " << area);
   // todo: include padding
   std::vector<float> width(expandable_cols_.size(), 0);
   std::vector<float> height(expandable_rows_.size(), 0);
@@ -146,6 +152,7 @@ void
 SingleRowLayout::DoLayout(
     std::vector<std::shared_ptr<Widget>>* widgets, const Rectf& area) const
 {
+  LOG_INFO("Doing single row layout in " << area);
   const auto tl = area.TopLeft();
   float      x  = tl.x;
   for(auto w : *widgets)

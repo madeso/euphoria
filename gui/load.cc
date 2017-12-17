@@ -3,6 +3,7 @@
 #include <iostream>
 
 #include "core/proto.h"
+#include "core/log.h"
 
 #include "gui/layoutcontainer.h"
 #include "gui/layout.h"
@@ -13,6 +14,8 @@
 #include "render/scalablesprite.h"
 
 #include "gui.pb.h"
+
+LOG_SPECIFY_DEFAULT_LOGGER("gui.load")
 
 template <typename T>
 std::vector<T>
@@ -31,6 +34,7 @@ GetLayout(const gui::Layout& c)
 {
   if(c.has_table())
   {
+    LOG_INFO("Creating a table layout");
     return CreateTableLayout(
         ToVector(c.table().expanded_rows()),
         ToVector(c.table().expanded_cols()),
@@ -38,6 +42,7 @@ GetLayout(const gui::Layout& c)
   }
   else
   {
+    LOG_INFO("Creating a single row layout");
     return CreateSingleRowLayout(c.single_row().padding());
   }
 }
@@ -89,6 +94,7 @@ CreateWidget(
 
   if(w.has_button())
   {
+    LOG_INFO("Creating a button widget");
     CmdButton*                      b = new CmdButton(state);
     std::shared_ptr<ScalableSprite> sp(new ScalableSprite(
         "gui/metalPanel_blueCorner.png", Sizef::FromSquare(2.0f), cache));
@@ -112,6 +118,7 @@ CreateWidget(
   }
   else
   {
+    LOG_INFO("Creating a panel widget");
     PanelWidget* l = new PanelWidget(state);
     ret.reset(l);
     BuildLayoutContainer(
