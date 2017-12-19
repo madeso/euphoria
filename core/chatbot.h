@@ -23,6 +23,7 @@ namespace chatbot
   {
     std::vector<std::string> bye;
     std::vector<std::string> no_response;
+    std::vector<std::string> repeating;
     std::vector<Response>    responses;
 
     Response&
@@ -48,6 +49,7 @@ class ChatBot
   bool              is_in_conversation;
   Random            random;
   chatbot::Database database;
+  std::string       last_input;
   std::string       last_response;
 };
 

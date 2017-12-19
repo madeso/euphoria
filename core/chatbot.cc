@@ -49,6 +49,7 @@ ChatBot::ChatBot()
       "I'M NOT SURE IF I  UNDERSTAND WHAT YOU ARE TALKING ABOUT.");
   database.bye.emplace_back(
       "IT WAS NICE TALKING TO YOU USER, SEE YOU NEXTTIME!");
+  database.repeating.emplace_back("YOU ARE REPEATING YOURSELF.");
 }
 
 std::string
@@ -63,6 +64,13 @@ std::string
 ChatBot::GetResponse(const std::string& dirty_input)
 {
   const std::string input = CleanInput(dirty_input);
+
+  if(input == last_input)
+  {
+    return SelectResponse(database.repeating);
+  }
+  last_input = input;
+
   if(input == "bye")
   {
     is_in_conversation = false;
@@ -70,7 +78,8 @@ ChatBot::GetResponse(const std::string& dirty_input)
   }
   for(const auto& resp : database.responses)
   {
-    if(resp.input == input)
+    // todo: look into levenshtein distance
+    if(input.find(resp.input) != std::string::npos)
     {
       return SelectResponse(resp.responses);
     }
