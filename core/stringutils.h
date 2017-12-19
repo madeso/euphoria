@@ -128,6 +128,14 @@ MapToStringVector(const std::map<Key, Value>& map)
   return ret;
 }
 
+// remove all characters in ch from str
+std::string
+Strip(const std::string& str, const std::string& ch);
+
+// remove all characters in ch except the first one in a chain from str
+std::string
+RemoveConsecutive(const std::string& str, const std::string& ch);
+
 /** @} */
 
 #endif  // EUPHORIA_STRINGUTILS_H_

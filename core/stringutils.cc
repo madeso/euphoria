@@ -139,3 +139,44 @@ RemoveFromEnd(const std::string& str, const std::string& end)
 
   return str;
 }
+
+std::string
+Strip(const std::string& str, const std::string& ch)
+{
+  std::stringstream ss;
+  for(unsigned int i = 0; i < str.size(); i++)
+  {
+    const char c = str[i];
+    if(ch.find(c) == std::string::npos)
+    {
+      ss << c;
+    }
+  }
+  return ss.str();
+}
+
+// remove all characters in ch except the first one in a chain from str
+std::string
+RemoveConsecutive(const std::string& str, const std::string& ch)
+{
+  std::stringstream ss;
+  bool              skip = false;
+  for(unsigned int i = 0; i < str.size(); i++)
+  {
+    const char c = str[i];
+    if(ch.find(c) == std::string::npos)
+    {
+      ss << c;
+      skip = false;
+    }
+    else
+    {
+      if(!skip)
+      {
+        ss << c;
+        skip = true;
+      }
+    }
+  }
+  return ss.str();
+}
