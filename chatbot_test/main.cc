@@ -17,7 +17,8 @@ main()
       std::cout << response << std::endl;
     }
     std::cout << "> ";
-  } while(std::getline(std::cin, input) && !input.empty());
+  } while(chatbot.IsInConversation() && std::getline(std::cin, input) &&
+          !input.empty());
 
   return 0;
 }
