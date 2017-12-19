@@ -41,10 +41,14 @@ class ChatBot
   bool
   IsInConversation() const;
 
+  std::string
+  SelectResponse(const std::vector<std::string>& responses);
+
  private:
   bool              is_in_conversation;
   Random            random;
   chatbot::Database database;
+  std::string       last_response;
 };
 
 

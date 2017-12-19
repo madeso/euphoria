@@ -1,9 +1,11 @@
 #include "core/chatbot.h"
 
+#include "core/stringutils.h"
+
 namespace chatbot
 {
   Response::Response(const std::string& in)
-      : input(in)
+      : input(ToLower(in))
   {
   }
 
@@ -25,8 +27,8 @@ namespace chatbot
 ChatBot::ChatBot()
     : is_in_conversation(true)
 {
-  database.AddResponse("WHAT IS YOUR NAME")("MY NAME IS CHATTERBOT2")(
-      "YOU CAN CALL ME CHATTERBOT2.")("WHY DO YOU WANT TO KNOW MY NAME?");
+  database.AddResponse("WHAT IS YOUR NAME")("MY NAME IS CHATTERBOT")(
+      "YOU CAN CALL ME CHATTERBOT.")("WHY DO YOU WANT TO KNOW MY NAME?");
 
   database.AddResponse("HI")("HI THERE!")("HOW ARE YOU?")("HI!");
 
@@ -50,21 +52,44 @@ ChatBot::ChatBot()
 }
 
 std::string
-ChatBot::GetResponse(const std::string& input)
+CleanInput(const std::string& input)
 {
-  if(input == "BYE")
+  const std::string PUNCTUATION = "?!.;,";
+  return ToLower(
+      RemoveConsecutive(Trim(Strip(input, PUNCTUATION)), kSpaceCharacters));
+}
+
+std::string
+ChatBot::GetResponse(const std::string& dirty_input)
+{
+  const std::string input = CleanInput(dirty_input);
+  if(input == "bye")
   {
     is_in_conversation = false;
-    return random.Next(database.bye);
+    return SelectResponse(database.bye);
   }
   for(const auto& resp : database.responses)
   {
     if(resp.input == input)
     {
-      return random.Next(resp.responses);
+      return SelectResponse(resp.responses);
     }
   }
-  return random.Next(database.no_response);
+  return SelectResponse(database.no_response);
+}
+
+std::string
+ChatBot::SelectResponse(const std::vector<std::string>& responses)
+{
+  int         counter = 0;
+  std::string suggested;
+  do
+  {
+    suggested = random.Next(responses);
+    counter += 1;
+  } while(suggested == last_response && counter < 15);
+  last_response = suggested;
+  return suggested;
 }
 
 bool
