@@ -6,6 +6,8 @@
 #include <algorithm>
 #include <cstring>
 #include <vector>
+#include <sstream>
+#include <iterator>
 
 std::pair<std::string, std::string>
 LastStrings(const std::string& str, char sep)
@@ -124,6 +126,20 @@ Copy(char* dst, const std::string& src, const std::string::size_type& count)
 }
 
 std::string
+ReplaceWithCharacter(
+    const std::string& string,
+    const std::string& to_find,
+    const char         to_replace)
+{
+  std::string s = string;
+  for(char c : to_find)
+  {
+    std::replace(s.begin(), s.end(), c, to_replace);
+  }
+  return s;
+}
+
+std::string
 RemoveFromEnd(const std::string& str, const std::string& end)
 {
   if(EndsWith(str, end))
@@ -179,4 +195,24 @@ RemoveConsecutive(const std::string& str, const std::string& ch)
     }
   }
   return ss.str();
+}
+
+template <typename Out>
+void
+Split(const std::string& s, char delim, Out result)
+{
+  std::stringstream ss(s);
+  std::string       item;
+  while(std::getline(ss, item, delim))
+  {
+    *(result++) = item;
+  }
+}
+
+std::vector<std::string>
+Split(const std::string& s, char delim)
+{
+  std::vector<std::string> elems;
+  Split(s, delim, std::back_inserter(elems));
+  return elems;
 }

@@ -103,6 +103,12 @@ StringReplace(
     const std::string& to_find,
     const std::string& to_replace);
 
+std::string
+ReplaceWithCharacter(
+    const std::string& string,
+    const std::string& to_find,
+    const char         to_replace);
+
 /** Copy a string to a character buffer, adding null terminator at the end.
 @param dst the destination buffer.
 @param src the source string.
@@ -135,6 +141,9 @@ Strip(const std::string& str, const std::string& ch);
 // remove all characters in ch except the first one in a chain from str
 std::string
 RemoveConsecutive(const std::string& str, const std::string& ch);
+
+std::vector<std::string>
+Split(const std::string& string, char delim);
 
 /** @} */
 
