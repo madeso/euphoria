@@ -19,13 +19,14 @@ namespace chatbot
     EndConversation();
 
     int                      event_id;
-    std::string              input;
+    std::vector<std::string> input;
     bool                     ends_conversation;
     std::vector<std::string> responses;
   };
 
   struct Database
   {
+    std::vector<std::string> signon;
     std::vector<std::string> empty;
     std::vector<std::string> no_response;
     std::vector<std::string> same_input;
@@ -54,15 +55,19 @@ class ChatBot
   IsInConversation() const;
 
   std::string
+  GetSignOnMessage();
+
+ protected:
+  std::string
   SelectResponse(const std::vector<std::string>& responses);
 
  private:
-  bool              is_in_conversation;
-  Random            random;
-  chatbot::Database database;
-  std::string       last_input;
-  int               last_event;
-  std::string       last_response;
+  bool                     is_in_conversation;
+  Random                   random;
+  chatbot::Database        database;
+  std::vector<std::string> last_input;
+  int                      last_event;
+  std::string              last_response;
 };
 
 

@@ -9,6 +9,8 @@ main()
   ChatBot     chatbot;
   std::string input = "";
 
+  std::cout << chatbot.GetSignOnMessage() << "\n";
+
   do
   {
     if(!input.empty())
