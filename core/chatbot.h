@@ -15,16 +15,27 @@ namespace chatbot
     Response&
     operator()(const std::string& response);
 
+    Response&
+    EndConversation();
+
+    int                      event_id;
     std::string              input;
+    bool                     ends_conversation;
     std::vector<std::string> responses;
   };
 
   struct Database
   {
-    std::vector<std::string> bye;
+    std::vector<std::string> empty;
     std::vector<std::string> no_response;
-    std::vector<std::string> repeating;
-    std::vector<Response>    responses;
+    std::vector<std::string> same_input;
+    std::vector<std::string> similar_input;
+    std::vector<std::string> empty_repetition;
+
+    std::vector<Response> responses;
+
+    int event_id;
+    Database();
 
     Response&
     AddResponse(const std::string& input);
@@ -50,6 +61,7 @@ class ChatBot
   Random            random;
   chatbot::Database database;
   std::string       last_input;
+  int               last_event;
   std::string       last_response;
 };
 
