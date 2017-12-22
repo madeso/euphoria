@@ -55,30 +55,24 @@ namespace chatbot
     return false;
   }
 
-  Response::Response(const std::string& in)
-      : ends_conversation(false)
+  ResponseBuilder&
+  ResponseBuilder::Input(const std::string& in)
   {
-    inputs.push_back(CleanInput(in));
-  }
-
-  Response&
-  Response::Input(const std::string& in)
-  {
-    inputs.push_back(CleanInput(in));
+    this->response->inputs.push_back(CleanInput(in));
     return *this;
   }
 
-  Response&
-  Response::operator()(const std::string& response)
+  ResponseBuilder&
+  ResponseBuilder::operator()(const std::string& response)
   {
-    responses.push_back(response);
+    this->response->responses.push_back(response);
     return *this;
   }
 
-  Response&
-  Response::EndConversation()
+  ResponseBuilder&
+  ResponseBuilder::EndConversation()
   {
-    ends_conversation = true;
+    this->response->ends_conversation = true;
     return *this;
   }
 
@@ -88,13 +82,21 @@ namespace chatbot
   }
 
   Response&
-  Database::AddResponse(const std::string& input)
+  Database::CreateResponse()
   {
-    responses.emplace_back(input);
+    responses.emplace_back();
     Response& response = *responses.rbegin();
     response.event_id  = event_id;
     event_id += 1;
     return response;
+  }
+
+  ResponseBuilder
+  Database::AddResponse(const std::string& input)
+  {
+    ResponseBuilder r{&CreateResponse()};
+    r.Input(input);
+    return r;
   }
 
   struct BasicResponse

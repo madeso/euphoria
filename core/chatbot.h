@@ -10,21 +10,28 @@ namespace chatbot
 {
   struct Response
   {
-    Response(const std::string& in);
+    int                                   event_id = 0;
+    std::vector<std::vector<std::string>> inputs;
+    bool                                  ends_conversation = false;
+    std::vector<std::string>              responses;
+  };
 
-    Response&
-    Input(const std::string& in);
+  struct ResponseBuilder
+  {
+    Response* response;
+    explicit ResponseBuilder(Response* r)
+        : response(r)
+    {
+    }
 
-    Response&
+    ResponseBuilder&
+    Input(const std::string& response);
+
+    ResponseBuilder&
     operator()(const std::string& response);
 
-    Response&
+    ResponseBuilder&
     EndConversation();
-
-    int                                   event_id;
-    std::vector<std::vector<std::string>> inputs;
-    bool                                  ends_conversation;
-    std::vector<std::string>              responses;
   };
 
   struct Database
@@ -42,6 +49,9 @@ namespace chatbot
     Database();
 
     Response&
+    CreateResponse();
+
+    ResponseBuilder
     AddResponse(const std::string& input);
   };
 }
