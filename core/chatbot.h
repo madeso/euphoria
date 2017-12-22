@@ -13,15 +13,18 @@ namespace chatbot
     Response(const std::string& in);
 
     Response&
+    Input(const std::string& in);
+
+    Response&
     operator()(const std::string& response);
 
     Response&
     EndConversation();
 
-    int                      event_id;
-    std::vector<std::string> input;
-    bool                     ends_conversation;
-    std::vector<std::string> responses;
+    int                                   event_id;
+    std::vector<std::vector<std::string>> inputs;
+    bool                                  ends_conversation;
+    std::vector<std::string>              responses;
   };
 
   struct Database

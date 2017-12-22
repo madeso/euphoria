@@ -56,9 +56,16 @@ namespace chatbot
   }
 
   Response::Response(const std::string& in)
-      : input(CleanInput(in))
-      , ends_conversation(false)
+      : ends_conversation(false)
   {
+    inputs.push_back(CleanInput(in));
+  }
+
+  Response&
+  Response::Input(const std::string& in)
+  {
+    inputs.push_back(CleanInput(in));
+    return *this;
   }
 
   Response&
@@ -123,9 +130,7 @@ ChatBot::ChatBot()
   database.AddResponse("WHAT IS YOUR NAME")("MY NAME IS CHATTERBOT.")(
       "YOU CAN CALL ME CHATTERBOT.")("WHY DO YOU WANT TO KNOW MY NAME?");
 
-  database.AddResponse("HELLO")("HI THERE!");
-
-  database.AddResponse("HI")("HI THERE!")("HOW ARE YOU?")("HI!");
+  database.AddResponse("HI").Input("HELLO")("HI THERE!")("HOW ARE YOU?")("HI!");
 
   database.AddResponse("HOW ARE YOU")("I'M DOING FINE!")(
       "I'M DOING WELL AND YOU?")("WHY DO YOU WANT TO KNOW HOW AM I DOING?");
@@ -140,10 +145,9 @@ ChatBot::ChatBot()
       "DOES THAT QUESTION REALLY MATERS TO YOU?")("WHAT DO YOU MEAN BY THAT?")(
       "I'M AS REAL AS I CAN BE.");
 
-  database
-      .AddResponse("BYE")(
-          "IT WAS NICE TALKING TO YOU USER, SEE YOU NEXT TIME!")("BYE USER!")(
-          "OK, BYE!")
+  database.AddResponse("BYE")
+      .Input("GOODBYE")("IT WAS NICE TALKING TO YOU USER, SEE YOU NEXT TIME!")(
+          "BYE USER!")("OK, BYE!")
       .EndConversation();
 
   database.AddResponse("ARE YOU A HUMAN BEING")("WHY DO YOU WANT TO KNOW?")(
@@ -287,8 +291,9 @@ ChatBot::ChatBot()
   database.AddResponse("YOU ARE WRONG")("WHY ARE YOU SAYING THAT I'M WRONG?")(
       "IMPOSSIBLE, COMPUTERS CAN NOT MAKE MISTAKES.")("WRONG ABOUT WHAT?");
 
-  database.AddResponse("MY NAME IS")("SO, THAT'S YOUR NAME.")(
-      "THANKS FOR TELLING ME YOUR NAME USER!")("WHO GIVE YOU THAT NAME?");
+  database.AddResponse("MY NAME IS")
+      .Input("YOU CAN CALL ME")("SO, THAT'S YOUR NAME.")(
+          "THANKS FOR TELLING ME YOUR NAME USER!")("WHO GIVE YOU THAT NAME?");
 
 
   chatbot::AddResponse (&database.same_input)("YOU ARE REPEATING YOURSELF.")(
@@ -347,22 +352,25 @@ ChatBot::GetResponse(const std::string& dirty_input)
 
   for(const auto& resp : database.responses)
   {
-    // todo: look into levenshtein distance
-    if(resp.input.size() > match_length)
+    for(const auto& keyword : resp.inputs)
     {
-      if(chatbot::MatchesInputVector(input, resp.input))
+      // todo: look into levenshtein distance
+      if(keyword.size() > match_length)
       {
-        match_length = resp.input.size();
-        response     = last_event == resp.event_id
-                       ? SelectResponse(database.similar_input)
-                       : SelectResponse(resp.responses);
-
-        if(resp.ends_conversation)
+        if(chatbot::MatchesInputVector(input, keyword))
         {
-          is_in_conversation = false;
-        }
+          match_length = keyword.size();
+          response     = last_event == resp.event_id
+                         ? SelectResponse(database.similar_input)
+                         : SelectResponse(resp.responses);
 
-        last_event = resp.event_id;
+          if(resp.ends_conversation)
+          {
+            is_in_conversation = false;
+          }
+
+          last_event = resp.event_id;
+        }
       }
     }
   }
