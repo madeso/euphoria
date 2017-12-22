@@ -11,14 +11,16 @@ main()
 
   std::cout << chatbot.GetSignOnMessage() << "\n";
 
+  bool first = true;
   do
   {
-    if(!input.empty())
+    if(!first)
     {
       const std::string response = chatbot.GetResponse(input);
       std::cout << response << std::endl;
     }
     std::cout << "> ";
+    first = false;
   } while(chatbot.IsInConversation() && std::getline(std::cin, input));
 
   return 0;
