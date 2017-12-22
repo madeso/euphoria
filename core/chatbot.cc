@@ -199,7 +199,7 @@ ChatBot::ChatBot()
   database.AddResponse("PERHAPS")("WHY ARE YOU SO UNCERTAIN?")(
       "YOU SEEMS UNCERTAIN.");
 
-  database.AddResponse("YES")("SO)(IT IS YES.")("OH, REALLY?")("OK THEN.");
+  database.AddResponse("YES")("SO, IT IS YES.")("OH, REALLY?")("OK THEN.");
 
   database.AddResponse("I DON'T KNOW")("ARE YOU SURE?")(
       "ARE YOU REALLY TELLING ME THE TRUTH?")("SO, YOU DON'T KNOW?");
@@ -342,25 +342,39 @@ ChatBot::GetResponse(const std::string& dirty_input)
   }
   last_input = input;
 
+  unsigned int match_length = 0;
+  std::string  response;
+
   for(const auto& resp : database.responses)
   {
     // todo: look into levenshtein distance
-    if(chatbot::MatchesInputVector(input, resp.input))
+    if(resp.input.size() > match_length)
     {
-      std::string response = last_event == resp.event_id
-                                 ? SelectResponse(database.similar_input)
-                                 : SelectResponse(resp.responses);
-
-      if(resp.ends_conversation)
+      if(chatbot::MatchesInputVector(input, resp.input))
       {
-        is_in_conversation = false;
-      }
+        match_length = resp.input.size();
+        response     = last_event == resp.event_id
+                       ? SelectResponse(database.similar_input)
+                       : SelectResponse(resp.responses);
 
-      last_event = resp.event_id;
-      return response;
+        if(resp.ends_conversation)
+        {
+          is_in_conversation = false;
+        }
+
+        last_event = resp.event_id;
+      }
     }
   }
-  return SelectResponse(database.no_response);
+
+  if(response.empty())
+  {
+    return SelectResponse(database.no_response);
+  }
+  else
+  {
+    return response;
+  }
 }
 
 std::string
