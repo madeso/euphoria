@@ -8,6 +8,15 @@
 
 namespace chatbot
 {
+  struct Input;
+
+  std::vector<std::string>
+  CleanInput(const std::string& input);
+
+  bool
+  MatchesInputVector(
+      const std::vector<std::string>& input, const Input& keywords);
+
   struct Input
   {
     std::vector<std::string> words;
@@ -17,7 +26,11 @@ namespace chatbot
       IN_MIDDLE,
       AT_END,
       ALONE
-    } location = IN_MIDDLE;
+    } location;
+
+    explicit Input(const std::string& input, Location where = IN_MIDDLE);
+    explicit Input(
+        const std::vector<std::string>& input, Location where = IN_MIDDLE);
   };
   struct Response
   {

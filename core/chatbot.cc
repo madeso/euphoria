@@ -67,13 +67,23 @@ namespace chatbot
     return false;
   }
 
+
+  Input::Input(const std::string& input, Location where)
+      : words(CleanInput(input))
+      , location(where)
+  {
+  }
+
+  Input::Input(const std::vector<std::string>& input, Location where)
+      : words(input)
+      , location(where)
+  {
+  }
+
   ResponseBuilder&
   ResponseBuilder::Input(const std::string& in, Input::Location where)
   {
-    chatbot::Input input;
-    input.words    = CleanInput(in);
-    input.location = where;
-    this->response->inputs.emplace_back(input);
+    this->response->inputs.emplace_back(in, where);
     return *this;
   }
 
