@@ -16,20 +16,32 @@ namespace chatbot
         ' ');
   }
 
+  // todo: add unit test for this function
   bool
   MatchesInputVector(
-      const std::vector<std::string>& input,
-      const std::vector<std::string>& search)
+      const std::vector<std::string>& input, const Input& keywords)
   {
-    const auto search_size = search.size();
-    const auto input_size  = input.size();
+    const auto& search      = keywords.words;
+    const auto  search_size = search.size();
+    const auto  input_size  = input.size();
     if(search_size > input_size)
     {
       return false;
     }
 
-    for(auto input_index = decltype(input_size){0};
-        input_index <= input_size - search_size;
+    if(keywords.location == Input::ALONE && search_size != input_size)
+    {
+      return false;
+    }
+
+    const auto start_index = keywords.location == Input::AT_END
+                                 ? input_size - search_size
+                                 : decltype(input_size){0};
+    const auto end_index = keywords.location == Input::AT_START
+                               ? search_size - 1
+                               : input_size - search_size;
+
+    for(auto input_index = start_index; input_index <= end_index;
         input_index += 1)
     {
       bool is_match = true;
@@ -56,9 +68,12 @@ namespace chatbot
   }
 
   ResponseBuilder&
-  ResponseBuilder::Input(const std::string& in)
+  ResponseBuilder::Input(const std::string& in, Input::Location where)
   {
-    this->response->inputs.push_back(CleanInput(in));
+    chatbot::Input input;
+    input.words    = CleanInput(in);
+    input.location = where;
+    this->response->inputs.emplace_back(input);
     return *this;
   }
 
@@ -103,9 +118,7 @@ namespace chatbot
   {
     std::vector<std::string>* responses;
 
-    BasicResponse()
-    {
-    }
+    BasicResponse() = default;
 
     BasicResponse&
     operator()(const std::string& response)
@@ -357,11 +370,11 @@ ChatBot::GetResponse(const std::string& dirty_input)
     for(const auto& keyword : resp.inputs)
     {
       // todo: look into levenshtein distance
-      if(keyword.size() > match_length)
+      if(keyword.words.size() > match_length)
       {
         if(chatbot::MatchesInputVector(input, keyword))
         {
-          match_length = keyword.size();
+          match_length = keyword.words.size();
           response     = last_event == resp.event_id
                          ? SelectResponse(database.similar_input)
                          : SelectResponse(resp.responses);

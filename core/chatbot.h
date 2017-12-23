@@ -8,12 +8,23 @@
 
 namespace chatbot
 {
+  struct Input
+  {
+    std::vector<std::string> words;
+    enum Location
+    {
+      AT_START,
+      IN_MIDDLE,
+      AT_END,
+      ALONE
+    } location = IN_MIDDLE;
+  };
   struct Response
   {
-    int                                   event_id = 0;
-    std::vector<std::vector<std::string>> inputs;
-    bool                                  ends_conversation = false;
-    std::vector<std::string>              responses;
+    int                      event_id = 0;
+    std::vector<Input>       inputs;
+    bool                     ends_conversation = false;
+    std::vector<std::string> responses;
   };
 
   struct ResponseBuilder
@@ -25,7 +36,7 @@ namespace chatbot
     }
 
     ResponseBuilder&
-    Input(const std::string& response);
+    Input(const std::string& response, Input::Location where = Input::AT_START);
 
     ResponseBuilder&
     operator()(const std::string& response);
