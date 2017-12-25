@@ -29,9 +29,6 @@ class Image
   void
   Setup(int image_width, int image_height, bool alpha, int default_value = 0);
 
-  // 0,0 is lower left
-  // x-axis is positive right
-  // y-axis is positive up
   void
   SetPixel(int x, int y, const Rgb& color);
   void

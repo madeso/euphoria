@@ -18,3 +18,9 @@ The following table lists how the sources are structured
 | `external`      | external libraries |
 | `cmake_modules` | find scripts for CMake |
 
+# Coordinate system
+
+* 0,0 is lower left
+* x-axis is positive right
+* y-axis is positive up
+
