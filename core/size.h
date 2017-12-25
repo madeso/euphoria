@@ -166,6 +166,14 @@ operator/(const Size<T>& lhs, const T& rhs)
   return t;
 }
 
+template <typename S, typename T>
+S&
+operator<<(S& s, const Size<T>& r)
+{
+  s << r.GetWidth() << " x " << r.GetHeight() << ")";
+  return s;
+}
+
 typedef Size<int>   Sizei;
 typedef Size<float> Sizef;
 

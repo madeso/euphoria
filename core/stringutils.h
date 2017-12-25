@@ -134,6 +134,21 @@ MapToStringVector(const std::map<Key, Value>& map)
   return ret;
 }
 
+template<typename T>
+std::vector<std::string>
+VectorToStringVector(const std::vector<T>& data)
+{
+  std::vector<std::string> ret;
+  ret.reserve(data.size());
+  for(const auto& d : data)
+  {
+    const std::string str = Str() << d;
+    ret.emplace_back(str);
+  }
+  return ret;
+}
+
+
 // remove all characters in ch from str
 std::string
 Strip(const std::string& str, const std::string& ch);
