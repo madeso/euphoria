@@ -66,10 +66,12 @@ message Panel {
 
 message Widget {
   // common data
-  optional int32 column = 1;
-  optional int32 row = 2;
-  optional float preferred_width = 3;
-  optional float preferred_height = 4;
+  optional string name = 1;
+
+  optional int32 column = 10;
+  optional int32 row = 11;
+  optional float preferred_width = 12;
+  optional float preferred_height = 13;
 
 
   // implementations, only one is valid
@@ -128,8 +130,6 @@ message Skin {
   optional ButtonState button_idle = 3;
   optional ButtonState button_hot = 4;
   optional ButtonState button_active_hot = 5;
-
-
 }
 
 message File {

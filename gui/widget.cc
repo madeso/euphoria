@@ -41,7 +41,7 @@ Widget::GetRect() const
 void
 Widget::SetRect(const Rectf& r)
 {
-  LOG_INFO("Setting gui rect" << r);
+  LOG_INFO("Setting gui rect of '" << name << "' " << r);
   rect_ = r;
   OnSize();
 }

@@ -127,6 +127,8 @@ CreateWidget(
 
   ASSERT(ret.get());
 
+  ret->name = w.name();
+
   SetupLayout(&ret->Layout(), w);
 
   return ret;

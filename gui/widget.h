@@ -1,6 +1,8 @@
 #ifndef GUI_WIDGET_H
 #define GUI_WIDGET_H
 
+#include <string>
+
 #include "core/rect.h"
 #include "core/size.h"
 
@@ -11,6 +13,8 @@ class SpriteRenderer;
 
 class Widget {
 public:
+  std::string name;
+
   explicit Widget(UiState* state);
   virtual ~Widget();
 
