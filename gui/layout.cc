@@ -120,7 +120,7 @@ TableLayout::DoLayout(
     float             x       = topleft.x;
     float             y       = topleft.y;
 
-    LOG_INFO( "widget x " << x << ", y " << y );
+    LOG_INFO( "widget x '" << w->name << "' " << x << ", y " << y );
 
     for(int c = 0; c < d.GetColumn(); ++c)
     {
@@ -131,7 +131,7 @@ TableLayout::DoLayout(
       y -= height[r];
     }
 
-    LOG_INFO( "widget x " << x << ", y " << y );
+    LOG_INFO( "widget x '" << w->name << "' " << x << ", y " << y );
 
     w->SetRect(Rectf::FromTopLeftWidthHeight(
         y, x, width[d.GetColumn()], height[d.GetRow()]));
@@ -161,7 +161,9 @@ SingleRowLayout::CalculateMinimumArea(
     UpdateMax(&height, s.GetHeight());
   }
 
-  return Sizef::FromWidthHeight(width, height);
+  const auto s = Sizef::FromWidthHeight(width, height);
+  LOG_INFO("Single row layout min size: " << s);
+  return s;
 }
 
 void
