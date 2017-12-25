@@ -27,9 +27,6 @@ public:
   Rectf GetRect() const;
   void SetRect(const Rectf& r);
 
-  LayoutData& Layout();
-  const LayoutData& Layout() const;
-
   Sizef GetPreferredSize() const;
 
   virtual Sizef CalculateMinimumSize() const = 0;
@@ -42,7 +39,11 @@ protected:
 
 private:
   UiState* state_;
-  LayoutData layout_;
+
+public:
+  LayoutData layout;
+
+private:
   Rectf rect_;
 };
 

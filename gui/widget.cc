@@ -46,25 +46,13 @@ Widget::SetRect(const Rectf& r)
   OnSize();
 }
 
-LayoutData&
-Widget::Layout()
-{
-  return layout_;
-}
-
-const LayoutData&
-Widget::Layout() const
-{
-  return layout_;
-}
-
 Sizef
 Widget::GetPreferredSize() const
 {
   const Sizef min = this->CalculateMinimumSize();
   return Sizef::FromWidthHeight(
-      Max(min.GetWidth(), Layout().GetPreferredWidth()),
-      Max(min.GetHeight(), Layout().GetPreferredHeight()));
+      Max(min.GetWidth(), layout.GetPreferredWidth()),
+      Max(min.GetHeight(), layout.GetPreferredHeight()));
 }
 
 const UiState&

@@ -41,7 +41,7 @@ TableLayout::CalculateMinimumArea(
 
   for(auto w : widgets)
   {
-    const LayoutData& d = w->Layout();
+    const LayoutData& d = w->layout;
     const Sizef&      s = w->GetPreferredSize();
     UpdateMax(&width[d.GetColumn()], s.GetWidth());
     UpdateMax(&height[d.GetRow()], s.GetHeight());
@@ -67,7 +67,7 @@ TableLayout::DoLayout(
 
   for(auto w : *widgets)
   {
-    const LayoutData& d = w->Layout();
+    const LayoutData& d = w->layout;
     const Sizef&      s = w->GetPreferredSize();
     UpdateMax(&width[d.GetColumn()], s.GetWidth());
     UpdateMax(&height[d.GetRow()], s.GetHeight());
@@ -115,7 +115,7 @@ TableLayout::DoLayout(
 
   for(auto w : *widgets)
   {
-    const LayoutData& d       = w->Layout();
+    const LayoutData& d       = w->layout;
     const auto        topleft = area.TopLeft();
     float             x       = topleft.x;
     float             y       = topleft.y;

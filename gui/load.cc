@@ -129,7 +129,7 @@ CreateWidget(
 
   ret->name = w.name();
 
-  SetupLayout(&ret->Layout(), w);
+  SetupLayout(&ret->layout, w);
 
   return ret;
 }
