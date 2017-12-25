@@ -35,7 +35,6 @@ class SpriteRenderer
   DrawNinepatch(
       const ScalableSprite& ninepatch,
       const vec2f&          position,
-      const Angle&     angle = Angle::Zero(),
       const vec2f&          scale  = vec2f(1, 1),
       const Rgba&           color  = Rgba(1.0f));
 

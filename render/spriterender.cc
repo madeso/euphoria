@@ -73,7 +73,6 @@ void
 SpriteRenderer::DrawNinepatch(
     const ScalableSprite& ninepatch,
     const vec2f&          position,
-    const Angle&     angle,
     const vec2f&          scale,
     const Rgba&           color)
 {
@@ -83,7 +82,7 @@ SpriteRenderer::DrawNinepatch(
   const vec2f d(
       half.GetWidth() * (scale.x - 1.0f), half.GetHeight() * (scale.y - 1.0f));
   // todo: always moving up by height, change this in the buffer instead
-  CommonDraw(position - d-vec2f{0, size.GetHeight()}, angle, color, scale, scale);
+  CommonDraw(position - d-vec2f{0, size.GetHeight()}, Angle::Zero(), color, scale, scale);
 
   glActiveTexture(GL_TEXTURE0);
   Use(ninepatch.GetTextureId());

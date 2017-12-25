@@ -112,7 +112,6 @@ Button::Render(SpriteRenderer* renderer) const
       renderer->DrawNinepatch(
           *sprite_.get(),
           GetRect().TopLeft() + position_displacement_.GetValue(),
-          Angle::Zero(),
           vec2f(scale_.GetValue(), scale_.GetValue()),
           image_color_.GetValue());
     }
