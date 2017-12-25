@@ -2,6 +2,8 @@
 
 #include "core/numeric.h"
 #include "core/log.h"
+#include "core/stringmerger.h"
+#include "core/stringutils.h"
 
 #include "gui/widget.h"
 
@@ -45,9 +47,13 @@ TableLayout::CalculateMinimumArea(
     UpdateMax(&height[d.GetRow()], s.GetHeight());
   }
 
-  return Sizef::FromWidthHeight(
+  const auto s = Sizef::FromWidthHeight(
       std::accumulate(width.begin(), width.end(), 0),
       std::accumulate(height.begin(), height.end(), 0));
+
+  LOG_INFO("Calculate minumum area " << s);
+
+  return s;
 }
 
 void
@@ -67,8 +73,13 @@ TableLayout::DoLayout(
     UpdateMax(&height[d.GetRow()], s.GetHeight());
   }
 
+  LOG_INFO("Table widths: " << StringMerger::Array().Generate(VectorToStringVector(width)));
+  LOG_INFO("Table heights: " << StringMerger::Array().Generate(VectorToStringVector(height)));
+
   const float total_width  = std::accumulate(width.begin(), width.end(), 0);
   const float total_height = std::accumulate(height.begin(), height.end(), 0);
+
+  LOG_INFO("Width " <<  total_width << " height: " << total_height);
 
   const float leftover_width  = area.GetWidth() - total_width;
   const float leftover_height = area.GetHeight() - total_height;
@@ -109,14 +120,19 @@ TableLayout::DoLayout(
     float             x       = topleft.x;
     float             y       = topleft.y;
 
+    LOG_INFO( "widget x " << x << ", y " << y );
+
     for(int c = 0; c < d.GetColumn(); ++c)
     {
       x += width[c];
     }
     for(int r = 0; r < d.GetRow(); ++r)
     {
-      y += height[r];
+      y -= height[r];
     }
+
+    LOG_INFO( "widget x " << x << ", y " << y );
+
     w->SetRect(Rectf::FromTopLeftWidthHeight(
         y, x, width[d.GetColumn()], height[d.GetRow()]));
   }
