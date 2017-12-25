@@ -78,10 +78,12 @@ SpriteRenderer::DrawNinepatch(
     const Rgba&           color)
 {
   // const vec2f size = scale;
-  const auto  half = ninepatch.GetSize() / 2.0f;
+  const auto size = ninepatch.GetSize();
+  const auto  half = size / 2.0f;
   const vec2f d(
       half.GetWidth() * (scale.x - 1.0f), half.GetHeight() * (scale.y - 1.0f));
-  CommonDraw(position - d, rotate, color, scale, scale);
+  // todo: always moving up by height, change this in the buffer instead
+  CommonDraw(position - d-vec2f{0, size.GetHeight()}, rotate, color, scale, scale);
 
   glActiveTexture(GL_TEXTURE0);
   Use(ninepatch.GetTextureId());
