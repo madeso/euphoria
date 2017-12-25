@@ -166,7 +166,7 @@ ScalableSprite::BuildData() const
 */
 
 #define MAKE_POINT(COL, ROW) \
-  vec2f(position_##COL, position_##ROW), vec2f(uv_##COL, uv_##ROW)
+  vec2f(position_##COL, position_##ROW), vec2f(uv_##COL, 1-uv_##ROW)
       const Point a(MAKE_POINT(current_col, current_row));
       const Point b(MAKE_POINT(next_col, current_row));
       const Point c(MAKE_POINT(current_col, next_row));
