@@ -19,6 +19,7 @@ class SpriteRenderer
   SpriteRenderer(Shader* shader);
   ~SpriteRenderer();
 
+  // position is center
   void
   DrawSprite(
       const Texture2d& texture,
@@ -26,6 +27,8 @@ class SpriteRenderer
       float            rotate = 0.0f,
       const vec2f&     scale  = vec2f(1, 1),
       const Rgba&      color  = Rgba(1.0f));
+
+  // bottom left
   void
   DrawNinepatch(
       const ScalableSprite& ninepatch,
