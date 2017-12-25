@@ -23,12 +23,12 @@ void
 SpriteRenderer::DrawSprite(
     const Texture2d& texture,
     const vec2f&     position,
-    float            rotate,
+    const Angle&     angle,
     const vec2f&     scale,
     const Rgba&      color)
 {
   const vec2f size(scale.x * texture.GetWidth(), scale.y * texture.GetHeight());
-  CommonDraw(position, rotate, color, size, size);
+  CommonDraw(position, angle, color, size, size);
 
   glActiveTexture(GL_TEXTURE0);
   Use(&texture);
@@ -39,7 +39,7 @@ SpriteRenderer::DrawSprite(
 void
 SpriteRenderer::CommonDraw(
     const vec2f& position,
-    float        rotate,
+    const Angle&     angle,
     const Rgba&  color,
     const vec2f& size,
     const vec2f& scale) const
@@ -59,7 +59,7 @@ SpriteRenderer::CommonDraw(
               0.0f))  // translate sprite to center
           .Rotate(AxisAngle::RightHandAround(
               vec3f::ZAxis(),
-              Angle::FromRadians(rotate)))  // rotate around center
+              angle))  // rotate around center
           .Translate(
               vec3f(-0.5f * size.x, -0.5f * size.y, 0.0f))  // translate back
 
@@ -73,7 +73,7 @@ void
 SpriteRenderer::DrawNinepatch(
     const ScalableSprite& ninepatch,
     const vec2f&          position,
-    float                 rotate,
+    const Angle&     angle,
     const vec2f&          scale,
     const Rgba&           color)
 {
@@ -83,7 +83,7 @@ SpriteRenderer::DrawNinepatch(
   const vec2f d(
       half.GetWidth() * (scale.x - 1.0f), half.GetHeight() * (scale.y - 1.0f));
   // todo: always moving up by height, change this in the buffer instead
-  CommonDraw(position - d-vec2f{0, size.GetHeight()}, rotate, color, scale, scale);
+  CommonDraw(position - d-vec2f{0, size.GetHeight()}, angle, color, scale, scale);
 
   glActiveTexture(GL_TEXTURE0);
   Use(ninepatch.GetTextureId());

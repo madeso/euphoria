@@ -26,11 +26,6 @@ class Sprite
   void
   SetPosition(const vec2f& p);
 
-  void
-  SetRotation(float r);
-  float
-  GetRotation() const;
-
   float
   GetHeight() const;
   float
@@ -45,7 +40,11 @@ class Sprite
  private:
   std::shared_ptr<Texture2d> texture_;
   vec2f                      position_;
-  float                      rotate_;
+public:
+
+  Angle                      rotation;
+
+private:
   vec2f                      scale_;
   Rgb                        color_;
   float                      alpha_;

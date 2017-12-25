@@ -9,7 +9,7 @@
 Sprite::Sprite(std::shared_ptr<Texture2d> texture, const vec2f& position)
     : texture_(texture)
     , position_(position)
-    , rotate_(0.0f)
+    , rotation( Angle::Zero() )
     , scale_(vec2f(1, 1))
     , color_(Rgb(1.0f))
     , alpha_(1.0f)
@@ -32,18 +32,6 @@ void
 Sprite::SetPosition(const vec2f& p)
 {
   position_ = p;
-}
-
-void
-Sprite::SetRotation(float r)
-{
-  rotate_ = r;
-}
-
-float
-Sprite::GetRotation() const
-{
-  return rotate_;
 }
 
 float
@@ -69,7 +57,7 @@ void
 Sprite::Render(SpriteRenderer* render)
 {
   render->DrawSprite(
-      *texture_, position_, rotate_, scale_, Rgba(color_, alpha_));
+      *texture_, position_, rotation, scale_, Rgba(color_, alpha_));
 }
 
 Layer::Layer(SpriteRenderer* render)

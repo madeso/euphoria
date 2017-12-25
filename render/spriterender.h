@@ -2,12 +2,14 @@
 #define SPRITE_RENDERER_H
 
 #include <memory>
-#include "render/shader.h"
-#include "render/texture.h"
 
 #include "core/vec2.h"
 #include "core/rgb.h"
+#include "core/angle.h"
+
 #include "render/shaderuniform.h"
+#include "render/shader.h"
+#include "render/texture.h"
 
 class ScalableSprite;
 
@@ -24,7 +26,7 @@ class SpriteRenderer
   DrawSprite(
       const Texture2d& texture,
       const vec2f&     position,
-      float            rotate = 0.0f,
+      const Angle&     angle = Angle::Zero(),
       const vec2f&     scale  = vec2f(1, 1),
       const Rgba&      color  = Rgba(1.0f));
 
@@ -33,7 +35,7 @@ class SpriteRenderer
   DrawNinepatch(
       const ScalableSprite& ninepatch,
       const vec2f&          position,
-      float                 rotate = 0.0f,
+      const Angle&     angle = Angle::Zero(),
       const vec2f&          scale  = vec2f(1, 1),
       const Rgba&           color  = Rgba(1.0f));
 
@@ -49,7 +51,7 @@ class SpriteRenderer
   void
   CommonDraw(
       const vec2f& position,
-      float        rotate,
+      const Angle&     angle,
       const Rgba&  color,
       const vec2f& size,
       const vec2f& scale) const;
