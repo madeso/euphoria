@@ -8,6 +8,7 @@ message FontFile {
 message Source {
   // only 1
   optional FontFile font = 1;
+  // add character from tilemap and images
 }
 
 message Root {

@@ -47,11 +47,10 @@ namespace
     std::cerr << "FONT Error: " << err << "\n";
   }
 
-  unsigned int
+  std::string
   ConvertCharToIndex(char c)
   {
-    // not entirely sure this is correct
-    return static_cast<unsigned int>(c);
+    return std::string{c};
   }
 }  // namespace
 
@@ -77,7 +76,7 @@ struct Library
 
 struct FontChar
 {
-  unsigned int               c{0};
+  std::string                c;
   bool                       valid{false};
   int                        glyph_width{0};
   int                        glyph_height{0};
@@ -86,6 +85,14 @@ struct FontChar
   int                        advance{0};
   std::vector<unsigned char> pixels;
 };
+
+namespace {
+  FT_UInt CharToFt(char c)
+  {
+    // todo: support unicode/utf-8 character encoding
+    return static_cast<FT_UInt>(c);
+  }
+}
 
 struct Face
 {
@@ -105,9 +112,9 @@ struct Face
   }
 
   FontChar
-  GetChar(unsigned int c)
+  GetChar(char c)
   {
-    const FT_Error error = FT_Load_Char(face, c, FT_LOAD_RENDER);
+    const FT_Error error = FT_Load_Char(face, CharToFt(c), FT_LOAD_RENDER);
     if(error != 0)
     {
       std::cerr << "Failed to get char\n";
@@ -140,7 +147,7 @@ struct Face
 };
 
 CharData::CharData(
-    const BufferBuilder2d& data, const Rectf& ex, unsigned int ch, float ad)
+    const BufferBuilder2d& data, const Rectf& ex, const std::string& ch, float ad)
     : buffer(data)
     , extent(ex)
     , c(ch)
@@ -226,7 +233,7 @@ GetCharactersFromFont(
   fontchars.chars.reserve(chars.length());
   for(char c : chars)
   {
-    FontChar cc = f.GetChar(ConvertCharToIndex(c));
+    FontChar cc = f.GetChar(c);
     if(!cc.valid)
     {
       continue;
@@ -243,22 +250,24 @@ GetCharactersFromFont(
   if(use_kerning == 1)
   {
     std::cout << "kerning...\n";
-    for(const FontChar& previous : fontchars.chars)
+    for(const char previous : chars)
     {
-      for(const FontChar& current : fontchars.chars)
+      for(const char current : chars)
       {
-        if(previous.c == current.c)
+        if(previous == current)
         {
           continue;
         }
+        const std::string previous_c = ConvertCharToIndex(previous);
+        const std::string current_c = ConvertCharToIndex(current);
         FT_Vector delta{};
         FT_Get_Kerning(
-            f.face, previous.c, current.c, FT_KERNING_DEFAULT, &delta);
+            f.face, CharToFt(previous), CharToFt(current), FT_KERNING_DEFAULT, &delta);
         int dx = delta.x >> 6;
         if(dx != 0)
         {
           fontchars.kerning.insert(KerningMap::value_type(
-              KerningMap::key_type(previous.c, current.c), dx));
+              KerningMap::key_type(previous_c, current_c), dx));
         }
       }
     }
@@ -462,16 +471,16 @@ Font::Draw(
   }
 
   int          index           = 0;
-  unsigned int last_char_index = 0;
+  std::string last_char_index = "";
   for(char c : str)
   {
     const int this_index = index;
     ++index;
-    const unsigned int char_index = ConvertCharToIndex(c);
+    const std::string char_index = ConvertCharToIndex(c);
     auto               it         = chars_.find(char_index);
     if(it == chars_.end())
     {
-      std::cerr << "Failed to print\n";
+      LOG_ERROR("Failed to print " << char_index);
       continue;
     }
     std::shared_ptr<CharData> ch = it->second;
@@ -497,14 +506,14 @@ Font::Draw(
 Rectf
 Font::GetExtents(const std::string& str, float scale) const
 {
-  unsigned int last_char_index = 0;
+  std::string last_char_index = "";
   vec2f        position(0.0f);
   Rectf        ret;
 
   for(char c : str)
   {
     // todo: support character ligatures
-    const unsigned int char_index = ConvertCharToIndex(c);
+    const std::string char_index = ConvertCharToIndex(c);
     auto               it         = chars_.find(char_index);
     if(it == chars_.end())
     {

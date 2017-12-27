@@ -21,16 +21,16 @@ class FileSystem;
 struct CharData
 {
   CharData(
-      const BufferBuilder2d& data, const Rectf& ex, unsigned int ch, float ad);
+      const BufferBuilder2d& data, const Rectf& ex, const std::string& ch, float ad);
 
   Buffer2d     buffer;
   Rectf        extent;
-  unsigned int c;
+  std::string c;
   float        advance;
 };
 
-typedef std::map<unsigned int, std::shared_ptr<CharData>> CharDataMap;
-typedef std::map<std::pair<unsigned int, unsigned int>, int> KerningMap;
+typedef std::map<std::string, std::shared_ptr<CharData>> CharDataMap;
+typedef std::map<std::pair<std::string, std::string>, int> KerningMap;
 
 class Font;
 
