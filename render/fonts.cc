@@ -377,11 +377,11 @@ Font::Font(FileSystem* fs,
   {
     LOG_ERROR("Failed to load " << font_file << ": " << error);
   }
-  for(const auto& d: font_root.data())
+  for(const auto& source: font_root.sources())
   {
-    if(d.has_font())
+    if(source.has_font())
     {
-      const font::FontFile& font = d.font();
+      const font::FontFile& font = source.font();
       fontchars.CombineWith(GetCharactersFromFont(font.file(), font_root.size(), font.characters()));
     }
   }

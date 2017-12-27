@@ -5,12 +5,12 @@ message FontFile {
   optional string characters = 2;
 }
 
-message Data {
+message Source {
   // only 1
   optional FontFile font = 1;
 }
 
 message Root {
   optional float size = 1;
-  repeated Data data = 2;
+  repeated Source sources = 2;
 }
