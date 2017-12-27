@@ -37,6 +37,7 @@ include_directories(SYSTEM ${CMAKE_CURRENT_BINARY_DIR})
 PROTOBUF_GENERATE_CPP(PROTO_SRCS PROTO_HDRS
   ../proto/scalingsprite.proto
   ../proto/materialshader.proto
+  ../proto/font.proto
   )
 set(src ${src} ${pbjson_src} ${PROTO_SRCS} ${PROTO_HDRS})
 

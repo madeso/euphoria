@@ -16,6 +16,7 @@
 
 class Shader;
 class BufferBuilder2d;
+class FileSystem;
 
 struct CharData
 {
@@ -116,11 +117,9 @@ class Text
 class Font
 {
  public:
-  Font(
+  Font(FileSystem* fs,
       Shader*            shader,
-      const std::string& font_file,
-      unsigned int       font_size,
-      const std::string& possible_chars);
+      const std::string& font_file);
   unsigned int
   GetFontSize() const;
 

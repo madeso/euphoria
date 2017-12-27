@@ -4,6 +4,7 @@
 #include "render/gl.h"
 #include "render/shader.h"
 #include "core/log.h"
+#include "core/proto.h"
 
 #include <vector>
 #include <memory>
@@ -11,6 +12,8 @@
 #include "core/assert.h"
 #include "core/noncopyable.h"
 #include <iostream>
+
+#include "font.pb.h"
 
 #include "render/bufferbuilder2d.h"
 #include "render/shaderattribute2d.h"
@@ -188,6 +191,26 @@ struct FontChars
 {
   std::vector<FontChar> chars;
   KerningMap            kerning;
+
+  void CombineWith(const FontChars& fc)
+  {
+    for(const auto& c : fc.chars){
+      chars.push_back(c);
+    }
+
+    for(const auto& e: fc.kerning)
+    {
+      const auto found = kerning.find(e.first);
+      if(found == kerning.end())
+      {
+        kerning.insert(e);
+      }
+      else
+      {
+        LOG_ERROR("Multiple kernings found when trying to combine");
+      }
+    }
+  }
 };
 
 FontChars
@@ -336,21 +359,32 @@ TextBackgroundRenderer::Draw(float alpha, const Rectf& area)
 
 ////////////////////////////////////////////////////////////////////////////////
 
-Font::Font(
+Font::Font(FileSystem* fs,
     Shader*            shader,
-    const std::string& font_file,
-    unsigned int       font_size,
-    const std::string& possible_chars)
+    const std::string& font_file)
     : shader_(shader)
-    , font_size_(font_size)
     , color_(shader->GetUniform("color"))
     , model_(shader->GetUniform("model"))
 {
   const int texture_width  = 512;
   const int texture_height = 512;
 
-  const FontChars fontchars =
-      GetCharactersFromFont(font_file, font_size, possible_chars);
+  FontChars fontchars;
+  font::Root font_root;
+
+  std::string error = LoadProtoJson(fs, &font_root, font_file);
+  if(!error.empty())
+  {
+    LOG_ERROR("Failed to load " << font_file << ": " << error);
+  }
+  for(const auto& d: font_root.data())
+  {
+    if(d.has_font())
+    {
+      const font::FontFile& font = d.font();
+      fontchars.CombineWith(GetCharactersFromFont(font.file(), font_root.size(), font.characters()));
+    }
+  }
 
   // pack char textures to a single texture
   const int               num_rects = fontchars.chars.size();

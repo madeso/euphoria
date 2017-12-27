@@ -1,0 +1,16 @@
+package font;
+
+message FontFile {
+  optional string file = 1;
+  optional string characters = 2;
+}
+
+message Data {
+  // only 1
+  optional FontFile font = 1;
+}
+
+message Root {
+  optional float size = 1;
+  repeated Data data = 2;
+}
