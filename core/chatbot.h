@@ -22,6 +22,7 @@ namespace chatbot
     std::vector<std::string> words;
     enum Location
     {
+      LOWEST,
       IN_MIDDLE,
       AT_START,
       AT_END,

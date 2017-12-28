@@ -380,22 +380,24 @@ ChatBot::GetResponse(const std::string& dirty_input)
   }
   last_input = input;
 
-  unsigned long match_length = 0;
-  std::string   response;
+  unsigned long            match_length   = 0;
+  chatbot::Input::Location match_location = chatbot::Input::LOWEST;
+  std::string              response;
 
   for(const auto& resp : database.responses)
   {
     for(const auto& keyword : resp.inputs)
     {
       // todo: look into levenshtein distance
-      if(keyword.words.size() + keyword.location > match_length)
+      if(keyword.words.size() > match_length ||
+         (keyword.words.size() == match_length &&
+          keyword.location > match_location))
       {
         if(chatbot::MatchesInputVector(input, keyword))
         {
-          // todo: only use keyword.location as a priority breaker when lengths
-          // are equal
-          match_length = keyword.words.size() + keyword.location;
-          response     = last_event == resp.event_id
+          match_length   = keyword.words.size();
+          match_location = keyword.location;
+          response       = last_event == resp.event_id
                          ? SelectResponse(database.similar_input)
                          : SelectResponse(resp.responses);
 
