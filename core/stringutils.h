@@ -79,6 +79,8 @@ EndsWith(const std::string& string_to_test, const std::string& end);
  */
 std::string
 ToLower(const std::string& str);
+std::string
+ToUpper(const std::string& str);
 
 /** Replace all occurrences in a string.
 @param string the source string.
@@ -134,7 +136,7 @@ MapToStringVector(const std::map<Key, Value>& map)
   return ret;
 }
 
-template<typename T>
+template <typename T>
 std::vector<std::string>
 VectorToStringVector(const std::vector<T>& data)
 {

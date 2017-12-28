@@ -90,6 +90,14 @@ ToLower(const std::string& str)
   return result;
 }
 
+std::string
+ToUpper(const std::string& str)
+{
+  std::string result = str;
+  std::transform(result.begin(), result.end(), result.begin(), toupper);
+  return result;
+}
+
 void
 StringReplace(
     std::string*       string,

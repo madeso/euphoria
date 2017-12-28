@@ -29,6 +29,9 @@ class StringMerger
   static const StringMerger&
   Array();
 
+  static const StringMerger&
+  Space();
+
   /** Sets the separator arguments.
   @param separator the separator to use.
   @param final_separator the separator to use at the last element.

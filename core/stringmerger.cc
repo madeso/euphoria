@@ -65,6 +65,14 @@ StringMerger::Array()
   return s_Array;
 }
 
+const StringMerger&
+StringMerger::Space()
+{
+  static const StringMerger s_Array =
+      StringMerger().SetSeparator(" ").SetStartAndEnd("", "");
+  return s_Array;
+}
+
 StringMerger&
 StringMerger::SetSeparator(
     const std::string& separator, const std::string& final_separator)
