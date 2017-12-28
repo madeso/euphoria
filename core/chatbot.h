@@ -22,8 +22,8 @@ namespace chatbot
     std::vector<std::string> words;
     enum Location
     {
-      AT_START,
       IN_MIDDLE,
+      AT_START,
       AT_END,
       ALONE
     } location;
@@ -76,7 +76,8 @@ namespace chatbot
     CreateResponse();
 
     ResponseBuilder
-    AddResponse(const std::string& input);
+    AddResponse(
+        const std::string& input, Input::Location where = Input::AT_START);
   };
 }
 

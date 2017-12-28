@@ -117,10 +117,10 @@ namespace chatbot
   }
 
   ResponseBuilder
-  Database::AddResponse(const std::string& input)
+  Database::AddResponse(const std::string& input, Input::Location where)
   {
     ResponseBuilder r{&CreateResponse()};
-    r.Input(input);
+    r.Input(input, where);
     return r;
   }
 
@@ -155,7 +155,9 @@ ChatBot::ChatBot()
   database.AddResponse("WHAT IS YOUR NAME")("MY NAME IS CHATTERBOT.")(
       "YOU CAN CALL ME CHATTERBOT.")("WHY DO YOU WANT TO KNOW MY NAME?");
 
-  database.AddResponse("HI").Input("HELLO")("HI THERE!")("HOW ARE YOU?")("HI!");
+  database.AddResponse("HI", chatbot::Input::AT_START)
+      .Input("HELLO", chatbot::Input::AT_START)("HI THERE!")("HOW ARE YOU?")(
+          "HI!");
 
   database.AddResponse("HOW ARE YOU")("I'M DOING FINE!")(
       "I'M DOING WELL AND YOU?")("WHY DO YOU WANT TO KNOW HOW AM I DOING?");
@@ -267,16 +269,22 @@ ChatBot::ChatBot()
       "PLEASE DON'T ASK ME SUCH QUESTION, IT GIVES ME HEADACHES.");
 
 
-  database.AddResponse("I")("SO, YOU ARE TALKING ABOUT YOURSELF")(
+  database.AddResponse(
+      "I", chatbot::Input::AT_START)("SO, YOU ARE TALKING ABOUT YOURSELF")(
       "SO, THIS IS ALL ABOUT YOU?")("TELL ME MORE ABOUT YOURSELF.");
 
-  database.AddResponse("I WANT")("WHY DO YOU WANT IT?")(
-      "IS THERE ANY REASON WHY YOU WANT THIS?")("IS THIS A WISH?")(
-      "WHAT ELSE YOU WANT?");
+  database.AddResponse("I WANT", chatbot::Input::AT_START)(
+      "WHY DO YOU WANT IT?")("IS THERE ANY REASON WHY YOU WANT THIS?")(
+      "IS THIS A WISH?")("WHAT ELSE YOU WANT?");
+  database.AddResponse("I WANT", chatbot::Input::ALONE)("YOU WANT WHAT?");
+  database.AddResponse("BECAUSE", chatbot::Input::ALONE)("BECAUSE OF WHAT?")(
+      "SORRY, BUT THIS IS LITTLE UNCLEAR.");
+  database.AddResponse(
+      "I HATE", chatbot::Input::ALONE)("YOU IS IT THAT YOU HATE?");
 
-  database.AddResponse("I HATE")("WHY DO YOU HATE IT?")(
-      "THERE MUST A GOOD REASON FOR YOU TO HATE IT.")(
-      "HATRED IS NOT A GOOD THING BUT IT COULD BE JUSTIFIED WHEN IT IS "
+  database.AddResponse("I HATE", chatbot::Input::AT_START)(
+      "WHY DO YOU HATE IT?")("THERE MUST A GOOD REASON FOR YOU TO HATE IT.")(
+      "HATRED IS NOT A GOOD THING BUT IT COULD BE JUSTIFIED WHEN IT'S "
       "SOMETHING BAD.");
 
   database.AddResponse("I LOVE CHATTING")("GOOD, ME TOO!")(
@@ -372,19 +380,21 @@ ChatBot::GetResponse(const std::string& dirty_input)
   }
   last_input = input;
 
-  unsigned int match_length = 0;
-  std::string  response;
+  unsigned long match_length = 0;
+  std::string   response;
 
   for(const auto& resp : database.responses)
   {
     for(const auto& keyword : resp.inputs)
     {
       // todo: look into levenshtein distance
-      if(keyword.words.size() > match_length)
+      if(keyword.words.size() + keyword.location > match_length)
       {
         if(chatbot::MatchesInputVector(input, keyword))
         {
-          match_length = keyword.words.size();
+          // todo: only use keyword.location as a priority breaker when lengths
+          // are equal
+          match_length = keyword.words.size() + keyword.location;
           response     = last_event == resp.event_id
                          ? SelectResponse(database.similar_input)
                          : SelectResponse(resp.responses);
