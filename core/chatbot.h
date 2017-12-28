@@ -80,6 +80,17 @@ namespace chatbot
     AddResponse(
         const std::string& input, Input::Location where = Input::AT_START);
   };
+
+  struct Transposer
+  {
+    std::vector<std::pair<std::string, std::string>> store;
+
+    Transposer&
+    Add(const std::string& from, const std::string& to);
+
+    std::string
+    Transpose(const std::string& input) const;
+  };
 }
 
 class ChatBot
@@ -98,11 +109,18 @@ class ChatBot
 
  protected:
   std::string
-  SelectResponse(const std::vector<std::string>& responses);
+  SelectBasicResponse(const std::vector<std::string>& responses);
+
+  std::string
+  SelectResponse(
+      const std::vector<std::string>& responses,
+      const chatbot::Input&           keywords,
+      const std::string&              input);
 
  private:
   bool                     is_in_conversation;
   Random                   random;
+  chatbot::Transposer      transposer;
   chatbot::Database        database;
   std::vector<std::string> last_input;
   int                      last_event;

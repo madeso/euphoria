@@ -1,6 +1,7 @@
 #include "core/chatbot.h"
 
 #include "core/stringutils.h"
+#include "core/stringmerger.h"
 
 namespace chatbot
 {
@@ -124,6 +125,26 @@ namespace chatbot
     return r;
   }
 
+  Transposer&
+  Transposer::Add(const std::string& from, const std::string& to)
+  {
+    store.emplace_back(std::make_pair(ToLower(from), ToLower(to)));
+    return *this;
+  }
+
+  std::string
+  Transposer::Transpose(const std::string& input) const
+  {
+    for(const auto& s : store)
+    {
+      if(s.first == input)
+      {
+        return s.second;
+      }
+    }
+    return input;
+  }
+
   struct BasicResponse
   {
     std::vector<std::string>* responses;
@@ -152,6 +173,22 @@ ChatBot::ChatBot()
     , last_input(chatbot::CleanInput("abc"))
     , last_event(-1)
 {
+  transposer.Add("I'M", "YOU'RE")
+      .Add("AM", "ARE")
+      .Add("WERE", "WAS")
+      .Add("ME", "YOU")
+      .Add("YOURS", "MINE")
+      .Add("YOUR", "MY")
+      .Add("I'VE", "YOU'VE")
+      .Add("I", "YOU")
+      .Add("AREN'T", "AM NOT")
+      .Add("WEREN'T", "WASN'T")
+      .Add("I'D", "YOU'D")
+      .Add("DAD", "FATHER")
+      .Add("MOM", "MOTHER")
+      .Add("DREAMS", "DREAM")
+      .Add("MYSELF", "YOURSELF");
+
   database.AddResponse("WHAT IS YOUR NAME")("MY NAME IS CHATTERBOT.")(
       "YOU CAN CALL ME CHATTERBOT.")("WHY DO YOU WANT TO KNOW MY NAME?");
 
@@ -292,12 +329,9 @@ ChatBot::ChatBot()
       "FOR HOW LONG HAVE YOU BEEN CHATTING?")(
       "WHAT IS YOUR FAVORITE CHATTING WEBSITE?");
 
-  database.AddResponse("I MEAN")("SO, THAT'S WHAT YOU MEAN.")(
-      "I THINK THAT I DIDN'T CATCH IT THE FIRST TIME.")(
-      "OH, I DIDN'T KNOW MEANT THAT.");
+  database.AddResponse("I MEAN")("SO, YOU MEAN*.");
 
-  database.AddResponse("I DIDN'T MEAN")("OK, WHAT DID YOU MEAN THEN?")(
-      "SO I GUESS THAT I MISUNDERSTOOD.");
+  database.AddResponse("I DIDN'T MEAN")("OK, YOU DIDN'T MEAN*.");
 
   database.AddResponse("I GUESS")("SO YOU ARE A MAKING GUESS.")(
       "AREN'T YOU SURE?")("ARE YOU GOOD A GUESSING?")(
@@ -367,16 +401,16 @@ ChatBot::GetResponse(const std::string& dirty_input)
   {
     if(last_input.empty())
     {
-      return SelectResponse(database.empty_repetition);
+      return SelectBasicResponse(database.empty_repetition);
     }
-    const std::string response = SelectResponse(database.empty);
+    const std::string response = SelectBasicResponse(database.empty);
     last_input                 = input;
     return response;
   }
 
   if(input == last_input)
   {
-    return SelectResponse(database.same_input);
+    return SelectBasicResponse(database.same_input);
   }
   last_input = input;
 
@@ -398,8 +432,8 @@ ChatBot::GetResponse(const std::string& dirty_input)
           match_length   = keyword.words.size();
           match_location = keyword.location;
           response       = last_event == resp.event_id
-                         ? SelectResponse(database.similar_input)
-                         : SelectResponse(resp.responses);
+                         ? SelectBasicResponse(database.similar_input)
+                         : SelectResponse(resp.responses, keyword, dirty_input);
 
           if(resp.ends_conversation)
           {
@@ -414,7 +448,7 @@ ChatBot::GetResponse(const std::string& dirty_input)
 
   if(response.empty())
   {
-    return SelectResponse(database.no_response);
+    return SelectBasicResponse(database.no_response);
   }
   else
   {
@@ -425,11 +459,54 @@ ChatBot::GetResponse(const std::string& dirty_input)
 std::string
 ChatBot::GetSignOnMessage()
 {
-  return SelectResponse(database.signon);
+  return SelectBasicResponse(database.signon);
+}
+
+namespace chatbot
+{
+  std::vector<std::string>
+  RemoveFrom(const Input& input, const std::vector<std::string>& source)
+  {
+    return source;
+  }
+
+  std::vector<std::string>
+  Transpose(const Transposer& transposer, const std::vector<std::string>& input)
+  {
+    std::vector<std::string> r;
+    r.reserve(input.size());
+    for(const std::string& in : input)
+    {
+      r.push_back(transposer.Transpose(in));
+    }
+    return r;
+  }
+
+  std::string
+  TransposeKeywords(
+      const std::string& selected_response,
+      const Transposer&  transposer,
+      const Input&       keywords,
+      const std::string& input)
+  {
+    const auto star = selected_response.find('*');
+    if(star == std::string::npos)
+    {
+      return selected_response;
+    }
+
+    // todo remove keywords from input
+    const std::string cleaned_input = StringMerger::Space().Generate(
+        Transpose(transposer, RemoveFrom(keywords, CleanInput(input))));
+    const std::string transposed_response =
+        StringReplace(selected_response, "*", ToUpper(cleaned_input));
+
+    return transposed_response;
+  }
 }
 
 std::string
-ChatBot::SelectResponse(const std::vector<std::string>& responses)
+ChatBot::SelectBasicResponse(const std::vector<std::string>& responses)
 {
   int         counter = 0;
   std::string suggested;
@@ -441,6 +518,16 @@ ChatBot::SelectResponse(const std::vector<std::string>& responses)
   last_response = suggested;
   last_event    = -1;
   return suggested;
+}
+
+std::string
+ChatBot::SelectResponse(
+    const std::vector<std::string>& responses,
+    const chatbot::Input&           keywords,
+    const std::string&              input)
+{
+  return chatbot::TransposeKeywords(
+      SelectBasicResponse(responses), transposer, keywords, input);
 }
 
 bool
