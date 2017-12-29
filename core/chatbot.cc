@@ -351,9 +351,9 @@ ChatBot::ChatBot()
       "FOR HOW LONG HAVE YOU BEEN CHATTING?")(
       "WHAT IS YOUR FAVORITE CHATTING WEBSITE?");
 
-  database.AddResponse("I MEAN")("SO, YOU MEAN*.");
+  database.AddResponse("I MEAN")("SO, YOU MEAN *.");
 
-  database.AddResponse("I DIDN'T MEAN")("OK, YOU DIDN'T MEAN*.");
+  database.AddResponse("I DIDN'T MEAN")("OK, YOU DIDN'T MEAN *.");
 
   database.AddResponse("I GUESS")("SO YOU ARE A MAKING GUESS.")(
       "AREN'T YOU SURE?")("ARE YOU GOOD A GUESSING?")(
