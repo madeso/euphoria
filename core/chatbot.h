@@ -38,12 +38,19 @@ namespace chatbot
     explicit Input(
         const std::vector<std::string>& input, Location where = IN_MIDDLE);
   };
+
+  struct SingleResponse
+  {
+    explicit SingleResponse(const std::string& say);
+    std::string to_say;
+  };
+
   struct Response
   {
-    int                      event_id = 0;
-    std::vector<Input>       inputs;
-    bool                     ends_conversation = false;
-    std::vector<std::string> responses;
+    int                         event_id = 0;
+    std::vector<Input>          inputs;
+    bool                        ends_conversation = false;
+    std::vector<SingleResponse> responses;
   };
 
   struct ResponseBuilder
@@ -113,14 +120,17 @@ class ChatBot
   GetSignOnMessage();
 
  protected:
+  unsigned long
+  SelectBasicResponseIndex(const std::vector<std::string>& responses);
+
   std::string
   SelectBasicResponse(const std::vector<std::string>& responses);
 
   std::string
   SelectResponse(
-      const std::vector<std::string>& responses,
-      const chatbot::Input&           keywords,
-      const std::string&              input);
+      const std::vector<chatbot::SingleResponse>& responses,
+      const chatbot::Input&                       keywords,
+      const std::string&                          input);
 
  private:
   bool                     is_in_conversation;

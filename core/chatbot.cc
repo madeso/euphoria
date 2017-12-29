@@ -103,6 +103,11 @@ namespace chatbot
   {
   }
 
+  SingleResponse::SingleResponse(const std::string& say)
+      : to_say(say)
+  {
+  }
+
   ResponseBuilder&
   ResponseBuilder::Input(const std::string& in, Input::Location where)
   {
@@ -113,7 +118,7 @@ namespace chatbot
   ResponseBuilder&
   ResponseBuilder::operator()(const std::string& response)
   {
-    this->response->responses.push_back(response);
+    this->response->responses.emplace_back(response);
     return *this;
   }
 
@@ -521,29 +526,53 @@ namespace chatbot
   }
 }
 
-std::string
-ChatBot::SelectBasicResponse(const std::vector<std::string>& responses)
+unsigned long
+ChatBot::SelectBasicResponseIndex(const std::vector<std::string>& responses)
 {
-  int         counter = 0;
-  std::string suggested;
+  int           counter = 0;
+  unsigned long suggested;
   do
   {
-    suggested = random.Next(responses);
+    suggested = random.NextRange(responses.size());
     counter += 1;
-  } while(suggested == last_response && counter < 15);
-  last_response = suggested;
+  } while(responses[suggested] == last_response && counter < 15);
+  last_response = responses[suggested];
   last_event    = -1;
   return suggested;
 }
 
 std::string
-ChatBot::SelectResponse(
-    const std::vector<std::string>& responses,
-    const chatbot::Input&           keywords,
-    const std::string&              input)
+ChatBot::SelectBasicResponse(const std::vector<std::string>& responses)
 {
+  const auto suggested = SelectBasicResponseIndex(responses);
+  return responses[suggested];
+}
+
+namespace
+{
+  std::vector<std::string>
+  ToStringVec(const std::vector<chatbot::SingleResponse>& responses)
+  {
+    std::vector<std::string> r;
+    r.reserve(responses.size());
+    for(const auto& s : responses)
+    {
+      r.push_back(s.to_say);
+    }
+    return r;
+  }
+}
+
+std::string
+ChatBot::SelectResponse(
+    const std::vector<chatbot::SingleResponse>& responses,
+    const chatbot::Input&                       keywords,
+    const std::string&                          input)
+{
+  const auto index     = SelectBasicResponseIndex(ToStringVec(responses));
+  const auto suggested = responses[index];
   return chatbot::TransposeKeywords(
-      SelectBasicResponse(responses), transposer, keywords, input);
+      suggested.to_say, transposer, keywords, input);
 }
 
 bool

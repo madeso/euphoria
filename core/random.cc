@@ -97,6 +97,12 @@ Random::NextRange(int max)
   return NextRange(0, max);
 }
 
+unsigned long
+Random::NextRange(unsigned long max)
+{
+  return NextRange(0, max);
+}
+
 Color
 Random::NextColor()
 {

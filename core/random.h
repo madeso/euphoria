@@ -38,6 +38,9 @@ class Random
   int
   NextRange(int max);
 
+  unsigned long
+  NextRange(unsigned long max);
+
   Color
   NextColor();
   DawnbringerPalette
