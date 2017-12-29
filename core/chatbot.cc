@@ -17,9 +17,8 @@ namespace chatbot
         ' ');
   }
 
-  // todo: add unit test for this function
-  bool
-  MatchesInputVector(
+  long
+  IndexOfMatchedInput(
       const std::vector<std::string>& input, const Input& keywords)
   {
     const auto& search      = keywords.words;
@@ -27,12 +26,12 @@ namespace chatbot
     const auto  input_size  = input.size();
     if(search_size > input_size)
     {
-      return false;
+      return -1;
     }
 
     if(keywords.location == Input::ALONE && search_size != input_size)
     {
-      return false;
+      return -1;
     }
 
     const auto start_index = keywords.location == Input::AT_END
@@ -61,11 +60,34 @@ namespace chatbot
 
       if(is_match)
       {
-        return true;
+        return input_index;
       }
     }
 
-    return false;
+    return -1;
+  }
+
+  std::vector<std::string>
+  RemoveFrom(const std::vector<std::string>& source, const Input& input)
+  {
+    // todo: implement this
+    const auto index = IndexOfMatchedInput(source, input);
+
+    if(index == -1)
+    {
+      return source;
+    }
+
+    std::vector<std::string> ret;
+    for(long i = 0; i < index; i += 1)
+    {
+      ret.emplace_back(source[i]);
+    }
+    for(unsigned long i = index + input.words.size(); i < source.size(); i += 1)
+    {
+      ret.emplace_back(source[i]);
+    }
+    return ret;
   }
 
 
@@ -427,7 +449,7 @@ ChatBot::GetResponse(const std::string& dirty_input)
          (keyword.words.size() == match_length &&
           keyword.location > match_location))
       {
-        if(chatbot::MatchesInputVector(input, keyword))
+        if(chatbot::IndexOfMatchedInput(input, keyword) != -1)
         {
           match_length   = keyword.words.size();
           match_location = keyword.location;
@@ -465,12 +487,6 @@ ChatBot::GetSignOnMessage()
 namespace chatbot
 {
   std::vector<std::string>
-  RemoveFrom(const Input& input, const std::vector<std::string>& source)
-  {
-    return source;
-  }
-
-  std::vector<std::string>
   Transpose(const Transposer& transposer, const std::vector<std::string>& input)
   {
     std::vector<std::string> r;
@@ -497,7 +513,7 @@ namespace chatbot
 
     // todo remove keywords from input
     const std::string cleaned_input = StringMerger::Space().Generate(
-        Transpose(transposer, RemoveFrom(keywords, CleanInput(input))));
+        Transpose(transposer, RemoveFrom(CleanInput(input), keywords)));
     const std::string transposed_response =
         StringReplace(selected_response, "*", ToUpper(cleaned_input));
 

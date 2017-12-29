@@ -13,9 +13,14 @@ namespace chatbot
   std::vector<std::string>
   CleanInput(const std::string& input);
 
-  bool
-  MatchesInputVector(
+  // return -1 if no matches are found
+  long
+  IndexOfMatchedInput(
       const std::vector<std::string>& input, const Input& keywords);
+
+  // removes 1 match if match is found
+  std::vector<std::string>
+  RemoveFrom(const std::vector<std::string>& source, const Input& input);
 
   struct Input
   {
