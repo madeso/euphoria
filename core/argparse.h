@@ -272,7 +272,7 @@ namespace argparse
 
     template <typename T>
     Extra&
-    simple(
+    add_simple(
         const std::string& name,
         T&                 var,
         CombinerFunction(T, T) combiner = Assign<T, T>,

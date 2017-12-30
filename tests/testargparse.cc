@@ -10,17 +10,21 @@ enum MyEnum
 
 TEST_CASE("argparse", "[argparse]")
 {
-  const std::string        name  = "APP.exe";
-  const auto               empty = std::vector<std::string>{};
+  // test data
+  const std::string name  = "APP.exe";
+  const auto        empty = std::vector<std::string>{};
+
+  // arguments to be parsed
   std::string              compiler;
   int                      i;
   int                      op = 2;
   std::vector<std::string> strings;
 
+  // parser setup
   auto parser = argparse::Parser{"description"};
-  parser.simple("compiler", compiler);
-  parser.simple("int", i);
-  parser.simple("-op", op);
+  parser.add_simple("compiler", compiler);
+  parser.add_simple("int", i);
+  parser.add_simple("-op", op);
   parser.add_vector("-strings", strings).metavar("string");
   //("-enum", &v, Convert<MyEnum>("MyVal", MyEnum::MyVal)("MyVal2",
   // MyEnum::MyVal2) )
