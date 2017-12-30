@@ -233,6 +233,39 @@ namespace argparse
     }
   }
 
+  template <typename T>
+  struct Convert
+  {
+    Convert()
+    {
+      // todo: to lowercase?
+      // todo: almost matching?
+    }
+
+    Convert&
+    operator()(const std::string& a, T t)
+    {
+      map[a] = t;
+      return *this;
+    }
+
+    T
+    operator()(const std::string& type) const
+    {
+      auto found = map.find(type);
+      if(found == map.end())
+      {
+        throw ParserError("Failed to parse " + type);
+      }
+      else
+      {
+        return found->second;
+      }
+    }
+
+    std::map<std::string, T> map;
+  };
+
   template <typename T, typename V>
   class ArgumentT : public ArgumentBase
   {
@@ -275,14 +308,11 @@ namespace argparse
     add_simple(
         const std::string& name,
         T&                 var,
-        CombinerFunction(T, T) combiner = Assign<T, T>,
-        ConverterFunction(T) co = StandardConverter<T>)
+        ConverterFunction(T) co = StandardConverter<T>,
+        CombinerFunction(T, T) combiner = Assign<T, T>)
     {
-      return add<T, T>(name, var, combiner);
+      return add<T, T>(name, var, combiner, co);
     }
-
-    Extra&
-    simple(const std::string& name, ArgumentCallback func);
 
     template <typename T>
     Extra&

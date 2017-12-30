@@ -68,27 +68,6 @@ namespace argparse
 
   ////////////////////////////////////////////////////////////////////////////
 
-  template <typename T>
-  class Convert
-  {
-   public:
-    Convert(const std::string& name, T t)
-    {
-    }
-
-    Convert&
-    operator()(const std::string& name, T t)
-    {
-    }
-
-    T
-    operator()(const std::string& in)
-    {
-    }
-  };
-
-  ////////////////////////////////////////////////////////////////////////////
-
   Count::Count(size_t c)
       : mCount(c)
       , mType(Const)
@@ -366,12 +345,6 @@ namespace argparse
       , positionalIndex(0)
   {
     addFunction("-h", CallHelp(this)).help("show this help message and exit");
-  }
-
-  Extra&
-  Parser::simple(const std::string& name, ArgumentCallback func)
-  {
-    return addFunction(name, func);
   }
 
   Extra&
