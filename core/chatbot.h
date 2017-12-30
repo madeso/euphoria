@@ -3,6 +3,8 @@
 
 #include <string>
 #include <vector>
+#include <map>
+#include <memory>
 
 #include <core/random.h>
 
@@ -42,7 +44,8 @@ namespace chatbot
   struct SingleResponse
   {
     explicit SingleResponse(const std::string& say);
-    std::string to_say;
+    std::string              to_say;
+    std::vector<std::string> topics_mentioned;
   };
 
   struct Response
@@ -51,6 +54,7 @@ namespace chatbot
     std::vector<Input>          inputs;
     bool                        ends_conversation = false;
     std::vector<SingleResponse> responses;
+    std::vector<std::string>    topics_required;
   };
 
   struct ResponseBuilder
@@ -66,6 +70,12 @@ namespace chatbot
 
     ResponseBuilder&
     operator()(const std::string& response);
+
+    ResponseBuilder&
+    operator()(const std::string& response, const std::string& topic);
+
+    ResponseBuilder&
+    Topic(const std::string& topic);
 
     ResponseBuilder&
     EndConversation();
@@ -103,6 +113,26 @@ namespace chatbot
     std::string
     Transpose(const std::string& input) const;
   };
+
+  struct ConversationTopics
+  {
+    void
+    DecreaseAndRemove();
+
+    void
+    Decrease();
+
+    void
+    Remove();
+
+    void
+    Add(const std::string& topic);
+
+    bool
+    Has(const std::string& topic) const;
+
+    std::map<std::string, std::shared_ptr<int>> topics;
+  };
 }
 
 class ChatBot
@@ -133,13 +163,14 @@ class ChatBot
       const std::string&                          input);
 
  private:
-  bool                     is_in_conversation;
-  Random                   random;
-  chatbot::Transposer      transposer;
-  chatbot::Database        database;
-  std::vector<std::string> last_input;
-  int                      last_event;
-  std::string              last_response;
+  bool                        is_in_conversation;
+  Random                      random;
+  chatbot::Transposer         transposer;
+  chatbot::Database           database;
+  chatbot::ConversationTopics current_topics;
+  std::vector<std::string>    last_input;
+  int                         last_event;
+  std::string                 last_response;
 };
 
 

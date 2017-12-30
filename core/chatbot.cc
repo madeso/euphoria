@@ -2,6 +2,9 @@
 
 #include "core/stringutils.h"
 #include "core/stringmerger.h"
+#include "core/log.h"
+
+LOG_SPECIFY_DEFAULT_LOGGER("core.log")
 
 namespace chatbot
 {
@@ -123,6 +126,23 @@ namespace chatbot
   }
 
   ResponseBuilder&
+  ResponseBuilder::operator()(
+      const std::string& response, const std::string& topic)
+  {
+    SingleResponse resp{response};
+    resp.topics_mentioned.push_back(topic);
+    this->response->responses.emplace_back(resp);
+    return *this;
+  }
+
+  ResponseBuilder&
+  ResponseBuilder::Topic(const std::string& topic)
+  {
+    this->response->topics_required.push_back(topic);
+    return *this;
+  }
+
+  ResponseBuilder&
   ResponseBuilder::EndConversation()
   {
     this->response->ends_conversation = true;
@@ -172,6 +192,52 @@ namespace chatbot
     return input;
   }
 
+  void
+  ConversationTopics::DecreaseAndRemove()
+  {
+    Decrease();
+    Remove();
+  }
+
+  void
+  ConversationTopics::Decrease()
+  {
+    for(auto& topic : topics)
+    {
+      *topic.second -= 1;
+    }
+  }
+
+  void
+  ConversationTopics::Remove()
+  {
+    for(auto it = topics.begin(); it != topics.end();)
+    {
+      if(*it->second < 0)
+      {
+        LOG_INFO("Forgetting about " << it->first);
+        it = topics.erase(it);
+      }
+      else
+      {
+        ++it;
+      }
+    }
+  }
+
+  void
+  ConversationTopics::Add(const std::string& topic)
+  {
+    LOG_INFO("Remembering " << topic);
+    topics[topic] = std::make_shared<int>(1);
+  }
+
+  bool
+  ConversationTopics::Has(const std::string& topic) const
+  {
+    return topics.find(topic) != topics.end();
+  }
+
   struct BasicResponse
   {
     std::vector<std::string>* responses;
@@ -215,6 +281,10 @@ ChatBot::ChatBot()
       .Add("MOM", "MOTHER")
       .Add("DREAMS", "DREAM")
       .Add("MYSELF", "YOURSELF");
+
+  database.AddResponse("MOVIE")("I LIKE TERMINATOR", "terminator");
+  database.AddResponse("WHY").Topic("terminator")("BECAUSE IT HAS ROBOTS");
+  database.AddResponse("WHY")("WHY WHAT?");
 
   database.AddResponse("WHAT IS YOUR NAME")("MY NAME IS CHATTERBOT.")(
       "YOU CAN CALL ME CHATTERBOT.")("WHY DO YOU WANT TO KNOW MY NAME?");
@@ -261,10 +331,6 @@ ChatBot::ChatBot()
   database.AddResponse("WHERE")("WHERE? WELL)(I REALLY DON'T KNOW.")(
       "DOES THAT MATERS TO YOU TO KNOW WHERE?")(
       "PERHAPS)(SOMEONE ELSE KNOWS WHERE.");
-
-  database.AddResponse("WHY")("I DON'T THINK I KNOW WHY.")(
-      "WHY ARE YOU ASKING ME THIS?")("SHOULD I KNOW WHY?")(
-      "THIS WOULD BE DIFFICULT TO ANSWER.");
 
   database.AddResponse("DO YOU")("I DON'T THINK I DO")("I WOULDN'T THINK SO.")(
       "WHY DO YOU WANT TO KNOW?");
@@ -441,12 +507,43 @@ ChatBot::GetResponse(const std::string& dirty_input)
   }
   last_input = input;
 
+  current_topics.DecreaseAndRemove();
+
+  LOG_INFO(
+      "Current memory: " << StringMerger::Array().Generate(
+          MapToStringVector(current_topics.topics)));
+
   unsigned long            match_length   = 0;
   chatbot::Input::Location match_location = chatbot::Input::LOWEST;
   std::string              response;
 
   for(const auto& resp : database.responses)
   {
+    // do not check this response if it isnt applied within the current topic
+    if(!resp.topics_required.empty())
+    {
+      LOG_INFO(
+          "Checking topics "
+          << StringMerger::Space().Generate(resp.inputs[0].words));
+      bool valid_response = true;
+      for(const auto& topic : resp.topics_required)
+      {
+        if(!current_topics.Has(topic))
+        {
+          LOG_INFO("Failed topics check");
+          valid_response = false;
+          break;
+        }
+      }
+      if(!valid_response)
+      {
+        LOG_INFO("Not checking this topic");
+        continue;
+      }
+      LOG_INFO("Passed topics required.");
+    }
+
+
     for(const auto& keyword : resp.inputs)
     {
       // todo: look into levenshtein distance
@@ -571,6 +668,10 @@ ChatBot::SelectResponse(
 {
   const auto index     = SelectBasicResponseIndex(ToStringVec(responses));
   const auto suggested = responses[index];
+  for(const auto& topic : suggested.topics_mentioned)
+  {
+    current_topics.Add(topic);
+  }
   return chatbot::TransposeKeywords(
       suggested.to_say, transposer, keywords, input);
 }
