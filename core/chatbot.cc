@@ -2,9 +2,6 @@
 
 #include "core/stringutils.h"
 #include "core/stringmerger.h"
-#include "core/log.h"
-
-LOG_SPECIFY_DEFAULT_LOGGER("core.log")
 
 namespace chatbot
 {
@@ -215,7 +212,6 @@ namespace chatbot
     {
       if(*it->second < 0)
       {
-        LOG_INFO("Forgetting about " << it->first);
         it = topics.erase(it);
       }
       else
@@ -228,7 +224,6 @@ namespace chatbot
   void
   ConversationTopics::Add(const std::string& topic)
   {
-    LOG_INFO("Remembering " << topic);
     topics[topic] = std::make_shared<int>(1);
   }
 
@@ -509,10 +504,6 @@ ChatBot::GetResponse(const std::string& dirty_input)
 
   current_topics.DecreaseAndRemove();
 
-  LOG_INFO(
-      "Current memory: " << StringMerger::Array().Generate(
-          MapToStringVector(current_topics.topics)));
-
   unsigned long            match_length   = 0;
   chatbot::Input::Location match_location = chatbot::Input::LOWEST;
   std::string              response;
@@ -522,25 +513,19 @@ ChatBot::GetResponse(const std::string& dirty_input)
     // do not check this response if it isnt applied within the current topic
     if(!resp.topics_required.empty())
     {
-      LOG_INFO(
-          "Checking topics "
-          << StringMerger::Space().Generate(resp.inputs[0].words));
       bool valid_response = true;
       for(const auto& topic : resp.topics_required)
       {
         if(!current_topics.Has(topic))
         {
-          LOG_INFO("Failed topics check");
           valid_response = false;
           break;
         }
       }
       if(!valid_response)
       {
-        LOG_INFO("Not checking this topic");
         continue;
       }
-      LOG_INFO("Passed topics required.");
     }
 
 
@@ -668,6 +653,8 @@ ChatBot::SelectResponse(
 {
   const auto index     = SelectBasicResponseIndex(ToStringVec(responses));
   const auto suggested = responses[index];
+
+  // todo: add this to memory when this response is returned, not suggested
   for(const auto& topic : suggested.topics_mentioned)
   {
     current_topics.Add(topic);
