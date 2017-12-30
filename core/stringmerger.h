@@ -32,6 +32,9 @@ class StringMerger
   static const StringMerger&
   Space();
 
+  static const StringMerger&
+  QuotedSpace();
+
   /** Sets the separator arguments.
   @param separator the separator to use.
   @param final_separator the separator to use at the last element.

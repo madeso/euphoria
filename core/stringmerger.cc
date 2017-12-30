@@ -73,6 +73,14 @@ StringMerger::Space()
   return s_Array;
 }
 
+const StringMerger&
+StringMerger::QuotedSpace()
+{
+  static const StringMerger s_Array =
+      StringMerger().SetSeparator(" ").SetStartAndEnd("\"", "\"");
+  return s_Array;
+}
+
 StringMerger&
 StringMerger::SetSeparator(
     const std::string& separator, const std::string& final_separator)

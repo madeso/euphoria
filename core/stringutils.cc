@@ -224,3 +224,17 @@ Split(const std::string& s, char delim)
   Split(s, delim, std::back_inserter(elems));
   return elems;
 }
+
+const std::string&
+OpString(bool b, const std::string& str)
+{
+  if(b)
+  {
+    return str;
+  }
+  else
+  {
+    static const std::string empty = "";
+    return empty;
+  }
+}

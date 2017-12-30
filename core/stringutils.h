@@ -162,6 +162,9 @@ RemoveConsecutive(const std::string& str, const std::string& ch);
 std::vector<std::string>
 Split(const std::string& string, char delim);
 
+const std::string&
+OpString(bool b, const std::string& str);
+
 /** @} */
 
 #endif  // EUPHORIA_STRINGUTILS_H_
