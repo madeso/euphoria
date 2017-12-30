@@ -91,53 +91,6 @@ namespace argparse
 
   ////////////////////////////////////////////////////////////////////////////
 
-  class Argument
-  {
-   public:
-    virtual ~Argument();
-
-    virtual void
-    parse(Running& r, Arguments& args, const std::string& argname) = 0;
-  };
-
-  ////////////////////////////////////////////////////////////////////////////
-
-  typedef std::function<void(Running& r, Arguments&, const std::string&)>
-      ArgumentCallback;
-
-  ////////////////////////////////////////////////////////////////////////////
-
-  class FunctionArgument : public Argument
-  {
-   public:
-    FunctionArgument(const ArgumentCallback& func);
-
-    void
-    parse(Running& r, Arguments& args, const std::string& argname) override;
-
-   private:
-    ArgumentCallback function;
-  };
-
-  ////////////////////////////////////////////////////////////////////////////
-
-  class ArgumentBase : public Argument
-  {
-   public:
-    ArgumentBase(const Count& co);
-
-    virtual void
-    combine(const std::string& value) = 0;
-
-    virtual void
-    parse(Running&, Arguments& args, const std::string& argname) override;
-
-   private:
-    Count count;
-  };
-
-  ////////////////////////////////////////////////////////////////////////////
-
   // Utility class to provide optional arguments for the commandline arguments.
   class Extra
   {
@@ -172,10 +125,56 @@ namespace argparse
 
   ////////////////////////////////////////////////////////////////////////////
 
+  class Argument
+  {
+   public:
+    Extra extra;
+
+    virtual ~Argument();
+
+    virtual void
+    parse(Running& r, Arguments& args, const std::string& argname) = 0;
+  };
+
+  ////////////////////////////////////////////////////////////////////////////
+
+  typedef std::function<void(Running& r, Arguments&, const std::string&)>
+      ArgumentCallback;
+
+  ////////////////////////////////////////////////////////////////////////////
+
+  class FunctionArgument : public Argument
+  {
+   public:
+    FunctionArgument(const ArgumentCallback& func);
+
+    void
+    parse(Running& r, Arguments& args, const std::string& argname) override;
+
+   private:
+    ArgumentCallback function;
+  };
+
+  ////////////////////////////////////////////////////////////////////////////
+
+  class ArgumentBase : public Argument
+  {
+   public:
+    ArgumentBase();
+
+    virtual void
+    combine(const std::string& value) = 0;
+
+    virtual void
+    parse(Running&, Arguments& args, const std::string& argname) override;
+  };
+
+  ////////////////////////////////////////////////////////////////////////////
+
   class Help
   {
    public:
-    Help(const std::string& aname, const Extra& e);
+    Help(const std::string& aname, Extra* e);
 
     const std::string
     usage() const;
@@ -194,10 +193,7 @@ namespace argparse
 
    private:
     std::string name;
-    std::string help;
-    std::string metavar;
-    Count::Type count;
-    size_t      countcount;
+    Extra*      extra;
   };
 
 ////////////////////////////////////////////////////////////////////////////
@@ -241,13 +237,8 @@ namespace argparse
   class ArgumentT : public ArgumentBase
   {
    public:
-    ArgumentT(
-        T&           t,
-        const Count& co,
-        CombinerFunction(T, V) com,
-        ConverterFunction(V) c)
-        : ArgumentBase(co)
-        , target(t)
+    ArgumentT(T& t, CombinerFunction(T, V) com, ConverterFunction(V) c)
+        : target(t)
         , combiner(com)
         , converter(c)
     {
@@ -280,38 +271,32 @@ namespace argparse
     Parser(const std::string& d, const std::string aappname = "");
 
     template <typename T>
-    Parser&
+    Extra&
     simple(
         const std::string& name,
         T&                 var,
-        const Extra&       extra = Extra(),
         CombinerFunction(T, T) combiner = Assign<T, T>,
         ConverterFunction(T) co = StandardConverter<T>)
     {
-      return add<T, T>(name, var, extra, combiner);
+      return add<T, T>(name, var, combiner);
     }
 
-    Parser&
-    simple(
-        const std::string& name,
-        ArgumentCallback   func,
-        const Extra&       extra = Extra());
+    Extra&
+    simple(const std::string& name, ArgumentCallback func);
 
     template <typename T, typename V>
-    Parser&
+    Extra&
     add(const std::string& name,
         T&                 var,
-        const Extra&       extra = Extra(),
         CombinerFunction(T, V) combiner = Assign<T, V>,
         ConverterFunction(V) co = StandardConverter<V>)
     {
-      ArgumentPtr arg(new ArgumentT<T, V>(var, extra.count(), combiner, co));
-      return insert(name, arg, extra);
+      ArgumentPtr arg(new ArgumentT<T, V>(var, combiner, co));
+      return insert(name, arg);
     }
 
-    Parser&
-    addFunction(
-        const std::string& name, ArgumentCallback func, const Extra& extra);
+    Extra&
+    addFunction(const std::string& name, ArgumentCallback func);
 
     ParseStatus
     parse(const std::string& name, const std::vector<std::string>& arguments)
@@ -326,8 +311,8 @@ namespace argparse
    private:
     typedef std::shared_ptr<Argument> ArgumentPtr;
 
-    Parser&
-    insert(const std::string& name, ArgumentPtr arg, const Extra& extra);
+    Extra&
+    insert(const std::string& name, ArgumentPtr arg);
 
     std::string description;
     std::string appname;

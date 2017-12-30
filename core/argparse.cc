@@ -144,14 +144,14 @@ namespace argparse
 
   ////////////////////////////////////////////////////////////////////////////
 
-  ArgumentBase::ArgumentBase(const Count& co)
-      : count(co)
+  ArgumentBase::ArgumentBase()
   {
   }
 
   void
   ArgumentBase::parse(Running&, Arguments& args, const std::string& argname)
   {
+    const auto count = extra.count();
     switch(count.type())
     {
       case Count::Const:
@@ -245,13 +245,9 @@ namespace argparse
 
   ////////////////////////////////////////////////////////////////////////////
 
-  Help::Help(const std::string& aname, const Extra& e)
+  Help::Help(const std::string& aname, Extra* e)
       : name(aname)
-      , help(e.help())
-      , metavar(e.metavar())
-      , count(e.count().type())
-      , countcount(e.count().count())
-
+      , extra(e)
   {
   }
 
@@ -271,7 +267,7 @@ namespace argparse
   const std::string
   Help::metavarrep() const
   {
-    switch(count)
+    switch(extra->count().type())
     {
       case Count::None:
         return "";
@@ -285,7 +281,7 @@ namespace argparse
       {
         std::ostringstream ss;
         ss << "[";
-        for(size_t i = 0; i < countcount; ++i)
+        for(size_t i = 0; i < extra->count().count(); ++i)
         {
           if(i != 0)
           {
@@ -305,6 +301,7 @@ namespace argparse
   const std::string
   Help::metavarname() const
   {
+    const auto metavar = extra->metavar();
     if(metavar.empty() == false)
     {
       return metavar;
@@ -338,7 +335,7 @@ namespace argparse
   const std::string&
   Help::helpDescription() const
   {
-    return help;
+    return extra->help();
   }
 
   ////////////////////////////////////////////////////////////////////////////
@@ -368,25 +365,20 @@ namespace argparse
       , appname(aappname)
       , positionalIndex(0)
   {
-    addFunction(
-        "-h",
-        CallHelp(this),
-        Extra().count(Count::None).help("show this help message and exit"));
+    addFunction("-h", CallHelp(this)).help("show this help message and exit");
   }
 
-  Parser&
-  Parser::simple(
-      const std::string& name, ArgumentCallback func, const Extra& extra)
+  Extra&
+  Parser::simple(const std::string& name, ArgumentCallback func)
   {
-    return addFunction(name, func, extra);
+    return addFunction(name, func);
   }
 
-  Parser&
-  Parser::addFunction(
-      const std::string& name, ArgumentCallback func, const Extra& extra)
+  Extra&
+  Parser::addFunction(const std::string& name, ArgumentCallback func)
   {
     ArgumentPtr arg(new FunctionArgument(func));
-    return insert(name, arg, extra);
+    return insert(name, arg).count(Count::None);
   }
 
   Parser::ParseStatus
@@ -499,20 +491,20 @@ namespace argparse
     r.o << std::endl;
   }
 
-  Parser&
-  Parser::insert(const std::string& name, ArgumentPtr arg, const Extra& extra)
+  Extra&
+  Parser::insert(const std::string& name, ArgumentPtr arg)
   {
     if(IsOptional(name))
     {
       optionals.insert(Optionals::value_type(name, arg));
-      helpOptional.push_back(Help(name, extra));
-      return *this;
+      helpOptional.push_back(Help(name, &arg->extra));
+      return arg->extra;
     }
     else
     {
       positionals.push_back(arg);
-      helpPositional.push_back(Help(name, extra));
-      return *this;
+      helpPositional.push_back(Help(name, &arg->extra));
+      return arg->extra;
     }
   }
 }
