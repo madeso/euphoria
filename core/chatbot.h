@@ -133,6 +133,25 @@ namespace chatbot
 
     std::map<std::string, std::shared_ptr<int>> topics;
   };
+
+  struct ConversationStatus
+  {
+    std::string input;
+    std::string response;
+    std::string section;
+    struct TopicEntry
+    {
+      std::string topic;
+      int         time;
+    };
+    std::vector<TopicEntry> topics;
+    struct LogEntry
+    {
+      std::string              title;
+      std::vector<std::string> lines;
+    };
+    std::vector<LogEntry> logs;
+  };
 }
 
 class ChatBot
@@ -143,11 +162,17 @@ class ChatBot
   std::string
   GetResponse(const std::string& input);
 
+  chatbot::ConversationStatus
+  GetComplexResponse(const std::string& input);
+
   bool
   IsInConversation() const;
 
   std::string
   GetSignOnMessage();
+
+  std::string
+  DebugLastResponse() const;
 
  protected:
   unsigned long
@@ -163,14 +188,15 @@ class ChatBot
       const std::string&                          input);
 
  private:
-  bool                        is_in_conversation;
-  Random                      random;
-  chatbot::Transposer         transposer;
-  chatbot::Database           database;
-  chatbot::ConversationTopics current_topics;
-  std::vector<std::string>    last_input;
-  int                         last_event;
-  std::string                 last_response;
+  bool                                     is_in_conversation;
+  Random                                   random;
+  chatbot::Transposer                      transposer;
+  chatbot::Database                        database;
+  chatbot::ConversationTopics              current_topics;
+  std::vector<std::string>                 last_input;
+  int                                      last_event;
+  std::string                              last_response;
+  std::vector<chatbot::ConversationStatus> history;
 };
 
 

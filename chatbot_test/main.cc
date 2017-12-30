@@ -16,8 +16,17 @@ main()
   {
     if(!first)
     {
-      const std::string response = chatbot.GetResponse(input);
-      std::cout << response << std::endl;
+      if(!input.empty() && input[0] == '@')
+      {
+        // handle debug commands to chatbot
+        std::cout << chatbot.DebugLastResponse();
+        std::cout << "\n\n";
+      }
+      else
+      {
+        const std::string response = chatbot.GetResponse(input);
+        std::cout << response << "\n";
+      }
     }
     std::cout << "> ";
     first = false;

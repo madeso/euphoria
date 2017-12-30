@@ -2,6 +2,7 @@
 
 #include "core/stringutils.h"
 #include "core/stringmerger.h"
+#include "core/str.h"
 
 namespace chatbot
 {
@@ -254,6 +255,20 @@ namespace chatbot
     b.responses = input;
     return b;
   }
+
+  std::vector<ConversationStatus::TopicEntry>
+  CollectTopics(const ConversationTopics& current_topics)
+  {
+    std::vector<ConversationStatus::TopicEntry> ret;
+    for(const auto& t : current_topics.topics)
+    {
+      ConversationStatus::TopicEntry entry;
+      entry.topic = t.first;
+      entry.time  = *t.second;
+      ret.emplace_back(entry);
+    }
+    return ret;
+  }
 }
 
 ChatBot::ChatBot()
@@ -483,22 +498,39 @@ ChatBot::ChatBot()
 std::string
 ChatBot::GetResponse(const std::string& dirty_input)
 {
+  const auto r = GetComplexResponse(dirty_input);
+  history.push_back(r);
+  return r.response;
+}
+
+chatbot::ConversationStatus
+ChatBot::GetComplexResponse(const std::string& dirty_input)
+{
+  chatbot::ConversationStatus ret;
+  ret.input  = dirty_input;
+  ret.topics = chatbot::CollectTopics(current_topics);
+
   const std::vector<std::string> input = chatbot::CleanInput(dirty_input);
 
   if(input.empty())
   {
     if(last_input.empty())
     {
-      return SelectBasicResponse(database.empty_repetition);
+      ret.section  = "empty repetition";
+      ret.response = SelectBasicResponse(database.empty_repetition);
+      return ret;
     }
-    const std::string response = SelectBasicResponse(database.empty);
-    last_input                 = input;
-    return response;
+    ret.response = SelectBasicResponse(database.empty);
+    last_input   = input;
+    ret.section  = "empty";
+    return ret;
   }
 
   if(input == last_input)
   {
-    return SelectBasicResponse(database.same_input);
+    ret.section  = "same input";
+    ret.response = SelectBasicResponse(database.same_input);
+    return ret;
   }
   last_input = input;
 
@@ -510,20 +542,27 @@ ChatBot::GetResponse(const std::string& dirty_input)
 
   for(const auto& resp : database.responses)
   {
+    ret.logs.emplace_back();
+    ret.logs.rbegin()->title =
+        StringMerger::Space().Generate(resp.inputs[0].words);
+    auto& log = ret.logs.rbegin()->lines;
     // do not check this response if it isnt applied within the current topic
     if(!resp.topics_required.empty())
     {
+      log.emplace_back("Requires topic");
       bool valid_response = true;
       for(const auto& topic : resp.topics_required)
       {
         if(!current_topics.Has(topic))
         {
+          log.emplace_back(Str() << "Doesnt have topic " << topic);
           valid_response = false;
           break;
         }
       }
       if(!valid_response)
       {
+        log.emplace_back("Response is not valid");
         continue;
       }
     }
@@ -532,20 +571,57 @@ ChatBot::GetResponse(const std::string& dirty_input)
     for(const auto& keyword : resp.inputs)
     {
       // todo: look into levenshtein distance
-      if(keyword.words.size() > match_length ||
-         (keyword.words.size() == match_length &&
-          keyword.location > match_location))
+      const bool longer_keyword       = keyword.words.size() > match_length;
+      const bool same_size_but_better = keyword.words.size() == match_length &&
+                                        keyword.location > match_location;
+
+      // todo add detail as to why the check failed
+      // also the string merger fails here since the vector will contain empty
+      // strings when the OpString is false
+      log.emplace_back(
+          Str() << "Checking keyword "
+                << StringMerger::QuotedSpace().Generate(keyword.words)
+                << " ("
+                << StringMerger::EnglishOr().Generate(std::vector<std::string>{
+                       OpString(longer_keyword, "longer"),
+                       OpString(same_size_but_better, "same size but better")})
+                << ")");
+      const bool should_check_keyword = longer_keyword || same_size_but_better;
+      if(!should_check_keyword)
       {
-        if(chatbot::IndexOfMatchedInput(input, keyword) != -1)
+        log.emplace_back("Wont check keyword");
+      }
+      if(should_check_keyword)
+      {
+        const auto matched_index = chatbot::IndexOfMatchedInput(input, keyword);
+        if(matched_index == -1)
+        {
+          log.emplace_back("No match");
+        }
+        else
         {
           match_length   = keyword.words.size();
           match_location = keyword.location;
-          response       = last_event == resp.event_id
-                         ? SelectBasicResponse(database.similar_input)
-                         : SelectResponse(resp.responses, keyword, dirty_input);
+          log.emplace_back(
+              Str() << "Matched at" << matched_index << " of length "
+                    << match_length
+                    << " with "
+                    << match_location);
+          if(last_event == resp.event_id)
+          {
+            log.emplace_back("Same event as last time");
+            response = SelectBasicResponse(database.similar_input);
+          }
+          else
+          {
+            log.emplace_back("Selecting new response");
+            response = SelectResponse(resp.responses, keyword, dirty_input);
+          }
 
           if(resp.ends_conversation)
           {
+            // todo: move to end when we have accepted this response as final
+            log.emplace_back("ending conversation");
             is_in_conversation = false;
           }
 
@@ -557,11 +633,15 @@ ChatBot::GetResponse(const std::string& dirty_input)
 
   if(response.empty())
   {
-    return SelectBasicResponse(database.no_response);
+    ret.section  = "empty response";
+    ret.response = SelectBasicResponse(database.no_response);
+    return ret;
   }
   else
   {
-    return response;
+    ret.section  = "found response";
+    ret.response = response;
+    return ret;
   }
 }
 
@@ -569,6 +649,54 @@ std::string
 ChatBot::GetSignOnMessage()
 {
   return SelectBasicResponse(database.signon);
+}
+
+std::string
+ChatBot::DebugLastResponse() const
+{
+  if(history.empty())
+  {
+    return "";
+  }
+
+  const auto&        last = *history.rbegin();
+  std::ostringstream ss;
+
+  ss << "INPUT: " << last.input << "\n";
+  ss << "SECTION: " << last.section << "\n";
+  ss << "RESPONSE: " << last.response << "\n";
+
+  if(!last.topics.empty())
+  {
+    ss << "\n";
+    ss << "TOPICS:\n";
+    for(const auto& t : last.topics)
+    {
+      ss << t.topic << "(" << t.time << ")\n";
+    }
+    ss << "\n";
+  }
+
+  if(!last.logs.empty())
+  {
+    ss << "\n";
+    ss << "---------------\n";
+    ss << "LOGS\n";
+    ss << "---------------\n";
+    ss << "\n";
+
+    for(const auto& l : last.logs)
+    {
+      ss << l.title << "\n";
+      for(const auto& li : l.lines)
+      {
+        ss << "  " << li << "\n";
+      }
+      ss << "\n";
+    }
+  }
+
+  return ss.str();
 }
 
 namespace chatbot
