@@ -10,7 +10,8 @@ enum MyEnum
 
 TEST_CASE("argparse", "[argparse]")
 {
-  const std::string        name = "APP.exe";
+  const std::string        name  = "APP.exe";
+  const auto               empty = std::vector<std::string>{};
   std::string              compiler;
   int                      i;
   int                      op = 2;
@@ -35,6 +36,18 @@ TEST_CASE("argparse", "[argparse]")
     CHECK(argparse::Parser::ParseComplete == parser.parse(name, arguments));
     CHECK(compiler == "gcc");
     CHECK(i == 3);
+    CHECK(op == 2);
+    CHECK(strings == empty);
+  }
+
+  SECTION("test parse optional")
+  {
+    const auto arguments = std::vector<std::string>{"gcc", "3", "-op", "42"};
+    CHECK(argparse::Parser::ParseComplete == parser.parse(name, arguments));
+    CHECK(compiler == "gcc");
+    CHECK(i == 3);
+    CHECK(op == 42);
+    CHECK(strings == empty);
   }
 
   SECTION("test parse multiple")
@@ -44,6 +57,7 @@ TEST_CASE("argparse", "[argparse]")
     CHECK(argparse::Parser::ParseComplete == parser.parse(name, arguments));
     CHECK(compiler == "clang");
     CHECK(i == 5);
+    CHECK(op == 2);
     const auto abc = std::vector<std::string>{"a", "b", "c"};
     CHECK(strings == abc);
   }
