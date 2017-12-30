@@ -15,8 +15,8 @@ TEST_CASE("levenshtein")
 TEST_CASE("levenshtein2")
 {
   const std::string   a        = "abc";
-  const std::string   b        = "abcdef";
-  const unsigned long distance = 3;
+  const std::string   b        = "abcde";
+  const unsigned long distance = 2;
 
   CHECK(LevenshteinDistance(a, b) == distance);
   CHECK(LevenshteinDistance(b, a) == distance);
