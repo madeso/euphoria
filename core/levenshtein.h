@@ -7,7 +7,7 @@
 // by Anders Sewerin Johansen
 // http://www.merriampark.com/ldcpp.htm
 
-int
+unsigned long
 LevenshteinDistance(const std::string& source, const std::string& target);
 
 
