@@ -284,6 +284,14 @@ namespace argparse
     Extra&
     simple(const std::string& name, ArgumentCallback func);
 
+    template <typename T>
+    Extra&
+    add_vector(const std::string& name, std::vector<T>& var)
+    {
+      return add<std::vector<T>, T>(name, var, argparse::PushBackVector<T>)
+          .count(argparse::Count::MoreThanOne);
+    }
+
     template <typename T, typename V>
     Extra&
     add(const std::string& name,

@@ -21,13 +21,7 @@ TEST_CASE("argparse", "[argparse]")
   parser.simple("compiler", compiler);
   parser.simple("int", i);
   parser.simple("-op", op);
-  parser
-      .add<std::vector<std::string>, std::string>(
-          "-strings",
-          strings,
-          argparse::PushBackVector<std::string>)
-      .count(argparse::Count::MoreThanOne)
-      .metavar("string");  // todo: is this beautifiable?
+  parser.add_vector("-strings", strings).metavar("string");
   //("-enum", &v, Convert<MyEnum>("MyVal", MyEnum::MyVal)("MyVal2",
   // MyEnum::MyVal2) )
 
