@@ -2,7 +2,7 @@
 
 #include "catch.hpp"
 
-enum MyEnum
+enum class MyEnum
 {
   MyVal,
   MyVal2
@@ -19,7 +19,7 @@ TEST_CASE("argparse", "[argparse]")
   int                      i;
   int                      op = 2;
   std::vector<std::string> strings;
-  MyEnum                   enum_value = MyVal;
+  MyEnum                   enum_value = MyEnum::MyVal;
 
   // parser setup
   auto parser = argparse::Parser{"description"};
@@ -27,8 +27,8 @@ TEST_CASE("argparse", "[argparse]")
   parser.add_simple("int", i);
   parser.add_simple("-op", op);
   parser.add_vector("-strings", strings).metavar("string");
-  const auto convert =
-      argparse::Convert<MyEnum>{}("MyVal", MyVal)("MyVal2", MyVal2);
+  const auto convert = argparse::Convert<MyEnum>{}("MyVal", MyEnum::MyVal)(
+      "MyVal2", MyEnum::MyVal2);
   parser.add_simple<MyEnum>("-enum", enum_value, convert);
 
   SECTION("test parse")
@@ -39,7 +39,7 @@ TEST_CASE("argparse", "[argparse]")
     CHECK(i == 3);
     CHECK(op == 2);
     CHECK(strings == empty);
-    CHECK(enum_value == MyVal);
+    CHECK(enum_value == MyEnum::MyVal);
   }
 
   SECTION("test enum")
@@ -51,7 +51,7 @@ TEST_CASE("argparse", "[argparse]")
     CHECK(i == 3);
     CHECK(op == 2);
     CHECK(strings == empty);
-    CHECK(enum_value == MyVal2);
+    CHECK(enum_value == MyEnum::MyVal2);
   }
 
   SECTION("test parse optional")
@@ -62,7 +62,7 @@ TEST_CASE("argparse", "[argparse]")
     CHECK(i == 3);
     CHECK(op == 42);
     CHECK(strings == empty);
-    CHECK(enum_value == MyVal);
+    CHECK(enum_value == MyEnum::MyVal);
   }
 
   SECTION("test parse multiple")
@@ -75,6 +75,6 @@ TEST_CASE("argparse", "[argparse]")
     CHECK(op == 2);
     const auto abc = std::vector<std::string>{"a", "b", "c"};
     CHECK(strings == abc);
-    CHECK(enum_value == MyVal);
+    CHECK(enum_value == MyEnum::MyVal);
   }
 }
