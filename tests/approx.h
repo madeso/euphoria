@@ -102,7 +102,7 @@ namespace custom
     toString() const
     {
       std::ostringstream oss;
-      oss << "Approx( " << Catch::toString(m_value) << " )";
+      oss << "Approx( " << Catch::StringMaker<T>::convert(m_value) << " )";
       return oss.str();
     }
 
