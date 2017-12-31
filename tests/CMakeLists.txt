@@ -7,7 +7,7 @@ source_group("" FILES ${app_src})
 # include_directories(${GMOCK_INCLUDE_DIRS})
 # add_definitions(-DGTEST_USE_OWN_TR1_TUPLE=1)
 
-include_directories(SYSTEM ../external/catch-1.9.7/)
+include_directories(SYSTEM ../external/catch/)
 
 add_executable(tests ${src})
 
