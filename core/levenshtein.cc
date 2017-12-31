@@ -3,6 +3,9 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <memory>
+
+#include "core/assert.h"
 
 unsigned long
 LevenshteinDistance(const std::string& source, const std::string& target)
@@ -101,4 +104,50 @@ LevenshteinDistance(const std::string& source, const std::string& target)
   // Step 7
 
   return matrix[n][m];
+}
+
+unsigned long
+FastLevenshteinDistance(const std::string& sRow, const std::string& sCol)
+{
+  const unsigned long RowLen = sRow.length();
+  const unsigned long ColLen = sCol.length();
+
+  if(RowLen == 0)
+  {
+    return ColLen;
+  }
+
+  if(ColLen == 0)
+  {
+    return RowLen;
+  }
+
+  std::unique_ptr<unsigned long[]> v0{new unsigned long[RowLen + 1]};
+  std::unique_ptr<unsigned long[]> v1{new unsigned long[RowLen + 1]};
+
+  for(unsigned long RowIdx = 0; RowIdx <= RowLen; RowIdx++)
+  {
+    v0[RowIdx] = RowIdx;
+    v1[RowIdx] = 0;
+  }
+
+  for(unsigned long ColIdx = 1; ColIdx <= ColLen; ColIdx++)
+  {
+    v1[0] = ColIdx;
+
+    for(unsigned long RowIdx = 1; RowIdx <= RowLen; RowIdx++)
+    {
+      const int cost = sRow[RowIdx-1] == sCol[ColIdx-1] ? 0 : 1;
+
+      const unsigned long m_min = v0[RowIdx] + 1;
+      const unsigned long b     = v1[RowIdx - 1] + 1;
+      const unsigned long c     = v0[RowIdx - 1] + cost;
+
+      v1[RowIdx] = std::min(std::min(m_min, b), c);
+    }
+
+    std::swap(v0, v1);
+  }
+
+  return v0[RowLen];
 }
