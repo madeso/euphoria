@@ -123,9 +123,7 @@ namespace argparse
 
   ////////////////////////////////////////////////////////////////////////////
 
-  ArgumentBase::ArgumentBase()
-  {
-  }
+  ArgumentBase::ArgumentBase() = default;
 
   void
   ArgumentBase::parse(Running&, Arguments& args, const std::string& argname)
@@ -153,9 +151,9 @@ namespace argparse
         return;
       case Count::MoreThanOne:
         combine(args.get(
-            "argument " + argname + ": expected atleast one argument"));
+            "argument " + argname + ": expected at least one argument"));
       case Count::ZeroOrMore:
-        while(args.empty() == false && IsOptional(args[0]) == false)
+        while(!args.empty() && !IsOptional(args[0]))
         {
           combine(args.get("internal error"));
         }
@@ -323,7 +321,7 @@ namespace argparse
   {
     struct CallHelp
     {
-      CallHelp(Parser* on)
+      explicit CallHelp(Parser* on)
           : parser(on)
       {
       }
@@ -367,13 +365,13 @@ namespace argparse
 
     try
     {
-      while(false == args.empty())
+      while(!args.empty())
       {
         if(IsOptional(args[0]))
         {
           // optional
-          const std::string         arg = args.get();
-          Optionals::const_iterator r   = optionals.find(arg);
+          const std::string arg = args.get();
+          auto              r   = optionals.find(arg);
           if(r == optionals.end())
           {
             throw ParserError(
@@ -423,7 +421,7 @@ namespace argparse
     const std::string sep = "\t";
     const std::string ins = "  ";
 
-    if(helpPositional.empty() == false)
+    if(!helpPositional.empty())
     {
       r.o << "positional arguments: " << std::endl;
       for(const Help& positional : helpPositional)
@@ -435,7 +433,7 @@ namespace argparse
       r.o << std::endl;
     }
 
-    if(helpOptional.empty() == false)
+    if(!helpOptional.empty())
     {
       r.o << "optional arguments: " << std::endl;
       for(const Help& optional : helpOptional)
@@ -470,13 +468,13 @@ namespace argparse
     if(IsOptional(name))
     {
       optionals.insert(Optionals::value_type(name, arg));
-      helpOptional.push_back(Help(name, &arg->extra));
+      helpOptional.emplace_back(name, &arg->extra);
       return arg->extra;
     }
     else
     {
       positionals.push_back(arg);
-      helpPositional.push_back(Help(name, &arg->extra));
+      helpPositional.emplace_back(name, &arg->extra);
       return arg->extra;
     }
   }
