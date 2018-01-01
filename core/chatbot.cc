@@ -540,9 +540,12 @@ namespace chatbot
     return transposed_response;
   }
 
+  template <typename T>
   unsigned long
   SelectBasicResponseIndex(
-      ChatBot* chatbot, const std::vector<std::string>& responses)
+      ChatBot*              chatbot,
+      const std::vector<T>& responses,
+      std::function<std::string(const T& t)> callback)
   {
     int           counter = 0;
     unsigned long suggested;
@@ -550,8 +553,9 @@ namespace chatbot
     {
       suggested = chatbot->random.NextRange(responses.size());
       counter += 1;
-    } while(responses[suggested] == chatbot->last_response && counter < 15);
-    chatbot->last_response = responses[suggested];
+    } while(callback(responses[suggested]) == chatbot->last_response &&
+            counter < 15);
+    chatbot->last_response = callback(responses[suggested]);
     chatbot->last_event    = -1;
     return suggested;
   }
@@ -560,7 +564,8 @@ namespace chatbot
   SelectBasicResponse(
       ChatBot* chatbot, const std::vector<std::string>& responses)
   {
-    const auto suggested = SelectBasicResponseIndex(chatbot, responses);
+    const auto suggested = SelectBasicResponseIndex<std::string>(
+        chatbot, responses, [](const std::string& str) { return str; });
     return responses[suggested];
   }
 
@@ -572,11 +577,10 @@ namespace chatbot
       const std::string&                          input)
   {
     // todo: we dont need a string vector for this, right?
-    const auto index = SelectBasicResponseIndex(
-        chatbot,
-        VectorToStringVector(responses, [](const chatbot::SingleResponse& r) {
+    const auto index = SelectBasicResponseIndex<chatbot::SingleResponse>(
+        chatbot, responses, [](const chatbot::SingleResponse& r) {
           return r.to_say;
-        }));
+        });
     const auto suggested = responses[index];
 
     // todo: add this to memory when this response is returned, not suggested
