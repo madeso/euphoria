@@ -1,13 +1,19 @@
 #include <iostream>
 
 #include "core/chatbot.h"
+#include "core/cmdline.h"
 
 
 int
 main()
 {
   ChatBot     chatbot;
-  std::string input = "";
+  std::string input;
+  CmdLine     cmdline{&std::cout};
+  cmdline.Register("last", [&chatbot](const CmdLine::Args& args) {
+    std::cout << chatbot.DebugLastResponse();
+    std::cout << "\n\n";
+  });
 
   std::cout << chatbot.GetSignOnMessage() << "\n";
 
@@ -18,9 +24,11 @@ main()
     {
       if(!input.empty() && input[0] == '@')
       {
+        const std::string in{input.begin() + 1, input.end()};
+        cmdline.Run(in);
         // handle debug commands to chatbot
-        std::cout << chatbot.DebugLastResponse();
-        std::cout << "\n\n";
+        // std::cout << chatbot.DebugLastResponse();
+        // std::cout << "\n\n";
       }
       else
       {
