@@ -176,20 +176,6 @@ class ChatBot
       const std::vector<std::string>& search =
           std::vector<std::string>{}) const;
 
- protected:
-  unsigned long
-  SelectBasicResponseIndex(const std::vector<std::string>& responses);
-
-  std::string
-  SelectBasicResponse(const std::vector<std::string>& responses);
-
-  std::string
-  SelectResponse(
-      const std::vector<chatbot::SingleResponse>& responses,
-      const chatbot::Input&                       keywords,
-      const std::string&                          input);
-
- private:
   bool                                     is_in_conversation;
   Random                                   random;
   chatbot::Transposer                      transposer;

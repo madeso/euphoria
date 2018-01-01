@@ -5,6 +5,7 @@
 #include "core/str.h"
 #include "core/findstring.h"
 
+
 namespace chatbot
 {
   std::vector<std::string>
@@ -72,7 +73,6 @@ namespace chatbot
   std::vector<std::string>
   RemoveFrom(const std::vector<std::string>& source, const Input& input)
   {
-    // todo: implement this
     const auto index = IndexOfMatchedInput(source, input);
 
     if(index == -1)
@@ -504,6 +504,91 @@ ChatBot::GetResponse(const std::string& dirty_input)
   return r.response;
 }
 
+namespace chatbot
+{
+  std::vector<std::string>
+  Transpose(const Transposer& transposer, const std::vector<std::string>& input)
+  {
+    std::vector<std::string> r;
+    r.reserve(input.size());
+    for(const std::string& in : input)
+    {
+      r.push_back(transposer.Transpose(in));
+    }
+    return r;
+  }
+
+  std::string
+  TransposeKeywords(
+      const std::string& selected_response,
+      const Transposer&  transposer,
+      const Input&       keywords,
+      const std::string& input)
+  {
+    const auto star = selected_response.find('*');
+    if(star == std::string::npos)
+    {
+      return selected_response;
+    }
+
+    // todo remove keywords from input
+    const std::string cleaned_input = StringMerger::Space().Generate(
+        Transpose(transposer, RemoveFrom(CleanInput(input), keywords)));
+    const std::string transposed_response =
+        StringReplace(selected_response, "*", ToUpper(cleaned_input));
+
+    return transposed_response;
+  }
+
+  unsigned long
+  SelectBasicResponseIndex(
+      ChatBot* chatbot, const std::vector<std::string>& responses)
+  {
+    int           counter = 0;
+    unsigned long suggested;
+    do
+    {
+      suggested = chatbot->random.NextRange(responses.size());
+      counter += 1;
+    } while(responses[suggested] == chatbot->last_response && counter < 15);
+    chatbot->last_response = responses[suggested];
+    chatbot->last_event    = -1;
+    return suggested;
+  }
+
+  std::string
+  SelectBasicResponse(
+      ChatBot* chatbot, const std::vector<std::string>& responses)
+  {
+    const auto suggested = SelectBasicResponseIndex(chatbot, responses);
+    return responses[suggested];
+  }
+
+  std::string
+  SelectResponse(
+      ChatBot*                                    chatbot,
+      const std::vector<chatbot::SingleResponse>& responses,
+      const chatbot::Input&                       keywords,
+      const std::string&                          input)
+  {
+    // todo: we dont need a string vector for this, right?
+    const auto index = SelectBasicResponseIndex(
+        chatbot,
+        VectorToStringVector(responses, [](const chatbot::SingleResponse& r) {
+          return r.to_say;
+        }));
+    const auto suggested = responses[index];
+
+    // todo: add this to memory when this response is returned, not suggested
+    for(const auto& topic : suggested.topics_mentioned)
+    {
+      chatbot->current_topics.Add(topic);
+    }
+    return TransposeKeywords(
+        suggested.to_say, chatbot->transposer, keywords, input);
+  }
+}
+
 chatbot::ConversationStatus
 ChatBot::GetComplexResponse(const std::string& dirty_input)
 {
@@ -517,11 +602,12 @@ ChatBot::GetComplexResponse(const std::string& dirty_input)
   {
     if(last_input.empty())
     {
-      ret.section  = "empty repetition";
-      ret.response = SelectBasicResponse(database.empty_repetition);
+      ret.section = "empty repetition";
+      ret.response =
+          chatbot::SelectBasicResponse(this, database.empty_repetition);
       return ret;
     }
-    ret.response = SelectBasicResponse(database.empty);
+    ret.response = chatbot::SelectBasicResponse(this, database.empty);
     last_input   = input;
     ret.section  = "empty";
     return ret;
@@ -530,7 +616,7 @@ ChatBot::GetComplexResponse(const std::string& dirty_input)
   if(input == last_input)
   {
     ret.section  = "same input";
-    ret.response = SelectBasicResponse(database.same_input);
+    ret.response = chatbot::SelectBasicResponse(this, database.same_input);
     return ret;
   }
   last_input = input;
@@ -613,12 +699,14 @@ ChatBot::GetComplexResponse(const std::string& dirty_input)
           if(last_event == resp.event_id)
           {
             log.emplace_back("Same event as last time");
-            response = SelectBasicResponse(database.similar_input);
+            response =
+                chatbot::SelectBasicResponse(this, database.similar_input);
           }
           else
           {
             log.emplace_back("Selecting new response");
-            response = SelectResponse(resp.responses, keyword, dirty_input);
+            response =
+                SelectResponse(this, resp.responses, keyword, dirty_input);
           }
 
           if(resp.ends_conversation)
@@ -637,7 +725,7 @@ ChatBot::GetComplexResponse(const std::string& dirty_input)
   if(response.empty())
   {
     ret.section  = "empty response";
-    ret.response = SelectBasicResponse(database.no_response);
+    ret.response = chatbot::SelectBasicResponse(this, database.no_response);
     return ret;
   }
   else
@@ -651,7 +739,7 @@ ChatBot::GetComplexResponse(const std::string& dirty_input)
 std::string
 ChatBot::GetSignOnMessage()
 {
-  return SelectBasicResponse(database.signon);
+  return chatbot::SelectBasicResponse(this, database.signon);
 }
 
 std::string
@@ -709,85 +797,6 @@ ChatBot::DebugLastResponse(const std::vector<std::string>& search) const
   }
 
   return ss.str();
-}
-
-namespace chatbot
-{
-  std::vector<std::string>
-  Transpose(const Transposer& transposer, const std::vector<std::string>& input)
-  {
-    std::vector<std::string> r;
-    r.reserve(input.size());
-    for(const std::string& in : input)
-    {
-      r.push_back(transposer.Transpose(in));
-    }
-    return r;
-  }
-
-  std::string
-  TransposeKeywords(
-      const std::string& selected_response,
-      const Transposer&  transposer,
-      const Input&       keywords,
-      const std::string& input)
-  {
-    const auto star = selected_response.find('*');
-    if(star == std::string::npos)
-    {
-      return selected_response;
-    }
-
-    // todo remove keywords from input
-    const std::string cleaned_input = StringMerger::Space().Generate(
-        Transpose(transposer, RemoveFrom(CleanInput(input), keywords)));
-    const std::string transposed_response =
-        StringReplace(selected_response, "*", ToUpper(cleaned_input));
-
-    return transposed_response;
-  }
-}
-
-unsigned long
-ChatBot::SelectBasicResponseIndex(const std::vector<std::string>& responses)
-{
-  int           counter = 0;
-  unsigned long suggested;
-  do
-  {
-    suggested = random.NextRange(responses.size());
-    counter += 1;
-  } while(responses[suggested] == last_response && counter < 15);
-  last_response = responses[suggested];
-  last_event    = -1;
-  return suggested;
-}
-
-std::string
-ChatBot::SelectBasicResponse(const std::vector<std::string>& responses)
-{
-  const auto suggested = SelectBasicResponseIndex(responses);
-  return responses[suggested];
-}
-
-std::string
-ChatBot::SelectResponse(
-    const std::vector<chatbot::SingleResponse>& responses,
-    const chatbot::Input&                       keywords,
-    const std::string&                          input)
-{
-  // todo: we dont need a string vector for this, right?
-  const auto index = SelectBasicResponseIndex(VectorToStringVector(
-      responses, [](const chatbot::SingleResponse& r) { return r.to_say; }));
-  const auto suggested = responses[index];
-
-  // todo: add this to memory when this response is returned, not suggested
-  for(const auto& topic : suggested.topics_mentioned)
-  {
-    current_topics.Add(topic);
-  }
-  return chatbot::TransposeKeywords(
-      suggested.to_say, transposer, keywords, input);
 }
 
 bool
