@@ -147,7 +147,7 @@ namespace chatbot
     std::vector<TopicEntry> topics;
     struct LogEntry
     {
-      std::string              title;
+      std::vector<std::string> titles;
       std::vector<std::string> lines;
     };
     std::vector<LogEntry> logs;

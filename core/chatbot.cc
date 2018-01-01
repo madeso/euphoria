@@ -3,6 +3,7 @@
 #include "core/stringutils.h"
 #include "core/stringmerger.h"
 #include "core/str.h"
+#include "core/findstring.h"
 
 namespace chatbot
 {
@@ -543,8 +544,10 @@ ChatBot::GetComplexResponse(const std::string& dirty_input)
   for(const auto& resp : database.responses)
   {
     ret.logs.emplace_back();
-    ret.logs.rbegin()->title =
-        StringMerger::Space().Generate(resp.inputs[0].words);
+    ret.logs.rbegin()->titles =
+        VectorToStringVector(resp.inputs, [](const chatbot::Input& input) {
+          return StringMerger::Space().Generate(input.words);
+        });
     auto& log = ret.logs.rbegin()->lines;
     // do not check this response if it isnt applied within the current topic
     if(!resp.topics_required.empty())
@@ -654,6 +657,7 @@ ChatBot::GetSignOnMessage()
 std::string
 ChatBot::DebugLastResponse(const std::vector<std::string>& search) const
 {
+  const auto searches = ToLower(search);
   if(history.empty())
   {
     return "";
@@ -687,23 +691,14 @@ ChatBot::DebugLastResponse(const std::vector<std::string>& search) const
 
     for(const auto& l : last.logs)
     {
-      bool display = search.empty();
-      if(!search.empty())
+      bool display = searches.empty();
+      if(!searches.empty())
       {
-        const auto target = ToLower(l.title);
-        display           = true;
-        for(const auto& s : search)
-        {
-          if(target.find(ToLower(s)) == std::string::npos)
-          {
-            display = false;
-            break;
-          }
-        }
+        const auto titles = ToLower(l.titles);
+        display           = Find(titles, searches);
       }
       if(display)
       {
-        ss << l.title << "\n";
         for(const auto& li : l.lines)
         {
           ss << "  " << li << "\n";
@@ -775,28 +770,15 @@ ChatBot::SelectBasicResponse(const std::vector<std::string>& responses)
   return responses[suggested];
 }
 
-namespace
-{
-  std::vector<std::string>
-  ToStringVec(const std::vector<chatbot::SingleResponse>& responses)
-  {
-    std::vector<std::string> r;
-    r.reserve(responses.size());
-    for(const auto& s : responses)
-    {
-      r.push_back(s.to_say);
-    }
-    return r;
-  }
-}
-
 std::string
 ChatBot::SelectResponse(
     const std::vector<chatbot::SingleResponse>& responses,
     const chatbot::Input&                       keywords,
     const std::string&                          input)
 {
-  const auto index     = SelectBasicResponseIndex(ToStringVec(responses));
+  // todo: we dont need a string vector for this, right?
+  const auto index = SelectBasicResponseIndex(VectorToStringVector(
+      responses, [](const chatbot::SingleResponse& r) { return r.to_say; }));
   const auto suggested = responses[index];
 
   // todo: add this to memory when this response is returned, not suggested
