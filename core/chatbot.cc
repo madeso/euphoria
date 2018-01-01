@@ -1,5 +1,7 @@
 #include "core/chatbot.h"
 
+#include <numeric>
+
 #include "core/stringutils.h"
 #include "core/stringmerger.h"
 #include "core/str.h"
@@ -547,14 +549,24 @@ namespace chatbot
       const std::vector<T>& responses,
       std::function<std::string(const T& t)> callback)
   {
-    int           counter = 0;
-    unsigned long suggested;
-    do
+    std::vector<unsigned long> indices(responses.size(), 0);
+    std::iota(indices.begin(), indices.end(), 0);
+    unsigned long suggested = 0;
+
+    while(!indices.empty())
     {
-      suggested = chatbot->random.NextRange(responses.size());
-      counter += 1;
-    } while(callback(responses[suggested]) == chatbot->last_response &&
-            counter < 15);
+      const auto index = chatbot->random.NextRange(indices.size());
+      suggested        = indices[index];
+      if(callback(responses[suggested]) == chatbot->last_response)
+      {
+        indices.erase(indices.begin() + index);
+      }
+      else
+      {
+        break;
+      }
+    }
+
     chatbot->last_response = callback(responses[suggested]);
     chatbot->last_event    = -1;
     return suggested;
