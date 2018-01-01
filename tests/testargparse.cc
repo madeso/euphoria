@@ -1,4 +1,5 @@
 #include "core/argparse.h"
+#include "core/levenshtein.h"
 
 #include "catch.hpp"
 
@@ -7,6 +8,28 @@ enum class MyEnum
   MyVal,
   MyVal2
 };
+
+/*
+TEST_CASE("argparse-help", "[argparse]")
+{
+  auto       parser    = argparse::Parser{"description"};
+  const auto arguments = std::vector<std::string>{"-h"};
+  const auto stat      = parser.parse("APP.exe", arguments);
+  CHECK(stat.result == argparse::ParseStatus::Complete);
+
+  const std::string usage =
+      "usage: APP.exe [-h ]\n"
+      "\n"
+      "description\n"
+      "\n"
+      "optional arguments:\n"
+      "  -h\tshow this help message and exit.\n"
+      "\n";
+  INFO("Edit dist: " << FastLevenshteinDistance(stat.out, usage));
+  CHECK_THAT(stat.out, Catch::Equals(usage));
+  CHECK(stat.error == "");
+}
+*/
 
 TEST_CASE("argparse", "[argparse]")
 {
@@ -34,7 +57,10 @@ TEST_CASE("argparse", "[argparse]")
   SECTION("test parse")
   {
     const auto arguments = std::vector<std::string>{"gcc", "3"};
-    CHECK(argparse::Parser::ParseComplete == parser.parse(name, arguments));
+    const auto stat      = parser.parse(name, arguments);
+    CHECK(stat.result == argparse::ParseStatus::Complete);
+    CHECK(stat.out == "");
+    CHECK(stat.error == "");
     CHECK(compiler == "gcc");
     CHECK(i == 3);
     CHECK(op == 2);
@@ -46,7 +72,10 @@ TEST_CASE("argparse", "[argparse]")
   {
     const auto arguments =
         std::vector<std::string>{"gcc", "3", "-enum", "MyVal2"};
-    CHECK(argparse::Parser::ParseComplete == parser.parse(name, arguments));
+    const auto stat = parser.parse(name, arguments);
+    CHECK(stat.result == argparse::ParseStatus::Complete);
+    CHECK(stat.out == "");
+    CHECK(stat.error == "");
     CHECK(compiler == "gcc");
     CHECK(i == 3);
     CHECK(op == 2);
@@ -57,7 +86,10 @@ TEST_CASE("argparse", "[argparse]")
   SECTION("test parse optional")
   {
     const auto arguments = std::vector<std::string>{"gcc", "3", "-op", "42"};
-    CHECK(argparse::Parser::ParseComplete == parser.parse(name, arguments));
+    const auto stat      = parser.parse(name, arguments);
+    CHECK(stat.result == argparse::ParseStatus::Complete);
+    CHECK(stat.out == "");
+    CHECK(stat.error == "");
     CHECK(compiler == "gcc");
     CHECK(i == 3);
     CHECK(op == 42);
@@ -69,7 +101,10 @@ TEST_CASE("argparse", "[argparse]")
   {
     const auto arguments =
         std::vector<std::string>{"clang", "5", "-strings", "a", "b", "c"};
-    CHECK(argparse::Parser::ParseComplete == parser.parse(name, arguments));
+    const auto stat = parser.parse(name, arguments);
+    CHECK(stat.result == argparse::ParseStatus::Complete);
+    CHECK(stat.out == "");
+    CHECK(stat.error == "");
     CHECK(compiler == "clang");
     CHECK(i == 5);
     CHECK(op == 2);

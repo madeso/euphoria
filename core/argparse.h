@@ -8,7 +8,7 @@
 #include <sstream>
 #include <memory>
 #include <map>
-#include <iostream>
+#include <sstream>
 
 
 namespace argparse
@@ -77,10 +77,12 @@ namespace argparse
   struct Running
   {
    public:
-    Running(const std::string& aapp, std::ostream& ao);
+    explicit Running(const std::string& aapp);
 
-    const std::string app;
-    std::ostream&     o;
+    const std::string  app;
+    std::ostringstream o;
+    std::ostringstream error;
+    bool               run;
 
    private:
     Running(const Running&);
@@ -291,17 +293,25 @@ namespace argparse
 
   ////////////////////////////////////////////////////////////////////////////
 
+  struct ParseStatus
+  {
+    enum Result
+    {
+      Failed,
+      Complete,
+      ShouldExit
+    };
+    ParseStatus(const Running& running, Result r);
+    std::string out;
+    std::string error;
+    Result      result;
+  };
+
   /// main entry class that contains all arguments and does all the parsing.
   class Parser
   {
    public:
-    enum ParseStatus
-    {
-      ParseFailed,
-      ParseComplete
-    };
-
-    Parser(const std::string& d, const std::string aappname = "");
+    Parser(const std::string& d, const std::string& aappname = "");
 
     template <typename T>
     Extra&

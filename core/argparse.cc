@@ -95,9 +95,9 @@ namespace argparse
 
   ////////////////////////////////////////////////////////////////////////////
 
-  Running::Running(const std::string& aapp, std::ostream& ao)
+  Running::Running(const std::string& aapp)
       : app(aapp)
-      , o(ao)
+      , run(true)
   {
   }
 
@@ -317,6 +317,15 @@ namespace argparse
 
   ////////////////////////////////////////////////////////////////////////////
 
+  ParseStatus::ParseStatus(const Running& running, ParseStatus::Result r)
+      : out(running.o.str())
+      , error(running.error.str())
+      , result(r)
+  {
+  }
+
+  ////////////////////////////////////////////////////////////////////////////
+
   namespace
   {
     struct CallHelp
@@ -330,19 +339,19 @@ namespace argparse
       operator()(Running& r, Arguments& args, const std::string& argname)
       {
         parser->writeHelp(r);
-        exit(0);
+        r.run = false;
       }
 
       Parser* parser;
     };
   }
 
-  Parser::Parser(const std::string& d, const std::string aappname)
+  Parser::Parser(const std::string& d, const std::string& aappname)
       : description(d)
       , appname(aappname)
       , positionalIndex(0)
   {
-    addFunction("-h", CallHelp(this)).help("show this help message and exit");
+    addFunction("-h", CallHelp(this)).help("show this help message and exit.");
   }
 
   Extra&
@@ -352,16 +361,13 @@ namespace argparse
     return insert(name, arg).count(Count::None);
   }
 
-  Parser::ParseStatus
+  ParseStatus
   Parser::parse(
       const std::string& name, const std::vector<std::string>& arguments) const
   {
-    std::ostream& out   = std::cout;
-    std::ostream& error = std::cerr;
-
     Arguments         args(arguments);
     const std::string app = name;
-    Running           running(app, out);
+    Running           running{app};
 
     try
     {
@@ -402,13 +408,13 @@ namespace argparse
             "too few arguments");  // todo: list a few missing arguments...
       }
 
-      return ParseComplete;
+      return ParseStatus{running, ParseStatus::Complete};
     }
     catch(ParserError& p)
     {
       writeUsage(running);
-      error << app << ": " << p.what() << std::endl << std::endl;
-      return ParseFailed;
+      running.error << app << ": " << p.what() << std::endl << std::endl;
+      return ParseStatus{running, ParseStatus::Failed};
     }
   }
 
@@ -423,27 +429,27 @@ namespace argparse
 
     if(!helpPositional.empty())
     {
-      r.o << "positional arguments: " << std::endl;
+      r.o << "positional arguments:\n";
       for(const Help& positional : helpPositional)
       {
         r.o << ins << positional.helpCommand() << sep
-            << positional.helpDescription() << std::endl;
+            << positional.helpDescription() << "\n";
       }
 
-      r.o << std::endl;
+      r.o << "\n";
     }
 
     if(!helpOptional.empty())
     {
-      r.o << "optional arguments: " << std::endl;
+      r.o << "optional arguments:\n";
       for(const Help& optional : helpOptional)
       {
         r.o << ins << optional.helpCommand() << sep
-            << optional.helpDescription() << std::endl;
+            << optional.helpDescription() << "\n";
       }
     }
 
-    r.o << std::endl;
+    r.o << "\n";
   }
 
   void
@@ -459,7 +465,7 @@ namespace argparse
     {
       r.o << " " << positional.usage();
     }
-    r.o << std::endl;
+    r.o << "\n";
   }
 
   Extra&
