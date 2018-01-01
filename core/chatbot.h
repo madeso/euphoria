@@ -172,7 +172,9 @@ class ChatBot
   GetSignOnMessage();
 
   std::string
-  DebugLastResponse() const;
+  DebugLastResponse(
+      const std::vector<std::string>& search =
+          std::vector<std::string>{}) const;
 
  protected:
   unsigned long

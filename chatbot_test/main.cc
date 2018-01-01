@@ -10,8 +10,8 @@ main()
   ChatBot     chatbot;
   std::string input;
   CmdLine     cmdline{&std::cout};
-  cmdline.Register("last", [&chatbot](const CmdLine::Args& args) {
-    std::cout << chatbot.DebugLastResponse();
+  cmdline.Register("debug", [&chatbot](const CmdLine::Args& args) {
+    std::cout << chatbot.DebugLastResponse(args);
     std::cout << "\n\n";
   });
 

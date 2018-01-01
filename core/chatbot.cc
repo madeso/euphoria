@@ -652,7 +652,7 @@ ChatBot::GetSignOnMessage()
 }
 
 std::string
-ChatBot::DebugLastResponse() const
+ChatBot::DebugLastResponse(const std::vector<std::string>& search) const
 {
   if(history.empty())
   {
@@ -687,12 +687,29 @@ ChatBot::DebugLastResponse() const
 
     for(const auto& l : last.logs)
     {
-      ss << l.title << "\n";
-      for(const auto& li : l.lines)
+      bool display = search.empty();
+      if(!search.empty())
       {
-        ss << "  " << li << "\n";
+        const auto target = ToLower(l.title);
+        display           = true;
+        for(const auto& s : search)
+        {
+          if(target.find(ToLower(s)) == std::string::npos)
+          {
+            display = false;
+            break;
+          }
+        }
       }
-      ss << "\n";
+      if(display)
+      {
+        ss << l.title << "\n";
+        for(const auto& li : l.lines)
+        {
+          ss << "  " << li << "\n";
+        }
+        ss << "\n";
+      }
     }
   }
 
