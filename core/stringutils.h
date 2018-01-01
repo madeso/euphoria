@@ -79,6 +79,10 @@ EndsWith(const std::string& string_to_test, const std::string& end);
  */
 std::string
 ToLower(const std::string& str);
+
+std::vector<std::string>
+ToLower(const std::vector<std::string>& str);
+
 std::string
 ToUpper(const std::string& str);
 
@@ -146,6 +150,19 @@ VectorToStringVector(const std::vector<T>& data)
   {
     const std::string str = Str() << d;
     ret.emplace_back(str);
+  }
+  return ret;
+}
+
+template <typename T, typename C>
+std::vector<std::string>
+VectorToStringVector(const std::vector<T>& data, C callback)
+{
+  std::vector<std::string> ret;
+  ret.reserve(data.size());
+  for(const auto& d : data)
+  {
+    ret.emplace_back(callback(d));
   }
   return ret;
 }

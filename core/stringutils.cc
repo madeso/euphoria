@@ -90,6 +90,13 @@ ToLower(const std::string& str)
   return result;
 }
 
+std::vector<std::string>
+ToLower(const std::vector<std::string>& str)
+{
+  return VectorToStringVector(
+      str, [](const std::string& s) { return ToLower(s); });
+}
+
 std::string
 ToUpper(const std::string& str)
 {
