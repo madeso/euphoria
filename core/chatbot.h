@@ -5,6 +5,7 @@
 #include <vector>
 #include <map>
 #include <memory>
+#include <deque>
 
 #include <core/random.h>
 
@@ -176,6 +177,7 @@ class ChatBot
       const std::vector<std::string>& search =
           std::vector<std::string>{}) const;
 
+  unsigned long                            max_responses;
   bool                                     is_in_conversation;
   Random                                   random;
   chatbot::Transposer                      transposer;
@@ -183,7 +185,7 @@ class ChatBot
   chatbot::ConversationTopics              current_topics;
   std::vector<std::string>                 last_input;
   int                                      last_event;
-  std::string                              last_response;
+  std::deque<std::string>                  last_responses;
   std::vector<chatbot::ConversationStatus> history;
 };
 

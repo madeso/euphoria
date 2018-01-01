@@ -1,6 +1,7 @@
 #include "core/chatbot.h"
 
 #include <numeric>
+#include <algorithm>
 
 #include "core/stringutils.h"
 #include "core/stringmerger.h"
@@ -279,6 +280,8 @@ ChatBot::ChatBot()
     , last_input(chatbot::CleanInput("abc"))
     , last_event(-1)
 {
+  max_responses = 5;
+
   transposer.Add("I'M", "YOU'RE")
       .Add("AM", "ARE")
       .Add("WERE", "WAS")
@@ -557,7 +560,9 @@ namespace chatbot
     {
       const auto index = chatbot->random.NextRange(indices.size());
       suggested        = indices[index];
-      if(callback(responses[suggested]) == chatbot->last_response)
+      const auto& resp = chatbot->last_responses;
+      if(std::find(resp.begin(), resp.end(), callback(responses[suggested])) !=
+         resp.end())
       {
         indices.erase(indices.begin() + index);
       }
@@ -567,8 +572,12 @@ namespace chatbot
       }
     }
 
-    chatbot->last_response = callback(responses[suggested]);
-    chatbot->last_event    = -1;
+    chatbot->last_responses.emplace_back(callback(responses[suggested]));
+    if(chatbot->last_responses.size() >= chatbot->max_responses)
+    {
+      chatbot->last_responses.pop_front();
+    }
+    chatbot->last_event = -1;
     return suggested;
   }
 
