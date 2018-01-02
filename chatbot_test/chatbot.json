@@ -1,2 +1,16 @@
 {
+  "max_responses": 3,
+  "signon" : ["Hello", "Hi", "Howdy"],
+  "empty": ["Huh?", "Pardon me?", "I'm sorry"],
+  "no_response": ["I dont understand", "Im sorry, I didnt catch that"],
+  "same_input": ["You said that already"],
+  "similar_input": ["Havent you said that?"],
+  "empty_repetition": ["Please stop."],
+
+  "responses": [
+    {
+      "inputs": [{"input": "bye"}],
+      "ends_conversation": true
+    }
+  ]
 }
