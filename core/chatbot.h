@@ -187,6 +187,7 @@ class ChatBot
   int                                      last_event;
   std::deque<std::string>                  last_responses;
   std::vector<chatbot::ConversationStatus> history;
+  std::vector<std::string>                 missing_input;
 };
 
 

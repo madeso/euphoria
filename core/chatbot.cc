@@ -749,7 +749,8 @@ ChatBot::GetComplexResponse(const std::string& dirty_input)
 
   if(response.empty())
   {
-    ret.section  = "empty response";
+    ret.section = "empty response";
+    missing_input.emplace_back(dirty_input);
     ret.response = chatbot::SelectBasicResponse(this, database.no_response);
     return ret;
   }
