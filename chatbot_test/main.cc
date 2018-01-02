@@ -15,8 +15,7 @@ main()
   FileSystem file_system;
   FileSystemRootFolder::AddRoot(&file_system, current_directory);
 
-  const std::string
-      error;  // = chatbot.LoadFromFile(&file_system, "chatbot.json");
+  const auto error = chatbot.LoadFromFile(&file_system, "chatbot.json");
   if(!error.empty())
   {
     std::cerr << "Failed to load chatbot: " << error << "\n";

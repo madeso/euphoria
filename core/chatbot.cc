@@ -8,9 +8,11 @@
 #include "core/str.h"
 #include "core/findstring.h"
 #include "core/proto.h"
+#include "core/log.h"
 
 #include "chatbot.pb.h"
 
+LOG_SPECIFY_DEFAULT_LOGGER("core.chatbot")
 
 namespace chatbot
 {
@@ -643,7 +645,11 @@ namespace chatbot
       const std::vector<T>& responses,
       std::function<std::string(const T& t)> callback)
   {
-    ASSERT(!responses.empty());
+    if(responses.empty())
+    {
+      LOG_ERROR("Empty response.");
+      return 0;
+    }
     std::vector<unsigned long> indices(responses.size(), 0);
     std::iota(indices.begin(), indices.end(), 0);
     unsigned long suggested = 0;
@@ -677,6 +683,11 @@ namespace chatbot
   SelectBasicResponse(
       ChatBot* chatbot, const std::vector<std::string>& responses)
   {
+    if(responses.empty())
+    {
+      LOG_ERROR("Empty basic response");
+      return "";
+    }
     const auto suggested = SelectBasicResponseIndex<std::string>(
         chatbot, responses, [](const std::string& str) { return str; });
     return responses[suggested];
