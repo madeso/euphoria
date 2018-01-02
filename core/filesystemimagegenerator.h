@@ -13,6 +13,9 @@ class FileSystemImageGenerator : public FileSystemRoot
   std::shared_ptr<MemoryChunk>
   ReadFile(const std::string& path) override;
 
+  std::string
+  Describe() override;
+
   explicit FileSystemImageGenerator(const std::string& base);
 
  private:

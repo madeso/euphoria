@@ -15,6 +15,9 @@ class FileSystemRoot
  public:
   virtual ~FileSystemRoot();
 
+  virtual std::string
+  Describe() = 0;
+
   virtual std::shared_ptr<MemoryChunk>
   ReadFile(const std::string& path) = 0;
 };
@@ -30,6 +33,9 @@ class FileSystem
 
   std::shared_ptr<MemoryChunk>
   ReadFile(const std::string& path);
+
+  std::string
+  GetRootsAsString();
 
   // todo: need to support paging too
   bool
@@ -61,6 +67,9 @@ class FileSystemRootCatalog : public FileSystemRoot
   std::shared_ptr<MemoryChunk>
   ReadFile(const std::string& path) override;
 
+  std::string
+  Describe() override;
+
  private:
   std::map<std::string, std::shared_ptr<MemoryChunk>> catalog_;
 };
@@ -78,6 +87,9 @@ class FileSystemRootFolder : public FileSystemRoot
 
   static void
   AddRoot(FileSystem* fs);
+
+  std::string
+  Describe() override;
 
  private:
   std::string folder_;

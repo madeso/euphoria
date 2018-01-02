@@ -5,6 +5,7 @@
 #include "core/assert.h"
 #include "core/ints.h"
 #include "core/os.h"
+#include "core/stringmerger.h"
 
 #include "core/stringutils.h"
 
@@ -37,6 +38,22 @@ FileSystem::ReadFile(const std::string& path)
   }
 
   return MemoryChunk::Null();
+}
+
+std::string
+FileSystem::GetRootsAsString()
+{
+  std::vector<std::string> ret;
+  for(auto& root : roots_)
+  {
+    const auto desc = root->Describe();
+    if(!desc.empty())
+    {
+      ret.push_back(desc);
+    }
+  }
+
+  return StringMerger::Array().Generate(ret);
 }
 
 bool
@@ -97,6 +114,12 @@ FileSystemRootCatalog::ReadFile(const std::string& path)
   return found->second;
 }
 
+std::string
+FileSystemRootCatalog::Describe()
+{
+  return StringMerger::Array().Generate(MapToStringVector(catalog_));
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 
 FileSystemRootFolder::FileSystemRootFolder(std::string folder)
@@ -129,6 +152,12 @@ FileSystemRootFolder::ReadFile(const std::string& path)
       memory->GetSize());
 
   return memory;
+}
+
+std::string
+FileSystemRootFolder::Describe()
+{
+  return folder_;
 }
 
 void

@@ -41,6 +41,12 @@ FileSystemImageGenerator::ReadFile(const std::string& path)
   return image.Write(ImageWriteFormat::PNG);
 }
 
+std::string
+FileSystemImageGenerator::Describe()
+{
+  return Str() << base_ << "/<color>";
+}
+
 FileSystemImageGenerator::FileSystemImageGenerator(const std::string& base)
     : base_(base)
 {
