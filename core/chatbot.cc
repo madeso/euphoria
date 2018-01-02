@@ -7,6 +7,9 @@
 #include "core/stringmerger.h"
 #include "core/str.h"
 #include "core/findstring.h"
+#include "core/proto.h"
+
+#include "chatbot.pb.h"
 
 
 namespace chatbot
@@ -184,6 +187,7 @@ namespace chatbot
   std::string
   Transposer::Transpose(const std::string& input) const
   {
+    // todo change to a map
     for(const auto& s : store)
     {
       if(s.first == input)
@@ -273,6 +277,93 @@ namespace chatbot
     }
     return ret;
   }
+}
+
+std::vector<std::string>
+ToStringVector(const ::google::protobuf::RepeatedPtrField<::std::string>& ss)
+{
+  std::vector<std::string> r;
+  r.reserve(ss.size());
+  for(const auto& s : ss)
+  {
+    r.emplace_back(s);
+  }
+  return r;
+}
+
+namespace
+{
+  chatbot::Input::Location
+  C(chat::Location loc)
+  {
+    switch(loc)
+    {
+      case chat::LOCATION_IN_MIDDLE:
+        return chatbot::Input::IN_MIDDLE;
+      case chat::LOCATION_AT_START:
+        return chatbot::Input::AT_START;
+      case chat::LOCATION_AT_END:
+        return chatbot::Input::AT_END;
+      case chat::LOCATION_ALONE:
+        return chatbot::Input::ALONE;
+      default:
+        DIE("Unhandled case");
+        return chatbot::Input::LOWEST;
+    }
+  }
+}
+
+std::string
+ChatBot::LoadFromFile(FileSystem* fs, const std::string& path)
+{
+  chat::Root root;
+
+  std::string error = LoadProtoJson(fs, &root, path);
+  if(!error.empty())
+  {
+    return error;
+  }
+
+  max_responses = root.max_responses();
+
+  database                  = chatbot::Database{};
+  database.signon           = ToStringVector(root.signon());
+  database.empty            = ToStringVector(root.empty());
+  database.no_response      = ToStringVector(root.no_response());
+  database.same_input       = ToStringVector(root.same_input());
+  database.similar_input    = ToStringVector(root.similar_input());
+  database.empty_repetition = ToStringVector(root.empty_repetition());
+
+  transposer = chatbot::Transposer{};
+  for(const auto& t : root.transposes())
+  {
+    transposer.Add(t.from(), t.to());
+  }
+
+  for(const auto& r : root.responses())
+  {
+    chatbot::Response& response = database.CreateResponse();
+    response.ends_conversation  = r.ends_conversation();
+    for(const auto& topic : r.topics_required())
+    {
+      response.topics_required.emplace_back(topic);
+    }
+    for(const auto& rr : r.responses())
+    {
+      response.responses.emplace_back(rr.say());
+      auto& topics = response.responses.rbegin()->topics_mentioned;
+      for(const auto& topic : rr.topics_mentioned())
+      {
+        topics.emplace_back(topic);
+      }
+    }
+    for(const auto i : r.inputs())
+    {
+      response.inputs.emplace_back(i.input(), C(i.location()));
+    }
+  }
+
+  return "";
 }
 
 ChatBot::ChatBot()
@@ -552,6 +643,7 @@ namespace chatbot
       const std::vector<T>& responses,
       std::function<std::string(const T& t)> callback)
   {
+    ASSERT(!responses.empty());
     std::vector<unsigned long> indices(responses.size(), 0);
     std::iota(indices.begin(), indices.end(), 0);
     unsigned long suggested = 0;

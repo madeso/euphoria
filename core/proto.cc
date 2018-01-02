@@ -79,8 +79,8 @@ LoadProtoJson(
   const bool load_result = fs->ReadFileToString(file_name, &source);
   if(!load_result)
   {
-    // todo: add file to error
-    return "Unable to load file";
+    return Str() << "Unable to load file " << file_name << " from "
+                 << fs->GetRootsAsString();
   }
 
   rapidjson::Document doc;

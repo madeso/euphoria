@@ -3,11 +3,26 @@
 #include "core/chatbot.h"
 #include "core/cmdline.h"
 
+#include "core/os.h"
+#include "core/filesystem.h"
 
 int
 main()
 {
-  ChatBot     chatbot;
+  ChatBot chatbot;
+
+  const auto current_directory = GetCurrentDirectory();
+  FileSystem file_system;
+  FileSystemRootFolder::AddRoot(&file_system, current_directory);
+
+  const std::string
+      error;  // = chatbot.LoadFromFile(&file_system, "chatbot.json");
+  if(!error.empty())
+  {
+    std::cerr << "Failed to load chatbot: " << error << "\n";
+    return -2;
+  }
+
   std::string input;
   CmdLine     cmdline{&std::cout};
   cmdline.Register("debug", [&chatbot](const CmdLine::Args& args) {

@@ -1,0 +1,49 @@
+package chat;
+
+enum Location
+{
+  LOCATION_IN_MIDDLE = 1;
+  LOCATION_AT_START = 2;
+  LOCATION_AT_END = 3;
+  LOCATION_ALONE = 4;
+}
+
+message Input
+{
+  optional string input = 1;
+  optional Location location = 2;
+}
+
+message SingleResponse
+{
+  optional string say = 1;
+  repeated string topics_mentioned = 2;
+}
+
+message Response
+{
+  repeated Input inputs = 1;
+  repeated SingleResponse responses = 2;
+  optional bool ends_conversation = 3;
+  repeated string topics_required = 4;
+}
+
+message Transpose
+{
+  optional string from = 1;
+  optional string to = 2;
+}
+
+message Root
+{
+  repeated string signon = 1;
+  repeated string empty = 2;
+  repeated string no_response = 3;
+  repeated string same_input = 4;
+  repeated string similar_input = 5;
+  repeated string empty_repetition = 6;
+
+  optional uint32 max_responses = 7;
+  repeated Response responses = 8;
+  repeated Transpose transposes = 9;
+}

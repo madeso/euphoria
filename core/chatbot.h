@@ -9,6 +9,8 @@
 
 #include <core/random.h>
 
+class FileSystem;
+
 namespace chatbot
 {
   struct Input;
@@ -159,6 +161,9 @@ class ChatBot
 {
  public:
   ChatBot();
+
+  std::string
+  LoadFromFile(FileSystem* fs, const std::string& path);
 
   std::string
   GetResponse(const std::string& input);
