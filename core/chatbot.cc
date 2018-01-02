@@ -681,11 +681,13 @@ namespace chatbot
 
   std::string
   SelectBasicResponse(
-      ChatBot* chatbot, const std::vector<std::string>& responses)
+      ChatBot*                        chatbot,
+      const std::vector<std::string>& responses,
+      const char* const               name)
   {
     if(responses.empty())
     {
-      LOG_ERROR("Empty basic response");
+      LOG_ERROR("Empty basic response for " << name);
       return "";
     }
     const auto suggested = SelectBasicResponseIndex<std::string>(
@@ -730,12 +732,12 @@ ChatBot::GetComplexResponse(const std::string& dirty_input)
   {
     if(last_input.empty())
     {
-      ret.section = "empty repetition";
-      ret.response =
-          chatbot::SelectBasicResponse(this, database.empty_repetition);
+      ret.section  = "empty repetition";
+      ret.response = chatbot::SelectBasicResponse(
+          this, database.empty_repetition, "empty repetion");
       return ret;
     }
-    ret.response = chatbot::SelectBasicResponse(this, database.empty);
+    ret.response = chatbot::SelectBasicResponse(this, database.empty, "empty");
     last_input   = input;
     ret.section  = "empty";
     return ret;
@@ -743,8 +745,9 @@ ChatBot::GetComplexResponse(const std::string& dirty_input)
 
   if(input == last_input)
   {
-    ret.section  = "same input";
-    ret.response = chatbot::SelectBasicResponse(this, database.same_input);
+    ret.section = "same input";
+    ret.response =
+        chatbot::SelectBasicResponse(this, database.same_input, "same input");
     return ret;
   }
   last_input = input;
@@ -827,8 +830,8 @@ ChatBot::GetComplexResponse(const std::string& dirty_input)
           if(last_event == resp.event_id)
           {
             log.emplace_back("Same event as last time");
-            response =
-                chatbot::SelectBasicResponse(this, database.similar_input);
+            response = chatbot::SelectBasicResponse(
+                this, database.similar_input, "similar input");
           }
           else
           {
@@ -854,7 +857,8 @@ ChatBot::GetComplexResponse(const std::string& dirty_input)
   {
     ret.section = "empty response";
     missing_input.emplace_back(dirty_input);
-    ret.response = chatbot::SelectBasicResponse(this, database.no_response);
+    ret.response =
+        chatbot::SelectBasicResponse(this, database.no_response, "no response");
     return ret;
   }
   else
@@ -868,7 +872,7 @@ ChatBot::GetComplexResponse(const std::string& dirty_input)
 std::string
 ChatBot::GetSignOnMessage()
 {
-  return chatbot::SelectBasicResponse(this, database.signon);
+  return chatbot::SelectBasicResponse(this, database.signon, "signon");
 }
 
 std::string
