@@ -38,18 +38,28 @@ namespace
   }
 
   std::string
-  ToString(const rapidjson::Value& val)
+  ToString(
+      const rapidjson::Value&                  val,
+      const google::protobuf::FieldDescriptor* field)
   {
     // todo: add more printing
-    return TypeToString(val.GetType());
+    const auto t = TypeToString(val.GetType());
+    if(field == nullptr)
+    {
+      return t;
+    }
+    return Str() << field->name() << "[" << t << "]";
   }
 
   class JsonPath
   {
    public:
-    JsonPath(const JsonPath* p, const rapidjson::Value& s)
+    JsonPath(
+        const JsonPath*                          p,
+        const rapidjson::Value&                  s,
+        const google::protobuf::FieldDescriptor* field)
         : parent_(p)
-        , self_(ToString(s))
+        , self_(ToString(s, field))
     {
     }
 
@@ -88,7 +98,7 @@ namespace
       const google::protobuf::FieldDescriptor* field,
       const JsonPath*                          path)
   {
-    const JsonPath self_path{path, json};
+    const JsonPath self_path{path, json, field};
     const auto*    ref      = msg->GetReflection();
     const bool     repeated = field->is_repeated();
     switch(field->cpp_type())
@@ -325,7 +335,7 @@ namespace protojson
       google::protobuf::Message* msg,
       JsonPath*                  path)
   {
-    JsonPath self_path{path, json};
+    JsonPath self_path{path, json, nullptr};
     if(json.GetType() != rapidjson::kObjectType)
     {
       return Str() << "JSON root is not a object at " << self_path << ", was "
@@ -368,7 +378,7 @@ namespace protojson
         {
           return Str()
                  << "Protobuf is repeated but json didn't specify an array at "
-                 << self_path;
+                 << self_path << " for " << descriptor->name() << "::" << name;
         }
         for(rapidjson::Value::ConstValueIterator ait = itr->value.Begin();
             ait != itr->value.End();
