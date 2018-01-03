@@ -9,7 +9,7 @@
 #include <vector>
 #include <memory>
 
-class Font;
+class FontCache;
 class TextureCache;
 class TextBackgroundRenderer;
 class Skin;
@@ -23,7 +23,7 @@ class Root
   bool
   Load(
       FileSystem*             fs,
-      Font*                   font,
+      FontCache*              font,
       const std::string&      path,
       TextureCache*           cache,
       TextBackgroundRenderer* br);

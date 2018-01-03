@@ -14,7 +14,7 @@ Root::~Root()
 bool
 Root::Load(
     FileSystem*             fs,
-    Font*                   font,
+    FontCache*                   font,
     const std::string&      path,
     TextureCache*           cache,
     TextBackgroundRenderer* br)

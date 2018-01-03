@@ -13,6 +13,7 @@
 #include "gui/skin.h"
 
 #include "render/scalablesprite.h"
+#include "render/fontcache.h"
 
 #include "gui.pb.h"
 
@@ -66,7 +67,6 @@ class CmdButton : public Button
 void
 BuildLayoutContainer(
     UiState*                    state,
-    Font*                       font,
     LayoutContainer*            root,
     const gui::LayoutContainer& c,
     TextureCache*               cache,
@@ -85,7 +85,6 @@ SetupLayout(LayoutData* data, const gui::Widget& src)
 std::shared_ptr<Widget>
 CreateWidget(
     UiState*                state,
-    Font*                   font,
     const gui::Widget&      w,
     TextureCache*           cache,
     TextBackgroundRenderer* br,
@@ -108,16 +107,18 @@ CreateWidget(
     {
       std::cerr << "Failed to find skin " << skin_name << "\n";
     }
+    Skin* skin = skin_it->second;
+
     if(!skin_it->second->button_image.empty())
     {
       std::shared_ptr<ScalableSprite> sp(new ScalableSprite(
-          skin_it->second->button_image, Sizef::FromSquare(2.0f), cache));
+          skin->button_image, Sizef::FromSquare(2.0f), cache));
       b->SetSprite(sp);
     }
     ret.reset(b);
     b->cmd = w.button().command();
     b->Text().SetString(w.button().text());
-    b->Text().SetFont(font);
+    b->Text().SetFont(skin->font);
     b->Text().SetBackgroundRenderer(br);
   }
   else
@@ -126,7 +127,7 @@ CreateWidget(
     PanelWidget* l = new PanelWidget(state);
     ret.reset(l);
     BuildLayoutContainer(
-        state, font, &l->container, w.panel().container(), cache, br, skins);
+        state, &l->container, w.panel().container(), cache, br, skins);
   }
 
   ASSERT(ret.get());
@@ -141,7 +142,6 @@ CreateWidget(
 void
 BuildLayoutContainer(
     UiState*                    state,
-    Font*                       font,
     LayoutContainer*            root,
     const gui::LayoutContainer& c,
     TextureCache*               cache,
@@ -151,7 +151,7 @@ BuildLayoutContainer(
   root->SetLayout(GetLayout(c.layout()));
   for(const gui::Widget& widget : c.widgets())
   {
-    root->Add(CreateWidget(state, font, widget, cache, br, skins));
+    root->Add(CreateWidget(state, widget, cache, br, skins));
   }
 }
 
@@ -248,10 +248,11 @@ LoadButton(const gui::ButtonState& src)
 }
 
 std::shared_ptr<Skin>
-LoadSkin(const gui::Skin& src)
+LoadSkin(const gui::Skin& src, FontCache* font)
 {
   std::shared_ptr<Skin> skin(new Skin());
   skin->name              = src.name();
+  skin->font              = font->GetFont(src.font());
   skin->button_image      = src.button_image();
   skin->button_idle       = LoadButton(src.button_idle());
   skin->button_hot        = LoadButton(src.button_hot());
@@ -263,7 +264,7 @@ bool
 Load(
     FileSystem*                         fs,
     UiState*                            state,
-    Font*                               font,
+    FontCache*                          font,
     LayoutContainer*                    root,
     const std::string&                  path,
     TextureCache*                       cache,
@@ -283,12 +284,12 @@ Load(
 
   for(const gui::Skin& skin : f.skins())
   {
-    std::shared_ptr<Skin> skin_ptr = LoadSkin(skin);
+    std::shared_ptr<Skin> skin_ptr = LoadSkin(skin, font);
     skin_map.insert(std::make_pair(skin.name(), skin_ptr.get()));
     skins->push_back(skin_ptr);
   }
 
-  BuildLayoutContainer(state, font, root, f.root(), cache, br, skin_map);
+  BuildLayoutContainer(state, root, f.root(), cache, br, skin_map);
 
   return root->HasWidgets();
 }

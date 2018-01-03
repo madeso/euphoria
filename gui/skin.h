@@ -40,7 +40,7 @@ class Skin
 
   std::string name;
 
-  // std::shared_ptr<Font> font;
+  std::shared_ptr<Font> font;
 
   std::string button_image;
   ButtonState button_idle;

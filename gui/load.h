@@ -7,6 +7,7 @@
 
 class LayoutContainer;
 class TextureCache;
+class FontCache;
 class UiState;
 class Font;
 class TextBackgroundRenderer;
@@ -17,7 +18,7 @@ bool
 Load(
     FileSystem*                         fs,
     UiState*                            state,
-    Font*                               font,
+    FontCache*                          font,
     LayoutContainer*                    root,
     const std::string&                  path,
     TextureCache*                       cache,

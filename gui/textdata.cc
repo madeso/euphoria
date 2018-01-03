@@ -15,7 +15,7 @@ TextData::~TextData()
 }
 
 void
-TextData::SetFont(Font* font)
+TextData::SetFont(std::shared_ptr<Font> font)
 {
   font_ = font;
   text_.reset();
@@ -69,7 +69,7 @@ TextData::UpdateText()
   if(text_.get() == nullptr && backgroundRenderer_ != nullptr &&
      font_ != nullptr)
   {
-    text_.reset(new Text{font_, backgroundRenderer_});
+    text_.reset(new Text{font_.get(), backgroundRenderer_});
   }
 
   if(text_.get() != nullptr)
