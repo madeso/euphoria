@@ -3,7 +3,6 @@
 
 #include <memory>
 #include <string>
-#include <map>
 
 class Texture2d;
 class FileSystem;
