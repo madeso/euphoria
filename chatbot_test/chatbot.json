@@ -7,10 +7,67 @@
   "similar_input": ["Havent you said that?"],
   "empty_repetition": ["Please stop."],
 
+  "transposes": [
+    {"from": "yourself", "to": "myself"},
+    {"from": "myself", "to": "yourself"},
+    {"from": "you", "to": "me"},
+    {"from": "me", "to": "you"}
+  ],
+
   "responses": [
     {
       "inputs": [{"input": "bye"}],
-      "ends_conversation": true
+      "ends_conversation": true,
+      "responses": [{"say": "bye"}]
+    },
+    {
+      "inputs": [
+        {"input": "hello"},
+        {"input": "hi"},
+        {"input": "greetings"},
+        {"input": "howdy"}
+      ],
+      "responses": [
+        {"say": "Hello friend!"},
+        {"say": "Hi!"},
+        {"say": "How are you!"}
+      ]
+    },
+    {
+      "inputs": [
+        {"input": "how are you"},
+        {"input": "are you fine"},
+        {"input": "how are you feeling"},
+        {"input": "are you hurt"}
+      ],
+      "responses": [
+        {"say": "I am fine, how about you?", "topics_mentioned": ["health"]}
+      ]
+    },
+    {
+      "topics_required": ["health"],
+      "inputs": [
+        {"input": "i feel fine"}
+      ],
+      "responses": [
+        {"say": "it is good to feel fine"}
+      ]
+    },
+    {
+      "inputs": [
+        {"input": "i feel fine"}
+      ],
+      "responses": [
+        {"say": "I also feel fine"}
+      ]
+    },
+    {
+      "inputs": [
+        {"input": "i want", "location": "LOCATION_AT_START"}
+      ],
+      "responses": [
+        {"say": "So, you want *?"}
+      ]
     }
   ]
 }
