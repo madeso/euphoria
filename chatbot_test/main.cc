@@ -44,9 +44,6 @@ main()
       {
         const std::string in{input.begin() + 1, input.end()};
         cmdline.Run(in);
-        // handle debug commands to chatbot
-        // std::cout << chatbot.DebugLastResponse();
-        // std::cout << "\n\n";
       }
       else
       {
