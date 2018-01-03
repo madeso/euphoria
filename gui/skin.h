@@ -9,37 +9,40 @@
 
 class Font;
 
-class ButtonState {
+class ButtonState
+{
  public:
   ButtonState();
   ~ButtonState();
 
-  std::string image;
+  // std::string image;
   float scale;
-  Rgb image_color;
-  Rgb text_color;
+  Rgb   image_color;
+  Rgb   text_color;
   float dx;
   float dy;
 
   InterpolationType interpolationPosition;
-  float interpolationPositionTime;
+  float             interpolationPositionTime;
 
   InterpolationType interpolationColor;
-  float interpolationColorTime;
+  float             interpolationColorTime;
 
   InterpolationType interpolationSize;
-  float interpolationSizeTime;
+  float             interpolationSizeTime;
 };
 
-class Skin {
+class Skin
+{
  public:
   Skin();
   ~Skin();
 
   std::string name;
 
-  std::shared_ptr<Font> font;
+  // std::shared_ptr<Font> font;
 
+  std::string button_image;
   ButtonState button_idle;
   ButtonState button_hot;
   ButtonState button_active_hot;

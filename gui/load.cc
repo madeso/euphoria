@@ -1,6 +1,7 @@
 #include "gui/load.h"
 
 #include <iostream>
+#include <map>
 
 #include "core/proto.h"
 #include "core/log.h"
@@ -95,15 +96,7 @@ CreateWidget(
   if(w.has_button())
   {
     LOG_INFO("Creating a button widget");
-    CmdButton*                      b = new CmdButton(state);
-    std::shared_ptr<ScalableSprite> sp(new ScalableSprite(
-        "gui/metalPanel_blueCorner.png", Sizef::FromSquare(2.0f), cache));
-    b->SetSprite(sp);
-    ret.reset(b);
-    b->cmd = w.button().command();
-    b->Text().SetString(w.button().text());
-    b->Text().SetFont(font);
-    b->Text().SetBackgroundRenderer(br);
+    CmdButton* b = new CmdButton(state);
 
     const std::string skin_name = w.button().skin();
     const auto        skin_it   = skins.find(skin_name);
@@ -115,6 +108,17 @@ CreateWidget(
     {
       std::cerr << "Failed to find skin " << skin_name << "\n";
     }
+    if(!skin_it->second->button_image.empty())
+    {
+      std::shared_ptr<ScalableSprite> sp(new ScalableSprite(
+          skin_it->second->button_image, Sizef::FromSquare(2.0f), cache));
+      b->SetSprite(sp);
+    }
+    ret.reset(b);
+    b->cmd = w.button().command();
+    b->Text().SetString(w.button().text());
+    b->Text().SetFont(font);
+    b->Text().SetBackgroundRenderer(br);
   }
   else
   {
@@ -227,7 +231,7 @@ ButtonState
 LoadButton(const gui::ButtonState& src)
 {
   ButtonState ret;
-  ret.image                 = src.image();
+  // ret.image                 = src.image();
   ret.scale                 = src.scale();
   ret.image_color           = Load(src.image_color());
   ret.text_color            = Load(src.text_color());
@@ -248,6 +252,7 @@ LoadSkin(const gui::Skin& src)
 {
   std::shared_ptr<Skin> skin(new Skin());
   skin->name              = src.name();
+  skin->button_image      = src.button_image();
   skin->button_idle       = LoadButton(src.button_idle());
   skin->button_hot        = LoadButton(src.button_hot());
   skin->button_active_hot = LoadButton(src.button_active_hot());

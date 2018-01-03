@@ -107,7 +107,7 @@ message Rgb {
 }
 
 message ButtonState {
-  optional string image = 1;
+  // optional string image = 1;
   optional float scale = 2 [default=1];
   optional Rgb image_color = 3;
   optional Rgb text_color = 4;
@@ -126,10 +126,12 @@ message ButtonState {
 
 message Skin {
   optional string name = 1 [default="default"];
-  optional string font = 2;
-  optional ButtonState button_idle = 3;
-  optional ButtonState button_hot = 4;
-  optional ButtonState button_active_hot = 5;
+  // optional string font = 2;
+
+  optional string button_image = 10;
+  optional ButtonState button_idle = 11;
+  optional ButtonState button_hot = 12;
+  optional ButtonState button_active_hot = 13;
 }
 
 message File {
