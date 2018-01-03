@@ -119,11 +119,11 @@ Button::Render(SpriteRenderer* renderer) const
     {
       const auto p = GetRect().GetAbsoluteCenterPos() -
                      text_.GetText()
-                         .GetExtents()
+                         .GetExtents(scale_.GetValue())
                          .GetRelativeCenterPosFromBottomLeft()
                          .GetFlippedY() +
                      position_displacement_.GetValue();
-      text_.GetText().Draw(p, text_color_.GetValue());
+      text_.GetText().Draw(p, text_color_.GetValue(), scale_.GetValue());
     }
   }
 }

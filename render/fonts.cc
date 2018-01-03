@@ -86,8 +86,10 @@ struct FontChar
   std::vector<unsigned char> pixels;
 };
 
-namespace {
-  FT_UInt CharToFt(char c)
+namespace
+{
+  FT_UInt
+  CharToFt(char c)
   {
     // todo: support unicode/utf-8 character encoding
     return static_cast<FT_UInt>(c);
@@ -147,7 +149,10 @@ struct Face
 };
 
 CharData::CharData(
-    const BufferBuilder2d& data, const Rectf& ex, const std::string& ch, float ad)
+    const BufferBuilder2d& data,
+    const Rectf&           ex,
+    const std::string&     ch,
+    float                  ad)
     : buffer(data)
     , extent(ex)
     , c(ch)
@@ -199,13 +204,15 @@ struct FontChars
   std::vector<FontChar> chars;
   KerningMap            kerning;
 
-  void CombineWith(const FontChars& fc)
+  void
+  CombineWith(const FontChars& fc)
   {
-    for(const auto& c : fc.chars){
+    for(const auto& c : fc.chars)
+    {
       chars.push_back(c);
     }
 
-    for(const auto& e: fc.kerning)
+    for(const auto& e : fc.kerning)
     {
       const auto found = kerning.find(e.first);
       if(found == kerning.end())
@@ -259,10 +266,14 @@ GetCharactersFromFont(
           continue;
         }
         const std::string previous_c = ConvertCharToIndex(previous);
-        const std::string current_c = ConvertCharToIndex(current);
-        FT_Vector delta{};
+        const std::string current_c  = ConvertCharToIndex(current);
+        FT_Vector         delta{};
         FT_Get_Kerning(
-            f.face, CharToFt(previous), CharToFt(current), FT_KERNING_DEFAULT, &delta);
+            f.face,
+            CharToFt(previous),
+            CharToFt(current),
+            FT_KERNING_DEFAULT,
+            &delta);
         int dx = delta.x >> 6;
         if(dx != 0)
         {
@@ -368,9 +379,7 @@ TextBackgroundRenderer::Draw(float alpha, const Rectf& area)
 
 ////////////////////////////////////////////////////////////////////////////////
 
-Font::Font(FileSystem* fs,
-    Shader*            shader,
-    const std::string& font_file)
+Font::Font(FileSystem* fs, Shader* shader, const std::string& font_file)
     : shader_(shader)
     , color_(shader->GetUniform("color"))
     , model_(shader->GetUniform("model"))
@@ -378,7 +387,7 @@ Font::Font(FileSystem* fs,
   const int texture_width  = 512;
   const int texture_height = 512;
 
-  FontChars fontchars;
+  FontChars  fontchars;
   font::Root font_root;
 
   std::string error = LoadProtoJson(fs, &font_root, font_file);
@@ -386,12 +395,13 @@ Font::Font(FileSystem* fs,
   {
     LOG_ERROR("Failed to load " << font_file << ": " << error);
   }
-  for(const auto& source: font_root.sources())
+  for(const auto& source : font_root.sources())
   {
     if(source.has_font())
     {
       const font::FontFile& font = source.font();
-      fontchars.CombineWith(GetCharactersFromFont(font.file(), font_root.size(), font.characters()));
+      fontchars.CombineWith(GetCharactersFromFont(
+          font.file(), font_root.size(), font.characters()));
     }
   }
 
@@ -470,14 +480,14 @@ Font::Draw(
     shader_->SetUniform(color_, base_color);
   }
 
-  int          index           = 0;
+  int         index           = 0;
   std::string last_char_index = "";
   for(char c : str)
   {
     const int this_index = index;
     ++index;
     const std::string char_index = ConvertCharToIndex(c);
-    auto               it         = chars_.find(char_index);
+    auto              it         = chars_.find(char_index);
     if(it == chars_.end())
     {
       LOG_ERROR("Failed to print " << char_index);
@@ -507,14 +517,14 @@ Rectf
 Font::GetExtents(const std::string& str, float scale) const
 {
   std::string last_char_index = "";
-  vec2f        position(0.0f);
-  Rectf        ret;
+  vec2f       position(0.0f);
+  Rectf       ret;
 
   for(char c : str)
   {
     // todo: support character ligatures
     const std::string char_index = ConvertCharToIndex(c);
-    auto               it         = chars_.find(char_index);
+    auto              it         = chars_.find(char_index);
     if(it == chars_.end())
     {
       continue;
@@ -649,19 +659,19 @@ GetOffset(Align alignment, const Rectf& extent)
 }
 
 void
-Text::Draw(const vec2f& p) const
+Text::Draw(const vec2f& p, float scale) const
 {
-  Draw(p, base_color_);
+  Draw(p, base_color_, scale);
 }
 
 void
-Text::Draw(const vec2f& p, const Rgb& override_color) const
+Text::Draw(const vec2f& p, const Rgb& override_color, float scale) const
 {
   if(font_ == nullptr)
   {
     return;
   }
-  const Rectf& e   = GetExtents();
+  const Rectf& e   = GetExtents(scale);
   const vec2f  off = GetOffset(alignment_, e);
   if(use_background_)
   {
@@ -669,11 +679,17 @@ Text::Draw(const vec2f& p, const Rgb& override_color) const
         background_alpha_, e.ExtendCopy(5.0f).OffsetCopy(p + off));
   }
   font_->Draw(
-      p + off, text_, override_color, hi_color_, hi_from_, hi_to_, scale_);
+      p + off,
+      text_,
+      override_color,
+      hi_color_,
+      hi_from_,
+      hi_to_,
+      scale_ * scale);
 }
 
 Rectf
-Text::GetExtents() const
+Text::GetExtents(float scale) const
 {
-  return font_->GetExtents(text_, scale_);
+  return font_->GetExtents(text_, scale_ * scale);
 }

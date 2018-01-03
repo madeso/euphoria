@@ -21,12 +21,15 @@ class FileSystem;
 struct CharData
 {
   CharData(
-      const BufferBuilder2d& data, const Rectf& ex, const std::string& ch, float ad);
+      const BufferBuilder2d& data,
+      const Rectf&           ex,
+      const std::string&     ch,
+      float                  ad);
 
-  Buffer2d     buffer;
-  Rectf        extent;
+  Buffer2d    buffer;
+  Rectf       extent;
   std::string c;
-  float        advance;
+  float       advance;
 };
 
 typedef std::map<std::string, std::shared_ptr<CharData>> CharDataMap;
@@ -92,12 +95,12 @@ class Text
   SetScale(float scale);
 
   void
-  Draw(const vec2f& p) const;
+  Draw(const vec2f& p, float scale = 1.0f) const;
   void
-  Draw(const vec2f& p, const Rgb& override_color) const;
+  Draw(const vec2f& p, const Rgb& override_color, float scale = 1.0f) const;
 
   Rectf
-  GetExtents() const;
+  GetExtents(float scale = 1.0f) const;
 
  private:
   Font*                   font_;
@@ -117,17 +120,16 @@ class Text
 class Font
 {
  public:
-  Font(FileSystem* fs,
-      Shader*            shader,
-      const std::string& font_file);
+  Font(FileSystem* fs, Shader* shader, const std::string& font_file);
   unsigned int
   GetFontSize() const;
 
  protected:
   friend void
-  Text::Draw(const vec2f& p, const Rgb& override_color) const;
+  Text::Draw(const vec2f& p, const Rgb& override_color, float scale) const;
+
   friend Rectf
-  Text::GetExtents() const;
+  Text::GetExtents(float scale) const;
 
   // todo: support drawing background color behind string
   void
