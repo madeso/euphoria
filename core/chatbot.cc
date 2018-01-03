@@ -370,9 +370,9 @@ ChatBot::LoadFromFile(FileSystem* fs, const std::string& path)
 
 ChatBot::ChatBot()
     : is_in_conversation(true)
-    , last_input(chatbot::CleanInput("abc"))
     , last_event(-1)
     , max_responses(5)
+    , last_input(chatbot::CleanInput("abc"))
 {
 }
 

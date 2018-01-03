@@ -182,14 +182,14 @@ class ChatBot
       const std::vector<std::string>& search =
           std::vector<std::string>{}) const;
 
-  unsigned long                            max_responses;
   bool                                     is_in_conversation;
+  int                                      last_event;
+  unsigned long                            max_responses;
+  std::vector<std::string>                 last_input;
   Random                                   random;
   chatbot::Transposer                      transposer;
   chatbot::Database                        database;
   chatbot::ConversationTopics              current_topics;
-  std::vector<std::string>                 last_input;
-  int                                      last_event;
   std::deque<std::string>                  last_responses;
   std::vector<chatbot::ConversationStatus> history;
   std::vector<std::string>                 missing_input;
