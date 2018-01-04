@@ -1,4 +1,7 @@
 #include "gui/root.h"
+
+#include "render/spriterender.h"
+
 #include "gui/load.h"
 #include "gui/skin.h"
 
@@ -14,13 +17,12 @@ Root::~Root()
 bool
 Root::Load(
     FileSystem*             fs,
-    FontCache*                   font,
+    FontCache*              font,
     const std::string&      path,
     TextureCache*           cache,
     TextBackgroundRenderer* br)
 {
-  const bool result =
-      ::Load(fs, &state_, font, &container_, path, cache, br, &skins_);
+  const bool result = ::Load(this, fs, font, path, cache, br);
   if(result)
   {
     container_.DoLayout(Rectf::FromWidthHeight(size_));
@@ -47,4 +49,8 @@ void
 Root::Render(SpriteRenderer* sp) const
 {
   container_.Render(sp);
+  if(cursor_image)
+  {
+    sp->DrawSprite(*cursor_image, state_.mouse);
+  }
 }

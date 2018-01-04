@@ -5,24 +5,19 @@
 #include <vector>
 #include <memory>
 
-class LayoutContainer;
 class TextureCache;
 class FontCache;
-class UiState;
-class Font;
 class TextBackgroundRenderer;
-class Skin;
 class FileSystem;
+class Root;
 
 bool
 Load(
-    FileSystem*                         fs,
-    UiState*                            state,
-    FontCache*                          font,
-    LayoutContainer*                    root,
-    const std::string&                  path,
-    TextureCache*                       cache,
-    TextBackgroundRenderer*             br,
-    std::vector<std::shared_ptr<Skin>>* skins);
+    Root*                   root,
+    FileSystem*             fs,
+    FontCache*              font,
+    const std::string&      path,
+    TextureCache*           cache,
+    TextBackgroundRenderer* br);
 
 #endif  // GUI_LOAD_H

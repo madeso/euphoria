@@ -145,6 +145,9 @@ message Skin {
 }
 
 message File {
-  repeated Skin skins = 1;
-  optional LayoutContainer root = 2;
+  // common data
+  optional string cursor_image = 1;
+
+  repeated Skin skins = 100;
+  optional LayoutContainer root = 101;
 }

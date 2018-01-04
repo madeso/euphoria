@@ -6,14 +6,16 @@
 #include "core/proto.h"
 #include "core/log.h"
 
+#include "render/texturecache.h"
+#include "render/scalablesprite.h"
+#include "render/fontcache.h"
+
 #include "gui/layoutcontainer.h"
 #include "gui/layout.h"
 #include "gui/button.h"
 #include "gui/panelwidget.h"
 #include "gui/skin.h"
-
-#include "render/scalablesprite.h"
-#include "render/fontcache.h"
+#include "gui/root.h"
 
 #include "gui.pb.h"
 
@@ -276,14 +278,12 @@ LoadSkin(const gui::Skin& src, FontCache* font)
 
 bool
 Load(
-    FileSystem*                         fs,
-    UiState*                            state,
-    FontCache*                          font,
-    LayoutContainer*                    root,
-    const std::string&                  path,
-    TextureCache*                       cache,
-    TextBackgroundRenderer*             br,
-    std::vector<std::shared_ptr<Skin>>* skins)
+    Root*                   root,
+    FileSystem*             fs,
+    FontCache*              font,
+    const std::string&      path,
+    TextureCache*           cache,
+    TextBackgroundRenderer* br)
 {
   gui::File         f;
   const std::string load_result = LoadProtoJson(fs, &f, path);
@@ -294,16 +294,22 @@ Load(
     return false;
   }
 
+  if(!f.cursor_image().empty())
+  {
+    root->cursor_image = cache->GetTexture(f.cursor_image());
+  }
+
   std::map<std::string, Skin*> skin_map;
 
   for(const gui::Skin& skin : f.skins())
   {
     std::shared_ptr<Skin> skin_ptr = LoadSkin(skin, font);
     skin_map.insert(std::make_pair(skin.name(), skin_ptr.get()));
-    skins->push_back(skin_ptr);
+    root->skins_.push_back(skin_ptr);
   }
 
-  BuildLayoutContainer(state, root, f.root(), cache, br, skin_map);
+  BuildLayoutContainer(
+      &root->state_, &root->container_, f.root(), cache, br, skin_map);
 
-  return root->HasWidgets();
+  return root->container_.HasWidgets();
 }

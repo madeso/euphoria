@@ -14,6 +14,7 @@ class TextureCache;
 class TextBackgroundRenderer;
 class Skin;
 class FileSystem;
+class Texture2d;
 
 class Root
 {
@@ -35,11 +36,11 @@ class Root
   void
   Render(SpriteRenderer* sp) const;
 
- private:
   std::vector<std::shared_ptr<Skin>> skins_;
   Sizef                              size_;
   UiState                            state_;
   LayoutContainer                    container_;
+  std::shared_ptr<Texture2d>         cursor_image;
 };
 
 #endif  // GUI_ROOT_H
