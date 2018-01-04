@@ -12,6 +12,12 @@ class AlwaysExist : public FileSystemRoot
     // alloc some garbage
     return MemoryChunk::Alloc(32);
   }
+
+  std::string
+  Describe() override
+  {
+    return "";
+  }
 };
 
 class NeverExist : public FileSystemRoot
@@ -21,6 +27,13 @@ class NeverExist : public FileSystemRoot
   ReadFile(const std::string& path) override
   {
     return MemoryChunk::Null();
+  }
+
+
+  std::string
+  Describe() override
+  {
+    return "";
   }
 };
 
