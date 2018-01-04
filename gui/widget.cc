@@ -41,18 +41,24 @@ Widget::GetRect() const
 void
 Widget::SetRect(const Rectf& r)
 {
-  LOG_INFO("Setting gui rect of '" << name << "' " << r);
-  rect_ = r;
+  rect_ = r.InsetCopy(margin.left, margin.right, margin.top, margin.bottom);
+  LOG_INFO("Setting gui rect of '" << name << "' " << rect_);
   OnSize();
 }
 
 Sizef
 Widget::GetPreferredSize() const
 {
-  const Sizef min = this->CalculateMinimumSize();
+  const Sizef min            = this->CalculateMinimumSize();
+  const auto  padding_width  = padding.left + padding.right;
+  const auto  padding_height = padding.top + padding.bottom;
+  const auto  margin_width   = margin.left + margin.right;
+  const auto  margin_height  = margin.top + margin.bottom;
   return Sizef::FromWidthHeight(
-      Max(min.GetWidth(), layout.GetPreferredWidth()),
-      Max(min.GetHeight(), layout.GetPreferredHeight()));
+      Max(min.GetWidth() + padding_width + margin_width,
+          layout.GetPreferredWidth()),
+      Max(min.GetHeight() + padding_height + margin_height,
+          layout.GetPreferredHeight()));
 }
 
 const UiState&

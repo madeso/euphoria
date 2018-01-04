@@ -175,11 +175,28 @@ class Rect
     bottom += dy;
   }
 
+  void
+  Inset(T l, T r, T t, T b)
+  {
+    left += l;
+    right -= r;
+    top -= t;
+    bottom += b;
+  }
+
   Rect<T>
   InsetCopy(T dx, T dy) const
   {
     Rect<T> ret = *this;
     ret.Inset(dx, dy);
+    return ret;
+  }
+
+  Rect<T>
+  InsetCopy(T left, T right, T top, T bottom) const
+  {
+    Rect<T> ret = *this;
+    ret.Inset(left, right, top, bottom);
     return ret;
   }
 

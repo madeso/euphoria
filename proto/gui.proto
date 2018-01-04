@@ -64,6 +64,14 @@ message Panel {
   optional LayoutContainer container = 1;
 }
 
+message Lrtb
+{
+  optional float left = 1;
+  optional float right = 2;
+  optional float top = 3;
+  optional float bottom = 4;
+}
+
 message Widget {
   // common data
   optional string name = 1;
@@ -72,6 +80,8 @@ message Widget {
   optional int32 row = 11;
   optional float preferred_width = 12;
   optional float preferred_height = 13;
+  optional Lrtb margin = 14;
+  optional Lrtb padding = 15;
 
 
   // implementations, only one is valid

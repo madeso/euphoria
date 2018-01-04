@@ -11,39 +11,61 @@
 class UiState;
 class SpriteRenderer;
 
-class Widget {
-public:
+struct Lrtb
+{
+  float left;
+  float right;
+  float top;
+  float bottom;
+};
+
+class Widget
+{
+ public:
   std::string name;
+  Lrtb        margin;
+  Lrtb        padding;
 
   explicit Widget(UiState* state);
   virtual ~Widget();
 
-  bool IsActive() const;
-  bool IsHot() const;
+  bool
+  IsActive() const;
+  bool
+  IsHot() const;
 
-  virtual void Step(float dt) = 0;
-  virtual void OnSize();
+  virtual void
+  Step(float dt) = 0;
+  virtual void
+  OnSize();
 
-  Rectf GetRect() const;
-  void SetRect(const Rectf& r);
+  Rectf
+  GetRect() const;
+  void
+  SetRect(const Rectf& r);
 
-  Sizef GetPreferredSize() const;
+  Sizef
+  GetPreferredSize() const;
 
-  virtual Sizef CalculateMinimumSize() const = 0;
+  virtual Sizef
+  CalculateMinimumSize() const = 0;
 
-  virtual void Render(SpriteRenderer* renderer) const = 0;
+  virtual void
+  Render(SpriteRenderer* renderer) const = 0;
 
-protected:
-  const UiState& GetState() const;
-  UiState* GetStatePtr();
+ protected:
+  const UiState&
+  GetState() const;
+  UiState*
+  GetStatePtr();
 
-private:
+ private:
   UiState* state_;
 
-public:
+ public:
   LayoutData layout;
 
-private:
+ private:
   Rectf rect_;
 };
 

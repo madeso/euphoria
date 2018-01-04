@@ -82,6 +82,17 @@ SetupLayout(LayoutData* data, const gui::Widget& src)
   data->SetPreferredHeight(src.preferred_height());
 }
 
+Lrtb
+LrtbFromProt(const gui::Lrtb& lrtd)
+{
+  Lrtb r;
+  r.left   = lrtd.left();
+  r.right  = lrtd.right();
+  r.top    = lrtd.top();
+  r.bottom = lrtd.bottom();
+  return r;
+}
+
 std::shared_ptr<Widget>
 CreateWidget(
     UiState*                state,
@@ -132,7 +143,10 @@ CreateWidget(
 
   ASSERT(ret.get());
 
-  ret->name = w.name();
+  // load basic widget data
+  ret->name    = w.name();
+  ret->padding = LrtbFromProt(w.padding());
+  ret->margin  = LrtbFromProt(w.margin());
 
   SetupLayout(&ret->layout, w);
 
