@@ -155,7 +155,7 @@ TEST_CASE("rect-contains_rect_exclusive", "[rect]")
       Rect<int>::FromWidthHeight(15, 15).SetTopLeftToCopy(-2, -2)));
 }
 
-TEST_CASE("rect-insert", "[rect]")
+TEST_CASE("rect-inset", "[rect]")
 {
   const auto r = Rect<int>::FromWidthHeight(5, 10).InsetCopy(1, 2);
 
@@ -163,6 +163,16 @@ TEST_CASE("rect-insert", "[rect]")
   REQUIRE(r.right == 4);
   REQUIRE(r.top == 8);
   REQUIRE(r.bottom == 2);
+}
+
+TEST_CASE("rect-inset-different", "[rect]")
+{
+  const auto r = Rect<int>::FromWidthHeight(5, 10).InsetCopy(1, 2, 3, 4);
+
+  REQUIRE(r.left == 1);
+  REQUIRE(r.right == 3);
+  REQUIRE(r.top == 7);
+  REQUIRE(r.bottom == 4);
 }
 
 TEST_CASE("rect-offset", "[rect]")
