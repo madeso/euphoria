@@ -23,7 +23,7 @@ Button::~Button()
 void
 Button::Step(float dt)
 {
-  if(GetRect().ContainsExclusive(GetState().mouse))
+  if(GetBackgroundRect().ContainsExclusive(GetState().mouse))
   {
     GetStatePtr()->SetHot(this);
     if(GetState().IsMouseDown())
@@ -111,13 +111,13 @@ Button::Render(SpriteRenderer* renderer) const
     {
       renderer->DrawNinepatch(
           *sprite_.get(),
-          GetRect().TopLeft() + position_displacement_.GetValue(),
+          GetBackgroundRect().TopLeft() + position_displacement_.GetValue(),
           vec2f(scale_.GetValue(), scale_.GetValue()),
           image_color_.GetValue());
     }
     if(text_.HasText())
     {
-      const auto p = GetRect().GetAbsoluteCenterPos() -
+      const auto p = GetClientRect().GetAbsoluteCenterPos() -
                      text_.GetText()
                          .GetExtents(scale_.GetValue())
                          .GetRelativeCenterPosFromBottomLeft()
@@ -145,7 +145,7 @@ Button::OnSize()
 {
   if(sprite_.get() != nullptr)
   {
-    sprite_->SetSize(GetRect().GetSize());
+    sprite_->SetSize(GetBackgroundRect().GetSize());
   }
 }
 

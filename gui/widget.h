@@ -40,7 +40,11 @@ class Widget
   OnSize();
 
   Rectf
-  GetRect() const;
+  GetClientRect() const;
+
+  Rectf
+  GetBackgroundRect() const;
+
   void
   SetRect(const Rectf& r);
 

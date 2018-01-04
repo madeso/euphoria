@@ -8,7 +8,7 @@ PanelWidget::PanelWidget(UiState* state)
 void
 PanelWidget::OnSize()
 {
-  container.DoLayout(GetRect());
+  container.DoLayout(GetClientRect());
 }
 
 Sizef

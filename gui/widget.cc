@@ -32,8 +32,16 @@ Widget::OnSize()
 {
 }
 
+
 Rectf
-Widget::GetRect() const
+Widget::GetClientRect() const
+{
+  return rect_.InsetCopy(
+      padding.left, padding.right, padding.top, padding.bottom);
+}
+
+Rectf
+Widget::GetBackgroundRect() const
 {
   return rect_;
 }
