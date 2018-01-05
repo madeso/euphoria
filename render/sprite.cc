@@ -9,7 +9,7 @@
 Sprite::Sprite(std::shared_ptr<Texture2d> texture, const vec2f& position)
     : texture_(texture)
     , position_(position)
-    , rotation( Angle::Zero() )
+    , rotation(Angle::Zero())
     , scale_(vec2f(1, 1))
     , color_(Rgb(1.0f))
     , alpha_(1.0f)
@@ -57,7 +57,9 @@ void
 Sprite::Render(SpriteRenderer* render)
 {
   render->DrawSprite(
-      *texture_, position_, rotation, scale_, Rgba(color_, alpha_));
+      *texture_,
+      position_,
+      DrawData{}.Rotation(rotation).Scale(scale_).Tint(Rgba(color_, alpha_)));
 }
 
 Layer::Layer(SpriteRenderer* render)

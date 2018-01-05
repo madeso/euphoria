@@ -5,6 +5,31 @@
 #include "render/gl.h"
 #include "render/bufferbuilder2d.h"
 
+//////////////////////////////////////////////////////////////////////////
+
+DrawData&
+DrawData::Rotation(const Angle& r)
+{
+  rotation = r;
+  return *this;
+}
+
+DrawData&
+DrawData::Scale(const vec2f& s)
+{
+  scale = s;
+  return *this;
+}
+
+DrawData&
+DrawData::Tint(const Rgba& t)
+{
+  tint = t;
+  return *this;
+}
+
+//////////////////////////////////////////////////////////////////////////
+
 SpriteRenderer::SpriteRenderer(Shader* shader)
     : shader_(shader)
     , color_(shader->GetUniform("color"))
@@ -21,14 +46,12 @@ SpriteRenderer::~SpriteRenderer()
 
 void
 SpriteRenderer::DrawSprite(
-    const Texture2d& texture,
-    const vec2f&     position,
-    const Angle&     angle,
-    const vec2f&     scale,
-    const Rgba&      color)
+    const Texture2d& texture, const vec2f& position, const DrawData& data)
 {
-  const vec2f size(scale.x * texture.GetWidth(), scale.y * texture.GetHeight());
-  CommonDraw(position, angle, color, size, size);
+  DrawData new_data = data;
+  new_data.scale    = vec2f{data.scale.x * texture.GetWidth(),
+                         data.scale.y * texture.GetHeight()};
+  CommonDraw(position, new_data);
 
   glActiveTexture(GL_TEXTURE0);
   Use(&texture);
@@ -37,52 +60,35 @@ SpriteRenderer::DrawSprite(
 }
 
 void
-SpriteRenderer::CommonDraw(
-    const vec2f& position,
-    const Angle&     angle,
-    const Rgba&  color,
-    const vec2f& size,
-    const vec2f& scale) const
+SpriteRenderer::CommonDraw(const vec2f& position, const DrawData& data) const
 {
   Use(shader_);
-  const mat4f model =
-      mat4f::Identity()
-          .Translate(vec3f(position, 0.0f))
-          .Translate(vec3f(
-              -0.5f * size.x,
-              -0.5f * size.y,
-              0.0f))  // this lets us move the sprite according to
-                      // the anchor/center point
-          .Translate(vec3f(
-              0.5f * size.x,
-              0.5f * size.y,
-              0.0f))  // translate sprite to center
-          .Rotate(AxisAngle::RightHandAround(
-              vec3f::ZAxis(),
-              angle))  // rotate around center
-          .Translate(
-              vec3f(-0.5f * size.x, -0.5f * size.y, 0.0f))  // translate back
-
-          .Scale(vec3f(scale, 1.0f));
+  const mat4f model = mat4f::Identity()
+                          .Translate(vec3f(position, 0.0f))
+                          .Rotate(AxisAngle::RightHandAround(
+                              vec3f::ZAxis(),
+                              data.rotation))  // rotate around center
+                          .Scale(vec3f(data.scale, 1.0f))
+                          .Translate(vec3f(-0.5f, -0.5f, 0.0f));
 
   shader_->SetUniform(model_, model);
-  shader_->SetUniform(color_, color);
+  shader_->SetUniform(color_, data.tint);
 }
 
 void
 SpriteRenderer::DrawNinepatch(
     const ScalableSprite& ninepatch,
     const vec2f&          position,
-    const vec2f&          scale,
-    const Rgba&           color)
+    const DrawData&       data)
 {
   // const vec2f size = scale;
-  const auto size = ninepatch.GetSize();
+  const auto  size = ninepatch.GetSize();
   const auto  half = size / 2.0f;
   const vec2f d(
-      half.GetWidth() * (scale.x - 1.0f), half.GetHeight() * (scale.y - 1.0f));
+      half.GetWidth() * (data.scale.x - 1.0f),
+      half.GetHeight() * (data.scale.y - 1.0f));
   // todo: always moving up by height, change this in the buffer instead
-  CommonDraw(position - d-vec2f{0, size.GetHeight()}, Angle::Zero(), color, scale, scale);
+  CommonDraw(position - d - vec2f{0, size.GetHeight()}, data);
 
   glActiveTexture(GL_TEXTURE0);
   Use(ninepatch.GetTextureId());

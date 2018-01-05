@@ -112,8 +112,9 @@ Button::Render(SpriteRenderer* renderer) const
       renderer->DrawNinepatch(
           *sprite_.get(),
           GetBackgroundRect().TopLeft() + position_displacement_.GetValue(),
-          vec2f(scale_.GetValue(), scale_.GetValue()),
-          image_color_.GetValue());
+          DrawData{}
+              .Scale(vec2f(scale_.GetValue(), scale_.GetValue()))
+              .Tint(image_color_.GetValue()));
     }
     if(text_.HasText())
     {
