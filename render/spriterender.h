@@ -19,6 +19,7 @@ struct DrawData
   Angle rotation = Angle::Zero();
   vec2f scale    = vec2f(1, 1);
   Rgba  tint     = Rgba(1.0f);
+  vec2f anchor   = vec2f(0.5f, 0.5f);
 
   DrawData&
   Rotation(const Angle& r);
@@ -28,6 +29,9 @@ struct DrawData
 
   DrawData&
   Tint(const Rgba& t);
+
+  DrawData&
+  Anchor(const vec2f& a);
 };
 
 class SpriteRenderer

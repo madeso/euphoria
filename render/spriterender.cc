@@ -28,6 +28,13 @@ DrawData::Tint(const Rgba& t)
   return *this;
 }
 
+DrawData&
+DrawData::Anchor(const vec2f& a)
+{
+  anchor = a;
+  return *this;
+}
+
 //////////////////////////////////////////////////////////////////////////
 
 SpriteRenderer::SpriteRenderer(Shader* shader)
@@ -63,13 +70,14 @@ void
 SpriteRenderer::CommonDraw(const vec2f& position, const DrawData& data) const
 {
   Use(shader_);
-  const mat4f model = mat4f::Identity()
-                          .Translate(vec3f(position, 0.0f))
-                          .Rotate(AxisAngle::RightHandAround(
-                              vec3f::ZAxis(),
-                              data.rotation))  // rotate around center
-                          .Scale(vec3f(data.scale, 1.0f))
-                          .Translate(vec3f(-0.5f, -0.5f, 0.0f));
+  const mat4f model =
+      mat4f::Identity()
+          .Translate(vec3f(position, 0.0f))
+          .Rotate(AxisAngle::RightHandAround(
+              vec3f::ZAxis(),
+              data.rotation))  // rotate around center
+          .Scale(vec3f(data.scale, 1.0f))
+          .Translate(vec3f(-data.anchor.x, data.anchor.y - 1, 0.0f));
 
   shader_->SetUniform(model_, model);
   shader_->SetUniform(color_, data.tint);

@@ -51,6 +51,6 @@ Root::Render(SpriteRenderer* sp) const
   container_.Render(sp);
   if(cursor_image)
   {
-    sp->DrawSprite(*cursor_image, state_.mouse);
+    sp->DrawSprite(*cursor_image, state_.mouse, DrawData{}.Anchor(vec2f{0, 1}));
   }
 }
