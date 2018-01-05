@@ -49,8 +49,11 @@ void
 Root::Render(SpriteRenderer* sp) const
 {
   container_.Render(sp);
-  if(cursor_image)
+
+  auto image = state_.hot != nullptr ? hover_image : cursor_image;
+
+  if(image)
   {
-    sp->DrawSprite(*cursor_image, state_.mouse, DrawData{}.Anchor(vec2f{0, 1}));
+    sp->DrawSprite(*image, state_.mouse, DrawData{}.Anchor(vec2f{0, 1}));
   }
 }

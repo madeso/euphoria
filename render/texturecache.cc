@@ -38,3 +38,16 @@ TextureCache::GetTexture(const std::string& path)
 {
   return pimp_->Get(path);
 }
+
+std::shared_ptr<Texture2d>
+TextureCache::GetTextureIfNotEmpty(const std::string& path)
+{
+  if(!path.empty())
+  {
+    return GetTexture(path);
+  }
+  else
+  {
+    return nullptr;
+  }
+}

@@ -16,6 +16,9 @@ class TextureCache
   std::shared_ptr<Texture2d>
   GetTexture(const std::string& path);
 
+  std::shared_ptr<Texture2d>
+  GetTextureIfNotEmpty(const std::string& path);
+
  private:
   struct TextureCachePimpl;
   std::unique_ptr<TextureCachePimpl> pimp_;

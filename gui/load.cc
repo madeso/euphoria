@@ -294,10 +294,8 @@ Load(
     return false;
   }
 
-  if(!f.cursor_image().empty())
-  {
-    root->cursor_image = cache->GetTexture(f.cursor_image());
-  }
+  root->cursor_image = cache->GetTextureIfNotEmpty(f.cursor_image());
+  root->hover_image  = cache->GetTextureIfNotEmpty(f.hover_image());
 
   std::map<std::string, Skin*> skin_map;
 

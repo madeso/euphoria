@@ -147,6 +147,7 @@ message Skin {
 message File {
   // common data
   optional string cursor_image = 1;
+  optional string hover_image = 2;
 
   repeated Skin skins = 100;
   optional LayoutContainer root = 101;

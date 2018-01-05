@@ -41,6 +41,7 @@ class Root
   UiState                            state_;
   LayoutContainer                    container_;
   std::shared_ptr<Texture2d>         cursor_image;
+  std::shared_ptr<Texture2d>         hover_image;
 };
 
 #endif  // GUI_ROOT_H
