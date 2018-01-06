@@ -197,6 +197,14 @@ struct Vec2Transform
   }
 };
 
+template <typename S, typename T>
+S&
+operator<<(S& s, const vec2<T>& v)
+{
+  s << "(" << v.x << ", " << v.y << ")";
+  return s;
+}
+
 typedef vec2<float>          vec2f;
 typedef Vec2Transform<float> Vec2fTransform;
 typedef vec2<int>            vec2i;
