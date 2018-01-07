@@ -36,14 +36,20 @@ Init::Init(LoaderFunction loader, Init::BlendHack blend_hack)
   {
     // need to be enabled for shitty 2d rendering to work
     // todo: fix a proper blending/backface culling render stack
-    // glDisable(GL_CULL_FACE);
-    glEnable(GL_CULL_FACE);
+    glDisable(GL_CULL_FACE);
+    // glEnable(GL_CULL_FACE);
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
   }
 }
 
 Init::~Init() = default;
+
+mat4f
+Init::GetOrthoProjection(float width, float height)
+{
+  return mat4f::Ortho(0.0f, width, 0.0f, height, -1.0f, 1.0f);
+}
 
 void
 Init::ClearScreen(const Rgb& color)
