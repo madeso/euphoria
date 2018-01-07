@@ -54,6 +54,14 @@ class Rect
     return Rect(aleft, aright, atop, abottom);
   }
   static Rect
+  FromPositionAnchorWidthAndHeight(
+      const vec2<T>& pos, const vec2<T>& anchor, float width, float height)
+  {
+    const T left   = pos.x - width * anchor.x;
+    const T bottom = pos.y - height * anchor.y;
+    return FromLeftRightBottomTop(left, left + width, bottom, bottom + height);
+  }
+  static Rect
   FromTopLeftWidthHeight(T atop, T aleft, T width, T height)
   {
     ASSERT(width >= 0);

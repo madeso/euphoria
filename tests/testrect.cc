@@ -231,3 +231,50 @@ TEST_CASE("rect-center", "[rect]")
   REQUIRE(r.GetAbsoluteCenterX() == 5);
   REQUIRE(r.GetAbsoluteCenterY() == -2);  // at y=3 and the rect is 10
 }
+
+TEST_CASE("rect-from-anchor", "[rect]")
+{
+  const int   height = 3;
+  const int   width  = 4;
+  const vec2i origo{0, 0};
+
+  SECTION("lower left at origo")
+  {
+    const auto r = Recti::FromPositionAnchorWidthAndHeight(
+        origo, vec2i{0, 0}, width, height);
+    REQUIRE(r.left == 0);
+    REQUIRE(r.right == width);
+
+    REQUIRE(r.top == height);
+    REQUIRE(r.bottom == 0);
+  }
+
+  SECTION("upper right at origo")
+  {
+    const auto r = Recti::FromPositionAnchorWidthAndHeight(
+        origo, vec2i{1, 1}, width, height);
+    REQUIRE(r.left == -width);
+    REQUIRE(r.right == 0);
+
+    REQUIRE(r.top == 0);
+    REQUIRE(r.bottom == -height);
+  }
+}
+
+TEST_CASE("rect-from-anchor-center", "[rect]")
+{
+  const float half_height = 3;
+  const float half_width  = 4;
+  const vec2f origo{0, 0};
+
+  SECTION("lower left at origo")
+  {
+    const auto r = Rectf::FromPositionAnchorWidthAndHeight(
+        origo, vec2f{0.5f, 0.5f}, half_width * 2, half_height * 2);
+    REQUIRE(r.left == Approx{-half_width});
+    REQUIRE(r.right == Approx{half_width});
+
+    REQUIRE(r.top == Approx{half_height});
+    REQUIRE(r.bottom == Approx{-half_height});
+  }
+}
