@@ -52,18 +52,47 @@ SpriteRenderer::~SpriteRenderer()
 }
 
 void
-SpriteRenderer::DrawSprite(
-    const Texture2d& texture, const vec2f& position, const DrawData& data)
+SpriteRenderer::DrawRect(
+    const Texture2d& texture,
+    const Rectf&     sprite_area,
+    const Rectf&     texture_region,
+    const Angle&     rotation_angle,
+    const vec2f&     rotation_anchor,
+    const Rgba&      tint_color)
 {
-  DrawData new_data = data;
-  new_data.scale    = vec2f{data.scale.x * texture.GetWidth(),
-                         data.scale.y * texture.GetHeight()};
-  CommonDraw(position, new_data);
+  Use(shader_);
+  vec3f rotation_anchor_displacement{
+      -rotation_anchor.x, rotation_anchor.y - 1, 0.0f};
+  const mat4f model =
+      mat4f::Identity()
+          .Translate(vec3f(sprite_area.BottomLeft(), 0.0f))
+          .Scale(vec3f{sprite_area.GetWidth(), sprite_area.GetHeight(), 1.0f})
+          .Translate(-rotation_anchor_displacement)
+          .Rotate(AxisAngle::RightHandAround(
+              vec3f::ZAxis(),
+              rotation_angle))  // rotate around center
+          .Translate(rotation_anchor_displacement);
+
+  shader_->SetUniform(model_, model);
+  shader_->SetUniform(color_, tint_color);
 
   glActiveTexture(GL_TEXTURE0);
   Use(&texture);
-
   buffer_->Draw();
+}
+
+void
+SpriteRenderer::DrawSprite(
+    const Texture2d& texture, const vec2f& position, const DrawData& data)
+{
+  DrawRect(
+      texture,
+      Rectf::FromPositionAnchorWidthAndHeight(
+          position, data.anchor, texture.GetWidth(), texture.GetHeight()),
+      Rectf::FromTopLeftWidthHeight(1, 0, 1, 1),
+      data.rotation,
+      vec2f{0.5f, 0.5f},
+      data.tint);
 }
 
 void

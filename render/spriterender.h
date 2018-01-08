@@ -6,6 +6,7 @@
 #include "core/vec2.h"
 #include "core/rgb.h"
 #include "core/angle.h"
+#include "core/rect.h"
 
 #include "render/shaderuniform.h"
 #include "render/shader.h"
@@ -39,6 +40,15 @@ class SpriteRenderer
  public:
   SpriteRenderer(Shader* shader);
   ~SpriteRenderer();
+
+  void
+  DrawRect(
+      const Texture2d& texture,
+      const Rectf&     sprite_area,
+      const Rectf&     texture_region,
+      const Angle&     rotation_angle,
+      const vec2f&     rotation_anchor,
+      const Rgba&      tint_color);
 
   // position is center
   void
