@@ -41,6 +41,7 @@ SpriteRenderer::SpriteRenderer(Shader* shader)
     : shader_(shader)
     , color_(shader->GetUniform("color"))
     , model_(shader->GetUniform("model"))
+    , texture_area_(shader->GetUniform("region"))
 {
   shader_ = shader;
   InitRenderData();
@@ -75,6 +76,7 @@ SpriteRenderer::DrawRect(
 
   shader_->SetUniform(model_, model);
   shader_->SetUniform(color_, tint_color);
+  shader_->SetUniform(texture_area_, texture_region);
 
   glActiveTexture(GL_TEXTURE0);
   Use(&texture);
@@ -139,10 +141,10 @@ SpriteRenderer::InitRenderData()
 {
   BufferBuilder2d data;
 
-  Point a(0.0f, 1.0f, 0.0f, 0.0f);
-  Point b(1.0f, 0.0f, 1.0f, 1.0f);
-  Point c(0.0f, 0.0f, 0.0f, 1.0f);
-  Point d(1.0f, 1.0f, 1.0f, 0.0f);
+  Point a(0.0f, 1.0f, 0.0f, 1.0f);
+  Point b(1.0f, 0.0f, 1.0f, 0.0f);
+  Point c(0.0f, 0.0f, 0.0f, 0.0f);
+  Point d(1.0f, 1.0f, 1.0f, 1.0f);
 
   data.AddQuad(c, b, a, d);
 

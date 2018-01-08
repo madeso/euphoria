@@ -9,6 +9,7 @@
 #include "core/vec4.h"
 #include "core/rgb.h"
 #include "core/mat4.h"
+#include "core/rect.h"
 
 #include "render/gltypes.h"
 #include "core/noncopyable.h"
@@ -75,6 +76,8 @@ class Shader : public ShaderId
   SetUniform(const ShaderUniform& attribute, const mat3f& val);
   void
   SetUniform(const ShaderUniform& attribute, const mat4f& val);
+  void
+  SetUniform(const ShaderUniform& attribute, const Rectf& val);
 
   // debug
   static const Shader*

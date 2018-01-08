@@ -339,6 +339,18 @@ Shader::SetUniform(const ShaderUniform& attribute, const mat4f& val)
   glUniformMatrix4fv(attribute.id, 1, GL_FALSE, val.GetDataPtr());
 }
 
+void
+Shader::SetUniform(const ShaderUniform& attribute, const Rectf& val)
+{
+  ASSERT(IsCurrentlyBound());
+  ASSERT(HasBoundUniform(attribute));
+  if(attribute.id == -1)
+  {
+    return;
+  }
+  glUniform4f(attribute.id, val.left, val.right, val.bottom, val.top);
+}
+
 Shader::Shader() = default;
 
 namespace

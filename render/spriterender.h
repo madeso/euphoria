@@ -68,6 +68,7 @@ class SpriteRenderer
   Shader*                   shader_;
   ShaderUniform             color_;
   ShaderUniform             model_;
+  ShaderUniform             texture_area_;
   std::unique_ptr<Buffer2d> buffer_;
 
   void
