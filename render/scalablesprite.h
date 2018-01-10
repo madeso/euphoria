@@ -9,6 +9,7 @@ class Buffer2d;
 class Texture2d;
 class TextureId;
 class TextureCache;
+class SpriteRenderer;
 
 class ScalableSprite
 {
@@ -19,32 +20,19 @@ class ScalableSprite
 
   void
   SetSize(const Sizef& new_size);
+
   const Sizef
   GetSize() const;
 
   const Sizef
   GetMinimumSize() const;
 
-  // for rendering...
-  const Texture2d*
-  GetTexturePtr() const;
-
-  const TextureId*
-  GetTextureId() const;
-
-  const Buffer2d*
-  GetBufferPtr() const;
-
+  void
+  Render(SpriteRenderer* sr, const vec2f& pos) const;
 
  private:
-  void
-  BuildData() const;
-
   std::shared_ptr<Texture2d> texture_;
   Sizef                      size_;
-
-  mutable bool                      dirty_;
-  mutable std::unique_ptr<Buffer2d> buffer_;
 
   std::vector<float> cols_;
   std::vector<float> rows_;

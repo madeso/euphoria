@@ -120,20 +120,7 @@ SpriteRenderer::DrawNinepatch(
     const vec2f&          position,
     const DrawData&       data)
 {
-  // const vec2f size = scale;
-  const auto  size = ninepatch.GetSize();
-  const auto  half = size / 2.0f;
-  const vec2f d(
-      half.GetWidth() * (data.scale.x - 1.0f),
-      half.GetHeight() * (data.scale.y - 1.0f));
-  // todo: always moving up by height, change this in the buffer instead
-  CommonDraw(position - d - vec2f{0, size.GetHeight()}, data);
-
-  glActiveTexture(GL_TEXTURE0);
-  Use(ninepatch.GetTextureId());
-
-  ninepatch.GetBufferPtr()->Draw();  // todo: fix this
-  // vao_->Draw();
+  ninepatch.Render(this, position);
 }
 
 void
