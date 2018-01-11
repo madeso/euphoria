@@ -89,7 +89,7 @@ class Rect
   vec2<T>
   GetBottomLeft() const
   {
-    return vec2<T>(bottom, left);
+    return vec2<T>(left, bottom);
   }
 
   vec2<T>
@@ -304,10 +304,22 @@ class Rect
   }
 
   Rect<T>
+  SetTopLeftToCopy(const vec& v) const
+  {
+    return SetTopLeftToCopy(v.x, v.y);
+  }
+
+  Rect<T>
   SetBottomLeftToCopy(T newLeft, T newBottom) const
   {
     return FromTopLeftWidthHeight(
         newBottom + GetHeight(), newLeft, GetWidth(), GetHeight());
+  }
+
+  Rect<T>
+  SetBottomLeftToCopy(const vec& v) const
+  {
+    return SetBottomLeftToCopy(v.x, v.y);
   }
 
   void
