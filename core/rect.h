@@ -174,6 +174,16 @@ class Rect
     return left <= x && x <= right && bottom <= y && y <= top;
   }
 
+  Rect
+  GetScaledAroundCenterCopy(T scale) const
+  {
+    const auto s  = GetSize();
+    const auto ns = s * scale;
+    return InsetCopy(
+        (s.GetWidth() - ns.GetWidth()) / 2,
+        (s.GetHeight() - ns.GetHeight()) / 2);
+  }
+
   void
   Inset(T dx, T dy)
   {

@@ -15,7 +15,7 @@ template <typename T>
 std::vector<T>
 PerformTableLayout(const std::vector<T>& pieces, T size, T zero = 0)
 {
-  ASSERT(size >= 0);
+  ASSERTX(size >= 0, size);
   ASSERT(zero <= 0);
 
   T min_size         = 0;

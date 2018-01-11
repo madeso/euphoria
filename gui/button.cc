@@ -117,9 +117,13 @@ Button::Render(SpriteRenderer* renderer) const
                            : rect;
 
       // todo: scale rect scale_.GetValue()
+      ASSERTX(scale_.GetValue()>0, scale_.GetValue());
+      const auto scaled = pos.GetScaledAroundCenterCopy(scale_.GetValue());
+      ASSERTX(scaled.GetWidth() > 0, scaled.GetWidth());
+      ASSERTX(scaled.GetHeight() > 0, scaled.GetHeight());
       renderer->DrawNinepatch(
           *sprite_.get(),
-          pos.OffsetCopy(position_displacement_.GetValue()),
+          scaled.OffsetCopy(position_displacement_.GetValue()),
           image_color_.GetValue());
     }
     if(text_.HasText())
