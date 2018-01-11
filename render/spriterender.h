@@ -60,9 +60,7 @@ class SpriteRenderer
   // bottom left
   void
   DrawNinepatch(
-      const ScalableSprite& ninepatch,
-      const vec2f&          position,
-      const DrawData&       data = DrawData{});
+      const ScalableSprite& ninepatch, const Rectf& rect, const Rgba& tint);
 
  private:
   Shader*                   shader_;
@@ -73,9 +71,6 @@ class SpriteRenderer
 
   void
   InitRenderData();
-
-  void
-  CommonDraw(const vec2f& position, const DrawData& data) const;
 };
 
 #endif

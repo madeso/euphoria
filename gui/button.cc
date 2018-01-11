@@ -106,15 +106,21 @@ Button::Render(SpriteRenderer* renderer) const
                                 )
                                        : skin_->button_idle);
     */
+    const bool debug = text_.GetString() == "hello";
 
     if(sprite_.get() != nullptr)
     {
+      const auto rect = GetBackgroundRect();
+      const auto pos  = debug
+                           ? Rectf::FromWidthHeight(rect.GetSize())
+                                 .OffsetCopy(GetState().mouse)
+                           : rect;
+
+      // todo: scale rect scale_.GetValue()
       renderer->DrawNinepatch(
           *sprite_.get(),
-          GetBackgroundRect().TopLeft() + position_displacement_.GetValue(),
-          DrawData{}
-              .Scale(vec2f(scale_.GetValue(), scale_.GetValue()))
-              .Tint(image_color_.GetValue()));
+          pos.OffsetCopy(position_displacement_.GetValue()),
+          image_color_.GetValue());
     }
     if(text_.HasText())
     {
@@ -124,7 +130,8 @@ Button::Render(SpriteRenderer* renderer) const
                          .GetRelativeCenterPosFromBottomLeft()
                          .GetFlippedY() +
                      position_displacement_.GetValue();
-      text_.GetText().Draw(p, text_color_.GetValue(), scale_.GetValue());
+      const auto debug_p = debug ? GetState().mouse : p;
+      text_.GetText().Draw(debug_p, text_color_.GetValue(), scale_.GetValue());
     }
   }
 }
@@ -144,10 +151,6 @@ Button::SetSprite(std::shared_ptr<ScalableSprite> sprite)
 void
 Button::OnSize()
 {
-  if(sprite_.get() != nullptr)
-  {
-    sprite_->SetSize(GetBackgroundRect().GetSize());
-  }
 }
 
 void

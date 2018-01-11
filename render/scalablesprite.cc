@@ -46,7 +46,6 @@ namespace
 ScalableSprite::ScalableSprite(
     const std::string& path, const Sizef& size, TextureCache* cache)
     : texture_(cache->GetTexture(path))
-    , size_(size)
 {
   scalingsprite::ScalingSprite sprite;
   LoadProtoText(&sprite, path + ".txt");
@@ -56,18 +55,6 @@ ScalableSprite::ScalableSprite(
 }
 
 ScalableSprite::~ScalableSprite() = default;
-
-void
-ScalableSprite::SetSize(const Sizef& new_size)
-{
-  size_ = new_size;
-}
-
-const Sizef
-ScalableSprite::GetSize() const
-{
-  return size_;
-}
 
 namespace
 {
@@ -94,8 +81,11 @@ ScalableSprite::GetMinimumSize() const
 
 
 void
-ScalableSprite::Render(SpriteRenderer* sr, const vec2f& pos) const
+ScalableSprite::Render(
+    SpriteRenderer* sr, const Rectf& rect, const Rgba& tint) const
 {
+  const auto size_         = rect.GetSize();
+  const auto pos           = rect.GetBottomLeft();
   const auto position_cols = PerformTableLayout(cols_, size_.GetWidth());
   const auto position_rows = PerformTableLayout(rows_, size_.GetHeight());
 
@@ -156,7 +146,7 @@ ScalableSprite::Render(SpriteRenderer* sr, const vec2f& pos) const
           uv_rect,
           Angle::Zero(),
           vec2f{0, 0},
-          Rgba(1.0f));
+          tint);
 
       position_current_row = position_next_row;
       uv_current_row       = uv_next_row;

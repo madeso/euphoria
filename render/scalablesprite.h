@@ -3,13 +3,14 @@
 
 #include <memory>
 #include <vector>
-#include "core/size.h"
+#include "core/rect.h"
 
 class Buffer2d;
 class Texture2d;
 class TextureId;
 class TextureCache;
 class SpriteRenderer;
+class Rgba;
 
 class ScalableSprite
 {
@@ -18,21 +19,14 @@ class ScalableSprite
       const std::string& path, const Sizef& size, TextureCache* cache);
   ~ScalableSprite();
 
-  void
-  SetSize(const Sizef& new_size);
-
-  const Sizef
-  GetSize() const;
-
   const Sizef
   GetMinimumSize() const;
 
   void
-  Render(SpriteRenderer* sr, const vec2f& pos) const;
+  Render(SpriteRenderer* sr, const Rectf& pos, const Rgba& tint) const;
 
  private:
   std::shared_ptr<Texture2d> texture_;
-  Sizef                      size_;
 
   std::vector<float> cols_;
   std::vector<float> rows_;
