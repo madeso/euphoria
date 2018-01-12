@@ -6,7 +6,6 @@
 
 class Font;
 class Text;
-class TextBackgroundRenderer;
 
 class TextData
 {
@@ -19,8 +18,6 @@ class TextData
   const Font&
   GetFont() const;
   void
-  SetBackgroundRenderer(TextBackgroundRenderer* renderer);
-  void
   SetString(const std::string& str);
   const std::string&
   GetString() const;
@@ -32,10 +29,9 @@ class TextData
 
  private:
   void
-                          UpdateText();
-  std::shared_ptr<Font>   font_;
-  TextBackgroundRenderer* backgroundRenderer_;
-  std::string             string_;
+                        UpdateText();
+  std::shared_ptr<Font> font_;
+  std::string           string_;
 
   std::shared_ptr<Text> text_;
 };

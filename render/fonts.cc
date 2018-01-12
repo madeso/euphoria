@@ -1,8 +1,6 @@
 #include "render/fonts.h"
 
 #include "render/texture.h"
-#include "render/gl.h"
-#include "render/shader.h"
 #include "core/log.h"
 #include "core/proto.h"
 
@@ -15,8 +13,8 @@
 
 #include "font.pb.h"
 
-#include "render/bufferbuilder2d.h"
-#include "render/shaderattribute2d.h"
+#include "render/spriterender.h"
+#include "render/gl.h"
 
 #define STB_RECT_PACK_IMPLEMENTATION
 #include "stb_rect_pack.h"
@@ -74,6 +72,9 @@ struct Library
   }
 };
 
+// This represents a loaded glyph not yet placed on a texture image
+// todo: shouldn't the pixels be a core image?
+// todo: rename to something with a glyph
 struct FontChar
 {
   std::string                c;
@@ -149,17 +150,15 @@ struct Face
 };
 
 CharData::CharData(
-    const BufferBuilder2d& data,
-    const Rectf&           ex,
-    const std::string&     ch,
-    float                  ad)
-    : buffer(data)
-    , extent(ex)
+    const Rectf& sprite, const Rectf& texture, const std::string& ch, float ad)
+    : sprite_rect(sprite)
+    , texture_rect(texture)
     , c(ch)
     , advance(ad)
 {
 }
 
+// todo: replace with a core Image
 struct Pixels
 {
   Pixels(int texture_width, int texture_height)
@@ -199,6 +198,7 @@ PasteCharacterToImage(Pixels* pixels, const stbrp_rect& r, const FontChar& ch)
   }
 }
 
+// represent a loaded font, but not yet converted into a renderable texture
 struct FontChars
 {
   std::vector<FontChar> chars;
@@ -287,7 +287,7 @@ GetCharactersFromFont(
   return fontchars;
 }
 
-std::pair<BufferBuilder2d, Rectf>
+std::pair<Rectf, Rectf>
 BuildCharVao(
     const stbrp_rect& src_rect,
     const FontChar&   src_char,
@@ -323,66 +323,18 @@ BuildCharVao(
   const stbrp_coord uv_top    = src_rect.y;
   const stbrp_coord uv_bottom = uv_top + src_rect.h;
 
-  BufferBuilder2d builder;
-  const auto      a = Point(vert_left, vert_top, uv_left / iw, uv_top / ih);
-  const auto      b = Point(vert_right, vert_top, uv_right / iw, uv_top / ih);
-  const auto c = Point(vert_left, vert_bottom, uv_left / iw, uv_bottom / ih);
-  const auto d = Point(vert_right, vert_bottom, uv_right / iw, uv_bottom / ih);
-
-  const auto extent = Rectf::FromLeftRightTopBottom(
-      vert_left, vert_right, xvert_top, xvert_bottom);
-
   // todo: add ability to be a quad for tighter fit
-  builder.AddQuad(a, b, c, d);
-  return std::make_pair(builder, extent);
+  const auto sprite = Rectf::FromLeftRightTopBottom(
+      vert_left, vert_right, xvert_top, xvert_bottom);
+  const auto texture = Rectf::FromLeftRightTopBottom(
+      uv_left / iw, uv_right / iw, uv_top / ih, uv_bottom / ih);
+
+  return std::make_pair(sprite, texture);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 
-BufferBuilder2d
-SimpleQuad()
-{
-  BufferBuilder2d data;
-
-  Point a(0.0f, 1.0f, 0.0f, 1.0f);
-  Point b(1.0f, 0.0f, 1.0f, 0.0f);
-  Point c(0.0f, 0.0f, 0.0f, 0.0f);
-  Point d(1.0f, 1.0f, 1.0f, 1.0f);
-
-  data.AddQuad(c, b, a, d);
-
-  return data;
-}
-
-TextBackgroundRenderer::TextBackgroundRenderer(Shader* shader)
-    : buffer_(SimpleQuad())
-    , shader_(shader)
-    , model_(shader->GetUniform("model"))
-    , color_(shader->GetUniform("color"))
-{
-  ASSERT(shader);
-}
-
-void
-TextBackgroundRenderer::Draw(float alpha, const Rectf& area)
-{
-  Use(shader_);
-  const mat4f model =
-      mat4f::Identity()
-          .Translate(vec3f(area.left, area.bottom, 0.0f))
-          .Scale(vec3f(area.GetWidth(), area.GetHeight(), 1.0f));
-
-  shader_->SetUniform(model_, model);
-  shader_->SetUniform(color_, Rgba(0.0f, 0.0f, 0.0f, alpha));
-  buffer_.Draw();
-}
-
-////////////////////////////////////////////////////////////////////////////////
-
-Font::Font(FileSystem* fs, Shader* shader, const std::string& font_file)
-    : shader_(shader)
-    , color_(shader->GetUniform("color"))
-    , model_(shader->GetUniform("model"))
+Font::Font(FileSystem* fs, const std::string& font_file)
 {
   const int texture_width  = 512;
   const int texture_height = 512;
@@ -459,6 +411,7 @@ Font::Font(FileSystem* fs, Shader* shader, const std::string& font_file)
 
 void
 Font::Draw(
+    SpriteRenderer*    renderer,
     const vec2f&       start_position,
     const std::string& str,
     const Rgb&         base_color,
@@ -467,18 +420,9 @@ Font::Draw(
     int                hi_end,
     float              scale) const
 {
-  Use(shader_);
-
   vec2f position = start_position;
 
-  glActiveTexture(GL_TEXTURE0);
-  Use(texture_.get());
-
   const bool apply_highlight = hi_end != -1 && hi_start != -1;
-  if(!apply_highlight)
-  {
-    shader_->SetUniform(color_, base_color);
-  }
 
   int         index           = 0;
   std::string last_char_index = "";
@@ -495,18 +439,19 @@ Font::Draw(
     }
     std::shared_ptr<CharData> ch = it->second;
 
-    const mat4f model = mat4f::Identity()
-                            .Translate(vec3f(position, 0.0f))
-                            .Scale(vec3f(scale, scale, 1.0f));
-    shader_->SetUniform(model_, model);
+    const Rgb& color =
+        apply_highlight && hi_start <= this_index && this_index < hi_end
+            ? hi_color
+            : base_color;
+    // todo: support scaling
+    renderer->DrawRect(
+        *texture_.get(),
+        ch->sprite_rect.OffsetCopy(position),
+        ch->texture_rect,
+        Angle::Zero(),
+        vec2f{0.5f, 0.5f},
+        Rgba{color});
 
-    if(apply_highlight)
-    {
-      bool       use_hi_color = hi_start <= this_index && this_index < hi_end;
-      const Rgb& color        = use_hi_color ? hi_color : base_color;
-      shader_->SetUniform(color_, color);
-    }
-    ch->buffer.Draw();
     auto kerning = kerning_.find(std::make_pair(last_char_index, char_index));
     int  the_kerning = kerning == kerning_.end() ? 0 : kerning->second;
     position.x += (ch->advance + the_kerning) * scale;
@@ -516,6 +461,9 @@ Font::Draw(
 Rectf
 Font::GetExtents(const std::string& str, float scale) const
 {
+  // todo: refactor rendering and extent to a compiled commands
+  // and either render or get extent of that
+
   std::string last_char_index = "";
   vec2f       position(0.0f);
   Rectf       ret;
@@ -531,7 +479,7 @@ Font::GetExtents(const std::string& str, float scale) const
     }
     std::shared_ptr<CharData> ch = it->second;
 
-    ret.Include(ch->extent.OffsetCopy(position));
+    ret.Include(ch->sprite_rect.OffsetCopy(position));
 
     auto kerning = kerning_.find(std::make_pair(last_char_index, char_index));
     int  the_kerning = kerning == kerning_.end() ? 0 : kerning->second;
@@ -547,9 +495,8 @@ Font::GetFontSize() const
   return font_size_;
 }
 
-Text::Text(Font* font, TextBackgroundRenderer* back)
+Text::Text(Font* font)
     : font_(font)
-    , backgroundRenderer_(back)
     , scale_(1.0f)
     , text_("")
     , base_color_(0.0f)
@@ -659,13 +606,17 @@ GetOffset(Align alignment, const Rectf& extent)
 }
 
 void
-Text::Draw(const vec2f& p, float scale) const
+Text::Draw(SpriteRenderer* renderer, const vec2f& p, float scale) const
 {
-  Draw(p, base_color_, scale);
+  Draw(renderer, p, base_color_, scale);
 }
 
 void
-Text::Draw(const vec2f& p, const Rgb& override_color, float scale) const
+Text::Draw(
+    SpriteRenderer* renderer,
+    const vec2f&    p,
+    const Rgb&      override_color,
+    float           scale) const
 {
   if(font_ == nullptr)
   {
@@ -675,10 +626,12 @@ Text::Draw(const vec2f& p, const Rgb& override_color, float scale) const
   const vec2f  off = GetOffset(alignment_, e);
   if(use_background_)
   {
-    backgroundRenderer_->Draw(
-        background_alpha_, e.ExtendCopy(5.0f).OffsetCopy(p + off));
+    // todo: render background using a white image rect with a tint
+    // backgroundRenderer_->Draw(
+    //    background_alpha_, e.ExtendCopy(5.0f).OffsetCopy(p + off));
   }
   font_->Draw(
+      renderer,
       p + off,
       text_,
       override_color,

@@ -10,25 +10,23 @@
 #include "core/rgb.h"
 #include "core/rect.h"
 
-#include "render/buffer2d.h"
 #include "render/texture.h"
-#include "render/shaderuniform.h"
 
-class Shader;
-class BufferBuilder2d;
 class FileSystem;
+class SpriteRenderer;
 
+// todo: rename to Glyph
 struct CharData
 {
   CharData(
-      const BufferBuilder2d& data,
-      const Rectf&           ex,
-      const std::string&     ch,
-      float                  ad);
+      const Rectf&       sprite,
+      const Rectf&       texture,
+      const std::string& ch,
+      float              ad);
 
-  Buffer2d    buffer;
-  Rectf       extent;
-  std::string c;
+  Rectf       sprite_rect;   // relative to 0,0
+  Rectf       texture_rect;  // image texture uvs
+  std::string c;             // the character or string id
   float       advance;
 };
 
@@ -53,25 +51,10 @@ enum class Align
   RIGHT  = MIDDLE_RIGHT,
 };
 
-class TextBackgroundRenderer
-{
- public:
-  TextBackgroundRenderer(Shader* shader);
-
-  void
-  Draw(float alpha, const Rectf& area);
-
- private:
-  Buffer2d      buffer_;
-  Shader*       shader_;
-  ShaderUniform model_;
-  ShaderUniform color_;
-};
-
 class Text
 {
  public:
-  Text(Font* font, TextBackgroundRenderer* back);
+  explicit Text(Font* font);
   ~Text();
 
   void
@@ -95,23 +78,27 @@ class Text
   SetScale(float scale);
 
   void
-  Draw(const vec2f& p, float scale = 1.0f) const;
+  Draw(SpriteRenderer* renderer, const vec2f& p, float scale = 1.0f) const;
+
   void
-  Draw(const vec2f& p, const Rgb& override_color, float scale = 1.0f) const;
+  Draw(
+      SpriteRenderer* renderer,
+      const vec2f&    p,
+      const Rgb&      override_color,
+      float           scale = 1.0f) const;
 
   Rectf
   GetExtents(float scale = 1.0f) const;
 
  private:
-  Font*                   font_;
-  TextBackgroundRenderer* backgroundRenderer_;
-  float                   scale_;
-  std::string             text_;
-  Rgb                     base_color_;
-  Rgb                     hi_color_;
-  int                     hi_from_;
-  int                     hi_to_;
-  Align                   alignment_;
+  Font*       font_;
+  float       scale_;
+  std::string text_;
+  Rgb         base_color_;
+  Rgb         hi_color_;
+  int         hi_from_;
+  int         hi_to_;
+  Align       alignment_;
 
   bool  use_background_;
   float background_alpha_;
@@ -120,13 +107,17 @@ class Text
 class Font
 {
  public:
-  Font(FileSystem* fs, Shader* shader, const std::string& font_file);
+  Font(FileSystem* fs, const std::string& font_file);
   unsigned int
   GetFontSize() const;
 
  protected:
   friend void
-  Text::Draw(const vec2f& p, const Rgb& override_color, float scale) const;
+  Text::Draw(
+      SpriteRenderer* renderer,
+      const vec2f&    p,
+      const Rgb&      override_color,
+      float           scale) const;
 
   friend Rectf
   Text::GetExtents(float scale) const;
@@ -134,6 +125,7 @@ class Font
   // todo: support drawing background color behind string
   void
   Draw(
+      SpriteRenderer*    renderer,
       const vec2f&       start_position,
       const std::string& str,
       const Rgb&         base_color,
@@ -141,14 +133,12 @@ class Font
       int                hi_start,
       int                hi_end,
       float              scale) const;
+
   Rectf
   GetExtents(const std::string& str, float scale) const;
 
  private:
-  Shader*                    shader_;
   unsigned int               font_size_;
-  ShaderUniform              color_;
-  ShaderUniform              model_;
   std::unique_ptr<Texture2d> texture_;
   CharDataMap                chars_;
   KerningMap                 kerning_;

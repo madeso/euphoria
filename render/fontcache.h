@@ -6,12 +6,11 @@
 
 class Font;
 class FileSystem;
-class Shader;
 
 class FontCache
 {
  public:
-  FontCache(FileSystem* fs, Shader* shader);
+  explicit FontCache(FileSystem* fs);
   ~FontCache();
 
   std::shared_ptr<Font>

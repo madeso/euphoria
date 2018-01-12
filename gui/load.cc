@@ -72,7 +72,6 @@ BuildLayoutContainer(
     LayoutContainer*            root,
     const gui::LayoutContainer& c,
     TextureCache*               cache,
-    TextBackgroundRenderer*     br,
     const std::map<std::string, Skin*>& skins);
 
 void
@@ -97,10 +96,9 @@ LrtbFromProt(const gui::Lrtb& lrtd)
 
 std::shared_ptr<Widget>
 CreateWidget(
-    UiState*                state,
-    const gui::Widget&      w,
-    TextureCache*           cache,
-    TextBackgroundRenderer* br,
+    UiState*           state,
+    const gui::Widget& w,
+    TextureCache*      cache,
     const std::map<std::string, Skin*>& skins)
 {
   std::shared_ptr<Widget> ret;
@@ -132,7 +130,6 @@ CreateWidget(
     b->cmd = w.button().command();
     b->Text().SetString(w.button().text());
     b->Text().SetFont(skin->font);
-    b->Text().SetBackgroundRenderer(br);
   }
   else
   {
@@ -140,7 +137,7 @@ CreateWidget(
     PanelWidget* l = new PanelWidget(state);
     ret.reset(l);
     BuildLayoutContainer(
-        state, &l->container, w.panel().container(), cache, br, skins);
+        state, &l->container, w.panel().container(), cache, skins);
   }
 
   ASSERT(ret.get());
@@ -161,13 +158,12 @@ BuildLayoutContainer(
     LayoutContainer*            root,
     const gui::LayoutContainer& c,
     TextureCache*               cache,
-    TextBackgroundRenderer*     br,
     const std::map<std::string, Skin*>& skins)
 {
   root->SetLayout(GetLayout(c.layout()));
   for(const gui::Widget& widget : c.widgets())
   {
-    root->Add(CreateWidget(state, widget, cache, br, skins));
+    root->Add(CreateWidget(state, widget, cache, skins));
   }
 }
 
@@ -278,12 +274,11 @@ LoadSkin(const gui::Skin& src, FontCache* font)
 
 bool
 Load(
-    Root*                   root,
-    FileSystem*             fs,
-    FontCache*              font,
-    const std::string&      path,
-    TextureCache*           cache,
-    TextBackgroundRenderer* br)
+    Root*              root,
+    FileSystem*        fs,
+    FontCache*         font,
+    const std::string& path,
+    TextureCache*      cache)
 {
   gui::File         f;
   const std::string load_result = LoadProtoJson(fs, &f, path);
@@ -307,7 +302,7 @@ Load(
   }
 
   BuildLayoutContainer(
-      &root->state_, &root->container_, f.root(), cache, br, skin_map);
+      &root->state_, &root->container_, f.root(), cache, skin_map);
 
   return root->container_.HasWidgets();
 }

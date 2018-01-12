@@ -6,7 +6,6 @@
 
 TextData::TextData()
     : font_(nullptr)
-    , backgroundRenderer_(nullptr)
 {
 }
 
@@ -27,14 +26,6 @@ TextData::GetFont() const
 {
   ASSERT(font_);
   return *font_;
-}
-
-void
-TextData::SetBackgroundRenderer(TextBackgroundRenderer* renderer)
-{
-  backgroundRenderer_ = renderer;
-  text_.reset();
-  UpdateText();
 }
 
 void
@@ -66,10 +57,9 @@ TextData::GetText() const
 void
 TextData::UpdateText()
 {
-  if(text_.get() == nullptr && backgroundRenderer_ != nullptr &&
-     font_ != nullptr)
+  if(text_.get() == nullptr && font_ != nullptr)
   {
-    text_.reset(new Text{font_.get(), backgroundRenderer_});
+    text_.reset(new Text{font_.get()});
   }
 
   if(text_.get() != nullptr)

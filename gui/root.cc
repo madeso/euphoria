@@ -16,13 +16,12 @@ Root::~Root()
 
 bool
 Root::Load(
-    FileSystem*             fs,
-    FontCache*              font,
-    const std::string&      path,
-    TextureCache*           cache,
-    TextBackgroundRenderer* br)
+    FileSystem*        fs,
+    FontCache*         font,
+    const std::string& path,
+    TextureCache*      cache)
 {
-  const bool result = ::Load(this, fs, font, path, cache, br);
+  const bool result = ::Load(this, fs, font, path, cache);
   if(result)
   {
     container_.DoLayout(Rectf::FromWidthHeight(size_));

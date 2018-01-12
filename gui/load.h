@@ -7,17 +7,15 @@
 
 class TextureCache;
 class FontCache;
-class TextBackgroundRenderer;
 class FileSystem;
 class Root;
 
 bool
 Load(
-    Root*                   root,
-    FileSystem*             fs,
-    FontCache*              font,
-    const std::string&      path,
-    TextureCache*           cache,
-    TextBackgroundRenderer* br);
+    Root*              root,
+    FileSystem*        fs,
+    FontCache*         font,
+    const std::string& path,
+    TextureCache*      cache);
 
 #endif  // GUI_LOAD_H

@@ -117,7 +117,7 @@ Button::Render(SpriteRenderer* renderer) const
                            : rect;
 
       // todo: scale rect scale_.GetValue()
-      ASSERTX(scale_.GetValue()>0, scale_.GetValue());
+      ASSERTX(scale_.GetValue() > 0, scale_.GetValue());
       const auto scaled = pos.GetScaledAroundCenterCopy(scale_.GetValue());
       ASSERTX(scaled.GetWidth() > 0, scaled.GetWidth());
       ASSERTX(scaled.GetHeight() > 0, scaled.GetHeight());
@@ -135,7 +135,8 @@ Button::Render(SpriteRenderer* renderer) const
                          .GetFlippedY() +
                      position_displacement_.GetValue();
       const auto debug_p = debug ? GetState().mouse : p;
-      text_.GetText().Draw(debug_p, text_color_.GetValue(), scale_.GetValue());
+      text_.GetText().Draw(
+          renderer, debug_p, text_color_.GetValue(), scale_.GetValue());
     }
   }
 }

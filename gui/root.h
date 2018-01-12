@@ -11,7 +11,6 @@
 
 class FontCache;
 class TextureCache;
-class TextBackgroundRenderer;
 class Skin;
 class FileSystem;
 class Texture2d;
@@ -23,11 +22,10 @@ class Root
   ~Root();
   bool
   Load(
-      FileSystem*             fs,
-      FontCache*              font,
-      const std::string&      path,
-      TextureCache*           cache,
-      TextBackgroundRenderer* br);
+      FileSystem*        fs,
+      FontCache*         font,
+      const std::string& path,
+      TextureCache*      cache);
 
   void
   SetInputMouse(const vec2f& pos, bool down);
