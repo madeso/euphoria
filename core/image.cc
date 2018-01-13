@@ -33,6 +33,19 @@ Image::GetPixelByteSize() const
 }
 
 void
+Image::SetupWithAlphaSupport(
+    int image_width, int image_height, int default_value)
+{
+  Setup(image_width, image_height, true, default_value);
+}
+
+void
+Image::SetupNoAlphaSupport(int image_width, int image_height, int default_value)
+{
+  Setup(image_width, image_height, false, default_value);
+}
+
+void
 Image::Setup(int image_width, int image_height, bool alpha, int default_value)
 {
   ASSERTX(image_width > 0, image_width);
@@ -331,7 +344,14 @@ LoadImage(FileSystem* fs, const std::string& path, AlphaLoad alpha)
                 << channels);
 
   ImageLoadResult result;
-  result.image.Setup(image_width, image_height, has_alpha, -1);
+  if(has_alpha)
+  {
+    result.image.SetupWithAlphaSupport(image_width, image_height, -1);
+  }
+  else
+  {
+    result.image.SetupNoAlphaSupport(image_width, image_height, -1);
+  }
 
   for(int y = 0; y < image_height; ++y)
   {

@@ -35,7 +35,7 @@ FileSystemImageGenerator::ReadFile(const std::string& path)
   const auto color = color::GetColorFromLowerCaseString(color_name);
 
   Image image;
-  image.Setup(128, 128, false);
+  image.SetupNoAlphaSupport(128, 128);
   Draw drawer{&image};
   drawer.Clear(Rgb::From(color));
   return image.Write(ImageWriteFormat::PNG);

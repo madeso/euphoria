@@ -26,8 +26,13 @@ class Image
   bool
   IsValid() const;
 
+  // if default value is negative, default value is ignored, otherwise its the
+  // default value for both R, G, B, and A.
   void
-  Setup(int image_width, int image_height, bool alpha, int default_value = 0);
+  SetupWithAlphaSupport(
+      int image_width, int image_height, int default_value = 0);
+  void
+  SetupNoAlphaSupport(int image_width, int image_height, int default_value = 0);
 
   void
   SetPixel(int x, int y, const Rgb& color);
@@ -59,6 +64,9 @@ class Image
   Write(ImageWriteFormat format, int jpeg_quality = 100) const;
 
  private:
+  void
+  Setup(int image_width, int image_height, bool alpha, int default_value);
+
   int
   GetPixelByteSize() const;
 

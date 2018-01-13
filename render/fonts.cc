@@ -152,7 +152,7 @@ struct Face
     }
     else
     {
-      ch.image.Setup(slot->bitmap.width, slot->bitmap.rows, true);
+      ch.image.SetupWithAlphaSupport(slot->bitmap.width, slot->bitmap.rows);
       auto* buffer = slot->bitmap.buffer;
       for(int y = 0; y < ch.image.GetHeight(); y += 1)
       {
@@ -362,7 +362,7 @@ Font::Font(FileSystem* fs, const std::string& font_file)
 
   CharDataMap map;
   Image       image;
-  image.Setup(texture_width, texture_height, true);
+  image.SetupWithAlphaSupport(texture_width, texture_height);
   for(int i = 0; i < num_rects; ++i)
   {
     const stbrp_rect& src_rect = rects[i];
