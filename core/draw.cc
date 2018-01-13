@@ -338,3 +338,17 @@ Draw::Text(
 
   return *this;
 }
+
+Draw&
+Draw::PasteImage(const vec2i& position, const Image& source_image)
+{
+  for(int y = 0; y < source_image.GetHeight(); ++y)
+  {
+    for(int x = 0; x < source_image.GetWidth(); ++x)
+    {
+      image_->SetPixel(
+          position.x + x, position.y + y, source_image.GetPixel(x, y));
+    }
+  }
+  return *this;
+}

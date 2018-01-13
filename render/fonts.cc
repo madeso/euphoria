@@ -3,6 +3,7 @@
 #include "render/texture.h"
 #include "core/log.h"
 #include "core/proto.h"
+#include "core/draw.h"
 
 #include <vector>
 #include <memory>
@@ -182,21 +183,6 @@ CharData::CharData(
 {
 }
 
-// todo: move to core
-void
-PasteCharacterToImage(
-    Image* target_image, const stbrp_rect& r, const Image& source_image)
-{
-  ASSERT(target_image);
-  for(int y = 0; y < source_image.GetHeight(); ++y)
-  {
-    for(int x = 0; x < source_image.GetWidth(); ++x)
-    {
-      target_image->SetPixel(r.x + x, r.y + y, source_image.GetPixel(x, y));
-    }
-  }
-}
-
 // represent a loaded font, but not yet converted into a renderable texture
 struct FontChars
 {
@@ -372,7 +358,7 @@ Font::Font(FileSystem* fs, const std::string& font_file)
       continue;
     }
     const FontChar& src_char = fontchars.chars[src_rect.id];
-    PasteCharacterToImage(&image, src_rect, src_char.image);
+    ::Draw{&image}.PasteImage(vec2i{src_rect.x, src_rect.y}, src_char.image);
     const auto rects = ConstructCharacterRects(
         src_rect, src_char, texture_width, texture_height);
 

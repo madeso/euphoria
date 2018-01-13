@@ -4,6 +4,7 @@
 #include "core/image.h"
 #include "core/rgb.h"
 #include "core/rect.h"
+#include "core/vec2.h"
 
 #include <string>
 
@@ -46,6 +47,9 @@ class Draw
       const std::string& text,
       const Rgbi&        color,
       int                scale);
+
+  Draw&
+  PasteImage(const vec2i& position, const Image& source_image);
 
  private:
   Image* image_;
