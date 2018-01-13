@@ -79,36 +79,10 @@ Image::GetPixelIndex(int x, int y) const
   return (y * static_cast<fuint64>(width_) + x) * GetPixelByteSize();
 }
 
-namespace  // local
-{
-  float
-  ToFloat(unsigned char c)
-  {
-    return c / 255.0f;
-  }
-  unsigned char
-  ToUnsignedChar(float f)
-  {
-    return static_cast<unsigned char>(f * 255.0f);
-  }
-}  // namespace
-
 void
-Image::SetPixel(int x, int y, const Rgb& color)
+Image::SetPixel(int x, int y, const Rgbai& color)
 {
-  SetPixel(x, y, Rgba{color});
-}
-
-void
-Image::SetPixel(int x, int y, const Rgba& color)
-{
-  SetPixel(
-      x,
-      y,
-      ToUnsignedChar(color.r),
-      ToUnsignedChar(color.g),
-      ToUnsignedChar(color.b),
-      ToUnsignedChar(color.a));
+  SetPixel(x, y, color.r, color.g, color.b, color.a);
 }
 
 void
@@ -134,7 +108,7 @@ Image::SetPixel(
   }
 }
 
-Rgba
+Rgbai
 Image::GetPixel(int x, int y) const
 {
   ASSERT(IsWithinInclusivei(0, x, GetWidth() - 1));
@@ -142,13 +116,19 @@ Image::GetPixel(int x, int y) const
 
   const auto base_index = GetPixelIndex(x, y);
 
-  const float red   = ToFloat(components[base_index + 0]);
-  const float green = ToFloat(components[base_index + 1]);
-  const float blue  = ToFloat(components[base_index + 2]);
+  const auto red   = components[base_index + 0];
+  const auto green = components[base_index + 1];
+  const auto blue  = components[base_index + 2];
 
-  const float alpha = has_alpha_ ? ToFloat(components[base_index + 3]) : 1.0f;
-
-  return Rgba{Rgb{red, green, blue}, alpha};
+  if(has_alpha_)
+  {
+    const auto alpha = components[base_index + 3];
+    return Rgbai{Rgbi{red, green, blue}, alpha};
+  }
+  else
+  {
+    return Rgbi{red, green, blue};
+  }
 }
 
 bool

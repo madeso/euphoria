@@ -22,13 +22,13 @@ Draw::WholeImage() const
 }
 
 Draw&
-Draw::Clear(const Rgb& color)
+Draw::Clear(const Rgbi& color)
 {
   return Square(color, WholeImage());
 }
 
 Draw&
-Draw::Square(const Rgb& color, const Recti& rect)
+Draw::Square(const Rgbi& color, const Recti& rect)
 {
   const int left   = rect.TopLeft().x;
   const int right  = rect.TopRight().x;
@@ -101,7 +101,7 @@ Draw::Circle(
                       Rgb{image_->GetPixel(x, y)}, blend_factor, color)
                 : color;
 
-      image_->SetPixel(x, y, paint_color);
+      image_->SetPixel(x, y, Rgbi{paint_color});
     }
   }
 
@@ -109,7 +109,7 @@ Draw::Circle(
 }
 
 Draw&
-Draw::LineFast(const Rgb& color, const vec2i& from, const vec2i& to)
+Draw::LineFast(const Rgbi& color, const vec2i& from, const vec2i& to)
 {
   // https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm
 
@@ -182,7 +182,7 @@ Plot(int x, int y, float brightness, const Rgb& color, Image* image)
   {
     const Rgb paint_color =
         RgbTransform::Transform(Rgb{image->GetPixel(x, y)}, brightness, color);
-    image->SetPixel(x, y, paint_color);
+    image->SetPixel(x, y, Rgbi{paint_color});
   }
 }
 
@@ -287,13 +287,13 @@ GetCharGlyph(char ac)
 }
 
 void
-DrawSquare(Draw* image, int x, int y, const Rgb& color, int size)
+DrawSquare(Draw* image, int x, int y, const Rgbi& color, int size)
 {
   image->Square(color, Recti::FromTopLeftWidthHeight(y, x, size, size));
 }
 
 void
-PrintCharAt(Draw* image, const vec2i pos, char c, const Rgb& color, int scale)
+PrintCharAt(Draw* image, const vec2i pos, char c, const Rgbi& color, int scale)
 {
   ASSERT(image);
   const unsigned char* glyph = GetCharGlyph(c);
@@ -317,7 +317,7 @@ Draw&
 Draw::Text(
     const vec2i&       start_pos,
     const std::string& text,
-    const Rgb&         color,
+    const Rgbi&        color,
     int                scale)
 {
   ASSERT(scale > 0);

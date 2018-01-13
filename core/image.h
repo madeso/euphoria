@@ -35,9 +35,8 @@ class Image
   SetupNoAlphaSupport(int image_width, int image_height, int default_value = 0);
 
   void
-  SetPixel(int x, int y, const Rgb& color);
-  void
-  SetPixel(int x, int y, const Rgba& color);
+  SetPixel(int x, int y, const Rgbai& color);
+
   void
   SetPixel(
       int           x,
@@ -47,7 +46,7 @@ class Image
       unsigned char b,
       unsigned char a);
 
-  Rgba
+  Rgbai
   GetPixel(int x, int y) const;
 
   int

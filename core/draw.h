@@ -16,10 +16,10 @@ class Draw
   WholeImage() const;
 
   Draw&
-  Clear(const Rgb& color);
+  Clear(const Rgbi& color);
 
   Draw&
-  Square(const Rgb& color, const Recti& rect);
+  Square(const Rgbi& color, const Recti& rect);
 
   Draw&
   Circle(
@@ -30,7 +30,7 @@ class Draw
       float        inner    = -1.0f);
 
   Draw&
-  LineFast(const Rgb& color, const vec2i& from, const vec2i& to);
+  LineFast(const Rgbi& color, const vec2i& from, const vec2i& to);
 
   Draw&
   LineAntialiased(const Rgb& color, const vec2f& from, const vec2f& to);
@@ -44,7 +44,7 @@ class Draw
   Text(
       const vec2i&       start_pos,
       const std::string& text,
-      const Rgb&         color,
+      const Rgbi&        color,
       int                scale);
 
  private:
