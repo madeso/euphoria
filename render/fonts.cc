@@ -287,7 +287,7 @@ GetCharactersFromFont(
 }
 
 std::pair<Rectf, Rectf>
-BuildCharVao(
+ConstructCharacterRects(
     const stbrp_rect& src_rect,
     const FontChar&   src_char,
     int               image_width,
@@ -297,9 +297,6 @@ BuildCharVao(
   const int vert_right  = vert_left + src_char.image.GetWidth();
   const int vert_top    = src_char.bearing_y;
   const int vert_bottom = vert_top - std::max(1, src_char.image.GetHeight());
-
-  // const int xvert_top    = 0;
-  // const int xvert_bottom = -src_char.glyph_height;
 
   const float iw = image_width;
   const float ih = image_height;
@@ -376,12 +373,11 @@ Font::Font(FileSystem* fs, const std::string& font_file)
     }
     const FontChar& src_char = fontchars.chars[src_rect.id];
     PasteCharacterToImage(&image, src_rect, src_char.image);
-    const auto char_vao =
-        BuildCharVao(src_rect, src_char, texture_width, texture_height);
+    const auto rects = ConstructCharacterRects(
+        src_rect, src_char, texture_width, texture_height);
 
-    // store data in useful data
-    std::shared_ptr<CharData> dest(new CharData(
-        char_vao.first, char_vao.second, src_char.c, src_char.advance));
+    std::shared_ptr<CharData> dest(
+        new CharData(rects.first, rects.second, src_char.c, src_char.advance));
     map.insert(CharDataMap::value_type(dest->c, dest));
   }
 
