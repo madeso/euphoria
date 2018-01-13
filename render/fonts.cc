@@ -9,6 +9,7 @@
 #include <map>
 #include "core/assert.h"
 #include "core/noncopyable.h"
+#include "core/image.h"
 #include <iostream>
 
 #include "font.pb.h"
@@ -73,18 +74,30 @@ struct Library
 };
 
 // This represents a loaded glyph not yet placed on a texture image
-// todo: shouldn't the pixels be a core image?
 // todo: rename to something with a glyph
 struct FontChar
 {
-  std::string                c;
-  bool                       valid{false};
-  int                        glyph_width{0};
-  int                        glyph_height{0};
-  int                        bearing_x{0};
-  int                        bearing_y{0};
-  int                        advance{0};
-  std::vector<unsigned char> pixels;
+  //
+  //              width_
+  //           <--------->
+  //           +---------+
+  // bearingX  |         |   |              |
+  // ------->  |         |   |  bearingY    |
+  // origin    |         |   |              | height
+  // X.........|.........|....... baseline  |
+  //           |         |                  |
+  //           |         |                  |
+  //           +---------+
+  //
+  // ------------------------------> advance (x to next glyph)
+  //
+
+  bool        valid{false};
+  std::string c;
+  int         bearing_x{0};
+  int         bearing_y{0};
+  int         advance{0};
+  Image       image;
 };
 
 namespace
@@ -128,17 +141,29 @@ struct Face
 
 
     FontChar ch;
-    ch.c            = c;
-    ch.glyph_height = slot->bitmap.rows;
-    ch.glyph_width  = slot->bitmap.width;
-    ch.bearing_x    = slot->bitmap_left;
-    ch.bearing_y    = slot->bitmap_top;
-    ch.valid        = true;
-    ch.advance      = slot->advance.x >> 6;
+    ch.c         = c;
+    ch.bearing_x = slot->bitmap_left;
+    ch.bearing_y = slot->bitmap_top;
+    ch.valid     = true;
+    ch.advance   = slot->advance.x >> 6;
     // pen_y += slot->advance.y >> 6;
-    const int size = ch.glyph_width * ch.glyph_height;
-    ch.pixels.resize(size, 0);
-    memcpy(&ch.pixels[0], slot->bitmap.buffer, size);
+    if(slot->bitmap.width == 0)
+    {
+      ch.image.MakeInvalid();
+    }
+    else
+    {
+      ch.image.Setup(slot->bitmap.width, slot->bitmap.rows, true);
+      auto* buffer = slot->bitmap.buffer;
+      for(int y = 0; y < ch.image.GetHeight(); y += 1)
+      {
+        for(int x = 0; x < ch.image.GetWidth(); x += 1)
+        {
+          ch.image.SetPixel(
+              x, y, 255, 255, 255, buffer[ch.image.GetWidth() * y + x]);
+        }
+      }
+    }
 
     return ch;
   }
@@ -184,15 +209,14 @@ struct Pixels
 };
 
 void
-PasteCharacterToImage(Pixels* pixels, const stbrp_rect& r, const FontChar& ch)
+PasteCharacterToImage(Pixels* pixels, const stbrp_rect& r, const Image& img)
 {
   ASSERT(pixels);
-  for(int y = 0; y < ch.glyph_height; ++y)
+  for(int y = 0; y < img.GetHeight(); ++y)
   {
-    for(int x = 0; x < ch.glyph_width; ++x)
+    for(int x = 0; x < img.GetWidth(); ++x)
     {
-      const int           id  = x + y * ch.glyph_width;
-      const unsigned char val = ch.pixels[id];
+      const unsigned char val = img.GetPixel(x, y).GetAlpha() * 255;
       pixels->Set(r.x + x, r.y + y, val);
     }
   }
@@ -294,23 +318,10 @@ BuildCharVao(
     int               image_width,
     int               image_height)
 {
-  //
-  //             width_
-  //          <--------->
-  //          A---------B
-  // bearingX |         |   |              |
-  // -------> |         |   |  bearingY    |
-  // origin   |         |   |              | height
-  // X........|.........|....... baseline  |
-  //          |         |                  |
-  //          |         |                  |
-  //          C---------D
-  //
-
   const int vert_left   = src_char.bearing_x;
-  const int vert_right  = vert_left + src_char.glyph_width;
+  const int vert_right  = vert_left + src_char.image.GetWidth();
   const int vert_top    = src_char.bearing_y;
-  const int vert_bottom = vert_top - std::max(1, src_char.glyph_height);
+  const int vert_bottom = vert_top - std::max(1, src_char.image.GetHeight());
 
   // const int xvert_top    = 0;
   // const int xvert_bottom = -src_char.glyph_height;
@@ -367,8 +378,8 @@ Font::Font(FileSystem* fs, const std::string& font_file)
   {
     stbrp_rect& r = rects[i];
     r.id          = i;
-    r.w           = fontchars.chars[i].glyph_width;
-    r.h           = fontchars.chars[i].glyph_height;
+    r.w           = fontchars.chars[i].image.GetWidth();
+    r.h           = fontchars.chars[i].image.GetHeight();
   }
   stbrp_context           context{};
   const int               num_nodes = texture_width;
@@ -388,7 +399,7 @@ Font::Font(FileSystem* fs, const std::string& font_file)
       continue;
     }
     const FontChar& src_char = fontchars.chars[src_rect.id];
-    PasteCharacterToImage(&pixels, src_rect, src_char);
+    PasteCharacterToImage(&pixels, src_rect, src_char.image);
     const auto char_vao =
         BuildCharVao(src_rect, src_char, texture_width, texture_height);
 

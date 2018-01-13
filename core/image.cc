@@ -35,8 +35,8 @@ Image::GetPixelByteSize() const
 void
 Image::Setup(int image_width, int image_height, bool alpha, int default_value)
 {
-  ASSERT(image_width > 0);
-  ASSERT(image_height > 0);
+  ASSERTX(image_width > 0, image_width);
+  ASSERTX(image_height > 0, image_height);
 
   width_     = image_width;
   height_    = image_height;

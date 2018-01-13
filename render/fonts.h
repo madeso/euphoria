@@ -119,7 +119,6 @@ class Font
   friend Rectf
   Text::GetExtents(float scale) const;
 
-  // todo: support drawing background color behind string
   void
   Draw(
       SpriteRenderer*    renderer,
