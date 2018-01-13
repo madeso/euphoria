@@ -49,7 +49,7 @@ Rgb::SetFromHexColor(int hex)
 
 ////////////////////////////////////////////////////////////////////////////////
 
-Rgba::Rgba(const Rgb& rgb, const float alpha)
+Rgba::Rgba(const Rgb& rgb, float alpha)
     : r(rgb.r)
     , g(rgb.g)
     , b(rgb.b)

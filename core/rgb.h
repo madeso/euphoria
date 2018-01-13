@@ -37,7 +37,7 @@ class Rgb
 class Rgba
 {
  public:
-  Rgba(const Rgb& rgb, const float alpha = 1.0f);
+  Rgba(const Rgb& rgb, float alpha = 1.0f);
 
   float r;
   float g;
