@@ -3,199 +3,14 @@
 
 #include <string>
 
-// from http://www.uize.com/examples/sortable-color-table.html
-enum class Color
-{
-  White,
-  Silver,
-  Gray,
-  Black,
-  Navy,
-  Blue,
-  Aqua,
-  Teal,
-  Green,
-  Olive,
-  Lime,
-  Maroon,
-  Red,
-  Orange,
-  Yellow,
-  Purple,
-  Fuchsia,
-  AliceBlue,
-  AntiqueWhite,
-  AquaMarine,
-  Azure,
-  Beige,
-  Bisque,
-  BlanchedAlmond,
-  BlueViolet,
-  Brown,
-  BurlyWood,
-  CadetBlue,
-  Chartreuse,
-  Chocolate,
-  Coral,
-  CornflowerBlue,
-  Cornsilk,
-  Crimson,
-  Cyan,
-  Darkblue,
-  Darkcyan,
-  DarkGoldenRod,
-  Darkgray,
-  Darkgreen,
-  DarKkhaki,
-  DarkMagenta,
-  DarkOliveGreen,
-  DarkOrange,
-  DarkOrchid,
-  DarkRed,
-  DarkSalmon,
-  DarkSeaGreen,
-  DarkslateBlue,
-  DarkslateGray,
-  DarkTurquoise,
-  DarkBiolet,
-  DeeppInk,
-  DeepskyBlue,
-  DimGray,
-  DodgerBlue,
-  FireBrick,
-  FloralWhite,
-  ForestGreen,
-  Gainsboro,
-  GhostWhite,
-  Gold,
-  GoldenRod,
-  GreenYellow,
-  Honeydew,
-  Hotpink,
-  IndianRed,
-  Indigo,
-  Ivory,
-  Khaki,
-  Lavender,
-  LavenderBlush,
-  Lawngreen,
-  LemonChiffon,
-  LightBlue,
-  LightCoral,
-  LightCyan,
-  LightGoldenRodYellow,
-  LightGray,
-  LightGreen,
-  LightPink,
-  LightSalmon,
-  LightSeaGreen,
-  LightskyBlue,
-  LightslateGray,
-  LightSteelBlue,
-  LightYellow,
-  LimeGreen,
-  Linen,
-  Magenta,
-  MediumAquaMarine,
-  MediumBlue,
-  MediumOrchid,
-  MediumPurple,
-  MediumSeaGreen,
-  MediumslateBlue,
-  MediumSpringGreen,
-  MediumTurquoise,
-  MediumVioletRed,
-  MidnightBlue,
-  Mintcream,
-  Mistyrose,
-  Moccasin,
-  NavajoWhite,
-  Oldlace,
-  OliveDrab,
-  OrangeRed,
-  Orchid,
-  PaleGoldenRod,
-  PaleGreen,
-  PaleTurquoise,
-  PaleVioletRed,
-  Papayawhip,
-  Peachpuff,
-  Peru,
-  Pink,
-  Plum,
-  PowderBlue,
-  Rosybrown,
-  Royalblue,
-  SaddleBrown,
-  Salmon,
-  SandyBrown,
-  Seagreen,
-  Seashell,
-  Sienna,
-  SkyBlue,
-  SlateBlue,
-  SlateGray,
-  Snow,
-  SpringGreen,
-  SteelBlue,
-  Tan,
-  Thistle,
-  Tomato,
-  Turquoise,
-  Violet,
-  Wheat,
-  WhiteSmoke,
-  YellowGreen,
-  MAX_VALUE
-};
+#include "core/colors.h"
 
-namespace color
-{
-  bool
-  IsValidLowerCase(const std::string& name);
-
-  Color
-  GetColorFromLowerCaseString(const std::string& name);
-}
-
-// RGB source
-// http://pixeljoint.com/forum/forum_posts.asp?TID=12795
-// http://www.color-blindness.com/color-name-hue/ gave names
-enum class DawnbringerPalette
-{
-  Blackcurrant,
-  Castro,
-  ToreaBay,
-  Liver,
-  Korma,
-  SanFelix,
-  Valencia,
-  Flint,
-  HavelockBlue,
-  Tango,
-  BaliHai,
-  Sushi,
-  Cashmere,
-  Seagull,
-  Goldenrod,
-  Tara,
-  MAX_VALUE
-};
-
-namespace colorutil
-{
-  // internal function, exposed for unit tests
-  const int
-  GetComponent(unsigned int i, int steps);
-  const int
-  GetRed(unsigned int rgb);
-  const int
-  GetGreen(unsigned int rgb);
-  const int
-  GetBlue(unsigned int rgb);
-}
-
+class Rgb;
 class Rgba;
+
+
+////////////////////////////////////////////////////////////////////////////////
+// Rgb no alpha support - float based
 
 class Rgb
 {
@@ -204,8 +19,10 @@ class Rgb
   explicit Rgb(const float gray);
   explicit Rgb(const int rgb);
   explicit Rgb(const Rgba& rgb);
+
   static const Rgb
   From(Color color);
+
   static const Rgb
   From(DawnbringerPalette color);
 
@@ -246,14 +63,9 @@ class Rgb
   float b;
 };
 
-std::ostream&
-operator<<(std::ostream& stream, const Rgb& v);
 
-struct RgbTransform
-{
-  static Rgb
-  Transform(const Rgb& from, float v, const Rgb to);
-};
+////////////////////////////////////////////////////////////////////////////////
+// Rgb with alpha - float based
 
 class Rgba
 {
@@ -297,7 +109,44 @@ class Rgba
   float a;
 };
 
+
+////////////////////////////////////////////////////////////////////////////////
+// For printing
+
+std::ostream&
+operator<<(std::ostream& stream, const Rgb& v);
+
 std::ostream&
 operator<<(std::ostream& stream, const Rgba& v);
+
+
+////////////////////////////////////////////////////////////////////////////////
+// Transforms
+
+struct RgbTransform
+{
+  static Rgb
+  Transform(const Rgb& from, float v, const Rgb to);
+};
+
+
+////////////////////////////////////////////////////////////////////////////////
+// Internal utility
+
+namespace colorutil
+{
+  // internal function, exposed for unit tests
+  const int
+  GetComponent(unsigned int i, int steps);
+
+  const int
+  GetRed(unsigned int rgb);
+
+  const int
+  GetGreen(unsigned int rgb);
+
+  const int
+  GetBlue(unsigned int rgb);
+}
 
 #endif  // CORE_RGB_H

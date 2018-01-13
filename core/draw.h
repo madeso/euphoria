@@ -20,6 +20,7 @@ class Draw
 
   Draw&
   Square(const Rgb& color, const Recti& rect);
+
   Draw&
   Circle(
       const Rgb&   color,
@@ -30,12 +31,15 @@ class Draw
 
   Draw&
   LineFast(const Rgb& color, const vec2i& from, const vec2i& to);
+
   Draw&
   LineAntialiased(const Rgb& color, const vec2f& from, const vec2f& to);
+
   Draw&
   LineAntialiased(const Rgb& color, const vec2i& from, const vec2i& to);
 
   // position is lower left of text
+  // each character is 8x8
   Draw&
   Text(
       const vec2i&       start_pos,
