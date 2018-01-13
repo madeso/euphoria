@@ -49,18 +49,17 @@ class Rgba
 {
  public:
   Rgba(const Rgb& rgb, const float alpha = 1.0f);
+
   Rgba(
       const float red,
       const float green,
       const float blue,
       const float alpha = 1.0f);
+
   explicit Rgba(const float gray, const float alpha = 1.0f);
 
   const float*
   GetData() const;
-
-  void
-  SetRgb(const float red, const float green, const float blue);
 
   float r;
   float g;

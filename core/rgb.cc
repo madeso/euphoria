@@ -143,15 +143,6 @@ Rgba::GetData() const
   return &r;
 }
 
-void
-Rgba::SetRgb(const float red, const float green, const float blue)
-{
-  r = red;
-  g = green;
-  b = blue;
-  a = 1;
-}
-
 std::ostream&
 operator<<(std::ostream& stream, const Rgba& v)
 {
