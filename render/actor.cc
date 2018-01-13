@@ -8,7 +8,7 @@ Actor::Actor(const std::shared_ptr<CompiledMesh>& mesh)
     , rotation_(quatf::Identity())
     , overridden_materials_(mesh->GetNoOverriddenMaterials())
     , has_outline(false)
-    , outline_color(Rgb::From(Color::White))
+    , outline_color(Color::White)
 {
   ASSERT(mesh);
 }

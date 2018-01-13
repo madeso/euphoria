@@ -265,8 +265,7 @@ MaterialShader::SetColors(
 
   if(!specular_.IsNull())
   {
-    const auto the_specular =
-        shininess > 0 ? specular : Rgb::From(Color::Black);
+    const auto the_specular = shininess > 0 ? specular : Rgb{Color::Black};
     shader_.SetUniform(specular_, the_specular);
   }
 

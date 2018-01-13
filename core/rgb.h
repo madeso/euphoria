@@ -18,17 +18,12 @@ class Rgb
  public:
   Rgb(const float red, const float green, const float blue);
   explicit Rgb(const float gray);
-  explicit Rgb(const int rgb);
   explicit Rgb(const Rgba& rgb);
-
-  static const Rgb
-  From(Color color);
-
-  static const Rgb
-  From(DawnbringerPalette color);
+  Rgb(Color color);
+  Rgb(DawnbringerPalette color);
 
   void
-  SetRgb(int rgb);
+  SetFromHexColor(int hex);
 
   float r;
   float g;
@@ -43,14 +38,6 @@ class Rgba
 {
  public:
   Rgba(const Rgb& rgb, const float alpha = 1.0f);
-
-  Rgba(
-      const float red,
-      const float green,
-      const float blue,
-      const float alpha = 1.0f);
-
-  explicit Rgba(const float gray, const float alpha = 1.0f);
 
   float r;
   float g;

@@ -37,7 +37,7 @@ FileSystemImageGenerator::ReadFile(const std::string& path)
   Image image;
   image.SetupNoAlphaSupport(128, 128);
   Draw drawer{&image};
-  drawer.Clear(Rgb::From(color));
+  drawer.Clear(color);
   return image.Write(ImageWriteFormat::PNG);
 }
 

@@ -22,9 +22,9 @@ LOG_SPECIFY_DEFAULT_LOGGER("core.mesh")
 
 
 CompiledMeshMaterial::CompiledMeshMaterial()
-    : ambient_(Rgb::From(Color::White))
-    , diffuse_(Rgb::From(Color::White))
-    , specular_(Rgb::From(Color::White))
+    : ambient_(Color::White)
+    , diffuse_(Color::White)
+    , specular_(Color::White)
     , shininess_(135.0f)
 {
 }

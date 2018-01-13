@@ -92,9 +92,9 @@ MaterialTexture::MaterialTexture(std::string p, EnumValue t)
 }
 
 Material::Material()
-    : ambient(Rgb::From(Color::White))
-    , diffuse(Rgb::From(Color::White))
-    , specular(Rgb::From(Color::White))
+    : ambient(Color::White)
+    , diffuse(Color::White)
+    , specular(Color::White)
     , shininess(42.0f)
     , alpha(1.0f)
     , wraps(WrapMode::REPEAT)

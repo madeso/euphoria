@@ -148,7 +148,7 @@ Image::GetPixel(int x, int y) const
 
   const float alpha = has_alpha_ ? ToFloat(components[base_index + 3]) : 1.0f;
 
-  return Rgba{red, green, blue, alpha};
+  return Rgba{Rgb{red, green, blue}, alpha};
 }
 
 bool

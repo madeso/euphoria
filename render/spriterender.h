@@ -19,7 +19,7 @@ struct DrawData
 {
   Angle rotation = Angle::Zero();
   vec2f scale    = vec2f(1, 1);
-  Rgba  tint     = Rgba(1.0f);
+  Rgba  tint     = Rgba(Color::White);
   vec2f anchor   = vec2f(0.5f, 0.5f);
 
   DrawData&
