@@ -55,7 +55,7 @@ void
 Init::ClearScreen(const Rgb& color)
 {
   // 42.0f / 255, 45.0f / 255, 51.0f / 255
-  glClearColor(color.GetRed(), color.GetGreen(), color.GetBlue(), 1.0f);
+  glClearColor(color.r, color.g, color.b, 1.0f);
   // glClearStencil(0xFF);
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 }

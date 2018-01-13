@@ -105,10 +105,10 @@ Image::SetPixel(int x, int y, const Rgba& color)
   SetPixel(
       x,
       y,
-      ToUnsignedChar(color.GetRed()),
-      ToUnsignedChar(color.GetGreen()),
-      ToUnsignedChar(color.GetBlue()),
-      ToUnsignedChar(color.GetAlpha()));
+      ToUnsignedChar(color.r),
+      ToUnsignedChar(color.g),
+      ToUnsignedChar(color.b),
+      ToUnsignedChar(color.a));
 }
 
 void

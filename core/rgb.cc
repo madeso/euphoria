@@ -6,19 +6,17 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 Rgb::Rgb(const float red, const float green, const float blue)
-    : r(0)
-    , g(0)
-    , b(0)
+    : r(red)
+    , g(green)
+    , b(blue)
 {
-  SetRgb(red, green, blue);
 }
 
 Rgb::Rgb(const float gray)
-    : r(0)
-    , g(0)
-    , b(0)
+    : r(gray)
+    , g(gray)
+    , b(gray)
 {
-  SetRgb(gray, gray, gray);
 }
 
 Rgb::Rgb(const int rgb)
@@ -30,28 +28,10 @@ Rgb::Rgb(const int rgb)
 }
 
 Rgb::Rgb(const Rgba& rgb)
-    : r(0)
-    , g(0)
-    , b(0)
+    : r(rgb.r)
+    , g(rgb.g)
+    , b(rgb.b)
 {
-  SetRgb(rgb.GetRed(), rgb.GetGreen(), rgb.GetBlue());
-}
-
-
-const float
-Rgb::GetRed() const
-{
-  return r;
-}
-const float
-Rgb::GetGreen() const
-{
-  return g;
-}
-const float
-Rgb::GetBlue() const
-{
-  return b;
 }
 
 float*
@@ -64,30 +44,6 @@ const float* const
 Rgb::GetData() const
 {
   return &r;
-}
-
-void
-Rgb::SetRed(const float v)
-{
-  r = v;
-}
-void
-Rgb::SetGreen(const float v)
-{
-  g = v;
-}
-void
-Rgb::SetBlue(const float v)
-{
-  b = v;
-}
-
-void
-Rgb::SetRgb(const float red, const float green, const float blue)
-{
-  r = red;
-  g = green;
-  b = blue;
 }
 
 namespace colorutil
@@ -121,10 +77,12 @@ namespace colorutil
 void
 Rgb::SetRgb(int rgb)
 {
-  const auto b = colorutil::GetBlue(rgb);
-  const auto g = colorutil::GetGreen(rgb);
-  const auto r = colorutil::GetRed(rgb);
-  SetRgb(r / 255.0f, g / 255.0f, b / 255.0f);
+  const auto blue  = colorutil::GetBlue(rgb);
+  const auto green = colorutil::GetGreen(rgb);
+  const auto red   = colorutil::GetRed(rgb);
+  r                = red / 255.0f;
+  g                = green / 255.0f;
+  b                = blue / 255.0f;
 }
 
 const Rgb
@@ -142,23 +100,22 @@ Rgb::From(DawnbringerPalette color)
 std::ostream&
 operator<<(std::ostream& stream, const Rgb& v)
 {
-  return stream << "(" << v.GetRed() << ", " << v.GetGreen() << ", "
-                << v.GetBlue() << ")";
+  return stream << "(" << v.r << ", " << v.g << ", " << v.b << ")";
 }
 
 Rgb
 RgbTransform::Transform(const Rgb& from, float v, const Rgb to)
 {
   return Rgb(
-      FloatTransform::Transform(from.GetRed(), v, to.GetRed()),
-      FloatTransform::Transform(from.GetGreen(), v, to.GetGreen()),
-      FloatTransform::Transform(from.GetBlue(), v, to.GetBlue()));
+      FloatTransform::Transform(from.r, v, to.r),
+      FloatTransform::Transform(from.g, v, to.g),
+      FloatTransform::Transform(from.b, v, to.b));
 }
 
 Rgba::Rgba(const Rgb& rgb, const float alpha)
-    : r(rgb.GetRed())
-    , g(rgb.GetGreen())
-    , b(rgb.GetBlue())
+    : r(rgb.r)
+    , g(rgb.g)
+    , b(rgb.b)
     , a(alpha)
 {
 }
@@ -186,60 +143,18 @@ Rgba::GetData() const
   return &r;
 }
 
-const float
-Rgba::GetRed() const
-{
-  return r;
-}
-const float
-Rgba::GetGreen() const
-{
-  return g;
-}
-const float
-Rgba::GetBlue() const
-{
-  return b;
-}
-const float
-Rgba::GetAlpha() const
-{
-  return a;
-}
-
-void
-Rgba::SetRed(const float v)
-{
-  r = v;
-}
-void
-Rgba::SetGreen(const float v)
-{
-  g = v;
-}
-void
-Rgba::SetBlue(const float v)
-{
-  b = v;
-}
-void
-Rgba::SetAlpha(const float v)
-{
-  a = v;
-}
-
 void
 Rgba::SetRgb(const float red, const float green, const float blue)
 {
-  SetRed(red);
-  SetGreen(green);
-  SetBlue(blue);
-  SetAlpha(1);
+  r = red;
+  g = green;
+  b = blue;
+  a = 1;
 }
 
 std::ostream&
 operator<<(std::ostream& stream, const Rgba& v)
 {
-  return stream << "(" << v.GetRed() << ", " << v.GetGreen() << ", "
-                << v.GetBlue() << ", " << v.GetAlpha() << ")";
+  return stream << "(" << v.r << ", " << v.g << ", " << v.b << ", " << v.a
+                << ")";
 }

@@ -81,10 +81,10 @@ SpriteBatch::Quad(
   // add color
   for(int i = 0; i < 4; ++i)
   {
-    data_.push_back(color.GetRed());
-    data_.push_back(color.GetGreen());
-    data_.push_back(color.GetBlue());
-    data_.push_back(color.GetAlpha());
+    data_.push_back(color.r);
+    data_.push_back(color.g);
+    data_.push_back(color.b);
+    data_.push_back(color.a);
   }
 
   // add index

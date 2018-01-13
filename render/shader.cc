@@ -271,7 +271,7 @@ Shader::SetUniform(const ShaderUniform& attribute, const Rgb& val)
   {
     return;
   }
-  glUniform3f(attribute.id, val.GetRed(), val.GetGreen(), val.GetBlue());
+  glUniform3f(attribute.id, val.r, val.g, val.b);
 }
 
 void
@@ -283,12 +283,7 @@ Shader::SetUniform(const ShaderUniform& attribute, const Rgba& val)
   {
     return;
   }
-  glUniform4f(
-      attribute.id,
-      val.GetRed(),
-      val.GetGreen(),
-      val.GetBlue(),
-      val.GetAlpha());
+  glUniform4f(attribute.id, val.r, val.g, val.b, val.a);
 }
 
 void

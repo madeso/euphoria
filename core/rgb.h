@@ -5,6 +5,7 @@
 
 #include "core/colors.h"
 
+// float based colors 0-1
 class Rgb;
 class Rgba;
 
@@ -26,38 +27,15 @@ class Rgb
   static const Rgb
   From(DawnbringerPalette color);
 
-  const float
-  GetRed() const;
-  const float
-  GetGreen() const;
-  const float
-  GetBlue() const;
-
   float*
   GetData();
 
   const float* const
   GetData() const;
 
-
-  // const float* data() const;
-
-  void
-  SetRed(const float v);
-  void
-  SetGreen(const float v);
-  void
-  SetBlue(const float v);
-
-  // float& operator[](int index);
-  // const float& operator[](int index) const;
-
-  void
-  SetRgb(const float red, const float green, const float blue);
   void
   SetRgb(int rgb);
 
- private:
   float r;
   float g;
   float b;
@@ -81,28 +59,9 @@ class Rgba
   const float*
   GetData() const;
 
-  const float
-  GetRed() const;
-  const float
-  GetGreen() const;
-  const float
-  GetBlue() const;
-  const float
-  GetAlpha() const;
-
-  void
-  SetRed(const float v);
-  void
-  SetGreen(const float v);
-  void
-  SetBlue(const float v);
-  void
-  SetAlpha(const float v);
-
   void
   SetRgb(const float red, const float green, const float blue);
 
- private:
   float r;
   float g;
   float b;
