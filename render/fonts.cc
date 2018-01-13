@@ -506,7 +506,7 @@ Text::Text(Font* font)
     , hi_color_(1.0f)
     , hi_from_(-1)
     , hi_to_(-1)
-    , alignment_(Align::LEFT)
+    , alignment_(Align::MIDDLE_LEFT)
     , use_background_(false)
     , background_alpha_(0.0f)
 
