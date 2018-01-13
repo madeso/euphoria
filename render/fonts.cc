@@ -15,7 +15,6 @@
 #include "font.pb.h"
 
 #include "render/spriterender.h"
-#include "render/gl.h"
 
 #define STB_RECT_PACK_IMPLEMENTATION
 #include "stb_rect_pack.h"
@@ -183,41 +182,17 @@ CharData::CharData(
 {
 }
 
-// todo: replace with a core Image
-struct Pixels
-{
-  Pixels(int texture_width, int texture_height)
-      : pixels(texture_width * texture_height * 4, 0)
-      , texture_width_(texture_width)
-      , texture_height_(texture_height)
-  {
-  }
-
-  void
-  Set(int x, int y, unsigned char v)
-  {
-    const size_t id = (x + static_cast<size_t>(y) * texture_width_) * 4;
-    pixels[id + 0]  = 255;
-    pixels[id + 1]  = 255;
-    pixels[id + 2]  = 255;
-    pixels[id + 3]  = v;
-  }
-
-  std::vector<unsigned char> pixels;
-  int                        texture_width_;
-  int                        texture_height_;
-};
-
+// todo: move to core
 void
-PasteCharacterToImage(Pixels* pixels, const stbrp_rect& r, const Image& img)
+PasteCharacterToImage(
+    Image* target_image, const stbrp_rect& r, const Image& source_image)
 {
-  ASSERT(pixels);
-  for(int y = 0; y < img.GetHeight(); ++y)
+  ASSERT(target_image);
+  for(int y = 0; y < source_image.GetHeight(); ++y)
   {
-    for(int x = 0; x < img.GetWidth(); ++x)
+    for(int x = 0; x < source_image.GetWidth(); ++x)
     {
-      const unsigned char val = img.GetPixel(x, y).GetAlpha() * 255;
-      pixels->Set(r.x + x, r.y + y, val);
+      target_image->SetPixel(r.x + x, r.y + y, source_image.GetPixel(x, y));
     }
   }
 }
@@ -389,7 +364,8 @@ Font::Font(FileSystem* fs, const std::string& font_file)
   stbrp_pack_rects(&context, &rects[0], num_rects);
 
   CharDataMap map;
-  Pixels      pixels(texture_width, texture_height);
+  Image       image;
+  image.Setup(texture_width, texture_height, true);
   for(int i = 0; i < num_rects; ++i)
   {
     const stbrp_rect& src_rect = rects[i];
@@ -399,7 +375,7 @@ Font::Font(FileSystem* fs, const std::string& font_file)
       continue;
     }
     const FontChar& src_char = fontchars.chars[src_rect.id];
-    PasteCharacterToImage(&pixels, src_rect, src_char.image);
+    PasteCharacterToImage(&image, src_rect, src_char.image);
     const auto char_vao =
         BuildCharVao(src_rect, src_char, texture_width, texture_height);
 
@@ -414,13 +390,7 @@ Font::Font(FileSystem* fs, const std::string& font_file)
   chars_   = map;
   Texture2dLoadData load_data;
   texture_ = std::make_unique<Texture2d>();
-  texture_->LoadFromPixels(
-      texture_width,
-      texture_height,
-      &pixels.pixels[0],
-      GL_RGBA,
-      GL_RGBA,
-      load_data);
+  texture_->LoadFromImage(image, AlphaLoad::Keep, Texture2dLoadData());
 }
 
 void
