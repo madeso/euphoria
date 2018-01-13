@@ -27,12 +27,6 @@ class Rgb
   static const Rgb
   From(DawnbringerPalette color);
 
-  float*
-  GetData();
-
-  const float* const
-  GetData() const;
-
   void
   SetRgb(int rgb);
 
@@ -57,9 +51,6 @@ class Rgba
       const float alpha = 1.0f);
 
   explicit Rgba(const float gray, const float alpha = 1.0f);
-
-  const float*
-  GetData() const;
 
   float r;
   float g;

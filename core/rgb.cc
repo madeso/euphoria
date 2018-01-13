@@ -34,18 +34,6 @@ Rgb::Rgb(const Rgba& rgb)
 {
 }
 
-float*
-Rgb::GetData()
-{
-  return &r;
-}
-
-const float* const
-Rgb::GetData() const
-{
-  return &r;
-}
-
 namespace colorutil
 {
   const int
@@ -135,12 +123,6 @@ Rgba::Rgba(const float gray, const float alpha)
     , b(gray)
     , a(alpha)
 {
-}
-
-const float*
-Rgba::GetData() const
-{
-  return &r;
 }
 
 std::ostream&
