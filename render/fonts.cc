@@ -139,7 +139,6 @@ struct Face
 
     FT_GlyphSlot slot = face->glyph;
 
-
     FontChar ch;
     ch.c         = c;
     ch.bearing_x = slot->bitmap_left;
@@ -153,16 +152,22 @@ struct Face
     }
     else
     {
+      const bool upside_down = slot->bitmap.pitch > 0;
+
       ch.image.SetupWithAlphaSupport(slot->bitmap.width, slot->bitmap.rows);
       auto* buffer = slot->bitmap.buffer;
       for(int y = 0; y < ch.image.GetHeight(); y += 1)
       {
         for(int x = 0; x < ch.image.GetWidth(); x += 1)
         {
+          const int target_y = upside_down ? ch.image.GetHeight() - (y + 1) : y;
+
           ch.image.SetPixel(
-              x, y, 255, 255, 255, buffer[ch.image.GetWidth() * y + x]);
+              x, target_y, 255, 255, 255, buffer[ch.image.GetWidth() * y + x]);
         }
       }
+
+      // dump image to disk...
     }
 
     return ch;
