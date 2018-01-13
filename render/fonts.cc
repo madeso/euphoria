@@ -309,23 +309,26 @@ BuildCharVao(
 
   const int vert_left   = src_char.bearing_x;
   const int vert_right  = vert_left + src_char.glyph_width;
-  const int vert_top    = -src_char.bearing_y;
-  const int vert_bottom = vert_top + src_char.glyph_height;
+  const int vert_top    = src_char.bearing_y;
+  const int vert_bottom = vert_top - std::max(1, src_char.glyph_height);
 
-  const int xvert_top    = 0;
-  const int xvert_bottom = -src_char.glyph_height;
+  // const int xvert_top    = 0;
+  // const int xvert_bottom = -src_char.glyph_height;
 
   const float iw = image_width;
   const float ih = image_height;
 
   const stbrp_coord uv_left   = src_rect.x;
   const stbrp_coord uv_right  = uv_left + src_rect.w;
-  const stbrp_coord uv_top    = src_rect.y;
-  const stbrp_coord uv_bottom = uv_top + src_rect.h;
+  const stbrp_coord uv_bottom = src_rect.y;
+  const stbrp_coord uv_top =
+      uv_bottom + std::max(static_cast<stbrp_coord>(1), src_rect.h);
 
   // todo: add ability to be a quad for tighter fit
+  ASSERTX(vert_top > vert_bottom, vert_top, vert_bottom, src_char.c);
+  ASSERTX(uv_top > uv_bottom, uv_top, uv_bottom, src_char.c);
   const auto sprite = Rectf::FromLeftRightTopBottom(
-      vert_left, vert_right, xvert_top, xvert_bottom);
+      vert_left, vert_right, vert_top, vert_bottom);
   const auto texture = Rectf::FromLeftRightTopBottom(
       uv_left / iw, uv_right / iw, uv_top / ih, uv_bottom / ih);
 
