@@ -211,15 +211,33 @@ WriteImageData(
 std::shared_ptr<MemoryChunk>
 Image::Write(ImageWriteFormat format, int jpeg_quality) const
 {
-  fuint64   size        = 0;
-  const int comp        = has_alpha_ ? 4 : 3;
-  int       size_result = WriteImageData(
+  const int number_of_components = has_alpha_ ? 4 : 3;
+
+  std::vector<unsigned char> pixels(width_ * height_ * number_of_components, 0);
+  for(fuint64 y = 0; y < height_; y += 1)
+  {
+    const fuint64 iy = height_ - (y + 1);
+
+    ASSERTX(IsWithinInclusivei(0, iy, height_ - 1), iy, y, height_);
+    for(fuint64 x = 0; x < width_; x += 1)
+    {
+      const fuint64 target_index = (x + width_ * y) * number_of_components;
+      const fuint64 source_index = (x + width_ * iy) * number_of_components;
+      for(int component = 0; component < number_of_components; component += 1)
+      {
+        pixels[target_index + component] = components[source_index + component];
+      }
+    }
+  }
+
+  fuint64 size        = 0;
+  int     size_result = WriteImageData(
       DetermineImageSize,
       &size,
       GetWidth(),
       GetHeight(),
-      comp,
-      GetPixelData(),
+      number_of_components,
+      &pixels[0],
       format,
       jpeg_quality);
   if(size_result == 0)
@@ -234,8 +252,8 @@ Image::Write(ImageWriteFormat format, int jpeg_quality) const
       &file,
       GetWidth(),
       GetHeight(),
-      comp,
-      GetPixelData(),
+      number_of_components,
+      &pixels[0],
       format,
       jpeg_quality);
   if(write_result == 0)
