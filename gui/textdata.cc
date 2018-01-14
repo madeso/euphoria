@@ -64,6 +64,8 @@ TextData::UpdateText()
 
   if(text_.get() != nullptr)
   {
+    // button assumes this is bottom left
+    text_->SetAlignment(Align::BOTTOM_LEFT);
     text_->SetText(string_);
   }
 }
