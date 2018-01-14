@@ -11,7 +11,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 
-FileSystemRoot::~FileSystemRoot() = default;
+FileSystemReadRoot::~FileSystemReadRoot() = default;
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -20,7 +20,7 @@ FileSystem::FileSystem() = default;
 FileSystem::~FileSystem() = default;
 
 void
-FileSystem::AddRoot(const std::shared_ptr<FileSystemRoot>& root)
+FileSystem::AddReadRoot(const std::shared_ptr<FileSystemReadRoot> &root)
 {
   roots_.push_back(root);
 }
@@ -97,7 +97,7 @@ FileSystemRootCatalog::AddRoot(FileSystem* fs)
 {
   ASSERT(fs);
   auto catalog = std::make_shared<FileSystemRootCatalog>();
-  fs->AddRoot(catalog);
+  fs->AddReadRoot(catalog);
   return catalog;
 }
 
@@ -172,7 +172,7 @@ FileSystemRootFolder::AddRoot(FileSystem* fs, const std::string& folder)
 
   auto catalog = std::make_shared<FileSystemRootFolder>(the_folder);
 
-  fs->AddRoot(catalog);
+  fs->AddReadRoot(catalog);
 }
 
 void

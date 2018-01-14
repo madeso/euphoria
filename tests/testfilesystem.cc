@@ -3,7 +3,7 @@
 
 #define GTEST(X) TEST(filesystem, X)
 
-class AlwaysExist : public FileSystemRoot
+class AlwaysExist : public FileSystemReadRoot
 {
  public:
   std::shared_ptr<MemoryChunk>
@@ -20,7 +20,7 @@ class AlwaysExist : public FileSystemRoot
   }
 };
 
-class NeverExist : public FileSystemRoot
+class NeverExist : public FileSystemReadRoot
 {
  public:
   std::shared_ptr<MemoryChunk>
@@ -42,14 +42,14 @@ TEST_CASE("vfs-test_basic", "[vfs]")
   SECTION("always")
   {
     FileSystem always;
-    always.AddRoot(std::make_shared<AlwaysExist>());
+    always.AddReadRoot(std::make_shared<AlwaysExist>());
     REQUIRE(always.ReadFile("dog") != nullptr);
   }
 
   SECTION("never")
   {
     FileSystem never;
-    never.AddRoot(std::make_shared<NeverExist>());
+    never.AddReadRoot(std::make_shared<NeverExist>());
     REQUIRE(never.ReadFile("dog") == nullptr);
   }
 }

@@ -10,10 +10,10 @@
 
 // todo: add path class
 
-class FileSystemRoot
+class FileSystemReadRoot
 {
  public:
-  virtual ~FileSystemRoot();
+  virtual ~FileSystemReadRoot();
 
   virtual std::string
   Describe() = 0;
@@ -29,7 +29,7 @@ class FileSystem
   ~FileSystem();
 
   void
-  AddRoot(const std::shared_ptr<FileSystemRoot>& root);
+  AddReadRoot(const std::shared_ptr<FileSystemReadRoot>& root);
 
   std::shared_ptr<MemoryChunk>
   ReadFile(const std::string& path);
@@ -47,10 +47,10 @@ class FileSystem
   // todo: support listing/enumerating files
 
  private:
-  std::vector<std::shared_ptr<FileSystemRoot>> roots_;
+  std::vector<std::shared_ptr<FileSystemReadRoot>> roots_;
 };
 
-class FileSystemRootCatalog : public FileSystemRoot
+class FileSystemRootCatalog : public FileSystemReadRoot
 {
  public:
   FileSystemRootCatalog();
@@ -74,7 +74,7 @@ class FileSystemRootCatalog : public FileSystemRoot
   std::map<std::string, std::shared_ptr<MemoryChunk>> catalog_;
 };
 
-class FileSystemRootFolder : public FileSystemRoot
+class FileSystemRootFolder : public FileSystemReadRoot
 {
  public:
   explicit FileSystemRootFolder(std::string folder);

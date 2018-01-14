@@ -4,7 +4,7 @@
 #include "core/filesystem.h"
 
 
-class FileSystemImageGenerator : public FileSystemRoot
+class FileSystemImageGenerator : public FileSystemReadRoot
 {
  public:
   static void

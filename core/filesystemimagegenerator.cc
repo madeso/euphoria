@@ -11,7 +11,7 @@ void
 FileSystemImageGenerator::AddRoot(FileSystem* fs, const std::string& base)
 {
   auto root = std::make_shared<FileSystemImageGenerator>(base);
-  fs->AddRoot(root);
+  fs->AddReadRoot(root);
 }
 
 std::shared_ptr<MemoryChunk>
