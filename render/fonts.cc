@@ -421,10 +421,9 @@ Font::Draw(
         apply_highlight && hi_start <= this_index && this_index < hi_end
             ? hi_color
             : base_color;
-    // todo: support scaling
     renderer->DrawRect(
         *texture_.get(),
-        ch->sprite_rect.OffsetCopy(position),
+        ch->sprite_rect.ScaleCopy(scale, scale).OffsetCopy(position),
         ch->texture_rect,
         Angle::Zero(),
         vec2f{0.5f, 0.5f},

@@ -185,6 +185,23 @@ class Rect
   }
 
   void
+  Scale(T dx, T dy)
+  {
+    left *= dx;
+    right *= dx;
+    top *= dy;
+    bottom *= dy;
+  }
+
+  Rect
+  ScaleCopy(T dx, T dy) const
+  {
+    Rect r = *this;
+    r.Scale(dx, dy);
+    return r;
+  }
+
+  void
   Inset(T dx, T dy)
   {
     left += dx;
