@@ -33,72 +33,72 @@ TEST_CASE("image-load", "[img]")
   SECTION("load-white")
   {
     const auto pixel = loaded.image.GetPixel(0, 1);
-    const auto white = Rgba{1.0f, 1.0f, 1.0f, 1.0f};
-    REQUIRE(pixel == approx(white));
+    const auto white = Rgbai{Rgbi{255, 255, 255}, 255};
+    REQUIRE(pixel == white);
   }
 
   // upper right
   SECTION("load-red")
   {
     const auto pixel = loaded.image.GetPixel(1, 1);
-    const auto red   = Rgba{1.0f, 0.0f, 0.0f, 1.0f};
-    REQUIRE(pixel == approx(red));
+    const auto red   = Rgbai{Rgbi{255, 0, 0}, 255};
+    REQUIRE(pixel == red);
   }
 
   // lower left
   SECTION("load-green")
   {
     const auto pixel = loaded.image.GetPixel(0, 0);
-    const auto green = Rgba{0.0f, 1.0f, 0.0f, 1.0f};
-    REQUIRE(pixel == approx(green));
+    const auto green = Rgbai{Rgbi{0, 255, 0}, 255};
+    REQUIRE(pixel == green);
   }
 
   // lower right
   SECTION("load-blue")
   {
     const auto pixel = loaded.image.GetPixel(1, 0);
-    const auto blue  = Rgba{0.0f, 0.0f, 1.0f, 1.0f};
-    REQUIRE(pixel == approx(blue));
+    const auto blue  = Rgbai{Rgbi{0, 0, 255}, 255};
+    REQUIRE(pixel == blue);
   }
 }
 
 TEST_CASE("image solid", "[img]")
 {
   Image img;
-  img.Setup(3, 3, false);
+  img.SetupNoAlphaSupport(3, 3);
 
   SECTION("default-is-black")
   {
-    REQUIRE(img.GetPixel(0, 0) == approx(Rgba(0, 0, 0, 1)));
-    REQUIRE(img.GetPixel(1, 0) == approx(Rgba(0, 0, 0, 1)));
+    REQUIRE(img.GetPixel(0, 0) == Rgbai(Rgbi{0, 0, 0}, 255));
+    REQUIRE(img.GetPixel(1, 0) == Rgbai(Rgbi{0, 0, 0}, 255));
   }
 
   SECTION("can set and get color")
   {
-    REQUIRE(img.GetPixel(0, 0) == approx(Rgba(0, 0, 0, 1)));
-    Rgba color{1, 1, 1, 1};
+    REQUIRE(img.GetPixel(0, 0) == Rgbai(Rgbi{0, 0, 0}, 255));
+    Rgbai color{Rgbi{255, 255, 255}, 255};
     img.SetPixel(0, 0, color);
-    REQUIRE(img.GetPixel(0, 0) == approx(color));
+    REQUIRE(img.GetPixel(0, 0) == color);
   }
 }
 
 TEST_CASE("image transparent", "[img]")
 {
   Image img;
-  img.Setup(4, 4, true);
+  img.SetupWithAlphaSupport(4, 4);
 
   SECTION("default-is-black")
   {
-    REQUIRE(img.GetPixel(0, 0) == approx(Rgba(0, 0, 0, 0)));
-    REQUIRE(img.GetPixel(1, 1) == approx(Rgba(0, 0, 0, 0)));
+    REQUIRE(img.GetPixel(0, 0) == Rgbai(Rgbi{0, 0, 0}, 0));
+    REQUIRE(img.GetPixel(1, 1) == Rgbai(Rgbi{0, 0, 0}, 0));
   }
 
   SECTION("can set and get color")
   {
-    REQUIRE(img.GetPixel(0, 0) == approx(Rgba(0, 0, 0, 0)));
-    Rgba color{1, 1, 1, 1};
+    REQUIRE(img.GetPixel(0, 0) == Rgbai(Rgbi{0, 0, 0}, 0));
+    Rgbai color{Rgbi{255, 255, 255}, 255};
     img.SetPixel(0, 0, color);
-    REQUIRE(img.GetPixel(0, 0) == approx(color));
+    REQUIRE(img.GetPixel(0, 0) == color);
   }
 }
 
@@ -108,7 +108,7 @@ TEST_CASE("image draw", "[img]")
   Image     img;
   const int width  = 10;
   const int height = 12;
-  img.Setup(width, height, false);
+  img.SetupNoAlphaSupport(width, height);
   Draw draw{&img};
 
   SECTION("draw size is image size")
@@ -120,35 +120,35 @@ TEST_CASE("image draw", "[img]")
     CHECK(size.GetHeight() == height);
   }
 
-  Rgb  color{1, 1, 0};
-  Rgba colora{color, 1};
+  Rgbi  color{255, 255, 0};
+  Rgbai colora{color, 255};
 
   SECTION("fill")
   {
-    CHECK_FALSE(img.GetPixel(0, 0) == approx(colora));
-    CHECK_FALSE(img.GetPixel(3, 3) == approx(colora));
-    CHECK_FALSE(img.GetPixel(width - 1, height - 1) == approx(colora));
+    CHECK_FALSE(img.GetPixel(0, 0) == colora);
+    CHECK_FALSE(img.GetPixel(3, 3) == colora);
+    CHECK_FALSE(img.GetPixel(width - 1, height - 1) == colora);
 
     draw.Square(color, draw.WholeImage());
-    REQUIRE(img.GetPixel(0, 0) == approx(colora));
-    REQUIRE(img.GetPixel(3, 3) == approx(colora));
-    REQUIRE(img.GetPixel(width - 1, height - 1) == approx(colora));
+    REQUIRE(img.GetPixel(0, 0) == colora);
+    REQUIRE(img.GetPixel(3, 3) == colora);
+    REQUIRE(img.GetPixel(width - 1, height - 1) == colora);
   }
 
   SECTION("circle")
   {
-    CHECK_FALSE(img.GetPixel(5, 5) == approx(colora));
-    draw.Circle(color, vec2i{5, 5}, 4);
-    CHECK_FALSE(img.GetPixel(0, 0) == approx(colora));
-    REQUIRE(img.GetPixel(5, 5) == approx(colora));
+    CHECK_FALSE(img.GetPixel(5, 5) == colora);
+    draw.Circle(Rgb{color}, vec2i{5, 5}, 4);
+    CHECK_FALSE(img.GetPixel(0, 0) == colora);
+    REQUIRE(img.GetPixel(5, 5) == colora);
   }
 
   SECTION("circle with hole")
   {
-    CHECK_FALSE(img.GetPixel(0, 0) == approx(colora));
-    CHECK_FALSE(img.GetPixel(5, 5) == approx(colora));
-    draw.Circle(color, vec2i{5, 5}, 20, 0, 3);
-    CHECK_FALSE(img.GetPixel(5, 5) == approx(colora));
-    REQUIRE(img.GetPixel(0, 0) == approx(colora));
+    CHECK_FALSE(img.GetPixel(0, 0) == colora);
+    CHECK_FALSE(img.GetPixel(5, 5) == colora);
+    draw.Circle(Rgb{color}, vec2i{5, 5}, 20, 0, 3);
+    CHECK_FALSE(img.GetPixel(5, 5) == colora);
+    REQUIRE(img.GetPixel(0, 0) == colora);
   }
 }

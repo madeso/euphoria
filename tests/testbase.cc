@@ -13,10 +13,10 @@ template <>
 bool
 approximately_equal(Rgba const& lhs, Rgba const& rhs, const ApproxData& data)
 {
-  return approximately_equal(lhs.GetRed(), rhs.GetRed(), data) &&
-         approximately_equal(lhs.GetGreen(), rhs.GetGreen(), data) &&
-         approximately_equal(lhs.GetBlue(), rhs.GetBlue(), data) &&
-         approximately_equal(lhs.GetAlpha(), rhs.GetAlpha(), data);
+  return approximately_equal(lhs.r, rhs.r, data) &&
+         approximately_equal(lhs.g, rhs.g, data) &&
+         approximately_equal(lhs.b, rhs.b, data) &&
+         approximately_equal(lhs.a, rhs.a, data);
 }
 
 template <>

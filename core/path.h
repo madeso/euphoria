@@ -3,6 +3,9 @@
 
 #include <string>
 
+// represents a virtual path
+// always lowercase
+// forward slash specify a directory
 class Path
 {
  public:

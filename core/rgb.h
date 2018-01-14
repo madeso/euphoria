@@ -40,7 +40,7 @@ class Rgbi
 class Rgbai
 {
  public:
-  Rgbai(const Rgbi& rgb, unsigned char alpha = 1.0f);
+  Rgbai(const Rgbi& rgb, unsigned char alpha = 255);
 
   explicit Rgbai(const Rgba& rgba);
 
@@ -58,6 +58,7 @@ class Rgb
  public:
   Rgb(const float red, const float green, const float blue);
   explicit Rgb(const float gray);
+  explicit Rgb(const Rgbi& rgb);
   explicit Rgb(const Rgba& rgb);
   explicit Rgb(const Rgbai& rgb);
   Rgb(Color color);
@@ -91,11 +92,22 @@ class Rgba
 // For printing
 
 std::ostream&
+operator<<(std::ostream& stream, const Rgbi& v);
+
+std::ostream&
+operator<<(std::ostream& stream, const Rgbai& v);
+
+std::ostream&
 operator<<(std::ostream& stream, const Rgb& v);
 
 std::ostream&
 operator<<(std::ostream& stream, const Rgba& v);
 
+////////////////////////////////////////////////////////////////////////////////
+// Default compare
+
+bool
+operator==(const Rgbai& lhs, const Rgbai& rhs);
 
 ////////////////////////////////////////////////////////////////////////////////
 // Transforms

@@ -85,6 +85,13 @@ Rgb::Rgb(const float gray)
     , b(gray)
 {
 }
+Rgb::Rgb(const Rgbi& rgb)
+    : r(colorutil::ToFloat(rgb.r))
+    , g(colorutil::ToFloat(rgb.g))
+    , b(colorutil::ToFloat(rgb.b))
+{
+}
+
 Rgb::Rgb(const Rgba& rgb)
     : r(rgb.r)
     , g(rgb.g)
@@ -130,6 +137,24 @@ Rgba::Rgba(const Rgb& rgb, float alpha)
 
 ////////////////////////////////////////////////////////////////////////////////
 
+#define IV(x) static_cast<int>(x)
+
+std::ostream&
+operator<<(std::ostream& stream, const Rgbi& v)
+{
+  return stream << "(" << IV(v.r) << ", " << IV(v.g) << ", " << IV(v.b) << ")";
+}
+
+
+std::ostream&
+operator<<(std::ostream& stream, const Rgbai& v)
+{
+  return stream << "(" << IV(v.r) << ", " << IV(v.g) << ", " << IV(v.b) << ", "
+                << IV(v.a) << ")";
+}
+
+#undef IV
+
 std::ostream&
 operator<<(std::ostream& stream, const Rgb& v)
 {
@@ -142,6 +167,17 @@ operator<<(std::ostream& stream, const Rgba& v)
 {
   return stream << "(" << v.r << ", " << v.g << ", " << v.b << ", " << v.a
                 << ")";
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////
+// Default compare
+
+bool
+operator==(const Rgbai& lhs, const Rgbai& rhs)
+{
+  return lhs.r == rhs.r && lhs.g == rhs.g && lhs.b == rhs.b && lhs.a == rhs.a;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
