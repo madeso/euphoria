@@ -334,6 +334,8 @@ Font::Font(FileSystem* fs, const std::string& font_file)
     }
   }
 
+  const int half_margin = 1;
+
   // pack char textures to a single texture
   const int               num_rects = fontchars.chars.size();
   std::vector<stbrp_rect> rects(num_rects);
@@ -341,8 +343,8 @@ Font::Font(FileSystem* fs, const std::string& font_file)
   {
     stbrp_rect& r = rects[i];
     r.id          = i;
-    r.w           = fontchars.chars[i].image.GetWidth();
-    r.h           = fontchars.chars[i].image.GetHeight();
+    r.w           = fontchars.chars[i].image.GetWidth() + half_margin * 2;
+    r.h           = fontchars.chars[i].image.GetHeight() + half_margin * 2;
   }
   stbrp_context           context{};
   const int               num_nodes = texture_width;
@@ -363,7 +365,9 @@ Font::Font(FileSystem* fs, const std::string& font_file)
       continue;
     }
     const FontChar& src_char = fontchars.chars[src_rect.id];
-    ::Draw{&image}.PasteImage(vec2i{src_rect.x, src_rect.y}, src_char.image);
+    ::Draw{&image}.PasteImage(
+        vec2i{src_rect.x + half_margin, src_rect.y + half_margin},
+        src_char.image);
     const auto rects = ConstructCharacterRects(
         src_rect, src_char, texture_width, texture_height);
 
