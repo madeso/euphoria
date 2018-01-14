@@ -481,7 +481,7 @@ Text::Text(Font* font)
     , hi_color_(1.0f)
     , hi_from_(-1)
     , hi_to_(-1)
-    , alignment_(Align::MIDDLE_LEFT)
+    , alignment_(Align::BASELINE_LEFT)
     , use_background_(false)
     , background_alpha_(0.0f)
 
@@ -565,11 +565,11 @@ GetOffset(Align alignment, const Rectf& extent)
       return vec2f(middle, top);
     case Align::TOP_RIGHT:
       return vec2f(right, top);
-    case Align::MIDDLE_LEFT:
+    case Align::BASELINE_LEFT:
       return vec2f(0.0f, 0.0f);
-    case Align::MIDDLE_CENTER:
+    case Align::BASELINE_CENTER:
       return vec2f(middle, 0.0f);
-    case Align::MIDDLE_RIGHT:
+    case Align::BASELINE_RIGHT:
       return vec2f(right, 0.0f);
     case Align::BOTTOM_LEFT:
       return vec2f(0.0f, bottom);

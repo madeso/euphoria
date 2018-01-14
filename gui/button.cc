@@ -116,7 +116,6 @@ Button::Render(SpriteRenderer* renderer) const
                                  .OffsetCopy(GetState().mouse)
                            : rect;
 
-      // todo: scale rect scale_.GetValue()
       ASSERTX(scale_.GetValue() > 0, scale_.GetValue());
       const auto scaled = pos.GetScaledAroundCenterCopy(scale_.GetValue());
       ASSERTX(scaled.GetWidth() > 0, scaled.GetWidth());
