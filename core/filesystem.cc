@@ -6,12 +6,17 @@
 #include "core/ints.h"
 #include "core/os.h"
 #include "core/stringmerger.h"
+#include "core/log.h"
 
 #include "core/stringutils.h"
+
+LOG_SPECIFY_DEFAULT_LOGGER("core.filesystem")
 
 ////////////////////////////////////////////////////////////////////////////////
 
 FileSystemReadRoot::~FileSystemReadRoot() = default;
+
+FileSystemWriteRoot::~FileSystemWriteRoot() = default;
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -20,9 +25,15 @@ FileSystem::FileSystem() = default;
 FileSystem::~FileSystem() = default;
 
 void
-FileSystem::AddReadRoot(const std::shared_ptr<FileSystemReadRoot> &root)
+FileSystem::AddReadRoot(const std::shared_ptr<FileSystemReadRoot>& root)
 {
   roots_.push_back(root);
+}
+
+void
+FileSystem::SetWrite(const std::shared_ptr<FileSystemWriteRoot>& root)
+{
+  write_ = root;
 }
 
 std::shared_ptr<MemoryChunk>
@@ -38,6 +49,14 @@ FileSystem::ReadFile(const std::string& path)
   }
 
   return MemoryChunk::Null();
+}
+
+void
+FileSystem::WriteFile(
+    const std::string& path, std::shared_ptr<MemoryChunk> data)
+{
+  ASSERT(write_);
+  write_->WriteFile(path, data);
 }
 
 std::string
@@ -122,6 +141,24 @@ FileSystemRootCatalog::Describe()
 
 ////////////////////////////////////////////////////////////////////////////////
 
+std::string
+CombineFolderAndPath(const std::string& folder, const std::string& path)
+{
+  return folder + path;
+}
+
+std::string
+MakeSureEndsWithSlash(const std::string& folder)
+{
+  const std::string slash = "/";
+
+  const std::string the_folder =
+      EndsWith(folder, slash) ? folder : folder + slash;
+  return the_folder;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
 FileSystemRootFolder::FileSystemRootFolder(std::string folder)
     : folder_(std::move(folder))
 {
@@ -130,7 +167,7 @@ FileSystemRootFolder::FileSystemRootFolder(std::string folder)
 std::shared_ptr<MemoryChunk>
 FileSystemRootFolder::ReadFile(const std::string& path)
 {
-  const std::string& full_path = folder_ + path;
+  const std::string& full_path = CombineFolderAndPath(folder_, path);
   std::ifstream      is(full_path, std::ifstream::binary);
   if(!is)
   {
@@ -165,12 +202,8 @@ FileSystemRootFolder::AddRoot(FileSystem* fs, const std::string& folder)
 {
   ASSERT(fs);
 
-  const std::string slash = "/";
-
-  const std::string the_folder =
-      EndsWith(folder, slash) ? folder : folder + slash;
-
-  auto catalog = std::make_shared<FileSystemRootFolder>(the_folder);
+  auto catalog =
+      std::make_shared<FileSystemRootFolder>(MakeSureEndsWithSlash(folder));
 
   fs->AddReadRoot(catalog);
 }
@@ -180,4 +213,25 @@ FileSystemRootFolder::AddRoot(FileSystem* fs)
 {
   const std::string folder = GetCurrentDirectory();
   return FileSystemRootFolder::AddRoot(fs, folder);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+FileSystemWriteFolder::FileSystemWriteFolder(const std::string& f)
+    : folder(MakeSureEndsWithSlash(f))
+{
+}
+
+void
+FileSystemWriteFolder::WriteFile(
+    const std::string& path, std::shared_ptr<MemoryChunk> data)
+{
+  const auto    full_path = CombineFolderAndPath(folder, path);
+  std::ofstream os(full_path, std::ifstream::binary);
+  if(!os.good())
+  {
+    LOG_ERROR("Failed to open file " << full_path);
+    return;
+  }
+  os.write(data->GetData(), data->GetSize());
 }

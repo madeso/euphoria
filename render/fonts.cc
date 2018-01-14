@@ -376,6 +376,8 @@ Font::Font(FileSystem* fs, const std::string& font_file)
     map.insert(CharDataMap::value_type(dest->c, dest));
   }
 
+  fs->WriteFile("charmap.png", image.Write(ImageWriteFormat::PNG));
+
   // load pixels into texture
   kerning_ = fontchars.kerning;
   chars_   = map;

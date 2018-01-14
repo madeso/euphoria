@@ -3,6 +3,9 @@
 
 #include <string>
 
+// todo: remove these
+// use core/filesystem functions instead
+
 std::string
 GetBasePath();
 

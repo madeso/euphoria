@@ -6,6 +6,8 @@
 // represents a virtual path
 // always lowercase
 // forward slash specify a directory
+// todo: transform into a path and directory class instead
+
 class Path
 {
  public:
