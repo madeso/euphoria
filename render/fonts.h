@@ -15,10 +15,9 @@
 class FileSystem;
 class SpriteRenderer;
 
-// todo: rename to Glyph
-struct CharData
+struct Glyph
 {
-  CharData(
+  Glyph(
       const Rectf&       sprite,
       const Rectf&       texture,
       const std::string& ch,
@@ -30,7 +29,7 @@ struct CharData
   float       advance;
 };
 
-typedef std::map<std::string, std::shared_ptr<CharData>> CharDataMap;
+typedef std::map<std::string, std::shared_ptr<Glyph>> CharDataMap;
 typedef std::map<std::pair<std::string, std::string>, int> KerningMap;
 
 class Font;
@@ -119,6 +118,7 @@ class Font
   friend Rectf
   Text::GetExtents(float scale) const;
 
+  // todo: replace scale with size
   void
   Draw(
       SpriteRenderer*    renderer,

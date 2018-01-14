@@ -36,6 +36,7 @@ namespace
     }
     std::cerr << "FONT Error: " << err << "\n";
   }
+
   void
   ErrorNoThrow(FT_Error err)
   {
@@ -53,29 +54,28 @@ namespace
   }
 }  // namespace
 
-struct Library
+struct FreetypeLibrary
 {
-  NONCOPYABLE_CONSTRUCTOR(Library);
-  NONCOPYABLE_ASSIGNMENT(Library);
-  NONCOPYABLE_MOVE_CONSTRUCTOR(Library);
-  NONCOPYABLE_MOVE_ASSIGNMENT(Library);
+  NONCOPYABLE_CONSTRUCTOR(FreetypeLibrary);
+  NONCOPYABLE_ASSIGNMENT(FreetypeLibrary);
+  NONCOPYABLE_MOVE_CONSTRUCTOR(FreetypeLibrary);
+  NONCOPYABLE_MOVE_ASSIGNMENT(FreetypeLibrary);
 
   FT_Library library{nullptr};
 
-  Library()
+  FreetypeLibrary()
   {
     Error(FT_Init_FreeType(&library));
   }
 
-  ~Library()
+  ~FreetypeLibrary()
   {
     ErrorNoThrow(FT_Done_FreeType(library));
   }
 };
 
 // This represents a loaded glyph not yet placed on a texture image
-// todo: rename to something with a glyph
-struct FontChar
+struct LoadedGlyph
 {
   //
   //              width_
@@ -110,16 +110,16 @@ namespace
   }
 }
 
-struct Face
+struct FreetypeFace
 {
   FT_Face face;
 
-  NONCOPYABLE_CONSTRUCTOR(Face);
-  NONCOPYABLE_ASSIGNMENT(Face);
-  NONCOPYABLE_MOVE_CONSTRUCTOR(Face);
-  NONCOPYABLE_MOVE_ASSIGNMENT(Face);
+  NONCOPYABLE_CONSTRUCTOR(FreetypeFace);
+  NONCOPYABLE_ASSIGNMENT(FreetypeFace);
+  NONCOPYABLE_MOVE_CONSTRUCTOR(FreetypeFace);
+  NONCOPYABLE_MOVE_ASSIGNMENT(FreetypeFace);
 
-  Face(Library* lib, const std::string& path, unsigned int size)
+  FreetypeFace(FreetypeLibrary* lib, const std::string& path, unsigned int size)
       : face(nullptr)
   {
     int face_index = 0;
@@ -127,19 +127,19 @@ struct Face
     Error(FT_Set_Pixel_Sizes(face, 0, size));
   }
 
-  FontChar
-  GetChar(char c)
+  LoadedGlyph
+  LoadGlyph(char c)
   {
     const FT_Error error = FT_Load_Char(face, CharToFt(c), FT_LOAD_RENDER);
     if(error != 0)
     {
       std::cerr << "Failed to get char\n";
-      return FontChar();
+      return LoadedGlyph();
     }
 
     FT_GlyphSlot slot = face->glyph;
 
-    FontChar ch;
+    LoadedGlyph ch;
     ch.c         = c;
     ch.bearing_x = slot->bitmap_left;
     ch.bearing_y = slot->bitmap_top;
@@ -173,13 +173,13 @@ struct Face
     return ch;
   }
 
-  ~Face()
+  ~FreetypeFace()
   {
     FT_Done_Face(face);
   }
 };
 
-CharData::CharData(
+Glyph::Glyph(
     const Rectf& sprite, const Rectf& texture, const std::string& ch, float ad)
     : sprite_rect(sprite)
     , texture_rect(texture)
@@ -188,14 +188,15 @@ CharData::CharData(
 {
 }
 
-// represent a loaded font, but not yet converted into a renderable texture
-struct FontChars
+// represent a loaded font (or a part), but it not yet been converted
+// into a renderable data and texture.
+struct LoadedFont
 {
-  std::vector<FontChar> chars;
-  KerningMap            kerning;
+  std::vector<LoadedGlyph> chars;
+  KerningMap               kerning;
 
   void
-  CombineWith(const FontChars& fc)
+  CombineWith(const LoadedFont& fc)
   {
     for(const auto& c : fc.chars)
     {
@@ -217,20 +218,20 @@ struct FontChars
   }
 };
 
-FontChars
+LoadedFont
 GetCharactersFromFont(
     const std::string& font_file,
     unsigned int       font_size,
     const std::string& chars)
 {
-  Library lib;
-  Face    f(&lib, font_file, font_size);
+  FreetypeLibrary lib;
+  FreetypeFace    f(&lib, font_file, font_size);
 
-  FontChars fontchars{};
+  LoadedFont fontchars{};
   fontchars.chars.reserve(chars.length());
   for(char c : chars)
   {
-    FontChar cc = f.GetChar(c);
+    LoadedGlyph cc = f.LoadGlyph(c);
     if(!cc.valid)
     {
       continue;
@@ -279,10 +280,10 @@ GetCharactersFromFont(
 
 std::pair<Rectf, Rectf>
 ConstructCharacterRects(
-    const stbrp_rect& src_rect,
-    const FontChar&   src_char,
-    int               image_width,
-    int               image_height)
+    const stbrp_rect&  src_rect,
+    const LoadedGlyph& src_char,
+    int                image_width,
+    int                image_height)
 {
   const int vert_left   = src_char.bearing_x;
   const int vert_right  = vert_left + src_char.image.GetWidth();
@@ -316,7 +317,7 @@ Font::Font(FileSystem* fs, const std::string& font_file)
   const int texture_width  = 512;
   const int texture_height = 512;
 
-  FontChars  fontchars;
+  LoadedFont fontchars;
   font::Root font_root;
 
   std::string error = LoadProtoJson(fs, &font_root, font_file);
@@ -332,8 +333,10 @@ Font::Font(FileSystem* fs, const std::string& font_file)
       fontchars.CombineWith(GetCharactersFromFont(
           font.file(), font_root.size(), font.characters()));
     }
+    // todo: add more sources, built in image font or images
   }
 
+  // the half margin between glyphs in the final texture
   const int half_margin = 1;
 
   // pack char textures to a single texture
@@ -364,15 +367,15 @@ Font::Font(FileSystem* fs, const std::string& font_file)
       std::cerr << "Failed to pack\n";
       continue;
     }
-    const FontChar& src_char = fontchars.chars[src_rect.id];
+    const LoadedGlyph& src_char = fontchars.chars[src_rect.id];
     ::Draw{&image}.PasteImage(
         vec2i{src_rect.x + half_margin, src_rect.y + half_margin},
         src_char.image);
     const auto rects = ConstructCharacterRects(
         src_rect, src_char, texture_width, texture_height);
 
-    std::shared_ptr<CharData> dest(
-        new CharData(rects.first, rects.second, src_char.c, src_char.advance));
+    std::shared_ptr<Glyph> dest(
+        new Glyph(rects.first, rects.second, src_char.c, src_char.advance));
     map.insert(CharDataMap::value_type(dest->c, dest));
   }
 
@@ -415,7 +418,7 @@ Font::Draw(
       LOG_ERROR("Failed to print " << char_index);
       continue;
     }
-    std::shared_ptr<CharData> ch = it->second;
+    std::shared_ptr<Glyph> ch = it->second;
 
     const Rgb& color =
         apply_highlight && hi_start <= this_index && this_index < hi_end
@@ -454,7 +457,7 @@ Font::GetExtents(const std::string& str, float scale) const
     {
       continue;
     }
-    std::shared_ptr<CharData> ch = it->second;
+    std::shared_ptr<Glyph> ch = it->second;
 
     ret.Include(ch->sprite_rect.OffsetCopy(position));
 
