@@ -106,18 +106,12 @@ Button::Render(SpriteRenderer* renderer) const
                                 )
                                        : skin_->button_idle);
     */
-    const bool debug = text_.GetString() == "hello";
-
     if(sprite_.get() != nullptr)
     {
       const auto rect = GetBackgroundRect();
-      const auto pos  = debug
-                           ? Rectf::FromWidthHeight(rect.GetSize())
-                                 .OffsetCopy(GetState().mouse)
-                           : rect;
 
       ASSERTX(scale_.GetValue() > 0, scale_.GetValue());
-      const auto scaled = pos.GetScaledAroundCenterCopy(scale_.GetValue());
+      const auto scaled = rect.GetScaledAroundCenterCopy(scale_.GetValue());
       ASSERTX(scaled.GetWidth() > 0, scaled.GetWidth());
       ASSERTX(scaled.GetHeight() > 0, scaled.GetHeight());
       renderer->DrawNinepatch(
@@ -131,9 +125,8 @@ Button::Render(SpriteRenderer* renderer) const
       // todo: render text at client rect center
       const auto p = ex.CenterInsideOther(GetClientRect()).GetBottomLeft() +
                      position_displacement_.GetValue();
-      const auto debug_p = debug ? GetState().mouse : p;
       text_.GetText().Draw(
-          renderer, debug_p, text_color_.GetValue(), scale_.GetValue());
+          renderer, p, text_color_.GetValue(), scale_.GetValue());
     }
   }
 }
