@@ -127,9 +127,10 @@ Button::Render(SpriteRenderer* renderer) const
     }
     if(text_.HasText())
     {
+      const auto ex = text_.GetText().GetExtents(scale_.GetValue());
       // todo: render text at client rect center
-      const auto p =
-          GetClientRect().GetBottomLeft() + position_displacement_.GetValue();
+      const auto p = ex.CenterInsideOther(GetClientRect()).GetBottomLeft() +
+                     position_displacement_.GetValue();
       const auto debug_p = debug ? GetState().mouse : p;
       text_.GetText().Draw(
           renderer, debug_p, text_color_.GetValue(), scale_.GetValue());

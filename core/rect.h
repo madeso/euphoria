@@ -9,6 +9,8 @@
 // Bottom, Left of screen is (0,0)
 // X-axis is positive right, Y-axis is positive up
 
+// todo: look into better names/easier discoverability for functions
+
 template <typename T>
 class Rect
 {
@@ -90,6 +92,17 @@ class Rect
   GetBottomLeft() const
   {
     return vec2<T>(left, bottom);
+  }
+
+  // centers this rectangle inside the other rectangle and returns it without
+  // modifying this
+  Rect
+  CenterInsideOther(const Rect& other) const
+  {
+    const auto lower_left =
+        other.GetAbsoluteCenterPos() - GetRelativeCenterPosFromBottomLeft();
+    return Rect::FromTopLeftWidthHeight(
+        lower_left.y + GetHeight(), lower_left.x, GetWidth(), GetHeight());
   }
 
   vec2<T>
