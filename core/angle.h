@@ -78,4 +78,10 @@ const Angle operator*(const float rhs, const Angle& lhs);
 std::ostream&
 operator<<(std::ostream& stream, const Angle& a);
 
+struct AngleTransform
+{
+  static Angle
+  Transform(const Angle& from, float v, const Angle to);
+};
+
 #endif  // CORE_ANGLE_H

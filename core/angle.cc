@@ -204,3 +204,9 @@ operator<<(std::ostream& stream, const Angle& a)
 {
   return stream << a.InDegrees() << " deg";
 }
+
+Angle
+AngleTransform::Transform(const Angle& from, float v, const Angle to)
+{
+  return Angle::FromRadians(Lerp(from.InRadians(), v, to.InRadians()));
+}
