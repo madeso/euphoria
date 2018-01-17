@@ -16,6 +16,7 @@
 #include "font.pb.h"
 
 #include "render/spriterender.h"
+#include "render/texturecache.h"
 
 #define STB_RECT_PACK_IMPLEMENTATION
 #include "stb_rect_pack.h"
@@ -312,10 +313,12 @@ ConstructCharacterRects(
 
 ////////////////////////////////////////////////////////////////////////////////
 
-Font::Font(FileSystem* fs, const std::string& font_file)
+Font::Font(FileSystem* fs, TextureCache* cache, const std::string& font_file)
 {
   const int texture_width  = 512;
   const int texture_height = 512;
+
+  background = cache->GetTexture("img/white");
 
   LoadedFont fontchars;
   font::Root font_root;
@@ -388,6 +391,18 @@ Font::Font(FileSystem* fs, const std::string& font_file)
   Texture2dLoadData load_data;
   texture_ = std::make_unique<Texture2d>();
   texture_->LoadFromImage(image, AlphaLoad::Keep, Texture2dLoadData());
+}
+
+void
+Font::DrawBackground(SpriteRenderer* renderer, float alpha, const Rectf& where)
+{
+  renderer->DrawRect(
+      *background,
+      where,
+      Rectf::FromWidthHeight(1, 1),
+      Angle::Zero(),
+      vec2f{0, 0},
+      Rgba{Color::Black, alpha});
 }
 
 void
@@ -607,8 +622,8 @@ Text::Draw(
   if(use_background_)
   {
     // todo: render background using a white image rect with a tint
-    // backgroundRenderer_->Draw(
-    //    background_alpha_, e.ExtendCopy(5.0f).OffsetCopy(p + off));
+    font_->DrawBackground(
+        renderer, background_alpha_, e.ExtendCopy(5.0f).OffsetCopy(p + off));
   }
   font_->Draw(
       renderer,

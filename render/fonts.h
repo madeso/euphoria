@@ -14,6 +14,7 @@
 
 class FileSystem;
 class SpriteRenderer;
+class TextureCache;
 
 struct Glyph
 {
@@ -103,7 +104,7 @@ class Text
 class Font
 {
  public:
-  Font(FileSystem* fs, const std::string& font_file);
+  Font(FileSystem* fs, TextureCache* cache, const std::string& font_file);
   unsigned int
   GetFontSize() const;
 
@@ -117,6 +118,9 @@ class Font
 
   friend Rectf
   Text::GetExtents(float scale) const;
+
+  void
+  DrawBackground(SpriteRenderer* renderer, float alpha, const Rectf& where);
 
   // todo: replace scale with size
   void
@@ -136,6 +140,7 @@ class Font
  private:
   unsigned int               font_size_;
   std::unique_ptr<Texture2d> texture_;
+  std::shared_ptr<Texture2d> background;
   CharDataMap                chars_;
   KerningMap                 kerning_;
 };

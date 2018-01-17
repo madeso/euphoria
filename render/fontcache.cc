@@ -9,8 +9,9 @@ struct FontCache::FontCachePimpl
     : Cache<std::string, Font, FontCache::FontCachePimpl>
 {
  public:
-  explicit FontCachePimpl(FileSystem* fs)
+  explicit FontCachePimpl(FileSystem* fs, TextureCache* cache)
       : fs_(fs)
+      , cache_(cache)
   {
     ASSERT(fs);
   }
@@ -18,17 +19,18 @@ struct FontCache::FontCachePimpl
   std::shared_ptr<Font>
   Create(const std::string& file)
   {
-    auto ret = std::make_shared<Font>(fs_, file);
+    auto ret = std::make_shared<Font>(fs_, cache_, file);
     return ret;
   }
 
  private:
-  FileSystem* fs_;
+  FileSystem*   fs_;
+  TextureCache* cache_;
 };
 
-FontCache::FontCache(FileSystem* fs)
+FontCache::FontCache(FileSystem* fs, TextureCache* cache)
 {
-  pimp = std::make_unique<FontCache::FontCachePimpl>(fs);
+  pimp = std::make_unique<FontCache::FontCachePimpl>(fs, cache);
 }
 
 FontCache::~FontCache() = default;

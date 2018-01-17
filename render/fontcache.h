@@ -6,11 +6,12 @@
 
 class Font;
 class FileSystem;
+class TextureCache;
 
 class FontCache
 {
  public:
-  explicit FontCache(FileSystem* fs);
+  FontCache(FileSystem* fs, TextureCache* cache);
   ~FontCache();
 
   std::shared_ptr<Font>
