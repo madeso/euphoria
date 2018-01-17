@@ -621,7 +621,6 @@ Text::Draw(
   const vec2f  off = GetOffset(alignment_, e);
   if(use_background_)
   {
-    // todo: render background using a white image rect with a tint
     font_->DrawBackground(
         renderer, background_alpha_, e.ExtendCopy(5.0f).OffsetCopy(p + off));
   }
