@@ -53,13 +53,13 @@ struct TextDrawCommand
   const Texture2d* texture;
   Rectf            sprite_rect;
   Rectf            texture_rect;
-  Rgb              tint;
+  bool             hi;
 
   TextDrawCommand(
       const Texture2d* texture,
       const Rectf&     sprite_rect,
       const Rectf&     texture_rect,
-      const Rgb&       tint);
+      bool             hi);
 };
 
 struct TextDrawCommandList
@@ -70,10 +70,14 @@ struct TextDrawCommandList
   Add(const Texture2d* texture,
       const Rectf&     sprite_rect,
       const Rectf&     texture_rect,
-      const Rgb&       tint);
+      bool             hi);
 
   void
-  Draw(SpriteRenderer* renderer, const vec2f& start_position);
+  Draw(
+      SpriteRenderer* renderer,
+      const vec2f&    start_position,
+      const Rgb&      base_color,
+      const Rgb&      hi_color);
 
   Rectf
   GetExtents() const;
@@ -115,18 +119,27 @@ class Text
   Rectf
   GetExtents() const;
 
+  void
+  Compile() const;
+
  private:
-  Font*       font_;
+  const Font* font_;
   float       scale_;
   std::string text_;
-  Rgb         base_color_;
-  Rgb         hi_color_;
-  int         hi_from_;
-  int         hi_to_;
-  Align       alignment_;
+
+  // todo move colors away from text
+  Rgb   base_color_;
+  Rgb   hi_color_;
+  int   hi_from_;
+  int   hi_to_;
+  Align alignment_;
 
   bool  use_background_;
   float background_alpha_;
+
+  // updated in Compile function
+  mutable bool                dirty;
+  mutable TextDrawCommandList commands;
 };
 
 class Font
@@ -136,42 +149,15 @@ class Font
   unsigned int
   GetFontSize() const;
 
- protected:
-  friend void
-  Text::Draw(
-      SpriteRenderer* renderer,
-      const vec2f&    p,
-      const Rgb&      override_color) const;
-
-  friend Rectf
-  Text::GetExtents() const;
-
+  // todo: expose background property and move this away from font
   void
-  DrawBackground(SpriteRenderer* renderer, float alpha, const Rectf& where);
-
-  TextDrawCommandList
-  CompileList(
-      const std::string& str,
-      const Rgb&         base_color,
-      const Rgb&         hi_color,
-      int                hi_start,
-      int                hi_end,
-      float              scale) const;
+  DrawBackground(
+      SpriteRenderer* renderer, float alpha, const Rectf& where) const;
 
   // todo: replace scale with size
-  void
-  Draw(
-      SpriteRenderer*    renderer,
-      const vec2f&       start_position,
-      const std::string& str,
-      const Rgb&         base_color,
-      const Rgb&         hi_color,
-      int                hi_start,
-      int                hi_end,
-      float              scale) const;
-
-  Rectf
-  GetExtents(const std::string& str, float scale) const;
+  TextDrawCommandList
+  CompileList(
+      const std::string& str, int hi_start, int hi_end, float scale) const;
 
  private:
   unsigned int               font_size_;

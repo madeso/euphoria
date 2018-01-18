@@ -394,7 +394,8 @@ Font::Font(FileSystem* fs, TextureCache* cache, const std::string& font_file)
 }
 
 void
-Font::DrawBackground(SpriteRenderer* renderer, float alpha, const Rectf& where)
+Font::DrawBackground(
+    SpriteRenderer* renderer, float alpha, const Rectf& where) const
 {
   renderer->DrawRect(
       *background,
@@ -409,11 +410,11 @@ TextDrawCommand::TextDrawCommand(
     const Texture2d* texture,
     const Rectf&     sprite_rect,
     const Rectf&     texture_rect,
-    const Rgb&       tint)
+    bool             hi)
     : texture(texture)
     , sprite_rect(sprite_rect)
     , texture_rect(texture_rect)
-    , tint(tint)
+    , hi(hi)
 {
 }
 
@@ -422,34 +423,34 @@ TextDrawCommandList::Add(
     const Texture2d* texture,
     const Rectf&     sprite_rect,
     const Rectf&     texture_rect,
-    const Rgb&       tint)
+    bool             hi)
 {
-  commands.emplace_back(texture, sprite_rect, texture_rect, tint);
+  commands.emplace_back(texture, sprite_rect, texture_rect, hi);
 }
 
 void
-TextDrawCommandList::Draw(SpriteRenderer* renderer, const vec2f& start_position)
+TextDrawCommandList::Draw(
+    SpriteRenderer* renderer,
+    const vec2f&    start_position,
+    const Rgb&      base_color,
+    const Rgb&      hi_color)
 {
   for(const auto& cmd : commands)
   {
+    const auto tint = cmd.hi ? hi_color : base_color;
     renderer->DrawRect(
         *cmd.texture,
         cmd.sprite_rect.OffsetCopy(start_position),
         cmd.texture_rect,
         Angle::Zero(),
         vec2f{0.5f, 0.5f},
-        Rgba{cmd.tint});
+        Rgba{tint});
   }
 }
 
 TextDrawCommandList
 Font::CompileList(
-    const std::string& str,
-    const Rgb&         base_color,
-    const Rgb&         hi_color,
-    int                hi_start,
-    int                hi_end,
-    float              scale) const
+    const std::string& str, int hi_start, int hi_end, float scale) const
 {
   TextDrawCommandList list;
 
@@ -473,10 +474,8 @@ Font::CompileList(
     }
     std::shared_ptr<Glyph> ch = it->second;
 
-    const Rgb& color =
-        apply_highlight && hi_start <= this_index && this_index < hi_end
-            ? hi_color
-            : base_color;
+    const bool color =
+        apply_highlight && hi_start <= this_index && this_index < hi_end;
     list.Add(
         texture_.get(),
         ch->sprite_rect.ScaleCopy(scale, scale).OffsetCopy(position),
@@ -491,21 +490,6 @@ Font::CompileList(
   return list;
 }
 
-void
-Font::Draw(
-    SpriteRenderer*    renderer,
-    const vec2f&       start_position,
-    const std::string& str,
-    const Rgb&         base_color,
-    const Rgb&         hi_color,
-    int                hi_start,
-    int                hi_end,
-    float              scale) const
-{
-  auto list = CompileList(str, base_color, hi_color, hi_start, hi_end, scale);
-  list.Draw(renderer, start_position);
-}
-
 Rectf
 TextDrawCommandList::GetExtents() const
 {
@@ -515,14 +499,6 @@ TextDrawCommandList::GetExtents() const
     ret.Include(cmd.sprite_rect);
   }
   return ret;
-}
-
-Rectf
-Font::GetExtents(const std::string& str, float scale) const
-{
-  auto       list = CompileList(str, Color::White, Color::White, -1, -1, scale);
-  const auto r    = list.GetExtents();
-  return r;
 }
 
 unsigned int
@@ -542,7 +518,7 @@ Text::Text(Font* font)
     , alignment_(Align::BASELINE_LEFT)
     , use_background_(false)
     , background_alpha_(0.0f)
-
+    , dirty(true)
 {
 }
 
@@ -552,6 +528,7 @@ void
 Text::SetText(const std::string& str)
 {
   text_ = str;
+  dirty = true;
 }
 
 const std::string&
@@ -564,12 +541,14 @@ void
 Text::SetBaseColor(const Rgb& color)
 {
   base_color_ = color;
+  dirty       = true;
 }
 
 void
 Text::SetHighlightColor(const Rgb& color)
 {
   hi_color_ = color;
+  dirty     = true;
 }
 
 void
@@ -577,6 +556,7 @@ Text::SetHighlightRange(int from, int to)
 {
   hi_from_ = from;
   hi_to_   = to;
+  dirty    = true;
 }
 
 void
@@ -603,6 +583,7 @@ void
 Text::SetScale(float scale)
 {
   scale_ = scale;
+  dirty  = true;
 }
 
 vec2f
@@ -650,7 +631,9 @@ void
 Text::Draw(
     SpriteRenderer* renderer, const vec2f& p, const Rgb& override_color) const
 {
-  float scale = 1.0f;
+  Compile();
+  ASSERT(!dirty);
+
   if(font_ == nullptr)
   {
     return;
@@ -662,20 +645,24 @@ Text::Draw(
     font_->DrawBackground(
         renderer, background_alpha_, e.ExtendCopy(5.0f).OffsetCopy(p + off));
   }
-  font_->Draw(
-      renderer,
-      p + off,
-      text_,
-      override_color,
-      hi_color_,
-      hi_from_,
-      hi_to_,
-      scale_ * scale);
+
+  commands.Draw(renderer, p + off, override_color, hi_color_);
+}
+
+void
+Text::Compile() const
+{
+  if(dirty)
+  {
+    dirty    = false;
+    commands = font_->CompileList(text_, hi_from_, hi_to_, scale_);
+  }
 }
 
 Rectf
 Text::GetExtents() const
 {
-  float scale = 1.0f;
-  return font_->GetExtents(text_, scale_ * scale);
+  Compile();
+  ASSERT(!dirty);
+  return commands.GetExtents();
 }
