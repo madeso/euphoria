@@ -442,10 +442,8 @@ TextDrawCommandList::Draw(SpriteRenderer* renderer, const vec2f& start_position)
   }
 }
 
-void
-Font::Draw(
-    SpriteRenderer*    renderer,
-    const vec2f&       start_position,
+TextDrawCommandList
+Font::CompileList(
     const std::string& str,
     const Rgb&         base_color,
     const Rgb&         hi_color,
@@ -490,6 +488,21 @@ Font::Draw(
     position.x += (ch->advance + the_kerning) * scale;
   }
 
+  return list;
+}
+
+void
+Font::Draw(
+    SpriteRenderer*    renderer,
+    const vec2f&       start_position,
+    const std::string& str,
+    const Rgb&         base_color,
+    const Rgb&         hi_color,
+    int                hi_start,
+    int                hi_end,
+    float              scale) const
+{
+  auto list = CompileList(str, base_color, hi_color, hi_start, hi_end, scale);
   list.Draw(renderer, start_position);
 }
 
