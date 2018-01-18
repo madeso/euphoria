@@ -80,7 +80,7 @@ namespace textparser
   }
 
   std::string
-  VisitorDebugString::Visit(TextParser* visitor)
+  VisitorDebugString::Visit(ParsedText* visitor)
   {
     VisitorDebugString str;
     visitor->Visit(&str);
@@ -91,37 +91,37 @@ namespace textparser
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void
-TextParser::Clear()
+ParsedText::Clear()
 {
   nodes.resize(0);
 }
 
 void
-TextParser::AddText(const std::string& str)
+ParsedText::AddText(const std::string& str)
 {
   nodes.emplace_back(std::make_shared<textparser::TextNode>(str));
 }
 
 void
-TextParser::AddImage(const std::string& img)
+ParsedText::AddImage(const std::string& img)
 {
   nodes.emplace_back(std::make_shared<textparser::ImageNode>(img));
 }
 
 void
-TextParser::AddBegin()
+ParsedText::AddBegin()
 {
   nodes.emplace_back(std::make_shared<textparser::BeginEndNode>(true));
 }
 
 void
-TextParser::AddEnd()
+ParsedText::AddEnd()
 {
   nodes.emplace_back(std::make_shared<textparser::BeginEndNode>(false));
 }
 
 void
-TextParser::CreateText(const std::string& str)
+ParsedText::CreateText(const std::string& str)
 {
   Clear();
   AddText(str);
@@ -137,7 +137,7 @@ namespace
 
   struct Parser
   {
-    TextParser* nodes = nullptr;
+    ParsedText* nodes = nullptr;
 
     State             state  = State::TEXT;
     bool              escape = false;
@@ -234,7 +234,7 @@ namespace
 }
 
 bool
-TextParser::CreateParse(const std::string& str)
+ParsedText::CreateParse(const std::string& str)
 {
   nodes.resize(0);
   Parser parser;
@@ -259,7 +259,7 @@ TextParser::CreateParse(const std::string& str)
 }
 
 void
-TextParser::Visit(textparser::Visitor* visitor)
+ParsedText::Visit(textparser::Visitor* visitor)
 {
   for(auto node : nodes)
   {

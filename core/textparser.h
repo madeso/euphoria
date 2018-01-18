@@ -6,7 +6,7 @@
 #include <vector>
 #include <sstream>
 
-class TextParser;
+class ParsedText;
 
 namespace textparser
 {
@@ -82,12 +82,12 @@ namespace textparser
     OnEnd() override;
 
     static std::string
-    Visit(TextParser* visitor);
+    Visit(ParsedText* visitor);
   };
 }
 
 // @image with text and {-begin and }-end markers \ escapes
-class TextParser
+class ParsedText
 {
  public:
   void

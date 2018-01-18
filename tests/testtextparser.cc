@@ -4,7 +4,7 @@
 
 TEST_CASE("textfileparser-test", "[textparser]")
 {
-  TextParser parser;
+  ParsedText parser;
 
   SECTION("text")
   {
