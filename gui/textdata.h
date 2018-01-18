@@ -24,8 +24,12 @@ class TextData
 
   bool
   HasText() const;
+
   const Text&
   GetText() const;
+
+  Text&
+  GetText();
 
  private:
   void

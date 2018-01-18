@@ -602,7 +602,6 @@ void
 Text::SetScale(float scale)
 {
   scale_ = scale;
-  std::cout << "setting the scale to " << scale << "\n";
 }
 
 vec2f
@@ -641,23 +640,21 @@ GetOffset(Align alignment, const Rectf& extent)
 }
 
 void
-Text::Draw(SpriteRenderer* renderer, const vec2f& p, float scale) const
+Text::Draw(SpriteRenderer* renderer, const vec2f& p) const
 {
-  Draw(renderer, p, base_color_, scale);
+  Draw(renderer, p, base_color_);
 }
 
 void
 Text::Draw(
-    SpriteRenderer* renderer,
-    const vec2f&    p,
-    const Rgb&      override_color,
-    float           scale) const
+    SpriteRenderer* renderer, const vec2f& p, const Rgb& override_color) const
 {
+  float scale = 1.0f;
   if(font_ == nullptr)
   {
     return;
   }
-  const Rectf& e   = GetExtents(scale);
+  const Rectf& e   = GetExtents();
   const vec2f  off = GetOffset(alignment_, e);
   if(use_background_)
   {
@@ -676,7 +673,8 @@ Text::Draw(
 }
 
 Rectf
-Text::GetExtents(float scale) const
+Text::GetExtents() const
 {
+  float scale = 1.0f;
   return font_->GetExtents(text_, scale_ * scale);
 }

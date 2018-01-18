@@ -44,25 +44,32 @@ TextData::GetString() const
 bool
 TextData::HasText() const
 {
-  return text_.get() != nullptr;
+  return text_ != nullptr;
 }
 
 const Text&
 TextData::GetText() const
 {
-  ASSERT(text_.get());
-  return *text_.get();
+  ASSERT(text_);
+  return *text_;
+}
+
+Text&
+TextData::GetText()
+{
+  ASSERT(text_);
+  return *text_;
 }
 
 void
 TextData::UpdateText()
 {
-  if(text_.get() == nullptr && font_ != nullptr)
+  if(text_ == nullptr && font_ != nullptr)
   {
     text_.reset(new Text{font_.get()});
   }
 
-  if(text_.get() != nullptr)
+  if(text_ != nullptr)
   {
     // button assumes this is bottom left
     text_->SetAlignment(Align::BOTTOM_LEFT);

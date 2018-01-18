@@ -69,6 +69,8 @@ Button::Step(float dt)
     text_color_.Update(dt);
     position_displacement_.Update(dt);
   }
+
+  text_.GetText().SetScale(scale_.GetValue());
 }
 
 Sizef
@@ -121,12 +123,11 @@ Button::Render(SpriteRenderer* renderer) const
     }
     if(text_.HasText())
     {
-      const auto ex = text_.GetText().GetExtents(scale_.GetValue());
+      const auto ex = text_.GetText().GetExtents();
       // todo: render text at client rect center
       const auto p = ex.CenterInsideOther(GetClientRect()).GetBottomLeft() +
                      position_displacement_.GetValue();
-      text_.GetText().Draw(
-          renderer, p, text_color_.GetValue(), scale_.GetValue());
+      text_.GetText().Draw(renderer, p, text_color_.GetValue());
     }
   }
 }

@@ -103,17 +103,14 @@ class Text
   SetScale(float scale);
 
   void
-  Draw(SpriteRenderer* renderer, const vec2f& p, float scale = 1.0f) const;
+  Draw(SpriteRenderer* renderer, const vec2f& p) const;
 
   void
-  Draw(
-      SpriteRenderer* renderer,
-      const vec2f&    p,
-      const Rgb&      override_color,
-      float           scale = 1.0f) const;
+  Draw(SpriteRenderer* renderer, const vec2f& p, const Rgb& override_color)
+      const;
 
   Rectf
-  GetExtents(float scale = 1.0f) const;
+  GetExtents() const;
 
  private:
   Font*       font_;
@@ -141,11 +138,10 @@ class Font
   Text::Draw(
       SpriteRenderer* renderer,
       const vec2f&    p,
-      const Rgb&      override_color,
-      float           scale) const;
+      const Rgb&      override_color) const;
 
   friend Rectf
-  Text::GetExtents(float scale) const;
+  Text::GetExtents() const;
 
   void
   DrawBackground(SpriteRenderer* renderer, float alpha, const Rectf& where);
