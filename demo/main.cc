@@ -115,27 +115,24 @@ main(int argc, char** argv)
   SET_ENUM_FROM_FILE(&file_system, "texture_types.json", TextureType);
 
   Image image;
-  image.Setup(256, 256, false);
+  image.SetupNoAlphaSupport(256, 256);
   Draw       drawer{&image};
   const auto wi = drawer.WholeImage();
-  drawer.Clear(Rgb::From(Color::Red));
+  drawer.Clear(Color::Red);
   Random random{42};
 
   for(int i = 0; i < 20; i += 1)
   {
-    const auto color = Rgb::From(random.NextDawnbringerPalette());
+    const Rgb  color = random.NextDawnbringerPalette();
     const auto pos   = random.NextPoint(wi);
     const auto outer = random.NextRange(55.0f, 100.0f);
     const auto inner = random.NextRange(50.0f);
     drawer.Circle(color, pos, outer, 10, inner);
   }
-  drawer
-      .LineAntialiased(Rgb::From(Color::Black), wi.TopLeft(), wi.BottomRight())
-      .Square(
-          Rgb::From(Color::AliceBlue),
-          Recti::FromTopLeftWidthHeight(256, 0, 100, 25))
-      .LineAntialiased(Rgb::From(Color::Black), wi.BottomLeft(), wi.TopRight())
-      .Text(vec2i(0, 0), "Hello world", Rgb::From(Color::Black), 2);
+  drawer.LineAntialiased(Color::Black, wi.TopLeft(), wi.BottomRight())
+      .Square(Color::AliceBlue, Recti::FromTopLeftWidthHeight(256, 0, 100, 25))
+      .LineAntialiased(Color::Black, wi.BottomLeft(), wi.TopRight())
+      .Text(vec2i(0, 0), "Hello world", Color::Black, 2);
   catalog->RegisterFileData("image", image.Write(ImageWriteFormat::PNG));
 
   TextureCache texture_cache{&file_system};
@@ -150,8 +147,8 @@ main(int argc, char** argv)
   box_mesh1.materials[0].SetTexture("Diffuse", "container2.png");
   box_mesh1.materials[0].SetTexture("Specular", "container2_specular.png");
   box_mesh1.materials[0].ambient =
-      Rgb::From(Color::White);  // fix ambient color on material
-  box_mesh1.materials[0].specular  = Rgb::From(Color::White);
+      Color::White;  // fix ambient color on material
+  box_mesh1.materials[0].specular  = Color::White;
   box_mesh1.materials[0].shininess = 120.0f;
   auto box1                        = CompileMesh(
       box_mesh1, &material_shader_cache, &texture_cache, Path::FromRoot());
@@ -159,8 +156,8 @@ main(int argc, char** argv)
   auto box_mesh2 = meshes::CreateSphere(0.5f, "image");
   box_mesh2.materials[0].SetTexture("Specular", "img-plain/white");
   box_mesh2.materials[0].ambient =
-      Rgb::From(Color::White);  // fix ambient color on material
-  box_mesh2.materials[0].specular  = Rgb::From(Color::White);
+      Color::White;  // fix ambient color on material
+  box_mesh2.materials[0].specular  = Color::White;
   box_mesh2.materials[0].shininess = 10.0f;
   auto box2                        = CompileMesh(
       box_mesh2, &material_shader_cache, &texture_cache, Path::FromRoot());
@@ -257,9 +254,9 @@ main(int argc, char** argv)
           "Type",
           reinterpret_cast<int*>(world.light.GetTypeMod()),
           "Directional\0Point\0Spot\0\0");
-      ImGui::ColorEdit3("Ambient", world.light.ModifyAmbient()->GetData());
-      ImGui::ColorEdit3("Diffuse", world.light.ModifyDiffuse()->GetData());
-      ImGui::ColorEdit3("Specular", world.light.ModifySpecular()->GetData());
+      ImGuiColorEdit3("Ambient", world.light.ModifyAmbient());
+      ImGuiColorEdit3("Diffuse", world.light.ModifyDiffuse());
+      ImGuiColorEdit3("Specular", world.light.ModifySpecular());
       ImGui::Combo(
           "Update",
           &light_update,
@@ -385,7 +382,7 @@ main(int argc, char** argv)
     camera.position = fps.position;
     camera.rotation = fps.GetRotation();
 
-    init.ClearScreen(Rgb::From(Color::DarkslateGray));
+    init.ClearScreen(Color::DarkslateGray);
     world.Render(viewport, camera);
 
     if(show_imgui)

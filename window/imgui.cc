@@ -19,6 +19,12 @@ ImguiAngleSlider(
 }
 
 void
+ImGuiColorEdit3(const char* const name, Rgb* rgb)
+{
+  ImGui::ColorEdit3(name, &rgb->r);
+}
+
+void
 ImguiImage(Texture2d* texture)
 {
   auto        tex_w  = (float)texture->GetWidth();
