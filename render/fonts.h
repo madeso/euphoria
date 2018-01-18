@@ -48,6 +48,34 @@ enum class Align
   BOTTOM_RIGHT
 };
 
+struct TextDrawCommand
+{
+  const Texture2d* texture;
+  Rectf            sprite_rect;
+  Rectf            texture_rect;
+  Rgb              tint;
+
+  TextDrawCommand(
+      const Texture2d* texture,
+      const Rectf&     sprite_rect,
+      const Rectf&     texture_rect,
+      const Rgb&       tint);
+};
+
+struct TextDrawCommandList
+{
+  std::vector<TextDrawCommand> commands;
+
+  void
+  Add(const Texture2d* texture,
+      const Rectf&     sprite_rect,
+      const Rectf&     texture_rect,
+      const Rgb&       tint);
+
+  void
+  Draw(SpriteRenderer* renderer, const vec2f& start_position);
+};
+
 class Text
 {
  public:

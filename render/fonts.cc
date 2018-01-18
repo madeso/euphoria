@@ -405,54 +405,42 @@ Font::DrawBackground(SpriteRenderer* renderer, float alpha, const Rectf& where)
       Rgba{Color::Black, alpha});
 }
 
-struct TextDrawCommand
+TextDrawCommand::TextDrawCommand(
+    const Texture2d* texture,
+    const Rectf&     sprite_rect,
+    const Rectf&     texture_rect,
+    const Rgb&       tint)
+    : texture(texture)
+    , sprite_rect(sprite_rect)
+    , texture_rect(texture_rect)
+    , tint(tint)
 {
-  const Texture2d* texture;
-  Rectf            sprite_rect;
-  Rectf            texture_rect;
-  Rgb              tint;
+}
 
-  TextDrawCommand(
-      const Texture2d* texture,
-      const Rectf&     sprite_rect,
-      const Rectf&     texture_rect,
-      const Rgb&       tint)
-      : texture(texture)
-      , sprite_rect(sprite_rect)
-      , texture_rect(texture_rect)
-      , tint(tint)
-  {
-  }
-};
-
-struct TextDrawCommandList
+void
+TextDrawCommandList::Add(
+    const Texture2d* texture,
+    const Rectf&     sprite_rect,
+    const Rectf&     texture_rect,
+    const Rgb&       tint)
 {
-  std::vector<TextDrawCommand> commands;
+  commands.emplace_back(texture, sprite_rect, texture_rect, tint);
+}
 
-  void
-  Add(const Texture2d* texture,
-      const Rectf&     sprite_rect,
-      const Rectf&     texture_rect,
-      const Rgb&       tint)
+void
+TextDrawCommandList::Draw(SpriteRenderer* renderer, const vec2f& start_position)
+{
+  for(const auto& cmd : commands)
   {
-    commands.emplace_back(texture, sprite_rect, texture_rect, tint);
+    renderer->DrawRect(
+        *cmd.texture,
+        cmd.sprite_rect.OffsetCopy(start_position),
+        cmd.texture_rect,
+        Angle::Zero(),
+        vec2f{0.5f, 0.5f},
+        Rgba{cmd.tint});
   }
-
-  void
-  Draw(SpriteRenderer* renderer, const vec2f& start_position)
-  {
-    for(const auto& cmd : commands)
-    {
-      renderer->DrawRect(
-          *cmd.texture,
-          cmd.sprite_rect.OffsetCopy(start_position),
-          cmd.texture_rect,
-          Angle::Zero(),
-          vec2f{0.5f, 0.5f},
-          Rgba{cmd.tint});
-    }
-  }
-};
+}
 
 void
 Font::Draw(
