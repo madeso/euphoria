@@ -405,6 +405,55 @@ Font::DrawBackground(SpriteRenderer* renderer, float alpha, const Rectf& where)
       Rgba{Color::Black, alpha});
 }
 
+struct TextDrawCommand
+{
+  const Texture2d* texture;
+  Rectf            sprite_rect;
+  Rectf            texture_rect;
+  Rgb              tint;
+
+  TextDrawCommand(
+      const Texture2d* texture,
+      const Rectf&     sprite_rect,
+      const Rectf&     texture_rect,
+      const Rgb&       tint)
+      : texture(texture)
+      , sprite_rect(sprite_rect)
+      , texture_rect(texture_rect)
+      , tint(tint)
+  {
+  }
+};
+
+struct TextDrawCommandList
+{
+  std::vector<TextDrawCommand> commands;
+
+  void
+  Add(const Texture2d* texture,
+      const Rectf&     sprite_rect,
+      const Rectf&     texture_rect,
+      const Rgb&       tint)
+  {
+    commands.emplace_back(texture, sprite_rect, texture_rect, tint);
+  }
+
+  void
+  Draw(SpriteRenderer* renderer, const vec2f& start_position)
+  {
+    for(const auto& cmd : commands)
+    {
+      renderer->DrawRect(
+          *cmd.texture,
+          cmd.sprite_rect.OffsetCopy(start_position),
+          cmd.texture_rect,
+          Angle::Zero(),
+          vec2f{0.5f, 0.5f},
+          Rgba{cmd.tint});
+    }
+  }
+};
+
 void
 Font::Draw(
     SpriteRenderer*    renderer,
@@ -416,7 +465,10 @@ Font::Draw(
     int                hi_end,
     float              scale) const
 {
-  vec2f position = start_position;
+  TextDrawCommandList list;
+
+  // offset
+  vec2f position{0, 0};
 
   const bool apply_highlight = hi_end != -1 && hi_start != -1;
 
@@ -439,18 +491,18 @@ Font::Draw(
         apply_highlight && hi_start <= this_index && this_index < hi_end
             ? hi_color
             : base_color;
-    renderer->DrawRect(
-        *texture_.get(),
+    list.Add(
+        texture_.get(),
         ch->sprite_rect.ScaleCopy(scale, scale).OffsetCopy(position),
         ch->texture_rect,
-        Angle::Zero(),
-        vec2f{0.5f, 0.5f},
-        Rgba{color});
+        color);
 
     auto kerning = kerning_.find(std::make_pair(last_char_index, char_index));
     int  the_kerning = kerning == kerning_.end() ? 0 : kerning->second;
     position.x += (ch->advance + the_kerning) * scale;
   }
+
+  list.Draw(renderer, start_position);
 }
 
 Rectf
