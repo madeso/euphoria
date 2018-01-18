@@ -38,11 +38,13 @@ namespace textparser
     Visit(Visitor* visitor) override;
   };
 
-  class VarNode : public Node
+  class BeginEndNode : public Node
   {
    public:
-    std::string var;
-    explicit VarNode(const std::string& t);
+    bool begin;
+
+    explicit BeginEndNode(bool b);
+
     void
     Visit(Visitor* visitor) override;
   };
@@ -52,10 +54,15 @@ namespace textparser
    public:
     virtual void
     OnText(TextNode* text) = 0;
+
     virtual void
     OnImage(ImageNode* image) = 0;
+
     virtual void
-    OnVar(VarNode* var) = 0;
+    OnBegin() = 0;
+
+    virtual void
+    OnEnd() = 0;
   };
 
   class VisitorDebugString : public Visitor
@@ -67,18 +74,33 @@ namespace textparser
     OnText(TextNode* text) override;
     void
     OnImage(ImageNode* img) override;
+
     void
-    OnVar(VarNode* var) override;
+    OnBegin() override;
+
+    void
+    OnEnd() override;
 
     static std::string
     Visit(TextParser* visitor);
   };
 }
 
-// {var} and @image strings
+// @image with text and {-begin and }-end markers \ escapes
 class TextParser
 {
  public:
+  void
+  Clear();
+  void
+  AddText(const std::string& str);
+  void
+  AddImage(const std::string& img);
+  void
+  AddBegin();
+  void
+  AddEnd();
+
   void
   CreateText(const std::string& str);
   bool
