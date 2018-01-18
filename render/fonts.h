@@ -74,6 +74,9 @@ struct TextDrawCommandList
 
   void
   Draw(SpriteRenderer* renderer, const vec2f& start_position);
+
+  Rectf
+  GetExtents() const;
 };
 
 class Text
@@ -147,12 +150,13 @@ class Font
   DrawBackground(SpriteRenderer* renderer, float alpha, const Rectf& where);
 
   TextDrawCommandList
-  CompileList(const std::string& str,
-              const Rgb&         base_color,
-              const Rgb&         hi_color,
-              int                hi_start,
-              int                hi_end,
-              float              scale) const;
+  CompileList(
+      const std::string& str,
+      const Rgb&         base_color,
+      const Rgb&         hi_color,
+      int                hi_start,
+      int                hi_end,
+      float              scale) const;
 
   // todo: replace scale with size
   void

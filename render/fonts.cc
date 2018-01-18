@@ -507,34 +507,22 @@ Font::Draw(
 }
 
 Rectf
+TextDrawCommandList::GetExtents() const
+{
+  Rectf ret;
+  for(const auto& cmd : commands)
+  {
+    ret.Include(cmd.sprite_rect);
+  }
+  return ret;
+}
+
+Rectf
 Font::GetExtents(const std::string& str, float scale) const
 {
-  // todo: refactor rendering and extent to a compiled commands
-  // and either render or get extent of that
-
-  std::string last_char_index = "";
-  vec2f       position(0.0f);
-  Rectf       ret;
-
-  for(char c : str)
-  {
-    // todo: support character ligatures
-    const std::string char_index = ConvertCharToIndex(c);
-    auto              it         = chars_.find(char_index);
-    if(it == chars_.end())
-    {
-      continue;
-    }
-    std::shared_ptr<Glyph> ch = it->second;
-
-    ret.Include(ch->sprite_rect.OffsetCopy(position));
-
-    auto kerning = kerning_.find(std::make_pair(last_char_index, char_index));
-    int  the_kerning = kerning == kerning_.end() ? 0 : kerning->second;
-    position.x += (ch->advance + the_kerning) * scale;
-  }
-
-  return ret;
+  auto       list = CompileList(str, Color::White, Color::White, -1, -1, scale);
+  const auto r    = list.GetExtents();
+  return r;
 }
 
 unsigned int
