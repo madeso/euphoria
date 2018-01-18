@@ -4,6 +4,7 @@
 #include "core/log.h"
 #include "core/proto.h"
 #include "core/draw.h"
+#include "core/textparser.h"
 
 #include <vector>
 #include <memory>
@@ -448,44 +449,128 @@ TextDrawCommandList::Draw(
   }
 }
 
+void
+HighlightString(
+    ParsedText* text, const std::string& str, int hi_start, int hi_end)
+{
+  text->Clear();
+  if(hi_start == -1)
+  {
+    ASSERT(hi_end == -1);
+    text->AddText(str);
+  }
+  else
+  {
+    ASSERT(hi_start == 0);
+    ASSERT(hi_end >= 0);
+    if(hi_end == 0)
+    {
+      text->AddText(str);
+    }
+    else
+    {
+      // highlight to the end
+      text->AddBegin();
+      text->AddText(str.substr(0, hi_end));
+      text->AddEnd();
+      text->AddText(str.substr(hi_end));
+    }
+  }
+}
+
+struct ParsedTextCompileVisitor : public textparser::Visitor
+{
+  const Texture2d*   texture_;
+  const CharDataMap* chars_;
+  const KerningMap*  kerning_;
+  float              scale;
+  bool               apply_highlight;
+  vec2f              position;  // todo: rename to offset
+  std::string        last_char_index;
+
+  // return value
+  TextDrawCommandList* list;
+
+  ParsedTextCompileVisitor(
+      const Texture2d*     texture,
+      const CharDataMap*   chars,
+      const KerningMap*    kerning,
+      float                scale,
+      TextDrawCommandList* list)
+      : texture_(texture)
+      , chars_(chars)
+      , kerning_(kerning)
+      , scale(scale)
+      , apply_highlight(false)
+      , position(0, 0)
+      , list(list)
+  {
+  }
+
+  void
+  OnText(textparser::TextNode* text) override
+  {
+    for(char c : text->text)
+    {
+      const std::string char_index = ConvertCharToIndex(c);
+      AddCharIndex(char_index);
+    }
+  }
+
+  void
+  OnImage(textparser::ImageNode* image) override
+  {
+    AddCharIndex(image->image);
+  }
+
+  void
+  OnBegin() override
+  {
+    apply_highlight = true;
+  }
+
+  void
+  OnEnd() override
+  {
+    apply_highlight = false;
+  }
+
+  void
+  AddCharIndex(const std::string& char_index)
+  {
+    auto it = chars_->find(char_index);
+    if(it == chars_->end())
+    {
+      LOG_ERROR("Failed to print " << char_index);
+      return;
+    }
+    std::shared_ptr<Glyph> ch = it->second;
+
+    list->Add(
+        texture_,
+        ch->sprite_rect.ScaleCopy(scale, scale).OffsetCopy(position),
+        ch->texture_rect,
+        apply_highlight);
+
+    auto kerning = kerning_->find(std::make_pair(last_char_index, char_index));
+    int  the_kerning = kerning == kerning_->end() ? 0 : kerning->second;
+    position.x += (ch->advance + the_kerning) * scale;
+    last_char_index = char_index;
+  }
+};
+
 TextDrawCommandList
 Font::CompileList(
     const std::string& str, int hi_start, int hi_end, float scale) const
 {
+  ParsedText parsed;
+  HighlightString(&parsed, str, hi_start, hi_end);
+
   TextDrawCommandList list;
 
-  // offset
-  vec2f position{0, 0};
-
-  const bool apply_highlight = hi_end != -1 && hi_start != -1;
-
-  int         index           = 0;
-  std::string last_char_index = "";
-  for(char c : str)
-  {
-    const int this_index = index;
-    ++index;
-    const std::string char_index = ConvertCharToIndex(c);
-    auto              it         = chars_.find(char_index);
-    if(it == chars_.end())
-    {
-      LOG_ERROR("Failed to print " << char_index);
-      continue;
-    }
-    std::shared_ptr<Glyph> ch = it->second;
-
-    const bool color =
-        apply_highlight && hi_start <= this_index && this_index < hi_end;
-    list.Add(
-        texture_.get(),
-        ch->sprite_rect.ScaleCopy(scale, scale).OffsetCopy(position),
-        ch->texture_rect,
-        color);
-
-    auto kerning = kerning_.find(std::make_pair(last_char_index, char_index));
-    int  the_kerning = kerning == kerning_.end() ? 0 : kerning->second;
-    position.x += (ch->advance + the_kerning) * scale;
-  }
+  ParsedTextCompileVisitor vis{
+      texture_.get(), &chars_, &kerning_, scale, &list};
+  parsed.Visit(&vis);
 
   return list;
 }
