@@ -128,8 +128,10 @@ class Text
   std::string text_;
 
   // todo move colors away from text
-  Rgb   base_color_;
-  Rgb   hi_color_;
+  Rgb base_color_;
+  Rgb hi_color_;
+
+  // todo move highlight to text
   int   hi_from_;
   int   hi_to_;
   Align alignment_;
