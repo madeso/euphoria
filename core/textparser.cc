@@ -8,40 +8,66 @@ LOG_SPECIFY_DEFAULT_LOGGER("core.textparser")
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-namespace textparser {
-  TextNode::TextNode(const std::string &t) : text(t) {}
+namespace textparser
+{
+  TextNode::TextNode(const std::string& t)
+      : text(t)
+  {
+  }
 
-  void TextNode::Visit(Visitor *visitor) { visitor->OnText(this); }
+  void
+  TextNode::Visit(Visitor* visitor)
+  {
+    visitor->OnText(this);
+  }
 
-  ImageNode::ImageNode(const std::string &t) : image(t) {}
+  ImageNode::ImageNode(const std::string& t)
+      : image(t)
+  {
+  }
 
-  void ImageNode::Visit(Visitor *visitor) { visitor->OnImage(this); }
+  void
+  ImageNode::Visit(Visitor* visitor)
+  {
+    visitor->OnImage(this);
+  }
 
-  VarNode::VarNode(const std::string &t) : var(t) {}
+  VarNode::VarNode(const std::string& t)
+      : var(t)
+  {
+  }
 
-  void VarNode::Visit(Visitor *visitor) { visitor->OnVar(this); }
+  void
+  VarNode::Visit(Visitor* visitor)
+  {
+    visitor->OnVar(this);
+  }
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 namespace textparser
 {
-  void VisitorDebugString::OnText(TextNode* text)
+  void
+  VisitorDebugString::OnText(TextNode* text)
   {
     ss << "{text " << text->text << "}";
   }
 
-  void VisitorDebugString::OnImage(ImageNode* img)
+  void
+  VisitorDebugString::OnImage(ImageNode* img)
   {
     ss << "{image " << img->image << "}";
   }
 
-  void VisitorDebugString::OnVar(VarNode* var)
+  void
+  VisitorDebugString::OnVar(VarNode* var)
   {
     ss << "{var " << var->var << "}";
   }
 
-  std::string VisitorDebugString::Visit(TextParser* visitor)
+  std::string
+  VisitorDebugString::Visit(TextParser* visitor)
   {
     VisitorDebugString str;
     visitor->Visit(&str);
@@ -51,64 +77,48 @@ namespace textparser
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-namespace textparser
-{
-  std::shared_ptr<TextNode> NodeCreatorBasic::CreateTextNode(const std::string& text)
-  {
-    return std::make_shared<TextNode>(text);
-  }
-
-  std::shared_ptr<ImageNode> NodeCreatorBasic::CreateImageNode(const std::string& image)
-  {
-    return std::make_shared<ImageNode>(image);
-  }
-
-  std::shared_ptr<VarNode> NodeCreatorBasic::CreateVarNode(const std::string& var)
-  {
-    return std::make_shared<VarNode>(var);
-  }
-}
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void TextParser::CreateText(const std::string& str, textparser::NodeCreator* creator)
+void
+TextParser::CreateText(const std::string& str)
 {
   nodes.resize(0);
-  nodes.emplace_back( creator->CreateTextNode(str) );
+  nodes.emplace_back(std::make_shared<textparser::TextNode>(str));
 }
 
 namespace
 {
-  enum class State {
-    TEXT, IMAGE, VAR
+  enum class State
+  {
+    TEXT,
+    IMAGE,
+    VAR
   };
 
   struct Parser
   {
-    std::vector<std::shared_ptr<textparser::Node>>* nodes = nullptr;
-    textparser::NodeCreator* creator = nullptr;
+    std::vector<std::shared_ptr<textparser::Node>>* nodes   = nullptr;
 
-    State state = State::TEXT;
-    bool escape = false;
+    State             state  = State::TEXT;
+    bool              escape = false;
     std::stringstream buff;
-    bool ok = true;
+    bool              ok = true;
 
-    void Close()
+    void
+    Close()
     {
       const std::string data = buff.str();
       buff.str("");
-      switch (state)
+      switch(state)
       {
         case State::TEXT:
           if(!data.empty())
           {
-            nodes->emplace_back(creator->CreateTextNode(data));
+            nodes->emplace_back( std::make_shared<textparser::TextNode>(data) );
           }
           break;
         case State::IMAGE:
           if(!data.empty())
           {
-            nodes->emplace_back(creator->CreateImageNode(data));
+            nodes->emplace_back( std::make_shared<textparser::ImageNode>(data) );
           }
           else
           {
@@ -119,7 +129,7 @@ namespace
         case State::VAR:
           if(!data.empty())
           {
-            nodes->emplace_back(creator->CreateVarNode(data));
+            nodes->emplace_back( std::make_shared<textparser::VarNode>(data) );
           }
           else
           {
@@ -130,9 +140,10 @@ namespace
       }
     }
 
-    void OnChar(char c)
+    void
+    OnChar(char c)
     {
-      switch (state)
+      switch(state)
       {
         case State::TEXT:
           if(escape)
@@ -142,7 +153,7 @@ namespace
           }
           else
           {
-            switch (c)
+            switch(c)
             {
               case '@':
                 Close();
@@ -162,7 +173,8 @@ namespace
           }
           break;
         case State::IMAGE:
-          if( ('a' <= c && c <= 'z') || ('A' <= c && c <= 'Z') || c == '-'  || c == '_' )
+          if(('a' <= c && c <= 'z') || ('A' <= c && c <= 'Z') || c == '-' ||
+             c == '_')
           {
             buff << c;
           }
@@ -197,21 +209,24 @@ namespace
   };
 }
 
-bool TextParser::CreateParse(const std::string& str, textparser::NodeCreator* creator)
+bool
+TextParser::CreateParse(
+    const std::string& str)
 {
   nodes.resize(0);
   Parser parser;
-  parser.creator = creator;
-  parser.nodes = &nodes;
+  parser.nodes   = &nodes;
 
   for(char c : str)
   {
     parser.OnChar(c);
-    if(!parser.ok) return false;
+    if(!parser.ok)
+      return false;
   }
 
   parser.Close();
-  if(!parser.ok) return false;
+  if(!parser.ok)
+    return false;
   if(parser.escape)
   {
     LOG_ERROR("Ending with escape");
@@ -220,7 +235,8 @@ bool TextParser::CreateParse(const std::string& str, textparser::NodeCreator* cr
   return true;
 }
 
-void TextParser::Visit(textparser::Visitor *visitor)
+void
+TextParser::Visit(textparser::Visitor* visitor)
 {
   for(auto node : nodes)
   {
