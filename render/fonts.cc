@@ -318,7 +318,7 @@ Font::Font(FileSystem* fs, TextureCache* cache, const std::string& font_file)
   const int texture_width  = 512;
   const int texture_height = 512;
 
-  background = cache->GetTexture("img/white");
+  background = cache->GetTexture("img-plain/white");
 
   LoadedFont fontchars;
   font::Root font_root;
