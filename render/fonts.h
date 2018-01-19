@@ -135,9 +135,6 @@ class Text
   Rgb base_color_;
   Rgb hi_color_;
 
-  // todo move highlight to text
-  int   hi_from_;
-  int   hi_to_;
   Align alignment_;
 
   bool  use_background_;
