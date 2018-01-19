@@ -35,7 +35,7 @@ struct Glyph
 };
 
 typedef std::map<std::string, std::shared_ptr<Glyph>> CharDataMap;
-typedef std::map<std::pair<std::string, std::string>, int> KerningMap;
+typedef std::map<std::pair<std::string, std::string>, float> KerningMap;
 
 class Font;
 
