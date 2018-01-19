@@ -10,11 +10,15 @@
 #include "core/rgb.h"
 #include "core/rect.h"
 
+#include "core/textparser.h"
+
 #include "render/texture.h"
 
 class FileSystem;
 class SpriteRenderer;
 class TextureCache;
+
+// todo: seperate rendering and the rest and move to core
 
 struct Glyph
 {
@@ -90,19 +94,13 @@ class Text
   ~Text();
 
   void
-  SetText(const std::string& str);
-
-  const std::string&
-  GetText() const;
+  SetText(const ParsedText& text);
 
   void
   SetBaseColor(const Rgb& color);
 
   void
   SetHighlightColor(const Rgb& color);
-
-  void
-  SetHighlightRange(int from, int to);
 
   void
   SetBackground(bool use_background, float alpha = 0.5f);
@@ -131,7 +129,7 @@ class Text
  private:
   const Font* font_;
   float       scale_;
-  std::string text_;
+  ParsedText  text_;
 
   // todo move colors away from text
   Rgb base_color_;
@@ -164,8 +162,7 @@ class Font
 
   // todo: replace scale with size
   TextDrawCommandList
-  CompileList(
-      const std::string& str, int hi_start, int hi_end, float scale) const;
+  CompileList(const ParsedText& text, float scale) const;
 
  private:
   unsigned int               font_size_;

@@ -73,6 +73,9 @@ TextData::UpdateText()
   {
     // button assumes this is bottom left
     text_->SetAlignment(Align::BOTTOM_LEFT);
-    text_->SetText(string_);
+
+    ParsedText text;
+    text.CreateParse(string_);
+    text_->SetText(text);
   }
 }

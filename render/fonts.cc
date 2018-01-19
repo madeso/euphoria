@@ -449,35 +449,6 @@ TextDrawCommandList::Draw(
   }
 }
 
-void
-HighlightString(
-    ParsedText* text, const std::string& str, int hi_start, int hi_end)
-{
-  text->Clear();
-  if(hi_start == -1)
-  {
-    ASSERT(hi_end == -1);
-    text->AddText(str);
-  }
-  else
-  {
-    ASSERT(hi_start == 0);
-    ASSERT(hi_end >= 0);
-    if(hi_end == 0)
-    {
-      text->AddText(str);
-    }
-    else
-    {
-      // highlight to the end
-      text->AddBegin();
-      text->AddText(str.substr(0, hi_end));
-      text->AddEnd();
-      text->AddText(str.substr(hi_end));
-    }
-  }
-}
-
 struct ParsedTextCompileVisitor : public textparser::Visitor
 {
   const Texture2d*   texture_;
@@ -508,9 +479,9 @@ struct ParsedTextCompileVisitor : public textparser::Visitor
   }
 
   void
-  OnText(textparser::TextNode* text) override
+  OnText(const std::string& text) override
   {
-    for(char c : text->text)
+    for(char c : text)
     {
       const std::string char_index = ConvertCharToIndex(c);
       AddCharIndex(char_index);
@@ -518,9 +489,9 @@ struct ParsedTextCompileVisitor : public textparser::Visitor
   }
 
   void
-  OnImage(textparser::ImageNode* image) override
+  OnImage(const std::string& image) override
   {
-    AddCharIndex(image->image);
+    AddCharIndex(image);
   }
 
   void
@@ -560,17 +531,13 @@ struct ParsedTextCompileVisitor : public textparser::Visitor
 };
 
 TextDrawCommandList
-Font::CompileList(
-    const std::string& str, int hi_start, int hi_end, float scale) const
+Font::CompileList(const ParsedText& text, float scale) const
 {
-  ParsedText parsed;
-  HighlightString(&parsed, str, hi_start, hi_end);
-
   TextDrawCommandList list;
 
   ParsedTextCompileVisitor vis{
       texture_.get(), &chars_, &kerning_, scale, &list};
-  parsed.Visit(&vis);
+  text.Visit(&vis);
 
   return list;
 }
@@ -595,7 +562,6 @@ Font::GetFontSize() const
 Text::Text(Font* font)
     : font_(font)
     , scale_(1.0f)
-    , text_("")
     , base_color_(0.0f)
     , hi_color_(1.0f)
     , hi_from_(-1)
@@ -610,16 +576,10 @@ Text::Text(Font* font)
 Text::~Text() = default;
 
 void
-Text::SetText(const std::string& str)
+Text::SetText(const ParsedText& str)
 {
   text_ = str;
   dirty = true;
-}
-
-const std::string&
-Text::GetText() const
-{
-  return text_;
 }
 
 void
@@ -634,14 +594,6 @@ Text::SetHighlightColor(const Rgb& color)
 {
   hi_color_ = color;
   dirty     = true;
-}
-
-void
-Text::SetHighlightRange(int from, int to)
-{
-  hi_from_ = from;
-  hi_to_   = to;
-  dirty    = true;
 }
 
 void
@@ -740,7 +692,7 @@ Text::Compile() const
   if(dirty)
   {
     dirty    = false;
-    commands = font_->CompileList(text_, hi_from_, hi_to_, scale_);
+    commands = font_->CompileList(text_, scale_);
   }
 }
 
