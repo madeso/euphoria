@@ -31,11 +31,15 @@ class TextData
   Text&
   GetText();
 
+  void
+  SetSize(float size);
+
  private:
   void
                         UpdateText();
   std::shared_ptr<Font> font_;
   std::string           string_;
+  float                 size;
 
   std::shared_ptr<Text> text_;
 };

@@ -62,6 +62,16 @@ TextData::GetText()
 }
 
 void
+TextData::SetSize(float size)
+{
+  this->size = size;
+  if(HasText())
+  {
+    GetText().SetSize(size);
+  }
+}
+
+void
 TextData::UpdateText()
 {
   if(text_ == nullptr && font_ != nullptr)
@@ -77,5 +87,6 @@ TextData::UpdateText()
     ParsedText text;
     text.CreateParse(string_);
     text_->SetText(text);
+    text_->SetSize(size);
   }
 }

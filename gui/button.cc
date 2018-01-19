@@ -68,9 +68,8 @@ Button::Step(float dt)
     image_color_.Update(dt);
     text_color_.Update(dt);
     position_displacement_.Update(dt);
+    text_.SetSize(skin_->text_size * scale_.GetValue());
   }
-
-  text_.GetText().SetScale(scale_.GetValue());
 }
 
 Sizef
@@ -153,4 +152,8 @@ void
 Button::SetSkin(Skin* skin)
 {
   skin_ = skin;
+  if(skin_)
+  {
+    text_.SetSize(skin_->text_size);
+  }
 }

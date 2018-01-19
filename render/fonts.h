@@ -104,8 +104,6 @@ class Text
 
   void
   SetSize(float new_size);
-  void
-  SetScale(float scale);
 
   void
   Draw(
@@ -126,7 +124,7 @@ class Text
 
  private:
   const Font* font_;
-  float       scale_;
+  float       size_;
   ParsedText  text_;
   Align       alignment_;
 
@@ -142,8 +140,6 @@ class Font
 {
  public:
   Font(FileSystem* fs, TextureCache* cache, const std::string& font_file);
-  unsigned int
-  GetFontSize() const;
 
   // todo: expose background property and move this away from font
   void
@@ -152,10 +148,9 @@ class Font
 
   // todo: replace scale with size
   TextDrawCommandList
-  CompileList(const ParsedText& text, float scale) const;
+  CompileList(const ParsedText& text, float size) const;
 
  private:
-  unsigned int               font_size_;
   std::unique_ptr<Texture2d> texture_;
   std::shared_ptr<Texture2d> background;
   CharDataMap                chars_;

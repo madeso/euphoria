@@ -266,6 +266,7 @@ LoadSkin(const gui::Skin& src, FontCache* font)
   skin->name              = src.name();
   skin->font              = font->GetFont(src.font());
   skin->button_image      = src.button_image();
+  skin->text_size         = src.text_size();
   skin->button_idle       = LoadButton(src.button_idle());
   skin->button_hot        = LoadButton(src.button_hot());
   skin->button_active_hot = LoadButton(src.button_active_hot());

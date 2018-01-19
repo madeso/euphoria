@@ -100,10 +100,12 @@ struct LoadedGlyph
   int         bearing_y{0};
   int         advance{0};
   Image       image;
+  float       size;
 };
 
 namespace
 {
+  // todo: use instad FT_Get_Char_Index( FT_Face face, FT_ULong charcode);
   FT_UInt
   CharToFt(char c)
   {
@@ -115,6 +117,7 @@ namespace
 struct FreetypeFace
 {
   FT_Face face;
+  float   size;
 
   NONCOPYABLE_CONSTRUCTOR(FreetypeFace);
   NONCOPYABLE_ASSIGNMENT(FreetypeFace);
@@ -123,6 +126,7 @@ struct FreetypeFace
 
   FreetypeFace(FreetypeLibrary* lib, const std::string& path, unsigned int size)
       : face(nullptr)
+      , size(size)
   {
     int face_index = 0;
     Error(FT_New_Face(lib->library, path.c_str(), face_index, &face));
@@ -143,6 +147,7 @@ struct FreetypeFace
 
     LoadedGlyph ch;
     ch.c         = c;
+    ch.size      = size;
     ch.bearing_x = slot->bitmap_left;
     ch.bearing_y = slot->bitmap_top;
     ch.valid     = true;
@@ -241,15 +246,14 @@ GetCharactersFromFont(
     fontchars.chars.push_back(cc);
   }
 
-  const FT_Bool use_kerning = FT_HAS_KERNING(f.face);
+  const FT_Long use_kerning = FT_HAS_KERNING(f.face);
 
   LOG_INFO(
       "Loaded " << fontchars.chars.size() << " characters from " << font_file);
-  LOG_INFO("kerning..." << static_cast<int>(use_kerning));
+  LOG_INFO("kerning: " << static_cast<int>(use_kerning));
 
   if(use_kerning == 1)
   {
-    std::cout << "kerning...\n";
     for(const char previous : chars)
     {
       for(const char current : chars)
@@ -309,7 +313,8 @@ ConstructCharacterRects(
   const auto texture = Rectf::FromLeftRightTopBottom(
       uv_left / iw, uv_right / iw, uv_top / ih, uv_bottom / ih);
 
-  return std::make_pair(sprite, texture);
+  const float scale = 1 / src_char.size;
+  return std::make_pair(sprite.ScaleCopy(scale, scale), texture);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -378,8 +383,11 @@ Font::Font(FileSystem* fs, TextureCache* cache, const std::string& font_file)
     const auto rects = ConstructCharacterRects(
         src_rect, src_char, texture_width, texture_height);
 
-    std::shared_ptr<Glyph> dest(
-        new Glyph(rects.first, rects.second, src_char.c, src_char.advance));
+    std::shared_ptr<Glyph> dest(new Glyph(
+        rects.first,
+        rects.second,
+        src_char.c,
+        src_char.advance / src_char.size));
     map.insert(CharDataMap::value_type(dest->c, dest));
   }
 
@@ -454,7 +462,7 @@ struct ParsedTextCompileVisitor : public textparser::Visitor
   const Texture2d*   texture_;
   const CharDataMap* chars_;
   const KerningMap*  kerning_;
-  float              scale;
+  float              size;
   bool               apply_highlight;
   vec2f              position;  // todo: rename to offset
   std::string        last_char_index;
@@ -466,12 +474,12 @@ struct ParsedTextCompileVisitor : public textparser::Visitor
       const Texture2d*     texture,
       const CharDataMap*   chars,
       const KerningMap*    kerning,
-      float                scale,
+      float                size,
       TextDrawCommandList* list)
       : texture_(texture)
       , chars_(chars)
       , kerning_(kerning)
-      , scale(scale)
+      , size(size)
       , apply_highlight(false)
       , position(0, 0)
       , list(list)
@@ -519,24 +527,23 @@ struct ParsedTextCompileVisitor : public textparser::Visitor
 
     list->Add(
         texture_,
-        ch->sprite_rect.ScaleCopy(scale, scale).OffsetCopy(position),
+        ch->sprite_rect.ScaleCopy(size, size).OffsetCopy(position),
         ch->texture_rect,
         apply_highlight);
 
     auto kerning = kerning_->find(std::make_pair(last_char_index, char_index));
     int  the_kerning = kerning == kerning_->end() ? 0 : kerning->second;
-    position.x += (ch->advance + the_kerning) * scale;
+    position.x += (ch->advance + the_kerning) * size;
     last_char_index = char_index;
   }
 };
 
 TextDrawCommandList
-Font::CompileList(const ParsedText& text, float scale) const
+Font::CompileList(const ParsedText& text, float size) const
 {
   TextDrawCommandList list;
 
-  ParsedTextCompileVisitor vis{
-      texture_.get(), &chars_, &kerning_, scale, &list};
+  ParsedTextCompileVisitor vis{texture_.get(), &chars_, &kerning_, size, &list};
   text.Visit(&vis);
 
   return list;
@@ -553,15 +560,9 @@ TextDrawCommandList::GetExtents() const
   return ret;
 }
 
-unsigned int
-Font::GetFontSize() const
-{
-  return font_size_;
-}
-
 Text::Text(Font* font)
     : font_(font)
-    , scale_(1.0f)
+    , size_(12.0f)
     , alignment_(Align::BASELINE_LEFT)
     , use_background_(false)
     , background_alpha_(0.0f)
@@ -594,15 +595,8 @@ Text::SetAlignment(Align alignment)
 void
 Text::SetSize(float new_size)
 {
-  ASSERT(font_);
-  SetScale(new_size / font_->GetFontSize());
-}
-
-void
-Text::SetScale(float scale)
-{
-  scale_ = scale;
-  dirty  = true;
+  size_ = new_size;
+  dirty = true;
 }
 
 vec2f
@@ -678,7 +672,7 @@ Text::Compile() const
   if(dirty)
   {
     dirty    = false;
-    commands = font_->CompileList(text_, scale_);
+    commands = font_->CompileList(text_, size_);
   }
 }
 

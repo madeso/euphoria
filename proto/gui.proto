@@ -137,6 +137,7 @@ message ButtonState {
 message Skin {
   optional string name = 1 [default="default"];
   optional string font = 2;
+  optional float text_size = 3 [default = 12];
 
   optional string button_image = 10;
   optional ButtonState button_idle = 11;

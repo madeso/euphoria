@@ -42,6 +42,8 @@ class Skin
 
   std::shared_ptr<Font> font;
 
+  float text_size;
+
   std::string button_image;
   ButtonState button_idle;
   ButtonState button_hot;
