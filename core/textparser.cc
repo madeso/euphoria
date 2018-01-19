@@ -16,9 +16,9 @@ namespace textparser
   }
 
   void
-  TextNode::Visit(Visitor* visitor)
+  TextNode::Visit(Visitor* visitor) const
   {
-    visitor->OnText(this);
+    visitor->OnText(text);
   }
 
   ImageNode::ImageNode(const std::string& t)
@@ -27,9 +27,9 @@ namespace textparser
   }
 
   void
-  ImageNode::Visit(Visitor* visitor)
+  ImageNode::Visit(Visitor* visitor) const
   {
-    visitor->OnImage(this);
+    visitor->OnImage(image);
   }
 
   BeginEndNode::BeginEndNode(bool b)
@@ -38,7 +38,7 @@ namespace textparser
   }
 
   void
-  BeginEndNode::Visit(Visitor* visitor)
+  BeginEndNode::Visit(Visitor* visitor) const
   {
     if(begin)
     {
@@ -56,15 +56,15 @@ namespace textparser
 namespace textparser
 {
   void
-  VisitorDebugString::OnText(TextNode* text)
+  VisitorDebugString::OnText(const std::string& text)
   {
-    ss << "{text " << text->text << "}";
+    ss << "{text " << text << "}";
   }
 
   void
-  VisitorDebugString::OnImage(ImageNode* img)
+  VisitorDebugString::OnImage(const std::string& img)
   {
-    ss << "{image " << img->image << "}";
+    ss << "{image " << img << "}";
   }
 
   void
@@ -260,6 +260,15 @@ ParsedText::CreateParse(const std::string& str)
 
 void
 ParsedText::Visit(textparser::Visitor* visitor)
+{
+  for(auto node : nodes)
+  {
+    node->Visit(visitor);
+  }
+}
+
+void
+ParsedText::Visit(textparser::Visitor* visitor) const
 {
   for(auto node : nodes)
   {

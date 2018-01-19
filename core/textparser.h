@@ -16,26 +16,33 @@ namespace textparser
   {
    public:
     virtual ~Node() = default;
+
     virtual void
-    Visit(Visitor* visitor) = 0;
+    Visit(Visitor* visitor) const = 0;
   };
+
+  // todo: move nodes to private
 
   class TextNode : public Node
   {
    public:
     std::string text;
+
     explicit TextNode(const std::string& t);
+
     void
-    Visit(Visitor* visitor) override;
+    Visit(Visitor* visitor) const override;
   };
 
   class ImageNode : public Node
   {
    public:
     std::string image;
+
     explicit ImageNode(const std::string& t);
+
     void
-    Visit(Visitor* visitor) override;
+    Visit(Visitor* visitor) const override;
   };
 
   class BeginEndNode : public Node
@@ -46,17 +53,17 @@ namespace textparser
     explicit BeginEndNode(bool b);
 
     void
-    Visit(Visitor* visitor) override;
+    Visit(Visitor* visitor) const override;
   };
 
   class Visitor
   {
    public:
     virtual void
-    OnText(TextNode* text) = 0;
+    OnText(const std::string& text) = 0;
 
     virtual void
-    OnImage(ImageNode* image) = 0;
+    OnImage(const std::string& image) = 0;
 
     virtual void
     OnBegin() = 0;
@@ -71,9 +78,10 @@ namespace textparser
     std::ostringstream ss;
 
     void
-    OnText(TextNode* text) override;
+    OnText(const std::string& text) override;
+
     void
-    OnImage(ImageNode* img) override;
+    OnImage(const std::string& img) override;
 
     void
     OnBegin() override;
@@ -112,6 +120,9 @@ class ParsedText
   CreateParse(const std::string& str);
   void
   Visit(textparser::Visitor* visitor);
+
+  void
+  Visit(textparser::Visitor* visitor) const;
 
  private:
   std::vector<std::shared_ptr<textparser::Node>> nodes;
