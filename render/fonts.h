@@ -91,16 +91,22 @@ class Text
 
   void
   SetText(const std::string& str);
+
   const std::string&
   GetText() const;
+
   void
   SetBaseColor(const Rgb& color);
+
   void
   SetHighlightColor(const Rgb& color);
+
   void
   SetHighlightRange(int from, int to);
+
   void
   SetBackground(bool use_background, float alpha = 0.5f);
+
   void
   SetAlignment(Align alignment);
 
