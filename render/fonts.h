@@ -97,12 +97,6 @@ class Text
   SetText(const ParsedText& text);
 
   void
-  SetBaseColor(const Rgb& color);
-
-  void
-  SetHighlightColor(const Rgb& color);
-
-  void
   SetBackground(bool use_background, float alpha = 0.5f);
 
   void
@@ -114,11 +108,15 @@ class Text
   SetScale(float scale);
 
   void
-  Draw(SpriteRenderer* renderer, const vec2f& p) const;
+  Draw(
+      SpriteRenderer* renderer, const vec2f& p, const Rgb& base_hi_color) const;
 
   void
-  Draw(SpriteRenderer* renderer, const vec2f& p, const Rgb& override_color)
-      const;
+  Draw(
+      SpriteRenderer* renderer,
+      const vec2f&    p,
+      const Rgb&      base_color,
+      const Rgb&      hi_color) const;
 
   Rectf
   GetExtents() const;
@@ -130,12 +128,7 @@ class Text
   const Font* font_;
   float       scale_;
   ParsedText  text_;
-
-  // todo move colors away from text
-  Rgb base_color_;
-  Rgb hi_color_;
-
-  Align alignment_;
+  Align       alignment_;
 
   bool  use_background_;
   float background_alpha_;

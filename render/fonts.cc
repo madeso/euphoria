@@ -562,8 +562,6 @@ Font::GetFontSize() const
 Text::Text(Font* font)
     : font_(font)
     , scale_(1.0f)
-    , base_color_(0.0f)
-    , hi_color_(1.0f)
     , alignment_(Align::BASELINE_LEFT)
     , use_background_(false)
     , background_alpha_(0.0f)
@@ -578,20 +576,6 @@ Text::SetText(const ParsedText& str)
 {
   text_ = str;
   dirty = true;
-}
-
-void
-Text::SetBaseColor(const Rgb& color)
-{
-  base_color_ = color;
-  dirty       = true;
-}
-
-void
-Text::SetHighlightColor(const Rgb& color)
-{
-  hi_color_ = color;
-  dirty     = true;
 }
 
 void
@@ -657,14 +641,18 @@ GetOffset(Align alignment, const Rectf& extent)
 }
 
 void
-Text::Draw(SpriteRenderer* renderer, const vec2f& p) const
+Text::Draw(
+    SpriteRenderer* renderer, const vec2f& p, const Rgb& base_hi_color) const
 {
-  Draw(renderer, p, base_color_);
+  Draw(renderer, p, base_hi_color, base_hi_color);
 }
 
 void
 Text::Draw(
-    SpriteRenderer* renderer, const vec2f& p, const Rgb& override_color) const
+    SpriteRenderer* renderer,
+    const vec2f&    p,
+    const Rgb&      base_color,
+    const Rgb&      hi_color) const
 {
   Compile();
   ASSERT(!dirty);
@@ -681,7 +669,7 @@ Text::Draw(
         renderer, background_alpha_, e.ExtendCopy(5.0f).OffsetCopy(p + off));
   }
 
-  commands.Draw(renderer, p + off, override_color, hi_color_);
+  commands.Draw(renderer, p + off, base_color, hi_color);
 }
 
 void
