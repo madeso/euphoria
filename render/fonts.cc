@@ -252,6 +252,8 @@ GetCharactersFromFont(
       "Loaded " << fontchars.chars.size() << " characters from " << font_file);
   LOG_INFO("kerning: " << static_cast<int>(use_kerning));
 
+  const float scale = 1 / static_cast<float>(font_size);
+
   if(use_kerning == 1)
   {
     for(const char previous : chars)
@@ -275,7 +277,7 @@ GetCharactersFromFont(
         if(dx != 0)
         {
           fontchars.kerning.insert(KerningMap::value_type(
-              KerningMap::key_type(previous_c, current_c), dx));
+              KerningMap::key_type(previous_c, current_c), dx * scale));
         }
       }
     }

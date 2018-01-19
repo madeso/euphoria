@@ -146,7 +146,6 @@ class Font
   DrawBackground(
       SpriteRenderer* renderer, float alpha, const Rectf& where) const;
 
-  // todo: replace scale with size
   TextDrawCommandList
   CompileList(const ParsedText& text, float size) const;
 
