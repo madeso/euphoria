@@ -233,13 +233,15 @@ GetCharactersFromSingleImage(FileSystem* fs, const font::SingleImage& img)
   ImageLoadResult loaded = LoadImage(fs, img.file(), AlphaLoad::Keep);
   if(loaded.error.empty())
   {
+    const auto  s = 1 / img.scale();
     LoadedGlyph glyph;
-    glyph.size      = img.size() * loaded.image.GetHeight();
-    glyph.bearing_y = loaded.image.GetHeight() + img.bearing_y();
+    glyph.size      = s * loaded.image.GetHeight();
+    glyph.bearing_y = s * loaded.image.GetHeight() + img.bearing_y();
     glyph.bearing_x = img.bearing_x();
-    glyph.advance   = loaded.image.GetWidth() + img.advance();
+    glyph.advance   = s * loaded.image.GetWidth() + img.advance();
     glyph.c         = img.alias();
-    glyph.image     = loaded.image;
+    // todo: add ability to clip image
+    glyph.image = loaded.image;
     font.chars.emplace_back(glyph);
   }
 
@@ -623,8 +625,11 @@ Text::SetAlignment(Align alignment)
 void
 Text::SetSize(float new_size)
 {
-  size_ = new_size;
-  dirty = true;
+  if(size_ != new_size)
+  {
+    size_ = new_size;
+    dirty = true;
+  }
 }
 
 vec2f

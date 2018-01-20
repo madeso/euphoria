@@ -8,7 +8,7 @@ message FontFile {
 message SingleImage {
   optional string file = 1;
   optional string alias = 2;
-  optional float size = 3 [default=1];
+  optional float scale = 3 [default=1];
   optional int32 bearing_x = 4;
   optional int32 bearing_y = 5;
   optional int32 advance = 6;
