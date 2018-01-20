@@ -226,6 +226,27 @@ struct LoadedFont
 };
 
 LoadedFont
+GetCharactersFromSingleImage(FileSystem* fs, const font::SingleImage& img)
+{
+  LoadedFont font;
+
+  ImageLoadResult loaded = LoadImage(fs, img.file(), AlphaLoad::Keep);
+  if(loaded.error.empty())
+  {
+    LoadedGlyph glyph;
+    glyph.size      = img.size() * loaded.image.GetHeight();
+    glyph.bearing_y = loaded.image.GetHeight() + img.bearing_y();
+    glyph.bearing_x = img.bearing_x();
+    glyph.advance   = loaded.image.GetWidth() + img.advance();
+    glyph.c         = img.alias();
+    glyph.image     = loaded.image;
+    font.chars.emplace_back(glyph);
+  }
+
+  return font;
+}
+
+LoadedFont
 GetCharactersFromFont(
     const std::string& font_file,
     unsigned int       font_size,
@@ -343,6 +364,11 @@ Font::Font(FileSystem* fs, TextureCache* cache, const std::string& font_file)
       const font::FontFile& font = source.font();
       fontchars.CombineWith(GetCharactersFromFont(
           font.file(), font_root.size(), font.characters()));
+    }
+    if(source.has_image())
+    {
+      const font::SingleImage& image = source.image();
+      fontchars.CombineWith(GetCharactersFromSingleImage(fs, image));
     }
     // todo: add more sources, built in image font or images
   }
