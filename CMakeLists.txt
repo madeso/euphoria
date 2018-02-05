@@ -111,6 +111,7 @@ add_subdirectory(gui)
 add_subdirectory(scimed)
 add_subdirectory(tests)
 add_subdirectory(demo)
+add_subdirectory(engine)
 add_subdirectory(chatbot_test)
 
 if(CLANG_TIDY_EXE)
