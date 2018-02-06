@@ -2,6 +2,7 @@
 #define EUPHORIA_MEMORYCHUNK_H
 
 #include <memory>
+#include <string>
 
 #include "core/ints.h"
 
@@ -34,6 +35,9 @@ class MemoryChunk
 
 void
 CopyToMemory(MemoryChunk* memory, const void* src);
+
+std::shared_ptr<MemoryChunk>
+MemoryChunkFromText(const std::string& content);
 
 class MemoryChunkFile
 {

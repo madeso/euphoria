@@ -58,6 +58,14 @@ CopyToMemory(MemoryChunk* memory, const void* src)
   std::memcpy(memory->GetData(), src, sizeof(char) * memory->GetSize());
 }
 
+std::shared_ptr<MemoryChunk>
+MemoryChunkFromText(const std::string& content)
+{
+  std::shared_ptr<MemoryChunk> file = MemoryChunk::Alloc(content.length() + 1);
+  CopyToMemory(file.get(), &content[0]);
+  return file;
+}
+
 MemoryChunkFile::MemoryChunkFile(std::shared_ptr<MemoryChunk> d)
     : data(std::move(d))
     , position(0)

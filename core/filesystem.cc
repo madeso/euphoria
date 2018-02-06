@@ -99,8 +99,7 @@ void
 FileSystemRootCatalog::RegisterFileString(
     const std::string& path, const std::string& content)
 {
-  std::shared_ptr<MemoryChunk> file = MemoryChunk::Alloc(content.length() + 1);
-  CopyToMemory(file.get(), &content[0]);
+  std::shared_ptr<MemoryChunk> file = MemoryChunkFromText(content);
   RegisterFileData(path, file);
 }
 
