@@ -8,6 +8,7 @@
 #include "core/os.h"
 
 #include "core/filesystemimagegenerator.h"
+#include "core/filesystemdefaultshaders.h"
 
 #include "render/debuggl.h"
 #include "render/fonts.h"
@@ -82,6 +83,7 @@ main(int argc, char** argv)
       std::make_shared<FileSystemWriteFolder>(current_directory));
   FileSystemRootFolder::AddRoot(&file_system, current_directory);
   FileSystemImageGenerator::AddRoot(&file_system, "img-plain");
+  FileSystemDefaultShaders::AddRoot(&file_system, "shaders");
 
   TextureCache cache{&file_system};
   Shader       shader;
