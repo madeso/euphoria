@@ -5,7 +5,7 @@
 void
 ComponentStore::Add(const std::string& name, std::shared_ptr<Components> system)
 {
-  const int size = components.size();
+  const unsigned long size = components.size();
   components.emplace_back(system);
   names.emplace(name, size);
 }

@@ -34,7 +34,7 @@ class ComponentStore;
 struct ComponentSystemType
 {
   const ComponentStore* owner;
-  int                   index;
+  unsigned long         index;
 };
 
 class ComponentStore
@@ -58,7 +58,7 @@ class ComponentStore
   std::shared_ptr<Components>
   GetPtr(ComponentSystemType type);
 
-  std::map<std::string, int> names;
+  std::map<std::string, unsigned long> names;
   std::vector<std::shared_ptr<Components>> components;
 };
 
