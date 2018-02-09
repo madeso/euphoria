@@ -2,3 +2,6 @@
 	path = external/imgui/imgui
 	url = git@github.com:ocornut/imgui.git
 	branch = origin/v1.51
+[submodule "external/entt"]
+	path = external/entt
+	url = git@github.com:skypjack/entt.git
