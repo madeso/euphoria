@@ -5,12 +5,17 @@
 #include <string>
 #include <vector>
 
+class Systems;
+
 // only a base class container
 class ComponentSystem
 {
  public:
   explicit ComponentSystem(const std::string& the_name);
   virtual ~ComponentSystem() = default;
+
+  virtual void
+  RegisterCallbacks(Systems* systems) = 0;
 
   // for debug purposes
   const std::string name;
@@ -59,7 +64,10 @@ class ComponentSystemUpdateStore : public SystemStore<ComponentSystemUpdate>
 class Systems
 {
  public:
-  ComponentSystemStore       store;
+  // stores the system
+  ComponentSystemStore store;
+
+  // system references for various global callbacks
   ComponentSystemUpdateStore update;
 };
 
