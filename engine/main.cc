@@ -1,6 +1,8 @@
 #include <SDL2/SDL.h>
 #include <iostream>
 
+#include "core/log.h"
+
 #include "render/shader.h"
 #include "render/spriterender.h"
 
@@ -9,6 +11,8 @@
 
 #include "core/filesystemimagegenerator.h"
 #include "core/filesystemdefaultshaders.h"
+
+#include "core/componentsystem.h"
 
 #include "render/debuggl.h"
 #include "render/fonts.h"
@@ -21,12 +25,74 @@
 
 #include "gui/root.h"
 
+LOG_SPECIFY_DEFAULT_LOGGER("engine")
+
+struct CPosition2
+{
+  CPosition2()
+      : pos(0, 0)
+  {
+  }
+  vec2f pos;
+};
+
+struct CSprite
+{
+  std::shared_ptr<Texture2d> texture;
+};
+
+struct SystemSpriteDraw : public ComponentSystem,
+                          public ComponentSystemSpriteDraw
+{
+  SystemSpriteDraw()
+      : ComponentSystem("sprite draw")
+  {
+  }
+
+  void
+  Draw(EntReg* reg, SpriteRenderer* renderer) const override
+  {
+    reg->view<CPosition2, CSprite>().each(
+        [renderer](auto entity, auto pos, auto sprite) {
+          // LOG_INFO("Draw callback " << pos.pos);
+          renderer->DrawSprite(*sprite.texture, pos.pos);
+        });
+  }
+
+  void
+  RegisterCallbacks(Systems* systems) override
+  {
+    systems->spriteDraw.Add(this);
+  }
+};
+
+struct SystemMoveUp : public ComponentSystem, public ComponentSystemUpdate
+{
+  SystemMoveUp()
+      : ComponentSystem("move up")
+  {
+  }
+
+  void
+  Update(EntReg* reg, float dt) const override
+  {
+    reg->view<CPosition2>().each(
+        [dt](auto entity, auto& pos) { pos.pos.y += dt * 20; });
+  }
+
+  void
+  RegisterCallbacks(Systems* systems) override
+  {
+    systems->update.Add(this);
+  }
+};
+
 int
 main(int argc, char** argv)
 {
   if(SDL_Init(SDL_INIT_VIDEO | SDL_INIT_JOYSTICK | SDL_INIT_AUDIO) < 0)
   {
-    std::cerr << "Failed to init SDL: " << SDL_GetError() << "\n";
+    LOG_ERROR("Failed to init SDL: " << SDL_GetError());
     return -1;
   }
 
@@ -63,7 +129,7 @@ main(int argc, char** argv)
 
   if(window == NULL)
   {
-    std::cerr << "Failed to create window " << SDL_GetError() << "\n";
+    LOG_ERROR("Failed to create window " << SDL_GetError());
     return -1;
   }
 
@@ -96,6 +162,22 @@ main(int argc, char** argv)
   // Sprite player(cache.GetTexture("player.png"));
   // objects.Add(&player);
 
+  Systems systems;
+  World   world;
+  world.systems = &systems;
+  systems.AddAndRegister(std::make_shared<SystemSpriteDraw>());
+  systems.AddAndRegister(std::make_shared<SystemMoveUp>());
+
+  auto ent                              = world.reg.create();
+  world.reg.assign<CPosition2>(ent).pos = vec2f{400, 20};
+  world.reg.assign<CSprite>(ent).texture =
+      cache.GetTexture("playerShip1_blue.png");
+
+  const mat4f projection = init.GetOrthoProjection(width, height);
+  Use(&shader);
+  shader.SetUniform(shader.GetUniform("image"), 0);
+  shader.SetUniform(shader.GetUniform("projection"), projection);
+
   Viewport viewport{
       Recti::FromWidthHeight(width, height).SetBottomLeftToCopy(0, 0)};
   viewport.Activate();
@@ -118,6 +200,8 @@ main(int argc, char** argv)
     NOW            = SDL_GetPerformanceCounter();
     const float dt = (NOW - LAST) * 1.0f / SDL_GetPerformanceFrequency();
     SDL_Event   e;
+
+    world.Update(dt);
 
     while(SDL_PollEvent(&e) != 0)
     {
@@ -147,7 +231,7 @@ main(int argc, char** argv)
     }
 
     init.ClearScreen(Color::DarkslateGray);
-    // render
+    world.Draw(&renderer);
 
     SDL_GL_SwapWindow(window);
   }

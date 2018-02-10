@@ -11,6 +11,8 @@ include_directories(SYSTEM
                     ../external/imgui/
                     )
 
+include_directories(../external/entt/src)
+
 add_executable(engine WIN32 MACOSX_BUNDLE ${all_src})
 
 target_link_libraries(engine

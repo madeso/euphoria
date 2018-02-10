@@ -12,10 +12,39 @@ ComponentSystemStore::Add(std::shared_ptr<ComponentSystem> system)
 }
 
 void
-ComponentSystemUpdateStore::Update(float dt) const
+ComponentSystemUpdateStore::Update(EntReg* reg, float dt) const
 {
   for(const auto s : systems)
   {
-    s->Update(dt);
+    s->Update(reg, dt);
   }
+}
+
+void
+ComponentSystemSpriteDrawStore::Draw(
+    EntReg* reg, SpriteRenderer* renderer) const
+{
+  for(const auto s : systems)
+  {
+    s->Draw(reg, renderer);
+  }
+}
+
+void
+Systems::AddAndRegister(std::shared_ptr<ComponentSystem> system)
+{
+  store.Add(system);
+  system->RegisterCallbacks(this);
+}
+
+void
+World::Update(float dt)
+{
+  systems->update.Update(&reg, dt);
+}
+
+void
+World::Draw(SpriteRenderer* renderer)
+{
+  systems->spriteDraw.Draw(&reg, renderer);
 }

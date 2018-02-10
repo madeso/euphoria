@@ -5,7 +5,16 @@
 #include <string>
 #include <vector>
 
+#include <entt/entity/registry.hpp>
+
+typedef entt::DefaultRegistry EntReg;
+
 class Systems;
+
+// its horrible to reference in another module,
+// but for now we only need a pointer to pass around
+// todo: fix this by merging in more of the renderer into core?
+class SpriteRenderer;
 
 // only a base class container
 class ComponentSystem
@@ -37,7 +46,14 @@ class ComponentSystemUpdate
 {
  public:
   virtual void
-  Update(float dt) const = 0;
+  Update(EntReg* reg, float dt) const = 0;
+};
+
+class ComponentSystemSpriteDraw
+{
+ public:
+  virtual void
+  Draw(EntReg* reg, SpriteRenderer* renderer) const = 0;
 };
 
 template <typename TSystem>
@@ -58,17 +74,41 @@ class ComponentSystemUpdateStore : public SystemStore<ComponentSystemUpdate>
 {
  public:
   void
-  Update(float dt) const;
+  Update(EntReg* reg, float dt) const;
+};
+
+class ComponentSystemSpriteDrawStore
+    : public SystemStore<ComponentSystemSpriteDraw>
+{
+ public:
+  void
+  Draw(EntReg* reg, SpriteRenderer* renderer) const;
 };
 
 class Systems
 {
  public:
+  void
+  AddAndRegister(std::shared_ptr<ComponentSystem> system);
+
   // stores the system
   ComponentSystemStore store;
 
   // system references for various global callbacks
-  ComponentSystemUpdateStore update;
+  ComponentSystemUpdateStore     update;
+  ComponentSystemSpriteDrawStore spriteDraw;
+};
+
+struct World
+{
+  EntReg   reg;
+  Systems* systems;
+
+  void
+  Update(float dt);
+
+  void
+  Draw(SpriteRenderer* renderer);
 };
 
 #endif  // EUPHORIA_COMPONENTSYSTEM_H

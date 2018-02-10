@@ -49,6 +49,8 @@ set(src ${src} ${pbjson_src})
 source_group("pbjson" FILES ${pbjson_src})
 
 
+include_directories(../external/entt/src)
+
 
 include_directories(../external/font8x8/)
 
