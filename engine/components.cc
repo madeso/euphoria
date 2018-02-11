@@ -4,6 +4,7 @@
 
 #include "core/componentsystem.h"
 #include "core/vec2.h"
+#include "core/log.h"
 
 #include "render/texture.h"
 #include "render/spriterender.h"
@@ -11,6 +12,8 @@
 
 #include "world.pb.h"
 #include "core/proto.h"
+
+LOG_SPECIFY_DEFAULT_LOGGER("engine.components")
 
 struct CPosition2
 {
@@ -85,6 +88,10 @@ LoadWorld(
 {
   world::World json;
   const auto   err = LoadProtoJson(fs, &json, path);
+  if(!err.empty())
+  {
+    LOG_ERROR("Failed to load world components from " << path << ": " << err);
+  }
 
   for(const auto& obj : json.objects())
   {

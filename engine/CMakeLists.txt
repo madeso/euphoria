@@ -16,6 +16,7 @@ include_directories(../external/entt/src)
 include_directories(SYSTEM ${CMAKE_CURRENT_BINARY_DIR})
 PROTOBUF_GENERATE_CPP(PROTO_SRCS PROTO_HDRS
                       ../proto/world.proto
+                      ../proto/game.proto
                       )
 set(all_src ${all_src} ${PROTO_SRCS} ${PROTO_HDRS})
 

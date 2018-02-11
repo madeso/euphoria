@@ -1,0 +1,6 @@
+package game;
+
+message Game
+{
+  optional string title = 1;
+}

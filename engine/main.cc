@@ -11,6 +11,7 @@
 #include "core/componentsystem.h"
 #include "core/filesystemimagegenerator.h"
 #include "core/filesystemdefaultshaders.h"
+#include "core/proto.h"
 
 #include "render/debuggl.h"
 #include "render/fonts.h"
@@ -25,7 +26,21 @@
 
 #include "engine/components.h"
 
+#include "game.pb.h"
+
 LOG_SPECIFY_DEFAULT_LOGGER("engine")
+
+game::Game
+LoadGameData(FileSystem* fs)
+{
+  game::Game game;
+  const auto err = LoadProtoJson(fs, &game, "gamedata.json");
+  if(!err.empty())
+  {
+    LOG_ERROR("Failed to load gamedata.json: " << err);
+  }
+  return game;
+}
 
 int
 main(int argc, char** argv)
@@ -56,11 +71,21 @@ main(int argc, char** argv)
   SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
   SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, SDL_GL_CONTEXT_DEBUG_FLAG);
 
+  const auto current_directory = GetCurrentDirectory();
+  FileSystem file_system;
+  file_system.SetWrite(
+      std::make_shared<FileSystemWriteFolder>(current_directory));
+  FileSystemRootFolder::AddRoot(&file_system, current_directory);
+  FileSystemImageGenerator::AddRoot(&file_system, "img-plain");
+  FileSystemDefaultShaders::AddRoot(&file_system, "shaders");
+
+  game::Game gamedata = LoadGameData(&file_system);
+
   int width  = 800;
   int height = 600;
 
   SDL_Window* window = SDL_CreateWindow(
-      "Engine",
+      gamedata.title().c_str(),
       SDL_WINDOWPOS_UNDEFINED,
       SDL_WINDOWPOS_UNDEFINED,
       width,
@@ -83,21 +108,12 @@ main(int argc, char** argv)
 
   SetupOpenglDebug();
 
-  const auto current_directory = GetCurrentDirectory();
-  FileSystem file_system;
-  file_system.SetWrite(
-      std::make_shared<FileSystemWriteFolder>(current_directory));
-  FileSystemRootFolder::AddRoot(&file_system, current_directory);
-  FileSystemImageGenerator::AddRoot(&file_system, "img-plain");
-  FileSystemDefaultShaders::AddRoot(&file_system, "shaders");
-
   TextureCache cache{&file_system};
   Shader       shader;
   attributes2d::PrebindShader(&shader);
   shader.Load(&file_system, "shaders/sprite");
   SpriteRenderer renderer(&shader);
   FontCache      font_cache{&file_system, &cache};
-
 
   // Sprite player(cache.GetTexture("player.png"));
   // objects.Add(&player);
