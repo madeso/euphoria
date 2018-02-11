@@ -106,7 +106,7 @@ main(int argc, char** argv)
   World   world;
   world.systems = &systems;
   AddSystems(&systems);
-  LoadWorld(&world, "game.json", &cache);
+  LoadWorld(&file_system, &world, &cache, "game.json");
 
   const mat4f projection = init.GetOrthoProjection(width, height);
   Use(&shader);

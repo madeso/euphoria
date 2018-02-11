@@ -1,0 +1,8 @@
+{
+  "objects": [
+    {"components": [
+      {"position": {"x": 200, "y": 40}},
+      {"sprite": {"path": "playerShip1_blue.png"}}
+    ]}
+  ]
+}

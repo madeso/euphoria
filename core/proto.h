@@ -26,6 +26,7 @@ bool
 SaveProtoBinary(
     const google::protobuf::Message& message, const std::string& file_name);
 
+// return error message or empty
 std::string
 LoadProtoJson(
     FileSystem*                fs,

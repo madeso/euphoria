@@ -1,0 +1,29 @@
+package world;
+
+message vec2f
+{
+  optional float x = 1;
+  optional float y = 2;
+}
+
+message Sprite
+{
+  optional string path = 1;
+}
+
+message Component
+{
+  // only one is valid
+  optional vec2f position = 1;
+  optional Sprite sprite = 2;
+}
+
+message Object
+{
+  repeated Component components = 1;
+}
+
+message World
+{
+  repeated Object objects = 1;
+}

@@ -9,6 +9,9 @@
 #include "render/spriterender.h"
 #include "render/texturecache.h"
 
+#include "world.pb.h"
+#include "core/proto.h"
+
 struct CPosition2
 {
   CPosition2()
@@ -77,10 +80,27 @@ AddSystems(Systems* systems)
 }
 
 void
-LoadWorld(World* world, const std::string& path, TextureCache* cache)
+LoadWorld(
+    FileSystem* fs, World* world, TextureCache* cache, const std::string& path)
 {
-  auto ent                               = world->reg.create();
-  world->reg.assign<CPosition2>(ent).pos = vec2f{400, 20};
-  world->reg.assign<CSprite>(ent).texture =
-      cache->GetTexture("playerShip1_blue.png");
+  world::World json;
+  const auto   err = LoadProtoJson(fs, &json, path);
+
+  for(const auto& obj : json.objects())
+  {
+    auto ent = world->reg.create();
+    for(const auto& comp : obj.components())
+    {
+      if(comp.has_position())
+      {
+        const auto& p                          = comp.position();
+        world->reg.assign<CPosition2>(ent).pos = vec2f{p.x(), p.y()};
+      }
+      else if(comp.has_sprite())
+      {
+        const auto& s                           = comp.sprite();
+        world->reg.assign<CSprite>(ent).texture = cache->GetTexture(s.path());
+      }
+    }
+  }
 }

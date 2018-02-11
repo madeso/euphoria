@@ -13,6 +13,12 @@ include_directories(SYSTEM
 
 include_directories(../external/entt/src)
 
+include_directories(SYSTEM ${CMAKE_CURRENT_BINARY_DIR})
+PROTOBUF_GENERATE_CPP(PROTO_SRCS PROTO_HDRS
+                      ../proto/world.proto
+                      )
+set(all_src ${all_src} ${PROTO_SRCS} ${PROTO_HDRS})
+
 add_executable(engine WIN32 MACOSX_BUNDLE ${all_src})
 
 target_link_libraries(engine
@@ -20,6 +26,7 @@ target_link_libraries(engine
                       render
                       window
                       ${SDL2_LIBRARY}
+                      ${PROTOBUF_LIBRARIES}
                       )
 
 MESSAGE(STATUS "SDL2 libraries are ${SDL2_LIBRARY}")
