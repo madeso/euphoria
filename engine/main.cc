@@ -8,11 +8,9 @@
 
 #include "core/interpolate.h"
 #include "core/os.h"
-
+#include "core/componentsystem.h"
 #include "core/filesystemimagegenerator.h"
 #include "core/filesystemdefaultshaders.h"
-
-#include "core/componentsystem.h"
 
 #include "render/debuggl.h"
 #include "render/fonts.h"
@@ -25,67 +23,9 @@
 
 #include "gui/root.h"
 
+#include "engine/components.h"
+
 LOG_SPECIFY_DEFAULT_LOGGER("engine")
-
-struct CPosition2
-{
-  CPosition2()
-      : pos(0, 0)
-  {
-  }
-  vec2f pos;
-};
-
-struct CSprite
-{
-  std::shared_ptr<Texture2d> texture;
-};
-
-struct SystemSpriteDraw : public ComponentSystem,
-                          public ComponentSystemSpriteDraw
-{
-  SystemSpriteDraw()
-      : ComponentSystem("sprite draw")
-  {
-  }
-
-  void
-  Draw(EntReg* reg, SpriteRenderer* renderer) const override
-  {
-    reg->view<CPosition2, CSprite>().each(
-        [renderer](auto entity, auto pos, auto sprite) {
-          // LOG_INFO("Draw callback " << pos.pos);
-          renderer->DrawSprite(*sprite.texture, pos.pos);
-        });
-  }
-
-  void
-  RegisterCallbacks(Systems* systems) override
-  {
-    systems->spriteDraw.Add(this);
-  }
-};
-
-struct SystemMoveUp : public ComponentSystem, public ComponentSystemUpdate
-{
-  SystemMoveUp()
-      : ComponentSystem("move up")
-  {
-  }
-
-  void
-  Update(EntReg* reg, float dt) const override
-  {
-    reg->view<CPosition2>().each(
-        [dt](auto entity, auto& pos) { pos.pos.y += dt * 20; });
-  }
-
-  void
-  RegisterCallbacks(Systems* systems) override
-  {
-    systems->update.Add(this);
-  }
-};
 
 int
 main(int argc, char** argv)
@@ -165,13 +105,8 @@ main(int argc, char** argv)
   Systems systems;
   World   world;
   world.systems = &systems;
-  systems.AddAndRegister(std::make_shared<SystemSpriteDraw>());
-  systems.AddAndRegister(std::make_shared<SystemMoveUp>());
-
-  auto ent                              = world.reg.create();
-  world.reg.assign<CPosition2>(ent).pos = vec2f{400, 20};
-  world.reg.assign<CSprite>(ent).texture =
-      cache.GetTexture("playerShip1_blue.png");
+  AddSystems(&systems);
+  LoadWorld(&world, "game.json", &cache);
 
   const mat4f projection = init.GetOrthoProjection(width, height);
   Use(&shader);
