@@ -39,3 +39,6 @@
 # clion build folder
 cmake-build-debug
 build
+
+# ignored due to shitty internet connection, add submodule to git@github.com:svaarala/duktape.git when internet is back
+external/duktape
