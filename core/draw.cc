@@ -2,6 +2,7 @@
 
 #include "core/numeric.h"
 #include "core/assert.h"
+#include "core/range.h"
 
 #include <font8x8/font8x8_basic.h>
 
@@ -76,17 +77,20 @@ Draw::Circle(
       bool  blend        = false;
       float blend_factor = 1.0f;
 
-      if(IsWithinInclusive(inner - softness, sq, inner))
+      Range a{inner - softness, inner};
+      Range b{radius, radius + softness};
+
+      if(a.IsWithin(sq))
       {
-        blend_factor = To01(inner - softness, sq, inner);
+        blend_factor = a.To01(sq);
         blend        = true;
       }
-      else if(IsWithinInclusive(radius, sq, radius + softness))
+      else if(b.IsWithin(sq))
       {
-        blend_factor = 1.0f - To01(radius, sq, radius + softness);
+        blend_factor = 1.0f - b.To01(sq);
         blend        = true;
       }
-      else if(IsWithinInclusive(inner, sq, radius))
+      else if(Range{inner, radius}.IsWithin(sq))
       {
         // full color
       }

@@ -2,6 +2,7 @@
 
 #include "core/numeric.h"
 #include "core/assert.h"
+#include "core/range.h"
 
 #include <cmath>
 
@@ -52,7 +53,7 @@ Angle::Angle(float rad)
 void
 Angle::Wrap()
 {
-  mRad = ::Wrap(0.0f, mRad, Pi() * 2.0f);
+  mRad = Range{0.0f, Pi() * 2.0f}.Wrap(mRad);
 }
 
 void

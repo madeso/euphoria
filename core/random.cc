@@ -1,6 +1,7 @@
 #include "core/random.h"
 
 #include "core/numeric.h"
+#include "core/range.h"
 
 #include <limits>
 #include <ctime>
@@ -74,15 +75,9 @@ Random::NextFloat01()
 }
 
 float
-Random::NextRange(float min, float max)
+Random::NextRange(const Range& range)
 {
-  return From01(min, NextFloat01(), max);
-}
-
-float
-Random::NextRange(float max)
-{
-  return NextRange(0.0f, max);
+  return range.From01(NextFloat01());
 }
 
 int
@@ -143,8 +138,8 @@ Random::NextSign()
 vec2f
 Random::NextPoint(const Rectf& rect)
 {
-  const float x = NextRange(rect.GetWidth());
-  const float y = NextRange(rect.GetHeight());
+  const float x = NextRange(Range{rect.GetWidth()});
+  const float y = NextRange(Range{rect.GetHeight()});
   return rect.GetPositionFromBottomLeft(vec2f{x, y});
 }
 
@@ -174,7 +169,7 @@ quatf
 Random::NextQuatf()
 {
   const auto axis  = NextUnit3();
-  const auto angle = Angle::FromDegrees(Random::NextRange(360.0f));
+  const auto angle = Angle::FromDegrees(Random::NextRange(Range{0, 360.0f}));
 
   return quatf::FromAxisAngle(AxisAngle::RightHandAround(axis, angle));
 }
@@ -182,9 +177,9 @@ Random::NextQuatf()
 vec3f
 Random::NextVec3(const Aabb& extents)
 {
-  const auto x = NextRange(extents.GetMin().x, extents.GetMax().x);
-  const auto y = NextRange(extents.GetMin().y, extents.GetMax().y);
-  const auto z = NextRange(extents.GetMin().z, extents.GetMax().z);
+  const auto x = NextRange(Range{extents.GetMin().x, extents.GetMax().x});
+  const auto y = NextRange(Range{extents.GetMin().y, extents.GetMax().y});
+  const auto z = NextRange(Range{extents.GetMin().z, extents.GetMax().z});
 
   return vec3f{x, y, z};
 }

@@ -14,6 +14,8 @@
 #include "core/rect.h"
 #include "core/aabb.h"
 
+class Range;
+
 /** WEL512 Random Number Generator.
  */
 class Random
@@ -29,9 +31,7 @@ class Random
   NextFloat01();
 
   float
-  NextRange(float min, float max);
-  float
-  NextRange(float max);
+  NextRange(const Range& range);
 
   int
   NextRange(int min, int max);

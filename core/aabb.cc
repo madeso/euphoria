@@ -2,6 +2,7 @@
 
 #include "core/assert.h"
 #include "core/numeric.h"
+#include "core/range.h"
 
 Aabb::Aabb(const vec3f& amin, const vec3f& amax)
     : min(amin)
@@ -28,7 +29,7 @@ vec3f
 Aabb::Wrap(const vec3f& vec) const
 {
   ASSERT(IsValid());
-#define COMP(C) const auto C = ::Wrap(min.C, vec.C, max.C)
+#define COMP(C) const auto C = Range{min.C, max.C}.Wrap(vec.C)
   COMP(x);
   COMP(y);
   COMP(z);

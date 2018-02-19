@@ -2,6 +2,7 @@
 
 #include "core/assert.h"
 #include "core/angle.h"
+#include "core/range.h"
 
 #include <cmath>
 
@@ -16,7 +17,7 @@ bool
 IsZero(float r)
 {
   const float epsilon = 0.0001f;
-  return IsWithin(-epsilon, r, epsilon);
+  return Range(-epsilon, epsilon).IsWithin(r);
 }
 
 float
@@ -159,174 +160,12 @@ Max(int lhs, int rhs)
   return rhs;
 }
 
-
-float
-To01(float lower_bound, float value, float upper_bound)
-{
-  return (value - lower_bound) / (upper_bound - lower_bound);
-}
-
-float
-From01(float lower_bound, float value, float upper_bound)
-{
-  return value * (upper_bound - lower_bound) + lower_bound;
-}
-
-float
-Remap(
-    float old_lower_bound,
-    float old_upper_bound,
-    float value,
-    float new_lower_bound,
-    float new_upper_bound)
-{
-  return From01(
-      new_lower_bound,
-      To01(old_lower_bound, value, old_upper_bound),
-      new_upper_bound);
-}
-
-float
-Get360Angular(float min, float value, float max)
-{
-  const float half_difference = (max - min) / 2.0f;
-  return min + half_difference -
-         half_difference * Cos(Angle::FromDegrees(value * 360.0f));
-}
-
-float
-KeepWithin(float min, float v, float max)
-{
-  if(v > max)
-  {
-    return max;
-  }
-  if(v < min)
-  {
-    return min;
-  }
-
-  return v;
-}
-
-const bool
-IsWithin(float min, float c, float max)
-{
-  return c > min && c < max;
-}
-
-const bool
-IsWithinInclusive(float min, float c, float max)
-{
-  return c >= min && c <= max;
-}
-
-const bool
+bool
 IsWithinInclusivei(int min, int c, int max)
 {
   return c >= min && c <= max;
 }
 
-float
-Wrap(float min, float v, float max)
-{
-  const float diff = max - min;
-  ASSERT(diff > 0);
-  float value = v - min;
-  while(value < 0.0f)
-  {
-    value += diff;
-  }
-  while(value > diff)
-  {
-    value -= diff;
-  }
-  return min + value;
-}
-
-float
-PingPong01(float v)
-{
-  int iter = 0;
-
-  while(!IsWithinInclusive(0, v, 1) && iter < 100)
-  {
-    iter += 1;
-    if(v > 1)
-    {
-      v = 1 - (v - 1);
-    }
-    if(v < 0)
-    {
-      v = -v;
-    }
-  }
-
-  return v;
-}
-
-float
-PingPong(float min, float v, float max)
-{
-  return From01(min, PingPong01(To01(min, v, max)), max);
-}
-
-int
-Wrapi(int min, int v, int max)
-{
-  const int diff  = max - min + 1;
-  int       value = v;
-  while(value < min)
-  {
-    value += diff;
-  }
-  while(value > max)
-  {
-    value -= diff;
-  }
-  return value;
-}
-
-int
-IncrementAndWrap(
-    float min, float* current, float change, float max)
-{
-  const float diff  = max - min;
-  float       value = *current + change;
-  int         wraps = 0;
-  while(value < min)
-  {
-    value += diff;
-    --wraps;
-  }
-  while(value > max)
-  {
-    value -= diff;
-    ++wraps;
-  }
-  *current = value;
-  return wraps;
-}
-
-int
-IncrementAndWrapi(int min, int* current, int change, int max)
-{
-  const int diff  = max - min + 1;
-  int       value = *current + change;
-  int       wraps = 0;
-  while(value < min)
-  {
-    value += diff;
-    --wraps;
-  }
-  while(value > max)
-  {
-    value -= diff;
-    ++wraps;
-  }
-  *current = value;
-  return wraps;
-}
 
 namespace  // internal
 {
