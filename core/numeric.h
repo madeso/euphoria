@@ -25,10 +25,10 @@ Ceili(float v);
 @see Abs()
 */
 const int
-Sign(const float r);
+Sign(float r);
 
-const float
-Lerp(const float f, float scale, const float t);
+float
+Lerp(float f, float scale, float t);
 
 /** Performs a single interpolating step to transform a old value to a new
 value.
@@ -44,34 +44,34 @@ Example:
 
 @returns The smoothed result.
 */
-const float
+float
 Curve(
-    const float new_value, const float old_value, const float smoothing_value);
+    float new_value, float old_value, float smoothing_value);
 
 /** Calculates the square of the argument.
 @see Sqrt()
 */
-const float
-Square(const float r);
+float
+Square(float r);
 
 /** Calculates the square-root of the argument.
 @see Square()
 */
-const float
-Sqrt(const float r);
+float
+Sqrt(float r);
 
 /** Calculates the absolute value of the argument.
 @see Sign()
 */
-const float
-Abs(const float r);
+float
+Abs(float r);
 
 /** Calculates the minimum of two values
 @see Max()
 @see KeepWithin()
 */
-const float
-Min(const float lhs, const float rhs);
+float
+Min(float lhs, float rhs);
 const int
 Min(const int lhs, const int rhs);
 
@@ -79,8 +79,8 @@ Min(const int lhs, const int rhs);
 @see Min()
 @see KeepWithin()
 */
-const float
-Max(const float lhs, const float rhs);
+float
+Max(float lhs, float rhs);
 const int
 Max(const int lhs, const int rhs);
 
@@ -102,8 +102,8 @@ will be below 0.
 @see Remap()
 @see KeepWithin()
 */
-const float
-To01(const float lower_bound, const float value, const float upper_bound);
+float
+To01(float lower_bound, float value, float upper_bound);
 
 /** Transforms a value from the 0-1 range to another range.
 This function does not limmit he value, so if it's below 0 the result will be
@@ -116,8 +116,8 @@ below the lower bound.
 @see KeepWithin()
 @see Remap()
 */
-const float
-From01(const float lower_bound, const float value, const float upper_bound);
+float
+From01(float lower_bound, float value, float upper_bound);
 
 /** Remaps/tranforms from one range to another.
 This function does not limmit it's input, so if the value is outside the
@@ -132,13 +132,13 @@ original range, it will be outside the new range.
 @see To01()
 @see KeepWithin()
 */
-const float
+float
 Remap(
-    const float old_lower_bound,
-    const float old_upper_bound,
-    const float value,
-    const float new_lower_bound,
-    const float new_upper_bound);
+    float old_lower_bound,
+    float old_upper_bound,
+    float value,
+    float new_lower_bound,
+    float new_upper_bound);
 
 /** Calculate smooth value suitable for infinite looping.
 @param min is the minimum output value
@@ -148,8 +148,8 @@ values inbetween follow a sinus/cosinus curve doing a full 360.
 @param max is the maximum output value
 @returns a value that lies between min and max
 */
-const float
-Get360Angular(const float min, const float value, const float max);
+float
+Get360Angular(float min, float value, float max);
 
 /** Keeps a value within a minimum and a maximum.
 Limmits it to the range if it get's outside.
@@ -162,20 +162,20 @@ Limmits it to the range if it get's outside.
 @see Wrap()
 @see IsWithin()
 */
-const float
-KeepWithin(const float min, const float v, const float max);
+float
+KeepWithin(float min, float v, float max);
 
 /** Checks wheter a value is within a range.
 @see KeepWithin()
 */
 const bool
-IsWithin(const float min, const float c, const float max);
+IsWithin(float min, float c, float max);
 
 /** Checks wheter a value is within a range, beeing at the border is ok.
 @see KeepWithin()
 */
 const bool
-IsWithinInclusive(const float min, const float c, const float max);
+IsWithinInclusive(float min, float c, float max);
 
 const bool
 IsWithinInclusivei(const int min, const int c, const int max);
@@ -190,8 +190,8 @@ Wraps it to the others side if it gets outside.
 @see Wrapi()
 @see IncrementAndWrap()
 */
-const float
-Wrap(const float min, const float v, const float max);
+float
+Wrap(float min, float v, float max);
 
 float
 PingPong01(float v);
@@ -217,8 +217,8 @@ closest half integer, at 2 even integers etc...
 @param num the number to round
 @param gran the granularity
 */
-const float
-Round(const float num, const float gran);
+float
+Round(float num, float gran);
 
 /** Increment and wrap a value.
 @returns return number of wraps (with sign)
@@ -226,7 +226,7 @@ Round(const float num, const float gran);
 */
 const int
 IncrementAndWrap(
-    const float min, float* current, const float change, const float max);
+    float min, float* current, float change, float max);
 
 /** Increment and wrap a value.
 @returns return number of wraps (with sign)
@@ -243,13 +243,13 @@ IncrementAndWrapi(const int min, int* current, const int change, const int max);
 /** The matematical constant pi.
 @see HalfPi()
 */
-const float
+float
 Pi();
 
 /** The matematical constant pi divided by 2.
 @see Pi()
 */
-const float
+float
 HalfPi();
 
 /** The boolean value true.

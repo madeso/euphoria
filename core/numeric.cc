@@ -55,7 +55,7 @@ Ceili(float v)
 }
 
 const int
-Sign(const float r)
+Sign(float r)
 {
   if(r >= 0.0f)
   {
@@ -65,14 +65,14 @@ Sign(const float r)
   return -1;
 }
 
-const float
-Lerp(const float f, float scale, const float t)
+float
+Lerp(float f, float scale, float t)
 {
   return f + (t - f) * scale;
 }
 
-const float
-Curve(const float new_value, const float old_value, const float smoothing_value)
+float
+Curve(float new_value, float old_value, float smoothing_value)
 {
   const int   sign = Sign(old_value - new_value);
   const float slip = (old_value - new_value) / smoothing_value;
@@ -86,21 +86,21 @@ Curve(const float new_value, const float old_value, const float smoothing_value)
   return val;
 }
 
-const float
-Square(const float r)
+float
+Square(float r)
 {
   return r * r;
 }
 
-const float
-Sqrt(const float r)
+float
+Sqrt(float r)
 {
   ASSERT(r >= 0 && "input must be bigger than 0");
   return std::sqrt(r);
 }
 
-const float
-Abs(const float r)
+float
+Abs(float r)
 {
   if(r < 0.0f)
   {
@@ -111,8 +111,8 @@ Abs(const float r)
   return r;
 }
 
-const float
-Min(const float lhs, const float rhs)
+float
+Min(float lhs, float rhs)
 {
   if(lhs < rhs)
   {
@@ -135,8 +135,8 @@ Min(const int lhs, const int rhs)
   return rhs;
 }
 
-const float
-Max(const float lhs, const float rhs)
+float
+Max(float lhs, float rhs)
 {
   if(lhs > rhs)
   {
@@ -160,25 +160,25 @@ Max(const int lhs, const int rhs)
 }
 
 
-const float
-To01(const float lower_bound, const float value, const float upper_bound)
+float
+To01(float lower_bound, float value, float upper_bound)
 {
   return (value - lower_bound) / (upper_bound - lower_bound);
 }
 
-const float
-From01(const float lower_bound, const float value, const float upper_bound)
+float
+From01(float lower_bound, float value, float upper_bound)
 {
   return value * (upper_bound - lower_bound) + lower_bound;
 }
 
-const float
+float
 Remap(
-    const float old_lower_bound,
-    const float old_upper_bound,
-    const float value,
-    const float new_lower_bound,
-    const float new_upper_bound)
+    float old_lower_bound,
+    float old_upper_bound,
+    float value,
+    float new_lower_bound,
+    float new_upper_bound)
 {
   return From01(
       new_lower_bound,
@@ -186,16 +186,16 @@ Remap(
       new_upper_bound);
 }
 
-const float
-Get360Angular(const float min, const float value, const float max)
+float
+Get360Angular(float min, float value, float max)
 {
   const float half_difference = (max - min) / 2.0f;
   return min + half_difference -
          half_difference * Cos(Angle::FromDegrees(value * 360.0f));
 }
 
-const float
-KeepWithin(const float min, const float v, const float max)
+float
+KeepWithin(float min, float v, float max)
 {
   if(v > max)
   {
@@ -210,13 +210,13 @@ KeepWithin(const float min, const float v, const float max)
 }
 
 const bool
-IsWithin(const float min, const float c, const float max)
+IsWithin(float min, float c, float max)
 {
   return c > min && c < max;
 }
 
 const bool
-IsWithinInclusive(const float min, const float c, const float max)
+IsWithinInclusive(float min, float c, float max)
 {
   return c >= min && c <= max;
 }
@@ -227,8 +227,8 @@ IsWithinInclusivei(const int min, const int c, const int max)
   return c >= min && c <= max;
 }
 
-const float
-Wrap(const float min, const float v, const float max)
+float
+Wrap(float min, float v, float max)
 {
   const float diff = max - min;
   ASSERT(diff > 0);
@@ -289,7 +289,7 @@ Wrapi(const int min, const int v, const int max)
 
 const int
 IncrementAndWrap(
-    const float min, float* current, const float change, const float max)
+    float min, float* current, float change, float max)
 {
   const float diff  = max - min;
   float       value = *current + change;
@@ -343,8 +343,8 @@ namespace  // internal
   }
 }  // namespace
 
-const float
-Round(const float num, const float gran)
+float
+Round(float num, float gran)
 {
   const float lower = LowerBound(num, gran);
   const float upper = UpperBound(num, gran);
@@ -361,13 +361,13 @@ Round(const float num, const float gran)
   return lower;
 }
 
-const float
+float
 Pi()
 {
   return 3.1415926535897932384626433832795f;
 }
 
-const float
+float
 HalfPi()
 {
   return Pi() / 2.0f;
