@@ -10,6 +10,7 @@
 #include "core/filesystemimagegenerator.h"
 #include "core/path.h"
 #include "core/os.h"
+#include "core/range.h"
 #include "core/camera.h"
 
 #include <render/init.h>
@@ -126,7 +127,7 @@ main(int argc, char** argv)
     const Rgb  color = random.NextDawnbringerPalette();
     const auto pos   = random.NextPoint(wi);
     const auto outer = random.NextRange(55.0f, 100.0f);
-    const auto inner = random.NextRange(50.0f);
+    const auto inner = random.NextRange(Range{50.0f});
     drawer.Circle(color, pos, outer, 10, inner);
   }
   drawer.LineAntialiased(Color::Black, wi.TopLeft(), wi.BottomRight())
@@ -278,7 +279,7 @@ main(int argc, char** argv)
           10);
     }
 
-    light_position = Wrap(0, light_position + delta * 0.1f, 1);
+    light_position = Range{0, 1}.Wrap(light_position + delta * 0.1f);
     const auto light_pos =
         PolarCoord{light_position, light_position * 2}.ToCartesian() * 2.0f;
     light_actor->SetPosition(light_pos);
