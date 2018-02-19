@@ -4,6 +4,8 @@
 
 #include "duktape.h"
 
+#include "engine/dukprint.h"
+
 std::string
 to_string(duk_context* ctx, int index)
 {
@@ -134,6 +136,8 @@ to_string(duk_context* ctx, int index)
 Duk::Duk()
 {
   ctx = duk_create_heap_default();
+
+  AddPrint(this);
 }
 
 bool

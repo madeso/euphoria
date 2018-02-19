@@ -15,7 +15,7 @@ class Duk
 
   ~Duk();
 
- private:
+
   duk_context* ctx;
 };
 

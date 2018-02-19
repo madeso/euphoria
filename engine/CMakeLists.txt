@@ -13,6 +13,7 @@ include_directories(SYSTEM
 
 include_directories(../external/entt/src)
 
+include_directories(SYSTEM ../external/dukglue/include)
 # release date 2017-09-23 version duktape-2.2.0.tar.xz
 include_directories(SYSTEM ../external/duktape/src)
 set(all_src ${all_src} ../external/duktape/src/duktape.c)
