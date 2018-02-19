@@ -24,7 +24,7 @@ Ceili(float v);
 @returns 1 if r is greater than 0, -1 if not.
 @see Abs()
 */
-const int
+int
 Sign(float r);
 
 float
@@ -45,8 +45,7 @@ Example:
 @returns The smoothed result.
 */
 float
-Curve(
-    float new_value, float old_value, float smoothing_value);
+Curve(float new_value, float old_value, float smoothing_value);
 
 /** Calculates the square of the argument.
 @see Sqrt()
@@ -72,8 +71,8 @@ Abs(float r);
 */
 float
 Min(float lhs, float rhs);
-const int
-Min(const int lhs, const int rhs);
+int
+Min(int lhs, int rhs);
 
 /** Calculates the maximum of two values.
 @see Min()
@@ -81,8 +80,8 @@ Min(const int lhs, const int rhs);
 */
 float
 Max(float lhs, float rhs);
-const int
-Max(const int lhs, const int rhs);
+int
+Max(int lhs, int rhs);
 
 template <typename T>
 void
@@ -178,7 +177,7 @@ const bool
 IsWithinInclusive(float min, float c, float max);
 
 const bool
-IsWithinInclusivei(const int min, const int c, const int max);
+IsWithinInclusivei(int min, int c, int max);
 
 /** Keeps a value within a range.
 Wraps it to the others side if it gets outside.
@@ -208,8 +207,8 @@ Wraps it to the others side if it gets outside.
 @see Wrap()
 @see IncrementAndWrapi()
 */
-const int
-Wrapi(const int min, const int v, const int max);
+int
+Wrapi(int min, int v, int max);
 
 /** rounds a value to the nearest nice value.
 If the granularity is 1 the function rounds to the closest integer, at .5 the
@@ -224,16 +223,15 @@ Round(float num, float gran);
 @returns return number of wraps (with sign)
 @see Wrap()
 */
-const int
-IncrementAndWrap(
-    float min, float* current, float change, float max);
+int
+IncrementAndWrap(float min, float* current, float change, float max);
 
 /** Increment and wrap a value.
 @returns return number of wraps (with sign)
 @see Wrapi()
 */
-const int
-IncrementAndWrapi(const int min, int* current, const int change, const int max);
+int
+IncrementAndWrapi(int min, int* current, int change, int max);
 
 /// @}
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

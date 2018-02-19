@@ -54,7 +54,7 @@ Ceili(float v)
   return std::ceil(v);
 }
 
-const int
+int
 Sign(float r)
 {
   if(r >= 0.0f)
@@ -123,8 +123,8 @@ Min(float lhs, float rhs)
   return rhs;
 }
 
-const int
-Min(const int lhs, const int rhs)
+int
+Min(int lhs, int rhs)
 {
   if(lhs < rhs)
   {
@@ -147,8 +147,8 @@ Max(float lhs, float rhs)
   return rhs;
 }
 
-const int
-Max(const int lhs, const int rhs)
+int
+Max(int lhs, int rhs)
 {
   if(lhs > rhs)
   {
@@ -222,7 +222,7 @@ IsWithinInclusive(float min, float c, float max)
 }
 
 const bool
-IsWithinInclusivei(const int min, const int c, const int max)
+IsWithinInclusivei(int min, int c, int max)
 {
   return c >= min && c <= max;
 }
@@ -271,8 +271,8 @@ PingPong(float min, float v, float max)
   return From01(min, PingPong01(To01(min, v, max)), max);
 }
 
-const int
-Wrapi(const int min, const int v, const int max)
+int
+Wrapi(int min, int v, int max)
 {
   const int diff  = max - min + 1;
   int       value = v;
@@ -287,7 +287,7 @@ Wrapi(const int min, const int v, const int max)
   return value;
 }
 
-const int
+int
 IncrementAndWrap(
     float min, float* current, float change, float max)
 {
@@ -308,8 +308,8 @@ IncrementAndWrap(
   return wraps;
 }
 
-const int
-IncrementAndWrapi(const int min, int* current, const int change, const int max)
+int
+IncrementAndWrapi(int min, int* current, int change, int max)
 {
   const int diff  = max - min + 1;
   int       value = *current + change;
