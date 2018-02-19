@@ -76,7 +76,7 @@ struct SystemMoveUp : public ComponentSystem, public ComponentSystemUpdate
 };
 
 void
-AddSystems(Systems* systems)
+AddSystems(Systems* systems, Duk* duk)
 {
   systems->AddAndRegister(std::make_shared<SystemSpriteDraw>());
   systems->AddAndRegister(std::make_shared<SystemMoveUp>());

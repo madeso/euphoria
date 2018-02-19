@@ -7,9 +7,10 @@ class Systems;
 class World;
 class TextureCache;
 class FileSystem;
+class Duk;
 
 void
-AddSystems(Systems* systems);
+AddSystems(Systems* systems, Duk* duk);
 
 void
 LoadWorld(

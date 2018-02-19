@@ -25,6 +25,7 @@
 #include "gui/root.h"
 
 #include "engine/components.h"
+#include "engine/duk.h"
 
 #include "game.pb.h"
 
@@ -40,6 +41,24 @@ LoadGameData(FileSystem* fs)
     LOG_ERROR("Failed to load gamedata.json: " << err);
   }
   return game;
+}
+
+void
+RunMainScriptFile(Duk* duk, FileSystem* fs, const std::string& path)
+{
+  std::string content;
+  const bool  loaded = fs->ReadFileToString(path, &content);
+  if(!loaded)
+  {
+    LOG_ERROR("Unable to open " << path << " for running");
+    return;
+  }
+  std::string error;
+  const bool  eval = duk->eval_string(content, &error, nullptr);
+  if(!eval)
+  {
+    LOG_ERROR("Failed to run " << path << ": " << error);
+  }
 }
 
 int
@@ -118,10 +137,13 @@ main(int argc, char** argv)
   // Sprite player(cache.GetTexture("player.png"));
   // objects.Add(&player);
 
+  Duk duk;
+  RunMainScriptFile(&duk, &file_system, "main.js");
+
   Systems systems;
   World   world;
   world.systems = &systems;
-  AddSystems(&systems);
+  AddSystems(&systems, &duk);
   LoadWorld(&file_system, &world, &cache, "game.json");
 
   const mat4f projection = init.GetOrthoProjection(width, height);
