@@ -7,9 +7,9 @@ template <typename T>
 class UnitRay3
 {
  public:
-  typedef vec3<T>       Vec;
+  typedef vec3<T>                Vec;
   typedef typename vec3<T>::Unit Unit;
-  typedef UnitRay3<T>   Self;
+  typedef UnitRay3<T>            Self;
 
   UnitRay3(const Vec& from, const Unit& dir)
       : from(from)

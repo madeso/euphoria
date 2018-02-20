@@ -137,7 +137,7 @@ FastLevenshteinDistance(const std::string& sRow, const std::string& sCol)
 
     for(unsigned long RowIdx = 1; RowIdx <= RowLen; RowIdx++)
     {
-      const int cost = sRow[RowIdx-1] == sCol[ColIdx-1] ? 0 : 1;
+      const int cost = sRow[RowIdx - 1] == sCol[ColIdx - 1] ? 0 : 1;
 
       const unsigned long m_min = v0[RowIdx] + 1;
       const unsigned long b     = v1[RowIdx - 1] + 1;

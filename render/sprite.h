@@ -40,14 +40,14 @@ class Sprite
  private:
   std::shared_ptr<Texture2d> texture_;
   vec2f                      position_;
-public:
 
-  Angle                      rotation;
+ public:
+  Angle rotation;
 
-private:
-  vec2f                      scale_;
-  Rgb                        color_;
-  float                      alpha_;
+ private:
+  vec2f scale_;
+  Rgb   color_;
+  float alpha_;
 };
 
 class Layer

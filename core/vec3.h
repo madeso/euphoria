@@ -16,11 +16,11 @@ template <typename T>
 class vec3
 {
  public:
-  typedef vec3<T> Vec;
+  typedef vec3<T>  Vec;
   typedef unit3<T> Unit;
-  T               x;
-  T               y;
-  T               z;
+  T                x;
+  T                y;
+  T                z;
 
   explicit vec3(const T& a)
       : x(a)
