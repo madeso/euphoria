@@ -138,12 +138,12 @@ main(int argc, char** argv)
   // objects.Add(&player);
 
   Duk duk;
-  RunMainScriptFile(&duk, &file_system, "main.js");
 
   Systems systems;
   World   world;
   world.systems = &systems;
   AddSystems(&systems, &duk);
+  RunMainScriptFile(&duk, &file_system, "main.js");
   LoadWorld(&file_system, &world, &cache, "game.json");
 
   const mat4f projection = init.GetOrthoProjection(width, height);

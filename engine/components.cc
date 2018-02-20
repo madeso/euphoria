@@ -1,6 +1,7 @@
 #include "engine/components.h"
 
 #include <memory>
+#include "dukglue/dukglue.h"
 
 #include "core/componentsystem.h"
 #include "core/vec2.h"
@@ -12,6 +13,7 @@
 
 #include "world.pb.h"
 #include "core/proto.h"
+#include "duk.h"
 
 LOG_SPECIFY_DEFAULT_LOGGER("engine.components")
 
@@ -76,8 +78,16 @@ struct SystemMoveUp : public ComponentSystem, public ComponentSystemUpdate
 };
 
 void
+TestFunctionCallback(DukValue func)
+{
+  std::string data = "dog";
+  dukglue_pcall<void>(func.context(), func, data);
+}
+
+void
 AddSystems(Systems* systems, Duk* duk)
 {
+  dukglue_register_function(duk->ctx, &TestFunctionCallback, "dog");
   systems->AddAndRegister(std::make_shared<SystemSpriteDraw>());
   systems->AddAndRegister(std::make_shared<SystemMoveUp>());
 }
