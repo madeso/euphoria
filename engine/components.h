@@ -1,19 +1,18 @@
 #ifndef EUPHORIA_COMPONENTS_H
 #define EUPHORIA_COMPONENTS_H
 
-#include <string>
+#include "core/vec2.h"
+#include "render/texturecache.h"
 
-class Systems;
-class World;
-class TextureCache;
-class FileSystem;
-class Duk;
+struct CPosition2
+{
+  CPosition2();
+  vec2f pos;
+};
 
-void
-AddSystems(Systems* systems, Duk* duk);
-
-void
-LoadWorld(
-    FileSystem* fs, World* world, TextureCache* cache, const std::string& path);
+struct CSprite
+{
+  std::shared_ptr<Texture2d> texture;
+};
 
 #endif  // EUPHORIA_COMPONENTS_H

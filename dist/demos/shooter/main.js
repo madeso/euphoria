@@ -1,2 +1,10 @@
 print('Hello world');
-dog(function(x){print(x + ' says hi');})
+
+time = 0;
+Systems.AddUpdate("bark", function(dt) {
+  time += dt;
+  if(time>1){
+    time -= 1;
+    print('Bark!');
+  }
+});

@@ -37,6 +37,10 @@ Systems::AddAndRegister(std::shared_ptr<ComponentSystem> system)
   system->RegisterCallbacks(this);
 }
 
+World::World(Systems* sys)
+: systems(sys)
+{}
+
 void
 World::Update(float dt)
 {

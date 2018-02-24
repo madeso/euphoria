@@ -104,6 +104,8 @@ struct World
   EntReg   reg;
   Systems* systems;
 
+  World(Systems* sys);
+
   void
   Update(float dt);
 
