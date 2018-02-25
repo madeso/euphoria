@@ -9,8 +9,8 @@
 
 #include "dukglue/dukglue.h"
 
-typedef unsigned int ComponentId;
-typedef unsigned int EntityId;
+typedef unsigned long ComponentId;
+typedef unsigned long EntityId;
 
 struct Comp
 {
