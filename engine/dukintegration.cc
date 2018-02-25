@@ -61,25 +61,27 @@ class DukRegistry
   }
 
   bool
+  hasEntityComponent(ComponentId t, EntityId ent)
+  {
+    auto f = comps.find(t);
+    if(f == comps.end())
+    {
+      return false;
+    }
+    else
+    {
+      return f->second->has(ent, *reg);
+    }
+  }
+
+  bool
   hasEntityComponent(const std::vector<ComponentId>& types, EntityId ent)
   {
     for(auto t : types)
     {
-      auto f = comps.find(t);
-      if(f == comps.end())
+      if(false == hasEntityComponent(t, ent))
       {
         return false;
-      }
-      else
-      {
-        if(f->second->has(ent, *reg))
-        {
-          // has
-        }
-        else
-        {
-          return false;
-        }
       }
     }
 
