@@ -28,6 +28,7 @@
 #include "engine/systems.h"
 #include "engine/duk.h"
 #include "engine/dukintegration.h"
+#include "engine/dukmathbindings.h"
 
 #include "game.pb.h"
 
@@ -139,13 +140,16 @@ main(int argc, char** argv)
   // Sprite player(cache.GetTexture("player.png"));
   // objects.Add(&player);
 
-  Duk     duk;
+  Duk duk;
+  BindMath(&duk);
+
   Systems systems;
   AddSystems(&systems, &duk);
-  DukIntegration integration{&systems, &duk};
+  World          world{&systems};
+  DukIntegration integration{&systems, &world, &duk};
   RunMainScriptFile(&duk, &file_system, "main.js");
 
-  World world {&systems};
+
   LoadWorld(&file_system, &world, &cache, "game.json");
 
   const mat4f projection = init.GetOrthoProjection(width, height);

@@ -29,23 +29,23 @@ struct TComp : public Comp
   }
 };
 
+class CScript
+{
+ public:
+  std::map<ComponentId, DukValue> properties;
+};
+
+constexpr ComponentId ComponentIdStart = 100;
+
 class DukRegistry
 {
  public:
   explicit DukRegistry(EntReg* r)
       : reg(r)
+      , last_script_id(ComponentIdStart + 1)
   {
     add<CPosition2>();
     add<CSprite>();
-  }
-
-  template <typename T>
-  void
-  add()
-  {
-    auto id  = reg->component<T>();
-    auto ptr = std::make_shared<TComp<T>>();
-    comps.insert(std::make_pair(id, ptr));
   }
 
   ComponentId
@@ -60,9 +60,79 @@ class DukRegistry
     return reg->component<CSprite>();
   }
 
+  ComponentId
+  CreateNewId()
+  {
+    ComponentId id = last_script_id;
+    last_script_id += 1;
+    return id;
+  }
+
+  std::vector<EntityId>
+  entities(const std::vector<ComponentId>& types)
+  {
+    std::vector<EntityId> ret;
+    reg->each([this, types, &ret](auto ent) {
+      if(this->hasEntityComponent(types, ent))
+      {
+        ret.push_back(ent);
+      }
+    });
+    return ret;
+  }
+
+  DukValue
+  GetProperty(EntityId ent, ComponentId comp)
+  {
+    CScript& s = reg->accomodate<CScript>(ent);
+    return s.properties[comp];
+  }
+
+  void
+  SetProperty(EntityId ent, ComponentId comp, DukValue value)
+  {
+    CScript& s         = reg->accomodate<CScript>(ent);
+    s.properties[comp] = value;
+  }
+
+  template <typename T>
+  T*
+  GetComponentOrNull(EntityId id)
+  {
+    if(reg->has<T>(id))
+    {
+      T& t = reg->get<T>(id);
+      return &t;
+    }
+    else
+    {
+      return nullptr;
+    }
+  }
+
+ private:
+  template <typename T>
+  void
+  add()
+  {
+    auto id  = reg->component<T>();
+    auto ptr = std::make_shared<TComp<T>>();
+    comps.insert(std::make_pair(id, ptr));
+  }
+
   bool
   hasEntityComponent(ComponentId t, EntityId ent)
   {
+    if(t > ComponentIdStart)
+    {
+      if(!reg->has<CScript>(ent))
+      {
+        return false;
+      }
+      CScript& comp = reg->get<CScript>(ent);
+      auto     f    = comp.properties.find(t);
+      return f != comp.properties.end();
+    }
     auto f = comps.find(t);
     if(f == comps.end())
     {
@@ -88,21 +158,10 @@ class DukRegistry
     return true;
   }
 
-  std::vector<EntityId>
-  entities(const std::vector<ComponentId>& types)
-  {
-    std::vector<EntityId> ret;
-    reg->each([this, types, &ret](auto ent) {
-      if(this->hasEntityComponent(types, ent))
-      {
-        ret.push_back(ent);
-      }
-    });
-    return ret;
-  }
 
   EntReg* reg;
   std::map<ComponentId, std::shared_ptr<Comp>> comps;
+  ComponentId last_script_id;
 };
 
 class DukUpdateSystem : public ComponentSystem, public ComponentSystemUpdate
@@ -147,24 +206,41 @@ class DukSystems
 
 struct DukIntegrationPimpl
 {
-  DukIntegrationPimpl(Systems* sys, Duk* duk)
+  DukIntegrationPimpl(Systems* sys, World* world, Duk* duk)
       : systems(sys)
+      , registry(&world->reg)
   {
   }
 
   void
   Integrate(Duk* duk)
   {
-    dukglue_register_method(duk->ctx, &DukSystems::AddUpdate, "AddUpdate");
     dukglue_register_global(duk->ctx, &systems, "Systems");
+    dukglue_register_method(duk->ctx, &DukSystems::AddUpdate, "AddUpdate");
+
+    dukglue_register_global(duk->ctx, &registry, "Registry");
+    dukglue_register_method(duk->ctx, &DukRegistry::entities, "Entities");
+    dukglue_register_method(duk->ctx, &DukRegistry::getSpriteId, "GetSpriteId");
+    dukglue_register_method(
+        duk->ctx, &DukRegistry::getPosition2dId, "GetPosition2Id");
+
+    dukglue_register_method(duk->ctx, &DukRegistry::CreateNewId, "New");
+    dukglue_register_method(duk->ctx, &DukRegistry::GetProperty, "Get");
+    dukglue_register_method(duk->ctx, &DukRegistry::SetProperty, "Set");
+
+    dukglue_register_method(
+        duk->ctx, &DukRegistry::GetComponentOrNull<CPosition2>, "GetPosition2");
+    dukglue_register_method<CPosition2, vec2<float>*>(
+        duk->ctx, &CPosition2::GetPositionPtr, "GetPositionRef");
   }
 
-  DukSystems systems;
+  DukSystems  systems;
+  DukRegistry registry;
 };
 
-DukIntegration::DukIntegration(Systems* systems, Duk* duk)
+DukIntegration::DukIntegration(Systems* systems, World* reg, Duk* duk)
 {
-  pimpl.reset(new DukIntegrationPimpl(systems, duk));
+  pimpl.reset(new DukIntegrationPimpl(systems, reg, duk));
   pimpl->Integrate(duk);
 }
 

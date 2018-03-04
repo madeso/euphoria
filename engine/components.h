@@ -8,6 +8,9 @@ struct CPosition2
 {
   CPosition2();
   vec2f pos;
+
+  vec2f*
+  GetPositionPtr();
 };
 
 struct CSprite

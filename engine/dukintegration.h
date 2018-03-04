@@ -5,13 +5,14 @@
 
 class Systems;
 class Duk;
+class World;
 
 struct DukIntegrationPimpl;
 
 class DukIntegration
 {
  public:
-  DukIntegration(Systems* systems, Duk* duk);
+  DukIntegration(Systems* systems, World* reg, Duk* duk);
   ~DukIntegration();
 
   void

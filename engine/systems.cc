@@ -33,31 +33,9 @@ struct SystemSpriteDraw : public ComponentSystem,
   }
 };
 
-struct SystemMoveUp : public ComponentSystem, public ComponentSystemUpdate
-{
-  SystemMoveUp()
-      : ComponentSystem("move up")
-  {
-  }
-
-  void
-  Update(EntReg* reg, float dt) const override
-  {
-    reg->view<CPosition2>().each(
-        [dt](auto entity, auto& pos) { pos.pos.y += dt * 20; });
-  }
-
-  void
-  RegisterCallbacks(Systems* systems) override
-  {
-    systems->update.Add(this);
-  }
-};
-
 
 void
 AddSystems(Systems* systems, Duk* duk)
 {
   systems->AddAndRegister(std::make_shared<SystemSpriteDraw>());
-  systems->AddAndRegister(std::make_shared<SystemMoveUp>());
 }

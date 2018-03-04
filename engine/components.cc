@@ -14,3 +14,9 @@ CPosition2::CPosition2()
     : pos(0, 0)
 {
 }
+
+vec2f*
+CPosition2::GetPositionPtr()
+{
+  return &pos;
+}

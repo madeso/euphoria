@@ -1,0 +1,10 @@
+#ifndef EUPHORIA_DUKMATHBINDINGS_H
+#define EUPHORIA_DUKMATHBINDINGS_H
+
+
+class Duk;
+
+void
+BindMath(Duk* duk);
+
+#endif  // EUPHORIA_DUKMATHBINDINGS_H

@@ -14,6 +14,30 @@ class vec2
   T               x;
   T               y;
 
+  T
+  GetX() const
+  {
+    return x;
+  }
+
+  T
+  GetY() const
+  {
+    return y;
+  }
+
+  void
+  SetX(T v)
+  {
+    x = v;
+  }
+
+  void
+  SetY(T v)
+  {
+    y = v;
+  }
+
   explicit vec2(const T& a)
       : x(a)
       , y(a)
