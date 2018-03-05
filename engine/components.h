@@ -1,6 +1,7 @@
 #ifndef EUPHORIA_COMPONENTS_H
 #define EUPHORIA_COMPONENTS_H
 
+#include <memory>
 #include "core/vec2.h"
 #include "render/texturecache.h"
 
@@ -9,8 +10,11 @@ struct CPosition2
   CPosition2();
   vec2f pos;
 
-  vec2f*
-  GetPositionPtr();
+  std::shared_ptr<vec2f>
+  GetPosition() const;
+
+  void
+  SetPosition(vec2f* v);
 };
 
 struct CSprite

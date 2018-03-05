@@ -12,13 +12,13 @@ Systems.AddUpdate("bark", function(dt) {
 Systems.AddUpdate("move up", function(dt) {
   ents = Registry.Entities([Registry.GetPosition2Id()]);
   ents.forEach(function(entity) {
-    pos2 = Registry.GetPosition2(entity);
-    pos = pos2.GetPositionRef();
+    var pos = Registry.GetPosition2(entity);
     if(pos != null)
     {
       // pos seems to be not working?
-      // print(pos.getY().toString());
-      pos.y = pos.y + dt * 20;
+      var vec = pos.vec;
+      vec.y = vec.y + dt * 20;
+      pos.vec = vec;
     }
   });
 });
