@@ -34,7 +34,9 @@ class vec3
       , z(az)
   {
   }
-  vec3(const vec2<T>& a, const T& az)
+
+  template <typename TStorageRhs>
+  vec3(const vec2<T, TStorageRhs>& a, const T& az)
       : x(a.x)
       , y(a.y)
       , z(az)

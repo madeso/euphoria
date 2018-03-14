@@ -15,10 +15,10 @@ CPosition2::CPosition2()
 {
 }
 
-std::shared_ptr<vec2f>
-CPosition2::GetPosition() const
+vec2f*
+CPosition2::GetPosition()
 {
-  return std::make_shared<vec2f>(pos.x, pos.y);
+  return &pos;
 }
 
 void
