@@ -16,7 +16,7 @@ class Sprite
 {
  public:
   explicit Sprite(
-      std::shared_ptr<Texture2d> texture, const vec2f& position = vec2f(0.0f));
+      std::shared_ptr<Texture2d> texture, const vec2f& position = vec2f(0, 0));
 
   std::shared_ptr<Texture2d>
   GetTexture();

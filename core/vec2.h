@@ -11,55 +11,49 @@ template <typename T, typename TStorage>
 class vec2
 {
  public:
-  typedef typename TStorage::Storage Storage;
+  typedef typename TStorage::Storage S;
   typedef vec2<T, TStorage>      Self;
   typedef vec2<T, StoreValue<T>> SelfValue;
-  T x;
-  T y;
+  S x;
+  S y;
 
   T
   GetX() const
   {
-    return x;
+    return TStorage::Get(x);
   }
 
   T
   GetY() const
   {
-    return y;
+    return TStorage::Get(y);
   }
 
   void
   SetX(T v)
   {
-    x = v;
+    TStorage::Set(&x, v);
   }
 
   void
   SetY(T v)
   {
-    y = v;
+    TStorage::Set(&y, v);
   }
 
-  explicit vec2(const T& a)
-      : x(a)
-      , y(a)
-  {
-  }
-
-  vec2(const T& ax, const T& ay)
+  vec2(const S& ax, const S& ay)
       : x(ax)
       , y(ay)
   {
   }
 
-  T*
+  S*
   GetDataPtr()
   {
     return &x;
   }
 
-  const T*
+  const S*
   GetDataPtr() const
   {
     return &x;
@@ -75,49 +69,50 @@ class vec2
   vec2<F, StoreValue<F>>
   StaticCast() const
   {
-    return vec2<F, StoreValue<F>>(static_cast<F>(x), static_cast<F>(y));
+    return vec2<F, StoreValue<F>>(
+        static_cast<F>(GetX()), static_cast<F>(GetY()));
   }
 
   template <typename TStorageRhs>
   void
   operator+=(const vec2<T, TStorageRhs>& rhs)
   {
-    x += rhs.x;
-    y += rhs.y;
+    SetX(GetX() + rhs.GetX());
+    SetY(GetY() + rhs.GetY());
   }
 
   template <typename TStorageRhs>
   void
   operator-=(const vec2<T, TStorageRhs>& rhs)
   {
-    x -= rhs.x;
-    y -= rhs.y;
+    SetX(GetX() - rhs.GetX());
+    SetY(GetY() - rhs.GetY());
   }
 
   void
   operator/=(const T& rhs)
   {
-    x /= rhs;
-    y /= rhs;
+    SetX(GetX() / rhs);
+    SetY(GetY() / rhs);
   }
 
   void
   operator*=(const T& rhs)
   {
-    x *= rhs;
-    y *= rhs;
+    SetX(GetX() * rhs);
+    SetY(GetY() * rhs);
   }
 
   SelfValue
   operator-() const
   {
-    return SelfValue(-x, -y);
+    return SelfValue(-GetX(), -GetY());
   }
 
   T
   GetLengthSquared() const
   {
-    return x * x + y * y;
+    return GetX() * GetX() + GetY() * GetY();
   }
 
   T
@@ -143,15 +138,15 @@ class vec2
   SelfValue
   GetRotated(const Angle& a) const
   {
-    const T nx = x * Cos(a) - y * Sin(a);
-    const T ny = x * Sin(a) + y * Cos(a);
+    const T nx = GetX() * Cos(a) - GetY() * Sin(a);
+    const T ny = GetX() * Sin(a) + GetY() * Cos(a);
     return SelfValue(nx, ny);
   }
 
   SelfValue
   GetFlippedY() const
   {
-    return SelfValue(x, -y);
+    return SelfValue(GetX(), -GetY());
   }
 };
 
@@ -204,7 +199,7 @@ template <typename T, typename TStorage>
 bool
 operator==(const vec2<T, TStorage>& lhs, const vec2<T, TStorage>& rhs)
 {
-  return lhs.x == rhs.x && lhs.y == rhs.y;
+  return lhs.GetX() == rhs.GetX() && lhs.GetY() == rhs.GetY();
 }
 
 // functions
@@ -212,7 +207,7 @@ template <typename T, typename TStorage>
 T
 dot(const vec2<T, TStorage>& lhs, const vec2<T, TStorage>& rhs)
 {
-  return lhs.x * rhs.x + lhs.y * rhs.y;
+  return lhs.GetX() * rhs.GetX() + lhs.GetY() * rhs.GetY();
 }
 
 template <typename T, typename TStorage>
@@ -222,8 +217,8 @@ struct Vec2Transform
   Transform(const vec2<T, TStorage>& from, float v, const vec2<T, TStorage> to)
   {
     return vec2<T, StoreValue<T>>(
-        FloatTransform::Transform(from.x, v, to.x),
-        FloatTransform::Transform(from.y, v, to.y));
+        FloatTransform::Transform(from.GetX(), v, to.GetX()),
+        FloatTransform::Transform(from.GetY(), v, to.GetY()));
   }
 };
 
@@ -231,12 +226,14 @@ template <typename S, typename T, typename TStorage>
 S&
 operator<<(S& s, const vec2<T, TStorage>& v)
 {
-  s << "(" << v.x << ", " << v.y << ")";
+  s << "(" << v.GetX() << ", " << v.GetY() << ")";
   return s;
 }
 
 typedef vec2<float, StoreValue<float>>          vec2f;
+typedef vec2<float, StorePointer<float>>        vec2fp;
 typedef Vec2Transform<vec2f, StoreValue<float>> Vec2fTransform;
 typedef vec2<int, StoreValue<int>>              vec2i;
+typedef vec2<int, StorePointer<int>>            vec2ip;
 
 #endif  // CORE_VEC2_H
