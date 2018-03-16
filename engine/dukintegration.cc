@@ -231,6 +231,7 @@ struct DukIntegrationPimpl
     dukglue_register_method(
         duk->ctx, &DukRegistry::GetComponentOrNull<CPosition2>, "GetPosition2");
     dukglue_register_method(duk->ctx, &CPosition2::GetPosition, "GetPos");
+    dukglue_register_method(duk->ctx, &CPosition2::SetPosition, "SetPos");
     dukglue_register_property(
         duk->ctx, &CPosition2::GetPosition, &CPosition2::SetPosition, "vec");
   }
