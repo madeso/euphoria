@@ -16,15 +16,9 @@ Systems.AddUpdate("move up", function(dt) {
     if(pos2 != null)
     {
       // pos2 seems to be not working?
-      print('dog is good');
-      var vec = pos2.GetPos();
-      print('cat is also good');
+      var vec = pos2.vec;
       vec.y = vec.y + dt * 20;
-      print('e');
-      pos2.SetPos(vec);
-      print('as');
       pos2.vec = vec;
-      print('f');
     }
   });
 });

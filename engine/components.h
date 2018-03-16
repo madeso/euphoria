@@ -10,7 +10,7 @@ struct CPosition2
   CPosition2();
   vec2f pos;
 
-  vec2f*
+  std::shared_ptr<vec2f>
   GetPosition();
 
   void
