@@ -33,6 +33,6 @@ void
 BindMath(Duk* duk)
 {
   BindVec2<float, StoreValue<float>>(duk, "vec2f");
-  // BindVec2<float, StorePointer<float>>(duk);
+  BindVec2<float, StorePointer<float>>(duk);
   // BindVec2<int>(duk, "vec2i");
 }

@@ -26,3 +26,9 @@ CPosition2::SetPosition(vec2f* v)
 {
   pos = *v;
 }
+
+std::shared_ptr<vec2fp>
+CPosition2::GetPositionRef()
+{
+  return std::make_shared<vec2fp>(&pos.x, &pos.y);
+}
