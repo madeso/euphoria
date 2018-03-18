@@ -2,9 +2,14 @@
 
 #include <sstream>
 
-#include "duktape.h"
+#include "core/log.h"
+#include "core/assert.h"
 
 #include "engine/dukprint.h"
+
+#include "duktape.h"
+
+LOG_SPECIFY_DEFAULT_LOGGER("engine.duk")
 
 std::string
 to_string(duk_context* ctx, int index)
@@ -133,9 +138,18 @@ to_string(duk_context* ctx, int index)
   }
 }
 
+void
+FatalHandler(void*, const char* msg)
+{
+  LOG_ERROR("*** FATAL ERROR: " << (msg ? msg : "no message"));
+  DIE("FATAL JS ERROR");
+  abort();
+}
+
 Duk::Duk()
 {
-  ctx = duk_create_heap_default();
+  ctx = duk_create_heap(nullptr, nullptr, nullptr, nullptr, FatalHandler);
+  // ctx = duk_create_heap_default();
 
   AddPrint(this);
 }
