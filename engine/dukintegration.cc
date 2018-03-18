@@ -6,6 +6,7 @@
 
 #include "engine/duk.h"
 #include "engine/components.h"
+#include "engine/input.h"
 
 #include "dukglue/dukglue.h"
 
@@ -209,6 +210,8 @@ struct DukIntegrationPimpl
   DukIntegrationPimpl(Systems* sys, World* world, Duk* duk)
       : systems(sys)
       , registry(&world->reg)
+      , input(dukglue_peval<DukValue>(
+            duk->ctx, "var Input = new Object(); Input"))
   {
   }
 
@@ -239,6 +242,7 @@ struct DukIntegrationPimpl
 
   DukSystems  systems;
   DukRegistry registry;
+  DukValue    input;
 };
 
 DukIntegration::DukIntegration(Systems* systems, World* reg, Duk* duk)
@@ -256,4 +260,10 @@ void
 DukIntegration::Clear()
 {
   pimpl.reset();
+}
+
+void
+DukIntegration::BindKeys(Duk* duk, const Input& input)
+{
+  input.Set(duk, pimpl->input);
 }

@@ -1,6 +1,13 @@
 package game;
 
+message KeyBind
+{
+  optional string name = 1;
+  optional string key = 2;
+}
+
 message Game
 {
   optional string title = 1;
+  repeated KeyBind binds = 2;
 }

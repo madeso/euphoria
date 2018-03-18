@@ -23,12 +23,14 @@
 #include "render/viewport.h"
 
 #include "gui/root.h"
+#include "window/key.h"
 
 #include "engine/loadworld.h"
 #include "engine/systems.h"
 #include "engine/duk.h"
 #include "engine/dukintegration.h"
 #include "engine/dukmathbindings.h"
+#include "engine/input.h"
 
 #include "game.pb.h"
 
@@ -129,6 +131,19 @@ main(int argc, char** argv)
   }
 
   SetupOpenglDebug();
+  Input input;
+
+  for(const auto& bind : gamedata.binds())
+  {
+    auto key = ToKey(bind.key());
+    if(key == Key::INVALID)
+    {
+      LOG_ERROR("Invalid key: " << bind.key());
+      key = Key::UNBOUND;
+    }
+
+    input.Add(std::make_shared<BoundVar>(bind.name(), key));
+  }
 
   TextureCache cache{&file_system};
   Shader       shader;
@@ -193,6 +208,12 @@ main(int argc, char** argv)
         window_mouse_x = e.motion.x;
         window_mouse_y = e.motion.y;
       }
+      else if(e.type == SDL_KEYUP || e.type == SDL_KEYDOWN)
+      {
+        const bool down = e.type == SDL_KEYDOWN;
+        const auto key  = ToKey(e.key.keysym);
+        input.SetKeyState(key, down ? 1.0f : 0.0f);
+      }
       else if(e.type == SDL_MOUSEBUTTONDOWN || e.type == SDL_MOUSEBUTTONUP)
       {
         const bool down = e.type == SDL_MOUSEBUTTONDOWN;
@@ -208,6 +229,8 @@ main(int argc, char** argv)
         const std::string& input = e.text.text;
       }
     }
+
+    integration.BindKeys(&duk, input);
 
     init.ClearScreen(Color::DarkslateGray);
     world.Draw(&renderer);

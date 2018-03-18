@@ -5,6 +5,7 @@
 
 class Systems;
 class Duk;
+class Input;
 class World;
 
 struct DukIntegrationPimpl;
@@ -17,6 +18,9 @@ class DukIntegration
 
   void
   Clear();
+
+  void
+  BindKeys(Duk* duk, const Input& input);
 
  private:
   std::unique_ptr<DukIntegrationPimpl> pimpl;

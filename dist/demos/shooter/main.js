@@ -16,9 +16,12 @@ Systems.AddUpdate("move up", function(dt) {
     if(pos2 != null)
     {
       // pos2 seems to be not working?
-      var vec = pos2.vec;
-      vec.y = vec.y + dt * 20;
-      pos2.vec = vec;
+      if(Input.up)
+      {
+        var vec = pos2.vec;
+        vec.y = vec.y + dt * 50;
+        pos2.vec = vec;
+      }
     }
   });
 });
