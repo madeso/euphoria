@@ -2,6 +2,7 @@
 #include <iostream>
 
 #include "core/log.h"
+#include "core/str.h"
 
 #include "render/shader.h"
 #include "render/spriterender.h"
@@ -48,22 +49,54 @@ LoadGameData(FileSystem* fs)
   return game;
 }
 
-void
+struct RunResult
+{
+  bool        ok;
+  std::string message;
+
+  static const RunResult
+  Ok()
+  {
+    return RunResult{true, ""};
+  };
+
+  static const RunResult
+  Error(const std::string& message)
+  {
+    return RunResult{false, message};
+  };
+
+ private:
+  RunResult(bool b, const std::string& str)
+      : ok(b)
+      , message(str)
+  {
+  }
+};
+
+RunResult
 RunMainScriptFile(Duk* duk, FileSystem* fs, const std::string& path)
 {
   std::string content;
   const bool  loaded = fs->ReadFileToString(path, &content);
   if(!loaded)
   {
-    LOG_ERROR("Unable to open " << path << " for running");
-    return;
+    const std::string error_message = Str() << "Unable to open " << path
+                                            << " for running";
+    LOG_ERROR(error_message);
+    return RunResult::Error(error_message);
   }
   std::string error;
   const bool  eval = duk->eval_string(content, &error, nullptr);
   if(!eval)
   {
-    LOG_ERROR("Failed to run " << path << ": " << error);
+    const std::string error_message = Str() << "Failed to run " << path << ": "
+                                            << error;
+    LOG_ERROR(error_message);
+    return RunResult::Error(error_message);
   }
+
+  return RunResult::Ok();
 }
 
 int
@@ -138,10 +171,9 @@ main(int argc, char** argv)
   SetupOpenglDebug();
 
   // todo: update theese during runtime
-  bool has_crashed = true;
   Font font{&file_system, &cache, "debug_font.json"};
   Text crash_message{&font};
-  crash_message.SetText(ParsedText::FromText("something failed... hahah"));
+  bool has_crashed = false;
 
   Input input;
 
@@ -173,7 +205,12 @@ main(int argc, char** argv)
   AddSystems(&systems, &duk);
   World          world{&systems};
   DukIntegration integration{&systems, &world, &duk};
-  RunMainScriptFile(&duk, &file_system, "main.js");
+  const auto error_run_main = RunMainScriptFile(&duk, &file_system, "main.js");
+  if(!error_run_main.ok)
+  {
+    has_crashed = true;
+    crash_message.SetText(ParsedText::FromText(error_run_main.message));
+  }
 
 
   LoadWorld(&file_system, &world, &cache, "game.json");
@@ -206,7 +243,10 @@ main(int argc, char** argv)
     const float dt = (NOW - LAST) * 1.0f / SDL_GetPerformanceFrequency();
     SDL_Event   e;
 
-    world.Update(dt);
+    if(!has_crashed)
+    {
+      world.Update(dt);
+    }
 
     while(SDL_PollEvent(&e) != 0)
     {
