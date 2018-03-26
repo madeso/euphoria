@@ -302,6 +302,9 @@ main(int argc, char** argv)
 
     if(has_crashed)
     {
+      // todo: fix crash rendering, perhaps by using a debug gui
+      // nothing much is required just a better overflow detection
+      // when rendering the error, perhaps making the error more visible
       init.ClearScreen(Color::CornflowerBlue);
       crash_message.Draw(&renderer, vec2f{20, 20}, Color::Black);
     }
