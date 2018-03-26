@@ -1,4 +1,4 @@
-#include "draw.h"
+#include "core/draw.h"
 
 #include "core/numeric.h"
 #include "core/assert.h"
@@ -35,6 +35,8 @@ Draw::Square(const Rgbi& color, const Recti& rect)
   const int right  = rect.TopRight().x;
   const int top    = rect.TopLeft().y;
   const int bottom = rect.BottomLeft().y;
+  ASSERTX(left >= 0, left);
+  ASSERTX(bottom >= 0, bottom);
   for(int y = bottom; y < top; ++y)
   {
     for(int x = left; x < right; ++x)
@@ -293,7 +295,8 @@ GetCharGlyph(char ac)
 void
 DrawSquare(Draw* image, int x, int y, const Rgbi& color, int size)
 {
-  image->Square(color, Recti::FromTopLeftWidthHeight(y, x, size, size));
+  // is the +1 right?
+  image->Square(color, Recti::FromTopLeftWidthHeight(y + 1, x, size, size));
 }
 
 void
@@ -325,6 +328,7 @@ Draw::Text(
     int                scale)
 {
   ASSERT(scale > 0);
+
   vec2i pos = start_pos;
   for(unsigned int i = 0; i < text.length(); i += 1)
   {

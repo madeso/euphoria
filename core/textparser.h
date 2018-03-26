@@ -118,9 +118,12 @@ class ParsedText
   CreateText(const std::string& str);
   bool
   CreateParse(const std::string& str);
+
+  static ParsedText
+  FromText(const std::string& str);
+
   void
   Visit(textparser::Visitor* visitor);
-
   void
   Visit(textparser::Visitor* visitor) const;
 

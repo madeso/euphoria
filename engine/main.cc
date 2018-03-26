@@ -102,6 +102,11 @@ main(int argc, char** argv)
   FileSystemRootFolder::AddRoot(&file_system, current_directory);
   FileSystemImageGenerator::AddRoot(&file_system, "img-plain");
   FileSystemDefaultShaders::AddRoot(&file_system, "shaders");
+  auto catalog = FileSystemRootCatalog::AddRoot(&file_system);
+  catalog->RegisterFileString(
+      "debug_font.json",
+      R"(  {"size": 30, "sources": [{"builtin": {}}] }  )");
+  TextureCache cache{&file_system};
 
   game::Game gamedata = LoadGameData(&file_system);
 
@@ -131,6 +136,13 @@ main(int argc, char** argv)
   }
 
   SetupOpenglDebug();
+
+  // todo: update theese during runtime
+  bool has_crashed = true;
+  Font font{&file_system, &cache, "debug_font.json"};
+  Text crash_message{&font};
+  crash_message.SetText(ParsedText::FromText("something failed... hahah"));
+
   Input input;
 
   for(const auto& bind : gamedata.binds())
@@ -145,8 +157,7 @@ main(int argc, char** argv)
     input.Add(std::make_shared<BoundVar>(bind.name(), key));
   }
 
-  TextureCache cache{&file_system};
-  Shader       shader;
+  Shader shader;
   attributes2d::PrebindShader(&shader);
   shader.Load(&file_system, "shaders/sprite");
   SpriteRenderer renderer(&shader);
@@ -203,37 +214,62 @@ main(int argc, char** argv)
       {
         running = false;
       }
-      else if(e.type == SDL_MOUSEMOTION)
+      if(has_crashed)
       {
-        window_mouse_x = e.motion.x;
-        window_mouse_y = e.motion.y;
-      }
-      else if(e.type == SDL_KEYUP || e.type == SDL_KEYDOWN)
-      {
-        const bool down = e.type == SDL_KEYDOWN;
-        const auto key  = ToKey(e.key.keysym);
-        input.SetKeyState(key, down ? 1.0f : 0.0f);
-      }
-      else if(e.type == SDL_MOUSEBUTTONDOWN || e.type == SDL_MOUSEBUTTONUP)
-      {
-        const bool down = e.type == SDL_MOUSEBUTTONDOWN;
-        window_mouse_x  = e.button.x;
-        window_mouse_y  = e.button.y;
-        if(e.button.button == SDL_BUTTON_LEFT)
+        if(e.type == SDL_KEYUP)
         {
-          mouse_lmb_down = down;
+          const auto key = ToKey(e.key.keysym);
+          if(key == Key::ESCAPE)
+          {
+            running = false;
+          }
         }
       }
-      else if(e.type == SDL_TEXTINPUT)
+      else
       {
-        const std::string& input = e.text.text;
+        if(e.type == SDL_MOUSEMOTION)
+        {
+          window_mouse_x = e.motion.x;
+          window_mouse_y = e.motion.y;
+        }
+        else if(e.type == SDL_KEYUP || e.type == SDL_KEYDOWN)
+        {
+          const bool down = e.type == SDL_KEYDOWN;
+          const auto key  = ToKey(e.key.keysym);
+          input.SetKeyState(key, down ? 1.0f : 0.0f);
+        }
+        else if(e.type == SDL_MOUSEBUTTONDOWN || e.type == SDL_MOUSEBUTTONUP)
+        {
+          const bool down = e.type == SDL_MOUSEBUTTONDOWN;
+          window_mouse_x  = e.button.x;
+          window_mouse_y  = e.button.y;
+          if(e.button.button == SDL_BUTTON_LEFT)
+          {
+            mouse_lmb_down = down;
+          }
+        }
+        else if(e.type == SDL_TEXTINPUT)
+        {
+          const std::string& input = e.text.text;
+        }
       }
     }
 
-    integration.BindKeys(&duk, input);
+    if(has_crashed == false)
+    {
+      integration.BindKeys(&duk, input);
+    }
 
-    init.ClearScreen(Color::DarkslateGray);
-    world.Draw(&renderer);
+    if(has_crashed)
+    {
+      init.ClearScreen(Color::CornflowerBlue);
+      crash_message.Draw(&renderer, vec2f{20, 20}, Color::Black);
+    }
+    else
+    {
+      init.ClearScreen(Color::DarkslateGray);
+      world.Draw(&renderer);
+    }
 
     SDL_GL_SwapWindow(window);
   }

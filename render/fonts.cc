@@ -249,6 +249,38 @@ GetCharactersFromSingleImage(FileSystem* fs, const font::SingleImage& img)
 }
 
 LoadedFont
+GetCharacterFromBuiltin(const std::string& text, int s)
+{
+  LoadedFont font;
+
+  const int size = 8 * s;
+
+  LoadedGlyph glyph;
+  glyph.image.SetupWithAlphaSupport(size, size, 0);
+
+  Draw{&glyph.image}.Text(vec2i{0, 0}, text, Rgbi{255}, s);
+
+  glyph.size      = glyph.image.GetHeight();
+  glyph.bearing_y = glyph.image.GetHeight() + 0;
+  glyph.bearing_x = 0;
+  glyph.advance   = glyph.image.GetWidth() + 0;
+  glyph.c         = text;
+  font.chars.emplace_back(glyph);
+
+  return font;
+}
+
+void
+LoadCharactersFromBuiltin(LoadedFont* font, int scale)
+{
+  for(int c = ' '; c < 128; c += 1)
+  {
+    const std::string text(1, static_cast<char>(c));
+    font->CombineWith(GetCharacterFromBuiltin(text, scale));
+  }
+}
+
+LoadedFont
 GetCharactersFromFont(
     const std::string& font_file,
     unsigned int       font_size,
@@ -371,6 +403,10 @@ Font::Font(FileSystem* fs, TextureCache* cache, const std::string& font_file)
     {
       const font::SingleImage& image = source.image();
       fontchars.CombineWith(GetCharactersFromSingleImage(fs, image));
+    }
+    if(source.has_builtin())
+    {
+      LoadCharactersFromBuiltin(&fontchars, source.builtin().scale());
     }
     // todo: add more sources, built in image font or images
   }
@@ -550,7 +586,7 @@ struct ParsedTextCompileVisitor : public textparser::Visitor
     auto it = chars_->find(char_index);
     if(it == chars_->end())
     {
-      LOG_ERROR("Failed to print " << char_index);
+      LOG_ERROR("Failed to print '" << char_index << "'");
       return;
     }
     std::shared_ptr<Glyph> ch = it->second;

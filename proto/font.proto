@@ -14,10 +14,15 @@ message SingleImage {
   optional int32 advance = 6;
 }
 
+message Bultin {
+  optional int32 scale = 1 [default=1];
+}
+
 message Source {
   // only 1
   optional FontFile font = 1;
   optional SingleImage image = 2;
+  optional Bultin builtin = 3;
   // add character from tilemap and images
 }
 

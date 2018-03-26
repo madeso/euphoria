@@ -258,6 +258,14 @@ ParsedText::CreateParse(const std::string& str)
   return true;
 }
 
+ParsedText
+ParsedText::FromText(const std::string& str)
+{
+  ParsedText text;
+  text.CreateText(str);
+  return text;
+}
+
 void
 ParsedText::Visit(textparser::Visitor* visitor)
 {
