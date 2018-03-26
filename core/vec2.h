@@ -232,7 +232,7 @@ operator<<(S& s, const vec2<T, TStorage>& v)
 
 typedef vec2<float, StoreValue<float>>          vec2f;
 typedef vec2<float, StorePointer<float>>        vec2fp;
-typedef Vec2Transform<vec2f, StoreValue<float>> Vec2fTransform;
+typedef Vec2Transform<float, StoreValue<float>> Vec2fTransform;
 typedef vec2<int, StoreValue<int>>              vec2i;
 typedef vec2<int, StorePointer<int>>            vec2ip;
 
