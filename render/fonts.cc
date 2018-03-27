@@ -583,23 +583,32 @@ struct ParsedTextCompileVisitor : public textparser::Visitor
   void
   AddCharIndex(const std::string& char_index)
   {
-    auto it = chars_->find(char_index);
-    if(it == chars_->end())
+    if(char_index == "\n")
     {
-      LOG_ERROR("Failed to print '" << char_index << "'");
-      return;
+      position.x = 0;
+      position.y -= size;
     }
-    std::shared_ptr<Glyph> ch = it->second;
+    else
+    {
+      auto it = chars_->find(char_index);
+      if(it == chars_->end())
+      {
+        LOG_ERROR("Failed to print '" << char_index << "'");
+        return;
+      }
+      std::shared_ptr<Glyph> ch = it->second;
 
-    list->Add(
-        texture_,
-        ch->sprite_rect.ScaleCopy(size, size).OffsetCopy(position),
-        ch->texture_rect,
-        apply_highlight);
+      list->Add(
+          texture_,
+          ch->sprite_rect.ScaleCopy(size, size).OffsetCopy(position),
+          ch->texture_rect,
+          apply_highlight);
 
-    auto kerning = kerning_->find(std::make_pair(last_char_index, char_index));
-    int  the_kerning = kerning == kerning_->end() ? 0 : kerning->second;
-    position.x += (ch->advance + the_kerning) * size;
+      auto kerning =
+          kerning_->find(std::make_pair(last_char_index, char_index));
+      int the_kerning = kerning == kerning_->end() ? 0 : kerning->second;
+      position.x += (ch->advance + the_kerning) * size;
+    }
     last_char_index = char_index;
   }
 };
