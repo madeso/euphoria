@@ -158,9 +158,13 @@ bool
 Duk::eval_string(
     const std::string& line, std::string* error, std::string* output)
 {
-  const auto r  = duk_peval_string(ctx, line.c_str());
-  bool       ok = false;
-  if(r != 0)
+  const std::string file = "input.js";
+  duk_push_string(ctx, line.c_str());
+  duk_push_string(ctx, file.c_str());
+
+  const auto compile_result = duk_pcompile(ctx, 0);
+  bool       ok             = false;
+  if(compile_result != 0)
   {
     if(error)
     {
@@ -170,11 +174,37 @@ Duk::eval_string(
   }
   else
   {
-    if(output)
+    const auto call_result = duk_pcall(ctx, 0);
+    if(call_result != 0)
     {
-      *output = to_string(ctx, -1);
+      if(error)
+      {
+        // stolen from duk documentation: http://duktape.org/api.html#duk_pcall
+        if(duk_is_error(ctx, -1))
+        {
+          // todo: add better error check
+          /* Accessing .stack might cause an error to be thrown, so wrap this
+           * access in a duk_safe_call() if it matters.
+           */
+          duk_get_prop_string(ctx, -1, "stack");
+          *error = duk_safe_to_string(ctx, -1);
+          duk_pop(ctx);
+        }
+        else
+        {
+          *error = duk_safe_to_string(ctx, -1);
+        }
+      }
+      ok = false;
     }
-    ok = true;
+    else
+    {
+      if(output)
+      {
+        *output = duk_safe_to_string(ctx, -1);
+      }
+      ok = true;
+    }
   }
   duk_pop(ctx);
 
