@@ -69,3 +69,24 @@ ImguiImage(Texture2d* texture)
     ImGui::EndTooltip();
   }
 }
+
+bool
+BeginFixedOverlay(ImguiCorner corner, const std::string& title)
+{
+  const int corner_int = static_cast<int>(corner);
+  // stolen from ShowExampleAppFixedOverlay function in imgui_demo
+  const float DISTANCE   = 10.0f;
+  ImVec2      window_pos = ImVec2(
+      (corner_int & 1) ? ImGui::GetIO().DisplaySize.x - DISTANCE : DISTANCE,
+      (corner_int & 2) ? ImGui::GetIO().DisplaySize.y - DISTANCE : DISTANCE);
+  ImVec2 window_pos_pivot =
+      ImVec2((corner_int & 1) ? 1.0f : 0.0f, (corner_int & 2) ? 1.0f : 0.0f);
+  ImGui::SetNextWindowPos(window_pos, ImGuiCond_Always, window_pos_pivot);
+
+  return ImGui::Begin(
+      title.c_str(),
+      nullptr,
+      ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize |
+          ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoMove |
+          ImGuiWindowFlags_NoSavedSettings);
+}

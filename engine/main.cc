@@ -33,6 +33,12 @@
 #include "engine/dukmathbindings.h"
 #include "engine/input.h"
 
+#include "window/imguilibrary.h"
+#include "window/imgui.h"
+#include "window/filesystem.h"
+
+#include "imgui/imgui.h"
+
 #include "game.pb.h"
 
 LOG_SPECIFY_DEFAULT_LOGGER("engine")
@@ -135,10 +141,7 @@ main(int argc, char** argv)
   FileSystemRootFolder::AddRoot(&file_system, current_directory);
   FileSystemImageGenerator::AddRoot(&file_system, "img-plain");
   FileSystemDefaultShaders::AddRoot(&file_system, "shaders");
-  auto catalog = FileSystemRootCatalog::AddRoot(&file_system);
-  catalog->RegisterFileString(
-      "debug_font.json",
-      R"(  {"size": 30, "sources": [{"builtin": {}}] }  )");
+  auto         catalog = FileSystemRootCatalog::AddRoot(&file_system);
   TextureCache cache{&file_system};
 
   game::Game gamedata = LoadGameData(&file_system);
@@ -160,6 +163,10 @@ main(int argc, char** argv)
     return -1;
   }
 
+  const auto pref_path = GetPrefPath();
+
+  ImguiLibrary imgui{window, pref_path};
+
   SDL_GL_CreateContext(window);
   Init init{SDL_GL_GetProcAddress, Init::BlendHack::EnableHack};
 
@@ -171,9 +178,8 @@ main(int argc, char** argv)
   SetupOpenglDebug();
 
   // todo: update theese during runtime
-  Font font{&file_system, &cache, "debug_font.json"};
-  Text crash_message{&font};
-  bool has_crashed = false;
+  std::string crash_message_string = "";
+  bool        has_crashed          = false;
 
   Input input;
 
@@ -208,8 +214,8 @@ main(int argc, char** argv)
   const auto error_run_main = RunMainScriptFile(&duk, &file_system, "main.js");
   if(!error_run_main.ok)
   {
-    has_crashed = true;
-    crash_message.SetText(ParsedText::FromText(error_run_main.message));
+    has_crashed          = true;
+    crash_message_string = error_run_main.message;
   }
 
 
@@ -243,6 +249,8 @@ main(int argc, char** argv)
     const float dt = (NOW - LAST) * 1.0f / SDL_GetPerformanceFrequency();
     SDL_Event   e;
 
+    imgui.StartNewFrame();
+
     if(!has_crashed)
     {
       world.Update(dt);
@@ -256,6 +264,7 @@ main(int argc, char** argv)
       }
       if(has_crashed)
       {
+        imgui.ProcessEvents(&e);
         if(e.type == SDL_KEYUP)
         {
           const auto key = ToKey(e.key.keysym);
@@ -307,7 +316,20 @@ main(int argc, char** argv)
       // when rendering the error, perhaps making the error more visible
       // though clicking around and debugging might be useful...
       init.ClearScreen(Color::CornflowerBlue);
-      crash_message.Draw(&renderer, vec2f{5, height - 20}, Color::Black);
+
+      if(BeginFixedOverlay(ImguiCorner::TopRight, "Crashed"))
+      {
+        ImGui::TextDisabled("%s", crash_message_string.c_str());
+        /*ImGui::InputTextMultiline(
+            "##source",
+            crash_message_string.c_str(),
+            crash_message_string.length(),
+            ImVec2(-1.0f, ImGui::GetTextLineHeight() * 16),
+            ImGuiInputTextFlags_ReadOnly); */
+        ImGui::End();
+      }
+
+      imgui.Render();
     }
     else
     {
