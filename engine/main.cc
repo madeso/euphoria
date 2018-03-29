@@ -340,8 +340,6 @@ main(int argc, char** argv)
         }
         ImGui::End();
       }
-
-      imgui.Render();
     }
     else
     {
@@ -349,6 +347,7 @@ main(int argc, char** argv)
       world.Draw(&renderer);
     }
 
+    imgui.Render();
     SDL_GL_SwapWindow(window);
   }
 
