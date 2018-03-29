@@ -242,6 +242,8 @@ main(int argc, char** argv)
   SDL_GetMouseState(&window_mouse_x, &window_mouse_y);
   bool mouse_lmb_down = false;
 
+  integration.BindKeys(&duk, input);
+
   while(running)
   {
     LAST           = NOW;
