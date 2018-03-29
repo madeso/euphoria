@@ -156,9 +156,11 @@ Duk::Duk()
 
 bool
 Duk::eval_string(
-    const std::string& line, std::string* error, std::string* output)
+    const std::string& line,
+    const std::string& file,
+    std::string*       error,
+    std::string*       output)
 {
-  const std::string file = "input.js";
   duk_push_string(ctx, line.c_str());
   duk_push_string(ctx, file.c_str());
 

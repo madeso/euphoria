@@ -11,7 +11,7 @@ class Duk
   Duk();
 
   bool
-  eval_string(const std::string& line, std::string* error, std::string* output);
+  eval_string(const std::string& line, const std::string& file, std::string* error, std::string* output);
 
   ~Duk();
 

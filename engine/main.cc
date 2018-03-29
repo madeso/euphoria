@@ -93,7 +93,7 @@ RunMainScriptFile(Duk* duk, FileSystem* fs, const std::string& path)
     return RunResult::Error(error_message);
   }
   std::string error;
-  const bool  eval = duk->eval_string(content, &error, nullptr);
+  const bool  eval = duk->eval_string(content, path, &error, nullptr);
   if(!eval)
   {
     const std::string error_message = Str() << "Failed to run " << path << ": "
