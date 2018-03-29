@@ -253,7 +253,15 @@ main(int argc, char** argv)
 
     if(!has_crashed)
     {
-      world.Update(dt);
+      try
+      {
+        world.Update(dt);
+      }
+      catch(const DukErrorException& ex)
+      {
+        has_crashed          = true;
+        crash_message_string = ex.what();
+      }
     }
 
     while(SDL_PollEvent(&e) != 0)
