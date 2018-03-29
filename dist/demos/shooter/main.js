@@ -8,7 +8,6 @@ Systems.AddUpdate("bark", function(dt) {
     print('Bark!');
   }
 });
-
 Systems.AddUpdate("move up", function(dt) {
   ents = Registry.Entities([Registry.GetPosition2Id()]);
   ents.forEach(function(entity) {
@@ -16,12 +15,15 @@ Systems.AddUpdate("move up", function(dt) {
     if(pos2 != null)
     {
       // pos2 seems to be not working?
-      if(Input.up)
-      {
-        var vec = pos2.vec;
-        vec.y = vec.y + dt * 50;
-        pos2.vec = vec;
-      }
+      var speed = 50;
+
+      var vertical = Input.up - Input.down;
+      var horizontal = Input.right - Input.left;
+
+      var vec = pos2.vec;
+      vec.y = vec.y + dt * speed * vertical;
+      vec.x = vec.x + dt * speed * horizontal;
+      pos2.vec = vec;
     }
   });
 });
