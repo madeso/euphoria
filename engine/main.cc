@@ -326,6 +326,10 @@ main(int argc, char** argv)
             crash_message_string.length(),
             ImVec2(-1.0f, ImGui::GetTextLineHeight() * 16),
             ImGuiInputTextFlags_ReadOnly); */
+        if(ImGui::Button("Quit"))
+        {
+          running = false;
+        }
         ImGui::End();
       }
 
