@@ -45,6 +45,8 @@ class vec2
       : x(ax)
       , y(ay)
   {
+    ASSERT(TStorage::IsValid(ax));
+    ASSERT(TStorage::IsValid(ay));
   }
 
   S*
