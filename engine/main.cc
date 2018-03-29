@@ -317,7 +317,7 @@ main(int argc, char** argv)
       // though clicking around and debugging might be useful...
       init.ClearScreen(Color::CornflowerBlue);
 
-      if(BeginFixedOverlay(ImguiCorner::TopRight, "Crashed"))
+      if(BeginFixedOverlay(ImguiCorner::Center, "Crashed"))
       {
         ImGui::TextDisabled("%s", crash_message_string.c_str());
         /*ImGui::InputTextMultiline(

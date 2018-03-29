@@ -70,17 +70,24 @@ ImguiImage(Texture2d* texture)
   }
 }
 
+// stolen from ShowExampleAppFixedOverlay function in imgui_demo
 bool
 BeginFixedOverlay(ImguiCorner corner, const std::string& title)
 {
-  const int corner_int = static_cast<int>(corner);
-  // stolen from ShowExampleAppFixedOverlay function in imgui_demo
+  const int   corner_int = static_cast<int>(corner);
   const float DISTANCE   = 10.0f;
-  ImVec2      window_pos = ImVec2(
-      (corner_int & 1) ? ImGui::GetIO().DisplaySize.x - DISTANCE : DISTANCE,
-      (corner_int & 2) ? ImGui::GetIO().DisplaySize.y - DISTANCE : DISTANCE);
+  const auto  size       = ImGui::GetIO().DisplaySize;
+  ImVec2      window_pos =
+      corner == ImguiCorner::Center
+          ? ImVec2(size.x / 2, size.y / 2)
+          : ImVec2(
+                (corner_int & 1) ? size.x - DISTANCE : DISTANCE,
+                (corner_int & 2) ? size.y - DISTANCE : DISTANCE);
   ImVec2 window_pos_pivot =
-      ImVec2((corner_int & 1) ? 1.0f : 0.0f, (corner_int & 2) ? 1.0f : 0.0f);
+      corner == ImguiCorner::Center
+          ? ImVec2(0.5f, 0.5f)
+          : ImVec2(
+                (corner_int & 1) ? 1.0f : 0.0f, (corner_int & 2) ? 1.0f : 0.0f);
   ImGui::SetNextWindowPos(window_pos, ImGuiCond_Always, window_pos_pivot);
 
   return ImGui::Begin(
