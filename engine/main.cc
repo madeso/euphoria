@@ -31,6 +31,7 @@
 #include "core/duk.h"
 #include "engine/dukintegration.h"
 #include "engine/dukmathbindings.h"
+#include "engine/dukprint.h"
 #include "engine/input.h"
 
 #include "window/imguilibrary.h"
@@ -205,6 +206,7 @@ main(int argc, char** argv)
   // objects.Add(&player);
 
   Duk duk;
+  AddPrint(&duk);
   BindMath(&duk);
 
   Systems systems;

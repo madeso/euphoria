@@ -4,138 +4,168 @@
 
 #include "core/log.h"
 #include "core/assert.h"
-
-#include "engine/dukprint.h"
+#include "core/str.h"
+#include "core/stringmerger.h"
 
 #include "duktape.h"
 
 LOG_SPECIFY_DEFAULT_LOGGER("engine.duk")
 
+std::vector<std::string>
+collect_types(duk_context* ctx, int index)
+{
+  std::vector<std::string> types;
+
+  if(duk_is_array(ctx, index))
+  {
+    types.emplace_back("array");
+  }
+  if(duk_is_boolean(ctx, index))
+  {
+    types.emplace_back("boolean");
+  }
+  if(duk_is_bound_function(ctx, index))
+  {
+    types.emplace_back("bound function");
+  }
+  if(duk_is_buffer(ctx, index))
+  {
+    types.emplace_back("buffer");
+  }
+  if(duk_is_buffer_data(ctx, index))
+  {
+    types.emplace_back("buffer data");
+  }
+  if(duk_is_c_function(ctx, index))
+  {
+    types.emplace_back("C function");
+  }
+  if(duk_is_callable(ctx, index))
+  {
+    types.emplace_back("callable");
+  }
+  if(duk_is_constructable(ctx, index))
+  {
+    types.emplace_back("constructable");
+  }
+  if(duk_is_dynamic_buffer(ctx, index))
+  {
+    types.emplace_back("dynamic buffer");
+  }
+  if(duk_is_ecmascript_function(ctx, index))
+  {
+    types.emplace_back("ecmascript function");
+  }
+  if(duk_is_eval_error(ctx, index))
+  {
+    types.emplace_back("eval error");
+  }
+  if(duk_is_fixed_buffer(ctx, index))
+  {
+    types.emplace_back("fixed buffer");
+  }
+  if(duk_is_function(ctx, index))
+  {
+    types.emplace_back("function");
+  }
+  if(duk_is_nan(ctx, index))
+  {
+    types.emplace_back("NAN");
+  }
+  if(duk_is_null(ctx, index))
+  {
+    types.emplace_back("NULL");
+  }
+  if(duk_is_null_or_undefined(ctx, index))
+  {
+    types.emplace_back("null/undefined");
+  }
+  if(duk_is_object(ctx, index))
+  {
+    types.emplace_back("object");
+  }
+  if(duk_is_object_coercible(ctx, index))
+  {
+    types.emplace_back("object coercible");
+  }
+  if(duk_is_pointer(ctx, index))
+  {
+    types.emplace_back("pointer");
+  }
+  if(duk_is_primitive(ctx, index))
+  {
+    types.emplace_back("primitive");
+  }
+  if(duk_is_range_error(ctx, index))
+  {
+    types.emplace_back("range error");
+  }
+  if(duk_is_reference_error(ctx, index))
+  {
+    types.emplace_back("reference error");
+  }
+  if(duk_is_string(ctx, index))
+  {
+    types.emplace_back("string");
+  }
+  if(duk_is_symbol(ctx, index))
+  {
+    types.emplace_back("symbol");
+  }
+  if(duk_is_syntax_error(ctx, index))
+  {
+    types.emplace_back("syntax error");
+  }
+  if(duk_is_thread(ctx, index))
+  {
+    types.emplace_back("thread");
+  }
+  if(duk_is_undefined(ctx, index))
+  {
+    types.emplace_back("undefined");
+  }
+  if(duk_is_uri_error(ctx, index))
+  {
+    types.emplace_back("uri error");
+  }
+
+  return types;
+}
+
 std::string
 to_string(duk_context* ctx, int index)
 {
-  if(duk_is_array(ctx, index))
-  {
-    return "array";
-  }
-  else if(duk_is_boolean(ctx, index))
-  {
-    return "boolean";
-  }
-  else if(duk_is_bound_function(ctx, index))
-  {
-    return "bound function";
-  }
-  else if(duk_is_buffer(ctx, index))
-  {
-    return "buffer";
-  }
-  else if(duk_is_buffer_data(ctx, index))
-  {
-    return "buffer data";
-  }
-  else if(duk_is_c_function(ctx, index))
-  {
-    return "C function";
-  }
-  else if(duk_is_callable(ctx, index))
-  {
-    return "callable";
-  }
-  else if(duk_is_constructable(ctx, index))
-  {
-    return "constructable";
-  }
-  else if(duk_is_dynamic_buffer(ctx, index))
-  {
-    return "dynamic buffer";
-  }
-  else if(duk_is_ecmascript_function(ctx, index))
-  {
-    return "ecmascript function";
-  }
-  else if(duk_is_eval_error(ctx, index))
-  {
-    return "eval error";
-  }
-  else if(duk_is_fixed_buffer(ctx, index))
-  {
-    return "fixed buffer";
-  }
-  else if(duk_is_function(ctx, index))
-  {
-    return "function";
-  }
-  else if(duk_is_nan(ctx, index))
-  {
-    return "NAN";
-  }
-  else if(duk_is_null(ctx, index))
-  {
-    return "NULL";
-  }
-  else if(duk_is_null_or_undefined(ctx, index))
-  {
-    return "null/undefined";
-  }
-  else if(duk_is_number(ctx, index))
+  if(duk_is_number(ctx, index))
   {
     std::stringstream ss;
     ss << duk_get_number(ctx, index);
     return ss.str();
   }
-  else if(duk_is_object(ctx, index))
+
+  if(duk_is_string(ctx, index))
   {
-    return "object";
+    return duk_safe_to_string(ctx, index);
   }
-  else if(duk_is_object_coercible(ctx, index))
+
+  const auto types = collect_types(ctx, index);
+
+  std::vector<std::string> values;
+  if(duk_is_object(ctx, index))
   {
-    return "object coercible";
+    duk_enum(ctx, index, DUK_ENUM_INCLUDE_NONENUMERABLE);
+    while(duk_next(ctx, -1, 1))
+    {
+      values.emplace_back(
+          Str() << duk_to_string(ctx, -2) << ": " << duk_to_string(ctx, -1));
+      duk_pop_2(ctx);
+    }
+    duk_pop(ctx);  // enum object
   }
-  else if(duk_is_pointer(ctx, index))
-  {
-    return "pointer";
-  }
-  else if(duk_is_primitive(ctx, index))
-  {
-    return "primitive";
-  }
-  else if(duk_is_range_error(ctx, index))
-  {
-    return "range error";
-  }
-  else if(duk_is_reference_error(ctx, index))
-  {
-    return "reference error";
-  }
-  else if(duk_is_string(ctx, index))
-  {
-    return "string";
-  }
-  else if(duk_is_symbol(ctx, index))
-  {
-    return "symbol";
-  }
-  else if(duk_is_syntax_error(ctx, index))
-  {
-    return "syntax error";
-  }
-  else if(duk_is_thread(ctx, index))
-  {
-    return "thread";
-  }
-  else if(duk_is_undefined(ctx, index))
-  {
-    return "undefined";
-  }
-  else if(duk_is_uri_error(ctx, index))
-  {
-    return "uri error";
-  }
-  else
-  {
-    return "unknown";
-  }
+
+  std::stringstream ss;
+  ss << StringMerger::EnglishAnd().Generate(types) << ": "
+     << StringMerger::Array().Generate(values);
+  return ss.str();
 }
 
 void
@@ -150,8 +180,6 @@ Duk::Duk()
 {
   ctx = duk_create_heap(nullptr, nullptr, nullptr, nullptr, FatalHandler);
   // ctx = duk_create_heap_default();
-
-  AddPrint(this);
 }
 
 bool
@@ -203,7 +231,7 @@ Duk::eval_string(
     {
       if(output)
       {
-        *output = duk_safe_to_string(ctx, -1);
+        *output = to_string(ctx, -1);  // duk_safe_to_string(ctx, -1);
       }
       ok = true;
     }
