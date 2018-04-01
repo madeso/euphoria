@@ -15,7 +15,7 @@ Systems.AddUpdate("move up", function(dt) {
     if(pos2 != null)
     {
       // pos2 seems to be not working?
-      var speed = 50;
+      var speed = 150;
 
       var vertical = Input.up - Input.down;
       var horizontal = Input.right - Input.left;
