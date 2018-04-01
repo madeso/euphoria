@@ -1,13 +1,14 @@
 #ifndef EUPHORIA_DUK_H
 #define EUPHORIA_DUK_H
 
+
 #include <string>
 
 #include "duk_config.h"
 
 class Duk
 {
- public:
+public:
   Duk();
 
   bool
@@ -20,4 +21,4 @@ class Duk
 };
 
 
-#endif  // EUPHORIA_DUK_H
+#endif //EUPHORIA_DUK_H

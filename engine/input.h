@@ -6,7 +6,7 @@
 
 #include "core/key.h"
 
-#include "engine/duk.h"
+#include "core/duk.h"
 #include "dukglue/dukglue.h"
 
 struct BoundVar

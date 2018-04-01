@@ -28,7 +28,7 @@
 
 #include "engine/loadworld.h"
 #include "engine/systems.h"
-#include "engine/duk.h"
+#include "core/duk.h"
 #include "engine/dukintegration.h"
 #include "engine/dukmathbindings.h"
 #include "engine/input.h"

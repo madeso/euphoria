@@ -4,7 +4,7 @@
 
 #include "core/vec2.h"
 
-#include "engine/duk.h"
+#include "core/duk.h"
 
 #include "dukglue/dukglue.h"
 

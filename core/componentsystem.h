@@ -99,8 +99,9 @@ class Systems
   ComponentSystemSpriteDrawStore spriteDraw;
 };
 
-struct World
+class World
 {
+public:
   EntReg   reg;
   Systems* systems;
 
