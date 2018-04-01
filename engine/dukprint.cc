@@ -6,7 +6,7 @@
 
 #include "core/log.h"
 
-#include "engine/duk.h"
+#include "core/duk.h"
 
 
 LOG_SPECIFY_DEFAULT_LOGGER("duk")

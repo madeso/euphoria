@@ -4,7 +4,7 @@
 
 #include "core/componentsystem.h"
 
-#include "engine/duk.h"
+#include "core/duk.h"
 #include "engine/components.h"
 #include "engine/input.h"
 
