@@ -11,11 +11,18 @@ message Sprite
   optional string path = 1;
 }
 
+message Custom
+{
+  optional string name = 1;
+  // todo: add name value bindings?
+}
+
 message Component
 {
   // only one is valid
   optional vec2f position = 1;
   optional Sprite sprite = 2;
+  optional Custom custom = 3;
 }
 
 message Object

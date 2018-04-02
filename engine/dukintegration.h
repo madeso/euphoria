@@ -10,6 +10,8 @@ class World;
 
 struct DukIntegrationPimpl;
 
+struct DukRegistry;
+
 class DukIntegration
 {
  public:
@@ -18,6 +20,9 @@ class DukIntegration
 
   void
   Clear();
+
+  DukRegistry&
+  Registry();
 
   void
   BindKeys(Duk* duk, const Input& input);

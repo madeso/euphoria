@@ -221,7 +221,7 @@ main(int argc, char** argv)
   }
 
 
-  LoadWorld(&file_system, &world, &cache, "game.json");
+  LoadWorld(&file_system, &world, &cache, &integration.Registry(), "game.json");
 
   const mat4f projection = init.GetOrthoProjection(width, height);
   Use(&shader);
