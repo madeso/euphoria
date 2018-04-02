@@ -3,6 +3,7 @@
 
 
 #include <string>
+#include <functional>
 
 // #include "duk_config.h"
 
@@ -23,10 +24,15 @@ class Duk
       std::string*       error,
       std::string*       output);
 
+  void
+  bind_print(std::function<void(const std::string&)> on_print);
+
   ~Duk();
 
 
   duk_context* ctx;
+
+  std::function<void(const std::string&)> on_print;
 };
 
 

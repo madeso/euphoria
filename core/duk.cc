@@ -205,7 +205,7 @@ Duk::eval_string(
   else
   {
     const auto call_result = duk_pcall(ctx, 0);
-    if(call_result != 0)
+    if(call_result != DUK_EXEC_SUCCESS)
     {
       if(error)
       {
@@ -224,6 +224,11 @@ Duk::eval_string(
         {
           *error = duk_safe_to_string(ctx, -1);
         }
+
+        if(error->empty())
+        {
+          *error = "<unknown error>";
+        }
       }
       ok = false;
     }
@@ -239,6 +244,58 @@ Duk::eval_string(
   duk_pop(ctx);
 
   return ok;
+}
+
+
+int
+duk_print_function_callback(duk_context* ctx)
+{
+  if(duk_is_constructor_call(ctx))
+  {
+    return duk_type_error(ctx, "%s", "Not a constructor call");
+  }
+
+  duk_push_current_function(ctx);
+  duk_get_prop_string(ctx, -1, DUK_HIDDEN_SYMBOL("duk"));
+  auto* duk = reinterpret_cast<Duk*>(duk_to_pointer(ctx, -1));
+  duk_pop(ctx);  // duk pointer
+  duk_pop(ctx);  // current function
+
+  const int number_of_arguments = duk_get_top(ctx);
+
+  std::stringstream ss;
+
+  auto first = true;
+
+  for(int arg = number_of_arguments; arg > 0; arg -= 1)
+  {
+    if(first)
+    {
+      first = false;
+    }
+    else
+    {
+      ss << " ";
+    }
+    ss << to_string(ctx, -arg);
+  }
+
+  duk->on_print(ss.str());
+
+  return 0;
+}
+
+void
+Duk::bind_print(std::function<void(const std::string&)> on_print)
+{
+  this->on_print = on_print;
+
+  duk_push_c_function(ctx, duk_print_function_callback, DUK_VARARGS);  // fun
+  duk_push_pointer(ctx, this);                             // fun pointer
+  duk_put_prop_string(ctx, -2, DUK_HIDDEN_SYMBOL("duk"));  // fun
+
+  const auto function_added = duk_put_global_string(ctx, "print");
+  ASSERTX(function_added == 1, function_added);
 }
 
 Duk::~Duk()
