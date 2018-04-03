@@ -298,6 +298,59 @@ Duk::bind_print(std::function<void(const std::string&)> on_print)
   ASSERTX(function_added == 1, function_added);
 }
 
+int
+duk_generic_function_callback(duk_context* ctx)
+{
+  if(duk_is_constructor_call(ctx))
+  {
+    return duk_type_error(ctx, "%s", "Not a constructor call");
+  }
+
+  duk_push_current_function(ctx);
+  duk_get_prop_string(ctx, -1, DUK_HIDDEN_SYMBOL("func"));
+  auto* function = reinterpret_cast<Function*>(duk_to_pointer(ctx, -1));
+  duk_pop(ctx);  // duk pointer
+  duk_pop(ctx);  // current function
+
+  const int number_of_arguments = duk_get_top(ctx);
+
+  // todo: handle overloads
+  // todo: handle argument types
+  // todo: handle error and returns
+  function->Call(ctx);
+
+  return 0;
+}
+
+struct FunctionImpl : public Function
+{
+  void
+  Call(duk_context* ctx) override
+  {
+  }
+};
+
+void
+Duk::bind(const std::string& name)
+{
+  auto found = functions.find(name);
+  if(found != functions.end())
+  {
+    // setup function
+    return;
+  }
+
+  std::shared_ptr<Function> func{new FunctionImpl{}};
+  functions.insert(std::make_pair(name, func));
+
+  duk_push_c_function(ctx, duk_print_function_callback, DUK_VARARGS);  // fun
+  duk_push_pointer(ctx, func.get());                        // fun pointer
+  duk_put_prop_string(ctx, -2, DUK_HIDDEN_SYMBOL("func"));  // fun
+
+  const auto function_added = duk_put_global_string(ctx, name.c_str());
+  ASSERTX(function_added == 1, function_added);
+}
+
 Duk::~Duk()
 {
   duk_destroy_heap(ctx);

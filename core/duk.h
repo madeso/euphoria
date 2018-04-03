@@ -4,6 +4,8 @@
 
 #include <string>
 #include <functional>
+#include <map>
+#include <memory>
 
 // #include "duk_config.h"
 
@@ -11,6 +13,15 @@ extern "C" {
 struct duk_hthread;
 typedef struct duk_hthread duk_context;
 }
+
+class Function
+{
+ public:
+  Function()          = default;
+  virtual ~Function() = default;
+  virtual void
+  Call(duk_context* ctx) = 0;
+};
 
 class Duk
 {
@@ -27,12 +38,17 @@ class Duk
   void
   bind_print(std::function<void(const std::string&)> on_print);
 
+  void
+  bind(const std::string& name);
+
   ~Duk();
 
 
   duk_context* ctx;
 
   std::function<void(const std::string&)> on_print;
+
+  std::map<std::string, std::shared_ptr<Function>> functions;
 };
 
 
