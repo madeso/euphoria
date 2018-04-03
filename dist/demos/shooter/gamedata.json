@@ -5,6 +5,7 @@
       {"name": "up", "key": "w"},
       {"name": "down", "key": "s"},
       {"name": "left", "key": "a"},
-      {"name": "right", "key": "d"}
+      {"name": "right", "key": "d"},
+      {"name": "fire", "key": "space"}
     ]
 }

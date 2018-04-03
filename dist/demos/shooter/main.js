@@ -1,5 +1,9 @@
 print('Hello world');
 
+IsDown = function(key) {
+  return key > 0.1
+}
+
 Types = {
   Pos2: Registry.GetPosition2Id(),
   Player: Registry.New("Player")
@@ -25,6 +29,11 @@ Systems.AddUpdate("move up", function(dt) {
       var horizontal = Input.right - Input.left;
 
       var vec = pos2.vec;
+      if(IsDown(Input.fire))
+      {
+        var dir = vertical < -0.1 ? -1 : 1;
+        vec.y = vec.y + dt * speed * 5 * dir;
+      }
       vec.y = vec.y + dt * speed * vertical;
       vec.x = vec.x + dt * speed * horizontal;
       pos2.vec = vec;

@@ -4,7 +4,8 @@
 
 BoundVar::BoundVar(const std::string& n, const Key& k)
     : name(n)
-    , value(0)
+    , state(0)
+    , last_state(0)
     , key(k)
 {
 }
@@ -23,7 +24,7 @@ Input::SetKeyState(Key key, float state)
   {
     if(bind->key == key)
     {
-      bind->value = state;
+      bind->state = state;
     }
   }
 }
@@ -33,9 +34,9 @@ Input::Set(Duk* duk, DukValue container) const
 {
   dukglue_push(duk->ctx, container);
 
-  for(auto bind : binds)
+  for(const auto& bind : binds)
   {
-    duk_push_number(duk->ctx, bind->value);
+    duk_push_number(duk->ctx, bind->state);
     auto rc = duk_put_prop_string(duk->ctx, -2, bind->name.c_str());
     // todo: handle error
   }
@@ -43,4 +44,13 @@ Input::Set(Duk* duk, DukValue container) const
   duk_pop(duk->ctx);
 
   // todo: validate duk stack
+}
+
+void
+Input::UpdateState()
+{
+  for(auto& bind : binds)
+  {
+    bind->last_state = bind->state;
+  }
 }

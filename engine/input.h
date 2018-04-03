@@ -12,7 +12,8 @@
 struct BoundVar
 {
   std::string name;
-  float       value;
+  float       state;
+  float       last_state;
   Key         key;
 
   BoundVar(const std::string& n, const Key& k);
@@ -34,6 +35,9 @@ class Input
 
   void
   Set(Duk* duk, DukValue container) const;
+
+  void
+  UpdateState();
 
  private:
   std::vector<std::shared_ptr<BoundVar>> binds;

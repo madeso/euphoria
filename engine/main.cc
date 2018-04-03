@@ -268,6 +268,8 @@ main(int argc, char** argv)
       }
     }
 
+    input.UpdateState();
+
     while(SDL_PollEvent(&e) != 0)
     {
       if(e.type == SDL_QUIT)
