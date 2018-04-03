@@ -1,7 +1,13 @@
 print('Hello world');
 
 IsDown = function(key) {
-  return key > 0.1
+  return key.state > 0.1
+}
+WasDown = function(key) {
+  return key.last_state > 0.1
+}
+JustPressed = function(key) {
+  return IsDown(key) && !WasDown(key);
 }
 
 Types = {
@@ -25,14 +31,14 @@ Systems.AddUpdate("move up", function(dt) {
     {
       var speed = 150;
 
-      var vertical = Input.up - Input.down;
-      var horizontal = Input.right - Input.left;
+      var vertical = Input.up.state - Input.down.state;
+      var horizontal = Input.right.state - Input.left.state;
 
       var vec = pos2.vec;
-      if(IsDown(Input.fire))
+      if(JustPressed(Input.fire))
       {
         var dir = vertical < -0.1 ? -1 : 1;
-        vec.y = vec.y + dt * speed * 5 * dir;
+        vec.y = vec.y + 100 * dir;
       }
       vec.y = vec.y + dt * speed * vertical;
       vec.x = vec.x + dt * speed * horizontal;
