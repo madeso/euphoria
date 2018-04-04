@@ -319,7 +319,7 @@ duk_generic_function_callback(duk_context* ctx)
   duk_pop(ctx);  // duk pointer
   duk_pop(ctx);  // current function
 
-  const int                number_of_arguments = duk_get_top(ctx);
+  // const int                number_of_arguments = duk_get_top(ctx);
   std::vector<std::string> non_matches;
 
   std::vector<std::shared_ptr<Overload>> matched;
@@ -405,7 +405,7 @@ Duk::bind(const std::string& name)
   functions.insert(std::make_pair(name, func));
 
   // bind duk function
-  duk_push_c_function(ctx, duk_print_function_callback, DUK_VARARGS);  // fun
+  duk_push_c_function(ctx, duk_generic_function_callback, DUK_VARARGS);  // fun
   duk_push_pointer(ctx, func.get());                        // fun pointer
   duk_put_prop_string(ctx, -2, DUK_HIDDEN_SYMBOL("func"));  // fun
 
