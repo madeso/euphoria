@@ -21,8 +21,10 @@ class Overload
   Overload()          = default;
   virtual ~Overload() = default;
 
-  virtual bool
-  IsValid(duk_context* ctx) = 0;
+  // return empty string if matches
+  // non-empty means match failed
+  virtual std::string
+  Matches(duk_context* ctx) = 0;
 
   virtual int
   Call(duk_context* ctx) = 0;

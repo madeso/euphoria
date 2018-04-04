@@ -305,19 +305,6 @@ DescribeArguments(duk_context* ctx)
   return "(arguments here)";
 }
 
-std::string
-DescribeOverloads(
-    const std::vector<std::shared_ptr<Overload>>& overloads,
-    const StringMerger&                           merger)
-{
-  std::vector<std::string> descriptions;
-  for(auto& overload : overloads)
-  {
-    descriptions.emplace_back(overload->Describe());
-  }
-  return merger.Generate(descriptions);
-}
-
 int
 duk_generic_function_callback(duk_context* ctx)
 {
@@ -332,22 +319,27 @@ duk_generic_function_callback(duk_context* ctx)
   duk_pop(ctx);  // duk pointer
   duk_pop(ctx);  // current function
 
-  const int number_of_arguments = duk_get_top(ctx);
+  const int                number_of_arguments = duk_get_top(ctx);
+  std::vector<std::string> non_matches;
 
   std::vector<std::shared_ptr<Overload>> matched;
   for(auto& overload : function->overloads)
   {
-    if(overload->IsValid(ctx))
+    const auto match = overload->Matches(ctx);
+    if(match.empty())
     {
       matched.emplace_back(overload);
+    }
+    else
+    {
+      non_matches.emplace_back(Str() << overload->Describe() << ": " << match);
     }
   }
 
   if(matched.empty())
   {
     const auto arguments = DescribeArguments(ctx);
-    const auto described =
-        DescribeOverloads(function->overloads, StringMerger::EnglishAnd());
+    const auto described = StringMerger::EnglishAnd().Generate(non_matches);
     return duk_type_error(
         ctx,
         "No matches found for(%s), tried %s",
@@ -359,8 +351,7 @@ duk_generic_function_callback(duk_context* ctx)
   if(matched.size() != 1)
   {
     const auto arguments = DescribeArguments(ctx);
-    const auto described =
-        DescribeOverloads(matched, StringMerger::EnglishAnd());
+    const auto described = StringMerger::EnglishAnd().Generate(non_matches);
     return duk_type_error(
         ctx,
         "Found several matches for(%s), tried %s",
@@ -373,10 +364,10 @@ duk_generic_function_callback(duk_context* ctx)
 
 struct OverloadImpl : public Overload
 {
-  bool
-  IsValid(duk_context* ctx) override
+  std::string
+  Matches(duk_context* ctx) override
   {
-    return false;
+    return "not matching";
   }
 
   int
