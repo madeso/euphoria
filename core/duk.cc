@@ -298,6 +298,26 @@ Duk::bind_print(std::function<void(const std::string&)> on_print)
   ASSERTX(function_added == 1, function_added);
 }
 
+std::string
+DescribeArguments(duk_context* ctx)
+{
+  // todo: implement me
+  return "(arguments here)";
+}
+
+std::string
+DescribeOverloads(
+    const std::vector<std::shared_ptr<Overload>>& overloads,
+    const StringMerger&                           merger)
+{
+  std::vector<std::string> descriptions;
+  for(auto& overload : overloads)
+  {
+    descriptions.emplace_back(overload->Describe());
+  }
+  return merger.Generate(descriptions);
+}
+
 int
 duk_generic_function_callback(duk_context* ctx)
 {
@@ -314,35 +334,86 @@ duk_generic_function_callback(duk_context* ctx)
 
   const int number_of_arguments = duk_get_top(ctx);
 
-  // todo: handle overloads
-  // todo: handle argument types
-  // todo: handle error and returns
-  function->Call(ctx);
+  std::vector<std::shared_ptr<Overload>> matched;
+  for(auto& overload : function->overloads)
+  {
+    if(overload->IsValid(ctx))
+    {
+      matched.emplace_back(overload);
+    }
+  }
 
-  return 0;
+  if(matched.empty())
+  {
+    const auto arguments = DescribeArguments(ctx);
+    const auto described =
+        DescribeOverloads(function->overloads, StringMerger::EnglishAnd());
+    return duk_type_error(
+        ctx,
+        "No matches found for(%s), tried %s",
+        arguments.c_str(),
+        described.c_str());
+  }
+
+
+  if(matched.size() != 1)
+  {
+    const auto arguments = DescribeArguments(ctx);
+    const auto described =
+        DescribeOverloads(matched, StringMerger::EnglishAnd());
+    return duk_type_error(
+        ctx,
+        "Found several matches for(%s), tried %s",
+        arguments.c_str(),
+        described.c_str());
+  }
+
+  return matched[0]->Call(ctx);
 }
 
-struct FunctionImpl : public Function
+struct OverloadImpl : public Overload
 {
-  void
+  bool
+  IsValid(duk_context* ctx) override
+  {
+    return false;
+  }
+
+  int
   Call(duk_context* ctx) override
   {
+    return duk_type_error(ctx, "%s", "Totally failed");
+  }
+
+  std::string
+  Describe() const override
+  {
+    return "no description";
   }
 };
 
 void
 Duk::bind(const std::string& name)
 {
+  // this is our function
+  // todo: figure out how to create it
+  auto overload = std::make_shared<OverloadImpl>();
+
+  // find out if we have made this function before
   auto found = functions.find(name);
   if(found != functions.end())
   {
-    // setup function
+    // function already created, just add a overload and exit
+    found->second->overloads.emplace_back(overload);
     return;
   }
 
-  std::shared_ptr<Function> func{new FunctionImpl{}};
+  // create new function object
+  auto func = std::make_shared<Function>();
+  func->overloads.emplace_back(overload);
   functions.insert(std::make_pair(name, func));
 
+  // bind duk function
   duk_push_c_function(ctx, duk_print_function_callback, DUK_VARARGS);  // fun
   duk_push_pointer(ctx, func.get());                        // fun pointer
   duk_put_prop_string(ctx, -2, DUK_HIDDEN_SYMBOL("func"));  // fun

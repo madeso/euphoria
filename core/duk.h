@@ -6,6 +6,7 @@
 #include <functional>
 #include <map>
 #include <memory>
+#include <vector>
 
 // #include "duk_config.h"
 
@@ -14,13 +15,29 @@ struct duk_hthread;
 typedef struct duk_hthread duk_context;
 }
 
+class Overload
+{
+ public:
+  Overload()          = default;
+  virtual ~Overload() = default;
+
+  virtual bool
+  IsValid(duk_context* ctx) = 0;
+
+  virtual int
+  Call(duk_context* ctx) = 0;
+
+  virtual std::string
+  Describe() const = 0;
+};
+
 class Function
 {
  public:
   Function()          = default;
   virtual ~Function() = default;
-  virtual void
-  Call(duk_context* ctx) = 0;
+
+  std::vector<std::shared_ptr<Overload>> overloads;
 };
 
 class Duk
