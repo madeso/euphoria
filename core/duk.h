@@ -63,11 +63,10 @@ struct DukTemplate
   Parse(Context* ctx, int index);
 };
 
-template <typename... TArgs>
+template <typename Callback, typename... TArgs>
 class GenericOverload : public Overload
 {
  public:
-  typedef DUK_CALLBACK(TArgs) Callback;
   Callback callback;
 
   GenericOverload(Callback c)
@@ -85,8 +84,8 @@ class GenericOverload : public Overload
       return "invalid number of arguments passed";
     }
 
-    const std::string matches[argument_count] = {
-        DukTemplate<TArgs>::CanMatch(ctx, -argument_count + 1)...};
+    const std::string matches[argument_count + 1] = {
+        "", DukTemplate<TArgs>::CanMatch(ctx, -argument_count + 1)...};
     for(const auto& m : matches)
     {
       if(!m.empty())
@@ -122,10 +121,11 @@ class FunctionBinder
   FunctionBinder&
   add(std::shared_ptr<Overload> overload);
 
-  template <typename... TArgs>
-  FunctionBinder& operator-(DUK_CALLBACK(TArgs) callback)
+  template <typename... TArgs, typename Func>
+  FunctionBinder&
+  bind(Func callback)
   {
-    return add(std::make_shared<GenericOverload<TArgs...>>(callback));
+    return add(std::make_shared<GenericOverload<Func, TArgs...>>(callback));
   }
 
   Duk*                                   duk;

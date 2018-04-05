@@ -98,14 +98,16 @@ TEST_CASE("duk-eval", "[duk]")
 
   SECTION("custom function")
   {
-    // doesnt compile
-    //    int value = 12;
-    //    FunctionBinder{&duk, "test"} - [&](Context* ctx, int i) -> int {
-    //      value = 42;
-    //      return 0;
-    //    };
-    //    REQUIRE(value == 12);
-    //    REQUIRE(duk.eval_string("test();", "", &error, &out));
-    //    REQUIRE(value == 42);
+// needs improvement
+#if 0
+    int value = 12;
+    FunctionBinder{&duk, "test"}.bind<int>([&](Context* ctx, int i) -> int {
+      value = i;
+      return 0;
+    });
+    REQUIRE(value == 12);
+    REQUIRE(duk.eval_string("test(42);", "", &error, &out));
+    REQUIRE(value == 42);
+#endif
   }
 }
