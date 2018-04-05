@@ -11,6 +11,22 @@
 
 LOG_SPECIFY_DEFAULT_LOGGER("engine.duk")
 
+
+FunctionBinder::FunctionBinder(Duk* duk, const std::string& name)
+{
+}
+
+FunctionBinder::~FunctionBinder()
+{
+}
+
+FunctionBinder&
+FunctionBinder::add(std::shared_ptr<Overload> overload)
+{
+  overloads.push_back(overload);
+  return *this;
+}
+
 std::vector<std::string>
 collect_types(duk_context* ctx, int index)
 {
@@ -299,7 +315,7 @@ Duk::bind_print(std::function<void(const std::string&)> on_print)
 }
 
 std::string
-DescribeArguments(duk_context* ctx)
+DescribeArguments(Context* ctx)
 {
   // todo: implement me
   return "(arguments here)";
@@ -319,13 +335,15 @@ duk_generic_function_callback(duk_context* ctx)
   duk_pop(ctx);  // duk pointer
   duk_pop(ctx);  // current function
 
+  Context context;
+
   // const int                number_of_arguments = duk_get_top(ctx);
   std::vector<std::string> non_matches;
 
   std::vector<std::shared_ptr<Overload>> matched;
   for(auto& overload : function->overloads)
   {
-    const auto match = overload->Matches(ctx);
+    const auto match = overload->Matches(&context);
     if(match.empty())
     {
       matched.emplace_back(overload);
@@ -338,7 +356,7 @@ duk_generic_function_callback(duk_context* ctx)
 
   if(matched.empty())
   {
-    const auto arguments = DescribeArguments(ctx);
+    const auto arguments = DescribeArguments(&context);
     const auto described = StringMerger::EnglishAnd().Generate(non_matches);
     return duk_type_error(
         ctx,
@@ -350,7 +368,7 @@ duk_generic_function_callback(duk_context* ctx)
 
   if(matched.size() != 1)
   {
-    const auto arguments = DescribeArguments(ctx);
+    const auto arguments = DescribeArguments(&context);
     const auto described = StringMerger::EnglishAnd().Generate(non_matches);
     return duk_type_error(
         ctx,
@@ -359,49 +377,20 @@ duk_generic_function_callback(duk_context* ctx)
         described.c_str());
   }
 
-  return matched[0]->Call(ctx);
+  return matched[0]->Call(&context);
 }
 
-struct OverloadImpl : public Overload
-{
-  std::string
-  Matches(duk_context* ctx) override
-  {
-    return "not matching";
-  }
-
-  int
-  Call(duk_context* ctx) override
-  {
-    return duk_type_error(ctx, "%s", "Totally failed");
-  }
-
-  std::string
-  Describe() const override
-  {
-    return "no description";
-  }
-};
-
 void
-Duk::bind(const std::string& name)
+Duk::bind(
+    const std::string&                            name,
+    const std::vector<std::shared_ptr<Overload>>& overloads)
 {
-  // this is our function
-  // todo: figure out how to create it
-  auto overload = std::make_shared<OverloadImpl>();
-
   // find out if we have made this function before
-  auto found = functions.find(name);
-  if(found != functions.end())
-  {
-    // function already created, just add a overload and exit
-    found->second->overloads.emplace_back(overload);
-    return;
-  }
+  ASSERT(functions.find(name) == functions.end());
 
   // create new function object
-  auto func = std::make_shared<Function>();
-  func->overloads.emplace_back(overload);
+  auto func       = std::make_shared<Function>();
+  func->overloads = overloads;
   functions.insert(std::make_pair(name, func));
 
   // bind duk function

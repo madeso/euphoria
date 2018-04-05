@@ -95,4 +95,17 @@ TEST_CASE("duk-eval", "[duk]")
       REQUIRE(print_result == "cat 1 4.2");
     }
   }
+
+  SECTION("custom function")
+  {
+    // doesnt compile
+    //    int value = 12;
+    //    FunctionBinder{&duk, "test"} - [&](Context* ctx, int i) -> int {
+    //      value = 42;
+    //      return 0;
+    //    };
+    //    REQUIRE(value == 12);
+    //    REQUIRE(duk.eval_string("test();", "", &error, &out));
+    //    REQUIRE(value == 42);
+  }
 }
