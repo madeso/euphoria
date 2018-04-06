@@ -6,6 +6,7 @@
 #include "core/assert.h"
 #include "core/str.h"
 #include "core/stringmerger.h"
+#include "core/stringutils.h"
 
 #include "duktape.h"
 
@@ -48,6 +49,13 @@ DukTemplate<int>::Parse(Context* ctx, int index)
   return static_cast<int>(duk_get_number(ctx->ctx, index));
 }
 
+template <>
+std::string
+DukTemplate<int>::Name()
+{
+  return "int";
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 
 template <>
@@ -70,6 +78,13 @@ std::string
 DukTemplate<std::string>::Parse(Context* ctx, int index)
 {
   return duk_get_string(ctx->ctx, index);
+}
+
+template <>
+std::string
+DukTemplate<std::string>::Name()
+{
+  return "string";
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -303,10 +318,10 @@ Duk::eval_string(
         }
         else
         {
-          *error = duk_safe_to_string(ctx, -1);
+          *error = to_string(ctx, -1);
         }
 
-        if(error->empty())
+        if(Trim(*error).empty())
         {
           *error = "<unknown error>";
         }
@@ -380,10 +395,34 @@ Duk::bind_print(std::function<void(const std::string&)> on_print)
 }
 
 std::string
+GetDukType(Context* a, int index)
+{
+  duk_context* ctx = a->ctx;
+  if(duk_is_number(ctx, index))
+  {
+    return "number";
+  }
+  if(duk_is_object(ctx, index))
+  {
+    return "object";
+  }
+  if(duk_is_string(ctx, index))
+  {
+    return "string";
+  }
+  return "???";
+}
+
+std::string
 DescribeArguments(Context* ctx)
 {
-  // todo: implement me
-  return "(arguments here)";
+  const int                args = ctx->GetNumberOfArguments();
+  std::vector<std::string> types;
+  for(int i = 0; i < args; i += 1)
+  {
+    types.emplace_back(GetDukType(ctx, -args + i));
+  }
+  return StringMerger::FunctionCall().Generate(types);
 }
 
 int
@@ -422,10 +461,10 @@ duk_generic_function_callback(duk_context* ctx)
   if(matched.empty())
   {
     const auto arguments = DescribeArguments(&context);
-    const auto described = StringMerger::EnglishAnd().Generate(non_matches);
+    const auto described = StringMerger::DashForEach().Generate(non_matches);
     return duk_type_error(
         ctx,
-        "No matches found for(%s), tried %s",
+        "No matches found for %s, tried %s",
         arguments.c_str(),
         described.c_str());
   }

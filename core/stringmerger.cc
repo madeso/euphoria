@@ -66,6 +66,22 @@ StringMerger::Array()
 }
 
 const StringMerger&
+StringMerger::FunctionCall()
+{
+  static const StringMerger s_FunctionCall =
+      StringMerger().SetSeparator(", ").SetStartAndEnd("(", ")");
+  return s_FunctionCall;
+}
+
+const StringMerger&
+StringMerger::DashForEach()
+{
+  static const StringMerger s_FunctionCall =
+      StringMerger().SetSeparator("\n  - ").SetStartAndEnd("\n  - ", "");
+  return s_FunctionCall;
+}
+
+const StringMerger&
 StringMerger::Space()
 {
   static const StringMerger s_Array =

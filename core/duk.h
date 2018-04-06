@@ -9,6 +9,9 @@
 #include <vector>
 #include <utility>
 
+#include "core/str.h"
+#include "stringmerger.h"
+
 // #include "duk_config.h"
 
 extern "C" {
@@ -64,13 +67,10 @@ struct DukTemplate
 
   static T
   Parse(Context* ctx, int index);
-};
 
-template <typename>
-void
-Nop()
-{
-}
+  static std::string
+  Name();
+};
 
 template <typename Callback, typename... TArgs>
 class GenericOverload : public Overload
@@ -90,7 +90,8 @@ class GenericOverload : public Overload
     const int  argument_count        = sizeof...(TArgs);
     if(argument_count != passed_argument_count)
     {
-      return "invalid number of arguments passed";
+      return Str{} << "expected " << argument_count << " argument(s) but got "
+                   << passed_argument_count << ".";
     }
 
     int               i                           = 0;
@@ -127,7 +128,8 @@ class GenericOverload : public Overload
   std::string
   Describe() const override
   {
-    return "not implemented";
+    const std::vector<std::string> type_names = {DukTemplate<TArgs>::Name()...};
+    return StringMerger::FunctionCall().Generate(type_names);
   }
 };
 

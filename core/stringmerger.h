@@ -30,6 +30,12 @@ class StringMerger
   Array();
 
   static const StringMerger&
+  FunctionCall();
+
+  static const StringMerger&
+  DashForEach();
+
+  static const StringMerger&
   Space();
 
   static const StringMerger&

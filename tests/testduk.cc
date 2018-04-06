@@ -100,7 +100,6 @@ TEST_CASE("duk-eval", "[duk]")
   {
     SECTION("test()")
     {
-      // needs improvement
       static int value;
       value = 2;
       FunctionBinder{&duk, "test"}.bind<>([](Context* ctx) -> int {
@@ -114,7 +113,6 @@ TEST_CASE("duk-eval", "[duk]")
 
     SECTION("test(int)")
     {
-      // needs improvement
       int value = 12;
       FunctionBinder{&duk, "test"}.bind<int>([&](Context* ctx, int i) -> int {
         value = i;
@@ -127,7 +125,6 @@ TEST_CASE("duk-eval", "[duk]")
 
     SECTION("test(int, int)")
     {
-      // needs improvement
       int value1 = 1;
       int value2 = 2;
       FunctionBinder{&duk, "test"}.bind<int, int>(
@@ -155,5 +152,23 @@ TEST_CASE("duk-eval", "[duk]")
       REQUIRE(duk.eval_string("test(\"dog\");", "", &error, &out));
       REQUIRE(value == "dog");
     }
+
+#if 0
+    // need to figure out how to test error messages
+    SECTION("missing")
+    {
+      SECTION("test(int)")
+      {
+        int value = 12;
+        FunctionBinder{&duk, "test"}.bind<int>([&](Context* ctx, int i) -> int {
+          value = i;
+          return 0;
+        });
+        REQUIRE(value == 12);
+        REQUIRE_FALSE(duk.eval_string("test(\"\", 2);", "", &error, &out));
+        REQUIRE(error == "");
+      }
+    }
+#endif
   }
 }
