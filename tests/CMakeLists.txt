@@ -14,6 +14,4 @@ add_executable(tests ${src})
 enable_testing()
 add_test(tests tests)
 
-SET_PROPERTY(TARGET tests PROPERTY CXX_STANDARD 11)
-SET_PROPERTY(TARGET tests PROPERTY CMAKE_CXX_STANDARD_REQUIRED ON)
 TARGET_LINK_LIBRARIES(tests core ${CMAKE_THREAD_LIBS_INIT})
