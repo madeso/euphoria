@@ -11,6 +11,8 @@
 
 LOG_SPECIFY_DEFAULT_LOGGER("engine.duk")
 
+////////////////////////////////////////////////////////////////////////////////
+
 Context::Context(duk_context* c)
     : ctx(c)
 {
@@ -21,6 +23,8 @@ Context::GetNumberOfArguments() const
 {
   return duk_get_top(ctx);
 }
+
+////////////////////////////////////////////////////////////////////////////////
 
 template <>
 std::string
@@ -43,6 +47,32 @@ DukTemplate<int>::Parse(Context* ctx, int index)
 {
   return static_cast<int>(duk_get_number(ctx->ctx, index));
 }
+
+////////////////////////////////////////////////////////////////////////////////
+
+template <>
+std::string
+DukTemplate<std::string>::CanMatch(Context* ctx, int index)
+{
+  if(duk_is_string(ctx->ctx, index))
+  {
+    return "";
+  }
+  else
+  {
+    // todo: improve this
+    return "not a string";
+  }
+}
+
+template <>
+std::string
+DukTemplate<std::string>::Parse(Context* ctx, int index)
+{
+  return duk_get_string(ctx->ctx, index);
+}
+
+////////////////////////////////////////////////////////////////////////////////
 
 FunctionBinder::FunctionBinder(Duk* d, const std::string& n)
     : duk(d)

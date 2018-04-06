@@ -7,6 +7,7 @@
 #include <map>
 #include <memory>
 #include <vector>
+#include <utility>
 
 // #include "duk_config.h"
 
@@ -65,6 +66,12 @@ struct DukTemplate
   Parse(Context* ctx, int index);
 };
 
+template <typename>
+void
+Nop()
+{
+}
+
 template <typename Callback, typename... TArgs>
 class GenericOverload : public Overload
 {
@@ -100,13 +107,21 @@ class GenericOverload : public Overload
     return "";
   }
 
+  template <std::size_t... I>
+  int
+  CallImpl(Context* ctx, std::index_sequence<I...>)
+  {
+    const int argument_count = sizeof...(TArgs);
+    return callback(
+        ctx,
+        DukTemplate<TArgs>::Parse(
+            ctx, -argument_count + static_cast<int>(I))...);
+  }
+
   int
   Call(Context* ctx) override
   {
-    const int argument_count = sizeof...(TArgs);
-    int       i              = 0;
-    return callback(
-        ctx, DukTemplate<TArgs>::Parse(ctx, -argument_count + i++)...);
+    return CallImpl(ctx, std::index_sequence_for<TArgs...>{});
   };
 
   std::string

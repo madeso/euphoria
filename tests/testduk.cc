@@ -96,16 +96,50 @@ TEST_CASE("duk-eval", "[duk]")
     }
   }
 
-  SECTION("custom function")
+  SECTION("custom functions")
   {
-    // needs improvement
-    int value = 12;
-    FunctionBinder{&duk, "test"}.bind<int>([&](Context* ctx, int i) -> int {
-      value = i;
-      return 0;
-    });
-    REQUIRE(value == 12);
-    REQUIRE(duk.eval_string("test(42);", "", &error, &out));
-    REQUIRE(value == 42);
+    SECTION("test(int)")
+    {
+      // needs improvement
+      int value = 12;
+      FunctionBinder{&duk, "test"}.bind<int>([&](Context* ctx, int i) -> int {
+        value = i;
+        return 0;
+      });
+      REQUIRE(value == 12);
+      REQUIRE(duk.eval_string("test(42);", "", &error, &out));
+      REQUIRE(value == 42);
+    }
+
+    SECTION("test(int, int)")
+    {
+      // needs improvement
+      int value1 = 1;
+      int value2 = 2;
+      FunctionBinder{&duk, "test"}.bind<int, int>(
+          [&](Context* ctx, int a, int b) -> int {
+            value1 = a;
+            value2 = b;
+            return 0;
+          });
+      REQUIRE(value1 == 1);
+      REQUIRE(value2 == 2);
+      REQUIRE(duk.eval_string("test(11, 22);", "", &error, &out));
+      REQUIRE(value1 == 11);
+      REQUIRE(value2 == 22);
+    }
+
+    SECTION("test(string)")
+    {
+      std::string value = "";
+      FunctionBinder{&duk, "test"}.bind<std::string>(
+          [&](Context* ctx, const std::string& s) -> int {
+            value = s;
+            return 0;
+          });
+      REQUIRE(value == "");
+      REQUIRE(duk.eval_string("test(\"dog\");", "", &error, &out));
+      REQUIRE(value == "dog");
+    }
   }
 }
