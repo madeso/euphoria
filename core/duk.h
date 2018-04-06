@@ -15,15 +15,17 @@ struct duk_hthread;
 typedef struct duk_hthread duk_context;
 }
 
-#define DUK_CALLBACK(TArgs) std::function<int(Context*, TArgs...)>
-
 class Duk;
 
 class Context
 {
  public:
+  explicit Context(duk_context* c);
+
   int
   GetNumberOfArguments() const;
+
+  duk_context* ctx;
 };
 
 class Overload
@@ -84,8 +86,9 @@ class GenericOverload : public Overload
       return "invalid number of arguments passed";
     }
 
+    int               i                           = 0;
     const std::string matches[argument_count + 1] = {
-        "", DukTemplate<TArgs>::CanMatch(ctx, -argument_count + 1)...};
+        "", DukTemplate<TArgs>::CanMatch(ctx, -argument_count + i++)...};
     for(const auto& m : matches)
     {
       if(!m.empty())
@@ -101,8 +104,9 @@ class GenericOverload : public Overload
   Call(Context* ctx) override
   {
     const int argument_count = sizeof...(TArgs);
+    int       i              = 0;
     return callback(
-        ctx, DukTemplate<TArgs>::Parse(ctx, -argument_count + 1)...);
+        ctx, DukTemplate<TArgs>::Parse(ctx, -argument_count + i++)...);
   };
 
   std::string
@@ -115,7 +119,7 @@ class GenericOverload : public Overload
 class FunctionBinder
 {
  public:
-  FunctionBinder(Duk* duk, const std::string& name);
+  FunctionBinder(Duk* d, const std::string& n);
   ~FunctionBinder();
 
   FunctionBinder&

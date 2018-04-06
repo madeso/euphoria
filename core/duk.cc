@@ -11,13 +11,48 @@
 
 LOG_SPECIFY_DEFAULT_LOGGER("engine.duk")
 
+Context::Context(duk_context* c)
+    : ctx(c)
+{
+}
 
-FunctionBinder::FunctionBinder(Duk* duk, const std::string& name)
+int
+Context::GetNumberOfArguments() const
+{
+  return duk_get_top(ctx);
+}
+
+template <>
+std::string
+DukTemplate<int>::CanMatch(Context* ctx, int index)
+{
+  if(duk_is_number(ctx->ctx, index))
+  {
+    return "";
+  }
+  else
+  {
+    // todo: improve this
+    return "not a number";
+  }
+}
+
+template <>
+int
+DukTemplate<int>::Parse(Context* ctx, int index)
+{
+  return static_cast<int>(duk_get_number(ctx->ctx, index));
+}
+
+FunctionBinder::FunctionBinder(Duk* d, const std::string& n)
+    : duk(d)
+    , name(n)
 {
 }
 
 FunctionBinder::~FunctionBinder()
 {
+  duk->bind(name, overloads);
 }
 
 FunctionBinder&
@@ -335,7 +370,7 @@ duk_generic_function_callback(duk_context* ctx)
   duk_pop(ctx);  // duk pointer
   duk_pop(ctx);  // current function
 
-  Context context;
+  Context context{ctx};
 
   // const int                number_of_arguments = duk_get_top(ctx);
   std::vector<std::string> non_matches;

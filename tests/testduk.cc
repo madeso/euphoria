@@ -98,8 +98,7 @@ TEST_CASE("duk-eval", "[duk]")
 
   SECTION("custom function")
   {
-// needs improvement
-#if 0
+    // needs improvement
     int value = 12;
     FunctionBinder{&duk, "test"}.bind<int>([&](Context* ctx, int i) -> int {
       value = i;
@@ -108,6 +107,5 @@ TEST_CASE("duk-eval", "[duk]")
     REQUIRE(value == 12);
     REQUIRE(duk.eval_string("test(42);", "", &error, &out));
     REQUIRE(value == 42);
-#endif
   }
 }
