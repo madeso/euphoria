@@ -153,6 +153,27 @@ TEST_CASE("duk-eval", "[duk]")
       REQUIRE(value == "dog");
     }
 
+    SECTION("test overload")
+    {
+      int value = 0;
+      FunctionBinder{&duk, "test"}
+          .bind<int>([&](Context* ctx, int i) -> int {
+            value = i;
+            return 0;
+          })
+          .bind<>([&](Context* ctx) -> int {
+            value = 707;
+            return 0;
+          });
+      ;
+      REQUIRE(value == 0);
+      REQUIRE(duk.eval_string("test(42);", "", &error, &out));
+      REQUIRE(value == 42);
+      value = 0;
+      REQUIRE(duk.eval_string("test();", "", &error, &out));
+      REQUIRE(value == 707);
+    }
+
 #if 0
     // need to figure out how to test error messages is a sane way
     SECTION("missing")
