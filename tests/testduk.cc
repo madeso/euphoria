@@ -154,10 +154,10 @@ TEST_CASE("duk-eval", "[duk]")
     }
 
 #if 0
-    // need to figure out how to test error messages
+    // need to figure out how to test error messages is a sane way
     SECTION("missing")
     {
-      SECTION("test(int)")
+      SECTION("too many arguments to test(int)")
       {
         int value = 12;
         FunctionBinder{&duk, "test"}.bind<int>([&](Context* ctx, int i) -> int {
@@ -166,6 +166,18 @@ TEST_CASE("duk-eval", "[duk]")
         });
         REQUIRE(value == 12);
         REQUIRE_FALSE(duk.eval_string("test(\"\", 2);", "", &error, &out));
+        // REQUIRE(error == "");
+      }
+
+      SECTION("invalid arguments to test(int)")
+      {
+        int value = 12;
+        FunctionBinder{&duk, "test"}.bind<int>([&](Context* ctx, int i) -> int {
+          value = i;
+          return 0;
+        });
+        REQUIRE(value == 12);
+        REQUIRE_FALSE(duk.eval_string("test(\"\");", "", &error, &out));
         REQUIRE(error == "");
       }
     }

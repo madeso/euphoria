@@ -63,7 +63,7 @@ template <typename T>
 struct DukTemplate
 {
   static std::string
-  CanMatch(Context* ctx, int index);
+  CanMatch(Context* ctx, int index, int number);
 
   static T
   Parse(Context* ctx, int index);
@@ -83,8 +83,9 @@ class GenericOverload : public Overload
   {
   }
 
+  template <std::size_t... I>
   std::string
-  Matches(Context* ctx) override
+  MatchesImpl(Context* ctx, std::index_sequence<I...>)
   {
     const auto passed_argument_count = ctx->GetNumberOfArguments();
     const int  argument_count        = sizeof...(TArgs);
@@ -94,9 +95,8 @@ class GenericOverload : public Overload
                    << passed_argument_count << ".";
     }
 
-    int               i                           = 0;
-    const std::string matches[argument_count + 1] = {
-        "", DukTemplate<TArgs>::CanMatch(ctx, -argument_count + i++)...};
+    const std::vector<std::string> matches{DukTemplate<TArgs>::CanMatch(
+        ctx, -argument_count + static_cast<int>(I), static_cast<int>(I)+1)...};
     for(const auto& m : matches)
     {
       if(!m.empty())
@@ -106,6 +106,12 @@ class GenericOverload : public Overload
     }
 
     return "";
+  }
+
+  std::string
+  Matches(Context* ctx) override
+  {
+    return MatchesImpl(ctx, std::index_sequence_for<TArgs...>{});
   }
 
   template <std::size_t... I>

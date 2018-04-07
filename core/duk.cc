@@ -27,9 +27,33 @@ Context::GetNumberOfArguments() const
 
 ////////////////////////////////////////////////////////////////////////////////
 
+std::string
+ArgumentError(int arg, const std::string& err)
+{
+  std::string th;
+  switch(arg % 10)
+  {
+    case 1:
+      th = "st";
+      break;
+    case 2:
+      th = "nd";
+      break;
+    case 3:
+      th = "rd";
+      break;
+    default:
+      th = "th";
+      break;
+  }
+  return Str() << arg << th << " argument is not a string";
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
 template <>
 std::string
-DukTemplate<int>::CanMatch(Context* ctx, int index)
+DukTemplate<int>::CanMatch(Context* ctx, int index, int arg)
 {
   if(duk_is_number(ctx->ctx, index))
   {
@@ -37,8 +61,7 @@ DukTemplate<int>::CanMatch(Context* ctx, int index)
   }
   else
   {
-    // todo: improve this
-    return "not a number";
+    return ArgumentError(arg, "not a number");
   }
 }
 
@@ -60,7 +83,7 @@ DukTemplate<int>::Name()
 
 template <>
 std::string
-DukTemplate<std::string>::CanMatch(Context* ctx, int index)
+DukTemplate<std::string>::CanMatch(Context* ctx, int index, int arg)
 {
   if(duk_is_string(ctx->ctx, index))
   {
@@ -68,8 +91,7 @@ DukTemplate<std::string>::CanMatch(Context* ctx, int index)
   }
   else
   {
-    // todo: improve this
-    return "not a string";
+    return ArgumentError(arg, "not a string");
   }
 }
 
