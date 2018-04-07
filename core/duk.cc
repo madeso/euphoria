@@ -163,7 +163,7 @@ FunctionBinder::FunctionBinder(Duk* d, const std::string& n)
 
 FunctionBinder::~FunctionBinder()
 {
-  duk->BindGlobalFunction(name, duk->CreateFunction(overloads));
+  duk->BindGlobalFunction(name, overloads);
 }
 
 FunctionBinder&
@@ -551,15 +551,22 @@ duk_generic_function_callback(duk_context* ctx)
 }
 
 void
-Duk::BindGlobalFunction(const std::string &name, Function *function)
+Duk::BindGlobalFunction(
+    const std::string&                            name,
+    const std::vector<std::shared_ptr<Overload>>& overloads)
 {
-  // bind duk function
-  duk_push_c_function(ctx, duk_generic_function_callback, DUK_VARARGS);  // fun
-  duk_push_pointer(ctx, function);                          // fun pointer
-  duk_put_prop_string(ctx, -2, DUK_HIDDEN_SYMBOL("func"));  // fun
+  PlaceFunctionOnStack(CreateFunction(overloads));
 
   const auto function_added = duk_put_global_string(ctx, name.c_str());
   ASSERTX(function_added == 1, function_added);
+}
+
+void
+Duk::PlaceFunctionOnStack(Function* function)
+{
+  duk_push_c_function(ctx, duk_generic_function_callback, DUK_VARARGS);  // fun
+  duk_push_pointer(ctx, function);                          // fun pointer
+  duk_put_prop_string(ctx, -2, DUK_HIDDEN_SYMBOL("func"));  // fun
 }
 
 Function*
