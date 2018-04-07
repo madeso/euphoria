@@ -44,6 +44,12 @@ class Context
   int
   ReturnVoid();
 
+  int
+  ReturnNumber(double num);
+
+  int
+  ReturnString(const std::string& str);
+
   duk_context* ctx;
 };
 
@@ -204,7 +210,7 @@ class Duk
 
   std::function<void(const std::string&)> on_print;
 
-  std::map<std::string, std::shared_ptr<Function>> functions;
+  std::vector<std::shared_ptr<Function>> functions;
 };
 
 

@@ -55,6 +55,20 @@ Context::ReturnVoid()
   return 0;
 }
 
+int
+Context::ReturnNumber(double num)
+{
+  duk_push_number(ctx, num);
+  return 1;
+}
+
+int
+Context::ReturnString(const std::string& str)
+{
+  duk_push_string(ctx, str.c_str());
+  return 1;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 
 std::string
@@ -541,13 +555,10 @@ Duk::bind(
     const std::string&                            name,
     const std::vector<std::shared_ptr<Overload>>& overloads)
 {
-  // find out if we have made this function before
-  ASSERT(functions.find(name) == functions.end());
-
   // create new function object
   auto func       = std::make_shared<Function>();
   func->overloads = overloads;
-  functions.insert(std::make_pair(name, func));
+  functions.emplace_back(func);
 
   // bind duk function
   duk_push_c_function(ctx, duk_generic_function_callback, DUK_VARARGS);  // fun

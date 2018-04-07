@@ -174,6 +174,22 @@ TEST_CASE("duk-eval", "[duk]")
       REQUIRE(value == 707);
     }
 
+    SECTION("return int")
+    {
+      FunctionBinder{&duk, "test"}.bind<>(
+          [&](Context* ctx) -> int { return ctx->ReturnNumber(42); });
+      REQUIRE(duk.eval_string("r = test(); r", "", &error, &out));
+      REQUIRE(out == "42");
+    }
+
+    SECTION("return string")
+    {
+      FunctionBinder{&duk, "test"}.bind<>(
+          [&](Context* ctx) -> int { return ctx->ReturnString("dog"); });
+      REQUIRE(duk.eval_string("r = test(); r", "", &error, &out));
+      REQUIRE(out == "dog");
+    }
+
 #if 0
     // need to figure out how to test error messages is a sane way
     SECTION("missing")
