@@ -29,6 +29,21 @@ class Context
   int
   GetNumberOfArguments() const;
 
+  bool
+  IsNumber(int index) const;
+
+  double
+  GetNumber(int index);
+
+  bool
+  IsString(int index) const;
+
+  std::string
+  GetString(int index);
+
+  int
+  ReturnVoid();
+
   duk_context* ctx;
 };
 
@@ -96,7 +111,9 @@ class GenericOverload : public Overload
     }
 
     const std::vector<std::string> matches{DukTemplate<TArgs>::CanMatch(
-        ctx, -argument_count + static_cast<int>(I), static_cast<int>(I)+1)...};
+        ctx,
+        -argument_count + static_cast<int>(I),
+        static_cast<int>(I) + 1)...};
     for(const auto& m : matches)
     {
       if(!m.empty())

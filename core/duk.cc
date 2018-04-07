@@ -25,6 +25,36 @@ Context::GetNumberOfArguments() const
   return duk_get_top(ctx);
 }
 
+bool
+Context::IsNumber(int index) const
+{
+  return duk_is_number(ctx, index) == 1;
+}
+
+double
+Context::GetNumber(int index)
+{
+  return duk_get_number(ctx, index);
+}
+
+bool
+Context::IsString(int index) const
+{
+  return duk_is_string(ctx, index) == 1;
+}
+
+std::string
+Context::GetString(int index)
+{
+  return duk_get_string(ctx, index);
+}
+
+int
+Context::ReturnVoid()
+{
+  return 0;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 
 std::string
@@ -55,7 +85,7 @@ template <>
 std::string
 DukTemplate<int>::CanMatch(Context* ctx, int index, int arg)
 {
-  if(duk_is_number(ctx->ctx, index))
+  if(ctx->IsNumber(index))
   {
     return "";
   }
@@ -69,7 +99,7 @@ template <>
 int
 DukTemplate<int>::Parse(Context* ctx, int index)
 {
-  return static_cast<int>(duk_get_number(ctx->ctx, index));
+  return static_cast<int>(ctx->GetNumber(index));
 }
 
 template <>
@@ -85,7 +115,7 @@ template <>
 std::string
 DukTemplate<std::string>::CanMatch(Context* ctx, int index, int arg)
 {
-  if(duk_is_string(ctx->ctx, index))
+  if(ctx->IsString(index))
   {
     return "";
   }
@@ -99,7 +129,7 @@ template <>
 std::string
 DukTemplate<std::string>::Parse(Context* ctx, int index)
 {
-  return duk_get_string(ctx->ctx, index);
+  return ctx->GetString(index);
 }
 
 template <>

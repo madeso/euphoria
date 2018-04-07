@@ -104,7 +104,7 @@ TEST_CASE("duk-eval", "[duk]")
       value = 2;
       FunctionBinder{&duk, "test"}.bind<>([](Context* ctx) -> int {
         value = 12;
-        return 0;
+        return ctx->ReturnVoid();
       });
       REQUIRE(value == 2);
       REQUIRE(duk.eval_string("test();", "", &error, &out));
@@ -116,7 +116,7 @@ TEST_CASE("duk-eval", "[duk]")
       int value = 12;
       FunctionBinder{&duk, "test"}.bind<int>([&](Context* ctx, int i) -> int {
         value = i;
-        return 0;
+        return ctx->ReturnVoid();
       });
       REQUIRE(value == 12);
       REQUIRE(duk.eval_string("test(42);", "", &error, &out));
@@ -131,7 +131,7 @@ TEST_CASE("duk-eval", "[duk]")
           [&](Context* ctx, int a, int b) -> int {
             value1 = a;
             value2 = b;
-            return 0;
+            return ctx->ReturnVoid();
           });
       REQUIRE(value1 == 1);
       REQUIRE(value2 == 2);
@@ -146,7 +146,7 @@ TEST_CASE("duk-eval", "[duk]")
       FunctionBinder{&duk, "test"}.bind<std::string>(
           [&](Context* ctx, const std::string& s) -> int {
             value = s;
-            return 0;
+            return ctx->ReturnVoid();
           });
       REQUIRE(value == "");
       REQUIRE(duk.eval_string("test(\"dog\");", "", &error, &out));
@@ -163,7 +163,7 @@ TEST_CASE("duk-eval", "[duk]")
           })
           .bind<>([&](Context* ctx) -> int {
             value = 707;
-            return 0;
+            return ctx->ReturnVoid();
           });
       ;
       REQUIRE(value == 0);
@@ -183,7 +183,7 @@ TEST_CASE("duk-eval", "[duk]")
         int value = 12;
         FunctionBinder{&duk, "test"}.bind<int>([&](Context* ctx, int i) -> int {
           value = i;
-          return 0;
+          return ctx->ReturnVoid();
         });
         REQUIRE(value == 12);
         REQUIRE_FALSE(duk.eval_string("test(\"\", 2);", "", &error, &out));
@@ -195,7 +195,7 @@ TEST_CASE("duk-eval", "[duk]")
         int value = 12;
         FunctionBinder{&duk, "test"}.bind<int>([&](Context* ctx, int i) -> int {
           value = i;
-          return 0;
+          return ctx->ReturnVoid();
         });
         REQUIRE(value == 12);
         REQUIRE_FALSE(duk.eval_string("test(\"\");", "", &error, &out));
