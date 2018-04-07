@@ -163,7 +163,7 @@ FunctionBinder::FunctionBinder(Duk* d, const std::string& n)
 
 FunctionBinder::~FunctionBinder()
 {
-  duk->bind(name, duk->CreateFunction(overloads));
+  duk->BindGlobalFunction(name, duk->CreateFunction(overloads));
 }
 
 FunctionBinder&
@@ -551,7 +551,7 @@ duk_generic_function_callback(duk_context* ctx)
 }
 
 void
-Duk::bind(const std::string& name, Function* function)
+Duk::BindGlobalFunction(const std::string &name, Function *function)
 {
   // bind duk function
   duk_push_c_function(ctx, duk_generic_function_callback, DUK_VARARGS);  // fun

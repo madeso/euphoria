@@ -199,7 +199,7 @@ class Duk
   bind_print(std::function<void(const std::string&)> on_print);
 
   void
-  bind(const std::string& name, Function* function);
+  BindGlobalFunction(const std::string &name, Function *function);
 
   Function*
   CreateFunction(const std::vector<std::shared_ptr<Overload>>& overloads);
