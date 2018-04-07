@@ -102,10 +102,10 @@ TEST_CASE("duk-eval", "[duk]")
     {
       static int value;
       value = 2;
-      FunctionBinder{&duk, "test"}.bind<>([](Context* ctx) -> int {
+      duk.BindGlobalFunction("test", Bind{}.bind<>([](Context* ctx) -> int {
         value = 12;
         return ctx->ReturnVoid();
-      });
+      }));
       REQUIRE(value == 2);
       REQUIRE(duk.eval_string("test();", "", &error, &out));
       REQUIRE(value == 12);
@@ -114,10 +114,11 @@ TEST_CASE("duk-eval", "[duk]")
     SECTION("test(int)")
     {
       int value = 12;
-      FunctionBinder{&duk, "test"}.bind<int>([&](Context* ctx, int i) -> int {
-        value = i;
-        return ctx->ReturnVoid();
-      });
+      duk.BindGlobalFunction(
+          "test", Bind{}.bind<int>([&](Context* ctx, int i) -> int {
+            value = i;
+            return ctx->ReturnVoid();
+          }));
       REQUIRE(value == 12);
       REQUIRE(duk.eval_string("test(42);", "", &error, &out));
       REQUIRE(value == 42);
@@ -127,12 +128,12 @@ TEST_CASE("duk-eval", "[duk]")
     {
       int value1 = 1;
       int value2 = 2;
-      FunctionBinder{&duk, "test"}.bind<int, int>(
-          [&](Context* ctx, int a, int b) -> int {
+      duk.BindGlobalFunction(
+          "test", Bind{}.bind<int, int>([&](Context* ctx, int a, int b) -> int {
             value1 = a;
             value2 = b;
             return ctx->ReturnVoid();
-          });
+          }));
       REQUIRE(value1 == 1);
       REQUIRE(value2 == 2);
       REQUIRE(duk.eval_string("test(11, 22);", "", &error, &out));
@@ -143,11 +144,13 @@ TEST_CASE("duk-eval", "[duk]")
     SECTION("test(string)")
     {
       std::string value = "";
-      FunctionBinder{&duk, "test"}.bind<std::string>(
-          [&](Context* ctx, const std::string& s) -> int {
-            value = s;
-            return ctx->ReturnVoid();
-          });
+      duk.BindGlobalFunction(
+          "test",
+          Bind{}.bind<std::string>(
+              [&](Context* ctx, const std::string& s) -> int {
+                value = s;
+                return ctx->ReturnVoid();
+              }));
       REQUIRE(value == "");
       REQUIRE(duk.eval_string("test(\"dog\");", "", &error, &out));
       REQUIRE(value == "dog");
@@ -156,16 +159,17 @@ TEST_CASE("duk-eval", "[duk]")
     SECTION("test overload")
     {
       int value = 0;
-      FunctionBinder{&duk, "test"}
-          .bind<int>([&](Context* ctx, int i) -> int {
-            value = i;
-            return 0;
-          })
-          .bind<>([&](Context* ctx) -> int {
-            value = 707;
-            return ctx->ReturnVoid();
-          });
-      ;
+      duk.BindGlobalFunction(
+          "test",
+          Bind{}
+              .bind<int>([&](Context* ctx, int i) -> int {
+                value = i;
+                return 0;
+              })
+              .bind<>([&](Context* ctx) -> int {
+                value = 707;
+                return ctx->ReturnVoid();
+              }));
       REQUIRE(value == 0);
       REQUIRE(duk.eval_string("test(42);", "", &error, &out));
       REQUIRE(value == 42);
@@ -176,16 +180,18 @@ TEST_CASE("duk-eval", "[duk]")
 
     SECTION("return int")
     {
-      FunctionBinder{&duk, "test"}.bind<>(
-          [&](Context* ctx) -> int { return ctx->ReturnNumber(42); });
+      duk.BindGlobalFunction("test", Bind{}.bind<>([&](Context* ctx) -> int {
+        return ctx->ReturnNumber(42);
+      }));
       REQUIRE(duk.eval_string("r = test(); r", "", &error, &out));
       REQUIRE(out == "42");
     }
 
     SECTION("return string")
     {
-      FunctionBinder{&duk, "test"}.bind<>(
-          [&](Context* ctx) -> int { return ctx->ReturnString("dog"); });
+      duk.BindGlobalFunction("test", Bind{}.bind<>([&](Context* ctx) -> int {
+        return ctx->ReturnString("dog");
+      }));
       REQUIRE(duk.eval_string("r = test(); r", "", &error, &out));
       REQUIRE(out == "dog");
     }
@@ -197,10 +203,10 @@ TEST_CASE("duk-eval", "[duk]")
       SECTION("too many arguments to test(int)")
       {
         int value = 12;
-        FunctionBinder{&duk, "test"}.bind<int>([&](Context* ctx, int i) -> int {
+        duk.BindGlobalFunction("test", Bind{}.bind<int>([&](Context* ctx, int i) -> int {
           value = i;
           return ctx->ReturnVoid();
-        });
+        }));
         REQUIRE(value == 12);
         REQUIRE_FALSE(duk.eval_string("test(\"\", 2);", "", &error, &out));
         // REQUIRE(error == "");
@@ -209,10 +215,10 @@ TEST_CASE("duk-eval", "[duk]")
       SECTION("invalid arguments to test(int)")
       {
         int value = 12;
-        FunctionBinder{&duk, "test"}.bind<int>([&](Context* ctx, int i) -> int {
+        duk.BindGlobalFunction("test", Bind{}.bind<int>([&](Context* ctx, int i) -> int {
           value = i;
           return ctx->ReturnVoid();
-        });
+        }));
         REQUIRE(value == 12);
         REQUIRE_FALSE(duk.eval_string("test(\"\");", "", &error, &out));
         REQUIRE(error == "");

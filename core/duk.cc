@@ -155,24 +155,6 @@ DukTemplate<std::string>::Name()
 
 ////////////////////////////////////////////////////////////////////////////////
 
-FunctionBinder::FunctionBinder(Duk* d, const std::string& n)
-    : duk(d)
-    , name(n)
-{
-}
-
-FunctionBinder::~FunctionBinder()
-{
-  duk->BindGlobalFunction(name, overloads);
-}
-
-FunctionBinder&
-FunctionBinder::add(std::shared_ptr<Overload> overload)
-{
-  overloads.push_back(overload);
-  return *this;
-}
-
 std::vector<std::string>
 collect_types(duk_context* ctx, int index)
 {
@@ -551,11 +533,9 @@ duk_generic_function_callback(duk_context* ctx)
 }
 
 void
-Duk::BindGlobalFunction(
-    const std::string&                            name,
-    const std::vector<std::shared_ptr<Overload>>& overloads)
+Duk::BindGlobalFunction(const std::string& name, const Bind& bind)
 {
-  PlaceFunctionOnStack(CreateFunction(overloads));
+  PlaceFunctionOnStack(CreateFunction(bind));
 
   const auto function_added = duk_put_global_string(ctx, name.c_str());
   ASSERTX(function_added == 1, function_added);
@@ -570,11 +550,11 @@ Duk::PlaceFunctionOnStack(Function* function)
 }
 
 Function*
-Duk::CreateFunction(const std::vector<std::shared_ptr<Overload>>& overloads)
+Duk::CreateFunction(const Bind& bind)
 {
   // create new function object
   auto func       = std::make_shared<Function>();
-  func->overloads = overloads;
+  func->overloads = bind.overloads;
   functions.emplace_back(func);
   return func.get();
 }

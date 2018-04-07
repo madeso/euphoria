@@ -162,24 +162,18 @@ class GenericOverload : public Overload
   }
 };
 
-class FunctionBinder
+class Bind
 {
  public:
-  FunctionBinder(Duk* d, const std::string& n);
-  ~FunctionBinder();
-
-  FunctionBinder&
-  add(std::shared_ptr<Overload> overload);
-
   template <typename... TArgs, typename Func>
-  FunctionBinder&
+  Bind&
   bind(Func callback)
   {
-    return add(std::make_shared<GenericOverload<Func, TArgs...>>(callback));
+    overloads.emplace_back(
+        std::make_shared<GenericOverload<Func, TArgs...>>(callback));
+    return *this;
   }
 
-  Duk*                                   duk;
-  std::string                            name;
   std::vector<std::shared_ptr<Overload>> overloads;
 };
 
@@ -199,9 +193,7 @@ class Duk
   bind_print(std::function<void(const std::string&)> on_print);
 
   void
-  BindGlobalFunction(
-      const std::string&                            name,
-      const std::vector<std::shared_ptr<Overload>>& overloads);
+  BindGlobalFunction(const std::string& name, const Bind& overloads);
 
   ~Duk();
 
@@ -209,7 +201,7 @@ class Duk
   PlaceFunctionOnStack(Function* function);
 
   Function*
-  CreateFunction(const std::vector<std::shared_ptr<Overload>>& overloads);
+  CreateFunction(const Bind& overloads);
 
 
   duk_context* ctx;
