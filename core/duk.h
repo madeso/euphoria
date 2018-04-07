@@ -199,9 +199,10 @@ class Duk
   bind_print(std::function<void(const std::string&)> on_print);
 
   void
-  bind(
-      const std::string&                            name,
-      const std::vector<std::shared_ptr<Overload>>& overloads);
+  bind(const std::string& name, Function* function);
+
+  Function*
+  CreateFunction(const std::vector<std::shared_ptr<Overload>>& overloads);
 
   ~Duk();
 
