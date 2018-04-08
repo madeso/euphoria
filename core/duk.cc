@@ -14,8 +14,9 @@ LOG_SPECIFY_DEFAULT_LOGGER("engine.duk")
 
 ////////////////////////////////////////////////////////////////////////////////
 
-Context::Context(duk_context* c)
+Context::Context(duk_context* c, Duk* d)
     : ctx(c)
+    , duk(d)
 {
 }
 
@@ -69,6 +70,38 @@ Context::ReturnString(const std::string& str)
   return 1;
 }
 
+//
+
+bool
+Context::IsObject(int index)
+{
+  return duk_is_object(ctx, index) == 1;
+}
+
+size_t
+Context::GetObjectId(int index)
+{
+  duk_get_prop_string(ctx, index, DUK_HIDDEN_SYMBOL("type"));
+  const auto number = duk_get_number(ctx, -1);
+  duk_pop(ctx);
+  return static_cast<size_t>(number);
+}
+
+std::string
+Context::TypeToString(size_t id)
+{
+  return duk->TypeToString(id);
+}
+
+void*
+Context::GetObjectPtr(int index)
+{
+  duk_get_prop_string(ctx, index, DUK_HIDDEN_SYMBOL("ptr"));
+  void* data = duk_get_pointer(ctx, -1);
+  duk_pop(ctx);
+  return data;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 
 std::string
@@ -95,62 +128,16 @@ ArgumentError(int arg, const std::string& err)
 
 ////////////////////////////////////////////////////////////////////////////////
 
-template <>
-std::string
-DukTemplate<int>::CanMatch(Context* ctx, int index, int arg)
+ClassBinder::ClassBinder(size_t i)
+    : id(i)
 {
-  if(ctx->IsNumber(index))
-  {
-    return "";
-  }
-  else
-  {
-    return ArgumentError(arg, "not a number");
-  }
 }
 
-template <>
-int
-DukTemplate<int>::Parse(Context* ctx, int index)
+ClassBinder&
+ClassBinder::AddMethod(const std::string& name, const Bind& bind)
 {
-  return static_cast<int>(ctx->GetNumber(index));
-}
-
-template <>
-std::string
-DukTemplate<int>::Name()
-{
-  return "int";
-}
-
-////////////////////////////////////////////////////////////////////////////////
-
-template <>
-std::string
-DukTemplate<std::string>::CanMatch(Context* ctx, int index, int arg)
-{
-  if(ctx->IsString(index))
-  {
-    return "";
-  }
-  else
-  {
-    return ArgumentError(arg, "not a string");
-  }
-}
-
-template <>
-std::string
-DukTemplate<std::string>::Parse(Context* ctx, int index)
-{
-  return ctx->GetString(index);
-}
-
-template <>
-std::string
-DukTemplate<std::string>::Name()
-{
-  return "string";
+  overloads.push_back(std::make_pair(name, bind));
+  return *this;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -473,6 +460,19 @@ DescribeArguments(Context* ctx)
   return StringMerger::FunctionCall().Generate(types);
 }
 
+template <typename T>
+T*
+GetFunctionProperty(duk_context* ctx, const char* name)
+{
+  duk_push_current_function(ctx);
+  duk_get_prop_string(ctx, -1, name);
+  auto* function = reinterpret_cast<T*>(duk_to_pointer(ctx, -1));
+  duk_pop(ctx);  // duk pointer
+  duk_pop(ctx);  // current function
+  return function;
+}
+
+template <bool TPushThis>
 int
 duk_generic_function_callback(duk_context* ctx)
 {
@@ -481,13 +481,16 @@ duk_generic_function_callback(duk_context* ctx)
     return duk_type_error(ctx, "%s", "Not a constructor call");
   }
 
-  duk_push_current_function(ctx);
-  duk_get_prop_string(ctx, -1, DUK_HIDDEN_SYMBOL("func"));
-  auto* function = reinterpret_cast<Function*>(duk_to_pointer(ctx, -1));
-  duk_pop(ctx);  // duk pointer
-  duk_pop(ctx);  // current function
+  auto* function =
+      GetFunctionProperty<Function>(ctx, DUK_HIDDEN_SYMBOL("func"));
+  auto* duk = GetFunctionProperty<Duk>(ctx, DUK_HIDDEN_SYMBOL("duk"));
 
-  Context context{ctx};
+  Context context{ctx, duk};
+
+  if(TPushThis)
+  {
+    duk_push_this(ctx);
+  }
 
   // const int                number_of_arguments = duk_get_top(ctx);
   std::vector<std::string> non_matches;
@@ -502,7 +505,8 @@ duk_generic_function_callback(duk_context* ctx)
     }
     else
     {
-      non_matches.emplace_back(Str() << overload->Describe() << ": " << match);
+      non_matches.emplace_back(
+          Str() << overload->Describe(&context) << ": " << match);
     }
   }
 
@@ -533,20 +537,57 @@ duk_generic_function_callback(duk_context* ctx)
 }
 
 void
+PlaceFunctionOnStack(
+    duk_context* ctx, Function* function, duk_c_function fun, Duk* duk)
+{
+  duk_push_c_function(ctx, fun, DUK_VARARGS);  // fun
+
+  duk_push_pointer(ctx, function);                          // fun pointer
+  duk_put_prop_string(ctx, -2, DUK_HIDDEN_SYMBOL("func"));  // fun
+
+  duk_push_pointer(ctx, duk);                              // fun pointer
+  duk_put_prop_string(ctx, -2, DUK_HIDDEN_SYMBOL("duk"));  // fun
+}
+
+Prototype::Prototype(const std::string& n, void* p)
+    : name(n)
+    , prototype(p)
+{
+}
+
+void
 Duk::BindGlobalFunction(const std::string& name, const Bind& bind)
 {
-  PlaceFunctionOnStack(CreateFunction(bind));
+  PlaceFunctionOnStack(
+      ctx, CreateFunction(bind), duk_generic_function_callback<false>, this);
 
   const auto function_added = duk_put_global_string(ctx, name.c_str());
   ASSERTX(function_added == 1, function_added);
 }
 
 void
-Duk::PlaceFunctionOnStack(Function* function)
+Duk::BindClass(const std::string& name, const ClassBinder& bind)
 {
-  duk_push_c_function(ctx, duk_generic_function_callback, DUK_VARARGS);  // fun
-  duk_push_pointer(ctx, function);                          // fun pointer
-  duk_put_prop_string(ctx, -2, DUK_HIDDEN_SYMBOL("func"));  // fun
+  // use duk_push_bare_object?
+  const auto prototype_index = duk_push_object(ctx);  // prototype
+
+  for(const auto func : bind.overloads)
+  {
+    PlaceFunctionOnStack(
+        ctx,
+        CreateFunction(func.second),
+        duk_generic_function_callback<true>,
+        this);  // proto func
+    const auto function_added =
+        duk_put_prop_string(ctx, prototype_index, func.first.c_str());  // proto
+    ASSERTX(function_added == 1, function_added);
+  }
+
+  void*             prototype  = duk_get_heapptr(ctx, -1);
+  const std::string proto_name = Str() << DUK_HIDDEN_SYMBOL("proto") << name;
+  duk_put_global_string(ctx, proto_name.c_str());  // empty stack
+
+  classIds.insert(std::make_pair(bind.id, Prototype{name, prototype}));
 }
 
 Function*
@@ -562,4 +603,18 @@ Duk::CreateFunction(const Bind& bind)
 Duk::~Duk()
 {
   duk_destroy_heap(ctx);
+}
+
+std::string
+Duk::TypeToString(size_t id)
+{
+  const auto found = classIds.find(id);
+  if(found == classIds.end())
+  {
+    return "<unknown type>";
+  }
+  else
+  {
+    return found->second.name;
+  }
 }

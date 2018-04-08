@@ -2,6 +2,17 @@
 
 #include "catch.hpp"
 
+class Dog
+{
+ public:
+  Dog(const std::string& n)
+      : name(n)
+  {
+  }
+
+  std::string name;
+};
+
 TEST_CASE("duk-eval", "[duk]")
 {
   Duk         duk;
@@ -194,6 +205,17 @@ TEST_CASE("duk-eval", "[duk]")
       }));
       REQUIRE(duk.eval_string("r = test(); r", "", &error, &out));
       REQUIRE(out == "dog");
+    }
+
+    SECTION("class")
+    {
+      duk.BindClass(
+          "Dog",
+          BindClass<Dog>().AddMethod(
+              "GetName",
+              Bind{}.bind<Dog>([&](Context* ctx, const Dog& d) -> int {
+                return ctx->ReturnString(d.name);
+              })));
     }
 
 #if 0

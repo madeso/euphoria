@@ -9,8 +9,10 @@
 #include <vector>
 #include <utility>
 
+#include "core/assert.h"
 #include "core/str.h"
-#include "stringmerger.h"
+#include "core/stringmerger.h"
+#include "core/cpp.h"
 
 // #include "duk_config.h"
 
@@ -24,7 +26,7 @@ class Duk;
 class Context
 {
  public:
-  explicit Context(duk_context* c);
+  Context(duk_context* c, Duk* d);
 
   int
   GetNumberOfArguments() const;
@@ -50,7 +52,20 @@ class Context
   int
   ReturnString(const std::string& str);
 
+  bool
+  IsObject(int index);
+
+  size_t
+  GetObjectId(int index);
+
+  std::string
+  TypeToString(size_t id);
+
+  void*
+  GetObjectPtr(int index);
+
   duk_context* ctx;
+  Duk*         duk;
 };
 
 class Overload
@@ -68,7 +83,7 @@ class Overload
   Call(Context* ctx) = 0;
 
   virtual std::string
-  Describe() const = 0;
+  Describe(Context* context) const = 0;
 };
 
 class Function
@@ -80,17 +95,107 @@ class Function
   std::vector<std::shared_ptr<Overload>> overloads;
 };
 
+std::string
+ArgumentError(int arg, const std::string& err);
+
 template <typename T>
 struct DukTemplate
 {
   static std::string
-  CanMatch(Context* ctx, int index, int number);
+  CanMatch(Context* ctx, int index, int arg)
+  {
+    if(ctx->IsObject(index))
+    {
+      const auto id        = ctx->GetObjectId(index);
+      const auto self_type = typeid(T).hash_code();
+      if(id == self_type)
+      {
+        return "";
+      }
+      else
+      {
+        return ArgumentError(
+            arg,
+            Str() << "expected " << ctx->TypeToString(self_type) << " but got "
+                  << ctx->TypeToString(id));
+      }
+    }
+    else
+    {
+      return ArgumentError(arg, "not a object");
+    }
+  }
 
-  static T
-  Parse(Context* ctx, int index);
+  static T&
+  Parse(Context* ctx, int index)
+  {
+    ASSERT(ctx->GetObjectId(index) == typeid(T).hash_code());
+    return *static_cast<T*>(ctx->GetObjectPtr(index));
+  }
 
   static std::string
-  Name();
+  Name(Context* ctx)
+  {
+    return ctx->TypeToString(typeid(T).hash_code());
+  }
+};
+
+template <>
+struct DukTemplate<int>
+{
+  static std::string
+  CanMatch(Context* ctx, int index, int arg)
+  {
+    if(ctx->IsNumber(index))
+    {
+      return "";
+    }
+    else
+    {
+      return ArgumentError(arg, "not a number");
+    }
+  }
+
+  static int
+  Parse(Context* ctx, int index)
+  {
+    return static_cast<int>(ctx->GetNumber(index));
+  }
+
+  static std::string
+  Name(Context*)
+  {
+    return "int";
+  }
+};
+
+template <>
+struct DukTemplate<std::string>
+{
+  static std::string
+  CanMatch(Context* ctx, int index, int arg)
+  {
+    if(ctx->IsString(index))
+    {
+      return "";
+    }
+    else
+    {
+      return ArgumentError(arg, "not a string");
+    }
+  }
+
+  static std::string
+  Parse(Context* ctx, int index)
+  {
+    return ctx->GetString(index);
+  }
+
+  static std::string
+  Name(Context*)
+  {
+    return "string";
+  }
 };
 
 template <typename Callback, typename... TArgs>
@@ -99,7 +204,7 @@ class GenericOverload : public Overload
  public:
   Callback callback;
 
-  GenericOverload(Callback c)
+  explicit GenericOverload(Callback c)
       : callback(c)
   {
   }
@@ -155,9 +260,11 @@ class GenericOverload : public Overload
   };
 
   std::string
-  Describe() const override
+  Describe(Context* ctx) const override
   {
-    const std::vector<std::string> type_names = {DukTemplate<TArgs>::Name()...};
+    NotUsed(ctx);
+    const std::vector<std::string> type_names = {
+        DukTemplate<TArgs>::Name(ctx)...};
     return StringMerger::FunctionCall().Generate(type_names);
   }
 };
@@ -175,6 +282,37 @@ class Bind
   }
 
   std::vector<std::shared_ptr<Overload>> overloads;
+};
+
+class ClassBinder
+{
+ public:
+  explicit ClassBinder(size_t i);
+
+  // todo: add constructor
+  // todo: add properties
+
+  ClassBinder&
+  AddMethod(const std::string& name, const Bind& bind);
+
+  size_t id;
+  std::vector<std::pair<std::string, Bind>> overloads;
+};
+
+template <typename T>
+ClassBinder
+BindClass()
+{
+  return ClassBinder{typeid(T).hash_code()};
+}
+
+class Prototype
+{
+ public:
+  Prototype(const std::string& n, void* p);
+
+  std::string name;
+  void*       prototype;
 };
 
 class Duk
@@ -195,20 +333,24 @@ class Duk
   void
   BindGlobalFunction(const std::string& name, const Bind& overloads);
 
-  ~Duk();
-
   void
-  PlaceFunctionOnStack(Function* function);
+  BindClass(const std::string& name, const ClassBinder& bind);
+
+  ~Duk();
 
   Function*
   CreateFunction(const Bind& overloads);
 
+  std::string
+  TypeToString(size_t id);
 
   duk_context* ctx;
 
   std::function<void(const std::string&)> on_print;
 
   std::vector<std::shared_ptr<Function>> functions;
+
+  std::map<size_t, Prototype> classIds;
 };
 
 
