@@ -23,6 +23,16 @@ typedef struct duk_hthread duk_context;
 
 class Duk;
 
+class Prototype
+{
+ public:
+  Prototype(const std::string& n, void* p);
+
+  std::string name;
+  void*       prototype;
+};
+
+
 class Context
 {
  public:
@@ -52,14 +62,24 @@ class Context
   int
   ReturnString(const std::string& str);
 
+  int
+  ReturnFreeObject(void* object, size_t type);
+
+  template <typename T>
+  int
+  ReturnFreeObject(T* t)
+  {
+    return ReturnFreeObject(t, typeid(T).hash_code());
+  }
+
   bool
   IsObject(int index);
 
-  size_t
-  GetObjectId(int index);
+  Prototype*
+  GetObjectType(int index);
 
-  std::string
-  TypeToString(size_t id);
+  Prototype*
+  TypeToProto(size_t id);
 
   void*
   GetObjectPtr(int index);
@@ -98,16 +118,19 @@ class Function
 std::string
 ArgumentError(int arg, const std::string& err);
 
-template <typename T>
+template <typename TT>
 struct DukTemplate
 {
+  using T = typename std::decay<TT>::type;
+
   static std::string
   CanMatch(Context* ctx, int index, int arg)
   {
     if(ctx->IsObject(index))
     {
-      const auto id        = ctx->GetObjectId(index);
-      const auto self_type = typeid(T).hash_code();
+      const auto* id        = ctx->GetObjectType(index);
+      const auto* self_type = ctx->TypeToProto(typeid(T).hash_code());
+      ASSERT(self_type != nullptr);
       if(id == self_type)
       {
         return "";
@@ -116,8 +139,7 @@ struct DukTemplate
       {
         return ArgumentError(
             arg,
-            Str() << "expected " << ctx->TypeToString(self_type) << " but got "
-                  << ctx->TypeToString(id));
+            Str() << "expected " << self_type->name << " but got " << id->name);
       }
     }
     else
@@ -129,14 +151,17 @@ struct DukTemplate
   static T&
   Parse(Context* ctx, int index)
   {
-    ASSERT(ctx->GetObjectId(index) == typeid(T).hash_code());
+    ASSERT(
+        ctx->GetObjectType(index) == ctx->TypeToProto(typeid(T).hash_code()));
     return *static_cast<T*>(ctx->GetObjectPtr(index));
   }
 
   static std::string
   Name(Context* ctx)
   {
-    return ctx->TypeToString(typeid(T).hash_code());
+    auto* proto = ctx->TypeToProto(typeid(T).hash_code());
+    ASSERT(proto);
+    return proto->name;
   }
 };
 
@@ -306,15 +331,6 @@ BindClass()
   return ClassBinder{typeid(T).hash_code()};
 }
 
-class Prototype
-{
- public:
-  Prototype(const std::string& n, void* p);
-
-  std::string name;
-  void*       prototype;
-};
-
 class Duk
 {
  public:
@@ -341,8 +357,8 @@ class Duk
   Function*
   CreateFunction(const Bind& overloads);
 
-  std::string
-  TypeToString(size_t id);
+  Prototype*
+  TypeToProto(size_t id);
 
   duk_context* ctx;
 
@@ -350,7 +366,7 @@ class Duk
 
   std::vector<std::shared_ptr<Function>> functions;
 
-  std::map<size_t, Prototype> classIds;
+  std::map<size_t, std::shared_ptr<Prototype>> classIds;
 };
 
 

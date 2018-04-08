@@ -216,6 +216,20 @@ TEST_CASE("duk-eval", "[duk]")
               Bind{}.bind<Dog>([&](Context* ctx, const Dog& d) -> int {
                 return ctx->ReturnString(d.name);
               })));
+
+      SECTION("test")
+      {
+        Dog duke{"Duke"};
+        duk.BindGlobalFunction("GetDog", Bind{}.bind([&](Context* ctx) -> int {
+          return ctx->ReturnFreeObject(&duke);
+        }));
+        const auto eval = duk.eval_string(
+            "dog = GetDog(); name = dog.GetName(); name", "", &error, &out);
+        CAPTURE(out);
+        CAPTURE(error);
+        REQUIRE(eval);
+        REQUIRE(out == "Duke");
+      }
     }
 
 #if 0

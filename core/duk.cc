@@ -70,7 +70,26 @@ Context::ReturnString(const std::string& str)
   return 1;
 }
 
-//
+int
+Context::ReturnFreeObject(void* object, size_t type)
+{
+  Prototype* proto     = duk->TypeToProto(type);
+  const auto object_id = duk_push_object(ctx);  // object
+
+  // prototype
+  duk_push_heapptr(ctx, proto->prototype);  // object proto
+  duk_set_prototype(ctx, object_id);        // object
+
+  // type id
+  duk_push_pointer(ctx, proto);                                    // object id
+  duk_put_prop_string(ctx, object_id, DUK_HIDDEN_SYMBOL("type"));  // object
+
+  // object ptr
+  duk_push_pointer(ctx, object);                                  // object ptr
+  duk_put_prop_string(ctx, object_id, DUK_HIDDEN_SYMBOL("ptr"));  // object
+
+  return 1;
+}
 
 bool
 Context::IsObject(int index)
@@ -78,19 +97,19 @@ Context::IsObject(int index)
   return duk_is_object(ctx, index) == 1;
 }
 
-size_t
-Context::GetObjectId(int index)
+Prototype*
+Context::GetObjectType(int index)
 {
   duk_get_prop_string(ctx, index, DUK_HIDDEN_SYMBOL("type"));
-  const auto number = duk_get_number(ctx, -1);
+  const auto ptr = duk_get_pointer(ctx, -1);
   duk_pop(ctx);
-  return static_cast<size_t>(number);
+  return static_cast<Prototype*>(ptr);
 }
 
-std::string
-Context::TypeToString(size_t id)
+Prototype*
+Context::TypeToProto(size_t id)
 {
-  return duk->TypeToString(id);
+  return duk->TypeToProto(id);
 }
 
 void*
@@ -123,7 +142,7 @@ ArgumentError(int arg, const std::string& err)
       th = "th";
       break;
   }
-  return Str() << arg << th << " argument is not a string";
+  return Str() << arg << th << " " << err;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -587,7 +606,8 @@ Duk::BindClass(const std::string& name, const ClassBinder& bind)
   const std::string proto_name = Str() << DUK_HIDDEN_SYMBOL("proto") << name;
   duk_put_global_string(ctx, proto_name.c_str());  // empty stack
 
-  classIds.insert(std::make_pair(bind.id, Prototype{name, prototype}));
+  classIds.insert(
+      std::make_pair(bind.id, std::make_shared<Prototype>(name, prototype)));
 }
 
 Function*
@@ -605,16 +625,17 @@ Duk::~Duk()
   duk_destroy_heap(ctx);
 }
 
-std::string
-Duk::TypeToString(size_t id)
+Prototype*
+Duk::TypeToProto(size_t id)
 {
   const auto found = classIds.find(id);
   if(found == classIds.end())
   {
-    return "<unknown type>";
+    DIE("class not added");
+    return nullptr;
   }
   else
   {
-    return found->second.name;
+    return found->second.get();
   }
 }
