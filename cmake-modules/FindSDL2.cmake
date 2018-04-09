@@ -65,6 +65,10 @@
 # (To distribute this file outside of CMake, substitute the full
 #  License text for the above reference.)
 
+IF(WIN32)
+SET(SDL2_HINT_ROOT "" CACHE PATH "sdl2 root")
+ENDIF()
+
 SET(SDL2_SEARCH_PATHS
 	~/Library/Frameworks
 	/Library/Frameworks
@@ -75,6 +79,7 @@ SET(SDL2_SEARCH_PATHS
 	/opt/csw # Blastwave
 	/opt
 	${SDL2_HINT_ROOT}
+	${SDL2_HINT_ROOT}/build
 	${SDL2_HINT_BUILD}
 )
 
