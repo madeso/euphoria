@@ -159,6 +159,14 @@ ClassBinder::AddMethod(const std::string& name, const Bind& bind)
   return *this;
 }
 
+ClassBinder&
+ClassBinder::AddProperty(
+    const std::string& name, const Bind& get, const Bind& set)
+{
+  properties.push_back(std::make_tuple(name, get, set));
+  return *this;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 
 std::vector<std::string>
@@ -302,7 +310,7 @@ to_string(duk_context* ctx, int index)
   std::vector<std::string> values;
   if(duk_is_object(ctx, index))
   {
-    duk_enum(ctx, index, DUK_ENUM_INCLUDE_NONENUMERABLE);
+    duk_enum(ctx, index, 0);
     while(duk_next(ctx, -1, 1))
     {
       values.emplace_back(
@@ -474,7 +482,14 @@ DescribeArguments(Context* ctx)
   std::vector<std::string> types;
   for(int i = 0; i < args; i += 1)
   {
-    types.emplace_back(GetDukType(ctx, -args + i));
+    const int index = -args + i;
+#if 1
+    const std::string err = Str() << GetDukType(ctx, index) << "="
+                                  << to_string(ctx->ctx, index);
+    types.emplace_back(err);
+#else
+    types.emplace_back(GetDukType(ctx, index));
+#endif
   }
   return StringMerger::FunctionCall().Generate(types);
 }
@@ -508,7 +523,13 @@ duk_generic_function_callback(duk_context* ctx)
 
   if(TPushThis)
   {
+    const auto arguments = duk_get_top(ctx);
     duk_push_this(ctx);
+    if(arguments != 0)
+    {
+      // don't insert if there are 0 arguments
+      duk_insert(ctx, -(arguments + 1));
+    }
   }
 
   // const int                number_of_arguments = duk_get_top(ctx);
@@ -557,9 +578,13 @@ duk_generic_function_callback(duk_context* ctx)
 
 void
 PlaceFunctionOnStack(
-    duk_context* ctx, Function* function, duk_c_function fun, Duk* duk)
+    duk_context*   ctx,
+    Function*      function,
+    duk_c_function fun,
+    Duk*           duk,
+    int            arguments = DUK_VARARGS)
 {
-  duk_push_c_function(ctx, fun, DUK_VARARGS);  // fun
+  duk_push_c_function(ctx, fun, arguments);  // fun
 
   duk_push_pointer(ctx, function);                          // fun pointer
   duk_put_prop_string(ctx, -2, DUK_HIDDEN_SYMBOL("func"));  // fun
@@ -600,6 +625,41 @@ Duk::BindClass(const std::string& name, const ClassBinder& bind)
     const auto function_added =
         duk_put_prop_string(ctx, prototype_index, func.first.c_str());  // proto
     ASSERTX(function_added == 1, function_added);
+  }
+
+  for(const auto& prop : bind.properties)
+  {
+    const auto& name   = std::get<0>(prop);
+    const auto& getter = std::get<1>(prop);
+    const auto& setter = std::get<2>(prop);
+
+    duk_uint_t flags = 0;
+
+    duk_push_string(ctx, name.c_str());
+
+    if(!getter.overloads.empty())
+    {
+      PlaceFunctionOnStack(
+          ctx,
+          CreateFunction(getter),
+          duk_generic_function_callback<true>,
+          this,
+          0);
+      flags |= DUK_DEFPROP_HAVE_GETTER;
+    }
+    if(!setter.overloads.empty())
+    {
+      PlaceFunctionOnStack(
+          ctx,
+          CreateFunction(setter),
+          duk_generic_function_callback<true>,
+          this,
+          1);
+      flags |= DUK_DEFPROP_HAVE_SETTER;
+    }
+    // a getter, setter or both must be set
+    ASSERTX(flags != 0, flags);
+    duk_def_prop(ctx, prototype_index, flags);
   }
 
   void*             prototype  = duk_get_heapptr(ctx, -1);

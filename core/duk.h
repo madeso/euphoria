@@ -320,8 +320,12 @@ class ClassBinder
   ClassBinder&
   AddMethod(const std::string& name, const Bind& bind);
 
+  ClassBinder&
+  AddProperty(const std::string& name, const Bind& get, const Bind& set);
+
   size_t id;
   std::vector<std::pair<std::string, Bind>> overloads;
+  std::vector<std::tuple<std::string, Bind, Bind>> properties;
 };
 
 template <typename T>

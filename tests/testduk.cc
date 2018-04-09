@@ -211,13 +211,31 @@ TEST_CASE("duk-eval", "[duk]")
     {
       duk.BindClass(
           "Dog",
-          BindClass<Dog>().AddMethod(
-              "GetName",
-              Bind{}.bind<Dog>([&](Context* ctx, const Dog& d) -> int {
-                return ctx->ReturnString(d.name);
-              })));
+          BindClass<Dog>()
+              .AddMethod(
+                  "GetName",
+                  Bind{}.bind<Dog>([](Context* ctx, const Dog& d) -> int {
+                    return ctx->ReturnString(d.name);
+                  }))
+              .AddMethod(
+                  "SetName",
+                  Bind{}.bind<Dog, std::string>(
+                      [](Context* ctx, Dog& d, const std::string& name) -> int {
+                        d.name = name;
+                        return ctx->ReturnVoid();
+                      }))
+              .AddProperty(
+                  "name",
+                  Bind{}.bind<Dog>([](Context* ctx, const Dog& dog) -> int {
+                    return ctx->ReturnString(dog.name);
+                  }),
+                  Bind{}.bind<Dog, std::string>(
+                      [](Context* ctx, Dog& d, const std::string& name) -> int {
+                        d.name = name;
+                        return ctx->ReturnVoid();
+                      })));
 
-      SECTION("test")
+      SECTION("Call member get fun")
       {
         Dog duke{"Duke"};
         duk.BindGlobalFunction("GetDog", Bind{}.bind([&](Context* ctx) -> int {
@@ -229,6 +247,37 @@ TEST_CASE("duk-eval", "[duk]")
         CAPTURE(error);
         REQUIRE(eval);
         REQUIRE(out == "Duke");
+      }
+
+      SECTION("Call member set fun")
+      {
+        Dog duke{"Duke"};
+        duk.BindGlobalFunction("GetDog", Bind{}.bind([&](Context* ctx) -> int {
+          return ctx->ReturnFreeObject(&duke);
+        }));
+        const auto eval = duk.eval_string(
+            "dog = GetDog(); dog.SetName(\"Cat\");", "", &error, &out);
+        CAPTURE(out);
+        CAPTURE(error);
+        REQUIRE(eval);
+        REQUIRE(duke.name == "Cat");
+      }
+
+      SECTION("Use property")
+      {
+        Dog duke{"Duke"};
+        duk.BindGlobalFunction("GetDog", Bind{}.bind([&](Context* ctx) -> int {
+          return ctx->ReturnFreeObject(&duke);
+        }));
+        const auto eval = duk.eval_string(
+            "dog = GetDog(); dog.name = dog.name + \" the dog\";",
+            "",
+            &error,
+            &out);
+        CAPTURE(out);
+        CAPTURE(error);
+        REQUIRE(eval);
+        REQUIRE(duke.name == "Duke the dog");
       }
     }
 
