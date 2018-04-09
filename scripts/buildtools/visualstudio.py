@@ -6,23 +6,30 @@ import subprocess
 import sys
 import buildtools.core as core
 import typing
+import winreg
 
 
 def get_vs_root():
-    if core.is_windows():
-        vs = subprocess.check_output(
-            ['reg', 'QUERY', r"HKLM\SOFTWARE\Microsoft\VisualStudio\14.0", '/v', 'InstallDir', '/reg:32'])
-        print("This is the vs solution path...", vs)
-        core.flush()
+    # warn if defaul value?
     vs_root = r'C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE'
+    if core.is_windows():
+        with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, 'SOFTWARE\\Microsoft\\VisualStudio\\14.0') as st:
+            val = winreg.QueryValueEx(st, 'InstallDir')
+            vs = val[0]
+            vs_root = vs
+        print("This is the vs solution path...", vs_root)
+        core.flush()
+
     return vs_root
 
 
 def visual_studio_generator():
     if core.is_platform_64bit():
         return 'Visual Studio 15 Win64'
+        # return 'Visual Studio 14 2015 Win64'
     else:
         return 'Visual Studio 15'
+        # return 'Visual Studio 14 2015'
 
 
 def list_projects_in_solution(path: str) -> typing.List[str]:
@@ -146,6 +153,8 @@ def convert_sln_to_64(sln: str):
 
 def upgrade_sln(proto_sln: str):
     devenv = os.path.join(get_vs_root(), 'devenv.exe')
+    print(devenv)
+    print(proto_sln)
     if core.is_windows():
         core.flush()
         subprocess.check_call([devenv, proto_sln, '/upgrade'])
@@ -157,6 +166,7 @@ def msbuild(sln: str, libraries: typing.Optional[typing.List[str]]):
         msbuild_cmd.append('/t:' +';'.join(libraries))
     msbuild_cmd.append('/p:Configuration=Release')
     # https://blogs.msdn.microsoft.com/vcblog/2016/02/24/stuck-on-an-older-toolset-version-move-to-visual-studio-2015-without-upgrading-your-toolset/
+    # 2015 = 140
     # 2017 = 141
     msbuild_cmd.append('/p:PlatformToolset=v141')
     msbuild_cmd.append('/p:Platform=' + core.platform_as_string())
