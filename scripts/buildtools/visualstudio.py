@@ -7,7 +7,6 @@ import sys
 import buildtools.core as core
 import buildtools.args as args
 import typing
-import winreg
 
 
 def get_vs_root(compiler: args.Compiler):
@@ -15,6 +14,7 @@ def get_vs_root(compiler: args.Compiler):
     # todo: determine path based on compiler
     vs_root = r'C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE'
     if core.is_windows():
+        import winreg
         with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, 'SOFTWARE\\Microsoft\\VisualStudio\\14.0') as st:
             val = winreg.QueryValueEx(st, 'InstallDir')
             vs = val[0]

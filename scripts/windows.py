@@ -5,6 +5,8 @@ import requests
 import subprocess
 import buildtools.deps as deps
 import buildtools.cmake as cmake
+import buildtools.args as args
+import buildtools.visualstudio as visualstudio
 
 
 def get_root_folder():
@@ -46,16 +48,8 @@ def get_sdl2_build_folder():
     return os.path.join(get_sdl2_folder(), 'cmake-build')
 
 
-def on_cmd_install(args):
-    deps.install_dependency_assimp(get_dependency_folder(), get_assimp_folder(), get_assimp_install_folder())
-    deps.install_dependency_proto(get_dependency_folder(), get_proto_folder())
-    deps.install_dependency_sdl2(get_dependency_folder(), get_sdl2_folder(), get_sdl2_build_folder())
-    deps.install_dependency_freetype(get_dependency_folder(), get_freetype2_folder())
-    deps.install_dependency_wx(get_dependency_folder(), get_wx_folder())
-
-
-def cmake_project():
-    return cmake.CMake(build_folder=get_build_folder(), source_folder=get_root_folder()) \
+def cmake_project(generator: str):
+    return cmake.CMake(build_folder=get_build_folder(), source_folder=get_root_folder(), generator=generator) \
         .add_argument('SDL2_HINT_ROOT', get_sdl2_folder())\
         .add_argument('SDL2_HINT_BUILD', get_sdl2_build_folder())\
         .add_argument('wxWidgets_ROOT_DIR', get_wx_folder())\
@@ -63,13 +57,30 @@ def cmake_project():
         .add_argument('PROTOBUF_SRC_ROOT_FOLDER', get_proto_folder())
 
 
-def on_cmd_cmake(args):
+def on_cmd_install(arg):
+    compiler = args.get_compiler(arg)
+    platform = args.get_platform(arg)
+    generator = visualstudio.visual_studio_generator(compiler, platform)
+    deps.install_dependency_assimp(get_dependency_folder(), get_assimp_folder(), get_assimp_install_folder(), generator)
+    deps.install_dependency_proto(get_dependency_folder(), get_proto_folder(), compiler, platform)
+    deps.install_dependency_sdl2(get_dependency_folder(), get_sdl2_folder(), get_sdl2_build_folder(), generator)
+    deps.install_dependency_freetype(get_dependency_folder(), get_freetype2_folder(), compiler, platform)
+    deps.install_dependency_wx(get_dependency_folder(), get_wx_folder(), compiler, platform)
+
+
+def on_cmd_cmake(arg):
+    compiler = args.get_compiler(arg)
+    platform = args.get_platform(arg)
+    generator = visualstudio.visual_studio_generator(compiler, platform)
     deps.setup_freetype_dependencies(get_freetype2_folder())
-    cmake_project().config()
+    cmake_project(generator).config()
 
 
-def on_cmd_build(args):
-    cmake_project().build()
+def on_cmd_build(arg):
+    compiler = args.get_compiler(arg)
+    platform = args.get_platform(arg)
+    generator = visualstudio.visual_studio_generator(compiler, platform)
+    cmake_project(generator).build()
 
 
 def run(args) -> str:
@@ -89,6 +100,11 @@ def on_cmd_test(args):
     print(r.text)
 
 
+def add_options(parser):
+    args.add_compiler(parser)
+    args.add_platform(parser)
+
+
 def main():
     import argparse
     parser = argparse.ArgumentParser(description='Does the windows build')
@@ -97,22 +113,24 @@ def main():
 
     install_parser = subparsers.add_parser('install')
     install_parser.set_defaults(func=on_cmd_install)
+    add_options(install_parser)
 
     cmmake_parser = subparsers.add_parser('cmake')
     cmmake_parser.set_defaults(func=on_cmd_cmake)
+    add_options(cmmake_parser)
 
     build_parser = subparsers.add_parser('build')
     build_parser.set_defaults(func=on_cmd_build)
+    add_options(build_parser)
 
     test_parser = subparsers.add_parser('test')
     test_parser.set_defaults(func=on_cmd_test)
 
-    args = parser.parse_args()
-
-    if args.func is None:
+    arg = parser.parse_args()
+    if arg.func is None:
         parser.print_help()
     else:
-        args.func(args)
+        arg.func(arg)
 
 
 if __name__ == "__main__":

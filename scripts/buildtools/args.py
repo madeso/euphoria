@@ -18,19 +18,35 @@ class Platform(Enum):
 
 
 def add_compiler(parser):
-    pass
+    parser.add_argument('compiler', help='The compiler to use.')
 
 
 def add_platform(parser):
-    pass
+    parser.add_argument('platform', help='The platform to build for.')
 
 
 def get_compiler(args) -> Compiler:
-    pass
+    c = args.compiler
+    if c == 'vs2015':
+        return Compiler.VS2015
+    elif c == 'vs2017':
+        return Compiler.VS2017
+    else:
+        print('Unknown compiler: ', c)
+        return Compiler.VS2017
 
 
 def get_platform(args) -> Platform:
-    pass
+    p = args.platform
+    if p == 'auto':
+        return Platform.AUTO
+    elif p == 'win32':
+        return Platform.WIN32
+    elif p == 'x64' or p == 'win64':
+        return Platform.X64
+    else:
+        print('Unknown platform: ', p)
+        return Platform.AUTO
 
 
 #####################################################

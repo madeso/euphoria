@@ -13,13 +13,13 @@ install:
   - cmd: git submodule update --init --recursive
   - cmd: 'echo %PYTHON%'
   - cmd: '%PYTHON%/python.exe -m pip install requests'
-  - cmd: '%PYTHON%\python.exe c:\projects\euphoria\scripts\windows.py install'
+  - cmd: '%PYTHON%\python.exe c:\projects\euphoria\scripts\windows.py install vs2017 auto'
 
 before_build:
-  - cmd: '%PYTHON%\python.exe c:\projects\euphoria\scripts\windows.py cmake'
+  - cmd: '%PYTHON%\python.exe c:\projects\euphoria\scripts\windows.py cmake vs2017 auto'
 
 build_script:
-  - cmd: '%PYTHON%\python.exe c:\projects\euphoria\scripts\windows.py build'
+  - cmd: '%PYTHON%\python.exe c:\projects\euphoria\scripts\windows.py build vs2017 auto'
 
 cache:
   - build\deps
