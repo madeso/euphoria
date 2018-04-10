@@ -5,12 +5,14 @@ import re
 import subprocess
 import sys
 import buildtools.core as core
+import buildtools.args as args
 import typing
 import winreg
 
 
-def get_vs_root():
-    # warn if defaul value?
+def get_vs_root(compiler: args.Compiler):
+    # warn if default value?
+    # todo: determine path based on compiler
     vs_root = r'C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE'
     if core.is_windows():
         with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, 'SOFTWARE\\Microsoft\\VisualStudio\\14.0') as st:
@@ -23,13 +25,19 @@ def get_vs_root():
     return vs_root
 
 
-def visual_studio_generator():
-    if core.is_platform_64bit():
-        return 'Visual Studio 15 Win64'
-        # return 'Visual Studio 14 2015 Win64'
+def visual_studio_generator(compiler: args.Compiler, platform: args.Platform) -> str:
+    if compiler == args.Compiler.VS2015:
+        if args.is_64bit(platform):
+            return 'Visual Studio 14 2015 Win64'
+        else:
+            return 'Visual Studio 14 2015'
+    elif compiler == args.Compiler.VS2017:
+        if args.is_64bit(platform):
+            return 'Visual Studio 15 Win64'
+        else:
+            return 'Visual Studio 15'
     else:
-        return 'Visual Studio 15'
-        # return 'Visual Studio 14 2015'
+        raise Exception('Invalid compiler')
 
 
 def list_projects_in_solution(path: str) -> typing.List[str]:
@@ -151,8 +159,8 @@ def convert_sln_to_64(sln: str):
     make_projects_64(sln)
 
 
-def upgrade_sln(proto_sln: str):
-    devenv = os.path.join(get_vs_root(), 'devenv.exe')
+def upgrade_sln(proto_sln: str, compiler: args.Compiler):
+    devenv = os.path.join(get_vs_root(compiler), 'devenv.exe')
     print(devenv)
     print(proto_sln)
     if core.is_windows():
@@ -160,16 +168,14 @@ def upgrade_sln(proto_sln: str):
         subprocess.check_call([devenv, proto_sln, '/upgrade'])
 
 
-def msbuild(sln: str, libraries: typing.Optional[typing.List[str]]):
+def msbuild(sln: str, compiler: args.Compiler, platform: args.Platform, libraries: typing.Optional[typing.List[str]]):
     msbuild_cmd = ['msbuild']
     if libraries is not None:
-        msbuild_cmd.append('/t:' +';'.join(libraries))
+        msbuild_cmd.append('/t:' + ';'.join(libraries))
     msbuild_cmd.append('/p:Configuration=Release')
     # https://blogs.msdn.microsoft.com/vcblog/2016/02/24/stuck-on-an-older-toolset-version-move-to-visual-studio-2015-without-upgrading-your-toolset/
-    # 2015 = 140
-    # 2017 = 141
-    msbuild_cmd.append('/p:PlatformToolset=v141')
-    msbuild_cmd.append('/p:Platform=' + core.platform_as_string())
+    msbuild_cmd.append('/p:PlatformToolset=' + args.get_msbuild_toolset(compiler))
+    msbuild_cmd.append('/p:Platform=' + args.platform_as_string(platform))
     msbuild_cmd.append(sln)
     if core.is_windows():
         core.flush()

@@ -4,7 +4,6 @@ import subprocess
 import typing
 
 import buildtools.core as core
-import buildtools.visualstudio as visualstudio
 
 
 class Argument:
@@ -15,8 +14,8 @@ class Argument:
 
 
 class CMake:
-    def __init__(self, build_folder: str, source_folder: str, generator: typing.Optional[str] = None):
-        self.generator = generator if generator is not None else visualstudio.visual_studio_generator()
+    def __init__(self, build_folder: str, source_folder: str, generator: str):
+        self.generator = generator
         self.build_folder = build_folder
         self.source_folder = source_folder
         self.arguments = []
@@ -52,7 +51,6 @@ class CMake:
             subprocess.check_call(command, cwd=self.build_folder)
         else:
             print('Configuring cmake', command)
-
 
     def build_cmd(self, install: bool):
         cmd = ['cmake', '--build', '.']

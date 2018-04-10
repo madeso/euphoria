@@ -57,12 +57,6 @@ def is_platform_64bit() -> bool:
     else:
         return True
 
-def platform_as_string():
-    if is_platform_64bit():
-        return 'x64'
-    else:
-        return 'win32'
-
 
 def verify_dir_exist(path: str):
     if os.path.isdir(path):
@@ -78,7 +72,6 @@ def download_file(url: str, path: str):
     import urllib.request
     if not os.path.isfile(path):
         print("Downloading ", path)
-        # urllib.request.urlretrieve(url, path)
         with urllib.request.urlopen(url) as response, open(path, 'wb') as out_file:
             shutil.copyfileobj(response, out_file)
     else:
@@ -120,8 +113,6 @@ def print_dashes():
 
 def print_file(path: str):
     if os.path.isfile(path):
-        print_dashes()
-        print(path)
         print()
         with open(path, 'r') as fin:
             print(fin.read())
