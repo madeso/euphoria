@@ -4,14 +4,11 @@ environment:
       EUPH_COMPILER: vs2015
     - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
       EUPH_COMPILER: vs2017
-
+  # Python 3.4 has outdated pip
+  # https://github.com/jakubroztocil/httpie/blob/master/appveyor.yml
+  PYTHON: 'C:\Python36'
 
 clone_folder: c:\projects\euphoria
-
-# Python 3.4 has outdated pip
-# https://github.com/jakubroztocil/httpie/blob/master/appveyor.yml
-environment:
-  PYTHON: 'C:\Python36'
 
 install:
   - cmd: sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
