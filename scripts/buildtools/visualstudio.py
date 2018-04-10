@@ -19,6 +19,7 @@ def get_vs_root(compiler: args.Compiler):
             val = winreg.QueryValueEx(st, 'InstallDir')
             vs = val[0]
             vs_root = vs
+            print('Got path from registry')
         print("This is the vs solution path...", vs_root)
         core.flush()
 
