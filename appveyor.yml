@@ -1,5 +1,10 @@
-image:
-  - Visual Studio 2017
+environment:
+  matrix:
+    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
+      EUPH_COMPILER: vs2015
+    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
+      EUPH_COMPILER: vs2017
+
 
 clone_folder: c:\projects\euphoria
 
@@ -12,14 +17,15 @@ install:
   - cmd: sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
   - cmd: git submodule update --init --recursive
   - cmd: 'echo %PYTHON%'
+  - cmd: 'echo %EUPH_COMPILER%'
   - cmd: '%PYTHON%/python.exe -m pip install requests'
-  - cmd: '%PYTHON%\python.exe c:\projects\euphoria\scripts\windows.py install vs2017 auto'
+  - cmd: '%PYTHON%\python.exe c:\projects\euphoria\scripts\windows.py install %EUPH_COMPILER% auto'
 
 before_build:
-  - cmd: '%PYTHON%\python.exe c:\projects\euphoria\scripts\windows.py cmake vs2017 auto'
+  - cmd: '%PYTHON%\python.exe c:\projects\euphoria\scripts\windows.py cmake %EUPH_COMPILER% auto'
 
 build_script:
-  - cmd: '%PYTHON%\python.exe c:\projects\euphoria\scripts\windows.py build vs2017 auto'
+  - cmd: '%PYTHON%\python.exe c:\projects\euphoria\scripts\windows.py build %EUPH_COMPILER% auto'
 
 cache:
   - build\deps
