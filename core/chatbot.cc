@@ -2,6 +2,7 @@
 
 #include <numeric>
 #include <algorithm>
+#include <functional>
 
 #include "core/stringutils.h"
 #include "core/stringmerger.h"
