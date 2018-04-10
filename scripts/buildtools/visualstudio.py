@@ -175,6 +175,7 @@ def msbuild(sln: str, compiler: args.Compiler, platform: args.Platform, librarie
         msbuild_cmd.append('/t:' + ';'.join(libraries))
     msbuild_cmd.append('/p:Configuration=Release')
     # https://blogs.msdn.microsoft.com/vcblog/2016/02/24/stuck-on-an-older-toolset-version-move-to-visual-studio-2015-without-upgrading-your-toolset/
+    # https://stackoverflow.com/questions/33380128/visual-studio-2015-command-line-retarget-solution
     msbuild_cmd.append('/p:PlatformToolset=' + args.get_msbuild_toolset(compiler))
     msbuild_cmd.append('/p:Platform=' + args.platform_as_string(platform))
     msbuild_cmd.append(sln)

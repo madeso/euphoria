@@ -54,9 +54,9 @@ def get_platform(args) -> Platform:
 
 def get_msbuild_toolset(c: Compiler) -> str:
     if c == Compiler.VS2015:
-        return '140'
+        return 'v140'
     if c == Compiler.VS2017:
-        return '141'
+        return 'v141'
     return 'invalid_compiler'
 
 
