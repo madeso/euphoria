@@ -75,7 +75,7 @@ Random::NextFloat01()
 }
 
 float
-Random::NextRange(const Range& range)
+Random::Next(const Range& range)
 {
   return range.From01(NextFloat01());
 }
@@ -138,8 +138,8 @@ Random::NextSign()
 vec2f
 Random::NextPoint(const Rectf& rect)
 {
-  const float x = NextRange(Range{rect.GetWidth()});
-  const float y = NextRange(Range{rect.GetHeight()});
+  const float x = Next(Range{rect.GetWidth()});
+  const float y = Next(Range{rect.GetHeight()});
   return rect.GetPositionFromBottomLeft(vec2f{x, y});
 }
 
@@ -169,7 +169,7 @@ quatf
 Random::NextQuatf()
 {
   const auto axis  = NextUnit3();
-  const auto angle = Angle::FromDegrees(Random::NextRange(Range{0, 360.0f}));
+  const auto angle = Angle::FromDegrees(Random::Next(Range{0, 360.0f}));
 
   return quatf::FromAxisAngle(AxisAngle::RightHandAround(axis, angle));
 }
@@ -177,9 +177,9 @@ Random::NextQuatf()
 vec3f
 Random::NextVec3(const Aabb& extents)
 {
-  const auto x = NextRange(Range{extents.GetMin().x, extents.GetMax().x});
-  const auto y = NextRange(Range{extents.GetMin().y, extents.GetMax().y});
-  const auto z = NextRange(Range{extents.GetMin().z, extents.GetMax().z});
+  const auto x = Next(Range{extents.GetMin().x, extents.GetMax().x});
+  const auto y = Next(Range{extents.GetMin().y, extents.GetMax().y});
+  const auto z = Next(Range{extents.GetMin().z, extents.GetMax().z});
 
   return vec3f{x, y, z};
 }

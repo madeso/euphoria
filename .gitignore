@@ -39,3 +39,5 @@
 # clion build folder
 cmake-build-debug
 build
+
+dist/scimed-debug

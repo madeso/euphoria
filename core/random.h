@@ -31,7 +31,7 @@ class Random
   NextFloat01();
 
   float
-  NextRange(const Range& range);
+  Next(const Range& range);
 
   int
   NextRange(int min, int max);

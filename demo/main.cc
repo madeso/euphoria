@@ -127,7 +127,7 @@ main(int argc, char** argv)
     const Rgb  color = random.NextDawnbringerPalette();
     const auto pos   = random.NextPoint(wi);
     const auto outer = random.NextRange(55.0f, 100.0f);
-    const auto inner = random.NextRange(Range{50.0f});
+    const auto inner = random.Next(Range{50.0f});
     drawer.Circle(color, pos, outer, 10, inner);
   }
   drawer.LineAntialiased(Color::Black, wi.TopLeft(), wi.BottomRight())
