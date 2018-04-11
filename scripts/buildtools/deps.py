@@ -65,7 +65,7 @@ def install_dependency_proto(install_dist: str, proto_root: str, compiler: args.
         #  print("changing proto to static")
         #  visualstudio.change_all_projects_to_static(proto_sln)
 
-        if core.is_platform_64bit():
+        if args.is_64bit(platform):
             print('64 bit build, hacking proto to 64 bit')
             visualstudio.convert_sln_to_64(proto_sln)
 
