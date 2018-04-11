@@ -100,11 +100,11 @@ def install_dependency_sdl2(deps, root, build, generator: str):
         print('SDL2 build exist, not building again...')
 
 
-def setup_freetype_dependencies(root: str):
+def setup_freetype_dependencies(root: str, platform: args.Platform):
     obj_folder = os.path.join(root, 'objs')
 
     # is x64 the right sub folder?
-    build_folder = os.path.join(obj_folder, 'vc2010', 'x64')
+    build_folder = os.path.join(obj_folder, 'vc2010', args.platform_as_string(platform))
     os.environ["FREETYPE_DIR"] = root
     os.environ["GTKMM_BASEPATH"] = build_folder
 
@@ -126,7 +126,7 @@ def install_dependency_freetype(deps: str, root: str, compiler: args.Compiler, p
         #  visualstudio.change_all_projects_to_static(sln)
         visualstudio.msbuild(sln, compiler, platform, ['freetype'])
 
-        build_folder = os.path.join(root, 'objs', 'vc2010', 'x64')
+        build_folder = os.path.join(root, 'objs', 'vc2010', args.platform_as_string(platform))
         core.rename_file(os.path.join(build_folder, 'freetype28.lib'), os.path.join(build_folder, 'freetype.lib'))
     else:
         print('Freetype build exist, not building again...')

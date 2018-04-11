@@ -72,7 +72,7 @@ def on_cmd_cmake(arg):
     compiler = args.get_compiler(arg)
     platform = args.get_platform(arg)
     generator = visualstudio.visual_studio_generator(compiler, platform)
-    deps.setup_freetype_dependencies(get_freetype2_folder())
+    deps.setup_freetype_dependencies(get_freetype2_folder(), platform)
     cmake_project(generator).config()
 
 
