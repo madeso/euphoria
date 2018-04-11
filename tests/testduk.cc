@@ -2,12 +2,20 @@
 
 #include "catch.hpp"
 
+int allocated_dogs = 0;
+
 class Dog
 {
  public:
   Dog(const std::string& n)
       : name(n)
   {
+    allocated_dogs += 1;
+  }
+
+  ~Dog()
+  {
+    allocated_dogs -= 1;
   }
 
   std::string name;
@@ -278,6 +286,31 @@ TEST_CASE("duk-eval", "[duk]")
         CAPTURE(error);
         REQUIRE(eval);
         REQUIRE(duke.name == "Duke the dog");
+      }
+
+      SECTION("Dynamic/scoped class allocation")
+      {
+        const std::string code =
+            "name = function(){var d = GetDog(); return d.name;}(); name";
+
+        SECTION("naked ptr allocation")
+        {
+          Dog* duke = nullptr;
+          REQUIRE(allocated_dogs == 0);
+          duk.BindGlobalFunction(
+              "GetDog", Bind{}.bind([&](Context* ctx) -> int {
+                duke = new Dog{"duke"};
+                return ctx->ReturnFreeObject(duke);
+              }));
+          const auto eval = duk.eval_string(code, "", &error, &out);
+          CAPTURE(out);
+          CAPTURE(error);
+          REQUIRE(eval);
+          REQUIRE(out == "duke");
+          REQUIRE(allocated_dogs == 1);
+          delete duke;
+          REQUIRE(allocated_dogs == 0);
+        }
       }
     }
 
