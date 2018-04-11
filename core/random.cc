@@ -80,24 +80,6 @@ Random::Next(const Range& range)
   return range.From01(NextFloat01());
 }
 
-int
-Random::NextRange(int min, int max)
-{
-  return static_cast<int>(min + NextFloat01() * (max - min));
-}
-
-int
-Random::NextRange(int max)
-{
-  return NextRange(0, max);
-}
-
-unsigned long
-Random::NextRange(unsigned long max)
-{
-  return NextRange(0, max);
-}
-
 Color
 Random::NextColor()
 {

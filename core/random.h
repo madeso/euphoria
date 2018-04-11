@@ -33,13 +33,19 @@ class Random
   float
   Next(const Range& range);
 
+  template <typename T>
   int
-  NextRange(int min, int max);
-  int
-  NextRange(int max);
+  NextRange(T min, T max)
+  {
+    return static_cast<T>(min + NextFloat01() * (max - min));
+  }
 
-  unsigned long
-  NextRange(unsigned long max);
+  template <typename T>
+  int
+  NextRange(T max)
+  {
+    return NextRange<T>(0, max);
+  }
 
   Color
   NextColor();
