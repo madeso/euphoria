@@ -1,6 +1,7 @@
 #include "core/os.h"
 #include "core/stringutils.h"
 
+// https://stackoverflow.com/questions/612097/how-can-i-get-the-list-of-files-in-a-directory-using-c-or-c
 #include <dirent.h>
 #include <iostream>
 
