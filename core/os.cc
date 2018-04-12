@@ -2,7 +2,8 @@
 #include "core/stringutils.h"
 
 // https://stackoverflow.com/questions/612097/how-can-i-get-the-list-of-files-in-a-directory-using-c-or-c
-#include <dirent.h>
+// look into using https://github.com/cxong/tinydir instead of current platform hack...?
+
 #include <iostream>
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -11,9 +12,11 @@
 #include <cstdio> /* defines FILENAME_MAX */
 #include <utility>
 #ifdef _MSC_VER
+#include "windows.h"
 #include <direct.h>
 #define GET_CURRENT_DIR _getcwd
 #else
+#include <dirent.h>
 #include <unistd.h>
 #include <vector>
 
@@ -39,6 +42,46 @@ GetCurrentDirectory()
 
 ////////////////////////////////////////////////////////////////////////////////
 
+#ifdef _MSC_VER
+
+DirectoryList
+ListDirectory(const std::string& path)
+{
+  const std::string search_path = Str() << path << "*.*";
+  WIN32_FIND_DATA   fd;
+  HANDLE            hFind = ::FindFirstFile(search_path.c_str(), &fd);
+
+
+  if(hFind != INVALID_HANDLE_VALUE)
+  {
+    DirectoryList ret;
+    ret.valid = true;
+
+    do
+    {
+      // read all (real) files in current folder, delete '!' read other 2
+      // default folder . and ..
+      if(!(fd.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY))
+      {
+        ret.files.push_back(fd.cFileName);
+      }
+      else  // Put folders into vector
+      {
+        ret.directories.push_back(fd.cFileName);
+      }
+    } while(::FindNextFile(hFind, &fd));
+    ::FindClose(hFind);
+
+    return ret;
+  }
+  else
+  {
+    DirectoryList ret;
+    ret.valid = false;
+    return ret;
+  }
+}
+#else
 DirectoryList
 ListDirectory(const std::string& path)
 {
@@ -80,6 +123,7 @@ ListDirectory(const std::string& path)
     return ret;
   }
 }
+#endif
 
 bool
 EndsWith(const std::string& str, char c)
