@@ -19,6 +19,9 @@
 extern "C" {
 struct duk_hthread;
 typedef struct duk_hthread duk_context;
+typedef int                duk_small_int_t;
+typedef duk_small_int_t    duk_ret_t;
+typedef duk_ret_t (*duk_c_function)(duk_context* ctx);
 }
 
 class Duk;
@@ -63,13 +66,13 @@ class Context
   ReturnString(const std::string& str);
 
   int
-  ReturnFreeObject(void* object, size_t type);
+  ReturnObject(void* object, size_t type, duk_c_function finalizer);
 
   template <typename T>
   int
   ReturnFreeObject(T* t)
   {
-    return ReturnFreeObject(t, typeid(T).hash_code());
+    return ReturnObject(t, typeid(T).hash_code(), nullptr);
   }
 
   bool
@@ -315,7 +318,6 @@ class ClassBinder
   explicit ClassBinder(size_t i);
 
   // todo: add constructor
-  // todo: add properties
 
   ClassBinder&
   AddMethod(const std::string& name, const Bind& bind);

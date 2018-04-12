@@ -71,7 +71,7 @@ Context::ReturnString(const std::string& str)
 }
 
 int
-Context::ReturnFreeObject(void* object, size_t type)
+Context::ReturnObject(void* object, size_t type, duk_c_function finalizer)
 {
   Prototype* proto     = duk->TypeToProto(type);
   const auto object_id = duk_push_object(ctx);  // object
@@ -87,6 +87,12 @@ Context::ReturnFreeObject(void* object, size_t type)
   // object ptr
   duk_push_pointer(ctx, object);                                  // object ptr
   duk_put_prop_string(ctx, object_id, DUK_HIDDEN_SYMBOL("ptr"));  // object
+
+  if(finalizer)
+  {
+    duk_push_c_function(ctx, finalizer, 1); // object finalzer
+    duk_set_finalizer(ctx, object_id); // object
+  }
 
   return 1;
 }
