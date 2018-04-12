@@ -2,7 +2,8 @@
 #include "core/stringutils.h"
 
 // https://stackoverflow.com/questions/612097/how-can-i-get-the-list-of-files-in-a-directory-using-c-or-c
-// look into using https://github.com/cxong/tinydir instead of current platform hack...?
+// look into using https://github.com/cxong/tinydir instead of current platform
+// hack...?
 
 #include <iostream>
 
@@ -15,6 +16,10 @@
 #include "windows.h"
 #include <direct.h>
 #define GET_CURRENT_DIR _getcwd
+
+#ifdef GetCurrentDirectory
+#undef GetCurrentDirectory
+#endif
 #else
 #include <dirent.h>
 #include <unistd.h>
