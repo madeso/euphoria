@@ -222,7 +222,7 @@ CompileMesh(
 
   for(const auto& part_src : mesh.parts)
   {
-    std::shared_ptr<CompiledMeshPart> part{new CompiledMeshPart{}};
+    std::shared_ptr<CompiledMeshPart> part{new CompiledMeshPart()};
 
     Vao::Bind(&part->config);
     Vbo::Bind(&part->data);
