@@ -25,6 +25,8 @@ class CompiledMeshPart
   Ebo          tris;
   int          tri_count;
   unsigned int material;
+  
+  CompiledMeshPart() = default;
 };
 
 class CompiledMeshMaterial
