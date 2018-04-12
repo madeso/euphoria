@@ -311,6 +311,21 @@ TEST_CASE("duk-eval", "[duk]")
           delete duke;
           REQUIRE(allocated_dogs == 0);
         }
+
+        SECTION("shared_ptr")
+        {
+          REQUIRE(allocated_dogs == 0);
+          duk.BindGlobalFunction(
+              "GetDog", Bind{}.bind([&](Context* ctx) -> int {
+                return ctx->ReturnObject(std::make_shared<Dog>("duke"));
+              }));
+          const auto eval = duk.eval_string(code, "", &error, &out);
+          CAPTURE(out);
+          CAPTURE(error);
+          REQUIRE(eval);
+          REQUIRE(out == "duke");
+          REQUIRE(allocated_dogs == 0);
+        }
       }
     }
 

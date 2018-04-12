@@ -22,6 +22,8 @@ typedef struct duk_hthread duk_context;
 typedef int                duk_small_int_t;
 typedef duk_small_int_t    duk_ret_t;
 typedef duk_ret_t (*duk_c_function)(duk_context* ctx);
+typedef int       duk_int_t;
+typedef duk_int_t duk_idx_t;
 }
 
 class Duk;
@@ -35,6 +37,14 @@ class Prototype
   void*       prototype;
 };
 
+void*
+GetVoidFunctionProperty(duk_context* ctx, const char* name);
+
+void*
+GetVoidProperty(duk_context* ctx, duk_idx_t index, const char* name);
+
+void*
+GetHiddenProperty(duk_context* ctx, duk_idx_t index, const std::string& name);
 
 class Context
 {
@@ -66,13 +76,32 @@ class Context
   ReturnString(const std::string& str);
 
   int
-  ReturnObject(void* object, size_t type, duk_c_function finalizer);
+  ReturnObject(void* object, size_t type, duk_c_function finalizer, void* data);
 
   template <typename T>
   int
   ReturnFreeObject(T* t)
   {
-    return ReturnObject(t, typeid(T).hash_code(), nullptr);
+    return ReturnObject(t, typeid(T).hash_code(), nullptr, nullptr);
+  }
+
+  template <typename T>
+  int
+  ReturnObject(std::shared_ptr<T> t)
+  {
+    auto* ptr = new std::shared_ptr<T>(t);
+    return ReturnObject(
+        ptr->get(),
+        typeid(T).hash_code(),
+        // this needs to conform to a duktape c function pointer
+        // if needed move to global scope and make a template
+        [](duk_context* ctx) -> duk_ret_t {
+          void* data   = GetHiddenProperty(ctx, 0, "data");
+          auto* my_ptr = reinterpret_cast<std::shared_ptr<T>*>(data);
+          delete my_ptr;
+          return 0;
+        },
+        ptr);
   }
 
   bool
