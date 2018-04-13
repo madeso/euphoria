@@ -220,6 +220,10 @@ TEST_CASE("duk-eval", "[duk]")
       duk.BindClass(
           "Dog",
           BindClass<Dog>()
+              .SetConstructor(Bind{}.bind<std::string>(
+                  [](Context* ctx, const std::string& name) -> int {
+                    return ctx->ReturnObject(std::make_shared<Dog>(name));
+                  }))
               .AddMethod(
                   "GetName",
                   Bind{}.bind<Dog>([](Context* ctx, const Dog& d) -> int {
@@ -326,6 +330,16 @@ TEST_CASE("duk-eval", "[duk]")
           REQUIRE(out == "duke");
           REQUIRE(allocated_dogs == 0);
         }
+      }
+
+      SECTION("Constructor")
+      {
+        const auto eval = duk.eval_string(
+            "dog = new Dog(\"Cat\"); dog.name", "", &error, &out);
+        CAPTURE(out);
+        CAPTURE(error);
+        REQUIRE(eval);
+        REQUIRE(out == "Cat");
       }
     }
 

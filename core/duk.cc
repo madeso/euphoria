@@ -193,9 +193,16 @@ ClassBinder::ClassBinder(size_t i)
 }
 
 ClassBinder&
+ClassBinder::SetConstructor(const Bind& bind)
+{
+  constructor = bind;
+  return *this;
+}
+
+ClassBinder&
 ClassBinder::AddMethod(const std::string& name, const Bind& bind)
 {
-  overloads.push_back(std::make_pair(name, bind));
+  overloads.emplace_back(std::make_pair(name, bind));
   return *this;
 }
 
@@ -542,13 +549,30 @@ GetFunctionProperty(duk_context* ctx, const char* name)
   return reinterpret_cast<T*>(ptr);
 }
 
-template <bool TPushThis>
+template <bool TPushThis, bool TConstructor>
 int
 duk_generic_function_callback(duk_context* ctx)
 {
-  if(duk_is_constructor_call(ctx))
+  if(TConstructor)
   {
-    return duk_type_error(ctx, "%s", "Not a constructor call");
+    if(!duk_is_constructor_call(ctx))
+    {
+      if(TPushThis)
+      {
+        return duk_type_error(ctx, "%s", "Not a method call");
+      }
+      else
+      {
+        return duk_type_error(ctx, "%s", "Not a function call");
+      }
+    }
+  }
+  else
+  {
+    if(duk_is_constructor_call(ctx))
+    {
+      return duk_type_error(ctx, "%s", "Not a constructor call");
+    }
   }
 
   auto* function =
@@ -639,7 +663,10 @@ void
 Duk::BindGlobalFunction(const std::string& name, const Bind& bind)
 {
   PlaceFunctionOnStack(
-      ctx, CreateFunction(bind), duk_generic_function_callback<false>, this);
+      ctx,
+      CreateFunction(bind),
+      duk_generic_function_callback<false, false>,
+      this);
 
   const auto function_added = duk_put_global_string(ctx, name.c_str());
   ASSERTX(function_added == 1, function_added);
@@ -648,15 +675,27 @@ Duk::BindGlobalFunction(const std::string& name, const Bind& bind)
 void
 Duk::BindClass(const std::string& name, const ClassBinder& bind)
 {
+  if(!bind.constructor.overloads.empty())
+  {
+    // constructor
+    PlaceFunctionOnStack(
+        ctx,
+        CreateFunction(bind.constructor),
+        duk_generic_function_callback<false, true>,
+        this);  // constructor
+    const auto constructor_added = duk_put_global_string(ctx, name.c_str());
+    ASSERTX(constructor_added == 1, constructor_added);
+  }
+
   // use duk_push_bare_object?
   const auto prototype_index = duk_push_object(ctx);  // prototype
 
-  for(const auto func : bind.overloads)
+  for(const auto& func : bind.overloads)
   {
     PlaceFunctionOnStack(
         ctx,
         CreateFunction(func.second),
-        duk_generic_function_callback<true>,
+        duk_generic_function_callback<true, false>,
         this);  // proto func
     const auto function_added =
         duk_put_prop_string(ctx, prototype_index, func.first.c_str());  // proto
@@ -665,20 +704,20 @@ Duk::BindClass(const std::string& name, const ClassBinder& bind)
 
   for(const auto& prop : bind.properties)
   {
-    const auto& name   = std::get<0>(prop);
-    const auto& getter = std::get<1>(prop);
-    const auto& setter = std::get<2>(prop);
+    const auto& propname = std::get<0>(prop);
+    const auto& getter   = std::get<1>(prop);
+    const auto& setter   = std::get<2>(prop);
 
     duk_uint_t flags = 0;
 
-    duk_push_string(ctx, name.c_str());
+    duk_push_string(ctx, propname.c_str());
 
     if(!getter.overloads.empty())
     {
       PlaceFunctionOnStack(
           ctx,
           CreateFunction(getter),
-          duk_generic_function_callback<true>,
+          duk_generic_function_callback<true, false>,
           this,
           0);
       flags |= DUK_DEFPROP_HAVE_GETTER;
@@ -688,7 +727,7 @@ Duk::BindClass(const std::string& name, const ClassBinder& bind)
       PlaceFunctionOnStack(
           ctx,
           CreateFunction(setter),
-          duk_generic_function_callback<true>,
+          duk_generic_function_callback<true, false>,
           this,
           1);
       flags |= DUK_DEFPROP_HAVE_SETTER;

@@ -349,12 +349,16 @@ class ClassBinder
   // todo: add constructor
 
   ClassBinder&
+  SetConstructor(const Bind& bind);
+
+  ClassBinder&
   AddMethod(const std::string& name, const Bind& bind);
 
   ClassBinder&
   AddProperty(const std::string& name, const Bind& get, const Bind& set);
 
   size_t id;
+  Bind constructor;
   std::vector<std::pair<std::string, Bind>> overloads;
   std::vector<std::tuple<std::string, Bind, Bind>> properties;
 };
