@@ -102,9 +102,9 @@ Context::ReturnString(const std::string& str)
 
 int
 Context::ReturnObject(
-    void* object, size_t type, duk_c_function finalizer, void* data)
+    void* object, size_t type, duk_c_function finalizer, void* data CLASS_ARG(const std::string& name))
 {
-  Prototype* proto     = duk->TypeToProto(type);
+  Prototype* proto     = duk->TypeToProto(type CLASS_ARG(name));
   const auto object_id = duk_push_object(ctx);  // object
 
   // prototype
@@ -147,9 +147,9 @@ Context::GetObjectType(int index)
 }
 
 Prototype*
-Context::TypeToProto(size_t id)
+Context::TypeToProto(size_t id CLASS_ARG(const std::string& name))
 {
-  return duk->TypeToProto(id);
+  return duk->TypeToProto(id CLASS_ARG(name));
 }
 
 void*
@@ -761,12 +761,13 @@ Duk::~Duk()
 }
 
 Prototype*
-Duk::TypeToProto(size_t id)
+Duk::TypeToProto(size_t id CLASS_ARG(const std::string& name))
 {
   const auto found = classIds.find(id);
   if(found == classIds.end())
   {
-    DIE("class not added");
+    const std::string error = Str() << "class not added" CLASS_NAME(": " << name);
+    DIE(error.c_str());
     return nullptr;
   }
   else

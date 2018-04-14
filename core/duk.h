@@ -14,6 +14,16 @@
 #include "core/stringmerger.h"
 #include "core/cpp.h"
 
+// todo: add this as a option during build
+#if 0
+// provide c++ class name class not added to the registry
+#define CLASS_ARG(x) , x
+#define CLASS_NAME(x) x
+#else
+#define CLASS_ARG(x)
+#define CLASS_NAME(x)
+#endif
+
 // #include "duk_config.h"
 
 extern "C" {
@@ -76,23 +86,30 @@ class Context
   ReturnString(const std::string& str);
 
   int
-  ReturnObject(void* object, size_t type, duk_c_function finalizer, void* data);
+  ReturnObject(
+      void*          object,
+      size_t         type,
+      duk_c_function finalizer,
+      void* data CLASS_ARG(const std::string& name));
 
   template <typename T>
   int
   ReturnFreeObject(T* t)
   {
-    return ReturnObject(t, typeid(T).hash_code(), nullptr, nullptr);
+    constexpr auto& cpptype = typeid(T);
+    return ReturnObject(
+        t, cpptype.hash_code(), nullptr, nullptr CLASS_ARG(cpptype.name()));
   }
 
   template <typename T>
   int
   ReturnObject(std::shared_ptr<T> t)
   {
-    auto* ptr = new std::shared_ptr<T>(t);
+    constexpr auto& cpptype = typeid(T);
+    auto*           ptr     = new std::shared_ptr<T>(t);
     return ReturnObject(
         ptr->get(),
-        typeid(T).hash_code(),
+        cpptype.hash_code(),
         // this needs to conform to a duktape c function pointer
         // if needed move to global scope and make a template
         [](duk_context* ctx) -> duk_ret_t {
@@ -101,7 +118,7 @@ class Context
           delete my_ptr;
           return 0;
         },
-        ptr);
+        ptr CLASS_ARG(cpptype.name()));
   }
 
   bool
@@ -111,7 +128,7 @@ class Context
   GetObjectType(int index);
 
   Prototype*
-  TypeToProto(size_t id);
+  TypeToProto(size_t id CLASS_ARG(const std::string& name));
 
   void*
   GetObjectPtr(int index);
@@ -160,8 +177,10 @@ struct DukTemplate
   {
     if(ctx->IsObject(index))
     {
-      const auto* id        = ctx->GetObjectType(index);
-      const auto* self_type = ctx->TypeToProto(typeid(T).hash_code());
+      const auto*     id      = ctx->GetObjectType(index);
+      constexpr auto& cpptype = typeid(T);
+      const auto*     self_type =
+          ctx->TypeToProto(cpptype.hash_code() CLASS_ARG(cpptype.name()));
       ASSERT(self_type != nullptr);
       if(id == self_type)
       {
@@ -183,15 +202,19 @@ struct DukTemplate
   static T&
   Parse(Context* ctx, int index)
   {
+    constexpr auto& cpptype = typeid(T);
     ASSERT(
-        ctx->GetObjectType(index) == ctx->TypeToProto(typeid(T).hash_code()));
+        ctx->GetObjectType(index) ==
+        ctx->TypeToProto(cpptype.hash_code() CLASS_ARG(cpptype.name())));
     return *static_cast<T*>(ctx->GetObjectPtr(index));
   }
 
   static std::string
   Name(Context* ctx)
   {
-    auto* proto = ctx->TypeToProto(typeid(T).hash_code());
+    constexpr auto& cpptype = typeid(T);
+    auto*           proto =
+        ctx->TypeToProto(cpptype.hash_code() CLASS_ARG(cpptype.name()));
     ASSERT(proto);
     return proto->name;
   }
@@ -358,7 +381,7 @@ class ClassBinder
   AddProperty(const std::string& name, const Bind& get, const Bind& set);
 
   size_t id;
-  Bind constructor;
+  Bind   constructor;
   std::vector<std::pair<std::string, Bind>> overloads;
   std::vector<std::tuple<std::string, Bind, Bind>> properties;
 };
@@ -397,7 +420,7 @@ class Duk
   CreateFunction(const Bind& overloads);
 
   Prototype*
-  TypeToProto(size_t id);
+  TypeToProto(size_t id CLASS_ARG(const std::string& name));
 
   duk_context* ctx;
 
