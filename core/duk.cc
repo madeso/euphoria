@@ -56,6 +56,8 @@ Context::GetNumberOfArguments() const
   return duk_get_top(ctx);
 }
 
+////////////////////////////////////////////////////////////////////////////////
+
 bool
 Context::IsNumber(int index) const
 {
@@ -67,6 +69,8 @@ Context::GetNumber(int index)
 {
   return duk_get_number(ctx, index);
 }
+
+////////////////////////////////////////////////////////////////////////////////
 
 bool
 Context::IsString(int index) const
@@ -80,56 +84,7 @@ Context::GetString(int index)
   return duk_get_string(ctx, index);
 }
 
-int
-Context::ReturnVoid()
-{
-  return 0;
-}
-
-int
-Context::ReturnNumber(double num)
-{
-  duk_push_number(ctx, num);
-  return 1;
-}
-
-int
-Context::ReturnString(const std::string& str)
-{
-  duk_push_string(ctx, str.c_str());
-  return 1;
-}
-
-int
-Context::ReturnObject(
-    void* object, size_t type, duk_c_function finalizer, void* data CLASS_ARG(const std::string& name))
-{
-  Prototype* proto     = duk->TypeToProto(type CLASS_ARG(name));
-  const auto object_id = duk_push_object(ctx);  // object
-
-  // prototype
-  duk_push_heapptr(ctx, proto->prototype);  // object proto
-  duk_set_prototype(ctx, object_id);        // object
-
-  // type id
-  duk_push_pointer(ctx, proto);                                    // object id
-  duk_put_prop_string(ctx, object_id, DUK_HIDDEN_SYMBOL("type"));  // object
-
-  // object ptr
-  duk_push_pointer(ctx, object);                                  // object ptr
-  duk_put_prop_string(ctx, object_id, DUK_HIDDEN_SYMBOL("ptr"));  // object
-
-  if(finalizer)
-  {
-    duk_push_pointer(ctx, data);  // object data
-    duk_put_prop_string(ctx, object_id, DUK_HIDDEN_SYMBOL("data"));  // object
-
-    duk_push_c_function(ctx, finalizer, 1);  // object finalzer
-    duk_set_finalizer(ctx, object_id);       // object
-  }
-
-  return 1;
-}
+////////////////////////////////////////////////////////////////////////////////
 
 bool
 Context::IsObject(int index)
@@ -159,6 +114,94 @@ Context::GetObjectPtr(int index)
   void* data = duk_get_pointer(ctx, -1);
   duk_pop(ctx);
   return data;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+bool
+Context::IsArray(int index)
+{
+  return duk_is_array(ctx, index) == 1;
+}
+
+int
+Context::GetArrayLength(int index)
+{
+  // duk_inspect_value(ctx, index);
+  duk_get_prop_string(ctx, index, "length");
+  const auto size = duk_to_int(ctx, -1);
+  // duk_pop_2(ctx);
+  duk_pop(ctx);
+  return size;
+}
+
+void
+Context::GetArrayIndex(int array, int index)
+{
+  const auto put = duk_get_prop_index(ctx, array, index);
+  ASSERT(put == 1);
+}
+
+void
+Context::StopArrayIndex()
+{
+  duk_pop(ctx);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+int
+Context::ReturnVoid()
+{
+  return 0;
+}
+
+int
+Context::ReturnNumber(double num)
+{
+  duk_push_number(ctx, num);
+  return 1;
+}
+
+int
+Context::ReturnString(const std::string& str)
+{
+  duk_push_string(ctx, str.c_str());
+  return 1;
+}
+
+int
+Context::ReturnObject(
+    void*          object,
+    size_t         type,
+    duk_c_function finalizer,
+    void* data CLASS_ARG(const std::string& name))
+{
+  Prototype* proto     = duk->TypeToProto(type CLASS_ARG(name));
+  const auto object_id = duk_push_object(ctx);  // object
+
+  // prototype
+  duk_push_heapptr(ctx, proto->prototype);  // object proto
+  duk_set_prototype(ctx, object_id);        // object
+
+  // type id
+  duk_push_pointer(ctx, proto);                                    // object id
+  duk_put_prop_string(ctx, object_id, DUK_HIDDEN_SYMBOL("type"));  // object
+
+  // object ptr
+  duk_push_pointer(ctx, object);                                  // object ptr
+  duk_put_prop_string(ctx, object_id, DUK_HIDDEN_SYMBOL("ptr"));  // object
+
+  if(finalizer)
+  {
+    duk_push_pointer(ctx, data);  // object data
+    duk_put_prop_string(ctx, object_id, DUK_HIDDEN_SYMBOL("data"));  // object
+
+    duk_push_c_function(ctx, finalizer, 1);  // object finalzer
+    duk_set_finalizer(ctx, object_id);       // object
+  }
+
+  return 1;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -766,7 +809,8 @@ Duk::TypeToProto(size_t id CLASS_ARG(const std::string& name))
   const auto found = classIds.find(id);
   if(found == classIds.end())
   {
-    const std::string error = Str() << "class not added" CLASS_NAME(": " << name);
+    const std::string error = Str()
+                              << "class not added" CLASS_NAME(": " << name);
     DIE(error.c_str());
     return nullptr;
   }

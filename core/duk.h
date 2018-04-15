@@ -16,7 +16,7 @@
 
 // todo: add this as a option during build
 #if 0
-// provide c++ class name class not added to the registry
+// provide c++ class name class when its not added to the registry
 #define CLASS_ARG(x) , x
 #define CLASS_NAME(x) x
 #else
@@ -64,17 +64,50 @@ class Context
   int
   GetNumberOfArguments() const;
 
+  // number argument
+
   bool
   IsNumber(int index) const;
 
   double
   GetNumber(int index);
 
+  // string argument
+
   bool
   IsString(int index) const;
 
   std::string
   GetString(int index);
+
+  // object argument
+
+  bool
+  IsObject(int index);
+
+  Prototype*
+  GetObjectType(int index);
+
+  Prototype*
+  TypeToProto(size_t id CLASS_ARG(const std::string& name));
+
+  void*
+  GetObjectPtr(int index);
+
+  // array handling
+  bool
+  IsArray(int index);
+
+  int
+  GetArrayLength(int index);
+
+  void
+  GetArrayIndex(int array, int index);
+
+  void
+  StopArrayIndex();
+
+  // return handling
 
   int
   ReturnVoid();
@@ -120,18 +153,6 @@ class Context
         },
         ptr CLASS_ARG(cpptype.name()));
   }
-
-  bool
-  IsObject(int index);
-
-  Prototype*
-  GetObjectType(int index);
-
-  Prototype*
-  TypeToProto(size_t id CLASS_ARG(const std::string& name));
-
-  void*
-  GetObjectPtr(int index);
 
   duk_context* ctx;
   Duk*         duk;
@@ -275,6 +296,47 @@ struct DukTemplate<std::string>
   Name(Context*)
   {
     return "string";
+  }
+};
+
+template <typename T>
+struct DukTemplate<std::vector<T>>
+{
+  static std::string
+  CanMatch(Context* ctx, int index, int arg)
+  {
+    if(ctx->IsArray(index))
+    {
+      const auto array_size = ctx->GetArrayLength(index);
+      for(int i = 0; i < array_size; i += 1)
+      {
+        ctx->GetArrayIndex(index, i);
+        const auto& match = DukTemplate<T>::CanMatch(ctx, -1, i + 1);
+        ctx->StopArrayIndex();
+        if(!match.empty())
+        {
+          return ArgumentError(arg, Str() << "Array type error: " << match);
+        }
+      }
+      return ArgumentError(arg, "not done yet");
+    }
+    else
+    {
+      return ArgumentError(arg, "not a array");
+    }
+  }
+
+  static std::vector<T>
+  Parse(Context* ctx, int index)
+  {
+    std::vector<T> arr;
+    return arr;
+  }
+
+  static std::string
+  Name(Context* ctx)
+  {
+    return Str() << "[" << DukTemplate<T>::Name(ctx) << "]";
   }
 };
 

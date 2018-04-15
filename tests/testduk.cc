@@ -215,6 +215,24 @@ TEST_CASE("duk-eval", "[duk]")
       REQUIRE(out == "dog");
     }
 
+    SECTION("take int array")
+    {
+      std::vector<int> ints;
+      duk.BindGlobalFunction(
+          "test",
+          Bind{}.bind<std::vector<int>>(
+              [&](Context* ctx, const std::vector<int>& arg) -> int {
+                ints = arg;
+                return ctx->ReturnVoid();
+              }));
+      const auto eval =
+          duk.eval_string("test([1, \"dog\", 2, 3])", "", &error, &out);
+      CAPTURE(out);
+      CAPTURE(error);
+      REQUIRE(eval);
+      REQUIRE(ints == (std::vector<int>{1, 2, 3}));
+    }
+
     SECTION("class")
     {
       duk.BindClass(
