@@ -315,10 +315,15 @@ struct DukTemplate<std::vector<T>>
         ctx->StopArrayIndex();
         if(!match.empty())
         {
-          return ArgumentError(arg, Str() << "array[" << i << "] (size: " << array_size << ") has type error: " << match);
+          return ArgumentError(
+              arg,
+              Str() << "array[" << i << "] (size: " << array_size
+                    << ") has type error: "
+                    << match);
         }
       }
-      return ArgumentError(arg, "not done yet");
+
+      return "";
     }
     else
     {
@@ -330,6 +335,15 @@ struct DukTemplate<std::vector<T>>
   Parse(Context* ctx, int index)
   {
     std::vector<T> arr;
+
+    const auto array_size = ctx->GetArrayLength(index);
+    for(int i = 0; i < array_size; i += 1)
+    {
+      ctx->GetArrayIndex(index, i);
+      arr.emplace_back(DukTemplate<T>::Parse(ctx, -1));
+      ctx->StopArrayIndex();
+    }
+
     return arr;
   }
 

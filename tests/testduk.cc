@@ -225,8 +225,7 @@ TEST_CASE("duk-eval", "[duk]")
                 ints = arg;
                 return ctx->ReturnVoid();
               }));
-      const auto eval =
-          duk.eval_string("test([1, \"dog\", 2, 3])", "", &error, &out);
+      const auto eval = duk.eval_string("test([1, 2, 3])", "", &error, &out);
       CAPTURE(out);
       CAPTURE(error);
       REQUIRE(eval);
