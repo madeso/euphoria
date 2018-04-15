@@ -209,6 +209,10 @@ Context::ReturnObject(
 std::string
 ArgumentError(int arg, const std::string& err)
 {
+  if(arg < 0)
+  {
+    return err;
+  }
   std::string th;
   switch(arg % 10)
   {
@@ -225,7 +229,7 @@ ArgumentError(int arg, const std::string& err)
       th = "th";
       break;
   }
-  return Str() << arg << th << " " << err;
+  return Str() << arg << th << " arg, " << err;
 }
 
 ////////////////////////////////////////////////////////////////////////////////

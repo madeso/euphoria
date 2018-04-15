@@ -311,11 +311,11 @@ struct DukTemplate<std::vector<T>>
       for(int i = 0; i < array_size; i += 1)
       {
         ctx->GetArrayIndex(index, i);
-        const auto& match = DukTemplate<T>::CanMatch(ctx, -1, i + 1);
+        const auto& match = DukTemplate<T>::CanMatch(ctx, -1, -1);
         ctx->StopArrayIndex();
         if(!match.empty())
         {
-          return ArgumentError(arg, Str() << "Array type error: " << match);
+          return ArgumentError(arg, Str() << "array[" << i << "] (size: " << array_size << ") has type error: " << match);
         }
       }
       return ArgumentError(arg, "not done yet");
