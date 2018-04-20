@@ -94,6 +94,14 @@ class Context
   void*
   GetObjectPtr(int index);
 
+  // function
+
+  void*
+  GetFunctionPtr(int index);
+
+  bool
+  IsFunction(int index);
+
   // array handling
   bool
   IsArray(int index);
@@ -156,6 +164,42 @@ class Context
 
   duk_context* ctx;
   Duk*         duk;
+};
+
+template <typename T>
+void
+PushVar(Context* ctx, const T& t)
+{
+  ctx->ReturnObject<T>(std::make_shared<T>(t));
+}
+
+template <>
+void
+PushVar<int>(Context* ctx, const int& i);
+
+template <>
+void
+PushVar<std::string>(Context* ctx, const std::string& str);
+
+class FunctionVar
+{
+ public:
+  explicit FunctionVar(void* ptr);
+
+  void
+  BeginCall(Context* context) const;
+
+  void
+  CallFunction(Context* context, int arguments) const;
+
+  void
+  DoneFunction(Context* context) const;
+
+  template <typename TReturn, typename... TArgs>
+  TReturn
+  Call(Context* context, TArgs... args) const;
+
+  void* function;
 };
 
 class Overload
@@ -299,6 +343,36 @@ struct DukTemplate<std::string>
   }
 };
 
+template <>
+struct DukTemplate<FunctionVar>
+{
+  static std::string
+  CanMatch(Context* ctx, int index, int arg)
+  {
+    if(ctx->IsFunction(index))
+    {
+      return "";
+    }
+    else
+    {
+      return ArgumentError(arg, "not a function");
+    }
+  }
+
+  static FunctionVar
+  Parse(Context* ctx, int index)
+  {
+    ASSERT(ctx->IsObject(index));
+    return FunctionVar{ctx->GetFunctionPtr(index)};
+  }
+
+  static std::string
+  Name(Context*)
+  {
+    return "string";
+  }
+};
+
 template <typename T>
 struct DukTemplate<std::vector<T>>
 {
@@ -353,6 +427,33 @@ struct DukTemplate<std::vector<T>>
     return Str() << "[" << DukTemplate<T>::Name(ctx) << "]";
   }
 };
+
+template <typename TReturn, typename... TArgs>
+TReturn
+FunctionVar::Call(Context* context, TArgs... args) const
+{
+  BeginCall(context);
+
+  int dummy[sizeof...(TArgs) + 1] = {0, (PushVar(context, args), 1)...};
+  NotUsed(dummy);
+
+  const auto arguments = sizeof...(TArgs);
+  CallFunction(context, arguments);
+
+  const auto match = DukTemplate<TReturn>::CanMatch(context, -1, 0);
+
+  if(match.empty())
+  {
+    const TReturn ret = DukTemplate<TReturn>::Parse(context, -1);
+    DoneFunction(context);
+    return ret;
+  }
+
+  DoneFunction(context);
+
+  TReturn def;
+  return def;
+}
 
 template <typename Callback, typename... TArgs>
 class GenericOverload : public Overload

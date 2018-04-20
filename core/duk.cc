@@ -118,6 +118,20 @@ Context::GetObjectPtr(int index)
 
 ////////////////////////////////////////////////////////////////////////////////
 
+void*
+Context::GetFunctionPtr(int index)
+{
+  return duk_get_heapptr(ctx, index);
+}
+
+bool
+Context::IsFunction(int index)
+{
+  return duk_is_function(ctx, index) == 1;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
 bool
 Context::IsArray(int index)
 {
@@ -202,6 +216,48 @@ Context::ReturnObject(
   }
 
   return 1;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+template <>
+void
+PushVar<int>(Context* ctx, const int& i)
+{
+  ctx->ReturnNumber(i);
+}
+
+template <>
+void
+PushVar<std::string>(Context* ctx, const std::string& str)
+{
+  ctx->ReturnString(str);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+FunctionVar::FunctionVar(void* ptr)
+    : function(ptr)
+{
+  ASSERT(ptr != nullptr);
+}
+
+void
+FunctionVar::BeginCall(Context* context) const
+{
+  duk_push_heapptr(context->ctx, function);
+}
+
+void
+FunctionVar::CallFunction(Context* context, int arguments) const
+{
+  duk_call(context->ctx, arguments);
+}
+
+void
+FunctionVar::DoneFunction(Context* context) const
+{
+  duk_pop(context->ctx);
 }
 
 ////////////////////////////////////////////////////////////////////////////////

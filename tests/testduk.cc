@@ -232,6 +232,23 @@ TEST_CASE("duk-eval", "[duk]")
       REQUIRE(ints == (std::vector<int>{1, 2, 3}));
     }
 
+    SECTION("take function")
+    {
+      int i = 0;
+      duk.BindGlobalFunction(
+          "test",
+          Bind{}.bind<FunctionVar>([&](Context* ctx, const FunctionVar& func) -> int {
+            i = func.Call<int>(ctx);
+            return ctx->ReturnVoid();
+          }));
+      const auto eval =
+          duk.eval_string("test(function() {return 42;});", "", &error, &out);
+      CAPTURE(out);
+      CAPTURE(error);
+      REQUIRE(eval);
+      REQUIRE(i == 42);
+    }
+
     SECTION("class")
     {
       duk.BindClass(
