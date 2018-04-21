@@ -14,7 +14,7 @@ struct DefaultValue
 };
 
 template <typename T>
-T
+constexpr T
 Default()
 {
   return DefaultValue<T>{}.value;
