@@ -237,16 +237,35 @@ TEST_CASE("duk-eval", "[duk]")
       int i = 0;
       duk.BindGlobalFunction(
           "test",
-          Bind{}.bind<FunctionVar>([&](Context* ctx, const FunctionVar& func) -> int {
-            i = func.Call<int>(ctx);
-            return ctx->ReturnVoid();
-          }));
+          Bind{}.bind<FunctionVar>(
+              [&](Context* ctx, const FunctionVar& func) -> int {
+                i = func.Call<int>(ctx);
+                return ctx->ReturnVoid();
+              }));
       const auto eval =
           duk.eval_string("test(function() {return 42;});", "", &error, &out);
       CAPTURE(out);
       CAPTURE(error);
       REQUIRE(eval);
       REQUIRE(i == 42);
+    }
+
+    SECTION("take function with arg")
+    {
+      std::string str;
+      duk.BindGlobalFunction(
+          "test",
+          Bind{}.bind<FunctionVar>(
+              [&](Context* ctx, const FunctionVar& func) -> int {
+                str = func.Call<std::string>(ctx, "Duke");
+                return ctx->ReturnVoid();
+              }));
+      const auto eval = duk.eval_string(
+          "test(function(x) {return x+\" the dog\";});", "", &error, &out);
+      CAPTURE(out);
+      CAPTURE(error);
+      REQUIRE(eval);
+      REQUIRE(str == "Duke the dog");
     }
 
     SECTION("class")
