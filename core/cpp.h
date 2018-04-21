@@ -7,4 +7,17 @@ NotUsed(T const&)
 {
 }
 
+template <typename T>
+struct DefaultValue
+{
+  T value;
+};
+
+template <typename T>
+T
+Default()
+{
+  return DefaultValue<T>{}.value;
+}
+
 #endif  // EUPHORIA_CPP_H

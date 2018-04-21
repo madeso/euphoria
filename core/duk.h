@@ -451,8 +451,9 @@ FunctionVar::Call(Context* context, TArgs... args) const
 
   DoneFunction(context);
 
-  TReturn def;
-  return def;
+  // todo: handle invalid return type
+
+  return Default<TReturn>();
 }
 
 template <typename Callback, typename... TArgs>
