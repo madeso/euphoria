@@ -257,7 +257,7 @@ TEST_CASE("duk-eval", "[duk]")
           "test",
           Bind{}.bind<FunctionVar>(
               [&](Context* ctx, const FunctionVar& func) -> int {
-                str = func.Call<std::string>(ctx, std::string("Duke"));
+                str = func.Call<std::string>(ctx, "Duke");
                 return ctx->ReturnVoid();
               }));
       const auto eval = duk.eval_string(
@@ -286,8 +286,7 @@ TEST_CASE("duk-eval", "[duk]")
       CAPTURE(error);
       REQUIRE(eval);
       REQUIRE(f.IsValid());
-      const auto str =
-          f.Call<std::string>(duk.AsContext(), std::string("Duke"));
+      const auto str = f.Call<std::string>(duk.AsContext(), "Duke");
       REQUIRE(str == "Duke the dog");
     }
 

@@ -220,22 +220,6 @@ Context::ReturnObject(
 
 ////////////////////////////////////////////////////////////////////////////////
 
-template <>
-void
-PushVar<int>(Context* ctx, const int& i)
-{
-  ctx->ReturnNumber(i);
-}
-
-template <>
-void
-PushVar<std::string>(Context* ctx, const std::string& str)
-{
-  ctx->ReturnString(str);
-}
-
-////////////////////////////////////////////////////////////////////////////////
-
 FunctionVar::FunctionVar(void* ptr)
     : function(ptr)
 {

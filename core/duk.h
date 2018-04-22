@@ -168,18 +168,42 @@ class Context
 
 template <typename T>
 void
-PushVar(Context* ctx, const T& t)
+PushVarImpl(Context* ctx, const T& arg)
 {
-  ctx->ReturnObject<T>(std::make_shared<T>(t));
+  ctx->ReturnObject<T>(std::make_shared<T>(arg));
 }
 
 template <>
-void
-PushVar<int>(Context* ctx, const int& i);
+inline void
+PushVarImpl(Context* ctx, const int& arg)
+{
+  ctx->ReturnNumber(arg);
+}
 
 template <>
+inline void
+PushVarImpl(Context* ctx, const std::string& arg)
+{
+  ctx->ReturnString(arg);
+}
+
+
+template <>
+inline void
+PushVarImpl(Context* ctx, const char* const& arg)
+{
+  ctx->ReturnString(arg);
+}
+
+template <typename T>
 void
-PushVar<std::string>(Context* ctx, const std::string& str);
+PushVar(Context* ctx, const T& arg)
+{
+  // *Impl functions here to support template-ing char* strings
+  // https://stackoverflow.com/a/6559891/180307
+  typedef typename ArrayToPointerDecay<T>::Type Type;
+  PushVarImpl<Type>(ctx, arg);
+}
 
 class FunctionVar
 {

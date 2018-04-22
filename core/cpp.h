@@ -20,4 +20,16 @@ Default()
   return DefaultValue<T>{}.value;
 }
 
+template <typename T>
+struct ArrayToPointerDecay
+{
+  typedef T Type;
+};
+
+template <typename T, std::size_t N>
+struct ArrayToPointerDecay<T[N]>
+{
+  typedef const T* Type;
+};
+
 #endif  // EUPHORIA_CPP_H
