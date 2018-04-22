@@ -15,7 +15,7 @@
 #include "core/cpp.h"
 
 // todo: add this as a option during build
-#if 0
+#if 1
 // provide c++ class name class when its not added to the registry
 #define CLASS_ARG(x) , x
 #define CLASS_NAME(x) x
@@ -184,7 +184,10 @@ PushVar<std::string>(Context* ctx, const std::string& str);
 class FunctionVar
 {
  public:
-  explicit FunctionVar(void* ptr);
+  explicit FunctionVar(void* ptr = nullptr);
+
+  bool
+  IsValid() const;
 
   void
   BeginCall(Context* context) const;
@@ -571,10 +574,13 @@ BindClass()
   return ClassBinder{typeid(T).hash_code()};
 }
 
-class Duk
+class Duk : private Context
 {
  public:
   Duk();
+
+  Context*
+  AsContext();
 
   bool
   eval_string(
@@ -599,8 +605,6 @@ class Duk
 
   Prototype*
   TypeToProto(size_t id CLASS_ARG(const std::string& name));
-
-  duk_context* ctx;
 
   std::function<void(const std::string&)> on_print;
 

@@ -239,24 +239,32 @@ PushVar<std::string>(Context* ctx, const std::string& str)
 FunctionVar::FunctionVar(void* ptr)
     : function(ptr)
 {
-  ASSERT(ptr != nullptr);
+}
+
+bool
+FunctionVar::IsValid() const
+{
+  return function != nullptr;
 }
 
 void
 FunctionVar::BeginCall(Context* context) const
 {
+  ASSERT(IsValid());
   duk_push_heapptr(context->ctx, function);
 }
 
 void
 FunctionVar::CallFunction(Context* context, int arguments) const
 {
+  ASSERT(IsValid());
   duk_call(context->ctx, arguments);
 }
 
 void
 FunctionVar::DoneFunction(Context* context) const
 {
+  ASSERT(IsValid());
   duk_pop(context->ctx);
 }
 
@@ -484,10 +492,19 @@ FatalHandler(void*, const char* msg)
   abort();
 }
 
+////////////////////////////////////////////////////////////////////////////////
+
 Duk::Duk()
+    : Context(
+          duk_create_heap(nullptr, nullptr, nullptr, nullptr, FatalHandler),
+          this)
 {
-  ctx = duk_create_heap(nullptr, nullptr, nullptr, nullptr, FatalHandler);
-  // ctx = duk_create_heap_default();
+}
+
+Context*
+Duk::AsContext()
+{
+  return this;
 }
 
 bool

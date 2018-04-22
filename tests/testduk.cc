@@ -257,7 +257,7 @@ TEST_CASE("duk-eval", "[duk]")
           "test",
           Bind{}.bind<FunctionVar>(
               [&](Context* ctx, const FunctionVar& func) -> int {
-                str = func.Call<std::string>(ctx, "Duke");
+                str = func.Call<std::string>(ctx, std::string("Duke"));
                 return ctx->ReturnVoid();
               }));
       const auto eval = duk.eval_string(
@@ -265,6 +265,29 @@ TEST_CASE("duk-eval", "[duk]")
       CAPTURE(out);
       CAPTURE(error);
       REQUIRE(eval);
+      REQUIRE(str == "Duke the dog");
+    }
+
+    SECTION("store function")
+    {
+      FunctionVar f;
+      duk.BindGlobalFunction(
+          "test",
+          Bind{}.bind<FunctionVar>(
+              [&](Context* ctx, const FunctionVar& func) -> int {
+                f = func;
+                // todo: store func so the GC wont collect it
+                return ctx->ReturnVoid();
+              }));
+      REQUIRE(!f.IsValid());
+      const auto eval = duk.eval_string(
+          "test(function(x) {return x+\" the dog\";});", "", &error, &out);
+      CAPTURE(out);
+      CAPTURE(error);
+      REQUIRE(eval);
+      REQUIRE(f.IsValid());
+      const auto str =
+          f.Call<std::string>(duk.AsContext(), std::string("Duke"));
       REQUIRE(str == "Duke the dog");
     }
 
