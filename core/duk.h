@@ -214,6 +214,9 @@ class FunctionVar
   IsValid() const;
 
   void
+  StoreReference(Context* ctx);
+
+  void
   BeginCall(Context* context) const;
 
   void
@@ -630,11 +633,16 @@ class Duk : private Context
   Prototype*
   TypeToProto(size_t id CLASS_ARG(const std::string& name));
 
+  void
+  StoreReference(void* p);
+
   std::function<void(const std::string&)> on_print;
 
   std::vector<std::shared_ptr<Function>> functions;
 
   std::map<size_t, std::shared_ptr<Prototype>> classIds;
+
+  unsigned int reference_index = 0;
 };
 
 

@@ -232,6 +232,12 @@ FunctionVar::IsValid() const
 }
 
 void
+FunctionVar::StoreReference(Context* ctx)
+{
+  ctx->duk->StoreReference(function);
+}
+
+void
 FunctionVar::BeginCall(Context* context) const
 {
   ASSERT(IsValid());
@@ -879,4 +885,15 @@ Duk::TypeToProto(size_t id CLASS_ARG(const std::string& name))
   {
     return found->second.get();
   }
+}
+
+void
+Duk::StoreReference(void* p)
+{
+  // todo: store references in some sub object instead of directly at root?
+  duk_push_heap_stash(ctx);                      // heap
+  duk_push_heapptr(ctx, p);                      // heap ptr
+  duk_put_prop_index(ctx, -2, reference_index);  // heap
+  duk_pop(ctx);                                  //
+  reference_index += 1;
 }

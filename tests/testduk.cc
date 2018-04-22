@@ -276,7 +276,7 @@ TEST_CASE("duk-eval", "[duk]")
           Bind{}.bind<FunctionVar>(
               [&](Context* ctx, const FunctionVar& func) -> int {
                 f = func;
-                // todo: store func so the GC wont collect it
+                f.StoreReference(ctx);
                 return ctx->ReturnVoid();
               }));
       REQUIRE(!f.IsValid());
