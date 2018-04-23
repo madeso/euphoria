@@ -9,9 +9,6 @@
 #include "engine/input.h"
 #include "engine/dukregistry.h"
 
-#include "dukglue/dukglue.h"
-
-
 class DukUpdateSystem : public ComponentSystem, public ComponentSystemUpdate
 {
   DukValue func;

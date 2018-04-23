@@ -1,7 +1,6 @@
 #include "engine/components.h"
 
 #include <memory>
-#include "dukglue/dukglue.h"
 
 #include "core/componentsystem.h"
 #include "core/vec2.h"
