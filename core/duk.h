@@ -601,6 +601,18 @@ BindClass()
   return ClassBinder{typeid(T).hash_code()};
 }
 
+class ObjectBinder
+{
+ public:
+  ObjectBinder&
+  AddFunction(const std::string& name, const Bind& bind);
+
+  std::vector<std::pair<std::string, Bind>> functions;
+};
+
+ObjectBinder
+BindObject();
+
 class Duk : private Context
 {
  public:
@@ -621,6 +633,9 @@ class Duk : private Context
 
   void
   BindGlobalFunction(const std::string& name, const Bind& overloads);
+
+  void
+  BindObject(const std::string& name, const ObjectBinder& bind);
 
   void
   BindClass(const std::string& name, const ClassBinder& bind);

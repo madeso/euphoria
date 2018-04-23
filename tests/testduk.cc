@@ -290,6 +290,20 @@ TEST_CASE("duk-eval", "[duk]")
       REQUIRE(str == "Duke the dog");
     }
 
+    SECTION("global object")
+    {
+      duk.BindObject(
+          "Dog",
+          BindObject().AddFunction("bark", Bind{}.bind([](Context* ctx) -> int {
+            return ctx->ReturnString("woof!");
+          })));
+      const auto eval = duk.eval_string("Dog.bark()", "", &error, &out);
+      CAPTURE(out);
+      CAPTURE(error);
+      REQUIRE(eval);
+      REQUIRE(out == "woof!");
+    }
+
     SECTION("class")
     {
       duk.BindClass(
@@ -419,7 +433,7 @@ TEST_CASE("duk-eval", "[duk]")
     }
 
 #if 0
-    // need to figure out how to test error messages is a sane way
+    // need to figure out how to test error messages in a sane way
     SECTION("missing")
     {
       SECTION("too many arguments to test(int)")

@@ -317,6 +317,21 @@ ClassBinder::AddProperty(
 
 ////////////////////////////////////////////////////////////////////////////////
 
+ObjectBinder&
+ObjectBinder::AddFunction(const std::string& name, const Bind& bind)
+{
+  functions.emplace_back(std::make_pair(name, bind));
+  return *this;
+}
+
+ObjectBinder
+BindObject()
+{
+  return ObjectBinder{};
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
 std::vector<std::string>
 collect_types(duk_context* ctx, int index)
 {
@@ -780,6 +795,28 @@ Duk::BindGlobalFunction(const std::string& name, const Bind& bind)
 
   const auto function_added = duk_put_global_string(ctx, name.c_str());
   ASSERTX(function_added == 1, function_added);
+}
+
+void
+Duk::BindObject(const std::string& name, const ObjectBinder& bind)
+{
+  const auto object_index = duk_push_object(ctx);
+
+  for(const auto& func : bind.functions)
+  {
+    PlaceFunctionOnStack(
+        ctx,
+        CreateFunction(func.second),
+        duk_generic_function_callback<false, false>,
+        this);
+
+    const auto function_added =
+        duk_put_prop_string(ctx, object_index, func.first.c_str());
+    ASSERTX(function_added == 1, function_added);
+  }
+
+  const auto object_added = duk_put_global_string(ctx, name.c_str());
+  ASSERTX(object_added == 1, object_added);
 }
 
 void
