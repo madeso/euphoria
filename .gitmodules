@@ -5,6 +5,3 @@
 [submodule "external/entt"]
 	path = external/entt
 	url = git@github.com:skypjack/entt.git
-[submodule "external/dukglue"]
-	path = external/dukglue
-	url = git@github.com:madeso/dukglue.git
