@@ -206,10 +206,28 @@ TEST_CASE("duk-eval", "[duk]")
       REQUIRE(out == "42");
     }
 
+    SECTION("return func int")
+    {
+      duk.BindGlobalFunction("test", Bind{}.bind<>([&](Context* ctx) -> int {
+        return ctx->Return(42);
+      }));
+      REQUIRE(duk.eval_string("r = test(); r", "", &error, &out));
+      REQUIRE(out == "42");
+    }
+
     SECTION("return string")
     {
       duk.BindGlobalFunction("test", Bind{}.bind<>([&](Context* ctx) -> int {
         return ctx->ReturnString("dog");
+      }));
+      REQUIRE(duk.eval_string("r = test(); r", "", &error, &out));
+      REQUIRE(out == "dog");
+    }
+
+    SECTION("return func string")
+    {
+      duk.BindGlobalFunction("test", Bind{}.bind<>([&](Context* ctx) -> int {
+        return ctx->Return("dog");
       }));
       REQUIRE(duk.eval_string("r = test(); r", "", &error, &out));
       REQUIRE(out == "dog");
@@ -230,6 +248,36 @@ TEST_CASE("duk-eval", "[duk]")
       CAPTURE(error);
       REQUIRE(eval);
       REQUIRE(ints == (std::vector<int>{1, 2, 3}));
+    }
+
+    SECTION("return int array")
+    {
+      duk.BindGlobalFunction(
+          "test", Bind{}.bind<int>([](Context* ctx, const int var) -> int {
+            std::vector<int> arr = {var, var + 1, var + 2};
+            return ctx->ReturnArray(arr);
+          }));
+      const auto eval = duk.eval_string("test(0)", "", &error, &out);
+      CAPTURE(out);
+      CAPTURE(error);
+      REQUIRE(eval);
+      REQUIRE(out == "[0, 1, 2]");
+    }
+
+    SECTION("return string array")
+    {
+      duk.BindGlobalFunction(
+          "test",
+          Bind{}.bind<std::string>(
+              [](Context* ctx, const std::string& var) -> int {
+                std::vector<std::string> arr = {var, "a " + var, "good " + var};
+                return ctx->ReturnArray(arr);
+              }));
+      const auto eval = duk.eval_string("test(\"dog\")", "", &error, &out);
+      CAPTURE(out);
+      CAPTURE(error);
+      REQUIRE(eval);
+      REQUIRE(out == "[dog, a dog, good dog]");
     }
 
     SECTION("take function")

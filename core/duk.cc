@@ -162,12 +162,36 @@ Context::StopArrayIndex()
   duk_pop(ctx);
 }
 
+int
+Context::PushArray()
+{
+  return duk_push_array(ctx);
+}
+
+void
+Context::PutArrayIndex(int arr, unsigned int i)
+{
+  duk_put_prop_index(ctx, arr, i);
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 
 int
 Context::ReturnVoid()
 {
   return 0;
+}
+
+int
+Context::Return(int value)
+{
+  return ReturnNumber(value);
+}
+
+int
+Context::Return(const std::string& value)
+{
+  return ReturnString(value);
 }
 
 int
@@ -259,6 +283,25 @@ FunctionVar::DoneFunction(Context* context) const
 }
 
 ////////////////////////////////////////////////////////////////////////////////
+
+DukValue::DukValue()
+    : ptr(nullptr)
+{
+}
+
+DukValue::DukValue(void* p)
+    : ptr(p)
+{
+}
+
+bool
+DukValue::IsValid() const
+{
+  return ptr != nullptr;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
 
 std::string
 ArgumentError(int arg, const std::string& err)
@@ -504,6 +547,15 @@ Duk::Duk()
           duk_create_heap(nullptr, nullptr, nullptr, nullptr, FatalHandler),
           this)
 {
+}
+
+DukValue
+Duk::CreateGlobal(const std::string& name)
+{
+  duk_push_object(ctx);
+  DukValue val = DukValue{duk_get_heapptr(ctx, -1)};
+  duk_put_global_string(ctx, name.c_str());
+  return val;
 }
 
 Context*

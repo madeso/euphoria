@@ -1,8 +1,7 @@
 #include "engine/input.h"
 
 #include "core/assert.h"
-
-#include "dukglue/dukglue.h"
+#include "core/duk.h"
 
 BoundVar::BoundVar(const std::string& n, const Key& k)
     : name(n)
@@ -34,6 +33,8 @@ Input::SetKeyState(Key key, float state)
 void
 Input::Set(Duk* duk, DukValue container) const
 {
+// todo: figure out how to best do this? class bind? need to work with TS
+#if 0
   dukglue_push(duk->ctx, container);
 
   duk_bool_t rc;
@@ -64,6 +65,7 @@ Input::Set(Duk* duk, DukValue container) const
   duk_pop(duk->ctx);
 
   // todo: validate duk stack
+#endif
 }
 
 void

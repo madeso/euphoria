@@ -11,19 +11,22 @@
 
 class DukUpdateSystem : public ComponentSystem, public ComponentSystemUpdate
 {
-  DukValue func;
+  FunctionVar func;
+  Duk*        duk;
 
  public:
-  DukUpdateSystem(const std::string& name, DukValue f)
+  DukUpdateSystem(const std::string& name, FunctionVar f, Duk* d)
       : ComponentSystem(name)
       , func(f)
+      , duk(d)
   {
   }
 
   void
   Update(EntReg* reg, float dt) const override
   {
-    dukglue_pcall<void>(func.context(), func, dt);
+    ASSERT(duk);
+    func.VoidCall(duk->AsContext(), dt);
   }
 
   void
@@ -37,51 +40,144 @@ class DukSystems
 {
  public:
   Systems* systems;
-  explicit DukSystems(Systems* s)
+  Duk*     duk;
+
+  DukSystems(Systems* s, Duk* d)
       : systems(s)
+      , duk(d)
   {
   }
 
   void
-  AddUpdate(const std::string& name, DukValue func)
+  AddUpdate(const std::string& name, FunctionVar func)
   {
-    systems->AddAndRegister(std::make_shared<DukUpdateSystem>(name, func));
+    systems->AddAndRegister(std::make_shared<DukUpdateSystem>(name, func, duk));
   }
 };
 
 struct DukIntegrationPimpl
 {
   DukIntegrationPimpl(Systems* sys, World* world, Duk* duk)
-      : systems(sys)
+      : systems(sys, duk)
       , registry(&world->reg)
-      , input(dukglue_peval<DukValue>(
-            duk->ctx, "var Input = new Object(); Input"))
+      , input(duk->CreateGlobal("Input"))
   {
   }
 
   void
   Integrate(Duk* duk)
   {
-    dukglue_register_global(duk->ctx, &systems, "Systems");
-    dukglue_register_method(duk->ctx, &DukSystems::AddUpdate, "AddUpdate");
+    duk->BindObject(
+        "Systems",
+        BindObject().AddFunction(
+            "AddUpdate",
+            Bind{}.bind<std::string, FunctionVar>(
+                [&](Context* ctx, const std::string& name, FunctionVar func)
+                    -> int {
+                  systems.AddUpdate(name, func);
+                  return ctx->ReturnVoid();
+                })));
 
-    dukglue_register_global(duk->ctx, &registry, "Registry");
-    dukglue_register_method(duk->ctx, &DukRegistry::entities, "Entities");
-    dukglue_register_method(duk->ctx, &DukRegistry::getSpriteId, "GetSpriteId");
-    dukglue_register_method(
-        duk->ctx, &DukRegistry::getPosition2dId, "GetPosition2Id");
+    duk->BindObject(
+        "Registry",
+        BindObject()
+            .AddFunction(
+                "Entities",
+                Bind{}.bind<std::vector<ComponentId>>(
+                    [&](Context*                        ctx,
+                        const std::vector<ComponentId>& types) -> int {
+                      return ctx->ReturnArray(registry.entities(types));
+                    }))
+            .AddFunction("GetSpriteId", Bind{}.bind([&](Context* ctx) -> int {
+              return ctx->Return(registry.getSpriteId());
+            }))
+            .AddFunction(
+                "GetPosition2Id", Bind{}.bind([&](Context* ctx) -> int {
+                  return ctx->Return(registry.getPosition2dId());
+                }))
+            .AddFunction(
+                "New",
+                Bind{}.bind<std::string>(
+                    [&](Context* ctx, const std::string& name) -> int {
+                      return ctx->Return(registry.CreateNewId(name));
+                    }))
+            .AddFunction(
+                "Get",
+                Bind{}.bind<EntityId, ComponentId>(
+                    [&](Context* ctx, EntityId ent, ComponentId comp) -> int {
+                      return ctx->Return(registry.GetProperty(ent, comp));
+                    }))
+            .AddFunction(
+                "Set",
+                Bind{}.bind<EntityId, ComponentId, DukValue>(
+                    [&](Context*    ctx,
+                        EntityId    ent,
+                        ComponentId comp,
+                        DukValue    val) -> int {
+                      registry.SetProperty(ent, comp, val);
+                      return ctx->ReturnVoid();
+                    }))
+            .AddFunction(
+                "GetPosition2",
+                Bind{}.bind<ComponentId>(
+                    [&](Context* ctx, ComponentId ent) -> int {
+                      return ctx->ReturnFreeObject(
+                          registry.GetComponentOrNull<CPosition2>(ent));
+                    })));
 
-    dukglue_register_method(duk->ctx, &DukRegistry::CreateNewId, "New");
-    dukglue_register_method(duk->ctx, &DukRegistry::GetProperty, "Get");
-    dukglue_register_method(duk->ctx, &DukRegistry::SetProperty, "Set");
+    //    dukglue_register_global(duk->ctx, &registry, "Registry");
+    //    dukglue_register_method(duk->ctx, &DukRegistry::entities, "Entities");
+    //    dukglue_register_method(duk->ctx, &DukRegistry::getSpriteId,
+    //    "GetSpriteId");
+    //    dukglue_register_method(
+    //        duk->ctx, &DukRegistry::getPosition2dId, "GetPosition2Id");
+    //
+    //    dukglue_register_method(duk->ctx, &DukRegistry::CreateNewId, "New");
+    //    dukglue_register_method(duk->ctx, &DukRegistry::GetProperty, "Get");
+    //    dukglue_register_method(duk->ctx, &DukRegistry::SetProperty, "Set");
+    //
+    //    dukglue_register_method(
+    //        duk->ctx, &DukRegistry::GetComponentOrNull<CPosition2>,
+    //        "GetPosition2");
 
-    dukglue_register_method(
-        duk->ctx, &DukRegistry::GetComponentOrNull<CPosition2>, "GetPosition2");
-    dukglue_register_method(duk->ctx, &CPosition2::GetPosition, "GetPos");
-    dukglue_register_method(duk->ctx, &CPosition2::SetPosition, "SetPos");
-    dukglue_register_method(duk->ctx, &CPosition2::GetPositionRef, "GetPosRef");
-    dukglue_register_property(
-        duk->ctx, &CPosition2::GetPosition, &CPosition2::SetPosition, "vec");
+    duk->BindClass(
+        "CPosition2",
+        BindClass<CPosition2>()
+            .AddMethod(
+                "GetPos",
+                Bind{}.bind<CPosition2>([](Context* ctx, CPosition2& p) -> int {
+                  return ctx->ReturnObject(std::make_shared<vec2f>(p.pos));
+                }))
+            .AddMethod(
+                "SetPos",
+                Bind{}.bind<CPosition2, vec2f>(
+                    [](Context* ctx, CPosition2& p, const vec2f& pos) -> int {
+                      p.pos = pos;
+                      return ctx->ReturnVoid();
+                    }))
+            .AddMethod(
+                "GetPosRef",
+                Bind{}.bind<CPosition2>([](Context* ctx, CPosition2& p) -> int {
+                  return ctx->ReturnFreeObject(&p.pos);
+                }))
+            .AddProperty(
+                "vec",
+                Bind{}.bind<CPosition2>([](Context* ctx, CPosition2& p) -> int {
+                  return ctx->ReturnObject(std::make_shared<vec2f>(p.pos));
+                }),
+                Bind{}.bind<CPosition2, vec2f>(
+                    [](Context* ctx, CPosition2& p, const vec2f& pos) -> int {
+                      p.pos = pos;
+                      return ctx->ReturnVoid();
+                    })));
+
+    //    dukglue_register_method(duk->ctx, &CPosition2::GetPosition, "GetPos");
+    //    dukglue_register_method(duk->ctx, &CPosition2::SetPosition, "SetPos");
+    //    dukglue_register_method(duk->ctx, &CPosition2::GetPositionRef,
+    //    "GetPosRef");
+    //    dukglue_register_property(
+    //        duk->ctx, &CPosition2::GetPosition, &CPosition2::SetPosition,
+    //        "vec");
   }
 
   DukSystems  systems;

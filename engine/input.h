@@ -7,7 +7,6 @@
 #include "core/key.h"
 
 #include "core/duk.h"
-#include "dukglue/dukglue.h"
 
 struct BoundVar
 {

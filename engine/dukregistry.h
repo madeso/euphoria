@@ -2,10 +2,9 @@
 #define EUPHORIA_DUKREGISTRY_H
 
 #include "core/componentsystem.h"
+#include "core/duk.h"
 
 #include "engine/components.h"
-
-#include "dukglue/dukglue.h"
 
 #include <map>
 #include <memory>

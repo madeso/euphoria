@@ -9,15 +9,6 @@ struct CPosition2
 {
   CPosition2();
   vec2f pos;
-
-  std::shared_ptr<vec2f>
-  GetPosition();
-
-  void
-  SetPosition(vec2f* v);
-
-  std::shared_ptr<vec2fp>
-  GetPositionRef();
 };
 
 struct CSprite

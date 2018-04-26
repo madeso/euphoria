@@ -56,6 +56,19 @@ GetVoidProperty(duk_context* ctx, duk_idx_t index, const char* name);
 void*
 GetHiddenProperty(duk_context* ctx, duk_idx_t index, const std::string& name);
 
+// represents a object
+class DukValue
+{
+ public:
+  DukValue();
+  explicit DukValue(void* p);
+
+  bool
+  IsValid() const;
+
+  void* ptr;
+};
+
 class Context
 {
  public:
@@ -115,10 +128,31 @@ class Context
   void
   StopArrayIndex();
 
+  // array return
+
+  int
+  PushArray();
+
+  void
+  PutArrayIndex(int arr, unsigned int i);
+
   // return handling
 
   int
   ReturnVoid();
+
+  int
+  Return(int value);
+
+  int
+  Return(const std::string& value);
+
+  int
+  Return(DukValue val);
+
+  template <typename T>
+  int
+  ReturnArray(const std::vector<T> array);
 
   int
   ReturnNumber(double num);
@@ -205,6 +239,7 @@ PushVar(Context* ctx, const T& arg)
   PushVarImpl<Type>(ctx, arg);
 }
 
+// todo: rename to DukFunc
 class FunctionVar
 {
  public:
@@ -225,9 +260,17 @@ class FunctionVar
   void
   DoneFunction(Context* context) const;
 
+  template <typename... TArgs>
+  void
+  SubCall(Context* context, TArgs... args) const;
+
   template <typename TReturn, typename... TArgs>
   TReturn
   Call(Context* context, TArgs... args) const;
+
+  template <typename... TArgs>
+  void
+  VoidCall(Context* context, TArgs... args) const;
 
   void* function;
 };
@@ -458,9 +501,25 @@ struct DukTemplate<std::vector<T>>
   }
 };
 
-template <typename TReturn, typename... TArgs>
-TReturn
-FunctionVar::Call(Context* context, TArgs... args) const
+template <typename T>
+int
+Context::ReturnArray(const std::vector<T> array)
+{
+  const auto   arr = PushArray();
+  unsigned int i   = 0;
+  for(const T& t : array)
+  {
+    PushVar(this, t);
+    PutArrayIndex(arr, i);
+    i += 1;
+  }
+
+  return 1;
+}
+
+template <typename... TArgs>
+void
+FunctionVar::SubCall(Context* context, TArgs... args) const
 {
   BeginCall(context);
 
@@ -469,6 +528,13 @@ FunctionVar::Call(Context* context, TArgs... args) const
 
   const auto arguments = sizeof...(TArgs);
   CallFunction(context, arguments);
+}
+
+template <typename TReturn, typename... TArgs>
+TReturn
+FunctionVar::Call(Context* context, TArgs... args) const
+{
+  SubCall(context, args...);
 
   const auto match = DukTemplate<TReturn>::CanMatch(context, -1, 0);
 
@@ -484,6 +550,14 @@ FunctionVar::Call(Context* context, TArgs... args) const
   // todo: handle invalid return type
 
   return Default<TReturn>();
+}
+
+template <typename... TArgs>
+void
+FunctionVar::VoidCall(Context* context, TArgs... args) const
+{
+  SubCall(context, args...);
+  DoneFunction(context);
 }
 
 template <typename Callback, typename... TArgs>
@@ -620,6 +694,9 @@ class Duk : private Context
 
   Context*
   AsContext();
+
+  DukValue
+  CreateGlobal(const std::string& name);
 
   bool
   eval_string(

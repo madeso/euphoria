@@ -19,33 +19,33 @@ BindVec2(Duk* duk, const std::string& name)
       BindClass<V>()
           .SetConstructor(Bind{}.bind<float, float>(
               [](Context* ctx, float x, float y) -> int {
-                ctx->ReturnObject(std::make_shared<V>(x, y));
+                return ctx->ReturnObject(std::make_shared<V>(x, y));
               }))
           .AddMethod(
               "getX", Bind{}.bind<V>([](Context* ctx, const V& v) -> int {
-                ctx->ReturnNumber(v.GetX());
+                return ctx->ReturnNumber(v.GetX());
               }))
           .AddMethod(
               "getY", Bind{}.bind<V>([](Context* ctx, const V& v) -> int {
-                ctx->ReturnNumber(v.GetY());
+                return ctx->ReturnNumber(v.GetY());
               }))
           .AddProperty(
               "x",
               Bind{}.bind<V>([](Context* ctx, const V& v) -> int {
-                ctx->ReturnNumber(v.GetX());
+                return ctx->ReturnNumber(v.GetX());
               }),
               Bind{}.bind<V, float>([](Context* ctx, V& v, float x) -> int {
                 v.SetX(x);
-                ctx->ReturnVoid();
+                return ctx->ReturnVoid();
               }))
           .AddProperty(
               "y",
               Bind{}.bind<V>([](Context* ctx, const V& v) -> int {
-                ctx->ReturnNumber(v.GetY());
+                return ctx->ReturnNumber(v.GetY());
               }),
               Bind{}.bind<V, float>([](Context* ctx, V& v, float y) -> int {
                 v.SetY(y);
-                ctx->ReturnVoid();
+                return ctx->ReturnVoid();
               })));
 }
 
