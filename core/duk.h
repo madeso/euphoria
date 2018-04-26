@@ -216,6 +216,13 @@ PushVarImpl(Context* ctx, const int& arg)
 
 template <>
 inline void
+PushVarImpl(Context* ctx, const float& arg)
+{
+  ctx->ReturnNumber(arg);
+}
+
+template <>
+inline void
 PushVarImpl(Context* ctx, const std::string& arg)
 {
   ctx->ReturnString(arg);

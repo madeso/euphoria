@@ -195,6 +195,13 @@ Context::Return(const std::string& value)
 }
 
 int
+Context::Return(DukValue val)
+{
+  duk_push_heapptr(ctx, val.ptr);
+  return 1;
+}
+
+int
 Context::ReturnNumber(double num)
 {
   duk_push_number(ctx, num);
