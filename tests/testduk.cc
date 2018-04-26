@@ -280,6 +280,20 @@ TEST_CASE("duk-eval", "[duk]")
       REQUIRE(out == "[dog, a dog, good dog]");
     }
 
+    SECTION("create object")
+    {
+      auto dog = duk.CreateGlobal("Dog");
+      duk.BindGlobalFunction("test", Bind{}.bind<>([&](Context* ctx) -> int {
+        return ctx->Return(dog);
+      }));
+      const auto eval =
+          duk.eval_string("Dog.name = \"Duke\"; test().name", "", &error, &out);
+      CAPTURE(out);
+      CAPTURE(error);
+      REQUIRE(eval);
+      REQUIRE(out == "Duke");
+    }
+
     SECTION("take function")
     {
       int i = 0;
