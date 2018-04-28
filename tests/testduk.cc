@@ -143,7 +143,6 @@ TEST_CASE("duk-eval", "[duk]")
       REQUIRE(value == 42);
     }
 
-#if 0
     SECTION("test(unsigned int)")
     {
       unsigned int value = 12;
@@ -157,7 +156,6 @@ TEST_CASE("duk-eval", "[duk]")
       REQUIRE(duk.eval_string("test(42);", "", &error, &out));
       REQUIRE(value == 42);
     }
-#endif
 
 
     SECTION("test(int, int)")

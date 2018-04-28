@@ -312,8 +312,31 @@ class Function
 std::string
 ArgumentError(int arg, const std::string& err);
 
-template <typename TT>
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+template <typename T>
+struct IsVector
+{
+  static constexpr bool value = false;
+};
+
+template <typename T>
+struct IsVector<std::vector<T>>
+{
+  static constexpr bool value = true;
+};
+
+template <typename TT, typename TValid = void>
 struct DukTemplate
+{
+};
+
+template <typename TT>
+struct DukTemplate<
+    TT,
+    std::enable_if_t<!std::is_arithmetic<TT>::value && !IsVector<TT>::value>>
 {
   using T = typename std::decay<TT>::type;
 
@@ -365,14 +388,15 @@ struct DukTemplate
   }
 };
 
-template <>
-struct DukTemplate<int>
+template <typename T>
+struct DukTemplate<T, std::enable_if_t<std::is_arithmetic<T>::value>>
 {
   static std::string
   CanMatch(Context* ctx, int index, int arg)
   {
     if(ctx->IsNumber(index))
     {
+      // todo: validate if is within T range
       return "";
     }
     else
@@ -381,16 +405,16 @@ struct DukTemplate<int>
     }
   }
 
-  static int
+  static T
   Parse(Context* ctx, int index)
   {
-    return static_cast<int>(ctx->GetNumber(index));
+    return static_cast<T>(ctx->GetNumber(index));
   }
 
   static std::string
   Name(Context*)
   {
-    return "int";
+    return "number";
   }
 };
 
@@ -454,7 +478,7 @@ struct DukTemplate<FunctionVar>
 };
 
 template <typename T>
-struct DukTemplate<std::vector<T>>
+struct DukTemplate<std::vector<T>, void>
 {
   static std::string
   CanMatch(Context* ctx, int index, int arg)
@@ -523,6 +547,10 @@ Context::ReturnArray(const std::vector<T> array)
 
   return 1;
 }
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 
 template <typename... TArgs>
 void
