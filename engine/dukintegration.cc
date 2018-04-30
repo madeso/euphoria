@@ -74,6 +74,7 @@ struct DukIntegrationPimpl
             Bind{}.bind<std::string, FunctionVar>(
                 [&](Context* ctx, const std::string& name, FunctionVar func)
                     -> int {
+                  func.StoreReference(ctx);
                   systems.AddUpdate(name, func);
                   return ctx->ReturnVoid();
                 })));
