@@ -16,12 +16,21 @@ BindBoundVar(Duk* duk)
 {
   duk->BindClass(
       "BoundVar",
-      BindClass<BoundVar>().AddProperty(
-          "state",
-          Bind{}.bind<BoundVar>([](Context* ctx, const BoundVar& bv) -> int {
-            return ctx->ReturnNumber(bv.state);
-          }),
-          Bind{}));
+      BindClass<BoundVar>()
+          .AddProperty(
+              "state",
+              Bind{}.bind<BoundVar>(
+                  [](Context* ctx, const BoundVar& bv) -> int {
+                    return ctx->ReturnNumber(bv.state);
+                  }),
+              Bind{})
+          .AddProperty(
+              "last_state",
+              Bind{}.bind<BoundVar>(
+                  [](Context* ctx, const BoundVar& bv) -> int {
+                    return ctx->ReturnNumber(bv.last_state);
+                  }),
+              Bind{}));
 }
 
 void
