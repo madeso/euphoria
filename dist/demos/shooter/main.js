@@ -16,11 +16,13 @@ Types = {
 };
 
 time = 0;
+bark = 0;
 Systems.AddUpdate("bark", function(dt) {
   time += dt;
   if(time>1){
     time -= 1;
-    print('Bark!');
+    bark += 1;
+    print('Bark!', bark);
   }
 });
 Systems.AddUpdate("move up", function(dt) {
