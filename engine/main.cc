@@ -257,19 +257,15 @@ main(int argc, char** argv)
 
     if(!has_crashed)
     {
-#if 0
       try
       {
-#endif
-      world.Update(dt);
-#if 0
+        world.Update(dt);
       }
-      catch(const DukErrorException& ex)
+      catch(const std::exception& ex)
       {
         has_crashed          = true;
         crash_message_string = ex.what();
       }
-#endif
     }
 
     input.UpdateState();

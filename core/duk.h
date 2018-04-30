@@ -284,14 +284,17 @@ class FunctionVar
   void
   BeginCall(Context* context) const;
 
-  void
+  bool
   CallFunction(Context* context, int arguments) const;
+
+  std::string
+  CollectError(Context* context) const;
 
   void
   DoneFunction(Context* context) const;
 
   template <typename... TArgs>
-  void
+  bool
   SubCall(Context* context, TArgs... args) const;
 
   template <typename TReturn, typename... TArgs>
@@ -576,7 +579,7 @@ Context::ReturnArray(const std::vector<T> array)
 ////////////////////////////////////////////////////////////////////////////////
 
 template <typename... TArgs>
-void
+bool
 FunctionVar::SubCall(Context* context, TArgs... args) const
 {
   BeginCall(context);
@@ -585,14 +588,18 @@ FunctionVar::SubCall(Context* context, TArgs... args) const
   NotUsed(dummy);
 
   const auto arguments = sizeof...(TArgs);
-  CallFunction(context, arguments);
+  return CallFunction(context, arguments);
 }
 
 template <typename TReturn, typename... TArgs>
 TReturn
 FunctionVar::Call(Context* context, TArgs... args) const
 {
-  SubCall(context, args...);
+  const bool ret = SubCall(context, args...);
+  if(!ret)
+  {
+    throw std::runtime_error(CollectError(context));
+  }
 
   const auto match = DukTemplate<TReturn>::CanMatch(context, -1, 0);
 
@@ -614,7 +621,11 @@ template <typename... TArgs>
 void
 FunctionVar::VoidCall(Context* context, TArgs... args) const
 {
-  SubCall(context, args...);
+  const bool ret = SubCall(context, args...);
+  if(!ret)
+  {
+    throw std::runtime_error(CollectError(context));
+  }
   DoneFunction(context);
 }
 
