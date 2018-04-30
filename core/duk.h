@@ -200,51 +200,74 @@ class Context
   Duk*         duk;
 };
 
+////////////////////////////////////////////////////////////////////////////////
+
+template <typename T, typename TValid = void>
+struct PushVarImpl
+{
+};
+
 template <typename T>
-void
-PushVarImpl(Context* ctx, const T& arg)
+struct PushVarImpl<T, std::enable_if_t<std::is_class<T>::value>>
 {
-  ctx->ReturnObject<T>(std::make_shared<T>(arg));
-}
+  static void
+  Push(Context* ctx, const T& arg)
+  {
+    ctx->ReturnObject<T>(std::make_shared<T>(arg));
+  }
+};
+
+template <typename T>
+struct PushVarImpl<T, std::enable_if_t<std::is_arithmetic<T>::value>>
+{
+  static void
+  Push(Context* ctx, const T& arg)
+  {
+    ctx->ReturnNumber(arg);
+  }
+};
 
 template <>
-inline void
-PushVarImpl(Context* ctx, const int& arg)
+struct PushVarImpl<float>
 {
-  ctx->ReturnNumber(arg);
-}
+  static void
+  Push(Context* ctx, const float& arg)
+  {
+    ctx->ReturnNumber(arg);
+  }
+};
 
 template <>
-inline void
-PushVarImpl(Context* ctx, const float& arg)
+struct PushVarImpl<std::string>
 {
-  ctx->ReturnNumber(arg);
-}
+  static void
+  Push(Context* ctx, const std::string& arg)
+  {
+    ctx->ReturnString(arg);
+  }
+};
 
 template <>
-inline void
-PushVarImpl(Context* ctx, const std::string& arg)
+struct PushVarImpl<const char*>
 {
-  ctx->ReturnString(arg);
-}
-
-
-template <>
-inline void
-PushVarImpl(Context* ctx, const char* const& arg)
-{
-  ctx->ReturnString(arg);
-}
+  static void
+  Push(Context* ctx, const std::string& arg)
+  {
+    ctx->ReturnString(arg);
+  }
+};
 
 template <typename T>
 void
 PushVar(Context* ctx, const T& arg)
 {
-  // *Impl functions here to support template-ing char* strings
+  // *Impl struct here to support template-ing char* strings
   // https://stackoverflow.com/a/6559891/180307
   typedef typename ArrayToPointerDecay<T>::Type Type;
-  PushVarImpl<Type>(ctx, arg);
+  PushVarImpl<Type>::Push(ctx, arg);
 }
+
+////////////////////////////////////////////////////////////////////////////////
 
 // todo: rename to DukFunc
 class FunctionVar

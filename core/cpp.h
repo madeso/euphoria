@@ -32,4 +32,16 @@ struct ArrayToPointerDecay<T[N]>
   typedef const T* Type;
 };
 
+template <typename T>
+struct CharPointerToString
+{
+  typedef T Type;
+};
+
+template <std::size_t N>
+struct CharPointerToString<char[N]>
+{
+  typedef std::string Type;
+};
+
 #endif  // EUPHORIA_CPP_H

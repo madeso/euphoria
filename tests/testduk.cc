@@ -280,6 +280,21 @@ TEST_CASE("duk-eval", "[duk]")
       REQUIRE(out == "array, object and object coercible: [0: 0, 1: 1, 2: 2]");
     }
 
+    SECTION("return int array")
+    {
+      duk.BindGlobalFunction(
+          "test", Bind{}.bind<long>([](Context* ctx, const long var) -> int {
+            std::vector<long> arr = {var, var + 1, var + 2};
+            return ctx->ReturnArray(arr);
+          }));
+      const auto eval = duk.eval_string("test(0)", "", &error, &out);
+      CAPTURE(out);
+      CAPTURE(error);
+      REQUIRE(eval);
+      // REQUIRE(out == "[0, 1, 2]");
+      REQUIRE(out == "array, object and object coercible: [0: 0, 1: 1, 2: 2]");
+    }
+
     SECTION("return string array")
     {
       duk.BindGlobalFunction(
