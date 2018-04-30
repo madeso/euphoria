@@ -26,6 +26,9 @@ struct BoundVar
 class Input
 {
  public:
+  static void
+  Bind(Duk* duk);
+
   void
   Add(std::shared_ptr<BoundVar> bind);
 

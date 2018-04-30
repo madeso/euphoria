@@ -208,6 +208,7 @@ main(int argc, char** argv)
   Duk duk;
   AddPrint(&duk);
   BindMath(&duk);
+  Input::Bind(&duk);
 
   Systems systems;
   AddSystems(&systems, &duk);

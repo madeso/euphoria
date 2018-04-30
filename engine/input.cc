@@ -12,6 +12,25 @@ BoundVar::BoundVar(const std::string& n, const Key& k)
 }
 
 void
+BindBoundVar(Duk* duk)
+{
+  duk->BindClass(
+      "BoundVar",
+      BindClass<BoundVar>().AddProperty(
+          "state",
+          Bind{}.bind<BoundVar>([](Context* ctx, const BoundVar& bv) -> int {
+            return ctx->ReturnNumber(bv.state);
+          }),
+          Bind{}));
+}
+
+void
+Input::Bind(Duk* duk)
+{
+  BindBoundVar(duk);
+}
+
+void
 Input::Add(std::shared_ptr<BoundVar> bind)
 {
   binds.push_back(bind);
@@ -33,6 +52,10 @@ Input::SetKeyState(Key key, float state)
 void
 Input::Set(Duk* duk, DukValue container) const
 {
+  for(const auto& bind : binds)
+  {
+    container.SetFree(duk, bind->name, bind.get());
+  }
 // todo: figure out how to best do this? class bind? need to work with TS
 #if 0
   dukglue_push(duk->ctx, container);

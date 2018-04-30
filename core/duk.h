@@ -66,6 +66,21 @@ class DukValue
   bool
   IsValid() const;
 
+  void
+  SetFreeImpl(
+      Duk*               duk,
+      const std::string& name,
+      void*              object,
+      size_t type CLASS_ARG(const std::string& classname));
+
+  template <typename T>
+  void
+  SetFree(Duk* duk, const std::string& name, T* t)
+  {
+    constexpr auto& cpptype = typeid(T);
+    SetFreeImpl(duk, name, t, cpptype.hash_code() CLASS_ARG(cpptype.name()));
+  }
+
   void* ptr;
 };
 
