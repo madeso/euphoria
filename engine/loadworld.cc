@@ -6,7 +6,7 @@
 
 #include "engine/components.h"
 #include "engine/dukregistry.h"
-#include "engine/componentcreator.h"
+#include "engine/objectemplate.h"
 
 #include "world.pb.h"
 

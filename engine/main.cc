@@ -33,7 +33,7 @@
 #include "engine/dukmathbindings.h"
 #include "engine/dukprint.h"
 #include "engine/input.h"
-#include "engine/componentcreator.h"
+#include "engine/objectemplate.h"
 
 #include "window/imguilibrary.h"
 #include "window/imgui.h"

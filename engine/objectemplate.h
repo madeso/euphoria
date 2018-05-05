@@ -1,5 +1,5 @@
-#ifndef EUPHORIA_COMPONENTCREATOR_H
-#define EUPHORIA_COMPONENTCREATOR_H
+#ifndef EUPHORIA_OBJECTTEMPLATE_H
+#define EUPHORIA_OBJECTTEMPLATE_H
 
 #include <string>
 #include <vector>
@@ -58,4 +58,4 @@ LoadTemplates(
     const std::string& path,
     DukRegistry*       reg);
 
-#endif  // EUPHORIA_COMPONENTCREATOR_H
+#endif  // EUPHORIA_OBJECTTEMPLATE_H

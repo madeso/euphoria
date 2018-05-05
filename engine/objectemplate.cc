@@ -1,4 +1,4 @@
-#include "engine/componentcreator.h"
+#include "engine/objectemplate.h"
 
 #include "core/log.h"
 #include "core/proto.h"
