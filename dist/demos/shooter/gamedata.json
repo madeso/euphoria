@@ -7,5 +7,12 @@
       {"name": "left", "key": "a"},
       {"name": "right", "key": "d"},
       {"name": "fire", "key": "space"}
-    ]
+    ],
+  "templates": [
+    {"name": "player", "components": [
+      {"position": {"x": 200, "y": 40}},
+      {"sprite": {"path": "playerShip1_blue.png"}},
+      {"custom": {"name": "Player"}}
+    ]}
+  ]
 }

@@ -223,8 +223,7 @@ main(int argc, char** argv)
   }
 
   ObjectCreator templates;
-  LoadTemplates(
-      &templates, &file_system, "templates.json", &integration.Registry());
+  LoadTemplates(gamedata, &templates, &integration.Registry());
 
   LoadWorld(
       &file_system,

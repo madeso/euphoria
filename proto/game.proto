@@ -1,13 +1,51 @@
 package game;
 
+////////////////////////////////////////////////////////////////////////////////
+
+message vec2f
+{
+  optional float x = 1;
+  optional float y = 2;
+}
+
+message Sprite
+{
+  optional string path = 1;
+}
+
+message Custom
+{
+  optional string name = 1;
+  // todo: add name value bindings?
+}
+
+message Component
+{
+  // only one is valid
+  optional vec2f position = 1;
+  optional Sprite sprite = 2;
+  optional Custom custom = 3;
+}
+
+message Template
+{
+  optional string name = 1;
+  repeated Component components = 2;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
 message KeyBind
 {
   optional string name = 1;
   optional string key = 2;
 }
 
+////////////////////////////////////////////////////////////////////////////////
+
 message Game
 {
   optional string title = 1;
   repeated KeyBind binds = 2;
+  repeated Template templates = 3;
 }

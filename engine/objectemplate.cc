@@ -6,7 +6,7 @@
 #include "engine/components.h"
 #include "engine/dukregistry.h"
 
-#include "components.pb.h"
+#include "game.pb.h"
 
 LOG_SPECIFY_DEFAULT_LOGGER("engine.templates")
 
@@ -34,7 +34,7 @@ class PositionComponentCreator : public ComponentCreator
   }
 
   static std::shared_ptr<PositionComponentCreator>
-  Create(const components::vec2f& p)
+  Create(const game::vec2f& p)
   {
     return std::make_shared<PositionComponentCreator>(vec2f{p.x(), p.y()});
   }
@@ -52,7 +52,7 @@ class SpriteComponentCreator : public ComponentCreator
   std::string path;
 
   static std::shared_ptr<SpriteComponentCreator>
-  Create(const components::Sprite& sprite)
+  Create(const game::Sprite& sprite)
   {
     auto ptr  = std::make_shared<SpriteComponentCreator>();
     ptr->path = sprite.path();
@@ -92,7 +92,7 @@ class CustomComponentCreator : public ComponentCreator
 ////////////////////////////////////////////////////////////////////////////////
 
 std::shared_ptr<ComponentCreator>
-CreateCreator(const components::Component& comp, DukRegistry* reg)
+CreateCreator(const game::Component& comp, DukRegistry* reg)
 {
   if(comp.has_position())
   {
@@ -123,7 +123,7 @@ CreateCreator(const components::Component& comp, DukRegistry* reg)
 
 void
 LoadObjectTemplate(
-    ObjectTemplate* ot, const components::Template& ct, DukRegistry* reg)
+    ObjectTemplate* ot, const game::Template& ct, DukRegistry* reg)
 {
   for(const auto& comp : ct.components())
   {
@@ -147,19 +147,8 @@ ObjectTemplate::SetupObject(const ObjectCreationArgs& args)
 ////////////////////////////////////////////////////////////////////////////////
 
 void
-LoadTemplates(
-    ObjectCreator*     temp,
-    FileSystem*        fs,
-    const std::string& path,
-    DukRegistry*       reg)
+LoadTemplates(const game::Game& json, ObjectCreator* temp, DukRegistry* reg)
 {
-  components::Templates json;
-  const auto            err = LoadProtoJson(fs, &json, path);
-  if(!err.empty())
-  {
-    LOG_ERROR("Failed to templates from " << path << ": " << err);
-  }
-
   for(const auto& t : json.templates())
   {
     auto o = std::make_shared<ObjectTemplate>();

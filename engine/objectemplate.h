@@ -6,6 +6,11 @@
 #include <memory>
 #include <map>
 
+namespace game
+{
+  class Game;
+}
+
 class World;
 class TextureCache;
 class DukRegistry;
@@ -52,10 +57,6 @@ class ObjectCreator
 };
 
 void
-LoadTemplates(
-    ObjectCreator*     temp,
-    FileSystem*        fs,
-    const std::string& path,
-    DukRegistry*       reg);
+LoadTemplates(const game::Game& json, ObjectCreator* temp, DukRegistry* reg);
 
 #endif  // EUPHORIA_OBJECTTEMPLATE_H

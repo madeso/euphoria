@@ -1,9 +1,0 @@
-{
-  "templates": [
-    {"name": "player", "components": [
-      {"position": {"x": 200, "y": 40}},
-      {"sprite": {"path": "playerShip1_blue.png"}},
-      {"custom": {"name": "Player"}}
-    ]}
-  ]
-}
