@@ -8,6 +8,7 @@
 #include "engine/components.h"
 #include "engine/input.h"
 #include "engine/dukregistry.h"
+#include "engine/objectemplate.h"
 
 class DukUpdateSystem : public ComponentSystem, public ComponentSystemUpdate
 {
@@ -57,10 +58,13 @@ class DukSystems
 
 struct DukIntegrationPimpl
 {
-  DukIntegrationPimpl(Systems* sys, World* world, Duk* duk)
+  DukIntegrationPimpl(
+      Systems* sys, World* world, Duk* duk, ObjectCreator* creator)
       : systems(sys, duk)
       , registry(&world->reg)
       , input(duk->CreateGlobal("Input"))
+      , world(world)
+      , creator(creator)
   {
   }
 
@@ -78,6 +82,27 @@ struct DukIntegrationPimpl
                   systems.AddUpdate(name, func);
                   return ctx->ReturnVoid();
                 })));
+
+    duk->BindObject(
+        "Templates",
+        BindObject().AddFunction(
+            "Find",
+            Bind{}.bind<std::string>(
+                [&](Context* ctx, const std::string& name) -> int {
+                  // todo: if find returns null this func creates a null object
+                  // it should return 'nothing' instead
+                  return ctx->ReturnFreeObject(creator->FindTemplate(name));
+                })));
+    duk->BindClass(
+        "Template",
+        BindClass<ObjectTemplate>().AddMethod(
+            "Create",
+            Bind{}.bind<ObjectTemplate>(
+                [&](Context* ctx, ObjectTemplate& t) -> int {
+                  t.CreateObject(ObjectCreationArgs{world, &registry});
+                  return ctx->ReturnVoid();
+                })));
+
 
     duk->BindObject(
         "Registry",
@@ -181,14 +206,17 @@ struct DukIntegrationPimpl
     //        "vec");
   }
 
-  DukSystems  systems;
-  DukRegistry registry;
-  DukValue    input;
+  DukSystems     systems;
+  DukRegistry    registry;
+  DukValue       input;
+  World*         world;
+  ObjectCreator* creator;
 };
 
-DukIntegration::DukIntegration(Systems* systems, World* reg, Duk* duk)
+DukIntegration::DukIntegration(
+    Systems* systems, World* reg, Duk* duk, ObjectCreator* creator)
 {
-  pimpl.reset(new DukIntegrationPimpl(systems, reg, duk));
+  pimpl.reset(new DukIntegrationPimpl(systems, reg, duk, creator));
   pimpl->Integrate(duk);
 }
 

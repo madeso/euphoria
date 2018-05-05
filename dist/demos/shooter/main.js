@@ -25,6 +25,8 @@ Systems.AddUpdate("bark", function(dt) {
     print('Bark!', bark);
   }
 });
+
+shotTemplate = Templates.Find("shot")
 Systems.AddUpdate("move up", function(dt) {
   ents = Registry.Entities([Types.Pos2, Types.Player]);
   ents.forEach(function(entity) {
@@ -39,8 +41,14 @@ Systems.AddUpdate("move up", function(dt) {
       var vec = pos2.vec;
       if(JustPressed(Input.fire))
       {
-        var dir = vertical < -0.1 ? -1 : 1;
-        vec.y = vec.y + 100 * dir;
+        if(!shotTemplate)
+        {
+          print("no shot");
+        }
+        else
+        {
+          shotTemplate.Create();
+        }
       }
       vec.y = vec.y + dt * speed * vertical;
       vec.x = vec.x + dt * speed * horizontal;

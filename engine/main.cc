@@ -213,25 +213,26 @@ main(int argc, char** argv)
 
   Systems systems;
   AddSystems(&systems, &duk);
-  World          world{&systems};
-  DukIntegration integration{&systems, &world, &duk};
+  World         world{&systems};
+  ObjectCreator templates;
+
+  // todo: fill up the templates with temporary templates
+  // as script will create new component types that the templates use
+  // and reference templates defined with thoose types
+  // but we can safely create empty templates as the templates
+  // shouldn't be used yet
+
+  DukIntegration integration{&systems, &world, &duk, &templates};
   const auto error_run_main = RunMainScriptFile(&duk, &file_system, "main.js");
   if(!error_run_main.ok)
   {
     has_crashed          = true;
     crash_message_string = error_run_main.message;
   }
-
-  ObjectCreator templates;
-  LoadTemplates(gamedata, &templates, &integration.Registry());
+  LoadTemplates(gamedata, &templates, &integration.Registry(), &cache);
 
   LoadWorld(
-      &file_system,
-      &world,
-      &cache,
-      &integration.Registry(),
-      "world.json",
-      &templates);
+      &file_system, &world, &integration.Registry(), "world.json", &templates);
 
   const mat4f projection = init.GetOrthoProjection(width, height);
   Use(&shader);

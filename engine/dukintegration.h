@@ -7,15 +7,16 @@ class Systems;
 class Duk;
 class Input;
 class World;
+struct DukRegistry;
+class ObjectCreator;
 
 struct DukIntegrationPimpl;
-
-struct DukRegistry;
 
 class DukIntegration
 {
  public:
-  DukIntegration(Systems* systems, World* reg, Duk* duk);
+  DukIntegration(
+      Systems* systems, World* reg, Duk* duk, ObjectCreator* creator);
   ~DukIntegration();
 
   void

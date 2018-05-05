@@ -17,7 +17,6 @@ void
 LoadWorld(
     FileSystem*        fs,
     World*             world,
-    TextureCache*      cache,
     DukRegistry*       reg,
     const std::string& path,
     ObjectCreator*     creator)
@@ -38,6 +37,6 @@ LoadWorld(
       LOG_ERROR("Failed to find template named " << name);
       continue;
     }
-    t->CreateObject(ObjectCreationArgs{world, cache, reg});
+    t->CreateObject(ObjectCreationArgs{world, reg});
   }
 }

@@ -12,10 +12,8 @@ LOG_SPECIFY_DEFAULT_LOGGER("engine.templates")
 
 ////////////////////////////////////////////////////////////////////////////////
 
-ObjectCreationArgs::ObjectCreationArgs(
-    World* aworld, TextureCache* acache, DukRegistry* areg)
+ObjectCreationArgs::ObjectCreationArgs(World* aworld, DukRegistry* areg)
     : world(aworld)
-    , cache(acache)
     , reg(areg)
 {
 }
@@ -48,20 +46,20 @@ class PositionComponentCreator : public ComponentCreator
 class SpriteComponentCreator : public ComponentCreator
 {
  public:
-  std::string path;
+  std::shared_ptr<Texture2d> texture;
 
   static std::shared_ptr<SpriteComponentCreator>
-  Create(const game::Sprite& sprite)
+  Create(const game::Sprite& sprite, TextureCache* cache)
   {
-    auto ptr  = std::make_shared<SpriteComponentCreator>();
-    ptr->path = sprite.path();
+    auto ptr     = std::make_shared<SpriteComponentCreator>();
+    ptr->texture = cache->GetTexture(sprite.path());
     return ptr;
   }
 
   void
   CreateComponent(const ObjectCreationArgs& args, EntityId ent) override
   {
-    args.world->reg.assign<CSprite>(ent).texture = args.cache->GetTexture(path);
+    args.world->reg.assign<CSprite>(ent).texture = texture;
   }
 };
 
@@ -90,7 +88,8 @@ class CustomComponentCreator : public ComponentCreator
 ////////////////////////////////////////////////////////////////////////////////
 
 std::shared_ptr<ComponentCreator>
-CreateCreator(const game::Component& comp, DukRegistry* reg)
+CreateCreator(
+    const game::Component& comp, DukRegistry* reg, TextureCache* cache)
 {
   if(comp.has_position())
   {
@@ -98,7 +97,7 @@ CreateCreator(const game::Component& comp, DukRegistry* reg)
   }
   else if(comp.has_sprite())
   {
-    return SpriteComponentCreator::Create(comp.sprite());
+    return SpriteComponentCreator::Create(comp.sprite(), cache);
   }
   else if(comp.has_custom())
   {
@@ -121,11 +120,14 @@ CreateCreator(const game::Component& comp, DukRegistry* reg)
 
 void
 LoadObjectTemplate(
-    ObjectTemplate* ot, const game::Template& ct, DukRegistry* reg)
+    ObjectTemplate*       ot,
+    const game::Template& ct,
+    DukRegistry*          reg,
+    TextureCache*         cache)
 {
   for(const auto& comp : ct.components())
   {
-    auto c = CreateCreator(comp, reg);
+    auto c = CreateCreator(comp, reg, cache);
     if(c != nullptr)
     {
       ot->components.emplace_back(c);
@@ -146,12 +148,16 @@ ObjectTemplate::CreateObject(const ObjectCreationArgs& args)
 ////////////////////////////////////////////////////////////////////////////////
 
 void
-LoadTemplates(const game::Game& json, ObjectCreator* temp, DukRegistry* reg)
+LoadTemplates(
+    const game::Game& json,
+    ObjectCreator*    temp,
+    DukRegistry*      reg,
+    TextureCache*     cache)
 {
   for(const auto& t : json.templates())
   {
     auto o = std::make_shared<ObjectTemplate>();
-    LoadObjectTemplate(o.get(), t, reg);
+    LoadObjectTemplate(o.get(), t, reg, cache);
     temp->templates.insert(std::make_pair(t.name(), o));
   }
 }
