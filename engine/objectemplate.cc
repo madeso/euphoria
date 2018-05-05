@@ -13,9 +13,8 @@ LOG_SPECIFY_DEFAULT_LOGGER("engine.templates")
 ////////////////////////////////////////////////////////////////////////////////
 
 ObjectCreationArgs::ObjectCreationArgs(
-    World* aworld, unsigned int aent, TextureCache* acache, DukRegistry* areg)
+    World* aworld, TextureCache* acache, DukRegistry* areg)
     : world(aworld)
-    , ent(aent)
     , cache(acache)
     , reg(areg)
 {
@@ -40,9 +39,9 @@ class PositionComponentCreator : public ComponentCreator
   }
 
   void
-  CreateComponent(const ObjectCreationArgs& args) override
+  CreateComponent(const ObjectCreationArgs& args, EntityId ent) override
   {
-    args.world->reg.assign<CPosition2>(args.ent).pos = p;
+    args.world->reg.assign<CPosition2>(ent).pos = p;
   }
 };
 
@@ -60,10 +59,9 @@ class SpriteComponentCreator : public ComponentCreator
   }
 
   void
-  CreateComponent(const ObjectCreationArgs& args) override
+  CreateComponent(const ObjectCreationArgs& args, EntityId ent) override
   {
-    args.world->reg.assign<CSprite>(args.ent).texture =
-        args.cache->GetTexture(path);
+    args.world->reg.assign<CSprite>(ent).texture = args.cache->GetTexture(path);
   }
 };
 
@@ -81,11 +79,11 @@ class CustomComponentCreator : public ComponentCreator
   }
 
   void
-  CreateComponent(const ObjectCreationArgs& args) override
+  CreateComponent(const ObjectCreationArgs& args, EntityId ent) override
   {
     // todo: come up with a better default value
     // perhaps some convert/setup function...
-    args.reg->SetProperty(args.ent, comp, DukValue());
+    args.reg->SetProperty(ent, comp, DukValue());
   }
 };
 
@@ -136,11 +134,12 @@ LoadObjectTemplate(
 }
 
 void
-ObjectTemplate::SetupObject(const ObjectCreationArgs& args)
+ObjectTemplate::CreateObject(const ObjectCreationArgs& args)
 {
+  auto ent = args.world->reg.create();
   for(auto c : components)
   {
-    c->CreateComponent(args);
+    c->CreateComponent(args, ent);
   }
 }
 

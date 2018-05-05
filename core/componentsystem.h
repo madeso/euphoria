@@ -2,12 +2,15 @@
 #define EUPHORIA_COMPONENTSYSTEM_H
 
 #include <memory>
+
 #include <string>
 #include <vector>
 
+#include "core/entityid.h"
+
 #include <entt/entity/registry.hpp>
 
-typedef entt::DefaultRegistry EntReg;
+typedef entt::Registry<Entity> EntReg;
 
 class Systems;
 
@@ -101,7 +104,7 @@ class Systems
 
 class World
 {
-public:
+ public:
   EntReg   reg;
   Systems* systems;
 

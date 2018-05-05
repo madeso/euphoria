@@ -38,7 +38,6 @@ LoadWorld(
       LOG_ERROR("Failed to find template named " << name);
       continue;
     }
-    auto ent = world->reg.create();
-    t->SetupObject(ObjectCreationArgs{world, ent, cache, reg});
+    t->CreateObject(ObjectCreationArgs{world, cache, reg});
   }
 }

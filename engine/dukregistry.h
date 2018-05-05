@@ -10,7 +10,6 @@
 #include <memory>
 
 typedef unsigned long ComponentId;
-typedef unsigned long EntityId;
 
 struct Comp
 {

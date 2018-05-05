@@ -1,6 +1,8 @@
 #ifndef EUPHORIA_OBJECTTEMPLATE_H
 #define EUPHORIA_OBJECTTEMPLATE_H
 
+#include "core/entityid.h"
+
 #include <string>
 #include <vector>
 #include <memory>
@@ -19,15 +21,10 @@ class FileSystem;
 struct ObjectCreationArgs
 {
   World*        world;
-  unsigned int  ent;
   TextureCache* cache;
   DukRegistry*  reg;
 
-  ObjectCreationArgs(
-      World*        aworld,
-      unsigned int  aent,
-      TextureCache* acache,
-      DukRegistry*  areg);
+  ObjectCreationArgs(World* aworld, TextureCache* acache, DukRegistry* areg);
 };
 
 class ComponentCreator
@@ -35,14 +32,14 @@ class ComponentCreator
  public:
   virtual ~ComponentCreator() = default;
   virtual void
-  CreateComponent(const ObjectCreationArgs& args) = 0;
+  CreateComponent(const ObjectCreationArgs& args, EntityId id) = 0;
 };
 
 class ObjectTemplate
 {
  public:
   void
-  SetupObject(const ObjectCreationArgs& args);
+  CreateObject(const ObjectCreationArgs& args);
 
   std::vector<std::shared_ptr<ComponentCreator>> components;
 };
