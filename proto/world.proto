@@ -6,28 +6,17 @@ message vec2f
   optional float y = 2;
 }
 
-message Sprite
-{
-  optional string path = 1;
-}
-
-message Custom
+message Property
 {
   optional string name = 1;
-  // todo: add name value bindings?
-}
-
-message Component
-{
   // only one is valid
-  optional vec2f position = 1;
-  optional Sprite sprite = 2;
-  optional Custom custom = 3;
+  optional vec2f vec2f = 100;
 }
 
 message Object
 {
-  repeated Component components = 1;
+  optional string template = 1;
+  repeated Property properties = 2;
 }
 
 message World

@@ -33,6 +33,7 @@
 #include "engine/dukmathbindings.h"
 #include "engine/dukprint.h"
 #include "engine/input.h"
+#include "engine/componentcreator.h"
 
 #include "window/imguilibrary.h"
 #include "window/imgui.h"
@@ -221,8 +222,17 @@ main(int argc, char** argv)
     crash_message_string = error_run_main.message;
   }
 
+  ObjectCreator templates;
+  LoadTemplates(
+      &templates, &file_system, "templates.json", &integration.Registry());
 
-  LoadWorld(&file_system, &world, &cache, &integration.Registry(), "game.json");
+  LoadWorld(
+      &file_system,
+      &world,
+      &cache,
+      &integration.Registry(),
+      "world.json",
+      &templates);
 
   const mat4f projection = init.GetOrthoProjection(width, height);
   Use(&shader);

@@ -6,6 +6,7 @@
 
 #include "engine/components.h"
 #include "engine/dukregistry.h"
+#include "engine/componentcreator.h"
 
 #include "world.pb.h"
 
@@ -18,7 +19,8 @@ LoadWorld(
     World*             world,
     TextureCache*      cache,
     DukRegistry*       reg,
-    const std::string& path)
+    const std::string& path,
+    ObjectCreator*     creator)
 {
   world::World json;
   const auto   err = LoadProtoJson(fs, &json, path);
@@ -29,30 +31,14 @@ LoadWorld(
 
   for(const auto& obj : json.objects())
   {
-    auto ent = world->reg.create();
-    for(const auto& comp : obj.components())
+    const auto name = obj.template_();
+    auto*      t    = creator->FindTemplate(name);
+    if(t == nullptr)
     {
-      if(comp.has_position())
-      {
-        const auto& p                          = comp.position();
-        world->reg.assign<CPosition2>(ent).pos = vec2f{p.x(), p.y()};
-      }
-      else if(comp.has_sprite())
-      {
-        const auto& s                           = comp.sprite();
-        world->reg.assign<CSprite>(ent).texture = cache->GetTexture(s.path());
-      }
-      else if(comp.has_custom())
-      {
-        const auto& s = comp.custom();
-        ComponentId comp;
-        if(reg->GetCustomComponentByName(s.name(), &comp))
-        {
-          // todo: come up with a better default value
-          // perhaps some convert/setup function...
-          reg->SetProperty(ent, comp, DukValue());
-        }
-      }
+      LOG_ERROR("Failed to find template named " << name);
+      continue;
     }
+    auto ent = world->reg.create();
+    t->SetupObject(ObjectCreationArgs{world, ent, cache, reg});
   }
 }
