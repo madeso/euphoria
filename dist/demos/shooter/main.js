@@ -12,7 +12,8 @@ JustPressed = function(key) {
 
 Types = {
   Pos2: Registry.GetPosition2Id(),
-  Player: Registry.New("Player")
+  Player: Registry.New("Player"),
+  MoveUp: Registry.New("MoveUp")
 };
 
 time = 0;
@@ -26,8 +27,24 @@ Systems.AddUpdate("bark", function(dt) {
   }
 });
 
-shotTemplate = Templates.Find("shot")
 Systems.AddUpdate("move up", function(dt) {
+  ents = Registry.Entities([Types.Pos2, Types.MoveUp]);
+  ents.forEach(function(entity) {
+    var pos2 = Registry.GetPosition2(entity);
+    if(pos2 != null)
+    {
+      var speed = 250;
+
+      var vec = pos2.vec;
+      vec.y = vec.y + dt * speed;
+      pos2.vec = vec;
+    }
+  });
+});
+
+
+shotTemplate = Templates.Find("shot")
+Systems.AddUpdate("player", function(dt) {
   ents = Registry.Entities([Types.Pos2, Types.Player]);
   ents.forEach(function(entity) {
     var pos2 = Registry.GetPosition2(entity);

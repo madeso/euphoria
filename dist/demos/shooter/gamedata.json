@@ -13,6 +13,11 @@
       {"position": {"x": 200, "y": 40}},
       {"sprite": {"path": "playerShip1_blue.png"}},
       {"custom": {"name": "Player"}}
+    ]},
+    {"name": "shot", "components": [
+      {"position": {}},
+      {"sprite": {"path": "laserBlue07.png"}},
+      {"custom": {"name": "MoveUp"}}
     ]}
   ]
 }
