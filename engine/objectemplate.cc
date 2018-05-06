@@ -1,5 +1,8 @@
 #include "engine/objectemplate.h"
 
+#include "core/stdutils.h"
+#include "core/stringmerger.h"
+
 #include "core/log.h"
 #include "core/proto.h"
 
@@ -168,7 +171,12 @@ ObjectCreator::FindTemplate(const std::string& name)
   auto result = templates.find(name);
   if(result == templates.end())
   {
-    LOG_ERROR("Failed to find template named " << name);
+    LOG_ERROR(
+        "Failed to find template named "
+        << name
+        << ", could be "
+        << StringMerger::EnglishOr().Generate(Keys(templates))
+        << ".");
     return nullptr;
   }
 
