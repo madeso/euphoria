@@ -53,6 +53,9 @@ class ObjectCreator
 };
 
 void
+LoadTemplatesButOnlyNames(const game::Game& json, ObjectCreator* temp);
+
+void
 LoadTemplates(
     const game::Game& json,
     ObjectCreator*    temp,

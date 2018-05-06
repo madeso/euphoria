@@ -215,12 +215,7 @@ main(int argc, char** argv)
   AddSystems(&systems, &duk);
   World         world{&systems};
   ObjectCreator templates;
-
-  // todo: fill up the templates with temporary templates
-  // as script will create new component types that the templates use
-  // and reference templates defined with thoose types
-  // but we can safely create empty templates as the templates
-  // shouldn't be used yet
+  LoadTemplatesButOnlyNames(gamedata, &templates);
 
   DukIntegration integration{&systems, &world, &duk, &templates};
   const auto error_run_main = RunMainScriptFile(&duk, &file_system, "main.js");

@@ -151,6 +151,17 @@ ObjectTemplate::CreateObject(const ObjectCreationArgs& args)
 ////////////////////////////////////////////////////////////////////////////////
 
 void
+LoadTemplatesButOnlyNames(const game::Game& json, ObjectCreator* temp)
+{
+  for(const auto& t : json.templates())
+  {
+    auto o = std::make_shared<ObjectTemplate>();
+    temp->templates.insert(
+        std::make_pair(t.name(), o));
+  }
+}
+
+void
 LoadTemplates(
     const game::Game& json,
     ObjectCreator*    temp,
@@ -160,8 +171,18 @@ LoadTemplates(
   for(const auto& t : json.templates())
   {
     auto o = std::make_shared<ObjectTemplate>();
+
+    auto fr = temp->templates.find(t.name());
+    if(fr == temp->templates.end())
+    {
+      temp->templates.insert(std::make_pair(t.name(), o));
+    }
+    else
+    {
+      o = fr->second;
+    }
+
     LoadObjectTemplate(o.get(), t, reg, cache);
-    temp->templates.insert(std::make_pair(t.name(), o));
   }
 }
 
