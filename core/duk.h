@@ -195,6 +195,10 @@ class Context
   int
   ReturnObject(std::shared_ptr<T> t)
   {
+    if(t.get() == nullptr)
+    {
+      return ReturnFreeObject<T>(nullptr);
+    }
     constexpr auto& cpptype = typeid(T);
     auto*           ptr     = new std::shared_ptr<T>(t);
     return ReturnObject(

@@ -89,8 +89,6 @@ struct DukIntegrationPimpl
             "Find",
             Bind{}.bind<std::string>(
                 [&](Context* ctx, const std::string& name) -> int {
-                  // todo: if find returns null this func creates a null object
-                  // it should return 'nothing' instead
                   return ctx->ReturnFreeObject(creator->FindTemplate(name));
                 })));
     duk->BindClass(

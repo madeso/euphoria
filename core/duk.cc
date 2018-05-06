@@ -415,6 +415,11 @@ Context::ReturnObject(
     duk_c_function finalizer,
     void* data CLASS_ARG(const std::string& name))
 {
+  if(object == nullptr)
+  {
+    duk_push_null(ctx);
+    return 1;
+  }
   Prototype* proto     = duk->TypeToProto(type CLASS_ARG(name));
   const auto object_id = duk_push_object(ctx);  // object
 
