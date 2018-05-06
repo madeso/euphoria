@@ -20,7 +20,7 @@ struct SystemSpriteDraw : public ComponentSystem,
   Draw(EntReg* reg, SpriteRenderer* renderer) const override
   {
     reg->view<CPosition2, CSprite>().each(
-        [renderer](auto entity, auto pos, auto sprite) {
+        [renderer](auto entity, const auto& pos, const auto& sprite) {
           // LOG_INFO("Draw callback " << pos.pos);
           renderer->DrawSprite(*sprite.texture, pos.pos);
         });
