@@ -30,14 +30,12 @@ Systems.AddUpdate("bark", function(dt) {
 Systems.AddUpdate("move up", function(dt) {
   ents = Registry.Entities([Types.Pos2, Types.MoveUp]);
   ents.forEach(function(entity) {
-    var pos2 = Registry.GetPosition2(entity);
-    if(pos2 != null)
+    var vec = Registry.GetPosition2vec(entity);
+    if(vec != null)
     {
       var speed = 250;
-
-      var vec = pos2.vec;
+      
       vec.y = vec.y + dt * speed;
-      pos2.vec = vec;
     }
   });
 });
@@ -47,15 +45,14 @@ shotTemplate = Templates.Find("shot")
 Systems.AddUpdate("player", function(dt) {
   ents = Registry.Entities([Types.Pos2, Types.Player]);
   ents.forEach(function(entity) {
-    var pos2 = Registry.GetPosition2(entity);
-    if(pos2 != null)
+    var vec = Registry.GetPosition2vec(entity);
+    if(vec != null)
     {
       var speed = 150;
 
       var vertical = Input.up.state - Input.down.state;
       var horizontal = Input.right.state - Input.left.state;
 
-      var vec = pos2.vec;
       if(JustPressed(Input.fire))
       {
         if(!shotTemplate)
@@ -65,10 +62,9 @@ Systems.AddUpdate("player", function(dt) {
         else
         {
           var shot = shotTemplate.Create();
-          var p2 = Registry.GetPosition2(shot);
-          if(p2 != null)
+          var v = Registry.GetPosition2vec(shot);
+          if(v != null)
           {
-            var v = p2.vec;
             v.x = vec.x;
             v.y = vec.y;
           }

@@ -153,6 +153,15 @@ struct DukIntegrationPimpl
                       return ctx->ReturnFreeObject(
                           registry.GetComponentOrNull<CPosition2>(
                               ent, components->position2));
+                    }))
+            .AddFunction(
+                "GetPosition2vec",
+                Bind{}.bind<ComponentId>(
+                    [&](Context* ctx, ComponentId ent) -> int {
+                      auto c = registry.GetComponentOrNull<CPosition2>(
+                          ent, components->position2);
+                      return ctx->ReturnFreeObject(
+                          c == nullptr ? nullptr : &c->pos);
                     })));
 
     //    dukglue_register_global(duk->ctx, &registry, "Registry");
