@@ -26,23 +26,28 @@ ObjectCreationArgs::ObjectCreationArgs(World* aworld, DukRegistry* areg)
 class PositionComponentCreator : public ComponentCreator
 {
  public:
-  vec2f p;
+  vec2f       p;
+  Components* components;
 
-  explicit PositionComponentCreator(const vec2f& pp)
+  PositionComponentCreator(const vec2f& pp, Components* components)
       : p(pp)
+      , components(components)
   {
   }
 
   static std::shared_ptr<PositionComponentCreator>
-  Create(const game::vec2f& p)
+  Create(const game::vec2f& p, Components* components)
   {
-    return std::make_shared<PositionComponentCreator>(vec2f{p.x(), p.y()});
+    return std::make_shared<PositionComponentCreator>(
+        vec2f{p.x(), p.y()}, components);
   }
 
   void
   CreateComponent(const ObjectCreationArgs& args, EntityId ent) override
   {
-    args.world->reg.assign<CPosition2>(ent).pos = p;
+    auto c = std::make_shared<CPosition2>();
+    c->pos = p;
+    args.world->reg.AddComponent(ent, components->position2, c);
   }
 };
 
@@ -50,11 +55,18 @@ class SpriteComponentCreator : public ComponentCreator
 {
  public:
   std::shared_ptr<Texture2d> texture;
+  Components*                components;
+
+  explicit SpriteComponentCreator(Components* c)
+      : components(c)
+  {
+  }
 
   static std::shared_ptr<SpriteComponentCreator>
-  Create(const game::Sprite& sprite, TextureCache* cache)
+  Create(
+      const game::Sprite& sprite, TextureCache* cache, Components* components)
   {
-    auto ptr     = std::make_shared<SpriteComponentCreator>();
+    auto ptr     = std::make_shared<SpriteComponentCreator>(components);
     ptr->texture = cache->GetTexture(sprite.path());
     return ptr;
   }
@@ -62,7 +74,9 @@ class SpriteComponentCreator : public ComponentCreator
   void
   CreateComponent(const ObjectCreationArgs& args, EntityId ent) override
   {
-    args.world->reg.assign<CSprite>(ent).texture = texture;
+    auto c     = std::make_shared<CSprite>();
+    c->texture = texture;
+    args.world->reg.AddComponent(ent, components->sprite, c);
   }
 };
 
@@ -92,15 +106,18 @@ class CustomComponentCreator : public ComponentCreator
 
 std::shared_ptr<ComponentCreator>
 CreateCreator(
-    const game::Component& comp, DukRegistry* reg, TextureCache* cache)
+    const game::Component& comp,
+    DukRegistry*           reg,
+    TextureCache*          cache,
+    Components*            components)
 {
   if(comp.has_position())
   {
-    return PositionComponentCreator::Create(comp.position());
+    return PositionComponentCreator::Create(comp.position(), components);
   }
   else if(comp.has_sprite())
   {
-    return SpriteComponentCreator::Create(comp.sprite(), cache);
+    return SpriteComponentCreator::Create(comp.sprite(), cache, components);
   }
   else if(comp.has_custom())
   {
@@ -126,11 +143,12 @@ LoadObjectTemplate(
     ObjectTemplate*       ot,
     const game::Template& ct,
     DukRegistry*          reg,
-    TextureCache*         cache)
+    TextureCache*         cache,
+    Components*           components)
 {
   for(const auto& comp : ct.components())
   {
-    auto c = CreateCreator(comp, reg, cache);
+    auto c = CreateCreator(comp, reg, cache, components);
     if(c != nullptr)
     {
       ot->components.emplace_back(c);
@@ -141,7 +159,7 @@ LoadObjectTemplate(
 void
 ObjectTemplate::CreateObject(const ObjectCreationArgs& args)
 {
-  auto ent = args.world->reg.create();
+  auto ent = args.world->reg.Create();
   for(auto c : components)
   {
     c->CreateComponent(args, ent);
@@ -156,8 +174,7 @@ LoadTemplatesButOnlyNames(const game::Game& json, ObjectCreator* temp)
   for(const auto& t : json.templates())
   {
     auto o = std::make_shared<ObjectTemplate>();
-    temp->templates.insert(
-        std::make_pair(t.name(), o));
+    temp->templates.insert(std::make_pair(t.name(), o));
   }
 }
 
@@ -166,7 +183,8 @@ LoadTemplates(
     const game::Game& json,
     ObjectCreator*    temp,
     DukRegistry*      reg,
-    TextureCache*     cache)
+    TextureCache*     cache,
+    Components*       components)
 {
   for(const auto& t : json.templates())
   {
@@ -182,7 +200,7 @@ LoadTemplates(
       o = fr->second;
     }
 
-    LoadObjectTemplate(o.get(), t, reg, cache);
+    LoadObjectTemplate(o.get(), t, reg, cache, components);
   }
 }
 

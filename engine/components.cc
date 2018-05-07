@@ -10,6 +10,14 @@
 #include "render/texturecache.h"
 
 CPosition2::CPosition2()
-    : pos(0, 0)
+    : COMPONENT_CONSTRUCTOR_ARG(CPosition2) pos(0, 0)
 {
 }
+
+Components::Components(Registry* reg)
+    : position2(reg->NewComponentType("Position2"))
+    , sprite(reg->NewComponentType("Sprite"))
+{
+}
+
+COMPONENT_CONSTRUCTOR_IMPLEMENTATION(CSprite)

@@ -3,41 +3,17 @@
 
 #include "core/componentsystem.h"
 #include "core/duk.h"
+#include "core/entity.h"
 
 #include "engine/components.h"
 
 #include <map>
 #include <memory>
 
-typedef unsigned long ComponentId;
-
-struct Comp
-{
-  virtual ~Comp() = default;
-  virtual bool
-  has(EntityId ent, const EntReg& reg) = 0;
-};
-
-template <typename T>
-struct TComp : public Comp
-{
-  bool
-  has(EntityId ent, const EntReg& reg) override
-  {
-    return reg.has<T>(ent);
-  }
-};
-
-class CScript
-{
- public:
-  std::map<ComponentId, DukValue> properties;
-};
-
 class DukRegistry
 {
  public:
-  explicit DukRegistry(EntReg* r);
+  DukRegistry(EntReg* r, Components* components);
 
   ComponentId
   getPosition2dId();
@@ -62,39 +38,15 @@ class DukRegistry
 
   template <typename T>
   T*
-  GetComponentOrNull(EntityId id)
+  GetComponentOrNull(EntityId ent, ComponentId comp)
   {
-    if(reg->has<T>(id))
-    {
-      T& t = reg->get<T>(id);
-      return &t;
-    }
-    else
-    {
-      return nullptr;
-    }
+    return reg->GetComponentOrNull<T>(ent, comp);
   }
 
  private:
-  template <typename T>
-  void
-  add()
-  {
-    auto id  = reg->component<T>();
-    auto ptr = std::make_shared<TComp<T>>();
-    comps.insert(std::make_pair(id, ptr));
-  }
-
-  bool
-  hasEntityComponent(ComponentId t, EntityId ent);
-
-  bool
-  hasEntityComponent(const std::vector<ComponentId>& types, EntityId ent);
-
-  EntReg* reg;
-  std::map<ComponentId, std::shared_ptr<Comp>> comps;
-  std::map<std::string, ComponentId>           name_to_component;
-  ComponentId last_script_id;
+  EntReg*                  reg;
+  Components*              components;
+  std::vector<ComponentId> scriptComponents;
 };
 
 

@@ -59,12 +59,17 @@ class DukSystems
 struct DukIntegrationPimpl
 {
   DukIntegrationPimpl(
-      Systems* sys, World* world, Duk* duk, ObjectCreator* creator)
+      Systems*       sys,
+      World*         world,
+      Duk*           duk,
+      ObjectCreator* creator,
+      Components*    components)
       : systems(sys, duk)
-      , registry(&world->reg)
+      , registry(&world->reg, components)
       , input(duk->CreateGlobal("Input"))
       , world(world)
       , creator(creator)
+      , components(components)
   {
   }
 
@@ -146,7 +151,8 @@ struct DukIntegrationPimpl
                 Bind{}.bind<ComponentId>(
                     [&](Context* ctx, ComponentId ent) -> int {
                       return ctx->ReturnFreeObject(
-                          registry.GetComponentOrNull<CPosition2>(ent));
+                          registry.GetComponentOrNull<CPosition2>(
+                              ent, components->position2));
                     })));
 
     //    dukglue_register_global(duk->ctx, &registry, "Registry");
@@ -209,12 +215,17 @@ struct DukIntegrationPimpl
   DukValue       input;
   World*         world;
   ObjectCreator* creator;
+  Components*    components;
 };
 
 DukIntegration::DukIntegration(
-    Systems* systems, World* reg, Duk* duk, ObjectCreator* creator)
+    Systems*       systems,
+    World*         reg,
+    Duk*           duk,
+    ObjectCreator* creator,
+    Components*    components)
 {
-  pimpl.reset(new DukIntegrationPimpl(systems, reg, duk, creator));
+  pimpl.reset(new DukIntegrationPimpl(systems, reg, duk, creator, components));
   pimpl->Integrate(duk);
 }
 

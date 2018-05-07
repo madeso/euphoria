@@ -34,6 +34,7 @@
 #include "engine/dukprint.h"
 #include "engine/input.h"
 #include "engine/objectemplate.h"
+#include "engine/components.h"
 
 #include "window/imguilibrary.h"
 #include "window/imgui.h"
@@ -211,20 +212,22 @@ main(int argc, char** argv)
   BindMath(&duk);
   Input::Bind(&duk);
 
-  Systems systems;
-  AddSystems(&systems, &duk);
-  World         world{&systems};
+  Systems    systems;
+  World      world{&systems};
+  Components components{&world.reg};
+  AddSystems(&systems, &duk, &components);
   ObjectCreator templates;
   LoadTemplatesButOnlyNames(gamedata, &templates);
 
-  DukIntegration integration{&systems, &world, &duk, &templates};
+  DukIntegration integration{&systems, &world, &duk, &templates, &components};
   const auto error_run_main = RunMainScriptFile(&duk, &file_system, "main.js");
   if(!error_run_main.ok)
   {
     has_crashed          = true;
     crash_message_string = error_run_main.message;
   }
-  LoadTemplates(gamedata, &templates, &integration.Registry(), &cache);
+  LoadTemplates(
+      gamedata, &templates, &integration.Registry(), &cache, &components);
 
   LoadWorld(
       &file_system, &world, &integration.Registry(), "world.json", &templates);

@@ -17,6 +17,7 @@ class World;
 class TextureCache;
 class DukRegistry;
 class FileSystem;
+struct Components;
 
 struct ObjectCreationArgs
 {
@@ -60,6 +61,7 @@ LoadTemplates(
     const game::Game& json,
     ObjectCreator*    temp,
     DukRegistry*      reg,
-    TextureCache*     cache);
+    TextureCache*     cache,
+    Components*       components);
 
 #endif  // EUPHORIA_OBJECTTEMPLATE_H

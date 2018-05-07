@@ -1,115 +1,89 @@
 #include "engine/dukregistry.h"
 
-constexpr ComponentId ComponentIdStart = 100;
+#include <algorithm>
 
-DukRegistry::DukRegistry(EntReg* r)
-    : reg(r)
-    , last_script_id(ComponentIdStart + 1)
+struct ScriptComponent : public Component
 {
-  add<CPosition2>();
-  add<CSprite>();
+  COMPONENT_CONSTRUCTOR_DEFINITION(ScriptComponent)
+
+  DukValue val;
+};
+
+COMPONENT_CONSTRUCTOR_IMPLEMENTATION(ScriptComponent)
+
+DukRegistry::DukRegistry(EntReg* r, Components* c)
+    : reg(r)
+    , components(c)
+{
 }
 
 ComponentId
 DukRegistry::getPosition2dId()
 {
-  return reg->component<CPosition2>();
+  return components->position2;
 }
 
 ComponentId
 DukRegistry::getSpriteId()
 {
-  return reg->component<CSprite>();
+  return components->sprite;
 }
 
 ComponentId
 DukRegistry::CreateNewId(const std::string& name)
 {
-  ComponentId id = last_script_id;
-  last_script_id += 1;
-
-  name_to_component.insert(std::make_pair(name, id));
+  const auto id = reg->NewComponentType(name);
+  scriptComponents.emplace_back(id);
   return id;
 }
 
 bool
 DukRegistry::GetCustomComponentByName(const std::string& name, ComponentId* id)
 {
-  ASSERT(id);
-  const auto found_component = name_to_component.find(name);
-  if(found_component == name_to_component.end())
-  {
-    return false;
-  }
-  else
-  {
-    *id = found_component->second;
-    return true;
-  }
+  return reg->GetCustomComponentByName(name, id);
 }
 
 std::vector<EntityId>
 DukRegistry::entities(const std::vector<ComponentId>& types)
 {
-  std::vector<EntityId> ret;
-  reg->each([this, types, &ret](auto ent) {
-    if(this->hasEntityComponent(types, ent))
-    {
-      ret.push_back(ent);
-    }
-  });
-  return ret;
+  return reg->View(types);
 }
 
 DukValue
 DukRegistry::GetProperty(EntityId ent, ComponentId comp)
 {
-  CScript& s = reg->accomodate<CScript>(ent);
-  return s.properties[comp];
+  // todo: move to a better construct
+  ASSERT(
+      std::find(scriptComponents.begin(), scriptComponents.end(), comp) !=
+      scriptComponents.end());
+  auto c = reg->GetComponent(ent, comp);
+  if(c.get() == nullptr)
+  {
+    return DukValue{};
+  }
+  else
+  {
+    return static_cast<ScriptComponent*>(c.get())->val;
+  }
 }
 
 void
 DukRegistry::SetProperty(EntityId ent, ComponentId comp, DukValue value)
 {
-  CScript& s         = reg->accomodate<CScript>(ent);
-  s.properties[comp] = value;
-}
+  // todo: move to a better construct
+  ASSERT(
+      std::find(scriptComponents.begin(), scriptComponents.end(), comp) !=
+      scriptComponents.end());
 
-bool
-DukRegistry::hasEntityComponent(ComponentId t, EntityId ent)
-{
-  if(t > ComponentIdStart)
+  auto c = reg->GetComponent(ent, comp);
+  if(c.get() == nullptr)
   {
-    if(!reg->has<CScript>(ent))
-    {
-      return false;
-    }
-    CScript& comp = reg->get<CScript>(ent);
-    auto     f    = comp.properties.find(t);
-    return f != comp.properties.end();
-  }
-  auto f = comps.find(t);
-  if(f == comps.end())
-  {
-    return false;
+    auto d = std::make_shared<ScriptComponent>();
+    d->val = value;
+    reg->AddComponent(ent, comp, d);
   }
   else
   {
-    return f->second->has(ent, *reg);
+    static_cast<ScriptComponent*>(c.get())->val = value;
   }
-}
-
-bool
-DukRegistry::hasEntityComponent(
-    const std::vector<ComponentId>& types, EntityId ent)
-{
-  for(auto t : types)
-  {
-    if(false == hasEntityComponent(t, ent))
-    {
-      return false;
-    }
-  }
-
-  return true;
 }

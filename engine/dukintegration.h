@@ -9,6 +9,7 @@ class Input;
 class World;
 struct DukRegistry;
 class ObjectCreator;
+struct Components;
 
 struct DukIntegrationPimpl;
 
@@ -16,7 +17,7 @@ class DukIntegration
 {
  public:
   DukIntegration(
-      Systems* systems, World* reg, Duk* duk, ObjectCreator* creator);
+      Systems* systems, World* reg, Duk* duk, ObjectCreator* creator, Components* components);
   ~DukIntegration();
 
   void

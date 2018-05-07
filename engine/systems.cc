@@ -11,19 +11,26 @@
 struct SystemSpriteDraw : public ComponentSystem,
                           public ComponentSystemSpriteDraw
 {
-  SystemSpriteDraw()
+  Components* components;
+
+  explicit SystemSpriteDraw(Components* c)
       : ComponentSystem("sprite draw")
+      , components(c)
   {
   }
 
   void
   Draw(EntReg* reg, SpriteRenderer* renderer) const override
   {
-    reg->view<CPosition2, CSprite>().each(
-        [renderer](auto entity, const auto& pos, const auto& sprite) {
-          // LOG_INFO("Draw callback " << pos.pos);
-          renderer->DrawSprite(*sprite.texture, pos.pos);
-        });
+    const auto items = reg->View(
+        std::vector<ComponentId>{components->position2, components->sprite});
+    for(auto ent : items)
+    {
+      auto* sprite = reg->GetComponentOrNull<CSprite>(ent, components->sprite);
+      auto* pos =
+          reg->GetComponentOrNull<CPosition2>(ent, components->position2);
+      renderer->DrawSprite(*sprite->texture, pos->pos);
+    }
   }
 
   void
@@ -35,7 +42,7 @@ struct SystemSpriteDraw : public ComponentSystem,
 
 
 void
-AddSystems(Systems* systems, Duk* duk)
+AddSystems(Systems* systems, Duk* duk, Components* components)
 {
-  systems->AddAndRegister(std::make_shared<SystemSpriteDraw>());
+  systems->AddAndRegister(std::make_shared<SystemSpriteDraw>(components));
 }

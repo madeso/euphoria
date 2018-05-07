@@ -7,10 +7,9 @@
 #include <vector>
 
 #include "core/entityid.h"
+#include "core/entity.h"
 
-#include <entt/entity/registry.hpp>
-
-typedef entt::Registry<Entity> EntReg;
+typedef Registry EntReg;
 
 class Systems;
 

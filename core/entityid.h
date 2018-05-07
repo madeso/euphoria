@@ -1,10 +1,11 @@
 #ifndef EUPHORIA_ENTITYID_H
 #define EUPHORIA_ENTITYID_H
 
-#include <entt/entity/entt_traits.hpp>
+#include <cstdint>
 
-using Entity       = std::uint32_t;
-using EntityTraits = entt::entt_traits<Entity>;
-using EntityId     = typename EntityTraits::entity_type;
+using EntityId      = std::uint32_t;
+using EntityVersion = std::uint16_t;
+
+using ComponentId = std::uint32_t;
 
 #endif  // EUPHORIA_ENTITYID_H
