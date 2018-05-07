@@ -193,7 +193,7 @@ struct DukIntegrationPimpl
             .AddProperty(
                 "vec",
                 Bind{}.bind<CPosition2>([](Context* ctx, CPosition2& p) -> int {
-                  return ctx->ReturnObject(std::make_shared<vec2f>(p.pos));
+                  return ctx->ReturnFreeObject(&p.pos);
                 }),
                 Bind{}.bind<CPosition2, vec2f>(
                     [](Context* ctx, CPosition2& p, const vec2f& pos) -> int {

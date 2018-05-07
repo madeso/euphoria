@@ -71,13 +71,11 @@ Systems.AddUpdate("player", function(dt) {
             var v = p2.vec;
             v.x = vec.x;
             v.y = vec.y;
-            p2.vec = v;
           }
         }
       }
       vec.y = vec.y + dt * speed * vertical;
       vec.x = vec.x + dt * speed * horizontal;
-      pos2.vec = vec;
     }
   });
 });
