@@ -38,7 +38,7 @@ class ComponentCreator
 class ObjectTemplate
 {
  public:
-  void
+  EntityId
   CreateObject(const ObjectCreationArgs& args);
 
   std::vector<std::shared_ptr<ComponentCreator>> components;

@@ -64,7 +64,15 @@ Systems.AddUpdate("player", function(dt) {
         }
         else
         {
-          shotTemplate.Create();
+          var shot = shotTemplate.Create();
+          var p2 = Registry.GetPosition2(shot);
+          if(p2 != null)
+          {
+            var v = p2.vec;
+            v.x = vec.x;
+            v.y = vec.y;
+            p2.vec = v;
+          }
         }
       }
       vec.y = vec.y + dt * speed * vertical;

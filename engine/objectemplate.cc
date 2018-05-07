@@ -156,7 +156,7 @@ LoadObjectTemplate(
   }
 }
 
-void
+EntityId
 ObjectTemplate::CreateObject(const ObjectCreationArgs& args)
 {
   auto ent = args.world->reg.Create();
@@ -164,6 +164,8 @@ ObjectTemplate::CreateObject(const ObjectCreationArgs& args)
   {
     c->CreateComponent(args, ent);
   }
+
+  return ent;
 }
 
 ////////////////////////////////////////////////////////////////////////////////

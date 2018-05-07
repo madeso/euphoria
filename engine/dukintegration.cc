@@ -102,8 +102,8 @@ struct DukIntegrationPimpl
             "Create",
             Bind{}.bind<ObjectTemplate>(
                 [&](Context* ctx, ObjectTemplate& t) -> int {
-                  t.CreateObject(ObjectCreationArgs{world, &registry});
-                  return ctx->ReturnVoid();
+                  return ctx->Return(
+                      t.CreateObject(ObjectCreationArgs{world, &registry}));
                 })));
 
 
