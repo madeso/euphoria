@@ -13,7 +13,10 @@ JustPressed = function(key) {
 Types = {
   Pos2: Registry.GetPosition2Id(),
   Player: Registry.New("Player"),
-  MoveUp: Registry.New("MoveUp")
+  MoveUp: Registry.New("MoveUp"),
+  TimeOut: Registry.New("TimeOut", function(c) {
+    c.time = 1;
+  })
 };
 
 time = 0;
@@ -28,20 +31,32 @@ Systems.AddUpdate("bark", function(dt) {
 });
 
 Systems.AddUpdate("move up", function(dt) {
-  ents = Registry.Entities([Types.Pos2, Types.MoveUp]);
+  var ents = Registry.Entities([Types.Pos2, Types.MoveUp]);
   ents.forEach(function(entity) {
     var vec = Registry.GetPosition2vec(entity);
     if(vec != null)
     {
       var speed = 250;
-      
+
       vec.y = vec.y + dt * speed;
     }
   });
 });
 
+Systems.AddUpdate("time out", function(dt) {
+  var ents = Registry.Entities([Types.TimeOut]);
+  ents.forEach(function(entity) {
+    var data = Registry.Get(entity, Types.TimeOut);
+    data.time -= dt;
+    if(data.time < 0)
+    {
+      print("timeouted");
+      data.time += 10;
+    }
+  });
+});
 
-shotTemplate = Templates.Find("shot")
+shotTemplate = Templates.Find("shot");
 Systems.AddUpdate("player", function(dt) {
   ents = Registry.Entities([Types.Pos2, Types.Player]);
   ents.forEach(function(entity) {
