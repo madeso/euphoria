@@ -100,5 +100,6 @@ DukRegistry::CreateComponent(ComponentId comp, Context* ctx)
 
   auto val = res->second.Call<DukValue>(ctx);
   ASSERT(val.IsValid());
+  // todo: need to increase refcount on val here like functions, right?
   return val;
 }
