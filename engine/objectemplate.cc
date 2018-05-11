@@ -15,9 +15,11 @@ LOG_SPECIFY_DEFAULT_LOGGER("engine.templates")
 
 ////////////////////////////////////////////////////////////////////////////////
 
-ObjectCreationArgs::ObjectCreationArgs(World* aworld, DukRegistry* areg)
+ObjectCreationArgs::ObjectCreationArgs(
+    World* aworld, DukRegistry* areg, Context* actx)
     : world(aworld)
     , reg(areg)
+    , ctx(actx)
 {
 }
 
@@ -96,9 +98,8 @@ class CustomComponentCreator : public ComponentCreator
   void
   CreateComponent(const ObjectCreationArgs& args, EntityId ent) override
   {
-    // todo: come up with a better default value
-    // perhaps some convert/setup function...
-    args.reg->SetProperty(ent, comp, DukValue());
+    auto val = args.reg->CreateComponent(comp, args.ctx);
+    args.reg->SetProperty(ent, comp, val);
   }
 };
 

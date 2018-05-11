@@ -7,6 +7,7 @@ class World;
 class FileSystem;
 class DukRegistry;
 class ObjectCreator;
+class Context;
 
 void
 LoadWorld(
@@ -14,6 +15,7 @@ LoadWorld(
     World*             world,
     DukRegistry*       reg,
     const std::string& path,
-    ObjectCreator*     creator);
+    ObjectCreator*     creator,
+    Context*           ctx);
 
 #endif  // EUPHORIA_LOADWORLD_H

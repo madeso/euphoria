@@ -230,7 +230,12 @@ main(int argc, char** argv)
       gamedata, &templates, &integration.Registry(), &cache, &components);
 
   LoadWorld(
-      &file_system, &world, &integration.Registry(), "world.json", &templates);
+      &file_system,
+      &world,
+      &integration.Registry(),
+      "world.json",
+      &templates,
+      duk.AsContext());
 
   const mat4f projection = init.GetOrthoProjection(width, height);
   Use(&shader);

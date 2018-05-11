@@ -518,7 +518,37 @@ struct DukTemplate<FunctionVar>
   static std::string
   Name(Context*)
   {
-    return "string";
+    return "function";
+  }
+};
+
+template <>
+struct DukTemplate<DukValue>
+{
+  static std::string
+  CanMatch(Context* ctx, int index, int arg)
+  {
+    if(ctx->IsObject(index))
+    {
+      return "";
+    }
+    else
+    {
+      return ArgumentError(arg, "not a object");
+    }
+  }
+
+  static DukValue
+  Parse(Context* ctx, int index)
+  {
+    ASSERT(ctx->IsObject(index));
+    return DukValue{ctx->GetFunctionPtr(index)};
+  }
+
+  static std::string
+  Name(Context*)
+  {
+    return "object";
   }
 };
 
@@ -632,6 +662,7 @@ FunctionVar::Call(Context* context, TArgs... args) const
   DoneFunction(context);
 
   // todo: handle invalid return type
+  DIE("Invalid return type");
 
   return Default<TReturn>();
 }

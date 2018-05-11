@@ -102,8 +102,8 @@ struct DukIntegrationPimpl
             "Create",
             Bind{}.bind<ObjectTemplate>(
                 [&](Context* ctx, ObjectTemplate& t) -> int {
-                  return ctx->Return(
-                      t.CreateObject(ObjectCreationArgs{world, &registry}));
+                  return ctx->Return(t.CreateObject(
+                      ObjectCreationArgs{world, &registry, ctx}));
                 })));
 
 
@@ -126,10 +126,19 @@ struct DukIntegrationPimpl
                 }))
             .AddFunction(
                 "New",
-                Bind{}.bind<std::string>(
-                    [&](Context* ctx, const std::string& name) -> int {
-                      return ctx->Return(registry.CreateNewId(name));
-                    }))
+                Bind{}
+                    .bind<std::string>(
+                        [&](Context* ctx, const std::string& name) -> int {
+                          FunctionVar fv;
+                          return ctx->Return(registry.CreateNewId(name, fv));
+                        })
+                    .bind<std::string, FunctionVar>(
+                        [&](Context*           ctx,
+                            const std::string& name,
+                            FunctionVar        setup) -> int {
+                          setup.StoreReference(ctx);
+                          return ctx->Return(registry.CreateNewId(name, setup));
+                        }))
             .AddFunction(
                 "Get",
                 Bind{}.bind<EntityId, ComponentId>(

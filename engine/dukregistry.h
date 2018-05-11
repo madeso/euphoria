@@ -22,7 +22,7 @@ class DukRegistry
   getSpriteId();
 
   ComponentId
-  CreateNewId(const std::string& name);
+  CreateNewId(const std::string& name, const FunctionVar& fv);
 
   bool
   GetCustomComponentByName(const std::string& name, ComponentId* id);
@@ -36,6 +36,9 @@ class DukRegistry
   void
   SetProperty(EntityId ent, ComponentId comp, DukValue value);
 
+  DukValue
+  CreateComponent(ComponentId comp, Context* ctx);
+
   template <typename T>
   T*
   GetComponentOrNull(EntityId ent, ComponentId comp)
@@ -44,9 +47,9 @@ class DukRegistry
   }
 
  private:
-  EntReg*                  reg;
-  Components*              components;
-  std::vector<ComponentId> scriptComponents;
+  EntReg*     reg;
+  Components* components;
+  std::map<ComponentId, FunctionVar> scriptComponents;
 };
 
 

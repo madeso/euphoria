@@ -14,8 +14,11 @@ Types = {
   Pos2: Registry.GetPosition2Id(),
   Player: Registry.New("Player"),
   MoveUp: Registry.New("MoveUp"),
-  TimeOut: Registry.New("TimeOut", function(c) {
-    c.time = 1;
+  TimeOut: Registry.New("TimeOut", function() {
+    print("Creating shot");
+    c = {};
+    c.time = 2;
+    return c;
   })
 };
 
@@ -51,7 +54,7 @@ Systems.AddUpdate("time out", function(dt) {
     if(data.time < 0)
     {
       print("timeouted");
-      data.time += 10;
+      data.time += 3;
     }
   });
 });

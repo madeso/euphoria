@@ -30,10 +30,10 @@ DukRegistry::getSpriteId()
 }
 
 ComponentId
-DukRegistry::CreateNewId(const std::string& name)
+DukRegistry::CreateNewId(const std::string& name, const FunctionVar& fv)
 {
-  const auto id = reg->NewComponentType(name);
-  scriptComponents.emplace_back(id);
+  const auto id        = reg->NewComponentType(name);
+  scriptComponents[id] = fv;
   return id;
 }
 
@@ -52,10 +52,7 @@ DukRegistry::entities(const std::vector<ComponentId>& types)
 DukValue
 DukRegistry::GetProperty(EntityId ent, ComponentId comp)
 {
-  // todo: move to a better construct
-  ASSERT(
-      std::find(scriptComponents.begin(), scriptComponents.end(), comp) !=
-      scriptComponents.end());
+  ASSERT(scriptComponents.find(comp) != scriptComponents.end());
   auto c = reg->GetComponent(ent, comp);
   if(c.get() == nullptr)
   {
@@ -71,9 +68,7 @@ void
 DukRegistry::SetProperty(EntityId ent, ComponentId comp, DukValue value)
 {
   // todo: move to a better construct
-  ASSERT(
-      std::find(scriptComponents.begin(), scriptComponents.end(), comp) !=
-      scriptComponents.end());
+  ASSERT(scriptComponents.find(comp) != scriptComponents.end());
 
   auto c = reg->GetComponent(ent, comp);
   if(c.get() == nullptr)
@@ -86,4 +81,24 @@ DukRegistry::SetProperty(EntityId ent, ComponentId comp, DukValue value)
   {
     static_cast<ScriptComponent*>(c.get())->val = value;
   }
+}
+
+DukValue
+DukRegistry::CreateComponent(ComponentId comp, Context* ctx)
+{
+  auto res = scriptComponents.find(comp);
+  ASSERT(res != scriptComponents.end());
+  if(res == scriptComponents.end())
+  {
+    return DukValue{};
+  }
+
+  if(!res->second.IsValid())
+  {
+    return DukValue{};
+  }
+
+  auto val = res->second.Call<DukValue>(ctx);
+  ASSERT(val.IsValid());
+  return val;
 }

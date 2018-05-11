@@ -18,13 +18,15 @@ class TextureCache;
 class DukRegistry;
 class FileSystem;
 struct Components;
+class Context;
 
 struct ObjectCreationArgs
 {
   World*       world;
   DukRegistry* reg;
+  Context*     ctx;
 
-  ObjectCreationArgs(World* aworld, DukRegistry* areg);
+  ObjectCreationArgs(World* aworld, DukRegistry* areg, Context* actx);
 };
 
 class ComponentCreator
