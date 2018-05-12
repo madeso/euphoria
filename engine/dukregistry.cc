@@ -103,3 +103,9 @@ DukRegistry::CreateComponent(ComponentId comp, Context* ctx)
   // todo: need to increase refcount on val here like functions, right?
   return val;
 }
+
+void
+DukRegistry::DestroyEntity(EntityId id)
+{
+  reg->DestroyEntity(id);
+}

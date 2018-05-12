@@ -67,7 +67,7 @@ class Registry
   IsAlive(EntityId id) const;
 
   void
-  Destroy(EntityId id);
+  DestroyEntity(EntityId id);
 
 
   ComponentId
@@ -82,9 +82,6 @@ class Registry
   void
   AddComponent(
       EntityId entity, ComponentId component, std::shared_ptr<Component> data);
-
-  void
-  RemoveComponent(EntityId entity, ComponentId component);
 
 
   std::vector<EntityId>

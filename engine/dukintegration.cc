@@ -121,6 +121,13 @@ struct DukIntegrationPimpl
               return ctx->Return(registry.getSpriteId());
             }))
             .AddFunction(
+                "DestroyEntity",
+                Bind{}.bind<EntityId>(
+                    [&](Context* ctx, EntityId entity) -> int {
+                      registry.DestroyEntity(entity);
+                      return ctx->ReturnVoid();
+                    }))
+            .AddFunction(
                 "GetPosition2Id", Bind{}.bind([&](Context* ctx) -> int {
                   return ctx->Return(registry.getPosition2dId());
                 }))

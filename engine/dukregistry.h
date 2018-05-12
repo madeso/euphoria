@@ -39,6 +39,9 @@ class DukRegistry
   DukValue
   CreateComponent(ComponentId comp, Context* ctx);
 
+  void
+  DestroyEntity(EntityId id);
+
   template <typename T>
   T*
   GetComponentOrNull(EntityId ent, ComponentId comp)

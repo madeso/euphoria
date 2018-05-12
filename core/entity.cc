@@ -46,13 +46,12 @@ GetId(EntityId id, EntityVersion version)
 struct ComponentList
 {
   std::string name;
+  std::map<EntityId, std::shared_ptr<Component>> components;
 
   explicit ComponentList(const std::string& n)
       : name(n)
   {
   }
-
-  std::map<EntityId, std::shared_ptr<Component>> components;
 
   std::shared_ptr<Component>
   GetComponent(EntityId entity)
@@ -121,10 +120,15 @@ struct RegistryImpl
   }
 
   void
-  Destroy(EntityId id)
+  DestroyEntity(EntityId id)
   {
+    // todo: postpone!
     if(SwapBackAndEraseObject(id, &alive))
     {
+      for(const auto& entry : components)
+      {
+        entry.second->RemoveComponent(id);
+      }
       free_entities.emplace_back(id);
     }
   }
@@ -155,12 +159,6 @@ struct RegistryImpl
       EntityId entity, ComponentId component, std::shared_ptr<Component> data)
   {
     components[component]->AddComponent(entity, data);
-  }
-
-  void
-  RemoveComponent(EntityId entity, ComponentId component)
-  {
-    components[component]->RemoveComponent(entity);
   }
 
 
@@ -210,6 +208,7 @@ struct RegistryImpl
   void
   AddAdded()
   {
+    // todo: implement
   }
 
   void
@@ -242,9 +241,9 @@ Registry::IsAlive(EntityId id) const
 }
 
 void
-Registry::Destroy(EntityId id)
+Registry::DestroyEntity(EntityId id)
 {
-  impl->Destroy(id);
+  impl->DestroyEntity(id);
 }
 
 
@@ -272,13 +271,6 @@ Registry::AddComponent(
 {
   impl->AddComponent(entity, component, data);
 }
-
-void
-Registry::RemoveComponent(EntityId entity, ComponentId component)
-{
-  impl->RemoveComponent(entity, component);
-}
-
 
 std::vector<EntityId>
 Registry::View(const std::vector<ComponentId>& components)

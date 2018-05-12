@@ -17,7 +17,7 @@ Types = {
   TimeOut: Registry.New("TimeOut", function() {
     print("Creating shot");
     c = {};
-    c.time = 2;
+    c.time = 1 ;
     return c;
   })
 };
@@ -53,8 +53,7 @@ Systems.AddUpdate("time out", function(dt) {
     data.time -= dt;
     if(data.time < 0)
     {
-      print("timeouted");
-      data.time += 3;
+      Registry.DestroyEntity(entity);
     }
   });
 });

@@ -13235,7 +13235,7 @@ DUK_INTERNAL void *duk_default_realloc_function(void *udata, void *ptr, duk_size
 DUK_INTERNAL void duk_default_free_function(void *udata, void *ptr) {
 	DUK_DDD(DUK_DDDPRINT("default free function: %p", (void *) ptr));
 	DUK_UNREF(udata);
-	DUK_ANSI_FREE(ptr);
+ 	DUK_ANSI_FREE(ptr);
 }
 #endif  /* DUK_USE_PROVIDE_DEFAULT_ALLOC_FUNCTIONS */
 /*
