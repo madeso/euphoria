@@ -20,7 +20,8 @@ LoadWorld(
     DukRegistry*       reg,
     const std::string& path,
     ObjectCreator*     creator,
-    Context*           ctx)
+    Context*           ctx,
+    Duk*               duk)
 {
   world::World json;
   const auto   err = LoadProtoJson(fs, &json, path);
@@ -38,6 +39,6 @@ LoadWorld(
       LOG_ERROR("Failed to find template named " << name);
       continue;
     }
-    t->CreateObject(ObjectCreationArgs{world, reg, ctx});
+    t->CreateObject(ObjectCreationArgs{world, reg, ctx, duk});
   }
 }

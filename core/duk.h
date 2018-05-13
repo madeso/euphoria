@@ -66,6 +66,10 @@ class DukValue
   bool
   IsValid() const;
 
+  // todo: remove this and use reference counting instead
+  void
+  StoreReference(Duk* duk);
+
   void
   SetFreeImpl(
       Duk*               duk,
@@ -297,6 +301,7 @@ class FunctionVar
   bool
   IsValid() const;
 
+  // todo: remove this and make the function ref counted instead
   void
   StoreReference(Context* ctx);
 
@@ -844,8 +849,16 @@ class Duk : private Context
   Prototype*
   TypeToProto(size_t id CLASS_ARG(const std::string& name));
 
+  using Index = unsigned int;
+
   void
   StoreReference(void* p);
+
+  void
+  ClearReference(Index index);
+
+  void
+  SetReference(void* p, Index index);
 
   std::function<void(const std::string&)> on_print;
 
@@ -853,7 +866,8 @@ class Duk : private Context
 
   std::map<size_t, std::shared_ptr<Prototype>> classIds;
 
-  unsigned int reference_index = 0;
+  std::vector<Index> free_indices;
+  Index              reference_index = 0;
 };
 
 

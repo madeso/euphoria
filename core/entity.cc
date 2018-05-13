@@ -119,18 +119,30 @@ struct RegistryImpl
     return std::find(alive.begin(), alive.end(), id) != alive.end();
   }
 
+  std::vector<EntityId> destroyed_entities;
+
   void
   DestroyEntity(EntityId id)
   {
-    // todo: postpone!
-    if(SwapBackAndEraseObject(id, &alive))
+    destroyed_entities.emplace_back(id);
+  }
+
+  void
+  RemovePostponedEntities()
+  {
+    for(const auto id : destroyed_entities)
     {
-      for(const auto& entry : components)
+      // todo: postpone!
+      if(SwapBackAndEraseObject(id, &alive))
       {
-        entry.second->RemoveComponent(id);
+        for(const auto& entry : components)
+        {
+          entry.second->RemoveComponent(id);
+        }
+        free_entities.emplace_back(id);
       }
-      free_entities.emplace_back(id);
     }
+    destroyed_entities.resize(0);
   }
 
   ComponentId component = 0;
@@ -214,6 +226,7 @@ struct RegistryImpl
   void
   RemoveRemoved()
   {
+    RemovePostponedEntities();
   }
 };
 

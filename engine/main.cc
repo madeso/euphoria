@@ -235,7 +235,8 @@ main(int argc, char** argv)
       &integration.Registry(),
       "world.json",
       &templates,
-      duk.AsContext());
+      duk.AsContext(),
+      &duk);
 
   const mat4f projection = init.GetOrthoProjection(width, height);
   Use(&shader);
@@ -369,6 +370,8 @@ main(int argc, char** argv)
 
     imgui.Render();
     SDL_GL_SwapWindow(window);
+
+    world.reg.RemoveRemoved();
   }
 
   SDL_DestroyWindow(window);

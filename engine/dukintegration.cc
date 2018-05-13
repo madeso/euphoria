@@ -101,9 +101,9 @@ struct DukIntegrationPimpl
         BindClass<ObjectTemplate>().AddMethod(
             "Create",
             Bind{}.bind<ObjectTemplate>(
-                [&](Context* ctx, ObjectTemplate& t) -> int {
+                [&, duk](Context* ctx, ObjectTemplate& t) -> int {
                   return ctx->Return(t.CreateObject(
-                      ObjectCreationArgs{world, &registry, ctx}));
+                      ObjectCreationArgs{world, &registry, ctx, duk}));
                 })));
 
 

@@ -515,6 +515,16 @@ DukValue::IsValid() const
 }
 
 void
+DukValue::StoreReference(Duk* duk)
+{
+  ASSERT(duk);
+  if(ptr != nullptr)
+  {
+    duk->StoreReference(ptr);
+  }
+}
+
+void
 DukValue::SetFreeImpl(
     Duk*               duk,
     const std::string& name,
@@ -1021,10 +1031,42 @@ Duk::TypeToProto(size_t id CLASS_ARG(const std::string& name))
 void
 Duk::StoreReference(void* p)
 {
+  Duk::Index index;
+  if(free_indices.empty())
+  {
+    index = reference_index;
+    reference_index += 1;
+    LOG_INFO("Using new reference " << index);
+  }
+  else
+  {
+    index = *free_indices.rbegin();
+    free_indices.pop_back();
+  }
+  SetReference(p, index);
+}
+
+void
+Duk::ClearReference(Duk::Index index)
+{
+  free_indices.emplace_back(index);
+  SetReference(nullptr, index);
+  LOG_INFO("Freeing reference " << index);
+}
+
+void
+Duk::SetReference(void* p, Duk::Index index)
+{
   // todo: store references in some sub object instead of directly at root?
-  duk_push_heap_stash(ctx);                      // heap
-  duk_push_heapptr(ctx, p);                      // heap ptr
-  duk_put_prop_index(ctx, -2, reference_index);  // heap
-  duk_pop(ctx);                                  //
-  reference_index += 1;
+  duk_push_heap_stash(ctx);  // heap
+  if(p != nullptr)
+  {
+    duk_push_heapptr(ctx, p);  // heap ptr
+  }
+  else
+  {
+    duk_push_null(ctx);
+  }
+  duk_put_prop_index(ctx, -2, index);  // heap
+  duk_pop(ctx);                        //
 }

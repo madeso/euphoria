@@ -16,10 +16,11 @@ LOG_SPECIFY_DEFAULT_LOGGER("engine.templates")
 ////////////////////////////////////////////////////////////////////////////////
 
 ObjectCreationArgs::ObjectCreationArgs(
-    World* aworld, DukRegistry* areg, Context* actx)
+    World* aworld, DukRegistry* areg, Context* actx, Duk* aduk)
     : world(aworld)
     , reg(areg)
     , ctx(actx)
+    , duk(aduk)
 {
 }
 
@@ -99,6 +100,7 @@ class CustomComponentCreator : public ComponentCreator
   CreateComponent(const ObjectCreationArgs& args, EntityId ent) override
   {
     auto val = args.reg->CreateComponent(comp, args.ctx);
+    val.StoreReference(args.duk);
     args.reg->SetProperty(ent, comp, val);
   }
 };

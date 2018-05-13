@@ -19,14 +19,17 @@ class DukRegistry;
 class FileSystem;
 struct Components;
 class Context;
+class Duk;
 
 struct ObjectCreationArgs
 {
   World*       world;
   DukRegistry* reg;
   Context*     ctx;
+  Duk*         duk;
 
-  ObjectCreationArgs(World* aworld, DukRegistry* areg, Context* actx);
+  ObjectCreationArgs(
+      World* aworld, DukRegistry* areg, Context* actx, Duk* aduk);
 };
 
 class ComponentCreator
