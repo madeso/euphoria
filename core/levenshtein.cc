@@ -146,7 +146,7 @@ FastLevenshteinDistance(const std::string& sRow, const std::string& sCol)
       v1[RowIdx] = std::min(std::min(m_min, b), c);
     }
 
-    std::swap(v0, v1);
+    v0.swap(v1);
   }
 
   return v0[RowLen];
