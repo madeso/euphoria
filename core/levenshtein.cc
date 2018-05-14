@@ -25,7 +25,7 @@ LevenshteinDistance(const std::string& source, const std::string& target)
 
   // Good form to declare a TYPEDEF
 
-  typedef std::vector<std::vector<unsigned long>> Tmatrix;
+  using Tmatrix = std::vector<std::vector<unsigned long>>;
 
   Tmatrix matrix(n + 1);
 

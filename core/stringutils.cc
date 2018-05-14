@@ -175,9 +175,8 @@ std::string
 Strip(const std::string& str, const std::string& ch)
 {
   std::stringstream ss;
-  for(unsigned int i = 0; i < str.size(); i++)
+  for(const char c : str)
   {
-    const char c = str[i];
     if(ch.find(c) == std::string::npos)
     {
       ss << c;
@@ -192,9 +191,8 @@ RemoveConsecutive(const std::string& str, const std::string& ch)
 {
   std::stringstream ss;
   bool              skip = false;
-  for(unsigned int i = 0; i < str.size(); i++)
+  for(const char c : str)
   {
-    const char c = str[i];
     if(ch.find(c) == std::string::npos)
     {
       ss << c;

@@ -87,7 +87,7 @@ LoadProtoJson(
   // todo: look up insitu parsing
   // todo: look upo json/sjson parsing options
 
-  typedef rapidjson::CursorStreamWrapper<rapidjson::StringStream> InputStream;
+  using InputStream = rapidjson::CursorStreamWrapper<rapidjson::StringStream>;
   rapidjson::StringStream ss{source.c_str()};
   InputStream             stream{ss};
   constexpr unsigned int  ParseFlags =
