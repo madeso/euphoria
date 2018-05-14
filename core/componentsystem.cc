@@ -38,8 +38,9 @@ Systems::AddAndRegister(std::shared_ptr<ComponentSystem> system)
 }
 
 World::World(Systems* sys)
-: systems(sys)
-{}
+    : systems(sys)
+{
+}
 
 void
 World::Update(float dt)

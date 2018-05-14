@@ -21,7 +21,7 @@ class line2
 {
  public:
   typedef line2<T> Self;
-  typedef vec2<T, StoreValue<T>>  vec;
+  typedef vec2<T, StoreValue<T>> vec;
 
   static Self
   FromDirection(const vec& direction, const vec& pos = vec(0, 0))
