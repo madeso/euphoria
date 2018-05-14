@@ -46,18 +46,18 @@ TEST_CASE("argparse", "[argparse]")
 
   // parser setup
   auto parser = argparse::Parser{"description"};
-  parser.add_simple("compiler", compiler);
-  parser.add_simple("int", i);
-  parser.add_simple("-op", op);
-  parser.add_vector("-strings", strings).metavar("string");
+  parser.AddSimple("compiler", compiler);
+  parser.AddSimple("int", i);
+  parser.AddSimple("-op", op);
+  parser.AddVector("-strings", strings).MetaVar("string");
   const auto convert = argparse::Convert<MyEnum>{}("MyVal", MyEnum::MyVal)(
       "MyVal2", MyEnum::MyVal2);
-  parser.add_simple<MyEnum>("-enum", enum_value, convert);
+  parser.AddSimple<MyEnum>("-enum", enum_value, convert);
 
   SECTION("test parse")
   {
     const auto arguments = std::vector<std::string>{"gcc", "3"};
-    const auto stat      = parser.parse(name, arguments);
+    const auto stat      = parser.Parse(name, arguments);
     CHECK(stat.result == argparse::ParseStatus::Complete);
     CHECK(stat.out == "");
     CHECK(stat.error == "");
@@ -72,7 +72,7 @@ TEST_CASE("argparse", "[argparse]")
   {
     const auto arguments =
         std::vector<std::string>{"gcc", "3", "-enum", "MyVal2"};
-    const auto stat = parser.parse(name, arguments);
+    const auto stat = parser.Parse(name, arguments);
     CHECK(stat.result == argparse::ParseStatus::Complete);
     CHECK(stat.out == "");
     CHECK(stat.error == "");
@@ -86,7 +86,7 @@ TEST_CASE("argparse", "[argparse]")
   SECTION("test parse optional")
   {
     const auto arguments = std::vector<std::string>{"gcc", "3", "-op", "42"};
-    const auto stat      = parser.parse(name, arguments);
+    const auto stat      = parser.Parse(name, arguments);
     CHECK(stat.result == argparse::ParseStatus::Complete);
     CHECK(stat.out == "");
     CHECK(stat.error == "");
@@ -101,7 +101,7 @@ TEST_CASE("argparse", "[argparse]")
   {
     const auto arguments =
         std::vector<std::string>{"clang", "5", "-strings", "a", "b", "c"};
-    const auto stat = parser.parse(name, arguments);
+    const auto stat = parser.Parse(name, arguments);
     CHECK(stat.result == argparse::ParseStatus::Complete);
     CHECK(stat.out == "");
     CHECK(stat.error == "");

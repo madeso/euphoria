@@ -31,13 +31,13 @@ namespace argparse
     const std::string& operator[](int index) const;
 
     const bool
-    empty() const;
+    IsEmpty() const;
 
     const size_t
-    size() const;
+    GetCount() const;
 
     const std::string
-    get(const std::string& error = "no more arguments available");
+    GetFirst(const std::string& error = "no more arguments available");
 
    private:
     std::vector<std::string> args;
@@ -101,28 +101,20 @@ namespace argparse
 
     /// set the extended help for the argument
     Extra&
-    help(const std::string& h);
-    const std::string&
-    help() const;
+    Help(const std::string& h);
 
     /// the number of values a argument can support
     Extra&
-    count(const Count c);
-    const Count&
-    count() const;
+    Count(const Count& c);
 
     // the meta variable, used in usage display and help display for the
     // arguments
     Extra&
-    metavar(const std::string& metavar);
+    MetaVar(const std::string& the_metavar);
 
-    const std::string&
-    metavar() const;
-
-   private:
-    std::string mHelp;
-    Count       mCount;
-    std::string mMetavar;
+    std::string     help;
+    argparse::Count count;
+    std::string     metavar;
   };
 
   ////////////////////////////////////////////////////////////////////////////
@@ -135,7 +127,7 @@ namespace argparse
     virtual ~Argument();
 
     virtual void
-    parse(Running& r, Arguments& args, const std::string& argname) = 0;
+    Parse(Running& r, Arguments& args, const std::string& argname) = 0;
   };
 
   ////////////////////////////////////////////////////////////////////////////
@@ -151,7 +143,7 @@ namespace argparse
     FunctionArgument(const ArgumentCallback& func);
 
     void
-    parse(Running& r, Arguments& args, const std::string& argname) override;
+    Parse(Running& r, Arguments& args, const std::string& argname) override;
 
    private:
     ArgumentCallback function;
@@ -165,10 +157,10 @@ namespace argparse
     ArgumentBase();
 
     virtual void
-    combine(const std::string& value) = 0;
+    Combine(const std::string& value) = 0;
 
     virtual void
-    parse(Running&, Arguments& args, const std::string& argname) override;
+    Parse(Running&, Arguments& args, const std::string& argname) override;
   };
 
   ////////////////////////////////////////////////////////////////////////////
@@ -179,19 +171,19 @@ namespace argparse
     Help(const std::string& aname, Extra* e);
 
     const std::string
-    usage() const;
+    GetUsage() const;
 
     const std::string
-    metavarrep() const;
+    GetMetaVarRepresentation() const;
 
     const std::string
-    metavarname() const;
+    GetMetaVarName() const;
 
     const std::string
-    helpCommand() const;
+    GetHelpCommand() const;
 
     const std::string&
-    helpDescription() const;
+    GetHelpDescription() const;
 
    private:
     std::string name;
@@ -280,7 +272,7 @@ namespace argparse
     }
 
     void
-    combine(const std::string& value) override
+    Combine(const std::string& value) override
     {
       combiner(target, converter(value));
     }
@@ -315,26 +307,26 @@ namespace argparse
 
     template <typename T>
     Extra&
-    add_simple(
+    AddSimple(
         const std::string& name,
         T&                 var,
         ConverterFunction(T) co = StandardConverter<T>,
         CombinerFunction(T, T) combiner = Assign<T, T>)
     {
-      return add<T, T>(name, var, combiner, co);
+      return Add<T, T>(name, var, combiner, co);
     }
 
     template <typename T>
     Extra&
-    add_vector(const std::string& name, std::vector<T>& var)
+    AddVector(const std::string& name, std::vector<T>& var)
     {
-      return add<std::vector<T>, T>(name, var, argparse::PushBackVector<T>)
-          .count(argparse::Count::MoreThanOne);
+      return Add<std::vector<T>, T>(name, var, argparse::PushBackVector<T>)
+          .Count(argparse::Count::MoreThanOne);
     }
 
     template <typename T, typename V>
     Extra&
-    add(const std::string& name,
+    Add(const std::string& name,
         T&                 var,
         CombinerFunction(T, V) combiner = Assign<T, V>,
         ConverterFunction(V) co = StandardConverter<V>)
@@ -344,17 +336,17 @@ namespace argparse
     }
 
     Extra&
-    addFunction(const std::string& name, ArgumentCallback func);
+    AddFunction(const std::string& name, ArgumentCallback func);
 
     ParseStatus
-    parse(const std::string& name, const std::vector<std::string>& arguments)
+    Parse(const std::string& name, const std::vector<std::string>& arguments)
         const;
 
     void
-    writeHelp(Running& r) const;
+    WriteHelp(Running& r) const;
 
     void
-    writeUsage(Running& r) const;
+    WriteUsage(Running& r) const;
 
    private:
     typedef std::shared_ptr<Argument> ArgumentPtr;

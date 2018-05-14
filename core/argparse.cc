@@ -47,21 +47,21 @@ namespace argparse
   }
 
   const bool
-  Arguments::empty() const
+  Arguments::IsEmpty() const
   {
     return args.empty();
   }
 
   const size_t
-  Arguments::size() const
+  Arguments::GetCount() const
   {
     return args.size();
   }
 
   const std::string
-  Arguments::get(const std::string& error)
+  Arguments::GetFirst(const std::string& error)
   {
-    if(empty())
+    if(IsEmpty())
     {
       throw ParserError(error);
     }
@@ -119,7 +119,7 @@ namespace argparse
   }
 
   void
-  FunctionArgument::parse(
+  FunctionArgument::Parse(
       Running& r, Arguments& args, const std::string& argname)
   {
     function(r, args, argname);
@@ -130,9 +130,9 @@ namespace argparse
   ArgumentBase::ArgumentBase() = default;
 
   void
-  ArgumentBase::parse(Running&, Arguments& args, const std::string& argname)
+  ArgumentBase::Parse(Running&, Arguments& args, const std::string& argname)
   {
-    const auto count = extra.count();
+    const auto& count = extra.count;
     switch(count.type())
     {
       case Count::Const:
@@ -148,22 +148,22 @@ namespace argparse
           {
             ss << count.count() << " argument(s), " << i << " already given";
           }
-          combine(args.get(ss.str()));
+          Combine(args.GetFirst(ss.str()));
 
           // abort on optional?
         }
         return;
       case Count::MoreThanOne:
-        combine(args.get(
+        Combine(args.GetFirst(
             "argument " + argname + ": expected at least one argument"));
       case Count::ZeroOrMore:
-        while(!args.empty() && !IsOptional(args[0]))
+        while(!args.IsEmpty() && !IsOptional(args[0]))
         {
-          combine(args.get("internal error"));
+          Combine(args.GetFirst("internal error"));
         }
         return;
       case Count::Optional:
-        if(args.empty())
+        if(args.IsEmpty())
         {
           return;
         }
@@ -171,7 +171,7 @@ namespace argparse
         {
           return;
         }
-        combine(args.get("internal error"));
+        Combine(args.GetFirst("internal error"));
         return;
       case Count::None:
         return;
@@ -185,47 +185,29 @@ namespace argparse
 
 
   Extra::Extra()
-      : mCount(1)
+      : count(1)
   {
   }
 
   Extra&
-  Extra::help(const std::string& h)
+  Extra::Help(const std::string& h)
   {
-    mHelp = h;
+    help = h;
     return *this;
-  }
-
-  const std::string&
-  Extra::help() const
-  {
-    return mHelp;
   }
 
   Extra&
-  Extra::count(const Count c)
+  Extra::Count(const argparse::Count& c)
   {
-    mCount = c;
+    count = c;
     return *this;
-  }
-
-  const Count&
-  Extra::count() const
-  {
-    return mCount;
   }
 
   Extra&
-  Extra::metavar(const std::string& metavar)
+  Extra::MetaVar(const std::string& the_metavar)
   {
-    mMetavar = metavar;
+    metavar = the_metavar;
     return *this;
-  }
-
-  const std::string&
-  Extra::metavar() const
-  {
-    return mMetavar;
   }
 
   ////////////////////////////////////////////////////////////////////////////
@@ -237,42 +219,42 @@ namespace argparse
   }
 
   const std::string
-  Help::usage() const
+  Help::GetUsage() const
   {
     if(IsOptional(name))
     {
-      return "[" + name + " " + metavarrep() + "]";
+      return "[" + name + " " + GetMetaVarRepresentation() + "]";
     }
     else
     {
-      return metavarrep();
+      return GetMetaVarRepresentation();
     }
   }
 
   const std::string
-  Help::metavarrep() const
+  Help::GetMetaVarRepresentation() const
   {
-    switch(extra->count().type())
+    switch(extra->count.type())
     {
       case Count::None:
         return "";
       case Count::MoreThanOne:
-        return metavarname() + " [" + metavarname() + " ...]";
+        return GetMetaVarName() + " [" + GetMetaVarName() + " ...]";
       case Count::Optional:
-        return "[" + metavarname() + "]";
+        return "[" + GetMetaVarName() + "]";
       case Count::ZeroOrMore:
-        return "[" + metavarname() + " [" + metavarname() + " ...]]";
+        return "[" + GetMetaVarName() + " [" + GetMetaVarName() + " ...]]";
       case Count::Const:
       {
         std::ostringstream ss;
         ss << "[";
-        for(size_t i = 0; i < extra->count().count(); ++i)
+        for(size_t i = 0; i < extra->count.count(); ++i)
         {
           if(i != 0)
           {
             ss << " ";
           }
-          ss << metavarname();
+          ss << GetMetaVarName();
         }
         ss << "]";
         return ss.str();
@@ -284,9 +266,9 @@ namespace argparse
   }
 
   const std::string
-  Help::metavarname() const
+  Help::GetMetaVarName() const
   {
-    const auto metavar = extra->metavar();
+    const auto metavar = extra->metavar;
     if(metavar.empty() == false)
     {
       return metavar;
@@ -305,22 +287,22 @@ namespace argparse
   }
 
   const std::string
-  Help::helpCommand() const
+  Help::GetHelpCommand() const
   {
     if(IsOptional(name))
     {
-      return name + " " + metavarrep();
+      return name + " " + GetMetaVarRepresentation();
     }
     else
     {
-      return metavarname();
+      return GetMetaVarName();
     }
   }
 
   const std::string&
-  Help::helpDescription() const
+  Help::GetHelpDescription() const
   {
-    return extra->help();
+    return extra->help;
   }
 
   ////////////////////////////////////////////////////////////////////////////
@@ -347,7 +329,7 @@ namespace argparse
       operator()(Running& r, Arguments& args, const std::string& argname)
       {
         // todo: fix non const references here.
-        parser->writeHelp(r);
+        parser->WriteHelp(r);
         r.run = false;
       }
 
@@ -360,18 +342,18 @@ namespace argparse
       , appname(aappname)
       , positionalIndex(0)
   {
-    addFunction("-h", CallHelp(this)).help("show this help message and exit.");
+    AddFunction("-h", CallHelp(this)).Help("show this help message and exit.");
   }
 
   Extra&
-  Parser::addFunction(const std::string& name, ArgumentCallback func)
+  Parser::AddFunction(const std::string& name, ArgumentCallback func)
   {
     ArgumentPtr arg(new FunctionArgument(func));
-    return insert(name, arg).count(Count::None);
+    return insert(name, arg).Count(Count::None);
   }
 
   ParseStatus
-  Parser::parse(
+  Parser::Parse(
       const std::string& name, const std::vector<std::string>& arguments) const
   {
     Arguments          args(arguments);
@@ -380,12 +362,12 @@ namespace argparse
 
     try
     {
-      while(!args.empty())
+      while(!args.IsEmpty())
       {
         if(IsOptional(args[0]))
         {
           // optional
-          const std::string arg = args.get();
+          const std::string arg = args.GetFirst();
           auto              r   = optionals.find(arg);
           if(r == optionals.end())
           {
@@ -393,7 +375,7 @@ namespace argparse
                 "Unknown optional argument: " +
                 arg);  // todo: implement partial matching of arguments?
           }
-          r->second->parse(running, args, arg);
+          r->second->Parse(running, args, arg);
         }
         else
         {
@@ -404,7 +386,7 @@ namespace argparse
           }
           ArgumentPtr p = positionals[positionalIndex];
           ++positionalIndex;
-          p->parse(
+          p->Parse(
               running,
               args,
               "POSITIONAL");  // todo: give better name or something
@@ -421,16 +403,16 @@ namespace argparse
     }
     catch(ParserError& p)
     {
-      writeUsage(running);
+      WriteUsage(running);
       running.error << app << ": " << p.what() << std::endl << std::endl;
       return ParseStatus{running, ParseStatus::Failed};
     }
   }
 
   void
-  Parser::writeHelp(Running& r) const
+  Parser::WriteHelp(Running& r) const
   {
-    writeUsage(r);
+    WriteUsage(r);
     r.o << std::endl << description << std::endl << std::endl;
 
     const std::string sep = "\t";
@@ -441,8 +423,8 @@ namespace argparse
       r.o << "positional arguments:\n";
       for(const Help& positional : helpPositional)
       {
-        r.o << ins << positional.helpCommand() << sep
-            << positional.helpDescription() << "\n";
+        r.o << ins << positional.GetHelpCommand() << sep
+            << positional.GetHelpDescription() << "\n";
       }
 
       r.o << "\n";
@@ -453,8 +435,8 @@ namespace argparse
       r.o << "optional arguments:\n";
       for(const Help& optional : helpOptional)
       {
-        r.o << ins << optional.helpCommand() << sep
-            << optional.helpDescription() << "\n";
+        r.o << ins << optional.GetHelpCommand() << sep
+            << optional.GetHelpDescription() << "\n";
       }
     }
 
@@ -462,17 +444,17 @@ namespace argparse
   }
 
   void
-  Parser::writeUsage(Running& r) const
+  Parser::WriteUsage(Running& r) const
   {
     r.o << "usage: " << r.app;
     for(const Help& optional : helpOptional)
     {
-      r.o << " " << optional.usage();
+      r.o << " " << optional.GetUsage();
     }
 
     for(const Help& positional : helpPositional)
     {
-      r.o << " " << positional.usage();
+      r.o << " " << positional.GetUsage();
     }
     r.o << "\n";
   }
