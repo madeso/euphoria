@@ -41,21 +41,16 @@ namespace argparse
   {
   }
 
-  const std::string& Arguments::operator[](int index) const
+  const std::string&
+  Arguments::PeekFirst() const
   {
-    return args[index];
+    return args[0];
   }
 
   const bool
   Arguments::IsEmpty() const
   {
     return args.empty();
-  }
-
-  const size_t
-  Arguments::GetCount() const
-  {
-    return args.size();
   }
 
   const std::string
@@ -73,28 +68,16 @@ namespace argparse
   ////////////////////////////////////////////////////////////////////////////
 
   Count::Count(size_t c)
-      : mCount(c)
-      , mType(Const)
+      : count(c)
+      , type(Const)
   {
   }
 
   Count::Count(Type t)
-      : mCount(0)
-      , mType(t)
+      : count(0)
+      , type(t)
   {
     ASSERT(t != Const);
-  }
-
-  Count::Type
-  Count::type() const
-  {
-    return mType;
-  }
-
-  size_t
-  Count::count() const
-  {
-    return mCount;
   }
 
   ////////////////////////////////////////////////////////////////////////////
@@ -133,20 +116,20 @@ namespace argparse
   ArgumentBase::Parse(Running&, Arguments& args, const std::string& argname)
   {
     const auto& count = extra.count;
-    switch(count.type())
+    switch(count.type)
     {
       case Count::Const:
-        for(size_t i = 0; i < count.count(); ++i)
+        for(size_t i = 0; i < count.count; ++i)
         {
           std::stringstream ss;
           ss << "argument " << argname << ": expected ";
-          if(count.count() == 1)
+          if(count.count == 1)
           {
             ss << "one argument";
           }
           else
           {
-            ss << count.count() << " argument(s), " << i << " already given";
+            ss << count.count << " argument(s), " << i << " already given";
           }
           Combine(args.GetFirst(ss.str()));
 
@@ -157,7 +140,7 @@ namespace argparse
         Combine(args.GetFirst(
             "argument " + argname + ": expected at least one argument"));
       case Count::ZeroOrMore:
-        while(!args.IsEmpty() && !IsOptional(args[0]))
+        while(!args.IsEmpty() && !IsOptional(args.PeekFirst()))
         {
           Combine(args.GetFirst("internal error"));
         }
@@ -167,7 +150,7 @@ namespace argparse
         {
           return;
         }
-        if(IsOptional(args[0]))
+        if(IsOptional(args.PeekFirst()))
         {
           return;
         }
@@ -234,7 +217,7 @@ namespace argparse
   const std::string
   Help::GetMetaVarRepresentation() const
   {
-    switch(extra->count.type())
+    switch(extra->count.type)
     {
       case Count::None:
         return "";
@@ -248,7 +231,7 @@ namespace argparse
       {
         std::ostringstream ss;
         ss << "[";
-        for(size_t i = 0; i < extra->count.count(); ++i)
+        for(size_t i = 0; i < extra->count.count; ++i)
         {
           if(i != 0)
           {
@@ -364,7 +347,7 @@ namespace argparse
     {
       while(!args.IsEmpty())
       {
-        if(IsOptional(args[0]))
+        if(IsOptional(args.PeekFirst()))
         {
           // optional
           const std::string arg = args.GetFirst();
@@ -382,7 +365,8 @@ namespace argparse
           if(positionalIndex >= positionals.size())
           {
             throw ParserError(
-                "All positional arguments have been consumed: " + args[0]);
+                "All positional arguments have been consumed: " +
+                args.PeekFirst());
           }
           ArgumentPtr p = positionals[positionalIndex];
           ++positionalIndex;

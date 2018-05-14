@@ -28,13 +28,11 @@ namespace argparse
    public:
     explicit Arguments(const std::vector<std::string>& arguments);
 
-    const std::string& operator[](int index) const;
+    const std::string&
+    PeekFirst() const;
 
     const bool
     IsEmpty() const;
-
-    const size_t
-    GetCount() const;
 
     const std::string
     GetFirst(const std::string& error = "no more arguments available");
@@ -60,15 +58,8 @@ namespace argparse
     Count(size_t c);
     Count(Type t);
 
-    Type
-    type() const;
-
-    size_t
-    count() const;
-
-   private:
-    size_t mCount;
-    Type   mType;
+    size_t count;
+    Type   type;
   };
 
   ////////////////////////////////////////////////////////////////////////////
