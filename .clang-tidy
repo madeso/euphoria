@@ -1,4 +1,4 @@
-Checks: "-*,readability-*,modernize-loop-convert,modernize-use-using,performance-*,google-*,-google-runtime-int"
+Checks: "-*,readability-*,modernize-loop-convert,modernize-use-using,performance-for-range-copy,performance-unnecessary-copy-initialization,google-*,-google-runtime-int,-google-readability-namespace-comments"
 CheckOptions:
   - key:             readability-identifier-naming.ClassCase
     value:           CamelCase
@@ -14,14 +14,16 @@ CheckOptions:
     value:           CamelCase
   - key:             readability-identifier-naming.LocalVariableCase
     value:           lower_case
+  - key:             readability-identifier-naming.GlobalVariableCase
+    value:           'CamelCase'
   - key:             readability-identifier-naming.GlobalVariablePrefix
     value:           'g_'
   - key:             readability-identifier-naming.PrivateMemberCase
     value:           lower_case
-  - key:             readability-identifier-naming.PrivateMemberSuffix
-    value:           '_'
   - key:             readability-identifier-naming.NamespaceCase
     value:           lower_case
+  - key:             readability-identifier-naming.ParameterCasePrefix
+    value:           'the_'
   - key:             readability-identifier-naming.ParameterCase
     value:           lower_case
   - key:             readability-identifier-naming.GlobalConstantCase
