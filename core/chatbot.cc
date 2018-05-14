@@ -360,7 +360,7 @@ ChatBot::LoadFromFile(FileSystem* fs, const std::string& path)
         topics.emplace_back(topic);
       }
     }
-    for(const auto i : r.inputs())
+    for(const auto& i : r.inputs())
     {
       response.inputs.emplace_back(i.input(), C(i.location()));
     }

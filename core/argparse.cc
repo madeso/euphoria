@@ -374,9 +374,9 @@ namespace argparse
   Parser::parse(
       const std::string& name, const std::vector<std::string>& arguments) const
   {
-    Arguments         args(arguments);
-    const std::string app = name;
-    Running           running{app};
+    Arguments          args(arguments);
+    const std::string& app = name;
+    Running            running{app};
 
     try
     {

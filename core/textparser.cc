@@ -273,7 +273,7 @@ ParsedText::FromText(const std::string& str)
 void
 ParsedText::Visit(textparser::Visitor* visitor)
 {
-  for(auto node : nodes)
+  for(auto& node : nodes)
   {
     node->Visit(visitor);
   }
@@ -282,7 +282,7 @@ ParsedText::Visit(textparser::Visitor* visitor)
 void
 ParsedText::Visit(textparser::Visitor* visitor) const
 {
-  for(auto node : nodes)
+  for(auto& node : nodes)
   {
     node->Visit(visitor);
   }
