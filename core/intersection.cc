@@ -36,22 +36,34 @@ Intersect(const UnitRay3f& r, const Aabb& aabb)
   const float tymax = (bounds[1 - r_sign[1]].y - r.from.y) * r_invdir.y;
 
   if((tmin > tymax) || (tymin > tmax))
+  {
     return RayIntersectionResult_False();
+  }
   if(tymin > tmin)
+  {
     tmin = tymin;
+  }
   if(tymax < tmax)
+  {
     tmax = tymax;
+  }
 
   const float tzmin = (bounds[r_sign[2]].z - r.from.z) * r_invdir.z;
   const float tzmax = (bounds[1 - r_sign[2]].z - r.from.z) * r_invdir.z;
 
   if((tmin > tzmax) || (tzmin > tmax))
+  {
     return RayIntersectionResult_False();
+  }
 
   if(tzmin > tmin)
+  {
     tmin = tzmin;
+  }
   if(tzmax < tmax)
+  {
     tmax = tzmax;
+  }
 
   return RayIntersectionResult_True(tmin, tmax);
 }

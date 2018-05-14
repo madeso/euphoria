@@ -20,7 +20,9 @@ namespace
   IsOptional(const std::string& arg)
   {
     if(arg.empty())
-      return false;  // todo: assert this?
+    {
+      return false;
+    }  // todo: assert this?
     return arg[0] == '-';
   }
 }
@@ -60,7 +62,9 @@ namespace argparse
   Arguments::get(const std::string& error)
   {
     if(empty())
+    {
       throw ParserError(error);
+    }
     const std::string r = args[0];
     args.erase(args.begin());
     return r;
@@ -160,9 +164,13 @@ namespace argparse
         return;
       case Count::Optional:
         if(args.empty())
+        {
           return;
+        }
         if(IsOptional(args[0]))
+        {
           return;
+        }
         combine(args.get("internal error"));
         return;
       case Count::None:
@@ -338,6 +346,7 @@ namespace argparse
       void
       operator()(Running& r, Arguments& args, const std::string& argname)
       {
+        // todo: fix non const references here.
         parser->writeHelp(r);
         r.run = false;
       }

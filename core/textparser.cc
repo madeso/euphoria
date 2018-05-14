@@ -244,12 +244,16 @@ ParsedText::CreateParse(const std::string& str)
   {
     parser.OnChar(c);
     if(!parser.ok)
+    {
       return false;
+    }
   }
 
   parser.Close();
   if(!parser.ok)
+  {
     return false;
+  }
   if(parser.escape)
   {
     LOG_ERROR("Ending with escape");

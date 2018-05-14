@@ -90,11 +90,17 @@ LevenshteinDistance(const std::string& source, const std::string& target)
       {
         unsigned long trans = matrix[i - 2][j - 2] + 1;
         if(source[i - 2] != t_j)
+        {
           trans++;
+        }
         if(s_i != target[j - 2])
+        {
           trans++;
+        }
         if(cell > trans)
+        {
           cell = trans;
+        }
       }
 
       matrix[i][j] = cell;

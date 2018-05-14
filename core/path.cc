@@ -18,8 +18,13 @@ Path
 Path::FromDirectory(const std::string& path)
 {
   if(path.empty() || EndsWith(path, DIRECTORY_STRING()))
+  {
     return Path{path};
-  return Path{path + DIRECTORY_STRING()};
+  }
+  else
+  {
+    return Path{path + DIRECTORY_STRING()};
+  }
 }
 
 Path
@@ -71,7 +76,9 @@ Path::GetParentDirectory() const
     return *this;
   }
   if(!IsDirectory())
+  {
     return FromDirectory("not a directory");
+  }
   // ASSERT(IsDirectory());
 
   const auto dir_char =
