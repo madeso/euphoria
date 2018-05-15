@@ -181,10 +181,13 @@ namespace argparse
     Extra*      extra;
   };
 
-////////////////////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////
 
-#define ConverterFunction(V) std::function<V(const std::string&)>
-#define CombinerFunction(T, V) std::function<void(T & t, const V&)>
+  template <typename V>
+  using ConverterFunction = std::function<V(const std::string&)>;
+
+  template <typename T, typename V>
+  using CombinerFunction = std::function<void(T& t, const V&)>;
 
   ////////////////////////////////////////////////////////////////////////////
 
@@ -255,7 +258,7 @@ namespace argparse
   class ArgumentT : public ArgumentBase
   {
    public:
-    ArgumentT(T& t, CombinerFunction(T, V) com, ConverterFunction(V) c)
+    ArgumentT(T& t, CombinerFunction<T, V> com, ConverterFunction<V> c)
         : target(t)
         , combiner(com)
         , converter(c)
@@ -270,8 +273,8 @@ namespace argparse
 
    private:
     T& target;
-    CombinerFunction(T, V) combiner;
-    ConverterFunction(V) converter;
+    CombinerFunction<T, V> combiner;
+    ConverterFunction<V> converter;
   };
 
   ////////////////////////////////////////////////////////////////////////////
@@ -299,10 +302,10 @@ namespace argparse
     template <typename T>
     Extra&
     AddSimple(
-        const std::string& name,
-        T&                 var,
-        ConverterFunction(T) co = StandardConverter<T>,
-        CombinerFunction(T, T) combiner = Assign<T, T>)
+        const std::string&   name,
+        T&                   var,
+        ConverterFunction<T> co = StandardConverter<T>,
+        CombinerFunction<T, T> combiner = Assign<T, T>)
     {
       return Add<T, T>(name, var, combiner, co);
     }
@@ -319,8 +322,8 @@ namespace argparse
     Extra&
     Add(const std::string& name,
         T&                 var,
-        CombinerFunction(T, V) combiner = Assign<T, V>,
-        ConverterFunction(V) co = StandardConverter<V>)
+        CombinerFunction<T, V> combiner = Assign<T, V>,
+        ConverterFunction<V> co = StandardConverter<V>)
     {
       ArgumentPtr arg(new ArgumentT<T, V>(var, combiner, co));
       return insert(name, arg);
