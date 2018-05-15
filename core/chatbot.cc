@@ -20,11 +20,11 @@ namespace chatbot
   std::vector<std::string>
   CleanInput(const std::string& input)
   {
-    const std::string PUNCTUATION = "?!.;,";
+    const std::string punctuation = "?!.;,";
 
     return Split(
         ToLower(RemoveConsecutive(
-            Trim(ReplaceWithCharacter(input, PUNCTUATION, ' ')),
+            Trim(ReplaceWithCharacter(input, punctuation, ' ')),
             kSpaceCharacters)),
         ' ');
   }

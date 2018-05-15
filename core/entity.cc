@@ -175,12 +175,12 @@ struct RegistryImpl
 
 
   std::vector<EntityId>
-  View(const std::vector<ComponentId>& componentList)
+  View(const std::vector<ComponentId>& component_list)
   {
-    ASSERT(!componentList.empty());
+    ASSERT(!component_list.empty());
     bool                  first = true;
     std::vector<EntityId> r;
-    for(const auto c : componentList)
+    for(const auto c : component_list)
     {
       const auto v = components[c]->View();
       if(first)

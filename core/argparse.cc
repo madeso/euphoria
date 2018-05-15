@@ -332,7 +332,7 @@ namespace argparse
   Parser::AddFunction(const std::string& name, ArgumentCallback func)
   {
     ArgumentPtr arg(new FunctionArgument(func));
-    return insert(name, arg).Count(Count::None);
+    return Insert(name, arg).Count(Count::None);
   }
 
   ParseStatus
@@ -444,7 +444,7 @@ namespace argparse
   }
 
   Extra&
-  Parser::insert(const std::string& name, ArgumentPtr arg)
+  Parser::Insert(const std::string& name, ArgumentPtr arg)
   {
     if(IsOptional(name))
     {

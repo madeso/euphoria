@@ -12,7 +12,7 @@ LevenshteinDistance(const std::string& source, const std::string& target);
 
 // https://www.codeproject.com/Articles/13525/Fast-memory-efficient-Levenshtein-algorithm
 unsigned long
-FastLevenshteinDistance(const std::string& sRow, const std::string& sCol);
+FastLevenshteinDistance(const std::string& the_row, const std::string& the_col);
 
 
 #endif  // CORE_LEVENSHTEIN_H

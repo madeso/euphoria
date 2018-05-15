@@ -68,21 +68,21 @@ namespace base64
 
       ASSERT(size > 0);
 
-      auto          ret     = MemoryChunk::Alloc(size);
-      MemoryChunk&  decoded = *ret;
-      const auto&   inChars = input;
-      int           j       = 0;
-      unsigned long b[4]    = {
+      auto          ret      = MemoryChunk::Alloc(size);
+      MemoryChunk&  decoded  = *ret;
+      const auto&   in_chars = input;
+      int           j        = 0;
+      unsigned long b[4]     = {
           0,
       };
       for(fuint64 i = 0; i < input.size(); i += 4)
       {
         // This could be made faster (but more complicated) by precomputing
         // these index locations.
-        b[0]         = codes.find(inChars[i]);
-        b[1]         = codes.find(inChars[i + 1]);
-        b[2]         = codes.find(inChars[i + 2]);
-        b[3]         = codes.find(inChars[i + 3]);
+        b[0]         = codes.find(in_chars[i]);
+        b[1]         = codes.find(in_chars[i + 1]);
+        b[2]         = codes.find(in_chars[i + 2]);
+        b[3]         = codes.find(in_chars[i + 3]);
         decoded[j++] = static_cast<char>((b[0] << 2) | (b[1] >> 4));
         if(b[2] < 64)
         {

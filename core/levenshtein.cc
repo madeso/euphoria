@@ -113,47 +113,47 @@ LevenshteinDistance(const std::string& source, const std::string& target)
 }
 
 unsigned long
-FastLevenshteinDistance(const std::string& sRow, const std::string& sCol)
+FastLevenshteinDistance(const std::string& the_row, const std::string& the_col)
 {
-  const unsigned long RowLen = sRow.length();
-  const unsigned long ColLen = sCol.length();
+  const unsigned long row_length = the_row.length();
+  const unsigned long col_length = the_col.length();
 
-  if(RowLen == 0)
+  if(row_length == 0)
   {
-    return ColLen;
+    return col_length;
   }
 
-  if(ColLen == 0)
+  if(col_length == 0)
   {
-    return RowLen;
+    return row_length;
   }
 
-  std::unique_ptr<unsigned long[]> v0{new unsigned long[RowLen + 1]};
-  std::unique_ptr<unsigned long[]> v1{new unsigned long[RowLen + 1]};
+  std::unique_ptr<unsigned long[]> v0{new unsigned long[row_length + 1]};
+  std::unique_ptr<unsigned long[]> v1{new unsigned long[row_length + 1]};
 
-  for(unsigned long RowIdx = 0; RowIdx <= RowLen; RowIdx++)
+  for(unsigned long row_index = 0; row_index <= row_length; row_index++)
   {
-    v0[RowIdx] = RowIdx;
-    v1[RowIdx] = 0;
+    v0[row_index] = row_index;
+    v1[row_index] = 0;
   }
 
-  for(unsigned long ColIdx = 1; ColIdx <= ColLen; ColIdx++)
+  for(unsigned long col_index = 1; col_index <= col_length; col_index++)
   {
-    v1[0] = ColIdx;
+    v1[0] = col_index;
 
-    for(unsigned long RowIdx = 1; RowIdx <= RowLen; RowIdx++)
+    for(unsigned long row_index = 1; row_index <= row_length; row_index++)
     {
-      const int cost = sRow[RowIdx - 1] == sCol[ColIdx - 1] ? 0 : 1;
+      const int cost = the_row[row_index - 1] == the_col[col_index - 1] ? 0 : 1;
 
-      const unsigned long m_min = v0[RowIdx] + 1;
-      const unsigned long b     = v1[RowIdx - 1] + 1;
-      const unsigned long c     = v0[RowIdx - 1] + cost;
+      const unsigned long m_min = v0[row_index] + 1;
+      const unsigned long b     = v1[row_index - 1] + 1;
+      const unsigned long c     = v0[row_index - 1] + cost;
 
-      v1[RowIdx] = std::min(std::min(m_min, b), c);
+      v1[row_index] = std::min(std::min(m_min, b), c);
     }
 
     v0.swap(v1);
   }
 
-  return v0[RowLen];
+  return v0[row_length];
 }

@@ -16,7 +16,7 @@ LOG_SPECIFY_DEFAULT_LOGGER("engine.duk")
 
 
 std::vector<std::string>
-collect_types(duk_context* ctx, int index)
+CollectTypesOfVar(duk_context* ctx, int index)
 {
   std::vector<std::string> types;
 
@@ -137,7 +137,7 @@ collect_types(duk_context* ctx, int index)
 }
 
 std::string
-to_string(duk_context* ctx, int index)
+VarToString(duk_context* ctx, int index)
 {
   if(duk_is_number(ctx, index))
   {
@@ -151,7 +151,7 @@ to_string(duk_context* ctx, int index)
     return duk_safe_to_string(ctx, index);
   }
 
-  const auto types = collect_types(ctx, index);
+  const auto types = CollectTypesOfVar(ctx, index);
 
   std::vector<std::string> values;
   if(duk_is_object(ctx, index))
@@ -196,7 +196,7 @@ CollectDukError(duk_context* ctx, std::string* error)
   }
   else
   {
-    *error = to_string(ctx, -1);
+    *error = VarToString(ctx, -1);
   }
 
   if(Trim(*error).empty())
@@ -636,7 +636,7 @@ Duk::AsContext()
 }
 
 bool
-Duk::eval_string(
+Duk::EvalString(
     const std::string& line,
     const std::string& file,
     std::string*       error,
@@ -670,7 +670,7 @@ Duk::eval_string(
     {
       if(output)
       {
-        *output = to_string(ctx, -1);  // duk_safe_to_string(ctx, -1);
+        *output = VarToString(ctx, -1);  // duk_safe_to_string(ctx, -1);
       }
       ok = true;
     }
@@ -682,7 +682,7 @@ Duk::eval_string(
 
 
 int
-duk_print_function_callback(duk_context* ctx)
+DukPrintFunctionCallback(duk_context* ctx)
 {
   if(duk_is_constructor_call(ctx))
   {
@@ -711,7 +711,7 @@ duk_print_function_callback(duk_context* ctx)
     {
       ss << " ";
     }
-    ss << to_string(ctx, -arg);
+    ss << VarToString(ctx, -arg);
   }
 
   duk->on_print(ss.str());
@@ -720,11 +720,11 @@ duk_print_function_callback(duk_context* ctx)
 }
 
 void
-Duk::bind_print(std::function<void(const std::string&)> on_print)
+Duk::BindPrint(std::function<void(const std::string&)> on_print)
 {
   this->on_print = on_print;
 
-  duk_push_c_function(ctx, duk_print_function_callback, DUK_VARARGS);  // fun
+  duk_push_c_function(ctx, DukPrintFunctionCallback, DUK_VARARGS);  // fun
   duk_push_pointer(ctx, this);                             // fun pointer
   duk_put_prop_string(ctx, -2, DUK_HIDDEN_SYMBOL("duk"));  // fun
 
@@ -761,7 +761,7 @@ DescribeArguments(Context* ctx)
     const int index = -args + i;
 #if 1
     const std::string err = Str() << GetDukType(ctx, index) << "="
-                                  << to_string(ctx->ctx, index);
+                                  << VarToString(ctx->ctx, index);
     types.emplace_back(err);
 #else
     types.emplace_back(GetDukType(ctx, index));
@@ -780,7 +780,7 @@ GetFunctionProperty(duk_context* ctx, const char* name)
 
 template <bool TPushThis, bool TConstructor>
 int
-duk_generic_function_callback(duk_context* ctx)
+DukGenericFunctionCallback(duk_context* ctx)
 {
   if(TConstructor)
   {
@@ -894,7 +894,7 @@ Duk::BindGlobalFunction(const std::string& name, const Bind& bind)
   PlaceFunctionOnStack(
       ctx,
       CreateFunction(bind),
-      duk_generic_function_callback<false, false>,
+      DukGenericFunctionCallback<false, false>,
       this);
 
   const auto function_added = duk_put_global_string(ctx, name.c_str());
@@ -911,7 +911,7 @@ Duk::BindObject(const std::string& name, const ObjectBinder& bind)
     PlaceFunctionOnStack(
         ctx,
         CreateFunction(func.second),
-        duk_generic_function_callback<false, false>,
+        DukGenericFunctionCallback<false, false>,
         this);
 
     const auto function_added =
@@ -932,7 +932,7 @@ Duk::BindClass(const std::string& name, const ClassBinder& bind)
     PlaceFunctionOnStack(
         ctx,
         CreateFunction(bind.constructor),
-        duk_generic_function_callback<false, true>,
+        DukGenericFunctionCallback<false, true>,
         this);  // constructor
     const auto constructor_added = duk_put_global_string(ctx, name.c_str());
     ASSERTX(constructor_added == 1, constructor_added);
@@ -946,7 +946,7 @@ Duk::BindClass(const std::string& name, const ClassBinder& bind)
     PlaceFunctionOnStack(
         ctx,
         CreateFunction(func.second),
-        duk_generic_function_callback<true, false>,
+        DukGenericFunctionCallback<true, false>,
         this);  // proto func
     const auto function_added =
         duk_put_prop_string(ctx, prototype_index, func.first.c_str());  // proto
@@ -968,7 +968,7 @@ Duk::BindClass(const std::string& name, const ClassBinder& bind)
       PlaceFunctionOnStack(
           ctx,
           CreateFunction(getter),
-          duk_generic_function_callback<true, false>,
+          DukGenericFunctionCallback<true, false>,
           this,
           0);
       flags |= DUK_DEFPROP_HAVE_GETTER;
@@ -978,7 +978,7 @@ Duk::BindClass(const std::string& name, const ClassBinder& bind)
       PlaceFunctionOnStack(
           ctx,
           CreateFunction(setter),
-          duk_generic_function_callback<true, false>,
+          DukGenericFunctionCallback<true, false>,
           this,
           1);
       flags |= DUK_DEFPROP_HAVE_SETTER;

@@ -69,7 +69,7 @@ namespace chatbot
     }
 
     ResponseBuilder&
-    Input(const std::string& response, Input::Location where = Input::AT_START);
+    Input(const std::string& in, Input::Location where = Input::AT_START);
 
     ResponseBuilder&
     operator()(const std::string& response);

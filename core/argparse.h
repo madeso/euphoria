@@ -326,7 +326,7 @@ namespace argparse
         ConverterFunction<V> co = StandardConverter<V>)
     {
       ArgumentPtr arg(new ArgumentT<T, V>(var, combiner, co));
-      return insert(name, arg);
+      return Insert(name, arg);
     }
 
     Extra&
@@ -346,7 +346,7 @@ namespace argparse
     typedef std::shared_ptr<Argument> ArgumentPtr;
 
     Extra&
-    insert(const std::string& name, ArgumentPtr arg);
+    Insert(const std::string& name, ArgumentPtr arg);
 
     std::string description;
     std::string appname;

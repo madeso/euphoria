@@ -823,14 +823,14 @@ class Duk : private Context
   CreateGlobal(const std::string& name);
 
   bool
-  eval_string(
+  EvalString(
       const std::string& line,
       const std::string& file,
       std::string*       error,
       std::string*       output);
 
   void
-  bind_print(std::function<void(const std::string&)> on_print);
+  BindPrint(std::function<void(const std::string&)> on_print);
 
   void
   BindGlobalFunction(const std::string& name, const Bind& overloads);

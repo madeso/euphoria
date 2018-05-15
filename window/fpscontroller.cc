@@ -85,22 +85,22 @@ FpsController::Update(float delta)
   int up      = 0;
 
   if(forward_down_)
-    forward += 1;
+  {forward += 1;}
   if(backward_down_)
-    forward -= 1;
+  {forward -= 1;}
 
   if(right_down_)
-    right += 1;
+  {right += 1;}
   if(left_down_)
-    right -= 1;
+  {right -= 1;}
 
   if(up_down_)
-    up += 1;
+  {up += 1;}
   if(down_down_)
-    up -= 1;
+  {up -= 1;}
 
   if(forward == 0 && right == 0 && up == 0)
-    return;
+  {return;}
 
   const vec3f input =
       GetRotation().RightUpIn(vec3f(right, up, forward)).GetNormalized();

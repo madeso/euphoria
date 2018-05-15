@@ -30,7 +30,7 @@ namespace
     }
 
     std::string
-    fromKey(T key) const
+    FromKey(T key) const
     {
       auto r = keytostr.find(key);
       if(r == keytostr.end())
@@ -44,7 +44,7 @@ namespace
     }
 
     T
-    fromString(const std::string& keyname) const
+    FromString(const std::string& keyname) const
     {
       if(keyname == "")
       {
@@ -194,23 +194,23 @@ namespace
 std::string
 ToString(Key k)
 {
-  return AllKeys().fromKey(k);
+  return AllKeys().FromKey(k);
 }
 
 Key
 ToKey(const std::string& keyname)
 {
-  return AllKeys().fromString(keyname);
+  return AllKeys().FromString(keyname);
 }
 
 std::string
 ToString(MouseButton k)
 {
-  return AllMouseButtons().fromKey(k);
+  return AllMouseButtons().FromKey(k);
 }
 
 MouseButton
 ToMouseButton(const std::string& keyname)
 {
-  return AllMouseButtons().fromString(keyname);
+  return AllMouseButtons().FromString(keyname);
 }

@@ -11,7 +11,7 @@ namespace base64
   Encode(std::shared_ptr<MemoryChunk> memory);
 
   std::shared_ptr<MemoryChunk>
-  Decode(const std::string& data);
+  Decode(const std::string& input);
 }
 
 #endif  // EUPHORIA_BASE64_H

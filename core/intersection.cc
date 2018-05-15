@@ -1,7 +1,7 @@
 #include "core/intersection.h"
 
 RayIntersectionResult
-RayIntersectionResult_False()
+RayIntersectionResultFalse()
 {
   RayIntersectionResult r;
   r.intersected = false;
@@ -10,7 +10,7 @@ RayIntersectionResult_False()
 }
 
 RayIntersectionResult
-RayIntersectionResult_True(float start, float end)
+RayIntersectionResultTrue(float start, float end)
 {
   RayIntersectionResult r;
   r.intersected = true;
@@ -37,7 +37,7 @@ Intersect(const UnitRay3f& r, const Aabb& aabb)
 
   if((tmin > tymax) || (tymin > tmax))
   {
-    return RayIntersectionResult_False();
+    return RayIntersectionResultFalse();
   }
   if(tymin > tmin)
   {
@@ -53,7 +53,7 @@ Intersect(const UnitRay3f& r, const Aabb& aabb)
 
   if((tmin > tzmax) || (tzmin > tmax))
   {
-    return RayIntersectionResult_False();
+    return RayIntersectionResultFalse();
   }
 
   if(tzmin > tmin)
@@ -65,5 +65,5 @@ Intersect(const UnitRay3f& r, const Aabb& aabb)
     tmax = tzmax;
   }
 
-  return RayIntersectionResult_True(tmin, tmax);
+  return RayIntersectionResultTrue(tmin, tmax);
 }

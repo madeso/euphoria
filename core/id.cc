@@ -83,7 +83,7 @@ Id::Generate(IdGenerator* generator)
 }
 
 const IdGenerator::ID
-Id::value() const
+Id::GetValue() const
 {
   ASSERT(IsValid());
   return value_;

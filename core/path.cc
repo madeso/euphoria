@@ -4,12 +4,12 @@
 #include "core/stringutils.h"
 
 const char
-DIRECTORY_CHAR()
+DirectoryChar()
 {
   return '/';
 }
 std::string
-DIRECTORY_STRING()
+DirectoryString()
 {
   return "/";
 }
@@ -17,13 +17,13 @@ DIRECTORY_STRING()
 Path
 Path::FromDirectory(const std::string& path)
 {
-  if(path.empty() || EndsWith(path, DIRECTORY_STRING()))
+  if(path.empty() || EndsWith(path, DirectoryString()))
   {
     return Path{path};
   }
   else
   {
-    return Path{path + DIRECTORY_STRING()};
+    return Path{path + DirectoryString()};
   }
 }
 
@@ -55,7 +55,7 @@ Path::GetDirectory() const
   }
   else
   {
-    const auto dir_char = absolute_path_.rfind(DIRECTORY_CHAR());
+    const auto dir_char = absolute_path_.rfind(DirectoryChar());
     if(dir_char == std::string::npos)
     {
       // this is a root file, so return root directory
@@ -82,7 +82,7 @@ Path::GetParentDirectory() const
   // ASSERT(IsDirectory());
 
   const auto dir_char =
-      absolute_path_.rfind(DIRECTORY_CHAR(), absolute_path_.length() - 2);
+      absolute_path_.rfind(DirectoryChar(), absolute_path_.length() - 2);
   if(dir_char == std::string::npos)
   {
     // this is a root file, so return root directory
@@ -96,7 +96,7 @@ const Path
 Path::GetSubDirectory(const std::string& name) const
 {
   ASSERT(IsDirectory());
-  ASSERT(name.find(DIRECTORY_CHAR()) == std::string::npos);
+  ASSERT(name.find(DirectoryChar()) == std::string::npos);
 
   return FromDirectory(absolute_path_ + name);
 }
@@ -105,7 +105,7 @@ const Path
 Path::GetFile(const std::string& name) const
 {
   ASSERT(IsDirectory());
-  ASSERT(!EndsWith(name, DIRECTORY_STRING()));
+  ASSERT(!EndsWith(name, DirectoryString()));
 
   if(StartsWith(name, "~"))
   {

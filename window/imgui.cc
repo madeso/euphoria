@@ -27,8 +27,8 @@ ImGuiColorEdit3(const char* const name, Rgb* rgb)
 void
 ImguiImage(Texture2d* texture)
 {
-  auto        tex_w  = (float)texture->GetWidth();
-  auto        tex_h  = (float)texture->GetHeight();
+  auto        tex_w  = static_cast<float>(texture->GetWidth());
+  auto        tex_h  = static_cast<float>(texture->GetHeight());
   ImTextureID tex_id = reinterpret_cast<ImTextureID>(texture->GetId());
 
   ImVec2 tex_screen_pos = ImGui::GetCursorScreenPos();
@@ -46,14 +46,22 @@ ImguiImage(Texture2d* texture)
     float focus_sz = 32.0f;
     float focus_x = ImGui::GetMousePos().x - tex_screen_pos.x - focus_sz * 0.5f;
     if(focus_x < 0.0f)
+    {
       focus_x = 0.0f;
+    }
     else if(focus_x > tex_w - focus_sz)
-      focus_x     = tex_w - focus_sz;
+    {
+      focus_x = tex_w - focus_sz;
+    }
     float focus_y = ImGui::GetMousePos().y - tex_screen_pos.y - focus_sz * 0.5f;
     if(focus_y < 0.0f)
+    {
       focus_y = 0.0f;
+    }
     else if(focus_y > tex_h - focus_sz)
+    {
       focus_y = tex_h - focus_sz;
+    }
     ImGui::Text("Min: (%.2f, %.2f)", focus_x, focus_y);
     ImGui::Text("Max: (%.2f, %.2f)", focus_x + focus_sz, focus_y + focus_sz);
     ImVec2 uv0 = ImVec2((focus_x) / tex_w, (focus_y) / tex_h);

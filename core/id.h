@@ -42,7 +42,7 @@ class Id
   Generate(IdGenerator* generator);
 
   const IdGenerator::ID
-  value() const;
+  GetValue() const;
 
  private:
   IdGenerator::ID value_;
