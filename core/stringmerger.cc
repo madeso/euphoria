@@ -44,57 +44,57 @@ StringMerger::Generate(const std::vector<std::string>& strings) const
 const StringMerger&
 StringMerger::EnglishAnd()
 {
-  static const StringMerger s_EnglishAnd =
+  static const StringMerger EnglishAnd =
       StringMerger().SetSeparator(", ", " and ").SetEmpty("<none>");
-  return s_EnglishAnd;
+  return EnglishAnd;
 }
 
 const StringMerger&
 StringMerger::EnglishOr()
 {
-  static const StringMerger s_EnglishOr =
+  static const StringMerger EnglishOr =
       StringMerger().SetSeparator(", ", " or ").SetEmpty("<none>");
-  return s_EnglishOr;
+  return EnglishOr;
 }
 
 const StringMerger&
 StringMerger::Array()
 {
-  static const StringMerger s_Array =
+  static const StringMerger Array =
       StringMerger().SetSeparator(", ").SetStartAndEnd("[", "]");
-  return s_Array;
+  return Array;
 }
 
 const StringMerger&
 StringMerger::FunctionCall()
 {
-  static const StringMerger s_FunctionCall =
+  static const StringMerger FunctionCall =
       StringMerger().SetSeparator(", ").SetStartAndEnd("(", ")");
-  return s_FunctionCall;
+  return FunctionCall;
 }
 
 const StringMerger&
 StringMerger::DashForEach()
 {
-  static const StringMerger s_FunctionCall =
+  static const StringMerger DashForEach =
       StringMerger().SetSeparator("\n  - ").SetStartAndEnd("\n  - ", "");
-  return s_FunctionCall;
+  return DashForEach;
 }
 
 const StringMerger&
 StringMerger::Space()
 {
-  static const StringMerger s_Array =
+  static const StringMerger Space =
       StringMerger().SetSeparator(" ").SetStartAndEnd("", "");
-  return s_Array;
+  return Space;
 }
 
 const StringMerger&
 StringMerger::QuotedSpace()
 {
-  static const StringMerger s_Array =
+  static const StringMerger QuotedSpace =
       StringMerger().SetSeparator(" ").SetStartAndEnd("\"", "\"");
-  return s_Array;
+  return QuotedSpace;
 }
 
 StringMerger&

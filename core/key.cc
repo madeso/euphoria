@@ -70,7 +70,7 @@ namespace
   const Keyname<Key>&
   AllKeys()
   {
-    static Keyname<Key> names = Keyname<Key>(Key::UNBOUND, Key::INVALID)(
+    static Keyname<Key> Names = Keyname<Key>(Key::UNBOUND, Key::INVALID)(
         Key::RETURN, "Return")(Key::ESCAPE, "Escape")(
         Key::BACKSPACE, "Backspace")(Key::TAB, "Tab")(Key::SPACE, "Space")(
         Key::EXCLAIM, "Exclaim")(Key::QUOTEDBL, "Quotedbl")(Key::HASH, "Hash")(
@@ -176,17 +176,17 @@ namespace
         Key::KEYBOARD_ILLUM_DOWN, "Kbdillumdown")(
         Key::KEYBOARD_ILLUM_UP, "Kbdillumup")(Key::EJECT, "Eject")(
         Key::SLEEP, "Sleep");
-    return names;
+    return Names;
   }
 
   const Keyname<MouseButton>&
   AllMouseButtons()
   {
-    static Keyname<MouseButton> buttons = Keyname<MouseButton>(
+    static Keyname<MouseButton> Buttons = Keyname<MouseButton>(
         MouseButton::UNBOUND, MouseButton::INVALID)(MouseButton::LEFT, "left")(
         MouseButton::MIDDLE, "middle")(MouseButton::RIGHT, "right")(
         MouseButton::X1, "x1")(MouseButton::X2, "x2");
-    return buttons;
+    return Buttons;
   }
 
 }  // namespace

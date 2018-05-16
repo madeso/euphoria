@@ -122,8 +122,8 @@ namespace
   const TextureId*&
   GetCurrentShader()
   {
-    static const TextureId* s_CurrentShader = nullptr;
-    return s_CurrentShader;
+    static const TextureId* CurrentShader = nullptr;
+    return CurrentShader;
   }
 }  // namespace
 

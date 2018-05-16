@@ -130,7 +130,7 @@ namespace  // local
 
 namespace
 {
-  const unsigned int kAssimpFlags =
+  const unsigned int AssimpFlags =
       aiProcess_CalcTangentSpace | aiProcess_Triangulate |
       aiProcess_SortByPType | aiProcess_FlipUVs | aiProcess_GenUVCoords |
       aiProcess_TransformUVCoords | aiProcess_OptimizeMeshes |
@@ -300,7 +300,7 @@ namespace
     Assimp::Importer importer;
 
     const aiScene* scene = importer.ReadFileFromMemory(
-        nff.c_str(), nff.length() + 1, kAssimpFlags, format.c_str());
+        nff.c_str(), nff.length() + 1, AssimpFlags, format.c_str());
     if(scene == nullptr)
     {
       throw std::string{importer.GetErrorString()};
@@ -308,8 +308,8 @@ namespace
     return ConvertScene(scene);
   }
 
-  const char* const kFileFormatNff = "nff";
-  const char* const kFileFormatObj = "obj";
+  const char* const FileFormatNff = "nff";
+  const char* const FileFormatObj = "obj";
 
   void
   DecorateMeshMaterials(
@@ -391,7 +391,7 @@ namespace meshes
     Assimp::Importer importer;
     MeshLoadResult   res;
 
-    const aiScene* scene = importer.ReadFile(path, kAssimpFlags);
+    const aiScene* scene = importer.ReadFile(path, AssimpFlags);
     if(scene == nullptr)
     {
       res.error = importer.GetErrorString();
@@ -415,7 +415,7 @@ namespace meshes
   {
     std::ostringstream ss;
     ss << "shader " << texture << std::endl << "s 0 0 0 " << size;
-    return LoadFromString(ss.str(), kFileFormatNff);
+    return LoadFromString(ss.str(), FileFormatNff);
   }
 
   Mesh
@@ -454,7 +454,7 @@ namespace meshes
        << "f 4/1 8/2 7/3 3/4" << std::endl
        << "f 5/1 6/2 2/3 1/4" << std::endl;
 
-    auto box = LoadFromString(ss.str(), kFileFormatObj);
+    auto box = LoadFromString(ss.str(), FileFormatObj);
     return box;
   }
 }  // namespace meshes

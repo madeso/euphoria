@@ -88,8 +88,8 @@ namespace assertlib
   bool&
   ShouldThrow()
   {
-    static bool s_ShouldThrow = false;
-    return s_ShouldThrow;
+    static bool ShouldThrow = false;
+    return ShouldThrow;
   }
 
   void

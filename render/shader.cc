@@ -38,8 +38,8 @@ namespace
   const Shader*&
   GetCurrentShader()
   {
-    static const Shader* s_CurrentShader = nullptr;
-    return s_CurrentShader;
+    static const Shader* CurrentShader = nullptr;
+    return CurrentShader;
   }
 }  // namespace
 

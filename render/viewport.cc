@@ -12,8 +12,8 @@ namespace  // local
   Viewport*&
   ActiveViewport()
   {
-    static Viewport* s_ActiveViewport = nullptr;
-    return s_ActiveViewport;
+    static Viewport* ActiveViewport = nullptr;
+    return ActiveViewport;
   }
 }  // namespace
 

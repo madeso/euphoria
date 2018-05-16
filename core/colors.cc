@@ -158,8 +158,8 @@ namespace
   const std::map<std::string, Color>&
   StaticStringToColorMap()
   {
-    static const auto map = CreateStringToColorMap();
-    return map;
+    static const auto Map = CreateStringToColorMap();
+    return Map;
   }
 }
 

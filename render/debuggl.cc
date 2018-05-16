@@ -148,12 +148,12 @@ void APIENTRY
   }
 
   // only display the first 10
-  static int s_ErrorCount = 0;
-  if(s_ErrorCount > 10)
+  static int ErrorCount = 0;
+  if(ErrorCount > 10)
   {
     return;
   }
-  ++s_ErrorCount;
+  ++ErrorCount;
 
   std::cout << "---------------" << std::endl;
   std::cout << "Debug message (" << id << "): " << message << std::endl;

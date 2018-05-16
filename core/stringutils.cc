@@ -239,7 +239,7 @@ OpString(bool b, const std::string& str)
   }
   else
   {
-    static const std::string empty = "";
-    return empty;
+    static const std::string Empty = "";
+    return Empty;
   }
 }

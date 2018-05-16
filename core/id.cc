@@ -57,9 +57,9 @@ Id::Id(IdGenerator* generator)
 const Id&
 Id::Invalid()
 {
-  static Id invalid_value;
-  ASSERT(!invalid_value.IsValid());
-  return invalid_value;
+  static Id InvalidValue;
+  ASSERT(!InvalidValue.IsValid());
+  return InvalidValue;
 }
 
 Id::~Id()

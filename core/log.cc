@@ -63,8 +63,8 @@ namespace  // local
   std::map<std::string, std::shared_ptr<Logger>>&
   Storage()
   {
-    static std::map<std::string, std::shared_ptr<Logger>> s_Storage;
-    return s_Storage;
+    static std::map<std::string, std::shared_ptr<Logger>> Storage;
+    return Storage;
   }
 }  // namespace
 

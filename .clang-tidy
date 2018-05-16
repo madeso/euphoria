@@ -16,8 +16,6 @@ CheckOptions:
     value:           lower_case
   - key:             readability-identifier-naming.GlobalVariableCase
     value:           'CamelCase'
-  - key:             readability-identifier-naming.GlobalVariablePrefix
-    value:           'g_'
   - key:             readability-identifier-naming.PrivateMemberCase
     value:           lower_case
   - key:             readability-identifier-naming.NamespaceCase
@@ -28,10 +26,6 @@ CheckOptions:
     value:           lower_case
   - key:             readability-identifier-naming.GlobalConstantCase
     value:           CamelCase
-  - key:             readability-identifier-naming.GlobalConstantPrefix
-    value:           'k'
-  - key:             readability-identifier-naming.StaticVariablePrefix
-    value:           's_'
   - key:             readability-identifier-naming.StaticVariableCase
     value:           'CamelCase'
   - key:             readability-identifier-naming.MacroDefinitionCase
