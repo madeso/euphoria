@@ -5,7 +5,7 @@
 
 // vertex + uv + color
 const unsigned int QUAD_COUNT = 10;
-const unsigned int STRIDE    = 2 * 4 + 2 * 4 + 4 * 4;
+const unsigned int STRIDE     = 2 * 4 + 2 * 4 + 4 * 4;
 
 SpriteBatch::SpriteBatch()
     : inside_(false)

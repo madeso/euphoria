@@ -9,8 +9,7 @@ namespace attributes3d
   const ShaderAttribute&
   Vertex()
   {
-    static ShaderAttribute Attribute{
-        "aPosition", 1, ShaderAttributeSize::VEC3};
+    static ShaderAttribute Attribute{"aPosition", 1, ShaderAttributeSize::VEC3};
     return Attribute;
   }
 
@@ -24,8 +23,7 @@ namespace attributes3d
   const ShaderAttribute&
   TexCoord()
   {
-    static ShaderAttribute Attribute{
-        "aTexCoord", 3, ShaderAttributeSize::VEC2};
+    static ShaderAttribute Attribute{"aTexCoord", 3, ShaderAttributeSize::VEC2};
     return Attribute;
   }
 
