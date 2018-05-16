@@ -17,7 +17,11 @@ class DukIntegration
 {
  public:
   DukIntegration(
-      Systems* systems, World* reg, Duk* duk, ObjectCreator* creator, Components* components);
+      Systems*       systems,
+      World*         reg,
+      Duk*           duk,
+      ObjectCreator* creator,
+      Components*    components);
   ~DukIntegration();
 
   void

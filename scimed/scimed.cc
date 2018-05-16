@@ -12,8 +12,8 @@
 #include "scalingsprite.pb.h"
 #include "scimed/wxproto.h"
 
-constexpr int RULER_SIZE     = 20;
-constexpr int SIZER_DISTANCE = 20;
+constexpr int RulerSize     = 20;
+constexpr int SizerDistance = 20;
 
 class TrackingLine
 {
@@ -23,6 +23,7 @@ class TrackingLine
   {
     return TrackingLine();
   }
+
   static TrackingLine
   FromIndex(int index)
   {
@@ -32,28 +33,29 @@ class TrackingLine
   int
   GetIndex() const
   {
-    ASSERT(isValid_);
-    return index_;
+    ASSERT(is_valid);
+    return index;
   }
 
   operator bool() const
   {
-    return isValid_;
+    return is_valid;
   }
 
  private:
   TrackingLine()
-      : isValid_(false)
-      , index_(-1)
+      : is_valid(false)
+      , index(-1)
   {
   }
+
   TrackingLine(int index)
-      : isValid_(true)
-      , index_(index)
+      : is_valid(true)
+      , index(index)
   {
   }
-  bool isValid_;
-  int  index_;
+  bool is_valid;
+  int  index;
 };
 
 class TextRenderData
@@ -96,17 +98,17 @@ class LineData
 
 enum class PositionType
 {
-  ON_RULER,
-  ON_TEXT,
-  ON_IMAGE,
-  ON_OTHER
+  OnRuler,
+  OnText,
+  OnImage,
+  OnOther
 };
 
 class PositionClassification
 {
  public:
   PositionClassification()
-      : type(PositionType::ON_OTHER)
+      : type(PositionType::OnOther)
       , index(-1)
   {
   }
@@ -128,28 +130,28 @@ class Data
     const int image_end_y = image_start + static_cast<int>(image_size * scale_);
 
     const bool within_image = y > image_start && y < image_end_y;
-    const bool on_top_side = y < image_start - SIZER_DISTANCE && y > RULER_SIZE;
+    const bool on_top_side  = y < image_start - SizerDistance && y > RulerSize;
 
     const int dx = static_cast<int>((y - image_start) / scale_);
 
     if(on_top_side)
     {
       TextRenderData d = GetTextOver(dx);
-      return PositionClassification(PositionType::ON_TEXT, d.index);
+      return PositionClassification(PositionType::OnText, d.index);
     }
     else if(within_image)
     {
       TextRenderData d = GetTextOver(dx);
-      return PositionClassification(PositionType::ON_IMAGE, d.index);
+      return PositionClassification(PositionType::OnImage, d.index);
     }
-    else if(y < RULER_SIZE)
+    else if(y < RulerSize)
     {
       TextRenderData d = GetTextOver(dx);
-      return PositionClassification(PositionType::ON_RULER, d.index);
+      return PositionClassification(PositionType::OnRuler, d.index);
     }
     else
     {
-      return PositionClassification(PositionType::ON_OTHER, -1);
+      return PositionClassification(PositionType::OnOther, -1);
     }
   }
 
@@ -177,7 +179,9 @@ class Data
     for(int i : data)
     {
       if(i < 0)
+      {
         total += -i;
+      }
     }
     return total;
   }
@@ -206,7 +210,9 @@ class Data
       const LineData& data = lines[i];
       const int       l    = static_cast<int>(initial + scale * data.position);
       if(KindaTheSame(d, l))
+      {
         return TrackingLine::FromIndex(i);
+      }
     }
     return TrackingLine::Null();
   }
@@ -222,10 +228,14 @@ class Data
       const int          d = abs(i);
       std::ostringstream ss;
       if(i > 0)
+      {
         ss << i << "px";
+      }
       else
+      {
         ss << static_cast<float>(-i * 100.0f / total_percentage) << "%";
-      ret.push_back(TextRenderData(ss.str(), x, x + d, index));
+      }
+      ret.emplace_back(ss.str(), x, x + d, index);
       x += d;
     }
     return ret;
@@ -236,7 +246,7 @@ class Data
   {
     const auto     data = GetText();
     TextRenderData last("", -1, -1, 0);
-    for(const auto d : data)
+    for(const auto& d : data)
     {
       last = d;
       if(x < d.right)
@@ -354,8 +364,8 @@ class ImagePanel : public wxPanel
   wxImage  image;
   wxBitmap resized;
   int      w, h;
-  bool     displayImage_;
-  float    scale_;
+  bool     display_image;
+  float    scale;
 
   wxStockCursor last_cursor_;
   bool          left_mouse;
@@ -372,8 +382,8 @@ class ImagePanel : public wxPanel
  public:
   explicit ImagePanel(wxFrame* parent)
       : wxPanel(parent)
-      , displayImage_(false)
-      , scale_(8.0f)
+      , display_image(false)
+      , scale(8.0f)
       , last_cursor_(wxCURSOR_ARROW)
       , left_mouse(false)
       , last_left_mouse(false)
@@ -430,17 +440,17 @@ class ImagePanel : public wxPanel
   bool
   LoadImage(wxString file, wxBitmapType format)
   {
-    displayImage_ = image.LoadFile(file, format);
+    display_image = image.LoadFile(file, format);
     w             = -1;
     h             = -1;
-    // displayImage_ = true;
+    // display_image = true;
 
-    if(displayImage_)
+    if(display_image)
     {
       Refresh();
     }
 
-    return displayImage_;
+    return display_image;
   }
 
  private:
@@ -466,7 +476,7 @@ class ImagePanel : public wxPanel
     const std::pair<int, int> size = data.GetExtentsForRange(class_x.index);
     const int mouse_x = std::min(
         size.second - 1,
-        std::max(size.first + 1, static_cast<int>((x - image_x) / scale_)));
+        std::max(size.first + 1, static_cast<int>((x - image_x) / scale)));
     const int split_x = mouse_x - size.first;
     int       value   = data.data[class_x.index];
     const int sign    = Sign(value);
@@ -486,8 +496,8 @@ class ImagePanel : public wxPanel
       int                           x,
       int                           image_x)
   {
-    if(class_y.type == PositionType::ON_RULER &&
-       class_x.type == PositionType::ON_IMAGE)
+    if(class_y.type == PositionType::OnRuler &&
+       class_x.type == PositionType::OnImage)
     {
       DoSplitData(data, class_x, x, image_x);
     }
@@ -496,18 +506,22 @@ class ImagePanel : public wxPanel
   void
   OnMouseDouble(const wxMouseEvent& me)
   {
-    if(displayImage_ == false)
+    if(!display_image)
+    {
       return;
+    }
     const int x = me.GetX();
     const int y = me.GetY();
 
     const bool is_tracking = track_col || track_row;
 
     if(is_tracking)
+    {
       return;
+    }
 
-    const auto class_y = row.Classify(y, image_y, image.GetHeight(), scale_);
-    const auto class_x = col.Classify(x, image_x, image.GetWidth(), scale_);
+    const auto class_y = row.Classify(y, image_y, image.GetHeight(), scale);
+    const auto class_x = col.Classify(x, image_x, image.GetWidth(), scale);
 
     SplitData(col, class_y, class_x, me.GetX(), image_x);
     SplitData(row, class_x, class_y, me.GetY(), image_y);
@@ -516,8 +530,10 @@ class ImagePanel : public wxPanel
   void
   OnRightClick(const wxMouseEvent& me)
   {
-    if(displayImage_ == false)
+    if(!display_image)
+    {
       return;
+    }
 
     const int x = me.GetX();
     const int y = me.GetY();
@@ -525,23 +541,25 @@ class ImagePanel : public wxPanel
     const bool is_tracking = track_col || track_row;
 
     if(is_tracking)
+    {
       return;
+    }
 
-    const auto class_y = row.Classify(y, image_y, image.GetHeight(), scale_);
-    const auto class_x = col.Classify(x, image_x, image.GetWidth(), scale_);
+    const auto class_y = row.Classify(y, image_y, image.GetHeight(), scale);
+    const auto class_x = col.Classify(x, image_x, image.GetWidth(), scale);
 
     bool                     show = false;
-    static RightClickContext context;
-    context.Clear();
+    static RightClickContext Context;
+    Context.Clear();
 
     wxMenu mnu;
-    mnu.SetClientData(&context);
+    mnu.SetClientData(&Context);
 
     auto* hor_div = mnu.Append(RCE_NEW_DIVIDER_HOR, "New horizontal divider");
 
-    if(class_y.type == PositionType::ON_IMAGE)
+    if(class_y.type == PositionType::OnImage)
     {
-      context.hor = RightClickSplitData(&row, class_y, me.GetY(), image_y);
+      Context.hor = RightClickSplitData(&row, class_y, me.GetY(), image_y);
     }
     else
     {
@@ -550,9 +568,9 @@ class ImagePanel : public wxPanel
 
     auto* ver_div = mnu.Append(RCE_NEW_DIVIDER_VERT, "New vertical divider");
 
-    if(class_x.type == PositionType::ON_IMAGE)
+    if(class_x.type == PositionType::OnImage)
     {
-      context.vert = RightClickSplitData(&col, class_x, me.GetX(), image_x);
+      Context.vert = RightClickSplitData(&col, class_x, me.GetX(), image_x);
     }
     else
     {
@@ -626,8 +644,10 @@ class ImagePanel : public wxPanel
   void
   OnMouse(const wxMouseEvent& me)
   {
-    if(displayImage_ == false)
+    if(display_image == false)
+    {
       return;
+    }
     const int x = me.GetX();
     const int y = me.GetY();
 
@@ -638,9 +658,9 @@ class ImagePanel : public wxPanel
       if(left_mouse)
       {
         TrackUtil(
-            &row, &track_row, me.GetY(), image_y, scale_, image.GetHeight());
+            &row, &track_row, me.GetY(), image_y, scale, image.GetHeight());
         TrackUtil(
-            &col, &track_col, me.GetX(), image_x, scale_, image.GetWidth());
+            &col, &track_col, me.GetX(), image_x, scale, image.GetWidth());
       }
       else
       {
@@ -650,8 +670,8 @@ class ImagePanel : public wxPanel
     }
     else
     {
-      TrackingLine over_col = col.GetTracking(x, image_x, scale_);
-      TrackingLine over_row = row.GetTracking(y, image_y, scale_);
+      TrackingLine over_col = col.GetTracking(x, image_x, scale);
+      TrackingLine over_row = row.GetTracking(y, image_y, scale);
 
       const bool is_over = over_col || over_row;
 
@@ -665,20 +685,20 @@ class ImagePanel : public wxPanel
         else
         {
           const auto class_y =
-              row.Classify(y, image_y, image.GetHeight(), scale_);
+              row.Classify(y, image_y, image.GetHeight(), scale);
           const auto class_x =
-              col.Classify(x, image_x, image.GetWidth(), scale_);
+              col.Classify(x, image_x, image.GetWidth(), scale);
 
-          if(class_x.type == PositionType::ON_IMAGE)
+          if(class_x.type == PositionType::OnImage)
           {
-            if(class_y.type == PositionType::ON_TEXT)
+            if(class_y.type == PositionType::OnText)
             {
               col.data[class_x.index] = -col.data[class_x.index];
               Refresh();
             }
           }
-          if(class_y.type == PositionType::ON_IMAGE &&
-             class_x.type == PositionType::ON_TEXT)
+          if(class_y.type == PositionType::OnImage &&
+             class_x.type == PositionType::OnText)
           {
             row.data[class_y.index] = -row.data[class_y.index];
             Refresh();
@@ -722,7 +742,7 @@ class ImagePanel : public wxPanel
   void
   OnMouseWheel(const wxMouseEvent& me)
   {
-    if(displayImage_ == false)
+    if(display_image == false)
     {
       return;
     }
@@ -732,7 +752,7 @@ class ImagePanel : public wxPanel
     }
     const float scroll =
         me.GetWheelRotation() / static_cast<float>(me.GetWheelDelta());
-    scale_ = std::max(0.1f, std::min(scale_ + scroll * 0.1f, 10.0f));
+    scale = std::max(0.1f, std::min(scale + scroll * 0.1f, 10.0f));
 
     Refresh();
   }
@@ -756,9 +776,9 @@ class ImagePanel : public wxPanel
   void
   OnPaint(wxPaintEvent& evt)
   {
-    const bool useBuffer = false;
+    const bool use_buffer = false;
 
-    if(useBuffer)
+    if(use_buffer)
     {
       wxBufferedPaintDC bpdc(this);
       Draw(bpdc);
@@ -805,7 +825,7 @@ class ImagePanel : public wxPanel
   {
     wxGCDC gdc;
 
-    if(displayImage_ == false)
+    if(display_image == false)
     {
       return;
     }
@@ -834,8 +854,8 @@ class ImagePanel : public wxPanel
     int window_width, window_height;
     dc.GetSize(&window_width, &window_height);
 
-    const int w = static_cast<int>(image.GetWidth() * scale_);
-    const int h = static_cast<int>(image.GetHeight() * scale_);
+    const int w = static_cast<int>(image.GetWidth() * scale);
+    const int h = static_cast<int>(image.GetHeight() * scale);
 
     image_x = (window_width - w) / 2;
     image_y = (window_height - h) / 2;
@@ -857,18 +877,18 @@ class ImagePanel : public wxPanel
 
       for(auto v : vert)
       {
-        VerticalLine(dc, static_cast<int>(image_x + v.position * scale_));
+        VerticalLine(dc, static_cast<int>(image_x + v.position * scale));
       }
 
       for(auto h : hor)
       {
-        HorizontalLine(dc, static_cast<int>(image_y + h.position * scale_));
+        HorizontalLine(dc, static_cast<int>(image_y + h.position * scale));
       }
     }
 
     if(draw_sizer)
     {
-      const int distance    = SIZER_DISTANCE;
+      const int distance    = SizerDistance;
       const int anchor_size = 6;
 
       wxPen  sizer_pen(wxColour(0, 0, 0));
@@ -878,7 +898,7 @@ class ImagePanel : public wxPanel
       dc.SetFont(sizer_font);
 
       const int image_end_x =
-          image_x + static_cast<int>(image.GetWidth() * scale_);
+          image_x + static_cast<int>(image.GetWidth() * scale);
       const int anchor_y = image_y - distance;
       const int text_y   = anchor_y - 3;
 
@@ -887,27 +907,27 @@ class ImagePanel : public wxPanel
 
       DrawAnchorDown(dc, image_x, anchor_y, anchor_size);
       int end = image_end_x;
-      for(const auto t : col_text)
+      for(const auto& t : col_text)
       {
-        // DrawAnchorDown(dc, image_x + t.position * scale_, anchor_y,
+        // DrawAnchorDown(dc, image_x + t.position * scale, anchor_y,
         // anchor_size);
-        end = image_x + t.right * scale_;
+        end = image_x + t.right * scale;
       }
       dc.DrawLine(image_x, anchor_y, end, anchor_y);
       DrawAnchorDown(dc, end, anchor_y, anchor_size);
 
-      for(const auto t : col_text)
+      for(const auto& t : col_text)
       {
         DrawHorizontalCenteredText(
             dc,
-            image_x + t.left * scale_,
-            image_x + t.right * scale_,
+            image_x + t.left * scale,
+            image_x + t.right * scale,
             text_y,
             wxString::Format("%s", t.text.c_str()));
       }
 
       const int image_end_y =
-          image_y + static_cast<int>(image.GetHeight() * scale_);
+          image_y + static_cast<int>(image.GetHeight() * scale);
       const int anchor_x = image_x - distance;
       const int text_x   = anchor_x - 3;
 
@@ -916,9 +936,9 @@ class ImagePanel : public wxPanel
       end = image_end_y;
       for(const auto t : row_text)
       {
-        // DrawAnchorLeft(dc, anchor_x, image_y + t.position * scale_,
+        // DrawAnchorLeft(dc, anchor_x, image_y + t.position * scale,
         // anchor_size);
-        end = image_y + t.right * scale_;
+        end = image_y + t.right * scale;
       }
       dc.DrawLine(anchor_x, image_y, anchor_x, end);
       DrawAnchorLeft(dc, anchor_x, end, anchor_size);
@@ -927,8 +947,8 @@ class ImagePanel : public wxPanel
       {
         DrawVerticalCenteredText(
             dc,
-            image_y + t.left * scale_,
-            image_y + t.right * scale_,
+            image_y + t.left * scale,
+            image_y + t.right * scale,
             text_x,
             wxString::Format("%s", t.text.c_str()));
       }
@@ -936,7 +956,7 @@ class ImagePanel : public wxPanel
 
     if(draw_ruler)
     {
-      const int ruler_size      = RULER_SIZE;
+      const int ruler_size      = RulerSize;
       const int big_mark_size   = 15;
       const int small_mark_size = 5;
       const int mark_index      = 5;
@@ -965,7 +985,7 @@ class ImagePanel : public wxPanel
           ruler_size,
           0,
           window_width,
-          scale_,
+          scale,
           1);
       DrawTopRuler(
           dc,
@@ -976,7 +996,7 @@ class ImagePanel : public wxPanel
           ruler_size,
           0,
           window_width,
-          scale_,
+          scale,
           -1);
 
       DrawLeftRuler(
@@ -988,7 +1008,7 @@ class ImagePanel : public wxPanel
           ruler_size,
           0,
           window_height,
-          scale_,
+          scale,
           1);
       DrawLeftRuler(
           dc,
@@ -999,13 +1019,13 @@ class ImagePanel : public wxPanel
           ruler_size,
           0,
           window_height,
-          scale_,
+          scale,
           -1);
 
       dc.SetPen(*wxTRANSPARENT_PEN);
       dc.DrawRectangle(0, 0, ruler_size, ruler_size);
       dc.SetPen(mark_color);
-      wxString  zoom_text = wxString::Format("%.0fx", scale_);
+      wxString  zoom_text = wxString::Format("%.0fx", scale);
       const int zoom_x =
           (ruler_size - dc.GetTextExtent(zoom_text).GetWidth()) / 2;
       dc.DrawText(zoom_text, zoom_x, 4);
@@ -1029,9 +1049,13 @@ class ImagePanel : public wxPanel
     {
       const int x = image_x + static_cast<int>(index * scale_);
       if(x < 0 && step < 0)
+      {
         return;
+      }
       if(x > end_index)
+      {
         return;
+      }
       const bool big_size = index % mark_index == 0;
       const int  size     = (big_size) ? big_mark_size : small_mark_size;
       dc.DrawLine(x, ruler_size - size, x, ruler_size);
@@ -1062,9 +1086,13 @@ class ImagePanel : public wxPanel
     {
       const int y = image_y + static_cast<int>(index * scale_);
       if(y < 0 && step < 0)
+      {
         return;
+      }
       if(y > end_index)
+      {
         return;
+      }
       const bool big_size = index % mark_index == 0;
       const int  size     = (big_size) ? big_mark_size : small_mark_size;
       dc.DrawLine(ruler_size - size, y, ruler_size, y);
@@ -1109,15 +1137,15 @@ class MyFrame : public wxFrame
  public:
   MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
       : wxFrame(NULL, wxID_ANY, title, pos, size)
-      , title_(title)
+      , title(title)
   {
     SetMenuBar(CreateMenuBar());
     CreateStatusBar();
     SetStatusText("");
 
     wxBoxSizer* sizer = new wxBoxSizer(wxHORIZONTAL);
-    drawPane          = new ImagePanel(this);
-    sizer->Add(drawPane, 1, wxEXPAND);
+    draw_pane         = new ImagePanel(this);
+    sizer->Add(draw_pane, 1, wxEXPAND);
     SetSizer(sizer);
 
     Bind(wxEVT_COMMAND_MENU_SELECTED, &MyFrame::OnExit, this, wxID_EXIT);
@@ -1128,82 +1156,82 @@ class MyFrame : public wxFrame
   }
 
  private:
-  ImagePanel*                  drawPane;
-  wxString                     title_;
-  wxString                     filename_;
-  scalingsprite::ScalingSprite data_;
+  ImagePanel*                  draw_pane;
+  wxString                     title;
+  wxString                     filename;
+  scalingsprite::ScalingSprite data;
 
   void
   UpdateTitle()
   {
-    if(filename_.IsEmpty())
+    if(filename.IsEmpty())
     {
-      SetTitle(title_);
+      SetTitle(title);
     }
     else
     {
-      SetTitle(title_ + " - " + filename_);
+      SetTitle(title + " - " + filename);
     }
   }
 
   wxMenu*
   CreateFileMenu()
   {
-    wxMenu* menuFile = new wxMenu;
-    menuFile->Append(wxID_OPEN);
-    menuFile->Append(wxID_SAVE);
-    menuFile->Append(wxID_SAVEAS);
-    menuFile->AppendSeparator();
-    menuFile->Append(wxID_EXIT);
-    return menuFile;
+    wxMenu* menu_file = new wxMenu;
+    menu_file->Append(wxID_OPEN);
+    menu_file->Append(wxID_SAVE);
+    menu_file->Append(wxID_SAVEAS);
+    menu_file->AppendSeparator();
+    menu_file->Append(wxID_EXIT);
+    return menu_file;
   }
 
   wxMenu*
   CreateHelpMenu()
   {
-    wxMenu* menuHelp = new wxMenu;
-    menuHelp->Append(wxID_ABOUT);
-    return menuHelp;
+    wxMenu* menu_help = new wxMenu;
+    menu_help->Append(wxID_ABOUT);
+    return menu_help;
   }
 
   wxMenuBar*
   CreateMenuBar()
   {
-    wxMenuBar* menuBar = new wxMenuBar;
-    menuBar->Append(CreateFileMenu(), "&File");
-    menuBar->Append(CreateHelpMenu(), "&Help");
-    return menuBar;
+    wxMenuBar* menu_bar = new wxMenuBar;
+    menu_bar->Append(CreateFileMenu(), "&File");
+    menu_bar->Append(CreateHelpMenu(), "&Help");
+    return menu_bar;
   }
 
   void
   OnSave(wxCommandEvent& event)
   {
-    if(filename_.IsEmpty())
+    if(filename.IsEmpty())
     {
       OnSaveAs(event);
       return;
     }
 
     // do saving...
-    drawPane->GetRect(&data_);
-    SaveProtoText(data_, filename_ + ".txt");
+    draw_pane->GetRect(&data);
+    SaveProtoText(data, filename + ".txt");
   }
 
   void
   OnSaveAs(wxCommandEvent& event)
   {
-    wxFileDialog saveFileDialog(
+    wxFileDialog dialog(
         this,
         _("Save scim file"),
         "",
         "",
         "SCIM files (*.png)|*.png",
         wxFD_SAVE | wxFD_OVERWRITE_PROMPT);
-    if(saveFileDialog.ShowModal() == wxID_CANCEL)
+    if(dialog.ShowModal() == wxID_CANCEL)
     {
       return;
     }
-    filename_ = saveFileDialog.GetPath();
+    filename = dialog.GetPath();
     UpdateTitle();
     OnSave(event);
   }
@@ -1211,29 +1239,29 @@ class MyFrame : public wxFrame
   void
   OnOpen(wxCommandEvent& event)
   {
-    wxFileDialog openFileDialog(
+    wxFileDialog dialog(
         this,
         _("Open scim file"),
         "",
         "",
         "SCIM files (*.png)|*.png",
         wxFD_OPEN | wxFD_FILE_MUST_EXIST);
-    if(openFileDialog.ShowModal() == wxID_CANCEL)
+    if(dialog.ShowModal() == wxID_CANCEL)
     {
       return;
     }
 
-    if(drawPane->LoadImage(openFileDialog.GetPath(), wxBITMAP_TYPE_PNG))
+    if(draw_pane->LoadImage(dialog.GetPath(), wxBITMAP_TYPE_PNG))
     {
-      filename_ = openFileDialog.GetPath();
+      filename = dialog.GetPath();
 
-      data_ = scalingsprite::ScalingSprite();
-      LoadProtoText(&data_, filename_ + ".txt");
-      drawPane->SetRect(data_);
+      data = scalingsprite::ScalingSprite();
+      LoadProtoText(&data, filename + ".txt");
+      draw_pane->SetRect(data);
     }
     else
     {
-      filename_ = "";
+      filename = "";
     }
     UpdateTitle();
   }

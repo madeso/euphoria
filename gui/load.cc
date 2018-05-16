@@ -54,7 +54,7 @@ GetLayout(const gui::Layout& c)
 class CmdButton : public Button
 {
  public:
-  CmdButton(UiState* state)
+  explicit CmdButton(UiState* state)
       : Button(state)
   {
   }
@@ -140,7 +140,7 @@ CreateWidget(
         state, &l->container, w.panel().container(), cache, skins);
   }
 
-  ASSERT(ret.get());
+  ASSERT(ret);
 
   // load basic widget data
   ret->name    = w.name();

@@ -115,10 +115,10 @@ struct DukIntegrationPimpl
                 Bind{}.bind<std::vector<ComponentId>>(
                     [&](Context*                        ctx,
                         const std::vector<ComponentId>& types) -> int {
-                      return ctx->ReturnArray(registry.entities(types));
+                      return ctx->ReturnArray(registry.EntityView(types));
                     }))
             .AddFunction("GetSpriteId", Bind{}.bind([&](Context* ctx) -> int {
-              return ctx->Return(registry.getSpriteId());
+              return ctx->Return(registry.components->sprite);
             }))
             .AddFunction(
                 "DestroyEntity",
@@ -129,7 +129,7 @@ struct DukIntegrationPimpl
                     }))
             .AddFunction(
                 "GetPosition2Id", Bind{}.bind([&](Context* ctx) -> int {
-                  return ctx->Return(registry.getPosition2dId());
+                  return ctx->Return(registry.components->position2);
                 }))
             .AddFunction(
                 "New",

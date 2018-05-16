@@ -83,14 +83,14 @@ bool
 BeginFixedOverlay(ImguiCorner corner, const std::string& title)
 {
   const int   corner_int = static_cast<int>(corner);
-  const float DISTANCE   = 10.0f;
+  const float distance   = 10.0f;
   const auto  size       = ImGui::GetIO().DisplaySize;
   ImVec2      window_pos =
       corner == ImguiCorner::Center
           ? ImVec2(size.x / 2, size.y / 2)
           : ImVec2(
-                (corner_int & 1) ? size.x - DISTANCE : DISTANCE,
-                (corner_int & 2) ? size.y - DISTANCE : DISTANCE);
+                (corner_int & 1) ? size.x - distance : distance,
+                (corner_int & 2) ? size.y - distance : distance);
   ImVec2 window_pos_pivot =
       corner == ImguiCorner::Center
           ? ImVec2(0.5f, 0.5f)

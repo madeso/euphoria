@@ -7,20 +7,25 @@
 class Widget;
 class SpriteRenderer;
 
-class Container {
-public:
+class Container
+{
+ public:
   Container();
   ~Container();
 
-  bool HasWidgets() const;
+  bool
+  HasWidgets() const;
 
-  void Add(std::shared_ptr<Widget> widget);
+  void
+  Add(std::shared_ptr<Widget> widget);
 
-  void Step(float dt);
+  void
+  Step(float dt);
 
-  void Render(SpriteRenderer* renderer) const;
+  void
+  Render(SpriteRenderer* renderer) const;
 
-protected:
+ protected:
   std::vector<std::shared_ptr<Widget>> widgets_;
 };
 

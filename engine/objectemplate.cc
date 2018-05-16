@@ -163,7 +163,7 @@ EntityId
 ObjectTemplate::CreateObject(const ObjectCreationArgs& args)
 {
   auto ent = args.world->reg.Create();
-  for(auto c : components)
+  for(const auto& c : components)
   {
     c->CreateComponent(args, ent);
   }

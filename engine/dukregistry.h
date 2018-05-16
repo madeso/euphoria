@@ -16,19 +16,13 @@ class DukRegistry
   DukRegistry(EntReg* r, Components* components);
 
   ComponentId
-  getPosition2dId();
-
-  ComponentId
-  getSpriteId();
-
-  ComponentId
   CreateNewId(const std::string& name, const FunctionVar& fv);
 
   bool
   GetCustomComponentByName(const std::string& name, ComponentId* id);
 
   std::vector<EntityId>
-  entities(const std::vector<ComponentId>& types);
+  EntityView(const std::vector<ComponentId>& types);
 
   DukValue
   GetProperty(EntityId ent, ComponentId comp);
@@ -49,7 +43,6 @@ class DukRegistry
     return reg->GetComponentOrNull<T>(ent, comp);
   }
 
- private:
   EntReg*     reg;
   Components* components;
   std::map<ComponentId, FunctionVar> scriptComponents;

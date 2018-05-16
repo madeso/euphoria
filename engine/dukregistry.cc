@@ -18,18 +18,6 @@ DukRegistry::DukRegistry(EntReg* r, Components* c)
 }
 
 ComponentId
-DukRegistry::getPosition2dId()
-{
-  return components->position2;
-}
-
-ComponentId
-DukRegistry::getSpriteId()
-{
-  return components->sprite;
-}
-
-ComponentId
 DukRegistry::CreateNewId(const std::string& name, const FunctionVar& fv)
 {
   const auto id        = reg->NewComponentType(name);
@@ -44,7 +32,7 @@ DukRegistry::GetCustomComponentByName(const std::string& name, ComponentId* id)
 }
 
 std::vector<EntityId>
-DukRegistry::entities(const std::vector<ComponentId>& types)
+DukRegistry::EntityView(const std::vector<ComponentId>& types)
 {
   return reg->View(types);
 }
@@ -54,7 +42,7 @@ DukRegistry::GetProperty(EntityId ent, ComponentId comp)
 {
   ASSERT(scriptComponents.find(comp) != scriptComponents.end());
   auto c = reg->GetComponent(ent, comp);
-  if(c.get() == nullptr)
+  if(c == nullptr)
   {
     return DukValue{};
   }
@@ -71,7 +59,7 @@ DukRegistry::SetProperty(EntityId ent, ComponentId comp, DukValue value)
   ASSERT(scriptComponents.find(comp) != scriptComponents.end());
 
   auto c = reg->GetComponent(ent, comp);
-  if(c.get() == nullptr)
+  if(c == nullptr)
   {
     auto d = std::make_shared<ScriptComponent>();
     d->val = value;

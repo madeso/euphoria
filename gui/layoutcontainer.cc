@@ -42,13 +42,13 @@ LayoutContainer::GetLayout()
 void
 LayoutContainer::DoLayout(Rectf area)
 {
-  ASSERT(layout_.get());
+  ASSERT(layout_);
   layout_->DoLayout(&widgets_, area);
 }
 
 Sizef
 LayoutContainer::CalculateMinimumArea() const
 {
-  ASSERT(layout_.get());
+  ASSERT(layout_);
   return layout_->CalculateMinimumArea(widgets_);
 }

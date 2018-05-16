@@ -181,8 +181,8 @@ main(int argc, char** argv)
   SetupOpenglDebug();
 
   // todo: update theese during runtime
-  std::string crash_message_string = "";
-  bool        has_crashed          = false;
+  std::string crash_message_string;
+  bool        has_crashed = false;
 
   Input input;
 
@@ -247,8 +247,8 @@ main(int argc, char** argv)
       Recti::FromWidthHeight(width, height).SetBottomLeftToCopy(0, 0)};
   viewport.Activate();
 
-  Uint64 NOW  = SDL_GetPerformanceCounter();
-  Uint64 LAST = 0;
+  Uint64 now  = SDL_GetPerformanceCounter();
+  Uint64 last = 0;
 
   SDL_StartTextInput();
 
@@ -263,9 +263,9 @@ main(int argc, char** argv)
 
   while(running)
   {
-    LAST           = NOW;
-    NOW            = SDL_GetPerformanceCounter();
-    const float dt = (NOW - LAST) * 1.0f / SDL_GetPerformanceFrequency();
+    last           = now;
+    now            = SDL_GetPerformanceCounter();
+    const float dt = (now - last) * 1.0f / SDL_GetPerformanceFrequency();
     SDL_Event   e;
 
     imgui.StartNewFrame();

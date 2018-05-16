@@ -21,5 +21,4 @@ class SdlTimer
 };
 
 
-
-#endif //EUPHORIA_TIMER_H
+#endif  // EUPHORIA_TIMER_H

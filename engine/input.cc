@@ -49,7 +49,7 @@ void
 Input::SetKeyState(Key key, float state)
 {
   // todo: move state to another class, and fix this loop
-  for(auto bind : binds)
+  for(const auto& bind : binds)
   {
     if(bind->key == key)
     {

@@ -32,8 +32,8 @@ LoadWorld(
 
   for(const auto& obj : json.objects())
   {
-    const auto name = obj.template_();
-    auto*      t    = creator->FindTemplate(name);
+    const auto& name = obj.template_();
+    auto*       t    = creator->FindTemplate(name);
     if(t == nullptr)
     {
       LOG_ERROR("Failed to find template named " << name);

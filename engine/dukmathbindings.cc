@@ -11,8 +11,8 @@ template <typename T>
 void
 BindVec2(Duk* duk, const std::string& name)
 {
-  typedef StoreValue<T> TStorage;
-  typedef vec2<T, TStorage> V;
+  using TStorage = StoreValue<T>;
+  using V        = vec2<T, TStorage>;
 
   duk->BindClass(
       name,

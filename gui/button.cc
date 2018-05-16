@@ -76,7 +76,7 @@ Sizef
 Button::CalculateMinimumSize() const
 {
   Sizef size = Sizef::FromWidthHeight(0, 0);
-  if(sprite_.get() != nullptr)
+  if(sprite_ != nullptr)
   {
     const Sizef ms = sprite_->GetMinimumSize();
     size.SetWidth(size.GetWidth() + ms.GetWidth());
@@ -107,7 +107,7 @@ Button::Render(SpriteRenderer* renderer) const
                                 )
                                        : skin_->button_idle);
     */
-    if(sprite_.get() != nullptr)
+    if(sprite_ != nullptr)
     {
       const auto rect = GetBackgroundRect();
 

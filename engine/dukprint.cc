@@ -12,5 +12,5 @@ LOG_SPECIFY_DEFAULT_LOGGER("duk")
 void
 AddPrint(Duk* duk)
 {
-  duk->BindPrint([](const std::string &str) { LOG_INFO(str); });
+  duk->BindPrint([](const std::string& str) { LOG_INFO(str); });
 }

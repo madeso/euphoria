@@ -49,7 +49,7 @@ TableLayout::CalculateMinimumArea(
   std::vector<float> width(expandable_cols_.size(), 0);
   std::vector<float> height(expandable_rows_.size(), 0);
 
-  for(auto w : widgets)
+  for(const auto& w : widgets)
   {
     const LayoutData& d = w->layout;
     const Sizef&      s = w->GetPreferredSize();
@@ -75,7 +75,7 @@ TableLayout::DoLayout(
   std::vector<float> width(expandable_cols_.size(), 0);
   std::vector<float> height(expandable_rows_.size(), 0);
 
-  for(auto w : *widgets)
+  for(const auto& w : *widgets)
   {
     const LayoutData& d = w->layout;
     const Sizef&      s = w->GetPreferredSize();
@@ -127,7 +127,7 @@ TableLayout::DoLayout(
     }
   }
 
-  for(auto w : *widgets)
+  for(const auto& w : *widgets)
   {
     const LayoutData& d       = w->layout;
     const auto        topleft = area.TopLeft();
@@ -165,12 +165,14 @@ SingleRowLayout::CalculateMinimumArea(
   float height = 0;
   bool  first  = false;
 
-  for(auto w : widgets)
+  for(const auto& w : widgets)
   {
     const auto& s = w->GetPreferredSize();
     width += s.GetWidth();
     if(!first)
+    {
       width += padding_;
+    }
     first = false;
     UpdateMax(&height, s.GetHeight());
   }
@@ -187,7 +189,7 @@ SingleRowLayout::DoLayout(
   LOG_INFO("Doing single row layout in " << area);
   const auto tl = area.TopLeft();
   float      x  = tl.x;
-  for(auto w : *widgets)
+  for(const auto& w : *widgets)
   {
     const auto& s = w->GetPreferredSize();
     w->SetRect(

@@ -4,8 +4,8 @@
 #include "core/assert.h"
 
 // vertex + uv + color
-const unsigned int QUAD_COUNT = 10;
-const unsigned int STRIDE     = 2 * 4 + 2 * 4 + 4 * 4;
+const unsigned int QuadCount = 10;
+const unsigned int Stride    = 2 * 4 + 2 * 4 + 4 * 4;
 
 SpriteBatch::SpriteBatch()
     : inside_(false)
@@ -14,8 +14,8 @@ SpriteBatch::SpriteBatch()
 {
   // the static casts are weird, but they stop clang-tidy from complaining about
   // 'misplaced widening casts'
-  data_.reserve(static_cast<size_t>(STRIDE) * QUAD_COUNT);
-  index_.reserve(static_cast<size_t>(6) * QUAD_COUNT);
+  data_.reserve(static_cast<size_t>(Stride) * QuadCount);
+  index_.reserve(static_cast<size_t>(6) * QuadCount);
 }
 
 SpriteBatch::~SpriteBatch() = default;
@@ -38,7 +38,7 @@ SpriteBatch::Quad(
 {
   ASSERT(inside_ && "batch need to be open");
 
-  if((count_ + 1) >= QUAD_COUNT)
+  if((count_ + 1) >= QuadCount)
   {
     Flush();
   }
