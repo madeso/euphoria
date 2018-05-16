@@ -21,13 +21,13 @@ class TrackingLine
   static TrackingLine
   Null()
   {
-    return TrackingLine();
+    return {};
   }
 
   static TrackingLine
   FromIndex(int index)
   {
-    return TrackingLine(index);
+    return {index};
   }
 
   int
