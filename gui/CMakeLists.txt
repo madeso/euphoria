@@ -13,3 +13,17 @@ target_link_libraries(gui
                       render
                       ${PROTOBUF_LIBRARIES}
                       )
+
+if(CLANG_TIDY_EXE)
+  # -fix
+  ADD_CUSTOM_TARGET(tidy-gui
+                    COMMAND ${CLANG_TIDY_EXE} -p=${CMAKE_BINARY_DIR} ${app_src}
+                    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
+endif()
+
+if(CLANG_FORMAT_EXE)
+  # -fix
+  ADD_CUSTOM_TARGET(format-gui
+                    COMMAND ${CLANG_FORMAT_EXE} -i ${app_src}
+                    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
+endif()

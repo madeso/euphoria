@@ -28,3 +28,17 @@ target_link_libraries(scimed
 if (APPLE)
     set_target_properties(scimed PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${MACOSX_BUNDLE_INFO_PLIST})
 endif ()
+
+if(CLANG_TIDY_EXE)
+  # -fix
+  ADD_CUSTOM_TARGET(tidy-scimed
+                    COMMAND ${CLANG_TIDY_EXE} -p=${CMAKE_BINARY_DIR} ${app_src}
+                    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
+endif()
+
+if(CLANG_FORMAT_EXE)
+  # -fix
+  ADD_CUSTOM_TARGET(format-scimed
+                    COMMAND ${CLANG_FORMAT_EXE} -i ${app_src}
+                    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
+endif()

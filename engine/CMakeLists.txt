@@ -38,3 +38,18 @@ if(CMAKE_COMPILER_IS_GNUCC)
   set_property(TARGET engine APPEND_STRING PROPERTY COMPILE_FLAGS -Wall)
 endif()
 
+if(CLANG_TIDY_EXE)
+  # -fix
+  ADD_CUSTOM_TARGET(tidy-engine
+                    COMMAND ${CLANG_TIDY_EXE} -p=${CMAKE_BINARY_DIR} ${app_src_glob}
+                    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
+endif()
+
+if(CLANG_FORMAT_EXE)
+  # -fix
+  ADD_CUSTOM_TARGET(format-engine
+                    COMMAND ${CLANG_FORMAT_EXE} -i ${app_src_glob}
+                    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
+endif()
+
+

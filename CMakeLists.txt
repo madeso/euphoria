@@ -117,16 +117,29 @@ add_subdirectory(chatbot_test)
 if(CLANG_TIDY_EXE)
   ADD_CUSTOM_TARGET(tidy)
   ADD_DEPENDENCIES(tidy
+                   tidy-base64
+                   tidy-chatbot
                    tidy-core
+                   tidy-demo
+                   tidy-engine
+                   tidy-gui
                    tidy-render
+                   tidy-scimed
+                   tidy-window
                    )
 endif()
 
 if(CLANG_FORMAT_EXE)
   ADD_CUSTOM_TARGET(format)
   ADD_DEPENDENCIES(format
+                   format-base64
+                   format-chatbot
                    format-core
-                   format-render
                    format-demo
+                   format-engine
+                   format-gui
+                   format-render
+                   format-scimed
+                   format-window
                    )
 endif()
