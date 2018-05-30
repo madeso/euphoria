@@ -2,3 +2,9 @@
 	path = external/imgui/imgui
 	url = git@github.com:ocornut/imgui.git
 	branch = origin/v1.51
+[submodule "external/gaf"]
+	path = external/gaf
+	url = git@github.com:madeso/gaf.git
+[submodule "external/rapidjson"]
+	path = external/rapidjson
+	url = git@github.com:Tencent/rapidjson.git
