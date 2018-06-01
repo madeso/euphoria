@@ -10,10 +10,21 @@
 #include <sstream>
 
 #include "gaf_scalingsprite.h"
-#include "scimed/wxproto.h"
 
 constexpr int RulerSize     = 20;
 constexpr int SizerDistance = 20;
+
+template <typename T>
+void
+SaveProtoText(const T& t, const std::string& path)
+{
+}
+
+template <typename T>
+void
+LoadProtoText(T* t, const std::string& path)
+{
+}
 
 class TrackingLine
 {
@@ -185,11 +196,12 @@ class Data
     }
     return total;
   }
+
   int
   GetSizeExceptForLine(int index) const
   {
     int r = 0;
-    for(int i = 0; i < data.size(); ++i)
+    for(unsigned int i = 0; i < data.size(); ++i)
     {
       if(i == index || i + i == index)
       {
@@ -201,11 +213,12 @@ class Data
     }
     return r;
   }
+
   TrackingLine
   GetTracking(int d, float initial, float scale) const
   {
     const auto lines = GetLines();
-    for(int i = 0; i < lines.size(); ++i)
+    for(unsigned int i = 0; i < lines.size(); ++i)
     {
       const LineData& data = lines[i];
       const int       l    = static_cast<int>(initial + scale * data.position);
@@ -222,7 +235,7 @@ class Data
     std::vector<TextRenderData> ret;
     const int                   total_percentage = GetTotalPercentage();
     int                         x                = 0;
-    for(int index = 0; index < data.size(); ++index)
+    for(unsigned int index = 0; index < data.size(); ++index)
     {
       const int          i = data[index];
       const int          d = abs(i);
@@ -285,25 +298,15 @@ class Data
   }
 
   void
-  Get(google::protobuf::RepeatedField<int>* d) const
+  Get(std::vector<int>* d) const
   {
-    d->Clear();
-    d->Reserve(data.size());
-    for(auto da : data)
-    {
-      d->Add(da);
-    }
+    *d = data;
   }
 
   void
-  Set(const google::protobuf::RepeatedField<int>& d)
+  Set(const std::vector<int>& d)
   {
-    data.resize(0);
-    data.reserve(d.size());
-    for(int da : d)
-    {
-      data.push_back(da);
-    }
+    data = d;
   }
 
   bool
@@ -405,15 +408,15 @@ class ImagePanel : public wxPanel
   void
   GetRect(scalingsprite::ScalingSprite* r)
   {
-    row.Get(r->mutable_rows());
-    col.Get(r->mutable_cols());
+    row.Get(&r->rows);
+    col.Get(&r->cols);
   }
 
   void
   SetRect(const scalingsprite::ScalingSprite& r)
   {
-    row.Set(r.rows());
-    col.Set(r.cols());
+    row.Set(r.rows);
+    col.Set(r.cols);
 
     if(row.IsOk() == false || col.IsOk() == false)
     {
@@ -1214,7 +1217,7 @@ class MyFrame : public wxFrame
 
     // do saving...
     draw_pane->GetRect(&data);
-    SaveProtoText(data, filename + ".txt");
+    SaveProtoText(data, (filename + ".txt").c_str().AsChar());
   }
 
   void
@@ -1256,7 +1259,7 @@ class MyFrame : public wxFrame
       filename = dialog.GetPath();
 
       data = scalingsprite::ScalingSprite();
-      LoadProtoText(&data, filename + ".txt");
+      LoadProtoText(&data, (filename + ".txt").c_str().AsChar());
       draw_pane->SetRect(data);
     }
     else
