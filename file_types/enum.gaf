@@ -1,6 +1,6 @@
 package enumlist;
 
-message Enumroot
+struct Enumroot
 {
-  repeated string name = 1;
+  string name[];
 }

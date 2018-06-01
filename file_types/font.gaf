@@ -1,32 +1,32 @@
 package font;
 
-message FontFile {
-  optional string file = 1;
-  optional string characters = 2;
+struct FontFile {
+  string file;
+  string characters;
 }
 
-message SingleImage {
-  optional string file = 1;
-  optional string alias = 2;
-  optional float scale = 3 [default=1];
-  optional int32 bearing_x = 4;
-  optional int32 bearing_y = 5;
-  optional int32 advance = 6;
+struct SingleImage {
+  string file;
+  string alias;
+  float scale = 1.0f;
+  int32 bearing_x;
+  int32 bearing_y;
+  int32 advance;
 }
 
-message Bultin {
-  optional int32 scale = 1 [default=1];
+struct Bultin {
+  int32 scale = 1;
 }
 
-message Source {
+struct Source {
   // only 1
-  optional FontFile font = 1;
-  optional SingleImage image = 2;
-  optional Bultin builtin = 3;
+  FontFile? font;
+  SingleImage? image;
+  Bultin? builtin;
   // add character from tilemap and images
 }
 
-message Root {
-  optional float size = 1;
-  repeated Source sources = 2;
+struct Root {
+  float size;
+  Source sources[];
 }

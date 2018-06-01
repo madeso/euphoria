@@ -9,7 +9,7 @@
 #include <vector>
 #include <sstream>
 
-#include "scalingsprite.pb.h"
+#include "gaf_scalingsprite.h"
 #include "scimed/wxproto.h"
 
 constexpr int RulerSize     = 20;

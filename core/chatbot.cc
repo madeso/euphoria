@@ -11,7 +11,7 @@
 #include "core/proto.h"
 #include "core/log.h"
 
-#include "chatbot.pb.h"
+#include "gaf_chatbot.h"
 
 LOG_SPECIFY_DEFAULT_LOGGER("core.chatbot")
 
@@ -282,18 +282,6 @@ namespace chatbot
   }
 }
 
-std::vector<std::string>
-ToStringVector(const ::google::protobuf::RepeatedPtrField<::std::string>& ss)
-{
-  std::vector<std::string> r;
-  r.reserve(ss.size());
-  for(const auto& s : ss)
-  {
-    r.emplace_back(s);
-  }
-  return r;
-}
-
 namespace
 {
   chatbot::Input::Location
@@ -301,13 +289,13 @@ namespace
   {
     switch(loc)
     {
-      case chat::LOCATION_IN_MIDDLE:
+      case chat::Location::IN_MIDDLE:
         return chatbot::Input::IN_MIDDLE;
-      case chat::LOCATION_AT_START:
+      case chat::Location::AT_START:
         return chatbot::Input::AT_START;
-      case chat::LOCATION_AT_END:
+      case chat::Location::AT_END:
         return chatbot::Input::AT_END;
-      case chat::LOCATION_ALONE:
+      case chat::Location::ALONE:
         return chatbot::Input::ALONE;
       default:
         DIE("Unhandled case");
@@ -327,42 +315,42 @@ ChatBot::LoadFromFile(FileSystem* fs, const std::string& path)
     return error;
   }
 
-  max_responses = root.max_responses();
+  max_responses = root.max_responses;
 
   database                  = chatbot::Database{};
-  database.signon           = ToStringVector(root.signon());
-  database.empty            = ToStringVector(root.empty());
-  database.no_response      = ToStringVector(root.no_response());
-  database.same_input       = ToStringVector(root.same_input());
-  database.similar_input    = ToStringVector(root.similar_input());
-  database.empty_repetition = ToStringVector(root.empty_repetition());
+  database.signon           = root.signon;
+  database.empty            = root.empty;
+  database.no_response      = root.no_response;
+  database.same_input       = root.same_input;
+  database.similar_input    = root.similar_input;
+  database.empty_repetition = root.empty_repetition;
 
   transposer = chatbot::Transposer{};
-  for(const auto& t : root.transposes())
+  for(const auto& t : root.transposes)
   {
-    transposer.Add(t.from(), t.to());
+    transposer.Add(t.from, t.to);
   }
 
-  for(const auto& r : root.responses())
+  for(const auto& r : root.responses)
   {
     chatbot::Response& response = database.CreateResponse();
-    response.ends_conversation  = r.ends_conversation();
-    for(const auto& topic : r.topics_required())
+    response.ends_conversation  = r.ends_conversation;
+    for(const auto& topic : r.topics_required)
     {
       response.topics_required.emplace_back(topic);
     }
-    for(const auto& rr : r.responses())
+    for(const auto& rr : r.responses)
     {
-      response.responses.emplace_back(rr.say());
+      response.responses.emplace_back(rr.say);
       auto& topics = response.responses.rbegin()->topics_mentioned;
-      for(const auto& topic : rr.topics_mentioned())
+      for(const auto& topic : rr.topics_mentioned)
       {
         topics.emplace_back(topic);
       }
     }
-    for(const auto& i : r.inputs())
+    for(const auto& i : r.inputs)
     {
-      response.inputs.emplace_back(i.input(), C(i.location()));
+      response.inputs.emplace_back(i.input, C(i.location));
     }
   }
 

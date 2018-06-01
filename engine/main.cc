@@ -42,7 +42,7 @@
 
 #include "imgui/imgui.h"
 
-#include "game.pb.h"
+#include "gaf_game.h"
 
 LOG_SPECIFY_DEFAULT_LOGGER("engine")
 
@@ -153,7 +153,7 @@ main(int argc, char** argv)
   int height = 600;
 
   SDL_Window* window = SDL_CreateWindow(
-      gamedata.title().c_str(),
+      gamedata.title.c_str(),
       SDL_WINDOWPOS_UNDEFINED,
       SDL_WINDOWPOS_UNDEFINED,
       width,
@@ -186,16 +186,16 @@ main(int argc, char** argv)
 
   Input input;
 
-  for(const auto& bind : gamedata.binds())
+  for(const auto& bind : gamedata.binds)
   {
-    auto key = ToKey(bind.key());
+    auto key = ToKey(bind.key);
     if(key == Key::INVALID)
     {
-      LOG_ERROR("Invalid key: " << bind.key());
+      LOG_ERROR("Invalid key: " << bind.key);
       key = Key::UNBOUND;
     }
 
-    input.Add(std::make_shared<BoundVar>(bind.name(), key));
+    input.Add(std::make_shared<BoundVar>(bind.name, key));
   }
 
   Shader shader;

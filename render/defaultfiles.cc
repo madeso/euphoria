@@ -7,7 +7,7 @@ SetupDefaultFiles(std::shared_ptr<FileSystemRootCatalog> catalog)
 {
   catalog->RegisterFileString(
       "default_shader.json",
-      R"(  {"has_light": true, "ambient": "uMaterial.ambient", "diffuse": "uMaterial.diffuse", "specular": "uMaterial.specular", "shininess": "uMaterial.shininess", "textures": [ {"texture": "Diffuse", "uniform": "uDiffuseMap"}, {"texture": "Specular", "uniform": "uSpecularMap"} ],   "default_texture": [ {"texture": "Diffuse", "path": "img-plain/white"}, {"texture": "Specular", "path": "img-plain/white"} ]        }  )");
+      R"(  {"has_light": true, "ambient": "uMaterial.ambient", "diffuse": "uMaterial.diffuse", "specular": "uMaterial.specular", "shininess": "uMaterial.shininess", "textures": [ {"texture": "Diffuse", "uniform": "uDiffuseMap"}, {"texture": "Specular", "uniform": "uSpecularMap"} ],   "default_textures": [ {"texture": "Diffuse", "path": "img-plain/white"}, {"texture": "Specular", "path": "img-plain/white"} ]        }  )");
   catalog->RegisterFileString(
       "default_shader.vert",
       "#version 330 core\n"
@@ -129,7 +129,7 @@ SetupDefaultFiles(std::shared_ptr<FileSystemRootCatalog> catalog)
 
   catalog->RegisterFileString(
       "basic_shader.json",
-      R"(  {"diffuse": "uDiffuse", "textures": []}  )");
+      R"(  {"diffuse": "uDiffuse", "has_light": false, "textures": [], "default_textures": []}  )");
   catalog->RegisterFileString(
       "basic_shader.vert",
       "#version 330 core\n"

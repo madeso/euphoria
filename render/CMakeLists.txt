@@ -34,10 +34,11 @@ set(src ${src} ${src_imgui})
 source_group("imgui" FILES ${src_imgui})
 
 include_directories(SYSTEM ${CMAKE_CURRENT_BINARY_DIR})
-PROTOBUF_GENERATE_CPP(PROTO_SRCS PROTO_HDRS
-  ../proto/scalingsprite.proto
-  ../proto/materialshader.proto
-  ../proto/font.proto
+SET(Gaf_CUSTOM_PREFIX gaf_)
+GAF_GENERATE_CPP(PROTO_SRCS PROTO_HDRS
+  ../file_types/scalingsprite.gaf
+  ../file_types/materialshader.gaf
+  ../file_types/font.gaf
   )
 set(src ${src} ${pbjson_src} ${PROTO_SRCS} ${PROTO_HDRS})
 
@@ -46,7 +47,6 @@ add_library(render STATIC ${src})
 target_link_libraries(render
                       core
                       ${OPENGL_LIBRARIES}
-                      ${PROTOBUF_LIBRARIES}
                       ${FREETYPE_LIBRARIES}
                       ${CMAKE_DL_LIBS}
                       )

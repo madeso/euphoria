@@ -1,19 +1,19 @@
 package mesh;
 
-message Texture
+struct Texture
 {
-  optional string type = 1;
-  optional string path = 2;
+  string type;
+  string path;
 }
 
-message Material
+struct Material
 {
-  optional string name = 1;
-  repeated Texture textures = 2;
+  string name;
+  Texture textures[];
 }
 
-message Mesh
+struct Mesh
 {
-  repeated Material materials = 1;
-  optional bool diffuse_and_ambient_are_same = 2 [default=true];
+  Material materials[];
+  bool diffuse_and_ambient_are_same = true;
 }

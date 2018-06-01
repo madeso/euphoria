@@ -5,17 +5,17 @@
 #include <utility>
 
 #include "core/assert.h"
-#include "core/proto.h"
 #include "core/str.h"
 #include "core/stringmerger.h"
 #include "core/stringutils.h"
+#include "core/proto.h"
 
 #ifdef assert
 #undef assert
 #endif
 #include <cassert>
 
-#include "enum.pb.h"
+#include "gaf_enum.h"
 
 EnumType::EnumType(std::string name)
     : name_(std::move(name))
@@ -170,7 +170,7 @@ LoadEnumType(EnumType* type, FileSystem* fs, const std::string& path)
   }
   else
   {
-    for(const auto& name : root.name())
+    for(const auto& name : root.name)
     {
       names.push_back(name);
     }

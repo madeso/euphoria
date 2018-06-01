@@ -5,74 +5,16 @@
 #include "core/assert.h"
 #include "core/filesystem.h"
 #include "core/str.h"
-#include "core/protojson.h"
 
-#include <pbjson.hpp>
 #include <rapidjson/error/en.h>
 #include <rapidjson/stream.h>
 #include <rapidjson/cursorstreamwrapper.h>
 
-#include <google/protobuf/text_format.h>
-
 #include <fstream>
 
-bool
-LoadProtoText(google::protobuf::Message* message, const std::string& file_name)
-{
-  ASSERT(message);
-  std::ifstream file(file_name.c_str());
-  if(!file)
-  {
-    return false;
-  }
-  std::string data(
-      (std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
-  const bool parse_result =
-      google::protobuf::TextFormat::ParseFromString(data, message);
-  return parse_result;
-}
-
-bool
-SaveProtoText(
-    const google::protobuf::Message& message, const std::string& file_name)
-{
-  // if (false == VerifyFileForWriting(file_name)) return false;
-
-  std::ofstream output(file_name.c_str());
-  std::string   data;
-  const bool    written_to_string =
-      google::protobuf::TextFormat::PrintToString(message, &data);
-  if(!written_to_string)
-  {
-    return false;
-  }
-  output << data;
-  return true;
-}
-
-bool
-LoadProtoBinary(
-    google::protobuf::Message* message, const std::string& file_name)
-{
-  std::fstream input(file_name.c_str(), std::ios::in | std::ios::binary);
-  const bool   parse_result = message->ParseFromIstream(&input);
-  return parse_result;
-}
-
-bool
-SaveProtoBinary(
-    const google::protobuf::Message& message, const std::string& file_name)
-{
-  std::fstream config_stream(
-      file_name.c_str(), std::ios::out | std::ios::trunc | std::ios::binary);
-  return message.SerializeToOstream(&config_stream);
-}
-
 std::string
-LoadProtoJson(
-    FileSystem*                fs,
-    google::protobuf::Message* message,
-    const std::string&         file_name)
+LoadProtoJson_Internal(
+    FileSystem* fs, rapidjson::Document* doc, const std::string& file_name)
 {
   std::string source;
 
@@ -83,7 +25,6 @@ LoadProtoJson(
                  << fs->GetRootsAsString();
   }
 
-  rapidjson::Document doc;
   // todo: look up insitu parsing
   // todo: look upo json/sjson parsing options
 
@@ -92,30 +33,35 @@ LoadProtoJson(
   InputStream             stream{ss};
   constexpr unsigned int  ParseFlags =
       rapidjson::kParseCommentsFlag | rapidjson::kParseTrailingCommasFlag;
-  doc.ParseStream<ParseFlags, rapidjson::UTF8<>, InputStream>(stream);
+  doc->ParseStream<ParseFlags, rapidjson::UTF8<>, InputStream>(stream);
 
-  if(doc.HasParseError())
+  if(doc->HasParseError())
   {
     // todo: add file and parse error to error
     return Str{} << "JSON parse error(" << stream.GetLine() << ":"
                  << stream.GetColumn()
-                 << "): " << rapidjson::GetParseError_En(doc.GetParseError());
+                 << "): " << rapidjson::GetParseError_En(doc->GetParseError());
   }
 
+#if 0
   std::string err;
-
   return protojson::ToProto(doc, message);
+#else
+  return "";
+#endif
 }
 
 std::string
 SaveProtoJson(
     const google::protobuf::Message& message, const std::string& file_name)
 {
+#if 0
   bool write_result = pbjson::pb2json_file(&message, file_name, true);
   if(!write_result)
   {
     return "Unable to write to file";
   }
+#endif
 
   return "";
 }

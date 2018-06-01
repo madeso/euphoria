@@ -9,7 +9,7 @@
 #include "render/shaderattribute3d.h"
 #include "render/light.h"
 
-#include "materialshader.pb.h"
+#include "gaf_materialshader.h"
 
 LOG_SPECIFY_DEFAULT_LOGGER("render.materialshader")
 
@@ -89,22 +89,22 @@ PostBuild(
     const materialshader::MaterialShader& material_shader_file,
     const std::string&                    path)
 {
-  sh->hasLight_ = material_shader_file.has_light();
+  sh->hasLight_ = material_shader_file.has_light;
 
-  for(const auto& texture : material_shader_file.textures())
+  for(const auto& texture : material_shader_file.textures)
   {
-    const auto uniform = sh->shader_.GetUniform(texture.uniform());
-    DEFINE_ENUM_VALUE(TextureType, texture_name, texture.texture());
+    const auto uniform = sh->shader_.GetUniform(texture.uniform);
+    DEFINE_ENUM_VALUE(TextureType, texture_name, texture.texture);
     LOG_INFO(
-        "Defining shader " << path << ": " << texture.uniform() << " to "
-                           << texture.texture());
+        "Defining shader " << path << ": " << texture.uniform << " to "
+                           << texture.texture);
     sh->bindings_.emplace_back(uniform, texture_name);
   }
 
-  for(const auto& texture : material_shader_file.default_texture())
+  for(const auto& texture : material_shader_file.default_textures)
   {
-    DEFINE_ENUM_VALUE(TextureType, texture_name, texture.texture());
-    sh->default_textures_.emplace_back(texture_name, texture.path());
+    DEFINE_ENUM_VALUE(TextureType, texture_name, texture.texture);
+    sh->default_textures_.emplace_back(texture_name, texture.path);
   }
 
   // todo: get the shader names from a trusted source
@@ -112,21 +112,21 @@ PostBuild(
   sh->view_       = sh->shader_.GetUniform("uView");
   sh->model_      = sh->shader_.GetUniform("uModel");
 
-  if(material_shader_file.has_ambient())
+  if(material_shader_file.ambient.empty())
   {
-    sh->ambient_ = sh->shader_.GetUniform(material_shader_file.ambient());
+    sh->ambient_ = sh->shader_.GetUniform(material_shader_file.ambient);
   }
-  if(material_shader_file.has_diffuse())
+  if(material_shader_file.diffuse.empty())
   {
-    sh->diffuse_ = sh->shader_.GetUniform(material_shader_file.diffuse());
+    sh->diffuse_ = sh->shader_.GetUniform(material_shader_file.diffuse);
   }
-  if(material_shader_file.has_specular())
+  if(material_shader_file.specular.empty())
   {
-    sh->specular_ = sh->shader_.GetUniform(material_shader_file.specular());
+    sh->specular_ = sh->shader_.GetUniform(material_shader_file.specular);
   }
-  if(material_shader_file.has_shininess())
+  if(material_shader_file.shininess.empty())
   {
-    sh->shininess_ = sh->shader_.GetUniform(material_shader_file.shininess());
+    sh->shininess_ = sh->shader_.GetUniform(material_shader_file.shininess);
   }
 
   if(sh->hasLight_)

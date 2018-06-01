@@ -7,15 +7,19 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+SET(Gaf_CUSTOM_ARGUMENTS_FROM_FILE ${CMAKE_CURRENT_SOURCE_DIR}/gaf_options.txt)
+
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH}
     "${CMAKE_CURRENT_SOURCE_DIR}/cmake-modules")
 
 find_package(OpenGL REQUIRED)
 
-find_package(Protobuf REQUIRED)
-include_directories(SYSTEM ${PROTOBUF_INCLUDE_DIRS})
+include(${CMAKE_CURRENT_SOURCE_DIR}/external/gaf/gaf.cmake)
 
-include_directories(SYSTEM ${CMAKE_CURRENT_SOURCE_DIR}/external/gsl-lite/include)
+include_directories(SYSTEM
+                    ${CMAKE_CURRENT_SOURCE_DIR}/external/gsl-lite/include
+                    ${CMAKE_CURRENT_SOURCE_DIR}/external/rapidjson/include
+                    )
 
 SET(MACOSX_BUNDLE_INFO_PLIST "${CMAKE_CURRENT_SOURCE_DIR}/osx-bundle.plist")
 
@@ -58,16 +62,6 @@ endif()
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 include_directories(SYSTEM ${CMAKE_CURRENT_BINARY_DIR})
-
-find_package(Protobuf REQUIRED)
-include_directories(${PROTOBUF_INCLUDE_DIRS})
-set(pbjson_src
-		${CMAKE_CURRENT_SOURCE_DIR}/external/pbjson/src/pbjson.cpp
-		${CMAKE_CURRENT_SOURCE_DIR}/external/pbjson/src/pbjson.hpp
-		${CMAKE_CURRENT_SOURCE_DIR}/external/pbjson/src/bin2ascii.h
-		)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/external/pbjson/src/)
-
 
 find_program(
   CLANG_TIDY_EXE

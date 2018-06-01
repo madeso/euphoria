@@ -11,7 +11,7 @@
 #include "render/texturecache.h"
 #include "render/spriterender.h"
 
-#include "scalingsprite.pb.h"
+#include "gaf_scalingsprite.h"
 #include "core/proto.h"
 
 #include "core/tablelayout.h"
@@ -21,8 +21,7 @@
 namespace
 {
   float
-  CopyData(
-      std::vector<float>* dest, const google::protobuf::RepeatedField<int>& src)
+  CopyData(std::vector<float>* dest, const std::vector<int>& src)
   {
     dest->reserve(src.size());
     float size = 0;
@@ -44,14 +43,18 @@ namespace
 }  // namespace
 
 ScalableSprite::ScalableSprite(
-    const std::string& path, const Sizef& size, TextureCache* cache)
+    FileSystem*        fs,
+    const std::string& path,
+    const Sizef&       size,
+    TextureCache*      cache)
     : texture_(cache->GetTexture(path))
 {
   scalingsprite::ScalingSprite sprite;
-  LoadProtoText(&sprite, path + ".txt");
 
-  max_row_ = CopyData(&rows_, sprite.rows());
-  max_col_ = CopyData(&cols_, sprite.cols());
+  LoadProtoJson(fs, &sprite, path + ".json");
+
+  max_row_ = CopyData(&rows_, sprite.rows);
+  max_col_ = CopyData(&cols_, sprite.cols);
 }
 
 ScalableSprite::~ScalableSprite() = default;

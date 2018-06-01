@@ -1,5 +1,5 @@
 {
   "objects": [
-    {"template": "player"}
+    {"template_name": "player", "properties": []}
   ]
 }

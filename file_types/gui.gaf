@@ -1,155 +1,157 @@
 package gui;
 
 enum InterpolationType {
-  Linear=1;
+  Linear,
 
   // Quadratic easing; p^2
-  QuadIn=11;
-  QuadOut=12;
-  Quad=13;
+  QuadIn,
+  QuadOut,
+  Quad,
 
   // Cubic easing; p^3
-  CubicIn=21;
-  CubicOut=22;
-  Cubic=23;
+  CubicIn,
+  CubicOut,
+  Cubic,
 
   // Quartic easing; p^4
-  QuartIn=31;
-  QuartOut=32;
-  Quart=33;
+  QuartIn,
+  QuartOut,
+  Quart,
 
   // Quintic easing; p^5
-  QuintIn=41;
-  QuintOut=42;
-  Quint=43;
+  QuintIn,
+  QuintOut,
+  Quint,
 
   // Sine wave easing; sin(p * PI/2
-  SineIn=51;
-  SineOut=52;
-  Sine=53;
+  SineIn,
+  SineOut,
+  Sine,
 
   // Circular easing; sqrt(1 - p^2
-  CircIn=61;
-  CircOut=62;
-  Circ=63;
+  CircIn,
+  CircOut,
+  Circ,
 
   // Exponential easing, base 2
-  ExpIn=71;
-  ExpOut=72;
-  Exp=73;
+  ExpIn,
+  ExpOut,
+  Exp,
 
   // Exponentially-damped sine wave easing
-  ElasticIn=81;
-  ElasticOut=82;
-  Elastic=83;
+  ElasticIn,
+  ElasticOut,
+  Elastic,
 
   // Overshooting cubic easing;
-  BackIn=91;
-  BackOut=92;
-  Back=93;
+  BackIn,
+  BackOut,
+  Back,
 
   // Exponentially-decaying bounce easing
-  BounceIn=101;
-  BounceOut=102;
-  Bounce=103;
+  BounceIn,
+  BounceOut,
+  Bounce
 }
 
-message Button {
-  optional string skin = 1 [default="default"];
-  optional string text = 2;
-  optional string command = 3;
+struct Button {
+  string skin = "default";
+  string text;
+  string command;
 }
 
-message Panel {
-  optional LayoutContainer container = 1;
-}
-
-message Lrtb
+struct Lrtb
 {
-  optional float left = 1;
-  optional float right = 2;
-  optional float top = 3;
-  optional float bottom = 4;
+  float left;
+  float right;
+  float top;
+  float bottom;
 }
 
-message Widget {
-  // common data
-  optional string name = 1;
+struct Panel;
 
-  optional int32 column = 10;
-  optional int32 row = 11;
-  optional float preferred_width = 12;
-  optional float preferred_height = 13;
-  optional Lrtb margin = 14;
-  optional Lrtb padding = 15;
+struct Widget {
+  // common data
+  string name;
+
+  int32 column;
+  int32 row;
+  float preferred_width;
+  float preferred_height;
+  Lrtb margin;
+  Lrtb padding;
 
 
   // implementations, only one is valid
-  optional Button button = 100;
-  optional Panel panel = 101;
+  Button? button;
+  Panel? panel;
 }
 
-message TableLayout {
-  repeated bool expanded_cols = 1;
-  repeated bool expanded_rows = 2;
-  optional float padding = 3;
+struct TableLayout {
+  bool expanded_cols[];
+  bool expanded_rows[];
+  float padding;
 }
 
-message SingleRowLayout {
-  optional float padding = 1;
+struct SingleRowLayout {
+  float padding;
 }
 
-message Layout {
+struct Layout {
   // only one is valid
-  optional TableLayout table = 1;
-  optional SingleRowLayout single_row = 2;
+  TableLayout? table;
+  SingleRowLayout? single_row;
 }
 
-message LayoutContainer {
-  optional Layout layout = 1;
-  repeated Widget widgets = 2;
+struct LayoutContainer {
+  Layout layout;
+  Widget widgets[];
 }
 
-message Rgb {
-  optional float r = 1  [default=1];
-  optional float g = 2  [default=1];
-  optional float b = 3  [default=1];
+struct Panel {
+  LayoutContainer container;
 }
 
-message ButtonState {
-  // optional string image = 1;
-  optional float scale = 2 [default=1];
-  optional Rgb image_color = 3;
-  optional Rgb text_color = 4;
-  optional float dx = 5;
-  optional float dy = 6;
-
-  optional InterpolationType interpolate_position = 100 [default=Linear];
-  optional float interpolate_position_time = 101 [default=0.1];
-
-  optional InterpolationType interpolate_color = 102 [default=Linear];
-  optional float interpolate_color_time = 103 [default=0.1];
-
-  optional InterpolationType interpolate_size = 104 [default=Linear];
-  optional float interpolate_size_time = 105 [default=0.1];
+struct Rgb {
+  float r = 1.0f;
+  float g = 1.0f;
+  float b = 1.0f;
 }
 
-message Skin {
-  optional string name = 1 [default="default"];
-  optional string font = 2;
-  optional float text_size = 3 [default = 12];
+struct ButtonState {
+  // string image;
+  float scale = 1.0f;
+  Rgb image_color;
+  Rgb text_color;
+  float dx;
+  float dy;
 
-  optional string button_image = 10;
-  optional ButtonState button_idle = 11;
-  optional ButtonState button_hot = 12;
-  optional ButtonState button_active_hot = 13;
+  InterpolationType interpolate_position = Linear;
+  float interpolate_position_time = 0.1f;
+
+  InterpolationType interpolate_color = Linear;
+  float interpolate_color_time = 0.1f;
+
+  InterpolationType interpolate_size = Linear;
+  float interpolate_size_time = 0.1f;
 }
 
-message File {
+struct Skin {
+  string name = "default";
+  string font;
+  float text_size = 12.0f;
+
+  string button_image;
+  ButtonState button_idle;
+  ButtonState button_hot;
+  ButtonState button_active_hot;
+}
+
+struct File {
   // common data
-  optional string cursor_image = 1;
-  optional string hover_image = 2;
+  string cursor_image;
+  string hover_image;
 
-  repeated Skin skins = 100;
-  optional LayoutContainer root = 101;
+  Skin skins[];
+  LayoutContainer root;
 }

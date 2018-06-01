@@ -9,7 +9,7 @@
 #include "engine/components.h"
 #include "engine/dukregistry.h"
 
-#include "game.pb.h"
+#include "gaf_game.h"
 
 LOG_SPECIFY_DEFAULT_LOGGER("engine.templates")
 
@@ -42,7 +42,7 @@ class PositionComponentCreator : public ComponentCreator
   Create(const game::vec2f& p, Components* components)
   {
     return std::make_shared<PositionComponentCreator>(
-        vec2f{p.x(), p.y()}, components);
+        vec2f{p.x, p.y}, components);
   }
 
   void
@@ -70,7 +70,7 @@ class SpriteComponentCreator : public ComponentCreator
       const game::Sprite& sprite, TextureCache* cache, Components* components)
   {
     auto ptr     = std::make_shared<SpriteComponentCreator>(components);
-    ptr->texture = cache->GetTexture(sprite.path());
+    ptr->texture = cache->GetTexture(sprite.path);
     return ptr;
   }
 
@@ -114,25 +114,25 @@ CreateCreator(
     TextureCache*          cache,
     Components*            components)
 {
-  if(comp.has_position())
+  if(comp.position)
   {
-    return PositionComponentCreator::Create(comp.position(), components);
+    return PositionComponentCreator::Create(*comp.position, components);
   }
-  else if(comp.has_sprite())
+  else if(comp.sprite)
   {
-    return SpriteComponentCreator::Create(comp.sprite(), cache, components);
+    return SpriteComponentCreator::Create(*comp.sprite, cache, components);
   }
-  else if(comp.has_custom())
+  else if(comp.custom)
   {
-    const auto& s = comp.custom();
+    const auto& s = *comp.custom;
     ComponentId id;
-    if(reg->GetCustomComponentByName(s.name(), &id))
+    if(reg->GetCustomComponentByName(s.name, &id))
     {
       return CustomComponentCreator::Create(id);
     }
     else
     {
-      LOG_ERROR("No custom component named " << s.name() << " was added.");
+      LOG_ERROR("No custom component named " << s.name << " was added.");
       return nullptr;
     }
   }
@@ -149,7 +149,7 @@ LoadObjectTemplate(
     TextureCache*         cache,
     Components*           components)
 {
-  for(const auto& comp : ct.components())
+  for(const auto& comp : ct.components)
   {
     auto c = CreateCreator(comp, reg, cache, components);
     if(c != nullptr)
@@ -176,10 +176,10 @@ ObjectTemplate::CreateObject(const ObjectCreationArgs& args)
 void
 LoadTemplatesButOnlyNames(const game::Game& json, ObjectCreator* temp)
 {
-  for(const auto& t : json.templates())
+  for(const auto& t : json.templates)
   {
     auto o = std::make_shared<ObjectTemplate>();
-    temp->templates.insert(std::make_pair(t.name(), o));
+    temp->templates.insert(std::make_pair(t.name, o));
   }
 }
 
@@ -191,14 +191,14 @@ LoadTemplates(
     TextureCache*     cache,
     Components*       components)
 {
-  for(const auto& t : json.templates())
+  for(const auto& t : json.templates)
   {
     auto o = std::make_shared<ObjectTemplate>();
 
-    auto fr = temp->templates.find(t.name());
+    auto fr = temp->templates.find(t.name);
     if(fr == temp->templates.end())
     {
-      temp->templates.insert(std::make_pair(t.name(), o));
+      temp->templates.insert(std::make_pair(t.name, o));
     }
     else
     {

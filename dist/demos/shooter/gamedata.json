@@ -15,7 +15,7 @@
       {"custom": {"name": "Player"}}
     ]},
     {"name": "shot", "components": [
-      {"position": {}},
+      {"position": {"x": 0, "y": 0}},
       {"sprite": {"path": "laserBlue07.png"}},
       {"custom": {"name": "MoveUp"}},
       {"custom": {"name": "TimeOut"}}

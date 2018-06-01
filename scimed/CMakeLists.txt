@@ -6,7 +6,8 @@ set(src ${app_src})
 source_group("" FILES ${app_src})
 
 include_directories(SYSTEM ${CMAKE_CURRENT_BINARY_DIR})
-PROTOBUF_GENERATE_CPP(SPRITE_PROTO_SRCS SPRITE_PROTO_HDRS ../proto/scalingsprite.proto)
+SET(Gaf_CUSTOM_PREFIX gaf_)
+GAF_GENERATE_CPP(SPRITE_PROTO_SRCS SPRITE_PROTO_HDRS ../file_types/scalingsprite.gaf)
 set(src ${src} ${SPRITE_PROTO_SRCS} ${SPRITE_PROTO_HDRS})
 set(src ${src} ${pbjson_src})
 
@@ -22,7 +23,6 @@ set_target_properties(scimed
 target_link_libraries(scimed
                       core
                       ${wxWidgets_LIBRARIES}
-                      ${PROTOBUF_LIBRARIES}
                       )
 
 if (APPLE)

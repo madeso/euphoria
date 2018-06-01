@@ -2,48 +2,48 @@ package chat;
 
 enum Location
 {
-  LOCATION_IN_MIDDLE = 1;
-  LOCATION_AT_START = 2;
-  LOCATION_AT_END = 3;
-  LOCATION_ALONE = 4;
+  IN_MIDDLE,
+  AT_START,
+  AT_END,
+  ALONE
 }
 
-message Input
+struct Input
 {
-  optional string input = 1;
-  optional Location location = 2;
+  string input;
+  Location location?;
 }
 
-message SingleResponse
+struct SingleResponse
 {
-  optional string say = 1;
-  repeated string topics_mentioned = 2;
+  string say;
+  string topics_mentioned[]?;
 }
 
-message Response
+struct Response
 {
-  repeated Input inputs = 1;
-  repeated SingleResponse responses = 2;
-  optional bool ends_conversation = 3;
-  repeated string topics_required = 4;
+  Input inputs[];
+  SingleResponse responses[];
+  bool ends_conversation?;
+  string topics_required[]?;
 }
 
-message Transpose
+struct Transpose
 {
-  optional string from = 1;
-  optional string to = 2;
+  string from;
+  string to;
 }
 
-message Root
+struct Root
 {
-  repeated string signon = 1;
-  repeated string empty = 2;
-  repeated string no_response = 3;
-  repeated string same_input = 4;
-  repeated string similar_input = 5;
-  repeated string empty_repetition = 6;
+  string signon[];
+  string empty[];
+  string no_response[];
+  string same_input[];
+  string similar_input[];
+  string empty_repetition[];
 
-  optional uint32 max_responses = 7;
-  repeated Response responses = 8;
-  repeated Transpose transposes = 9;
+  uint32 max_responses;
+  Response responses[];
+  Transpose transposes[];
 }

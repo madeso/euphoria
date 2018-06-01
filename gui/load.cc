@@ -17,37 +17,28 @@
 #include "gui/skin.h"
 #include "gui/root.h"
 
-#include "gui.pb.h"
+#include "gaf_gui.h"
 
 LOG_SPECIFY_DEFAULT_LOGGER("gui.load")
-
-template <typename T>
-std::vector<T>
-ToVector(const google::protobuf::RepeatedField<T>& a)
-{
-  std::vector<T> r;
-  for(const T& t : a)
-  {
-    r.push_back(t);
-  }
-  return r;
-}
 
 std::shared_ptr<Layout>
 GetLayout(const gui::Layout& c)
 {
-  if(c.has_table())
+  if(c.table)
   {
     LOG_INFO("Creating a table layout");
     return CreateTableLayout(
-        ToVector(c.table().expanded_rows()),
-        ToVector(c.table().expanded_cols()),
-        c.table().padding());
+        c.table->expanded_rows, c.table->expanded_cols, c.table->padding);
+  }
+  else if(c.single_row)
+  {
+    LOG_INFO("Creating a single row layout");
+    return CreateSingleRowLayout(c.single_row->padding);
   }
   else
   {
-    LOG_INFO("Creating a single row layout");
-    return CreateSingleRowLayout(c.single_row().padding());
+    LOG_ERROR("Missing a layout");
+    return CreateSingleRowLayout(0);
   }
 }
 
@@ -77,25 +68,26 @@ BuildLayoutContainer(
 void
 SetupLayout(LayoutData* data, const gui::Widget& src)
 {
-  data->SetColumn(src.column());
-  data->SetRow(src.row());
-  data->SetPreferredWidth(src.preferred_width());
-  data->SetPreferredHeight(src.preferred_height());
+  data->SetColumn(src.column);
+  data->SetRow(src.row);
+  data->SetPreferredWidth(src.preferred_width);
+  data->SetPreferredHeight(src.preferred_height);
 }
 
 Lrtb
 LrtbFromProt(const gui::Lrtb& lrtd)
 {
   Lrtb r;
-  r.left   = lrtd.left();
-  r.right  = lrtd.right();
-  r.top    = lrtd.top();
-  r.bottom = lrtd.bottom();
+  r.left   = lrtd.left;
+  r.right  = lrtd.right;
+  r.top    = lrtd.top;
+  r.bottom = lrtd.bottom;
   return r;
 }
 
 std::shared_ptr<Widget>
 CreateWidget(
+    FileSystem*        fs,
     UiState*           state,
     const gui::Widget& w,
     TextureCache*      cache,
@@ -103,12 +95,12 @@ CreateWidget(
 {
   std::shared_ptr<Widget> ret;
 
-  if(w.has_button())
+  if(w.button)
   {
     LOG_INFO("Creating a button widget");
-    CmdButton* b = new CmdButton(state);
+    auto* b = new CmdButton(state);
 
-    const std::string skin_name = w.button().skin();
+    const std::string skin_name = w.button->skin;
     const auto        skin_it   = skins.find(skin_name);
     if(skin_it != skins.end())
     {
@@ -116,36 +108,40 @@ CreateWidget(
     }
     else
     {
-      std::cerr << "Failed to find skin " << skin_name << "\n";
+      LOG_ERROR("Failed to find skin " << skin_name);
     }
     Skin* skin = skin_it->second;
 
     if(!skin_it->second->button_image.empty())
     {
       std::shared_ptr<ScalableSprite> sp(new ScalableSprite(
-          skin->button_image, Sizef::FromSquare(2.0f), cache));
+          fs, skin->button_image, Sizef::FromSquare(2.0f), cache));
       b->SetSprite(sp);
     }
     ret.reset(b);
-    b->cmd = w.button().command();
-    b->Text().SetString(w.button().text());
+    b->cmd = w.button->command;
+    b->Text().SetString(w.button->text);
     b->Text().SetFont(skin->font);
   }
-  else
+  else if(w.panel)
   {
     LOG_INFO("Creating a panel widget");
     PanelWidget* l = new PanelWidget(state);
     ret.reset(l);
     BuildLayoutContainer(
-        state, &l->container, w.panel().container(), cache, skins);
+        state, &l->container, w.panel->container, cache, skins);
+  }
+  else
+  {
+    LOG_ERROR("Invalid widget");
   }
 
   ASSERT(ret);
 
   // load basic widget data
-  ret->name    = w.name();
-  ret->padding = LrtbFromProt(w.padding());
-  ret->margin  = LrtbFromProt(w.margin());
+  ret->name    = w.name;
+  ret->padding = LrtbFromProt(w.padding);
+  ret->margin  = LrtbFromProt(w.margin);
 
   SetupLayout(&ret->layout, w);
 
@@ -154,23 +150,24 @@ CreateWidget(
 
 void
 BuildLayoutContainer(
+    FileSystem*                 fs,
     UiState*                    state,
     LayoutContainer*            root,
     const gui::LayoutContainer& c,
     TextureCache*               cache,
     const std::map<std::string, Skin*>& skins)
 {
-  root->SetLayout(GetLayout(c.layout()));
-  for(const gui::Widget& widget : c.widgets())
+  root->SetLayout(GetLayout(c.layout));
+  for(const gui::Widget& widget : c.widgets)
   {
-    root->Add(CreateWidget(state, widget, cache, skins));
+    root->Add(CreateWidget(fs, state, widget, cache, skins));
   }
 }
 
 Rgb
 Load(const gui::Rgb& src)
 {
-  return Rgb(src.r(), src.g(), src.b());
+  return Rgb(src.r, src.g, src.b);
 }
 
 InterpolationType
@@ -178,8 +175,8 @@ Load(gui::InterpolationType t)
 {
   switch(t)
   {
-#define FUN(NAME, FUNC) \
-  case gui::NAME:       \
+#define FUN(NAME, FUNC)              \
+  case gui::InterpolationType::NAME: \
     return InterpolationType::NAME;
     // Linear interpolation (no easing)
     FUN(Linear, LinearInterpolation)
@@ -244,18 +241,18 @@ LoadButton(const gui::ButtonState& src)
 {
   ButtonState ret;
   // ret.image                 = src.image();
-  ret.scale                 = src.scale();
-  ret.image_color           = Load(src.image_color());
-  ret.text_color            = Load(src.text_color());
-  ret.dx                    = src.dx();
-  ret.dy                    = src.dy();
-  ret.interpolationColor    = Load(src.interpolate_color());
-  ret.interpolationSize     = Load(src.interpolate_size());
-  ret.interpolationPosition = Load(src.interpolate_position());
+  ret.scale                 = src.scale;
+  ret.image_color           = Load(src.image_color);
+  ret.text_color            = Load(src.text_color);
+  ret.dx                    = src.dx;
+  ret.dy                    = src.dy;
+  ret.interpolationColor    = Load(src.interpolate_color);
+  ret.interpolationSize     = Load(src.interpolate_size);
+  ret.interpolationPosition = Load(src.interpolate_position);
 
-  ret.interpolationColorTime    = src.interpolate_color_time();
-  ret.interpolationSizeTime     = src.interpolate_size_time();
-  ret.interpolationPositionTime = src.interpolate_position_time();
+  ret.interpolationColorTime    = src.interpolate_color_time;
+  ret.interpolationSizeTime     = src.interpolate_size_time;
+  ret.interpolationPositionTime = src.interpolate_position_time;
   return ret;
 }
 
@@ -263,13 +260,13 @@ std::shared_ptr<Skin>
 LoadSkin(const gui::Skin& src, FontCache* font)
 {
   std::shared_ptr<Skin> skin(new Skin());
-  skin->name              = src.name();
-  skin->font              = font->GetFont(src.font());
-  skin->button_image      = src.button_image();
-  skin->text_size         = src.text_size();
-  skin->button_idle       = LoadButton(src.button_idle());
-  skin->button_hot        = LoadButton(src.button_hot());
-  skin->button_active_hot = LoadButton(src.button_active_hot());
+  skin->name              = src.name;
+  skin->font              = font->GetFont(src.font);
+  skin->button_image      = src.button_image;
+  skin->text_size         = src.text_size;
+  skin->button_idle       = LoadButton(src.button_idle);
+  skin->button_hot        = LoadButton(src.button_hot);
+  skin->button_active_hot = LoadButton(src.button_active_hot);
   return skin;
 }
 
@@ -290,20 +287,20 @@ Load(
     return false;
   }
 
-  root->cursor_image = cache->GetTextureIfNotEmpty(f.cursor_image());
-  root->hover_image  = cache->GetTextureIfNotEmpty(f.hover_image());
+  root->cursor_image = cache->GetTextureIfNotEmpty(f.cursor_image);
+  root->hover_image  = cache->GetTextureIfNotEmpty(f.hover_image);
 
   std::map<std::string, Skin*> skin_map;
 
-  for(const gui::Skin& skin : f.skins())
+  for(const gui::Skin& skin : f.skins)
   {
     std::shared_ptr<Skin> skin_ptr = LoadSkin(skin, font);
-    skin_map.insert(std::make_pair(skin.name(), skin_ptr.get()));
+    skin_map.insert(std::make_pair(skin.name, skin_ptr.get()));
     root->skins_.push_back(skin_ptr);
   }
 
   BuildLayoutContainer(
-      &root->state_, &root->container_, f.root(), cache, skin_map);
+      &root->state_, &root->container_, f.root, cache, skin_map);
 
   return root->container_.HasWidgets();
 }

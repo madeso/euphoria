@@ -8,8 +8,7 @@
 #include "engine/dukregistry.h"
 #include "engine/objectemplate.h"
 
-#include "world.pb.h"
-
+#include "gaf_world.h"
 
 LOG_SPECIFY_DEFAULT_LOGGER("engine.loadworld")
 
@@ -30,9 +29,9 @@ LoadWorld(
     LOG_ERROR("Failed to load world components from " << path << ": " << err);
   }
 
-  for(const auto& obj : json.objects())
+  for(const auto& obj : json.objects)
   {
-    const auto& name = obj.template_();
+    const auto& name = obj.template_name;
     auto*       t    = creator->FindTemplate(name);
     if(t == nullptr)
     {

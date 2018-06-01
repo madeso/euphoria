@@ -14,7 +14,7 @@
 #include "core/image.h"
 #include <iostream>
 
-#include "font.pb.h"
+#include "gaf_font.h"
 
 #include "render/spriterender.h"
 #include "render/texturecache.h"
@@ -230,16 +230,16 @@ GetCharactersFromSingleImage(FileSystem* fs, const font::SingleImage& img)
 {
   LoadedFont font;
 
-  ImageLoadResult loaded = LoadImage(fs, img.file(), AlphaLoad::Keep);
+  ImageLoadResult loaded = LoadImage(fs, img.file, AlphaLoad::Keep);
   if(loaded.error.empty())
   {
-    const auto  s = 1 / img.scale();
+    const auto  s = 1 / img.scale;
     LoadedGlyph glyph;
     glyph.size      = s * loaded.image.GetHeight();
-    glyph.bearing_y = s * loaded.image.GetHeight() + img.bearing_y();
-    glyph.bearing_x = img.bearing_x();
-    glyph.advance   = s * loaded.image.GetWidth() + img.advance();
-    glyph.c         = img.alias();
+    glyph.bearing_y = s * loaded.image.GetHeight() + img.bearing_y;
+    glyph.bearing_x = img.bearing_x;
+    glyph.advance   = s * loaded.image.GetWidth() + img.advance;
+    glyph.c         = img.alias;
     // todo: add ability to clip image
     glyph.image = loaded.image;
     font.chars.emplace_back(glyph);
@@ -391,22 +391,22 @@ Font::Font(FileSystem* fs, TextureCache* cache, const std::string& font_file)
   {
     LOG_ERROR("Failed to load " << font_file << ": " << error);
   }
-  for(const auto& source : font_root.sources())
+  for(const auto& source : font_root.sources)
   {
-    if(source.has_font())
+    if(source.font)
     {
-      const font::FontFile& font = source.font();
-      fontchars.CombineWith(GetCharactersFromFont(
-          font.file(), font_root.size(), font.characters()));
+      const font::FontFile& font = *source.font;
+      fontchars.CombineWith(
+          GetCharactersFromFont(font.file, font_root.size, font.characters));
     }
-    if(source.has_image())
+    if(source.image)
     {
-      const font::SingleImage& image = source.image();
+      const font::SingleImage& image = *source.image;
       fontchars.CombineWith(GetCharactersFromSingleImage(fs, image));
     }
-    if(source.has_builtin())
+    if(source.builtin)
     {
-      LoadCharactersFromBuiltin(&fontchars, source.builtin().scale());
+      LoadCharactersFromBuiltin(&fontchars, source.builtin->scale);
     }
     // todo: add more sources, built in image font or images
   }

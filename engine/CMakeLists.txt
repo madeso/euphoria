@@ -15,9 +15,10 @@ include_directories(SYSTEM
 include_directories(SYSTEM ../external/duktape/src)
 
 include_directories(SYSTEM ${CMAKE_CURRENT_BINARY_DIR})
-PROTOBUF_GENERATE_CPP(PROTO_SRCS PROTO_HDRS
-                      ../proto/world.proto
-                      ../proto/game.proto
+SET(Gaf_CUSTOM_PREFIX gaf_)
+GAF_GENERATE_CPP(PROTO_SRCS PROTO_HDRS
+                      ../file_types/world.gaf
+                      ../file_types/game.gaf
                       )
 set(all_src ${all_src} ${PROTO_SRCS} ${PROTO_HDRS})
 
@@ -28,7 +29,6 @@ target_link_libraries(engine
                       render
                       window
                       ${SDL2_LIBRARY}
-                      ${PROTOBUF_LIBRARIES}
                       )
 
 MESSAGE(STATUS "SDL2 libraries are ${SDL2_LIBRARY}")

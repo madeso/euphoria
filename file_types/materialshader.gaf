@@ -1,26 +1,26 @@
 package materialshader;
 
-message Binding
+struct Binding
 {
-  optional string texture = 1;
-  optional string uniform = 2;
+  string texture;
+  string uniform;
 }
 
-message DefaultTexture
+struct DefaultTexture
 {
-  optional string texture = 1;
-  optional string path = 2;
+  string texture;
+  string path;
 }
 
-message MaterialShader
+struct MaterialShader
 {
-  repeated Binding textures = 1;
-  optional bool has_light = 2;
+  Binding textures[];
+  bool has_light;
 
-  optional string ambient = 3;
-  optional string diffuse = 4;
-  optional string specular = 5;
-  optional string shininess = 6;
+  string ambient?;
+  string diffuse?;
+  string specular?;
+  string shininess?;
 
-  repeated DefaultTexture default_texture = 100;
+  DefaultTexture default_textures[];
 }

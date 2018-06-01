@@ -63,7 +63,7 @@
     },
     {
       "inputs": [
-        {"input": "i want", "location": "LOCATION_AT_START"}
+        {"input": "i want", "location": "AT_START"}
       ],
       "responses": [
         {"say": "So, you want *?"}

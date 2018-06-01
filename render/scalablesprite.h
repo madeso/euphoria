@@ -11,11 +11,12 @@ class TextureId;
 class TextureCache;
 class SpriteRenderer;
 class Rgba;
+class FileSystem;
 
 class ScalableSprite
 {
  public:
-  ScalableSprite(
+  ScalableSprite(FileSystem* fs,
       const std::string& path, const Sizef& size, TextureCache* cache);
   ~ScalableSprite();
 

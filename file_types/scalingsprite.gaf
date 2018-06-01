@@ -1,16 +1,15 @@
 package scalingsprite;
 
-message Rect {
-  optional int32 left = 1 [default=10];
-  optional int32 right = 2 [default=10];
-  optional int32 top = 3 [default=10];
-  optional int32 bottom = 4 [default=10];
+struct Rect {
+  int32 left = 10;
+  int32 right = 10;
+  int32 top = 10;
+  int32 bottom = 10;
 }
 
-message ScalingSprite {
+struct ScalingSprite {
   /* positive = absolute size, negative=abs percent size  */
-  repeated int32 rows = 1;
-  repeated int32 cols = 2;
-  /* todo: add hidden cells */
-  repeated Rect rects = 5;
+  int32 rows[];
+  int32 cols[];
+  Rect rects[];
 }

@@ -25,10 +25,11 @@ set(src ${src} ../external/duktape/src/duktape.c)
 
 
 include_directories(SYSTEM ${CMAKE_CURRENT_BINARY_DIR})
-PROTOBUF_GENERATE_CPP(PROTO_SRCS PROTO_HDRS
-                      ../proto/enum.proto
-                      ../proto/mesh.proto
-                      ../proto/chatbot.proto
+SET(Gaf_CUSTOM_PREFIX gaf_)
+GAF_GENERATE_CPP(PROTO_SRCS PROTO_HDRS
+                      ../file_types/enum.gaf
+                      ../file_types/mesh.gaf
+                      ../file_types/chatbot.gaf
                       )
 set(src ${src} ${PROTO_SRCS} ${PROTO_HDRS})
 
@@ -43,23 +44,10 @@ set(src ${src} ${src_aheasing})
 source_group("AHEasing" FILES ${src_aheasing})
 
 
-
-
-include_directories(../external/pbjson/src/)
-set(pbjson_src
-    ../external/pbjson/src/pbjson.cpp
-    ../external/pbjson/src/pbjson.hpp
-    ../external/pbjson/src/bin2ascii.h
-    )
-set(src ${src} ${pbjson_src})
-source_group("pbjson" FILES ${pbjson_src})
-
-
 include_directories(../external/font8x8/)
 
 add_library(core STATIC ${src})
 target_link_libraries(core
-    ${PROTOBUF_LIBRARIES}
     ${assimp_LIBRARIES}
     )
 

@@ -13,7 +13,7 @@
 #include <sstream>
 #include <utility>
 
-#include "mesh.pb.h"
+#include "gaf_mesh.h"
 
 LOG_SPECIFY_DEFAULT_LOGGER("mesh")
 
@@ -321,13 +321,13 @@ namespace
       mesh_materials[material.name] = &material;
     }
 
-    for(const auto& material : json.materials())
+    for(const auto& material : json.materials)
     {
-      auto found = mesh_materials.find(material.name());
+      auto found = mesh_materials.find(material.name);
       if(found == mesh_materials.end())
       {
         LOG_ERROR(
-            "Unable to find " << material.name() << " in mesh " << json_path
+            "Unable to find " << material.name << " in mesh " << json_path
                               << " valid names are: "
                               << StringMerger::EnglishOr().Generate(
                                      KeysOf(mesh_materials)));
@@ -335,9 +335,9 @@ namespace
       }
 
       auto* other = found->second;
-      for(const auto& src_texture : material.textures())
+      for(const auto& src_texture : material.textures)
       {
-        other->SetTexture(src_texture.type(), src_texture.path());
+        other->SetTexture(src_texture.type, src_texture.path);
       }
     }
   }
@@ -351,14 +351,6 @@ namespace
     }
   }
 
-  template <typename T>
-  bool
-  IsEmpty(const google::protobuf::RepeatedPtrField<T>& field)
-  {
-    const bool has_items = field.begin() < field.end();
-    return !has_items;
-  }
-
   void
   DecorateMesh(FileSystem* fs, Mesh* mesh, const std::string& json_path)
   {
@@ -369,12 +361,12 @@ namespace
       LOG_WARN("Mesh " << json_path << " failed to load: " << error);
     }
 
-    if(json.diffuse_and_ambient_are_same())
+    if(json.diffuse_and_ambient_are_same)
     {
       DecorateMeshMaterialsIgnoreAmbient(mesh);
     }
 
-    if(!IsEmpty(json.materials()))
+    if(!json.materials.empty())
     {
       DecorateMeshMaterials(mesh, json_path, json);
     }
