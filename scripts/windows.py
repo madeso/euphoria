@@ -54,6 +54,7 @@ def cmake_project(generator: str):
         .add_argument('SDL2_HINT_BUILD', get_sdl2_build_folder())\
         .add_argument('wxWidgets_ROOT_DIR', get_wx_folder())\
         .add_argument('ASSIMP_ROOT_DIR', get_assimp_install_folder())\
+        .add_argument('PYTHON_EXECUTABLE:FILEPATH', os.environ['PYTHON']+'\\python.exe')\
         .add_argument('PROTOBUF_SRC_ROOT_FOLDER', get_proto_folder())
 
 
