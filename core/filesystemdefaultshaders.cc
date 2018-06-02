@@ -2,6 +2,7 @@
 
 #include "core/stringutils.h"
 #include "core/log.h"
+#include "core/path.h"
 
 // LOG_SPECIFY_DEFAULT_LOGGER("filesystem.default-shaders")
 
@@ -79,4 +80,25 @@ FileSystemDefaultShaders::FileSystemDefaultShaders(const std::string& base)
   {
     base_ = base + "/";
   }
+}
+
+std::vector<std::string>
+FileSystemDefaultShaders::ListFiles(const Path& path)
+{
+  const auto self = Path::FromDirectory(base_);
+
+  std::vector<std::string> ret;
+
+  if(path == self.GetParentDirectory())
+  {
+    ret.emplace_back(self.GetDirectoryName());
+  }
+
+  if(path == self)
+  {
+    ret.emplace_back("sprite.vert");
+    ret.emplace_back("sprite.frag");
+  }
+
+  return ret;
 }

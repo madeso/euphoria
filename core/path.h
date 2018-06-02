@@ -41,6 +41,15 @@ class Path
   const std::string&
   GetAbsolutePath() const;
 
+  std::string
+  GetDirectoryName() const;
+
+  std::string
+  GetFileName() const;
+
+  bool
+  operator==(const Path& rhs) const;
+
  private:
   Path(const std::string& absolute_path);
   std::string absolute_path_;

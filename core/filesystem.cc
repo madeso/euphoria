@@ -7,6 +7,7 @@
 #include "core/os.h"
 #include "core/stringmerger.h"
 #include "core/log.h"
+#include "core/path.h"
 
 #include "core/stringutils.h"
 
@@ -57,6 +58,23 @@ FileSystem::WriteFile(
 {
   ASSERT(write_);
   write_->WriteFile(path, data);
+}
+
+std::vector<std::string>
+FileSystem::ListFiles(const Path& path)
+{
+  std::vector<std::string> r;
+  for(auto& root : roots_)
+  {
+    const auto files = root->ListFiles(path);
+    for(const auto& f : files)
+    {
+      // todo: only place files once
+      r.emplace_back(f);
+    }
+  }
+
+  return r;
 }
 
 std::string
@@ -138,6 +156,24 @@ FileSystemRootCatalog::Describe()
   return StringMerger::Array().Generate(MapToStringVector(catalog_));
 }
 
+std::vector<std::string>
+FileSystemRootCatalog::ListFiles(const Path& path)
+{
+  std::vector<std::string> r;
+  for(const auto& f : catalog_)
+  {
+    const auto file   = Path::FromFile(f.first);
+    const auto folder = file.GetDirectory();
+    if(path == folder)
+    {
+      // todo: does this work?
+      r.emplace_back(file.GetFileName());
+    }
+  }
+
+  return r;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 
 std::string
@@ -212,6 +248,34 @@ FileSystemRootFolder::AddRoot(FileSystem* fs)
 {
   const std::string folder = GetCurrentDirectory();
   return FileSystemRootFolder::AddRoot(fs, folder);
+}
+
+std::vector<std::string>
+FileSystemRootFolder::ListFiles(const Path& path)
+{
+  const auto real_path = CombineFolderAndPath(folder_, path.GetAbsolutePath());
+  const auto found     = ListDirectory(real_path);
+
+  std::vector<std::string> r;
+
+  if(found.valid)
+  {
+    for(const auto& f : found.files)
+    {
+      r.emplace_back(f);
+    }
+    for(const auto& d : found.directories)
+    {
+      auto f = d;
+      if(!EndsWith(f, '/'))
+      {
+        f += +"/";
+      }
+      r.emplace_back(f);
+    }
+  }
+
+  return r;
 }
 
 ////////////////////////////////////////////////////////////////////////////////

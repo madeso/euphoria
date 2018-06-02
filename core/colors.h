@@ -2,6 +2,7 @@
 #define CORE_NAMED_COLORS_H
 
 #include <string>
+#include <vector>
 
 // from http://www.uize.com/examples/sortable-color-table.html
 enum class Color
@@ -179,6 +180,9 @@ namespace color
 
   Color
   GetColorFromLowerCaseString(const std::string& name);
+
+  std::vector<std::string>
+  ListAllColorNames();
 }
 
 int

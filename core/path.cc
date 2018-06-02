@@ -133,6 +133,44 @@ Path::GetAbsolutePath() const
   return absolute_path_;
 }
 
+std::string
+Path::GetDirectoryName() const
+{
+  ASSERT(IsDirectory());
+  const auto dir_char =
+      absolute_path_.rfind(DirectoryChar(), absolute_path_.length() - 2);
+
+  if(dir_char == std::string::npos)
+  {
+    // this is a root file, so return root directory
+    return absolute_path_;
+  }
+
+  return absolute_path_.substr(dir_char);
+}
+
+std::string
+Path::GetFileName() const
+{
+  ASSERT(IsFile());
+  const auto dir_char =
+      absolute_path_.rfind(DirectoryChar(), absolute_path_.length() - 2);
+
+  if(dir_char == std::string::npos)
+  {
+    // this is a root file, so return root directory
+    return absolute_path_;
+  }
+
+  return absolute_path_.substr(dir_char);
+}
+
+bool
+Path::operator==(const Path& rhs) const
+{
+  return absolute_path_ == rhs.absolute_path_;
+}
+
 Path::Path(const std::string& absolute_path)
     : absolute_path_(absolute_path)
 {

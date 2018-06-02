@@ -184,6 +184,18 @@ namespace color
     }
     return r->second;
   }
+
+  std::vector<std::string>
+  ListAllColorNames()
+  {
+    const auto&              map = StaticStringToColorMap();
+    std::vector<std::string> r;
+    for(const auto& c : map)
+    {
+      r.emplace_back(c.first);
+    }
+    return r;
+  }
 }
 
 #define HEXCODE(x) x

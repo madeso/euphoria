@@ -8,6 +8,8 @@
 #include <memory>
 #include <vector>
 
+class Path;
+
 // todo: use path class
 
 class FileSystemReadRoot
@@ -20,6 +22,9 @@ class FileSystemReadRoot
 
   virtual std::shared_ptr<MemoryChunk>
   ReadFile(const std::string& path) = 0;
+
+  virtual std::vector<std::string>
+  ListFiles(const Path& path) = 0;
 };
 
 class FileSystemWriteRoot
@@ -48,6 +53,9 @@ class FileSystem
 
   void
   WriteFile(const std::string& path, std::shared_ptr<MemoryChunk> data);
+
+  std::vector<std::string>
+  ListFiles(const Path& path);
 
   std::string
   GetRootsAsString();
@@ -86,6 +94,9 @@ class FileSystemRootCatalog : public FileSystemReadRoot
   std::string
   Describe() override;
 
+  std::vector<std::string>
+  ListFiles(const Path& path) override;
+
  private:
   std::map<std::string, std::shared_ptr<MemoryChunk>> catalog_;
 };
@@ -106,6 +117,9 @@ class FileSystemRootFolder : public FileSystemReadRoot
 
   std::string
   Describe() override;
+
+  std::vector<std::string>
+  ListFiles(const Path& path) override;
 
  private:
   std::string folder_;

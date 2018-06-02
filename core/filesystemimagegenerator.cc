@@ -4,6 +4,7 @@
 #include "core/draw.h"
 #include "core/stringutils.h"
 #include "core/log.h"
+#include "core/path.h"
 
 LOG_SPECIFY_DEFAULT_LOGGER("filesystem.image-generator")
 
@@ -54,4 +55,24 @@ FileSystemImageGenerator::FileSystemImageGenerator(const std::string& base)
   {
     base_ = base + "/";
   }
+}
+
+std::vector<std::string>
+FileSystemImageGenerator::ListFiles(const Path& path)
+{
+  const auto self = Path::FromDirectory(base_);
+
+  std::vector<std::string> ret;
+
+  if(path == self.GetParentDirectory())
+  {
+    ret.emplace_back(self.GetDirectoryName());
+  }
+
+  if(path == self)
+  {
+    ret = color::ListAllColorNames();
+  }
+
+  return ret;
 }

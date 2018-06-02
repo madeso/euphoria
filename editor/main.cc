@@ -45,32 +45,99 @@ struct FileBrowser
   int                      selected_file = -1;
   std::vector<std::string> files         = {"file1.cc", "cat.cc"};
 
+  FileSystem* file_system = nullptr;
+  explicit FileBrowser(FileSystem* fs)
+      : current_folder(Path::FromRoot().GetAbsolutePath())
+      , file_system(fs)
+  {
+  }
+
+  std::string
+  GetSelectedFile()
+  {
+    if(selected_file >= 0 && selected_file < files.size())
+    {
+      const auto suggested = files[selected_file];
+      if(!EndsWith(suggested, '/'))
+      {
+        if(current_folder.empty())
+        {
+          return suggested;
+        }
+        else
+        {
+          return current_folder + suggested;
+        }
+      }
+    }
+    return "";
+  }
+
   void
+  SelectFile(const std::string&)
+  {
+  }
+
+  void
+  Refresh()
+  {
+    files = file_system->ListFiles(Path::FromDirectory(current_folder));
+    if(!current_folder.empty())
+    {
+      // files.emplace_back();
+      files.insert(files.begin(), "../");
+    }
+    // files.insert(files.begin(), f.begin(), f.end());
+    selected_file = -1;
+  }
+
+  bool
   Run()
   {
-    if(ImGui::Begin("Browser"))
+    bool selected = false;
+    InputText("URL", &current_folder);
+    if(ImGui::Button("Refresh"))
     {
-      InputText("URL", &current_folder);
-      if(ImGui::Button("Refresh"))
-      {
-        // files = file_system.ListFiles(current_folder);
-        files.resize(0);
-        files.emplace_back("dog");
-        files.emplace_back("cat");
-      }
-      ImGui::ListBox(
-          "Files",
-          &selected_file,
-          [](void* data, int idx, const char** out_text) -> bool {
-            auto* ff  = static_cast<std::vector<std::string>*>(data);
-            *out_text = (*ff)[idx].c_str();
-            return true;
-          },
-          &files,
-          files.size(),
-          10);
-      ImGui::End();
+      Refresh();
     }
+    // ImGui::PushItemWidth(-1);
+    ImGui::ListBoxHeader("", ImVec2{-1, -1});
+    int        index = 0;
+    const auto ff    = files;
+    for(const auto& item : ff)
+    {
+      if(ImGui::Selectable(item.c_str(), index == selected_file))
+      {
+        selected_file = index;
+      }
+
+      if(ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0))
+      {
+        if(EndsWith(item, '/'))
+        {
+          if(item == "../")
+          {
+            current_folder = Path::FromDirectory(current_folder)
+                                 .GetParentDirectory()
+                                 .GetAbsolutePath();
+          }
+          else
+          {
+            current_folder += item;
+          }
+          Refresh();
+        }
+        else
+        {
+          selected = true;
+        }
+      }
+      index += 1;
+    }
+    ImGui::ListBoxFooter();
+    // ImGui::PopItemWidth();
+
+    return selected;
   }
 };
 
@@ -131,7 +198,8 @@ main(int argc, char** argv)
 
   bool running = true;
 
-  FileBrowser browser;
+  std::string demo_file;
+  FileBrowser browser{&file_system};
 
   while(running)
   {
@@ -165,7 +233,29 @@ main(int argc, char** argv)
       }
       ImGui::EndMainMenuBar();
 
-      browser.Run();
+      if(ImGui::Begin("Browser"))
+      {
+        InputText("Folder", &demo_file);
+        ImGui::SameLine();
+        if(ImGui::Button("..."))
+        {
+          browser.SelectFile(demo_file);
+          ImGui::OpenPopup("browse");
+        }
+
+        ImGui::SetNextWindowSize(ImVec2{200, 200}, ImGuiCond_Appearing);
+        if(ImGui::BeginPopup("browse"))
+        {
+          if(browser.Run())
+          {
+            demo_file = browser.GetSelectedFile();
+            ImGui::CloseCurrentPopup();
+          }
+          ImGui::EndPopup();
+        }
+
+        ImGui::End();
+      }
     }
 
     const auto mp   = ImGui::GetIO().MousePos;

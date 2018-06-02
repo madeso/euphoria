@@ -18,6 +18,9 @@ class FileSystemImageGenerator : public FileSystemReadRoot
 
   explicit FileSystemImageGenerator(const std::string& base);
 
+  std::vector<std::string>
+  ListFiles(const Path& path) override;
+
  private:
   std::string base_;
 };
