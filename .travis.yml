@@ -12,8 +12,10 @@ before_install:
 
 addons:
   apt:
+    update: true
     sources:
       - ubuntu-toolchain-r-test
+      - deadsnakes
     packages:
       - g++-5
       - libsdl2-dev
@@ -21,8 +23,11 @@ addons:
       - protobuf-compiler
       - libassimp-dev
       - libwxgtk3.0-dev
+      - python3.5
 
 script:
+  - $CXX --version
+  - python3 --version
   - mkdir build
   - cd build
   - CXX=/usr/bin/g++-5 CC=/usr/bin/gcc-5 cmake ..
