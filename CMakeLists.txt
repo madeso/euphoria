@@ -107,6 +107,7 @@ add_subdirectory(tests)
 add_subdirectory(demo)
 add_subdirectory(engine)
 add_subdirectory(chatbot_test)
+add_subdirectory(editor)
 
 if(CLANG_TIDY_EXE)
   ADD_CUSTOM_TARGET(tidy)
