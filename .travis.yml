@@ -25,6 +25,12 @@ addons:
       - libwxgtk3.0-dev
       - python3.5
 
+# https://github.com/travis-ci/travis-ci/issues/3668#issuecomment-279276549
+install:
+   - mkdir -p latest-symlinks
+   - ln -s /usr/bin/python3.7 latest-symlinks/python3
+   - export PATH=$PWD/latest-symlinks:$PATH
+
 script:
   - $CXX --version
   - python3 --version
