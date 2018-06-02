@@ -7,6 +7,9 @@ class Angle;
 class Texture2d;
 class Rgb;
 
+bool
+InputText(const char* label, std::string* str);
+
 void
 ImguiAngleSlider(
     const char* const name, Angle* angle, float mindeg, float maxdeg);

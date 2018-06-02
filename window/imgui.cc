@@ -7,6 +7,22 @@
 
 #include "render/texture.h"
 
+bool
+InputText(const char* label, std::string* str)
+{
+  constexpr int size         = 500;
+  char          buffer[size] = {
+      0,
+  };
+  strncpy(buffer, str->c_str(), size);
+  const bool r = ImGui::InputText(label, buffer, size);
+  if(r)
+  {
+    *str = buffer;
+  }
+  return r;
+}
+
 void
 ImguiAngleSlider(
     const char* const name, Angle* angle, float mindeg, float maxdeg)

@@ -39,6 +39,41 @@
 #include <iostream>
 #include <memory>
 
+struct FileBrowser
+{
+  std::string              current_folder;
+  int                      selected_file = -1;
+  std::vector<std::string> files         = {"file1.cc", "cat.cc"};
+
+  void
+  Run()
+  {
+    if(ImGui::Begin("Browser"))
+    {
+      InputText("URL", &current_folder);
+      if(ImGui::Button("Refresh"))
+      {
+        // files = file_system.ListFiles(current_folder);
+        files.resize(0);
+        files.emplace_back("dog");
+        files.emplace_back("cat");
+      }
+      ImGui::ListBox(
+          "Files",
+          &selected_file,
+          [](void* data, int idx, const char** out_text) -> bool {
+            auto* ff  = static_cast<std::vector<std::string>*>(data);
+            *out_text = (*ff)[idx].c_str();
+            return true;
+          },
+          &files,
+          files.size(),
+          10);
+      ImGui::End();
+    }
+  }
+};
+
 int
 main(int argc, char** argv)
 {
@@ -48,8 +83,9 @@ main(int argc, char** argv)
     return -1;
   }
 
-  int width  = 1280;
-  int height = 720;
+  int        width  = 1280;
+  int        height = 720;
+  const auto size   = ImVec2{width, height};
 
   SdlWindow window{"Euphoria Demo", width, height};
   if(window.window == nullptr)
@@ -77,6 +113,7 @@ main(int argc, char** argv)
   const auto pref_path         = GetPrefPath();
 
   ImguiLibrary imgui{window.window, pref_path};
+  ImGui::StyleColorsLight();
 
   Viewport viewport{
       Recti::FromWidthHeight(width, height).SetBottomLeftToCopy(0, 0)};
@@ -94,62 +131,50 @@ main(int argc, char** argv)
 
   bool running = true;
 
-  SdlTimer timer;
-
-  bool paused = true;
+  FileBrowser browser;
 
   while(running)
   {
-    const bool  show_imgui = true;
-    const float delta      = timer.Update();
-
-    if(show_imgui)
-    {
-      imgui.StartNewFrame();
-    }
-
     SDL_Event e;
     while(SDL_PollEvent(&e) != 0)
     {
-      if(show_imgui)
-      {
-        imgui.ProcessEvents(&e);
-      }
+      imgui.ProcessEvents(&e);
+
       switch(e.type)
       {
         case SDL_QUIT:
           running = false;
           break;
-        case SDL_KEYDOWN:
-        case SDL_KEYUP:
-        {
-          const bool down = e.type == SDL_KEYDOWN;
-
-          switch(e.key.keysym.sym)
-          {
-            case SDLK_ESCAPE:
-              if(down)
-              {
-                running = false;
-              }
-              break;
-            default:
-              // ignore other keys
-              break;
-          }
-        }
-        break;
         default:
           // ignore other events
           break;
       }
     }
 
-    init.ClearScreen(Color::DarkslateGray);
-    if(show_imgui)
+    imgui.StartNewFrame();
+
+    if(ImGui::BeginMainMenuBar())
     {
-      imgui.Render();
+      if(ImGui::BeginMenu("File"))
+      {
+        if(ImGui::MenuItem("Exit", "Ctrl+Q"))
+        {
+          running = false;
+        }
+        ImGui::EndMenu();
+      }
+      ImGui::EndMainMenuBar();
+
+      browser.Run();
     }
+
+    const auto mp   = ImGui::GetIO().MousePos;
+    auto*      list = ImGui::GetOverlayDrawList();
+    list->AddLine(ImVec2{mp.x, 0}, ImVec2{mp.x, size.y}, IM_COL32_BLACK);
+    list->AddLine(ImVec2{0, mp.y}, ImVec2{size.x, mp.y}, IM_COL32_BLACK);
+
+    init.ClearScreen(Color::Wheat);
+    imgui.Render();
 
     SDL_GL_SwapWindow(window.window);
   }
