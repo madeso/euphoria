@@ -57,16 +57,16 @@ FileSystemImageGenerator::FileSystemImageGenerator(const std::string& base)
   }
 }
 
-std::vector<ListedFile>
+FileList
 FileSystemImageGenerator::ListFiles(const Path& path)
 {
   const auto self = Path::FromDirectory(base_);
 
-  std::vector<ListedFile> ret;
+  FileList ret;
 
   if(path == self.GetParentDirectory())
   {
-    ret.emplace_back(self.GetDirectoryName(), true);
+    ret.Add(self.GetDirectoryName(), true);
   }
 
   if(path == self)
@@ -74,7 +74,7 @@ FileSystemImageGenerator::ListFiles(const Path& path)
     const auto names = color::ListAllColorNames();
     for(const auto& n : names)
     {
-      ret.emplace_back(n, true);
+      ret.Add(n, true);
     }
   }
 

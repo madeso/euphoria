@@ -23,6 +23,27 @@ ListedFile::ListedFile(const std::string& n, bool b)
 
 ////////////////////////////////////////////////////////////////////////////////
 
+void
+FileList::Add(const ListedFile& file)
+{
+  const bool is_file = Path::FromGuess(file.name).IsFile();
+
+  auto&      target = is_file ? files : folders;
+  const auto found  = target.find(file.name);
+  if(found == target.end())
+  {
+    target[file.name] = file;
+  }
+}
+
+void
+FileList::Add(const std::string& n, bool b)
+{
+  Add(ListedFile{n, b});
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
 FileSystemReadRoot::~FileSystemReadRoot() = default;
 
 FileSystemWriteRoot::~FileSystemWriteRoot() = default;
@@ -71,17 +92,29 @@ FileSystem::WriteFile(
 std::vector<ListedFile>
 FileSystem::ListFiles(const Path& path)
 {
-  std::vector<ListedFile> r;
+  FileList combined;
   for(auto& root : roots_)
   {
     const auto files = root->ListFiles(path);
-    for(const auto& f : files)
+    for(const auto& f : files.files)
     {
-      // todo: only place files once
-      r.emplace_back(f);
+      combined.Add(f.second);
+    }
+    for(const auto& f : files.folders)
+    {
+      combined.Add(f.second);
     }
   }
 
+  std::vector<ListedFile> r;
+  for(const auto& f : combined.folders)
+  {
+    r.emplace_back(f.second);
+  }
+  for(const auto& f : combined.files)
+  {
+    r.emplace_back(f.second);
+  }
   return r;
 }
 
@@ -164,17 +197,17 @@ FileSystemRootCatalog::Describe()
   return StringMerger::Array().Generate(MapToStringVector(catalog_));
 }
 
-std::vector<ListedFile>
+FileList
 FileSystemRootCatalog::ListFiles(const Path& path)
 {
-  std::vector<ListedFile> r;
+  FileList r;
   for(const auto& f : catalog_)
   {
     const auto file   = Path::FromFile(f.first);
     const auto folder = file.GetDirectory();
     if(path == folder)
     {
-      r.emplace_back(file.GetFileName(), true);
+      r.Add(file.GetFileName(), true);
     }
   }
 
@@ -257,19 +290,19 @@ FileSystemRootFolder::AddRoot(FileSystem* fs)
   return FileSystemRootFolder::AddRoot(fs, folder);
 }
 
-std::vector<ListedFile>
+FileList
 FileSystemRootFolder::ListFiles(const Path& path)
 {
   const auto real_path = CombineFolderAndPath(folder_, path.GetAbsolutePath());
   const auto found     = ListDirectory(real_path);
 
-  std::vector<ListedFile> r;
+  FileList r;
 
   if(found.valid)
   {
     for(const auto& f : found.files)
     {
-      r.emplace_back(f, false);
+      r.Add(f, false);
     }
     for(const auto& d : found.directories)
     {
@@ -278,7 +311,7 @@ FileSystemRootFolder::ListFiles(const Path& path)
       {
         f += +"/";
       }
-      r.emplace_back(f, false);
+      r.Add(f, false);
     }
   }
 

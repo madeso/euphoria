@@ -19,7 +19,7 @@ class FileSystemDefaultShaders : public FileSystemReadRoot
 
   explicit FileSystemDefaultShaders(const std::string& base);
 
-  std::vector<ListedFile>
+  FileList
   ListFiles(const Path& path) override;
 
  private:
