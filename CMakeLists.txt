@@ -98,6 +98,9 @@ if(CLOC_EXE)
 endif()
 
 add_subdirectory(core)
+
+ADD_DEFINITIONS(-DIMGUI_USER_CONFIG="imgui_config.h")
+
 add_subdirectory(base64)
 add_subdirectory(render)
 add_subdirectory(window)

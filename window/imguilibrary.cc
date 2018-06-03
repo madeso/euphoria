@@ -7,6 +7,9 @@ ImguiLibrary::ImguiLibrary(SDL_Window* window, const std::string& path)
     : window_(window)
     , path_(path + "imgui.ini")
 {
+  IMGUI_CHECKVERSION();
+  ImGui::CreateContext();
+
   ImGui_ImplSdlGL3_Init(window);
   ImGui::GetIO().IniFilename = path_.c_str();
 }
@@ -14,6 +17,7 @@ ImguiLibrary::ImguiLibrary(SDL_Window* window, const std::string& path)
 ImguiLibrary::~ImguiLibrary()
 {
   ImGui_ImplSdlGL3_Shutdown();
+  ImGui::DestroyContext();
 }
 
 void
@@ -33,4 +37,5 @@ ImguiLibrary::Render()
 {
   // ImGui::ShowTestWindow();
   ImGui::Render();
+  ImGui_ImplSdlGL3_RenderDrawData(ImGui::GetDrawData());
 }
