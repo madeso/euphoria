@@ -12,6 +12,7 @@
 #include "core/os.h"
 #include "core/range.h"
 #include "core/camera.h"
+#include "core/stringutils.h"
 
 #include <render/init.h>
 #include <render/debuggl.h>
@@ -61,6 +62,7 @@ struct FileBrowser
   std::string             current_folder;
   int                     selected_file = -1;
   std::vector<ListedFile> files;
+  std::string             filter = "";
 
   FileSystem* file_system = nullptr;
   explicit FileBrowser(FileSystem* fs)
@@ -122,6 +124,7 @@ struct FileBrowser
   {
     bool selected = false;
     InputText("URL", &current_folder);
+    InputText("Filter", &filter);
     // ImGui::PushItemWidth(-1);
     ImGui::ListBoxHeader("", ImVec2{-1, -1});
     int        index = 0;
@@ -129,39 +132,55 @@ struct FileBrowser
                             // will probably happen, so we iterate a copy
     for(const auto& item : ff)
     {
-      const bool custom = item.is_builtin;
-      if(custom)
+      const bool custom  = item.is_builtin;
+      bool       display = true;
+
+      if(!EndsWith(item.name, '/'))
       {
-        ImGui::PushStyleColor(ImGuiCol_Text, ImColor{0, 0, 255}.Value);
-      }
-      if(ImGui::Selectable(item.name.c_str(), index == selected_file))
-      {
-        selected_file = index;
-      }
-      if(custom)
-      {
-        ImGui::PopStyleColor();
+        if(!filter.empty())
+        {
+          if(!EndsWith(item.name, filter))
+          {
+            display = false;
+          }
+        }
       }
 
-      if(ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0))
+      if(display)
       {
-        if(EndsWith(item.name, '/'))
+        if(custom)
         {
-          if(item.name == "../")
+          ImGui::PushStyleColor(ImGuiCol_Text, ImColor{0, 0, 255}.Value);
+        }
+        if(ImGui::Selectable(item.name.c_str(), index == selected_file))
+        {
+          selected_file = index;
+        }
+        if(custom)
+        {
+          ImGui::PopStyleColor();
+        }
+
+        if(ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0))
+        {
+          if(EndsWith(item.name, '/'))
           {
-            current_folder = Path::FromDirectory(current_folder)
-                                 .GetParentDirectory()
-                                 .GetAbsolutePath();
+            if(item.name == "../")
+            {
+              current_folder = Path::FromDirectory(current_folder)
+                                   .GetParentDirectory()
+                                   .GetAbsolutePath();
+            }
+            else
+            {
+              current_folder += item.name;
+            }
+            Refresh();
           }
           else
           {
-            current_folder += item.name;
+            selected = true;
           }
-          Refresh();
-        }
-        else
-        {
-          selected = true;
         }
       }
       index += 1;
