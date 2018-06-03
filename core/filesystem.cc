@@ -15,6 +15,14 @@ LOG_SPECIFY_DEFAULT_LOGGER("core.filesystem")
 
 ////////////////////////////////////////////////////////////////////////////////
 
+ListedFile::ListedFile(const std::string& n, bool b)
+    : name(n)
+    , is_builtin(b)
+{
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
 FileSystemReadRoot::~FileSystemReadRoot() = default;
 
 FileSystemWriteRoot::~FileSystemWriteRoot() = default;
@@ -60,10 +68,10 @@ FileSystem::WriteFile(
   write_->WriteFile(path, data);
 }
 
-std::vector<std::string>
+std::vector<ListedFile>
 FileSystem::ListFiles(const Path& path)
 {
-  std::vector<std::string> r;
+  std::vector<ListedFile> r;
   for(auto& root : roots_)
   {
     const auto files = root->ListFiles(path);
@@ -156,18 +164,17 @@ FileSystemRootCatalog::Describe()
   return StringMerger::Array().Generate(MapToStringVector(catalog_));
 }
 
-std::vector<std::string>
+std::vector<ListedFile>
 FileSystemRootCatalog::ListFiles(const Path& path)
 {
-  std::vector<std::string> r;
+  std::vector<ListedFile> r;
   for(const auto& f : catalog_)
   {
     const auto file   = Path::FromFile(f.first);
     const auto folder = file.GetDirectory();
     if(path == folder)
     {
-      // todo: does this work?
-      r.emplace_back(file.GetFileName());
+      r.emplace_back(file.GetFileName(), true);
     }
   }
 
@@ -250,19 +257,19 @@ FileSystemRootFolder::AddRoot(FileSystem* fs)
   return FileSystemRootFolder::AddRoot(fs, folder);
 }
 
-std::vector<std::string>
+std::vector<ListedFile>
 FileSystemRootFolder::ListFiles(const Path& path)
 {
   const auto real_path = CombineFolderAndPath(folder_, path.GetAbsolutePath());
   const auto found     = ListDirectory(real_path);
 
-  std::vector<std::string> r;
+  std::vector<ListedFile> r;
 
   if(found.valid)
   {
     for(const auto& f : found.files)
     {
-      r.emplace_back(f);
+      r.emplace_back(f, false);
     }
     for(const auto& d : found.directories)
     {
@@ -271,7 +278,7 @@ FileSystemRootFolder::ListFiles(const Path& path)
       {
         f += +"/";
       }
-      r.emplace_back(f);
+      r.emplace_back(f, false);
     }
   }
 

@@ -82,22 +82,22 @@ FileSystemDefaultShaders::FileSystemDefaultShaders(const std::string& base)
   }
 }
 
-std::vector<std::string>
+std::vector<ListedFile>
 FileSystemDefaultShaders::ListFiles(const Path& path)
 {
   const auto self = Path::FromDirectory(base_);
 
-  std::vector<std::string> ret;
+  std::vector<ListedFile> ret;
 
   if(path == self.GetParentDirectory())
   {
-    ret.emplace_back(self.GetDirectoryName());
+    ret.emplace_back(self.GetDirectoryName(), true);
   }
 
   if(path == self)
   {
-    ret.emplace_back("sprite.vert");
-    ret.emplace_back("sprite.frag");
+    ret.emplace_back("sprite.vert", true);
+    ret.emplace_back("sprite.frag", true);
   }
 
   return ret;

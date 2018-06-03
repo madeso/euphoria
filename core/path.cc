@@ -75,11 +75,11 @@ Path::GetParentDirectory() const
   {
     return *this;
   }
+  ASSERTX(IsDirectory(), absolute_path_);
   if(!IsDirectory())
   {
     return FromDirectory("not a directory");
   }
-  // ASSERT(IsDirectory());
 
   const auto dir_char =
       absolute_path_.rfind(DirectoryChar(), absolute_path_.length() - 2);
@@ -152,7 +152,7 @@ Path::GetDirectoryName() const
 std::string
 Path::GetFileName() const
 {
-  ASSERT(IsFile());
+  ASSERTX(IsFile(), absolute_path_);
   const auto dir_char =
       absolute_path_.rfind(DirectoryChar(), absolute_path_.length() - 2);
 
@@ -162,7 +162,7 @@ Path::GetFileName() const
     return absolute_path_;
   }
 
-  return absolute_path_.substr(dir_char);
+  return absolute_path_.substr(dir_char + 1);
 }
 
 bool

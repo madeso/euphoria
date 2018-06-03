@@ -10,6 +10,14 @@
 
 class Path;
 
+struct ListedFile
+{
+  std::string name;
+  bool        is_builtin;
+
+  ListedFile(const std::string& n, bool b);
+};
+
 // todo: use path class
 
 class FileSystemReadRoot
@@ -23,7 +31,7 @@ class FileSystemReadRoot
   virtual std::shared_ptr<MemoryChunk>
   ReadFile(const std::string& path) = 0;
 
-  virtual std::vector<std::string>
+  virtual std::vector<ListedFile>
   ListFiles(const Path& path) = 0;
 };
 
@@ -54,7 +62,7 @@ class FileSystem
   void
   WriteFile(const std::string& path, std::shared_ptr<MemoryChunk> data);
 
-  std::vector<std::string>
+  std::vector<ListedFile>
   ListFiles(const Path& path);
 
   std::string
@@ -94,7 +102,7 @@ class FileSystemRootCatalog : public FileSystemReadRoot
   std::string
   Describe() override;
 
-  std::vector<std::string>
+  std::vector<ListedFile>
   ListFiles(const Path& path) override;
 
  private:
@@ -118,7 +126,7 @@ class FileSystemRootFolder : public FileSystemReadRoot
   std::string
   Describe() override;
 
-  std::vector<std::string>
+  std::vector<ListedFile>
   ListFiles(const Path& path) override;
 
  private:

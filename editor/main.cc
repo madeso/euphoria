@@ -39,11 +39,28 @@
 #include <iostream>
 #include <memory>
 
+template <typename T, typename G>
+int
+IndexOf(const std::vector<T>& ss, const G& finder)
+{
+  int index = 0;
+  for(const auto& s : ss)
+  {
+    if(finder(s))
+    {
+      return index;
+    }
+    index += 1;
+  }
+
+  return -1;
+}
+
 struct FileBrowser
 {
-  std::string              current_folder;
-  int                      selected_file = -1;
-  std::vector<std::string> files         = {"file1.cc", "cat.cc"};
+  std::string             current_folder;
+  int                     selected_file = -1;
+  std::vector<ListedFile> files;
 
   FileSystem* file_system = nullptr;
   explicit FileBrowser(FileSystem* fs)
@@ -58,15 +75,15 @@ struct FileBrowser
     if(selected_file >= 0 && selected_file < files.size())
     {
       const auto suggested = files[selected_file];
-      if(!EndsWith(suggested, '/'))
+      if(!EndsWith(suggested.name, '/'))
       {
         if(current_folder.empty())
         {
-          return suggested;
+          return suggested.name;
         }
         else
         {
-          return current_folder + suggested;
+          return current_folder + suggested.name;
         }
       }
     }
@@ -74,8 +91,17 @@ struct FileBrowser
   }
 
   void
-  SelectFile(const std::string&)
+  SelectFile(const std::string& p)
   {
+    const auto file = Path::FromFile(p);
+    current_folder  = file.GetDirectory().GetAbsolutePath();
+    Refresh();
+    if(!p.empty())
+    {
+      selected_file = IndexOf(files, [&](const ListedFile& n) -> bool {
+        return n.name == file.GetFileName();
+      });
+    }
   }
 
   void
@@ -85,7 +111,7 @@ struct FileBrowser
     if(!current_folder.empty())
     {
       // files.emplace_back();
-      files.insert(files.begin(), "../");
+      files.insert(files.begin(), ListedFile{"../", true});
     }
     // files.insert(files.begin(), f.begin(), f.end());
     selected_file = -1;
@@ -96,26 +122,30 @@ struct FileBrowser
   {
     bool selected = false;
     InputText("URL", &current_folder);
-    if(ImGui::Button("Refresh"))
-    {
-      Refresh();
-    }
     // ImGui::PushItemWidth(-1);
     ImGui::ListBoxHeader("", ImVec2{-1, -1});
-    int        index = 0;
-    const auto ff    = files;
-    for(const auto& item : ff)
+    int index = 0;
+    for(const auto& item : files)
     {
-      if(ImGui::Selectable(item.c_str(), index == selected_file))
+      const bool custom = item.is_builtin;
+      if(custom)
+      {
+        ImGui::PushStyleColor(ImGuiCol_Text, ImColor{0, 0, 255}.Value);
+      }
+      if(ImGui::Selectable(item.name.c_str(), index == selected_file))
       {
         selected_file = index;
+      }
+      if(custom)
+      {
+        ImGui::PopStyleColor();
       }
 
       if(ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0))
       {
-        if(EndsWith(item, '/'))
+        if(EndsWith(item.name, '/'))
         {
-          if(item == "../")
+          if(item.name == "../")
           {
             current_folder = Path::FromDirectory(current_folder)
                                  .GetParentDirectory()
@@ -123,7 +153,7 @@ struct FileBrowser
           }
           else
           {
-            current_folder += item;
+            current_folder += item.name;
           }
           Refresh();
         }
@@ -140,6 +170,12 @@ struct FileBrowser
     return selected;
   }
 };
+
+ImVec2
+operator+(const ImVec2& lhs, const ImVec2& rhs)
+{
+  return ImVec2{lhs.x + rhs.x, lhs.y + rhs.y};
+}
 
 int
 main(int argc, char** argv)
@@ -243,8 +279,13 @@ main(int argc, char** argv)
           ImGui::OpenPopup("browse");
         }
 
-        ImGui::SetNextWindowSize(ImVec2{200, 200}, ImGuiCond_Appearing);
-        if(ImGui::BeginPopup("browse"))
+        ImGui::SetNextWindowSize(ImVec2{300, 300}, ImGuiCond_Appearing);
+        ImGui::SetNextWindowPos(
+            ImGui::GetCursorPos() + ImGui::GetWindowPos(), ImGuiCond_Always);
+        if(ImGui::BeginPopupModal(
+               "browse",
+               nullptr,
+               ImGuiWindowFlags_NoMove | ImGuiWindowFlags_ResizeFromAnySide))
         {
           if(browser.Run())
           {
