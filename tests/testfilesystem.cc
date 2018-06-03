@@ -18,6 +18,13 @@ class AlwaysExist : public FileSystemReadRoot
   {
     return "";
   }
+
+  std::vector<ListedFile>
+  ListFiles(const Path& path) override
+  {
+    std::vector<ListedFile> ret;
+    return ret;
+  }
 };
 
 class NeverExist : public FileSystemReadRoot
@@ -34,6 +41,13 @@ class NeverExist : public FileSystemReadRoot
   Describe() override
   {
     return "";
+  }
+
+  std::vector<ListedFile>
+  ListFiles(const Path& path) override
+  {
+    std::vector<ListedFile> ret;
+    return ret;
   }
 };
 
