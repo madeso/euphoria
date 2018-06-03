@@ -124,8 +124,10 @@ struct FileBrowser
     InputText("URL", &current_folder);
     // ImGui::PushItemWidth(-1);
     ImGui::ListBoxHeader("", ImVec2{-1, -1});
-    int index = 0;
-    for(const auto& item : files)
+    int        index = 0;
+    const auto ff = files;  // if files is updated during iteration, bad things
+                            // will probably happen, so we iterate a copy
+    for(const auto& item : ff)
     {
       const bool custom = item.is_builtin;
       if(custom)
