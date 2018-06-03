@@ -281,6 +281,7 @@ main(int argc, char** argv)
           ImGui::OpenPopup("browse");
         }
 
+#if 0
         ImGui::SetNextWindowSize(ImVec2{300, 300}, ImGuiCond_Appearing);
         ImGui::SetNextWindowPos(
             ImGui::GetCursorPos() + ImGui::GetWindowPos(), ImGuiCond_Always);
@@ -296,15 +297,28 @@ main(int argc, char** argv)
           }
           ImGui::EndPopup();
         }
-
+#else
+        ImGui::SetNextWindowSize(ImVec2{300, 300}, ImGuiCond_Always);
+        if(ImGui::BeginPopup("browse"))
+        {
+          if(browser.Run())
+          {
+            demo_file = browser.GetSelectedFile();
+            ImGui::CloseCurrentPopup();
+          }
+          ImGui::EndPopup();
+        }
+#endif
         ImGui::End();
       }
     }
 
+#if 0
     const auto mp   = ImGui::GetIO().MousePos;
     auto*      list = ImGui::GetOverlayDrawList();
     list->AddLine(ImVec2{mp.x, 0}, ImVec2{mp.x, size.y}, IM_COL32_BLACK);
     list->AddLine(ImVec2{0, mp.y}, ImVec2{size.x, mp.y}, IM_COL32_BLACK);
+#endif
 
     init.ClearScreen(Color::Wheat);
     imgui.Render();
