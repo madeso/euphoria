@@ -36,6 +36,7 @@
 #include "window/filesystem.h"
 
 #include "editor/browser.h"
+#include "editor/scimed.h"
 
 #include "imgui/imgui.h"
 #include <SDL.h>
@@ -108,6 +109,7 @@ main(int argc, char** argv)
 
   std::string demo_file;
   FileBrowser browser{&file_system};
+  Scimed      scimed;
 
   while(running)
   {
@@ -151,36 +153,27 @@ main(int argc, char** argv)
           ImGui::OpenPopup("browse");
         }
 
-#if 0
-        ImGui::SetNextWindowSize(ImVec2{300, 300}, ImGuiCond_Appearing);
-        ImGui::SetNextWindowPos(
-            ImGui::GetCursorPos() + ImGui::GetWindowPos(), ImGuiCond_Always);
-        if(ImGui::BeginPopupModal(
-               "browse",
-               nullptr,
-               ImGuiWindowFlags_NoMove | ImGuiWindowFlags_ResizeFromAnySide))
-        {
-          if(browser.Run())
-          {
-            demo_file = browser.GetSelectedFile();
-            ImGui::CloseCurrentPopup();
-          }
-          ImGui::EndPopup();
-        }
-#else
         ImGui::SetNextWindowSize(ImVec2{300, 300}, ImGuiCond_Always);
         if(ImGui::BeginPopup("browse"))
         {
           if(browser.Run())
           {
-            demo_file = browser.GetSelectedFile();
+            demo_file      = browser.GetSelectedFile();
+            scimed.texture = texture_cache.GetTexture(demo_file);
             ImGui::CloseCurrentPopup();
           }
           ImGui::EndPopup();
         }
-#endif
         ImGui::End();
       }
+
+      if(ImGui::Begin("Scimed"))
+      {
+        scimed.Run();
+        ImGui::End();
+      }
+
+      ImGui::ShowMetricsWindow();
     }
 
 #if 0
