@@ -6,7 +6,7 @@
 #include "core/path.h"
 #include "core/stringutils.h"
 
-#include "window/imgui.h"
+#include "window/imgui_ext.h"
 
 template <typename T, typename G>
 int

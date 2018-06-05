@@ -37,7 +37,7 @@
 #include "engine/components.h"
 
 #include "window/imguilibrary.h"
-#include "window/imgui.h"
+#include "window/imgui_ext.h"
 #include "window/filesystem.h"
 
 #include "imgui/imgui.h"

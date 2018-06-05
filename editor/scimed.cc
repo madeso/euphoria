@@ -4,7 +4,7 @@
 
 #include "render/texture.h"
 
-#include "window/imgui.h"
+#include "window/imgui_ext.h"
 
 #include <cmath>
 

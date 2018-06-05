@@ -28,7 +28,7 @@
 
 #include "window/imguilibrary.h"
 #include "window/timer.h"
-#include "window/imgui.h"
+#include "window/imgui_ext.h"
 #include "window/fpscontroller.h"
 #include "window/sdllibrary.h"
 #include "window/sdlwindow.h"
