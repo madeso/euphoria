@@ -171,13 +171,17 @@ struct Canvas
   }
 
   ImVec2
-  GetPosition(const ImVec2& pos)
+  WorldToScreen(const ImVec2& p)
   {
-    const auto canvas_position = ImGui::GetCursorScreenPos();
-    ImVec2     offset          = canvas_position + canvas_scroll;
-    return offset + (pos * canvas_scale);
+    return canvas_scroll + p * canvas_scale + ImGui::GetCursorScreenPos();
   }
 };
+
+bool
+IsCloseTo(float a, float b, float c = 3)
+{
+  return fabs(a - b) < c;
+}
 
 bool
 Scimed::Run()
@@ -191,15 +195,28 @@ Scimed::Run()
     ImDrawList* draw_list = ImGui::GetWindowDrawList();
     ImTextureID tex_id    = reinterpret_cast<ImTextureID>(texture->GetId());
 
-    const auto pos = canvas.GetPosition(ImVec2{0, 0});
+    const auto pos = canvas.WorldToScreen(ImVec2{0, 0});
     const auto size =
         ImVec2{texture->GetWidth(), texture->GetHeight()} * canvas.canvas_scale;
 
     draw_list->AddImage(tex_id, pos, pos + size);
   }
-  canvas.HorizontalLine(5, IM_COL32(0, 0, 255, 255));
+
+  const auto line  = canvas.WorldToScreen(ImVec2{5, 5});
+  const auto mouse = ImGui::GetMousePos();
+
+  canvas.HorizontalLine(
+      5,
+      IsCloseTo(mouse.y, line.y) ? IM_COL32(0, 0, 255, 255)
+                                 : IM_COL32(255, 0, 0, 255));
   canvas.ShowRuler();
   canvas.End();
+
+  if(BeginFixedOverlay(ImguiCorner::TopRight, ""))
+  {
+    ImGui::Text("%f %f / %f %f", mouse.x, mouse.y, line.x, line.y);
+    ImGui::End();
+  }
 
   return false;
 }
