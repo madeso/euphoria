@@ -205,10 +205,14 @@ Scimed::Run()
   const auto line  = canvas.WorldToScreen(ImVec2{5, 5});
   const auto mouse = ImGui::GetMousePos();
 
+  const bool close = IsCloseTo(mouse.y, line.y);
+
   canvas.HorizontalLine(
-      5,
-      IsCloseTo(mouse.y, line.y) ? IM_COL32(0, 0, 255, 255)
-                                 : IM_COL32(255, 0, 0, 255));
+      5, close ? IM_COL32(0, 0, 255, 255) : IM_COL32(255, 0, 0, 255));
+  if(close)
+  {
+    ImGui::SetMouseCursor(ImGuiMouseCursor_ResizeNS);
+  }
   canvas.ShowRuler();
   canvas.End();
 
