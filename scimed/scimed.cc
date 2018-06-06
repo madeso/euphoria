@@ -865,9 +865,9 @@ class ImagePanel : public wxPanel
 
     DrawImage(dc, image_x, image_y, w, h);
 
-    const bool draw_ruler  = true;
+    const bool draw_ruler  = false;
     const bool draw_guides = true;
-    const bool draw_sizer  = true;
+    const bool draw_sizer  = false;
 
     if(draw_guides)
     {

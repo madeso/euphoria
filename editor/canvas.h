@@ -51,6 +51,9 @@ struct Canvas
 
   ImVec2
   ScreenToWorld(const ImVec2& v) const;
+
+  ImVec2
+  GetMouse() const;
 };
 
 

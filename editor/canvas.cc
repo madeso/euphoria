@@ -143,3 +143,9 @@ Canvas::ScreenToWorld(const ImVec2& v) const
 {
   return C(view.ScreenToWorld(C(v - position)));
 }
+
+ImVec2
+Canvas::GetMouse() const
+{
+  return ImGui::GetMousePos() - position;
+}
