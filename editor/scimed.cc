@@ -1,6 +1,7 @@
 #include "editor/scimed.h"
 
 #include "core/range.h"
+#include "core/canvaslogic.h"
 
 #include "render/texture.h"
 
@@ -14,13 +15,11 @@
 
 struct Canvas
 {
-  // canvas view
-  ImVec2 canvas_scroll = ImVec2(0.0f, 0.0f);
-  float  canvas_scale  = 1;
+  CanvasLogic view;
+  ImVec2      position = ImVec2{0, 0};
 
   // user config
   float zoom_speed       = 10;
-  Range scale_range      = Range{0.1f, 15.0f};
   float grid_size        = 64.0f;
   ImU32 grid_color       = IM_COL32(200, 200, 200, 40);
   ImU32 background_color = IM_COL32(60, 60, 70, 200);
@@ -28,20 +27,19 @@ struct Canvas
   void
   ShowGrid()
   {
-    const auto  position  = ImGui::GetCursorScreenPos();
     const auto  size      = ImGui::GetWindowSize();
     ImDrawList* draw_list = ImGui::GetWindowDrawList();
 
-    const float scaled_grid_size = grid_size * canvas_scale;
+    const float scaled_grid_size = grid_size * view.scale;
 
-    for(float x = fmodf(canvas_scroll.x, scaled_grid_size); x < size.x;
+    for(float x = fmodf(view.scroll.x, scaled_grid_size); x < size.x;
         x += scaled_grid_size)
     {
       draw_list->AddLine(
           ImVec2(x, 0.0f) + position, ImVec2(x, size.y) + position, grid_color);
     }
 
-    for(float y = fmodf(canvas_scroll.y, scaled_grid_size); y < size.y;
+    for(float y = fmodf(view.scroll.y, scaled_grid_size); y < size.y;
         y += scaled_grid_size)
     {
       draw_list->AddLine(
@@ -52,8 +50,7 @@ struct Canvas
   void
   VerticalLine(float rx, ImU32 grid_color)
   {
-    const auto  position  = ImGui::GetCursorScreenPos();
-    const auto  x         = canvas_scroll.x + rx * canvas_scale;
+    const auto  x         = view.scroll.x + rx * view.scale;
     const auto  size      = ImGui::GetWindowSize();
     ImDrawList* draw_list = ImGui::GetWindowDrawList();
     draw_list->AddLine(
@@ -63,8 +60,7 @@ struct Canvas
   void
   HorizontalLine(float ry, ImU32 grid_color)
   {
-    const auto  position  = ImGui::GetCursorScreenPos();
-    const auto  y         = canvas_scroll.y + ry * canvas_scale;
+    const auto  y         = view.scroll.y + ry * view.scale;
     const auto  size      = ImGui::GetWindowSize();
     ImDrawList* draw_list = ImGui::GetWindowDrawList();
     draw_list->AddLine(
@@ -74,13 +70,12 @@ struct Canvas
   void
   ShowRuler(float ruler_interval, ImU32 ruler_color, float length)
   {
-    const auto  position  = ImGui::GetCursorScreenPos();
     const auto  size      = ImGui::GetWindowSize();
     ImDrawList* draw_list = ImGui::GetWindowDrawList();
 
-    const float scaled_grid_size = ruler_interval * canvas_scale;
+    const float scaled_grid_size = ruler_interval * view.scale;
 
-    for(float x = fmodf(canvas_scroll.x, scaled_grid_size); x < size.x;
+    for(float x = fmodf(view.scroll.x, scaled_grid_size); x < size.x;
         x += scaled_grid_size)
     {
       draw_list->AddLine(
@@ -89,7 +84,7 @@ struct Canvas
           ruler_color);
     }
 
-    for(float y = fmodf(canvas_scroll.y, scaled_grid_size); y < size.y;
+    for(float y = fmodf(view.scroll.y, scaled_grid_size); y < size.y;
         y += scaled_grid_size)
     {
       draw_list->AddLine(
@@ -117,6 +112,8 @@ struct Canvas
         ImVec2(0, 0),
         true,
         ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoMove);
+
+    position = ImGui::GetCursorScreenPos();
   }
 
   void
@@ -125,7 +122,7 @@ struct Canvas
     if(ImGui::IsWindowHovered() && !ImGui::IsAnyItemActive() &&
        ImGui::IsMouseDragging(2, 0.0f))
     {
-      canvas_scroll = canvas_scroll + ImGui::GetIO().MouseDelta;
+      view.Pan(C(ImGui::GetIO().MouseDelta));
     }
   }
 
@@ -134,27 +131,9 @@ struct Canvas
   {
     if(ImGui::IsWindowHovered() && !ImGui::IsAnyItemActive())
     {
-      const auto mouse = ImGui::GetIO().MousePos - ImGui::GetCursorScreenPos();
+      const auto mouse = ImGui::GetIO().MousePos - position;
       const auto zoom  = ImGui::GetIO().MouseWheel;
-
-      const auto focus = (mouse - canvas_scroll) / canvas_scale;
-
-      const float scale_factor = 1 + 0.01f * fabs(zoom) * zoom_speed;
-
-      if(zoom < 0.0f)
-      {
-        canvas_scale /= scale_factor;
-      }
-
-      if(zoom > 0.0f)
-      {
-        canvas_scale *= scale_factor;
-      }
-
-      canvas_scale = scale_range.KeepWithin(canvas_scale);
-
-      const auto new_focus = canvas_scroll + (focus * canvas_scale);
-      canvas_scroll        = canvas_scroll + (mouse - new_focus);
+      view.Zoom(C(mouse), zoom * zoom_speed);
     }
   }
 
@@ -171,9 +150,15 @@ struct Canvas
   }
 
   ImVec2
-  WorldToScreen(const ImVec2& p)
+  WorldToScreen(const ImVec2& v) const
   {
-    return canvas_scroll + p * canvas_scale + ImGui::GetCursorScreenPos();
+    return C(view.WorldToScreen(C(v))) + position;
+  }
+
+  ImVec2
+  ScreenToWorld(const ImVec2& v)
+  {
+    return C(view.ScreenToWorld(C(v - position)));
   }
 };
 
@@ -187,17 +172,18 @@ bool
 Scimed::Run()
 {
   static Canvas canvas;
+  static ImVec2 mouse_popup;
 
   canvas.Begin();
   canvas.ShowGrid();
   if(texture)
   {
     ImDrawList* draw_list = ImGui::GetWindowDrawList();
-    ImTextureID tex_id    = reinterpret_cast<ImTextureID>(texture->GetId());
+    auto        tex_id    = reinterpret_cast<ImTextureID>(texture->GetId());
 
     const auto pos = canvas.WorldToScreen(ImVec2{0, 0});
     const auto size =
-        ImVec2{texture->GetWidth(), texture->GetHeight()} * canvas.canvas_scale;
+        ImVec2{texture->GetWidth(), texture->GetHeight()} * canvas.view.scale;
 
     draw_list->AddImage(tex_id, pos, pos + size);
   }
@@ -215,6 +201,22 @@ Scimed::Run()
   }
   canvas.ShowRuler();
   canvas.End();
+
+  if(ImGui::IsItemHovered() && ImGui::IsMouseClicked(1))
+  {
+    ImGui::OpenPopup("asd");
+    mouse_popup = canvas.ScreenToWorld(ImGui::GetMousePos());
+  }
+
+  if(ImGui::BeginPopup("asd"))
+  {
+    ImGui::Text("%f %f", mouse_popup.x, mouse_popup.y);
+    if(ImGui::Selectable("Ha ha"))
+    {
+    }
+    ImGui::Selectable("dog");
+    ImGui::EndPopup();
+  }
 
   if(BeginFixedOverlay(ImguiCorner::TopRight, ""))
   {

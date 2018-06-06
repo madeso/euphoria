@@ -121,3 +121,15 @@ BeginFixedOverlay(ImguiCorner corner, const std::string& title)
           ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoMove |
           ImGuiWindowFlags_NoSavedSettings);
 }
+
+ImVec2
+C(const vec2f& v)
+{
+  return ImVec2{v.x, v.y};
+}
+
+vec2f
+C(const ImVec2& v)
+{
+  return vec2f{v.x, v.y};
+}

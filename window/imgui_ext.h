@@ -2,10 +2,13 @@
 #define EUPHORIA_IMGUI_H
 
 #include <string>
+#include "core/vec2.h"
 
 class Angle;
 class Texture2d;
 class Rgb;
+
+struct ImVec2;
 
 bool
 InputText(const char* label, std::string* str);
@@ -31,5 +34,11 @@ enum class ImguiCorner
 
 bool
 BeginFixedOverlay(ImguiCorner corner, const std::string& title);
+
+ImVec2
+C(const vec2f& v);
+
+vec2f
+C(const ImVec2& v);
 
 #endif  // EUPHORIA_IMGUI_H
