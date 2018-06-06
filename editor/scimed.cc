@@ -3,6 +3,7 @@
 #include "core/range.h"
 #include "core/canvaslogic.h"
 #include "core/str.h"
+#include "core/numeric.h"
 
 #include "render/texture.h"
 
@@ -10,12 +11,10 @@
 
 #include "editor/canvas.h"
 
-#include <cmath>
-
 bool
 IsCloseTo(float a, float b, float c = 3)
 {
-  return fabs(a - b) < c;
+  return Abs(a - b) < c;
 }
 
 bool
@@ -31,9 +30,9 @@ Scimed::Run()
     ImDrawList* draw_list = ImGui::GetWindowDrawList();
     auto        tex_id    = reinterpret_cast<ImTextureID>(texture->GetId());
 
-    const auto pos  = canvas.WorldToScreen(ImVec2{0, 0});
-    const auto size = canvas.WorldToScreen(
-        ImVec2{texture->GetWidth(), texture->GetHeight()});
+    const auto pos = canvas.WorldToScreen(ImVec2{0, 0});
+    const auto size =
+        canvas.WorldToScreen(ImVec2{texture->GetWidth(), texture->GetHeight()});
 
     draw_list->AddImage(tex_id, pos, size);
   }
