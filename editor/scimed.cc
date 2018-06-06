@@ -25,10 +25,11 @@ Scimed::Run()
 
   canvas.Begin();
   canvas.ShowGrid();
+  ImDrawList* draw_list = ImGui::GetWindowDrawList();
+
   if(texture)
   {
-    ImDrawList* draw_list = ImGui::GetWindowDrawList();
-    auto        tex_id    = reinterpret_cast<ImTextureID>(texture->GetId());
+    auto tex_id = reinterpret_cast<ImTextureID>(texture->GetId());
 
     const auto pos = canvas.WorldToScreen(ImVec2{0, 0});
     const auto size =
@@ -36,6 +37,11 @@ Scimed::Run()
 
     draw_list->AddImage(tex_id, pos, size);
   }
+
+  draw_list->AddText(
+      canvas.WorldToScreen(ImVec2{100, 100}),
+      IM_COL32(255, 255, 255, 255),
+      "Hello world");
 
   const auto line  = canvas.WorldToScreen(ImVec2{5, 5});
   const auto mouse = ImGui::GetMousePos();
@@ -67,9 +73,11 @@ Scimed::Run()
     ImGui::EndPopup();
   }
 
+
+  // debug
   if(BeginFixedOverlay(ImguiCorner::TopRight, ""))
   {
-    ImGui::Text("%f %f / %f %f", mouse.x, mouse.y, line.x, line.y);
+    ImguiLabel(Str() << "Mouse: " << C(mouse) - C(canvas.position));
     ImGui::End();
   }
 
