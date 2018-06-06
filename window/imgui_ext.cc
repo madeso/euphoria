@@ -24,6 +24,12 @@ InputText(const char* label, std::string* str)
 }
 
 void
+ImguiLabel(const std::string& str)
+{
+  ImGui::Text("%s", str.c_str());
+}
+
+void
 ImguiAngleSlider(
     const char* const name, Angle* angle, float mindeg, float maxdeg)
 {
