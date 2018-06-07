@@ -130,8 +130,11 @@ class Data
 {
  public:
   PositionClassification
-  Classify(int y, int image_start, int image_size, float scale_) const
+  Classify(int y, int image_size) const
   {
+    const int image_start = 0;
+    const int scale_      = 1;
+
     const int image_end_y = image_start + static_cast<int>(image_size * scale_);
 
     const bool within_image = y > image_start && y < image_end_y;
@@ -512,6 +515,27 @@ TrackUtil(
   (*data_ptr)[line_index + 1] = Sign((*data_ptr)[line_index + 1]) * right_size;
 }
 
+void
+DoSplitData(
+    std::vector<int>* data_ptr, const PositionClassification& class_x, int x)
+{
+  const int scale   = 1;
+  const int image_x = 0;
+
+  Data data(data_ptr);
+  const std::pair<int, int> size = data.GetExtentsForRange(class_x.index);
+  const int mouse_x = std::min(
+      size.second - 1,
+      std::max(size.first + 1, static_cast<int>((x - image_x) / scale)));
+  const int split_x           = mouse_x - size.first;
+  int       value             = (*data.data)[class_x.index];
+  const int sign              = Sign(value);
+  (*data.data)[class_x.index] = split_x * sign;  // value / 2;
+  const int new_value =
+      sign * (sign * value - sign * (*data.data)[class_x.index]);
+  (*data.data).insert((*data.data).begin() + class_x.index + 1, new_value);
+}
+
 bool
 Scimed::Run()
 {
@@ -581,19 +605,17 @@ Scimed::Run()
   if(ImGui::BeginPopup("asd"))
   {
     // ImguiLabel(Str() << "Mouse: " << mouse_popup);
-    const int image_x = 0;
-    const int image_y = 0;
-    const int scale   = 1;
 
-    const auto class_y = Data{&scaling.rows}.Classify(
-        mouse_popup.y, image_y, texture->GetHeight(), scale);
-    const auto class_x = Data{&scaling.cols}.Classify(
-        mouse_popup.x, image_x, texture->GetWidth(), scale);
+    const auto class_y =
+        Data{&scaling.rows}.Classify(mouse_popup.y, texture->GetHeight());
+    const auto class_x =
+        Data{&scaling.cols}.Classify(mouse_popup.x, texture->GetWidth());
 
     if(class_y.type == PositionType::OnImage)
     {
       if(ImGui::Selectable("New Horizontal divider"))
       {
+        DoSplitData(&scaling.rows, class_y, mouse_popup.y);
       }
     }
     else
@@ -606,6 +628,7 @@ Scimed::Run()
     {
       if(ImGui::Selectable("New vertical divider"))
       {
+        DoSplitData(&scaling.cols, class_x, mouse_popup.x);
       }
     }
     else
