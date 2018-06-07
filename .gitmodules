@@ -8,3 +8,6 @@
 [submodule "external/rapidjson"]
 	path = external/rapidjson
 	url = git@github.com:Tencent/rapidjson.git
+[submodule "external/IconFontCppHeaders"]
+	path = external/IconFontCppHeaders
+	url = git@github.com:juliettef/IconFontCppHeaders.git

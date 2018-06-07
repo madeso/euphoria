@@ -100,6 +100,7 @@ endif()
 add_subdirectory(core)
 
 ADD_DEFINITIONS(-DIMGUI_USER_CONFIG="imgui_config.h")
+add_executable(binary_to_compressed_c external/imgui/imgui/misc/fonts/binary_to_compressed_c.cpp)
 
 add_subdirectory(base64)
 add_subdirectory(render)

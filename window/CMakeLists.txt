@@ -20,6 +20,19 @@ set(src_imgui
 set(src ${src} ${src_imgui})
 source_group("imgui" FILES ${src_imgui})
 
+add_custom_command(
+  OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/font_forkawesome.h"
+  COMMAND  binary_to_compressed_c
+  ARGS ${CMAKE_CURRENT_SOURCE_DIR}/forkawesome.ttf ForkAwesome > font_forkawesome.h
+  WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+  COMMENT "Generating binary font"
+  )
+set(src ${src} ${CMAKE_CURRENT_BINARY_DIR}/font_forkawesome.h)
+source_group("fonts" FILES ${CMAKE_CURRENT_BINARY_DIR}/font_forkawesome.h)
+include_directories(SYSTEM ${CMAKE_CURRENT_BINARY_DIR})
+
+include_directories(SYSTEM ../external/IconFontCppHeaders/)
+
 include_directories(SYSTEM ${SDL2_INCLUDE_DIR})
 
 add_library(window STATIC ${src})

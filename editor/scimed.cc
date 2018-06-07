@@ -9,6 +9,7 @@
 #include "render/texture.h"
 
 #include "window/imgui_ext.h"
+#include "window/imgui_icons.h"
 
 #include "editor/canvas.h"
 
@@ -639,9 +640,12 @@ Scimed::Run()
     const auto class_x =
         Data{&scaling.cols}.Classify(mouse_popup.x, texture->GetWidth());
 
+    const char* hor_div_text  = ICON_FK_ARROWS_H " New Horizontal divider";
+    const char* vert_div_text = ICON_FK_ARROWS_V " New Vertical divider";
+
     if(class_y.type == PositionType::OnImage)
     {
-      if(ImGui::Selectable("New Horizontal divider"))
+      if(ImGui::Selectable(hor_div_text))
       {
         DoSplitData(&scaling.rows, class_y, mouse_popup.y);
       }
@@ -649,12 +653,12 @@ Scimed::Run()
     else
     {
       ImguiDisabled disabled;
-      ImguiLabel("New horizontal divider");
+      ImguiLabel(hor_div_text);
     }
 
     if(class_x.type == PositionType::OnImage)
     {
-      if(ImGui::Selectable("New vertical divider"))
+      if(ImGui::Selectable(vert_div_text))
       {
         DoSplitData(&scaling.cols, class_x, mouse_popup.x);
       }
@@ -662,7 +666,7 @@ Scimed::Run()
     else
     {
       ImguiDisabled disabled;
-      ImguiLabel("New vertical divider");
+      ImguiLabel(vert_div_text);
     }
     ImGui::EndPopup();
   }

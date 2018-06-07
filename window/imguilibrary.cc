@@ -3,6 +3,28 @@
 #include "imgui/imgui.h"
 #include "imgui_impl_sdl_gl3.h"
 
+#include "IconsForkAwesome.h"
+#include "font_forkawesome.h"
+
+void
+AddForkAwesome()
+{
+  ImGuiIO& io = ImGui::GetIO();
+  io.Fonts->AddFontDefault();
+
+  static const ImWchar icons_ranges[] = {ICON_MIN_FK, ICON_MAX_FK, 0};
+  ImFontConfig         icons_config;
+  icons_config.MergeMode  = true;
+  icons_config.PixelSnapH = true;
+  io.Fonts->AddFontFromMemoryCompressedTTF(
+      ForkAwesome_compressed_data,
+      ForkAwesome_compressed_size,
+      16.0f,
+      &icons_config,
+      icons_ranges);
+}
+
+
 ImguiLibrary::ImguiLibrary(SDL_Window* window, const std::string& path)
     : window_(window)
     , path_(path + "imgui.ini")
@@ -11,6 +33,9 @@ ImguiLibrary::ImguiLibrary(SDL_Window* window, const std::string& path)
   ImGui::CreateContext();
 
   ImGui_ImplSdlGL3_Init(window);
+
+  AddForkAwesome();
+
   ImGui::GetIO().IniFilename = path_.c_str();
 }
 
