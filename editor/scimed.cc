@@ -369,18 +369,18 @@ struct Dc
     return ButtonAt(p, s.c_str());
   }
 
-  void
+  bool
   DrawVerticalCenteredText(
-      int top, int bottom, int x, const std::string& s) const
+      int top_p, int bottom_p, int x_p, const std::string& s) const
   {
     ImDrawList* draw_list = ImGui::GetWindowDrawList();
-    // const wxSize size = dc.GetTextExtent(s);
-    // int          y    = top + (bottom - top) / 2 - size.GetHeight() / 2;
-    // dc.DrawText(s, x - size.GetWidth(), y);
-    draw_list->AddText(
-        canvas->WorldToScreen(ImVec2{x, top}),
-        IM_COL32(255, 255, 255, 255),
-        s.c_str());
+    const auto  size      = ImGui::CalcTextSize(s.c_str());
+    const auto  top       = canvas->WorldToScreen(ImVec2{x_p, top_p});
+    const auto  bottom    = canvas->WorldToScreen(ImVec2{x_p, bottom_p});
+    const auto  x         = bottom.x;
+    const auto  y         = top.y + (bottom.y - top.y) / 2 - size.y / 2;
+    const auto  p         = ImVec2{x - size.x, y};
+    return ButtonAt(p, s.c_str());
   }
 };
 
@@ -446,10 +446,16 @@ DrawSizer(
   dc.DrawLine(anchor_x, image_y, anchor_x, end);
   dc.DrawAnchorLeft(anchor_x, end, anchor_size);
 
+  int row_index = 0;
   for(const auto t : row_text)
   {
-    dc.DrawVerticalCenteredText(
+    const bool clicked = dc.DrawVerticalCenteredText(
         image_y + t.left * scale, image_y + t.right * scale, text_x, t.text);
+    if(clicked)
+    {
+      sprite->rows[row_index] = -sprite->rows[row_index];
+    }
+    row_index += 1;
   }
 }
 
