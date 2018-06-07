@@ -4,12 +4,15 @@
 #include "core/canvaslogic.h"
 #include "core/str.h"
 #include "core/numeric.h"
+#include "core/log.h"
 
 #include "render/texture.h"
 
 #include "window/imgui_ext.h"
 
 #include "editor/canvas.h"
+
+LOG_SPECIFY_DEFAULT_LOGGER("editor.scimed")
 
 bool
 IsCloseTo(float a, float b, float c = 3)
@@ -339,18 +342,31 @@ struct Dc
     draw_list->AddLine(from, to, color);
   }
 
-  void
+  bool
+  ButtonAt(const ImVec2& p, const char* label) const
+  {
+    const auto backup = ImGui::GetCursorPos();
+    ImVec2     pp     = p;
+    pp.x -= canvas->position.x;
+    pp.y -= canvas->position.y;
+    ImGui::SetCursorPos(pp);
+    const bool clicked = ImGui::Button(label);
+    ImGui::SetCursorPos(backup);
+    return clicked;
+  }
+
+  bool
   DrawHorizontalCenteredText(
-      int left, int right, int y, const std::string& s) const
+      int left_p, int right_p, int y_p, const std::string& s) const
   {
     ImDrawList* draw_list = ImGui::GetWindowDrawList();
-    // const wxSize size = dc.GetTextExtent(s);
-    // int          x    = left + (right - left) / 2 - size.GetWidth() / 2;
-    // dc.DrawText(s, x, y - size.GetHeight());
-    draw_list->AddText(
-        canvas->WorldToScreen(ImVec2{left, y}),
-        IM_COL32(255, 255, 255, 255),
-        s.c_str());
+    const auto  size      = ImGui::CalcTextSize(s.c_str());
+    const auto  left      = canvas->WorldToScreen(ImVec2{left_p, y_p});
+    const auto  right     = canvas->WorldToScreen(ImVec2{right_p, y_p});
+    const auto  y         = left.y;
+    auto        x         = left.x + (right.x - left.x) / 2 - size.x / 2;
+    const auto  p         = ImVec2{x, y - size.y};
+    return ButtonAt(p, s.c_str());
   }
 
   void
@@ -402,10 +418,16 @@ DrawSizer(
   dc.DrawLine(image_x, anchor_y, end, anchor_y);
   dc.DrawAnchorDown(end, anchor_y, anchor_size);
 
+  int cindex = 0;
   for(const auto& t : col_text)
   {
-    dc.DrawHorizontalCenteredText(
+    const bool clicked = dc.DrawHorizontalCenteredText(
         image_x + t.left * scale, image_x + t.right * scale, text_y, t.text);
+    if(clicked)
+    {
+      sprite->cols[cindex] = -sprite->cols[cindex];
+    }
+    cindex += 1;
   }
 
   const int image_end_y = image_y + image->GetHeight() * scale;
