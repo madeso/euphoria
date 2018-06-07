@@ -580,11 +580,39 @@ Scimed::Run()
 
   if(ImGui::BeginPopup("asd"))
   {
-    ImguiLabel(Str() << "Mouse: " << mouse_popup);
-    if(ImGui::Selectable("Ha ha"))
+    // ImguiLabel(Str() << "Mouse: " << mouse_popup);
+    const int image_x = 0;
+    const int image_y = 0;
+    const int scale   = 1;
+
+    const auto class_y = Data{&scaling.rows}.Classify(
+        mouse_popup.y, image_y, texture->GetHeight(), scale);
+    const auto class_x = Data{&scaling.cols}.Classify(
+        mouse_popup.x, image_x, texture->GetWidth(), scale);
+
+    if(class_y.type == PositionType::OnImage)
     {
+      if(ImGui::Selectable("New Horizontal divider"))
+      {
+      }
     }
-    ImGui::Selectable("dog");
+    else
+    {
+      ImguiDisabled disabled;
+      ImguiLabel("New horizontal divider");
+    }
+
+    if(class_x.type == PositionType::OnImage)
+    {
+      if(ImGui::Selectable("New vertical divider"))
+      {
+      }
+    }
+    else
+    {
+      ImguiDisabled disabled;
+      ImguiLabel("New vertical divider");
+    }
     ImGui::EndPopup();
   }
 
