@@ -44,4 +44,10 @@ C(const vec2f& v);
 vec2f
 C(const ImVec2& v);
 
+struct ImguiDisabled
+{
+  ImguiDisabled();
+  ~ImguiDisabled();
+};
+
 #endif  // EUPHORIA_IMGUI_H

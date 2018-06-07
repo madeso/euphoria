@@ -139,3 +139,16 @@ C(const ImVec2& v)
 {
   return vec2f{v.x, v.y};
 }
+
+// from https://github.com/ocornut/imgui/issues/211
+ImguiDisabled::ImguiDisabled()
+{
+  // ImGui::PushItemFlag(ImGuiItemFlags_Disabled, true);
+  ImGui::PushStyleVar(ImGuiStyleVar_Alpha, ImGui::GetStyle().Alpha * 0.5f);
+}
+
+ImguiDisabled::~ImguiDisabled()
+{
+  // ImGui::PopItemFlag();
+  ImGui::PopStyleVar();
+}
