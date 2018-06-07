@@ -428,11 +428,6 @@ DrawSizer(
   }
 }
 
-struct LineHoverData
-{
-  int vertical_index   = 0;
-  int horizontal_index = 0;
-};
 
 int
 DrawSingleGuideLineGroup(
@@ -477,12 +472,49 @@ DrawGuides(scalingsprite::ScalingSprite* sprite, Canvas* canvas)
   return ret;
 }
 
+void
+SetMouseCursorFromHover(const LineHoverData& hover)
+{
+  if(hover.horizontal_index != -1 || hover.vertical_index != -1)
+  {
+    if(hover.horizontal_index != -1 && hover.vertical_index != -1)
+    {
+      ImGui::SetMouseCursor(ImGuiMouseCursor_ResizeAll);
+    }
+    else if(hover.horizontal_index != -1)
+    {
+      ImGui::SetMouseCursor(ImGuiMouseCursor_ResizeNS);
+    }
+    else
+    {
+      ImGui::SetMouseCursor(ImGuiMouseCursor_ResizeEW);
+    }
+  }
+}
+
+
+void
+TrackUtil(
+    int line_index, std::vector<int>* data_ptr, float world, int total_size)
+{
+  if(line_index == -1)
+    return;
+  const auto lines            = Data{data_ptr}.GetLines();
+  const auto d                = lines[line_index];
+  const auto scaled           = static_cast<int>(world);
+  const auto max              = std::max(d.min_value + 1, scaled);
+  const int  line_x           = std::min(d.max_value - 1, max);
+  const int  at_line          = Data{data_ptr}.GetSizeExceptForLine(line_index);
+  const int  remaining_size   = total_size - at_line;
+  const int  left_size        = line_x - d.min_value;
+  const int  right_size       = d.max_value - line_x;
+  (*data_ptr)[line_index]     = Sign((*data_ptr)[line_index]) * left_size;
+  (*data_ptr)[line_index + 1] = Sign((*data_ptr)[line_index + 1]) * right_size;
+}
+
 bool
 Scimed::Run()
 {
-  static Canvas canvas;
-  static vec2f  mouse_popup = vec2f{0, 0};
-
   canvas.Begin();
   canvas.ShowGrid();
   ImDrawList* draw_list = ImGui::GetWindowDrawList();
@@ -504,26 +536,41 @@ Scimed::Run()
 
   draw_list->AddImage(tex_id, pos, size);
 
-  const auto hover = DrawGuides(&scaling, &canvas);
-  if(hover.horizontal_index != -1 || hover.vertical_index != -1)
-  {
-    if(hover.horizontal_index != -1 && hover.vertical_index != -1)
-    {
-      ImGui::SetMouseCursor(ImGuiMouseCursor_ResizeAll);
-    }
-    else if(hover.horizontal_index != -1)
-    {
-      ImGui::SetMouseCursor(ImGuiMouseCursor_ResizeNS);
-    }
-    else
-    {
-      ImGui::SetMouseCursor(ImGuiMouseCursor_ResizeEW);
-    }
-  }
+  const auto current_hover = DrawGuides(&scaling, &canvas);
   DrawSizer(texture, Dc{&canvas}, &scaling);
 
   canvas.ShowRuler();
   canvas.End();
+
+  if(ImGui::IsMouseClicked(0))
+  {
+    hover = current_hover;
+  }
+
+  const bool is_tracking =
+      hover.horizontal_index != -1 || hover.vertical_index != -1;
+  if(is_tracking)
+  {
+    if(ImGui::IsMouseDown(0))
+    {
+      SetMouseCursorFromHover(hover);
+
+      const auto me = canvas.ScreenToWorld(ImGui::GetMousePos());
+
+      TrackUtil(
+          hover.horizontal_index, &scaling.rows, me.y, texture->GetHeight());
+      TrackUtil(hover.vertical_index, &scaling.cols, me.x, texture->GetWidth());
+    }
+    else
+    {
+      SetMouseCursorFromHover(current_hover);
+      hover = LineHoverData{};
+    }
+  }
+  else
+  {
+    SetMouseCursorFromHover(current_hover);
+  }
 
   if(ImGui::IsItemHovered() && ImGui::IsMouseClicked(1))
   {
@@ -549,6 +596,10 @@ Scimed::Run()
     ImguiLabel(
         Str() << "Hover: " << hover.horizontal_index << "/"
               << hover.vertical_index);
+    ImguiLabel(
+        Str() << "Current: " << current_hover.horizontal_index << "/"
+              << current_hover.vertical_index);
+    ImguiLabel(is_tracking ? "Tracking" : "Not tracking");
     ImGui::End();
   }
 
