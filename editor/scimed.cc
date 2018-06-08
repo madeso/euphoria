@@ -137,30 +137,12 @@ class Data
   PositionClassification
   Classify(int y, int image_size) const
   {
-    const int image_start = 0;
-    const int scale_      = 1;
+    const bool within_image = y > 0 && y < image_size;
 
-    const int image_end_y = image_start + static_cast<int>(image_size * scale_);
-
-    const bool within_image = y > image_start && y < image_end_y;
-    const bool on_top_side  = y < image_start - SizerDistance && y > RulerSize;
-
-    const int dx = static_cast<int>((y - image_start) / scale_);
-
-    if(on_top_side)
+    if(within_image)
     {
-      TextRenderData d = GetTextOver(dx);
-      return PositionClassification(PositionType::OnText, d.index);
-    }
-    else if(within_image)
-    {
-      TextRenderData d = GetTextOver(dx);
-      return PositionClassification(PositionType::OnImage, d.index);
-    }
-    else if(y < RulerSize)
-    {
-      TextRenderData d = GetTextOver(dx);
-      return PositionClassification(PositionType::OnRuler, d.index);
+      TextRenderData d = GetTextOver(y);
+      return {PositionType::OnImage, d.index};
     }
     else
     {
@@ -537,8 +519,6 @@ TrackUtil(
   const auto scaled           = static_cast<int>(world);
   const auto max              = std::max(d.min_value + 1, scaled);
   const int  line_x           = std::min(d.max_value - 1, max);
-  const int  at_line          = Data{data_ptr}.GetSizeExceptForLine(line_index);
-  const int  remaining_size   = total_size - at_line;
   const int  left_size        = line_x - d.min_value;
   const int  right_size       = d.max_value - line_x;
   (*data_ptr)[line_index]     = Sign((*data_ptr)[line_index]) * left_size;
