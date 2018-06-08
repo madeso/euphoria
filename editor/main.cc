@@ -164,14 +164,14 @@ main(int argc, char** argv)
           }
           ImGui::EndPopup();
         }
-        ImGui::End();
       }
+      ImGui::End();
 
       if(ImGui::Begin("Scimed"))
       {
         scimed.Run();
-        ImGui::End();
       }
+      ImGui::End();
 
       ImGui::ShowMetricsWindow();
     }
