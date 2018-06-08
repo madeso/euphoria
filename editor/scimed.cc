@@ -106,29 +106,11 @@ class LineData
   int max_value;
 };
 
-enum class PositionType
-{
-  OnRuler,
-  OnText,
-  OnImage,
-  OnOther
-};
-
 class PositionClassification
 {
  public:
-  PositionClassification()
-      : type(PositionType::OnOther)
-      , index(-1)
-  {
-  }
-  PositionClassification(PositionType t, int i)
-      : type(t)
-      , index(i)
-  {
-  }
-  PositionType type;
-  int          index;
+  bool on_image = false;
+  int  index    = -1;
 };
 
 class Data
@@ -142,11 +124,11 @@ class Data
     if(within_image)
     {
       TextRenderData d = GetTextOver(y);
-      return {PositionType::OnImage, d.index};
+      return {true, d.index};
     }
     else
     {
-      return PositionClassification(PositionType::OnOther, -1);
+      return {false, -1};
     }
   }
 
@@ -179,39 +161,6 @@ class Data
       }
     }
     return total;
-  }
-
-  int
-  GetSizeExceptForLine(int index) const
-  {
-    int r = 0;
-    for(unsigned int i = 0; i < data->size(); ++i)
-    {
-      if(i == index || i + i == index)
-      {
-      }
-      else
-      {
-        r += std::abs((*data)[i]);
-      }
-    }
-    return r;
-  }
-
-  TrackingLine
-  GetTracking(int d, float initial, float scale) const
-  {
-    const auto lines = GetLines();
-    for(unsigned int i = 0; i < lines.size(); ++i)
-    {
-      const LineData& data = lines[i];
-      const int       l    = static_cast<int>(initial + scale * data.position);
-      if(KindaTheSame(d, l))
-      {
-        return TrackingLine::FromIndex(i);
-      }
-    }
-    return TrackingLine::Null();
   }
 
   std::vector<TextRenderData>
@@ -252,8 +201,6 @@ class Data
         return d;
       }
     }
-    // ASSERT(false && "shouldnt happen"); // but will if our data is less than
-    // the image size
     return last;
   }
 
@@ -280,12 +227,6 @@ class Data
       x += dx;
     }
     return ret;
-  }
-
-  bool
-  IsOk() const
-  {
-    return data->empty() == false;
   }
 
   explicit Data(std::vector<int>* d)
@@ -395,23 +336,21 @@ DrawSizer(
   int end = image_end_x;
   for(const auto& t : col_text)
   {
-    // DrawAnchorDown(dc, image_x + t.position * scale, anchor_y,
-    // anchor_size);
     end = image_x + t.right * scale;
   }
   dc.DrawLine(image_x, anchor_y, end, anchor_y);
   dc.DrawAnchorDown(end, anchor_y, anchor_size);
 
-  int cindex = 0;
+  int col_index = 0;
   for(const auto& t : col_text)
   {
     const bool clicked = dc.DrawHorizontalCenteredText(
         image_x + t.left * scale, image_x + t.right * scale, text_y, t.text);
     if(clicked)
     {
-      sprite->cols[cindex] = -sprite->cols[cindex];
+      sprite->cols[col_index] = -sprite->cols[col_index];
     }
-    cindex += 1;
+    col_index += 1;
   }
 
   const int image_end_y = image_y + image->GetHeight() * scale;
@@ -641,15 +580,12 @@ Scimed::Run()
         Data{&scaling.cols}.Classify(mouse_popup.x, texture->GetWidth());
 
     if(PopupButton(
-           class_y.type == PositionType::OnImage,
-           ICON_FK_ARROWS_H " New Horizontal divider"))
+           class_y.on_image, ICON_FK_ARROWS_H " New Horizontal divider"))
     {
       DoSplitData(&scaling.rows, class_y, mouse_popup.y);
     }
 
-    if(PopupButton(
-           class_x.type == PositionType::OnImage,
-           ICON_FK_ARROWS_V " New Vertical divider"))
+    if(PopupButton(class_x.on_image, ICON_FK_ARROWS_V " New Vertical divider"))
     {
       DoSplitData(&scaling.cols, class_x, mouse_popup.x);
     }
