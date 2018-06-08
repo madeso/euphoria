@@ -111,14 +111,6 @@ main(int argc, char** argv)
   FileBrowser browser{&file_system};
   Scimed      scimed;
 
-  // debug data
-  scimed.scaling.cols.emplace_back(3);
-  scimed.scaling.cols.emplace_back(20);
-  scimed.scaling.cols.emplace_back(30);
-  scimed.scaling.rows.emplace_back(7);
-  scimed.scaling.rows.emplace_back(25);
-  scimed.scaling.rows.emplace_back(46);
-
   while(running)
   {
     SDL_Event e;
@@ -166,8 +158,8 @@ main(int argc, char** argv)
         {
           if(browser.Run())
           {
-            demo_file      = browser.GetSelectedFile();
-            scimed.texture = texture_cache.GetTexture(demo_file);
+            demo_file = browser.GetSelectedFile();
+            scimed.LoadFile(&texture_cache, &file_system, demo_file);
             ImGui::CloseCurrentPopup();
           }
           ImGui::EndPopup();

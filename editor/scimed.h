@@ -10,6 +10,8 @@
 #include "gaf_scalingsprite.h"
 
 class Texture2d;
+class TextureCache;
+class FileSystem;
 
 struct LineHoverData
 {
@@ -26,6 +28,9 @@ struct Scimed
   Canvas        canvas;
   vec2f         mouse_popup = vec2f{0, 0};
   LineHoverData hover;
+
+  void
+  LoadFile(TextureCache* cache, FileSystem* fs, const std::string& path);
 
   bool
   Run();

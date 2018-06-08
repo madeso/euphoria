@@ -7,6 +7,7 @@
 #include "core/log.h"
 
 #include "render/texture.h"
+#include "render/texturecache.h"
 
 #include "window/imgui_ext.h"
 #include "window/imgui_icons.h"
@@ -691,4 +692,24 @@ Scimed::Run()
   }
 
   return false;
+}
+
+void
+Scimed::LoadFile(TextureCache* cache, FileSystem* fs, const std::string& path)
+{
+  texture = cache->GetTexture(path);
+  scaling = scalingsprite::ScalingSprite{};
+
+  if(texture)
+  {
+    if(scaling.rows.empty())
+    {
+      scaling.rows.emplace_back(texture->GetHeight());
+    }
+
+    if(scaling.cols.empty())
+    {
+      scaling.cols.emplace_back(texture->GetWidth());
+    }
+  }
 }
