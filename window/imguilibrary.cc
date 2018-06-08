@@ -14,12 +14,14 @@ AddForkAwesome()
 
   static const ImWchar icons_ranges[] = {ICON_MIN_FK, ICON_MAX_FK, 0};
   ImFontConfig         icons_config;
-  icons_config.MergeMode  = true;
-  icons_config.PixelSnapH = true;
+  icons_config.MergeMode        = true;
+  icons_config.PixelSnapH       = true;
+  icons_config.GlyphMinAdvanceX = 13.0f;
+
   io.Fonts->AddFontFromMemoryCompressedTTF(
       ForkAwesome_compressed_data,
       ForkAwesome_compressed_size,
-      16.0f,
+      13.0f,
       &icons_config,
       icons_ranges);
 }
