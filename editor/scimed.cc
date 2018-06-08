@@ -566,6 +566,25 @@ DoSplitData(
 }
 
 bool
+PopupButton(bool enabled, const char* label)
+{
+  if(enabled)
+  {
+    if(ImGui::Selectable(label))
+    {
+      return true;
+    }
+  }
+  else
+  {
+    ImguiDisabled disabled;
+    ImGui::TextUnformatted(label);
+  }
+
+  return false;
+}
+
+bool
 Scimed::Run()
 {
   canvas.Begin();
@@ -640,33 +659,18 @@ Scimed::Run()
     const auto class_x =
         Data{&scaling.cols}.Classify(mouse_popup.x, texture->GetWidth());
 
-    const char* hor_div_text  = ICON_FK_ARROWS_H " New Horizontal divider";
-    const char* vert_div_text = ICON_FK_ARROWS_V " New Vertical divider";
-
-    if(class_y.type == PositionType::OnImage)
+    if(PopupButton(
+           class_y.type == PositionType::OnImage,
+           ICON_FK_ARROWS_H " New Horizontal divider"))
     {
-      if(ImGui::Selectable(hor_div_text))
-      {
-        DoSplitData(&scaling.rows, class_y, mouse_popup.y);
-      }
-    }
-    else
-    {
-      ImguiDisabled disabled;
-      ImguiLabel(hor_div_text);
+      DoSplitData(&scaling.rows, class_y, mouse_popup.y);
     }
 
-    if(class_x.type == PositionType::OnImage)
+    if(PopupButton(
+           class_x.type == PositionType::OnImage,
+           ICON_FK_ARROWS_V " New Vertical divider"))
     {
-      if(ImGui::Selectable(vert_div_text))
-      {
-        DoSplitData(&scaling.cols, class_x, mouse_popup.x);
-      }
-    }
-    else
-    {
-      ImguiDisabled disabled;
-      ImguiLabel(vert_div_text);
+      DoSplitData(&scaling.cols, class_x, mouse_popup.x);
     }
     ImGui::EndPopup();
   }
