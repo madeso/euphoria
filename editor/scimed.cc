@@ -263,7 +263,7 @@ struct Dc
 };
 
 void
-DrawSizer(
+DrawSizerCol(
     std::shared_ptr<Texture2d>    image,
     const Dc&                     dc,
     scalingsprite::ScalingSprite* sprite)
@@ -272,14 +272,12 @@ DrawSizer(
   const int anchor_size = 6;
 
   Data col{&sprite->cols};
-  Data row{&sprite->rows};
 
   const int image_end_x = image->GetWidth();
   const int anchor_y    = -distance;
   const int text_y      = anchor_y - 3;
 
   const auto col_text = col.CalculateAllSpaces();
-  const auto row_text = row.CalculateAllSpaces();
 
   dc.DrawAnchorDown(0, anchor_y, anchor_size);
   int end = image_end_x;
@@ -297,19 +295,33 @@ DrawSizer(
     }
     col_index += 1;
   }
+}
+
+void
+DrawSizerRow(
+    std::shared_ptr<Texture2d>    image,
+    const Dc&                     dc,
+    scalingsprite::ScalingSprite* sprite)
+{
+  const int distance    = SizerDistance;
+  const int anchor_size = 6;
+
+  Data row{&sprite->rows};
 
   const int image_end_y = image->GetHeight();
   const int anchor_x    = -distance;
   const int text_x      = anchor_x - 3;
 
+  const auto row_text = row.CalculateAllSpaces();
+
 
   dc.DrawAnchorLeft(anchor_x, 0, anchor_size);
-  end = image_end_y;
+  const int end = image_end_y;
   dc.DrawLine(anchor_x, 0, anchor_x, end);
   dc.DrawAnchorLeft(anchor_x, end, anchor_size);
 
   int row_index = 0;
-  for(const auto t : row_text)
+  for(const auto& t : row_text)
   {
     const bool clicked =
         dc.DrawVerticalCenteredText(t.left, t.right, text_x, t.text);
@@ -319,6 +331,16 @@ DrawSizer(
     }
     row_index += 1;
   }
+}
+
+void
+DrawSizer(
+    std::shared_ptr<Texture2d>    image,
+    const Dc&                     dc,
+    scalingsprite::ScalingSprite* sprite)
+{
+  DrawSizerRow(image, dc, sprite);
+  DrawSizerCol(image, dc, sprite);
 }
 
 
