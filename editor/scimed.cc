@@ -171,80 +171,79 @@ CalculateAllSplits(const std::vector<int>& data)
   return ret;
 }
 
-struct Dc
+
+void
+DrawLine(const Canvas& canvas, int x, int y, int tx, int ty)
 {
-  const Canvas& canvas;
+  const auto  color     = IM_COL32(0, 0, 0, 255);
+  ImDrawList* draw_list = ImGui::GetWindowDrawList();
+  const auto  from      = canvas.WorldToScreen(ImVec2{x, y});
+  const auto  to        = canvas.WorldToScreen(ImVec2{tx, ty});
+  draw_list->AddLine(from, to, color);
+}
 
-  explicit Dc(const Canvas& c)
-      : canvas(c)
-  {
-  }
+void
+DrawAnchorDown(const Canvas& canvas, int x, int y, int size)
+{
+  DrawLine(canvas, x, y, x, y + size);
+}
 
-  void
-  DrawAnchorDown(int x, int y, int size) const
-  {
-    DrawLine(x, y, x, y + size);
-  }
+void
+DrawAnchorLeft(const Canvas& canvas, int x, int y, int size)
+{
+  DrawLine(canvas, x, y, x + size, y);
+}
 
-  void
-  DrawAnchorLeft(int x, int y, int size) const
-  {
-    DrawLine(x, y, x + size, y);
-  }
+bool
+ButtonAt(const Canvas& canvas, const ImVec2& p, const char* label, int id)
+{
+  const auto backup = ImGui::GetCursorPos();
+  ImVec2     pp     = p;
+  pp.x -= canvas.position.x;
+  pp.y -= canvas.position.y;
+  ImGui::SetCursorPos(pp);
+  ImGui::PushID(id);
+  const bool clicked = ImGui::Button(label);
+  ImGui::PopID();
+  ImGui::SetCursorPos(backup);
+  return clicked;
+}
 
-  void
-  DrawLine(int x, int y, int tx, int ty) const
-  {
-    const auto  color     = IM_COL32(0, 0, 0, 255);
-    ImDrawList* draw_list = ImGui::GetWindowDrawList();
-    const auto  from      = canvas.WorldToScreen(ImVec2{x, y});
-    const auto  to        = canvas.WorldToScreen(ImVec2{tx, ty});
-    draw_list->AddLine(from, to, color);
-  }
+bool
+DrawHorizontalCenteredText(
+    const Canvas&      canvas,
+    int                left_p,
+    int                right_p,
+    int                y_p,
+    const std::string& s,
+    int                id)
+{
+  const auto size  = ImGui::CalcTextSize(s.c_str());
+  const auto left  = canvas.WorldToScreen(ImVec2{left_p, y_p});
+  const auto right = canvas.WorldToScreen(ImVec2{right_p, y_p});
+  const auto y     = left.y;
+  auto       x     = left.x + (right.x - left.x) / 2 - size.x / 2;
+  const auto p     = ImVec2{x, y - size.y};
+  return ButtonAt(canvas, p, s.c_str(), id);
+}
 
-  bool
-  ButtonAt(const ImVec2& p, const char* label, int id) const
-  {
-    const auto backup = ImGui::GetCursorPos();
-    ImVec2     pp     = p;
-    pp.x -= canvas.position.x;
-    pp.y -= canvas.position.y;
-    ImGui::SetCursorPos(pp);
-    ImGui::PushID(id);
-    const bool clicked = ImGui::Button(label);
-    ImGui::PopID();
-    ImGui::SetCursorPos(backup);
-    return clicked;
-  }
-
-  bool
-  DrawHorizontalCenteredText(
-      int left_p, int right_p, int y_p, const std::string& s, int id) const
-  {
-    ImDrawList* draw_list = ImGui::GetWindowDrawList();
-    const auto  size      = ImGui::CalcTextSize(s.c_str());
-    const auto  left      = canvas.WorldToScreen(ImVec2{left_p, y_p});
-    const auto  right     = canvas.WorldToScreen(ImVec2{right_p, y_p});
-    const auto  y         = left.y;
-    auto        x         = left.x + (right.x - left.x) / 2 - size.x / 2;
-    const auto  p         = ImVec2{x, y - size.y};
-    return ButtonAt(p, s.c_str(), id);
-  }
-
-  bool
-  DrawVerticalCenteredText(
-      int top_p, int bottom_p, int x_p, const std::string& s, int id) const
-  {
-    ImDrawList* draw_list = ImGui::GetWindowDrawList();
-    const auto  size      = ImGui::CalcTextSize(s.c_str());
-    const auto  top       = canvas.WorldToScreen(ImVec2{x_p, top_p});
-    const auto  bottom    = canvas.WorldToScreen(ImVec2{x_p, bottom_p});
-    const auto  x         = bottom.x;
-    const auto  y         = top.y + (bottom.y - top.y) / 2 - size.y / 2;
-    const auto  p         = ImVec2{x - size.x, y};
-    return ButtonAt(p, s.c_str(), id);
-  }
-};
+bool
+DrawVerticalCenteredText(
+    const Canvas&      canvas,
+    int                top_p,
+    int                bottom_p,
+    int                x_p,
+    const std::string& s,
+    int                id)
+{
+  const auto size   = ImGui::CalcTextSize(s.c_str());
+  const auto top    = canvas.WorldToScreen(ImVec2{x_p, top_p});
+  const auto bottom = canvas.WorldToScreen(ImVec2{x_p, bottom_p});
+  const auto x      = bottom.x;
+  const auto y      = top.y + (bottom.y - top.y) / 2 - size.y / 2;
+  const auto p      = ImVec2{x - size.x, y};
+  return ButtonAt(canvas, p, s.c_str(), id);
+}
 
 
 template <
@@ -298,16 +297,16 @@ DrawSizer(
       &sprite->cols,
       image->GetWidth(),
       [&sc](int position, int distance, int size) {
-        Dc{sc.canvas}.DrawAnchorDown(position, distance, size);
+        DrawAnchorDown(sc.canvas, position, distance, size);
       },
       [&sc](int end, int distance) {
-        Dc{sc.canvas}.DrawLine(0, distance, end, distance);
+        DrawLine(sc.canvas, 0, distance, end, distance);
       },
       [&sc, &sized_id](
           int left, int right, int distance, const std::string& text) -> bool {
         sized_id += 1;
-        return Dc{sc.canvas}.DrawHorizontalCenteredText(
-            left, right, distance, text, sized_id);
+        return DrawHorizontalCenteredText(
+            sc.canvas, left, right, distance, text, sized_id);
       });
 
   DrawSizerCommon(
@@ -316,16 +315,16 @@ DrawSizer(
       &sprite->rows,
       image->GetHeight(),
       [&sc](int position, int distance, int size) {
-        Dc{sc.canvas}.DrawAnchorLeft(distance, position, size);
+        DrawAnchorLeft(sc.canvas, distance, position, size);
       },
       [&sc](int end, int distance) {
-        Dc{sc.canvas}.DrawLine(distance, 0, distance, end);
+        DrawLine(sc.canvas, distance, 0, distance, end);
       },
       [&sc, &sized_id](
           int left, int right, int distance, const std::string& text) -> bool {
         sized_id += 1;
-        return Dc{sc.canvas}.DrawVerticalCenteredText(
-            left, right, distance, text, sized_id);
+        return DrawVerticalCenteredText(
+            sc.canvas, left, right, distance, text, sized_id);
       });
 }
 
