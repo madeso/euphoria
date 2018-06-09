@@ -107,9 +107,11 @@ main(int argc, char** argv)
 
   bool running = true;
 
-  std::string demo_file;
-  FileBrowser browser{&file_system};
-  Scimed      scimed;
+  std::string  demo_file;
+  FileBrowser  browser{&file_system};
+  Scimed       scimed;
+  ScimedConfig scc = ScimedConfig{};
+  CanvasConfig cc  = CanvasConfig{};
 
   while(running)
   {
@@ -169,7 +171,7 @@ main(int argc, char** argv)
 
       if(ImGui::Begin("Scimed"))
       {
-        scimed.Run();
+        scimed.Run(cc, scc);
       }
       ImGui::End();
 

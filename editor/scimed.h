@@ -19,15 +19,17 @@ struct LineHoverData
   int horizontal_index = -1;
 };
 
-struct Scimed
+struct ScimedConfig
 {
-  // config
   int          sizer_distance      = 20;
   int          sizer_text_distance = 23;
   int          anchor_size         = 6;
   unsigned int sizer_color         = IM_COL32(0, 0, 0, 255);
   unsigned int split_color         = IM_COL32(0, 255, 0, 255);
+};
 
+struct Scimed
+{
   scalingsprite::ScalingSprite scaling;
 
   std::shared_ptr<Texture2d> texture;
@@ -39,7 +41,7 @@ struct Scimed
   LoadFile(TextureCache* cache, FileSystem* fs, const std::string& path);
 
   bool
-  Run();
+  Run(const CanvasConfig& cc, const ScimedConfig& scc);
 };
 
 

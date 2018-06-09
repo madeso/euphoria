@@ -249,7 +249,7 @@ template <
 void
 DrawSizerCommon(
     std::shared_ptr<Texture2d> image,
-    const Scimed&              sc,
+    const ScimedConfig&        sc,
     std::vector<int>*          data_ptr,
     int                        end,
     TAnchorFunction            anchor_function,
@@ -284,19 +284,20 @@ void
 DrawSizer(
     std::shared_ptr<Texture2d>    image,
     const Scimed&                 sc,
+    const ScimedConfig&           scc,
     scalingsprite::ScalingSprite* sprite)
 {
   int sized_id = 0;
   DrawSizerCommon(
       image,
-      sc,
+      scc,
       &sprite->cols,
       image->GetWidth(),
-      [&sc](int position, int distance, int size) {
-        DrawAnchorDown(sc.canvas, position, distance, size, sc.sizer_color);
+      [&sc, &scc](int position, int distance, int size) {
+        DrawAnchorDown(sc.canvas, position, distance, size, scc.sizer_color);
       },
-      [&sc](int end, int distance) {
-        DrawLine(sc.canvas, 0, distance, end, distance, sc.sizer_color);
+      [&sc, &scc](int end, int distance) {
+        DrawLine(sc.canvas, 0, distance, end, distance, scc.sizer_color);
       },
       [&sc, &sized_id](
           int left, int right, int distance, const std::string& text) -> bool {
@@ -307,14 +308,14 @@ DrawSizer(
 
   DrawSizerCommon(
       image,
-      sc,
+      scc,
       &sprite->rows,
       image->GetHeight(),
-      [&sc](int position, int distance, int size) {
-        DrawAnchorLeft(sc.canvas, distance, position, size, sc.sizer_color);
+      [&sc, &scc](int position, int distance, int size) {
+        DrawAnchorLeft(sc.canvas, distance, position, size, scc.sizer_color);
       },
-      [&sc](int end, int distance) {
-        DrawLine(sc.canvas, distance, 0, distance, end, sc.sizer_color);
+      [&sc, &scc](int end, int distance) {
+        DrawLine(sc.canvas, distance, 0, distance, end, scc.sizer_color);
       },
       [&sc, &sized_id](
           int left, int right, int distance, const std::string& text) -> bool {
@@ -355,7 +356,9 @@ DrawSingleAxisSplits(
 
 LineHoverData
 DrawSplits(
-    scalingsprite::ScalingSprite* sprite, Canvas* canvas, const Scimed& sc)
+    scalingsprite::ScalingSprite* sprite,
+    Canvas*                       canvas,
+    const ScimedConfig&           scc)
 {
   const auto    mouse = ImGui::GetMousePos();
   LineHoverData ret;
@@ -364,13 +367,13 @@ DrawSplits(
       sprite->cols,
       mouse,
       canvas,
-      [&](int position) { canvas->VerticalLine(position, sc.split_color); },
+      [&](int position) { canvas->VerticalLine(position, scc.split_color); },
       [](const ImVec2& p) -> float { return p.x; });
   ret.horizontal_index = DrawSingleAxisSplits(
       sprite->rows,
       mouse,
       canvas,
-      [&](int position) { canvas->HorizontalLine(position, sc.split_color); },
+      [&](int position) { canvas->HorizontalLine(position, scc.split_color); },
       [](const ImVec2& p) -> float { return p.y; });
 
   return ret;
@@ -459,18 +462,18 @@ ImguiSelectableOrDisabled(bool enabled, const char* label)
 }
 
 bool
-Scimed::Run()
+Scimed::Run(const CanvasConfig& cc, const ScimedConfig& scc)
 {
-  canvas.Begin();
-  canvas.ShowGrid();
+  canvas.Begin(cc);
+  canvas.ShowGrid(cc);
   ImDrawList* draw_list = ImGui::GetWindowDrawList();
 
   const auto mouse = ImGui::GetMousePos();
 
   if(!texture)
   {
-    canvas.ShowRuler();
-    canvas.End();
+    canvas.ShowRuler(cc);
+    canvas.End(cc);
     return false;
   }
 
@@ -481,11 +484,11 @@ Scimed::Run()
       canvas.WorldToScreen(ImVec2{texture->GetWidth(), texture->GetHeight()});
   draw_list->AddImage(tex_id, pos, size);
 
-  const auto current_hover = DrawSplits(&scaling, &canvas, *this);
-  DrawSizer(texture, *this, &scaling);
+  const auto current_hover = DrawSplits(&scaling, &canvas, scc);
+  DrawSizer(texture, *this, scc, &scaling);
 
-  canvas.ShowRuler();
-  canvas.End();
+  canvas.ShowRuler(cc);
+  canvas.End(cc);
 
   if(ImGui::IsItemHovered() && ImGui::IsMouseClicked(0))
   {

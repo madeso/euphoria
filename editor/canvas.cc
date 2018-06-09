@@ -6,25 +6,29 @@
 #include "window/imgui_ext.h"
 
 void
-Canvas::ShowGrid()
+Canvas::ShowGrid(const CanvasConfig& cc)
 {
   const auto  size      = ImGui::GetWindowSize();
   ImDrawList* draw_list = ImGui::GetWindowDrawList();
 
-  const float scaled_grid_size = grid_size * view.scale;
+  const float scaled_grid_size = cc.grid_size * view.scale;
 
   for(float x = fmodf(view.scroll.x, scaled_grid_size); x < size.x;
       x += scaled_grid_size)
   {
     draw_list->AddLine(
-        ImVec2(x, 0.0f) + position, ImVec2(x, size.y) + position, grid_color);
+        ImVec2(x, 0.0f) + position,
+        ImVec2(x, size.y) + position,
+        cc.grid_color);
   }
 
   for(float y = fmodf(view.scroll.y, scaled_grid_size); y < size.y;
       y += scaled_grid_size)
   {
     draw_list->AddLine(
-        ImVec2(0.0f, y) + position, ImVec2(size.x, y) + position, grid_color);
+        ImVec2(0.0f, y) + position,
+        ImVec2(size.x, y) + position,
+        cc.grid_color);
   }
 }
 
@@ -72,17 +76,17 @@ Canvas::ShowRuler(float ruler_interval, ImU32 ruler_color, float length)
 }
 
 void
-Canvas::ShowRuler()
+Canvas::ShowRuler(const CanvasConfig& cc)
 {
-  ShowRuler(5.0f, grid_color, 10.0f);
+  ShowRuler(5.0f, cc.grid_color, 10.0f);
 }
 
 void
-Canvas::Begin()
+Canvas::Begin(const CanvasConfig& cc)
 {
   ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(1, 1));
   ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0, 0));
-  ImGui::PushStyleColor(ImGuiCol_ChildWindowBg, background_color);
+  ImGui::PushStyleColor(ImGuiCol_ChildWindowBg, cc.background_color);
 
   ImGui::BeginChild(
       "scrolling_region",
@@ -94,31 +98,31 @@ Canvas::Begin()
 }
 
 void
-Canvas::DoCanvasScroll()
+DoCanvasScroll(Canvas* canvas)
 {
   if(ImGui::IsWindowHovered() && !ImGui::IsAnyItemActive() &&
      ImGui::IsMouseDragging(2, 0.0f))
   {
-    view.Pan(C(ImGui::GetIO().MouseDelta));
+    canvas->view.Pan(C(ImGui::GetIO().MouseDelta));
   }
 }
 
 void
-Canvas::DoCanvasZoom()
+DoCanvasZoom(Canvas* canvas, const CanvasConfig& cc)
 {
   if(ImGui::IsWindowHovered() && !ImGui::IsAnyItemActive())
   {
-    const auto mouse = ImGui::GetIO().MousePos - position;
+    const auto mouse = ImGui::GetIO().MousePos - canvas->position;
     const auto zoom  = ImGui::GetIO().MouseWheel;
-    view.Zoom(C(mouse), zoom * zoom_speed);
+    canvas->view.Zoom(C(mouse), zoom * cc.zoom_speed);
   }
 }
 
 void
-Canvas::End()
+Canvas::End(const CanvasConfig& cc)
 {
-  DoCanvasScroll();
-  DoCanvasZoom();
+  DoCanvasScroll(this);
+  DoCanvasZoom(this, cc);
 
   ImGui::EndChild();
 
