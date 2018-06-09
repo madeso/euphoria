@@ -22,17 +22,18 @@ struct LineHoverData
 struct Scimed
 {
   // config
-  int sizer_distance      = 20;
-  int sizer_text_distance = 23;
-  int anchor_size         = 6;
+  int          sizer_distance      = 20;
+  int          sizer_text_distance = 23;
+  int          anchor_size         = 6;
+  unsigned int sizer_color         = IM_COL32(0, 0, 0, 255);
+  unsigned int split_color         = IM_COL32(0, 255, 0, 255);
 
   scalingsprite::ScalingSprite scaling;
 
   std::shared_ptr<Texture2d> texture;
-
-  Canvas        canvas;
-  vec2i         mouse_popup = vec2i{0, 0};
-  LineHoverData hover;
+  Canvas                     canvas;
+  vec2i                      mouse_popup = vec2i{0, 0};
+  LineHoverData              hover;
 
   void
   LoadFile(TextureCache* cache, FileSystem* fs, const std::string& path);

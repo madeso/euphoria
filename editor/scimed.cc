@@ -28,9 +28,6 @@ KindaTheSame(int a, int b)
   return std::abs(a - b) < 5;
 }
 
-constexpr int RulerSize = 20;
-
-using TrackingLine           = OptionalIndex<int>;
 using PositionClassification = OptionalIndex<int>;
 
 /// Extra calculated data from the corresponding data row (either row or column)
@@ -173,9 +170,8 @@ CalculateAllSplits(const std::vector<int>& data)
 
 
 void
-DrawLine(const Canvas& canvas, int x, int y, int tx, int ty)
+DrawLine(const Canvas& canvas, int x, int y, int tx, int ty, ImU32 color)
 {
-  const auto  color     = IM_COL32(0, 0, 0, 255);
   ImDrawList* draw_list = ImGui::GetWindowDrawList();
   const auto  from      = canvas.WorldToScreen(ImVec2{x, y});
   const auto  to        = canvas.WorldToScreen(ImVec2{tx, ty});
@@ -183,15 +179,15 @@ DrawLine(const Canvas& canvas, int x, int y, int tx, int ty)
 }
 
 void
-DrawAnchorDown(const Canvas& canvas, int x, int y, int size)
+DrawAnchorDown(const Canvas& canvas, int x, int y, int size, ImU32 color)
 {
-  DrawLine(canvas, x, y, x, y + size);
+  DrawLine(canvas, x, y, x, y + size, color);
 }
 
 void
-DrawAnchorLeft(const Canvas& canvas, int x, int y, int size)
+DrawAnchorLeft(const Canvas& canvas, int x, int y, int size, ImU32 color)
 {
-  DrawLine(canvas, x, y, x + size, y);
+  DrawLine(canvas, x, y, x + size, y, color);
 }
 
 bool
@@ -297,10 +293,10 @@ DrawSizer(
       &sprite->cols,
       image->GetWidth(),
       [&sc](int position, int distance, int size) {
-        DrawAnchorDown(sc.canvas, position, distance, size);
+        DrawAnchorDown(sc.canvas, position, distance, size, sc.sizer_color);
       },
       [&sc](int end, int distance) {
-        DrawLine(sc.canvas, 0, distance, end, distance);
+        DrawLine(sc.canvas, 0, distance, end, distance, sc.sizer_color);
       },
       [&sc, &sized_id](
           int left, int right, int distance, const std::string& text) -> bool {
@@ -315,10 +311,10 @@ DrawSizer(
       &sprite->rows,
       image->GetHeight(),
       [&sc](int position, int distance, int size) {
-        DrawAnchorLeft(sc.canvas, distance, position, size);
+        DrawAnchorLeft(sc.canvas, distance, position, size, sc.sizer_color);
       },
       [&sc](int end, int distance) {
-        DrawLine(sc.canvas, distance, 0, distance, end);
+        DrawLine(sc.canvas, distance, 0, distance, end, sc.sizer_color);
       },
       [&sc, &sized_id](
           int left, int right, int distance, const std::string& text) -> bool {
@@ -358,24 +354,23 @@ DrawSingleAxisSplits(
 }
 
 LineHoverData
-DrawSplits(scalingsprite::ScalingSprite* sprite, Canvas* canvas)
+DrawSplits(
+    scalingsprite::ScalingSprite* sprite, Canvas* canvas, const Scimed& sc)
 {
   const auto    mouse = ImGui::GetMousePos();
   LineHoverData ret;
-
-  const auto guide_color = IM_COL32(0, 255, 0, 255);
 
   ret.vertical_index = DrawSingleAxisSplits(
       sprite->cols,
       mouse,
       canvas,
-      [&](int position) { canvas->VerticalLine(position, guide_color); },
+      [&](int position) { canvas->VerticalLine(position, sc.split_color); },
       [](const ImVec2& p) -> float { return p.x; });
   ret.horizontal_index = DrawSingleAxisSplits(
       sprite->rows,
       mouse,
       canvas,
-      [&](int position) { canvas->HorizontalLine(position, guide_color); },
+      [&](int position) { canvas->HorizontalLine(position, sc.split_color); },
       [](const ImVec2& p) -> float { return p.y; });
 
   return ret;
@@ -486,7 +481,7 @@ Scimed::Run()
       canvas.WorldToScreen(ImVec2{texture->GetWidth(), texture->GetHeight()});
   draw_list->AddImage(tex_id, pos, size);
 
-  const auto current_hover = DrawSplits(&scaling, &canvas);
+  const auto current_hover = DrawSplits(&scaling, &canvas, *this);
   DrawSizer(texture, *this, &scaling);
 
   canvas.ShowRuler();
