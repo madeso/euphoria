@@ -369,7 +369,8 @@ DrawSizer(
         Dc{sc.canvas}.DrawLine(0, distance, end, distance);
       },
       [&](int left, int right, int distance, const std::string& text) -> bool {
-        Dc{sc.canvas}.DrawHorizontalCenteredText(left, right, distance, text);
+        return Dc{sc.canvas}.DrawHorizontalCenteredText(
+            left, right, distance, text);
       });
 
   DrawSizerRow(image, sc, sprite);
