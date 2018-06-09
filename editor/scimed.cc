@@ -220,21 +220,23 @@ struct Dc
   }
 
   bool
-  ButtonAt(const ImVec2& p, const char* label) const
+  ButtonAt(const ImVec2& p, const char* label, int id) const
   {
     const auto backup = ImGui::GetCursorPos();
     ImVec2     pp     = p;
     pp.x -= canvas.position.x;
     pp.y -= canvas.position.y;
     ImGui::SetCursorPos(pp);
+    ImGui::PushID(id);
     const bool clicked = ImGui::Button(label);
+    ImGui::PopID();
     ImGui::SetCursorPos(backup);
     return clicked;
   }
 
   bool
   DrawHorizontalCenteredText(
-      int left_p, int right_p, int y_p, const std::string& s) const
+      int left_p, int right_p, int y_p, const std::string& s, int id) const
   {
     ImDrawList* draw_list = ImGui::GetWindowDrawList();
     const auto  size      = ImGui::CalcTextSize(s.c_str());
@@ -243,12 +245,12 @@ struct Dc
     const auto  y         = left.y;
     auto        x         = left.x + (right.x - left.x) / 2 - size.x / 2;
     const auto  p         = ImVec2{x, y - size.y};
-    return ButtonAt(p, s.c_str());
+    return ButtonAt(p, s.c_str(), id);
   }
 
   bool
   DrawVerticalCenteredText(
-      int top_p, int bottom_p, int x_p, const std::string& s) const
+      int top_p, int bottom_p, int x_p, const std::string& s, int id) const
   {
     ImDrawList* draw_list = ImGui::GetWindowDrawList();
     const auto  size      = ImGui::CalcTextSize(s.c_str());
@@ -257,7 +259,7 @@ struct Dc
     const auto  x         = bottom.x;
     const auto  y         = top.y + (bottom.y - top.y) / 2 - size.y / 2;
     const auto  p         = ImVec2{x - size.x, y};
-    return ButtonAt(p, s.c_str());
+    return ButtonAt(p, s.c_str(), id);
   }
 };
 
@@ -300,6 +302,7 @@ DrawSizer(
     const Scimed&                 sc,
     scalingsprite::ScalingSprite* sprite)
 {
+  int sized_id = 0;
   DrawSizerCommon(
       image,
       sc,
@@ -311,10 +314,11 @@ DrawSizer(
       [&sc](int end, int distance) {
         Dc{sc.canvas}.DrawLine(0, distance, end, distance);
       },
-      [&sc](
+      [&sc, &sized_id](
           int left, int right, int distance, const std::string& text) -> bool {
+        sized_id += 1;
         return Dc{sc.canvas}.DrawHorizontalCenteredText(
-            left, right, distance, text);
+            left, right, distance, text, sized_id);
       });
 
   DrawSizerCommon(
@@ -328,10 +332,11 @@ DrawSizer(
       [&sc](int end, int distance) {
         Dc{sc.canvas}.DrawLine(distance, 0, distance, end);
       },
-      [&sc](
+      [&sc, &sized_id](
           int left, int right, int distance, const std::string& text) -> bool {
+        sized_id += 1;
         return Dc{sc.canvas}.DrawVerticalCenteredText(
-            left, right, distance, text);
+            left, right, distance, text, sized_id);
       });
 }
 
