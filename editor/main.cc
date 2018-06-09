@@ -173,15 +173,8 @@ main(int argc, char** argv)
       }
       ImGui::End();
 
-      ImGui::ShowMetricsWindow();
+      // ImGui::ShowMetricsWindow();
     }
-
-#if 0
-    const auto mp   = ImGui::GetIO().MousePos;
-    auto*      list = ImGui::GetOverlayDrawList();
-    list->AddLine(ImVec2{mp.x, 0}, ImVec2{mp.x, size.y}, IM_COL32_BLACK);
-    list->AddLine(ImVec2{0, mp.y}, ImVec2{size.x, mp.y}, IM_COL32_BLACK);
-#endif
 
     init.ClearScreen(Color::Wheat);
     imgui.Render();
