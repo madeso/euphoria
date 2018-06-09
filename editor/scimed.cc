@@ -269,29 +269,24 @@ DrawSizerCol(
 {
   Dc dc{sc.canvas};
 
-  Data col{&sprite->cols};
+  std::vector<int>* data   = &sprite->cols;
+  const int         end    = image->GetWidth();
 
-  const int image_end_x = image->GetWidth();
-  const int anchor_y    = -sc.sizer_distance;
-  const int text_y      = anchor_y - 3;
+  const auto        spaces = Data{data}.CalculateAllSpaces();
+  dc.DrawAnchorDown(0, -sc.sizer_distance, sc.anchor_size);
+  dc.DrawLine(0, -sc.sizer_distance, end, -sc.sizer_distance);
+  dc.DrawAnchorDown(end, -sc.sizer_distance, sc.anchor_size);
 
-  const auto col_text = col.CalculateAllSpaces();
-
-  dc.DrawAnchorDown(0, anchor_y, sc.anchor_size);
-  int end = image_end_x;
-  dc.DrawLine(0, anchor_y, end, anchor_y);
-  dc.DrawAnchorDown(end, anchor_y, sc.anchor_size);
-
-  int col_index = 0;
-  for(const auto& t : col_text)
+  int index = 0;
+  for(const auto& t : spaces)
   {
-    const bool clicked =
-        dc.DrawHorizontalCenteredText(t.left, t.right, text_y, t.text);
+    const bool clicked = dc.DrawHorizontalCenteredText(
+        t.left, t.right, -sc.sizer_text_distance, t.text);
     if(clicked)
     {
-      sprite->cols[col_index] = -sprite->cols[col_index];
+      (*data)[index] = -(*data)[index];
     }
-    col_index += 1;
+    index += 1;
   }
 }
 
@@ -303,30 +298,25 @@ DrawSizerRow(
 {
   Dc dc{sc.canvas};
 
-  Data row{&sprite->rows};
+  std::vector<int>* data = &sprite->rows;
 
-  const int image_end_y = image->GetHeight();
-  const int anchor_x    = -sc.sizer_distance;
-  const int text_x      = anchor_x - 3;
+  const int end = image->GetHeight();
 
-  const auto row_text = row.CalculateAllSpaces();
+  const auto spaces = Data{data}.CalculateAllSpaces();
+  dc.DrawAnchorLeft(-sc.sizer_distance, 0, sc.anchor_size);
+  dc.DrawLine(-sc.sizer_distance, 0, -sc.sizer_distance, end);
+  dc.DrawAnchorLeft(-sc.sizer_distance, end, sc.anchor_size);
 
-
-  dc.DrawAnchorLeft(anchor_x, 0, sc.anchor_size);
-  const int end = image_end_y;
-  dc.DrawLine(anchor_x, 0, anchor_x, end);
-  dc.DrawAnchorLeft(anchor_x, end, sc.anchor_size);
-
-  int row_index = 0;
-  for(const auto& t : row_text)
+  int index = 0;
+  for(const auto& t : spaces)
   {
-    const bool clicked =
-        dc.DrawVerticalCenteredText(t.left, t.right, text_x, t.text);
+    const bool clicked = dc.DrawVerticalCenteredText(
+        t.left, t.right, -sc.sizer_text_distance, t.text);
     if(clicked)
     {
-      sprite->rows[row_index] = -sprite->rows[row_index];
+      (*data)[index] = -(*data)[index];
     }
-    row_index += 1;
+    index += 1;
   }
 }
 
