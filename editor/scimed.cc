@@ -101,92 +101,80 @@ GetTotalPercentage(const std::vector<int>& data)
   return total;
 }
 
-class Data
-{
- public:
-  PositionClassification
-  FindSpaceIndexOrNull(int y, int image_size) const
-  {
-    const bool within_image = y > 0 && y < image_size;
 
-    if(within_image)
+std::vector<SpaceData>
+CalculateAllSpaces(const std::vector<int>& data)
+{
+  std::vector<SpaceData> ret;
+  const int              total_percentage = GetTotalPercentage(data);
+  int                    x                = 0;
+  for(unsigned int index = 0; index < data.size(); ++index)
+  {
+    const int value = data[index];
+    const int step  = abs(value);
+    ret.emplace_back(
+        PixelsOrPercentageString(value, total_percentage), x, x + step, index);
+    x += step;
+  }
+  return ret;
+}
+
+int
+FindSpaceIndex(const std::vector<int>& data_ptr, int x)
+{
+  const auto data  = CalculateAllSpaces(data_ptr);
+  int        last  = 0;
+  int        index = 0;
+  for(const auto& d : data)
+  {
+    last = index;
+    if(x < d.right)
     {
-      return PositionClassification::FromIndex(FindSpaceIndex(y));
+      return last;
+    }
+    index += 1;
+  }
+  return last;
+}
+
+PositionClassification
+FindSpaceIndexOrNull(const std::vector<int>& data, int y, int image_size)
+{
+  const bool within_image = y > 0 && y < image_size;
+
+  if(within_image)
+  {
+    return PositionClassification::FromIndex(FindSpaceIndex(data, y));
+  }
+  else
+  {
+    return PositionClassification::Null();
+  }
+}
+
+std::vector<SplitData>
+CalculateAllSplits(const std::vector<int>& data)
+{
+  std::vector<SplitData> ret;
+  bool                   has_data = false;
+  int                    x        = 0;
+  int                    last_x   = 0;
+  for(const auto i : data)
+  {
+    int dx = std::abs(i);
+    if(has_data)
+    {
+      ret.emplace_back(SplitData(x, last_x, x + dx));
     }
     else
     {
-      return PositionClassification::Null();
+      has_data = true;
     }
+    last_x = x;
+    x += dx;
   }
-
-  int
-  FindSpaceIndex(int x) const
-  {
-    const auto data  = CalculateAllSpaces();
-    int        last  = 0;
-    int        index = 0;
-    for(const auto& d : data)
-    {
-      last = index;
-      if(x < d.right)
-      {
-        return last;
-      }
-      index += 1;
-    }
-    return last;
-  }
-
-  std::vector<SpaceData>
-  CalculateAllSpaces() const
-  {
-    std::vector<SpaceData> ret;
-    const int              total_percentage = GetTotalPercentage(*data);
-    int                    x                = 0;
-    for(unsigned int index = 0; index < data->size(); ++index)
-    {
-      const int value = (*data)[index];
-      const int step  = abs(value);
-      ret.emplace_back(
-          PixelsOrPercentageString(value, total_percentage),
-          x,
-          x + step,
-          index);
-      x += step;
-    }
-    return ret;
-  }
-
-  std::vector<SplitData>
-  CalculateAllSplits() const
-  {
-    std::vector<SplitData> ret;
-    bool                   has_data = false;
-    int                    x        = 0;
-    int                    last_x   = 0;
-    for(const auto i : *data)
-    {
-      int dx = std::abs(i);
-      if(has_data)
-      {
-        ret.emplace_back(SplitData(x, last_x, x + dx));
-      }
-      else
-      {
-        has_data = true;
-      }
-      last_x = x;
-      x += dx;
-    }
-    return ret;
-  }
-
-  explicit Data(std::vector<int>* d)
-      : data(d)
-  {
-  }
-  std::vector<int>* data;
-};
+  return ret;
+}
 
 struct Dc
 {
@@ -278,7 +266,7 @@ DrawSizerCommon(
     TLineFunction              line_function,
     TButtonFunction            button_function)
 {
-  const auto spaces = Data{data}.CalculateAllSpaces();
+  const auto spaces = CalculateAllSpaces(*data);
   anchor_function(0, -sc.sizer_distance, sc.anchor_size);
   line_function(end, -sc.sizer_distance);
   anchor_function(end, -sc.sizer_distance, sc.anchor_size);
@@ -344,13 +332,13 @@ DrawSizer(
 template <typename TLineFunction, typename TCoordFunction>
 int
 DrawSingleAxisSplits(
-    std::vector<int>* data,
-    const ImVec2&     mouse,
-    Canvas*           canvas,
-    TLineFunction     line_function,
-    TCoordFunction    coord_function)
+    const std::vector<int>& data,
+    const ImVec2&           mouse,
+    Canvas*                 canvas,
+    TLineFunction           line_function,
+    TCoordFunction          coord_function)
 {
-  const auto splits = Data{data}.CalculateAllSplits();
+  const auto splits = CalculateAllSplits(data);
 
   int ret = -1;
 
@@ -378,13 +366,13 @@ DrawSplits(scalingsprite::ScalingSprite* sprite, Canvas* canvas)
   const auto guide_color = IM_COL32(0, 255, 0, 255);
 
   ret.vertical_index = DrawSingleAxisSplits(
-      &sprite->cols,
+      sprite->cols,
       mouse,
       canvas,
       [&](int position) { canvas->VerticalLine(position, guide_color); },
       [](const ImVec2& p) -> float { return p.x; });
   ret.horizontal_index = DrawSingleAxisSplits(
-      &sprite->rows,
+      sprite->rows,
       mouse,
       canvas,
       [&](int position) { canvas->HorizontalLine(position, guide_color); },
@@ -422,7 +410,7 @@ MoveSplit(int split_index, std::vector<int>* data_ptr, float world_position)
     return;
   }
 
-  const auto split      = Data{data_ptr}.CalculateAllSplits()[split_index];
+  const auto split      = CalculateAllSplits(*data_ptr)[split_index];
   const auto position   = static_cast<int>(world_position);
   const auto max        = std::max(split.min_value + 1, position);
   const int  line_x     = std::min(split.max_value - 1, max);
@@ -444,7 +432,7 @@ SplitSpaceInTwo(
   ASSERT(optional_space_index);
   const auto index = optional_space_index.GetIndex();
   auto&      data  = *data_ptr;
-  const auto size  = Data{data_ptr}.CalculateAllSpaces()[index];
+  const auto size  = CalculateAllSpaces(data)[index];
   const int  mouse = std::min(size.right - 1, std::max(size.left + 1, x));
   ASSERT(mouse > size.left);
   const int left_abs_val = mouse - size.left;
@@ -543,10 +531,10 @@ Scimed::Run()
 
   if(ImGui::BeginPopup("asd"))
   {
-    const auto space_index_y = Data{&scaling.rows}.FindSpaceIndexOrNull(
-        mouse_popup.y, texture->GetHeight());
-    const auto space_index_x = Data{&scaling.cols}.FindSpaceIndexOrNull(
-        mouse_popup.x, texture->GetWidth());
+    const auto space_index_y =
+        FindSpaceIndexOrNull(scaling.rows, mouse_popup.y, texture->GetHeight());
+    const auto space_index_x =
+        FindSpaceIndexOrNull(scaling.cols, mouse_popup.x, texture->GetWidth());
 
     if(ImguiSelectableOrDisabled(
            space_index_y, ICON_FK_ARROWS_H " New Horizontal divider"))
