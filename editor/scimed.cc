@@ -14,6 +14,8 @@
 
 #include "editor/canvas.h"
 
+#include <iomanip>
+
 bool
 IsCloseTo(float a, float b, float c = 3)
 {
@@ -69,6 +71,20 @@ class PositionClassification
   bool on_image = false;
   int  index    = -1;
 };
+
+std::string
+PixelsOrPercentageString(int i, int total_percentage)
+{
+  if(i > 0)
+  {
+    return Str{} << i << "px";
+  }
+  else
+  {
+    const auto p = -i * 100.0f / total_percentage;
+    return Str{} << std::setprecision(3) << p << "%";
+  }
+}
 
 class Data
 {
@@ -128,18 +144,10 @@ class Data
     int                         x                = 0;
     for(unsigned int index = 0; index < data->size(); ++index)
     {
-      const int          i = (*data)[index];
-      const int          d = abs(i);
-      std::ostringstream ss;
-      if(i > 0)
-      {
-        ss << i << "px";
-      }
-      else
-      {
-        ss << static_cast<float>(-i * 100.0f / total_percentage) << "%";
-      }
-      ret.emplace_back(ss.str(), x, x + d, index);
+      const int i = (*data)[index];
+      const int d = abs(i);
+      ret.emplace_back(
+          PixelsOrPercentageString(i, total_percentage), x, x + d, index);
       x += d;
     }
     return ret;
