@@ -107,8 +107,8 @@ main(int argc, char** argv)
 
   bool running = true;
 
-  std::string  demo_file;
-  FileBrowser  browser{&file_system};
+  FileBrowser browser{&file_system};
+  browser.Refresh();
   Scimed       scimed;
   ScimedConfig scc = ScimedConfig{};
   CanvasConfig cc  = CanvasConfig{};
@@ -145,26 +145,12 @@ main(int argc, char** argv)
       }
       ImGui::EndMainMenuBar();
 
-      if(ImGui::Begin("Browser"))
+      if(ImGui::Begin("Solution explorer"))
       {
-        InputText("Folder", &demo_file);
-        ImGui::SameLine();
-        if(ImGui::Button("..."))
+        if(browser.Run())
         {
-          browser.SelectFile(demo_file);
-          ImGui::OpenPopup("browse");
-        }
-
-        ImGui::SetNextWindowSize(ImVec2{300, 300}, ImGuiCond_Always);
-        if(ImGui::BeginPopup("browse"))
-        {
-          if(browser.Run())
-          {
-            demo_file = browser.GetSelectedFile();
-            scimed.LoadFile(&texture_cache, &file_system, demo_file);
-            ImGui::CloseCurrentPopup();
-          }
-          ImGui::EndPopup();
+          const auto file = browser.GetSelectedFile();
+          scimed.LoadFile(&texture_cache, &file_system, file);
         }
       }
       ImGui::End();
