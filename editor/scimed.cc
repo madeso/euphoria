@@ -28,8 +28,7 @@ KindaTheSame(int a, int b)
   return std::abs(a - b) < 5;
 }
 
-constexpr int RulerSize     = 20;
-constexpr int SizerDistance = 20;
+constexpr int RulerSize = 20;
 
 using TrackingLine           = OptionalIndex<int>;
 using PositionClassification = OptionalIndex<int>;
@@ -265,24 +264,23 @@ struct Dc
 void
 DrawSizerCol(
     std::shared_ptr<Texture2d>    image,
-    const Dc&                     dc,
+    const Scimed&                 sc,
     scalingsprite::ScalingSprite* sprite)
 {
-  const int distance    = SizerDistance;
-  const int anchor_size = 6;
+  Dc dc{sc.canvas};
 
   Data col{&sprite->cols};
 
   const int image_end_x = image->GetWidth();
-  const int anchor_y    = -distance;
+  const int anchor_y    = -sc.sizer_distance;
   const int text_y      = anchor_y - 3;
 
   const auto col_text = col.CalculateAllSpaces();
 
-  dc.DrawAnchorDown(0, anchor_y, anchor_size);
+  dc.DrawAnchorDown(0, anchor_y, sc.anchor_size);
   int end = image_end_x;
   dc.DrawLine(0, anchor_y, end, anchor_y);
-  dc.DrawAnchorDown(end, anchor_y, anchor_size);
+  dc.DrawAnchorDown(end, anchor_y, sc.anchor_size);
 
   int col_index = 0;
   for(const auto& t : col_text)
@@ -300,25 +298,24 @@ DrawSizerCol(
 void
 DrawSizerRow(
     std::shared_ptr<Texture2d>    image,
-    const Dc&                     dc,
+    const Scimed&                 sc,
     scalingsprite::ScalingSprite* sprite)
 {
-  const int distance    = SizerDistance;
-  const int anchor_size = 6;
+  Dc dc{sc.canvas};
 
   Data row{&sprite->rows};
 
   const int image_end_y = image->GetHeight();
-  const int anchor_x    = -distance;
+  const int anchor_x    = -sc.sizer_distance;
   const int text_x      = anchor_x - 3;
 
   const auto row_text = row.CalculateAllSpaces();
 
 
-  dc.DrawAnchorLeft(anchor_x, 0, anchor_size);
+  dc.DrawAnchorLeft(anchor_x, 0, sc.anchor_size);
   const int end = image_end_y;
   dc.DrawLine(anchor_x, 0, anchor_x, end);
-  dc.DrawAnchorLeft(anchor_x, end, anchor_size);
+  dc.DrawAnchorLeft(anchor_x, end, sc.anchor_size);
 
   int row_index = 0;
   for(const auto& t : row_text)
@@ -336,11 +333,11 @@ DrawSizerRow(
 void
 DrawSizer(
     std::shared_ptr<Texture2d>    image,
-    const Dc&                     dc,
+    const Scimed&                 sc,
     scalingsprite::ScalingSprite* sprite)
 {
-  DrawSizerRow(image, dc, sprite);
-  DrawSizerCol(image, dc, sprite);
+  DrawSizerRow(image, sc, sprite);
+  DrawSizerCol(image, sc, sprite);
 }
 
 
@@ -492,7 +489,7 @@ Scimed::Run()
   draw_list->AddImage(tex_id, pos, size);
 
   const auto current_hover = DrawGuides(&scaling, &canvas);
-  DrawSizer(texture, Dc{canvas}, &scaling);
+  DrawSizer(texture, *this, &scaling);
 
   canvas.ShowRuler();
   canvas.End();

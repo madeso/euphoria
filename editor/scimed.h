@@ -21,6 +21,10 @@ struct LineHoverData
 
 struct Scimed
 {
+  // config
+  int sizer_distance    = 20;
+  int anchor_size = 6;
+
   scalingsprite::ScalingSprite scaling;
 
   std::shared_ptr<Texture2d> texture;
