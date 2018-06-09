@@ -39,15 +39,12 @@ using PositionClassification = OptionalIndex<int>;
 class SpaceData
 {
  public:
-  SpaceData(std::string t, int aleft, int aright, int i)
-      : text(t)
-      , left(aleft)
+  SpaceData(int aleft, int aright, int i)
+      : left(aleft)
       , right(aright)
       , index(i)
   {
   }
-  std::string text;
-
   int left;
   int right;
   int index;
@@ -106,14 +103,12 @@ std::vector<SpaceData>
 CalculateAllSpaces(const std::vector<int>& data)
 {
   std::vector<SpaceData> ret;
-  const int              total_percentage = GetTotalPercentage(data);
-  int                    x                = 0;
+  int                    x = 0;
   for(unsigned int index = 0; index < data.size(); ++index)
   {
     const int value = data[index];
     const int step  = abs(value);
-    ret.emplace_back(
-        PixelsOrPercentageString(value, total_percentage), x, x + step, index);
+    ret.emplace_back(x, x + step, index);
     x += step;
   }
   return ret;
@@ -260,25 +255,31 @@ void
 DrawSizerCommon(
     std::shared_ptr<Texture2d> image,
     const Scimed&              sc,
-    std::vector<int>*          data,
+    std::vector<int>*          data_ptr,
     int                        end,
     TAnchorFunction            anchor_function,
     TLineFunction              line_function,
     TButtonFunction            button_function)
 {
-  const auto spaces = CalculateAllSpaces(*data);
+  auto&      data   = *data_ptr;
+  const auto spaces = CalculateAllSpaces(data);
   anchor_function(0, -sc.sizer_distance, sc.anchor_size);
   line_function(end, -sc.sizer_distance);
   anchor_function(end, -sc.sizer_distance, sc.anchor_size);
 
+  const int total_percentage = GetTotalPercentage(data);
+
   int index = 0;
   for(const auto& t : spaces)
   {
-    const bool clicked =
-        button_function(t.left, t.right, -sc.sizer_text_distance, t.text);
+    const bool clicked = button_function(
+        t.left,
+        t.right,
+        -sc.sizer_text_distance,
+        PixelsOrPercentageString(data[index], total_percentage));
     if(clicked)
     {
-      (*data)[index] = -(*data)[index];
+      data[index] = -data[index];
     }
     index += 1;
   }
