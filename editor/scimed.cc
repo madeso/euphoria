@@ -22,46 +22,54 @@ IsCloseTo(float a, float b, float c = 3)
   return Abs(a - b) < c;
 }
 
-constexpr int RulerSize     = 20;
-constexpr int SizerDistance = 20;
-
-using TrackingLine           = OptionalIndex<int>;
-using PositionClassification = OptionalIndex<int>;
-
-class TextRenderData
-{
- public:
-  TextRenderData(std::string t, int aleft, int aright, int i)
-      : text(t)
-      , position(aleft + (aright - aleft) / 2)
-      , left(aleft)
-      , right(aright)
-      , index(i)
-  {
-  }
-  std::string text;
-  int         position;
-  int         left;
-  int         right;
-  int         index;
-};
-
 bool
 KindaTheSame(int a, int b)
 {
   return std::abs(a - b) < 5;
 }
 
-class LineData
+constexpr int RulerSize     = 20;
+constexpr int SizerDistance = 20;
+
+using TrackingLine           = OptionalIndex<int>;
+using PositionClassification = OptionalIndex<int>;
+
+/// Extra calculated data from the corresponding data row (either row or column)
+/// in the ScalingSprite struct. Like the data, this can be viewed as the space
+/// between the dividing lines.
+class SpaceData
 {
  public:
-  LineData(int p, int mi, int ma)
+  SpaceData(std::string t, int aleft, int aright, int i)
+      : text(t)
+      , left(aleft)
+      , right(aright)
+      , index(i)
+  {
+  }
+  std::string text;
+
+  int left;
+  int right;
+  int index;
+};
+
+
+/// The visual representation of a line, dividing or splitting a area
+/// The actual data is either the row or col array of the ScalingSprite struct
+class SplitData
+{
+ public:
+  SplitData(int p, int mi, int ma)
       : position(p)
       , min_value(mi)
       , max_value(ma)
   {
   }
+  // defines the position of the split
   int position;
+
+  // the split area
   int min_value;
   int max_value;
 };
@@ -90,7 +98,7 @@ class Data
 
     if(within_image)
     {
-      TextRenderData d = GetTextOver(y);
+      SpaceData d = GetTextOver(y);
       return PositionClassification::FromIndex(d.index);
     }
     else
@@ -113,11 +121,11 @@ class Data
     return total;
   }
 
-  TextRenderData
+  SpaceData
   GetTextOver(int x) const
   {
-    const auto     data = GetText();
-    TextRenderData last("", -1, -1, 0);
+    const auto data = GetText();
+    SpaceData  last("", -1, -1, 0);
     for(const auto& d : data)
     {
       last = d;
@@ -129,37 +137,40 @@ class Data
     return last;
   }
 
-  std::vector<TextRenderData>
+  std::vector<SpaceData>
   GetText() const
   {
-    std::vector<TextRenderData> ret;
-    const int                   total_percentage = GetTotalPercentage();
-    int                         x                = 0;
+    std::vector<SpaceData> ret;
+    const int              total_percentage = GetTotalPercentage();
+    int                    x                = 0;
     for(unsigned int index = 0; index < data->size(); ++index)
     {
-      const int i = (*data)[index];
-      const int d = abs(i);
+      const int value = (*data)[index];
+      const int step  = abs(value);
       ret.emplace_back(
-          PixelsOrPercentageString(i, total_percentage), x, x + d, index);
-      x += d;
+          PixelsOrPercentageString(value, total_percentage),
+          x,
+          x + step,
+          index);
+      x += step;
     }
     return ret;
   }
 
   // lines lie between datapoints
-  std::vector<LineData>
+  std::vector<SplitData>
   GetLines() const
   {
-    std::vector<LineData> ret;
-    bool                  has_data = false;
-    int                   x        = 0;
-    int                   last_x   = 0;
+    std::vector<SplitData> ret;
+    bool                   has_data = false;
+    int                    x        = 0;
+    int                    last_x   = 0;
     for(const auto i : *data)
     {
       int dx = std::abs(i);
       if(has_data)
       {
-        ret.emplace_back(LineData(x, last_x, x + dx));
+        ret.emplace_back(SplitData(x, last_x, x + dx));
       }
       else
       {
