@@ -274,31 +274,23 @@ DrawSizer(
   Data col{&sprite->cols};
   Data row{&sprite->rows};
 
-  const int image_x = 0;
-  const int image_y = 0;
-  const int scale   = 1;
-
-  const int image_end_x = image_x + image->GetWidth() * scale;
-  const int anchor_y    = image_y - distance;
+  const int image_end_x = image->GetWidth();
+  const int anchor_y    = -distance;
   const int text_y      = anchor_y - 3;
 
   const auto col_text = col.CalculateAllSpaces();
   const auto row_text = row.CalculateAllSpaces();
 
-  dc.DrawAnchorDown(image_x, anchor_y, anchor_size);
+  dc.DrawAnchorDown(0, anchor_y, anchor_size);
   int end = image_end_x;
-  for(const auto& t : col_text)
-  {
-    end = image_x + t.right * scale;
-  }
-  dc.DrawLine(image_x, anchor_y, end, anchor_y);
+  dc.DrawLine(0, anchor_y, end, anchor_y);
   dc.DrawAnchorDown(end, anchor_y, anchor_size);
 
   int col_index = 0;
   for(const auto& t : col_text)
   {
-    const bool clicked = dc.DrawHorizontalCenteredText(
-        image_x + t.left * scale, image_x + t.right * scale, text_y, t.text);
+    const bool clicked =
+        dc.DrawHorizontalCenteredText(t.left, t.right, text_y, t.text);
     if(clicked)
     {
       sprite->cols[col_index] = -sprite->cols[col_index];
@@ -306,27 +298,21 @@ DrawSizer(
     col_index += 1;
   }
 
-  const int image_end_y = image_y + image->GetHeight() * scale;
-  const int anchor_x    = image_x - distance;
+  const int image_end_y = image->GetHeight();
+  const int anchor_x    = -distance;
   const int text_x      = anchor_x - 3;
 
 
-  dc.DrawAnchorLeft(anchor_x, image_y, anchor_size);
+  dc.DrawAnchorLeft(anchor_x, 0, anchor_size);
   end = image_end_y;
-  for(const auto t : row_text)
-  {
-    // DrawAnchorLeft(dc, anchor_x, image_y + t.position * scale,
-    // anchor_size);
-    end = image_y + t.right * scale;
-  }
-  dc.DrawLine(anchor_x, image_y, anchor_x, end);
+  dc.DrawLine(anchor_x, 0, anchor_x, end);
   dc.DrawAnchorLeft(anchor_x, end, anchor_size);
 
   int row_index = 0;
   for(const auto t : row_text)
   {
-    const bool clicked = dc.DrawVerticalCenteredText(
-        image_y + t.left * scale, image_y + t.right * scale, text_x, t.text);
+    const bool clicked =
+        dc.DrawVerticalCenteredText(t.left, t.right, text_x, t.text);
     if(clicked)
     {
       sprite->rows[row_index] = -sprite->rows[row_index];
