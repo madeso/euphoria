@@ -499,13 +499,14 @@ Scimed::Run()
   canvas.ShowRuler();
   canvas.End();
 
-  if(ImGui::IsMouseClicked(0))
+  if(ImGui::IsItemHovered() && ImGui::IsMouseClicked(0))
   {
     hover = current_hover;
   }
 
   const bool is_tracking =
       hover.horizontal_index != -1 || hover.vertical_index != -1;
+
   if(is_tracking)
   {
     if(ImGui::IsMouseDown(0))
@@ -517,13 +518,13 @@ Scimed::Run()
       MoveSplit(hover.horizontal_index, &scaling.rows, me.y);
       MoveSplit(hover.vertical_index, &scaling.cols, me.x);
     }
-    else
+    else if(ImGui::IsItemHovered())
     {
       SetMouseCursorFromHover(current_hover);
       hover = LineHoverData{};
     }
   }
-  else
+  else if(ImGui::IsItemHovered())
   {
     SetMouseCursorFromHover(current_hover);
   }
@@ -537,8 +538,6 @@ Scimed::Run()
 
   if(ImGui::BeginPopup("asd"))
   {
-    // ImguiLabel(Str() << "Mouse: " << mouse_popup);
-
     const auto space_index_y = Data{&scaling.rows}.FindSpaceIndexOrNull(
         mouse_popup.y, texture->GetHeight());
     const auto space_index_x = Data{&scaling.cols}.FindSpaceIndexOrNull(
@@ -556,21 +555,6 @@ Scimed::Run()
       SplitSpaceInTwo(&scaling.cols, space_index_x, mouse_popup.x);
     }
     ImGui::EndPopup();
-  }
-
-
-  // debug
-  if(BeginFixedOverlay(ImguiCorner::TopRight, ""))
-  {
-    ImguiLabel(Str() << "Mouse: " << C(canvas.GetMouse()));
-    ImguiLabel(
-        Str() << "Hover: " << hover.horizontal_index << "/"
-              << hover.vertical_index);
-    ImguiLabel(
-        Str() << "Current: " << current_hover.horizontal_index << "/"
-              << current_hover.vertical_index);
-    ImguiLabel(is_tracking ? "Tracking" : "Not tracking");
-    ImGui::End();
   }
 
   return false;
