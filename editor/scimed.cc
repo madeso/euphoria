@@ -4,7 +4,7 @@
 #include "core/canvaslogic.h"
 #include "core/str.h"
 #include "core/numeric.h"
-#include "core/log.h"
+#include "core/optionalindex.h"
 
 #include "render/texture.h"
 #include "render/texturecache.h"
@@ -13,8 +13,6 @@
 #include "window/imgui_icons.h"
 
 #include "editor/canvas.h"
-
-LOG_SPECIFY_DEFAULT_LOGGER("editor.scimed")
 
 bool
 IsCloseTo(float a, float b, float c = 3)
@@ -25,48 +23,7 @@ IsCloseTo(float a, float b, float c = 3)
 constexpr int RulerSize     = 20;
 constexpr int SizerDistance = 20;
 
-class TrackingLine
-{
- public:
-  static TrackingLine
-  Null()
-  {
-    return {};
-  }
-
-  static TrackingLine
-  FromIndex(int index)
-  {
-    return {index};
-  }
-
-  int
-  GetIndex() const
-  {
-    ASSERT(is_valid);
-    return index;
-  }
-
-  operator bool() const
-  {
-    return is_valid;
-  }
-
- private:
-  TrackingLine()
-      : is_valid(false)
-      , index(-1)
-  {
-  }
-
-  TrackingLine(int index)
-      : is_valid(true)
-      , index(index)
-  {
-  }
-  bool is_valid;
-  int  index;
-};
+using TrackingLine = OptionalIndex<int>;
 
 class TextRenderData
 {
