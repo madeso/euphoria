@@ -75,31 +75,44 @@ class SplitData
 };
 
 std::string
-PixelsOrPercentageString(int i, int total_percentage)
+PixelsOrPercentageString(int data_value, int total_percentage)
 {
-  if(i > 0)
+  if(data_value > 0)
   {
-    return Str{} << i << "px";
+    return Str{} << data_value << "px";
   }
   else
   {
-    const auto p = -i * 100.0f / total_percentage;
+    const auto p = (-data_value * 100.0f) / total_percentage;
     return Str{} << std::setprecision(3) << p << "%";
   }
+}
+
+int
+GetTotalPercentage(const std::vector<int>& data)
+{
+  int total = 0;
+  for(int i : data)
+  {
+    if(i < 0)
+    {
+      total += -i;
+    }
+  }
+  return total;
 }
 
 class Data
 {
  public:
   PositionClassification
-  Classify(int y, int image_size) const
+  FindSpaceIndexOrNull(int y, int image_size) const
   {
     const bool within_image = y > 0 && y < image_size;
 
     if(within_image)
     {
-      SpaceData d = GetTextOver(y);
-      return PositionClassification::FromIndex(d.index);
+      return PositionClassification::FromIndex(FindSpaceIndex(y));
     }
     else
     {
@@ -108,40 +121,28 @@ class Data
   }
 
   int
-  GetTotalPercentage() const
+  FindSpaceIndex(int x) const
   {
-    int total = 0;
-    for(int i : *data)
-    {
-      if(i < 0)
-      {
-        total += -i;
-      }
-    }
-    return total;
-  }
-
-  SpaceData
-  GetTextOver(int x) const
-  {
-    const auto data = GetText();
-    SpaceData  last("", -1, -1, 0);
+    const auto data  = CalculateAllSpaces();
+    int        last  = 0;
+    int        index = 0;
     for(const auto& d : data)
     {
-      last = d;
+      last = index;
       if(x < d.right)
       {
-        return d;
+        return last;
       }
+      index += 1;
     }
     return last;
   }
 
   std::vector<SpaceData>
-  GetText() const
+  CalculateAllSpaces() const
   {
     std::vector<SpaceData> ret;
-    const int              total_percentage = GetTotalPercentage();
+    const int              total_percentage = GetTotalPercentage(*data);
     int                    x                = 0;
     for(unsigned int index = 0; index < data->size(); ++index)
     {
@@ -157,9 +158,8 @@ class Data
     return ret;
   }
 
-  // lines lie between datapoints
   std::vector<SplitData>
-  GetLines() const
+  CalculateAllSplits() const
   {
     std::vector<SplitData> ret;
     bool                   has_data = false;
@@ -282,8 +282,8 @@ DrawSizer(
   const int anchor_y    = image_y - distance;
   const int text_y      = anchor_y - 3;
 
-  const auto col_text = col.GetText();
-  const auto row_text = row.GetText();
+  const auto col_text = col.CalculateAllSpaces();
+  const auto row_text = row.CalculateAllSpaces();
 
   dc.DrawAnchorDown(image_x, anchor_y, anchor_size);
   int end = image_end_x;
@@ -344,7 +344,8 @@ DrawSingleGuideLineGroup(
     Canvas*                       canvas)
 {
   const auto guide_color = IM_COL32(0, 255, 0, 255);
-  const auto vert = Data{isvert ? &sprite->cols : &sprite->rows}.GetLines();
+  const auto vert =
+      Data{isvert ? &sprite->cols : &sprite->rows}.CalculateAllSplits();
 
   int ret = -1;
 
@@ -406,7 +407,7 @@ TrackUtil(
 {
   if(line_index == -1)
     return;
-  const auto lines            = Data{data_ptr}.GetLines();
+  const auto lines            = Data{data_ptr}.CalculateAllSplits();
   const auto d                = lines[line_index];
   const auto scaled           = static_cast<int>(world);
   const auto max              = std::max(d.min_value + 1, scaled);
@@ -425,7 +426,7 @@ DoSplitData(
   const int image_x = 0;
 
   Data       data(data_ptr);
-  const auto text    = data.GetText();
+  const auto text    = data.CalculateAllSpaces();
   const auto size    = text[class_x.GetIndex()];
   const int  mouse_x = std::min(
       size.right - 1,
@@ -528,10 +529,10 @@ Scimed::Run()
   {
     // ImguiLabel(Str() << "Mouse: " << mouse_popup);
 
-    const auto class_y =
-        Data{&scaling.rows}.Classify(mouse_popup.y, texture->GetHeight());
-    const auto class_x =
-        Data{&scaling.cols}.Classify(mouse_popup.x, texture->GetWidth());
+    const auto class_y = Data{&scaling.rows}.FindSpaceIndexOrNull(
+        mouse_popup.y, texture->GetHeight());
+    const auto class_x = Data{&scaling.cols}.FindSpaceIndexOrNull(
+        mouse_popup.x, texture->GetWidth());
 
     if(PopupButton(class_y, ICON_FK_ARROWS_H " New Horizontal divider"))
     {
