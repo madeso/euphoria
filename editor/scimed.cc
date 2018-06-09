@@ -295,65 +295,6 @@ DrawSizerCommon(
 }
 
 void
-DrawSizerCol(
-    std::shared_ptr<Texture2d>    image,
-    const Scimed&                 sc,
-    scalingsprite::ScalingSprite* sprite)
-{
-  Dc dc{sc.canvas};
-
-  std::vector<int>* data = &sprite->cols;
-  const int         end  = image->GetWidth();
-
-  const auto spaces = Data{data}.CalculateAllSpaces();
-  dc.DrawAnchorDown(0, -sc.sizer_distance, sc.anchor_size);
-  dc.DrawLine(0, -sc.sizer_distance, end, -sc.sizer_distance);
-  dc.DrawAnchorDown(end, -sc.sizer_distance, sc.anchor_size);
-
-  int index = 0;
-  for(const auto& t : spaces)
-  {
-    const bool clicked = dc.DrawHorizontalCenteredText(
-        t.left, t.right, -sc.sizer_text_distance, t.text);
-    if(clicked)
-    {
-      (*data)[index] = -(*data)[index];
-    }
-    index += 1;
-  }
-}
-
-void
-DrawSizerRow(
-    std::shared_ptr<Texture2d>    image,
-    const Scimed&                 sc,
-    scalingsprite::ScalingSprite* sprite)
-{
-  Dc dc{sc.canvas};
-
-  std::vector<int>* data = &sprite->rows;
-
-  const int end = image->GetHeight();
-
-  const auto spaces = Data{data}.CalculateAllSpaces();
-  dc.DrawAnchorLeft(-sc.sizer_distance, 0, sc.anchor_size);
-  dc.DrawLine(-sc.sizer_distance, 0, -sc.sizer_distance, end);
-  dc.DrawAnchorLeft(-sc.sizer_distance, end, sc.anchor_size);
-
-  int index = 0;
-  for(const auto& t : spaces)
-  {
-    const bool clicked = dc.DrawVerticalCenteredText(
-        t.left, t.right, -sc.sizer_text_distance, t.text);
-    if(clicked)
-    {
-      (*data)[index] = -(*data)[index];
-    }
-    index += 1;
-  }
-}
-
-void
 DrawSizer(
     std::shared_ptr<Texture2d>    image,
     const Scimed&                 sc,
@@ -364,17 +305,34 @@ DrawSizer(
       sc,
       &sprite->cols,
       image->GetWidth(),
-      [&](int x, int y, int size) { Dc{sc.canvas}.DrawAnchorDown(x, y, size); },
-      [&](int end, int distance) {
+      [&sc](int position, int distance, int size) {
+        Dc{sc.canvas}.DrawAnchorDown(position, distance, size);
+      },
+      [&sc](int end, int distance) {
         Dc{sc.canvas}.DrawLine(0, distance, end, distance);
       },
-      [&](int left, int right, int distance, const std::string& text) -> bool {
+      [&sc](
+          int left, int right, int distance, const std::string& text) -> bool {
         return Dc{sc.canvas}.DrawHorizontalCenteredText(
             left, right, distance, text);
       });
 
-  DrawSizerRow(image, sc, sprite);
-  // DrawSizerCol(image, sc, sprite);
+  DrawSizerCommon(
+      image,
+      sc,
+      &sprite->rows,
+      image->GetHeight(),
+      [&sc](int position, int distance, int size) {
+        Dc{sc.canvas}.DrawAnchorLeft(distance, position, size);
+      },
+      [&sc](int end, int distance) {
+        Dc{sc.canvas}.DrawLine(distance, 0, distance, end);
+      },
+      [&sc](
+          int left, int right, int distance, const std::string& text) -> bool {
+        return Dc{sc.canvas}.DrawVerticalCenteredText(
+            left, right, distance, text);
+      });
 }
 
 
