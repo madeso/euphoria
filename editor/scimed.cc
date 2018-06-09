@@ -25,7 +25,8 @@ IsCloseTo(float a, float b, float c = 3)
 constexpr int RulerSize     = 20;
 constexpr int SizerDistance = 20;
 
-using TrackingLine = OptionalIndex<int>;
+using TrackingLine           = OptionalIndex<int>;
+using PositionClassification = OptionalIndex<int>;
 
 class TextRenderData
 {
@@ -65,13 +66,6 @@ class LineData
   int max_value;
 };
 
-class PositionClassification
-{
- public:
-  bool on_image = false;
-  int  index    = -1;
-};
-
 std::string
 PixelsOrPercentageString(int i, int total_percentage)
 {
@@ -97,11 +91,11 @@ class Data
     if(within_image)
     {
       TextRenderData d = GetTextOver(y);
-      return {true, d.index};
+      return PositionClassification::FromIndex(d.index);
     }
     else
     {
-      return {false, -1};
+      return PositionClassification::Null();
     }
   }
 
@@ -136,6 +130,22 @@ class Data
     return total;
   }
 
+  TextRenderData
+  GetTextOver(int x) const
+  {
+    const auto     data = GetText();
+    TextRenderData last("", -1, -1, 0);
+    for(const auto& d : data)
+    {
+      last = d;
+      if(x < d.right)
+      {
+        return d;
+      }
+    }
+    return last;
+  }
+
   std::vector<TextRenderData>
   GetText() const
   {
@@ -151,22 +161,6 @@ class Data
       x += d;
     }
     return ret;
-  }
-
-  TextRenderData
-  GetTextOver(int x) const
-  {
-    const auto     data = GetText();
-    TextRenderData last("", -1, -1, 0);
-    for(const auto& d : data)
-    {
-      last = d;
-      if(x < d.right)
-      {
-        return d;
-      }
-    }
-    return last;
   }
 
   // lines lie between datapoints
@@ -437,17 +431,17 @@ DoSplitData(
   const int image_x = 0;
 
   Data data(data_ptr);
-  const std::pair<int, int> size = data.GetExtentsForRange(class_x.index);
+  const std::pair<int, int> size = data.GetExtentsForRange(class_x.GetIndex());
   const int mouse_x = std::min(
       size.second - 1,
       std::max(size.first + 1, static_cast<int>((x - image_x) / scale)));
   const int split_x           = mouse_x - size.first;
-  int       value             = (*data.data)[class_x.index];
+  int       value             = (*data.data)[class_x.GetIndex()];
   const int sign              = Sign(value);
-  (*data.data)[class_x.index] = split_x * sign;  // value / 2;
+  (*data.data)[class_x.GetIndex()] = split_x * sign;  // value / 2;
   const int new_value =
-      sign * (sign * value - sign * (*data.data)[class_x.index]);
-  (*data.data).insert((*data.data).begin() + class_x.index + 1, new_value);
+      sign * (sign * value - sign * (*data.data)[class_x.GetIndex()]);
+  (*data.data).insert((*data.data).begin() + class_x.GetIndex() + 1, new_value);
 }
 
 bool
@@ -545,12 +539,12 @@ Scimed::Run()
         Data{&scaling.cols}.Classify(mouse_popup.x, texture->GetWidth());
 
     if(PopupButton(
-           class_y.on_image, ICON_FK_ARROWS_H " New Horizontal divider"))
+           class_y, ICON_FK_ARROWS_H " New Horizontal divider"))
     {
       DoSplitData(&scaling.rows, class_y, mouse_popup.y);
     }
 
-    if(PopupButton(class_x.on_image, ICON_FK_ARROWS_V " New Vertical divider"))
+    if(PopupButton(class_x, ICON_FK_ARROWS_V " New Vertical divider"))
     {
       DoSplitData(&scaling.cols, class_x, mouse_popup.x);
     }
