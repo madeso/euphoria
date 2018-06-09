@@ -99,23 +99,6 @@ class Data
     }
   }
 
-  std::pair<int, int>
-  GetExtentsForRange(int index)
-  {
-    int min = 0;
-    for(int i = 0; i <= index; ++i)
-    {
-      const int value = std::abs((*data)[i]);
-      if(i == index)
-      {
-        return std::pair<int, int>(min, min + value);
-      }
-      min += value;
-    }
-    ASSERT(false && "invalid index");
-    return std::pair<int, int>(min, min + 2);
-  }
-
   int
   GetTotalPercentage() const
   {
@@ -430,14 +413,15 @@ DoSplitData(
   const int scale   = 1;
   const int image_x = 0;
 
-  Data data(data_ptr);
-  const std::pair<int, int> size = data.GetExtentsForRange(class_x.GetIndex());
-  const int mouse_x = std::min(
-      size.second - 1,
-      std::max(size.first + 1, static_cast<int>((x - image_x) / scale)));
-  const int split_x           = mouse_x - size.first;
-  int       value             = (*data.data)[class_x.GetIndex()];
-  const int sign              = Sign(value);
+  Data       data(data_ptr);
+  const auto text    = data.GetText();
+  const auto size    = text[class_x.GetIndex()];
+  const int  mouse_x = std::min(
+      size.right - 1,
+      std::max(size.left + 1, static_cast<int>((x - image_x) / scale)));
+  const int split_x                = mouse_x - size.left;
+  int       value                  = (*data.data)[class_x.GetIndex()];
+  const int sign                   = Sign(value);
   (*data.data)[class_x.GetIndex()] = split_x * sign;  // value / 2;
   const int new_value =
       sign * (sign * value - sign * (*data.data)[class_x.GetIndex()]);
@@ -538,8 +522,7 @@ Scimed::Run()
     const auto class_x =
         Data{&scaling.cols}.Classify(mouse_popup.x, texture->GetWidth());
 
-    if(PopupButton(
-           class_y, ICON_FK_ARROWS_H " New Horizontal divider"))
+    if(PopupButton(class_y, ICON_FK_ARROWS_H " New Horizontal divider"))
     {
       DoSplitData(&scaling.rows, class_y, mouse_popup.y);
     }
