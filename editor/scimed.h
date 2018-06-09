@@ -31,7 +31,7 @@ struct Scimed
   std::shared_ptr<Texture2d> texture;
 
   Canvas        canvas;
-  vec2f         mouse_popup = vec2f{0, 0};
+  vec2i         mouse_popup = vec2i{0, 0};
   LineHoverData hover;
 
   void

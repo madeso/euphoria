@@ -336,28 +336,25 @@ DrawSizer(
 }
 
 
+template <typename TLineFunction, typename TCoordFunction>
 int
-DrawSingleGuideLineGroup(
-    bool                          isvert,
-    float                         mouse,
-    scalingsprite::ScalingSprite* sprite,
-    Canvas*                       canvas)
+DrawSingleAxisSplits(
+    std::vector<int>* data,
+    const ImVec2&     mouse,
+    Canvas*           canvas,
+    TLineFunction     line_function,
+    TCoordFunction    coord_function)
 {
-  const auto guide_color = IM_COL32(0, 255, 0, 255);
-  const auto vert =
-      Data{isvert ? &sprite->cols : &sprite->rows}.CalculateAllSplits();
+  const auto splits = Data{data}.CalculateAllSplits();
 
   int ret = -1;
 
   int i = 0;
-  for(auto v : vert)
+  for(auto s : splits)
   {
-    if(isvert)
-      canvas->VerticalLine(v.position, guide_color);
-    else
-      canvas->HorizontalLine(v.position, guide_color);
-    const auto p = canvas->WorldToScreen(ImVec2{v.position, v.position});
-    if(IsCloseTo(mouse, isvert ? p.x : p.y))
+    line_function(s.position);
+    const auto p = canvas->WorldToScreen(ImVec2{s.position, s.position});
+    if(IsCloseTo(coord_function(mouse), coord_function(p)))
     {
       ret = i;
     }
@@ -368,14 +365,25 @@ DrawSingleGuideLineGroup(
 }
 
 LineHoverData
-DrawGuides(scalingsprite::ScalingSprite* sprite, Canvas* canvas)
+DrawSplits(scalingsprite::ScalingSprite* sprite, Canvas* canvas)
 {
   const auto    mouse = ImGui::GetMousePos();
   LineHoverData ret;
 
-  ret.vertical_index = DrawSingleGuideLineGroup(true, mouse.x, sprite, canvas);
-  ret.horizontal_index =
-      DrawSingleGuideLineGroup(false, mouse.y, sprite, canvas);
+  const auto guide_color = IM_COL32(0, 255, 0, 255);
+
+  ret.vertical_index = DrawSingleAxisSplits(
+      &sprite->cols,
+      mouse,
+      canvas,
+      [&](int position) { canvas->VerticalLine(position, guide_color); },
+      [](const ImVec2& p) -> float { return p.x; });
+  ret.horizontal_index = DrawSingleAxisSplits(
+      &sprite->rows,
+      mouse,
+      canvas,
+      [&](int position) { canvas->HorizontalLine(position, guide_color); },
+      [](const ImVec2& p) -> float { return p.y; });
 
   return ret;
 }
@@ -402,46 +410,49 @@ SetMouseCursorFromHover(const LineHoverData& hover)
 
 
 void
-TrackUtil(
-    int line_index, std::vector<int>* data_ptr, float world, int total_size)
+MoveSplit(int split_index, std::vector<int>* data_ptr, float world_position)
 {
-  if(line_index == -1)
+  if(split_index == -1)
+  {
     return;
-  const auto lines            = Data{data_ptr}.CalculateAllSplits();
-  const auto d                = lines[line_index];
-  const auto scaled           = static_cast<int>(world);
-  const auto max              = std::max(d.min_value + 1, scaled);
-  const int  line_x           = std::min(d.max_value - 1, max);
-  const int  left_size        = line_x - d.min_value;
-  const int  right_size       = d.max_value - line_x;
-  (*data_ptr)[line_index]     = Sign((*data_ptr)[line_index]) * left_size;
-  (*data_ptr)[line_index + 1] = Sign((*data_ptr)[line_index + 1]) * right_size;
+  }
+
+  const auto split      = Data{data_ptr}.CalculateAllSplits()[split_index];
+  const auto position   = static_cast<int>(world_position);
+  const auto max        = std::max(split.min_value + 1, position);
+  const int  line_x     = std::min(split.max_value - 1, max);
+  const int  left_size  = line_x - split.min_value;
+  const int  right_size = split.max_value - line_x;
+
+  // move split to new position
+  auto& data            = *data_ptr;
+  data[split_index]     = Sign(data[split_index]) * left_size;
+  data[split_index + 1] = Sign(data[split_index + 1]) * right_size;
 }
 
 void
-DoSplitData(
-    std::vector<int>* data_ptr, const PositionClassification& class_x, int x)
+SplitSpaceInTwo(
+    std::vector<int>*             data_ptr,
+    const PositionClassification& optional_space_index,
+    int                           x)
 {
-  const int scale   = 1;
-  const int image_x = 0;
-
-  Data       data(data_ptr);
-  const auto text    = data.CalculateAllSpaces();
-  const auto size    = text[class_x.GetIndex()];
-  const int  mouse_x = std::min(
-      size.right - 1,
-      std::max(size.left + 1, static_cast<int>((x - image_x) / scale)));
-  const int split_x                = mouse_x - size.left;
-  int       value                  = (*data.data)[class_x.GetIndex()];
-  const int sign                   = Sign(value);
-  (*data.data)[class_x.GetIndex()] = split_x * sign;  // value / 2;
-  const int new_value =
-      sign * (sign * value - sign * (*data.data)[class_x.GetIndex()]);
-  (*data.data).insert((*data.data).begin() + class_x.GetIndex() + 1, new_value);
+  ASSERT(optional_space_index);
+  const auto index = optional_space_index.GetIndex();
+  auto&      data  = *data_ptr;
+  const auto size  = Data{data_ptr}.CalculateAllSpaces()[index];
+  const int  mouse = std::min(size.right - 1, std::max(size.left + 1, x));
+  ASSERT(mouse > size.left);
+  const int left_abs_val = mouse - size.left;
+  const int old_value    = data[index];
+  const int sign         = Sign(old_value);
+  const int left_val     = left_abs_val * sign;
+  data[index]            = left_val;
+  const int right_val    = sign * (std::abs(old_value) - left_abs_val);
+  data.insert(data.begin() + index + 1, right_val);
 }
 
 bool
-PopupButton(bool enabled, const char* label)
+ImguiSelectableOrDisabled(bool enabled, const char* label)
 {
   if(enabled)
   {
@@ -475,15 +486,14 @@ Scimed::Run()
     return false;
   }
 
-  auto tex_id = reinterpret_cast<ImTextureID>(texture->GetId());
-
-  const auto pos = canvas.WorldToScreen(ImVec2{0, 0});
+  // draw texture
+  auto       tex_id = reinterpret_cast<ImTextureID>(texture->GetId());
+  const auto pos    = canvas.WorldToScreen(ImVec2{0, 0});
   const auto size =
       canvas.WorldToScreen(ImVec2{texture->GetWidth(), texture->GetHeight()});
-
   draw_list->AddImage(tex_id, pos, size);
 
-  const auto current_hover = DrawGuides(&scaling, &canvas);
+  const auto current_hover = DrawSplits(&scaling, &canvas);
   DrawSizer(texture, *this, &scaling);
 
   canvas.ShowRuler();
@@ -504,9 +514,8 @@ Scimed::Run()
 
       const auto me = canvas.ScreenToWorld(ImGui::GetMousePos());
 
-      TrackUtil(
-          hover.horizontal_index, &scaling.rows, me.y, texture->GetHeight());
-      TrackUtil(hover.vertical_index, &scaling.cols, me.x, texture->GetWidth());
+      MoveSplit(hover.horizontal_index, &scaling.rows, me.y);
+      MoveSplit(hover.vertical_index, &scaling.cols, me.x);
     }
     else
     {
@@ -522,26 +531,29 @@ Scimed::Run()
   if(ImGui::IsItemHovered() && ImGui::IsMouseClicked(1))
   {
     ImGui::OpenPopup("asd");
-    mouse_popup = C(canvas.ScreenToWorld(ImGui::GetMousePos()));
+    const auto w = canvas.ScreenToWorld(ImGui::GetMousePos());
+    mouse_popup  = vec2i{static_cast<int>(w.x), static_cast<int>(w.y)};
   }
 
   if(ImGui::BeginPopup("asd"))
   {
     // ImguiLabel(Str() << "Mouse: " << mouse_popup);
 
-    const auto class_y = Data{&scaling.rows}.FindSpaceIndexOrNull(
+    const auto space_index_y = Data{&scaling.rows}.FindSpaceIndexOrNull(
         mouse_popup.y, texture->GetHeight());
-    const auto class_x = Data{&scaling.cols}.FindSpaceIndexOrNull(
+    const auto space_index_x = Data{&scaling.cols}.FindSpaceIndexOrNull(
         mouse_popup.x, texture->GetWidth());
 
-    if(PopupButton(class_y, ICON_FK_ARROWS_H " New Horizontal divider"))
+    if(ImguiSelectableOrDisabled(
+           space_index_y, ICON_FK_ARROWS_H " New Horizontal divider"))
     {
-      DoSplitData(&scaling.rows, class_y, mouse_popup.y);
+      SplitSpaceInTwo(&scaling.rows, space_index_y, mouse_popup.y);
     }
 
-    if(PopupButton(class_x, ICON_FK_ARROWS_V " New Vertical divider"))
+    if(ImguiSelectableOrDisabled(
+           space_index_x, ICON_FK_ARROWS_V " New Vertical divider"))
     {
-      DoSplitData(&scaling.cols, class_x, mouse_popup.x);
+      SplitSpaceInTwo(&scaling.cols, space_index_x, mouse_popup.x);
     }
     ImGui::EndPopup();
   }
