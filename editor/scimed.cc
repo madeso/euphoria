@@ -261,6 +261,39 @@ struct Dc
   }
 };
 
+
+template <
+    typename TAnchorFunction,
+    typename TLineFunction,
+    typename TButtonFunction>
+void
+DrawSizerCommon(
+    std::shared_ptr<Texture2d> image,
+    const Scimed&              sc,
+    std::vector<int>*          data,
+    int                        end,
+    TAnchorFunction            anchor_function,
+    TLineFunction              line_function,
+    TButtonFunction            button_function)
+{
+  const auto spaces = Data{data}.CalculateAllSpaces();
+  anchor_function(0, -sc.sizer_distance, sc.anchor_size);
+  line_function(end, -sc.sizer_distance);
+  anchor_function(end, -sc.sizer_distance, sc.anchor_size);
+
+  int index = 0;
+  for(const auto& t : spaces)
+  {
+    const bool clicked =
+        button_function(t.left, t.right, -sc.sizer_text_distance, t.text);
+    if(clicked)
+    {
+      (*data)[index] = -(*data)[index];
+    }
+    index += 1;
+  }
+}
+
 void
 DrawSizerCol(
     std::shared_ptr<Texture2d>    image,
@@ -269,10 +302,10 @@ DrawSizerCol(
 {
   Dc dc{sc.canvas};
 
-  std::vector<int>* data   = &sprite->cols;
-  const int         end    = image->GetWidth();
+  std::vector<int>* data = &sprite->cols;
+  const int         end  = image->GetWidth();
 
-  const auto        spaces = Data{data}.CalculateAllSpaces();
+  const auto spaces = Data{data}.CalculateAllSpaces();
   dc.DrawAnchorDown(0, -sc.sizer_distance, sc.anchor_size);
   dc.DrawLine(0, -sc.sizer_distance, end, -sc.sizer_distance);
   dc.DrawAnchorDown(end, -sc.sizer_distance, sc.anchor_size);
@@ -326,8 +359,21 @@ DrawSizer(
     const Scimed&                 sc,
     scalingsprite::ScalingSprite* sprite)
 {
+  DrawSizerCommon(
+      image,
+      sc,
+      &sprite->cols,
+      image->GetWidth(),
+      [&](int x, int y, int size) { Dc{sc.canvas}.DrawAnchorDown(x, y, size); },
+      [&](int end, int distance) {
+        Dc{sc.canvas}.DrawLine(0, distance, end, distance);
+      },
+      [&](int left, int right, int distance, const std::string& text) -> bool {
+        Dc{sc.canvas}.DrawHorizontalCenteredText(left, right, distance, text);
+      });
+
   DrawSizerRow(image, sc, sprite);
-  DrawSizerCol(image, sc, sprite);
+  // DrawSizerCol(image, sc, sprite);
 }
 
 
