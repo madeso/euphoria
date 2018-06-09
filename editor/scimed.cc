@@ -191,9 +191,9 @@ class Data
 
 struct Dc
 {
-  Canvas* canvas;
+  const Canvas& canvas;
 
-  explicit Dc(Canvas* c)
+  explicit Dc(const Canvas& c)
       : canvas(c)
   {
   }
@@ -215,8 +215,8 @@ struct Dc
   {
     const auto  color     = IM_COL32(0, 0, 0, 255);
     ImDrawList* draw_list = ImGui::GetWindowDrawList();
-    const auto  from      = canvas->WorldToScreen(ImVec2{x, y});
-    const auto  to        = canvas->WorldToScreen(ImVec2{tx, ty});
+    const auto  from      = canvas.WorldToScreen(ImVec2{x, y});
+    const auto  to        = canvas.WorldToScreen(ImVec2{tx, ty});
     draw_list->AddLine(from, to, color);
   }
 
@@ -225,8 +225,8 @@ struct Dc
   {
     const auto backup = ImGui::GetCursorPos();
     ImVec2     pp     = p;
-    pp.x -= canvas->position.x;
-    pp.y -= canvas->position.y;
+    pp.x -= canvas.position.x;
+    pp.y -= canvas.position.y;
     ImGui::SetCursorPos(pp);
     const bool clicked = ImGui::Button(label);
     ImGui::SetCursorPos(backup);
@@ -239,8 +239,8 @@ struct Dc
   {
     ImDrawList* draw_list = ImGui::GetWindowDrawList();
     const auto  size      = ImGui::CalcTextSize(s.c_str());
-    const auto  left      = canvas->WorldToScreen(ImVec2{left_p, y_p});
-    const auto  right     = canvas->WorldToScreen(ImVec2{right_p, y_p});
+    const auto  left      = canvas.WorldToScreen(ImVec2{left_p, y_p});
+    const auto  right     = canvas.WorldToScreen(ImVec2{right_p, y_p});
     const auto  y         = left.y;
     auto        x         = left.x + (right.x - left.x) / 2 - size.x / 2;
     const auto  p         = ImVec2{x, y - size.y};
@@ -253,8 +253,8 @@ struct Dc
   {
     ImDrawList* draw_list = ImGui::GetWindowDrawList();
     const auto  size      = ImGui::CalcTextSize(s.c_str());
-    const auto  top       = canvas->WorldToScreen(ImVec2{x_p, top_p});
-    const auto  bottom    = canvas->WorldToScreen(ImVec2{x_p, bottom_p});
+    const auto  top       = canvas.WorldToScreen(ImVec2{x_p, top_p});
+    const auto  bottom    = canvas.WorldToScreen(ImVec2{x_p, bottom_p});
     const auto  x         = bottom.x;
     const auto  y         = top.y + (bottom.y - top.y) / 2 - size.y / 2;
     const auto  p         = ImVec2{x - size.x, y};
@@ -492,7 +492,7 @@ Scimed::Run()
   draw_list->AddImage(tex_id, pos, size);
 
   const auto current_hover = DrawGuides(&scaling, &canvas);
-  DrawSizer(texture, Dc{&canvas}, &scaling);
+  DrawSizer(texture, Dc{canvas}, &scaling);
 
   canvas.ShowRuler();
   canvas.End();
