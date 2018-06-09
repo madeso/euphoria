@@ -59,9 +59,8 @@ main(int argc, char** argv)
     return -1;
   }
 
-  int        width  = 1280;
-  int        height = 720;
-  const auto size   = ImVec2{width, height};
+  int width  = 1280;
+  int height = 720;
 
   SdlWindow window{"Euphoria Demo", width, height};
   if(window.window == nullptr)
@@ -109,9 +108,9 @@ main(int argc, char** argv)
 
   FileBrowser browser{&file_system};
   browser.Refresh();
-  Scimed       scimed;
-  ScimedConfig scc = ScimedConfig{};
-  CanvasConfig cc  = CanvasConfig{};
+  std::vector<std::shared_ptr<Scimed>> scimeds;
+  ScimedConfig                         scc = ScimedConfig{};
+  CanvasConfig                         cc  = CanvasConfig{};
 
   while(running)
   {
@@ -149,17 +148,26 @@ main(int argc, char** argv)
       {
         if(browser.Run())
         {
-          const auto file = browser.GetSelectedFile();
-          scimed.LoadFile(&texture_cache, &file_system, file);
+          const auto file   = browser.GetSelectedFile();
+          auto       scimed = std::make_shared<Scimed>();
+          scimed->name      = file;
+          scimed->LoadFile(&texture_cache, &file_system, file);
+          scimeds.emplace_back(scimed);
         }
       }
       ImGui::End();
 
-      if(ImGui::Begin("Scimed"))
+      for(auto& scimed : scimeds)
       {
-        scimed.Run(cc, scc);
+        const std::string title = Str{} << "Scimed: " << scimed->name;
+
+        ImGui::SetNextWindowSize(ImVec2{300, 300}, ImGuiCond_FirstUseEver);
+        if(ImGui::Begin(title.c_str()))
+        {
+          scimed->Run(cc, scc);
+        }
+        ImGui::End();
       }
-      ImGui::End();
 
       // ImGui::ShowMetricsWindow();
     }
