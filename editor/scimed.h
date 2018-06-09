@@ -37,8 +37,6 @@ struct Scimed
   vec2i                      mouse_popup = vec2i{0, 0};
   LineHoverData              hover;
 
-  std::string name;
-
   void
   LoadFile(TextureCache* cache, FileSystem* fs, const std::string& path);
 

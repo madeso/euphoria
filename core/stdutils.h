@@ -61,4 +61,26 @@ SwapBackAndEraseObject(T what, std::vector<T>* from)
   return true;
 }
 
+template <typename T, typename TFunc>
+void
+RemoveMatching(std::vector<T>* v, TFunc condition)
+{
+  v->erase(std::remove_if(v->begin(), v->end(), condition), v->end());
+}
+
+template <typename T, typename TFunc>
+typename std::vector<T>::iterator
+Search(std::vector<T>& v, TFunc condition)
+{
+  for(auto i = v.begin(); i != v.end(); i++)
+  {
+    if(condition(*i))
+    {
+      return i;
+    }
+  }
+
+  return v.end();
+}
+
 #endif  // EUPHORIA_STDUTILS_H

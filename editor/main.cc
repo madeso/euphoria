@@ -13,6 +13,7 @@
 #include "core/range.h"
 #include "core/camera.h"
 #include "core/stringutils.h"
+#include "core/stdutils.h"
 
 #include <render/init.h>
 #include <render/debuggl.h>
@@ -49,6 +50,13 @@ operator+(const ImVec2& lhs, const ImVec2& rhs)
 {
   return ImVec2{lhs.x + rhs.x, lhs.y + rhs.y};
 }
+
+struct ScimedWindow
+{
+  std::string name;
+  bool        open = true;
+  Scimed      scimed;
+};
 
 int
 main(int argc, char** argv)
@@ -108,9 +116,9 @@ main(int argc, char** argv)
 
   FileBrowser browser{&file_system};
   browser.Refresh();
-  std::vector<std::shared_ptr<Scimed>> scimeds;
-  ScimedConfig                         scc = ScimedConfig{};
-  CanvasConfig                         cc  = CanvasConfig{};
+  std::vector<std::shared_ptr<ScimedWindow>> scimeds;
+  ScimedConfig                               scc = ScimedConfig{};
+  CanvasConfig                               cc  = CanvasConfig{};
 
   while(running)
   {
@@ -142,38 +150,61 @@ main(int argc, char** argv)
         }
         ImGui::EndMenu();
       }
-      ImGui::EndMainMenuBar();
+    }
+    ImGui::EndMainMenuBar();
 
-      if(ImGui::Begin("Solution explorer"))
+    std::string focus_window;
+
+    if(ImGui::Begin("Solution explorer"))
+    {
+      if(browser.Run())
       {
-        if(browser.Run())
+        const auto file = browser.GetSelectedFile();
+
+        const std::string title_name = Str{} << "Scimed: " << file;
+
+        const auto found =
+            Search(scimeds, [&](std::shared_ptr<ScimedWindow>& wind) -> bool {
+              return wind->name == title_name;
+            });
+
+        if(found == scimeds.end())
         {
-          const auto file   = browser.GetSelectedFile();
-          auto       scimed = std::make_shared<Scimed>();
-          scimed->name      = file;
-          scimed->LoadFile(&texture_cache, &file_system, file);
+          auto scimed  = std::make_shared<ScimedWindow>();
+          scimed->name = title_name;
+          scimed->scimed.LoadFile(&texture_cache, &file_system, file);
           scimeds.emplace_back(scimed);
         }
+        else
+        {
+          focus_window = title_name;
+        }
+      }
+    }
+    ImGui::End();
+
+    for(auto& scimed : scimeds)
+    {
+      ImGui::SetNextWindowSize(ImVec2{300, 300}, ImGuiCond_FirstUseEver);
+      if(scimed->name == focus_window)
+      {
+        ImGui::SetNextWindowFocus();
+      }
+      if(ImGui::Begin(scimed->name.c_str(), &scimed->open))
+      {
+        scimed->scimed.Run(cc, scc);
       }
       ImGui::End();
-
-      for(auto& scimed : scimeds)
-      {
-        const std::string title = Str{} << "Scimed: " << scimed->name;
-
-        ImGui::SetNextWindowSize(ImVec2{300, 300}, ImGuiCond_FirstUseEver);
-        if(ImGui::Begin(title.c_str()))
-        {
-          scimed->Run(cc, scc);
-        }
-        ImGui::End();
-      }
-
-      // ImGui::ShowMetricsWindow();
     }
+
+    // ImGui::ShowMetricsWindow();
 
     init.ClearScreen(Color::Wheat);
     imgui.Render();
+
+    RemoveMatching(&scimeds, [](const std::shared_ptr<ScimedWindow>& window) {
+      return !window->open;
+    });
 
     SDL_GL_SwapWindow(window.window);
   }
