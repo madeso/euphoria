@@ -77,6 +77,30 @@ struct ScimedWindow : public GenericWindow
   }
 };
 
+template <typename CreateWindowFunction>
+void
+OpenOrFocusWindow(
+    std::vector<std::shared_ptr<GenericWindow>>* windows,
+    const std::string&                           title_name,
+    CreateWindowFunction                         create_window_function)
+{
+  const auto found =
+      Search(*windows, [&](std::shared_ptr<GenericWindow>& wind) -> bool {
+        return wind->name == title_name;
+      });
+
+  if(found == windows->end())
+  {
+    windows->emplace_back(create_window_function(title_name));
+  }
+  else
+  {
+    ImGui::SetNextWindowFocus();
+    ImGui::Begin(title_name.c_str());
+    ImGui::End();
+  }
+}
+
 int
 main(int argc, char** argv)
 {
@@ -156,7 +180,6 @@ main(int argc, char** argv)
       }
     }
 
-    std::string focus_window;
     imgui.StartNewFrame();
 
     if(ImGui::BeginMainMenuBar())
@@ -176,7 +199,9 @@ main(int argc, char** argv)
         {
           if(ImGui::MenuItem(window->name.c_str()))
           {
-            focus_window = window->name;
+            ImGui::SetNextWindowFocus();
+            ImGui::Begin(window->name.c_str());
+            ImGui::End();
           }
         }
 
@@ -191,24 +216,16 @@ main(int argc, char** argv)
       {
         const auto file = browser.GetSelectedFile();
 
-        const std::string title_name = Str{} << "Scimed: " << file;
-
-        const auto found =
-            Search(scimeds, [&](std::shared_ptr<GenericWindow>& wind) -> bool {
-              return wind->name == title_name;
+        OpenOrFocusWindow(
+            &scimeds,
+            Str{} << "Scimed: " << file,
+            [&](const std::string& title_name)
+                -> std::shared_ptr<GenericWindow> {
+              auto scimed  = std::make_shared<ScimedWindow>();
+              scimed->name = title_name;
+              scimed->scimed.LoadFile(&texture_cache, &file_system, file);
+              return scimed;
             });
-
-        if(found == scimeds.end())
-        {
-          auto scimed  = std::make_shared<ScimedWindow>();
-          scimed->name = title_name;
-          scimed->scimed.LoadFile(&texture_cache, &file_system, file);
-          scimeds.emplace_back(scimed);
-        }
-        else
-        {
-          focus_window = title_name;
-        }
       }
     }
     ImGui::End();
@@ -216,10 +233,6 @@ main(int argc, char** argv)
     for(auto& scimed : scimeds)
     {
       ImGui::SetNextWindowSize(ImVec2{300, 300}, ImGuiCond_FirstUseEver);
-      if(scimed->name == focus_window)
-      {
-        ImGui::SetNextWindowFocus();
-      }
       if(ImGui::Begin(scimed->name.c_str(), &scimed->open))
       {
         scimed->Run(&style_data);
