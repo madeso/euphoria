@@ -443,25 +443,6 @@ SplitSpaceInTwo(
 }
 
 bool
-ImguiSelectableOrDisabled(bool enabled, const char* label)
-{
-  if(enabled)
-  {
-    if(ImGui::Selectable(label))
-    {
-      return true;
-    }
-  }
-  else
-  {
-    ImguiDisabled disabled;
-    ImGui::TextUnformatted(label);
-  }
-
-  return false;
-}
-
-bool
 Scimed::Run(const CanvasConfig& cc, const ScimedConfig& scc)
 {
   canvas.Begin(cc);

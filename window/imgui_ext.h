@@ -50,4 +50,8 @@ struct ImguiDisabled
   ~ImguiDisabled();
 };
 
+
+bool
+ImguiSelectableOrDisabled(bool enabled, const char* label);
+
 #endif  // EUPHORIA_IMGUI_H

@@ -211,6 +211,20 @@ LoadFile(
   }
 }
 
+void
+OpenOrFocusScimed(
+    Windows* windows, const std::string& file, FileSystem* fs, TextureCache* tc)
+{
+  OpenOrFocusWindow(
+      windows,
+      Str{} << "Scimed: " << file,
+      [&]() -> std::shared_ptr<GenericWindow> {
+        auto scimed = std::make_shared<ScimedWindow>();
+        LoadFile(&scimed->scimed, tc, fs, file);
+        return scimed;
+      });
+}
+
 int
 main(int argc, char** argv)
 {
@@ -337,15 +351,22 @@ main(int argc, char** argv)
         }
         else
         {
-          OpenOrFocusWindow(
-              &scimeds,
-              Str{} << "Scimed: " << file,
-              [&]() -> std::shared_ptr<GenericWindow> {
-                auto scimed = std::make_shared<ScimedWindow>();
-                LoadFile(&scimed->scimed, &texture_cache, &file_system, file);
-                return scimed;
-              });
+          OpenOrFocusScimed(&scimeds, file, &file_system, &texture_cache);
         }
+      }
+      if(ImGui::BeginPopupContextItem("browser popup"))
+      {
+        const auto file = browser.GetSelectedFile();
+
+        if(ImguiSelectableOrDisabled(!file.empty(), "Open with text editor"))
+        {
+          OpenOrFocusTextFile(&scimeds, file, &file_system);
+        }
+        if(ImguiSelectableOrDisabled(!file.empty(), "Open with scimed editor"))
+        {
+          OpenOrFocusScimed(&scimeds, file, &file_system, &texture_cache);
+        }
+        ImGui::EndPopup();
       }
     }
     ImGui::End();

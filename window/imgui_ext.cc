@@ -152,3 +152,23 @@ ImguiDisabled::~ImguiDisabled()
   // ImGui::PopItemFlag();
   ImGui::PopStyleVar();
 }
+
+
+bool
+ImguiSelectableOrDisabled(bool enabled, const char* label)
+{
+  if(enabled)
+  {
+    if(ImGui::Selectable(label))
+    {
+      return true;
+    }
+  }
+  else
+  {
+    ImguiDisabled disabled;
+    ImGui::TextUnformatted(label);
+  }
+
+  return false;
+}

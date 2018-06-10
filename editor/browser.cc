@@ -116,6 +116,11 @@ FileBrowser::Run()
       {
         selected_file = index;
       }
+      if(ImGui::IsItemHovered(ImGuiHoveredFlags_AllowWhenBlockedByPopup) && ImGui::IsMouseClicked(1))
+      {
+        // also select when right click
+        selected_file = index;
+      }
       if(custom)
       {
         ImGui::PopStyleColor();
