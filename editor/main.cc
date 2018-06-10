@@ -66,17 +66,6 @@ struct GenericWindow
   Run(StyleData* style_data) = 0;
 };
 
-struct ScimedWindow : public GenericWindow
-{
-  Scimed scimed;
-
-  void
-  Run(StyleData* style_data) override
-  {
-    scimed.Run(style_data->cc, style_data->scc);
-  }
-};
-
 template <typename CreateWindowFunction>
 void
 OpenOrFocusWindow(
@@ -91,7 +80,9 @@ OpenOrFocusWindow(
 
   if(found == windows->end())
   {
-    windows->emplace_back(create_window_function(title_name));
+    auto the_window  = create_window_function();
+    the_window->name = title_name;
+    windows->emplace_back(the_window);
   }
   else
   {
@@ -99,6 +90,36 @@ OpenOrFocusWindow(
     ImGui::Begin(title_name.c_str());
     ImGui::End();
   }
+}
+
+struct ScimedWindow : public GenericWindow
+{
+  Scimed scimed;
+
+  void
+  Run(StyleData* style_data) override
+  {
+    scimed.Run(style_data->cc, style_data->scc);
+  }
+};
+
+struct StyleEditorWindow : GenericWindow
+{
+  ImVec4 color;
+
+  void
+  Run(StyleData* s) override
+  {
+    ImGui::ColorEdit4("Color", &color.x);
+  }
+};
+
+void
+OpenOrFocusStyleEditor(std::vector<std::shared_ptr<GenericWindow>>* windows)
+{
+  OpenOrFocusWindow(windows, "Style editor", []() {
+    return std::make_shared<StyleEditorWindow>();
+  });
 }
 
 int
@@ -162,6 +183,8 @@ main(int argc, char** argv)
   std::vector<std::shared_ptr<GenericWindow>> scimeds;
   StyleData                                   style_data = StyleData{};
 
+  OpenOrFocusStyleEditor(&scimeds);
+
   while(running)
   {
     SDL_Event e;
@@ -189,6 +212,10 @@ main(int argc, char** argv)
         if(ImGui::MenuItem("Exit", "Ctrl+Q"))
         {
           running = false;
+        }
+        if(ImGui::MenuItem("Style editor"))
+        {
+          OpenOrFocusStyleEditor(&scimeds);
         }
         ImGui::EndMenu();
       }
@@ -219,10 +246,8 @@ main(int argc, char** argv)
         OpenOrFocusWindow(
             &scimeds,
             Str{} << "Scimed: " << file,
-            [&](const std::string& title_name)
-                -> std::shared_ptr<GenericWindow> {
-              auto scimed  = std::make_shared<ScimedWindow>();
-              scimed->name = title_name;
+            [&]() -> std::shared_ptr<GenericWindow> {
+              auto scimed = std::make_shared<ScimedWindow>();
               scimed->scimed.LoadFile(&texture_cache, &file_system, file);
               return scimed;
             });
