@@ -484,8 +484,8 @@ Scimed::Run(const CanvasConfig& cc, const ScimedConfig& scc)
       canvas.WorldToScreen(ImVec2{texture->GetWidth(), texture->GetHeight()});
   draw_list->AddImage(tex_id, pos, size);
 
-  const auto current_hover = DrawSplits(&scaling, &canvas, scc);
-  DrawSizer(texture, *this, scc, &scaling);
+  const auto current_hover = DrawSplits(scaling.get(), &canvas, scc);
+  DrawSizer(texture, *this, scc, scaling.get());
 
   canvas.ShowRuler(cc);
   canvas.End(cc);
@@ -506,8 +506,8 @@ Scimed::Run(const CanvasConfig& cc, const ScimedConfig& scc)
 
       const auto me = canvas.ScreenToWorld(ImGui::GetMousePos());
 
-      MoveSplit(hover.horizontal_index, &scaling.rows, me.y);
-      MoveSplit(hover.vertical_index, &scaling.cols, me.x);
+      MoveSplit(hover.horizontal_index, &scaling->rows, me.y);
+      MoveSplit(hover.vertical_index, &scaling->cols, me.x);
     }
     else if(ImGui::IsItemHovered())
     {
@@ -529,44 +529,24 @@ Scimed::Run(const CanvasConfig& cc, const ScimedConfig& scc)
 
   if(ImGui::BeginPopup("asd"))
   {
-    const auto space_index_y =
-        FindSpaceIndexOrNull(scaling.rows, mouse_popup.y, texture->GetHeight());
+    const auto space_index_y = FindSpaceIndexOrNull(
+        scaling->rows, mouse_popup.y, texture->GetHeight());
     const auto space_index_x =
-        FindSpaceIndexOrNull(scaling.cols, mouse_popup.x, texture->GetWidth());
+        FindSpaceIndexOrNull(scaling->cols, mouse_popup.x, texture->GetWidth());
 
     if(ImguiSelectableOrDisabled(
            space_index_y, ICON_FK_ARROWS_H " New Horizontal divider"))
     {
-      SplitSpaceInTwo(&scaling.rows, space_index_y, mouse_popup.y);
+      SplitSpaceInTwo(&scaling->rows, space_index_y, mouse_popup.y);
     }
 
     if(ImguiSelectableOrDisabled(
            space_index_x, ICON_FK_ARROWS_V " New Vertical divider"))
     {
-      SplitSpaceInTwo(&scaling.cols, space_index_x, mouse_popup.x);
+      SplitSpaceInTwo(&scaling->cols, space_index_x, mouse_popup.x);
     }
     ImGui::EndPopup();
   }
 
   return false;
-}
-
-void
-Scimed::LoadFile(TextureCache* cache, FileSystem* fs, const std::string& path)
-{
-  texture = cache->GetTexture(path);
-  scaling = scalingsprite::ScalingSprite{};
-
-  if(texture)
-  {
-    if(scaling.rows.empty())
-    {
-      scaling.rows.emplace_back(texture->GetHeight());
-    }
-
-    if(scaling.cols.empty())
-    {
-      scaling.cols.emplace_back(texture->GetWidth());
-    }
-  }
 }

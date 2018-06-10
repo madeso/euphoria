@@ -30,15 +30,12 @@ struct ScimedConfig
 
 struct Scimed
 {
-  scalingsprite::ScalingSprite scaling;
+  std::shared_ptr<scalingsprite::ScalingSprite> scaling;
 
   std::shared_ptr<Texture2d> texture;
   Canvas                     canvas;
   vec2i                      mouse_popup = vec2i{0, 0};
   LineHoverData              hover;
-
-  void
-  LoadFile(TextureCache* cache, FileSystem* fs, const std::string& path);
 
   bool
   Run(const CanvasConfig& cc, const ScimedConfig& scc);

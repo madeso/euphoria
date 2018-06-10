@@ -187,6 +187,30 @@ OpenOrFocusTextFile(Windows* windows, const std::string& path, FileSystem* fs)
   });
 }
 
+void
+LoadFile(
+    Scimed*            scimed,
+    TextureCache*      cache,
+    FileSystem*        fs,
+    const std::string& path)
+{
+  scimed->texture = cache->GetTexture(path);
+  scimed->scaling = std::make_shared<scalingsprite::ScalingSprite>();
+
+  if(scimed->texture)
+  {
+    if(scimed->scaling->rows.empty())
+    {
+      scimed->scaling->rows.emplace_back(scimed->texture->GetHeight());
+    }
+
+    if(scimed->scaling->cols.empty())
+    {
+      scimed->scaling->cols.emplace_back(scimed->texture->GetWidth());
+    }
+  }
+}
+
 int
 main(int argc, char** argv)
 {
@@ -318,7 +342,7 @@ main(int argc, char** argv)
               Str{} << "Scimed: " << file,
               [&]() -> std::shared_ptr<GenericWindow> {
                 auto scimed = std::make_shared<ScimedWindow>();
-                scimed->scimed.LoadFile(&texture_cache, &file_system, file);
+                LoadFile(&scimed->scimed, &texture_cache, &file_system, file);
                 return scimed;
               });
         }
