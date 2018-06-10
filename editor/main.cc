@@ -103,14 +103,37 @@ struct ScimedWindow : public GenericWindow
   }
 };
 
+void
+ColorEdit4(const char* label, ImU32* color)
+{
+  ImVec4 temp = ImColor{*color};
+
+  if(ImGui::ColorEdit4(label, &temp.x))
+  {
+    *color = ImColor(temp);
+  }
+}
+
 struct StyleEditorWindow : GenericWindow
 {
-  ImVec4 color;
-
   void
   Run(StyleData* s) override
   {
-    ImGui::ColorEdit4("Color", &color.x);
+    ColorEdit4("Background color", &s->cc.background_color);
+    ColorEdit4("Grid color", &s->cc.grid_color);
+    ColorEdit4("Split color", &s->scc.split_color);
+    ColorEdit4("Sizer color", &s->scc.sizer_color);
+
+    ImGui::InputFloat("Grid Size", &s->cc.grid_size, 1.0f, 5.0f);
+    ImGui::InputFloat("Zoom speed", &s->cc.zoom_speed);
+    ImGui::InputInt("Anchor size", &s->scc.anchor_size);
+    ImGui::InputInt("Sizer distance", &s->scc.sizer_distance);
+    ImGui::InputInt("Sizer text distance", &s->scc.sizer_text_distance);
+
+    if(ImGui::Button("Set Default"))
+    {
+      *s = StyleData{};
+    }
   }
 };
 
