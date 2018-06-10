@@ -137,11 +137,53 @@ struct StyleEditorWindow : GenericWindow
   }
 };
 
+struct TextEditorWindow : GenericWindow
+{
+  // todo: look into using a more complex text editor?
+  // https://github.com/BalazsJako/ImGuiColorTextEdit
+  std::vector<char> buffer;
+
+  explicit TextEditorWindow(const std::string& str)
+  {
+    const auto length = str.size();
+    buffer.reserve(length + 1);
+    strncpy(&buffer[0], str.c_str(), length);
+    buffer[length] = 0;
+  }
+
+  void
+  Run(StyleData* s) override
+  {
+    ImGui::InputTextMultiline(
+        "", &buffer[0], buffer.capacity(), ImVec2{-1, -1});
+    if(buffer.size() + 2 > buffer.capacity())
+    {
+      buffer.push_back(0);
+      buffer.push_back(0);
+    }
+  }
+};
+
+using Windows = std::vector<std::shared_ptr<GenericWindow>>;
+
 void
-OpenOrFocusStyleEditor(std::vector<std::shared_ptr<GenericWindow>>* windows)
+OpenOrFocusStyleEditor(Windows* windows)
 {
   OpenOrFocusWindow(windows, "Style editor", []() {
     return std::make_shared<StyleEditorWindow>();
+  });
+}
+
+void
+OpenOrFocusTextFile(Windows* windows, const std::string& path, FileSystem* fs)
+{
+  OpenOrFocusWindow(windows, Str{} << "File: " << path, [&]() {
+    std::string str;
+    if(!fs->ReadFileToString(path, &str))
+    {
+      str = Str{} << "Failed to open " << path;
+    }
+    return std::make_shared<TextEditorWindow>(str);
   });
 }
 
@@ -265,15 +307,21 @@ main(int argc, char** argv)
       if(browser.Run())
       {
         const auto file = browser.GetSelectedFile();
-
-        OpenOrFocusWindow(
-            &scimeds,
-            Str{} << "Scimed: " << file,
-            [&]() -> std::shared_ptr<GenericWindow> {
-              auto scimed = std::make_shared<ScimedWindow>();
-              scimed->scimed.LoadFile(&texture_cache, &file_system, file);
-              return scimed;
-            });
+        if(EndsWith(file, ".json") || EndsWith(file, ".js"))
+        {
+          OpenOrFocusTextFile(&scimeds, file, &file_system);
+        }
+        else
+        {
+          OpenOrFocusWindow(
+              &scimeds,
+              Str{} << "Scimed: " << file,
+              [&]() -> std::shared_ptr<GenericWindow> {
+                auto scimed = std::make_shared<ScimedWindow>();
+                scimed->scimed.LoadFile(&texture_cache, &file_system, file);
+                return scimed;
+              });
+        }
       }
     }
     ImGui::End();
