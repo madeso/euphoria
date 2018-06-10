@@ -51,11 +51,30 @@ operator+(const ImVec2& lhs, const ImVec2& rhs)
   return ImVec2{lhs.x + rhs.x, lhs.y + rhs.y};
 }
 
-struct ScimedWindow
+struct StyleData
+{
+  ScimedConfig scc = ScimedConfig{};
+  CanvasConfig cc  = CanvasConfig{};
+};
+
+struct GenericWindow
 {
   std::string name;
   bool        open = true;
-  Scimed      scimed;
+
+  virtual void
+  Run(StyleData* style_data) = 0;
+};
+
+struct ScimedWindow : public GenericWindow
+{
+  Scimed scimed;
+
+  void
+  Run(StyleData* style_data) override
+  {
+    scimed.Run(style_data->cc, style_data->scc);
+  }
 };
 
 int
@@ -116,9 +135,8 @@ main(int argc, char** argv)
 
   FileBrowser browser{&file_system};
   browser.Refresh();
-  std::vector<std::shared_ptr<ScimedWindow>> scimeds;
-  ScimedConfig                               scc = ScimedConfig{};
-  CanvasConfig                               cc  = CanvasConfig{};
+  std::vector<std::shared_ptr<GenericWindow>> scimeds;
+  StyleData                                   style_data = StyleData{};
 
   while(running)
   {
@@ -138,6 +156,7 @@ main(int argc, char** argv)
       }
     }
 
+    std::string focus_window;
     imgui.StartNewFrame();
 
     if(ImGui::BeginMainMenuBar())
@@ -150,10 +169,21 @@ main(int argc, char** argv)
         }
         ImGui::EndMenu();
       }
+
+      if(ImGui::BeginMenu("Window"))
+      {
+        for(const auto& window : scimeds)
+        {
+          if(ImGui::MenuItem(window->name.c_str()))
+          {
+            focus_window = window->name;
+          }
+        }
+
+        ImGui::EndMenu();
+      }
     }
     ImGui::EndMainMenuBar();
-
-    std::string focus_window;
 
     if(ImGui::Begin("Solution explorer"))
     {
@@ -164,7 +194,7 @@ main(int argc, char** argv)
         const std::string title_name = Str{} << "Scimed: " << file;
 
         const auto found =
-            Search(scimeds, [&](std::shared_ptr<ScimedWindow>& wind) -> bool {
+            Search(scimeds, [&](std::shared_ptr<GenericWindow>& wind) -> bool {
               return wind->name == title_name;
             });
 
@@ -192,7 +222,7 @@ main(int argc, char** argv)
       }
       if(ImGui::Begin(scimed->name.c_str(), &scimed->open))
       {
-        scimed->scimed.Run(cc, scc);
+        scimed->Run(&style_data);
       }
       ImGui::End();
     }
@@ -202,7 +232,7 @@ main(int argc, char** argv)
     init.ClearScreen(Color::Wheat);
     imgui.Render();
 
-    RemoveMatching(&scimeds, [](const std::shared_ptr<ScimedWindow>& window) {
+    RemoveMatching(&scimeds, [](const std::shared_ptr<GenericWindow>& window) {
       return !window->open;
     });
 
