@@ -3,3 +3,5 @@
 EnumClass
 --json_return
 String
+--imgui-header
+<imgui/imgui.h>

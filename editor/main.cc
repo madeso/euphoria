@@ -103,6 +103,17 @@ struct ScimedWindow : public GenericWindow
   }
 };
 
+struct ScimedEditorWindow : public GenericWindow
+{
+  std::shared_ptr<scalingsprite::ScalingSprite> sprite;
+
+  void
+  Run(StyleData* style_data) override
+  {
+    scalingsprite::RunImgui(sprite.get());
+  }
+};
+
 void
 ColorEdit4(const char* label, ImU32* color)
 {
@@ -187,15 +198,29 @@ OpenOrFocusTextFile(Windows* windows, const std::string& path, FileSystem* fs)
   });
 }
 
+struct ScalingSpriteCache : public Cache<
+                                std::string,
+                                scalingsprite::ScalingSprite,
+                                ScalingSpriteCache>
+{
+  std::shared_ptr<scalingsprite::ScalingSprite>
+  Create(const std::string& path)
+  {
+    // todo: load from filename
+    return std::make_shared<scalingsprite::ScalingSprite>();
+  }
+};
+
 void
 LoadFile(
-    Scimed*            scimed,
-    TextureCache*      cache,
-    FileSystem*        fs,
-    const std::string& path)
+    Scimed*             scimed,
+    TextureCache*       cache,
+    ScalingSpriteCache* scache,
+    FileSystem*         fs,
+    const std::string&  path)
 {
   scimed->texture = cache->GetTexture(path);
-  scimed->scaling = std::make_shared<scalingsprite::ScalingSprite>();
+  scimed->scaling = scache->Get(path + ".json");
 
   if(scimed->texture)
   {
@@ -213,14 +238,40 @@ LoadFile(
 
 void
 OpenOrFocusScimed(
-    Windows* windows, const std::string& file, FileSystem* fs, TextureCache* tc)
+    Windows*            windows,
+    const std::string&  file,
+    FileSystem*         fs,
+    TextureCache*       tc,
+    ScalingSpriteCache* sc)
 {
   OpenOrFocusWindow(
       windows,
       Str{} << "Scimed: " << file,
       [&]() -> std::shared_ptr<GenericWindow> {
         auto scimed = std::make_shared<ScimedWindow>();
-        LoadFile(&scimed->scimed, tc, fs, file);
+        LoadFile(&scimed->scimed, tc, sc, fs, file);
+        return scimed;
+      });
+}
+
+void
+OpenOrFocusScimedEditior(
+    Windows*            windows,
+    const std::string&  path,
+    FileSystem*         fs,
+    ScalingSpriteCache* sc)
+{
+  std::string file = path;
+  if(!EndsWith(file, ".json"))
+  {
+    file += ".json";
+  }
+  OpenOrFocusWindow(
+      windows,
+      Str{} << "Scimed editor: " << file,
+      [&]() -> std::shared_ptr<GenericWindow> {
+        auto scimed    = std::make_shared<ScimedEditorWindow>();
+        scimed->sprite = sc->Get(file);
         return scimed;
       });
 }
@@ -277,7 +328,8 @@ main(int argc, char** argv)
 
   SetupDefaultFiles(catalog);
 
-  TextureCache texture_cache{&file_system};
+  TextureCache       texture_cache{&file_system};
+  ScalingSpriteCache sprite_cache;
 
   bool running = true;
 
@@ -285,8 +337,6 @@ main(int argc, char** argv)
   browser.Refresh();
   std::vector<std::shared_ptr<GenericWindow>> scimeds;
   StyleData                                   style_data = StyleData{};
-
-  OpenOrFocusStyleEditor(&scimeds);
 
   while(running)
   {
@@ -351,7 +401,8 @@ main(int argc, char** argv)
         }
         else
         {
-          OpenOrFocusScimed(&scimeds, file, &file_system, &texture_cache);
+          OpenOrFocusScimed(
+              &scimeds, file, &file_system, &texture_cache, &sprite_cache);
         }
       }
       if(ImGui::BeginPopupContextItem("browser popup"))
@@ -364,7 +415,13 @@ main(int argc, char** argv)
         }
         if(ImguiSelectableOrDisabled(!file.empty(), "Open with scimed editor"))
         {
-          OpenOrFocusScimed(&scimeds, file, &file_system, &texture_cache);
+          OpenOrFocusScimed(
+              &scimeds, file, &file_system, &texture_cache, &sprite_cache);
+        }
+        if(ImguiSelectableOrDisabled(!file.empty(), "Open with auto scimed editor"))
+        {
+          OpenOrFocusScimedEditior(
+              &scimeds, file, &file_system, &sprite_cache);
         }
         ImGui::EndPopup();
       }
