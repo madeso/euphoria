@@ -292,6 +292,23 @@ OpenOrFocusScimedEditior(
       });
 }
 
+template <typename T, typename TRun>
+void
+OpenOrFocusOnGenericWindow(
+    Windows*           windows,
+    const std::string& path,
+    FileSystem*        fs,
+    const std::string& title,
+    TRun               run_function)
+{
+  OpenOrFocusWindow(
+      windows,
+      Str{} << title << ": " << path,
+      [=]() -> std::shared_ptr<GenericWindow> {
+        return CreateGenericWindow(T{}, [=](T& t) { run_function(&t); });
+      });
+}
+
 struct FileHandler
 {
   std::string context_menu;
@@ -472,6 +489,17 @@ main(int argc, char** argv)
       [](const std::string& file) -> bool { return false; },
       [&](Windows* windows, const std::string& file) {
         OpenOrFocusScimedEditior(windows, file, &file_system, &sprite_cache);
+      }));
+
+  // temp testing the new basic/generic window creation
+  file_types.Add(CreateHandler(
+      "Do some stupid",
+      [](const std::string& file) -> bool { return false; },
+      [&](Windows* windows, const std::string& file) {
+        OpenOrFocusOnGenericWindow<scalingsprite::ScalingSprite>(
+            windows, file, &file_system, "Dummy", [](auto* s) {
+              scalingsprite::RunImgui(s);
+            });
       }));
 
   //////////////////////////////////////////////////////////////////////////////
