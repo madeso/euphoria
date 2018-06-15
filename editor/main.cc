@@ -103,16 +103,29 @@ struct ScimedWindow : public GenericWindow
   }
 };
 
-struct ScimedEditorWindow : public GenericWindow
+template <typename TEditorFunction>
+struct GenericEditorWindow : public GenericWindow
 {
-  std::shared_ptr<scalingsprite::ScalingSprite> sprite;
+  TEditorFunction edit_function;
+
+  explicit GenericEditorWindow(TEditorFunction edit)
+      : edit_function(edit)
+  {
+  }
 
   void
   Run(StyleData* style_data) override
   {
-    scalingsprite::RunImgui(sprite.get());
+    edit_function();
   }
 };
+
+template <typename TEditorFunction>
+std::shared_ptr<GenericWindow>
+CreateGenericWindow(TEditorFunction edit)
+{
+  return std::make_shared<GenericEditorWindow<TEditorFunction>>(edit);
+}
 
 void
 ColorEdit4(const char* label, ImU32* color)
@@ -270,9 +283,9 @@ OpenOrFocusScimedEditior(
       windows,
       Str{} << "Scimed editor: " << file,
       [&]() -> std::shared_ptr<GenericWindow> {
-        auto scimed    = std::make_shared<ScimedEditorWindow>();
-        scimed->sprite = sc->Get(file);
-        return scimed;
+        auto sprite = sc->Get(file);
+        return CreateGenericWindow(
+            [=]() { scalingsprite::RunImgui(sprite.get()); });
       });
 }
 
