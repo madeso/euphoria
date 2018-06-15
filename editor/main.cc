@@ -276,6 +276,98 @@ OpenOrFocusScimedEditior(
       });
 }
 
+struct FileHandler
+{
+  std::string context_menu;
+
+  explicit FileHandler(const std::string& menu)
+      : context_menu(menu)
+  {
+  }
+
+  virtual ~FileHandler() = default;
+
+  virtual bool
+  Matches(const std::string& path) = 0;
+
+  virtual void
+  Open(Windows* windows, const std::string& path) = 0;
+};
+
+template <typename TMatchFunction, typename TOpenFunction>
+struct GenericFileHandler : public FileHandler
+{
+  TMatchFunction match_function;
+  TOpenFunction  open_function;
+  GenericFileHandler(
+      const std::string& menu, TMatchFunction match, TOpenFunction open)
+      : FileHandler(menu)
+      , match_function(match)
+      , open_function(open)
+  {
+  }
+
+  bool
+  Matches(const std::string& path) override
+  {
+    return match_function(path);
+  }
+
+  void
+  Open(Windows* windows, const std::string& path) override
+  {
+    return open_function(windows, path);
+  }
+};
+
+template <typename TMatchFunction, typename TOpenFunction>
+std::shared_ptr<FileHandler>
+CreateHandler(const std::string& menu, TMatchFunction match, TOpenFunction open)
+{
+  return std::make_shared<GenericFileHandler<TMatchFunction, TOpenFunction>>(
+      menu, match, open);
+}
+
+struct FileHandlerList
+{
+  std::vector<std::shared_ptr<FileHandler>> handlers;
+
+  void
+  Add(std::shared_ptr<FileHandler> handler)
+  {
+    handlers.emplace_back(handler);
+  }
+
+  bool
+  Open(Windows* windows, const std::string& path)
+  {
+    for(auto& handler : handlers)
+    {
+      if(handler->Matches(path))
+      {
+        handler->Open(windows, path);
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  void
+  RunImguiSelectable(Windows* windows, const std::string& path)
+  {
+    // todo: come up with a better name for this function
+    for(auto& handler : handlers)
+    {
+      if(ImguiSelectableOrDisabled(
+             !path.empty(), handler->context_menu.c_str()))
+      {
+        handler->Open(windows, path);
+      }
+    }
+  }
+};
+
 int
 main(int argc, char** argv)
 {
@@ -335,8 +427,39 @@ main(int argc, char** argv)
 
   FileBrowser browser{&file_system};
   browser.Refresh();
-  std::vector<std::shared_ptr<GenericWindow>> scimeds;
+  std::vector<std::shared_ptr<GenericWindow>> windows;
   StyleData                                   style_data = StyleData{};
+  FileHandlerList                             file_types;
+
+  //////////////////////////////////////////////////////////////////////////////
+  // File types
+
+  file_types.Add(CreateHandler(
+      "Open with text editor",
+      [](const std::string& file) -> bool {
+        return EndsWith(file, ".json") || EndsWith(file, ".js");
+      },
+      [&](Windows* windows, const std::string& file) {
+        OpenOrFocusTextFile(windows, file, &file_system);
+      }));
+
+  file_types.Add(CreateHandler(
+      "Open with scimed editor",
+      [](const std::string& file) -> bool { return EndsWith(file, ".png"); },
+      [&](Windows* windows, const std::string& file) {
+        OpenOrFocusScimed(
+            windows, file, &file_system, &texture_cache, &sprite_cache);
+      }));
+
+  file_types.Add(CreateHandler(
+      "Open with auto scimed editor",
+      [](const std::string& file) -> bool { return false; },
+      [&](Windows* windows, const std::string& file) {
+        OpenOrFocusScimedEditior(windows, file, &file_system, &sprite_cache);
+      }));
+
+  //////////////////////////////////////////////////////////////////////////////
+  // main loop
 
   while(running)
   {
@@ -368,19 +491,19 @@ main(int argc, char** argv)
         }
         if(ImGui::MenuItem("Style editor"))
         {
-          OpenOrFocusStyleEditor(&scimeds);
+          OpenOrFocusStyleEditor(&windows);
         }
         ImGui::EndMenu();
       }
 
       if(ImGui::BeginMenu("Window"))
       {
-        for(const auto& window : scimeds)
+        for(const auto& win : windows)
         {
-          if(ImGui::MenuItem(window->name.c_str()))
+          if(ImGui::MenuItem(win->name.c_str()))
           {
             ImGui::SetNextWindowFocus();
-            ImGui::Begin(window->name.c_str());
+            ImGui::Begin(win->name.c_str());
             ImGui::End();
           }
         }
@@ -395,45 +518,23 @@ main(int argc, char** argv)
       if(browser.Run())
       {
         const auto file = browser.GetSelectedFile();
-        if(EndsWith(file, ".json") || EndsWith(file, ".js"))
-        {
-          OpenOrFocusTextFile(&scimeds, file, &file_system);
-        }
-        else
-        {
-          OpenOrFocusScimed(
-              &scimeds, file, &file_system, &texture_cache, &sprite_cache);
-        }
+        file_types.Open(&windows, file);
       }
       if(ImGui::BeginPopupContextItem("browser popup"))
       {
         const auto file = browser.GetSelectedFile();
-
-        if(ImguiSelectableOrDisabled(!file.empty(), "Open with text editor"))
-        {
-          OpenOrFocusTextFile(&scimeds, file, &file_system);
-        }
-        if(ImguiSelectableOrDisabled(!file.empty(), "Open with scimed editor"))
-        {
-          OpenOrFocusScimed(
-              &scimeds, file, &file_system, &texture_cache, &sprite_cache);
-        }
-        if(ImguiSelectableOrDisabled(!file.empty(), "Open with auto scimed editor"))
-        {
-          OpenOrFocusScimedEditior(
-              &scimeds, file, &file_system, &sprite_cache);
-        }
+        file_types.RunImguiSelectable(&windows, file);
         ImGui::EndPopup();
       }
     }
     ImGui::End();
 
-    for(auto& scimed : scimeds)
+    for(auto& win : windows)
     {
       ImGui::SetNextWindowSize(ImVec2{300, 300}, ImGuiCond_FirstUseEver);
-      if(ImGui::Begin(scimed->name.c_str(), &scimed->open))
+      if(ImGui::Begin(win->name.c_str(), &win->open))
       {
-        scimed->Run(&style_data);
+        win->Run(&style_data);
       }
       ImGui::End();
     }
@@ -443,7 +544,7 @@ main(int argc, char** argv)
     init.ClearScreen(Color::Wheat);
     imgui.Render();
 
-    RemoveMatching(&scimeds, [](const std::shared_ptr<GenericWindow>& window) {
+    RemoveMatching(&windows, [](const std::shared_ptr<GenericWindow>& window) {
       return !window->open;
     });
 
