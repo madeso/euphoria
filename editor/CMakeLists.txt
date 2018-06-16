@@ -7,6 +7,7 @@ SET(Gaf_CUSTOM_PREFIX gaf_)
 SET(Gaf_INCLUDE_IMGUI Yes)
 GAF_GENERATE_CPP(SPRITE_PROTO_SRCS SPRITE_PROTO_HDRS
                  ../file_types/scalingsprite.gaf
+                 ../file_types/game.gaf
                  )
 set(src ${src} ${SPRITE_PROTO_SRCS} ${SPRITE_PROTO_HDRS})
 

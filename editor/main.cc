@@ -14,6 +14,8 @@
 #include "core/camera.h"
 #include "core/stringutils.h"
 #include "core/stdutils.h"
+#include "core/proto.h"
+#include "core/log.h"
 
 #include <render/init.h>
 #include <render/debuggl.h>
@@ -44,6 +46,9 @@
 #include <iostream>
 #include <memory>
 
+#include "gaf_game.h"
+
+LOG_SPECIFY_DEFAULT_LOGGER("editor")
 
 ImVec2
 operator+(const ImVec2& lhs, const ImVec2& rhs)
@@ -123,7 +128,7 @@ struct GenericEditorWindow : public GenericWindow
 };
 
 template <typename TEditorFunction, typename TData>
-std::shared_ptr<GenericWindow>
+std::shared_ptr<GenericEditorWindow<TEditorFunction, TData>>
 CreateGenericWindow(TData data, TEditorFunction edit)
 {
   return std::make_shared<GenericEditorWindow<TEditorFunction, TData>>(
@@ -292,20 +297,27 @@ OpenOrFocusScimedEditior(
       });
 }
 
-template <typename T, typename TRun>
+template <typename T, typename TOpen, typename TRun>
 void
 OpenOrFocusOnGenericWindow(
     Windows*           windows,
     const std::string& path,
     FileSystem*        fs,
     const std::string& title,
+    TOpen              open_function,
     TRun               run_function)
 {
   OpenOrFocusWindow(
       windows,
       Str{} << title << ": " << path,
       [=]() -> std::shared_ptr<GenericWindow> {
-        return CreateGenericWindow(T{}, [=](T& t) { run_function(&t); });
+        auto window = CreateGenericWindow(T{}, [=](T& t) { run_function(&t); });
+        const auto err = LoadProtoJson(fs, &window->data, path);
+        if(!err.empty())
+        {
+          LOG_ERROR("Failed to load: " << err);
+        }
+        return window;
       });
 }
 
@@ -468,6 +480,19 @@ main(int argc, char** argv)
   // File types
 
   file_types.Add(CreateHandler(
+      "Open with Game Data",
+      [](const std::string& file) -> bool { return file == "gamedata.json"; },
+      [&](Windows* windows, const std::string& file) {
+        OpenOrFocusOnGenericWindow<game::Game>(
+            windows,
+            file,
+            &file_system,
+            "Game",
+            [](auto* s, const std::string& data) {},
+            [](auto* s) { game::RunImgui(s); });
+      }));
+
+  file_types.Add(CreateHandler(
       "Open with text editor",
       [](const std::string& file) -> bool {
         return EndsWith(file, ".json") || EndsWith(file, ".js");
@@ -489,17 +514,6 @@ main(int argc, char** argv)
       [](const std::string& file) -> bool { return false; },
       [&](Windows* windows, const std::string& file) {
         OpenOrFocusScimedEditior(windows, file, &file_system, &sprite_cache);
-      }));
-
-  // temp testing the new basic/generic window creation
-  file_types.Add(CreateHandler(
-      "Do some stupid",
-      [](const std::string& file) -> bool { return false; },
-      [&](Windows* windows, const std::string& file) {
-        OpenOrFocusOnGenericWindow<scalingsprite::ScalingSprite>(
-            windows, file, &file_system, "Dummy", [](auto* s) {
-              scalingsprite::RunImgui(s);
-            });
       }));
 
   //////////////////////////////////////////////////////////////////////////////
