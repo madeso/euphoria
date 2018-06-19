@@ -9,6 +9,7 @@
 #include <vector>
 #include <memory>
 #include <map>
+#include <algorithm>
 #include "core/assert.h"
 #include "core/noncopyable.h"
 #include "core/image.h"
