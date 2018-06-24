@@ -5,3 +5,8 @@ EnumClass
 String
 --imgui-header
 <imgui/imgui.h>
+"window/imgui_icons.h"
+--imgui-add
+"Add"
+--imgui-remove
+"Remove"

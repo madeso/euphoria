@@ -47,6 +47,8 @@
 #include <memory>
 
 #include "gaf_game.h"
+#include "gaf_world.h"
+#include "gaf_enum.h"
 
 LOG_SPECIFY_DEFAULT_LOGGER("editor")
 
@@ -490,6 +492,31 @@ main(int argc, char** argv)
             "Game",
             [](auto* s, const std::string& data) {},
             [](auto* s) { game::RunImgui(s); });
+      }));
+
+  file_types.Add(CreateHandler(
+      "Open with World Editor",
+      [](const std::string& file) -> bool { return file == "world.json"; },
+      [&](Windows* windows, const std::string& file) {
+        OpenOrFocusOnGenericWindow<world::World>(
+            windows,
+            file,
+            &file_system,
+            "World",
+            [](auto* s, const std::string& data) {},
+            [](auto* s) { world::RunImgui(s); });
+      }));
+  file_types.Add(CreateHandler(
+      "Open with Enum Editor",
+      [](const std::string& file) -> bool { return false; },
+      [&](Windows* windows, const std::string& file) {
+        OpenOrFocusOnGenericWindow<enumlist::Enumroot>(
+            windows,
+            file,
+            &file_system,
+            "Enums",
+            [](auto* s, const std::string& data) {},
+            [](auto* s) { enumlist::RunImgui(s); });
       }));
 
   file_types.Add(CreateHandler(
