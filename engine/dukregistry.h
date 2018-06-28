@@ -43,9 +43,11 @@ class DukRegistry
     return reg->GetComponentOrNull<T>(ent, comp);
   }
 
-  EntReg*     reg;
-  Components* components;
-  std::map<ComponentId, FunctionVar> scriptComponents;
+  using ScriptComponentMap = std::map<ComponentId, FunctionVar>;
+
+  EntReg*            reg;
+  Components*        components;
+  ScriptComponentMap scriptComponents;
 };
 
 

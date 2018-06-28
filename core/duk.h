@@ -56,17 +56,19 @@ GetVoidProperty(duk_context* ctx, duk_idx_t index, const char* name);
 void*
 GetHiddenProperty(duk_context* ctx, duk_idx_t index, const std::string& name);
 
+class StoredReference;
+
 // represents a object
 class DukValue
 {
  public:
   DukValue();
-  explicit DukValue(void* p);
+  DukValue(void* p);
 
   bool
   IsValid() const;
 
-  // todo: remove this and use reference counting instead
+  // call this make the reference to be collected by the GC
   void
   StoreReference(Duk* duk);
 
@@ -86,6 +88,8 @@ class DukValue
   }
 
   void* ptr;
+
+  std::shared_ptr<StoredReference> reference;
 };
 
 class Context
@@ -851,7 +855,7 @@ class Duk : private Context
 
   using Index = unsigned int;
 
-  void
+  Duk::Index
   StoreReference(void* p);
 
   void
@@ -868,6 +872,18 @@ class Duk : private Context
 
   std::vector<Index> free_indices;
   Index              reference_index = 0;
+};
+
+
+class StoredReference
+{
+ public:
+  StoredReference(void* ptr, Duk* duk);
+  ~StoredReference();
+
+ private:
+  Duk*       duk;
+  Duk::Index stored_index;
 };
 
 

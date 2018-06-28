@@ -52,23 +52,34 @@ DukRegistry::GetProperty(EntityId ent, ComponentId comp)
   }
 }
 
-void
-DukRegistry::SetProperty(EntityId ent, ComponentId comp, DukValue value)
+ScriptComponent*
+GetScriptComponent(
+    const DukRegistry::ScriptComponentMap& scriptComponents,
+    EntReg*                                reg,
+    EntityId                               ent,
+    ComponentId                            comp)
 {
-  // todo: move to a better construct
   ASSERT(scriptComponents.find(comp) != scriptComponents.end());
 
   auto c = reg->GetComponent(ent, comp);
   if(c == nullptr)
   {
     auto d = std::make_shared<ScriptComponent>();
-    d->val = value;
     reg->AddComponent(ent, comp, d);
+    return d.get();
   }
   else
   {
-    static_cast<ScriptComponent*>(c.get())->val = value;
+    return static_cast<ScriptComponent*>(c.get());
   }
+}
+
+void
+DukRegistry::SetProperty(EntityId ent, ComponentId comp, DukValue value)
+{
+  ScriptComponent* scriptComponent =
+      GetScriptComponent(scriptComponents, reg, ent, comp);
+  scriptComponent->val = value;
 }
 
 DukValue

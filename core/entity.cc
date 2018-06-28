@@ -3,6 +3,9 @@
 #include <algorithm>
 
 #include "core/stdutils.h"
+#include "core/log.h"
+
+LOG_SPECIFY_DEFAULT_LOGGER("core.entity")
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -108,9 +111,10 @@ struct RegistryImpl
   }
 
   void
-  SetAlive(EntityId a)
+  SetAlive(EntityId id)
   {
-    alive.emplace_back(a);
+    LOG_DEBUG("Alive " << GetValue(id) << "/" << GetVersion(id));
+    alive.emplace_back(id);
   }
 
   bool
@@ -124,6 +128,7 @@ struct RegistryImpl
   void
   DestroyEntity(EntityId id)
   {
+    LOG_DEBUG("Destroy " << GetValue(id) << "/" << GetVersion(id));
     destroyed_entities.emplace_back(id);
   }
 

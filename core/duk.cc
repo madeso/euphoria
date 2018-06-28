@@ -498,6 +498,19 @@ FunctionVar::DoneFunction(Context* context) const
 
 ////////////////////////////////////////////////////////////////////////////////
 
+StoredReference::StoredReference(void* ptr, Duk* duk)
+    : duk(duk)
+    , stored_index(duk->StoreReference(ptr))
+{
+}
+
+StoredReference::~StoredReference()
+{
+  duk->ClearReference(stored_index);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
 DukValue::DukValue()
     : ptr(nullptr)
 {
@@ -518,9 +531,9 @@ void
 DukValue::StoreReference(Duk* duk)
 {
   ASSERT(duk);
-  if(ptr != nullptr)
+  if(reference == nullptr)
   {
-    duk->StoreReference(ptr);
+    reference = std::make_shared<StoredReference>(ptr, duk);
   }
 }
 
@@ -1028,7 +1041,7 @@ Duk::TypeToProto(size_t id CLASS_ARG(const std::string& name))
   }
 }
 
-void
+Duk::Index
 Duk::StoreReference(void* p)
 {
   Duk::Index index;
@@ -1041,9 +1054,11 @@ Duk::StoreReference(void* p)
   else
   {
     index = *free_indices.rbegin();
+    LOG_DEBUG("Reusing reference " << index);
     free_indices.pop_back();
   }
   SetReference(p, index);
+  return index;
 }
 
 void
@@ -1051,7 +1066,7 @@ Duk::ClearReference(Duk::Index index)
 {
   free_indices.emplace_back(index);
   SetReference(nullptr, index);
-  LOG_INFO("Freeing reference " << index);
+  LOG_DEBUG("Freeing reference " << index);
 }
 
 void
