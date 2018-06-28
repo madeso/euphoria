@@ -15,7 +15,6 @@ Types = {
   Player: Registry.New("Player"),
   MoveUp: Registry.New("MoveUp"),
   TimeOut: Registry.New("TimeOut", function() {
-    print("Creating shot");
     c = {};
     c.time = 1 ;
     return c;
