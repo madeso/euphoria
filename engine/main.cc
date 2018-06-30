@@ -108,6 +108,37 @@ RunMainScriptFile(Duk* duk, FileSystem* fs, const std::string& path)
   return RunResult::Ok();
 }
 
+struct ViewportHandler
+{
+  Init*                init;
+  std::vector<Shader*> shaders;
+
+  explicit ViewportHandler(Init* i)
+      : init(i)
+  {
+  }
+
+  void
+  Add(Shader* shader)
+  {
+    shaders.emplace_back(shader);
+  }
+
+  void
+  SetSize(int width, int height)
+  {
+    const mat4f projection = init->GetOrthoProjection(width, height);
+    for(auto* shader : shaders)
+    {
+      shader->SetUniform(shader->GetUniform("projection"), projection);
+    }
+
+    Viewport viewport{
+        Recti::FromWidthHeight(width, height).SetBottomLeftToCopy(0, 0)};
+    viewport.Activate();
+  }
+};
+
 int
 main(int argc, char** argv)
 {
@@ -149,16 +180,16 @@ main(int argc, char** argv)
 
   game::Game gamedata = LoadGameData(&file_system);
 
-  int width  = 800;
-  int height = 600;
+  int window_width  = 800;
+  int window_height = 600;
 
   SDL_Window* window = SDL_CreateWindow(
       gamedata.title.c_str(),
       SDL_WINDOWPOS_UNDEFINED,
       SDL_WINDOWPOS_UNDEFINED,
-      width,
-      height,
-      SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
+      window_width,
+      window_height,
+      SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
 
   if(window == NULL)
   {
@@ -238,14 +269,13 @@ main(int argc, char** argv)
       duk.AsContext(),
       &duk);
 
-  const mat4f projection = init.GetOrthoProjection(width, height);
   Use(&shader);
   shader.SetUniform(shader.GetUniform("image"), 0);
-  shader.SetUniform(shader.GetUniform("projection"), projection);
 
-  Viewport viewport{
-      Recti::FromWidthHeight(width, height).SetBottomLeftToCopy(0, 0)};
-  viewport.Activate();
+  ViewportHandler viewport_handler{&init};
+  viewport_handler.Add(&shader);
+
+  viewport_handler.SetSize(window_width, window_height);
 
   Uint64 now  = SDL_GetPerformanceCounter();
   Uint64 last = 0;
@@ -290,6 +320,11 @@ main(int argc, char** argv)
       if(e.type == SDL_QUIT)
       {
         running = false;
+      }
+      if(e.type == SDL_WINDOWEVENT_SIZE_CHANGED)
+      {
+        SDL_GetWindowSize(window, &window_width, &window_height);
+        viewport_handler.SetSize(window_width, window_height);
       }
       if(has_crashed)
       {
