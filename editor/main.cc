@@ -415,6 +415,17 @@ struct FileHandlerList
   }
 };
 
+struct ViewportHandler
+{
+  void
+  SetSize(int width, int height)
+  {
+    Viewport viewport{
+        Recti::FromWidthHeight(width, height).SetBottomLeftToCopy(0, 0)};
+    viewport.Activate();
+  }
+};
+
 int
 main(int argc, char** argv)
 {
@@ -424,10 +435,10 @@ main(int argc, char** argv)
     return -1;
   }
 
-  int width  = 1280;
-  int height = 720;
+  int window_width  = 1280;
+  int window_height = 720;
 
-  SdlWindow window{"Euphoria Demo", width, height};
+  SdlWindow window{"Euphoria Demo", window_width, window_height, true};
   if(window.window == nullptr)
   {
     return -1;
@@ -455,9 +466,8 @@ main(int argc, char** argv)
   ImguiLibrary imgui{window.window, pref_path};
   ImGui::StyleColorsLight();
 
-  Viewport viewport{
-      Recti::FromWidthHeight(width, height).SetBottomLeftToCopy(0, 0)};
-  viewport.Activate();
+  ViewportHandler viewport_handler;
+  viewport_handler.SetSize(window_width, window_height);
 
   FileSystem file_system;
   auto       catalog = FileSystemRootCatalog::AddRoot(&file_system);
@@ -558,6 +568,9 @@ main(int argc, char** argv)
         case SDL_QUIT:
           running = false;
           break;
+        case SDL_WINDOWEVENT_SIZE_CHANGED:
+          SDL_GetWindowSize(window.window, &window_width, &window_height);
+          viewport_handler.SetSize(window_width, window_height);
         default:
           // ignore other events
           break;

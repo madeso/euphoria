@@ -6,7 +6,8 @@
 
 LOG_SPECIFY_DEFAULT_LOGGER("window")
 
-SdlWindow::SdlWindow(const std::string& title, int width, int height)
+SdlWindow::SdlWindow(
+    const std::string& title, int width, int height, bool resize)
     : window(nullptr)
 {
   window = SDL_CreateWindow(
@@ -15,7 +16,8 @@ SdlWindow::SdlWindow(const std::string& title, int width, int height)
       SDL_WINDOWPOS_UNDEFINED,
       width,
       height,
-      SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
+      SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN |
+          (resize ? SDL_WINDOW_RESIZABLE : 0));
 
   if(window == nullptr)
   {
