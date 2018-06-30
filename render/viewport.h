@@ -14,10 +14,6 @@ class Viewport
   float
   GetAspectRatio() const;
 
-  // debug
-  bool
-  IsActive() const;
-
   const Recti viewport;
 };
 

@@ -55,8 +55,6 @@ World::Render(
     const Camera&         camera,
     const CompiledCamera& compiled)
 {
-  ASSERT(viewport.IsActive());
-
   const auto projection_matrix = compiled.projection;
   const auto view_matrix       = compiled.view;
 
