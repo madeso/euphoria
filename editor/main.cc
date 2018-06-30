@@ -600,6 +600,37 @@ main(int argc, char** argv)
 
     if(ImGui::Begin("Solution explorer"))
     {
+      if(ImGui::BeginCombo("test combo", "[val]"))
+      {
+        const auto  wsize   = ImGui::GetWindowSize();
+        const auto  spacing = ImGui::GetItemsLineHeightWithSpacing() * 2;
+        const auto  space   = ImVec2{wsize.x - spacing, wsize.y - spacing};
+        const float small   = 30;
+        const float big     = 60;
+        const auto sizer = [=](int id) -> float {
+          return id == 1 ? big : small;
+        };
+        for(int yi = 0; yi < 3; yi += 1)
+        {
+          ImGui::PushID(yi);
+          for(int xi = 0; xi < 3; xi += 1)
+          {
+            ImGui::PushID(xi);
+            if(ImGui::Button("a", ImVec2{sizer(xi), sizer(yi)}))
+            {
+              ImGui::CloseCurrentPopup();
+            }
+            if(xi < 2)
+            {
+              ImGui::SameLine();
+            }
+            ImGui::PopID();
+          }
+          ImGui::PopID();
+        }
+        ImGui::EndCombo();
+      }
+
       if(browser.Run())
       {
         const auto file = browser.GetSelectedFile();
