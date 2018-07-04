@@ -13,6 +13,11 @@ Viewport::Activate()
   const vec2i bottom_left = viewport.BottomLeft();
   glViewport(
       bottom_left.x, bottom_left.y, viewport.GetWidth(), viewport.GetHeight());
+
+  // some gl funcs doesnt respect viewport, so we need to enable
+  // scissor testing too
+  glScissor(
+      bottom_left.x, bottom_left.y, viewport.GetWidth(), viewport.GetHeight());
 }
 
 float

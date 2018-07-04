@@ -1,5 +1,10 @@
 {
   "title": "Space Shooter",
+  "viewport": {
+    "type": "FitWithBlackBars",
+    "width": 800,
+    "height": 600
+  },
   "binds":
     [
       {"name": "up", "key": "w"},

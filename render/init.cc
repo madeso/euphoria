@@ -31,6 +31,7 @@ Init::Init(LoaderFunction loader, Init::BlendHack blend_hack)
   // todo: move this to a better place
   glEnable(GL_DEPTH_TEST);
   glEnable(GL_STENCIL_TEST);
+  glEnable(GL_SCISSOR_TEST);  // need scissor test for the viewport clearing
 
   if(blend_hack == Init::BlendHack::EnableHack)
   {

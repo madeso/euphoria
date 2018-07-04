@@ -33,6 +33,18 @@ struct Template
   Component components[];
 }
 
+enum ViewportType
+{
+  FitWithBlackBars, Extend, ScreenPixel
+}
+
+struct Viewport
+{
+  ViewportType type;
+  float width = 1.0f;
+  float height = 1.0f;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 
 struct KeyBind
@@ -46,6 +58,7 @@ struct KeyBind
 struct Game
 {
   string title;
+  Viewport viewport?;
   KeyBind binds[];
   Template templates[];
 }

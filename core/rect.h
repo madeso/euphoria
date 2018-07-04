@@ -76,8 +76,8 @@ class Rect
   static Rect
   FromWidthHeight(T width, T height)
   {
-    ASSERT(width >= 0);
-    ASSERT(height >= 0);
+    ASSERTX(width >= 0, width);
+    ASSERTX(height >= 0, height);
     return FromLeftRightBottomTop(0, width, 0, height);
   }
   static Rect

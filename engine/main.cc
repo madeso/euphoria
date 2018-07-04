@@ -13,6 +13,7 @@
 #include "core/filesystemimagegenerator.h"
 #include "core/filesystemdefaultshaders.h"
 #include "core/proto.h"
+#include "core/viewport.h"
 
 #include "render/debuggl.h"
 #include "render/fonts.h"
@@ -125,19 +126,41 @@ struct ViewportHandler
   }
 
   void
-  SetSize(int width, int height)
+  SetSize(const ViewportDef& vp, bool shaders_too = true)
   {
-    const mat4f projection = init->GetOrthoProjection(width, height);
-    for(auto* shader : shaders)
+    if(shaders_too)
     {
-      shader->SetUniform(shader->GetUniform("projection"), projection);
+      const mat4f projection =
+          init->GetOrthoProjection(vp.virtual_width, vp.virtual_height);
+      for(auto* shader : shaders)
+      {
+        shader->SetUniform(shader->GetUniform("projection"), projection);
+      }
     }
 
-    Viewport viewport{
-        Recti::FromWidthHeight(width, height).SetBottomLeftToCopy(0, 0)};
+    Viewport viewport{vp.screen_rect};
     viewport.Activate();
   }
 };
+
+ViewportDef
+GetViewport(const game::Viewport& vp, int window_width, int window_height)
+{
+  switch(vp.type)
+  {
+    case game::ViewportType::FitWithBlackBars:
+      return ViewportDef::FitWithBlackBars(
+          vp.width, vp.height, window_width, window_height);
+    case game::ViewportType::ScreenPixel:
+      return ViewportDef::ScreenPixel(window_width, window_height);
+    case game::ViewportType::Extend:
+      return ViewportDef::Extend(
+          vp.width, vp.height, window_width, window_height);
+    default:
+      DIE("Unhandled viewport case");
+      return ViewportDef::ScreenPixel(window_width, window_height);
+  }
+}
 
 int
 main(int argc, char** argv)
@@ -275,7 +298,8 @@ main(int argc, char** argv)
   ViewportHandler viewport_handler{&init};
   viewport_handler.Add(&shader);
 
-  viewport_handler.SetSize(window_width, window_height);
+  viewport_handler.SetSize(
+      GetViewport(gamedata.viewport, window_width, window_height));
 
   Uint64 now  = SDL_GetPerformanceCounter();
   Uint64 last = 0;
@@ -315,17 +339,31 @@ main(int argc, char** argv)
 
     input.UpdateState();
 
+    const auto window_id = SDL_GetWindowID(window);
+
     while(SDL_PollEvent(&e) != 0)
     {
       if(e.type == SDL_QUIT)
       {
         running = false;
       }
-      if(e.type == SDL_WINDOWEVENT_SIZE_CHANGED)
+      if(e.type == SDL_WINDOWEVENT)
       {
-        SDL_GetWindowSize(window, &window_width, &window_height);
-        viewport_handler.SetSize(window_width, window_height);
+        if(e.window.windowID == window_id)
+        {
+          switch(e.window.event)
+          {
+            case SDL_WINDOWEVENT_SIZE_CHANGED:
+              SDL_GetWindowSize(window, &window_width, &window_height);
+              viewport_handler.SetSize(
+                  GetViewport(gamedata.viewport, window_width, window_height));
+              break;
+            default:
+              break;
+          }
+        }
       }
+
       if(has_crashed)
       {
         imgui.ProcessEvents(&e);
@@ -371,6 +409,16 @@ main(int argc, char** argv)
     if(has_crashed == false)
     {
       integration.BindKeys(&duk, input);
+    }
+
+    if(gamedata.viewport.type == game::ViewportType::FitWithBlackBars)
+    {
+      // LOG_INFO("Clearing black" << window_width << " " << window_height);
+      viewport_handler.SetSize(
+          ViewportDef::ScreenPixel(window_width, window_height), false);
+      init.ClearScreen(Color::Black);
+      viewport_handler.SetSize(
+          GetViewport(gamedata.viewport, window_width, window_height), false);
     }
 
     if(has_crashed)
