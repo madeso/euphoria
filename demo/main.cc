@@ -33,6 +33,7 @@
 #include "window/sdlwindow.h"
 #include "window/sdlglcontext.h"
 #include "window/filesystem.h"
+#include "window/engine.h"
 
 #include "imgui/imgui.h"
 #include <SDL.h>
@@ -59,11 +60,13 @@ struct CubeAnimation
   float                  move_speed;
 };
 
+// 3d demo
+
 int
 main(int argc, char** argv)
 {
-  SdlLibrary sdl;
-  if(sdl.ok == false)
+  Engine engine;
+  if(!engine.Setup())
   {
     return -1;
   }
@@ -71,49 +74,20 @@ main(int argc, char** argv)
   int width  = 1280;
   int height = 720;
 
-  SdlWindow window{"Euphoria Demo", width, height};
-  if(window.window == nullptr)
+  if(!engine.CreateWindow("Euphoria 3d demo", width, height, false))
   {
     return -1;
   }
-
-  SdlGlContext context{&window};
-
-  if(context.context == nullptr)
-  {
-    return -1;
-  }
-
-  Init init{SDL_GL_GetProcAddress};
-  if(init.ok == false)
-  {
-    return -4;
-  }
-
-  SetupOpenglDebug();
-
-  const auto current_directory = GetCurrentDirectory();
-  const auto base_path         = GetBasePath();
-  const auto pref_path         = GetPrefPath();
-
-  ImguiLibrary imgui{window.window, pref_path};
 
   Viewport viewport{
       Recti::FromWidthHeight(width, height).SetBottomLeftToCopy(0, 0)};
   viewport.Activate();
 
-  FileSystem file_system;
-  auto       catalog = FileSystemRootCatalog::AddRoot(&file_system);
-
-  FileSystemRootFolder::AddRoot(&file_system, current_directory);
-  FileSystemImageGenerator::AddRoot(&file_system, "img-plain");
-
-  SetupDefaultFiles(catalog);
-
-  MaterialShaderCache material_shader_cache{&file_system};
+  MaterialShaderCache material_shader_cache{engine.file_system.get()};
 
   // SET_ENUM_VALUES(TextureType, SetupTextureNames);
-  SET_ENUM_FROM_FILE(&file_system, "texture_types.json", TextureType);
+  SET_ENUM_FROM_FILE(
+      engine.file_system.get(), "texture_types.json", TextureType);
 
   Image image;
   image.SetupNoAlphaSupport(256, 256);
@@ -134,9 +108,9 @@ main(int argc, char** argv)
       .Square(Color::AliceBlue, Recti::FromTopLeftWidthHeight(256, 0, 100, 25))
       .LineAntialiased(Color::Black, wi.BottomLeft(), wi.TopRight())
       .Text(vec2i(0, 0), "Hello world", Color::Black, 2);
-  catalog->RegisterFileData("image", image.Write(ImageWriteFormat::PNG));
+  engine.catalog->RegisterFileData("image", image.Write(ImageWriteFormat::PNG));
 
-  TextureCache texture_cache{&file_system};
+  TextureCache texture_cache{engine.file_system.get()};
 
   bool running = true;
 
@@ -245,7 +219,7 @@ main(int argc, char** argv)
 
     if(show_imgui)
     {
-      imgui.StartNewFrame();
+      engine.imgui->StartNewFrame();
 
       ImGui::SetNextWindowPos(ImVec2(650, 20), ImGuiSetCond_FirstUseEver);
 
@@ -326,7 +300,7 @@ main(int argc, char** argv)
     {
       if(show_imgui)
       {
-        imgui.ProcessEvents(&e);
+        engine.imgui->ProcessEvents(&e);
       }
       switch(e.type)
       {
@@ -364,7 +338,7 @@ main(int argc, char** argv)
               if(!down)
               {
                 capturing_mouse_movement = !capturing_mouse_movement;
-                window.KeepWithin(capturing_mouse_movement);
+                engine.window->KeepWithin(capturing_mouse_movement);
               }
               break;
             default:
@@ -383,15 +357,15 @@ main(int argc, char** argv)
     camera.position = fps.position;
     camera.rotation = fps.GetRotation();
 
-    init.ClearScreen(Color::DarkslateGray);
+    engine.init->ClearScreen(Color::DarkslateGray);
     world.Render(viewport, camera);
 
     if(show_imgui)
     {
-      imgui.Render();
+      engine.imgui->Render();
     }
 
-    SDL_GL_SwapWindow(window.window);
+    SDL_GL_SwapWindow(engine.window->window);
   }
 
   return 0;

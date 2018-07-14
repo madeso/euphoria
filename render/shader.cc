@@ -221,8 +221,10 @@ Shader::Compile(
     {
       continue;
     }
-    std::cerr << attribute.name << " was bound to " << attribute_id
-              << " but was requested at " << attribute.id << "\n";
+    LOG_ERROR(
+        attribute.name << " was bound to " << attribute_id
+                       << " but was requested at "
+                       << attribute.id);
     ret = false;
   }
 
@@ -238,8 +240,9 @@ Shader::GetUniform(const std::string& name)
 
   if(uniform.id == -1)
   {
-    std::cerr << "Failed to load " << uniform.name << " from shader "
-              << shader_name_ << "\n";
+    LOG_ERROR(
+        "Failed to load uniform " << uniform.name << " from shader "
+                                  << shader_name_);
   }
 
   return uniform;
@@ -374,13 +377,13 @@ Shader::Load(FileSystem* fs, const std::string& file_path)
   bool loaded_files = true;
   if(vert.empty())
   {
-    std::cerr << "Failed to load vert shader " << file_path << "\n";
+    LOG_ERROR("Failed to load vert shader " << file_path);
     loaded_files = false;
   }
 
   if(frag.empty())
   {
-    std::cerr << "Failed to load frag shader " << file_path << "\n";
+    LOG_ERROR("Failed to load frag shader " << file_path);
     loaded_files = false;
   }
 
@@ -393,7 +396,7 @@ Shader::Load(FileSystem* fs, const std::string& file_path)
       vert.c_str(), frag.c_str(), geom.empty() ? nullptr : geom.c_str());
   if(!shader_compiled)
   {
-    std::cerr << "Failed to compile shader " << file_path << "\n";
+    LOG_ERROR("Failed to compile shader " << file_path);
   }
   return shader_compiled;
 }

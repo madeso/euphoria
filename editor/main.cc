@@ -37,6 +37,7 @@
 #include "window/sdlwindow.h"
 #include "window/sdlglcontext.h"
 #include "window/filesystem.h"
+#include "window/engine.h"
 
 #include "editor/browser.h"
 #include "editor/scimed.h"
@@ -429,60 +430,32 @@ struct ViewportHandler
 int
 main(int argc, char** argv)
 {
-  SdlLibrary sdl;
-  if(sdl.ok == false)
+  Engine engine;
+
+  if(engine.Setup() == false)
   {
     return -1;
   }
+
 
   int window_width  = 1280;
   int window_height = 720;
 
-  SdlWindow window{"Euphoria Demo", window_width, window_height, true};
-  if(window.window == nullptr)
+  if(!engine.CreateWindow("Euphoria Editor", window_width, window_height, true))
   {
     return -1;
   }
 
-  SdlGlContext context{&window};
-
-  if(context.context == nullptr)
-  {
-    return -1;
-  }
-
-  Init init{SDL_GL_GetProcAddress};
-  if(init.ok == false)
-  {
-    return -4;
-  }
-
-  SetupOpenglDebug();
-
-  const auto current_directory = GetCurrentDirectory();
-  const auto base_path         = GetBasePath();
-  const auto pref_path         = GetPrefPath();
-
-  ImguiLibrary imgui{window.window, pref_path};
-  ImGui::StyleColorsLight();
+  TextureCache       texture_cache{engine.file_system.get()};
+  ScalingSpriteCache sprite_cache;
 
   ViewportHandler viewport_handler;
   viewport_handler.SetSize(window_width, window_height);
 
-  FileSystem file_system;
-  auto       catalog = FileSystemRootCatalog::AddRoot(&file_system);
-
-  FileSystemRootFolder::AddRoot(&file_system, current_directory);
-  FileSystemImageGenerator::AddRoot(&file_system, "img-plain");
-
-  SetupDefaultFiles(catalog);
-
-  TextureCache       texture_cache{&file_system};
-  ScalingSpriteCache sprite_cache;
 
   bool running = true;
 
-  FileBrowser browser{&file_system};
+  FileBrowser browser{engine.file_system.get()};
   browser.Refresh();
   std::vector<std::shared_ptr<GenericWindow>> windows;
   StyleData                                   style_data = StyleData{};
@@ -498,7 +471,7 @@ main(int argc, char** argv)
         OpenOrFocusOnGenericWindow<game::Game>(
             windows,
             file,
-            &file_system,
+            engine.file_system.get(),
             "Game",
             [](auto* s, const std::string& data) {},
             [](auto* s) { game::RunImgui(s); });
@@ -511,7 +484,7 @@ main(int argc, char** argv)
         OpenOrFocusOnGenericWindow<world::World>(
             windows,
             file,
-            &file_system,
+            engine.file_system.get(),
             "World",
             [](auto* s, const std::string& data) {},
             [](auto* s) { world::RunImgui(s); });
@@ -523,7 +496,7 @@ main(int argc, char** argv)
         OpenOrFocusOnGenericWindow<enumlist::Enumroot>(
             windows,
             file,
-            &file_system,
+            engine.file_system.get(),
             "Enums",
             [](auto* s, const std::string& data) {},
             [](auto* s) { enumlist::RunImgui(s); });
@@ -535,7 +508,7 @@ main(int argc, char** argv)
         return EndsWith(file, ".json") || EndsWith(file, ".js");
       },
       [&](Windows* windows, const std::string& file) {
-        OpenOrFocusTextFile(windows, file, &file_system);
+        OpenOrFocusTextFile(windows, file, engine.file_system.get());
       }));
 
   file_types.Add(CreateHandler(
@@ -543,14 +516,19 @@ main(int argc, char** argv)
       [](const std::string& file) -> bool { return EndsWith(file, ".png"); },
       [&](Windows* windows, const std::string& file) {
         OpenOrFocusScimed(
-            windows, file, &file_system, &texture_cache, &sprite_cache);
+            windows,
+            file,
+            engine.file_system.get(),
+            &texture_cache,
+            &sprite_cache);
       }));
 
   file_types.Add(CreateHandler(
       "Open with auto scimed editor",
       [](const std::string& file) -> bool { return false; },
       [&](Windows* windows, const std::string& file) {
-        OpenOrFocusScimedEditior(windows, file, &file_system, &sprite_cache);
+        OpenOrFocusScimedEditior(
+            windows, file, engine.file_system.get(), &sprite_cache);
       }));
 
   //////////////////////////////////////////////////////////////////////////////
@@ -561,23 +539,25 @@ main(int argc, char** argv)
     SDL_Event e;
     while(SDL_PollEvent(&e) != 0)
     {
-      imgui.ProcessEvents(&e);
+      engine.imgui->ProcessEvents(&e);
+
+      if(engine.HandleResize(e, &window_width, &window_height))
+      {
+        viewport_handler.SetSize(window_width, window_height);
+      }
 
       switch(e.type)
       {
         case SDL_QUIT:
           running = false;
           break;
-        case SDL_WINDOWEVENT_SIZE_CHANGED:
-          SDL_GetWindowSize(window.window, &window_width, &window_height);
-          viewport_handler.SetSize(window_width, window_height);
         default:
           // ignore other events
           break;
       }
     }
 
-    imgui.StartNewFrame();
+    engine.imgui->StartNewFrame();
 
     if(ImGui::BeginMainMenuBar())
     {
@@ -670,14 +650,14 @@ main(int argc, char** argv)
 
     // ImGui::ShowMetricsWindow();
 
-    init.ClearScreen(Color::Wheat);
-    imgui.Render();
+    engine.init->ClearScreen(Color::Wheat);
+    engine.imgui->Render();
 
     RemoveMatching(&windows, [](const std::shared_ptr<GenericWindow>& window) {
       return !window->open;
     });
 
-    SDL_GL_SwapWindow(window.window);
+    SDL_GL_SwapWindow(engine.window->window);
   }
 
   return 0;

@@ -35,6 +35,7 @@ Init::Init(LoaderFunction loader, Init::BlendHack blend_hack)
 
   if(blend_hack == Init::BlendHack::EnableHack)
   {
+    LOG_INFO("Enabled blend hack");
     // need to be enabled for shitty 2d rendering to work
     // todo: fix a proper blending/backface culling render stack
     glDisable(GL_CULL_FACE);

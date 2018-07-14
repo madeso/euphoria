@@ -14,6 +14,7 @@
 #include "core/filesystemdefaultshaders.h"
 #include "core/proto.h"
 #include "core/viewport.h"
+#include "core/duk.h"
 
 #include "render/debuggl.h"
 #include "render/fonts.h"
@@ -29,7 +30,6 @@
 
 #include "engine/loadworld.h"
 #include "engine/systems.h"
-#include "core/duk.h"
 #include "engine/dukintegration.h"
 #include "engine/dukmathbindings.h"
 #include "engine/dukprint.h"
@@ -40,6 +40,10 @@
 #include "window/imguilibrary.h"
 #include "window/imgui_ext.h"
 #include "window/filesystem.h"
+#include "window/sdllibrary.h"
+#include "window/sdlwindow.h"
+#include "window/sdlglcontext.h"
+#include "window/engine.h"
 
 #include "imgui/imgui.h"
 
@@ -162,77 +166,32 @@ GetViewport(const game::Viewport& vp, int window_width, int window_height)
   }
 }
 
+// engine
+
 int
 main(int argc, char** argv)
 {
-  if(SDL_Init(SDL_INIT_VIDEO | SDL_INIT_JOYSTICK | SDL_INIT_AUDIO) < 0)
+  Engine engine;
+  if(engine.Setup() == false)
   {
-    LOG_ERROR("Failed to init SDL: " << SDL_GetError());
     return -1;
   }
 
-  SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 4);
-  SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 4);
-  SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 4);
-  SDL_GL_SetAttribute(SDL_GL_ALPHA_SIZE, 4);
-  SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
-  SDL_GL_SetAttribute(SDL_GL_BUFFER_SIZE, 0);
-  SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 0);
-  SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 0);
-  SDL_GL_SetAttribute(SDL_GL_ACCUM_RED_SIZE, 0);
-  SDL_GL_SetAttribute(SDL_GL_ACCUM_GREEN_SIZE, 0);
-  SDL_GL_SetAttribute(SDL_GL_ACCUM_BLUE_SIZE, 0);
-  SDL_GL_SetAttribute(SDL_GL_ACCUM_ALPHA_SIZE, 0);
-  SDL_GL_SetAttribute(SDL_GL_STEREO, 0);
-  SDL_GL_SetAttribute(SDL_GL_ACCELERATED_VISUAL, 1);
-  SDL_GL_SetAttribute(SDL_GL_RETAINED_BACKING, 1);
-  SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
-  SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
-  SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
-  SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, SDL_GL_CONTEXT_DEBUG_FLAG);
+  engine.file_system->SetWrite(
+      std::make_shared<FileSystemWriteFolder>(GetCurrentDirectory()));
 
-  const auto current_directory = GetCurrentDirectory();
-  FileSystem file_system;
-  file_system.SetWrite(
-      std::make_shared<FileSystemWriteFolder>(current_directory));
-  FileSystemRootFolder::AddRoot(&file_system, current_directory);
-  FileSystemImageGenerator::AddRoot(&file_system, "img-plain");
-  FileSystemDefaultShaders::AddRoot(&file_system, "shaders");
-  auto         catalog = FileSystemRootCatalog::AddRoot(&file_system);
-  TextureCache cache{&file_system};
+  TextureCache cache{engine.file_system.get()};
 
-  game::Game gamedata = LoadGameData(&file_system);
+  game::Game gamedata = LoadGameData(engine.file_system.get());
 
   int window_width  = 800;
   int window_height = 600;
 
-  SDL_Window* window = SDL_CreateWindow(
-      gamedata.title.c_str(),
-      SDL_WINDOWPOS_UNDEFINED,
-      SDL_WINDOWPOS_UNDEFINED,
-      window_width,
-      window_height,
-      SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
-
-  if(window == NULL)
+  if(engine.CreateWindow(gamedata.title, window_width, window_height, true) ==
+     false)
   {
-    LOG_ERROR("Failed to create window " << SDL_GetError());
     return -1;
   }
-
-  const auto pref_path = GetPrefPath();
-
-  ImguiLibrary imgui{window, pref_path};
-
-  SDL_GL_CreateContext(window);
-  Init init{SDL_GL_GetProcAddress, Init::BlendHack::EnableHack};
-
-  if(init.ok == false)
-  {
-    return -4;
-  }
-
-  SetupOpenglDebug();
 
   // todo: update theese during runtime
   std::string crash_message_string;
@@ -254,9 +213,9 @@ main(int argc, char** argv)
 
   Shader shader;
   attributes2d::PrebindShader(&shader);
-  shader.Load(&file_system, "shaders/sprite");
+  shader.Load(engine.file_system.get(), "shaders/sprite");
   SpriteRenderer renderer(&shader);
-  FontCache      font_cache{&file_system, &cache};
+  FontCache      font_cache{engine.file_system.get(), &cache};
 
   // Sprite player(cache.GetTexture("player.png"));
   // objects.Add(&player);
@@ -274,7 +233,8 @@ main(int argc, char** argv)
   LoadTemplatesButOnlyNames(gamedata, &templates);
 
   DukIntegration integration{&systems, &world, &duk, &templates, &components};
-  const auto error_run_main = RunMainScriptFile(&duk, &file_system, "main.js");
+  const auto     error_run_main =
+      RunMainScriptFile(&duk, engine.file_system.get(), "main.js");
   if(!error_run_main.ok)
   {
     has_crashed          = true;
@@ -284,7 +244,7 @@ main(int argc, char** argv)
       gamedata, &templates, &integration.Registry(), &cache, &components);
 
   LoadWorld(
-      &file_system,
+      engine.file_system.get(),
       &world,
       &integration.Registry(),
       "world.json",
@@ -295,7 +255,7 @@ main(int argc, char** argv)
   Use(&shader);
   shader.SetUniform(shader.GetUniform("image"), 0);
 
-  ViewportHandler viewport_handler{&init};
+  ViewportHandler viewport_handler{engine.init.get()};
   viewport_handler.Add(&shader);
 
   viewport_handler.SetSize(
@@ -322,7 +282,7 @@ main(int argc, char** argv)
     const float dt = (now - last) * 1.0f / SDL_GetPerformanceFrequency();
     SDL_Event   e;
 
-    imgui.StartNewFrame();
+    engine.imgui->StartNewFrame();
 
     if(!has_crashed)
     {
@@ -339,34 +299,21 @@ main(int argc, char** argv)
 
     input.UpdateState();
 
-    const auto window_id = SDL_GetWindowID(window);
-
     while(SDL_PollEvent(&e) != 0)
     {
       if(e.type == SDL_QUIT)
       {
         running = false;
       }
-      if(e.type == SDL_WINDOWEVENT)
+      if(engine.HandleResize(e, &window_width, &window_height))
       {
-        if(e.window.windowID == window_id)
-        {
-          switch(e.window.event)
-          {
-            case SDL_WINDOWEVENT_SIZE_CHANGED:
-              SDL_GetWindowSize(window, &window_width, &window_height);
-              viewport_handler.SetSize(
-                  GetViewport(gamedata.viewport, window_width, window_height));
-              break;
-            default:
-              break;
-          }
-        }
+        viewport_handler.SetSize(
+            GetViewport(gamedata.viewport, window_width, window_height));
       }
 
       if(has_crashed)
       {
-        imgui.ProcessEvents(&e);
+        engine.imgui->ProcessEvents(&e);
         if(e.type == SDL_KEYUP)
         {
           const auto key = ToKey(e.key.keysym);
@@ -416,7 +363,7 @@ main(int argc, char** argv)
       // LOG_INFO("Clearing black" << window_width << " " << window_height);
       viewport_handler.SetSize(
           ViewportDef::ScreenPixel(window_width, window_height), false);
-      init.ClearScreen(Color::Black);
+      engine.init->ClearScreen(Color::Black);
       viewport_handler.SetSize(
           GetViewport(gamedata.viewport, window_width, window_height), false);
     }
@@ -427,17 +374,11 @@ main(int argc, char** argv)
       // nothing much is required just a better overflow detection
       // when rendering the error, perhaps making the error more visible
       // though clicking around and debugging might be useful...
-      init.ClearScreen(Color::CornflowerBlue);
+      engine.init->ClearScreen(Color::CornflowerBlue);
 
       if(BeginFixedOverlay(ImguiCorner::Center, "Crashed"))
       {
         ImGui::TextDisabled("%s", crash_message_string.c_str());
-        /*ImGui::InputTextMultiline(
-            "##source",
-            crash_message_string.c_str(),
-            crash_message_string.length(),
-            ImVec2(-1.0f, ImGui::GetTextLineHeight() * 16),
-            ImGuiInputTextFlags_ReadOnly); */
         if(ImGui::Button("Quit"))
         {
           running = false;
@@ -447,17 +388,15 @@ main(int argc, char** argv)
     }
     else
     {
-      init.ClearScreen(Color::DarkslateGray);
+      engine.init->ClearScreen(Color::DarkslateGray);
       world.Draw(&renderer);
     }
 
-    imgui.Render();
-    SDL_GL_SwapWindow(window);
+    engine.imgui->Render();
+    SDL_GL_SwapWindow(engine.window->window);
 
     world.reg.RemoveRemoved();
   }
 
-  SDL_DestroyWindow(window);
-  SDL_Quit();
   return 0;
 }
