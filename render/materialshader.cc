@@ -112,19 +112,19 @@ PostBuild(
   sh->view_       = sh->shader_.GetUniform("uView");
   sh->model_      = sh->shader_.GetUniform("uModel");
 
-  if(material_shader_file.ambient.empty())
+  if(!material_shader_file.ambient.empty())
   {
     sh->ambient_ = sh->shader_.GetUniform(material_shader_file.ambient);
   }
-  if(material_shader_file.diffuse.empty())
+  if(!material_shader_file.diffuse.empty())
   {
     sh->diffuse_ = sh->shader_.GetUniform(material_shader_file.diffuse);
   }
-  if(material_shader_file.specular.empty())
+  if(!material_shader_file.specular.empty())
   {
     sh->specular_ = sh->shader_.GetUniform(material_shader_file.specular);
   }
-  if(material_shader_file.shininess.empty())
+  if(!material_shader_file.shininess.empty())
   {
     sh->shininess_ = sh->shader_.GetUniform(material_shader_file.shininess);
   }
