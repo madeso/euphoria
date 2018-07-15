@@ -24,6 +24,10 @@ class Init
   mat4f
   GetOrthoProjection(float width, float height);
 
+  // todo: move to some better place
+  void
+  Use2d();
+
   // todo: move to some place better
   void
   ClearScreen(const Rgb& color);

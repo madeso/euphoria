@@ -54,6 +54,12 @@ Init::GetOrthoProjection(float width, float height)
 }
 
 void
+Init::Use2d()
+{
+  glDisable(GL_DEPTH_TEST);
+}
+
+void
 Init::ClearScreen(const Rgb& color)
 {
   // 42.0f / 255, 45.0f / 255, 51.0f / 255

@@ -275,6 +275,8 @@ main(int argc, char** argv)
 
   integration.BindKeys(&duk, input);
 
+  engine.init->Use2d();
+
   while(running)
   {
     last           = now;
