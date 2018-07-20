@@ -1,22 +1,26 @@
 print('Hello world');
 
 IsDown = function(key) {
-  return key.state > 0.1
-}
+  return key.state > 0.1;
+};
+
 WasDown = function(key) {
-  return key.last_state > 0.1
-}
+  return key.last_state > 0.1;
+};
+
 JustPressed = function(key) {
   return IsDown(key) && !WasDown(key);
-}
+};
 
 Types = {
   Pos2: Registry.GetPosition2Id(),
+  Sprite: Registry.GetSpriteId(),
   Player: Registry.New("Player"),
   MoveUp: Registry.New("MoveUp"),
+  DestroyOutside: Registry.New("DestroyOutside"),
   TimeOut: Registry.New("TimeOut", function() {
     c = {};
-    c.time = 1 ;
+    c.time = 4;
     return c;
   })
 };
@@ -52,7 +56,25 @@ Systems.AddUpdate("time out", function(dt) {
     data.time -= dt;
     if(data.time < 0)
     {
+      print("Timeout");
       Registry.DestroyEntity(entity);
+    }
+  });
+});
+
+Systems.AddUpdate("destroy outside", function (dt) {
+  var ents = Registry.Entities([Types.Sprite, Types.DestroyOutside]);
+  ents.forEach(function (entity) {
+    var sp = Registry.GetSprite(entity);
+    if(sp != null)
+    {
+      var cam = Camera.GetRect();
+      var r = sp.GetRect();
+      if(!cam.Contains(r))
+      {
+        print("Removed outside");
+        Registry.DestroyEntity(entity);
+      }
     }
   });
 });
