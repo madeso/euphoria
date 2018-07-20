@@ -109,9 +109,9 @@ struct DukIntegrationPimpl
                       ObjectCreationArgs{world, &registry, ctx, duk}));
                 })));
 
-    duk->BindClass(
+    duk->BindObject(
         "Camera",
-        BindClass<ObjectTemplate>().AddMethod(
+        BindObject().AddFunction(
             "GetRect", Bind{}.bind<>([&, duk](Context* ctx) -> int {
               return ctx->ReturnFreeObject(&camera->screen);
             })));

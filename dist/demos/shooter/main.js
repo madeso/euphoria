@@ -63,13 +63,14 @@ Systems.AddUpdate("time out", function(dt) {
 });
 
 Systems.AddUpdate("destroy outside", function (dt) {
-  var ents = Registry.Entities([Types.Sprite, Types.DestroyOutside]);
+  var ents = Registry.Entities([Types.Sprite, Types.Pos2, Types.DestroyOutside]);
   ents.forEach(function (entity) {
     var sp = Registry.GetSprite(entity);
+    var p = Registry.GetPosition2(entity);
     if(sp != null)
     {
       var cam = Camera.GetRect();
-      var r = sp.GetRect();
+      var r = sp.GetRect(p);
       if(!cam.Contains(r))
       {
         print("Removed outside");

@@ -23,7 +23,8 @@
       {"position": {"x": 0, "y": 0}},
       {"sprite": {"path": "laserBlue07.png"}},
       {"custom": {"name": "MoveUp"}},
-      {"custom": {"name": "TimeOut"}}
+      {"custom": {"name": "TimeOut"}},
+      {"custom": {"name": "DestroyOutside"}}
     ]}
   ]
 }
