@@ -3,10 +3,6 @@
 
 #include "core/log.h"
 #include "core/str.h"
-
-#include "render/shader.h"
-#include "render/spriterender.h"
-
 #include "core/interpolate.h"
 #include "core/os.h"
 #include "core/componentsystem.h"
@@ -24,9 +20,19 @@
 #include "render/shaderattribute2d.h"
 #include "render/texturecache.h"
 #include "render/viewport.h"
+#include "render/shader.h"
+#include "render/spriterender.h"
 
 #include "gui/root.h"
+
 #include "window/key.h"
+#include "window/imguilibrary.h"
+#include "window/imgui_ext.h"
+#include "window/filesystem.h"
+#include "window/sdllibrary.h"
+#include "window/sdlwindow.h"
+#include "window/sdlglcontext.h"
+#include "window/engine.h"
 
 #include "engine/loadworld.h"
 #include "engine/systems.h"
@@ -36,14 +42,7 @@
 #include "engine/input.h"
 #include "engine/objectemplate.h"
 #include "engine/components.h"
-
-#include "window/imguilibrary.h"
-#include "window/imgui_ext.h"
-#include "window/filesystem.h"
-#include "window/sdllibrary.h"
-#include "window/sdlwindow.h"
-#include "window/sdlglcontext.h"
-#include "window/engine.h"
+#include "engine/cameradata.h"
 
 #include "imgui/imgui.h"
 
@@ -117,9 +116,11 @@ struct ViewportHandler
 {
   Init*                init;
   std::vector<Shader*> shaders;
+  CameraData*          camera = nullptr;
 
-  explicit ViewportHandler(Init* i)
+  ViewportHandler(Init* i, CameraData* cam)
       : init(i)
+      , camera(cam)
   {
   }
 
@@ -141,6 +142,9 @@ struct ViewportHandler
         shader->SetUniform(shader->GetUniform("projection"), projection);
       }
     }
+
+    camera->screen =
+        Rectf::FromWidthHeight(vp.virtual_width, vp.virtual_height);
 
     Viewport viewport{vp.screen_rect};
     viewport.Activate();
@@ -231,9 +235,11 @@ main(int argc, char** argv)
   AddSystems(&systems, &duk, &components);
   ObjectCreator templates;
   LoadTemplatesButOnlyNames(gamedata, &templates);
+  CameraData camera_data;
 
-  DukIntegration integration{&systems, &world, &duk, &templates, &components};
-  const auto     error_run_main =
+  DukIntegration integration{
+      &systems, &world, &duk, &templates, &components, &camera_data};
+  const auto error_run_main =
       RunMainScriptFile(&duk, engine.file_system.get(), "main.js");
   if(!error_run_main.ok)
   {
@@ -255,7 +261,7 @@ main(int argc, char** argv)
   Use(&shader);
   shader.SetUniform(shader.GetUniform("image"), 0);
 
-  ViewportHandler viewport_handler{engine.init.get()};
+  ViewportHandler viewport_handler{engine.init.get(), &camera_data};
   viewport_handler.Add(&shader);
 
   viewport_handler.SetSize(

@@ -13,6 +13,8 @@ struct Components;
 
 struct DukIntegrationPimpl;
 
+class CameraData;
+
 class DukIntegration
 {
  public:
@@ -21,7 +23,8 @@ class DukIntegration
       World*         reg,
       Duk*           duk,
       ObjectCreator* creator,
-      Components*    components);
+      Components*    components,
+      CameraData*    camera);
   ~DukIntegration();
 
   void

@@ -402,6 +402,13 @@ Context::ReturnNumber(double num)
 }
 
 int
+Context::ReturnBool(bool num)
+{
+  duk_push_boolean(ctx, num ? 1 : 0);
+  return 1;
+}
+
+int
 Context::ReturnString(const std::string& str)
 {
   duk_push_string(ctx, str.c_str());

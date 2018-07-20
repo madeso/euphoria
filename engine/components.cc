@@ -21,3 +21,10 @@ Components::Components(Registry* reg)
 }
 
 COMPONENT_CONSTRUCTOR_IMPLEMENTATION(CSprite)
+
+Rectf
+GetSpriteRect(const vec2f& position, const Texture2d& texture)
+{
+  return Rectf::FromPositionAnchorWidthAndHeight(
+      position, vec2f{0.5f, 0.5f}, texture.GetWidth(), texture.GetHeight());
+}

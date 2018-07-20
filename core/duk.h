@@ -181,6 +181,9 @@ class Context
   ReturnNumber(double num);
 
   int
+  ReturnBool(bool num);
+
+  int
   ReturnString(const std::string& str);
 
   int

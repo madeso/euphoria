@@ -28,13 +28,6 @@ DrawData::Tint(const Rgba& t)
   return *this;
 }
 
-DrawData&
-DrawData::Anchor(const vec2f& a)
-{
-  anchor = a;
-  return *this;
-}
-
 //////////////////////////////////////////////////////////////////////////
 
 SpriteRenderer::SpriteRenderer(Shader* shader)
@@ -87,12 +80,11 @@ SpriteRenderer::DrawRect(
 
 void
 SpriteRenderer::DrawSprite(
-    const Texture2d& texture, const vec2f& position, const DrawData& data)
+    const Texture2d& texture, const Rectf& position, const DrawData& data)
 {
   DrawRect(
       texture,
-      Rectf::FromPositionAnchorWidthAndHeight(
-          position, data.anchor, texture.GetWidth(), texture.GetHeight()),
+      position,
       Rectf::FromTopLeftWidthHeight(1, 0, 1, 1),
       data.rotation,
       vec2f{0.5f, 0.5f},

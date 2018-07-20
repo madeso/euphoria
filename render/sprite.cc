@@ -58,7 +58,8 @@ Sprite::Render(SpriteRenderer* render)
 {
   render->DrawSprite(
       *texture_,
-      position_,
+      Rectf::FromPositionAnchorWidthAndHeight(
+          position_, vec2f{0, 0}, texture_->GetWidth(), texture_->GetHeight()),
       DrawData{}.Rotation(rotation).Scale(scale_).Tint(Rgba(color_, alpha_)));
 }
 

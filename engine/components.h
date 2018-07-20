@@ -2,8 +2,11 @@
 #define EUPHORIA_COMPONENTS_H
 
 #include <memory>
+
 #include "core/vec2.h"
 #include "core/entity.h"
+#include "core/rect.h"
+
 #include "render/texturecache.h"
 
 struct CPosition2 : public Component
@@ -26,5 +29,8 @@ struct Components
   ComponentId position2;
   ComponentId sprite;
 };
+
+Rectf
+GetSpriteRect(const vec2f& position, const Texture2d& texture);
 
 #endif  // EUPHORIA_COMPONENTS_H

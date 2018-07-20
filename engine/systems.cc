@@ -29,7 +29,8 @@ struct SystemSpriteDraw : public ComponentSystem,
       auto* sprite = reg->GetComponentOrNull<CSprite>(ent, components->sprite);
       auto* pos =
           reg->GetComponentOrNull<CPosition2>(ent, components->position2);
-      renderer->DrawSprite(*sprite->texture, pos->pos);
+      renderer->DrawSprite(
+          *sprite->texture, GetSpriteRect(pos->pos, *sprite->texture));
     }
   }
 

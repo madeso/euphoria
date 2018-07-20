@@ -3,12 +3,13 @@
 #include <map>
 
 #include "core/componentsystem.h"
-
 #include "core/duk.h"
+
 #include "engine/components.h"
 #include "engine/input.h"
 #include "engine/dukregistry.h"
 #include "engine/objectemplate.h"
+#include "engine/cameradata.h"
 
 class DukUpdateSystem : public ComponentSystem, public ComponentSystemUpdate
 {
@@ -63,13 +64,15 @@ struct DukIntegrationPimpl
       World*         world,
       Duk*           duk,
       ObjectCreator* creator,
-      Components*    components)
+      Components*    components,
+      CameraData*    cam)
       : systems(sys, duk)
       , registry(&world->reg, components)
       , input(duk->CreateGlobal("Input"))
       , world(world)
       , creator(creator)
       , components(components)
+      , camera(cam)
   {
   }
 
@@ -106,6 +109,13 @@ struct DukIntegrationPimpl
                       ObjectCreationArgs{world, &registry, ctx, duk}));
                 })));
 
+    duk->BindClass(
+        "Camera",
+        BindClass<ObjectTemplate>().AddMethod(
+            "GetRect", Bind{}.bind<>([&, duk](Context* ctx) -> int {
+              return ctx->ReturnFreeObject(&camera->screen);
+            })));
+
 
     duk->BindObject(
         "Registry",
@@ -131,6 +141,9 @@ struct DukIntegrationPimpl
                 "GetPosition2Id", Bind{}.bind([&](Context* ctx) -> int {
                   return ctx->Return(registry.components->position2);
                 }))
+            .AddFunction("GetSpriteId", Bind{}.bind([&](Context* ctx) -> int {
+              return ctx->Return(registry.components->sprite);
+            }))
             .AddFunction(
                 "New",
                 Bind{}
@@ -161,6 +174,14 @@ struct DukIntegrationPimpl
                         DukValue    val) -> int {
                       registry.SetProperty(ent, comp, val);
                       return ctx->ReturnVoid();
+                    }))
+            .AddFunction(
+                "GetSprite",
+                Bind{}.bind<ComponentId>(
+                    [&](Context* ctx, ComponentId ent) -> int {
+                      return ctx->ReturnFreeObject(
+                          registry.GetComponentOrNull<CSprite>(
+                              ent, components->sprite));
                     }))
             .AddFunction(
                 "GetPosition2",
@@ -226,6 +247,26 @@ struct DukIntegrationPimpl
                       return ctx->ReturnVoid();
                     })));
 
+    duk->BindClass(
+        "CSprite",
+        BindClass<CSprite>().AddMethod(
+            "GetRect",
+            Bind{}.bind<CSprite, CPosition2>(
+                [](Context* ctx, const CSprite& sp, const CPosition2& p)
+                    -> int {
+                  return ctx->ReturnObject(std::make_shared<Rectf>(
+                      GetSpriteRect(p.pos, *sp.texture)));
+                })));
+
+    duk->BindClass(
+        "Rectf",
+        BindClass<Rectf>().AddMethod(
+            "Contains",
+            Bind{}.bind<Rectf, Rectf>(
+                [](Context* ctx, const Rectf& lhs, const Rectf& rhs) -> int {
+                  return ctx->ReturnBool(lhs.ContainsExclusive(rhs));
+                })));
+
     //    dukglue_register_method(duk->ctx, &CPosition2::GetPosition, "GetPos");
     //    dukglue_register_method(duk->ctx, &CPosition2::SetPosition, "SetPos");
     //    dukglue_register_method(duk->ctx, &CPosition2::GetPositionRef,
@@ -241,6 +282,7 @@ struct DukIntegrationPimpl
   World*         world;
   ObjectCreator* creator;
   Components*    components;
+  CameraData*    camera;
 };
 
 DukIntegration::DukIntegration(
@@ -248,9 +290,11 @@ DukIntegration::DukIntegration(
     World*         reg,
     Duk*           duk,
     ObjectCreator* creator,
-    Components*    components)
+    Components*    components,
+    CameraData*    camera)
 {
-  pimpl.reset(new DukIntegrationPimpl(systems, reg, duk, creator, components));
+  pimpl.reset(
+      new DukIntegrationPimpl(systems, reg, duk, creator, components, camera));
   pimpl->Integrate(duk);
 }
 
