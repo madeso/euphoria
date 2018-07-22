@@ -101,6 +101,12 @@ Sqrt(float r)
 }
 
 float
+Log(float r)
+{
+  return std::log(r);
+}
+
+float
 Abs(float r)
 {
   if(r < 0.0f)

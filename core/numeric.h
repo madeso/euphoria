@@ -3,8 +3,10 @@
 
 bool
 IsEqual(float lhs, float rhs);
+
 bool
 IsZero(float r);
+
 float
 ZeroOrValue(float r);
 
@@ -47,39 +49,27 @@ Example:
 float
 Curve(float new_value, float old_value, float smoothing_value);
 
-/** Calculates the square of the argument.
-@see Sqrt()
-*/
 float
 Square(float r);
 
-/** Calculates the square-root of the argument.
-@see Square()
-*/
 float
 Sqrt(float r);
 
-/** Calculates the absolute value of the argument.
-@see Sign()
-*/
+float
+Log(float r);
+
 float
 Abs(float r);
 
-/** Calculates the minimum of two values
-@see Max()
-@see KeepWithin()
-*/
 float
 Min(float lhs, float rhs);
+
 int
 Min(int lhs, int rhs);
 
-/** Calculates the maximum of two values.
-@see Min()
-@see KeepWithin()
-*/
 float
 Max(float lhs, float rhs);
+
 int
 Max(int lhs, int rhs);
 
@@ -95,32 +85,15 @@ closest half integer, at 2 even integers etc...
 float
 Round(float num, float gran);
 
-/// @}
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/// \defgroup constants Constants
-/// @{
-
-/** The matematical constant pi.
-@see HalfPi()
-*/
 float
 Pi();
 
-/** The matematical constant pi divided by 2.
-@see Pi()
-*/
 float
 HalfPi();
 
-/** The boolean value true.
-@see kFalse()
-*/
 const bool
 TrueValue();
 
-/** The boolean value false.
-@see kTrue()
-*/
 const bool
 FalseValue();
 

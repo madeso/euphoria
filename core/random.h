@@ -27,11 +27,21 @@ class Random
 
   uint32
   NextInteger();
+
   float
   NextFloat01();
 
   float
   Next(const Range& range);
+
+  float
+  NextGaussianFloat01();
+
+  float
+  NextGaussian(float mean, float std_dev);
+
+  float
+  NextGaussian(float mean, float std_dev, const Range& r);
 
   template <typename T>
   int
@@ -47,10 +57,12 @@ class Random
     return NextRange<T>(0, max);
   }
 
+  // todo: remove color/palette functions in favor of vector of defined colors
   Color
   NextColor();
   DawnbringerPalette
   NextDawnbringerPalette();
+
   Rgb
   NextRgb();
   Rgb
@@ -67,10 +79,20 @@ class Random
   vec2i
   NextPoint(const Recti& rect);
 
+  vec2f
+  PointOnUnitCircle_CenterFocused();
+
+  vec2f
+  PointOnUnitCircle_Uniform();
+
+  // todo: check if this is uniform or not
+  // http://xdpixel.com/random-points-in-a-circle/
   PolarCoord
   NextPolar();
+
   vec3f::Unit
   NextUnit3();
+
   quatf
   NextQuatf();
 
@@ -87,6 +109,7 @@ class Random
     {
       return v[0];
     }
+    // todo: fix this, use next range instead
     return v[NextInteger() % size];
   }
 

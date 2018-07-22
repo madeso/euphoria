@@ -70,14 +70,51 @@ Random::NextInteger()
 float
 Random::NextFloat01()
 {
-  return static_cast<float>(NextInteger()) /
-         std::numeric_limits<uint32>().max();
+  return static_cast<float>(NextInteger()) / std::numeric_limits<uint32>::max();
 }
 
 float
 Random::Next(const Range& range)
 {
   return range.From01(NextFloat01());
+}
+
+float
+Random::NextGaussianFloat01()
+{
+  // gaussian source:
+  // https://www.alanzucconi.com/2015/09/16/how-to-sample-from-a-gaussian-distribution/
+  float v1 = 0;
+  float v2 = 0;
+  float s  = 0;
+  do
+  {
+    static const auto r = Range{-1, 1};
+    v1                  = Next(r);
+    v2                  = Next(r);
+    s                   = v1 * v1 + v2 * v2;
+  } while(s >= 1.0f || IsZero(s));
+
+  s = Sqrt((-2.0f * Log(s)) / s);
+
+  return v1 * s;
+}
+
+float
+Random::NextGaussian(float mean, float std_dev)
+{
+  return mean + NextGaussianFloat01() * std_dev;
+}
+
+float
+Random::NextGaussian(float mean, float std_dev, const Range& r)
+{
+  float x = 0;
+  do
+  {
+    x = NextGaussian(mean, std_dev);
+  } while(!r.IsWithin(x));
+  return x;
 }
 
 Color
@@ -96,7 +133,10 @@ Random::NextDawnbringerPalette()
 Rgb
 Random::NextRgb()
 {
-  return Rgb{NextFloat01(), NextFloat01(), NextFloat01()};
+  const auto r = NextFloat01();
+  const auto g = NextFloat01();
+  const auto b = NextFloat01();
+  return Rgb{r, g, b};
 }
 
 Rgb
@@ -131,6 +171,25 @@ Random::NextPoint(const Recti& rect)
   const int x = NextRange(rect.GetWidth());
   const int y = NextRange(rect.GetHeight());
   return rect.GetPositionFromBottomLeft(vec2i{x, y});
+}
+
+vec2f
+Random::PointOnUnitCircle_CenterFocused()
+{
+  const auto angle = Angle::FromPercentOf360(NextFloat01());
+  const auto dist  = NextFloat01() * 0.5f;
+
+  return vec2f{dist * Cos(angle) + 0.5f, dist * Sin(angle) + 0.5f};
+}
+
+vec2f
+Random::PointOnUnitCircle_Uniform()
+{
+  // http://xdpixel.com/random-points-in-a-circle/
+  const auto angle = Angle::FromPercentOf360(NextFloat01());
+  const auto dist  = Sqrt(NextFloat01()) * 0.5f;
+
+  return vec2f{dist * Cos(angle) + 0.5f, dist * Sin(angle) + 0.5f};
 }
 
 PolarCoord
