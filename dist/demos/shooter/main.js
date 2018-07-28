@@ -17,6 +17,7 @@ Types = {
   Sprite: Registry.GetSpriteId(),
   Player: Registry.New("Player"),
   MoveUp: Registry.New("MoveUp"),
+  Star: Registry.New("Star"),
   DestroyOutside: Registry.New("DestroyOutside"),
   TimeOut: Registry.New("TimeOut", function() {
     c = {};
@@ -24,6 +25,42 @@ Types = {
     return c;
   })
 };
+
+// todo: create some on init callback, to spawn the stars
+// or enter level callback
+// or init callback on entity that is directly destroyed, or keep spawning points
+// move sprite anchor to config
+
+StarRandom = Math.NewRandom();
+
+// todo: make sure init runs as expected
+Systems.OnInit("place star", [Types.Pos2, Types.Star], function(entity){
+  var vec = Registry.GetPosition2vec(entity);
+  var p = StarRandom.NextPoint2(Camera.GetRect());
+  vec.x = p.x;
+  vec.y = p.y;
+});
+
+Systems.AddUpdate("random outside", function(dt) {
+    var ents = Registry.Entities([Types.Sprite, Types.Star]);
+    ents.forEach(function(entity) {
+        var vec = Registry.GetPosition2vec(entity);
+        if(vec != null)
+        {
+            var speed = 250;
+            vec.y = vec.y - dt * speed;
+            if(vec.y < 0)
+            {
+              // todo: move up based on sprite size and screen size
+              vec.y += 100;
+            }
+        }
+    });
+});
+
+
+// todo: new update function
+// Systems.OnUpdate("move up", [Types.Pos2, Types.MoveUp], function(dt, entities) { });
 
 time = 0;
 bark = 0;

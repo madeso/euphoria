@@ -4,6 +4,7 @@
 
 #include "core/componentsystem.h"
 #include "core/duk.h"
+#include "core/random.h"
 
 #include "engine/components.h"
 #include "engine/input.h"
@@ -38,6 +39,53 @@ class DukUpdateSystem : public ComponentSystem, public ComponentSystemUpdate
   }
 };
 
+class DukInitSystem : public ComponentSystem, public ComponentSystemInit
+{
+  EntReg*                  reg;
+  std::vector<ComponentId> types;
+  FunctionVar              func;
+  Duk*                     duk;
+
+ public:
+  DukInitSystem(
+      const std::string&              name,
+      EntReg*                         r,
+      const std::vector<ComponentId>& t,
+      FunctionVar                     f,
+      Duk*                            d)
+      : ComponentSystem(name)
+      , reg(r)
+      , types(t)
+      , func(f)
+      , duk(d)
+  {
+  }
+
+  void
+  OnAdd(EntityId entity) const override
+  {
+    ASSERT(duk);
+    ASSERT(reg);
+    ASSERT(!types.empty());
+
+    for(const auto& type : types)
+    {
+      const bool has_component = reg->GetComponent(entity, type) != nullptr;
+      if(!has_component)
+      {
+        return;
+      }
+    }
+    func.VoidCall(duk->AsContext(), entity);
+  }
+
+  void
+  RegisterCallbacks(Systems* systems) override
+  {
+    systems->init.Add(this);
+  }
+};
+
 class DukSystems
 {
  public:
@@ -54,6 +102,17 @@ class DukSystems
   AddUpdate(const std::string& name, FunctionVar func)
   {
     systems->AddAndRegister(std::make_shared<DukUpdateSystem>(name, func, duk));
+  }
+
+  void
+  AddInit(
+      const std::string&              name,
+      EntReg*                         reg,
+      const std::vector<ComponentId>& types,
+      FunctionVar                     func)
+  {
+    systems->AddAndRegister(
+        std::make_shared<DukInitSystem>(name, reg, types, func, duk));
   }
 };
 
@@ -81,15 +140,37 @@ struct DukIntegrationPimpl
   {
     duk->BindObject(
         "Systems",
+        BindObject()
+            .AddFunction(
+                "AddUpdate",
+                Bind{}.bind<std::string, FunctionVar>(
+                    [&](Context* ctx, const std::string& name, FunctionVar func)
+                        -> int {
+                      func.StoreReference(ctx);
+                      systems.AddUpdate(name, func);
+                      return ctx->ReturnVoid();
+                    }))
+
+            .AddFunction(
+                "OnInit",
+                Bind{}.bind<std::string, std::vector<ComponentId>, FunctionVar>(
+                    [&](Context*                        ctx,
+                        const std::string&              name,
+                        const std::vector<ComponentId>& types,
+                        FunctionVar                     func) -> int {
+                      func.StoreReference(ctx);
+                      systems.AddInit(name, &world->reg, types, func);
+                      return ctx->ReturnVoid();
+                    }))
+
+            );
+
+    duk->BindObject(
+        "Math",
         BindObject().AddFunction(
-            "AddUpdate",
-            Bind{}.bind<std::string, FunctionVar>(
-                [&](Context* ctx, const std::string& name, FunctionVar func)
-                    -> int {
-                  func.StoreReference(ctx);
-                  systems.AddUpdate(name, func);
-                  return ctx->ReturnVoid();
-                })));
+            "NewRandom", Bind{}.bind<>([&](Context* ctx) -> int {
+              return ctx->ReturnObject(std::make_shared<Random>());
+            })));
 
     duk->BindObject(
         "Templates",
@@ -112,7 +193,7 @@ struct DukIntegrationPimpl
     duk->BindObject(
         "Camera",
         BindObject().AddFunction(
-            "GetRect", Bind{}.bind<>([&, duk](Context* ctx) -> int {
+            "GetRect", Bind{}.bind<>([&](Context* ctx) -> int {
               return ctx->ReturnFreeObject(&camera->screen);
             })));
 
@@ -266,6 +347,29 @@ struct DukIntegrationPimpl
                 [](Context* ctx, const Rectf& lhs, const Rectf& rhs) -> int {
                   return ctx->ReturnBool(lhs.ContainsExclusive(rhs));
                 })));
+
+    duk->BindClass(
+        "Random",
+        BindClass<Random>()
+            .AddMethod(
+                "NextFloat01",
+                Bind{}.bind<Random>([](Context* ctx, Random& rnd) -> int {
+                  return ctx->ReturnNumber(rnd.NextFloat01());
+                }))
+            .AddMethod(
+                "NextBool",
+                Bind{}.bind<Random>([](Context* ctx, Random& rnd) -> int {
+                  return ctx->ReturnBool(rnd.NextBool());
+                }))
+            .AddMethod(
+                "NextPoint2",
+                Bind{}.bind<Random, Rectf>(
+                    [](Context* ctx, Random& rnd, const Rectf& r) -> int {
+                      return ctx->ReturnObject(
+                          std::make_shared<vec2f>(rnd.NextPoint(r)));
+                    }))
+
+            );
 
     //    dukglue_register_method(duk->ctx, &CPosition2::GetPosition, "GetPos");
     //    dukglue_register_method(duk->ctx, &CPosition2::SetPosition, "SetPos");

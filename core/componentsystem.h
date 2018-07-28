@@ -51,6 +51,13 @@ class ComponentSystemUpdate
   Update(EntReg* reg, float dt) const = 0;
 };
 
+class ComponentSystemInit
+{
+ public:
+  virtual void
+  OnAdd(EntityId entity) const = 0;
+};
+
 class ComponentSystemSpriteDraw
 {
  public:
@@ -79,6 +86,13 @@ class ComponentSystemUpdateStore : public SystemStore<ComponentSystemUpdate>
   Update(EntReg* reg, float dt) const;
 };
 
+class ComponentSystemInitStore : public SystemStore<ComponentSystemInit>
+{
+ public:
+  void
+  Init(EntReg* reg, float dt) const;
+};
+
 class ComponentSystemSpriteDrawStore
     : public SystemStore<ComponentSystemSpriteDraw>
 {
@@ -98,6 +112,7 @@ class Systems
 
   // system references for various global callbacks
   ComponentSystemUpdateStore     update;
+  ComponentSystemInitStore       init;
   ComponentSystemSpriteDrawStore spriteDraw;
 };
 
