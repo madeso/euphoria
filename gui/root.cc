@@ -53,6 +53,9 @@ Root::Render(SpriteRenderer* sp) const
 
   if(image)
   {
-    sp->DrawSprite(*image, state_.mouse, DrawData{}.Anchor(vec2f{0, 1}));
+    sp->DrawSprite(
+        *image,
+        Rectf::FromPositionAnchorWidthAndHeight(
+            state_.mouse, vec2f{0, 1}, image->GetWidth(), image->GetHeight()));
   }
 }
