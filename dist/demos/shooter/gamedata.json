@@ -25,6 +25,11 @@
       {"custom": {"name": "MoveUp"}},
       {"custom": {"name": "TimeOut"}},
       {"custom": {"name": "DestroyOutside"}}
+    ]},
+    {"name": "star", "components": [
+      {"position": {"x": 50, "y": 50}},
+      {"sprite": {"path": "starSmall.png"}},
+      {"custom": {"name": "Star"}}
     ]}
   ]
 }

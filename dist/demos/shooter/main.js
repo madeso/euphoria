@@ -47,12 +47,15 @@ Systems.AddUpdate("random outside", function(dt) {
         var vec = Registry.GetPosition2vec(entity);
         if(vec != null)
         {
-            var speed = 250;
+            var speed = 350;
             vec.y = vec.y - dt * speed;
             if(vec.y < 0)
             {
+              // todo: generate x based on width of screen
+              var p = StarRandom.NextPoint2(Camera.GetRect());
+              vec.x = p.x;
               // todo: move up based on sprite size and screen size
-              vec.y += 100;
+              vec.y += 800;
             }
         }
     });
