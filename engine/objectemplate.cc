@@ -168,6 +168,9 @@ ObjectTemplate::CreateObject(const ObjectCreationArgs& args)
     c->CreateComponent(args, ent);
   }
 
+  // todo: run init function here
+  args.world->reg.PostCreate(ent);
+
   return ent;
 }
 

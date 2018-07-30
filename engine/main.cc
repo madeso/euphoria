@@ -249,15 +249,6 @@ main(int argc, char** argv)
   LoadTemplates(
       gamedata, &templates, &integration.Registry(), &cache, &components);
 
-  LoadWorld(
-      engine.file_system.get(),
-      &world,
-      &integration.Registry(),
-      "world.json",
-      &templates,
-      duk.AsContext(),
-      &duk);
-
   Use(&shader);
   shader.SetUniform(shader.GetUniform("image"), 0);
 
@@ -266,6 +257,15 @@ main(int argc, char** argv)
 
   viewport_handler.SetSize(
       GetViewport(gamedata.viewport, window_width, window_height));
+
+  LoadWorld(
+      engine.file_system.get(),
+      &world,
+      &integration.Registry(),
+      "world.json",
+      &templates,
+      duk.AsContext(),
+      &duk);
 
   Uint64 now  = SDL_GetPerformanceCounter();
   Uint64 last = 0;

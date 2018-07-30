@@ -41,7 +41,7 @@ Systems.OnInit("place star", [Types.Pos2, Types.Star], function(entity){
   vec.y = p.y;
 });
 
-Systems.AddUpdate("random outside", function(dt) {
+Systems.AddUpdate("star movement", function(dt) {
     var ents = Registry.Entities([Types.Sprite, Types.Star]);
     ents.forEach(function(entity) {
         var vec = Registry.GetPosition2vec(entity);
@@ -55,7 +55,7 @@ Systems.AddUpdate("random outside", function(dt) {
               var p = StarRandom.NextPoint2(Camera.GetRect());
               vec.x = p.x;
               // todo: move up based on sprite size and screen size
-              vec.y += 800;
+              vec.y += 300;
             }
         }
     });

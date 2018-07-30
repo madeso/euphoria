@@ -110,6 +110,23 @@ struct RegistryImpl
     }
   }
 
+  std::vector<std::shared_ptr<RegistryEntityCallback>> callbacks;
+
+  void
+  PostCreate(EntityId id)
+  {
+    for(auto& c : callbacks)
+    {
+      c->OnCreated(id);
+    }
+  }
+
+  void
+  AddCallback(std::shared_ptr<RegistryEntityCallback> callback)
+  {
+    callbacks.emplace_back(callback);
+  }
+
   void
   SetAlive(EntityId id)
   {
@@ -250,6 +267,18 @@ EntityId
 Registry::Create()
 {
   return impl->Create();
+}
+
+void
+Registry::PostCreate(EntityId id)
+{
+  impl->PostCreate(id);
+}
+
+void
+Registry::AddCallback(std::shared_ptr<RegistryEntityCallback> callback)
+{
+  impl->AddCallback(callback);
 }
 
 bool

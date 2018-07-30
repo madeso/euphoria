@@ -90,7 +90,7 @@ class ComponentSystemInitStore : public SystemStore<ComponentSystemInit>
 {
  public:
   void
-  Init(EntReg* reg, float dt) const;
+  OnAdd(EntityId ent) const;
 };
 
 class ComponentSystemSpriteDrawStore
@@ -122,7 +122,7 @@ class World
   EntReg   reg;
   Systems* systems;
 
-  World(Systems* sys);
+  explicit World(Systems* sys);
 
   void
   Update(float dt);

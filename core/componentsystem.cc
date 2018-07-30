@@ -21,6 +21,15 @@ ComponentSystemUpdateStore::Update(EntReg* reg, float dt) const
 }
 
 void
+ComponentSystemInitStore::OnAdd(EntityId ent) const
+{
+  for(const auto s : systems)
+  {
+    s->OnAdd(ent);
+  }
+}
+
+void
 ComponentSystemSpriteDrawStore::Draw(
     EntReg* reg, SpriteRenderer* renderer) const
 {
@@ -40,6 +49,8 @@ Systems::AddAndRegister(std::shared_ptr<ComponentSystem> system)
 World::World(Systems* sys)
     : systems(sys)
 {
+  reg.AddCallback(MakeRegistryEntityCallback(
+      [this](EntityId id) { systems->init.OnAdd(id); }));
 }
 
 void

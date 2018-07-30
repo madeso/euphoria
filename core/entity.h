@@ -53,6 +53,41 @@ class Component
 
 ////////////////////////////////////////////////////////////////////////////////
 
+struct RegistryEntityCallback
+{
+ public:
+  virtual ~RegistryEntityCallback() = default;
+
+  virtual void
+  OnCreated(EntityId ent) = 0;
+};
+
+template <typename Func>
+struct RegistryEntityCallbackFunction : public RegistryEntityCallback
+{
+  Func func;
+
+  explicit RegistryEntityCallbackFunction(Func f)
+      : func(f)
+  {
+  }
+
+  void
+  OnCreated(EntityId ent) override
+  {
+    func(ent);
+  }
+};
+
+template <typename Func>
+std::shared_ptr<RegistryEntityCallback>
+MakeRegistryEntityCallback(Func f)
+{
+  return std::make_shared<RegistryEntityCallbackFunction<Func>>(f);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
 struct RegistryImpl;
 class Registry
 {
@@ -62,6 +97,12 @@ class Registry
 
   EntityId
   Create();
+
+  void
+  PostCreate(EntityId id);
+
+  void
+  AddCallback(std::shared_ptr<RegistryEntityCallback> callback);
 
   bool
   IsAlive(EntityId id) const;
