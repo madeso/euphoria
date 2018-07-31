@@ -29,12 +29,12 @@
     {"name": "starSmall", "components": [
       {"position": {"x": 50, "y": 50}},
       {"sprite": {"path": "starSmall.png"}},
-      {"custom": {"name": "Star", "arguments": []}}
+      {"custom": {"name": "Star", "arguments": [{"name": "speed", "number": {"value": 100}}]}}
     ]},
     {"name": "starBig", "components": [
       {"position": {"x": 50, "y": 50}},
       {"sprite": {"path": "starBig.png"}},
-      {"custom": {"name": "Star", "arguments": []}}
+      {"custom": {"name": "Star", "arguments": [{"name": "speed", "number": {"value": 100}}]}}
     ]}
   ]
 }
