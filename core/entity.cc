@@ -59,7 +59,15 @@ struct ComponentList
   std::shared_ptr<Component>
   GetComponent(EntityId entity)
   {
-    return components[entity];
+    auto found = components.find(entity);
+    if(found != components.end())
+    {
+      return found->second;
+    }
+    else
+    {
+      return nullptr;
+    }
   }
 
   void
