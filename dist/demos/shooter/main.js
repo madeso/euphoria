@@ -55,7 +55,7 @@ Systems.AddUpdate("star movement", function(dt) {
               var p = StarRandom.NextPoint2(Camera.GetRect());
               vec.x = p.x;
               // todo: move up based on sprite size and screen size
-              vec.y += 300;
+              vec.y += 800;
             }
         }
     });
@@ -113,7 +113,6 @@ Systems.AddUpdate("destroy outside", function (dt) {
       var r = sp.GetRect(p);
       if(!cam.Contains(r))
       {
-        print("Removed outside");
         Registry.DestroyEntity(entity);
       }
     }
