@@ -17,7 +17,11 @@ Types = {
   Sprite: Registry.GetSpriteId(),
   Player: Registry.New("Player"),
   MoveUp: Registry.New("MoveUp"),
-  Star: Registry.New("Star"),
+  Star: Registry.New("Star", function() {
+    c = {};
+    c.speed = 100;
+    return c;
+  }),
   DestroyOutside: Registry.New("DestroyOutside"),
   TimeOut: Registry.New("TimeOut", function() {
     c = {};
@@ -43,11 +47,11 @@ Systems.OnInit("place star", [Types.Pos2, Types.Star], function(entity){
 Systems.AddUpdate("star movement", function(dt) {
     var ents = Registry.Entities([Types.Sprite, Types.Star]);
     ents.forEach(function(entity) {
+        var star = Registry.Get(entity, Types.Star);
         var vec = Registry.GetPosition2vec(entity);
         if(vec != null)
         {
-            var speed = 350;
-            vec.y = vec.y - dt * speed;
+            vec.y = vec.y - dt * star.speed;
             if(vec.y < 0)
             {
               vec.x = StarRandom.NextRangeFloat(Camera.GetRect().GetWidth());
