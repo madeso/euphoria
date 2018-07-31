@@ -1,16 +1,18 @@
 {
   "objects": [
-    {"template_name": "star", "properties": []},
-    {"template_name": "star", "properties": []},
-    {"template_name": "star", "properties": []},
-    {"template_name": "star", "properties": []},
-    {"template_name": "star", "properties": []},
-    {"template_name": "star", "properties": []},
-    {"template_name": "star", "properties": []},
-    {"template_name": "star", "properties": []},
-    {"template_name": "star", "properties": []},
-    {"template_name": "star", "properties": []},
-    {"template_name": "star", "properties": []},
+    {"template_name": "starBig", "properties": []},
+    {"template_name": "starBig", "properties": []},
+    {"template_name": "starBig", "properties": []},
+    {"template_name": "starBig", "properties": []},
+    {"template_name": "starBig", "properties": []},
+    {"template_name": "starBig", "properties": []},
+    {"template_name": "starBig", "properties": []},
+    {"template_name": "starSmall", "properties": []},
+    {"template_name": "starSmall", "properties": []},
+    {"template_name": "starSmall", "properties": []},
+    {"template_name": "starSmall", "properties": []},
+    {"template_name": "starSmall", "properties": []},
+    {"template_name": "starSmall", "properties": []},
     {"template_name": "player", "properties": []}
   ]
 }

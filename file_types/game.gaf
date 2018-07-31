@@ -13,10 +13,23 @@ struct Sprite
   string path;
 }
 
+struct VarNumber
+{
+  float number;
+}
+
+struct Var
+{
+  string name;
+
+  // only one is valid
+  VarNumber? number;
+}
+
 struct Custom
 {
   string name;
-  // todo: add name value bindings?
+  Var arguments[];
 }
 
 struct Component

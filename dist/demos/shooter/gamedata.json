@@ -17,19 +17,24 @@
     {"name": "player", "components": [
       {"position": {"x": 200, "y": 40}},
       {"sprite": {"path": "playerShip1_blue.png"}},
-      {"custom": {"name": "Player"}}
+      {"custom": {"name": "Player", "arguments": []}}
     ]},
     {"name": "shot", "components": [
       {"position": {"x": 0, "y": 0}},
       {"sprite": {"path": "laserBlue07.png"}},
-      {"custom": {"name": "MoveUp"}},
-      {"custom": {"name": "TimeOut"}},
-      {"custom": {"name": "DestroyOutside"}}
+      {"custom": {"name": "MoveUp", "arguments": []}},
+      {"custom": {"name": "TimeOut", "arguments": []}},
+      {"custom": {"name": "DestroyOutside", "arguments": []}}
     ]},
-    {"name": "star", "components": [
+    {"name": "starSmall", "components": [
       {"position": {"x": 50, "y": 50}},
       {"sprite": {"path": "starSmall.png"}},
-      {"custom": {"name": "Star"}}
+      {"custom": {"name": "Star", "arguments": []}}
+    ]},
+    {"name": "starBig", "components": [
+      {"position": {"x": 50, "y": 50}},
+      {"sprite": {"path": "starBig.png"}},
+      {"custom": {"name": "Star", "arguments": []}}
     ]}
   ]
 }
