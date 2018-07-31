@@ -33,7 +33,6 @@ Types = {
 
 StarRandom = Math.NewRandom();
 
-// todo: make sure init runs as expected
 Systems.OnInit("place star", [Types.Pos2, Types.Star], function(entity){
   var vec = Registry.GetPosition2vec(entity);
   var p = StarRandom.NextPoint2(Camera.GetRect());
