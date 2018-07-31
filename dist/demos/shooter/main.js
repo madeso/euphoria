@@ -50,11 +50,8 @@ Systems.AddUpdate("star movement", function(dt) {
             vec.y = vec.y - dt * speed;
             if(vec.y < 0)
             {
-              // todo: generate x based on width of screen
-              var p = StarRandom.NextPoint2(Camera.GetRect());
-              vec.x = p.x;
-              // todo: move up based on sprite size and screen size
-              vec.y += 800;
+              vec.x = StarRandom.NextRangeFloat(Camera.GetRect().GetWidth());
+              vec.y += Camera.GetRect().GetHeight();
             }
         }
     });

@@ -341,11 +341,23 @@ struct DukIntegrationPimpl
 
     duk->BindClass(
         "Rectf",
-        BindClass<Rectf>().AddMethod(
-            "Contains",
-            Bind{}.bind<Rectf, Rectf>(
-                [](Context* ctx, const Rectf& lhs, const Rectf& rhs) -> int {
-                  return ctx->ReturnBool(lhs.ContainsExclusive(rhs));
+        BindClass<Rectf>()
+            .AddMethod(
+                "Contains",
+                Bind{}.bind<Rectf, Rectf>(
+                    [](Context* ctx, const Rectf& lhs, const Rectf& rhs)
+                        -> int {
+                      return ctx->ReturnBool(lhs.ContainsExclusive(rhs));
+                    }))
+            .AddMethod(
+                "GetHeight",
+                Bind{}.bind<Rectf>([](Context* ctx, const Rectf& r) -> int {
+                  return ctx->ReturnNumber(r.GetHeight());
+                }))
+            .AddMethod(
+                "GetWidth",
+                Bind{}.bind<Rectf>([](Context* ctx, const Rectf& r) -> int {
+                  return ctx->ReturnNumber(r.GetWidth());
                 })));
 
     duk->BindClass(
@@ -356,6 +368,12 @@ struct DukIntegrationPimpl
                 Bind{}.bind<Random>([](Context* ctx, Random& rnd) -> int {
                   return ctx->ReturnNumber(rnd.NextFloat01());
                 }))
+            .AddMethod(
+                "NextRangeFloat",
+                Bind{}.bind<Random, float>(
+                    [](Context* ctx, Random& rnd, float f) -> int {
+                      return ctx->ReturnNumber(rnd.NextRange(f));
+                    }))
             .AddMethod(
                 "NextBool",
                 Bind{}.bind<Random>([](Context* ctx, Random& rnd) -> int {
