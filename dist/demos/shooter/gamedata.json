@@ -1,5 +1,6 @@
 {
   "title": "Space Shooter",
+  "clear_color": {"hex": "#5E3F6B"},
   "viewport": {
     "type": "FitWithBlackBars",
     "width": 800,

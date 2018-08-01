@@ -68,9 +68,16 @@ struct KeyBind
 
 ////////////////////////////////////////////////////////////////////////////////
 
+struct Color
+{
+  // todo: change to a rgb property
+  string? hex;
+}
+
 struct Game
 {
   string title;
+  Color? clear_color;
   Viewport viewport?;
   KeyBind binds[];
   Template templates[];

@@ -1,6 +1,7 @@
 #include "core/rgb.h"
 #include "core/interpolate.h"
 #include "core/numeric.h"
+#include "core/stringutils.h"
 #include <iostream>
 #include <map>
 
@@ -72,7 +73,7 @@ Rgbai::Rgbai(const Rgba& rgba)
 
 ////////////////////////////////////////////////////////////////////////////////
 
-Rgb::Rgb(const float red, const float green, const float blue)
+Rgb::Rgb(float red, float green, float blue)
     : r(red)
     , g(green)
     , b(blue)
@@ -107,21 +108,28 @@ Rgb::Rgb(const Rgbai& rgb)
 }
 
 Rgb::Rgb(Color color)
+    : Rgb(Rgb::FromHex(ToColorHex(color)))
 {
-  SetFromHexColor(ToColorHex(color));
 }
 
 Rgb::Rgb(DawnbringerPalette color)
+    : Rgb(Rgb::FromHex(ToColorHex(color)))
 {
-  SetFromHexColor(ToColorHex(color));
 }
 
-void
-Rgb::SetFromHexColor(int hex)
+Rgb
+Rgb::FromHex(unsigned int hex)
 {
-  b = colorutil::ToFloat(colorutil::GetBlue(hex));
-  g = colorutil::ToFloat(colorutil::GetGreen(hex));
-  r = colorutil::ToFloat(colorutil::GetRed(hex));
+  const auto b = colorutil::ToFloat(colorutil::GetBlue(hex));
+  const auto g = colorutil::ToFloat(colorutil::GetGreen(hex));
+  const auto r = colorutil::ToFloat(colorutil::GetRed(hex));
+  return Rgb{r, g, b};
+}
+
+Rgb
+Rgb::FromHex(const std::string& hex)
+{
+  return Rgb::FromHex(colorutil::FromStringToHex(hex));
 }
 
 
@@ -231,5 +239,24 @@ namespace colorutil
   ToUnsignedChar(float f)
   {
     return static_cast<unsigned char>(f * 255.0f);
+  }
+
+  unsigned int
+  FromStringToHex(const std::string& str)
+  {
+    auto s = Trim(str);
+    ASSERT(!s.empty());
+    s = s[0] == '#' ? ToLower(s.substr(1)) : ToLower(s);
+    if(s.length() == 3)
+    {
+      s = Str() << s[0] << s[0] << s[1] << s[1] << s[2] << s[2];
+    }
+    if(s.length() != 6)
+      return 0;
+    std::istringstream ss{s};
+    unsigned int       hex = 0;
+    ss >> std::hex >> hex;
+    ASSERTX(!ss.fail(), s, str, hex);
+    return hex;
   }
 }  // namespace colorutil

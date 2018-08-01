@@ -170,6 +170,23 @@ GetViewport(const game::Viewport& vp, int window_width, int window_height)
   }
 }
 
+Rgb
+GetColor(std::shared_ptr<game::Color> c)
+{
+  if(c == nullptr)
+  {
+    return Color::DarkslateGray;
+  }
+
+  if(c->hex != nullptr)
+  {
+    return Rgb::FromHex(*c->hex);
+  }
+
+  LOG_ERROR("Unable to parse color");
+  return Color::CornflowerBlue;
+}
+
 // engine
 
 int
@@ -186,7 +203,8 @@ main(int argc, char** argv)
 
   TextureCache cache{engine.file_system.get()};
 
-  game::Game gamedata = LoadGameData(engine.file_system.get());
+  game::Game gamedata    = LoadGameData(engine.file_system.get());
+  const auto clear_color = GetColor(gamedata.clear_color);
 
   int window_width  = 800;
   int window_height = 600;
@@ -396,7 +414,7 @@ main(int argc, char** argv)
     }
     else
     {
-      engine.init->ClearScreen(Color::DarkslateGray);
+      engine.init->ClearScreen(clear_color);
       world.Draw(&renderer);
     }
 

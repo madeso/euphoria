@@ -185,9 +185,10 @@ namespace color
   ListAllColorNames();
 }
 
-int
+unsigned int
 ToColorHex(Color color);
-int
+
+unsigned int
 ToColorHex(DawnbringerPalette color);
 
 #endif  // CORE_NAMED_COLORS_H

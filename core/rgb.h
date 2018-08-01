@@ -56,16 +56,20 @@ class Rgbai
 class Rgb
 {
  public:
-  Rgb(const float red, const float green, const float blue);
+  Rgb(float red, float green, float blue);
   explicit Rgb(const float gray);
   explicit Rgb(const Rgbi& rgb);
   explicit Rgb(const Rgba& rgb);
   explicit Rgb(const Rgbai& rgb);
+
   Rgb(Color color);
   Rgb(DawnbringerPalette color);
 
-  void
-  SetFromHexColor(int hex);
+  static Rgb
+  FromHex(unsigned int hex);
+
+  static Rgb
+  FromHex(const std::string& hex);
 
   float r;
   float g;
@@ -142,6 +146,9 @@ namespace colorutil
 
   unsigned char
   ToUnsignedChar(float f);
+
+  unsigned int
+  FromStringToHex(const std::string& str);
 }
 
 #endif  // CORE_RGB_H

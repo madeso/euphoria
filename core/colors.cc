@@ -200,7 +200,7 @@ namespace color
 
 #define HEXCODE(x) x
 
-int
+unsigned int
 ToColorHex(Color color)
 {
   switch(color)
@@ -491,7 +491,7 @@ ToColorHex(Color color)
   }
 }
 
-int
+unsigned int
 ToColorHex(DawnbringerPalette color)
 {
   switch(color)
