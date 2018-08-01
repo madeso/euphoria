@@ -86,20 +86,37 @@ class SpriteComponentCreator : public ComponentCreator
 class CustomComponentCreator : public ComponentCreator
 {
  public:
-  ComponentId comp;
+  ComponentId     comp;
+  CustomArguments arguments;
 
   static std::shared_ptr<CustomComponentCreator>
-  Create(ComponentId id)
+  Create(
+      const std::string&            name,
+      ComponentId                   id,
+      const std::vector<game::Var>& arguments)
   {
     auto ptr  = std::make_shared<CustomComponentCreator>();
     ptr->comp = id;
+    for(const auto& a : arguments)
+    {
+      if(a.number != nullptr)
+      {
+        ptr->arguments.numbers[a.name] = a.number->value;
+      }
+      else
+      {
+        LOG_ERROR(
+            "Invalid type for custom argument " << a.name << " for type "
+                                                << name);
+      }
+    }
     return ptr;
   }
 
   void
   CreateComponent(const ObjectCreationArgs& args, EntityId ent) override
   {
-    auto val = args.reg->CreateComponent(comp, args.ctx);
+    auto val = args.reg->CreateComponent(comp, args.ctx, arguments);
     val.StoreReference(args.duk);
     args.reg->SetProperty(ent, comp, val);
   }
@@ -128,7 +145,7 @@ CreateCreator(
     ComponentId id;
     if(reg->GetCustomComponentByName(s.name, &id))
     {
-      return CustomComponentCreator::Create(id);
+      return CustomComponentCreator::Create(s.name, id, s.arguments);
     }
     else
     {

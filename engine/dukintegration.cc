@@ -197,6 +197,24 @@ struct DukIntegrationPimpl
               return ctx->ReturnFreeObject(&camera->screen);
             })));
 
+    duk->BindClass(
+        "CustomArguments",
+        BindClass<CustomArguments>().AddMethod(
+            "GetNumber",
+            Bind{}.bind<CustomArguments, std::string>(
+                [](Context*               ctx,
+                   const CustomArguments& args,
+                   const std::string&     name) -> int {
+                  const auto f = args.numbers.find(name);
+                  if(f == args.numbers.end())
+                  {
+                    return ctx->ReturnNumber(0);
+                  }
+                  else
+                  {
+                    return ctx->ReturnNumber(f->second);
+                  }
+                })));
 
     duk->BindObject(
         "Registry",

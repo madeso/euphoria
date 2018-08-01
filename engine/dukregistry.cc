@@ -83,7 +83,8 @@ DukRegistry::SetProperty(EntityId ent, ComponentId comp, DukValue value)
 }
 
 DukValue
-DukRegistry::CreateComponent(ComponentId comp, Context* ctx)
+DukRegistry::CreateComponent(
+    ComponentId comp, Context* ctx, const CustomArguments& arguments)
 {
   auto res = scriptComponents.find(comp);
   ASSERT(res != scriptComponents.end());
@@ -97,7 +98,7 @@ DukRegistry::CreateComponent(ComponentId comp, Context* ctx)
     return DukValue{};
   }
 
-  auto val = res->second.Call<DukValue>(ctx);
+  auto val = res->second.Call<DukValue>(ctx, arguments);
   ASSERT(val.IsValid());
   // todo: need to increase refcount on val here like functions, right?
   return val;

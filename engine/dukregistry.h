@@ -8,7 +8,13 @@
 #include "engine/components.h"
 
 #include <map>
+#include <string>
 #include <memory>
+
+struct CustomArguments
+{
+  std::map<std::string, float> numbers;
+};
 
 class DukRegistry
 {
@@ -31,7 +37,8 @@ class DukRegistry
   SetProperty(EntityId ent, ComponentId comp, DukValue value);
 
   DukValue
-  CreateComponent(ComponentId comp, Context* ctx);
+  CreateComponent(
+      ComponentId comp, Context* ctx, const CustomArguments& arguments);
 
   void
   DestroyEntity(EntityId id);

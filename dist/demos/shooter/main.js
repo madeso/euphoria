@@ -12,14 +12,16 @@ JustPressed = function(key) {
   return IsDown(key) && !WasDown(key);
 };
 
+StarRandom = Math.NewRandom();
+
 Types = {
   Pos2: Registry.GetPosition2Id(),
   Sprite: Registry.GetSpriteId(),
   Player: Registry.New("Player"),
   MoveUp: Registry.New("MoveUp"),
-  Star: Registry.New("Star", function() {
+  Star: Registry.New("Star", function(args) {
     c = {};
-    c.speed = 100;
+    c.speed = args.GetNumber("speed") + StarRandom.NextRangeFloat(args.GetNumber("random_boost"));
     return c;
   }),
   DestroyOutside: Registry.New("DestroyOutside"),
@@ -34,8 +36,6 @@ Types = {
 // or enter level callback
 // or init callback on entity that is directly destroyed, or keep spawning points
 // move sprite anchor to config
-
-StarRandom = Math.NewRandom();
 
 Systems.OnInit("place star", [Types.Pos2, Types.Star], function(entity){
   var vec = Registry.GetPosition2vec(entity);
