@@ -818,6 +818,39 @@ class ObjectBinder
 ObjectBinder
 BindObject();
 
+class ReferenceStorage
+{
+ public:
+  explicit ReferenceStorage(duk_context* c);
+
+  using Index = unsigned int;
+
+  ReferenceStorage::Index
+  StoreReference(void* p);
+
+  void
+  ClearReference(Index index);
+
+  void
+  SetReference(void* p, Index index);
+
+ private:
+  duk_context*       ctx;
+  std::vector<Index> free_indices;
+  Index              reference_index = 0;
+};
+
+class StoredReference
+{
+ public:
+  StoredReference(void* ptr, ReferenceStorage* duk);
+  ~StoredReference();
+
+ private:
+  ReferenceStorage*       duk;
+  ReferenceStorage::Index stored_index;
+};
+
 class Duk : private Context
 {
  public:
@@ -856,37 +889,13 @@ class Duk : private Context
   Prototype*
   TypeToProto(size_t id CLASS_ARG(const std::string& name));
 
-  using Index = unsigned int;
-
-  Duk::Index
-  StoreReference(void* p);
-
-  void
-  ClearReference(Index index);
-
-  void
-  SetReference(void* p, Index index);
+  ReferenceStorage references;
 
   std::function<void(const std::string&)> on_print;
 
   std::vector<std::shared_ptr<Function>> functions;
 
   std::map<size_t, std::shared_ptr<Prototype>> classIds;
-
-  std::vector<Index> free_indices;
-  Index              reference_index = 0;
-};
-
-
-class StoredReference
-{
- public:
-  StoredReference(void* ptr, Duk* duk);
-  ~StoredReference();
-
- private:
-  Duk*       duk;
-  Duk::Index stored_index;
 };
 
 
