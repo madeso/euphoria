@@ -26,6 +26,7 @@
 #endif
 
 class Duk;
+class Context;
 
 class Prototype
 {
@@ -63,17 +64,17 @@ class DukValue
 
   void
   SetFreeImpl(
-      Duk*               duk,
+      Context*           ctx,
       const std::string& name,
       void*              object,
       size_t type CLASS_ARG(const std::string& classname));
 
   template <typename T>
   void
-  SetFree(Duk* duk, const std::string& name, T* t)
+  SetFree(Context* ctx, const std::string& name, T* t)
   {
     constexpr auto& cpptype = typeid(T);
-    SetFreeImpl(duk, name, t, cpptype.hash_code() CLASS_ARG(cpptype.name()));
+    SetFreeImpl(ctx, name, t, cpptype.hash_code() CLASS_ARG(cpptype.name()));
   }
 
   void* ptr;

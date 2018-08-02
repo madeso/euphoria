@@ -533,12 +533,12 @@ DukValue::StoreReference(Duk* duk)
 
 void
 DukValue::SetFreeImpl(
-    Duk*               duk,
+    Context*           ctx,
     const std::string& name,
     void*              object,
     size_t type CLASS_ARG(const std::string& classname))
 {
-  Context* ctx = duk->AsContext();
+  ASSERT(ctx);
   duk_push_heapptr(ctx->ctx, ptr);
   ctx->ReturnObject(object, type, nullptr, nullptr CLASS_ARG(classname));
   duk_put_prop_string(ctx->ctx, -2, name.c_str());

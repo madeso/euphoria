@@ -63,7 +63,7 @@ Input::Set(Duk* duk, DukValue container) const
 {
   for(const auto& bind : binds)
   {
-    container.SetFree(duk, bind->name, bind.get());
+    container.SetFree(duk->AsContext(), bind->name, bind.get());
   }
 // todo: figure out how to best do this? class bind? need to work with TS
 #if 0
