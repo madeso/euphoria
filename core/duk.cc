@@ -733,12 +733,6 @@ PlaceFunctionOnStack(
   duk_put_prop_string(ctx, -2, DUK_HIDDEN_SYMBOL("duk"));  // fun
 }
 
-Prototype::Prototype(const std::string& n, void* p)
-    : name(n)
-    , prototype(p)
-{
-}
-
 void
 Duk::BindGlobalFunction(const std::string& name, const Bind& bind)
 {

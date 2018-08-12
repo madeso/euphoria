@@ -16,18 +16,11 @@
 #include "core/duk_types.h"
 #include "core/duk_config.h"
 #include "core/duk_util.h"
+#include "core/duk_prototype.h"
 
 class Duk;
 class Context;
 
-class Prototype
-{
- public:
-  Prototype(const std::string& n, void* p);
-
-  std::string name;
-  void*       prototype;
-};
 
 class StoredReference;
 
