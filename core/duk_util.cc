@@ -8,7 +8,7 @@
 
 #include <vector>
 
-#include "duktape.h"
+#include "duktape/duktape.h"
 
 LOG_SPECIFY_DEFAULT_LOGGER("engine.duk")
 
