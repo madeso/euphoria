@@ -14,16 +14,7 @@
 #include "core/stringmerger.h"
 #include "core/cpp.h"
 #include "core/duk_types.h"
-
-// todo: add this as a option during build
-#if 1
-// provide c++ class name class when its not added to the registry
-#define CLASS_ARG(x) , x
-#define CLASS_NAME(x) x
-#else
-#define CLASS_ARG(x)
-#define CLASS_NAME(x)
-#endif
+#include "core/duk_config.h"
 
 class Duk;
 class Context;
