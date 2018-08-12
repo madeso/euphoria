@@ -201,3 +201,30 @@ CollectDukError(duk_context* ctx, std::string* error)
     *error = "<unknown error>";
   }
 }
+
+void*
+GetVoidFunctionProperty(duk_context* ctx, const char* name)
+{
+  duk_push_current_function(ctx);
+  duk_get_prop_string(ctx, -1, name);
+  void* function = duk_to_pointer(ctx, -1);
+  duk_pop(ctx);  // duk pointer
+  duk_pop(ctx);  // current function
+  return function;
+}
+
+void*
+GetVoidProperty(duk_context* ctx, duk_idx_t index, const char* name)
+{
+  duk_get_prop_string(ctx, index, name);
+  void* ptr = duk_get_pointer(ctx, -1);
+  duk_pop(ctx);
+  return ptr;
+}
+
+void*
+GetHiddenProperty(duk_context* ctx, duk_idx_t index, const std::string& name)
+{
+  const std::string hidden_name = DUK_HIDDEN_SYMBOL("" + name);
+  return GetVoidProperty(ctx, index, hidden_name.c_str());
+}

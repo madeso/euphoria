@@ -15,6 +15,7 @@
 #include "core/cpp.h"
 #include "core/duk_types.h"
 #include "core/duk_config.h"
+#include "core/duk_util.h"
 
 class Duk;
 class Context;
@@ -27,15 +28,6 @@ class Prototype
   std::string name;
   void*       prototype;
 };
-
-void*
-GetVoidFunctionProperty(duk_context* ctx, const char* name);
-
-void*
-GetVoidProperty(duk_context* ctx, duk_idx_t index, const char* name);
-
-void*
-GetHiddenProperty(duk_context* ctx, duk_idx_t index, const std::string& name);
 
 class StoredReference;
 
