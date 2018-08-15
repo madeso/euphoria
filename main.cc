@@ -36,13 +36,14 @@ class App
   {
     if(playing)
     {
-      FillRect(25, 25, 100, 150, 0xFFFFFF);
+      FillRect(25, 25, 100, 150, 0xFFFFFFFF);
     }
   }
 
   void
   OnRender()
   {
+    SetRenderColor(0x000000FF);
     SDL_RenderClear(renderer);
     Draw();
     SDL_RenderPresent(renderer);
@@ -80,10 +81,25 @@ class App
 
  private:
   void
+  SetRenderColor(int color)
+  {
+    const auto r = static_cast<Uint8>((color & 0xFF000000) >> 24);
+    const auto g = static_cast<Uint8>((color & 0x00FF0000) >> 16);
+    const auto b = static_cast<Uint8>((color & 0x0000FF00) >> 8);
+    const auto a = static_cast<Uint8>((color & 0x000000FF));
+    SDL_SetRenderDrawColor(renderer, r, g, b, a);
+  }
+  void
   FillRect(int x, int y, int w, int h, int color)
   {
-    // SDL_Rect rect = {x, y, w, h};
-    // SDL_FillRect(display, &rect, color);
+    SetRenderColor(color);
+
+    SDL_Rect rect;
+    rect.x = x;
+    rect.y = y;
+    rect.w = w;
+    rect.h = h;
+    SDL_RenderFillRect(renderer, &rect);
   }
 
   void
