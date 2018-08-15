@@ -1,13 +1,12 @@
 #include <SDL2/SDL.h>
-#include "synth.h"
-
 const float pi = 3.14159f;
 
 class App
 {
  public:
   App()
-      : sample_frequency(44100)
+      : ok(true)
+      , sample_frequency(44100)
       , playing(false)
       , time(0)
       , samples_consumed(0)
@@ -16,7 +15,10 @@ class App
   {
     if(SDL_Init(SDL_INIT_EVERYTHING) < 0)
     {
-      throw "Failed to init";
+      SDL_LogError(
+          SDL_LOG_CATEGORY_APPLICATION, "Unable to init: %s", SDL_GetError());
+      ok = false;
+      return;
     }
 
     if(SDL_CreateWindowAndRenderer(
@@ -26,16 +28,41 @@ class App
           SDL_LOG_CATEGORY_APPLICATION,
           "Couldn't create window and renderer: %s",
           SDL_GetError());
-      throw "Failed to set videomode";
+      ok = false;
     }
 
-    setupAudio();
+    SDL_AudioSpec spec;
+    SDL_memset(&spec, 0, sizeof(spec));
+    spec.freq     = sample_frequency;
+    spec.format   = AUDIO_S16SYS;
+    spec.channels = 1;
+    spec.samples  = 1024;
+    spec.callback = SDLAudioCallback;
+    spec.userdata = this;
+    if(0 != SDL_OpenAudio(&spec, nullptr))
+    {
+      SDL_LogError(
+          SDL_LOG_CATEGORY_APPLICATION,
+          "Failed to setup audio: %s",
+          SDL_GetError());
+      ok = false;
+    }
+    else
+    {
+      SDL_PauseAudio(0);
+    }
   }
 
   ~App()
   {
-    SDL_DestroyRenderer(renderer);
-    SDL_DestroyWindow(window);
+    if(renderer)
+    {
+      SDL_DestroyRenderer(renderer);
+    }
+    if(window)
+    {
+      SDL_DestroyWindow(window);
+    }
   };
 
   void
@@ -63,10 +90,13 @@ class App
   void
   OnRender()
   {
-    SetRenderColor(0x000000FF);
-    SDL_RenderClear(renderer);
-    Draw();
-    SDL_RenderPresent(renderer);
+    if(renderer)
+    {
+      SetRenderColor(0x000000FF);
+      SDL_RenderClear(renderer);
+      Draw();
+      SDL_RenderPresent(renderer);
+    }
   }
 
   void
@@ -107,22 +137,6 @@ class App
     }
   }
 
-  void
-  setupAudio()
-  {
-    SDL_AudioSpec spec;
-    SDL_memset(&spec, 0, sizeof(spec));
-    spec.freq     = sample_frequency;
-    spec.format   = AUDIO_S16SYS;
-    spec.channels = 1;
-    spec.samples  = 1024;
-    spec.callback = SDLAudioCallback;
-    spec.userdata = this;
-    if(0 != SDL_OpenAudio(&spec, nullptr))
-      throw "Failed to start audio";
-    SDL_PauseAudio(0);
-  }
-
   static void
   SDLAudioCallback(void* userdata, Uint8* stream, int len)
   {
@@ -139,6 +153,7 @@ class App
     const auto a = static_cast<Uint8>((color & 0x000000FF));
     SDL_SetRenderDrawColor(renderer, r, g, b, a);
   }
+
   void
   FillRect(int x, int y, int w, int h, int color)
   {
@@ -152,9 +167,11 @@ class App
     SDL_RenderFillRect(renderer, &rect);
   }
 
+ public:
+  bool ok;
+
  private:
   int   sample_frequency;
-  Synth synth;
   bool  playing;
   float time;
   int   samples_consumed;
@@ -167,7 +184,12 @@ class App
 int
 main(int argc, char* argv[])
 {
-  App       app;
+  App app;
+  if(!app.ok)
+  {
+    return -1;
+  }
+
   SDL_Event event;
 
   bool run = true;
@@ -197,5 +219,5 @@ main(int argc, char* argv[])
 
   SDL_Quit();
 
-  return 1;
+  return 0;
 }
