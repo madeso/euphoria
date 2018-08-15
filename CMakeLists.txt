@@ -32,4 +32,5 @@ source_group("" FILES ${app_src})
 add_executable(demo WIN32 MACOSX_BUNDLE ${all_src})
 target_link_libraries(demo
                       ${SDL2_LIBRARY}
+                      )
 
