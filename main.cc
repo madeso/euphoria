@@ -1,13 +1,13 @@
 #include <SDL2/SDL.h>
 const float pi = 3.14159f;
 
-class App
+class AppBase
 {
  public:
-  App()
+  AppBase()
       : ok(true)
+      , background_color(0x000000FF)
       , sample_frequency(44100)
-      , playing(false)
       , time(0)
       , samples_consumed(0)
       , window(nullptr)
@@ -53,7 +53,7 @@ class App
     }
   }
 
-  ~App()
+  ~AppBase()
   {
     if(renderer)
     {
@@ -65,44 +65,53 @@ class App
     }
   };
 
-  void
-  Draw()
-  {
-    if(playing)
-    {
-      FillRect(25, 25, 100, 150, 0xFFFFFFFF);
-    }
-  }
+  virtual void
+  Draw() = 0;
 
-  float
-  SynthSample(float time)
-  {
-    if(playing)
-    {
-      return 0.5f * sin(440.0f * 2.0f * pi * time);
-    }
-    else
-    {
-      return 0;
-    }
-  }
+  virtual float
+  SynthSample(float time) = 0;
 
   void
   OnRender()
   {
     if(renderer)
     {
-      SetRenderColor(0x000000FF);
+      SetRenderColor(background_color);
       SDL_RenderClear(renderer);
       Draw();
       SDL_RenderPresent(renderer);
     }
   }
 
+
+ protected:
   void
-  OnKey(SDL_Keycode, Uint16, bool down)
+  SetRenderColor(int color)
   {
-    playing = down;
+    const auto r = static_cast<Uint8>((color & 0xFF000000) >> 24);
+    const auto g = static_cast<Uint8>((color & 0x00FF0000) >> 16);
+    const auto b = static_cast<Uint8>((color & 0x0000FF00) >> 8);
+    const auto a = static_cast<Uint8>((color & 0x000000FF));
+    SDL_SetRenderDrawColor(renderer, r, g, b, a);
+  }
+
+  void
+  FillRect(int x, int y, int w, int h, int color)
+  {
+    SetRenderColor(color);
+
+    SDL_Rect rect;
+    rect.x = x;
+    rect.y = y;
+    rect.w = w;
+    rect.h = h;
+    SDL_RenderFillRect(renderer, &rect);
+  }
+
+  void
+  SetBackgroundColor(int color)
+  {
+    background_color = color;
   }
 
  private:
@@ -140,39 +149,16 @@ class App
   static void
   SDLAudioCallback(void* userdata, Uint8* stream, int len)
   {
-    App* app = (App*)userdata;
+    AppBase* app = (AppBase*)userdata;
     app->AudioCallback(stream, len);
-  }
-
-  void
-  SetRenderColor(int color)
-  {
-    const auto r = static_cast<Uint8>((color & 0xFF000000) >> 24);
-    const auto g = static_cast<Uint8>((color & 0x00FF0000) >> 16);
-    const auto b = static_cast<Uint8>((color & 0x0000FF00) >> 8);
-    const auto a = static_cast<Uint8>((color & 0x000000FF));
-    SDL_SetRenderDrawColor(renderer, r, g, b, a);
-  }
-
-  void
-  FillRect(int x, int y, int w, int h, int color)
-  {
-    SetRenderColor(color);
-
-    SDL_Rect rect;
-    rect.x = x;
-    rect.y = y;
-    rect.w = w;
-    rect.h = h;
-    SDL_RenderFillRect(renderer, &rect);
   }
 
  public:
   bool ok;
 
  private:
+  int   background_color;
   int   sample_frequency;
-  bool  playing;
   float time;
   int   samples_consumed;
 
@@ -180,6 +166,40 @@ class App
   SDL_Renderer* renderer;
 };
 
+class App : public AppBase
+{
+ public:
+  void
+  Draw() override
+  {
+    if(playing)
+    {
+      FillRect(25, 25, 100, 150, 0xFFFFFFFF);
+    }
+  }
+
+  float
+  SynthSample(float time) override
+  {
+    if(playing)
+    {
+      return 0.5f * sin(440.0f * 2.0f * pi * time);
+    }
+    else
+    {
+      return 0;
+    }
+  }
+
+  void
+  OnKey(SDL_Keycode, Uint16, bool down)
+  {
+    playing = down;
+  }
+
+ private:
+  bool playing = false;
+};
 
 int
 main(int argc, char* argv[])
