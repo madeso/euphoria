@@ -1,11 +1,18 @@
 #include <SDL2/SDL.h>
 #include "synth.h"
 
+const float pi = 3.14159f;
+
 class App
 {
  public:
   App()
-      : playing(false)
+      : sample_frequency(44100)
+      , playing(false)
+      , time(0)
+      , samples_consumed(0)
+      , window(nullptr)
+      , renderer(nullptr)
   {
     if(SDL_Init(SDL_INIT_EVERYTHING) < 0)
     {
@@ -40,6 +47,19 @@ class App
     }
   }
 
+  float
+  SynthSample(float time)
+  {
+    if(playing)
+    {
+      return 0.5f * sin(440.0f * 2.0f * pi * time);
+    }
+    else
+    {
+      return 0;
+    }
+  }
+
   void
   OnRender()
   {
@@ -55,31 +75,61 @@ class App
     playing = down;
   }
 
+ private:
   void
-  Audiocallback(Uint8* stream, int len)
+  AudioCallback(Uint8* stream, int bytes)
   {
-    if(playing)
+    const int len    = bytes / 2;
+    auto*     output = reinterpret_cast<Sint16*>(stream);
+
+    const Sint16 max_amplitude = 32767;
+
+    for(int i = 0; i < len; i += 1)
     {
-      unsigned int l    = len / 2;
-      float*       fbuf = new float[l];
-      memset(fbuf, 0, sizeof(fbuf));
-      synth.SynthSample(l, fbuf);
-      while(l--)
+      auto sample = SynthSample(
+          time + (i + samples_consumed) / static_cast<float>(sample_frequency));
+      if(sample > 1)
       {
-        float f = fbuf[l];
-        if(f < -1.0)
-          f = -1.0;
-        if(f > 1.0)
-          f                  = 1.0;
-        ((Sint16*)stream)[l] = (Sint16)(f * 32767);
+        sample = 1;
       }
-      delete[] fbuf;
+      if(sample < -1)
+      {
+        sample = -1;
+      }
+      output[i] = static_cast<Sint16>(max_amplitude * sample);
     }
-    else
-      memset(stream, 0, len);
+
+    samples_consumed += len;
+    if(samples_consumed >= sample_frequency)
+    {
+      samples_consumed -= sample_frequency;
+      time += 1;
+    }
   }
 
- private:
+  void
+  setupAudio()
+  {
+    SDL_AudioSpec spec;
+    SDL_memset(&spec, 0, sizeof(spec));
+    spec.freq     = sample_frequency;
+    spec.format   = AUDIO_S16SYS;
+    spec.channels = 1;
+    spec.samples  = 1024;
+    spec.callback = SDLAudioCallback;
+    spec.userdata = this;
+    if(0 != SDL_OpenAudio(&spec, nullptr))
+      throw "Failed to start audio";
+    SDL_PauseAudio(0);
+  }
+
+  static void
+  SDLAudioCallback(void* userdata, Uint8* stream, int len)
+  {
+    App* app = (App*)userdata;
+    app->AudioCallback(stream, len);
+  }
+
   void
   SetRenderColor(int color)
   {
@@ -102,38 +152,17 @@ class App
     SDL_RenderFillRect(renderer, &rect);
   }
 
-  void
-  setupAudio();
-
  private:
+  int   sample_frequency;
   Synth synth;
   bool  playing;
+  float time;
+  int   samples_consumed;
 
   SDL_Window*   window;
   SDL_Renderer* renderer;
 };
 
-static void
-SDLAudioCallback(void* userdata, Uint8* stream, int len)
-{
-  App* app = (App*)userdata;
-  app->Audiocallback(stream, len);
-}
-
-void
-App::setupAudio()
-{
-  SDL_AudioSpec des;
-  des.freq     = 44100;
-  des.format   = AUDIO_S16SYS;
-  des.channels = 1;
-  des.samples  = 512;
-  des.callback = SDLAudioCallback;
-  des.userdata = this;
-  if(0 != SDL_OpenAudio(&des, nullptr))
-    throw "Failed to start audio";
-  SDL_PauseAudio(0);
-}
 
 int
 main(int argc, char* argv[])
