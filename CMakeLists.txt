@@ -20,7 +20,6 @@ else()
 endif()
 
 find_package(SDL2 REQUIRED)
-message(STATUS "sdl2 include directory ${SDL2_INCLUDE_DIR}")
 
 file(GLOB app_src_glob *.cpp;*.cc;*.h;*.inl)
 
@@ -29,7 +28,7 @@ include_directories(SYSTEM ${SDL2_INCLUDE_DIR})
 set(app_src ${app_src_glob})
 source_group("" FILES ${app_src})
 
-add_executable(demo WIN32 MACOSX_BUNDLE ${all_src})
+add_executable(demo WIN32 MACOSX_BUNDLE ${app_src})
 target_link_libraries(demo
                       ${SDL2_LIBRARY}
                       )
