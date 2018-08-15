@@ -1,0 +1,57 @@
+BasedOnStyle: Google
+Standard: Cpp11
+
+AlignAfterOpenBracket: Align
+AllowShortBlocksOnASingleLine: false
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+AlwaysBreakBeforeMultilineStrings: true
+AlwaysBreakTemplateDeclarations: true
+# FixNamespaceComments: true #v6
+# BreakConstructorInitializers: BeforeComma #v6
+BreakConstructorInitializersBeforeComma: true
+ConstructorInitializerAllOnOneLineOrOnePerLine: false
+NamespaceIndentation: All
+MaxEmptyLinesToKeep: 2
+KeepEmptyLinesAtTheStartOfBlocks: false
+IndentCaseLabels: true
+Cpp11BracedListStyle: true
+AlwaysBreakAfterReturnType: All
+# BreakConstructorInitializers: BeforeColon # v6
+SpaceBeforeParens: Never
+SpaceInEmptyParentheses: false
+SpacesInParentheses: false
+
+DerivePointerAlignment: false
+PointerAlignment: Left
+
+#temporary, need to look into better sorting first
+SortIncludes: false
+
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterClass: true
+  AfterControlStatement: true
+  AfterEnum: true
+  AfterFunction: true
+  AfterNamespace: true
+  AfterObjCDeclaration: true
+  AfterStruct: true
+  AfterUnion: true
+  BeforeCatch: true
+  BeforeElse: true
+  IndentBraces: false
+#  SplitEmptyFunctionBody: false # v6
+
+# not sure about these
+AlignConsecutiveAssignments: true
+AlignConsecutiveDeclarations: true
+
+
+AllowAllParametersOfDeclarationOnNextLine: true
+BinPackArguments: false
+BinPackParameters: false
+AlignAfterOpenBracket: AlwaysBreak
+
+# IncludeCategories
