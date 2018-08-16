@@ -1,4 +1,8 @@
+#include <iostream>
+#include <vector>
+
 #include <SDL2/SDL.h>
+
 const float pi = 3.14159f;
 
 using Color = int;
@@ -82,8 +86,6 @@ class AppBase
     }
   }
 
-
- protected:
   void
   ClearScreen(int color)
   {
@@ -194,7 +196,8 @@ struct Solarized
       , strong_border(light ? solarized_light::base02 : solarized_light::base2)
       , emphasized_content(
             light ? solarized_light::base01 : solarized_light::base1)
-      , body_text(light ? solarized_light::base00 : solarized_light::base0)
+      , primary_content(
+            light ? solarized_light::base00 : solarized_light::base0)
       , not_used(light ? solarized_light::base0 : solarized_light::base00)
       , comments(light ? solarized_light::base1 : solarized_light::base01)
       , background_highlight(
@@ -214,7 +217,7 @@ struct Solarized
   Color really_strong_border;
   Color strong_border;
   Color emphasized_content;
-  Color body_text;
+  Color primary_content;
   Color not_used;
   Color comments;
   Color background_highlight;
@@ -230,51 +233,293 @@ struct Solarized
   Color green;
 };
 
+template <int SemitonesPerOctave>
+struct ToneToFrequencyConverter
+{
+  float octave_base_frequency = 110;  // a2
+
+  ToneToFrequencyConverter()
+  {
+    const float base =
+        std::pow(2.0f, 1.0f / static_cast<float>(SemitonesPerOctave));
+    for(int i = 0; i < SemitonesPerOctave; i += 1)
+    {
+      semitone_data[i] = std::pow(base, static_cast<float>(i));
+    }
+  }
+
+  float
+  GetFrequency(int semitone) const
+  {
+    float freq    = octave_base_frequency;
+    int   octaves = semitone / SemitonesPerOctave;
+    for(int i = 0; i < octaves; i += 1)
+    {
+      freq = freq * 2;
+    }
+    return freq * semitone_data[semitone % SemitonesPerOctave];
+  }
+
+ private:
+  float semitone_data[SemitonesPerOctave] = {
+      0.0f,
+  };
+};
+
+struct PianoColorTheme
+{
+  Color white;
+  Color black;
+  Color down;
+};
+
+PianoColorTheme
+C(const Solarized& s)
+{
+  PianoColorTheme theme;
+
+  theme.white = s.comments;
+  theme.black = s.emphasized_content;
+  theme.down  = s.blue;
+
+  return theme;
+}
+
+struct PianoKey
+{
+  void
+  Draw(AppBase* canvas, const PianoColorTheme& color_theme)
+  {
+    Color c = is_black ? color_theme.black : color_theme.white;
+    if(is_down)
+    {
+      c = color_theme.down;
+    }
+    canvas->FillRect(x, y, w, h, c);
+  }
+
+  void
+  OnInput(SDL_Keycode input, bool was_pressed)
+  {
+    if(keycode != 0 && input == keycode)
+    {
+      is_down = was_pressed;
+    }
+  }
+
+  bool is_black = false;
+
+  int semitone = 0;
+
+  int x = 10;
+  int y = 10;
+  int w = 10;
+  int h = 10;
+
+  SDL_Keycode keycode = 0;
+
+  bool is_down = false;
+};
+
+struct PianoOutput
+{
+  PianoOutput(float freq, float amp)
+      : frequency(freq)
+      , amplitude(amp)
+  {
+  }
+  float frequency;
+  float amplitude;
+};
+
+struct PianoInput
+{
+  std::vector<PianoKey> keys;
+
+  void
+  AddPianoKeysStartingAtC(
+      int white_key_width,
+      int white_key_height,
+      int black_key_width,
+      int black_key_height,
+      int x,
+      int y,
+      int spacing,
+      int key_offset)
+  {
+    auto BlackKey = [=](
+        int semitone, int x, int y, SDL_Keycode keycode) -> PianoKey {
+      PianoKey k;
+      k.semitone = semitone;
+      k.x        = x;
+      k.y        = y;
+      k.w        = black_key_width;
+      k.h        = black_key_height;
+      k.is_black = true;
+      k.keycode  = keycode;
+      return k;
+    };
+
+    auto WhiteKey = [=](
+        int semitone, int x, int y, SDL_Keycode keycode) -> PianoKey {
+      PianoKey k;
+      k.semitone = semitone;
+      k.x        = x;
+      k.y        = y;
+      k.w        = white_key_width;
+      k.h        = white_key_height;
+      k.is_black = false;
+      k.keycode  = keycode;
+      return k;
+    };
+
+    auto CalcWhiteX = [=](int index) -> int {
+      return x + (white_key_width + spacing) * index;
+    };
+    auto CalcBlackX = [=](int index) -> int {
+      const auto half_black = black_key_width / 2;
+      const auto start_x    = x + white_key_width + spacing / 2;
+      return (white_key_width + spacing) * index + start_x - half_black;
+    };
+
+    auto KeyIndex = [=](int index) -> SDL_Keycode {
+      const std::vector<SDL_Keycode> qwerty = {SDLK_a,
+                                               SDLK_z,
+                                               SDLK_s,
+                                               SDLK_x,
+                                               SDLK_d,
+                                               SDLK_c,
+                                               SDLK_f,
+                                               SDLK_v,
+                                               SDLK_g,
+                                               SDLK_b,
+                                               SDLK_h,
+                                               SDLK_n,
+                                               SDLK_j,
+                                               SDLK_m,
+                                               SDLK_k,
+                                               SDLK_COMMA,
+                                               SDLK_l,
+                                               SDLK_PERIOD};
+      const int i = index + key_offset;
+      if(i < 0)
+      {
+        return 0;
+      }
+      if(static_cast<size_t>(i) >= qwerty.size())
+      {
+        return 0;
+      }
+      return qwerty[i];
+    };
+
+    keys = {
+        WhiteKey(0, CalcWhiteX(0), y, KeyIndex(0)),
+        WhiteKey(2, CalcWhiteX(1), y, KeyIndex(2)),
+        WhiteKey(4, CalcWhiteX(2), y, KeyIndex(4)),
+
+        WhiteKey(5, CalcWhiteX(3), y, KeyIndex(6)),
+        WhiteKey(7, CalcWhiteX(4), y, KeyIndex(8)),
+        WhiteKey(9, CalcWhiteX(5), y, KeyIndex(10)),
+        WhiteKey(11, CalcWhiteX(6), y, KeyIndex(12)),
+
+        // specify black keys after white, since black keys are drawn on top
+        BlackKey(1, CalcBlackX(0), y, KeyIndex(1)),
+        BlackKey(3, CalcBlackX(1), y, KeyIndex(3)),
+        // no black key here
+        BlackKey(6, CalcBlackX(3), y, KeyIndex(7)),
+        BlackKey(8, CalcBlackX(4), y, KeyIndex(9)),
+        BlackKey(10, CalcBlackX(5), y, KeyIndex(11)),
+    };
+  }
+
+  void
+  Draw(AppBase* canvas, const PianoColorTheme& color_theme)
+  {
+    for(auto& key : keys)
+    {
+      key.Draw(canvas, color_theme);
+    }
+  }
+
+  void
+  OnInput(SDL_Keycode input, Uint16, bool down)
+  {
+    for(auto& key : keys)
+    {
+      key.OnInput(input, down);
+    }
+  }
+
+  ToneToFrequencyConverter<12> converter;
+
+  PianoOutput
+  GetAudioOutput()
+  {
+    bool down     = false;
+    int  semitone = 0;
+
+    for(auto& key : keys)
+    {
+      if(key.is_down)
+      {
+        semitone = key.semitone;
+        down     = true;
+      }
+    }
+
+    // 3 - because our converter starts at A, and the piano starts at C
+    // and C is 3 semitones up from A, we could calculate a new base frequency
+    // but I'm too lazy for that.
+    return PianoOutput{converter.GetFrequency(semitone + 3),
+                       down ? 1.0f : 0.0f};
+  }
+};
+
 class App : public AppBase
 {
  public:
+  PianoInput piano;
+
+  App()
+  {
+    piano.AddPianoKeysStartingAtC(60, 200, 20, 100, 10, 10, 3, 1);
+  }
+
   void
   Draw() override
   {
     const auto colors = Solarized{light_ui};
 
     ClearScreen(colors.background);
-    if(playing)
-    {
-      FillRect(25, 25, 100, 150, colors.body_text);
-    }
+
+    piano.Draw(this, C(colors));
   }
 
   float
   SynthSample(float time) override
   {
-    if(playing)
-    {
-      return 0.5f * sin(440.0f * 2.0f * pi * time);
-    }
-    else
-    {
-      return 0;
-    }
+    return 0.5f * amplitude * sin(frequency * 2.0f * pi * time);
   }
 
   void
-  OnKey(SDL_Keycode key, Uint16, bool down)
+  OnKey(SDL_Keycode key, Uint16 mod, bool down)
   {
     if(key == SDLK_TAB && !down)
     {
       light_ui = !light_ui;
     }
 
-    if(key == SDLK_SPACE)
-    {
-      playing = down;
-    }
+    piano.OnInput(key, mod, down);
+    const auto out = piano.GetAudioOutput();
+    frequency      = out.frequency;
+    amplitude      = out.amplitude;
   }
 
  private:
-  bool light_ui = true;
-  bool playing  = false;
+  bool  light_ui  = true;
+  float frequency = 0;
+  float amplitude = 0;
 };
 
 int
