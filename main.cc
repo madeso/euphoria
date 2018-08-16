@@ -36,6 +36,8 @@ class AppBase
       ok = false;
     }
 
+    SDL_SetWindowTitle(window, "musik maskin");
+
     SDL_AudioSpec spec;
     SDL_memset(&spec, 0, sizeof(spec));
     spec.freq     = sample_frequency;
