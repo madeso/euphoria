@@ -341,7 +341,8 @@ CreatePianoKeysStartingAtC(
     int x,
     int y,
     int spacing,
-    int key_offset)
+    int key_offset,
+    int semitone_offset)
 {
   auto BlackKey = [=](
       int semitone, int x, int y, SDL_Keycode keycode) -> PianoKey {
@@ -410,28 +411,30 @@ CreatePianoKeysStartingAtC(
   };
 
   return {
-      WhiteKey(0, CalcWhiteX(0), y, KeyIndex(0)),
-      WhiteKey(2, CalcWhiteX(1), y, KeyIndex(2)),
-      WhiteKey(4, CalcWhiteX(2), y, KeyIndex(4)),
+      WhiteKey(semitone_offset + 0, CalcWhiteX(0), y, KeyIndex(0)),
+      WhiteKey(semitone_offset + 2, CalcWhiteX(1), y, KeyIndex(2)),
+      WhiteKey(semitone_offset + 4, CalcWhiteX(2), y, KeyIndex(4)),
 
-      WhiteKey(5, CalcWhiteX(3), y, KeyIndex(6)),
-      WhiteKey(7, CalcWhiteX(4), y, KeyIndex(8)),
-      WhiteKey(9, CalcWhiteX(5), y, KeyIndex(10)),
-      WhiteKey(11, CalcWhiteX(6), y, KeyIndex(12)),
+      WhiteKey(semitone_offset + 5, CalcWhiteX(3), y, KeyIndex(6)),
+      WhiteKey(semitone_offset + 7, CalcWhiteX(4), y, KeyIndex(8)),
+      WhiteKey(semitone_offset + 9, CalcWhiteX(5), y, KeyIndex(10)),
+      WhiteKey(semitone_offset + 11, CalcWhiteX(6), y, KeyIndex(12)),
 
       // specify black keys after white, since black keys are drawn on top
-      BlackKey(1, CalcBlackX(0), y, KeyIndex(1)),
-      BlackKey(3, CalcBlackX(1), y, KeyIndex(3)),
+      BlackKey(semitone_offset + 1, CalcBlackX(0), y, KeyIndex(1)),
+      BlackKey(semitone_offset + 3, CalcBlackX(1), y, KeyIndex(3)),
       // no black key here
-      BlackKey(6, CalcBlackX(3), y, KeyIndex(7)),
-      BlackKey(8, CalcBlackX(4), y, KeyIndex(9)),
-      BlackKey(10, CalcBlackX(5), y, KeyIndex(11)),
+      BlackKey(semitone_offset + 6, CalcBlackX(3), y, KeyIndex(7)),
+      BlackKey(semitone_offset + 8, CalcBlackX(4), y, KeyIndex(9)),
+      BlackKey(semitone_offset + 10, CalcBlackX(5), y, KeyIndex(11)),
   };
 }
 
 struct PianoInput
 {
-  std::vector<PianoKey> keys;
+  std::vector<PianoKey>        keys;
+  bool                         octave_shift = false;
+  ToneToFrequencyConverter<12> converter;
 
   void
   Draw(AppBase* canvas, const PianoColorTheme& color_theme)
@@ -441,8 +444,6 @@ struct PianoInput
       key.Draw(canvas, color_theme);
     }
   }
-
-  bool octave_shift = false;
 
   void
   OnInput(SDL_Keycode input, Uint16, bool down)
@@ -457,8 +458,6 @@ struct PianoInput
       octave_shift = down;
     }
   }
-
-  ToneToFrequencyConverter<12> converter;
 
   PianoOutput
   GetAudioOutput()
@@ -486,6 +485,16 @@ struct PianoInput
   }
 };
 
+template <typename T>
+void
+Insert(std::vector<T>* to, const std::vector<T>& from)
+{
+  for(const auto& t : from)
+  {
+    to->push_back(t);
+  }
+}
+
 class App : public AppBase
 {
  public:
@@ -493,7 +502,31 @@ class App : public AppBase
 
   App()
   {
-    piano.keys = CreatePianoKeysStartingAtC(60, 200, 20, 100, 10, 10, 3, 1);
+    int whitew = 60;
+    int whiteh = 200;
+    int blackw = 20;
+    int blackh = 100;
+
+    int x = 10;
+    int y = 40;
+
+    int spacing = 3;
+
+    for(int i = -1; i < 2; i += 1)
+    {
+      Insert(
+          &piano.keys,
+          CreatePianoKeysStartingAtC(
+              whitew,
+              whiteh,
+              blackw,
+              blackh,
+              x + i * (7 * (whitew + spacing)),
+              y,
+              spacing,
+              1 + 14 * i,
+              12 * i));
+    }
   }
 
   void
