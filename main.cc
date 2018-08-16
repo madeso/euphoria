@@ -442,12 +442,19 @@ struct PianoInput
     }
   }
 
+  bool octave_shift = false;
+
   void
   OnInput(SDL_Keycode input, Uint16, bool down)
   {
     for(auto& key : keys)
     {
       key.OnInput(input, down);
+    }
+
+    if(input == SDLK_LSHIFT)
+    {
+      octave_shift = down;
     }
   }
 
@@ -468,11 +475,14 @@ struct PianoInput
       }
     }
 
+    const int octave_shift_semitones = octave_shift ? 12 : 0;
+
     // 3 - because our converter starts at A, and the piano starts at C
     // and C is 3 semitones up from A, we could calculate a new base frequency
     // but I'm too lazy for that.
-    return PianoOutput{converter.GetFrequency(semitone + 3),
-                       down ? 1.0f : 0.0f};
+    return PianoOutput{
+        converter.GetFrequency(semitone + 3 + octave_shift_semitones),
+        down ? 1.0f : 0.0f};
   }
 };
 
