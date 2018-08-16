@@ -6,7 +6,6 @@ class AppBase
  public:
   AppBase()
       : ok(true)
-      , background_color(0x000000FF)
       , sample_frequency(44100)
       , time(0)
       , samples_consumed(0)
@@ -76,8 +75,6 @@ class AppBase
   {
     if(renderer)
     {
-      SetRenderColor(background_color);
-      SDL_RenderClear(renderer);
       Draw();
       SDL_RenderPresent(renderer);
     }
@@ -86,13 +83,10 @@ class AppBase
 
  protected:
   void
-  SetRenderColor(int color)
+  ClearScreen(int color)
   {
-    const auto r = static_cast<Uint8>((color & 0xFF000000) >> 24);
-    const auto g = static_cast<Uint8>((color & 0x00FF0000) >> 16);
-    const auto b = static_cast<Uint8>((color & 0x0000FF00) >> 8);
-    const auto a = static_cast<Uint8>((color & 0x000000FF));
-    SDL_SetRenderDrawColor(renderer, r, g, b, a);
+    SetRenderColor(color);
+    SDL_RenderClear(renderer);
   }
 
   void
@@ -108,13 +102,17 @@ class AppBase
     SDL_RenderFillRect(renderer, &rect);
   }
 
+ private:
   void
-  SetBackgroundColor(int color)
+  SetRenderColor(int color)
   {
-    background_color = color;
+    const auto r = static_cast<Uint8>((color & 0xFF000000) >> 24);
+    const auto g = static_cast<Uint8>((color & 0x00FF0000) >> 16);
+    const auto b = static_cast<Uint8>((color & 0x0000FF00) >> 8);
+    const auto a = static_cast<Uint8>((color & 0x000000FF));
+    SDL_SetRenderDrawColor(renderer, r, g, b, a);
   }
 
- private:
   void
   AudioCallback(Uint8* stream, int bytes)
   {
@@ -149,7 +147,7 @@ class AppBase
   static void
   SDLAudioCallback(void* userdata, Uint8* stream, int len)
   {
-    AppBase* app = (AppBase*)userdata;
+    auto* app = (AppBase*)userdata;
     app->AudioCallback(stream, len);
   }
 
@@ -157,7 +155,6 @@ class AppBase
   bool ok;
 
  private:
-  int   background_color;
   int   sample_frequency;
   float time;
   int   samples_consumed;
@@ -172,6 +169,7 @@ class App : public AppBase
   void
   Draw() override
   {
+    ClearScreen(0x000000FF);
     if(playing)
     {
       FillRect(25, 25, 100, 150, 0xFFFFFFFF);
