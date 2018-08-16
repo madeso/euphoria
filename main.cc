@@ -332,106 +332,106 @@ struct PianoOutput
   float amplitude;
 };
 
+std::vector<PianoKey>
+CreatePianoKeysStartingAtC(
+    int white_key_width,
+    int white_key_height,
+    int black_key_width,
+    int black_key_height,
+    int x,
+    int y,
+    int spacing,
+    int key_offset)
+{
+  auto BlackKey = [=](
+      int semitone, int x, int y, SDL_Keycode keycode) -> PianoKey {
+    PianoKey k;
+    k.semitone = semitone;
+    k.x        = x;
+    k.y        = y;
+    k.w        = black_key_width;
+    k.h        = black_key_height;
+    k.is_black = true;
+    k.keycode  = keycode;
+    return k;
+  };
+
+  auto WhiteKey = [=](
+      int semitone, int x, int y, SDL_Keycode keycode) -> PianoKey {
+    PianoKey k;
+    k.semitone = semitone;
+    k.x        = x;
+    k.y        = y;
+    k.w        = white_key_width;
+    k.h        = white_key_height;
+    k.is_black = false;
+    k.keycode  = keycode;
+    return k;
+  };
+
+  auto CalcWhiteX = [=](int index) -> int {
+    return x + (white_key_width + spacing) * index;
+  };
+  auto CalcBlackX = [=](int index) -> int {
+    const auto half_black = black_key_width / 2;
+    const auto start_x    = x + white_key_width + spacing / 2;
+    return (white_key_width + spacing) * index + start_x - half_black;
+  };
+
+  auto KeyIndex = [=](int index) -> SDL_Keycode {
+    const std::vector<SDL_Keycode> qwerty = {SDLK_a,
+                                             SDLK_z,
+                                             SDLK_s,
+                                             SDLK_x,
+                                             SDLK_d,
+                                             SDLK_c,
+                                             SDLK_f,
+                                             SDLK_v,
+                                             SDLK_g,
+                                             SDLK_b,
+                                             SDLK_h,
+                                             SDLK_n,
+                                             SDLK_j,
+                                             SDLK_m,
+                                             SDLK_k,
+                                             SDLK_COMMA,
+                                             SDLK_l,
+                                             SDLK_PERIOD};
+    const int i = index + key_offset;
+    if(i < 0)
+    {
+      return 0;
+    }
+    if(static_cast<size_t>(i) >= qwerty.size())
+    {
+      return 0;
+    }
+    return qwerty[i];
+  };
+
+  return {
+      WhiteKey(0, CalcWhiteX(0), y, KeyIndex(0)),
+      WhiteKey(2, CalcWhiteX(1), y, KeyIndex(2)),
+      WhiteKey(4, CalcWhiteX(2), y, KeyIndex(4)),
+
+      WhiteKey(5, CalcWhiteX(3), y, KeyIndex(6)),
+      WhiteKey(7, CalcWhiteX(4), y, KeyIndex(8)),
+      WhiteKey(9, CalcWhiteX(5), y, KeyIndex(10)),
+      WhiteKey(11, CalcWhiteX(6), y, KeyIndex(12)),
+
+      // specify black keys after white, since black keys are drawn on top
+      BlackKey(1, CalcBlackX(0), y, KeyIndex(1)),
+      BlackKey(3, CalcBlackX(1), y, KeyIndex(3)),
+      // no black key here
+      BlackKey(6, CalcBlackX(3), y, KeyIndex(7)),
+      BlackKey(8, CalcBlackX(4), y, KeyIndex(9)),
+      BlackKey(10, CalcBlackX(5), y, KeyIndex(11)),
+  };
+}
+
 struct PianoInput
 {
   std::vector<PianoKey> keys;
-
-  void
-  AddPianoKeysStartingAtC(
-      int white_key_width,
-      int white_key_height,
-      int black_key_width,
-      int black_key_height,
-      int x,
-      int y,
-      int spacing,
-      int key_offset)
-  {
-    auto BlackKey = [=](
-        int semitone, int x, int y, SDL_Keycode keycode) -> PianoKey {
-      PianoKey k;
-      k.semitone = semitone;
-      k.x        = x;
-      k.y        = y;
-      k.w        = black_key_width;
-      k.h        = black_key_height;
-      k.is_black = true;
-      k.keycode  = keycode;
-      return k;
-    };
-
-    auto WhiteKey = [=](
-        int semitone, int x, int y, SDL_Keycode keycode) -> PianoKey {
-      PianoKey k;
-      k.semitone = semitone;
-      k.x        = x;
-      k.y        = y;
-      k.w        = white_key_width;
-      k.h        = white_key_height;
-      k.is_black = false;
-      k.keycode  = keycode;
-      return k;
-    };
-
-    auto CalcWhiteX = [=](int index) -> int {
-      return x + (white_key_width + spacing) * index;
-    };
-    auto CalcBlackX = [=](int index) -> int {
-      const auto half_black = black_key_width / 2;
-      const auto start_x    = x + white_key_width + spacing / 2;
-      return (white_key_width + spacing) * index + start_x - half_black;
-    };
-
-    auto KeyIndex = [=](int index) -> SDL_Keycode {
-      const std::vector<SDL_Keycode> qwerty = {SDLK_a,
-                                               SDLK_z,
-                                               SDLK_s,
-                                               SDLK_x,
-                                               SDLK_d,
-                                               SDLK_c,
-                                               SDLK_f,
-                                               SDLK_v,
-                                               SDLK_g,
-                                               SDLK_b,
-                                               SDLK_h,
-                                               SDLK_n,
-                                               SDLK_j,
-                                               SDLK_m,
-                                               SDLK_k,
-                                               SDLK_COMMA,
-                                               SDLK_l,
-                                               SDLK_PERIOD};
-      const int i = index + key_offset;
-      if(i < 0)
-      {
-        return 0;
-      }
-      if(static_cast<size_t>(i) >= qwerty.size())
-      {
-        return 0;
-      }
-      return qwerty[i];
-    };
-
-    keys = {
-        WhiteKey(0, CalcWhiteX(0), y, KeyIndex(0)),
-        WhiteKey(2, CalcWhiteX(1), y, KeyIndex(2)),
-        WhiteKey(4, CalcWhiteX(2), y, KeyIndex(4)),
-
-        WhiteKey(5, CalcWhiteX(3), y, KeyIndex(6)),
-        WhiteKey(7, CalcWhiteX(4), y, KeyIndex(8)),
-        WhiteKey(9, CalcWhiteX(5), y, KeyIndex(10)),
-        WhiteKey(11, CalcWhiteX(6), y, KeyIndex(12)),
-
-        // specify black keys after white, since black keys are drawn on top
-        BlackKey(1, CalcBlackX(0), y, KeyIndex(1)),
-        BlackKey(3, CalcBlackX(1), y, KeyIndex(3)),
-        // no black key here
-        BlackKey(6, CalcBlackX(3), y, KeyIndex(7)),
-        BlackKey(8, CalcBlackX(4), y, KeyIndex(9)),
-        BlackKey(10, CalcBlackX(5), y, KeyIndex(11)),
-    };
-  }
 
   void
   Draw(AppBase* canvas, const PianoColorTheme& color_theme)
@@ -493,7 +493,7 @@ class App : public AppBase
 
   App()
   {
-    piano.AddPianoKeysStartingAtC(60, 200, 20, 100, 10, 10, 3, 1);
+    piano.keys = CreatePianoKeysStartingAtC(60, 200, 20, 100, 10, 10, 3, 1);
   }
 
   void
