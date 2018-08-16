@@ -1,6 +1,8 @@
 #include <SDL2/SDL.h>
 const float pi = 3.14159f;
 
+using Color = int;
+
 class AppBase
 {
  public:
@@ -90,7 +92,7 @@ class AppBase
   }
 
   void
-  FillRect(int x, int y, int w, int h, int color)
+  FillRect(int x, int y, int w, int h, Color color)
   {
     SetRenderColor(color);
 
@@ -104,7 +106,7 @@ class AppBase
 
  private:
   void
-  SetRenderColor(int color)
+  SetRenderColor(Color color)
   {
     const auto r = static_cast<Uint8>((color & 0xFF000000) >> 24);
     const auto g = static_cast<Uint8>((color & 0x00FF0000) >> 16);
@@ -163,16 +165,83 @@ class AppBase
   SDL_Renderer* renderer;
 };
 
+// solarized light color spec
+namespace solarized_light
+{
+  Color base03  = 0x002B36FF;
+  Color base02  = 0x073642FF;
+  Color base01  = 0x586E75FF;
+  Color base00  = 0x657B83FF;
+  Color base0   = 0x839496FF;
+  Color base1   = 0x93A1A1FF;
+  Color base2   = 0xEEE8D5FF;
+  Color base3   = 0xFDF6E3FF;
+  Color yellow  = 0xB58900FF;
+  Color orange  = 0xCB4B16FF;
+  Color red     = 0xDC322FFF;
+  Color magenta = 0xD33682FF;
+  Color violet  = 0x6C71C4FF;
+  Color blue    = 0x268BD2FF;
+  Color cyan    = 0x2AA198FF;
+  Color green   = 0x859900FF;
+}  // namespace solarized_light
+
+struct Solarized
+{
+  explicit Solarized(bool light)
+      : really_strong_border(
+            light ? solarized_light::base03 : solarized_light::base3)
+      , strong_border(light ? solarized_light::base02 : solarized_light::base2)
+      , emphasized_content(
+            light ? solarized_light::base01 : solarized_light::base1)
+      , body_text(light ? solarized_light::base00 : solarized_light::base0)
+      , not_used(light ? solarized_light::base0 : solarized_light::base00)
+      , comments(light ? solarized_light::base1 : solarized_light::base01)
+      , background_highlight(
+            light ? solarized_light::base2 : solarized_light::base02)
+      , background(light ? solarized_light::base3 : solarized_light::base03)
+      , yellow(solarized_light::yellow)
+      , orange(solarized_light::orange)
+      , red(solarized_light::red)
+      , magenta(solarized_light::magenta)
+      , violet(solarized_light::violet)
+      , blue(solarized_light::blue)
+      , cyan(solarized_light::cyan)
+      , green(solarized_light::green)
+
+  {
+  }
+  Color really_strong_border;
+  Color strong_border;
+  Color emphasized_content;
+  Color body_text;
+  Color not_used;
+  Color comments;
+  Color background_highlight;
+  Color background;
+
+  Color yellow;
+  Color orange;
+  Color red;
+  Color magenta;
+  Color violet;
+  Color blue;
+  Color cyan;
+  Color green;
+};
+
 class App : public AppBase
 {
  public:
   void
   Draw() override
   {
-    ClearScreen(0x000000FF);
+    const auto colors = Solarized{light_ui};
+
+    ClearScreen(colors.background);
     if(playing)
     {
-      FillRect(25, 25, 100, 150, 0xFFFFFFFF);
+      FillRect(25, 25, 100, 150, colors.body_text);
     }
   }
 
@@ -190,13 +259,22 @@ class App : public AppBase
   }
 
   void
-  OnKey(SDL_Keycode, Uint16, bool down)
+  OnKey(SDL_Keycode key, Uint16, bool down)
   {
-    playing = down;
+    if(key == SDLK_TAB && !down)
+    {
+      light_ui = !light_ui;
+    }
+
+    if(key == SDLK_SPACE)
+    {
+      playing = down;
+    }
   }
 
  private:
-  bool playing = false;
+  bool light_ui = true;
+  bool playing  = false;
 };
 
 int
