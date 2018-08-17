@@ -301,11 +301,12 @@ struct PianoKey
   }
 
   void
-  OnInput(SDL_Keycode input, bool was_pressed)
+  OnInput(SDL_Keycode input, bool was_pressed, float time)
   {
     if(keycode != 0 && input == keycode)
     {
-      is_down = was_pressed;
+      is_down   = was_pressed;
+      time_down = time;
     }
   }
 
@@ -317,6 +318,8 @@ struct PianoKey
   int y = 10;
   int w = 10;
   int h = 10;
+
+  float time_down = 0;
 
   SDL_Keycode keycode = 0;
 
@@ -448,11 +451,11 @@ struct PianoInput
   }
 
   void
-  OnInput(SDL_Keycode input, Uint16, bool down)
+  OnInput(SDL_Keycode input, Uint16, bool down, float time)
   {
     for(auto& key : keys)
     {
-      key.OnInput(input, down);
+      key.OnInput(input, down, time);
     }
 
     if(input == SDLK_LSHIFT)
@@ -467,12 +470,19 @@ struct PianoInput
     bool down     = false;
     int  semitone = 0;
 
+    float time = -1;
+
     for(auto& key : keys)
     {
       if(key.is_down)
       {
-        semitone = key.semitone;
-        down     = true;
+        // only get the latest key
+        if(time < key.time_down)
+        {
+          time     = key.time_down;
+          semitone = key.semitone;
+          down     = true;
+        }
       }
     }
 
@@ -589,7 +599,7 @@ class App : public AppBase
   }
 
   void
-  OnKey(SDL_Keycode key, Uint16 mod, bool down)
+  OnKey(SDL_Keycode key, Uint16 mod, bool down, float time)
   {
     if(key == SDLK_TAB && !down)
     {
@@ -603,7 +613,7 @@ class App : public AppBase
       std::cout << "Oscilator is now " << ToString(osc) << "\n";
     }
 
-    piano.OnInput(key, mod, down);
+    piano.OnInput(key, mod, down, time);
     const auto out = piano.GetAudioOutput();
     frequency      = out.frequency;
     amplitude      = out.amplitude;
@@ -628,9 +638,21 @@ main(int argc, char* argv[])
 
   SDL_Event event;
 
+  Uint64 current_time  = SDL_GetPerformanceCounter();
+  Uint64 last_time = 0;
+
+  float time = 0;
+
   bool run = true;
   while(run)
   {
+    last_time = current_time;
+    current_time  = SDL_GetPerformanceCounter();
+
+    const auto dt = ((current_time - last_time) * 1000.0f / SDL_GetPerformanceFrequency());
+
+    time += dt;
+
     while(SDL_PollEvent(&event))
     {
       switch(event.type)
@@ -643,7 +665,8 @@ main(int argc, char* argv[])
           app.OnKey(
               event.key.keysym.sym,
               event.key.keysym.mod,
-              event.type == SDL_KEYDOWN);
+              event.type == SDL_KEYDOWN,
+              time);
           break;
         default:
           break;
