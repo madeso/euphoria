@@ -497,6 +497,47 @@ Insert(std::vector<T>* to, const std::vector<T>& from)
   }
 }
 
+enum class OscilatorType
+{
+  Sine,
+  Square,
+  Triangle,
+  Max
+};
+
+std::string
+ToString(OscilatorType osc)
+{
+  switch(osc)
+  {
+    case OscilatorType::Sine:
+      return "Sine";
+    case OscilatorType::Square:
+      return "Square";
+    case OscilatorType::Triangle:
+      return "Triangle";
+    default:
+      return "?";
+  }
+}
+
+float
+RunOscilator(float frequency, float time, OscilatorType osc)
+{
+  const float sine = sin(frequency * 2.0f * pi * time);
+  switch(osc)
+  {
+    case OscilatorType::Sine:
+      return sine;
+    case OscilatorType::Square:
+      return sine > 0 ? 1 : -1;
+    case OscilatorType::Triangle:
+      return asin(sine) * (2 / pi);
+    default:
+      return 0;
+  }
+}
+
 class App : public AppBase
 {
  public:
@@ -544,7 +585,7 @@ class App : public AppBase
   float
   SynthSample(float time) override
   {
-    return 0.5f * amplitude * sin(frequency * 2.0f * pi * time);
+    return master * amplitude * RunOscilator(frequency, time, osc);
   }
 
   void
@@ -555,6 +596,13 @@ class App : public AppBase
       light_ui = !light_ui;
     }
 
+    if(key == SDLK_SPACE && !down)
+    {
+      osc = static_cast<OscilatorType>(
+          (static_cast<int>(osc) + 1) % static_cast<int>(OscilatorType::Max));
+      std::cout << "Oscilator is now " << ToString(osc) << "\n";
+    }
+
     piano.OnInput(key, mod, down);
     const auto out = piano.GetAudioOutput();
     frequency      = out.frequency;
@@ -562,9 +610,11 @@ class App : public AppBase
   }
 
  private:
-  bool  light_ui  = true;
-  float frequency = 0;
-  float amplitude = 0;
+  bool          light_ui  = true;
+  float         frequency = 0;
+  float         amplitude = 0;
+  float         master    = 0.5f;
+  OscilatorType osc       = OscilatorType::Sine;
 };
 
 int
