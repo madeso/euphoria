@@ -512,6 +512,8 @@ enum class OscilatorType
   Sine,
   Square,
   Triangle,
+  Sawtooth,
+  Noise,
   Max
 };
 
@@ -526,6 +528,10 @@ ToString(OscilatorType osc)
       return "Square";
     case OscilatorType::Triangle:
       return "Triangle";
+    case OscilatorType::Sawtooth:
+      return "Sawtooth";
+    case OscilatorType::Noise:
+      return "Noise";
     default:
       return "?";
   }
@@ -543,6 +549,12 @@ RunOscilator(float frequency, float time, OscilatorType osc)
       return sine > 0 ? 1 : -1;
     case OscilatorType::Triangle:
       return asin(sine) * (2 / pi);
+    case OscilatorType::Sawtooth:
+      return (2 / pi) * (frequency * pi * fmodf(time, 1 / frequency) - pi / 2);
+    case OscilatorType::Noise:
+      // todo: use the improved c++ random library
+      // todo: and also add perlin noise?
+      return 2 * (static_cast<float>(rand()) / RAND_MAX) - 1;
     default:
       return 0;
   }
@@ -638,18 +650,19 @@ main(int argc, char* argv[])
 
   SDL_Event event;
 
-  Uint64 current_time  = SDL_GetPerformanceCounter();
-  Uint64 last_time = 0;
+  Uint64 current_time = SDL_GetPerformanceCounter();
+  Uint64 last_time    = 0;
 
   float time = 0;
 
   bool run = true;
   while(run)
   {
-    last_time = current_time;
-    current_time  = SDL_GetPerformanceCounter();
+    last_time    = current_time;
+    current_time = SDL_GetPerformanceCounter();
 
-    const auto dt = ((current_time - last_time) * 1000.0f / SDL_GetPerformanceFrequency());
+    const auto dt =
+        ((current_time - last_time) * 1000.0f / SDL_GetPerformanceFrequency());
 
     time += dt;
 
