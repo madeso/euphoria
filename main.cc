@@ -57,15 +57,20 @@ class AppBase
           SDL_GetError());
       ok = false;
     }
-    else
-    {
-      SDL_PauseAudio(0);
-    }
 
     int i, count = SDL_GetNumAudioDevices(0);
     for(i = 0; i < count; ++i)
     {
       SDL_Log("Audio device %d: %s", i, SDL_GetAudioDeviceName(i, 0));
+    }
+  }
+
+  void
+  Start()
+  {
+    if(ok)
+    {
+      SDL_PauseAudio(0);
     }
   }
 
@@ -712,6 +717,8 @@ main(int argc, char* argv[])
 
   Uint64 current_time = SDL_GetPerformanceCounter();
   Uint64 last_time    = 0;
+
+  app.Start();
 
   float time = 0;
 
