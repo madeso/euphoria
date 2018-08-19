@@ -1,7 +1,9 @@
 #include <iostream>
+#include <sstream>
 #include <vector>
 
 #include <SDL2/SDL.h>
+#include "stb_easy_font.h"
 
 const float pi = 3.14159f;
 
@@ -46,6 +48,7 @@ class AppBase
     spec.samples  = 1024;
     spec.callback = SDLAudioCallback;
     spec.userdata = this;
+
     if(0 != SDL_OpenAudio(&spec, nullptr))
     {
       SDL_LogError(
@@ -57,6 +60,12 @@ class AppBase
     else
     {
       SDL_PauseAudio(0);
+    }
+
+    int i, count = SDL_GetNumAudioDevices(0);
+    for(i = 0; i < count; ++i)
+    {
+      SDL_Log("Audio device %d: %s", i, SDL_GetAudioDeviceName(i, 0));
     }
   }
 
@@ -93,6 +102,44 @@ class AppBase
   {
     SetRenderColor(color);
     SDL_RenderClear(renderer);
+  }
+
+  void
+  Text(int x, int y, const std::string& text, Color color, float scale)
+  {
+    struct Buffer
+    {
+      float x;
+      float y;
+      float z;
+      Uint8 color[4];
+    };
+
+    // stb works on float, we use pixels
+    // this functions converts stb size to pixels
+    auto scale_fun = [=](float f) -> int {
+      return static_cast<int>(f * scale);
+    };
+
+    static Buffer buffer[3000];
+    const int     num_quads = stb_easy_font_print(
+        x / scale,
+        y / scale,
+        const_cast<char*>(text.c_str()),
+        NULL,
+        buffer,
+        sizeof(buffer));
+    for(int q = 0; q < num_quads; q += 1)
+    {
+      const int   index        = q * 4;
+      const auto& top_left     = buffer[index + 0];
+      const auto& bottom_right = buffer[index + 2];
+      int         rx           = scale_fun(top_left.x);
+      int         ry           = scale_fun(top_left.y);
+      int         rw           = scale_fun(bottom_right.x - top_left.x);
+      int         rh           = scale_fun(bottom_right.y - top_left.y);
+      FillRect(rx, ry, rw, rh, color);
+    }
   }
 
   void
@@ -602,6 +649,20 @@ class App : public AppBase
     ClearScreen(colors.background);
 
     piano.Draw(this, C(colors));
+
+    std::stringstream ss;
+    ss << "Oscilator: " << ToString(osc);
+
+    {
+      int i, count = SDL_GetNumAudioDevices(0);
+
+      for(i = 0; i < count; ++i)
+      {
+        ss << "\n" << SDL_GetAudioDeviceName(i, 0);
+      }
+    }
+
+    Text(10, 300, ss.str(), colors.primary_content, 2);
   }
 
   float
@@ -622,7 +683,6 @@ class App : public AppBase
     {
       osc = static_cast<OscilatorType>(
           (static_cast<int>(osc) + 1) % static_cast<int>(OscilatorType::Max));
-      std::cout << "Oscilator is now " << ToString(osc) << "\n";
     }
 
     piano.OnInput(key, mod, down, time);

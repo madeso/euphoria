@@ -28,6 +28,8 @@ include_directories(SYSTEM ${SDL2_INCLUDE_DIR})
 set(app_src ${app_src_glob})
 source_group("" FILES ${app_src})
 
+include_directories(SYSTEM external/stb)
+
 add_executable(demo WIN32 MACOSX_BUNDLE ${app_src})
 target_link_libraries(demo
                       ${SDL2_LIBRARY}
