@@ -2,8 +2,11 @@
 #include <sstream>
 #include <vector>
 
+#include <glad/glad.h>
+#include "imgui.h"
+#include "imgui_impl_sdl.h"
+#include "imgui_impl_opengl3.h"
 #include <SDL2/SDL.h>
-#include "stb_easy_font.h"
 
 const float pi = 3.14159f;
 
@@ -17,8 +20,6 @@ class AppBase
       , sample_frequency(44100)
       , time(0)
       , samples_consumed(0)
-      , window(nullptr)
-      , renderer(nullptr)
   {
     if(SDL_Init(SDL_INIT_EVERYTHING) < 0)
     {
@@ -28,18 +29,119 @@ class AppBase
       return;
     }
 
-    if(SDL_CreateWindowAndRenderer(
-           640, 480, SDL_WINDOW_RESIZABLE, &window, &renderer))
+    SetupWindow("musik maskin");
+    SetupAudioCallbacks();
+  }
+
+  void
+  SetupWindow(const char* const title)
+  {
+// Decide GL+GLSL versions
+#if __APPLE__
+    // GL 3.2 Core + GLSL 150
+    const char* glsl_version = "#version 150";
+    SDL_GL_SetAttribute(
+        SDL_GL_CONTEXT_FLAGS,
+        SDL_GL_CONTEXT_FORWARD_COMPATIBLE_FLAG);  // Always required on Mac
+    SDL_GL_SetAttribute(
+        SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 2);
+#else
+    // GL 3.0 + GLSL 130
+    const char* glsl_version = "#version 130";
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, 0);
+    SDL_GL_SetAttribute(
+        SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
+#endif
+
+    // Create window with graphics context
+    SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
+    SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
+    SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 8);
+    SDL_DisplayMode current;
+    SDL_GetCurrentDisplayMode(0, &current);
+    window = SDL_CreateWindow(
+        title,
+        SDL_WINDOWPOS_CENTERED,
+        SDL_WINDOWPOS_CENTERED,
+        1280,
+        720,
+        SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);
+    if(!window)
     {
-      SDL_LogError(
-          SDL_LOG_CATEGORY_APPLICATION,
-          "Couldn't create window and renderer: %s",
-          SDL_GetError());
+      std::cerr << "Failed to create window.\n";
       ok = false;
+      return;
     }
 
-    SDL_SetWindowTitle(window, "musik maskin");
+    gl_context = SDL_GL_CreateContext(window);
+    if(!gl_context)
+    {
+      std::cerr << "Failed to init GL context.\n";
+      ok = false;
+      return;
+    }
 
+    SDL_GL_SetSwapInterval(1);  // Enable vsync
+
+    if(!gladLoadGL())
+    {
+      std::cerr << "Failed to load GL.\n";
+      ok = false;
+      return;
+    }
+
+    std::cout << "OpenGL " << GLVersion.major << "." << GLVersion.minor << "\n";
+
+    // Setup Dear ImGui binding
+    IMGUI_CHECKVERSION();
+    ImGui::CreateContext();
+    // ImGuiIO& io = ImGui::GetIO();
+    // io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;  // Enable Keyboard
+    // Controls
+
+    ImGui_ImplSDL2_InitForOpenGL(window, gl_context);
+    ImGui_ImplOpenGL3_Init(glsl_version);
+
+    // Setup style
+    ImGui::StyleColorsDark();
+    // ImGui::StyleColorsClassic();
+
+    // Load Fonts
+    // - If no fonts are loaded, dear imgui will use the default font. You can
+    // also load multiple fonts and use ImGui::PushFont()/PopFont() to select
+    // them.
+    // - AddFontFromFileTTF() will return the ImFont* so you can store it if you
+    // need to select the font among multiple.
+    // - If the file cannot be loaded, the function will return NULL. Please
+    // handle those errors in your application (e.g. use an assertion, or
+    // display an error and quit).
+    // - The fonts will be rasterized at a given size (w/ oversampling) and
+    // stored into a texture when calling
+    // ImFontAtlas::Build()/GetTexDataAsXXXX(), which ImGui_ImplXXXX_NewFrame
+    // below will call.
+    // - Read 'misc/fonts/README.txt' for more instructions and details.
+    // - Remember that in C/C++ if you want to include a backslash \ in a string
+    // literal you need to write a double backslash \\ !
+    // io.Fonts->AddFontDefault();
+    // io.Fonts->AddFontFromFileTTF("../../misc/fonts/Roboto-Medium.ttf",
+    // 16.0f);
+    // io.Fonts->AddFontFromFileTTF("../../misc/fonts/Cousine-Regular.ttf",
+    // 15.0f);
+    // io.Fonts->AddFontFromFileTTF("../../misc/fonts/DroidSans.ttf", 16.0f);
+    // io.Fonts->AddFontFromFileTTF("../../misc/fonts/ProggyTiny.ttf", 10.0f);
+    // ImFont* font =
+    // io.Fonts->AddFontFromFileTTF("c:\\Windows\\Fonts\\ArialUni.ttf", 18.0f,
+    // NULL, io.Fonts->GetGlyphRangesJapanese());
+    // IM_ASSERT(font != NULL);
+  }
+
+  void
+  SetupAudioCallbacks()
+  {
     SDL_AudioSpec spec;
     SDL_memset(&spec, 0, sizeof(spec));
     spec.freq     = sample_frequency;
@@ -76,15 +178,29 @@ class AppBase
 
   ~AppBase()
   {
-    if(renderer)
-    {
-      SDL_DestroyRenderer(renderer);
-    }
-    if(window)
-    {
-      SDL_DestroyWindow(window);
-    }
+    ImGui_ImplOpenGL3_Shutdown();
+    ImGui_ImplSDL2_Shutdown();
+    ImGui::DestroyContext();
+
+    SDL_GL_DeleteContext(gl_context);
+    SDL_DestroyWindow(window);
+    SDL_Quit();
   };
+
+  // dummy implementations
+  void
+  Text(int, int, const std::string&, int, int)
+  {
+  }
+
+  void
+  ClearScreen(int)
+  {
+  }
+  void
+  FillRect(int, int, int, int, int)
+  {
+  }
 
   virtual void
   Draw() = 0;
@@ -95,80 +211,24 @@ class AppBase
   void
   OnRender()
   {
-    if(renderer)
-    {
-      Draw();
-      SDL_RenderPresent(renderer);
-    }
-  }
+    ImGuiIO&     io          = ImGui::GetIO();
+    const ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 
-  void
-  ClearScreen(int color)
-  {
-    SetRenderColor(color);
-    SDL_RenderClear(renderer);
-  }
+    // Start the Dear ImGui frame
+    ImGui_ImplOpenGL3_NewFrame();
+    ImGui_ImplSDL2_NewFrame(window);
+    ImGui::NewFrame();
 
-  void
-  Text(int x, int y, const std::string& text, Color color, float scale)
-  {
-    struct Buffer
-    {
-      float x;
-      float y;
-      float z;
-      Uint8 color[4];
-    };
+    Draw();
 
-    // stb works on float, we use pixels
-    // this functions converts stb size to pixels
-    auto scale_fun = [=](float f) -> int {
-      return static_cast<int>(f * scale);
-    };
-
-    static Buffer buffer[3000];
-    const int     num_quads = stb_easy_font_print(
-        x / scale,
-        y / scale,
-        const_cast<char*>(text.c_str()),
-        NULL,
-        buffer,
-        sizeof(buffer));
-    for(int q = 0; q < num_quads; q += 1)
-    {
-      const int   index        = q * 4;
-      const auto& top_left     = buffer[index + 0];
-      const auto& bottom_right = buffer[index + 2];
-      int         rx           = scale_fun(top_left.x);
-      int         ry           = scale_fun(top_left.y);
-      int         rw           = scale_fun(bottom_right.x - top_left.x);
-      int         rh           = scale_fun(bottom_right.y - top_left.y);
-      FillRect(rx, ry, rw, rh, color);
-    }
-  }
-
-  void
-  FillRect(int x, int y, int w, int h, Color color)
-  {
-    SetRenderColor(color);
-
-    SDL_Rect rect;
-    rect.x = x;
-    rect.y = y;
-    rect.w = w;
-    rect.h = h;
-    SDL_RenderFillRect(renderer, &rect);
-  }
-
- private:
-  void
-  SetRenderColor(Color color)
-  {
-    const auto r = static_cast<Uint8>((color & 0xFF000000) >> 24);
-    const auto g = static_cast<Uint8>((color & 0x00FF0000) >> 16);
-    const auto b = static_cast<Uint8>((color & 0x0000FF00) >> 8);
-    const auto a = static_cast<Uint8>((color & 0x000000FF));
-    SDL_SetRenderDrawColor(renderer, r, g, b, a);
+    // Rendering
+    ImGui::Render();
+    SDL_GL_MakeCurrent(window, gl_context);
+    glViewport(0, 0, (int)io.DisplaySize.x, (int)io.DisplaySize.y);
+    glClearColor(clear_color.x, clear_color.y, clear_color.z, clear_color.w);
+    glClear(GL_COLOR_BUFFER_BIT);
+    ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+    SDL_GL_SwapWindow(window);
   }
 
   void
@@ -217,8 +277,9 @@ class AppBase
   float time;
   int   samples_consumed;
 
+ public:
   SDL_Window*   window;
-  SDL_Renderer* renderer;
+  SDL_GLContext gl_context;
 };
 
 // solarized light color spec
@@ -735,6 +796,7 @@ main(int argc, char* argv[])
 
     while(SDL_PollEvent(&event))
     {
+      ImGui_ImplSDL2_ProcessEvent(&event);
       switch(event.type)
       {
         case SDL_QUIT:
@@ -742,14 +804,24 @@ main(int argc, char* argv[])
           break;
         case SDL_KEYDOWN:
         case SDL_KEYUP:
-          app.OnKey(
-              event.key.keysym.sym,
-              event.key.keysym.mod,
-              event.type == SDL_KEYDOWN,
-              time);
+          if(!ImGui::GetIO().WantCaptureKeyboard)
+          {
+            app.OnKey(
+                event.key.keysym.sym,
+                event.key.keysym.mod,
+                event.type == SDL_KEYDOWN,
+                time);
+          }
           break;
         default:
           break;
+      }
+
+      if(event.type == SDL_WINDOWEVENT &&
+         event.window.event == SDL_WINDOWEVENT_CLOSE &&
+         event.window.windowID == SDL_GetWindowID(app.window))
+      {
+        run = false;
       }
     }
 
