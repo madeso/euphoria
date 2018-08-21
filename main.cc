@@ -728,7 +728,7 @@ class App : public AppBase
     }
 
     {
-      ImGui::BeginChild("Scrolling");
+      ImGui::BeginChild("audio devices", ImVec2(0,0), true);
       int i, count = SDL_GetNumAudioDevices(0);
 
       for(i = 0; i < count; ++i)
