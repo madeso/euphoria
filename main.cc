@@ -712,23 +712,31 @@ class App : public AppBase
   {
     const auto colors = Solarized{light_ui};
 
-    ClearScreen(colors.background);
-
     piano.Draw(this, C(colors));
 
-    std::stringstream ss;
-    ss << "Oscilator: " << ToString(osc);
+    if(ImGui::BeginCombo("Oscilator", ToString(osc).c_str()))
+    {
+      for(int i = 0; i < static_cast<int>(OscilatorType::Max); i += 1)
+      {
+        const auto o = static_cast<OscilatorType>(i);
+        if(ImGui::Selectable(ToString(o).c_str(), osc == o))
+        {
+          osc = o;
+        }
+      }
+      ImGui::EndCombo();
+    }
 
     {
+      ImGui::BeginChild("Scrolling");
       int i, count = SDL_GetNumAudioDevices(0);
 
       for(i = 0; i < count; ++i)
       {
-        ss << "\n" << SDL_GetAudioDeviceName(i, 0);
+        ImGui::Text("%s", SDL_GetAudioDeviceName(i, 0));
       }
+      ImGui::EndChild();
     }
-
-    Text(10, 300, ss.str(), colors.primary_content, 2);
   }
 
   float
