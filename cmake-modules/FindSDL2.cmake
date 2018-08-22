@@ -80,6 +80,7 @@ SET(SDL2_SEARCH_PATHS
 	/opt
 	${SDL2_HINT_ROOT}
 	${SDL2_HINT_ROOT}/build
+	${SDL2_HINT_ROOT}/cmake-build
 	${SDL2_HINT_BUILD}
 )
 
