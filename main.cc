@@ -6,7 +6,7 @@
 #include "imgui.h"
 #include "imgui_impl_sdl.h"
 #include "imgui_impl_opengl3.h"
-#include <SDL2/SDL.h>
+#include <SDL.h>
 
 const float pi = 3.14159f;
 
