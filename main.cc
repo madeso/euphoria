@@ -10,9 +10,10 @@
 
 #include "imgui_extra.h"
 
-const float pi = 3.14159f;
+#include "font_noto_sans_display.h"
+#include "solarized.h"
 
-using Color = int;
+const float pi = 3.14159f;
 
 class AppBase
 {
@@ -101,7 +102,7 @@ class AppBase
     // Setup Dear ImGui binding
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
-    // ImGuiIO& io = ImGui::GetIO();
+    ImGuiIO& io = ImGui::GetIO();
     // io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;  // Enable Keyboard
     // Controls
 
@@ -111,6 +112,9 @@ class AppBase
     // Setup style
     ImGui::StyleColorsDark();
     // ImGui::StyleColorsClassic();
+
+    io.Fonts->AddFontFromMemoryCompressedTTF(
+        NotoSansDisplay_compressed_data, NotoSansDisplay_compressed_size, 16);
 
     // Load Fonts
     // - If no fonts are loaded, dear imgui will use the default font. You can
@@ -139,6 +143,83 @@ class AppBase
     // io.Fonts->AddFontFromFileTTF("c:\\Windows\\Fonts\\ArialUni.ttf", 18.0f,
     // NULL, io.Fonts->GetGlyphRangesJapanese());
     // IM_ASSERT(font != NULL);
+
+    SetupStyle(Solarized{true});
+  }
+
+  void
+  SetupStyle(const Solarized& s, ImGuiStyle* dst = nullptr)
+  {
+    ImGuiStyle* style = dst ? dst : &ImGui::GetStyle();
+
+    auto C = [](Color color, float a = 1.0f) -> ImVec4 {
+      const int r = (color >> 24) & 0xff;
+      const int g = (color >> 16) & 0xff;
+      const int b = (color >> 8) & 0xff;
+      return ImVec4{r / 255.0f, g / 255.0f, b / 255.0f, a};
+    };
+
+    style->FrameBorderSize  = 1.0f;
+    style->WindowPadding    = ImVec2(10, 10);
+    style->FramePadding     = ImVec2(6, 2);
+    style->ItemSpacing      = ImVec2(6, 4);
+    style->ItemInnerSpacing = ImVec2(8, 6);
+    style->IndentSpacing    = 25.0f;
+    style->ScrollbarSize    = 15.0f;
+    style->GrabMinSize      = 12.0f;
+
+    style->WindowRounding    = 0.0f;
+    style->FrameRounding     = 0.0f;
+    style->GrabRounding      = 0.0f;
+    style->ScrollbarRounding = 0.0f;
+    style->PopupRounding     = 0.0f;
+    style->ChildRounding     = 0.0f;
+
+    ImVec4* colors = style->Colors;
+
+    colors[ImGuiCol_Text]                  = C(s.primary_content);
+    colors[ImGuiCol_TextDisabled]          = C(s.comments);
+    colors[ImGuiCol_WindowBg]              = C(s.background);
+    colors[ImGuiCol_ChildWindowBg]         = C(s.background);
+    colors[ImGuiCol_PopupBg]               = C(s.background);
+    colors[ImGuiCol_Border]                = C(s.primary_content);
+    colors[ImGuiCol_BorderShadow]          = C(s.background, 0);
+    colors[ImGuiCol_FrameBg]               = C(s.background);
+    colors[ImGuiCol_FrameBgHovered]        = C(s.background);
+    colors[ImGuiCol_FrameBgActive]         = C(s.background);
+    colors[ImGuiCol_TitleBg]               = C(s.background);
+    colors[ImGuiCol_TitleBgActive]         = C(s.background_highlight);
+    colors[ImGuiCol_TitleBgCollapsed]      = C(s.background);
+    colors[ImGuiCol_MenuBarBg]             = C(s.background);
+    colors[ImGuiCol_ScrollbarBg]           = C(s.background);
+    colors[ImGuiCol_ScrollbarGrab]         = C(s.comments);
+    colors[ImGuiCol_ScrollbarGrabHovered]  = C(s.blue);
+    colors[ImGuiCol_ScrollbarGrabActive]   = C(s.primary_content);
+    colors[ImGuiCol_CheckMark]             = C(s.primary_content);
+    colors[ImGuiCol_SliderGrab]            = C(s.primary_content, 0.5f);
+    colors[ImGuiCol_SliderGrabActive]      = C(s.primary_content, 0.3f);
+    colors[ImGuiCol_Button]                = C(s.background);
+    colors[ImGuiCol_ButtonHovered]         = C(s.background_highlight);
+    colors[ImGuiCol_ButtonActive]          = C(s.background_highlight);
+    colors[ImGuiCol_Header]                = C(s.background_highlight);
+    colors[ImGuiCol_HeaderHovered]         = C(s.background_highlight);
+    colors[ImGuiCol_HeaderActive]          = C(s.background_highlight);
+    colors[ImGuiCol_Separator]             = C(s.comments);
+    colors[ImGuiCol_SeparatorHovered]      = C(s.background_highlight);
+    colors[ImGuiCol_SeparatorActive]       = C(s.primary_content);
+    colors[ImGuiCol_ResizeGrip]            = C(s.comments);
+    colors[ImGuiCol_ResizeGripHovered]     = C(s.blue);
+    colors[ImGuiCol_ResizeGripActive]      = C(s.primary_content);
+    colors[ImGuiCol_PlotLines]             = C(s.comments);
+    colors[ImGuiCol_PlotLinesHovered]      = C(s.primary_content);
+    colors[ImGuiCol_PlotHistogram]         = C(s.yellow, 0.9f);
+    colors[ImGuiCol_PlotHistogramHovered]  = C(s.yellow);
+    colors[ImGuiCol_TextSelectedBg]        = C(s.background_highlight);
+    colors[ImGuiCol_DragDropTarget]        = C(s.blue);
+    colors[ImGuiCol_NavHighlight]          = C(s.red);
+    colors[ImGuiCol_NavWindowingHighlight] = C(s.background);
+    colors[ImGuiCol_NavWindowingDimBg]     = C(s.background, 0.6f);
+    colors[ImGuiCol_ModalWindowDimBg]      = C(s.background, 0.6f);
   }
 
   void
@@ -214,7 +295,7 @@ class AppBase
   OnRender()
   {
     ImGuiIO&     io          = ImGui::GetIO();
-    const ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
+    const ImVec4 clear_color = ImGui::GetStyle().Colors[ImGuiCol_WindowBg];
 
     // Start the Dear ImGui frame
     ImGui_ImplOpenGL3_NewFrame();
@@ -282,72 +363,6 @@ class AppBase
  public:
   SDL_Window*   window;
   SDL_GLContext gl_context;
-};
-
-// solarized light color spec
-namespace solarized_light
-{
-  Color base03  = 0x002B36FF;
-  Color base02  = 0x073642FF;
-  Color base01  = 0x586E75FF;
-  Color base00  = 0x657B83FF;
-  Color base0   = 0x839496FF;
-  Color base1   = 0x93A1A1FF;
-  Color base2   = 0xEEE8D5FF;
-  Color base3   = 0xFDF6E3FF;
-  Color yellow  = 0xB58900FF;
-  Color orange  = 0xCB4B16FF;
-  Color red     = 0xDC322FFF;
-  Color magenta = 0xD33682FF;
-  Color violet  = 0x6C71C4FF;
-  Color blue    = 0x268BD2FF;
-  Color cyan    = 0x2AA198FF;
-  Color green   = 0x859900FF;
-}  // namespace solarized_light
-
-struct Solarized
-{
-  explicit Solarized(bool light)
-      : really_strong_border(
-            light ? solarized_light::base03 : solarized_light::base3)
-      , strong_border(light ? solarized_light::base02 : solarized_light::base2)
-      , emphasized_content(
-            light ? solarized_light::base01 : solarized_light::base1)
-      , primary_content(
-            light ? solarized_light::base00 : solarized_light::base0)
-      , not_used(light ? solarized_light::base0 : solarized_light::base00)
-      , comments(light ? solarized_light::base1 : solarized_light::base01)
-      , background_highlight(
-            light ? solarized_light::base2 : solarized_light::base02)
-      , background(light ? solarized_light::base3 : solarized_light::base03)
-      , yellow(solarized_light::yellow)
-      , orange(solarized_light::orange)
-      , red(solarized_light::red)
-      , magenta(solarized_light::magenta)
-      , violet(solarized_light::violet)
-      , blue(solarized_light::blue)
-      , cyan(solarized_light::cyan)
-      , green(solarized_light::green)
-
-  {
-  }
-  Color really_strong_border;
-  Color strong_border;
-  Color emphasized_content;
-  Color primary_content;
-  Color not_used;
-  Color comments;
-  Color background_highlight;
-  Color background;
-
-  Color yellow;
-  Color orange;
-  Color red;
-  Color magenta;
-  Color violet;
-  Color blue;
-  Color cyan;
-  Color green;
 };
 
 template <int SemitonesPerOctave>
@@ -714,6 +729,14 @@ class App : public AppBase
   {
     const auto colors = Solarized{light_ui};
 
+    ImGui::ShowDemoWindow();
+    if(ImGui::Begin("ImGui Style"))
+    {
+      ImGui::ShowStyleSelector("Style");
+      ImGui::ShowStyleEditor();
+    }
+    ImGui::End();
+
     piano.Draw(this, C(colors));
 
     ImGui::SliderFloat("master", &master, 0.0f, 1.0f);
@@ -757,6 +780,7 @@ class App : public AppBase
     if(key == SDLK_TAB && !down)
     {
       light_ui = !light_ui;
+      SetupStyle(Solarized{light_ui});
     }
 
     if(key == SDLK_SPACE && !down)

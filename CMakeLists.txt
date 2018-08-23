@@ -32,6 +32,17 @@ include_directories(SYSTEM external/imgui)
 include_directories(SYSTEM external/imgui/examples)
 include_directories(SYSTEM external/glad/include)
 include_directories(SYSTEM fake/)
+include_directories(SYSTEM ${CMAKE_CURRENT_BINARY_DIR})
+
+add_executable(binary_to_compressed_c external/imgui/misc/fonts/binary_to_compressed_c.cpp)
+add_custom_command(
+  OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/font_noto_sans_display.h"
+  COMMAND  binary_to_compressed_c
+  ARGS ${CMAKE_CURRENT_SOURCE_DIR}/NotoSansDisplay-Regular.ttf NotoSansDisplay > font_noto_sans_display.h
+  WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+  COMMENT "Generating binary font: Noto Sans Display"
+)
+set(app_src ${app_src} ${CMAKE_CURRENT_BINARY_DIR}/font_noto_sans_display.h)
 
 set(app_src ${app_src}
     # standard imgui
