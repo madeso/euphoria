@@ -8,6 +8,8 @@
 #include "imgui_impl_opengl3.h"
 #include <SDL.h>
 
+#include "imgui_extra.h"
+
 const float pi = 3.14159f;
 
 using Color = int;
@@ -714,6 +716,10 @@ class App : public AppBase
 
     piano.Draw(this, C(colors));
 
+    ImGui::SliderFloat("master", &master, 0.0f, 1.0f);
+
+    imgui::Knob("Master", &master, 0.0f, 1.0f);
+
     if(ImGui::BeginCombo("Oscilator", ToString(osc).c_str()))
     {
       for(int i = 0; i < static_cast<int>(OscilatorType::Max); i += 1)
@@ -728,7 +734,7 @@ class App : public AppBase
     }
 
     {
-      ImGui::BeginChild("audio devices", ImVec2(0,0), true);
+      ImGui::BeginChild("audio devices", ImVec2(0, 0), true);
       int i, count = SDL_GetNumAudioDevices(0);
 
       for(i = 0; i < count; ++i)
