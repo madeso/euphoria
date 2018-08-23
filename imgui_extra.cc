@@ -8,15 +8,6 @@ namespace imgui
   bool
   Knob(const char* label, float* p_value, float v_min, float v_max)
   {
-    // Implementing a simple custom widget using the public API.
-    // You may also use the <imgui_internal.h> API to get raw access to more
-    // data/helpers, however the internal API isn't guaranteed to be forward
-    // compatible.
-    // FIXME: Need at least proper label centering + clipping (internal
-    // functions
-    // RenderTextClipped provides both but api is flaky/temporary)
-
-
     ImGuiIO&    io    = ImGui::GetIO();
     ImGuiStyle& style = ImGui::GetStyle();
 
@@ -36,7 +27,7 @@ namespace imgui
             radius_outer * 2 + line_height + style.ItemInnerSpacing.y));
     bool value_changed = false;
     bool is_active     = ImGui::IsItemActive();
-    bool is_hovered    = ImGui::IsItemActive();
+    bool is_hovered    = ImGui::IsItemHovered();
     if(is_active && io.MouseDelta.x != 0.0f)
     {
       float step = (v_max - v_min) / 200.0f;
@@ -52,6 +43,7 @@ namespace imgui
     float angle     = ANGLE_MIN + (ANGLE_MAX - ANGLE_MIN) * t;
     float angle_cos = cosf(angle), angle_sin = sinf(angle);
     float radius_inner = radius_outer * 0.40f;
+
     draw_list->AddCircleFilled(
         center, radius_outer, ImGui::GetColorU32(ImGuiCol_FrameBg), 16);
     draw_list->AddLine(
@@ -75,7 +67,6 @@ namespace imgui
         ImVec2(pos.x, pos.y + radius_outer * 2 + style.ItemInnerSpacing.y),
         ImGui::GetColorU32(ImGuiCol_Text),
         label);
-
     if(is_active || is_hovered)
     {
       ImGui::SetNextWindowPos(ImVec2(
