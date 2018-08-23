@@ -160,16 +160,19 @@ class AppBase
 
     style->FrameBorderSize   = 1.0f;
     style->WindowPadding     = ImVec2(10, 10);
-    style->WindowRounding    = 3.0f;
-    style->FramePadding      = ImVec2(5, 5);
-    style->FrameRounding     = 3.0f;
-    style->ItemSpacing       = ImVec2(12, 5);
+    style->FramePadding      = ImVec2(6, 2);
+    style->ItemSpacing       = ImVec2(6, 4);
     style->ItemInnerSpacing  = ImVec2(8, 6);
     style->IndentSpacing     = 25.0f;
     style->ScrollbarSize     = 15.0f;
-    style->ScrollbarRounding = 3.0f;
     style->GrabMinSize       = 12.0f;
-    style->GrabRounding      = 3.0f;
+
+    style->WindowRounding    = 0.0f;
+    style->FrameRounding     = 0.0f;
+    style->GrabRounding      = 0.0f;
+    style->ScrollbarRounding = 0.0f;
+    style->PopupRounding     = 0.0f;
+    style->ChildRounding     = 0.0f;
 
     ImVec4* colors = style->Colors;
 
@@ -206,16 +209,16 @@ class AppBase
     colors[ImGuiCol_ResizeGrip]            = C(s.comments);
     colors[ImGuiCol_ResizeGripHovered]     = C(s.blue);
     colors[ImGuiCol_ResizeGripActive]      = C(s.primary_content);
-    colors[ImGuiCol_PlotLines]             = ImVec4(0.61f, 0.61f, 0.61f, 1.00f);
-    colors[ImGuiCol_PlotLinesHovered]      = ImVec4(1.00f, 0.43f, 0.35f, 1.00f);
-    colors[ImGuiCol_PlotHistogram]         = ImVec4(0.90f, 0.70f, 0.00f, 1.00f);
-    colors[ImGuiCol_PlotHistogramHovered]  = ImVec4(1.00f, 0.60f, 0.00f, 1.00f);
-    colors[ImGuiCol_TextSelectedBg]        = ImVec4(0.26f, 0.59f, 0.98f, 0.35f);
-    colors[ImGuiCol_DragDropTarget]        = ImVec4(1.00f, 1.00f, 0.00f, 0.90f);
-    colors[ImGuiCol_NavHighlight]          = ImVec4(0.26f, 0.59f, 0.98f, 1.00f);
-    colors[ImGuiCol_NavWindowingHighlight] = ImVec4(1.00f, 1.00f, 1.00f, 0.70f);
-    colors[ImGuiCol_NavWindowingDimBg]     = ImVec4(0.80f, 0.80f, 0.80f, 0.20f);
-    colors[ImGuiCol_ModalWindowDimBg]      = ImVec4(0.80f, 0.80f, 0.80f, 0.35f);
+    colors[ImGuiCol_PlotLines]             = C(s.comments);
+    colors[ImGuiCol_PlotLinesHovered]      = C(s.primary_content);
+    colors[ImGuiCol_PlotHistogram]         = C(s.yellow, 0.9f);
+    colors[ImGuiCol_PlotHistogramHovered]  = C(s.yellow);
+    colors[ImGuiCol_TextSelectedBg]        = C(s.background_highlight);
+    colors[ImGuiCol_DragDropTarget]        = C(s.blue);
+    colors[ImGuiCol_NavHighlight]          = C(s.red);
+    colors[ImGuiCol_NavWindowingHighlight] = C(s.background);
+    colors[ImGuiCol_NavWindowingDimBg]     = C(s.background, 0.6f);
+    colors[ImGuiCol_ModalWindowDimBg]      = C(s.background, 0.6f);
   }
 
   void
@@ -291,7 +294,7 @@ class AppBase
   OnRender()
   {
     ImGuiIO&     io          = ImGui::GetIO();
-    const ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
+    const ImVec4 clear_color = ImGui::GetStyle().Colors[ImGuiCol_WindowBg];
 
     // Start the Dear ImGui frame
     ImGui_ImplOpenGL3_NewFrame();
