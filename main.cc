@@ -184,7 +184,7 @@ class AppBase
     colors[ImGuiCol_PopupBg]               = C(s.background);
     colors[ImGuiCol_Border]                = C(s.primary_content);
     colors[ImGuiCol_BorderShadow]          = C(s.background, 0);
-    colors[ImGuiCol_FrameBg]               = C(s.background);
+    colors[ImGuiCol_FrameBg]               = C(s.background_highlight);
     colors[ImGuiCol_FrameBgHovered]        = C(s.background);
     colors[ImGuiCol_FrameBgActive]         = C(s.background);
     colors[ImGuiCol_TitleBg]               = C(s.background);
