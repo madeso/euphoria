@@ -8,6 +8,8 @@
 #include "imgui_impl_opengl3.h"
 #include <SDL.h>
 
+#include "font_noto_sans_display.h"
+
 const float pi = 3.14159f;
 
 using Color = int;
@@ -99,7 +101,7 @@ class AppBase
     // Setup Dear ImGui binding
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
-    // ImGuiIO& io = ImGui::GetIO();
+    ImGuiIO& io = ImGui::GetIO();
     // io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;  // Enable Keyboard
     // Controls
 
@@ -109,6 +111,8 @@ class AppBase
     // Setup style
     ImGui::StyleColorsDark();
     // ImGui::StyleColorsClassic();
+
+    io.Fonts->AddFontFromMemoryCompressedTTF(NotoSansDisplay_compressed_data, NotoSansDisplay_compressed_size, 18);
 
     // Load Fonts
     // - If no fonts are loaded, dear imgui will use the default font. You can
