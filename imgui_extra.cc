@@ -4,31 +4,40 @@
 
 #define _USE_MATH_DEFINES
 #include <cmath>
+#include <sstream>
+#include <imgui_internal.h>
 
 namespace imgui
 {
   bool
   Knob(const char* label, float* p_value, float v_min, float v_max)
   {
-    constexpr auto  pi           = static_cast<float>(M_PI);
-    constexpr float angle_min    = pi * 0.75f;
-    constexpr float angle_max    = pi * 2.25f;
-    constexpr float radius_outer = 20.0f;
-    constexpr float radius_inner = radius_outer * 0.40f;
+    constexpr auto  pi              = static_cast<float>(M_PI);
+    constexpr float angle_min       = pi * 0.75f;
+    constexpr float angle_max       = pi * 2.25f;
+    constexpr float angle_step      = 20 * (pi / 180);
+    constexpr float size_outer      = 20;
+    constexpr float peg_max_end     = size_outer;
+    constexpr float peg_end         = 19;
+    constexpr float peg_start       = 15;
+    constexpr float knob_size       = 15;
+    constexpr float knob_mark_start = 15;
+    constexpr float knob_mark_end   = 8;
+    constexpr int   seg             = 16;
 
-    ImGuiIO&    io    = ImGui::GetIO();
-    ImGuiStyle& style = ImGui::GetStyle();
+    ImGuiIO&    io        = ImGui::GetIO();
+    ImGuiStyle& style     = ImGui::GetStyle();
+    ImDrawList* draw_list = ImGui::GetWindowDrawList();
 
-    ImVec2      pos    = ImGui::GetCursorScreenPos();
-    ImVec2      center = ImVec2(pos.x + radius_outer, pos.y + radius_outer);
-    float       line_height = ImGui::GetTextLineHeight();
-    ImDrawList* draw_list   = ImGui::GetWindowDrawList();
+    const ImVec2 start  = ImGui::GetCursorScreenPos();
+    const ImVec2 center = ImVec2(start.x + size_outer, start.y + size_outer);
+    const float  line_height = ImGui::GetTextLineHeight();
 
     ImGui::InvisibleButton(
         label,
         ImVec2(
-            radius_outer * 2,
-            radius_outer * 2 + line_height + style.ItemInnerSpacing.y));
+            size_outer * 2,
+            size_outer * 2 + line_height + style.ItemInnerSpacing.y));
     const bool is_active  = ImGui::IsItemActive();
     const bool is_hovered = ImGui::IsItemHovered();
 
@@ -44,44 +53,63 @@ namespace imgui
         *p_value = v_max;
     }
 
-    const float t         = (*p_value - v_min) / (v_max - v_min);
-    const float angle     = angle_min + (angle_max - angle_min) * t;
-    const float angle_cos = cosf(angle);
-    const float angle_sin = sinf(angle);
+    const float t     = (*p_value - v_min) / (v_max - v_min);
+    const float angle = angle_min + (angle_max - angle_min) * t;
 
     // colors
-    const auto label_color        = ImGui::GetColorU32(ImGuiCol_Text);
-    const auto outer_circle_color = ImGui::GetColorU32(ImGuiCol_FrameBg);
-    const auto value_indicator_color =
-        ImGui::GetColorU32(ImGuiCol_SliderGrabActive);
-    const auto inner_circle_color = ImGui::GetColorU32(
-        is_active ? ImGuiCol_FrameBgActive
-                  : is_hovered ? ImGuiCol_FrameBgHovered : ImGuiCol_FrameBg);
+    const auto label_color     = ImGui::GetColorU32(ImGuiCol_Text);
+    const auto fill_color      = ImGui::GetColorU32(ImGuiCol_FrameBg);
+    const auto knob_color      = ImGui::GetColorU32(ImGuiCol_SliderGrab);
+    const auto indicator_color = ImGui::GetColorU32(ImGuiCol_Text);
+    const auto peg_color_off   = ImGui::GetColorU32(ImGuiCol_TextDisabled);
+    const auto peg_color_max   = ImGui::GetColorU32(ImGuiCol_Text);
 
-    // visualization
-    draw_list->AddCircleFilled(center, radius_outer, outer_circle_color, 16);
+    // util function
+    const auto Pos = [=](float angle, float rad) -> ImVec2 {
+      return ImVec2(center.x + cosf(angle) * rad, center.y + sinf(angle) * rad);
+    };
+
+    // ----------------- visualization
+    // background
+    draw_list->AddCircleFilled(center, size_outer, fill_color, seg);
+
+    // peg indicators
+    for(float a = angle_min; a <= angle; a += angle_step)
+    {
+      draw_list->AddLine(
+          Pos(a, peg_start), Pos(a, peg_end), peg_color_off, 1.0f);
+    }
     draw_list->AddLine(
-        ImVec2(
-            center.x + angle_cos * radius_inner,
-            center.y + angle_sin * radius_inner),
-        ImVec2(
-            center.x + angle_cos * (radius_outer - 2),
-            center.y + angle_sin * (radius_outer - 2)),
-        value_indicator_color,
+        Pos(angle_max, peg_start),
+        Pos(angle_max, peg_max_end),
+        peg_color_max,
+        1.0f);
+    draw_list->AddLine(
+        Pos(angle_min, peg_start),
+        Pos(angle_min, peg_max_end),
+        peg_color_max,
+        1.0f);
+
+    // the knob
+    draw_list->AddCircleFilled(center, knob_size, knob_color, seg);
+    draw_list->AddLine(
+        Pos(angle, knob_mark_start),
+        Pos(angle, knob_mark_end),
+        indicator_color,
         2.0f);
-    draw_list->AddCircleFilled(center, radius_inner, inner_circle_color, 16);
+
+    // knob control name
     draw_list->AddText(
-        ImVec2(pos.x, pos.y + radius_outer * 2 + style.ItemInnerSpacing.y),
+        ImVec2(start.x, start.y + size_outer * 2 + style.ItemInnerSpacing.y),
         label_color,
         label);
-
 
     // tooltip
     if(is_active || is_hovered)
     {
       ImGui::SetNextWindowPos(ImVec2(
-          pos.x - style.WindowPadding.x,
-          pos.y - line_height - style.ItemInnerSpacing.y -
+          start.x - style.WindowPadding.x,
+          start.y - line_height - style.ItemInnerSpacing.y -
               style.WindowPadding.y));
       ImGui::BeginTooltip();
       ImGui::Text("%.3f", *p_value);
