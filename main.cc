@@ -10,9 +10,9 @@
 
 #include "font_noto_sans_display.h"
 
-const float pi = 3.14159f;
+#include "solarized.h"
 
-using Color = int;
+const float pi = 3.14159f;
 
 class AppBase
 {
@@ -284,72 +284,6 @@ class AppBase
  public:
   SDL_Window*   window;
   SDL_GLContext gl_context;
-};
-
-// solarized light color spec
-namespace solarized_light
-{
-  Color base03  = 0x002B36FF;
-  Color base02  = 0x073642FF;
-  Color base01  = 0x586E75FF;
-  Color base00  = 0x657B83FF;
-  Color base0   = 0x839496FF;
-  Color base1   = 0x93A1A1FF;
-  Color base2   = 0xEEE8D5FF;
-  Color base3   = 0xFDF6E3FF;
-  Color yellow  = 0xB58900FF;
-  Color orange  = 0xCB4B16FF;
-  Color red     = 0xDC322FFF;
-  Color magenta = 0xD33682FF;
-  Color violet  = 0x6C71C4FF;
-  Color blue    = 0x268BD2FF;
-  Color cyan    = 0x2AA198FF;
-  Color green   = 0x859900FF;
-}  // namespace solarized_light
-
-struct Solarized
-{
-  explicit Solarized(bool light)
-      : really_strong_border(
-            light ? solarized_light::base03 : solarized_light::base3)
-      , strong_border(light ? solarized_light::base02 : solarized_light::base2)
-      , emphasized_content(
-            light ? solarized_light::base01 : solarized_light::base1)
-      , primary_content(
-            light ? solarized_light::base00 : solarized_light::base0)
-      , not_used(light ? solarized_light::base0 : solarized_light::base00)
-      , comments(light ? solarized_light::base1 : solarized_light::base01)
-      , background_highlight(
-            light ? solarized_light::base2 : solarized_light::base02)
-      , background(light ? solarized_light::base3 : solarized_light::base03)
-      , yellow(solarized_light::yellow)
-      , orange(solarized_light::orange)
-      , red(solarized_light::red)
-      , magenta(solarized_light::magenta)
-      , violet(solarized_light::violet)
-      , blue(solarized_light::blue)
-      , cyan(solarized_light::cyan)
-      , green(solarized_light::green)
-
-  {
-  }
-  Color really_strong_border;
-  Color strong_border;
-  Color emphasized_content;
-  Color primary_content;
-  Color not_used;
-  Color comments;
-  Color background_highlight;
-  Color background;
-
-  Color yellow;
-  Color orange;
-  Color red;
-  Color magenta;
-  Color violet;
-  Color blue;
-  Color cyan;
-  Color green;
 };
 
 template <int SemitonesPerOctave>
