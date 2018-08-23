@@ -112,7 +112,8 @@ class AppBase
     ImGui::StyleColorsDark();
     // ImGui::StyleColorsClassic();
 
-    io.Fonts->AddFontFromMemoryCompressedTTF(NotoSansDisplay_compressed_data, NotoSansDisplay_compressed_size, 18);
+    io.Fonts->AddFontFromMemoryCompressedTTF(
+        NotoSansDisplay_compressed_data, NotoSansDisplay_compressed_size, 16);
 
     // Load Fonts
     // - If no fonts are loaded, dear imgui will use the default font. You can
@@ -141,6 +142,80 @@ class AppBase
     // io.Fonts->AddFontFromFileTTF("c:\\Windows\\Fonts\\ArialUni.ttf", 18.0f,
     // NULL, io.Fonts->GetGlyphRangesJapanese());
     // IM_ASSERT(font != NULL);
+
+    SetupStyle(Solarized{true});
+  }
+
+  void
+  SetupStyle(const Solarized& s, ImGuiStyle* dst = nullptr)
+  {
+    ImGuiStyle* style = dst ? dst : &ImGui::GetStyle();
+
+    auto C = [](Color color, float a = 1.0f) -> ImVec4 {
+      const int r = (color >> 24) & 0xff;
+      const int g = (color >> 16) & 0xff;
+      const int b = (color >> 8) & 0xff;
+      return ImVec4{r / 255.0f, g / 255.0f, b / 255.0f, a};
+    };
+
+    style->FrameBorderSize   = 1.0f;
+    style->WindowPadding     = ImVec2(10, 10);
+    style->WindowRounding    = 3.0f;
+    style->FramePadding      = ImVec2(5, 5);
+    style->FrameRounding     = 3.0f;
+    style->ItemSpacing       = ImVec2(12, 5);
+    style->ItemInnerSpacing  = ImVec2(8, 6);
+    style->IndentSpacing     = 25.0f;
+    style->ScrollbarSize     = 15.0f;
+    style->ScrollbarRounding = 3.0f;
+    style->GrabMinSize       = 12.0f;
+    style->GrabRounding      = 3.0f;
+
+    ImVec4* colors = style->Colors;
+
+    colors[ImGuiCol_Text]                  = C(s.primary_content);
+    colors[ImGuiCol_TextDisabled]          = C(s.comments);
+    colors[ImGuiCol_WindowBg]              = C(s.background);
+    colors[ImGuiCol_ChildWindowBg]         = C(s.background);
+    colors[ImGuiCol_PopupBg]               = C(s.background);
+    colors[ImGuiCol_Border]                = C(s.primary_content);
+    colors[ImGuiCol_BorderShadow]          = C(s.background, 0);
+    colors[ImGuiCol_FrameBg]               = C(s.background);
+    colors[ImGuiCol_FrameBgHovered]        = C(s.background);
+    colors[ImGuiCol_FrameBgActive]         = C(s.background);
+    colors[ImGuiCol_TitleBg]               = C(s.background);
+    colors[ImGuiCol_TitleBgActive]         = C(s.background_highlight);
+    colors[ImGuiCol_TitleBgCollapsed]      = C(s.background);
+    colors[ImGuiCol_MenuBarBg]             = C(s.background);
+    colors[ImGuiCol_ScrollbarBg]           = C(s.background);
+    colors[ImGuiCol_ScrollbarGrab]         = C(s.comments);
+    colors[ImGuiCol_ScrollbarGrabHovered]  = C(s.blue);
+    colors[ImGuiCol_ScrollbarGrabActive]   = C(s.primary_content);
+    colors[ImGuiCol_CheckMark]             = C(s.primary_content);
+    colors[ImGuiCol_SliderGrab]            = C(s.primary_content, 0.5f);
+    colors[ImGuiCol_SliderGrabActive]      = C(s.primary_content, 0.3f);
+    colors[ImGuiCol_Button]                = C(s.background);
+    colors[ImGuiCol_ButtonHovered]         = C(s.background_highlight);
+    colors[ImGuiCol_ButtonActive]          = C(s.background_highlight);
+    colors[ImGuiCol_Header]                = C(s.background_highlight);
+    colors[ImGuiCol_HeaderHovered]         = C(s.background_highlight);
+    colors[ImGuiCol_HeaderActive]          = C(s.background_highlight);
+    colors[ImGuiCol_Separator]             = C(s.comments);
+    colors[ImGuiCol_SeparatorHovered]      = C(s.background_highlight);
+    colors[ImGuiCol_SeparatorActive]       = C(s.primary_content);
+    colors[ImGuiCol_ResizeGrip]            = C(s.comments);
+    colors[ImGuiCol_ResizeGripHovered]     = C(s.blue);
+    colors[ImGuiCol_ResizeGripActive]      = C(s.primary_content);
+    colors[ImGuiCol_PlotLines]             = ImVec4(0.61f, 0.61f, 0.61f, 1.00f);
+    colors[ImGuiCol_PlotLinesHovered]      = ImVec4(1.00f, 0.43f, 0.35f, 1.00f);
+    colors[ImGuiCol_PlotHistogram]         = ImVec4(0.90f, 0.70f, 0.00f, 1.00f);
+    colors[ImGuiCol_PlotHistogramHovered]  = ImVec4(1.00f, 0.60f, 0.00f, 1.00f);
+    colors[ImGuiCol_TextSelectedBg]        = ImVec4(0.26f, 0.59f, 0.98f, 0.35f);
+    colors[ImGuiCol_DragDropTarget]        = ImVec4(1.00f, 1.00f, 0.00f, 0.90f);
+    colors[ImGuiCol_NavHighlight]          = ImVec4(0.26f, 0.59f, 0.98f, 1.00f);
+    colors[ImGuiCol_NavWindowingHighlight] = ImVec4(1.00f, 1.00f, 1.00f, 0.70f);
+    colors[ImGuiCol_NavWindowingDimBg]     = ImVec4(0.80f, 0.80f, 0.80f, 0.20f);
+    colors[ImGuiCol_ModalWindowDimBg]      = ImVec4(0.80f, 0.80f, 0.80f, 0.35f);
   }
 
   void
@@ -400,8 +475,8 @@ CreatePianoKeysStartingAtC(
     int key_offset,
     int semitone_offset)
 {
-  auto BlackKey = [=](
-      int semitone, int x, int y, SDL_Keycode keycode) -> PianoKey {
+  auto BlackKey =
+      [=](int semitone, int x, int y, SDL_Keycode keycode) -> PianoKey {
     PianoKey k;
     k.semitone = semitone;
     k.x        = x;
@@ -413,8 +488,8 @@ CreatePianoKeysStartingAtC(
     return k;
   };
 
-  auto WhiteKey = [=](
-      int semitone, int x, int y, SDL_Keycode keycode) -> PianoKey {
+  auto WhiteKey =
+      [=](int semitone, int x, int y, SDL_Keycode keycode) -> PianoKey {
     PianoKey k;
     k.semitone = semitone;
     k.x        = x;
@@ -454,7 +529,7 @@ CreatePianoKeysStartingAtC(
                                              SDLK_COMMA,
                                              SDLK_l,
                                              SDLK_PERIOD};
-    const int i = index + key_offset;
+    const int                      i      = index + key_offset;
     if(i < 0)
     {
       return 0;
@@ -650,6 +725,14 @@ class App : public AppBase
   {
     const auto colors = Solarized{light_ui};
 
+    ImGui::ShowDemoWindow();
+    if(ImGui::Begin("ImGui Style"))
+    {
+      ImGui::ShowStyleSelector("Style");
+      ImGui::ShowStyleEditor();
+    }
+    ImGui::End();
+
     piano.Draw(this, C(colors));
 
     if(ImGui::BeginCombo("Oscilator", ToString(osc).c_str()))
@@ -666,7 +749,7 @@ class App : public AppBase
     }
 
     {
-      ImGui::BeginChild("audio devices", ImVec2(0,0), true);
+      ImGui::BeginChild("audio devices", ImVec2(0, 0), true);
       int i, count = SDL_GetNumAudioDevices(0);
 
       for(i = 0; i < count; ++i)
@@ -689,6 +772,7 @@ class App : public AppBase
     if(key == SDLK_TAB && !down)
     {
       light_ui = !light_ui;
+      SetupStyle(Solarized{light_ui});
     }
 
     if(key == SDLK_SPACE && !down)
