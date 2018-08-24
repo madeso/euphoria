@@ -13,6 +13,8 @@ namespace imgui
   Knob(const char* label, float* p_value, float v_min, float v_max)
   {
     constexpr auto  pi              = static_cast<float>(M_PI);
+    constexpr auto  rad2deg         = 180 / pi;
+    constexpr auto  pi2             = pi * 2;
     constexpr float angle_min       = pi * 0.75f;
     constexpr float angle_max       = pi * 2.25f;
     constexpr float angle_step      = 20 * (pi / 180);
@@ -41,20 +43,66 @@ namespace imgui
     const bool is_active  = ImGui::IsItemActive();
     const bool is_hovered = ImGui::IsItemHovered();
 
-    // changing value
-    const bool value_changed = is_active && io.MouseDelta.x != 0.0f;
-    if(value_changed)
-    {
-      float step = (v_max - v_min) / 200.0f;
-      *p_value += io.MouseDelta.x * step;
-      if(*p_value < v_min)
-        *p_value = v_min;
-      if(*p_value > v_max)
-        *p_value = v_max;
-    }
-
     const float t     = (*p_value - v_min) / (v_max - v_min);
     const float angle = angle_min + (angle_max - angle_min) * t;
+
+    // changing value
+    bool value_changed = false;
+
+    if(true)
+    {
+      ImVec2      direct(io.MousePos.x - center.x, io.MousePos.y - center.y);
+      const float directl = sqrtf(direct.x * direct.x + direct.y * direct.y);
+      direct.x            = direct.x / directl;
+      direct.y            = direct.y / directl;
+
+      // todo: flip y based on x
+      const auto acos        = acosf(direct.x);
+      const auto ang         = direct.y > 0 ? pi2 - acos : acos;
+      float      input_angle = -ang;
+      input_angle += pi2;
+      if(ang < pi2+pi/2) {
+      }
+      else
+      {
+        input_angle += pi2;
+      }
+
+      const float input_angle_t =
+          (input_angle - angle_min) / (angle_max - angle_min);
+
+      if(is_active && (io.MouseDelta.x != 0.0f || io.MouseDelta.y != 0.0f))
+      {
+        *p_value = v_min + (v_max - v_min) * input_angle_t;
+
+        if(*p_value < v_min)
+          *p_value = v_min;
+        if(*p_value > v_max)
+          *p_value = v_max;
+      }
+
+      std::ostringstream ss;
+      ss << ang * rad2deg << "/" << input_angle * rad2deg;
+      // ss << " / " << direct.y << " / " << input_angle;
+      draw_list->AddText(
+          ImVec2(start.x, start.y + size_outer * 2 + style.ItemInnerSpacing.y),
+          ImGui::GetColorU32(ImGuiCol_Text),
+          ss.str().c_str());
+    }
+    else
+    {
+      if(is_active && io.MouseDelta.x != 0.0f)
+      {
+        float step = (v_max - v_min) / 200.0f;
+        *p_value += io.MouseDelta.x * step;
+        if(*p_value < v_min)
+          *p_value = v_min;
+        if(*p_value > v_max)
+          *p_value = v_max;
+
+        value_changed = true;
+      }
+    }
 
     // colors
     const auto label_color     = ImGui::GetColorU32(ImGuiCol_Text);
@@ -99,10 +147,11 @@ namespace imgui
         2.0f);
 
     // knob control name
-    draw_list->AddText(
-        ImVec2(start.x, start.y + size_outer * 2 + style.ItemInnerSpacing.y),
-        label_color,
-        label);
+    if(false)
+      draw_list->AddText(
+          ImVec2(start.x, start.y + size_outer * 2 + style.ItemInnerSpacing.y),
+          label_color,
+          label);
 
     // tooltip
     if(is_active || is_hovered)
