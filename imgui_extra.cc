@@ -61,7 +61,8 @@ namespace imgui
       const auto ang         = direct.y > 0 ? pi2 - acos : acos;
       float      input_angle = -ang;
       input_angle += pi2;
-      if(ang < pi2+pi/2) {
+      if(ang < pi2 + pi / 2)
+      {
       }
       else
       {
@@ -139,7 +140,7 @@ namespace imgui
         1.0f);
 
     // the knob
-    draw_list->AddCircleFilled(center, knob_size, knob_color, seg);
+    draw_list->AddCircleFilled(center, knob_size, knob_color, 6, angle);
     draw_list->AddLine(
         Pos(angle, knob_mark_start),
         Pos(angle, knob_mark_end),
