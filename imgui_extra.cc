@@ -9,6 +9,29 @@
 
 namespace imgui
 {
+  void
+  AddCircleFilled(
+      ImDrawList*   draw_list,
+      const ImVec2& centre,
+      float         radius,
+      ImU32         col,
+      int           num_segments,
+      float         angle_offset)
+  {
+    assert(draw_list);
+
+    // implementation modified from ImDrawList AddCircleFilled
+
+    if((col & IM_COL32_A_MASK) == 0)
+      return;
+
+    const float a_max =
+        IM_PI * 2.0f * ((float)num_segments - 1.0f) / (float)num_segments;
+    draw_list->PathArcTo(
+        centre, radius, angle_offset, a_max + angle_offset, num_segments);
+    draw_list->PathFillConvex(col);
+  }
+
   bool
   Knob(const char* label, float* p_value, float v_min, float v_max)
   {
@@ -140,7 +163,7 @@ namespace imgui
         1.0f);
 
     // the knob
-    draw_list->AddCircleFilled(center, knob_size, knob_color, 6, angle);
+    AddCircleFilled(draw_list, center, knob_size, knob_color, 6, angle);
     draw_list->AddLine(
         Pos(angle, knob_mark_start),
         Pos(angle, knob_mark_end),
