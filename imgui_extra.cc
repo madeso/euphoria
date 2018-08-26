@@ -84,10 +84,8 @@ namespace imgui
       const auto ang         = direct.y > 0 ? pi2 - acos : acos;
       float      input_angle = -ang;
       input_angle += pi2;
-      if(ang < pi2 + pi / 2)
-      {
-      }
-      else
+      const bool b = input_angle < pi / 2;
+      if(b)
       {
         input_angle += pi2;
       }
@@ -106,7 +104,7 @@ namespace imgui
       }
 
       std::ostringstream ss;
-      ss << ang * rad2deg << "/" << input_angle * rad2deg;
+      ss << ang * rad2deg << "/" << input_angle * rad2deg << " " << b;
       // ss << " / " << direct.y << " / " << input_angle;
       draw_list->AddText(
           ImVec2(start.x, start.y + size_outer * 2 + style.ItemInnerSpacing.y),
