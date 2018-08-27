@@ -783,12 +783,6 @@ class App : public AppBase
       SetupStyle(Solarized{light_ui});
     }
 
-    if(key == SDLK_SPACE && !down)
-    {
-      osc = static_cast<OscilatorType>(
-          (static_cast<int>(osc) + 1) % static_cast<int>(OscilatorType::Max));
-    }
-
     piano.OnInput(key, mod, down, time);
     const auto out = piano.GetAudioOutput();
     frequency      = out.frequency;
