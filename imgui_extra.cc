@@ -33,10 +33,15 @@ namespace imgui
   }
 
   bool
-  Knob(const char* label, float* p_value, float v_min, float v_max)
+  Knob(
+      const char* label,
+      float*      p_value,
+      float       v_min,
+      float       v_max,
+      KnobStyle   style)
   {
-    constexpr auto  pi              = static_cast<float>(M_PI);
-    constexpr auto  rad2deg         = 180 / pi;
+    constexpr auto pi = static_cast<float>(M_PI);
+    // constexpr auto  rad2deg         = 180 / pi;
     constexpr auto  pi2             = pi * 2;
     constexpr float angle_min       = pi * 0.75f;
     constexpr float angle_max       = pi * 2.25f;
@@ -51,7 +56,7 @@ namespace imgui
     constexpr int   seg             = 16;
 
     ImGuiIO&    io        = ImGui::GetIO();
-    ImGuiStyle& style     = ImGui::GetStyle();
+    ImGuiStyle& imstyle   = ImGui::GetStyle();
     ImDrawList* draw_list = ImGui::GetWindowDrawList();
 
     const ImVec2 start  = ImGui::GetCursorScreenPos();
@@ -62,7 +67,7 @@ namespace imgui
         label,
         ImVec2(
             size_outer * 2,
-            size_outer * 2 + line_height + style.ItemInnerSpacing.y));
+            size_outer * 2 + line_height + imstyle.ItemInnerSpacing.y));
     const bool is_active  = ImGui::IsItemActive();
     const bool is_hovered = ImGui::IsItemHovered();
 
@@ -72,7 +77,7 @@ namespace imgui
     // changing value
     bool value_changed = false;
 
-    if(true)
+    if(style & KS_UI_AIM)
     {
       ImVec2      direct(io.MousePos.x - center.x, io.MousePos.y - center.y);
       const float directl = sqrtf(direct.x * direct.x + direct.y * direct.y);
@@ -102,21 +107,14 @@ namespace imgui
         if(*p_value > v_max)
           *p_value = v_max;
       }
-
-      std::ostringstream ss;
-      ss << ang * rad2deg << "/" << input_angle * rad2deg << " " << b;
-      // ss << " / " << direct.y << " / " << input_angle;
-      draw_list->AddText(
-          ImVec2(start.x, start.y + size_outer * 2 + style.ItemInnerSpacing.y),
-          ImGui::GetColorU32(ImGuiCol_Text),
-          ss.str().c_str());
     }
     else
     {
-      if(is_active && io.MouseDelta.x != 0.0f)
+      const auto val = style & KS_UI_DRAG_X ? io.MouseDelta.x : io.MouseDelta.y;
+      if(is_active && val != 0.0f)
       {
         float step = (v_max - v_min) / 200.0f;
-        *p_value += io.MouseDelta.x * step;
+        *p_value += val * step;
         if(*p_value < v_min)
           *p_value = v_min;
         if(*p_value > v_max)
@@ -132,6 +130,7 @@ namespace imgui
     const auto knob_color      = ImGui::GetColorU32(ImGuiCol_SliderGrab);
     const auto indicator_color = ImGui::GetColorU32(ImGuiCol_Text);
     const auto peg_color_off   = ImGui::GetColorU32(ImGuiCol_TextDisabled);
+    const auto peg_color_on    = ImGui::GetColorU32(ImGuiCol_Text);
     const auto peg_color_max   = ImGui::GetColorU32(ImGuiCol_Text);
 
     // util function
@@ -141,24 +140,38 @@ namespace imgui
 
     // ----------------- visualization
     // background
-    draw_list->AddCircleFilled(center, size_outer, fill_color, seg);
+    if(style & KS_VIS_DRAW_BACKGROUND)
+    {
+      draw_list->AddCircleFilled(center, size_outer, fill_color, seg);
+    }
 
     // peg indicators
-    for(float a = angle_min; a <= angle; a += angle_step)
+    if(style & KS_VIS_MARKERS_VISIBLE)
+    {
+      const auto marker_stop =
+          (style & KS_VIS_OFF_MARKER_HIDDEN) ? angle : angle_max;
+      for(float a = angle_min; a <= marker_stop; a += angle_step)
+      {
+        const auto c = style & KS_VIS_OFF_MARKER_HIDDEN
+                           ? peg_color_off
+                           : a <= angle ? peg_color_on : peg_color_off;
+        draw_list->AddLine(Pos(a, peg_start), Pos(a, peg_end), c, 1.0f);
+      }
+    }
+
+    if(style & KS_VIS_MAXMIN_VISIBLE)
     {
       draw_list->AddLine(
-          Pos(a, peg_start), Pos(a, peg_end), peg_color_off, 1.0f);
+          Pos(angle_max, peg_start),
+          Pos(angle_max, peg_max_end),
+          peg_color_max,
+          1.0f);
+      draw_list->AddLine(
+          Pos(angle_min, peg_start),
+          Pos(angle_min, peg_max_end),
+          peg_color_max,
+          1.0f);
     }
-    draw_list->AddLine(
-        Pos(angle_max, peg_start),
-        Pos(angle_max, peg_max_end),
-        peg_color_max,
-        1.0f);
-    draw_list->AddLine(
-        Pos(angle_min, peg_start),
-        Pos(angle_min, peg_max_end),
-        peg_color_max,
-        1.0f);
 
     // the knob
     AddCircleFilled(draw_list, center, knob_size, knob_color, 6, angle);
@@ -169,19 +182,19 @@ namespace imgui
         2.0f);
 
     // knob control name
-    if(false)
-      draw_list->AddText(
-          ImVec2(start.x, start.y + size_outer * 2 + style.ItemInnerSpacing.y),
-          label_color,
-          label);
+    draw_list->AddText(
+        ImVec2(
+            start.x, start.y + size_outer * 2 + imstyle.ItemInnerSpacing.y / 4),
+        label_color,
+        label);
 
     // tooltip
     if(is_active || is_hovered)
     {
       ImGui::SetNextWindowPos(ImVec2(
-          start.x - style.WindowPadding.x,
-          start.y - line_height - style.ItemInnerSpacing.y -
-              style.WindowPadding.y));
+          start.x - 0,
+          start.y - line_height - imstyle.ItemInnerSpacing.y -
+              imstyle.WindowPadding.y));
       ImGui::BeginTooltip();
       ImGui::Text("%.3f", *p_value);
       ImGui::EndTooltip();
