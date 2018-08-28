@@ -5,6 +5,7 @@
 #define _USE_MATH_DEFINES
 #include <cmath>
 #include <sstream>
+#include <iomanip>
 #include <imgui_internal.h>
 
 namespace imgui
@@ -181,22 +182,40 @@ namespace imgui
         indicator_color,
         2.0f);
 
+    const bool display_value = style & KS_VIS_DISPLAY_VALUE_ON_HOVER
+                                   ? is_active || is_hovered
+                                   : is_active;
+
     // knob control name
-    draw_list->AddText(
-        ImVec2(
-            start.x, start.y + size_outer * 2 + imstyle.ItemInnerSpacing.y / 4),
-        label_color,
-        label);
+    const auto label_position = ImVec2{
+        start.x, start.y + size_outer * 2 + imstyle.ItemInnerSpacing.y / 4};
+
+    const auto value_to_str = [](float f) -> std::string {
+      std::stringstream ss;
+      ss << std::fixed << std::setprecision(3) << f;
+      return ss.str();
+    };
+
+    if(style & KS_VIS_VALUE_INSTEAD_OF_CONTROLNAME && display_value)
+    {
+      const auto v = value_to_str(*p_value);
+      draw_list->AddText(label_position, label_color, v.c_str());
+    }
+    else
+    {
+      draw_list->AddText(label_position, label_color, label);
+    }
 
     // tooltip
-    if(is_active || is_hovered)
+    if(style & KS_VIS_VALUE_AS_TOOLTIP && display_value)
     {
       ImGui::SetNextWindowPos(ImVec2(
           start.x - 0,
           start.y - line_height - imstyle.ItemInnerSpacing.y -
               imstyle.WindowPadding.y));
       ImGui::BeginTooltip();
-      ImGui::Text("%.3f", *p_value);
+      const auto v = value_to_str(*p_value);
+      ImGui::Text("%s", v.c_str());
       ImGui::EndTooltip();
     }
 
