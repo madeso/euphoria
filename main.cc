@@ -270,21 +270,6 @@ class AppBase
     SDL_Quit();
   };
 
-  // dummy implementations
-  void
-  Text(int, int, const std::string&, int, int)
-  {
-  }
-
-  void
-  ClearScreen(int)
-  {
-  }
-  void
-  FillRect(int, int, int, int, int)
-  {
-  }
-
   virtual void
   Draw() = 0;
 
@@ -398,38 +383,8 @@ struct ToneToFrequencyConverter
   };
 };
 
-struct PianoColorTheme
-{
-  Color white;
-  Color black;
-  Color down;
-};
-
-PianoColorTheme
-C(const Solarized& s)
-{
-  PianoColorTheme theme;
-
-  theme.white = s.comments;
-  theme.black = s.emphasized_content;
-  theme.down  = s.blue;
-
-  return theme;
-}
-
 struct PianoKey
 {
-  void
-  Draw(AppBase* canvas, const PianoColorTheme& color_theme)
-  {
-    Color c = is_black ? color_theme.black : color_theme.white;
-    if(is_down)
-    {
-      c = color_theme.down;
-    }
-    canvas->FillRect(x, y, w, h, c);
-  }
-
   void
   OnInput(SDL_Keycode input, bool was_pressed, float time)
   {
@@ -440,14 +395,7 @@ struct PianoKey
     }
   }
 
-  bool is_black = false;
-
   int semitone = 0;
-
-  int x = 10;
-  int y = 10;
-  int w = 10;
-  int h = 10;
 
   float time_down = 0;
 
@@ -468,50 +416,20 @@ struct PianoOutput
 };
 
 std::vector<PianoKey>
-CreatePianoKeysStartingAtC(
-    int white_key_width,
-    int white_key_height,
-    int black_key_width,
-    int black_key_height,
-    int x,
-    int y,
-    int spacing,
-    int key_offset,
-    int semitone_offset)
+CreatePianoKeysStartingAtC(int key_offset, int semitone_offset)
 {
-  auto BlackKey = [=](
-      int semitone, int x, int y, SDL_Keycode keycode) -> PianoKey {
+  auto BlackKey = [](int semitone, SDL_Keycode keycode) -> PianoKey {
     PianoKey k;
     k.semitone = semitone;
-    k.x        = x;
-    k.y        = y;
-    k.w        = black_key_width;
-    k.h        = black_key_height;
-    k.is_black = true;
     k.keycode  = keycode;
     return k;
   };
 
-  auto WhiteKey = [=](
-      int semitone, int x, int y, SDL_Keycode keycode) -> PianoKey {
+  auto WhiteKey = [](int semitone, SDL_Keycode keycode) -> PianoKey {
     PianoKey k;
     k.semitone = semitone;
-    k.x        = x;
-    k.y        = y;
-    k.w        = white_key_width;
-    k.h        = white_key_height;
-    k.is_black = false;
     k.keycode  = keycode;
     return k;
-  };
-
-  auto CalcWhiteX = [=](int index) -> int {
-    return x + (white_key_width + spacing) * index;
-  };
-  auto CalcBlackX = [=](int index) -> int {
-    const auto half_black = black_key_width / 2;
-    const auto start_x    = x + white_key_width + spacing / 2;
-    return (white_key_width + spacing) * index + start_x - half_black;
   };
 
   auto KeyIndex = [=](int index) -> SDL_Keycode {
@@ -546,22 +464,22 @@ CreatePianoKeysStartingAtC(
   };
 
   return {
-      WhiteKey(semitone_offset + 0, CalcWhiteX(0), y, KeyIndex(0)),
-      WhiteKey(semitone_offset + 2, CalcWhiteX(1), y, KeyIndex(2)),
-      WhiteKey(semitone_offset + 4, CalcWhiteX(2), y, KeyIndex(4)),
+      WhiteKey(semitone_offset + 0, KeyIndex(0)),
+      WhiteKey(semitone_offset + 2, KeyIndex(2)),
+      WhiteKey(semitone_offset + 4, KeyIndex(4)),
 
-      WhiteKey(semitone_offset + 5, CalcWhiteX(3), y, KeyIndex(6)),
-      WhiteKey(semitone_offset + 7, CalcWhiteX(4), y, KeyIndex(8)),
-      WhiteKey(semitone_offset + 9, CalcWhiteX(5), y, KeyIndex(10)),
-      WhiteKey(semitone_offset + 11, CalcWhiteX(6), y, KeyIndex(12)),
+      WhiteKey(semitone_offset + 5, KeyIndex(6)),
+      WhiteKey(semitone_offset + 7, KeyIndex(8)),
+      WhiteKey(semitone_offset + 9, KeyIndex(10)),
+      WhiteKey(semitone_offset + 11, KeyIndex(12)),
 
       // specify black keys after white, since black keys are drawn on top
-      BlackKey(semitone_offset + 1, CalcBlackX(0), y, KeyIndex(1)),
-      BlackKey(semitone_offset + 3, CalcBlackX(1), y, KeyIndex(3)),
+      BlackKey(semitone_offset + 1, KeyIndex(1)),
+      BlackKey(semitone_offset + 3, KeyIndex(3)),
       // no black key here
-      BlackKey(semitone_offset + 6, CalcBlackX(3), y, KeyIndex(7)),
-      BlackKey(semitone_offset + 8, CalcBlackX(4), y, KeyIndex(9)),
-      BlackKey(semitone_offset + 10, CalcBlackX(5), y, KeyIndex(11)),
+      BlackKey(semitone_offset + 6, KeyIndex(7)),
+      BlackKey(semitone_offset + 8, KeyIndex(9)),
+      BlackKey(semitone_offset + 10, KeyIndex(11)),
   };
 }
 
@@ -570,15 +488,6 @@ struct PianoInput
   std::vector<PianoKey>        keys;
   bool                         octave_shift = false;
   ToneToFrequencyConverter<12> converter;
-
-  void
-  Draw(AppBase* canvas, const PianoColorTheme& color_theme)
-  {
-    for(auto& key : keys)
-    {
-      key.Draw(canvas, color_theme);
-    }
-  }
 
   void
   OnInput(SDL_Keycode input, Uint16, bool down, float time)
@@ -697,47 +606,21 @@ class App : public AppBase
 
   App()
   {
-    int whitew = 60;
-    int whiteh = 200;
-    int blackw = 20;
-    int blackh = 100;
-
-    int x = 10;
-    int y = 40;
-
-    int spacing = 3;
-
     for(int i = -1; i < 2; i += 1)
     {
-      Insert(
-          &piano.keys,
-          CreatePianoKeysStartingAtC(
-              whitew,
-              whiteh,
-              blackw,
-              blackh,
-              x + i * (7 * (whitew + spacing)),
-              y,
-              spacing,
-              1 + 14 * i,
-              12 * i));
+      Insert(&piano.keys, CreatePianoKeysStartingAtC(1 + 14 * i, 12 * i));
     }
   }
 
   void
   Draw() override
   {
-    const auto colors = Solarized{light_ui};
-
     ImGui::ShowDemoWindow();
     if(ImGui::Begin("ImGui Style"))
     {
-      ImGui::ShowStyleSelector("Style");
       ImGui::ShowStyleEditor();
     }
     ImGui::End();
-
-    piano.Draw(this, C(colors));
 
     ImGui::SliderFloat("master", &master, 0.0f, 1.0f);
 
