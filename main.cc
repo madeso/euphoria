@@ -144,82 +144,31 @@ class AppBase
     // NULL, io.Fonts->GetGlyphRangesJapanese());
     // IM_ASSERT(font != NULL);
 
-    SetupStyle(Solarized{true});
+    SetupStyle();
+
+    SetupSolarized(true);
   }
 
   void
-  SetupStyle(const Solarized& s, ImGuiStyle* dst = nullptr)
+  SetupStyle()
   {
-    ImGuiStyle* style = dst ? dst : &ImGui::GetStyle();
+    ImGuiStyle& style = ImGui::GetStyle();
 
-    auto C = [](Color color, float a = 1.0f) -> ImVec4 {
-      const int r = (color >> 24) & 0xff;
-      const int g = (color >> 16) & 0xff;
-      const int b = (color >> 8) & 0xff;
-      return ImVec4{r / 255.0f, g / 255.0f, b / 255.0f, a};
-    };
+    style.FrameBorderSize  = 1.0f;
+    style.WindowPadding    = ImVec2(10, 10);
+    style.FramePadding     = ImVec2(6, 2);
+    style.ItemSpacing      = ImVec2(6, 4);
+    style.ItemInnerSpacing = ImVec2(8, 6);
+    style.IndentSpacing    = 25.0f;
+    style.ScrollbarSize    = 15.0f;
+    style.GrabMinSize      = 12.0f;
 
-    style->FrameBorderSize  = 1.0f;
-    style->WindowPadding    = ImVec2(10, 10);
-    style->FramePadding     = ImVec2(6, 2);
-    style->ItemSpacing      = ImVec2(6, 4);
-    style->ItemInnerSpacing = ImVec2(8, 6);
-    style->IndentSpacing    = 25.0f;
-    style->ScrollbarSize    = 15.0f;
-    style->GrabMinSize      = 12.0f;
-
-    style->WindowRounding    = 0.0f;
-    style->FrameRounding     = 0.0f;
-    style->GrabRounding      = 0.0f;
-    style->ScrollbarRounding = 0.0f;
-    style->PopupRounding     = 0.0f;
-    style->ChildRounding     = 0.0f;
-
-    ImVec4* colors = style->Colors;
-
-    colors[ImGuiCol_Text]                  = C(s.primary_content);
-    colors[ImGuiCol_TextDisabled]          = C(s.comments);
-    colors[ImGuiCol_WindowBg]              = C(s.background);
-    colors[ImGuiCol_ChildWindowBg]         = C(s.background);
-    colors[ImGuiCol_PopupBg]               = C(s.background);
-    colors[ImGuiCol_Border]                = C(s.primary_content);
-    colors[ImGuiCol_BorderShadow]          = C(s.background, 0);
-    colors[ImGuiCol_FrameBg]               = C(s.background_highlight);
-    colors[ImGuiCol_FrameBgHovered]        = C(s.background);
-    colors[ImGuiCol_FrameBgActive]         = C(s.background);
-    colors[ImGuiCol_TitleBg]               = C(s.background);
-    colors[ImGuiCol_TitleBgActive]         = C(s.background_highlight);
-    colors[ImGuiCol_TitleBgCollapsed]      = C(s.background);
-    colors[ImGuiCol_MenuBarBg]             = C(s.background);
-    colors[ImGuiCol_ScrollbarBg]           = C(s.background);
-    colors[ImGuiCol_ScrollbarGrab]         = C(s.comments);
-    colors[ImGuiCol_ScrollbarGrabHovered]  = C(s.blue);
-    colors[ImGuiCol_ScrollbarGrabActive]   = C(s.primary_content);
-    colors[ImGuiCol_CheckMark]             = C(s.primary_content);
-    colors[ImGuiCol_SliderGrab]            = C(s.primary_content, 0.5f);
-    colors[ImGuiCol_SliderGrabActive]      = C(s.primary_content, 0.3f);
-    colors[ImGuiCol_Button]                = C(s.background);
-    colors[ImGuiCol_ButtonHovered]         = C(s.background_highlight);
-    colors[ImGuiCol_ButtonActive]          = C(s.background_highlight);
-    colors[ImGuiCol_Header]                = C(s.background_highlight);
-    colors[ImGuiCol_HeaderHovered]         = C(s.background_highlight);
-    colors[ImGuiCol_HeaderActive]          = C(s.background_highlight);
-    colors[ImGuiCol_Separator]             = C(s.comments);
-    colors[ImGuiCol_SeparatorHovered]      = C(s.background_highlight);
-    colors[ImGuiCol_SeparatorActive]       = C(s.primary_content);
-    colors[ImGuiCol_ResizeGrip]            = C(s.comments);
-    colors[ImGuiCol_ResizeGripHovered]     = C(s.blue);
-    colors[ImGuiCol_ResizeGripActive]      = C(s.primary_content);
-    colors[ImGuiCol_PlotLines]             = C(s.comments);
-    colors[ImGuiCol_PlotLinesHovered]      = C(s.primary_content);
-    colors[ImGuiCol_PlotHistogram]         = C(s.yellow, 0.9f);
-    colors[ImGuiCol_PlotHistogramHovered]  = C(s.yellow);
-    colors[ImGuiCol_TextSelectedBg]        = C(s.background_highlight);
-    colors[ImGuiCol_DragDropTarget]        = C(s.blue);
-    colors[ImGuiCol_NavHighlight]          = C(s.red);
-    colors[ImGuiCol_NavWindowingHighlight] = C(s.background);
-    colors[ImGuiCol_NavWindowingDimBg]     = C(s.background, 0.6f);
-    colors[ImGuiCol_ModalWindowDimBg]      = C(s.background, 0.6f);
+    style.WindowRounding    = 0.0f;
+    style.FrameRounding     = 0.0f;
+    style.GrabRounding      = 0.0f;
+    style.ScrollbarRounding = 0.0f;
+    style.PopupRounding     = 0.0f;
+    style.ChildRounding     = 0.0f;
   }
 
   void
@@ -663,7 +612,7 @@ class App : public AppBase
     if(key == SDLK_TAB && !down)
     {
       light_ui = !light_ui;
-      SetupStyle(Solarized{light_ui});
+      SetupSolarized(light_ui);
     }
 
     piano.OnInput(key, mod, down, time);
