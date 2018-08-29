@@ -2,11 +2,11 @@
 #include "solarized.h"
 #include "imgui.h"
 
-using Color = int;
-
-// solarized light color spec
-namespace solarized_named
+void
+SetupSolarized(bool light, ImGuiStyle* dst)
 {
+  using Color = int;
+
   constexpr Color base03  = 0x002B36FF;
   constexpr Color base02  = 0x073642FF;
   constexpr Color base01  = 0x586E75FF;
@@ -23,63 +23,15 @@ namespace solarized_named
   constexpr Color blue    = 0x268BD2FF;
   constexpr Color cyan    = 0x2AA198FF;
   constexpr Color green   = 0x859900FF;
-}  // namespace solarized_named
 
-struct Solarized
-{
-  explicit Solarized(bool light);
-
-  Color really_strong_border;
-  Color strong_border;
-  Color emphasized_content;
-  Color primary_content;
-  Color not_used;
-  Color comments;
-  Color background_highlight;
-  Color background;
-
-  Color yellow;
-  Color orange;
-  Color red;
-  Color magenta;
-  Color violet;
-  Color blue;
-  Color cyan;
-  Color green;
-};
-
-Solarized::Solarized(bool light)
-    : really_strong_border(
-          light ? solarized_named::base03 : solarized_named::base3)
-    , strong_border(light ? solarized_named::base02 : solarized_named::base2)
-    , emphasized_content(
-          light ? solarized_named::base01 : solarized_named::base1)
-    , primary_content(light ? solarized_named::base00 : solarized_named::base0)
-    , not_used(light ? solarized_named::base0 : solarized_named::base00)
-    , comments(light ? solarized_named::base1 : solarized_named::base01)
-    , background_highlight(
-          light ? solarized_named::base2 : solarized_named::base02)
-    , background(light ? solarized_named::base3 : solarized_named::base03)
-    , yellow(solarized_named::yellow)
-    , orange(solarized_named::orange)
-    , red(solarized_named::red)
-    , magenta(solarized_named::magenta)
-    , violet(solarized_named::violet)
-    , blue(solarized_named::blue)
-    , cyan(solarized_named::cyan)
-    , green(solarized_named::green)
-{
-}
-
-
-void
-SetupSolarized(bool light, ImGuiStyle* dst)
-{
-  
-
-  const Solarized s{light};
-
-
+  const auto really_strong_border = light ? base03 : base3;
+  const auto strong_border        = light ? base02 : base2;
+  const auto emphasized_content   = light ? base01 : base1;
+  const auto primary_content      = light ? base00 : base0;
+  const auto not_used             = light ? base0 : base00;
+  const auto comments             = light ? base1 : base01;
+  const auto background_highlight = light ? base2 : base02;
+  const auto background           = light ? base3 : base03;
 
   ImGuiStyle* style = dst ? dst : &ImGui::GetStyle();
 
@@ -92,47 +44,47 @@ SetupSolarized(bool light, ImGuiStyle* dst)
 
   ImVec4* colors = style->Colors;
 
-  colors[ImGuiCol_Text]                  = C(s.primary_content);
-  colors[ImGuiCol_TextDisabled]          = C(s.comments);
-  colors[ImGuiCol_WindowBg]              = C(s.background);
-  colors[ImGuiCol_ChildWindowBg]         = C(s.background);
-  colors[ImGuiCol_PopupBg]               = C(s.background);
-  colors[ImGuiCol_Border]                = C(s.primary_content);
-  colors[ImGuiCol_BorderShadow]          = C(s.background, 0);
-  colors[ImGuiCol_FrameBg]               = C(s.background_highlight);
-  colors[ImGuiCol_FrameBgHovered]        = C(s.background);
-  colors[ImGuiCol_FrameBgActive]         = C(s.background);
-  colors[ImGuiCol_TitleBg]               = C(s.background);
-  colors[ImGuiCol_TitleBgActive]         = C(s.background_highlight);
-  colors[ImGuiCol_TitleBgCollapsed]      = C(s.background);
-  colors[ImGuiCol_MenuBarBg]             = C(s.background);
-  colors[ImGuiCol_ScrollbarBg]           = C(s.background);
-  colors[ImGuiCol_ScrollbarGrab]         = C(s.comments);
-  colors[ImGuiCol_ScrollbarGrabHovered]  = C(s.blue);
-  colors[ImGuiCol_ScrollbarGrabActive]   = C(s.primary_content);
-  colors[ImGuiCol_CheckMark]             = C(s.primary_content);
-  colors[ImGuiCol_SliderGrab]            = C(s.primary_content, 0.5f);
-  colors[ImGuiCol_SliderGrabActive]      = C(s.primary_content, 0.3f);
-  colors[ImGuiCol_Button]                = C(s.background);
-  colors[ImGuiCol_ButtonHovered]         = C(s.background_highlight);
-  colors[ImGuiCol_ButtonActive]          = C(s.background_highlight);
-  colors[ImGuiCol_Header]                = C(s.background_highlight);
-  colors[ImGuiCol_HeaderHovered]         = C(s.background_highlight);
-  colors[ImGuiCol_HeaderActive]          = C(s.background_highlight);
-  colors[ImGuiCol_Separator]             = C(s.comments);
-  colors[ImGuiCol_SeparatorHovered]      = C(s.background_highlight);
-  colors[ImGuiCol_SeparatorActive]       = C(s.primary_content);
-  colors[ImGuiCol_ResizeGrip]            = C(s.comments);
-  colors[ImGuiCol_ResizeGripHovered]     = C(s.blue);
-  colors[ImGuiCol_ResizeGripActive]      = C(s.primary_content);
-  colors[ImGuiCol_PlotLines]             = C(s.comments);
-  colors[ImGuiCol_PlotLinesHovered]      = C(s.primary_content);
-  colors[ImGuiCol_PlotHistogram]         = C(s.yellow, 0.9f);
-  colors[ImGuiCol_PlotHistogramHovered]  = C(s.yellow);
-  colors[ImGuiCol_TextSelectedBg]        = C(s.background_highlight);
-  colors[ImGuiCol_DragDropTarget]        = C(s.blue);
-  colors[ImGuiCol_NavHighlight]          = C(s.red);
-  colors[ImGuiCol_NavWindowingHighlight] = C(s.background);
-  colors[ImGuiCol_NavWindowingDimBg]     = C(s.background, 0.6f);
-  colors[ImGuiCol_ModalWindowDimBg]      = C(s.background, 0.6f);
+  colors[ImGuiCol_Text]                  = C(primary_content);
+  colors[ImGuiCol_TextDisabled]          = C(comments);
+  colors[ImGuiCol_WindowBg]              = C(background);
+  colors[ImGuiCol_ChildWindowBg]         = C(background);
+  colors[ImGuiCol_PopupBg]               = C(background);
+  colors[ImGuiCol_Border]                = C(primary_content);
+  colors[ImGuiCol_BorderShadow]          = C(background, 0);
+  colors[ImGuiCol_FrameBg]               = C(background_highlight);
+  colors[ImGuiCol_FrameBgHovered]        = C(background);
+  colors[ImGuiCol_FrameBgActive]         = C(background);
+  colors[ImGuiCol_TitleBg]               = C(background);
+  colors[ImGuiCol_TitleBgActive]         = C(background_highlight);
+  colors[ImGuiCol_TitleBgCollapsed]      = C(background);
+  colors[ImGuiCol_MenuBarBg]             = C(background);
+  colors[ImGuiCol_ScrollbarBg]           = C(background);
+  colors[ImGuiCol_ScrollbarGrab]         = C(comments);
+  colors[ImGuiCol_ScrollbarGrabHovered]  = C(blue);
+  colors[ImGuiCol_ScrollbarGrabActive]   = C(primary_content);
+  colors[ImGuiCol_CheckMark]             = C(primary_content);
+  colors[ImGuiCol_SliderGrab]            = C(primary_content, 0.5f);
+  colors[ImGuiCol_SliderGrabActive]      = C(primary_content, 0.3f);
+  colors[ImGuiCol_Button]                = C(background);
+  colors[ImGuiCol_ButtonHovered]         = C(background_highlight);
+  colors[ImGuiCol_ButtonActive]          = C(background_highlight);
+  colors[ImGuiCol_Header]                = C(background_highlight);
+  colors[ImGuiCol_HeaderHovered]         = C(background_highlight);
+  colors[ImGuiCol_HeaderActive]          = C(background_highlight);
+  colors[ImGuiCol_Separator]             = C(comments);
+  colors[ImGuiCol_SeparatorHovered]      = C(background_highlight);
+  colors[ImGuiCol_SeparatorActive]       = C(primary_content);
+  colors[ImGuiCol_ResizeGrip]            = C(comments);
+  colors[ImGuiCol_ResizeGripHovered]     = C(blue);
+  colors[ImGuiCol_ResizeGripActive]      = C(primary_content);
+  colors[ImGuiCol_PlotLines]             = C(comments);
+  colors[ImGuiCol_PlotLinesHovered]      = C(primary_content);
+  colors[ImGuiCol_PlotHistogram]         = C(yellow, 0.9f);
+  colors[ImGuiCol_PlotHistogramHovered]  = C(yellow);
+  colors[ImGuiCol_TextSelectedBg]        = C(background_highlight);
+  colors[ImGuiCol_DragDropTarget]        = C(blue);
+  colors[ImGuiCol_NavHighlight]          = C(red);
+  colors[ImGuiCol_NavWindowingHighlight] = C(background);
+  colors[ImGuiCol_NavWindowingDimBg]     = C(background, 0.6f);
+  colors[ImGuiCol_ModalWindowDimBg]      = C(background, 0.6f);
 }
