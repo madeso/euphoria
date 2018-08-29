@@ -643,12 +643,6 @@ class App : public AppBase
   void
   OnKey(SDL_Keycode key, Uint16 mod, bool down, float time)
   {
-    if(key == SDLK_TAB && !down)
-    {
-      light_ui = !light_ui;
-      SetupSolarized(light_ui);
-    }
-
     piano.OnInput(key, mod, down, time);
     const auto out = piano.GetAudioOutput();
     frequency      = out.frequency;
@@ -656,7 +650,6 @@ class App : public AppBase
   }
 
  private:
-  bool          light_ui  = true;
   float         frequency = 0;
   float         amplitude = 0;
   float         master    = 0.5f;
