@@ -564,40 +564,74 @@ class App : public AppBase
   void
   Draw() override
   {
+    // imgui: demo window
     ImGui::ShowDemoWindow();
+
+    // imgui: style window
     if(ImGui::Begin("ImGui Style"))
     {
       ImGui::ShowStyleEditor();
     }
     ImGui::End();
 
-    ImGui::SliderFloat("master", &master, 0.0f, 1.0f);
-
-    imgui::Knob("Master", &master, 0.0f, 1.0f);
-
-    if(ImGui::BeginCombo("Oscilator", ToString(osc).c_str()))
+    // musik maskin ui
+    if(ImGui::Begin("UI"))
     {
-      for(int i = 0; i < static_cast<int>(OscilatorType::Max); i += 1)
+      if(ImGui::Button("Light"))
       {
-        const auto o = static_cast<OscilatorType>(i);
-        if(ImGui::Selectable(ToString(o).c_str(), osc == o))
+        ImGui::StyleColorsLight();
+      }
+      ImGui::SameLine();
+      if(ImGui::Button("Dark"))
+      {
+        ImGui::StyleColorsDark();
+      }
+
+      ImGui::Text("Solarized");
+      if(ImGui::Button("Light##solarized"))
+      {
+        SetupSolarized(true);
+      }
+      ImGui::SameLine();
+      if(ImGui::Button("Dark##solarized"))
+      {
+        SetupSolarized(false);
+      }
+    }
+    ImGui::End();
+
+    // musik maskin main window
+    if(ImGui::Begin("Main"))
+    {
+      ImGui::SliderFloat("master", &master, 0.0f, 1.0f);
+
+      imgui::Knob("Master", &master, 0.0f, 1.0f);
+
+      if(ImGui::BeginCombo("Oscilator", ToString(osc).c_str()))
+      {
+        for(int i = 0; i < static_cast<int>(OscilatorType::Max); i += 1)
         {
-          osc = o;
+          const auto o = static_cast<OscilatorType>(i);
+          if(ImGui::Selectable(ToString(o).c_str(), osc == o))
+          {
+            osc = o;
+          }
         }
+        ImGui::EndCombo();
       }
-      ImGui::EndCombo();
-    }
 
-    {
-      ImGui::BeginChild("audio devices", ImVec2(0, 0), true);
-      int i, count = SDL_GetNumAudioDevices(0);
-
-      for(i = 0; i < count; ++i)
       {
-        ImGui::Text("%s", SDL_GetAudioDeviceName(i, 0));
+        ImGui::BeginChild("audio devices", ImVec2(0, 0), true);
+        int i, count = SDL_GetNumAudioDevices(0);
+
+        for(i = 0; i < count; ++i)
+        {
+          ImGui::Text("%s", SDL_GetAudioDeviceName(i, 0));
+        }
+        ImGui::EndChild();
       }
-      ImGui::EndChild();
     }
+    ImGui::End();
   }
 
   float
