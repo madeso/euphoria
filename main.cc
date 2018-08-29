@@ -344,11 +344,16 @@ struct PianoKey
     }
   }
 
-  int semitone = 0;
+  PianoKey(int st, SDL_Keycode kc)
+      : semitone(st)
+      , keycode(kc)
+  {
+  }
+
+  int         semitone = 0;
+  SDL_Keycode keycode  = 0;
 
   float time_down = 0;
-
-  SDL_Keycode keycode = 0;
 
   bool is_down = false;
 };
@@ -364,71 +369,39 @@ struct PianoOutput
   float amplitude;
 };
 
+using Key = SDL_Keycode;
+
 std::vector<PianoKey>
-CreatePianoKeysStartingAtC(int key_offset, int semitone_offset)
+OneOctaveOfPianoKeys(
+    int semitone_offset,
+    Key c,
+    Key d,
+    Key e,
+    Key f,
+    Key g,
+    Key a,
+    Key b,
+    Key c_sharp,
+    Key d_sharp,
+    Key f_sharp,
+    Key g_sharp,
+    Key a_sharp)
 {
-  auto BlackKey = [](int semitone, SDL_Keycode keycode) -> PianoKey {
-    PianoKey k;
-    k.semitone = semitone;
-    k.keycode  = keycode;
-    return k;
-  };
-
-  auto WhiteKey = [](int semitone, SDL_Keycode keycode) -> PianoKey {
-    PianoKey k;
-    k.semitone = semitone;
-    k.keycode  = keycode;
-    return k;
-  };
-
-  auto KeyIndex = [=](int index) -> SDL_Keycode {
-    const std::vector<SDL_Keycode> qwerty = {SDLK_a,
-                                             SDLK_z,
-                                             SDLK_s,
-                                             SDLK_x,
-                                             SDLK_d,
-                                             SDLK_c,
-                                             SDLK_f,
-                                             SDLK_v,
-                                             SDLK_g,
-                                             SDLK_b,
-                                             SDLK_h,
-                                             SDLK_n,
-                                             SDLK_j,
-                                             SDLK_m,
-                                             SDLK_k,
-                                             SDLK_COMMA,
-                                             SDLK_l,
-                                             SDLK_PERIOD};
-    const int i = index + key_offset;
-    if(i < 0)
-    {
-      return 0;
-    }
-    if(static_cast<size_t>(i) >= qwerty.size())
-    {
-      return 0;
-    }
-    return qwerty[i];
-  };
-
   return {
-      WhiteKey(semitone_offset + 0, KeyIndex(0)),
-      WhiteKey(semitone_offset + 2, KeyIndex(2)),
-      WhiteKey(semitone_offset + 4, KeyIndex(4)),
+      PianoKey(semitone_offset + 0, c),
+      PianoKey(semitone_offset + 1, c_sharp),
+      PianoKey(semitone_offset + 2, d),
+      PianoKey(semitone_offset + 3, d_sharp),
+      PianoKey(semitone_offset + 4, e),
 
-      WhiteKey(semitone_offset + 5, KeyIndex(6)),
-      WhiteKey(semitone_offset + 7, KeyIndex(8)),
-      WhiteKey(semitone_offset + 9, KeyIndex(10)),
-      WhiteKey(semitone_offset + 11, KeyIndex(12)),
+      PianoKey(semitone_offset + 5, f),
+      PianoKey(semitone_offset + 6, f_sharp),
+      PianoKey(semitone_offset + 7, g),
+      PianoKey(semitone_offset + 8, g_sharp),
+      PianoKey(semitone_offset + 9, a),
+      PianoKey(semitone_offset + 10, a_sharp),
+      PianoKey(semitone_offset + 11, b),
 
-      // specify black keys after white, since black keys are drawn on top
-      BlackKey(semitone_offset + 1, KeyIndex(1)),
-      BlackKey(semitone_offset + 3, KeyIndex(3)),
-      // no black key here
-      BlackKey(semitone_offset + 6, KeyIndex(7)),
-      BlackKey(semitone_offset + 8, KeyIndex(9)),
-      BlackKey(semitone_offset + 10, KeyIndex(11)),
   };
 }
 
@@ -548,6 +521,52 @@ RunOscilator(float frequency, float time, OscilatorType osc)
   }
 }
 
+void
+SetupQwertyTwoOctaveLayout(std::vector<PianoKey>* keys)
+{
+  Insert(
+      keys,
+      OneOctaveOfPianoKeys(
+          12,
+          // first 3 white
+          SDLK_z,
+          SDLK_x,
+          SDLK_c,
+          // second 4
+          SDLK_v,
+          SDLK_b,
+          SDLK_n,
+          SDLK_m,
+          // first 2 black
+          SDLK_s,
+          SDLK_d,
+          // second 3
+          SDLK_g,
+          SDLK_h,
+          SDLK_j));
+
+  Insert(
+      keys,
+      OneOctaveOfPianoKeys(
+          0,
+          // first 3 white
+          SDLK_q,
+          SDLK_w,
+          SDLK_e,
+          // second 4
+          SDLK_r,
+          SDLK_t,
+          SDLK_y,
+          SDLK_u,
+          // first 2 black
+          SDLK_2,
+          SDLK_3,
+          // second 3
+          SDLK_5,
+          SDLK_6,
+          SDLK_7));
+}
+
 class App : public AppBase
 {
  public:
@@ -555,10 +574,7 @@ class App : public AppBase
 
   App()
   {
-    for(int i = -1; i < 2; i += 1)
-    {
-      Insert(&piano.keys, CreatePianoKeysStartingAtC(1 + 14 * i, 12 * i));
-    }
+    SetupQwertyTwoOctaveLayout(&piano.keys);
   }
 
   void
