@@ -1,6 +1,8 @@
 #ifndef MUSIC_IMGUI_EXTRA_H
 #define MUSIC_IMGUI_EXTRA_H
 
+#include "imgui.h"
+
 namespace imgui
 {
   // based on https://github.com/ocornut/imgui/issues/942
@@ -35,6 +37,12 @@ namespace imgui
       float       v_min,
       float       v_max,
       KnobStyle   style = KS_DEFAULT);
+
+  bool
+  CanvasBegin(const ImVec4& background_color, const char* title);
+
+  void
+  CanvasEnd();
 }
 
 #endif  // MUSIC_IMGUI_EXTRA_H
