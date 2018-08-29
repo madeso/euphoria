@@ -35,7 +35,7 @@ SetupSolarized(bool light, ImGuiStyle* dst)
 
   ImGuiStyle* style = dst ? dst : &ImGui::GetStyle();
 
-  auto C = [](Color color, float a = 1.0f) -> ImVec4 {
+  const auto C = [](Color color, float a = 1.0f) -> ImVec4 {
     const int r = (color >> 24) & 0xff;
     const int g = (color >> 16) & 0xff;
     const int b = (color >> 8) & 0xff;
