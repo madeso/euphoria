@@ -5,7 +5,7 @@
 using Color = int;
 
 // solarized light color spec
-namespace solarized_light
+namespace solarized_named
 {
   constexpr Color base03  = 0x002B36FF;
   constexpr Color base02  = 0x073642FF;
@@ -23,7 +23,7 @@ namespace solarized_light
   constexpr Color blue    = 0x268BD2FF;
   constexpr Color cyan    = 0x2AA198FF;
   constexpr Color green   = 0x859900FF;
-}  // namespace solarized_light
+}  // namespace solarized_named
 
 struct Solarized
 {
@@ -50,24 +50,24 @@ struct Solarized
 
 Solarized::Solarized(bool light)
     : really_strong_border(
-          light ? solarized_light::base03 : solarized_light::base3)
-    , strong_border(light ? solarized_light::base02 : solarized_light::base2)
+          light ? solarized_named::base03 : solarized_named::base3)
+    , strong_border(light ? solarized_named::base02 : solarized_named::base2)
     , emphasized_content(
-          light ? solarized_light::base01 : solarized_light::base1)
-    , primary_content(light ? solarized_light::base00 : solarized_light::base0)
-    , not_used(light ? solarized_light::base0 : solarized_light::base00)
-    , comments(light ? solarized_light::base1 : solarized_light::base01)
+          light ? solarized_named::base01 : solarized_named::base1)
+    , primary_content(light ? solarized_named::base00 : solarized_named::base0)
+    , not_used(light ? solarized_named::base0 : solarized_named::base00)
+    , comments(light ? solarized_named::base1 : solarized_named::base01)
     , background_highlight(
-          light ? solarized_light::base2 : solarized_light::base02)
-    , background(light ? solarized_light::base3 : solarized_light::base03)
-    , yellow(solarized_light::yellow)
-    , orange(solarized_light::orange)
-    , red(solarized_light::red)
-    , magenta(solarized_light::magenta)
-    , violet(solarized_light::violet)
-    , blue(solarized_light::blue)
-    , cyan(solarized_light::cyan)
-    , green(solarized_light::green)
+          light ? solarized_named::base2 : solarized_named::base02)
+    , background(light ? solarized_named::base3 : solarized_named::base03)
+    , yellow(solarized_named::yellow)
+    , orange(solarized_named::orange)
+    , red(solarized_named::red)
+    , magenta(solarized_named::magenta)
+    , violet(solarized_named::violet)
+    , blue(solarized_named::blue)
+    , cyan(solarized_named::cyan)
+    , green(solarized_named::green)
 {
 }
 
@@ -75,7 +75,11 @@ Solarized::Solarized(bool light)
 void
 SetupSolarized(bool light, ImGuiStyle* dst)
 {
+  
+
   const Solarized s{light};
+
+
 
   ImGuiStyle* style = dst ? dst : &ImGui::GetStyle();
 
