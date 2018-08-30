@@ -3,10 +3,16 @@
 #include <vector>
 
 #include <glad/glad.h>
+
 #include "imgui.h"
+
+#define IMGUI_DEFINE_MATH_OPERATORS
+#include "imgui_internal.h"
+
 #include "imgui_impl_sdl.h"
 #include "imgui_impl_opengl3.h"
 #include <SDL.h>
+#include <algorithm>
 
 #include "imgui_extra.h"
 
@@ -521,6 +527,122 @@ RunOscilator(float frequency, float time, OscilatorType osc)
   }
 }
 
+using KeyboardLayout = std::vector<std::vector<SDL_Keycode>>;
+
+std::string
+KeyToString(SDL_Keycode k)
+{
+  if((k >= 'a' && k <= 'z') || (k >= '0' && k <= '9'))
+  {
+    const auto c = static_cast<char>(k);
+    const auto s = std::string(1, toupper(c));
+    return s;
+  }
+
+  return "";
+}
+
+const KeyboardLayout&
+KeyboardLayoutQwerty()
+{
+  static const KeyboardLayout k = {
+      {'1', '2', '3', '4', '5', '6', '7', '8', '9', '0'},
+      {'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'},
+      {'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'},
+      {'z', 'x', 'c', 'v', 'b', 'n', 'm'},
+  };
+
+  return k;
+}
+
+void
+SetupOneOctaveLayout(
+    std::vector<PianoKey>* keys,
+    int                    base,
+    const KeyboardLayout&  k,
+    int                    start_row,
+    int                    start_col)
+{
+  const auto K = [&](int x, int y) -> SDL_Keycode {
+    const auto wy = start_row + y;
+    if(wy < 0 || wy > k.size())
+      return 0;
+    const auto& r  = k[wy];
+    const auto  wx = start_col + x;
+    if(wx < 0 || wx > r.size())
+      return 0;
+    return r[wx];
+  };
+  const auto W = K;
+  const auto B = K;
+
+  Insert(
+      keys,
+      OneOctaveOfPianoKeys(
+          base,
+          // first 3 white
+          W(0, 0),
+          W(1, 0),
+          W(2, 0),
+          // second 4
+          W(3, 0),
+          W(4, 0),
+          W(5, 0),
+          W(6, 0),
+          // first 2 black
+          B(0, 1),
+          B(1, 1),
+          // second 3
+          B(2, 1),
+          B(3, 1),
+          B(4, 1)));
+}
+
+void
+DrawKeys(
+    const std::vector<PianoKey>& piano,
+    const KeyboardLayout&        layout,
+    float                        start_x,
+    float                        start_y,
+    float                        width,
+    float                        height,
+    float                        spacing)
+{
+  ImGuiStyle& style     = ImGui::GetStyle();
+  ImDrawList* draw_list = ImGui::GetWindowDrawList();
+
+  float y        = start_y;
+  float x_offset = 0;
+  for(const auto& row : layout)
+  {
+    float x = start_x + x_offset;
+
+    for(const auto& key : row)
+    {
+      const auto   s = KeyToString(key);
+      const ImVec2 pos{x, y};
+
+      const auto found = std::find_if(
+          piano.begin(), piano.end(), [=](const PianoKey& p) -> bool {
+            return p.keycode == key;
+          });
+
+      const auto f = found != piano.end();
+      const auto t = ImGui::ColorConvertFloat4ToU32(
+          style.Colors[f ? ImGuiCol_Text : ImGuiCol_TextDisabled]);
+      const auto c =
+          ImGui::ColorConvertFloat4ToU32(style.Colors[ImGuiCol_WindowBg]);
+
+      draw_list->AddRectFilled(pos, pos + ImVec2(width, height), c);
+      draw_list->AddText(pos, t, s.c_str());
+      x += width + spacing;
+    }
+
+    x_offset += (width + spacing) / 2;
+    y += height + spacing;
+  }
+}
+
 void
 SetupQwertyTwoOctaveLayout(std::vector<PianoKey>* keys)
 {
@@ -616,6 +738,19 @@ class App : public AppBase
     }
     ImGui::End();
 
+    // keyboard input
+    if(ImGui::Begin("Keyboard"))
+    {
+      if(imgui::CanvasBegin(ImVec4(0, 0, 0, 0.5f), "canvas_piano"))
+      {
+        const auto p = ImGui::GetCursorScreenPos();
+        DrawKeys(
+            piano.keys, KeyboardLayoutQwerty(), p.x + 10, p.y + 10, 20, 20, 3);
+      }
+      imgui::CanvasEnd();
+    }
+    ImGui::End();
+
     // musik maskin main window
     if(ImGui::Begin("Main"))
     {
@@ -647,6 +782,7 @@ class App : public AppBase
         ImGui::EndChild();
       }
     }
+
     ImGui::End();
   }
 
