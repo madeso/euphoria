@@ -350,14 +350,16 @@ struct PianoKey
     }
   }
 
-  PianoKey(int st, SDL_Keycode kc)
+  PianoKey(int st, SDL_Keycode kc, const std::string& n)
       : semitone(st)
       , keycode(kc)
+      , name(n)
   {
   }
 
   int         semitone = 0;
   SDL_Keycode keycode  = 0;
+  std::string name;
 
   float time_down = 0;
 
@@ -394,19 +396,19 @@ OneOctaveOfPianoKeys(
     Key a_sharp)
 {
   return {
-      PianoKey(semitone_offset + 0, c),
-      PianoKey(semitone_offset + 1, c_sharp),
-      PianoKey(semitone_offset + 2, d),
-      PianoKey(semitone_offset + 3, d_sharp),
-      PianoKey(semitone_offset + 4, e),
+      PianoKey(semitone_offset + 0, c, "C"),
+      PianoKey(semitone_offset + 1, c_sharp, "C#"),
+      PianoKey(semitone_offset + 2, d, "D"),
+      PianoKey(semitone_offset + 3, d_sharp, "D#"),
+      PianoKey(semitone_offset + 4, e, "E"),
 
-      PianoKey(semitone_offset + 5, f),
-      PianoKey(semitone_offset + 6, f_sharp),
-      PianoKey(semitone_offset + 7, g),
-      PianoKey(semitone_offset + 8, g_sharp),
-      PianoKey(semitone_offset + 9, a),
-      PianoKey(semitone_offset + 10, a_sharp),
-      PianoKey(semitone_offset + 11, b),
+      PianoKey(semitone_offset + 5, f, "F"),
+      PianoKey(semitone_offset + 6, f_sharp, "F#"),
+      PianoKey(semitone_offset + 7, g, "G"),
+      PianoKey(semitone_offset + 8, g_sharp, "G#"),
+      PianoKey(semitone_offset + 9, a, "A"),
+      PianoKey(semitone_offset + 10, a_sharp, "A#"),
+      PianoKey(semitone_offset + 11, b, "B"),
 
   };
 }
@@ -619,22 +621,31 @@ DrawKeys(
 
     for(const auto& key : row)
     {
-      const auto   s = KeyToString(key);
       const ImVec2 pos{x, y};
+      const ImVec2 tone_offset{10, 8};
 
       const auto found = std::find_if(
           piano.begin(), piano.end(), [=](const PianoKey& p) -> bool {
             return p.keycode == key;
           });
 
-      const auto f = found != piano.end();
-      const auto t = ImGui::ColorConvertFloat4ToU32(
-          style.Colors[f ? ImGuiCol_Text : ImGuiCol_TextDisabled]);
+      const auto t =
+          ImGui::ColorConvertFloat4ToU32(style.Colors[ImGuiCol_TextDisabled]);
       const auto c =
           ImGui::ColorConvertFloat4ToU32(style.Colors[ImGuiCol_WindowBg]);
+      const auto tt =
+          ImGui::ColorConvertFloat4ToU32(style.Colors[ImGuiCol_Text]);
+
+      const auto key_text = KeyToString(key);
 
       draw_list->AddRectFilled(pos, pos + ImVec2(width, height), c);
-      draw_list->AddText(pos, t, s.c_str());
+      draw_list->AddText(pos, t, key_text.c_str());
+
+      if(found != piano.end())
+      {
+        draw_list->AddText(pos + tone_offset, tt, found->name.c_str());
+      }
+
       x += width + spacing;
     }
 
@@ -743,9 +754,16 @@ class App : public AppBase
     {
       if(imgui::CanvasBegin(ImVec4(0, 0, 0, 0.5f), "canvas_piano"))
       {
-        const auto p = ImGui::GetCursorScreenPos();
+        const auto      p       = ImGui::GetCursorScreenPos();
+        constexpr float keysize = 30;
         DrawKeys(
-            piano.keys, KeyboardLayoutQwerty(), p.x + 10, p.y + 10, 20, 20, 3);
+            piano.keys,
+            KeyboardLayoutQwerty(),
+            p.x + 10,
+            p.y + 10,
+            keysize,
+            keysize,
+            3);
       }
       imgui::CanvasEnd();
     }
