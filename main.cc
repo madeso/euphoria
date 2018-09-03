@@ -566,7 +566,7 @@ SetupOneOctaveLayout(
     int                    start_col)
 {
   const auto K = [&](int x, int y) -> SDL_Keycode {
-    const auto wy = start_row + y;
+    const auto wy = start_row - y + 1;
     if(wy < 0 || wy > k.size())
       return 0;
     const auto& r  = k[wy];
@@ -592,12 +592,12 @@ SetupOneOctaveLayout(
           W(5, 0),
           W(6, 0),
           // first 2 black
-          B(0, 1),
           B(1, 1),
-          // second 3
           B(2, 1),
-          B(3, 1),
-          B(4, 1)));
+          // second 3
+          B(4, 1),
+          B(5, 1),
+          B(6, 1)));
 }
 
 void
@@ -657,47 +657,8 @@ DrawKeys(
 void
 SetupQwertyTwoOctaveLayout(std::vector<PianoKey>* keys)
 {
-  Insert(
-      keys,
-      OneOctaveOfPianoKeys(
-          12,
-          // first 3 white
-          SDLK_z,
-          SDLK_x,
-          SDLK_c,
-          // second 4
-          SDLK_v,
-          SDLK_b,
-          SDLK_n,
-          SDLK_m,
-          // first 2 black
-          SDLK_s,
-          SDLK_d,
-          // second 3
-          SDLK_g,
-          SDLK_h,
-          SDLK_j));
-
-  Insert(
-      keys,
-      OneOctaveOfPianoKeys(
-          0,
-          // first 3 white
-          SDLK_q,
-          SDLK_w,
-          SDLK_e,
-          // second 4
-          SDLK_r,
-          SDLK_t,
-          SDLK_y,
-          SDLK_u,
-          // first 2 black
-          SDLK_2,
-          SDLK_3,
-          // second 3
-          SDLK_5,
-          SDLK_6,
-          SDLK_7));
+  SetupOneOctaveLayout(keys, 0, KeyboardLayoutQwerty(), 0, 3);
+  SetupOneOctaveLayout(keys, 12, KeyboardLayoutQwerty(), 2, 0);
 }
 
 class App : public AppBase
