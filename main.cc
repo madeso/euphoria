@@ -305,55 +305,115 @@ class AppBase
   SDL_GLContext gl_context;
 };
 
-template <int SemitonesPerOctave>
+// https://pages.mtu.edu/~suits/notefreqs.html
+namespace base_frequencies
+{
+  constexpr float c0 = 16.35f;
+  constexpr float a2 = 110.0f;
+  constexpr float c4 = 261.63f;
+  constexpr float a4 = 440.0f;
+}
+
+template <int StepsPerOctave>
 struct ToneToFrequencyConverter
 {
-  float octave_base_frequency = 110;  // a2
-
-  ToneToFrequencyConverter()
+  constexpr ToneToFrequencyConverter()
   {
     const float base =
-        std::pow(2.0f, 1.0f / static_cast<float>(SemitonesPerOctave));
-    for(int i = 0; i < SemitonesPerOctave; i += 1)
+        std::pow(2.0f, 1.0f / static_cast<float>(StepsPerOctave));
+    for(int i = 0; i < StepsPerOctave; i += 1)
     {
-      semitone_data[i] = std::pow(base, static_cast<float>(i));
+      step_data[i] = std::pow(base, static_cast<float>(i));
     }
   }
 
-  float
-  GetFrequency(int semitone) const
+  constexpr float
+  GetFrequency(int halfstep, float octave_base_frequency) const
   {
-    float freq    = octave_base_frequency;
-    int   octaves = semitone / SemitonesPerOctave;
-    for(int i = 0; i < octaves; i += 1)
+    float freq = octave_base_frequency;
+
+    int step = halfstep;
+
+    while(step > StepsPerOctave)
     {
       freq = freq * 2;
+      step -= StepsPerOctave;
     }
-    return freq * semitone_data[semitone % SemitonesPerOctave];
+
+    while(step < 0)
+    {
+      freq = freq / 2;
+      step += StepsPerOctave;
+    }
+
+    assert(step >= 0 && step < StepsPerOctave);
+    const auto rf = freq * step_data[step];
+    return rf;
   }
 
  private:
-  float semitone_data[SemitonesPerOctave] = {
+  float step_data[StepsPerOctave] = {
       0.0f,
   };
 };
 
+template <int TonesPerOctave>
+float
+ToneToFrequency(int tone, float base_frequency)
+{
+  constexpr ToneToFrequencyConverter<TonesPerOctave> converter{};
+  return converter.GetFrequency(tone, base_frequency);
+}
+
+void
+ValidateToneFrequencies()
+{
+  auto Validate = [](float c, float v, const char* cs, const char* vs) {
+    if(fabs(c - v) > 0.01)
+    {
+      std::cerr << cs << " not equal to " << vs << ": " << c << " " << v
+                << "\n";
+    }
+  };
+#define VALIDATE(CALL, VALUE) Validate(CALL, VALUE, #CALL, #VALUE)
+  VALIDATE(ToneToFrequency<12>(0, base_frequencies::c0), base_frequencies::c0);
+  VALIDATE(ToneToFrequency<12>(0, base_frequencies::a4), base_frequencies::a4);
+  VALIDATE(ToneToFrequency<12>(-9, base_frequencies::a4), 261.63f);
+  VALIDATE(ToneToFrequency<12>(-12, base_frequencies::a4), 220.0f);
+  VALIDATE(ToneToFrequency<12>(-12 - 9, base_frequencies::a4), 130.81f);
+#undef VALIDATE
+}
+
+struct Node
+{
+  virtual ~Node() = default;
+};
+
+std::string
+NameAndOctave(const std::string& name, int octave)
+{
+  std::stringstream ss;
+  ss << name << octave;
+  return ss.str();
+}
+
 struct PianoKey
 {
   void
-  OnInput(SDL_Keycode input, bool was_pressed, float time)
+  OnInput(SDL_Keycode input, bool was_pressed, float time, bool shift)
   {
     if(keycode != 0 && input == keycode)
     {
-      is_down   = was_pressed;
-      time_down = time;
+      is_down      = was_pressed;
+      time_down    = time;
+      octave_shift = shift;
     }
   }
 
-  PianoKey(int st, SDL_Keycode kc, const std::string& n)
+  PianoKey(int st, SDL_Keycode kc, const std::string& n, int octave)
       : semitone(st)
       , keycode(kc)
-      , name(n)
+      , name(NameAndOctave(n, octave))
   {
   }
 
@@ -361,9 +421,9 @@ struct PianoKey
   SDL_Keycode keycode  = 0;
   std::string name;
 
-  float time_down = 0;
-
-  bool is_down = false;
+  bool  octave_shift = false;
+  float time_down    = 0;
+  bool  is_down      = false;
 };
 
 struct PianoOutput
@@ -381,6 +441,7 @@ using Key = SDL_Keycode;
 
 std::vector<PianoKey>
 OneOctaveOfPianoKeys(
+    int octave,
     int semitone_offset,
     Key c,
     Key d,
@@ -396,38 +457,37 @@ OneOctaveOfPianoKeys(
     Key a_sharp)
 {
   return {
-      PianoKey(semitone_offset + 0, c, "C"),
-      PianoKey(semitone_offset + 1, c_sharp, "C#"),
-      PianoKey(semitone_offset + 2, d, "D"),
-      PianoKey(semitone_offset + 3, d_sharp, "D#"),
-      PianoKey(semitone_offset + 4, e, "E"),
+      PianoKey(semitone_offset + 0, c, "C", octave),
+      PianoKey(semitone_offset + 1, c_sharp, "C#", octave),
+      PianoKey(semitone_offset + 2, d, "D", octave),
+      PianoKey(semitone_offset + 3, d_sharp, "D#", octave),
+      PianoKey(semitone_offset + 4, e, "E", octave),
 
-      PianoKey(semitone_offset + 5, f, "F"),
-      PianoKey(semitone_offset + 6, f_sharp, "F#"),
-      PianoKey(semitone_offset + 7, g, "G"),
-      PianoKey(semitone_offset + 8, g_sharp, "G#"),
-      PianoKey(semitone_offset + 9, a, "A"),
-      PianoKey(semitone_offset + 10, a_sharp, "A#"),
-      PianoKey(semitone_offset + 11, b, "B"),
+      PianoKey(semitone_offset + 5, f, "F", octave),
+      PianoKey(semitone_offset + 6, f_sharp, "F#", octave),
+      PianoKey(semitone_offset + 7, g, "G", octave),
+      PianoKey(semitone_offset + 8, g_sharp, "G#", octave),
+      PianoKey(semitone_offset + 9, a, "A", octave),
+      PianoKey(semitone_offset + 10, a_sharp, "A#", octave),
+      PianoKey(semitone_offset + 11, b, "B", octave),
 
   };
 }
 
 struct PianoInput
 {
-  std::vector<PianoKey>        keys;
-  bool                         octave_shift = false;
-  ToneToFrequencyConverter<12> converter;
+  std::vector<PianoKey> keys;
+  bool                  octave_shift = false;
 
   void
   OnInput(SDL_Keycode input, Uint16, bool down, float time)
   {
     for(auto& key : keys)
     {
-      key.OnInput(input, down, time);
+      key.OnInput(input, down, time, octave_shift);
     }
 
-    if(input == SDLK_LSHIFT)
+    if(input == SDLK_LSHIFT || input == SDLK_RSHIFT)
     {
       octave_shift = down;
     }
@@ -436,8 +496,9 @@ struct PianoInput
   PianoOutput
   GetAudioOutput()
   {
-    bool down     = false;
-    int  semitone = 0;
+    bool down         = false;
+    int  semitone     = 0;
+    bool octave_shift = false;
 
     float time = -1;
 
@@ -448,20 +509,18 @@ struct PianoInput
         // only get the latest key
         if(time < key.time_down)
         {
-          time     = key.time_down;
-          semitone = key.semitone;
-          down     = true;
+          time         = key.time_down;
+          semitone     = key.semitone;
+          down         = true;
+          octave_shift = key.octave_shift;
         }
       }
     }
 
-    const int octave_shift_semitones = octave_shift ? 12 : 0;
-
-    // 3 - because our converter starts at A, and the piano starts at C
-    // and C is 3 semitones up from A, we could calculate a new base frequency
-    // but I'm too lazy for that.
+    const int octave_shift_semitones = octave_shift ? 24 : 0;
     return PianoOutput{
-        converter.GetFrequency(semitone + 3 + octave_shift_semitones),
+        ToneToFrequency<12>(
+            semitone + octave_shift_semitones - 9, base_frequencies::a4),
         down ? 1.0f : 0.0f};
   }
 };
@@ -560,7 +619,8 @@ KeyboardLayoutQwerty()
 void
 SetupOneOctaveLayout(
     std::vector<PianoKey>* keys,
-    int                    base,
+    int                    base_octave,
+    int                    octave,
     const KeyboardLayout&  k,
     int                    start_row,
     int                    start_col)
@@ -581,7 +641,8 @@ SetupOneOctaveLayout(
   Insert(
       keys,
       OneOctaveOfPianoKeys(
-          base,
+          base_octave + octave,
+          octave * 12,
           // first 3 white
           W(0, 0),
           W(1, 0),
@@ -622,7 +683,7 @@ DrawKeys(
     for(const auto& key : row)
     {
       const ImVec2 pos{x, y};
-      const ImVec2 tone_offset{10, 8};
+      const ImVec2 tone_offset{6, 8};
 
       const auto found = std::find_if(
           piano.begin(), piano.end(), [=](const PianoKey& p) -> bool {
@@ -655,10 +716,13 @@ DrawKeys(
 }
 
 void
-SetupQwertyTwoOctaveLayout(std::vector<PianoKey>* keys)
+SetupQwertyTwoOctaveLayout(
+    std::vector<PianoKey>* keys, int base_octave, int octave_offset)
 {
-  SetupOneOctaveLayout(keys, 0, KeyboardLayoutQwerty(), 0, 3);
-  SetupOneOctaveLayout(keys, 12, KeyboardLayoutQwerty(), 2, 0);
+  SetupOneOctaveLayout(
+      keys, base_octave, 0 + octave_offset, KeyboardLayoutQwerty(), 0, 3);
+  SetupOneOctaveLayout(
+      keys, base_octave, 1 + octave_offset, KeyboardLayoutQwerty(), 2, 0);
 }
 
 class App : public AppBase
@@ -668,7 +732,7 @@ class App : public AppBase
 
   App()
   {
-    SetupQwertyTwoOctaveLayout(&piano.keys);
+    SetupQwertyTwoOctaveLayout(&piano.keys, 4, -2);
   }
 
   void
@@ -790,6 +854,8 @@ class App : public AppBase
 int
 main(int argc, char* argv[])
 {
+  ValidateToneFrequencies();
+
   App app;
   if(!app.ok)
   {
