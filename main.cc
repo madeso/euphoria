@@ -308,14 +308,78 @@ class AppBase
 // https://pages.mtu.edu/~suits/notefreqs.html
 namespace base_frequencies
 {
-  constexpr float c0          = 16.35f;
-  constexpr float a4          = 440.0f;
-  constexpr float boston_a4   = 441.0f;
-  constexpr float new_york_a4 = 442.0f;
-  constexpr float europe_a4   = 443.0f;
-  constexpr float french_a4   = 435.0f;
-  constexpr float baroque_a4  = 415.0f;
-  constexpr float chorton_a4  = 465.0f;  // 460-470
+  constexpr float c0           = 16.35f;
+  constexpr float a4           = 440.0f;
+  constexpr float boston_a4    = 441.0f;
+  constexpr float new_york_a4  = 442.0f;
+  constexpr float europe_a4    = 443.0f;
+  constexpr float french_a4    = 435.0f;
+  constexpr float baroque_a4   = 415.0f;
+  constexpr float chorton_a4   = 466.0f;  // 460-470
+  constexpr float classical_a4 = 430.0f;  // 460-470
+}
+
+enum class Tuning
+{
+  A4,
+  Boston,
+  NewYork,
+  Europe,
+  French,
+  Baroque,
+  Chorton,
+  Classical,
+  Max
+};
+
+std::string
+ToString(Tuning t)
+{
+  switch(t)
+  {
+    case Tuning::A4:
+      return "A4 (ISO 16) 440 Hz";
+    case Tuning::Boston:
+      return "Boston 441 Hz";
+    case Tuning::NewYork:
+      return "New York 442 Hz";
+    case Tuning::Europe:
+      return "Europe 443 Hz";
+    case Tuning::French:
+      return "French 435 Hz";
+    case Tuning::Baroque:
+      return "Baroque 415 hz";
+    case Tuning::Chorton:
+      return "Chorton 466 Hz";
+    case Tuning::Classical:
+      return "Classical 430 Hz";
+    default:
+      return "???";
+  }
+}
+
+float
+TuningToBaseFrequency(Tuning t)
+{
+  switch(t)
+  {
+    case Tuning::A4:
+      return base_frequencies::a4;
+    case Tuning::Boston:
+      return base_frequencies::boston_a4;
+    case Tuning::NewYork:
+      return base_frequencies::new_york_a4;
+    case Tuning::Europe:
+      return base_frequencies::europe_a4;
+    case Tuning::French:
+      return base_frequencies::french_a4;
+    case Tuning::Baroque:
+      return base_frequencies::baroque_a4;
+    case Tuning::Chorton:
+      return base_frequencies::chorton_a4;
+    default:
+      return base_frequencies::a4;
+  }
 }
 
 template <int StepsPerOctave>
@@ -553,7 +617,8 @@ struct PianoInput
     }
   }
 
-  bool use_western_scale = true;
+  bool   use_western_scale = true;
+  Tuning tuning            = Tuning::A4;
 
   PianoOutput
   GetAudioOutput()
@@ -581,7 +646,7 @@ struct PianoInput
 
     const int octave_shift_semitones = octave_shift ? 24 : 0;
 
-    const float base_freq = base_frequencies::a4;
+    const float base_freq = TuningToBaseFrequency(tuning);
     const int   tone      = semitone + octave_shift_semitones - 9;
 
     const float freq = use_western_scale ? ToneToFrequency<12>(tone, base_freq)
@@ -868,6 +933,19 @@ class App : public AppBase
       imgui::Knob("Master", &master, 0.0f, 1.0f);
 
       ImGui::Checkbox("Western", &piano.use_western_scale);
+
+      if(ImGui::BeginCombo("Tuning", ToString(piano.tuning).c_str()))
+      {
+        for(int i = 0; i < static_cast<int>(Tuning::Max); i += 1)
+        {
+          const auto o = static_cast<Tuning>(i);
+          if(ImGui::Selectable(ToString(o).c_str(), piano.tuning == o))
+          {
+            piano.tuning = o;
+          }
+        }
+        ImGui::EndCombo();
+      }
 
       if(ImGui::BeginCombo("Oscilator", ToString(osc).c_str()))
       {
