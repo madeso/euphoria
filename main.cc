@@ -308,10 +308,14 @@ class AppBase
 // https://pages.mtu.edu/~suits/notefreqs.html
 namespace base_frequencies
 {
-  constexpr float c0 = 16.35f;
-  constexpr float a2 = 110.0f;
-  constexpr float c4 = 261.63f;
-  constexpr float a4 = 440.0f;
+  constexpr float c0          = 16.35f;
+  constexpr float a4          = 440.0f;
+  constexpr float boston_a4   = 441.0f;
+  constexpr float new_york_a4 = 442.0f;
+  constexpr float europe_a4   = 443.0f;
+  constexpr float french_a4   = 435.0f;
+  constexpr float baroque_a4  = 415.0f;
+  constexpr float chorton_a4  = 465.0f;  // 460-470
 }
 
 template <int StepsPerOctave>
@@ -334,7 +338,7 @@ struct ToneToFrequencyConverter
 
     int step = halfstep;
 
-    while(step > StepsPerOctave)
+    while(step >= StepsPerOctave)
     {
       freq = freq * 2;
       step -= StepsPerOctave;
@@ -363,6 +367,62 @@ ToneToFrequency(int tone, float base_frequency)
 {
   constexpr ToneToFrequencyConverter<TonesPerOctave> converter{};
   return converter.GetFrequency(tone, base_frequency);
+}
+
+float
+CrappyCrap7h(int tone, float base_frequency)
+{
+  // switch from A to C
+  int b12 = tone + 9;
+  int oct = 0;
+
+  while(b12 >= 12)
+  {
+    oct += 1;
+    b12 -= 12;
+  }
+  while(b12 < 0)
+  {
+    oct -= 1;
+    b12 += 12;
+  }
+
+  int b7 = 0;
+  switch(b12)
+  {
+    case 1:
+    case 3:
+    case 6:
+    case 8:
+    case 10:
+      // black keys are silent
+      return 0;
+    case 2:
+      b7 = 1;
+      break;
+    case 4:
+      b7 = 2;
+      break;
+    case 5:
+      b7 = 3;
+      break;
+    case 7:
+      b7 = 4;
+      break;
+    case 9:
+      b7 = 5;
+      break;
+    case 11:
+      b7 = 6;
+      break;
+    default:
+      b7 = 0;
+      break;
+  }
+
+  const auto t = b7 + oct * 7;
+  // todo: switch base_frequency to C, as the base freq with A is wrong
+  return ToneToFrequency<7>(t, base_frequency);
 }
 
 void
@@ -493,6 +553,8 @@ struct PianoInput
     }
   }
 
+  bool use_western_scale = true;
+
   PianoOutput
   GetAudioOutput()
   {
@@ -518,10 +580,14 @@ struct PianoInput
     }
 
     const int octave_shift_semitones = octave_shift ? 24 : 0;
-    return PianoOutput{
-        ToneToFrequency<12>(
-            semitone + octave_shift_semitones - 9, base_frequencies::a4),
-        down ? 1.0f : 0.0f};
+
+    const float base_freq = base_frequencies::a4;
+    const int   tone      = semitone + octave_shift_semitones - 9;
+
+    const float freq = use_western_scale ? ToneToFrequency<12>(tone, base_freq)
+                                         : CrappyCrap7h(tone, base_freq);
+
+    return PianoOutput{freq, down ? 1.0f : 0.0f};
   }
 };
 
@@ -800,6 +866,8 @@ class App : public AppBase
       ImGui::SliderFloat("master", &master, 0.0f, 1.0f);
 
       imgui::Knob("Master", &master, 0.0f, 1.0f);
+
+      ImGui::Checkbox("Western", &piano.use_western_scale);
 
       if(ImGui::BeginCombo("Oscilator", ToString(osc).c_str()))
       {
