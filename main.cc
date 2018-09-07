@@ -1,6 +1,7 @@
 #include <iostream>
 #include <sstream>
 #include <vector>
+#include <map>
 
 #include <glad/glad.h>
 
@@ -508,11 +509,6 @@ ValidateToneFrequencies()
 #undef VALIDATE
 }
 
-struct Node
-{
-  virtual ~Node() = default;
-};
-
 std::string
 NameAndOctave(const std::string& name, int octave)
 {
@@ -521,19 +517,93 @@ NameAndOctave(const std::string& name, int octave)
   return ss.str();
 }
 
-struct PianoKey
+struct Node
 {
+  virtual ~Node() = default;
+};
+
+struct TakeToneNode : public virtual Node
+{
+  virtual void
+  OnTone(int tone, bool down, float time) = 0;
+};
+
+struct ToneToToneNode : public virtual TakeToneNode
+{
+  TakeToneNode* NextNode = nullptr;
+
   void
-  OnInput(SDL_Keycode input, bool was_pressed, float time, bool shift)
+  SendTone(int tone, bool down, float time)
   {
-    if(keycode != 0 && input == keycode)
+    if(NextNode)
     {
-      is_down      = was_pressed;
-      time_down    = time;
-      octave_shift = shift;
+      NextNode->OnTone(tone, down, time);
+    }
+  }
+};
+
+struct FrequencyOutputNode : public virtual Node
+{
+  virtual std::vector<float>
+  GetOutput() = 0;
+};
+
+struct WaveOutputNode : public virtual Node
+{
+  virtual float
+  GetOutput(float time) = 0;
+};
+
+// Tone -> Frequency
+struct ToneToFrequencyConverterNode : public virtual TakeToneNode,
+                                      public virtual FrequencyOutputNode
+{
+  bool   use_western_scale = true;
+  Tuning tuning            = Tuning::A4;
+
+  std::map<int, bool> tones;
+
+  void
+  OnTone(int tone, bool down, float) override
+  {
+    if(down)
+    {
+      tones[tone] = true;
+    }
+    else
+    {
+      tones.erase(tone);
     }
   }
 
+  std::vector<float>
+  GetOutput() override
+  {
+    std::vector<float> ret;
+    for(const auto t : tones)
+    {
+      ret.emplace_back(CalculateFrequency(t.first));
+    }
+    return ret;
+  }
+
+  float
+  CalculateFrequency(int semitone)
+  {
+    const float base_freq = TuningToBaseFrequency(tuning);
+    const int   tone      = semitone - 9;
+
+    const float freq = use_western_scale ? ToneToFrequency<12>(tone, base_freq)
+                                         : CrappyCrap7h(tone, base_freq);
+
+    return freq;
+  }
+};
+
+using Key = SDL_Keycode;
+
+struct PianoKey
+{
   PianoKey(int st, SDL_Keycode kc, const std::string& n, int octave)
       : semitone(st)
       , keycode(kc)
@@ -545,114 +615,114 @@ struct PianoKey
   SDL_Keycode keycode  = 0;
   std::string name;
 
-  bool  octave_shift = false;
-  float time_down    = 0;
-  bool  is_down      = false;
+  bool octave_shift = false;
 };
 
-struct PianoOutput
-{
-  PianoOutput(float freq, float amp)
-      : frequency(freq)
-      , amplitude(amp)
-  {
-  }
-  float frequency;
-  float amplitude;
-};
-
-using Key = SDL_Keycode;
-
-std::vector<PianoKey>
-OneOctaveOfPianoKeys(
-    int octave,
-    int semitone_offset,
-    Key c,
-    Key d,
-    Key e,
-    Key f,
-    Key g,
-    Key a,
-    Key b,
-    Key c_sharp,
-    Key d_sharp,
-    Key f_sharp,
-    Key g_sharp,
-    Key a_sharp)
-{
-  return {
-      PianoKey(semitone_offset + 0, c, "C", octave),
-      PianoKey(semitone_offset + 1, c_sharp, "C#", octave),
-      PianoKey(semitone_offset + 2, d, "D", octave),
-      PianoKey(semitone_offset + 3, d_sharp, "D#", octave),
-      PianoKey(semitone_offset + 4, e, "E", octave),
-
-      PianoKey(semitone_offset + 5, f, "F", octave),
-      PianoKey(semitone_offset + 6, f_sharp, "F#", octave),
-      PianoKey(semitone_offset + 7, g, "G", octave),
-      PianoKey(semitone_offset + 8, g_sharp, "G#", octave),
-      PianoKey(semitone_offset + 9, a, "A", octave),
-      PianoKey(semitone_offset + 10, a_sharp, "A#", octave),
-      PianoKey(semitone_offset + 11, b, "B", octave),
-
-  };
-}
-
-struct PianoInput
+// Node handles input from keyboard. Input -> Tones
+struct KeyboardInputNode : public virtual Node
 {
   std::vector<PianoKey> keys;
   bool                  octave_shift = false;
 
+  TakeToneNode* tones = nullptr;
+
   void
-  OnInput(SDL_Keycode input, Uint16, bool down, float time)
+  OnInput(SDL_Keycode input, Uint16, bool was_pressed, float time)
   {
+    if(tones == nullptr)
+    {
+      return;
+    }
+
     for(auto& key : keys)
     {
-      key.OnInput(input, down, time, octave_shift);
+      if(key.keycode != 0 && input == key.keycode)
+      {
+        if(was_pressed)
+        {
+          key.octave_shift = octave_shift;
+        }
+        const auto octave_shift_semitones = key.octave_shift ? 24 : 0;
+        const int  tone = key.semitone + octave_shift_semitones;
+        tones->OnTone(tone, was_pressed, time);
+      }
     }
 
     if(input == SDLK_LSHIFT || input == SDLK_RSHIFT)
     {
-      octave_shift = down;
+      octave_shift = was_pressed;
     }
   }
+};
 
-  bool   use_western_scale = true;
-  Tuning tuning            = Tuning::A4;
+// Single Tone node, Tone->Tone.
+struct SingleToneNode : public ToneToToneNode
+{
+  std::map<int, float> down_tones;
 
-  PianoOutput
-  GetAudioOutput()
+  void
+  OnTone(int tone, bool down, float time) override
   {
-    bool down         = false;
-    int  semitone     = 0;
-    bool octave_shift = false;
-
-    float time = -1;
-
-    for(auto& key : keys)
+    if(down)
     {
-      if(key.is_down)
+      const bool was_empty = down_tones.empty();
+      // this will override the old tone and this is "wrong",
+      // but we need a better way to handle multiples anyway
+      down_tones[tone] = time;
+      if(was_empty)
       {
-        // only get the latest key
-        if(time < key.time_down)
+        SendTone(tone, down, time);
+      }
+    }
+    else
+    {
+      const auto last_tone = GetCurrentTone();
+      down_tones.erase(tone);
+
+      if(down_tones.empty())
+      {
+        assert(last_tone == tone);
+        SendTone(tone, false, time);
+      }
+      else
+      {
+        const auto current_tone = GetCurrentTone();
+        if(current_tone != last_tone)
         {
-          time         = key.time_down;
-          semitone     = key.semitone;
-          down         = true;
-          octave_shift = key.octave_shift;
+          // tone has switched!
+          SendTone(last_tone, false, time);
+          SendTone(current_tone, true, time);
         }
       }
     }
+  }
 
-    const int octave_shift_semitones = octave_shift ? 24 : 0;
+  int
+  GetCurrentTone() const
+  {
+    bool  has_tone = false;
+    int   tone     = 0;
+    float time     = 0;
+    for(const auto k : down_tones)
+    {
+      if(has_tone)
+      {
+        if(k.second < time)
+        {
+          time = k.second;
+          tone = k.first;
+        }
+      }
+      else
+      {
+        has_tone = true;
+        time     = k.second;
+        tone     = k.first;
+      }
+    }
 
-    const float base_freq = TuningToBaseFrequency(tuning);
-    const int   tone      = semitone + octave_shift_semitones - 9;
-
-    const float freq = use_western_scale ? ToneToFrequency<12>(tone, base_freq)
-                                         : CrappyCrap7h(tone, base_freq);
-
-    return PianoOutput{freq, down ? 1.0f : 0.0f};
+    assert(has_tone);
+    return tone;
   }
 };
 
@@ -717,6 +787,78 @@ RunOscilator(float frequency, float time, OscilatorType osc)
     default:
       return 0;
   }
+}
+
+/// Node represents a single Oscilator. Frequency -> WaveOutput
+struct OscilatorNode : public virtual WaveOutputNode
+{
+  OscilatorType oscilator = OscilatorType::Sawtooth;
+
+  FrequencyOutputNode* frequency = nullptr;
+
+  float
+  GetOutput(float time) override
+  {
+    const auto outputs = frequency->GetOutput();
+    float      value   = 0;
+
+    for(const auto f : outputs)
+    {
+      value += RunOscilator(f, time, oscilator);
+    }
+
+    return value;
+  }
+};
+
+struct VolumeNode : public virtual WaveOutputNode
+{
+  float
+  GetOutput(float time) override
+  {
+    if(in == nullptr)
+      return 0;
+
+    return volume * in->GetOutput(time);
+  }
+
+  float           volume = 0.5f;
+  WaveOutputNode* in     = nullptr;
+};
+
+std::vector<PianoKey>
+OneOctaveOfPianoKeys(
+    int octave,
+    int semitone_offset,
+    Key c,
+    Key d,
+    Key e,
+    Key f,
+    Key g,
+    Key a,
+    Key b,
+    Key c_sharp,
+    Key d_sharp,
+    Key f_sharp,
+    Key g_sharp,
+    Key a_sharp)
+{
+  return {
+      PianoKey(semitone_offset + 0, c, "C", octave),
+      PianoKey(semitone_offset + 1, c_sharp, "C#", octave),
+      PianoKey(semitone_offset + 2, d, "D", octave),
+      PianoKey(semitone_offset + 3, d_sharp, "D#", octave),
+      PianoKey(semitone_offset + 4, e, "E", octave),
+
+      PianoKey(semitone_offset + 5, f, "F", octave),
+      PianoKey(semitone_offset + 6, f_sharp, "F#", octave),
+      PianoKey(semitone_offset + 7, g, "G", octave),
+      PianoKey(semitone_offset + 8, g_sharp, "G#", octave),
+      PianoKey(semitone_offset + 9, a, "A", octave),
+      PianoKey(semitone_offset + 10, a_sharp, "A#", octave),
+      PianoKey(semitone_offset + 11, b, "B", octave),
+
+  };
 }
 
 using KeyboardLayout = std::vector<std::vector<SDL_Keycode>>;
@@ -859,11 +1001,20 @@ SetupQwertyTwoOctaveLayout(
 class App : public AppBase
 {
  public:
-  PianoInput piano;
+  KeyboardInputNode            piano;
+  SingleToneNode               single_tone;
+  ToneToFrequencyConverterNode ttf;
+  OscilatorNode                oscilator;
+  VolumeNode                   master;
 
   App()
   {
     SetupQwertyTwoOctaveLayout(&piano.keys, 4, -2);
+
+    piano.tones          = &ttf;
+    single_tone.NextNode = &ttf;
+    oscilator.frequency  = &ttf;
+    master.in            = &oscilator;
   }
 
   void
@@ -928,33 +1079,33 @@ class App : public AppBase
     // musik maskin main window
     if(ImGui::Begin("Main"))
     {
-      ImGui::SliderFloat("master", &master, 0.0f, 1.0f);
+      ImGui::SliderFloat("master", &master.volume, 0.0f, 1.0f);
 
-      imgui::Knob("Master", &master, 0.0f, 1.0f);
+      imgui::Knob("Master", &master.volume, 0.0f, 1.0f);
 
-      ImGui::Checkbox("Western", &piano.use_western_scale);
+      ImGui::Checkbox("Western", &ttf.use_western_scale);
 
-      if(ImGui::BeginCombo("Tuning", ToString(piano.tuning).c_str()))
+      if(ImGui::BeginCombo("Tuning", ToString(ttf.tuning).c_str()))
       {
         for(int i = 0; i < static_cast<int>(Tuning::Max); i += 1)
         {
           const auto o = static_cast<Tuning>(i);
-          if(ImGui::Selectable(ToString(o).c_str(), piano.tuning == o))
+          if(ImGui::Selectable(ToString(o).c_str(), ttf.tuning == o))
           {
-            piano.tuning = o;
+            ttf.tuning = o;
           }
         }
         ImGui::EndCombo();
       }
 
-      if(ImGui::BeginCombo("Oscilator", ToString(osc).c_str()))
+      if(ImGui::BeginCombo("Oscilator", ToString(oscilator.oscilator).c_str()))
       {
         for(int i = 0; i < static_cast<int>(OscilatorType::Max); i += 1)
         {
           const auto o = static_cast<OscilatorType>(i);
-          if(ImGui::Selectable(ToString(o).c_str(), osc == o))
+          if(ImGui::Selectable(ToString(o).c_str(), oscilator.oscilator == o))
           {
-            osc = o;
+            oscilator.oscilator = o;
           }
         }
         ImGui::EndCombo();
@@ -978,23 +1129,14 @@ class App : public AppBase
   float
   SynthSample(float time) override
   {
-    return master * amplitude * RunOscilator(frequency, time, osc);
+    return master.GetOutput(time);
   }
 
   void
   OnKey(SDL_Keycode key, Uint16 mod, bool down, float time)
   {
     piano.OnInput(key, mod, down, time);
-    const auto out = piano.GetAudioOutput();
-    frequency      = out.frequency;
-    amplitude      = out.amplitude;
   }
-
- private:
-  float         frequency = 0;
-  float         amplitude = 0;
-  float         master    = 0.5f;
-  OscilatorType osc       = OscilatorType::Sine;
 };
 
 int
