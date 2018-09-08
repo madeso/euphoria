@@ -618,6 +618,36 @@ struct PianoKey
   bool octave_shift = false;
 };
 
+enum class ChordEmulation
+{
+  None,
+  Major,
+  Minor,
+  Diminished,
+  Augmented,
+  Max
+};
+
+std::string
+ToString(ChordEmulation em)
+{
+  switch(em)
+  {
+    case ChordEmulation::None:
+      return "None";
+    case ChordEmulation::Major:
+      return "Major";
+    case ChordEmulation::Minor:
+      return "Minor";
+    case ChordEmulation::Diminished:
+      return "Diminished";
+    case ChordEmulation::Augmented:
+      return "Augmented";
+    default:
+      return "???";
+  }
+}
+
 // Node handles input from keyboard. Input -> Tones
 struct KeyboardInputNode : public virtual Node
 {
@@ -625,6 +655,16 @@ struct KeyboardInputNode : public virtual Node
   bool                  octave_shift = false;
 
   TakeToneNode* tones = nullptr;
+
+  ChordEmulation chords_emulation = ChordEmulation::None;
+
+  void
+  OnChord(int base, bool was_pressed, float time, int first, int second)
+  {
+    tones->OnTone(base, was_pressed, time);
+    tones->OnTone(base + first, was_pressed, time);
+    tones->OnTone(base + first + second, was_pressed, time);
+  }
 
   void
   OnInput(SDL_Keycode input, Uint16, bool was_pressed, float time)
@@ -644,7 +684,29 @@ struct KeyboardInputNode : public virtual Node
         }
         const auto octave_shift_semitones = key.octave_shift ? 24 : 0;
         const int  tone = key.semitone + octave_shift_semitones;
-        tones->OnTone(tone, was_pressed, time);
+
+        const auto minor3rd = 3;
+        const auto major3rd = 4;
+        switch(chords_emulation)
+        {
+          case ChordEmulation::None:
+            tones->OnTone(tone, was_pressed, time);
+            break;
+          case ChordEmulation::Major:
+            OnChord(tone, was_pressed, time, major3rd, minor3rd);
+            break;
+          case ChordEmulation::Minor:
+            OnChord(tone, was_pressed, time, minor3rd, major3rd);
+            break;
+          case ChordEmulation::Diminished:
+            OnChord(tone, was_pressed, time, minor3rd, minor3rd);
+            break;
+          case ChordEmulation::Augmented:
+            OnChord(tone, was_pressed, time, major3rd, major3rd);
+            break;
+          default:
+            break;
+        }
       }
     }
 
@@ -996,6 +1058,24 @@ SetupQwertyTwoOctaveLayout(
       keys, base_octave, 1 + octave_offset, KeyboardLayoutQwerty(), 2, 0);
 }
 
+template <typename T>
+void
+CustomDropdown(const char* name, T* current, T max)
+{
+  if(ImGui::BeginCombo(name, ToString(*current).c_str()))
+  {
+    for(int i = 0; i < static_cast<int>(max); i += 1)
+    {
+      const auto o = static_cast<T>(i);
+      if(ImGui::Selectable(ToString(o).c_str(), *current == o))
+      {
+        *current = o;
+      }
+    }
+    ImGui::EndCombo();
+  }
+}
+
 class App : public AppBase
 {
  public:
@@ -1009,7 +1089,7 @@ class App : public AppBase
   {
     SetupQwertyTwoOctaveLayout(&piano.keys, 4, -2);
 
-    piano.tones          = &single_tone;
+    piano.tones          = &ttf;
     single_tone.NextNode = &ttf;
     oscilator.frequency  = &ttf;
     master.in            = &oscilator;
@@ -1083,31 +1163,12 @@ class App : public AppBase
 
       ImGui::Checkbox("Western", &ttf.use_western_scale);
 
-      if(ImGui::BeginCombo("Tuning", ToString(ttf.tuning).c_str()))
-      {
-        for(int i = 0; i < static_cast<int>(Tuning::Max); i += 1)
-        {
-          const auto o = static_cast<Tuning>(i);
-          if(ImGui::Selectable(ToString(o).c_str(), ttf.tuning == o))
-          {
-            ttf.tuning = o;
-          }
-        }
-        ImGui::EndCombo();
-      }
+      CustomDropdown("Tuning", &ttf.tuning, Tuning::Max);
 
-      if(ImGui::BeginCombo("Oscilator", ToString(oscilator.oscilator).c_str()))
-      {
-        for(int i = 0; i < static_cast<int>(OscilatorType::Max); i += 1)
-        {
-          const auto o = static_cast<OscilatorType>(i);
-          if(ImGui::Selectable(ToString(o).c_str(), oscilator.oscilator == o))
-          {
-            oscilator.oscilator = o;
-          }
-        }
-        ImGui::EndCombo();
-      }
+      CustomDropdown("Oscilator", &oscilator.oscilator, OscilatorType::Max);
+
+      CustomDropdown(
+          "Chord emulation", &piano.chords_emulation, ChordEmulation::Max);
 
       {
         ImGui::BeginChild("audio devices", ImVec2(0, 0), true);
