@@ -661,40 +661,57 @@ struct SingleToneNode : public ToneToToneNode
   std::map<int, float> down_tones;
 
   void
+  Debug()
+  {
+    if(!down_tones.empty())
+    {
+      const auto tone = GetCurrentTone();
+    }
+
+    for(const auto& t : down_tones)
+    {
+      std::cout << t.first << "(" << t.second << ") ";
+    }
+
+    std::cout << "\n";
+  }
+
+  void
   OnTone(int tone, bool down, float time) override
   {
+    std::cout << tone << " " << down << "\n";
     if(down)
     {
-      const bool was_empty = down_tones.empty();
+      if(!down_tones.empty())
+      {
+        const auto current_tone = GetCurrentTone();
+        SendTone(current_tone, false, time);
+      }
       // this will override the old tone and this is "wrong",
       // but we need a better way to handle multiples anyway
       down_tones[tone] = time;
-      if(was_empty)
-      {
-        SendTone(tone, down, time);
-      }
+
+      SendTone(tone, down, time);
     }
     else
     {
-      const auto last_tone = GetCurrentTone();
+      const auto playing_tone = GetCurrentTone();
       down_tones.erase(tone);
 
-      if(down_tones.empty())
+      if(playing_tone == tone)
       {
-        assert(last_tone == tone);
+        // this means the best match stopped playing
+
         SendTone(tone, false, time);
-      }
-      else
-      {
-        const auto current_tone = GetCurrentTone();
-        if(current_tone != last_tone)
+        if(!down_tones.empty())
         {
-          // tone has switched!
-          SendTone(last_tone, false, time);
-          SendTone(current_tone, true, time);
+          const auto new_tone = GetCurrentTone();
+          SendTone(new_tone, true, time);
         }
       }
     }
+
+    Debug();
   }
 
   int
@@ -707,7 +724,7 @@ struct SingleToneNode : public ToneToToneNode
     {
       if(has_tone)
       {
-        if(k.second < time)
+        if(k.second > time)
         {
           time = k.second;
           tone = k.first;
@@ -1011,7 +1028,7 @@ class App : public AppBase
   {
     SetupQwertyTwoOctaveLayout(&piano.keys, 4, -2);
 
-    piano.tones          = &ttf;
+    piano.tones          = &single_tone;
     single_tone.NextNode = &ttf;
     oscilator.frequency  = &ttf;
     master.in            = &oscilator;
@@ -1135,6 +1152,7 @@ class App : public AppBase
   void
   OnKey(SDL_Keycode key, Uint16 mod, bool down, float time)
   {
+    std::cout << "Piano " << key << " " << down << "\n";
     piano.OnInput(key, mod, down, time);
   }
 };
@@ -1182,11 +1200,14 @@ main(int argc, char* argv[])
         case SDL_KEYUP:
           if(!ImGui::GetIO().WantCaptureKeyboard)
           {
-            app.OnKey(
-                event.key.keysym.sym,
-                event.key.keysym.mod,
-                event.type == SDL_KEYDOWN,
-                time);
+            if(event.key.repeat == 0)
+            {
+              app.OnKey(
+                  event.key.keysym.sym,
+                  event.key.keysym.mod,
+                  event.type == SDL_KEYDOWN,
+                  time);
+            }
           }
           break;
         default:
