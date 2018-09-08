@@ -661,25 +661,8 @@ struct SingleToneNode : public ToneToToneNode
   std::map<int, float> down_tones;
 
   void
-  Debug()
-  {
-    if(!down_tones.empty())
-    {
-      const auto tone = GetCurrentTone();
-    }
-
-    for(const auto& t : down_tones)
-    {
-      std::cout << t.first << "(" << t.second << ") ";
-    }
-
-    std::cout << "\n";
-  }
-
-  void
   OnTone(int tone, bool down, float time) override
   {
-    std::cout << tone << " " << down << "\n";
     if(down)
     {
       if(!down_tones.empty())
@@ -710,8 +693,6 @@ struct SingleToneNode : public ToneToToneNode
         }
       }
     }
-
-    Debug();
   }
 
   int
@@ -1152,7 +1133,6 @@ class App : public AppBase
   void
   OnKey(SDL_Keycode key, Uint16 mod, bool down, float time)
   {
-    std::cout << "Piano " << key << " " << down << "\n";
     piano.OnInput(key, mod, down, time);
   }
 };
