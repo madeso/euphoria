@@ -625,6 +625,11 @@ enum class ChordEmulation
   Minor,
   Diminished,
   Augmented,
+  Major7,
+  Dominant7,
+  Augmented7,
+  AugmentedMajor7,
+  MinorMajor7,
   Max
 };
 
@@ -636,13 +641,23 @@ ToString(ChordEmulation em)
     case ChordEmulation::None:
       return "None";
     case ChordEmulation::Major:
-      return "Major";
+      return "Major triad";
     case ChordEmulation::Minor:
-      return "Minor";
+      return "Minor Triad";
     case ChordEmulation::Diminished:
-      return "Diminished";
+      return "Diminished triad";
     case ChordEmulation::Augmented:
-      return "Augmented";
+      return "Augmented triad";
+    case ChordEmulation::Major7:
+      return "Major 7th";
+    case ChordEmulation::Dominant7:
+      return "Dominant 7th";
+    case ChordEmulation::Augmented7:
+      return "Augmented 7th";
+    case ChordEmulation::AugmentedMajor7:
+      return "Augmented Major 7th";
+    case ChordEmulation::MinorMajor7:
+      return "Minor major 7th";
     default:
       return "???";
   }
@@ -664,6 +679,16 @@ struct KeyboardInputNode : public virtual Node
     tones->OnTone(base, was_pressed, time);
     tones->OnTone(base + first, was_pressed, time);
     tones->OnTone(base + first + second, was_pressed, time);
+  }
+
+  void
+  OnChord(
+      int base, bool was_pressed, float time, std::vector<int> integer_notation)
+  {
+    for(auto i : integer_notation)
+    {
+      tones->OnTone(base + i, was_pressed, time);
+    }
   }
 
   void
@@ -703,6 +728,21 @@ struct KeyboardInputNode : public virtual Node
             break;
           case ChordEmulation::Augmented:
             OnChord(tone, was_pressed, time, major3rd, major3rd);
+            break;
+          case ChordEmulation::Major7:
+            OnChord(tone, was_pressed, time, {0, 4, 7, 11});
+            break;
+          case ChordEmulation::Dominant7:
+            OnChord(tone, was_pressed, time, {0, 4, 7, 10});
+            break;
+          case ChordEmulation::Augmented7:
+            OnChord(tone, was_pressed, time, {0, 4, 8, 10});
+            break;
+          case ChordEmulation::AugmentedMajor7:
+            OnChord(tone, was_pressed, time, {0, 4, 8, 11});
+            break;
+          case ChordEmulation::MinorMajor7:
+            OnChord(tone, was_pressed, time, {0, 3, 7, 11});
             break;
           default:
             break;
