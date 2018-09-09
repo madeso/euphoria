@@ -379,6 +379,8 @@ TuningToBaseFrequency(Tuning t)
       return base_frequencies::baroque_a4;
     case Tuning::Chorton:
       return base_frequencies::chorton_a4;
+    case Tuning::Classical:
+      return base_frequencies::classical_a4;
     default:
       return base_frequencies::a4;
   }
@@ -551,7 +553,7 @@ struct TakeFrequencyNode : public virtual Node
   OnFrequencyDown(int id, float freq, float time) = 0;
 
   virtual void
-  OnFrequencyUp(int id) = 0;
+  OnFrequencyUp(int id, float frequency, float time) = 0;
 };
 
 struct WaveOutputNode : public virtual Node
@@ -582,7 +584,7 @@ struct ToneToFrequencyConverterNode : public virtual TakeToneNode
     }
     else
     {
-      next->OnFrequencyUp(tone);
+      next->OnFrequencyUp(tone, CalculateFrequency(tone), time);
     }
   }
 
@@ -894,9 +896,17 @@ struct LiveFrequency
   float time_start;
 };
 
+struct DeadFrequency
+{
+  bool alive;
+  float frequency;
+  float time_end;
+};
+
 struct TakeFrequencyAdapterNode : public virtual TakeFrequencyNode
 {
   std::map<int, LiveFrequency> live;
+  std::vector<DeadFrequency> dead;
 
   void
   OnFrequencyDown(int id, float freq, float time) override
@@ -905,18 +915,37 @@ struct TakeFrequencyAdapterNode : public virtual TakeFrequencyNode
   }
 
   void
-  OnFrequencyUp(int id) override
+  OnFrequencyUp(int id, float frequency, float time) override
   {
     live.erase(id);
+    dead.emplace_back(DeadFrequency{true, frequency, time});
   }
 };
 
+float to01(float lower_bound, float value, float upper_bound)
+{
+  return (value - lower_bound) / (upper_bound - lower_bound);
+}
+
 struct Envelope
 {
+  float time_to_start = 1.1f;
+  float time_to_end = 1.1f;
+
   float
   GetLive(float wave, float start_time, float current_time)
   {
-    return wave;
+    if(current_time < start_time) return 0;
+    if(current_time > (start_time + time_to_start)) return wave;
+    return wave * to01(start_time, current_time, start_time + time_to_start);
+  }
+
+  float
+  GetDead(float wave, float end_time, float current_time)
+  {
+    if(current_time < end_time) return wave;
+    if(current_time > (end_time + time_to_end)) return 0;
+    return wave * (1-to01(end_time, current_time, end_time + time_to_end));
   }
 };
 
@@ -933,11 +962,17 @@ struct OscilatorNode : public virtual WaveOutputNode,
   {
     float value = 0;
 
-    for(const auto li : live)
+    for(const auto& li : live)
     {
       const auto& f = li.second;
       value += envelope.GetLive(
           RunOscilator(f.frequency, time, oscilator), f.time_start, time);
+    }
+
+    for(const auto& d : dead)
+    {
+      value += envelope.GetDead(
+          RunOscilator(d.frequency, time, oscilator), d.time_end, time);
     }
 
     return value;
@@ -1238,6 +1273,9 @@ class App : public AppBase
 
       CustomDropdown("Tuning", &ttf.tuning, Tuning::Max);
 
+      ImGui::DragFloat("Time to start", &oscilator.envelope.time_to_start, 0.01f, 0.0f, 1.0f);
+      ImGui::DragFloat("Time to end", &oscilator.envelope.time_to_end, 0.01f, 0.0f, 1.0f);
+
       CustomDropdown("Oscilator", &oscilator.oscilator, OscilatorType::Max);
 
       CustomDropdown(
@@ -1298,7 +1336,7 @@ main(int argc, char* argv[])
     current_time = SDL_GetPerformanceCounter();
 
     const auto dt =
-        ((current_time - last_time) * 1000.0f / SDL_GetPerformanceFrequency());
+        (static_cast<float>(current_time - last_time) / SDL_GetPerformanceFrequency());
 
     time += dt;
 
