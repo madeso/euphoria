@@ -542,9 +542,15 @@ struct ToneToToneNode : public virtual TakeToneNode
   }
 };
 
+struct FreqOut
+{
+  float frequency;
+  float time_start;
+};
+
 struct FrequencyOutputNode : public virtual Node
 {
-  virtual std::vector<float>
+  virtual std::vector<FreqOut>
   GetOutput() = 0;
 };
 
@@ -561,14 +567,14 @@ struct ToneToFrequencyConverterNode : public virtual TakeToneNode,
   bool   use_western_scale = true;
   Tuning tuning            = Tuning::A4;
 
-  std::map<int, bool> tones;
+  std::map<int, float> tones;
 
   void
-  OnTone(int tone, bool down, float) override
+  OnTone(int tone, bool down, float time) override
   {
     if(down)
     {
-      tones[tone] = true;
+      tones[tone] = time;
     }
     else
     {
@@ -576,13 +582,13 @@ struct ToneToFrequencyConverterNode : public virtual TakeToneNode,
     }
   }
 
-  std::vector<float>
+  std::vector<FreqOut>
   GetOutput() override
   {
-    std::vector<float> ret;
+    std::vector<FreqOut> ret;
     for(const auto t : tones)
     {
-      ret.emplace_back(CalculateFrequency(t.first));
+      ret.emplace_back(FreqOut{CalculateFrequency(t.first), t.second});
     }
     return ret;
   }
@@ -904,7 +910,7 @@ struct OscilatorNode : public virtual WaveOutputNode
 
     for(const auto f : outputs)
     {
-      value += RunOscilator(f, time, oscilator);
+      value += RunOscilator(f.frequency, time, oscilator);
     }
 
     return value;
