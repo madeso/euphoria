@@ -542,16 +542,13 @@ struct ToneToToneNode : public virtual TakeToneNode
   }
 };
 
-struct FreqOut
+struct TakeFrequencyNode : public virtual Node
 {
-  float frequency;
-  float time_start;
-};
+  virtual void
+  OnFrequencyDown(int id, float freq, float time) = 0;
 
-struct FrequencyOutputNode : public virtual Node
-{
-  virtual std::vector<FreqOut>
-  GetOutput() = 0;
+  virtual void
+  OnFrequencyUp(int id) = 0;
 };
 
 struct WaveOutputNode : public virtual Node
@@ -561,36 +558,29 @@ struct WaveOutputNode : public virtual Node
 };
 
 // Tone -> Frequency
-struct ToneToFrequencyConverterNode : public virtual TakeToneNode,
-                                      public virtual FrequencyOutputNode
+struct ToneToFrequencyConverterNode : public virtual TakeToneNode
 {
   bool   use_western_scale = true;
   Tuning tuning            = Tuning::A4;
 
-  std::map<int, float> tones;
+  TakeFrequencyNode* next = nullptr;
 
   void
   OnTone(int tone, bool down, float time) override
   {
+    if(next == nullptr)
+    {
+      return;
+    }
+
     if(down)
     {
-      tones[tone] = time;
+      next->OnFrequencyDown(tone, CalculateFrequency(tone), time);
     }
     else
     {
-      tones.erase(tone);
+      next->OnFrequencyUp(tone);
     }
-  }
-
-  std::vector<FreqOut>
-  GetOutput() override
-  {
-    std::vector<FreqOut> ret;
-    for(const auto t : tones)
-    {
-      ret.emplace_back(FreqOut{CalculateFrequency(t.first), t.second});
-    }
-    return ret;
   }
 
   float
@@ -895,22 +885,56 @@ RunOscilator(float frequency, float time, OscilatorType osc)
   }
 }
 
+struct LiveFrequency
+{
+  float frequency;
+  float time_start;
+};
+
+struct TakeFrequencyAdapterNode : public virtual TakeFrequencyNode
+{
+  std::map<int, LiveFrequency> live;
+
+  void
+  OnFrequencyDown(int id, float freq, float time) override
+  {
+    live[id] = LiveFrequency{freq, time};
+  }
+
+  void
+  OnFrequencyUp(int id) override
+  {
+    live.erase(id);
+  }
+};
+
+struct Envelope
+{
+  float
+  GetLive(float wave, float start_time, float current_time)
+  {
+    return wave;
+  }
+};
+
 /// Node represents a single Oscilator. Frequency -> WaveOutput
-struct OscilatorNode : public virtual WaveOutputNode
+struct OscilatorNode : public virtual WaveOutputNode,
+                       public virtual TakeFrequencyAdapterNode
 {
   OscilatorType oscilator = OscilatorType::Sawtooth;
 
-  FrequencyOutputNode* frequency = nullptr;
+  Envelope envelope;
 
   float
   GetOutput(float time) override
   {
-    const auto outputs = frequency->GetOutput();
-    float      value   = 0;
+    float value = 0;
 
-    for(const auto f : outputs)
+    for(const auto li : live)
     {
-      value += RunOscilator(f.frequency, time, oscilator);
+      const auto& f = li.second;
+      value += envelope.GetLive(
+          RunOscilator(f.frequency, time, oscilator), f.time_start, time);
     }
 
     return value;
@@ -1137,7 +1161,7 @@ class App : public AppBase
 
     piano.tones          = &ttf;
     single_tone.NextNode = &ttf;
-    oscilator.frequency  = &ttf;
+    ttf.next             = &oscilator;
     master.in            = &oscilator;
   }
 
