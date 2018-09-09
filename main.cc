@@ -2,6 +2,8 @@
 #include <sstream>
 #include <vector>
 #include <map>
+#include <algorithm>
+#include <cmath>
 
 #include <glad/glad.h>
 
@@ -13,7 +15,6 @@
 #include "imgui_impl_sdl.h"
 #include "imgui_impl_opengl3.h"
 #include <SDL.h>
-#include <algorithm>
 
 #include "imgui_extra.h"
 
@@ -426,11 +427,13 @@ struct ToneToFrequencyConverter
   };
 };
 
+
+
 template <int TonesPerOctave>
 float
 ToneToFrequency(int tone, float base_frequency)
 {
-  constexpr ToneToFrequencyConverter<TonesPerOctave> converter{};
+  const static auto converter = ToneToFrequencyConverter<TonesPerOctave>();
   return converter.GetFrequency(tone, base_frequency);
 }
 
