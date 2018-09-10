@@ -430,7 +430,6 @@ struct ToneToFrequencyConverter
 };
 
 
-
 template <int TonesPerOctave>
 float
 ToneToFrequency(int tone, float base_frequency)
@@ -898,12 +897,47 @@ struct LiveFrequency
 
 struct DeadFrequency
 {
-  bool alive;
+  bool  alive;
   float frequency;
   float time_end;
+  float scale;
 };
 
-struct TakeFrequencyAdapterNode : public virtual TakeFrequencyNode
+float
+to01(float lower_bound, float value, float upper_bound)
+{
+  return (value - lower_bound) / (upper_bound - lower_bound);
+}
+
+struct Envelope
+{
+  float time_to_start = 1.1f;
+  float time_to_end   = 1.1f;
+
+  float
+  GetLive(float wave, float start_time, float current_time)
+  {
+    if(current_time < start_time)
+      return 0;
+    if(current_time > (start_time + time_to_start))
+      return wave;
+    return wave * to01(start_time, current_time, start_time + time_to_start);
+  }
+
+  float
+  GetDead(float wave, float end_time, float current_time)
+  {
+    if(current_time < end_time)
+      return wave;
+    if(current_time > (end_time + time_to_end))
+      return 0;
+    return wave * (1 - to01(end_time, current_time, end_time + time_to_end));
+  }
+};
+
+/// Node represents a single Oscilator. Frequency -> WaveOutput
+struct OscilatorNode : public virtual WaveOutputNode,
+                       public virtual TakeFrequencyNode
 {
   std::map<int, LiveFrequency> live;
   std::vector<DeadFrequency> dead;
@@ -917,42 +951,11 @@ struct TakeFrequencyAdapterNode : public virtual TakeFrequencyNode
   void
   OnFrequencyUp(int id, float frequency, float time) override
   {
+    const auto scale = envelope.GetLive(1.0f, live[id].time_start, time);
     live.erase(id);
-    dead.emplace_back(DeadFrequency{true, frequency, time});
-  }
-};
-
-float to01(float lower_bound, float value, float upper_bound)
-{
-  return (value - lower_bound) / (upper_bound - lower_bound);
-}
-
-struct Envelope
-{
-  float time_to_start = 1.1f;
-  float time_to_end = 1.1f;
-
-  float
-  GetLive(float wave, float start_time, float current_time)
-  {
-    if(current_time < start_time) return 0;
-    if(current_time > (start_time + time_to_start)) return wave;
-    return wave * to01(start_time, current_time, start_time + time_to_start);
+    dead.emplace_back(DeadFrequency{true, frequency, time, scale});
   }
 
-  float
-  GetDead(float wave, float end_time, float current_time)
-  {
-    if(current_time < end_time) return wave;
-    if(current_time > (end_time + time_to_end)) return 0;
-    return wave * (1-to01(end_time, current_time, end_time + time_to_end));
-  }
-};
-
-/// Node represents a single Oscilator. Frequency -> WaveOutput
-struct OscilatorNode : public virtual WaveOutputNode,
-                       public virtual TakeFrequencyAdapterNode
-{
   OscilatorType oscilator = OscilatorType::Sawtooth;
 
   Envelope envelope;
@@ -971,8 +974,10 @@ struct OscilatorNode : public virtual WaveOutputNode,
 
     for(const auto& d : dead)
     {
-      value += envelope.GetDead(
-          RunOscilator(d.frequency, time, oscilator), d.time_end, time);
+      value +=
+          d.scale *
+          envelope.GetDead(
+              RunOscilator(d.frequency, time, oscilator), d.time_end, time);
     }
 
     return value;
@@ -1273,8 +1278,14 @@ class App : public AppBase
 
       CustomDropdown("Tuning", &ttf.tuning, Tuning::Max);
 
-      ImGui::DragFloat("Time to start", &oscilator.envelope.time_to_start, 0.01f, 0.0f, 1.0f);
-      ImGui::DragFloat("Time to end", &oscilator.envelope.time_to_end, 0.01f, 0.0f, 1.0f);
+      ImGui::DragFloat(
+          "Time to start",
+          &oscilator.envelope.time_to_start,
+          0.01f,
+          0.0f,
+          1.0f);
+      ImGui::DragFloat(
+          "Time to end", &oscilator.envelope.time_to_end, 0.01f, 0.0f, 1.0f);
 
       CustomDropdown("Oscilator", &oscilator.oscilator, OscilatorType::Max);
 
@@ -1336,7 +1347,8 @@ main(int argc, char* argv[])
     current_time = SDL_GetPerformanceCounter();
 
     const auto dt =
-        (static_cast<float>(current_time - last_time) / SDL_GetPerformanceFrequency());
+        (static_cast<float>(current_time - last_time) /
+         SDL_GetPerformanceFrequency());
 
     time += dt;
 
