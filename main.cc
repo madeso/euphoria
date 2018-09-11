@@ -4,6 +4,7 @@
 #include <map>
 #include <algorithm>
 #include <cmath>
+#include <set>
 
 #include <glad/glad.h>
 
@@ -837,6 +838,79 @@ struct SingleToneNode : public ToneTaker, public ToneSender, public Node
   }
 };
 
+struct ArpegiatorNode : public ToneTaker, public ToneSender, public Node
+{
+  std::map<int, float> down_tones;
+  float t = 0;
+
+  int              index = 0;
+  std::vector<int> tones;
+
+  int   octaves     = 3;
+  float update_time = 1.0f;
+  float tone_time   = 0.3f;
+
+  std::map<int, float> active_tones;
+
+  void
+  Update(float dt, float current_time) override
+  {
+    t += dt;
+    while(t > update_time)
+    {
+      t -= update_time;
+      if(!tones.empty())
+      {
+        index = (index + 1) % tones.size();
+        SendTone(tones[index], true, current_time);
+        active_tones[tones[index]] = current_time + tone_time;
+      }
+    }
+
+    std::vector<int> erase;
+    for(auto& t : active_tones)
+    {
+      if(t.second < current_time)
+      {
+        SendTone(t.first, false, t.second);
+        erase.emplace_back(t.first);
+      }
+    }
+    for(auto t : erase)
+    {
+      active_tones.erase(t);
+    }
+  }
+
+  void
+  OnTone(int tone, bool down, float time) override
+  {
+    if(down)
+    {
+      down_tones[tone] = time;
+    }
+    else
+    {
+      down_tones.erase(tone);
+    }
+
+    tones.resize(0);
+    if(!down_tones.empty())
+    {
+      std::set<int> tt;
+      for(const auto& t : down_tones)
+      {
+        for(int i = 0; i < octaves; i += 1)
+        {
+          tt.insert(t.first + i * 12);
+        }
+      }
+      tones.insert(tones.begin(), tt.begin(), tt.end());
+      index = index % tones.size();
+    }
+  }
+};
+
 template <typename T>
 void
 Insert(std::vector<T>* to, const std::vector<T>& from)
@@ -1249,6 +1323,7 @@ class App : public AppBase
  public:
   KeyboardInputNode            piano;
   SingleToneNode               single_tone;
+  ArpegiatorNode               arp;
   ToneToFrequencyConverterNode ttf;
   OscilatorNode                oscilator;
   ScalerEffect                 scaler;
@@ -1262,7 +1337,8 @@ class App : public AppBase
   {
     SetupQwertyTwoOctaveLayout(&piano.keys, 4, -2);
 
-    piano.tones          = &ttf;
+    piano.tones          = &arp;
+    arp.NextNode         = &ttf;
     single_tone.NextNode = &ttf;
     ttf.next             = &oscilator;
     scaler.in            = &oscilator;
@@ -1270,6 +1346,7 @@ class App : public AppBase
 
     nodes.emplace_back(&piano);
     nodes.emplace_back(&single_tone);
+    nodes.emplace_back(&arp);
     nodes.emplace_back(&ttf);
     nodes.emplace_back(&oscilator);
     nodes.emplace_back(&scaler);
@@ -1362,6 +1439,11 @@ class App : public AppBase
           "Chord emulation", &piano.chords_emulation, ChordEmulation::Max);
 
       ImGui::InputInt("Times", &scaler.times, 1, 5);
+
+      ImGui::InputInt("Arp octaves", &arp.octaves);
+      imgui::Knob("Update time", &arp.update_time, 0, 1);
+      ImGui::SameLine();
+      imgui::Knob("Tone time", &arp.tone_time, 0, 1);
 
       {
         ImGui::BeginChild("audio devices", ImVec2(0, 0), true);
