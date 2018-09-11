@@ -526,15 +526,17 @@ struct Node
   virtual ~Node() = default;
 };
 
-struct TakeToneNode : public virtual Node
+struct ToneTaker
 {
+  virtual ~ToneTaker() = default;
+
   virtual void
   OnTone(int tone, bool down, float time) = 0;
 };
 
-struct ToneToToneNode : public virtual TakeToneNode
+struct ToneSender
 {
-  TakeToneNode* NextNode = nullptr;
+  ToneTaker* NextNode = nullptr;
 
   void
   SendTone(int tone, bool down, float time)
@@ -546,8 +548,10 @@ struct ToneToToneNode : public virtual TakeToneNode
   }
 };
 
-struct TakeFrequencyNode : public virtual Node
+struct FrequencyTaker
 {
+  virtual ~FrequencyTaker() = default;
+
   virtual void
   OnFrequencyDown(int id, float freq, float time) = 0;
 
@@ -555,19 +559,21 @@ struct TakeFrequencyNode : public virtual Node
   OnFrequencyUp(int id, float frequency, float time) = 0;
 };
 
-struct WaveOutputNode : public virtual Node
+struct WaveOut
 {
+  virtual ~WaveOut() = default;
+
   virtual float
   GetOutput(float time) = 0;
 };
 
 // Tone -> Frequency
-struct ToneToFrequencyConverterNode : public virtual TakeToneNode
+struct ToneToFrequencyConverterNode : public ToneTaker, public Node
 {
   bool   use_western_scale = true;
   Tuning tuning            = Tuning::A4;
 
-  TakeFrequencyNode* next = nullptr;
+  FrequencyTaker* next = nullptr;
 
   void
   OnTone(int tone, bool down, float time) override
@@ -669,7 +675,7 @@ struct KeyboardInputNode : public virtual Node
   std::vector<PianoKey> keys;
   bool                  octave_shift = false;
 
-  TakeToneNode* tones = nullptr;
+  ToneTaker* tones = nullptr;
 
   ChordEmulation chords_emulation = ChordEmulation::None;
 
@@ -758,7 +764,7 @@ struct KeyboardInputNode : public virtual Node
 };
 
 // Single Tone node, Tone->Tone.
-struct SingleToneNode : public ToneToToneNode
+struct SingleToneNode : public ToneTaker, public ToneSender, public Node
 {
   std::map<int, float> down_tones;
 
@@ -936,8 +942,7 @@ struct Envelope
 };
 
 /// Node represents a single Oscilator. Frequency -> WaveOutput
-struct OscilatorNode : public virtual WaveOutputNode,
-                       public virtual TakeFrequencyNode
+struct OscilatorNode : public virtual WaveOut, public virtual FrequencyTaker, public Node
 {
   std::map<int, LiveFrequency> live;
   std::vector<DeadFrequency> dead;
@@ -984,7 +989,7 @@ struct OscilatorNode : public virtual WaveOutputNode,
   }
 };
 
-struct EffectNode : public virtual WaveOutputNode
+struct Effect : public WaveOut
 {
   float
   GetOutput(float time) override
@@ -998,10 +1003,10 @@ struct EffectNode : public virtual WaveOutputNode
   virtual float
   OnWave(float wave) = 0;
 
-  WaveOutputNode* in = nullptr;
+  WaveOut* in = nullptr;
 };
 
-struct VolumeNode : public virtual EffectNode
+struct VolumeNode : public Effect, public Node
 {
   float
   OnWave(float wave) override
@@ -1012,7 +1017,7 @@ struct VolumeNode : public virtual EffectNode
   float volume = 0.5f;
 };
 
-struct ScalerEffect : public virtual EffectNode
+struct ScalerEffect : public Effect, public Node
 {
   float
   OnWave(float wave) override
