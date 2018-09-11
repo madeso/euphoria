@@ -984,7 +984,7 @@ struct OscilatorNode : public virtual WaveOutputNode,
   }
 };
 
-struct VolumeNode : public virtual WaveOutputNode
+struct EffectNode : public virtual WaveOutputNode
 {
   float
   GetOutput(float time) override
@@ -992,11 +992,24 @@ struct VolumeNode : public virtual WaveOutputNode
     if(in == nullptr)
       return 0;
 
-    return volume * in->GetOutput(time);
+    return OnWave(in->GetOutput(time));
   }
 
-  float           volume = 0.5f;
-  WaveOutputNode* in     = nullptr;
+  virtual float
+  OnWave(float wave) = 0;
+
+  WaveOutputNode* in = nullptr;
+};
+
+struct VolumeNode : public virtual EffectNode
+{
+  float
+  OnWave(float wave) override
+  {
+    return volume * wave;
+  }
+
+  float volume = 0.5f;
 };
 
 std::vector<PianoKey>
