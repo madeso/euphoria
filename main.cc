@@ -523,6 +523,11 @@ NameAndOctave(const std::string& name, int octave)
 
 struct Node
 {
+  virtual void
+  Update(float dt, float current_time)
+  {
+  }
+
   virtual ~Node() = default;
 };
 
@@ -942,10 +947,25 @@ struct Envelope
 };
 
 /// Node represents a single Oscilator. Frequency -> WaveOutput
-struct OscilatorNode : public virtual WaveOut, public virtual FrequencyTaker, public Node
+struct OscilatorNode : public virtual WaveOut,
+                       public virtual FrequencyTaker,
+                       public Node
 {
   std::map<int, LiveFrequency> live;
   std::vector<DeadFrequency> dead;
+
+  void
+  Update(float dt, float current_time) override
+  {
+    dead.erase(
+        std::remove_if(
+            dead.begin(),
+            dead.end(),
+            [=](const DeadFrequency& df) -> bool {
+              return df.time_end + envelope.time_to_end > current_time;
+            }),
+        dead.end());
+  }
 
   void
   OnFrequencyDown(int id, float freq, float time) override
@@ -1234,6 +1254,10 @@ class App : public AppBase
   ScalerEffect                 scaler;
   VolumeNode                   master;
 
+  std::vector<Node*> nodes;
+
+  float time = 0;
+
   App()
   {
     SetupQwertyTwoOctaveLayout(&piano.keys, 4, -2);
@@ -1243,6 +1267,13 @@ class App : public AppBase
     ttf.next             = &oscilator;
     scaler.in            = &oscilator;
     master.in            = &scaler;
+
+    nodes.emplace_back(&piano);
+    nodes.emplace_back(&single_tone);
+    nodes.emplace_back(&ttf);
+    nodes.emplace_back(&oscilator);
+    nodes.emplace_back(&scaler);
+    nodes.emplace_back(&master);
   }
 
   void
@@ -1307,6 +1338,7 @@ class App : public AppBase
     // musik maskin main window
     if(ImGui::Begin("Main"))
     {
+      ImGui::Text("Time: %.1f", time);
       ImGui::SliderFloat("master", &master.volume, 0.0f, 1.0f);
 
       imgui::Knob("Master", &master.volume, 0.0f, 1.0f);
@@ -1353,6 +1385,16 @@ class App : public AppBase
   }
 
   void
+  Update(float dt, float current_time)
+  {
+    time = current_time;
+    for(auto* node : nodes)
+    {
+      node->Update(dt, current_time);
+    }
+  }
+
+  void
   OnKey(SDL_Keycode key, Uint16 mod, bool down, float time)
   {
     piano.OnInput(key, mod, down, time);
@@ -1390,6 +1432,8 @@ main(int argc, char* argv[])
          SDL_GetPerformanceFrequency());
 
     time += dt;
+
+    app.Update(dt, time);
 
     while(SDL_PollEvent(&event))
     {
