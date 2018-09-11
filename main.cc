@@ -1012,6 +1012,23 @@ struct VolumeNode : public virtual EffectNode
   float volume = 0.5f;
 };
 
+struct ScalerEffect : public virtual EffectNode
+{
+  float
+  OnWave(float wave) override
+  {
+    float      w        = fabs(wave);
+    const auto negative = wave < 0;
+    for(int i = 0; i < times; i += 1)
+    {
+      w = w * w;
+    }
+    return negative ? w * -1 : w;
+  }
+
+  int times = 1;
+};
+
 std::vector<PianoKey>
 OneOctaveOfPianoKeys(
     int octave,
@@ -1209,6 +1226,7 @@ class App : public AppBase
   SingleToneNode               single_tone;
   ToneToFrequencyConverterNode ttf;
   OscilatorNode                oscilator;
+  ScalerEffect                 scaler;
   VolumeNode                   master;
 
   App()
@@ -1218,7 +1236,8 @@ class App : public AppBase
     piano.tones          = &ttf;
     single_tone.NextNode = &ttf;
     ttf.next             = &oscilator;
-    master.in            = &oscilator;
+    scaler.in            = &oscilator;
+    master.in            = &scaler;
   }
 
   void
@@ -1304,6 +1323,8 @@ class App : public AppBase
 
       CustomDropdown(
           "Chord emulation", &piano.chords_emulation, ChordEmulation::Max);
+
+      ImGui::InputInt("Times", &scaler.times, 1, 5);
 
       {
         ImGui::BeginChild("audio devices", ImVec2(0, 0), true);
