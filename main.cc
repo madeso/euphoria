@@ -911,8 +911,8 @@ to01(float lower_bound, float value, float upper_bound)
 
 struct Envelope
 {
-  float time_to_start = 1.1f;
-  float time_to_end   = 1.1f;
+  float time_to_start = 0.01f;
+  float time_to_end   = 0.01f;
 
   float
   GetLive(float wave, float start_time, float current_time)
@@ -1026,7 +1026,7 @@ struct ScalerEffect : public virtual EffectNode
     return negative ? w * -1 : w;
   }
 
-  int times = 1;
+  int times = 0;
 };
 
 std::vector<PianoKey>
