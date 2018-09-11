@@ -838,6 +838,39 @@ struct SingleToneNode : public ToneTaker, public ToneSender, public Node
   }
 };
 
+enum class ArpMode
+{
+  Up,
+  Down,
+  UpDownInclusive,
+  UpDownExclusive,
+  Random,
+  RandomNoRepeat,
+  MAX
+};
+
+std::string
+ToString(ArpMode mode)
+{
+  switch(mode)
+  {
+    case ArpMode::Up:
+      return "Up";
+    case ArpMode::Down:
+      return "Down";
+    case ArpMode::UpDownInclusive:
+      return "Up/Down (inclusive)";
+    case ArpMode::UpDownExclusive:
+      return "Up/Down (exclusive)";
+    case ArpMode::Random:
+      return "Random";
+    case ArpMode::RandomNoRepeat:
+      return "Random (no repeat)";
+    default:
+      return "???";
+  }
+}
+
 struct ArpegiatorNode : public ToneTaker, public ToneSender, public Node
 {
   std::map<int, float> down_tones;
@@ -846,9 +879,10 @@ struct ArpegiatorNode : public ToneTaker, public ToneSender, public Node
   int              index = 0;
   std::vector<int> tones;
 
-  int   octaves     = 3;
-  float update_time = 1.0f;
-  float tone_time   = 0.3f;
+  ArpMode mode        = ArpMode::Up;
+  int     octaves     = 3;
+  float   update_time = 1.0f;
+  float   tone_time   = 0.3f;
 
   std::map<int, float> active_tones;
 
@@ -861,7 +895,24 @@ struct ArpegiatorNode : public ToneTaker, public ToneSender, public Node
       t -= update_time;
       if(!tones.empty())
       {
-        index = (index + 1) % tones.size();
+        const int size = tones.size();
+
+        if(mode == ArpMode::Random || mode == ArpMode::RandomNoRepeat)
+        {
+          const int last_index = index;
+          index                = rand() % size;
+          if(mode == ArpMode::RandomNoRepeat && tones.size() > 1)
+          {
+            while(index == last_index)
+            {
+              index = rand() % size;
+            }
+          }
+        }
+        else
+        {
+          index = (index + 1) % size;
+        }
         SendTone(tones[index], true, current_time);
         active_tones[tones[index]] = current_time + tone_time;
       }
@@ -905,7 +956,33 @@ struct ArpegiatorNode : public ToneTaker, public ToneSender, public Node
           tt.insert(t.first + i * 12);
         }
       }
-      tones.insert(tones.begin(), tt.begin(), tt.end());
+      switch(mode)
+      {
+        case ArpMode::Up:
+          tones.insert(tones.begin(), tt.begin(), tt.end());
+          break;
+        case ArpMode::Down:
+          tones.insert(tones.begin(), tt.rbegin(), tt.rend());
+          break;
+        case ArpMode::UpDownInclusive:
+          tones.insert(tones.begin(), tt.begin(), tt.end());
+          tones.insert(tones.begin(), tt.rbegin(), tt.rend());
+          break;
+        case ArpMode::UpDownExclusive:
+          tones.insert(tones.begin(), tt.begin(), tt.end());
+          if(tt.size() > 2)
+          {
+            tt.erase(tt.begin());
+            std::set<int>::iterator it = tt.end();
+            --it;
+            tt.erase(it);
+            tones.insert(tones.begin(), tt.rbegin(), tt.rend());
+          }
+          break;
+        default:
+          tones.insert(tones.begin(), tt.begin(), tt.end());
+          break;
+      }
       index = index % tones.size();
     }
   }
@@ -1441,6 +1518,7 @@ class App : public AppBase
       ImGui::InputInt("Times", &scaler.times, 1, 5);
 
       ImGui::InputInt("Arp octaves", &arp.octaves);
+      CustomDropdown("Arp mode", &arp.mode, ArpMode::MAX);
       imgui::Knob("Update time", &arp.update_time, 0, 1);
       ImGui::SameLine();
       imgui::Knob("Tone time", &arp.tone_time, 0, 1);
