@@ -29,9 +29,6 @@ class AppBase
  public:
   AppBase()
       : ok(true)
-      , sample_frequency(44100)
-      , time(0)
-      , samples_consumed(0)
   {
     if(SDL_Init(SDL_INIT_EVERYTHING) < 0)
     {
@@ -267,8 +264,10 @@ class AppBase
 
     for(int i = 0; i < len; i += 1)
     {
-      auto sample = SynthSample(
-          time + (i + samples_consumed) / static_cast<float>(sample_frequency));
+      const float sample_time =
+          audio_callback_time +
+          (i + samples_consumed) / static_cast<float>(sample_frequency);
+      auto sample = SynthSample(sample_time);
       if(sample > 1)
       {
         sample = 1;
@@ -277,14 +276,15 @@ class AppBase
       {
         sample = -1;
       }
-      output[i] = static_cast<Sint16>(max_amplitude * sample);
+      output[i]       = static_cast<Sint16>(max_amplitude * sample);
+      max_sample_time = sample_time;
     }
 
     samples_consumed += len;
-    if(samples_consumed >= sample_frequency)
+    while(samples_consumed >= sample_frequency)
     {
       samples_consumed -= sample_frequency;
-      time += 1;
+      audio_callback_time += 1;
     }
   }
 
@@ -298,10 +298,11 @@ class AppBase
  public:
   bool ok;
 
- private:
-  int   sample_frequency;
-  float time;
-  int   samples_consumed;
+ protected:
+  float max_sample_time     = 0;
+  int   sample_frequency    = 44100;
+  float audio_callback_time = 0;
+  int   samples_consumed    = 0;
 
  public:
   SDL_Window*   window;
@@ -1395,6 +1396,41 @@ CustomDropdown(const char* name, T* current, T max)
   }
 }
 
+template <typename T>
+struct History
+{
+  explicit History(int s)
+      : max(s)
+  {
+  }
+
+  void
+  Push(const T& t)
+  {
+    if(d.size() == max)
+    {
+      d.erase(d.begin());
+    }
+    d.push_back(t);
+  }
+
+  const T*
+  data() const
+  {
+    assert(!d.empty());
+    return &d[0];
+  }
+
+  int
+  size() const
+  {
+    return d.size();
+  }
+
+  std::vector<T> d;
+  int            max;
+};
+
 class App : public AppBase
 {
  public:
@@ -1492,7 +1528,23 @@ class App : public AppBase
     // musik maskin main window
     if(ImGui::Begin("Main"))
     {
+      static History<float> time_history(100);
+      static float          max_diff = 0;
       ImGui::Text("Time: %.1f", time);
+      ImGui::Text("Sample time: %.1f", max_sample_time);
+      ImGui::Text("Max diff: %.1f", max_diff);
+      const auto f = time - audio_callback_time;
+      time_history.Push(f);
+      if(f > max_diff)
+      {
+        max_diff = f;
+      }
+      ImGui::PlotLines(
+          "Callback diff", time_history.data(), time_history.size());
+      // ImGui::Text("Callback time: %.1f", time - audio_callback_time);
+
+      // horizontal line?
+
       ImGui::SliderFloat("master", &master.volume, 0.0f, 1.0f);
 
       imgui::Knob("Master", &master.volume, 0.0f, 1.0f);
