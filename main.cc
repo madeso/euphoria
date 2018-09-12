@@ -1132,7 +1132,7 @@ struct OscilatorNode : public virtual WaveOut,
             dead.begin(),
             dead.end(),
             [=](const DeadFrequency& df) -> bool {
-              return df.time_end + envelope.time_to_end > current_time;
+              return df.time_end + envelope.time_to_end < current_time;
             }),
         dead.end());
   }
