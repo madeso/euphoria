@@ -1106,6 +1106,24 @@ struct OscilatorNode : public virtual WaveOut,
   std::map<int, LiveFrequency> live;
   std::vector<DeadFrequency> dead;
 
+  int
+  GetTotalTones() const
+  {
+    return live.size() + dead.size();
+  }
+
+  int
+  GetAliveTones() const
+  {
+    return live.size();
+  }
+
+  int
+  GetDeadTones() const
+  {
+    return dead.size();
+  }
+
   void
   Update(float dt, float current_time) override
   {
@@ -1530,6 +1548,11 @@ class App : public AppBase
     {
       static History<float> time_history(100);
       static float          max_diff = 0;
+      ImGui::Text(
+          "Tones: %d, %d alive and %d dead",
+          oscilator.GetTotalTones(),
+          oscilator.GetAliveTones(),
+          oscilator.GetDeadTones());
       ImGui::Text("Time: %.1f", time);
       ImGui::Text("Sample time: %.1f", max_sample_time);
       ImGui::Text("Max diff: %.1f", max_diff);
