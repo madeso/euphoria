@@ -1166,15 +1166,25 @@ struct OscilatorNode : public virtual WaveOut,
   {
     float value = 0;
 
+    const int maxtones = 10;
+    int tone;
+
+    tone = 0;
+
     for(const auto& li : live)
     {
+      if(tone++ > maxtones)
+        break;
       const auto& f = li.second;
       value += envelope.GetLive(
           RunOscilator(f.frequency, time, oscilator), f.time_start, time);
     }
 
+    tone = 0;
     for(const auto& d : dead)
     {
+      if(tone++ > maxtones)
+        break;
       value +=
           d.scale *
           envelope.GetDead(
