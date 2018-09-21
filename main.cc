@@ -894,9 +894,11 @@ struct ArpegiatorNode : public ToneTaker, public ToneSender, public Node
   void
   Update(float dt, float current_time) override
   {
+    int count = 0;
     t += dt;
-    while(t > update_time)
+    while(t > update_time && count < 10)
     {
+      count += 1;
       t -= update_time;
       if(!tones.empty())
       {
