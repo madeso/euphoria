@@ -1484,7 +1484,7 @@ class App : public AppBase
   {
     SetupQwertyTwoOctaveLayout(&piano.keys, 4, -2);
 
-    piano.tones          = &arp;
+    piano.tones          = &ttf;
     arp.NextNode         = &ttf;
     single_tone.NextNode = &ttf;
     ttf.next             = &oscilator;
