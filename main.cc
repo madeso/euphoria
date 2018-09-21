@@ -24,6 +24,10 @@
 
 const float pi = 3.14159f;
 
+#ifdef max
+#undef max
+#endif
+
 class AppBase
 {
  public:
