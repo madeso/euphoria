@@ -3,6 +3,10 @@ set_property(GLOBAL PROPERTY USE_FOLDERS OFF)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 project(music)
 
+ADD_SUBDIRECTORY(external/rtmidi)
+set(BUILD_STATIC_LIBS ON)
+include_directories(SYSTEM external/rtmidi)
+
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -69,5 +73,6 @@ add_executable(demo WIN32 MACOSX_BUNDLE ${app_src})
 target_link_libraries(demo
                       ${SDL2_LIBRARY}
                       ${CMAKE_DL_LIBS}
+                      rtmidi_static
                       )
 

@@ -5,10 +5,11 @@
 #include <algorithm>
 #include <cmath>
 #include <set>
+#include <memory>
 
 #include <glad/glad.h>
-
 #include "imgui.h"
+#include "RtMidi.h"
 
 #define IMGUI_DEFINE_MATH_OPERATORS
 #include "imgui_internal.h"
@@ -680,6 +681,67 @@ ToString(ChordEmulation em)
   }
 }
 
+struct MidiInNode : public virtual Node
+{
+  ToneTaker* tones = nullptr;
+
+  std::unique_ptr<RtMidiIn> midi;
+
+  static void
+  StaticCallback(
+      double deltatime, std::vector<unsigned char>* message, void* user_data)
+  {
+    auto* self = static_cast<MidiInNode*>(user_data);
+    if(message)
+    {
+      self->Callback(deltatime, *message);
+    }
+  }
+
+  void
+  Callback(double dt, const std::vector<unsigned char>& message)
+  {
+    for(auto byte : message)
+    {
+      std::cout << static_cast<unsigned int>(byte) << " ";
+    }
+    if(!message.empty())
+    {
+      std::cout << "stamp = " << dt << "\n";
+    }
+  }
+
+  bool         open_virtual_port = false;
+  unsigned int port_number       = 1;
+
+  void
+  Setup()
+  {
+    try
+    {
+      midi.reset(new RtMidiIn());
+      if(open_virtual_port)
+      {
+        midi->openVirtualPort();
+      }
+
+      for(unsigned int i = 0; i < midi->getPortCount(); i += 1)
+      {
+        const std::string name = midi->getPortName(i);
+        std::cout << "Midi port " << i << ": " << name << '\n';
+      }
+
+      midi->openPort(port_number);
+      std::cout << "Using port " << midi->getPortName(port_number) << "\n";
+      midi->setCallback(&StaticCallback, this);
+    }
+    catch(const RtMidiError& error)
+    {
+      error.printMessage();
+    }
+  }
+};
+
 // Node handles input from keyboard. Input -> Tones
 struct KeyboardInputNode : public virtual Node
 {
@@ -1167,7 +1229,7 @@ struct OscilatorNode : public virtual WaveOut,
     float value = 0;
 
     const int maxtones = 10;
-    int tone;
+    int       tone;
 
     tone = 0;
 
@@ -1468,6 +1530,7 @@ struct History
 class App : public AppBase
 {
  public:
+  MidiInNode                   midi;
   KeyboardInputNode            piano;
   SingleToneNode               single_tone;
   ArpegiatorNode               arp;
@@ -1484,12 +1547,15 @@ class App : public AppBase
   {
     SetupQwertyTwoOctaveLayout(&piano.keys, 4, -2);
 
+    midi.tones           = &ttf;
     piano.tones          = &ttf;
     arp.NextNode         = &ttf;
     single_tone.NextNode = &ttf;
     ttf.next             = &oscilator;
     scaler.in            = &oscilator;
     master.in            = &scaler;
+
+    midi.Setup();
 
     nodes.emplace_back(&piano);
     nodes.emplace_back(&single_tone);
