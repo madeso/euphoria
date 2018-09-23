@@ -698,16 +698,107 @@ struct MidiInNode : public virtual Node
     }
   }
 
-  void
-  Callback(double dt, const std::vector<unsigned char>& message)
+  enum class MidiEvent
   {
-    for(auto byte : message)
+    NoteOff         = 0b000,
+    NoteOn          = 0b001,
+    Aftertouch      = 0b010,
+    ControlChange   = 0b011,
+    ProgramChange   = 0b100,
+    ChannelPressure = 0b101,
+    PitchBend       = 0b110
+  };
+
+  static std::string
+  MidiEventToString(MidiEvent e)
+  {
+    switch(e)
     {
-      std::cout << static_cast<unsigned int>(byte) << " ";
+      case MidiEvent::NoteOff:
+        return "Off";
+      case MidiEvent::NoteOn:
+        return "On";
+      case MidiEvent::Aftertouch:
+        return "Aftertouch";
+      case MidiEvent::ControlChange:
+        return "CC";
+      case MidiEvent::ProgramChange:
+        return "PC";
+      case MidiEvent::ChannelPressure:
+        return "Channel Pressure";
+      case MidiEvent::PitchBend:
+        return "PitchBend";
     }
-    if(!message.empty())
+    return "???";
+  }
+
+  bool
+  IsStatusMessage(unsigned char b)
+  {
+    const auto is_status = ((b >> 7) & 0x1) == 1;
+    return is_status;
+  }
+
+  void
+  Callback(double dt, const std::vector<unsigned char>& bytes)
+  {
+    using byte = unsigned char;
+
+    if(bytes.empty())
     {
-      std::cout << "stamp = " << dt << "\n";
+      return;
+    }
+
+    if(IsStatusMessage(bytes[0]))
+    {
+      std::cout << "todo: need to handle data message without status.\n";
+      return;
+    }
+
+    const auto bytes_size = bytes.size();
+
+    const byte message_mask = 0x7;
+    const byte channel_mask = 0xF;
+    const byte channel      = (bytes[0] >> 0) & channel_mask;
+    const byte message      = (bytes[0] >> 4) & message_mask;
+
+    const auto event = static_cast<MidiEvent>(message);
+    switch(event)
+    {
+      case MidiEvent::NoteOn:
+      case MidiEvent::NoteOff:
+      {
+        const bool on = event == MidiEvent::NoteOn;
+        if(bytes_size == 3)
+        {
+          const auto note     = bytes[1];
+          const auto velocity = bytes[2];
+
+          if(!IsStatusMessage(note) || !IsStatusMessage(velocity))
+          {
+            std::cerr << "Unexpected midi command in note on/off data.\n";
+            return;
+          }
+
+          // c3 == midi #60
+          if(tones)
+          {
+            const int tone = note;
+            float     time = dt;
+            tones->OnTone(tone, on, time);
+          }
+        }
+        else
+        {
+          std::cout << "todo: need to handle note on/off with other sizes.\n";
+          return;
+        }
+        break;
+      }
+
+      default:
+        std::cout << "todo: handle " << MidiEventToString(event) << "\n";
+        return;
     }
   }
 
@@ -720,6 +811,8 @@ struct MidiInNode : public virtual Node
     try
     {
       midi.reset(new RtMidiIn());
+      midi->setCallback(&StaticCallback, this);
+
       if(open_virtual_port)
       {
         midi->openVirtualPort();
@@ -733,7 +826,6 @@ struct MidiInNode : public virtual Node
 
       midi->openPort(port_number);
       std::cout << "Using port " << midi->getPortName(port_number) << "\n";
-      midi->setCallback(&StaticCallback, this);
     }
     catch(const RtMidiError& error)
     {
