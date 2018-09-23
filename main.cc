@@ -695,6 +695,7 @@ struct MidiInNode : public virtual Node
     if(message)
     {
       self->Callback(deltatime, *message);
+      // self->DebugCallback(deltatime, *message);
     }
   }
 
@@ -740,6 +741,37 @@ struct MidiInNode : public virtual Node
   }
 
   void
+  DebugCallback(double dt, const std::vector<unsigned char>& bytes)
+  {
+    using byte = unsigned char;
+
+    const byte message_mask = 0x7;
+    const byte channel_mask = 0xF;
+
+    for(auto b : bytes)
+    {
+      const auto is_status = IsStatusMessage(b);
+      if(is_status)
+      {
+        const byte channel = (b >> 0) & channel_mask;
+        const byte message = (b >> 4) & message_mask;
+
+        std::cout << "STAT (" << static_cast<unsigned int>(channel) << ") "
+                  << MidiEventToString(static_cast<MidiEvent>(message)) << " ";
+      }
+      else
+      {
+        std::cout << static_cast<unsigned int>(b) << " ";
+      }
+    }
+    if(!bytes.empty())
+    {
+      std::cout << "stamp = " << dt << "\n";
+    }
+  }
+
+  float last_time = 0;
+  void
   Callback(double dt, const std::vector<unsigned char>& bytes)
   {
     using byte = unsigned char;
@@ -749,7 +781,7 @@ struct MidiInNode : public virtual Node
       return;
     }
 
-    if(IsStatusMessage(bytes[0]))
+    if(!IsStatusMessage(bytes[0]))
     {
       std::cout << "todo: need to handle data message without status.\n";
       return;
@@ -774,7 +806,7 @@ struct MidiInNode : public virtual Node
           const auto note     = bytes[1];
           const auto velocity = bytes[2];
 
-          if(!IsStatusMessage(note) || !IsStatusMessage(velocity))
+          if(IsStatusMessage(note) || IsStatusMessage(velocity))
           {
             std::cerr << "Unexpected midi command in note on/off data.\n";
             return;
@@ -785,7 +817,9 @@ struct MidiInNode : public virtual Node
           {
             const int tone = note;
             float     time = dt;
-            tones->OnTone(tone, on, time);
+            tones->OnTone(tone - 60, on, time + last_time);
+            std::cout << "Time: " << time + last_time << "\n";
+            last_time += time;
           }
         }
         else
