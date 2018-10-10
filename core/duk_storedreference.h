@@ -1,0 +1,18 @@
+#ifndef EUPHORIA_DUK_STOREDREFERENCE_H
+#define EUPHORIA_DUK_STOREDREFERENCE_H
+
+// todo: remove this include
+#include "core/duk_referencestorage.h"
+
+class StoredReference
+{
+ public:
+  StoredReference(void* ptr, ReferenceStorage* duk);
+  ~StoredReference();
+
+ private:
+  ReferenceStorage*       duk;
+  ReferenceStorage::Index stored_index;
+};
+
+#endif  // EUPHORIA_DUK_STOREDREFERENCE_H
