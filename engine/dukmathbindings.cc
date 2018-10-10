@@ -4,7 +4,8 @@
 
 #include "core/vec2.h"
 
-#include "core/duk.h"
+#include "duk/bindclass.h"
+#include "duk/duk.h"
 
 
 template <typename T>

@@ -3,8 +3,12 @@
 #include <map>
 
 #include "core/componentsystem.h"
-#include "core/duk.h"
 #include "core/random.h"
+
+#include "duk/duk.h"
+#include "duk/function.h"
+#include "duk/bindobject.h"
+#include "duk/bindclass.h"
 
 #include "engine/components.h"
 #include "engine/input.h"

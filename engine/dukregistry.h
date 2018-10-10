@@ -2,8 +2,9 @@
 #define EUPHORIA_DUKREGISTRY_H
 
 #include "core/componentsystem.h"
-#include "core/duk.h"
 #include "core/entity.h"
+
+#include "duk/function.h"
 
 #include "engine/components.h"
 

@@ -3,10 +3,13 @@
 
 #include <string>
 #include <memory>
+#include <vector>
 
 #include "core/key.h"
 
-#include "core/duk.h"
+#include "duk/value.h"
+
+class Duk;
 
 struct BoundVar
 {

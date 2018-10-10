@@ -1,7 +1,8 @@
 #include "engine/input.h"
 
 #include "core/assert.h"
-#include "core/duk.h"
+#include "duk/duk.h"
+#include "duk/bindclass.h"
 
 BoundVar::BoundVar(const std::string& n, const Key& k)
     : name(n)

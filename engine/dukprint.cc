@@ -4,10 +4,10 @@
 
 #include "core/log.h"
 
-#include "core/duk.h"
+#include "duk/duk.h"
 
 
-LOG_SPECIFY_DEFAULT_LOGGER("duk")
+LOG_SPECIFY_DEFAULT_LOGGER("engine.duk")
 
 void
 AddPrint(Duk* duk)

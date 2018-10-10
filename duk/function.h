@@ -10,6 +10,7 @@ class Context;
 #include "core/str.h"
 
 #include "duk/template.h"
+#include "duk/pushvarimpl.h"
 
 
 // todo: rename to DukFunc

@@ -10,7 +10,8 @@
 #include "core/filesystemdefaultshaders.h"
 #include "core/proto.h"
 #include "core/viewport.h"
-#include "core/duk.h"
+
+#include "duk/duk.h"
 
 #include "render/debuggl.h"
 #include "render/fonts.h"
