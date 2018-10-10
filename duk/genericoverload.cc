@@ -1,1 +1,1 @@
-#include "core/duk_genericoverload.h"
+#include "duk/genericoverload.h"

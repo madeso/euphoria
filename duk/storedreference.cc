@@ -1,4 +1,4 @@
-#include "core/duk_storedreference.h"
+#include "duk/storedreference.h"
 
 StoredReference::StoredReference(void* ptr, ReferenceStorage* duk)
     : duk(duk)

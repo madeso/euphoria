@@ -7,10 +7,10 @@
 #include <memory>
 #include <functional>
 
-#include "core/duk_context.h"
-#include "core/duk_value.h"
-#include "core/duk_referencestorage.h"
-#include "core/duk_config.h"
+#include "duk/context.h"
+#include "duk/value.h"
+#include "duk/referencestorage.h"
+#include "duk/config.h"
 
 class Bind;
 class ObjectBinder;

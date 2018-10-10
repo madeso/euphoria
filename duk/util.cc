@@ -1,4 +1,4 @@
-#include "core/duk_util.h"
+#include "duk/util.h"
 
 #include "core/assert.h"
 #include "core/log.h"

@@ -4,7 +4,7 @@
 #include <string>
 #include <memory>
 
-#include "duk_config.h"
+#include "duk/config.h"
 
 class StoredReference;
 class Duk;

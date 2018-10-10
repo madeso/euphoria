@@ -2,7 +2,7 @@
 #define EUPHORIA_DUK_UTIL_H
 
 #include <string>
-#include "core/duk_types.h"
+#include "duk/types.h"
 
 std::string
 VarToString(duk_context* ctx, int index);

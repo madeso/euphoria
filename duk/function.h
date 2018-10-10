@@ -9,7 +9,7 @@ class Context;
 #include "core/cpp.h"
 #include "core/str.h"
 
-#include "core/duk_template.h"
+#include "duk/template.h"
 
 
 // todo: rename to DukFunc

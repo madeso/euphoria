@@ -1,1 +1,1 @@
-#include "core/duk_bind.h"
+#include "duk/bind.h"

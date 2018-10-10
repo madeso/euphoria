@@ -5,7 +5,7 @@
 #include <memory>
 #include <type_traits>
 
-#include "core/duk_context.h"
+#include "duk/context.h"
 #include "core/cpp.h"
 
 template <typename T, typename TValid = void>

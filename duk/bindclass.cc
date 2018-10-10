@@ -1,4 +1,4 @@
-#include "core/duk_bindclass.h"
+#include "duk/bindclass.h"
 
 ClassBinder::ClassBinder(size_t i)
     : id(i)

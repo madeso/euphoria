@@ -1,11 +1,11 @@
-#include "core/duk_value.h"
+#include "duk/value.h"
 
 #include "duktape/duktape.h"
 
 #include "core/assert.h"
-#include "core/duk_context.h"
-#include "core/duk_duk.h"
-#include "core/duk_storedreference.h"
+#include "duk/context.h"
+#include "duk/duk.h"
+#include "duk/storedreference.h"
 
 DukValue::DukValue()
     : ptr(nullptr)

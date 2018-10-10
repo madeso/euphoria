@@ -1,4 +1,4 @@
-#include "core/duk_template.h"
+#include "duk/template.h"
 
 std::string
 ArgumentError(int arg, const std::string& err)

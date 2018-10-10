@@ -4,8 +4,8 @@
 #include <memory>
 #include <vector>
 
-#include "core/duk_overload.h"
-#include "core/duk_genericoverload.h"
+#include "duk/overload.h"
+#include "duk/genericoverload.h"
 
 class Bind
 {

@@ -6,10 +6,10 @@
 #include <memory>
 #include <typeinfo>
 
-#include "core/duk_types.h"
-#include "core/duk_config.h"
-#include "core/duk_value.h"
-#include "core/duk_util.h"
+#include "duk/types.h"
+#include "duk/config.h"
+#include "duk/value.h"
+#include "duk/util.h"
 
 class Prototype;
 class Duk;

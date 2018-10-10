@@ -8,9 +8,9 @@
 #include "core/stringmerger.h"
 #include "core/str.h"
 
-#include "core/duk_overload.h"
-#include "core/duk_context.h"
-#include "core/duk_template.h"
+#include "duk/overload.h"
+#include "duk/context.h"
+#include "duk/template.h"
 
 template <typename Callback, typename... TArgs>
 class GenericOverload : public Overload

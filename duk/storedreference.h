@@ -2,7 +2,7 @@
 #define EUPHORIA_DUK_STOREDREFERENCE_H
 
 // todo: remove this include
-#include "core/duk_referencestorage.h"
+#include "duk/referencestorage.h"
 
 class StoredReference
 {

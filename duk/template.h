@@ -9,9 +9,9 @@
 #include "core/assert.h"
 #include "core/str.h"
 
-#include "core/duk_config.h"
-#include "core/duk_context.h"
-#include "core/duk_prototype.h"
+#include "duk/config.h"
+#include "duk/context.h"
+#include "duk/prototype.h"
 
 std::string
 ArgumentError(int arg, const std::string& err);

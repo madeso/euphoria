@@ -3,7 +3,7 @@
 
 #include <vector>
 
-#include "duk_types.h"
+#include "duk/types.h"
 
 class ReferenceStorage
 {

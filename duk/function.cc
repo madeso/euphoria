@@ -1,8 +1,8 @@
-#include "core/duk_function.h"
+#include "duk/function.h"
 
 #include "duktape/duktape.h"
 
-#include "core/duk_duk.h"
+#include "duk/duk.h"
 
 FunctionVar::FunctionVar(void* ptr)
     : function(ptr)

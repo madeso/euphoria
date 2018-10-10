@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-#include "core/duk_bind.h"
+#include "duk/bind.h"
 
 class ObjectBinder
 {

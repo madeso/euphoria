@@ -1,11 +1,11 @@
-#include "core/duk_context.h"
+#include "duk/context.h"
 
 #include "duktape/duktape.h"
 
 #include "core/assert.h"
 
-#include "core/duk_duk.h"
-#include "core/duk_prototype.h"
+#include "duk/duk.h"
+#include "duk/prototype.h"
 
 Context::Context(duk_context* c, Duk* d)
     : ctx(c)

@@ -1,4 +1,4 @@
-#include "core/duk_bindobject.h"
+#include "duk/bindobject.h"
 
 
 ObjectBinder&

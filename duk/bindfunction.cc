@@ -1,6 +1,6 @@
-#include "core/duk_bindfunction.h"
+#include "duk/bindfunction.h"
 
-#include "core/duk_overload.h"
+#include "duk/overload.h"
 
 Function::~Function()
 {

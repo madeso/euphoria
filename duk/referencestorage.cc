@@ -1,4 +1,4 @@
-#include "core/duk_referencestorage.h"
+#include "duk/referencestorage.h"
 
 #include "duktape/duktape.h"
 #include "core/log.h"

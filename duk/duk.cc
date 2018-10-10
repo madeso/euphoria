@@ -1,4 +1,4 @@
-#include "core/duk_duk.h"
+#include "duk/duk.h"
 
 #include <sstream>
 
@@ -8,10 +8,10 @@
 #include "core/str.h"
 #include "core/stringmerger.h"
 
-#include "core/duk_overload.h"
-#include "core/duk_bindfunction.h"
-#include "core/duk_bindobject.h"
-#include "core/duk_bindclass.h"
+#include "duk/overload.h"
+#include "duk/bindfunction.h"
+#include "duk/bindobject.h"
+#include "duk/bindclass.h"
 
 Duk::Duk()
     : Context(
