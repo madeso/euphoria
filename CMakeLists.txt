@@ -112,6 +112,7 @@ add_subdirectory(demo)
 add_subdirectory(engine)
 add_subdirectory(chatbot_test)
 add_subdirectory(editor)
+add_subdirectory(duk)
 
 if(CLANG_TIDY_EXE)
   ADD_CUSTOM_TARGET(tidy)
@@ -120,6 +121,7 @@ if(CLANG_TIDY_EXE)
                    tidy-chatbot
                    tidy-core
                    tidy-demo
+                   tidy-duk
                    tidy-engine
                    tidy-gui
                    tidy-render
@@ -135,6 +137,7 @@ if(CLANG_FORMAT_EXE)
                    format-chatbot
                    format-core
                    format-demo
+                   format-duk
                    format-engine
                    format-gui
                    format-render

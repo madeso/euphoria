@@ -28,6 +28,7 @@ target_link_libraries(engine
                       core
                       render
                       window
+                      duk
                       ${SDL2_LIBRARY}
                       )
 
