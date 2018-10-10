@@ -1,4 +1,9 @@
-#include "core/duk.h"
+#include "duk/duk.h"
+
+#include "duk/bindfunction.h"
+#include "duk/bindclass.h"
+#include "duk/bindobject.h"
+#include "duk/function.h"
 
 #include "catch.hpp"
 
@@ -67,7 +72,7 @@ TEST_CASE("duk-eval", "[duk]")
   SECTION("print tests")
   {
     std::string print_result;
-    duk.BindPrint([&](const std::string &str) { print_result = str; });
+    duk.BindPrint([&](const std::string& str) { print_result = str; });
 
     CAPTURE(error);
     CAPTURE(out);
@@ -110,7 +115,7 @@ TEST_CASE("duk-eval", "[duk]")
     SECTION("print var")
     {
       REQUIRE(duk.EvalString(
-        "hat = \"cat\"; print(hat, 1, 4.2);", "", &error, &out));
+          "hat = \"cat\"; print(hat, 1, 4.2);", "", &error, &out));
       REQUIRE(print_result == "cat 1 4.2");
     }
   }
@@ -322,7 +327,7 @@ TEST_CASE("duk-eval", "[duk]")
         return ctx->Return(dog);
       }));
       const auto eval =
-        duk.EvalString("Dog.name = \"Duke\"; test().name", "", &error, &out);
+          duk.EvalString("Dog.name = \"Duke\"; test().name", "", &error, &out);
       CAPTURE(out);
       CAPTURE(error);
       REQUIRE(eval);
@@ -340,7 +345,7 @@ TEST_CASE("duk-eval", "[duk]")
                 return ctx->ReturnVoid();
               }));
       const auto eval =
-        duk.EvalString("test(function() {return 42;});", "", &error, &out);
+          duk.EvalString("test(function() {return 42;});", "", &error, &out);
       CAPTURE(out);
       CAPTURE(error);
       REQUIRE(eval);
@@ -358,7 +363,7 @@ TEST_CASE("duk-eval", "[duk]")
                 return ctx->ReturnVoid();
               }));
       const auto eval = duk.EvalString(
-        "test(function(x) {return x+\" the dog\";});", "", &error, &out);
+          "test(function(x) {return x+\" the dog\";});", "", &error, &out);
       CAPTURE(out);
       CAPTURE(error);
       REQUIRE(eval);
@@ -378,7 +383,7 @@ TEST_CASE("duk-eval", "[duk]")
               }));
       REQUIRE(!f.IsValid());
       const auto eval = duk.EvalString(
-        "test(function(x) {return x+\" the dog\";});", "", &error, &out);
+          "test(function(x) {return x+\" the dog\";});", "", &error, &out);
       CAPTURE(out);
       CAPTURE(error);
       REQUIRE(eval);
@@ -440,7 +445,7 @@ TEST_CASE("duk-eval", "[duk]")
           return ctx->ReturnFreeObject(&duke);
         }));
         const auto eval = duk.EvalString(
-          "dog = GetDog(); name = dog.GetName(); name", "", &error, &out);
+            "dog = GetDog(); name = dog.GetName(); name", "", &error, &out);
         CAPTURE(out);
         CAPTURE(error);
         REQUIRE(eval);
@@ -454,7 +459,7 @@ TEST_CASE("duk-eval", "[duk]")
           return ctx->ReturnFreeObject(&duke);
         }));
         const auto eval = duk.EvalString(
-          "dog = GetDog(); dog.SetName(\"Cat\");", "", &error, &out);
+            "dog = GetDog(); dog.SetName(\"Cat\");", "", &error, &out);
         CAPTURE(out);
         CAPTURE(error);
         REQUIRE(eval);
@@ -468,10 +473,10 @@ TEST_CASE("duk-eval", "[duk]")
           return ctx->ReturnFreeObject(&duke);
         }));
         const auto eval = duk.EvalString(
-          "dog = GetDog(); dog.name = dog.name + \" the dog\";",
-          "",
-          &error,
-          &out);
+            "dog = GetDog(); dog.name = dog.name + \" the dog\";",
+            "",
+            &error,
+            &out);
         CAPTURE(out);
         CAPTURE(error);
         REQUIRE(eval);
@@ -521,7 +526,7 @@ TEST_CASE("duk-eval", "[duk]")
       SECTION("Constructor")
       {
         const auto eval = duk.EvalString(
-          "dog = new Dog(\"Cat\"); dog.name", "", &error, &out);
+            "dog = new Dog(\"Cat\"); dog.name", "", &error, &out);
         CAPTURE(out);
         CAPTURE(error);
         REQUIRE(eval);
