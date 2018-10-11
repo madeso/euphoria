@@ -6,11 +6,11 @@
 
 class Overload;
 
-class Function
+class BoundFunction
 {
  public:
-  Function() = default;
-  virtual ~Function();
+  BoundFunction() = default;
+  virtual ~BoundFunction();
 
   std::vector<std::shared_ptr<Overload>> overloads;
 };

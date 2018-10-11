@@ -1,6 +1,6 @@
 #include "duk/duk.h"
 
-#include "duk/bindfunction.h"
+#include "duk/bondfunction.h"
 #include "duk/bindclass.h"
 #include "duk/bindobject.h"
 #include "duk/function.h"

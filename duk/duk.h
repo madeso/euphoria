@@ -15,7 +15,7 @@
 class Bind;
 class ObjectBinder;
 class ClassBinder;
-class Function;
+class BoundFunction;
 class Prototype;
 
 class Duk : private Context
@@ -50,7 +50,7 @@ class Duk : private Context
 
   ~Duk();
 
-  Function*
+  BoundFunction*
   CreateFunction(const Bind& overloads);
 
   Prototype*
@@ -60,7 +60,7 @@ class Duk : private Context
 
   std::function<void(const std::string&)> on_print;
 
-  std::vector<std::shared_ptr<Function>> functions;
+  std::vector<std::shared_ptr<BoundFunction>> functions;
 
   std::map<size_t, std::shared_ptr<Prototype>> classIds;
 };
