@@ -269,7 +269,7 @@ DukGenericFunctionCallback(duk_context* ctx)
 void
 PlaceFunctionOnStack(
     duk_context*   ctx,
-    BoundFunction*      function,
+    BoundFunction* function,
     duk_c_function fun,
     Duk*           duk,
     int            arguments = DUK_VARARGS)

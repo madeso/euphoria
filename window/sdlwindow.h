@@ -11,7 +11,8 @@ struct SDL_Window;
 class SdlWindow
 {
  public:
-  SdlWindow(const std::string& title, int width, int height, bool resize=false);
+  SdlWindow(
+      const std::string& title, int width, int height, bool resize = false);
 
   ~SdlWindow();
 

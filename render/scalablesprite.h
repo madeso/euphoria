@@ -16,8 +16,11 @@ class FileSystem;
 class ScalableSprite
 {
  public:
-  ScalableSprite(FileSystem* fs,
-      const std::string& path, const Sizef& size, TextureCache* cache);
+  ScalableSprite(
+      FileSystem*        fs,
+      const std::string& path,
+      const Sizef&       size,
+      TextureCache*      cache);
   ~ScalableSprite();
 
   const Sizef
