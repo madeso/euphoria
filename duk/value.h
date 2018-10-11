@@ -15,7 +15,7 @@ class DukValue
 {
  public:
   DukValue();
-  DukValue(void* p);
+  explicit DukValue(void* p);
 
   ~DukValue();
 
