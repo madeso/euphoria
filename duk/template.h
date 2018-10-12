@@ -13,227 +13,230 @@
 #include "duk/context.h"
 #include "duk/prototype.h"
 
-std::string
-ArgumentError(int arg, const std::string& err);
-
-template <typename TT, typename TValid = void>
-struct DukTemplate
+namespace duk
 {
-};
+  std::string
+  ArgumentError(int arg, const std::string& err);
 
-template <typename TT>
-struct DukTemplate<
-    TT,
-    std::enable_if_t<!std::is_arithmetic<TT>::value && !IsVector<TT>::value>>
-{
-  using T = typename std::decay<TT>::type;
-
-  static std::string
-  CanMatch(Context* ctx, int index, int arg)
+  template <typename TT, typename TValid = void>
+  struct DukTemplate
   {
-    if(ctx->IsObject(index))
+  };
+
+  template <typename TT>
+  struct DukTemplate<
+      TT,
+      std::enable_if_t<!std::is_arithmetic<TT>::value && !IsVector<TT>::value>>
+  {
+    using T = typename std::decay<TT>::type;
+
+    static std::string
+    CanMatch(Context* ctx, int index, int arg)
     {
-      const auto*     id      = ctx->GetObjectType(index);
+      if(ctx->IsObject(index))
+      {
+        const auto*     id      = ctx->GetObjectType(index);
+        constexpr auto& cpptype = typeid(T);
+        const auto*     self_type =
+            ctx->TypeToProto(cpptype.hash_code() CLASS_ARG(cpptype.name()));
+        ASSERT(self_type != nullptr);
+        if(id == self_type)
+        {
+          return "";
+        }
+        else
+        {
+          if(self_type)
+          {
+            return ArgumentError(
+                arg,
+                Str() << "expected " << self_type->name << " but got "
+                      << id->name);
+          }
+          else
+          {
+            DIE("failed to get type");
+            return ArgumentError(arg, "failed to get type");
+          }
+        }
+      }
+      else
+      {
+        return ArgumentError(arg, "not a object");
+      }
+    }
+
+    static T&
+    Parse(Context* ctx, int index)
+    {
       constexpr auto& cpptype = typeid(T);
-      const auto*     self_type =
+      ASSERT(
+          ctx->GetObjectType(index) ==
+          ctx->TypeToProto(cpptype.hash_code() CLASS_ARG(cpptype.name())));
+      return *static_cast<T*>(ctx->GetObjectPtr(index));
+    }
+
+    static std::string
+    Name(Context* ctx)
+    {
+      constexpr auto& cpptype = typeid(T);
+      auto*           proto =
           ctx->TypeToProto(cpptype.hash_code() CLASS_ARG(cpptype.name()));
-      ASSERT(self_type != nullptr);
-      if(id == self_type)
+      if(proto)
+      {
+        return proto->name;
+      }
+      else
+      {
+        DIE("failed to get prototype");
+        return "???";
+      }
+    }
+  };
+
+  template <typename T>
+  struct DukTemplate<T, std::enable_if_t<std::is_arithmetic<T>::value>>
+  {
+    static std::string
+    CanMatch(Context* ctx, int index, int arg)
+    {
+      if(ctx->IsNumber(index))
+      {
+        // todo: validate if is within T range
+        return "";
+      }
+      else
+      {
+        return ArgumentError(arg, "not a number");
+      }
+    }
+
+    static T
+    Parse(Context* ctx, int index)
+    {
+      return static_cast<T>(ctx->GetNumber(index));
+    }
+
+    static std::string
+    Name(Context*)
+    {
+      return "number";
+    }
+  };
+
+  template <>
+  struct DukTemplate<std::string>
+  {
+    static std::string
+    CanMatch(Context* ctx, int index, int arg)
+    {
+      if(ctx->IsString(index))
       {
         return "";
       }
       else
       {
-        if(self_type)
-        {
-          return ArgumentError(
-              arg,
-              Str() << "expected " << self_type->name << " but got "
-                    << id->name);
-        }
-        else
-        {
-          DIE("failed to get type");
-          return ArgumentError(arg, "failed to get type");
-        }
+        return ArgumentError(arg, "not a string");
       }
     }
-    else
+
+    static std::string
+    Parse(Context* ctx, int index)
     {
-      return ArgumentError(arg, "not a object");
+      return ctx->GetString(index);
     }
-  }
 
-  static T&
-  Parse(Context* ctx, int index)
-  {
-    constexpr auto& cpptype = typeid(T);
-    ASSERT(
-        ctx->GetObjectType(index) ==
-        ctx->TypeToProto(cpptype.hash_code() CLASS_ARG(cpptype.name())));
-    return *static_cast<T*>(ctx->GetObjectPtr(index));
-  }
-
-  static std::string
-  Name(Context* ctx)
-  {
-    constexpr auto& cpptype = typeid(T);
-    auto*           proto =
-        ctx->TypeToProto(cpptype.hash_code() CLASS_ARG(cpptype.name()));
-    if(proto)
+    static std::string
+    Name(Context*)
     {
-      return proto->name;
+      return "string";
     }
-    else
+  };
+
+  template <>
+  struct DukTemplate<DukValue>
+  {
+    static std::string
+    CanMatch(Context* ctx, int index, int arg)
     {
-      DIE("failed to get prototype");
-      return "???";
+      if(ctx->IsObject(index))
+      {
+        return "";
+      }
+      else
+      {
+        return ArgumentError(arg, "not a object");
+      }
     }
-  }
-};
 
-template <typename T>
-struct DukTemplate<T, std::enable_if_t<std::is_arithmetic<T>::value>>
-{
-  static std::string
-  CanMatch(Context* ctx, int index, int arg)
-  {
-    if(ctx->IsNumber(index))
+    static DukValue
+    Parse(Context* ctx, int index)
     {
-      // todo: validate if is within T range
-      return "";
+      ASSERT(ctx->IsObject(index));
+      return DukValue{ctx->GetFunctionPtr(index)};
     }
-    else
+
+    static std::string
+    Name(Context*)
     {
-      return ArgumentError(arg, "not a number");
+      return "object";
     }
-  }
+  };
 
-  static T
-  Parse(Context* ctx, int index)
+  template <typename T>
+  struct DukTemplate<std::vector<T>, void>
   {
-    return static_cast<T>(ctx->GetNumber(index));
-  }
-
-  static std::string
-  Name(Context*)
-  {
-    return "number";
-  }
-};
-
-template <>
-struct DukTemplate<std::string>
-{
-  static std::string
-  CanMatch(Context* ctx, int index, int arg)
-  {
-    if(ctx->IsString(index))
+    static std::string
+    CanMatch(Context* ctx, int index, int arg)
     {
-      return "";
+      if(ctx->IsArray(index))
+      {
+        const auto array_size = ctx->GetArrayLength(index);
+        for(int i = 0; i < array_size; i += 1)
+        {
+          ctx->GetArrayIndex(index, i);
+          const auto& match = DukTemplate<T>::CanMatch(ctx, -1, -1);
+          ctx->StopArrayIndex();
+          if(!match.empty())
+          {
+            return ArgumentError(
+                arg,
+                Str() << "array[" << i << "] (size: " << array_size
+                      << ") has type error: "
+                      << match);
+          }
+        }
+
+        return "";
+      }
+      else
+      {
+        return ArgumentError(arg, "not a array");
+      }
     }
-    else
+
+    static std::vector<T>
+    Parse(Context* ctx, int index)
     {
-      return ArgumentError(arg, "not a string");
-    }
-  }
+      std::vector<T> arr;
 
-  static std::string
-  Parse(Context* ctx, int index)
-  {
-    return ctx->GetString(index);
-  }
-
-  static std::string
-  Name(Context*)
-  {
-    return "string";
-  }
-};
-
-template <>
-struct DukTemplate<DukValue>
-{
-  static std::string
-  CanMatch(Context* ctx, int index, int arg)
-  {
-    if(ctx->IsObject(index))
-    {
-      return "";
-    }
-    else
-    {
-      return ArgumentError(arg, "not a object");
-    }
-  }
-
-  static DukValue
-  Parse(Context* ctx, int index)
-  {
-    ASSERT(ctx->IsObject(index));
-    return DukValue{ctx->GetFunctionPtr(index)};
-  }
-
-  static std::string
-  Name(Context*)
-  {
-    return "object";
-  }
-};
-
-template <typename T>
-struct DukTemplate<std::vector<T>, void>
-{
-  static std::string
-  CanMatch(Context* ctx, int index, int arg)
-  {
-    if(ctx->IsArray(index))
-    {
       const auto array_size = ctx->GetArrayLength(index);
       for(int i = 0; i < array_size; i += 1)
       {
         ctx->GetArrayIndex(index, i);
-        const auto& match = DukTemplate<T>::CanMatch(ctx, -1, -1);
+        arr.emplace_back(DukTemplate<T>::Parse(ctx, -1));
         ctx->StopArrayIndex();
-        if(!match.empty())
-        {
-          return ArgumentError(
-              arg,
-              Str() << "array[" << i << "] (size: " << array_size
-                    << ") has type error: "
-                    << match);
-        }
       }
 
-      return "";
+      return arr;
     }
-    else
+
+    static std::string
+    Name(Context* ctx)
     {
-      return ArgumentError(arg, "not a array");
+      return Str() << "[" << DukTemplate<T>::Name(ctx) << "]";
     }
-  }
-
-  static std::vector<T>
-  Parse(Context* ctx, int index)
-  {
-    std::vector<T> arr;
-
-    const auto array_size = ctx->GetArrayLength(index);
-    for(int i = 0; i < array_size; i += 1)
-    {
-      ctx->GetArrayIndex(index, i);
-      arr.emplace_back(DukTemplate<T>::Parse(ctx, -1));
-      ctx->StopArrayIndex();
-    }
-
-    return arr;
-  }
-
-  static std::string
-  Name(Context* ctx)
-  {
-    return Str() << "[" << DukTemplate<T>::Name(ctx) << "]";
-  }
-};
+  };
+}
 
 #endif  // EUPHORIA_DUK_TEMPLATE_H

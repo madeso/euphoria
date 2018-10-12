@@ -5,27 +5,29 @@
 
 #include "duk/types.h"
 
-class ReferenceStorage
+namespace duk
 {
- public:
-  explicit ReferenceStorage(duk_context* c);
+  class ReferenceStorage
+  {
+   public:
+    explicit ReferenceStorage(duk_context* c);
 
-  using Index = unsigned int;
+    using Index = unsigned int;
 
-  ReferenceStorage::Index
-  StoreReference(void* p);
+    ReferenceStorage::Index
+    StoreReference(void* p);
 
-  void
-  ClearReference(Index index);
+    void
+    ClearReference(Index index);
 
-  void
-  SetReference(void* p, Index index);
+    void
+    SetReference(void* p, Index index);
 
- private:
-  duk_context*       ctx;
-  std::vector<Index> free_indices;
-  Index              reference_index = 0;
-};
-
+   private:
+    duk_context*       ctx;
+    std::vector<Index> free_indices;
+    Index              reference_index = 0;
+  };
+}
 
 #endif  // EUPHORIA_DUK_REFERENCESTORAGE_H

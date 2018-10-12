@@ -12,58 +12,64 @@
 #include "duk/referencestorage.h"
 #include "duk/config.h"
 
-class Bind;
-class ObjectBinder;
-class ClassBinder;
-class BoundFunction;
-class Prototype;
-
-class Duk : private Context
+namespace duk
 {
- public:
-  Duk();
+  class Bind;
 
-  Context*
-  AsContext();
+  class ObjectBinder;
 
-  DukValue
-  CreateGlobal(const std::string& name);
+  class ClassBinder;
 
-  bool
-  EvalString(
-      const std::string& line,
-      const std::string& file,
-      std::string*       error,
-      std::string*       output);
+  class BoundFunction;
 
-  void
-  BindPrint(std::function<void(const std::string&)> on_print);
+  class Prototype;
 
-  void
-  BindGlobalFunction(const std::string& name, const Bind& overloads);
+  class Duk : private Context
+  {
+   public:
+    Duk();
 
-  void
-  BindObject(const std::string& name, const ObjectBinder& bind);
+    Context*
+    AsContext();
 
-  void
-  BindClass(const std::string& name, const ClassBinder& bind);
+    DukValue
+    CreateGlobal(const std::string& name);
 
-  ~Duk();
+    bool
+    EvalString(
+        const std::string& line,
+        const std::string& file,
+        std::string*       error,
+        std::string*       output);
 
-  BoundFunction*
-  CreateFunction(const Bind& overloads);
+    void
+    BindPrint(std::function<void(const std::string&)> on_print);
 
-  Prototype*
-  TypeToProto(size_t id CLASS_ARG(const std::string& name));
+    void
+    BindGlobalFunction(const std::string& name, const Bind& overloads);
 
-  ReferenceStorage references;
+    void
+    BindObject(const std::string& name, const ObjectBinder& bind);
 
-  std::function<void(const std::string&)> on_print;
+    void
+    BindClass(const std::string& name, const ClassBinder& bind);
 
-  std::vector<std::shared_ptr<BoundFunction>> functions;
+    ~Duk();
 
-  std::map<size_t, std::shared_ptr<Prototype>> classIds;
-};
+    BoundFunction*
+    CreateFunction(const Bind& overloads);
 
+    Prototype*
+    TypeToProto(size_t id CLASS_ARG(const std::string& name));
+
+    ReferenceStorage references;
+
+    std::function<void(const std::string&)> on_print;
+
+    std::vector<std::shared_ptr<BoundFunction>> functions;
+
+    std::map<size_t, std::shared_ptr<Prototype>> classIds;
+  };
+}
 
 #endif  // EUPHORIA_DUK_DUK_H

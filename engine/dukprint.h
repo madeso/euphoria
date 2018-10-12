@@ -1,8 +1,12 @@
 #ifndef EUPHORIA_DUKPRINT_H
 #define EUPHORIA_DUKPRINT_H
 
-class Duk;
+namespace duk
+{
+  class Duk;
+}
+
 void
-AddPrint(Duk* duk);
+AddPrint(duk::Duk* duk);
 
 #endif  // EUPHORIA_DUKPRINT_H

@@ -9,7 +9,9 @@
 
 #include "duk/value.h"
 
+namespace duk {
 class Duk;
+}
 
 struct BoundVar
 {
@@ -30,7 +32,7 @@ class Input
 {
  public:
   static void
-  Bind(Duk* duk);
+  Bind(duk::Duk* duk);
 
   void
   Add(std::shared_ptr<BoundVar> bind);
@@ -39,7 +41,7 @@ class Input
   SetKeyState(Key key, float state);
 
   void
-  Set(Duk* duk, DukValue container) const;
+  Set(duk::Duk* duk, duk::DukValue container) const;
 
   void
   UpdateState();

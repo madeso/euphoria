@@ -18,11 +18,11 @@
 
 class DukUpdateSystem : public ComponentSystem, public ComponentSystemUpdate
 {
-  FunctionVar func;
-  Duk*        duk;
+  duk::FunctionVar func;
+  duk::Duk*             duk;
 
  public:
-  DukUpdateSystem(const std::string& name, FunctionVar f, Duk* d)
+  DukUpdateSystem(const std::string& name, duk::FunctionVar f, duk::Duk* d)
       : ComponentSystem(name)
       , func(f)
       , duk(d)
@@ -47,16 +47,16 @@ class DukInitSystem : public ComponentSystem, public ComponentSystemInit
 {
   EntReg*                  reg;
   std::vector<ComponentId> types;
-  FunctionVar              func;
-  Duk*                     duk;
+  duk::FunctionVar              func;
+  duk::Duk*                     duk;
 
  public:
   DukInitSystem(
       const std::string&              name,
       EntReg*                         r,
       const std::vector<ComponentId>& t,
-      FunctionVar                     f,
-      Duk*                            d)
+      duk::FunctionVar                     f,
+      duk::Duk*                            d)
       : ComponentSystem(name)
       , reg(r)
       , types(t)
@@ -94,16 +94,16 @@ class DukSystems
 {
  public:
   Systems* systems;
-  Duk*     duk;
+  duk::Duk*     duk;
 
-  DukSystems(Systems* s, Duk* d)
+  DukSystems(Systems* s, duk::Duk* d)
       : systems(s)
       , duk(d)
   {
   }
 
   void
-  AddUpdate(const std::string& name, FunctionVar func)
+  AddUpdate(const std::string& name, duk::FunctionVar func)
   {
     systems->AddAndRegister(std::make_shared<DukUpdateSystem>(name, func, duk));
   }
@@ -113,7 +113,7 @@ class DukSystems
       const std::string&              name,
       EntReg*                         reg,
       const std::vector<ComponentId>& types,
-      FunctionVar                     func)
+      duk::FunctionVar                     func)
   {
     systems->AddAndRegister(
         std::make_shared<DukInitSystem>(name, reg, types, func, duk));
@@ -125,7 +125,7 @@ struct DukIntegrationPimpl
   DukIntegrationPimpl(
       Systems*       sys,
       World*         world,
-      Duk*           duk,
+      duk::Duk*           duk,
       ObjectCreator* creator,
       Components*    components,
       CameraData*    cam)
@@ -140,8 +140,9 @@ struct DukIntegrationPimpl
   }
 
   void
-  Integrate(Duk* duk)
+  Integrate(duk::Duk* duk)
   {
+    using namespace duk;
     duk->BindObject(
         "Systems",
         BindObject()
@@ -422,7 +423,7 @@ struct DukIntegrationPimpl
 
   DukSystems     systems;
   DukRegistry    registry;
-  DukValue       input;
+  duk::DukValue       input;
   World*         world;
   ObjectCreator* creator;
   Components*    components;
@@ -432,7 +433,7 @@ struct DukIntegrationPimpl
 DukIntegration::DukIntegration(
     Systems*       systems,
     World*         reg,
-    Duk*           duk,
+    duk::Duk*           duk,
     ObjectCreator* creator,
     Components*    components,
     CameraData*    camera)
@@ -461,7 +462,7 @@ DukIntegration::Registry()
 }
 
 void
-DukIntegration::BindKeys(Duk* duk, const Input& input)
+DukIntegration::BindKeys(duk::Duk* duk, const Input& input)
 {
   input.Set(duk, pimpl->input);
 }

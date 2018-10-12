@@ -10,8 +10,9 @@
 
 template <typename T>
 void
-BindVec2(Duk* duk, const std::string& name)
+BindVec2(duk::Duk* duk, const std::string& name)
 {
+  using namespace duk;
   using TStorage = StoreValue<T>;
   using V        = vec2<T, TStorage>;
 
@@ -51,7 +52,7 @@ BindVec2(Duk* duk, const std::string& name)
 }
 
 void
-BindMath(Duk* duk)
+BindMath(duk::Duk* duk)
 {
   BindVec2<float>(duk, "vec2f");
   // BindVec2<int>(duk, "vec2i");

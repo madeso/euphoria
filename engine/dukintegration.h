@@ -3,12 +3,17 @@
 
 #include <memory>
 
+namespace duk
+{
+  class Duk;
+}
+
 class Systems;
-class Duk;
 class Input;
 class World;
 struct DukRegistry;
 class ObjectCreator;
+
 struct Components;
 
 struct DukIntegrationPimpl;
@@ -21,7 +26,7 @@ class DukIntegration
   DukIntegration(
       Systems*       systems,
       World*         reg,
-      Duk*           duk,
+      duk::Duk*           duk,
       ObjectCreator* creator,
       Components*    components,
       CameraData*    camera);
@@ -34,7 +39,7 @@ class DukIntegration
   Registry();
 
   void
-  BindKeys(Duk* duk, const Input& input);
+  BindKeys(duk::Duk* duk, const Input& input);
 
  private:
   std::unique_ptr<DukIntegrationPimpl> pimpl;

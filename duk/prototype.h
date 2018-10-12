@@ -3,13 +3,16 @@
 
 #include <string>
 
-class Prototype
+namespace duk
 {
- public:
-  Prototype(const std::string& n, void* p);
+  class Prototype
+  {
+   public:
+    Prototype(const std::string& n, void* p);
 
-  std::string name;
-  void*       prototype;
-};
+    std::string name;
+    void*       prototype;
+  };
+}
 
 #endif  // EUPHORIA_DUK_PROTOTYPE_H

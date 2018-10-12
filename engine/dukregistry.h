@@ -23,7 +23,7 @@ class DukRegistry
   DukRegistry(EntReg* r, Components* components);
 
   ComponentId
-  CreateNewId(const std::string& name, const FunctionVar& fv);
+  CreateNewId(const std::string& name, const duk::FunctionVar& fv);
 
   bool
   GetCustomComponentByName(const std::string& name, ComponentId* id);
@@ -31,15 +31,15 @@ class DukRegistry
   std::vector<EntityId>
   EntityView(const std::vector<ComponentId>& types);
 
-  DukValue
+  duk::DukValue
   GetProperty(EntityId ent, ComponentId comp);
 
   void
-  SetProperty(EntityId ent, ComponentId comp, DukValue value);
+  SetProperty(EntityId ent, ComponentId comp, duk::DukValue value);
 
-  DukValue
+  duk::DukValue
   CreateComponent(
-      ComponentId comp, Context* ctx, const CustomArguments& arguments);
+      ComponentId comp, duk::Context* ctx, const CustomArguments& arguments);
 
   void
   DestroyEntity(EntityId id);
@@ -51,7 +51,7 @@ class DukRegistry
     return reg->GetComponentOrNull<T>(ent, comp);
   }
 
-  using ScriptComponentMap = std::map<ComponentId, FunctionVar>;
+  using ScriptComponentMap = std::map<ComponentId, duk::FunctionVar>;
 
   EntReg*            reg;
   Components*        components;

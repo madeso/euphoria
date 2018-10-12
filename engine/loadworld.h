@@ -7,8 +7,13 @@ class World;
 class FileSystem;
 class DukRegistry;
 class ObjectCreator;
-class Context;
-class Duk;
+
+namespace duk
+{
+  class Context;
+
+  class Duk;
+}
 
 void
 LoadWorld(
@@ -17,7 +22,7 @@ LoadWorld(
     DukRegistry*       reg,
     const std::string& path,
     ObjectCreator*     creator,
-    Context*           ctx,
-    Duk*               duk);
+    duk::Context*      ctx,
+    duk::Duk*          duk);
 
 #endif  // EUPHORIA_LOADWORLD_H

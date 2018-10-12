@@ -2,6 +2,9 @@
 
 #include "duk/overload.h"
 
-BoundFunction::~BoundFunction()
+namespace duk
 {
+  BoundFunction::~BoundFunction()
+  {
+  }
 }

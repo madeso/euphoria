@@ -16,7 +16,7 @@ LOG_SPECIFY_DEFAULT_LOGGER("engine.templates")
 ////////////////////////////////////////////////////////////////////////////////
 
 ObjectCreationArgs::ObjectCreationArgs(
-    World* aworld, DukRegistry* areg, Context* actx, Duk* aduk)
+    World* aworld, DukRegistry* areg, duk::Context* actx, duk::Duk* aduk)
     : world(aworld)
     , reg(areg)
     , ctx(actx)

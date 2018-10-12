@@ -89,7 +89,7 @@ struct RunResult
 };
 
 RunResult
-RunMainScriptFile(Duk* duk, FileSystem* fs, const std::string& path)
+RunMainScriptFile(duk::Duk* duk, FileSystem* fs, const std::string& path)
 {
   std::string content;
   const bool  loaded = fs->ReadFileToString(path, &content);
@@ -243,7 +243,7 @@ main(int argc, char** argv)
   // Sprite player(cache.GetTexture("player.png"));
   // objects.Add(&player);
 
-  Duk duk;
+  duk::Duk duk;
   AddPrint(&duk);
   BindMath(&duk);
   Input::Bind(&duk);

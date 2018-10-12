@@ -4,15 +4,19 @@
 // todo: remove this include
 #include "duk/referencestorage.h"
 
-class StoredReference
+namespace duk
 {
- public:
-  StoredReference(void* ptr, ReferenceStorage* duk);
-  ~StoredReference();
+  class StoredReference
+  {
+   public:
+    StoredReference(void* ptr, ReferenceStorage* duk);
 
- private:
-  ReferenceStorage*       duk;
-  ReferenceStorage::Index stored_index;
-};
+    ~StoredReference();
+
+   private:
+    ReferenceStorage*       duk;
+    ReferenceStorage::Index stored_index;
+  };
+}
 
 #endif  // EUPHORIA_DUK_STOREDREFERENCE_H

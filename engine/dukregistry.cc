@@ -6,7 +6,7 @@ struct ScriptComponent : public Component
 {
   COMPONENT_CONSTRUCTOR_DEFINITION(ScriptComponent)
 
-  DukValue val;
+  duk::DukValue val;
 };
 
 COMPONENT_CONSTRUCTOR_IMPLEMENTATION(ScriptComponent)
@@ -18,7 +18,7 @@ DukRegistry::DukRegistry(EntReg* r, Components* c)
 }
 
 ComponentId
-DukRegistry::CreateNewId(const std::string& name, const FunctionVar& fv)
+DukRegistry::CreateNewId(const std::string& name, const duk::FunctionVar& fv)
 {
   const auto id        = reg->NewComponentType(name);
   scriptComponents[id] = fv;
@@ -37,14 +37,14 @@ DukRegistry::EntityView(const std::vector<ComponentId>& types)
   return reg->View(types);
 }
 
-DukValue
+duk::DukValue
 DukRegistry::GetProperty(EntityId ent, ComponentId comp)
 {
   ASSERT(scriptComponents.find(comp) != scriptComponents.end());
   auto c = reg->GetComponent(ent, comp);
   if(c == nullptr)
   {
-    return DukValue{};
+    return duk::DukValue{};
   }
   else
   {
@@ -75,30 +75,30 @@ GetScriptComponent(
 }
 
 void
-DukRegistry::SetProperty(EntityId ent, ComponentId comp, DukValue value)
+DukRegistry::SetProperty(EntityId ent, ComponentId comp, duk::DukValue value)
 {
   ScriptComponent* scriptComponent =
       GetScriptComponent(scriptComponents, reg, ent, comp);
   scriptComponent->val = value;
 }
 
-DukValue
+duk::DukValue
 DukRegistry::CreateComponent(
-    ComponentId comp, Context* ctx, const CustomArguments& arguments)
+    ComponentId comp, duk::Context* ctx, const CustomArguments& arguments)
 {
   auto res = scriptComponents.find(comp);
   ASSERT(res != scriptComponents.end());
   if(res == scriptComponents.end())
   {
-    return DukValue{};
+    return duk::DukValue{};
   }
 
   if(!res->second.IsValid())
   {
-    return DukValue{};
+    return duk::DukValue{};
   }
 
-  auto val = res->second.Call<DukValue>(ctx, arguments);
+  auto val = res->second.Call<duk::DukValue>(ctx, arguments);
   ASSERT(val.IsValid());
   // todo: need to increase refcount on val here like functions, right?
   return val;

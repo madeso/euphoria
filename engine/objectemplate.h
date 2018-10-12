@@ -18,18 +18,23 @@ class TextureCache;
 class DukRegistry;
 class FileSystem;
 struct Components;
-class Context;
-class Duk;
+
+namespace duk
+{
+  class Context;
+
+  class Duk;
+}
 
 struct ObjectCreationArgs
 {
   World*       world;
   DukRegistry* reg;
-  Context*     ctx;
-  Duk*         duk;
+  duk::Context*     ctx;
+  duk::Duk*         duk;
 
   ObjectCreationArgs(
-      World* aworld, DukRegistry* areg, Context* actx, Duk* aduk);
+      World* aworld, DukRegistry* areg, duk::Context* actx, duk::Duk* aduk);
 };
 
 class ComponentCreator

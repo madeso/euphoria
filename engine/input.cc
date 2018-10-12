@@ -13,8 +13,9 @@ BoundVar::BoundVar(const std::string& n, const Key& k)
 }
 
 void
-BindBoundVar(Duk* duk)
+BindBoundVar(duk::Duk* duk)
 {
+  using namespace duk;
   duk->BindClass(
       "BoundVar",
       BindClass<BoundVar>()
@@ -35,7 +36,7 @@ BindBoundVar(Duk* duk)
 }
 
 void
-Input::Bind(Duk* duk)
+Input::Bind(duk::Duk* duk)
 {
   BindBoundVar(duk);
 }
@@ -60,7 +61,7 @@ Input::SetKeyState(Key key, float state)
 }
 
 void
-Input::Set(Duk* duk, DukValue container) const
+Input::Set(duk::Duk* duk, duk::DukValue container) const
 {
   for(const auto& bind : binds)
   {

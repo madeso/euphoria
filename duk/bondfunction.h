@@ -4,15 +4,19 @@
 #include <memory>
 #include <vector>
 
-class Overload;
-
-class BoundFunction
+namespace duk
 {
- public:
-  BoundFunction() = default;
-  virtual ~BoundFunction();
+  class Overload;
 
-  std::vector<std::shared_ptr<Overload>> overloads;
-};
+  class BoundFunction
+  {
+   public:
+    BoundFunction() = default;
+
+    virtual ~BoundFunction();
+
+    std::vector<std::shared_ptr<Overload>> overloads;
+  };
+}
 
 #endif  // EUPHORIA_DUK_BINDFUNCTION_H

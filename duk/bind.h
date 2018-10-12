@@ -7,20 +7,22 @@
 #include "duk/overload.h"
 #include "duk/genericoverload.h"
 
-class Bind
+namespace duk
 {
- public:
-  template <typename... TArgs, typename Func>
-  Bind&
-  bind(Func callback)
+  class Bind
   {
-    overloads.emplace_back(
-        std::make_shared<GenericOverload<Func, TArgs...>>(callback));
-    return *this;
-  }
+   public:
+    template <typename... TArgs, typename Func>
+    Bind&
+    bind(Func callback)
+    {
+      overloads.emplace_back(
+          std::make_shared<GenericOverload<Func, TArgs...>>(callback));
+      return *this;
+    }
 
-  std::vector<std::shared_ptr<Overload>> overloads;
-};
-
+    std::vector<std::shared_ptr<Overload>> overloads;
+  };
+}
 
 #endif  // EUPHORIA_DUK_BIND_H

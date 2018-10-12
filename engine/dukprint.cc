@@ -10,7 +10,7 @@
 LOG_SPECIFY_DEFAULT_LOGGER("engine.duk")
 
 void
-AddPrint(Duk* duk)
+AddPrint(duk::Duk* duk)
 {
   duk->BindPrint([](const std::string& str) { LOG_INFO(str); });
 }

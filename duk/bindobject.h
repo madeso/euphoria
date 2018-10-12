@@ -6,16 +6,19 @@
 
 #include "duk/bind.h"
 
-class ObjectBinder
+namespace duk
 {
- public:
-  ObjectBinder&
-  AddFunction(const std::string& name, const Bind& bind);
+  class ObjectBinder
+  {
+   public:
+    ObjectBinder&
+    AddFunction(const std::string& name, const Bind& bind);
 
-  std::vector<std::pair<std::string, Bind>> functions;
-};
+    std::vector<std::pair<std::string, Bind>> functions;
+  };
 
-ObjectBinder
-BindObject();
+  ObjectBinder
+  BindObject();
+}
 
 #endif  // EUPHORIA_DUK_BINDOBJECT_H

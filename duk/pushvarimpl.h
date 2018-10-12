@@ -8,70 +8,72 @@
 #include "duk/context.h"
 #include "core/cpp.h"
 
-template <typename T, typename TValid = void>
-struct PushVarImpl
+namespace duk
 {
-};
-
-template <typename T>
-struct PushVarImpl<T, std::enable_if_t<std::is_class<T>::value>>
-{
-  static void
-  Push(Context* ctx, const T& arg)
+  template <typename T, typename TValid = void>
+  struct PushVarImpl
   {
-    ctx->ReturnObject<T>(std::make_shared<T>(arg));
-  }
-};
+  };
 
-template <typename T>
-struct PushVarImpl<T, std::enable_if_t<std::is_arithmetic<T>::value>>
-{
-  static void
-  Push(Context* ctx, const T& arg)
+  template <typename T>
+  struct PushVarImpl<T, std::enable_if_t<std::is_class<T>::value>>
   {
-    ctx->ReturnNumber(arg);
-  }
-};
+    static void
+    Push(Context* ctx, const T& arg)
+    {
+      ctx->ReturnObject<T>(std::make_shared<T>(arg));
+    }
+  };
 
-template <>
-struct PushVarImpl<float>
-{
-  static void
-  Push(Context* ctx, const float& arg)
+  template <typename T>
+  struct PushVarImpl<T, std::enable_if_t<std::is_arithmetic<T>::value>>
   {
-    ctx->ReturnNumber(arg);
-  }
-};
+    static void
+    Push(Context* ctx, const T& arg)
+    {
+      ctx->ReturnNumber(arg);
+    }
+  };
 
-template <>
-struct PushVarImpl<std::string>
-{
-  static void
-  Push(Context* ctx, const std::string& arg)
+  template <>
+  struct PushVarImpl<float>
   {
-    ctx->ReturnString(arg);
-  }
-};
+    static void
+    Push(Context* ctx, const float& arg)
+    {
+      ctx->ReturnNumber(arg);
+    }
+  };
 
-template <>
-struct PushVarImpl<const char*>
-{
-  static void
-  Push(Context* ctx, const std::string& arg)
+  template <>
+  struct PushVarImpl<std::string>
   {
-    ctx->ReturnString(arg);
-  }
-};
+    static void
+    Push(Context* ctx, const std::string& arg)
+    {
+      ctx->ReturnString(arg);
+    }
+  };
 
-template <typename T>
-void
-PushVar(Context* ctx, const T& arg)
-{
-  // *Impl struct here to support template-ing char* strings
-  // https://stackoverflow.com/a/6559891/180307
-  typedef typename ArrayToPointerDecay<T>::Type Type;
-  PushVarImpl<Type>::Push(ctx, arg);
+  template <>
+  struct PushVarImpl<const char*>
+  {
+    static void
+    Push(Context* ctx, const std::string& arg)
+    {
+      ctx->ReturnString(arg);
+    }
+  };
+
+  template <typename T>
+  void
+  PushVar(Context* ctx, const T& arg)
+  {
+    // *Impl struct here to support template-ing char* strings
+    // https://stackoverflow.com/a/6559891/180307
+    typedef typename ArrayToPointerDecay<T>::Type Type;
+    PushVarImpl<Type>::Push(ctx, arg);
+  }
 }
-
 
 #endif  // EUPHORIA_DUK_PUSHVARIMPL_H
