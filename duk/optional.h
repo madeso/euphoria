@@ -9,13 +9,13 @@ namespace duk
   {
     Optional() = default;
 
-    Optional(const T& t)
+    explicit Optional(const T& t)
         : value(t)
         , parsed(true)
     {
     }
 
-    Optional(T&& t)
+    explicit Optional(T&& t)
         : value(t)
         , parsed(true)
     {

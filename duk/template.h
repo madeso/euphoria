@@ -302,7 +302,7 @@ namespace duk
       }
       else
       {
-        return DukTemplate<T>::Parse(ctx, index);
+        return Optional<T>{DukTemplate<T>::Parse(ctx, index)};
       }
     }
 
