@@ -5,7 +5,7 @@
 #include <vector>
 
 #include "duk/function.h"
-#include "duk/genericoverload.h"
+#include "duk/genericfunction.h"
 
 namespace duk
 {
@@ -13,7 +13,7 @@ namespace duk
   std::shared_ptr<Function>
   MakeBind(Func callback)
   {
-    return std::make_shared<GenericOverload<Func, TArgs...>>(callback);
+    return std::make_shared<GenericFunction<Func, TArgs...>>(callback);
   }
 
   std::shared_ptr<Function>

@@ -17,12 +17,12 @@
 namespace duk
 {
   template <typename Callback, typename... TArgs>
-  class GenericOverload : public Function
+  class GenericFunction : public Function
   {
    public:
     Callback callback;
 
-    explicit GenericOverload(Callback c)
+    explicit GenericFunction(Callback c)
         : callback(c)
     {
       // todo: make sure non-required are only defined at the end
