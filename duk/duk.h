@@ -19,7 +19,7 @@ namespace duk
 
   class ClassBinder;
 
-  class BoundFunction;
+  class Function;
 
   class Prototype;
 
@@ -56,7 +56,7 @@ namespace duk
 
     ~Duk();
 
-    BoundFunction*
+    Function*
     CreateFunction(const std::shared_ptr<Overload>& overload);
 
     Prototype*
@@ -66,7 +66,7 @@ namespace duk
 
     std::function<void(const std::string&)> on_print;
 
-    std::vector<std::shared_ptr<BoundFunction>> functions;
+    std::vector<std::shared_ptr<Function>> functions;
 
     std::map<size_t, std::shared_ptr<Prototype>> classIds;
   };

@@ -9,7 +9,7 @@
 #include "core/stringmerger.h"
 
 #include "duk/overload.h"
-#include "duk/boundfunction.h"
+#include "duk/function.h"
 #include "duk/bindobject.h"
 #include "duk/bindclass.h"
 
@@ -208,7 +208,7 @@ namespace duk
     }
 
     auto* function =
-        GetFunctionProperty<BoundFunction>(ctx, DUK_HIDDEN_SYMBOL("func"));
+        GetFunctionProperty<Function>(ctx, DUK_HIDDEN_SYMBOL("func"));
     auto* duk = GetFunctionProperty<Duk>(ctx, DUK_HIDDEN_SYMBOL("duk"));
 
     Context context{ctx, duk};
@@ -251,7 +251,7 @@ namespace duk
   void
   PlaceFunctionOnStack(
       duk_context*   ctx,
-      BoundFunction* function,
+      Function* function,
       duk_c_function fun,
       Duk*           duk,
       int            arguments = DUK_VARARGS)
@@ -374,11 +374,11 @@ namespace duk
         std::make_pair(bind.id, std::make_shared<Prototype>(name, prototype)));
   }
 
-  BoundFunction*
+  Function*
   Duk::CreateFunction(const std::shared_ptr<Overload>& bind)
   {
     // create new function object
-    auto func       = std::make_shared<BoundFunction>();
+    auto func       = std::make_shared<Function>();
     func->overloads = bind;
     functions.emplace_back(func);
     return func.get();

@@ -8,12 +8,12 @@ namespace duk
 {
   class Overload;
 
-  class BoundFunction
+  class Function
   {
    public:
-    BoundFunction() = default;
+    Function() = default;
 
-    virtual ~BoundFunction();
+    ~Function();
 
     std::shared_ptr<Overload> overloads;
   };
