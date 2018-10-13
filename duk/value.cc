@@ -9,28 +9,28 @@
 
 namespace duk
 {
-  DukValue::DukValue()
+  ObjectReference::ObjectReference()
       : ptr(nullptr)
   {
   }
 
-  DukValue::~DukValue()
+  ObjectReference::~ObjectReference()
   {
   }
 
-  DukValue::DukValue(void* p)
+  ObjectReference::ObjectReference(void* p)
       : ptr(p)
   {
   }
 
   bool
-  DukValue::IsValid() const
+  ObjectReference::IsValid() const
   {
     return ptr != nullptr;
   }
 
   void
-  DukValue::StoreReference(Duk* duk)
+  ObjectReference::StoreReference(Duk* duk)
   {
     ASSERT(duk);
     if(reference == nullptr)
@@ -40,7 +40,7 @@ namespace duk
   }
 
   void
-  DukValue::SetFreeImpl(
+  ObjectReference::SetFreeImpl(
       Context*           ctx,
       const std::string& name,
       void*              object,

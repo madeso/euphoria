@@ -31,7 +31,7 @@ namespace duk
     Context*
     AsContext();
 
-    DukValue
+    ObjectReference
     CreateGlobal(const std::string& name);
 
     bool

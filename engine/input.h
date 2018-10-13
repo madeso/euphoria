@@ -41,7 +41,7 @@ class Input
   SetKeyState(Key key, float state);
 
   void
-  Set(duk::Duk* duk, duk::DukValue container) const;
+  Set(duk::Duk* duk, duk::ObjectReference container) const;
 
   void
   UpdateState();

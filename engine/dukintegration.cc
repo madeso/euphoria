@@ -277,11 +277,11 @@ struct DukIntegrationPimpl
                     }))
             .AddFunction(
                 "Set",
-                MakeBind<EntityId, ComponentId, DukValue>(
+                MakeBind<EntityId, ComponentId, ObjectReference>(
                     [&](Context*    ctx,
                         EntityId    ent,
                         ComponentId comp,
-                        DukValue    val) -> int {
+                        ObjectReference    val) -> int {
                       registry.SetProperty(ent, comp, val);
                       return ctx->ReturnVoid();
                     }))
@@ -429,7 +429,7 @@ struct DukIntegrationPimpl
 
   DukSystems     systems;
   DukRegistry    registry;
-  duk::DukValue  input;
+  duk::ObjectReference  input;
   World*         world;
   ObjectCreator* creator;
   Components*    components;

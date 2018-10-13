@@ -13,13 +13,13 @@ namespace duk
   class Context;
 
   // represents a object
-  class DukValue
+  class ObjectReference
   {
    public:
-    DukValue();
-    explicit DukValue(void* p);
+    ObjectReference();
+    explicit ObjectReference(void* p);
 
-    ~DukValue();
+    ~ObjectReference();
 
     bool
     IsValid() const;

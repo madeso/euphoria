@@ -160,7 +160,7 @@ namespace duk
   }
 
   int
-  Context::Return(DukValue val)
+  Context::Return(ObjectReference val)
   {
     duk_push_heapptr(ctx, val.ptr);
     return 1;

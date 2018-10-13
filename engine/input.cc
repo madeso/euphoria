@@ -60,7 +60,7 @@ Input::SetKeyState(Key key, float state)
 }
 
 void
-Input::Set(duk::Duk* duk, duk::DukValue container) const
+Input::Set(duk::Duk* duk, duk::ObjectReference container) const
 {
   for(const auto& bind : binds)
   {

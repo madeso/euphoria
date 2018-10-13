@@ -96,7 +96,7 @@ namespace duk
     Return(const std::string& value);
 
     int
-    Return(DukValue val);
+    Return(ObjectReference val);
 
     template <typename T>
     int

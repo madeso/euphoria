@@ -31,13 +31,13 @@ class DukRegistry
   std::vector<EntityId>
   EntityView(const std::vector<ComponentId>& types);
 
-  duk::DukValue
+  duk::ObjectReference
   GetProperty(EntityId ent, ComponentId comp);
 
   void
-  SetProperty(EntityId ent, ComponentId comp, duk::DukValue value);
+  SetProperty(EntityId ent, ComponentId comp, duk::ObjectReference value);
 
-  duk::DukValue
+  duk::ObjectReference
   CreateComponent(
       ComponentId comp, duk::Context* ctx, const CustomArguments& arguments);
 

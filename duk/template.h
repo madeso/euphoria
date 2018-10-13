@@ -175,7 +175,7 @@ namespace duk
   };
 
   template <>
-  struct DukTemplate<DukValue>
+  struct DukTemplate<ObjectReference>
   {
     static bool
     IsRequired()
@@ -196,11 +196,11 @@ namespace duk
       }
     }
 
-    static DukValue
+    static ObjectReference
     Parse(Context* ctx, int index)
     {
       ASSERT(ctx->IsObject(index));
-      return DukValue{ctx->GetFunctionPtr(index)};
+      return ObjectReference{ctx->GetFunctionPtr(index)};
     }
 
     static std::string

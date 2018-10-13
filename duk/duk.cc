@@ -23,11 +23,11 @@ namespace duk
   {
   }
 
-  DukValue
+  ObjectReference
   Duk::CreateGlobal(const std::string& name)
   {
     duk_push_object(ctx);
-    DukValue val = DukValue{duk_get_heapptr(ctx, -1)};
+    ObjectReference val = ObjectReference{duk_get_heapptr(ctx, -1)};
     duk_put_global_string(ctx, name.c_str());
     return val;
   }
