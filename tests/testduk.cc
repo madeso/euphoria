@@ -128,10 +128,10 @@ TEST_CASE("duk-eval", "[duk]")
     {
       static int value;
       value = 2;
-      duk.BindGlobalFunction("test", Bind{}.bind<>([](Context* ctx) -> int {
-        value = 12;
-        return ctx->ReturnVoid();
-      }));
+      duk.BindGlobalFunction("test", MakeBind([](Context* ctx) -> int {
+                               value = 12;
+                               return ctx->ReturnVoid();
+                             }));
       REQUIRE(value == 2);
       REQUIRE(duk.EvalString("test();", "", &error, &out));
       REQUIRE(value == 12);
@@ -141,7 +141,7 @@ TEST_CASE("duk-eval", "[duk]")
     {
       int value = 12;
       duk.BindGlobalFunction(
-          "test", Bind{}.bind<int>([&](Context* ctx, int i) -> int {
+          "test", MakeBind<int>([&](Context* ctx, int i) -> int {
             value = i;
             return ctx->ReturnVoid();
           }));
@@ -155,7 +155,7 @@ TEST_CASE("duk-eval", "[duk]")
       unsigned int value = 12;
       duk.BindGlobalFunction(
           "test",
-          Bind{}.bind<unsigned int>([&](Context* ctx, unsigned int i) -> int {
+          MakeBind<unsigned int>([&](Context* ctx, unsigned int i) -> int {
             value = i;
             return ctx->ReturnVoid();
           }));
@@ -170,7 +170,7 @@ TEST_CASE("duk-eval", "[duk]")
       int value1 = 1;
       int value2 = 2;
       duk.BindGlobalFunction(
-          "test", Bind{}.bind<int, int>([&](Context* ctx, int a, int b) -> int {
+          "test", MakeBind<int, int>([&](Context* ctx, int a, int b) -> int {
             value1 = a;
             value2 = b;
             return ctx->ReturnVoid();
@@ -187,11 +187,10 @@ TEST_CASE("duk-eval", "[duk]")
       std::string value = "";
       duk.BindGlobalFunction(
           "test",
-          Bind{}.bind<std::string>(
-              [&](Context* ctx, const std::string& s) -> int {
-                value = s;
-                return ctx->ReturnVoid();
-              }));
+          MakeBind<std::string>([&](Context* ctx, const std::string& s) -> int {
+            value = s;
+            return ctx->ReturnVoid();
+          }));
       REQUIRE(value == "");
       REQUIRE(duk.EvalString("test(\"dog\");", "", &error, &out));
       REQUIRE(value == "dog");
@@ -201,16 +200,17 @@ TEST_CASE("duk-eval", "[duk]")
     {
       int value = 0;
       duk.BindGlobalFunction(
-          "test",
-          Bind{}
-              .bind<int>([&](Context* ctx, int i) -> int {
-                value = i;
-                return 0;
-              })
-              .bind<>([&](Context* ctx) -> int {
-                value = 707;
-                return ctx->ReturnVoid();
-              }));
+          "test", MakeBind<int>([&](Context* ctx, Optional<int> i) -> int {
+            if(i)
+            {
+              value = i.value;
+            }
+            else
+            {
+              value = 707;
+            }
+            return 0;
+          }));
       REQUIRE(value == 0);
       REQUIRE(duk.EvalString("test(42);", "", &error, &out));
       REQUIRE(value == 42);
@@ -221,36 +221,36 @@ TEST_CASE("duk-eval", "[duk]")
 
     SECTION("return int")
     {
-      duk.BindGlobalFunction("test", Bind{}.bind<>([&](Context* ctx) -> int {
-        return ctx->ReturnNumber(42);
-      }));
+      duk.BindGlobalFunction("test", MakeBind<>([&](Context* ctx) -> int {
+                               return ctx->ReturnNumber(42);
+                             }));
       REQUIRE(duk.EvalString("r = test(); r", "", &error, &out));
       REQUIRE(out == "42");
     }
 
     SECTION("return func int")
     {
-      duk.BindGlobalFunction("test", Bind{}.bind<>([&](Context* ctx) -> int {
-        return ctx->Return(42);
-      }));
+      duk.BindGlobalFunction("test", MakeBind<>([&](Context* ctx) -> int {
+                               return ctx->Return(42);
+                             }));
       REQUIRE(duk.EvalString("r = test(); r", "", &error, &out));
       REQUIRE(out == "42");
     }
 
     SECTION("return string")
     {
-      duk.BindGlobalFunction("test", Bind{}.bind<>([&](Context* ctx) -> int {
-        return ctx->ReturnString("dog");
-      }));
+      duk.BindGlobalFunction("test", MakeBind<>([&](Context* ctx) -> int {
+                               return ctx->ReturnString("dog");
+                             }));
       REQUIRE(duk.EvalString("r = test(); r", "", &error, &out));
       REQUIRE(out == "dog");
     }
 
     SECTION("return func string")
     {
-      duk.BindGlobalFunction("test", Bind{}.bind<>([&](Context* ctx) -> int {
-        return ctx->Return("dog");
-      }));
+      duk.BindGlobalFunction("test", MakeBind<>([&](Context* ctx) -> int {
+                               return ctx->Return("dog");
+                             }));
       REQUIRE(duk.EvalString("r = test(); r", "", &error, &out));
       REQUIRE(out == "dog");
     }
@@ -260,7 +260,7 @@ TEST_CASE("duk-eval", "[duk]")
       std::vector<int> ints;
       duk.BindGlobalFunction(
           "test",
-          Bind{}.bind<std::vector<int>>(
+          MakeBind<std::vector<int>>(
               [&](Context* ctx, const std::vector<int>& arg) -> int {
                 ints = arg;
                 return ctx->ReturnVoid();
@@ -275,7 +275,7 @@ TEST_CASE("duk-eval", "[duk]")
     SECTION("return int array")
     {
       duk.BindGlobalFunction(
-          "test", Bind{}.bind<int>([](Context* ctx, const int var) -> int {
+          "test", MakeBind<int>([](Context* ctx, const int var) -> int {
             std::vector<int> arr = {var, var + 1, var + 2};
             return ctx->ReturnArray(arr);
           }));
@@ -290,7 +290,7 @@ TEST_CASE("duk-eval", "[duk]")
     SECTION("return int array")
     {
       duk.BindGlobalFunction(
-          "test", Bind{}.bind<long>([](Context* ctx, const long var) -> int {
+          "test", MakeBind<long>([](Context* ctx, const long var) -> int {
             std::vector<long> arr = {var, var + 1, var + 2};
             return ctx->ReturnArray(arr);
           }));
@@ -306,7 +306,7 @@ TEST_CASE("duk-eval", "[duk]")
     {
       duk.BindGlobalFunction(
           "test",
-          Bind{}.bind<std::string>(
+          MakeBind<std::string>(
               [](Context* ctx, const std::string& var) -> int {
                 std::vector<std::string> arr = {var, "a " + var, "good " + var};
                 return ctx->ReturnArray(arr);
@@ -325,9 +325,9 @@ TEST_CASE("duk-eval", "[duk]")
     SECTION("create object")
     {
       auto dog = duk.CreateGlobal("Dog");
-      duk.BindGlobalFunction("test", Bind{}.bind<>([&](Context* ctx) -> int {
-        return ctx->Return(dog);
-      }));
+      duk.BindGlobalFunction("test", MakeBind<>([&](Context* ctx) -> int {
+                               return ctx->Return(dog);
+                             }));
       const auto eval =
           duk.EvalString("Dog.name = \"Duke\"; test().name", "", &error, &out);
       CAPTURE(out);
@@ -341,7 +341,7 @@ TEST_CASE("duk-eval", "[duk]")
       int i = 0;
       duk.BindGlobalFunction(
           "test",
-          Bind{}.bind<FunctionVar>(
+          MakeBind<FunctionVar>(
               [&](Context* ctx, const FunctionVar& func) -> int {
                 i = func.Call<int>(ctx);
                 return ctx->ReturnVoid();
@@ -359,7 +359,7 @@ TEST_CASE("duk-eval", "[duk]")
       std::string str;
       duk.BindGlobalFunction(
           "test",
-          Bind{}.bind<FunctionVar>(
+          MakeBind<FunctionVar>(
               [&](Context* ctx, const FunctionVar& func) -> int {
                 str = func.Call<std::string>(ctx, "Duke");
                 return ctx->ReturnVoid();
@@ -377,7 +377,7 @@ TEST_CASE("duk-eval", "[duk]")
       FunctionVar f;
       duk.BindGlobalFunction(
           "test",
-          Bind{}.bind<FunctionVar>(
+          MakeBind<FunctionVar>(
               [&](Context* ctx, const FunctionVar& func) -> int {
                 f = func;
                 f.StoreReference(ctx);
@@ -398,9 +398,9 @@ TEST_CASE("duk-eval", "[duk]")
     {
       duk.BindObject(
           "Dog",
-          BindObject().AddFunction("bark", Bind{}.bind([](Context* ctx) -> int {
-            return ctx->ReturnString("woof!");
-          })));
+          BindObject().AddFunction("bark", MakeBind([](Context* ctx) -> int {
+                                     return ctx->ReturnString("woof!");
+                                   })));
       const auto eval = duk.EvalString("Dog.bark()", "", &error, &out);
       CAPTURE(out);
       CAPTURE(error);
@@ -413,28 +413,28 @@ TEST_CASE("duk-eval", "[duk]")
       duk.BindClass(
           "Dog",
           BindClass<Dog>()
-              .SetConstructor(Bind{}.bind<std::string>(
+              .SetConstructor(MakeBind<std::string>(
                   [](Context* ctx, const std::string& name) -> int {
                     return ctx->ReturnObject(std::make_shared<Dog>(name));
                   }))
               .AddMethod(
                   "GetName",
-                  Bind{}.bind<Dog>([](Context* ctx, const Dog& d) -> int {
+                  MakeBind<Dog>([](Context* ctx, const Dog& d) -> int {
                     return ctx->ReturnString(d.name);
                   }))
               .AddMethod(
                   "SetName",
-                  Bind{}.bind<Dog, std::string>(
+                  MakeBind<Dog, std::string>(
                       [](Context* ctx, Dog& d, const std::string& name) -> int {
                         d.name = name;
                         return ctx->ReturnVoid();
                       }))
               .AddProperty(
                   "name",
-                  Bind{}.bind<Dog>([](Context* ctx, const Dog& dog) -> int {
+                  MakeBind<Dog>([](Context* ctx, const Dog& dog) -> int {
                     return ctx->ReturnString(dog.name);
                   }),
-                  Bind{}.bind<Dog, std::string>(
+                  MakeBind<Dog, std::string>(
                       [](Context* ctx, Dog& d, const std::string& name) -> int {
                         d.name = name;
                         return ctx->ReturnVoid();
@@ -443,9 +443,9 @@ TEST_CASE("duk-eval", "[duk]")
       SECTION("Call member get fun")
       {
         Dog duke{"Duke"};
-        duk.BindGlobalFunction("GetDog", Bind{}.bind([&](Context* ctx) -> int {
-          return ctx->ReturnFreeObject(&duke);
-        }));
+        duk.BindGlobalFunction("GetDog", MakeBind([&](Context* ctx) -> int {
+                                 return ctx->ReturnFreeObject(&duke);
+                               }));
         const auto eval = duk.EvalString(
             "dog = GetDog(); name = dog.GetName(); name", "", &error, &out);
         CAPTURE(out);
@@ -457,9 +457,9 @@ TEST_CASE("duk-eval", "[duk]")
       SECTION("Call member set fun")
       {
         Dog duke{"Duke"};
-        duk.BindGlobalFunction("GetDog", Bind{}.bind([&](Context* ctx) -> int {
-          return ctx->ReturnFreeObject(&duke);
-        }));
+        duk.BindGlobalFunction("GetDog", MakeBind([&](Context* ctx) -> int {
+                                 return ctx->ReturnFreeObject(&duke);
+                               }));
         const auto eval = duk.EvalString(
             "dog = GetDog(); dog.SetName(\"Cat\");", "", &error, &out);
         CAPTURE(out);
@@ -471,9 +471,9 @@ TEST_CASE("duk-eval", "[duk]")
       SECTION("Use property")
       {
         Dog duke{"Duke"};
-        duk.BindGlobalFunction("GetDog", Bind{}.bind([&](Context* ctx) -> int {
-          return ctx->ReturnFreeObject(&duke);
-        }));
+        duk.BindGlobalFunction("GetDog", MakeBind([&](Context* ctx) -> int {
+                                 return ctx->ReturnFreeObject(&duke);
+                               }));
         const auto eval = duk.EvalString(
             "dog = GetDog(); dog.name = dog.name + \" the dog\";",
             "",
@@ -494,11 +494,10 @@ TEST_CASE("duk-eval", "[duk]")
         {
           Dog* duke = nullptr;
           REQUIRE(allocated_dogs == 0);
-          duk.BindGlobalFunction(
-              "GetDog", Bind{}.bind([&](Context* ctx) -> int {
-                duke = new Dog{"duke"};
-                return ctx->ReturnFreeObject(duke);
-              }));
+          duk.BindGlobalFunction("GetDog", MakeBind([&](Context* ctx) -> int {
+                                   duke = new Dog{"duke"};
+                                   return ctx->ReturnFreeObject(duke);
+                                 }));
           const auto eval = duk.EvalString(code, "", &error, &out);
           CAPTURE(out);
           CAPTURE(error);
@@ -513,7 +512,7 @@ TEST_CASE("duk-eval", "[duk]")
         {
           REQUIRE(allocated_dogs == 0);
           duk.BindGlobalFunction(
-              "GetDog", Bind{}.bind([&](Context* ctx) -> int {
+              "GetDog", MakeBind([&](Context* ctx) -> int {
                 return ctx->ReturnObject(std::make_shared<Dog>("duke"));
               }));
           const auto eval = duk.EvalString(code, "", &error, &out);
@@ -543,7 +542,7 @@ TEST_CASE("duk-eval", "[duk]")
       SECTION("too many arguments to test(int)")
       {
         int value = 12;
-        duk.BindGlobalFunction("test", Bind{}.bind<int>([&](Context* ctx, int i) -> int {
+        duk.BindGlobalFunction("test", MakeBind<int>([&](Context* ctx, int i) -> int {
           value = i;
           return ctx->ReturnVoid();
         }));
@@ -555,7 +554,7 @@ TEST_CASE("duk-eval", "[duk]")
       SECTION("invalid arguments to test(int)")
       {
         int value = 12;
-        duk.BindGlobalFunction("test", Bind{}.bind<int>([&](Context* ctx, int i) -> int {
+        duk.BindGlobalFunction("test", MakeBind<int>([&](Context* ctx, int i) -> int {
           value = i;
           return ctx->ReturnVoid();
         }));
