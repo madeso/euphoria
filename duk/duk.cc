@@ -9,7 +9,7 @@
 #include "core/stringmerger.h"
 
 #include "duk/overload.h"
-#include "duk/bondfunction.h"
+#include "duk/boundfunction.h"
 #include "duk/bindobject.h"
 #include "duk/bindclass.h"
 

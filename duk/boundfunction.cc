@@ -1,4 +1,4 @@
-#include "duk/bondfunction.h"
+#include "duk/boundfunction.h"
 
 #include "duk/overload.h"
 
