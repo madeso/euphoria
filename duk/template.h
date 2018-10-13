@@ -11,7 +11,7 @@
 
 #include "duk/config.h"
 #include "duk/context.h"
-#include "duk/prototype.h"
+#include "duk/registeredclass.h"
 #include "duk/optional.h"
 
 namespace duk

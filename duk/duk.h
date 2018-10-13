@@ -21,7 +21,7 @@ namespace duk
 
   class Function;
 
-  class Prototype;
+  class RegisteredClass;
 
   class Duk : private Context
   {
@@ -59,7 +59,7 @@ namespace duk
     Function*
     CreateFunction(const std::shared_ptr<Function>& overload);
 
-    Prototype*
+    RegisteredClass*
     TypeToProto(size_t id CLASS_ARG(const std::string& name));
 
     ReferenceStorage references;
@@ -68,7 +68,7 @@ namespace duk
 
     std::vector<std::shared_ptr<Function>> functions;
 
-    std::map<size_t, std::shared_ptr<Prototype>> classIds;
+    std::map<size_t, std::shared_ptr<RegisteredClass>> classIds;
   };
 }
 

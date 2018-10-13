@@ -5,10 +5,10 @@
 
 namespace duk
 {
-  class Prototype
+  class RegisteredClass
   {
    public:
-    Prototype(const std::string& n, void* p);
+    RegisteredClass(const std::string& n, void* p);
 
     std::string name;
     void*       prototype;

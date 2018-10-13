@@ -5,7 +5,7 @@
 #include "core/assert.h"
 
 #include "duk/duk.h"
-#include "duk/prototype.h"
+#include "duk/registeredclass.h"
 
 namespace duk
 {
@@ -57,16 +57,16 @@ namespace duk
     return duk_is_object(ctx, index) == 1;
   }
 
-  Prototype*
+  RegisteredClass*
   Context::GetObjectType(int index)
   {
     duk_get_prop_string(ctx, index, DUK_HIDDEN_SYMBOL("type"));
     const auto ptr = duk_get_pointer(ctx, -1);
     duk_pop(ctx);
-    return static_cast<Prototype*>(ptr);
+    return static_cast<RegisteredClass*>(ptr);
   }
 
-  Prototype*
+  RegisteredClass*
   Context::TypeToProto(size_t id CLASS_ARG(const std::string& name))
   {
     return duk->TypeToProto(id CLASS_ARG(name));
@@ -199,7 +199,7 @@ namespace duk
       duk_push_null(ctx);
       return 1;
     }
-    Prototype* proto     = duk->TypeToProto(type CLASS_ARG(name));
+    RegisteredClass* proto     = duk->TypeToProto(type CLASS_ARG(name));
     const auto object_id = duk_push_object(ctx);  // object
 
     // prototype

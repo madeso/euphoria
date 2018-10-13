@@ -369,7 +369,7 @@ namespace duk
     duk_put_global_string(ctx, proto_name.c_str());  // empty stack
 
     classIds.insert(
-        std::make_pair(bind.id, std::make_shared<Prototype>(name, prototype)));
+        std::make_pair(bind.id, std::make_shared<RegisteredClass>(name, prototype)));
   }
 
   Function*
@@ -384,7 +384,7 @@ namespace duk
     duk_destroy_heap(ctx);
   }
 
-  Prototype*
+  RegisteredClass*
   Duk::TypeToProto(size_t id CLASS_ARG(const std::string& name))
   {
     const auto found = classIds.find(id);

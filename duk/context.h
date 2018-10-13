@@ -13,7 +13,7 @@
 
 namespace duk
 {
-  class Prototype;
+  class RegisteredClass;
 
   class Duk;
 
@@ -46,10 +46,10 @@ namespace duk
     bool
     IsObject(int index);
 
-    Prototype*
+    RegisteredClass*
     GetObjectType(int index);
 
-    Prototype*
+    RegisteredClass*
     TypeToProto(size_t id CLASS_ARG(const std::string& name));
 
     void*
