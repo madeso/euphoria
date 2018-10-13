@@ -8,7 +8,7 @@
 #include <functional>
 
 #include "duk/context.h"
-#include "duk/value.h"
+#include "duk/objectreference.h"
 #include "duk/referencestorage.h"
 #include "duk/config.h"
 #include "duk/overload.h"

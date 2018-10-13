@@ -1,4 +1,4 @@
-#include "duk/value.h"
+#include "duk/objectreference.h"
 
 #include "duktape/duktape.h"
 

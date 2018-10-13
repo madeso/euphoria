@@ -8,7 +8,7 @@
 
 #include "duk/types.h"
 #include "duk/config.h"
-#include "duk/value.h"
+#include "duk/objectreference.h"
 #include "duk/util.h"
 
 namespace duk

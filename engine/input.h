@@ -7,7 +7,7 @@
 
 #include "core/key.h"
 
-#include "duk/value.h"
+#include "duk/objectreference.h"
 
 namespace duk {
 class Duk;
