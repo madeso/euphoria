@@ -8,7 +8,7 @@ namespace duk
   }
 
   ClassBinder&
-  ClassBinder::SetConstructor(const std::shared_ptr<Overload>& bind)
+  ClassBinder::SetConstructor(const std::shared_ptr<Function>& bind)
   {
     constructor = bind;
     return *this;
@@ -16,7 +16,7 @@ namespace duk
 
   ClassBinder&
   ClassBinder::AddMethod(
-      const std::string& name, const std::shared_ptr<Overload>& bind)
+      const std::string& name, const std::shared_ptr<Function>& bind)
   {
     overloads.emplace_back(std::make_pair(name, bind));
     return *this;
@@ -25,8 +25,8 @@ namespace duk
   ClassBinder&
   ClassBinder::AddProperty(
       const std::string&               name,
-      const std::shared_ptr<Overload>& get,
-      const std::shared_ptr<Overload>& set)
+      const std::shared_ptr<Function>& get,
+      const std::shared_ptr<Function>& set)
   {
     properties.emplace_back(std::make_tuple(name, get, set));
     return *this;

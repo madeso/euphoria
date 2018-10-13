@@ -11,7 +11,7 @@
 #include "duk/objectreference.h"
 #include "duk/referencestorage.h"
 #include "duk/config.h"
-#include "duk/overload.h"
+#include "duk/function.h"
 
 namespace duk
 {
@@ -46,7 +46,7 @@ namespace duk
 
     void
     BindGlobalFunction(
-        const std::string& name, const std::shared_ptr<Overload>& overload);
+        const std::string& name, const std::shared_ptr<Function>& overload);
 
     void
     BindObject(const std::string& name, const ObjectBinder& bind);
@@ -57,7 +57,7 @@ namespace duk
     ~Duk();
 
     Function*
-    CreateFunction(const std::shared_ptr<Overload>& overload);
+    CreateFunction(const std::shared_ptr<Function>& overload);
 
     Prototype*
     TypeToProto(size_t id CLASS_ARG(const std::string& name));

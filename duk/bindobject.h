@@ -12,9 +12,9 @@ namespace duk
   {
    public:
     ObjectBinder&
-    AddFunction(const std::string& name, const std::shared_ptr<Overload>& bind);
+    AddFunction(const std::string& name, const std::shared_ptr<Function>& bind);
 
-    std::vector<std::pair<std::string, std::shared_ptr<Overload>>> functions;
+    std::vector<std::pair<std::string, std::shared_ptr<Function>>> functions;
   };
 
   ObjectBinder

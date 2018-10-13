@@ -2,9 +2,9 @@
 
 namespace duk
 {
-  std::shared_ptr<Overload>
+  std::shared_ptr<Function>
   MakeNoBind()
   {
-    return std::shared_ptr<Overload>{};
+    return std::shared_ptr<Function>{};
   }
 }

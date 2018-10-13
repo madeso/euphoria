@@ -3,7 +3,8 @@
 namespace duk
 {
   ObjectBinder&
-  ObjectBinder::AddFunction(const std::string& name, const std::shared_ptr<Overload>& bind)
+  ObjectBinder::AddFunction(
+      const std::string& name, const std::shared_ptr<Function>& bind)
   {
     functions.emplace_back(std::make_pair(name, bind));
     return *this;

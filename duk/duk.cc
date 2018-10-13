@@ -8,7 +8,6 @@
 #include "core/str.h"
 #include "core/stringmerger.h"
 
-#include "duk/overload.h"
 #include "duk/function.h"
 #include "duk/bindobject.h"
 #include "duk/bindclass.h"
@@ -224,18 +223,17 @@ namespace duk
       }
     }
 
-    auto& overload = function->overloads;
-    ASSERT(overload);
+    ASSERT(function);
 
     {
-      const auto match_error = overload->Matches(&context);
+      const auto match_error = function->Matches(&context);
       if(match_error.empty())
       {
-        return overload->Call(&context);
+        return function->Call(&context);
       }
       else
       {
-        std::string described = Str() << "- " << overload->Describe(&context)
+        std::string described = Str() << "- " << function->Describe(&context)
                                       << ": " << match_error;
 
         const auto arguments = DescribeArguments(&context);
@@ -251,7 +249,7 @@ namespace duk
   void
   PlaceFunctionOnStack(
       duk_context*   ctx,
-      Function* function,
+      Function*      function,
       duk_c_function fun,
       Duk*           duk,
       int            arguments = DUK_VARARGS)
@@ -267,7 +265,7 @@ namespace duk
 
   void
   Duk::BindGlobalFunction(
-      const std::string& name, const std::shared_ptr<Overload>& bind)
+      const std::string& name, const std::shared_ptr<Function>& bind)
   {
     PlaceFunctionOnStack(
         ctx,
@@ -375,11 +373,8 @@ namespace duk
   }
 
   Function*
-  Duk::CreateFunction(const std::shared_ptr<Overload>& bind)
+  Duk::CreateFunction(const std::shared_ptr<Function>& func)
   {
-    // create new function object
-    auto func       = std::make_shared<Function>();
-    func->overloads = bind;
     functions.emplace_back(func);
     return func.get();
   }

@@ -10,14 +10,14 @@
 #include "core/str.h"
 #include "core/range.h"
 
-#include "duk/overload.h"
+#include "duk/function.h"
 #include "duk/context.h"
 #include "duk/template.h"
 
 namespace duk
 {
   template <typename Callback, typename... TArgs>
-  class GenericOverload : public Overload
+  class GenericOverload : public Function
   {
    public:
     Callback callback;

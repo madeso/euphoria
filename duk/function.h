@@ -1,21 +1,29 @@
 #ifndef EUPHORIA_DUK_BINDFUNCTION_H
 #define EUPHORIA_DUK_BINDFUNCTION_H
 
-#include <memory>
-#include <vector>
+#include <string>
 
 namespace duk
 {
-  class Overload;
+  class Context;
 
   class Function
   {
    public:
     Function() = default;
 
-    ~Function();
+    virtual ~Function() = default;
 
-    std::shared_ptr<Overload> overloads;
+    // return empty string if matches
+    // non-empty means match failed
+    virtual std::string
+    Matches(Context* ctx) = 0;
+
+    virtual int
+    Call(Context* ctx) = 0;
+
+    virtual std::string
+    Describe(Context* context) const = 0;
   };
 }
 

@@ -8,7 +8,7 @@
 #include <typeinfo>
 #include <memory>
 
-#include "duk/overload.h"
+#include "duk/function.h"
 
 namespace duk
 {
@@ -20,24 +20,24 @@ namespace duk
     // todo: add constructor
 
     ClassBinder&
-    SetConstructor(const std::shared_ptr<Overload>& bind);
+    SetConstructor(const std::shared_ptr<Function>& bind);
 
     ClassBinder&
-    AddMethod(const std::string& name, const std::shared_ptr<Overload>& bind);
+    AddMethod(const std::string& name, const std::shared_ptr<Function>& bind);
 
     ClassBinder&
     AddProperty(
         const std::string&               name,
-        const std::shared_ptr<Overload>& get,
-        const std::shared_ptr<Overload>& set);
+        const std::shared_ptr<Function>& get,
+        const std::shared_ptr<Function>& set);
 
     size_t                    id;
-    std::shared_ptr<Overload> constructor;
-    std::vector<std::pair<std::string, std::shared_ptr<Overload>>> overloads;
+    std::shared_ptr<Function> constructor;
+    std::vector<std::pair<std::string, std::shared_ptr<Function>>> overloads;
     std::vector<std::tuple<
         std::string,
-        std::shared_ptr<Overload>,
-        std::shared_ptr<Overload>>>
+        std::shared_ptr<Function>,
+        std::shared_ptr<Function>>>
         properties;
   };
 
