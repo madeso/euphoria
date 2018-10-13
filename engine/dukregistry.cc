@@ -18,7 +18,7 @@ DukRegistry::DukRegistry(EntReg* r, Components* c)
 }
 
 ComponentId
-DukRegistry::CreateNewId(const std::string& name, const duk::FunctionVar& fv)
+DukRegistry::CreateNewId(const std::string& name, const duk::FunctionReference& fv)
 {
   const auto id        = reg->NewComponentType(name);
   scriptComponents[id] = fv;

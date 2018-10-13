@@ -3,7 +3,7 @@
 #include "duk/boundfunction.h"
 #include "duk/bindclass.h"
 #include "duk/bindobject.h"
-#include "duk/function.h"
+#include "duk/functionreference.h"
 
 #include "catch.hpp"
 
@@ -342,8 +342,8 @@ TEST_CASE("duk-eval", "[duk]")
       int i = 0;
       duk.BindGlobalFunction(
           "test",
-          MakeBind<FunctionVar>(
-              [&](Context* ctx, const FunctionVar& func) -> int {
+          MakeBind<FunctionReference>(
+              [&](Context* ctx, const FunctionReference& func) -> int {
                 i = func.Call<int>(ctx);
                 return ctx->ReturnVoid();
               }));
@@ -360,8 +360,8 @@ TEST_CASE("duk-eval", "[duk]")
       std::string str;
       duk.BindGlobalFunction(
           "test",
-          MakeBind<FunctionVar>(
-              [&](Context* ctx, const FunctionVar& func) -> int {
+          MakeBind<FunctionReference>(
+              [&](Context* ctx, const FunctionReference& func) -> int {
                 str = func.Call<std::string>(ctx, "Duke");
                 return ctx->ReturnVoid();
               }));
@@ -375,11 +375,11 @@ TEST_CASE("duk-eval", "[duk]")
 
     SECTION("store function")
     {
-      FunctionVar f;
+      FunctionReference f;
       duk.BindGlobalFunction(
           "test",
-          MakeBind<FunctionVar>(
-              [&](Context* ctx, const FunctionVar& func) -> int {
+          MakeBind<FunctionReference>(
+              [&](Context* ctx, const FunctionReference& func) -> int {
                 f = func;
                 f.StoreReference(ctx);
                 return ctx->ReturnVoid();

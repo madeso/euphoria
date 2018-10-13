@@ -7,7 +7,7 @@
 #include "core/log.h"
 
 #include "duk/duk.h"
-#include "duk/function.h"
+#include "duk/functionreference.h"
 #include "duk/bindobject.h"
 #include "duk/bindclass.h"
 
@@ -21,11 +21,11 @@ LOG_SPECIFY_DEFAULT_LOGGER("engine.duk.integration")
 
 class DukUpdateSystem : public ComponentSystem, public ComponentSystemUpdate
 {
-  duk::FunctionVar func;
+  duk::FunctionReference func;
   duk::Duk*        duk;
 
  public:
-  DukUpdateSystem(const std::string& name, duk::FunctionVar f, duk::Duk* d)
+  DukUpdateSystem(const std::string& name, duk::FunctionReference f, duk::Duk* d)
       : ComponentSystem(name)
       , func(f)
       , duk(d)
@@ -50,7 +50,7 @@ class DukInitSystem : public ComponentSystem, public ComponentSystemInit
 {
   EntReg*                  reg;
   std::vector<ComponentId> types;
-  duk::FunctionVar         func;
+  duk::FunctionReference         func;
   duk::Duk*                duk;
 
  public:
@@ -58,7 +58,7 @@ class DukInitSystem : public ComponentSystem, public ComponentSystemInit
       const std::string&              name,
       EntReg*                         r,
       const std::vector<ComponentId>& t,
-      duk::FunctionVar                f,
+      duk::FunctionReference                f,
       duk::Duk*                       d)
       : ComponentSystem(name)
       , reg(r)
@@ -106,7 +106,7 @@ class DukSystems
   }
 
   void
-  AddUpdate(const std::string& name, duk::FunctionVar func)
+  AddUpdate(const std::string& name, duk::FunctionReference func)
   {
     systems->AddAndRegister(std::make_shared<DukUpdateSystem>(name, func, duk));
   }
@@ -116,7 +116,7 @@ class DukSystems
       const std::string&              name,
       EntReg*                         reg,
       const std::vector<ComponentId>& types,
-      duk::FunctionVar                func)
+      duk::FunctionReference                func)
   {
     systems->AddAndRegister(
         std::make_shared<DukInitSystem>(name, reg, types, func, duk));
@@ -151,8 +151,8 @@ struct DukIntegrationPimpl
         BindObject()
             .AddFunction(
                 "AddUpdate",
-                MakeBind<std::string, FunctionVar>(
-                    [&](Context* ctx, const std::string& name, FunctionVar func)
+                MakeBind<std::string, FunctionReference>(
+                    [&](Context* ctx, const std::string& name, FunctionReference func)
                         -> int {
                       func.StoreReference(ctx);
                       systems.AddUpdate(name, func);
@@ -161,11 +161,11 @@ struct DukIntegrationPimpl
 
             .AddFunction(
                 "OnInit",
-                MakeBind<std::string, std::vector<ComponentId>, FunctionVar>(
+                MakeBind<std::string, std::vector<ComponentId>, FunctionReference>(
                     [&](Context*                        ctx,
                         const std::string&              name,
                         const std::vector<ComponentId>& types,
-                        FunctionVar                     func) -> int {
+                        FunctionReference                     func) -> int {
                       func.StoreReference(ctx);
                       systems.AddInit(name, &world->reg, types, func);
                       return ctx->ReturnVoid();
@@ -251,10 +251,10 @@ struct DukIntegrationPimpl
                          }))
             .AddFunction(
                 "New",
-                MakeBind<std::string, Optional<FunctionVar>>(
+                MakeBind<std::string, Optional<FunctionReference>>(
                     [&](Context*              ctx,
                         const std::string&    name,
-                        Optional<FunctionVar> setup) -> int {
+                        Optional<FunctionReference> setup) -> int {
                       if(setup)
                       {
                         LOG_INFO("New id with ref");

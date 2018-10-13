@@ -15,10 +15,10 @@ namespace duk
   class Context;
 
   // todo: rename to DukFunc
-  class FunctionVar
+  class FunctionReference
   {
    public:
-    explicit FunctionVar(void* ptr = nullptr);
+    explicit FunctionReference(void* ptr = nullptr);
 
     bool
     IsValid() const;
@@ -55,7 +55,7 @@ namespace duk
   };
 
   template <>
-  struct DukTemplate<FunctionVar>
+  struct DukTemplate<FunctionReference>
   {
     static bool
     IsRequired()
@@ -76,11 +76,11 @@ namespace duk
       }
     }
 
-    static FunctionVar
+    static FunctionReference
     Parse(Context* ctx, int index)
     {
       ASSERT(ctx->IsObject(index));
-      return FunctionVar{ctx->GetFunctionPtr(index)};
+      return FunctionReference{ctx->GetFunctionPtr(index)};
     }
 
     static std::string
@@ -93,7 +93,7 @@ namespace duk
 
   template <typename... TArgs>
   bool
-  FunctionVar::SubCall(Context* context, TArgs... args) const
+  FunctionReference::SubCall(Context* context, TArgs... args) const
   {
     BeginCall(context);
 
@@ -106,7 +106,7 @@ namespace duk
 
   template <typename TReturn, typename... TArgs>
   TReturn
-  FunctionVar::Call(Context* context, TArgs... args) const
+  FunctionReference::Call(Context* context, TArgs... args) const
   {
     const bool ret = SubCall(context, args...);
     if(!ret)
@@ -133,7 +133,7 @@ namespace duk
 
   template <typename... TArgs>
   void
-  FunctionVar::VoidCall(Context* context, TArgs... args) const
+  FunctionReference::VoidCall(Context* context, TArgs... args) const
   {
     const bool ret = SubCall(context, args...);
     if(!ret)

@@ -4,7 +4,7 @@
 #include "core/componentsystem.h"
 #include "core/entity.h"
 
-#include "duk/function.h"
+#include "duk/functionreference.h"
 
 #include "engine/components.h"
 
@@ -23,7 +23,7 @@ class DukRegistry
   DukRegistry(EntReg* r, Components* components);
 
   ComponentId
-  CreateNewId(const std::string& name, const duk::FunctionVar& fv);
+  CreateNewId(const std::string& name, const duk::FunctionReference& fv);
 
   bool
   GetCustomComponentByName(const std::string& name, ComponentId* id);
@@ -51,7 +51,7 @@ class DukRegistry
     return reg->GetComponentOrNull<T>(ent, comp);
   }
 
-  using ScriptComponentMap = std::map<ComponentId, duk::FunctionVar>;
+  using ScriptComponentMap = std::map<ComponentId, duk::FunctionReference>;
 
   EntReg*            reg;
   Components*        components;

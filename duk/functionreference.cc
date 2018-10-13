@@ -1,4 +1,4 @@
-#include "duk/function.h"
+#include "duk/functionreference.h"
 
 #include "duktape/duktape.h"
 
@@ -6,40 +6,40 @@
 
 namespace duk
 {
-  FunctionVar::FunctionVar(void* ptr)
+  FunctionReference::FunctionReference(void* ptr)
       : function(ptr)
   {
   }
 
   bool
-  FunctionVar::IsValid() const
+  FunctionReference::IsValid() const
   {
     return function != nullptr;
   }
 
   void
-  FunctionVar::StoreReference(Context* ctx)
+  FunctionReference::StoreReference(Context* ctx)
   {
     ASSERT(IsValid());
     ctx->duk->references.StoreReference(function);
   }
 
   void
-  FunctionVar::BeginCall(Context* context) const
+  FunctionReference::BeginCall(Context* context) const
   {
     ASSERT(IsValid());
     duk_push_heapptr(context->ctx, function);
   }
 
   bool
-  FunctionVar::CallFunction(Context* context, int arguments) const
+  FunctionReference::CallFunction(Context* context, int arguments) const
   {
     ASSERT(IsValid());
     return duk_pcall(context->ctx, arguments) == DUK_EXEC_SUCCESS;
   }
 
   std::string
-  FunctionVar::CollectError(Context* context) const
+  FunctionReference::CollectError(Context* context) const
   {
     std::string error = "unknown error";
     CollectDukError(context->ctx, &error);
@@ -48,7 +48,7 @@ namespace duk
   }
 
   void
-  FunctionVar::DoneFunction(Context* context) const
+  FunctionReference::DoneFunction(Context* context) const
   {
     ASSERT(IsValid());
     duk_pop(context->ctx);
