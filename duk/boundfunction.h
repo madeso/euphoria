@@ -15,7 +15,7 @@ namespace duk
 
     virtual ~BoundFunction();
 
-    std::vector<std::shared_ptr<Overload>> overloads;
+    std::shared_ptr<Overload> overloads;
   };
 }
 

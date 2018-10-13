@@ -224,48 +224,28 @@ namespace duk
       }
     }
 
-    // const int                number_of_arguments = duk_get_top(ctx);
-    std::vector<std::string> non_matches;
+    auto& overload = function->overloads;
+    ASSERT(overload);
 
-    std::vector<std::shared_ptr<Overload>> matched;
-    for(auto& overload : function->overloads)
     {
-      const auto match = overload->Matches(&context);
-      if(match.empty())
+      const auto match_error = overload->Matches(&context);
+      if(match_error.empty())
       {
-        matched.emplace_back(overload);
+        return overload->Call(&context);
       }
       else
       {
-        non_matches.emplace_back(
-            Str() << overload->Describe(&context) << ": " << match);
+        std::string described = Str() << "- " << overload->Describe(&context)
+                                      << ": " << match_error;
+
+        const auto arguments = DescribeArguments(&context);
+        return duk_type_error(
+            ctx,
+            "No matches found for %s, tried %s",
+            arguments.c_str(),
+            described.c_str());
       }
     }
-
-    if(matched.empty())
-    {
-      const auto arguments = DescribeArguments(&context);
-      const auto described = StringMerger::DashForEach().Generate(non_matches);
-      return duk_type_error(
-          ctx,
-          "No matches found for %s, tried %s",
-          arguments.c_str(),
-          described.c_str());
-    }
-
-
-    if(matched.size() != 1)
-    {
-      const auto arguments = DescribeArguments(&context);
-      const auto described = StringMerger::EnglishAnd().Generate(non_matches);
-      return duk_type_error(
-          ctx,
-          "Found several matches for(%s), tried %s",
-          arguments.c_str(),
-          described.c_str());
-    }
-
-    return matched[0]->Call(&context);
   }
 
   void
@@ -286,7 +266,8 @@ namespace duk
   }
 
   void
-  Duk::BindGlobalFunction(const std::string& name, const Bind& bind)
+  Duk::BindGlobalFunction(
+      const std::string& name, const std::shared_ptr<Overload>& bind)
   {
     PlaceFunctionOnStack(
         ctx,
@@ -323,7 +304,7 @@ namespace duk
   void
   Duk::BindClass(const std::string& name, const ClassBinder& bind)
   {
-    if(!bind.constructor.overloads.empty())
+    if(bind.constructor)
     {
       // constructor
       PlaceFunctionOnStack(
@@ -360,7 +341,7 @@ namespace duk
 
       duk_push_string(ctx, propname.c_str());
 
-      if(!getter.overloads.empty())
+      if(getter)
       {
         PlaceFunctionOnStack(
             ctx,
@@ -370,7 +351,7 @@ namespace duk
             0);
         flags |= DUK_DEFPROP_HAVE_GETTER;
       }
-      if(!setter.overloads.empty())
+      if(setter)
       {
         PlaceFunctionOnStack(
             ctx,
@@ -394,11 +375,11 @@ namespace duk
   }
 
   BoundFunction*
-  Duk::CreateFunction(const Bind& bind)
+  Duk::CreateFunction(const std::shared_ptr<Overload>& bind)
   {
     // create new function object
     auto func       = std::make_shared<BoundFunction>();
-    func->overloads = bind.overloads;
+    func->overloads = bind;
     functions.emplace_back(func);
     return func.get();
   }

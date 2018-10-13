@@ -11,11 +11,10 @@
 #include "duk/value.h"
 #include "duk/referencestorage.h"
 #include "duk/config.h"
+#include "duk/overload.h"
 
 namespace duk
 {
-  class Bind;
-
   class ObjectBinder;
 
   class ClassBinder;
@@ -46,7 +45,8 @@ namespace duk
     BindPrint(std::function<void(const std::string&)> on_print);
 
     void
-    BindGlobalFunction(const std::string& name, const Bind& overloads);
+    BindGlobalFunction(
+        const std::string& name, const std::shared_ptr<Overload>& overload);
 
     void
     BindObject(const std::string& name, const ObjectBinder& bind);
@@ -57,7 +57,7 @@ namespace duk
     ~Duk();
 
     BoundFunction*
-    CreateFunction(const Bind& overloads);
+    CreateFunction(const std::shared_ptr<Overload>& overload);
 
     Prototype*
     TypeToProto(size_t id CLASS_ARG(const std::string& name));

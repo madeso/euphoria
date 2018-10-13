@@ -6,7 +6,7 @@
 
 #include "duk/bindclass.h"
 #include "duk/duk.h"
-
+#include "duk/bind.h"
 
 template <typename T>
 void
@@ -19,18 +19,16 @@ BindVec2(duk::Duk* duk, const std::string& name)
   duk->BindClass(
       name,
       BindClass<V>()
-          .SetConstructor(MakeBind<float, float>(
-              [](Context* ctx, float x, float y) -> int {
+          .SetConstructor(
+              MakeBind<float, float>([](Context* ctx, float x, float y) -> int {
                 return ctx->ReturnObject(std::make_shared<V>(x, y));
               }))
-          .AddMethod(
-              "getX", MakeBind<V>([](Context* ctx, const V& v) -> int {
-                return ctx->ReturnNumber(v.GetX());
-              }))
-          .AddMethod(
-              "getY", MakeBind<V>([](Context* ctx, const V& v) -> int {
-                return ctx->ReturnNumber(v.GetY());
-              }))
+          .AddMethod("getX", MakeBind<V>([](Context* ctx, const V& v) -> int {
+                       return ctx->ReturnNumber(v.GetX());
+                     }))
+          .AddMethod("getY", MakeBind<V>([](Context* ctx, const V& v) -> int {
+                       return ctx->ReturnNumber(v.GetY());
+                     }))
           .AddProperty(
               "x",
               MakeBind<V>([](Context* ctx, const V& v) -> int {

@@ -3,6 +3,7 @@
 #include "core/assert.h"
 #include "duk/duk.h"
 #include "duk/bindclass.h"
+#include "duk/bind.h"
 
 BoundVar::BoundVar(const std::string& n, const Key& k)
     : name(n)
@@ -24,13 +25,13 @@ BindBoundVar(duk::Duk* duk)
               MakeBind<BoundVar>([](Context* ctx, const BoundVar& bv) -> int {
                 return ctx->ReturnNumber(bv.state);
               }),
-              Bind{})
+              MakeNoBind())
           .AddProperty(
               "last_state",
               MakeBind<BoundVar>([](Context* ctx, const BoundVar& bv) -> int {
                 return ctx->ReturnNumber(bv.last_state);
               }),
-              Bind{}));
+              MakeNoBind()));
 }
 
 void

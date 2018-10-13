@@ -9,21 +9,15 @@
 
 namespace duk
 {
-  class Bind
-  {
-   public:
-    std::vector<std::shared_ptr<Overload>> overloads;
-  };
-
   template <typename... TArgs, typename Func>
-  Bind
+  std::shared_ptr<Overload>
   MakeBind(Func callback)
   {
-    Bind bind;
-    bind.overloads.emplace_back(
-        std::make_shared<GenericOverload<Func, TArgs...>>(callback));
-    return bind;
+    return std::make_shared<GenericOverload<Func, TArgs...>>(callback);
   }
+
+  std::shared_ptr<Overload>
+  MakeNoBind();
 }
 
 #endif  // EUPHORIA_DUK_BIND_H

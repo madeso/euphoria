@@ -6,8 +6,9 @@
 #include <tuple>
 #include <utility>
 #include <typeinfo>
+#include <memory>
 
-#include "duk/bind.h"
+#include "duk/overload.h"
 
 namespace duk
 {
@@ -19,18 +20,25 @@ namespace duk
     // todo: add constructor
 
     ClassBinder&
-    SetConstructor(const Bind& bind);
+    SetConstructor(const std::shared_ptr<Overload>& bind);
 
     ClassBinder&
-    AddMethod(const std::string& name, const Bind& bind);
+    AddMethod(const std::string& name, const std::shared_ptr<Overload>& bind);
 
     ClassBinder&
-    AddProperty(const std::string& name, const Bind& get, const Bind& set);
+    AddProperty(
+        const std::string&               name,
+        const std::shared_ptr<Overload>& get,
+        const std::shared_ptr<Overload>& set);
 
-    size_t id;
-    Bind   constructor;
-    std::vector<std::pair<std::string, Bind>> overloads;
-    std::vector<std::tuple<std::string, Bind, Bind>> properties;
+    size_t                    id;
+    std::shared_ptr<Overload> constructor;
+    std::vector<std::pair<std::string, std::shared_ptr<Overload>>> overloads;
+    std::vector<std::tuple<
+        std::string,
+        std::shared_ptr<Overload>,
+        std::shared_ptr<Overload>>>
+        properties;
   };
 
   template <typename T>
