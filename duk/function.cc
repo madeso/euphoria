@@ -20,6 +20,7 @@ namespace duk
   void
   FunctionVar::StoreReference(Context* ctx)
   {
+    ASSERT(IsValid());
     ctx->duk->references.StoreReference(function);
   }
 

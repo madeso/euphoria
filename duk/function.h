@@ -57,6 +57,12 @@ namespace duk
   template <>
   struct DukTemplate<FunctionVar>
   {
+    static bool
+    IsRequired()
+    {
+      return true;
+    }
+
     static std::string
     CanMatch(Context* ctx, int index, int arg)
     {

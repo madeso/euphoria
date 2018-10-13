@@ -4,6 +4,7 @@
 
 #include "core/componentsystem.h"
 #include "core/random.h"
+#include "core/log.h"
 
 #include "duk/duk.h"
 #include "duk/function.h"
@@ -16,10 +17,12 @@
 #include "engine/objectemplate.h"
 #include "engine/cameradata.h"
 
+LOG_SPECIFY_DEFAULT_LOGGER("engine.duk.integration")
+
 class DukUpdateSystem : public ComponentSystem, public ComponentSystemUpdate
 {
   duk::FunctionVar func;
-  duk::Duk*             duk;
+  duk::Duk*        duk;
 
  public:
   DukUpdateSystem(const std::string& name, duk::FunctionVar f, duk::Duk* d)
@@ -47,16 +50,16 @@ class DukInitSystem : public ComponentSystem, public ComponentSystemInit
 {
   EntReg*                  reg;
   std::vector<ComponentId> types;
-  duk::FunctionVar              func;
-  duk::Duk*                     duk;
+  duk::FunctionVar         func;
+  duk::Duk*                duk;
 
  public:
   DukInitSystem(
       const std::string&              name,
       EntReg*                         r,
       const std::vector<ComponentId>& t,
-      duk::FunctionVar                     f,
-      duk::Duk*                            d)
+      duk::FunctionVar                f,
+      duk::Duk*                       d)
       : ComponentSystem(name)
       , reg(r)
       , types(t)
@@ -93,8 +96,8 @@ class DukInitSystem : public ComponentSystem, public ComponentSystemInit
 class DukSystems
 {
  public:
-  Systems* systems;
-  duk::Duk*     duk;
+  Systems*  systems;
+  duk::Duk* duk;
 
   DukSystems(Systems* s, duk::Duk* d)
       : systems(s)
@@ -113,7 +116,7 @@ class DukSystems
       const std::string&              name,
       EntReg*                         reg,
       const std::vector<ComponentId>& types,
-      duk::FunctionVar                     func)
+      duk::FunctionVar                func)
   {
     systems->AddAndRegister(
         std::make_shared<DukInitSystem>(name, reg, types, func, duk));
@@ -125,7 +128,7 @@ struct DukIntegrationPimpl
   DukIntegrationPimpl(
       Systems*       sys,
       World*         world,
-      duk::Duk*           duk,
+      duk::Duk*      duk,
       ObjectCreator* creator,
       Components*    components,
       CameraData*    cam)
@@ -148,7 +151,7 @@ struct DukIntegrationPimpl
         BindObject()
             .AddFunction(
                 "AddUpdate",
-                Bind{}.bind<std::string, FunctionVar>(
+                MakeBind<std::string, FunctionVar>(
                     [&](Context* ctx, const std::string& name, FunctionVar func)
                         -> int {
                       func.StoreReference(ctx);
@@ -158,7 +161,7 @@ struct DukIntegrationPimpl
 
             .AddFunction(
                 "OnInit",
-                Bind{}.bind<std::string, std::vector<ComponentId>, FunctionVar>(
+                MakeBind<std::string, std::vector<ComponentId>, FunctionVar>(
                     [&](Context*                        ctx,
                         const std::string&              name,
                         const std::vector<ComponentId>& types,
@@ -173,7 +176,7 @@ struct DukIntegrationPimpl
     duk->BindObject(
         "Math",
         BindObject().AddFunction(
-            "NewRandom", Bind{}.bind<>([&](Context* ctx) -> int {
+            "NewRandom", MakeBind<>([&](Context* ctx) -> int {
               return ctx->ReturnObject(std::make_shared<Random>());
             })));
 
@@ -181,7 +184,7 @@ struct DukIntegrationPimpl
         "Templates",
         BindObject().AddFunction(
             "Find",
-            Bind{}.bind<std::string>(
+            MakeBind<std::string>(
                 [&](Context* ctx, const std::string& name) -> int {
                   return ctx->ReturnFreeObject(creator->FindTemplate(name));
                 })));
@@ -189,7 +192,7 @@ struct DukIntegrationPimpl
         "Template",
         BindClass<ObjectTemplate>().AddMethod(
             "Create",
-            Bind{}.bind<ObjectTemplate>(
+            MakeBind<ObjectTemplate>(
                 [&, duk](Context* ctx, ObjectTemplate& t) -> int {
                   return ctx->Return(t.CreateObject(
                       ObjectCreationArgs{world, &registry, ctx, duk}));
@@ -198,7 +201,7 @@ struct DukIntegrationPimpl
     duk->BindObject(
         "Camera",
         BindObject().AddFunction(
-            "GetRect", Bind{}.bind<>([&](Context* ctx) -> int {
+            "GetRect", MakeBind<>([&](Context* ctx) -> int {
               return ctx->ReturnFreeObject(&camera->screen);
             })));
 
@@ -206,7 +209,7 @@ struct DukIntegrationPimpl
         "CustomArguments",
         BindClass<CustomArguments>().AddMethod(
             "GetNumber",
-            Bind{}.bind<CustomArguments, std::string>(
+            MakeBind<CustomArguments, std::string>(
                 [](Context*               ctx,
                    const CustomArguments& args,
                    const std::string&     name) -> int {
@@ -226,52 +229,55 @@ struct DukIntegrationPimpl
         BindObject()
             .AddFunction(
                 "Entities",
-                Bind{}.bind<std::vector<ComponentId>>(
+                MakeBind<std::vector<ComponentId>>(
                     [&](Context*                        ctx,
                         const std::vector<ComponentId>& types) -> int {
                       return ctx->ReturnArray(registry.EntityView(types));
                     }))
-            .AddFunction("GetSpriteId", Bind{}.bind([&](Context* ctx) -> int {
-              return ctx->Return(registry.components->sprite);
-            }))
+            .AddFunction("GetSpriteId", MakeBind([&](Context* ctx) -> int {
+                           return ctx->Return(registry.components->sprite);
+                         }))
             .AddFunction(
                 "DestroyEntity",
-                Bind{}.bind<EntityId>(
-                    [&](Context* ctx, EntityId entity) -> int {
-                      registry.DestroyEntity(entity);
-                      return ctx->ReturnVoid();
-                    }))
-            .AddFunction(
-                "GetPosition2Id", Bind{}.bind([&](Context* ctx) -> int {
-                  return ctx->Return(registry.components->position2);
+                MakeBind<EntityId>([&](Context* ctx, EntityId entity) -> int {
+                  registry.DestroyEntity(entity);
+                  return ctx->ReturnVoid();
                 }))
-            .AddFunction("GetSpriteId", Bind{}.bind([&](Context* ctx) -> int {
-              return ctx->Return(registry.components->sprite);
-            }))
+            .AddFunction("GetPosition2Id", MakeBind([&](Context* ctx) -> int {
+                           return ctx->Return(registry.components->position2);
+                         }))
+            .AddFunction("GetSpriteId", MakeBind([&](Context* ctx) -> int {
+                           return ctx->Return(registry.components->sprite);
+                         }))
             .AddFunction(
                 "New",
-                Bind{}
-                    .bind<std::string>(
-                        [&](Context* ctx, const std::string& name) -> int {
-                          FunctionVar fv;
-                          return ctx->Return(registry.CreateNewId(name, fv));
-                        })
-                    .bind<std::string, FunctionVar>(
-                        [&](Context*           ctx,
-                            const std::string& name,
-                            FunctionVar        setup) -> int {
-                          setup.StoreReference(ctx);
-                          return ctx->Return(registry.CreateNewId(name, setup));
-                        }))
+                MakeBind<std::string, Optional<FunctionVar>>(
+                    [&](Context*              ctx,
+                        const std::string&    name,
+                        Optional<FunctionVar> setup) -> int {
+                      if(setup)
+                      {
+                        LOG_INFO("New id with ref");
+                        ASSERT(setup->IsValid());
+                        setup->StoreReference(ctx);
+                      }
+                      else
+                      {
+                        LOG_INFO("New id with no ref");
+                        ASSERT(!setup->IsValid());
+                      }
+                      return ctx->Return(
+                          registry.CreateNewId(name, setup.value));
+                    }))
             .AddFunction(
                 "Get",
-                Bind{}.bind<EntityId, ComponentId>(
+                MakeBind<EntityId, ComponentId>(
                     [&](Context* ctx, EntityId ent, ComponentId comp) -> int {
                       return ctx->Return(registry.GetProperty(ent, comp));
                     }))
             .AddFunction(
                 "Set",
-                Bind{}.bind<EntityId, ComponentId, DukValue>(
+                MakeBind<EntityId, ComponentId, DukValue>(
                     [&](Context*    ctx,
                         EntityId    ent,
                         ComponentId comp,
@@ -281,7 +287,7 @@ struct DukIntegrationPimpl
                     }))
             .AddFunction(
                 "GetSprite",
-                Bind{}.bind<ComponentId>(
+                MakeBind<ComponentId>(
                     [&](Context* ctx, ComponentId ent) -> int {
                       return ctx->ReturnFreeObject(
                           registry.GetComponentOrNull<CSprite>(
@@ -289,7 +295,7 @@ struct DukIntegrationPimpl
                     }))
             .AddFunction(
                 "GetPosition2",
-                Bind{}.bind<ComponentId>(
+                MakeBind<ComponentId>(
                     [&](Context* ctx, ComponentId ent) -> int {
                       return ctx->ReturnFreeObject(
                           registry.GetComponentOrNull<CPosition2>(
@@ -297,7 +303,7 @@ struct DukIntegrationPimpl
                     }))
             .AddFunction(
                 "GetPosition2vec",
-                Bind{}.bind<ComponentId>(
+                MakeBind<ComponentId>(
                     [&](Context* ctx, ComponentId ent) -> int {
                       auto c = registry.GetComponentOrNull<CPosition2>(
                           ent, components->position2);
@@ -325,27 +331,27 @@ struct DukIntegrationPimpl
         BindClass<CPosition2>()
             .AddMethod(
                 "GetPos",
-                Bind{}.bind<CPosition2>([](Context* ctx, CPosition2& p) -> int {
+                MakeBind<CPosition2>([](Context* ctx, CPosition2& p) -> int {
                   return ctx->ReturnObject(std::make_shared<vec2f>(p.pos));
                 }))
             .AddMethod(
                 "SetPos",
-                Bind{}.bind<CPosition2, vec2f>(
+                MakeBind<CPosition2, vec2f>(
                     [](Context* ctx, CPosition2& p, const vec2f& pos) -> int {
                       p.pos = pos;
                       return ctx->ReturnVoid();
                     }))
             .AddMethod(
                 "GetPosRef",
-                Bind{}.bind<CPosition2>([](Context* ctx, CPosition2& p) -> int {
+                MakeBind<CPosition2>([](Context* ctx, CPosition2& p) -> int {
                   return ctx->ReturnFreeObject(&p.pos);
                 }))
             .AddProperty(
                 "vec",
-                Bind{}.bind<CPosition2>([](Context* ctx, CPosition2& p) -> int {
+                MakeBind<CPosition2>([](Context* ctx, CPosition2& p) -> int {
                   return ctx->ReturnFreeObject(&p.pos);
                 }),
-                Bind{}.bind<CPosition2, vec2f>(
+                MakeBind<CPosition2, vec2f>(
                     [](Context* ctx, CPosition2& p, const vec2f& pos) -> int {
                       p.pos = pos;
                       return ctx->ReturnVoid();
@@ -355,7 +361,7 @@ struct DukIntegrationPimpl
         "CSprite",
         BindClass<CSprite>().AddMethod(
             "GetRect",
-            Bind{}.bind<CSprite, CPosition2>(
+            MakeBind<CSprite, CPosition2>(
                 [](Context* ctx, const CSprite& sp, const CPosition2& p)
                     -> int {
                   return ctx->ReturnObject(std::make_shared<Rectf>(
@@ -367,19 +373,19 @@ struct DukIntegrationPimpl
         BindClass<Rectf>()
             .AddMethod(
                 "Contains",
-                Bind{}.bind<Rectf, Rectf>(
+                MakeBind<Rectf, Rectf>(
                     [](Context* ctx, const Rectf& lhs, const Rectf& rhs)
                         -> int {
                       return ctx->ReturnBool(lhs.ContainsExclusive(rhs));
                     }))
             .AddMethod(
                 "GetHeight",
-                Bind{}.bind<Rectf>([](Context* ctx, const Rectf& r) -> int {
+                MakeBind<Rectf>([](Context* ctx, const Rectf& r) -> int {
                   return ctx->ReturnNumber(r.GetHeight());
                 }))
             .AddMethod(
                 "GetWidth",
-                Bind{}.bind<Rectf>([](Context* ctx, const Rectf& r) -> int {
+                MakeBind<Rectf>([](Context* ctx, const Rectf& r) -> int {
                   return ctx->ReturnNumber(r.GetWidth());
                 })));
 
@@ -388,23 +394,23 @@ struct DukIntegrationPimpl
         BindClass<Random>()
             .AddMethod(
                 "NextFloat01",
-                Bind{}.bind<Random>([](Context* ctx, Random& rnd) -> int {
+                MakeBind<Random>([](Context* ctx, Random& rnd) -> int {
                   return ctx->ReturnNumber(rnd.NextFloat01());
                 }))
             .AddMethod(
                 "NextRangeFloat",
-                Bind{}.bind<Random, float>(
+                MakeBind<Random, float>(
                     [](Context* ctx, Random& rnd, float f) -> int {
                       return ctx->ReturnNumber(rnd.NextRange(f));
                     }))
             .AddMethod(
                 "NextBool",
-                Bind{}.bind<Random>([](Context* ctx, Random& rnd) -> int {
+                MakeBind<Random>([](Context* ctx, Random& rnd) -> int {
                   return ctx->ReturnBool(rnd.NextBool());
                 }))
             .AddMethod(
                 "NextPoint2",
-                Bind{}.bind<Random, Rectf>(
+                MakeBind<Random, Rectf>(
                     [](Context* ctx, Random& rnd, const Rectf& r) -> int {
                       return ctx->ReturnObject(
                           std::make_shared<vec2f>(rnd.NextPoint(r)));
@@ -423,7 +429,7 @@ struct DukIntegrationPimpl
 
   DukSystems     systems;
   DukRegistry    registry;
-  duk::DukValue       input;
+  duk::DukValue  input;
   World*         world;
   ObjectCreator* creator;
   Components*    components;
@@ -433,7 +439,7 @@ struct DukIntegrationPimpl
 DukIntegration::DukIntegration(
     Systems*       systems,
     World*         reg,
-    duk::Duk*           duk,
+    duk::Duk*      duk,
     ObjectCreator* creator,
     Components*    components,
     CameraData*    camera)

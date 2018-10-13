@@ -12,6 +12,7 @@
 #include "duk/config.h"
 #include "duk/context.h"
 #include "duk/prototype.h"
+#include "duk/optional.h"
 
 namespace duk
 {
@@ -26,9 +27,17 @@ namespace duk
   template <typename TT>
   struct DukTemplate<
       TT,
-      std::enable_if_t<!std::is_arithmetic<TT>::value && !IsVector<TT>::value>>
+      std::enable_if_t<
+          !std::is_arithmetic<TT>::value && !IsVector<TT>::value &&
+          !IsOptional<TT>::value>>
   {
     using T = typename std::decay<TT>::type;
+
+    static bool
+    IsRequired()
+    {
+      return true;
+    }
 
     static std::string
     CanMatch(Context* ctx, int index, int arg)
@@ -97,6 +106,12 @@ namespace duk
   template <typename T>
   struct DukTemplate<T, std::enable_if_t<std::is_arithmetic<T>::value>>
   {
+    static bool
+    IsRequired()
+    {
+      return true;
+    }
+
     static std::string
     CanMatch(Context* ctx, int index, int arg)
     {
@@ -127,6 +142,12 @@ namespace duk
   template <>
   struct DukTemplate<std::string>
   {
+    static bool
+    IsRequired()
+    {
+      return true;
+    }
+
     static std::string
     CanMatch(Context* ctx, int index, int arg)
     {
@@ -156,6 +177,12 @@ namespace duk
   template <>
   struct DukTemplate<DukValue>
   {
+    static bool
+    IsRequired()
+    {
+      return true;
+    }
+
     static std::string
     CanMatch(Context* ctx, int index, int arg)
     {
@@ -186,6 +213,12 @@ namespace duk
   template <typename T>
   struct DukTemplate<std::vector<T>, void>
   {
+    static bool
+    IsRequired()
+    {
+      return true;
+    }
+
     static std::string
     CanMatch(Context* ctx, int index, int arg)
     {
@@ -235,6 +268,48 @@ namespace duk
     Name(Context* ctx)
     {
       return Str() << "[" << DukTemplate<T>::Name(ctx) << "]";
+    }
+  };
+
+  template <typename T>
+  struct DukTemplate<Optional<T>, void>
+  {
+    static bool
+    IsRequired()
+    {
+      return false;
+    }
+
+    static std::string
+    CanMatch(Context* ctx, int index, int arg)
+    {
+      if(index >= 0)
+      {
+        return "";
+      }
+      else
+      {
+        return DukTemplate<T>::CanMatch(ctx, index, arg);
+      }
+    }
+
+    static Optional<T>
+    Parse(Context* ctx, int index)
+    {
+      if(index >= 0)
+      {
+        return Optional<T>{};
+      }
+      else
+      {
+        return DukTemplate<T>::Parse(ctx, index);
+      }
+    }
+
+    static std::string
+    Name(Context* ctx)
+    {
+      return Str() << DukTemplate<T>::Name(ctx) << "?";
     }
   };
 }
