@@ -40,12 +40,15 @@ namespace duk
       std::shared_ptr<Function> function;
     };
 
-    std::vector<Method> overloads;
-    std::vector<std::tuple<
-        std::string,
-        std::shared_ptr<Function>,
-        std::shared_ptr<Function>>>
-        properties;
+    struct Property
+    {
+      std::string               name;
+      std::shared_ptr<Function> get;
+      std::shared_ptr<Function> set;
+    };
+
+    std::vector<Method>   overloads;
+    std::vector<Property> properties;
   };
 
   template <typename T>

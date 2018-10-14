@@ -31,7 +31,11 @@ namespace duk
       const std::shared_ptr<Function>& get,
       const std::shared_ptr<Function>& set)
   {
-    properties.emplace_back(std::make_tuple(name, get, set));
+    Property prop;
+    prop.name = name;
+    prop.get  = get;
+    prop.set  = set;
+    properties.emplace_back(prop);
     return *this;
   }
 }

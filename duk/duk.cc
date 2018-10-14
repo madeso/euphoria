@@ -331,29 +331,25 @@ namespace duk
 
     for(const auto& prop : bind.properties)
     {
-      const auto& propname = std::get<0>(prop);
-      const auto& getter   = std::get<1>(prop);
-      const auto& setter   = std::get<2>(prop);
-
       duk_uint_t flags = 0;
 
-      duk_push_string(ctx, propname.c_str());
+      duk_push_string(ctx, prop.name.c_str());
 
-      if(getter)
+      if(prop.get)
       {
         PlaceFunctionOnStack(
             ctx,
-            CreateFunction(getter),
+            CreateFunction(prop.get),
             DukGenericFunctionCallback<true, false>,
             this,
             0);
         flags |= DUK_DEFPROP_HAVE_GETTER;
       }
-      if(setter)
+      if(prop.set)
       {
         PlaceFunctionOnStack(
             ctx,
-            CreateFunction(setter),
+            CreateFunction(prop.set),
             DukGenericFunctionCallback<true, false>,
             this,
             1);
