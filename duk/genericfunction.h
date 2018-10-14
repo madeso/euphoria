@@ -12,7 +12,7 @@
 
 #include "duk/function.h"
 #include "duk/context.h"
-#include "duk/template.h"
+#include "duk/stackparser.h"
 
 namespace duk
 {
@@ -34,7 +34,7 @@ namespace duk
     {
       const auto passed_argument_count = ctx->GetNumberOfArguments();
       const auto required =
-          std::vector<bool>{DukTemplate<TArgs>::IsRequired()...};
+          std::vector<bool>{StackParser<TArgs>::IsRequired()...};
       const auto argument_count =
           std::count(required.begin(), required.end(), true);
       const auto max_argument_count = sizeof...(TArgs);
@@ -47,7 +47,7 @@ namespace duk
                      << passed_argument_count << ".";
       }
 
-      const std::vector<std::string> matches{DukTemplate<TArgs>::CanMatch(
+      const std::vector<std::string> matches{StackParser<TArgs>::CanMatch(
           ctx,
           -passed_argument_count + static_cast<int>(I),
           static_cast<int>(I) + 1)...};
@@ -75,7 +75,7 @@ namespace duk
       const auto argument_count = ctx->GetNumberOfArguments();
       return callback(
           ctx,
-          DukTemplate<TArgs>::Parse(
+          StackParser<TArgs>::Parse(
               ctx, -argument_count + static_cast<int>(I))...);
     }
 
@@ -90,7 +90,7 @@ namespace duk
     {
       NotUsed(ctx);
       const std::vector<std::string> type_names = {
-          DukTemplate<TArgs>::Name(ctx)...};
+          StackParser<TArgs>::Name(ctx)...};
       return StringMerger::FunctionCall().Generate(type_names);
     }
   };

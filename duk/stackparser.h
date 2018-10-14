@@ -20,12 +20,12 @@ namespace duk
   ArgumentError(int arg, const std::string& err);
 
   template <typename TT, typename TValid = void>
-  struct DukTemplate
+  struct StackParser
   {
   };
 
   template <typename TT>
-  struct DukTemplate<
+  struct StackParser<
       TT,
       std::enable_if_t<
           !std::is_arithmetic<TT>::value && !IsVector<TT>::value &&
@@ -104,7 +104,7 @@ namespace duk
   };
 
   template <typename T>
-  struct DukTemplate<T, std::enable_if_t<std::is_arithmetic<T>::value>>
+  struct StackParser<T, std::enable_if_t<std::is_arithmetic<T>::value>>
   {
     static bool
     IsRequired()
@@ -140,7 +140,7 @@ namespace duk
   };
 
   template <>
-  struct DukTemplate<std::string>
+  struct StackParser<std::string>
   {
     static bool
     IsRequired()
@@ -175,7 +175,7 @@ namespace duk
   };
 
   template <>
-  struct DukTemplate<ObjectReference>
+  struct StackParser<ObjectReference>
   {
     static bool
     IsRequired()
@@ -211,7 +211,7 @@ namespace duk
   };
 
   template <typename T>
-  struct DukTemplate<std::vector<T>, void>
+  struct StackParser<std::vector<T>, void>
   {
     static bool
     IsRequired()
@@ -228,7 +228,7 @@ namespace duk
         for(int i = 0; i < array_size; i += 1)
         {
           ctx->GetArrayIndex(index, i);
-          const auto& match = DukTemplate<T>::CanMatch(ctx, -1, -1);
+          const auto& match = StackParser<T>::CanMatch(ctx, -1, -1);
           ctx->StopArrayIndex();
           if(!match.empty())
           {
@@ -257,7 +257,7 @@ namespace duk
       for(int i = 0; i < array_size; i += 1)
       {
         ctx->GetArrayIndex(index, i);
-        arr.emplace_back(DukTemplate<T>::Parse(ctx, -1));
+        arr.emplace_back(StackParser<T>::Parse(ctx, -1));
         ctx->StopArrayIndex();
       }
 
@@ -267,12 +267,12 @@ namespace duk
     static std::string
     Name(Context* ctx)
     {
-      return Str() << "[" << DukTemplate<T>::Name(ctx) << "]";
+      return Str() << "[" << StackParser<T>::Name(ctx) << "]";
     }
   };
 
   template <typename T>
-  struct DukTemplate<Optional<T>, void>
+  struct StackParser<Optional<T>, void>
   {
     static bool
     IsRequired()
@@ -289,7 +289,7 @@ namespace duk
       }
       else
       {
-        return DukTemplate<T>::CanMatch(ctx, index, arg);
+        return StackParser<T>::CanMatch(ctx, index, arg);
       }
     }
 
@@ -302,14 +302,14 @@ namespace duk
       }
       else
       {
-        return Optional<T>{DukTemplate<T>::Parse(ctx, index)};
+        return Optional<T>{StackParser<T>::Parse(ctx, index)};
       }
     }
 
     static std::string
     Name(Context* ctx)
     {
-      return Str() << DukTemplate<T>::Name(ctx) << "?";
+      return Str() << StackParser<T>::Name(ctx) << "?";
     }
   };
 }

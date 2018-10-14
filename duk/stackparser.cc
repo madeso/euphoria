@@ -1,4 +1,4 @@
-#include "duk/template.h"
+#include "duk/stackparser.h"
 
 namespace duk
 {

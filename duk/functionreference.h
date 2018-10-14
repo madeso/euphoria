@@ -7,7 +7,7 @@
 #include "core/cpp.h"
 #include "core/str.h"
 
-#include "duk/template.h"
+#include "duk/stackparser.h"
 #include "duk/pushvarimpl.h"
 
 namespace duk
@@ -55,7 +55,7 @@ namespace duk
   };
 
   template <>
-  struct DukTemplate<FunctionReference>
+  struct StackParser<FunctionReference>
   {
     static bool
     IsRequired()
@@ -114,11 +114,11 @@ namespace duk
       throw std::runtime_error(CollectError(context));
     }
 
-    const auto match = DukTemplate<TReturn>::CanMatch(context, -1, 0);
+    const auto match = StackParser<TReturn>::CanMatch(context, -1, 0);
 
     if(match.empty())
     {
-      const TReturn ret = DukTemplate<TReturn>::Parse(context, -1);
+      const TReturn ret = StackParser<TReturn>::Parse(context, -1);
       DoneFunction(context);
       return ret;
     }
