@@ -47,7 +47,7 @@ namespace duk
       std::shared_ptr<Function> set;
     };
 
-    std::vector<Method>   overloads;
+    std::vector<Method>   methods;
     std::vector<Property> properties;
   };
 

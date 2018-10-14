@@ -317,7 +317,7 @@ namespace duk
     // use duk_push_bare_object?
     const auto prototype_index = duk_push_object(ctx);  // prototype
 
-    for(const auto& method : bind.overloads)
+    for(const auto& method : bind.methods)
     {
       PlaceFunctionOnStack(
           ctx,

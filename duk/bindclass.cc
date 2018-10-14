@@ -21,7 +21,7 @@ namespace duk
     Method m;
     m.name     = name;
     m.function = bind;
-    overloads.emplace_back(m);
+    methods.emplace_back(m);
     return *this;
   }
 
