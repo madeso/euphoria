@@ -8,7 +8,7 @@
 #include "core/str.h"
 
 #include "duk/stackparser.h"
-#include "duk/pushvarimpl.h"
+#include "duk/pushvar.h"
 
 namespace duk
 {
