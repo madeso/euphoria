@@ -317,15 +317,15 @@ namespace duk
     // use duk_push_bare_object?
     const auto prototype_index = duk_push_object(ctx);  // prototype
 
-    for(const auto& func : bind.overloads)
+    for(const auto& method : bind.overloads)
     {
       PlaceFunctionOnStack(
           ctx,
-          CreateFunction(func.second),
+          CreateFunction(method.function),
           DukGenericFunctionCallback<true, false>,
           this);  // proto func
       const auto function_added = duk_put_prop_string(
-          ctx, prototype_index, func.first.c_str());  // proto
+          ctx, prototype_index, method.name.c_str());  // proto
       ASSERTX(function_added == 1, function_added);
     }
 
@@ -368,8 +368,8 @@ namespace duk
     const std::string proto_name = Str() << DUK_HIDDEN_SYMBOL("proto") << name;
     duk_put_global_string(ctx, proto_name.c_str());  // empty stack
 
-    classIds.insert(
-        std::make_pair(bind.id, std::make_shared<RegisteredClass>(name, prototype)));
+    classIds.insert(std::make_pair(
+        bind.id, std::make_shared<RegisteredClass>(name, prototype)));
   }
 
   Function*

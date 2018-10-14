@@ -18,7 +18,10 @@ namespace duk
   ClassBinder::AddMethod(
       const std::string& name, const std::shared_ptr<Function>& bind)
   {
-    overloads.emplace_back(std::make_pair(name, bind));
+    Method m;
+    m.name     = name;
+    m.function = bind;
+    overloads.emplace_back(m);
     return *this;
   }
 

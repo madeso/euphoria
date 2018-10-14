@@ -33,7 +33,14 @@ namespace duk
 
     size_t                    id;
     std::shared_ptr<Function> constructor;
-    std::vector<std::pair<std::string, std::shared_ptr<Function>>> overloads;
+
+    struct Method
+    {
+      std::string               name;
+      std::shared_ptr<Function> function;
+    };
+
+    std::vector<Method> overloads;
     std::vector<std::tuple<
         std::string,
         std::shared_ptr<Function>,
