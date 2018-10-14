@@ -286,12 +286,12 @@ namespace duk
     {
       PlaceFunctionOnStack(
           ctx,
-          CreateFunction(func.second),
+          CreateFunction(func.function),
           DukGenericFunctionCallback<false, false>,
           this);
 
       const auto function_added =
-          duk_put_prop_string(ctx, object_index, func.first.c_str());
+          duk_put_prop_string(ctx, object_index, func.name.c_str());
       ASSERTX(function_added == 1, function_added);
     }
 

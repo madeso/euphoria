@@ -6,7 +6,10 @@ namespace duk
   ObjectBinder::AddFunction(
       const std::string& name, const std::shared_ptr<Function>& bind)
   {
-    functions.emplace_back(std::make_pair(name, bind));
+    MemberFunction func;
+    func.name     = name;
+    func.function = bind;
+    functions.emplace_back(func);
     return *this;
   }
 

@@ -14,7 +14,13 @@ namespace duk
     ObjectBinder&
     AddFunction(const std::string& name, const std::shared_ptr<Function>& bind);
 
-    std::vector<std::pair<std::string, std::shared_ptr<Function>>> functions;
+    struct MemberFunction
+    {
+      std::string               name;
+      std::shared_ptr<Function> function;
+    };
+
+    std::vector<MemberFunction> functions;
   };
 
   ObjectBinder
