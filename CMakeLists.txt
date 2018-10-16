@@ -39,6 +39,12 @@ if(${MSVC})
 	add_definitions(/D _SBCS)
 endif()
 
+# disable rtti
+if (MSVC)
+  add_compile_options(/GR-)
+else()
+  add_compile_options(-fno-rtti)
+endif()
 
 # enable all warnings
 if (MSVC)
