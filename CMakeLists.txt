@@ -103,6 +103,8 @@ if(CLOC_EXE)
                   COMMENT "Running cloc")
 endif()
 
+include_directories(SYSTEM external/ctti/include)
+
 add_subdirectory(core)
 
 ADD_DEFINITIONS(-DIMGUI_USER_CONFIG="imgui_config.h")

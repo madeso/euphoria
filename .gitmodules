@@ -11,3 +11,6 @@
 [submodule "external/IconFontCppHeaders"]
 	path = external/IconFontCppHeaders
 	url = git@github.com:juliettef/IconFontCppHeaders.git
+[submodule "external/ctti"]
+	path = external/ctti
+	url = https://github.com/Manu343726/ctti.git

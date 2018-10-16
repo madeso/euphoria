@@ -1,11 +1,14 @@
 #ifndef EUPHORIA_TYPEINFO_H
 #define EUPHORIA_TYPEINFO_H
 
-using TypeId   = int;
-using TypeName = const char*;
+#include "ctti/type_id.hpp"
+#include "ctti/nameof.hpp"
 
-#define TYPEID_ID(X) 0
-#define TYPEID_NAME(X) ""
+using TypeId   = ctti::type_id_t;
+using TypeName = ctti::detail::cstring;
+
+#define TYPEID_ID(X) ctti::type_id<X>()
+#define TYPEID_NAME(X) ctti::nameof<X>()
 
 
 #endif  // EUPHORIA_TYPEINFO_H
