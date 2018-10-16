@@ -16,7 +16,7 @@ namespace duk
   class ClassBinder
   {
    public:
-    explicit ClassBinder(size_t i);
+    explicit ClassBinder(TypeId i);
 
     // todo: add constructor
 
@@ -32,7 +32,7 @@ namespace duk
         const std::shared_ptr<Function>& get,
         const std::shared_ptr<Function>& set);
 
-    size_t                    id;
+    TypeId                    id;
     std::shared_ptr<Function> constructor;
 
     struct Method

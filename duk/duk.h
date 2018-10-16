@@ -3,7 +3,7 @@
 
 #include <string>
 #include <vector>
-#include <map>
+#include <unordered_map>
 #include <memory>
 #include <functional>
 
@@ -60,7 +60,7 @@ namespace duk
     CreateFunction(const std::shared_ptr<Function>& overload);
 
     RegisteredClass*
-    TypeToProto(size_t id CLASS_ARG(const std::string& name));
+    TypeToProto(TypeId id CLASS_ARG(TypeName name));
 
     ReferenceStorage references;
 
@@ -68,7 +68,7 @@ namespace duk
 
     std::vector<std::shared_ptr<Function>> functions;
 
-    std::map<size_t, std::shared_ptr<RegisteredClass>> classIds;
+    std::unordered_map<TypeId, std::shared_ptr<RegisteredClass>> classIds;
   };
 }
 

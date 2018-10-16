@@ -67,7 +67,7 @@ namespace duk
   }
 
   RegisteredClass*
-  Context::TypeToProto(size_t id CLASS_ARG(const std::string& name))
+  Context::TypeToProto(TypeId id CLASS_ARG(TypeName name))
   {
     return duk->TypeToProto(id CLASS_ARG(name));
   }
@@ -190,17 +190,17 @@ namespace duk
   int
   Context::ReturnObject(
       void*          object,
-      size_t         type,
+      TypeId         type,
       duk_c_function finalizer,
-      void* data CLASS_ARG(const std::string& name))
+      void* data CLASS_ARG(TypeName name))
   {
     if(object == nullptr)
     {
       duk_push_null(ctx);
       return 1;
     }
-    RegisteredClass* proto     = duk->TypeToProto(type CLASS_ARG(name));
-    const auto object_id = duk_push_object(ctx);  // object
+    RegisteredClass* proto = duk->TypeToProto(type CLASS_ARG(name));
+    const auto object_id   = duk_push_object(ctx);  // object
 
     // prototype
     duk_push_heapptr(ctx, proto->prototype);  // object proto

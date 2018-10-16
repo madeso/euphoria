@@ -51,7 +51,7 @@ namespace duk
     GetObjectType(int index);
 
     RegisteredClass*
-    TypeToProto(size_t id CLASS_ARG(const std::string& name));
+    TypeToProto(TypeId id CLASS_ARG(TypeName name));
 
     void*
     GetObjectPtr(int index);
@@ -115,9 +115,9 @@ namespace duk
     int
     ReturnObject(
         void*          object,
-        size_t         type,
+        TypeId         type,
         duk_c_function finalizer,
-        void* data CLASS_ARG(const std::string& name));
+        void* data CLASS_ARG(TypeName name));
 
     template <typename T>
     int

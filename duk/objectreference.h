@@ -35,7 +35,7 @@ namespace duk
         Context*           ctx,
         const std::string& name,
         void*              object,
-        size_t type CLASS_ARG(const std::string& classname));
+        TypeId type CLASS_ARG(TypeName classname));
 
     template <typename T>
     void

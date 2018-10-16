@@ -2,7 +2,7 @@
 
 namespace duk
 {
-  ClassBinder::ClassBinder(size_t i)
+  ClassBinder::ClassBinder(TypeId i)
       : id(i)
   {
   }

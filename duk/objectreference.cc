@@ -44,7 +44,7 @@ namespace duk
       Context*           ctx,
       const std::string& name,
       void*              object,
-      size_t type CLASS_ARG(const std::string& classname))
+      TypeId type CLASS_ARG(TypeName classname))
   {
     ASSERT(ctx);
     duk_push_heapptr(ctx->ctx, ptr);

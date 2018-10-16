@@ -381,7 +381,7 @@ namespace duk
   }
 
   RegisteredClass*
-  Duk::TypeToProto(size_t id CLASS_ARG(const std::string& name))
+  Duk::TypeToProto(TypeId id CLASS_ARG(TypeName name))
   {
     const auto found = classIds.find(id);
     if(found == classIds.end())
