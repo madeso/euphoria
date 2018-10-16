@@ -3,8 +3,8 @@
 
 #include <vector>
 #include <type_traits>
-#include <typeinfo>
 
+#include "core/typeinfo.h"
 #include "core/cpp.h"
 #include "core/assert.h"
 #include "core/str.h"
@@ -45,9 +45,9 @@ namespace duk
       if(ctx->IsObject(index))
       {
         const auto*     id      = ctx->GetObjectType(index);
-        constexpr auto& cpptype = typeid(T);
+        constexpr auto cpptype = TYPEID(T);
         const auto*     self_type =
-            ctx->TypeToProto(cpptype.hash_code() CLASS_ARG(cpptype.name()));
+            ctx->TypeToProto(cpptype.id CLASS_ARG(cpptype.name));
         ASSERT(self_type != nullptr);
         if(id == self_type)
         {
@@ -78,19 +78,19 @@ namespace duk
     static T&
     Parse(Context* ctx, int index)
     {
-      constexpr auto& cpptype = typeid(T);
+      constexpr auto cpptype = TYPEID(T);
       ASSERT(
           ctx->GetObjectType(index) ==
-          ctx->TypeToProto(cpptype.hash_code() CLASS_ARG(cpptype.name())));
+          ctx->TypeToProto(cpptype.id CLASS_ARG(cpptype.name)));
       return *static_cast<T*>(ctx->GetObjectPtr(index));
     }
 
     static std::string
     Name(Context* ctx)
     {
-      constexpr auto& cpptype = typeid(T);
+      constexpr auto cpptype = TYPEID(T);
       auto*           proto =
-          ctx->TypeToProto(cpptype.hash_code() CLASS_ARG(cpptype.name()));
+          ctx->TypeToProto(cpptype.id CLASS_ARG(cpptype.name));
       if(proto)
       {
         return proto->name;

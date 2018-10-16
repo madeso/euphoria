@@ -5,8 +5,9 @@
 #include <vector>
 #include <tuple>
 #include <utility>
-#include <typeinfo>
 #include <memory>
+
+#include "core/typeinfo.h"
 
 #include "duk/function.h"
 
@@ -55,7 +56,7 @@ namespace duk
   ClassBinder
   BindClass()
   {
-    return ClassBinder{typeid(T).hash_code()};
+    return ClassBinder{TYPEID(T).id};
   }
 }
 

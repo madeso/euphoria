@@ -4,6 +4,8 @@
 #include <string>
 #include <memory>
 
+#include "core/typeinfo.h"
+
 #include "duk/config.h"
 
 namespace duk
@@ -39,8 +41,8 @@ namespace duk
     void
     SetFree(Context* ctx, const std::string& name, T* t)
     {
-      constexpr auto& cpptype = typeid(T);
-      SetFreeImpl(ctx, name, t, cpptype.hash_code() CLASS_ARG(cpptype.name()));
+      constexpr auto cpptype = TYPEID(T);
+      SetFreeImpl(ctx, name, t, cpptype.id CLASS_ARG(cpptype.name));
     }
 
     void* ptr;

@@ -6,6 +6,7 @@
 #include <memory>
 #include <vector>
 
+#include "core/typeinfo.h"
 #include "core/entityid.h"
 #include "core/assert.h"
 
@@ -14,10 +15,10 @@
 #if DEBUG_COMPONENT == 1
 #define COMPONENT_CONSTRUCTOR_IMPLEMENTATION(X) \
   X::X()                                        \
-      : Component(typeid(X))                    \
+      : Component(TYPEID(X))                    \
   {                                             \
   }
-#define COMPONENT_CONSTRUCTOR_ARG(X) Component(typeid(X)),
+#define COMPONENT_CONSTRUCTOR_ARG(X) Component(TYPEID(X)),
 #define COMPONENT_CONSTRUCTOR_DEFINITION(X) X();
 #else
 #define COMPONENT_CONSTRUCTOR_IMPLEMENTATION(X)
@@ -42,12 +43,12 @@ class Component
 {
  public:
 #if DEBUG_COMPONENT == 1
-  explicit Component(const std::type_info& t);
+  explicit Component(const TypeInfo& t);
 #endif
   virtual ~Component() = default;
 
 #if DEBUG_COMPONENT == 1
-  const std::type_info& type;
+  const TypeInfo type;
 #endif
 };
 
@@ -139,7 +140,7 @@ class Registry
     }
     else
     {
-      ASSERTX(c->type == typeid(T), c->type.name(), typeid(T).name());
+      ASSERTX(c->type == TYPEID(T), c->type.name, TYPEID(T).name);
       return static_cast<T*>(c.get());
     }
   }

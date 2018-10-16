@@ -4,7 +4,8 @@
 #include <string>
 #include <vector>
 #include <memory>
-#include <typeinfo>
+
+#include "core/typeinfo.h"
 
 #include "duk/types.h"
 #include "duk/config.h"
@@ -122,9 +123,9 @@ namespace duk
     int
     ReturnFreeObject(T* t)
     {
-      constexpr auto& cpptype = typeid(T);
+      constexpr auto cpptype = TYPEID(T);
       return ReturnObject(
-          t, cpptype.hash_code(), nullptr, nullptr CLASS_ARG(cpptype.name()));
+          t, cpptype.id, nullptr, nullptr CLASS_ARG(cpptype.name));
     }
 
     template <typename T>
@@ -135,11 +136,11 @@ namespace duk
       {
         return ReturnFreeObject<T>(nullptr);
       }
-      constexpr auto& cpptype = typeid(T);
+      constexpr auto cpptype = TYPEID(T);
       auto*           ptr     = new std::shared_ptr<T>(t);
       return ReturnObject(
           ptr->get(),
-          cpptype.hash_code(),
+          cpptype.id,
           // this needs to conform to a duktape c function pointer
           // if needed move to global scope and make a template
           [](duk_context* ctx) -> duk_ret_t {
@@ -148,7 +149,7 @@ namespace duk
             delete my_ptr;
             return 0;
           },
-          ptr CLASS_ARG(cpptype.name()));
+          ptr CLASS_ARG(cpptype.name));
     }
 
     duk_context* ctx;
