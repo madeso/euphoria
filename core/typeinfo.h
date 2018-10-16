@@ -1,6 +1,14 @@
 #ifndef EUPHORIA_TYPEINFO_H
 #define EUPHORIA_TYPEINFO_H
 
+// typeinfo.h:
+//
+// basically a wrapper over the ctti library
+// why? because if ctti fails to compile or proves to be too hard
+// we can easily switch back to typeof() and std::typeinfo,
+// another library
+// or a custom solution
+
 #include "ctti/type_id.hpp"
 #include "ctti/nameof.hpp"
 
