@@ -41,8 +41,7 @@ namespace duk
     void
     SetFree(Context* ctx, const std::string& name, T* t)
     {
-      constexpr auto cpptype = TYPEID(T);
-      SetFreeImpl(ctx, name, t, cpptype.id CLASS_ARG(cpptype.name));
+      SetFreeImpl(ctx, name, t, TYPEID_ID(T) CLASS_ARG(TYPEID_NAME(T)));
     }
 
     void* ptr;

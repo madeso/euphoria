@@ -45,9 +45,8 @@ namespace duk
       if(ctx->IsObject(index))
       {
         const auto*     id      = ctx->GetObjectType(index);
-        constexpr auto cpptype = TYPEID(T);
         const auto*     self_type =
-            ctx->TypeToProto(cpptype.id CLASS_ARG(cpptype.name));
+            ctx->TypeToProto(TYPEID_ID(T) CLASS_ARG(TYPEID_NAME(T)));
         ASSERT(self_type != nullptr);
         if(id == self_type)
         {
@@ -78,19 +77,17 @@ namespace duk
     static T&
     Parse(Context* ctx, int index)
     {
-      constexpr auto cpptype = TYPEID(T);
       ASSERT(
           ctx->GetObjectType(index) ==
-          ctx->TypeToProto(cpptype.id CLASS_ARG(cpptype.name)));
+          ctx->TypeToProto(TYPEID_ID(T) CLASS_ARG(TYPEID_NAME(T))));
       return *static_cast<T*>(ctx->GetObjectPtr(index));
     }
 
     static std::string
     Name(Context* ctx)
     {
-      constexpr auto cpptype = TYPEID(T);
       auto*           proto =
-          ctx->TypeToProto(cpptype.id CLASS_ARG(cpptype.name));
+          ctx->TypeToProto(TYPEID_ID(T) CLASS_ARG(TYPEID_NAME(T)));
       if(proto)
       {
         return proto->name;

@@ -56,7 +56,7 @@ namespace duk
   ClassBinder
   BindClass()
   {
-    return ClassBinder{TYPEID(T).id};
+    return ClassBinder{TYPEID_ID(T)};
   }
 }
 

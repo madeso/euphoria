@@ -15,10 +15,10 @@
 #if DEBUG_COMPONENT == 1
 #define COMPONENT_CONSTRUCTOR_IMPLEMENTATION(X) \
   X::X()                                        \
-      : Component(TYPEID(X))                    \
+      : Component(TYPEID_NAME(X), TYPEID_ID(X)) \
   {                                             \
   }
-#define COMPONENT_CONSTRUCTOR_ARG(X) Component(TYPEID(X)),
+#define COMPONENT_CONSTRUCTOR_ARG(X) Component(TYPEID_NAME(X), TYPEID_ID(X)),
 #define COMPONENT_CONSTRUCTOR_DEFINITION(X) X();
 #else
 #define COMPONENT_CONSTRUCTOR_IMPLEMENTATION(X)
@@ -43,12 +43,13 @@ class Component
 {
  public:
 #if DEBUG_COMPONENT == 1
-  explicit Component(const TypeInfo& t);
+  Component(TypeName n, TypeId i);
 #endif
   virtual ~Component() = default;
 
 #if DEBUG_COMPONENT == 1
-  const TypeInfo type;
+  const TypeName type_name;
+  const TypeId   type_id;
 #endif
 };
 
@@ -140,7 +141,7 @@ class Registry
     }
     else
     {
-      ASSERTX(c->type == TYPEID(T), c->type.name, TYPEID(T).name);
+      ASSERTX(c->type_id == TYPEID_ID(T), c->type_name, TYPEID_NAME(T));
       return static_cast<T*>(c.get());
     }
   }

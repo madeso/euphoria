@@ -123,9 +123,8 @@ namespace duk
     int
     ReturnFreeObject(T* t)
     {
-      constexpr auto cpptype = TYPEID(T);
       return ReturnObject(
-          t, cpptype.id, nullptr, nullptr CLASS_ARG(cpptype.name));
+          t, TYPEID_ID(T), nullptr, nullptr CLASS_ARG(TYPEID_NAME(T)));
     }
 
     template <typename T>
@@ -136,11 +135,10 @@ namespace duk
       {
         return ReturnFreeObject<T>(nullptr);
       }
-      constexpr auto cpptype = TYPEID(T);
-      auto*           ptr     = new std::shared_ptr<T>(t);
+      auto* ptr = new std::shared_ptr<T>(t);
       return ReturnObject(
           ptr->get(),
-          cpptype.id,
+          TYPEID_ID(T),
           // this needs to conform to a duktape c function pointer
           // if needed move to global scope and make a template
           [](duk_context* ctx) -> duk_ret_t {
@@ -149,7 +147,7 @@ namespace duk
             delete my_ptr;
             return 0;
           },
-          ptr CLASS_ARG(cpptype.name));
+          ptr CLASS_ARG(TYPEID_NAME(T)));
     }
 
     duk_context* ctx;

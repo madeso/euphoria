@@ -1,26 +1,11 @@
 #ifndef EUPHORIA_TYPEINFO_H
 #define EUPHORIA_TYPEINFO_H
 
-#include <string>
+using TypeId   = int;
+using TypeName = const char*;
 
-struct TypeInfo
-{
-  TypeInfo() = default;
-
-  const char* const name = "";
-  int               id   = 0;
-
-  bool
-  operator==(const TypeInfo& rhs) const
-  {
-    return true;
-  }
-};
-
-#define TYPEID(X) \
-  TypeInfo        \
-  {               \
-  }
+#define TYPEID_ID(X) 0
+#define TYPEID_NAME(X) ""
 
 
 #endif  // EUPHORIA_TYPEINFO_H

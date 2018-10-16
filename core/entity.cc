@@ -16,8 +16,9 @@ static constexpr EntityId VersionMask = 0xFF000000;
 ////////////////////////////////////////////////////////////////////////////////
 
 #if DEBUG_COMPONENT == 1
-Component::Component(const TypeInfo& t)
-    : type(t)
+Component::Component(TypeName n, TypeId i)
+    : type_name(n)
+    , type_id(i)
 {
 }
 #endif
