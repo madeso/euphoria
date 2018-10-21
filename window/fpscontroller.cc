@@ -2,8 +2,8 @@
 #include <SDL.h>
 
 FpsController::FpsController()
-    : rotation_(Angle::Zero())
-    , look_(Angle::Zero())
+    : rotation_(0.0_rad)
+    , look_(0.0_rad)
     , position(vec3f::Origo())
 {
 }

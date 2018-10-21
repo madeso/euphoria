@@ -147,7 +147,7 @@ ScalableSprite::Render(
           *texture_.get(),
           position_rect.OffsetCopy(pos),
           uv_rect,
-          Angle::Zero(),
+          0.0_rad,
           vec2f{0, 0},
           tint);
 

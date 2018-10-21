@@ -24,9 +24,6 @@ class Angle
   static const Angle
   FromPercentOf180(const float percent);
 
-  static const Angle
-  Zero();
-
   const Angle
   GetWrapped() const;
 
@@ -52,6 +49,8 @@ class Angle
   float mRad;
 };
 
+Angle operator "" _deg(long double d);
+Angle operator "" _rad(long double r);
 
 const float
 Sin(const Angle& ang);

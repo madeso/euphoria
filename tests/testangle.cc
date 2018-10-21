@@ -17,7 +17,7 @@ TEST_CASE("angle-constructor_degrees_pi", "[angle]")
 
 TEST_CASE("angle-zero", "[angle]")
 {
-  const auto a = Angle::Zero();
+  const auto a = 0.0_rad;
   REQUIRE(a.InDegrees() == Approx(0.0f));
 }
 

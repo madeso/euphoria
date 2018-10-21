@@ -86,6 +86,16 @@ Angle::operator-() const
   return Angle::FromRadians(-mRad);
 }
 
+Angle operator"" _deg(long double d)
+{
+  return Angle::FromDegrees(d);
+}
+
+Angle operator"" _rad(long double r)
+{
+  return Angle::FromRadians(r);
+}
+
 const float
 Sin(const Angle& ang)
 {
@@ -192,12 +202,6 @@ const Angle
 Angle::FromPercentOf180(const float percent)
 {
   return Angle::FromRadians(percent * Pi());
-}
-
-const Angle
-Angle::Zero()
-{
-  return Angle::FromRadians(0);
 }
 
 std::ostream&

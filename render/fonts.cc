@@ -477,7 +477,7 @@ Font::DrawBackground(
       *background,
       where,
       Rectf::FromWidthHeight(1, 1),
-      Angle::Zero(),
+      0.0_rad,
       vec2f{0, 0},
       Rgba{Color::Black, alpha});
 }
@@ -518,7 +518,7 @@ TextDrawCommandList::Draw(
         *cmd.texture,
         cmd.sprite_rect.OffsetCopy(start_position),
         cmd.texture_rect,
-        Angle::Zero(),
+        0.0_rad,
         vec2f{0.5f, 0.5f},
         Rgba{tint});
   }

@@ -9,7 +9,7 @@
 Sprite::Sprite(std::shared_ptr<Texture2d> texture, const vec2f& position)
     : texture_(texture)
     , position_(position)
-    , rotation(Angle::Zero())
+    , rotation(0.0_rad)
     , scale_(vec2f(1, 1))
     , color_(Rgb(1.0f))
     , alpha_(1.0f)

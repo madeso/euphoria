@@ -17,7 +17,7 @@ class Buffer2d;
 
 struct DrawData
 {
-  Angle rotation = Angle::Zero();
+  Angle rotation = 0.0_rad;
   vec2f scale    = vec2f(1, 1);
   Rgba  tint     = Rgba(Color::White);
 
