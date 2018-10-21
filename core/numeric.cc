@@ -205,27 +205,3 @@ Round(float num, float gran)
 
   return lower;
 }
-
-float
-Pi()
-{
-  return 3.1415926535897932384626433832795f;
-}
-
-float
-HalfPi()
-{
-  return Pi() / 2.0f;
-}
-
-const bool
-TrueValue()
-{
-  return true;
-}
-
-const bool
-FalseValue()
-{
-  return false;
-}

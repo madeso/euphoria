@@ -1,54 +1,9 @@
 #include "core/angle.h"
 
-#include "core/numeric.h"
 #include "core/assert.h"
 #include "core/range.h"
 
 #include <cmath>
-
-namespace  // local
-{
-  const float
-  RadianToDegrees(const float rad)
-  {
-    return (180.0f / Pi()) * rad;
-  }
-
-  const float
-  DegreesToRadian(const float deg)
-  {
-    return Pi() / 180.0f * deg;
-  }
-}  // namespace
-
-const float
-Angle::InDegrees() const
-{
-  return RadianToDegrees(mRad);
-}
-
-const float
-Angle::InRadians() const
-{
-  return mRad;
-}
-
-const Angle
-Angle::FromDegrees(float deg)
-{
-  return Angle(DegreesToRadian(deg));
-}
-
-const Angle
-Angle::FromRadians(float rad)
-{
-  return Angle(rad);
-}
-
-Angle::Angle(float rad)
-    : mRad(rad)
-{
-}
 
 void
 Angle::Wrap()
@@ -69,13 +24,13 @@ Angle::operator-=(const Angle& rhs)
 }
 
 void
-Angle::operator*=(const float rhs)
+Angle::operator*=(float rhs)
 {
   mRad *= rhs;
 }
 
 void
-Angle::operator/=(const float rhs)
+Angle::operator/=(float rhs)
 {
   mRad /= rhs;
 }
@@ -86,36 +41,26 @@ Angle::operator-() const
   return Angle::FromRadians(-mRad);
 }
 
-Angle operator"" _deg(long double d)
-{
-  return Angle::FromDegrees(d);
-}
-
-Angle operator"" _rad(long double r)
-{
-  return Angle::FromRadians(r);
-}
-
-const float
+float
 Sin(const Angle& ang)
 {
   return std::sin(ang.InRadians());
 }
 
-const float
+float
 Cos(const Angle& ang)
 {
   return std::cos(ang.InRadians());
 }
 
-const float
+float
 Tan(const Angle& ang)
 {
   return std::tan(ang.InRadians());
 }
 
-const Angle
-Asin(const float v)
+Angle
+Asin(float v)
 {
   ASSERT(
       v <= 1 &&
@@ -128,8 +73,8 @@ Asin(const float v)
   return Angle::FromRadians(std::asin(v));
 }
 
-const Angle
-Acos(const float v)
+Angle
+Acos(float v)
 {
   ASSERT(
       v <= 1 &&
@@ -142,13 +87,13 @@ Acos(const float v)
   return Angle::FromRadians(std::acos(v));
 }
 
-const Angle
-Atan(const float v)
+Angle
+Atan(float v)
 {
   return Angle::FromRadians(std::atan(v));
 }
 
-const Angle
+Angle
 Angle::GetWrapped() const
 {
   Angle temp = *this;
@@ -156,7 +101,7 @@ Angle::GetWrapped() const
   return temp;
 }
 
-const Angle
+Angle
 operator+(const Angle& lhs, const Angle& rhs)
 {
   Angle temp(lhs);
@@ -164,7 +109,7 @@ operator+(const Angle& lhs, const Angle& rhs)
   return temp;
 }
 
-const Angle
+Angle
 operator-(const Angle& lhs, const Angle& rhs)
 {
   Angle temp(lhs);
@@ -172,36 +117,24 @@ operator-(const Angle& lhs, const Angle& rhs)
   return temp;
 }
 
-const Angle
-operator/(const Angle& lhs, const float rhs)
+Angle
+operator/(const Angle& lhs, float rhs)
 {
   Angle temp(lhs);
   temp /= rhs;
   return temp;
 }
 
-const Angle operator*(const Angle& lhs, const float rhs)
+Angle operator*(const Angle& lhs, float rhs)
 {
   Angle temp(lhs);
   temp *= rhs;
   return temp;
 }
 
-const Angle operator*(const float rhs, const Angle& lhs)
+Angle operator*(float rhs, const Angle& lhs)
 {
   return lhs * rhs;
-}
-
-const Angle
-Angle::FromPercentOf360(const float percent)
-{
-  return Angle::FromRadians(percent * Pi() * 2.0f);
-}
-
-const Angle
-Angle::FromPercentOf180(const float percent)
-{
-  return Angle::FromRadians(percent * Pi());
 }
 
 std::ostream&
@@ -211,7 +144,7 @@ operator<<(std::ostream& stream, const Angle& a)
 }
 
 Angle
-AngleTransform::Transform(const Angle& from, float v, const Angle to)
+AngleTransform::Transform(const Angle& from, float v, const Angle& to)
 {
   return Angle::FromRadians(Lerp(from.InRadians(), v, to.InRadians()));
 }

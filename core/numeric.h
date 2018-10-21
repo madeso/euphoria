@@ -85,17 +85,33 @@ closest half integer, at 2 even integers etc...
 float
 Round(float num, float gran);
 
+constexpr
 float
-Pi();
+Pi()
+{
+  return 3.1415926535897932384626433832795f;
+}
 
+constexpr
 float
-HalfPi();
+HalfPi()
+{
+  return Pi() / 2.0f;
+}
 
-const bool
-TrueValue();
+constexpr
+bool
+TrueValue()
+{
+  return true;
+}
 
-const bool
-FalseValue();
+constexpr
+bool
+FalseValue()
+{
+  return false;
+}
 
 template <typename T>
 T

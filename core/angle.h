@@ -3,28 +3,61 @@
 
 #include <iostream>
 
+#include "core/numeric.h"
+
 class Angle
 {
+ private:
+  static constexpr float
+  RadianToDegrees(float rad)
+  {
+    return (180.0f / Pi()) * rad;
+  }
+
+  static constexpr float
+  DegreesToRadian(float deg)
+  {
+    return Pi() / 180.0f * deg;
+  }
+
  public:
-  const float
-  InDegrees() const;
+  constexpr float
+  InDegrees() const
+  {
+    return RadianToDegrees(mRad);
+  }
 
-  const float
-  InRadians() const;
+  constexpr float
+  InRadians() const
+  {
+    return mRad;
+  }
 
-  static const Angle
-  FromDegrees(float deg);
+  constexpr static Angle
+  FromDegrees(float deg)
+  {
+    return Angle(DegreesToRadian(deg));
+  }
 
-  static const Angle
-  FromRadians(float rad);
+  constexpr static Angle
+  FromRadians(float rad)
+  {
+    return Angle(rad);
+  }
 
-  static const Angle
-  FromPercentOf360(const float percent);
+  constexpr static Angle
+  FromPercentOf360(float percent)
+  {
+    return Angle::FromRadians(percent * Pi() * 2.0f);
+  }
 
-  static const Angle
-  FromPercentOf180(const float percent);
+  constexpr static Angle
+  FromPercentOf180(float percent)
+  {
+    return Angle::FromRadians(percent * Pi());
+  }
 
-  const Angle
+  Angle
   GetWrapped() const;
 
   void
@@ -37,42 +70,60 @@ class Angle
   operator-=(const Angle& rhs);
 
   void
-  operator*=(const float rhs);
+  operator*=(float rhs);
   void
-  operator/=(const float rhs);
+  operator/=(float rhs);
 
   Angle
   operator-() const;
 
  private:
-  explicit Angle(float rad);
+  constexpr explicit Angle(float rad)
+      : mRad(rad)
+  {
+  }
+
   float mRad;
 };
 
-Angle operator "" _deg(long double d);
-Angle operator "" _rad(long double r);
+constexpr Angle operator"" _deg(long double d)
+{
+  return Angle::FromDegrees(d);
+}
 
-const float
+constexpr Angle operator"" _rad(long double r)
+{
+  return Angle::FromRadians(r);
+}
+
+float
 Sin(const Angle& ang);
-const float
-Cos(const Angle& ang);
-const float
-Tan(const Angle& ang);
-const Angle
-Asin(const float v);
-const Angle
-Acos(const float v);
-const Angle
-Atan(const float v);
 
-const Angle
+float
+Cos(const Angle& ang);
+
+float
+Tan(const Angle& ang);
+
+Angle
+Asin(float v);
+Angle
+Acos(float v);
+Angle
+Atan(float v);
+
+Angle
 operator+(const Angle& lhs, const Angle& rhs);
-const Angle
+
+Angle
 operator-(const Angle& lhs, const Angle& rhs);
-const Angle operator*(const Angle& lhs, const float rhs);
-const Angle
-operator/(const Angle& lhs, const float rhs);
-const Angle operator*(const float rhs, const Angle& lhs);
+
+Angle operator*(const Angle& lhs, float rhs);
+
+Angle
+operator/(const Angle& lhs, float rhs);
+
+Angle operator*(float rhs, const Angle& lhs);
 
 std::ostream&
 operator<<(std::ostream& stream, const Angle& a);
@@ -80,7 +131,7 @@ operator<<(std::ostream& stream, const Angle& a);
 struct AngleTransform
 {
   static Angle
-  Transform(const Angle& from, float v, const Angle to);
+  Transform(const Angle& from, float v, const Angle& to);
 };
 
 #endif  // CORE_ANGLE_H
