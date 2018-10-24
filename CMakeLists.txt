@@ -3,8 +3,8 @@ set_property(GLOBAL PROPERTY USE_FOLDERS OFF)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 project(euphoria)
 
-OPTION(BUILD_USE_CLANG_FORMAT "try to use clang-format as a build command." ON)
-OPTION(BUILD_USE_CLANG_TIDY "try to use clang-tidy as a build command." ON)
+OPTION(BUILD_USE_CLANG_FORMAT "try to use clang-format as a build command." OFF)
+OPTION(BUILD_USE_CLANG_TIDY "try to use clang-tidy as a build command." OFF)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CXX_STANDARD 14)
