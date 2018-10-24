@@ -49,13 +49,15 @@ def get_sdl2_build_folder():
 
 
 def cmake_project(generator: str):
-    return cmake.CMake(build_folder=get_build_folder(), source_folder=get_root_folder(), generator=generator) \
+    r = cmake.CMake(build_folder=get_build_folder(), source_folder=get_root_folder(), generator=generator) \
         .add_argument('SDL2_HINT_ROOT', get_sdl2_folder())\
         .add_argument('SDL2_HINT_BUILD', get_sdl2_build_folder())\
         .add_argument('wxWidgets_ROOT_DIR', get_wx_folder())\
         .add_argument('ASSIMP_ROOT_DIR', get_assimp_install_folder())\
-        .add_argument('PYTHON_EXECUTABLE:FILEPATH', os.environ['PYTHON']+'\\python.exe')\
         .add_argument('PROTOBUF_SRC_ROOT_FOLDER', get_proto_folder())
+    if 'PYTHON' in os.environ:
+        r.add_argument('PYTHON_EXECUTABLE:FILEPATH', os.environ['PYTHON']+'\\python.exe')
+    return r
 
 
 def on_cmd_install(arg):
