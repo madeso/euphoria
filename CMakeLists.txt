@@ -3,6 +3,9 @@ set_property(GLOBAL PROPERTY USE_FOLDERS OFF)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 project(euphoria)
 
+OPTION(BUILD_USE_CLANG_FORMAT "try to use clang-format as a build command." ON)
+OPTION(BUILD_USE_CLANG_TIDY "try to use clang-tidy as a build command." ON)
+
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -62,26 +65,36 @@ endif()
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 include_directories(SYSTEM ${CMAKE_CURRENT_BINARY_DIR})
 
-find_program(
-  CLANG_TIDY_EXE
-  NAMES "clang-tidy"
-  DOC "Path to clang-tidy executable"
-)
-if(NOT CLANG_TIDY_EXE)
-  message(STATUS "clang-tidy not found.")
+if(BUILD_USE_CLANG_TIDY)
+  find_program(
+    CLANG_TIDY_EXE
+    NAMES "clang-tidy"
+    DOC "Path to clang-tidy executable"
+  )
+  if(NOT CLANG_TIDY_EXE)
+    message(STATUS "clang-tidy not found.")
+  else()
+    message(STATUS "clang-tidy found: ${CLANG_TIDY_EXE}")
+  endif()
 else()
-  message(STATUS "clang-tidy found: ${CLANG_TIDY_EXE}")
+  message(STATUS "not including clang-tidy in builds")
+  unset(CLANG_TIDY_EXE)
 endif()
 
-find_program(
-  CLANG_FORMAT_EXE
-  NAMES "clang-format"
-  DOC "Path to clang-format executable"
-)
-if(NOT CLANG_FORMAT_EXE)
-  message(STATUS "clang-format not found.")
+if(BUILD_USE_CLANG_FORMAT)
+  find_program(
+    CLANG_FORMAT_EXE
+    NAMES "clang-format"
+    DOC "Path to clang-format executable"
+  )
+  if(NOT CLANG_FORMAT_EXE)
+    message(STATUS "clang-format not found.")
+  else()
+    message(STATUS "clang-format found: ${CLANG_FORMAT_EXE}")
+  endif()
 else()
-  message(STATUS "clang-format found: ${CLANG_FORMAT_EXE}")
+  message(STATUS "not including clang-format in builds")
+  unset(CLANG_FORMAT_EXE)
 endif()
 
 find_program(
