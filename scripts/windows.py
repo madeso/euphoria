@@ -21,20 +21,12 @@ def get_dependency_folder():
     return os.path.join(get_root_folder(), 'build', 'deps')
 
 
-def get_proto_folder():
-    return os.path.join(get_dependency_folder(), 'proto')
-
-
 def get_sdl2_folder():
     return os.path.join(get_dependency_folder(), 'sdl2')
 
 
 def get_freetype2_folder():
     return os.path.join(get_dependency_folder(), 'freetype')
-
-
-def get_wx_folder():
-    return os.path.join(get_dependency_folder(), 'wx')
 
 
 def get_assimp_folder():
@@ -52,9 +44,7 @@ def cmake_project(generator: str):
     r = cmake.CMake(build_folder=get_build_folder(), source_folder=get_root_folder(), generator=generator) \
         .add_argument('SDL2_HINT_ROOT', get_sdl2_folder())\
         .add_argument('SDL2_HINT_BUILD', get_sdl2_build_folder())\
-        .add_argument('wxWidgets_ROOT_DIR', get_wx_folder())\
-        .add_argument('ASSIMP_ROOT_DIR', get_assimp_install_folder())\
-        .add_argument('PROTOBUF_SRC_ROOT_FOLDER', get_proto_folder())
+        .add_argument('ASSIMP_ROOT_DIR', get_assimp_install_folder())
     if 'PYTHON' in os.environ:
         r.add_argument('PYTHON_EXECUTABLE:FILEPATH', os.environ['PYTHON']+'\\python.exe')
     return r
@@ -65,10 +55,8 @@ def on_cmd_install(arg):
     platform = args.get_platform(arg)
     generator = visualstudio.visual_studio_generator(compiler, platform)
     deps.install_dependency_assimp(get_dependency_folder(), get_assimp_folder(), get_assimp_install_folder(), generator)
-    deps.install_dependency_proto(get_dependency_folder(), get_proto_folder(), compiler, platform)
     deps.install_dependency_sdl2(get_dependency_folder(), get_sdl2_folder(), get_sdl2_build_folder(), generator)
     deps.install_dependency_freetype(get_dependency_folder(), get_freetype2_folder(), compiler, platform)
-    deps.install_dependency_wx(get_dependency_folder(), get_wx_folder(), compiler, platform)
 
 
 def on_cmd_cmake(arg):

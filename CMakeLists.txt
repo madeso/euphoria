@@ -23,13 +23,6 @@ include_directories(SYSTEM
 
 SET(MACOSX_BUNDLE_INFO_PLIST "${CMAKE_CURRENT_SOURCE_DIR}/osx-bundle.plist")
 
-if(${APPLE})
-  # disabling http://stackoverflow.com/questions/32626171/xcode-7-how-to-suppress-warning-overrides-a-member-function-but-is-not-marked
-  # that apple-clang spews out for wx headers
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-inconsistent-missing-override")
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-declarations")
-endif()
-
 # compiler flags
 if(${MSVC})
 	add_definitions(/D _CRT_SECURE_NO_WARNINGS)
@@ -98,7 +91,7 @@ find_program(
 )
 if(CLOC_EXE)
   add_custom_target(codestat
-                  ${CLOC_EXE} core demo gui proto render scimed tests CMakeLists.txt
+                  ${CLOC_EXE} core demo gui proto render tests CMakeLists.txt
                   WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
                   COMMENT "Running cloc")
 endif()
@@ -114,7 +107,6 @@ add_subdirectory(base64)
 add_subdirectory(render)
 add_subdirectory(window)
 add_subdirectory(gui)
-add_subdirectory(scimed)
 add_subdirectory(tests)
 add_subdirectory(demo)
 add_subdirectory(engine)
@@ -133,7 +125,6 @@ if(CLANG_TIDY_EXE)
                    tidy-engine
                    tidy-gui
                    tidy-render
-                   tidy-scimed
                    tidy-window
                    )
 endif()
@@ -149,7 +140,6 @@ if(CLANG_FORMAT_EXE)
                    format-engine
                    format-gui
                    format-render
-                   format-scimed
                    format-window
                    )
 endif()
