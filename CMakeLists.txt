@@ -5,6 +5,22 @@ project(euphoria)
 
 OPTION(BUILD_USE_CLANG_FORMAT "try to use clang-format as a build command." OFF)
 OPTION(BUILD_USE_CLANG_TIDY "try to use clang-tidy as a build command." OFF)
+SET(BUILD_TYPEINFO_IMPL "rtti" CACHE STRING "rtti, ctti, custom (ctti)")
+
+SET(BUILD_TYPEINFO_IMPL_RTTI FALSE)
+SET(BUILD_TYPEINFO_IMPL_CTTI FALSE)
+SET(BUILD_TYPEINFO_IMPL_CUSTOM FALSE)
+
+message(STATUS "BUILD_TYPEINFO_IMPL: ${BUILD_TYPEINFO_IMPL}")
+if(BUILD_TYPEINFO_IMPL STREQUAL "rtti")
+  SET(BUILD_TYPEINFO_IMPL_RTTI TRUE)
+elseif(BUILD_TYPEINFO_IMPL STREQUAL "ctti")
+  SET(BUILD_TYPEINFO_IMPL_CTTI TRUE)
+elseif(BUILD_TYPEINFO_IMPL STREQUAL "custom")
+  SET(BUILD_TYPEINFO_IMPL_CUSTOM TRUE)
+else()
+  message(STATUS "Invalid build status: ${BUILD_TYPEINFO_IMPL}")
+endif()
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CXX_STANDARD 14)
@@ -36,10 +52,13 @@ if(${MSVC})
 endif()
 
 # disable rtti
-if (MSVC)
-  add_compile_options(/GR-)
-else()
-  add_compile_options(-fno-rtti)
+
+if(NOT BUILD_TYPEINFO_IMPL_RTTI)
+  if (MSVC)
+    add_compile_options(/GR-)
+  else()
+    add_compile_options(-fno-rtti)
+  endif()
 endif()
 
 # enable all warnings
@@ -109,7 +128,12 @@ if(CLOC_EXE)
                   COMMENT "Running cloc")
 endif()
 
-include_directories(SYSTEM external/ctti/include)
+if(BUILD_TYPEINFO_IMPL_CTTI)
+  include_directories(SYSTEM external/ctti/include)
+endif()
+
+CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/config_in.h ${CMAKE_CURRENT_BINARY_DIR}/euph_generated_config.h)
+include_directories(SYSTEM ${CMAKE_CURRENT_BINARY_DIR})
 
 add_subdirectory(core)
 

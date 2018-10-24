@@ -1,0 +1,11 @@
+#ifndef EUPHORIA_CONFIG_IN_H
+#define EUPHORIA_CONFIG_IN_H
+
+// generated file is named euph_generated_config.h
+
+// for core/typeinfo.h
+#cmakedefine01 BUILD_TYPEINFO_IMPL_RTTI
+#cmakedefine01 BUILD_TYPEINFO_IMPL_CTTI
+#cmakedefine01 BUILD_TYPEINFO_IMPL_CUSTOM
+
+#endif  // EUPHORIA_CONFIG_IN_H
