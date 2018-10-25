@@ -35,10 +35,10 @@ namespace duk
       const auto passed_argument_count = ctx->GetNumberOfArguments();
       const auto required =
           std::vector<bool>{StackParser<TArgs>::IsRequired()...};
-      const auto argument_count =
+      const std::size_t argument_count =
           std::count(required.begin(), required.end(), true);
-      const auto max_argument_count = sizeof...(TArgs);
-      if(!TRange<long>{argument_count, max_argument_count}.IsWithin(
+      const std::size_t max_argument_count = sizeof...(TArgs);
+      if(!TRange<std::size_t>{argument_count, max_argument_count}.IsWithin(
              passed_argument_count))
       {
         // todo: smaller error message when both max and min are the same
