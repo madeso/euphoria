@@ -11,6 +11,13 @@
 // another library
 // or a custom solution
 
+template <typename T>
+void
+TYPEINFO_UselessFunction();
+#define TYPEID_SETUP_TYPE(X) \
+  template <>                \
+  void TYPEINFO_UselessFunction<X>()
+
 #if BUILD_TYPEINFO_IMPL_RTTI == 1
 // standard c++ library
 // runtime only so it needs RTTI to function
@@ -54,6 +61,7 @@ struct TypeNameImpl
   static constexpr const char* const Name = "";
 };
 
+#undef TYPEID_SETUP_TYPE
 #define TYPEID_SETUP_TYPE(X)                      \
   template <>                                     \
   struct TypeNameImpl<X>                          \
