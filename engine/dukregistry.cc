@@ -9,6 +9,7 @@ struct ScriptComponent : public Component
   duk::ObjectReference val;
 };
 
+TYPEID_SETUP_TYPE(ScriptComponent);
 COMPONENT_CONSTRUCTOR_IMPLEMENTATION(ScriptComponent)
 
 DukRegistry::DukRegistry(EntReg* r, Components* c)

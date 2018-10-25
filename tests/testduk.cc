@@ -27,6 +27,7 @@ class Dog
 
   std::string name;
 };
+TYPEID_SETUP_TYPE(Dog);
 
 TEST_CASE("duk-eval", "[duk]")
 {

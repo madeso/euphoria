@@ -28,6 +28,8 @@ struct BoundVar
   // todo: figure out how to handle inputs other than keyboard
 };
 
+TYPEID_SETUP_TYPE(BoundVar);
+
 class Input
 {
  public:

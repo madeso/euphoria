@@ -16,6 +16,7 @@ struct CustomArguments
 {
   std::map<std::string, float> numbers;
 };
+TYPEID_SETUP_TYPE(CustomArguments);
 
 class DukRegistry
 {

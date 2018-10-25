@@ -15,12 +15,16 @@ struct CPosition2 : public Component
   vec2f pos;
 };
 
+TYPEID_SETUP_TYPE(CPosition2);
+
 struct CSprite : public Component
 {
   COMPONENT_CONSTRUCTOR_DEFINITION(CSprite)
 
   std::shared_ptr<Texture2d> texture;
 };
+
+TYPEID_SETUP_TYPE(CSprite);
 
 struct Components
 {

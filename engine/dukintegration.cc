@@ -123,6 +123,10 @@ class DukSystems
   }
 };
 
+TYPEID_SETUP_TYPE(Random);
+TYPEID_SETUP_TYPE(ObjectTemplate);
+TYPEID_SETUP_TYPE(Rect<float>);
+
 struct DukIntegrationPimpl
 {
   DukIntegrationPimpl(

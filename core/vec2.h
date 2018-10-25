@@ -6,6 +6,7 @@
 #include "core/interpolate.h"
 #include "core/angle.h"
 #include "core/pointerornot.h"
+#include "core/typeinfo.h"
 
 template <typename T, typename TStorage>
 class vec2
@@ -237,5 +238,7 @@ typedef vec2<float, StorePointer<float>>        vec2fp;
 typedef Vec2Transform<float, StoreValue<float>> Vec2fTransform;
 typedef vec2<int, StoreValue<int>>              vec2i;
 typedef vec2<int, StorePointer<int>>            vec2ip;
+
+TYPEID_SETUP_TYPE(vec2f);
 
 #endif  // CORE_VEC2_H
