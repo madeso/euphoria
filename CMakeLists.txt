@@ -89,29 +89,30 @@ include_directories(SYSTEM ${CMAKE_CURRENT_BINARY_DIR})
 
 if(BUILD_USE_CLANG_TIDY)
   find_program(
-    CLANG_TIDY_EXE
+    CLANG_TIDY_BINARY
     NAMES "clang-tidy"
     DOC "Path to clang-tidy executable"
   )
-  if(NOT CLANG_TIDY_EXE)
+  if(NOT CLANG_TIDY_BINARY)
     message(STATUS "clang-tidy not found.")
   else()
+    set(CLANG_TIDY_EXE ${CLANG_TIDY_BINARY})
     message(STATUS "clang-tidy found: ${CLANG_TIDY_EXE}")
   endif()
 else()
   message(STATUS "not including clang-tidy in builds")
-  unset(CLANG_TIDY_EXE)
 endif()
 
 if(BUILD_USE_CLANG_FORMAT)
   find_program(
-    CLANG_FORMAT_EXE
+    CLANG_FORMAT_BINARY
     NAMES "clang-format"
     DOC "Path to clang-format executable"
   )
-  if(NOT CLANG_FORMAT_EXE)
+  if(NOT CLANG_FORMAT_BINARY)
     message(STATUS "clang-format not found.")
   else()
+    set(CLANG_FORMAT_EXE ${CLANG_FORMAT_BINARY})
     message(STATUS "clang-format found: ${CLANG_FORMAT_EXE}")
   endif()
 else()
