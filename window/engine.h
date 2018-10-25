@@ -2,6 +2,7 @@
 #define EUPHORIA_ENGINE_H
 
 #include <memory>
+#include <string>
 
 #include "window/fakesdlevent.h"
 
