@@ -14,7 +14,7 @@ import buildtools.visualstudio as visualstudio
 def install_dependency_sdl2(deps, root, build, generator: str):
     core.print_dashes()
     print('Installing dependency sdl2')
-    url = "https://www.libsdl.org/release/SDL2-2.0.5.zip"
+    url = "https://www.libsdl.org/release/SDL2-2.0.8.zip"
     zip = os.path.join(deps, 'sdl2.zip')
     if not core.dir_exist(root):
         core.verify_dir_exist(root)
@@ -22,7 +22,7 @@ def install_dependency_sdl2(deps, root, build, generator: str):
         print('downloading sdl2')
         core.download_file(url, zip)
         core.extract_zip(zip, root)
-        core.movefiles(os.path.join(root, 'SDL2-2.0.5'), root)
+        core.movefiles(os.path.join(root, 'SDL2-2.0.8'), root)
         project = cmake.CMake(build_folder=build, source_folder=root, generator=generator)
         #  project.make_static_library()
         project.config()
