@@ -11,12 +11,16 @@
 // another library
 // or a custom solution
 
+#if BUILD_TYPEINFO_IMPL_CUSTOM_RT == 1 || BUILD_TYPEINFO_IMPL_CUSTOM_HASHED == 1
+#else
 template <typename T>
 void
 TYPEINFO_UselessFunction();
 #define TYPEID_SETUP_TYPE(X) \
   template <>                \
   void TYPEINFO_UselessFunction<X>()
+#endif
+
 
 #if BUILD_TYPEINFO_IMPL_RTTI == 1
 // standard c++ library
@@ -47,9 +51,15 @@ using TypeName = ctti::detail::cstring;
 // todo: please implement this
 
 #include <string>
+#include <cstdint>
+
+#if BUILD_TYPEINFO_IMPL_CUSTOM_HASHED == 1
+#include "core/fnv1a.h"
+#endif
 
 using TypeName = std::string;
-using TypeId   = unsigned int;
+
+using TypeId = std::uint64_t;
 
 template <typename T>
 struct TypeNameImpl
@@ -61,7 +71,6 @@ struct TypeNameImpl
   static constexpr const char* const Name = "";
 };
 
-#undef TYPEID_SETUP_TYPE
 #define TYPEID_SETUP_TYPE(X)                      \
   template <>                                     \
   struct TypeNameImpl<X>                          \
@@ -91,7 +100,7 @@ GetUniqueIdOf(const std::string& name);
 
 #define TYPEID_ID(X) GetUniqueIdOf(TYPEID_NAME(X))
 #else
-#error "todo: not implemented"
+#define TYPEID_ID(X) fnv1a(TYPEID_NAME(X))
 #endif
 
 
