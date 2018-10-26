@@ -1,15 +1,39 @@
 #ifndef EUPHORIA_TYPEINFO_H
 #define EUPHORIA_TYPEINFO_H
 
-#include "euph_generated_config.h"
-
 // typeinfo.h:
+// Exposes macros and types for basic type information of known-at-compile-time
+// type information. The type can be a simple as a int and as complex
+// as a template argument
 //
-// basically a wrapper over the ctti library
-// why? because if ctti fails to compile or proves to be too hard
-// we can easily switch back to typeof() and std::typeinfo,
-// another library
-// or a custom solution
+// Macros:
+//
+// TYPEID_ID(TYPE)
+// The "integer" id of a type
+//
+// TYPEID_NAME(TYPE)
+// The name of a type
+//
+// TYPEID_SETUP_TYPE(TYPE)
+// Sets up typeinfo for a type
+//
+// Types:
+//
+// TypeId
+// The "integer" type
+//
+// TypeName
+// The "string" type
+//
+//
+// How these are actually implemented is determined during
+// the cmake configuration, but the following options are available:
+//  * rtti: c++ rtti
+//  * ctti: external library ctti
+//  * custom rt: uses macros and runtime to calculate the id
+//  * custom hashed: uses macros and fnv1a to calculate the id
+
+#include "euph_generated_config.h"
 
 #if BUILD_TYPEINFO_IMPL_CUSTOM_RT == 1 || BUILD_TYPEINFO_IMPL_CUSTOM_HASHED == 1
 #else
