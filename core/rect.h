@@ -5,6 +5,7 @@
 #include "core/vec2.h"
 #include "core/size.h"
 #include "core/line2.h"
+#include "core/range.h"
 
 // Bottom, Left of screen is (0,0)
 // X-axis is positive right, Y-axis is positive up
@@ -455,8 +456,8 @@ template <typename T, typename R>
 const vec2<R>
 To01(const Rect<T>& rect, const vec2<R>& from)
 {
-  const auto x = To01(rect.left, from.x, rect.right);
-  const auto y = To01(rect.bottom, from.y, rect.top);
+  const auto x = Range(rect.left, rect.right).To01(from.x);
+  const auto y = Range(rect.bottom, rect.top).To01(from.y);
   return vec2<R>{x, y};
 }
 
@@ -464,8 +465,8 @@ template <typename T, typename R>
 const vec2<R>
 From01(const Rect<T>& rect, const vec2<R>& from)
 {
-  const auto x = From01(rect.left, from.x, rect.right);
-  const auto y = From01(rect.bottom, from.y, rect.top);
+  const auto x = Range(rect.left, rect.right).From01(from.x);
+  const auto y = Range(rect.bottom, rect.top).From01(from.y);
   return vec2<R>{x, y};
 }
 
