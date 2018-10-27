@@ -35,14 +35,14 @@ class vec3
   {
   }
 
-  template <typename TStorageRhs>
-  vec3(const vec2<T, TStorageRhs>& a, const T& az)
+  vec3(const vec2<T>& a, const T& az)
       : x(a.x)
       , y(a.y)
       , z(az)
   {
   }
-  vec3(const T* a)
+
+  explicit vec3(const T* a)
       : x(a[0])
       , y(a[1])
       , z(a[2])
@@ -177,11 +177,13 @@ class unit3 : public vec3<T>
 {
  public:
   typedef unit3<T> Unit;
+
   bool
   IsValid() const
   {
     return ::IsEqual(vec3<T>::GetLengthSquared(), 1);
   }
+
   Unit
   operator-() const
   {

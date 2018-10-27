@@ -48,15 +48,6 @@ TEST_CASE("vec2-times_assign-value", "[vec2]")
   REQUIRE(v.y == 4);
 }
 
-TEST_CASE("vec2-times_assign-pointer", "[vec2]")
-{
-  auto v  = vec2i(1, 2);
-  auto vp = vec2ip(&v.x, &v.y);
-  vp *= 2;
-  REQUIRE(v.x == 2);
-  REQUIRE(v.y == 4);
-}
-
 TEST_CASE("vec2-div", "[vec2]")
 {
   const auto v = vec2i(2, 4) / 2;
@@ -95,15 +86,6 @@ TEST_CASE("vec2-normalize-value", "[vec2]")
 {
   auto v = vec2i(0, 3);
   v.Normalize();
-  REQUIRE(v.x == 0);
-  REQUIRE(v.y == 1);
-}
-
-TEST_CASE("vec2-normalize-pointer", "[vec2]")
-{
-  auto v  = vec2i(0, 3);
-  auto vp = vec2ip(&v.x, &v.y);
-  vp.Normalize();
   REQUIRE(v.x == 0);
   REQUIRE(v.y == 1);
 }

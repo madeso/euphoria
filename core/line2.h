@@ -5,7 +5,7 @@ template <typename T>
 class lineseg2
 {
  public:
-  typedef vec2<T, StoreValue<T>> vec;
+  typedef vec2<T> vec;
   lineseg2(const vec& f, const vec& t)
       : from(f)
       , to(t)
@@ -21,7 +21,7 @@ class line2
 {
  public:
   typedef line2<T> Self;
-  typedef vec2<T, StoreValue<T>> vec;
+  typedef vec2<T> vec;
 
   static Self
   FromDirection(const vec& direction, const vec& pos = vec(0, 0))

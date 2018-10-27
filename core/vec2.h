@@ -5,117 +5,85 @@
 
 #include "core/interpolate.h"
 #include "core/angle.h"
-#include "core/pointerornot.h"
 #include "core/typeinfo.h"
 
-template <typename T, typename TStorage>
+template <typename T>
 class vec2
 {
  public:
-  typedef typename TStorage::Storage S;
-  typedef vec2<T, TStorage>      Self;
-  typedef vec2<T, StoreValue<T>> SelfValue;
-  S x;
-  S y;
+  typedef vec2<T> Self;
+  T               x;
+  T               y;
 
-  T
-  GetX() const
-  {
-    return TStorage::Get(x);
-  }
-
-  T
-  GetY() const
-  {
-    return TStorage::Get(y);
-  }
-
-  void
-  SetX(T v)
-  {
-    TStorage::Set(&x, v);
-  }
-
-  void
-  SetY(T v)
-  {
-    TStorage::Set(&y, v);
-  }
-
-  vec2(const S& ax, const S& ay)
+  vec2(const T& ax, const T& ay)
       : x(ax)
       , y(ay)
   {
-    ASSERT(TStorage::IsValid(ax));
-    ASSERT(TStorage::IsValid(ay));
   }
 
-  S*
+  T*
   GetDataPtr()
   {
     return &x;
   }
 
-  const S*
+  const T*
   GetDataPtr() const
   {
     return &x;
   }
 
-  static SelfValue
+  static Self
   FromTo(const Self& from, const Self& to)
   {
     return to - from;
   }
 
   template <typename F>
-  vec2<F, StoreValue<F>>
+  vec2<F>
   StaticCast() const
   {
-    return vec2<F, StoreValue<F>>(
-        static_cast<F>(GetX()), static_cast<F>(GetY()));
+    return vec2<F>(static_cast<F>(x), static_cast<F>(y));
   }
 
-  template <typename TStorageRhs>
   void
-  operator+=(const vec2<T, TStorageRhs>& rhs)
+  operator+=(const vec2<T>& rhs)
   {
-    SetX(GetX() + rhs.GetX());
-    SetY(GetY() + rhs.GetY());
+    x = x + rhs.x;
+    y = y + rhs.y;
   }
 
-  template <typename TStorageRhs>
   void
-  operator-=(const vec2<T, TStorageRhs>& rhs)
+  operator-=(const vec2<T>& rhs)
   {
-    SetX(GetX() - rhs.GetX());
-    SetY(GetY() - rhs.GetY());
+    x = x - rhs.x;
+    y = y - rhs.y;
   }
 
   void
   operator/=(const T& rhs)
   {
-    SetX(GetX() / rhs);
-    SetY(GetY() / rhs);
+    x = x / rhs;
+    y = y / rhs;
   }
 
   void
   operator*=(const T& rhs)
   {
-    SetX(GetX() * rhs);
-    SetY(GetY() * rhs);
+    x = x * rhs;
+    y = y * rhs;
   }
 
-  SelfValue
+  Self
   operator-() const
   {
-    return SelfValue(-GetX(), -GetY());
+    return Self(-x, -y);
   }
 
   T
   GetLengthSquared() const
   {
-    return GetX() * GetX() + GetY() * GetY();
+    return x * x + y * y;
   }
 
   T
@@ -130,114 +98,112 @@ class vec2
     *this /= GetLength();
   }
 
-  SelfValue
+  Self
   GetNormalized() const
   {
-    SelfValue r = *this;
+    Self r = *this;
     r.Normalize();
     return r;
   }
 
-  SelfValue
+  Self
   GetRotated(const Angle& a) const
   {
-    const T nx = GetX() * Cos(a) - GetY() * Sin(a);
-    const T ny = GetX() * Sin(a) + GetY() * Cos(a);
-    return SelfValue(nx, ny);
+    const T nx = x * Cos(a) - y * Sin(a);
+    const T ny = x * Sin(a) + y * Cos(a);
+    return Self(nx, ny);
   }
 
-  SelfValue
+  Self
   GetFlippedY() const
   {
-    return SelfValue(GetX(), -GetY());
+    return Self(x, -y);
   }
 };
 
 // operators
 
-template <typename T, typename TStorage>
-vec2<T, StoreValue<T>>
-operator+(const vec2<T, TStorage>& lhs, const vec2<T, TStorage>& rhs)
+template <typename T>
+vec2<T>
+operator+(const vec2<T>& lhs, const vec2<T>& rhs)
 {
-  vec2<T, StoreValue<T>> r = lhs;
+  vec2<T> r = lhs;
   r += rhs;
   return r;
 }
 
-template <typename T, typename TStorage>
-vec2<T, StoreValue<T>>
-operator-(const vec2<T, TStorage>& lhs, const vec2<T, StoreValue<T>>& rhs)
+template <typename T>
+vec2<T>
+operator-(const vec2<T>& lhs, const vec2<T>& rhs)
 {
-  vec2<T, StoreValue<T>> r = lhs;
+  vec2<T> r = lhs;
   r -= rhs;
   return r;
 }
 
-template <typename T, typename TStorage>
-vec2<T, StoreValue<T>>
-operator/(const vec2<T, TStorage>& lhs, const T& rhs)
+template <typename T>
+vec2<T>
+operator/(const vec2<T>& lhs, const T& rhs)
 {
-  vec2<T, StoreValue<T>> r = lhs;
+  vec2<T> r = lhs;
   r /= rhs;
   return r;
 }
 
-template <typename T, typename TStorage>
-vec2<T, StoreValue<T>> operator*(const vec2<T, TStorage>& lhs, const T& rhs)
+template <typename T>
+vec2<T> operator*(const vec2<T>& lhs, const T& rhs)
 {
-  vec2<T, StoreValue<T>> r = lhs;
+  vec2<T> r = lhs;
   r *= rhs;
   return r;
 }
 
-template <typename T, typename TStorage>
-vec2<T, StoreValue<T>> operator*(const T& lhs, const vec2<T, TStorage>& rhs)
+template <typename T>
+vec2<T> operator*(const T& lhs, const vec2<T>& rhs)
 {
-  vec2<T, StoreValue<T>> r = rhs;
+  vec2<T> r = rhs;
   r *= lhs;
   return r;
 }
 
-template <typename T, typename TStorage>
+template <typename T>
 bool
-operator==(const vec2<T, TStorage>& lhs, const vec2<T, TStorage>& rhs)
+operator==(const vec2<T>& lhs, const vec2<T>& rhs)
 {
-  return lhs.GetX() == rhs.GetX() && lhs.GetY() == rhs.GetY();
+  return lhs.x == rhs.x && lhs.y == rhs.y;
 }
 
 // functions
-template <typename T, typename TStorage>
+template <typename T>
 T
-dot(const vec2<T, TStorage>& lhs, const vec2<T, TStorage>& rhs)
+dot(const vec2<T>& lhs, const vec2<T>& rhs)
 {
-  return lhs.GetX() * rhs.GetX() + lhs.GetY() * rhs.GetY();
+  return lhs.x * rhs.x + lhs.y * rhs.y;
 }
 
-template <typename T, typename TStorage>
+template <typename T>
 struct Vec2Transform
 {
-  static vec2<T, StoreValue<T>>
-  Transform(const vec2<T, TStorage>& from, float v, const vec2<T, TStorage> to)
+  static vec2<T>
+  Transform(const vec2<T>& from, float v, const vec2<T> to)
   {
-    return vec2<T, StoreValue<T>>(
-        FloatTransform::Transform(from.GetX(), v, to.GetX()),
-        FloatTransform::Transform(from.GetY(), v, to.GetY()));
+    return vec2<T>(
+        FloatTransform::Transform(from.x, v, to.x),
+        FloatTransform::Transform(from.y, v, to.y));
   }
 };
 
-template <typename S, typename T, typename TStorage>
+template <typename S, typename T>
 S&
-operator<<(S& s, const vec2<T, TStorage>& v)
+operator<<(S& s, const vec2<T>& v)
 {
-  s << "(" << v.GetX() << ", " << v.GetY() << ")";
+  s << "(" << v.x << ", " << v.y << ")";
   return s;
 }
 
-typedef vec2<float, StoreValue<float>>          vec2f;
-typedef vec2<float, StorePointer<float>>        vec2fp;
-typedef Vec2Transform<float, StoreValue<float>> Vec2fTransform;
-typedef vec2<int, StoreValue<int>>              vec2i;
-typedef vec2<int, StorePointer<int>>            vec2ip;
+typedef vec2<float>          vec2f;
+typedef Vec2Transform<float> Vec2fTransform;
+typedef vec2<int>            vec2i;
 
 TYPEID_SETUP_TYPE(vec2f);
 

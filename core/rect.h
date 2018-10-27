@@ -21,7 +21,7 @@ class Rect
   T bottom;
 
   typedef line2<T> Line;
-  typedef vec2<T, StoreValue<T>> vec;
+  typedef vec2<T>  vec;
 
   Rect()
       : left(0)
@@ -57,10 +57,7 @@ class Rect
   }
   static Rect
   FromPositionAnchorWidthAndHeight(
-      const vec2<T, StoreValue<T>>& pos,
-      const vec2<T, StoreValue<T>>& anchor,
-      float width,
-      float height)
+      const vec2<T>& pos, const vec2<T>& anchor, float width, float height)
   {
     const T left   = pos.x - width * anchor.x;
     const T bottom = pos.y - height * anchor.y;
@@ -91,10 +88,10 @@ class Rect
     return FromTopLeftWidthHeight(point.y, point.x, 0, 0);
   }
 
-  vec2<T, StoreValue<T>>
+  vec2<T>
   GetBottomLeft() const
   {
-    return vec2<T, StoreValue<T>>(left, bottom);
+    return vec2<T>(left, bottom);
   }
 
   // centers this rectangle inside the other rectangle and returns it without
@@ -108,8 +105,8 @@ class Rect
         lower_left.y + GetHeight(), lower_left.x, GetWidth(), GetHeight());
   }
 
-  vec2<T, StoreValue<T>>
-  GetPositionFromBottomLeft(const vec2<T, StoreValue<T>> v) const
+  vec2<T>
+  GetPositionFromBottomLeft(const vec2<T> v) const
   {
     return GetBottomLeft() + v;
   }
@@ -126,10 +123,10 @@ class Rect
     return GetHeight() / 2;
   }
 
-  vec2<T, StoreValue<T>>
+  vec2<T>
   GetRelativeCenterPosFromBottomLeft() const
   {
-    return vec2<T, StoreValue<T>>(
+    return vec2<T>(
         GetRelativeCenterXFromBottomLeft(), GetRelativeCenterYFromBottomLeft());
   }
 
@@ -145,10 +142,10 @@ class Rect
     return bottom + GetRelativeCenterYFromBottomLeft();
   }
 
-  vec2<T, StoreValue<T>>
+  vec2<T>
   GetAbsoluteCenterPos() const
   {
-    return vec2<T, StoreValue<T>>(GetAbsoluteCenterX(), GetAbsoluteCenterY());
+    return vec2<T>(GetAbsoluteCenterX(), GetAbsoluteCenterY());
   }
 
   // does this contains the argument?
@@ -162,9 +159,8 @@ class Rect
   }
 
   // on the border is NOT considered included
-  template <typename TStorage>
   bool
-  ContainsExclusive(const vec2<T, TStorage>& p) const
+  ContainsExclusive(const vec2<T>& p) const
   {
     ASSERT(IsValid());
     return ContainsExclusive(p.x, p.y);
@@ -178,9 +174,8 @@ class Rect
   }
 
   // on the border is considered included
-  template <typename TStorage>
   bool
-  ContainsInclusive(const vec2<T, TStorage>& p) const
+  ContainsInclusive(const vec2<T>& p) const
   {
     return ContainsInclusive(p.x, p.y);
   }
@@ -331,9 +326,8 @@ class Rect
     return ret;
   }
 
-  template <typename TStorage>
   Rect<T>
-  OffsetCopy(const vec2<T, TStorage>& d) const
+  OffsetCopy(const vec2<T>& d) const
   {
     return OffsetCopy(d.x, d.y);
   }
@@ -457,22 +451,22 @@ class Rect
 };
 
 
-template <typename T, typename R, typename TStorage>
-const vec2<R, StoreValue<T>>
-To01(const Rect<T>& rect, const vec2<R, TStorage>& from)
+template <typename T, typename R>
+const vec2<R>
+To01(const Rect<T>& rect, const vec2<R>& from)
 {
   const auto x = To01(rect.left, from.x, rect.right);
   const auto y = To01(rect.bottom, from.y, rect.top);
-  return vec2<R, StoreValue<T>>{x, y};
+  return vec2<R>{x, y};
 }
 
-template <typename T, typename R, typename TStorage>
-const vec2<R, StoreValue<T>>
-From01(const Rect<T>& rect, const vec2<R, TStorage>& from)
+template <typename T, typename R>
+const vec2<R>
+From01(const Rect<T>& rect, const vec2<R>& from)
 {
   const auto x = From01(rect.left, from.x, rect.right);
   const auto y = From01(rect.bottom, from.y, rect.top);
-  return vec2<R, StoreValue<T>>{x, y};
+  return vec2<R>{x, y};
 }
 
 template <typename S, typename T>

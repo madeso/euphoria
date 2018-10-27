@@ -13,8 +13,7 @@ void
 BindVec2(duk::Duk* duk, const std::string& name)
 {
   using namespace duk;
-  using TStorage = StoreValue<T>;
-  using V        = vec2<T, TStorage>;
+  using V = vec2<T>;
 
   duk->BindClass(
       name,
@@ -24,27 +23,27 @@ BindVec2(duk::Duk* duk, const std::string& name)
                 return ctx->ReturnObject(std::make_shared<V>(x, y));
               }))
           .AddMethod("getX", MakeBind<V>([](Context* ctx, const V& v) -> int {
-                       return ctx->ReturnNumber(v.GetX());
+                       return ctx->ReturnNumber(v.x);
                      }))
           .AddMethod("getY", MakeBind<V>([](Context* ctx, const V& v) -> int {
-                       return ctx->ReturnNumber(v.GetY());
+                       return ctx->ReturnNumber(v.y);
                      }))
           .AddProperty(
               "x",
               MakeBind<V>([](Context* ctx, const V& v) -> int {
-                return ctx->ReturnNumber(v.GetX());
+                return ctx->ReturnNumber(v.x);
               }),
               MakeBind<V, float>([](Context* ctx, V& v, float x) -> int {
-                v.SetX(x);
+                v.x = x;
                 return ctx->ReturnVoid();
               }))
           .AddProperty(
               "y",
               MakeBind<V>([](Context* ctx, const V& v) -> int {
-                return ctx->ReturnNumber(v.GetY());
+                return ctx->ReturnNumber(v.y);
               }),
               MakeBind<V, float>([](Context* ctx, V& v, float y) -> int {
-                v.SetY(y);
+                v.y = y;
                 return ctx->ReturnVoid();
               })));
 }
