@@ -10,9 +10,9 @@
 #include "core/entityid.h"
 #include "core/assert.h"
 
-#define DEBUG_COMPONENT 1
+#include "euph_generated_config.h"
 
-#if DEBUG_COMPONENT == 1
+#if BUILD_ENTITY_DEBUG_COMPONENT == 1
 #define COMPONENT_CONSTRUCTOR_IMPLEMENTATION(X) \
   X::X()                                        \
       : Component(TYPEID_NAME(X), TYPEID_ID(X)) \
@@ -42,12 +42,12 @@ GetId(EntityId id, EntityVersion version);
 class Component
 {
  public:
-#if DEBUG_COMPONENT == 1
+#if BUILD_ENTITY_DEBUG_COMPONENT == 1
   Component(TypeName n, TypeId i);
 #endif
   virtual ~Component() = default;
 
-#if DEBUG_COMPONENT == 1
+#if BUILD_ENTITY_DEBUG_COMPONENT == 1
   const TypeName type_name;
   const TypeId   type_id;
 #endif
@@ -141,7 +141,9 @@ class Registry
     }
     else
     {
+#if BUILD_ENTITY_DEBUG_COMPONENT == 1
       ASSERTX(c->type_id == TYPEID_ID(T), c->type_name, TYPEID_NAME(T));
+#endif
       return static_cast<T*>(c.get());
     }
   }

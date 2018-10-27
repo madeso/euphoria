@@ -5,6 +5,7 @@ project(euphoria)
 
 OPTION(BUILD_USE_CLANG_FORMAT "try to use clang-format as a build command." OFF)
 OPTION(BUILD_USE_CLANG_TIDY "try to use clang-tidy as a build command." OFF)
+OPTION(BUILD_ENTITY_DEBUG_COMPONENT "when converting components, (debug) assert of bad casts" OFF)
 SET(BUILD_TYPEINFO_IMPL "rtti" CACHE STRING "rtti, ctti, custom_hashed, custom_rt")
 
 SET(BUILD_TYPEINFO_IMPL_RTTI FALSE)
