@@ -51,9 +51,9 @@ class Light
   GetPosition() const;
 
   void
-  SetDirection(const vec3f::Unit& direction);
+  SetDirection(const unit3f& direction);
 
-  const vec3f::Unit&
+  const unit3f&
   GetDirection() const;
 
   void
@@ -107,7 +107,7 @@ class Light
  private:
   Type        type_;
   vec3f       position_;
-  vec3f::Unit direction_;
+  unit3f direction_;
   Rgb         ambient_;
   Rgb         diffuse_;
   Rgb         specular_;

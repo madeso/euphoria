@@ -12,6 +12,7 @@ enum class ValueType
   Int,
   Float,
   Vec3f,
+  Point3f,
   Struct
 };
 
@@ -48,10 +49,19 @@ struct ValueFloat : public Value
 
 struct ValueVec3f : public Value
 {
-  explicit ValueVec3f(const vec3f& v);
-  vec3f value;
+  explicit ValueVec3f(const Vec3f& v);
+  Vec3f value;
 
-  static vec3f&
+  static Vec3f&
+  Cast(Value* value);
+};
+
+struct ValuePoint3f : public Value
+{
+  explicit ValuePoint3f(const point3f& v);
+  point3f value;
+
+  static point3f&
   Cast(Value* value);
 };
 

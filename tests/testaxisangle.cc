@@ -5,7 +5,7 @@
 TEST_CASE("aa-righthand", "[aa]")
 {
   const auto aa =
-      AxisAngle::RightHandAround(vec3f::XAxis(), Angle::FromDegrees(12.0f));
+      AxisAngle::RightHandAround(unit3f::XAxis(), Angle::FromDegrees(12.0f));
   REQUIRE(aa.angle.InDegrees() == Approx(12.0f));
 
   // todo: replace one require

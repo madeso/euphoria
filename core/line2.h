@@ -1,19 +1,22 @@
 #ifndef CORE_LINE2_H
 #define CORE_LINE2_H
 
+#include "core/vec2.h"
+
 template <typename T>
 class lineseg2
 {
  public:
-  typedef vec2<T> vec;
-  lineseg2(const vec& f, const vec& t)
+  typedef point2<T> point;
+
+  lineseg2(const point& f, const point& t)
       : from(f)
       , to(t)
   {
   }
 
-  vec from;
-  vec to;
+  point from;
+  point to;
 };
 
 template <typename T>
@@ -21,16 +24,17 @@ class line2
 {
  public:
   typedef line2<T> Self;
-  typedef vec2<T> vec;
+  typedef Vec2<T> vec;
+  typedef point2<T> tpoint;
 
   static Self
-  FromDirection(const vec& direction, const vec& pos = vec(0, 0))
+  FromDirection(const vec& direction, const tpoint& pos = tpoint::Origo())
   {
     return Self(pos, direction);
   }
 
   static Self
-  FromTo(const vec& from, const vec& to)
+  FromTo(const tpoint& from, const tpoint& to)
   {
     return Self(from, vec::FromTo(from, to));
   }
@@ -60,7 +64,7 @@ class line2
     }
 
     static Collision
-    Collided(const vec& p, T a, T b)
+    Collided(const tpoint& p, T a, T b)
     {
       Collision c{p, a, b};
       return c;
@@ -98,7 +102,7 @@ class line2
     bool collision;
     bool is_parallel;
 
-    vec point;
+    tpoint point;
     T   u;
     T   v;
 
@@ -111,7 +115,7 @@ class line2
         , v(0)
     {
     }
-    Collision(const vec& p, T a, T b)
+    Collision(const tpoint& p, T a, T b)
         : collision(true)
         , is_parallel(false)
         , point(p)
@@ -125,10 +129,10 @@ class line2
   GetIntersection(const Self& line) const
   {
     // https://stackoverflow.com/a/1968345/180307
-    const vec p1 = position;
-    const vec p2 = position + direction;
-    const vec p3 = line.position;
-    const vec p4 = line.position + line.direction;
+    const tpoint p1 = position;
+    const tpoint p2 = position + direction;
+    const tpoint p3 = line.position;
+    const tpoint p4 = line.position + line.direction;
 
     const T p0_x = p1.x;
     const T p0_y = p1.y;
@@ -159,17 +163,17 @@ class line2
     {
       const T x = p0_x + (t * s1_x);
       const T y = p0_y + (t * s1_y);
-      return Collision::Collided(vec(x, y), s, t);
+      return Collision::Collided(point(x, y), s, t);
     }
 
     return Collision::NoCollision();
   }
 
  private:
-  vec position;
+  tpoint position;
   vec direction;
 
-  line2(const vec& p, const vec& d)
+  line2(const tpoint& p, const vec& d)
       : position(p)
       , direction(d)
   {

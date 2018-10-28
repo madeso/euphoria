@@ -22,7 +22,7 @@ class Rect
   T bottom;
 
   typedef line2<T> Line;
-  typedef vec2<T>  vec;
+  // typedef vec2<T>  vec;
 
   Rect()
       : left(0)
@@ -49,6 +49,7 @@ class Rect
     ASSERTX(atop >= abottom, atop, abottom);
     return Rect(aleft, aright, atop, abottom);
   }
+
   static Rect
   FromLeftRightTopBottom(T aleft, T aright, T atop, T abottom)
   {
@@ -56,14 +57,17 @@ class Rect
     ASSERTX(atop >= abottom, atop, abottom);
     return Rect(aleft, aright, atop, abottom);
   }
+
   static Rect
   FromPositionAnchorWidthAndHeight(
-      const vec2<T>& pos, const vec2<T>& anchor, float width, float height)
+      const point2<T>& pos, const Vec2<T>& anchor, float width, float height)
   {
+    // todo: change anchor type to some anchor type instead
     const T left   = pos.x - width * anchor.x;
     const T bottom = pos.y - height * anchor.y;
     return FromLeftRightBottomTop(left, left + width, bottom, bottom + height);
   }
+
   static Rect
   FromTopLeftWidthHeight(T atop, T aleft, T width, T height)
   {
@@ -71,6 +75,7 @@ class Rect
     ASSERT(height >= 0);
     return FromLeftRightTopBottom(aleft, aleft + width, atop, atop - height);
   }
+
   static Rect
   FromWidthHeight(T width, T height)
   {
@@ -78,21 +83,29 @@ class Rect
     ASSERTX(height >= 0, height);
     return FromLeftRightBottomTop(0, width, 0, height);
   }
+
   static Rect
   FromWidthHeight(const Size<T>& s)
   {
     return FromWidthHeight(s.GetWidth(), s.GetHeight());
   }
+
   static Rect
-  FromPoint(const vec& point)
+  FromPoint(const point2<T>& point)
   {
     return FromTopLeftWidthHeight(point.y, point.x, 0, 0);
   }
 
-  vec2<T>
+  point2<T>
   GetBottomLeft() const
   {
-    return vec2<T>(left, bottom);
+    return point2<T>(left, bottom);
+  }
+
+  Vec2<T>
+  GetBottomLeftOffset() const
+  {
+    return Vec2<T>(left, bottom);
   }
 
   // centers this rectangle inside the other rectangle and returns it without
@@ -106,10 +119,10 @@ class Rect
         lower_left.y + GetHeight(), lower_left.x, GetWidth(), GetHeight());
   }
 
-  vec2<T>
-  GetPositionFromBottomLeft(const vec2<T> v) const
+  point2<T>
+  GetPositionFromBottomLeft(const point2<T> v) const
   {
-    return GetBottomLeft() + v;
+    return GetBottomLeftOffset() + v;
   }
 
   T
@@ -124,10 +137,10 @@ class Rect
     return GetHeight() / 2;
   }
 
-  vec2<T>
+  point2<T>
   GetRelativeCenterPosFromBottomLeft() const
   {
-    return vec2<T>(
+    return point2<T>(
         GetRelativeCenterXFromBottomLeft(), GetRelativeCenterYFromBottomLeft());
   }
 
@@ -143,10 +156,10 @@ class Rect
     return bottom + GetRelativeCenterYFromBottomLeft();
   }
 
-  vec2<T>
+  point2<T>
   GetAbsoluteCenterPos() const
   {
-    return vec2<T>(GetAbsoluteCenterX(), GetAbsoluteCenterY());
+    return point2<T>(GetAbsoluteCenterX(), GetAbsoluteCenterY());
   }
 
   // does this contains the argument?
@@ -161,7 +174,7 @@ class Rect
 
   // on the border is NOT considered included
   bool
-  ContainsExclusive(const vec2<T>& p) const
+  ContainsExclusive(const point2<T>& p) const
   {
     ASSERT(IsValid());
     return ContainsExclusive(p.x, p.y);
@@ -176,7 +189,7 @@ class Rect
 
   // on the border is considered included
   bool
-  ContainsInclusive(const vec2<T>& p) const
+  ContainsInclusive(const point2<T>& p) const
   {
     return ContainsInclusive(p.x, p.y);
   }
@@ -328,7 +341,7 @@ class Rect
   }
 
   Rect<T>
-  OffsetCopy(const vec2<T>& d) const
+  OffsetCopy(const Vec2<T>& d) const
   {
     return OffsetCopy(d.x, d.y);
   }
@@ -346,7 +359,7 @@ class Rect
   }
 
   Rect<T>
-  SetTopLeftToCopy(const vec& v) const
+  SetTopLeftToCopy(const point2<T>& v) const
   {
     return SetTopLeftToCopy(v.x, v.y);
   }
@@ -359,7 +372,7 @@ class Rect
   }
 
   Rect<T>
-  SetBottomLeftToCopy(const vec& v) const
+  SetBottomLeftToCopy(const point2<T>& v) const
   {
     return SetBottomLeftToCopy(v.x, v.y);
   }
@@ -390,28 +403,28 @@ class Rect
     return Size<T>::FromWidthHeight(GetWidth(), GetHeight());
   }
 
-  const vec
+  const point2<T>
   TopLeft() const
   {
-    return vec(left, top);
+    return point2<T>(left, top);
   }
 
-  const vec
+  const point2<T>
   TopRight() const
   {
-    return vec(right, top);
+    return point2<T>(right, top);
   }
 
-  const vec
+  const point2<T>
   BottomLeft() const
   {
-    return vec(left, bottom);
+    return point2<T>(left, bottom);
   }
 
-  const vec
+  const point2<T>
   BottomRight() const
   {
-    return vec(right, bottom);
+    return point2<T>(right, bottom);
   }
 
   const Line
@@ -453,21 +466,21 @@ class Rect
 
 
 template <typename T, typename R>
-const vec2<R>
-To01(const Rect<T>& rect, const vec2<R>& from)
+const point2<R>
+To01(const Rect<T>& rect, const point2<R>& from)
 {
   const auto x = Range(rect.left, rect.right).To01(from.x);
   const auto y = Range(rect.bottom, rect.top).To01(from.y);
-  return vec2<R>{x, y};
+  return point2<R>{x, y};
 }
 
 template <typename T, typename R>
-const vec2<R>
-From01(const Rect<T>& rect, const vec2<R>& from)
+const point2<R>
+From01(const Rect<T>& rect, const point2<R>& from)
 {
   const auto x = Range(rect.left, rect.right).From01(from.x);
   const auto y = Range(rect.bottom, rect.top).From01(from.y);
-  return vec2<R>{x, y};
+  return point2<R>{x, y};
 }
 
 template <typename S, typename T>

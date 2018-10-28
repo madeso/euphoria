@@ -236,12 +236,12 @@ TEST_CASE("rect-from-anchor", "[rect]")
 {
   const int   height = 3;
   const int   width  = 4;
-  const vec2i origo{0, 0};
+  const point2i origo = point2i::Origo();
 
   SECTION("lower left at origo")
   {
     const auto r = Recti::FromPositionAnchorWidthAndHeight(
-        origo, vec2i{0, 0}, width, height);
+        origo, Vec2i{0, 0}, width, height);
     REQUIRE(r.left == 0);
     REQUIRE(r.right == width);
 
@@ -252,7 +252,7 @@ TEST_CASE("rect-from-anchor", "[rect]")
   SECTION("upper right at origo")
   {
     const auto r = Recti::FromPositionAnchorWidthAndHeight(
-        origo, vec2i{1, 1}, width, height);
+        origo, Vec2i{1, 1}, width, height);
     REQUIRE(r.left == -width);
     REQUIRE(r.right == 0);
 
@@ -265,12 +265,12 @@ TEST_CASE("rect-from-anchor-center", "[rect]")
 {
   const float half_height = 3;
   const float half_width  = 4;
-  const vec2f origo{0, 0};
+  const point2f origo = point2f::Origo();
 
   SECTION("lower left at origo")
   {
     const auto r = Rectf::FromPositionAnchorWidthAndHeight(
-        origo, vec2f{0.5f, 0.5f}, half_width * 2, half_height * 2);
+        origo, Vec2f{0.5f, 0.5f}, half_width * 2, half_height * 2);
     REQUIRE(r.left == Approx{-half_width});
     REQUIRE(r.right == Approx{half_width});
 

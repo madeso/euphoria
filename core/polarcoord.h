@@ -11,7 +11,7 @@ class PolarCoord
  public:
   PolarCoord(float azimuthal01, float polar01);
 
-  vec3f::Unit
+  unit3f
   ToCartesian() const;
 
  private:

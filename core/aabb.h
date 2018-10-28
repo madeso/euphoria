@@ -6,18 +6,13 @@
 class Aabb
 {
  public:
-  Aabb(const vec3f& amin, const vec3f& amax);
+  Aabb(const point3f& amin, const point3f& amax);
 
-  const vec3f&
-  GetMin() const;
-  const vec3f&
-  GetMax() const;
-
-  vec3f
-  Wrap(const vec3f& vec) const;
+  point3f
+  Wrap(const point3f& vec) const;
 
   void
-  Extend(const vec3f& vec);
+  Extend(const point3f& vec);
 
   void
   Extend(const Aabb& aabb);
@@ -25,17 +20,23 @@ class Aabb
   static Aabb
   Empty();
 
-  vec3f
+  Vec3f
   GetSize() const;
 
   bool
   IsValid() const;
 
-  vec3f
+  Vec3f
   GetOffset() const;
 
-  vec3f min;
-  vec3f max;
+  const point3f&
+  GetMin() const;
+
+  const point3f&
+  GetMax() const;
+
+  point3f min;
+  point3f max;
 };
 
 template <typename Stream>

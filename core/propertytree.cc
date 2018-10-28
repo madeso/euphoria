@@ -36,18 +36,35 @@ ValueFloat::Cast(Value* value)
 
 ////////////////////////////////////////////////////////////////////////////////
 
-ValueVec3f::ValueVec3f(const vec3f& v)
+ValueVec3f::ValueVec3f(const Vec3f& v)
     : Value(ValueType::Vec3f)
     , value(v)
 {
 }
 
-vec3f&
+Vec3f&
 ValueVec3f::Cast(Value* value)
 {
   ASSERT(value);
   ASSERT(value->type == ValueType::Vec3f);
   return static_cast<ValueVec3f*>(value)->value;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+ValuePoint3f::ValuePoint3f(const point3f& v)
+    : Value(ValueType::Point3f)
+    , value(v)
+{
+}
+
+point3f&
+ValuePoint3f::Cast(Value* value)
+{
+  ASSERT(value);
+  ASSERT(value->type == ValueType::Point3f);
+  return static_cast<ValuePoint3f*>(value)->value;
 }
 
 ////////////////////////////////////////////////////////////////////////////////

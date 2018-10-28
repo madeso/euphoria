@@ -10,18 +10,18 @@ class AxisAngle
 {
  public:
   static const AxisAngle
-  RightHandAround(const vec3f::Unit& axis, const Angle& angle);
+  RightHandAround(const unit3f& axis, const Angle& angle);
 
   /** a unit-vector.
   */
-  vec3f::Unit axis;
+  unit3f axis;
 
   /** rotation according to right-hand rule.
   */
   Angle angle;
 
  private:
-  AxisAngle(const vec3f::Unit& ax, const Angle& ang);
+  AxisAngle(const unit3f& ax, const Angle& ang);
 };
 
 std::ostream&

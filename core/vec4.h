@@ -3,8 +3,13 @@
 
 #include "core/vec3.h"
 
+#include "core/assert.h"
+#include "core/numeric.h"
+
 #include <ostream>
 
+
+// represents a homogeneous coordinate
 template <typename T>
 class vec4
 {
@@ -28,14 +33,47 @@ class vec4
       , w(aw)
   {
   }
-  vec4(const vec3<T>& a, const T& aw)
+
+  vec4(const Vec3<T>& a)
       : x(a.x)
       , y(a.y)
       , z(a.z)
-      , w(aw)
+      , w(0)
   {
   }
-  vec4(const T* a)
+
+  vec4(const point3<T>& a)
+      : x(a.x)
+      , y(a.y)
+      , z(a.z)
+      , w(1)
+  {
+  }
+
+  vec4(const scale3<T>& a)
+      : x(a.x)
+      , y(a.y)
+      , z(a.z)
+      , w(1)
+  {
+  }
+
+  Vec3<T>
+  ToVec3() const
+  {
+    ASSERTX(IsEqual(w, 0), w);
+    return Vec3<T>(x, y, z);
+  }
+
+  point3<T>
+  ToPoint3() const
+  {
+    // todo: assert on w
+    ASSERT(IsEqual(w, 1));
+    return point3<T>(x, y, z);
+  }
+
+  explicit vec4(const T* a)
       : x(a[0])
       , y(a[1])
       , z(a[2])
@@ -53,12 +91,6 @@ class vec4
   GetDataPtr() const
   {
     return &x;
-  }
-
-  vec3<T>
-  ToVec3() const
-  {
-    return vec3<T>(x, y, z);
   }
 
   T

@@ -1,12 +1,35 @@
 #include "tests/testbase.h"
 
-template <>
+template <typename T>
 bool
-approximately_equal(vec3f const& lhs, vec3f const& rhs, const ApproxData& data)
+vec3_approximately_equal(T const& lhs, T const& rhs, const ApproxData& data)
 {
   return approximately_equal(lhs.x, rhs.x, data) &&
          approximately_equal(lhs.y, rhs.y, data) &&
          approximately_equal(lhs.z, rhs.z, data);
+}
+
+template <>
+bool
+approximately_equal(
+    point3f const& lhs, point3f const& rhs, const ApproxData& data)
+{
+  return vec3_approximately_equal(lhs, rhs, data);
+}
+
+template <>
+bool
+approximately_equal(Vec3f const& lhs, Vec3f const& rhs, const ApproxData& data)
+{
+  return vec3_approximately_equal(lhs, rhs, data);
+}
+
+template <>
+bool
+approximately_equal(
+    unit3f const& lhs, unit3f const& rhs, const ApproxData& data)
+{
+  return vec3_approximately_equal(lhs, rhs, data);
 }
 
 template <>
@@ -19,15 +42,6 @@ approximately_equal(Rgba const& lhs, Rgba const& rhs, const ApproxData& data)
          approximately_equal(lhs.a, rhs.a, data);
 }
 
-template <>
-bool
-approximately_equal(
-    vec3f::Unit const& lhs, vec3f::Unit const& rhs, const ApproxData& data)
-{
-  return approximately_equal(lhs.x, rhs.x, data) &&
-         approximately_equal(lhs.y, rhs.y, data) &&
-         approximately_equal(lhs.z, rhs.z, data);
-}
 
 template <>
 bool

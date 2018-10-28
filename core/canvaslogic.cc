@@ -2,15 +2,16 @@
 #include "core/numeric.h"
 
 void
-CanvasLogic::Pan(const vec2f& p)
+CanvasLogic::Pan(const Vec2f& p)
 {
   scroll += p;
 }
 
 void
-CanvasLogic::Zoom(const vec2f& mouse, float zoom)
+CanvasLogic::Zoom(const point2f& mouse, float zoom)
 {
-  const auto focus = (mouse - scroll) / scale;
+  // todo: change to use ScreenToWorld
+  const auto focus = Scale(mouse - scroll, 1 / scale);
 
   const float scale_factor = 1 + 0.01f * Abs(zoom);
 
@@ -26,18 +27,19 @@ CanvasLogic::Zoom(const vec2f& mouse, float zoom)
 
   scale = scale_range.KeepWithin(scale);
 
-  const auto new_focus = scroll + (focus * scale);
-  scroll               = scroll + (mouse - new_focus);
+  // todo: change to use WorldToScreen
+  const auto new_focus = scroll + Scale(focus, scale);
+  scroll               = scroll + Vec2f::FromTo(new_focus, mouse);
 }
 
-vec2f
-CanvasLogic::WorldToScreen(const vec2f& p) const
+point2f
+CanvasLogic::WorldToScreen(const point2f& p) const
 {
-  return scroll + p * scale;
+  return scroll + Scale(p, scale);
 }
 
-vec2f
-CanvasLogic::ScreenToWorld(const vec2f& p) const
+point2f
+CanvasLogic::ScreenToWorld(const point2f& p) const
 {
-  return (p - scroll) / scale;
+  return Scale(p - scroll, 1 / scale);
 }

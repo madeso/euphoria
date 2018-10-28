@@ -12,7 +12,7 @@ PolarCoord::PolarCoord(float azimuthal01, float polar01)
   ASSERT(Range(0, 2).IsWithin(polar01));
 }
 
-vec3f::Unit
+unit3f
 PolarCoord::ToCartesian() const
 {
   const float cos_a = Cos(azimuthal_);
@@ -24,5 +24,5 @@ PolarCoord::ToCartesian() const
   const float y = sin_a * sin_p;
   const float z = cos_p;
 
-  return vec3f::ToUnit(x, y, z);
+  return unit3f::ToUnit(x, y, z);
 }

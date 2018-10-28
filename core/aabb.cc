@@ -4,29 +4,29 @@
 #include "core/numeric.h"
 #include "core/range.h"
 
-Aabb::Aabb(const vec3f& amin, const vec3f& amax)
+Aabb::Aabb(const point3f& amin, const point3f& amax)
     : min(amin)
     , max(amax)
 {
   ASSERT(IsValid());
 }
 
-const vec3f&
+const point3f&
 Aabb::GetMin() const
 {
   ASSERT(IsValid());
   return min;
 }
 
-const vec3f&
+const point3f&
 Aabb::GetMax() const
 {
   ASSERT(IsValid());
   return max;
 }
 
-vec3f
-Aabb::Wrap(const vec3f& vec) const
+point3f
+Aabb::Wrap(const point3f& vec) const
 {
   ASSERT(IsValid());
 #define COMP(C) const auto C = Range{min.C, max.C}.Wrap(vec.C)
@@ -34,27 +34,27 @@ Aabb::Wrap(const vec3f& vec) const
   COMP(y);
   COMP(z);
 #undef COMP
-  return vec3f{x, y, z};
+  return point3f{x, y, z};
 }
 
-vec3f
-Min(const vec3f& lhs, const vec3f& rhs)
+point3f
+Min(const point3f& lhs, const point3f& rhs)
 {
 #define M(var) Min(lhs.var, rhs.var)
-  return vec3f{M(x), M(y), M(z)};
+  return point3f{M(x), M(y), M(z)};
 #undef M
 }
 
-vec3f
-Max(const vec3f& lhs, const vec3f& rhs)
+point3f
+Max(const point3f& lhs, const point3f& rhs)
 {
 #define M(var) Max(lhs.var, rhs.var)
-  return vec3f{M(x), M(y), M(z)};
+  return point3f{M(x), M(y), M(z)};
 #undef M
 }
 
 void
-Aabb::Extend(const vec3f& vec)
+Aabb::Extend(const point3f& vec)
 {
   ASSERT(IsValid());
   min = Min(min, vec);
@@ -72,14 +72,14 @@ Aabb::Extend(const Aabb& aabb)
 Aabb
 Aabb::Empty()
 {
-  return Aabb{vec3f::Origo(), vec3f::Origo()};
+  return Aabb{point3f::Origo(), point3f::Origo()};
 }
 
-vec3f
+Vec3f
 Aabb::GetSize() const
 {
   ASSERT(IsValid());
-  return max - min;
+  return Vec3f::FromTo(min, max);
 }
 
 bool
@@ -90,9 +90,9 @@ Aabb::IsValid() const
 #undef M
 }
 
-vec3f
+Vec3f
 Aabb::GetOffset() const
 {
   ASSERT(IsValid());
-  return -min;
+  return Vec3f::FromTo(point3f::Origo(), min);
 }

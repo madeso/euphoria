@@ -157,39 +157,39 @@ Random::NextSign()
   return NextBool() ? 1 : -1;
 }
 
-vec2f
+point2f
 Random::NextPoint(const Rectf& rect)
 {
   const float x = Next(Range{rect.GetWidth()});
   const float y = Next(Range{rect.GetHeight()});
-  return rect.GetPositionFromBottomLeft(vec2f{x, y});
+  return rect.GetPositionFromBottomLeft(point2f{x, y});
 }
 
-vec2i
+point2i
 Random::NextPoint(const Recti& rect)
 {
   const int x = NextRange(rect.GetWidth());
   const int y = NextRange(rect.GetHeight());
-  return rect.GetPositionFromBottomLeft(vec2i{x, y});
+  return rect.GetPositionFromBottomLeft(point2i{x, y});
 }
 
-vec2f
+point2f
 Random::PointOnUnitCircle_CenterFocused()
 {
   const auto angle = Angle::FromPercentOf360(NextFloat01());
   const auto dist  = NextFloat01() * 0.5f;
 
-  return vec2f{dist * Cos(angle) + 0.5f, dist * Sin(angle) + 0.5f};
+  return point2f{dist * Cos(angle) + 0.5f, dist * Sin(angle) + 0.5f};
 }
 
-vec2f
+point2f
 Random::PointOnUnitCircle_Uniform()
 {
   // http://xdpixel.com/random-points-in-a-circle/
   const auto angle = Angle::FromPercentOf360(NextFloat01());
   const auto dist  = Sqrt(NextFloat01()) * 0.5f;
 
-  return vec2f{dist * Cos(angle) + 0.5f, dist * Sin(angle) + 0.5f};
+  return point2f{dist * Cos(angle) + 0.5f, dist * Sin(angle) + 0.5f};
 }
 
 PolarCoord
@@ -200,7 +200,7 @@ Random::NextPolar()
   return PolarCoord{az, polar};
 }
 
-vec3f::Unit
+unit3f
 Random::NextUnit3()
 {
   return NextPolar().ToCartesian();
@@ -215,12 +215,12 @@ Random::NextQuatf()
   return quatf::FromAxisAngle(AxisAngle::RightHandAround(axis, angle));
 }
 
-vec3f
+point3f
 Random::NextVec3(const Aabb& extents)
 {
   const auto x = Next(Range{extents.GetMin().x, extents.GetMax().x});
   const auto y = Next(Range{extents.GetMin().y, extents.GetMax().y});
   const auto z = Next(Range{extents.GetMin().z, extents.GetMax().z});
 
-  return vec3f{x, y, z};
+  return point3f{x, y, z};
 }

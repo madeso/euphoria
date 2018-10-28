@@ -20,6 +20,9 @@ class Range;
  */
 class Random
 {
+  // todo: make simpler
+  // possible suggestion, rename to RandomGenerator and have a global
+  // Random function with overloads in all files instead of here.
  public:
   static uint32
   TimeSeed();
@@ -74,15 +77,15 @@ class Random
   int
   NextSign();
 
-  vec2f
+  point2f
   NextPoint(const Rectf& rect);
-  vec2i
+  point2i
   NextPoint(const Recti& rect);
 
-  vec2f
+  point2f
   PointOnUnitCircle_CenterFocused();
 
-  vec2f
+  point2f
   PointOnUnitCircle_Uniform();
 
   // todo: check if this is uniform or not
@@ -90,13 +93,13 @@ class Random
   PolarCoord
   NextPolar();
 
-  vec3f::Unit
+  unit3f
   NextUnit3();
 
   quatf
   NextQuatf();
 
-  vec3f
+  point3f
   NextVec3(const Aabb& extents);
 
   template <typename T>

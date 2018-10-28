@@ -8,23 +8,23 @@ class CanvasLogic
 {
  public:
   // canvas view
-  vec2f scroll = vec2f{0, 0};
-  float scale  = 1;
+  Vec2f scroll = Vec2f{0, 0};
+  float   scale  = 1;
 
   // "config"
   Range scale_range = Range{0.1f, 15.0f};
 
   void
-  Pan(const vec2f& p);
+  Pan(const Vec2f& p);
 
   void
-  Zoom(const vec2f& mouse, float zoom);
+  Zoom(const point2f& mouse, float zoom);
 
-  vec2f
-  ScreenToWorld(const vec2f& p) const;
+  point2f
+  ScreenToWorld(const point2f& p) const;
 
-  vec2f
-  WorldToScreen(const vec2f& p) const;
+  point2f
+  WorldToScreen(const point2f& p) const;
 };
 
 

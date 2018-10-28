@@ -10,8 +10,10 @@ template <typename T>
 class quat
 {
  public:
-  typedef quat<T> Q;
-  typedef vec3<T> Vec;
+  using Q = quat<T>;
+  using Vec = Vec3<T>;
+  using Point = point3<T>;
+  using Unit = unit3<T>;
 
   T w;
   T x;
@@ -67,14 +69,14 @@ class quat
     return Q(1, Vec(0, 0, 0));
   }
   static Q
-  LookAt(const Vec& from, const Vec& to, const typename Vec::Unit up)
+  LookAt(const Point& from, const Point& to, const typename Vec::Unit up)
   {
     return LookInDirection(Vec::FromTo(from, to).GetNormalized(), up);
   }
   static Q
-  LookInDirection(const typename Vec::Unit& dir, const typename Vec::Unit& up)
+  LookInDirection(const Unit& dir, const Unit& up)
   {
-    const Vec in  = Vec::In();
+    const Vec in  = Unit::In();
     float     dot = ::dot(in, dir);
 
     if(Abs(dot - (-1.0f)) < 0.000001f)
@@ -155,40 +157,40 @@ class quat
     return r;
   }
 
-  typename Vec::Unit
+  Unit
   In() const
   {
-    return RotateAroundOrigo(-Vec::ZAxis());
+    return RotateAroundOrigo(-Unit::ZAxis());
   }
 
-  typename Vec::Unit
+  Unit
   Out() const
   {
-    return RotateAroundOrigo(Vec::ZAxis());
+    return RotateAroundOrigo(Unit::ZAxis());
   }
 
-  typename Vec::Unit
+  Unit
   Right() const
   {
-    return RotateAroundOrigo(Vec::XAxis());
+    return RotateAroundOrigo(Unit::XAxis());
   }
 
-  typename Vec::Unit
+  Unit
   Left() const
   {
-    return RotateAroundOrigo(-Vec::XAxis());
+    return RotateAroundOrigo(-Unit::XAxis());
   }
 
-  typename Vec::Unit
+  Unit
   Up() const
   {
-    return RotateAroundOrigo(Vec::YAxis());
+    return RotateAroundOrigo(Unit::YAxis());
   }
 
-  typename Vec::Unit
+  Unit
   Down() const
   {
-    return RotateAroundOrigo(-Vec::YAxis());
+    return RotateAroundOrigo(-Unit::YAxis());
   }
 
   // In*Z + Right*X + Up*Y
@@ -198,8 +200,8 @@ class quat
     return In() * v.z + Right() * v.x + Up() * v.y;
   }
 
-  typename Vec::Unit
-  RotateAroundOrigo(const typename Vec::Unit v) const
+  Unit
+  RotateAroundOrigo(const Unit& v) const
   {
     // http://gamedev.stackexchange.com/questions/28395/rotating-vector3-by-a-quaternion
     const Q pure(0, v);

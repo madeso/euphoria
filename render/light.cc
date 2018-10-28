@@ -70,12 +70,12 @@ Light::GetPosition() const
 }
 
 void
-Light::SetDirection(const vec3f::Unit& direction)
+Light::SetDirection(const unit3f& direction)
 {
   direction_ = direction;
 }
 
-const vec3f::Unit&
+const unit3f&
 Light::GetDirection() const
 {
   return direction_;

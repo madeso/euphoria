@@ -1,20 +1,25 @@
 #ifndef CORE_MAT3_H
 #define CORE_MAT3_H
 
+#include <vector>
+#include <tuple>
+
 #include "core/vec3.h"
 #include "core/angle.h"
 #include "core/axisangle.h"
-
-#include <vector>
 
 template <typename T>
 class mat3
 {
  private:
+  using tuple3 = std::tuple<T, T, T>;
+
   T data[9];  // col-major
+
   mat3()
   {
   }
+
   mat3(T t00, T t01, T t02, T t10, T t11, T t12, T t20, T t21, T t22)
       : data{t00, t01, t02, t10, t11, t12, t20, t21, t22}
   {
@@ -33,7 +38,7 @@ class mat3
   }
 
   static mat3<T>
-  FromMajor(const vec3<T>& major)
+  FromMajor(const scale3<T>& major)
   {
     const T zero = 0;
     return FromRowMajor(
@@ -41,7 +46,7 @@ class mat3
   }
 
   static mat3<T>
-  FromScale(const vec3<T>& scale)
+  FromScale(const scale3<T>& scale)
   {
     return FromMajor(scale);
   }
@@ -109,32 +114,32 @@ class mat3
     return FromScalar(1);
   }
 
-  vec3<T>
+  tuple3
   GetMajor() const
   {
     const mat3<T>& self = *this;
-    return vec3<T>(self(0, 0), self(1, 1), self(2, 2));
+    return tuple3(self(0, 0), self(1, 1), self(2, 2));
   }
 
-  vec3<T>
+  Vec3<T>
   GetAxis(int col) const
   {
-    return static_cast<vec3<T>>(GetColumn(col));
+    return static_cast<Vec3<T>>(GetColumn(col));
   }
 
-  vec3<T>
+  Vec3<T>
   GetXAxis() const
   {
     return GetAxis(0);
   }
 
-  vec3<T>
+  Vec3<T>
   GetYAxis() const
   {
     return GetAxis(1);
   }
 
-  vec3<T>
+  Vec3<T>
   GetZAxis() const
   {
     return GetAxis(2);
@@ -199,7 +204,7 @@ class mat3
   }
 
   mat3<T>
-  Scale(const vec3<T>& scale) const
+  Scale(const scale3<T>& scale) const
   {
     return *this * FromScale(scale);
   }
@@ -224,7 +229,7 @@ class mat3
   T
   operator()(int row, int col) const
   {
-    return data[col * 3 + row];
+    return Get(row, col);
   }
 
   T
@@ -233,17 +238,16 @@ class mat3
     return data[col * 3 + row];
   }
 
-  vec3<T>
+  tuple3
   GetColumn(int c) const
   {
-    return vec3<T>(&data[c * 3]);
+    return tuple3(Get(0, c), Get(1, c), Get(2, c));
   }
 
-  vec3<T>
+  tuple3
   GetRow(int r) const
   {
-    const mat3<T>& self = *this;
-    return vec3<T>(self(r, 0), self(r, 1), self(r, 2));
+    return tuple3(Get(r, 0), Get(r, 1), Get(r, 2));
   }
 };
 
@@ -301,10 +305,10 @@ mat3<T> operator*(const mat3<T>& lhs, const mat3<T> rhs)
 }
 
 template <typename T>
-vec3<T> operator*(const mat3<T>& lhs, const vec3<T> rhs)
+Vec3<T> operator*(const mat3<T>& lhs, const Vec3<T> rhs)
 {
 #define OP(r) ComponentMultiply(lhs.GetRow(r), rhs).GetComponentSum()
-  return vec3<T>(OP(0), OP(1), OP(2));
+  return Vec3<T>(OP(0), OP(1), OP(2));
 #undef OP
 }
 
