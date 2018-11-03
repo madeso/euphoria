@@ -19,10 +19,10 @@ class SpriteBatch
   Begin();
   void
   Quad(
-      const vec2f& pos,
+      const point2f& pos,
       const Sizef& quad,
       const Rectf& uv,
-      const vec2f& center,
+      const scale2f& center,
       const Angle& rotation,
       const Rgba&  color);
   void

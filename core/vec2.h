@@ -137,6 +137,12 @@ struct Vec2
     return Self{to.x - from.x, to.y - from.y};
   }
 
+  static Self
+  FromOrigoTo(const point2<T>& to)
+  {
+    return Self{to.x, to.y};
+  }
+
   void
   operator/=(const T& rhs)
   {
@@ -199,6 +205,16 @@ struct unit2
   friend struct Vec2<T>;
 };
 
+
+////////////////////////////////////////////////////////////////////////////////
+
+template <typename T>
+struct scale2
+{
+  VEC2_CONSTRUCTOR(scale2, T)
+  VEC2_COMMON_MEMBERS(scale2, T)
+  VEC2_INVERT_SELF()
+};
 
 ////////////////////////////////////////////////////////////////////////////////
 /// Math operators
@@ -389,6 +405,7 @@ operator<<(S& s, const unit2<T>& v)
 /// Typedefs
 
 typedef point2<float>          point2f;
+typedef scale2<float>          scale2f;
 typedef Vec2<float>            Vec2f;
 typedef unit2<float>           unit2f;
 typedef Vec2Transform<float>   Vec2fTransform;

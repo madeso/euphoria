@@ -15,7 +15,7 @@ DrawData::Rotation(const Angle& r)
 }
 
 DrawData&
-DrawData::Scale(const vec2f& s)
+DrawData::Scale(const scale2f& s)
 {
   scale = s;
   return *this;
@@ -51,23 +51,23 @@ SpriteRenderer::DrawRect(
     const Rectf&     sprite_area,
     const Rectf&     texture_region,
     const Angle&     rotation_angle,
-    const vec2f&     rotation_anchor,
+    const scale2f&     rotation_anchor,
     const Rgba&      tint_color)
 {
   Use(shader_);
-  vec3f rotation_anchor_displacement{
+  Vec3f rotation_anchor_displacement{
       -rotation_anchor.x * sprite_area.GetWidth(),
       (rotation_anchor.y - 1) * sprite_area.GetHeight(),
       0.0f};
   const mat4f model =
       mat4f::Identity()
-          .Translate(vec3f(sprite_area.BottomLeft(), 0.0f))
+          .Translate(Vec3f(sprite_area.BottomLeft(), 0.0f))
           .Translate(-rotation_anchor_displacement)
           .Rotate(AxisAngle::RightHandAround(
-              vec3f::ZAxis(),
+              unit3f::ZAxis(),
               rotation_angle))  // rotate around center
           .Translate(rotation_anchor_displacement)
-          .Scale(vec3f{sprite_area.GetWidth(), sprite_area.GetHeight(), 1.0f});
+          .Scale(scale3f{sprite_area.GetWidth(), sprite_area.GetHeight(), 1.0f});
 
   shader_->SetUniform(model_, model);
   shader_->SetUniform(color_, tint_color);
@@ -87,7 +87,7 @@ SpriteRenderer::DrawSprite(
       position,
       Rectf::FromTopLeftWidthHeight(1, 0, 1, 1),
       data.rotation,
-      vec2f{0.5f, 0.5f},
+      scale2f{0.5f, 0.5f},
       data.tint);
 }
 

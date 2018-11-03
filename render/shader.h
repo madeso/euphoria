@@ -69,7 +69,9 @@ class Shader : public ShaderId
   void
   SetUniform(const ShaderUniform& attribute, const Rgba& val);
   void
-  SetUniform(const ShaderUniform& attribute, const vec3f& val);
+  SetUniform(const ShaderUniform& attribute, const point3f& val);
+  void
+  SetUniform(const ShaderUniform& attribute, const Vec3f& val);
   void
   SetUniform(const ShaderUniform& attribute, const vec4f& val);
   void

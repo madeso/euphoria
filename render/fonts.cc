@@ -259,7 +259,7 @@ GetCharacterFromBuiltin(const std::string& text, int s)
   LoadedGlyph glyph;
   glyph.image.SetupWithAlphaSupport(size, size, 0);
 
-  Draw{&glyph.image}.Text(vec2i{0, 0}, text, Rgbi{255}, s);
+  Draw{&glyph.image}.Text(point2i::Origo(), text, Rgbi{255}, s);
 
   glyph.size      = glyph.image.GetHeight();
   glyph.bearing_y = glyph.image.GetHeight() + 0;
@@ -445,7 +445,7 @@ Font::Font(FileSystem* fs, TextureCache* cache, const std::string& font_file)
     }
     const LoadedGlyph& src_char = fontchars.chars[src_rect.id];
     ::Draw{&image}.PasteImage(
-        vec2i{src_rect.x + half_margin, src_rect.y + half_margin},
+        point2i{src_rect.x + half_margin, src_rect.y + half_margin},
         src_char.image);
     const auto rects = ConstructCharacterRects(
         src_rect, src_char, texture_width, texture_height);
@@ -478,7 +478,7 @@ Font::DrawBackground(
       where,
       Rectf::FromWidthHeight(1, 1),
       0.0_rad,
-      vec2f{0, 0},
+      scale2f{0, 0},
       Rgba{Color::Black, alpha});
 }
 
@@ -507,7 +507,7 @@ TextDrawCommandList::Add(
 void
 TextDrawCommandList::Draw(
     SpriteRenderer* renderer,
-    const vec2f&    start_position,
+    const point2f&  start_position,
     const Rgb&      base_color,
     const Rgb&      hi_color)
 {
@@ -516,10 +516,10 @@ TextDrawCommandList::Draw(
     const auto tint = cmd.hi ? hi_color : base_color;
     renderer->DrawRect(
         *cmd.texture,
-        cmd.sprite_rect.OffsetCopy(start_position),
+        cmd.sprite_rect.OffsetCopy(Vec2f::FromOrigoTo(start_position)),
         cmd.texture_rect,
         0.0_rad,
-        vec2f{0.5f, 0.5f},
+        scale2f{0.5f, 0.5f},
         Rgba{tint});
   }
 }
@@ -531,7 +531,7 @@ struct ParsedTextCompileVisitor : public textparser::Visitor
   const KerningMap*  kerning_;
   float              size;
   bool               apply_highlight;
-  vec2f              position;  // todo: rename to offset
+  Vec2f              position;  // todo: rename to offset
   std::string        last_char_index;
 
   // return value
@@ -678,7 +678,7 @@ Text::SetSize(float new_size)
   }
 }
 
-vec2f
+Vec2f
 GetOffset(Align alignment, const Rectf& extent)
 {
   // todo: test this more
@@ -690,32 +690,32 @@ GetOffset(Align alignment, const Rectf& extent)
   switch(alignment)
   {
     case Align::TOP_LEFT:
-      return vec2f(0.0f, top);
+      return Vec2f(0.0f, top);
     case Align::TOP_CENTER:
-      return vec2f(middle, top);
+      return Vec2f(middle, top);
     case Align::TOP_RIGHT:
-      return vec2f(right, top);
+      return Vec2f(right, top);
     case Align::BASELINE_LEFT:
-      return vec2f(0.0f, 0.0f);
+      return Vec2f(0.0f, 0.0f);
     case Align::BASELINE_CENTER:
-      return vec2f(middle, 0.0f);
+      return Vec2f(middle, 0.0f);
     case Align::BASELINE_RIGHT:
-      return vec2f(right, 0.0f);
+      return Vec2f(right, 0.0f);
     case Align::BOTTOM_LEFT:
-      return vec2f(0.0f, bottom);
+      return Vec2f(0.0f, bottom);
     case Align::BOTTOM_CENTER:
-      return vec2f(middle, bottom);
+      return Vec2f(middle, bottom);
     case Align::BOTTOM_RIGHT:
-      return vec2f(right, bottom);
+      return Vec2f(right, bottom);
     default:
       DIE("Unhandled case");
-      return vec2f(0.0f, 0.0f);
+      return Vec2f(0.0f, 0.0f);
   }
 }
 
 void
 Text::Draw(
-    SpriteRenderer* renderer, const vec2f& p, const Rgb& base_hi_color) const
+    SpriteRenderer* renderer, const point2f& p, const Rgb& base_hi_color) const
 {
   Draw(renderer, p, base_hi_color, base_hi_color);
 }
@@ -723,7 +723,7 @@ Text::Draw(
 void
 Text::Draw(
     SpriteRenderer* renderer,
-    const vec2f&    p,
+    const point2f&  p,
     const Rgb&      base_color,
     const Rgb&      hi_color) const
 {
@@ -735,11 +735,13 @@ Text::Draw(
     return;
   }
   const Rectf& e   = GetExtents();
-  const vec2f  off = GetOffset(alignment_, e);
+  const auto   off = GetOffset(alignment_, e);
   if(use_background_)
   {
     font_->DrawBackground(
-        renderer, background_alpha_, e.ExtendCopy(5.0f).OffsetCopy(p + off));
+        renderer,
+        background_alpha_,
+        e.ExtendCopy(5.0f).OffsetCopy(Vec2f::FromOrigoTo(p + off)));
   }
 
   commands.Draw(renderer, p + off, base_color, hi_color);

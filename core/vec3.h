@@ -79,12 +79,18 @@ struct scale3;
   {                                          \
   }
 
-#define VEC3_CONSTRUCTOR2(VEC, T, VEC2) \
-  VEC(const VEC2<T>& a, const T& az)    \
-      : x(a.x)                          \
-      , y(a.y)                          \
-      , z(az)                           \
-  {                                     \
+#define VEC3_CONSTRUCTOR2(VEC, T, VEC2, POINT2) \
+  VEC(const VEC2<T>& a, const T& az)            \
+      : x(a.x)                                  \
+      , y(a.y)                                  \
+      , z(az)                                   \
+  {                                             \
+  }                                             \
+  VEC(const POINT2<T>& a, const T& az)          \
+      : x(a.x)                                  \
+      , y(a.y)                                  \
+      , z(az)                                   \
+  {                                             \
   }
 
 #define VEC3_SELF_ADD_SUBTRACT(VEC)  \
@@ -128,7 +134,7 @@ struct point3
 {
   VEC3_COMMON_MEMBERS(point3, T)
   VEC3_CONSTRUCTOR(point3, T)
-  VEC3_CONSTRUCTOR2(point3, T, point2)
+  VEC3_CONSTRUCTOR2(point3, T, Vec2, point2)
   VEC3_SELF_ADD_SUBTRACT(Vec3)
   VEC3_DELETE_EQUAL()
 
@@ -164,7 +170,7 @@ struct Vec3
 {
   VEC3_COMMON_MEMBERS(Vec3, T)
   VEC3_CONSTRUCTOR(Vec3, T)
-  VEC3_CONSTRUCTOR2(Vec3, T, Vec2)
+  VEC3_CONSTRUCTOR2(Vec3, T, Vec2, point2)
   VEC3_SELF_ADD_SUBTRACT(Vec3)
   VEC3_INVERT_SELF()
   VEC3_LENGTH_SQUARED(T)
@@ -183,6 +189,12 @@ struct Vec3
   FromTo(const point3<T>& from, const point3<T>& to)
   {
     return Self{to.x - from.x, to.y - from.y, to.z - from.z};
+  }
+
+  static Self
+  FromOrigoTo(const point3<T>& to)
+  {
+    return Self{to.x, to.y, to.z};
   }
 
   void
@@ -515,10 +527,12 @@ operator<<(std::ostream& stream, const scale3<T>& v)
 typedef point3<float> point3f;
 typedef Vec3<float>   Vec3f;
 typedef unit3<float>  unit3f;
+typedef scale3<float> scale3f;
 
 typedef point3<int> point3i;
 typedef Vec3<int>   Vec3i;
 typedef unit3<int>  unit3i;
+typedef scale3<int> scale3i;
 
 
 ////////////////////////////////////////////////////////////////////////////////

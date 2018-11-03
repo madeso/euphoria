@@ -4,7 +4,7 @@
 
 Actor::Actor(const std::shared_ptr<CompiledMesh>& mesh)
     : mesh_(mesh)
-    , position_(vec3f::Origo())
+    , position_(point3f::Origo())
     , rotation_(quatf::Identity())
     , overridden_materials_(mesh->GetNoOverriddenMaterials())
     , has_outline(false)
@@ -13,7 +13,7 @@ Actor::Actor(const std::shared_ptr<CompiledMesh>& mesh)
   ASSERT(mesh);
 }
 
-const vec3f&
+const point3f&
 Actor::GetPosition()
 {
   return position_;
@@ -26,7 +26,7 @@ Actor::GetRotation()
 }
 
 void
-Actor::SetPosition(const vec3f& position)
+Actor::SetPosition(const point3f& position)
 {
   position_ = position;
 }
@@ -72,14 +72,15 @@ Actor::EndMaterialOverride(unsigned int index)
 mat4f
 Actor::GetModelMatrix() const
 {
-  return mat4f::FromTranslation(position_) * rotation_.ToMat4();
+  return mat4f::FromTranslation(Vec3f::FromOrigoTo(position_)) *
+         rotation_.ToMat4();
 }
 
 void
 Actor::Render(
     const mat4f& projection_matrix,
     const mat4f& view_matrix,
-    const vec3f& camera,
+    const point3f& camera,
     const Light& light)
 {
   mesh_->Render(

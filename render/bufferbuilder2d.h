@@ -12,10 +12,12 @@ class Point
 {
  public:
   Point(float x, float y, float u, float v);
-  Point(const vec2f& apos, const vec2f& avert);
+  Point(const point2f& apos, const point2f& avert);
 
-  const vec2f pos;
-  const vec2f vert;
+  const point2f pos;
+
+  // todo: rename to uv
+  const point2f vert;
 };
 
 class BufferBuilder2d

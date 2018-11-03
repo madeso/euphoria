@@ -70,7 +70,7 @@ class MaterialShader
   SetModel(const mat4f& model);
 
   void
-  SetupLight(const Light& light, const vec3f& camera);
+  SetupLight(const Light& light, const point3f& camera);
 
   void
   SetColors(

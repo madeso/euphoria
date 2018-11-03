@@ -18,14 +18,14 @@ class Buffer2d;
 struct DrawData
 {
   Angle rotation = 0.0_rad;
-  vec2f scale    = vec2f(1, 1);
+  scale2f scale    = scale2f(1, 1);
   Rgba  tint     = Rgba(Color::White);
 
   DrawData&
   Rotation(const Angle& r);
 
   DrawData&
-  Scale(const vec2f& s);
+  Scale(const scale2f& s);
 
   DrawData&
   Tint(const Rgba& t);
@@ -43,7 +43,7 @@ class SpriteRenderer
       const Rectf&     sprite_area,
       const Rectf&     texture_region,
       const Angle&     rotation_angle,
-      const vec2f&     rotation_anchor,
+      const scale2f&     rotation_anchor,
       const Rgba&      tint_color);
 
   // position is center

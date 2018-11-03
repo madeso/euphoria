@@ -6,11 +6,11 @@
 
 #include "render/spriterender.h"
 
-Sprite::Sprite(std::shared_ptr<Texture2d> texture, const vec2f& position)
+Sprite::Sprite(std::shared_ptr<Texture2d> texture, const point2f& position)
     : texture_(texture)
     , position_(position)
     , rotation(0.0_rad)
-    , scale_(vec2f(1, 1))
+    , scale_(scale2f(1, 1))
     , color_(Rgb(1.0f))
     , alpha_(1.0f)
 {
@@ -22,14 +22,14 @@ Sprite::GetTexture()
   return texture_;
 }
 
-const vec2f&
+const point2f&
 Sprite::GetPosition() const
 {
   return position_;
 }
 
 void
-Sprite::SetPosition(const vec2f& p)
+Sprite::SetPosition(const point2f& p)
 {
   position_ = p;
 }
@@ -59,7 +59,7 @@ Sprite::Render(SpriteRenderer* render)
   render->DrawSprite(
       *texture_,
       Rectf::FromPositionAnchorWidthAndHeight(
-          position_, vec2f{0, 0}, texture_->GetWidth(), texture_->GetHeight()),
+          position_, Vec2f{0, 0}, texture_->GetWidth(), texture_->GetHeight()),
       DrawData{}.Rotation(rotation).Scale(scale_).Tint(Rgba(color_, alpha_)));
 }
 

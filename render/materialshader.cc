@@ -222,7 +222,7 @@ MaterialShader::SetModel(const mat4f& model)
 }
 
 void
-MaterialShader::SetupLight(const Light& light, const vec3f& camera)
+MaterialShader::SetupLight(const Light& light, const point3f& camera)
 {
   if(!hasLight_)
   {

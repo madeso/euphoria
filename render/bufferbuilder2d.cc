@@ -7,7 +7,7 @@ Point::Point(float x, float y, float u, float v)
 {
 }
 
-Point::Point(const vec2f& apos, const vec2f& avert)
+Point::Point(const point2f& apos, const point2f& avert)
     : pos(apos)
     , vert(avert)
 {

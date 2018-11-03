@@ -145,10 +145,10 @@ ScalableSprite::Render(
 
       sr->DrawRect(
           *texture_.get(),
-          position_rect.OffsetCopy(pos),
+          position_rect.OffsetCopy(Vec2f::FromOrigoTo(pos)),
           uv_rect,
           0.0_rad,
-          vec2f{0, 0},
+          scale2f{0, 0},
           tint);
 
       position_current_row = position_next_row;

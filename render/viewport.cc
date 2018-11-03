@@ -10,7 +10,7 @@ Viewport::Viewport(const Recti& viewport)
 void
 Viewport::Activate()
 {
-  const vec2i bottom_left = viewport.BottomLeft();
+  const auto bottom_left = viewport.BottomLeft();
   glViewport(
       bottom_left.x, bottom_left.y, viewport.GetWidth(), viewport.GetHeight());
 

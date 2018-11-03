@@ -45,9 +45,10 @@ class Light
   Type*
   GetTypeMod();
 
+  // todo: replace with public variable instead
   void
-  SetPosition(const vec3f& pos);
-  const vec3f&
+  SetPosition(const point3f& pos);
+  const point3f&
   GetPosition() const;
 
   void
@@ -106,7 +107,7 @@ class Light
 
  private:
   Type        type_;
-  vec3f       position_;
+  point3f       position_;
   unit3f direction_;
   Rgb         ambient_;
   Rgb         diffuse_;

@@ -50,7 +50,7 @@ class CompiledMeshMaterial
       const mat4f& model_matrix,
       const mat4f& projection_matrix,
       const mat4f& view_matrix,
-      const vec3f& camera,
+      const point3f& camera,
       const Light& light) const;
 
   // gets the default materials from the shader if they are null/not set
@@ -86,7 +86,7 @@ class CompiledMesh
       const mat4f& model_matrix,
       const mat4f& projection_matrix,
       const mat4f& view_matrix,
-      const vec3f& camera,
+      const point3f& camera,
       const Light& light,
       const std::vector<std::shared_ptr<CompiledMeshMaterial>>&
           overridden_materials);

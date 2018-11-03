@@ -290,7 +290,19 @@ Shader::SetUniform(const ShaderUniform& attribute, const Rgba& val)
 }
 
 void
-Shader::SetUniform(const ShaderUniform& attribute, const vec3f& val)
+Shader::SetUniform(const ShaderUniform& attribute, const point3f& val)
+{
+  ASSERT(IsCurrentlyBound());
+  ASSERT(HasBoundUniform(attribute));
+  if(attribute.id == -1)
+  {
+    return;
+  }
+  glUniform3f(attribute.id, val.x, val.y, val.z);
+}
+
+void
+Shader::SetUniform(const ShaderUniform& attribute, const Vec3f& val)
 {
   ASSERT(IsCurrentlyBound());
   ASSERT(HasBoundUniform(attribute));

@@ -15,16 +15,18 @@ class SpriteRenderer;
 class Sprite
 {
  public:
+  // todo: remove getters and setters
   explicit Sprite(
-      std::shared_ptr<Texture2d> texture, const vec2f& position = vec2f(0, 0));
+      std::shared_ptr<Texture2d> texture,
+      const point2f&             position = point2f::Origo());
 
   std::shared_ptr<Texture2d>
   GetTexture();
 
-  const vec2f&
+  const point2f&
   GetPosition() const;
   void
-  SetPosition(const vec2f& p);
+  SetPosition(const point2f& p);
 
   float
   GetHeight() const;
@@ -39,15 +41,15 @@ class Sprite
 
  private:
   std::shared_ptr<Texture2d> texture_;
-  vec2f                      position_;
+  point2f                    position_;
 
  public:
   Angle rotation;
 
  private:
-  vec2f scale_;
-  Rgb   color_;
-  float alpha_;
+  scale2f scale_;
+  Rgb     color_;
+  float   alpha_;
 };
 
 class Layer
