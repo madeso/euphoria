@@ -129,15 +129,15 @@ BeginFixedOverlay(ImguiCorner corner, const std::string& title)
 }
 
 ImVec2
-C(const vec2f& v)
+C(const point2f& v)
 {
   return ImVec2{v.x, v.y};
 }
 
-vec2f
+point2f
 C(const ImVec2& v)
 {
-  return vec2f{v.x, v.y};
+  return point2f{v.x, v.y};
 }
 
 // from https://github.com/ocornut/imgui/issues/211

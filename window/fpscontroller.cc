@@ -4,7 +4,7 @@
 FpsController::FpsController()
     : rotation_(0.0_rad)
     , look_(0.0_rad)
-    , position(vec3f::Origo())
+    , position(point3f::Origo())
 {
 }
 
@@ -74,6 +74,8 @@ FpsController::HandleSdlKey(int key, bool down)
     case SDLK_LCTRL:
       MoveDown(down);
       return;
+    default:
+      return;
   }
 }
 
@@ -116,9 +118,9 @@ FpsController::Update(float delta)
     return;
   }
 
-  const vec3f input =
-      GetRotation().RightUpIn(vec3f(right, up, forward)).GetNormalized();
-  const vec3f movement = input * speed * delta;
+  const auto input =
+      GetRotation().RightUpIn(Vec3f{right, up, forward}).GetNormalized();
+  const auto movement = input * speed * delta;
 
   position += movement;
 }
@@ -127,8 +129,8 @@ quatf
 FpsController::GetRotation() const
 {
   const auto rotation = quatf::FromAxisAngle(
-      AxisAngle::RightHandAround(vec3f::YAxis(), rotation_));
+      AxisAngle::RightHandAround(unit3f::YAxis(), rotation_));
   const auto look =
-      quatf::FromAxisAngle(AxisAngle::RightHandAround(vec3f::XAxis(), look_));
+      quatf::FromAxisAngle(AxisAngle::RightHandAround(unit3f::XAxis(), look_));
   return rotation * look;
 }
