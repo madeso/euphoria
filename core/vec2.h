@@ -412,6 +412,7 @@ typedef Vec2Transform<float>   Vec2fTransform;
 typedef Point2Transform<float> Point2fTransform;
 
 typedef point2<int>          point2i;
+typedef scale2<int>          scale2i;
 typedef Vec2<int>            Vec2i;
 typedef unit2<int>           unit2i;
 typedef Vec2Transform<int>   Vec2iTransform;
