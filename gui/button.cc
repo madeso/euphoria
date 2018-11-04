@@ -12,7 +12,7 @@ Button::Button(UiState* state)
     , scale_(1.0f)
     , image_color_(Rgb(1.0f))
     , text_color_(Rgb(1.0f))
-    , position_displacement_(vec2f(0, 0))
+    , position_displacement_(point2f::Origo())
 {
 }
 
@@ -60,7 +60,7 @@ Button::Step(float dt)
           state->interpolationColorTime);
       position_displacement_.Clear().Add(
           state->interpolationPosition,
-          vec2f(state->dx, state->dy),
+          point2f(state->dx, state->dy),
           state->interpolationPositionTime);
     }
 
@@ -117,7 +117,8 @@ Button::Render(SpriteRenderer* renderer) const
       ASSERTX(scaled.GetHeight() > 0, scaled.GetHeight());
       renderer->DrawNinepatch(
           *sprite_.get(),
-          scaled.OffsetCopy(position_displacement_.GetValue()),
+          scaled.OffsetCopy(
+              Vec2f::FromOrigoTo(position_displacement_.GetValue())),
           image_color_.GetValue());
     }
     if(text_.HasText())
@@ -125,7 +126,7 @@ Button::Render(SpriteRenderer* renderer) const
       const auto ex = text_.GetText().GetExtents();
       // todo: render text at client rect center
       const auto p = ex.CenterInsideOther(GetClientRect()).GetBottomLeft() +
-                     position_displacement_.GetValue();
+                     Vec2f::FromOrigoTo(position_displacement_.GetValue());
       text_.GetText().Draw(renderer, p, text_color_.GetValue());
     }
   }

@@ -30,7 +30,7 @@ Root::Load(
 }
 
 void
-Root::SetInputMouse(const vec2f& pos, bool down)
+Root::SetInputMouse(const point2f& pos, bool down)
 {
   state_.mouse      = pos;
   state_.mouse_down = down;
@@ -56,6 +56,6 @@ Root::Render(SpriteRenderer* sp) const
     sp->DrawSprite(
         *image,
         Rectf::FromPositionAnchorWidthAndHeight(
-            state_.mouse, vec2f{0, 1}, image->GetWidth(), image->GetHeight()));
+            state_.mouse, scale2f{0, 1}, image->GetWidth(), image->GetHeight()));
   }
 }

@@ -114,7 +114,8 @@ class Rect
   CenterInsideOther(const Rect& other) const
   {
     const auto lower_left =
-        other.GetAbsoluteCenterPos() - GetRelativeCenterPosFromBottomLeft();
+        other.GetAbsoluteCenterPos() -
+        Vec2f::FromOrigoTo(GetRelativeCenterPosFromBottomLeft());
     return Rect::FromTopLeftWidthHeight(
         lower_left.y + GetHeight(), lower_left.x, GetWidth(), GetHeight());
   }

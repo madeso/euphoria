@@ -49,10 +49,10 @@ class Button : public Widget
   TextData                        text_;
   Skin*                           skin_;
 
-  Interpolate<float, FloatTransform> scale_;
-  Interpolate<Rgb, RgbTransform>     image_color_;
-  Interpolate<Rgb, RgbTransform>     text_color_;
-  Interpolate<vec2f, Vec2fTransform> position_displacement_;
+  Interpolate<float, FloatTransform>     scale_;
+  Interpolate<Rgb, RgbTransform>         image_color_;
+  Interpolate<Rgb, RgbTransform>         text_color_;
+  Interpolate<point2f, Point2fTransform> position_displacement_;
 };
 
 #endif  // GUI_BUTTON_H
