@@ -13,7 +13,7 @@ void
 BindVec2(duk::Duk* duk, const std::string& name)
 {
   using namespace duk;
-  using V = vec2<T>;
+  using V = Vec2<T>;
 
   duk->BindClass(
       name,

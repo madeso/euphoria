@@ -29,10 +29,10 @@ ObjectCreationArgs::ObjectCreationArgs(
 class PositionComponentCreator : public ComponentCreator
 {
  public:
-  vec2f       p;
+  point2f       p;
   Components* components;
 
-  PositionComponentCreator(const vec2f& pp, Components* components)
+  PositionComponentCreator(const point2f& pp, Components* components)
       : p(pp)
       , components(components)
   {
@@ -42,7 +42,7 @@ class PositionComponentCreator : public ComponentCreator
   Create(const game::vec2f& p, Components* components)
   {
     return std::make_shared<PositionComponentCreator>(
-        vec2f{p.x, p.y}, components);
+        point2f{p.x, p.y}, components);
   }
 
   void

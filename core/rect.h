@@ -60,7 +60,7 @@ class Rect
 
   static Rect
   FromPositionAnchorWidthAndHeight(
-      const point2<T>& pos, const Vec2<T>& anchor, float width, float height)
+      const point2<T>& pos, const scale2<T>& anchor, float width, float height)
   {
     // todo: change anchor type to some anchor type instead
     const T left   = pos.x - width * anchor.x;

@@ -421,6 +421,7 @@ typedef Point2Transform<int> Point2iTransform;
 ////////////////////////////////////////////////////////////////////////////////
 /// Typeids
 
+TYPEID_SETUP_TYPE(point2f);
 TYPEID_SETUP_TYPE(Vec2f);
 
 #endif  // CORE_VEC2_H
