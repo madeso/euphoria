@@ -107,7 +107,7 @@ main(int argc, char** argv)
   drawer.LineAntialiased(Color::Black, wi.TopLeft(), wi.BottomRight())
       .Square(Color::AliceBlue, Recti::FromTopLeftWidthHeight(256, 0, 100, 25))
       .LineAntialiased(Color::Black, wi.BottomLeft(), wi.TopRight())
-      .Text(vec2i(0, 0), "Hello world", Color::Black, 2);
+      .Text(point2i(0, 0), "Hello world", Color::Black, 2);
   engine.catalog->RegisterFileData("image", image.Write(ImageWriteFormat::PNG));
 
   TextureCache texture_cache{engine.file_system.get()};
@@ -147,8 +147,8 @@ main(int argc, char** argv)
 
   const float box_extent_value = 4;
   Aabb        box_extents{
-      vec3f{-box_extent_value, -box_extent_value, -box_extent_value},
-      vec3f{box_extent_value, box_extent_value, box_extent_value}};
+      point3f{-box_extent_value, -box_extent_value, -box_extent_value},
+      point3f{box_extent_value, box_extent_value, box_extent_value}};
 
   std::vector<CubeAnimation> animation_handler;
 
@@ -173,11 +173,11 @@ main(int argc, char** argv)
 
 
     // generate a position not too close to the center
-    vec3f position = vec3f::Origo();
+    point3f position = point3f::Origo();
     do
     {
       position = random.NextVec3(box_extents);
-    } while(position.GetLength() < 1.4f);
+    } while(Vec3f::FromOrigoTo(position).GetLength() < 1.4f);
 
     actor->SetPosition(position);
     actor->SetRotation(anim.from);
@@ -205,10 +205,10 @@ main(int argc, char** argv)
 #endif
 
   Camera camera;
-  camera.position = vec3f(0, 0, 0);
+  camera.position = point3f::Origo();
 
   FpsController fps;
-  fps.position = vec3f(0, 0, 3);
+  fps.position = point3f(0, 0, 3);
 
   bool paused = true;
 
@@ -255,6 +255,7 @@ main(int argc, char** argv)
 
     light_position = Range{0, 1}.Wrap(light_position + delta * 0.1f);
     const auto light_pos =
+        point3f::Origo() +
         PolarCoord{light_position, light_position * 2}.ToCartesian() * 2.0f;
     light_actor->SetPosition(light_pos);
 
@@ -287,8 +288,8 @@ main(int argc, char** argv)
         ASSERT(count < 2);
         quatf q = quatf::SlerpShortway(anim.from, anim.timer, anim.to);
         anim.actor->SetRotation(q);
-        const vec3f movement = q.In() * anim.move_speed * delta;
-        const vec3f new_pos =
+        const auto movement = q.In() * anim.move_speed * delta;
+        const auto new_pos =
             box_extents.Wrap(anim.actor->GetPosition() + movement);
         anim.actor->SetPosition(
             new_pos);  // hard to see movement when everything is moving
