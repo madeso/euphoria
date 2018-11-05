@@ -66,5 +66,5 @@ mat4f
 Camera::CalculateViewMatrix() const
 {
   return rotation.GetConjugate().ToMat4() *
-         mat4f::FromTranslation(-static_cast<Vec3f>(position));
+         mat4f::FromTranslation(-static_cast<vec3f>(position));
 }

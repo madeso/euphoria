@@ -30,7 +30,7 @@ LightAttenuation::GetQuadratic() const
 Light::Light()
     : type_(Type::Directional)
     , position_( point3f::Origo() )
-    , direction_(Vec3f{-0.2f, -1.0f, -0.3f}.GetNormalized())
+    , direction_(vec3f{-0.2f, -1.0f, -0.3f}.GetNormalized())
     , ambient_(0.3f)
     , diffuse_(Color::White)
     , specular_(Color::White)

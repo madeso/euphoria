@@ -177,7 +177,7 @@ main(int argc, char** argv)
     do
     {
       position = random.NextVec3(box_extents);
-    } while(Vec3f::FromOrigoTo(position).GetLength() < 1.4f);
+    } while(vec3f::FromOrigoTo(position).GetLength() < 1.4f);
 
     actor->SetPosition(position);
     actor->SetRotation(anim.from);

@@ -16,7 +16,7 @@ template <typename T>
 struct point3;
 
 template <typename T>
-struct Vec3;
+struct vec3;
 
 template <typename T>
 struct unit3;
@@ -135,10 +135,10 @@ struct point3
   VEC3_COMMON_MEMBERS(point3, T)
   VEC3_CONSTRUCTOR(point3, T)
   VEC3_CONSTRUCTOR2(point3, T, vec2, point2)
-  VEC3_SELF_ADD_SUBTRACT(Vec3)
+  VEC3_SELF_ADD_SUBTRACT(vec3)
   VEC3_DELETE_EQUAL()
 
-  explicit point3(const Vec3<T>& v)
+  explicit point3(const vec3<T>& v)
       : x(v.x)
       , y(v.y)
       , z(v.z)
@@ -166,19 +166,19 @@ struct scale3
 ////////////////////////////////////////////////////////////////////////////////
 
 template <typename T>
-struct Vec3
+struct vec3
 {
-  VEC3_COMMON_MEMBERS(Vec3, T)
-  VEC3_CONSTRUCTOR(Vec3, T)
-  VEC3_CONSTRUCTOR2(Vec3, T, vec2, point2)
-  VEC3_SELF_ADD_SUBTRACT(Vec3)
+  VEC3_COMMON_MEMBERS(vec3, T)
+  VEC3_CONSTRUCTOR(vec3, T)
+  VEC3_CONSTRUCTOR2(vec3, T, vec2, point2)
+  VEC3_SELF_ADD_SUBTRACT(vec3)
   VEC3_INVERT_SELF()
   VEC3_LENGTH_SQUARED(T)
   VEC3_DELETE_EQUAL()
 
   typedef unit3<T> Unit;
 
-  explicit Vec3(const point3<T>& v)
+  explicit vec3(const point3<T>& v)
       : x(v.x)
       , y(v.y)
       , z(v.z)
@@ -247,7 +247,7 @@ struct Vec3
 ////////////////////////////////////////////////////////////////////////////////
 
 template <typename T>
-struct unit3 : public Vec3<T>
+struct unit3 : public vec3<T>
 {
   using Self = unit3<T>;
 
@@ -321,14 +321,14 @@ struct unit3 : public Vec3<T>
   }
 
   static Self
-  ToUnit(const Vec3<T>& v)
+  ToUnit(const vec3<T>& v)
   {
     return Self{v.x, v.y, v.z};
   }
 
  private:
   explicit unit3(T a, T b, T c)
-      : Vec3<T>(a, b, c)
+      : vec3<T>(a, b, c)
   {
     ASSERT(IsValid());
   }
@@ -342,7 +342,7 @@ struct unit3 : public Vec3<T>
 
 template <typename T>
 point3<T>
-operator+(const point3<T>& lhs, const Vec3<T>& rhs)
+operator+(const point3<T>& lhs, const vec3<T>& rhs)
 {
   point3<T> r = lhs;
   r += rhs;
@@ -351,7 +351,7 @@ operator+(const point3<T>& lhs, const Vec3<T>& rhs)
 
 template <typename T>
 point3<T>
-operator+(const Vec3<T>& lhs, const point3<T>& rhs)
+operator+(const vec3<T>& lhs, const point3<T>& rhs)
 {
   point3<T> r = rhs;
   r += lhs;
@@ -360,7 +360,7 @@ operator+(const Vec3<T>& lhs, const point3<T>& rhs)
 
 template <typename T>
 point3<T>
-operator-(const point3<T>& lhs, const Vec3<T>& rhs)
+operator-(const point3<T>& lhs, const vec3<T>& rhs)
 {
   point3<T> r = lhs;
   r -= rhs;
@@ -369,7 +369,7 @@ operator-(const point3<T>& lhs, const Vec3<T>& rhs)
 
 template <typename T>
 point3<T>
-operator-(const Vec3<T>& lhs, const point3<T>& rhs)
+operator-(const vec3<T>& lhs, const point3<T>& rhs)
 {
   return -rhs + lhs;
 }
@@ -377,61 +377,61 @@ operator-(const Vec3<T>& lhs, const point3<T>& rhs)
 // vector
 
 template <typename T>
-Vec3<T>
-operator+(const Vec3<T>& lhs, const Vec3<T>& rhs)
+vec3<T>
+operator+(const vec3<T>& lhs, const vec3<T>& rhs)
 {
-  Vec3<T> r = lhs;
+  vec3<T> r = lhs;
   r += rhs;
   return r;
 }
 
 template <typename T>
-Vec3<T>
-operator-(const Vec3<T>& lhs, const Vec3<T>& rhs)
+vec3<T>
+operator-(const vec3<T>& lhs, const vec3<T>& rhs)
 {
-  Vec3<T> r = lhs;
+  vec3<T> r = lhs;
   r -= rhs;
   return r;
 }
 
 template <typename T>
-Vec3<T> operator*(T lhs, const Vec3<T>& rhs)
+vec3<T> operator*(T lhs, const vec3<T>& rhs)
 {
-  Vec3<T> r = rhs;
+  vec3<T> r = rhs;
   r *= lhs;
   return r;
 }
 
 template <typename T>
-Vec3<T> operator*(const Vec3<T>& lhs, T rhs)
+vec3<T> operator*(const vec3<T>& lhs, T rhs)
 {
-  Vec3<T> r = lhs;
+  vec3<T> r = lhs;
   r *= rhs;
   return r;
 }
 
 template <typename T>
-Vec3<T>
-operator/(const Vec3<T>& lhs, T rhs)
+vec3<T>
+operator/(const vec3<T>& lhs, T rhs)
 {
-  Vec3<T> r = lhs;
+  vec3<T> r = lhs;
   r /= rhs;
   return r;
 }
 
 template <typename T>
-Vec3<T>
-operator/(T lhs, const Vec3<T>& rhs)
+vec3<T>
+operator/(T lhs, const vec3<T>& rhs)
 {
-  const Vec3<T> r{1 / rhs.x, 1 / rhs.y, 1 / rhs.z};
+  const vec3<T> r{1 / rhs.x, 1 / rhs.y, 1 / rhs.z};
   return r;
 }
 
 template <typename T>
-Vec3<T>
-ComponentMultiply(const Vec3<T>& lhs, const Vec3<T>& rhs)
+vec3<T>
+ComponentMultiply(const vec3<T>& lhs, const vec3<T>& rhs)
 {
-  return Vec3<T>(lhs.x * rhs.x, lhs.y * rhs.y, lhs.z * rhs.z);
+  return vec3<T>(lhs.x * rhs.x, lhs.y * rhs.y, lhs.z * rhs.z);
 }
 
 
@@ -448,7 +448,7 @@ ComponentMultiply(const Vec3<T>& lhs, const Vec3<T>& rhs)
   }
 
 VEC3_EQUAL_OPERATOR(point3)
-VEC3_EQUAL_OPERATOR(Vec3)
+VEC3_EQUAL_OPERATOR(vec3)
 VEC3_EQUAL_OPERATOR(unit3)
 VEC3_EQUAL_OPERATOR(scale3)
 
@@ -458,16 +458,16 @@ VEC3_EQUAL_OPERATOR(scale3)
 
 template <typename T>
 T
-dot(const Vec3<T>& lhs, const Vec3<T>& rhs)
+dot(const vec3<T>& lhs, const vec3<T>& rhs)
 {
   return lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z;
 }
 
 template <typename T>
-Vec3<T>
-cross(const Vec3<T>& v, const Vec3<T> u)
+vec3<T>
+cross(const vec3<T>& v, const vec3<T> u)
 {
-  return Vec3<T>(
+  return vec3<T>(
       (v.y * u.z) - (v.z * u.y),
       (v.z * u.x) - (v.x * u.z),
       (v.x * u.y) - (v.y * u.x));
@@ -500,7 +500,7 @@ operator<<(std::ostream& stream, const point3<T>& v)
 
 template <typename T>
 std::ostream&
-operator<<(std::ostream& stream, const Vec3<T>& v)
+operator<<(std::ostream& stream, const vec3<T>& v)
 {
   return stream << "(" << v.x << ", " << v.y << ", " << v.z << ")";
 }
@@ -525,12 +525,12 @@ operator<<(std::ostream& stream, const scale3<T>& v)
 
 
 typedef point3<float> point3f;
-typedef Vec3<float>   Vec3f;
+typedef vec3<float>   vec3f;
 typedef unit3<float>  unit3f;
 typedef scale3<float> scale3f;
 
 typedef point3<int> point3i;
-typedef Vec3<int>   Vec3i;
+typedef vec3<int>   vec3i;
 typedef unit3<int>  unit3i;
 typedef scale3<int> scale3i;
 

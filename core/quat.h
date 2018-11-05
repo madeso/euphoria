@@ -11,7 +11,7 @@ class quat
 {
  public:
   using Q = quat<T>;
-  using Vec = Vec3<T>;
+  using Vec = vec3<T>;
   using Point = point3<T>;
   using Unit = unit3<T>;
 

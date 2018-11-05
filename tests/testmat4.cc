@@ -76,9 +76,9 @@ TEST_CASE("mat4-transposed", "[mat]")
 TEST_CASE("mat4-axis", "[mat]")
 {
   const auto m = mat4i::Identity();
-  REQUIRE(Vec3i(1, 0, 0) == static_cast<Vec3i>(m.GetXAxis()));
-  REQUIRE(Vec3i(0, 1, 0) == m.GetYAxis());
-  REQUIRE(Vec3i(0, 0, 1) == m.GetZAxis());
+  REQUIRE(vec3i(1, 0, 0) == static_cast<vec3i>(m.GetXAxis()));
+  REQUIRE(vec3i(0, 1, 0) == m.GetYAxis());
+  REQUIRE(vec3i(0, 0, 1) == m.GetZAxis());
 }
 
 TEST_CASE("mat4-multiply", "[mat]")
@@ -179,8 +179,8 @@ TEST_CASE("mat4-inverse", "[mat]")
 TEST_CASE("mat4-TestTransformation", "[mat]")
 {
   REQUIRE(
-      Vec3i(1, 2, 3) ==
-      mat4i::FromTranslation(Vec3i(1, 2, 3)).GetTranslation());
+      vec3i(1, 2, 3) ==
+      mat4i::FromTranslation(vec3i(1, 2, 3)).GetTranslation());
 }
 
 
@@ -222,7 +222,7 @@ TEST_CASE("mat4-TestCombined_RT", "[mat]")
   const auto r = mat4f::Identity()
                      .Rotate(AxisAngle::RightHandAround(
                          unit3f::Up(), Angle::FromDegrees(-90)))
-                     .Translate(Vec3f(0, 0, -5))
+                     .Translate(vec3f(0, 0, -5))
                      .GetTransform(point3f(0, 0, 0));
   REQUIRE(r == approx(point3f(5, 0, 0)));
 }
@@ -232,7 +232,7 @@ TEST_CASE("mat4-TestCombined2_RT", "[mat]")
   const auto r = mat4f::Identity()
                      .Rotate(AxisAngle::RightHandAround(
                          unit3f::Up(), Angle::FromDegrees(90)))
-                     .Translate(Vec3f(0, 0, -5))
+                     .Translate(vec3f(0, 0, -5))
                      .GetTransform(point3f(0, 0, 0));
   REQUIRE(r == approx(point3f(-5, 0, 0)));
 }
@@ -240,7 +240,7 @@ TEST_CASE("mat4-TestCombined2_RT", "[mat]")
 TEST_CASE("mat4-TestCombined_TR", "[mat]")
 {
   const auto r = mat4f::Identity()
-                     .Translate(Vec3f(0, 0, 5))
+                     .Translate(vec3f(0, 0, 5))
                      .Rotate(AxisAngle::RightHandAround(
                          unit3f::Up(), Angle::FromDegrees(-90)))
                      .GetTransform(point3f(0, 0, 0));
@@ -250,7 +250,7 @@ TEST_CASE("mat4-TestCombined_TR", "[mat]")
 TEST_CASE("mat4-TestTranslation", "[mat]")
 {
   const auto r =
-      mat4i::Identity().Translate(Vec3i(1, 2, 3)).GetTransform(point3i(7, 8, 9));
+      mat4i::Identity().Translate(vec3i(1, 2, 3)).GetTransform(point3i(7, 8, 9));
   REQUIRE(r == point3i(8, 10, 12));
 }
 

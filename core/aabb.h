@@ -20,13 +20,13 @@ class Aabb
   static Aabb
   Empty();
 
-  Vec3f
+  vec3f
   GetSize() const;
 
   bool
   IsValid() const;
 
-  Vec3f
+  vec3f
   GetOffset() const;
 
   const point3f&

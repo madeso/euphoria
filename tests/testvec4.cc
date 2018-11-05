@@ -23,7 +23,7 @@ TEST_CASE("vec4-constructor_unique", "[vec4]")
 
 TEST_CASE("vec4-constructor_vec3", "[vec4]")
 {
-  const auto v = vec4i(Vec3i(1, 2, 3));
+  const auto v = vec4i(vec3i(1, 2, 3));
   REQUIRE(v.x == 1);
   REQUIRE(v.y == 2);
   REQUIRE(v.z == 3);

@@ -55,13 +55,13 @@ SpriteRenderer::DrawRect(
     const Rgba&      tint_color)
 {
   Use(shader_);
-  Vec3f rotation_anchor_displacement{
+  vec3f rotation_anchor_displacement{
       -rotation_anchor.x * sprite_area.GetWidth(),
       (rotation_anchor.y - 1) * sprite_area.GetHeight(),
       0.0f};
   const mat4f model =
       mat4f::Identity()
-          .Translate(Vec3f(sprite_area.BottomLeft(), 0.0f))
+          .Translate(vec3f(sprite_area.BottomLeft(), 0.0f))
           .Translate(-rotation_anchor_displacement)
           .Rotate(AxisAngle::RightHandAround(
               unit3f::ZAxis(),

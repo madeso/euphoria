@@ -159,7 +159,7 @@ class mat4
   }
 
   static mat4<T>
-  FromTranslation(const Vec3<T>& v)
+  FromTranslation(const vec3<T>& v)
   {
     const T one = 1;
     const T z   = 0;
@@ -173,8 +173,8 @@ class mat4
     return *this * vec4<T>(p);
   }
 
-  Vec3<T>
-  GetTransform(const Vec3<T>& p) const
+  vec3<T>
+  GetTransform(const vec3<T>& p) const
   {
     return GetTransform(vec4<T>(p)).ToVec3();
   }
@@ -185,10 +185,10 @@ class mat4
     return GetTransform(vec4<T>(p)).ToPoint3();
   }
 
-  Vec3<T>
+  vec3<T>
   GetTranslation() const
   {
-    return Vec3<T>(Get(0, 3), Get(1, 3), Get(2, 3));
+    return vec3<T>(Get(0, 3), Get(1, 3), Get(2, 3));
   }
 
   static mat4<T>
@@ -270,25 +270,25 @@ class mat4
     return vec4<T>(self(0, 0), self(1, 1), self(2, 2), self(3, 3));
   }
 
-  Vec3<T>
+  vec3<T>
   GetAxis(int col) const
   {
     return GetColumn(col).ToVec3();
   }
 
-  Vec3<T>
+  vec3<T>
   GetXAxis() const
   {
     return GetAxis(0);
   }
 
-  Vec3<T>
+  vec3<T>
   GetYAxis() const
   {
     return GetAxis(1);
   }
 
-  Vec3<T>
+  vec3<T>
   GetZAxis() const
   {
     return GetAxis(2);
@@ -511,7 +511,7 @@ class mat4
   }
 
   mat4<T>
-  Translate(const Vec3<T>& t) const
+  Translate(const vec3<T>& t) const
   {
     return *this * FromTranslation(t);
   }

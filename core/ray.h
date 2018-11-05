@@ -20,7 +20,7 @@ class UnitRay3
   static Self
   FromTo(const Point& from, const Point& to)
   {
-    return Self{from, Vec3<T>::FromTo(from, to).GetNormalized()};
+    return Self{from, vec3<T>::FromTo(from, to).GetNormalized()};
   }
 
   static Self
@@ -44,7 +44,7 @@ class Ray3
 {
  public:
   typedef point3<T> Point;
-  typedef Vec3<T> Vec;
+  typedef vec3<T> Vec;
   typedef Ray3<T> Self;
 
   Ray3(const Point& from, const Vec& dir)

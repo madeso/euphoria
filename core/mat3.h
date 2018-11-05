@@ -121,25 +121,25 @@ class mat3
     return tuple3(self(0, 0), self(1, 1), self(2, 2));
   }
 
-  Vec3<T>
+  vec3<T>
   GetAxis(int col) const
   {
-    return static_cast<Vec3<T>>(GetColumn(col));
+    return static_cast<vec3<T>>(GetColumn(col));
   }
 
-  Vec3<T>
+  vec3<T>
   GetXAxis() const
   {
     return GetAxis(0);
   }
 
-  Vec3<T>
+  vec3<T>
   GetYAxis() const
   {
     return GetAxis(1);
   }
 
-  Vec3<T>
+  vec3<T>
   GetZAxis() const
   {
     return GetAxis(2);
@@ -305,10 +305,10 @@ mat3<T> operator*(const mat3<T>& lhs, const mat3<T> rhs)
 }
 
 template <typename T>
-Vec3<T> operator*(const mat3<T>& lhs, const Vec3<T> rhs)
+vec3<T> operator*(const mat3<T>& lhs, const vec3<T> rhs)
 {
 #define OP(r) ComponentMultiply(lhs.GetRow(r), rhs).GetComponentSum()
-  return Vec3<T>(OP(0), OP(1), OP(2));
+  return vec3<T>(OP(0), OP(1), OP(2));
 #undef OP
 }
 

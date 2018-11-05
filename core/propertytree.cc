@@ -36,13 +36,13 @@ ValueFloat::Cast(Value* value)
 
 ////////////////////////////////////////////////////////////////////////////////
 
-ValueVec3f::ValueVec3f(const Vec3f& v)
+ValueVec3f::ValueVec3f(const vec3f& v)
     : Value(ValueType::Vec3f)
     , value(v)
 {
 }
 
-Vec3f&
+vec3f&
 ValueVec3f::Cast(Value* value)
 {
   ASSERT(value);

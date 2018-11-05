@@ -34,7 +34,7 @@ class vec4
   {
   }
 
-  vec4(const Vec3<T>& a)
+  vec4(const vec3<T>& a)
       : x(a.x)
       , y(a.y)
       , z(a.z)
@@ -58,11 +58,11 @@ class vec4
   {
   }
 
-  Vec3<T>
+  vec3<T>
   ToVec3() const
   {
     ASSERTX(IsEqual(w, 0), w);
-    return Vec3<T>(x, y, z);
+    return vec3<T>(x, y, z);
   }
 
   point3<T>

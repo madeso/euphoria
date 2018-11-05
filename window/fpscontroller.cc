@@ -119,7 +119,7 @@ FpsController::Update(float delta)
   }
 
   const auto input =
-      GetRotation().RightUpIn(Vec3f{right, up, forward}).GetNormalized();
+      GetRotation().RightUpIn(vec3f{right, up, forward}).GetNormalized();
   const auto movement = input * speed * delta;
 
   position += movement;

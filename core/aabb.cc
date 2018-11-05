@@ -75,11 +75,11 @@ Aabb::Empty()
   return Aabb{point3f::Origo(), point3f::Origo()};
 }
 
-Vec3f
+vec3f
 Aabb::GetSize() const
 {
   ASSERT(IsValid());
-  return Vec3f::FromTo(min, max);
+  return vec3f::FromTo(min, max);
 }
 
 bool
@@ -90,9 +90,9 @@ Aabb::IsValid() const
 #undef M
 }
 
-Vec3f
+vec3f
 Aabb::GetOffset() const
 {
   ASSERT(IsValid());
-  return Vec3f::FromTo(point3f::Origo(), min);
+  return vec3f::FromTo(point3f::Origo(), min);
 }

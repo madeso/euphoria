@@ -6,12 +6,12 @@
 TEST_CASE("quat-identity", "[quat]")
 {
   const auto q = quati::Identity();
-  REQUIRE(q == quati(1, Vec3i(0, 0, 0)));
+  REQUIRE(q == quati(1, vec3i(0, 0, 0)));
 }
 
 TEST_CASE("quat-testVecOp", "[quat]")
 {
-  REQUIRE(quati(4, Vec3i(1, 2, 3)).vec() == Vec3i(1, 2, 3));
+  REQUIRE(quati(4, vec3i(1, 2, 3)).vec() == vec3i(1, 2, 3));
 }
 
 #define EXPECT_PRED_FORMAT2(a, b) REQUIRE(b == approx(a))
@@ -64,19 +64,19 @@ TEST_CASE("quat-testLook", "[quat]")
   EXPECT_PRED_FORMAT2(
       quatf::FromAxisAngle(
           AxisAngle::RightHandAround(unit3f::Up(), Angle::FromDegrees(0))),
-      quatf::LookInDirection(Vec3f(0, 0, -9).GetNormalized(), unit3f::Up()));
+      quatf::LookInDirection(vec3f(0, 0, -9).GetNormalized(), unit3f::Up()));
   EXPECT_PRED_FORMAT2(
       quatf::FromAxisAngle(
           AxisAngle::RightHandAround(unit3f::Up(), Angle::FromDegrees(180))),
-      quatf::LookInDirection(Vec3f(0, 0, 9).GetNormalized(), unit3f::Up()));
+      quatf::LookInDirection(vec3f(0, 0, 9).GetNormalized(), unit3f::Up()));
   EXPECT_PRED_FORMAT2(
       quatf::FromAxisAngle(
           AxisAngle::RightHandAround(unit3f::Up(), Angle::FromDegrees(-90))),
-      quatf::LookInDirection(Vec3f(3, 0, 0).GetNormalized(), unit3f::Up()));
+      quatf::LookInDirection(vec3f(3, 0, 0).GetNormalized(), unit3f::Up()));
   EXPECT_PRED_FORMAT2(
       quatf::FromAxisAngle(
           AxisAngle::RightHandAround(unit3f::Up(), Angle::FromDegrees(90))),
-      quatf::LookInDirection(Vec3f(-5, 0, 0).GetNormalized(), unit3f::Up()));
+      quatf::LookInDirection(vec3f(-5, 0, 0).GetNormalized(), unit3f::Up()));
 
   // todo: add more test where up != Up()
 }

@@ -19,7 +19,7 @@ approximately_equal(
 
 template <>
 bool
-approximately_equal(Vec3f const& lhs, Vec3f const& rhs, const ApproxData& data)
+approximately_equal(vec3f const& lhs, vec3f const& rhs, const ApproxData& data)
 {
   return vec3_approximately_equal(lhs, rhs, data);
 }

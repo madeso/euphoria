@@ -27,7 +27,7 @@ Intersect(const UnitRay3f& r, const Aabb& aabb)
   const point3f bounds[]{aabb.min, aabb.max};
 
   // todo: move to ray class?
-  const Vec3f r_invdir  = 1.0f / static_cast<Vec3f>(r.dir);
+  const vec3f r_invdir  = 1.0f / static_cast<vec3f>(r.dir);
   const int   r_sign[3] = {r_invdir.x < 0, r_invdir.y < 0, r_invdir.z < 0};
 
   float       tmin  = (bounds[r_sign[0]].x - r.from.x) * r_invdir.x;

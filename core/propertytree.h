@@ -49,10 +49,10 @@ struct ValueFloat : public Value
 
 struct ValueVec3f : public Value
 {
-  explicit ValueVec3f(const Vec3f& v);
-  Vec3f value;
+  explicit ValueVec3f(const vec3f& v);
+  vec3f value;
 
-  static Vec3f&
+  static vec3f&
   Cast(Value* value);
 };
 
