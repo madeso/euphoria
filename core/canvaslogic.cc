@@ -2,7 +2,7 @@
 #include "core/numeric.h"
 
 void
-CanvasLogic::Pan(const Vec2f& p)
+CanvasLogic::Pan(const vec2f& p)
 {
   scroll += p;
 }
@@ -29,7 +29,7 @@ CanvasLogic::Zoom(const point2f& mouse, float zoom)
 
   // todo: change to use WorldToScreen
   const auto new_focus = scroll + Scale(focus, scale);
-  scroll               = scroll + Vec2f::FromTo(new_focus, mouse);
+  scroll               = scroll + vec2f::FromTo(new_focus, mouse);
 }
 
 point2f

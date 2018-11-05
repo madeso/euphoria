@@ -72,7 +72,7 @@ Draw::Circle(
     {
       // todo: use length squared!
       const float sq =
-          Vec2f::FromTo(
+          vec2f::FromTo(
               point2f{static_cast<float>(x), static_cast<float>(y)},
               center.StaticCast<float>())
               .GetLength();

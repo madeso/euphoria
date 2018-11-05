@@ -24,7 +24,7 @@ class line2
 {
  public:
   typedef line2<T> Self;
-  typedef Vec2<T> vec;
+  typedef vec2<T> vec;
   typedef point2<T> tpoint;
 
   static Self

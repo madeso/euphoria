@@ -102,10 +102,10 @@ class Rect
     return point2<T>(left, bottom);
   }
 
-  Vec2<T>
+  vec2<T>
   GetBottomLeftOffset() const
   {
-    return Vec2<T>(left, bottom);
+    return vec2<T>(left, bottom);
   }
 
   // centers this rectangle inside the other rectangle and returns it without
@@ -115,7 +115,7 @@ class Rect
   {
     const auto lower_left =
         other.GetAbsoluteCenterPos() -
-        Vec2f::FromOrigoTo(GetRelativeCenterPosFromBottomLeft());
+        vec2f::FromOrigoTo(GetRelativeCenterPosFromBottomLeft());
     return Rect::FromTopLeftWidthHeight(
         lower_left.y + GetHeight(), lower_left.x, GetWidth(), GetHeight());
   }
@@ -342,7 +342,7 @@ class Rect
   }
 
   Rect<T>
-  OffsetCopy(const Vec2<T>& d) const
+  OffsetCopy(const vec2<T>& d) const
   {
     return OffsetCopy(d.x, d.y);
   }

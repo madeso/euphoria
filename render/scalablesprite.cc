@@ -145,7 +145,7 @@ ScalableSprite::Render(
 
       sr->DrawRect(
           *texture_.get(),
-          position_rect.OffsetCopy(Vec2f::FromOrigoTo(pos)),
+          position_rect.OffsetCopy(vec2f::FromOrigoTo(pos)),
           uv_rect,
           0.0_rad,
           scale2f{0, 0},
