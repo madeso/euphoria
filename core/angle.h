@@ -51,6 +51,12 @@ class Angle
     return Angle::FromRadians(percent * Pi() * 2.0f);
   }
 
+  constexpr float
+  InPercentOf360() const
+  {
+    return InRadians() / (Pi() * 2.0f);
+  }
+
   constexpr static Angle
   FromPercentOf180(float percent)
   {

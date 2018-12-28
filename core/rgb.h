@@ -4,6 +4,7 @@
 #include <string>
 
 #include "core/colors.h"
+#include "core/angle.h"
 
 // unsigned char colors: 0 - 255
 class Rgbi;
@@ -69,6 +70,45 @@ class Rgb
 
 
 ////////////////////////////////////////////////////////////////////////////////
+// HSL
+
+struct Hsl
+{
+  // hue, saturation, lightness
+  Angle h;
+  float s;  // 0-1
+  float l;  // 0-1
+};
+
+enum class Method
+{
+  Absolute,
+  Relative
+};
+
+////////////////////////////////////////////////////////////////////////////////
+// Util functions
+
+Hsl
+saturate(const Hsl& ahsl, float amount, Method method);
+
+Hsl
+desaturate(const Hsl& ahsl, float amount, Method method);
+
+Hsl
+lighten(const Hsl& ahsl, float amount, Method method);
+
+Hsl
+darken(const Hsl& ahsl, float amount, Method method);
+
+/** Makes a color brighter or darker.
+ * The +1 makes it white, 0% is no change, -1 makes it black.
+ */
+Rgb
+ShadeColor(const Rgb& rgb, float percentage);
+
+
+////////////////////////////////////////////////////////////////////////////////
 // Rgb with alpha - float based
 
 class Rgba
@@ -98,6 +138,9 @@ operator<<(std::ostream& stream, const Rgb& v);
 std::ostream&
 operator<<(std::ostream& stream, const Rgba& v);
 
+std::ostream&
+operator<<(std::ostream& stream, const Hsl& v);
+
 ////////////////////////////////////////////////////////////////////////////////
 // Default compare
 
@@ -118,6 +161,14 @@ rgb(const Rgbai& rgb);
 
 Rgb
 rgb(DawnbringerPalette color);
+
+Rgb
+rgb(const Hsl& c);
+
+// Convert functions (hsl)
+
+Hsl
+hsl(const Rgb& c);
 
 // Convert functions (rgbi)
 

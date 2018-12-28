@@ -166,6 +166,12 @@ Max(int lhs, int rhs)
   return rhs;
 }
 
+float
+Mod(float numer, float denumer)
+{
+  return ::fmodf(numer, denumer);
+}
+
 bool
 IsWithinInclusivei(int min, int c, int max)
 {
