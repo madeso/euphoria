@@ -104,7 +104,7 @@ Draw::Circle(
 
       const Rgb paint_color =
           blend ? RgbTransform::Transform(
-                      Rgb{image_->GetPixel(x, y)}, blend_factor, color)
+                      rgb(image_->GetPixel(x, y)), blend_factor, color)
                 : color;
 
       image_->SetPixel(x, y, Rgbi{paint_color});
@@ -128,7 +128,7 @@ Draw::LineFast(const Rgbi& color, const vec2i& from, const vec2i& to)
   int         deltay = y1 - y0;
   const float deltaerr =
       deltax == 0 ? -1 : Abs(deltay / static_cast<float>(deltax));
-  float error = deltaerr - 0.5;
+  float error = deltaerr - 0.5f;
   int   y     = y0;
   for(int x = x0; x < x1; x += 1)
   {
@@ -187,7 +187,7 @@ Plot(int x, int y, float brightness, const Rgb& color, Image* image)
   if(valid_x && valid_y)
   {
     const Rgb paint_color =
-        RgbTransform::Transform(Rgb{image->GetPixel(x, y)}, brightness, color);
+        RgbTransform::Transform(rgb(image->GetPixel(x, y)), brightness, color);
     image->SetPixel(x, y, Rgbi{paint_color});
   }
 }

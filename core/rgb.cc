@@ -20,21 +20,10 @@ Rgbi::Rgbi(unsigned char gray)
     , b(gray)
 {
 }
-Rgbi::Rgbi(const Rgbai& rgb)
-    : r(rgb.r)
-    , g(rgb.g)
-    , b(rgb.b)
-{
-}
 
 Rgbi::Rgbi(Color color)
+    : Rgbi(Rgbi::FromHex(ToColorHex(color)))
 {
-  SetFromHexColor(ToColorHex(color));
-}
-
-Rgbi::Rgbi(DawnbringerPalette color)
-{
-  SetFromHexColor(ToColorHex(color));
 }
 
 Rgbi::Rgbi(const Rgb& rgb)
@@ -44,12 +33,12 @@ Rgbi::Rgbi(const Rgb& rgb)
 {
 }
 
-void
-Rgbi::SetFromHexColor(int hex)
+Rgbi
+Rgbi::FromHex(unsigned int hex)
 {
-  b = colorutil::GetBlue(hex);
-  g = colorutil::GetGreen(hex);
-  r = colorutil::GetRed(hex);
+  return {colorutil::GetRed(hex),
+          colorutil::GetGreen(hex),
+          colorutil::GetBlue(hex)};
 }
 
 
@@ -80,39 +69,14 @@ Rgb::Rgb(float red, float green, float blue)
 {
 }
 
-Rgb::Rgb(const float gray)
+Rgb::Rgb(float gray)
     : r(gray)
     , g(gray)
     , b(gray)
 {
 }
-Rgb::Rgb(const Rgbi& rgb)
-    : r(colorutil::ToFloat(rgb.r))
-    , g(colorutil::ToFloat(rgb.g))
-    , b(colorutil::ToFloat(rgb.b))
-{
-}
-
-Rgb::Rgb(const Rgba& rgb)
-    : r(rgb.r)
-    , g(rgb.g)
-    , b(rgb.b)
-{
-}
-
-Rgb::Rgb(const Rgbai& rgb)
-    : r(colorutil::ToFloat(rgb.r))
-    , g(colorutil::ToFloat(rgb.g))
-    , b(colorutil::ToFloat(rgb.b))
-{
-}
 
 Rgb::Rgb(Color color)
-    : Rgb(Rgb::FromHex(ToColorHex(color)))
-{
-}
-
-Rgb::Rgb(DawnbringerPalette color)
     : Rgb(Rgb::FromHex(ToColorHex(color)))
 {
 }
@@ -125,13 +89,6 @@ Rgb::FromHex(unsigned int hex)
   const auto r = colorutil::ToFloat(colorutil::GetRed(hex));
   return Rgb{r, g, b};
 }
-
-Rgb
-Rgb::FromHex(const std::string& hex)
-{
-  return Rgb::FromHex(colorutil::FromStringToHex(hex));
-}
-
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -191,12 +148,72 @@ operator==(const Rgbai& lhs, const Rgbai& rhs)
 ////////////////////////////////////////////////////////////////////////////////
 
 Rgb
-RgbTransform::Transform(const Rgb& from, float v, const Rgb to)
+rgb(const Rgbi& rgb)
 {
-  return Rgb(
-      FloatTransform::Transform(from.r, v, to.r),
-      FloatTransform::Transform(from.g, v, to.g),
-      FloatTransform::Transform(from.b, v, to.b));
+  return {colorutil::ToFloat(rgb.r),
+          colorutil::ToFloat(rgb.g),
+          colorutil::ToFloat(rgb.b)};
+}
+
+Rgb
+rgb(const Rgba& rgb)
+{
+  return {rgb.r, rgb.g, rgb.b};
+}
+
+Rgb
+rgb(const Rgbai& rgb)
+{
+  return {colorutil::ToFloat(rgb.r),
+          colorutil::ToFloat(rgb.g),
+          colorutil::ToFloat(rgb.b)};
+}
+
+Rgb
+rgb(DawnbringerPalette color)
+{
+  return {Rgb::FromHex(ToColorHex(color))};
+}
+
+
+// Convert functions (rgbi)
+
+Rgbi
+rgbi(const Rgb& rgb)
+{
+  return {colorutil::ToUnsignedChar(rgb.r),
+          colorutil::ToUnsignedChar(rgb.g),
+          colorutil::ToUnsignedChar(rgb.b)};
+}
+
+Rgbi
+rgbi(const Rgba& rgb)
+{
+  return {colorutil::ToUnsignedChar(rgb.r),
+          colorutil::ToUnsignedChar(rgb.g),
+          colorutil::ToUnsignedChar(rgb.b)};
+}
+
+Rgbi
+rgbi(const Rgbai& rgb)
+{
+  return {rgb.r, rgb.g, rgb.b};
+}
+
+Rgbi
+rgbi(DawnbringerPalette color)
+{
+  return Rgbi::FromHex(ToColorHex(color));
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+Rgb
+RgbTransform::Transform(const Rgb& from, float v, const Rgb& to)
+{
+  return {FloatTransform::Transform(from.r, v, to.r),
+          FloatTransform::Transform(from.g, v, to.g),
+          FloatTransform::Transform(from.b, v, to.b)};
 }
 
 ////////////////////////////////////////////////////////////////////////////////

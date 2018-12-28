@@ -20,14 +20,12 @@ class Rgbi
  public:
   Rgbi(unsigned char red, unsigned char green, unsigned char blue);
   explicit Rgbi(unsigned char gray);
-  explicit Rgbi(const Rgbai& rgb);
   Rgbi(Color color);
-  Rgbi(DawnbringerPalette color);
 
   explicit Rgbi(const Rgb& rgb);
 
-  void
-  SetFromHexColor(int hex);
+  static Rgbi
+  FromHex(unsigned int hex);
 
   unsigned char r;
   unsigned char g;
@@ -57,19 +55,12 @@ class Rgb
 {
  public:
   Rgb(float red, float green, float blue);
-  explicit Rgb(const float gray);
-  explicit Rgb(const Rgbi& rgb);
-  explicit Rgb(const Rgba& rgb);
-  explicit Rgb(const Rgbai& rgb);
+  explicit Rgb(float gray);
 
   Rgb(Color color);
-  Rgb(DawnbringerPalette color);
 
   static Rgb
   FromHex(unsigned int hex);
-
-  static Rgb
-  FromHex(const std::string& hex);
 
   float r;
   float g;
@@ -114,12 +105,41 @@ bool
 operator==(const Rgbai& lhs, const Rgbai& rhs);
 
 ////////////////////////////////////////////////////////////////////////////////
+// Convert functions (rgb)
+
+Rgb
+rgb(const Rgbi& rgb);
+
+Rgb
+rgb(const Rgba& rgb);
+
+Rgb
+rgb(const Rgbai& rgb);
+
+Rgb
+rgb(DawnbringerPalette color);
+
+// Convert functions (rgbi)
+
+Rgbi
+rgbi(const Rgb& rgb);
+
+Rgbi
+rgbi(const Rgba& rgb);
+
+Rgbi
+rgbi(const Rgbai& rgb);
+
+Rgbi
+rgbi(DawnbringerPalette color);
+
+////////////////////////////////////////////////////////////////////////////////
 // Transforms
 
 struct RgbTransform
 {
   static Rgb
-  Transform(const Rgb& from, float v, const Rgb to);
+  Transform(const Rgb& from, float v, const Rgb& to);
 };
 
 

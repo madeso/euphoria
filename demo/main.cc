@@ -98,7 +98,7 @@ main(int argc, char** argv)
 
   for(int i = 0; i < 20; i += 1)
   {
-    const Rgb  color = random.NextDawnbringerPalette();
+    const Rgb  color = rgb(random.NextDawnbringerPalette());
     const auto pos   = random.NextPoint(wi);
     const auto outer = random.NextRange(55.0f, 100.0f);
     const auto inner = random.Next(Range{50.0f});
