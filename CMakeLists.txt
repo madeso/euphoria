@@ -8,6 +8,8 @@ OPTION(BUILD_USE_CLANG_TIDY "try to use clang-tidy as a build command." OFF)
 OPTION(BUILD_ENTITY_DEBUG_COMPONENT "when converting components, (debug) assert of bad casts" OFF)
 SET(BUILD_TYPEINFO_IMPL "rtti" CACHE STRING "rtti, ctti, custom_hashed, custom_rt")
 
+SET(OpenGL_GL_PREFERENCE "GLVND")
+
 SET(BUILD_TYPEINFO_IMPL_RTTI FALSE)
 SET(BUILD_TYPEINFO_IMPL_CTTI FALSE)
 SET(BUILD_TYPEINFO_IMPL_CUSTOM_HASHED FALSE)
