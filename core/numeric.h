@@ -73,6 +73,9 @@ Max(float lhs, float rhs);
 int
 Max(int lhs, int rhs);
 
+float
+Mod(float numer, float denumer);
+
 bool
 IsWithinInclusivei(int min, int c, int max);
 
@@ -85,29 +88,25 @@ closest half integer, at 2 even integers etc...
 float
 Round(float num, float gran);
 
-constexpr
-float
+constexpr float
 Pi()
 {
   return 3.1415926535897932384626433832795f;
 }
 
-constexpr
-float
+constexpr float
 HalfPi()
 {
   return Pi() / 2.0f;
 }
 
-constexpr
-bool
+constexpr bool
 TrueValue()
 {
   return true;
 }
 
-constexpr
-bool
+constexpr bool
 FalseValue()
 {
   return false;

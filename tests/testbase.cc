@@ -14,7 +14,18 @@ bool
 approximately_equal(
     point3f const& lhs, point3f const& rhs, const ApproxData& data)
 {
-  return vec3_approximately_equal(lhs, rhs, data);
+  return approximately_equal(lhs.x, rhs.x, data) &&
+         approximately_equal(lhs.y, rhs.y, data) &&
+         approximately_equal(lhs.z, rhs.z, data);
+}
+
+template <>
+bool
+approximately_equal(Rgb const& lhs, Rgb const& rhs, const ApproxData& data)
+{
+  return approximately_equal(lhs.r, rhs.r, data) &&
+         approximately_equal(lhs.g, rhs.g, data) &&
+         approximately_equal(lhs.b, rhs.b, data);
 }
 
 template <>
@@ -22,6 +33,15 @@ bool
 approximately_equal(vec3f const& lhs, vec3f const& rhs, const ApproxData& data)
 {
   return vec3_approximately_equal(lhs, rhs, data);
+}
+
+template <>
+bool
+approximately_equal(Hsl const& lhs, Hsl const& rhs, const ApproxData& data)
+{
+  return approximately_equal(lhs.h.InDegrees(), rhs.h.InDegrees(), data) &&
+         approximately_equal(lhs.s * 100, rhs.s * 100, data) &&
+         approximately_equal(lhs.l * 100, rhs.l * 100, data);
 }
 
 template <>

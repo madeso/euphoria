@@ -4,6 +4,7 @@
 #include <string>
 
 #include "core/colors.h"
+#include "core/angle.h"
 
 // unsigned char colors: 0 - 255
 class Rgbi;
@@ -20,14 +21,12 @@ class Rgbi
  public:
   Rgbi(unsigned char red, unsigned char green, unsigned char blue);
   explicit Rgbi(unsigned char gray);
-  explicit Rgbi(const Rgbai& rgb);
   Rgbi(Color color);
-  Rgbi(DawnbringerPalette color);
 
   explicit Rgbi(const Rgb& rgb);
 
-  void
-  SetFromHexColor(int hex);
+  static Rgbi
+  FromHex(unsigned int hex);
 
   unsigned char r;
   unsigned char g;
@@ -57,24 +56,56 @@ class Rgb
 {
  public:
   Rgb(float red, float green, float blue);
-  explicit Rgb(const float gray);
-  explicit Rgb(const Rgbi& rgb);
-  explicit Rgb(const Rgba& rgb);
-  explicit Rgb(const Rgbai& rgb);
+  explicit Rgb(float gray);
 
   Rgb(Color color);
-  Rgb(DawnbringerPalette color);
 
   static Rgb
   FromHex(unsigned int hex);
-
-  static Rgb
-  FromHex(const std::string& hex);
 
   float r;
   float g;
   float b;
 };
+
+
+////////////////////////////////////////////////////////////////////////////////
+// HSL
+
+struct Hsl
+{
+  // hue, saturation, lightness
+  Angle h;
+  float s;  // 0-1
+  float l;  // 0-1
+};
+
+enum class Method
+{
+  Absolute,
+  Relative
+};
+
+////////////////////////////////////////////////////////////////////////////////
+// Util functions
+
+Hsl
+saturate(const Hsl& ahsl, float amount, Method method);
+
+Hsl
+desaturate(const Hsl& ahsl, float amount, Method method);
+
+Hsl
+lighten(const Hsl& ahsl, float amount, Method method);
+
+Hsl
+darken(const Hsl& ahsl, float amount, Method method);
+
+/** Makes a color brighter or darker.
+ * The +1 makes it white, 0% is no change, -1 makes it black.
+ */
+Rgb
+ShadeColor(const Rgb& rgb, float percentage);
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -107,6 +138,9 @@ operator<<(std::ostream& stream, const Rgb& v);
 std::ostream&
 operator<<(std::ostream& stream, const Rgba& v);
 
+std::ostream&
+operator<<(std::ostream& stream, const Hsl& v);
+
 ////////////////////////////////////////////////////////////////////////////////
 // Default compare
 
@@ -114,12 +148,43 @@ bool
 operator==(const Rgbai& lhs, const Rgbai& rhs);
 
 ////////////////////////////////////////////////////////////////////////////////
+// Convert functions (rgb)
+
+Rgb
+rgb(const Rgbi& rgb);
+
+Rgb
+rgb(const Rgba& rgb);
+
+Rgb
+rgb(const Rgbai& rgb);
+
+Rgb
+rgb(const Hsl& c);
+
+// Convert functions (hsl)
+
+Hsl
+hsl(const Rgb& c);
+
+// Convert functions (rgbi)
+
+Rgbi
+rgbi(const Rgb& rgb);
+
+Rgbi
+rgbi(const Rgba& rgb);
+
+Rgbi
+rgbi(const Rgbai& rgb);
+
+////////////////////////////////////////////////////////////////////////////////
 // Transforms
 
 struct RgbTransform
 {
   static Rgb
-  Transform(const Rgb& from, float v, const Rgb to);
+  Transform(const Rgb& from, float v, const Rgb& to);
 };
 
 

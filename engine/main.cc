@@ -181,7 +181,7 @@ GetColor(std::shared_ptr<game::Color> c)
 
   if(c->hex != nullptr)
   {
-    return Rgb::FromHex(*c->hex);
+    return Rgb::FromHex(colorutil::FromStringToHex(*c->hex));
   }
 
   LOG_ERROR("Unable to parse color");
