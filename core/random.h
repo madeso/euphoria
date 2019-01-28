@@ -60,8 +60,6 @@ class Random
   // todo: remove color/palette functions in favor of vector of defined colors
   Color
   NextColor();
-  DawnbringerPalette
-  NextDawnbringerPalette();
 
   Rgb
   NextRgb();
@@ -100,7 +98,7 @@ class Random
   NextVec3(const Aabb& extents);
 
   template <typename T>
-  T
+  const T&
   Next(const std::vector<T>& v)
   {
     const auto size = v.size();

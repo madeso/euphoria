@@ -123,13 +123,6 @@ Random::NextColor()
   return static_cast<Color>(NextRange(static_cast<int>(Color::MAX_VALUE)));
 }
 
-DawnbringerPalette
-Random::NextDawnbringerPalette()
-{
-  return static_cast<DawnbringerPalette>(
-      NextRange(static_cast<int>(DawnbringerPalette::MAX_VALUE)));
-}
-
 Rgb
 Random::NextRgb()
 {

@@ -177,12 +177,6 @@ rgb(const Rgbai& rgb)
 }
 
 Rgb
-rgb(DawnbringerPalette color)
-{
-  return {Rgb::FromHex(ToColorHex(color))};
-}
-
-Rgb
 rgb(const Hsl& hsl)
 {
   // based on https://gist.github.com/mjackson/5311256
@@ -307,12 +301,6 @@ Rgbi
 rgbi(const Rgbai& rgb)
 {
   return {rgb.r, rgb.g, rgb.b};
-}
-
-Rgbi
-rgbi(DawnbringerPalette color)
-{
-  return Rgbi::FromHex(ToColorHex(color));
 }
 
 ////////////////////////////////////////////////////////////////////////////////

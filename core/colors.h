@@ -150,29 +150,6 @@ enum class Color
   MAX_VALUE
 };
 
-// RGB source: http://pixeljoint.com/forum/forum_posts.asp?TID=12795
-// gave names: http://www.color-blindness.com/color-name-hue/
-enum class DawnbringerPalette
-{
-  Blackcurrant,
-  Castro,
-  ToreaBay,
-  Liver,
-  Korma,
-  SanFelix,
-  Valencia,
-  Flint,
-  HavelockBlue,
-  Tango,
-  BaliHai,
-  Sushi,
-  Cashmere,
-  Seagull,
-  Goldenrod,
-  Tara,
-  MAX_VALUE
-};
-
 namespace color
 {
   bool
@@ -187,8 +164,5 @@ namespace color
 
 unsigned int
 ToColorHex(Color color);
-
-unsigned int
-ToColorHex(DawnbringerPalette color);
 
 #endif  // CORE_NAMED_COLORS_H

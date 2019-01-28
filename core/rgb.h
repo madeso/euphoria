@@ -160,9 +160,6 @@ Rgb
 rgb(const Rgbai& rgb);
 
 Rgb
-rgb(DawnbringerPalette color);
-
-Rgb
 rgb(const Hsl& c);
 
 // Convert functions (hsl)
@@ -180,9 +177,6 @@ rgbi(const Rgba& rgb);
 
 Rgbi
 rgbi(const Rgbai& rgb);
-
-Rgbi
-rgbi(DawnbringerPalette color);
 
 ////////////////////////////////////////////////////////////////////////////////
 // Transforms

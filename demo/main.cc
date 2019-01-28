@@ -12,6 +12,7 @@
 #include "core/os.h"
 #include "core/range.h"
 #include "core/camera.h"
+#include "core/palette.h"
 
 #include <render/init.h>
 #include <render/debuggl.h>
@@ -98,7 +99,7 @@ main(int argc, char** argv)
 
   for(int i = 0; i < 20; i += 1)
   {
-    const Rgb  color = rgb(random.NextDawnbringerPalette());
+    const Rgb  color = palette::Dawnbringer().GetRandomColor(&random);
     const auto pos   = random.NextPoint(wi);
     const auto outer = random.NextRange(55.0f, 100.0f);
     const auto inner = random.Next(Range{50.0f});
