@@ -11,7 +11,7 @@ namespace
     return Square(lhs.r - rhs.r) + Square(lhs.g - rhs.g) +
            Square(lhs.b - rhs.b);
   }
-}
+}  // namespace
 
 const Rgb&
 Palette::GetRandomColor(Random* r) const
@@ -52,6 +52,37 @@ Palette::GetIndexClosest(const Rgb& c) const
   return index_best;
 }
 
+Palette
+Palette::Rainbow(int count, float saturation, float lightness)
+{
+  return Rainbow(
+      count,
+      Angle::FromRadians(0),
+      Angle::FromPercentOf360(
+          Max(1.0f, (count - 1) / static_cast<float>(count))),
+      saturation,
+      lightness);
+}
+
+Palette
+Palette::Rainbow(
+    int          count,
+    const Angle& from,
+    const Angle& to,
+    float        saturation,
+    float        lightness)
+{
+  ASSERT(count > 1);
+  Palette pal;
+  for(int i = 0; i < count; i += 1)
+  {
+    float d = i / static_cast<float>(count - 1);
+    pal.colors.push_back(rgb(
+        Hsl{AngleTransform::Transform(from, d, to), saturation, lightness}));
+  }
+  return pal;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 
 namespace
@@ -61,7 +92,7 @@ namespace
   {
     return Rgb::FromHex(hex);
   }
-}
+}  // namespace
 
 namespace palette
 {
@@ -93,7 +124,8 @@ namespace palette
   OneBit()
   {
     static const auto p = Palette{
-        C(0x000000), C(0xFFFFFF),
+        C(0x000000),
+        C(0xFFFFFF),
     };
     return p;
   }
@@ -102,7 +134,10 @@ namespace palette
   TwoBitGrayScale()
   {
     static const auto p = Palette{
-        C(0x000000), C(0x676767), C(0xB6B6B6), C(0xFFFFFF),
+        C(0x000000),
+        C(0x676767),
+        C(0xB6B6B6),
+        C(0xFFFFFF),
     };
     return p;
   }
@@ -127,7 +162,10 @@ namespace palette
   ARQ4()
   {
     static const auto p = Palette{
-        C(0xFFFFFF), C(0x6772A9), C(0x3A3277), C(0x000000),
+        C(0xFFFFFF),
+        C(0x6772A9),
+        C(0x3A3277),
+        C(0x000000),
     };
     return p;
   }
@@ -252,7 +290,10 @@ namespace palette
   EN4()
   {
     static const auto p = Palette{
-        C(0xFBF7F3), C(0xE5B083), C(0x426E5D), C(0x20283D),
+        C(0xFBF7F3),
+        C(0xE5B083),
+        C(0x426E5D),
+        C(0x20283D),
     };
     return p;
   }
@@ -261,7 +302,11 @@ namespace palette
   Ink()
   {
     static const auto p = Palette{
-        C(0x1F1F29), C(0x413A42), C(0x596070), C(0x96A2B3), C(0xEAF0D8),
+        C(0x1F1F29),
+        C(0x413A42),
+        C(0x596070),
+        C(0x96A2B3),
+        C(0xEAF0D8),
     };
     return p;
   }
@@ -504,4 +549,4 @@ namespace palette
     };
     return p;
   }
-}
+}  // namespace palette

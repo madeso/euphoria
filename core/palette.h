@@ -28,6 +28,14 @@ struct Palette
 
   unsigned int
   GetIndexClosest(const Rgb& c) const;
+
+  // rainbow functions based on the r documentation https://rdrr.io/r/grDevices/palettes.html
+
+  static Palette
+  Rainbow(int count, float saturation = 1, float lightness = 1);
+  
+  static Palette
+  Rainbow(int count, const Angle& from, const Angle& to, float saturation, float lightness);
 };
 
 namespace palette
