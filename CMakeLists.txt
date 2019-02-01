@@ -42,7 +42,6 @@ find_package(OpenGL REQUIRED)
 include(${CMAKE_CURRENT_SOURCE_DIR}/external/gaf/gaf.cmake)
 
 include_directories(SYSTEM
-                    ${CMAKE_CURRENT_SOURCE_DIR}/external/gsl-lite/include
                     ${CMAKE_CURRENT_SOURCE_DIR}/external/rapidjson/include
                     )
 
