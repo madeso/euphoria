@@ -78,6 +78,13 @@ struct Hsl
   Angle h;
   float s;  // 0-1
   float l;  // 0-1
+
+  static const Angle& Red ();
+  static const Angle& Yellow ();
+  static const Angle& Green ();
+  static const Angle& Cyan ();
+  static const Angle& Blue ();
+  static const Angle& Magenta ();
 };
 
 enum class Method

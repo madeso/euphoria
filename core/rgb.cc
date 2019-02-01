@@ -103,6 +103,50 @@ Rgba::Rgba(const Rgb& rgb, float alpha)
 
 ////////////////////////////////////////////////////////////////////////////////
 
+const Angle&
+Hsl::Red()
+{
+  static const Angle a = Angle::FromPercentOf360(0.0f);
+  return a;
+}
+
+const Angle&
+Hsl::Yellow()
+{
+  static const Angle a = Angle::FromPercentOf360(1 / 6.0f);
+  return a;
+}
+
+const Angle&
+Hsl::Green()
+{
+  static const Angle a = Angle::FromPercentOf360(2 / 6.0f);
+  return a;
+}
+
+const Angle&
+Hsl::Cyan()
+{
+  static const Angle a = Angle::FromPercentOf360(3 / 6.0f);
+  return a;
+}
+
+const Angle&
+Hsl::Blue()
+{
+  static const Angle a = Angle::FromPercentOf360(4 / 6.0f);
+  return a;
+}
+
+const Angle&
+Hsl::Magenta()
+{
+  static const Angle a = Angle::FromPercentOf360(5 / 6.0f);
+  return a;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
 #define IV(x) static_cast<int>(x)
 
 std::ostream&
