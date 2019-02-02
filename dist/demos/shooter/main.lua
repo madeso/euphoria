@@ -42,9 +42,6 @@ Types = {
   end)
 }
 
-print("pos2 is ", Types.Pos2)
-
-print("dog")
 -- todo: create some on init callback, to spawn the stars
 -- or enter level callback
 -- or init callback on entity that is directly destroyed, or keep spawning points
@@ -56,7 +53,6 @@ Systems.OnInit("place star", {Types.Pos2, Types.Star}, function(entity)
   vec.x = p.x
   vec.y = p.y
 end)
-print("doga")
 
 Systems.AddUpdate("star movement", function(dt) 
     local ents = Registry.Entities({Types.Sprite, Types.Star})
@@ -155,5 +151,3 @@ Systems.AddUpdate("player", function(dt)
   end)
 end)
 
-
-print("cat")

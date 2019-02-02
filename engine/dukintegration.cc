@@ -23,7 +23,7 @@ std::vector<T> GetVector(const sol::table& table)
   r.reserve(table.size());
   for(unsigned int i=0; i<table.size(); i+=1)
   {
-    r.emplace_back(table[i]);
+    r.emplace_back(table[i+1]);
   }
   return r;
 }
@@ -160,11 +160,8 @@ struct DukIntegrationPimpl
         const std::string&              name,
         sol::table types,
         sol::function                   func) {
-      LOG_INFO("OnInit called");
       auto vtypes = GetVector<ComponentId>(types);
-      LOG_INFO("Got Vector");
       systems.AddInit(name, &world->reg, vtypes, func);
-      LOG_INFO("OnInit done");
     };
 
     auto math_table         = (*duk)["Math"].get_or_create<sol::table>();
