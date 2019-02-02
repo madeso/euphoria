@@ -117,7 +117,6 @@ class CustomComponentCreator : public ComponentCreator
   CreateComponent(const ObjectCreationArgs& args, EntityId ent) override
   {
     auto val = args.reg->CreateComponent(comp, args.ctx, arguments);
-    val.StoreReference(args.duk);
     args.reg->SetProperty(ent, comp, val);
   }
 };

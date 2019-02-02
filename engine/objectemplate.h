@@ -2,6 +2,7 @@
 #define EUPHORIA_OBJECTTEMPLATE_H
 
 #include "core/entityid.h"
+#include "core/sol_forward.h"
 
 #include <string>
 #include <vector>

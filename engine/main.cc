@@ -285,7 +285,6 @@ main(int argc, char** argv)
       &integration.Registry(),
       "world.json",
       &templates,
-      &duk,
       &duk);
 
   Uint64 now  = SDL_GetPerformanceCounter();
