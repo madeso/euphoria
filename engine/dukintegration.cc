@@ -148,7 +148,9 @@ struct DukIntegrationPimpl
         const std::string&              name,
         const std::vector<ComponentId>& types,
         sol::function                   func) {
+      LOG_INFO("OnInit");
       systems.AddInit(name, &world->reg, types, func);
+      LOG_INFO("OnInit done");
     };
 
     auto math_table         = (*duk)["Math"].get_or_create<sol::table>();

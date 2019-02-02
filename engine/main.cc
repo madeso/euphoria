@@ -261,7 +261,7 @@ main(int argc, char** argv)
   DukIntegration integration{
       &systems, &world, &duk, &templates, &components, &camera_data};
   const auto error_run_main =
-      RunMainScriptFile(&duk, engine.file_system.get(), "main.js");
+      RunMainScriptFile(&duk, engine.file_system.get(), "main.lua");
   if(!error_run_main.ok)
   {
     has_crashed          = true;
