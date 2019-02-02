@@ -16,6 +16,18 @@
 
 LOG_SPECIFY_DEFAULT_LOGGER("engine.duk.integration")
 
+template<typename T>
+std::vector<T> GetVector(const sol::table& table)
+{
+  std::vector<T> r;
+  r.reserve(table.size());
+  for(unsigned int i=0; i<table.size(); i+=1)
+  {
+    r.emplace_back(table[i]);
+  }
+  return r;
+}
+
 struct DukUpdateSystem : public ComponentSystem, public ComponentSystemUpdate
 {
   using UpdateFunction = std::function<void(float)>;
@@ -146,10 +158,12 @@ struct DukIntegrationPimpl
     };
     systems_table["OnInit"] = [&](
         const std::string&              name,
-        const std::vector<ComponentId>& types,
+        sol::table types,
         sol::function                   func) {
-      LOG_INFO("OnInit");
-      systems.AddInit(name, &world->reg, types, func);
+      LOG_INFO("OnInit called");
+      auto vtypes = GetVector<ComponentId>(types);
+      LOG_INFO("Got Vector");
+      systems.AddInit(name, &world->reg, vtypes, func);
       LOG_INFO("OnInit done");
     };
 
@@ -185,8 +199,8 @@ struct DukIntegrationPimpl
         });
 
     auto registry_table        = (*duk)["Registry"].get_or_create<sol::table>();
-    registry_table["Entities"] = [&](const std::vector<ComponentId>& types) {
-      return registry.EntityView(types);
+    registry_table["Entities"] = [&](sol::table types) {
+      return registry.EntityView(GetVector<ComponentId>(types));
     };
     registry_table["GetSpriteId"] = [&]() {
       return registry.components->sprite;
@@ -195,6 +209,7 @@ struct DukIntegrationPimpl
       registry.DestroyEntity(entity);
     };
     registry_table["GetPosition2Id"] = [&]() {
+      LOG_INFO("Getting position 2d");
       return registry.components->position2;
     };
     registry_table["GetSpriteId"] = [&]() {

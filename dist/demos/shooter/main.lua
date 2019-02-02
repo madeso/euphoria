@@ -1,3 +1,13 @@
+oldprint = print
+print = function(...)
+  local args = { n = select("#", ...), ... }
+  local t = ""
+  for i=1,args.n do
+    t = t .. tostring(args[i])
+  end
+  oldprint(t)
+end
+
 print('Hello world')
 
 IsDown = function(key) 
@@ -31,6 +41,8 @@ Types = {
     return c
   end)
 }
+
+print("pos2 is ", Types.Pos2)
 
 print("dog")
 -- todo: create some on init callback, to spawn the stars

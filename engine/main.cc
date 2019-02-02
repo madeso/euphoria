@@ -246,6 +246,7 @@ main(int argc, char** argv)
   // objects.Add(&player);
 
   sol::state duk;
+  duk.open_libraries(sol::lib::base, sol::lib::package);
   AddPrint(&duk);
   BindMath(&duk);
   Input::Bind(&duk);
