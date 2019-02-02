@@ -6,7 +6,7 @@ struct ScriptComponent : public Component
 {
   COMPONENT_CONSTRUCTOR_DEFINITION(ScriptComponent)
 
-  duk::ObjectReference val;
+  sol::table val;
 };
 
 TYPEID_SETUP_TYPE(ScriptComponent);
@@ -19,7 +19,8 @@ DukRegistry::DukRegistry(EntReg* r, Components* c)
 }
 
 ComponentId
-DukRegistry::CreateNewId(const std::string& name, const duk::FunctionReference& fv)
+DukRegistry::CreateNewId(
+    const std::string& name, const DukRegistry::CreationCallback& fv)
 {
   const auto id        = reg->NewComponentType(name);
   scriptComponents[id] = fv;
@@ -38,14 +39,14 @@ DukRegistry::EntityView(const std::vector<ComponentId>& types)
   return reg->View(types);
 }
 
-duk::ObjectReference
+sol::table
 DukRegistry::GetProperty(EntityId ent, ComponentId comp)
 {
   ASSERT(scriptComponents.find(comp) != scriptComponents.end());
   auto c = reg->GetComponent(ent, comp);
   if(c == nullptr)
   {
-    return duk::ObjectReference{};
+    return sol::table{};
   }
   else
   {
@@ -76,32 +77,31 @@ GetScriptComponent(
 }
 
 void
-DukRegistry::SetProperty(EntityId ent, ComponentId comp, duk::ObjectReference value)
+DukRegistry::SetProperty(EntityId ent, ComponentId comp, sol::table value)
 {
   ScriptComponent* scriptComponent =
       GetScriptComponent(scriptComponents, reg, ent, comp);
   scriptComponent->val = value;
 }
 
-duk::ObjectReference
+sol::table
 DukRegistry::CreateComponent(
-    ComponentId comp, duk::Context* ctx, const CustomArguments& arguments)
+    ComponentId comp, sol::state* ctx, const CustomArguments& arguments)
 {
   auto res = scriptComponents.find(comp);
   ASSERT(res != scriptComponents.end());
   if(res == scriptComponents.end())
   {
-    return duk::ObjectReference{};
+    return sol::table{};
   }
 
-  if(!res->second.IsValid())
+  if(res->second == nullptr)
   {
-    return duk::ObjectReference{};
+    return sol::table{};
   }
 
-  auto val = res->second.Call<duk::ObjectReference>(ctx, arguments);
-  ASSERT(val.IsValid());
-  // todo: need to increase refcount on val here like functions, right?
+  auto val = res->second(arguments);
+  // ASSERT(val.IsValid());
   return val;
 }
 

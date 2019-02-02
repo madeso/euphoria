@@ -14,4 +14,4 @@ add_executable(tests ${src})
 enable_testing()
 add_test(tests tests)
 
-TARGET_LINK_LIBRARIES(tests core duk ${CMAKE_THREAD_LIBS_INIT})
+TARGET_LINK_LIBRARIES(tests core ${CMAKE_THREAD_LIBS_INIT})

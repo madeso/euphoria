@@ -3,17 +3,12 @@
 
 #include <string>
 
+#include "core/sol_forward.h"
+
 class World;
 class FileSystem;
 class DukRegistry;
 class ObjectCreator;
-
-namespace duk
-{
-  class Context;
-
-  class Duk;
-}
 
 void
 LoadWorld(
@@ -22,7 +17,6 @@ LoadWorld(
     DukRegistry*       reg,
     const std::string& path,
     ObjectCreator*     creator,
-    duk::Context*      ctx,
-    duk::Duk*          duk);
+    sol::state*        ctx);
 
 #endif  // EUPHORIA_LOADWORLD_H

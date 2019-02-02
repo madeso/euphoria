@@ -4,13 +4,13 @@
 
 #include "core/log.h"
 
-#include "duk/duk.h"
+#include "core/sol.h"
 
 
 LOG_SPECIFY_DEFAULT_LOGGER("engine.duk")
 
 void
-AddPrint(duk::Duk* duk)
+AddPrint(sol::state* sol)
 {
-  duk->BindPrint([](const std::string& str) { LOG_INFO(str); });
+  sol->set_function("print", [](const std::string& str) { LOG_INFO(str); });
 }

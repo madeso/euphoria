@@ -16,7 +16,7 @@ LOG_SPECIFY_DEFAULT_LOGGER("engine.templates")
 ////////////////////////////////////////////////////////////////////////////////
 
 ObjectCreationArgs::ObjectCreationArgs(
-    World* aworld, DukRegistry* areg, duk::Context* actx, duk::Duk* aduk)
+    World* aworld, DukRegistry* areg, sol::state* actx, sol::state* aduk)
     : world(aworld)
     , reg(areg)
     , ctx(actx)
@@ -29,7 +29,7 @@ ObjectCreationArgs::ObjectCreationArgs(
 class PositionComponentCreator : public ComponentCreator
 {
  public:
-  point2f       p;
+  point2f     p;
   Components* components;
 
   PositionComponentCreator(const point2f& pp, Components* components)

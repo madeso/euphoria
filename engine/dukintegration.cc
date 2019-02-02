@@ -1,15 +1,12 @@
 #include "engine/dukintegration.h"
 
 #include <map>
+#include <functional>
 
 #include "core/componentsystem.h"
 #include "core/random.h"
 #include "core/log.h"
-
-#include "duk/duk.h"
-#include "duk/functionreference.h"
-#include "duk/bindobject.h"
-#include "duk/bindclass.h"
+#include "core/sol.h"
 
 #include "engine/components.h"
 #include "engine/input.h"
@@ -19,24 +16,23 @@
 
 LOG_SPECIFY_DEFAULT_LOGGER("engine.duk.integration")
 
-class DukUpdateSystem : public ComponentSystem, public ComponentSystemUpdate
+struct DukUpdateSystem : public ComponentSystem, public ComponentSystemUpdate
 {
-  duk::FunctionReference func;
-  duk::Duk*        duk;
+  using UpdateFunction = std::function<void(float)>;
 
- public:
-  DukUpdateSystem(const std::string& name, duk::FunctionReference f, duk::Duk* d)
+  UpdateFunction func;
+
+  DukUpdateSystem(const std::string& name, UpdateFunction f)
       : ComponentSystem(name)
       , func(f)
-      , duk(d)
   {
+    ASSERT(func);
   }
 
   void
   Update(EntReg* reg, float dt) const override
   {
-    ASSERT(duk);
-    func.VoidCall(duk->AsContext(), dt);
+    func(dt);
   }
 
   void
@@ -46,32 +42,29 @@ class DukUpdateSystem : public ComponentSystem, public ComponentSystemUpdate
   }
 };
 
-class DukInitSystem : public ComponentSystem, public ComponentSystemInit
+struct DukInitSystem : public ComponentSystem, public ComponentSystemInit
 {
+  using InitFunction = std::function<void(EntityId)>;
+
   EntReg*                  reg;
   std::vector<ComponentId> types;
-  duk::FunctionReference         func;
-  duk::Duk*                duk;
+  InitFunction             func;
 
- public:
   DukInitSystem(
       const std::string&              name,
       EntReg*                         r,
       const std::vector<ComponentId>& t,
-      duk::FunctionReference                f,
-      duk::Duk*                       d)
+      InitFunction                    f)
       : ComponentSystem(name)
       , reg(r)
       , types(t)
       , func(f)
-      , duk(d)
   {
   }
 
   void
   OnAdd(EntityId entity) const override
   {
-    ASSERT(duk);
     ASSERT(reg);
     ASSERT(!types.empty());
 
@@ -83,7 +76,7 @@ class DukInitSystem : public ComponentSystem, public ComponentSystemInit
         return;
       }
     }
-    func.VoidCall(duk->AsContext(), entity);
+    func(entity);
   }
 
   void
@@ -93,22 +86,19 @@ class DukInitSystem : public ComponentSystem, public ComponentSystemInit
   }
 };
 
-class DukSystems
+struct DukSystems
 {
- public:
-  Systems*  systems;
-  duk::Duk* duk;
+  Systems* systems;
 
-  DukSystems(Systems* s, duk::Duk* d)
+  explicit DukSystems(Systems* s)
       : systems(s)
-      , duk(d)
   {
   }
 
   void
-  AddUpdate(const std::string& name, duk::FunctionReference func)
+  AddUpdate(const std::string& name, DukUpdateSystem::UpdateFunction func)
   {
-    systems->AddAndRegister(std::make_shared<DukUpdateSystem>(name, func, duk));
+    systems->AddAndRegister(std::make_shared<DukUpdateSystem>(name, func));
   }
 
   void
@@ -116,10 +106,10 @@ class DukSystems
       const std::string&              name,
       EntReg*                         reg,
       const std::vector<ComponentId>& types,
-      duk::FunctionReference                func)
+      DukInitSystem::InitFunction     func)
   {
     systems->AddAndRegister(
-        std::make_shared<DukInitSystem>(name, reg, types, func, duk));
+        std::make_shared<DukInitSystem>(name, reg, types, func));
   }
 };
 
@@ -132,13 +122,13 @@ struct DukIntegrationPimpl
   DukIntegrationPimpl(
       Systems*       sys,
       World*         world,
-      duk::Duk*      duk,
+      sol::state*    duk,
       ObjectCreator* creator,
       Components*    components,
       CameraData*    cam)
-      : systems(sys, duk)
+      : systems(sys)
       , registry(&world->reg, components)
-      , input(duk->CreateGlobal("Input"))
+      , input((*duk)["Input"].get_or_create<sol::table>())
       , world(world)
       , creator(creator)
       , components(components)
@@ -147,293 +137,120 @@ struct DukIntegrationPimpl
   }
 
   void
-  Integrate(duk::Duk* duk)
+  Integrate(sol::state* duk)
   {
-    using namespace duk;
-    duk->BindObject(
-        "Systems",
-        BindObject()
-            .AddFunction(
-                "AddUpdate",
-                MakeBind<std::string, FunctionReference>(
-                    [&](Context* ctx, const std::string& name, FunctionReference func)
-                        -> int {
-                      func.StoreReference(ctx);
-                      systems.AddUpdate(name, func);
-                      return ctx->ReturnVoid();
-                    }))
+    auto systems_table         = (*duk)["Systems"].get_or_create<sol::table>();
+    systems_table["AddUpdate"] = [&](
+        const std::string& name, sol::function func) {
+      systems.AddUpdate(name, func);
+    };
+    systems_table["OnInit"] = [&](
+        const std::string&              name,
+        const std::vector<ComponentId>& types,
+        sol::function                   func) {
+      systems.AddInit(name, &world->reg, types, func);
+    };
 
-            .AddFunction(
-                "OnInit",
-                MakeBind<std::string, std::vector<ComponentId>, FunctionReference>(
-                    [&](Context*                        ctx,
-                        const std::string&              name,
-                        const std::vector<ComponentId>& types,
-                        FunctionReference                     func) -> int {
-                      func.StoreReference(ctx);
-                      systems.AddInit(name, &world->reg, types, func);
-                      return ctx->ReturnVoid();
-                    }))
+    auto math_table         = (*duk)["Math"].get_or_create<sol::table>();
+    math_table["NewRandom"] = [&]() { return std::make_shared<Random>(); };
 
-            );
+    auto templates_table    = (*duk)["Templates"].get_or_create<sol::table>();
+    templates_table["Find"] = [&](const std::string& name) {
+      return creator->FindTemplate(name);
+    };
 
-    duk->BindObject(
-        "Math",
-        BindObject().AddFunction(
-            "NewRandom", MakeBind<>([&](Context* ctx) -> int {
-              return ctx->ReturnObject(std::make_shared<Random>());
-            })));
+    duk->new_usertype<ObjectTemplate>("Template");
+    (*duk)["Template"]["Create"] = [&, duk](ObjectTemplate* t) {
+      return t->CreateObject(ObjectCreationArgs{world, &registry, duk, duk});
+    };
 
-    duk->BindObject(
-        "Templates",
-        BindObject().AddFunction(
-            "Find",
-            MakeBind<std::string>(
-                [&](Context* ctx, const std::string& name) -> int {
-                  return ctx->ReturnFreeObject(creator->FindTemplate(name));
-                })));
-    duk->BindClass(
-        "Template",
-        BindClass<ObjectTemplate>().AddMethod(
-            "Create",
-            MakeBind<ObjectTemplate>(
-                [&, duk](Context* ctx, ObjectTemplate& t) -> int {
-                  return ctx->Return(t.CreateObject(
-                      ObjectCreationArgs{world, &registry, ctx, duk}));
-                })));
+    auto camera_table       = (*duk)["Camera"].get_or_create<sol::table>();
+    camera_table["GetRect"] = [&]() { return &camera->screen; };
 
-    duk->BindObject(
-        "Camera",
-        BindObject().AddFunction(
-            "GetRect", MakeBind<>([&](Context* ctx) -> int {
-              return ctx->ReturnFreeObject(&camera->screen);
-            })));
-
-    duk->BindClass(
+    duk->new_usertype<CustomArguments>(
         "CustomArguments",
-        BindClass<CustomArguments>().AddMethod(
-            "GetNumber",
-            MakeBind<CustomArguments, std::string>(
-                [](Context*               ctx,
-                   const CustomArguments& args,
-                   const std::string&     name) -> int {
-                  const auto f = args.numbers.find(name);
-                  if(f == args.numbers.end())
-                  {
-                    return ctx->ReturnNumber(0);
-                  }
-                  else
-                  {
-                    return ctx->ReturnNumber(f->second);
-                  }
-                })));
+        "GetNumber",
+        [](const CustomArguments& args, const std::string& name) -> float {
+          const auto f = args.numbers.find(name);
+          if(f == args.numbers.end())
+          {
+            return 0;
+          }
+          else
+          {
+            return f->second;
+          }
+        });
 
-    duk->BindObject(
-        "Registry",
-        BindObject()
-            .AddFunction(
-                "Entities",
-                MakeBind<std::vector<ComponentId>>(
-                    [&](Context*                        ctx,
-                        const std::vector<ComponentId>& types) -> int {
-                      return ctx->ReturnArray(registry.EntityView(types));
-                    }))
-            .AddFunction("GetSpriteId", MakeBind([&](Context* ctx) -> int {
-                           return ctx->Return(registry.components->sprite);
-                         }))
-            .AddFunction(
-                "DestroyEntity",
-                MakeBind<EntityId>([&](Context* ctx, EntityId entity) -> int {
-                  registry.DestroyEntity(entity);
-                  return ctx->ReturnVoid();
-                }))
-            .AddFunction("GetPosition2Id", MakeBind([&](Context* ctx) -> int {
-                           return ctx->Return(registry.components->position2);
-                         }))
-            .AddFunction("GetSpriteId", MakeBind([&](Context* ctx) -> int {
-                           return ctx->Return(registry.components->sprite);
-                         }))
-            .AddFunction(
-                "New",
-                MakeBind<std::string, Optional<FunctionReference>>(
-                    [&](Context*              ctx,
-                        const std::string&    name,
-                        Optional<FunctionReference> setup) -> int {
-                      if(setup)
-                      {
-                        LOG_INFO("New id with ref");
-                        ASSERT(setup->IsValid());
-                        setup->StoreReference(ctx);
-                      }
-                      else
-                      {
-                        LOG_INFO("New id with no ref");
-                        ASSERT(!setup->IsValid());
-                      }
-                      return ctx->Return(
-                          registry.CreateNewId(name, setup.value));
-                    }))
-            .AddFunction(
-                "Get",
-                MakeBind<EntityId, ComponentId>(
-                    [&](Context* ctx, EntityId ent, ComponentId comp) -> int {
-                      return ctx->Return(registry.GetProperty(ent, comp));
-                    }))
-            .AddFunction(
-                "Set",
-                MakeBind<EntityId, ComponentId, ObjectReference>(
-                    [&](Context*    ctx,
-                        EntityId    ent,
-                        ComponentId comp,
-                        ObjectReference    val) -> int {
-                      registry.SetProperty(ent, comp, val);
-                      return ctx->ReturnVoid();
-                    }))
-            .AddFunction(
-                "GetSprite",
-                MakeBind<ComponentId>(
-                    [&](Context* ctx, ComponentId ent) -> int {
-                      return ctx->ReturnFreeObject(
-                          registry.GetComponentOrNull<CSprite>(
-                              ent, components->sprite));
-                    }))
-            .AddFunction(
-                "GetPosition2",
-                MakeBind<ComponentId>(
-                    [&](Context* ctx, ComponentId ent) -> int {
-                      return ctx->ReturnFreeObject(
-                          registry.GetComponentOrNull<CPosition2>(
-                              ent, components->position2));
-                    }))
-            .AddFunction(
-                "GetPosition2vec",
-                MakeBind<ComponentId>(
-                    [&](Context* ctx, ComponentId ent) -> int {
-                      auto c = registry.GetComponentOrNull<CPosition2>(
-                          ent, components->position2);
-                      return ctx->ReturnFreeObject(
-                          c == nullptr ? nullptr : &c->pos);
-                    })));
+    auto registry_table        = (*duk)["Registry"].get_or_create<sol::table>();
+    registry_table["Entities"] = [&](const std::vector<ComponentId>& types) {
+      return registry.EntityView(types);
+    };
+    registry_table["GetSpriteId"] = [&]() {
+      return registry.components->sprite;
+    };
+    registry_table["DestroyEntity"] = [&](EntityId entity) {
+      registry.DestroyEntity(entity);
+    };
+    registry_table["GetPosition2Id"] = [&]() {
+      return registry.components->position2;
+    };
+    registry_table["GetSpriteId"] = [&]() {
+      return registry.components->sprite;
+    };
+    registry_table["New"] = [&](const std::string& name, sol::function setup) {
+      return registry.CreateNewId(name, setup);
+    };
+    registry_table["Get"] = [&](EntityId ent, ComponentId comp) {
+      return registry.GetProperty(ent, comp);
+    };
+    registry_table["Set"] = [&](
+        EntityId ent, ComponentId comp, sol::table val) {
+      registry.SetProperty(ent, comp, val);
+    };
+    registry_table["GetSprite"] = [&](ComponentId ent) {
+      return registry.GetComponentOrNull<CSprite>(ent, components->sprite);
+    };
+    registry_table["GetPosition2"] = [&](ComponentId ent) {
+      return registry.GetComponentOrNull<CPosition2>(
+          ent, components->position2);
+    };
+    registry_table["GetPosition2vec"] = [&](ComponentId ent) {
+      auto c =
+          registry.GetComponentOrNull<CPosition2>(ent, components->position2);
+      return c == nullptr ? nullptr : &c->pos;
+    };
 
-    //    dukglue_register_global(duk->ctx, &registry, "Registry");
-    //    dukglue_register_method(duk->ctx, &DukRegistry::entities, "Entities");
-    //    dukglue_register_method(duk->ctx, &DukRegistry::getSpriteId,
-    //    "GetSpriteId");
-    //    dukglue_register_method(
-    //        duk->ctx, &DukRegistry::getPosition2dId, "GetPosition2Id");
-    //
-    //    dukglue_register_method(duk->ctx, &DukRegistry::CreateNewId, "New");
-    //    dukglue_register_method(duk->ctx, &DukRegistry::GetProperty, "Get");
-    //    dukglue_register_method(duk->ctx, &DukRegistry::SetProperty, "Set");
-    //
-    //    dukglue_register_method(
-    //        duk->ctx, &DukRegistry::GetComponentOrNull<CPosition2>,
-    //        "GetPosition2");
+    duk->new_usertype<CPosition2>("CPosition2", "vec", &CPosition2::pos);
 
-    duk->BindClass(
-        "CPosition2",
-        BindClass<CPosition2>()
-            .AddMethod(
-                "GetPos",
-                MakeBind<CPosition2>([](Context* ctx, CPosition2& p) -> int {
-                  return ctx->ReturnObject(std::make_shared<point2f>(p.pos));
-                }))
-            .AddMethod(
-                "SetPos",
-                MakeBind<CPosition2, point2f>(
-                    [](Context* ctx, CPosition2& p, const point2f& pos) -> int {
-                      p.pos = pos;
-                      return ctx->ReturnVoid();
-                    }))
-            .AddMethod(
-                "GetPosRef",
-                MakeBind<CPosition2>([](Context* ctx, CPosition2& p) -> int {
-                  return ctx->ReturnFreeObject(&p.pos);
-                }))
-            .AddProperty(
-                "vec",
-                MakeBind<CPosition2>([](Context* ctx, CPosition2& p) -> int {
-                  return ctx->ReturnFreeObject(&p.pos);
-                }),
-                MakeBind<CPosition2, point2f>(
-                    [](Context* ctx, CPosition2& p, const point2f& pos) -> int {
-                      p.pos = pos;
-                      return ctx->ReturnVoid();
-                    })));
+    duk->new_usertype<CSprite>(
+        "CSprite", "GetRect", [](const CSprite& sp, const CPosition2& p) {
+          return GetSpriteRect(p.pos, *sp.texture);
+        });
 
-    duk->BindClass(
-        "CSprite",
-        BindClass<CSprite>().AddMethod(
-            "GetRect",
-            MakeBind<CSprite, CPosition2>(
-                [](Context* ctx, const CSprite& sp, const CPosition2& p)
-                    -> int {
-                  return ctx->ReturnObject(std::make_shared<Rectf>(
-                      GetSpriteRect(p.pos, *sp.texture)));
-                })));
-
-    duk->BindClass(
+    /*
+    duk->new_usertype<Rectf>(
         "Rectf",
-        BindClass<Rectf>()
-            .AddMethod(
-                "Contains",
-                MakeBind<Rectf, Rectf>(
-                    [](Context* ctx, const Rectf& lhs, const Rectf& rhs)
-                        -> int {
-                      return ctx->ReturnBool(lhs.ContainsExclusive(rhs));
-                    }))
-            .AddMethod(
-                "GetHeight",
-                MakeBind<Rectf>([](Context* ctx, const Rectf& r) -> int {
-                  return ctx->ReturnNumber(r.GetHeight());
-                }))
-            .AddMethod(
-                "GetWidth",
-                MakeBind<Rectf>([](Context* ctx, const Rectf& r) -> int {
-                  return ctx->ReturnNumber(r.GetWidth());
-                })));
+        sol::no_constructor,
+        "Contains",
+        &Rectf::ContainsExclusive,
+        "GetHeight",
+        &Rectf::GetHeight,
+        "GetWidth",
+        &Rectf::GetWidth);
+    */
 
-    duk->BindClass(
-        "Random",
-        BindClass<Random>()
-            .AddMethod(
-                "NextFloat01",
-                MakeBind<Random>([](Context* ctx, Random& rnd) -> int {
-                  return ctx->ReturnNumber(rnd.NextFloat01());
-                }))
-            .AddMethod(
-                "NextRangeFloat",
-                MakeBind<Random, float>(
-                    [](Context* ctx, Random& rnd, float f) -> int {
-                      return ctx->ReturnNumber(rnd.NextRange(f));
-                    }))
-            .AddMethod(
-                "NextBool",
-                MakeBind<Random>([](Context* ctx, Random& rnd) -> int {
-                  return ctx->ReturnBool(rnd.NextBool());
-                }))
-            .AddMethod(
-                "NextPoint2",
-                MakeBind<Random, Rectf>(
-                    [](Context* ctx, Random& rnd, const Rectf& r) -> int {
-                      return ctx->ReturnObject(
-                          std::make_shared<point2f>(rnd.NextPoint(r)));
-                    }))
-
-            );
-
-    //    dukglue_register_method(duk->ctx, &CPosition2::GetPosition, "GetPos");
-    //    dukglue_register_method(duk->ctx, &CPosition2::SetPosition, "SetPos");
-    //    dukglue_register_method(duk->ctx, &CPosition2::GetPositionRef,
-    //    "GetPosRef");
-    //    dukglue_register_property(
-    //        duk->ctx, &CPosition2::GetPosition, &CPosition2::SetPosition,
-    //        "vec");
+    duk->new_usertype<Random>(
+        "Random", "NextFloat01", &Random::NextFloat01
+        // "NextRangeFloat", &Random::NextRange<float>,
+        // "NextBool", &Random::NextBool,
+        // "NextPoint", &Random::NextPoint
+        );
   }
 
   DukSystems     systems;
   DukRegistry    registry;
-  duk::ObjectReference  input;
+  sol::table     input;
   World*         world;
   ObjectCreator* creator;
   Components*    components;
@@ -443,7 +260,7 @@ struct DukIntegrationPimpl
 DukIntegration::DukIntegration(
     Systems*       systems,
     World*         reg,
-    duk::Duk*      duk,
+    sol::state*    duk,
     ObjectCreator* creator,
     Components*    components,
     CameraData*    camera)
@@ -472,7 +289,7 @@ DukIntegration::Registry()
 }
 
 void
-DukIntegration::BindKeys(duk::Duk* duk, const Input& input)
+DukIntegration::BindKeys(sol::state* duk, const Input& input)
 {
-  input.Set(duk, pimpl->input);
+  input.Set(&pimpl->input);
 }

@@ -1,12 +1,9 @@
 #ifndef EUPHORIA_DUKPRINT_H
 #define EUPHORIA_DUKPRINT_H
 
-namespace duk
-{
-  class Duk;
-}
+#include "core/sol_forward.h"
 
 void
-AddPrint(duk::Duk* duk);
+AddPrint(sol::state* duk);
 
 #endif  // EUPHORIA_DUKPRINT_H

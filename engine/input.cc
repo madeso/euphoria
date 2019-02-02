@@ -1,9 +1,8 @@
 #include "engine/input.h"
 
 #include "core/assert.h"
-#include "duk/duk.h"
-#include "duk/bindclass.h"
-#include "duk/bind.h"
+
+#include "core/sol.h"
 
 BoundVar::BoundVar(const std::string& n, const Key& k)
     : name(n)
@@ -14,28 +13,18 @@ BoundVar::BoundVar(const std::string& n, const Key& k)
 }
 
 void
-BindBoundVar(duk::Duk* duk)
+BindBoundVar(sol::state* duk)
 {
-  using namespace duk;
-  duk->BindClass(
+  duk->new_usertype<BoundVar>(
       "BoundVar",
-      BindClass<BoundVar>()
-          .AddProperty(
-              "state",
-              MakeBind<BoundVar>([](Context* ctx, const BoundVar& bv) -> int {
-                return ctx->ReturnNumber(bv.state);
-              }),
-              MakeNoBind())
-          .AddProperty(
-              "last_state",
-              MakeBind<BoundVar>([](Context* ctx, const BoundVar& bv) -> int {
-                return ctx->ReturnNumber(bv.last_state);
-              }),
-              MakeNoBind()));
+      "state",
+      sol::readonly(&BoundVar::state),
+      "last_state",
+      sol::readonly(&BoundVar::last_state));
 }
 
 void
-Input::Bind(duk::Duk* duk)
+Input::Bind(sol::state* duk)
 {
   BindBoundVar(duk);
 }
@@ -60,45 +49,12 @@ Input::SetKeyState(Key key, float state)
 }
 
 void
-Input::Set(duk::Duk* duk, duk::ObjectReference container) const
+Input::Set(sol::table* container) const
 {
   for(const auto& bind : binds)
   {
-    container.SetFree(duk->AsContext(), bind->name, bind.get());
+    (*container)[bind->name] = bind;
   }
-// todo: figure out how to best do this? class bind? need to work with TS
-#if 0
-  dukglue_push(duk->ctx, container);
-
-  duk_bool_t rc;
-
-  for(const auto& bind : binds)
-  {
-    duk_push_object(duk->ctx);                        // object
-    duk_push_number(duk->ctx, bind->state);           // object state
-    rc = duk_put_prop_string(duk->ctx, -2, "state");  // object
-    if(rc != 1)
-    {
-      DIE("Failed to set state");
-    }
-    duk_push_number(duk->ctx, bind->last_state);           // object last_state
-    rc = duk_put_prop_string(duk->ctx, -2, "last_state");  // object
-    if(rc != 1)
-    {
-      DIE("Failed to set last state");
-    }
-    rc = duk_put_prop_string(duk->ctx, -2, bind->name.c_str());  //
-    if(rc != 1)
-    {
-      DIE("Failed to set key");
-    }
-    // todo: handle error
-  }
-
-  duk_pop(duk->ctx);
-
-  // todo: validate duk stack
-#endif
 }
 
 void

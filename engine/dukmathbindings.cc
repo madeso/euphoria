@@ -1,95 +1,42 @@
 #include "engine/dukmathbindings.h"
 
 #include <string>
+#include <core/sol.h>
 
 #include "core/vec2.h"
 
-#include "duk/bindclass.h"
-#include "duk/duk.h"
-#include "duk/bind.h"
+#include "core/sol.h"
 
 template <typename T>
 void
-BindVec2(duk::Duk* duk, const std::string& name)
+BindVec2(sol::state* sol, const std::string& name)
 {
-  using namespace duk;
   using V = vec2<T>;
 
-  duk->BindClass(
+  sol->new_usertype<V>(
       name,
-      BindClass<V>()
-          .SetConstructor(
-              MakeBind<float, float>([](Context* ctx, float x, float y) -> int {
-                return ctx->ReturnObject(std::make_shared<V>(x, y));
-              }))
-          .AddMethod("getX", MakeBind<V>([](Context* ctx, const V& v) -> int {
-                       return ctx->ReturnNumber(v.x);
-                     }))
-          .AddMethod("getY", MakeBind<V>([](Context* ctx, const V& v) -> int {
-                       return ctx->ReturnNumber(v.y);
-                     }))
-          .AddProperty(
-              "x",
-              MakeBind<V>([](Context* ctx, const V& v) -> int {
-                return ctx->ReturnNumber(v.x);
-              }),
-              MakeBind<V, float>([](Context* ctx, V& v, float x) -> int {
-                v.x = x;
-                return ctx->ReturnVoid();
-              }))
-          .AddProperty(
-              "y",
-              MakeBind<V>([](Context* ctx, const V& v) -> int {
-                return ctx->ReturnNumber(v.y);
-              }),
-              MakeBind<V, float>([](Context* ctx, V& v, float y) -> int {
-                v.y = y;
-                return ctx->ReturnVoid();
-              })));
+      sol::constructors<V(T, T)>(),
+        "x", &V::x,
+        "y", &V::y
+      );
 }
 
 template <typename T>
 void
-BindPoint2(duk::Duk* duk, const std::string& name)
+BindPoint2(sol::state* sol, const std::string& name)
 {
-  using namespace duk;
   using V = point2<T>;
 
-  duk->BindClass(
+  sol->new_usertype<V>(
       name,
-      BindClass<V>()
-          .SetConstructor(
-              MakeBind<float, float>([](Context* ctx, float x, float y) -> int {
-                return ctx->ReturnObject(std::make_shared<V>(x, y));
-              }))
-          .AddMethod("getX", MakeBind<V>([](Context* ctx, const V& v) -> int {
-                       return ctx->ReturnNumber(v.x);
-                     }))
-          .AddMethod("getY", MakeBind<V>([](Context* ctx, const V& v) -> int {
-                       return ctx->ReturnNumber(v.y);
-                     }))
-          .AddProperty(
-              "x",
-              MakeBind<V>([](Context* ctx, const V& v) -> int {
-                return ctx->ReturnNumber(v.x);
-              }),
-              MakeBind<V, float>([](Context* ctx, V& v, float x) -> int {
-                v.x = x;
-                return ctx->ReturnVoid();
-              }))
-          .AddProperty(
-              "y",
-              MakeBind<V>([](Context* ctx, const V& v) -> int {
-                return ctx->ReturnNumber(v.y);
-              }),
-              MakeBind<V, float>([](Context* ctx, V& v, float y) -> int {
-                v.y = y;
-                return ctx->ReturnVoid();
-              })));
+      sol::constructors<V(T, T)>(),
+      "x", &V::x,
+      "y", &V::y
+  );
 }
 
 void
-BindMath(duk::Duk* duk)
+BindMath(sol::state* duk)
 {
   BindVec2<float>(duk, "vec2f");
   BindPoint2<float>(duk, "point2f");

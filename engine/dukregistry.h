@@ -4,13 +4,14 @@
 #include "core/componentsystem.h"
 #include "core/entity.h"
 
-#include "duk/functionreference.h"
+#include "core/sol.h"
 
 #include "engine/components.h"
 
 #include <map>
 #include <string>
 #include <memory>
+#include <functional>
 
 struct CustomArguments
 {
@@ -23,8 +24,10 @@ class DukRegistry
  public:
   DukRegistry(EntReg* r, Components* components);
 
+  using CreationCallback = std::function<sol::table(const CustomArguments&)>;
+
   ComponentId
-  CreateNewId(const std::string& name, const duk::FunctionReference& fv);
+  CreateNewId(const std::string& name, const CreationCallback& fv);
 
   bool
   GetCustomComponentByName(const std::string& name, ComponentId* id);
@@ -32,15 +35,15 @@ class DukRegistry
   std::vector<EntityId>
   EntityView(const std::vector<ComponentId>& types);
 
-  duk::ObjectReference
+  sol::table
   GetProperty(EntityId ent, ComponentId comp);
 
   void
-  SetProperty(EntityId ent, ComponentId comp, duk::ObjectReference value);
+  SetProperty(EntityId ent, ComponentId comp, sol::table value);
 
-  duk::ObjectReference
+  sol::table
   CreateComponent(
-      ComponentId comp, duk::Context* ctx, const CustomArguments& arguments);
+      ComponentId comp, sol::state* ctx, const CustomArguments& arguments);
 
   void
   DestroyEntity(EntityId id);
@@ -52,7 +55,7 @@ class DukRegistry
     return reg->GetComponentOrNull<T>(ent, comp);
   }
 
-  using ScriptComponentMap = std::map<ComponentId, duk::FunctionReference>;
+  using ScriptComponentMap = std::map<ComponentId, CreationCallback>;
 
   EntReg*            reg;
   Components*        components;

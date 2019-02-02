@@ -11,7 +11,7 @@
 #include "core/proto.h"
 #include "core/viewport.h"
 
-#include "duk/duk.h"
+#include "core/sol.h"
 
 #include "render/debuggl.h"
 #include "render/fonts.h"
@@ -89,7 +89,7 @@ struct RunResult
 };
 
 RunResult
-RunMainScriptFile(duk::Duk* duk, FileSystem* fs, const std::string& path)
+RunMainScriptFile(sol::state* duk, FileSystem* fs, const std::string& path)
 {
   std::string content;
   const bool  loaded = fs->ReadFileToString(path, &content);
@@ -100,12 +100,14 @@ RunMainScriptFile(duk::Duk* duk, FileSystem* fs, const std::string& path)
     LOG_ERROR(error_message);
     return RunResult::Error(error_message);
   }
-  std::string error;
-  const bool  eval = duk->EvalString(content, path, &error, nullptr);
-  if(!eval)
+  const auto eval = duk->script(
+      content,
+      [](lua_State*, sol::protected_function_result pfr) { return pfr; });
+  if(!eval.valid())
   {
+    const sol::error  err           = eval;
     const std::string error_message = Str() << "Failed to run " << path << ": "
-                                            << error;
+                                            << err.what();
     LOG_ERROR(error_message);
     return RunResult::Error(error_message);
   }
@@ -243,7 +245,7 @@ main(int argc, char** argv)
   // Sprite player(cache.GetTexture("player.png"));
   // objects.Add(&player);
 
-  duk::Duk duk;
+  sol::state duk;
   AddPrint(&duk);
   BindMath(&duk);
   Input::Bind(&duk);
@@ -283,7 +285,7 @@ main(int argc, char** argv)
       &integration.Registry(),
       "world.json",
       &templates,
-      duk.AsContext(),
+      &duk,
       &duk);
 
   Uint64 now  = SDL_GetPerformanceCounter();

@@ -1,14 +1,12 @@
 #ifndef EUPHORIA_SYSTEMS_H
 #define EUPHORIA_SYSTEMS_H
 
+#include "core/sol_forward.h"
+
 class Systems;
 struct Components;
 
-namespace duk {
-class Duk;
-}
-
 void
-AddSystems(Systems* systems, duk::Duk* duk, Components* components);
+AddSystems(Systems* systems, sol::state* duk, Components* components);
 
 #endif  // EUPHORIA_SYSTEMS_H

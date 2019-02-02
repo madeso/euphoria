@@ -3,10 +3,7 @@
 
 #include <memory>
 
-namespace duk
-{
-  class Duk;
-}
+#include "core/sol.h"
 
 class Systems;
 class Input;
@@ -26,7 +23,7 @@ class DukIntegration
   DukIntegration(
       Systems*       systems,
       World*         reg,
-      duk::Duk*           duk,
+      sol::state*    duk,
       ObjectCreator* creator,
       Components*    components,
       CameraData*    camera);
@@ -39,7 +36,7 @@ class DukIntegration
   Registry();
 
   void
-  BindKeys(duk::Duk* duk, const Input& input);
+  BindKeys(sol::state* duk, const Input& input);
 
  private:
   std::unique_ptr<DukIntegrationPimpl> pimpl;

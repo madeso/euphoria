@@ -1,11 +1,9 @@
 #ifndef EUPHORIA_DUKMATHBINDINGS_H
 #define EUPHORIA_DUKMATHBINDINGS_H
 
-namespace duk {
-class Duk;
-}
+#include "core/sol_forward.h"
 
 void
-BindMath(duk::Duk* duk);
+BindMath(sol::state* duk);
 
 #endif  // EUPHORIA_DUKMATHBINDINGS_H

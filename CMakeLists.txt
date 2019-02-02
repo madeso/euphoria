@@ -138,6 +138,13 @@ if(BUILD_TYPEINFO_IMPL_CTTI)
   include_directories(SYSTEM external/ctti/include)
 endif()
 
+
+include_directories(
+    PUBLIC "external/sol2"
+    PUBLIC "external/lua/src"
+)
+
+
 CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/config_in.h ${CMAKE_CURRENT_BINARY_DIR}/euph_generated_config.h)
 include_directories(SYSTEM ${CMAKE_CURRENT_BINARY_DIR})
 
@@ -155,7 +162,6 @@ add_subdirectory(demo)
 add_subdirectory(engine)
 add_subdirectory(chatbot_test)
 add_subdirectory(editor)
-add_subdirectory(duk)
 
 if(CLANG_TIDY_EXE)
   ADD_CUSTOM_TARGET(tidy)
@@ -164,7 +170,6 @@ if(CLANG_TIDY_EXE)
                    tidy-chatbot
                    tidy-core
                    tidy-demo
-                   tidy-duk
                    tidy-engine
                    tidy-gui
                    tidy-render
@@ -179,7 +184,6 @@ if(CLANG_FORMAT_EXE)
                    format-chatbot
                    format-core
                    format-demo
-                   format-duk
                    format-engine
                    format-gui
                    format-render

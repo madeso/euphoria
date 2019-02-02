@@ -4,14 +4,11 @@
 #include <string>
 #include <memory>
 #include <vector>
+#include <core/typeinfo.h>
 
 #include "core/key.h"
 
-#include "duk/objectreference.h"
-
-namespace duk {
-class Duk;
-}
+#include "core/sol.h"
 
 struct BoundVar
 {
@@ -34,7 +31,7 @@ class Input
 {
  public:
   static void
-  Bind(duk::Duk* duk);
+  Bind(sol::state* duk);
 
   void
   Add(std::shared_ptr<BoundVar> bind);
@@ -43,7 +40,7 @@ class Input
   SetKeyState(Key key, float state);
 
   void
-  Set(duk::Duk* duk, duk::ObjectReference container) const;
+  Set(sol::table* container) const;
 
   void
   UpdateState();
