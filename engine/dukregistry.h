@@ -24,7 +24,7 @@ class DukRegistry
  public:
   DukRegistry(EntReg* r, Components* components);
 
-  using CreationCallback = std::function<sol::table(const CustomArguments&)>;
+  using CreationCallback = sol::protected_function;
 
   ComponentId
   CreateNewId(const std::string& name, const CreationCallback& fv);

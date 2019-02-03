@@ -2,6 +2,12 @@
 
 #include <algorithm>
 
+#include "core/assert.h"
+#include "core/log.h"
+
+LOG_SPECIFY_DEFAULT_LOGGER("engine.duk.registry")
+
+
 struct ScriptComponent : public Component
 {
   COMPONENT_CONSTRUCTOR_DEFINITION(ScriptComponent)
@@ -92,17 +98,24 @@ DukRegistry::CreateComponent(
   ASSERT(res != scriptComponents.end());
   if(res == scriptComponents.end())
   {
-    return sol::table{};
-  }
-
-  if(res->second == nullptr)
-  {
-    return sol::table{};
+    return sol::table{*ctx, sol::create};
   }
 
   auto val = res->second(arguments);
-  // ASSERT(val.IsValid());
-  return val;
+  LOG_INFO("Called create");
+  if(val.valid())
+  {
+    sol::table ret = val;
+    LOG_INFO("Returning table");
+    return ret;
+  }
+  else
+  {
+    sol::error err = val;
+    LOG_ERROR("Failed to call create for " << comp << ": " << err.what());
+    DIE("Error");
+    return sol::table{*ctx, sol::create};
+  }
 }
 
 void
