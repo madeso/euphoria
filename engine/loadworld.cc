@@ -19,7 +19,7 @@ LoadWorld(
     DukRegistry*       reg,
     const std::string& path,
     ObjectCreator*     creator,
-    sol::state*        ctx)
+    Sol*        ctx)
 {
   world::World json;
   const auto   err = LoadProtoJson(fs, &json, path);

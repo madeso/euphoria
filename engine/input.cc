@@ -13,9 +13,9 @@ BoundVar::BoundVar(const std::string& n, const Key& k)
 }
 
 void
-BindBoundVar(sol::state* duk)
+BindBoundVar(Sol* duk)
 {
-  duk->new_usertype<BoundVar>(
+  duk->lua.new_usertype<BoundVar>(
       "BoundVar",
       "state",
       sol::readonly(&BoundVar::state),
@@ -24,7 +24,7 @@ BindBoundVar(sol::state* duk)
 }
 
 void
-Input::Bind(sol::state* duk)
+Input::Bind(Sol* duk)
 {
   BindBoundVar(duk);
 }

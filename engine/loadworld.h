@@ -17,6 +17,6 @@ LoadWorld(
     DukRegistry*       reg,
     const std::string& path,
     ObjectCreator*     creator,
-    sol::state*        ctx);
+    Sol*        ctx);
 
 #endif  // EUPHORIA_LOADWORLD_H

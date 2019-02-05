@@ -10,7 +10,7 @@
 LOG_SPECIFY_DEFAULT_LOGGER("engine.duk")
 
 void
-AddPrint(sol::state* sol)
+AddPrint(Sol* sol)
 {
-  sol->set_function("print", [](const std::string& str) { LOG_INFO(str); });
+  sol->lua.set_function("print", [](const std::string& str) { LOG_INFO(str); });
 }

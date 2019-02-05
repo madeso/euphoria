@@ -7,6 +7,6 @@ class Systems;
 struct Components;
 
 void
-AddSystems(Systems* systems, sol::state* duk, Components* components);
+AddSystems(Systems* systems, Sol* duk, Components* components);
 
 #endif  // EUPHORIA_SYSTEMS_H

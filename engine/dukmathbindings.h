@@ -4,6 +4,6 @@
 #include "core/sol_forward.h"
 
 void
-BindMath(sol::state* duk);
+BindMath(Sol* duk);
 
 #endif  // EUPHORIA_DUKMATHBINDINGS_H

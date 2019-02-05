@@ -92,13 +92,13 @@ DukRegistry::SetProperty(EntityId ent, ComponentId comp, sol::table value)
 
 sol::table
 DukRegistry::CreateComponent(
-    ComponentId comp, sol::state* ctx, const CustomArguments& arguments)
+    ComponentId comp, Sol* ctx, const CustomArguments& arguments)
 {
   auto res = scriptComponents.find(comp);
   ASSERT(res != scriptComponents.end());
   if(res == scriptComponents.end())
   {
-    return sol::table{*ctx, sol::create};
+    return sol::table{ctx->lua, sol::create};
   }
 
   auto val = res->second(arguments);
@@ -114,7 +114,7 @@ DukRegistry::CreateComponent(
     sol::error err = val;
     LOG_ERROR("Failed to call create for " << comp << ": " << err.what());
     DIE("Error");
-    return sol::table{*ctx, sol::create};
+    return sol::table{ctx->lua, sol::create};
   }
 }
 

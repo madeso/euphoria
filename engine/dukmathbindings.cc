@@ -9,11 +9,11 @@
 
 template <typename T>
 void
-BindVec2(sol::state* sol, const std::string& name)
+BindVec2(Sol* sol, const std::string& name)
 {
   using V = vec2<T>;
 
-  sol->new_usertype<V>(
+  sol->lua.new_usertype<V>(
       name,
       sol::constructors<V(T, T)>(),
         "x", &V::x,
@@ -23,11 +23,11 @@ BindVec2(sol::state* sol, const std::string& name)
 
 template <typename T>
 void
-BindPoint2(sol::state* sol, const std::string& name)
+BindPoint2(Sol* sol, const std::string& name)
 {
   using V = point2<T>;
 
-  sol->new_usertype<V>(
+  sol->lua.new_usertype<V>(
       name,
       sol::constructors<V(T, T)>(),
       "x", &V::x,
@@ -36,7 +36,7 @@ BindPoint2(sol::state* sol, const std::string& name)
 }
 
 void
-BindMath(sol::state* duk)
+BindMath(Sol* duk)
 {
   BindVec2<float>(duk, "vec2f");
   BindPoint2<float>(duk, "point2f");

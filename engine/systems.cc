@@ -43,7 +43,7 @@ struct SystemSpriteDraw : public ComponentSystem,
 
 
 void
-AddSystems(Systems* systems, sol::state* duk, Components* components)
+AddSystems(Systems* systems, Sol* duk, Components* components)
 {
   systems->AddAndRegister(std::make_shared<SystemSpriteDraw>(components));
 }

@@ -31,11 +31,11 @@ struct ObjectCreationArgs
 {
   World*       world;
   DukRegistry* reg;
-  sol::state*  ctx;
-  sol::state*  duk;
+  Sol*  ctx;
+  Sol*  duk;
 
   ObjectCreationArgs(
-      World* aworld, DukRegistry* areg, sol::state* actx, sol::state* aduk);
+      World* aworld, DukRegistry* areg, Sol* actx, Sol* aduk);
 };
 
 class ComponentCreator

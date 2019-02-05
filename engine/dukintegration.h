@@ -23,7 +23,7 @@ class DukIntegration
   DukIntegration(
       Systems*       systems,
       World*         reg,
-      sol::state*    duk,
+      Sol*    duk,
       ObjectCreator* creator,
       Components*    components,
       CameraData*    camera);
@@ -36,7 +36,7 @@ class DukIntegration
   Registry();
 
   void
-  BindKeys(sol::state* duk, const Input& input);
+  BindKeys(Sol* duk, const Input& input);
 
  private:
   std::unique_ptr<DukIntegrationPimpl> pimpl;

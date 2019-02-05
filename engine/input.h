@@ -31,7 +31,7 @@ class Input
 {
  public:
   static void
-  Bind(sol::state* duk);
+  Bind(Sol* duk);
 
   void
   Add(std::shared_ptr<BoundVar> bind);

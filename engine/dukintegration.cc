@@ -134,13 +134,13 @@ struct DukIntegrationPimpl
   DukIntegrationPimpl(
       Systems*       sys,
       World*         world,
-      sol::state*    duk,
+      Sol*    duk,
       ObjectCreator* creator,
       Components*    components,
       CameraData*    cam)
       : systems(sys)
       , registry(&world->reg, components)
-      , input((*duk)["Input"].get_or_create<sol::table>())
+      , input(duk->lua["Input"].get_or_create<sol::table>())
       , world(world)
       , creator(creator)
       , components(components)
@@ -149,9 +149,9 @@ struct DukIntegrationPimpl
   }
 
   void
-  Integrate(sol::state* duk)
+  Integrate(Sol* duk)
   {
-    auto systems_table         = (*duk)["Systems"].get_or_create<sol::table>();
+    auto systems_table         = duk->lua["Systems"].get_or_create<sol::table>();
     systems_table["AddUpdate"] = [&](
         const std::string& name, sol::function func) {
       systems.AddUpdate(name, func);
@@ -164,23 +164,23 @@ struct DukIntegrationPimpl
       systems.AddInit(name, &world->reg, vtypes, func);
     };
 
-    auto math_table         = (*duk)["Math"].get_or_create<sol::table>();
+    auto math_table         = duk->lua["Math"].get_or_create<sol::table>();
     math_table["NewRandom"] = [&]() { return std::make_shared<Random>(); };
 
-    auto templates_table    = (*duk)["Templates"].get_or_create<sol::table>();
+    auto templates_table    = duk->lua["Templates"].get_or_create<sol::table>();
     templates_table["Find"] = [&](const std::string& name) {
       return creator->FindTemplate(name);
     };
 
-    duk->new_usertype<ObjectTemplate>("Template");
-    (*duk)["Template"]["Create"] = [&, duk](ObjectTemplate* t) {
+    duk->lua.new_usertype<ObjectTemplate>("Template");
+    duk->lua["Template"]["Create"] = [&, duk](ObjectTemplate* t) {
       return t->CreateObject(ObjectCreationArgs{world, &registry, duk, duk});
     };
 
-    auto camera_table       = (*duk)["Camera"].get_or_create<sol::table>();
+    auto camera_table       = duk->lua["Camera"].get_or_create<sol::table>();
     camera_table["GetRect"] = [&]() { return &camera->screen; };
 
-    duk->new_usertype<CustomArguments>(
+    duk->lua.new_usertype<CustomArguments>(
         "CustomArguments",
         "GetNumber",
         [](const CustomArguments& args, const std::string& name) -> float {
@@ -195,7 +195,7 @@ struct DukIntegrationPimpl
           }
         });
 
-    auto registry_table        = (*duk)["Registry"].get_or_create<sol::table>();
+    auto registry_table        = duk->lua["Registry"].get_or_create<sol::table>();
     registry_table["Entities"] = [&](sol::table types) {
       return registry.EntityView(GetVector<ComponentId>(types));
     };
@@ -235,15 +235,15 @@ struct DukIntegrationPimpl
       return c == nullptr ? nullptr : &c->pos;
     };
 
-    duk->new_usertype<CPosition2>("CPosition2", "vec", &CPosition2::pos);
+    duk->lua.new_usertype<CPosition2>("CPosition2", "vec", &CPosition2::pos);
 
-    duk->new_usertype<CSprite>(
+    duk->lua.new_usertype<CSprite>(
         "CSprite", "GetRect", [](const CSprite& sp, const CPosition2& p) {
           return GetSpriteRect(p.pos, *sp.texture);
         });
 
     /*
-    duk->new_usertype<Rectf>(
+    duk->lua.new_usertype<Rectf>(
         "Rectf",
         sol::no_constructor,
         "Contains",
@@ -254,7 +254,7 @@ struct DukIntegrationPimpl
         &Rectf::GetWidth);
     */
 
-    duk->new_usertype<Random>(
+    duk->lua.new_usertype<Random>(
         "Random", "NextFloat01", &Random::NextFloat01
         // "NextRangeFloat", &Random::NextRange<float>,
         // "NextBool", &Random::NextBool,
@@ -274,7 +274,7 @@ struct DukIntegrationPimpl
 DukIntegration::DukIntegration(
     Systems*       systems,
     World*         reg,
-    sol::state*    duk,
+    Sol*    duk,
     ObjectCreator* creator,
     Components*    components,
     CameraData*    camera)
@@ -303,7 +303,7 @@ DukIntegration::Registry()
 }
 
 void
-DukIntegration::BindKeys(sol::state* duk, const Input& input)
+DukIntegration::BindKeys(Sol* duk, const Input& input)
 {
   input.Set(&pimpl->input);
 }

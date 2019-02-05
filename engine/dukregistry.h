@@ -43,7 +43,7 @@ class DukRegistry
 
   sol::table
   CreateComponent(
-      ComponentId comp, sol::state* ctx, const CustomArguments& arguments);
+      ComponentId comp, Sol* ctx, const CustomArguments& arguments);
 
   void
   DestroyEntity(EntityId id);

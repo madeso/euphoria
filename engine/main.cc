@@ -89,7 +89,7 @@ struct RunResult
 };
 
 RunResult
-RunMainScriptFile(sol::state* duk, FileSystem* fs, const std::string& path)
+RunMainScriptFile(Sol* duk, FileSystem* fs, const std::string& path)
 {
   std::string content;
   const bool  loaded = fs->ReadFileToString(path, &content);
@@ -100,7 +100,7 @@ RunMainScriptFile(sol::state* duk, FileSystem* fs, const std::string& path)
     LOG_ERROR(error_message);
     return RunResult::Error(error_message);
   }
-  const auto eval = duk->script(
+  const auto eval = duk->lua.script(
       content,
       [](lua_State*, sol::protected_function_result pfr) { return pfr; });
   if(!eval.valid())
@@ -266,9 +266,9 @@ main(int argc, char** argv)
   // Sprite player(cache.GetTexture("player.png"));
   // objects.Add(&player);
 
-  sol::state duk;
-  duk.set_exception_handler(&my_exception_handler);
-  duk.open_libraries(sol::lib::base, sol::lib::package);
+  Sol duk;
+  duk.lua.set_exception_handler(&my_exception_handler);
+  duk.lua.open_libraries(sol::lib::base, sol::lib::package);
   AddPrint(&duk);
   BindMath(&duk);
   Input::Bind(&duk);

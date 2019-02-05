@@ -4,6 +4,6 @@
 #include "core/sol_forward.h"
 
 void
-AddPrint(sol::state* duk);
+AddPrint(Sol* duk);
 
 #endif  // EUPHORIA_DUKPRINT_H

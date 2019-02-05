@@ -5,5 +5,6 @@ namespace sol
 {
   class state;
 }
+struct Sol;
 
 #endif  // CORE_SOLFORWARD_H
