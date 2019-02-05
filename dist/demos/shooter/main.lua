@@ -31,7 +31,7 @@ Types = {
   MoveUp= Registry.New("MoveUp"),
   Star= Registry.New("Star", function(args) 
     c = {}
-    c.speed = args.GetNumber("speed") + StarRandom.NextRangeFloat(args.GetNumber("random_boost"))
+    c.speed = args:GetNumber("speed") + StarRandom.NextRangeFloat(args:GetNumber("random_boost"))
     return c
   end),
   DestroyOutside= Registry.New("DestroyOutside"),
