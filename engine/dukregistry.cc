@@ -113,7 +113,11 @@ DukRegistry::CreateComponent(
   {
     sol::error err = val;
     LOG_ERROR("Failed to call create for " << comp << ": " << err.what());
-    DIE("Error");
+    if(!ctx->has_error)
+    {
+      ctx->has_error = true;
+      ctx->error = err.what();
+    }
     return sol::table{ctx->lua, sol::create};
   }
 }

@@ -333,6 +333,12 @@ main(int argc, char** argv)
     const float dt = (now - last) * 1.0f / SDL_GetPerformanceFrequency();
     SDL_Event   e;
 
+    if(duk.has_error && !has_crashed)
+    {
+      has_crashed = true;
+      crash_message_string = duk.error;
+    }
+
     engine.imgui->StartNewFrame();
 
     if(!has_crashed)
