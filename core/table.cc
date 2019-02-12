@@ -1,5 +1,7 @@
 #include "core/table.h"
 
+#include <algorithm>
+
 Table TableFromCsv(const std::string& data, char delim, char str)
 {
     const auto AddRowToTable = [](Table* table, const std::vector<std::string>& row)
