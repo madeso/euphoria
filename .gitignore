@@ -44,3 +44,7 @@ dist/scimed-debug
 
 # vi undo files
 *.un~
+
+# vi swap file
+*.swp
+
