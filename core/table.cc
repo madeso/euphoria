@@ -52,6 +52,7 @@ Table TableFromCsv(const std::string& data, char delim, char str)
             else
             {
                 ss << c;
+                added = true;
             }
         }
         else
@@ -85,14 +86,11 @@ Table TableFromCsv(const std::string& data, char delim, char str)
         }
     }
 
-    if(row.size() > 0)
+    if(added)
     {
-        if(added)
-        {
-          row.push_back(ss.str());
-        }
-        AddRowToTable(&table, row);
+      row.push_back(ss.str());
     }
+    AddRowToTable(&table, row);
 
     return table;
 }

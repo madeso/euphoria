@@ -31,5 +31,23 @@ TEST_CASE("table-from_csv_default", "[table]")
     CHECK(table[0] == firstcolstring);
     CHECK(table[1] == secondcol);
   }
+
+  SECTION("not ending strings single col")
+  {
+    const auto table = TableFromCsv("\"a b");
+    const auto errorcol = Column{"a b"};
+    REQUIRE(table.size()==1);
+    CHECK(table[0] == errorcol);
+  }
+
+  SECTION("not ending strings 2 cols")
+  {
+    const auto table = TableFromCsv("err,\"a b");
+    const auto errorcol1 = Column{"err"};
+    const auto errorcol2 = Column{"a b"};
+    REQUIRE(table.size()==2);
+    CHECK(table[0] == errorcol1);
+    CHECK(table[1] == errorcol2);
+  }
 }
 
