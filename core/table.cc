@@ -4,6 +4,7 @@ Table TableFromCsv(const std::string& data, char delim, char str)
 {
     const auto AddRowToTable = [](Table* table, const std::vector<std::string>& row)
     {
+        if( row.empty() ) { return; }
         if(table->empty())
         {
             for(const auto& c: row)
@@ -29,6 +30,7 @@ Table TableFromCsv(const std::string& data, char delim, char str)
     std::vector<std::string> row;
     std::stringstream ss;
     bool inside_string = false;
+    bool added = false;
     while(file.HasMore())
     {
         const auto c = file.ReadChar();
@@ -38,6 +40,7 @@ Table TableFromCsv(const std::string& data, char delim, char str)
             {
                 if(file.PeekChar() == str)
                 {
+                    added = true;
                     ss << c;
                     file.ReadChar();
                 }
@@ -61,24 +64,33 @@ Table TableFromCsv(const std::string& data, char delim, char str)
             {
                 row.push_back(ss.str());
                 ss.str("");
+                added = false;
             }
             else if(c == '\n')
             {
-                row.push_back(ss.str());
+                if(added)
+                {
+                    row.push_back(ss.str());
+                }
                 ss.str("");
                 AddRowToTable(&table, row);
                 row.resize(0);
+                added = false;
             }
             else
             {
                 ss << c;
+                added = true;
             }
         }
     }
 
     if(row.size() > 0)
     {
-        row.push_back(ss.str());
+        if(added)
+        {
+          row.push_back(ss.str());
+        }
         AddRowToTable(&table, row);
     }
 
