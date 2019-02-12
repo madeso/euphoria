@@ -47,3 +47,21 @@ TEST_CASE("stringutils-rem", "[stringutils]")
   CHECK(" a b c " == RemoveConsecutive(" a b c ", " "));
   CHECK(" a b c " == RemoveConsecutive(" a  b  c ", " "));
 }
+
+
+TEST_CASE("stringutils-default_stringsort", "[stringutils]")
+{
+  CHECK(StringCompare("aaa", "bbb") < 0);
+  CHECK(StringCompare("aag", "aaa") > 0);
+  CHECK(StringCompare("abc", "abc") == 0);
+}
+
+TEST_CASE("stringutils-human_stringsort", "[stringutils]")
+{
+  const auto lhs = std::string("dog 2");
+  const auto rhs = std::string("dog 10");
+  
+  CHECK(lhs > rhs);
+  CHECK(StringCompare(lhs, rhs) < 0);
+}
+

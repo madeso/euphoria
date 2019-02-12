@@ -182,6 +182,8 @@ Split(const std::string& string, char delim);
 const std::string&
 OpString(bool b, const std::string& str);
 
+// http://stereopsis.com/strcmp4humans.html
+int StringCompare(const std::string& lhs, const std::string& rhs);
 /** @} */
 
 #endif  // EUPHORIA_STRINGUTILS_H_

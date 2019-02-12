@@ -82,11 +82,25 @@ EndsWith(const std::string& string_to_test, const std::string& end)
   return end == actual_end;
 }
 
+char ToLower(char b)
+{
+	if (b >= 'A' && b <= 'Z') return b - 'A' + 'a';
+	return b;
+}
+
+// std::transform call in the ToLower (string) function
+// can't figure out we want the ToLower(char) function so
+// we create a custom function to call the regular function
+inline char ToLowerChar(char b)
+{
+  return ToLower(b);
+}
+
 std::string
 ToLower(const std::string& str)
 {
   std::string result = str;
-  std::transform(result.begin(), result.end(), result.begin(), tolower);
+  std::transform(result.begin(), result.end(), result.begin(), ToLowerChar);
   return result;
 }
 
@@ -243,3 +257,65 @@ OpString(bool b, const std::string& str)
     return Empty;
   }
 }
+
+
+
+char IsNumber(char b)
+{
+	if (b >= '0' && b <= '9') return 1;
+	return 0;
+}
+
+int ParseNumber(const char *&a)
+{
+	int result = *a - '0';
+	++a;
+
+	while (IsNumber(*a)) {
+		result *= 10;
+		result += *a - '0';
+		++a;
+	}
+
+	--a;
+	return result;
+}
+
+int StringCompare(const std::string& lhs, const std::string& rhs)
+{
+  const auto* a = lhs.c_str();
+  const auto* b = rhs.c_str();
+
+	if (a == b) return 0;
+
+	if (a == NULL) return -1;
+	if (b == NULL) return 1;
+
+	while (*a && *b) {
+
+		int a0, b0;	// will contain either a number or a letter
+
+		if (IsNumber(*a)) {
+			a0 = ParseNumber(a) + 256;
+		} else {
+			a0 = ToLower(*a);
+		}
+		if (IsNumber(*b)) {
+			b0 = ParseNumber(b) + 256;
+		} else {
+			b0 = ToLower(*b);
+		}
+
+		if (a0 < b0) return -1;
+		if (a0 > b0) return 1;
+
+		++a;
+		++b;
+	}
+
+	if (*a) return 1;
+	if (*b) return -1;
+
+	return 0;
+}
+
