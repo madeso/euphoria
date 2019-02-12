@@ -2,6 +2,33 @@
 
 #include "catch.hpp"
 
+TEST_CASE("table-generator", "[table]")
+{
+  struct Person { std::string first; std::string last; } ;
+
+  const auto persons = std::vector<Person> {
+    Person{"Jerry", "Seinfeld"},
+    Person{"Elaine", "Benes"},
+    Person{"Cosmo", "Kramer"},
+    Person{"George", "Costanza"}
+  };
+  
+  SECTION("first and last names")
+  {
+    const auto table = TableGenerator<Person>(persons)
+      .Add("First name", [](const Person& p) -> std::string {return p.first;} )
+      .Add("Last name", [](const Person& p) -> std::string {return p.last;} )
+      .table;
+    REQUIRE(table.size() == 2);
+    const auto first = Column{"First name", "Jerry", "Elaine", "Cosmo", "George"};
+    const auto last = Column{"Last name", "Seinfeld", "Benes", "Kramer", "Costanza"};
+    CHECK(table[0]==first);
+    CHECK(table[1]==last);
+    // todo: add print tests
+    // PrintTable(std::cout, table);
+  }
+}
+
 TEST_CASE("table-from_csv_default", "[table]")
 {
   const auto firstcol = Column{"a", "1"};
