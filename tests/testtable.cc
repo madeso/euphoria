@@ -59,3 +59,63 @@ TEST_CASE("table-from_csv_default", "[table]")
   }
 }
 
+TEST_CASE("table-from_csv_not_default", "[table]")
+{
+  const auto firstcol = Column{"a", "1"};
+  const auto firstcolstring = Column{"a b", "1"};
+  const auto secondcol = Column{"b", "2"};
+
+  const auto comma = 'c';
+  const auto string = 's';
+
+  SECTION("not ending with newline")
+  {
+    const auto table = TableFromCsv("acb\n1c2", comma, string);
+    REQUIRE(table.size()==2);
+    CHECK(table[0] == firstcol);
+    CHECK(table[1] == secondcol);
+  }
+
+  SECTION("ending with newlines")
+  {
+    const auto table = TableFromCsv("acb\n\n\n1c2\n\n", comma, string);
+    REQUIRE(table.size()==2);
+    CHECK(table[0] == firstcol);
+    CHECK(table[1] == secondcol);
+  }
+
+  SECTION("strings")
+  {
+    const auto table = TableFromCsv("sa bscb\n1c2", comma, string);
+    REQUIRE(table.size()==2);
+    CHECK(table[0] == firstcolstring);
+    CHECK(table[1] == secondcol);
+  }
+
+  SECTION("not ending strings single col")
+  {
+    const auto table = TableFromCsv("sa b", comma, string);
+    const auto errorcol = Column{"a b"};
+    REQUIRE(table.size()==1);
+    CHECK(table[0] == errorcol);
+  }
+
+  SECTION("not ending strings 2 cols")
+  {
+    const auto table = TableFromCsv("errcsa b", comma, string);
+    const auto errorcol1 = Column{"err"};
+    const auto errorcol2 = Column{"a b"};
+    REQUIRE(table.size()==2);
+    CHECK(table[0] == errorcol1);
+    CHECK(table[1] == errorcol2);
+  }
+
+  SECTION("string with quote")
+  {
+    const auto table = TableFromCsv("sa ss bs", comma, string);
+    const auto col = Column{"a s b"};
+    REQUIRE(table.size()==1);
+    CHECK(table[0] == col);
+  }
+}
+
