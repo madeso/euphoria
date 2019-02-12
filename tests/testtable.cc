@@ -49,5 +49,13 @@ TEST_CASE("table-from_csv_default", "[table]")
     CHECK(table[0] == errorcol1);
     CHECK(table[1] == errorcol2);
   }
+
+  SECTION("string with quote")
+  {
+    const auto table = TableFromCsv("\"a \"\" b\"");
+    const auto col = Column{"a \" b"};
+    REQUIRE(table.size()==1);
+    CHECK(table[0] == col);
+  }
 }
 
