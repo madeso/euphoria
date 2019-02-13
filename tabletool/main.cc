@@ -1,4 +1,4 @@
-#include "core/table.h"
+#include "core/stringtable.h"
 
 struct Person
 {
