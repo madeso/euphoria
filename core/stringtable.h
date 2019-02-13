@@ -1,5 +1,5 @@
-#ifndef CORE_TABLE_H
-#define CORE_TABLE_H
+#ifndef CORE_STRING_TABLE_H
+#define CORE_STRING_TABLE_H
 
 #include <vector>
 #include <string>
@@ -48,4 +48,4 @@ TableFromCsv(const std::string& data, char delim = ',', char str = '\"');
 void
 PrintTable(std::ostream& out, const StringTable& table);
 
-#endif  // CORE_TABLE_H
+#endif  // CORE_STRING_TABLE_H
