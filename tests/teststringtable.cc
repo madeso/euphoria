@@ -2,7 +2,7 @@
 
 #include "catch.hpp"
 
-TEST_CASE("table-generator", "[table]")
+TEST_CASE("table-generator", "[stringtable]")
 {
   struct Person
   {
@@ -38,7 +38,7 @@ TEST_CASE("table-generator", "[table]")
   }
 }
 
-TEST_CASE("table-from_csv_default", "[table]")
+TEST_CASE("table-from_csv_default", "[stringtable]")
 {
   const auto firstcol       = Column{"a", "1"};
   const auto firstcolstring = Column{"a b", "1"};
@@ -95,7 +95,7 @@ TEST_CASE("table-from_csv_default", "[table]")
   }
 }
 
-TEST_CASE("table-from_csv_not_default", "[table]")
+TEST_CASE("table-from_csv_not_default", "[stringtable]")
 {
   const auto firstcol       = Column{"a", "1"};
   const auto firstcolstring = Column{"a b", "1"};
