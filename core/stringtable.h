@@ -61,9 +61,28 @@ struct TableGenerator
 Table<std::string>
 TableFromCsv(const std::string& data, char delim = ',', char str = '\"');
 
+
+/*
+ First name     Last name
+------------   -----------
+ Jerry          Seinfeld
+ Elaine         Benes
+ Cosmo          Kramer
+ George         Costanza
+*/
 void
 PrintTableSimple(std::ostream& out, const Table<std::string>& table);
 
+/*
++------------+-----------+
+| First name | Last name |
++------------+-----------+
+| Jerry      | Seinfeld  |
+| Elaine     | Benes     |
+| Cosmo      | Kramer    |
+| George     | Costanza  |
++------------+-----------+
+*/
 void
 PrintTableGrid(std::ostream& out, const Table<std::string>& table);
 
