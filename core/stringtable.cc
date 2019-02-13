@@ -2,36 +2,20 @@
 
 #include <algorithm>
 
-StringTable
+Table<std::string>
 TableFromCsv(const std::string& data, char delim, char str)
 {
-  const auto AddRowToTable = [](StringTable*                    table,
+  const auto AddRowToTable = [](Table<std::string>*             table,
                                 const std::vector<std::string>& row) {
     if(row.empty())
     {
       return;
     }
-    if(table->empty())
-    {
-      for(const auto& c : row)
-      {
-        table->push_back(Column{c});
-      }
-    }
-    else
-    {
-      // assert(row.size() == table->size());
-      const auto columns = row.size();
-      for(int i = 0; i < columns; ++i)
-      {
-        const auto& c = row[i];
-        (*table)[i].push_back(c);
-      }
-    }
+    table->NewRow(row);
   };
   auto file = TextFileParser{data};
 
-  StringTable table;
+  Table<std::string> table;
 
   std::vector<std::string> row;
   std::stringstream        ss;
@@ -102,29 +86,30 @@ TableFromCsv(const std::string& data, char delim, char str)
 }
 
 int
-ColumnWidth(const Column& col)
+ColumnWidth(const Table<std::string>& t, int c)
 {
   int width = 0;
-  for(const auto& t : col)
+  for(int y=0; y<t.Height(); y+=1)
   {
-    width = std::max<int>(width, t.length());
+    width = std::max<int>(width, t.Value(c, y).length());
   }
   return width;
 }
 
 void
-PrintTable(std::ostream& out, const StringTable& table)
+PrintTable(std::ostream& out, const Table<std::string>& table)
 {
   const auto begin_str_padding = 1;
   const auto end_space_padding = 3;
 
   const auto       begin_str      = std::string(begin_str_padding, ' ');
-  const auto       number_of_cols = table.size();
-  const auto       number_of_rows = table[0].size();
+  const auto       number_of_cols = table.Width();
+  const auto       number_of_rows = table.Height();
+
   std::vector<int> sizes(number_of_cols);
   for(int i = 0; i < number_of_cols; ++i)
   {
-    sizes[i] = ColumnWidth(table[i]) + 1;
+    sizes[i] = ColumnWidth(table, i) + 1;
   }
 
   const auto total_padding = begin_str.length() + end_space_padding;
@@ -133,7 +118,7 @@ PrintTable(std::ostream& out, const StringTable& table)
   {
     for(int col = 0; col < number_of_cols; ++col)
     {
-      const auto cell = begin_str + table[col][row];
+      const auto cell = begin_str + table.Value(col, row);
       out << cell;
       if(col != number_of_cols - 1)
       {
@@ -149,9 +134,9 @@ PrintTable(std::ostream& out, const StringTable& table)
     {
       for(int col = 0; col < number_of_cols; ++col)
       {
-        const auto row = std::string(sizes[col] + begin_str_padding, '-') +
-                         std::string(end_space_padding, ' ');
-        out << row;
+        const auto row_text = std::string(sizes[col] + begin_str_padding, '-') +
+                              std::string(end_space_padding, ' ');
+        out << row_text;
       }
       out << '\n';
     }
