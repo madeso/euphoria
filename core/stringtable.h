@@ -62,6 +62,9 @@ Table<std::string>
 TableFromCsv(const std::string& data, char delim = ',', char str = '\"');
 
 void
-PrintTable(std::ostream& out, const Table<std::string>& table);
+PrintTableSimple(std::ostream& out, const Table<std::string>& table);
+
+void
+PrintTableGrid(std::ostream& out, const Table<std::string>& table);
 
 #endif  // CORE_STRING_TABLE_H

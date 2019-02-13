@@ -35,7 +35,7 @@ TEST_CASE("stringtable-generator", "[stringtable]")
     CHECK(CalcColumnAsVector(table, 0) == first);
     CHECK(CalcColumnAsVector(table, 1) == last);
     // todo: add print tests
-    // PrintTable(std::cout, table);
+    // PrintTableSimple(std::cout, table);
   }
 }
 

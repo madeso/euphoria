@@ -96,9 +96,22 @@ ColumnWidth(const Table<std::string>& t, int c)
   return width;
 }
 
-void
-PrintTable(std::ostream& out, const Table<std::string>& table)
+std::vector<int>
+ColumnWidths(const Table<std::string>& table, int extra)
 {
+  const auto       number_of_cols = table.Width();
+  std::vector<int> sizes(number_of_cols);
+  for(int i = 0; i < number_of_cols; ++i)
+  {
+    sizes[i] = ColumnWidth(table, i) + extra;
+  }
+  return sizes;
+}
+
+void
+PrintTableSimple(std::ostream& out, const Table<std::string>& table)
+{
+  // todo: cleanup this function...
   const auto begin_str_padding = 1;
   const auto end_space_padding = 3;
 
@@ -106,11 +119,7 @@ PrintTable(std::ostream& out, const Table<std::string>& table)
   const auto       number_of_cols = table.Width();
   const auto       number_of_rows = table.Height();
 
-  std::vector<int> sizes(number_of_cols);
-  for(int i = 0; i < number_of_cols; ++i)
-  {
-    sizes[i] = ColumnWidth(table, i) + 1;
-  }
+  const std::vector<int> sizes = ColumnWidths(table, 1);
 
   const auto total_padding = begin_str.length() + end_space_padding;
 
@@ -141,4 +150,53 @@ PrintTable(std::ostream& out, const Table<std::string>& table)
       out << '\n';
     }
   }
+}
+
+void
+PrintTableGrid(std::ostream& out, const Table<std::string>& table)
+{
+  const std::vector<int> sizes          = ColumnWidths(table, 0);
+
+  constexpr auto internal_space = 1;
+
+  auto some_space = [&out](int spaces, char c = ' ') {
+    for(int i = 0; i < spaces; i += 1)
+    {
+      out << c;
+    }
+  };
+  
+  auto horizontal_line = [internal_space, &some_space, &out, &sizes]() {
+    out << '+';
+    for(auto s : sizes)
+    {
+      some_space(s + internal_space*2, '-');
+      out << '+';
+    }
+    out << '\n';
+  };
+
+  horizontal_line();
+
+  for(int y = 0; y < table.Height(); ++y)
+  {
+    out << "|";
+    for(int x= 0; x < table.Width(); ++x)
+    {
+      const auto cell = table.Value(x, y);
+      some_space(internal_space);
+      out << cell;
+      some_space(sizes[x] - cell.length());
+      some_space(internal_space);
+      out << '|';
+    }
+    out << '\n';
+
+    if (y == 0)
+    {
+      horizontal_line();
+    }
+  }
+
+  horizontal_line();
 }

@@ -36,6 +36,8 @@ main()
               [](const Person& p) -> std::string { return Str() << p.age; })
           .ToTable();
   ;
-  PrintTable(std::cout, table);
+  PrintTableSimple(std::cout, table);
+  std::cout << "\n\n\n";
+  PrintTableGrid(std::cout, table);
   return 0;
 }
