@@ -122,4 +122,13 @@ DefaultIfCloseToZero(T value, T def, T epsilon)
     return value;
 }
 
+/// returns true for a index each Nth loop. pass zero to always return false
+/// useful for example adding a newline each 10th or 15th line
+template <typename I>
+constexpr bool
+Each(I i, I each)
+{
+  return each && (i % each) == each - 1;
+}
+
 #endif  // CORE_NUMERIC_H

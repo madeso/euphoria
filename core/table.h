@@ -38,15 +38,7 @@ struct TableGenerator
     }
 };
 
-// from csv
-
 Table TableFromCsv(const std::string& data, char delim=',', char str='\"');
-
-// to string code
-
-int ColumnWidth(const Column& col);
-
-template<typename I> constexpr bool NewlineEach(I i, I each) { return each && (i % each) == each-1; }
 
 void PrintTable(std::ostream& out, const Table& table);
 
