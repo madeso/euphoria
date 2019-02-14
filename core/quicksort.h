@@ -4,52 +4,57 @@
 #include <vector>
 #include <iostream>
 
+
+// Hoare partition scheme as described in wikipedia
+// https://en.wikipedia.org/wiki/Quicksort
 template<typename T>
-int Partition(std::vector<T>* arr, int left, int right, const T& pivot)
+int Partition(std::vector<T>& A, int lo, int hi)
 {
-  while(left < right )
-  {
-    // add sort argument
-    while(left < right && (*arr)[left] < pivot)
+    const auto pivot_index = lo + (hi-lo)/2;
+    const auto pivot = A[pivot_index];
+    auto i = lo - 1;
+    auto j = hi + 1;
+    while(true)
     {
-      left += 1;
+      do {
+        i += 1;
+      } while(A[i] < pivot);
+      do {
+        j -= 1;
+      } while(A[j] > pivot);
+
+      if(i >= j)
+      {
+        return j;
+      }
+      std::swap(A[i], A[j]);
     }
-    while(left < right && (*arr)[right] > pivot)
-    {
-      right -= 1;
-    }
-    if(left < right)
-    {
-      std::swap((*arr)[left], (*arr)[right]);
-      left += 1;
-      right -= 1;
-    }
-  }
-  return left;
 }
 
 
 template<typename T>
-void QuickSortSub(std::vector<T>* arr, int left, int right)
+void QuickSortSub(std::vector<T>& A, int lo, int hi)
 {
-  if(left >= right)
-  {
-    return;
-  }
-
-  const auto pivot_index = left + (right-left)/2;
-  if(pivot_index == left) { return; }
-  const auto& pivot = (*arr)[pivot_index];
-  const auto index = Partition(arr, left, right, pivot);
-  // todo: make not recursive?
-  QuickSortSub(arr, left, index-1);
-  QuickSortSub(arr, index, right);
+    if(lo < hi)
+    {
+        const auto p = Partition(A, lo, hi);
+        QuickSortSub(A, lo, p);
+        QuickSortSub(A, p+1, hi);
+    }
 }
 
 template<typename T>
 void QuickSort(std::vector<T>* arr)
 {
-  QuickSortSub<T>(arr, 0, arr->size()-1);
+  QuickSortSub<T>(*arr, 0, arr->size()-1);
+}
+
+template<typename T>
+std::vector<T> QuickSort(const std::vector<T>& arr)
+{
+  auto copy = arr;
+  QuickSort(&copy);
+  return copy;
 }
 
 #endif  // CORE_QUICKSORT_H
