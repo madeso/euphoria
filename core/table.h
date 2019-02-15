@@ -32,7 +32,7 @@ struct Table
   void
   NewRow(T d = T())
   {
-    ASSERTX(width > 0);
+    ASSERT(width > 0);
     data.resize(data.size() + width, d);
     height += 1;
   }
@@ -40,7 +40,7 @@ struct Table
   void
   NewRow(const std::vector<T>& row)
   {
-    ASSERTX(row.size() == width || (width == 0 && row.size() > 0));
+    ASSERT(row.size() == width || (width == 0 && row.size() > 0));
     I added = 0;
     for(const T& t : row)
     {
