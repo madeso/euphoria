@@ -60,7 +60,7 @@ DefaultSortFunc(T lhs, T rhs)
 template <typename T>
 struct SortBuilder
 {
-  SortableList<T> order;
+  SortableList<T> sort_order;
 
   template <typename SortFunc, typename Value>
   SortBuilder<T>&
@@ -70,7 +70,7 @@ struct SortBuilder
   {
     auto o = std::make_shared<SortAction<T, Value, SortFunc>>(
         member, sort_style, sort_func);
-    order.emplace_back(o);
+    sort_order.emplace_back(o);
     return *this;
   }
 

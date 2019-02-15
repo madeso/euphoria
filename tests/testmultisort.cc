@@ -13,7 +13,7 @@ namespace
 
 TEST_CASE("multisort-verify", "[multisort]")
 {
-  auto o = SortBuilder<Data>{}.Add(&Data::i, SortStyle::Ascending).order;
+  auto o = SortBuilder<Data>{}.Add(&Data::i, SortStyle::Ascending).sort_order;
 
   const auto same    = o[0]->Sort(Data{0, 0}, Data{0, 0});
   const auto less    = o[0]->Sort(Data{1, 0}, Data{0, 0});
@@ -37,7 +37,7 @@ TEST_CASE("multisort-test", "[multisort]")
   SECTION("basic sort asc")
   {
     auto si = GetSortedIndices(
-        data, SortBuilder<Data>{}.Add(&Data::i, SortStyle::Ascending).order);
+        data, SortBuilder<Data>{}.Add(&Data::i, SortStyle::Ascending).sort_order);
     const auto sorted = std::vector<size_t>{0, 2, 1};
     CHECK(si == sorted);
   }
@@ -45,7 +45,7 @@ TEST_CASE("multisort-test", "[multisort]")
   SECTION("basic sort desc")
   {
     auto si = GetSortedIndices(
-        data, SortBuilder<Data>{}.Add(&Data::i, SortStyle::Descending).order);
+        data, SortBuilder<Data>{}.Add(&Data::i, SortStyle::Descending).sort_order);
     const auto sorted = std::vector<size_t>{1, 2, 0};
     CHECK(si == sorted);
   }
@@ -57,7 +57,7 @@ TEST_CASE("multisort-test", "[multisort]")
         SortBuilder<Data>{}
             .Add(&Data::j, SortStyle::Ascending)
             .Add(&Data::i, SortStyle::Descending)
-            .order);
+            .sort_order);
     const auto sorted = std::vector<size_t>{0, 1, 2};
     CHECK(si == sorted);
   }
