@@ -50,7 +50,7 @@ struct TableGenerator
   }
 
   TableGenerator<T>&
-  Add(const std::string& title, Converter converter)
+  AddColumn(const std::string& title, Converter converter)
   {
     column_titles.emplace_back(title);
     column_converter.emplace_back(converter);

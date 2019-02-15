@@ -19,10 +19,10 @@ TEST_CASE("stringtable-generator", "[stringtable]")
   {
     const auto table =
         TableGenerator<Person>(persons)
-            .Add(
+            .AddColumn(
                 "First name",
                 [](const Person& p) -> std::string { return p.first; })
-            .Add(
+            .AddColumn(
                 "Last name",
                 [](const Person& p) -> std::string { return p.last; })
             .ToTable();
