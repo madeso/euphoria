@@ -7,6 +7,8 @@
 #include <algorithm>
 #include <memory>
 
+#include "core/quicksort.h"
+
 enum class SortStyle
 {
   Ascending,
@@ -87,14 +89,14 @@ GetSortedIndices(const std::vector<T>& data, const SortableList<T>& sort_order)
   std::vector<size_t> r(data.size());
   std::iota(std::begin(r), std::end(r), 0);
   // todo: std::sort doesn't seem to work
-  std::sort(r.begin(), r.end(), [&data, &sort_order](size_t lhs, size_t rhs) -> bool {
+  QuickSort(&r, [&data, &sort_order](size_t lhs, size_t rhs) -> int {
     for(const auto& so : sort_order)
     {
       const auto result = so->Sort(data[lhs], data[rhs]);
-      if(result == 1)
-        return true;
+      if(result != 0)
+        return -result;
     }
-    return false;
+    return 0;
   });
   return r;
 }

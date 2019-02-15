@@ -2,11 +2,14 @@
 
 #include "catch.hpp"
 
-struct Data
+namespace
 {
-  int i;
-  int j;
-};
+  struct Data
+  {
+    int i;
+    int j;
+  };
+}  // namespace
 
 TEST_CASE("multisort-verify", "[multisort]")
 {
@@ -26,9 +29,9 @@ TEST_CASE("multisort-test", "[multisort]")
   // example usage
 
   const std::vector<Data> data{
-      {1, 1},
-      {3, 2},
-      {2, 2},
+      {1, 1} /* index 0 */,
+      {3, 2} /* index 1 */, 
+      {2, 2} /* index 2 */,
   };
 
   SECTION("basic sort asc")
@@ -47,7 +50,6 @@ TEST_CASE("multisort-test", "[multisort]")
     CHECK(si == sorted);
   }
 
-  /* doesnt work yet :(
   SECTION("handle second")
   {
     auto si = GetSortedIndices(
@@ -59,5 +61,4 @@ TEST_CASE("multisort-test", "[multisort]")
     const auto sorted = std::vector<size_t>{0, 1, 2};
     CHECK(si == sorted);
   }
-  */
 }
