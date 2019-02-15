@@ -12,9 +12,9 @@ TEST_CASE("multisort-verify", "[multisort]")
 {
   auto o = SortBuilder<Data>{}.Add(&Data::i, SortStyle::Ascending).order;
 
-  const auto same    = o[0]->Sort(Data{0}, Data{0});
-  const auto less    = o[0]->Sort(Data{1}, Data{0});
-  const auto greater = o[0]->Sort(Data{0}, Data{1});
+  const auto same    = o[0]->Sort(Data{0, 0}, Data{0, 0});
+  const auto less    = o[0]->Sort(Data{1, 0}, Data{0, 0});
+  const auto greater = o[0]->Sort(Data{0, 0}, Data{1, 0});
 
   CHECK(same == 0);
   CHECK(less == -1);
