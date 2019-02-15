@@ -66,5 +66,44 @@ TEST_CASE("quicksort-100", "[quicksort]")
   CHECK(sorted == expected);
 }
 
+namespace
+{
+  struct P {
+    std::string name;
+    int i;
+    
+    bool operator<(const P& p) const
+    {
+      return name < p.name;
+    }
+    bool operator>(const P& p) const
+    {
+      return name > p.name;
+    }
+
+    bool operator==(const P& p) const
+    {
+      return name==p.name && i==p.i;
+    }
+  };
+  std::ostream& operator<<(std::ostream& o, const P& p)
+  {
+    o << p.i << ":" << p.name;
+    return o;
+  }
+}
+
+
+TEST_CASE("quicksort-abc", "[quicksort]")
+{
+  const auto dog = P{"dog", 3};
+  const auto cat = P{"cat", 42};
+  const auto human =  P{"human", 1};
+  const auto sorted = QuickSort(std::vector<P>{ dog, cat, human } );
+  const auto expected = std::vector<P>{human, dog, cat};
+  CHECK(sorted == expected);
+}
+
+
 // todo: add more tests
 
