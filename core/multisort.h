@@ -88,6 +88,11 @@ GetSortedIndices(const std::vector<T>& data, const SortableList<T>& sort_order)
 {
   std::vector<size_t> r(data.size());
   std::iota(std::begin(r), std::end(r), 0);
+  if(sort_order.empty())
+  {
+    // shouldn't be needed, quicksort with sort index of 0 should leave the array alone
+    return r;
+  }
   // todo: std::sort doesn't seem to work
   QuickSort(&r, [&data, &sort_order](size_t lhs, size_t rhs) -> int {
     for(const auto& so : sort_order)
