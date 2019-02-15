@@ -76,10 +76,6 @@ namespace
     {
       return name < p.name;
     }
-    bool operator>(const P& p) const
-    {
-      return name > p.name;
-    }
 
     bool operator==(const P& p) const
     {
@@ -94,12 +90,26 @@ namespace
 }
 
 
-TEST_CASE("quicksort-abc", "[quicksort]")
+TEST_CASE("quicksort-default_sort", "[quicksort]")
 {
   const auto dog = P{"dog", 3};
   const auto cat = P{"cat", 42};
   const auto human =  P{"human", 1};
   const auto sorted = QuickSort(std::vector<P>{ dog, cat, human } );
+  const auto expected = std::vector<P>{cat, dog, human};
+  CHECK(sorted == expected);
+}
+
+TEST_CASE("quicksort-custom_sort", "[quicksort]")
+{
+  const auto dog = P{"dog", 3};
+  const auto cat = P{"cat", 42};
+  const auto human =  P{"human", 1};
+  const auto sorted = QuickSort(
+      std::vector<P>{ dog, cat, human },
+      [](const P& lhs, const P& rhs)
+        { return DefaultQuickSortFunction(lhs.i, rhs.i); }
+      );
   const auto expected = std::vector<P>{human, dog, cat};
   CHECK(sorted == expected);
 }
