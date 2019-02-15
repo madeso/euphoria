@@ -10,11 +10,12 @@
 #include "core/table.h"
 #include "core/str.h"
 #include "core/textfileparser.h"
+#include "core/multisort.h"
 
 // generator
 
 template <typename T>
-struct TableGenerator
+struct TableGenerator : public SortBuilder<T>
 {
   using Converter = std::function<std::string(const T&)>;
 
@@ -35,8 +36,10 @@ struct TableGenerator
 
     const auto s = column_titles.size();
 
-    for(const auto& d : data)
+    const auto indices = GetSortedIndices(data, this->sort_order);
+    for(const auto index : indices)
     {
+      const auto& d = data[index];
       std::vector<std::string> row_strings;
       row_strings.reserve(s);
       for(size_t i = 0; i < s; ++i)
