@@ -37,6 +37,29 @@ TEST_CASE("stringtable-generator", "[stringtable]")
     // todo: add print tests
     // PrintTableSimple(std::cout, table);
   }
+
+  SECTION("sort on last name")
+  {
+    const auto table =
+        TableGenerator<Person>(persons)
+            .AddColumn(
+                "First name",
+                [](const Person& p) -> std::string { return p.first; })
+            .AddColumn(
+                "Last name",
+                [](const Person& p) -> std::string { return p.last; })
+            .Sort(&Person::last)
+            .ToTable();
+    REQUIRE(table.Width() == 2);
+    REQUIRE(table.Height() == 5);
+    const auto first =
+        std::vector<std::string>{"First name", "Elaine", "George", "Cosmo", "Jerry"};
+    const auto last = std::vector<std::string>{
+        "Last name", "Benes", "Costanza", "Kramer", "Seinfeld"};
+    CHECK(CalcColumnAsVector(table, 0) == first);
+    CHECK(CalcColumnAsVector(table, 1) == last);
+    // PrintTableGrid(std::cout, table);
+  }
 }
 
 TEST_CASE("stringtable-from_csv_default", "[stringtable]")

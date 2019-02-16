@@ -15,7 +15,7 @@
 // generator
 
 template <typename T>
-struct TableGenerator : public SortBuilder<T>
+struct TableGenerator : public SortBuilder<T, TableGenerator<T>>
 {
   using Converter = std::function<std::string(const T&)>;
 

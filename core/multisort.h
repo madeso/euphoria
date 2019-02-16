@@ -58,14 +58,14 @@ DefaultSortFunc(T lhs, T rhs)
   return lhs < rhs ? 1 : -1;
 }
 
-template <typename T>
+template <typename T, typename Self>
 struct SortBuilder
 {
   SortableList<T> sort_order;
   bool stable_sort = false;
 
   template <typename SortFunc, typename Value>
-  SortBuilder<T>&
+  Self&
   Sort(Value T::*member,
       SortFunc  sort_func,
       SortStyle sort_style = SortStyle::Ascending)
@@ -73,17 +73,17 @@ struct SortBuilder
     auto o = std::make_shared<SortAction<T, Value, SortFunc>>(
         member, sort_style, sort_func);
     sort_order.emplace_back(o);
-    return *this;
+    return static_cast<Self&>(*this);
   }
 
   template <typename Value>
-  SortBuilder<T>&
+  Self&
   Sort(Value T::*member, SortStyle sort_style = SortStyle::Ascending)
   {
     return Sort(member, &DefaultSortFunc<Value>, sort_style);
   }
 
-  SortBuilder<T>&
+  Self&
   UseStableSort()
   {
     stable_sort = true;
@@ -91,9 +91,9 @@ struct SortBuilder
   }
 };
 
-template <typename T>
+template <typename T, typename Self>
 std::vector<size_t>
-GetSortedIndices(const std::vector<T>& data, const SortBuilder<T>& builder)
+GetSortedIndices(const std::vector<T>& data, const SortBuilder<T, Self>& builder)
 {
   std::vector<size_t> r(data.size());
   std::iota(std::begin(r), std::end(r), 0);
