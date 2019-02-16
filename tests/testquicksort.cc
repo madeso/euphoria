@@ -9,6 +9,17 @@ TEST_CASE("quicksort-empty", "[quicksort]")
   CHECK(sorted == expected);
 }
 
+/*
+// quick sort is not stable, this will fail...
+TEST_CASE("quicksort-four-custom0", "[quicksort]")
+{
+  const auto values = std::vector<int>{5, 3, 6, 1};
+  const auto sorted = QuickSort(values, [](int, int){return 0;});
+  const auto expected = values;
+  CHECK(sorted == expected);
+}
+*/
+
 TEST_CASE("quicksort-four", "[quicksort]")
 {
   const auto sorted = QuickSort(std::vector<int>{5, 3, 6, 1});

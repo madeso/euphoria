@@ -2,8 +2,6 @@
 #define CORE_QUICKSORT_H
 
 #include <vector>
-#include <iostream>
-
 
 // Hoare partition scheme as described in wikipedia
 // https://en.wikipedia.org/wiki/Quicksort
