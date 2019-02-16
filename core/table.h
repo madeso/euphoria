@@ -9,7 +9,7 @@
 template <typename T>
 struct Table
 {
-  using I = int;
+  using I = unsigned int;
 
   Table()
       : width(0)

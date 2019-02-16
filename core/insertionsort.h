@@ -2,6 +2,7 @@
 #define CORE_INSERTIONSORT_H
 
 #include <vector>
+#include <cstddef>
 
 template<typename T, typename SortFunc>
 void InsertionSort(std::vector<T>* arr, SortFunc sort_func)
@@ -9,10 +10,10 @@ void InsertionSort(std::vector<T>* arr, SortFunc sort_func)
   auto& A = *arr;
   const auto length = A.size();
 
-  int i = 1;
+  size_t i = 1;
   while(i < length)
   {
-    int j = i;
+    size_t j = i;
     while(j > 0 && sort_func(A[j-1] , A[j]) > 0)
     {
       std::swap(A[j] , A[j-1]);

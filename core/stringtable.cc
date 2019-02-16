@@ -89,7 +89,7 @@ int
 ColumnWidth(const Table<std::string>& t, int c)
 {
   int width = 0;
-  for(int y=0; y<t.Height(); y+=1)
+  for(size_t y=0; y<t.Height(); y+=1)
   {
     width = std::max<int>(width, t.Value(c, y).length());
   }
@@ -101,7 +101,7 @@ ColumnWidths(const Table<std::string>& table, int extra)
 {
   const auto       number_of_cols = table.Width();
   std::vector<int> sizes(number_of_cols);
-  for(int i = 0; i < number_of_cols; ++i)
+  for(size_t i = 0; i < number_of_cols; ++i)
   {
     sizes[i] = ColumnWidth(table, i) + extra;
   }
@@ -123,15 +123,15 @@ PrintTableSimple(std::ostream& out, const Table<std::string>& table)
 
   const auto total_padding = begin_str.length() + end_space_padding;
 
-  for(int row = 0; row < number_of_rows; ++row)
+  for(size_t row = 0; row < number_of_rows; ++row)
   {
-    for(int col = 0; col < number_of_cols; ++col)
+    for(size_t col = 0; col < number_of_cols; ++col)
     {
       const auto cell = begin_str + table.Value(col, row);
       out << cell;
       if(col != number_of_cols - 1)
       {
-        for(int i = cell.length(); i < sizes[col] + total_padding; ++i)
+        for(size_t i = cell.length(); i < sizes[col] + total_padding; ++i)
         {
           out << ' ';
         }
@@ -141,7 +141,7 @@ PrintTableSimple(std::ostream& out, const Table<std::string>& table)
 
     if(row == 0)
     {
-      for(int col = 0; col < number_of_cols; ++col)
+      for(size_t col = 0; col < number_of_cols; ++col)
       {
         const auto row_text = std::string(sizes[col] + begin_str_padding, '-') +
                               std::string(end_space_padding, ' ');
@@ -178,10 +178,10 @@ PrintTableGrid(std::ostream& out, const Table<std::string>& table)
 
   horizontal_line();
 
-  for(int y = 0; y < table.Height(); ++y)
+  for(size_t y = 0; y < table.Height(); ++y)
   {
     out << "|";
-    for(int x= 0; x < table.Width(); ++x)
+    for(size_t x= 0; x < table.Width(); ++x)
     {
       const auto cell = table.Value(x, y);
       some_space(internal_space);
