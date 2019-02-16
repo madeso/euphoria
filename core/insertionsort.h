@@ -1,0 +1,47 @@
+#ifndef CORE_INSERTIONSORT_H
+#define CORE_INSERTIONSORT_H
+
+#include <vector>
+
+template<typename T, typename SortFunc>
+void InsertionSort(std::vector<T>* arr, SortFunc sort_func)
+{
+  auto& A = *arr;
+  const auto length = A.size();
+
+  int i = 1;
+  while(i < length)
+  {
+    int j = i;
+    while(j > 0 && sort_func(A[j-1] , A[j]) > 0)
+    {
+      std::swap(A[j] , A[j-1]);
+      j = j - 1;
+    }
+    i = i + 1;
+  }
+}
+
+template<typename T, typename SortFunc>
+std::vector<T> InsertionSort(const std::vector<T>& arr, SortFunc sort_func)
+{
+  auto copy = arr;
+  InsertionSort(&copy, sort_func);
+  return copy;
+}
+
+template<typename T>
+int DefaultInsertionSort(const T& lhs, const T& rhs)
+{
+  if(lhs == rhs) return 0;
+  return lhs < rhs ? -1 : 1;
+}
+
+template<typename T>
+std::vector<T> InsertionSort(const std::vector<T>& arr)
+{
+  return InsertionSort(arr, DefaultInsertionSort<T>);
+}
+
+#endif  // CORE_INSERTIONSORT_H
+

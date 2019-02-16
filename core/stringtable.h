@@ -36,7 +36,7 @@ struct TableGenerator : public SortBuilder<T>
 
     const auto s = column_titles.size();
 
-    const auto indices = GetSortedIndices(data, this->sort_order);
+    const auto indices = GetSortedIndices(data, *this);
     for(const auto index : indices)
     {
       const auto& d = data[index];

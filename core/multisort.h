@@ -8,6 +8,7 @@
 #include <memory>
 
 #include "core/quicksort.h"
+#include "core/insertionsort.h"
 
 enum class SortStyle
 {
@@ -61,10 +62,11 @@ template <typename T>
 struct SortBuilder
 {
   SortableList<T> sort_order;
+  bool stable_sort = false;
 
   template <typename SortFunc, typename Value>
   SortBuilder<T>&
-  Add(Value T::*member,
+  Sort(Value T::*member,
       SortFunc  sort_func,
       SortStyle sort_style = SortStyle::Ascending)
   {
@@ -76,33 +78,41 @@ struct SortBuilder
 
   template <typename Value>
   SortBuilder<T>&
-  Add(Value T::*member, SortStyle sort_style = SortStyle::Ascending)
+  Sort(Value T::*member, SortStyle sort_style = SortStyle::Ascending)
   {
-    return Add(member, &DefaultSortFunc<Value>, sort_style);
+    return Sort(member, &DefaultSortFunc<Value>, sort_style);
+  }
+
+  SortBuilder<T>&
+  UseStableSort()
+  {
+    stable_sort = true;
+    return *this;
   }
 };
 
 template <typename T>
 std::vector<size_t>
-GetSortedIndices(const std::vector<T>& data, const SortableList<T>& sort_order)
+GetSortedIndices(const std::vector<T>& data, const SortBuilder<T>& builder)
 {
   std::vector<size_t> r(data.size());
   std::iota(std::begin(r), std::end(r), 0);
-  if(sort_order.empty())
+  if(builder.sort_order.empty())
   {
-    // shouldn't be needed, quicksort with sort index of 0 should leave the array alone
     return r;
   }
-  // todo: std::sort doesn't seem to work
-  QuickSort(&r, [&data, &sort_order](size_t lhs, size_t rhs) -> int {
-    for(const auto& so : sort_order)
+  const auto sort_function = [&data, &builder](size_t lhs, size_t rhs) -> int {
+    for(const auto& so : builder.sort_order)
     {
       const auto result = so->Sort(data[lhs], data[rhs]);
       if(result != 0)
         return -result;
     }
     return 0;
-  });
+  };
+  // is a stable sort is requested, use insertion sort, otherwise use the faster quick sort
+  if(builder.stable_sort) InsertionSort(&r, sort_function);
+  else QuickSort(&r, sort_function);
   return r;
 }
 
