@@ -26,12 +26,12 @@ main()
 {
   const auto table =
       TableGenerator<Person>(persons)
-          .Add(
+          .AddColumn(
               "Name",
               [](const Person& p) -> std::string {
                 return p.first_name + " " + p.last_name;
               })
-          .Add(
+          .AddColumn(
               "Age",
               [](const Person& p) -> std::string { return Str() << p.age; })
           .ToTable();
