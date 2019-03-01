@@ -309,7 +309,7 @@ namespace argparse
       }
 
       void
-      operator()(Running& r, Arguments& args, const std::string& argname)
+      operator()(Running& r, Arguments&, const std::string&)
       {
         // todo: fix non const references here.
         parser->WriteHelp(r);
@@ -333,6 +333,14 @@ namespace argparse
   {
     ArgumentPtr arg(new FunctionArgument(func));
     return Insert(name, arg).Count(Count::None);
+  }
+
+  Extra&
+  Parser::AddSimpleFunction(
+      const std::string&    name, std::function<void()> func)
+  {
+    return AddFunction(
+        name, [func](Running&, Arguments&, const std::string&) { func(); });
   }
 
   ParseStatus
@@ -391,6 +399,17 @@ namespace argparse
       running.error << app << ": " << p.what() << std::endl << std::endl;
       return ParseStatus{running, ParseStatus::Failed};
     }
+  }
+
+  ParseStatus
+    Parser::Parse(int argc, char* argv[]) const
+  {
+    auto args = std::vector<std::string>{};
+    for (int i = 1; i < argc; i += 1)
+    {
+      args.push_back(argv[i]);
+    }
+    return Parse(argv[0], args);
   }
 
   void

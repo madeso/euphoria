@@ -332,9 +332,15 @@ namespace argparse
     Extra&
     AddFunction(const std::string& name, ArgumentCallback func);
 
+    Extra&
+    AddSimpleFunction(const std::string& name, std::function<void()> func);
+
     ParseStatus
     Parse(const std::string& name, const std::vector<std::string>& arguments)
         const;
+
+    ParseStatus
+    Parse(int argc, char* argv[]) const;
 
     void
     WriteHelp(Running& r) const;
