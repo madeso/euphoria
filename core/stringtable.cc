@@ -86,12 +86,32 @@ TableFromCsv(const std::string& data, char delim, char str)
 }
 
 int
+WidthOfString(const std::string& t)
+{
+  int w = 0;
+
+  for (auto c : t)
+  {
+    if (c == '\n' )
+    {
+      w = 0;
+    }
+    else
+    {
+      w += 1;
+    }
+  }
+
+  return w;
+}
+
+int
 ColumnWidth(const Table<std::string>& t, int c)
 {
   int width = 0;
   for(size_t y=0; y<t.Height(); y+=1)
   {
-    width = std::max<int>(width, t.Value(c, y).length());
+    width = std::max<int>(width, WidthOfString(t.Value(c, y)));
   }
   return width;
 }
@@ -116,22 +136,38 @@ PrintTableSimple(std::ostream& out, const Table<std::string>& table)
   const auto end_space_padding = 3;
 
   const auto       begin_str      = std::string(begin_str_padding, ' ');
+  const auto       end_str        = std::string(end_space_padding, ' ');
   const auto       number_of_cols = table.Width();
   const auto       number_of_rows = table.Height();
 
   const std::vector<int> sizes = ColumnWidths(table, 1);
 
-  const auto total_padding = begin_str.length() + end_space_padding;
+  const auto total_padding = begin_str_padding + end_space_padding;
 
   for(size_t row = 0; row < number_of_rows; ++row)
   {
     for(size_t col = 0; col < number_of_cols; ++col)
     {
       const auto cell = begin_str + table.Value(col, row);
-      out << cell;
+      int        line_length = 0;
+      for (auto c : cell)
+      {
+        out << c;
+        line_length += 1;
+        if (c == '\n')
+        {
+          line_length = 0;
+          for (int subcol = 0; subcol < col; subcol += 1)
+          {
+            out << begin_str;
+            out << std::string(sizes[subcol], ' ');
+            out << end_str;
+          }
+        }
+      }
       if(col != number_of_cols - 1)
       {
-        for(size_t i = cell.length(); i < sizes[col] + total_padding; ++i)
+        for(size_t i = line_length; i < sizes[col] + total_padding; ++i)
         {
           out << ' ';
         }
