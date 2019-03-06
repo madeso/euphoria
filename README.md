@@ -16,18 +16,18 @@ Min synth
 
 ** Current features **
 
- * One single somewhat configurable oscilator.
-
-
-** Planned features **
-
+ * A few basic oscilator 
  * envelopes
  * arpegiators
  * polyphonic output
+ 
+
+** Planned features **
+
  * integer based
- * load instruments from file
+ * load instruments/configurations from file
  * simple effects like reverb, delay and bitcrusher
- * samples
+ * play samples, perhaps as a instrument
  * possible soundfonts
  * possible nyquist plugins
  * basic general audio input, so you can connect a guitar and play
@@ -38,7 +38,7 @@ Musik maskin
 
 ** Current features **
 
- * play sound on keyboard input, choose the oscilator type and master sound in a "dear imgui" based gui.
+ * play sound from either keyboard or midi input, choose the oscilator type, envelope and master sound in a basic "dear imgui" based gui.
 
 
 ** Planned features **
