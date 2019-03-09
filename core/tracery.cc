@@ -46,9 +46,8 @@ split(const std::string& s, char delim)
 
 typedef std::default_random_engine Generator;
 
-class GeneratorArgument
+struct GeneratorArgument
 {
- public:
   Generator generator;
   Grammar*  grammar;
 
@@ -101,9 +100,8 @@ SyntaxPart::~SyntaxPart()
 
 // ----------------------------------------------------------------
 
-class SyntaxPartText : public SyntaxPart
+struct SyntaxPartText : public SyntaxPart
 {
- public:
   SyntaxPartText(const std::string& t)
       : text(t)
   {
@@ -119,9 +117,8 @@ class SyntaxPartText : public SyntaxPart
 
 // ----------------------------------------------------------------
 
-class SyntaxPartRule : public SyntaxPart
+struct SyntaxPartRule : public SyntaxPart
 {
- public:
   SyntaxPartRule(const std::string& d)
       : rule(split(d, '.'))
   {
@@ -510,9 +507,8 @@ namespace english
   }
 
 
-  class FuncModifier : public Modifier
+  struct FuncModifier : public Modifier
   {
-   public:
     std::function<std::string(std::string)> func;
     FuncModifier(std::function<std::string(std::string)> f)
         : func(f)

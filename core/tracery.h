@@ -6,9 +6,8 @@
 #include <memory>
 #include <map>
 
-class Result
+struct Result
 {
- public:
   enum Type
   {
     UNABLE_TO_OPEN_FILE,
@@ -37,12 +36,11 @@ class Result
 
 std::ostream& operator<<(std::ostream& o, const Result& r);
 
-class GeneratorArgument;
+struct GeneratorArgument;
 
 
-class SyntaxPart
+struct SyntaxPart
 {
- public:
   virtual ~SyntaxPart();
 
   virtual Result
@@ -50,18 +48,16 @@ class SyntaxPart
 };
 
 
-class Modifier
+struct Modifier
 {
- public:
   virtual ~Modifier();
 
   virtual Result
   ApplyModifier(const std::string& input) = 0;
 };
 
-class Syntax
+struct Syntax
 {
- public:
   Syntax();
   
   Result
@@ -76,9 +72,8 @@ class Syntax
   std::vector<std::shared_ptr<SyntaxPart>> syntax;
 };
 
-class Rule
+struct Rule
 {
- public:
   explicit Rule(const std::string& n);
 
   std::string name;
@@ -91,9 +86,8 @@ class Rule
   Flatten(GeneratorArgument* gen);
 };
 
-class Grammar
+struct Grammar
 {
- public:
   Grammar();
 
   void
