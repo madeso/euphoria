@@ -94,15 +94,15 @@ FromJson(Symbol* rule, const rapidjson::Value& value)
 
 // ----------------------------------------------------------------
 
-SyntaxPart::~SyntaxPart()
+RulePart::~RulePart()
 {
 }
 
 // ----------------------------------------------------------------
 
-struct SyntaxPartText : public SyntaxPart
+struct RulePartText : public RulePart
 {
-  SyntaxPartText(const std::string& t)
+  RulePartText(const std::string& t)
       : text(t)
   {
   }
@@ -117,9 +117,9 @@ struct SyntaxPartText : public SyntaxPart
 
 // ----------------------------------------------------------------
 
-struct SyntaxPartRule : public SyntaxPart
+struct RulePartRule : public RulePart
 {
-  SyntaxPartRule(const std::string& d)
+  RulePartRule(const std::string& d)
       : rule(split(d, '.'))
   {
   }
@@ -226,12 +226,12 @@ operator<<(std::ostream& o, const Result& r)
 
 // ----------------------------------------------------------------
 
-Syntax::Syntax()
+Rule::Rule()
 {
 }
 
 Result
-Syntax::Compile(const std::string& s)
+Rule::Compile(const std::string& s)
 {
   const char  START_CHAR = '#';
   const char  END_CHAR   = '#';
@@ -248,7 +248,7 @@ Syntax::Compile(const std::string& s)
         rule = false;
         if(buffer.empty() == false)
         {
-          Add(new SyntaxPartRule(buffer));
+          Add(new RulePartRule(buffer));
           buffer = "";
         }
       }
@@ -275,7 +275,7 @@ Syntax::Compile(const std::string& s)
           rule = true;
           if(buffer.empty() == false)
           {
-            Add(new SyntaxPartText(buffer));
+            Add(new RulePartText(buffer));
             buffer = "";
           }
         }
@@ -295,7 +295,7 @@ Syntax::Compile(const std::string& s)
   {
     if(buffer.empty() == false)
     {
-      Add(new SyntaxPartText(buffer));
+      Add(new RulePartText(buffer));
       buffer = "";
     }
   }
@@ -304,10 +304,10 @@ Syntax::Compile(const std::string& s)
 }
 
 Result
-Syntax::Flatten(GeneratorArgument* gen)
+Rule::Flatten(GeneratorArgument* gen)
 {
   std::string ret;
-  for(std::shared_ptr<SyntaxPart> s : syntax)
+  for(std::shared_ptr<RulePart> s : syntax)
   {
     const Result r = s->Flatten(gen);
     if(r == false)
@@ -318,9 +318,9 @@ Syntax::Flatten(GeneratorArgument* gen)
 }
 
 void
-Syntax::Add(SyntaxPart* s)
+Rule::Add(RulePart* s)
 {
-  std::shared_ptr<SyntaxPart> p(s);
+  std::shared_ptr<RulePart> p(s);
   syntax.push_back(p);
 }
 
@@ -335,7 +335,7 @@ Symbol::Symbol(const std::string& k)
 Result
 Symbol::AddRule(const std::string& rule)
 {
-  Syntax syntax;
+  Rule syntax;
   Result r = syntax.Compile(rule);
   if(r)
   {
@@ -614,7 +614,7 @@ Grammar::Flatten(const std::string& rule)
 {
   GeneratorArgument generator;
   generator.grammar = this;
-  Syntax syntax;
+  Rule syntax;
   syntax.Compile(rule);
   return syntax.Flatten(&generator);
 }

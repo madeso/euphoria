@@ -40,9 +40,9 @@ operator<<(std::ostream& o, const Result& r);
 struct GeneratorArgument;
 
 
-struct SyntaxPart
+struct RulePart
 {
-  virtual ~SyntaxPart();
+  virtual ~RulePart();
 
   virtual Result
   Flatten(GeneratorArgument* generator) = 0;
@@ -57,9 +57,9 @@ struct Modifier
   ApplyModifier(const std::string& input) = 0;
 };
 
-struct Syntax
+struct Rule
 {
-  Syntax();
+  Rule();
 
   Result
   Compile(const std::string& s);
@@ -68,9 +68,9 @@ struct Syntax
   Flatten(GeneratorArgument* gen);
 
   void
-  Add(SyntaxPart* s);
+  Add(RulePart* s);
 
-  std::vector<std::shared_ptr<SyntaxPart>> syntax;
+  std::vector<std::shared_ptr<RulePart>> syntax;
 };
 
 struct Symbol
@@ -78,7 +78,7 @@ struct Symbol
   explicit Symbol(const std::string& k);
 
   std::string         key;
-  std::vector<Syntax> ruleset;
+  std::vector<Rule> ruleset;
 
   Result
   AddRule(const std::string& rule);
