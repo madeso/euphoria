@@ -94,15 +94,15 @@ FromJson(Symbol* rule, const rapidjson::Value& value)
 
 // ----------------------------------------------------------------
 
-RulePart::~RulePart()
+Node::~Node()
 {
 }
 
 // ----------------------------------------------------------------
 
-struct RulePartText : public RulePart
+struct LiteralStringNode : public Node
 {
-  RulePartText(const std::string& t)
+  LiteralStringNode(const std::string& t)
       : text(t)
   {
   }
@@ -117,9 +117,9 @@ struct RulePartText : public RulePart
 
 // ----------------------------------------------------------------
 
-struct RulePartRule : public RulePart
+struct CallSymbolNode : public Node
 {
-  RulePartRule(const std::string& d)
+  CallSymbolNode(const std::string& d)
       : rule(split(d, '.'))
   {
   }
@@ -248,7 +248,7 @@ Rule::Compile(const std::string& s)
         rule = false;
         if(buffer.empty() == false)
         {
-          Add(new RulePartRule(buffer));
+          Add(new CallSymbolNode(buffer));
           buffer = "";
         }
       }
@@ -275,7 +275,7 @@ Rule::Compile(const std::string& s)
           rule = true;
           if(buffer.empty() == false)
           {
-            Add(new RulePartText(buffer));
+            Add(new LiteralStringNode(buffer));
             buffer = "";
           }
         }
@@ -295,7 +295,7 @@ Rule::Compile(const std::string& s)
   {
     if(buffer.empty() == false)
     {
-      Add(new RulePartText(buffer));
+      Add(new LiteralStringNode(buffer));
       buffer = "";
     }
   }
@@ -307,7 +307,7 @@ Result
 Rule::Flatten(GeneratorArgument* gen)
 {
   std::string ret;
-  for(std::shared_ptr<RulePart> s : syntax)
+  for(std::shared_ptr<Node> s : syntax)
   {
     const Result r = s->Flatten(gen);
     if(r == false)
@@ -318,9 +318,9 @@ Rule::Flatten(GeneratorArgument* gen)
 }
 
 void
-Rule::Add(RulePart* s)
+Rule::Add(Node* s)
 {
-  std::shared_ptr<RulePart> p(s);
+  std::shared_ptr<Node> p(s);
   syntax.push_back(p);
 }
 

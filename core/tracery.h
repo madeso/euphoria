@@ -40,9 +40,9 @@ operator<<(std::ostream& o, const Result& r);
 struct GeneratorArgument;
 
 
-struct RulePart
+struct Node
 {
-  virtual ~RulePart();
+  virtual ~Node();
 
   virtual Result
   Flatten(GeneratorArgument* generator) = 0;
@@ -68,9 +68,9 @@ struct Rule
   Flatten(GeneratorArgument* gen);
 
   void
-  Add(RulePart* s);
+  Add(Node* s);
 
-  std::vector<std::shared_ptr<RulePart>> syntax;
+  std::vector<std::shared_ptr<Node>> syntax;
 };
 
 struct Symbol
