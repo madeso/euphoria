@@ -72,9 +72,9 @@ struct Syntax
   std::vector<std::shared_ptr<SyntaxPart>> syntax;
 };
 
-struct Rule
+struct Symbol
 {
-  explicit Rule(const std::string& n);
+  explicit Symbol(const std::string& n);
 
   std::string name;
   std::vector<Syntax> rules;
@@ -97,7 +97,7 @@ struct Grammar
   LoadFromString(const std::string& data);
 
   Result
-  GetStringFromRule(const std::string& rule, GeneratorArgument* generator);
+  GetStringFromSymbol(const std::string& rule, GeneratorArgument* generator);
 
   Grammar&
   RegisterModifier(const std::string& name, Modifier* m);
@@ -108,7 +108,7 @@ struct Grammar
   Result
   Flatten(const std::string& rule);
 
-  std::map<std::string, Rule>                      rules;
+  std::map<std::string, Symbol>                      rules;
   std::map<std::string, std::shared_ptr<Modifier>> modifiers;
 };
 

@@ -59,7 +59,7 @@ struct GeneratorArgument
 };
 
 Result
-FromJson(Rule* rule, const rapidjson::Value& value)
+FromJson(Symbol* rule, const rapidjson::Value& value)
 {
   if(value.IsString())
   {
@@ -128,7 +128,7 @@ struct SyntaxPartRule : public SyntaxPart
   Result
   Flatten(GeneratorArgument* generator) override
 {
-  Result result = generator->grammar->GetStringFromRule(rule[0], generator);
+  Result result = generator->grammar->GetStringFromSymbol(rule[0], generator);
   if(result == false)
   {
     return result;
@@ -325,13 +325,13 @@ Syntax::Syntax()
 
 
 // ----------------------------------------------------------------
-// Rule
-Rule::Rule(const std::string& n) : name(n)
+// Symbol
+Symbol::Symbol(const std::string& n) : name(n)
   {
   }
 
   Result
-  Rule::AddRule(const std::string& rule)
+  Symbol::AddRule(const std::string& rule)
   {
     Syntax syntax;
     Result r = syntax.Compile(rule);
@@ -343,7 +343,7 @@ Rule::Rule(const std::string& n) : name(n)
   }
 
   Result
-  Rule::Flatten(GeneratorArgument* gen)
+  Symbol::Flatten(GeneratorArgument* gen)
   {
     ASSERT(gen);
     ASSERTX(rules.empty() == false, name);
@@ -565,7 +565,7 @@ Grammar::Grammar()
         ++itr)
     {
       const std::string ruleName = itr->name.GetString();
-      Rule              rule{ruleName};
+      Symbol              rule{ruleName};
       Result            r = FromJson(&rule, itr->value);
       if(r == false)
       {
@@ -578,7 +578,7 @@ Grammar::Grammar()
   }
 
   Result
-  Grammar::GetStringFromRule(const std::string& rule, GeneratorArgument* generator)
+  Grammar::GetStringFromSymbol(const std::string& rule, GeneratorArgument* generator)
   {
     const auto found = rules.find(rule);
     if(found == rules.end())
