@@ -326,7 +326,7 @@ Syntax::Syntax()
 
 // ----------------------------------------------------------------
 // Symbol
-Symbol::Symbol(const std::string& n) : name(n)
+Symbol::Symbol(const std::string& k) : key(k)
   {
   }
 
@@ -337,7 +337,7 @@ Symbol::Symbol(const std::string& n) : name(n)
     Result r = syntax.Compile(rule);
     if(r)
     {
-      rules.push_back(syntax);
+      ruleset.push_back(syntax);
     }
     return r;
   }
@@ -346,10 +346,10 @@ Symbol::Symbol(const std::string& n) : name(n)
   Symbol::Flatten(GeneratorArgument* gen)
   {
     ASSERT(gen);
-    ASSERTX(rules.empty() == false, name);
-    std::uniform_int_distribution<size_t> distribution(0, rules.size() - 1);
+    ASSERTX(ruleset.empty() == false, key);
+    std::uniform_int_distribution<size_t> distribution(0, ruleset.size() - 1);
     size_t                                index = distribution(gen->generator);
-    return rules[index].Flatten(gen);
+    return ruleset[index].Flatten(gen);
   }
 
 

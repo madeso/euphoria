@@ -74,10 +74,10 @@ struct Syntax
 
 struct Symbol
 {
-  explicit Symbol(const std::string& n);
+  explicit Symbol(const std::string& k);
 
-  std::string name;
-  std::vector<Syntax> rules;
+  std::string key;
+  std::vector<Syntax> ruleset;
 
   Result
   AddRule(const std::string& rule);
