@@ -25,16 +25,17 @@ struct Result
   Result(Type t);
 
   Result&
-  operator<<(const std::string& t) ;
+  operator<<(const std::string& t);
 
-  operator bool() const ;
+  operator bool() const;
 
 
   std::string
-  GetText() const ;
+  GetText() const;
 };
 
-std::ostream& operator<<(std::ostream& o, const Result& r);
+std::ostream&
+operator<<(std::ostream& o, const Result& r);
 
 struct GeneratorArgument;
 
@@ -59,7 +60,7 @@ struct Modifier
 struct Syntax
 {
   Syntax();
-  
+
   Result
   Compile(const std::string& s);
 
@@ -76,7 +77,7 @@ struct Symbol
 {
   explicit Symbol(const std::string& k);
 
-  std::string key;
+  std::string         key;
   std::vector<Syntax> ruleset;
 
   Result
@@ -108,9 +109,8 @@ struct Grammar
   Result
   Flatten(const std::string& rule);
 
-  std::map<std::string, Symbol>                      rules;
+  std::map<std::string, Symbol>                    rules;
   std::map<std::string, std::shared_ptr<Modifier>> modifiers;
 };
 
 #endif  // CORE_TRACERY_H
-

@@ -127,35 +127,35 @@ struct SyntaxPartRule : public SyntaxPart
 
   Result
   Flatten(GeneratorArgument* generator) override
-{
-  Result result = generator->grammar->GetStringFromSymbol(rule[0], generator);
-  if(result == false)
   {
-    return result;
-  }
-
-  std::string ret = result.GetText();
-
-  bool functions = false;
-  for(const std::string& f : rule)
-  {
-    if(functions)
+    Result result = generator->grammar->GetStringFromSymbol(rule[0], generator);
+    if(result == false)
     {
-      Result r = generator->grammar->ApplyModifier(f, ret);
-      if(r == false)
+      return result;
+    }
+
+    std::string ret = result.GetText();
+
+    bool functions = false;
+    for(const std::string& f : rule)
+    {
+      if(functions)
       {
-        return r;
+        Result r = generator->grammar->ApplyModifier(f, ret);
+        if(r == false)
+        {
+          return r;
+        }
+        ret = r.GetText();
       }
-      ret = r.GetText();
+      else
+      {
+        functions = true;
+      }
     }
-    else
-    {
-      functions = true;
-    }
-  }
 
-  return Result(Result::NO_ERROR) << ret;
-}
+    return Result(Result::NO_ERROR) << ret;
+  }
 };
 
 
@@ -163,34 +163,35 @@ struct SyntaxPartRule : public SyntaxPart
 // Result
 
 Result::Result(Type t)
-      : type(t)
-  {
-  }
+    : type(t)
+{
+}
 
-  Result&
-  Result::operator<<(const std::string& t)
-  {
-    text.push_back(t);
-    return *this;
-  }
+Result&
+Result::operator<<(const std::string& t)
+{
+  text.push_back(t);
+  return *this;
+}
 
 Result::operator bool() const
-  {
-    return type == NO_ERROR;
-  }
+{
+  return type == NO_ERROR;
+}
 
-  std::string
-  Result::GetText() const
+std::string
+Result::GetText() const
+{
+  assert(text.size() == 1);
+  if(text.size() == 0)
   {
-    assert(text.size() == 1);
-    if(text.size() == 0)
-    {
-      return "";
-    }
-    return text[0];
+    return "";
   }
+  return text[0];
+}
 
-std::ostream& operator<<(std::ostream& o, const Result& r)
+std::ostream&
+operator<<(std::ostream& o, const Result& r)
 {
   switch(r.type)
   {
@@ -226,28 +227,55 @@ std::ostream& operator<<(std::ostream& o, const Result& r)
 // ----------------------------------------------------------------
 
 Syntax::Syntax()
-  {
-  }
+{
+}
 
-  Result
-  Syntax::Compile(const std::string& s)
+Result
+Syntax::Compile(const std::string& s)
+{
+  const char  START_CHAR = '#';
+  const char  END_CHAR   = '#';
+  bool        escape     = false;
+  bool        rule       = false;
+  std::string buffer     = "";
+  for(char c : s)
   {
-    const char  START_CHAR = '#';
-    const char  END_CHAR   = '#';
-    bool        escape     = false;
-    bool        rule       = false;
-    std::string buffer     = "";
-    for(char c : s)
+    if(rule)
     {
-      if(rule)
+      // todo: parse rules in a prettier way
+      if(c == END_CHAR)
       {
-        // todo: parse rules in a prettier way
-        if(c == END_CHAR)
+        rule = false;
+        if(buffer.empty() == false)
         {
-          rule = false;
+          Add(new SyntaxPartRule(buffer));
+          buffer = "";
+        }
+      }
+      else
+      {
+        buffer += c;
+      }
+    }
+    else
+    {
+      if(escape)
+      {
+        escape = false;
+        buffer += c;
+      }
+      else
+      {
+        if(c == '\\')
+        {
+          escape = true;
+        }
+        else if(c == START_CHAR)
+        {
+          rule = true;
           if(buffer.empty() == false)
           {
-            Add(new SyntaxPartRule(buffer));
+            Add(new SyntaxPartText(buffer));
             buffer = "";
           }
         }
@@ -256,102 +284,75 @@ Syntax::Syntax()
           buffer += c;
         }
       }
-      else
-      {
-        if(escape)
-        {
-          escape = false;
-          buffer += c;
-        }
-        else
-        {
-          if(c == '\\')
-          {
-            escape = true;
-          }
-          else if(c == START_CHAR)
-          {
-            rule = true;
-            if(buffer.empty() == false)
-            {
-              Add(new SyntaxPartText(buffer));
-              buffer = "";
-            }
-          }
-          else
-          {
-            buffer += c;
-          }
-        }
-      }
     }
-
-    if(rule)
-    {
-      return Result(Result::RULE_EOF) << s;
-    }
-    else
-    {
-      if(buffer.empty() == false)
-      {
-        Add(new SyntaxPartText(buffer));
-        buffer = "";
-      }
-    }
-
-    return Result(Result::NO_ERROR);
   }
 
-  Result
-  Syntax::Flatten(GeneratorArgument* gen)
+  if(rule)
   {
-    std::string ret;
-    for(std::shared_ptr<SyntaxPart> s : syntax)
+    return Result(Result::RULE_EOF) << s;
+  }
+  else
+  {
+    if(buffer.empty() == false)
     {
-      const Result r = s->Flatten(gen);
-      if(r == false)
-        return r;
-      ret += r.GetText();
+      Add(new SyntaxPartText(buffer));
+      buffer = "";
     }
-    return Result(Result::NO_ERROR) << ret;
   }
 
-  void
-  Syntax::Add(SyntaxPart* s)
+  return Result(Result::NO_ERROR);
+}
+
+Result
+Syntax::Flatten(GeneratorArgument* gen)
+{
+  std::string ret;
+  for(std::shared_ptr<SyntaxPart> s : syntax)
   {
-    std::shared_ptr<SyntaxPart> p(s);
-    syntax.push_back(p);
+    const Result r = s->Flatten(gen);
+    if(r == false)
+      return r;
+    ret += r.GetText();
   }
+  return Result(Result::NO_ERROR) << ret;
+}
+
+void
+Syntax::Add(SyntaxPart* s)
+{
+  std::shared_ptr<SyntaxPart> p(s);
+  syntax.push_back(p);
+}
 
 
 // ----------------------------------------------------------------
 // Symbol
-Symbol::Symbol(const std::string& k) : key(k)
-  {
-  }
+Symbol::Symbol(const std::string& k)
+    : key(k)
+{
+}
 
-  Result
-  Symbol::AddRule(const std::string& rule)
+Result
+Symbol::AddRule(const std::string& rule)
+{
+  Syntax syntax;
+  Result r = syntax.Compile(rule);
+  if(r)
   {
-    Syntax syntax;
-    Result r = syntax.Compile(rule);
-    if(r)
-    {
-      ruleset.push_back(syntax);
-    }
-    return r;
+    ruleset.push_back(syntax);
   }
+  return r;
+}
 
-  Result
-  Symbol::Flatten(GeneratorArgument* gen)
-  {
-    ASSERT(gen);
-    ASSERTX(ruleset.empty() == false, key);
-    std::uniform_int_distribution<size_t> distribution(0, ruleset.size() - 1);
-    size_t                                index = distribution(gen->generator);
-    return ruleset[index].Flatten(gen);
-  }
-
+Result
+Symbol::Flatten(GeneratorArgument* gen)
+{
+  ASSERT(gen);
+  ASSERTX(ruleset.empty() == false, key);
+  std::uniform_int_distribution<size_t> distribution(0, ruleset.size() - 1);
+  size_t                                index = distribution(gen->generator);
+  return ruleset[index].Flatten(gen);
+}
 
 
 // ----------------------------------------------------------------
@@ -533,88 +534,87 @@ namespace english
         .RegisterModifier("s", new FuncModifier(s))
         .RegisterModifier("ed", new FuncModifier(ed));
   }
-} // namespace english
+}  // namespace english
 
 // ----------------------------------------------------------------
 // Grammar
 
 Grammar::Grammar()
+{
+}
+
+void
+Grammar::RegisterEnglish()
+{
+  english::Register(this);
+}
+
+Result
+Grammar::LoadFromString(const std::string& data)
+{
+  rapidjson::Document doc;
+  doc.Parse(data.c_str());
+  const rapidjson::ParseResult ok = doc;
+  if(!ok)
   {
+    return Result(Result::JSON_PARSE) << rapidjson::GetParseError_En(ok.Code());
   }
 
-  void
-  Grammar::RegisterEnglish()
+  for(rapidjson::Value::ConstMemberIterator itr = doc.MemberBegin();
+      itr != doc.MemberEnd();
+      ++itr)
   {
-    english::Register(this);
-  }
-
-  Result
-  Grammar::LoadFromString(const std::string& data)
-  {
-    rapidjson::Document doc;
-    doc.Parse(data.c_str());
-    const rapidjson::ParseResult ok = doc;
-    if(!ok)
+    const std::string ruleName = itr->name.GetString();
+    Symbol            rule{ruleName};
+    Result            r = FromJson(&rule, itr->value);
+    if(r == false)
     {
-      return Result(Result::JSON_PARSE)
-             << rapidjson::GetParseError_En(ok.Code());
+      return r;
     }
-
-    for(rapidjson::Value::ConstMemberIterator itr = doc.MemberBegin();
-        itr != doc.MemberEnd();
-        ++itr)
-    {
-      const std::string ruleName = itr->name.GetString();
-      Symbol              rule{ruleName};
-      Result            r = FromJson(&rule, itr->value);
-      if(r == false)
-      {
-        return r;
-      }
-      rules.insert(std::make_pair(ruleName, rule));
-    }
-
-    return Result(Result::NO_ERROR);
+    rules.insert(std::make_pair(ruleName, rule));
   }
 
-  Result
-  Grammar::GetStringFromSymbol(const std::string& rule, GeneratorArgument* generator)
+  return Result(Result::NO_ERROR);
+}
+
+Result
+Grammar::GetStringFromSymbol(
+    const std::string& rule, GeneratorArgument* generator)
+{
+  const auto found = rules.find(rule);
+  if(found == rules.end())
   {
-    const auto found = rules.find(rule);
-    if(found == rules.end())
-    {
-      // todo: handle errors better
-      return Result(Result::MISSING_RULE) << rule;
-    }
-    return found->second.Flatten(generator);
+    // todo: handle errors better
+    return Result(Result::MISSING_RULE) << rule;
   }
+  return found->second.Flatten(generator);
+}
 
-  Grammar&
-  Grammar::RegisterModifier(const std::string& name, Modifier* m)
+Grammar&
+Grammar::RegisterModifier(const std::string& name, Modifier* m)
+{
+  std::shared_ptr<Modifier> mod(m);
+  modifiers.insert(std::make_pair(name, mod));
+  return *this;
+}
+
+Result
+Grammar::ApplyModifier(const std::string& name, const std::string& data)
+{
+  auto r = modifiers.find(name);
+  if(r == modifiers.end())
   {
-    std::shared_ptr<Modifier> mod(m);
-    modifiers.insert(std::make_pair(name, mod));
-    return *this;
+    return Result(Result::INVALID_MODIFIER) << name;
   }
+  return r->second->ApplyModifier(data);
+}
 
-  Result
-  Grammar::ApplyModifier(const std::string& name, const std::string& data)
-  {
-    auto r = modifiers.find(name);
-    if(r == modifiers.end())
-    {
-      return Result(Result::INVALID_MODIFIER) << name;
-    }
-    return r->second->ApplyModifier(data);
-  }
-
-  Result
-  Grammar::Flatten(const std::string& rule)
-  {
-    GeneratorArgument generator;
-    generator.grammar = this;
-    Syntax syntax;
-    syntax.Compile(rule);
-    return syntax.Flatten(&generator);
-  }
-
+Result
+Grammar::Flatten(const std::string& rule)
+{
+  GeneratorArgument generator;
+  generator.grammar = this;
+  Syntax syntax;
+  syntax.Compile(rule);
+  return syntax.Flatten(&generator);
+}
