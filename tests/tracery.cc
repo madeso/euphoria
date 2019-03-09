@@ -76,5 +76,36 @@ TEST_CASE("tracery-all", "[tracery]")
     REQUIRE(expansion_result);
     CHECK(expansion_result.GetText() == "doggo");
   }
+
+  SECTION("func a")
+  {
+    const auto loaded = g.LoadFromString(R"(
+      {
+        "dog": "dog",
+        "animal": "#dog.a#"
+      }
+    )");
+    REQUIRE(loaded);
+
+    const auto expansion_result = g.Flatten("#animal#");
+    REQUIRE(expansion_result);
+    CHECK(expansion_result.GetText() == "a dog");
+  }
+
+
+  SECTION("func s")
+  {
+    const auto loaded = g.LoadFromString(R"(
+      {
+        "dog": "dog",
+        "animal": "#dog.s#"
+      }
+    )");
+    REQUIRE(loaded);
+
+    const auto expansion_result = g.Flatten("#animal#");
+    REQUIRE(expansion_result);
+    CHECK(expansion_result.GetText() == "dogs");
+  }
 }
 

@@ -369,9 +369,6 @@ Modifier::~Modifier()
 
 namespace english
 {
-  void
-  Register(Grammar* g);
-
   bool
   isVowel(char c)
   {
@@ -474,15 +471,6 @@ namespace english
     }
   }
 
-  /*
-  std::string firstS(const std::string& s) {
-  auto s2 = split(s, ' ');
-
-  var finished = s(s2[0]) + " " + s2.slice(1).join(" ");
-  console.log(finished);
-  return finished;
-  }*/
-
   std::string
   ed(const std::string& s)
   {
@@ -508,10 +496,11 @@ namespace english
   }
 
 
+  template<typename Func>
   struct FuncModifier : public Modifier
   {
-    std::function<std::string(std::string)> func;
-    FuncModifier(std::function<std::string(std::string)> f)
+    Func func;
+    FuncModifier(Func f)
         : func(f)
     {
     }
@@ -524,15 +513,20 @@ namespace english
     }
   };
 
+  template<typename T> Modifier* NewModifier(T func)
+  {
+    return new FuncModifier<T>(func);
+  }
+
 
   void
   Register(Grammar* g)
   {
-    g->RegisterModifier("capitalizeAll", new FuncModifier(capitalizeAll))
-        .RegisterModifier("capitalize", new FuncModifier(capitalize))
-        .RegisterModifier("a", new FuncModifier(a))
-        .RegisterModifier("s", new FuncModifier(s))
-        .RegisterModifier("ed", new FuncModifier(ed));
+    g->RegisterModifier("capitalizeAll", NewModifier(capitalizeAll))
+        .RegisterModifier("capitalize", NewModifier(capitalize))
+        .RegisterModifier("a", NewModifier(a))
+        .RegisterModifier("s", NewModifier(s))
+        .RegisterModifier("ed", NewModifier(ed));
   }
 }  // namespace english
 
