@@ -229,8 +229,24 @@ Rule::Rule()
 }
 
 Result
+ParseError(TextFileParser* parser)
+{
+  return Result(Result::GENERAL_RULE_PARSE_ERROR)
+    << parser->PeekString()
+    << " detected but ";
+}
+
+Result
 Rule::Compile(const std::string& s)
 {
+#define EMPTY_STRING(str, err) \
+  do {\
+            if(str.empty())\
+            {\
+              return ParseError(&parser) << err;\
+            }\
+  } while(false)
+
   auto parser = TextFileParser{s};
   std::ostringstream buffer;
   while(parser.HasMore())
@@ -255,60 +271,35 @@ Rule::Compile(const std::string& s)
           {
             parser.ReadChar();
             const auto key_name = parser.ReadIdent();
-            if(key_name.empty())
-            {
-              return Result(Result::GENERAL_RULE_PARSE_ERROR)
-                << "Empty key, but found "
-                << parser.PeekString();
-            }
+            EMPTY_STRING(key_name, "got empty key");
 
             if(false == parser.ExpectChar(':'))
             {
-              return Result(Result::GENERAL_RULE_PARSE_ERROR)
-                << "Expected : after key name but found "
-                << parser.PeekString();
+              return ParseError(&parser) << "expected : after key name";
             }
             if(parser.PeekChar() == '#')
             {
               parser.ReadChar();
               const auto symbol_name = parser.ReadIdent();
-              if(symbol_name.empty())
-              {
-                return Result(Result::GENERAL_RULE_PARSE_ERROR)
-                  << "Empty symbol name but found "
-                  << parser.PeekString();
-              }
+              EMPTY_STRING(symbol_name, "got empty symbol name");
 
               if(false == parser.ExpectChar('#'))
               {
-                return Result(Result::GENERAL_RULE_PARSE_ERROR)
-                  << "Expected # to end symbol name but found "
-                  << parser.PeekString();
+                return ParseError(&parser) << "expected # to end symbol name";
               }
             }
             else
             {
               const auto command = parser.ReadIdent();
-              if(command.empty())
-              {
-                return Result(Result::GENERAL_RULE_PARSE_ERROR)
-                  << "empty command but found "
-                  << parser.PeekString();
-              }
+              EMPTY_STRING(command, "got empty command");
             }
             if(false == parser.ExpectChar(']'))
             {
-              return Result(Result::GENERAL_RULE_PARSE_ERROR)
-                << "Expected ] but found "
-                << parser.PeekString();
+              return ParseError(&parser) << "expected ]";
             }
           }
           const auto symbol_name = parser.ReadIdent();
-          if(symbol_name.empty())
-          {
-            return Result(Result::GENERAL_RULE_PARSE_ERROR)
-              << "Empty symbol name";
-          }
+          EMPTY_STRING(symbol_name, "Empty symbol name");
           auto* n = new CallSymbolNode();
           n->symbol = symbol_name;
           bool run = true;
@@ -358,6 +349,7 @@ Rule::Compile(const std::string& s)
   }
 
   return Result(Result::NO_ERROR);
+#undef EMPTY_STRING
 }
 
 Result

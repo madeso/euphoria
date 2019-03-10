@@ -51,6 +51,9 @@ TextFileParser::PeekString(unsigned int advance)
   std::ostringstream ss;
   switch(c)
   {
+    case 0:
+      ss << "<null>";
+      break;
     case ' ':
       ss << "<space>";
       break;
