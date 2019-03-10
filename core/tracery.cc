@@ -52,6 +52,7 @@ struct GeneratorArgument
 {
   Generator* generator;
   Grammar*  grammar;
+  std::map<std::string, std::string> overriden_rules;
 };
 
 Result
@@ -137,7 +138,19 @@ struct CallSymbolNode : public Node
   Result
   Flatten(GeneratorArgument* generator) override
   {
-    Result result = generator->grammar->GetStringFromSymbol(symbol, generator);
+    GeneratorArgument arg = *generator;
+
+    for(const auto& r: action_rules)
+    {
+      const Result result = arg.grammar->GetStringFromSymbol(r.symbol, &arg);
+      if(result == false)
+      {
+        return result;
+      }
+      arg.overriden_rules[r.key] = result.GetText();
+    }
+
+    Result result = arg.grammar->GetStringFromSymbol(symbol, &arg);
     if(result == false)
     {
       return result;
@@ -629,6 +642,12 @@ Result
 Grammar::GetStringFromSymbol(
     const std::string& rule, GeneratorArgument* generator)
 {
+  const auto has_overriden = generator->overriden_rules.find(rule);
+  if(has_overriden != generator->overriden_rules.end())
+  {
+    return Result(Result::NO_ERROR) << has_overriden->second;
+  }
+
   const auto found = rules.find(rule);
   if(found == rules.end())
   {
