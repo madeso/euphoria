@@ -232,22 +232,23 @@ Result
 Rule::Compile(const std::string& s)
 {
   auto parser = TextFileParser{s};
-  std::string buffer     = "";
+  std::ostringstream buffer;
   while(parser.HasMore())
   {
     auto c = parser.ReadChar();
     switch(c)
     {
       case '\\':
-      buffer += parser.ReadChar();
+      buffer << parser.ReadChar();
       break;
 
       case '#':
         {
-          if(buffer.empty() == false)
+          const auto text = buffer.str();
+          buffer.str("");
+          if(text.empty() == false)
           {
-            Add(new LiteralStringNode(buffer));
-            buffer = "";
+            Add(new LiteralStringNode(text));
           }
           auto* n = new CallSymbolNode();
           n->symbol = parser.ReadIdent();
@@ -281,14 +282,14 @@ Rule::Compile(const std::string& s)
       break;
 
       default:
-      buffer += c;
+      buffer << c;
     }
   }
 
-  if(buffer.empty() == false)
+  const auto text = buffer.str();
+  if(text.empty() == false)
   {
-    Add(new LiteralStringNode(buffer));
-    buffer = "";
+    Add(new LiteralStringNode(text));
   }
 
   return Result(Result::NO_ERROR);
