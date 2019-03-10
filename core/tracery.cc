@@ -125,8 +125,20 @@ struct CallSymbolNode : public Node
   {
   }
 
+  struct ActionRule
+  {
+    std::string key;
+    std::string symbol;
+  };
+
   std::string symbol;
   std::vector<std::string> modifiers;
+  std::vector<ActionRule> action_rules;
+
+  void AddActionRule(const std::string& key, const std::string& symbol)
+  {
+    action_rules.push_back(ActionRule{key, symbol});
+  }
 
   Result
   Flatten(GeneratorArgument* generator) override
@@ -289,6 +301,7 @@ Rule::Compile(const std::string& s)
               const auto symbol_name = parser.ReadIdent();
               EMPTY_STRING(symbol_name, "got empty symbol name");
               EXPECT_CHAR('#', "expected # to end symbol name");
+              n->AddActionRule(key_name, symbol_name);
             }
             else
             {
