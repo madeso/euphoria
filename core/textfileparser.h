@@ -14,6 +14,15 @@ class TextFileParser
   char
   PeekChar(unsigned int advance = 0);
 
+  // like PeekChar but returns human readable strings for some chars
+  std::string
+  PeekString(unsigned int advance = 0);
+
+  // if peekchar(0) is c then it is read and function returns true, 
+  // otherwise false
+  bool
+  ExpectChar(char c);
+
   void
   AdvanceChar();
   char

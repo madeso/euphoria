@@ -56,7 +56,7 @@ TEST_CASE("tracery-all", "[tracery]")
     // to actually enter a \ into the json string
     const auto loaded = g.LoadFromString(R"(
       {
-        "esc": "#"
+        "esc": "#dog"
       }
     )");
     REQUIRE(loaded.type == Result::RULE_EOF);
@@ -106,6 +106,23 @@ TEST_CASE("tracery-all", "[tracery]")
     const auto expansion_result = g.Flatten("#animal#");
     REQUIRE(expansion_result);
     CHECK(expansion_result.GetText() == "dogs");
+  }
+
+  SECTION("push rules")
+  {
+    const auto loaded = g.LoadFromString(R"(
+      {
+        "dog": "dog",
+          "name": ["dog"]
+        ,	"story": ["#hero# is good"]
+        ,	"origin": ["#[hero:#name#]story#"]
+      }
+    )");
+    REQUIRE(loaded);
+
+    const auto expansion_result = g.Flatten("#origin#");
+    REQUIRE(expansion_result);
+    CHECK(expansion_result.GetText() == "dog is good");
   }
 }
 

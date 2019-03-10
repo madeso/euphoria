@@ -40,10 +40,49 @@ TextFileParser::PeekChar(unsigned int advance)
   {
     return string_[p];
   }
-
-
   return 0;
 }
+
+
+std::string
+TextFileParser::PeekString(unsigned int advance)
+{
+  const auto c = PeekChar(advance);
+  std::ostringstream ss;
+  switch(c)
+  {
+    case ' ':
+      ss << "<space>";
+      break;
+    case '\n':
+      ss << "<newline>";
+      break;
+    case '\t':
+      ss << "<tab>";
+      break;
+    default:
+      ss << c;
+      break;
+  }
+  return ss.str();
+}
+
+// if peekchar(0) is c then it is read and function returns true, 
+// otherwise false
+bool
+TextFileParser::ExpectChar(char c)
+{
+  if(PeekChar() == c)
+  {
+    ReadChar();
+    return true;
+  }
+  else
+  {
+    return false;
+  }
+}
+
 
 char
 TextFileParser::ReadChar()

@@ -251,8 +251,66 @@ Rule::Compile(const std::string& s)
           {
             Add(new LiteralStringNode(text));
           }
+          while(parser.PeekChar() == '[')
+          {
+            parser.ReadChar();
+            const auto key_name = parser.ReadIdent();
+            if(key_name.empty())
+            {
+              return Result(Result::GENERAL_RULE_PARSE_ERROR)
+                << "Empty key, but found "
+                << parser.PeekString();
+            }
+
+            if(false == parser.ExpectChar(':'))
+            {
+              return Result(Result::GENERAL_RULE_PARSE_ERROR)
+                << "Expected : after key name but found "
+                << parser.PeekString();
+            }
+            if(parser.PeekChar() == '#')
+            {
+              parser.ReadChar();
+              const auto symbol_name = parser.ReadIdent();
+              if(symbol_name.empty())
+              {
+                return Result(Result::GENERAL_RULE_PARSE_ERROR)
+                  << "Empty symbol name but found "
+                  << parser.PeekString();
+              }
+
+              if(false == parser.ExpectChar('#'))
+              {
+                return Result(Result::GENERAL_RULE_PARSE_ERROR)
+                  << "Expected # to end symbol name but found "
+                  << parser.PeekString();
+              }
+            }
+            else
+            {
+              const auto command = parser.ReadIdent();
+              if(command.empty())
+              {
+                return Result(Result::GENERAL_RULE_PARSE_ERROR)
+                  << "empty command but found "
+                  << parser.PeekString();
+              }
+            }
+            if(false == parser.ExpectChar(']'))
+            {
+              return Result(Result::GENERAL_RULE_PARSE_ERROR)
+                << "Expected ] but found "
+                << parser.PeekString();
+            }
+          }
+          const auto symbol_name = parser.ReadIdent();
+          if(symbol_name.empty())
+          {
+            return Result(Result::GENERAL_RULE_PARSE_ERROR)
+              << "Empty symbol name";
+          }
           auto* n = new CallSymbolNode();
-          n->symbol = parser.ReadIdent();
+          n->symbol = symbol_name;
           bool run = true;
           while(run && parser.HasMore())
           {
