@@ -177,12 +177,12 @@ Result::operator bool() const
 std::string
 Result::GetText() const
 {
-  assert(text.size() == 1);
-  if(text.size() == 0)
+  std::ostringstream ss;
+  for(const auto& s: text)
   {
-    return "";
+    ss << s;
   }
-  return text[0];
+  return ss.str();
 }
 
 std::ostream&
@@ -211,8 +211,8 @@ operator<<(std::ostream& o, const Result& r)
     case Result::INVALID_MODIFIER:
       o << "Invalid modifier: " << r.GetText();
       break;
-    case Result::PARSE_INVALID_MOD_CHAR:
-      o << "Detected invalid char when parsing modifier: " << r.GetText();
+    case Result::GENERAL_RULE_PARSE_ERROR:
+      o << "Rule parse error: " << r.GetText();
       break;
     default:
       o << "Unhandled error";
@@ -274,7 +274,8 @@ Rule::Compile(const std::string& s)
               default:
                 {
                   const auto c = parser.ReadChar();
-                  return Result(Result::PARSE_INVALID_MOD_CHAR) << (Str() << c);
+                  return Result(Result::GENERAL_RULE_PARSE_ERROR)
+                    << "Unknown character inside ##: " << (Str() << c);
                 }
             }
           }
