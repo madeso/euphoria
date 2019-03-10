@@ -124,5 +124,22 @@ TEST_CASE("tracery-all", "[tracery]")
     REQUIRE(expansion_result);
     CHECK(expansion_result.GetText() == "dog is good");
   }
+
+  SECTION("advanced push")
+  {
+    const auto loaded = g.LoadFromString(R"(
+      {
+        "origin":"I love #[animal:#cat#]say# and #[animal:POP]say#",
+        "say":"#animal.s#",
+        "animal": "dog",
+        "cat":"cat"
+      }
+    )");
+    REQUIRE(loaded);
+
+    const auto expansion_result = g.Flatten("#origin#");
+    REQUIRE(expansion_result);
+    CHECK(expansion_result.GetText() == "I love cats and dogs");
+  }
 }
 
