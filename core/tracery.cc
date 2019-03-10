@@ -235,15 +235,16 @@ Rule::Compile(const std::string& s)
   std::ostringstream buffer;
   while(parser.HasMore())
   {
-    auto c = parser.ReadChar();
-    switch(c)
+    switch(parser.PeekChar())
     {
       case '\\':
-      buffer << parser.ReadChar();
-      break;
+        parser.ReadChar();
+        buffer << parser.ReadChar();
+        break;
 
       case '#':
         {
+          parser.ReadChar();
           const auto text = buffer.str();
           buffer.str("");
           if(text.empty() == false)
@@ -255,22 +256,26 @@ Rule::Compile(const std::string& s)
           bool run = true;
           while(run && parser.HasMore())
           {
-            const auto c = parser.ReadChar();
-            switch(c)
+            switch(parser.PeekChar())
             {
               case '.':
-              {
-                const auto mod = parser.ReadIdent();
-                n->modifiers.push_back(mod);
-              }
-              break;
+                {
+                  parser.ReadChar();
+                  const auto mod = parser.ReadIdent();
+                  n->modifiers.push_back(mod);
+                }
+                break;
 
               case '#':
-              run = false;
-              break;
+                parser.ReadChar();
+                run = false;
+                break;
 
               default:
-              return Result(Result::PARSE_INVALID_MOD_CHAR) << (Str() << c);
+                {
+                  const auto c = parser.ReadChar();
+                  return Result(Result::PARSE_INVALID_MOD_CHAR) << (Str() << c);
+                }
             }
           }
           Add(n);
@@ -279,10 +284,11 @@ Rule::Compile(const std::string& s)
             return Result(Result::RULE_EOF);
           }
         }
-      break;
+        break;
 
       default:
-      buffer << c;
+        buffer << parser.ReadChar();
+        break;
     }
   }
 
