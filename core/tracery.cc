@@ -15,6 +15,8 @@
 #include "rapidjson/error/en.h"
 
 #include "core/assert.h"
+#include "core/textfileparser.h"
+#include "core/str.h"
 
 // ----------------------------------------------------------------
 // Common (to be removed)
@@ -119,16 +121,17 @@ struct LiteralStringNode : public Node
 
 struct CallSymbolNode : public Node
 {
-  CallSymbolNode(const std::string& d)
-      : rule(split(d, '.'))
+  CallSymbolNode()
   {
   }
-  std::vector<std::string> rule;
+
+  std::string symbol;
+  std::vector<std::string> modifiers;
 
   Result
   Flatten(GeneratorArgument* generator) override
   {
-    Result result = generator->grammar->GetStringFromSymbol(rule[0], generator);
+    Result result = generator->grammar->GetStringFromSymbol(symbol, generator);
     if(result == false)
     {
       return result;
@@ -136,22 +139,14 @@ struct CallSymbolNode : public Node
 
     std::string ret = result.GetText();
 
-    bool functions = false;
-    for(const std::string& f : rule)
+    for(const std::string& f : modifiers)
     {
-      if(functions)
+      Result r = generator->grammar->ApplyModifier(f, ret);
+      if(r == false)
       {
-        Result r = generator->grammar->ApplyModifier(f, ret);
-        if(r == false)
-        {
-          return r;
-        }
-        ret = r.GetText();
+        return r;
       }
-      else
-      {
-        functions = true;
-      }
+      ret = r.GetText();
     }
 
     return Result(Result::NO_ERROR) << ret;
@@ -216,6 +211,9 @@ operator<<(std::ostream& o, const Result& r)
     case Result::INVALID_MODIFIER:
       o << "Invalid modifier: " << r.GetText();
       break;
+    case Result::PARSE_INVALID_MOD_CHAR:
+      o << "Detected invalid char when parsing modifier: " << r.GetText();
+      break;
     default:
       o << "Unhandled error";
       break;
@@ -248,7 +246,23 @@ Rule::Compile(const std::string& s)
         rule = false;
         if(buffer.empty() == false)
         {
-          Add(new CallSymbolNode(buffer));
+          auto* n = new CallSymbolNode();
+          auto parser = TextFileParser{buffer};
+          n->symbol = parser.ReadIdent();
+          while(parser.HasMore())
+          {
+            const auto c = parser.ReadChar();
+            if(c == '.')
+            {
+              const auto mod = parser.ReadIdent();
+              n->modifiers.push_back(mod);
+            }
+            else
+            {
+              return Result(Result::PARSE_INVALID_MOD_CHAR) << (Str() << c);
+            }
+          }
+          Add(n);
           buffer = "";
         }
       }

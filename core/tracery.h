@@ -16,7 +16,8 @@ struct Result
     MISSING_RULE,
     RULE_EOF,
     INVALID_JSON,
-    INVALID_MODIFIER
+    INVALID_MODIFIER,
+    PARSE_INVALID_MOD_CHAR
   };
 
   Type                     type;
