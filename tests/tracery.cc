@@ -77,6 +77,21 @@ TEST_CASE("tracery-all", "[tracery]")
     CHECK(expansion_result.GetText() == "doggo");
   }
 
+  SECTION("weird name rules")
+  {
+    const auto loaded = g.LoadFromString(R"(
+      {
+        "animal-dog": "doggo",
+        "animal": "#animal-dog#"
+      }
+    )");
+    REQUIRE(loaded);
+
+    const auto expansion_result = g.Flatten("#animal#");
+    REQUIRE(expansion_result);
+    CHECK(expansion_result.GetText() == "doggo");
+  }
+
   SECTION("func a")
   {
     const auto loaded = g.LoadFromString(R"(
