@@ -52,7 +52,7 @@ struct GeneratorArgument
 {
   Generator* generator;
   Grammar*  grammar;
-  std::map<std::string, std::string> overriden_rules;
+  std::map<std::string, std::string> overridden_rules;
 };
 
 Result
@@ -147,7 +147,7 @@ struct CallSymbolNode : public Node
       {
         return result;
       }
-      arg.overriden_rules[r.key] = result.GetText();
+      arg.overridden_rules[r.key] = result.GetText();
     }
 
     Result result = arg.grammar->GetStringFromSymbol(symbol, &arg);
@@ -642,10 +642,10 @@ Result
 Grammar::GetStringFromSymbol(
     const std::string& rule, GeneratorArgument* generator)
 {
-  const auto has_overriden = generator->overriden_rules.find(rule);
-  if(has_overriden != generator->overriden_rules.end())
+  const auto has_overridden = generator->overridden_rules.find(rule);
+  if(has_overridden != generator->overridden_rules.end())
   {
-    return Result(Result::NO_ERROR) << has_overriden->second;
+    return Result(Result::NO_ERROR) << has_overridden->second;
   }
 
   const auto found = rules.find(rule);
