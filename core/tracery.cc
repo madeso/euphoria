@@ -247,6 +247,14 @@ Rule::Compile(const std::string& s)
             }\
   } while(false)
 
+#define EXPECT_CHAR(chr, err) \
+  do { \
+    if(false == parser.ExpectChar(chr)) \
+    { \
+      return ParseError(&parser) << err; \
+    } \
+  } while(false)
+
   auto parser = TextFileParser{s};
   std::ostringstream buffer;
   while(parser.HasMore())
@@ -265,42 +273,32 @@ Rule::Compile(const std::string& s)
           buffer.str("");
           if(text.empty() == false)
           {
-            Add(new LiteralStringNode(text));
+            Add(std::make_shared<LiteralStringNode>(text));
           }
+          auto n = std::make_shared<CallSymbolNode>();
           while(parser.PeekChar() == '[')
           {
             parser.ReadChar();
             const auto key_name = parser.ReadIdent();
             EMPTY_STRING(key_name, "got empty key");
 
-            if(false == parser.ExpectChar(':'))
-            {
-              return ParseError(&parser) << "expected : after key name";
-            }
+            EXPECT_CHAR(':', "expected : after key name");
             if(parser.PeekChar() == '#')
             {
               parser.ReadChar();
               const auto symbol_name = parser.ReadIdent();
               EMPTY_STRING(symbol_name, "got empty symbol name");
-
-              if(false == parser.ExpectChar('#'))
-              {
-                return ParseError(&parser) << "expected # to end symbol name";
-              }
+              EXPECT_CHAR('#', "expected # to end symbol name");
             }
             else
             {
               const auto command = parser.ReadIdent();
               EMPTY_STRING(command, "got empty command");
             }
-            if(false == parser.ExpectChar(']'))
-            {
-              return ParseError(&parser) << "expected ]";
-            }
+            EXPECT_CHAR(']', "expected ]");
           }
           const auto symbol_name = parser.ReadIdent();
           EMPTY_STRING(symbol_name, "Empty symbol name");
-          auto* n = new CallSymbolNode();
           n->symbol = symbol_name;
           bool run = true;
           while(run && parser.HasMore())
@@ -345,10 +343,11 @@ Rule::Compile(const std::string& s)
   const auto text = buffer.str();
   if(text.empty() == false)
   {
-    Add(new LiteralStringNode(text));
+    Add(std::make_shared<LiteralStringNode>(text));
   }
 
   return Result(Result::NO_ERROR);
+#undef EXPECT_CHAR
 #undef EMPTY_STRING
 }
 
@@ -367,9 +366,8 @@ Rule::Flatten(GeneratorArgument* gen)
 }
 
 void
-Rule::Add(Node* s)
+Rule::Add(std::shared_ptr<Node> p)
 {
-  std::shared_ptr<Node> p(s);
   syntax.push_back(p);
 }
 

@@ -69,7 +69,7 @@ struct Rule
   Flatten(GeneratorArgument* gen);
 
   void
-  Add(Node* s);
+  Add(std::shared_ptr<Node> p);
 
   std::vector<std::shared_ptr<Node>> syntax;
 };
