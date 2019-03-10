@@ -50,14 +50,8 @@ typedef std::default_random_engine Generator;
 
 struct GeneratorArgument
 {
-  Generator generator;
+  Generator* generator;
   Grammar*  grammar;
-
-  GeneratorArgument()
-  {
-    unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
-    generator.seed(seed);
-  }
 };
 
 Result
@@ -410,7 +404,7 @@ Symbol::Flatten(GeneratorArgument* gen)
   ASSERT(gen);
   ASSERTX(ruleset.empty() == false, key);
   std::uniform_int_distribution<size_t> distribution(0, ruleset.size() - 1);
-  size_t                                index = distribution(gen->generator);
+  size_t                                index = distribution(*gen->generator);
   return ruleset[index].Flatten(gen);
 }
 
@@ -666,8 +660,12 @@ Grammar::ApplyModifier(const std::string& name, const std::string& data)
 Result
 Grammar::Flatten(const std::string& rule)
 {
+  const auto seed = std::chrono::system_clock::now().time_since_epoch().count();
+  Generator gen;
+  gen.seed(seed);
   GeneratorArgument generator;
   generator.grammar = this;
+  generator.generator = &gen;
   Rule syntax;
   syntax.Compile(rule);
   return syntax.Flatten(&generator);
