@@ -231,87 +231,64 @@ Rule::Rule()
 Result
 Rule::Compile(const std::string& s)
 {
-  const char  START_CHAR = '#';
-  const char  END_CHAR   = '#';
-  bool        escape     = false;
-  bool        rule       = false;
+  auto parser = TextFileParser{s};
   std::string buffer     = "";
-  for(char c : s)
+  while(parser.HasMore())
   {
-    if(rule)
+    auto c = parser.ReadChar();
+    switch(c)
     {
-      // todo: parse rules in a prettier way
-      if(c == END_CHAR)
-      {
-        rule = false;
-        if(buffer.empty() == false)
+      case '\\':
+      buffer += parser.ReadChar();
+      break;
+
+      case '#':
         {
-          auto* n = new CallSymbolNode();
-          auto parser = TextFileParser{buffer};
-          n->symbol = parser.ReadIdent();
-          while(parser.HasMore())
-          {
-            const auto c = parser.ReadChar();
-            if(c == '.')
-            {
-              const auto mod = parser.ReadIdent();
-              n->modifiers.push_back(mod);
-            }
-            else
-            {
-              return Result(Result::PARSE_INVALID_MOD_CHAR) << (Str() << c);
-            }
-          }
-          Add(n);
-          buffer = "";
-        }
-      }
-      else
-      {
-        buffer += c;
-      }
-    }
-    else
-    {
-      if(escape)
-      {
-        escape = false;
-        buffer += c;
-      }
-      else
-      {
-        if(c == '\\')
-        {
-          escape = true;
-        }
-        else if(c == START_CHAR)
-        {
-          rule = true;
           if(buffer.empty() == false)
           {
             Add(new LiteralStringNode(buffer));
             buffer = "";
           }
+          auto* n = new CallSymbolNode();
+          n->symbol = parser.ReadIdent();
+          bool run = true;
+          while(run && parser.HasMore())
+          {
+            const auto c = parser.ReadChar();
+            switch(c)
+            {
+              case '.':
+              {
+                const auto mod = parser.ReadIdent();
+                n->modifiers.push_back(mod);
+              }
+              break;
+
+              case '#':
+              run = false;
+              break;
+
+              default:
+              return Result(Result::PARSE_INVALID_MOD_CHAR) << (Str() << c);
+            }
+          }
+          Add(n);
+          if(run)
+          {
+            return Result(Result::RULE_EOF);
+          }
         }
-        else
-        {
-          buffer += c;
-        }
-      }
+      break;
+
+      default:
+      buffer += c;
     }
   }
 
-  if(rule)
+  if(buffer.empty() == false)
   {
-    return Result(Result::RULE_EOF) << s;
-  }
-  else
-  {
-    if(buffer.empty() == false)
-    {
-      Add(new LiteralStringNode(buffer));
-      buffer = "";
-    }
+    Add(new LiteralStringNode(buffer));
+    buffer = "";
   }
 
   return Result(Result::NO_ERROR);
