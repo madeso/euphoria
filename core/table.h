@@ -38,6 +38,15 @@ struct Table
   }
 
   void
+  Clear(T d = T())
+  {
+    for(auto& i: data)
+    {
+      i = d;
+    }
+  }
+
+  void
   NewRow(const std::vector<T>& row)
   {
     ASSERT(row.size() == width || (width == 0 && row.size() > 0));
@@ -76,7 +85,7 @@ struct Table
   }
 
   T&
-  RefValue(I x, I y) const
+  RefValue(I x, I y)
   {
     const auto index = DataIndex(x, y);
     ASSERTX(index < data.size(), index, data.size());
@@ -84,7 +93,7 @@ struct Table
   }
 
   T*
-  PtrValue(I x, I y) const
+  PtrValue(I x, I y)
   {
     const auto index = DataIndex(x, y);
     ASSERTX(index < data.size(), index, data.size());
