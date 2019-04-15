@@ -56,7 +56,7 @@ struct GeneratorArgument
 };
 
 Result
-FromJson(Symbol* rule, const rapidjson::Value& value)
+ParseJson(Symbol* rule, const rapidjson::Value& value)
 {
   if(value.IsString())
   {
@@ -88,6 +88,19 @@ FromJson(Symbol* rule, const rapidjson::Value& value)
   }
 }
 
+
+Result
+FromJson(Symbol* rule, const rapidjson::Value& value)
+{
+  auto r = ParseJson(rule, value);
+  if(r == false )
+  {
+    // todo: add json error information
+    r << "for symbol " << rule->key;
+  }
+
+  return r;
+}
 
 // ----------------------------------------------------------------
 
@@ -262,7 +275,7 @@ ReadTraceryIdent(TextFileParser* parser)
     "abcdefghijklmnopqrstuvwxyz"
     "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     "0123456789"
-    "_-";
+    "_-+";
     
   std::ostringstream ss;
   while(valid.find(parser->PeekChar()) != std::string::npos)
