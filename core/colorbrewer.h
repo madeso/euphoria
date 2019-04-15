@@ -27,8 +27,6 @@ namespace colorbrewer
 
   struct Properties
   {
-    Type type;
-
     Blind blind;
     Print print;
     Copy copy;
@@ -39,10 +37,11 @@ namespace colorbrewer
 
   struct ColorBrewer
   {
-    Map palettes;
-    Properties             properties;
+    Map        palettes;
+    Type       type;
+    Properties properties;
   };
-}  // namespace colorbrewer
+} // namespace colorbrewer
 
 namespace colorbrewer
 {
@@ -89,4 +88,4 @@ namespace colorbrewer
 
 }  // namespace colorbrewer
 
-#endif CORE_COLORBREWER_H
+#endif  // CORE_COLORBREWER_H
