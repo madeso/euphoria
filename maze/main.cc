@@ -12,7 +12,7 @@
 void main()
 {
   auto random = Random {};
-  auto maze = generator::Maze::FromWidthHeight(20, 20);
+  auto maze = generator::Maze::FromWidthHeight(30, 30);
 
   auto gen   = generator::RecursiveBacktracker{};
   gen.maze = &maze;
@@ -22,17 +22,16 @@ void main()
   auto drawer = generator::Drawer {};
   drawer.maze = &maze;
   drawer.tracker = &gen;
-
-  drawer.Draw();
-  debug::MemoryChunkToFile(drawer.image.Write(ImageWriteFormat::PNG), "maze.png");
+  drawer.cell_size = 20;
+  drawer.wall_size = 10;
 
   while(gen.HasMoreWork())
   {
     gen.Work();
-
-    drawer.Draw();
-    debug::MemoryChunkToFile(drawer.image.Write(ImageWriteFormat::PNG), "maze.png");
   }
+
+  drawer.Draw();
+  debug::MemoryChunkToFile(drawer.image.Write(ImageWriteFormat::PNG), "maze.png");
 
   /*
   auto table = ImageToStringTable(drawer.image,

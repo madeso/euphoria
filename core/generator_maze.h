@@ -65,6 +65,9 @@ namespace generator
     Rgbi cell_color;
     Rgbi cell_visited_color;
     Rgbi unit_color;
+    Rgbi corridor_color;
+
+    Rgbi CalculateCellColor(int x, int y) const;
 
     Image image;
 

@@ -14,6 +14,7 @@ namespace generator
       random->NextRange(maze->Width()),
       random->NextRange(maze->Height())
     };
+
     stack.push(random_position);
     maze->Value(random_position.x, random_position.y, Cell::Visited);
     visited_cells = 1;
@@ -94,56 +95,66 @@ namespace generator
     , cell_color( Color::Gray )
     , cell_visited_color( Color::White )
     , unit_color ( Color::Red )
+    , corridor_color ( Color::White )
   {}
+
+  Rgbi Drawer::CalculateCellColor(int x, int y) const
+  {
+    const auto cell_value = maze->Value(x,y);
+
+    if(tracker && tracker->HasMoreWork() && !tracker->stack.empty())
+    {
+      const auto t = tracker->stack.top();
+      if(x == t.x && y == t.y)
+      {
+        return unit_color;
+      }
+    }
+
+    if( cell_value & Cell::Visited )
+    {
+      return cell_visited_color;
+    }
+    else
+    {
+      return cell_color;
+    }
+  }
 
   void Drawer::Draw()
   {
     const auto path_size = cell_size + wall_size;
-    image.SetupNoAlphaSupport(
-        wall_size + maze->Width()*path_size,
-        wall_size + maze->Height() * path_size);
-    auto draw = ::Draw{&image};
 
+    image.SetupNoAlphaSupport(
+        maze->Width()*path_size,
+        maze->Height() * path_size);
+    
+    auto draw = ::Draw{&image};
     draw.Clear(wall_color);
 
     for(unsigned int x=0; x<maze->Width(); x+=1)
     {
       for(unsigned int y=0; y<maze->Height(); y+=1)
       {
+        const auto px = x * path_size;
+        const auto py = y * path_size + cell_size;
+
+        draw.Square(CalculateCellColor(x, y), px, py, cell_size);
+
         const auto xywh = [](int x, int y, int w, int h)
         {
-          return Recti::FromTopLeftWidthHeight(x,y,w,h);
+          return Recti::FromTopLeftWidthHeight(y+1,x,w,h);
         };
 
         const auto cell_value = maze->Value(x,y);
-        const auto px = wall_size + x * path_size;
-        const auto py = wall_size + y * path_size;
-        Rgbi color = cell_color;
-        if( cell_value & Cell::Visited )
-        {
-          color = cell_visited_color;
-        }
-        if(tracker && tracker->HasMoreWork() && !tracker->stack.empty())
-        {
-          const auto t = tracker->stack.top();
-          if(x == t.x && y == t.y)
-          {
-            color = unit_color;
-          }
-        }
-
-        draw.Rect(color,
-            xywh(px, py, cell_size, cell_size)
-            );
-
 
         if(cell_value & Cell::PathSouth)
         {
-          draw.Rect(cell_color, xywh(px+cell_size, py-cell_size, cell_size, wall_size));
+          draw.Rect(corridor_color, xywh(px, py-cell_size, cell_size, wall_size));
         }
         if(cell_value & Cell::PathEast)
         {
-          draw.Rect(cell_color, xywh(px+cell_size, py, wall_size, cell_size));
+          draw.Rect(corridor_color, xywh(px+cell_size, py, wall_size, cell_size));
         }
       }
     }
