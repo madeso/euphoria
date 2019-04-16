@@ -79,6 +79,15 @@ void maze(int world_width, int world_height, int cell_size, int wall_size, const
     debug::MemoryChunkToFile(drawer.image.Write(ImageWriteFormat::PNG), output.file);
   }
 
+  if(!output.single)
+  {
+    drawer.Draw();
+    for(int i=0; i<5; i+=1)
+    {
+      debug::MemoryChunkToFile(drawer.image.Write(ImageWriteFormat::PNG), output.NextFile());
+    }
+  }
+
   if(console)
   {
     auto table = ImageToStringTable(drawer.image,
