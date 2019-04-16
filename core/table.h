@@ -5,6 +5,7 @@
 
 #include "core/assert.h"
 #include "core/numeric.h"
+#include "core/rect.h"
 
 template <typename T>
 struct Table
@@ -44,6 +45,25 @@ struct Table
     {
       i = d;
     }
+  }
+
+  template<typename Func>
+  void
+  SetAll(Func f)
+  {
+    for(unsigned y=0; y<height; y+=1)
+    {
+      for(unsigned x=0; x<width; x+=1)
+      {
+        Value(x, y, f(x, y));
+      }
+    }
+  }
+
+  const Recti
+  Indices() const
+  {
+    return Recti::FromWidthHeight(width-1, height-1);
   }
 
   void
