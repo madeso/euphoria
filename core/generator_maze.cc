@@ -1,4 +1,4 @@
-#include "core/maze.h"
+#include "core/generator_maze.h"
 
 #include "core/random.h"
 #include "core/draw.h"

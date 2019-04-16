@@ -1,5 +1,5 @@
-#ifndef CORE_MAZE_H
-#define CORE_MAZE_H
+#ifndef CORE_GENERATOR_MAZE_H
+#define CORE_GENERATOR_MAZE_H
 
 #include "core/table.h"
 #include "core/vec2.h"
@@ -74,4 +74,4 @@ namespace generator
 
 }
 
-#endif  // CORE_MAZE_H
+#endif  // CORE_GENERATOR_MAZE_H
