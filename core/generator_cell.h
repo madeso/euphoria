@@ -36,7 +36,21 @@ namespace generator
     void Work();
   };
 
-  void Draw(const World& world, Image* image, Rgbi wall_color, Rgbi space_color);
+  struct CellularAutomataDrawer
+  {
+    CellularAutomataDrawer();
+
+    World* world;
+
+    Image image;
+
+    int scale = 1;
+
+    Rgbi wall_color;
+    Rgbi space_color;
+
+    void Draw();
+  };
 }
 
 #endif  // CORE_GENERATOR_CELL_H

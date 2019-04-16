@@ -126,8 +126,8 @@ namespace generator
     const auto path_size = cell_size + wall_size;
 
     image.SetupNoAlphaSupport(
-        maze->Width()*path_size,
-        maze->Height() * path_size);
+        wall_size + maze->Width()*path_size,
+        wall_size + maze->Height() * path_size);
     
     auto draw = ::Draw{&image};
     draw.Clear(wall_color);
@@ -136,8 +136,8 @@ namespace generator
     {
       for(unsigned int y=0; y<maze->Height(); y+=1)
       {
-        const auto px = x * path_size;
-        const auto py = y * path_size + cell_size;
+        const auto px = wall_size + x * path_size;
+        const auto py = wall_size + y * path_size + cell_size - 1;
 
         draw.Square(CalculateCellColor(x, y), px, py, cell_size);
 

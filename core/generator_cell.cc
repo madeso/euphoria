@@ -3,6 +3,7 @@
 #include "core/random.h"
 #include "core/draw.h"
 #include "core/colors.h"
+#include "core/image.h"
 
 namespace generator
 {
@@ -12,7 +13,10 @@ namespace generator
         if( border_control != BorderControl::Random )
         {
           const auto is_border = x==0 || x == world->Width()-1 || y==0 || y==world->Height()-1;
-          return border_control == BorderControl::AlwaysEmpty || is_border;
+          if(is_border)
+          {
+            return border_control == BorderControl::AlwaysWall;
+          }
         }
         return random->NextFloat01() < random_fill;
       }
@@ -64,9 +68,30 @@ namespace generator
     iteration += 1;
   }
 
-  void Draw(const World& world, Image* image, Rgbi wall_color, Rgbi space_color)
+  CellularAutomataDrawer::CellularAutomataDrawer()
+    : wall_color( Color::Black )
+    , space_color( Color::White )
+  {}
+
+  void CellularAutomataDrawer::Draw()
   {
-    // todo: implement me!  
+    image.SetupNoAlphaSupport(
+        world->Width() * scale,
+        world->Height() * scale);
+    
+    auto draw = ::Draw{&image};
+    draw.Clear(wall_color);
+
+    for(unsigned int x=0; x<world->Width(); x+=1)
+    {
+      for(unsigned int y=0; y<world->Height(); y+=1)
+      {
+        const auto px = x * scale;
+        const auto py = y * scale;
+        const auto color = world->Value(x,y) ? wall_color : space_color;
+        draw.Square(color, px, py, scale);
+      }
+    }
   }
 }
 
