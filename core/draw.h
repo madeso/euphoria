@@ -23,6 +23,9 @@ class Draw
   Rect(const Rgbi& color, const Recti& rect);
 
   Draw&
+  Square(const Rgbi& color, int x, int y, int size);
+
+  Draw&
   Circle(
       const Rgb&     color,
       const point2i& center,

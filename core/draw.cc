@@ -49,6 +49,14 @@ Draw::Rect(const Rgbi& color, const Recti& rect)
   return *this;
 }
 
+
+Draw&
+Draw::Square(const Rgbi& color, int x, int y, int size)
+{
+  // is the +1 right?
+  return Rect(color, Recti::FromTopLeftWidthHeight(y + 1, x, size, size));
+}
+
 Draw&
 Draw::Circle(
     const Rgb&     color,
@@ -294,13 +302,6 @@ GetCharGlyph(char ac)
 }
 
 void
-DrawSquare(Draw* image, int x, int y, const Rgbi& color, int size)
-{
-  // is the +1 right?
-  image->Rect(color, Recti::FromTopLeftWidthHeight(y + 1, x, size, size));
-}
-
-void
 PrintCharAt(
     Draw* image, const point2i pos, char c, const Rgbi& color, int scale)
 {
@@ -315,7 +316,7 @@ PrintCharAt(
       bool pixel = 0 != (glyph[7 - y] & 1 << x);
       if(pixel)
       {
-        DrawSquare(image, pos.x + x * scale, pos.y + y * scale, color, scale);
+        image->Square(color, pos.x + x * scale, pos.y + y * scale, scale);
         // image->SetPixel(pos.x+x*scale, pos.y + y*scale, color);
       }
     }
