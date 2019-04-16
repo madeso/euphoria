@@ -6,33 +6,33 @@
 namespace
 {
   float
-  Diff(const Rgb& lhs, const Rgb& rhs)
+  Diff(const Rgbi& lhs, const Rgbi& rhs)
   {
     return Square(lhs.r - rhs.r) + Square(lhs.g - rhs.g) +
            Square(lhs.b - rhs.b);
   }
 }  // namespace
 
-const Rgb&
+const Rgbi&
 Palette::GetRandomColor(Random* r) const
 {
   return r->Next(colors);
 }
 
-const Rgb&
+const Rgbi&
 Palette::GetSafeIndex(unsigned int i) const
 {
   return colors[i % colors.size()];
 }
 
-const Rgb&
-Palette::GetClosestColor(const Rgb& c) const
+const Rgbi&
+Palette::GetClosestColor(const Rgbi& c) const
 {
   return colors[GetIndexClosest(c)];
 }
 
 unsigned int
-Palette::GetIndexClosest(const Rgb& c) const
+Palette::GetIndexClosest(const Rgbi& c) const
 {
   ASSERT(!colors.empty());
   auto diff_best = Diff(c, colors[0]);
@@ -77,8 +77,8 @@ Palette::Rainbow(
   for(int i = 0; i < count; i += 1)
   {
     float d = i / static_cast<float>(count - 1);
-    pal.colors.push_back(rgb(
-        Hsl{AngleTransform::Transform(from, d, to), saturation, lightness}));
+    const auto rgbf = rgb(Hsl{AngleTransform::Transform(from, d, to), saturation, lightness});
+    pal.colors.push_back(rgbi(rgbf));
   }
   return pal;
 }
@@ -87,10 +87,10 @@ Palette::Rainbow(
 
 namespace
 {
-  Rgb
+  Rgbi
   C(unsigned int hex)
   {
-    return Rgb::FromHex(hex);
+    return Rgbi::FromHex(hex);
   }
 }  // namespace
 

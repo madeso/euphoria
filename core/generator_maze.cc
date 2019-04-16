@@ -85,6 +85,7 @@ namespace generator
       maze->RefValue(np.x, np.y) |= Cell::Visited | dir2path(flipdir(dir));
       maze->RefValue(c.x, c.y) |= dir2path(dir);
       stack.push(np);
+      visited_cells += 1;
     }
   }
 
@@ -105,7 +106,6 @@ namespace generator
 
     draw.Clear(wall_color);
 
-    const auto size = path_size;
     for(unsigned int x=0; x<maze->Width(); x+=1)
     {
       for(unsigned int y=0; y<maze->Height(); y+=1)
@@ -114,38 +114,35 @@ namespace generator
         {
           return Recti::FromTopLeftWidthHeight(x,y,w,h);
         };
-        const auto s = wall_size;
-        const auto c = cell_size;
-
         const auto cell_value = maze->Value(x,y);
-        const auto px = s+x*size;
-        const auto py = s+y*size;
-        Rgbi cl = cell_color;
+        const auto px = wall_size + x * path_size;
+        const auto py = wall_size + y * path_size;
+        Rgbi color = cell_color;
         if( cell_value & Cell::Visited )
         {
-          cl = cell_visited_color;
+          color = cell_visited_color;
         }
         if(tracker && tracker->HasMoreWork() && !tracker->stack.empty())
         {
           const auto t = tracker->stack.top();
           if(x == t.x && y == t.y)
           {
-            cl = unit_color;
+            color = unit_color;
           }
         }
 
-        draw.Square(cl,
-            xywh(px, py, c, c)
+        draw.Square(color,
+            xywh(px, py, cell_size, cell_size)
             );
 
 
         if(cell_value & Cell::PathSouth)
         {
-          draw.Square(cell_color, xywh(px+c, py+c, c, s));
+          draw.Square(cell_color, xywh(px+cell_size, py-cell_size, cell_size, wall_size));
         }
         if(cell_value & Cell::PathEast)
         {
-          draw.Square(cell_color, xywh(px+c, py+c, s, c));
+          draw.Square(cell_color, xywh(px+cell_size, py, wall_size, cell_size));
         }
       }
     }

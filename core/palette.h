@@ -9,7 +9,7 @@ class Random;
 
 struct Palette
 {
-  std::vector<Rgb> colors;
+  std::vector<Rgbi> colors;
 
   template <typename... R>
   explicit Palette(R... c)
@@ -17,17 +17,17 @@ struct Palette
   {
   }
 
-  const Rgb&
+  const Rgbi&
   GetRandomColor(Random* r) const;
 
-  const Rgb&
+  const Rgbi&
   GetSafeIndex(unsigned int i) const;
 
-  const Rgb&
-  GetClosestColor(const Rgb& c) const;
+  const Rgbi&
+  GetClosestColor(const Rgbi& c) const;
 
   unsigned int
-  GetIndexClosest(const Rgb& c) const;
+  GetIndexClosest(const Rgbi& c) const;
 
   // rainbow functions based on the r documentation https://rdrr.io/r/grDevices/palettes.html
 

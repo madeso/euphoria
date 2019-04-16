@@ -13,11 +13,10 @@
 
 namespace
 {
-  Rgb
-  rgb(unsigned int r, unsigned int g, unsigned int b)
+  Rgbi
+  rgb(unsigned char r, unsigned char g, unsigned char b)
   {
-    const auto max = 255.0f;
-    return Rgb{r/max, g/max, b/max};
+    return Rgbi{r, g, b};
   }
 }  // namespace
 

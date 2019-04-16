@@ -34,12 +34,14 @@ Draw::Square(const Rgbi& color, const Recti& rect)
   const int right  = rect.TopRight().x;
   const int top    = rect.TopLeft().y;
   const int bottom = rect.BottomLeft().y;
-  ASSERTX(left >= 0, left);
-  ASSERTX(bottom >= 0, bottom);
+  // ASSERTX(left >= 0, left);
+  // ASSERTX(bottom >= 0, bottom);
   for(int y = bottom; y < top; ++y)
   {
+    if(y < 0 || y >= image_->GetHeight() ) continue;
     for(int x = left; x < right; ++x)
     {
+      if(x < 0 || x >= image_->GetWidth() ) continue;
       image_->SetPixel(x, y, color);
     }
   }

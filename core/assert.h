@@ -7,6 +7,9 @@
 
 #ifdef _MSC_VER
 #define __PRETTY_FUNCTION__ __FUNCSIG__
+#define BREAK_IN_DEBUG() __debugbreak()
+#else
+#define BREAK_IN_DEBUG() do { } while(false)
 #endif
 
 #ifdef RELEASE
@@ -30,6 +33,7 @@
     }                                                           \
     else                                                        \
     {                                                           \
+      BREAK_IN_DEBUG();                                         \
       ::assertlib::OnAssert(                                    \
           #x,                                                   \
           __LINE__,                                             \
@@ -48,6 +52,7 @@
     }                                                           \
     else                                                        \
     {                                                           \
+      BREAK_IN_DEBUG();                                         \
       ::assertlib::OnAssert(                                    \
           #x,                                                   \
           __LINE__,                                             \
