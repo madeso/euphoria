@@ -56,7 +56,7 @@ struct GeneratorArgument
 };
 
 Result
-FromJson(Symbol* rule, const rapidjson::Value& value)
+ParseJson(Symbol* rule, const rapidjson::Value& value)
 {
   if(value.IsString())
   {
@@ -88,6 +88,19 @@ FromJson(Symbol* rule, const rapidjson::Value& value)
   }
 }
 
+
+Result
+FromJson(Symbol* rule, const rapidjson::Value& value)
+{
+  auto r = ParseJson(rule, value);
+  if(r == false )
+  {
+    // todo: add json error information
+    r << "for symbol " << rule->key;
+  }
+
+  return r;
+}
 
 // ----------------------------------------------------------------
 
@@ -255,6 +268,23 @@ ParseError(TextFileParser* parser)
     << " detected but ";
 }
 
+std::string
+ReadTraceryIdent(TextFileParser* parser)
+{
+  const std::string valid =
+    "abcdefghijklmnopqrstuvwxyz"
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    "0123456789"
+    "_-+";
+    
+  std::ostringstream ss;
+  while(valid.find(parser->PeekChar()) != std::string::npos)
+  {
+    ss << parser->ReadChar();
+  }
+  return ss.str();
+}
+
 Result
 Rule::Compile(const std::string& s)
 {
@@ -298,26 +328,26 @@ Rule::Compile(const std::string& s)
           while(parser.PeekChar() == '[')
           {
             parser.ReadChar();
-            const auto key_name = parser.ReadIdent();
+            const auto key_name = ReadTraceryIdent(&parser);
             EMPTY_STRING(key_name, "got empty key");
 
             EXPECT_CHAR(':', "expected : after key name");
             if(parser.PeekChar() == '#')
             {
               parser.ReadChar();
-              const auto symbol_name = parser.ReadIdent();
+              const auto symbol_name = ReadTraceryIdent(&parser);
               EMPTY_STRING(symbol_name, "got empty symbol name");
               EXPECT_CHAR('#', "expected # to end symbol name");
               n->AddActionRule(key_name, symbol_name);
             }
             else
             {
-              const auto command = parser.ReadIdent();
+              const auto command = ReadTraceryIdent(&parser);
               EMPTY_STRING(command, "got empty command");
             }
             EXPECT_CHAR(']', "expected ]");
           }
-          const auto symbol_name = parser.ReadIdent();
+          const auto symbol_name = ReadTraceryIdent(&parser);
           EMPTY_STRING(symbol_name, "Empty symbol name");
           n->symbol = symbol_name;
           bool run = true;
@@ -328,7 +358,7 @@ Rule::Compile(const std::string& s)
               case '.':
                 {
                   parser.ReadChar();
-                  const auto mod = parser.ReadIdent();
+                  const auto mod = ReadTraceryIdent(&parser);
                   n->modifiers.push_back(mod);
                 }
                 break;

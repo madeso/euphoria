@@ -5,6 +5,7 @@
 
 #include "core/assert.h"
 #include "core/numeric.h"
+#include "core/rect.h"
 
 template <typename T>
 struct Table
@@ -35,6 +36,34 @@ struct Table
     ASSERT(width > 0);
     data.resize(data.size() + width, d);
     height += 1;
+  }
+
+  void
+  Clear(T d = T())
+  {
+    for(auto& i: data)
+    {
+      i = d;
+    }
+  }
+
+  template<typename Func>
+  void
+  SetAll(Func f)
+  {
+    for(unsigned y=0; y<height; y+=1)
+    {
+      for(unsigned x=0; x<width; x+=1)
+      {
+        Value(x, y, f(x, y));
+      }
+    }
+  }
+
+  const Recti
+  Indices() const
+  {
+    return Recti::FromWidthHeight(width-1, height-1);
   }
 
   void
@@ -76,7 +105,7 @@ struct Table
   }
 
   T&
-  RefValue(I x, I y) const
+  RefValue(I x, I y)
   {
     const auto index = DataIndex(x, y);
     ASSERTX(index < data.size(), index, data.size());
@@ -84,7 +113,7 @@ struct Table
   }
 
   T*
-  PtrValue(I x, I y) const
+  PtrValue(I x, I y)
   {
     const auto index = DataIndex(x, y);
     ASSERTX(index < data.size(), index, data.size());
