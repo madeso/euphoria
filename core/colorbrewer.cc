@@ -71,15 +71,30 @@ namespace colorbrewer
     return all;
   }
 
-  const std::vector<SinglePalette> Find()
+  const std::vector<SinglePalette> Find(Type* type, int* size)
   {
     // todo: implement better search
     std::vector<SinglePalette> r;
     for(const auto& br: All())
     {
-      for(const auto& p: br.palettes)
+      if(type)
       {
-        r.push_back(SinglePalette{ br.name, p.second, br.type, br.properties });
+        if( br.type != *type ) continue;
+      }
+      if(size)
+      {
+        auto found = br.palettes.find(*size);
+        if(found != br.palettes.end())
+        {
+          r.push_back(SinglePalette{ br.name, found->second});
+        }
+      }
+      else
+      {
+        for(const auto& p: br.palettes)
+        {
+          r.push_back(SinglePalette{ br.name, p.second});
+        }
       }
     }
     return r;

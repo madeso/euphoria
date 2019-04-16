@@ -15,9 +15,9 @@ namespace colorbrewer
 
   enum class Class
   {
-    Not   = 0,
-    Ok    = 1,
-    Maybe = 2 // or possible not
+    No    = 0,
+    Yes   = 1,
+    Maybe = 2
   };
 
   using Blind = std::vector<int>;
@@ -35,6 +35,7 @@ namespace colorbrewer
 
   struct BrewerPalette
   {
+    // todo: move Properies here
     Palette palette;
   };
 
@@ -52,15 +53,13 @@ namespace colorbrewer
   {
     std::string name;
     BrewerPalette palette;
-    Type    type;
-    Properties properties;
   };
 } // namespace colorbrewer
 
 namespace colorbrewer
 {
   const std::vector<ColorBrewer>& All();
-  const std::vector<SinglePalette> Find();
+  const std::vector<SinglePalette> Find(Type* type, int* size);
 
   /*** Diverging ***/
   const ColorBrewer& Spectral();
