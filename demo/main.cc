@@ -106,7 +106,7 @@ main(int argc, char** argv)
     drawer.Circle(color, pos, outer, 10, inner);
   }
   drawer.LineAntialiased(Color::Black, wi.TopLeft(), wi.BottomRight())
-      .Square(Color::AliceBlue, Recti::FromTopLeftWidthHeight(256, 0, 100, 25))
+      .Rect(Color::AliceBlue, Recti::FromTopLeftWidthHeight(256, 0, 100, 25))
       .LineAntialiased(Color::Black, wi.BottomLeft(), wi.TopRight())
       .Text(point2i(0, 0), "Hello world", Color::Black, 2);
   engine.catalog->RegisterFileData("image", image.Write(ImageWriteFormat::PNG));

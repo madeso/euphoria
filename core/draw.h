@@ -20,7 +20,7 @@ class Draw
   Clear(const Rgbi& color);
 
   Draw&
-  Square(const Rgbi& color, const Recti& rect);
+  Rect(const Rgbi& color, const Recti& rect);
 
   Draw&
   Circle(

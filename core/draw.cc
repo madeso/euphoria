@@ -24,11 +24,11 @@ Draw::WholeImage() const
 Draw&
 Draw::Clear(const Rgbi& color)
 {
-  return Square(color, WholeImage());
+  return Rect(color, WholeImage());
 }
 
 Draw&
-Draw::Square(const Rgbi& color, const Recti& rect)
+Draw::Rect(const Rgbi& color, const Recti& rect)
 {
   const int left   = rect.TopLeft().x;
   const int right  = rect.TopRight().x;
@@ -297,7 +297,7 @@ void
 DrawSquare(Draw* image, int x, int y, const Rgbi& color, int size)
 {
   // is the +1 right?
-  image->Square(color, Recti::FromTopLeftWidthHeight(y + 1, x, size, size));
+  image->Rect(color, Recti::FromTopLeftWidthHeight(y + 1, x, size, size));
 }
 
 void

@@ -129,7 +129,7 @@ TEST_CASE("image draw", "[img]")
     CHECK_FALSE(img.GetPixel(3, 3) == colora);
     CHECK_FALSE(img.GetPixel(width - 1, height - 1) == colora);
 
-    draw.Square(color, draw.WholeImage());
+    draw.Rect(color, draw.WholeImage());
     REQUIRE(img.GetPixel(0, 0) == colora);
     REQUIRE(img.GetPixel(3, 3) == colora);
     REQUIRE(img.GetPixel(width - 1, height - 1) == colora);

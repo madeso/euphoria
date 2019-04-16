@@ -114,6 +114,7 @@ namespace generator
         {
           return Recti::FromTopLeftWidthHeight(x,y,w,h);
         };
+
         const auto cell_value = maze->Value(x,y);
         const auto px = wall_size + x * path_size;
         const auto py = wall_size + y * path_size;
@@ -131,18 +132,18 @@ namespace generator
           }
         }
 
-        draw.Square(color,
+        draw.Rect(color,
             xywh(px, py, cell_size, cell_size)
             );
 
 
         if(cell_value & Cell::PathSouth)
         {
-          draw.Square(cell_color, xywh(px+cell_size, py-cell_size, cell_size, wall_size));
+          draw.Rect(cell_color, xywh(px+cell_size, py-cell_size, cell_size, wall_size));
         }
         if(cell_value & Cell::PathEast)
         {
-          draw.Square(cell_color, xywh(px+cell_size, py, wall_size, cell_size));
+          draw.Rect(cell_color, xywh(px+cell_size, py, wall_size, cell_size));
         }
       }
     }
