@@ -6,15 +6,41 @@
 #include "core/random.h"
 #include "core/imageops.h"
 
+#include "core/stringutils.h"
 #include "core/debug.h"
 
 #include <iostream>
+#include <sstream>
+#include <iomanip>
 
 // later when doing floodfill
 // #include "core/colorbrewer.h"
 
-void maze(int world_width, int world_height, int cell_size, int wall_size, const std::string& output, bool console)
+struct Output
 {
+  explicit Output(const std::string& o)
+    : file(o)
+    , single(!EndsWith(o, "/"))
+  {
+  }
+
+  std::string NextFile()
+  {
+    std::ostringstream ss;
+    index += 1;
+    std::cout << "Generating " << index << "...\n";
+    ss << file << std::setfill('0') << std::setw(5) << index << ".png";
+    return ss.str();
+  }
+
+  std::string file;
+  bool single;
+  int index = 0;
+};
+
+void maze(int world_width, int world_height, int cell_size, int wall_size, const std::string& f, bool console)
+{
+  auto output = Output{f};
   auto random = Random {};
   auto maze = generator::Maze::FromWidthHeight(world_width, world_height);
 
@@ -29,16 +55,28 @@ void maze(int world_width, int world_height, int cell_size, int wall_size, const
   drawer.cell_size = cell_size;
   drawer.wall_size = wall_size;
 
+  if(!output.single)
+  {
+    drawer.Draw();
+    debug::MemoryChunkToFile(drawer.image.Write(ImageWriteFormat::PNG), output.NextFile());
+  }
+
   while(gen.HasMoreWork())
   {
     gen.Work();
+
+    if(!output.single)
+    {
+      drawer.Draw();
+      debug::MemoryChunkToFile(drawer.image.Write(ImageWriteFormat::PNG), output.NextFile());
+    }
   }
 
   drawer.Draw();
 
-  if(!console)
+  if(!console && output.single)
   {
-    debug::MemoryChunkToFile(drawer.image.Write(ImageWriteFormat::PNG), output);
+    debug::MemoryChunkToFile(drawer.image.Write(ImageWriteFormat::PNG), output.file);
   }
 
   if(console)
