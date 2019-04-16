@@ -77,8 +77,10 @@ void cell()
   debug::MemoryChunkToFile(drawer.image.Write(ImageWriteFormat::PNG), "maze.png");
 }
 
-void main()
+int main()
 {
   // maze();
   cell();
+
+  return 0;
 }
