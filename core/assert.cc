@@ -5,13 +5,27 @@
 
 #include <iostream>
 
+#ifndef _MSC_VER
 #include <cxxabi.h>
 #include <execinfo.h>
+#endif
 
 #include <memory>
 #include <vector>
 #include <sstream>
 
+#ifdef _MSC_VER
+// todo: implement backtrace for windows?
+namespace
+{
+  std::vector<std::string>
+  RunBacktrace(int)
+  {
+    return {};
+  }
+}
+
+#else
 namespace
 {
   // backtrace code stolen from:
@@ -82,6 +96,7 @@ namespace
     return ret;
   }
 }  // namespace
+#endif
 
 namespace assertlib
 {

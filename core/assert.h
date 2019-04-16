@@ -6,6 +6,10 @@
 #include <sstream>
 
 #ifdef _MSC_VER
+#define __PRETTY_FUNCTION__ __FUNCSIG__
+#endif
+
+#ifdef RELEASE
 
 // todo: implement assert for windows...
 
@@ -90,7 +94,7 @@ namespace assertlib
       const char* const                  argstr,
       const std::vector<AssertValueArg>& arguments,
       const char* const                  function);
-}
+}  // namespace assertlib
 #endif  // IMPLEMENT_ASSERT_LIB
 
 
