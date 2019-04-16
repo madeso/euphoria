@@ -8,20 +8,20 @@ namespace generator
 {
   void RecursiveBacktracker::Setup()
   {
-    world->Clear(Cell::None);
+    maze->Clear(Cell::None);
 
     const auto random_position = point2i {
-      random->NextRange(world->Width()),
-      random->NextRange(world->Height())
+      random->NextRange(maze->Width()),
+      random->NextRange(maze->Height())
     };
     stack.push(random_position);
-    world->Value(random_position.x, random_position.y, Cell::Visited);
+    maze->Value(random_position.x, random_position.y, Cell::Visited);
     visited_cells = 1;
   }
 
   bool RecursiveBacktracker::HasMoreWork() const
   {
-    return visited_cells < world->Width() * world->Height();
+    return visited_cells < maze->Width() * maze->Height();
   }
 
   void RecursiveBacktracker::Work()
@@ -39,11 +39,11 @@ namespace generator
     };
     const auto c = stack.top();
     std::vector<Dir> neighbours;
-    const auto world_size = Recti::FromWidthHeight(world->Width()-1, world->Height() - 1);
+    const auto world_size = Recti::FromWidthHeight(maze->Width()-1, maze->Height() - 1);
     auto add_neighbour = [&](Dir d) {
       const auto np = c + d2o(d);
       if( world_size.ContainsInclusive(np)
-          && (world->Value(np.x, np.y) & Cell::Visited) == 0 )
+          && (maze->Value(np.x, np.y) & Cell::Visited) == 0 )
       {
         neighbours.push_back(d);
       }
@@ -82,8 +82,8 @@ namespace generator
       };
       const auto o = d2o(dir);
       const auto np = c + o;
-      world->RefValue(np.x, np.y) |= Cell::Visited | dir2path(flipdir(dir));
-      world->RefValue(c.x, c.y) |= dir2path(dir);
+      maze->RefValue(np.x, np.y) |= Cell::Visited | dir2path(flipdir(dir));
+      maze->RefValue(c.x, c.y) |= dir2path(dir);
       stack.push(np);
     }
   }
@@ -99,16 +99,16 @@ namespace generator
   {
     const auto path_size = cell_size + wall_size;
     image.SetupNoAlphaSupport(
-        wall_size + world->Width()*path_size,
-        wall_size + world->Height() * path_size);
+        wall_size + maze->Width()*path_size,
+        wall_size + maze->Height() * path_size);
     auto draw = ::Draw{&image};
 
     draw.Clear(wall_color);
 
     const auto size = path_size;
-    for(unsigned int x=0; x<world->Width(); x+=1)
+    for(unsigned int x=0; x<maze->Width(); x+=1)
     {
-      for(unsigned int y=0; y<world->Height(); y+=1)
+      for(unsigned int y=0; y<maze->Height(); y+=1)
       {
         const auto xywh = [](int x, int y, int w, int h)
         {
@@ -117,7 +117,7 @@ namespace generator
         const auto s = wall_size;
         const auto c = cell_size;
 
-        const auto cell_value = world->Value(x,y);
+        const auto cell_value = maze->Value(x,y);
         const auto px = s+x*size;
         const auto py = s+y*size;
         Rgbi cl = cell_color;

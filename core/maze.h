@@ -29,7 +29,7 @@ namespace generator
     North, South, East, West
   };
 
-  using World = Table<int>;
+  using Maze = Table<int>;
 
   // todo: implement more generators
   // https://bost.ocks.org/mike/algorithms/#maze-generation
@@ -41,7 +41,7 @@ namespace generator
 
   struct RecursiveBacktracker
   {
-    World* world = nullptr;
+    Maze* maze = nullptr;
     Random* random = nullptr;
 
     std::stack<point2i> stack;
@@ -54,7 +54,7 @@ namespace generator
 
   struct Drawer
   {
-    World* world = nullptr;
+    Maze* maze = nullptr;
 
     int cell_size = 3;
     int wall_size = 1;
