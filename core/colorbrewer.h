@@ -37,15 +37,27 @@ namespace colorbrewer
 
   struct ColorBrewer
   {
+    std::string name;
     Map        palettes;
     Type       type;
+    Properties properties;
+  };
+
+  struct SinglePalette
+  {
+    std::string name;
+    Palette palette;
+    Type    type;
     Properties properties;
   };
 } // namespace colorbrewer
 
 namespace colorbrewer
 {
-/*** Diverging ***/
+  const std::vector<ColorBrewer>& All();
+  const std::vector<SinglePalette>& Find();
+
+  /*** Diverging ***/
   const ColorBrewer& Spectral();
   const ColorBrewer& RdYlGn();
   const ColorBrewer& RdBu();

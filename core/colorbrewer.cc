@@ -21,32 +21,73 @@ namespace
   }
 }  // namespace
 
-namespace
-{
-  struct CbPalette
-  {
-    Palette                 palette;
-    colorbrewer::Type       type;
-    colorbrewer::Properties properties;
-  };
-
-  std::vector<CbPalette> All(const colorbrewer::ColorBrewer& cb)
-  {
-    std::vector<CbPalette> ret;
-    for(const auto& p: cb.palettes)
-    {
-      ret.emplace_back(CbPalette{p.second, cb.type, cb.properties});
-    }
-    return ret;
-  }
-}
-
 namespace colorbrewer
 {
 
+  const std::vector<ColorBrewer>& All()
+  {
+    static const std::vector<ColorBrewer> all = {
+      /*** Diverging ***/
+      Spectral(),
+      RdYlGn(),
+      RdBu(),
+      PiYG(),
+      PRGn(),
+      RdYlBu(),
+      BrBG(),
+      RdGy(),
+      PuOr(),
+
+      /*** Qualitative ***/
+      Set2(),
+      Accent(),
+      Set1(),
+      Set3(),
+      Dark2(),
+      Paired(),
+      Pastel2(),
+      Pastel1(),
+
+      /*** Sequential ***/
+      OrRd(),
+      PuBu(),
+      BuPu(),
+      Oranges(),
+      BuGn(),
+      YlOrBr(),
+      YlGn(),
+      Reds(),
+      RdPu(),
+      Greens(),
+      YlGnBu(),
+      Purples(),
+      GnBu(),
+      Greys(),
+      YlOrRd(),
+      PuRd(),
+      Blues(),
+      PuBuGn()
+    };
+    return all;
+  }
+
+  const std::vector<SinglePalette>& Find()
+  {
+    // todo: implement better search
+    std::vector<SinglePalette> r;
+    for(const auto& br: All())
+    {
+      for(const auto& p: br.palettes)
+      {
+        r.push_back(SinglePalette{ br.name, p.second, br.type, br.properties });
+      }
+    }
+    return r;
+  }
+
 /*** Diverging ***/
 const ColorBrewer& Spectral() {
-  static const ColorBrewer cb = ColorBrewer {
+  static const ColorBrewer cb = ColorBrewer { "Spectral",
     Map {
         {3,  Palette{rgb(252,141,89), rgb(255,255,191), rgb(153,213,148)}},
         {4,  Palette{rgb(215,25,28), rgb(253,174,97), rgb(171,221,164), rgb(43,131,186)}},
@@ -62,7 +103,7 @@ const ColorBrewer& Spectral() {
 }
 
 const ColorBrewer& RdYlGn()   {
-  static const ColorBrewer cb = ColorBrewer {
+  static const ColorBrewer cb = ColorBrewer { "RdYlGn",
     Map {
       {3,  Palette{rgb(252,141,89), rgb(255,255,191), rgb(145,207,96)}},
       {4,  Palette{rgb(215,25,28), rgb(253,174,97), rgb(166,217,106), rgb(26,150,65)}},
@@ -78,7 +119,7 @@ const ColorBrewer& RdYlGn()   {
 }
 
 const ColorBrewer& RdBu()     {
-  static const ColorBrewer cb = ColorBrewer {
+  static const ColorBrewer cb = ColorBrewer { "RdBu",
     Map {
       {3,  Palette{rgb(239,138,98), rgb(247,247,247), rgb(103,169,207)}},
       {4,  Palette{rgb(202,0,32), rgb(244,165,130), rgb(146,197,222), rgb(5,113,176)}},
@@ -94,7 +135,7 @@ const ColorBrewer& RdBu()     {
 }
 
 const ColorBrewer& PiYG()     {
-  static const ColorBrewer cb = ColorBrewer {
+  static const ColorBrewer cb = ColorBrewer { "PiYG",
     Map {
       {3,  Palette{rgb(233,163,201), rgb(247,247,247), rgb(161,215,106)}},
       {4,  Palette{rgb(208,28,139), rgb(241,182,218), rgb(184,225,134), rgb(77,172,38)}},
@@ -110,7 +151,7 @@ const ColorBrewer& PiYG()     {
 }
 
 const ColorBrewer& PRGn()     {
-  static const ColorBrewer cb = ColorBrewer {
+  static const ColorBrewer cb = ColorBrewer { "PRGn",
     Map {
       {3,  Palette{rgb(175,141,195), rgb(247,247,247), rgb(127,191,123)}},
       {4,  Palette{rgb(123,50,148), rgb(194,165,207), rgb(166,219,160), rgb(0,136,55)}},
@@ -126,7 +167,7 @@ const ColorBrewer& PRGn()     {
 }
 
 const ColorBrewer& RdYlBu()   {
-  static const ColorBrewer cb = ColorBrewer {
+  static const ColorBrewer cb = ColorBrewer { "RdYlBu",
     Map {
       {3,  Palette{rgb(252,141,89), rgb(255,255,191), rgb(145,191,219)}},
       {4,  Palette{rgb(215,25,28), rgb(253,174,97), rgb(171,217,233), rgb(44,123,182)}},
@@ -142,7 +183,7 @@ const ColorBrewer& RdYlBu()   {
 }
 
 const ColorBrewer& BrBG()     {
-  static const ColorBrewer cb = ColorBrewer {
+  static const ColorBrewer cb = ColorBrewer { "BrBG",
     Map {
       {3,  Palette{rgb(216,179,101), rgb(245,245,245), rgb(90,180,172)}},
       {4,  Palette{rgb(166,97,26), rgb(223,194,125), rgb(128,205,193), rgb(1,133,113)}},
@@ -158,7 +199,7 @@ const ColorBrewer& BrBG()     {
 }
 
 const ColorBrewer& RdGy()     {
-  static const ColorBrewer cb = ColorBrewer {
+  static const ColorBrewer cb = ColorBrewer { "RdGy",
     Map {
       {3,  Palette{rgb(239,138,98), rgb(255,255,255), rgb(153,153,153)}},
       {4,  Palette{rgb(202,0,32), rgb(244,165,130), rgb(186,186,186), rgb(64,64,64)}},
@@ -174,7 +215,7 @@ const ColorBrewer& RdGy()     {
 }
 
 const ColorBrewer& PuOr()     {
-  static const ColorBrewer cb = ColorBrewer {
+  static const ColorBrewer cb = ColorBrewer { "PuOr",
     Map {
       {3,  Palette{rgb(241,163,64), rgb(247,247,247), rgb(153,142,195)}},
       {4,  Palette{rgb(230,97,1), rgb(253,184,99), rgb(178,171,210), rgb(94,60,153)}},
@@ -192,7 +233,7 @@ const ColorBrewer& PuOr()     {
 
 /*** Qualitative ***/
 const ColorBrewer& Set2()    {
-  static const ColorBrewer cb = ColorBrewer {
+  static const ColorBrewer cb = ColorBrewer { "Set2",
     Map {
       {3, Palette{rgb(102,194,165), rgb(252,141,98), rgb(141,160,203)}},
       {4, Palette{rgb(102,194,165), rgb(252,141,98), rgb(141,160,203), rgb(231,138,195)}},
@@ -205,7 +246,7 @@ const ColorBrewer& Set2()    {
 }
 
 const ColorBrewer& Accent()  {
-  static const ColorBrewer cb = ColorBrewer {
+  static const ColorBrewer cb = ColorBrewer { "Accent",
     Map {
       {3, Palette{rgb(127,201,127), rgb(190,174,212), rgb(253,192,134)}},
       {4, Palette{rgb(127,201,127), rgb(190,174,212), rgb(253,192,134), rgb(255,255,153)}},
@@ -218,7 +259,7 @@ const ColorBrewer& Accent()  {
 }
 
 const ColorBrewer& Set1()    {
-  static const ColorBrewer cb = ColorBrewer {
+  static const ColorBrewer cb = ColorBrewer { "Set1",
     Map {
       {3, Palette{rgb(228,26,28), rgb(55,126,184), rgb(77,175,74)}},
       {4, Palette{rgb(228,26,28), rgb(55,126,184), rgb(77,175,74), rgb(152,78,163)}},
@@ -232,7 +273,7 @@ const ColorBrewer& Set1()    {
 }
 
 const ColorBrewer& Set3()    {
-  static const ColorBrewer cb = ColorBrewer {
+  static const ColorBrewer cb = ColorBrewer { "Set3",
     Map {
       {3,  Palette{rgb(141,211,199), rgb(255,255,179), rgb(190,186,218)}},
       {4,  Palette{rgb(141,211,199), rgb(255,255,179), rgb(190,186,218), rgb(251,128,114)}},
@@ -249,7 +290,7 @@ const ColorBrewer& Set3()    {
 }
 
 const ColorBrewer& Dark2()   {
-  static const ColorBrewer cb = ColorBrewer {
+  static const ColorBrewer cb = ColorBrewer { "Dark2",
     Map {
       {3, Palette{rgb(27,158,119), rgb(217,95,2), rgb(117,112,179)}},
       {4, Palette{rgb(27,158,119), rgb(217,95,2), rgb(117,112,179), rgb(231,41,138)}},
@@ -262,7 +303,7 @@ const ColorBrewer& Dark2()   {
 }
 
 const ColorBrewer& Paired()  {
-  static const ColorBrewer cb = ColorBrewer {
+  static const ColorBrewer cb = ColorBrewer { "Paired",
     Map {
       {3,  Palette{rgb(166,206,227), rgb(31,120,180), rgb(178,223,138)}},
       {4,  Palette{rgb(166,206,227), rgb(31,120,180), rgb(178,223,138), rgb(51,160,44)}},
@@ -279,7 +320,7 @@ const ColorBrewer& Paired()  {
 }
 
 const ColorBrewer& Pastel2() {
-  static const ColorBrewer cb = ColorBrewer {
+  static const ColorBrewer cb = ColorBrewer { "Pastel2",
     Map {
       {3, Palette{rgb(179,226,205), rgb(253,205,172), rgb(203,213,232)}},
       {4, Palette{rgb(179,226,205), rgb(253,205,172), rgb(203,213,232), rgb(244,202,228)}},
@@ -292,7 +333,7 @@ const ColorBrewer& Pastel2() {
 }
 
 const ColorBrewer& Pastel1() {
-  static const ColorBrewer cb = ColorBrewer {
+  static const ColorBrewer cb = ColorBrewer { "Pastel1",
     Map {
       {3, Palette{rgb(251,180,174), rgb(179,205,227), rgb(204,235,197)}},
       {4, Palette{rgb(251,180,174), rgb(179,205,227), rgb(204,235,197), rgb(222,203,228)}},
@@ -308,7 +349,7 @@ const ColorBrewer& Pastel1() {
 
 /*** Sequential ***/
 const ColorBrewer& OrRd()     {
-  static const ColorBrewer cb = ColorBrewer {
+  static const ColorBrewer cb = ColorBrewer { "OrRd",
     Map {
       {3, Palette{rgb(254,232,200), rgb(253,187,132), rgb(227,74,51)}},
       {4, Palette{rgb(254,240,217), rgb(253,204,138), rgb(252,141,89), rgb(215,48,31)}},
@@ -322,7 +363,7 @@ const ColorBrewer& OrRd()     {
 }
 
 const ColorBrewer& PuBu()     {
-  static const ColorBrewer cb = ColorBrewer {
+  static const ColorBrewer cb = ColorBrewer { "PuBu",
     Map {
       {3, Palette{rgb(236,231,242), rgb(166,189,219), rgb(43,140,190)}},
       {4, Palette{rgb(241,238,246), rgb(189,201,225), rgb(116,169,207), rgb(5,112,176)}},
@@ -336,7 +377,7 @@ const ColorBrewer& PuBu()     {
 }
 
 const ColorBrewer& BuPu()     {
-  static const ColorBrewer cb = ColorBrewer {
+  static const ColorBrewer cb = ColorBrewer { "BuPu",
     Map {
       {3, Palette{rgb(224,236,244), rgb(158,188,218), rgb(136,86,167)}},
       {4, Palette{rgb(237,248,251), rgb(179,205,227), rgb(140,150,198), rgb(136,65,157)}},
@@ -350,7 +391,7 @@ const ColorBrewer& BuPu()     {
 }
 
 const ColorBrewer& Oranges()  {
-  static const ColorBrewer cb = ColorBrewer {
+  static const ColorBrewer cb = ColorBrewer { "Oranges",
     Map {
       {3, Palette{rgb(254,230,206), rgb(253,174,107), rgb(230,85,13)}},
       {4, Palette{rgb(254,237,222), rgb(253,190,133), rgb(253,141,60), rgb(217,71,1)}},
@@ -364,7 +405,7 @@ const ColorBrewer& Oranges()  {
 }
 
 const ColorBrewer& BuGn()     {
-  static const ColorBrewer cb = ColorBrewer {
+  static const ColorBrewer cb = ColorBrewer { "BuGn",
     Map {
       {3, Palette{rgb(229,245,249), rgb(153,216,201), rgb(44,162,95)}},
       {4, Palette{rgb(237,248,251), rgb(178,226,226), rgb(102,194,164), rgb(35,139,69)}},
@@ -378,7 +419,7 @@ const ColorBrewer& BuGn()     {
 }
 
 const ColorBrewer& YlOrBr()   {
-  static const ColorBrewer cb = ColorBrewer {
+  static const ColorBrewer cb = ColorBrewer { "YlOrBr",
     Map {
       {3, Palette{rgb(255,247,188), rgb(254,196,79), rgb(217,95,14)}},
       {4, Palette{rgb(255,255,212), rgb(254,217,142), rgb(254,153,41), rgb(204,76,2)}},
@@ -392,7 +433,7 @@ const ColorBrewer& YlOrBr()   {
 }
 
 const ColorBrewer& YlGn()     {
-  static const ColorBrewer cb = ColorBrewer {
+  static const ColorBrewer cb = ColorBrewer { "YlGn",
     Map {
       {3, Palette{rgb(247,252,185), rgb(173,221,142), rgb(49,163,84)}},
       {4, Palette{rgb(255,255,204), rgb(194,230,153), rgb(120,198,121), rgb(35,132,67)}},
@@ -406,7 +447,7 @@ const ColorBrewer& YlGn()     {
 }
 
 const ColorBrewer& Reds()     {
-  static const ColorBrewer cb = ColorBrewer {
+  static const ColorBrewer cb = ColorBrewer { "Reds",
     Map {
       {3, Palette{rgb(254,224,210), rgb(252,146,114), rgb(222,45,38)}},
       {4, Palette{rgb(254,229,217), rgb(252,174,145), rgb(251,106,74), rgb(203,24,29)}},
@@ -420,7 +461,7 @@ const ColorBrewer& Reds()     {
 }
 
 const ColorBrewer& RdPu()     {
-  static const ColorBrewer cb = ColorBrewer {
+  static const ColorBrewer cb = ColorBrewer { "RdPu",
     Map {
       {3, Palette{rgb(253,224,221), rgb(250,159,181), rgb(197,27,138)}},
       {4, Palette{rgb(254,235,226), rgb(251,180,185), rgb(247,104,161), rgb(174,1,126)}},
@@ -434,7 +475,7 @@ const ColorBrewer& RdPu()     {
 }
 
 const ColorBrewer& Greens()   {
-  static const ColorBrewer cb = ColorBrewer {
+  static const ColorBrewer cb = ColorBrewer { "Greens",
     Map {
       {3, Palette{rgb(229,245,224), rgb(161,217,155), rgb(49,163,84)}},
       {4, Palette{rgb(237,248,233), rgb(186,228,179), rgb(116,196,118), rgb(35,139,69)}},
@@ -448,7 +489,7 @@ const ColorBrewer& Greens()   {
 }
 
 const ColorBrewer& YlGnBu()   {
-  static const ColorBrewer cb = ColorBrewer {
+  static const ColorBrewer cb = ColorBrewer { "YlGnBu",
     Map {
       {3, Palette{rgb(237,248,177), rgb(127,205,187), rgb(44,127,184)}},
       {4, Palette{rgb(255,255,204), rgb(161,218,180), rgb(65,182,196), rgb(34,94,168)}},
@@ -462,7 +503,7 @@ const ColorBrewer& YlGnBu()   {
 }
 
 const ColorBrewer& Purples()  {
-  static const ColorBrewer cb = ColorBrewer {
+  static const ColorBrewer cb = ColorBrewer { "Purples",
     Map {
       {3, Palette{rgb(239,237,245), rgb(188,189,220), rgb(117,107,177)}},
       {4, Palette{rgb(242,240,247), rgb(203,201,226), rgb(158,154,200), rgb(106,81,163)}},
@@ -476,7 +517,7 @@ const ColorBrewer& Purples()  {
 }
 
 const ColorBrewer& GnBu()     {
-  static const ColorBrewer cb = ColorBrewer {
+  static const ColorBrewer cb = ColorBrewer { "GnBu",
     Map {
       {3, Palette{rgb(224,243,219), rgb(168,221,181), rgb(67,162,202)}},
       {4, Palette{rgb(240,249,232), rgb(186,228,188), rgb(123,204,196), rgb(43,140,190)}},
@@ -490,7 +531,7 @@ const ColorBrewer& GnBu()     {
 }
 
 const ColorBrewer& Greys()    {
-  static const ColorBrewer cb = ColorBrewer {
+  static const ColorBrewer cb = ColorBrewer { "Greys",
     Map {
       {3, Palette{rgb(240,240,240), rgb(189,189,189), rgb(99,99,99)}},
       {4, Palette{rgb(247,247,247), rgb(204,204,204), rgb(150,150,150), rgb(82,82,82)}},
@@ -504,7 +545,7 @@ const ColorBrewer& Greys()    {
 }
 
 const ColorBrewer& YlOrRd()   {
-  static const ColorBrewer cb = ColorBrewer {
+  static const ColorBrewer cb = ColorBrewer { "YlOrRd",
     Map {
       {3, Palette{rgb(255,237,160), rgb(254,178,76), rgb(240,59,32)}},
       {4, Palette{rgb(255,255,178), rgb(254,204,92), rgb(253,141,60), rgb(227,26,28)}},
@@ -518,7 +559,7 @@ const ColorBrewer& YlOrRd()   {
 }
 
 const ColorBrewer& PuRd()     {
-  static const ColorBrewer cb = ColorBrewer {
+  static const ColorBrewer cb = ColorBrewer { "PuRd",
     Map {
       {3, Palette{rgb(231,225,239), rgb(201,148,199), rgb(221,28,119)}},
       {4, Palette{rgb(241,238,246), rgb(215,181,216), rgb(223,101,176), rgb(206,18,86)}},
@@ -532,7 +573,7 @@ const ColorBrewer& PuRd()     {
 }
 
 const ColorBrewer& Blues()    {
-  static const ColorBrewer cb = ColorBrewer {
+  static const ColorBrewer cb = ColorBrewer { "Blues",
     Map {
       {3, Palette{rgb(222,235,247), rgb(158,202,225), rgb(49,130,189)}},
       {4, Palette{rgb(239,243,255), rgb(189,215,231), rgb(107,174,214), rgb(33,113,181)}},
@@ -546,7 +587,7 @@ const ColorBrewer& Blues()    {
 }
 
 const ColorBrewer& PuBuGn()   {
-  static const ColorBrewer cb = ColorBrewer {
+  static const ColorBrewer cb = ColorBrewer { "PuBuGn",
     Map {
       {3, Palette{rgb(236,226,240), rgb(166,189,219), rgb(28,144,153)}},
       {4, Palette{rgb(246,239,247), rgb(189,201,225), rgb(103,169,207), rgb(2,129,138)}},

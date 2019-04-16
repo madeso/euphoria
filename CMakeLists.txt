@@ -155,6 +155,7 @@ add_subdirectory(tests)
 add_subdirectory(demo)
 add_subdirectory(engine)
 add_subdirectory(chatbot_test)
+add_subdirectory(maze)
 add_subdirectory(editor)
 add_subdirectory(duk)
 add_subdirectory(tabletool)
@@ -164,6 +165,7 @@ if(CLANG_TIDY_EXE)
   ADD_DEPENDENCIES(tidy
                    tidy-base64
                    tidy-chatbot
+                   tidy-maze
                    tidy-core
                    tidy-demo
                    tidy-duk
@@ -179,6 +181,7 @@ if(CLANG_FORMAT_EXE)
   ADD_DEPENDENCIES(format
                    format-base64
                    format-chatbot
+                   format-maze
                    format-core
                    format-demo
                    format-duk
