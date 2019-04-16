@@ -33,7 +33,12 @@ namespace colorbrewer
     Screen screen;
   };
 
-  using Map = std::map<int, Palette>;
+  struct BrewerPalette
+  {
+    Palette palette;
+  };
+
+  using Map = std::map<int, BrewerPalette>;
 
   struct ColorBrewer
   {
@@ -46,7 +51,7 @@ namespace colorbrewer
   struct SinglePalette
   {
     std::string name;
-    Palette palette;
+    BrewerPalette palette;
     Type    type;
     Properties properties;
   };
@@ -55,7 +60,7 @@ namespace colorbrewer
 namespace colorbrewer
 {
   const std::vector<ColorBrewer>& All();
-  const std::vector<SinglePalette>& Find();
+  const std::vector<SinglePalette> Find();
 
   /*** Diverging ***/
   const ColorBrewer& Spectral();
