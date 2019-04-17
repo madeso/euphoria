@@ -16,7 +16,7 @@ void Shuffle(std::vector<T>* v, Random* r)
 {
   for(int i=v->size()-1; i>0; --i)
   {
-     const j = r->NextRange(i+1); // 0 ≤ j ≤ i
+     const auto j = r->NextRange(i+1); // 0 ≤ j ≤ i
      if(j != i )
      {
        std::swap((*v)[j], (*v)[i]);
