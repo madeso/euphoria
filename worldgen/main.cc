@@ -8,6 +8,7 @@
 
 #include "core/stringutils.h"
 #include "core/debug.h"
+#include "core/randomvector.h"
 
 #include <iostream>
 #include <sstream>
@@ -15,6 +16,30 @@
 
 // later when doing floodfill
 // #include "core/colorbrewer.h"
+
+struct Difference
+{
+  int x; int y;
+  bool new_value;
+};
+
+std::vector<Difference> FindDifferences(const Table<bool>& src, const Table<bool>& dst)
+{
+  std::vector<Difference> ret;
+  for(int y=0; y<src.Height(); y+=1)
+  {
+    for(int x=0; x<src.Width(); x+=1)
+    {
+      const auto lhs = src.Value(x, y);
+      const auto rhs = dst.Value(x, y);
+      if(lhs != rhs)
+      {
+        ret.push_back({x, y, lhs});
+      }
+    }
+  }
+  return ret;
+}
 
 struct Output
 {
@@ -24,11 +49,14 @@ struct Output
   {
   }
 
-  std::string NextFile()
+  std::string NextFile(bool print=true)
   {
     std::ostringstream ss;
     index += 1;
-    std::cout << "Generating " << index << "...\n";
+    if(print)
+    {
+      std::cout << "Generating " << index << "...\n";
+    }
     ss << file << std::setfill('0') << std::setw(5) << index << ".png";
     return ss.str();
   }
@@ -111,26 +139,83 @@ void maze(int world_width, int world_height, int cell_size, int wall_size, const
   }
 }
 
-void cell(int world_width, int world_height, const std::string& output)
+void cell(int world_width, int world_height, const std::string& f, int world_scale)
 {
+  auto output = Output{f};
+
   auto random = Random {};
   auto world = generator::World::FromWidthHeight(world_width, world_height);
 
   generator::CellularAutomata cell;
   cell.world = &world;
   cell.random = &random;
-  cell.Setup();
 
   auto drawer = generator::CellularAutomataDrawer {};
   drawer.world = &world;
+  drawer.scale = world_scale;
+  world.Clear(false);
+
+  if(!output.single)
+  {
+    drawer.Draw();
+    debug::MemoryChunkToFile(drawer.image.Write(ImageWriteFormat::PNG), output.NextFile());
+  }
+
+  auto world_copy = world;
+  if(!output.single)
+  {
+    drawer.world = &world_copy;
+  }
+  auto shuffle_random = Random{};
+  auto draw_multi = [&]()
+  {
+    if(!output.single)
+    {
+      auto diffs = FindDifferences(world, world_copy);
+      Shuffle(&diffs, &shuffle_random);
+      int dindex = 0;
+      const auto s = (diffs.size() / 25);
+      const auto m = s < 2 ? 2 : s;
+      for(const auto d: diffs)
+      {
+        // std::cout << "Setting " << d.x << " " << d.y << " to " << d.new_value << "\n";
+        world_copy.Value(d.x, d.y, d.new_value);
+        if((dindex % m) == 0)
+        {
+          drawer.Draw();
+          debug::MemoryChunkToFile(drawer.image.Write(ImageWriteFormat::PNG), output.NextFile());
+        }
+        dindex += 1;
+      }
+      for(int i=0; i<5; i+=1)
+      {
+        debug::MemoryChunkToFile(drawer.image.Write(ImageWriteFormat::PNG), output.NextFile());
+      }
+    }
+  };
+  
+  cell.Setup();
+
+  draw_multi();
+
 
   while(cell.HasMoreWork())
   {
+    std::cout << "Work #######\n";
     cell.Work();
+    draw_multi();
   }
 
   drawer.Draw();
-  debug::MemoryChunkToFile(drawer.image.Write(ImageWriteFormat::PNG), output);
+  if(output.single)
+  {
+    debug::MemoryChunkToFile(drawer.image.Write(ImageWriteFormat::PNG), output.file);
+  }
+  else
+  {
+    draw_multi();
+  }
+
 }
 
 int main(int argc, char* argv[])
@@ -139,6 +224,7 @@ int main(int argc, char* argv[])
 
   int world_width = 10;
   int world_height = 10;
+  int world_scale = 1;
   std::string output = "maze.png";
   bool console = false;
 
@@ -149,6 +235,7 @@ int main(int argc, char* argv[])
   parser.AddSimple("--wall", wall_size).Help("set the wall size");
   parser.AddSimple("--width", world_width).Help("set the height");
   parser.AddSimple("--height", world_height).Help("set the width");
+  parser.AddSimple("--scale", world_scale).Help("set the scale");
   parser.AddSimple("-o", output).Help("specify output");
   parser.AddSimple("-c", console).Help("foce console");
 
@@ -156,7 +243,7 @@ int main(int argc, char* argv[])
     maze(world_width, world_height, cell_size, wall_size, output, console);
   };
   auto cell_command = [&]() {
-    cell(world_width, world_height, output);
+    cell(world_width, world_height, output, world_scale);
   };
 
   // todo: fix this setup
