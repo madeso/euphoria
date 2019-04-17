@@ -41,9 +41,9 @@ struct Table
   void
   Clear(T d = T())
   {
-    for(auto& i: data)
+    for(size_t i=0; i<data.size(); i+=1)
     {
-      i = d;
+      data[i] = d;
     }
   }
 
