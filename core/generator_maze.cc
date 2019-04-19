@@ -25,7 +25,7 @@ namespace generator
     return visited_cells < maze->Width() * maze->Height();
   }
 
-  vec2i d2o(const Dir d)
+  vec2i DirectionToOffset(const Dir d)
   {
     switch(d)
     {
@@ -37,7 +37,7 @@ namespace generator
     }
   }
 
-  Dir flipdir(const Dir d)
+  Dir FlipDirection(const Dir d)
   {
     switch(d)
     {
@@ -49,7 +49,7 @@ namespace generator
     }
   }
 
-  Cell::Type dir2path(const Dir d)
+  Cell::Type DirToCellPath(const Dir d)
   {
     switch(d)
     {
@@ -61,12 +61,12 @@ namespace generator
     }
   }
 
-  point2i add_step(Maze* maze, const point2i& c, Dir dir)
+  point2i AddStepToMaze(Maze* maze, const point2i& c, Dir dir)
   {
-    const auto o = d2o(dir);
+    const auto o = DirectionToOffset(dir);
     const auto np = c + o;
-    maze->RefValue(np.x, np.y) |= Cell::Visited | dir2path(flipdir(dir));
-    maze->RefValue(c.x, c.y) |= dir2path(dir);
+    maze->RefValue(np.x, np.y) |= Cell::Visited | DirToCellPath(FlipDirection(dir));
+    maze->RefValue(c.x, c.y) |= DirToCellPath(dir);
     return np;
   }
 
@@ -86,7 +86,7 @@ namespace generator
     const auto c = stack.top();
     std::vector<Dir> neighbours;
     auto add_neighbour = [&](Dir d) {
-      const auto np = c + d2o(d);
+      const auto np = c + DirectionToOffset(d);
       if(CanVisitWithoutMakingLoop(maze, np))
       {
         neighbours.push_back(d);
@@ -104,7 +104,7 @@ namespace generator
     else
     {
       const Dir dir = random->Next(neighbours);
-      auto np = add_step(maze, c, dir);
+      auto np = AddStepToMaze(maze, c, dir);
       stack.push(np);
       visited_cells += 1;
     }
