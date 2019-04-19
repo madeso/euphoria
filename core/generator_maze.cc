@@ -70,15 +70,24 @@ namespace generator
     return np;
   }
 
+  bool HasVisited(Maze* maze, const point2i& np)
+  {
+    return (maze->Value(np.x, np.y) & Cell::Visited) != 0;
+  }
+
+  bool CanVisitWithoutMakingLoop(Maze* maze, const point2i& np)
+  {
+    const auto world_size = Recti::FromWidthHeight(maze->Width()-1, maze->Height() - 1);
+    return world_size.ContainsInclusive(np) && !HasVisited(maze, np);
+  }
+  
   void RecursiveBacktracker::Work()
   {
     const auto c = stack.top();
     std::vector<Dir> neighbours;
-    const auto world_size = Recti::FromWidthHeight(maze->Width()-1, maze->Height() - 1);
     auto add_neighbour = [&](Dir d) {
       const auto np = c + d2o(d);
-      if( world_size.ContainsInclusive(np)
-          && (maze->Value(np.x, np.y) & Cell::Visited) == 0 )
+      if(CanVisitWithoutMakingLoop(maze, np))
       {
         neighbours.push_back(d);
       }
