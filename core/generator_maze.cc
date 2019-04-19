@@ -60,6 +60,16 @@ namespace generator
       default: return Cell::PathNorth;
     }
   }
+
+  point2i add_step(Maze* maze, const point2i& c, Dir dir)
+  {
+    const auto o = d2o(dir);
+    const auto np = c + o;
+    maze->RefValue(np.x, np.y) |= Cell::Visited | dir2path(flipdir(dir));
+    maze->RefValue(c.x, c.y) |= dir2path(dir);
+    return np;
+  }
+
   void RecursiveBacktracker::Work()
   {
     const auto c = stack.top();
@@ -85,10 +95,7 @@ namespace generator
     else
     {
       const Dir dir = random->Next(neighbours);
-      const auto o = d2o(dir);
-      const auto np = c + o;
-      maze->RefValue(np.x, np.y) |= Cell::Visited | dir2path(flipdir(dir));
-      maze->RefValue(c.x, c.y) |= dir2path(dir);
+      auto np = add_step(maze, c, dir);
       stack.push(np);
       visited_cells += 1;
     }
