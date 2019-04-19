@@ -25,19 +25,43 @@ namespace generator
     return visited_cells < maze->Width() * maze->Height();
   }
 
+  vec2i d2o(const Dir d)
+  {
+    switch(d)
+    {
+      case Dir::South: return vec2i{0, -1};
+      case Dir::North: return vec2i{0,  1};
+      case Dir::West : return vec2i{-1, 0};
+      case Dir::East : return vec2i{ 1, 0};
+      default: return vec2i(0,0);
+    }
+  }
+
+  Dir flipdir(const Dir d)
+  {
+    switch(d)
+    {
+      case Dir::North: return Dir::South;
+      case Dir::South: return Dir::North;
+      case Dir::East:  return Dir::West;
+      case Dir::West:  return Dir::East;
+      default: return Dir::North;
+    }
+  }
+
+  Cell::Type dir2path(const Dir d)
+  {
+    switch(d)
+    {
+      case Dir::North: return Cell::PathNorth;
+      case Dir::South: return Cell::PathSouth;
+      case Dir::East:  return Cell::PathEast;
+      case Dir::West:  return Cell::PathWest;
+      default: return Cell::PathNorth;
+    }
+  }
   void RecursiveBacktracker::Work()
   {
-    auto d2o = [](const Dir d)
-    {
-      switch(d)
-      {
-        case Dir::South: return vec2i{0, -1};
-        case Dir::North: return vec2i{0,  1};
-        case Dir::West : return vec2i{-1, 0};
-        case Dir::East : return vec2i{ 1, 0};
-        default: return vec2i(0,0);
-      }
-    };
     const auto c = stack.top();
     std::vector<Dir> neighbours;
     const auto world_size = Recti::FromWidthHeight(maze->Width()-1, maze->Height() - 1);
@@ -61,26 +85,6 @@ namespace generator
     else
     {
       const Dir dir = random->Next(neighbours);
-      const auto flipdir = [](const Dir d) -> Dir {
-        switch(d)
-        {
-          case Dir::North: return Dir::South;
-          case Dir::South: return Dir::North;
-          case Dir::East:  return Dir::West;
-          case Dir::West:  return Dir::East;
-          default: return Dir::North;
-        }
-      };
-      const auto dir2path = [](const Dir d) -> Cell::Type {
-        switch(d)
-        {
-          case Dir::North: return Cell::PathNorth;
-          case Dir::South: return Cell::PathSouth;
-          case Dir::East:  return Cell::PathEast;
-          case Dir::West:  return Cell::PathWest;
-          default: return Cell::PathNorth;
-        }
-      };
       const auto o = d2o(dir);
       const auto np = c + o;
       maze->RefValue(np.x, np.y) |= Cell::Visited | dir2path(flipdir(dir));
