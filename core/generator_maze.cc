@@ -19,6 +19,13 @@ namespace generator
   }
 
 
+  const std::vector<Dir>& AllDirs()
+  {
+    const static auto dirs = std::vector<Dir>{Dir::North, Dir::South, Dir::East, Dir::West};
+    return dirs;
+  }
+
+
   Dir FlipDirection(const Dir d)
   {
     switch(d)
@@ -117,18 +124,17 @@ namespace generator
   void RecursiveBacktracker::Work()
   {
     const auto c = stack.top();
+
     std::vector<Dir> neighbours;
-    auto add_neighbour = [&](Dir d) {
+
+    for(auto d: AllDirs())
+    {
       const auto np = c + DirToOffset(d);
       if(CanVisitWithoutMakingLoop(maze, np))
       {
         neighbours.push_back(d);
       }
-    };
-    add_neighbour(Dir::North);
-    add_neighbour(Dir::South);
-    add_neighbour(Dir::East);
-    add_neighbour(Dir::West);
+    }
 
     if(neighbours.empty())
     {
@@ -148,9 +154,8 @@ namespace generator
 
   void AddToFrontier(Maze* maze, std::vector<RandomTraversal::Entry>* frontier, const point2i& p)
   {
-    const auto dirs = std::vector<Dir>{Dir::North, Dir::South, Dir::East, Dir::West};
     Visit(maze, p);
-    for(auto d: dirs)
+    for(auto d: AllDirs())
     {
       if(CanVisitWithoutMakingLoop(maze, p + DirToOffset(d)))
       {
