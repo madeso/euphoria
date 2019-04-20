@@ -6,6 +6,70 @@
 
 namespace generator
 {
+  vec2i DirectionToOffset(const Dir d)
+  {
+    switch(d)
+    {
+      case Dir::South: return vec2i{0, -1};
+      case Dir::North: return vec2i{0,  1};
+      case Dir::West : return vec2i{-1, 0};
+      case Dir::East : return vec2i{ 1, 0};
+      default: return vec2i(0,0);
+    }
+  }
+
+
+  Dir FlipDirection(const Dir d)
+  {
+    switch(d)
+    {
+      case Dir::North: return Dir::South;
+      case Dir::South: return Dir::North;
+      case Dir::East:  return Dir::West;
+      case Dir::West:  return Dir::East;
+      default: return Dir::North;
+    }
+  }
+
+
+  Cell::Type DirToCellPath(const Dir d)
+  {
+    switch(d)
+    {
+      case Dir::North: return Cell::PathNorth;
+      case Dir::South: return Cell::PathSouth;
+      case Dir::East:  return Cell::PathEast;
+      case Dir::West:  return Cell::PathWest;
+      default: return Cell::PathNorth;
+    }
+  }
+
+
+  point2i AddStepToMaze(Maze* maze, const point2i& c, Dir dir)
+  {
+    const auto o = DirectionToOffset(dir);
+    const auto np = c + o;
+    maze->RefValue(np.x, np.y) |= Cell::Visited | DirToCellPath(FlipDirection(dir));
+    maze->RefValue(c.x, c.y) |= DirToCellPath(dir);
+    return np;
+  }
+
+
+  bool HasVisited(Maze* maze, const point2i& np)
+  {
+    return (maze->Value(np.x, np.y) & Cell::Visited) != 0;
+  }
+
+
+  bool CanVisitWithoutMakingLoop(Maze* maze, const point2i& np)
+  {
+    const auto world_size = Recti::FromWidthHeight(maze->Width()-1, maze->Height() - 1);
+    return world_size.ContainsInclusive(np) && !HasVisited(maze, np);
+  }
+  
+
+  //////////////////////////////////////////////////////////////////////////////////////////
+
   void RecursiveBacktracker::Setup()
   {
     maze->Clear(Cell::None);
@@ -20,67 +84,13 @@ namespace generator
     visited_cells = 1;
   }
 
+
   bool RecursiveBacktracker::HasMoreWork() const
   {
     return visited_cells < maze->Width() * maze->Height();
   }
 
-  vec2i DirectionToOffset(const Dir d)
-  {
-    switch(d)
-    {
-      case Dir::South: return vec2i{0, -1};
-      case Dir::North: return vec2i{0,  1};
-      case Dir::West : return vec2i{-1, 0};
-      case Dir::East : return vec2i{ 1, 0};
-      default: return vec2i(0,0);
-    }
-  }
 
-  Dir FlipDirection(const Dir d)
-  {
-    switch(d)
-    {
-      case Dir::North: return Dir::South;
-      case Dir::South: return Dir::North;
-      case Dir::East:  return Dir::West;
-      case Dir::West:  return Dir::East;
-      default: return Dir::North;
-    }
-  }
-
-  Cell::Type DirToCellPath(const Dir d)
-  {
-    switch(d)
-    {
-      case Dir::North: return Cell::PathNorth;
-      case Dir::South: return Cell::PathSouth;
-      case Dir::East:  return Cell::PathEast;
-      case Dir::West:  return Cell::PathWest;
-      default: return Cell::PathNorth;
-    }
-  }
-
-  point2i AddStepToMaze(Maze* maze, const point2i& c, Dir dir)
-  {
-    const auto o = DirectionToOffset(dir);
-    const auto np = c + o;
-    maze->RefValue(np.x, np.y) |= Cell::Visited | DirToCellPath(FlipDirection(dir));
-    maze->RefValue(c.x, c.y) |= DirToCellPath(dir);
-    return np;
-  }
-
-  bool HasVisited(Maze* maze, const point2i& np)
-  {
-    return (maze->Value(np.x, np.y) & Cell::Visited) != 0;
-  }
-
-  bool CanVisitWithoutMakingLoop(Maze* maze, const point2i& np)
-  {
-    const auto world_size = Recti::FromWidthHeight(maze->Width()-1, maze->Height() - 1);
-    return world_size.ContainsInclusive(np) && !HasVisited(maze, np);
-  }
-  
   void RecursiveBacktracker::Work()
   {
     const auto c = stack.top();
@@ -109,6 +119,9 @@ namespace generator
       visited_cells += 1;
     }
   }
+
+
+  //////////////////////////////////////////////////////////////////////////////////////////
 
   Drawer::Drawer()
     : wall_color( Color::Black )
