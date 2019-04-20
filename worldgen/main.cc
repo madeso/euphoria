@@ -119,6 +119,7 @@ void maze(MazeAlgorithm algo, int world_width, int world_height, int cell_size, 
         auto g = std::make_unique<generator::RandomTraversal>();
         g->maze = &maze;
         g->random = &random;
+        drawer.traversal = g.get();
         gen.reset(g.release());
       }
       break;

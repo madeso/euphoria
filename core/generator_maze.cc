@@ -209,6 +209,18 @@ namespace generator
       }
     }
 
+    if(traversal)
+    {
+      for(auto e: traversal->frontier)
+      {
+        auto p = e.position + DirToOffset(e.direction);
+        if(p.x == x && p.y == y)
+        {
+          return unit_color;
+        }
+      }
+    }
+
     if( cell_value & Cell::Visited )
     {
       return cell_visited_color;

@@ -80,6 +80,7 @@ namespace generator
     int wall_size = 1;
 
     RecursiveBacktracker* tracker = nullptr;
+    RandomTraversal* traversal = nullptr;
 
     Rgbi wall_color;
     Rgbi cell_color;
