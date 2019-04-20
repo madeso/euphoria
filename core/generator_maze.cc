@@ -6,7 +6,7 @@
 
 namespace generator
 {
-  vec2i DirectionToOffset(const Dir d)
+  vec2i DirToOffset(const Dir d)
   {
     switch(d)
     {
@@ -47,7 +47,7 @@ namespace generator
 
   point2i AddStepToMaze(Maze* maze, const point2i& c, Dir dir)
   {
-    const auto o = DirectionToOffset(dir);
+    const auto o = DirToOffset(dir);
     const auto np = c + o;
     maze->RefValue(np.x, np.y) |= Cell::Visited | DirToCellPath(FlipDirection(dir));
     maze->RefValue(c.x, c.y) |= DirToCellPath(dir);
@@ -67,6 +67,17 @@ namespace generator
     return world_size.ContainsInclusive(np) && !HasVisited(maze, np);
   }
   
+
+  template<typename T>
+  T PopRandom(std::vector<T>* vec, Random* r)
+  {
+    ASSERT(!vec->empty());
+    const auto i = r->NextRange(vec->size());
+    T t = (*vec)[i];
+    vec->erase(vec->begin()+i);
+    return t;
+  }
+
 
   //////////////////////////////////////////////////////////////////////////////////////////
 
@@ -96,7 +107,7 @@ namespace generator
     const auto c = stack.top();
     std::vector<Dir> neighbours;
     auto add_neighbour = [&](Dir d) {
-      const auto np = c + DirectionToOffset(d);
+      const auto np = c + DirToOffset(d);
       if(CanVisitWithoutMakingLoop(maze, np))
       {
         neighbours.push_back(d);
@@ -118,6 +129,34 @@ namespace generator
       stack.push(np);
       visited_cells += 1;
     }
+  }
+
+
+  //////////////////////////////////////////////////////////////////////////////////////////
+
+  void RandomTraversal::Setup()
+  {
+    frontier.push_back({point2i(0,0), Dir::North});
+    frontier.push_back({point2i(0,0), Dir::West});
+  }
+
+
+  bool RandomTraversal::HasMoreWork() const
+  {
+    return !frontier.empty();
+  }
+
+
+  void RandomTraversal::Work()
+  {
+    auto f = PopRandom(&frontier, random);
+    const auto np = f.position + DirToOffset(f.direction);
+
+    if(!CanVisitWithoutMakingLoop(maze, np)) { return; }
+    AddStepToMaze(maze, f.position, f.direction);
+
+    frontier.push_back({np, Dir::North});
+    frontier.push_back({np, Dir::West});
   }
 
 

@@ -52,6 +52,19 @@ namespace generator
     void Work();
   };
 
+  struct RandomTraversal
+  {
+    Maze* maze = nullptr;
+    Random* random = nullptr;
+
+    struct Entry { point2i position; Dir direction; };
+    std::vector<Entry> frontier;
+
+    void Setup();
+    bool HasMoreWork() const;
+    void Work();
+  };
+
   struct Drawer
   {
     Maze* maze = nullptr;
