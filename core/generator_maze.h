@@ -38,8 +38,15 @@ namespace generator
   // https://gamedev.stackexchange.com/questions/153734/generate-cave-like-terrain-in-2d
   // http://www.gamasutra.com/blogs/HermanTulleken/20161005/282629/Algorithms_for_making_more_interesting_mazes.php
 
+  struct Algorithm
+  {
+    virtual ~Algorithm() {}
+    virtual void Setup() = 0;
+    virtual bool HasMoreWork() const = 0;
+    virtual void Work() = 0;
+  };
 
-  struct RecursiveBacktracker
+  struct RecursiveBacktracker : public Algorithm
   {
     Maze* maze = nullptr;
     Random* random = nullptr;
@@ -47,12 +54,12 @@ namespace generator
     std::stack<point2i> stack;
     int visited_cells = 0;
 
-    void Setup();
-    bool HasMoreWork() const;
-    void Work();
+    void Setup() override;
+    bool HasMoreWork() const override;
+    void Work() override;
   };
 
-  struct RandomTraversal
+  struct RandomTraversal : public Algorithm
   {
     Maze* maze = nullptr;
     Random* random = nullptr;
@@ -60,9 +67,9 @@ namespace generator
     struct Entry { point2i position; Dir direction; };
     std::vector<Entry> frontier;
 
-    void Setup();
-    bool HasMoreWork() const;
-    void Work();
+    void Setup() override;
+    bool HasMoreWork() const override;
+    void Work() override;
   };
 
   struct Drawer

@@ -45,6 +45,12 @@ namespace generator
   }
 
 
+  void Visit(Maze* maze, const point2i& np)
+  {
+    maze->RefValue(np.x, np.y) |= Cell::Visited;
+  }
+
+
   point2i AddStepToMaze(Maze* maze, const point2i& c, Dir dir)
   {
     const auto o = DirToOffset(dir);
@@ -79,16 +85,22 @@ namespace generator
   }
 
 
+  point2i RandomPositionOnMaze(Random* random, Maze* maze)
+  {
+    return {
+      random->NextRange(maze->Width()),
+      random->NextRange(maze->Height())
+    };
+  }
+
+
   //////////////////////////////////////////////////////////////////////////////////////////
 
   void RecursiveBacktracker::Setup()
   {
     maze->Clear(Cell::None);
 
-    const auto random_position = point2i {
-      random->NextRange(maze->Width()),
-      random->NextRange(maze->Height())
-    };
+    const auto random_position = RandomPositionOnMaze(random, maze);
 
     stack.push(random_position);
     maze->Value(random_position.x, random_position.y, Cell::Visited);
@@ -134,10 +146,25 @@ namespace generator
 
   //////////////////////////////////////////////////////////////////////////////////////////
 
+  void AddToFrontier(Maze* maze, std::vector<RandomTraversal::Entry>* frontier, const point2i& p)
+  {
+    const auto dirs = std::vector<Dir>{Dir::North, Dir::South, Dir::East, Dir::West};
+    Visit(maze, p);
+    for(auto d: dirs)
+    {
+      if(CanVisitWithoutMakingLoop(maze, p + DirToOffset(d)))
+      {
+        frontier->push_back({p, d});
+      }
+    }
+  }
+
+
   void RandomTraversal::Setup()
   {
-    frontier.push_back({point2i(0,0), Dir::North});
-    frontier.push_back({point2i(0,0), Dir::West});
+    maze->Clear(Cell::None);
+
+    AddToFrontier(maze, &frontier, RandomPositionOnMaze(random, maze));
   }
 
 
@@ -155,8 +182,7 @@ namespace generator
     if(!CanVisitWithoutMakingLoop(maze, np)) { return; }
     AddStepToMaze(maze, f.position, f.direction);
 
-    frontier.push_back({np, Dir::North});
-    frontier.push_back({np, Dir::West});
+    AddToFrontier(maze, &frontier, np);
   }
 
 

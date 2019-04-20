@@ -41,6 +41,28 @@ std::vector<Difference> FindDifferences(const Table<bool>& src, const Table<bool
   return ret;
 }
 
+void PrintMazeToConsole(const generator::Drawer& drawer, const generator::Maze& maze)
+{
+  auto table = ImageToStringTable(drawer.image,
+    {
+      {'#', drawer.wall_color},
+      {'/', drawer.cell_color},
+      {' ', drawer.wall_color},
+      {' ', drawer.cell_visited_color},
+      {'O', drawer.unit_color}
+    }
+  );
+
+  for(int r=0; r<table.Height(); r+=1)
+  {
+    for(int c=0; c<table.Width(); c+=1)
+    {
+      std::cout << table.Value(c, r);
+    }
+    std::cout << "\n";
+  }
+}
+
 struct Output
 {
   explicit Output(const std::string& o)
@@ -66,75 +88,85 @@ struct Output
   int index = 0;
 };
 
-void maze(int world_width, int world_height, int cell_size, int wall_size, const std::string& f, bool console)
+enum class MazeAlgorithm
+{
+  RecursiveBacktracker, RandomTraversal
+};
+
+void maze(MazeAlgorithm algo, int world_width, int world_height, int cell_size, int wall_size, const std::string& f, bool console)
 {
   auto output = Output{f};
   auto random = Random {};
   auto maze = generator::Maze::FromWidthHeight(world_width, world_height);
 
-  auto gen   = generator::RecursiveBacktracker{};
-  gen.maze = &maze;
-  gen.random = &random;
-  gen.Setup();
-
   auto drawer = generator::Drawer {};
+
+  std::unique_ptr<generator::Algorithm> gen;
+
+  switch(algo)
+  {
+    case MazeAlgorithm::RecursiveBacktracker:
+      {
+        auto g   = std::make_unique<generator::RecursiveBacktracker>();
+        g->maze = &maze;
+        g->random = &random;
+        drawer.tracker = g.get();
+        gen.reset(g.release());
+      }
+      break;
+    case MazeAlgorithm::RandomTraversal:
+      {
+        auto g = std::make_unique<generator::RandomTraversal>();
+        g->maze = &maze;
+        g->random = &random;
+        gen.reset(g.release());
+      }
+      break;
+    default:
+      ASSERT(false && "Unhandled");
+  }
+
+  gen->Setup();
+
   drawer.maze = &maze;
-  drawer.tracker = &gen;
   drawer.cell_size = cell_size;
   drawer.wall_size = wall_size;
 
-  if(!output.single)
+  auto draw_frame = [&]()
   {
-    drawer.Draw();
-    debug::MemoryChunkToFile(drawer.image.Write(ImageWriteFormat::PNG), output.NextFile());
-  }
-
-  while(gen.HasMoreWork())
-  {
-    gen.Work();
-
     if(!output.single)
     {
       drawer.Draw();
       debug::MemoryChunkToFile(drawer.image.Write(ImageWriteFormat::PNG), output.NextFile());
     }
+  };
+
+  draw_frame();
+
+  while(gen->HasMoreWork())
+  {
+    gen->Work();
+    draw_frame();
   }
 
   drawer.Draw();
 
-  if(!console && output.single)
-  {
-    debug::MemoryChunkToFile(drawer.image.Write(ImageWriteFormat::PNG), output.file);
-  }
-
-  if(!output.single)
-  {
-    drawer.Draw();
-    for(int i=0; i<5; i+=1)
-    {
-      debug::MemoryChunkToFile(drawer.image.Write(ImageWriteFormat::PNG), output.NextFile());
-    }
-  }
-
   if(console)
   {
-    auto table = ImageToStringTable(drawer.image,
-      {
-        {'#', drawer.wall_color},
-        {'/', drawer.cell_color},
-        {' ', drawer.wall_color},
-        {' ', drawer.cell_visited_color},
-        {'O', drawer.unit_color}
-      }
-    );
-
-    for(int r=0; r<table.Height(); r+=1)
+    PrintMazeToConsole(drawer, maze);
+  }
+  else
+  {
+    if(output.single)
     {
-      for(int c=0; c<table.Width(); c+=1)
+      debug::MemoryChunkToFile(drawer.image.Write(ImageWriteFormat::PNG), output.file);
+    }
+    else
+    {
+      for(int i=0; i<5; i+=1)
       {
-        std::cout << table.Value(c, r);
+        debug::MemoryChunkToFile(drawer.image.Write(ImageWriteFormat::PNG), output.NextFile());
       }
-      std::cout << "\n";
     }
   }
 }
@@ -239,8 +271,8 @@ int main(int argc, char* argv[])
   parser.AddSimple("-o", output).Help("specify output");
   parser.AddSimple("-c", console).Help("foce console");
 
-  auto maze_command = [&]() {
-    maze(world_width, world_height, cell_size, wall_size, output, console);
+  auto maze_command = [&](MazeAlgorithm algo) {
+    maze(algo, world_width, world_height, cell_size, wall_size, output, console);
   };
   auto cell_command = [&]() {
     cell(world_width, world_height, output, world_scale);
@@ -261,13 +293,21 @@ int main(int argc, char* argv[])
   }
   std::cout << status.out;
 
-  if(command == "maze")
+  if(command == "recursive")
   {
-    maze_command();
+    maze_command(MazeAlgorithm::RecursiveBacktracker);
+  }
+  else if(command == "random")
+  {
+    maze_command(MazeAlgorithm::RandomTraversal);
   }
   else if (command == "cell")
   {
     cell_command();
+  }
+  else
+  {
+    std::cerr << "Unknown command: " << command << "\n";
   }
 
   return 0;
