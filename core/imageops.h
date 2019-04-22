@@ -14,6 +14,8 @@ struct ImageMapAction
 
 Table<char> ImageToStringTable(const Image& img, const std::vector<ImageMapAction>& map);
 
+Table<char> ImageToStringTable(const Image& img, bool shorter);
+
 enum class Grayscale
 {
   R, G, B,
