@@ -14,9 +14,9 @@ struct Palette
   std::vector<Rgbi> colors;
 
   template <typename... R>
-  Palette(const std::string& n, R... c)
+  Palette(const std::string& n, const Rgbi& c0, const R&... c)
       : name(n)
-      , colors{c...}
+      , colors{c0, c...}
   {
   }
 
