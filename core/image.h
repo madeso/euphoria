@@ -49,6 +49,17 @@ class Image
   Rgbai
   GetPixel(int x, int y) const;
 
+  template<typename Func>
+  void
+  Filter(Func f)
+  {
+    for(int y=0;y<GetHeight(); y+=1)
+    for(int x=0;x<GetWidth(); x+=1)
+    {
+      SetPixel(x,y, f(GetPixel(x,y)));
+    }
+  }
+
   int
   GetWidth() const;
   int

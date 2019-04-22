@@ -91,6 +91,13 @@ Rgb::FromHex(unsigned int hex)
   return Rgb{r, g, b};
 }
 
+float dot(const Rgb& lhs, const Rgb& rhs)
+{
+  return lhs.r * rhs.r + lhs.g * rhs.g + lhs.b * rhs.b;
+}
+
+
+
 ////////////////////////////////////////////////////////////////////////////////
 
 Rgba::Rgba(const Rgb& rgb, float alpha)

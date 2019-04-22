@@ -14,4 +14,12 @@ struct ImageMapAction
 
 Table<char> ImageToStringTable(const Image& img, const std::vector<ImageMapAction>& map);
 
+enum class Grayscale
+{
+  R, G, B,
+  Max, Gamma, Linear,
+  Average
+};
+void MakeGrayscale(Image* image, Grayscale grayscale);
+
 #endif  // CORE_IMAGEOPS_H
