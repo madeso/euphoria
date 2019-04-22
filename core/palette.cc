@@ -1,5 +1,7 @@
 #include "core/palette.h"
 
+#include "core/assert.h"
+
 #include "core/numeric.h"
 #include "core/random.h"
 #include "core/colors.h"
@@ -13,6 +15,12 @@ namespace
            Square(lhs.b - rhs.b);
   }
 }  // namespace
+
+Palette
+Palette::Empty(const std::string& name)
+{
+  return Palette{name};
+}
 
 const Rgbi&
 Palette::GetRandomColor(Random* r) const
@@ -74,7 +82,7 @@ Palette::Rainbow(
     float        lightness)
 {
   ASSERT(count > 1);
-  Palette pal;
+  auto pal = Palette::Empty("Rainbow");
   for(int i = 0; i < count; i += 1)
   {
     float d = i / static_cast<float>(count - 1);
@@ -83,6 +91,8 @@ Palette::Rainbow(
   }
   return pal;
 }
+
+Palette::Palette(const std::string& n) : name(n) {}
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -100,7 +110,7 @@ namespace palette
   const Palette&
   Dawnbringer()
   {
-    static const auto p = Palette{
+    static const auto p = Palette{"dawnbringer",
         C(0x140C1C),
         C(0x442434),
         C(0x30346D),
@@ -125,7 +135,7 @@ namespace palette
   const Palette&
   NamedColors()
   {
-    static const auto p = Palette{
+    static const auto p = Palette{"named",
       Color::White,
       Color::Silver,
       Color::Gray,

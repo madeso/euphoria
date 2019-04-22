@@ -16,7 +16,7 @@ namespace palette
   const Palette&
   OneBit()
   {
-    static const auto p = Palette{
+    static const auto p = Palette{"OneBit",
         C(0x000000),
         C(0xFFFFFF),
     };
@@ -26,7 +26,7 @@ namespace palette
   const Palette&
   TwoBitGrayScale()
   {
-    static const auto p = Palette{
+    static const auto p = Palette{"TwoBitGrayScale",
         C(0x000000),
         C(0x676767),
         C(0xB6B6B6),
@@ -38,7 +38,7 @@ namespace palette
   const Palette&
   ThreeBit()
   {
-    static const auto p = Palette{
+    static const auto p = Palette{"ThreeBit",
         C(0x000000),
         C(0xFF0000),
         C(0x00FF00),
@@ -54,7 +54,7 @@ namespace palette
   const Palette&
   ARQ4()
   {
-    static const auto p = Palette{
+    static const auto p = Palette{"ARQ4",
         C(0xFFFFFF),
         C(0x6772A9),
         C(0x3A3277),
@@ -66,7 +66,7 @@ namespace palette
   const Palette&
   CGA()
   {
-    static const auto p = Palette{
+    static const auto p = Palette{"CGA",
         C(0x000000),
         C(0x555555),
         C(0xAAAAAA),
@@ -90,7 +90,7 @@ namespace palette
   const Palette&
   EDG8()
   {
-    static const auto p = Palette{
+    static const auto p = Palette{"EDG8",
         C(0xFDFDF8),
         C(0xD32734),
         C(0xDA7D22),
@@ -106,7 +106,7 @@ namespace palette
   const Palette&
   EDG16()
   {
-    static const auto p = Palette{
+    static const auto p = Palette{"EDG16",
         C(0xE4A672),
         C(0xB86F50),
         C(0x743F39),
@@ -130,7 +130,7 @@ namespace palette
   const Palette&
   EDG32()
   {
-    static const auto p = Palette{
+    static const auto p = Palette{"EDG32",
         C(0xBE4A2F), C(0xD77643), C(0xEAD4AA), C(0xE4A672), C(0xB86F50),
         C(0x733E39), C(0x3E2731), C(0xA22633), C(0xE43B44), C(0xF77622),
         C(0xFEAE34), C(0xFEE761), C(0x63C74D), C(0x3E8948), C(0x265C42),
@@ -145,7 +145,7 @@ namespace palette
   const Palette&
   EDG36()
   {
-    static const auto p = Palette{
+    static const auto p = Palette{"EDG36",
         C(0xDBE0E7), C(0xA3ACBE), C(0x67708B), C(0x4E5371), C(0x393A56),
         C(0x26243A), C(0x141020), C(0x7BCF5C), C(0x509B4B), C(0x2E6A42),
         C(0x1A453B), C(0x0F2738), C(0x0D2F6D), C(0x0F4DA3), C(0x0E82CE),
@@ -161,7 +161,7 @@ namespace palette
   const Palette&
   EDG64()
   {
-    static const auto p = Palette{
+    static const auto p = Palette{"EDG64",
         C(0xFF0040), C(0x131313), C(0x1B1B1B), C(0x272727), C(0x3D3D3D),
         C(0x5D5D5D), C(0x858585), C(0xB4B4B4), C(0xFFFFFF), C(0xC7CFDD),
         C(0x92A1B9), C(0x657392), C(0x424C6E), C(0x2A2F4E), C(0x1A1932),
@@ -182,7 +182,7 @@ namespace palette
   const Palette&
   EN4()
   {
-    static const auto p = Palette{
+    static const auto p = Palette{"EN4",
         C(0xFBF7F3),
         C(0xE5B083),
         C(0x426E5D),
@@ -194,7 +194,7 @@ namespace palette
   const Palette&
   Ink()
   {
-    static const auto p = Palette{
+    static const auto p = Palette{"Ink",
         C(0x1F1F29),
         C(0x413A42),
         C(0x596070),
@@ -207,7 +207,7 @@ namespace palette
   const Palette&
   Pico8()
   {
-    static const auto p = Palette{
+    static const auto p = Palette{"Pico8",
         C(0x000000),
         C(0x5F574F),
         C(0xC2C3C7),
@@ -231,7 +231,7 @@ namespace palette
   const Palette&
   Ammo8()
   {
-    static const auto p = Palette{
+    static const auto p = Palette{"Ammo8",
         C(0x040C06),
         C(0x112318),
         C(0x1E3A29),
@@ -247,7 +247,7 @@ namespace palette
   const Palette&
   NYX8()
   {
-    static const auto p = Palette{
+    static const auto p = Palette{"NYX8",
         C(0x08141E),
         C(0x0F2A3F),
         C(0x20394F),
@@ -263,7 +263,7 @@ namespace palette
   const Palette&
   FifteenPDX()
   {
-    static const auto p = Palette{
+    static const auto p = Palette{"FifteenPDX",
         C(0x6E3232),
         C(0xBB5735),
         C(0xDF9245),
@@ -286,7 +286,7 @@ namespace palette
   const Palette&
   TwentyPDX()
   {
-    static const auto p = Palette{
+    static const auto p = Palette{"TwentyPDX",
         C(0x170D20), C(0x474757), C(0x787876), C(0xB1B9A6), C(0xEBFFDA),
         C(0x68293E), C(0xA94400), C(0xD97E00), C(0xEBD000), C(0x523C14),
         C(0x816031), C(0xBC8B57), C(0xEBCD93), C(0x0E4C58), C(0x046E92),
@@ -298,7 +298,7 @@ namespace palette
   const Palette&
   Arne16()
   {
-    static const auto p = Palette{
+    static const auto p = Palette{"Arne16",
         C(0x000000),
         C(0x493C2B),
         C(0xBE2633),
@@ -322,7 +322,7 @@ namespace palette
   const Palette&
   Night16()
   {
-    static const auto p = Palette{
+    static const auto p = Palette{"Night16",
         C(0x0F0F1E),
         C(0xFFF8BC),
         C(0x0C2133),
@@ -346,7 +346,7 @@ namespace palette
   const Palette&
   AAP16()
   {
-    static const auto p = Palette{
+    static const auto p = Palette{"AAP16",
         C(0x070708),
         C(0x332222),
         C(0x774433),
@@ -370,7 +370,7 @@ namespace palette
   const Palette&
   AAP64()
   {
-    static const auto p = Palette{
+    static const auto p = Palette{"AAP64",
         C(0x060608), C(0x141013), C(0x3B1725), C(0x73172D), C(0xB4202A),
         C(0xDF3E23), C(0xFA6A0A), C(0xF9A31B), C(0xFFD541), C(0xFFFC40),
         C(0xD6F264), C(0x9CDB43), C(0x59C135), C(0x14A02E), C(0x1A7A3E),
@@ -391,7 +391,7 @@ namespace palette
   const Palette&
   Splendor128()
   {
-    static const auto p = Palette{
+    static const auto p = Palette{"Splendor128",
         C(0x050403), C(0x0E0C0C), C(0x2D1B1E), C(0x612721), C(0xB9451D),
         C(0xF1641F), C(0xFCA570), C(0xFFE0B7), C(0xFFFFFF), C(0xFFF089),
         C(0xF8C53A), C(0xE88A36), C(0xB05B2C), C(0x673931), C(0x271F1B),
@@ -425,7 +425,7 @@ namespace palette
   const Palette&
   Famicube()
   {
-    static const auto p = Palette{
+    static const auto p = Palette{"Famicube",
         C(0x000000), C(0x00177D), C(0x024ACA), C(0x0084FF), C(0x5BA8FF),
         C(0x98DCFF), C(0x9BA0EF), C(0x6264DC), C(0x3D34A5), C(0x211640),
         C(0x5A1991), C(0x6A31CA), C(0xA675FE), C(0xE2C9FF), C(0xFEC9ED),

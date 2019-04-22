@@ -1,21 +1,26 @@
 #ifndef EUPHORIA_PALETTE_H
 #define EUPHORIA_PALETTE_H
 
-#include "core/assert.h"
+#include <string>
 
 #include "core/rgb.h"
+
 
 class Random;
 
 struct Palette
 {
+  std::string name;
   std::vector<Rgbi> colors;
 
   template <typename... R>
-  explicit Palette(R... c)
-      : colors{c...}
+  Palette(const std::string& n, R... c)
+      : name(n)
+      , colors{c...}
   {
   }
+
+  static Palette Empty(const std::string& name);
 
   const Rgbi&
   GetRandomColor(Random* r) const;
@@ -36,6 +41,9 @@ struct Palette
   
   static Palette
   Rainbow(int count, const Angle& from, const Angle& to, float saturation, float lightness);
+
+  private:
+  explicit Palette(const std::string& n);
 };
 
 namespace palette

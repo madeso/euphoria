@@ -45,7 +45,7 @@ namespace palette
   {
     // dict(start=0.5, rotation=-1.5, gamma=1.0, sat=1.2,
     //      min_light=0., max_light=1., n=16)
-    static const auto p = Palette{
+    static const auto p = Palette{"Classic",
       C(0, 0, 0),
       C(22, 10, 34),
       C(24, 32, 68),
@@ -74,7 +74,7 @@ namespace palette
     // https://github.com/jradavenport/cubehelix
     // dict(start_hue=240., end_hue=-300., min_sat=1., max_sat=2.5,
     //      min_light=0.3, max_light=0.8, gamma=.9, n=16)
-    static const auto p = Palette{
+    static const auto p = Palette{"Perceptual_rainbow",
       C(135, 59, 97),
       C(143, 64, 127),
       C(143, 72, 157),
@@ -99,7 +99,7 @@ namespace palette
   Purple()
   {
     // dict(start=0., rotation=0.0, n=16)
-    static const auto p = Palette{
+    static const auto p = Palette{"Purple",
       C(0, 0, 0),
       C(15, 14, 35),
       C(31, 28, 68),
@@ -125,7 +125,7 @@ namespace palette
   {
     // http://www.ifweassume.com/2014/04/cubehelix-colormap-for-python.html
     // dict(start=0.3, rotation=-0.5, n=16)
-    static const auto p = Palette{
+    static const auto p = Palette{"Jim_special",
       C(0, 0, 0),
       C(22, 10, 34),
       C(37, 25, 68),
@@ -151,7 +151,7 @@ namespace palette
   {
     // http://www.ifweassume.com/2014/04/cubehelix-colormap-for-python.html
     // dict(start=0., rotation=0.5, n=16)
-    static const auto p = Palette{
+    static const auto p = Palette{"Red",
       C(0, 0, 0),
       C(19, 12, 35),
       C(44, 22, 65),
@@ -177,7 +177,7 @@ namespace palette
   {
     // http://nbviewer.ipython.org/gist/anonymous/a4fa0adb08f9e9ea4f94
     // dict(gamma=1.0, start=1.5, rotation=-1.0, sat=1.5, n=16)
-    static const auto p = Palette{
+    static const auto p = Palette{"Cubehelix1",
       C(0, 0, 0),
       C(27, 15, 0),
       C(65, 23, 4),
@@ -203,7 +203,7 @@ namespace palette
   {
     // http://nbviewer.ipython.org/gist/anonymous/a4fa0adb08f9e9ea4f94
     // dict(gamma=1.0, start=2.0, rotation=1.0, sat=1.5, n=16)
-    static const auto p = Palette{
+    static const auto p = Palette{"Cubehelix2",
       C(0, 0, 0),
       C(0, 28, 14),
       C(0, 51, 47),
@@ -229,7 +229,7 @@ namespace palette
   {
     // http://nbviewer.ipython.org/gist/anonymous/a4fa0adb08f9e9ea4f94
     // dict(gamma=1.0, start=2.0, rotation=1.0, sat=3, n=16)
-    static const auto p = Palette{
+    static const auto p = Palette{"Cubehelix3",
       C(0, 0, 0),
       C(0, 39, 12),
       C(0, 68, 60),

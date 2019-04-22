@@ -24,7 +24,7 @@ namespace palette
   const Palette& Tableau_10()
   {
     // Tableau 10
-    static const auto p = Palette{
+    static const auto p = Palette{"Tableau_10",
       C( 31, 119, 180),
      C(255, 127,  14),
      C( 44, 160,  44),
@@ -43,7 +43,7 @@ namespace palette
   const Palette& TableauLight_10()
   {
     // Tableau 10 Light
-    static const auto p = Palette{
+    static const auto p = Palette{"TableauLight_10",
       C(174, 199, 232),
      C(255, 187, 120),
      C(152, 223, 138),
@@ -62,7 +62,7 @@ namespace palette
   const Palette& TableauMedium_10()
   {
     // Tableau 10 Medium
-    static const auto p = Palette{
+    static const auto p = Palette{"TableauMedium_10",
       C(114, 158, 206),
      C(255, 158,  74),
      C(103, 191,  92),
@@ -81,7 +81,7 @@ namespace palette
   const Palette& Tableau_20()
   {
     // Tableau 20
-    static const auto p = Palette{
+    static const auto p = Palette{"Tableau_20",
       C( 31, 119, 180),
      C(174, 199, 232),
      C(255, 127,  14),
@@ -110,7 +110,7 @@ namespace palette
   const Palette& Gray_5()
   {
     // Gray 5
-    static const auto p = Palette{
+    static const auto p = Palette{"Gray_5",
       C( 96,  99, 106),
      C(165, 172, 175),
      C( 65,  68,  81),
@@ -124,7 +124,7 @@ namespace palette
   const Palette& ColorBlind_10()
   {
     // Color Blind 10
-    static const auto p = Palette{
+    static const auto p = Palette{"ColorBlind_10",
       C(  0, 107, 164),
      C(255, 128,  14),
      C(171, 171, 171),
@@ -143,7 +143,7 @@ namespace palette
   const Palette& TrafficLight_9()
   {
     // Traffic Light 9
-    static const auto p = Palette{
+    static const auto p = Palette{"TrafficLight_9",
       C(177,   3,  24),
      C(219, 161,  58),
      C( 48, 147,  67),
@@ -161,7 +161,7 @@ namespace palette
   const Palette& PurpleGray_6()
   {
     // Purple-Gray 6
-    static const auto p = Palette{
+    static const auto p = Palette{"PurpleGray_6",
       C(123, 102, 210),
      C(220,  95, 189),
      C(148, 145, 123),
@@ -176,7 +176,7 @@ namespace palette
   const Palette& PurpleGray_12()
   {
     // Purple-Gray 12
-    static const auto p = Palette{
+    static const auto p = Palette{"PurpleGray_12",
       C(123, 102, 210),
      C(166, 153, 232),
      C(220,  95, 189),
@@ -197,7 +197,7 @@ namespace palette
   const Palette& BlueRed_6()
   {
     // Blue-Red 6
-    static const auto p = Palette{
+    static const auto p = Palette{"BlueRed_6",
       C( 44, 105, 176),
      C(240,  39,  32),
      C(172,  97,  60),
@@ -212,7 +212,7 @@ namespace palette
   const Palette& BlueRed_12()
   {
     // Blue-Red 12
-    static const auto p = Palette{
+    static const auto p = Palette{"BlueRed_12",
       C( 44, 105, 176),
      C(181, 200, 226),
      C(240,  39,  32),
@@ -233,7 +233,7 @@ namespace palette
   const Palette& GreenOrange_6()
   {
     // Green-Orange 6
-    static const auto p = Palette{
+    static const auto p = Palette{"GreenOrange_6",
       C( 50, 162,  81),
      C(255, 127,  15),
      C( 60, 183, 204),
@@ -248,7 +248,7 @@ namespace palette
   const Palette& GreenOrange_12()
   {
     // Green-Orange 12
-    static const auto p = Palette{
+    static const auto p = Palette{"GreenOrange_12",
       C( 50, 162,  81),
      C(172, 217, 141),
      C(255, 127,  15),

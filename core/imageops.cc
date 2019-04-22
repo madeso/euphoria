@@ -5,7 +5,7 @@
 
 Table<char> ImageToStringTable(const Image& img, const std::vector<ImageMapAction>& map)
 {
-  auto pal = Palette {};
+  auto pal = Palette::Empty("");
   for(const auto m: map)
   {
     pal.colors.push_back(m.from_color);
