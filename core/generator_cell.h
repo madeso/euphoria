@@ -5,6 +5,8 @@
 #include "core/vec2.h"
 #include "core/image.h"
 
+#include "core/enumtostring.h"
+
 #include <stack>
 
 class Random;
@@ -52,5 +54,11 @@ namespace generator
     void Draw();
   };
 }
+
+BEGIN_ENUM_LIST(generator::BorderControl)
+  ENUM_VALUE(generator::BorderControl, AlwaysWall)
+  ENUM_VALUE(generator::BorderControl, AlwaysEmpty)
+  ENUM_VALUE(generator::BorderControl, Random)
+END_ENUM_LIST()
 
 #endif  // CORE_GENERATOR_CELL_H

@@ -4,6 +4,7 @@
 #include "core/table.h"
 #include "core/vec2.h"
 #include "core/image.h"
+#include "core/enumtostring.h"
 
 #include <stack>
 
@@ -95,7 +96,13 @@ namespace generator
     Drawer();
     void Draw();
   };
-
 }
+
+BEGIN_ENUM_LIST(generator::Dir)
+  ENUM_VALUE(generator::Dir, North)
+  ENUM_VALUE(generator::Dir, South)
+  ENUM_VALUE(generator::Dir, East)
+  ENUM_VALUE(generator::Dir, West)
+END_ENUM_LIST()
 
 #endif  // CORE_GENERATOR_MAZE_H
