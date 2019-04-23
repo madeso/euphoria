@@ -46,7 +46,7 @@ namespace argparse
     {
       for(auto& n: names)
       {
-        ASSERTX(IsOptional(n), n);
+        ASSERTX(IsOptional(Trim(n)), n);
         n = OptionalName(Trim(n));
       }
     }
@@ -173,12 +173,30 @@ namespace argparse
     return ParseResult::Ok;
   }
 
+
+  /////////////////////////////////////////////////////////////////////////////////////////
+  // HelpCallback
+
+  struct HelpCallback : public Arg
+  {
+    ParseResult Parse(const std::string& name, Running* running) override
+    {
+      running->parser->WriteLongHelp(running);
+      return ParseResult::Quit;
+    }
+
+    std::string ToShortArgumentString() override
+    {
+      return "";
+    }
+  };
+
   /////////////////////////////////////////////////////////////////////////////////////////
   // Parser
 
-  Parser::Parser(const std::string& n) : display_name(n)
+  Parser::Parser(const std::string& d) : documentation(d)
   {
-    // todo: add help command
+    AddArgument("-h, --help", std::make_shared<HelpCallback>());
   }
 
   void Parser::WriteShortHelp(Running* running) const
@@ -193,6 +211,19 @@ namespace argparse
     const auto optional_string = StringMerger::Space().Generate(optional_string_list);
     const auto positional_string = StringMerger::Space().Generate(positional_string_list);
     o->OnInfo(Str() << running->name << " " << optional_string << " " << positional_string);
+  }
+
+  void Parser::WriteLongHelp(Running* running) const
+  {
+    const auto empty_line = "";
+    const auto line = "##########";
+    auto* o = running->output;
+    o->OnInfo(Str() << running->name);
+    o->OnInfo(line);
+    o->OnInfo(empty_line);
+    o->OnInfo(documentation);
+    o->OnInfo(empty_line);
+    // todo: add help and documentation for all arguments here
   }
 
   Extra Parser::AddArgument(const Name& name, std::shared_ptr<Arg> arg)

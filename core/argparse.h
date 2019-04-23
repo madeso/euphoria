@@ -232,9 +232,10 @@ namespace argparse
 
   struct Parser
   {
-    explicit Parser(const std::string& n);
+    explicit Parser(const std::string& d);
 
     void WriteShortHelp(Running* running) const;
+    void WriteLongHelp(Running* running) const;
 
     // todo: add subparser
     // todo: get inspiration from 
@@ -242,7 +243,7 @@ namespace argparse
     // https://github.com/clap-rs/clap
     // https://docs.python.org/3/library/argparse.html
 
-    std::string display_name;
+    std::string documentation;
 
     // if null, use standard console output
     Output* output = nullptr;
