@@ -4,7 +4,9 @@
 #include <string>
 #include <map>
 #include <vector>
+#include <queue>
 
+#include "core/assert.h"
 #include "core/stringutils.h"
 #include "core/levenshtein.h"
 
@@ -12,17 +14,17 @@ template<typename T>
 struct MatchedEnum
 {
   bool single_match = false;
-  std::vector<T> enums;
+  std::vector<T> values;
 };
 
 template<typename T>
-struct EnumToString
+struct EnumToStringImpl
 {
   std::map<T, std::string> enum_to_string;
   std::map<std::string, T> string_to_enum;
 
   // todo: replace with initializer list?
-  EnumToString<T>& Add(const std::string& name, T t)
+  EnumToStringImpl<T>& Add(const std::string& name, T t)
   {
     enum_to_string.insert(std::make_pair(t, name));
     string_to_enum.insert(std::make_pair(ToLower(name), t));
@@ -31,24 +33,36 @@ struct EnumToString
 
   std::string ToString(T t) const
   {
-    auto found = enum_to_string(t);
+    auto found = enum_to_string.find(t);
     if(found != enum_to_string.end())
     {
       return found->second;
     }
-    ASSERT("Enum no added");
+    DIE("Enum not added");
     return "???";
   }
 
-  MatchedEnum<T> Match(const std::string& input, size_t max_size = 5) const
+  std::vector<std::string> ListNames() const
   {
-    auto found = string_to_enum.find(ToLower(str));
+    std::vector<std::string> ret;
+
+    for(auto entry: enum_to_string)
+    {
+      ret.emplace_back(entry.second);
+    }
+
+    return ret;
+  }
+
+  MatchedEnum<T> Match(const std::string& input, size_t max_size) const
+  {
+    auto found = string_to_enum.find(ToLower(input));
     if(found != string_to_enum.end())
     {
       return MatchedEnum<T>{true, {found->second}};
     }
     struct Match { T t; unsigned long changes;
-      bool operator<(const Match& rhs) {return changes<rhs.changes;} };
+      bool operator<(const Match& rhs) const {return changes<rhs.changes;} };
     std::priority_queue<Match> matches;
     for(auto entry: enum_to_string)
     {
@@ -64,20 +78,56 @@ struct EnumToString
     auto ret = MatchedEnum<T>{};
     while(!matches.empty())
     {
-      ret.enums.push_back(matches.pop().t);
+      ret.values.push_back(matches.top().t);
+      matches.pop();
     }
     return ret;
   }
 };
 
 template<typename T>
-const EnumToString<T>&
-GetEnumToString();
-// no implmenentation: only here for template specialization
+struct GetEnumToString
+{
+  enum { IsDefined = 0 };
 
-#define BEGIN_ENUM_LIST(T) template<> const ::EnumToString<T>& ::GetEnumToString<T>() { static const auto r = ::EnumToString<T>{}
+  // no implmenentation: only here for template specialization
+  static const EnumToStringImpl<T>& EnumValues();
+};
+
+
+template<typename T>
+MatchedEnum<T> StringToEnum(const std::string& input, size_t max_size = 5)
+{
+  return GetEnumToString<T>::EnumValues().Match(input, max_size);
+}
+
+template<typename T>
+std::string EnumToString(T t)
+{
+  return GetEnumToString<T>::EnumValues().ToString(t);
+}
+
+template<typename T>
+std::vector<std::string> EnumToString(const std::vector<T>& ts)
+{
+  std::vector<std::string> ret;
+  for(auto t: ts)
+  {
+    ret.emplace_back(GetEnumToString<T>::EnumValues().ToString(t));
+  }
+  return ret;
+}
+
+template<typename T>
+std::vector<std::string> EnumToString()
+{
+  return GetEnumToString<T>::EnumValues().ListNames();
+}
+
+
+#define BEGIN_ENUM_LIST(T) template<> struct GetEnumToString<T> { enum { IsDefined = 1 }; static const ::EnumToStringImpl<T>& EnumValues() { static const auto r = ::EnumToStringImpl<T>{}
 #define ENUM_VALUE(T, V) .Add(#V, T::V)
-#define END_ENUM_LIST() ; return r; }
+#define END_ENUM_LIST() ; return r; } };
 
 #endif  // CORE_ENUM_TO_STRING_H
 
