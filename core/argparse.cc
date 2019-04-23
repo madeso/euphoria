@@ -39,17 +39,16 @@ namespace argparse
   { }
 
   Name::Name(const char* str)
-      : is_optional(IsOptional(str))
+      : is_optional(IsOptional(Trim(str)))
       , names( Split(str, ',') ) 
   {
     if(is_optional)
     {
-      names[0] = OptionalName(names[0]);
-    }
-
-    for(auto& n: names)
-    {
-      n = Trim(n);
+      for(auto& n: names)
+      {
+        ASSERTX(IsOptional(n), n);
+        n = OptionalName(Trim(n));
+      }
     }
 
     #ifdef _DEBUG

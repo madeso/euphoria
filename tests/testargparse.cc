@@ -53,8 +53,7 @@ TEST_CASE("name tests", "[argparse]")
 
   SECTION("optional 2")
   {
-    // todo: this looks weird and is unexpected...
-    auto n = Name {"-int,i"};
+    auto n = Name {"-int,-i"};
     CHECK(n.is_optional);
     CHECK_THAT(n.names, IS_STRING_VECTOR("int", "i"));
   }
