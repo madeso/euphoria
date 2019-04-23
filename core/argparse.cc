@@ -181,9 +181,34 @@ namespace argparse
     // todo: add help command
   }
 
+  void Parser::WriteShortHelp(Running* running) const
+  {
+    auto* o = running->output;
+    const auto optional_string_list = VectorToStringVector(optional_arguments_list,
+        [](std::shared_ptr<Arg> a) -> std::string
+        { return Str() << "[-" << a->name.names[0] << a->ToShortArgumentString() << "]"; } );
+    const auto positional_string_list = VectorToStringVector(positional_arguments,
+        [](std::shared_ptr<Arg> a) -> std::string
+        { return Str() << a->ToShortArgumentString(); });
+    const auto optional_string = StringMerger::Space().Generate(optional_string_list);
+    const auto positional_string = StringMerger::Space().Generate(positional_string_list);
+    o->OnInfo(Str() << running->name << " " << optional_string << " " << positional_string);
+  }
+
   Extra Parser::AddArgument(const Name& name, std::shared_ptr<Arg> arg)
   {
     arg->name = name;
+    arg->meta_var = ToUpper(name.names[0]);
+    // strip away all - from the start
+    while(Name::IsOptional(arg->meta_var))
+    {
+      arg->meta_var = Name::OptionalName(arg->meta_var); 
+    }
+    // if empty, just set to some default
+    if(arg->meta_var.empty())
+    {
+      arg->meta_var = "VAR";
+    }
 
     if(name.is_optional)
     {
@@ -193,6 +218,7 @@ namespace argparse
         ASSERTX(optional_arguments.find(n)==optional_arguments.end(), n);
         optional_arguments[n] = arg;
       }
+      optional_arguments_list.push_back(arg);
     }
     else
     {
@@ -216,6 +242,8 @@ namespace argparse
   {
     auto console = ConsoleOutput {};
     auto running = Running { program_name, args, output ? output : &console };
+
+    running.parser = this;
 
     size_t next_positional_index = 0;
 
@@ -281,7 +309,8 @@ namespace argparse
 
     if(!missing_positionals.empty())
     {
-      running.output->OnError( Str() << "Positionals not consumed: " << StringMerger::EnglishAnd().Generate(missing_positionals));
+      running.output->OnError( Str() << "Missing required arguments: " << StringMerger::EnglishAnd().Generate(missing_positionals));
+      WriteShortHelp(&running);
       return ParseResult::Failed;
     }
 

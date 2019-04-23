@@ -11,6 +11,8 @@
 
 namespace argparse
 {
+  struct Parser;
+
   /////////////////////////////////////////////////////////////////////////////////////////
   // Enum
 
@@ -76,6 +78,7 @@ namespace argparse
     std::string name;
     std::vector<std::string> arguments;
     Output* output = nullptr;
+    const Parser* parser = nullptr;
 
     size_t next_index = 0;
 
@@ -92,6 +95,7 @@ namespace argparse
 
     virtual ~Arg() {}
     virtual ParseResult Parse(const std::string& name, Running* running) = 0;
+    virtual std::string ToShortArgumentString() = 0;
   };
 
   struct Extra
@@ -140,6 +144,11 @@ namespace argparse
         return ParseResult::Failed;
       }
     }
+
+    std::string ToShortArgumentString() override
+    {
+      return Str() << " " << meta_var;
+    }
   };
 
   template<typename T>
@@ -152,6 +161,11 @@ namespace argparse
     {
       t();
       return ParseResult::Ok;
+    }
+
+    std::string ToShortArgumentString() override
+    {
+      return "";
     }
   };
 
@@ -199,6 +213,18 @@ namespace argparse
         return ParseOne(cmd_name, running);
       }
     }
+
+    std::string ToShortArgumentString() override
+    {
+      if(greedy == Greedy::Yes)
+      {
+        return Str() << " " << meta_var << "+";
+      }
+      else
+      {
+        return Str() << "+ " << meta_var;
+      }
+    }
   };
 
   /////////////////////////////////////////////////////////////////////////////////////////
@@ -207,6 +233,8 @@ namespace argparse
   struct Parser
   {
     explicit Parser(const std::string& n);
+
+    void WriteShortHelp(Running* running) const;
 
     // todo: add subparser
     // todo: get inspiration from 
@@ -220,6 +248,7 @@ namespace argparse
     Output* output = nullptr;
 
     std::map<std::string, std::shared_ptr<Arg>> optional_arguments;
+    std::vector<std::shared_ptr<Arg>> optional_arguments_list;
     std::vector<std::shared_ptr<Arg>> positional_arguments;
 
     Extra AddArgument(const Name& name, std::shared_ptr<Arg> arg);
