@@ -3,6 +3,7 @@
 #include "core/image.h"
 #include "core/draw.h"
 #include "core/stringutils.h"
+#include "core/stringmerger.h"
 #include "core/log.h"
 #include "core/path.h"
 
@@ -27,13 +28,15 @@ FileSystemImageGenerator::ReadFile(const std::string& path)
 
   const auto color_name = ToLower(command);
 
-  if(!color::IsValidLowerCase(color_name))
+  const auto found_color = StringToEnum<Color>(color_name);
+
+  if(!found_color.single_match)
   {
-    LOG_WARN("Invalid color name: " << color_name << " for path " << path);
+    LOG_WARN("Invalid color name: " << color_name << " for path " << path << " closest matches are " << StringMerger::EnglishOr().Generate(EnumToString(found_color.values)) );
     return MemoryChunk::Null();
   }
 
-  const auto color = color::GetColorFromLowerCaseString(color_name);
+  const auto color = found_color.values[0];
 
   Image image;
   image.SetupNoAlphaSupport(128, 128);
@@ -71,7 +74,7 @@ FileSystemImageGenerator::ListFiles(const Path& path)
 
   if(path == self)
   {
-    const auto names = color::ListAllColorNames();
+    const auto names = EnumToString<Color>();
     for(const auto& n : names)
     {
       ret.Add(n, true);
