@@ -8,6 +8,7 @@
 #include <vector>
 #include <map>
 #include <memory>
+#include <iomanip>
 
 #include "core/assert.h"
 #include "core/stringutils.h"
@@ -196,7 +197,8 @@ namespace argparse
 
   Parser::Parser(const std::string& d) : documentation(d)
   {
-    AddArgument("-h, --help", std::make_shared<HelpCallback>());
+    AddArgument("-h, --help", std::make_shared<HelpCallback>())
+      .Help("show this help message and exit");
   }
 
   void Parser::WriteShortHelp(Running* running) const
@@ -210,20 +212,57 @@ namespace argparse
         { return Str() << a->ToShortArgumentString(); });
     const auto optional_string = StringMerger::Space().Generate(optional_string_list);
     const auto positional_string = StringMerger::Space().Generate(positional_string_list);
-    o->OnInfo(Str() << running->name << " " << optional_string << " " << positional_string);
+    o->OnInfo(Str() << "usage: " << running->name << " " << optional_string << " " << positional_string);
   }
 
   void Parser::WriteLongHelp(Running* running) const
   {
+    WriteShortHelp(running);
     const auto empty_line = "";
-    const auto line = "##########";
+    const auto indent = "  ";
     auto* o = running->output;
-    o->OnInfo(Str() << running->name);
-    o->OnInfo(line);
     o->OnInfo(empty_line);
     o->OnInfo(documentation);
     o->OnInfo(empty_line);
-    // todo: add help and documentation for all arguments here
+    size_t max_size = 0;
+    auto arg_name_string = [](std::shared_ptr<Arg> p) -> std::string
+    {
+        auto name_list = VectorToStringVector(p->name.names,
+            [](const std::string& n) -> std::string
+            { return Str() << "-" << n; });
+        // todo: change from Space to SpaceComma
+        auto name = StringMerger::Space().Generate(name_list);
+        return name;
+    };
+    ///////
+    for(auto p: positional_arguments)
+    {
+      max_size = std::max(max_size, p->name.names[0].length());
+    }
+    for(auto p: optional_arguments_list)
+    {
+      max_size = std::max(max_size, arg_name_string(p).length());
+    }
+    max_size += 1; // extra spacing
+    ///////
+    if(!positional_arguments.empty())
+    {
+      o->OnInfo("positional arguments");
+      for(auto p: positional_arguments)
+      {
+        o->OnInfo(Str() << indent << std::left << std::setw(max_size) << p->name.names[0] << std::setw(0) << " " << p->help);
+      }
+      o->OnInfo(empty_line);
+    }
+    if(!optional_arguments_list.empty())
+    {
+      o->OnInfo("optional arguments");
+      for(auto p: optional_arguments_list)
+      {
+        o->OnInfo(Str() << indent << std::left << std::setw(max_size) << arg_name_string(p) << std::setw(0) << " " << p->help);
+      }
+      o->OnInfo(empty_line);
+    }
   }
 
   Extra Parser::AddArgument(const Name& name, std::shared_ptr<Arg> arg)
@@ -340,7 +379,7 @@ namespace argparse
 
     if(!missing_positionals.empty())
     {
-      running.output->OnError( Str() << "Missing required arguments: " << StringMerger::EnglishAnd().Generate(missing_positionals));
+      running.output->OnError( Str() << "error: the following arguments are required: " << StringMerger::EnglishAnd().Generate(missing_positionals));
       WriteShortHelp(&running);
       return ParseResult::Failed;
     }
