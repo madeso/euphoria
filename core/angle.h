@@ -94,12 +94,12 @@ class Angle
 
 constexpr Angle operator"" _deg(long double d)
 {
-  return Angle::FromDegrees(d);
+  return Angle::FromDegrees(static_cast<float>(d));
 }
 
 constexpr Angle operator"" _rad(long double r)
 {
-  return Angle::FromRadians(r);
+  return Angle::FromRadians(static_cast<float>(r));
 }
 
 float

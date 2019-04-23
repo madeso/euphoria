@@ -56,7 +56,7 @@ class quat
     const T    cos_a = w;
     const auto angle = Acos(cos_a) * 2;
     const T    sin_a =
-        DefaultIfCloseToZero<T>(Sqrt(1.0 - cos_a * cos_a), 1, 0.0005);
+        DefaultIfCloseToZero<T>(Sqrt(1.0f - cos_a * cos_a), 1, 0.0005f);
     // todo: do we need to normalize here?
     return AxisAngle::RightHandAround((vec() / sin_a).GetNormalized(), angle);
   }
