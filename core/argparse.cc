@@ -54,7 +54,7 @@ namespace argparse
 
     #ifdef _DEBUG
     AssertValid();
-    #endif}
+    #endif
   }
 
   Name Name::Parse(const std::string& n)
@@ -273,8 +273,6 @@ namespace argparse
         return r;
       }
     }
-
-    const auto has_more_positionals = next_positional_index < positional_arguments.size();
 
     std::vector<std::string> missing_positionals;
     for(size_t i=next_positional_index; i<positional_arguments.size(); i+=1)
