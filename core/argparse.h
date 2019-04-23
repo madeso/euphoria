@@ -1,374 +1,264 @@
 #ifndef CORE_ARGPARSE_H
 #define CORE_ARGPARSE_H
 
-#include <stdexcept>
 #include <vector>
 #include <string>
-#include <functional>
-#include <sstream>
 #include <memory>
 #include <map>
-#include <sstream>
 
+#include "core/str.h"
+#include "core/enumtostring.h"
 
 namespace argparse
 {
-  ////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////////////
+  // Enum
 
-  class ParserError : public std::runtime_error
+  enum class Greedy
   {
-   public:
-    ParserError(const std::string& error);
+    Yes, No
   };
 
-  ////////////////////////////////////////////////////////////////////////////
-
-  class Arguments
+  enum class ParseResult
   {
-   public:
-    explicit Arguments(const std::vector<std::string>& arguments);
+    // parsing was successfull, use arguments
+    Ok,
 
-    const std::string&
-    PeekFirst() const;
+    // some argumetns failed, please exit
+    Failed,
 
-    const bool
-    IsEmpty() const;
-
-    const std::string
-    GetFirst(const std::string& error = "no more arguments available");
-
-   private:
-    std::vector<std::string> args;
+    // parsing was successfull, but exit was requested, please exit
+    Quit, 
   };
 
-  ////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////////////
+  // Util
 
-  class Count
+  struct Name
   {
-   public:
-    enum Type
-    {
-      Const,
-      MoreThanOne,
-      Optional,
-      None,
-      ZeroOrMore
-    };
+    static bool IsOptional(const std::string& name);
+    static std::string OptionalName(const std::string& name);
 
-    Count(size_t c);
-    Count(Type t);
+    Name();
+    Name(const char* n);
 
-    size_t count;
-    Type   type;
+    bool is_optional;
+    std::vector<std::string> names;
+
+    static Name Parse(const std::string& n);
+    static Name Optional(std::initializer_list<std::string> names);
+    static Name Positional(std::string& names);
+
+    private:
+      Name(bool o, const std::vector<std::string>& n);
+
+      #ifdef _DEBUG
+      void AssertValid();
+      #endif
   };
 
-  ////////////////////////////////////////////////////////////////////////////
+  struct Output
+  {
+    virtual ~Output() {}
 
-  // basic class for passing along variables that only exist when parsing
+    virtual void OnError(const std::string& err) = 0;
+    virtual void OnInfo(const std::string& info) = 0;
+  };
+
+  struct ConsoleOutput : public Output
+  {
+    void OnError(const std::string& err) override;
+    void OnInfo(const std::string& info) override;
+  };
+
   struct Running
   {
-   public:
-    explicit Running(const std::string& aapp);
-
-    const std::string  app;
-    std::ostringstream o;
-    std::ostringstream error;
-    bool               run;
-
-   private:
-    Running(const Running&);
-
-    void
-    operator=(const Running&);
-  };
-
-  ////////////////////////////////////////////////////////////////////////////
-
-  // Utility class to provide optional arguments for the commandline arguments.
-  class Extra
-  {
-   public:
-    Extra();
-
-    /// set the extended help for the argument
-    Extra&
-    Help(const std::string& h);
-
-    /// the number of values a argument can support
-    Extra&
-    Count(const Count& c);
-
-    // the meta variable, used in usage display and help display for the
-    // arguments
-    Extra&
-    MetaVar(const std::string& the_metavar);
-
-    std::string     help;
-    argparse::Count count;
-    std::string     metavar;
-  };
-
-  ////////////////////////////////////////////////////////////////////////////
-
-  class Argument
-  {
-   public:
-    Extra extra;
-
-    virtual ~Argument();
-
-    virtual void
-    Parse(Running& r, Arguments& args, const std::string& argname) = 0;
-  };
-
-  ////////////////////////////////////////////////////////////////////////////
-
-  typedef std::function<void(Running& r, Arguments&, const std::string&)>
-      ArgumentCallback;
-
-  ////////////////////////////////////////////////////////////////////////////
-
-  class FunctionArgument : public Argument
-  {
-   public:
-    FunctionArgument(const ArgumentCallback& func);
-
-    void
-    Parse(Running& r, Arguments& args, const std::string& argname) override;
-
-   private:
-    ArgumentCallback function;
-  };
-
-  ////////////////////////////////////////////////////////////////////////////
-
-  class ArgumentBase : public Argument
-  {
-   public:
-    ArgumentBase();
-
-    virtual void
-    Combine(const std::string& value) = 0;
-
-    virtual void
-    Parse(Running&, Arguments& args, const std::string& argname) override;
-  };
-
-  ////////////////////////////////////////////////////////////////////////////
-
-  class Help
-  {
-   public:
-    Help(const std::string& aname, Extra* e);
-
-    const std::string
-    GetUsage() const;
-
-    const std::string
-    GetMetaVarRepresentation() const;
-
-    const std::string
-    GetMetaVarName() const;
-
-    const std::string
-    GetHelpCommand() const;
-
-    const std::string&
-    GetHelpDescription() const;
-
-   private:
     std::string name;
-    Extra*      extra;
+    std::vector<std::string> arguments;
+    Output* output = nullptr;
+
+    size_t next_index = 0;
+
+    bool HasMore() const;
+    std::string Read();
+    std::string Peek(size_t advance = 1) const;
   };
 
-  ////////////////////////////////////////////////////////////////////////////
-
-  template <typename V>
-  using ConverterFunction = std::function<V(const std::string&)>;
-
-  template <typename T, typename V>
-  using CombinerFunction = std::function<void(T& t, const V&)>;
-
-  ////////////////////////////////////////////////////////////////////////////
-
-  template <typename A, typename B>
-  void
-  Assign(A& a, const B& b)
+  struct Arg
   {
-    a = b;
-  }
+    Name name;
+    std::string meta_var;
+    std::string help;
 
-  template <typename T>
-  void
-  PushBackVector(std::vector<T>& vec, const T& t)
-  {
-    vec.push_back(t);
-  }
+    virtual ~Arg() {}
+    virtual ParseResult Parse(const std::string& name, Running* running) = 0;
+  };
 
-  template <typename T>
-  T
-  StandardConverter(const std::string& type)
+  struct Extra
   {
-    std::istringstream ss(type);
-    T                  t;
-    if(ss >> t)
+    std::shared_ptr<Arg> arg;
+
+    Extra& MetaVar(const std::string& m);
+    Extra& Help(const std::string& h);
+  };
+
+  template<typename T>
+  ParseResult SimpleParser(T* target, const std::string& name, const std::string& value, Output* output)
+  {
+    std::stringstream ss(value);
+    ss >> *target;
+    if(ss.fail())
     {
-      return t;
+      output->OnError(Str() << value << " for " << name << " is not accepted.");
+      return ParseResult::Failed;
     }
     else
     {
-      throw ParserError("Failed to parse " + type);
+      return ParseResult::Ok;
     }
   }
 
-  template <typename T>
-  struct Convert
+  template<>
+  ParseResult SimpleParser<std::string>(std::string* target, const std::string&, const std::string& value, Output*);
+
+  template<typename T>
+  struct SimpleArg : public Arg
   {
-    Convert()
-    {
-      // todo: to lowercase?
-      // todo: almost matching?
-    }
+    T* target;
 
-    Convert&
-    operator()(const std::string& a, T t)
+    ParseResult Parse(const std::string& cmd_name, Running* running) override
     {
-      map[a] = t;
-      return *this;
-    }
-
-    T
-    operator()(const std::string& type) const
-    {
-      auto found = map.find(type);
-      if(found == map.end())
+      if(running->HasMore())
       {
-        throw ParserError("Failed to parse " + type);
+        const auto value = running->Read();
+        // todo: add validator (InRange, etc...)
+        return SimpleParser<T>(target, cmd_name, value, running->output);
       }
       else
       {
-        return found->second;
+        running->output->OnError(Str() << cmd_name << " missing value");
+        return ParseResult::Failed;
       }
     }
-
-    std::map<std::string, T> map;
   };
 
-  template <typename T, typename V>
-  class ArgumentT : public ArgumentBase
+  template<typename T>
+  struct FunctionArgument : public Arg
   {
-   public:
-    ArgumentT(T& t, CombinerFunction<T, V> com, ConverterFunction<V> c)
-        : target(t)
-        , combiner(com)
-        , converter(c)
-    {
-    }
+    T t;
 
-    void
-    Combine(const std::string& value) override
+    FunctionArgument(T tt) : t(tt) { }
+    ParseResult Parse(const std::string&, Running*) override
     {
-      combiner(target, converter(value));
+      t();
+      return ParseResult::Ok;
     }
-
-   private:
-    T& target;
-    CombinerFunction<T, V> combiner;
-    ConverterFunction<V> converter;
   };
 
-  ////////////////////////////////////////////////////////////////////////////
-
-  struct ParseStatus
+  template<typename T>
+  struct VectorArg : public Arg
   {
-    enum Result
+    std::vector<T>* target;
+    Greedy greedy = Greedy::No;
+
+    ParseResult ParseOne(const std::string& cmd_name, Running* running)
     {
-      Failed,
-      Complete,
-      ShouldExit
-    };
-    ParseStatus(const Running& running, Result r);
-    std::string out;
-    std::string error;
-    Result      result;
+      if(!running->HasMore())
+      {
+        running->output->OnError(Str() << cmd_name << " missing value");
+        return ParseResult::Failed;
+      }
+      const auto value = running->Read();
+      T t;
+      const auto r = SimpleParser<T>(&t, cmd_name, value, running->output);
+      if(r == ParseResult::Ok)
+      {
+        // todo: add validator (InRange, etc...)
+        target->emplace_back(t);
+      }
+      return r;
+    }
+
+    ParseResult Parse(const std::string& cmd_name, Running* running) override
+    {
+      if(greedy == Greedy::Yes)
+      {
+        while(running->HasMore())
+        {
+          auto r = ParseOne(cmd_name, running);
+          if( r != ParseResult::Ok)
+          {
+            return r;
+          }
+        }
+
+        return ParseResult::Ok;
+      }
+      else
+      {
+        return ParseOne(cmd_name, running);
+      }
+    }
   };
 
-  /// main entry class that contains all arguments and does all the parsing.
-  class Parser
+  /////////////////////////////////////////////////////////////////////////////////////////
+  // Main
+
+  struct Parser
   {
-   public:
-    Parser(const std::string& d, const std::string& aappname = "");
+    explicit Parser(const std::string& n);
 
-    template <typename T>
-    Extra&
-    AddSimple(
-        const std::string&   name,
-        T&                   var,
-        ConverterFunction<T> co = StandardConverter<T>,
-        CombinerFunction<T, T> combiner = Assign<T, T>)
+    // todo: add subparser
+    // todo: get inspiration from 
+    // https://stackoverflow.com/questions/491595/best-way-to-parse-command-line-arguments-in-c
+    // https://github.com/clap-rs/clap
+    // https://docs.python.org/3/library/argparse.html
+
+    std::string display_name;
+
+    // if null, use standard console output
+    Output* output = nullptr;
+
+    std::map<std::string, std::shared_ptr<Arg>> optional_arguments;
+    std::vector<std::shared_ptr<Arg>> positional_arguments;
+
+    Extra AddArgument(const Name& name, std::shared_ptr<Arg> arg);
+
+    template<typename T>
+    Extra AddSimple(const Name& name, T* var)
     {
-      return Add<T, T>(name, var, combiner, co);
+      auto a = std::make_shared<SimpleArg<T>>();
+      a->target = var;
+      return AddArgument(name, a);
     }
 
-    template <typename T>
-    Extra&
-    AddVector(const std::string& name, std::vector<T>& var)
+    template<typename T>
+    Extra AddSimpleFunction(const Name& name, T callback)
     {
-      return Add<std::vector<T>, T>(name, var, argparse::PushBackVector<T>)
-          .Count(argparse::Count::MoreThanOne);
+      auto a = std::make_shared<FunctionArgument<T>>(callback);
+      return AddArgument(name, a);
     }
 
-    template <typename T, typename V>
-    Extra&
-    Add(const std::string& name,
-        T&                 var,
-        CombinerFunction<T, V> combiner = Assign<T, V>,
-        ConverterFunction<V> co = StandardConverter<V>)
+    template<typename T>
+    Extra AddVector(const Name& name, std::vector<T>* vec)
     {
-      ArgumentPtr arg(new ArgumentT<T, V>(var, combiner, co));
-      return Insert(name, arg);
+      auto a = std::make_shared<VectorArg<T>>();
+      a->target = vec;
+      a->greedy = name.is_optional ? Greedy::No : Greedy::Yes;
+      return AddArgument(name, a);
     }
 
-    Extra&
-    AddFunction(const std::string& name, ArgumentCallback func);
-
-    Extra&
-    AddSimpleFunction(const std::string& name, std::function<void()> func);
-
-    ParseStatus
-    Parse(const std::string& name, const std::vector<std::string>& arguments)
-        const;
-
-    ParseStatus
-    Parse(int argc, char* argv[]) const;
-
-    void
-    WriteHelp(Running& r) const;
-
-    void
-    WriteUsage(Running& r) const;
-
-   private:
-    typedef std::shared_ptr<Argument> ArgumentPtr;
-
-    Extra&
-    Insert(const std::string& name, ArgumentPtr arg);
-
-    std::string description;
-    std::string appname;
-
-    typedef std::map<std::string, ArgumentPtr> Optionals;
-    Optionals optionals;
-
-    typedef std::vector<ArgumentPtr> Positionals;
-    Positionals                      positionals;
-    mutable size_t
-        positionalIndex;  // todo: mutable or change parseArgs to nonconst?
-
-    std::vector<Help> helpOptional;
-    std::vector<Help> helpPositional;
+    ParseResult Parse(int argc, char* argv[]) const;
+    ParseResult Parse(const std::string& program_name, const std::vector<std::string>& args) const;
   };
-}
 
+}  // namespace argparse
+
+
+BEGIN_ENUM_LIST(argparse::ParseResult)
+  ENUM_VALUE(argparse::ParseResult, Ok)
+  ENUM_VALUE(argparse::ParseResult, Failed)
+  ENUM_VALUE(argparse::ParseResult, Quit)
+END_ENUM_LIST()
 
 #endif  // CORE_ARGPARSE_H

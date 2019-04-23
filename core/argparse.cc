@@ -11,398 +11,199 @@
 
 #include "core/assert.h"
 #include "core/stringutils.h"
+#include "core/stringmerger.h"
 
-namespace
+namespace argparse
 {
-  /// internal function.
-  /// @returns true if arg is to be considered as an optional
-  bool
-  IsOptional(const std::string& arg)
+  /////////////////////////////////////////////////////////////////////////////////////////
+  // Name
+
+  bool Name::IsOptional(const std::string& arg)
   {
     if(arg.empty())
     {
       return false;
-    }  // todo: assert this?
+    }
     return arg[0] == '-';
   }
-}
 
-namespace argparse
-{
-  ParserError::ParserError(const std::string& error)
-      : runtime_error("error: " + error)
+  std::string Name::OptionalName(const std::string& name)
   {
+    ASSERTX(IsOptional(name), name);
+    ASSERTX(!name.empty(), name);
+    return name.substr(1);
   }
 
-  ////////////////////////////////////////////////////////////////////////////
+  Name::Name()
+      : is_optional(false)
+  { }
 
-  Arguments::Arguments(const std::vector<std::string>& arguments)
-      : args(arguments)
+  Name::Name(const char* str)
+      : is_optional(IsOptional(str))
+      , names( Split(str, ',') ) 
   {
-  }
-
-  const std::string&
-  Arguments::PeekFirst() const
-  {
-    return args[0];
-  }
-
-  const bool
-  Arguments::IsEmpty() const
-  {
-    return args.empty();
-  }
-
-  const std::string
-  Arguments::GetFirst(const std::string& error)
-  {
-    if(IsEmpty())
+    if(is_optional)
     {
-      throw ParserError(error);
+      names[0] = OptionalName(names[0]);
     }
-    const std::string r = args[0];
-    args.erase(args.begin());
-    return r;
-  }
 
-  ////////////////////////////////////////////////////////////////////////////
-
-  Count::Count(size_t c)
-      : count(c)
-      , type(Const)
-  {
-  }
-
-  Count::Count(Type t)
-      : count(0)
-      , type(t)
-  {
-    ASSERT(t != Const);
-  }
-
-  ////////////////////////////////////////////////////////////////////////////
-
-  Running::Running(const std::string& aapp)
-      : app(aapp)
-      , run(true)
-  {
-  }
-
-  ////////////////////////////////////////////////////////////////////////////
-
-  Argument::~Argument()
-  {
-  }
-
-  ////////////////////////////////////////////////////////////////////////////
-
-  FunctionArgument::FunctionArgument(const ArgumentCallback& func)
-      : function(func)
-  {
-  }
-
-  void
-  FunctionArgument::Parse(
-      Running& r, Arguments& args, const std::string& argname)
-  {
-    function(r, args, argname);
-  }
-
-  ////////////////////////////////////////////////////////////////////////////
-
-  ArgumentBase::ArgumentBase() = default;
-
-  void
-  ArgumentBase::Parse(Running&, Arguments& args, const std::string& argname)
-  {
-    const auto& count = extra.count;
-    switch(count.type)
+    for(auto& n: names)
     {
-      case Count::Const:
-        for(size_t i = 0; i < count.count; ++i)
-        {
-          std::stringstream ss;
-          ss << "argument " << argname << ": expected ";
-          if(count.count == 1)
-          {
-            ss << "one argument";
-          }
-          else
-          {
-            ss << count.count << " argument(s), " << i << " already given";
-          }
-          Combine(args.GetFirst(ss.str()));
-
-          // abort on optional?
-        }
-        return;
-      case Count::MoreThanOne:
-        Combine(args.GetFirst(
-            "argument " + argname + ": expected at least one argument"));
-      case Count::ZeroOrMore:
-        while(!args.IsEmpty() && !IsOptional(args.PeekFirst()))
-        {
-          Combine(args.GetFirst("internal error"));
-        }
-        return;
-      case Count::Optional:
-        if(args.IsEmpty())
-        {
-          return;
-        }
-        if(IsOptional(args.PeekFirst()))
-        {
-          return;
-        }
-        Combine(args.GetFirst("internal error"));
-        return;
-      case Count::None:
-        return;
-      default:
-        DIE("internal error, ArgumentT::parse invalid Count");
-        throw "internal error, ArgumentT::parse invalid Count";
+      n = Trim(n);
     }
+
+    #ifdef _DEBUG
+    AssertValid();
+    #endif}
   }
 
-  ////////////////////////////////////////////////////////////////////////////
-
-
-  Extra::Extra()
-      : count(1)
+  Name Name::Parse(const std::string& n)
   {
+    return { n.c_str() };
+  }
+  
+  Name Name::Optional(std::initializer_list<std::string> names)
+  {
+    return { true, names };
   }
 
-  Extra&
-  Extra::Help(const std::string& h)
+  Name Name::Positional(std::string& name)
   {
-    help = h;
-    return *this;
+    return {false, {name}};
   }
 
-  Extra&
-  Extra::Count(const argparse::Count& c)
+  Name::Name(bool o, const std::vector<std::string>& n)
+      : is_optional(o)
+      , names(n)
   {
-    count = c;
-    return *this;
+    #ifdef _DEBUG
+    AssertValid();
+    #endif
   }
 
-  Extra&
-  Extra::MetaVar(const std::string& the_metavar)
+  #ifdef _DEBUG
+  void Name::AssertValid()
   {
-    metavar = the_metavar;
-    return *this;
-  }
-
-  ////////////////////////////////////////////////////////////////////////////
-
-  Help::Help(const std::string& aname, Extra* e)
-      : name(aname)
-      , extra(e)
-  {
-  }
-
-  const std::string
-  Help::GetUsage() const
-  {
-    if(IsOptional(name))
+    if(is_optional)
     {
-      return "[" + name + " " + GetMetaVarRepresentation() + "]";
+      for(unsigned int i=0; i<names.size(); i+=1)
+      {
+        ASSERTX(IsOptional(names[i])==false, i, names[i]);
+      }
     }
     else
     {
-      return GetMetaVarRepresentation();
+      ASSERTX(names.size()==1, names.size());
     }
+
+    // todo: assert that name only contains valid characters...
+  }
+  #endif
+
+  /////////////////////////////////////////////////////////////////////////////////////////
+  // ConsoleOutput
+
+  void ConsoleOutput::OnError(const std::string& err)
+  {
+    std::cerr << err << "\n";
   }
 
-  const std::string
-  Help::GetMetaVarRepresentation() const
+  void ConsoleOutput::OnInfo(const std::string& info)
   {
-    switch(extra->count.type)
-    {
-      case Count::None:
-        return "";
-      case Count::MoreThanOne:
-        return GetMetaVarName() + " [" + GetMetaVarName() + " ...]";
-      case Count::Optional:
-        return "[" + GetMetaVarName() + "]";
-      case Count::ZeroOrMore:
-        return "[" + GetMetaVarName() + " [" + GetMetaVarName() + " ...]]";
-      case Count::Const:
-      {
-        std::ostringstream ss;
-        ss << "[";
-        for(size_t i = 0; i < extra->count.count; ++i)
-        {
-          if(i != 0)
-          {
-            ss << " ";
-          }
-          ss << GetMetaVarName();
-        }
-        ss << "]";
-        return ss.str();
-      }
-      default:
-        DIE("missing case");
-        throw "invalid count type";
-    }
+    std::cout << info << "\n";
   }
 
-  const std::string
-  Help::GetMetaVarName() const
+  /////////////////////////////////////////////////////////////////////////////////////////
+  // Running
+
+  bool Running::HasMore() const
   {
-    const auto metavar = extra->metavar;
-    if(metavar.empty() == false)
+    return next_index < arguments.size();
+  }
+
+  std::string Running::Read()
+  {
+    if(next_index < arguments.size())
     {
-      return metavar;
+      const auto ret = arguments[next_index];
+      next_index += 1;
+      return ret;
     }
     else
     {
-      if(IsOptional(name))
-      {
-        return ToUpper(name.substr(1));
-      }
-      else
-      {
-        return name;
-      }
+      return "";
     }
   }
 
-  const std::string
-  Help::GetHelpCommand() const
+  std::string Running::Peek(size_t advance) const
   {
-    if(IsOptional(name))
+    ASSERTX(advance > 0, advance);
+    const auto suggested_index = next_index + advance - 1;
+    if(suggested_index < arguments.size())
     {
-      return name + " " + GetMetaVarRepresentation();
+      return arguments[suggested_index];
     }
     else
     {
-      return GetMetaVarName();
+      return "";
     }
   }
 
-  const std::string&
-  Help::GetHelpDescription() const
+  /////////////////////////////////////////////////////////////////////////////////////////
+  // Extra
+
+  Extra& Extra::MetaVar(const std::string& m)
   {
-    return extra->help;
+    arg->meta_var = m;
+    return *this;
   }
 
-  ////////////////////////////////////////////////////////////////////////////
-
-  ParseStatus::ParseStatus(const Running& running, ParseStatus::Result r)
-      : out(running.o.str())
-      , error(running.error.str())
-      , result(r)
+  Extra& Extra::Help(const std::string& h)
   {
+    arg->help = h;
+    return *this;
   }
 
-  ////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////////////
+  // SimpleParser
 
-  namespace
+  template<>
+  ParseResult SimpleParser<std::string>(std::string* target, const std::string&, const std::string& value, Output*)
   {
-    struct CallHelp
+    *target = value;
+    return ParseResult::Ok;
+  }
+
+  /////////////////////////////////////////////////////////////////////////////////////////
+  // Parser
+
+  Parser::Parser(const std::string& n) : display_name(n)
+  {
+    // todo: add help command
+  }
+
+  Extra Parser::AddArgument(const Name& name, std::shared_ptr<Arg> arg)
+  {
+    arg->name = name;
+
+    if(name.is_optional)
     {
-      explicit CallHelp(Parser* on)
-          : parser(on)
+      ASSERT(!name.names.empty());
+      for(auto n: name.names)
       {
+        ASSERTX(optional_arguments.find(n)==optional_arguments.end(), n);
+        optional_arguments[n] = arg;
       }
-
-      void
-      operator()(Running& r, Arguments&, const std::string&)
-      {
-        // todo: fix non const references here.
-        parser->WriteHelp(r);
-        r.run = false;
-      }
-
-      Parser* parser;
-    };
-  }
-
-  Parser::Parser(const std::string& d, const std::string& aappname)
-      : description(d)
-      , appname(aappname)
-      , positionalIndex(0)
-  {
-    AddFunction("-h", CallHelp(this)).Help("show this help message and exit.");
-  }
-
-  Extra&
-  Parser::AddFunction(const std::string& name, ArgumentCallback func)
-  {
-    ArgumentPtr arg(new FunctionArgument(func));
-    return Insert(name, arg).Count(Count::None);
-  }
-
-  Extra&
-  Parser::AddSimpleFunction(
-      const std::string&    name, std::function<void()> func)
-  {
-    return AddFunction(
-        name, [func](Running&, Arguments&, const std::string&) { func(); });
-  }
-
-  ParseStatus
-  Parser::Parse(
-      const std::string& name, const std::vector<std::string>& arguments) const
-  {
-    Arguments          args(arguments);
-    const std::string& app = name;
-    Running            running{app};
-
-    try
-    {
-      while(!args.IsEmpty())
-      {
-        if(IsOptional(args.PeekFirst()))
-        {
-          // optional
-          const std::string arg = args.GetFirst();
-          auto              r   = optionals.find(arg);
-          if(r == optionals.end())
-          {
-            throw ParserError(
-                "Unknown optional argument: " +
-                arg);  // todo: implement partial matching of arguments?
-          }
-          r->second->Parse(running, args, arg);
-        }
-        else
-        {
-          if(positionalIndex >= positionals.size())
-          {
-            throw ParserError(
-                "All positional arguments have been consumed: " +
-                args.PeekFirst());
-          }
-          ArgumentPtr p = positionals[positionalIndex];
-          ++positionalIndex;
-          p->Parse(
-              running,
-              args,
-              "POSITIONAL");  // todo: give better name or something
-        }
-      }
-
-      if(positionalIndex != positionals.size())
-      {
-        throw ParserError(
-            "too few arguments");  // todo: list a few missing arguments...
-      }
-
-      return ParseStatus{running, ParseStatus::Complete};
     }
-    catch(ParserError& p)
+    else
     {
-      WriteUsage(running);
-      running.error << app << ": " << p.what() << std::endl << std::endl;
-      return ParseStatus{running, ParseStatus::Failed};
+      positional_arguments.push_back(arg);
     }
+
+    return Extra { arg };
   }
 
-  ParseStatus
-    Parser::Parse(int argc, char* argv[]) const
+  ParseResult Parser::Parse(int argc, char* argv[]) const
   {
     auto args = std::vector<std::string>{};
     for (int i = 1; i < argc; i += 1)
@@ -412,70 +213,81 @@ namespace argparse
     return Parse(argv[0], args);
   }
 
-  void
-  Parser::WriteHelp(Running& r) const
+  ParseResult Parser::Parse(const std::string& program_name, const std::vector<std::string>& args) const
   {
-    WriteUsage(r);
-    r.o << std::endl << description << std::endl << std::endl;
+    auto console = ConsoleOutput {};
+    auto running = Running { program_name, args, output ? output : &console };
 
-    const std::string sep = "\t";
-    const std::string ins = "  ";
+    size_t next_positional_index = 0;
 
-    if(!helpPositional.empty())
+    while(running.HasMore())
     {
-      r.o << "positional arguments:\n";
-      for(const Help& positional : helpPositional)
+      const auto is_optional = Name::IsOptional(running.Peek());
+      const auto has_more_positionals = next_positional_index < positional_arguments.size();
+
+      std::string arg_name;
+      std::shared_ptr<Arg> arg = nullptr;
+
+      if(has_more_positionals)
       {
-        r.o << ins << positional.GetHelpCommand() << sep
-            << positional.GetHelpDescription() << "\n";
+        // if it is a valid optional, parse it, otherwise send to optional
+        if(is_optional)
+        {
+          auto found = optional_arguments.find(Name::OptionalName(running.Peek()));
+          if(found != optional_arguments.end())
+          {
+            arg = found->second;
+          }
+        }
+
+        if(arg == nullptr)
+        {
+          arg = positional_arguments[next_positional_index];
+          arg_name = arg->name.names[0];
+          next_positional_index += 1;
+        }
+      }
+      else
+      {
+        // no more positionals, must be a optional
+        const auto optional_name = running.Read();
+        if(!Name::IsOptional(optional_name))
+        {
+          running.output->OnError(Str() << "Got " << optional_name << " but all positionals are consumed");
+          return ParseResult::Failed;
+        }
+
+        auto found = optional_arguments.find(Name::OptionalName(optional_name));
+        if(found == optional_arguments.end())
+        {
+          running.output->OnError(Str() << "Not a valid argument: " << optional_name);
+          return ParseResult::Failed;
+        }
+        arg_name = optional_name;
+        arg = found->second;
       }
 
-      r.o << "\n";
-    }
-
-    if(!helpOptional.empty())
-    {
-      r.o << "optional arguments:\n";
-      for(const Help& optional : helpOptional)
+      auto r = arg->Parse(arg_name, &running);
+      if( r != ParseResult::Ok)
       {
-        r.o << ins << optional.GetHelpCommand() << sep
-            << optional.GetHelpDescription() << "\n";
+        return r;
       }
     }
 
-    r.o << "\n";
-  }
+    const auto has_more_positionals = next_positional_index < positional_arguments.size();
 
-  void
-  Parser::WriteUsage(Running& r) const
-  {
-    r.o << "usage: " << r.app;
-    for(const Help& optional : helpOptional)
+    std::vector<std::string> missing_positionals;
+    for(size_t i=next_positional_index; i<positional_arguments.size(); i+=1)
     {
-      r.o << " " << optional.GetUsage();
+      missing_positionals.push_back(positional_arguments[i]->name.names[0]);
     }
 
-    for(const Help& positional : helpPositional)
+    if(!missing_positionals.empty())
     {
-      r.o << " " << positional.GetUsage();
+      running.output->OnError( Str() << "Positionals not consumed: " << StringMerger::EnglishAnd().Generate(missing_positionals));
+      return ParseResult::Failed;
     }
-    r.o << "\n";
-  }
 
-  Extra&
-  Parser::Insert(const std::string& name, ArgumentPtr arg)
-  {
-    if(IsOptional(name))
-    {
-      optionals.insert(Optionals::value_type(name, arg));
-      helpOptional.emplace_back(name, &arg->extra);
-      return arg->extra;
-    }
-    else
-    {
-      positionals.push_back(arg);
-      helpPositional.emplace_back(name, &arg->extra);
-      return arg->extra;
-    }
+    return ParseResult::Ok;
   }
 }

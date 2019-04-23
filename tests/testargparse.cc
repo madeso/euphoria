@@ -1,115 +1,220 @@
 #include "core/argparse.h"
-#include "core/levenshtein.h"
 
 #include "catch.hpp"
 
-enum class MyEnum
+struct Entry
 {
-  MyVal,
-  MyVal2
+  bool ok;
+  std::string text;
+
+  bool operator!=(const Entry& rhs) const
+  {
+    return ok != rhs.ok || text != rhs.text;
+  }
 };
 
-/*
-TEST_CASE("argparse-help", "[argparse]")
+template<typename S>
+S& operator<<(S& s, const Entry& e)
 {
-  auto       parser    = argparse::Parser{"description"};
-  const auto arguments = std::vector<std::string>{"-h"};
-  const auto stat      = parser.parse("APP.exe", arguments);
-  CHECK(stat.result == argparse::ParseStatus::Complete);
-
-  const std::string usage =
-      "usage: APP.exe [-h ]\n"
-      "\n"
-      "description\n"
-      "\n"
-      "optional arguments:\n"
-      "  -h\tshow this help message and exit.\n"
-      "\n";
-  INFO("Edit dist: " << FastLevenshteinDistance(stat.out, usage));
-  CHECK_THAT(stat.out, Catch::Equals(usage));
-  CHECK(stat.error == "");
+  if(!e.ok) s << "(ERR): ";
+  s << e.text;
+  return s;
 }
-*/
+
+struct TestOutput : public argparse::Output
+{
+  std::vector<Entry> out;
+
+  void OnError(const std::string& err) override
+  {
+    out.push_back({false, err});
+  }
+
+  void OnInfo(const std::string& info) override
+  {
+    out.push_back({true, info});
+  }
+};
+
+/////////////////////////////////////////////////////////////////////////////
+
+#define IS_STRING_VECTOR(...) Catch::Matchers::Equals(std::vector<std::string>{__VA_ARGS__} )
+
+TEST_CASE("name tests", "[argparse]")
+{
+  using argparse::Name;
+
+  SECTION("optional 1")
+  {
+    auto n = Name {"-int"};
+    CHECK(n.is_optional);
+    CHECK_THAT(n.names, IS_STRING_VECTOR("int"));
+  }
+
+  SECTION("optional 2")
+  {
+    // todo: this looks weird and is unexpected...
+    auto n = Name {"-int,i"};
+    CHECK(n.is_optional);
+    CHECK_THAT(n.names, IS_STRING_VECTOR("int", "i"));
+  }
+
+  SECTION("positional")
+  {
+    // todo: this looks weird and is unexpected...
+    auto n = Name {"dog"};
+    CHECK_FALSE(n.is_optional);
+    CHECK_THAT(n.names, IS_STRING_VECTOR("dog"));
+  }
+}
+
 
 TEST_CASE("argparse", "[argparse]")
 {
-  // test data
-  const std::string name  = "APP.exe";
-  const auto        empty = std::vector<std::string>{};
+  const std::string app          = "hello.exe";
+  const auto        empty_output = std::vector<Entry>{};
+  auto              output       = TestOutput{};
+  auto              parser       = argparse::Parser{"description"};
+  parser.output                  = &output;
 
-  // arguments to be parsed
-  std::string              compiler;
-  int                      i;
-  int                      op = 2;
-  std::vector<std::string> strings;
-  MyEnum                   enum_value = MyEnum::MyVal;
-
-  // parser setup
-  auto parser = argparse::Parser{"description"};
-  parser.AddSimple("compiler", compiler);
-  parser.AddSimple("int", i);
-  parser.AddSimple("-op", op);
-  parser.AddVector("-strings", strings).MetaVar("string");
-  const auto convert = argparse::Convert<MyEnum>{}("MyVal", MyEnum::MyVal)(
-      "MyVal2", MyEnum::MyVal2);
-  parser.AddSimple<MyEnum>("-enum", enum_value, convert);
-
-  SECTION("test parse")
+  SECTION("test empty")
   {
-    const auto arguments = std::vector<std::string>{"gcc", "3"};
-    const auto stat      = parser.Parse(name, arguments);
-    CHECK(stat.result == argparse::ParseStatus::Complete);
-    CHECK(stat.out == "");
-    CHECK(stat.error == "");
-    CHECK(compiler == "gcc");
-    CHECK(i == 3);
-    CHECK(op == 2);
-    CHECK(strings == empty);
-    CHECK(enum_value == MyEnum::MyVal);
+    auto r = parser.Parse(app, {});
+    CHECK(r == argparse::ParseResult::Ok);
+		REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
   }
 
-  SECTION("test enum")
+  SECTION("optional int")
   {
-    const auto arguments =
-        std::vector<std::string>{"gcc", "3", "-enum", "MyVal2"};
-    const auto stat = parser.Parse(name, arguments);
-    CHECK(stat.result == argparse::ParseStatus::Complete);
-    CHECK(stat.out == "");
-    CHECK(stat.error == "");
-    CHECK(compiler == "gcc");
-    CHECK(i == 3);
-    CHECK(op == 2);
-    CHECK(strings == empty);
-    CHECK(enum_value == MyEnum::MyVal2);
+    int i = 4;
+    parser.AddSimple("-int", &i);
+
+    SECTION("default")
+    {
+      auto r = parser.Parse(app, {});
+      CHECK(r == argparse::ParseResult::Ok);
+      REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
+
+      CHECK(i == 4);
+    }
+    SECTION("supplied")
+    {
+      auto r = parser.Parse(app, {"-int", "42"});
+      CHECK(r == argparse::ParseResult::Ok);
+      REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
+
+      CHECK(i == 42);
+    }
   }
 
-  SECTION("test parse optional")
+  SECTION("optional string")
   {
-    const auto arguments = std::vector<std::string>{"gcc", "3", "-op", "42"};
-    const auto stat      = parser.Parse(name, arguments);
-    CHECK(stat.result == argparse::ParseStatus::Complete);
-    CHECK(stat.out == "");
-    CHECK(stat.error == "");
-    CHECK(compiler == "gcc");
-    CHECK(i == 3);
-    CHECK(op == 42);
-    CHECK(strings == empty);
-    CHECK(enum_value == MyEnum::MyVal);
+    std::string str = "dog";
+    parser.AddSimple("-str", &str);
+
+    SECTION("default")
+    {
+      auto r = parser.Parse(app, {});
+      CHECK(r == argparse::ParseResult::Ok);
+      REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
+
+      CHECK(str == "dog");
+    }
+    SECTION("supplied")
+    {
+      auto r = parser.Parse(app, {"-str", "cat"});
+      CHECK(r == argparse::ParseResult::Ok);
+      REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
+
+      CHECK(str == "cat");
+    }
   }
 
-  SECTION("test parse multiple")
+  SECTION("optional vector")
   {
-    const auto arguments =
-        std::vector<std::string>{"clang", "5", "-strings", "a", "b", "c"};
-    const auto stat = parser.Parse(name, arguments);
-    CHECK(stat.result == argparse::ParseStatus::Complete);
-    CHECK(stat.out == "");
-    CHECK(stat.error == "");
-    CHECK(compiler == "clang");
-    CHECK(i == 5);
-    CHECK(op == 2);
-    const auto abc = std::vector<std::string>{"a", "b", "c"};
-    CHECK(strings == abc);
-    CHECK(enum_value == MyEnum::MyVal);
+    std::vector<int> v;
+    parser.AddVector("-v", &v);
+
+    SECTION("default")
+    {
+      auto r = parser.Parse(app, {});
+      CHECK(r == argparse::ParseResult::Ok);
+      REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
+
+      CHECK_THAT(v, Catch::Matchers::Equals( std::vector<int>{} ));
+    }
+    SECTION("supplied 1")
+    {
+      auto r = parser.Parse(app, {"-v", "43"});
+      CHECK(r == argparse::ParseResult::Ok);
+      REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
+
+      CHECK_THAT(v, Catch::Matchers::Equals( std::vector<int>{43} ));
+    }
+    SECTION("supplied 3")
+    {
+      auto r = parser.Parse(app, {"-v", "1", "-v", "2", "-v", "3"});
+      CHECK(r == argparse::ParseResult::Ok);
+      REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
+
+      CHECK_THAT(v, Catch::Matchers::Equals( std::vector<int>{1, 2, 3} ));
+    }
+  }
+
+  SECTION("optional function")
+  {
+    bool called = false;
+    parser.AddSimpleFunction("-f", [&called]() {called = true;});
+
+    SECTION("empty")
+    {
+      auto r = parser.Parse(app, {});
+      CHECK(r == argparse::ParseResult::Ok);
+      REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
+      CHECK_FALSE(called);
+    }
+
+    SECTION("called")
+    {
+      auto r = parser.Parse(app, {"-f"});
+      CHECK(r == argparse::ParseResult::Ok);
+      REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
+      CHECK(called);
+    }
+  }
+
+  ///////////////////////////////////////////////////////////////////////////////////
+  // positional
+
+  SECTION("positional vector")
+  {
+    std::vector<int> v;
+    parser.AddVector("v", &v);
+
+    SECTION("default")
+    {
+      auto r = parser.Parse(app, {});
+      CHECK(r == argparse::ParseResult::Failed);
+      // todo: verify error
+      // REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
+
+      CHECK_THAT(v, Catch::Matchers::Equals( std::vector<int>{} ));
+    }
+    SECTION("supplied 1")
+    {
+      auto r = parser.Parse(app, {"43"});
+      CHECK(r == argparse::ParseResult::Ok);
+      REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
+
+      CHECK_THAT(v, Catch::Matchers::Equals( std::vector<int>{43} ));
+    }
+    SECTION("supplied 3")
+    {
+      auto r = parser.Parse(app, {"1", "2", "3"});
+      CHECK(r == argparse::ParseResult::Ok);
+      REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
+
+      CHECK_THAT(v, Catch::Matchers::Equals( std::vector<int>{1, 2, 3} ));
+    }
   }
 }

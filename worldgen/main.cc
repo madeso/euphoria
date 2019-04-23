@@ -264,13 +264,13 @@ int main(int argc, char* argv[])
   int cell_size = 1;
   int wall_size = 1;
 
-  parser.AddSimple("--cell", cell_size).Help("set the cell size");
-  parser.AddSimple("--wall", wall_size).Help("set the wall size");
-  parser.AddSimple("--width", world_width).Help("set the height");
-  parser.AddSimple("--height", world_height).Help("set the width");
-  parser.AddSimple("--scale", world_scale).Help("set the scale");
-  parser.AddSimple("-o", output).Help("specify output");
-  parser.AddSimple("-c", console).Help("foce console");
+  parser.AddSimple("--cell", &cell_size).Help("set the cell size");
+  parser.AddSimple("--wall", &wall_size).Help("set the wall size");
+  parser.AddSimple("--width", &world_width).Help("set the height");
+  parser.AddSimple("--height", &world_height).Help("set the width");
+  parser.AddSimple("--scale", &world_scale).Help("set the scale");
+  parser.AddSimple("-o", &output).Help("specify output");
+  parser.AddSimple("-c", &console).Help("foce console");
 
   auto maze_command = [&](MazeAlgorithm algo) {
     maze(algo, world_width, world_height, cell_size, wall_size, output, console);
@@ -284,15 +284,13 @@ int main(int argc, char* argv[])
   // parser.AddSimpleFunction("-cell", cell_command);
 
   std::string command;
-  parser.AddSimple("command", command).Help("specify either cell or maze");
+  parser.AddSimple("command", &command).Help("specify either cell or maze");
 
-  auto status = parser.Parse(argc, argv);
-
-  if(!status.error.empty())
+  const auto status = parser.Parse(argc, argv);
+  if(status != argparse::ParseResult::Ok)
   {
-    std::cerr << status.error;
+    return -1;
   }
-  std::cout << status.out;
 
   if(command == "recursive")
   {

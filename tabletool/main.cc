@@ -29,20 +29,12 @@ main(int argc, char* argv[])
   {
     auto parser = argparse::Parser{"csvtool"};
 
-    parser.AddSimple("-format", format);
+    parser.AddSimple("-format", &format);
     parser.AddSimpleFunction("-simple", [&type]() { type = Type::Simple; });
     parser.AddSimpleFunction("-grid", [&type]() { type = Type::Grid; });
-    parser.AddVector("files", files).MetaVar("CSV-file");
+    parser.AddVector("files", &files).MetaVar("CSV-file");
     auto r = parser.Parse(argc, argv);
-    if(!r.out.empty())
-    {
-      std::cout << r.out;
-    }
-    if(!r.error.empty())
-    {
-      std::cerr << r.error;
-    }
-    if(r.result != argparse::ParseStatus::Complete)
+    if(r != argparse::ParseResult::Ok)
     {
       return -1;
     }
