@@ -39,7 +39,7 @@ class StringMerger
   Space();
 
   static const StringMerger&
-  QuotedSpace();
+  Comma();
 
   /** Sets the separator arguments.
   @param separator the separator to use.
@@ -72,6 +72,9 @@ class StringMerger
    */
   StringMerger&
   SetStartAndEnd(const std::string& start, const std::string& end);
+  
+  StringMerger&
+  SetStartAndEnd(const std::string& same);
 
   /** Generate a string representation based on the current settings.
   @param strings the strings.

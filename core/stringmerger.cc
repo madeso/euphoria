@@ -85,16 +85,16 @@ const StringMerger&
 StringMerger::Space()
 {
   static const StringMerger Space =
-      StringMerger().SetSeparator(" ").SetStartAndEnd("", "");
+      StringMerger().SetSeparator(" ");
   return Space;
 }
 
 const StringMerger&
-StringMerger::QuotedSpace()
+StringMerger::Comma()
 {
-  static const StringMerger QuotedSpace =
-      StringMerger().SetSeparator(" ").SetStartAndEnd("\"", "\"");
-  return QuotedSpace;
+  static const StringMerger Comma =
+      StringMerger().SetSeparator(", ");
+  return Comma;
 }
 
 StringMerger&
@@ -126,5 +126,13 @@ StringMerger::SetStartAndEnd(const std::string& start, const std::string& end)
 {
   start_ = start;
   end_   = end;
+  return *this;
+}
+
+StringMerger&
+StringMerger::SetStartAndEnd(const std::string& same)
+{
+  start_ = same;
+  end_   = same;
   return *this;
 }

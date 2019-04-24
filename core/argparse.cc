@@ -228,8 +228,7 @@ namespace argparse
         auto name_list = VectorToStringVector(p->name.names,
             [p](const std::string& n) -> std::string
             { return Str() << "-" << n << p->ToShortArgumentString(); });
-        // todo: change from Space to SpaceComma
-        auto name = StringMerger::Space().Generate(name_list);
+        auto name = StringMerger::Comma().Generate(name_list);
         return name;
     };
 

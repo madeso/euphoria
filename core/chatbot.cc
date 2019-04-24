@@ -571,7 +571,7 @@ ChatBot::GetComplexResponse(const std::string& dirty_input)
       // strings when the OpString is false
       log.emplace_back(
           Str() << "Checking keyword "
-                << StringMerger::QuotedSpace().Generate(keyword.words)
+                << StringMerger().SetSeparator(" ").SetStartAndEnd("\"").Generate(keyword.words)
                 << " ("
                 << StringMerger::EnglishOr().Generate(std::vector<std::string>{
                        OpString(longer_keyword, "longer"),
