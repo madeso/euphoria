@@ -5,6 +5,7 @@
 #include <map>
 #include <vector>
 #include <queue>
+#include <ostream>
 
 #include "core/assert.h"
 #include "core/stringutils.h"
@@ -90,6 +91,8 @@ struct GetEnumToString
 {
   enum { IsDefined = 0 };
 
+  // using Type = T Type;
+
   // no implmenentation: only here for template specialization
   static const EnumToStringImpl<T>& EnumValues();
 };
@@ -124,8 +127,15 @@ std::vector<std::string> EnumToString()
   return GetEnumToString<T>::EnumValues().ListNames();
 }
 
+template <typename T>
+typename std::enable_if_t<GetEnumToString<T>::IsDefined==1, std::ostream>& 
+operator<<( std::ostream& os, T const& value)
+{
+  os << EnumToString<T>( value );
+  return os;
+}
 
-#define BEGIN_ENUM_LIST(T) template<> struct GetEnumToString<T> { enum { IsDefined = 1 }; static const ::EnumToStringImpl<T>& EnumValues() { static const auto r = ::EnumToStringImpl<T>{}
+#define BEGIN_ENUM_LIST(T) template<> struct GetEnumToString<T> { using Type = T; enum { IsDefined = 1 }; static const ::EnumToStringImpl<T>& EnumValues() { static const auto r = ::EnumToStringImpl<T>{}
 #define ENUM_VALUE(T, V) .Add(#V, T::V)
 #define END_ENUM_LIST() ; return r; } };
 
