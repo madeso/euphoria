@@ -24,8 +24,7 @@ BEGIN_ENUM_LIST(MyEnum)
   ENUM_VALUE(MyEnum, ReallyLongValue)
 END_ENUM_LIST()
 
-template<typename S>
-S& operator<<(S& s, const Entry& e)
+std::ostream& operator<<(std::ostream& s, const Entry& e)
 {
   if(!e.ok) s << "(ERR): ";
   s << e.text;
