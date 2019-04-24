@@ -8,6 +8,7 @@
 
 #include "core/str.h"
 #include "core/enumtostring.h"
+#include "core/stringmerger.h"
 
 namespace argparse
 {
@@ -152,6 +153,43 @@ namespace argparse
   };
 
   template<typename T>
+  struct EnumArg : public Arg
+  {
+    T* target;
+
+    ParseResult Parse(const std::string& cmd_name, Running* running) override
+    {
+      if(running->HasMore())
+      {
+        const auto value = running->Read();
+        const auto match = StringToEnum<T>(value);
+        if(match.single_match)
+        {
+          *target = match.values[0];
+          return ParseResult::Ok;
+        }
+        else
+        {
+          const auto could_be = EnumToString(match.values);
+          running->output->OnError(Str() << value << " is invalid, could be " << StringMerger::EnglishOr().Generate(could_be) );
+          return ParseResult::Failed;
+        }
+      }
+      else
+      {
+        running->output->OnError(Str() << cmd_name << " missing value");
+        return ParseResult::Failed;
+      }
+    }
+
+    std::string ToShortArgumentString() override
+    {
+      // todo, replace with { | } merge
+      return StringMerger::FunctionCall().Generate(EnumToString<T>());
+    }
+  };
+
+  template<typename T>
   struct FunctionArgument : public Arg
   {
     T t;
@@ -258,6 +296,15 @@ namespace argparse
     Extra AddSimple(const Name& name, T* var)
     {
       auto a = std::make_shared<SimpleArg<T>>();
+      a->target = var;
+      return AddArgument(name, a);
+    }
+
+    // todo: use enable_if to merge call with AddSimple above
+    template<typename T>
+    Extra AddEnum(const Name& name, T* var)
+    {
+      auto a = std::make_shared<EnumArg<T>>();
       a->target = var;
       return AddArgument(name, a);
     }

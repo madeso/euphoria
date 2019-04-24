@@ -12,7 +12,6 @@
 
 #include "core/assert.h"
 #include "core/stringutils.h"
-#include "core/stringmerger.h"
 
 namespace argparse
 {
@@ -222,19 +221,23 @@ namespace argparse
     const auto indent = "  ";
     auto* o = running->output;
     o->OnInfo(empty_line);
-    o->OnInfo(documentation);
-    o->OnInfo(empty_line);
-    size_t max_size = 0;
+    if(!documentation.empty())
+    {
+      o->OnInfo(documentation);
+      o->OnInfo(empty_line);
+    }
     auto arg_name_string = [](std::shared_ptr<Arg> p) -> std::string
     {
         auto name_list = VectorToStringVector(p->name.names,
-            [](const std::string& n) -> std::string
-            { return Str() << "-" << n; });
+            [p](const std::string& n) -> std::string
+            { return Str() << "-" << n << p->ToShortArgumentString(); });
         // todo: change from Space to SpaceComma
         auto name = StringMerger::Space().Generate(name_list);
         return name;
     };
-    ///////
+
+    // determine max_size
+    size_t max_size = 0;
     for(auto p: positional_arguments)
     {
       max_size = std::max(max_size, p->name.names[0].length());
@@ -244,7 +247,7 @@ namespace argparse
       max_size = std::max(max_size, arg_name_string(p).length());
     }
     max_size += 1; // extra spacing
-    ///////
+
     if(!positional_arguments.empty())
     {
       o->OnInfo("positional arguments");
@@ -387,3 +390,4 @@ namespace argparse
     return ParseResult::Ok;
   }
 }
+

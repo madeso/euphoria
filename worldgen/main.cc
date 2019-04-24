@@ -251,6 +251,19 @@ void cell(int world_width, int world_height, const std::string& f, int world_sca
 
 }
 
+enum class Command
+{
+  Recursive,
+  Random,
+  Cell
+};
+
+BEGIN_ENUM_LIST(Command)
+  ENUM_VALUE(Command, Recursive)
+  ENUM_VALUE(Command, Random)
+  ENUM_VALUE(Command, Cell)
+END_ENUM_LIST()
+
 int main(int argc, char* argv[])
 {
   auto parser = argparse::Parser{"Generate worlds"};
@@ -283,8 +296,8 @@ int main(int argc, char* argv[])
   // parser.AddSimpleFunction("-maze", maze_command);
   // parser.AddSimpleFunction("-cell", cell_command);
 
-  std::string command;
-  parser.AddSimple("command", &command).Help("specify either cell or maze");
+  Command command;
+  parser.AddEnum("command", &command).Help("specify either cell or maze");
 
   const auto status = parser.Parse(argc, argv);
   if(status != argparse::ParseResult::Ok)
@@ -292,21 +305,17 @@ int main(int argc, char* argv[])
     return -1;
   }
 
-  if(command == "recursive")
+  if(command == Command::Recursive)
   {
     maze_command(MazeAlgorithm::RecursiveBacktracker);
   }
-  else if(command == "random")
+  else if(command == Command::Random)
   {
     maze_command(MazeAlgorithm::RandomTraversal);
   }
-  else if (command == "cell")
+  else if (command == Command::Cell)
   {
     cell_command();
-  }
-  else
-  {
-    std::cerr << "Unknown command: " << command << "\n";
   }
 
   return 0;
