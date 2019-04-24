@@ -79,7 +79,7 @@ struct EnumToStringImpl
     auto ret = MatchedEnum<T>{};
     while(!matches.empty())
     {
-      ret.values.push_back(matches.top().t);
+      ret.values.insert(ret.values.begin(), matches.top().t);
       matches.pop();
     }
     return ret;
@@ -138,6 +138,9 @@ operator<<( std::ostream& os, T const& value)
 #define BEGIN_ENUM_LIST(T) template<> struct GetEnumToString<T> { using Type = T; enum { IsDefined = 1 }; static const ::EnumToStringImpl<T>& EnumValues() { static const auto r = ::EnumToStringImpl<T>{}
 #define ENUM_VALUE(T, V) .Add(#V, T::V)
 #define END_ENUM_LIST() ; return r; } };
+
+// todo: add a foreach macro call?
+// https://codecraft.co/2014/11/25/variadic-macros-tricks/
 
 #endif  // CORE_ENUM_TO_STRING_H
 
