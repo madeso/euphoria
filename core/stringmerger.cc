@@ -54,7 +54,7 @@ const StringMerger&
 StringMerger::EnglishAnd()
 {
   static const StringMerger EnglishAnd =
-      StringMerger().SetSeparator(", ", " and ").SetEmpty("<none>");
+      StringMerger().Separator(", ", " and ").Empty("<none>");
   return EnglishAnd;
 }
 
@@ -62,7 +62,7 @@ const StringMerger&
 StringMerger::EnglishOr()
 {
   static const StringMerger EnglishOr =
-      StringMerger().SetSeparator(", ", " or ").SetEmpty("<none>");
+      StringMerger().Separator(", ", " or ").Empty("<none>");
   return EnglishOr;
 }
 
@@ -70,7 +70,7 @@ const StringMerger&
 StringMerger::Array()
 {
   static const StringMerger Array =
-      StringMerger().SetSeparator(", ").SetStartAndEnd("[", "]");
+      StringMerger().Separator(", ").StartAndEnd("[", "]");
   return Array;
 }
 
@@ -78,7 +78,7 @@ const StringMerger&
 StringMerger::FunctionCall()
 {
   static const StringMerger FunctionCall =
-      StringMerger().SetSeparator(", ").SetStartAndEnd("(", ")");
+      StringMerger().Separator(", ").StartAndEnd("(", ")");
   return FunctionCall;
 }
 
@@ -86,7 +86,7 @@ const StringMerger&
 StringMerger::Space()
 {
   static const StringMerger Space =
-      StringMerger().SetSeparator(" ");
+      StringMerger().Separator(" ");
   return Space;
 }
 
@@ -94,12 +94,12 @@ const StringMerger&
 StringMerger::Comma()
 {
   static const StringMerger Comma =
-      StringMerger().SetSeparator(", ");
+      StringMerger().Separator(", ");
   return Comma;
 }
 
 StringMerger&
-StringMerger::SetSeparator(
+StringMerger::Separator(
     const std::string& separator, const std::string& final_separator)
 {
   this->separator       = separator;
@@ -108,7 +108,7 @@ StringMerger::SetSeparator(
 }
 
 StringMerger&
-StringMerger::SetSeparator(const std::string& separator)
+StringMerger::Separator(const std::string& separator)
 {
   this->separator       = separator;
   this->final_separator = separator;
@@ -116,14 +116,14 @@ StringMerger::SetSeparator(const std::string& separator)
 }
 
 StringMerger&
-StringMerger::SetEmpty(const std::string& empty)
+StringMerger::Empty(const std::string& empty)
 {
   this->empty = empty;
   return *this;
 }
 
 StringMerger&
-StringMerger::SetStartAndEnd(const std::string& start, const std::string& end)
+StringMerger::StartAndEnd(const std::string& start, const std::string& end)
 {
   this->start = start;
   this->end   = end;
@@ -131,7 +131,7 @@ StringMerger::SetStartAndEnd(const std::string& start, const std::string& end)
 }
 
 StringMerger&
-StringMerger::SetStartAndEnd(const std::string& same)
+StringMerger::StartAndEnd(const std::string& same)
 {
   this->start = same;
   this->end   = same;
@@ -139,14 +139,14 @@ StringMerger::SetStartAndEnd(const std::string& same)
 }
 
 StringMerger&
-StringMerger::SetBeforeEach(const std::string& before_each)
+StringMerger::BeforeEach(const std::string& before_each)
 {
   this->before_each = before_each;
   return *this;
 }
 
 StringMerger&
-StringMerger::SetAfterEach(const std::string& same)
+StringMerger::AfterEach(const std::string& same)
 {
   this->after_each = same;
   this->final_after_each = same;
@@ -154,7 +154,7 @@ StringMerger::SetAfterEach(const std::string& same)
 }
 
 StringMerger&
-StringMerger::SetAfterEach(const std::string& after_each, const std::string& final_after_each)
+StringMerger::AfterEach(const std::string& after_each, const std::string& final_after_each)
 {
   this->after_each = after_each;
   this->final_after_each = final_after_each;

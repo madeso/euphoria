@@ -41,28 +41,28 @@ struct StringMerger
   // constructor functions
 
   StringMerger&
-  SetSeparator(const std::string& separator, const std::string& final_separator);
+  Separator(const std::string& separator, const std::string& final_separator);
 
   StringMerger&
-  SetSeparator(const std::string& separator);
+  Separator(const std::string& separator);
 
   StringMerger&
-  SetEmpty(const std::string& empty);
+  Empty(const std::string& empty);
 
   StringMerger&
-  SetStartAndEnd(const std::string& start, const std::string& end);
+  StartAndEnd(const std::string& start, const std::string& end);
   
   StringMerger&
-  SetStartAndEnd(const std::string& same);
+  StartAndEnd(const std::string& same);
 
   StringMerger&
-  SetBeforeEach(const std::string& before_each);
+  BeforeEach(const std::string& before_each);
 
   StringMerger&
-  SetAfterEach(const std::string& same);
+  AfterEach(const std::string& same);
 
   StringMerger&
-  SetAfterEach(const std::string& after_each, const std::string& final_after_each);
+  AfterEach(const std::string& after_each, const std::string& final_after_each);
 
   ////////////////////////////////////////////
   // member variables

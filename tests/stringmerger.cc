@@ -51,7 +51,7 @@ TEST_CASE("stringmerger", "[stringmerger]")
 
     SECTION("set start & end to different")
     {
-      const auto m = StringMerger{}.SetStartAndEnd("X", "Y");
+      const auto m = StringMerger{}.StartAndEnd("X", "Y");
       CHECK(m.Generate(empty) == "XY");
       CHECK(m.Generate(ty) == "XtyY");
       CHECK(m.Generate(abc) == "XabcY");
@@ -59,7 +59,7 @@ TEST_CASE("stringmerger", "[stringmerger]")
 
     SECTION("set start & end to same")
     {
-      const auto m = StringMerger{}.SetStartAndEnd("X");
+      const auto m = StringMerger{}.StartAndEnd("X");
       CHECK(m.Generate(empty) == "XX");
       CHECK(m.Generate(ty) == "XtyX");
       CHECK(m.Generate(abc) == "XabcX");
@@ -67,7 +67,7 @@ TEST_CASE("stringmerger", "[stringmerger]")
 
     SECTION("set sep")
     {
-      const auto m = StringMerger{}.SetSeparator("X");
+      const auto m = StringMerger{}.Separator("X");
       CHECK(m.Generate(empty) == "");
       CHECK(m.Generate(ty) == "tXy");
       CHECK(m.Generate(abc) == "aXbXc");
@@ -75,7 +75,7 @@ TEST_CASE("stringmerger", "[stringmerger]")
 
     SECTION("set sep and final")
     {
-      const auto m = StringMerger{}.SetSeparator("X", "Y");
+      const auto m = StringMerger{}.Separator("X", "Y");
       CHECK(m.Generate(empty) == "");
       CHECK(m.Generate(ty) == "tYy");
       CHECK(m.Generate(abc) == "aXbYc");
@@ -83,7 +83,7 @@ TEST_CASE("stringmerger", "[stringmerger]")
 
     SECTION("set empty")
     {
-      const auto m = StringMerger{}.SetEmpty("X");
+      const auto m = StringMerger{}.Empty("X");
       CHECK(m.Generate(empty) == "X");
       CHECK(m.Generate(ty) == "ty");
       CHECK(m.Generate(abc) == "abc");
@@ -91,7 +91,7 @@ TEST_CASE("stringmerger", "[stringmerger]")
 
     SECTION("before each")
     {
-      const auto m = StringMerger{}.SetBeforeEach("X");
+      const auto m = StringMerger{}.BeforeEach("X");
       CHECK(m.Generate(empty) == "");
       CHECK(m.Generate(dog) == "Xdog");
       CHECK(m.Generate(ty) == "XtXy");
@@ -100,7 +100,7 @@ TEST_CASE("stringmerger", "[stringmerger]")
 
     SECTION("after each")
     {
-      const auto m = StringMerger{}.SetAfterEach("X");
+      const auto m = StringMerger{}.AfterEach("X");
       CHECK(m.Generate(empty) == "");
       CHECK(m.Generate(dog) == "dogX");
       CHECK(m.Generate(ty) == "tXyX");
@@ -109,7 +109,7 @@ TEST_CASE("stringmerger", "[stringmerger]")
 
     SECTION("after each and final")
     {
-      const auto m = StringMerger{}.SetAfterEach("X", "Y");
+      const auto m = StringMerger{}.AfterEach("X", "Y");
       CHECK(m.Generate(empty) == "");
       CHECK(m.Generate(dog) == "dogY");
       CHECK(m.Generate(ty) == "tXyY");

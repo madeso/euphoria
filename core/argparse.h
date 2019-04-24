@@ -184,7 +184,7 @@ namespace argparse
 
     std::string ToShortArgumentString() override
     {
-      return StringMerger().SetSeparator(" | ").SetStartAndEnd("{", "}").Generate(EnumToString<T>());
+      return StringMerger().Separator(" | ").StartAndEnd("{", "}").Generate(EnumToString<T>());
     }
   };
 
