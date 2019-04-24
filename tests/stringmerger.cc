@@ -8,6 +8,7 @@ TEST_CASE("stringmerger", "[stringmerger]")
 {
   const auto empty = STRING_VEC();
   const auto ty = STRING_VEC("t", "y");
+  const auto dog = STRING_VEC("dog");
   const auto catdog = STRING_VEC("cat", "dog");
   const auto abc = STRING_VEC("a", "b", "c");
 
@@ -86,6 +87,33 @@ TEST_CASE("stringmerger", "[stringmerger]")
       CHECK(m.Generate(empty) == "X");
       CHECK(m.Generate(ty) == "ty");
       CHECK(m.Generate(abc) == "abc");
+    }
+
+    SECTION("before each")
+    {
+      const auto m = StringMerger{}.SetBeforeEach("X");
+      CHECK(m.Generate(empty) == "");
+      CHECK(m.Generate(dog) == "Xdog");
+      CHECK(m.Generate(ty) == "XtXy");
+      CHECK(m.Generate(abc) == "XaXbXc");
+    }
+
+    SECTION("after each")
+    {
+      const auto m = StringMerger{}.SetAfterEach("X");
+      CHECK(m.Generate(empty) == "");
+      CHECK(m.Generate(dog) == "dogX");
+      CHECK(m.Generate(ty) == "tXyX");
+      CHECK(m.Generate(abc) == "aXbXcX");
+    }
+
+    SECTION("after each and final")
+    {
+      const auto m = StringMerger{}.SetAfterEach("X", "Y");
+      CHECK(m.Generate(empty) == "");
+      CHECK(m.Generate(dog) == "dogY");
+      CHECK(m.Generate(ty) == "tXyY");
+      CHECK(m.Generate(abc) == "aXbXcY");
     }
   }
 }

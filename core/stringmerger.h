@@ -6,26 +6,24 @@
 #include <vector>
 #include <map>
 
-/** Util class for merging strings.
- */
-class StringMerger
+struct StringMerger
 {
- public:
-  /** English merger. Combines with a and.
-  @returns the merger.
-   */
+  ////////////////////////////////////////////
+  // public api
+
+  std::string
+  Generate(const std::vector<std::string>& strings) const;
+
+
+  ////////////////////////////////////////////
+  // Named constructors
+
   static const StringMerger&
   EnglishAnd();
 
-  /** English merger. Combines with a or.
-  @returns the merger.
-   */
   static const StringMerger&
   EnglishOr();
 
-  /** Array merger. Generate strings that looks like [a, b, c].
-  @returns the merger.
-   */
   static const StringMerger&
   Array();
 
@@ -38,54 +36,45 @@ class StringMerger
   static const StringMerger&
   Comma();
 
-  /** Sets the separator arguments.
-  @param separator the separator to use.
-  @param final_separator the separator to use at the last element.
-  @returns this for easy chaining.
-   */
-  StringMerger&
-  SetSeparator(
-      const std::string& separator, const std::string& final_separator);
 
-  /** Sets the separator arguments.
-  @param separator the separator to use.
-  @returns this for easy chaining.
-   */
+  ////////////////////////////////////////////
+  // constructor functions
+
+  StringMerger&
+  SetSeparator(const std::string& separator, const std::string& final_separator);
+
   StringMerger&
   SetSeparator(const std::string& separator);
 
-  /** Sets the empty string.
-  This string is returned when a request is made on a a empty set.
-  @param empty the empty string.
-  @returns this for easy chaining.
-   */
   StringMerger&
   SetEmpty(const std::string& empty);
 
-  /** Sets the start and end text. This data is always added.
-  @param start the start string.
-  @param end the end string.
-  @returns this for easy chaining.
-   */
   StringMerger&
   SetStartAndEnd(const std::string& start, const std::string& end);
   
   StringMerger&
   SetStartAndEnd(const std::string& same);
 
-  /** Generate a string representation based on the current settings.
-  @param strings the strings.
-  @returns the combined string.
-   */
-  std::string
-  Generate(const std::vector<std::string>& strings) const;
+  StringMerger&
+  SetBeforeEach(const std::string& before_each);
 
- private:
-  std::string separator_;
-  std::string final_separator_;
-  std::string empty_;
-  std::string start_;
-  std::string end_;
+  StringMerger&
+  SetAfterEach(const std::string& same);
+
+  StringMerger&
+  SetAfterEach(const std::string& after_each, const std::string& final_after_each);
+
+  ////////////////////////////////////////////
+  // member variables
+
+  std::string separator;
+  std::string final_separator;
+  std::string empty;
+  std::string start;
+  std::string end;
+  std::string before_each;
+  std::string after_each;
+  std::string final_after_each;
 };
 
 #endif  // EUPHORIA_STRINGMERGER_H
