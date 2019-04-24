@@ -85,10 +85,7 @@ namespace argparse
   {
     if(is_optional)
     {
-      for(unsigned int i=0; i<names.size(); i+=1)
-      {
-        ASSERTX(IsOptional(names[i])==false, i, names[i]);
-      }
+      ASSERTX(names.size()>0, names.size());
     }
     else
     {
@@ -179,7 +176,7 @@ namespace argparse
 
   struct HelpCallback : public Arg
   {
-    ParseResult Parse(const std::string& name, Running* running) override
+    ParseResult Parse(const std::string&, Running* running) override
     {
       running->parser->WriteLongHelp(running);
       return ParseResult::Quit;

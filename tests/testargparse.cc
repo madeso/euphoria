@@ -13,6 +13,17 @@ struct Entry
   }
 };
 
+enum class MyEnum
+{
+  X, Cat, ReallyLongValue
+};
+
+BEGIN_ENUM_LIST(MyEnum)
+  ENUM_VALUE(MyEnum, X)
+  ENUM_VALUE(MyEnum, Cat)
+  ENUM_VALUE(MyEnum, ReallyLongValue)
+END_ENUM_LIST()
+
 template<typename S>
 S& operator<<(S& s, const Entry& e)
 {
@@ -81,6 +92,30 @@ TEST_CASE("argparse", "[argparse]")
     auto r = parser.Parse(app, {});
     CHECK(r == argparse::ParseResult::Ok);
 		REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
+  }
+
+  SECTION("optional enum")
+  {
+    auto e = MyEnum::ReallyLongValue;
+    parser.AddEnum("-e", &e);
+
+    SECTION("default")
+    {
+      auto r = parser.Parse(app, {});
+      CHECK(r == argparse::ParseResult::Ok);
+      REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
+
+      CHECK(e == MyEnum::ReallyLongValue);
+    }
+
+    SECTION("supplied")
+    {
+      auto r = parser.Parse(app, {"-e", "x"});
+      CHECK(r == argparse::ParseResult::Ok);
+      REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
+
+      CHECK(e == MyEnum::X);
+    }
   }
 
   SECTION("optional int")
