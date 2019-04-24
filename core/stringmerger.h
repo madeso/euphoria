@@ -33,9 +33,6 @@ class StringMerger
   FunctionCall();
 
   static const StringMerger&
-  DashForEach();
-
-  static const StringMerger&
   Space();
 
   static const StringMerger&

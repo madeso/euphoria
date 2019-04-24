@@ -74,14 +74,6 @@ StringMerger::FunctionCall()
 }
 
 const StringMerger&
-StringMerger::DashForEach()
-{
-  static const StringMerger DashForEach =
-      StringMerger().SetSeparator("\n  - ").SetStartAndEnd("\n  - ", "");
-  return DashForEach;
-}
-
-const StringMerger&
 StringMerger::Space()
 {
   static const StringMerger Space =
