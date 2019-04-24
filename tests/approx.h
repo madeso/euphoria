@@ -101,9 +101,9 @@ namespace custom
     std::string
     toString() const
     {
-      std::ostringstream oss;
-      oss << "Approx( " << Catch::toString(m_value) << " )";
-      return oss.str();
+      Catch::ReusableStringStream rss;
+      rss << "Approx( " << ::Catch::Detail::stringify( m_value ) << " )";
+      return rss.str();
     }
 
    private:

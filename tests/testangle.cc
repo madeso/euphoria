@@ -2,6 +2,10 @@
 #include "core/numeric.h"
 
 #include "catch.hpp"
+#include "tests/approx.h"
+
+// todo: don't use horrible define to use out custom Approx
+#define Approx custom::Approx<float>
 
 TEST_CASE("angle-constructor_degrees", "[angle]")
 {
