@@ -126,6 +126,9 @@ namespace argparse
   template<>
   ParseResult SimpleParser<std::string>(std::string* target, const std::string&, const std::string& value, Output*);
 
+  template<>
+  ParseResult SimpleParser<bool>(bool* target, const std::string&, const std::string& value, Output*);
+
   template<typename T>
   struct SimpleArg : public Arg
   {

@@ -140,6 +140,51 @@ TEST_CASE("argparse", "[argparse]")
     }
   }
 
+  SECTION("optional bool")
+  {
+    bool t = true;
+    bool f = false;
+    parser.AddSimple("-t", &t);
+    parser.AddSimple("-f", &f);
+
+    SECTION("default")
+    {
+      auto r = parser.Parse(app, {});
+      CHECK(r == argparse::ParseResult::Ok);
+      REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
+
+      CHECK(t);
+      CHECK_FALSE(f);
+    }
+
+    SECTION("supplied 01")
+    {
+      auto r = parser.Parse(app, {"-t", "0", "-f", "1"});
+      CHECK(r == argparse::ParseResult::Ok);
+      REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
+      CHECK_FALSE(t);
+      CHECK(f);
+    }
+
+    SECTION("supplied yn")
+    {
+      auto r = parser.Parse(app, {"-t", "n", "-f", "y"});
+      CHECK(r == argparse::ParseResult::Ok);
+      REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
+      CHECK_FALSE(t);
+      CHECK(f);
+    }
+
+    SECTION("supplied yes/no")
+    {
+      auto r = parser.Parse(app, {"-t", "no", "-f", "yes"});
+      CHECK(r == argparse::ParseResult::Ok);
+      REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
+      CHECK_FALSE(t);
+      CHECK(f);
+    }
+  }
+
   SECTION("optional string")
   {
     std::string str = "dog";

@@ -170,6 +170,24 @@ namespace argparse
     return ParseResult::Ok;
   }
 
+  template<>
+  ParseResult SimpleParser<bool>(bool* target, const std::string& name, const std::string& value, Output* output)
+  {
+    auto v = Trim(ToLower(value));
+    if(v == "t" || v=="1" || v=="true" || v=="yes" || v=="y")
+    {
+      *target = true;
+      return ParseResult::Ok;
+    }
+    if(v == "f" || v=="0" || v=="false" || v=="no" || v=="n")
+    {
+      *target = false;
+      return ParseResult::Ok;
+    }
+    output->OnError(Str() << value << " for boolean " << name << " is not accepted.");
+    return ParseResult::Failed;
+  }
+
 
   /////////////////////////////////////////////////////////////////////////////////////////
   // HelpCallback
