@@ -13,6 +13,8 @@ struct Entry
   }
 };
 
+#define ERROR_LINE(err) std::vector<Entry>{ Entry{false, err} }
+
 enum class MyEnum
 {
   X, Cat, ReallyLongValue
@@ -137,6 +139,22 @@ TEST_CASE("argparse", "[argparse]")
       REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
 
       CHECK(i == 42);
+    }
+
+    SECTION("passed string")
+    {
+      auto r = parser.Parse(app, {"-int", "cat"});
+      CHECK(r == argparse::ParseResult::Failed);
+      REQUIRE_THAT(output.out, Catch::Matchers::Equals( ERROR_LINE("cat for -int is not accepted.") ));
+      CHECK(i == 4);
+    }
+
+    SECTION("passed int+string")
+    {
+      auto r = parser.Parse(app, {"-int", "42cat"});
+      CHECK(r == argparse::ParseResult::Failed);
+      CHECK_THAT(output.out, Catch::Matchers::Equals( ERROR_LINE("42cat for -int is not accepted.") ));
+      CHECK(i == 4);
     }
   }
 

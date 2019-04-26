@@ -111,14 +111,16 @@ namespace argparse
   ParseResult SimpleParser(T* target, const std::string& name, const std::string& value, Output* output)
   {
     std::stringstream ss(value);
-    ss >> *target;
-    if(ss.fail())
+    T t;
+    ss >> t;
+    if(ss.fail() || !ss.eof())
     {
       output->OnError(Str() << value << " for " << name << " is not accepted.");
       return ParseResult::Failed;
     }
     else
     {
+      *target = t;
       return ParseResult::Ok;
     }
   }
