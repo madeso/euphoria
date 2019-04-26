@@ -1,5 +1,5 @@
 #include "core/interpolate.h"
-#include "tests/testbase.h"
+#include "tests/approx_equal.h"
 
 #include "catch.hpp"
 

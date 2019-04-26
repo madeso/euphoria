@@ -1,5 +1,5 @@
 #include "core/quat.h"
-#include "tests/testbase.h"
+#include "tests/approx_equal.h"
 
 #include "catch.hpp"
 

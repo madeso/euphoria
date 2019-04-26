@@ -2,7 +2,7 @@
 
 #include "catch.hpp"
 
-#include "testbase.h"
+#include "tests/approx_equal.h"
 
 const unsigned int DARKSLATE_GREY = 0x2f4f4f;
 

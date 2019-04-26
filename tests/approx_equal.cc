@@ -1,4 +1,4 @@
-#include "tests/testbase.h"
+#include "tests/approx_equal.h"
 
 template <typename T>
 bool

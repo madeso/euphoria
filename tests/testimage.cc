@@ -2,7 +2,7 @@
 #include "core/filesystem.h"
 #include "core/base64.h"
 #include "core/rgb.h"
-#include "tests/testbase.h"
+#include "tests/approx_equal.h"
 #include "core/draw.h"
 
 #include "catch.hpp"
