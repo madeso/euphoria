@@ -350,6 +350,8 @@ namespace argparse
           auto found = optional_arguments.find(Name::OptionalName(running.Peek()));
           if(found != optional_arguments.end())
           {
+            arg_name = running.Read();
+            ASSERT(Name::IsOptional(arg_name));
             arg = found->second;
           }
         }
