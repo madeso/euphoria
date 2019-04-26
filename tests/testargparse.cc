@@ -295,4 +295,49 @@ TEST_CASE("argparse", "[argparse]")
       CHECK_THAT(v, Catch::Matchers::Equals( std::vector<int>{1, 2, 3} ));
     }
   }
+
+  ///////////////////////////////////////////////////////////////////////////////////
+  // complex combinations
+
+  SECTION("mixing positional and optional")
+  {
+    std::string pos = "not read";
+    std::string opt = "not read";
+
+    parser.AddSimple("pos", &pos);
+    parser.AddSimple("-a, --animal", &opt);
+
+    SECTION("position and optional")
+    {
+      CHECK(parser.Parse(app, {"abc", "-a", "cat"}) == argparse::ParseResult::Ok);
+      REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
+      CHECK(opt == "cat");
+      CHECK(pos == "abc");
+    }
+
+    SECTION("optional and position")
+    {
+      CHECK(parser.Parse(app, {"-a", "cat", "abc"}) == argparse::ParseResult::Ok);
+      REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
+      CHECK(opt == "cat");
+      CHECK(pos == "abc");
+    }
+
+    SECTION("negative position and optional")
+    {
+      CHECK(parser.Parse(app, {"-abc", "-a", "cat"}) == argparse::ParseResult::Ok);
+      REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
+      CHECK(opt == "cat");
+      CHECK(pos == "-abc");
+    }
+
+    SECTION("optional and negative position")
+    {
+      CHECK(parser.Parse(app, {"-a", "cat", "-abc"}) == argparse::ParseResult::Ok);
+      REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
+      CHECK(opt == "cat");
+      CHECK(pos == "-abc");
+    }
+  }
+
 }
