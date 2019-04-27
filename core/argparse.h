@@ -212,6 +212,23 @@ namespace argparse
   };
 
   template<typename T>
+  struct CountArg : public Arg
+  {
+    T *target;
+
+    ParseResult Parse(const std::string&, Running*) override
+    {
+      (*target)++;
+      return ParseResult::Ok;
+    }
+
+    std::string ToShortArgumentString() override
+    {
+      return "";
+    }
+  };
+
+  template<typename T>
   struct VectorArg : public Arg
   {
     std::vector<T>* target;
@@ -300,6 +317,14 @@ namespace argparse
     Extra AddSimple(const Name& name, T* var)
     {
       auto a = std::make_shared<SimpleArg<T>>();
+      a->target = var;
+      return AddArgument(name, a);
+    }
+
+    template<typename T>
+    Extra AddCount(const Name& name, T* var)
+    {
+      auto a = std::make_shared<CountArg<T>>();
       a->target = var;
       return AddArgument(name, a);
     }

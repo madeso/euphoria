@@ -280,6 +280,41 @@ TEST_CASE("argparse", "[argparse]")
   }
 
   ///////////////////////////////////////////////////////////////////////////////////
+  // count
+
+  SECTION("count")
+  {
+    int c = 0;
+    parser.AddCount("-c", &c);
+
+    SECTION("zero")
+    {
+      auto r = parser.Parse(app, {});
+      CHECK(r == argparse::ParseResult::Ok);
+      REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
+      CHECK(c == 0);
+    }
+
+    SECTION("one")
+    {
+      auto r = parser.Parse(app, {"-c"});
+      CHECK(r == argparse::ParseResult::Ok);
+      REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
+      CHECK(c == 1);
+    }
+
+    SECTION("many")
+    {
+      auto r = parser.Parse(app, {"-c", "-c"});
+      CHECK(r == argparse::ParseResult::Ok);
+      REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
+      CHECK(c == 2);
+    }
+
+  }
+
+
+  ///////////////////////////////////////////////////////////////////////////////////
   // positional
 
   SECTION("positional vector")
