@@ -351,6 +351,15 @@ TEST_CASE("argparse", "[argparse]")
 
   ///////////////////////////////////////////////////////////////////////////////////
   // complex combinations
+  SECTION("too many uses")
+  {
+    int i = 0;
+    parser.AddSimple("-i", &i);
+    CHECK(parser.Parse(app, {"-i", "2", "-i", "3"}) == argparse::ParseResult::Failed);
+    CHECK_THAT(output.out, Catch::Matchers::Equals( ERROR_LINE("-i specified earlier") ));
+    // the first i is read, the second errors
+    CHECK(i == 2);
+  }
 
   SECTION("mixing positional and optional")
   {

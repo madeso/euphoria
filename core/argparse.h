@@ -97,6 +97,7 @@ namespace argparse
     virtual ~Arg() {}
     virtual ParseResult Parse(const std::string& name, Running* running) = 0;
     virtual std::string ToShortArgumentString() = 0;
+    virtual bool CanCallManyTimes() = 0;
   };
 
   struct Extra
@@ -151,6 +152,11 @@ namespace argparse
       }
     }
 
+    bool CanCallManyTimes() override
+    {
+      return false;
+    }
+
     std::string ToShortArgumentString() override
     {
       return Str() << " " << meta_var;
@@ -191,6 +197,11 @@ namespace argparse
     {
       return StringMerger().Separator(" | ").StartAndEnd("{", "}").Generate(EnumToString<T>());
     }
+
+    bool CanCallManyTimes() override
+    {
+      return false;
+    }
   };
 
   template<typename T>
@@ -209,6 +220,11 @@ namespace argparse
     {
       return "";
     }
+
+    bool CanCallManyTimes() override
+    {
+      return true;
+    }
   };
 
   template<typename T>
@@ -225,6 +241,11 @@ namespace argparse
     std::string ToShortArgumentString() override
     {
       return "";
+    }
+
+    bool CanCallManyTimes() override
+    {
+      return true;
     }
   };
 
@@ -283,6 +304,13 @@ namespace argparse
       {
         return Str() << "+ " << meta_var;
       }
+    }
+
+    bool CanCallManyTimes() override
+    {
+      // if it isn't greedy we should be able to call it many times
+      // if it is greedy we don't need to call it many times
+      return greedy == Greedy::No;
     }
   };
 

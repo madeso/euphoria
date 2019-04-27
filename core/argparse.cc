@@ -7,6 +7,7 @@
 #include <functional>
 #include <vector>
 #include <map>
+#include <set>
 #include <memory>
 #include <iomanip>
 
@@ -204,6 +205,11 @@ namespace argparse
     {
       return "";
     }
+
+    bool CanCallManyTimes() override
+    {
+      return false;
+    }
   };
 
   /////////////////////////////////////////////////////////////////////////////////////////
@@ -330,6 +336,18 @@ namespace argparse
     auto console = ConsoleOutput {};
     auto running = Running { program_name, args, output ? output : &console };
 
+    std::set<Arg*> read_arguments;
+    auto has_read = [&read_arguments](std::shared_ptr<Arg> arg) -> bool
+    {
+      auto found = read_arguments.find(arg.get());
+      return found != read_arguments.end();
+    };
+    auto read_arg = [&read_arguments](std::shared_ptr<Arg> arg)
+    {
+      auto inserted = read_arguments.insert(arg.get());
+      ASSERT(inserted.second);
+    };
+
     running.parser = this;
 
     size_t next_positional_index = 0;
@@ -383,10 +401,20 @@ namespace argparse
         arg = found->second;
       }
 
+      if(has_read(arg))
+      {
+        running.output->OnError(Str() << arg_name << " specified earlier");
+        return ParseResult::Failed;
+      }
+
       auto r = arg->Parse(arg_name, &running);
       if( r != ParseResult::Ok)
       {
         return r;
+      }
+      if(arg->CanCallManyTimes() == false)
+      {
+        read_arg(arg);
       }
     }
 
