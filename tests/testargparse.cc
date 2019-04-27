@@ -1,6 +1,6 @@
 #include "core/argparse.h"
 
-#include "catch.hpp"
+#include "tests/utils.h"
 
 struct Entry
 {
@@ -335,6 +335,22 @@ TEST_CASE("argparse", "[argparse]")
       CHECK(t);
       CHECK_FALSE(f);
     }
+  }
+
+  SECTION("combine")
+  {
+    bool a = false;
+    bool b = false;
+    bool c = false;
+    parser.SetTrue("-a", &a);
+    parser.SetTrue("-b", &b);
+    parser.SetTrue("-c", &c);
+    auto args = GENERATE_AS(std::string, "-abc", "-bac", "-cba");
+    CHECK(parser.Parse(app, {args}) == argparse::ParseResult::Ok);
+    REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
+    CHECK(a);
+    CHECK(b);
+    CHECK(c);
   }
 
   ///////////////////////////////////////////////////////////////////////////////////

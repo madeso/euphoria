@@ -98,6 +98,7 @@ namespace argparse
     virtual ParseResult Parse(const std::string& name, Running* running) = 0;
     virtual std::string ToShortArgumentString() = 0;
     virtual bool CanCallManyTimes() = 0;
+    virtual bool TakesArguments() = 0;
   };
 
   struct Extra
@@ -161,6 +162,11 @@ namespace argparse
     {
       return Str() << " " << meta_var;
     }
+
+    bool TakesArguments() override
+    {
+      return true;
+    }
   };
 
   template<typename T>
@@ -202,6 +208,11 @@ namespace argparse
     {
       return false;
     }
+
+    bool TakesArguments() override
+    {
+      return true;
+    }
   };
 
   template<typename T>
@@ -225,6 +236,11 @@ namespace argparse
     {
       return true;
     }
+
+    bool TakesArguments() override
+    {
+      return false;
+    }
   };
 
   template<typename T>
@@ -246,6 +262,11 @@ namespace argparse
     bool CanCallManyTimes() override
     {
       return true;
+    }
+
+    bool TakesArguments() override
+    {
+      return false;
     }
   };
 
@@ -311,6 +332,11 @@ namespace argparse
       // if it isn't greedy we should be able to call it many times
       // if it is greedy we don't need to call it many times
       return greedy == Greedy::No;
+    }
+
+    bool TakesArguments() override
+    {
+      return true;
     }
   };
 

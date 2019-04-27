@@ -210,6 +210,11 @@ namespace argparse
     {
       return false;
     }
+
+    bool TakesArguments() override
+    {
+      return false;
+    }
   };
 
   /////////////////////////////////////////////////////////////////////////////////////////
@@ -369,6 +374,7 @@ namespace argparse
 
       std::string arg_name;
       std::shared_ptr<Arg> arg = nullptr;
+      std::vector<std::shared_ptr<Arg>> found_args;
 
       if(has_more_positionals)
       {
@@ -404,11 +410,37 @@ namespace argparse
         auto found = optional_arguments.find(Name::OptionalName(optional_name));
         if(found == optional_arguments.end())
         {
-          running.output->OnError(Str() << "Not a valid argument: " << optional_name);
-          return ParseResult::Failed;
+          const auto chars = Name::OptionalName(optional_name);
+          for(char c: chars)
+          {
+            auto f = optional_arguments.find(std::string(1, c));
+            if(f == optional_arguments.end()  || f->second->TakesArguments())
+            {
+              // if there aren't a matching cmdline argument name or it takes a argument it is an errror
+              break;
+            }
+            else
+            {
+              found_args.push_back(f->second);
+            }
+          }
+          if(chars.size() == found_args.size())
+          {
+            arg = found_args[0];
+            arg_name = chars;
+          }
+          else
+          {
+            running.output->OnError(Str() << "Not a valid argument: " << optional_name);
+            found_args.clear();
+            return ParseResult::Failed;
+          }
         }
-        arg_name = optional_name;
-        arg = found->second;
+        else
+        {
+          arg_name = optional_name;
+          arg = found->second;
+        }
       }
 
       if(has_read(arg))
@@ -417,14 +449,31 @@ namespace argparse
         return ParseResult::Failed;
       }
 
-      auto r = arg->Parse(arg_name, &running);
-      if( r != ParseResult::Ok)
+      auto handle_arg = [&running, &read_arg](std::shared_ptr<Arg> arg, const std::string& arg_name)
       {
-        return r;
+        auto r = arg->Parse(arg_name, &running);
+        if( r != ParseResult::Ok)
+        {
+          return r;
+        }
+        if(arg->CanCallManyTimes() == false)
+        {
+          read_arg(arg);
+        }
+        return ParseResult::Ok;
+      };
+      if(found_args.empty())
+      {
+        const auto r = handle_arg(arg, arg_name);
+        if(r != ParseResult::Ok) { return r; }
       }
-      if(arg->CanCallManyTimes() == false)
+      else
       {
-        read_arg(arg);
+        for(auto a: found_args)
+        {
+          const auto r = handle_arg(a, "");
+          if(r != ParseResult::Ok) { return r; }
+        }
       }
     }
 

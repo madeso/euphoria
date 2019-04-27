@@ -1,6 +1,6 @@
 #include "core/enumtostring.h"
 
-#include "catch.hpp"
+#include "tests/utils.h"
 
 namespace
 {
@@ -15,8 +15,6 @@ BEGIN_ENUM_LIST(MyEnum)
   ENUM_VALUE(MyEnum, Cat)
   ENUM_VALUE(MyEnum, ReallyLongValue)
 END_ENUM_LIST()
-
-#define CATCH_IS_VECTOR(TYPE, ...) Catch::Matchers::Equals(std::vector<TYPE>{__VA_ARGS__} )
 
 TEST_CASE("enum2string", "[enum2string]")
 {
@@ -50,7 +48,7 @@ TEST_CASE("enum2string", "[enum2string]")
 
   SECTION("match different cases")
   {
-    auto name = GENERATE(Catch::Generators::as<std::string>{}, "cat", "CAT", "Cat", "cAt");
+    auto name = GENERATE_AS(std::string, "cat", "CAT", "Cat", "cAt");
     const auto match = StringToEnum<MyEnum>(name);
     CHECK(match.single_match);
     CHECK_THAT(match.values, CATCH_IS_VECTOR(MyEnum, MyEnum::Cat));
