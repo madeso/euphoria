@@ -400,6 +400,14 @@ TEST_CASE("argparse", "[argparse]")
       CHECK(opt == "cat");
       CHECK(pos == "-abc");
     }
+
+    SECTION("optional and positional named as optional")
+    {
+      CHECK(parser.Parse(app, {"-a", "cat", "-a"}) == argparse::ParseResult::Ok);
+      REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
+      CHECK(opt == "cat");
+      CHECK(pos == "-a");
+    }
   }
 
 }
