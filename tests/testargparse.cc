@@ -313,6 +313,29 @@ TEST_CASE("argparse", "[argparse]")
 
   }
 
+  SECTION("set true/false")
+  {
+    bool t = false;
+    bool f = true;
+    parser.SetTrue("-t", &t);
+    parser.SetFalse("-f", &f);
+
+    SECTION("empty")
+    {
+      CHECK(parser.Parse(app, {}) == argparse::ParseResult::Ok);
+      REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
+      CHECK_FALSE(t);
+      CHECK(f);
+    }
+
+    SECTION("set")
+    {
+      CHECK(parser.Parse(app, {"-t", "-f"}) == argparse::ParseResult::Ok);
+      REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
+      CHECK(t);
+      CHECK_FALSE(f);
+    }
+  }
 
   ///////////////////////////////////////////////////////////////////////////////////
   // positional

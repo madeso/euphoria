@@ -373,6 +373,9 @@ namespace argparse
       return AddArgument(name, a);
     }
 
+    Extra SetTrue(const Name& name, bool* b);
+    Extra SetFalse(const Name& name, bool* b);
+
     template<typename T>
     Extra AddVector(const Name& name, std::vector<T>* vec)
     {

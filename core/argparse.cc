@@ -321,6 +321,16 @@ namespace argparse
     return Extra { arg };
   }
 
+  Extra Parser::SetTrue(const Name& name, bool* b)
+  {
+    return AddSimpleFunction(name, [b]() { *b = true; });
+  }
+
+  Extra Parser::SetFalse(const Name& name, bool* b)
+  {
+    return AddSimpleFunction(name, [b]() { *b = false; });
+  }
+
   ParseResult Parser::Parse(int argc, char* argv[]) const
   {
     auto args = std::vector<std::string>{};
