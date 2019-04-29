@@ -376,17 +376,59 @@ namespace argparse
       std::shared_ptr<Arg> arg = nullptr;
       std::vector<std::shared_ptr<Arg>> found_args;
 
+      auto add_multi_argument =
+        [this, &arg, &arg_name, &found_args]
+        (const std::string& optional_name) -> bool
+        {
+          const auto chars = Name::OptionalName(optional_name);
+          for(char c: chars)
+          {
+            auto f = optional_arguments.find(std::string(1, c));
+            if(f == optional_arguments.end()  || f->second->TakesArguments())
+            {
+              // if there aren't a matching cmdline argument name or it takes a argument it is an errror
+              break;
+            }
+            else
+            {
+              found_args.push_back(f->second);
+            }
+          }
+          if(chars.size() == found_args.size())
+          {
+            arg = found_args[0];
+            arg_name = chars;
+            return true;
+          }
+          else
+          {
+            found_args.clear();
+            return false;
+          }
+      };
+
       if(has_more_positionals)
       {
         // if it is a valid optional, parse it, otherwise send to optional
         if(is_optional)
         {
-          auto found = optional_arguments.find(Name::OptionalName(running.Peek()));
-          if(found != optional_arguments.end() && !has_read(found->second))
+          const auto testing_arg = running.Peek();
+          auto found = optional_arguments.find(Name::OptionalName(testing_arg));
+          if(found != optional_arguments.end())
           {
-            arg_name = running.Read();
-            ASSERT(Name::IsOptional(arg_name));
-            arg = found->second;
+            if(!has_read(found->second))
+            {
+              arg_name = running.Read();
+              ASSERT(Name::IsOptional(arg_name));
+              arg = found->second;
+            }
+          }
+          else
+          {
+            if(add_multi_argument(testing_arg))
+            {
+              running.Read();
+            }
           }
         }
 
@@ -410,26 +452,7 @@ namespace argparse
         auto found = optional_arguments.find(Name::OptionalName(optional_name));
         if(found == optional_arguments.end())
         {
-          const auto chars = Name::OptionalName(optional_name);
-          for(char c: chars)
-          {
-            auto f = optional_arguments.find(std::string(1, c));
-            if(f == optional_arguments.end()  || f->second->TakesArguments())
-            {
-              // if there aren't a matching cmdline argument name or it takes a argument it is an errror
-              break;
-            }
-            else
-            {
-              found_args.push_back(f->second);
-            }
-          }
-          if(chars.size() == found_args.size())
-          {
-            arg = found_args[0];
-            arg_name = chars;
-          }
-          else
+          if(false == add_multi_argument(optional_name))
           {
             running.output->OnError(Str() << "Not a valid argument: " << optional_name);
             found_args.clear();

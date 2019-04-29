@@ -449,4 +449,48 @@ TEST_CASE("argparse", "[argparse]")
     }
   }
 
+  SECTION("mixing positional and 3 bool")
+  {
+    bool a = false;
+    bool b = false;
+    bool c = false;
+    parser.SetTrue("-a", &a);
+    parser.SetTrue("-b", &b);
+    parser.SetTrue("-c", &c);
+
+    std::string pos = "not read";
+    parser.AddSimple("pos", &pos);
+
+    SECTION("empty")
+    {
+      CHECK(parser.Parse(app, {}) == argparse::ParseResult::Failed);
+      // REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
+      CHECK_FALSE(a);
+      CHECK_FALSE(b);
+      CHECK_FALSE(c);
+      CHECK(pos == "not read");
+    }
+
+    SECTION("before")
+    {
+      CHECK(parser.Parse(app, {"-abc", "cat"}) == argparse::ParseResult::Ok);
+      REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
+      CHECK(a);
+      CHECK(b);
+      CHECK(c);
+      CHECK(pos == "cat");
+    }
+
+    SECTION("after")
+    {
+      CHECK(parser.Parse(app, {"cat", "-abc"}) == argparse::ParseResult::Ok);
+      REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
+      CHECK(a);
+      CHECK(b);
+      CHECK(c);
+      CHECK(pos == "cat");
+    }
+
+  }
+
 }
