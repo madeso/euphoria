@@ -67,7 +67,7 @@ namespace argparse
     return { true, names };
   }
 
-  Name Name::Positional(std::string& name)
+  Name Name::Positional(const std::string& name)
   {
     return {false, {name}};
   }
@@ -341,7 +341,10 @@ namespace argparse
   struct SubParserArg : public Arg
   {
     std::shared_ptr<SubParsers> parsers;
-    SubParserArg(std::shared_ptr<SubParsers> ps) : parsers(ps) { }
+    SubParserArg(std::shared_ptr<SubParsers> ps) : parsers(ps)
+    {
+      name = Name::Positional("sub");
+    }
 
     ParseResult Parse(const std::string& arg_name, Running* running) override
     {

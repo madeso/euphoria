@@ -50,7 +50,7 @@ namespace argparse
 
     static Name Parse(const std::string& n);
     static Name Optional(std::initializer_list<std::string> names);
-    static Name Positional(std::string& names);
+    static Name Positional(const std::string& names);
 
     private:
       Name(bool o, const std::vector<std::string>& n);
