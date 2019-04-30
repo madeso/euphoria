@@ -10,6 +10,12 @@
 #include "core/enumtostring.h"
 #include "core/stringmerger.h"
 
+// todo: mutiple names for subcommands
+// todo: groups
+// todo: examples that are validated during debug builds
+// todo: boolean attributes, [--value | --no-value] style
+// todo: break at 80/120 character width
+
 namespace argparse
 {
   struct Parser;
