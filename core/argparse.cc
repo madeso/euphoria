@@ -228,11 +228,12 @@ namespace argparse
 
   void Parser::WriteShortHelp(Running* running) const
   {
+    auto pos_args = GetAllPosArgs();
     auto* o = running->output;
     const auto optional_string_list = VectorToStringVector(optional_arguments_list,
         [](std::shared_ptr<Arg> a) -> std::string
         { return Str() << "[-" << a->name.names[0] << a->ToShortArgumentString() << "]"; } );
-    const auto positional_string_list = VectorToStringVector(positional_arguments,
+    const auto positional_string_list = VectorToStringVector(pos_args,
         [](std::shared_ptr<Arg> a) -> std::string
         { return Str() << a->ToShortArgumentString(); });
     const auto optional_string = StringMerger::Space().Generate(optional_string_list);
@@ -242,6 +243,7 @@ namespace argparse
 
   void Parser::WriteLongHelp(Running* running) const
   {
+    auto pos_args = GetAllPosArgs();
     WriteShortHelp(running);
     const auto empty_line = "";
     const auto indent = "  ";
@@ -263,7 +265,7 @@ namespace argparse
 
     // determine max_size
     size_t max_size = 0;
-    for(auto p: positional_arguments)
+    for(auto p: pos_args)
     {
       max_size = std::max(max_size, p->name.names[0].length());
     }
@@ -273,10 +275,10 @@ namespace argparse
     }
     max_size += 1; // extra spacing
 
-    if(!positional_arguments.empty())
+    if(!pos_args.empty())
     {
       o->OnInfo("positional arguments");
-      for(auto p: positional_arguments)
+      for(auto p: pos_args)
       {
         o->OnInfo(Str() << indent << std::left << std::setw(max_size) << p->name.names[0] << std::setw(0) << " " << p->help);
       }
@@ -291,51 +293,6 @@ namespace argparse
       }
       o->OnInfo(empty_line);
     }
-  }
-
-  Extra Parser::AddArgument(const Name& name, std::shared_ptr<Arg> arg)
-  {
-    arg->name = name;
-    arg->meta_var = ToUpper(name.names[0]);
-    // strip away all - from the start
-    while(Name::IsOptional(arg->meta_var))
-    {
-      arg->meta_var = Name::OptionalName(arg->meta_var);
-    }
-    // if empty, just set to some default
-    if(arg->meta_var.empty())
-    {
-      arg->meta_var = "VAR";
-    }
-
-    if(name.is_optional)
-    {
-      ASSERT(!name.names.empty());
-      for(auto n: name.names)
-      {
-        ASSERTX(optional_arguments.find(n)==optional_arguments.end(), n);
-        optional_arguments[n] = arg;
-      }
-      optional_arguments_list.push_back(arg);
-    }
-    else
-    {
-      positional_arguments.push_back(arg);
-    }
-
-    return Extra { arg };
-  }
-
-  std::shared_ptr<SubParser> Parser::AddSubParser(const std::string& name, const std::string& desc)
-  {
-    if(subparsers == nullptr)
-    {
-      subparsers = std::make_shared<SubParsers>();
-    }
-    auto p = std::make_shared<SubParser>();
-    p->parser = std::make_shared<Parser>(desc);
-    subparsers->Add(name, p);
-    return p;
   }
 
   struct SubParserArg : public Arg
@@ -394,6 +351,61 @@ namespace argparse
     }
   };
 
+  std::vector<std::shared_ptr<Arg>> Parser::GetAllPosArgs() const
+  {
+    auto pos_args = the_positional_arguments;
+    if(subparsers != nullptr)
+    {
+      pos_args.push_back(std::make_shared<SubParserArg>(subparsers));
+    }
+    return pos_args;
+  }
+
+  Extra Parser::AddArgument(const Name& name, std::shared_ptr<Arg> arg)
+  {
+    arg->name = name;
+    arg->meta_var = ToUpper(name.names[0]);
+    // strip away all - from the start
+    while(Name::IsOptional(arg->meta_var))
+    {
+      arg->meta_var = Name::OptionalName(arg->meta_var);
+    }
+    // if empty, just set to some default
+    if(arg->meta_var.empty())
+    {
+      arg->meta_var = "VAR";
+    }
+
+    if(name.is_optional)
+    {
+      ASSERT(!name.names.empty());
+      for(auto n: name.names)
+      {
+        ASSERTX(optional_arguments.find(n)==optional_arguments.end(), n);
+        optional_arguments[n] = arg;
+      }
+      optional_arguments_list.push_back(arg);
+    }
+    else
+    {
+      the_positional_arguments.push_back(arg);
+    }
+
+    return Extra { arg };
+  }
+
+  std::shared_ptr<SubParser> Parser::AddSubParser(const std::string& name, const std::string& desc)
+  {
+    if(subparsers == nullptr)
+    {
+      subparsers = std::make_shared<SubParsers>();
+    }
+    auto p = std::make_shared<SubParser>();
+    p->parser = std::make_shared<Parser>(desc);
+    subparsers->Add(name, p);
+    return p;
+  }
+
   std::shared_ptr<Parser> Parser::AddSubParser(const std::string& name, SubParser::Callback callback)
   {
     return AddSubParser(name, "", callback);
@@ -428,14 +440,9 @@ namespace argparse
 
   ParseResult Parser::Parse(const std::string& program_name, const std::vector<std::string>& args) const
   {
-    auto pos_arguments = positional_arguments;
+    auto pos_args = GetAllPosArgs();
     auto console = ConsoleOutput {};
     auto running = Running { program_name, args, output ? output : &console };
-
-    if(subparsers != nullptr)
-    {
-      pos_arguments.push_back(std::make_shared<SubParserArg>(subparsers));
-    }
 
     std::set<Arg*> read_arguments;
     auto has_read = [&read_arguments](std::shared_ptr<Arg> arg) -> bool
@@ -456,7 +463,7 @@ namespace argparse
     while(running.HasMore())
     {
       const auto is_optional = Name::IsOptional(running.Peek());
-      const auto has_more_positionals = next_positional_index < pos_arguments.size();
+      const auto has_more_positionals = next_positional_index < pos_args.size();
 
       std::string arg_name;
       std::shared_ptr<Arg> arg = nullptr;
@@ -520,7 +527,7 @@ namespace argparse
 
         if(arg == nullptr)
         {
-          arg = pos_arguments[next_positional_index];
+          arg = pos_args[next_positional_index];
           ASSERT(!arg->name.names.empty());
           arg_name = arg->name.names[0];
           next_positional_index += 1;
@@ -588,9 +595,9 @@ namespace argparse
     }
 
     std::vector<std::string> missing_positionals;
-    for(size_t i=next_positional_index; i<pos_arguments.size(); i+=1)
+    for(size_t i=next_positional_index; i<pos_args.size(); i+=1)
     {
-      auto names = pos_arguments[i]->name.names;
+      auto names = pos_args[i]->name.names;
       ASSERT(!names.empty());
       auto name = names[0];
       missing_positionals.push_back(name);

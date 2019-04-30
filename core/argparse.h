@@ -372,8 +372,10 @@ namespace argparse
 
     std::map<std::string, std::shared_ptr<Arg>> optional_arguments;
     std::vector<std::shared_ptr<Arg>> optional_arguments_list;
-    std::vector<std::shared_ptr<Arg>> positional_arguments;
+    std::vector<std::shared_ptr<Arg>> the_positional_arguments;
     std::shared_ptr<SubParsers> subparsers;
+
+    std::vector<std::shared_ptr<Arg>> GetAllPosArgs() const;
 
     Extra AddArgument(const Name& name, std::shared_ptr<Arg> arg);
 
