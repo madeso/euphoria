@@ -94,6 +94,8 @@ namespace argparse
     std::string meta_var;
     std::string help;
 
+    bool show_in_long_description = true;
+
     virtual ~Arg() {}
     virtual ParseResult Parse(const std::string& name, Running* running) = 0;
     virtual std::string ToShortArgumentString() = 0;

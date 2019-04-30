@@ -13,6 +13,7 @@
 
 #include "core/assert.h"
 #include "core/stringutils.h"
+#include "core/functional.h"
 
 namespace argparse
 {
@@ -267,27 +268,38 @@ namespace argparse
     size_t max_size = 0;
     for(auto p: pos_args)
     {
-      max_size = std::max(max_size, p->name.names[0].length());
+      if(p->show_in_long_description)
+      {
+        max_size = std::max(max_size, p->name.names[0].length());
+      }
     }
     for(auto p: optional_arguments_list)
     {
-      max_size = std::max(max_size, arg_name_string(p).length());
+      if(p->show_in_long_description)
+      {
+        max_size = std::max(max_size, arg_name_string(p).length());
+      }
     }
     max_size += 1; // extra spacing
 
-    if(!pos_args.empty())
+    auto pa = Filter(pos_args,
+        [](auto p){return p && p->show_in_long_description;});
+    if(!pa.empty())
     {
       o->OnInfo("positional arguments");
-      for(auto p: pos_args)
+      for(auto p: pa)
       {
         o->OnInfo(Str() << indent << std::left << std::setw(max_size) << p->name.names[0] << std::setw(0) << " " << p->help);
       }
       o->OnInfo(empty_line);
     }
-    if(!optional_arguments_list.empty())
+
+    auto oa = Filter(optional_arguments_list,
+        [](auto p){return p && p->show_in_long_description;});
+    if(!oa.empty())
     {
       o->OnInfo("optional arguments");
-      for(auto p: optional_arguments_list)
+      for(auto p: oa)
       {
         o->OnInfo(Str() << indent << std::left << std::setw(max_size) << arg_name_string(p) << std::setw(0) << " " << p->help);
       }
@@ -301,6 +313,7 @@ namespace argparse
     SubParserArg(std::shared_ptr<SubParsers> ps) : parsers(ps)
     {
       name = Name::Positional("sub");
+      show_in_long_description = false;
     }
 
     ParseResult Parse(const std::string& arg_name, Running* running) override
