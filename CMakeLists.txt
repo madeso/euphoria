@@ -156,6 +156,7 @@ add_subdirectory(demo)
 add_subdirectory(engine)
 add_subdirectory(chatbot_test)
 add_subdirectory(worldgen)
+add_subdirectory(img)
 add_subdirectory(editor)
 add_subdirectory(duk)
 add_subdirectory(tabletool)
@@ -167,6 +168,7 @@ if(CLANG_TIDY_EXE)
                     tidy-base64
                     tidy-chatbot
                     tidy-worldgen
+                    tidy-img
                     tidy-core
                     tidy-demo
                     tidy-duk
@@ -183,7 +185,7 @@ if(CLANG_FORMAT_EXE)
                     format
                     format-base64
                     format-chatbot
-                    format-worldgen
+                    format-img
                     format-core
                     format-demo
                     format-duk

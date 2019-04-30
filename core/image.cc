@@ -294,10 +294,6 @@ namespace
 ImageLoadResult
 LoadImage(FileSystem* fs, const std::string& path, AlphaLoad alpha)
 {
-  int channels     = 0;
-  int image_width  = 0;
-  int image_height = 0;
-
   auto file_memory = fs->ReadFile(path);
   if(file_memory == nullptr)
   {
@@ -307,6 +303,16 @@ LoadImage(FileSystem* fs, const std::string& path, AlphaLoad alpha)
     std::cerr << "Failed to open " << path << ": File doesnt exist.\n";
     return result;
   }
+
+  return LoadImage(file_memory, path, alpha);
+}
+
+ImageLoadResult
+LoadImage(std::shared_ptr<MemoryChunk> file_memory, const std::string& path, AlphaLoad alpha)
+{
+  int channels     = 0;
+  int image_width  = 0;
+  int image_height = 0;
 
   // signed to unsigned cast is probably ok since both are considered to be
   // a chuck of memory
