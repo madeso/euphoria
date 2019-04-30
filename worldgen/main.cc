@@ -251,19 +251,6 @@ void cell(int world_width, int world_height, const std::string& f, int world_sca
 
 }
 
-enum class Command
-{
-  Recursive,
-  Random,
-  Cell
-};
-
-BEGIN_ENUM_LIST(Command)
-  ENUM_VALUE(Command, Recursive)
-  ENUM_VALUE(Command, Random)
-  ENUM_VALUE(Command, Cell)
-END_ENUM_LIST()
-
 int main(int argc, char* argv[])
 {
   auto parser = argparse::Parser{"Generate worlds"};
@@ -288,16 +275,19 @@ int main(int argc, char* argv[])
   auto maze_command = [&](MazeAlgorithm algo) {
     maze(algo, world_width, world_height, cell_size, wall_size, output, console);
   };
-  auto cell_command = [&]() {
-    cell(world_width, world_height, output, world_scale);
-  };
 
-  // todo: fix this setup
-  // parser.AddSimpleFunction("-maze", maze_command);
-  // parser.AddSimpleFunction("-cell", cell_command);
-
-  Command command;
-  parser.AddEnum("command", &command).Help("specify either cell or maze");
+  auto precursive = parser.AddSubParser("recursive",
+      "maze generation using recursive backtracker algorithm",
+      [&]{ maze_command(MazeAlgorithm::RecursiveBacktracker);
+  });
+  auto prandom = parser.AddSubParser("random",
+      "maze generation using random traversal algorithm",
+      [&] { maze_command(MazeAlgorithm::RandomTraversal);
+  });
+  auto pcell = parser.AddSubParser("cell",
+      "world generation using cellular automata algorithm",
+      [&] { cell(world_width, world_height, output, world_scale);
+  });
 
   const auto status = parser.Parse(argc, argv);
   if(status != argparse::ParseResult::Ok)
@@ -305,18 +295,6 @@ int main(int argc, char* argv[])
     return -1;
   }
 
-  if(command == Command::Recursive)
-  {
-    maze_command(MazeAlgorithm::RecursiveBacktracker);
-  }
-  else if(command == Command::Random)
-  {
-    maze_command(MazeAlgorithm::RandomTraversal);
-  }
-  else if (command == Command::Cell)
-  {
-    cell_command();
-  }
 
   return 0;
 }

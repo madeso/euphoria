@@ -376,8 +376,11 @@ namespace argparse
     std::shared_ptr<SubParsers> subparsers;
 
     Extra AddArgument(const Name& name, std::shared_ptr<Arg> arg);
-    std::shared_ptr<SubParser> AddSubParser(const std::string& name, const std::string& desc = "");
-    std::shared_ptr<Parser> AddSubParser(const std::string& name, SubParser::Callback callback, const std::string& desc = "");
+
+    std::shared_ptr<SubParser> AddSubParser(const std::string& name, const std::string& desc);
+
+    std::shared_ptr<Parser> AddSubParser(const std::string& name, SubParser::Callback callback);
+    std::shared_ptr<Parser> AddSubParser(const std::string& name, const std::string& desc, SubParser::Callback callback);
 
     template<typename T>
     Extra AddSimple(const Name& name, T* var)

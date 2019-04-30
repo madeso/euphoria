@@ -394,7 +394,12 @@ namespace argparse
     }
   };
 
-  std::shared_ptr<Parser> Parser::AddSubParser(const std::string& name, SubParser::Callback callback, const std::string& desc)
+  std::shared_ptr<Parser> Parser::AddSubParser(const std::string& name, SubParser::Callback callback)
+  {
+    return AddSubParser(name, "", callback);
+  }
+
+  std::shared_ptr<Parser> Parser::AddSubParser(const std::string& name, const std::string& desc, SubParser::Callback callback)
   {
     auto r  = AddSubParser(name, desc);
     r->callback = callback;
