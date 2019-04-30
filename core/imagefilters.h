@@ -5,6 +5,7 @@
 #include "core/enumtostring.h"
 
 class Image;
+class Palette;
 
 enum class Grayscale
 {
@@ -23,6 +24,8 @@ BEGIN_ENUM_LIST(Grayscale)
 END_ENUM_LIST()
 
 void MakeGrayscale(Image* image, Grayscale grayscale);
+
+void MatchPalette(Image* image, const Palette& palette);
 
 // todo:
 // https://www.processing.org/tutorials/pixels/

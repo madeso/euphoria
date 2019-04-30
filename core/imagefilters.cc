@@ -1,5 +1,7 @@
 #include "core/imagefilters.h"
+
 #include "core/image.h"
+#include "core/palette.h"
 
 
 namespace
@@ -64,4 +66,15 @@ void MakeGrayscale(Image* image, Grayscale grayscale)
       break;
   }
 }
+
+void MatchPalette(Image* image, const Palette& palette)
+{
+  image->Filter([&palette](const Rgbai& c) {
+      const auto cc = rgbi(c);
+      const auto nc = palette.GetClosestColor(cc);
+
+      return Rgbai(nc, c.a);
+      });
+}
+
 

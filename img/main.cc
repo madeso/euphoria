@@ -2,6 +2,7 @@
 
 #include "core/image.h"
 #include "core/imagefilters.h"
+#include "core/palette_all.h"
 
 #include "core/io.h"
 
@@ -56,6 +57,16 @@ int main(int argc, char* argv[])
       write_image();
   });
   pgrayscale->AddEnum("-g,--grayscale", &grayscale);
+
+  palette::PaletteName palette = palette::PaletteName::OneBit;
+  auto ppalette = parser.AddSubParser("palswap",
+      "Switch palette",
+      [&]{
+      if(!load_image()) { return; }
+      MatchPalette(&image, palette::GetPalette(palette));
+      write_image();
+  });
+  ppalette->AddEnum("-p,--palette", &palette);
 
   const auto status = parser.Parse(argc, argv);
   if(status != argparse::ParseResult::Ok)
