@@ -41,7 +41,7 @@ namespace argparse
 
   Name::Name(const char* str)
       : is_optional(IsOptional(Trim(str)))
-      , names( Split(str, ',') ) 
+      , names( Split(str, ',') )
   {
     if(is_optional)
     {
@@ -61,7 +61,7 @@ namespace argparse
   {
     return { n.c_str() };
   }
-  
+
   Name Name::Optional(std::initializer_list<std::string> names)
   {
     return { true, names };
@@ -300,7 +300,7 @@ namespace argparse
     // strip away all - from the start
     while(Name::IsOptional(arg->meta_var))
     {
-      arg->meta_var = Name::OptionalName(arg->meta_var); 
+      arg->meta_var = Name::OptionalName(arg->meta_var);
     }
     // if empty, just set to some default
     if(arg->meta_var.empty())
@@ -326,6 +326,78 @@ namespace argparse
     return Extra { arg };
   }
 
+  std::shared_ptr<SubParser> Parser::AddSubParser(const std::string& name, const std::string& desc)
+  {
+    if(subparsers == nullptr)
+    {
+      subparsers = std::make_shared<SubParsers>();
+    }
+    auto p = std::make_shared<SubParser>();
+    p->parser = std::make_shared<Parser>(desc);
+    subparsers->Add(name, p);
+    return p;
+  }
+
+  struct SubParserArg : public Arg
+  {
+    std::shared_ptr<SubParsers> parsers;
+    SubParserArg(std::shared_ptr<SubParsers> ps) : parsers(ps) { }
+
+    ParseResult Parse(const std::string& arg_name, Running* running) override
+    {
+      ASSERT(parsers);
+      ASSERT(running->HasMore());
+      const auto name = running->Read();
+      auto match = parsers->Match(name, 3);
+      if(!match.single_match)
+      {
+        auto matches = VectorToStringVector(match.values, [this](std::shared_ptr<SubParser> p)
+              {
+                return parsers->ToString(p);
+              }
+            );
+        running->output->OnError(Str() << name << " is invalid, could be "
+            << StringMerger::EnglishOr().Generate(matches));
+        return ParseResult::Failed;
+      }
+
+      std::vector<std::string> args;
+      while(running->HasMore()) { args.emplace_back(running->Read()); }
+
+      auto sub = match.values[0];
+      ASSERT(sub);
+      auto r = sub->parser->Parse(running->name + " " + name, args);
+      if(r == ParseResult::Ok)
+      {
+        sub->callback();
+      }
+      return r;
+    }
+
+    std::string ToShortArgumentString() override
+    {
+      return StringMerger().StartAndEnd("{", "}").Separator(", ")
+        .Generate(parsers->ListNames());
+    }
+
+    bool CanCallManyTimes() override
+    {
+      return false;
+    }
+
+    bool TakesArguments() override
+    {
+      return true;
+    }
+  };
+
+  std::shared_ptr<Parser> Parser::AddSubParser(const std::string& name, SubParser::Callback callback, const std::string& desc)
+  {
+    auto r  = AddSubParser(name, desc);
+    r->callback = callback;
+    return r->parser;
+  }
+
   Extra Parser::SetTrue(const Name& name, bool* b)
   {
     return AddSimpleFunction(name, [b]() { *b = true; });
@@ -348,8 +420,14 @@ namespace argparse
 
   ParseResult Parser::Parse(const std::string& program_name, const std::vector<std::string>& args) const
   {
+    auto pos_arguments = positional_arguments;
     auto console = ConsoleOutput {};
     auto running = Running { program_name, args, output ? output : &console };
+
+    if(subparsers != nullptr)
+    {
+      pos_arguments.push_back(std::make_shared<SubParserArg>(subparsers));
+    }
 
     std::set<Arg*> read_arguments;
     auto has_read = [&read_arguments](std::shared_ptr<Arg> arg) -> bool
@@ -370,7 +448,7 @@ namespace argparse
     while(running.HasMore())
     {
       const auto is_optional = Name::IsOptional(running.Peek());
-      const auto has_more_positionals = next_positional_index < positional_arguments.size();
+      const auto has_more_positionals = next_positional_index < pos_arguments.size();
 
       std::string arg_name;
       std::shared_ptr<Arg> arg = nullptr;
@@ -434,7 +512,8 @@ namespace argparse
 
         if(arg == nullptr)
         {
-          arg = positional_arguments[next_positional_index];
+          arg = pos_arguments[next_positional_index];
+          ASSERT(!arg->name.names.empty());
           arg_name = arg->name.names[0];
           next_positional_index += 1;
         }
@@ -501,9 +580,12 @@ namespace argparse
     }
 
     std::vector<std::string> missing_positionals;
-    for(size_t i=next_positional_index; i<positional_arguments.size(); i+=1)
+    for(size_t i=next_positional_index; i<pos_arguments.size(); i+=1)
     {
-      missing_positionals.push_back(positional_arguments[i]->name.names[0]);
+      auto names = pos_arguments[i]->name.names;
+      ASSERT(!names.empty());
+      auto name = names[0];
+      missing_positionals.push_back(name);
     }
 
     if(!missing_positionals.empty())

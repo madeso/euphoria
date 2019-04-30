@@ -388,6 +388,60 @@ TEST_CASE("argparse", "[argparse]")
     }
   }
 
+  // sub parser
+
+  SECTION("sub parsers")
+  {
+    std::string called = "none";
+
+    parser.AddSubParser("update", [&called] {called="update";} );
+    parser.AddSubParser("pull", [&called] {called="pull";} );
+
+    SECTION("empty")
+    {
+      CHECK(parser.Parse(app, {}) == argparse::ParseResult::Failed);
+      // todo: verify error
+    }
+
+    SECTION("update")
+    {
+      CHECK(parser.Parse(app, {"update"}) == argparse::ParseResult::Failed);
+      REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
+      CHECK(called == "update");
+    }
+
+    SECTION("pull")
+    {
+      CHECK(parser.Parse(app, {"pull"}) == argparse::ParseResult::Failed);
+      REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
+      CHECK(called == "pull");
+    }
+  }
+
+  SECTION("send data to correct parser")
+  {
+    std::string first = "";
+    std::string second = "";
+    parser.AddSimple("-a", &first);
+    parser.AddSubParser("b", []{})->AddSimple("-a", &second);
+
+    SECTION("first")
+    {
+      CHECK(parser.Parse(app, {"-a", "dog", "b"}) == argparse::ParseResult::Failed);
+      REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
+      CHECK(first == "dog");
+      CHECK(second == "");
+    }
+
+    SECTION("second")
+    {
+      CHECK(parser.Parse(app, {"b", "-a", "cat"}) == argparse::ParseResult::Failed);
+      REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
+      CHECK(first == "");
+      CHECK(second == "cat");
+    }
+  }
+
   ///////////////////////////////////////////////////////////////////////////////////
   // complex combinations
   SECTION("too many uses")
