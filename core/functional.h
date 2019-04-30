@@ -35,6 +35,18 @@ Map(const std::vector<F>& fs, C convert)
   }
   return r;
 }
+template<typename T, typename K, typename V, typename C>
+std::vector<T>
+Map(const std::map<K, V>& fs, C convert)
+{
+  std::vector<T> r;
+  r.reserve(fs.size());
+  for(const auto f: fs)
+  {
+    r.emplace_back(convert(f.first, f.second));
+  }
+  return r;
+}
 
 // concat map, SelectMany
 

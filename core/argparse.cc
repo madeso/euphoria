@@ -264,6 +264,13 @@ namespace argparse
         return name;
     };
 
+    const auto subps = subparsers == nullptr
+      ? std::vector<std::pair<std::string, std::string>>{}
+      : Map<std::pair<std::string, std::string>>(
+          subparsers->enum_to_string, [](auto p, auto s)
+          {return std::make_pair(s, p->parser->documentation);})
+      ;
+
     // determine max_size
     size_t max_size = 0;
     for(auto p: pos_args)
@@ -279,6 +286,10 @@ namespace argparse
       {
         max_size = std::max(max_size, arg_name_string(p).length());
       }
+    }
+    for(const auto& p: subps)
+    {
+      max_size = std::max(max_size, p.first.length());
     }
     max_size += 1; // extra spacing
 
@@ -302,6 +313,16 @@ namespace argparse
       for(auto p: oa)
       {
         o->OnInfo(Str() << indent << std::left << std::setw(max_size) << arg_name_string(p) << std::setw(0) << " " << p->help);
+      }
+      o->OnInfo(empty_line);
+    }
+
+    if(!subps.empty())
+    {
+      o->OnInfo("sub commands");
+      for(auto p: subps)
+      {
+        o->OnInfo(Str() << indent << std::left << std::setw(max_size) << p.first << std::setw(0) << " " << p.second);
       }
       o->OnInfo(empty_line);
     }
