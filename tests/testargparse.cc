@@ -405,14 +405,14 @@ TEST_CASE("argparse", "[argparse]")
 
     SECTION("update")
     {
-      CHECK(parser.Parse(app, {"update"}) == argparse::ParseResult::Failed);
+      CHECK(parser.Parse(app, {"update"}) == argparse::ParseResult::Ok);
       REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
       CHECK(called == "update");
     }
 
     SECTION("pull")
     {
-      CHECK(parser.Parse(app, {"pull"}) == argparse::ParseResult::Failed);
+      CHECK(parser.Parse(app, {"pull"}) == argparse::ParseResult::Ok);
       REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
       CHECK(called == "pull");
     }
@@ -427,7 +427,7 @@ TEST_CASE("argparse", "[argparse]")
 
     SECTION("first")
     {
-      CHECK(parser.Parse(app, {"-a", "dog", "b"}) == argparse::ParseResult::Failed);
+      CHECK(parser.Parse(app, {"-a", "dog", "b"}) == argparse::ParseResult::Ok);
       REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
       CHECK(first == "dog");
       CHECK(second == "");
@@ -435,7 +435,7 @@ TEST_CASE("argparse", "[argparse]")
 
     SECTION("second")
     {
-      CHECK(parser.Parse(app, {"b", "-a", "cat"}) == argparse::ParseResult::Failed);
+      CHECK(parser.Parse(app, {"b", "-a", "cat"}) == argparse::ParseResult::Ok);
       REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
       CHECK(first == "");
       CHECK(second == "cat");
