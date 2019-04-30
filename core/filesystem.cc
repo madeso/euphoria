@@ -6,12 +6,10 @@
 #include "core/ints.h"
 #include "core/os.h"
 #include "core/stringmerger.h"
-#include "core/log.h"
 #include "core/path.h"
+#include "core/io.h"
 
 #include "core/stringutils.h"
-
-LOG_SPECIFY_DEFAULT_LOGGER("core.filesystem")
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -243,27 +241,7 @@ std::shared_ptr<MemoryChunk>
 FileSystemRootFolder::ReadFile(const std::string& path)
 {
   const std::string& full_path = CombineFolderAndPath(folder_, path);
-  std::ifstream      is(full_path, std::ifstream::binary);
-  if(!is)
-  {
-    return MemoryChunk::Null();
-  }
-
-  is.seekg(0, is.end);
-  fint64 length = is.tellg();
-  is.seekg(0, is.beg);
-
-  if(length <= 0)
-  {
-    return MemoryChunk::Null();
-  }
-
-  auto memory = MemoryChunk::Alloc(length);
-  is.read(
-      static_cast<char*>(static_cast<void*>(memory->GetData())),
-      memory->GetSize());
-
-  return memory;
+  return io::FileToChunk(full_path);
 }
 
 std::string
@@ -330,11 +308,5 @@ FileSystemWriteFolder::WriteFile(
     const std::string& path, std::shared_ptr<MemoryChunk> data)
 {
   const auto    full_path = CombineFolderAndPath(folder, path);
-  std::ofstream os(full_path, std::ifstream::binary);
-  if(!os.good())
-  {
-    LOG_ERROR("Failed to open file " << full_path);
-    return;
-  }
-  os.write(data->GetData(), data->GetSize());
+  io::ChunkToFile(data, full_path);
 }

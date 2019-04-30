@@ -7,7 +7,7 @@
 #include "core/imageops.h"
 
 #include "core/stringutils.h"
-#include "core/debug.h"
+#include "core/io.h"
 #include "core/randomvector.h"
 
 #include <iostream>
@@ -138,7 +138,7 @@ void maze(MazeAlgorithm algo, int world_width, int world_height, int cell_size, 
     if(!output.single)
     {
       drawer.Draw();
-      debug::MemoryChunkToFile(drawer.image.Write(ImageWriteFormat::PNG), output.NextFile());
+      io::ChunkToFile(drawer.image.Write(ImageWriteFormat::PNG), output.NextFile());
     }
   };
 
@@ -160,13 +160,13 @@ void maze(MazeAlgorithm algo, int world_width, int world_height, int cell_size, 
   {
     if(output.single)
     {
-      debug::MemoryChunkToFile(drawer.image.Write(ImageWriteFormat::PNG), output.file);
+      io::ChunkToFile(drawer.image.Write(ImageWriteFormat::PNG), output.file);
     }
     else
     {
       for(int i=0; i<5; i+=1)
       {
-        debug::MemoryChunkToFile(drawer.image.Write(ImageWriteFormat::PNG), output.NextFile());
+        io::ChunkToFile(drawer.image.Write(ImageWriteFormat::PNG), output.NextFile());
       }
     }
   }
@@ -191,7 +191,7 @@ void cell(int world_width, int world_height, const std::string& f, int world_sca
   if(!output.single)
   {
     drawer.Draw();
-    debug::MemoryChunkToFile(drawer.image.Write(ImageWriteFormat::PNG), output.NextFile());
+    io::ChunkToFile(drawer.image.Write(ImageWriteFormat::PNG), output.NextFile());
   }
 
   auto world_copy = world;
@@ -216,13 +216,13 @@ void cell(int world_width, int world_height, const std::string& f, int world_sca
         if((dindex % m) == 0)
         {
           drawer.Draw();
-          debug::MemoryChunkToFile(drawer.image.Write(ImageWriteFormat::PNG), output.NextFile());
+          io::ChunkToFile(drawer.image.Write(ImageWriteFormat::PNG), output.NextFile());
         }
         dindex += 1;
       }
       for(int i=0; i<5; i+=1)
       {
-        debug::MemoryChunkToFile(drawer.image.Write(ImageWriteFormat::PNG), output.NextFile());
+        io::ChunkToFile(drawer.image.Write(ImageWriteFormat::PNG), output.NextFile());
       }
     }
   };
@@ -242,7 +242,7 @@ void cell(int world_width, int world_height, const std::string& f, int world_sca
   drawer.Draw();
   if(output.single)
   {
-    debug::MemoryChunkToFile(drawer.image.Write(ImageWriteFormat::PNG), output.file);
+    io::ChunkToFile(drawer.image.Write(ImageWriteFormat::PNG), output.file);
   }
   else
   {
