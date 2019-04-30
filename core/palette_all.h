@@ -11,6 +11,10 @@ namespace palette
 {
   enum class PaletteName
   {
+    // standard
+    Dawnbringer,
+    NamedColors,
+
     // cubehelix
   Classic,
   Perceptual_rainbow,
@@ -109,6 +113,10 @@ namespace palette
   const Palette& GetPalette(PaletteName name);
 }
   BEGIN_ENUM_LIST(palette::PaletteName)
+    // standard
+    ENUM_VALUE(palette::PaletteName, Dawnbringer)
+    ENUM_VALUE(palette::PaletteName, NamedColors)
+
     // cubehelix
     ENUM_VALUE(palette::PaletteName, Classic)
     ENUM_VALUE(palette::PaletteName, Perceptual_rainbow)

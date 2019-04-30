@@ -1,5 +1,6 @@
 #include "core/palette_all.h"
 
+#include "core/palette.h"
 #include "core/palette_cubehelix.h"
 #include "core/palette_lospec.h"
 #include "core/palette_matplot.h"
@@ -15,6 +16,9 @@ namespace palette
     {
       switch(name)
       {
+        // standard
+        case PaletteName::Dawnbringer: return Dawnbringer();
+        case PaletteName::NamedColors: return NamedColors();
         // cubehelix
         case PaletteName::Classic: return Classic();
         case PaletteName::Perceptual_rainbow: return Perceptual_rainbow();
