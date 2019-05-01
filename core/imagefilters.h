@@ -34,6 +34,10 @@ Image EdgeDetection(const Image& image, float r);
 
 void ColorDetection(Image* image, Rgb color, float r);
 
+void ChangeBrightness(Image* image, int change);
+
+void ChangeContrast(Image* image, float contrast);
+
 // todo:
 // https://www.processing.org/tutorials/pixels/
 // https://www.codeproject.com/Articles/996192/Some-Cool-Image-Effects

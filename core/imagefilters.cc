@@ -5,6 +5,7 @@
 #include "core/table.h"
 #include "core/vec3.h"
 
+#include <cmath>
 
 namespace
 {
@@ -170,4 +171,40 @@ void ColorDetection(Image* image, Rgb color, float r)
       return Rgbai(c, 255);
   });
 }
+
+template<typename C>
+void LutTransform(Image* image, C c)
+{
+  std::vector<unsigned char> lut;
+  lut.reserve(256);
+  for(int i=0;i<256;i++)
+  {
+    lut.emplace_back(c(i));
+  }
+  image->Filter([&](const Rgbai pixel) {
+      return Rgbai(Rgbi(lut[pixel.r], lut[pixel.g], lut[pixel.b]), pixel.a);
+  });
+}
+
+void ChangeBrightness(Image* image, int change)
+{
+  LutTransform(image, [&](int i) {
+    return TRange<int>(0, 255).KeepWithin(i+change);
+  });
+}
+
+void ChangeContrast(Image* image, float contrast)
+{
+  const auto tc = tan(contrast);
+  LutTransform(image, [&](int i) {
+      const auto a = 128.0f+128.0f*tc;
+      const auto b = 128.0f-128.0f*tc;
+      if(i<a && b<i)
+        return static_cast<int>((i-128)/tc+128);
+      else if(i>a) return 255;
+      else return 0;
+  });
+}
+
+
 

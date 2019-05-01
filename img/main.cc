@@ -96,6 +96,29 @@ int main(int argc, char* argv[])
   pcolor->AddSimple("-r, --range", &edge_r);
   pcolor->AddEnum("-c, --color", &color_color);
 
+  int bright_c = 10;
+  auto pbright = parser.AddSubParser("bright",
+      "Change brightness",
+      [&]{
+      if(!load_image()) { return; }
+      ChangeBrightness(&image, bright_c);
+      write_image();
+  });
+  pbright->AddSimple("-c, --change", &bright_c);
+
+  float contrast = 10;
+  auto pcontr = parser.AddSubParser("contrast",
+      "Change contrast",
+      [&]{
+      if(!load_image()) { return; }
+      ChangeContrast(&image, contrast);
+      write_image();
+  });
+  pcontr->AddSimple("-c, --change", &contrast);
+
+
+
+
   const auto status = parser.Parse(argc, argv);
   if(status != argparse::ParseResult::Ok)
   {

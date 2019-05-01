@@ -49,6 +49,14 @@ struct TRange
     return value >= lower_bound && value <= upper_bound;
   }
 
+  T
+  KeepWithin(T value) const
+  {
+    if(value <= lower_bound ) return lower_bound;
+    if(value >= upper_bound ) return upper_bound;
+    return value;
+  }
+
 
   T lower_bound;
   T upper_bound;
