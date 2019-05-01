@@ -75,6 +75,16 @@ int main(int argc, char* argv[])
   ppalette->AddEnum("-p, --palette", &palette);
   ppalette->SetTrue("-d, --dither", &pal_dither);
 
+  float edge_r = 0.5f;
+  auto pedge = parser.AddSubParser("edge",
+      "Edge detection",
+      [&]{
+      if(!load_image()) { return; }
+      image = EdgeDetection(image, edge_r);
+      write_image();
+  });
+  pedge->AddSimple("-r, --range", &edge_r);
+
   const auto status = parser.Parse(argc, argv);
   if(status != argparse::ParseResult::Ok)
   {

@@ -29,6 +29,8 @@ void MatchPalette(Image* image, const Palette& palette);
 
 Image MatchPaletteDither(const Image& image, const Palette& palette);
 
+Image EdgeDetection(const Image& image, float r);
+
 // todo:
 // https://www.processing.org/tutorials/pixels/
 // https://www.codeproject.com/Articles/996192/Some-Cool-Image-Effects

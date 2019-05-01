@@ -3,6 +3,7 @@
 #include "core/image.h"
 #include "core/palette.h"
 #include "core/table.h"
+#include "core/vec3.h"
 
 
 namespace
@@ -78,16 +79,22 @@ void MatchPalette(Image* image, const Palette& palette)
       });
 }
 
+template<typename C>
+Image NewImageFrom(const Image& image, C callback)
+{
+  Image ret;
+  if(image.HasAlpha()) { ret.SetupWithAlphaSupport(image.GetWidth(), image.GetHeight(), -1); }
+  else { ret.SetupNoAlphaSupport(image.GetWidth(), image.GetHeight(), -1); }
+  ret.SetAllTopBottom(callback);
+  return ret;
+}
 
 Image MatchPaletteDither(const Image& image, const Palette& palette)
 {
   struct Error { float r=0; float g=0; float b=0; };
   auto errors = Table<Error>::FromWidthHeight(image.GetWidth(), image.GetHeight());
-  Image ret;
-  if(image.HasAlpha()) { ret.SetupWithAlphaSupport(image.GetWidth(), image.GetHeight(), -1); }
-  else { ret.SetupNoAlphaSupport(image.GetWidth(), image.GetHeight(), -1); }
   const auto errors_range = errors.Indices();
-  ret.SetAllTopBottom([&](int x, int y) {
+  return NewImageFrom(image, [&](int x, int y) {
       auto pixel = image.GetPixel(x,y);
       auto new_color = rgb(pixel);
       const auto pixel_error = errors.Value(x,y);
@@ -124,8 +131,24 @@ Image MatchPaletteDither(const Image& image, const Palette& palette)
 
       return Rgbai(palette_color, pixel.a);
   });
-
-
-  return ret;
 }
+
+vec3f Cvec3(const Rgbai c)
+{
+  const auto f = rgb(c);
+  return {f.r, f.g, f.b};
+}
+
+Image EdgeDetection(const Image& image, float r)
+{
+  return NewImageFrom(image, [&](int x, int y) {
+      const auto pixel = Cvec3(image.GetPixel(x,y));
+      const auto top =  y == image.GetHeight() - 1 ? false : (pixel - Cvec3(image.GetPixel(x,   y+1))).GetLength() >= r;
+      const auto left = x == 0                     ? false : (pixel - Cvec3(image.GetPixel(x-1, y  ))).GetLength() >= r;
+      const bool edge = top || left;
+      const auto c = edge ? Color::White : Color::Black;
+      return Rgbai(c, 255);
+  });
+}
+
 
