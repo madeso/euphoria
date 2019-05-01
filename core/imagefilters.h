@@ -42,6 +42,7 @@ void ChangeContrast(Image* image, float contrast);
 // https://www.processing.org/tutorials/pixels/
 // https://www.codeproject.com/Articles/996192/Some-Cool-Image-Effects
 // https://www.gamedev.net/articles/programming/graphics/an-introduction-to-digital-image-processing-r2007/
+// https://github.com/jamieowen/glsl-blend
 
 #endif  // CORE_IMAGEFILTERS_H
 
