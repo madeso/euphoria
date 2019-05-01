@@ -133,10 +133,19 @@ Image MatchPaletteDither(const Image& image, const Palette& palette)
   });
 }
 
+vec3f Cvec3(const Rgb f)
+{
+  return {f.r, f.g, f.b};
+}
+
+vec3f Cvec3(const Rgbi c)
+{
+  return Cvec3(rgb(c));
+}
+
 vec3f Cvec3(const Rgbai c)
 {
-  const auto f = rgb(c);
-  return {f.r, f.g, f.b};
+  return Cvec3(rgb(c));
 }
 
 Image EdgeDetection(const Image& image, float r)
@@ -151,4 +160,14 @@ Image EdgeDetection(const Image& image, float r)
   });
 }
 
+
+void ColorDetection(Image* image, Rgb color, float r)
+{
+  const auto basis = Cvec3(color);
+  image->Filter([&](const Rgbai pixel) {
+      const auto check = (Cvec3(pixel) - basis).GetLength() <= r;
+      const auto c = check ? Color::White : Color::Black;
+      return Rgbai(c, 255);
+  });
+}
 

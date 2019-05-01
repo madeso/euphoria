@@ -5,6 +5,7 @@
 #include "core/enumtostring.h"
 
 class Image;
+class Rgb;
 class Palette;
 
 enum class Grayscale
@@ -30,6 +31,8 @@ void MatchPalette(Image* image, const Palette& palette);
 Image MatchPaletteDither(const Image& image, const Palette& palette);
 
 Image EdgeDetection(const Image& image, float r);
+
+void ColorDetection(Image* image, Rgb color, float r);
 
 // todo:
 // https://www.processing.org/tutorials/pixels/

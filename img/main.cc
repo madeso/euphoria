@@ -85,6 +85,17 @@ int main(int argc, char* argv[])
   });
   pedge->AddSimple("-r, --range", &edge_r);
 
+  auto color_color = Color::Red;
+  auto pcolor = parser.AddSubParser("color",
+      "Detect colors",
+      [&]{
+      if(!load_image()) { return; }
+      ColorDetection(&image, color_color, edge_r);
+      write_image();
+  });
+  pcolor->AddSimple("-r, --range", &edge_r);
+  pcolor->AddEnum("-c, --color", &color_color);
+
   const auto status = parser.Parse(argc, argv);
   if(status != argparse::ParseResult::Ok)
   {
