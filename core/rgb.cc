@@ -96,6 +96,11 @@ float dot(const Rgb& lhs, const Rgb& rhs)
   return lhs.r * rhs.r + lhs.g * rhs.g + lhs.b * rhs.b;
 }
 
+Rgb Clamp(const Rgb& c)
+{
+  static const auto r = Range(0, 1);
+  return Rgb(r.KeepWithin(c.r), r.KeepWithin(c.g), r.KeepWithin(c.b));
+}
 
 
 ////////////////////////////////////////////////////////////////////////////////

@@ -10,8 +10,6 @@
 #include <sstream>
 #include <iomanip>
 
-// debug::MemoryChunkToFile(drawer.image.Write(ImageWriteFormat::PNG), output.NextFile());
-
 int main(int argc, char* argv[])
 {
   auto parser = argparse::Parser{"Apply filters to images"};
@@ -59,14 +57,23 @@ int main(int argc, char* argv[])
   pgrayscale->AddEnum("-g,--grayscale", &grayscale);
 
   palette::PaletteName palette = palette::PaletteName::OneBit;
+  bool pal_dither = false;
   auto ppalette = parser.AddSubParser("palswap",
       "Switch palette",
       [&]{
       if(!load_image()) { return; }
-      MatchPalette(&image, palette::GetPalette(palette));
+      if(pal_dither)
+      {
+        image = MatchPaletteDither(image, palette::GetPalette(palette));
+      }
+      else
+      {
+        MatchPalette(&image, palette::GetPalette(palette));
+      }
       write_image();
   });
-  ppalette->AddEnum("-p,--palette", &palette);
+  ppalette->AddEnum("-p, --palette", &palette);
+  ppalette->SetTrue("-d, --dither", &pal_dither);
 
   const auto status = parser.Parse(argc, argv);
   if(status != argparse::ParseResult::Ok)

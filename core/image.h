@@ -60,6 +60,28 @@ class Image
     }
   }
 
+  template<typename Func>
+  void
+  SetAllTopBottom(Func f)
+  {
+    for(int y=GetHeight();y>0; y-=1)
+    for(int x=0;x<GetWidth(); x+=1)
+    {
+      SetPixel(x,y-1, f(x,y-1));
+    }
+  }
+
+  template<typename Func>
+  void
+  SetAllBottomTop(Func f)
+  {
+    for(int y=0;y<GetHeight(); y+=1)
+    for(int x=0;x<GetWidth(); x+=1)
+    {
+      SetPixel(x,y, f(x,y));
+    }
+  }
+
   int
   GetWidth() const;
   int
