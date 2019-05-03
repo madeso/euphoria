@@ -172,7 +172,7 @@ void maze(MazeAlgorithm algo, int world_width, int world_height, int cell_size, 
   }
 }
 
-void cell(int world_width, int world_height, const std::string& f, int world_scale)
+void cell(bool debug, float fill, int world_width, int world_height, generator::BorderControl bc, const std::string& f, int world_scale)
 {
   auto output = Output{f};
 
@@ -182,6 +182,9 @@ void cell(int world_width, int world_height, const std::string& f, int world_sca
   generator::CellularAutomata cell;
   cell.world = &world;
   cell.random = &random;
+
+  cell.border_control = bc;
+  cell.random_fill = fill;
 
   auto drawer = generator::CellularAutomataDrawer {};
   drawer.world = &world;
@@ -232,7 +235,7 @@ void cell(int world_width, int world_height, const std::string& f, int world_sca
   draw_multi();
 
 
-  while(cell.HasMoreWork())
+  while(!debug && cell.HasMoreWork())
   {
     // std::cout << "Work #######\n";
     cell.Work();
@@ -260,6 +263,9 @@ int main(int argc, char* argv[])
   std::string output = "maze.png";
 
   int world_scale = 1;
+  generator::BorderControl border_control = generator::BorderControl::AlwaysWall;
+  float random_fill = 0.5;
+  bool debug = false;
 
   int cell_size = 1;
   int wall_size = 1;
@@ -282,6 +288,9 @@ int main(int argc, char* argv[])
   auto add_cell = [&](argparse::Parser& parser)
   {
     parser.AddSimple("--scale", &world_scale).Help("set the scale");
+    parser.AddSimple("--fill", &random_fill).Help("How much to fill");
+    parser.AddEnum("-bc, --border_control", &border_control).Help("Change how the border is generated");
+    parser.SetTrue("--debug", &debug);
   };
 
   auto maze_command = [&](MazeAlgorithm algo) {
@@ -305,7 +314,7 @@ int main(int argc, char* argv[])
 
   auto pcell = parser.AddSubParser("cell",
       "world generation using cellular automata algorithm",
-      [&] { cell(world_width, world_height, output, world_scale);
+      [&] { cell(debug, random_fill, world_width, world_height, border_control, output, world_scale);
   });
   add_common(*pcell);
   add_cell(*pcell);

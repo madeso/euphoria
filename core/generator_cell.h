@@ -17,7 +17,7 @@ namespace generator
 
   enum class BorderControl
   {
-    AlwaysWall, AlwaysEmpty, Random
+    AlwaysWall, AlwaysEmpty, RandomWall, RandomEmpty
   };
 
   // make generation better
@@ -58,7 +58,8 @@ namespace generator
 BEGIN_ENUM_LIST(generator::BorderControl)
   ENUM_VALUE(generator::BorderControl, AlwaysWall)
   ENUM_VALUE(generator::BorderControl, AlwaysEmpty)
-  ENUM_VALUE(generator::BorderControl, Random)
+  ENUM_VALUE(generator::BorderControl, RandomWall)
+  ENUM_VALUE(generator::BorderControl, RandomEmpty)
 END_ENUM_LIST()
 
 #endif  // CORE_GENERATOR_CELL_H

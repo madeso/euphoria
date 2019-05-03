@@ -10,9 +10,14 @@ namespace generator
   void CellularAutomata::Setup()
   {
     world->SetAll([this](unsigned x, unsigned y) {
-        if( border_control != BorderControl::Random )
+        if( border_control != BorderControl::RandomWall &&
+            border_control != BorderControl::RandomEmpty )
         {
-          const auto is_border = x==0 || x == world->Width()-1 || y==0 || y==world->Height()-1;
+          const auto is_border = x==0
+                              || y==0
+                              || x == world->Width()-1
+                              || y==world->Height()-1
+                              ;
           if(is_border)
           {
             return border_control == BorderControl::AlwaysWall;
@@ -28,7 +33,7 @@ namespace generator
     return iteration < 5;
   }
 
-  int CountWalls(const World& world, int cx, int cy, int step=1)
+  int CountWalls(const World& world, bool outside_is_wall, int cx, int cy, int step=1)
   {
     int walls = 0;
     for(int y=cy-step; y<=cy+step; y+=1)
@@ -38,8 +43,10 @@ namespace generator
         if(x==cx && y==cy) continue;
         if(!world.Indices().ContainsInclusive(x,y))
         {
-          // todo: make this an option
-          walls += 1;
+          if(outside_is_wall)
+          {
+            walls += 1;
+          }
         }
         else
         {
@@ -50,11 +57,11 @@ namespace generator
     return walls;
   }
 
-  void SmoothMap(World* world)
+  void SmoothMap(World* world, bool outside_is_wall)
   {
     const World current = *world;
-    world->SetAll([&current](int x, int y) {
-        const auto walls = CountWalls(current, x, y);
+    world->SetAll([&current, outside_is_wall](int x, int y) {
+        const auto walls = CountWalls(current, outside_is_wall, x, y);
         if( walls > 4 ) { return true; }
         if( walls < 4 ) { return false; }
         return current.Value(x,y);
@@ -64,7 +71,9 @@ namespace generator
 
   void CellularAutomata::Work()
   {
-    SmoothMap(world);
+    SmoothMap(world,
+        border_control == BorderControl::AlwaysWall ||
+        border_control == BorderControl::RandomWall );
     iteration += 1;
   }
 
@@ -80,7 +89,7 @@ namespace generator
         world->Height() * scale);
     
     auto draw = ::Draw{&image};
-    draw.Clear(wall_color);
+    draw.Clear(space_color);
 
     for(unsigned int x=0; x<world->Width(); x+=1)
     {
@@ -89,7 +98,7 @@ namespace generator
         const auto px = x * scale;
         const auto py = y * scale;
         const auto color = world->Value(x,y) ? wall_color : space_color;
-        draw.Square(color, px, py, scale);
+        draw.Square(color, px, py+scale-1, scale);
       }
     }
   }
