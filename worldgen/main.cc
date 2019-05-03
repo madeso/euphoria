@@ -234,7 +234,7 @@ void cell(int world_width, int world_height, const std::string& f, int world_sca
 
   while(cell.HasMoreWork())
   {
-    std::cout << "Work #######\n";
+    // std::cout << "Work #######\n";
     cell.Work();
     draw_multi();
   }
@@ -257,37 +257,58 @@ int main(int argc, char* argv[])
 
   int world_width = 10;
   int world_height = 10;
-  int world_scale = 1;
   std::string output = "maze.png";
-  bool console = false;
+
+  int world_scale = 1;
 
   int cell_size = 1;
   int wall_size = 1;
+  bool console = false;
 
-  parser.AddSimple("--cell", &cell_size).Help("set the cell size");
-  parser.AddSimple("--wall", &wall_size).Help("set the wall size");
-  parser.AddSimple("--width", &world_width).Help("set the height");
-  parser.AddSimple("--height", &world_height).Help("set the width");
-  parser.AddSimple("--scale", &world_scale).Help("set the scale");
-  parser.AddSimple("-o", &output).Help("specify output");
-  parser.AddSimple("-c", &console).Help("foce console");
+  auto add_common = [&](argparse::Parser& parser)
+  {
+    parser.AddSimple("--width", &world_width).Help("set the height");
+    parser.AddSimple("--height", &world_height).Help("set the width");
+    parser.AddSimple("-o, --output", &output).Help("specify output");
+  };
+
+  auto add_maze = [&](argparse::Parser& parser)
+  {
+    parser.AddSimple("--cell", &cell_size).Help("set the cell size");
+    parser.AddSimple("--wall", &wall_size).Help("set the wall size");
+    parser.SetTrue("-c,--console", &console).Help("foce console");
+  };
+
+  auto add_cell = [&](argparse::Parser& parser)
+  {
+    parser.AddSimple("--scale", &world_scale).Help("set the scale");
+  };
 
   auto maze_command = [&](MazeAlgorithm algo) {
-    maze(algo, world_width, world_height, cell_size, wall_size, output, console);
+    maze(algo, world_width, world_height, cell_size, wall_size,
+        output, console);
   };
 
   auto precursive = parser.AddSubParser("recursive",
       "maze generation using recursive backtracker algorithm",
       [&]{ maze_command(MazeAlgorithm::RecursiveBacktracker);
   });
+  add_common(*precursive);
+  add_maze(*precursive);
+
   auto prandom = parser.AddSubParser("random",
       "maze generation using random traversal algorithm",
       [&] { maze_command(MazeAlgorithm::RandomTraversal);
   });
+  add_common(*prandom);
+  add_maze(*prandom);
+
   auto pcell = parser.AddSubParser("cell",
       "world generation using cellular automata algorithm",
       [&] { cell(world_width, world_height, output, world_scale);
   });
+  add_common(*pcell);
+  add_cell(*pcell);
 
   const auto status = parser.Parse(argc, argv);
   if(status != argparse::ParseResult::Ok)
