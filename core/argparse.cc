@@ -292,6 +292,7 @@ namespace argparse
       max_size = std::max(max_size, p.first.length());
     }
     max_size += 1; // extra spacing
+    max_size = std::min<size_t>(max_size, 30);
 
     auto pa = Filter(pos_args,
         [](auto p){return p && p->show_in_long_description;});
