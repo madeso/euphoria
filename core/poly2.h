@@ -13,6 +13,8 @@
 //            =0 for P2  on the line
 //            <0 for P2  right of the line
 //    See: Algorithm 1 "Area of Triangles and Polygons"
+// todo: move to the line class
+
 template <typename T>
 int
 isLeft(const vec2<T>& P0, const vec2<T>& P1, const vec2<T>& P2)
@@ -20,6 +22,10 @@ isLeft(const vec2<T>& P0, const vec2<T>& P1, const vec2<T>& P2)
   return (P1.x - P0.x) * (P2.y - P0.y) - (P2.x - P0.x) * (P1.y - P0.y);
 }
 
+// todo: a poly is a closed path, so rename to path
+// todo: add more features
+// sebastian lague: bezier support https://github.com/SebLague/Path-Creator
+// paper.js, smooth and simpify(path fitter) path functions: https://github.com/paperjs/paper.js/blob/develop/src/path/PathFitter.js https://github.com/paperjs/paper.js/blob/develop/src/path/PathItem.js#L466
 template <typename T>
 class Poly2
 {

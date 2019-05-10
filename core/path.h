@@ -8,6 +8,7 @@
 // forward slash specify a directory
 // todo: transform into a path and directory class instead
 
+// todo: rename to VirtualPath or VfsPath since that what it is, or place the whole vfs system in a vfs namespace
 class Path
 {
  public:
