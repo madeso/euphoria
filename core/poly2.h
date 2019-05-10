@@ -26,6 +26,7 @@ isLeft(const vec2<T>& P0, const vec2<T>& P1, const vec2<T>& P2)
 // todo: add more features
 // sebastian lague: bezier support https://github.com/SebLague/Path-Creator
 // paper.js, smooth and simpify(path fitter) path functions: https://github.com/paperjs/paper.js/blob/develop/src/path/PathFitter.js https://github.com/paperjs/paper.js/blob/develop/src/path/PathItem.js#L466
+// path fitter original code: https://github.com/erich666/GraphicsGems/blob/master/gems/FitCurves.c
 template <typename T>
 class Poly2
 {
