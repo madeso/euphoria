@@ -24,6 +24,8 @@ BEGIN_ENUM_LIST(Grayscale)
   ENUM_VALUE(Grayscale, Average)
 END_ENUM_LIST()
 
+// todo: make the interface like the draw interface. a struct with a image pointer and member functions.
+
 void MakeGrayscale(Image* image, Grayscale grayscale);
 
 void MatchPalette(Image* image, const Palette& palette);
@@ -43,6 +45,7 @@ void ChangeContrast(Image* image, float contrast);
 // https://www.codeproject.com/Articles/996192/Some-Cool-Image-Effects
 // https://www.gamedev.net/articles/programming/graphics/an-introduction-to-digital-image-processing-r2007/
 // https://github.com/jamieowen/glsl-blend
+// color controls https://developer.nvidia.com/gpugems/GPUGems/gpugems_ch22.html
 
 #endif  // CORE_IMAGEFILTERS_H
 

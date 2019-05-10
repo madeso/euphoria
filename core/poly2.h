@@ -27,6 +27,12 @@ isLeft(const vec2<T>& P0, const vec2<T>& P1, const vec2<T>& P2)
 // sebastian lague: bezier support https://github.com/SebLague/Path-Creator
 // paper.js, smooth and simpify(path fitter) path functions: https://github.com/paperjs/paper.js/blob/develop/src/path/PathFitter.js https://github.com/paperjs/paper.js/blob/develop/src/path/PathItem.js#L466
 // path fitter original code: https://github.com/erich666/GraphicsGems/blob/master/gems/FitCurves.c
+
+// suggested new names:
+// bezier path - a bezier path that can either be open or closed, has anchor points, control points
+// vertex path - a path with points with straight linear interpolated lines, can either be open or closed
+// both paths can either be concave or convex
+// can use a tesselator function to create triangulated/convex polygons from closed paths with closed paths as holes: https://github.com/memononen/libtess2
 template <typename T>
 class Poly2
 {
