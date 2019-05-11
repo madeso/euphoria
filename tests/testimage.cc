@@ -1,5 +1,5 @@
 #include "core/image.h"
-#include "core/filesystem.h"
+#include "core/vfs.h"
 #include "core/base64.h"
 #include "core/rgb.h"
 #include "tests/approx_equal.h"

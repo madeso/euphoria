@@ -1,4 +1,4 @@
-#include "core/filesystem.h"
+#include "core/vfs.h"
 
 #include <fstream>
 
@@ -6,7 +6,7 @@
 #include "core/ints.h"
 #include "core/os.h"
 #include "core/stringmerger.h"
-#include "core/path.h"
+#include "core/vfs_path.h"
 #include "core/io.h"
 
 #include "core/stringutils.h"

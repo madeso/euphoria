@@ -2,7 +2,7 @@
 #define CORE_FILESYSTEMDEFAULTSHADERS_H
 
 
-#include "core/filesystem.h"
+#include "core/vfs.h"
 
 
 class FileSystemDefaultShaders : public FileSystemReadRoot

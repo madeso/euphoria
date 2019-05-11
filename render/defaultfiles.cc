@@ -1,6 +1,6 @@
 #include "defaultfiles.h"
 
-#include "core/filesystem.h"
+#include "core/vfs.h"
 
 void
 SetupDefaultFiles(std::shared_ptr<FileSystemRootCatalog> catalog)

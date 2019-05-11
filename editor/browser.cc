@@ -3,7 +3,7 @@
 #include "imgui/imgui.h"
 
 #include "core/os.h"
-#include "core/path.h"
+#include "core/vfs_path.h"
 #include "core/stringutils.h"
 
 #include "window/imgui_ext.h"

@@ -1,11 +1,11 @@
-#include "core/filesystemimagegenerator.h"
+#include "core/vfs_imagegenerator.h"
 
 #include "core/image.h"
 #include "core/draw.h"
 #include "core/stringutils.h"
 #include "core/stringmerger.h"
 #include "core/log.h"
-#include "core/path.h"
+#include "core/vfs_path.h"
 
 LOG_SPECIFY_DEFAULT_LOGGER("filesystem.image-generator")
 

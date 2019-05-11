@@ -3,7 +3,7 @@
 #include "core/proto.h"
 
 #include "core/assert.h"
-#include "core/filesystem.h"
+#include "core/vfs.h"
 #include "core/str.h"
 
 #include <rapidjson/error/en.h>

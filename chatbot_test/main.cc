@@ -4,7 +4,7 @@
 #include "core/cmdline.h"
 
 #include "core/os.h"
-#include "core/filesystem.h"
+#include "core/vfs.h"
 
 int
 main()

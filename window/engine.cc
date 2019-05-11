@@ -5,9 +5,9 @@
 
 #include "core/os.h"
 #include "core/log.h"
-#include "core/filesystem.h"
-#include "core/filesystemdefaultshaders.h"
-#include "core/filesystemimagegenerator.h"
+#include "core/vfs.h"
+#include "core/vfs_defaultshaders.h"
+#include "core/vfs_imagegenerator.h"
 
 #include "render/defaultfiles.h"
 #include "render/debuggl.h"

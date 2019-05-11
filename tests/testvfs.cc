@@ -1,4 +1,4 @@
-#include "core/filesystem.h"
+#include "core/vfs.h"
 #include "catch.hpp"
 
 #define GTEST(X) TEST(filesystem, X)

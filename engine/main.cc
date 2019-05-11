@@ -6,8 +6,8 @@
 #include "core/interpolate.h"
 #include "core/os.h"
 #include "core/componentsystem.h"
-#include "core/filesystemimagegenerator.h"
-#include "core/filesystemdefaultshaders.h"
+#include "core/vfs_imagegenerator.h"
+#include "core/vfs_defaultshaders.h"
 #include "core/proto.h"
 #include "core/viewport.h"
 

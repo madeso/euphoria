@@ -13,7 +13,7 @@
 #include "render/gl.h"
 #include "render/texture.h"
 
-#include "core/filesystem.h"
+#include "core/vfs.h"
 
 LOG_SPECIFY_DEFAULT_LOGGER("render.shader")
 

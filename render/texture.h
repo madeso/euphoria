@@ -4,7 +4,7 @@
 #include "core/image.h"
 #include "render/gltypes.h"
 #include "core/noncopyable.h"
-#include "core/filesystem.h"
+#include "core/vfs.h"
 
 class Image;
 

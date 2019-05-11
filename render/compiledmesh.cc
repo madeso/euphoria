@@ -8,7 +8,7 @@
 #include "core/enum.h"
 #include "core/texturetypes.h"
 #include "core/log.h"
-#include "core/path.h"
+#include "core/vfs_path.h"
 
 #include "render/materialshader.h"
 #include "render/shaderattribute3d.h"

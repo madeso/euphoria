@@ -8,7 +8,7 @@
 #include "core/ints.h"
 #include "core/rgb.h"
 #include "core/memorychunk.h"
-#include "core/filesystem.h"
+#include "core/vfs.h"
 
 enum class ImageWriteFormat
 {

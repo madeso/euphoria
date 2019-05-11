@@ -1,8 +1,8 @@
-#include "core/filesystemdefaultshaders.h"
+#include "core/vfs_defaultshaders.h"
 
 #include "core/stringutils.h"
 #include "core/log.h"
-#include "core/path.h"
+#include "core/vfs_path.h"
 
 // LOG_SPECIFY_DEFAULT_LOGGER("filesystem.default-shaders")
 

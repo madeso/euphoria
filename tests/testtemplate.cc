@@ -1,5 +1,5 @@
 #include "core/template.h"
-#include "core/filesystem.h"
+#include "core/vfs.h"
 
 #include "catch.hpp"
 

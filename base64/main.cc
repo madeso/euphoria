@@ -2,7 +2,8 @@
 
 #include <iostream>
 #include <string>
-#include <core/filesystem.h>
+
+#include "core/vfs.h"
 
 void
 PrintUsage(char** argv)

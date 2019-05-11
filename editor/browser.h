@@ -4,7 +4,7 @@
 #include <vector>
 #include <string>
 
-#include "core/filesystem.h"
+#include "core/vfs.h"
 
 struct FileBrowser
 {

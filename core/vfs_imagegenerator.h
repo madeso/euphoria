@@ -1,7 +1,7 @@
 #ifndef EUPHORIA_FILESYSTEMIMAGEGENERATOR_H
 #define EUPHORIA_FILESYSTEMIMAGEGENERATOR_H
 
-#include "core/filesystem.h"
+#include "core/vfs.h"
 
 
 class FileSystemImageGenerator : public FileSystemReadRoot

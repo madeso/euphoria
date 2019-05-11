@@ -7,7 +7,7 @@
 #include <memory>
 #include <vector>
 
-#include "core/filesystem.h"
+#include "core/vfs.h"
 
 class Defines
 {

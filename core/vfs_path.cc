@@ -1,4 +1,4 @@
-#include "core/path.h"
+#include "core/vfs_path.h"
 
 #include "core/assert.h"
 #include "core/stringutils.h"

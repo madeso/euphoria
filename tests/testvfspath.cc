@@ -1,4 +1,4 @@
-#include "core/path.h"
+#include "core/vfs_path.h"
 
 #include "catch.hpp"
 
