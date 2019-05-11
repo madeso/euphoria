@@ -116,27 +116,6 @@ Random::NextGaussian(float mean, float std_dev, const Range& r)
   return x;
 }
 
-Color
-Random::NextColor()
-{
-  return static_cast<Color>(NextRange(static_cast<int>(Color::MAX_VALUE)));
-}
-
-Rgb
-Random::NextRgb()
-{
-  const auto r = NextFloat01();
-  const auto g = NextFloat01();
-  const auto b = NextFloat01();
-  return Rgb{r, g, b};
-}
-
-Rgb
-Random::NextGrey()
-{
-  return Rgb{NextFloat01()};
-}
-
 bool
 Random::NextBool()
 {

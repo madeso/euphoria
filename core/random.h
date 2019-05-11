@@ -6,7 +6,6 @@
 #include <core/assert.h>
 
 #include "core/ints.h"
-#include "core/rgb.h"
 #include "core/vec2.h"
 #include "core/vec3.h"
 #include "core/polarcoord.h"
@@ -34,6 +33,7 @@ class Random
   float
   NextFloat01();
 
+  // move to range
   float
   Next(const Range& range);
 
@@ -47,7 +47,7 @@ class Random
   NextGaussian(float mean, float std_dev, const Range& r);
 
   template <typename T>
-  int
+  T
   NextRange(T min, T max)
   {
     return static_cast<T>(min + NextFloat01() * (max - min));
@@ -60,43 +60,41 @@ class Random
     return NextRange<T>(0, max);
   }
 
-  // todo: remove color/palette functions in favor of vector of defined colors
-  Color
-  NextColor();
-
-  Rgb
-  NextRgb();
-  Rgb
-  NextGrey();
-
   bool
   NextBool();
 
   int
   NextSign();
 
+  // move to rect class
   point2f
   NextPoint(const Rectf& rect);
   point2i
   NextPoint(const Recti& rect);
 
+  // move to point class?
   point2f
   PointOnUnitCircle_CenterFocused();
-
   point2f
   PointOnUnitCircle_Uniform();
+
+  // move to polar coord
 
   // todo: check if this is uniform or not
   // http://xdpixel.com/random-points-in-a-circle/
   PolarCoord
   NextPolar();
 
+  // move to vec3 header
+
   unit3f
   NextUnit3();
-
+  
+  // move to quat header
   quatf
   NextQuatf();
 
+  // move to aabb header
   point3f
   NextVec3(const Aabb& extents);
 
