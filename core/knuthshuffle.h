@@ -1,5 +1,5 @@
-#ifndef CORE_RANDOM_VECTOR_H
-#define CORE_RANDOM_VECTOR_H
+#ifndef CORE_KNUTH_SHUFFLE_H
+#define CORE_KNUTH_SHUFFLE_H
 
 #include <vector>
 
@@ -12,7 +12,7 @@
 // todo: add tests some how...?
 
 template<typename T>
-void Shuffle(std::vector<T>* v, Random* r)
+void KnuthShuffle(std::vector<T>* v, Random* r)
 {
   for(int i=v->size()-1; i>0; --i)
   {
@@ -24,5 +24,5 @@ void Shuffle(std::vector<T>* v, Random* r)
   }
 }
 
-#endif  // CORE_RANDOM_VECTOR_H
+#endif  // CORE_KNUTH_SHUFFLE_H
 

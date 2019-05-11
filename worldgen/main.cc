@@ -8,7 +8,7 @@
 
 #include "core/stringutils.h"
 #include "core/io.h"
-#include "core/randomvector.h"
+#include "core/knuthshuffle.h"
 
 #include <iostream>
 #include <sstream>
@@ -208,7 +208,7 @@ void cell(bool debug, float fill, int world_width, int world_height, generator::
     if(!output.single)
     {
       auto diffs = FindDifferences(world, world_copy);
-      Shuffle(&diffs, &shuffle_random);
+      KnuthShuffle(&diffs, &shuffle_random);
       int dindex = 0;
       const auto s = (diffs.size() / 25);
       const auto m = s < 2 ? 2 : s;
