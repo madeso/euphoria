@@ -17,7 +17,7 @@ namespace
 
 // 
 // https://twitter.com/FreyaHolmer/status/1116502994684530688
-void MakeGrayscale(Image* image, Grayscale grayscale)
+void ImageFilter::MakeGrayscale(Grayscale grayscale)
 {
   switch(grayscale)
   {
@@ -70,7 +70,7 @@ void MakeGrayscale(Image* image, Grayscale grayscale)
   }
 }
 
-void MatchPalette(Image* image, const Palette& palette)
+void ImageFilter::MatchPalette(const Palette& palette)
 {
   image->Filter([&palette](const Rgbai& c) {
       const auto cc = rgbi(c);
@@ -81,22 +81,23 @@ void MatchPalette(Image* image, const Palette& palette)
 }
 
 template<typename C>
-Image NewImageFrom(const Image& image, C callback)
+void NewImageFrom(ImageFilter* filter, C callback)
 {
+  Image& image = *filter->image;
   Image ret;
   if(image.HasAlpha()) { ret.SetupWithAlphaSupport(image.GetWidth(), image.GetHeight(), -1); }
   else { ret.SetupNoAlphaSupport(image.GetWidth(), image.GetHeight(), -1); }
   ret.SetAllTopBottom(callback);
-  return ret;
+  *filter->image = ret;
 }
 
-Image MatchPaletteDither(const Image& image, const Palette& palette)
+void ImageFilter::MatchPaletteDither(const Palette& palette)
 {
   struct Error { float r=0; float g=0; float b=0; };
-  auto errors = Table<Error>::FromWidthHeight(image.GetWidth(), image.GetHeight());
+  auto errors = Table<Error>::FromWidthHeight(image->GetWidth(), image->GetHeight());
   const auto errors_range = errors.Indices();
-  return NewImageFrom(image, [&](int x, int y) {
-      auto pixel = image.GetPixel(x,y);
+  NewImageFrom(this, [&](int x, int y) {
+      auto pixel = image->GetPixel(x,y);
       auto new_color = rgb(pixel);
       const auto pixel_error = errors.Value(x,y);
       new_color.r += pixel_error.r;
@@ -149,12 +150,12 @@ vec3f Cvec3(const Rgbai c)
   return Cvec3(rgb(c));
 }
 
-Image EdgeDetection(const Image& image, float r)
+void ImageFilter::EdgeDetection(float r)
 {
-  return NewImageFrom(image, [&](int x, int y) {
-      const auto pixel = Cvec3(image.GetPixel(x,y));
-      const auto top =  y == image.GetHeight() - 1 ? false : (pixel - Cvec3(image.GetPixel(x,   y+1))).GetLength() >= r;
-      const auto left = x == 0                     ? false : (pixel - Cvec3(image.GetPixel(x-1, y  ))).GetLength() >= r;
+  NewImageFrom(this, [&](int x, int y) {
+      const auto pixel = Cvec3(image->GetPixel(x,y));
+      const auto top =  y == image->GetHeight() - 1 ? false : (pixel - Cvec3(image->GetPixel(x,   y+1))).GetLength() >= r;
+      const auto left = x == 0                     ? false : (pixel - Cvec3(image->GetPixel(x-1, y  ))).GetLength() >= r;
       const bool edge = top || left;
       const auto c = edge ? Color::White : Color::Black;
       return Rgbai(c, 255);
@@ -162,7 +163,7 @@ Image EdgeDetection(const Image& image, float r)
 }
 
 
-void ColorDetection(Image* image, Rgb color, float r)
+void ImageFilter::ColorDetection(Rgb color, float r)
 {
   const auto basis = Cvec3(color);
   image->Filter([&](const Rgbai pixel) {
@@ -186,14 +187,14 @@ void LutTransform(Image* image, C c)
   });
 }
 
-void ChangeBrightness(Image* image, int change)
+void ImageFilter::ChangeBrightness(int change)
 {
   LutTransform(image, [&](int i) {
     return TRange<int>(0, 255).KeepWithin(i+change);
   });
 }
 
-void ChangeContrast(Image* image, float contrast)
+void ImageFilter::ChangeContrast(float contrast)
 {
   const auto tc = tan(contrast);
   LutTransform(image, [&](int i) {

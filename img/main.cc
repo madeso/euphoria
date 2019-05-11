@@ -51,7 +51,7 @@ int main(int argc, char* argv[])
       "Apply grayscale",
       [&]{
       if(!load_image()) { return; }
-      MakeGrayscale(&image, grayscale);
+      ImageFilter{&image}.MakeGrayscale(grayscale);
       write_image();
   });
   pgrayscale->AddEnum("-g,--grayscale", &grayscale);
@@ -64,11 +64,11 @@ int main(int argc, char* argv[])
       if(!load_image()) { return; }
       if(pal_dither)
       {
-        image = MatchPaletteDither(image, palette::GetPalette(palette));
+        ImageFilter{&image}.MatchPaletteDither(palette::GetPalette(palette));
       }
       else
       {
-        MatchPalette(&image, palette::GetPalette(palette));
+        ImageFilter{&image}.MatchPalette(palette::GetPalette(palette));
       }
       write_image();
   });
@@ -80,7 +80,7 @@ int main(int argc, char* argv[])
       "Edge detection",
       [&]{
       if(!load_image()) { return; }
-      image = EdgeDetection(image, edge_r);
+      ImageFilter{&image}.EdgeDetection(edge_r);
       write_image();
   });
   pedge->AddSimple("-r, --range", &edge_r);
@@ -90,7 +90,7 @@ int main(int argc, char* argv[])
       "Detect colors",
       [&]{
       if(!load_image()) { return; }
-      ColorDetection(&image, color_color, edge_r);
+      ImageFilter{&image}.ColorDetection(color_color, edge_r);
       write_image();
   });
   pcolor->AddSimple("-r, --range", &edge_r);
@@ -101,7 +101,7 @@ int main(int argc, char* argv[])
       "Change brightness",
       [&]{
       if(!load_image()) { return; }
-      ChangeBrightness(&image, bright_c);
+      ImageFilter{&image}.ChangeBrightness(bright_c);
       write_image();
   });
   pbright->AddSimple("-c, --change", &bright_c);
@@ -111,7 +111,7 @@ int main(int argc, char* argv[])
       "Change contrast",
       [&]{
       if(!load_image()) { return; }
-      ChangeContrast(&image, contrast);
+      ImageFilter{&image}.ChangeContrast(contrast);
       write_image();
   });
   pcontr->AddSimple("-c, --change", &contrast);
