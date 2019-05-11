@@ -32,7 +32,11 @@ isLeft(const vec2<T>& P0, const vec2<T>& P1, const vec2<T>& P2)
 // bezier path - a bezier path that can either be open or closed, has anchor points, control points
 // vertex path - a path with points with straight linear interpolated lines, can either be open or closed
 // both paths can either be concave or convex
-// can use a tesselator function to create triangulated/convex polygons from closed paths with closed paths as holes: https://github.com/memononen/libtess2
+//
+// can use a tesselator function to create triangulated/convex polygons from closed paths with closed paths as holes:
+// https://github.com/memononen/libtess2
+// https://github.com/SebLague/Shape-Editor-Tool/blob/master/Shape%20Editor%20E04/Assets/Geometry/Triangulator.cs
+//   -> https://www.geometrictools.com/Documentation/TriangulationByEarClipping.pdf
 template <typename T>
 class Poly2
 {
