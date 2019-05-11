@@ -305,7 +305,7 @@ namespace
 }
 
 std::string
-ChatBot::LoadFromFile(FileSystem* fs, const std::string& path)
+ChatBot::LoadFromFile(vfs::FileSystem* fs, const std::string& path)
 {
   chat::Root root;
 

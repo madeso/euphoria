@@ -87,7 +87,7 @@ LrtbFromProt(const gui::Lrtb& lrtd)
 
 std::shared_ptr<Widget>
 CreateWidget(
-    FileSystem*        fs,
+    vfs::FileSystem*        fs,
     UiState*           state,
     const gui::Widget& w,
     TextureCache*      cache,
@@ -150,7 +150,7 @@ CreateWidget(
 
 void
 BuildLayoutContainer(
-    FileSystem*                 fs,
+    vfs::FileSystem*                 fs,
     UiState*                    state,
     LayoutContainer*            root,
     const gui::LayoutContainer& c,
@@ -273,7 +273,7 @@ LoadSkin(const gui::Skin& src, FontCache* font)
 bool
 Load(
     Root*              root,
-    FileSystem*        fs,
+    vfs::FileSystem*        fs,
     FontCache*         font,
     const std::string& path,
     TextureCache*      cache)

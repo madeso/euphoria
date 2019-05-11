@@ -4,7 +4,7 @@
 
 TEST_CASE("path-test_empty_create_guess", "[path]")
 {
-  auto p = Path::FromGuess("");
+  auto p = vfs::Path::FromGuess("");
   REQUIRE_FALSE(p.IsFile());
   REQUIRE(p.IsDirectory());
   REQUIRE("" == p.GetAbsolutePath());
@@ -13,7 +13,7 @@ TEST_CASE("path-test_empty_create_guess", "[path]")
 
 TEST_CASE("path-test_empty_create_dir", "[path]")
 {
-  auto p = Path::FromDirectory("");
+  auto p = vfs::Path::FromDirectory("");
   REQUIRE_FALSE(p.IsFile());
   REQUIRE(p.IsDirectory());
   REQUIRE("" == p.GetAbsolutePath());
@@ -22,7 +22,7 @@ TEST_CASE("path-test_empty_create_dir", "[path]")
 
 TEST_CASE("path-test_create_file", "[path]")
 {
-  auto p = Path::FromFile("hello");
+  auto p = vfs::Path::FromFile("hello");
   REQUIRE(p.IsFile());
   REQUIRE_FALSE(p.IsDirectory());
   REQUIRE("hello" == p.GetAbsolutePath());
@@ -31,7 +31,7 @@ TEST_CASE("path-test_create_file", "[path]")
 
 TEST_CASE("path-test_create_directory", "[path]")
 {
-  auto p = Path::FromDirectory("hello");
+  auto p = vfs::Path::FromDirectory("hello");
   REQUIRE_FALSE(p.IsFile());
   REQUIRE(p.IsDirectory());
   REQUIRE("hello/" == p.GetAbsolutePath());
@@ -40,7 +40,7 @@ TEST_CASE("path-test_create_directory", "[path]")
 
 TEST_CASE("path-test_create_sub_directory", "[path]")
 {
-  auto p = Path::FromDirectory("hello/world");
+  auto p = vfs::Path::FromDirectory("hello/world");
   REQUIRE_FALSE(p.IsFile());
   REQUIRE(p.IsDirectory());
   REQUIRE("hello/world/" == p.GetAbsolutePath());
@@ -49,7 +49,7 @@ TEST_CASE("path-test_create_sub_directory", "[path]")
 
 TEST_CASE("path-test_get_sub_directory", "[path]")
 {
-  auto p = Path::FromDirectory("hello");
+  auto p = vfs::Path::FromDirectory("hello");
   p      = p.GetSubDirectory("world");
   REQUIRE_FALSE(p.IsFile());
   REQUIRE(p.IsDirectory());
@@ -59,7 +59,7 @@ TEST_CASE("path-test_get_sub_directory", "[path]")
 
 TEST_CASE("path-test_get_file", "[path]")
 {
-  auto p = Path::FromDirectory("hello");
+  auto p = vfs::Path::FromDirectory("hello");
   p      = p.GetFile("world");
   REQUIRE(p.IsFile());
   REQUIRE_FALSE(p.IsDirectory());

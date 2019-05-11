@@ -128,7 +128,7 @@ enum class AlphaLoad
 
 // todo: move image loading to a io library instead
 ImageLoadResult
-LoadImage(FileSystem* fs, const std::string& path, AlphaLoad alpha);
+LoadImage(vfs::FileSystem* fs, const std::string& path, AlphaLoad alpha);
 
 ImageLoadResult
 LoadImage(std::shared_ptr<MemoryChunk> memory, const std::string& path, AlphaLoad alpha);

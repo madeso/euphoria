@@ -152,7 +152,7 @@ PostBuild(
 }
 
 bool
-MaterialShader::Load(FileSystem* file_system, const std::string& path)
+MaterialShader::Load(vfs::FileSystem* file_system, const std::string& path)
 {
   attributes3d::PrebindShader(&shader_);
   const bool shader_compile = shader_.Load(file_system, path);

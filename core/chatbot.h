@@ -9,7 +9,10 @@
 
 #include <core/random.h>
 
+namespace vfs
+{
 class FileSystem;
+}
 
 namespace chatbot
 {
@@ -163,7 +166,7 @@ class ChatBot
   ChatBot();
 
   std::string
-  LoadFromFile(FileSystem* fs, const std::string& path);
+  LoadFromFile(vfs::FileSystem* fs, const std::string& path);
 
   std::string
   GetResponse(const std::string& input);

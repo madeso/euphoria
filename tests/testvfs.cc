@@ -3,6 +3,8 @@
 
 #define GTEST(X) TEST(filesystem, X)
 
+using namespace vfs;
+
 class AlwaysExist : public FileSystemReadRoot
 {
  public:

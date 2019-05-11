@@ -4,6 +4,9 @@
 #include "core/log.h"
 #include "core/vfs_path.h"
 
+namespace vfs
+{
+
 // LOG_SPECIFY_DEFAULT_LOGGER("filesystem.default-shaders")
 
 void
@@ -102,3 +105,6 @@ FileSystemDefaultShaders::ListFiles(const Path& path)
 
   return ret;
 }
+
+}  // namespace vfs
+

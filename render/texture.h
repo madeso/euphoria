@@ -80,7 +80,7 @@ class Texture2d : public TextureId
       const Image& image, AlphaLoad alpha, const Texture2dLoadData& data);
   void
   LoadFromFile(
-      FileSystem*              fs,
+      vfs::FileSystem*              fs,
       const std::string&       path,
       AlphaLoad                alpha,
       const Texture2dLoadData& data);

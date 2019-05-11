@@ -171,7 +171,7 @@ CompileMesh(
     const Mesh&          mesh,
     MaterialShaderCache* shader_cache,
     TextureCache*        texture_cache,
-    const Path&          texture_folder)
+    const vfs::Path&          texture_folder)
 {
   std::shared_ptr<CompiledMesh> ret{new CompiledMesh{}};
 

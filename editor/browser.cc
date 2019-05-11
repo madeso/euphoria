@@ -25,8 +25,8 @@ IndexOf(const std::vector<T>& ss, const G& finder)
   return -1;
 }
 
-FileBrowser::FileBrowser(FileSystem* fs)
-    : current_folder(Path::FromRoot().GetAbsolutePath())
+FileBrowser::FileBrowser(vfs::FileSystem* fs)
+    : current_folder(vfs::Path::FromRoot().GetAbsolutePath())
     , file_system(fs)
 {
 }
@@ -55,12 +55,12 @@ FileBrowser::GetSelectedFile()
 void
 FileBrowser::SelectFile(const std::string& p)
 {
-  const auto file = Path::FromFile(p);
+  const auto file = vfs::Path::FromFile(p);
   current_folder  = file.GetDirectory().GetAbsolutePath();
   Refresh();
   if(!p.empty())
   {
-    selected_file = IndexOf(files, [&](const ListedFile& n) -> bool {
+    selected_file = IndexOf(files, [&](const vfs::ListedFile& n) -> bool {
       return n.name == file.GetFileName();
     });
   }
@@ -69,11 +69,11 @@ FileBrowser::SelectFile(const std::string& p)
 void
 FileBrowser::Refresh()
 {
-  files = file_system->ListFiles(Path::FromDirectory(current_folder));
+  files = file_system->ListFiles(vfs::Path::FromDirectory(current_folder));
   if(!current_folder.empty())
   {
     // files.emplace_back();
-    files.insert(files.begin(), ListedFile{"../", true});
+    files.insert(files.begin(), vfs::ListedFile{"../", true});
   }
   // files.insert(files.begin(), f.begin(), f.end());
   selected_file = -1;
@@ -132,7 +132,7 @@ FileBrowser::Run()
         {
           if(item.name == "../")
           {
-            current_folder = Path::FromDirectory(current_folder)
+            current_folder = vfs::Path::FromDirectory(current_folder)
                                  .GetParentDirectory()
                                  .GetAbsolutePath();
           }

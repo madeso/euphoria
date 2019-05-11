@@ -8,6 +8,9 @@
 #include <memory>
 #include <vector>
 
+namespace vfs
+{
+
 class Path;
 
 struct ListedFile
@@ -158,5 +161,7 @@ class FileSystemWriteFolder : public FileSystemWriteRoot
   std::string folder;
 };
 
+
+}  // namespace vfs
 
 #endif  // EUPHORIA_FILESYSTEM_H

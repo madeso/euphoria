@@ -12,7 +12,10 @@
 class FontCache;
 class TextureCache;
 class Skin;
+namespace vfs
+{
 class FileSystem;
+}
 class Texture2d;
 
 class Root
@@ -22,7 +25,7 @@ class Root
   ~Root();
   bool
   Load(
-      FileSystem*        fs,
+      vfs::FileSystem*        fs,
       FontCache*         font,
       const std::string& path,
       TextureCache*      cache);

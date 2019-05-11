@@ -53,8 +53,8 @@ TEST_CASE("template-test_only_code", "[template]") {
 }
 
 TEST_CASE("template-test_basic_filesystem", "[template]") {
-  FileSystem filesys;
-  auto catalog = FileSystemRootCatalog::AddRoot(&filesys);
+  vfs::FileSystem filesys;
+  auto catalog = vfs::FileSystemRootCatalog::AddRoot(&filesys);
   catalog->RegisterFileString("main", "main");
 
   Template t {&filesys, "main"};
@@ -67,8 +67,8 @@ TEST_CASE("template-test_basic_filesystem", "[template]") {
 }
 
 TEST_CASE("template-test_include_filesystem", "[template]") {
-  FileSystem filesys;
-  auto catalog = FileSystemRootCatalog::AddRoot(&filesys);
+  vfs::FileSystem filesys;
+  auto catalog = vfs::FileSystemRootCatalog::AddRoot(&filesys);
   catalog->RegisterFileString("main", "{{include \"included\"}}");
   catalog->RegisterFileString("included", "included");
 
@@ -82,8 +82,8 @@ TEST_CASE("template-test_include_filesystem", "[template]") {
 }
 
 TEST_CASE("template-test_scoping_filesystem", "[template]") {
-  FileSystem filesys;
-  auto catalog = FileSystemRootCatalog::AddRoot(&filesys);
+  vfs::FileSystem filesys;
+  auto catalog = vfs::FileSystemRootCatalog::AddRoot(&filesys);
   catalog->RegisterFileString("main", "{{include \"included\"}} {{@var}}!");
   catalog->RegisterFileString("included", "{{set var \"hello\" @var}}");
 

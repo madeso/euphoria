@@ -11,6 +11,9 @@
 
 #include "core/stringutils.h"
 
+namespace vfs
+{
+
 ////////////////////////////////////////////////////////////////////////////////
 
 ListedFile::ListedFile(const std::string& n, bool b)
@@ -310,3 +313,6 @@ FileSystemWriteFolder::WriteFile(
   const auto    full_path = CombineFolderAndPath(folder, path);
   io::ChunkToFile(data, full_path);
 }
+
+}  // namespace vfs
+

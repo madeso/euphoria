@@ -4,6 +4,8 @@
 
 #include "core/vfs.h"
 
+namespace vfs
+{
 
 class FileSystemDefaultShaders : public FileSystemReadRoot
 {
@@ -26,5 +28,6 @@ class FileSystemDefaultShaders : public FileSystemReadRoot
   std::string base_;
 };
 
+}  // namespace vfs
 
 #endif  // CORE_FILESYSTEMDEFAULTSHADERS_H

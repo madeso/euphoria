@@ -10,7 +10,7 @@ class MaterialShaderCache
     : public Cache<std::string, MaterialShader, MaterialShaderCache>
 {
  public:
-  MaterialShaderCache(FileSystem* fs)
+  MaterialShaderCache(vfs::FileSystem* fs)
       : fs_(fs)
   {
     ASSERT(fs);
@@ -25,7 +25,7 @@ class MaterialShaderCache
   }
 
  private:
-  FileSystem* fs_;
+  vfs::FileSystem* fs_;
 };
 
 #endif  // EUPHORIA_MATERIALSHADERCACHE_H

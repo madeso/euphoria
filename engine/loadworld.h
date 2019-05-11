@@ -4,9 +4,12 @@
 #include <string>
 
 class World;
-class FileSystem;
 class DukRegistry;
 class ObjectCreator;
+namespace vfs
+{
+class FileSystem;
+}
 
 namespace duk
 {
@@ -17,7 +20,7 @@ namespace duk
 
 void
 LoadWorld(
-    FileSystem*        fs,
+    vfs::FileSystem*        fs,
     World*             world,
     DukRegistry*       reg,
     const std::string& path,

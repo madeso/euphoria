@@ -11,7 +11,6 @@
 
 class Texture2d;
 class TextureCache;
-class FileSystem;
 
 struct LineHoverData
 {

@@ -6,14 +6,18 @@
 
 #include "window/fakesdlevent.h"
 
-class FileSystem;
 class SdlLibrary;
 class SdlWindow;
 class ImguiLibrary;
 class SdlGlContext;
 class Init;
 class ImguiLibrary;
-class FileSystemRootCatalog;
+
+namespace vfs
+{
+  class FileSystem;
+  class FileSystemRootCatalog;
+}
 
 struct Engine
 {
@@ -31,8 +35,8 @@ struct Engine
   HandleResize(SDL_Event e, int* width, int* height);
 
   std::unique_ptr<SdlLibrary>            sdl;
-  std::unique_ptr<FileSystem>            file_system;
-  std::shared_ptr<FileSystemRootCatalog> catalog;
+  std::unique_ptr<vfs::FileSystem>            file_system;
+  std::shared_ptr<vfs::FileSystemRootCatalog> catalog;
   std::unique_ptr<SdlWindow>             window;
   unsigned int                           window_id;
   std::unique_ptr<SdlGlContext>          context;

@@ -49,7 +49,7 @@ class MaterialShader
   // to Diffuse if Diffuse is missing on the material
 
   bool
-  Load(FileSystem* file_system, const std::string& path);
+  Load(vfs::FileSystem* file_system, const std::string& path);
 
   bool
   Compile(

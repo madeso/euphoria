@@ -16,7 +16,7 @@ Root::~Root()
 
 bool
 Root::Load(
-    FileSystem*        fs,
+    vfs::FileSystem*        fs,
     FontCache*         font,
     const std::string& path,
     TextureCache*      cache)

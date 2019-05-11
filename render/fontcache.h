@@ -5,13 +5,17 @@
 #include <string>
 
 class Font;
-class FileSystem;
 class TextureCache;
+
+namespace vfs
+{
+class FileSystem;
+}
 
 class FontCache
 {
  public:
-  FontCache(FileSystem* fs, TextureCache* cache);
+  FontCache(vfs::FileSystem* fs, TextureCache* cache);
   ~FontCache();
 
   std::shared_ptr<Font>

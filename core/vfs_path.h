@@ -3,6 +3,9 @@
 
 #include <string>
 
+namespace vfs
+{
+
 // represents a virtual path
 // always lowercase
 // forward slash specify a directory
@@ -56,5 +59,6 @@ class Path
   std::string absolute_path_;
 };
 
+}  // namespace vfs
 
 #endif  // EUPHORIA_PATH_H

@@ -155,7 +155,7 @@ operator<<(std::ostream& s, const EnumValue& v)
 }
 
 void
-LoadEnumType(EnumType* type, FileSystem* fs, const std::string& path)
+LoadEnumType(EnumType* type, vfs::FileSystem* fs, const std::string& path)
 {
   ASSERT(type);
 

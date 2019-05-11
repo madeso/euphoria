@@ -52,7 +52,7 @@ class Template
 {
  public:
   explicit Template(const std::string& text);
-  Template(FileSystem* fs, const std::string& path);
+  Template(vfs::FileSystem* fs, const std::string& path);
   ~Template();
 
   std::string

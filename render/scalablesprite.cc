@@ -43,7 +43,7 @@ namespace
 }  // namespace
 
 ScalableSprite::ScalableSprite(
-    FileSystem*        fs,
+    vfs::FileSystem*        fs,
     const std::string& path,
     const Sizef&       size,
     TextureCache*      cache)

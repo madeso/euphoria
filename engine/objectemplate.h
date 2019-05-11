@@ -16,7 +16,6 @@ namespace game
 class World;
 class TextureCache;
 class DukRegistry;
-class FileSystem;
 struct Components;
 
 namespace duk

@@ -18,8 +18,8 @@ const char* const TEST_IMAGE =
 
 TEST_CASE("image-load", "[img]")
 {
-  FileSystem fs;
-  auto       catalog = FileSystemRootCatalog::AddRoot(&fs);
+  vfs::FileSystem fs;
+  auto       catalog = vfs::FileSystemRootCatalog::AddRoot(&fs);
   catalog->RegisterFileData("white", base64::Decode(TEST_IMAGE));
 
   auto loaded = LoadImage(&fs, "white", AlphaLoad::Remove);

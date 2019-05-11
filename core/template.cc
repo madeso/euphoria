@@ -498,11 +498,11 @@ ReadTemplateList(
     TemplateError*                     errors,
     const std::string&                 file,
     bool                               expect_end,
-    FileSystem*                        fs);
+    vfs::FileSystem*                        fs);
 
 void
 LoadFromFilesystemToNodeList(
-    FileSystem*                        fs,
+    vfs::FileSystem*                        fs,
     const std::string&                 path,
     TemplateError*                     error,
     std::shared_ptr<TemplateNodeList>* nodes)
@@ -531,7 +531,7 @@ ReadText(
     LexReader* reader,
     TemplateError* /*unused*/,
     const std::string& /*unused*/,
-    FileSystem* /*unused*/)
+    vfs::FileSystem* /*unused*/)
 {
   ASSERT(reader);
   const Lex& lex = reader->Read();
@@ -547,7 +547,7 @@ ReadEval(
     LexReader*         reader,
     TemplateError*     errors,
     const std::string& file,
-    FileSystem* /*unused*/)
+    vfs::FileSystem* /*unused*/)
 {
   ASSERT(reader);
   const Lex& lex = reader->Read();
@@ -572,7 +572,7 @@ ReadSet(
     LexReader*         reader,
     TemplateError*     errors,
     const std::string& file,
-    FileSystem* /*unused*/)
+    vfs::FileSystem* /*unused*/)
 {
   ASSERT(reader);
   const Lex& name = reader->Read();
@@ -613,7 +613,7 @@ ReadIfdef(
     LexReader*         reader,
     TemplateError*     errors,
     const std::string& file,
-    FileSystem*        fs)
+    vfs::FileSystem*        fs)
 {
   ASSERT(reader);
   const Lex& lex = reader->Read();
@@ -643,7 +643,7 @@ ReadInclude(
     LexReader*         reader,
     TemplateError*     errors,
     const std::string& file,
-    FileSystem*        fs)
+    vfs::FileSystem*        fs)
 {
   ASSERT(reader);
   const Lex& lex = reader->Read();
@@ -670,7 +670,7 @@ ReadTemplateList(
     TemplateError*                     errors,
     const std::string&                 file,
     bool                               expect_end,
-    FileSystem*                        fs)
+    vfs::FileSystem*                        fs)
 {
   ASSERT(nodes);
   std::shared_ptr<TemplateNodeList>& list = *nodes;
@@ -740,7 +740,7 @@ Template::Template(const std::string& text)
   ReadTemplateList(&nodes_, &reader, &errors_, file, false, nullptr);
 }
 
-Template::Template(FileSystem* fs, const std::string& path)
+Template::Template(vfs::FileSystem* fs, const std::string& path)
     : nodes_(new TemplateNodeList{})
 {
   ASSERT(fs);

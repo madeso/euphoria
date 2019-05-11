@@ -185,7 +185,7 @@ Texture2d::LoadFromPixels(
 
 void
 Texture2d::LoadFromFile(
-    FileSystem*              fs,
+    vfs::FileSystem*              fs,
     const std::string&       path,
     AlphaLoad                alpha,
     const Texture2dLoadData& data)

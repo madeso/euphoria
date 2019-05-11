@@ -3,10 +3,13 @@
 
 #include <memory>
 
-class FileSystemRootCatalog;
+namespace vfs
+{
+  class FileSystemRootCatalog;
+}
 
 void
-SetupDefaultFiles(std::shared_ptr<FileSystemRootCatalog> catalog);
+SetupDefaultFiles(std::shared_ptr<vfs::FileSystemRootCatalog> catalog);
 
 
 #endif  // EUPHORIA_DEFAULTFILES_H

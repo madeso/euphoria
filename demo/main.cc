@@ -127,7 +127,7 @@ main(int argc, char** argv)
   box_mesh1.materials[0].specular  = Color::White;
   box_mesh1.materials[0].shininess = 120.0f;
   auto box1                        = CompileMesh(
-      box_mesh1, &material_shader_cache, &texture_cache, Path::FromRoot());
+      box_mesh1, &material_shader_cache, &texture_cache, vfs::Path::FromRoot());
 
   auto box_mesh2 = meshes::CreateSphere(0.5f, "image");
   box_mesh2.materials[0].SetTexture("Specular", "img-plain/white");
@@ -136,14 +136,14 @@ main(int argc, char** argv)
   box_mesh2.materials[0].specular  = Color::White;
   box_mesh2.materials[0].shininess = 10.0f;
   auto box2                        = CompileMesh(
-      box_mesh2, &material_shader_cache, &texture_cache, Path::FromRoot());
+      box_mesh2, &material_shader_cache, &texture_cache, vfs::Path::FromRoot());
 
   auto debug_texture = texture_cache.GetTexture("image");
 
   auto light_mesh                = meshes::CreateCube(0.2f);
   light_mesh.materials[0].shader = "basic_shader";
   auto light                     = CompileMesh(
-      light_mesh, &material_shader_cache, &texture_cache, Path::FromRoot());
+      light_mesh, &material_shader_cache, &texture_cache, vfs::Path::FromRoot());
   float light_position = 0.0f;
 
   const float box_extent_value = 4;
@@ -200,7 +200,7 @@ main(int argc, char** argv)
   }
   auto dude_mesh =
       CompileMesh(loaded_dude.mesh, &material_shader_cache, &texture_cache,
-                  Path::FromDirectory("nanosuit"));
+                  vfs::Path::FromDirectory("nanosuit"));
   auto dude_actor = std::make_shared<Actor>(dude_mesh);
   world.AddActor(dude_actor);
 #endif

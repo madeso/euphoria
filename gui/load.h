@@ -7,13 +7,16 @@
 
 class TextureCache;
 class FontCache;
+namespace vfs
+{
 class FileSystem;
+}
 class Root;
 
 bool
 Load(
     Root*              root,
-    FileSystem*        fs,
+    vfs::FileSystem*        fs,
     FontCache*         font,
     const std::string& path,
     TextureCache*      cache);

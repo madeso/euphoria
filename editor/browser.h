@@ -10,11 +10,11 @@ struct FileBrowser
 {
   std::string             current_folder;
   int                     selected_file = -1;
-  std::vector<ListedFile> files;
+  std::vector<vfs::ListedFile> files;
   std::string             filter      = "";
-  FileSystem*             file_system = nullptr;
+  vfs::FileSystem*             file_system = nullptr;
 
-  explicit FileBrowser(FileSystem* fs);
+  explicit FileBrowser(vfs::FileSystem* fs);
 
   std::string
   GetSelectedFile();

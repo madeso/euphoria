@@ -14,7 +14,7 @@ LOG_SPECIFY_DEFAULT_LOGGER("engine.loadworld")
 
 void
 LoadWorld(
-    FileSystem*        fs,
+    vfs::FileSystem*        fs,
     World*             world,
     DukRegistry*       reg,
     const std::string& path,

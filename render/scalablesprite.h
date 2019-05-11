@@ -11,13 +11,17 @@ class TextureId;
 class TextureCache;
 class SpriteRenderer;
 class Rgba;
+
+namespace vfs
+{
 class FileSystem;
+}
 
 class ScalableSprite
 {
  public:
   ScalableSprite(
-      FileSystem*        fs,
+      vfs::FileSystem*        fs,
       const std::string& path,
       const Sizef&       size,
       TextureCache*      cache);

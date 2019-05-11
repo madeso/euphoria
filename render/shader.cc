@@ -366,7 +366,7 @@ Shader::Shader() = default;
 namespace
 {
   std::string
-  LoadPath(FileSystem* fs, const std::string& path)
+  LoadPath(vfs::FileSystem* fs, const std::string& path)
   {
     // todo: replace with a template instead of basic string
     std::string content;
@@ -380,7 +380,7 @@ namespace
 }  // namespace
 
 bool
-Shader::Load(FileSystem* fs, const std::string& file_path)
+Shader::Load(vfs::FileSystem* fs, const std::string& file_path)
 {
   shader_name_      = file_path;
   auto vert         = LoadPath(fs, file_path + ".vert");

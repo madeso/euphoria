@@ -5,7 +5,10 @@
 #include <map>
 #include <vector>
 
-class FileSystem;
+namespace vfs
+{
+  class FileSystem;
+}
 
 class EnumValue;
 
@@ -75,7 +78,7 @@ std::ostream&
 operator<<(std::ostream& s, const EnumValue& v);
 
 void
-LoadEnumType(EnumType* type, FileSystem* fs, const std::string& path);
+LoadEnumType(EnumType* type, vfs::FileSystem* fs, const std::string& path);
 
 #define DECLARE_ENUM_TYPE(NAME) EnumType& NAME##_EnumType();
 #define IMPLEMENT_ENUM_TYPE(NAME) \

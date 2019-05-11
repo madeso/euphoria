@@ -44,11 +44,11 @@ Engine::Setup()
 
   const auto current_directory = GetCurrentDirectory();
 
-  file_system.reset(new FileSystem{});
-  catalog = FileSystemRootCatalog::AddRoot(file_system.get());
-  FileSystemRootFolder::AddRoot(file_system.get(), current_directory);
-  FileSystemImageGenerator::AddRoot(file_system.get(), "img-plain");
-  FileSystemDefaultShaders::AddRoot(file_system.get(), "shaders");
+  file_system.reset(new vfs::FileSystem{});
+  catalog = vfs::FileSystemRootCatalog::AddRoot(file_system.get());
+  vfs::FileSystemRootFolder::AddRoot(file_system.get(), current_directory);
+  vfs::FileSystemImageGenerator::AddRoot(file_system.get(), "img-plain");
+  vfs::FileSystemDefaultShaders::AddRoot(file_system.get(), "shaders");
 
   SetupDefaultFiles(catalog);
 

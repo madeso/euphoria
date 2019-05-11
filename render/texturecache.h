@@ -5,12 +5,16 @@
 #include <string>
 
 class Texture2d;
+
+namespace vfs
+{
 class FileSystem;
+}
 
 class TextureCache
 {
  public:
-  explicit TextureCache(FileSystem* fs);
+  explicit TextureCache(vfs::FileSystem* fs);
   ~TextureCache();
 
   std::shared_ptr<Texture2d>

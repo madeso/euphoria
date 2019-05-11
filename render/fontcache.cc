@@ -9,7 +9,7 @@ struct FontCache::FontCachePimpl
     : Cache<std::string, Font, FontCache::FontCachePimpl>
 {
  public:
-  explicit FontCachePimpl(FileSystem* fs, TextureCache* cache)
+  explicit FontCachePimpl(vfs::FileSystem* fs, TextureCache* cache)
       : fs_(fs)
       , cache_(cache)
   {
@@ -24,11 +24,11 @@ struct FontCache::FontCachePimpl
   }
 
  private:
-  FileSystem*   fs_;
+  vfs::FileSystem*   fs_;
   TextureCache* cache_;
 };
 
-FontCache::FontCache(FileSystem* fs, TextureCache* cache)
+FontCache::FontCache(vfs::FileSystem* fs, TextureCache* cache)
 {
   pimp = std::make_unique<FontCache::FontCachePimpl>(fs, cache);
 }

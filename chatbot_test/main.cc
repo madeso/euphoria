@@ -12,8 +12,8 @@ main()
   ChatBot chatbot;
 
   const auto current_directory = GetCurrentDirectory();
-  FileSystem file_system;
-  FileSystemRootFolder::AddRoot(&file_system, current_directory);
+  vfs::FileSystem file_system;
+  vfs::FileSystemRootFolder::AddRoot(&file_system, current_directory);
 
   const auto error = chatbot.LoadFromFile(&file_system, "chatbot.json");
   if(!error.empty())

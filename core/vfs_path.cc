@@ -3,6 +3,9 @@
 #include "core/assert.h"
 #include "core/stringutils.h"
 
+namespace vfs
+{
+
 const char
 DirectoryChar()
 {
@@ -175,3 +178,6 @@ Path::Path(const std::string& absolute_path)
     : absolute_path_(absolute_path)
 {
 }
+
+}  // namespace vfs
+

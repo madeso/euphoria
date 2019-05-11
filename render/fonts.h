@@ -14,7 +14,11 @@
 
 #include "render/texture.h"
 
+namespace vfs
+{
 class FileSystem;
+}
+
 class SpriteRenderer;
 class TextureCache;
 
@@ -139,7 +143,7 @@ class Text
 class Font
 {
  public:
-  Font(FileSystem* fs, TextureCache* cache, const std::string& font_file);
+  Font(vfs::FileSystem* fs, TextureCache* cache, const std::string& font_file);
 
   // todo: expose background property and move this away from font
   void

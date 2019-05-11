@@ -17,9 +17,9 @@ PrintUsage(char** argv)
 int
 RunEncode(const std::string& data)
 {
-  FileSystem file_system;
-  auto       catalog = FileSystemRootCatalog::AddRoot(&file_system);
-  FileSystemRootFolder::AddRoot(&file_system);
+  vfs::FileSystem file_system;
+  auto       catalog = vfs::FileSystemRootCatalog::AddRoot(&file_system);
+  vfs::FileSystemRootFolder::AddRoot(&file_system);
 
   auto memory  = file_system.ReadFile(data);
   auto encoded = base64::Encode(memory);

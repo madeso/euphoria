@@ -210,7 +210,7 @@ OpenOrFocusStyleEditor(Windows* windows)
 }
 
 void
-OpenOrFocusTextFile(Windows* windows, const std::string& path, FileSystem* fs)
+OpenOrFocusTextFile(Windows* windows, const std::string& path, vfs::FileSystem* fs)
 {
   OpenOrFocusWindow(windows, Str{} << "File: " << path, [&]() {
     std::string str;
@@ -240,7 +240,7 @@ LoadFile(
     Scimed*             scimed,
     TextureCache*       cache,
     ScalingSpriteCache* scache,
-    FileSystem*         fs,
+    vfs::FileSystem*         fs,
     const std::string&  path)
 {
   scimed->texture = cache->GetTexture(path);
@@ -264,7 +264,7 @@ void
 OpenOrFocusScimed(
     Windows*            windows,
     const std::string&  file,
-    FileSystem*         fs,
+    vfs::FileSystem*         fs,
     TextureCache*       tc,
     ScalingSpriteCache* sc)
 {
@@ -282,7 +282,7 @@ void
 OpenOrFocusScimedEditior(
     Windows*            windows,
     const std::string&  path,
-    FileSystem*         fs,
+    vfs::FileSystem*         fs,
     ScalingSpriteCache* sc)
 {
   std::string file = path;
@@ -305,7 +305,7 @@ void
 OpenOrFocusOnGenericWindow(
     Windows*           windows,
     const std::string& path,
-    FileSystem*        fs,
+    vfs::FileSystem*        fs,
     const std::string& title,
     TOpen              open_function,
     TRun               run_function)

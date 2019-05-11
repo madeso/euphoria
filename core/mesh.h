@@ -9,7 +9,10 @@
 #include "core/enum.h"
 #include "core/aabb.h"
 
+namespace vfs
+{
 class FileSystem;
+}
 
 enum class WrapMode
 {
@@ -99,7 +102,7 @@ class MeshLoadResult
 namespace meshes
 {
   MeshLoadResult
-  LoadMesh(FileSystem* fs, const std::string& path);
+  LoadMesh(vfs::FileSystem* fs, const std::string& path);
 
   Mesh
   CreateCube(float size);

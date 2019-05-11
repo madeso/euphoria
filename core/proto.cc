@@ -14,7 +14,7 @@
 
 std::string
 LoadProtoJson_Internal(
-    FileSystem* fs, rapidjson::Document* doc, const std::string& file_name)
+    vfs::FileSystem* fs, rapidjson::Document* doc, const std::string& file_name)
 {
   std::string source;
 

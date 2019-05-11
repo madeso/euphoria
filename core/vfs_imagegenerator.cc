@@ -7,6 +7,9 @@
 #include "core/log.h"
 #include "core/vfs_path.h"
 
+namespace vfs
+{
+
 LOG_SPECIFY_DEFAULT_LOGGER("filesystem.image-generator")
 
 void
@@ -83,3 +86,6 @@ FileSystemImageGenerator::ListFiles(const Path& path)
 
   return ret;
 }
+
+}  // namespace vfs
+

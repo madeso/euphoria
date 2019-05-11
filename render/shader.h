@@ -36,7 +36,10 @@ class ShaderId : Noncopyable
 void
 Use(const Shader* shader);
 
+namespace vfs
+{
 class FileSystem;  // core
+}
 
 class Shader : public ShaderId
 {
@@ -47,7 +50,7 @@ class Shader : public ShaderId
   void
   PreBind(const ShaderAttribute& attribute);
   bool
-  Load(FileSystem* fs, const std::string& file_path);
+  Load(vfs::FileSystem* fs, const std::string& file_path);
 
   bool
   Compile(

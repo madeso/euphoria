@@ -3,7 +3,7 @@
 #include "core/vfs.h"
 
 void
-SetupDefaultFiles(std::shared_ptr<FileSystemRootCatalog> catalog)
+SetupDefaultFiles(std::shared_ptr<vfs::FileSystemRootCatalog> catalog)
 {
   catalog->RegisterFileString(
       "default_shader.json",

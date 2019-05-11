@@ -52,7 +52,7 @@
 LOG_SPECIFY_DEFAULT_LOGGER("engine")
 
 game::Game
-LoadGameData(FileSystem* fs)
+LoadGameData(vfs::FileSystem* fs)
 {
   game::Game game;
   const auto err = LoadProtoJson(fs, &game, "gamedata.json");
@@ -89,7 +89,7 @@ struct RunResult
 };
 
 RunResult
-RunMainScriptFile(duk::Duk* duk, FileSystem* fs, const std::string& path)
+RunMainScriptFile(duk::Duk* duk, vfs::FileSystem* fs, const std::string& path)
 {
   std::string content;
   const bool  loaded = fs->ReadFileToString(path, &content);
@@ -200,7 +200,7 @@ main(int argc, char** argv)
   }
 
   engine.file_system->SetWrite(
-      std::make_shared<FileSystemWriteFolder>(GetCurrentDirectory()));
+      std::make_shared<vfs::FileSystemWriteFolder>(GetCurrentDirectory()));
 
   TextureCache cache{engine.file_system.get()};
 

@@ -3,6 +3,9 @@
 
 #include "core/vfs.h"
 
+namespace vfs
+{
+
 
 class FileSystemImageGenerator : public FileSystemReadRoot
 {
@@ -25,5 +28,6 @@ class FileSystemImageGenerator : public FileSystemReadRoot
   std::string base_;
 };
 
+}  // namespace vfs
 
 #endif  // EUPHORIA_FILESYSTEMIMAGEGENERATOR_H

@@ -292,7 +292,7 @@ namespace
 }  // namespace
 
 ImageLoadResult
-LoadImage(FileSystem* fs, const std::string& path, AlphaLoad alpha)
+LoadImage(vfs::FileSystem* fs, const std::string& path, AlphaLoad alpha)
 {
   auto file_memory = fs->ReadFile(path);
   if(file_memory == nullptr)

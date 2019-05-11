@@ -8,7 +8,7 @@ struct TextureCache::TextureCachePimpl
     : Cache<std::string, Texture2d, TextureCache::TextureCachePimpl>
 {
  public:
-  explicit TextureCachePimpl(FileSystem* fs)
+  explicit TextureCachePimpl(vfs::FileSystem* fs)
       : fs_(fs)
   {
     ASSERT(fs);
@@ -23,10 +23,10 @@ struct TextureCache::TextureCachePimpl
   }
 
  private:
-  FileSystem* fs_;
+  vfs::FileSystem* fs_;
 };
 
-TextureCache::TextureCache(FileSystem* fs)
+TextureCache::TextureCache(vfs::FileSystem* fs)
 {
   pimp_ = std::make_unique<TextureCache::TextureCachePimpl>(fs);
 }

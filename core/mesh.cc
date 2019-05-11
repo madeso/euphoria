@@ -352,7 +352,7 @@ namespace
   }
 
   void
-  DecorateMesh(FileSystem* fs, Mesh* mesh, const std::string& json_path)
+  DecorateMesh(vfs::FileSystem* fs, Mesh* mesh, const std::string& json_path)
   {
     mesh::Mesh json;
     const auto error = LoadProtoJson(fs, &json, json_path);
@@ -378,7 +378,7 @@ namespace
 namespace meshes
 {
   MeshLoadResult
-  LoadMesh(FileSystem* fs, const std::string& path)
+  LoadMesh(vfs::FileSystem* fs, const std::string& path)
   {
     Assimp::Importer importer;
     MeshLoadResult   res;

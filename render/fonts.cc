@@ -227,7 +227,7 @@ struct LoadedFont
 };
 
 LoadedFont
-GetCharactersFromSingleImage(FileSystem* fs, const font::SingleImage& img)
+GetCharactersFromSingleImage(vfs::FileSystem* fs, const font::SingleImage& img)
 {
   LoadedFont font;
 
@@ -377,7 +377,7 @@ ConstructCharacterRects(
 
 ////////////////////////////////////////////////////////////////////////////////
 
-Font::Font(FileSystem* fs, TextureCache* cache, const std::string& font_file)
+Font::Font(vfs::FileSystem* fs, TextureCache* cache, const std::string& font_file)
 {
   const int texture_width  = 512;
   const int texture_height = 512;
