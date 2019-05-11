@@ -9,7 +9,7 @@
 
 #include "core/assert.h"
 #include "core/stringutils.h"
-#include "core/levenshtein.h"
+#include "core/editdistance.h"
 
 template<typename T>
 struct MatchedEnum
@@ -69,7 +69,7 @@ struct EnumToStringImpl
     {
       const auto t = entry.first;
       const auto str = entry.second;
-      const auto changes = LevenshteinDistance(str, input);
+      const auto changes = EditDistance(str, input);
       matches.push({t, changes});
       if(matches.size() > max_size)
       {

@@ -1,4 +1,4 @@
-#include "core/levenshtein.h"
+#include "core/editdistance.h"
 
 #include <string>
 #include <vector>
@@ -8,7 +8,7 @@
 #include "core/assert.h"
 
 unsigned long
-LevenshteinDistance(const std::string& source, const std::string& target)
+EditDistance(const std::string& source, const std::string& target)
 {
   // Step 1
 
@@ -113,7 +113,7 @@ LevenshteinDistance(const std::string& source, const std::string& target)
 }
 
 unsigned long
-FastLevenshteinDistance(const std::string& the_row, const std::string& the_col)
+FastEditDistance(const std::string& the_row, const std::string& the_col)
 {
   const unsigned long row_length = the_row.length();
   const unsigned long col_length = the_col.length();
