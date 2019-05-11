@@ -1,5 +1,2 @@
-//
-// Created by gustav on 2017-10-21.
-//
+#include "core/ray.h"
 
-#include "ray.h"

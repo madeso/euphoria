@@ -4,22 +4,6 @@
 #include "core/vec2.h"
 
 template <typename T>
-class lineseg2
-{
- public:
-  typedef point2<T> point;
-
-  lineseg2(const point& f, const point& t)
-      : from(f)
-      , to(t)
-  {
-  }
-
-  point from;
-  point to;
-};
-
-template <typename T>
 class line2
 {
  public:
@@ -182,8 +166,5 @@ class line2
 
 typedef line2<float> line2f;
 typedef line2<int>   line2i;
-
-typedef lineseg2<float> lineseg2f;
-typedef lineseg2<int>   lineseg2i;
 
 #endif  // CORE_LINE2_H
