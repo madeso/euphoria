@@ -5,6 +5,7 @@
 #include "core/numeric.h"
 #include "core/axisangle.h"
 #include "core/mat4.h"
+#include "core/polarcoord.h"
 
 template <typename T>
 class quat
@@ -42,6 +43,15 @@ class quat
     Q       r(cos_a, aa.axis * sin_a);
     r.Normalize();
     return r;
+  }
+
+  static Q
+  FromRandom(Random* random)
+  {
+    const auto axis  = RandomUnit3(random);
+    const auto angle = Angle::Random(random);
+
+    return Q::FromAxisAngle(AxisAngle::RightHandAround(axis, angle));
   }
 
   mat4<T>

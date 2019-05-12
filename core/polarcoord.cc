@@ -3,6 +3,7 @@
 #include "core/numeric.h"
 #include "core/range.h"
 #include "core/assert.h"
+#include "core/random.h"
 
 PolarCoord::PolarCoord(float azimuthal01, float polar01)
     : azimuthal_(Angle::FromPercentOf360(azimuthal01))
@@ -26,3 +27,16 @@ PolarCoord::ToCartesian() const
 
   return unit3f::ToUnit(x, y, z);
 }
+
+PolarCoord PolarCoord::Random(::Random* random)
+{
+  const float az    = random->NextFloat01();
+  const float polar = random->NextFloat01();
+  return {az, polar};
+}
+
+unit3f RandomUnit3(Random* random)
+{
+  return PolarCoord::Random(random).ToCartesian();
+}
+

@@ -147,26 +147,3 @@ Random::PointOnUnitCircle_Uniform()
   return point2f{dist * Cos(angle) + 0.5f, dist * Sin(angle) + 0.5f};
 }
 
-PolarCoord
-Random::NextPolar()
-{
-  const float az    = Random::NextFloat01();
-  const float polar = Random::NextFloat01();
-  return PolarCoord{az, polar};
-}
-
-unit3f
-Random::NextUnit3()
-{
-  return NextPolar().ToCartesian();
-}
-
-quatf
-Random::NextQuatf()
-{
-  const auto axis  = NextUnit3();
-  const auto angle = Angle::FromDegrees(Random::Next(Range{0, 360.0f}));
-
-  return quatf::FromAxisAngle(AxisAngle::RightHandAround(axis, angle));
-}
-

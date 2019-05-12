@@ -5,6 +5,8 @@
 
 #include "core/numeric.h"
 
+class Random;
+
 class Angle
 {
  private:
@@ -62,6 +64,9 @@ class Angle
   {
     return Angle::FromRadians(percent * Pi());
   }
+
+  const static Angle
+  Random(::Random* random);
 
   Angle
   GetWrapped() const;

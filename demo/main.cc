@@ -166,8 +166,8 @@ main(int argc, char** argv)
 
     CubeAnimation anim;
     anim.actor          = actor;
-    anim.from           = random.NextQuatf();
-    anim.to             = random.NextQuatf();
+    anim.from           = quatf::FromRandom(&random);
+    anim.to             = quatf::FromRandom(&random);
     anim.rotation_speed = random.NextRange(0.5f, 1.0f);
     anim.move_speed     = random.NextRange(0.5f, 1.0f);
     anim.timer          = random.NextFloat01();
@@ -282,7 +282,7 @@ main(int argc, char** argv)
           count += 1;
           anim.timer -= 1.0f;
           anim.from           = anim.to;
-          anim.to             = random.NextQuatf();
+          anim.to             = quatf::FromRandom(&random);
           anim.rotation_speed = random.NextRange(0.3f, 1.0f);
           anim.move_speed     = random.NextRange(0.2f, 3.0f);
         }

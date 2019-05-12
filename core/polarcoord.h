@@ -4,8 +4,9 @@
 #include "core/angle.h"
 #include "core/vec3.h"
 
-// source: http://mathworld.wolfram.com/SphericalCoordinates.html
+class Random;
 
+// source: http://mathworld.wolfram.com/SphericalCoordinates.html
 class PolarCoord
 {
  public:
@@ -14,10 +15,14 @@ class PolarCoord
   unit3f
   ToCartesian() const;
 
+  static PolarCoord Random(::Random* random);
+
  private:
   Angle azimuthal_;  // longitude, 0-2pi
   Angle polar_;      // zenith, colatitude, 0-pi
 };
+
+unit3f RandomUnit3(Random* random);
 
 
 #endif  // EUPHORIA_POLARCOORD_H

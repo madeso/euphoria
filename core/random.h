@@ -7,9 +7,6 @@
 
 #include "core/ints.h"
 #include "core/vec2.h"
-#include "core/vec3.h"
-#include "core/polarcoord.h"
-#include "core/quat.h"
 
 class Range;
 
@@ -68,22 +65,6 @@ class Random
   PointOnUnitCircle_CenterFocused();
   point2f
   PointOnUnitCircle_Uniform();
-
-  // move to polar coord
-
-  // todo: check if this is uniform or not
-  // http://xdpixel.com/random-points-in-a-circle/
-  PolarCoord
-  NextPolar();
-
-  // move to vec3 header
-
-  unit3f
-  NextUnit3();
-  
-  // move to quat header
-  quatf
-  NextQuatf();
 
   template <typename T>
   const T&

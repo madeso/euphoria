@@ -2,8 +2,17 @@
 
 #include "core/assert.h"
 #include "core/range.h"
+#include "core/random.h"
 
 #include <cmath>
+
+
+const Angle
+Angle::Random(::Random* random)
+{
+  return FromPercentOf360(random->NextFloat01());
+}
+
 
 void
 Angle::Wrap()
