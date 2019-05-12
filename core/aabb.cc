@@ -3,6 +3,7 @@
 #include "core/assert.h"
 #include "core/numeric.h"
 #include "core/range.h"
+#include "core/random.h"
 
 Aabb::Aabb(const point3f& amin, const point3f& amax)
     : min(amin)
@@ -96,3 +97,14 @@ Aabb::GetOffset() const
   ASSERT(IsValid());
   return vec3f::FromTo(point3f::Origo(), min);
 }
+
+point3f
+Aabb::RandomPoint(Random* random)
+{
+  const auto x = random->Next(Range{GetMin().x, GetMax().x});
+  const auto y = random->Next(Range{GetMin().y, GetMax().y});
+  const auto z = random->Next(Range{GetMin().z, GetMax().z});
+
+  return point3f{x, y, z};
+}
+

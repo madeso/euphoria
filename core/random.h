@@ -10,8 +10,6 @@
 #include "core/vec3.h"
 #include "core/polarcoord.h"
 #include "core/quat.h"
-#include "core/rect.h"
-#include "core/aabb.h"
 
 class Range;
 
@@ -33,7 +31,6 @@ class Random
   float
   NextFloat01();
 
-  // move to range
   float
   Next(const Range& range);
 
@@ -66,13 +63,7 @@ class Random
   int
   NextSign();
 
-  // move to rect class
-  point2f
-  NextPoint(const Rectf& rect);
-  point2i
-  NextPoint(const Recti& rect);
-
-  // move to point class?
+  // move to point class or a circle class?
   point2f
   PointOnUnitCircle_CenterFocused();
   point2f
@@ -93,10 +84,6 @@ class Random
   // move to quat header
   quatf
   NextQuatf();
-
-  // move to aabb header
-  point3f
-  NextVec3(const Aabb& extents);
 
   template <typename T>
   const T&

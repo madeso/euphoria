@@ -6,6 +6,7 @@
 #include "core/size.h"
 #include "core/line2.h"
 #include "core/range.h"
+#include "core/random.h"
 
 // Bottom, Left of screen is (0,0)
 // X-axis is positive right, Y-axis is positive up
@@ -451,26 +452,34 @@ class Rect
   {
     return Line::FromTo(BottomLeft(), BottomRight());
   }
+
+  template <typename R>
+  const point2<R>
+  To01(const point2<R>& from)
+  {
+    const auto x = Range(left, right).To01(from.x);
+    const auto y = Range(bottom, top).To01(from.y);
+    return point2<R>{x, y};
+  }
+
+  template <typename R>
+  const point2<R>
+  From01(const point2<R>& from)
+  {
+    const auto x = Range(left, right).From01(from.x);
+    const auto y = Range(bottom, top).From01(from.y);
+    return point2<R>{x, y};
+  }
+
+  point2<T>
+  RandomPoint(Random* random) const
+  {
+    const T x = random->NextRange(GetWidth());
+    const T y = random->NextRange(GetHeight());
+    return GetPositionFromBottomLeft(point2<T>{x, y});
+  }
+
 };
-
-
-template <typename T, typename R>
-const point2<R>
-To01(const Rect<T>& rect, const point2<R>& from)
-{
-  const auto x = Range(rect.left, rect.right).To01(from.x);
-  const auto y = Range(rect.bottom, rect.top).To01(from.y);
-  return point2<R>{x, y};
-}
-
-template <typename T, typename R>
-const point2<R>
-From01(const Rect<T>& rect, const point2<R>& from)
-{
-  const auto x = Range(rect.left, rect.right).From01(from.x);
-  const auto y = Range(rect.bottom, rect.top).From01(from.y);
-  return point2<R>{x, y};
-}
 
 template <typename S, typename T>
 S&

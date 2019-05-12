@@ -417,7 +417,7 @@ struct DukIntegrationPimpl
                 MakeBind<Random, Rectf>(
                     [](Context* ctx, Random& rnd, const Rectf& r) -> int {
                       return ctx->ReturnObject(
-                          std::make_shared<point2f>(rnd.NextPoint(r)));
+                          std::make_shared<point2f>(r.RandomPoint(&rnd)));
                     }))
 
             );

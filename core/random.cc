@@ -129,22 +129,6 @@ Random::NextSign()
 }
 
 point2f
-Random::NextPoint(const Rectf& rect)
-{
-  const float x = Next(Range{rect.GetWidth()});
-  const float y = Next(Range{rect.GetHeight()});
-  return rect.GetPositionFromBottomLeft(point2f{x, y});
-}
-
-point2i
-Random::NextPoint(const Recti& rect)
-{
-  const int x = NextRange(rect.GetWidth());
-  const int y = NextRange(rect.GetHeight());
-  return rect.GetPositionFromBottomLeft(point2i{x, y});
-}
-
-point2f
 Random::PointOnUnitCircle_CenterFocused()
 {
   const auto angle = Angle::FromPercentOf360(NextFloat01());
@@ -186,12 +170,3 @@ Random::NextQuatf()
   return quatf::FromAxisAngle(AxisAngle::RightHandAround(axis, angle));
 }
 
-point3f
-Random::NextVec3(const Aabb& extents)
-{
-  const auto x = Next(Range{extents.GetMin().x, extents.GetMax().x});
-  const auto y = Next(Range{extents.GetMin().y, extents.GetMax().y});
-  const auto z = Next(Range{extents.GetMin().z, extents.GetMax().z});
-
-  return point3f{x, y, z};
-}

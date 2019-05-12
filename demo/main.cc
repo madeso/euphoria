@@ -100,7 +100,7 @@ main(int argc, char** argv)
   for(int i = 0; i < 20; i += 1)
   {
     const Rgb  color = rgb(palette::Dawnbringer().GetRandomColor(&random));
-    const auto pos   = random.NextPoint(wi);
+    const auto pos   = wi.RandomPoint(&random);
     const auto outer = random.NextRange(55.0f, 100.0f);
     const auto inner = random.Next(Range{50.0f});
     drawer.Circle(color, pos, outer, 10, inner);
@@ -177,7 +177,7 @@ main(int argc, char** argv)
     point3f position = point3f::Origo();
     do
     {
-      position = random.NextVec3(box_extents);
+      position = box_extents.RandomPoint(&random);
     } while(vec3f::FromOrigoTo(position).GetLength() < 1.4f);
 
     actor->SetPosition(position);

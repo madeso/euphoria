@@ -3,6 +3,8 @@
 
 #include "core/vec3.h"
 
+class Random;
+
 class Aabb
 {
  public:
@@ -34,6 +36,9 @@ class Aabb
 
   const point3f&
   GetMax() const;
+
+  point3f
+  RandomPoint(Random* random);
 
   point3f min;
   point3f max;
