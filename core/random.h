@@ -95,8 +95,7 @@ class Random
     {
       return v[0];
     }
-    // todo: fix this, use next range instead
-    return v[NextInteger() % size];
+    return v[NextRange(size)];
   }
 
  private:
