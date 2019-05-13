@@ -1,6 +1,5 @@
-
-#ifndef CORE_POLY2_H
-#define CORE_POLY2_H
+#ifndef CORE_PATH_H
+#define CORE_PATH_H
 
 #include <vector>
 #include "core/vec2.h"
@@ -23,11 +22,26 @@
 
 // check if point in poly: http://geomalgorithms.com/a03-_inclusion.html
 
+struct BezierPath2
+{
+  std::vector<point2f> points;
+
+  BezierPath2(const point2f& center);
+
+  // point functions
+  void AddPoint(const point2f& p);
+
+  // segment functions
+  size_t GetNumberOfSegments() const;
+  std::vector<point2f> GetPointsInSegment(size_t i) const;
+};
+
 struct VertexPath2
 {
-  std::vector<ve2f> points;
+  std::vector<point2f> points;
   bool is_closed = false;
 };
 
 
-#endif  // CORE_POLY_H
+#endif  // CORE_PATH_H
+
