@@ -158,6 +158,7 @@ add_subdirectory(chatbot_test)
 add_subdirectory(worldgen)
 add_subdirectory(img)
 add_subdirectory(editor)
+add_subdirectory(painter)
 add_subdirectory(duk)
 add_subdirectory(tabletool)
 
