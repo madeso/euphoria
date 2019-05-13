@@ -17,6 +17,8 @@
 #include "core/proto.h"
 #include "core/log.h"
 
+#include "core/path.h"
+
 #include <render/init.h>
 #include <render/debuggl.h>
 #include <render/materialshader.h>
@@ -28,6 +30,8 @@
 #include "render/viewport.h"
 #include "render/materialshadercache.h"
 #include "render/defaultfiles.h"
+
+
 
 #include "window/imguilibrary.h"
 #include "window/timer.h"
@@ -44,8 +48,14 @@
 #include <iostream>
 #include <memory>
 
+#include "painter/canvas.h"
 
-// LOG_SPECIFY_DEFAULT_LOGGER("painter")
+
+#define IMGUI_DEFINE_MATH_OPERATORS
+#include "imgui/imgui_internal.h"
+#include "window/imgui_ext.h"
+
+LOG_SPECIFY_DEFAULT_LOGGER("painter")
 
 int
 main(int argc, char** argv)
@@ -74,6 +84,9 @@ main(int argc, char** argv)
 
   //////////////////////////////////////////////////////////////////////////////
   // main loop
+  CanvasConfig cc;
+  Canvas canvas;
+  BezierPath2 path (point2f(0,0));
 
   while(running)
   {
@@ -117,6 +130,44 @@ main(int argc, char** argv)
     if(ImGui::Begin("painter"))
     {
       // win->Run(&style_data);
+      canvas.Begin(cc);
+      canvas.ShowGrid(cc);
+
+      bool first = true;
+      auto handle = [&canvas, &first](const ImVec2& p, float size)
+      {
+        ImDrawList* draw_list = ImGui::GetWindowDrawList();
+        const auto sp = canvas.WorldToScreen(p);
+        const auto me = ImGui::GetMousePos();
+        const auto hover = first && vec2f::FromTo(C(me),C(sp)).GetLengthSquared() < size*size;
+        const auto red = IM_COL32(hover ? 200 : 100, 0, 0, 255);
+        draw_list->AddCircleFilled(sp, size, red);
+        if(hover && first )
+        {
+          first = false;
+          // capture current drag item...
+          if(ImGui::IsMouseDragging())
+          {
+            const auto d = ImGui::GetMouseDragDelta();
+            ImGui::ResetMouseDragDelta();
+            // todo: handle scale/zoom
+            return std::make_pair(true, vec2f(d.x, d.y));
+          }
+        }
+        return std::make_pair(false, vec2f(0,0));
+      };
+
+      for(auto& p: path.points)
+      {
+        auto r = handle(C(p), 10);
+        if(r.first)
+        {
+          p += r.second;
+        }
+      }
+
+      canvas.ShowRuler(cc);
+      canvas.End(cc);
     }
     ImGui::End();
 
