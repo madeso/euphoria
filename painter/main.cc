@@ -87,6 +87,7 @@ main(int argc, char** argv)
   CanvasConfig cc;
   Canvas canvas;
   BezierPath2 path (point2f(0,0));
+  int index = -1;
 
   while(running)
   {
@@ -133,18 +134,21 @@ main(int argc, char** argv)
       canvas.Begin(cc);
       canvas.ShowGrid(cc);
 
-      bool first = true;
-      auto handle = [&canvas, &first](const ImVec2& p, float size)
+      if(ImGui::IsMouseReleased(0)) { index = -1; }
+      auto handle = [&canvas, &index](const ImVec2& p, int id, float size)
       {
         ImDrawList* draw_list = ImGui::GetWindowDrawList();
         const auto sp = canvas.WorldToScreen(p);
         const auto me = ImGui::GetMousePos();
-        const auto hover = first && vec2f::FromTo(C(me),C(sp)).GetLengthSquared() < size*size;
-        const auto red = IM_COL32(hover ? 200 : 100, 0, 0, 255);
-        draw_list->AddCircleFilled(sp, size, red);
-        if(hover && first )
+        const auto hover = vec2f::FromTo(C(me),C(sp)).GetLengthSquared() < size*size;
+        if(index==-1 && hover && ImGui::IsMouseDown(0))
         {
-          first = false;
+          index = id;
+        }
+        const auto red = IM_COL32(hover || index==id ? 200 : 100, 0, 0, 255);
+        draw_list->AddCircleFilled(sp, size, red);
+        if(index==id)
+        {
           // capture current drag item...
           if(ImGui::IsMouseDragging())
           {
@@ -157,9 +161,11 @@ main(int argc, char** argv)
         return std::make_pair(false, vec2f(0,0));
       };
 
+      int i = 0;
       for(auto& p: path.points)
       {
-        auto r = handle(C(p), 10);
+        i += 1;
+        auto r = handle(C(p), i, 10);
         if(r.first)
         {
           p += r.second;
