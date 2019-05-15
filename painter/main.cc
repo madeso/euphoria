@@ -131,6 +131,15 @@ main(int argc, char** argv)
     if(ImGui::Begin("painter"))
     {
       // win->Run(&style_data);
+      const auto a = !ImGui::IsAnyItemHovered();
+      const auto b = ImGui::IsMouseHoveringWindow();
+      const auto c = ImGui::IsMouseClicked(1);
+      // LOG_INFO("bools " << a << " " << b << " " << c);
+      if (a && c)
+      {
+          ImGui::OpenPopup("context_menu");
+      }
+
       canvas.Begin(cc);
       canvas.ShowGrid(cc);
 
@@ -195,6 +204,16 @@ main(int argc, char** argv)
 
       canvas.ShowRuler(cc);
       canvas.End(cc);
+
+      if(ImGui::BeginPopup("context_menu"))
+      {
+        const auto p = canvas.ScreenToWorld(ImGui::GetMousePosOnOpeningCurrentPopup());
+        if(ImGui::MenuItem("Add"))
+        {
+          path.AddPoint(C(p));
+        }
+        ImGui::EndPopup();
+      }
     }
     ImGui::End();
 
