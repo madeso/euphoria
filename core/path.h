@@ -22,6 +22,12 @@
 
 // check if point in poly: http://geomalgorithms.com/a03-_inclusion.html
 
+struct BezierSeg2
+{
+  point2f a0; point2f c0;
+  point2f a1; point2f c1;
+};
+
 struct BezierPath2
 {
   std::vector<point2f> points;
@@ -33,7 +39,7 @@ struct BezierPath2
 
   // segment functions
   size_t GetNumberOfSegments() const;
-  std::vector<point2f> GetPointsInSegment(size_t i) const;
+  BezierSeg2 GetPointsInSegment(size_t i) const;
 };
 
 struct VertexPath2

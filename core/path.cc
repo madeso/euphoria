@@ -27,19 +27,19 @@ void BezierPath2::AddPoint(const point2f& p)
   points.push_back(p6);
 }
 
-std::vector<point2f> BezierPath2::GetPointsInSegment(size_t i) const
+BezierSeg2 BezierPath2::GetPointsInSegment(size_t i) const
 {
   const auto b = i*3;
-  return std::vector<point2f>{
+  return {
     points[b+0], // anchor
     points[b+1], //  ^ control
-    points[b+2], // anchor
-    points[b+3]  //  ^ control
+    points[b+3], // anchor
+    points[b+2]  //  ^ control
   };
 }
 
 size_t BezierPath2::GetNumberOfSegments() const
 {
-  return (points.size()-4)/3 + 1;
+  return points.size()/3;
 }
 

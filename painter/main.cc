@@ -197,9 +197,9 @@ main(int argc, char** argv)
       {
         auto s = path.GetPointsInSegment(seg);
         auto* dl = ImGui::GetWindowDrawList();
-        dl->AddBezierCurve(canvas.WorldToScreen(C(s[0])), canvas.WorldToScreen(C(s[1])), canvas.WorldToScreen(C(s[3])), canvas.WorldToScreen(C(s[2])), curve_color, 1);
-        line(canvas.WorldToScreen(C(s[0])), canvas.WorldToScreen(C(s[1])), line_color);
-        line(canvas.WorldToScreen(C(s[2])), canvas.WorldToScreen(C(s[3])), line_color);
+        dl->AddBezierCurve(canvas.WorldToScreen(C(s.a0)), canvas.WorldToScreen(C(s.c0)), canvas.WorldToScreen(C(s.c1)), canvas.WorldToScreen(C(s.a1)), curve_color, 1);
+        line(canvas.WorldToScreen(C(s.a0)), canvas.WorldToScreen(C(s.c0)), line_color);
+        line(canvas.WorldToScreen(C(s.a1)), canvas.WorldToScreen(C(s.c1)), line_color);
       }
 
       canvas.ShowRuler(cc);
