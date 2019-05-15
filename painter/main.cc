@@ -160,7 +160,18 @@ main(int argc, char** argv)
         }
         return std::make_pair(false, vec2f(0,0));
       };
+      auto line = [](const ImVec2& a, const ImVec2& b, ImU32 color)
+      {
+        ImDrawList* draw_list = ImGui::GetWindowDrawList();
+        draw_list->PathLineTo(a);
+        draw_list->PathLineTo(b);
+        draw_list->PathStroke(color, false);
+      };
 
+      const auto curve_color = IM_COL32(0, 0, 200, 255);
+      const auto line_color = IM_COL32(0, 0, 0, 255);
+
+      // draw handles
       int i = 0;
       for(auto& p: path.points)
       {
@@ -170,6 +181,16 @@ main(int argc, char** argv)
         {
           p += r.second;
         }
+      }
+      // draw bezier and link lines
+      const auto tseg = path.GetNumberOfSegments();
+      for(size_t seg=0; seg<tseg; seg+=1)
+      {
+        auto s = path.GetPointsInSegment(seg);
+        auto* dl = ImGui::GetWindowDrawList();
+        dl->AddBezierCurve(canvas.WorldToScreen(C(s[0])), canvas.WorldToScreen(C(s[1])), canvas.WorldToScreen(C(s[3])), canvas.WorldToScreen(C(s[2])), curve_color, 1);
+        line(canvas.WorldToScreen(C(s[0])), canvas.WorldToScreen(C(s[1])), line_color);
+        line(canvas.WorldToScreen(C(s[2])), canvas.WorldToScreen(C(s[3])), line_color);
       }
 
       canvas.ShowRuler(cc);
