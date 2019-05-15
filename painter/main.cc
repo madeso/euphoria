@@ -135,8 +135,9 @@ main(int argc, char** argv)
       canvas.ShowGrid(cc);
 
       if(ImGui::IsMouseReleased(0)) { index = -1; }
-      auto handle = [&canvas, &index](const ImVec2& p, int id, float size)
+      auto handle = [&canvas, &index](const ImVec2& p, int id, ImU32 color)
       {
+        const auto size = 5.0f;
         ImDrawList* draw_list = ImGui::GetWindowDrawList();
         const auto sp = canvas.WorldToScreen(p);
         const auto me = ImGui::GetMousePos();
@@ -145,8 +146,7 @@ main(int argc, char** argv)
         {
           index = id;
         }
-        const auto red = IM_COL32(hover || index==id ? 200 : 100, 0, 0, 255);
-        draw_list->AddCircleFilled(sp, size, red);
+        draw_list->AddCircleFilled(sp, size, color);
         if(index==id)
         {
           // capture current drag item...
@@ -155,7 +155,7 @@ main(int argc, char** argv)
             const auto d = ImGui::GetMouseDragDelta();
             ImGui::ResetMouseDragDelta();
             // todo: handle scale/zoom
-            return std::make_pair(true, vec2f(d.x, d.y));
+            return std::make_pair(true, vec2f(d.x, d.y) / canvas.view.scale );
           }
         }
         return std::make_pair(false, vec2f(0,0));
@@ -165,7 +165,7 @@ main(int argc, char** argv)
       for(auto& p: path.points)
       {
         i += 1;
-        auto r = handle(C(p), i, 10);
+        auto r = handle(C(p), i, IM_COL32(200, 100, 20, 200));
         if(r.first)
         {
           p += r.second;
