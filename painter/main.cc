@@ -191,7 +191,14 @@ main(int argc, char** argv)
         auto r = handle(C(path.points[point_index]), point_index, color);
         if(r.first)
         {
-          path.MovePoint(point_index, r.second);
+          if(ImGui::GetIO().KeyCtrl )
+          {
+            path.points[point_index] += r.second;
+          }
+          else
+          {
+            path.MovePoint(point_index, r.second);
+          }
         }
       }
       // draw bezier and link lines

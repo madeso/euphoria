@@ -188,6 +188,11 @@ struct unit2
   VEC2_INVERT_SELF()
   VEC2_LENGTH_SQUARED(T)
 
+  operator vec2<T>() const
+  {
+    return vec2<T>(x, y);
+  }
+
   bool
   IsValid() const
   {
@@ -285,6 +290,22 @@ vec2<T> operator*(const vec2<T>& lhs, const T& rhs)
 
 template <typename T>
 vec2<T> operator*(const T& lhs, const vec2<T>& rhs)
+{
+  vec2<T> r = rhs;
+  r *= lhs;
+  return r;
+}
+
+template <typename T>
+vec2<T> operator*(const unit2<T>& lhs, const T& rhs)
+{
+  vec2<T> r = lhs;
+  r *= rhs;
+  return r;
+}
+
+template <typename T>
+vec2<T> operator*(const T& lhs, const unit2<T>& rhs)
 {
   vec2<T> r = rhs;
   r *= lhs;

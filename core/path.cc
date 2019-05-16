@@ -57,6 +57,14 @@ void BezierPath2::MovePoint(size_t i, const vec2f& delta)
   else
   {
     // point is control point, move the opposite point
+    const int corresponding_control_index = IsAnchorPoint(i+1) ? i+2 : i-2;
+    const int anchor_index = IsAnchorPoint(i+1) ? i+1 : i-1;
+    if(corresponding_control_index >= 0 && corresponding_control_index < points.size())
+    {
+      const auto distance = vec2f::FromTo(points[corresponding_control_index], points[anchor_index]).GetLength();
+      const auto direction = vec2f::FromTo(points[i], points[anchor_index]).GetNormalized();
+      points[corresponding_control_index] = points[anchor_index] + distance*direction;
+    }
   }
 }
 
