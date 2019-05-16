@@ -34,8 +34,12 @@ struct BezierPath2
 
   BezierPath2(const point2f& center);
 
+  static bool IsAnchorPoint(size_t i);
+  static bool IsControlPoint(size_t i);
+
   // point functions
   void AddPoint(const point2f& p);
+  void MovePoint(size_t i, const vec2f& delta);
 
   // segment functions
   size_t GetNumberOfSegments() const;

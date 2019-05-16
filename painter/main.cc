@@ -181,14 +181,17 @@ main(int argc, char** argv)
       const auto line_color = IM_COL32(0, 0, 0, 255);
 
       // draw handles
-      int i = 0;
-      for(auto& p: path.points)
+      for(size_t point_index = 0; point_index < path.points.size(); point_index += 1)
       {
-        i += 1;
-        auto r = handle(C(p), i, IM_COL32(200, 100, 20, 200));
+        const bool is_anchor_point = BezierPath2::IsAnchorPoint(point_index);
+        const ImU32 alpha = 200;
+        const ImU32 color = is_anchor_point
+          ? IM_COL32(20, 20, 200, alpha)
+          : IM_COL32(200, 20, 20, alpha);
+        auto r = handle(C(path.points[point_index]), point_index, color);
         if(r.first)
         {
-          p += r.second;
+          path.MovePoint(point_index, r.second);
         }
       }
       // draw bezier and link lines
