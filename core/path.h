@@ -31,6 +31,7 @@ struct BezierSeg2
 struct BezierPath2
 {
   std::vector<point2f> points;
+  bool is_closed_ = false;
 
   BezierPath2(const point2f& center);
 
@@ -44,6 +45,11 @@ struct BezierPath2
   // segment functions
   size_t GetNumberOfSegments() const;
   BezierSeg2 GetPointsInSegment(size_t i) const;
+
+  void SetClosed(bool is_closed);
+  void ToggleClosed();
+
+  size_t LoopIndex(int i) const;
 };
 
 struct VertexPath2

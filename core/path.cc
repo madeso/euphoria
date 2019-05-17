@@ -45,13 +45,13 @@ void BezierPath2::MovePoint(size_t i, const vec2f& delta)
   if(IsAnchorPoint(i))
   {
     // anchor point, move control points too
-    if(i + 1 < points.size())
+    if(is_closed_ || i + 1 < points.size())
     {
-      points[i+1] += delta;
+      points[LoopIndex(i+1)] += delta;
     }
-    if(i > 0)
+    if(is_closed_ || i > 0)
     {
-      points[i-1] += delta;
+      points[LoopIndex(static_cast<int>(i)-1)] += delta;
     }
   }
   else
@@ -59,11 +59,13 @@ void BezierPath2::MovePoint(size_t i, const vec2f& delta)
     // point is control point, move the opposite point
     const int corresponding_control_index = IsAnchorPoint(i+1) ? i+2 : i-2;
     const int anchor_index = IsAnchorPoint(i+1) ? i+1 : i-1;
-    if(corresponding_control_index >= 0 && corresponding_control_index < points.size())
+    if(is_closed_ || corresponding_control_index >= 0 && corresponding_control_index < points.size())
     {
-      const auto distance = vec2f::FromTo(points[corresponding_control_index], points[anchor_index]).GetLength();
-      const auto direction = vec2f::FromTo(points[i], points[anchor_index]).GetNormalized();
-      points[corresponding_control_index] = points[anchor_index] + distance*direction;
+      const auto cci = LoopIndex(corresponding_control_index);
+      const auto ai = LoopIndex(anchor_index);
+      const auto distance = vec2f::FromTo(points[cci], points[ai]).GetLength();
+      const auto direction = vec2f::FromTo(points[i], points[ai]).GetNormalized();
+      points[cci] = points[ai] + distance*direction;
     }
   }
 }
@@ -74,7 +76,7 @@ BezierSeg2 BezierPath2::GetPointsInSegment(size_t i) const
   return {
     points[b+0], // anchor
     points[b+1], //  ^ control
-    points[b+3], // anchor
+    points[LoopIndex(b+3)], // anchor
     points[b+2]  //  ^ control
   };
 }
@@ -82,5 +84,41 @@ BezierSeg2 BezierPath2::GetPointsInSegment(size_t i) const
 size_t BezierPath2::GetNumberOfSegments() const
 {
   return points.size()/3;
+}
+
+void BezierPath2::SetClosed(bool is_closed)
+{
+  if(is_closed_ == is_closed )
+  {
+    return;
+  }
+
+  is_closed_ = is_closed;
+
+  if(is_closed)
+  {
+    //              anchor                    control                                anchor (again)
+    const auto p1 = points[points.size()-1] + vec2f::FromTo(points[points.size()-2], points[points.size()-1]);
+    const auto p2 = points[0              ] + vec2f::FromTo(points[1              ], points[0              ]);
+    points.push_back(p1);
+    points.push_back(p2);
+  }
+  else
+  {
+    points.pop_back();
+    points.pop_back();
+  }
+}
+
+void BezierPath2::ToggleClosed()
+{
+  SetClosed(!is_closed_);
+}
+
+
+size_t BezierPath2::LoopIndex(int i) const
+{
+  const auto s = points.size();
+  return (s+i)%s;
 }
 

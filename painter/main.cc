@@ -222,6 +222,11 @@ main(int argc, char** argv)
         {
           path.AddPoint(C(p));
         }
+        auto ic = path.is_closed_;
+        if(ImGui::Checkbox("Is closed", &ic))
+        {
+          path.ToggleClosed();
+        }
         ImGui::EndPopup();
       }
     }
