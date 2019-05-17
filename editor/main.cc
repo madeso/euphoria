@@ -650,7 +650,7 @@ main(int argc, char** argv)
 
     // ImGui::ShowMetricsWindow();
 
-    engine.init->ClearScreen(Color::Wheat);
+    engine.init->ClearScreen(Color::LightGray);
     engine.imgui->Render();
 
     RemoveMatching(&windows, [](const std::shared_ptr<GenericWindow>& window) {
