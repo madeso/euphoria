@@ -4,295 +4,964 @@
 
 LOG_SPECIFY_DEFAULT_LOGGER("core.colors")
 
-#define HEXCODE(x) x
+#define HEX(x) x
 
 unsigned int
 ToColorHex(Color color)
 {
   switch(color)
   {
-    case Color::White:
-      return HEXCODE(0xffffff);
-    case Color::Silver:
-      return HEXCODE(0xc0c0c0);
-    case Color::Gray:
-      return HEXCODE(0x808080);
-    case Color::Black:
-      return HEXCODE(0x000000);
-    case Color::Navy:
-      return HEXCODE(0x000080);
-    case Color::Blue:
-      return HEXCODE(0x0000ff);
-    case Color::Aqua:
-      return HEXCODE(0x00ffff);
-    case Color::Teal:
-      return HEXCODE(0x008080);
-    case Color::Green:
-      return HEXCODE(0x008000);
-    case Color::Olive:
-      return HEXCODE(0x808000);
-    case Color::Lime:
-      return HEXCODE(0x00ff00);
-    case Color::Maroon:
-      return HEXCODE(0x800000);
-    case Color::Red:
-      return HEXCODE(0xff0000);
-    case Color::Orange:
-      return HEXCODE(0xffa500);
-    case Color::Yellow:
-      return HEXCODE(0xffff00);
-    case Color::Purple:
-      return HEXCODE(0x800080);
-    case Color::Fuchsia:
-      return HEXCODE(0xff00ff);
-    case Color::AliceBlue:
-      return HEXCODE(0xf0f8ff);
-    case Color::AntiqueWhite:
-      return HEXCODE(0xfaebd7);
-    case Color::AquaMarine:
-      return HEXCODE(0x7fffd4);
-    case Color::Azure:
-      return HEXCODE(0xf0ffff);
-    case Color::Beige:
-      return HEXCODE(0xf5f5dc);
-    case Color::Bisque:
-      return HEXCODE(0xffe4c4);
-    case Color::BlanchedAlmond:
-      return HEXCODE(0xffebcd);
-    case Color::BlueViolet:
-      return HEXCODE(0x8a2be2);
-    case Color::Brown:
-      return HEXCODE(0xa52a2a);
-    case Color::BurlyWood:
-      return HEXCODE(0xdeb887);
-    case Color::CadetBlue:
-      return HEXCODE(0x5f9ea0);
-    case Color::Chartreuse:
-      return HEXCODE(0x7fff00);
-    case Color::Chocolate:
-      return HEXCODE(0xd2691e);
-    case Color::Coral:
-      return HEXCODE(0xff7f50);
-    case Color::CornflowerBlue:
-      return HEXCODE(0x6495ed);
-    case Color::Cornsilk:
-      return HEXCODE(0xfff8dc);
-    case Color::Crimson:
-      return HEXCODE(0xdc143c);
-    case Color::Cyan:
-      return HEXCODE(0x00ffff);
-    case Color::Darkblue:
-      return HEXCODE(0x00008b);
-    case Color::Darkcyan:
-      return HEXCODE(0x008b8b);
-    case Color::DarkGoldenRod:
-      return HEXCODE(0xb8860b);
-    case Color::Darkgray:
-      return HEXCODE(0xa9a9a9);
-    case Color::Darkgreen:
-      return HEXCODE(0x006400);
-    case Color::DarKkhaki:
-      return HEXCODE(0xbdb76b);
-    case Color::DarkMagenta:
-      return HEXCODE(0x8b008b);
-    case Color::DarkOliveGreen:
-      return HEXCODE(0x556b2f);
-    case Color::DarkOrange:
-      return HEXCODE(0xff8c00);
-    case Color::DarkOrchid:
-      return HEXCODE(0x9932cc);
-    case Color::DarkRed:
-      return HEXCODE(0x8b0000);
-    case Color::DarkSalmon:
-      return HEXCODE(0xe9967a);
-    case Color::DarkSeaGreen:
-      return HEXCODE(0x8fbc8f);
-    case Color::DarkslateBlue:
-      return HEXCODE(0x483d8b);
-    case Color::DarkslateGray:
-      return HEXCODE(0x2f4f4f);
-    case Color::DarkTurquoise:
-      return HEXCODE(0x00ced1);
-    case Color::DarkBiolet:
-      return HEXCODE(0x9400d3);
-    case Color::DeeppInk:
-      return HEXCODE(0xff1493);
-    case Color::DeepskyBlue:
-      return HEXCODE(0x00bfff);
-    case Color::DimGray:
-      return HEXCODE(0x696969);
-    case Color::DodgerBlue:
-      return HEXCODE(0x1e90ff);
-    case Color::FireBrick:
-      return HEXCODE(0xb22222);
-    case Color::FloralWhite:
-      return HEXCODE(0xfffaf0);
-    case Color::ForestGreen:
-      return HEXCODE(0x228b22);
-    case Color::Gainsboro:
-      return HEXCODE(0xdcdcdc);
-    case Color::GhostWhite:
-      return HEXCODE(0xf8f8ff);
-    case Color::Gold:
-      return HEXCODE(0xffd700);
-    case Color::GoldenRod:
-      return HEXCODE(0xdaa520);
-    case Color::GreenYellow:
-      return HEXCODE(0xadff2f);
-    case Color::Honeydew:
-      return HEXCODE(0xf0fff0);
-    case Color::Hotpink:
-      return HEXCODE(0xff69b4);
-    case Color::IndianRed:
-      return HEXCODE(0xcd5c5c);
-    case Color::Indigo:
-      return HEXCODE(0x4b0082);
-    case Color::Ivory:
-      return HEXCODE(0xfffff0);
-    case Color::Khaki:
-      return HEXCODE(0xf0e68c);
-    case Color::Lavender:
-      return HEXCODE(0xe6e6fa);
-    case Color::LavenderBlush:
-      return HEXCODE(0xfff0f5);
-    case Color::Lawngreen:
-      return HEXCODE(0x7cfc00);
-    case Color::LemonChiffon:
-      return HEXCODE(0xfffacd);
-    case Color::LightBlue:
-      return HEXCODE(0xadd8e6);
-    case Color::LightCoral:
-      return HEXCODE(0xf08080);
-    case Color::LightCyan:
-      return HEXCODE(0xe0ffff);
-    case Color::LightGoldenRodYellow:
-      return HEXCODE(0xfafad2);
-    case Color::LightGray:
-      return HEXCODE(0xd3d3d3);
-    case Color::LightGreen:
-      return HEXCODE(0x90ee90);
-    case Color::LightPink:
-      return HEXCODE(0xffb6c1);
-    case Color::LightSalmon:
-      return HEXCODE(0xffa07a);
-    case Color::LightSeaGreen:
-      return HEXCODE(0x20b2aa);
-    case Color::LightskyBlue:
-      return HEXCODE(0x87cefa);
-    case Color::LightslateGray:
-      return HEXCODE(0x778899);
-    case Color::LightSteelBlue:
-      return HEXCODE(0xb0c4de);
-    case Color::LightYellow:
-      return HEXCODE(0xffffe0);
-    case Color::LimeGreen:
-      return HEXCODE(0x32cd32);
-    case Color::Linen:
-      return HEXCODE(0xfaf0e6);
-    case Color::Magenta:
-      return HEXCODE(0xff00ff);
-    case Color::MediumAquaMarine:
-      return HEXCODE(0x66cdaa);
-    case Color::MediumBlue:
-      return HEXCODE(0x0000cd);
-    case Color::MediumOrchid:
-      return HEXCODE(0xba55d3);
-    case Color::MediumPurple:
-      return HEXCODE(0x9370db);
-    case Color::MediumSeaGreen:
-      return HEXCODE(0x3cb371);
-    case Color::MediumslateBlue:
-      return HEXCODE(0x7b68ee);
-    case Color::MediumSpringGreen:
-      return HEXCODE(0x00fa9a);
-    case Color::MediumTurquoise:
-      return HEXCODE(0x48d1cc);
-    case Color::MediumVioletRed:
-      return HEXCODE(0xc71585);
-    case Color::MidnightBlue:
-      return HEXCODE(0x191970);
-    case Color::Mintcream:
-      return HEXCODE(0xf5fffa);
-    case Color::Mistyrose:
-      return HEXCODE(0xffe4e1);
-    case Color::Moccasin:
-      return HEXCODE(0xffe4b5);
-    case Color::NavajoWhite:
-      return HEXCODE(0xffdead);
-    case Color::Oldlace:
-      return HEXCODE(0xfdf5e6);
-    case Color::OliveDrab:
-      return HEXCODE(0x6b8e23);
-    case Color::OrangeRed:
-      return HEXCODE(0xff4500);
-    case Color::Orchid:
-      return HEXCODE(0xda70d6);
-    case Color::PaleGoldenRod:
-      return HEXCODE(0xeee8aa);
-    case Color::PaleGreen:
-      return HEXCODE(0x98fb98);
-    case Color::PaleTurquoise:
-      return HEXCODE(0xafeeee);
-    case Color::PaleVioletRed:
-      return HEXCODE(0xdb7093);
-    case Color::Papayawhip:
-      return HEXCODE(0xffefd5);
-    case Color::Peachpuff:
-      return HEXCODE(0xffdab9);
-    case Color::Peru:
-      return HEXCODE(0xcd853f);
-    case Color::Pink:
-      return HEXCODE(0xffc0cb);
-    case Color::Plum:
-      return HEXCODE(0xdda0dd);
-    case Color::PowderBlue:
-      return HEXCODE(0xb0e0e6);
-    case Color::Rosybrown:
-      return HEXCODE(0xbc8f8f);
-    case Color::Royalblue:
-      return HEXCODE(0x4169e1);
-    case Color::SaddleBrown:
-      return HEXCODE(0x8b4513);
-    case Color::Salmon:
-      return HEXCODE(0xfa8072);
-    case Color::SandyBrown:
-      return HEXCODE(0xf4a460);
-    case Color::Seagreen:
-      return HEXCODE(0x2e8b57);
-    case Color::Seashell:
-      return HEXCODE(0xfff5ee);
-    case Color::Sienna:
-      return HEXCODE(0xa0522d);
-    case Color::SkyBlue:
-      return HEXCODE(0x87ceeb);
-    case Color::SlateBlue:
-      return HEXCODE(0x6a5acd);
-    case Color::SlateGray:
-      return HEXCODE(0x708090);
-    case Color::Snow:
-      return HEXCODE(0xfffafa);
-    case Color::SpringGreen:
-      return HEXCODE(0x00ff7f);
-    case Color::SteelBlue:
-      return HEXCODE(0x4682b4);
-    case Color::Tan:
-      return HEXCODE(0xd2b48c);
-    case Color::Thistle:
-      return HEXCODE(0xd8bfd8);
-    case Color::Tomato:
-      return HEXCODE(0xff6347);
-    case Color::Turquoise:
-      return HEXCODE(0x40e0d0);
-    case Color::Violet:
-      return HEXCODE(0xee82ee);
-    case Color::Wheat:
-      return HEXCODE(0xf5deb3);
-    case Color::WhiteSmoke:
-      return HEXCODE(0xf5f5f5);
-    case Color::YellowGreen:
-      return HEXCODE(0x9acd32);
+    case Color::CloudyBlue           : return HEX(0xACC2D9);
+    case Color::DarkPastelGreen      : return HEX(0x56AE57);
+    case Color::Dust                 : return HEX(0xB2996E);
+    case Color::ElectricLime         : return HEX(0xA8FF04);
+    case Color::FreshGreen           : return HEX(0x69D84F);
+    case Color::LightEggplant        : return HEX(0x894585);
+    case Color::NastyGreen           : return HEX(0x70B23F);
+    case Color::ReallyLightBlue      : return HEX(0xD4FFFF);
+    case Color::Tea                  : return HEX(0x65AB7C);
+    case Color::WarmPurple           : return HEX(0x952E8F);
+    case Color::YellowishTan         : return HEX(0xFCFC81);
+    case Color::Cement               : return HEX(0xA5A391);
+    case Color::DarkGrassGreen       : return HEX(0x388004);
+    case Color::DustyTeal            : return HEX(0x4C9085);
+    case Color::GrayTeal             : return HEX(0x5E9B8A);
+    case Color::MacaroniAndCheese    : return HEX(0xEFB435);
+    case Color::PinkishTan           : return HEX(0xD99B82);
+    case Color::Spruce               : return HEX(0x0A5F38);
+    case Color::StrongBlue           : return HEX(0x0C06F7);
+    case Color::ToxicGreen           : return HEX(0x61DE2A);
+    case Color::WindowsBlue          : return HEX(0x3778BF);
+    case Color::BlueBlue             : return HEX(0x2242C7);
+    case Color::BlueWithAHintOfPurple: return HEX(0x533CC6);
+    case Color::Booger               : return HEX(0x9BB53C);
+    case Color::BrightSeaGreen       : return HEX(0x05FFA6);
+    case Color::DarkGreenBlue        : return HEX(0x1F6357);
+    case Color::DeepTurquoise        : return HEX(0x017374);
+    case Color::GreenTeal            : return HEX(0x0CB577);
+    case Color::StrongPink           : return HEX(0xFF0789);
+    case Color::Bland                : return HEX(0xAFA88B);
+    case Color::DeepAqua             : return HEX(0x08787F);
+    case Color::LavenderPink         : return HEX(0xDD85D7);
+    case Color::LightMossGreen       : return HEX(0xA6C875);
+    case Color::LightSeafoamGreen    : return HEX(0xA7FFB5);
+    case Color::OliveYellow          : return HEX(0xC2B709);
+    case Color::PigPink              : return HEX(0xE78EA5);
+    case Color::DeepLilac            : return HEX(0x966EBD);
+    case Color::Desert               : return HEX(0xCCAD60);
+    case Color::DustyLavender        : return HEX(0xAC86A8);
+    case Color::PurpleyGray          : return HEX(0x947E94);
+    case Color::Purply               : return HEX(0x983FB2);
+    case Color::CandyPink            : return HEX(0xFF63E9);
+    case Color::LightPastelGreen     : return HEX(0xB2FBA5);
+    case Color::BoringGreen          : return HEX(0x63B365);
+    case Color::KiwiGreen            : return HEX(0x8EE53F);
+    case Color::LightGrayGreen       : return HEX(0xB7E1A1);
+    case Color::OrangePink           : return HEX(0xFF6F52);
+    case Color::TeaGreen             : return HEX(0xBDF8A3);
+    case Color::VeryLightBrown       : return HEX(0xD3B683);
+    case Color::EggShell             : return HEX(0xFFFCC4);
+    case Color::EggplantPurple       : return HEX(0x430541);
+    case Color::PowderPink           : return HEX(0xFFB2D0);
+    case Color::ReddishGray          : return HEX(0x997570);
+    case Color::BabyShitBrown        : return HEX(0xAD900D);
+    case Color::Liliac               : return HEX(0xC48EFD);
+    case Color::StormyBlue           : return HEX(0x507B9C);
+    case Color::UglyBrown            : return HEX(0x7D7103);
+    case Color::Custard              : return HEX(0xFFFD78);
+    case Color::DarkishPink          : return HEX(0xDA467D);
+    case Color::DeepBrown            : return HEX(0x410200);
+    case Color::GreenishBeige        : return HEX(0xC9D179);
+    case Color::Manilla              : return HEX(0xFFFA86);
+    case Color::OffBlue              : return HEX(0x5684AE);
+    case Color::BattleshipGray       : return HEX(0x6B7C85);
+    case Color::BrownyGreen          : return HEX(0x6F6C0A);
+    case Color::Bruise               : return HEX(0x7E4071);
+    case Color::KelleyGreen          : return HEX(0x009337);
+    case Color::SicklyYellow         : return HEX(0xD0E429);
+    case Color::SunnyYellow          : return HEX(0xFFF917);
+    case Color::Azul                 : return HEX(0x1D5DEC);
+    case Color::Darkgreen            : return HEX(0x054907);
+    case Color::GreenOrYellow        : return HEX(0xB5CE08);
+    case Color::Lichen               : return HEX(0x8FB67B);
+    case Color::LightLightGreen      : return HEX(0xC8FFB0);
+    case Color::PaleGold             : return HEX(0xFDDE6C);
+    case Color::SunYellow            : return HEX(0xFFDF22);
+    case Color::TanGreen             : return HEX(0xA9BE70);
+    case Color::Burple               : return HEX(0x6832E3);
+    case Color::Butterscotch         : return HEX(0xFDB147);
+    case Color::Toupe                : return HEX(0xC7AC7D);
+    case Color::DarkCream            : return HEX(0xFFF39A);
+    case Color::IndianRed            : return HEX(0x850E04);
+    case Color::LightLavendar        : return HEX(0xEFC0FE);
+    case Color::PoisonGreen          : return HEX(0x40FD14);
+    case Color::BabyPukeGreen        : return HEX(0xB6C406);
+    case Color::BrightYellowGreen    : return HEX(0x9DFF00);
+    case Color::CharcoalGray         : return HEX(0x3C4142);
+    case Color::Squash               : return HEX(0xF2AB15);
+    case Color::Cinnamon             : return HEX(0xAC4F06);
+    case Color::LightPeaGreen        : return HEX(0xC4FE82);
+    case Color::RadioactiveGreen     : return HEX(0x2CFA1F);
+    case Color::RawSienna            : return HEX(0x9A6200);
+    case Color::BabyPurple           : return HEX(0xCA9BF7);
+    case Color::Cocoa                : return HEX(0x875F42);
+    case Color::LightRoyalBlue       : return HEX(0x3A2EFE);
+    case Color::Orangeish            : return HEX(0xFD8D49);
+    case Color::RustBrown            : return HEX(0x8B3103);
+    case Color::SandBrown            : return HEX(0xCBA560);
+    case Color::Swamp                : return HEX(0x698339);
+    case Color::TealishGreen         : return HEX(0x0CDC73);
+    case Color::BurntSiena           : return HEX(0xB75203);
+    case Color::Camo                 : return HEX(0x7F8F4E);
+    case Color::DuskBlue             : return HEX(0x26538D);
+    case Color::Fern                 : return HEX(0x63A950);
+    case Color::OldRose              : return HEX(0xC87F89);
+    case Color::PaleLightGreen       : return HEX(0xB1FC99);
+    case Color::PeachyPink           : return HEX(0xFF9A8A);
+    case Color::RosyPink             : return HEX(0xF6688E);
+    case Color::LightBluishGreen     : return HEX(0x76FDA8);
+    case Color::LightBrightGreen     : return HEX(0x53FE5C);
+    case Color::LightNeonGreen       : return HEX(0x4EFD54);
+    case Color::LightSeafoam         : return HEX(0xA0FEBF);
+    case Color::TiffanyBlue          : return HEX(0x7BF2DA);
+    case Color::WashedOutGreen       : return HEX(0xBCF5A6);
+    case Color::BrownyOrange         : return HEX(0xCA6B02);
+    case Color::NiceBlue             : return HEX(0x107AB0);
+    case Color::Sapphire             : return HEX(0x2138AB);
+    case Color::GrayishTeal          : return HEX(0x719F91);
+    case Color::OrangeyYellow        : return HEX(0xFDB915);
+    case Color::Parchment            : return HEX(0xFEFCAF);
+    case Color::Straw                : return HEX(0xFCF679);
+    case Color::VeryDarkBrown        : return HEX(0x1D0200);
+    case Color::Terracota            : return HEX(0xCB6843);
+    case Color::UglyBlue             : return HEX(0x31668A);
+    case Color::ClearBlue            : return HEX(0x247AFD);
+    case Color::Creme                : return HEX(0xFFFFB6);
+    case Color::FoamGreen            : return HEX(0x90FDA9);
+    case Color::GrayOrGreen          : return HEX(0x86A17D);
+    case Color::LightGold            : return HEX(0xFDDC5C);
+    case Color::SeafoamBlue          : return HEX(0x78D1B6);
+    case Color::Topaz                : return HEX(0x13BBAF);
+    case Color::VioletPink           : return HEX(0xFB5FFC);
+    case Color::Wintergreen          : return HEX(0x20F986);
+    case Color::YellowTan            : return HEX(0xFFE36E);
+    case Color::DarkFuchsia          : return HEX(0x9D0759);
+    case Color::IndigoBlue           : return HEX(0x3A18B1);
+    case Color::LightYellowishGreen  : return HEX(0xC2FF89);
+    case Color::PaleMagenta          : return HEX(0xD767AD);
+    case Color::RichPurple           : return HEX(0x720058);
+    case Color::SunflowerYellow      : return HEX(0xFFDA03);
+    case Color::GreenOrBlue          : return HEX(0x01C08D);
+    case Color::Leather              : return HEX(0xAC7434);
+    case Color::RacingGreen          : return HEX(0x014600);
+    case Color::VividPurple          : return HEX(0x9900FA);
+    case Color::DarkRoyalBlue        : return HEX(0x02066F);
+    case Color::Hazel                : return HEX(0x8E7618);
+    case Color::MutedPink            : return HEX(0xD1768F);
+    case Color::BoogerGreen          : return HEX(0x96B403);
+    case Color::Canary               : return HEX(0xFDFF63);
+    case Color::CoolGray             : return HEX(0x95A3A6);
+    case Color::DarkTaupe            : return HEX(0x7F684E);
+    case Color::DarkishPurple        : return HEX(0x751973);
+    case Color::TrueGreen            : return HEX(0x089404);
+    case Color::CoralPink            : return HEX(0xFF6163);
+    case Color::DarkSage             : return HEX(0x598556);
+    case Color::DarkSlateBlue        : return HEX(0x214761);
+    case Color::FlatBlue             : return HEX(0x3C73A8);
+    case Color::Mushroom             : return HEX(0xBA9E88);
+    case Color::RichBlue             : return HEX(0x021BF9);
+    case Color::DirtyPurple          : return HEX(0x734A65);
+    case Color::Greenblue            : return HEX(0x23C48B);
+    case Color::IckyGreen            : return HEX(0x8FAE22);
+    case Color::LightKhaki           : return HEX(0xE6F2A2);
+    case Color::WarmBlue             : return HEX(0x4B57DB);
+    case Color::DarkHotPink          : return HEX(0xD90166);
+    case Color::DeepSeaBlue          : return HEX(0x015482);
+    case Color::Carmine              : return HEX(0x9D0216);
+    case Color::DarkYellowGreen      : return HEX(0x728F02);
+    case Color::PalePeach            : return HEX(0xFFE5AD);
+    case Color::PlumPurple           : return HEX(0x4E0550);
+    case Color::GoldenRod            : return HEX(0xF9BC08);
+    case Color::NeonRed              : return HEX(0xFF073A);
+    case Color::OldPink              : return HEX(0xC77986);
+    case Color::VeryPaleBlue         : return HEX(0xD6FFFE);
+    case Color::BloodOrange          : return HEX(0xFE4B03);
+    case Color::Grapefruit           : return HEX(0xFD5956);
+    case Color::SandYellow           : return HEX(0xFCE166);
+    case Color::ClayBrown            : return HEX(0xB2713D);
+    case Color::DarkBlueGray         : return HEX(0x1F3B4D);
+    case Color::FlatGreen            : return HEX(0x699D4C);
+    case Color::LightGreenBlue       : return HEX(0x56FCA2);
+    case Color::WarmPink             : return HEX(0xFB5581);
+    case Color::DodgerBlue           : return HEX(0x3E82FC);
+    case Color::GrossGreen           : return HEX(0xA0BF16);
+    case Color::Ice                  : return HEX(0xD6FFFA);
+    case Color::MetallicBlue         : return HEX(0x4F738E);
+    case Color::PaleSalmon           : return HEX(0xFFB19A);
+    case Color::SapGreen             : return HEX(0x5C8B15);
+    case Color::Algae                : return HEX(0x54AC68);
+    case Color::BlueyGray            : return HEX(0x89A0B0);
+    case Color::GreenyGray           : return HEX(0x7EA07A);
+    case Color::HighlighterGreen     : return HEX(0x1BFC06);
+    case Color::LightLightBlue       : return HEX(0xCAFFFB);
+    case Color::LightMint            : return HEX(0xB6FFBB);
+    case Color::RawUmber             : return HEX(0xA75E09);
+    case Color::VividBlue            : return HEX(0x152EFF);
+    case Color::DeepLavender         : return HEX(0x8D5EB7);
+    case Color::DullTeal             : return HEX(0x5F9E8F);
+    case Color::LightGreenishBlue    : return HEX(0x63F7B4);
+    case Color::MudGreen             : return HEX(0x606602);
+    case Color::Pinky                : return HEX(0xFC86AA);
+    case Color::RedWine              : return HEX(0x8C0034);
+    case Color::ShitGreen            : return HEX(0x758000);
+    case Color::TanBrown             : return HEX(0xAB7E4C);
+    case Color::Darkblue             : return HEX(0x030764);
+    case Color::Rosa                 : return HEX(0xFE86A4);
+    case Color::Lipstick             : return HEX(0xD5174E);
+    case Color::PaleMauve            : return HEX(0xFED0FC);
+    case Color::Claret               : return HEX(0x680018);
+    case Color::Dandelion            : return HEX(0xFEDF08);
+    case Color::Orangered            : return HEX(0xFE420F);
+    case Color::PoopGreen            : return HEX(0x6F7C00);
+    case Color::Ruby                 : return HEX(0xCA0147);
+    case Color::Dark                 : return HEX(0x1B2431);
+    case Color::GreenishTurquoise    : return HEX(0x00FBB0);
+    case Color::PastelRed            : return HEX(0xDB5856);
+    case Color::PissYellow           : return HEX(0xDDD618);
+    case Color::BrightCyan           : return HEX(0x41FDFE);
+    case Color::DarkCoral            : return HEX(0xCF524E);
+    case Color::AlgaeGreen           : return HEX(0x21C36F);
+    case Color::DarkishRed           : return HEX(0xA90308);
+    case Color::ReddyBrown           : return HEX(0x6E1005);
+    case Color::BlushPink            : return HEX(0xFE828C);
+    case Color::CamouflageGreen      : return HEX(0x4B6113);
+    case Color::LawnGreen            : return HEX(0x4DA409);
+    case Color::Putty                : return HEX(0xBEAE8A);
+    case Color::VibrantBlue          : return HEX(0x0339F8);
+    case Color::DarkSand             : return HEX(0xA88F59);
+    case Color::PurpleOrBlue         : return HEX(0x5D21D0);
+    case Color::Saffron              : return HEX(0xFEB209);
+    case Color::Twilight             : return HEX(0x4E518B);
+    case Color::WarmBrown            : return HEX(0x964E02);
+    case Color::Bluegray             : return HEX(0x85A3B2);
+    case Color::BubbleGumPink        : return HEX(0xFF69AF);
+    case Color::DuckEggBlue          : return HEX(0xC3FBF4);
+    case Color::GreenishCyan         : return HEX(0x2AFEB7);
+    case Color::Petrol               : return HEX(0x005F6A);
+    case Color::Royal                : return HEX(0x0C1793);
+    case Color::Butter               : return HEX(0xFFFF81);
+    case Color::DustyOrange          : return HEX(0xF0833A);
+    case Color::OffYellow            : return HEX(0xF1F33F);
+    case Color::PaleOliveGreen       : return HEX(0xB1D27B);
+    case Color::Orangish             : return HEX(0xFC824A);
+    case Color::Leaf                 : return HEX(0x71AA34);
+    case Color::LightBlueGray        : return HEX(0xB7C9E2);
+    case Color::DriedBlood           : return HEX(0x4B0101);
+    case Color::LightishPurple       : return HEX(0xA552E6);
+    case Color::RustyRed             : return HEX(0xAF2F0D);
+    case Color::LavenderBlue         : return HEX(0x8B88F8);
+    case Color::LightGrassGreen      : return HEX(0x9AF764);
+    case Color::LightMintGreen       : return HEX(0xA6FBB2);
+    case Color::Sunflower            : return HEX(0xFFC512);
+    case Color::Velvet               : return HEX(0x750851);
+    case Color::BrickOrange          : return HEX(0xC14A09);
+    case Color::LightishRed          : return HEX(0xFE2F4A);
+    case Color::PureBlue             : return HEX(0x0203E2);
+    case Color::TwilightBlue         : return HEX(0x0A437A);
+    case Color::VioletRed            : return HEX(0xA50055);
+    case Color::YellowyBrown         : return HEX(0xAE8B0C);
+    case Color::Carnation            : return HEX(0xFD798F);
+    case Color::MuddyYellow          : return HEX(0xBFAC05);
+    case Color::DarkSeafoamGreen     : return HEX(0x3EAF76);
+    case Color::DeepRose             : return HEX(0xC74767);
+    case Color::DustyRed             : return HEX(0xB9484E);
+    case Color::GrayOrBlue           : return HEX(0x647D8E);
+    case Color::LemonLime            : return HEX(0xBFFE28);
+    case Color::PurpleOrPink         : return HEX(0xD725DE);
+    case Color::BrownYellow          : return HEX(0xB29705);
+    case Color::PurpleBrown          : return HEX(0x673A3F);
+    case Color::Wisteria             : return HEX(0xA87DC2);
+    case Color::BananaYellow         : return HEX(0xFAFE4B);
+    case Color::LipstickRed          : return HEX(0xC0022F);
+    case Color::WaterBlue            : return HEX(0x0E87CC);
+    case Color::BrownGray            : return HEX(0x8D8468);
+    case Color::VibrantPurple        : return HEX(0xAD03DE);
+    case Color::BabyGreen            : return HEX(0x8CFF9E);
+    case Color::BarfGreen            : return HEX(0x94AC02);
+    case Color::EggshellBlue         : return HEX(0xC4FFF7);
+    case Color::SandyYellow          : return HEX(0xFDEE73);
+    case Color::CoolGreen            : return HEX(0x33B864);
+    case Color::Pale                 : return HEX(0xFFF9D0);
+    case Color::BlueOrGray           : return HEX(0x758DA3);
+    case Color::HotMagenta           : return HEX(0xF504C9);
+    case Color::Grayblue             : return HEX(0x77A1B5);
+    case Color::Purpley              : return HEX(0x8756E4);
+    case Color::BabyShitGreen        : return HEX(0x889717);
+    case Color::BrownishPink         : return HEX(0xC27E79);
+    case Color::DarkAquamarine       : return HEX(0x017371);
+    case Color::Diarrhea             : return HEX(0x9F8303);
+    case Color::LightMustard         : return HEX(0xF7D560);
+    case Color::PaleSkyBlue          : return HEX(0xBDF6FE);
+    case Color::TurtleGreen          : return HEX(0x75B84F);
+    case Color::BrightOlive          : return HEX(0x9CBB04);
+    case Color::DarkGrayBlue         : return HEX(0x29465B);
+    case Color::GreenyBrown          : return HEX(0x696006);
+    case Color::LemonGreen           : return HEX(0xADF802);
+    case Color::LightPeriwinkle      : return HEX(0xC1C6FC);
+    case Color::SeaweedGreen         : return HEX(0x35AD6B);
+    case Color::SunshineYellow       : return HEX(0xFFFD37);
+    case Color::UglyPurple           : return HEX(0xA442A0);
+    case Color::MediumPink           : return HEX(0xF36196);
+    case Color::PukeBrown            : return HEX(0x947706);
+    case Color::VeryLightPink        : return HEX(0xFFF4F2);
+    case Color::Viridian             : return HEX(0x1E9167);
+    case Color::Bile                 : return HEX(0xB5C306);
+    case Color::FadedYellow          : return HEX(0xFEFF7F);
+    case Color::VeryPaleGreen        : return HEX(0xCFFDBC);
+    case Color::VibrantGreen         : return HEX(0x0ADD08);
+    case Color::BrightLime           : return HEX(0x87FD05);
+    case Color::Spearmint            : return HEX(0x1EF876);
+    case Color::LightAquamarine      : return HEX(0x7BFDC7);
+    case Color::LightSage            : return HEX(0xBCECAC);
+    case Color::Yellowgreen          : return HEX(0xBBF90F);
+    case Color::BabyPoo              : return HEX(0xAB9004);
+    case Color::DarkSeafoam          : return HEX(0x1FB57A);
+    case Color::DeepTeal             : return HEX(0x00555A);
+    case Color::Heather              : return HEX(0xA484AC);
+    case Color::RustOrange           : return HEX(0xC45508);
+    case Color::DirtyBlue            : return HEX(0x3F829D);
+    case Color::FernGreen            : return HEX(0x548D44);
+    case Color::BrightLilac          : return HEX(0xC95EFB);
+    case Color::WeirdGreen           : return HEX(0x3AE57F);
+    case Color::PeacockBlue          : return HEX(0x016795);
+    case Color::AvocadoGreen         : return HEX(0x87A922);
+    case Color::FadedOrange          : return HEX(0xF0944D);
+    case Color::GrapePurple          : return HEX(0x5D1451);
+    case Color::HotGreen             : return HEX(0x25FF29);
+    case Color::LimeYellow           : return HEX(0xD0FE1D);
+    case Color::Mango                : return HEX(0xFFA62B);
+    case Color::Shamrock             : return HEX(0x01B44C);
+    case Color::Bubblegum            : return HEX(0xFF6CB5);
+    case Color::PurplishBrown        : return HEX(0x6B4247);
+    case Color::VomitYellow          : return HEX(0xC7C10C);
+    case Color::PaleCyan             : return HEX(0xB7FFFA);
+    case Color::KeyLime              : return HEX(0xAEFF6E);
+    case Color::TomatoRed            : return HEX(0xEC2D01);
+    case Color::LightGreen           : return HEX(0x76FF7B);
+    case Color::Merlot               : return HEX(0x730039);
+    case Color::NightBlue            : return HEX(0x040348);
+    case Color::PurpleishPink        : return HEX(0xDF4EC8);
+    case Color::Apple                : return HEX(0x6ECB3C);
+    case Color::BabyPoopGreen        : return HEX(0x8F9805);
+    case Color::GreenApple           : return HEX(0x5EDC1F);
+    case Color::Heliotrope           : return HEX(0xD94FF5);
+    case Color::YellowOrGreen        : return HEX(0xC8FD3D);
+    case Color::AlmostBlack          : return HEX(0x070D0D);
+    case Color::CoolBlue             : return HEX(0x4984B8);
+    case Color::LeafyGreen           : return HEX(0x51B73B);
+    case Color::MustardBrown         : return HEX(0xAC7E04);
+    case Color::Dusk                 : return HEX(0x4E5481);
+    case Color::DullBrown            : return HEX(0x876E4B);
+    case Color::FrogGreen            : return HEX(0x58BC08);
+    case Color::VividGreen           : return HEX(0x2FEF10);
+    case Color::BrightLightGreen     : return HEX(0x2DFE54);
+    case Color::FluroGreen           : return HEX(0x0AFF02);
+    case Color::Kiwi                 : return HEX(0x9CEF43);
+    case Color::Seaweed              : return HEX(0x18D17B);
+    case Color::NavyGreen            : return HEX(0x35530A);
+    case Color::UltramarineBlue      : return HEX(0x1805DB);
+    case Color::Iris                 : return HEX(0x6258C4);
+    case Color::PastelOrange         : return HEX(0xFF964F);
+    case Color::YellowishOrange      : return HEX(0xFFAB0F);
+    case Color::Perrywinkle          : return HEX(0x8F8CE7);
+    case Color::Tealish              : return HEX(0x24BCA8);
+    case Color::DarkPlum             : return HEX(0x3F012C);
+    case Color::Pear                 : return HEX(0xCBF85F);
+    case Color::PinkishOrange        : return HEX(0xFF724C);
+    case Color::MidnightPurple       : return HEX(0x280137);
+    case Color::LightUrple           : return HEX(0xB36FF6);
+    case Color::DarkMint             : return HEX(0x48C072);
+    case Color::GreenishTan          : return HEX(0xBCCB7A);
+    case Color::LightBurgundy        : return HEX(0xA8415B);
+    case Color::TurquoiseBlue        : return HEX(0x06B1C4);
+    case Color::UglyPink             : return HEX(0xCD7584);
+    case Color::Sandy                : return HEX(0xF1DA7A);
+    case Color::ElectricPink         : return HEX(0xFF0490);
+    case Color::MutedPurple          : return HEX(0x805B87);
+    case Color::MidGreen             : return HEX(0x50A747);
+    case Color::Grayish              : return HEX(0xA8A495);
+    case Color::NeonYellow           : return HEX(0xCFFF04);
+    case Color::Banana               : return HEX(0xFFFF7E);
+    case Color::CarnationPink        : return HEX(0xFF7FA7);
+    case Color::Tomato               : return HEX(0xEF4026);
+    case Color::Sea                  : return HEX(0x3C9992);
+    case Color::MuddyBrown           : return HEX(0x886806);
+    case Color::TurquoiseGreen       : return HEX(0x04F489);
+    case Color::Buff                 : return HEX(0xFEF69E);
+    case Color::Fawn                 : return HEX(0xCFAF7B);
+    case Color::MutedBlue            : return HEX(0x3B719F);
+    case Color::PaleRose             : return HEX(0xFDC1C5);
+    case Color::DarkMintGreen        : return HEX(0x20C073);
+    case Color::Amethyst             : return HEX(0x9B5FC0);
+    case Color::BlueOrGreen          : return HEX(0x0F9B8E);
+    case Color::Chestnut             : return HEX(0x742802);
+    case Color::SickGreen            : return HEX(0x9DB92C);
+    case Color::Pea                  : return HEX(0xA4BF20);
+    case Color::RustyOrange          : return HEX(0xCD5909);
+    case Color::Stone                : return HEX(0xADA587);
+    case Color::RoseRed              : return HEX(0xBE013C);
+    case Color::PaleAqua             : return HEX(0xB8FFEB);
+    case Color::DeepOrange           : return HEX(0xDC4D01);
+    case Color::Earth                : return HEX(0xA2653E);
+    case Color::MossyGreen           : return HEX(0x638B27);
+    case Color::GrassyGreen          : return HEX(0x419C03);
+    case Color::PaleLimeGreen        : return HEX(0xB1FF65);
+    case Color::LightGrayBlue        : return HEX(0x9DBCD4);
+    case Color::PaleGray             : return HEX(0xFDFDFE);
+    case Color::Asparagus            : return HEX(0x77AB56);
+    case Color::Blueberry            : return HEX(0x464196);
+    case Color::PurpleRed            : return HEX(0x990147);
+    case Color::PaleLime             : return HEX(0xBEFD73);
+    case Color::GreenishTeal         : return HEX(0x32BF84);
+    case Color::Caramel              : return HEX(0xAF6F09);
+    case Color::DeepMagenta          : return HEX(0xA0025C);
+    case Color::LightPeach           : return HEX(0xFFD8B1);
+    case Color::MilkChocolate        : return HEX(0x7F4E1E);
+    case Color::Ocher                : return HEX(0xBF9B0C);
+    case Color::OffGreen             : return HEX(0x6BA353);
+    case Color::PurplyPink           : return HEX(0xF075E6);
+    case Color::Lightblue            : return HEX(0x7BC8F6);
+    case Color::DuskyBlue            : return HEX(0x475F94);
+    case Color::Golden               : return HEX(0xF5BF03);
+    case Color::LightBeige           : return HEX(0xFFFEB6);
+    case Color::ButterYellow         : return HEX(0xFFFD74);
+    case Color::DuskyPurple          : return HEX(0x895B7B);
+    case Color::FrenchBlue           : return HEX(0x436BAD);
+    case Color::UglyYellow           : return HEX(0xD0C101);
+    case Color::GreenyYellow         : return HEX(0xC6F808);
+    case Color::OrangishRed          : return HEX(0xF43605);
+    case Color::ShamrockGreen        : return HEX(0x02C14D);
+    case Color::OrangishBrown        : return HEX(0xB25F03);
+    case Color::TreeGreen            : return HEX(0x2A7E19);
+    case Color::DeepViolet           : return HEX(0x490648);
+    case Color::Gunmetal             : return HEX(0x536267);
+    case Color::BlueOrPurple         : return HEX(0x5A06EF);
+    case Color::Cherry               : return HEX(0xCF0234);
+    case Color::SandyBrown           : return HEX(0xC4A661);
+    case Color::WarmGray             : return HEX(0x978A84);
+    case Color::DarkIndigo           : return HEX(0x1F0954);
+    case Color::Midnight             : return HEX(0x03012D);
+    case Color::BlueyGreen           : return HEX(0x2BB179);
+    case Color::GrayPink             : return HEX(0xC3909B);
+    case Color::SoftPurple           : return HEX(0xA66FB5);
+    case Color::Blood                : return HEX(0x770001);
+    case Color::BrownRed             : return HEX(0x922B05);
+    case Color::MediumGray           : return HEX(0x7D7F7C);
+    case Color::Berry                : return HEX(0x990F4B);
+    case Color::Poo                  : return HEX(0x8F7303);
+    case Color::PurpleyPink          : return HEX(0xC83CB9);
+    case Color::LightSalmon          : return HEX(0xFEA993);
+    case Color::Snot                 : return HEX(0xACBB0D);
+    case Color::EasterPurple         : return HEX(0xC071FE);
+    case Color::LightYellowGreen     : return HEX(0xCCFD7F);
+    case Color::DarkNavyBlue         : return HEX(0x00022E);
+    case Color::Drab                 : return HEX(0x828344);
+    case Color::LightRose            : return HEX(0xFFC5CB);
+    case Color::Rouge                : return HEX(0xAB1239);
+    case Color::PurplishRed          : return HEX(0xB0054B);
+    case Color::SlimeGreen           : return HEX(0x99CC04);
+    case Color::BabyPoop             : return HEX(0x937C00);
+    case Color::IrishGreen           : return HEX(0x019529);
+    case Color::PinkOrPurple         : return HEX(0xEF1DE7);
+    case Color::DarkNavy             : return HEX(0x000435);
+    case Color::GreenyBlue           : return HEX(0x42B395);
+    case Color::LightPlum            : return HEX(0x9D5783);
+    case Color::PinkishGray          : return HEX(0xC8ACA9);
+    case Color::DirtyOrange          : return HEX(0xC87606);
+    case Color::RustRed              : return HEX(0xAA2704);
+    case Color::PaleLilac            : return HEX(0xE4CBFF);
+    case Color::OrangeyRed           : return HEX(0xFA4224);
+    case Color::PrimaryBlue          : return HEX(0x0804F9);
+    case Color::KermitGreen          : return HEX(0x5CB200);
+    case Color::BrownishPurple       : return HEX(0x76424E);
+    case Color::MurkyGreen           : return HEX(0x6C7A0E);
+    case Color::Wheat                : return HEX(0xFBDD7E);
+    case Color::VeryDarkPurple       : return HEX(0x2A0134);
+    case Color::BottleGreen          : return HEX(0x044A05);
+    case Color::Watermelon           : return HEX(0xFD4659);
+    case Color::DeepSkyBlue          : return HEX(0x0D75F8);
+    case Color::FireEngineRed        : return HEX(0xFE0002);
+    case Color::YellowOchre          : return HEX(0xCB9D06);
+    case Color::PumpkinOrange        : return HEX(0xFB7D07);
+    case Color::PaleOlive            : return HEX(0xB9CC81);
+    case Color::LightLilac           : return HEX(0xEDC8FF);
+    case Color::LightishGreen        : return HEX(0x61E160);
+    case Color::CarolinaBlue         : return HEX(0x8AB8FE);
+    case Color::Mulberry             : return HEX(0x920A4E);
+    case Color::ShockingPink         : return HEX(0xFE02A2);
+    case Color::Auburn               : return HEX(0x9A3001);
+    case Color::BrightLimeGreen      : return HEX(0x65FE08);
+    case Color::Celadon              : return HEX(0xBEFDB7);
+    case Color::PinkishBrown         : return HEX(0xB17261);
+    case Color::PooBrown             : return HEX(0x885F01);
+    case Color::BrightSkyBlue        : return HEX(0x02CCFE);
+    case Color::Celery               : return HEX(0xC1FD95);
+    case Color::DirtBrown            : return HEX(0x836539);
+    case Color::Strawberry           : return HEX(0xFB2943);
+    case Color::DarkLime             : return HEX(0x84B701);
+    case Color::Copper               : return HEX(0xB66325);
+    case Color::MediumBrown          : return HEX(0x7F5112);
+    case Color::MutedGreen           : return HEX(0x5FA052);
+    case Color::RobinSEgg            : return HEX(0x6DEDFD);
+    case Color::BrightAqua           : return HEX(0x0BF9EA);
+    case Color::BrightLavender       : return HEX(0xC760FF);
+    case Color::Ivory                : return HEX(0xFFFFCB);
+    case Color::VeryLightPurple      : return HEX(0xF6CEFC);
+    case Color::LightNavy            : return HEX(0x155084);
+    case Color::PinkRed              : return HEX(0xF5054F);
+    case Color::OliveBrown           : return HEX(0x645403);
+    case Color::PoopBrown            : return HEX(0x7A5901);
+    case Color::MustardGreen         : return HEX(0xA8B504);
+    case Color::OceanGreen           : return HEX(0x3D9973);
+    case Color::VeryDarkBlue         : return HEX(0x000133);
+    case Color::DustyGreen           : return HEX(0x76A973);
+    case Color::LightNavyBlue        : return HEX(0x2E5A88);
+    case Color::MintyGreen           : return HEX(0x0BF77D);
+    case Color::Adobe                : return HEX(0xBD6C48);
+    case Color::Barney               : return HEX(0xAC1DB8);
+    case Color::JadeGreen            : return HEX(0x2BAF6A);
+    case Color::BrightLightBlue      : return HEX(0x26F7FD);
+    case Color::LightLime            : return HEX(0xAEFD6C);
+    case Color::DarkKhaki            : return HEX(0x9B8F55);
+    case Color::OrangeYellow         : return HEX(0xFFAD01);
+    case Color::Ocre                 : return HEX(0xC69C04);
+    case Color::Maize                : return HEX(0xF4D054);
+    case Color::FadedPink            : return HEX(0xDE9DAC);
+    case Color::BritishRacingGreen   : return HEX(0x05480D);
+    case Color::Sandstone            : return HEX(0xC9AE74);
+    case Color::MudBrown             : return HEX(0x60460F);
+    case Color::LightSeaGreen        : return HEX(0x98F6B0);
+    case Color::RobinEggBlue         : return HEX(0x8AF1FE);
+    case Color::AquaMarine           : return HEX(0x2EE8BB);
+    case Color::DarkSeaGreen         : return HEX(0x11875D);
+    case Color::SoftPink             : return HEX(0xFDB0C0);
+    case Color::OrangeyBrown         : return HEX(0xB16002);
+    case Color::CherryRed            : return HEX(0xF7022A);
+    case Color::BurntYellow          : return HEX(0xD5AB09);
+    case Color::BrownishGray         : return HEX(0x86775F);
+    case Color::Camel                : return HEX(0xC69F59);
+    case Color::PurplishGray         : return HEX(0x7A687F);
+    case Color::Marine               : return HEX(0x042E60);
+    case Color::GrayishPink          : return HEX(0xC88D94);
+    case Color::PaleTurquoise        : return HEX(0xA5FBD5);
+    case Color::PastelYellow         : return HEX(0xFFFE71);
+    case Color::BlueyPurple          : return HEX(0x6241C7);
+    case Color::CanaryYellow         : return HEX(0xFFFE40);
+    case Color::FadedRed             : return HEX(0xD3494E);
+    case Color::Sepia                : return HEX(0x985E2B);
+    case Color::Coffee               : return HEX(0xA6814C);
+    case Color::BrightMagenta        : return HEX(0xFF08E8);
+    case Color::Mocha                : return HEX(0x9D7651);
+    case Color::Ecru                 : return HEX(0xFEFFCA);
+    case Color::Purpleish            : return HEX(0x98568D);
+    case Color::Cranberry            : return HEX(0x9E003A);
+    case Color::DarkishGreen         : return HEX(0x287C37);
+    case Color::BrownOrange          : return HEX(0xB96902);
+    case Color::DuskyRose            : return HEX(0xBA6873);
+    case Color::Melon                : return HEX(0xFF7855);
+    case Color::SicklyGreen          : return HEX(0x94B21C);
+    case Color::Silver               : return HEX(0xC5C9C7);
+    case Color::PurplyBlue           : return HEX(0x661AEE);
+    case Color::PurpleishBlue        : return HEX(0x6140EF);
+    case Color::HospitalGreen        : return HEX(0x9BE5AA);
+    case Color::ShitBrown            : return HEX(0x7B5804);
+    case Color::MidBlue              : return HEX(0x276AB3);
+    case Color::Amber                : return HEX(0xFEB308);
+    case Color::EasterGreen          : return HEX(0x8CFD7E);
+    case Color::SoftBlue             : return HEX(0x6488EA);
+    case Color::CeruleanBlue         : return HEX(0x056EEE);
+    case Color::GoldenBrown          : return HEX(0xB27A01);
+    case Color::BrightTurquoise      : return HEX(0x0FFEF9);
+    case Color::RedPink              : return HEX(0xFA2A55);
+    case Color::RedPurple            : return HEX(0x820747);
+    case Color::GrayishBrown         : return HEX(0x7A6A4F);
+    case Color::Vermillion           : return HEX(0xF4320C);
+    case Color::Russet               : return HEX(0xA13905);
+    case Color::SteelGray            : return HEX(0x6F828A);
+    case Color::LighterPurple        : return HEX(0xA55AF4);
+    case Color::BrightViolet         : return HEX(0xAD0AFD);
+    case Color::PrussianBlue         : return HEX(0x004577);
+    case Color::SlateGreen           : return HEX(0x658D6D);
+    case Color::DirtyPink            : return HEX(0xCA7B80);
+    case Color::DarkBlueGreen        : return HEX(0x005249);
+    case Color::Pine                 : return HEX(0x2B5D34);
+    case Color::YellowyGreen         : return HEX(0xBFF128);
+    case Color::DarkGold             : return HEX(0xB59410);
+    case Color::Bluish               : return HEX(0x2976BB);
+    case Color::DarkishBlue          : return HEX(0x014182);
+    case Color::DullRed              : return HEX(0xBB3F3F);
+    case Color::PinkyRed             : return HEX(0xFC2647);
+    case Color::Bronze               : return HEX(0xA87900);
+    case Color::PaleTeal             : return HEX(0x82CBB2);
+    case Color::MilitaryGreen        : return HEX(0x667C3E);
+    case Color::BarbiePink           : return HEX(0xFE46A5);
+    case Color::BubblegumPink        : return HEX(0xFE83CC);
+    case Color::PeaSoupGreen         : return HEX(0x94A617);
+    case Color::DarkMustard          : return HEX(0xA88905);
+    case Color::Shit                 : return HEX(0x7F5F00);
+    case Color::MediumPurple         : return HEX(0x9E43A2);
+    case Color::VeryDarkGreen        : return HEX(0x062E03);
+    case Color::Dirt                 : return HEX(0x8A6E45);
+    case Color::DuskyPink            : return HEX(0xCC7A8B);
+    case Color::RedViolet            : return HEX(0x9E0168);
+    case Color::LemonYellow          : return HEX(0xFDFF38);
+    case Color::Pistachio            : return HEX(0xC0FA8B);
+    case Color::DullYellow           : return HEX(0xEEDC5B);
+    case Color::DarkLimeGreen        : return HEX(0x7EBD01);
+    case Color::DenimBlue            : return HEX(0x3B5B92);
+    case Color::TealBlue             : return HEX(0x01889F);
+    case Color::LightishBlue         : return HEX(0x3D7AFD);
+    case Color::PurpleyBlue          : return HEX(0x5F34E7);
+    case Color::LightIndigo          : return HEX(0x6D5ACF);
+    case Color::SwampGreen           : return HEX(0x748500);
+    case Color::BrownGreen           : return HEX(0x706C11);
+    case Color::DarkMaroon           : return HEX(0x3C0008);
+    case Color::HotPurple            : return HEX(0xCB00F5);
+    case Color::DarkForestGreen      : return HEX(0x002D04);
+    case Color::FadedBlue            : return HEX(0x658CBB);
+    case Color::DrabGreen            : return HEX(0x749551);
+    case Color::LightLimeGreen       : return HEX(0xB9FF66);
+    case Color::SnotGreen            : return HEX(0x9DC100);
+    case Color::Yellowish            : return HEX(0xFAEE66);
+    case Color::LightBlueGreen       : return HEX(0x7EFBB3);
+    case Color::Bordeaux             : return HEX(0x7B002C);
+    case Color::LightMauve           : return HEX(0xC292A1);
+    case Color::Ocean                : return HEX(0x017B92);
+    case Color::Marigold             : return HEX(0xFCC006);
+    case Color::MuddyGreen           : return HEX(0x657432);
+    case Color::DullOrange           : return HEX(0xD8863B);
+    case Color::Steel                : return HEX(0x738595);
+    case Color::ElectricPurple       : return HEX(0xAA23FF);
+    case Color::FluorescentGreen     : return HEX(0x08FF08);
+    case Color::YellowishBrown       : return HEX(0x9B7A01);
+    case Color::Blush                : return HEX(0xF29E8E);
+    case Color::SoftGreen            : return HEX(0x6FC276);
+    case Color::BrightOrange         : return HEX(0xFF5B00);
+    case Color::Lemon                : return HEX(0xFDFF52);
+    case Color::PurpleGray           : return HEX(0x866F85);
+    case Color::AcidGreen            : return HEX(0x8FFE09);
+    case Color::PaleLavender         : return HEX(0xEECFFE);
+    case Color::VioletBlue           : return HEX(0x510AC9);
+    case Color::LightForestGreen     : return HEX(0x4F9153);
+    case Color::BurntRed             : return HEX(0x9F2305);
+    case Color::KhakiGreen           : return HEX(0x728639);
+    case Color::Cerise               : return HEX(0xDE0C62);
+    case Color::FadedPurple          : return HEX(0x916E99);
+    case Color::Apricot              : return HEX(0xFFB16D);
+    case Color::DarkOliveGreen       : return HEX(0x3C4D03);
+    case Color::GrayBrown            : return HEX(0x7F7053);
+    case Color::GreenGray            : return HEX(0x77926F);
+    case Color::TrueBlue             : return HEX(0x010FCC);
+    case Color::PaleViolet           : return HEX(0xCEAEFA);
+    case Color::PeriwinkleBlue       : return HEX(0x8F99FB);
+    case Color::LightSkyBlue         : return HEX(0xC6FCFF);
+    case Color::Blurple              : return HEX(0x5539CC);
+    case Color::GreenBrown           : return HEX(0x544E03);
+    case Color::Bluegreen            : return HEX(0x017A79);
+    case Color::BrightTeal           : return HEX(0x01F9C6);
+    case Color::BrownishYellow       : return HEX(0xC9B003);
+    case Color::PeaSoup              : return HEX(0x929901);
+    case Color::Forest               : return HEX(0x0B5509);
+    case Color::BarneyPurple         : return HEX(0xA00498);
+    case Color::Ultramarine          : return HEX(0x2000B1);
+    case Color::Purplish             : return HEX(0x94568C);
+    case Color::PukeYellow           : return HEX(0xC2BE0E);
+    case Color::BluishGray           : return HEX(0x748B97);
+    case Color::DarkPeriwinkle       : return HEX(0x665FD1);
+    case Color::DarkLilac            : return HEX(0x9C6DA5);
+    case Color::Reddish              : return HEX(0xC44240);
+    case Color::LightMaroon          : return HEX(0xA24857);
+    case Color::DustyPurple          : return HEX(0x825F87);
+    case Color::TerraCotta           : return HEX(0xC9643B);
+    case Color::Avocado              : return HEX(0x90B134);
+    case Color::MarineBlue           : return HEX(0x01386A);
+    case Color::TealGreen            : return HEX(0x25A36F);
+    case Color::SlateGray            : return HEX(0x59656D);
+    case Color::LighterGreen         : return HEX(0x75FD63);
+    case Color::ElectricGreen        : return HEX(0x21FC0D);
+    case Color::DustyBlue            : return HEX(0x5A86AD);
+    case Color::GoldenYellow         : return HEX(0xFEC615);
+    case Color::BrightYellow         : return HEX(0xFFFD01);
+    case Color::LightLavender        : return HEX(0xDFC5FE);
+    case Color::Umber                : return HEX(0xB26400);
+    case Color::Poop                 : return HEX(0x7F5E00);
+    case Color::DarkPeach            : return HEX(0xDE7E5D);
+    case Color::JungleGreen          : return HEX(0x048243);
+    case Color::Eggshell             : return HEX(0xFFFFD4);
+    case Color::Denim                : return HEX(0x3B638C);
+    case Color::YellowBrown          : return HEX(0xB79400);
+    case Color::DullPurple           : return HEX(0x84597E);
+    case Color::ChocolateBrown       : return HEX(0x411900);
+    case Color::WineRed              : return HEX(0x7B0323);
+    case Color::NeonBlue             : return HEX(0x04D9FF);
+    case Color::DirtyGreen           : return HEX(0x667E2C);
+    case Color::LightTan             : return HEX(0xFBEEAC);
+    case Color::IceBlue              : return HEX(0xD7FFFE);
+    case Color::CadetBlue            : return HEX(0x4E7496);
+    case Color::DarkMauve            : return HEX(0x874C62);
+    case Color::VeryLightBlue        : return HEX(0xD5FFFF);
+    case Color::GrayPurple           : return HEX(0x826D8C);
+    case Color::PastelPink           : return HEX(0xFFBACD);
+    case Color::VeryLightGreen       : return HEX(0xD1FFBD);
+    case Color::DarkSkyBlue          : return HEX(0x448EE4);
+    case Color::Evergreen            : return HEX(0x05472A);
+    case Color::DullPink             : return HEX(0xD5869D);
+    case Color::Aubergine            : return HEX(0x3D0734);
+    case Color::Mahogany             : return HEX(0x4A0100);
+    case Color::ReddishOrange        : return HEX(0xF8481C);
+    case Color::DeepGreen            : return HEX(0x02590F);
+    case Color::VomitGreen           : return HEX(0x89A203);
+    case Color::PurplePink           : return HEX(0xE03FD8);
+    case Color::DustyPink            : return HEX(0xD58A94);
+    case Color::FadedGreen           : return HEX(0x7BB274);
+    case Color::CamoGreen            : return HEX(0x526525);
+    case Color::PinkyPurple          : return HEX(0xC94CBE);
+    case Color::PinkPurple           : return HEX(0xDB4BDA);
+    case Color::BrownishRed          : return HEX(0x9E3623);
+    case Color::DarkRose             : return HEX(0xB5485D);
+    case Color::Mud                  : return HEX(0x735C12);
+    case Color::Brownish             : return HEX(0x9C6D57);
+    case Color::EmeraldGreen         : return HEX(0x028F1E);
+    case Color::PaleBrown            : return HEX(0xB1916E);
+    case Color::DullBlue             : return HEX(0x49759C);
+    case Color::BurntUmber           : return HEX(0xA0450E);
+    case Color::MediumGreen          : return HEX(0x39AD48);
+    case Color::Clay                 : return HEX(0xB66A50);
+    case Color::LightAqua            : return HEX(0x8CFFDB);
+    case Color::LightOliveGreen      : return HEX(0xA4BE5C);
+    case Color::BrownishOrange       : return HEX(0xCB7723);
+    case Color::DarkAqua             : return HEX(0x05696B);
+    case Color::PurplishPink         : return HEX(0xCE5DAE);
+    case Color::DarkSalmon           : return HEX(0xC85A53);
+    case Color::GreenishGray         : return HEX(0x96AE8D);
+    case Color::Jade                 : return HEX(0x1FA774);
+    case Color::UglyGreen            : return HEX(0x7A9703);
+    case Color::DarkBeige            : return HEX(0xAC9362);
+    case Color::Emerald              : return HEX(0x01A049);
+    case Color::PaleRed              : return HEX(0xD9544D);
+    case Color::LightMagenta         : return HEX(0xFA5FF7);
+    case Color::Sky                  : return HEX(0x82CAFC);
+    case Color::LightCyan            : return HEX(0xACFFFC);
+    case Color::YellowOrange         : return HEX(0xFCB001);
+    case Color::ReddishPurple        : return HEX(0x910951);
+    case Color::ReddishPink          : return HEX(0xFE2C54);
+    case Color::Orchid               : return HEX(0xC875C4);
+    case Color::DirtyYellow          : return HEX(0xCDC50A);
+    case Color::OrangeRed            : return HEX(0xFD411E);
+    case Color::DeepRed              : return HEX(0x9A0200);
+    case Color::OrangeBrown          : return HEX(0xBE6400);
+    case Color::CobaltBlue           : return HEX(0x030AA7);
+    case Color::NeonPink             : return HEX(0xFE019A);
+    case Color::RosePink             : return HEX(0xF7879A);
+    case Color::GrayishPurple        : return HEX(0x887191);
+    case Color::Raspberry            : return HEX(0xB00149);
+    case Color::AquaGreen            : return HEX(0x12E193);
+    case Color::SalmonPink           : return HEX(0xFE7B7C);
+    case Color::Tangerine            : return HEX(0xFF9408);
+    case Color::BrownishGreen        : return HEX(0x6A6E09);
+    case Color::RedBrown             : return HEX(0x8B2E16);
+    case Color::GreenishBrown        : return HEX(0x696112);
+    case Color::Pumpkin              : return HEX(0xE17701);
+    case Color::PineGreen            : return HEX(0x0A481E);
+    case Color::Charcoal             : return HEX(0x343837);
+    case Color::BabyPink             : return HEX(0xFFB7CE);
+    case Color::Cornflower           : return HEX(0x6A79F7);
+    case Color::BlueViolet           : return HEX(0x5D06E9);
+    case Color::Chocolate            : return HEX(0x3D1C02);
+    case Color::GrayishGreen         : return HEX(0x82A67D);
+    case Color::Scarlet              : return HEX(0xBE0119);
+    case Color::GreenYellow          : return HEX(0xC9FF27);
+    case Color::DarkOlive            : return HEX(0x373E02);
+    case Color::Sienna               : return HEX(0xA9561E);
+    case Color::PastelPurple         : return HEX(0xCAA0FF);
+    case Color::Terracotta           : return HEX(0xCA6641);
+    case Color::AquaBlue             : return HEX(0x02D8E9);
+    case Color::SageGreen            : return HEX(0x88B378);
+    case Color::BloodRed             : return HEX(0x980002);
+    case Color::DeepPink             : return HEX(0xCB0162);
+    case Color::Grass                : return HEX(0x5CAC2D);
+    case Color::Moss                 : return HEX(0x769958);
+    case Color::PastelBlue           : return HEX(0xA2BFFE);
+    case Color::BluishGreen          : return HEX(0x10A674);
+    case Color::GreenBlue            : return HEX(0x06B48B);
+    case Color::DarkTan              : return HEX(0xAF884A);
+    case Color::GreenishBlue         : return HEX(0x0B8B87);
+    case Color::PaleOrange           : return HEX(0xFFA756);
+    case Color::Vomit                : return HEX(0xA2A415);
+    case Color::ForrestGreen         : return HEX(0x154406);
+    case Color::DarkLavender         : return HEX(0x856798);
+    case Color::DarkViolet           : return HEX(0x34013F);
+    case Color::PurpleBlue           : return HEX(0x632DE9);
+    case Color::DarkCyan             : return HEX(0x0A888A);
+    case Color::OliveDrab            : return HEX(0x6F7632);
+    case Color::Pinkish              : return HEX(0xD46A7E);
+    case Color::Cobalt               : return HEX(0x1E488F);
+    case Color::NeonPurple           : return HEX(0xBC13FE);
+    case Color::LightTurquoise       : return HEX(0x7EF4CC);
+    case Color::AppleGreen           : return HEX(0x76CD26);
+    case Color::DullGreen            : return HEX(0x74A662);
+    case Color::Wine                 : return HEX(0x80013F);
+    case Color::PowderBlue           : return HEX(0xB1D1FC);
+    case Color::OffWhite             : return HEX(0xFFFFE4);
+    case Color::ElectricBlue         : return HEX(0x0652FF);
+    case Color::DarkTurquoise        : return HEX(0x045C5A);
+    case Color::BluePurple           : return HEX(0x5729CE);
+    case Color::Azure                : return HEX(0x069AF3);
+    case Color::BrightRed            : return HEX(0xFF000D);
+    case Color::PinkishRed           : return HEX(0xF10C45);
+    case Color::CornflowerBlue       : return HEX(0x5170D7);
+    case Color::LightOlive           : return HEX(0xACBF69);
+    case Color::Grape                : return HEX(0x6C3461);
+    case Color::GrayishBlue          : return HEX(0x5E819D);
+    case Color::PurplishBlue         : return HEX(0x601EF9);
+    case Color::YellowishGreen       : return HEX(0xB0DD16);
+    case Color::GreenishYellow       : return HEX(0xCDFD02);
+    case Color::MediumBlue           : return HEX(0x2C6FBB);
+    case Color::DustyRose            : return HEX(0xC0737A);
+    case Color::LightViolet          : return HEX(0xD6B4FC);
+    case Color::MidnightBlue         : return HEX(0x020035);
+    case Color::BluishPurple         : return HEX(0x703BE7);
+    case Color::RedOrange            : return HEX(0xFD3C06);
+    case Color::DarkMagenta          : return HEX(0x960056);
+    case Color::Greenish             : return HEX(0x40A368);
+    case Color::OceanBlue            : return HEX(0x03719C);
+    case Color::Coral                : return HEX(0xFC5A50);
+    case Color::Cream                : return HEX(0xFFFFC2);
+    case Color::ReddishBrown         : return HEX(0x7F2B0A);
+    case Color::BurntSienna          : return HEX(0xB04E0F);
+    case Color::Brick                : return HEX(0xA03623);
+    case Color::Sage                 : return HEX(0x87AE73);
+    case Color::GrayGreen            : return HEX(0x789B73);
+    case Color::White                : return HEX(0xFFFFFF);
+    case Color::RobinSEggBlue        : return HEX(0x98EFF9);
+    case Color::MossGreen            : return HEX(0x658B38);
+    case Color::SteelBlue            : return HEX(0x5A7D9A);
+    case Color::Eggplant             : return HEX(0x380835);
+    case Color::LightYellow          : return HEX(0xFFFE7A);
+    case Color::LeafGreen            : return HEX(0x5CA904);
+    case Color::LightGray            : return HEX(0xD8DCD6);
+    case Color::Puke                 : return HEX(0xA5A502);
+    case Color::PinkishPurple        : return HEX(0xD648D7);
+    case Color::SeaBlue              : return HEX(0x047495);
+    case Color::PalePurple           : return HEX(0xB790D4);
+    case Color::SlateBlue            : return HEX(0x5B7C99);
+    case Color::BlueGray             : return HEX(0x607C8E);
+    case Color::HunterGreen          : return HEX(0x0B4008);
+    case Color::Fuchsia              : return HEX(0xED0DD9);
+    case Color::Crimson              : return HEX(0x8C000F);
+    case Color::PaleYellow           : return HEX(0xFFFF84);
+    case Color::Ochre                : return HEX(0xBF9005);
+    case Color::MustardYellow        : return HEX(0xD2BD0A);
+    case Color::LightRed             : return HEX(0xFF474C);
+    case Color::Cerulean             : return HEX(0x0485D1);
+    case Color::PalePink             : return HEX(0xFFCFDC);
+    case Color::DeepBlue             : return HEX(0x040273);
+    case Color::Rust                 : return HEX(0xA83C09);
+    case Color::LightTeal            : return HEX(0x90E4C1);
+    case Color::Slate                : return HEX(0x516572);
+    case Color::Goldenrod            : return HEX(0xFAC205);
+    case Color::DarkYellow           : return HEX(0xD5B60A);
+    case Color::DarkGray             : return HEX(0x363737);
+    case Color::ArmyGreen            : return HEX(0x4B5D16);
+    case Color::GrayBlue             : return HEX(0x6B8BA4);
+    case Color::Seafoam              : return HEX(0x80F9AD);
+    case Color::Puce                 : return HEX(0xA57E52);
+    case Color::SpringGreen          : return HEX(0xA9F971);
+    case Color::DarkOrange           : return HEX(0xC65102);
+    case Color::Sand                 : return HEX(0xE2CA76);
+    case Color::PastelGreen          : return HEX(0xB0FF9D);
+    case Color::Mint                 : return HEX(0x9FFEB0);
+    case Color::LightOrange          : return HEX(0xFDAA48);
+    case Color::BrightPink           : return HEX(0xFE01B1);
+    case Color::Chartreuse           : return HEX(0xC1F80A);
+    case Color::DeepPurple           : return HEX(0x36013F);
+    case Color::DarkBrown            : return HEX(0x341C02);
+    case Color::Taupe                : return HEX(0xB9A281);
+    case Color::PeaGreen             : return HEX(0x8EAB12);
+    case Color::PukeGreen            : return HEX(0x9AAE07);
+    case Color::KellyGreen           : return HEX(0x02AB2E);
+    case Color::SeafoamGreen         : return HEX(0x7AF9AB);
+    case Color::BlueGreen            : return HEX(0x137E6D);
+    case Color::Khaki                : return HEX(0xAAA662);
+    case Color::Burgundy             : return HEX(0x610023);
+    case Color::DarkTeal             : return HEX(0x014D4E);
+    case Color::BrickRed             : return HEX(0x8F1402);
+    case Color::RoyalPurple          : return HEX(0x4B006E);
+    case Color::Plum                 : return HEX(0x580F41);
+    case Color::MintGreen            : return HEX(0x8FFF9F);
+    case Color::Gold                 : return HEX(0xDBB40C);
+    case Color::BabyBlue             : return HEX(0xA2CFFE);
+    case Color::YellowGreen          : return HEX(0xC0FB2D);
+    case Color::BrightPurple         : return HEX(0xBE03FD);
+    case Color::DarkRed              : return HEX(0x840000);
+    case Color::PaleBlue             : return HEX(0xD0FEFE);
+    case Color::GrassGreen           : return HEX(0x3F9B0B);
+    case Color::Navy                 : return HEX(0x01153E);
+    case Color::Aquamarine           : return HEX(0x04D8B2);
+    case Color::BurntOrange          : return HEX(0xC04E01);
+    case Color::NeonGreen            : return HEX(0x0CFF0C);
+    case Color::BrightBlue           : return HEX(0x0165FC);
+    case Color::Rose                 : return HEX(0xCF6275);
+    case Color::LightPink            : return HEX(0xFFD1DF);
+    case Color::Mustard              : return HEX(0xCEB301);
+    case Color::Indigo               : return HEX(0x380282);
+    case Color::Lime                 : return HEX(0xAAFF32);
+    case Color::SeaGreen             : return HEX(0x53FCA1);
+    case Color::Periwinkle           : return HEX(0x8E82FE);
+    case Color::DarkPink             : return HEX(0xCB416B);
+    case Color::OliveGreen           : return HEX(0x677A04);
+    case Color::Peach                : return HEX(0xFFB07C);
+    case Color::PaleGreen            : return HEX(0xC7FDB5);
+    case Color::LightBrown           : return HEX(0xAD8150);
+    case Color::HotPink              : return HEX(0xFF028D);
+    case Color::Black                : return HEX(0x000000);
+    case Color::Lilac                : return HEX(0xCEA2FD);
+    case Color::NavyBlue             : return HEX(0x001146);
+    case Color::RoyalBlue            : return HEX(0x0504AA);
+    case Color::Beige                : return HEX(0xE6DAA6);
+    case Color::Salmon               : return HEX(0xFF796C);
+    case Color::Olive                : return HEX(0x6E750E);
+    case Color::Maroon               : return HEX(0x650021);
+    case Color::BrightGreen          : return HEX(0x01FF07);
+    case Color::DarkPurple           : return HEX(0x35063E);
+    case Color::Mauve                : return HEX(0xAE7181);
+    case Color::ForestGreen          : return HEX(0x06470C);
+    case Color::Aqua                 : return HEX(0x13EAC9);
+    case Color::Cyan                 : return HEX(0x00FFFF);
+    case Color::Tan                  : return HEX(0xD1B26F);
+    case Color::DarkBlue             : return HEX(0x00035B);
+    case Color::Lavender             : return HEX(0xC79FEF);
+    case Color::Turquoise            : return HEX(0x06C2AC);
+    case Color::DarkGreen            : return HEX(0x033500);
+    case Color::Violet               : return HEX(0x9A0EEA);
+    case Color::LightPurple          : return HEX(0xBF77F6);
+    case Color::LimeGreen            : return HEX(0x89FE05);
+    case Color::Gray                 : return HEX(0x929591);
+    case Color::SkyBlue              : return HEX(0x75BBFD);
+    case Color::Yellow               : return HEX(0xFFFF14);
+    case Color::Magenta              : return HEX(0xC20078);
+    case Color::Orange               : return HEX(0xF97306);
+    case Color::Teal                 : return HEX(0x029386);
+    case Color::LightBlue            : return HEX(0x95D0FC);
+    case Color::Red                  : return HEX(0xE50000);
+    case Color::Brown                : return HEX(0x653700);
+    case Color::Pink                 : return HEX(0xFF81C0);
+    case Color::Blue                 : return HEX(0x0343DF);
+    case Color::Green                : return HEX(0x15B01A);
+    case Color::Purple               : return HEX(0x7E1E9C);
     default:
       LOG_ERROR("Invalid color name");
-      return HEXCODE(0x9acd32);
+      return HEX(0X9ACD32);
   }
 }
+

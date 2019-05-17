@@ -176,7 +176,7 @@ GetColor(std::shared_ptr<game::Color> c)
 {
   if(c == nullptr)
   {
-    return Color::DarkslateGray;
+    return Color::Gray;
   }
 
   if(c->hex != nullptr)

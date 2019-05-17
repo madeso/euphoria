@@ -195,7 +195,7 @@ namespace generator
 
   Drawer::Drawer()
     : wall_color( Color::Black )
-    , cell_color( Color::Gray )
+    , cell_color( Color::LightGray )
     , cell_visited_color( Color::White )
     , unit_color ( Color::Red )
     , corridor_color ( Color::White )
