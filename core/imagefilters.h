@@ -6,7 +6,7 @@
 
 class Image;
 class Rgb;
-class Palette;
+struct Palette;
 
 enum class Grayscale
 {
