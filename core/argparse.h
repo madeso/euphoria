@@ -5,6 +5,7 @@
 #include <string>
 #include <memory>
 #include <map>
+#include <functional>
 
 #include "core/str.h"
 #include "core/enumtostring.h"
