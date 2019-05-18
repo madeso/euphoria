@@ -46,12 +46,20 @@ struct EnumToStringImpl
   std::vector<std::string> ListNames() const
   {
     std::vector<std::string> ret;
-
     for(auto entry: enum_to_string)
     {
       ret.emplace_back(entry.second);
     }
+    return ret;
+  }
 
+  std::vector<T> ListValues() const
+  {
+    std::vector<T> ret;
+    for(auto entry: enum_to_string)
+    {
+      ret.emplace_back(entry.first);
+    }
     return ret;
   }
 
@@ -125,6 +133,12 @@ template<typename T>
 std::vector<std::string> EnumToString()
 {
   return GetEnumToString<T>::EnumValues().ListNames();
+}
+
+template<typename T>
+std::vector<T> EnumValues()
+{
+  return GetEnumToString<T>::EnumValues().ListValues();
 }
 
 template <typename T>

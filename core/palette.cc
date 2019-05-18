@@ -131,30 +131,22 @@ namespace palette
     return p;
   }
 
+  Palette
+  BuildNamedColors()
+  {
+    auto p = Palette::Empty("named");
+    const auto cs = EnumValues<Color>();
+    for(auto c : cs)
+    {
+      p.colors.push_back(c);
+    }
+    return p;
+  }
 
   const Palette&
   NamedColors()
   {
-    static const auto p = Palette{"named",
-        Color::Black,
-        Color::DarkGray,
-        Color::Gray,
-        Color::Red,
-        Color::Blue,
-        Color::Green,
-        Color::Brown,
-        Color::Purple,
-        Color::LightGray,
-        Color::LightGreen,
-        Color::LightBlue,
-        Color::Cyan,
-        Color::Orange,
-        Color::Yellow,
-        Color::Tan,
-        Color::Pink,
-        Color::White,
-        Color::Beige
-      };
+    static const auto p = BuildNamedColors();
     return p;
   }
 }  // namespace palette
