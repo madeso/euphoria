@@ -55,11 +55,6 @@ namespace generator
   };
 }
 
-BEGIN_ENUM_LIST(generator::BorderControl)
-  ENUM_VALUE(generator::BorderControl, AlwaysWall)
-  ENUM_VALUE(generator::BorderControl, AlwaysEmpty)
-  ENUM_VALUE(generator::BorderControl, RandomWall)
-  ENUM_VALUE(generator::BorderControl, RandomEmpty)
-END_ENUM_LIST()
+DECLARE_ENUM_LIST(generator::BorderControl)
 
 #endif  // CORE_GENERATOR_CELL_H

@@ -10,6 +10,7 @@ namespace
   };
 }
 
+DECLARE_ENUM_LIST(MyEnum)
 BEGIN_ENUM_LIST(MyEnum)
   ENUM_VALUE(MyEnum, X)
   ENUM_VALUE(MyEnum, Cat)

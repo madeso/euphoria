@@ -649,3 +649,9 @@ namespace argparse
   }
 }
 
+BEGIN_ENUM_LIST(argparse::ParseResult)
+  ENUM_VALUE(argparse::ParseResult, Ok)
+  ENUM_VALUE(argparse::ParseResult, Failed)
+  ENUM_VALUE(argparse::ParseResult, Quit)
+END_ENUM_LIST()
+

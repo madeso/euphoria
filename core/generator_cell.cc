@@ -104,3 +104,10 @@ namespace generator
   }
 }
 
+BEGIN_ENUM_LIST(generator::BorderControl)
+  ENUM_VALUE(generator::BorderControl, AlwaysWall)
+  ENUM_VALUE(generator::BorderControl, AlwaysEmpty)
+  ENUM_VALUE(generator::BorderControl, RandomWall)
+  ENUM_VALUE(generator::BorderControl, RandomEmpty)
+END_ENUM_LIST()
+

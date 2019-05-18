@@ -135,9 +135,23 @@ operator<<( std::ostream& os, T const& value)
   return os;
 }
 
-#define BEGIN_ENUM_LIST(T) template<> struct GetEnumToString<T> { using Type = T; enum { IsDefined = 1 }; static const ::EnumToStringImpl<T>& EnumValues() { static const auto r = ::EnumToStringImpl<T>{}
-#define ENUM_VALUE(T, V) .Add(#V, T::V)
-#define END_ENUM_LIST() ; return r; } };
+#define DECLARE_ENUM_LIST(T)\
+  template<> struct GetEnumToString<T>\
+  {\
+    using Type = T;\
+    enum { IsDefined = 1 };\
+    static const EnumToStringImpl<T>& EnumValues();\
+  };
+
+#define BEGIN_ENUM_LIST(T)\
+  const EnumToStringImpl<T>& GetEnumToString<T>::EnumValues()\
+  {\
+  static const auto r = EnumToStringImpl<T>{}
+#define ENUM_VALUE(T, V)                 .Add(#V, T::V)
+#define END_ENUM_LIST()\
+    ;\
+    return r;\
+  }
 
 // todo: add a foreach macro call?
 // https://codecraft.co/2014/11/25/variadic-macros-tricks/

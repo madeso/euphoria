@@ -36,3 +36,22 @@ ToColorHex(Color color)
   }
 }
 
+BEGIN_ENUM_LIST(Color)
+  ENUM_VALUE(Color, Black)
+  ENUM_VALUE(Color, DarkGray)
+  ENUM_VALUE(Color, Red)
+  ENUM_VALUE(Color, Blue)
+  ENUM_VALUE(Color, Green)
+  ENUM_VALUE(Color, Brown)
+  ENUM_VALUE(Color, Purple)
+  ENUM_VALUE(Color, LightGray)
+  ENUM_VALUE(Color, LightGreen)
+  ENUM_VALUE(Color, LightBlue)
+  ENUM_VALUE(Color, Cyan)
+  ENUM_VALUE(Color, Orange)
+  ENUM_VALUE(Color, Yellow)
+  ENUM_VALUE(Color, Tan)
+  ENUM_VALUE(Color, Pink)
+  ENUM_VALUE(Color, White)
+END_ENUM_LIST()
+

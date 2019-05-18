@@ -276,3 +276,10 @@ namespace generator
   }
 }
 
+BEGIN_ENUM_LIST(generator::Dir)
+  ENUM_VALUE(generator::Dir, North)
+  ENUM_VALUE(generator::Dir, South)
+  ENUM_VALUE(generator::Dir, East)
+  ENUM_VALUE(generator::Dir, West)
+END_ENUM_LIST()
+
