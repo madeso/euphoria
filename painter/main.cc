@@ -227,6 +227,11 @@ main(int argc, char** argv)
         {
           path.ToggleClosed();
         }
+        auto as = path.auto_set_control_points_;
+        if(ImGui::Checkbox("Autoset control points", &as))
+        {
+          path.ToggleAutoSetControlPoints();
+        }
         ImGui::EndPopup();
       }
     }

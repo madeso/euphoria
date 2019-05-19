@@ -33,6 +33,9 @@ struct BezierPath2
   std::vector<point2f> points;
   bool is_closed_ = false;
 
+  // todo: move out to a controller?
+  bool auto_set_control_points_ = false;
+
   BezierPath2(const point2f& center);
 
   static bool IsAnchorPoint(size_t i);
@@ -49,7 +52,15 @@ struct BezierPath2
   void SetClosed(bool is_closed);
   void ToggleClosed();
 
+  void SetAutoSetControlPoints(bool is_autoset);
+  void ToggleAutoSetControlPoints();
+
+  // private stuff
   size_t LoopIndex(int i) const;
+  void AutoSetAffectedControlPoints(int updated_anchor_index);
+  void AutoSetAllControlPoints();
+  void AutoSetStartAndEndControlPoints();
+  void AutoSetAnchorControlPoints(int anchor_index);
 };
 
 struct VertexPath2
