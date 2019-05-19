@@ -453,24 +453,6 @@ class Rect
     return Line::FromTo(BottomLeft(), BottomRight());
   }
 
-  template <typename R>
-  const point2<R>
-  To01(const point2<R>& from)
-  {
-    const auto x = Range(left, right).To01(from.x);
-    const auto y = Range(bottom, top).To01(from.y);
-    return point2<R>{x, y};
-  }
-
-  template <typename R>
-  const point2<R>
-  From01(const point2<R>& from)
-  {
-    const auto x = Range(left, right).From01(from.x);
-    const auto y = Range(bottom, top).From01(from.y);
-    return point2<R>{x, y};
-  }
-
   point2<T>
   RandomPoint(Random* random) const
   {
@@ -480,6 +462,24 @@ class Rect
   }
 
 };
+
+template <typename T, typename R>
+const point2<R>
+To01(const Rect<T>& r, const point2<R>& from)
+{
+  const auto x = To01(Range(r.left, r.right), from.x);
+  const auto y = To01(Range(r.bottom, r.top), from.y);
+  return point2<R>{x, y};
+}
+
+template <typename T, typename R>
+const point2<R>
+From01(const Rect<T>& r, const point2<R>& from)
+{
+  const auto x = From01(Range(r.left, r.right), from.x);
+  const auto y = From01(Range(r.bottom, r.top), from.y);
+  return point2<R>{x, y};
+}
 
 template <typename S, typename T>
 S&

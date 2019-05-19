@@ -99,7 +99,7 @@ float dot(const Rgb& lhs, const Rgb& rhs)
 Rgb Clamp(const Rgb& c)
 {
   static const auto r = Range(0, 1);
-  return Rgb(r.KeepWithin(c.r), r.KeepWithin(c.g), r.KeepWithin(c.b));
+  return Rgb(KeepWithin(r, c.r), KeepWithin(r, c.g), KeepWithin(r, c.b));
 }
 
 
@@ -384,7 +384,7 @@ saturate(const Hsl& ahsl, float amount, Method method)
   {
     hsl.s += amount;
   }
-  hsl.s = Range{0, 1}.KeepWithin(hsl.s);
+  hsl.s = KeepWithin(Range{0, 1}, hsl.s);
   return hsl;
 }
 
@@ -401,7 +401,7 @@ desaturate(const Hsl& ahsl, float amount, Method method)
   {
     hsl.s -= amount;
   }
-  hsl.s = Range{0, 1}.KeepWithin(hsl.s);
+  hsl.s = KeepWithin(Range{0, 1}, hsl.s);
   return hsl;
 }
 
@@ -418,7 +418,7 @@ lighten(const Hsl& ahsl, float amount, Method method)
   {
     hsl.l += amount;
   }
-  hsl.l = Range{0, 1}.KeepWithin(hsl.l);
+  hsl.l = KeepWithin(Range{0, 1}, hsl.l);
   return hsl;
 }
 
@@ -435,7 +435,7 @@ darken(const Hsl& ahsl, float amount, Method method)
   {
     hsl.l -= amount;
   }
-  hsl.l = Range{0, 1}.KeepWithin(hsl.l);
+  hsl.l = KeepWithin(Range{0, 1}, hsl.l);
   return hsl;
 }
 

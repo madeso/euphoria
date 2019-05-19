@@ -30,7 +30,7 @@ point3f
 Aabb::Wrap(const point3f& vec) const
 {
   ASSERT(IsValid());
-#define COMP(C) const auto C = Range{min.C, max.C}.Wrap(vec.C)
+#define COMP(C) const auto C = ::Wrap(Range{min.C, max.C}, vec.C)
   COMP(x);
   COMP(y);
   COMP(z);

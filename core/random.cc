@@ -75,7 +75,7 @@ Random::NextFloat01()
 float
 Random::Next(const Range& range)
 {
-  return range.From01(NextFloat01());
+  return From01(range, NextFloat01());
 }
 
 float
@@ -112,7 +112,7 @@ Random::NextGaussian(float mean, float std_dev, const Range& r)
   do
   {
     x = NextGaussian(mean, std_dev);
-  } while(!r.IsWithin(x));
+  } while(!IsWithin(r, x));
   return x;
 }
 

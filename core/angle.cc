@@ -17,7 +17,7 @@ Angle::Random(::Random* random)
 void
 Angle::Wrap()
 {
-  mRad = Range{0.0f, Pi() * 2.0f}.Wrap(mRad);
+  mRad = ::Wrap(Range{0.0f, Pi() * 2.0f}, mRad);
 }
 
 void

@@ -2,12 +2,12 @@
 
 #include "core/range.h"
 
-#define To01(min, v, max) Range(min, max).To01(v)
-#define From01(min, v, max) Range(min, max).From01(v)
-#define Get360Angular(min, v, max) Range(min, max).Get360Angular(v)
-#define KeepWithin(min, v, max) Range(min, max).KeepWithin(v)
-#define IsWithinInclusive(min, v, max) Range(min, max).IsWithin(v)
-#define Wrap(min, v, max) Range(min, max).Wrap(v)
+#define To01(min, v, max) To01(Range(min, max), v)
+#define From01(min, v, max) From01(Range(min, max), v)
+#define Get360Angular(min, v, max) Get360Angular(Range(min, max), v)
+#define KeepWithin(min, v, max) KeepWithin(Range(min, max), v)
+#define IsWithinInclusive(min, v, max) IsWithin(Range(min, max), v)
+#define Wrap(min, v, max) Wrap(Range(min, max), v)
 
 TEST_CASE("num-to01", "[numeric]")
 {
@@ -25,7 +25,7 @@ TEST_CASE("num-from01", "[numeric]")
 
 TEST_CASE("num-remap", "[numeric]")
 {
-  REQUIRE(Range(0, 3).RemapTo(Range(0, 2), 1.5f) == Approx(1.0f));
+  REQUIRE(RemapTo(Range(0, 3), Range(0, 2), 1.5f) == Approx(1.0f));
 }
 
 TEST_CASE("num-get360angular", "[numeric]")

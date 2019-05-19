@@ -91,17 +91,17 @@ Draw::Circle(
       Range a{inner - softness, inner};
       Range b{radius, radius + softness};
 
-      if(a.IsWithin(sq))
+      if(IsWithin(a, sq))
       {
-        blend_factor = a.To01(sq);
+        blend_factor = To01(a, sq);
         blend        = true;
       }
-      else if(b.IsWithin(sq))
+      else if(IsWithin(b, sq))
       {
-        blend_factor = 1.0f - b.To01(sq);
+        blend_factor = 1.0f - To01(b, sq);
         blend        = true;
       }
-      else if(Range{inner, radius}.IsWithin(sq))
+      else if(IsWithin(Range{inner, radius}, sq))
       {
         // full color
       }

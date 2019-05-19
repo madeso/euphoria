@@ -1,38 +1,38 @@
 #ifndef EUPHORIA_RANGE_H
 #define EUPHORIA_RANGE_H
 
-
 class Range
 {
  public:
   Range(float min, float max);
-
   explicit Range(float max);
-
-  float
-  From01(float value) const;
-
-  float
-  To01(float value) const;
-
-  float
-  RemapTo(const Range& other, float value) const;
-
-  float
-  Get360Angular(float value) const;
-
-  bool
-  IsWithin(float value) const;
-
-  float
-  KeepWithin(float value) const;
-
-  float
-  Wrap(float value) const;
 
   float lower_bound;
   float upper_bound;
 };
+
+
+float
+From01(const Range& range, float value);
+
+float
+To01(const Range& range, float value);
+
+float
+RemapTo(const Range& from, const Range& to, float value);
+
+float
+Get360Angular(const Range& range, float value);
+
+bool
+IsWithin(const Range& range, float value);
+
+float
+KeepWithin(const Range& range, float value);
+
+float
+Wrap(const Range& range, float value);
+
 
 template <typename T>
 struct TRange

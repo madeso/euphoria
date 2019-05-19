@@ -9,8 +9,8 @@ PolarCoord::PolarCoord(float azimuthal01, float polar01)
     : azimuthal_(Angle::FromPercentOf360(azimuthal01))
     , polar_(Angle::FromPercentOf180(polar01))
 {
-  ASSERT(Range(0, 1).IsWithin(azimuthal01));
-  ASSERT(Range(0, 2).IsWithin(polar01));
+  ASSERT(IsWithin(Range(0, 1), azimuthal01));
+  ASSERT(IsWithin(Range(0, 2), polar01));
 }
 
 unit3f

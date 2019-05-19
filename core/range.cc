@@ -16,58 +16,58 @@ Range::Range(float max)
 }
 
 float
-Range::From01(float value) const
+From01(const Range& range, float value)
 {
-  return value * (upper_bound - lower_bound) + lower_bound;
+  return value * (range.upper_bound - range.lower_bound) + range.lower_bound;
 }
 
 float
-Range::To01(float value) const
+To01(const Range& range, float value)
 {
-  return (value - lower_bound) / (upper_bound - lower_bound);
+  return (value - range.lower_bound) / (range.upper_bound - range.lower_bound);
 }
 
 float
-Range::Get360Angular(float value) const
+Get360Angular(const Range& range, float value)
 {
-  const float half_difference = (upper_bound - lower_bound) / 2.0f;
-  return lower_bound + half_difference -
+  const float half_difference = (range.upper_bound - range.lower_bound) / 2.0f;
+  return range.lower_bound + half_difference -
          half_difference * Cos(Angle::FromDegrees(value * 360.0f));
 }
 
 float
-Range::RemapTo(const Range& other, float value) const
+RemapTo(const Range& from, const Range& to, float value)
 {
-  return other.From01(To01(value));
+  return From01(to, To01(from, value));
 }
 
 bool
-Range::IsWithin(float value) const
+IsWithin(const Range& range, float value)
 {
-  return value >= lower_bound && value <= upper_bound;
+  return value >= range.lower_bound && value <= range.upper_bound;
 }
 
 float
-Range::KeepWithin(float value) const
+KeepWithin(const Range& range, float value)
 {
-  if(value > upper_bound)
+  if(value > range.upper_bound)
   {
-    return upper_bound;
+    return range.upper_bound;
   }
-  if(value < lower_bound)
+  if(value < range.lower_bound)
   {
-    return lower_bound;
+    return range.lower_bound;
   }
 
   return value;
 }
 
 float
-Range::Wrap(float value) const
+Wrap(const Range& range, float value)
 {
-  const float diff = upper_bound - lower_bound;
+  const float diff = range.upper_bound - range.lower_bound;
   ASSERT(diff > 0);
-  float wrapped = value - lower_bound;
+  float wrapped = value - range.lower_bound;
   while(wrapped < 0.0f)
   {
     wrapped += diff;
@@ -76,5 +76,6 @@ Range::Wrap(float value) const
   {
     wrapped -= diff;
   }
-  return lower_bound + wrapped;
+  return range.lower_bound + wrapped;
 }
+

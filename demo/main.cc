@@ -254,7 +254,7 @@ main(int argc, char** argv)
           10);
     }
 
-    light_position = Range{0, 1}.Wrap(light_position + delta * 0.1f);
+    light_position = Wrap(Range{0, 1}, light_position + delta * 0.1f);
     const auto light_pos =
         point3f::Origo() +
         PolarCoord{light_position, light_position * 2}.ToCartesian() * 2.0f;

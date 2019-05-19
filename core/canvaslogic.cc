@@ -25,7 +25,7 @@ CanvasLogic::Zoom(const point2f& mouse, float zoom)
     scale *= scale_factor;
   }
 
-  scale = scale_range.KeepWithin(scale);
+  scale = KeepWithin(scale_range, scale);
 
   // todo: change to use WorldToScreen
   const auto new_focus = scroll + Scale(focus, scale);
