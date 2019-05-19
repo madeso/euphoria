@@ -34,7 +34,13 @@ struct unit2;
       : x(ax)                    \
       , y(ay)                    \
   {                              \
+  }                              \
+                                 \
+  static VEC Zero()              \
+  {                              \
+    return {0,0};                \
   }
+
 
 #define VEC2_COMMON_MEMBERS(VEC, T)                         \
   typedef VEC<T> Self;                                      \
@@ -52,9 +58,9 @@ struct unit2;
   }                                                         \
                                                             \
   template <typename F>                                     \
-  point2<F> StaticCast() const                              \
+  VEC<F> StaticCast() const                                 \
   {                                                         \
-    return point2<F>(static_cast<F>(x), static_cast<F>(y)); \
+    return VEC<F>(static_cast<F>(x), static_cast<F>(y));    \
   }                                                         \
                                                             \
   Self GetRotated(const Angle& a) const                     \
@@ -70,13 +76,15 @@ struct unit2;
   }
 
 #define VEC2_SELF_ADD_SUBTRACT(VEC)  \
-  void operator+=(const VEC<T>& rhs) \
+  template<typename O>               \
+  void operator+=(const VEC<O>& rhs) \
   {                                  \
     x = x + rhs.x;                   \
     y = y + rhs.y;                   \
   }                                  \
                                      \
-  void operator-=(const VEC<T>& rhs) \
+  template<typename O>               \
+  void operator-=(const VEC<O>& rhs) \
   {                                  \
     x = x - rhs.x;                   \
     y = y - rhs.y;                   \
@@ -103,6 +111,12 @@ struct point2
   VEC2_CONSTRUCTOR(point2, T)
   VEC2_COMMON_MEMBERS(point2, T)
   VEC2_SELF_ADD_SUBTRACT(vec2)
+
+  static Self
+  FromOrigoTo(const vec2<T>& to)
+  {
+    return Self{to.x, to.y};
+  }
 
   static Self
   Origo()
@@ -163,18 +177,26 @@ struct vec2
     return sqrt(GetLengthSquared());
   }
 
-  void
+  T
   Normalize()
   {
-    *this /= GetLength();
+    const auto l = GetLength();
+    *this /= l;
+    return l;
+  }
+
+  std::pair<T, Unit>
+  GetNormalizedVec() const
+  {
+    Self r = *this;
+    const auto l = r.Normalize();
+    return std::make_pair(l, Unit{r});
   }
 
   Unit
   GetNormalized() const
   {
-    Self r = *this;
-    r.Normalize();
-    return Unit{r};
+    return GetNormalizedVec().second;
   }
 };
 
@@ -189,6 +211,11 @@ struct unit2
   VEC2_LENGTH_SQUARED(T)
 
   operator vec2<T>() const
+  {
+    return vec2<T>(x, y);
+  }
+  
+  vec2<T> vec() const
   {
     return vec2<T>(x, y);
   }
@@ -226,95 +253,95 @@ struct scale2
 
 // point
 
-template <typename T>
+template <typename T, typename O>
 point2<T>
-operator+(const point2<T>& lhs, const vec2<T>& rhs)
+operator+(const point2<T>& lhs, const vec2<O>& rhs)
 {
   point2<T> r = lhs;
   r += rhs;
   return r;
 }
 
-template <typename T>
+template <typename T, typename O>
 point2<T>
-operator+(const vec2<T>& lhs, const point2<T>& rhs)
+operator+(const vec2<T>& lhs, const point2<O>& rhs)
 {
   point2<T> r = rhs;
   r += lhs;
   return r;
 }
 
-template <typename T>
+template <typename T, typename O>
 point2<T>
-operator-(const point2<T>& lhs, const vec2<T>& rhs)
+operator-(const point2<T>& lhs, const vec2<O>& rhs)
 {
   point2<T> r = lhs;
   r -= rhs;
   return r;
 }
 
-template <typename T>
+template <typename T, typename O>
 point2<T>
-operator-(const vec2<T>& lhs, const point2<T>& rhs)
+operator-(const vec2<T>& lhs, const point2<O>& rhs)
 {
   return -rhs + lhs;
 }
 
 // vector
 
-template <typename T>
+template <typename T, typename O>
 vec2<T>
-operator+(const vec2<T>& lhs, const vec2<T>& rhs)
+operator+(const vec2<T>& lhs, const vec2<O>& rhs)
 {
   vec2<T> r = lhs;
   r += rhs;
   return r;
 }
 
-template <typename T>
+template <typename T, typename O>
 vec2<T>
-operator-(const vec2<T>& lhs, const vec2<T>& rhs)
+operator-(const vec2<T>& lhs, const vec2<O>& rhs)
 {
   vec2<T> r = lhs;
   r -= rhs;
   return r;
 }
 
-template <typename T>
-vec2<T> operator*(const vec2<T>& lhs, const T& rhs)
+template <typename T, typename O>
+vec2<T> operator*(const vec2<T>& lhs, const O& rhs)
 {
   vec2<T> r = lhs;
   r *= rhs;
   return r;
 }
 
-template <typename T>
-vec2<T> operator*(const T& lhs, const vec2<T>& rhs)
+template <typename T, typename O>
+vec2<T> operator*(const O& lhs, const vec2<T>& rhs)
 {
   vec2<T> r = rhs;
   r *= lhs;
   return r;
 }
 
-template <typename T>
-vec2<T> operator*(const unit2<T>& lhs, const T& rhs)
+template <typename T, typename O>
+vec2<T> operator*(const unit2<T>& lhs, const O& rhs)
 {
   vec2<T> r = lhs;
   r *= rhs;
   return r;
 }
 
-template <typename T>
-vec2<T> operator*(const T& lhs, const unit2<T>& rhs)
+template <typename T, typename O>
+vec2<T> operator*(const O& lhs, const unit2<T>& rhs)
 {
   vec2<T> r = rhs;
   r *= lhs;
   return r;
 }
 
-template <typename T>
+template <typename T, typename O>
 vec2<T>
-operator/(const vec2<T>& lhs, const T& rhs)
+operator/(const vec2<T>& lhs, const O& rhs)
 {
   vec2<T> r = lhs;
   r /= rhs;
@@ -357,9 +384,9 @@ dot(const vec2<T>& lhs, const vec2<T>& rhs)
   return lhs.x * rhs.x + lhs.y * rhs.y;
 }
 
-template <typename T>
+template <typename T, typename O>
 point2<T>
-Scale(const point2<T>& p, T scale)
+Scale(const point2<T>& p, O scale)
 {
   return point2<T>{p.x * scale, p.y * scale};
 }
