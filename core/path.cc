@@ -3,7 +3,9 @@
 #include <array>
 
 #include "core/range.h"
+#include "core/log.h"
 
+LOG_SPECIFY_DEFAULT_LOGGER("painter")
 
 BezierPath2::BezierPath2(const point2f& center)
 {
@@ -30,6 +32,11 @@ void BezierPath2::AddPoint(const point2f& p)
   points.push_back(p4);
   points.push_back(p5);
   points.push_back(p6);
+
+  if(auto_set_control_points_)
+  {
+    AutoSetAffectedControlPoints(points.size()-1);
+  }
 }
 
 bool BezierPath2::IsAnchorPoint(size_t i)
@@ -47,6 +54,12 @@ void BezierPath2::MovePoint(int i, const vec2f& delta)
 {
   const auto r = MakeRange(points);
   points[i] += delta;
+
+  if(auto_set_control_points_)
+  {
+    AutoSetAffectedControlPoints(i);
+    return;
+  }
 
   if(IsAnchorPoint(i))
   {
@@ -102,11 +115,22 @@ void BezierPath2::SetClosed(bool is_closed)
     const auto p2 = points[0              ] + vec2f::FromTo(points[1              ], points[0              ]);
     points.push_back(p1);
     points.push_back(p2);
+
+    if(auto_set_control_points_)
+    {
+      AutoSetAnchorControlPoints(0);
+      AutoSetAnchorControlPoints(points.size()-3);
+    }
   }
   else
   {
     points.pop_back();
     points.pop_back();
+
+    if(auto_set_control_points_)
+    {
+      AutoSetStartAndEndControlPoints();
+    }
   }
 }
 
@@ -146,7 +170,7 @@ size_t BezierPath2::LoopIndex(int i) const
 void BezierPath2::AutoSetAffectedControlPoints(int updated_anchor_index)
 {
   const auto r = MakeRange(points);
-  for(int i=updated_anchor_index-3; i<updated_anchor_index+3; i+=3)
+  for(int i=updated_anchor_index-3; i<=updated_anchor_index+3; i+=3)
   {
     if(is_closed_ || IsWithin(r, i))
     {
@@ -190,9 +214,9 @@ void BezierPath2::AutoSetAnchorControlPoints(int anchor_index)
     const auto index = anchor_index-3*scale;
     if(is_closed_ || IsWithin(r, index))
     {
-      auto offset = (vec2f::FromTo(anchor_pos, points[LoopIndex(index)]) * scale).GetNormalizedVec();
-      dir += offset.second.vec();
-      distances[dist_index] = offset.first;
+      auto offset = (vec2f::FromTo(anchor_pos, points[LoopIndex(index)])).GetNormalizedVec();
+      dir += offset.second.vec() * scale;
+      distances[dist_index] = offset.first * scale;
     }
   };
   f(1, 0);
@@ -201,7 +225,7 @@ void BezierPath2::AutoSetAnchorControlPoints(int anchor_index)
 
   for(int i=0; i<2; i+=1)
   {
-    const auto control_index = std::array<int, 2>{-1, 1}[i];
+    const auto control_index = anchor_index + std::array<int, 2>{-1, 1}[i];
     if(is_closed_ || IsWithin(r, control_index))
     {
       points[LoopIndex(control_index)] = anchor_pos + dir * distances[i] * 0.5f;
