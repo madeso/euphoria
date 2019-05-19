@@ -34,7 +34,7 @@ struct BezierPath2
   bool is_closed_ = false;
 
   // todo: move out to a controller?
-  bool auto_set_control_points_ = false;
+  bool autoset_ = false;
 
   BezierPath2(const point2f& center);
 

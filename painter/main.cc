@@ -184,6 +184,10 @@ main(int argc, char** argv)
       for(size_t point_index = 0; point_index < path.points.size(); point_index += 1)
       {
         const bool is_anchor_point = BezierPath2::IsAnchorPoint(point_index);
+        if(path.autoset_ && !is_anchor_point)
+        {
+          continue;
+        }
         const ImU32 alpha = 200;
         const ImU32 color = is_anchor_point
           ? IM_COL32(20, 20, 200, alpha)
@@ -208,8 +212,12 @@ main(int argc, char** argv)
         auto s = path.GetPointsInSegment(seg);
         auto* dl = ImGui::GetWindowDrawList();
         dl->AddBezierCurve(canvas.WorldToScreen(C(s.a0)), canvas.WorldToScreen(C(s.c0)), canvas.WorldToScreen(C(s.c1)), canvas.WorldToScreen(C(s.a1)), curve_color, 1);
-        line(canvas.WorldToScreen(C(s.a0)), canvas.WorldToScreen(C(s.c0)), line_color);
-        line(canvas.WorldToScreen(C(s.a1)), canvas.WorldToScreen(C(s.c1)), line_color);
+
+        if(!path.autoset_)
+        {
+          line(canvas.WorldToScreen(C(s.a0)), canvas.WorldToScreen(C(s.c0)), line_color);
+          line(canvas.WorldToScreen(C(s.a1)), canvas.WorldToScreen(C(s.c1)), line_color);
+        }
       }
 
       canvas.ShowRuler(cc);
@@ -227,7 +235,7 @@ main(int argc, char** argv)
         {
           path.ToggleClosed();
         }
-        auto as = path.auto_set_control_points_;
+        auto as = path.autoset_;
         if(ImGui::Checkbox("Autoset control points", &as))
         {
           path.ToggleAutoSetControlPoints();

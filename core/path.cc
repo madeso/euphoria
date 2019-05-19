@@ -33,7 +33,7 @@ void BezierPath2::AddPoint(const point2f& p)
   points.push_back(p5);
   points.push_back(p6);
 
-  if(auto_set_control_points_)
+  if(autoset_)
   {
     AutoSetAffectedControlPoints(points.size()-1);
   }
@@ -52,10 +52,16 @@ bool BezierPath2::IsControlPoint(size_t i)
 
 void BezierPath2::MovePoint(int i, const vec2f& delta)
 {
+  if(autoset_ && IsControlPoint(i))
+  {
+    // that point is on autoset
+    return;
+  }
+
   const auto r = MakeRange(points);
   points[i] += delta;
 
-  if(auto_set_control_points_)
+  if(autoset_)
   {
     AutoSetAffectedControlPoints(i);
     return;
@@ -116,7 +122,7 @@ void BezierPath2::SetClosed(bool is_closed)
     points.push_back(p1);
     points.push_back(p2);
 
-    if(auto_set_control_points_)
+    if(autoset_)
     {
       AutoSetAnchorControlPoints(0);
       AutoSetAnchorControlPoints(points.size()-3);
@@ -127,7 +133,7 @@ void BezierPath2::SetClosed(bool is_closed)
     points.pop_back();
     points.pop_back();
 
-    if(auto_set_control_points_)
+    if(autoset_)
     {
       AutoSetStartAndEndControlPoints();
     }
@@ -142,14 +148,14 @@ void BezierPath2::ToggleClosed()
 
 void BezierPath2::SetAutoSetControlPoints(bool is_autoset)
 {
-  if(is_autoset == auto_set_control_points_)
+  if(is_autoset == autoset_)
   {
     return;
   }
 
-  auto_set_control_points_ = is_autoset;
+  autoset_ = is_autoset;
 
-  if(auto_set_control_points_)
+  if(autoset_)
   {
     AutoSetAllControlPoints();
   }
@@ -157,7 +163,7 @@ void BezierPath2::SetAutoSetControlPoints(bool is_autoset)
 
 void BezierPath2::ToggleAutoSetControlPoints()
 {
-  SetAutoSetControlPoints(!auto_set_control_points_);
+  SetAutoSetControlPoints(!autoset_);
 }
 
 
