@@ -2,12 +2,12 @@
 
 #include "core/range.h"
 
-#define To01(min, v, max) To01(Range(min, max), v)
-#define From01(min, v, max) From01(Range(min, max), v)
-#define Get360Angular(min, v, max) Get360Angular(Range(min, max), v)
-#define KeepWithin(min, v, max) KeepWithin(Range(min, max), v)
-#define IsWithinInclusive(min, v, max) IsWithin(Range(min, max), v)
-#define Wrap(min, v, max) Wrap(Range(min, max), v)
+#define To01(min, v, max) To01(MakeRange(min, max), v)
+#define From01(min, v, max) From01(MakeRange(min, max), v)
+#define Get360Angular(min, v, max) Get360Angular(MakeRange(min, max), v)
+#define KeepWithin(min, v, max) KeepWithin(MakeRange(min, max), v)
+#define IsWithinInclusive(min, v, max) IsWithin(MakeRange(min, max), v)
+#define Wrap(min, v, max) Wrap(MakeRange(min, max), v)
 
 TEST_CASE("num-to01", "[numeric]")
 {
@@ -25,7 +25,7 @@ TEST_CASE("num-from01", "[numeric]")
 
 TEST_CASE("num-remap", "[numeric]")
 {
-  REQUIRE(RemapTo(Range(0, 3), Range(0, 2), 1.5f) == Approx(1.0f));
+  REQUIRE(RemapTo(MakeRange<float>(0, 3), MakeRange<float>(0, 2), 1.5f) == Approx(1.0f));
 }
 
 TEST_CASE("num-get360angular", "[numeric]")

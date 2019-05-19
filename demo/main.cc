@@ -102,7 +102,7 @@ main(int argc, char** argv)
     const Rgb  color = rgb(palette::Dawnbringer().GetRandomColor(&random));
     const auto pos   = wi.RandomPoint(&random);
     const auto outer = random.NextRange(55.0f, 100.0f);
-    const auto inner = random.Next(Range{50.0f});
+    const auto inner = random.Next(MakeRange(50.0f));
     drawer.Circle(color, pos, outer, 10, inner);
   }
   drawer.LineAntialiased(Color::Black, wi.TopLeft(), wi.BottomRight())
@@ -254,7 +254,7 @@ main(int argc, char** argv)
           10);
     }
 
-    light_position = Wrap(Range{0, 1}, light_position + delta * 0.1f);
+    light_position = Wrap(MakeRange<float>(0, 1), light_position + delta * 0.1f);
     const auto light_pos =
         point3f::Origo() +
         PolarCoord{light_position, light_position * 2}.ToCartesian() * 2.0f;

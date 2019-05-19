@@ -7,8 +7,7 @@
 
 #include "core/ints.h"
 #include "core/vec2.h"
-
-class Range;
+#include "core/range.h"
 
 /** WEL512 Random Number Generator.
  */
@@ -28,8 +27,12 @@ class Random
   float
   NextFloat01();
 
-  float
-  Next(const Range& range);
+  template<typename T>
+  T
+  Next(const Range<T>& range)
+  {
+    return From01(range, NextFloat01());
+  }
 
   float
   NextGaussianFloat01();
@@ -38,7 +41,7 @@ class Random
   NextGaussian(float mean, float std_dev);
 
   float
-  NextGaussian(float mean, float std_dev, const Range& r);
+  NextGaussian(float mean, float std_dev, const Range<float>& r);
 
   template <typename T>
   T

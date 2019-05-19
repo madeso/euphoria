@@ -30,7 +30,7 @@ point3f
 Aabb::Wrap(const point3f& vec) const
 {
   ASSERT(IsValid());
-#define COMP(C) const auto C = ::Wrap(Range{min.C, max.C}, vec.C)
+#define COMP(C) const auto C = ::Wrap(MakeRange(min.C, max.C), vec.C)
   COMP(x);
   COMP(y);
   COMP(z);
@@ -101,9 +101,9 @@ Aabb::GetOffset() const
 point3f
 Aabb::RandomPoint(Random* random)
 {
-  const auto x = random->Next(Range{GetMin().x, GetMax().x});
-  const auto y = random->Next(Range{GetMin().y, GetMax().y});
-  const auto z = random->Next(Range{GetMin().z, GetMax().z});
+  const auto x = random->Next(MakeRange(GetMin().x, GetMax().x));
+  const auto y = random->Next(MakeRange(GetMin().y, GetMax().y));
+  const auto z = random->Next(MakeRange(GetMin().z, GetMax().z));
 
   return point3f{x, y, z};
 }

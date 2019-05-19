@@ -467,8 +467,8 @@ template <typename T, typename R>
 const point2<R>
 To01(const Rect<T>& r, const point2<R>& from)
 {
-  const auto x = To01(Range(r.left, r.right), from.x);
-  const auto y = To01(Range(r.bottom, r.top), from.y);
+  const auto x = To01(MakeRange(r.left, r.right), from.x);
+  const auto y = To01(MakeRange(r.bottom, r.top), from.y);
   return point2<R>{x, y};
 }
 
@@ -476,8 +476,8 @@ template <typename T, typename R>
 const point2<R>
 From01(const Rect<T>& r, const point2<R>& from)
 {
-  const auto x = From01(Range(r.left, r.right), from.x);
-  const auto y = From01(Range(r.bottom, r.top), from.y);
+  const auto x = From01(MakeRange(r.left, r.right), from.x);
+  const auto y = From01(MakeRange(r.bottom, r.top), from.y);
   return point2<R>{x, y};
 }
 

@@ -12,7 +12,7 @@ class CanvasLogic
   float   scale  = 1;
 
   // "config"
-  Range scale_range = Range{0.1f, 15.0f};
+  Range<float> scale_range = MakeRange(0.1f, 15.0f);
 
   void
   Pan(const vec2f& p);

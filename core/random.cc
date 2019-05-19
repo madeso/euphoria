@@ -73,12 +73,6 @@ Random::NextFloat01()
 }
 
 float
-Random::Next(const Range& range)
-{
-  return From01(range, NextFloat01());
-}
-
-float
 Random::NextGaussianFloat01()
 {
   // gaussian source:
@@ -88,10 +82,9 @@ Random::NextGaussianFloat01()
   float s  = 0;
   do
   {
-    static const auto r = Range{-1, 1};
-    v1                  = Next(r);
-    v2                  = Next(r);
-    s                   = v1 * v1 + v2 * v2;
+    v1 = Next(R11());
+    v2 = Next(R11());
+    s  = v1 * v1 + v2 * v2;
   } while(s >= 1.0f || IsZero(s));
 
   s = Sqrt((-2.0f * Log(s)) / s);
@@ -106,7 +99,7 @@ Random::NextGaussian(float mean, float std_dev)
 }
 
 float
-Random::NextGaussian(float mean, float std_dev, const Range& r)
+Random::NextGaussian(float mean, float std_dev, const Range<float>& r)
 {
   float x = 0;
   do

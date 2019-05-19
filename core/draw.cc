@@ -88,8 +88,8 @@ Draw::Circle(
       bool  blend        = false;
       float blend_factor = 1.0f;
 
-      Range a{inner - softness, inner};
-      Range b{radius, radius + softness};
+      const auto a = MakeRange(inner - softness, inner);
+      const auto b = MakeRange(radius, radius + softness);
 
       if(IsWithin(a, sq))
       {
@@ -101,7 +101,7 @@ Draw::Circle(
         blend_factor = 1.0f - To01(b, sq);
         blend        = true;
       }
-      else if(IsWithin(Range{inner, radius}, sq))
+      else if(IsWithin(MakeRange(inner, radius), sq))
       {
         // full color
       }

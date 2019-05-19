@@ -200,7 +200,7 @@ void LutTransform(Image* image, C c)
 void ImageFilter::ChangeBrightness(int change)
 {
   LutTransform(image, [&](int i) {
-    return TRange<int>(0, 255).KeepWithin(i+change);
+    return KeepWithin(MakeRange(0, 255), i+change);
   });
 }
 

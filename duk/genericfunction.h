@@ -32,14 +32,13 @@ namespace duk
     std::string
     MatchesImpl(Context* ctx, std::index_sequence<I...>)
     {
-      const auto passed_argument_count = ctx->GetNumberOfArguments();
+      const size_t passed_argument_count = ctx->GetNumberOfArguments();
       const auto required =
           std::vector<bool>{StackParser<TArgs>::IsRequired()...};
       const std::size_t argument_count =
           std::count(required.begin(), required.end(), true);
       const std::size_t max_argument_count = sizeof...(TArgs);
-      if(!TRange<std::size_t>{argument_count, max_argument_count}.IsWithin(
-             passed_argument_count))
+      if(!IsWithin(MakeRange(argument_count, max_argument_count), passed_argument_count))
       {
         // todo: smaller error message when both max and min are the same
         return Str{} << "expected " << argument_count << " to "

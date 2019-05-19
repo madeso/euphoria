@@ -98,8 +98,7 @@ float dot(const Rgb& lhs, const Rgb& rhs)
 
 Rgb Clamp(const Rgb& c)
 {
-  static const auto r = Range(0, 1);
-  return Rgb(KeepWithin(r, c.r), KeepWithin(r, c.g), KeepWithin(r, c.b));
+  return Rgb(KeepWithin(R01(), c.r), KeepWithin(R01(), c.g), KeepWithin(R01(), c.b));
 }
 
 
@@ -384,7 +383,7 @@ saturate(const Hsl& ahsl, float amount, Method method)
   {
     hsl.s += amount;
   }
-  hsl.s = KeepWithin(Range{0, 1}, hsl.s);
+  hsl.s = KeepWithin(R01(), hsl.s);
   return hsl;
 }
 
@@ -401,7 +400,7 @@ desaturate(const Hsl& ahsl, float amount, Method method)
   {
     hsl.s -= amount;
   }
-  hsl.s = KeepWithin(Range{0, 1}, hsl.s);
+  hsl.s = KeepWithin(R01(), hsl.s);
   return hsl;
 }
 
@@ -418,7 +417,7 @@ lighten(const Hsl& ahsl, float amount, Method method)
   {
     hsl.l += amount;
   }
-  hsl.l = KeepWithin(Range{0, 1}, hsl.l);
+  hsl.l = KeepWithin(R01(), hsl.l);
   return hsl;
 }
 
@@ -435,7 +434,7 @@ darken(const Hsl& ahsl, float amount, Method method)
   {
     hsl.l -= amount;
   }
-  hsl.l = KeepWithin(Range{0, 1}, hsl.l);
+  hsl.l = KeepWithin(R01(), hsl.l);
   return hsl;
 }
 

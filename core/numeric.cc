@@ -17,7 +17,7 @@ bool
 IsZero(float r)
 {
   const float epsilon = 0.0001f;
-  return IsWithin(Range(-epsilon, epsilon), r);
+  return IsWithin(MakeRange(-epsilon, epsilon), r);
 }
 
 float
