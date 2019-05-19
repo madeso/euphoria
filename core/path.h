@@ -40,7 +40,7 @@ struct BezierPath2
 
   // point functions
   void AddPoint(const point2f& p);
-  void MovePoint(size_t i, const vec2f& delta);
+  void MovePoint(int i, const vec2f& delta);
 
   // segment functions
   size_t GetNumberOfSegments() const;

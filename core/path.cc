@@ -1,4 +1,5 @@
 #include "core/path.h"
+#include "core/range.h"
 
 BezierPath2::BezierPath2(const point2f& center)
 {
@@ -38,28 +39,23 @@ bool BezierPath2::IsControlPoint(size_t i)
 }
 
 
-void BezierPath2::MovePoint(size_t i, const vec2f& delta)
+void BezierPath2::MovePoint(int i, const vec2f& delta)
 {
+  const auto r = MakeRange(points);
   points[i] += delta;
 
   if(IsAnchorPoint(i))
   {
     // anchor point, move control points too
-    if(is_closed_ || i + 1 < points.size())
-    {
-      points[LoopIndex(i+1)] += delta;
-    }
-    if(is_closed_ || i > 0)
-    {
-      points[LoopIndex(static_cast<int>(i)-1)] += delta;
-    }
+    if(is_closed_ || IsWithin(r, i + 1)) { points[LoopIndex(i+1)] += delta; }
+    if(is_closed_ || IsWithin(r, i - 1)) { points[LoopIndex(i-1)] += delta; }
   }
   else
   {
     // point is control point, move the opposite point
     const int corresponding_control_index = IsAnchorPoint(i+1) ? i+2 : i-2;
-    const int anchor_index = IsAnchorPoint(i+1) ? i+1 : i-1;
-    if(is_closed_ || corresponding_control_index >= 0 && corresponding_control_index < points.size())
+    const int anchor_index =                IsAnchorPoint(i+1) ? i+1 : i-1;
+    if(is_closed_ || IsWithin(r, corresponding_control_index))
     {
       const auto cci = LoopIndex(corresponding_control_index);
       const auto ai = LoopIndex(anchor_index);
