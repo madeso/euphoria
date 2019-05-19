@@ -1,6 +1,8 @@
 #ifndef EUPHORIA_RANGE_H
 #define EUPHORIA_RANGE_H
 
+#include <vector>
+
 #include "core/angle.h"
 #include "core/assert.h"
 
@@ -10,12 +12,16 @@ struct Range
   Range(T min, T max)
     : lower_bound(min)
     , upper_bound(max)
-  {}
+  {
+    ASSERTX(lower_bound <= upper_bound, upper_bound, lower_bound);
+  }
 
   explicit Range(T max)
     : lower_bound(0)
     , upper_bound(max)
-  {}
+  {
+    ASSERTX(lower_bound <= upper_bound, upper_bound, lower_bound);
+  }
 
   T lower_bound;
   T upper_bound;
@@ -28,6 +34,13 @@ Range<T> MakeRange(T min, T max)
 template<typename T>
 Range<T> MakeRange(T max)
 { return Range<T>(max); }
+
+template<typename T>
+Range<int> MakeRange(const std::vector<T>& v)
+{
+  ASSERT(!v.empty());
+  return MakeRange<int>(v.size()-1);
+}
 
 const Range<float>& R01();
 const Range<float>& R11();
