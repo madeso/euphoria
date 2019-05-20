@@ -103,7 +103,7 @@ DoCanvasScroll(Canvas* canvas)
   if(ImGui::IsWindowHovered() && !ImGui::IsAnyItemActive() &&
      ImGui::IsMouseDragging(2, 0.0f))
   {
-    canvas->view.Pan(vec2f::FromOrigoTo(C(ImGui::GetIO().MouseDelta)));
+    canvas->view.Pan(C(ImGui::GetIO().MouseDelta));
   }
 }
 

@@ -124,12 +124,6 @@ struct vec2
     return Self{to.x - from.x, to.y - from.y};
   }
 
-  static Self
-  FromOrigoTo(const vec2<T>& to)
-  {
-    return Self{to.x, to.y};
-  }
-
   void
   operator/=(const T& rhs)
   {

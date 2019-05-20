@@ -516,7 +516,7 @@ TextDrawCommandList::Draw(
     const auto tint = cmd.hi ? hi_color : base_color;
     renderer->DrawRect(
         *cmd.texture,
-        cmd.sprite_rect.OffsetCopy(vec2f::FromOrigoTo(start_position)),
+        cmd.sprite_rect.OffsetCopy(start_position),
         cmd.texture_rect,
         0.0_rad,
         scale2f{0.5f, 0.5f},
@@ -741,7 +741,7 @@ Text::Draw(
     font_->DrawBackground(
         renderer,
         background_alpha_,
-        e.ExtendCopy(5.0f).OffsetCopy(vec2f::FromOrigoTo(p + off)));
+        e.ExtendCopy(5.0f).OffsetCopy(p + off));
   }
 
   commands.Draw(renderer, p + off, base_color, hi_color);

@@ -116,7 +116,7 @@ class Rect
   {
     const auto lower_left =
         other.GetAbsoluteCenterPos() -
-        vec2f::FromOrigoTo(GetRelativeCenterPosFromBottomLeft());
+        GetRelativeCenterPosFromBottomLeft();
     return Rect::FromTopLeftWidthHeight(
         lower_left.y + GetHeight(), lower_left.x, GetWidth(), GetHeight());
   }

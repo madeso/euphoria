@@ -118,7 +118,7 @@ Button::Render(SpriteRenderer* renderer) const
       renderer->DrawNinepatch(
           *sprite_.get(),
           scaled.OffsetCopy(
-              vec2f::FromOrigoTo(position_displacement_.GetValue())),
+              position_displacement_.GetValue()),
           image_color_.GetValue());
     }
     if(text_.HasText())
@@ -126,7 +126,7 @@ Button::Render(SpriteRenderer* renderer) const
       const auto ex = text_.GetText().GetExtents();
       // todo: render text at client rect center
       const auto p = ex.CenterInsideOther(GetClientRect()).GetBottomLeft() +
-                     vec2f::FromOrigoTo(position_displacement_.GetValue());
+                     position_displacement_.GetValue();
       text_.GetText().Draw(renderer, p, text_color_.GetValue());
     }
   }

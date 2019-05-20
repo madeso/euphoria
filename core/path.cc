@@ -204,7 +204,7 @@ void BezierPath2::AutoSetStartAndEndControlPoints()
   for(int i=0; i<2; i+=1)
   {
     const auto b = std::array<size_t, 2>{0, points.size()-3}[i];
-    points[b+1] = vec2f::FromOrigoTo((vec2f::FromOrigoTo(points[b+0]) + vec2f::FromOrigoTo(points[b+2]))*0.5f);
+    points[b+1] = (points[b+0] + points[b+2])*0.5f;
   }
 }
 

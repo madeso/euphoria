@@ -150,12 +150,6 @@ struct vec3
   }
 
   static Self
-  FromOrigoTo(const vec3<T>& to)
-  {
-    return Self{to.x, to.y, to.z};
-  }
-
-  static Self
   Zero()
   {
     return Self{0, 0, 0};

@@ -72,7 +72,7 @@ Actor::EndMaterialOverride(unsigned int index)
 mat4f
 Actor::GetModelMatrix() const
 {
-  return mat4f::FromTranslation(vec3f::FromOrigoTo(position_)) *
+  return mat4f::FromTranslation(position_) *
          rotation_.ToMat4();
 }
 
