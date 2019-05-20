@@ -23,7 +23,7 @@ class SdlWindow
   EnableCharEvent(bool enable);
 
   // 0-(size-1)
-  const point2i
+  const vec2i
   GetMousePosition() const;
 
   SDL_Window* window;

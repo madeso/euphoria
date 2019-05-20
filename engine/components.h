@@ -12,7 +12,7 @@
 struct CPosition2 : public Component
 {
   CPosition2();
-  point2f pos;
+  vec2f pos;
 };
 
 TYPEID_SETUP_TYPE(CPosition2);
@@ -35,6 +35,6 @@ struct Components
 };
 
 Rectf
-GetSpriteRect(const point2f& position, const Texture2d& texture);
+GetSpriteRect(const vec2f& position, const Texture2d& texture);
 
 #endif  // EUPHORIA_COMPONENTS_H

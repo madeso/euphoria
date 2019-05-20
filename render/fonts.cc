@@ -259,7 +259,7 @@ GetCharacterFromBuiltin(const std::string& text, int s)
   LoadedGlyph glyph;
   glyph.image.SetupWithAlphaSupport(size, size, 0);
 
-  Draw{&glyph.image}.Text(point2i::Origo(), text, Rgbi{255}, s);
+  Draw{&glyph.image}.Text(vec2i::Zero(), text, Rgbi{255}, s);
 
   glyph.size      = glyph.image.GetHeight();
   glyph.bearing_y = glyph.image.GetHeight() + 0;
@@ -445,7 +445,7 @@ Font::Font(vfs::FileSystem* fs, TextureCache* cache, const std::string& font_fil
     }
     const LoadedGlyph& src_char = fontchars.chars[src_rect.id];
     ::Draw{&image}.PasteImage(
-        point2i{src_rect.x + half_margin, src_rect.y + half_margin},
+        vec2i{src_rect.x + half_margin, src_rect.y + half_margin},
         src_char.image);
     const auto rects = ConstructCharacterRects(
         src_rect, src_char, texture_width, texture_height);
@@ -507,7 +507,7 @@ TextDrawCommandList::Add(
 void
 TextDrawCommandList::Draw(
     SpriteRenderer* renderer,
-    const point2f&  start_position,
+    const vec2f&  start_position,
     const Rgb&      base_color,
     const Rgb&      hi_color)
 {
@@ -715,7 +715,7 @@ GetOffset(Align alignment, const Rectf& extent)
 
 void
 Text::Draw(
-    SpriteRenderer* renderer, const point2f& p, const Rgb& base_hi_color) const
+    SpriteRenderer* renderer, const vec2f& p, const Rgb& base_hi_color) const
 {
   Draw(renderer, p, base_hi_color, base_hi_color);
 }
@@ -723,7 +723,7 @@ Text::Draw(
 void
 Text::Draw(
     SpriteRenderer* renderer,
-    const point2f&  p,
+    const vec2f&  p,
     const Rgb&      base_color,
     const Rgb&      hi_color) const
 {

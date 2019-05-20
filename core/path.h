@@ -24,25 +24,25 @@
 
 struct BezierSeg2
 {
-  point2f a0; point2f c0;
-  point2f a1; point2f c1;
+  vec2f a0; vec2f c0;
+  vec2f a1; vec2f c1;
 };
 
 struct BezierPath2
 {
-  std::vector<point2f> points;
+  std::vector<vec2f> points;
   bool is_closed_ = false;
 
   // todo: move out to a controller?
   bool autoset_ = false;
 
-  BezierPath2(const point2f& center);
+  BezierPath2(const vec2f& center);
 
   static bool IsAnchorPoint(size_t i);
   static bool IsControlPoint(size_t i);
 
   // point functions
-  void AddPoint(const point2f& p);
+  void AddPoint(const vec2f& p);
   void MovePoint(int i, const vec2f& delta);
 
   // segment functions
@@ -65,7 +65,7 @@ struct BezierPath2
 
 struct VertexPath2
 {
-  std::vector<point2f> points;
+  std::vector<vec2f> points;
   bool is_closed = false;
 };
 

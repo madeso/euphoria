@@ -9,10 +9,10 @@ class line2
  public:
   typedef line2<T> Self;
   typedef vec2<T> vec;
-  typedef point2<T> tpoint;
+  typedef vec2<T> tpoint;
 
   static Self
-  FromDirection(const vec& direction, const tpoint& pos = tpoint::Origo())
+  FromDirection(const vec& direction, const tpoint& pos = tpoint::Zero())
   {
     return Self(pos, direction);
   }

@@ -86,7 +86,7 @@ main(int argc, char** argv)
   // main loop
   CanvasConfig cc;
   Canvas canvas;
-  BezierPath2 path (point2f(0,0));
+  BezierPath2 path (vec2f(0,0));
   int index = -1;
 
   while(running)

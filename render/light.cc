@@ -29,7 +29,7 @@ LightAttenuation::GetQuadratic() const
 
 Light::Light()
     : type_(Type::Directional)
-    , position_( point3f::Origo() )
+    , position_( vec3f::Zero() )
     , direction_(vec3f{-0.2f, -1.0f, -0.3f}.GetNormalized())
     , ambient_(0.3f)
     , diffuse_(Color::White)
@@ -58,12 +58,12 @@ Light::GetTypeMod()
 }
 
 void
-Light::SetPosition(const point3f& pos)
+Light::SetPosition(const vec3f& pos)
 {
   position_ = pos;
 }
 
-const point3f&
+const vec3f&
 Light::GetPosition() const
 {
   return position_;

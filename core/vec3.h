@@ -13,9 +13,6 @@
 /// Forward declarations
 
 template <typename T>
-struct point3;
-
-template <typename T>
 struct vec3;
 
 template <typename T>
@@ -79,19 +76,13 @@ struct scale3;
   {                                          \
   }
 
-#define VEC3_CONSTRUCTOR2(VEC, T, VEC2, POINT2) \
+#define VEC3_CONSTRUCTOR2(VEC, T, VEC2)         \
   VEC(const VEC2<T>& a, const T& az)            \
       : x(a.x)                                  \
       , y(a.y)                                  \
       , z(az)                                   \
   {                                             \
-  }                                             \
-  VEC(const POINT2<T>& a, const T& az)          \
-      : x(a.x)                                  \
-      , y(a.y)                                  \
-      , z(az)                                   \
-  {                                             \
-  }
+  }                                             
 
 #define VEC3_SELF_ADD_SUBTRACT(VEC)  \
   void operator+=(const VEC<T>& rhs) \
@@ -130,32 +121,6 @@ struct scale3;
 ////////////////////////////////////////////////////////////////////////////////
 
 template <typename T>
-struct point3
-{
-  VEC3_COMMON_MEMBERS(point3, T)
-  VEC3_CONSTRUCTOR(point3, T)
-  VEC3_CONSTRUCTOR2(point3, T, vec2, point2)
-  VEC3_SELF_ADD_SUBTRACT(vec3)
-  VEC3_DELETE_EQUAL()
-
-  explicit point3(const vec3<T>& v)
-      : x(v.x)
-      , y(v.y)
-      , z(v.z)
-  {
-  }
-
-  static Self
-  Origo()
-  {
-    return Self{0, 0, 0};
-  }
-};
-
-
-////////////////////////////////////////////////////////////////////////////////
-
-template <typename T>
 struct scale3
 {
   VEC3_COMMON_MEMBERS(scale3, T)
@@ -170,7 +135,7 @@ struct vec3
 {
   VEC3_COMMON_MEMBERS(vec3, T)
   VEC3_CONSTRUCTOR(vec3, T)
-  VEC3_CONSTRUCTOR2(vec3, T, vec2, point2)
+  VEC3_CONSTRUCTOR2(vec3, T, vec2)
   VEC3_SELF_ADD_SUBTRACT(vec3)
   VEC3_INVERT_SELF()
   VEC3_LENGTH_SQUARED(T)
@@ -178,23 +143,22 @@ struct vec3
 
   typedef unit3<T> Unit;
 
-  explicit vec3(const point3<T>& v)
-      : x(v.x)
-      , y(v.y)
-      , z(v.z)
-  {
-  }
-
   static Self
-  FromTo(const point3<T>& from, const point3<T>& to)
+  FromTo(const vec3<T>& from, const vec3<T>& to)
   {
     return Self{to.x - from.x, to.y - from.y, to.z - from.z};
   }
 
   static Self
-  FromOrigoTo(const point3<T>& to)
+  FromOrigoTo(const vec3<T>& to)
   {
     return Self{to.x, to.y, to.z};
+  }
+
+  static Self
+  Zero()
+  {
+    return Self{0, 0, 0};
   }
 
   void
@@ -338,44 +302,6 @@ struct unit3 : public vec3<T>
 ////////////////////////////////////////////////////////////////////////////////
 /// Math operators
 
-// point
-
-template <typename T>
-point3<T>
-operator+(const point3<T>& lhs, const vec3<T>& rhs)
-{
-  point3<T> r = lhs;
-  r += rhs;
-  return r;
-}
-
-template <typename T>
-point3<T>
-operator+(const vec3<T>& lhs, const point3<T>& rhs)
-{
-  point3<T> r = rhs;
-  r += lhs;
-  return r;
-}
-
-template <typename T>
-point3<T>
-operator-(const point3<T>& lhs, const vec3<T>& rhs)
-{
-  point3<T> r = lhs;
-  r -= rhs;
-  return r;
-}
-
-template <typename T>
-point3<T>
-operator-(const vec3<T>& lhs, const point3<T>& rhs)
-{
-  return -rhs + lhs;
-}
-
-// vector
-
 template <typename T>
 vec3<T>
 operator+(const vec3<T>& lhs, const vec3<T>& rhs)
@@ -447,7 +373,6 @@ ComponentMultiply(const vec3<T>& lhs, const vec3<T>& rhs)
     return lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z;   \
   }
 
-VEC3_EQUAL_OPERATOR(point3)
 VEC3_EQUAL_OPERATOR(vec3)
 VEC3_EQUAL_OPERATOR(unit3)
 VEC3_EQUAL_OPERATOR(scale3)
@@ -473,13 +398,6 @@ cross(const vec3<T>& v, const vec3<T> u)
       (v.x * u.y) - (v.y * u.x));
 }
 
-template <typename T>
-point3<T>
-Scale(const point3<T>& p, T scale)
-{
-  return point3<T>{p.x * scale, p.y * scale, p.z * scale};
-}
-
 
 ////////////////////////////////////////////////////////////////////////////////
 /// Transformations
@@ -489,14 +407,6 @@ Scale(const point3<T>& p, T scale)
 
 ////////////////////////////////////////////////////////////////////////////////
 /// Printing
-
-template <typename T>
-std::ostream&
-operator<<(std::ostream& stream, const point3<T>& v)
-{
-  return stream << "(" << v.x << ", " << v.y << ", " << v.z << ")";
-}
-
 
 template <typename T>
 std::ostream&
@@ -524,13 +434,11 @@ operator<<(std::ostream& stream, const scale3<T>& v)
 /// Typedefs
 
 
-typedef point3<float> point3f;
-typedef vec3<float>   vec3f;
+typedef vec3<float> vec3f;
 typedef unit3<float>  unit3f;
 typedef scale3<float> scale3f;
 
-typedef point3<int> point3i;
-typedef vec3<int>   vec3i;
+typedef vec3<int> vec3i;
 typedef unit3<int>  unit3i;
 typedef scale3<int> scale3i;
 

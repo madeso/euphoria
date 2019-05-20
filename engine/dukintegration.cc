@@ -336,12 +336,12 @@ struct DukIntegrationPimpl
             .AddMethod(
                 "GetPos",
                 MakeBind<CPosition2>([](Context* ctx, CPosition2& p) -> int {
-                  return ctx->ReturnObject(std::make_shared<point2f>(p.pos));
+                  return ctx->ReturnObject(std::make_shared<vec2f>(p.pos));
                 }))
             .AddMethod(
                 "SetPos",
-                MakeBind<CPosition2, point2f>(
-                    [](Context* ctx, CPosition2& p, const point2f& pos) -> int {
+                MakeBind<CPosition2, vec2f>(
+                    [](Context* ctx, CPosition2& p, const vec2f& pos) -> int {
                       p.pos = pos;
                       return ctx->ReturnVoid();
                     }))
@@ -355,8 +355,8 @@ struct DukIntegrationPimpl
                 MakeBind<CPosition2>([](Context* ctx, CPosition2& p) -> int {
                   return ctx->ReturnFreeObject(&p.pos);
                 }),
-                MakeBind<CPosition2, point2f>(
-                    [](Context* ctx, CPosition2& p, const point2f& pos) -> int {
+                MakeBind<CPosition2, vec2f>(
+                    [](Context* ctx, CPosition2& p, const vec2f& pos) -> int {
                       p.pos = pos;
                       return ctx->ReturnVoid();
                     })));
@@ -417,7 +417,7 @@ struct DukIntegrationPimpl
                 MakeBind<Random, Rectf>(
                     [](Context* ctx, Random& rnd, const Rectf& r) -> int {
                       return ctx->ReturnObject(
-                          std::make_shared<point2f>(r.RandomPoint(&rnd)));
+                          std::make_shared<vec2f>(r.RandomPoint(&rnd)));
                     }))
 
             );

@@ -28,31 +28,31 @@ class Draw
   Draw&
   Circle(
       const Rgb&     color,
-      const point2i& center,
+      const vec2i& center,
       float          radius,
       float          softness = 0.0f,
       float          inner    = -1.0f);
 
   Draw&
-  LineFast(const Rgbi& color, const point2i& from, const point2i& to);
+  LineFast(const Rgbi& color, const vec2i& from, const vec2i& to);
 
   Draw&
-  LineAntialiased(const Rgb& color, const point2f& from, const point2f& to);
+  LineAntialiased(const Rgb& color, const vec2f& from, const vec2f& to);
 
   Draw&
-  LineAntialiased(const Rgb& color, const point2i& from, const point2i& to);
+  LineAntialiased(const Rgb& color, const vec2i& from, const vec2i& to);
 
   // position is lower left of text
   // each character is 8x8
   Draw&
   Text(
-      const point2i&     start_pos,
+      const vec2i&     start_pos,
       const std::string& text,
       const Rgbi&        color,
       int                scale);
 
   Draw&
-  PasteImage(const point2i& position, const Image& source_image);
+  PasteImage(const vec2i& position, const Image& source_image);
 
  private:
   Image* image_;

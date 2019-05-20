@@ -60,7 +60,7 @@ Draw::Square(const Rgbi& color, int x, int y, int size)
 Draw&
 Draw::Circle(
     const Rgb&     color,
-    const point2i& center,
+    const vec2i& center,
     float          radius,
     float          softness,
     float          inner)
@@ -82,7 +82,7 @@ Draw::Circle(
       // todo: use length squared!
       const float sq =
           vec2f::FromTo(
-              point2f{static_cast<float>(x), static_cast<float>(y)},
+              vec2f{static_cast<float>(x), static_cast<float>(y)},
               center.StaticCast<float>())
               .GetLength();
       bool  blend        = false;
@@ -124,7 +124,7 @@ Draw::Circle(
 }
 
 Draw&
-Draw::LineFast(const Rgbi& color, const point2i& from, const point2i& to)
+Draw::LineFast(const Rgbi& color, const vec2i& from, const vec2i& to)
 {
   // https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm
 
@@ -202,14 +202,14 @@ Plot(int x, int y, float brightness, const Rgb& color, Image* image)
 }
 
 Draw&
-Draw::LineAntialiased(const Rgb& color, const point2i& from, const point2i& to)
+Draw::LineAntialiased(const Rgb& color, const vec2i& from, const vec2i& to)
 {
   return LineAntialiased(
       color, from.StaticCast<float>(), to.StaticCast<float>());
 }
 
 Draw&
-Draw::LineAntialiased(const Rgb& color, const point2f& from, const point2f& to)
+Draw::LineAntialiased(const Rgb& color, const vec2f& from, const vec2f& to)
 {
   // https://en.wikipedia.org/wiki/Xiaolin_Wu%27s_line_algorithm
   float x0 = from.x;
@@ -303,7 +303,7 @@ GetCharGlyph(char ac)
 
 void
 PrintCharAt(
-    Draw* image, const point2i pos, char c, const Rgbi& color, int scale)
+    Draw* image, const vec2i pos, char c, const Rgbi& color, int scale)
 {
   ASSERT(image);
   const unsigned char* glyph = GetCharGlyph(c);
@@ -325,14 +325,14 @@ PrintCharAt(
 
 Draw&
 Draw::Text(
-    const point2i&     start_pos,
+    const vec2i&     start_pos,
     const std::string& text,
     const Rgbi&        color,
     int                scale)
 {
   ASSERT(scale > 0);
 
-  point2i pos = start_pos;
+  vec2i pos = start_pos;
   for(unsigned int i = 0; i < text.length(); i += 1)
   {
     const char c = text[i];
@@ -351,7 +351,7 @@ Draw::Text(
 }
 
 Draw&
-Draw::PasteImage(const point2i& position, const Image& source_image)
+Draw::PasteImage(const vec2i& position, const Image& source_image)
 {
   for(int y = 0; y < source_image.GetHeight(); ++y)
   {

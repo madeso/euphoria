@@ -7,7 +7,7 @@
 
 LOG_SPECIFY_DEFAULT_LOGGER("painter")
 
-BezierPath2::BezierPath2(const point2f& center)
+BezierPath2::BezierPath2(const vec2f& center)
 {
   const auto left = vec2f(-1, 0);
   const auto right = vec2f(1, 0);
@@ -20,7 +20,7 @@ BezierPath2::BezierPath2(const point2f& center)
   points.push_back(center + right);
 }
 
-void BezierPath2::AddPoint(const point2f& p)
+void BezierPath2::AddPoint(const vec2f& p)
 {
   const auto p2 = points[points.size()-2]; // control point
   const auto p3 = points[points.size()-1]; // anchor point
@@ -204,7 +204,7 @@ void BezierPath2::AutoSetStartAndEndControlPoints()
   for(int i=0; i<2; i+=1)
   {
     const auto b = std::array<size_t, 2>{0, points.size()-3}[i];
-    points[b+1] = point2f::FromOrigoTo((vec2f::FromOrigoTo(points[b+0]) + vec2f::FromOrigoTo(points[b+2]))*0.5f);
+    points[b+1] = vec2f::FromOrigoTo((vec2f::FromOrigoTo(points[b+0]) + vec2f::FromOrigoTo(points[b+2]))*0.5f);
   }
 }
 

@@ -4,7 +4,7 @@
 FpsController::FpsController()
     : rotation_(0.0_rad)
     , look_(0.0_rad)
-    , position(point3f::Origo())
+    , position(vec3f::Zero())
 {
 }
 

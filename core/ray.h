@@ -8,7 +8,7 @@ class UnitRay3
 {
  public:
   typedef unit3<T>    Unit;
-  typedef point3<T>   Point;
+  typedef vec3<T>   Point;
   typedef UnitRay3<T> Self;
 
   UnitRay3(const Point& from, const Unit& dir)
@@ -26,7 +26,7 @@ class UnitRay3
   static Self
   FromDirection(const Unit& dir)
   {
-    return Self{Point::Origo(), dir};
+    return Self{Point::Zero(), dir};
   }
 
   Point
@@ -43,7 +43,7 @@ template <typename T>
 class Ray3
 {
  public:
-  typedef point3<T> Point;
+  typedef vec3<T> Point;
   typedef vec3<T> Vec;
   typedef Ray3<T> Self;
 
@@ -62,7 +62,7 @@ class Ray3
   static Self
   FromDirection(const Vec& dir)
   {
-    return Self{Point::Origo(), dir};
+    return Self{Point::Zero(), dir};
   }
 
   Point

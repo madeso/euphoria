@@ -8,10 +8,10 @@ CanvasLogic::Pan(const vec2f& p)
 }
 
 void
-CanvasLogic::Zoom(const point2f& mouse, float zoom)
+CanvasLogic::Zoom(const vec2f& mouse, float zoom)
 {
   // todo: change to use ScreenToWorld
-  const auto focus = Scale(mouse - scroll, 1 / scale);
+  const auto focus = (mouse - scroll)/ scale;
 
   const float scale_factor = 1 + 0.01f * Abs(zoom);
 
@@ -28,18 +28,18 @@ CanvasLogic::Zoom(const point2f& mouse, float zoom)
   scale = KeepWithin(scale_range, scale);
 
   // todo: change to use WorldToScreen
-  const auto new_focus = scroll + Scale(focus, scale);
+  const auto new_focus = scroll + focus*scale;
   scroll               = scroll + vec2f::FromTo(new_focus, mouse);
 }
 
-point2f
-CanvasLogic::WorldToScreen(const point2f& p) const
+vec2f
+CanvasLogic::WorldToScreen(const vec2f& p) const
 {
-  return scroll + Scale(p, scale);
+  return scroll + p*scale;
 }
 
-point2f
-CanvasLogic::ScreenToWorld(const point2f& p) const
+vec2f
+CanvasLogic::ScreenToWorld(const vec2f& p) const
 {
-  return Scale(p - scroll, 1 / scale);
+  return (p - scroll)/ scale;
 }

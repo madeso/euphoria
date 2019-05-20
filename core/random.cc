@@ -121,22 +121,22 @@ Random::NextSign()
   return NextBool() ? 1 : -1;
 }
 
-point2f
+vec2f
 Random::PointOnUnitCircle_CenterFocused()
 {
   const auto angle = Angle::FromPercentOf360(NextFloat01());
   const auto dist  = NextFloat01() * 0.5f;
 
-  return point2f{dist * Cos(angle) + 0.5f, dist * Sin(angle) + 0.5f};
+  return vec2f{dist * Cos(angle) + 0.5f, dist * Sin(angle) + 0.5f};
 }
 
-point2f
+vec2f
 Random::PointOnUnitCircle_Uniform()
 {
   // http://xdpixel.com/random-points-in-a-circle/
   const auto angle = Angle::FromPercentOf360(NextFloat01());
   const auto dist  = Sqrt(NextFloat01()) * 0.5f;
 
-  return point2f{dist * Cos(angle) + 0.5f, dist * Sin(angle) + 0.5f};
+  return vec2f{dist * Cos(angle) + 0.5f, dist * Sin(angle) + 0.5f};
 }
 

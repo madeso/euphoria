@@ -13,10 +13,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 /// Forward declarations
 
-// a 2d point
-template <typename T>
-struct point2;
-
 // a 2d vector
 template <typename T>
 struct vec2;
@@ -106,29 +102,6 @@ struct unit2;
 ////////////////////////////////////////////////////////////////////////////////
 
 template <typename T>
-struct point2
-{
-  VEC2_CONSTRUCTOR(point2, T)
-  VEC2_COMMON_MEMBERS(point2, T)
-  VEC2_SELF_ADD_SUBTRACT(vec2)
-
-  static Self
-  FromOrigoTo(const vec2<T>& to)
-  {
-    return Self{to.x, to.y};
-  }
-
-  static Self
-  Origo()
-  {
-    return Self{0, 0};
-  }
-};
-
-
-////////////////////////////////////////////////////////////////////////////////
-
-template <typename T>
 struct vec2
 {
   VEC2_CONSTRUCTOR(vec2, T)
@@ -146,13 +119,13 @@ struct vec2
   }
 
   static Self
-  FromTo(const point2<T>& from, const point2<T>& to)
+  FromTo(const vec2<T>& from, const vec2<T>& to)
   {
     return Self{to.x - from.x, to.y - from.y};
   }
 
   static Self
-  FromOrigoTo(const point2<T>& to)
+  FromOrigoTo(const vec2<T>& to)
   {
     return Self{to.x, to.y};
   }
@@ -251,44 +224,6 @@ struct scale2
 ////////////////////////////////////////////////////////////////////////////////
 /// Math operators
 
-// point
-
-template <typename T, typename O>
-point2<T>
-operator+(const point2<T>& lhs, const vec2<O>& rhs)
-{
-  point2<T> r = lhs;
-  r += rhs;
-  return r;
-}
-
-template <typename T, typename O>
-point2<T>
-operator+(const vec2<T>& lhs, const point2<O>& rhs)
-{
-  point2<T> r = rhs;
-  r += lhs;
-  return r;
-}
-
-template <typename T, typename O>
-point2<T>
-operator-(const point2<T>& lhs, const vec2<O>& rhs)
-{
-  point2<T> r = lhs;
-  r -= rhs;
-  return r;
-}
-
-template <typename T, typename O>
-point2<T>
-operator-(const vec2<T>& lhs, const point2<O>& rhs)
-{
-  return -rhs + lhs;
-}
-
-// vector
-
 template <typename T, typename O>
 vec2<T>
 operator+(const vec2<T>& lhs, const vec2<O>& rhs)
@@ -354,13 +289,6 @@ operator/(const vec2<T>& lhs, const O& rhs)
 
 template <typename T>
 bool
-operator==(const point2<T>& lhs, const point2<T>& rhs)
-{
-  return lhs.x == rhs.x && lhs.y == rhs.y;
-}
-
-template <typename T>
-bool
 operator==(const vec2<T>& lhs, const vec2<T>& rhs)
 {
   return lhs.x == rhs.x && lhs.y == rhs.y;
@@ -384,13 +312,6 @@ dot(const vec2<T>& lhs, const vec2<T>& rhs)
   return lhs.x * rhs.x + lhs.y * rhs.y;
 }
 
-template <typename T, typename O>
-point2<T>
-Scale(const point2<T>& p, O scale)
-{
-  return point2<T>{p.x * scale, p.y * scale};
-}
-
 ////////////////////////////////////////////////////////////////////////////////
 /// Transform
 
@@ -401,18 +322,6 @@ struct Vec2Transform
   Transform(const vec2<T>& from, float v, const vec2<T> to)
   {
     return vec2<T>(
-        FloatTransform::Transform(from.x, v, to.x),
-        FloatTransform::Transform(from.y, v, to.y));
-  }
-};
-
-template <typename T>
-struct Point2Transform
-{
-  static point2<T>
-  Transform(const point2<T>& from, float v, const point2<T> to)
-  {
-    return point2<T>(
         FloatTransform::Transform(from.x, v, to.x),
         FloatTransform::Transform(from.y, v, to.y));
   }
@@ -434,14 +343,6 @@ operator<<(S& s, const vec2<T>& v)
 
 template <typename S, typename T>
 S&
-operator<<(S& s, const point2<T>& v)
-{
-  s << "(" << v.x << ", " << v.y << ")";
-  return s;
-}
-
-template <typename S, typename T>
-S&
 operator<<(S& s, const unit2<T>& v)
 {
   s << "(" << v.x << ", " << v.y << ")";
@@ -452,25 +353,20 @@ operator<<(S& s, const unit2<T>& v)
 ////////////////////////////////////////////////////////////////////////////////
 /// Typedefs
 
-typedef point2<float>          point2f;
+typedef vec2<float>          vec2f;
 typedef scale2<float>          scale2f;
-typedef vec2<float>            vec2f;
 typedef unit2<float>           unit2f;
 typedef Vec2Transform<float>   Vec2fTransform;
-typedef Point2Transform<float> Point2fTransform;
 
-typedef point2<int>          point2i;
+typedef vec2<int>          vec2i;
 typedef scale2<int>          scale2i;
-typedef vec2<int>            vec2i;
 typedef unit2<int>           unit2i;
 typedef Vec2Transform<int>   Vec2iTransform;
-typedef Point2Transform<int> Point2iTransform;
 
 
 ////////////////////////////////////////////////////////////////////////////////
 /// Typeids
 
-TYPEID_SETUP_TYPE(point2f);
 TYPEID_SETUP_TYPE(vec2f);
 
 #endif  // CORE_VEC2_H

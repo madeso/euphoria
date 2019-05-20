@@ -51,10 +51,10 @@ SdlWindow::EnableCharEvent(bool enable)
   }
 }
 
-const point2i
+const vec2i
 SdlWindow::GetMousePosition() const
 {
-  point2i ret{0, 0};
+  vec2i ret{0, 0};
   int     width  = 0;
   int     height = 0;
   SDL_GetWindowSize(window, &width, &height);

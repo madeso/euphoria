@@ -12,7 +12,7 @@
 template <>
 bool
 approximately_equal(
-    point3f const& lhs, point3f const& rhs, const ApproxData& data);
+    vec3f const& lhs, vec3f const& rhs, const ApproxData& data);
 
 template <>
 bool

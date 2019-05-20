@@ -12,34 +12,34 @@ CompiledCamera::CompiledCamera(const mat4f& view_, const mat4f& projection_)
   ASSERT(was_inverted);
 }
 
-point3f
-CompiledCamera::WorldToClip(const point3f& in_world) const
+vec3f
+CompiledCamera::WorldToClip(const vec3f& in_world) const
 {
-  const vec4f v = combined * vec4f{in_world};
+  const vec4f v = combined * vec4f{in_world, 1};
 
   // divide by w to get back to the 1.0f coordinate space
-  return Scale(point3f{v.x, v.y, v.z}, 1 / v.w);
+  return vec3f{v.x, v.y, v.z} / v.w;
 }
 
-point3f
-CompiledCamera::ClipToWorld(const point3f& in_clip) const
+vec3f
+CompiledCamera::ClipToWorld(const vec3f& in_clip) const
 {
-  const vec4f v = combined_inverted * vec4f{in_clip};
+  const vec4f v = combined_inverted * vec4f{in_clip, 1};
 
   // divide by w to get back to the 1.0f coordinate space
-  return Scale(point3f{v.x, v.y, v.z}, 1 / v.w);
+  return vec3f{v.x, v.y, v.z} / v.w;
 }
 
 Ray3f
-CompiledCamera::ClipToWorldRay(const point2f& p) const
+CompiledCamera::ClipToWorldRay(const vec2f& p) const
 {
-  const auto from = ClipToWorld(point3f{p, -1.0f});
-  const auto to   = ClipToWorld(point3f{p, 1.0f});
+  const auto from = ClipToWorld(vec3f{p, -1.0f});
+  const auto to   = ClipToWorld(vec3f{p, 1.0f});
   return Ray3f::FromTo(from, to);
 }
 
 Camera::Camera()
-    : position(point3f::Origo())
+    : position(vec3f::Zero())
     , rotation(quatf::Identity())
     , fov(45.0f)
     , near(0.1f)

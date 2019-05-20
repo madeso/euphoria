@@ -47,7 +47,7 @@ class FpsController
   bool down_down_     = false;
 
  public:
-  point3f position;
+  vec3f position;
   float speed       = 3.0f;
   float sensitivity = 0.10f;
 };

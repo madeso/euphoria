@@ -48,15 +48,15 @@ TEST_CASE("quat-testLook", "[quat]")
   EXPECT_PRED_FORMAT2(
       quatf::FromAxisAngle(
           AxisAngle::RightHandAround(unit3f::Up(), Angle::FromDegrees(-90))),
-      quatf::LookAt(point3f(0, 0, 0), point3f(5, 0, 0), unit3f::Up()));
+      quatf::LookAt(vec3f(0, 0, 0), vec3f(5, 0, 0), unit3f::Up()));
   EXPECT_PRED_FORMAT2(
       quatf::FromAxisAngle(
           AxisAngle::RightHandAround(unit3f::Up(), Angle::FromDegrees(-90))),
-      quatf::LookAt(point3f(0, 0, 0), point3f(2, 0, 0), unit3f::Up()));
+      quatf::LookAt(vec3f(0, 0, 0), vec3f(2, 0, 0), unit3f::Up()));
   EXPECT_PRED_FORMAT2(
       quatf::FromAxisAngle(
           AxisAngle::RightHandAround(unit3f::Up(), Angle::FromDegrees(-90))),
-      quatf::LookAt(point3f(0, 0, 0), point3f(0.25f, 0, 0), unit3f::Up()));
+      quatf::LookAt(vec3f(0, 0, 0), vec3f(0.25f, 0, 0), unit3f::Up()));
 
   // need to pass in a normalized vec3 or it won't compile, hence the
   // .GetNormalized() call

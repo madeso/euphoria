@@ -30,7 +30,7 @@ Root::Load(
 }
 
 void
-Root::SetInputMouse(const point2f& pos, bool down)
+Root::SetInputMouse(const vec2f& pos, bool down)
 {
   state_.mouse      = pos;
   state_.mouse_down = down;

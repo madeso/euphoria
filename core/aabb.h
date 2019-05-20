@@ -8,13 +8,13 @@ class Random;
 class Aabb
 {
  public:
-  Aabb(const point3f& amin, const point3f& amax);
+  Aabb(const vec3f& amin, const vec3f& amax);
 
-  point3f
-  Wrap(const point3f& vec) const;
+  vec3f
+  Wrap(const vec3f& vec) const;
 
   void
-  Extend(const point3f& vec);
+  Extend(const vec3f& vec);
 
   void
   Extend(const Aabb& aabb);
@@ -31,17 +31,17 @@ class Aabb
   vec3f
   GetOffset() const;
 
-  const point3f&
+  const vec3f&
   GetMin() const;
 
-  const point3f&
+  const vec3f&
   GetMax() const;
 
-  point3f
+  vec3f
   RandomPoint(Random* random);
 
-  point3f min;
-  point3f max;
+  vec3f min;
+  vec3f max;
 };
 
 template <typename Stream>

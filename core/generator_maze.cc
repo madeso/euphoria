@@ -52,13 +52,13 @@ namespace generator
   }
 
 
-  void Visit(Maze* maze, const point2i& np)
+  void Visit(Maze* maze, const vec2i& np)
   {
     maze->RefValue(np.x, np.y) |= Cell::Visited;
   }
 
 
-  point2i AddStepToMaze(Maze* maze, const point2i& c, Dir dir)
+  vec2i AddStepToMaze(Maze* maze, const vec2i& c, Dir dir)
   {
     const auto o = DirToOffset(dir);
     const auto np = c + o;
@@ -68,13 +68,13 @@ namespace generator
   }
 
 
-  bool HasVisited(Maze* maze, const point2i& np)
+  bool HasVisited(Maze* maze, const vec2i& np)
   {
     return (maze->Value(np.x, np.y) & Cell::Visited) != 0;
   }
 
 
-  bool CanVisitWithoutMakingLoop(Maze* maze, const point2i& np)
+  bool CanVisitWithoutMakingLoop(Maze* maze, const vec2i& np)
   {
     const auto world_size = Recti::FromWidthHeight(maze->Width()-1, maze->Height() - 1);
     return world_size.ContainsInclusive(np) && !HasVisited(maze, np);
@@ -92,7 +92,7 @@ namespace generator
   }
 
 
-  point2i RandomPositionOnMaze(Random* random, Maze* maze)
+  vec2i RandomPositionOnMaze(Random* random, Maze* maze)
   {
     return {
       random->NextRange(maze->Width()),
@@ -152,7 +152,7 @@ namespace generator
 
   //////////////////////////////////////////////////////////////////////////////////////////
 
-  void AddToFrontier(Maze* maze, std::vector<RandomTraversal::Entry>* frontier, const point2i& p)
+  void AddToFrontier(Maze* maze, std::vector<RandomTraversal::Entry>* frontier, const vec2i& p)
   {
     Visit(maze, p);
     for(auto d: AllDirs())

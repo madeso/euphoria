@@ -29,7 +29,7 @@ SpriteBatch::Begin()
 
 void
 SpriteBatch::Quad(
-    const point2f& pos,
+    const vec2f& pos,
     const Sizef&   quad,
     const Rectf&   uv,
     const scale2f& center,
@@ -51,10 +51,10 @@ SpriteBatch::Quad(
   const float right       = pos.x + (-center.x * w + w) * sy;
   const float top         = pos.y + (-center.y * h) * sy;
   const float bottom      = pos.y + (-center.y * h + h) * sy;
-  const auto  upper_left  = point2f(left, top);
-  const auto  upper_right = point2f(right, top);
-  const auto  lower_left  = point2f(left, bottom);
-  const auto  lower_right = point2f(right, bottom);
+  const auto  upper_left  = vec2f(left, top);
+  const auto  upper_right = vec2f(right, top);
+  const auto  lower_left  = vec2f(left, bottom);
+  const auto  lower_right = vec2f(right, bottom);
 
   data_.push_back(upper_left.x);
   data_.push_back(upper_left.y);

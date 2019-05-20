@@ -18,13 +18,13 @@ class CanvasLogic
   Pan(const vec2f& p);
 
   void
-  Zoom(const point2f& mouse, float zoom);
+  Zoom(const vec2f& mouse, float zoom);
 
-  point2f
-  ScreenToWorld(const point2f& p) const;
+  vec2f
+  ScreenToWorld(const vec2f& p) const;
 
-  point2f
-  WorldToScreen(const point2f& p) const;
+  vec2f
+  WorldToScreen(const vec2f& p) const;
 };
 
 

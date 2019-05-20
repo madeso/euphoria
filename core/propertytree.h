@@ -58,10 +58,10 @@ struct ValueVec3f : public Value
 
 struct ValuePoint3f : public Value
 {
-  explicit ValuePoint3f(const point3f& v);
-  point3f value;
+  explicit ValuePoint3f(const vec3f& v);
+  vec3f value;
 
-  static point3f&
+  static vec3f&
   Cast(Value* value);
 };
 

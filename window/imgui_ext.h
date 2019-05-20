@@ -39,9 +39,9 @@ bool
 BeginFixedOverlay(ImguiCorner corner, const std::string& title);
 
 ImVec2
-C(const point2f& v);
+C(const vec2f& v);
 
-point2f
+vec2f
 C(const ImVec2& v);
 
 struct ImguiDisabled

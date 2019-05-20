@@ -16,14 +16,14 @@ class Actor
 
   // todo: make poisition and rotation public and skip getters and setters
 
-  const point3f&
+  const vec3f&
   GetPosition();
 
   const quatf&
   GetRotation();
 
   void
-  SetPosition(const point3f& position);
+  SetPosition(const vec3f& position);
 
   void
   SetRotation(const quatf& rotation);
@@ -47,7 +47,7 @@ class Actor
   Render(
       const mat4f& projection_matrix,
       const mat4f& view_matrix,
-      const point3f& camera,
+      const vec3f& camera,
       const Light& light);
 
   void
@@ -58,7 +58,7 @@ class Actor
 
 
   std::shared_ptr<CompiledMesh> mesh_;
-  point3f                         position_;
+  vec3f                         position_;
   quatf                         rotation_;
 
  private:

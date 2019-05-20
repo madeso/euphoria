@@ -22,7 +22,7 @@ TEST_CASE("camera-clip2world", "[camera]")
       {
         for(float z : values)
         {
-          const auto start = point3f{x, y, z};
+          const auto start = vec3f{x, y, z};
           const auto world = cc.ClipToWorld(start);
           const auto clip  = cc.WorldToClip(world);
           REQUIRE(approx(start) == clip);

@@ -13,14 +13,14 @@ class CompiledCamera
  public:
   CompiledCamera(const mat4f& view_, const mat4f& projection_);
 
-  point3f
-  WorldToClip(const point3f& in_world) const;
+  vec3f
+  WorldToClip(const vec3f& in_world) const;
 
-  point3f
-  ClipToWorld(const point3f& in_clip) const;
+  vec3f
+  ClipToWorld(const vec3f& in_clip) const;
 
   Ray3f
-  ClipToWorldRay(const point2f& p) const;
+  ClipToWorldRay(const vec2f& p) const;
 
   mat4f view;
   mat4f projection;
@@ -43,7 +43,7 @@ class Camera
   mat4f
   CalculateViewMatrix() const;
 
-  point3f position;
+  vec3f position;
   quatf rotation;
   float fov;
   float near;

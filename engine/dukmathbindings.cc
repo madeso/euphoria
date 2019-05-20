@@ -53,7 +53,7 @@ void
 BindPoint2(duk::Duk* duk, const std::string& name)
 {
   using namespace duk;
-  using V = point2<T>;
+  using V = vec2<T>;
 
   duk->BindClass(
       name,
@@ -92,6 +92,6 @@ void
 BindMath(duk::Duk* duk)
 {
   BindVec2<float>(duk, "vec2f");
-  BindPoint2<float>(duk, "point2f");
+  BindPoint2<float>(duk, "vec2f");
   // BindVec2<int>(duk, "vec2i");
 }

@@ -52,7 +52,7 @@ namespace generator
     Maze* maze = nullptr;
     Random* random = nullptr;
 
-    std::stack<point2i> stack;
+    std::stack<vec2i> stack;
     int visited_cells = 0;
 
     void Setup() override;
@@ -65,7 +65,7 @@ namespace generator
     Maze* maze = nullptr;
     Random* random = nullptr;
 
-    struct Entry { point2i position; Dir direction; };
+    struct Entry { vec2i position; Dir direction; };
     std::vector<Entry> frontier;
 
     void Setup() override;

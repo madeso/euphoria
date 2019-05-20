@@ -65,7 +65,7 @@ CompiledMeshMaterial::Apply(
     const mat4f& model_matrix,
     const mat4f& projection_matrix,
     const mat4f& view_matrix,
-    const point3f& camera,
+    const vec3f& camera,
     const Light& light) const
 {
   shader_->UseShader();
@@ -277,7 +277,7 @@ CompiledMesh::Render(
     const mat4f& model_matrix,
     const mat4f& projection_matrix,
     const mat4f& view_matrix,
-    const point3f& camera,
+    const vec3f& camera,
     const Light& light,
     const std::vector<std::shared_ptr<CompiledMeshMaterial>>&
         overridden_materials)

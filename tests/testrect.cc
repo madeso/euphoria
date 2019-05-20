@@ -236,7 +236,7 @@ TEST_CASE("rect-from-anchor", "[rect]")
 {
   const int     height = 3;
   const int     width  = 4;
-  const point2i origo  = point2i::Origo();
+  const vec2i origo  = vec2i::Zero();
 
   SECTION("lower left at origo")
   {
@@ -265,7 +265,7 @@ TEST_CASE("rect-from-anchor-center", "[rect]")
 {
   const float   half_height = 3;
   const float   half_width  = 4;
-  const point2f origo       = point2f::Origo();
+  const vec2f origo       = vec2f::Zero();
 
   SECTION("lower left at origo")
   {

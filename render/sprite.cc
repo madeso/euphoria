@@ -6,7 +6,7 @@
 
 #include "render/spriterender.h"
 
-Sprite::Sprite(std::shared_ptr<Texture2d> texture, const point2f& position)
+Sprite::Sprite(std::shared_ptr<Texture2d> texture, const vec2f& position)
     : texture_(texture)
     , position_(position)
     , rotation(0.0_rad)
@@ -22,14 +22,14 @@ Sprite::GetTexture()
   return texture_;
 }
 
-const point2f&
+const vec2f&
 Sprite::GetPosition() const
 {
   return position_;
 }
 
 void
-Sprite::SetPosition(const point2f& p)
+Sprite::SetPosition(const vec2f& p)
 {
   position_ = p;
 }

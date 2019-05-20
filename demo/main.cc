@@ -108,7 +108,7 @@ main(int argc, char** argv)
   drawer.LineAntialiased(Color::Black, wi.TopLeft(), wi.BottomRight())
       .Rect(Color::Blue, Recti::FromTopLeftWidthHeight(256, 0, 100, 25))
       .LineAntialiased(Color::Black, wi.BottomLeft(), wi.TopRight())
-      .Text(point2i(0, 0), "Hello world", Color::Black, 2);
+      .Text(vec2i(0, 0), "Hello world", Color::Black, 2);
   engine.catalog->RegisterFileData("image", image.Write(ImageWriteFormat::PNG));
 
   TextureCache texture_cache{engine.file_system.get()};
@@ -148,8 +148,8 @@ main(int argc, char** argv)
 
   const float box_extent_value = 4;
   Aabb        box_extents{
-      point3f{-box_extent_value, -box_extent_value, -box_extent_value},
-      point3f{box_extent_value, box_extent_value, box_extent_value}};
+      vec3f{-box_extent_value, -box_extent_value, -box_extent_value},
+      vec3f{box_extent_value, box_extent_value, box_extent_value}};
 
   std::vector<CubeAnimation> animation_handler;
 
@@ -174,7 +174,7 @@ main(int argc, char** argv)
 
 
     // generate a position not too close to the center
-    point3f position = point3f::Origo();
+    vec3f position = vec3f::Zero();
     do
     {
       position = box_extents.RandomPoint(&random);
@@ -206,10 +206,10 @@ main(int argc, char** argv)
 #endif
 
   Camera camera;
-  camera.position = point3f::Origo();
+  camera.position = vec3f::Zero();
 
   FpsController fps;
-  fps.position = point3f(0, 0, 3);
+  fps.position = vec3f(0, 0, 3);
 
   bool paused = true;
 
@@ -256,7 +256,7 @@ main(int argc, char** argv)
 
     light_position = Wrap(MakeRange<float>(0, 1), light_position + delta * 0.1f);
     const auto light_pos =
-        point3f::Origo() +
+        vec3f::Zero() +
         PolarCoord{light_position, light_position * 2}.ToCartesian() * 2.0f;
     light_actor->SetPosition(light_pos);
 

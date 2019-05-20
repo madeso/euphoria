@@ -89,12 +89,12 @@ class Size
   }
    */
 
-  point2<T>
+  vec2<T>
   CalculateCenterOffsetFor(const Self& o)
   {
     const T x = (GetWidth() - o.GetWidth()) / 2;
     const T y = (GetHeight() - o.GetHeight()) / 2;
-    return point2<T>(x, y);
+    return vec2<T>(x, y);
   }
 
  private:

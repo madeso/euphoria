@@ -64,9 +64,9 @@ class Random
   NextSign();
 
   // move to point class or a circle class?
-  point2f
+  vec2f
   PointOnUnitCircle_CenterFocused();
-  point2f
+  vec2f
   PointOnUnitCircle_Uniform();
 
   template <typename T>

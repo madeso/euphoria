@@ -206,12 +206,12 @@ TEST_CASE("mat4-test", "[mat]")
   const mat4f start = mat4f::Identity();
   AxisAngle   aa =
       AxisAngle::RightHandAround(unit3f::Up(), Angle::FromDegrees(-90));
-  const point3f toTransform(0, 0, -5);
-  const point3f result(5, 0, 0);
+  const vec3f toTransform(0, 0, -5);
+  const vec3f result(5, 0, 0);
 
   SECTION("TestRotationAxisAngle")
   {
-    const auto r = start.Rotate(aa).GetTransform(toTransform);
+    const auto r = start.Rotate(aa).GetTransformPoint(toTransform);
     REQUIRE(r == approx(result));
   }
 }
@@ -223,8 +223,8 @@ TEST_CASE("mat4-TestCombined_RT", "[mat]")
                      .Rotate(AxisAngle::RightHandAround(
                          unit3f::Up(), Angle::FromDegrees(-90)))
                      .Translate(vec3f(0, 0, -5))
-                     .GetTransform(point3f(0, 0, 0));
-  REQUIRE(r == approx(point3f(5, 0, 0)));
+                     .GetTransformPoint(vec3f(0, 0, 0));
+  REQUIRE(r == approx(vec3f(5, 0, 0)));
 }
 
 TEST_CASE("mat4-TestCombined2_RT", "[mat]")
@@ -233,8 +233,8 @@ TEST_CASE("mat4-TestCombined2_RT", "[mat]")
                      .Rotate(AxisAngle::RightHandAround(
                          unit3f::Up(), Angle::FromDegrees(90)))
                      .Translate(vec3f(0, 0, -5))
-                     .GetTransform(point3f(0, 0, 0));
-  REQUIRE(r == approx(point3f(-5, 0, 0)));
+                     .GetTransformPoint(vec3f(0, 0, 0));
+  REQUIRE(r == approx(vec3f(-5, 0, 0)));
 }
 
 TEST_CASE("mat4-TestCombined_TR", "[mat]")
@@ -243,22 +243,22 @@ TEST_CASE("mat4-TestCombined_TR", "[mat]")
                      .Translate(vec3f(0, 0, 5))
                      .Rotate(AxisAngle::RightHandAround(
                          unit3f::Up(), Angle::FromDegrees(-90)))
-                     .GetTransform(point3f(0, 0, 0));
-  REQUIRE(r == approx(point3f(0, 0, 5)));
+                     .GetTransformPoint(vec3f(0, 0, 0));
+  REQUIRE(r == approx(vec3f(0, 0, 5)));
 }
 
 TEST_CASE("mat4-TestTranslation", "[mat]")
 {
   const auto r =
-      mat4i::Identity().Translate(vec3i(1, 2, 3)).GetTransform(point3i(7, 8, 9));
-  REQUIRE(r == point3i(8, 10, 12));
+      mat4i::Identity().Translate(vec3i(1, 2, 3)).GetTransformPoint(vec3i(7, 8, 9));
+  REQUIRE(r == vec3i(8, 10, 12));
 }
 
 
 TEST_CASE("mat4-TestIentityTransform", "[mat]")
 {
-  const auto r = mat4i::Identity().GetTransform(point3i(1, 2, 3));
-  REQUIRE(r == point3i(1, 2, 3));
+  const auto r = mat4i::Identity().GetTransformPoint(vec3i(1, 2, 3));
+  REQUIRE(r == vec3i(1, 2, 3));
 }
 
 TEST_CASE("mat4-TestIentityMultiply", "[mat]")

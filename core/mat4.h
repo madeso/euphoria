@@ -174,15 +174,21 @@ class mat4
   }
 
   vec3<T>
-  GetTransform(const vec3<T>& p) const
+  GetTransform(const vec3<T>& p, T w) const
   {
-    return GetTransform(vec4<T>(p)).ToVec3();
+    return GetTransform(vec4<T>(p, w)).ToVec3(w);
   }
 
-  point3<T>
-  GetTransform(const point3<T>& p) const
+  vec3<T>
+  GetTransformPoint(const vec3<T>& p) const
   {
-    return GetTransform(vec4<T>(p)).ToPoint3();
+    return GetTransform(p, 1);
+  }
+
+  vec3<T>
+  GetTransformVec(const vec3<T>& p) const
+  {
+    return GetTransform(p, 0);
   }
 
   vec3<T>

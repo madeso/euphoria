@@ -12,7 +12,7 @@ Button::Button(UiState* state)
     , scale_(1.0f)
     , image_color_(Rgb(1.0f))
     , text_color_(Rgb(1.0f))
-    , position_displacement_(point2f::Origo())
+    , position_displacement_(vec2f::Zero())
 {
 }
 
@@ -60,7 +60,7 @@ Button::Step(float dt)
           state->interpolationColorTime);
       position_displacement_.Clear().Add(
           state->interpolationPosition,
-          point2f(state->dx, state->dy),
+          vec2f(state->dx, state->dy),
           state->interpolationPositionTime);
     }
 

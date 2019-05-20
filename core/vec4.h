@@ -34,19 +34,13 @@ class vec4
   {
   }
 
-  vec4(const vec3<T>& a)
+  // w for point is 1
+  // w for vector is 0
+  vec4(const vec3<T>& a, float w)
       : x(a.x)
       , y(a.y)
       , z(a.z)
-      , w(0)
-  {
-  }
-
-  vec4(const point3<T>& a)
-      : x(a.x)
-      , y(a.y)
-      , z(a.z)
-      , w(1)
+      , w(w)
   {
   }
 
@@ -59,18 +53,17 @@ class vec4
   }
 
   vec3<T>
-  ToVec3() const
+  ToVec3(T ww) const
   {
-    ASSERTX(IsEqual(w, 0), w);
+    ASSERTX(IsEqual(w, ww), w, ww);
     return vec3<T>(x, y, z);
   }
 
-  point3<T>
-  ToPoint3() const
+  // todo: replace this and actually call the assert version always
+  vec3<T>
+  ToVec3() const
   {
-    // todo: assert on w
-    ASSERT(IsEqual(w, 1));
-    return point3<T>(x, y, z);
+    return vec3<T>(x, y, z);
   }
 
   explicit vec4(const T* a)

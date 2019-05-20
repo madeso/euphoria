@@ -83,7 +83,7 @@ struct TextDrawCommandList
   void
   Draw(
       SpriteRenderer* renderer,
-      const point2f&  start_position,
+      const vec2f&  start_position,
       const Rgb&      base_color,
       const Rgb&      hi_color);
 
@@ -110,13 +110,13 @@ class Text
   SetSize(float new_size);
 
   void
-  Draw(SpriteRenderer* renderer, const point2f& p, const Rgb& base_hi_color)
+  Draw(SpriteRenderer* renderer, const vec2f& p, const Rgb& base_hi_color)
       const;
 
   void
   Draw(
       SpriteRenderer* renderer,
-      const point2f&  p,
+      const vec2f&  p,
       const Rgb&      base_color,
       const Rgb&      hi_color) const;
 

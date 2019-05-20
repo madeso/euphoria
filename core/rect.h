@@ -61,7 +61,7 @@ class Rect
 
   static Rect
   FromPositionAnchorWidthAndHeight(
-      const point2<T>& pos, const scale2<T>& anchor, float width, float height)
+      const vec2<T>& pos, const scale2<T>& anchor, float width, float height)
   {
     // todo: change anchor type to some anchor type instead
     const T left   = pos.x - width * anchor.x;
@@ -92,15 +92,15 @@ class Rect
   }
 
   static Rect
-  FromPoint(const point2<T>& point)
+  FromPoint(const vec2<T>& point)
   {
     return FromTopLeftWidthHeight(point.y, point.x, 0, 0);
   }
 
-  point2<T>
+  vec2<T>
   GetBottomLeft() const
   {
-    return point2<T>(left, bottom);
+    return vec2<T>(left, bottom);
   }
 
   vec2<T>
@@ -121,8 +121,8 @@ class Rect
         lower_left.y + GetHeight(), lower_left.x, GetWidth(), GetHeight());
   }
 
-  point2<T>
-  GetPositionFromBottomLeft(const point2<T> v) const
+  vec2<T>
+  GetPositionFromBottomLeft(const vec2<T> v) const
   {
     return GetBottomLeftOffset() + v;
   }
@@ -139,10 +139,10 @@ class Rect
     return GetHeight() / 2;
   }
 
-  point2<T>
+  vec2<T>
   GetRelativeCenterPosFromBottomLeft() const
   {
-    return point2<T>(
+    return vec2<T>(
         GetRelativeCenterXFromBottomLeft(), GetRelativeCenterYFromBottomLeft());
   }
 
@@ -158,10 +158,10 @@ class Rect
     return bottom + GetRelativeCenterYFromBottomLeft();
   }
 
-  point2<T>
+  vec2<T>
   GetAbsoluteCenterPos() const
   {
-    return point2<T>(GetAbsoluteCenterX(), GetAbsoluteCenterY());
+    return vec2<T>(GetAbsoluteCenterX(), GetAbsoluteCenterY());
   }
 
   // does this contains the argument?
@@ -176,7 +176,7 @@ class Rect
 
   // on the border is NOT considered included
   bool
-  ContainsExclusive(const point2<T>& p) const
+  ContainsExclusive(const vec2<T>& p) const
   {
     ASSERT(IsValid());
     return ContainsExclusive(p.x, p.y);
@@ -191,7 +191,7 @@ class Rect
 
   // on the border is considered included
   bool
-  ContainsInclusive(const point2<T>& p) const
+  ContainsInclusive(const vec2<T>& p) const
   {
     return ContainsInclusive(p.x, p.y);
   }
@@ -361,7 +361,7 @@ class Rect
   }
 
   Rect<T>
-  SetTopLeftToCopy(const point2<T>& v) const
+  SetTopLeftToCopy(const vec2<T>& v) const
   {
     return SetTopLeftToCopy(v.x, v.y);
   }
@@ -374,7 +374,7 @@ class Rect
   }
 
   Rect<T>
-  SetBottomLeftToCopy(const point2<T>& v) const
+  SetBottomLeftToCopy(const vec2<T>& v) const
   {
     return SetBottomLeftToCopy(v.x, v.y);
   }
@@ -405,28 +405,28 @@ class Rect
     return Size<T>::FromWidthHeight(GetWidth(), GetHeight());
   }
 
-  const point2<T>
+  const vec2<T>
   TopLeft() const
   {
-    return point2<T>(left, top);
+    return vec2<T>(left, top);
   }
 
-  const point2<T>
+  const vec2<T>
   TopRight() const
   {
-    return point2<T>(right, top);
+    return vec2<T>(right, top);
   }
 
-  const point2<T>
+  const vec2<T>
   BottomLeft() const
   {
-    return point2<T>(left, bottom);
+    return vec2<T>(left, bottom);
   }
 
-  const point2<T>
+  const vec2<T>
   BottomRight() const
   {
-    return point2<T>(right, bottom);
+    return vec2<T>(right, bottom);
   }
 
   const Line
@@ -453,32 +453,32 @@ class Rect
     return Line::FromTo(BottomLeft(), BottomRight());
   }
 
-  point2<T>
+  vec2<T>
   RandomPoint(Random* random) const
   {
     const T x = random->NextRange(GetWidth());
     const T y = random->NextRange(GetHeight());
-    return GetPositionFromBottomLeft(point2<T>{x, y});
+    return GetPositionFromBottomLeft(vec2<T>{x, y});
   }
 
 };
 
 template <typename T, typename R>
-const point2<R>
-To01(const Rect<T>& r, const point2<R>& from)
+const vec2<R>
+To01(const Rect<T>& r, const vec2<R>& from)
 {
   const auto x = To01(MakeRange(r.left, r.right), from.x);
   const auto y = To01(MakeRange(r.bottom, r.top), from.y);
-  return point2<R>{x, y};
+  return vec2<R>{x, y};
 }
 
 template <typename T, typename R>
-const point2<R>
-From01(const Rect<T>& r, const point2<R>& from)
+const vec2<R>
+From01(const Rect<T>& r, const vec2<R>& from)
 {
   const auto x = From01(MakeRange(r.left, r.right), from.x);
   const auto y = From01(MakeRange(r.bottom, r.top), from.y);
-  return point2<R>{x, y};
+  return vec2<R>{x, y};
 }
 
 template <typename S, typename T>

@@ -138,7 +138,7 @@ TEST_CASE("image draw", "[img]")
   SECTION("circle")
   {
     CHECK_FALSE(img.GetPixel(5, 5) == colora);
-    draw.Circle(rgb(color), point2i{5, 5}, 4);
+    draw.Circle(rgb(color), vec2i{5, 5}, 4);
     CHECK_FALSE(img.GetPixel(0, 0) == colora);
     REQUIRE(img.GetPixel(5, 5) == colora);
   }
@@ -147,7 +147,7 @@ TEST_CASE("image draw", "[img]")
   {
     CHECK_FALSE(img.GetPixel(0, 0) == colora);
     CHECK_FALSE(img.GetPixel(5, 5) == colora);
-    draw.Circle(rgb(color), point2i{5, 5}, 20, 0, 3);
+    draw.Circle(rgb(color), vec2i{5, 5}, 20, 0, 3);
     CHECK_FALSE(img.GetPixel(5, 5) == colora);
     REQUIRE(img.GetPixel(0, 0) == colora);
   }

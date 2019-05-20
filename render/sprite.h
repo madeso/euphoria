@@ -18,15 +18,15 @@ class Sprite
   // todo: remove getters and setters
   explicit Sprite(
       std::shared_ptr<Texture2d> texture,
-      const point2f&             position = point2f::Origo());
+      const vec2f&             position = vec2f::Zero());
 
   std::shared_ptr<Texture2d>
   GetTexture();
 
-  const point2f&
+  const vec2f&
   GetPosition() const;
   void
-  SetPosition(const point2f& p);
+  SetPosition(const vec2f& p);
 
   float
   GetHeight() const;
@@ -41,7 +41,7 @@ class Sprite
 
  private:
   std::shared_ptr<Texture2d> texture_;
-  point2f                    position_;
+  vec2f                    position_;
 
  public:
   Angle rotation;

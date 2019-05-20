@@ -31,7 +31,7 @@ class Root
       TextureCache*      cache);
 
   void
-  SetInputMouse(const point2f& pos, bool down);
+  SetInputMouse(const vec2f& pos, bool down);
   void
   Step(float dt);
   void

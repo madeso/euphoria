@@ -506,7 +506,7 @@ Scimed::Run(const CanvasConfig& cc, const ScimedConfig& scc)
   {
     ImGui::OpenPopup("asd");
     const auto w = canvas.ScreenToWorld(ImGui::GetMousePos());
-    mouse_popup  = point2i{static_cast<int>(w.x), static_cast<int>(w.y)};
+    mouse_popup  = vec2i{static_cast<int>(w.x), static_cast<int>(w.y)};
   }
 
   if(ImGui::BeginPopup("asd"))

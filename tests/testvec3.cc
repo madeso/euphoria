@@ -55,8 +55,8 @@ TEST_CASE("vec3-neg_test", "[vec3]")
 
 TEST_CASE("vec3-from_to", "[vec3]")
 {
-  REQUIRE(vec3i::FromTo(point3i(0, 0, 0), point3i(0, 0, 0)) == vec3i(0, 0, 0));
-  REQUIRE(vec3i::FromTo(point3i(0, 0, 0), point3i(1, 0, 0)) == vec3i(1, 0, 0));
+  REQUIRE(vec3i::FromTo(vec3i(0, 0, 0), vec3i(0, 0, 0)) == vec3i(0, 0, 0));
+  REQUIRE(vec3i::FromTo(vec3i(0, 0, 0), vec3i(1, 0, 0)) == vec3i(1, 0, 0));
   REQUIRE(
-      vec3i::FromTo(point3i(0, -5, 0), point3i(0, 25, 0)) == vec3i(0, 30, 0));
+      vec3i::FromTo(vec3i(0, -5, 0), vec3i(0, 25, 0)) == vec3i(0, 30, 0));
 }

@@ -24,7 +24,7 @@ RayIntersectionResult
 Intersect(const UnitRay3f& r, const Aabb& aabb)
 {
   // todo: refactor aabb class?
-  const point3f bounds[]{aabb.min, aabb.max};
+  const vec3f bounds[]{aabb.min, aabb.max};
 
   // todo: move to ray class?
   const vec3f r_invdir  = 1.0f / static_cast<vec3f>(r.dir);

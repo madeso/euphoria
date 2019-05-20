@@ -79,7 +79,7 @@ MeshPart::CalculateAabb() const
 
   for(unsigned int i = 0; i < points.size(); i += NUMBER_OF_COMPONENTS)
   {
-    aabb.Extend(point3f{&points[i]});
+    aabb.Extend(vec3f{&points[i]});
   }
 
   return aabb;

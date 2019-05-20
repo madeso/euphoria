@@ -53,13 +53,13 @@ ValueVec3f::Cast(Value* value)
 
 ////////////////////////////////////////////////////////////////////////////////
 
-ValuePoint3f::ValuePoint3f(const point3f& v)
+ValuePoint3f::ValuePoint3f(const vec3f& v)
     : Value(ValueType::Point3f)
     , value(v)
 {
 }
 
-point3f&
+vec3f&
 ValuePoint3f::Cast(Value* value)
 {
   ASSERT(value);
