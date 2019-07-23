@@ -27,8 +27,9 @@ Min synth
  * integer based
  * load instruments from file
  * simple effects like reverb, delay and bitcrusher
+   inspiration: https://github.com/ElectroSmash/pedal-pi
  * samples
- * possible soundfonts
+ * soundfonts
  * possible nyquist plugins
  * basic general audio input, so you can connect a guitar and play
  * perhaps create a fake buzz interface to use the open source [buzz machines](https://github.com/Buzztrax/buzzmachines)
