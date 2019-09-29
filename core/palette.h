@@ -10,7 +10,10 @@ class Random;
 
 struct Palette
 {
+  /** the name of the palette */
   std::string name;
+
+  /** list of the colors */
   std::vector<Rgbi> colors;
 
   template <typename... R>
@@ -20,11 +23,24 @@ struct Palette
   {
   }
 
+  /** Create a empty palette with a name.
+    @param name the name of the palette
+    @returns a empty palette
+    */
   static Palette Empty(const std::string& name);
 
+  /** Get a random color.
+   @param r the random generator to use
+   @returns a random color
+   */
   const Rgbi&
   GetRandomColor(Random* r) const;
 
+  /** Get a color based on the index.
+    The index is modulated based on the palette size, ensuring a valid color.
+    @param i the index
+    @returns the color
+    */
   const Rgbi&
   GetSafeIndex(unsigned int i) const;
 
