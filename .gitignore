@@ -28,6 +28,7 @@
 *.out
 *.app
 
+# IDE files
 .idea
 .vscode
 
@@ -48,4 +49,7 @@ dist/scimed-debug
 
 # vi swap file
 *.swp
+
+# doxygenerated files
+generated-docs/
 
