@@ -5,6 +5,8 @@
 
 #include "core/vfs.h"
 
+namespace vfs = euphoria::core::vfs;
+
 void
 PrintUsage(char** argv)
 {
@@ -22,7 +24,7 @@ RunEncode(const std::string& data)
   vfs::FileSystemRootFolder::AddRoot(&file_system);
 
   auto memory  = file_system.ReadFile(data);
-  auto encoded = base64::Encode(memory);
+  auto encoded = euphoria::core::base64::Encode(memory);
   std::cout << "Encoded:\n" << encoded << "\n";
   return 0;
 }
