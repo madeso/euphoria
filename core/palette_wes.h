@@ -1,6 +1,9 @@
 #ifndef EUPHORIA_PALETTE_WES_H
 #define EUPHORIA_PALETTE_WES_H
 
+namespace euphoria::core
+{
+
 struct Palette;
 
 // Color palettes derived from http://wesandersonpalettes.tumblr.com/.
@@ -39,6 +42,7 @@ namespace palette
    const Palette& Darjeeling3();
 }
 
+}
 
 #endif  // EUPHORIA_PALETTE_WES_H
 

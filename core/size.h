@@ -4,6 +4,9 @@
 #include "core/vec2.h"
 #include "core/numeric.h"
 
+namespace euphoria::core
+{
+
 template <typename T>
 class Size
 {
@@ -178,5 +181,7 @@ operator<<(S& s, const Size<T>& r)
 
 typedef Size<int>   Sizei;
 typedef Size<float> Sizef;
+
+}
 
 #endif  // CORE_SIZE_H

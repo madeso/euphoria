@@ -14,6 +14,9 @@
 #include <vector>
 #include <sstream>
 
+namespace euphoria::core
+{
+
 #ifdef _MSC_VER
 // todo: implement backtrace for windows?
 namespace
@@ -161,5 +164,6 @@ namespace assertlib
   }
 }  // namespace assertlib
 
+}
 
 #endif  // IMPLEMENT_ASSERT_LIB

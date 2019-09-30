@@ -6,6 +6,9 @@
 #include "core/colors.h"
 #include "core/angle.h"
 
+namespace euphoria::core
+{
+
 // unsigned char colors: 0 - 255
 class Rgbi;
 class Rgbai;
@@ -224,6 +227,8 @@ namespace colorutil
 
   unsigned int
   FromStringToHex(const std::string& str);
+}
+
 }
 
 #endif  // CORE_RGB_H

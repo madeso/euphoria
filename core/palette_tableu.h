@@ -1,6 +1,9 @@
 #ifndef EUPHORIA_PALETTE_TABLEU_H
 #define EUPHORIA_PALETTE_TABLEU_H
 
+namespace euphoria::core
+{
+
 struct Palette;
 
 namespace palette
@@ -20,6 +23,7 @@ namespace palette
   const Palette& GreenOrange_12();
 }
 
+}
 
 #endif  // EUPHORIA_PALETTE_TABLEU_H
 

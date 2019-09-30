@@ -9,6 +9,9 @@
 #include <sstream>
 #include <iterator>
 
+namespace euphoria::core
+{
+
 std::pair<std::string, std::string>
 LastStrings(const std::string& str, char sep)
 {
@@ -319,3 +322,4 @@ int StringCompare(const std::string& lhs, const std::string& rhs)
 	return 0;
 }
 
+}

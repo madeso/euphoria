@@ -4,6 +4,10 @@
 #include <string>
 #include <vector>
 
+
+namespace euphoria::core
+{
+
 std::string
 GetCurrentDirectory();
 
@@ -34,5 +38,7 @@ GetFileNameIncludingExtension(const std::string& path);
 
 std::string
 GetFileNameWithoutExtension(const std::string& path);
+
+}
 
 #endif  // EUPHORIA_OS_H

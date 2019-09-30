@@ -8,6 +8,9 @@
 
 #include <stack>
 
+namespace euphoria::core
+{
+
 class Random;
 
 namespace generator
@@ -99,5 +102,7 @@ namespace generator
 }
 
 DECLARE_ENUM_LIST(generator::Dir)
+
+}
 
 #endif  // CORE_GENERATOR_MAZE_H

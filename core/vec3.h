@@ -9,6 +9,9 @@
 #include "core/assert.h"
 
 
+namespace euphoria::core
+{
+
 ////////////////////////////////////////////////////////////////////////////////
 /// Forward declarations
 
@@ -215,7 +218,7 @@ struct unit3 : public vec3<T>
   bool
   IsValid() const
   {
-    return ::IsEqual(this->GetLengthSquared(), 1);
+    return IsEqual(this->GetLengthSquared(), 1);
   }
 
   static Self
@@ -439,5 +442,7 @@ typedef scale3<int> scale3i;
 
 ////////////////////////////////////////////////////////////////////////////////
 /// Typeids
+
+}
 
 #endif  // CORE_VEC3_H

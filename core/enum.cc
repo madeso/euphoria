@@ -17,6 +17,9 @@
 
 #include "gaf_enum.h"
 
+namespace euphoria::core
+{
+
 EnumType::EnumType(std::string name)
     : name_(std::move(name))
     , isAdding_(true)
@@ -177,4 +180,6 @@ LoadEnumType(EnumType* type, vfs::FileSystem* fs, const std::string& path)
   }
 
   type->AddEnums(names);
+}
+
 }

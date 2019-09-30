@@ -4,6 +4,9 @@
 #include <vector>
 #include <string>
 
+namespace euphoria::core
+{
+
 // find part of a string in another
 // todo: replace with a regex instead?
 bool
@@ -23,5 +26,6 @@ Find(
     const std::vector<std::string>& targets,
     const std::vector<std::string>& searches);
 
+}
 
 #endif  // CORE_FINDSTRING_H

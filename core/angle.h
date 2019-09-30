@@ -5,6 +5,9 @@
 
 #include "core/numeric.h"
 
+namespace euphoria::core
+{
+
 class Random;
 
 class Angle
@@ -66,7 +69,7 @@ class Angle
   }
 
   const static Angle
-  Random(::Random* random);
+  Random(::euphoria::core::Random* random);
 
   Angle
   GetWrapped() const;
@@ -144,5 +147,7 @@ struct AngleTransform
   static Angle
   Transform(const Angle& from, float v, const Angle& to);
 };
+
+}
 
 #endif  // CORE_ANGLE_H

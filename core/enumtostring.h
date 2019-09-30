@@ -11,6 +11,9 @@
 #include "core/stringutils.h"
 #include "core/editdistance.h"
 
+namespace euphoria::core
+{
+
 template<typename T>
 struct MatchedEnum
 {
@@ -169,6 +172,9 @@ operator<<( std::ostream& os, T const& value)
 
 // todo: add a foreach macro call?
 // https://codecraft.co/2014/11/25/variadic-macros-tricks/
+
+
+}
 
 #endif  // CORE_ENUM_TO_STRING_H
 

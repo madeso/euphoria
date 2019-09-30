@@ -34,7 +34,7 @@
     else                                                        \
     {                                                           \
       BREAK_IN_DEBUG();                                         \
-      ::assertlib::OnAssert(                                    \
+      ::euphoria::core::assertlib::OnAssert(                                    \
           #x,                                                   \
           __LINE__,                                             \
           __FILE__,                                             \
@@ -53,7 +53,7 @@
     else                                                        \
     {                                                           \
       BREAK_IN_DEBUG();                                         \
-      ::assertlib::OnAssert(                                    \
+      ::euphoria::core::assertlib::OnAssert(                                    \
           #x,                                                   \
           __LINE__,                                             \
           __FILE__,                                             \
@@ -64,7 +64,7 @@
   } while(false)
 
 #define DIE(message)     \
-  ::assertlib::OnAssert( \
+  ::euphoria::core::assertlib::OnAssert( \
       message,           \
       __LINE__,          \
       __FILE__,          \
@@ -75,6 +75,10 @@
 #endif  // _MSC_VER
 
 #ifdef IMPLEMENT_ASSERT_LIB
+
+namespace euphoria::core
+{
+
 namespace assertlib
 {
   struct AssertValueArg
@@ -100,6 +104,8 @@ namespace assertlib
       const std::vector<AssertValueArg>& arguments,
       const char* const                  function);
 }  // namespace assertlib
+
+}
 #endif  // IMPLEMENT_ASSERT_LIB
 
 

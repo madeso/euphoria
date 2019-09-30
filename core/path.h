@@ -4,6 +4,9 @@
 #include <vector>
 #include "core/vec2.h"
 
+namespace euphoria::core
+{
+
 // todo: a poly is a closed path, so rename to path
 // todo: add more features
 // sebastian lague: bezier support https://github.com/SebLague/Path-Creator
@@ -69,6 +72,6 @@ struct VertexPath2
   bool is_closed = false;
 };
 
+}
 
 #endif  // CORE_PATH_H
-

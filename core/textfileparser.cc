@@ -4,6 +4,9 @@
 
 #include "core/numeric.h"
 
+namespace euphoria::core
+{
+
 namespace  // local
 {
   bool
@@ -268,4 +271,6 @@ unsigned int
 TextFileParser::GetColumn()
 {
   return column_;
+}
+
 }

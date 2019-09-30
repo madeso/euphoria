@@ -12,6 +12,9 @@
 #include "core/textfileparser.h"
 #include "core/multisort.h"
 
+
+namespace euphoria::core
+{
 // generator
 
 template <typename T>
@@ -88,5 +91,7 @@ PrintTableSimple(std::ostream& out, const Table<std::string>& table);
 */
 void
 PrintTableGrid(std::ostream& out, const Table<std::string>& table);
+
+}
 
 #endif  // CORE_STRING_TABLE_H

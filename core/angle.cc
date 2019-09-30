@@ -6,9 +6,11 @@
 
 #include <cmath>
 
+namespace euphoria::core
+{
 
 const Angle
-Angle::Random(::Random* random)
+Angle::Random(::euphoria::core::Random* random)
 {
   return FromPercentOf360(random->NextFloat01());
 }
@@ -17,7 +19,7 @@ Angle::Random(::Random* random)
 void
 Angle::Wrap()
 {
-  mRad = ::Wrap(MakeRange(Pi() * 2.0f), mRad);
+  mRad = ::euphoria::core::Wrap(MakeRange(Pi() * 2.0f), mRad);
 }
 
 void
@@ -156,4 +158,6 @@ Angle
 AngleTransform::Transform(const Angle& from, float v, const Angle& to)
 {
   return Angle::FromRadians(Lerp(from.InRadians(), v, to.InRadians()));
+}
+
 }

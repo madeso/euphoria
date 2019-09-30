@@ -1,6 +1,9 @@
 #ifndef CORE_NUMERIC_H
 #define CORE_NUMERIC_H
 
+namespace euphoria::core
+{
+
 bool
 IsEqual(float lhs, float rhs);
 
@@ -129,6 +132,8 @@ constexpr bool
 Each(I i, I each)
 {
   return each && (i % each) == each - 1;
+}
+
 }
 
 #endif  // CORE_NUMERIC_H

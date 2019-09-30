@@ -8,6 +8,9 @@
 #include "core/stringutils.h"
 
 
+namespace euphoria::core
+{
+
 namespace  // local
 {
   char const* const
@@ -90,4 +93,6 @@ Logger::GetLogger(const std::string& name)
   auto logger   = std::make_shared<Logger>(parent, name);
   storage[name] = logger;
   return logger;
+}
+
 }

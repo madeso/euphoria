@@ -8,6 +8,9 @@
 #include <vector>
 #include <algorithm>
 
+namespace euphoria::core
+{
+
 template <typename K, typename V>
 std::vector<K>
 Keys(const std::map<K, V>& m)
@@ -81,6 +84,8 @@ Search(std::vector<T>& v, TFunc condition)
   }
 
   return v.end();
+}
+
 }
 
 #endif  // EUPHORIA_STDUTILS_H

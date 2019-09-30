@@ -6,6 +6,9 @@
 #include <memory>
 #include <map>
 
+namespace euphoria::core
+{
+
 struct Result
 {
   enum Type
@@ -113,5 +116,7 @@ struct Grammar
   std::map<std::string, Symbol>                    rules;
   std::map<std::string, std::shared_ptr<Modifier>> modifiers;
 };
+
+}
 
 #endif  // CORE_TRACERY_H

@@ -6,6 +6,9 @@
 #include <vector>
 #include <map>
 
+namespace euphoria::core
+{
+
 struct StringMerger
 {
   ////////////////////////////////////////////
@@ -76,5 +79,7 @@ struct StringMerger
   std::string after_each;
   std::string final_after_each;
 };
+
+}
 
 #endif  // EUPHORIA_STRINGMERGER_H

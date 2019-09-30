@@ -3,6 +3,9 @@
 #include "core/assert.h"
 #include "core/stringutils.h"
 
+namespace euphoria::core
+{
+
 namespace vfs
 {
 
@@ -181,3 +184,4 @@ Path::Path(const std::string& absolute_path)
 
 }  // namespace vfs
 
+}

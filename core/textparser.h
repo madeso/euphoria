@@ -6,6 +6,9 @@
 #include <vector>
 #include <sstream>
 
+namespace euphoria::core
+{
+
 class ParsedText;
 
 namespace textparser
@@ -131,5 +134,6 @@ class ParsedText
   std::vector<std::shared_ptr<textparser::Node>> nodes;
 };
 
+}
 
 #endif  // SPACETYPER_TEXTPARSER_H

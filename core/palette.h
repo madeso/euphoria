@@ -5,6 +5,8 @@
 
 #include "core/rgb.h"
 
+namespace euphoria::core
+{
 
 class Random;
 
@@ -70,6 +72,8 @@ namespace palette
 
   const Palette&
   NamedColors();
+}
+
 }
 
 #endif  // EUPHORIA_PALETTE_H

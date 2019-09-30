@@ -6,6 +6,9 @@
 
 // source: https://en.wikipedia.org/wiki/Base64
 
+namespace euphoria::core
+{
+
 namespace base64
 {
   namespace
@@ -101,4 +104,5 @@ namespace base64
       return MemoryChunk::Null();
     }
   }
+}
 }

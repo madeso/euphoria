@@ -8,6 +8,9 @@
 #include "core/angle.h"
 #include "core/axisangle.h"
 
+namespace euphoria::core
+{
+
 template <typename T>
 class mat3
 {
@@ -314,5 +317,7 @@ vec3<T> operator*(const mat3<T>& lhs, const vec3<T> rhs)
 
 typedef mat3<float> mat3f;
 typedef mat3<int>   mat3i;
+
+}
 
 #endif  // CORE_MAT3_H

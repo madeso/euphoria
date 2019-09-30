@@ -3,7 +3,9 @@
 
 #include "core/enum.h"
 
-DECLARE_ENUM_TYPE(TextureType)
-
+namespace euphoria::core
+{
+    DECLARE_ENUM_TYPE(TextureType)
+}
 
 #endif  // EUPHORIA_TEXTURETYPES_H

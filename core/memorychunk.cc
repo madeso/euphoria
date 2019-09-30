@@ -3,6 +3,9 @@
 #include <cstring>  // for memcpy
 #include <utility>
 
+namespace euphoria::core
+{
+
 char*
 MemoryChunk::GetData()
 {
@@ -78,4 +81,6 @@ MemoryChunkFile::Write(const void* src, fuint64 size)
   ASSERT(position + size <= data->GetSize());
   std::memcpy(data->GetData() + position, src, sizeof(char) * size);
   position += size;
+}
+
 }

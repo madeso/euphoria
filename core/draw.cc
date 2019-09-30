@@ -8,6 +8,11 @@
 
 #include <utility>
 
+
+namespace euphoria::core
+{
+
+
 Draw::Draw(Image* image)
     : image_(image)
 {
@@ -362,4 +367,6 @@ Draw::PasteImage(const vec2i& position, const Image& source_image)
     }
   }
   return *this;
+}
+
 }

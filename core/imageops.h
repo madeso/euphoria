@@ -4,6 +4,9 @@
 #include "core/table.h"
 #include "core/rgb.h"
 
+namespace euphoria::core
+{
+
 class Image;
 
 struct ImageMapAction
@@ -16,5 +19,6 @@ Table<char> ImageToStringTable(const Image& img, const std::vector<ImageMapActio
 
 Table<char> ImageToStringTable(const Image& img, bool shorter);
 
-#endif  // CORE_IMAGEOPS_H
+}
 
+#endif  // CORE_IMAGEOPS_H

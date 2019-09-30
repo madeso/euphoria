@@ -3,6 +3,9 @@
 #include "core/image.h"
 #include "core/palette.h"
 
+namespace euphoria::core
+{
+
 Table<char> ImageToStringTable(const Image& img, const std::vector<ImageMapAction>& map)
 {
   auto pal = Palette::Empty("");
@@ -43,3 +46,4 @@ Table<char> ImageToStringTable(const Image& img, bool shorter)
   return ret;
 }
 
+}

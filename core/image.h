@@ -10,6 +10,9 @@
 #include "core/memorychunk.h"
 #include "core/vfs.h"
 
+namespace euphoria::core
+{
+
 enum class ImageWriteFormat
 {
   PNG,
@@ -132,5 +135,7 @@ LoadImage(vfs::FileSystem* fs, const std::string& path, AlphaLoad alpha);
 
 ImageLoadResult
 LoadImage(std::shared_ptr<MemoryChunk> memory, const std::string& path, AlphaLoad alpha);
+
+}
 
 #endif  // CORE_IMAGE_H

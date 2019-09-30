@@ -9,6 +9,9 @@
 #include "core/entityid.h"
 #include "core/entity.h"
 
+namespace euphoria::core
+{
+
 typedef Registry EntReg;
 
 class Systems;
@@ -130,5 +133,7 @@ class World
   void
   Draw(SpriteRenderer* renderer);
 };
+
+}
 
 #endif  // EUPHORIA_COMPONENTSYSTEM_H

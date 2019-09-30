@@ -3,6 +3,9 @@
 
 #include <cstdint>
 
+namespace euphoria::core
+{
+
 /** Signed integer, exactly 64 bytes.
  */
 typedef std::int64_t int64;
@@ -110,5 +113,7 @@ typedef std::int_fast8_t fint8;
  * arithmetic performance.
  */
 typedef std::uint_fast8_t fuint8;
+
+}
 
 #endif  // EUPHORIA_INTS_H

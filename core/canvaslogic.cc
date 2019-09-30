@@ -1,6 +1,9 @@
 #include "core/canvaslogic.h"
 #include "core/numeric.h"
 
+namespace euphoria::core
+{
+
 void
 CanvasLogic::Pan(const vec2f& p)
 {
@@ -42,4 +45,5 @@ vec2f
 CanvasLogic::ScreenToWorld(const vec2f& p) const
 {
   return (p - scroll)/ scale;
+}
 }

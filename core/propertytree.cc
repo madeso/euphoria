@@ -2,6 +2,10 @@
 
 #include "core/assert.h"
 
+
+namespace euphoria::core
+{
+
 ////////////////////////////////////////////////////////////////////////////////
 
 ValueInt::ValueInt(int i)
@@ -92,4 +96,6 @@ PropertyTree::GetOrNull(const std::string& name)
   {
     return found->second;
   }
+}
+
 }

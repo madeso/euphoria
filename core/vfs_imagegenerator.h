@@ -3,6 +3,9 @@
 
 #include "core/vfs.h"
 
+namespace euphoria::core
+{
+
 namespace vfs
 {
 
@@ -29,5 +32,7 @@ class FileSystemImageGenerator : public FileSystemReadRoot
 };
 
 }  // namespace vfs
+
+}
 
 #endif  // EUPHORIA_FILESYSTEMIMAGEGENERATOR_H

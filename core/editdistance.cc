@@ -7,6 +7,9 @@
 
 #include "core/assert.h"
 
+namespace euphoria::core
+{
+
 unsigned long
 EditDistance(const std::string& source, const std::string& target)
 {
@@ -156,4 +159,6 @@ FastEditDistance(const std::string& the_row, const std::string& the_col)
   }
 
   return v0[row_length];
+}
+
 }

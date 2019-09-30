@@ -1,6 +1,9 @@
 #ifndef EUPHORIA_OPTIONALINDEX_H
 #define EUPHORIA_OPTIONALINDEX_H
 
+namespace euphoria::core
+{
+
 template <typename T>
 class OptionalIndex
 {
@@ -45,5 +48,7 @@ class OptionalIndex
   bool is_valid;
   T    index;
 };
+
+}
 
 #endif  // EUPHORIA_OPTIONALINDEX_H

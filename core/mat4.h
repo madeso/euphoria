@@ -9,6 +9,9 @@
 
 #include <vector>
 
+namespace euphoria::core
+{
+
 template <typename T>
 class mat4
 {
@@ -648,5 +651,7 @@ vec4<T> operator*(const mat4<T>& lhs, const vec4<T> rhs)
 
 typedef mat4<float> mat4f;
 typedef mat4<int>   mat4i;
+
+}
 
 #endif  // CORE_MAT4_H

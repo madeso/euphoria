@@ -8,6 +8,9 @@
 #include "core/ray.h"
 
 
+namespace euphoria::core
+{
+
 class CompiledCamera
 {
  public:
@@ -49,6 +52,6 @@ class Camera
   float near;
   float far;
 };
-
+}
 
 #endif  // EUPHORIA_CAMERA_H

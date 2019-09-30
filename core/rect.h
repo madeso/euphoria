@@ -13,6 +13,9 @@
 
 // todo: look into better names/easier discoverability for functions
 
+namespace euphoria::core
+{
+
 template <typename T>
 class Rect
 {
@@ -492,5 +495,7 @@ operator<<(S& s, const Rect<T>& r)
 
 typedef Rect<int>   Recti;
 typedef Rect<float> Rectf;
+
+}
 
 #endif  // CORE_RECT_H

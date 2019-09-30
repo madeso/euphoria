@@ -5,6 +5,8 @@
 
 #include <string>
 
+namespace euphoria::core
+{
 
 /** The mouse button
  */
@@ -531,5 +533,7 @@ ToString(Key k);
  */
 Key
 ToKey(const std::string& keyname);
+
+}
 
 #endif  // EUPHORIA_INPUT_KEY_H_

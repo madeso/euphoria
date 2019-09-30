@@ -6,6 +6,9 @@
 
 #include "core/ints.h"
 
+namespace euphoria::core
+{
+
 class MemoryChunk
 {
  public:
@@ -51,5 +54,6 @@ class MemoryChunkFile
   fuint64                      position;
 };
 
+}
 
 #endif  // EUPHORIA_MEMORYCHUNK_H

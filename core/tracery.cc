@@ -18,6 +18,9 @@
 #include "core/textfileparser.h"
 #include "core/str.h"
 
+namespace euphoria::core
+{
+
 // ----------------------------------------------------------------
 // Common (to be removed)
 
@@ -718,4 +721,6 @@ Grammar::Flatten(const std::string& rule)
   Rule syntax;
   syntax.Compile(rule);
   return syntax.Flatten(&generator);
+}
+
 }

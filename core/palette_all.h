@@ -5,6 +5,9 @@
 
 #include "core/enumtostring.h"
 
+namespace euphoria::core
+{
+
 struct Palette;
 
 namespace palette
@@ -115,7 +118,7 @@ namespace palette
 
 DECLARE_ENUM_LIST(palette::PaletteName)
 
-
+}
 
 #endif  // EUPHORIA_PALETTE_ALL_H
 

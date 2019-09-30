@@ -4,6 +4,8 @@
 #include "core/vec2.h"
 #include "core/range.h"
 
+namespace euphoria::core
+{
 class CanvasLogic
 {
  public:
@@ -26,6 +28,6 @@ class CanvasLogic
   vec2f
   WorldToScreen(const vec2f& p) const;
 };
-
+}
 
 #endif  // EUPHORIA_CANVASLOGIC_H

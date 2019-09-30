@@ -5,6 +5,9 @@
 #include "core/range.h"
 #include "core/random.h"
 
+namespace euphoria::core
+{
+
 Aabb::Aabb(const vec3f& amin, const vec3f& amax)
     : min(amin)
     , max(amax)
@@ -30,7 +33,7 @@ vec3f
 Aabb::Wrap(const vec3f& vec) const
 {
   ASSERT(IsValid());
-#define COMP(C) const auto C = ::Wrap(MakeRange(min.C, max.C), vec.C)
+#define COMP(C) const auto C = ::euphoria::core::Wrap(MakeRange(min.C, max.C), vec.C)
   COMP(x);
   COMP(y);
   COMP(z);
@@ -108,3 +111,4 @@ Aabb::RandomPoint(Random* random)
   return vec3f{x, y, z};
 }
 
+}

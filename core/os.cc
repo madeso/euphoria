@@ -28,6 +28,9 @@
 #define GET_CURRENT_DIR getcwd
 #endif
 
+namespace euphoria::core
+{
+
 std::string
 GetCurrentDirectory()
 {
@@ -181,4 +184,6 @@ std::string
 GetFileNameWithoutExtension(const std::string& path)
 {
   return LastStrings(GetFileNameIncludingExtension(path), '.').first;
+}
+
 }

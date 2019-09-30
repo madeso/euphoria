@@ -3,6 +3,9 @@
 
 #include "core/commandlineparser.h"
 
+namespace euphoria::core
+{
+
 CmdLine::CmdLine(std::ostream* out)
     : out(out)
 {
@@ -49,4 +52,5 @@ CmdLine::PrintHelp(const Args&) const
     (*out) << "  " << c.first << "\n";
   }
   (*out) << "\n";
+}
 }

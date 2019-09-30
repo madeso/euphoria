@@ -3,6 +3,9 @@
 
 #include "core/vec2.h"
 
+namespace euphoria::core
+{
+
 template <typename T>
 class line2
 {
@@ -166,5 +169,7 @@ class line2
 
 typedef line2<float> line2f;
 typedef line2<int>   line2i;
+
+}
 
 #endif  // CORE_LINE2_H

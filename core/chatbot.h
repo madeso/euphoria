@@ -9,6 +9,9 @@
 
 #include <core/random.h>
 
+namespace euphoria::core
+{
+
 namespace vfs
 {
 class FileSystem;
@@ -198,5 +201,6 @@ class ChatBot
   std::vector<std::string>                 missing_input;
 };
 
+}
 
 #endif  // CORE_CHATBOT_H

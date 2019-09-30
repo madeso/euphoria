@@ -4,6 +4,9 @@
 #include <vector>
 #include "core/ints.h"
 
+namespace euphoria::core
+{
+
 class IdGenerator
 {
  public:
@@ -48,5 +51,7 @@ class Id
   IdGenerator::ID value_;
   IdGenerator*    generator_;
 };
+
+}
 
 #endif  // EUPHORIA_ID_H

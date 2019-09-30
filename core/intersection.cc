@@ -1,5 +1,8 @@
 #include "core/intersection.h"
 
+namespace euphoria::core
+{
+
 RayIntersectionResult
 RayIntersectionResultFalse()
 {
@@ -66,4 +69,6 @@ Intersect(const UnitRay3f& r, const Aabb& aabb)
   }
 
   return RayIntersectionResultTrue(tmin, tmax);
+}
+
 }

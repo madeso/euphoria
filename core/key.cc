@@ -7,6 +7,9 @@
 
 #include "core/stringutils.h"
 
+namespace euphoria::core
+{
+
 namespace
 {
   template <typename T>
@@ -213,4 +216,6 @@ MouseButton
 ToMouseButton(const std::string& keyname)
 {
   return AllMouseButtons().FromString(keyname);
+}
+
 }

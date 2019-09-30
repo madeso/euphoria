@@ -4,6 +4,9 @@
 #include "core/assert.h"
 #include <deque>
 
+namespace euphoria::core
+{
+
 namespace easing
 {
 #define FUN(NAME, FUNC) float NAME(float value);
@@ -399,5 +402,7 @@ class Interpolate
 };
 
 typedef Interpolate<float, FloatTransform> FloatInterpolate;
+
+}
 
 #endif  // SPACETYPER_INTERPOLATE_H

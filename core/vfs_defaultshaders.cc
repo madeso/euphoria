@@ -4,6 +4,9 @@
 #include "core/log.h"
 #include "core/vfs_path.h"
 
+namespace euphoria::core
+{
+
 namespace vfs
 {
 
@@ -108,3 +111,4 @@ FileSystemDefaultShaders::ListFiles(const Path& path)
 
 }  // namespace vfs
 
+}

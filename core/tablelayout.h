@@ -6,6 +6,9 @@
 #include "core/assert.h"
 #include <vector>
 
+namespace euphoria::core
+{
+
 // positive = absolute pixel size
 // zero = invalid
 // negative = scaling size
@@ -56,5 +59,6 @@ PerformTableLayout(const std::vector<T>& pieces, T size, T zero = 0)
   return ret;
 }
 
+}
 
 #endif  // CORE_TABLELAYOUT_H

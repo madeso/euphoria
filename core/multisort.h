@@ -10,6 +10,9 @@
 #include "core/quicksort.h"
 #include "core/insertionsort.h"
 
+namespace euphoria::core
+{
+
 enum class SortStyle
 {
   Ascending,
@@ -114,6 +117,8 @@ GetSortedIndices(const std::vector<T>& data, const SortBuilder<T, Self>& builder
   if(builder.stable_sort) InsertionSort(&r, sort_function);
   else QuickSort(&r, sort_function);
   return r;
+}
+
 }
 
 #endif  // CORE_MULTISORT_H

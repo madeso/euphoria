@@ -6,6 +6,9 @@
 #include "core/vec3.h"
 #include "core/angle.h"
 
+namespace euphoria::core
+{
+
 class AxisAngle
 {
  public:
@@ -26,5 +29,7 @@ class AxisAngle
 
 std::ostream&
 operator<<(std::ostream& stream, const AxisAngle& aa);
+
+}
 
 #endif  // CORE_AXISANGLE_H

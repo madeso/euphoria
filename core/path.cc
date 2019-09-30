@@ -5,6 +5,9 @@
 #include "core/range.h"
 #include "core/log.h"
 
+namespace euphoria::core
+{
+
 LOG_SPECIFY_DEFAULT_LOGGER("painter")
 
 BezierPath2::BezierPath2(const vec2f& center)
@@ -239,3 +242,4 @@ void BezierPath2::AutoSetAnchorControlPoints(int anchor_index)
   }
 }
 
+}

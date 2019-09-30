@@ -9,6 +9,9 @@
 #include <vector>
 #include <sstream>
 
+namespace euphoria::core
+{
+
 ////////////////////////////////////////////////////////////////////////////////
 
 Defines::Defines() = default;
@@ -772,4 +775,6 @@ const TemplateError&
 Template::GetErrors() const
 {
   return errors_;
+}
+
 }

@@ -5,6 +5,9 @@
 #include <map>
 #include <vector>
 
+namespace euphoria::core
+{
+
 namespace vfs
 {
   class FileSystem;
@@ -101,5 +104,7 @@ LoadEnumType(EnumType* type, vfs::FileSystem* fs, const std::string& path);
   const EnumValue NAME = TYPE##_EnumType().ToEnum(STRING)
 #define SET_ENUM_FROM_FILE(FS, PATH, TYPE) \
   LoadEnumType(&TYPE##_EnumType(), FS, PATH)
+
+}
 
 #endif  // EUPHORIA_ENUM_H

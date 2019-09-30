@@ -6,6 +6,9 @@
 #include <map>
 #include <vector>
 
+namespace euphoria::core
+{
+
 namespace colorbrewer
 {
   enum class Type
@@ -103,5 +106,6 @@ namespace colorbrewer
   const ColorBrewer& PuBuGn();
 
 }  // namespace colorbrewer
+}
 
 #endif  // CORE_COLORBREWER_H

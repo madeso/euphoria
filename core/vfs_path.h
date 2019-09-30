@@ -3,6 +3,9 @@
 
 #include <string>
 
+namespace euphoria::core
+{
+
 namespace vfs
 {
 
@@ -58,5 +61,7 @@ class Path
 };
 
 }  // namespace vfs
+
+}
 
 #endif  // EUPHORIA_PATH_H

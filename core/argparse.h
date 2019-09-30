@@ -11,6 +11,9 @@
 #include "core/enumtostring.h"
 #include "core/stringmerger.h"
 
+namespace euphoria::core
+{
+
 // todo: mutiple names for subcommands
 // todo: groups
 // todo: examples that are validated during debug builds
@@ -445,5 +448,7 @@ namespace argparse
 
 
 DECLARE_ENUM_LIST(argparse::ParseResult)
+
+}
 
 #endif  // CORE_ARGPARSE_H

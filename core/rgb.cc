@@ -6,6 +6,9 @@
 #include <iostream>
 #include <map>
 
+namespace euphoria::core
+{
+
 ////////////////////////////////////////////////////////////////////////////////
 
 Rgbi::Rgbi(unsigned char red, unsigned char green, unsigned char blue)
@@ -512,3 +515,5 @@ namespace colorutil
     return hex;
   }
 }  // namespace colorutil
+
+}

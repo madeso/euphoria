@@ -11,6 +11,9 @@
 
 #include "core/stringutils.h"
 
+namespace euphoria::core
+{
+
 namespace vfs
 {
 
@@ -316,3 +319,4 @@ FileSystemWriteFolder::WriteFile(
 
 }  // namespace vfs
 
+}

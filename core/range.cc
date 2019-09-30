@@ -1,5 +1,8 @@
 #include "core/range.h"
 
+namespace euphoria::core
+{
+
 const Range<float>& R01()
 {
   static const Range<float> r{0, 1};
@@ -12,3 +15,4 @@ const Range<float>& R11()
   return r;
 }
 
+}

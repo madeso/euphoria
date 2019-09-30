@@ -11,6 +11,9 @@ String utility functions
 
 #include "core/str.h"
 
+namespace euphoria::core
+{
+
 /** @defgroup string String utility functions.
 @{
  */
@@ -185,5 +188,7 @@ OpString(bool b, const std::string& str);
 // http://stereopsis.com/strcmp4humans.html
 int StringCompare(const std::string& lhs, const std::string& rhs);
 /** @} */
+
+}
 
 #endif  // EUPHORIA_STRINGUTILS_H_

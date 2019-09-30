@@ -1,6 +1,9 @@
 #include "core/interpolate.h"
 #include "aheasing/easing.h"
 
+namespace euphoria::core
+{
+
 float
 FloatTransform::Transform(float from, float v, float to)
 {
@@ -68,3 +71,5 @@ namespace easing
   FUN(Bounce, BounceEaseInOut)
 #undef FUN
 }  // namespace easing
+
+}

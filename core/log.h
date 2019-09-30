@@ -5,6 +5,9 @@
 #include <memory>
 #include <sstream>
 
+namespace euphoria::core
+{
+
 enum class LogLevel
 {
   Trace,
@@ -51,10 +54,10 @@ class Logger
 #define LOG_SPECIFY_DEFAULT_LOGGER(NAME)          \
   namespace                                       \
   {                                               \
-    LoggerPtr                                     \
+    ::euphoria::core::LoggerPtr                                     \
     GetDefaultLogger()                            \
     {                                             \
-      LoggerPtr logger = Logger::GetLogger(NAME); \
+      ::euphoria::core::LoggerPtr logger = euphoria::core::Logger::GetLogger(NAME); \
       return logger;                              \
     }                                             \
   }
@@ -78,5 +81,6 @@ class Logger
 #define LOG_FATAL(MESSAGE) \
   LOG_BASE(GetDefaultLogger(), MESSAGE, LogLevel::Fatal)
 
+}
 
 #endif  // EUPHORIA_LOG_H

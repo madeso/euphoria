@@ -4,6 +4,9 @@
 
 #include <sstream>
 
+namespace euphoria::core
+{
+
 LOG_SPECIFY_DEFAULT_LOGGER("core.textparser")
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -286,4 +289,6 @@ ParsedText::Visit(textparser::Visitor* visitor) const
   {
     node->Visit(visitor);
   }
+}
+
 }

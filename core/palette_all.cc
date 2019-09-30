@@ -9,6 +9,9 @@
 #include "core/palette_wes.h"
 
 
+namespace euphoria::core
+{
+
 namespace palette
 {
     const Palette&
@@ -215,5 +218,5 @@ BEGIN_ENUM_LIST(palette::PaletteName)
     ENUM_VALUE(palette::PaletteName, Aquatic3)
     ENUM_VALUE(palette::PaletteName, Darjeeling3)
   END_ENUM_LIST()
-  
 
+}  

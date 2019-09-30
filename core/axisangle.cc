@@ -2,6 +2,9 @@
 
 #include "core/assert.h"
 
+namespace euphoria::core
+{
+
 AxisAngle::AxisAngle(const unit3f& ax, const Angle& ang)
     : axis(ax)
     , angle(ang)
@@ -20,4 +23,5 @@ std::ostream&
 operator<<(std::ostream& stream, const AxisAngle& aa)
 {
   return stream << "(" << aa.axis << " " << aa.angle << ")";
+}
 }

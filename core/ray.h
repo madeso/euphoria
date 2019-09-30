@@ -3,6 +3,9 @@
 
 #include "core/vec3.h"
 
+namespace euphoria::core
+{
+
 template <typename T>
 class UnitRay3
 {
@@ -83,5 +86,7 @@ class Ray3
 
 typedef Ray3<float>     Ray3f;
 typedef UnitRay3<float> UnitRay3f;
+
+}
 
 #endif  // CORE_RAY_H

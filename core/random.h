@@ -9,6 +9,9 @@
 #include "core/vec2.h"
 #include "core/range.h"
 
+namespace euphoria::core
+{
+
 /** WEL512 Random Number Generator.
  */
 class Random
@@ -87,5 +90,6 @@ class Random
   uint32 state_[16];
 };
 
+}
 
 #endif  // EUPHORIA_RANDOM_H

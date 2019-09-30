@@ -3,9 +3,14 @@
 
 #include <cstdint>
 
+namespace euphoria::core
+{
+
 using EntityId      = std::uint32_t;
 using EntityVersion = std::uint16_t;
 
 using ComponentId = std::uint32_t;
+
+}
 
 #endif  // EUPHORIA_ENTITYID_H

@@ -4,6 +4,9 @@
 #include <string>
 #include <sstream>
 
+namespace euphoria::core
+{
+
 /** Basic string builder.
  */
 class Str
@@ -38,5 +41,6 @@ class Str
   std::ostringstream stream_;
 };
 
+}
 
 #endif  // CORE_STR_H

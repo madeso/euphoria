@@ -2,6 +2,9 @@
 
 #include "core/palette.h"
 
+namespace euphoria::core
+{
+
 // source: https://github.com/jiffyclub/palettable/blob/master/palettable/wesanderson/wesanderson.py
 
 namespace
@@ -429,3 +432,4 @@ namespace palette
 
 }  // namespace palette
 
+}

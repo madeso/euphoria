@@ -3,6 +3,9 @@
 
 #include <string>
 
+namespace euphoria::core
+{
+
 // Levenshtein Distance Algorithm: C++ Implementation
 // by Anders Sewerin Johansen
 // http://www.merriampark.com/ldcpp.htm
@@ -15,5 +18,6 @@ EditDistance(const std::string& source, const std::string& target);
 unsigned long
 FastEditDistance(const std::string& the_row, const std::string& the_col);
 
+}
 
 #endif  // CORE_EDITDISTANCE_H

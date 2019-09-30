@@ -6,6 +6,9 @@ LOG_SPECIFY_DEFAULT_LOGGER("core.colors")
 
 #define RGB(r, g, b)  ((r & 0xff) << 16) + ((g & 0xff) << 8) + (b & 0xff);
 
+namespace euphoria::core
+{
+
 unsigned int
 ToColorHex(Color color)
 {
@@ -81,4 +84,4 @@ BEGIN_ENUM_LIST(Color)
   ENUM_VALUE(Color, Cyan)
   ENUM_VALUE(Color, PureCyan)
 END_ENUM_LIST()
-
+}

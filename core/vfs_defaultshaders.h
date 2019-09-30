@@ -4,6 +4,9 @@
 
 #include "core/vfs.h"
 
+namespace euphoria::core
+{
+
 namespace vfs
 {
 
@@ -29,5 +32,7 @@ class FileSystemDefaultShaders : public FileSystemReadRoot
 };
 
 }  // namespace vfs
+
+}
 
 #endif  // CORE_FILESYSTEMDEFAULTSHADERS_H

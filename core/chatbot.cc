@@ -13,6 +13,10 @@
 
 #include "gaf_chatbot.h"
 
+
+namespace euphoria::core
+{
+
 LOG_SPECIFY_DEFAULT_LOGGER("core.chatbot")
 
 namespace chatbot
@@ -707,4 +711,5 @@ bool
 ChatBot::IsInConversation() const
 {
   return is_in_conversation;
+}
 }

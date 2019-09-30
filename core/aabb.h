@@ -3,6 +3,9 @@
 
 #include "core/vec3.h"
 
+namespace euphoria::core
+{
+
 class Random;
 
 class Aabb
@@ -52,5 +55,6 @@ operator<<(Stream& s, const Aabb& a)
   return s;
 }
 
+}
 
 #endif  // EUPHORIA_AABB_H

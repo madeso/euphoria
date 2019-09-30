@@ -2,6 +2,9 @@
 
 #include "core/assert.h"
 
+namespace euphoria::core
+{
+
 IdGenerator::IdGenerator()
     : current_(1)
 {
@@ -87,4 +90,6 @@ Id::GetValue() const
 {
   ASSERT(IsValid());
   return value_;
+}
+
 }

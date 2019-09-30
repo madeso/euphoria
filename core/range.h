@@ -6,6 +6,9 @@
 #include "core/angle.h"
 #include "core/assert.h"
 
+namespace euphoria::core
+{
+
 template <typename T>
 struct Range
 {
@@ -117,6 +120,8 @@ Wrap(const Range<T>& range, T value)
     wrapped -= diff;
   }
   return range.lower_bound + wrapped;
+}
+
 }
 
 #endif  // EUPHORIA_RANGE_H

@@ -5,6 +5,9 @@
 
 #include "core/random.h"
 
+namespace euphoria::core
+{
+
 // Knuth shuffle aka Fisher–Yates shuffle
 // src: https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
 // add one that respects the current item so it won't be the first one https://gamedev.stackexchange.com/a/29747/90313
@@ -24,5 +27,6 @@ void KnuthShuffle(std::vector<T>* v, Random* r)
   }
 }
 
-#endif  // CORE_KNUTH_SHUFFLE_H
+}
 
+#endif  // CORE_KNUTH_SHUFFLE_H

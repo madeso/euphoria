@@ -6,6 +6,9 @@
 #include <sstream>
 #include <vector>
 
+namespace euphoria::core
+{
+
 std::string
 StringMerger::Generate(const std::vector<std::string>& strings) const
 {
@@ -161,3 +164,4 @@ StringMerger::AfterEach(const std::string& after_each, const std::string& final_
   return *this;
 }
 
+}

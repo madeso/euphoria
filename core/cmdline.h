@@ -7,6 +7,9 @@
 #include <string>
 #include <map>
 
+namespace euphoria::core
+{
+
 class CmdLine
 {
  public:
@@ -28,6 +31,6 @@ class CmdLine
   std::ostream* out;
   std::map<std::string, Callback> callbacks;
 };
-
+}
 
 #endif  // CORE_CMDLINE_H

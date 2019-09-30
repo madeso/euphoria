@@ -5,6 +5,8 @@
 
 #include <string>
 
+namespace euphoria::core
+{
 namespace base64
 {
   std::string
@@ -12,6 +14,7 @@ namespace base64
 
   std::shared_ptr<MemoryChunk>
   Decode(const std::string& input);
+}
 }
 
 #endif  // EUPHORIA_BASE64_H

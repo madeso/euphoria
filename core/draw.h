@@ -8,6 +8,9 @@
 
 #include <string>
 
+namespace euphoria::core
+{
+
 class Draw
 {
  public:
@@ -58,5 +61,6 @@ class Draw
   Image* image_;
 };
 
+}
 
 #endif  // EUPHORIA_DRAW_H

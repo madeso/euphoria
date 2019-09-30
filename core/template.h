@@ -9,6 +9,9 @@
 
 #include "core/vfs.h"
 
+namespace euphoria::core
+{
+
 class Defines
 {
  public:
@@ -65,5 +68,6 @@ class Template
   std::shared_ptr<TemplateNodeList> nodes_;
 };
 
+}
 
 #endif  // EUPHORIA_TEMPLATE_H

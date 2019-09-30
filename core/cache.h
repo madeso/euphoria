@@ -4,6 +4,9 @@
 #include <map>
 #include <memory>
 
+
+namespace euphoria::core
+{
 // todo: support hotloading
 
 template <typename Key, typename Data, typename Loader>
@@ -35,5 +38,6 @@ class Cache
  private:
   std::map<Key, std::weak_ptr<Data>> cache;
 };
+}
 
 #endif  // EUPHORIA_CACHE_H

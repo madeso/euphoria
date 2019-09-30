@@ -13,6 +13,9 @@ namespace google
   }  // namespace protobuf
 }  // namespace google
 
+namespace euphoria::core
+{
+
 namespace vfs
 {
 class FileSystem;
@@ -42,5 +45,7 @@ LoadProtoJson(vfs::FileSystem* fs, T* message, const std::string& file_name)
 std::string
 SaveProtoJson(
     const google::protobuf::Message& message, const std::string& file_name);
+
+}
 
 #endif  // SPACETYPER_PROTO_H_

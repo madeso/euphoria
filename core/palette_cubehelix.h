@@ -1,6 +1,10 @@
 #ifndef EUPHORIA_PALETTE_CUBEHELIX_H
 #define EUPHORIA_PALETTE_CUBEHELIX_H
 
+
+namespace euphoria::core
+{
+
 struct Palette;
 
 namespace palette
@@ -30,6 +34,7 @@ namespace palette
   Cubehelix3();
 }
 
+}
 
 #endif  // EUPHORIA_PALETTE_CUBEHELIX_H
 

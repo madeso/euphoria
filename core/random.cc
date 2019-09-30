@@ -6,6 +6,9 @@
 #include <limits>
 #include <ctime>
 
+namespace euphoria::core
+{
+
 /*
 There are much better choices than Mersenne Twister nowadays. Here is a RNG
 called WELL512, designed by the designers of Mersenne, developed 10 years later,
@@ -140,3 +143,4 @@ Random::PointOnUnitCircle_Uniform()
   return vec2f{dist * Cos(angle) + 0.5f, dist * Sin(angle) + 0.5f};
 }
 
+}

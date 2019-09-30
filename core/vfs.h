@@ -8,6 +8,9 @@
 #include <memory>
 #include <vector>
 
+namespace euphoria::core
+{
+
 namespace vfs
 {
 
@@ -163,5 +166,7 @@ class FileSystemWriteFolder : public FileSystemWriteRoot
 
 
 }  // namespace vfs
+
+}
 
 #endif  // EUPHORIA_FILESYSTEM_H

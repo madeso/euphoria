@@ -3,6 +3,9 @@
 
 #include <vector>
 
+namespace euphoria::core
+{
+
 // Hoare partition scheme as described in wikipedia
 // https://en.wikipedia.org/wiki/Quicksort
 template<typename T, typename SortFunc>
@@ -66,6 +69,8 @@ template<typename T>
 std::vector<T> QuickSort(const std::vector<T>& arr)
 {
   return QuickSort(arr, DefaultQuickSortFunction<T>);
+}
+
 }
 
 #endif  // CORE_QUICKSORT_H

@@ -2,6 +2,10 @@
 
 #include "core/stringutils.h"
 
+
+namespace euphoria::core
+{
+
 namespace
 {
   bool
@@ -115,4 +119,5 @@ ParseCommandLine(const std::string& str)
   }
 
   return ret;
+}
 }

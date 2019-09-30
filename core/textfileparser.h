@@ -3,6 +3,9 @@
 
 #include <string>
 
+namespace euphoria::core
+{
+
 bool
 IsIdentStart(const char c);
 
@@ -53,5 +56,6 @@ class TextFileParser
   unsigned int column_;
 };
 
+}
 
 #endif  // EUPHORIA_TEXTFILEPARSER_H

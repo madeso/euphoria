@@ -7,6 +7,9 @@
 #include "core/mat4.h"
 #include "core/polarcoord.h"
 
+namespace euphoria::core
+{
+
 template <typename T>
 class quat
 {
@@ -87,18 +90,18 @@ class quat
   LookInDirection(const Unit& dir, const Unit& up)
   {
     const Vec in  = Unit::In();
-    float     dot = ::dot(in, dir);
+    float     dot_value = dot(in, dir);
 
-    if(Abs(dot - (-1.0f)) < 0.000001f)
+    if(Abs(dot_value - (-1.0f)) < 0.000001f)
     {
       return Q(3.1415926535897932f, up);
     }
-    if(Abs(dot - (1.0f)) < 0.000001f)
+    if(Abs(dot_value - (1.0f)) < 0.000001f)
     {
       return Identity();
     }
 
-    const auto rotAngle = Acos(dot);
+    const auto rotAngle = Acos(dot_value);
     const auto rotAxis  = cross(in, dir).GetNormalized();
     return Q::FromAxisAngle(AxisAngle::RightHandAround(rotAxis, rotAngle));
   }
@@ -395,5 +398,7 @@ operator==(const quat<T>& lhs, const quat<T>& rhs)
 
 typedef quat<float> quatf;
 typedef quat<int>   quati;
+
+}
 
 #endif  // CORE_QUAT_H

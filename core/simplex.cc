@@ -17,6 +17,9 @@
 
 #include <cmath>
 
+namespace euphoria::core
+{
+
 namespace {
   // Inner class to speed upp gradient computations
   // (In Java, array access is a lot slower than member access)
@@ -348,3 +351,4 @@ namespace {
     return 27.0 * (n0 + n1 + n2 + n3 + n4);
   }
 
+}

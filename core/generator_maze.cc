@@ -4,6 +4,9 @@
 #include "core/draw.h"
 #include "core/colors.h"
 
+namespace euphoria::core
+{
+
 namespace generator
 {
   vec2i DirToOffset(const Dir d)
@@ -244,7 +247,7 @@ namespace generator
         wall_size + maze->Width()*path_size,
         wall_size + maze->Height() * path_size);
     
-    auto draw = ::Draw{&image};
+    auto draw = ::euphoria::core::Draw{&image};
     draw.Clear(wall_color);
 
     for(unsigned int x=0; x<maze->Width(); x+=1)
@@ -283,3 +286,4 @@ BEGIN_ENUM_LIST(generator::Dir)
   ENUM_VALUE(generator::Dir, West)
 END_ENUM_LIST()
 
+}

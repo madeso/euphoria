@@ -2,6 +2,9 @@
 
 #include "core/assert.h"
 
+namespace euphoria::core
+{
+
 CompiledCamera::CompiledCamera(const mat4f& view_, const mat4f& projection_)
     : view(view_)
     , projection(projection_)
@@ -67,4 +70,5 @@ Camera::CalculateViewMatrix() const
 {
   return rotation.GetConjugate().ToMat4() *
          mat4f::FromTranslation(-static_cast<vec3f>(position));
+}
 }

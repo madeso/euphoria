@@ -1,5 +1,9 @@
 #include "core/componentsystem.h"
 
+
+namespace euphoria::core
+{
+
 ComponentSystem::ComponentSystem(const std::string& the_name)
     : name(the_name)
 {
@@ -63,4 +67,6 @@ void
 World::Draw(SpriteRenderer* renderer)
 {
   systems->spriteDraw.Draw(&reg, renderer);
+}
+
 }

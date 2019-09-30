@@ -4,6 +4,9 @@
 #include "core/ray.h"
 #include "core/aabb.h"
 
+namespace euphoria::core
+{
+
 struct RayIntersectionResult
 {
   bool  intersected;
@@ -14,5 +17,6 @@ struct RayIntersectionResult
 RayIntersectionResult
 Intersect(const UnitRay3f& r, const Aabb& aabb);
 
+}
 
 #endif  // EUPHORIA_INTERSECTION_H

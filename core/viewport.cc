@@ -1,5 +1,7 @@
 #include "core/viewport.h"
 
+namespace euphoria::core
+{
 
 ViewportDef
 ViewportDef::FitWithBlackBars(
@@ -71,4 +73,6 @@ ViewportDef::ViewportDef(const Recti& screen, float w, float h)
     , virtual_width(w)
     , virtual_height(h)
 {
+}
+
 }

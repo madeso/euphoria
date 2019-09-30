@@ -1,6 +1,13 @@
 #ifndef CORE_FUNCTIONAL_H
 #define CORE_FUNCTIONAL_H
 
+#include <vector>
+#include <utility>
+
+
+namespace euphoria::core
+{
+
 // 
 // Common polymorphic higher order functions
 // 
@@ -124,6 +131,6 @@ Fold(const std::vector<T>& ts, C concat, R zero)
   return r;
 }
 
+}
 
 #endif
-

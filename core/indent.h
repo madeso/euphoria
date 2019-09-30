@@ -3,6 +3,9 @@
 
 #include <iostream>
 
+namespace euphoria::core
+{
+
 struct Indent{
   Indent() { ++val(); }
   ~Indent() { --val(); }
@@ -19,5 +22,7 @@ struct Indent{
 #define DEBUG_SCOPE() Indent local_indent
 #define DEBUG_PRINT(x)  do { local_indent.print(); std::cout << x << "\n"; } while(false)
 
-#endif  // CORE_INDENT_H
 
+}
+
+#endif  // CORE_INDENT_H

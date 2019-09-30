@@ -2,6 +2,9 @@
 
 #include "core/palette.h"
 
+namespace euphoria::core
+{
+
 namespace
 {
   Rgbi
@@ -195,3 +198,4 @@ namespace palette
   }
 }  // namespace palette
 
+}

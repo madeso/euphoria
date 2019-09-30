@@ -6,6 +6,9 @@
 #include "core/assert.h"
 #include "core/random.h"
 
+namespace euphoria::core
+{
+
 template <typename T>
 class ShuffleBag
 {
@@ -57,5 +60,7 @@ class ShuffleBag
   std::vector<T> data_;
   unsigned long  cursor_ = 0;
 };
+
+}
 
 #endif  // EUPHORIA_SHUFFLEBAG_H

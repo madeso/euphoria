@@ -5,6 +5,9 @@
 #include "core/colors.h"
 #include "core/image.h"
 
+namespace euphoria::core
+{
+
 namespace generator
 {
   void CellularAutomata::Setup()
@@ -88,7 +91,7 @@ namespace generator
         world->Width() * scale,
         world->Height() * scale);
     
-    auto draw = ::Draw{&image};
+    auto draw = ::euphoria::core::Draw{&image};
     draw.Clear(space_color);
 
     for(unsigned int x=0; x<world->Width(); x+=1)
@@ -111,3 +114,4 @@ BEGIN_ENUM_LIST(generator::BorderControl)
   ENUM_VALUE(generator::BorderControl, RandomEmpty)
 END_ENUM_LIST()
 
+}

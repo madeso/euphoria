@@ -3,6 +3,10 @@
 
 #include "core/enumtostring.h"
 
+
+namespace euphoria::core
+{
+
 // initially based on http://alumni.media.mit.edu/~wad/color/palette.html
 // pure- colors are values directly from wikipedia
 // short descriptons/attributes from https://www.creativebloq.com/web-design/12-colours-and-emotions-they-evoke-61515112
@@ -146,5 +150,6 @@ DECLARE_ENUM_LIST(Color)
 
 unsigned int
 ToColorHex(Color color);
+}
 
 #endif  // CORE_NAMED_COLORS_H

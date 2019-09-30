@@ -13,6 +13,9 @@
 
 #include "core/log.h"
 
+namespace euphoria::core
+{
+
 LOG_SPECIFY_DEFAULT_LOGGER("core.image")
 
 void
@@ -383,4 +386,6 @@ LoadImage(std::shared_ptr<MemoryChunk> file_memory, const std::string& path, Alp
 
   stbi_image_free(data);
   return result;
+}
+
 }

@@ -1,5 +1,8 @@
 #include "core/findstring.h"
 
+namespace euphoria::core
+{
+
 bool
 Find(const std::string& target, const std::string& search)
 {
@@ -48,4 +51,6 @@ Find(
   }
 
   return false;
+}
+
 }

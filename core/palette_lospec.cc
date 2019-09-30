@@ -1,6 +1,8 @@
 #include "core/palette_lospec.h"
-
 #include "core/palette.h"
+
+namespace euphoria::core
+{
 
 namespace
 {
@@ -443,3 +445,5 @@ namespace palette
     return p;
   }
 }  // namespace palette
+
+}

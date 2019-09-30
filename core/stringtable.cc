@@ -2,6 +2,9 @@
 
 #include <algorithm>
 
+namespace euphoria::core
+{
+
 Table<std::string>
 TableFromCsv(const std::string& data, char delim, char str)
 {
@@ -235,4 +238,6 @@ PrintTableGrid(std::ostream& out, const Table<std::string>& table)
   }
 
   horizontal_line();
+}
+
 }

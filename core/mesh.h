@@ -9,6 +9,9 @@
 #include "core/enum.h"
 #include "core/aabb.h"
 
+namespace euphoria::core
+{
+
 namespace vfs
 {
 class FileSystem;
@@ -110,6 +113,8 @@ namespace meshes
   CreateSphere(float size, const std::string& texture);
   Mesh
   CreateBox(float width, float height, float depth);
+}
+
 }
 
 #endif  // CORE_MESH_H

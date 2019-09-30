@@ -4,6 +4,9 @@
 #include <vector>
 #include <cstddef>
 
+namespace euphoria::core
+{
+
 template<typename T, typename SortFunc>
 void InsertionSort(std::vector<T>* arr, SortFunc sort_func)
 {
@@ -42,6 +45,8 @@ template<typename T>
 std::vector<T> InsertionSort(const std::vector<T>& arr)
 {
   return InsertionSort(arr, DefaultInsertionSort<T>);
+}
+
 }
 
 #endif  // CORE_INSERTIONSORT_H

@@ -7,6 +7,9 @@
 #include "core/log.h"
 #include "core/vfs_path.h"
 
+namespace euphoria::core
+{
+
 namespace vfs
 {
 
@@ -89,3 +92,4 @@ FileSystemImageGenerator::ListFiles(const Path& path)
 
 }  // namespace vfs
 
+}

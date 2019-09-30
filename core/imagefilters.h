@@ -4,6 +4,9 @@
 #include "core/rgb.h"
 #include "core/enumtostring.h"
 
+namespace euphoria::core
+{
+
 class Image;
 class Rgb;
 struct Palette;
@@ -37,5 +40,6 @@ struct ImageFilter
   // color controls https://developer.nvidia.com/gpugems/GPUGems/gpugems_ch22.html
 };
 
-#endif  // CORE_IMAGEFILTERS_H
+}
 
+#endif  // CORE_IMAGEFILTERS_H

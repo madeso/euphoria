@@ -1,6 +1,9 @@
 #ifndef EUPHORIA_PALETTE_LOSPEC_H
 #define EUPHORIA_PALETTE_LOSPEC_H
 
+namespace euphoria::core
+{
+
 struct Palette;
 
 namespace palette
@@ -138,6 +141,7 @@ namespace palette
   Famicube();
 }
 
+}
 
 #endif  // EUPHORIA_PALETTE_LOSPEC_H
 

@@ -7,6 +7,9 @@
 #define NONCOPYABLE_MOVE_ASSIGNMENT(CLASS) void operator=(CLASS&&) = delete
 
 
+namespace euphoria::core
+{
+
 class Noncopyable
 {
  public:
@@ -19,5 +22,7 @@ class Noncopyable
   NONCOPYABLE_MOVE_CONSTRUCTOR(Noncopyable);
   NONCOPYABLE_MOVE_ASSIGNMENT(Noncopyable);
 };
+
+}
 
 #endif  // CORE_NONCOPYABLE_H

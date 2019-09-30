@@ -7,6 +7,9 @@
 
 #include "core/vec3.h"
 
+namespace euphoria::core
+{
+
 enum class ValueType
 {
   Int,
@@ -79,5 +82,6 @@ class PropertyTree : public Value
   std::map<std::string, std::shared_ptr<Value>> properties;
 };
 
+}
 
 #endif  // EUPHORIA_PROPERTYTREE_H

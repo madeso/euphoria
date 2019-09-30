@@ -3,6 +3,10 @@
 
 #include <string>
 
+
+namespace euphoria::core
+{
+
 template <class T>
 void
 NotUsed(T const&)
@@ -58,5 +62,7 @@ struct IsVector<std::vector<T>>
 {
   static constexpr bool value = true;
 };
+
+}
 
 #endif  // EUPHORIA_CPP_H

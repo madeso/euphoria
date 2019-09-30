@@ -3,6 +3,9 @@
 
 #include <vector>
 
+namespace euphoria::core
+{
+
 template <typename Int>
 struct Bucket10base
 {
@@ -134,6 +137,8 @@ RadixSort(std::vector<T>* arr)
   {
     *arr = CountSort<T, IdExtractor, Bucket, Int>(*arr, exp);
   }
+}
+
 }
 
 #endif  // CORE_RADIX_H

@@ -4,6 +4,10 @@
 
 #include <fstream>
 
+
+namespace euphoria::core
+{
+
 LOG_SPECIFY_DEFAULT_LOGGER("core.io")
 
 namespace io
@@ -47,3 +51,5 @@ namespace io
   }
 
 }  // namespace io
+
+}

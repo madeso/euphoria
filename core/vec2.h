@@ -10,6 +10,9 @@
 #include "core/assert.h"
 
 
+namespace euphoria::core
+{
+
 ////////////////////////////////////////////////////////////////////////////////
 /// Forward declarations
 
@@ -190,7 +193,7 @@ struct unit2
   bool
   IsValid() const
   {
-    return ::IsEqual(GetLengthSquared(), 1);
+    return IsEqual(GetLengthSquared(), 1);
   }
 
  private:
@@ -362,5 +365,7 @@ typedef Vec2Transform<int>   Vec2iTransform;
 /// Typeids
 
 TYPEID_SETUP_TYPE(vec2f);
+
+}
 
 #endif  // CORE_VEC2_H

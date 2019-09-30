@@ -7,6 +7,9 @@
 
 #include <cmath>
 
+namespace euphoria::core
+{
+
 BEGIN_ENUM_LIST(Grayscale)
   ENUM_VALUE(Grayscale, R)
   ENUM_VALUE(Grayscale, G)
@@ -217,5 +220,4 @@ void ImageFilter::ChangeContrast(float contrast)
   });
 }
 
-
-
+}

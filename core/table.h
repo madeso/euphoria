@@ -7,6 +7,9 @@
 #include "core/numeric.h"
 #include "core/rect.h"
 
+namespace euphoria::core
+{
+
 template <typename T>
 struct Table
 {
@@ -190,5 +193,6 @@ CalcRowAsVector(const Table<T>& t, typename Table<T>::I y)
   return r;
 }
 
+}
 
 #endif  // CORE_STRING_TABLE_H

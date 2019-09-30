@@ -12,6 +12,9 @@
 
 #include <fstream>
 
+namespace euphoria::core
+{
+
 std::string
 LoadProtoJson_Internal(
     vfs::FileSystem* fs, rapidjson::Document* doc, const std::string& file_name)
@@ -64,4 +67,6 @@ SaveProtoJson(
 #endif
 
   return "";
+}
+
 }

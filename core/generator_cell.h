@@ -9,6 +9,9 @@
 
 #include <stack>
 
+namespace euphoria::core
+{
+
 class Random;
 
 namespace generator
@@ -56,5 +59,7 @@ namespace generator
 }
 
 DECLARE_ENUM_LIST(generator::BorderControl)
+
+}
 
 #endif  // CORE_GENERATOR_CELL_H

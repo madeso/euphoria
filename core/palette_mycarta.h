@@ -1,6 +1,9 @@
 #ifndef EUPHORIA_PALETTE_MYCARTA_H
 #define EUPHORIA_PALETTE_MYCARTA_H
 
+namespace euphoria::core
+{
+
 struct Palette;
 
 /*
@@ -21,6 +24,7 @@ namespace palette
   LinearL();
 }
 
+}
 
 #endif  // EUPHORIA_PALETTE_MYCARTA_H
 

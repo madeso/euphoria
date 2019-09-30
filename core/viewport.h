@@ -3,6 +3,9 @@
 
 #include "core/rect.h"
 
+namespace euphoria::core
+{
+
 struct ViewportDef
 {
   Recti screen_rect;
@@ -29,5 +32,6 @@ struct ViewportDef
   ViewportDef(const Recti& screen, float w, float h);
 };
 
+}
 
 #endif  // EUPHORIA_VIEWPORT_H

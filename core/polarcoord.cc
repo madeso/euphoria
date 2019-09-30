@@ -5,6 +5,9 @@
 #include "core/assert.h"
 #include "core/random.h"
 
+namespace euphoria::core
+{
+
 PolarCoord::PolarCoord(float azimuthal01, float polar01)
     : azimuthal_(Angle::FromPercentOf360(azimuthal01))
     , polar_(Angle::FromPercentOf180(polar01))
@@ -28,7 +31,7 @@ PolarCoord::ToCartesian() const
   return unit3f::ToUnit(x, y, z);
 }
 
-PolarCoord PolarCoord::Random(::Random* random)
+PolarCoord PolarCoord::Random(::euphoria::core::Random* random)
 {
   const float az    = random->NextFloat01();
   const float polar = random->NextFloat01();
@@ -40,3 +43,4 @@ unit3f RandomUnit3(Random* random)
   return PolarCoord::Random(random).ToCartesian();
 }
 
+}

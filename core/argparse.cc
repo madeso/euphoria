@@ -15,6 +15,9 @@
 #include "core/stringutils.h"
 #include "core/functional.h"
 
+namespace euphoria::core
+{
+
 namespace argparse
 {
   /////////////////////////////////////////////////////////////////////////////////////////
@@ -655,3 +658,4 @@ BEGIN_ENUM_LIST(argparse::ParseResult)
   ENUM_VALUE(argparse::ParseResult, Quit)
 END_ENUM_LIST()
 
+}

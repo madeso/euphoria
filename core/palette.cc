@@ -6,6 +6,9 @@
 #include "core/random.h"
 #include "core/colors.h"
 
+namespace euphoria::core
+{
+
 namespace
 {
   float
@@ -151,3 +154,4 @@ namespace palette
   }
 }  // namespace palette
 
+}

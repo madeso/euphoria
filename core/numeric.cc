@@ -7,6 +7,9 @@
 #include <cmath>
 
 
+namespace euphoria::core
+{
+
 bool
 IsEqual(float lhs, float rhs)
 {
@@ -210,4 +213,6 @@ Round(float num, float gran)
 
 
   return lower;
+}
+
 }

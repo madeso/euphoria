@@ -15,6 +15,9 @@
 
 #include "gaf_mesh.h"
 
+namespace euphoria::core
+{
+
 LOG_SPECIFY_DEFAULT_LOGGER("mesh")
 
 template <typename K, typename V>
@@ -450,3 +453,5 @@ namespace meshes
     return box;
   }
 }  // namespace meshes
+
+}

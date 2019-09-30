@@ -4,6 +4,9 @@
 #include "core/angle.h"
 #include "core/vec3.h"
 
+namespace euphoria::core
+{
+
 class Random;
 
 // source: http://mathworld.wolfram.com/SphericalCoordinates.html
@@ -15,7 +18,7 @@ class PolarCoord
   unit3f
   ToCartesian() const;
 
-  static PolarCoord Random(::Random* random);
+  static PolarCoord Random(::euphoria::core::Random* random);
 
  private:
   Angle azimuthal_;  // longitude, 0-2pi
@@ -24,5 +27,6 @@ class PolarCoord
 
 unit3f RandomUnit3(Random* random);
 
+}
 
 #endif  // EUPHORIA_POLARCOORD_H
