@@ -2,12 +2,12 @@
 #include <iostream>
 #include <fstream>
 
-Result LoadFromFile(Grammar* grammar, const std::string& file)
+euphoria::core::Result LoadFromFile(euphoria::core::Grammar* grammar, const std::string& file)
 {
     std::ifstream       t(file);
     if(t.good() == false)
     {
-      return Result(Result::UNABLE_TO_OPEN_FILE) << file;
+      return euphoria::core::Result(euphoria::core::Result::UNABLE_TO_OPEN_FILE) << file;
     }
     std::string data(
         (std::istreambuf_iterator<char>(t)), std::istreambuf_iterator<char>());
@@ -19,13 +19,13 @@ main(int argc, char* argv[])
 {
   if(argc >= 2)
   {
-    Grammar grammar;
+    euphoria::core::Grammar grammar;
 
     const std::string file = argv[1];
 
     grammar.RegisterEnglish();
 
-    const Result r = LoadFromFile(&grammar, file);
+    const auto r = LoadFromFile(&grammar, file);
     if(r == false)
     {
       std::cerr << r << "\n";
@@ -36,7 +36,7 @@ main(int argc, char* argv[])
     const int         count = (argc >= 4) ? atoi(argv[3]) : 1;
     for(int i = 0; i < count; ++i)
     {
-      const Result r = grammar.Flatten(rule);
+      const auto r = grammar.Flatten(rule);
       if(r == false)
       {
         std::cerr << r;
