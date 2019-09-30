@@ -6,7 +6,7 @@
 #include <memory>
 #include <map>
 
-namespace euphoria::core
+namespace euphoria::core::tracery
 {
 
 struct Result

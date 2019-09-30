@@ -2,12 +2,14 @@
 #include <iostream>
 #include <fstream>
 
-euphoria::core::Result LoadFromFile(euphoria::core::Grammar* grammar, const std::string& file)
+namespace tracery = euphoria::core::tracery;
+
+tracery::Result LoadFromFile(tracery::Grammar* grammar, const std::string& file)
 {
     std::ifstream       t(file);
     if(t.good() == false)
     {
-      return euphoria::core::Result(euphoria::core::Result::UNABLE_TO_OPEN_FILE) << file;
+      return tracery::Result(tracery::Result::UNABLE_TO_OPEN_FILE) << file;
     }
     std::string data(
         (std::istreambuf_iterator<char>(t)), std::istreambuf_iterator<char>());
@@ -19,7 +21,7 @@ main(int argc, char* argv[])
 {
   if(argc >= 2)
   {
-    euphoria::core::Grammar grammar;
+    tracery::Grammar grammar;
 
     const std::string file = argv[1];
 

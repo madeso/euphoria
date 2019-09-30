@@ -18,7 +18,7 @@
 #include "core/textfileparser.h"
 #include "core/str.h"
 
-namespace euphoria::core
+namespace euphoria::core::tracery
 {
 
 // ----------------------------------------------------------------
