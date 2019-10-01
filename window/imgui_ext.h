@@ -4,54 +4,65 @@
 #include <string>
 #include "core/vec2.h"
 
-class Angle;
-class Texture2d;
-class Rgb;
+
+namespace euphoria::core
+{
+  class Angle;
+  class Rgb;
+}
+
+namespace euphoria::render
+{
+  class Texture2d;
+}
 
 struct ImVec2;
 
-bool
-InputText(const char* label, std::string* str);
 
-void
-ImguiLabel(const std::string& str);
-
-void
-ImguiAngleSlider(
-    const char* const name, Angle* angle, float mindeg, float maxdeg);
-
-void
-ImguiImage(Texture2d* texture);
-
-void
-ImGuiColorEdit3(const char* const name, Rgb* rgb);
-
-enum class ImguiCorner
+namespace euphoria::window
 {
-  TopLeft     = 0,
-  TopRight    = 1,
-  BottomLeft  = 2,
-  BottomRight = 3,
-  Center      = 4
-};
+  bool
+  InputText(const char* label, std::string* str);
 
-bool
-BeginFixedOverlay(ImguiCorner corner, const std::string& title);
+  void
+  ImguiLabel(const std::string& str);
 
-ImVec2
-C(const vec2f& v);
+  void
+  ImguiAngleSlider(
+      const char* const name, core::Angle* angle, float mindeg, float maxdeg);
 
-vec2f
-C(const ImVec2& v);
+  void
+  ImguiImage(render::Texture2d* texture);
 
-struct ImguiDisabled
-{
-  ImguiDisabled();
-  ~ImguiDisabled();
-};
+  void
+  ImGuiColorEdit3(const char* const name, core::Rgb* rgb);
 
+  enum class ImguiCorner
+  {
+    TopLeft     = 0,
+    TopRight    = 1,
+    BottomLeft  = 2,
+    BottomRight = 3,
+    Center      = 4
+  };
 
-bool
-ImguiSelectableOrDisabled(bool enabled, const char* label);
+  bool
+  BeginFixedOverlay(ImguiCorner corner, const std::string& title);
+
+  ImVec2
+  C(const core::vec2f& v);
+
+  core::vec2f
+  C(const ImVec2& v);
+
+  struct ImguiDisabled
+  {
+    ImguiDisabled();
+    ~ImguiDisabled();
+  };
+
+  bool
+  ImguiSelectableOrDisabled(bool enabled, const char* label);
+}
 
 #endif  // EUPHORIA_IMGUI_H

@@ -6,11 +6,14 @@
 // todo: remove these
 // use core/filesystem functions instead
 
-std::string
-GetBasePath();
 
-std::string
-GetPrefPath();
+namespace euphoria::window
+{
+    std::string
+    GetBasePath();
 
+    std::string
+    GetPrefPath();
+}
 
 #endif  // EUPHORIA_FILESYSTEM_H

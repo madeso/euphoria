@@ -6,10 +6,13 @@
 
 #include "core/key.h"
 
-Key
-ToKey(SDL_Keysym key);
+namespace euphoria::window
+{
+    core::Key
+    ToKey(SDL_Keysym key);
 
-MouseButton
-ToKey(SDL_MouseButtonEvent mb);
+    core::MouseButton
+    ToKey(SDL_MouseButtonEvent mb);
+}
 
 #endif  // EUPHORIA_WINDOW_KEY_H

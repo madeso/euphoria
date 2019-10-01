@@ -19,101 +19,105 @@
 #include "window/sdlglcontext.h"
 #include "window/imguilibrary.h"
 
-LOG_SPECIFY_DEFAULT_LOGGER("window.engine")
-
-Engine::~Engine()
+namespace euphoria::window
 {
-  imgui.reset();
-  init.reset();
-  context.reset();
-  window.reset();
-  catalog.reset();
-  file_system.reset();
-  sdl.reset();
-}
+  LOG_SPECIFY_DEFAULT_LOGGER("window.engine")
 
-bool
-Engine::Setup()
-{
-  sdl = std::make_unique<SdlLibrary>();
-  if(sdl->ok == false)
+  Engine::~Engine()
   {
-    LOG_ERROR("Failed to create SDL");
-    return false;
+    imgui.reset();
+    init.reset();
+    context.reset();
+    window.reset();
+    catalog.reset();
+    file_system.reset();
+    sdl.reset();
   }
 
-  const auto current_directory = GetCurrentDirectory();
-
-  file_system.reset(new vfs::FileSystem{});
-  catalog = vfs::FileSystemRootCatalog::AddRoot(file_system.get());
-  vfs::FileSystemRootFolder::AddRoot(file_system.get(), current_directory);
-  vfs::FileSystemImageGenerator::AddRoot(file_system.get(), "img-plain");
-  vfs::FileSystemDefaultShaders::AddRoot(file_system.get(), "shaders");
-
-  SetupDefaultFiles(catalog);
-
-  return true;
-}
-
-bool
-Engine::CreateWindow(
-    const std::string& title, int width, int height, bool blend_hack)
-{
-  const auto pref_path = GetPrefPath();
-
-  window = std::make_unique<SdlWindow>(title, width, height, true);
-
-  if(window->window == nullptr)
+  bool
+  Engine::Setup()
   {
-    LOG_ERROR("Failed to create window " << SDL_GetError());
-    return false;
-  }
-
-  window_id = SDL_GetWindowID(window->window);
-
-  context.reset(new SdlGlContext{window.get()});
-
-  if(context->context == nullptr)
-  {
-    LOG_ERROR("Failed to create SDL context " << SDL_GetError());
-    return false;
-  }
-
-  init.reset(new Init{
-      SDL_GL_GetProcAddress,
-      blend_hack ? Init::BlendHack::EnableHack : Init::BlendHack::NoHack});
-
-  if(init->ok == false)
-  {
-    LOG_ERROR("Failed to create Init");
-    return false;
-  }
-
-  SetupOpenglDebug();
-
-  imgui.reset(new ImguiLibrary{window->window, pref_path});
-  ImGui::StyleColorsLight();
-
-  return true;
-}
-
-bool
-Engine::HandleResize(SDL_Event e, int* width, int* height)
-{
-  if(e.type == SDL_WINDOWEVENT)
-  {
-    if(e.window.windowID == window_id)
+    sdl = std::make_unique<SdlLibrary>();
+    if(sdl->ok == false)
     {
-      switch(e.window.event)
+      LOG_ERROR("Failed to create SDL");
+      return false;
+    }
+
+    const auto current_directory = core::GetCurrentDirectory();
+
+    file_system.reset(new core::vfs::FileSystem{});
+    catalog = core::vfs::FileSystemRootCatalog::AddRoot(file_system.get());
+    core::vfs::FileSystemRootFolder::AddRoot(file_system.get(), current_directory);
+    core::vfs::FileSystemImageGenerator::AddRoot(file_system.get(), "img-plain");
+    core::vfs::FileSystemDefaultShaders::AddRoot(file_system.get(), "shaders");
+
+    render::SetupDefaultFiles(catalog);
+
+    return true;
+  }
+
+  bool
+  Engine::CreateWindow(
+      const std::string& title, int width, int height, bool blend_hack)
+  {
+    const auto pref_path = GetPrefPath();
+
+    window = std::make_unique<SdlWindow>(title, width, height, true);
+
+    if(window->window == nullptr)
+    {
+      LOG_ERROR("Failed to create window " << SDL_GetError());
+      return false;
+    }
+
+    window_id = SDL_GetWindowID(window->window);
+
+    context.reset(new SdlGlContext{window.get()});
+
+    if(context->context == nullptr)
+    {
+      LOG_ERROR("Failed to create SDL context " << SDL_GetError());
+      return false;
+    }
+
+    init.reset(new render::Init{
+        SDL_GL_GetProcAddress,
+        blend_hack ? render::Init::BlendHack::EnableHack : render::Init::BlendHack::NoHack});
+
+    if(init->ok == false)
+    {
+      LOG_ERROR("Failed to create Init");
+      return false;
+    }
+
+    render::SetupOpenglDebug();
+
+    imgui.reset(new ImguiLibrary{window->window, pref_path});
+    ImGui::StyleColorsLight();
+
+    return true;
+  }
+
+  bool
+  Engine::HandleResize(SDL_Event e, int* width, int* height)
+  {
+    if(e.type == SDL_WINDOWEVENT)
+    {
+      if(e.window.windowID == window_id)
       {
-        case SDL_WINDOWEVENT_SIZE_CHANGED:
-          SDL_GetWindowSize(window->window, width, height);
-          return true;
-        default:
-          break;
+        switch(e.window.event)
+        {
+          case SDL_WINDOWEVENT_SIZE_CHANGED:
+            SDL_GetWindowSize(window->window, width, height);
+            return true;
+          default:
+            break;
+        }
       }
     }
+
+    return false;
   }
 
-  return false;
 }

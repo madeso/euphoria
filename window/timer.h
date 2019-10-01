@@ -7,18 +7,21 @@
 
 #include <SDL_types.h>
 
-class SdlTimer
+
+namespace euphoria::window
 {
- public:
-  SdlTimer();
+  class SdlTimer
+  {
+  public:
+    SdlTimer();
 
-  float
-  Update();
+    float
+    Update();
 
- private:
-  Uint64 current_time_;
-  Uint64 last_time_;
-};
-
+  private:
+    Uint64 current_time_;
+    Uint64 last_time_;
+  };
+}
 
 #endif  // EUPHORIA_TIMER_H

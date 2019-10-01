@@ -6,20 +6,24 @@
 
 #include <SDL.h>
 
-LOG_SPECIFY_DEFAULT_LOGGER("sdl.gl-context")
 
-SdlGlContext::SdlGlContext(SdlWindow* window)
-    : context(nullptr)
+namespace euphoria::window
 {
-  context = SDL_GL_CreateContext(window->window);
-  if(context == nullptr)
+  LOG_SPECIFY_DEFAULT_LOGGER("sdl.gl-context")
+
+  SdlGlContext::SdlGlContext(SdlWindow* window)
+      : context(nullptr)
   {
-    LOG_ERROR("Failed to create GL context " << SDL_GetError());
-    return;
+    context = SDL_GL_CreateContext(window->window);
+    if(context == nullptr)
+    {
+      LOG_ERROR("Failed to create GL context " << SDL_GetError());
+      return;
+    }
   }
-}
 
-SdlGlContext::~SdlGlContext()
-{
-  SDL_GL_DeleteContext(context);
+  SdlGlContext::~SdlGlContext()
+  {
+    SDL_GL_DeleteContext(context);
+  }
 }

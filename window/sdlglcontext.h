@@ -3,17 +3,21 @@
 
 #include <SDL_video.h>
 
-class SdlWindow;
 
-class SdlGlContext
+namespace euphoria::window
 {
- public:
-  SdlGlContext(SdlWindow* window);
+  class SdlWindow;
 
-  ~SdlGlContext();
+  class SdlGlContext
+  {
+  public:
+    SdlGlContext(SdlWindow* window);
 
-  void* context;
-};
+    ~SdlGlContext();
+
+    void* context;
+  };
+}
 
 
 #endif  // EUPHORIA_SDLGLCONTEXT_H

@@ -8,26 +8,28 @@ extern "C" {
 struct SDL_Window;
 }
 
-class SdlWindow
+namespace euphoria::window
 {
- public:
-  SdlWindow(
-      const std::string& title, int width, int height, bool resize = false);
+  class SdlWindow
+  {
+  public:
+    SdlWindow(
+        const std::string& title, int width, int height, bool resize = false);
 
-  ~SdlWindow();
+    ~SdlWindow();
 
-  void
-  KeepWithin(bool k);
+    void
+    KeepWithin(bool k);
 
-  void
-  EnableCharEvent(bool enable);
+    void
+    EnableCharEvent(bool enable);
 
-  // 0-(size-1)
-  const vec2i
-  GetMousePosition() const;
+    // 0-(size-1)
+    const core::vec2i
+    GetMousePosition() const;
 
-  SDL_Window* window;
-};
-
+    SDL_Window* window;
+  };
+}
 
 #endif  // EUPHORIA_SDLWINDOW_H

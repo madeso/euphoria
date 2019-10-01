@@ -5,25 +5,27 @@
 
 #include "window/fakesdlevent.h"
 
-class ImguiLibrary
+namespace euphoria::window
 {
- public:
-  ImguiLibrary(SDL_Window* window, const std::string& path);
-  ~ImguiLibrary();
+  class ImguiLibrary
+  {
+  public:
+    ImguiLibrary(SDL_Window* window, const std::string& path);
+    ~ImguiLibrary();
 
-  void
-  ProcessEvents(SDL_Event*);
+    void
+    ProcessEvents(SDL_Event*);
 
-  void
-  StartNewFrame();
+    void
+    StartNewFrame();
 
-  void
-  Render();
+    void
+    Render();
 
- private:
-  SDL_Window* window_;
-  std::string path_;
-};
-
+  private:
+    SDL_Window* window_;
+    std::string path_;
+  };
+}
 
 #endif  // EUPHORIA_IMGUILIBRARY_H

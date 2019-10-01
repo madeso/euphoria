@@ -1,15 +1,16 @@
 #ifndef EUPHORIA_SDLLIBRARY_H
 #define EUPHORIA_SDLLIBRARY_H
 
-
-class SdlLibrary
+namespace euphoria::window
 {
- public:
-  SdlLibrary();
-  ~SdlLibrary();
+  class SdlLibrary
+  {
+  public:
+    SdlLibrary();
+    ~SdlLibrary();
 
-  bool ok;
-};
-
+    bool ok;
+  };
+}
 
 #endif  // EUPHORIA_SDLLIBRARY_H
