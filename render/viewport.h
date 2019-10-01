@@ -3,18 +3,21 @@
 
 #include "core/rect.h"
 
-class Viewport
+namespace euphoria::render
 {
- public:
-  Viewport(const Recti& viewport);
+  class Viewport
+  {
+  public:
+    Viewport(const core::Recti& viewport);
 
-  void
-  Activate();  // sets the gl viewport
+    void
+    Activate();  // sets the gl viewport
 
-  float
-  GetAspectRatio() const;
+    float
+    GetAspectRatio() const;
 
-  const Recti viewport;
-};
+    const core::Recti viewport;
+  };
+}
 
 #endif  // RENDER_VIEWPORT_H

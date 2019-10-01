@@ -16,15 +16,17 @@
 #include "render/materialshadercache.h"
 #include "render/texturecache.h"
 
+namespace euphoria::render
+{
+
 LOG_SPECIFY_DEFAULT_LOGGER("core.mesh")
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
 CompiledMeshMaterial::CompiledMeshMaterial()
-    : ambient_(Color::White)
-    , diffuse_(Color::White)
-    , specular_(Color::White)
+    : ambient_(core::Color::White)
+    , diffuse_(core::Color::White)
+    , specular_(core::Color::White)
     , shininess_(135.0f)
 {
 }
@@ -38,9 +40,9 @@ CompiledMeshMaterial::SetShader(const std::shared_ptr<MaterialShader>& shader)
 
 void
 CompiledMeshMaterial::SetColors(
-    const Rgb& ambient,
-    const Rgb& diffuse,
-    const Rgb& specular,
+    const core::Rgb& ambient,
+    const core::Rgb& diffuse,
+    const core::Rgb& specular,
     float      shininess)
 {
   ambient_   = ambient;
@@ -51,7 +53,7 @@ CompiledMeshMaterial::SetColors(
 
 void
 CompiledMeshMaterial::SetTexture(
-    const EnumValue& name, std::shared_ptr<Texture2d> texture)
+    const core::EnumValue& name, std::shared_ptr<Texture2d> texture)
 {
   if(textures_.find(name) != textures_.end())
   {
@@ -62,10 +64,10 @@ CompiledMeshMaterial::SetTexture(
 
 void
 CompiledMeshMaterial::Apply(
-    const mat4f& model_matrix,
-    const mat4f& projection_matrix,
-    const mat4f& view_matrix,
-    const vec3f& camera,
+    const core::mat4f& model_matrix,
+    const core::mat4f& projection_matrix,
+    const core::mat4f& view_matrix,
+    const core::vec3f& camera,
     const Light& light) const
 {
   shader_->UseShader();
@@ -121,7 +123,7 @@ CompiledMeshMaterial::LoadDefaultMaterialsFromShader(TextureCache* cache)
 bool
 CompiledMeshMaterial::Validate() const
 {
-  std::set<EnumValue> values;
+  std::set<core::EnumValue> values;
 
   ASSERT(shader_);
 
@@ -163,15 +165,15 @@ CompiledMeshMaterial::Validate() const
 
 namespace  // local
 {
-  DEFINE_ENUM_VALUE(TextureType, DiffuseType, "Diffuse");  // NOLINT
+  DEFINE_ENUM_VALUE(core::TextureType, DiffuseType, "Diffuse");  // NOLINT
 }  // namespace
 
 std::shared_ptr<CompiledMesh>
 CompileMesh(
-    const Mesh&          mesh,
+    const core::Mesh&          mesh,
     MaterialShaderCache* shader_cache,
     TextureCache*        texture_cache,
-    const vfs::Path&          texture_folder)
+    const core::vfs::Path&          texture_folder)
 {
   std::shared_ptr<CompiledMesh> ret{new CompiledMesh{}};
 
@@ -274,10 +276,10 @@ CompiledMesh::GetNoOverriddenMaterials() const
 
 void
 CompiledMesh::Render(
-    const mat4f& model_matrix,
-    const mat4f& projection_matrix,
-    const mat4f& view_matrix,
-    const vec3f& camera,
+    const core::mat4f& model_matrix,
+    const core::mat4f& projection_matrix,
+    const core::mat4f& view_matrix,
+    const core::vec3f& camera,
     const Light& light,
     const std::vector<std::shared_ptr<CompiledMeshMaterial>>&
         overridden_materials)
@@ -303,9 +305,9 @@ CompiledMesh::Render(
 
 void
 CompiledMesh::BasicRender(
-    const mat4f&                    model_matrix,
-    const mat4f&                    projection_matrix,
-    const mat4f&                    view_matrix,
+    const core::mat4f&                    model_matrix,
+    const core::mat4f&                    projection_matrix,
+    const core::mat4f&                    view_matrix,
     std::shared_ptr<MaterialShader> shader)
 {
   shader->SetProjection(projection_matrix);
@@ -320,4 +322,6 @@ CompiledMesh::BasicRender(
     Ebo::Bind(nullptr);
     Vao::Bind(nullptr);
   }
+}
+
 }

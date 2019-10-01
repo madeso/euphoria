@@ -70,16 +70,16 @@ class Logger
 #define LOGX_FATAL(LOGGER, MESSAGE) LOG_BASE(LOGGER, MESSAGE, LogLevel::Fatal)
 
 #define LOG_TRACE(MESSAGE) \
-  LOG_BASE(GetDefaultLogger(), MESSAGE, LogLevel::Trace)
+  LOG_BASE(GetDefaultLogger(), MESSAGE, ::euphoria::core::LogLevel::Trace)
 #define LOG_DEBUG(MESSAGE) \
-  LOG_BASE(GetDefaultLogger(), MESSAGE, LogLevel::Debug)
-#define LOG_INFO(MESSAGE) LOG_BASE(GetDefaultLogger(), MESSAGE, LogLevel::Info)
+  LOG_BASE(GetDefaultLogger(), MESSAGE, ::euphoria::core::LogLevel::Debug)
+#define LOG_INFO(MESSAGE) LOG_BASE(GetDefaultLogger(), MESSAGE, ::euphoria::core::LogLevel::Info)
 #define LOG_WARN(MESSAGE) \
-  LOG_BASE(GetDefaultLogger(), MESSAGE, LogLevel::Warning)
+  LOG_BASE(GetDefaultLogger(), MESSAGE, ::euphoria::core::LogLevel::Warning)
 #define LOG_ERROR(MESSAGE) \
-  LOG_BASE(GetDefaultLogger(), MESSAGE, LogLevel::Error)
+  LOG_BASE(GetDefaultLogger(), MESSAGE, ::euphoria::core::LogLevel::Error)
 #define LOG_FATAL(MESSAGE) \
-  LOG_BASE(GetDefaultLogger(), MESSAGE, LogLevel::Fatal)
+  LOG_BASE(GetDefaultLogger(), MESSAGE, ::euphoria::core::LogLevel::Fatal)
 
 }
 

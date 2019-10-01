@@ -6,63 +6,67 @@
 #include "render/id.h"
 #include "render/shaderattribute.h"
 
-// Vertex Buffer Object
-// Stores vertices, uv, etc
-class Vbo : public Id
+namespace euphoria::render
 {
- public:
-  Vbo();
-  ~Vbo();
 
-  void
-  SetData(const std::vector<float>& data);
+  // Vertex Buffer Object
+  // Stores vertices, uv, etc
+  class Vbo : public Id
+  {
+  public:
+    Vbo();
+    ~Vbo();
 
-  static void
-  Bind(const Vbo* vbo);
-  static const Vbo*&
-  GetBound();
-};
+    void
+    SetData(const std::vector<float>& data);
 
-// Vertex Array Object
-// Stores what the data in the Vbo is and how it is laid out/used
-class Vao : public Id
-{
- public:
-  Vao();
-  ~Vao();
+    static void
+    Bind(const Vbo* vbo);
+    static const Vbo*&
+    GetBound();
+  };
 
-  void
-  BindVboData(const ShaderAttribute& attribute, int stride, int offset);
+  // Vertex Array Object
+  // Stores what the data in the Vbo is and how it is laid out/used
+  class Vao : public Id
+  {
+  public:
+    Vao();
+    ~Vao();
 
-  static void
-  Bind(const Vao* vao);
-  static const Vao*&
-  GetBound();
+    void
+    BindVboData(const ShaderAttribute& attribute, int stride, int offset);
 
-  // debug
-  std::vector<ShaderAttribute> attributes;
-};
+    static void
+    Bind(const Vao* vao);
+    static const Vao*&
+    GetBound();
 
-// Element Buffer Object
-// Reuses points
-class Ebo : public Id
-{
- public:
-  Ebo();
-  ~Ebo();
+    // debug
+    std::vector<ShaderAttribute> attributes;
+  };
 
-  void
-  SetData(const std::vector<unsigned int>& indices);
+  // Element Buffer Object
+  // Reuses points
+  class Ebo : public Id
+  {
+  public:
+    Ebo();
+    ~Ebo();
 
-  // count = the number of triangles
-  void
-  Draw(int count) const;
+    void
+    SetData(const std::vector<unsigned int>& indices);
 
-  static void
-  Bind(const Ebo* ebo);
-  static const Ebo*&
-  GetBound();
-};
+    // count = the number of triangles
+    void
+    Draw(int count) const;
 
+    static void
+    Bind(const Ebo* ebo);
+    static const Ebo*&
+    GetBound();
+  };
+
+}
 
 #endif  // RENDER_BUFFER_H

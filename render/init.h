@@ -5,6 +5,9 @@
 #include "core/mat4.h"
 #include "core/rgb.h"
 
+namespace euphoria::render
+{
+
 typedef void* (*LoaderFunction)(const char* name);
 
 // todo: come up with a better name
@@ -21,7 +24,7 @@ class Init
       LoaderFunction loader, BlendHack blend_hack = BlendHack::NoHack);
   ~Init();
 
-  mat4f
+  core::mat4f
   GetOrthoProjection(float width, float height);
 
   // todo: move to some better place
@@ -30,9 +33,11 @@ class Init
 
   // todo: move to some place better
   void
-  ClearScreen(const Rgb& color);
+  ClearScreen(const core::Rgb& color);
 
   bool ok;
 };
+
+}
 
 #endif  // RENDER_INIT_H

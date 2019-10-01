@@ -2,15 +2,18 @@
 
 #include "core/assert.h"
 
-Id::Id()
-    : id_(0)
+namespace euphoria::render
 {
-}
+  Id::Id()
+      : id_(0)
+  {
+  }
 
-Id::~Id() = default;
+  Id::~Id() = default;
 
-gluint
-Id::GetId() const
-{
-  return id_;
+  gluint
+  Id::GetId() const
+  {
+    return id_;
+  }
 }

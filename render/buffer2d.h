@@ -3,6 +3,9 @@
 
 #include "render/buffer.h"
 
+namespace euphoria::render
+{
+
 class BufferBuilder2d;
 
 class Buffer2d
@@ -19,5 +22,7 @@ class Buffer2d
   Vao          vao_;
   Ebo          ebo_;
 };
+
+}
 
 #endif  // RENDER_BUFFER_2D_H

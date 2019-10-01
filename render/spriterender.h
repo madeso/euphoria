@@ -12,61 +12,66 @@
 #include "render/shader.h"
 #include "render/texture.h"
 
-class ScalableSprite;
-class Buffer2d;
-
-struct DrawData
+namespace euphoria::render
 {
-  Angle rotation = 0.0_rad;
-  scale2f scale    = scale2f(1, 1);
-  Rgba  tint     = Rgba(Color::White);
 
-  DrawData&
-  Rotation(const Angle& r);
+  class ScalableSprite;
+  class Buffer2d;
 
-  DrawData&
-  Scale(const scale2f& s);
+  struct DrawData
+  {
+    core::Angle rotation = 0.0_rad;
+    core::scale2f scale    = core::scale2f(1, 1);
+    core::Rgba  tint     = core::Rgba(core::Color::White);
 
-  DrawData&
-  Tint(const Rgba& t);
-};
+    DrawData&
+    Rotation(const core::Angle& r);
 
-class SpriteRenderer
-{
- public:
-  SpriteRenderer(Shader* shader);
-  ~SpriteRenderer();
+    DrawData&
+    Scale(const core::scale2f& s);
 
-  void
-  DrawRect(
-      const Texture2d& texture,
-      const Rectf&     sprite_area,
-      const Rectf&     texture_region,
-      const Angle&     rotation_angle,
-      const scale2f&     rotation_anchor,
-      const Rgba&      tint_color);
+    DrawData&
+    Tint(const core::Rgba& t);
+  };
 
-  // position is center
-  void
-  DrawSprite(
-      const Texture2d& texture,
-      const Rectf&     position,
-      const DrawData&  data = DrawData{});
+  class SpriteRenderer
+  {
+  public:
+    SpriteRenderer(Shader* shader);
+    ~SpriteRenderer();
 
-  // bottom left
-  void
-  DrawNinepatch(
-      const ScalableSprite& ninepatch, const Rectf& rect, const Rgba& tint);
+    void
+    DrawRect(
+        const Texture2d& texture,
+        const core::Rectf&     sprite_area,
+        const core::Rectf&     texture_region,
+        const core::Angle&     rotation_angle,
+        const core::scale2f&     rotation_anchor,
+        const core::Rgba&      tint_color);
 
- private:
-  Shader*                   shader_;
-  ShaderUniform             color_;
-  ShaderUniform             model_;
-  ShaderUniform             texture_area_;
-  std::unique_ptr<Buffer2d> buffer_;
+    // position is center
+    void
+    DrawSprite(
+        const Texture2d& texture,
+        const core::Rectf&     position,
+        const DrawData&  data = DrawData{});
 
-  void
-  InitRenderData();
-};
+    // bottom left
+    void
+    DrawNinepatch(
+        const ScalableSprite& ninepatch, const core::Rectf& rect, const core::Rgba& tint);
+
+  private:
+    Shader*                   shader_;
+    ShaderUniform             color_;
+    ShaderUniform             model_;
+    ShaderUniform             texture_area_;
+    std::unique_ptr<Buffer2d> buffer_;
+
+    void
+    InitRenderData();
+  };
+
+}
 
 #endif

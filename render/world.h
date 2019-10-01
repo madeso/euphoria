@@ -7,42 +7,48 @@
 #include "render/actor.h"
 #include "render/light.h"
 
-class CompiledCamera;
-class Camera;
-class Viewport;
-class MaterialShader;
-class ShaderUniform;
-
-
-class World
+namespace euphoria::core
 {
- public:
-  World();
+  class Camera;
+  class CompiledCamera;
+}
 
-  void
-  AddActor(const std::shared_ptr<Actor>& actor);
+namespace euphoria::render
+{
+  class Viewport;
+  class MaterialShader;
+  class ShaderUniform;
 
-  // todo: improve light support
-  Light light;
+  class World
+  {
+  public:
+    World();
 
-  // todo: move to a better place
-  std::shared_ptr<MaterialShader> outline_shader;
-  std::shared_ptr<ShaderUniform>  outline_color;
+    void
+    AddActor(const std::shared_ptr<Actor>& actor);
 
-  void
-  Render(const Viewport& viewport, const Camera& camera);
+    // todo: improve light support
+    Light light;
 
-  void
-  Render(
-      const Viewport&       viewport,
-      const Camera&         camera,
-      const CompiledCamera& compiled);
+    // todo: move to a better place
+    std::shared_ptr<MaterialShader> outline_shader;
+    std::shared_ptr<ShaderUniform>  outline_color;
 
-  bool use_outline = false;
+    void
+    Render(const Viewport& viewport, const core::Camera& camera);
 
- private:
-  std::vector<std::shared_ptr<Actor>> actors_;
-};
+    void
+    Render(
+        const Viewport&       viewport,
+        const core::Camera&         camera,
+        const core::CompiledCamera& compiled);
 
+    bool use_outline = false;
+
+  private:
+    std::vector<std::shared_ptr<Actor>> actors_;
+  };
+
+}
 
 #endif  // EUPHORIA_WORLD_H

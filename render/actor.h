@@ -9,6 +9,9 @@
 #include "core/rgb.h"
 #include "render/compiledmesh.h"
 
+namespace euphoria::render
+{
+
 class Actor
 {
  public:
@@ -16,17 +19,17 @@ class Actor
 
   // todo: make poisition and rotation public and skip getters and setters
 
-  const vec3f&
+  const core::vec3f&
   GetPosition();
 
-  const quatf&
+  const core::quatf&
   GetRotation();
 
   void
-  SetPosition(const vec3f& position);
+  SetPosition(const core::vec3f& position);
 
   void
-  SetRotation(const quatf& rotation);
+  SetRotation(const core::quatf& rotation);
 
   void
   BeginMaterialOverride(unsigned int index);
@@ -40,34 +43,35 @@ class Actor
   void
   EndMaterialOverride(unsigned int index);
 
-  mat4f
+  core::mat4f
   GetModelMatrix() const;
 
   void
   Render(
-      const mat4f& projection_matrix,
-      const mat4f& view_matrix,
-      const vec3f& camera,
+      const core::mat4f& projection_matrix,
+      const core::mat4f& view_matrix,
+      const core::vec3f& camera,
       const Light& light);
 
   void
   BasicRender(
-      const mat4f&                    projection_matrix,
-      const mat4f&                    view_matrix,
+      const core::mat4f&                    projection_matrix,
+      const core::mat4f&                    view_matrix,
       std::shared_ptr<MaterialShader> shader);
 
 
   std::shared_ptr<CompiledMesh> mesh_;
-  vec3f                         position_;
-  quatf                         rotation_;
+  core::vec3f                         position_;
+  core::quatf                         rotation_;
 
  private:
   std::vector<std::shared_ptr<CompiledMeshMaterial>> overridden_materials_;
 
  public:
   bool has_outline;
-  Rgb  outline_color;
+  core::Rgb  outline_color;
 };
 
+}
 
 #endif  // EUPHORIA_ACTOR_H

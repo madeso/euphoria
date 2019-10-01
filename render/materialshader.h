@@ -6,38 +6,41 @@
 #include "core/enum.h"
 #include "render/shader.h"
 
+namespace euphoria::render
+{
+
 class Light;
 
 class MaterialShaderDefaultTexture
 {
  public:
-  MaterialShaderDefaultTexture(const EnumValue& name, const std::string& path);
+  MaterialShaderDefaultTexture(const core::EnumValue& name, const std::string& path);
 
-  const EnumValue&
+  const core::EnumValue&
   GetName() const;
 
   const std::string&
   GetPath() const;
 
  private:
-  EnumValue   name_;
+  core::EnumValue   name_;
   std::string path_;
 };
 
 class MaterialShaderBinding
 {
  public:
-  MaterialShaderBinding(ShaderUniform uniform, const EnumValue& name);
+  MaterialShaderBinding(ShaderUniform uniform, const core::EnumValue& name);
 
   const ShaderUniform&
   GetUniform() const;
 
-  const EnumValue&
+  const core::EnumValue&
   GetName() const;
 
  private:
   ShaderUniform uniform_;
-  EnumValue     name_;
+  core::EnumValue     name_;
 };
 
 class MaterialShader
@@ -49,7 +52,7 @@ class MaterialShader
   // to Diffuse if Diffuse is missing on the material
 
   bool
-  Load(vfs::FileSystem* file_system, const std::string& path);
+  Load(core::vfs::FileSystem* file_system, const std::string& path);
 
   bool
   Compile(
@@ -61,22 +64,22 @@ class MaterialShader
   UseShader();
 
   void
-  SetProjection(const mat4f& projection);
+  SetProjection(const core::mat4f& projection);
 
   void
-  SetView(const mat4f& view);
+  SetView(const core::mat4f& view);
 
   void
-  SetModel(const mat4f& model);
+  SetModel(const core::mat4f& model);
 
   void
-  SetupLight(const Light& light, const vec3f& camera);
+  SetupLight(const Light& light, const core::vec3f& camera);
 
   void
   SetColors(
-      const Rgb& ambient,
-      const Rgb& diffuse,
-      const Rgb& specular,
+      const core::Rgb& ambient,
+      const core::Rgb& diffuse,
+      const core::Rgb& specular,
       float      shininess);
 
   const std::vector<MaterialShaderBinding>&
@@ -117,5 +120,6 @@ class MaterialShader
   std::vector<MaterialShaderDefaultTexture> default_textures_;
 };
 
+}
 
 #endif  // EUPHORIA_MATERIALSHADER_H

@@ -1,23 +1,24 @@
 #ifndef EUPHORIA_SHADERATTRIBUTE3D_H
 #define EUPHORIA_SHADERATTRIBUTE3D_H
 
-
 #include "render/shaderattribute.h"
 
-class Shader;
-
-namespace attributes3d
+namespace euphoria::render
 {
-  const ShaderAttribute&
-  Vertex();
-  const ShaderAttribute&
-  Normal();
-  const ShaderAttribute&
-  TexCoord();
+  class Shader;
 
-  void
-  PrebindShader(Shader* shader);
+  namespace attributes3d
+  {
+    const ShaderAttribute&
+    Vertex();
+    const ShaderAttribute&
+    Normal();
+    const ShaderAttribute&
+    TexCoord();
+
+    void
+    PrebindShader(Shader* shader);
+  }
 }
-
 
 #endif  // EUPHORIA_SHADERATTRIBUTE3D_H

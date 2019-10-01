@@ -4,17 +4,20 @@
 #include "core/noncopyable.h"
 #include "render/gltypes.h"
 
-class Id : Noncopyable
+namespace euphoria::render
 {
- public:
-  Id();
-  ~Id();
+  class Id : core::Noncopyable
+  {
+  public:
+    Id();
+    ~Id();
 
-  gluint
-  GetId() const;
+    gluint
+    GetId() const;
 
- protected:
-  gluint id_;
-};
+  protected:
+    gluint id_;
+  };
+}
 
 #endif  // RENDER_ID_H

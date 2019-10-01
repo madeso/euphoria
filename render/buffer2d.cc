@@ -4,6 +4,9 @@
 #include "render/bufferbuilder2d.h"
 #include "render/shaderattribute2d.h"
 
+namespace euphoria::render
+{
+
 Buffer2d::Buffer2d(const BufferBuilder2d& bb)
     : index_count_(bb.GetTriangleIndices().size())
 {
@@ -29,4 +32,6 @@ Buffer2d::Draw() const
   Vao::Bind(&vao_);
   ebo_.Draw(index_count_);
   Vao::Bind(nullptr);
+}
+
 }

@@ -6,6 +6,9 @@
 
 #include <iostream>
 
+namespace euphoria::render
+{
+
 LOG_SPECIFY_DEFAULT_LOGGER("render.init")
 
 Init::Init(LoaderFunction loader, Init::BlendHack blend_hack)
@@ -47,10 +50,10 @@ Init::Init(LoaderFunction loader, Init::BlendHack blend_hack)
 
 Init::~Init() = default;
 
-mat4f
+core::mat4f
 Init::GetOrthoProjection(float width, float height)
 {
-  return mat4f::Ortho(0.0f, width, 0.0f, height, -1.0f, 1.0f);
+  return core::mat4f::Ortho(0.0f, width, 0.0f, height, -1.0f, 1.0f);
 }
 
 void
@@ -60,10 +63,12 @@ Init::Use2d()
 }
 
 void
-Init::ClearScreen(const Rgb& color)
+Init::ClearScreen(const core::Rgb& color)
 {
   // 42.0f / 255, 45.0f / 255, 51.0f / 255
   glClearColor(color.r, color.g, color.b, 1.0f);
   // glClearStencil(0xFF);
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+}
+
 }

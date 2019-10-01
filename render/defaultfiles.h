@@ -3,13 +3,21 @@
 
 #include <memory>
 
-namespace vfs
+namespace euphoria
 {
-  class FileSystemRootCatalog;
+  namespace core
+  {
+    namespace vfs
+    {
+      class FileSystemRootCatalog;
+    }
+  }
+
+  namespace render
+  {
+    void
+    SetupDefaultFiles(std::shared_ptr<core::vfs::FileSystemRootCatalog> catalog);
+  }
 }
-
-void
-SetupDefaultFiles(std::shared_ptr<vfs::FileSystemRootCatalog> catalog);
-
 
 #endif  // EUPHORIA_DEFAULTFILES_H

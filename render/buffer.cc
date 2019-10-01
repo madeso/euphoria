@@ -6,6 +6,9 @@
 #include "render/shader.h"
 #include <algorithm>
 
+namespace euphoria::render
+{
+
 Vbo::Vbo()
 {
   glGenBuffers(1, &id_);
@@ -151,4 +154,6 @@ Ebo::GetBound()
 {
   static const Ebo* Ebo = nullptr;
   return Ebo;
+}
+
 }

@@ -4,27 +4,35 @@
 #include <memory>
 #include <string>
 
-class Font;
-class TextureCache;
-
-namespace vfs
+namespace euphoria
 {
-class FileSystem;
+  namespace core
+  {
+    namespace vfs
+    {
+    class FileSystem;
+    }
+  }
+
+  namespace render
+  {
+    class Font;
+    class TextureCache;
+
+    class FontCache
+    {
+    public:
+      FontCache(core::vfs::FileSystem* fs, TextureCache* cache);
+      ~FontCache();
+
+      std::shared_ptr<Font>
+      GetFont(const std::string& path);
+
+    private:
+      struct FontCachePimpl;
+      std::unique_ptr<FontCachePimpl> pimp;
+    };
+  }
 }
-
-class FontCache
-{
- public:
-  FontCache(vfs::FileSystem* fs, TextureCache* cache);
-  ~FontCache();
-
-  std::shared_ptr<Font>
-  GetFont(const std::string& path);
-
- private:
-  struct FontCachePimpl;
-  std::unique_ptr<FontCachePimpl> pimp;
-};
-
 
 #endif  // RENDER_FONTCACHE_H

@@ -5,26 +5,31 @@
 
 #include "render/gltypes.h"
 
-enum class ShaderAttributeSize
+namespace euphoria::render
 {
-  VEC1  = 1,
-  VEC2  = 2,
-  VEC3  = 3,
-  VEC4  = 4,
-  MAT44 = 16
-};
 
-class ShaderAttribute
-{
- public:
-  ShaderAttribute(std::string aname, glint aid, ShaderAttributeSize asize);
+  enum class ShaderAttributeSize
+  {
+    VEC1  = 1,
+    VEC2  = 2,
+    VEC3  = 3,
+    VEC4  = 4,
+    MAT44 = 16
+  };
 
-  std::string         name;
-  glint               id;
-  ShaderAttributeSize size;
-};
+  class ShaderAttribute
+  {
+  public:
+    ShaderAttribute(std::string aname, glint aid, ShaderAttributeSize asize);
 
-bool
-operator==(const ShaderAttribute& lhs, const ShaderAttribute& rhs);
+    std::string         name;
+    glint               id;
+    ShaderAttributeSize size;
+  };
+
+  bool
+  operator==(const ShaderAttribute& lhs, const ShaderAttribute& rhs);
+
+}
 
 #endif  // RENDER_SHADERATTRIBUTE_H

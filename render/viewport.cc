@@ -2,26 +2,31 @@
 
 #include "render/gl.h"
 
-Viewport::Viewport(const Recti& viewport)
-    : viewport(viewport)
+namespace euphoria::render
 {
-}
 
-void
-Viewport::Activate()
-{
-  const auto bottom_left = viewport.BottomLeft();
-  glViewport(
-      bottom_left.x, bottom_left.y, viewport.GetWidth(), viewport.GetHeight());
+  Viewport::Viewport(const core::Recti& viewport)
+      : viewport(viewport)
+  {
+  }
 
-  // some gl funcs doesnt respect viewport, so we need to enable
-  // scissor testing too
-  glScissor(
-      bottom_left.x, bottom_left.y, viewport.GetWidth(), viewport.GetHeight());
-}
+  void
+  Viewport::Activate()
+  {
+    const auto bottom_left = viewport.BottomLeft();
+    glViewport(
+        bottom_left.x, bottom_left.y, viewport.GetWidth(), viewport.GetHeight());
 
-float
-Viewport::GetAspectRatio() const
-{
-  return viewport.GetWidth() / static_cast<float>(viewport.GetHeight());
+    // some gl funcs doesnt respect viewport, so we need to enable
+    // scissor testing too
+    glScissor(
+        bottom_left.x, bottom_left.y, viewport.GetWidth(), viewport.GetHeight());
+  }
+
+  float
+  Viewport::GetAspectRatio() const
+  {
+    return viewport.GetWidth() / static_cast<float>(viewport.GetHeight());
+  }
+
 }

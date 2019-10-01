@@ -17,7 +17,18 @@
 #include "render/shaderattribute.h"
 #include "render/shaderuniform.h"
 
-class ShaderId : Noncopyable
+namespace euphoria::core
+{
+  namespace vfs
+  {
+    class FileSystem;
+  }
+}
+
+namespace euphoria::render
+{
+
+class ShaderId : core::Noncopyable
 {
  public:
   ShaderId();
@@ -36,11 +47,6 @@ class ShaderId : Noncopyable
 void
 Use(const Shader* shader);
 
-namespace vfs
-{
-class FileSystem;  // core
-}
-
 class Shader : public ShaderId
 {
  public:
@@ -50,7 +56,7 @@ class Shader : public ShaderId
   void
   PreBind(const ShaderAttribute& attribute);
   bool
-  Load(vfs::FileSystem* fs, const std::string& file_path);
+  Load(core::vfs::FileSystem* fs, const std::string& file_path);
 
   bool
   Compile(
@@ -68,19 +74,19 @@ class Shader : public ShaderId
   void
   SetUniform(const ShaderUniform& attribute, float val);
   void
-  SetUniform(const ShaderUniform& attribute, const Rgb& val);
+  SetUniform(const ShaderUniform& attribute, const core::Rgb& val);
   void
-  SetUniform(const ShaderUniform& attribute, const Rgba& val);
+  SetUniform(const ShaderUniform& attribute, const core::Rgba& val);
   void
-  SetUniform(const ShaderUniform& attribute, const vec3f& val);
+  SetUniform(const ShaderUniform& attribute, const core::vec3f& val);
   void
-  SetUniform(const ShaderUniform& attribute, const vec4f& val);
+  SetUniform(const ShaderUniform& attribute, const core::vec4f& val);
   void
-  SetUniform(const ShaderUniform& attribute, const mat3f& val);
+  SetUniform(const ShaderUniform& attribute, const core::mat3f& val);
   void
-  SetUniform(const ShaderUniform& attribute, const mat4f& val);
+  SetUniform(const ShaderUniform& attribute, const core::mat4f& val);
   void
-  SetUniform(const ShaderUniform& attribute, const Rectf& val);
+  SetUniform(const ShaderUniform& attribute, const core::Rectf& val);
 
   // debug
   static const Shader*
@@ -108,5 +114,7 @@ BindTextureToShader(
     Shader*              shader,
     const ShaderUniform& attribute,
     glint                index);
+
+}
 
 #endif

@@ -1,5 +1,8 @@
 #include "render/light.h"
 
+namespace euphoria::render
+{
+
 LightAttenuation::LightAttenuation()
     : constant_(1.0f)
     , linear_(0.09f)
@@ -29,13 +32,13 @@ LightAttenuation::GetQuadratic() const
 
 Light::Light()
     : type_(Type::Directional)
-    , position_( vec3f::Zero() )
-    , direction_(vec3f{-0.2f, -1.0f, -0.3f}.GetNormalized())
+    , position_( core::vec3f::Zero() )
+    , direction_(core::vec3f{-0.2f, -1.0f, -0.3f}.GetNormalized())
     , ambient_(0.3f)
-    , diffuse_(Color::White)
-    , specular_(Color::White)
-    , cutoffAngleOuter_(Angle::FromDegrees(18.0f))
-    , cutoffAngleInner_(Angle::FromDegrees(13.37f))
+    , diffuse_(core::Color::White)
+    , specular_(core::Color::White)
+    , cutoffAngleOuter_(core::Angle::FromDegrees(18.0f))
+    , cutoffAngleInner_(core::Angle::FromDegrees(13.37f))
 {
 }
 
@@ -58,79 +61,79 @@ Light::GetTypeMod()
 }
 
 void
-Light::SetPosition(const vec3f& pos)
+Light::SetPosition(const core::vec3f& pos)
 {
   position_ = pos;
 }
 
-const vec3f&
+const core::vec3f&
 Light::GetPosition() const
 {
   return position_;
 }
 
 void
-Light::SetDirection(const unit3f& direction)
+Light::SetDirection(const core::unit3f& direction)
 {
   direction_ = direction;
 }
 
-const unit3f&
+const core::unit3f&
 Light::GetDirection() const
 {
   return direction_;
 }
 
 void
-Light::SetAmbient(const Rgb& c)
+Light::SetAmbient(const core::Rgb& c)
 {
   ambient_ = c;
 }
 
-const Rgb&
+const core::Rgb&
 Light::GetAmbient() const
 {
   return ambient_;
 }
 
 
-Rgb*
+core::Rgb*
 Light::ModifyAmbient()
 {
   return &ambient_;
 }
 
 void
-Light::SetDiffuse(const Rgb& c)
+Light::SetDiffuse(const core::Rgb& c)
 {
   diffuse_ = c;
 }
 
-const Rgb&
+const core::Rgb&
 Light::GetDiffuse() const
 {
   return diffuse_;
 }
 
-Rgb*
+core::Rgb*
 Light::ModifyDiffuse()
 {
   return &diffuse_;
 }
 
 void
-Light::SetSpecular(const Rgb& c)
+Light::SetSpecular(const core::Rgb& c)
 {
   specular_ = c;
 }
 
-const Rgb&
+const core::Rgb&
 Light::GetSpecular() const
 {
   return specular_;
 }
 
-Rgb*
+core::Rgb*
 Light::ModifySpecular()
 {
   return &specular_;
@@ -142,38 +145,40 @@ Light::GetAttenuation() const
   return attenuation_;
 }
 
-const Angle&
+const core::Angle&
 Light::GetCutoffAngleOuter() const
 {
   return cutoffAngleOuter_;
 }
 
 void
-Light::SetCutoffAngleOuter(const Angle& angle)
+Light::SetCutoffAngleOuter(const core::Angle& angle)
 {
   cutoffAngleOuter_ = angle;
 }
 
-Angle*
+core::Angle*
 Light::GetCutoffAngleOuterMod()
 {
   return &cutoffAngleOuter_;
 }
 
-const Angle&
+const core::Angle&
 Light::GetCutoffAngleInner() const
 {
   return cutoffAngleInner_;
 }
 
 void
-Light::SetCutoffAngleInner(const Angle& angle)
+Light::SetCutoffAngleInner(const core::Angle& angle)
 {
   cutoffAngleInner_ = angle;
 }
 
-Angle*
+core::Angle*
 Light::GetCutoffAngleInnerMod()
 {
   return &cutoffAngleInner_;
+}
+
 }

@@ -100,16 +100,6 @@ class Angle
   float mRad;
 };
 
-constexpr Angle operator"" _deg(long double d)
-{
-  return Angle::FromDegrees(static_cast<float>(d));
-}
-
-constexpr Angle operator"" _rad(long double r)
-{
-  return Angle::FromRadians(static_cast<float>(r));
-}
-
 float
 Sin(const Angle& ang);
 
@@ -147,7 +137,19 @@ struct AngleTransform
   static Angle
   Transform(const Angle& from, float v, const Angle& to);
 };
+}
 
+namespace euphoria
+{
+  constexpr core::Angle operator"" _deg(long double d)
+  {
+    return core::Angle::FromDegrees(static_cast<float>(d));
+  }
+
+  constexpr core::Angle operator"" _rad(long double r)
+  {
+    return core::Angle::FromRadians(static_cast<float>(r));
+  }
 }
 
 #endif  // CORE_ANGLE_H

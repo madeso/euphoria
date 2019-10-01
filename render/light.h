@@ -5,6 +5,9 @@
 #include "core/rgb.h"
 #include "core/angle.h"
 
+namespace euphoria::render
+{
+
 class LightAttenuation
 {
  public:
@@ -47,76 +50,77 @@ class Light
 
   // todo: replace with public variable instead
   void
-  SetPosition(const vec3f& pos);
-  const vec3f&
+  SetPosition(const core::vec3f& pos);
+  const core::vec3f&
   GetPosition() const;
 
   void
-  SetDirection(const unit3f& direction);
+  SetDirection(const core::unit3f& direction);
 
-  const unit3f&
+  const core::unit3f&
   GetDirection() const;
 
   void
-  SetAmbient(const Rgb& c);
+  SetAmbient(const core::Rgb& c);
 
-  const Rgb&
+  const core::Rgb&
   GetAmbient() const;
 
-  Rgb*
+  core::Rgb*
   ModifyAmbient();
 
   void
-  SetDiffuse(const Rgb& c);
+  SetDiffuse(const core::Rgb& c);
 
-  const Rgb&
+  const core::Rgb&
   GetDiffuse() const;
 
-  Rgb*
+  core::Rgb*
   ModifyDiffuse();
 
   void
-  SetSpecular(const Rgb& c);
+  SetSpecular(const core::Rgb& c);
 
-  const Rgb&
+  const core::Rgb&
   GetSpecular() const;
 
-  Rgb*
+  core::Rgb*
   ModifySpecular();
 
   const LightAttenuation&
   GetAttenuation() const;
 
-  const Angle&
+  const core::Angle&
   GetCutoffAngleOuter() const;
 
   void
-  SetCutoffAngleOuter(const Angle& angle);
+  SetCutoffAngleOuter(const core::Angle& angle);
 
-  Angle*
+  core::Angle*
   GetCutoffAngleOuterMod();
 
-  const Angle&
+  const core::Angle&
   GetCutoffAngleInner() const;
 
   void
-  SetCutoffAngleInner(const Angle& angle);
+  SetCutoffAngleInner(const core::Angle& angle);
 
-  Angle*
+  core::Angle*
   GetCutoffAngleInnerMod();
 
  private:
   Type        type_;
-  vec3f       position_;
-  unit3f direction_;
-  Rgb         ambient_;
-  Rgb         diffuse_;
-  Rgb         specular_;
-  Angle       cutoffAngleOuter_;
-  Angle       cutoffAngleInner_;
+  core::vec3f       position_;
+  core::unit3f direction_;
+  core::Rgb         ambient_;
+  core::Rgb         diffuse_;
+  core::Rgb         specular_;
+  core::Angle       cutoffAngleOuter_;
+  core::Angle       cutoffAngleInner_;
 
   LightAttenuation attenuation_;
 };
 
+}
 
 #endif  // EUPHORIA_LIGHT_H

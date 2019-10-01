@@ -2,37 +2,40 @@
 
 #include "core/assert.h"
 
+namespace euphoria::render
+{
+
 Actor::Actor(const std::shared_ptr<CompiledMesh>& mesh)
     : mesh_(mesh)
-    , position_(vec3f::Zero())
-    , rotation_(quatf::Identity())
+    , position_(core::vec3f::Zero())
+    , rotation_(core::quatf::Identity())
     , overridden_materials_(mesh->GetNoOverriddenMaterials())
     , has_outline(false)
-    , outline_color(Color::White)
+    , outline_color(core::Color::White)
 {
   ASSERT(mesh);
 }
 
-const vec3f&
+const core::vec3f&
 Actor::GetPosition()
 {
   return position_;
 }
 
-const quatf&
+const core::quatf&
 Actor::GetRotation()
 {
   return rotation_;
 }
 
 void
-Actor::SetPosition(const vec3f& position)
+Actor::SetPosition(const core::vec3f& position)
 {
   position_ = position;
 }
 
 void
-Actor::SetRotation(const quatf& rotation)
+Actor::SetRotation(const core::quatf& rotation)
 {
   rotation_ = rotation;
 }
@@ -69,18 +72,18 @@ Actor::EndMaterialOverride(unsigned int index)
   overridden_materials_[index] = nullptr;
 }
 
-mat4f
+core::mat4f
 Actor::GetModelMatrix() const
 {
-  return mat4f::FromTranslation(position_) *
+  return core::mat4f::FromTranslation(position_) *
          rotation_.ToMat4();
 }
 
 void
 Actor::Render(
-    const mat4f& projection_matrix,
-    const mat4f& view_matrix,
-    const vec3f& camera,
+    const core::mat4f& projection_matrix,
+    const core::mat4f& view_matrix,
+    const core::vec3f& camera,
     const Light& light)
 {
   mesh_->Render(
@@ -94,9 +97,11 @@ Actor::Render(
 
 void
 Actor::BasicRender(
-    const mat4f&                    projection_matrix,
-    const mat4f&                    view_matrix,
+    const core::mat4f&                    projection_matrix,
+    const core::mat4f&                    view_matrix,
     std::shared_ptr<MaterialShader> shader)
 {
   mesh_->BasicRender(GetModelMatrix(), projection_matrix, view_matrix, shader);
+}
+
 }

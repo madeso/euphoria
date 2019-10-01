@@ -18,6 +18,9 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 
+namespace euphoria::render
+{
+
 namespace
 {
   float
@@ -29,7 +32,7 @@ namespace
     {
       const auto f = static_cast<float>(s);
       dest->push_back(f);
-      size += Abs(f);
+      size += core::Abs(f);
     }
 
     if(dest->empty())
@@ -43,15 +46,15 @@ namespace
 }  // namespace
 
 ScalableSprite::ScalableSprite(
-    vfs::FileSystem*        fs,
+    core::vfs::FileSystem*        fs,
     const std::string& path,
-    const Sizef&       size,
+    const core::Sizef&       size,
     TextureCache*      cache)
     : texture_(cache->GetTexture(path))
 {
   scalingsprite::ScalingSprite sprite;
 
-  LoadProtoJson(fs, &sprite, path + ".json");
+  core::LoadProtoJson(fs, &sprite, path + ".json");
 
   max_row_ = CopyData(&rows_, sprite.rows);
   max_col_ = CopyData(&cols_, sprite.cols);
@@ -76,21 +79,21 @@ namespace
   }
 }  // namespace
 
-const Sizef
+const core::Sizef
 ScalableSprite::GetMinimumSize() const
 {
-  return Sizef::FromWidthHeight(GetConstantSize(cols_), GetConstantSize(rows_));
+  return core::Sizef::FromWidthHeight(GetConstantSize(cols_), GetConstantSize(rows_));
 }
 
 
 void
 ScalableSprite::Render(
-    SpriteRenderer* sr, const Rectf& rect, const Rgba& tint) const
+    SpriteRenderer* sr, const core::Rectf& rect, const core::Rgba& tint) const
 {
   const auto size_         = rect.GetSize();
   const auto pos           = rect.GetBottomLeft();
-  const auto position_cols = PerformTableLayout(cols_, size_.GetWidth());
-  const auto position_rows = PerformTableLayout(rows_, size_.GetHeight());
+  const auto position_cols = core::PerformTableLayout(cols_, size_.GetWidth());
+  const auto position_rows = core::PerformTableLayout(rows_, size_.GetHeight());
 
   const auto cols_size = cols_.size();
   const auto rows_size = rows_.size();
@@ -106,12 +109,12 @@ ScalableSprite::Render(
     float uv_current_row       = 1;
 
     const auto position_next_col = position_current_col + position_cols[c];
-    const auto uv_next_col       = uv_current_col + Abs(cols_[c]) / max_col_;
+    const auto uv_next_col       = uv_current_col + core::Abs(cols_[c]) / max_col_;
 
     for(unsigned int r = 0; r < rows_size; ++r)
     {
       const auto position_next_row = position_current_row - position_rows[r];
-      const auto uv_next_row       = uv_current_row - Abs(rows_[r]) / max_row_;
+      const auto uv_next_row       = uv_current_row - core::Abs(rows_[r]) / max_row_;
 
       /*
        current/new + col/row
@@ -135,12 +138,12 @@ ScalableSprite::Render(
           position_current_row,
           position_next_row);
       ASSERTX(uv_current_row > uv_next_row, uv_current_row, uv_next_row);
-      const auto position_rect = Rectf::FromLeftRightTopBottom(
+      const auto position_rect = core::Rectf::FromLeftRightTopBottom(
           position_current_col,
           position_next_col,
           position_current_row,
           position_next_row);
-      const auto uv_rect = Rectf::FromLeftRightTopBottom(
+      const auto uv_rect = core::Rectf::FromLeftRightTopBottom(
           uv_current_col, uv_next_col, uv_current_row, uv_next_row);
 
       sr->DrawRect(
@@ -148,7 +151,7 @@ ScalableSprite::Render(
           position_rect.OffsetCopy(pos),
           uv_rect,
           0.0_rad,
-          scale2f{0, 0},
+          core::scale2f{0, 0},
           tint);
 
       position_current_row = position_next_row;
@@ -157,4 +160,6 @@ ScalableSprite::Render(
     position_current_col = position_next_col;
     uv_current_col       = uv_next_col;
   }
+}
+
 }

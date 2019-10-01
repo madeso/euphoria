@@ -7,6 +7,9 @@
 #include "render/viewport.h"
 #include "render/gl.h"
 
+namespace euphoria::render
+{
+
 World::World()
 {
   outline_shader.reset(new MaterialShader());
@@ -44,7 +47,7 @@ World::AddActor(const std::shared_ptr<Actor>& actor)
 }
 
 void
-World::Render(const Viewport& viewport, const Camera& camera)
+World::Render(const Viewport& viewport, const core::Camera& camera)
 {
   Render(viewport, camera, camera.Compile(viewport.GetAspectRatio()));
 }
@@ -52,8 +55,8 @@ World::Render(const Viewport& viewport, const Camera& camera)
 void
 World::Render(
     const Viewport&       viewport,
-    const Camera&         camera,
-    const CompiledCamera& compiled)
+    const core::Camera&         camera,
+    const core::CompiledCamera& compiled)
 {
   const auto projection_matrix = compiled.projection;
   const auto view_matrix       = compiled.view;
@@ -113,4 +116,6 @@ World::Render(
     glStencilMask(0xFF);
     glEnable(GL_DEPTH_TEST);
   }
+}
+
 }

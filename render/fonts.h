@@ -14,10 +14,17 @@
 
 #include "render/texture.h"
 
-namespace vfs
+namespace euphoria::core
 {
-class FileSystem;
+  namespace vfs
+  {
+    class FileSystem;
+  }
 }
+
+
+namespace euphoria::render
+{
 
 class SpriteRenderer;
 class TextureCache;
@@ -27,13 +34,13 @@ class TextureCache;
 struct Glyph
 {
   Glyph(
-      const Rectf&       sprite,
-      const Rectf&       texture,
+      const core::Rectf&       sprite,
+      const core::Rectf&       texture,
       const std::string& ch,
       float              ad);
 
-  Rectf       sprite_rect;   // relative to 0,0
-  Rectf       texture_rect;  // image texture uvs
+  core::Rectf       sprite_rect;   // relative to 0,0
+  core::Rectf       texture_rect;  // image texture uvs
   std::string c;             // the character or string id
   float       advance;
 };
@@ -59,14 +66,14 @@ enum class Align
 struct TextDrawCommand
 {
   const Texture2d* texture;
-  Rectf            sprite_rect;
-  Rectf            texture_rect;
+  core::Rectf            sprite_rect;
+  core::Rectf            texture_rect;
   bool             hi;
 
   TextDrawCommand(
       const Texture2d* texture,
-      const Rectf&     sprite_rect,
-      const Rectf&     texture_rect,
+      const core::Rectf&     sprite_rect,
+      const core::Rectf&     texture_rect,
       bool             hi);
 };
 
@@ -76,18 +83,18 @@ struct TextDrawCommandList
 
   void
   Add(const Texture2d* texture,
-      const Rectf&     sprite_rect,
-      const Rectf&     texture_rect,
+      const core::Rectf&     sprite_rect,
+      const core::Rectf&     texture_rect,
       bool             hi);
 
   void
   Draw(
       SpriteRenderer* renderer,
-      const vec2f&  start_position,
-      const Rgb&      base_color,
-      const Rgb&      hi_color);
+      const core::vec2f&  start_position,
+      const core::Rgb&      base_color,
+      const core::Rgb&      hi_color);
 
-  Rectf
+  core::Rectf
   GetExtents() const;
 };
 
@@ -98,7 +105,7 @@ class Text
   ~Text();
 
   void
-  SetText(const ParsedText& text);
+  SetText(const core::ParsedText& text);
 
   void
   SetBackground(bool use_background, float alpha = 0.5f);
@@ -110,17 +117,17 @@ class Text
   SetSize(float new_size);
 
   void
-  Draw(SpriteRenderer* renderer, const vec2f& p, const Rgb& base_hi_color)
+  Draw(SpriteRenderer* renderer, const core::vec2f& p, const core::Rgb& base_hi_color)
       const;
 
   void
   Draw(
       SpriteRenderer* renderer,
-      const vec2f&  p,
-      const Rgb&      base_color,
-      const Rgb&      hi_color) const;
+      const core::vec2f&  p,
+      const core::Rgb&      base_color,
+      const core::Rgb&      hi_color) const;
 
-  Rectf
+  core::Rectf
   GetExtents() const;
 
   void
@@ -129,7 +136,7 @@ class Text
  private:
   const Font* font_;
   float       size_;
-  ParsedText  text_;
+  core::ParsedText  text_;
   Align       alignment_;
 
   bool  use_background_;
@@ -143,15 +150,15 @@ class Text
 class Font
 {
  public:
-  Font(vfs::FileSystem* fs, TextureCache* cache, const std::string& font_file);
+  Font(core::vfs::FileSystem* fs, TextureCache* cache, const std::string& font_file);
 
   // todo: expose background property and move this away from font
   void
   DrawBackground(
-      SpriteRenderer* renderer, float alpha, const Rectf& where) const;
+      SpriteRenderer* renderer, float alpha, const core::Rectf& where) const;
 
   TextDrawCommandList
-  CompileList(const ParsedText& text, float size) const;
+  CompileList(const core::ParsedText& text, float size) const;
 
  private:
   std::unique_ptr<Texture2d> texture_;
@@ -159,5 +166,7 @@ class Font
   CharDataMap                chars_;
   KerningMap                 kerning_;
 };
+
+}
 
 #endif  // SPACETYPER_FONTS_H

@@ -4,6 +4,9 @@
 #include "render/gl.h"
 #include "core/assert.h"
 
+namespace euphoria::render
+{
+
 std::string
 OpenglErrorToString(GLenum error_code)
 {
@@ -176,4 +179,6 @@ SetupOpenglDebug()
     glDebugMessageControlARB(
         GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, nullptr, GL_TRUE);
   }
+}
+
 }

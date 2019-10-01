@@ -1,45 +1,47 @@
 #ifndef RENDER_BUFFERBUILDER2D_H
 #define RENDER_BUFFERBUILDER2D_H
 
-class Vao;
-class Ebo;
-
 #include <vector>
-
 #include "core/vec2.h"
 
-class Point
+namespace euphoria::render
 {
- public:
-  Point(float x, float y, float u, float v);
-  Point(const vec2f& apos, const vec2f& avert);
+  class Vao;
+  class Ebo;
 
-  const vec2f pos;
+  class Point
+  {
+  public:
+    Point(float x, float y, float u, float v);
+    Point(const core::vec2f& apos, const core::vec2f& avert);
 
-  // todo: rename to uv
-  const vec2f vert;
-};
+    const core::vec2f pos;
 
-class BufferBuilder2d
-{
- public:
-  BufferBuilder2d();
+    // todo: rename to uv
+    const core::vec2f vert;
+  };
 
-  void
-  AddVertex(const Point& p);
-  void
-  AddTriangle(unsigned int a, unsigned int b, unsigned int c);
-  void
-  AddQuad(const Point& a, const Point& b, const Point& c, const Point& d);
+  class BufferBuilder2d
+  {
+  public:
+    BufferBuilder2d();
 
-  const std::vector<float>&
-  GetVertexData() const;
-  const std::vector<unsigned int>&
-  GetTriangleIndices() const;
+    void
+    AddVertex(const Point& p);
+    void
+    AddTriangle(unsigned int a, unsigned int b, unsigned int c);
+    void
+    AddQuad(const Point& a, const Point& b, const Point& c, const Point& d);
 
- private:
-  std::vector<float>        data;
-  std::vector<unsigned int> tris;
-};
+    const std::vector<float>&
+    GetVertexData() const;
+    const std::vector<unsigned int>&
+    GetTriangleIndices() const;
+
+  private:
+    std::vector<float>        data;
+    std::vector<unsigned int> tris;
+  };
+}
 
 #endif  // RENDER_BUFFERBUILDER2D_H

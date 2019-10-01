@@ -5,11 +5,14 @@
 
 #include "render/fonts.h"
 
+namespace euphoria::render
+{
+
 struct FontCache::FontCachePimpl
-    : Cache<std::string, Font, FontCache::FontCachePimpl>
+    : core::Cache<std::string, Font, FontCache::FontCachePimpl>
 {
  public:
-  explicit FontCachePimpl(vfs::FileSystem* fs, TextureCache* cache)
+  explicit FontCachePimpl(core::vfs::FileSystem* fs, TextureCache* cache)
       : fs_(fs)
       , cache_(cache)
   {
@@ -24,11 +27,11 @@ struct FontCache::FontCachePimpl
   }
 
  private:
-  vfs::FileSystem*   fs_;
+  core::vfs::FileSystem*   fs_;
   TextureCache* cache_;
 };
 
-FontCache::FontCache(vfs::FileSystem* fs, TextureCache* cache)
+FontCache::FontCache(core::vfs::FileSystem* fs, TextureCache* cache)
 {
   pimp = std::make_unique<FontCache::FontCachePimpl>(fs, cache);
 }
@@ -39,4 +42,6 @@ std::shared_ptr<Font>
 FontCache::GetFont(const std::string& path)
 {
   return pimp->Get(path);
+}
+
 }

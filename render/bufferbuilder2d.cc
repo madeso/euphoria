@@ -1,5 +1,8 @@
 #include "render/bufferbuilder2d.h"
 
+namespace euphoria::render
+{
+
 
 Point::Point(float x, float y, float u, float v)
     : pos(x, y)
@@ -7,7 +10,7 @@ Point::Point(float x, float y, float u, float v)
 {
 }
 
-Point::Point(const vec2f& apos, const vec2f& avert)
+Point::Point(const core::vec2f& apos, const core::vec2f& avert)
     : pos(apos)
     , vert(avert)
 {
@@ -60,4 +63,6 @@ const std::vector<unsigned int>&
 BufferBuilder2d::GetTriangleIndices() const
 {
   return tris;
+}
+
 }

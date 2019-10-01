@@ -11,18 +11,21 @@
 
 #include "gaf_materialshader.h"
 
+namespace euphoria::render
+{
+
 LOG_SPECIFY_DEFAULT_LOGGER("render.materialshader")
 
 ////////////////////////////////////////////////////////////////////////////////
 
 MaterialShaderDefaultTexture::MaterialShaderDefaultTexture(
-    const EnumValue& name, const std::string& path)
+    const core::EnumValue& name, const std::string& path)
     : name_(name)
     , path_(path)
 {
 }
 
-const EnumValue&
+const core::EnumValue&
 MaterialShaderDefaultTexture::GetName() const
 {
   return name_;
@@ -37,7 +40,7 @@ MaterialShaderDefaultTexture::GetPath() const
 ////////////////////////////////////////////////////////////////////////////////
 
 MaterialShaderBinding::MaterialShaderBinding(
-    ShaderUniform uniform, const EnumValue& name)
+    ShaderUniform uniform, const core::EnumValue& name)
     : uniform_(std::move(uniform))
     , name_(name)
 {
@@ -49,7 +52,7 @@ MaterialShaderBinding::GetUniform() const
   return uniform_;
 }
 
-const EnumValue&
+const core::EnumValue&
 MaterialShaderBinding::GetName() const
 {
   return name_;
@@ -94,7 +97,7 @@ PostBuild(
   for(const auto& texture : material_shader_file.textures)
   {
     const auto uniform = sh->shader_.GetUniform(texture.uniform);
-    DEFINE_ENUM_VALUE(TextureType, texture_name, texture.texture);
+    DEFINE_ENUM_VALUE(core::TextureType, texture_name, texture.texture);
     LOG_INFO(
         "Defining shader " << path << ": " << texture.uniform << " to "
                            << texture.texture);
@@ -103,7 +106,7 @@ PostBuild(
 
   for(const auto& texture : material_shader_file.default_textures)
   {
-    DEFINE_ENUM_VALUE(TextureType, texture_name, texture.texture);
+    DEFINE_ENUM_VALUE(core::TextureType, texture_name, texture.texture);
     sh->default_textures_.emplace_back(texture_name, texture.path);
   }
 
@@ -152,7 +155,7 @@ PostBuild(
 }
 
 bool
-MaterialShader::Load(vfs::FileSystem* file_system, const std::string& path)
+MaterialShader::Load(core::vfs::FileSystem* file_system, const std::string& path)
 {
   attributes3d::PrebindShader(&shader_);
   const bool shader_compile = shader_.Load(file_system, path);
@@ -161,7 +164,7 @@ MaterialShader::Load(vfs::FileSystem* file_system, const std::string& path)
   materialshader::MaterialShader material_shader_file;
   const std::string              proto_path = path + ".json";
   std::string                    error =
-      LoadProtoJson(file_system, &material_shader_file, proto_path);
+      core::LoadProtoJson(file_system, &material_shader_file, proto_path);
   if(!error.empty())
   {
     std::cerr << "Failed to load material shader json " << path << ": " << error
@@ -196,24 +199,24 @@ MaterialShader::UseShader()
 }
 
 void
-MaterialShader::SetProjection(const mat4f& projection)
+MaterialShader::SetProjection(const core::mat4f& projection)
 {
   shader_.SetUniform(projection_, projection);
 }
 
 void
-MaterialShader::SetView(const mat4f& view)
+MaterialShader::SetView(const core::mat4f& view)
 {
   shader_.SetUniform(view_, view);
 }
 
 void
-MaterialShader::SetModel(const mat4f& model)
+MaterialShader::SetModel(const core::mat4f& model)
 {
   shader_.SetUniform(model_, model);
   if(hasLight_)
   {
-    mat4f      normal   = model;
+    core::mat4f      normal   = model;
     const bool inverted = normal.Invert();
     ASSERT(inverted);
     normal = normal.GetTransposed();
@@ -222,7 +225,7 @@ MaterialShader::SetModel(const mat4f& model)
 }
 
 void
-MaterialShader::SetupLight(const Light& light, const vec3f& camera)
+MaterialShader::SetupLight(const Light& light, const core::vec3f& camera)
 {
   if(!hasLight_)
   {
@@ -248,9 +251,9 @@ MaterialShader::SetupLight(const Light& light, const vec3f& camera)
 
 void
 MaterialShader::SetColors(
-    const Rgb& ambient,
-    const Rgb& diffuse,
-    const Rgb& specular,
+    const core::Rgb& ambient,
+    const core::Rgb& diffuse,
+    const core::Rgb& specular,
     float      shininess)
 {
   if(!ambient_.IsNull())
@@ -265,7 +268,7 @@ MaterialShader::SetColors(
 
   if(!specular_.IsNull())
   {
-    const auto the_specular = shininess > 0 ? specular : Rgb{Color::Black};
+    const auto the_specular = shininess > 0 ? specular : core::Rgb{core::Color::Black};
     shader_.SetUniform(specular_, the_specular);
   }
 
@@ -286,4 +289,6 @@ const std::vector<MaterialShaderDefaultTexture>&
 MaterialShader::GetDefaultTextures()
 {
   return default_textures_;
+}
+
 }

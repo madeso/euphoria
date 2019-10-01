@@ -6,26 +6,31 @@
 #include "core/assert.h"
 #include "render/materialshader.h"
 
-class MaterialShaderCache
-    : public Cache<std::string, MaterialShader, MaterialShaderCache>
+namespace euphoria::render
 {
- public:
-  MaterialShaderCache(vfs::FileSystem* fs)
-      : fs_(fs)
-  {
-    ASSERT(fs);
-  }
 
-  std::shared_ptr<MaterialShader>
-  Create(const std::string& path)
+  class MaterialShaderCache
+      : public core::Cache<std::string, MaterialShader, MaterialShaderCache>
   {
-    auto ret = std::make_shared<MaterialShader>();
-    ret->Load(fs_, path);
-    return ret;
-  }
+  public:
+    MaterialShaderCache(core::vfs::FileSystem* fs)
+        : fs_(fs)
+    {
+      ASSERT(fs);
+    }
 
- private:
-  vfs::FileSystem* fs_;
-};
+    std::shared_ptr<MaterialShader>
+    Create(const std::string& path)
+    {
+      auto ret = std::make_shared<MaterialShader>();
+      ret->Load(fs_, path);
+      return ret;
+    }
+
+  private:
+    core::vfs::FileSystem* fs_;
+  };
+
+}
 
 #endif  // EUPHORIA_MATERIALSHADERCACHE_H

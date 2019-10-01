@@ -8,34 +8,39 @@
 #include "core/angle.h"
 #include "core/rgb.h"
 
-// texture & shader will be handled by 2d world and sprite
-class SpriteBatch
+namespace euphoria::render
 {
- public:
-  SpriteBatch();
-  ~SpriteBatch();
 
-  void
-  Begin();
-  void
-  Quad(
-      const vec2f& pos,
-      const Sizef& quad,
-      const Rectf& uv,
-      const scale2f& center,
-      const Angle& rotation,
-      const Rgba&  color);
-  void
-  End();
-  void
-  Flush();
+  // texture & shader will be handled by 2d world and sprite
+  class SpriteBatch
+  {
+  public:
+    SpriteBatch();
+    ~SpriteBatch();
 
- private:
-  bool               inside_;
-  unsigned int       count_;
-  unsigned int       rendercalls_;
-  std::vector<float> data_;
-  std::vector<int>   index_;
-};
+    void
+    Begin();
+    void
+    Quad(
+        const core::vec2f& pos,
+        const core::Sizef& quad,
+        const core::Rectf& uv,
+        const core::scale2f& center,
+        const core::Angle& rotation,
+        const core::Rgba&  color);
+    void
+    End();
+    void
+    Flush();
+
+  private:
+    bool               inside_;
+    unsigned int       count_;
+    unsigned int       rendercalls_;
+    std::vector<float> data_;
+    std::vector<int>   index_;
+  };
+
+}
 
 #endif  // RENDER_SPRITEBATCH_H

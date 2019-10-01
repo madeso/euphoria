@@ -17,6 +17,9 @@
 
 LOG_SPECIFY_DEFAULT_LOGGER("render.shader")
 
+namespace euphoria::render
+{
+
 ShaderId::ShaderId()
     : id_(glCreateProgram())
 {
@@ -126,7 +129,7 @@ ReportError(const std::string& log, const std::string& type)
   LOG_ERROR(
       "ERROR::SHADER: Compile-time error: Type: "
       << type
-      << Trim(log)
+      << core::Trim(log)
       << "\n --------------------------------------------------------- ");
 }
 
@@ -266,7 +269,7 @@ Shader::SetUniform(const ShaderUniform& attribute, glint val)
 }
 
 void
-Shader::SetUniform(const ShaderUniform& attribute, const Rgb& val)
+Shader::SetUniform(const ShaderUniform& attribute, const core::Rgb& val)
 {
   ASSERT(IsCurrentlyBound());
   ASSERT(HasBoundUniform(attribute));
@@ -278,7 +281,7 @@ Shader::SetUniform(const ShaderUniform& attribute, const Rgb& val)
 }
 
 void
-Shader::SetUniform(const ShaderUniform& attribute, const Rgba& val)
+Shader::SetUniform(const ShaderUniform& attribute, const core::Rgba& val)
 {
   ASSERT(IsCurrentlyBound());
   ASSERT(HasBoundUniform(attribute));
@@ -290,7 +293,7 @@ Shader::SetUniform(const ShaderUniform& attribute, const Rgba& val)
 }
 
 void
-Shader::SetUniform(const ShaderUniform& attribute, const vec3f& val)
+Shader::SetUniform(const ShaderUniform& attribute, const core::vec3f& val)
 {
   ASSERT(IsCurrentlyBound());
   ASSERT(HasBoundUniform(attribute));
@@ -302,7 +305,7 @@ Shader::SetUniform(const ShaderUniform& attribute, const vec3f& val)
 }
 
 void
-Shader::SetUniform(const ShaderUniform& attribute, const vec4f& val)
+Shader::SetUniform(const ShaderUniform& attribute, const core::vec4f& val)
 {
   ASSERT(IsCurrentlyBound());
   ASSERT(HasBoundUniform(attribute));
@@ -314,7 +317,7 @@ Shader::SetUniform(const ShaderUniform& attribute, const vec4f& val)
 }
 
 void
-Shader::SetUniform(const ShaderUniform& attribute, const mat3f& val)
+Shader::SetUniform(const ShaderUniform& attribute, const core::mat3f& val)
 {
   ASSERT(IsCurrentlyBound());
   ASSERT(HasBoundUniform(attribute));
@@ -326,7 +329,7 @@ Shader::SetUniform(const ShaderUniform& attribute, const mat3f& val)
 }
 
 void
-Shader::SetUniform(const ShaderUniform& attribute, const mat4f& val)
+Shader::SetUniform(const ShaderUniform& attribute, const core::mat4f& val)
 {
   ASSERT(IsCurrentlyBound());
   ASSERT(HasBoundUniform(attribute));
@@ -338,7 +341,7 @@ Shader::SetUniform(const ShaderUniform& attribute, const mat4f& val)
 }
 
 void
-Shader::SetUniform(const ShaderUniform& attribute, const Rectf& val)
+Shader::SetUniform(const ShaderUniform& attribute, const core::Rectf& val)
 {
   ASSERT(IsCurrentlyBound());
   ASSERT(HasBoundUniform(attribute));
@@ -354,7 +357,7 @@ Shader::Shader() = default;
 namespace
 {
   std::string
-  LoadPath(vfs::FileSystem* fs, const std::string& path)
+  LoadPath(core::vfs::FileSystem* fs, const std::string& path)
   {
     // todo: replace with a template instead of basic string
     std::string content;
@@ -368,7 +371,7 @@ namespace
 }  // namespace
 
 bool
-Shader::Load(vfs::FileSystem* fs, const std::string& file_path)
+Shader::Load(core::vfs::FileSystem* fs, const std::string& file_path)
 {
   shader_name_      = file_path;
   auto vert         = LoadPath(fs, file_path + ".vert");
@@ -440,4 +443,6 @@ BindTextureToShader(
   glActiveTexture(gl_id);
   Use(texture);
   shader->SetUniform(attribute, index);
+}
+
 }

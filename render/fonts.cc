@@ -26,6 +26,9 @@
 #include <ft2build.h>
 #include FT_FREETYPE_H
 
+namespace euphoria::render
+{
+
 LOG_SPECIFY_DEFAULT_LOGGER("core.font")
 
 namespace
@@ -100,7 +103,7 @@ struct LoadedGlyph
   int         bearing_x{0};
   int         bearing_y{0};
   int         advance{0};
-  Image       image;
+  core::Image       image;
   float       size;
 };
 
@@ -188,7 +191,7 @@ struct FreetypeFace
 };
 
 Glyph::Glyph(
-    const Rectf& sprite, const Rectf& texture, const std::string& ch, float ad)
+    const core::Rectf& sprite, const core::Rectf& texture, const std::string& ch, float ad)
     : sprite_rect(sprite)
     , texture_rect(texture)
     , c(ch)
@@ -227,11 +230,11 @@ struct LoadedFont
 };
 
 LoadedFont
-GetCharactersFromSingleImage(vfs::FileSystem* fs, const font::SingleImage& img)
+GetCharactersFromSingleImage(core::vfs::FileSystem* fs, const font::SingleImage& img)
 {
   LoadedFont font;
 
-  ImageLoadResult loaded = LoadImage(fs, img.file, AlphaLoad::Keep);
+  core::ImageLoadResult loaded = core::LoadImage(fs, img.file, core::AlphaLoad::Keep);
   if(loaded.error.empty())
   {
     const auto  s = 1 / img.scale;
@@ -259,7 +262,7 @@ GetCharacterFromBuiltin(const std::string& text, int s)
   LoadedGlyph glyph;
   glyph.image.SetupWithAlphaSupport(size, size, 0);
 
-  Draw{&glyph.image}.Text(vec2i::Zero(), text, Rgbi{255}, s);
+  core::Draw{&glyph.image}.Text(core::vec2i::Zero(), text, core::Rgbi{255}, s);
 
   glyph.size      = glyph.image.GetHeight();
   glyph.bearing_y = glyph.image.GetHeight() + 0;
@@ -342,7 +345,7 @@ GetCharactersFromFont(
   return fontchars;
 }
 
-std::pair<Rectf, Rectf>
+std::pair<core::Rectf, core::Rectf>
 ConstructCharacterRects(
     const stbrp_rect&  src_rect,
     const LoadedGlyph& src_char,
@@ -366,9 +369,9 @@ ConstructCharacterRects(
   // todo: add ability to be a quad for tighter fit
   ASSERTX(vert_top > vert_bottom, vert_top, vert_bottom, src_char.c);
   ASSERTX(uv_top > uv_bottom, uv_top, uv_bottom, src_char.c);
-  const auto sprite = Rectf::FromLeftRightTopBottom(
+  const auto sprite = core::Rectf::FromLeftRightTopBottom(
       vert_left, vert_right, vert_top, vert_bottom);
-  const auto texture = Rectf::FromLeftRightTopBottom(
+  const auto texture = core::Rectf::FromLeftRightTopBottom(
       uv_left / iw, uv_right / iw, uv_top / ih, uv_bottom / ih);
 
   const float scale = 1 / src_char.size;
@@ -377,7 +380,7 @@ ConstructCharacterRects(
 
 ////////////////////////////////////////////////////////////////////////////////
 
-Font::Font(vfs::FileSystem* fs, TextureCache* cache, const std::string& font_file)
+Font::Font(core::vfs::FileSystem* fs, TextureCache* cache, const std::string& font_file)
 {
   const int texture_width  = 512;
   const int texture_height = 512;
@@ -387,7 +390,7 @@ Font::Font(vfs::FileSystem* fs, TextureCache* cache, const std::string& font_fil
   LoadedFont fontchars;
   font::Root font_root;
 
-  std::string error = LoadProtoJson(fs, &font_root, font_file);
+  std::string error = core::LoadProtoJson(fs, &font_root, font_file);
   if(!error.empty())
   {
     LOG_ERROR("Failed to load " << font_file << ": " << error);
@@ -433,7 +436,7 @@ Font::Font(vfs::FileSystem* fs, TextureCache* cache, const std::string& font_fil
   stbrp_pack_rects(&context, &rects[0], num_rects);
 
   CharDataMap map;
-  Image       image;
+  core::Image       image;
   image.SetupWithAlphaSupport(texture_width, texture_height);
   for(int i = 0; i < num_rects; ++i)
   {
@@ -444,8 +447,8 @@ Font::Font(vfs::FileSystem* fs, TextureCache* cache, const std::string& font_fil
       continue;
     }
     const LoadedGlyph& src_char = fontchars.chars[src_rect.id];
-    ::Draw{&image}.PasteImage(
-        vec2i{src_rect.x + half_margin, src_rect.y + half_margin},
+    core::Draw{&image}.PasteImage(
+        core::vec2i{src_rect.x + half_margin, src_rect.y + half_margin},
         src_char.image);
     const auto rects = ConstructCharacterRects(
         src_rect, src_char, texture_width, texture_height);
@@ -466,26 +469,26 @@ Font::Font(vfs::FileSystem* fs, TextureCache* cache, const std::string& font_fil
   chars_   = map;
   Texture2dLoadData load_data;
   texture_ = std::make_unique<Texture2d>();
-  texture_->LoadFromImage(image, AlphaLoad::Keep, Texture2dLoadData());
+  texture_->LoadFromImage(image, core::AlphaLoad::Keep, Texture2dLoadData());
 }
 
 void
 Font::DrawBackground(
-    SpriteRenderer* renderer, float alpha, const Rectf& where) const
+    SpriteRenderer* renderer, float alpha, const core::Rectf& where) const
 {
   renderer->DrawRect(
       *background,
       where,
-      Rectf::FromWidthHeight(1, 1),
+      core::Rectf::FromWidthHeight(1, 1),
       0.0_rad,
-      scale2f{0, 0},
-      Rgba{Color::Black, alpha});
+      core::scale2f{0, 0},
+      core::Rgba{core::Color::Black, alpha});
 }
 
 TextDrawCommand::TextDrawCommand(
     const Texture2d* texture,
-    const Rectf&     sprite_rect,
-    const Rectf&     texture_rect,
+    const core::Rectf&     sprite_rect,
+    const core::Rectf&     texture_rect,
     bool             hi)
     : texture(texture)
     , sprite_rect(sprite_rect)
@@ -497,8 +500,8 @@ TextDrawCommand::TextDrawCommand(
 void
 TextDrawCommandList::Add(
     const Texture2d* texture,
-    const Rectf&     sprite_rect,
-    const Rectf&     texture_rect,
+    const core::Rectf&     sprite_rect,
+    const core::Rectf&     texture_rect,
     bool             hi)
 {
   commands.emplace_back(texture, sprite_rect, texture_rect, hi);
@@ -507,9 +510,9 @@ TextDrawCommandList::Add(
 void
 TextDrawCommandList::Draw(
     SpriteRenderer* renderer,
-    const vec2f&  start_position,
-    const Rgb&      base_color,
-    const Rgb&      hi_color)
+    const core::vec2f&  start_position,
+    const core::Rgb&      base_color,
+    const core::Rgb&      hi_color)
 {
   for(const auto& cmd : commands)
   {
@@ -519,19 +522,19 @@ TextDrawCommandList::Draw(
         cmd.sprite_rect.OffsetCopy(start_position),
         cmd.texture_rect,
         0.0_rad,
-        scale2f{0.5f, 0.5f},
-        Rgba{tint});
+        core::scale2f{0.5f, 0.5f},
+        core::Rgba{tint});
   }
 }
 
-struct ParsedTextCompileVisitor : public textparser::Visitor
+struct ParsedTextCompileVisitor : public core::textparser::Visitor
 {
   const Texture2d*   texture_;
   const CharDataMap* chars_;
   const KerningMap*  kerning_;
   float              size;
   bool               apply_highlight;
-  vec2f              position;  // todo: rename to offset
+  core::vec2f              position;  // todo: rename to offset
   std::string        last_char_index;
 
   // return value
@@ -615,7 +618,7 @@ struct ParsedTextCompileVisitor : public textparser::Visitor
 };
 
 TextDrawCommandList
-Font::CompileList(const ParsedText& text, float size) const
+Font::CompileList(const core::ParsedText& text, float size) const
 {
   TextDrawCommandList list;
 
@@ -625,10 +628,10 @@ Font::CompileList(const ParsedText& text, float size) const
   return list;
 }
 
-Rectf
+core::Rectf
 TextDrawCommandList::GetExtents() const
 {
-  Rectf ret;
+  core::Rectf ret;
   for(const auto& cmd : commands)
   {
     ret.Include(cmd.sprite_rect);
@@ -649,7 +652,7 @@ Text::Text(Font* font)
 Text::~Text() = default;
 
 void
-Text::SetText(const ParsedText& str)
+Text::SetText(const core::ParsedText& str)
 {
   text_ = str;
   dirty = true;
@@ -678,44 +681,44 @@ Text::SetSize(float new_size)
   }
 }
 
-vec2f
-GetOffset(Align alignment, const Rectf& extent)
+core::vec2f
+GetOffset(Align alignment, const core::Rectf& extent)
 {
   // todo: test this more
-  const float middle = -(extent.left + extent.right) / 2;
-  const float right  = -extent.right;
-  const float top    = extent.top;
-  const float bottom = -extent.bottom;
+  const auto middle = -(extent.left + extent.right) / 2;
+  const auto right  = -extent.right;
+  const auto top    = extent.top;
+  const auto bottom = -extent.bottom;
 
   switch(alignment)
   {
     case Align::TOP_LEFT:
-      return vec2f(0.0f, top);
+      return core::vec2f(0.0f, top);
     case Align::TOP_CENTER:
-      return vec2f(middle, top);
+      return core::vec2f(middle, top);
     case Align::TOP_RIGHT:
-      return vec2f(right, top);
+      return core::vec2f(right, top);
     case Align::BASELINE_LEFT:
-      return vec2f(0.0f, 0.0f);
+      return core::vec2f(0.0f, 0.0f);
     case Align::BASELINE_CENTER:
-      return vec2f(middle, 0.0f);
+      return core::vec2f(middle, 0.0f);
     case Align::BASELINE_RIGHT:
-      return vec2f(right, 0.0f);
+      return core::vec2f(right, 0.0f);
     case Align::BOTTOM_LEFT:
-      return vec2f(0.0f, bottom);
+      return core::vec2f(0.0f, bottom);
     case Align::BOTTOM_CENTER:
-      return vec2f(middle, bottom);
+      return core::vec2f(middle, bottom);
     case Align::BOTTOM_RIGHT:
-      return vec2f(right, bottom);
+      return core::vec2f(right, bottom);
     default:
       DIE("Unhandled case");
-      return vec2f(0.0f, 0.0f);
+      return core::vec2f(0.0f, 0.0f);
   }
 }
 
 void
 Text::Draw(
-    SpriteRenderer* renderer, const vec2f& p, const Rgb& base_hi_color) const
+    SpriteRenderer* renderer, const core::vec2f& p, const core::Rgb& base_hi_color) const
 {
   Draw(renderer, p, base_hi_color, base_hi_color);
 }
@@ -723,9 +726,9 @@ Text::Draw(
 void
 Text::Draw(
     SpriteRenderer* renderer,
-    const vec2f&  p,
-    const Rgb&      base_color,
-    const Rgb&      hi_color) const
+    const core::vec2f&  p,
+    const core::Rgb&      base_color,
+    const core::Rgb&      hi_color) const
 {
   Compile();
   ASSERT(!dirty);
@@ -734,8 +737,8 @@ Text::Draw(
   {
     return;
   }
-  const Rectf& e   = GetExtents();
-  const auto   off = GetOffset(alignment_, e);
+  const auto e   = GetExtents();
+  const auto off = GetOffset(alignment_, e);
   if(use_background_)
   {
     font_->DrawBackground(
@@ -757,10 +760,12 @@ Text::Compile() const
   }
 }
 
-Rectf
+core::Rectf
 Text::GetExtents() const
 {
   Compile();
   ASSERT(!dirty);
   return commands.GetExtents();
+}
+
 }

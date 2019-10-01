@@ -2,8 +2,11 @@
 
 #include "core/vfs.h"
 
+namespace euphoria::render
+{
+
 void
-SetupDefaultFiles(std::shared_ptr<vfs::FileSystemRootCatalog> catalog)
+SetupDefaultFiles(std::shared_ptr<core::vfs::FileSystemRootCatalog> catalog)
 {
   catalog->RegisterFileString(
       "default_shader.json",
@@ -160,4 +163,6 @@ SetupDefaultFiles(std::shared_ptr<vfs::FileSystemRootCatalog> catalog)
   catalog->RegisterFileString(
       "texture_types.json",
       R"({"name" : ["Diffuse", "Specular"]})");
+}
+
 }

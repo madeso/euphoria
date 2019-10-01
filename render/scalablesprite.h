@@ -5,42 +5,49 @@
 #include <vector>
 #include "core/rect.h"
 
-class Buffer2d;
-class Texture2d;
-class TextureId;
-class TextureCache;
-class SpriteRenderer;
-class Rgba;
-
-namespace vfs
+namespace euphoria::core
 {
-class FileSystem;
+  namespace vfs
+  {
+    class FileSystem;
+  }
+  class Rgba;
 }
 
-class ScalableSprite
+namespace euphoria::render
 {
- public:
-  ScalableSprite(
-      vfs::FileSystem*        fs,
-      const std::string& path,
-      const Sizef&       size,
-      TextureCache*      cache);
-  ~ScalableSprite();
+  class Buffer2d;
+  class Texture2d;
+  class TextureId;
+  class TextureCache;
+  class SpriteRenderer;
 
-  const Sizef
-  GetMinimumSize() const;
+  class ScalableSprite
+  {
+  public:
+    ScalableSprite(
+        core::vfs::FileSystem*        fs,
+        const std::string& path,
+        const core::Sizef&       size,
+        TextureCache*      cache);
+    ~ScalableSprite();
 
-  void
-  Render(SpriteRenderer* sr, const Rectf& pos, const Rgba& tint) const;
+    const core::Sizef
+    GetMinimumSize() const;
 
- private:
-  std::shared_ptr<Texture2d> texture_;
+    void
+    Render(SpriteRenderer* sr, const core::Rectf& pos, const core::Rgba& tint) const;
 
-  std::vector<float> cols_;
-  std::vector<float> rows_;
+  private:
+    std::shared_ptr<Texture2d> texture_;
 
-  float max_col_;
-  float max_row_;
-};
+    std::vector<float> cols_;
+    std::vector<float> rows_;
+
+    float max_col_;
+    float max_row_;
+  };
+
+}
 
 #endif  // SPACETYPER_SCALABLESPRITE_H

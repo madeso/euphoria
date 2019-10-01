@@ -6,92 +6,99 @@
 #include "core/noncopyable.h"
 #include "core/vfs.h"
 
-class Image;
-
-enum class TextureWrap
+namespace euphoria::core
 {
-  REPEAT,
-  MIRRORED_REPEAT,
-  CLAMP_TO_EDGE
-};
+  class Image;
+}
 
-enum class FilterMagnification
+namespace euphoria::render
 {
-  NEAREST,
-  LINEAR
-};
+  enum class TextureWrap
+  {
+    REPEAT,
+    MIRRORED_REPEAT,
+    CLAMP_TO_EDGE
+  };
 
-enum class FilterMinification
-{
-  NEAREST,
-  LINEAR
-  // todo: add mipmap
-};
+  enum class FilterMagnification
+  {
+    NEAREST,
+    LINEAR
+  };
 
-struct Texture2dLoadData
-{
-  Texture2dLoadData();
+  enum class FilterMinification
+  {
+    NEAREST,
+    LINEAR
+    // todo: add mipmap
+  };
 
-  Texture2dLoadData&
-  SetWrap(TextureWrap v);
-  Texture2dLoadData&
-  SetFilterMag(FilterMagnification v);
-  Texture2dLoadData&
-  SetFilterMin(FilterMinification v);
+  struct Texture2dLoadData
+  {
+    Texture2dLoadData();
 
-  TextureWrap         wrap;
-  FilterMinification  min;
-  FilterMagnification mag;
-};
+    Texture2dLoadData&
+    SetWrap(TextureWrap v);
+    Texture2dLoadData&
+    SetFilterMag(FilterMagnification v);
+    Texture2dLoadData&
+    SetFilterMin(FilterMinification v);
 
-class TextureId : Noncopyable
-{
- public:
-  TextureId();
-  ~TextureId();
+    TextureWrap         wrap;
+    FilterMinification  min;
+    FilterMagnification mag;
+  };
 
-  bool
-  IsCurrentlyBound() const;
-  gluint
-  GetId() const;
+  class TextureId : core::Noncopyable
+  {
+  public:
+    TextureId();
+    ~TextureId();
 
- private:
-  gluint id_;
-};
+    bool
+    IsCurrentlyBound() const;
+    gluint
+    GetId() const;
 
-void
-Use(const TextureId* texture);
-
-class Texture2d : public TextureId
-{
- public:
-  Texture2d();
+  private:
+    gluint id_;
+  };
 
   void
-  LoadFromPixels(
-      int                      width,
-      int                      height,
-      const unsigned char*     pixel_data,
-      gluint                   internal_format,
-      gluint                   image_format,
-      const Texture2dLoadData& data);
-  void
-  LoadFromImage(
-      const Image& image, AlphaLoad alpha, const Texture2dLoadData& data);
-  void
-  LoadFromFile(
-      vfs::FileSystem*              fs,
-      const std::string&       path,
-      AlphaLoad                alpha,
-      const Texture2dLoadData& data);
+  Use(const TextureId* texture);
 
-  int
-  GetWidth() const;
-  int
-  GetHeight() const;
+  class Texture2d : public TextureId
+  {
+  public:
+    Texture2d();
 
- private:
-  int width_, height_;
-};
+    void
+    LoadFromPixels(
+        int                      width,
+        int                      height,
+        const unsigned char*     pixel_data,
+        gluint                   internal_format,
+        gluint                   image_format,
+        const Texture2dLoadData& data);
+    void
+    LoadFromImage(
+        const core::Image& image, core::AlphaLoad alpha, const Texture2dLoadData& data);
+    void
+    LoadFromFile(
+        core::vfs::FileSystem*              fs,
+        const std::string&       path,
+        core::AlphaLoad                alpha,
+        const Texture2dLoadData& data);
+
+    int
+    GetWidth() const;
+    int
+    GetHeight() const;
+
+  private:
+    int width_, height_;
+  };
+
+}
 
 #endif

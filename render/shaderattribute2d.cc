@@ -4,6 +4,9 @@
 
 #include "render/shader.h"
 
+namespace euphoria::render
+{
+
 namespace attributes2d
 {
   const ShaderAttribute&
@@ -20,3 +23,5 @@ namespace attributes2d
     shader->PreBind(Vertex());
   }
 }  // namespace attributes2d
+
+}

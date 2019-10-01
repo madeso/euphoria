@@ -5,110 +5,115 @@
 #include "render/gl.h"
 #include "render/bufferbuilder2d.h"
 
-//////////////////////////////////////////////////////////////////////////
-
-DrawData&
-DrawData::Rotation(const Angle& r)
+namespace euphoria::render
 {
-  rotation = r;
-  return *this;
-}
 
-DrawData&
-DrawData::Scale(const scale2f& s)
-{
-  scale = s;
-  return *this;
-}
+  //////////////////////////////////////////////////////////////////////////
 
-DrawData&
-DrawData::Tint(const Rgba& t)
-{
-  tint = t;
-  return *this;
-}
+  DrawData&
+  DrawData::Rotation(const core::Angle& r)
+  {
+    rotation = r;
+    return *this;
+  }
 
-//////////////////////////////////////////////////////////////////////////
+  DrawData&
+  DrawData::Scale(const core::scale2f& s)
+  {
+    scale = s;
+    return *this;
+  }
 
-SpriteRenderer::SpriteRenderer(Shader* shader)
-    : shader_(shader)
-    , color_(shader->GetUniform("color"))
-    , model_(shader->GetUniform("model"))
-    , texture_area_(shader->GetUniform("region"))
-{
-  shader_ = shader;
-  InitRenderData();
-}
+  DrawData&
+  DrawData::Tint(const core::Rgba& t)
+  {
+    tint = t;
+    return *this;
+  }
 
-SpriteRenderer::~SpriteRenderer()
-{
-  buffer_.reset();
-}
+  //////////////////////////////////////////////////////////////////////////
 
-void
-SpriteRenderer::DrawRect(
-    const Texture2d& texture,
-    const Rectf&     sprite_area,
-    const Rectf&     texture_region,
-    const Angle&     rotation_angle,
-    const scale2f&     rotation_anchor,
-    const Rgba&      tint_color)
-{
-  Use(shader_);
-  vec3f rotation_anchor_displacement{
-      -rotation_anchor.x * sprite_area.GetWidth(),
-      (rotation_anchor.y - 1) * sprite_area.GetHeight(),
-      0.0f};
-  const mat4f model =
-      mat4f::Identity()
-          .Translate(vec3f(sprite_area.BottomLeft(), 0.0f))
-          .Translate(-rotation_anchor_displacement)
-          .Rotate(AxisAngle::RightHandAround(
-              unit3f::ZAxis(),
-              rotation_angle))  // rotate around center
-          .Translate(rotation_anchor_displacement)
-          .Scale(scale3f{sprite_area.GetWidth(), sprite_area.GetHeight(), 1.0f});
+  SpriteRenderer::SpriteRenderer(Shader* shader)
+      : shader_(shader)
+      , color_(shader->GetUniform("color"))
+      , model_(shader->GetUniform("model"))
+      , texture_area_(shader->GetUniform("region"))
+  {
+    shader_ = shader;
+    InitRenderData();
+  }
 
-  shader_->SetUniform(model_, model);
-  shader_->SetUniform(color_, tint_color);
-  shader_->SetUniform(texture_area_, texture_region);
+  SpriteRenderer::~SpriteRenderer()
+  {
+    buffer_.reset();
+  }
 
-  glActiveTexture(GL_TEXTURE0);
-  Use(&texture);
-  buffer_->Draw();
-}
+  void
+  SpriteRenderer::DrawRect(
+      const Texture2d& texture,
+      const core::Rectf&     sprite_area,
+      const core::Rectf&     texture_region,
+      const core::Angle&     rotation_angle,
+      const core::scale2f&     rotation_anchor,
+      const core::Rgba&      tint_color)
+  {
+    Use(shader_);
+    core::vec3f rotation_anchor_displacement{
+        -rotation_anchor.x * sprite_area.GetWidth(),
+        (rotation_anchor.y - 1) * sprite_area.GetHeight(),
+        0.0f};
+    const core::mat4f model =
+        core::mat4f::Identity()
+            .Translate(core::vec3f(sprite_area.BottomLeft(), 0.0f))
+            .Translate(-rotation_anchor_displacement)
+            .Rotate(core::AxisAngle::RightHandAround(
+                core::unit3f::ZAxis(),
+                rotation_angle))  // rotate around center
+            .Translate(rotation_anchor_displacement)
+            .Scale(core::scale3f{sprite_area.GetWidth(), sprite_area.GetHeight(), 1.0f});
 
-void
-SpriteRenderer::DrawSprite(
-    const Texture2d& texture, const Rectf& position, const DrawData& data)
-{
-  DrawRect(
-      texture,
-      position,
-      Rectf::FromTopLeftWidthHeight(1, 0, 1, 1),
-      data.rotation,
-      scale2f{0.5f, 0.5f},
-      data.tint);
-}
+    shader_->SetUniform(model_, model);
+    shader_->SetUniform(color_, tint_color);
+    shader_->SetUniform(texture_area_, texture_region);
 
-void
-SpriteRenderer::DrawNinepatch(
-    const ScalableSprite& ninepatch, const Rectf& rect, const Rgba& tint)
-{
-  ninepatch.Render(this, rect, tint);
-}
+    glActiveTexture(GL_TEXTURE0);
+    Use(&texture);
+    buffer_->Draw();
+  }
 
-void
-SpriteRenderer::InitRenderData()
-{
-  BufferBuilder2d data;
+  void
+  SpriteRenderer::DrawSprite(
+      const Texture2d& texture, const core::Rectf& position, const DrawData& data)
+  {
+    DrawRect(
+        texture,
+        position,
+        core::Rectf::FromTopLeftWidthHeight(1, 0, 1, 1),
+        data.rotation,
+        core::scale2f{0.5f, 0.5f},
+        data.tint);
+  }
 
-  Point a(0.0f, 1.0f, 0.0f, 1.0f);
-  Point b(1.0f, 0.0f, 1.0f, 0.0f);
-  Point c(0.0f, 0.0f, 0.0f, 0.0f);
-  Point d(1.0f, 1.0f, 1.0f, 1.0f);
+  void
+  SpriteRenderer::DrawNinepatch(
+      const ScalableSprite& ninepatch, const core::Rectf& rect, const core::Rgba& tint)
+  {
+    ninepatch.Render(this, rect, tint);
+  }
 
-  data.AddQuad(c, b, a, d);
+  void
+  SpriteRenderer::InitRenderData()
+  {
+    BufferBuilder2d data;
 
-  buffer_ = std::make_unique<Buffer2d>(data);
+    Point a(0.0f, 1.0f, 0.0f, 1.0f);
+    Point b(1.0f, 0.0f, 1.0f, 0.0f);
+    Point c(0.0f, 0.0f, 0.0f, 0.0f);
+    Point d(1.0f, 1.0f, 1.0f, 1.0f);
+
+    data.AddQuad(c, b, a, d);
+
+    buffer_ = std::make_unique<Buffer2d>(data);
+  }
+
 }

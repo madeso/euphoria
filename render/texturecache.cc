@@ -4,11 +4,14 @@
 #include "render/texture.h"
 #include "core/cache.h"
 
+namespace euphoria::render
+{
+
 struct TextureCache::TextureCachePimpl
-    : Cache<std::string, Texture2d, TextureCache::TextureCachePimpl>
+    : core::Cache<std::string, Texture2d, TextureCache::TextureCachePimpl>
 {
  public:
-  explicit TextureCachePimpl(vfs::FileSystem* fs)
+  explicit TextureCachePimpl(core::vfs::FileSystem* fs)
       : fs_(fs)
   {
     ASSERT(fs);
@@ -18,15 +21,15 @@ struct TextureCache::TextureCachePimpl
   Create(const std::string& file)
   {
     auto ret = std::make_shared<Texture2d>();
-    ret->LoadFromFile(fs_, file, AlphaLoad::Keep, Texture2dLoadData{});
+    ret->LoadFromFile(fs_, file, core::AlphaLoad::Keep, Texture2dLoadData{});
     return ret;
   }
 
  private:
-  vfs::FileSystem* fs_;
+  core::vfs::FileSystem* fs_;
 };
 
-TextureCache::TextureCache(vfs::FileSystem* fs)
+TextureCache::TextureCache(core::vfs::FileSystem* fs)
 {
   pimp_ = std::make_unique<TextureCache::TextureCachePimpl>(fs);
 }
@@ -50,4 +53,6 @@ TextureCache::GetTextureIfNotEmpty(const std::string& path)
   {
     return nullptr;
   }
+}
+
 }

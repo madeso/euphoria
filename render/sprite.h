@@ -9,68 +9,72 @@
 #include "core/vec3.h"
 #include "core/rgb.h"
 
-class Texture2d;
-class SpriteRenderer;
-
-class Sprite
+namespace euphoria::render
 {
- public:
-  // todo: remove getters and setters
-  explicit Sprite(
-      std::shared_ptr<Texture2d> texture,
-      const vec2f&             position = vec2f::Zero());
+  class Texture2d;
+  class SpriteRenderer;
 
-  std::shared_ptr<Texture2d>
-  GetTexture();
+  class Sprite
+  {
+  public:
+    // todo: remove getters and setters
+    explicit Sprite(
+        std::shared_ptr<Texture2d> texture,
+        const core::vec2f&             position = core::vec2f::Zero());
 
-  const vec2f&
-  GetPosition() const;
-  void
-  SetPosition(const vec2f& p);
+    std::shared_ptr<Texture2d>
+    GetTexture();
 
-  float
-  GetHeight() const;
-  float
-  GetWidth() const;
+    const core::vec2f&
+    GetPosition() const;
+    void
+    SetPosition(const core::vec2f& p);
 
-  void
-  SetAlpha(float a);
+    float
+    GetHeight() const;
+    float
+    GetWidth() const;
 
-  void
-  Render(SpriteRenderer* render);
+    void
+    SetAlpha(float a);
 
- private:
-  std::shared_ptr<Texture2d> texture_;
-  vec2f                    position_;
+    void
+    Render(SpriteRenderer* render);
 
- public:
-  Angle rotation;
+  private:
+    std::shared_ptr<Texture2d> texture_;
+    core::vec2f                    position_;
 
- private:
-  scale2f scale_;
-  Rgb     color_;
-  float   alpha_;
-};
+  public:
+    core::Angle rotation;
 
-class Layer
-{
- public:
-  explicit Layer(SpriteRenderer* render);
+  private:
+    core::scale2f scale_;
+    core::Rgb     color_;
+    float   alpha_;
+  };
 
-  void
-  Add(Sprite* sprite);
+  class Layer
+  {
+  public:
+    explicit Layer(SpriteRenderer* render);
 
-  void
-  Remove(Sprite* sprite);
+    void
+    Add(Sprite* sprite);
 
-  void
-  Render();
+    void
+    Remove(Sprite* sprite);
 
- private:
-  SpriteRenderer*              render_;
-  typedef std::vector<Sprite*> SpriteList;
-  typedef std::map<std::shared_ptr<Texture2d>, SpriteList> SpriteMap;
-  SpriteMap sprites_;
-};
+    void
+    Render();
+
+  private:
+    SpriteRenderer*              render_;
+    typedef std::vector<Sprite*> SpriteList;
+    typedef std::map<std::shared_ptr<Texture2d>, SpriteList> SpriteMap;
+    SpriteMap sprites_;
+  };
+
+}
 
 #endif  // SPACETYPER_SPRITE_H

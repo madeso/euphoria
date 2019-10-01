@@ -101,7 +101,7 @@ LoadEnumType(EnumType* type, vfs::FileSystem* fs, const std::string& path);
 // todo: provide compile time option to use hashes instead
 // http://aras-p.info/blog/2016/08/09/More-Hash-Function-Tests/
 #define DEFINE_ENUM_VALUE(TYPE, NAME, STRING) \
-  const EnumValue NAME = TYPE##_EnumType().ToEnum(STRING)
+  const ::euphoria::core::EnumValue NAME = TYPE##_EnumType().ToEnum(STRING)
 #define SET_ENUM_FROM_FILE(FS, PATH, TYPE) \
   LoadEnumType(&TYPE##_EnumType(), FS, PATH)
 

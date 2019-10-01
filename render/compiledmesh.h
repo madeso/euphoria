@@ -8,106 +8,113 @@
 #include "core/mat4.h"
 #include "render/buffer.h"
 
-class Texture2d;
-class MaterialShader;
-class Light;
-
-class MaterialShaderCache;
-class TextureCache;
-
-namespace vfs
+namespace euphoria::core
 {
-class Path;
+    namespace vfs
+    {
+        class Path;
+    }
 }
 
-// one part of the mesh, single material
-class CompiledMeshPart
+namespace euphoria::render
 {
- public:
-  Vbo          data;
-  Vao          config;
-  Ebo          tris;
-  int          tri_count;
-  unsigned int material;
-};
 
-class CompiledMeshMaterial
-{
- public:
-  CompiledMeshMaterial();
+    class Texture2d;
+    class MaterialShader;
+    class Light;
 
-  void
-  SetShader(const std::shared_ptr<MaterialShader>& shader);
+    class MaterialShaderCache;
+    class TextureCache;
 
-  void
-  SetColors(
-      const Rgb& ambient,
-      const Rgb& diffuse,
-      const Rgb& specular,
-      float      shininess);
+    // one part of the mesh, single material
+    class CompiledMeshPart
+    {
+    public:
+        Vbo          data;
+        Vao          config;
+        Ebo          tris;
+        int          tri_count;
+        unsigned int material;
+    };
 
-  void
-  SetTexture(const EnumValue& name, std::shared_ptr<Texture2d> texture);
+    class CompiledMeshMaterial
+    {
+    public:
+        CompiledMeshMaterial();
 
-  void
-  Apply(
-      const mat4f& model_matrix,
-      const mat4f& projection_matrix,
-      const mat4f& view_matrix,
-      const vec3f& camera,
-      const Light& light) const;
+        void
+        SetShader(const std::shared_ptr<MaterialShader>& shader);
 
-  // gets the default materials from the shader if they are null/not set
-  void
-  LoadDefaultMaterialsFromShader(TextureCache* cache);
+        void
+        SetColors(
+            const core::Rgb& ambient,
+            const core::Rgb& diffuse,
+            const core::Rgb& specular,
+            float      shininess);
 
-  // asks the shader if all the textures are set, and if more than necessary are
-  // set
-  bool
-  Validate() const;
+        void
+        SetTexture(const core::EnumValue& name, std::shared_ptr<Texture2d> texture);
 
- private:
-  Rgb                             ambient_;
-  Rgb                             diffuse_;
-  Rgb                             specular_;
-  float                           shininess_;
-  std::shared_ptr<MaterialShader> shader_;
-  std::map<EnumValue, std::shared_ptr<Texture2d>> textures_;
-};
+        void
+        Apply(
+            const core::mat4f& model_matrix,
+            const core::mat4f& projection_matrix,
+            const core::mat4f& view_matrix,
+            const core::vec3f& camera,
+            const Light& light) const;
 
-// a collection of parts making up a mesh
-class CompiledMesh
-{
- public:
-  std::vector<std::shared_ptr<CompiledMeshPart>> parts;
-  std::vector<CompiledMeshMaterial>              materials;
+        // gets the default materials from the shader if they are null/not set
+        void
+        LoadDefaultMaterialsFromShader(TextureCache* cache);
 
-  std::vector<std::shared_ptr<CompiledMeshMaterial>>
-  GetNoOverriddenMaterials() const;
+        // asks the shader if all the textures are set, and if more than necessary are
+        // set
+        bool
+        Validate() const;
 
-  void
-  Render(
-      const mat4f& model_matrix,
-      const mat4f& projection_matrix,
-      const mat4f& view_matrix,
-      const vec3f& camera,
-      const Light& light,
-      const std::vector<std::shared_ptr<CompiledMeshMaterial>>&
-          overridden_materials);
+    private:
+        core::Rgb                       ambient_;
+        core::Rgb                       diffuse_;
+        core::Rgb                       specular_;
+        float                           shininess_;
+        std::shared_ptr<MaterialShader> shader_;
+        std::map<core::EnumValue, std::shared_ptr<Texture2d>> textures_;
+    };
 
-  void
-  BasicRender(
-      const mat4f&                    model_matrix,
-      const mat4f&                    projection_matrix,
-      const mat4f&                    view_matrix,
-      std::shared_ptr<MaterialShader> shader);
-};
+    // a collection of parts making up a mesh
+    class CompiledMesh
+    {
+    public:
+        std::vector<std::shared_ptr<CompiledMeshPart>> parts;
+        std::vector<CompiledMeshMaterial>              materials;
 
-std::shared_ptr<CompiledMesh>
-CompileMesh(
-    const Mesh&          mesh,
-    MaterialShaderCache* shader_cache,
-    TextureCache*        texture_cache,
-    const vfs::Path&          texture_folder);
+        std::vector<std::shared_ptr<CompiledMeshMaterial>>
+        GetNoOverriddenMaterials() const;
+
+        void
+        Render(
+            const core::mat4f& model_matrix,
+            const core::mat4f& projection_matrix,
+            const core::mat4f& view_matrix,
+            const core::vec3f& camera,
+            const Light& light,
+            const std::vector<std::shared_ptr<CompiledMeshMaterial>>&
+                overridden_materials);
+
+        void
+        BasicRender(
+            const core::mat4f&                    model_matrix,
+            const core::mat4f&                    projection_matrix,
+            const core::mat4f&                    view_matrix,
+            std::shared_ptr<MaterialShader> shader);
+    };
+
+    std::shared_ptr<CompiledMesh>
+    CompileMesh(
+        const core::Mesh&          mesh,
+        MaterialShaderCache* shader_cache,
+        TextureCache*        texture_cache,
+        const core::vfs::Path&          texture_folder);
+}
 
 #endif  // EUPHORIA_COMPILEDMESH_H

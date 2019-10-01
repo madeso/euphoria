@@ -5,29 +5,32 @@
 
 #include "render/gltypes.h"
 
-class Shader;
-
-class ShaderUniform
+namespace euphoria::render
 {
- public:
-  ShaderUniform(const ShaderUniform&) = default;
-  ShaderUniform(std::string aname, glint aid, Shader* ashader);
+  class Shader;
 
-  static const ShaderUniform&
-  Null();
+  class ShaderUniform
+  {
+  public:
+    ShaderUniform(const ShaderUniform&) = default;
+    ShaderUniform(std::string aname, glint aid, Shader* ashader);
+
+    static const ShaderUniform&
+    Null();
+
+    bool
+    IsNull() const;
+
+    std::string name;
+    glint       id;
+    Shader*     shader;
+
+  private:
+    ShaderUniform();  // creates a null shader
+  };
 
   bool
-  IsNull() const;
-
-  std::string name;
-  glint       id;
-  Shader*     shader;
-
- private:
-  ShaderUniform();  // creates a null shader
-};
-
-bool
-operator==(const ShaderUniform& lhs, const ShaderUniform& rhs);
+  operator==(const ShaderUniform& lhs, const ShaderUniform& rhs);
+}
 
 #endif  // RENDER_SHADERUNIFORM_H
