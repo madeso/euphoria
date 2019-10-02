@@ -8,69 +8,77 @@
 
 #include "gui/layoutdata.h"
 
-class UiState;
-class SpriteRenderer;
 
-struct Lrtb
+namespace euphoria::render
 {
-  float left;
-  float right;
-  float top;
-  float bottom;
-};
+  class SpriteRenderer;
+}
 
-class Widget
+namespace euphoria::gui
 {
- public:
-  std::string name;
-  Lrtb        margin;
-  Lrtb        padding;
+  class UiState;
 
-  explicit Widget(UiState* state);
-  virtual ~Widget();
+  struct Lrtb
+  {
+    float left;
+    float right;
+    float top;
+    float bottom;
+  };
 
-  bool
-  IsActive() const;
-  bool
-  IsHot() const;
+  class Widget
+  {
+  public:
+    std::string name;
+    Lrtb        margin;
+    Lrtb        padding;
 
-  virtual void
-  Step(float dt) = 0;
-  virtual void
-  OnSize();
+    explicit Widget(UiState* state);
+    virtual ~Widget();
 
-  Rectf
-  GetClientRect() const;
+    bool
+    IsActive() const;
+    bool
+    IsHot() const;
 
-  Rectf
-  GetBackgroundRect() const;
+    virtual void
+    Step(float dt) = 0;
+    virtual void
+    OnSize();
 
-  void
-  SetRect(const Rectf& r);
+    core::Rectf
+    GetClientRect() const;
 
-  Sizef
-  GetPreferredSize() const;
+    core::Rectf
+    GetBackgroundRect() const;
 
-  virtual Sizef
-  CalculateMinimumSize() const = 0;
+    void
+    SetRect(const core::Rectf& r);
 
-  virtual void
-  Render(SpriteRenderer* renderer) const = 0;
+    core::Sizef
+    GetPreferredSize() const;
 
- protected:
-  const UiState&
-  GetState() const;
-  UiState*
-  GetStatePtr();
+    virtual core::Sizef
+    CalculateMinimumSize() const = 0;
 
- private:
-  UiState* state_;
+    virtual void
+    Render(render::SpriteRenderer* renderer) const = 0;
 
- public:
-  LayoutData layout;
+  protected:
+    const UiState&
+    GetState() const;
+    UiState*
+    GetStatePtr();
 
- private:
-  Rectf rect_;
-};
+  private:
+    UiState* state_;
+
+  public:
+    LayoutData layout;
+
+  private:
+    core::Rectf rect_;
+  };
+}
 
 #endif  // GUI_WIDGET_H

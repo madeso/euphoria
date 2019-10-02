@@ -8,34 +8,40 @@
 #include <memory>
 #include <vector>
 
-class Layout;
 
-std::shared_ptr<Layout>
-CreateTableLayout(
-    const std::vector<bool> expandable_rows,
-    const std::vector<bool> expandable_cols,
-    float                   combined_padding);
-std::shared_ptr<Layout>
-CreateSingleRowLayout(float padding);
-
-class LayoutContainer : public Container
+namespace euphoria::gui
 {
- public:
-  LayoutContainer();
-  virtual ~LayoutContainer();
+  class Layout;
 
-  void
-  SetLayout(std::shared_ptr<Layout> layout);
   std::shared_ptr<Layout>
-  GetLayout();
+  CreateTableLayout(
+      const std::vector<bool> expandable_rows,
+      const std::vector<bool> expandable_cols,
+      float                   combined_padding);
 
-  void
-  DoLayout(Rectf area);
-  Sizef
-  CalculateMinimumArea() const;
+  std::shared_ptr<Layout>
+  CreateSingleRowLayout(float padding);
 
- private:
-  std::shared_ptr<Layout> layout_;
-};
+  class LayoutContainer : public Container
+  {
+  public:
+    LayoutContainer();
+    virtual ~LayoutContainer();
+
+    void
+    SetLayout(std::shared_ptr<Layout> layout);
+    std::shared_ptr<Layout>
+    GetLayout();
+
+    void
+    DoLayout(core::Rectf area);
+
+    core::Sizef
+    CalculateMinimumArea() const;
+
+  private:
+    std::shared_ptr<Layout> layout_;
+  };
+}
 
 #endif  // GUI_LAYOUTCONTAINER_H

@@ -4,21 +4,27 @@
 #include "gui/widget.h"
 #include "gui/layoutcontainer.h"
 
-class PanelWidget : public Widget
+namespace euphoria::gui
 {
- public:
-  PanelWidget(UiState* state);
+  class PanelWidget : public Widget
+  {
+  public:
+    PanelWidget(UiState* state);
 
-  void
-  Render(SpriteRenderer* renderer) const override;
+    void
+    Render(render::SpriteRenderer* renderer) const override;
 
-  void
-  OnSize() override;
-  Sizef
-  CalculateMinimumSize() const override;
-  void
-  Step(float dt) override;
-  LayoutContainer container;
-};
+    void
+    OnSize() override;
+
+    core::Sizef
+    CalculateMinimumSize() const override;
+    
+    void
+    Step(float dt) override;
+    
+    LayoutContainer container;
+  };
+}
 
 #endif  // GUI_PANELWIDGET_H

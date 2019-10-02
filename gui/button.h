@@ -10,49 +10,56 @@
 
 #include <memory>
 
-
-class ScalableSprite;
-class Skin;
-class ButtonState;
-
-class Button : public Widget
+namespace euphoria::render
 {
- public:
-  Button(UiState* state);
-  ~Button();
+  class ScalableSprite;
+}
 
-  virtual void
-  OnClicked() = 0;
+namespace euphoria::gui
+{
+  class Skin;
+  class ButtonState;
 
-  void
-  Step(float dt) override;
-  Sizef
-  CalculateMinimumSize() const override;
+  class Button : public Widget
+  {
+  public:
+    Button(UiState* state);
+    ~Button();
 
-  void
-  Render(SpriteRenderer* renderer) const override;
+    virtual void
+    OnClicked() = 0;
 
-  TextData&
-  Text();
+    void
+    Step(float dt) override;
 
-  void
-  SetSprite(std::shared_ptr<ScalableSprite> sprite);
+    core::Sizef
+    CalculateMinimumSize() const override;
 
-  void
-  OnSize() override;
-  void
-  SetSkin(Skin* skin);
+    void
+    Render(render::SpriteRenderer* renderer) const override;
 
- private:
-  ButtonState*                    last_state_;
-  std::shared_ptr<ScalableSprite> sprite_;
-  TextData                        text_;
-  Skin*                           skin_;
+    TextData&
+    Text();
 
-  Interpolate<float, FloatTransform>     scale_;
-  Interpolate<Rgb, RgbTransform>         image_color_;
-  Interpolate<Rgb, RgbTransform>         text_color_;
-  Interpolate<vec2f, Vec2fTransform> position_displacement_;
-};
+    void
+    SetSprite(std::shared_ptr<render::ScalableSprite> sprite);
 
+    void
+    OnSize() override;
+
+    void
+    SetSkin(Skin* skin);
+
+  private:
+    ButtonState*                    last_state_;
+    std::shared_ptr<render::ScalableSprite> sprite_;
+    TextData                        text_;
+    Skin*                           skin_;
+
+    core::Interpolate<float, core::FloatTransform>     scale_;
+    core::Interpolate<core::Rgb, core::RgbTransform>         image_color_;
+    core::Interpolate<core::Rgb, core::RgbTransform>         text_color_;
+    core::Interpolate<core::vec2f, core::Vec2fTransform> position_displacement_;
+  };
+}
 #endif  // GUI_BUTTON_H

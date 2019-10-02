@@ -9,40 +9,54 @@
 #include <vector>
 #include <memory>
 
-class FontCache;
-class TextureCache;
-class Skin;
-namespace vfs
+
+namespace euphoria::core
 {
-class FileSystem;
+  namespace vfs
+  {
+    class FileSystem;
+  }
 }
-class Texture2d;
 
-class Root
+namespace euphoria::render
 {
- public:
-  Root(const Sizef& size);
-  ~Root();
-  bool
-  Load(
-      vfs::FileSystem*        fs,
-      FontCache*         font,
-      const std::string& path,
-      TextureCache*      cache);
+  class Texture2d;
+  class FontCache;
+  class TextureCache;
+}
 
-  void
-  SetInputMouse(const vec2f& pos, bool down);
-  void
-  Step(float dt);
-  void
-  Render(SpriteRenderer* sp) const;
+namespace euphoria::gui
+{
+  class Skin;
+  class Root
+  {
+  public:
+    Root(const core::Sizef& size);
+    ~Root();
 
-  std::vector<std::shared_ptr<Skin>> skins_;
-  Sizef                              size_;
-  UiState                            state_;
-  LayoutContainer                    container_;
-  std::shared_ptr<Texture2d>         cursor_image;
-  std::shared_ptr<Texture2d>         hover_image;
-};
+    bool
+    Load(
+        core::vfs::FileSystem*        fs,
+        render::FontCache*         font,
+        const std::string& path,
+        render::TextureCache*      cache);
+
+    void
+    SetInputMouse(const core::vec2f& pos, bool down);
+    
+    void
+    Step(float dt);
+
+    void
+    Render(render::SpriteRenderer* sp) const;
+
+    std::vector<std::shared_ptr<Skin>> skins_;
+    core::Sizef                              size_;
+    UiState                            state_;
+    LayoutContainer                    container_;
+    std::shared_ptr<render::Texture2d>         cursor_image;
+    std::shared_ptr<render::Texture2d>         hover_image;
+  };
+}
 
 #endif  // GUI_ROOT_H

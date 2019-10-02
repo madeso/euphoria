@@ -7,47 +7,54 @@
 #include "core/rgb.h"
 #include "core/interpolate.h"
 
-class Font;
-
-class ButtonState
+namespace euphoria::render
 {
- public:
-  ButtonState();
-  ~ButtonState();
+  class Font;
+}
 
-  // std::string image;
-  float scale;
-  Rgb   image_color;
-  Rgb   text_color;
-  float dx;
-  float dy;
 
-  InterpolationType interpolationPosition;
-  float             interpolationPositionTime;
-
-  InterpolationType interpolationColor;
-  float             interpolationColorTime;
-
-  InterpolationType interpolationSize;
-  float             interpolationSizeTime;
-};
-
-class Skin
+namespace euphoria::gui
 {
- public:
-  Skin();
-  ~Skin();
+  class ButtonState
+  {
+  public:
+    ButtonState();
+    ~ButtonState();
 
-  std::string name;
+    // std::string image;
+    float scale;
+    core::Rgb   image_color;
+    core::Rgb   text_color;
+    float dx;
+    float dy;
 
-  std::shared_ptr<Font> font;
+    core::InterpolationType interpolationPosition;
+    float             interpolationPositionTime;
 
-  float text_size;
+    core::InterpolationType interpolationColor;
+    float             interpolationColorTime;
 
-  std::string button_image;
-  ButtonState button_idle;
-  ButtonState button_hot;
-  ButtonState button_active_hot;
-};
+    core::InterpolationType interpolationSize;
+    float             interpolationSizeTime;
+  };
+
+  class Skin
+  {
+  public:
+    Skin();
+    ~Skin();
+
+    std::string name;
+
+    std::shared_ptr<render::Font> font;
+
+    float text_size;
+
+    std::string button_image;
+    ButtonState button_idle;
+    ButtonState button_hot;
+    ButtonState button_active_hot;
+  };
+}
 
 #endif  // GUI_SKIN_H

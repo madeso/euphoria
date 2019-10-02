@@ -1,37 +1,44 @@
 #ifndef GUI_LAYOUTDATA_H
 #define GUI_LAYOUTDATA_H
 
-class LayoutData
+namespace euphoria::gui
 {
- public:
-  LayoutData();
-  ~LayoutData();
+  class LayoutData
+  {
+  public:
+    LayoutData();
+    ~LayoutData();
 
-  int
-  GetColumn() const;
-  LayoutData&
-  SetColumn(int c);
+    int
+    GetColumn() const;
+    
+    LayoutData&
+    SetColumn(int c);
 
-  int
-  GetRow() const;
-  LayoutData&
-  SetRow(int r);
+    int
+    GetRow() const;
 
-  float
-  GetPreferredWidth() const;
-  LayoutData&
-  SetPreferredWidth(float w);
+    LayoutData&
+    SetRow(int r);
 
-  float
-  GetPreferredHeight() const;
-  LayoutData&
-  SetPreferredHeight(float h);
+    float
+    GetPreferredWidth() const;
 
- private:
-  int   column_;
-  int   row_;
-  float preferred_width_;
-  float preferred_height_;
-};
+    LayoutData&
+    SetPreferredWidth(float w);
+
+    float
+    GetPreferredHeight() const;
+
+    LayoutData&
+    SetPreferredHeight(float h);
+
+  private:
+    int   column_;
+    int   row_;
+    float preferred_width_;
+    float preferred_height_;
+  };
+}
 
 #endif  // GUI_LAYOUTDATA_H

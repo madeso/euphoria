@@ -3,31 +3,34 @@
 
 #include "core/vec2.h"
 
-class Widget;
-
-class UiState
+namespace euphoria::gui
 {
- public:
-  UiState();
+  class Widget;
 
-  vec2f mouse;
-  bool    mouse_down;
+  class UiState
+  {
+  public:
+    UiState();
 
-  Widget* hot;
-  Widget* active;
-  bool    has_active;
+    core::vec2f mouse;
+    bool    mouse_down;
 
-  void
-  Begin();
-  void
-  End();
+    Widget* hot;
+    Widget* active;
+    bool    has_active;
 
-  void
-  SetHot(Widget* w);
-  void
-  SetActive(Widget* w);
-  bool
-  IsMouseDown() const;
-};
+    void
+    Begin();
+    void
+    End();
+
+    void
+    SetHot(Widget* w);
+    void
+    SetActive(Widget* w);
+    bool
+    IsMouseDown() const;
+  };
+}
 
 #endif  // GUI_UISTATE_H

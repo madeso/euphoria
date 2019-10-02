@@ -4,44 +4,54 @@
 #include <memory>
 #include <string>
 
-class Font;
-class Text;
 
-class TextData
+namespace euphoria::render
 {
- public:
-  TextData();
-  ~TextData();
+  class Font;
+  class Text;
+}
 
-  void
-  SetFont(std::shared_ptr<Font> font);
-  const Font&
-  GetFont() const;
-  void
-  SetString(const std::string& str);
-  const std::string&
-  GetString() const;
+namespace euphoria::gui
+{
+  class TextData
+  {
+  public:
+    TextData();
+    ~TextData();
 
-  bool
-  HasText() const;
+    void
+    SetFont(std::shared_ptr<render::Font> font);
 
-  const Text&
-  GetText() const;
+    const render::Font&
+    GetFont() const;
 
-  Text&
-  GetText();
+    void
+    SetString(const std::string& str);
 
-  void
-  SetSize(float size);
+    const std::string&
+    GetString() const;
 
- private:
-  void
-                        UpdateText();
-  std::shared_ptr<Font> font_;
-  std::string           string_;
-  float                 size;
+    bool
+    HasText() const;
 
-  std::shared_ptr<Text> text_;
-};
+    const render::Text&
+    GetText() const;
+
+    render::Text&
+    GetText();
+
+    void
+    SetSize(float size);
+
+  private:
+    void
+                          UpdateText();
+    std::shared_ptr<render::Font> font_;
+    std::string           string_;
+    float                 size;
+
+    std::shared_ptr<render::Text> text_;
+  };
+}
 
 #endif  // GUI_TEXTDATA_H

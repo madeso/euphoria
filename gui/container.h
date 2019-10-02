@@ -4,29 +4,36 @@
 #include <memory>
 #include <vector>
 
-class Widget;
-class SpriteRenderer;
-
-class Container
+namespace euphoria::render
 {
- public:
-  Container();
-  ~Container();
+  class SpriteRenderer;
+}
 
-  bool
-  HasWidgets() const;
+namespace euphoria::gui
+{
+  class Widget;
 
-  void
-  Add(std::shared_ptr<Widget> widget);
+  class Container
+  {
+  public:
+    Container();
+    ~Container();
 
-  void
-  Step(float dt);
+    bool
+    HasWidgets() const;
 
-  void
-  Render(SpriteRenderer* renderer) const;
+    void
+    Add(std::shared_ptr<Widget> widget);
 
- protected:
-  std::vector<std::shared_ptr<Widget>> widgets_;
-};
+    void
+    Step(float dt);
+
+    void
+    Render(render::SpriteRenderer* renderer) const;
+
+  protected:
+    std::vector<std::shared_ptr<Widget>> widgets_;
+  };
+}
 
 #endif  // GUI_CONTAINER_H
