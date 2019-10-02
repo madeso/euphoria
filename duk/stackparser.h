@@ -14,7 +14,7 @@
 #include "duk/registeredclass.h"
 #include "duk/optional.h"
 
-namespace duk
+namespace euphoria::duk
 {
   std::string
   ArgumentError(int arg, const std::string& err);
@@ -28,7 +28,7 @@ namespace duk
   struct StackParser<
       TT,
       std::enable_if_t<
-          !std::is_arithmetic<TT>::value && !IsVector<TT>::value &&
+          !std::is_arithmetic<TT>::value && !core::IsVector<TT>::value &&
           !IsOptional<TT>::value>>
   {
     using T = typename std::decay<TT>::type;
@@ -58,7 +58,7 @@ namespace duk
           {
             return ArgumentError(
                 arg,
-                Str() << "expected " << self_type->name << " but got "
+                core::Str() << "expected " << self_type->name << " but got "
                       << id->name);
           }
           else
@@ -231,7 +231,7 @@ namespace duk
           {
             return ArgumentError(
                 arg,
-                Str() << "array[" << i << "] (size: " << array_size
+                core::Str() << "array[" << i << "] (size: " << array_size
                       << ") has type error: "
                       << match);
           }
@@ -264,7 +264,7 @@ namespace duk
     static std::string
     Name(Context* ctx)
     {
-      return Str() << "[" << StackParser<T>::Name(ctx) << "]";
+      return core::Str() << "[" << StackParser<T>::Name(ctx) << "]";
     }
   };
 
@@ -306,7 +306,7 @@ namespace duk
     static std::string
     Name(Context* ctx)
     {
-      return Str() << StackParser<T>::Name(ctx) << "?";
+      return core::Str() << StackParser<T>::Name(ctx) << "?";
     }
   };
 }

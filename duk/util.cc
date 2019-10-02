@@ -10,10 +10,11 @@
 
 #include "duktape/duktape.h"
 
-LOG_SPECIFY_DEFAULT_LOGGER("engine.duk")
 
-namespace duk
+namespace euphoria::duk
 {
+  LOG_SPECIFY_DEFAULT_LOGGER("engine.duk")
+
   std::vector<std::string>
   CollectTypesOfVar(duk_context* ctx, int index)
   {
@@ -159,15 +160,15 @@ namespace duk
       while(duk_next(ctx, -1, 1))
       {
         values.emplace_back(
-            Str() << duk_to_string(ctx, -2) << ": " << duk_to_string(ctx, -1));
+            core::Str() << duk_to_string(ctx, -2) << ": " << duk_to_string(ctx, -1));
         duk_pop_2(ctx);
       }
       duk_pop(ctx);  // enum object
     }
 
     std::stringstream ss;
-    ss << StringMerger::EnglishAnd().Generate(types) << ": "
-       << StringMerger::Array().Generate(values);
+    ss << core::StringMerger::EnglishAnd().Generate(types) << ": "
+       << core::StringMerger::Array().Generate(values);
     return ss.str();
   }
 
@@ -198,7 +199,7 @@ namespace duk
       *error = VarToString(ctx, -1);
     }
 
-    if(Trim(*error).empty())
+    if(core::Trim(*error).empty())
     {
       *error = "<unknown error>";
     }

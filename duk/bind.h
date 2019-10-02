@@ -7,7 +7,7 @@
 #include "duk/function.h"
 #include "duk/genericfunction.h"
 
-namespace duk
+namespace euphoria::duk
 {
   template <typename... TArgs, typename Func>
   std::shared_ptr<Function>

@@ -1,6 +1,6 @@
 #include "duk/stackparser.h"
 
-namespace duk
+namespace euphoria::duk
 {
   std::string
   ArgumentError(int arg, const std::string& err)
@@ -25,6 +25,6 @@ namespace duk
         th = "th";
         break;
     }
-    return Str() << arg << th << " arg, " << err;
+    return core::Str() << arg << th << " arg, " << err;
   }
 }

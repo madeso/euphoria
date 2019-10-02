@@ -3,7 +3,7 @@
 #include "duktape/duktape.h"
 #include "core/log.h"
 
-namespace duk
+namespace euphoria::duk
 {
   LOG_SPECIFY_DEFAULT_LOGGER("engine.duk.storage")
 

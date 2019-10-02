@@ -8,7 +8,7 @@
 #include "duk/context.h"
 #include "core/cpp.h"
 
-namespace duk
+namespace euphoria::duk
 {
   template <typename T, typename TValid = void>
   struct PushVarImpl
@@ -71,7 +71,7 @@ namespace duk
   {
     // *Impl struct here to support template-ing char* strings
     // https://stackoverflow.com/a/6559891/180307
-    typedef typename ArrayToPointerDecay<T>::Type Type;
+    typedef typename core::ArrayToPointerDecay<T>::Type Type;
     PushVarImpl<Type>::Push(ctx, arg);
   }
 }

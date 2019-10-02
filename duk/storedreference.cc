@@ -1,6 +1,6 @@
 #include "duk/storedreference.h"
 
-namespace duk
+namespace euphoria::duk
 {
   StoredReference::StoredReference(void* ptr, ReferenceStorage* duk)
       : duk(duk)

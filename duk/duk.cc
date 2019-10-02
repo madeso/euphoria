@@ -12,7 +12,7 @@
 #include "duk/bindobject.h"
 #include "duk/bindclass.h"
 
-namespace duk
+namespace euphoria::duk
 {
   Duk::Duk()
       : Context(
@@ -162,14 +162,14 @@ namespace duk
     {
       const int index = -args + i;
 #if 1
-      const std::string err = Str() << GetDukType(ctx, index) << "="
+      const std::string err = core::Str() << GetDukType(ctx, index) << "="
                                     << VarToString(ctx->ctx, index);
       types.emplace_back(err);
 #else
       types.emplace_back(GetDukType(ctx, index));
 #endif
     }
-    return StringMerger::FunctionCall().Generate(types);
+    return core::StringMerger::FunctionCall().Generate(types);
   }
 
   template <typename T>
@@ -233,7 +233,7 @@ namespace duk
       }
       else
       {
-        std::string described = Str() << "- " << function->Describe(&context)
+        std::string described = core::Str() << "- " << function->Describe(&context)
                                       << ": " << match_error;
 
         const auto arguments = DescribeArguments(&context);
@@ -361,7 +361,7 @@ namespace duk
     }
 
     void*             prototype  = duk_get_heapptr(ctx, -1);
-    const std::string proto_name = Str() << DUK_HIDDEN_SYMBOL("proto") << name;
+    const std::string proto_name = core::Str() << DUK_HIDDEN_SYMBOL("proto") << name;
     duk_put_global_string(ctx, proto_name.c_str());  // empty stack
 
     classIds.insert(std::make_pair(
@@ -381,12 +381,12 @@ namespace duk
   }
 
   RegisteredClass*
-  Duk::TypeToProto(TypeId id CLASS_ARG(TypeName name))
+  Duk::TypeToProto(core::TypeId id CLASS_ARG(core::TypeName name))
   {
     const auto found = classIds.find(id);
     if(found == classIds.end())
     {
-      const std::string error = Str()
+      const std::string error = core::Str()
                                 << "class not added" CLASS_NAME(": " << name);
       DIE(error.c_str());
       return nullptr;

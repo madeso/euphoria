@@ -3,7 +3,7 @@
 
 #include <string>
 
-namespace duk
+namespace euphoria::duk
 {
   class Context;
 

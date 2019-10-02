@@ -14,7 +14,7 @@
 #include "duk/context.h"
 #include "duk/stackparser.h"
 
-namespace duk
+namespace euphoria::duk
 {
   template <typename Callback, typename... TArgs>
   class GenericFunction : public Function
@@ -38,10 +38,10 @@ namespace duk
       const std::size_t argument_count =
           std::count(required.begin(), required.end(), true);
       const std::size_t max_argument_count = sizeof...(TArgs);
-      if(!IsWithin(MakeRange(argument_count, max_argument_count), passed_argument_count))
+      if(!IsWithin(core::MakeRange(argument_count, max_argument_count), passed_argument_count))
       {
         // todo: smaller error message when both max and min are the same
-        return Str{} << "expected " << argument_count << " to "
+        return core::Str{} << "expected " << argument_count << " to "
                      << max_argument_count << " argument(s) but got "
                      << passed_argument_count << ".";
       }
@@ -87,10 +87,10 @@ namespace duk
     std::string
     Describe(Context* ctx) const override
     {
-      NotUsed(ctx);
+      core::NotUsed(ctx);
       const std::vector<std::string> type_names = {
           StackParser<TArgs>::Name(ctx)...};
-      return StringMerger::FunctionCall().Generate(type_names);
+      return core::StringMerger::FunctionCall().Generate(type_names);
     }
   };
 }

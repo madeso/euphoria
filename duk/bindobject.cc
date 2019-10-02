@@ -1,6 +1,6 @@
 #include "duk/bindobject.h"
 
-namespace duk
+namespace euphoria::duk
 {
   ObjectBinder&
   ObjectBinder::AddFunction(

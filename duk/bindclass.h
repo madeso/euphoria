@@ -11,12 +11,12 @@
 
 #include "duk/function.h"
 
-namespace duk
+namespace euphoria::duk
 {
   class ClassBinder
   {
    public:
-    explicit ClassBinder(TypeId i);
+    explicit ClassBinder(core::TypeId i);
 
     // todo: add constructor
 
@@ -32,7 +32,7 @@ namespace duk
         const std::shared_ptr<Function>& get,
         const std::shared_ptr<Function>& set);
 
-    TypeId                    id;
+    core::TypeId                    id;
     std::shared_ptr<Function> constructor;
 
     struct Method

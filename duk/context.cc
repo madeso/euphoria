@@ -7,7 +7,7 @@
 #include "duk/duk.h"
 #include "duk/registeredclass.h"
 
-namespace duk
+namespace euphoria::duk
 {
   Context::Context(duk_context* c, Duk* d)
       : ctx(c)
@@ -67,7 +67,7 @@ namespace duk
   }
 
   RegisteredClass*
-  Context::TypeToProto(TypeId id CLASS_ARG(TypeName name))
+  Context::TypeToProto(core::TypeId id CLASS_ARG(core::TypeName name))
   {
     return duk->TypeToProto(id CLASS_ARG(name));
   }
@@ -190,9 +190,9 @@ namespace duk
   int
   Context::ReturnObject(
       void*          object,
-      TypeId         type,
+      core::TypeId         type,
       duk_c_function finalizer,
-      void* data CLASS_ARG(TypeName name))
+      void* data CLASS_ARG(core::TypeName name))
   {
     if(object == nullptr)
     {

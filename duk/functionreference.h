@@ -10,7 +10,7 @@
 #include "duk/stackparser.h"
 #include "duk/pushvar.h"
 
-namespace duk
+namespace euphoria::duk
 {
   class Context;
 
@@ -128,7 +128,7 @@ namespace duk
     // todo: handle invalid return type
     DIE("Invalid return type");
 
-    return Default<TReturn>();
+    return core::Default<TReturn>();
   }
 
   template <typename... TArgs>

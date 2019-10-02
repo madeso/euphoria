@@ -13,7 +13,7 @@
 #include "duk/config.h"
 #include "duk/function.h"
 
-namespace duk
+namespace euphoria::duk
 {
   class ObjectBinder;
 
@@ -60,7 +60,7 @@ namespace duk
     CreateFunction(const std::shared_ptr<Function>& overload);
 
     RegisteredClass*
-    TypeToProto(TypeId id CLASS_ARG(TypeName name));
+    TypeToProto(core::TypeId id CLASS_ARG(core::TypeName name));
 
     ReferenceStorage references;
 
@@ -68,7 +68,7 @@ namespace duk
 
     std::vector<std::shared_ptr<Function>> functions;
 
-    std::unordered_map<TypeId, std::shared_ptr<RegisteredClass>> classIds;
+    std::unordered_map<core::TypeId, std::shared_ptr<RegisteredClass>> classIds;
   };
 }
 

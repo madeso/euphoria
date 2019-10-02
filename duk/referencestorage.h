@@ -5,7 +5,7 @@
 
 #include "duk/types.h"
 
-namespace duk
+namespace euphoria::duk
 {
   class ReferenceStorage
   {

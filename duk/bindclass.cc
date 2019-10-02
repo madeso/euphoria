@@ -1,8 +1,8 @@
 #include "duk/bindclass.h"
 
-namespace duk
+namespace euphoria::duk
 {
-  ClassBinder::ClassBinder(TypeId i)
+  ClassBinder::ClassBinder(core::TypeId i)
       : id(i)
   {
   }

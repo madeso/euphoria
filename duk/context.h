@@ -12,7 +12,7 @@
 #include "duk/objectreference.h"
 #include "duk/util.h"
 
-namespace duk
+namespace euphoria::duk
 {
   class RegisteredClass;
 
@@ -51,7 +51,7 @@ namespace duk
     GetObjectType(int index);
 
     RegisteredClass*
-    TypeToProto(TypeId id CLASS_ARG(TypeName name));
+    TypeToProto(core::TypeId id CLASS_ARG(core::TypeName name));
 
     void*
     GetObjectPtr(int index);
@@ -115,9 +115,9 @@ namespace duk
     int
     ReturnObject(
         void*          object,
-        TypeId         type,
+        core::TypeId         type,
         duk_c_function finalizer,
-        void* data CLASS_ARG(TypeName name));
+        void* data CLASS_ARG(core::TypeName name));
 
     template <typename T>
     int

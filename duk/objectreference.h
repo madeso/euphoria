@@ -8,7 +8,7 @@
 
 #include "duk/config.h"
 
-namespace duk
+namespace euphoria::duk
 {
   class StoredReference;
   class Duk;
@@ -35,7 +35,7 @@ namespace duk
         Context*           ctx,
         const std::string& name,
         void*              object,
-        TypeId type CLASS_ARG(TypeName classname));
+        core::TypeId type CLASS_ARG(core::TypeName classname));
 
     template <typename T>
     void

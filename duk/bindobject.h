@@ -6,7 +6,7 @@
 
 #include "duk/bind.h"
 
-namespace duk
+namespace euphoria::duk
 {
   class ObjectBinder
   {

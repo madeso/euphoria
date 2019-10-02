@@ -4,7 +4,7 @@
 // todo: remove this include
 #include "duk/referencestorage.h"
 
-namespace duk
+namespace euphoria::duk
 {
   class StoredReference
   {

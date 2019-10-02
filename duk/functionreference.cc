@@ -4,7 +4,7 @@
 
 #include "duk/duk.h"
 
-namespace duk
+namespace euphoria::duk
 {
   FunctionReference::FunctionReference(void* ptr)
       : function(ptr)

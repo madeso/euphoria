@@ -4,7 +4,7 @@
 #include <string>
 #include "duk/types.h"
 
-namespace duk
+namespace euphoria::duk
 {
   std::string
   VarToString(duk_context* ctx, int index);

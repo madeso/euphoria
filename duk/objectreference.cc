@@ -7,7 +7,7 @@
 #include "duk/duk.h"
 #include "duk/storedreference.h"
 
-namespace duk
+namespace euphoria::duk
 {
   ObjectReference::ObjectReference()
       : ptr(nullptr)
@@ -44,7 +44,7 @@ namespace duk
       Context*           ctx,
       const std::string& name,
       void*              object,
-      TypeId type CLASS_ARG(TypeName classname))
+      core::TypeId type CLASS_ARG(core::TypeName classname))
   {
     ASSERT(ctx);
     duk_push_heapptr(ctx->ctx, ptr);

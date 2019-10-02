@@ -2,7 +2,7 @@
 #define EUPHORIA_DUK_OPTIONAL_H
 
 
-namespace duk
+namespace euphoria::duk
 {
   template <typename T>
   struct Optional

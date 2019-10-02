@@ -1,6 +1,6 @@
 #include "duk/bind.h"
 
-namespace duk
+namespace euphoria::duk
 {
   std::shared_ptr<Function>
   MakeNoBind()

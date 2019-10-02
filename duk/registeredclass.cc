@@ -1,6 +1,6 @@
 #include "duk/registeredclass.h"
 
-namespace duk
+namespace euphoria::duk
 {
   RegisteredClass::RegisteredClass(const std::string& n, void* p)
       : name(n)
