@@ -2,6 +2,8 @@
 
 namespace euphoria::core
 {
+  using namespace euphoria::convert;
+  
   FpsController::FpsController()
       : rotation_(0.0_rad)
       , look_(0.0_rad)
