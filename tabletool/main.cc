@@ -30,7 +30,7 @@ main(int argc, char* argv[])
   {
     auto parser = argparse::Parser{"csvtool"};
 
-    parser.AddSimple("-format", &format);
+    parser.AddSimple("-format", &format).Help("The CSV format used");
     parser.AddSimpleFunction("-simple", [&type]() { type = Type::Simple; });
     parser.AddSimpleFunction("-grid", [&type]() { type = Type::Grid; });
     parser.AddVector("files", &files).MetaVar("CSV-file");
