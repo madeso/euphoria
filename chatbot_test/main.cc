@@ -6,6 +6,8 @@
 #include "core/os.h"
 #include "core/vfs.h"
 
+using namespace euphoria::core;
+
 int
 main()
 {
