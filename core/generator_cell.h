@@ -11,10 +11,10 @@
 
 namespace euphoria::core
 {
+  class Random;
+}
 
-class Random;
-
-namespace generator
+namespace euphoria::core::generator
 {
   using World = Table<bool>;
 
@@ -58,8 +58,6 @@ namespace generator
   };
 }
 
-DECLARE_ENUM_LIST(generator::BorderControl)
-
-}
+DECLARE_ENUM_LIST(euphoria::core::generator::BorderControl)
 
 #endif  // CORE_GENERATOR_CELL_H

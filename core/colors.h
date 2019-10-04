@@ -146,10 +146,10 @@ enum class Color
   MAX_VALUE
 };
 
-DECLARE_ENUM_LIST(Color)
-
 unsigned int
 ToColorHex(Color color);
 }
+
+DECLARE_ENUM_LIST(euphoria::core::Color)
 
 #endif  // CORE_NAMED_COLORS_H

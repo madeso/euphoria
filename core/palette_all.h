@@ -7,10 +7,10 @@
 
 namespace euphoria::core
 {
+  struct Palette;
+}
 
-struct Palette;
-
-namespace palette
+namespace euphoria::core::palette
 {
   enum class PaletteName
   {
@@ -116,9 +116,8 @@ namespace palette
   const Palette& GetPalette(PaletteName name);
 }
 
-DECLARE_ENUM_LIST(palette::PaletteName)
+DECLARE_ENUM_LIST(euphoria::core::palette::PaletteName)
 
-}
 
 #endif  // EUPHORIA_PALETTE_ALL_H
 

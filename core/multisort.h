@@ -61,6 +61,7 @@ DefaultSortFunc(T lhs, T rhs)
   return lhs < rhs ? 1 : -1;
 }
 
+// todo(Gustav): this seems weird, replace with single argument? TableGeneration needs Self?
 template <typename T, typename Self>
 struct SortBuilder
 {

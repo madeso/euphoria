@@ -11,16 +11,13 @@
 #include "core/enumtostring.h"
 #include "core/stringmerger.h"
 
-namespace euphoria::core
-{
-
 // todo: mutiple names for subcommands
 // todo: groups
 // todo: examples that are validated during debug builds
 // todo: boolean attributes, [--value | --no-value] style
 // todo: break at 80/120 character width
 
-namespace argparse
+namespace euphoria::core::argparse
 {
   struct Parser;
 
@@ -446,9 +443,6 @@ namespace argparse
 
 }  // namespace argparse
 
-
-DECLARE_ENUM_LIST(argparse::ParseResult)
-
-}
+DECLARE_ENUM_LIST(euphoria::core::argparse::ParseResult)
 
 #endif  // CORE_ARGPARSE_H

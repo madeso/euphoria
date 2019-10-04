@@ -10,10 +10,10 @@
 
 namespace euphoria::core
 {
+  class Random;
+}
 
-class Random;
-
-namespace generator
+namespace euphoria::core::generator
 {
   namespace Cell
   {
@@ -101,8 +101,7 @@ namespace generator
   };
 }
 
-DECLARE_ENUM_LIST(generator::Dir)
+DECLARE_ENUM_LIST(euphoria::core::generator::Dir)
 
-}
 
 #endif  // CORE_GENERATOR_MAZE_H
