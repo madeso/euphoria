@@ -36,19 +36,18 @@
 #include "window/imguilibrary.h"
 #include "window/timer.h"
 #include "window/imgui_ext.h"
-#include "window/fpscontroller.h"
+// #include "window/fpscontroller.h"
 #include "window/sdllibrary.h"
 #include "window/sdlwindow.h"
 #include "window/sdlglcontext.h"
 #include "window/filesystem.h"
 #include "window/engine.h"
+#include "window/canvas.h"
 
 #include "imgui/imgui.h"
 #include <SDL.h>
 #include <iostream>
 #include <memory>
-
-#include "painter/canvas.h"
 
 
 #define IMGUI_DEFINE_MATH_OPERATORS
@@ -56,6 +55,10 @@
 #include "window/imgui_ext.h"
 
 LOG_SPECIFY_DEFAULT_LOGGER("painter")
+
+using namespace euphoria::core;
+using namespace euphoria::render;
+using namespace euphoria::window;
 
 int
 main(int argc, char** argv)
