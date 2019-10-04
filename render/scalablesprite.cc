@@ -16,6 +16,8 @@
 
 #include "core/tablelayout.h"
 
+using namespace euphoria::convert;
+
 ////////////////////////////////////////////////////////////////////////////////
 
 namespace euphoria::render

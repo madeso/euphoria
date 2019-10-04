@@ -20,9 +20,10 @@ namespace euphoria::render
 
   struct DrawData
   {
-    core::Angle rotation = 0.0_rad;
-    core::scale2f scale    = core::scale2f(1, 1);
-    core::Rgba  tint     = core::Rgba(core::Color::White);
+    DrawData();
+    core::Angle rotation;
+    core::scale2f scale;
+    core::Rgba  tint;
 
     DrawData&
     Rotation(const core::Angle& r);

@@ -6,6 +6,8 @@
 
 #include "render/spriterender.h"
 
+using namespace euphoria::convert;
+
 namespace euphoria::render
 {
 

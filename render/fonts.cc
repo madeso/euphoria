@@ -26,6 +26,8 @@
 #include <ft2build.h>
 #include FT_FREETYPE_H
 
+using namespace euphoria::convert;
+
 namespace euphoria::render
 {
 

@@ -5,10 +5,19 @@
 #include "render/gl.h"
 #include "render/bufferbuilder2d.h"
 
+using namespace euphoria::convert;
+
 namespace euphoria::render
 {
 
   //////////////////////////////////////////////////////////////////////////
+
+  DrawData::DrawData()
+  : rotation(0.0_rad),
+    scale    (core::scale2f(1, 1)),
+    tint     (core::Rgba(core::Color::White))
+  {
+  }
 
   DrawData&
   DrawData::Rotation(const core::Angle& r)
