@@ -41,12 +41,11 @@
   {
     template <typename T>
     void
-    TYPEINFO_UselessFunction();
-
-    #define TYPEID_SETUP_TYPE(X) \
-      template <>                \
-      void TYPEINFO_UselessFunction<X>()    
+    TYPEINFO_UselessFunction();  
   }
+  #define TYPEID_SETUP_TYPE(X) \
+      template <>                \
+      void euphoria::core::TYPEINFO_UselessFunction<X>()  
 #endif
 
 
