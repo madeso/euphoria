@@ -5,7 +5,7 @@
 
 #include <imgui/imgui.h>
 
-namespace euphoria::editor
+namespace euphoria::window
 {
   struct CanvasConfig
   {

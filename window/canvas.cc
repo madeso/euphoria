@@ -1,4 +1,4 @@
-#include "editor/canvas.h"
+#include "window/canvas.h"
 
 #define IMGUI_DEFINE_MATH_OPERATORS
 #include "imgui/imgui_internal.h"
@@ -8,7 +8,7 @@
 using namespace euphoria::core;
 using euphoria::window::C;
 
-namespace euphoria::editor
+namespace euphoria::window
 {
   void
   Canvas::ShowGrid(const CanvasConfig& cc)

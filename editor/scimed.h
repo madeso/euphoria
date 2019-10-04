@@ -5,7 +5,7 @@
 
 #include "core/vec2.h"
 
-#include "editor/canvas.h"
+#include "window/canvas.h"
 
 #include "gaf_scalingsprite.h"
 
@@ -37,12 +37,12 @@ namespace euphoria::editor
     std::shared_ptr<scalingsprite::ScalingSprite> scaling;
 
     std::shared_ptr<render::Texture2d> texture;
-    Canvas                     canvas;
+    window::Canvas                     canvas;
     core::vec2i                    mouse_popup = core::vec2i{0, 0};
     LineHoverData              hover;
 
     bool
-    Run(const CanvasConfig& cc, const ScimedConfig& scc);
+    Run(const window::CanvasConfig& cc, const ScimedConfig& scc);
   };
 }
 

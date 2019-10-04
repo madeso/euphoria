@@ -12,12 +12,13 @@
 #include "window/imgui_ext.h"
 #include "window/imgui_icons.h"
 
-#include "editor/canvas.h"
+// #include "window/canvas.h"
 
 #include <iomanip>
 #include <algorithm>
 
 using namespace euphoria::core;
+using namespace euphoria::window;
 
 namespace euphoria::editor
 {
