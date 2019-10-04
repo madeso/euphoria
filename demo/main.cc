@@ -13,6 +13,7 @@
 #include "core/range.h"
 #include "core/camera.h"
 #include "core/palette.h"
+#include "core/fpscontroller.h"
 
 #include <render/init.h>
 #include <render/debuggl.h>
@@ -29,18 +30,21 @@
 #include "window/imguilibrary.h"
 #include "window/timer.h"
 #include "window/imgui_ext.h"
-#include "window/fpscontroller.h"
 #include "window/sdllibrary.h"
 #include "window/sdlwindow.h"
 #include "window/sdlglcontext.h"
 #include "window/filesystem.h"
 #include "window/engine.h"
+#include "window/key.h"
 
 #include "imgui/imgui.h"
 #include <SDL.h>
 #include <iostream>
 #include <memory>
 
+using namespace euphoria::core;
+using namespace euphoria::render;
+using namespace euphoria::window;
 
 struct CubeAnimation
 {
@@ -320,7 +324,7 @@ main(int argc, char** argv)
         {
           const bool down = e.type == SDL_KEYDOWN;
 
-          fps.HandleSdlKey(e.key.keysym.sym, down);
+          fps.HandleKey(ToKey(e.key.keysym), down);
 
           switch(e.key.keysym.sym)
           {
