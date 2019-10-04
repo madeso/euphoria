@@ -16,6 +16,7 @@
 #include "core/stdutils.h"
 #include "core/proto.h"
 #include "core/log.h"
+#include "core/fpscontroller.h"
 
 #include <render/init.h>
 #include <render/debuggl.h>
@@ -32,7 +33,6 @@
 #include "window/imguilibrary.h"
 #include "window/timer.h"
 #include "window/imgui_ext.h"
-#include "window/fpscontroller.h"
 #include "window/sdllibrary.h"
 #include "window/sdlwindow.h"
 #include "window/sdlglcontext.h"
@@ -52,6 +52,11 @@
 #include "gaf_enum.h"
 
 LOG_SPECIFY_DEFAULT_LOGGER("editor")
+
+using namespace euphoria::core;
+using namespace euphoria::render;
+using namespace euphoria::window;
+using namespace euphoria::editor;
 
 ImVec2
 operator+(const ImVec2& lhs, const ImVec2& rhs)

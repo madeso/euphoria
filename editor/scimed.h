@@ -9,36 +9,41 @@
 
 #include "gaf_scalingsprite.h"
 
-class Texture2d;
-class TextureCache;
-
-struct LineHoverData
+namespace euphoria::render
 {
-  int vertical_index   = -1;
-  int horizontal_index = -1;
-};
+  class Texture2d;
+  class TextureCache;
+}
 
-struct ScimedConfig
+namespace euphoria::editor
 {
-  int          sizer_distance      = 20;
-  int          sizer_text_distance = 23;
-  int          anchor_size         = 6;
-  unsigned int sizer_color         = IM_COL32(0, 0, 0, 255);
-  unsigned int split_color         = IM_COL32(0, 255, 0, 255);
-};
+  struct LineHoverData
+  {
+    int vertical_index   = -1;
+    int horizontal_index = -1;
+  };
 
-struct Scimed
-{
-  std::shared_ptr<scalingsprite::ScalingSprite> scaling;
+  struct ScimedConfig
+  {
+    int          sizer_distance      = 20;
+    int          sizer_text_distance = 23;
+    int          anchor_size         = 6;
+    unsigned int sizer_color         = IM_COL32(0, 0, 0, 255);
+    unsigned int split_color         = IM_COL32(0, 255, 0, 255);
+  };
 
-  std::shared_ptr<Texture2d> texture;
-  Canvas                     canvas;
-  vec2i                    mouse_popup = vec2i{0, 0};
-  LineHoverData              hover;
+  struct Scimed
+  {
+    std::shared_ptr<scalingsprite::ScalingSprite> scaling;
 
-  bool
-  Run(const CanvasConfig& cc, const ScimedConfig& scc);
-};
+    std::shared_ptr<render::Texture2d> texture;
+    Canvas                     canvas;
+    core::vec2i                    mouse_popup = core::vec2i{0, 0};
+    LineHoverData              hover;
 
+    bool
+    Run(const CanvasConfig& cc, const ScimedConfig& scc);
+  };
+}
 
 #endif  // EUPHORIA_SCIMED_H
