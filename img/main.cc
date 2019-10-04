@@ -10,6 +10,8 @@
 #include <sstream>
 #include <iomanip>
 
+using namespace euphoria::core;
+
 int main(int argc, char* argv[])
 {
   auto parser = argparse::Parser{"Apply filters to images"};
