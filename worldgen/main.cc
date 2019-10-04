@@ -17,6 +17,8 @@
 // later when doing floodfill
 // #include "core/colorbrewer.h"
 
+using namespace euphoria::core;
+
 struct Difference
 {
   int x; int y;
