@@ -4,6 +4,7 @@
 #include "core/stringtable.h"
 #include "core/argparse.h"
 
+using namespace euphoria::core;
 
 enum class Type
 {
