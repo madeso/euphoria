@@ -2,9 +2,11 @@
 
 #include "catch.hpp"
 
+namespace euco = euphoria::core;
+
 TEST_CASE("textfileparser-test_basic_ident", "[textfileparser]")
 {
-  TextFileParser test{"Hello"};
+  euco::TextFileParser test{"Hello"};
 
   REQUIRE(test.HasMore());
   REQUIRE(test.ReadIdent() == "Hello");
@@ -15,7 +17,7 @@ TEST_CASE("textfileparser-test_basic_ident", "[textfileparser]")
 
 TEST_CASE("textfileparser-test_two_idents", "[textfileparser]")
 {
-  TextFileParser test{"Hello world"};
+  euco::TextFileParser test{"Hello world"};
 
   REQUIRE(test.HasMore());
   REQUIRE(test.ReadIdent() == "Hello");
@@ -30,7 +32,7 @@ TEST_CASE("textfileparser-test_two_idents", "[textfileparser]")
 
 TEST_CASE("textfileparser-read_string_fail", "[textfileparser]")
 {
-  TextFileParser test{"Hello"};
+  euco::TextFileParser test{"Hello"};
 
   REQUIRE(test.HasMore());
   REQUIRE(test.ReadString() == "");
@@ -40,7 +42,7 @@ TEST_CASE("textfileparser-read_string_fail", "[textfileparser]")
 
 TEST_CASE("textfileparser-read_string", "[textfileparser]")
 {
-  TextFileParser test{"\"Hello\""};
+  euco::TextFileParser test{"\"Hello\""};
 
   REQUIRE(test.HasMore());
   REQUIRE(test.ReadString() == "Hello");
@@ -50,7 +52,7 @@ TEST_CASE("textfileparser-read_string", "[textfileparser]")
 
 TEST_CASE("textfileparser-read_to_eol", "[textfileparser]")
 {
-  TextFileParser test{"hello world\nhello dog"};
+  euco::TextFileParser test{"hello world\nhello dog"};
 
   REQUIRE(test.HasMore());
   REQUIRE(test.ReadToEndOfLine() == "hello world");
@@ -61,7 +63,7 @@ TEST_CASE("textfileparser-read_to_eol", "[textfileparser]")
 
 TEST_CASE("textfileparser-peek_char", "[textfileparser]")
 {
-  TextFileParser test{"abc"};
+  euco::TextFileParser test{"abc"};
 
   REQUIRE(test.HasMore());
   REQUIRE(test.PeekChar() == 'a');

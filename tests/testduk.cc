@@ -7,7 +7,7 @@
 
 #include "catch.hpp"
 
-using namespace duk;
+using namespace euphoria::duk;
 
 int allocated_dogs = 0;
 

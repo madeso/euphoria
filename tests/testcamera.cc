@@ -3,9 +3,13 @@
 #include "catch.hpp"
 #include "approx.h"
 
+namespace euco = euphoria::core;
+
+using namespace euphoria::tests;
+
 TEST_CASE("camera-clip2world", "[camera]")
 {
-  Camera camera;
+  euco::Camera camera;
 
   const std::vector<float> aspects{1.0f, 2.0f, 0.5f};
 
@@ -22,7 +26,7 @@ TEST_CASE("camera-clip2world", "[camera]")
       {
         for(float z : values)
         {
-          const auto start = vec3f{x, y, z};
+          const auto start = euco::vec3f{x, y, z};
           const auto world = cc.ClipToWorld(start);
           const auto clip  = cc.WorldToClip(world);
           REQUIRE(approx(start) == clip);

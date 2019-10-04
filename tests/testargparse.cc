@@ -2,16 +2,21 @@
 
 #include "tests/utils.h"
 
-struct Entry
-{
-  bool ok;
-  std::string text;
+namespace euco = euphoria::core;
 
-  bool operator!=(const Entry& rhs) const
+namespace
+{
+  struct Entry
   {
-    return ok != rhs.ok || text != rhs.text;
-  }
-};
+    bool ok;
+    std::string text;
+
+    bool operator!=(const Entry& rhs) const
+    {
+      return ok != rhs.ok || text != rhs.text;
+    }
+  };
+}
 
 #define ERROR_LINE(err) std::vector<Entry>{ Entry{false, err} }
 
@@ -34,7 +39,7 @@ std::ostream& operator<<(std::ostream& s, const Entry& e)
   return s;
 }
 
-struct TestOutput : public argparse::Output
+struct TestOutput : public euco::argparse::Output
 {
   std::vector<Entry> out;
 
@@ -55,7 +60,7 @@ struct TestOutput : public argparse::Output
 
 TEST_CASE("name tests", "[argparse]")
 {
-  using argparse::Name;
+  using euco::argparse::Name;
 
   SECTION("optional 1")
   {
@@ -86,13 +91,13 @@ TEST_CASE("argparse", "[argparse]")
   const std::string app          = "hello.exe";
   const auto        empty_output = std::vector<Entry>{};
   auto              output       = TestOutput{};
-  auto              parser       = argparse::Parser{"description"};
+  auto              parser       = euco::argparse::Parser{"description"};
   parser.output                  = &output;
 
   SECTION("test empty")
   {
     auto r = parser.Parse(app, {});
-    CHECK(r == argparse::ParseResult::Ok);
+    CHECK(r == euco::argparse::ParseResult::Ok);
 		REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
   }
 
@@ -104,7 +109,7 @@ TEST_CASE("argparse", "[argparse]")
     SECTION("default")
     {
       auto r = parser.Parse(app, {});
-      CHECK(r == argparse::ParseResult::Ok);
+      CHECK(r == euco::argparse::ParseResult::Ok);
       REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
 
       CHECK(e == MyEnum::ReallyLongValue);
@@ -113,7 +118,7 @@ TEST_CASE("argparse", "[argparse]")
     SECTION("supplied")
     {
       auto r = parser.Parse(app, {"-e", "x"});
-      CHECK(r == argparse::ParseResult::Ok);
+      CHECK(r == euco::argparse::ParseResult::Ok);
       REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
 
       CHECK(e == MyEnum::X);
@@ -128,7 +133,7 @@ TEST_CASE("argparse", "[argparse]")
     SECTION("default")
     {
       auto r = parser.Parse(app, {});
-      CHECK(r == argparse::ParseResult::Ok);
+      CHECK(r == euco::argparse::ParseResult::Ok);
       REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
 
       CHECK(i == 4);
@@ -136,7 +141,7 @@ TEST_CASE("argparse", "[argparse]")
     SECTION("supplied")
     {
       auto r = parser.Parse(app, {"-int", "42"});
-      CHECK(r == argparse::ParseResult::Ok);
+      CHECK(r == euco::argparse::ParseResult::Ok);
       REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
 
       CHECK(i == 42);
@@ -145,7 +150,7 @@ TEST_CASE("argparse", "[argparse]")
     SECTION("passed string")
     {
       auto r = parser.Parse(app, {"-int", "cat"});
-      CHECK(r == argparse::ParseResult::Failed);
+      CHECK(r == euco::argparse::ParseResult::Failed);
       REQUIRE_THAT(output.out, Catch::Matchers::Equals( ERROR_LINE("cat for -int is not accepted.") ));
       CHECK(i == 4);
     }
@@ -153,7 +158,7 @@ TEST_CASE("argparse", "[argparse]")
     SECTION("passed int+string")
     {
       auto r = parser.Parse(app, {"-int", "42cat"});
-      CHECK(r == argparse::ParseResult::Failed);
+      CHECK(r == euco::argparse::ParseResult::Failed);
       CHECK_THAT(output.out, Catch::Matchers::Equals( ERROR_LINE("42cat for -int is not accepted.") ));
       CHECK(i == 4);
     }
@@ -169,7 +174,7 @@ TEST_CASE("argparse", "[argparse]")
     SECTION("default")
     {
       auto r = parser.Parse(app, {});
-      CHECK(r == argparse::ParseResult::Ok);
+      CHECK(r == euco::argparse::ParseResult::Ok);
       REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
 
       CHECK(t);
@@ -179,7 +184,7 @@ TEST_CASE("argparse", "[argparse]")
     SECTION("supplied 01")
     {
       auto r = parser.Parse(app, {"-t", "0", "-f", "1"});
-      CHECK(r == argparse::ParseResult::Ok);
+      CHECK(r == euco::argparse::ParseResult::Ok);
       REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
       CHECK_FALSE(t);
       CHECK(f);
@@ -188,7 +193,7 @@ TEST_CASE("argparse", "[argparse]")
     SECTION("supplied yn")
     {
       auto r = parser.Parse(app, {"-t", "n", "-f", "y"});
-      CHECK(r == argparse::ParseResult::Ok);
+      CHECK(r == euco::argparse::ParseResult::Ok);
       REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
       CHECK_FALSE(t);
       CHECK(f);
@@ -197,7 +202,7 @@ TEST_CASE("argparse", "[argparse]")
     SECTION("supplied yes/no")
     {
       auto r = parser.Parse(app, {"-t", "no", "-f", "yes"});
-      CHECK(r == argparse::ParseResult::Ok);
+      CHECK(r == euco::argparse::ParseResult::Ok);
       REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
       CHECK_FALSE(t);
       CHECK(f);
@@ -212,7 +217,7 @@ TEST_CASE("argparse", "[argparse]")
     SECTION("default")
     {
       auto r = parser.Parse(app, {});
-      CHECK(r == argparse::ParseResult::Ok);
+      CHECK(r == euco::argparse::ParseResult::Ok);
       REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
 
       CHECK(str == "dog");
@@ -220,7 +225,7 @@ TEST_CASE("argparse", "[argparse]")
     SECTION("supplied")
     {
       auto r = parser.Parse(app, {"-str", "cat"});
-      CHECK(r == argparse::ParseResult::Ok);
+      CHECK(r == euco::argparse::ParseResult::Ok);
       REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
 
       CHECK(str == "cat");
@@ -235,7 +240,7 @@ TEST_CASE("argparse", "[argparse]")
     SECTION("default")
     {
       auto r = parser.Parse(app, {});
-      CHECK(r == argparse::ParseResult::Ok);
+      CHECK(r == euco::argparse::ParseResult::Ok);
       REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
 
       CHECK_THAT(v, Catch::Matchers::Equals( std::vector<int>{} ));
@@ -243,7 +248,7 @@ TEST_CASE("argparse", "[argparse]")
     SECTION("supplied 1")
     {
       auto r = parser.Parse(app, {"-v", "43"});
-      CHECK(r == argparse::ParseResult::Ok);
+      CHECK(r == euco::argparse::ParseResult::Ok);
       REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
 
       CHECK_THAT(v, Catch::Matchers::Equals( std::vector<int>{43} ));
@@ -251,7 +256,7 @@ TEST_CASE("argparse", "[argparse]")
     SECTION("supplied 3")
     {
       auto r = parser.Parse(app, {"-v", "1", "-v", "2", "-v", "3"});
-      CHECK(r == argparse::ParseResult::Ok);
+      CHECK(r == euco::argparse::ParseResult::Ok);
       REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
 
       CHECK_THAT(v, Catch::Matchers::Equals( std::vector<int>{1, 2, 3} ));
@@ -266,7 +271,7 @@ TEST_CASE("argparse", "[argparse]")
     SECTION("empty")
     {
       auto r = parser.Parse(app, {});
-      CHECK(r == argparse::ParseResult::Ok);
+      CHECK(r == euco::argparse::ParseResult::Ok);
       REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
       CHECK_FALSE(called);
     }
@@ -274,7 +279,7 @@ TEST_CASE("argparse", "[argparse]")
     SECTION("called")
     {
       auto r = parser.Parse(app, {"-f"});
-      CHECK(r == argparse::ParseResult::Ok);
+      CHECK(r == euco::argparse::ParseResult::Ok);
       REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
       CHECK(called);
     }
@@ -291,7 +296,7 @@ TEST_CASE("argparse", "[argparse]")
     SECTION("zero")
     {
       auto r = parser.Parse(app, {});
-      CHECK(r == argparse::ParseResult::Ok);
+      CHECK(r == euco::argparse::ParseResult::Ok);
       REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
       CHECK(c == 0);
     }
@@ -299,7 +304,7 @@ TEST_CASE("argparse", "[argparse]")
     SECTION("one")
     {
       auto r = parser.Parse(app, {"-c"});
-      CHECK(r == argparse::ParseResult::Ok);
+      CHECK(r == euco::argparse::ParseResult::Ok);
       REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
       CHECK(c == 1);
     }
@@ -307,7 +312,7 @@ TEST_CASE("argparse", "[argparse]")
     SECTION("many")
     {
       auto r = parser.Parse(app, {"-c", "-c"});
-      CHECK(r == argparse::ParseResult::Ok);
+      CHECK(r == euco::argparse::ParseResult::Ok);
       REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
       CHECK(c == 2);
     }
@@ -323,7 +328,7 @@ TEST_CASE("argparse", "[argparse]")
 
     SECTION("empty")
     {
-      CHECK(parser.Parse(app, {}) == argparse::ParseResult::Ok);
+      CHECK(parser.Parse(app, {}) == euco::argparse::ParseResult::Ok);
       REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
       CHECK_FALSE(t);
       CHECK(f);
@@ -331,7 +336,7 @@ TEST_CASE("argparse", "[argparse]")
 
     SECTION("set")
     {
-      CHECK(parser.Parse(app, {"-t", "-f"}) == argparse::ParseResult::Ok);
+      CHECK(parser.Parse(app, {"-t", "-f"}) == euco::argparse::ParseResult::Ok);
       REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
       CHECK(t);
       CHECK_FALSE(f);
@@ -347,7 +352,7 @@ TEST_CASE("argparse", "[argparse]")
     parser.SetTrue("-b", &b);
     parser.SetTrue("-c", &c);
     auto args = GENERATE_AS(std::string, "-abc", "-bac", "-cba");
-    CHECK(parser.Parse(app, {args}) == argparse::ParseResult::Ok);
+    CHECK(parser.Parse(app, {args}) == euco::argparse::ParseResult::Ok);
     REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
     CHECK(a);
     CHECK(b);
@@ -365,7 +370,7 @@ TEST_CASE("argparse", "[argparse]")
     SECTION("default")
     {
       auto r = parser.Parse(app, {});
-      CHECK(r == argparse::ParseResult::Failed);
+      CHECK(r == euco::argparse::ParseResult::Failed);
       // todo: verify error
       // REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
 
@@ -374,7 +379,7 @@ TEST_CASE("argparse", "[argparse]")
     SECTION("supplied 1")
     {
       auto r = parser.Parse(app, {"43"});
-      CHECK(r == argparse::ParseResult::Ok);
+      CHECK(r == euco::argparse::ParseResult::Ok);
       REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
 
       CHECK_THAT(v, Catch::Matchers::Equals( std::vector<int>{43} ));
@@ -382,7 +387,7 @@ TEST_CASE("argparse", "[argparse]")
     SECTION("supplied 3")
     {
       auto r = parser.Parse(app, {"1", "2", "3"});
-      CHECK(r == argparse::ParseResult::Ok);
+      CHECK(r == euco::argparse::ParseResult::Ok);
       REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
 
       CHECK_THAT(v, Catch::Matchers::Equals( std::vector<int>{1, 2, 3} ));
@@ -400,20 +405,20 @@ TEST_CASE("argparse", "[argparse]")
 
     SECTION("empty")
     {
-      CHECK(parser.Parse(app, {}) == argparse::ParseResult::Failed);
+      CHECK(parser.Parse(app, {}) == euco::argparse::ParseResult::Failed);
       // todo: verify error
     }
 
     SECTION("update")
     {
-      CHECK(parser.Parse(app, {"update"}) == argparse::ParseResult::Ok);
+      CHECK(parser.Parse(app, {"update"}) == euco::argparse::ParseResult::Ok);
       REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
       CHECK(called == "update");
     }
 
     SECTION("pull")
     {
-      CHECK(parser.Parse(app, {"pull"}) == argparse::ParseResult::Ok);
+      CHECK(parser.Parse(app, {"pull"}) == euco::argparse::ParseResult::Ok);
       REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
       CHECK(called == "pull");
     }
@@ -428,7 +433,7 @@ TEST_CASE("argparse", "[argparse]")
 
     SECTION("first")
     {
-      CHECK(parser.Parse(app, {"-a", "dog", "b"}) == argparse::ParseResult::Ok);
+      CHECK(parser.Parse(app, {"-a", "dog", "b"}) == euco::argparse::ParseResult::Ok);
       REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
       CHECK(first == "dog");
       CHECK(second == "");
@@ -436,7 +441,7 @@ TEST_CASE("argparse", "[argparse]")
 
     SECTION("second")
     {
-      CHECK(parser.Parse(app, {"b", "-a", "cat"}) == argparse::ParseResult::Ok);
+      CHECK(parser.Parse(app, {"b", "-a", "cat"}) == euco::argparse::ParseResult::Ok);
       REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
       CHECK(first == "");
       CHECK(second == "cat");
@@ -449,7 +454,7 @@ TEST_CASE("argparse", "[argparse]")
   {
     int i = 0;
     parser.AddSimple("-i", &i);
-    CHECK(parser.Parse(app, {"-i", "2", "-i", "3"}) == argparse::ParseResult::Failed);
+    CHECK(parser.Parse(app, {"-i", "2", "-i", "3"}) == euco::argparse::ParseResult::Failed);
     CHECK_THAT(output.out, Catch::Matchers::Equals( ERROR_LINE("-i specified earlier") ));
     // the first i is read, the second errors
     CHECK(i == 2);
@@ -465,7 +470,7 @@ TEST_CASE("argparse", "[argparse]")
 
     SECTION("position and optional")
     {
-      CHECK(parser.Parse(app, {"abc", "-a", "cat"}) == argparse::ParseResult::Ok);
+      CHECK(parser.Parse(app, {"abc", "-a", "cat"}) == euco::argparse::ParseResult::Ok);
       REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
       CHECK(opt == "cat");
       CHECK(pos == "abc");
@@ -473,7 +478,7 @@ TEST_CASE("argparse", "[argparse]")
 
     SECTION("optional and position")
     {
-      CHECK(parser.Parse(app, {"-a", "cat", "abc"}) == argparse::ParseResult::Ok);
+      CHECK(parser.Parse(app, {"-a", "cat", "abc"}) == euco::argparse::ParseResult::Ok);
       REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
       CHECK(opt == "cat");
       CHECK(pos == "abc");
@@ -481,7 +486,7 @@ TEST_CASE("argparse", "[argparse]")
 
     SECTION("negative position and optional")
     {
-      CHECK(parser.Parse(app, {"-abc", "-a", "cat"}) == argparse::ParseResult::Ok);
+      CHECK(parser.Parse(app, {"-abc", "-a", "cat"}) == euco::argparse::ParseResult::Ok);
       REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
       CHECK(opt == "cat");
       CHECK(pos == "-abc");
@@ -489,7 +494,7 @@ TEST_CASE("argparse", "[argparse]")
 
     SECTION("optional and negative position")
     {
-      CHECK(parser.Parse(app, {"-a", "cat", "-abc"}) == argparse::ParseResult::Ok);
+      CHECK(parser.Parse(app, {"-a", "cat", "-abc"}) == euco::argparse::ParseResult::Ok);
       REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
       CHECK(opt == "cat");
       CHECK(pos == "-abc");
@@ -497,7 +502,7 @@ TEST_CASE("argparse", "[argparse]")
 
     SECTION("optional and positional named as optional")
     {
-      CHECK(parser.Parse(app, {"-a", "cat", "-a"}) == argparse::ParseResult::Ok);
+      CHECK(parser.Parse(app, {"-a", "cat", "-a"}) == euco::argparse::ParseResult::Ok);
       REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
       CHECK(opt == "cat");
       CHECK(pos == "-a");
@@ -518,7 +523,7 @@ TEST_CASE("argparse", "[argparse]")
 
     SECTION("empty")
     {
-      CHECK(parser.Parse(app, {}) == argparse::ParseResult::Failed);
+      CHECK(parser.Parse(app, {}) == euco::argparse::ParseResult::Failed);
       // REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
       CHECK_FALSE(a);
       CHECK_FALSE(b);
@@ -528,7 +533,7 @@ TEST_CASE("argparse", "[argparse]")
 
     SECTION("before")
     {
-      CHECK(parser.Parse(app, {"-abc", "cat"}) == argparse::ParseResult::Ok);
+      CHECK(parser.Parse(app, {"-abc", "cat"}) == euco::argparse::ParseResult::Ok);
       REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
       CHECK(a);
       CHECK(b);
@@ -538,7 +543,7 @@ TEST_CASE("argparse", "[argparse]")
 
     SECTION("after")
     {
-      CHECK(parser.Parse(app, {"cat", "-abc"}) == argparse::ParseResult::Ok);
+      CHECK(parser.Parse(app, {"cat", "-abc"}) == euco::argparse::ParseResult::Ok);
       REQUIRE_THAT(output.out, Catch::Matchers::Equals( empty_output ));
       CHECK(a);
       CHECK(b);

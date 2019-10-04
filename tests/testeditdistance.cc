@@ -2,17 +2,19 @@
 
 #include "catch.hpp"
 
+namespace euco = euphoria::core;
+
 TEST_CASE("editdistance", "[editdistance]")
 {
   const std::string   a        = "kitten";
   const std::string   b        = "sitting";
   const unsigned long distance = 3;
 
-  CHECK(FastEditDistance(a, b) == distance);
-  CHECK(FastEditDistance(b, a) == distance);
+  CHECK(euco::FastEditDistance(a, b) == distance);
+  CHECK(euco::FastEditDistance(b, a) == distance);
 
-  CHECK(EditDistance(a, b) == distance);
-  CHECK(EditDistance(b, a) == distance);
+  CHECK(euco::EditDistance(a, b) == distance);
+  CHECK(euco::EditDistance(b, a) == distance);
 }
 
 TEST_CASE("editdistance2", "[editdistance]")
@@ -21,11 +23,11 @@ TEST_CASE("editdistance2", "[editdistance]")
   const std::string   b        = "abcde";
   const unsigned long distance = 2;
 
-  CHECK(FastEditDistance(a, b) == distance);
-  CHECK(FastEditDistance(b, a) == distance);
+  CHECK(euco::FastEditDistance(a, b) == distance);
+  CHECK(euco::FastEditDistance(b, a) == distance);
 
-  CHECK(EditDistance(a, b) == distance);
-  CHECK(EditDistance(b, a) == distance);
+  CHECK(euco::EditDistance(a, b) == distance);
+  CHECK(euco::EditDistance(b, a) == distance);
 }
 
 TEST_CASE("editdistance-codeproject", "[editdistance]")
@@ -34,10 +36,10 @@ TEST_CASE("editdistance-codeproject", "[editdistance]")
   const std::string   b        = "GAMBOL";
   const unsigned long distance = 2;
 
-  CHECK(FastEditDistance(a, b) == distance);
-  CHECK(FastEditDistance(b, a) == distance);
+  CHECK(euco::FastEditDistance(a, b) == distance);
+  CHECK(euco::FastEditDistance(b, a) == distance);
 
-  CHECK(EditDistance(a, b) == distance);
-  CHECK(EditDistance(b, a) == distance);
+  CHECK(euco::EditDistance(a, b) == distance);
+  CHECK(euco::EditDistance(b, a) == distance);
 }
 

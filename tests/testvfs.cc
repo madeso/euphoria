@@ -3,16 +3,18 @@
 
 #define GTEST(X) TEST(filesystem, X)
 
-using namespace vfs;
+using namespace euphoria::core::vfs;
+
+namespace euco = euphoria::core;
 
 class AlwaysExist : public FileSystemReadRoot
 {
  public:
-  std::shared_ptr<MemoryChunk>
+  std::shared_ptr<euco::MemoryChunk>
   ReadFile(const std::string& path) override
   {
     // alloc some garbage
-    return MemoryChunk::Alloc(32);
+    return euco::MemoryChunk::Alloc(32);
   }
 
   std::string
@@ -32,10 +34,10 @@ class AlwaysExist : public FileSystemReadRoot
 class NeverExist : public FileSystemReadRoot
 {
  public:
-  std::shared_ptr<MemoryChunk>
+  std::shared_ptr<euco::MemoryChunk>
   ReadFile(const std::string& path) override
   {
-    return MemoryChunk::Null();
+    return euco::MemoryChunk::Null();
   }
 
 

@@ -2,7 +2,7 @@
 
 #include "catch.hpp"
 
-using namespace chatbot;
+using namespace euphoria::core::chatbot;
 
 TEST_CASE("chatbot-matches-input", "[chatbot]")
 {

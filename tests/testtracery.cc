@@ -2,9 +2,11 @@
 
 #include "catch.hpp"
 
+namespace tr = euphoria::core::tracery;
+
 TEST_CASE("tracery-all", "[tracery]")
 {
-  Grammar g;
+  tr::Grammar g;
   g.RegisterEnglish();
 
   SECTION("empty json")
@@ -59,7 +61,7 @@ TEST_CASE("tracery-all", "[tracery]")
         "esc": "#dog"
       }
     )");
-    REQUIRE(loaded.type == Result::RULE_EOF);
+    REQUIRE(loaded.type == tr::Result::RULE_EOF);
   }
 
   SECTION("rule call rule")

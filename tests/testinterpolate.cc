@@ -3,9 +3,11 @@
 
 #include "catch.hpp"
 
+namespace euco = euphoria::core;
+
 TEST_CASE("interpolate-do_nothing", "[interpolate]")
 {
-  FloatInterpolate f{5.0f};
+  euco::FloatInterpolate f{5.0f};
   f.Update(0.1f);
 
   REQUIRE(f.GetValue() == Approx(5.0f));
@@ -13,7 +15,7 @@ TEST_CASE("interpolate-do_nothing", "[interpolate]")
 
 TEST_CASE("interpolate-basic", "[interpolate]")
 {
-  FloatInterpolate f{0.0f};
+  euco::FloatInterpolate f{0.0f};
   f.Linear(1.0f, 1.0f);
   f.Update(0.1f);
 
@@ -22,7 +24,7 @@ TEST_CASE("interpolate-basic", "[interpolate]")
 
 TEST_CASE("interpolate-basic_negative", "[interpolate]")
 {
-  FloatInterpolate f{1.0f};
+  euco::FloatInterpolate f{1.0f};
   f.Linear(0.0f, 1.0f);
   f.Update(0.1f);
 
@@ -31,7 +33,7 @@ TEST_CASE("interpolate-basic_negative", "[interpolate]")
 
 TEST_CASE("interpolate-basic_with_clear", "[interpolate]")
 {
-  FloatInterpolate f{0.0f};
+  euco::FloatInterpolate f{0.0f};
   f.Clear().Linear(1.0f, 1.0f);
   f.Update(0.1f);
 
@@ -40,7 +42,7 @@ TEST_CASE("interpolate-basic_with_clear", "[interpolate]")
 
 TEST_CASE("interpolate-huge_step", "[interpolate]")
 {
-  FloatInterpolate f{0.0f};
+  euco::FloatInterpolate f{0.0f};
   f.Linear(1.0f, 1.0f);
   f.Update(5.0f);
 
@@ -50,7 +52,7 @@ TEST_CASE("interpolate-huge_step", "[interpolate]")
 
 TEST_CASE("interpolate-clear_after_a_time", "[interpolate]")
 {
-  FloatInterpolate f{0.0f};
+  euco::FloatInterpolate f{0.0f};
   f.Linear(1.0f, 1.0f);
   f.Update(0.5f);
   REQUIRE(f.HasSteps());
@@ -62,7 +64,7 @@ TEST_CASE("interpolate-clear_after_a_time", "[interpolate]")
 
 TEST_CASE("interpolate-change_after_some_time", "[interpolate]")
 {
-  FloatInterpolate f{0.0f};
+  euco::FloatInterpolate f{0.0f};
   f.Linear(2.0f, 1.0f);  // go to 2 this time
   f.Update(0.5f);        // go half
   REQUIRE(f.GetValue() == Approx(1.0f));

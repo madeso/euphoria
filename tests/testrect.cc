@@ -4,9 +4,11 @@
 
 // constructor tests
 
+namespace euco = euphoria::core;
+
 TEST_CASE("rect-constructor_topleftwidthheight", "[rect]")
 {
-  auto r = Rect<int>::FromTopLeftWidthHeight(2, 1, 3, 4);
+  auto r = euco::Rect<int>::FromTopLeftWidthHeight(2, 1, 3, 4);
 
   CHECK(r.left == 1);
   CHECK(r.top == 2);
@@ -22,7 +24,7 @@ TEST_CASE("rect-constructor_topleftwidthheight", "[rect]")
 
 TEST_CASE("rect-offsetcopy", "[rect]")
 {
-  auto r = Rect<int>::FromWidthHeight(3, 4).SetTopLeftToCopy(1, 2);
+  auto r = euco::Rect<int>::FromWidthHeight(3, 4).SetTopLeftToCopy(1, 2);
 
   CHECK(r.left == 1);
   CHECK(r.top == 2);
@@ -38,7 +40,7 @@ TEST_CASE("rect-offsetcopy", "[rect]")
 
 TEST_CASE("rect-constructor_widthheight", "[rect]")
 {
-  auto r = Rect<int>::FromWidthHeight(3, 4);
+  auto r = euco::Rect<int>::FromWidthHeight(3, 4);
 
   CHECK(r.left == 0);
   CHECK(r.right == 3);
@@ -54,7 +56,7 @@ TEST_CASE("rect-constructor_widthheight", "[rect]")
 
 TEST_CASE("rect-constructor_leftrighttopbottom", "[rect]")
 {
-  auto r = Rect<int>::FromLeftRightBottomTop(1, 2, 3, 4);
+  auto r = euco::Rect<int>::FromLeftRightBottomTop(1, 2, 3, 4);
 
   REQUIRE(r.left == 1);
   REQUIRE(r.right == 2);
@@ -68,7 +70,7 @@ TEST_CASE("rect-constructor_leftrighttopbottom", "[rect]")
 
 TEST_CASE("rect-contains_point_exclusive", "[rect]")
 {
-  const auto r = Rect<int>::FromWidthHeight(5, 5);
+  const auto r = euco::Rect<int>::FromWidthHeight(5, 5);
   REQUIRE_FALSE(r.IsEmpty());
   REQUIRE(r.IsValid());
 
@@ -96,7 +98,7 @@ TEST_CASE("rect-contains_point_exclusive", "[rect]")
 
 TEST_CASE("rect-contains_point_inclusive", "[rect]")
 {
-  const auto r = Rect<int>::FromWidthHeight(5, 5);
+  const auto r = euco::Rect<int>::FromWidthHeight(5, 5);
 
   // inside
   REQUIRE(r.ContainsInclusive(2, 2));
@@ -122,42 +124,42 @@ TEST_CASE("rect-contains_point_inclusive", "[rect]")
 
 TEST_CASE("rect-contains_rect_exclusive", "[rect]")
 {
-  const auto r = Rect<int>::FromWidthHeight(10, 10);
+  const auto r = euco::Rect<int>::FromWidthHeight(10, 10);
 
   // inside
   REQUIRE(r.ContainsExclusive(
-      Rect<int>::FromWidthHeight(2, 2).SetTopLeftToCopy(3, 3)));
+      euco::Rect<int>::FromWidthHeight(2, 2).SetTopLeftToCopy(3, 3)));
 
   // outside negative
   REQUIRE_FALSE(r.ContainsExclusive(
-      Rect<int>::FromWidthHeight(2, 2).SetTopLeftToCopy(-3, 3)));
+      euco::Rect<int>::FromWidthHeight(2, 2).SetTopLeftToCopy(-3, 3)));
   REQUIRE_FALSE(r.ContainsExclusive(
-      Rect<int>::FromWidthHeight(2, 2).SetTopLeftToCopy(3, -3)));
+      euco::Rect<int>::FromWidthHeight(2, 2).SetTopLeftToCopy(3, -3)));
   REQUIRE_FALSE(r.ContainsExclusive(
-      Rect<int>::FromWidthHeight(2, 2).SetTopLeftToCopy(-3, -3)));
+      euco::Rect<int>::FromWidthHeight(2, 2).SetTopLeftToCopy(-3, -3)));
 
   // outside positive
   REQUIRE_FALSE(r.ContainsExclusive(
-      Rect<int>::FromWidthHeight(2, 2).SetTopLeftToCopy(15, 3)));
+      euco::Rect<int>::FromWidthHeight(2, 2).SetTopLeftToCopy(15, 3)));
   REQUIRE_FALSE(r.ContainsExclusive(
-      Rect<int>::FromWidthHeight(2, 2).SetTopLeftToCopy(3, 15)));
+      euco::Rect<int>::FromWidthHeight(2, 2).SetTopLeftToCopy(3, 15)));
   REQUIRE_FALSE(r.ContainsExclusive(
-      Rect<int>::FromWidthHeight(2, 2).SetTopLeftToCopy(15, 15)));
+      euco::Rect<int>::FromWidthHeight(2, 2).SetTopLeftToCopy(15, 15)));
 
   // over border
   REQUIRE_FALSE(r.ContainsExclusive(
-      Rect<int>::FromWidthHeight(15, 5).SetTopLeftToCopy(-2, 2)));
+      euco::Rect<int>::FromWidthHeight(15, 5).SetTopLeftToCopy(-2, 2)));
   REQUIRE_FALSE(r.ContainsExclusive(
-      Rect<int>::FromWidthHeight(5, 15).SetTopLeftToCopy(2, -2)));
+      euco::Rect<int>::FromWidthHeight(5, 15).SetTopLeftToCopy(2, -2)));
 
   // all are outside
   REQUIRE_FALSE(r.ContainsExclusive(
-      Rect<int>::FromWidthHeight(15, 15).SetTopLeftToCopy(-2, -2)));
+      euco::Rect<int>::FromWidthHeight(15, 15).SetTopLeftToCopy(-2, -2)));
 }
 
 TEST_CASE("rect-inset", "[rect]")
 {
-  const auto r = Rect<int>::FromWidthHeight(5, 10).InsetCopy(1, 2);
+  const auto r = euco::Rect<int>::FromWidthHeight(5, 10).InsetCopy(1, 2);
 
   REQUIRE(r.left == 1);
   REQUIRE(r.right == 4);
@@ -167,7 +169,7 @@ TEST_CASE("rect-inset", "[rect]")
 
 TEST_CASE("rect-inset-different", "[rect]")
 {
-  const auto r = Rect<int>::FromWidthHeight(5, 10).InsetCopy(1, 2, 3, 4);
+  const auto r = euco::Rect<int>::FromWidthHeight(5, 10).InsetCopy(1, 2, 3, 4);
 
   REQUIRE(r.left == 1);
   REQUIRE(r.right == 3);
@@ -177,7 +179,7 @@ TEST_CASE("rect-inset-different", "[rect]")
 
 TEST_CASE("rect-offset", "[rect]")
 {
-  const auto r = Rect<int>::FromWidthHeight(5, 10).OffsetCopy(1, 2);
+  const auto r = euco::Rect<int>::FromWidthHeight(5, 10).OffsetCopy(1, 2);
 
   REQUIRE(r.left == 1);
   REQUIRE(r.right == 6);
@@ -188,7 +190,7 @@ TEST_CASE("rect-offset", "[rect]")
 TEST_CASE("rect-offset_to", "[rect]")
 {
   const auto r =
-      Rect<int>::FromTopLeftWidthHeight(10, 12, 5, 10).SetTopLeftToCopy(1, 2);
+      euco::Rect<int>::FromTopLeftWidthHeight(10, 12, 5, 10).SetTopLeftToCopy(1, 2);
 
   REQUIRE(r.IsValid());
 
@@ -200,7 +202,7 @@ TEST_CASE("rect-offset_to", "[rect]")
 
 TEST_CASE("rect-empty", "[rect]")
 {
-  auto r = Rect<int>::FromWidthHeight(5, 10);
+  auto r = euco::Rect<int>::FromWidthHeight(5, 10);
 
   REQUIRE_FALSE(r.IsEmpty());
 
@@ -211,20 +213,20 @@ TEST_CASE("rect-empty", "[rect]")
 
 TEST_CASE("rect-default_empty", "[rect]")
 {
-  Rect<int> r;
+  euco::Rect<int> r;
   REQUIRE(r.IsEmpty());
 }
 
 TEST_CASE("rect-sizes", "[rect]")
 {
-  const auto r = Rect<int>::FromWidthHeight(5, 10);
+  const auto r = euco::Rect<int>::FromWidthHeight(5, 10);
   REQUIRE(r.GetWidth() == 5);
   REQUIRE(r.GetHeight() == 10);
 }
 
 TEST_CASE("rect-center", "[rect]")
 {
-  const auto r = Rect<int>::FromTopLeftWidthHeight(3, 2, 6, 10);
+  const auto r = euco::Rect<int>::FromTopLeftWidthHeight(3, 2, 6, 10);
   REQUIRE(r.GetRelativeCenterXFromBottomLeft() == 3);
   REQUIRE(r.GetRelativeCenterYFromBottomLeft() == 5);
 
@@ -236,12 +238,12 @@ TEST_CASE("rect-from-anchor", "[rect]")
 {
   const int     height = 3;
   const int     width  = 4;
-  const vec2i origo  = vec2i::Zero();
+  const euco::vec2i origo  = euco::vec2i::Zero();
 
   SECTION("lower left at origo")
   {
-    const auto r = Recti::FromPositionAnchorWidthAndHeight(
-        origo, scale2i{0, 0}, width, height);
+    const auto r = euco::Recti::FromPositionAnchorWidthAndHeight(
+        origo, euco::scale2i{0, 0}, width, height);
     REQUIRE(r.left == 0);
     REQUIRE(r.right == width);
 
@@ -251,8 +253,8 @@ TEST_CASE("rect-from-anchor", "[rect]")
 
   SECTION("upper right at origo")
   {
-    const auto r = Recti::FromPositionAnchorWidthAndHeight(
-        origo, scale2i{1, 1}, width, height);
+    const auto r = euco::Recti::FromPositionAnchorWidthAndHeight(
+        origo, euco::scale2i{1, 1}, width, height);
     REQUIRE(r.left == -width);
     REQUIRE(r.right == 0);
 
@@ -265,12 +267,12 @@ TEST_CASE("rect-from-anchor-center", "[rect]")
 {
   const float   half_height = 3;
   const float   half_width  = 4;
-  const vec2f origo       = vec2f::Zero();
+  const euco::vec2f origo       = euco::vec2f::Zero();
 
   SECTION("lower left at origo")
   {
-    const auto r = Rectf::FromPositionAnchorWidthAndHeight(
-        origo, scale2f{0.5f, 0.5f}, half_width * 2, half_height * 2);
+    const auto r = euco::Rectf::FromPositionAnchorWidthAndHeight(
+        origo, euco::scale2f{0.5f, 0.5f}, half_width * 2, half_height * 2);
     REQUIRE(r.left == Approx{-half_width});
     REQUIRE(r.right == Approx{half_width});
 

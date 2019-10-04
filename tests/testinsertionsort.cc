@@ -2,9 +2,11 @@
 
 #include "catch.hpp"
 
+namespace euco = euphoria::core;
+
 TEST_CASE("insertionsort-empty", "[insertionsort]")
 {
-  const auto sorted = InsertionSort(std::vector<int>{});
+  const auto sorted = euco::InsertionSort(std::vector<int>{});
   const auto expected = std::vector<int>{};
   CHECK(sorted == expected);
 }
@@ -13,28 +15,28 @@ TEST_CASE("insertionsort-empty", "[insertionsort]")
 TEST_CASE("insertionsort-four-custom0", "[insertionsort]")
 {
   const auto values = std::vector<int>{5, 3, 6, 1};
-  const auto sorted = InsertionSort(values, [](int, int){return 0;});
+  const auto sorted = euco::InsertionSort(values, [](int, int){return 0;});
   const auto expected = values;
   CHECK(sorted == expected);
 }
 
 TEST_CASE("insertionsort-four", "[insertionsort]")
 {
-  const auto sorted = InsertionSort(std::vector<int>{5, 3, 6, 1});
+  const auto sorted = euco::InsertionSort(std::vector<int>{5, 3, 6, 1});
   const auto expected = std::vector<int>{1, 3, 5, 6};
   CHECK(sorted == expected);
 }
 
 TEST_CASE("insertionsort-two", "[insertionsort]")
 {
-  const auto sorted = InsertionSort(std::vector<int>{8, 7});
+  const auto sorted = euco::InsertionSort(std::vector<int>{8, 7});
   const auto expected = std::vector<int>{7, 8};
   CHECK(sorted == expected);
 }
 
 TEST_CASE("insertionsort-five", "[insertionsort]")
 {
-  const auto sorted = InsertionSort(std::vector<int>{5, 0, 1, 8, 7});
+  const auto sorted = euco::InsertionSort(std::vector<int>{5, 0, 1, 8, 7});
   const auto expected = std::vector<int>{0, 1, 5, 7, 8};
   CHECK(sorted == expected);
 }
@@ -42,13 +44,13 @@ TEST_CASE("insertionsort-five", "[insertionsort]")
 TEST_CASE("insertionsort-sorted", "[insertionsort]")
 {
   const auto expected = std::vector<int>{0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-  const auto sorted = InsertionSort(expected);
+  const auto sorted = euco::InsertionSort(expected);
   CHECK(sorted == expected);
 }
 
 TEST_CASE("insertionsort-100", "[insertionsort]")
 {
-  const auto sorted = InsertionSort(std::vector<int>{
+  const auto sorted = euco::InsertionSort(std::vector<int>{
           95,	14,	6,	6,	90, 25,	42,	4,	12,	12,
           97,	4,	1,	32,	55, 52,	48,	19,	61,	85,
           61,	42,	47,	34,	57, 47,	14,	70,	47,	14,
@@ -104,7 +106,7 @@ TEST_CASE("insertionsort-default_sort", "[insertionsort]")
   const auto dog = P{"dog", 3};
   const auto cat = P{"cat", 42};
   const auto human =  P{"human", 1};
-  const auto sorted = InsertionSort(std::vector<P>{ dog, cat, human } );
+  const auto sorted = euco::InsertionSort(std::vector<P>{ dog, cat, human } );
   const auto expected = std::vector<P>{cat, dog, human};
   CHECK(sorted == expected);
 }
@@ -114,10 +116,10 @@ TEST_CASE("insertionsort-custom_sort", "[insertionsort]")
   const auto dog = P{"dog", 3};
   const auto cat = P{"cat", 42};
   const auto human =  P{"human", 1};
-  const auto sorted = InsertionSort(
+  const auto sorted = euco::InsertionSort(
       std::vector<P>{ dog, cat, human },
       [](const P& lhs, const P& rhs)
-        { return DefaultInsertionSort(lhs.i, rhs.i); }
+        { return euco::DefaultInsertionSort(lhs.i, rhs.i); }
       );
   const auto expected = std::vector<P>{human, dog, cat};
   CHECK(sorted == expected);

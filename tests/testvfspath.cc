@@ -2,6 +2,8 @@
 
 #include "catch.hpp"
 
+namespace vfs = euphoria::core::vfs;
+
 TEST_CASE("path-test_empty_create_guess", "[path]")
 {
   auto p = vfs::Path::FromGuess("");
