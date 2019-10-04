@@ -98,7 +98,7 @@ namespace euphoria::duk
     BeginCall(context);
 
     int dummy[sizeof...(TArgs) + 1] = {0, (PushVar(context, args), 1)...};
-    NotUsed(dummy);
+    core::NotUsed(dummy);
 
     const auto arguments = sizeof...(TArgs);
     return CallFunction(context, arguments);
