@@ -12,32 +12,35 @@
 
 LOG_SPECIFY_DEFAULT_LOGGER("engine.loadworld")
 
-void
-LoadWorld(
-    vfs::FileSystem*        fs,
-    World*             world,
-    DukRegistry*       reg,
-    const std::string& path,
-    ObjectCreator*     creator,
-    duk::Context*           ctx,
-    duk::Duk*               duk)
+namespace euphoria::engine
 {
-  world::World json;
-  const auto   err = LoadProtoJson(fs, &json, path);
-  if(!err.empty())
+  void
+  LoadWorld(
+      core::vfs::FileSystem*        fs,
+      core::World*             world,
+      DukRegistry*       reg,
+      const std::string& path,
+      ObjectCreator*     creator,
+      duk::Context*           ctx,
+      duk::Duk*               duk)
   {
-    LOG_ERROR("Failed to load world components from " << path << ": " << err);
-  }
-
-  for(const auto& obj : json.objects)
-  {
-    const auto& name = obj.template_name;
-    auto*       t    = creator->FindTemplate(name);
-    if(t == nullptr)
+    world::World json;
+    const auto   err = core::LoadProtoJson(fs, &json, path);
+    if(!err.empty())
     {
-      LOG_ERROR("Failed to find template named " << name);
-      continue;
+      LOG_ERROR("Failed to load world components from " << path << ": " << err);
     }
-    t->CreateObject(ObjectCreationArgs{world, reg, ctx, duk});
+
+    for(const auto& obj : json.objects)
+    {
+      const auto& name = obj.template_name;
+      auto*       t    = creator->FindTemplate(name);
+      if(t == nullptr)
+      {
+        LOG_ERROR("Failed to find template named " << name);
+        continue;
+      }
+      t->CreateObject(ObjectCreationArgs{world, reg, ctx, duk});
+    }
   }
 }

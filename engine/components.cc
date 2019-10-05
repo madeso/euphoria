@@ -9,22 +9,25 @@
 #include "render/spriterender.h"
 #include "render/texturecache.h"
 
-CPosition2::CPosition2()
-    : COMPONENT_CONSTRUCTOR_ARG(CPosition2) pos(0, 0)
+namespace euphoria::engine
 {
-}
+    CPosition2::CPosition2()
+        : COMPONENT_CONSTRUCTOR_ARG(CPosition2) pos(0, 0)
+    {
+    }
 
-Components::Components(Registry* reg)
-    : position2(reg->NewComponentType("Position2"))
-    , sprite(reg->NewComponentType("Sprite"))
-{
-}
+    Components::Components(core::Registry* reg)
+        : position2(reg->NewComponentType("Position2"))
+        , sprite(reg->NewComponentType("Sprite"))
+    {
+    }
 
-COMPONENT_CONSTRUCTOR_IMPLEMENTATION(CSprite)
+    COMPONENT_CONSTRUCTOR_IMPLEMENTATION(CSprite)
 
-Rectf
-GetSpriteRect(const vec2f& position, const Texture2d& texture)
-{
-  return Rectf::FromPositionAnchorWidthAndHeight(
-      position, scale2f{0.5f, 0.5f}, texture.GetWidth(), texture.GetHeight());
+    core::Rectf
+    GetSpriteRect(const core::vec2f& position, const render::Texture2d& texture)
+    {
+        return core::Rectf::FromPositionAnchorWidthAndHeight(
+            position, core::scale2f{0.5f, 0.5f}, texture.GetWidth(), texture.GetHeight());
+    }
 }

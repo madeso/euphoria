@@ -1,12 +1,15 @@
 #ifndef EUPHORIA_DUKPRINT_H
 #define EUPHORIA_DUKPRINT_H
 
-namespace duk
+namespace euphoria::duk
 {
   class Duk;
 }
 
-void
-AddPrint(duk::Duk* duk);
+namespace euphoria::engine
+{
+  void
+  AddPrint(euphoria::duk::Duk* duk);
+}
 
 #endif  // EUPHORIA_DUKPRINT_H

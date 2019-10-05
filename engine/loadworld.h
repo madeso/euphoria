@@ -3,29 +3,36 @@
 
 #include <string>
 
-class World;
-class DukRegistry;
-class ObjectCreator;
-namespace vfs
+namespace euphoria::core
 {
-class FileSystem;
+  class World;
 }
 
-namespace duk
+namespace euphoria::core::vfs
+{
+  class FileSystem;
+}
+
+namespace euphoria::duk
 {
   class Context;
-
   class Duk;
 }
 
-void
-LoadWorld(
-    vfs::FileSystem*        fs,
-    World*             world,
-    DukRegistry*       reg,
-    const std::string& path,
-    ObjectCreator*     creator,
-    duk::Context*      ctx,
-    duk::Duk*          duk);
+namespace euphoria::engine
+{
+  class DukRegistry;
+  class ObjectCreator;
+
+  void
+  LoadWorld(
+      core::vfs::FileSystem*        fs,
+      core::World*             world,
+      DukRegistry*       reg,
+      const std::string& path,
+      ObjectCreator*     creator,
+      duk::Context*      ctx,
+      duk::Duk*          duk);
+}
 
 #endif  // EUPHORIA_LOADWORLD_H

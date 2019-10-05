@@ -51,6 +51,13 @@
 
 LOG_SPECIFY_DEFAULT_LOGGER("engine")
 
+using namespace euphoria::core;
+using namespace euphoria::duk;
+using namespace euphoria::render;
+using namespace euphoria::window;
+using namespace euphoria::engine;
+namespace duk = euphoria::duk;
+
 game::Game
 LoadGameData(vfs::FileSystem* fs)
 {

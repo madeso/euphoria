@@ -3,10 +3,12 @@
 
 #include "core/rect.h"
 
-struct CameraData
+namespace euphoria::engine
 {
-  Rectf screen;
-};
-
+  struct CameraData
+  {
+    core::Rectf screen;
+  };
+}
 
 #endif  // EUPHORIA_CAMERADATA_H

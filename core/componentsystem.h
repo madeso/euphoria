@@ -9,17 +9,20 @@
 #include "core/entityid.h"
 #include "core/entity.h"
 
+namespace euphoria::render
+{
+  // its horrible to reference in another module,
+  // but for now we only need a pointer to pass around
+  // todo: fix this by merging in more of the renderer into core?
+  class SpriteRenderer;
+}
+
 namespace euphoria::core
 {
 
 typedef Registry EntReg;
 
 class Systems;
-
-// its horrible to reference in another module,
-// but for now we only need a pointer to pass around
-// todo: fix this by merging in more of the renderer into core?
-class SpriteRenderer;
 
 // only a base class container
 class ComponentSystem
@@ -65,7 +68,7 @@ class ComponentSystemSpriteDraw
 {
  public:
   virtual void
-  Draw(EntReg* reg, SpriteRenderer* renderer) const = 0;
+  Draw(EntReg* reg, render::SpriteRenderer* renderer) const = 0;
 };
 
 template <typename TSystem>
@@ -101,7 +104,7 @@ class ComponentSystemSpriteDrawStore
 {
  public:
   void
-  Draw(EntReg* reg, SpriteRenderer* renderer) const;
+  Draw(EntReg* reg, render::SpriteRenderer* renderer) const;
 };
 
 class Systems
@@ -131,7 +134,7 @@ class World
   Update(float dt);
 
   void
-  Draw(SpriteRenderer* renderer);
+  Draw(render::SpriteRenderer* renderer);
 };
 
 }

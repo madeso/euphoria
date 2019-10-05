@@ -119,6 +119,7 @@ class Registry
   ComponentId
   NewComponentType(const std::string& name);
 
+  // todo(Gustav): make it return a std::optional instead
   bool
   GetCustomComponentByName(const std::string& name, ComponentId* id);
 

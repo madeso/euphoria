@@ -8,42 +8,45 @@
 
 #include "engine/components.h"
 
-struct SystemSpriteDraw : public ComponentSystem,
-                          public ComponentSystemSpriteDraw
+namespace euphoria::engine
 {
-  Components* components;
-
-  explicit SystemSpriteDraw(Components* c)
-      : ComponentSystem("sprite draw")
-      , components(c)
+  struct SystemSpriteDraw : public core::ComponentSystem,
+                            public core::ComponentSystemSpriteDraw
   {
-  }
+    Components* components;
 
-  void
-  Draw(EntReg* reg, SpriteRenderer* renderer) const override
-  {
-    const auto items = reg->View(
-        std::vector<ComponentId>{components->position2, components->sprite});
-    for(auto ent : items)
+    explicit SystemSpriteDraw(Components* c)
+        : core::ComponentSystem("sprite draw")
+        , components(c)
     {
-      auto* sprite = reg->GetComponentOrNull<CSprite>(ent, components->sprite);
-      auto* pos =
-          reg->GetComponentOrNull<CPosition2>(ent, components->position2);
-      renderer->DrawSprite(
-          *sprite->texture, GetSpriteRect(pos->pos, *sprite->texture));
     }
-  }
+
+    void
+    Draw(core::EntReg* reg, render::SpriteRenderer* renderer) const override
+    {
+      const auto items = reg->View(
+          std::vector<core::ComponentId>{components->position2, components->sprite});
+      for(auto ent : items)
+      {
+        auto* sprite = reg->GetComponentOrNull<CSprite>(ent, components->sprite);
+        auto* pos =
+            reg->GetComponentOrNull<CPosition2>(ent, components->position2);
+        renderer->DrawSprite(
+            *sprite->texture, GetSpriteRect(pos->pos, *sprite->texture));
+      }
+    }
+
+    void
+    RegisterCallbacks(core::Systems* systems) override
+    {
+      systems->spriteDraw.Add(this);
+    }
+  };
+
 
   void
-  RegisterCallbacks(Systems* systems) override
+  AddSystems(core::Systems* systems, duk::Duk* duk, Components* components)
   {
-    systems->spriteDraw.Add(this);
+    systems->AddAndRegister(std::make_shared<SystemSpriteDraw>(components));
   }
-};
-
-
-void
-AddSystems(Systems* systems, duk::Duk* duk, Components* components)
-{
-  systems->AddAndRegister(std::make_shared<SystemSpriteDraw>(components));
 }

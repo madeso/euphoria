@@ -6,11 +6,13 @@
 
 #include "duk/duk.h"
 
-
 LOG_SPECIFY_DEFAULT_LOGGER("engine.duk")
 
-void
-AddPrint(duk::Duk* duk)
+namespace euphoria::engine
 {
-  duk->BindPrint([](const std::string& str) { LOG_INFO(str); });
+  void
+  AddPrint(duk::Duk* duk)
+  {
+    duk->BindPrint([](const std::string& str) { LOG_INFO(str); });
+  }
 }

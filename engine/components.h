@@ -9,32 +9,34 @@
 
 #include "render/texturecache.h"
 
-struct CPosition2 : public Component
+namespace euphoria::engine
 {
-  CPosition2();
-  vec2f pos;
-};
+  struct CPosition2 : public core::Component
+  {
+    CPosition2();
+    core::vec2f pos;
+  };
 
-TYPEID_SETUP_TYPE(CPosition2);
+  struct CSprite : public core::Component
+  {
+    COMPONENT_CONSTRUCTOR_DEFINITION(CSprite)
 
-struct CSprite : public Component
-{
-  COMPONENT_CONSTRUCTOR_DEFINITION(CSprite)
+    std::shared_ptr<render::Texture2d> texture;
+  };
 
-  std::shared_ptr<Texture2d> texture;
-};
+  struct Components
+  {
+    Components(core::Registry* reg);
 
-TYPEID_SETUP_TYPE(CSprite);
+    core::ComponentId position2;
+    core::ComponentId sprite;
+  };
 
-struct Components
-{
-  Components(Registry* reg);
+  core::Rectf
+  GetSpriteRect(const core::vec2f& position, const render::Texture2d& texture);
+}
 
-  ComponentId position2;
-  ComponentId sprite;
-};
-
-Rectf
-GetSpriteRect(const vec2f& position, const Texture2d& texture);
+TYPEID_SETUP_TYPE(euphoria::engine::CPosition2);
+TYPEID_SETUP_TYPE(euphoria::engine::CSprite);
 
 #endif  // EUPHORIA_COMPONENTS_H

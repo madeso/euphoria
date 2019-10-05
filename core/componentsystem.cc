@@ -35,7 +35,7 @@ ComponentSystemInitStore::OnAdd(EntityId ent) const
 
 void
 ComponentSystemSpriteDrawStore::Draw(
-    EntReg* reg, SpriteRenderer* renderer) const
+    EntReg* reg, render::SpriteRenderer* renderer) const
 {
   for(const auto s : systems)
   {
@@ -64,7 +64,7 @@ World::Update(float dt)
 }
 
 void
-World::Draw(SpriteRenderer* renderer)
+World::Draw(render::SpriteRenderer* renderer)
 {
   systems->spriteDraw.Draw(&reg, renderer);
 }

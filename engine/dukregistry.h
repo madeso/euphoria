@@ -12,52 +12,55 @@
 #include <string>
 #include <memory>
 
-struct CustomArguments
+namespace euphoria::engine
 {
-  std::map<std::string, float> numbers;
-};
-TYPEID_SETUP_TYPE(CustomArguments);
-
-class DukRegistry
-{
- public:
-  DukRegistry(EntReg* r, Components* components);
-
-  ComponentId
-  CreateNewId(const std::string& name, const duk::FunctionReference& fv);
-
-  bool
-  GetCustomComponentByName(const std::string& name, ComponentId* id);
-
-  std::vector<EntityId>
-  EntityView(const std::vector<ComponentId>& types);
-
-  duk::ObjectReference
-  GetProperty(EntityId ent, ComponentId comp);
-
-  void
-  SetProperty(EntityId ent, ComponentId comp, duk::ObjectReference value);
-
-  duk::ObjectReference
-  CreateComponent(
-      ComponentId comp, duk::Context* ctx, const CustomArguments& arguments);
-
-  void
-  DestroyEntity(EntityId id);
-
-  template <typename T>
-  T*
-  GetComponentOrNull(EntityId ent, ComponentId comp)
+  struct CustomArguments
   {
-    return reg->GetComponentOrNull<T>(ent, comp);
-  }
+    std::map<std::string, float> numbers;
+  };
 
-  using ScriptComponentMap = std::map<ComponentId, duk::FunctionReference>;
+  class DukRegistry
+  {
+  public:
+    DukRegistry(core::EntReg* r, Components* components);
 
-  EntReg*            reg;
-  Components*        components;
-  ScriptComponentMap scriptComponents;
-};
+    core::ComponentId
+    CreateNewId(const std::string& name, const duk::FunctionReference& fv);
 
+    bool
+    GetCustomComponentByName(const std::string& name, core::ComponentId* id);
+
+    std::vector<core::EntityId>
+    EntityView(const std::vector<core::ComponentId>& types);
+
+    duk::ObjectReference
+    GetProperty(core::EntityId ent, core::ComponentId comp);
+
+    void
+    SetProperty(core::EntityId ent, core::ComponentId comp, duk::ObjectReference value);
+
+    duk::ObjectReference
+    CreateComponent(
+        core::ComponentId comp, duk::Context* ctx, const CustomArguments& arguments);
+
+    void
+    DestroyEntity(core::EntityId id);
+
+    template <typename T>
+    T*
+    GetComponentOrNull(core::EntityId ent, core::ComponentId comp)
+    {
+      return reg->GetComponentOrNull<T>(ent, comp);
+    }
+
+    using ScriptComponentMap = std::map<core::ComponentId, duk::FunctionReference>;
+
+    core::EntReg*            reg;
+    Components*        components;
+    ScriptComponentMap scriptComponents;
+  };
+}
+
+TYPEID_SETUP_TYPE(euphoria::engine::CustomArguments);
 
 #endif  // EUPHORIA_DUKREGISTRY_H
