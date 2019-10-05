@@ -54,19 +54,4 @@ LoadProtoJson_Internal(
 #endif
 }
 
-std::string
-SaveProtoJson(
-    const google::protobuf::Message& message, const std::string& file_name)
-{
-#if 0
-  bool write_result = pbjson::pb2json_file(&message, file_name, true);
-  if(!write_result)
-  {
-    return "Unable to write to file";
-  }
-#endif
-
-  return "";
-}
-
 }

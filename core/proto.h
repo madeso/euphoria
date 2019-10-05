@@ -4,15 +4,6 @@
 #include <string>
 #include "rapidjson/document.h"
 
-// todo: remove this
-namespace google
-{
-  namespace protobuf
-  {
-    class Message;
-  }  // namespace protobuf
-}  // namespace google
-
 namespace euphoria::core
 {
 
@@ -42,9 +33,6 @@ LoadProtoJson(vfs::FileSystem* fs, T* message, const std::string& file_name)
   }
 }
 
-std::string
-SaveProtoJson(
-    const google::protobuf::Message& message, const std::string& file_name);
 
 }
 
