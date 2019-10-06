@@ -1,4 +1,4 @@
-dist: trusty
+dist: bionic
 sudo: false
 language: cpp
 
@@ -15,28 +15,20 @@ addons:
     update: true
     sources:
       - ubuntu-toolchain-r-test
-      - deadsnakes
     packages:
-      - g++-5
       - libsdl2-dev
       - libprotobuf-dev
       - protobuf-compiler
       - libassimp-dev
       - libwxgtk3.0-dev
-      - python3.5
-
-# https://github.com/travis-ci/travis-ci/issues/3668#issuecomment-279276549
-install:
-   - mkdir -p latest-symlinks
-   - ln -s /usr/bin/python3.5 latest-symlinks/python3
-   - export PATH=$PWD/latest-symlinks:$PATH
 
 script:
   - $CXX --version
   - python3 --version
   - mkdir build
   - cd build
-  - CXX=/usr/bin/g++-5 CC=/usr/bin/gcc-5 cmake ..
+  - CXX=/usr/bin/g++-7 CC=/usr/bin/gcc-7 cmake ..
+  - $CXX --version
   - make VERBOSE=1
   - cd tests
   - ./tests
