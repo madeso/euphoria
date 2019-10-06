@@ -13,8 +13,6 @@ before_install:
 addons:
   apt:
     update: true
-    sources:
-      - ubuntu-toolchain-r-test
     packages:
       - libsdl2-dev
       - libprotobuf-dev
@@ -27,8 +25,6 @@ script:
   - python3 --version
   - mkdir build
   - cd build
-  - CXX=/usr/bin/g++-7 CC=/usr/bin/gcc-7 cmake ..
-  - $CXX --version
   - make VERBOSE=1
   - cd tests
   - ./tests
