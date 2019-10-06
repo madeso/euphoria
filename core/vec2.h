@@ -350,12 +350,12 @@ namespace euphoria::core
     typedef unit2<int>         unit2i;
     typedef Vec2Transform<int> Vec2iTransform;
 
-
-    ////////////////////////////////////////////////////////////////////////////////
-    /// Typeids
-
-    TYPEID_SETUP_TYPE(vec2f);
-
 }  // namespace euphoria::core
+
+
+////////////////////////////////////////////////////////////////////////////////
+/// Typeids
+
+TYPEID_SETUP_TYPE(euphoria::core::vec2f);
 
 #endif  // CORE_VEC2_H
