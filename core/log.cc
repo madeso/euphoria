@@ -10,89 +10,82 @@
 
 namespace euphoria::core
 {
-
-namespace  // local
-{
-  char const* const
-  LevelToString(LogLevel level)
-  {
-    switch(level)
+    namespace  // local
     {
-      case LogLevel::Trace:
-        return "trace";
-      case LogLevel::Debug:
-        return "debug";
-      case LogLevel::Info:
-        return "info";
-      case LogLevel::Warning:
-        return "warning";
-      case LogLevel::Error:
-        return "error";
-      case LogLevel::Fatal:
-        return "fatal";
-      default:
-        DIE("Unhandled LogLevel case");
-        return "<UNHANDLED LOGLEVEL>";
+        char const* const
+        LevelToString(LogLevel level)
+        {
+            switch (level)
+            {
+            case LogLevel::Trace: return "trace";
+            case LogLevel::Debug: return "debug";
+            case LogLevel::Info: return "info";
+            case LogLevel::Warning: return "warning";
+            case LogLevel::Error: return "error";
+            case LogLevel::Fatal: return "fatal";
+            default:
+                DIE("Unhandled LogLevel case");
+                return "<UNHANDLED LOGLEVEL>";
+            }
+        }
+    }  // namespace
+
+    Logger::Logger(Logger* parent, std::string name)
+        : parent_(parent), name_(std::move(name)), level_(LogLevel::Info)
+    {}
+
+    bool
+    Logger::IsEnabledForLevel(LogLevel level) const
+    {
+        return level_ <= level;
     }
-  }
-}  // namespace
 
-Logger::Logger(Logger* parent, std::string name)
-    : parent_(parent)
-    , name_(std::move(name))
-    , level_(LogLevel::Info)
-{
-}
+    void
+    Logger::AddLog(LogLevel level, const std::string& message)
+    {
+        ASSERT(IsEnabledForLevel(level));
 
-bool
-Logger::IsEnabledForLevel(LogLevel level) const
-{
-  return level_ <= level;
-}
+        // ASSERT(sizeof(kLogLevelNames) == static_cast<int>(LogLevel::MAX_VALUE)+1);
 
-void
-Logger::AddLog(LogLevel level, const std::string& message)
-{
-  ASSERT(IsEnabledForLevel(level));
+        (level >= LogLevel::Warning ? std::cerr : std::cout)
+                << "[" << name_ << " " << LevelToString(level) << "] "
+                << message << "\n";
+    }
 
-  // ASSERT(sizeof(kLogLevelNames) == static_cast<int>(LogLevel::MAX_VALUE)+1);
+    namespace  // local
+    {
+        std::map<std::string, std::shared_ptr<Logger>>&
+        Storage()
+        {
+            static std::map<std::string, std::shared_ptr<Logger>> Storage;
+            return Storage;
+        }
+    }  // namespace
 
-  (level >= LogLevel::Warning ? std::cerr : std::cout)
-      << "[" << name_ << " " << LevelToString(level) << "] " << message << "\n";
-}
+    LoggerPtr
+    Logger::GetLogger(const std::string& name)
+    {
+        auto& storage = Storage();
 
-namespace  // local
-{
-  std::map<std::string, std::shared_ptr<Logger>>&
-  Storage()
-  {
-    static std::map<std::string, std::shared_ptr<Logger>> Storage;
-    return Storage;
-  }
-}  // namespace
+        ASSERT(ToLower(name) == name);  // name should be lower string
 
-LoggerPtr
-Logger::GetLogger(const std::string& name)
-{
-  auto& storage = Storage();
+        auto result = storage.find(name);
+        if (result != storage.end())
+        {
+            return result->second;
+        }
 
-  ASSERT(ToLower(name) == name);  // name should be lower string
+        const auto parent_category = StripLastString(name, '.');
+        auto       parent          = name.empty() ? nullptr
+                                   : GetLogger(
+                                             parent_category == name
+                                                     ? parent_category
+                                                     : "")
+                                             .get();
 
-  auto result = storage.find(name);
-  if(result != storage.end())
-  {
-    return result->second;
-  }
+        auto logger   = std::make_shared<Logger>(parent, name);
+        storage[name] = logger;
+        return logger;
+    }
 
-  const auto parent_category = StripLastString(name, '.');
-  auto       parent =
-      name.empty()
-          ? nullptr
-          : GetLogger(parent_category == name ? parent_category : "").get();
-
-  auto logger   = std::make_shared<Logger>(parent, name);
-  storage[name] = logger;
-  return logger;
-}
-
-}
+}  // namespace euphoria::core

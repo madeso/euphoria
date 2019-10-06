@@ -1,7 +1,8 @@
 #ifndef EUPHORIA_SYSTEMS_H
 #define EUPHORIA_SYSTEMS_H
 
-namespace euphoria::duk {
+namespace euphoria::duk
+{
     class Duk;
 }
 
@@ -16,6 +17,6 @@ namespace euphoria::engine
 
     void
     AddSystems(core::Systems* systems, duk::Duk* duk, Components* components);
-}
+}  // namespace euphoria::engine
 
 #endif  // EUPHORIA_SYSTEMS_H

@@ -12,54 +12,56 @@
 
 namespace euphoria::render
 {
-  class ScalableSprite;
+    class ScalableSprite;
 }
 
 namespace euphoria::gui
 {
-  class Skin;
-  class ButtonState;
+    class Skin;
+    class ButtonState;
 
-  class Button : public Widget
-  {
-  public:
-    Button(UiState* state);
-    ~Button();
+    class Button : public Widget
+    {
+        public:
+        Button(UiState* state);
+        ~Button();
 
-    virtual void
-    OnClicked() = 0;
+        virtual void
+        OnClicked()
+                = 0;
 
-    void
-    Step(float dt) override;
+        void
+        Step(float dt) override;
 
-    core::Sizef
-    CalculateMinimumSize() const override;
+        core::Sizef
+        CalculateMinimumSize() const override;
 
-    void
-    Render(render::SpriteRenderer* renderer) const override;
+        void
+        Render(render::SpriteRenderer* renderer) const override;
 
-    TextData&
-    Text();
+        TextData&
+        Text();
 
-    void
-    SetSprite(std::shared_ptr<render::ScalableSprite> sprite);
+        void
+        SetSprite(std::shared_ptr<render::ScalableSprite> sprite);
 
-    void
-    OnSize() override;
+        void
+        OnSize() override;
 
-    void
-    SetSkin(Skin* skin);
+        void
+        SetSkin(Skin* skin);
 
-  private:
-    ButtonState*                    last_state_;
-    std::shared_ptr<render::ScalableSprite> sprite_;
-    TextData                        text_;
-    Skin*                           skin_;
+        private:
+        ButtonState*                            last_state_;
+        std::shared_ptr<render::ScalableSprite> sprite_;
+        TextData                                text_;
+        Skin*                                   skin_;
 
-    core::Interpolate<float, core::FloatTransform>     scale_;
-    core::Interpolate<core::Rgb, core::RgbTransform>         image_color_;
-    core::Interpolate<core::Rgb, core::RgbTransform>         text_color_;
-    core::Interpolate<core::vec2f, core::Vec2fTransform> position_displacement_;
-  };
-}
+        core::Interpolate<float, core::FloatTransform>   scale_;
+        core::Interpolate<core::Rgb, core::RgbTransform> image_color_;
+        core::Interpolate<core::Rgb, core::RgbTransform> text_color_;
+        core::Interpolate<core::vec2f, core::Vec2fTransform>
+                position_displacement_;
+    };
+}  // namespace euphoria::gui
 #endif  // GUI_BUTTON_H

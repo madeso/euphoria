@@ -11,52 +11,59 @@
 
 namespace euphoria::core
 {
-  class Random;
+    class Random;
 }
 
 namespace euphoria::core::generator
 {
-  using World = Table<bool>;
+    using World = Table<bool>;
 
-  enum class BorderControl
-  {
-    AlwaysWall, AlwaysEmpty, RandomWall, RandomEmpty
-  };
+    enum class BorderControl
+    {
+        AlwaysWall,
+        AlwaysEmpty,
+        RandomWall,
+        RandomEmpty
+    };
 
-  // make generation better
-  // http://www.roguebasin.com/index.php?title=Cellular_Automata_Method_for_Generating_Random_Cave-Like_Levels
+    // make generation better
+    // http://www.roguebasin.com/index.php?title=Cellular_Automata_Method_for_Generating_Random_Cave-Like_Levels
 
-  struct CellularAutomata
-  {
-    World* world = nullptr;
-    Random* random = nullptr;
+    struct CellularAutomata
+    {
+        World*  world  = nullptr;
+        Random* random = nullptr;
 
-    float random_fill = 0.5;
-    BorderControl border_control = BorderControl::AlwaysWall;
-    
-    int iteration = 0;
+        float         random_fill    = 0.5;
+        BorderControl border_control = BorderControl::AlwaysWall;
 
-    void Setup();
-    bool HasMoreWork() const;
-    void Work();
-  };
+        int iteration = 0;
 
-  struct CellularAutomataDrawer
-  {
-    CellularAutomataDrawer();
+        void
+        Setup();
+        bool
+        HasMoreWork() const;
+        void
+        Work();
+    };
 
-    World* world;
+    struct CellularAutomataDrawer
+    {
+        CellularAutomataDrawer();
 
-    Image image;
+        World* world;
 
-    int scale = 1;
+        Image image;
 
-    Rgbi wall_color;
-    Rgbi space_color;
+        int scale = 1;
 
-    void Draw();
-  };
-}
+        Rgbi wall_color;
+        Rgbi space_color;
+
+        void
+        Draw();
+    };
+}  // namespace euphoria::core::generator
 
 DECLARE_ENUM_LIST(euphoria::core::generator::BorderControl)
 

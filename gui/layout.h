@@ -13,35 +13,37 @@ namespace euphoria::gui
 
     class Layout
     {
-    public:
+        public:
         Layout();
 
         virtual ~Layout();
 
         virtual core::Sizef
         CalculateMinimumArea(
-            const std::vector<std::shared_ptr<Widget>>& widgets) const = 0;
+                const std::vector<std::shared_ptr<Widget>>& widgets) const = 0;
 
         virtual void
-        DoLayout(std::vector<std::shared_ptr<Widget>>* widgets, const core::Rectf& area)
-            const = 0;
+        DoLayout(
+                std::vector<std::shared_ptr<Widget>>* widgets,
+                const core::Rectf&                    area) const = 0;
     };
 
     class TableLayout : public Layout
     {
-    public:
+        public:
         TableLayout(
-            const std::vector<bool> expandable_rows,
-            const std::vector<bool> expandable_cols,
-            float                   combined_padding);
+                const std::vector<bool> expandable_rows,
+                const std::vector<bool> expandable_cols,
+                float                   combined_padding);
 
         virtual core::Sizef
-        CalculateMinimumArea(
-            const std::vector<std::shared_ptr<Widget>>& widgets) const override;
+        CalculateMinimumArea(const std::vector<std::shared_ptr<Widget>>&
+                                     widgets) const override;
 
         virtual void
-        DoLayout(std::vector<std::shared_ptr<Widget>>* widgets, const core::Rectf& area)
-            const override;
+        DoLayout(
+                std::vector<std::shared_ptr<Widget>>* widgets,
+                const core::Rectf&                    area) const override;
 
         std::vector<bool> expandable_rows_;
         std::vector<bool> expandable_cols_;
@@ -50,20 +52,21 @@ namespace euphoria::gui
 
     class SingleRowLayout : public Layout
     {
-    public:
+        public:
         SingleRowLayout(float padding);
 
         virtual core::Sizef
-        CalculateMinimumArea(
-            const std::vector<std::shared_ptr<Widget>>& widgets) const override;
+        CalculateMinimumArea(const std::vector<std::shared_ptr<Widget>>&
+                                     widgets) const override;
 
         virtual void
-        DoLayout(std::vector<std::shared_ptr<Widget>>* widgets, const core::Rectf& area)
-            const override;
+        DoLayout(
+                std::vector<std::shared_ptr<Widget>>* widgets,
+                const core::Rectf&                    area) const override;
 
-    private:
+        private:
         float padding_;
     };
-}
+}  // namespace euphoria::gui
 
 #endif  // GUI_LAYOUT_H

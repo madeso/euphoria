@@ -10,77 +10,81 @@
 
 namespace game
 {
-  class Game;
+    class Game;
 }
 
 namespace euphoria::core
 {
-  class World;
+    class World;
 }
 
 namespace euphoria::duk
 {
-  class Context;
-  class Duk;
-}
+    class Context;
+    class Duk;
+}  // namespace euphoria::duk
 
 namespace euphoria::render
 {
-  class TextureCache;
+    class TextureCache;
 }
 
 namespace euphoria::engine
 {
-  class DukRegistry;
-  struct Components;
+    class DukRegistry;
+    struct Components;
 
-  struct ObjectCreationArgs
-  {
-    core::World*       world;
-    DukRegistry* reg;
-    duk::Context*     ctx;
-    duk::Duk*         duk;
+    struct ObjectCreationArgs
+    {
+        core::World*  world;
+        DukRegistry*  reg;
+        duk::Context* ctx;
+        duk::Duk*     duk;
 
-    ObjectCreationArgs(
-        core::World* aworld, DukRegistry* areg, duk::Context* actx, duk::Duk* aduk);
-  };
+        ObjectCreationArgs(
+                core::World*  aworld,
+                DukRegistry*  areg,
+                duk::Context* actx,
+                duk::Duk*     aduk);
+    };
 
-  class ComponentCreator
-  {
-  public:
-    virtual ~ComponentCreator() = default;
-    virtual void
-    CreateComponent(const ObjectCreationArgs& args, core::EntityId id) = 0;
-  };
+    class ComponentCreator
+    {
+        public:
+        virtual ~ComponentCreator() = default;
+        virtual void
+        CreateComponent(const ObjectCreationArgs& args, core::EntityId id)
+                = 0;
+    };
 
-  class ObjectTemplate
-  {
-  public:
-    core::EntityId
-    CreateObject(const ObjectCreationArgs& args);
+    class ObjectTemplate
+    {
+        public:
+        core::EntityId
+        CreateObject(const ObjectCreationArgs& args);
 
-    std::vector<std::shared_ptr<ComponentCreator>> components;
-  };
+        std::vector<std::shared_ptr<ComponentCreator>> components;
+    };
 
-  class ObjectCreator
-  {
-  public:
-    std::map<std::string, std::shared_ptr<ObjectTemplate>> templates;
+    class ObjectCreator
+    {
+        public:
+        std::map<std::string, std::shared_ptr<ObjectTemplate>> templates;
 
-    ObjectTemplate*
-    FindTemplate(const std::string& name);
-  };
+        ObjectTemplate*
+        FindTemplate(const std::string& name);
+    };
 
-  void
-  LoadTemplatesButOnlyNames(const game::Game& json, ObjectCreator* temp);
+    void
+    LoadTemplatesButOnlyNames(const game::Game& json, ObjectCreator* temp);
 
-  void
-  LoadTemplates(
-      const game::Game& json,
-      ObjectCreator*    temp,
-      DukRegistry*      reg,
-      render::TextureCache*     cache,
-      Components*       components);
-}
+    void
+    LoadTemplates(
+            const game::Game&     json,
+            ObjectCreator*        temp,
+            DukRegistry*          reg,
+            render::TextureCache* cache,
+            Components*           components);
+}  // namespace euphoria::engine
 
 #endif  // EUPHORIA_OBJECTTEMPLATE_H

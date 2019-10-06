@@ -14,19 +14,11 @@ namespace euphoria::gui
         , interpolationColorTime(0)
         , interpolationSize(core::InterpolationType::Linear)
         , interpolationSizeTime(0)
-    {
-    }
+    {}
 
-    ButtonState::~ButtonState()
-    {
-    }
+    ButtonState::~ButtonState() {}
 
-    Skin::Skin()
-        : text_size(30.0f)
-    {
-    }
+    Skin::Skin() : text_size(30.0f) {}
 
-    Skin::~Skin()
-    {
-    }
-}
+    Skin::~Skin() {}
+}  // namespace euphoria::gui

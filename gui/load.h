@@ -11,25 +11,24 @@ namespace euphoria::core
     {
         class FileSystem;
     }
-}
+}  // namespace euphoria::core
 
 namespace euphoria::render
 {
     class TextureCache;
     class FontCache;
-}
+}  // namespace euphoria::render
 
 namespace euphoria::gui
 {
     class Root;
 
     bool
-    Load(
-        Root*              root,
-        core::vfs::FileSystem*        fs,
-        render::FontCache*         font,
-        const std::string& path,
-        render::TextureCache*      cache);
-}
+    Load(Root*                  root,
+         core::vfs::FileSystem* fs,
+         render::FontCache*     font,
+         const std::string&     path,
+         render::TextureCache*  cache);
+}  // namespace euphoria::gui
 
 #endif  // GUI_LOAD_H

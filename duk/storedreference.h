@@ -6,17 +6,17 @@
 
 namespace euphoria::duk
 {
-  class StoredReference
-  {
-   public:
-    StoredReference(void* ptr, ReferenceStorage* duk);
+    class StoredReference
+    {
+        public:
+        StoredReference(void* ptr, ReferenceStorage* duk);
 
-    ~StoredReference();
+        ~StoredReference();
 
-   private:
-    ReferenceStorage*       duk;
-    ReferenceStorage::Index stored_index;
-  };
-}
+        private:
+        ReferenceStorage*       duk;
+        ReferenceStorage::Index stored_index;
+    };
+}  // namespace euphoria::duk
 
 #endif  // EUPHORIA_DUK_STOREDREFERENCE_H

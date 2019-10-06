@@ -5,26 +5,28 @@
 
 namespace euphoria::duk
 {
-  class Context;
+    class Context;
 
-  class Function
-  {
-   public:
-    Function() = default;
+    class Function
+    {
+        public:
+        Function() = default;
 
-    virtual ~Function() = default;
+        virtual ~Function() = default;
 
-    // return empty string if matches
-    // non-empty means match failed
-    virtual std::string
-    Matches(Context* ctx) = 0;
+        // return empty string if matches
+        // non-empty means match failed
+        virtual std::string
+        Matches(Context* ctx)
+                = 0;
 
-    virtual int
-    Call(Context* ctx) = 0;
+        virtual int
+        Call(Context* ctx)
+                = 0;
 
-    virtual std::string
-    Describe(Context* context) const = 0;
-  };
-}
+        virtual std::string
+        Describe(Context* context) const = 0;
+    };
+}  // namespace euphoria::duk
 
 #endif  // EUPHORIA_DUK_BINDFUNCTION_H

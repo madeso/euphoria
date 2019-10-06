@@ -6,42 +6,42 @@
 
 namespace euphoria::render
 {
-  class Vao;
-  class Ebo;
+    class Vao;
+    class Ebo;
 
-  class Point
-  {
-  public:
-    Point(float x, float y, float u, float v);
-    Point(const core::vec2f& apos, const core::vec2f& avert);
+    class Point
+    {
+        public:
+        Point(float x, float y, float u, float v);
+        Point(const core::vec2f& apos, const core::vec2f& avert);
 
-    const core::vec2f pos;
+        const core::vec2f pos;
 
-    // todo: rename to uv
-    const core::vec2f vert;
-  };
+        // todo: rename to uv
+        const core::vec2f vert;
+    };
 
-  class BufferBuilder2d
-  {
-  public:
-    BufferBuilder2d();
+    class BufferBuilder2d
+    {
+        public:
+        BufferBuilder2d();
 
-    void
-    AddVertex(const Point& p);
-    void
-    AddTriangle(unsigned int a, unsigned int b, unsigned int c);
-    void
-    AddQuad(const Point& a, const Point& b, const Point& c, const Point& d);
+        void
+        AddVertex(const Point& p);
+        void
+        AddTriangle(unsigned int a, unsigned int b, unsigned int c);
+        void
+        AddQuad(const Point& a, const Point& b, const Point& c, const Point& d);
 
-    const std::vector<float>&
-    GetVertexData() const;
-    const std::vector<unsigned int>&
-    GetTriangleIndices() const;
+        const std::vector<float>&
+        GetVertexData() const;
+        const std::vector<unsigned int>&
+        GetTriangleIndices() const;
 
-  private:
-    std::vector<float>        data;
-    std::vector<unsigned int> tris;
-  };
-}
+        private:
+        std::vector<float>        data;
+        std::vector<unsigned int> tris;
+    };
+}  // namespace euphoria::render
 
 #endif  // RENDER_BUFFERBUILDER2D_H

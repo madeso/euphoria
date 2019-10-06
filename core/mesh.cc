@@ -17,441 +17,459 @@
 
 namespace euphoria::core
 {
+    LOG_SPECIFY_DEFAULT_LOGGER("mesh")
 
-LOG_SPECIFY_DEFAULT_LOGGER("mesh")
-
-template <typename K, typename V>
-std::vector<K>
-KeysOf(const std::map<K, V>& m)
-{
-  std::vector<K> r;
-  for(const auto& p : m)
-  {
-    r.emplace_back(p.first);
-  }
-  return r;
-}
-
-MeshPart::MeshPart()
-    : material(0)
-    , facecount(0)
-{
-}
-
-namespace  // local
-{
-  enum
-  {
-    NUMBER_OF_COMPONENTS = 8
-  };
-}  // local
-
-void
-MeshPart::AddPoint(
-    float x, float y, float z, float nx, float ny, float nz, float u, float v)
-{
-  auto start_size = points.size();
-
-  points.push_back(x);
-  points.push_back(y);
-  points.push_back(z);
-
-  points.push_back(nx);
-  points.push_back(ny);
-  points.push_back(nz);
-
-  points.push_back(u);
-  points.push_back(v);
-
-  ASSERT(start_size + NUMBER_OF_COMPONENTS == points.size());
-}
-
-void
-MeshPart::AddFace(unsigned int a, unsigned int b, unsigned int c)
-{
-  faces.push_back(a);
-  faces.push_back(b);
-  faces.push_back(c);
-  facecount += 1;
-}
-
-Aabb
-MeshPart::CalculateAabb() const
-{
-  Aabb aabb = Aabb::Empty();
-
-  for(unsigned int i = 0; i < points.size(); i += NUMBER_OF_COMPONENTS)
-  {
-    aabb.Extend(vec3f{&points[i]});
-  }
-
-  return aabb;
-}
-
-MaterialTexture::MaterialTexture(std::string p, EnumValue t)
-    : path(std::move(p))
-    , type(t)
-{
-}
-
-Material::Material()
-    : ambient(Color::White)
-    , diffuse(Color::White)
-    , specular(Color::White)
-    , shininess(42.0f)
-    , alpha(1.0f)
-    , wraps(WrapMode::REPEAT)
-    , wrapt(WrapMode::REPEAT)
-{
-}
-
-void
-Material::SetTexture(
-    const std::string& texture_name, const std::string& texture_path)
-{
-  DEFINE_ENUM_VALUE(TextureType, texture_type, texture_name);
-  textures.emplace_back(texture_path, texture_type);
-}
-
-Aabb
-Mesh::CalculateAabb() const
-{
-  Aabb aabb = Aabb::Empty();
-
-  for(const auto& part : parts)
-  {
-    aabb.Extend(part.CalculateAabb());
-  }
-
-  return aabb;
-}
-
-namespace  // local
-{
-  DEFINE_ENUM_VALUE(TextureType, DiffuseType, "Diffuse");  // NOLINT
-}  // namespace
-
-namespace
-{
-  const unsigned int AssimpFlags =
-      aiProcess_CalcTangentSpace | aiProcess_Triangulate |
-      aiProcess_SortByPType | aiProcess_FlipUVs | aiProcess_GenUVCoords |
-      aiProcess_TransformUVCoords | aiProcess_OptimizeMeshes |
-      aiProcess_RemoveRedundantMaterials | aiProcess_PreTransformVertices |
-      aiProcess_ImproveCacheLocality | aiProcess_FindDegenerates |
-      aiProcess_JoinIdenticalVertices | aiProcess_ValidateDataStructure |
-      aiProcess_GenSmoothNormals | aiProcess_FindInvalidData;
-
-  WrapMode
-  GetTextureWrappingMode(const int mode)
-  {
-    switch(mode)
+    template <typename K, typename V>
+    std::vector<K>
+    KeysOf(const std::map<K, V>& m)
     {
-      case aiTextureMapMode_Wrap:
-        return WrapMode::REPEAT;
-      case aiTextureMapMode_Clamp:
-        return WrapMode::CLAMP_TO_EDGE;
-      case aiTextureMapMode_Decal:
-        throw "Unsupported texture wrapping mode: decal";
-      case aiTextureMapMode_Mirror:
-        return WrapMode::MIRROR_REPEAT;
-      default:
-        throw "Unhandled texture wrapping mode";
+        std::vector<K> r;
+        for (const auto& p: m)
+        {
+            r.emplace_back(p.first);
+        }
+        return r;
     }
-  }
 
-  Rgb
-  C(const aiColor3D c)
-  {
-    return Rgb{c.r, c.g, c.b};
-  }
+    MeshPart::MeshPart() : material(0), facecount(0) {}
 
-  void
-  AddMaterials(Mesh* ret, const aiScene* scene)
-  {
-    for(unsigned int material_id = 0; material_id < scene->mNumMaterials;
-        ++material_id)
+    namespace  // local
     {
-      const aiMaterial* mat = scene->mMaterials[material_id];
+        enum
+        {
+            NUMBER_OF_COMPONENTS = 8
+        };
+    }  // namespace
 
-      Material material;
-
-      if(mat->GetTextureCount(aiTextureType_DIFFUSE) <= 0)
-      {
-        // do nothing
-      }
-      else
-      {
-        aiString texture;
-        mat->GetTexture(aiTextureType_DIFFUSE, 0, &texture);
-        material.textures.emplace_back(texture.C_Str(), DiffuseType);
-      }
-
-      aiString ai_name;
-      mat->Get(AI_MATKEY_NAME, ai_name);
-      material.name = ai_name.C_Str();
-
-      const bool got_shininess =
-          aiReturn_SUCCESS == mat->Get(AI_MATKEY_SHININESS, material.shininess);
-      const bool got_alpha =
-          aiReturn_SUCCESS == mat->Get(AI_MATKEY_OPACITY, material.alpha);
-
-      if(!got_shininess)
-      {
-        material.shininess = 0.0f;
-      }
-
-      if(!got_alpha)
-      {
-        material.alpha = 1.0f;
-      }
-
-      aiColor3D ai_ambient;
-      aiColor3D ai_diffuse;
-      aiColor3D ai_specular;
-      mat->Get(AI_MATKEY_COLOR_AMBIENT, ai_ambient);
-      mat->Get(AI_MATKEY_COLOR_DIFFUSE, ai_diffuse);
-      mat->Get(AI_MATKEY_COLOR_SPECULAR, ai_specular);
-      material.ambient  = C(ai_ambient);
-      material.diffuse  = C(ai_diffuse);
-      material.specular = C(ai_specular);
-
-
-      int u = 0;
-      int v = 0;
-      mat->Get(AI_MATKEY_MAPPINGMODE_U(aiTextureType_DIFFUSE, 0), u);
-      mat->Get(AI_MATKEY_MAPPINGMODE_V(aiTextureType_DIFFUSE, 0), v);
-      material.wraps = GetTextureWrappingMode(u);
-      material.wrapt = GetTextureWrappingMode(v);
-
-      // todo: improve texture detection?
-      material.shader = "";
-      ret->materials.push_back(material);
-    }
-  }
-
-  void
-  AddFaces(MeshPart* part, const aiMesh* mesh)
-  {
-    for(unsigned int face_id = 0; face_id < mesh->mNumFaces; ++face_id)
+    void
+    MeshPart::AddPoint(
+            float x,
+            float y,
+            float z,
+            float nx,
+            float ny,
+            float nz,
+            float u,
+            float v)
     {
-      const aiFace& face = mesh->mFaces[face_id];
-      part->AddFace(face.mIndices[0], face.mIndices[1], face.mIndices[2]);
-    }
-  }
+        auto start_size = points.size();
 
-  void
-  AddPoints(MeshPart* part, const aiMesh* mesh)
-  {
-    for(unsigned int index = 0; index < mesh->mNumVertices; ++index)
+        points.push_back(x);
+        points.push_back(y);
+        points.push_back(z);
+
+        points.push_back(nx);
+        points.push_back(ny);
+        points.push_back(nz);
+
+        points.push_back(u);
+        points.push_back(v);
+
+        ASSERT(start_size + NUMBER_OF_COMPONENTS == points.size());
+    }
+
+    void
+    MeshPart::AddFace(unsigned int a, unsigned int b, unsigned int c)
     {
-      const aiVector3D& vertex = mesh->mVertices[index];
-      const aiVector3D& normal = mesh->mNormals[index];
-      float             u      = 0;
-      float             v      = 0;
-      if(mesh->HasTextureCoords(0))
-      {
-        const aiVector3D uv = mesh->mTextureCoords[0][index];
-        u                   = uv.x;
-        v                   = uv.y;
-      }
-      part->AddPoint(
-          vertex.x, vertex.y, vertex.z, normal.x, normal.y, normal.z, u, v);
+        faces.push_back(a);
+        faces.push_back(b);
+        faces.push_back(c);
+        facecount += 1;
     }
-  }
 
-  MeshPart
-  ConvertMesh(const aiMesh* mesh)
-  {
-    MeshPart part;
+    Aabb
+    MeshPart::CalculateAabb() const
+    {
+        Aabb aabb = Aabb::Empty();
 
-    part.material = mesh->mMaterialIndex;
-    AddPoints(&part, mesh);
-    AddFaces(&part, mesh);
+        for (unsigned int i = 0; i < points.size(); i += NUMBER_OF_COMPONENTS)
+        {
+            aabb.Extend(vec3f {&points[i]});
+        }
 
-    return part;
-  }
+        return aabb;
+    }
 
-  Mesh
-  ConvertScene(const aiScene* scene)
-  {
-    Mesh ret;
+    MaterialTexture::MaterialTexture(std::string p, EnumValue t)
+        : path(std::move(p)), type(t)
+    {}
 
-    /** @todo add parsing of nodes to the mesh so we could
+    Material::Material()
+        : ambient(Color::White)
+        , diffuse(Color::White)
+        , specular(Color::White)
+        , shininess(42.0f)
+        , alpha(1.0f)
+        , wraps(WrapMode::REPEAT)
+        , wrapt(WrapMode::REPEAT)
+    {}
+
+    void
+    Material::SetTexture(
+            const std::string& texture_name,
+            const std::string& texture_path)
+    {
+        DEFINE_ENUM_VALUE(TextureType, texture_type, texture_name);
+        textures.emplace_back(texture_path, texture_type);
+    }
+
+    Aabb
+    Mesh::CalculateAabb() const
+    {
+        Aabb aabb = Aabb::Empty();
+
+        for (const auto& part: parts)
+        {
+            aabb.Extend(part.CalculateAabb());
+        }
+
+        return aabb;
+    }
+
+    namespace  // local
+    {
+        DEFINE_ENUM_VALUE(TextureType, DiffuseType, "Diffuse");  // NOLINT
+    }  // namespace
+
+    namespace
+    {
+        const unsigned int AssimpFlags
+                = aiProcess_CalcTangentSpace | aiProcess_Triangulate
+                  | aiProcess_SortByPType | aiProcess_FlipUVs
+                  | aiProcess_GenUVCoords | aiProcess_TransformUVCoords
+                  | aiProcess_OptimizeMeshes
+                  | aiProcess_RemoveRedundantMaterials
+                  | aiProcess_PreTransformVertices
+                  | aiProcess_ImproveCacheLocality | aiProcess_FindDegenerates
+                  | aiProcess_JoinIdenticalVertices
+                  | aiProcess_ValidateDataStructure | aiProcess_GenSmoothNormals
+                  | aiProcess_FindInvalidData;
+
+        WrapMode
+        GetTextureWrappingMode(const int mode)
+        {
+            switch (mode)
+            {
+            case aiTextureMapMode_Wrap: return WrapMode::REPEAT;
+            case aiTextureMapMode_Clamp: return WrapMode::CLAMP_TO_EDGE;
+            case aiTextureMapMode_Decal:
+                throw "Unsupported texture wrapping mode: decal";
+            case aiTextureMapMode_Mirror: return WrapMode::MIRROR_REPEAT;
+            default: throw "Unhandled texture wrapping mode";
+            }
+        }
+
+        Rgb
+        C(const aiColor3D c)
+        {
+            return Rgb {c.r, c.g, c.b};
+        }
+
+        void
+        AddMaterials(Mesh* ret, const aiScene* scene)
+        {
+            for (unsigned int material_id = 0;
+                 material_id < scene->mNumMaterials;
+                 ++material_id)
+            {
+                const aiMaterial* mat = scene->mMaterials[material_id];
+
+                Material material;
+
+                if (mat->GetTextureCount(aiTextureType_DIFFUSE) <= 0)
+                {
+                    // do nothing
+                }
+                else
+                {
+                    aiString texture;
+                    mat->GetTexture(aiTextureType_DIFFUSE, 0, &texture);
+                    material.textures.emplace_back(
+                            texture.C_Str(), DiffuseType);
+                }
+
+                aiString ai_name;
+                mat->Get(AI_MATKEY_NAME, ai_name);
+                material.name = ai_name.C_Str();
+
+                const bool got_shininess
+                        = aiReturn_SUCCESS
+                          == mat->Get(AI_MATKEY_SHININESS, material.shininess);
+                const bool got_alpha
+                        = aiReturn_SUCCESS
+                          == mat->Get(AI_MATKEY_OPACITY, material.alpha);
+
+                if (!got_shininess)
+                {
+                    material.shininess = 0.0f;
+                }
+
+                if (!got_alpha)
+                {
+                    material.alpha = 1.0f;
+                }
+
+                aiColor3D ai_ambient;
+                aiColor3D ai_diffuse;
+                aiColor3D ai_specular;
+                mat->Get(AI_MATKEY_COLOR_AMBIENT, ai_ambient);
+                mat->Get(AI_MATKEY_COLOR_DIFFUSE, ai_diffuse);
+                mat->Get(AI_MATKEY_COLOR_SPECULAR, ai_specular);
+                material.ambient  = C(ai_ambient);
+                material.diffuse  = C(ai_diffuse);
+                material.specular = C(ai_specular);
+
+
+                int u = 0;
+                int v = 0;
+                mat->Get(AI_MATKEY_MAPPINGMODE_U(aiTextureType_DIFFUSE, 0), u);
+                mat->Get(AI_MATKEY_MAPPINGMODE_V(aiTextureType_DIFFUSE, 0), v);
+                material.wraps = GetTextureWrappingMode(u);
+                material.wrapt = GetTextureWrappingMode(v);
+
+                // todo: improve texture detection?
+                material.shader = "";
+                ret->materials.push_back(material);
+            }
+        }
+
+        void
+        AddFaces(MeshPart* part, const aiMesh* mesh)
+        {
+            for (unsigned int face_id = 0; face_id < mesh->mNumFaces; ++face_id)
+            {
+                const aiFace& face = mesh->mFaces[face_id];
+                part->AddFace(
+                        face.mIndices[0], face.mIndices[1], face.mIndices[2]);
+            }
+        }
+
+        void
+        AddPoints(MeshPart* part, const aiMesh* mesh)
+        {
+            for (unsigned int index = 0; index < mesh->mNumVertices; ++index)
+            {
+                const aiVector3D& vertex = mesh->mVertices[index];
+                const aiVector3D& normal = mesh->mNormals[index];
+                float             u      = 0;
+                float             v      = 0;
+                if (mesh->HasTextureCoords(0))
+                {
+                    const aiVector3D uv = mesh->mTextureCoords[0][index];
+                    u                   = uv.x;
+                    v                   = uv.y;
+                }
+                part->AddPoint(
+                        vertex.x,
+                        vertex.y,
+                        vertex.z,
+                        normal.x,
+                        normal.y,
+                        normal.z,
+                        u,
+                        v);
+            }
+        }
+
+        MeshPart
+        ConvertMesh(const aiMesh* mesh)
+        {
+            MeshPart part;
+
+            part.material = mesh->mMaterialIndex;
+            AddPoints(&part, mesh);
+            AddFaces(&part, mesh);
+
+            return part;
+        }
+
+        Mesh
+        ConvertScene(const aiScene* scene)
+        {
+            Mesh ret;
+
+            /** @todo add parsing of nodes to the mesh so we could
     dynamically animate some rotors, wings etc. for example
      */
 
-    if(scene->HasMeshes())
+            if (scene->HasMeshes())
+            {
+                AddMaterials(&ret, scene);
+
+                for (unsigned int meshid = 0; meshid < scene->mNumMeshes;
+                     ++meshid)
+                {
+                    const aiMesh*  mesh = scene->mMeshes[meshid];
+                    const MeshPart part = ConvertMesh(mesh);
+                    ret.parts.push_back(part);
+                }
+            }
+
+            return ret;
+        }
+
+        // http://assimp.sourceforge.net/howtoBasicShapes.html
+        Mesh
+        LoadFromString(const std::string& nff, const std::string& format)
+        {
+            Assimp::Importer importer;
+
+            const aiScene* scene = importer.ReadFileFromMemory(
+                    nff.c_str(), nff.length() + 1, AssimpFlags, format.c_str());
+            if (scene == nullptr)
+            {
+                throw std::string {importer.GetErrorString()};
+            }
+            return ConvertScene(scene);
+        }
+
+        const char* const FileFormatNff = "nff";
+        const char* const FileFormatObj = "obj";
+
+        void
+        DecorateMeshMaterials(
+                Mesh*              mesh,
+                const std::string& json_path,
+                const mesh::Mesh&  json)
+        {
+            std::map<std::string, Material*> mesh_materials;
+            for (auto& material: mesh->materials)
+            {
+                mesh_materials[material.name] = &material;
+            }
+
+            for (const auto& material: json.materials)
+            {
+                auto found = mesh_materials.find(material.name);
+                if (found == mesh_materials.end())
+                {
+                    LOG_ERROR(
+                            "Unable to find "
+                            << material.name << " in mesh " << json_path
+                            << " valid names are: "
+                            << StringMerger::EnglishOr().Generate(
+                                       KeysOf(mesh_materials)));
+                    continue;
+                }
+
+                auto* other = found->second;
+                for (const auto& src_texture: material.textures)
+                {
+                    other->SetTexture(src_texture.type, src_texture.path);
+                }
+            }
+        }
+
+        void
+        DecorateMeshMaterialsIgnoreAmbient(Mesh* mesh)
+        {
+            for (auto& material: mesh->materials)
+            {
+                material.ambient = material.diffuse;
+            }
+        }
+
+        void
+        DecorateMesh(
+                vfs::FileSystem*   fs,
+                Mesh*              mesh,
+                const std::string& json_path)
+        {
+            mesh::Mesh json;
+            const auto error = LoadProtoJson(fs, &json, json_path);
+            if (!error.empty())
+            {
+                LOG_WARN("Mesh " << json_path << " failed to load: " << error);
+            }
+
+            if (json.diffuse_and_ambient_are_same)
+            {
+                DecorateMeshMaterialsIgnoreAmbient(mesh);
+            }
+
+            if (!json.materials.empty())
+            {
+                DecorateMeshMaterials(mesh, json_path, json);
+            }
+        }
+
+
+    }  // namespace
+
+    namespace meshes
     {
-      AddMaterials(&ret, scene);
+        MeshLoadResult
+        LoadMesh(vfs::FileSystem* fs, const std::string& path)
+        {
+            Assimp::Importer importer;
+            MeshLoadResult   res;
 
-      for(unsigned int meshid = 0; meshid < scene->mNumMeshes; ++meshid)
-      {
-        const aiMesh*  mesh = scene->mMeshes[meshid];
-        const MeshPart part = ConvertMesh(mesh);
-        ret.parts.push_back(part);
-      }
-    }
+            const aiScene* scene = importer.ReadFile(path, AssimpFlags);
+            if (scene == nullptr)
+            {
+                res.error = importer.GetErrorString();
+            }
+            else
+            {
+                res.mesh = ConvertScene(scene);
+                DecorateMesh(fs, &res.mesh, path + ".json");
+            }
+            return res;
+        }
 
-    return ret;
-  }
+        Mesh
+        CreateCube(float size)
+        {
+            return CreateBox(size, size, size);
+        }
 
-  // http://assimp.sourceforge.net/howtoBasicShapes.html
-  Mesh
-  LoadFromString(const std::string& nff, const std::string& format)
-  {
-    Assimp::Importer importer;
+        Mesh
+        CreateSphere(float size, const std::string& texture)
+        {
+            std::ostringstream ss;
+            ss << "shader " << texture << std::endl << "s 0 0 0 " << size;
+            return LoadFromString(ss.str(), FileFormatNff);
+        }
 
-    const aiScene* scene = importer.ReadFileFromMemory(
-        nff.c_str(), nff.length() + 1, AssimpFlags, format.c_str());
-    if(scene == nullptr)
-    {
-      throw std::string{importer.GetErrorString()};
-    }
-    return ConvertScene(scene);
-  }
+        Mesh
+        CreateBox(float width, float height, float depth)
+        {
+            const float        x = width / 2;
+            const float        y = height / 2;
+            const float        z = depth / 2;
+            std::ostringstream ss;
+            ss << "v " << -x << " "
+               << " " << -y << " " << -z << std::endl
+               << "v " << -x << " "
+               << " " << -y << " " << z << std::endl
+               << "v " << -x << " "
+               << " " << y << " " << -z << std::endl
+               << "v " << -x << " "
+               << " " << y << " " << z << std::endl
+               << "v " << x << " "
+               << " " << -y << " " << -z << std::endl
+               << "v " << x << " "
+               << " " << -y << " " << z << std::endl
+               << "v " << x << " "
+               << " " << y << " " << -z << std::endl
+               << "v " << x << " "
+               << " " << y << " " << z << std::endl
+               << "" << std::endl
+               << "vt 0 0" << std::endl
+               << "vt 0 1" << std::endl
+               << "vt 1 1" << std::endl
+               << "vt 1 0" << std::endl
+               << "" << std::endl
+               << "f 3/1 7/2 5/3 1/4" << std::endl
+               << "f 6/1 8/2 4/3 2/4" << std::endl
+               << "f 2/1 4/2 3/3 1/4" << std::endl
+               << "f 7/1 8/2 6/3 5/4" << std::endl
+               << "f 4/1 8/2 7/3 3/4" << std::endl
+               << "f 5/1 6/2 2/3 1/4" << std::endl;
 
-  const char* const FileFormatNff = "nff";
-  const char* const FileFormatObj = "obj";
+            auto box = LoadFromString(ss.str(), FileFormatObj);
+            return box;
+        }
+    }  // namespace meshes
 
-  void
-  DecorateMeshMaterials(
-      Mesh* mesh, const std::string& json_path, const mesh::Mesh& json)
-  {
-    std::map<std::string, Material*> mesh_materials;
-    for(auto& material : mesh->materials)
-    {
-      mesh_materials[material.name] = &material;
-    }
-
-    for(const auto& material : json.materials)
-    {
-      auto found = mesh_materials.find(material.name);
-      if(found == mesh_materials.end())
-      {
-        LOG_ERROR(
-            "Unable to find " << material.name << " in mesh " << json_path
-                              << " valid names are: "
-                              << StringMerger::EnglishOr().Generate(
-                                     KeysOf(mesh_materials)));
-        continue;
-      }
-
-      auto* other = found->second;
-      for(const auto& src_texture : material.textures)
-      {
-        other->SetTexture(src_texture.type, src_texture.path);
-      }
-    }
-  }
-
-  void
-  DecorateMeshMaterialsIgnoreAmbient(Mesh* mesh)
-  {
-    for(auto& material : mesh->materials)
-    {
-      material.ambient = material.diffuse;
-    }
-  }
-
-  void
-  DecorateMesh(vfs::FileSystem* fs, Mesh* mesh, const std::string& json_path)
-  {
-    mesh::Mesh json;
-    const auto error = LoadProtoJson(fs, &json, json_path);
-    if(!error.empty())
-    {
-      LOG_WARN("Mesh " << json_path << " failed to load: " << error);
-    }
-
-    if(json.diffuse_and_ambient_are_same)
-    {
-      DecorateMeshMaterialsIgnoreAmbient(mesh);
-    }
-
-    if(!json.materials.empty())
-    {
-      DecorateMeshMaterials(mesh, json_path, json);
-    }
-  }
-
-
-}  // namespace
-
-namespace meshes
-{
-  MeshLoadResult
-  LoadMesh(vfs::FileSystem* fs, const std::string& path)
-  {
-    Assimp::Importer importer;
-    MeshLoadResult   res;
-
-    const aiScene* scene = importer.ReadFile(path, AssimpFlags);
-    if(scene == nullptr)
-    {
-      res.error = importer.GetErrorString();
-    }
-    else
-    {
-      res.mesh = ConvertScene(scene);
-      DecorateMesh(fs, &res.mesh, path + ".json");
-    }
-    return res;
-  }
-
-  Mesh
-  CreateCube(float size)
-  {
-    return CreateBox(size, size, size);
-  }
-
-  Mesh
-  CreateSphere(float size, const std::string& texture)
-  {
-    std::ostringstream ss;
-    ss << "shader " << texture << std::endl << "s 0 0 0 " << size;
-    return LoadFromString(ss.str(), FileFormatNff);
-  }
-
-  Mesh
-  CreateBox(float width, float height, float depth)
-  {
-    const float        x = width / 2;
-    const float        y = height / 2;
-    const float        z = depth / 2;
-    std::ostringstream ss;
-    ss << "v " << -x << " "
-       << " " << -y << " " << -z << std::endl
-       << "v " << -x << " "
-       << " " << -y << " " << z << std::endl
-       << "v " << -x << " "
-       << " " << y << " " << -z << std::endl
-       << "v " << -x << " "
-       << " " << y << " " << z << std::endl
-       << "v " << x << " "
-       << " " << -y << " " << -z << std::endl
-       << "v " << x << " "
-       << " " << -y << " " << z << std::endl
-       << "v " << x << " "
-       << " " << y << " " << -z << std::endl
-       << "v " << x << " "
-       << " " << y << " " << z << std::endl
-       << "" << std::endl
-       << "vt 0 0" << std::endl
-       << "vt 0 1" << std::endl
-       << "vt 1 1" << std::endl
-       << "vt 1 0" << std::endl
-       << "" << std::endl
-       << "f 3/1 7/2 5/3 1/4" << std::endl
-       << "f 6/1 8/2 4/3 2/4" << std::endl
-       << "f 2/1 4/2 3/3 1/4" << std::endl
-       << "f 7/1 8/2 6/3 5/4" << std::endl
-       << "f 4/1 8/2 7/3 3/4" << std::endl
-       << "f 5/1 6/2 2/3 1/4" << std::endl;
-
-    auto box = LoadFromString(ss.str(), FileFormatObj);
-    return box;
-  }
-}  // namespace meshes
-
-}
+}  // namespace euphoria::core

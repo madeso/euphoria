@@ -8,132 +8,134 @@
 
 namespace euphoria::core
 {
+    class ParsedText;
 
-class ParsedText;
+    namespace textparser
+    {
+        class Visitor;
 
-namespace textparser
-{
-  class Visitor;
+        class Node
+        {
+            public:
+            virtual ~Node() = default;
 
-  class Node
-  {
-   public:
-    virtual ~Node() = default;
+            virtual void
+            Visit(Visitor* visitor) const = 0;
+        };
 
-    virtual void
-    Visit(Visitor* visitor) const = 0;
-  };
+        // todo: move nodes to private
 
-  // todo: move nodes to private
+        class TextNode : public Node
+        {
+            public:
+            std::string text;
 
-  class TextNode : public Node
-  {
-   public:
-    std::string text;
+            explicit TextNode(const std::string& t);
 
-    explicit TextNode(const std::string& t);
+            void
+            Visit(Visitor* visitor) const override;
+        };
 
-    void
-    Visit(Visitor* visitor) const override;
-  };
+        class ImageNode : public Node
+        {
+            public:
+            std::string image;
 
-  class ImageNode : public Node
-  {
-   public:
-    std::string image;
+            explicit ImageNode(const std::string& t);
 
-    explicit ImageNode(const std::string& t);
+            void
+            Visit(Visitor* visitor) const override;
+        };
 
-    void
-    Visit(Visitor* visitor) const override;
-  };
+        class BeginEndNode : public Node
+        {
+            public:
+            bool begin;
 
-  class BeginEndNode : public Node
-  {
-   public:
-    bool begin;
+            explicit BeginEndNode(bool b);
 
-    explicit BeginEndNode(bool b);
+            void
+            Visit(Visitor* visitor) const override;
+        };
 
-    void
-    Visit(Visitor* visitor) const override;
-  };
+        class Visitor
+        {
+            public:
+            virtual void
+            OnText(const std::string& text)
+                    = 0;
 
-  class Visitor
-  {
-   public:
-    virtual void
-    OnText(const std::string& text) = 0;
+            virtual void
+            OnImage(const std::string& image)
+                    = 0;
 
-    virtual void
-    OnImage(const std::string& image) = 0;
+            virtual void
+            OnBegin()
+                    = 0;
 
-    virtual void
-    OnBegin() = 0;
+            virtual void
+            OnEnd() = 0;
+        };
 
-    virtual void
-    OnEnd() = 0;
-  };
+        class VisitorDebugString : public Visitor
+        {
+            public:
+            std::ostringstream ss;
 
-  class VisitorDebugString : public Visitor
-  {
-   public:
-    std::ostringstream ss;
+            void
+            OnText(const std::string& text) override;
 
-    void
-    OnText(const std::string& text) override;
+            void
+            OnImage(const std::string& img) override;
 
-    void
-    OnImage(const std::string& img) override;
+            void
+            OnBegin() override;
 
-    void
-    OnBegin() override;
+            void
+            OnEnd() override;
 
-    void
-    OnEnd() override;
+            static std::string
+            Visit(ParsedText* visitor);
+        };
+    }  // namespace textparser
 
-    static std::string
-    Visit(ParsedText* visitor);
-  };
-}
+    // @image with text and {-begin and }-end markers \ escapes
+    // todo add ability to specify button/keys so that we can use:
+    // use "[jump] to jump" and said [jump] would look up the keybind and display a
+    // sprite/ninepath w/ text representing the bind this could also be useful when
+    // displaying all the keybinds. needs to work out how (or if) the joystick
+    // id/number also should be displayed.
+    class ParsedText
+    {
+        public:
+        void
+        Clear();
+        void
+        AddText(const std::string& str);
+        void
+        AddImage(const std::string& img);
+        void
+        AddBegin();
+        void
+        AddEnd();
 
-// @image with text and {-begin and }-end markers \ escapes
-// todo add ability to specify button/keys so that we can use:
-// use "[jump] to jump" and said [jump] would look up the keybind and display a
-// sprite/ninepath w/ text representing the bind this could also be useful when
-// displaying all the keybinds. needs to work out how (or if) the joystick
-// id/number also should be displayed.
-class ParsedText
-{
- public:
-  void
-  Clear();
-  void
-  AddText(const std::string& str);
-  void
-  AddImage(const std::string& img);
-  void
-  AddBegin();
-  void
-  AddEnd();
+        void
+        CreateText(const std::string& str);
+        bool
+        CreateParse(const std::string& str);
 
-  void
-  CreateText(const std::string& str);
-  bool
-  CreateParse(const std::string& str);
+        static ParsedText
+        FromText(const std::string& str);
 
-  static ParsedText
-  FromText(const std::string& str);
+        void
+        Visit(textparser::Visitor* visitor);
+        void
+        Visit(textparser::Visitor* visitor) const;
 
-  void
-  Visit(textparser::Visitor* visitor);
-  void
-  Visit(textparser::Visitor* visitor) const;
+        private:
+        std::vector<std::shared_ptr<textparser::Node>> nodes;
+    };
 
- private:
-  std::vector<std::shared_ptr<textparser::Node>> nodes;
-};
-
-}
+}  // namespace euphoria::core
 
 #endif  // SPACETYPER_TEXTPARSER_H

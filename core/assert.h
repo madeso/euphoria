@@ -9,7 +9,10 @@
 #define __PRETTY_FUNCTION__ __FUNCSIG__
 #define BREAK_IN_DEBUG() __debugbreak()
 #else
-#define BREAK_IN_DEBUG() do { } while(false)
+#define BREAK_IN_DEBUG()                                                       \
+    do                                                                         \
+    {                                                                          \
+    } while (false)
 #endif
 
 #ifdef RELEASE
@@ -25,52 +28,52 @@
 #define IMPLEMENT_ASSERT_LIB
 
 // todo: stb libraries and rapidjson aren't using our assert
-#define ASSERT(x)                                               \
-  do                                                            \
-  {                                                             \
-    if(x)                                                       \
-    {                                                           \
-    }                                                           \
-    else                                                        \
-    {                                                           \
-      BREAK_IN_DEBUG();                                         \
-      ::euphoria::core::assertlib::OnAssert(                                    \
-          #x,                                                   \
-          __LINE__,                                             \
-          __FILE__,                                             \
-          "",                                                   \
-          {},                                                   \
-          static_cast<const char* const>(__PRETTY_FUNCTION__)); \
-    }                                                           \
-  } while(false)
+#define ASSERT(x)                                                              \
+    do                                                                         \
+    {                                                                          \
+        if (x)                                                                 \
+        {                                                                      \
+        }                                                                      \
+        else                                                                   \
+        {                                                                      \
+            BREAK_IN_DEBUG();                                                  \
+            ::euphoria::core::assertlib::OnAssert(                             \
+                    #x,                                                        \
+                    __LINE__,                                                  \
+                    __FILE__,                                                  \
+                    "",                                                        \
+                    {},                                                        \
+                    static_cast<const char* const>(__PRETTY_FUNCTION__));      \
+        }                                                                      \
+    } while (false)
 
-#define ASSERTX(x, ...)                                         \
-  do                                                            \
-  {                                                             \
-    if(x)                                                       \
-    {                                                           \
-    }                                                           \
-    else                                                        \
-    {                                                           \
-      BREAK_IN_DEBUG();                                         \
-      ::euphoria::core::assertlib::OnAssert(                                    \
-          #x,                                                   \
-          __LINE__,                                             \
-          __FILE__,                                             \
-          #__VA_ARGS__,                                         \
-          {__VA_ARGS__},                                        \
-          static_cast<const char* const>(__PRETTY_FUNCTION__)); \
-    }                                                           \
-  } while(false)
+#define ASSERTX(x, ...)                                                        \
+    do                                                                         \
+    {                                                                          \
+        if (x)                                                                 \
+        {                                                                      \
+        }                                                                      \
+        else                                                                   \
+        {                                                                      \
+            BREAK_IN_DEBUG();                                                  \
+            ::euphoria::core::assertlib::OnAssert(                             \
+                    #x,                                                        \
+                    __LINE__,                                                  \
+                    __FILE__,                                                  \
+                    #__VA_ARGS__,                                              \
+                    {__VA_ARGS__},                                             \
+                    static_cast<const char* const>(__PRETTY_FUNCTION__));      \
+        }                                                                      \
+    } while (false)
 
-#define DIE(message)     \
-  ::euphoria::core::assertlib::OnAssert( \
-      message,           \
-      __LINE__,          \
-      __FILE__,          \
-      "",                \
-      {},                \
-      static_cast<const char* const>(__PRETTY_FUNCTION__))
+#define DIE(message)                                                           \
+    ::euphoria::core::assertlib::OnAssert(                                     \
+            message,                                                           \
+            __LINE__,                                                          \
+            __FILE__,                                                          \
+            "",                                                                \
+            {},                                                                \
+            static_cast<const char* const>(__PRETTY_FUNCTION__))
 
 #endif  // _MSC_VER
 
@@ -78,34 +81,33 @@
 
 namespace euphoria::core
 {
-
-namespace assertlib
-{
-  struct AssertValueArg
-  {
-    std::string value;
-    template <typename T>
-    AssertValueArg(const T& t)
+    namespace assertlib
     {
-      std::ostringstream ss;
-      ss << t;
-      value = ss.str();
-    }
-  };
+        struct AssertValueArg
+        {
+            std::string value;
+            template <typename T>
+            AssertValueArg(const T& t)
+            {
+                std::ostringstream ss;
+                ss << t;
+                value = ss.str();
+            }
+        };
 
-  void
-  StartThrowing();
-  void
-  OnAssert(
-      const char* const                  expression,
-      int                                line,
-      const char* const                  file,
-      const char* const                  argstr,
-      const std::vector<AssertValueArg>& arguments,
-      const char* const                  function);
-}  // namespace assertlib
+        void
+        StartThrowing();
+        void
+        OnAssert(
+                const char* const                  expression,
+                int                                line,
+                const char* const                  file,
+                const char* const                  argstr,
+                const std::vector<AssertValueArg>& arguments,
+                const char* const                  function);
+    }  // namespace assertlib
 
-}
+}  // namespace euphoria::core
 #endif  // IMPLEMENT_ASSERT_LIB
 
 

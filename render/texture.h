@@ -8,97 +8,99 @@
 
 namespace euphoria::core
 {
-  class Image;
+    class Image;
 }
 
 namespace euphoria::render
 {
-  enum class TextureWrap
-  {
-    REPEAT,
-    MIRRORED_REPEAT,
-    CLAMP_TO_EDGE
-  };
+    enum class TextureWrap
+    {
+        REPEAT,
+        MIRRORED_REPEAT,
+        CLAMP_TO_EDGE
+    };
 
-  enum class FilterMagnification
-  {
-    NEAREST,
-    LINEAR
-  };
+    enum class FilterMagnification
+    {
+        NEAREST,
+        LINEAR
+    };
 
-  enum class FilterMinification
-  {
-    NEAREST,
-    LINEAR
-    // todo: add mipmap
-  };
+    enum class FilterMinification
+    {
+        NEAREST,
+        LINEAR
+        // todo: add mipmap
+    };
 
-  struct Texture2dLoadData
-  {
-    Texture2dLoadData();
+    struct Texture2dLoadData
+    {
+        Texture2dLoadData();
 
-    Texture2dLoadData&
-    SetWrap(TextureWrap v);
-    Texture2dLoadData&
-    SetFilterMag(FilterMagnification v);
-    Texture2dLoadData&
-    SetFilterMin(FilterMinification v);
+        Texture2dLoadData&
+        SetWrap(TextureWrap v);
+        Texture2dLoadData&
+        SetFilterMag(FilterMagnification v);
+        Texture2dLoadData&
+        SetFilterMin(FilterMinification v);
 
-    TextureWrap         wrap;
-    FilterMinification  min;
-    FilterMagnification mag;
-  };
+        TextureWrap         wrap;
+        FilterMinification  min;
+        FilterMagnification mag;
+    };
 
-  class TextureId : core::Noncopyable
-  {
-  public:
-    TextureId();
-    ~TextureId();
+    class TextureId : core::Noncopyable
+    {
+        public:
+        TextureId();
+        ~TextureId();
 
-    bool
-    IsCurrentlyBound() const;
-    gluint
-    GetId() const;
+        bool
+        IsCurrentlyBound() const;
+        gluint
+        GetId() const;
 
-  private:
-    gluint id_;
-  };
-
-  void
-  Use(const TextureId* texture);
-
-  class Texture2d : public TextureId
-  {
-  public:
-    Texture2d();
+        private:
+        gluint id_;
+    };
 
     void
-    LoadFromPixels(
-        int                      width,
-        int                      height,
-        const unsigned char*     pixel_data,
-        gluint                   internal_format,
-        gluint                   image_format,
-        const Texture2dLoadData& data);
-    void
-    LoadFromImage(
-        const core::Image& image, core::AlphaLoad alpha, const Texture2dLoadData& data);
-    void
-    LoadFromFile(
-        core::vfs::FileSystem*              fs,
-        const std::string&       path,
-        core::AlphaLoad                alpha,
-        const Texture2dLoadData& data);
+    Use(const TextureId* texture);
 
-    int
-    GetWidth() const;
-    int
-    GetHeight() const;
+    class Texture2d : public TextureId
+    {
+        public:
+        Texture2d();
 
-  private:
-    int width_, height_;
-  };
+        void
+        LoadFromPixels(
+                int                      width,
+                int                      height,
+                const unsigned char*     pixel_data,
+                gluint                   internal_format,
+                gluint                   image_format,
+                const Texture2dLoadData& data);
+        void
+        LoadFromImage(
+                const core::Image&       image,
+                core::AlphaLoad          alpha,
+                const Texture2dLoadData& data);
+        void
+        LoadFromFile(
+                core::vfs::FileSystem*   fs,
+                const std::string&       path,
+                core::AlphaLoad          alpha,
+                const Texture2dLoadData& data);
 
-}
+        int
+        GetWidth() const;
+        int
+        GetHeight() const;
+
+        private:
+        int width_, height_;
+    };
+
+}  // namespace euphoria::render
 
 #endif

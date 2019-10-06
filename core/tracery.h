@@ -8,115 +8,118 @@
 
 namespace euphoria::core::tracery
 {
+    struct Result
+    {
+        enum Type
+        {
+            UNABLE_TO_OPEN_FILE,
+            NO_ERROR,
+            JSON_PARSE,
+            MISSING_RULE,
+            RULE_EOF,
+            INVALID_JSON,
+            INVALID_MODIFIER,
+            GENERAL_RULE_PARSE_ERROR
+        };
 
-struct Result
-{
-  enum Type
-  {
-    UNABLE_TO_OPEN_FILE,
-    NO_ERROR,
-    JSON_PARSE,
-    MISSING_RULE,
-    RULE_EOF,
-    INVALID_JSON,
-    INVALID_MODIFIER,
-    GENERAL_RULE_PARSE_ERROR
-  };
+        Type                     type;
+        std::vector<std::string> text;
 
-  Type                     type;
-  std::vector<std::string> text;
+        Result(Type t);
 
-  Result(Type t);
+        Result&
+        operator<<(const std::string& t);
 
-  Result&
-  operator<<(const std::string& t);
-
-  operator bool() const;
-
-
-  std::string
-  GetText() const;
-};
-
-std::ostream&
-operator<<(std::ostream& o, const Result& r);
-
-struct GeneratorArgument;
+        operator bool() const;
 
 
-struct Node
-{
-  virtual ~Node();
+        std::string
+        GetText() const;
+    };
 
-  virtual Result
-  Flatten(GeneratorArgument* generator) = 0;
-};
+    std::ostream&
+    operator<<(std::ostream& o, const Result& r);
+
+    struct GeneratorArgument;
 
 
-struct Modifier
-{
-  virtual ~Modifier();
+    struct Node
+    {
+        virtual ~Node();
 
-  virtual Result
-  ApplyModifier(const std::string& input) = 0;
-};
+        virtual Result
+        Flatten(GeneratorArgument* generator)
+                = 0;
+    };
 
-struct Rule
-{
-  Rule();
 
-  Result
-  Compile(const std::string& s);
+    struct Modifier
+    {
+        virtual ~Modifier();
 
-  Result
-  Flatten(GeneratorArgument* gen);
+        virtual Result
+        ApplyModifier(const std::string& input)
+                = 0;
+    };
 
-  void
-  Add(std::shared_ptr<Node> p);
+    struct Rule
+    {
+        Rule();
 
-  std::vector<std::shared_ptr<Node>> syntax;
-};
+        Result
+        Compile(const std::string& s);
 
-struct Symbol
-{
-  explicit Symbol(const std::string& k);
+        Result
+        Flatten(GeneratorArgument* gen);
 
-  std::string         key;
-  std::vector<Rule> ruleset;
+        void
+        Add(std::shared_ptr<Node> p);
 
-  Result
-  AddRule(const std::string& rule);
+        std::vector<std::shared_ptr<Node>> syntax;
+    };
 
-  Result
-  Flatten(GeneratorArgument* gen);
-};
+    struct Symbol
+    {
+        explicit Symbol(const std::string& k);
 
-struct Grammar
-{
-  Grammar();
+        std::string       key;
+        std::vector<Rule> ruleset;
 
-  void
-  RegisterEnglish();
+        Result
+        AddRule(const std::string& rule);
 
-  Result
-  LoadFromString(const std::string& data);
+        Result
+        Flatten(GeneratorArgument* gen);
+    };
 
-  Result
-  GetStringFromSymbol(const std::string& rule, GeneratorArgument* generator);
+    struct Grammar
+    {
+        Grammar();
 
-  Grammar&
-  RegisterModifier(const std::string& name, Modifier* m);
+        void
+        RegisterEnglish();
 
-  Result
-  ApplyModifier(const std::string& name, const std::string& data);
+        Result
+        LoadFromString(const std::string& data);
 
-  Result
-  Flatten(const std::string& rule);
+        Result
+        GetStringFromSymbol(
+                const std::string& rule,
+                GeneratorArgument* generator);
 
-  std::map<std::string, Symbol>                    rules;
-  std::map<std::string, std::shared_ptr<Modifier>> modifiers;
-};
+        Grammar&
+        RegisterModifier(const std::string& name, Modifier* m);
 
-}
+        Result
+        ApplyModifier(const std::string& name, const std::string& data);
+
+        Result
+        Flatten(const std::string& rule);
+
+        std::map<std::string, Symbol>                    rules;
+        std::map<std::string, std::shared_ptr<Modifier>> modifiers;
+    };
+
+}  // namespace euphoria::core::tracery
 
 #endif  // CORE_TRACERY_H

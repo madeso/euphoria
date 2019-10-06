@@ -5,171 +5,156 @@
 
 namespace euphoria::core
 {
-
-template <typename T>
-class line2
-{
- public:
-  typedef line2<T> Self;
-  typedef vec2<T> vec;
-  typedef vec2<T> tpoint;
-
-  static Self
-  FromDirection(const vec& direction, const tpoint& pos = tpoint::Zero())
-  {
-    return Self(pos, direction);
-  }
-
-  static Self
-  FromTo(const tpoint& from, const tpoint& to)
-  {
-    return Self(from, vec::FromTo(from, to));
-  }
-
-  vec
-  GetPosition(T d) const
-  {
-    return position + d * direction;
-  }
-
-  struct Collision
-  {
-   public:
-    static Collision
-    Parallel()
+    template <typename T>
+    class line2
     {
-      Collision c;
-      c.is_parallel = true;
-      return c;
-    }
+        public:
+        typedef line2<T> Self;
+        typedef vec2<T>  vec;
+        typedef vec2<T>  tpoint;
 
-    static Collision
-    NoCollision()
-    {
-      Collision c;
-      return c;
-    }
-
-    static Collision
-    Collided(const tpoint& p, T a, T b)
-    {
-      Collision c{p, a, b};
-      return c;
-    }
-
-    static Collision
-    GetClosestCollision(const Collision& a, const Collision& b)
-    {
-      if(a.collision && b.collision)
-      {
-        // determine closest
-        if(a.u < b.u)
+        static Self
+        FromDirection(const vec& direction, const tpoint& pos = tpoint::Zero())
         {
-          return a;
+            return Self(pos, direction);
         }
-        else
+
+        static Self
+        FromTo(const tpoint& from, const tpoint& to)
         {
-          return b;
+            return Self(from, vec::FromTo(from, to));
         }
-      }
-      else if(a.collision)
-      {
-        return a;
-      }
-      else if(b.collision)
-      {
-        return b;
-      }
-      else
-      {
-        return Collision::NoCollision();
-      }
-    }
 
-    bool collision;
-    bool is_parallel;
+        vec
+        GetPosition(T d) const
+        {
+            return position + d * direction;
+        }
 
-    tpoint point;
-    T   u;
-    T   v;
+        struct Collision
+        {
+            public:
+            static Collision
+            Parallel()
+            {
+                Collision c;
+                c.is_parallel = true;
+                return c;
+            }
 
-   private:
-    Collision()
-        : collision(false)
-        , is_parallel(false)
-        , point(0, 0)
-        , u(0)
-        , v(0)
-    {
-    }
-    Collision(const tpoint& p, T a, T b)
-        : collision(true)
-        , is_parallel(false)
-        , point(p)
-        , u(a)
-        , v(b)
-    {
-    }
-  };
+            static Collision
+            NoCollision()
+            {
+                Collision c;
+                return c;
+            }
 
-  Collision
-  GetIntersection(const Self& line) const
-  {
-    // https://stackoverflow.com/a/1968345/180307
-    const tpoint p1 = position;
-    const tpoint p2 = position + direction;
-    const tpoint p3 = line.position;
-    const tpoint p4 = line.position + line.direction;
+            static Collision
+            Collided(const tpoint& p, T a, T b)
+            {
+                Collision c {p, a, b};
+                return c;
+            }
 
-    const T p0_x = p1.x;
-    const T p0_y = p1.y;
-    const T p1_x = p2.x;
-    const T p1_y = p2.y;
-    const T p2_x = p3.x;
-    const T p2_y = p3.y;
-    const T p3_x = p4.x;
-    const T p3_y = p4.y;
+            static Collision
+            GetClosestCollision(const Collision& a, const Collision& b)
+            {
+                if (a.collision && b.collision)
+                {
+                    // determine closest
+                    if (a.u < b.u)
+                    {
+                        return a;
+                    }
+                    else
+                    {
+                        return b;
+                    }
+                }
+                else if (a.collision)
+                {
+                    return a;
+                }
+                else if (b.collision)
+                {
+                    return b;
+                }
+                else
+                {
+                    return Collision::NoCollision();
+                }
+            }
 
-    const T s1_x = p1_x - p0_x;
-    const T s1_y = p1_y - p0_y;
-    const T s2_x = p3_x - p2_x;
-    const T s2_y = p3_y - p2_y;
+            bool collision;
+            bool is_parallel;
 
-    const T den = (-s2_x * s1_y + s1_x * s2_y);
+            tpoint point;
+            T      u;
+            T      v;
 
-    // todo: implement a check for zero for T
-    if(Abs(den) < 0.00001f)
-    {
-      return Collision::Parallel();
-    }
+            private:
+            Collision()
+                : collision(false), is_parallel(false), point(0, 0), u(0), v(0)
+            {}
+            Collision(const tpoint& p, T a, T b)
+                : collision(true), is_parallel(false), point(p), u(a), v(b)
+            {}
+        };
 
-    const T s = (-s1_y * (p0_x - p2_x) + s1_x * (p0_y - p2_y)) / den;
-    const T t = (s2_x * (p0_y - p2_y) - s2_y * (p0_x - p2_x)) / den;
+        Collision
+        GetIntersection(const Self& line) const
+        {
+            // https://stackoverflow.com/a/1968345/180307
+            const tpoint p1 = position;
+            const tpoint p2 = position + direction;
+            const tpoint p3 = line.position;
+            const tpoint p4 = line.position + line.direction;
 
-    if(s >= 0 && s <= 1 && t >= 0 && t <= 1)
-    {
-      const T x = p0_x + (t * s1_x);
-      const T y = p0_y + (t * s1_y);
-      return Collision::Collided(point(x, y), s, t);
-    }
+            const T p0_x = p1.x;
+            const T p0_y = p1.y;
+            const T p1_x = p2.x;
+            const T p1_y = p2.y;
+            const T p2_x = p3.x;
+            const T p2_y = p3.y;
+            const T p3_x = p4.x;
+            const T p3_y = p4.y;
 
-    return Collision::NoCollision();
-  }
+            const T s1_x = p1_x - p0_x;
+            const T s1_y = p1_y - p0_y;
+            const T s2_x = p3_x - p2_x;
+            const T s2_y = p3_y - p2_y;
 
- private:
-  tpoint position;
-  vec direction;
+            const T den = (-s2_x * s1_y + s1_x * s2_y);
 
-  line2(const tpoint& p, const vec& d)
-      : position(p)
-      , direction(d)
-  {
-  }
-};
+            // todo: implement a check for zero for T
+            if (Abs(den) < 0.00001f)
+            {
+                return Collision::Parallel();
+            }
 
-typedef line2<float> line2f;
-typedef line2<int>   line2i;
+            const T s = (-s1_y * (p0_x - p2_x) + s1_x * (p0_y - p2_y)) / den;
+            const T t = (s2_x * (p0_y - p2_y) - s2_y * (p0_x - p2_x)) / den;
 
-}
+            if (s >= 0 && s <= 1 && t >= 0 && t <= 1)
+            {
+                const T x = p0_x + (t * s1_x);
+                const T y = p0_y + (t * s1_y);
+                return Collision::Collided(point(x, y), s, t);
+            }
+
+            return Collision::NoCollision();
+        }
+
+        private:
+        tpoint position;
+        vec    direction;
+
+        line2(const tpoint& p, const vec& d) : position(p), direction(d) {}
+    };
+
+    typedef line2<float> line2f;
+    typedef line2<int>   line2i;
+
+}  // namespace euphoria::core
 
 #endif  // CORE_LINE2_H

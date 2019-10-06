@@ -7,14 +7,14 @@
 
 namespace euphoria::core
 {
-namespace base64
-{
-  std::string
-  Encode(std::shared_ptr<MemoryChunk> memory);
+    namespace base64
+    {
+        std::string
+        Encode(std::shared_ptr<MemoryChunk> memory);
 
-  std::shared_ptr<MemoryChunk>
-  Decode(const std::string& input);
-}
-}
+        std::shared_ptr<MemoryChunk>
+        Decode(const std::string& input);
+    }  // namespace base64
+}  // namespace euphoria::core
 
 #endif  // EUPHORIA_BASE64_H

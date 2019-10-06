@@ -3,52 +3,43 @@
 
 namespace euphoria::core
 {
+    template <typename T>
+    class OptionalIndex
+    {
+        public:
+        static OptionalIndex<T>
+        Null()
+        {
+            return {};
+        }
 
-template <typename T>
-class OptionalIndex
-{
- public:
-  static OptionalIndex<T>
-  Null()
-  {
-    return {};
-  }
+        static OptionalIndex<T>
+        FromIndex(T index)
+        {
+            return {index};
+        }
 
-  static OptionalIndex<T>
-  FromIndex(T index)
-  {
-    return {index};
-  }
+        T
+        GetIndex() const
+        {
+            ASSERT(is_valid);
+            return index;
+        }
 
-  T
-  GetIndex() const
-  {
-    ASSERT(is_valid);
-    return index;
-  }
+        operator bool() const
+        {
+            return is_valid;
+        }
 
-  operator bool() const
-  {
-    return is_valid;
-  }
+        private:
+        OptionalIndex() : is_valid(false), index(0) {}
 
- private:
-  OptionalIndex()
-      : is_valid(false)
-      , index(0)
-  {
-  }
+        OptionalIndex(T index) : is_valid(true), index(index) {}
 
-  OptionalIndex(T index)
-      : is_valid(true)
-      , index(index)
-  {
-  }
+        bool is_valid;
+        T    index;
+    };
 
-  bool is_valid;
-  T    index;
-};
-
-}
+}  // namespace euphoria::core
 
 #endif  // EUPHORIA_OPTIONALINDEX_H

@@ -9,28 +9,27 @@
 
 namespace euphoria::core
 {
+    class CmdLine
+    {
+        public:
+        typedef std::vector<std::string>         Args;
+        typedef std::function<void(const Args&)> Callback;
 
-class CmdLine
-{
- public:
-  typedef std::vector<std::string>         Args;
-  typedef std::function<void(const Args&)> Callback;
+        CmdLine(std::ostream* out);
 
-  CmdLine(std::ostream* out);
+        void
+        Register(const std::string& name, Callback callback);
 
-  void
-  Register(const std::string& name, Callback callback);
+        void
+        Run(const std::string& cmd);
 
-  void
-  Run(const std::string& cmd);
+        void
+        PrintHelp(const Args& args) const;
 
-  void
-  PrintHelp(const Args& args) const;
-
- private:
-  std::ostream* out;
-  std::map<std::string, Callback> callbacks;
-};
-}
+        private:
+        std::ostream*                   out;
+        std::map<std::string, Callback> callbacks;
+    };
+}  // namespace euphoria::core
 
 #endif  // CORE_CMDLINE_H

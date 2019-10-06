@@ -6,25 +6,24 @@
 
 namespace euphoria::core
 {
-
-  TypeId
-  GetUniqueIdOf(const std::string& name)
-  {
-    static TypeId new_id = 0;
-    static std::unordered_map<std::string, TypeId> saved;
-
-    auto found = saved.find(name);
-    if(found != saved.end())
+    TypeId
+    GetUniqueIdOf(const std::string& name)
     {
-      return found->second;
+        static TypeId                                  new_id = 0;
+        static std::unordered_map<std::string, TypeId> saved;
+
+        auto found = saved.find(name);
+        if (found != saved.end())
+        {
+            return found->second;
+        }
+
+        const auto id = new_id;
+        new_id += 1;
+        saved[name] = id;
+        return id;
     }
 
-    const auto id = new_id;
-    new_id += 1;
-    saved[name] = id;
-    return id;
-  }
-
-}
+}  // namespace euphoria::core
 
 #endif

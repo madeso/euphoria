@@ -6,33 +6,33 @@
 
 namespace euphoria
 {
-  namespace core
-  {
-    namespace vfs
+    namespace core
     {
-    class FileSystem;
-    }
-  }
+        namespace vfs
+        {
+            class FileSystem;
+        }
+    }  // namespace core
 
-  namespace render
-  {
-    class Font;
-    class TextureCache;
-
-    class FontCache
+    namespace render
     {
-    public:
-      FontCache(core::vfs::FileSystem* fs, TextureCache* cache);
-      ~FontCache();
+        class Font;
+        class TextureCache;
 
-      std::shared_ptr<Font>
-      GetFont(const std::string& path);
+        class FontCache
+        {
+            public:
+            FontCache(core::vfs::FileSystem* fs, TextureCache* cache);
+            ~FontCache();
 
-    private:
-      struct FontCachePimpl;
-      std::unique_ptr<FontCachePimpl> pimp;
-    };
-  }
-}
+            std::shared_ptr<Font>
+            GetFont(const std::string& path);
+
+            private:
+            struct FontCachePimpl;
+            std::unique_ptr<FontCachePimpl> pimp;
+        };
+    }  // namespace render
+}  // namespace euphoria
 
 #endif  // RENDER_FONTCACHE_H

@@ -5,10 +5,10 @@
 
 namespace euphoria::engine
 {
-  struct CameraData
-  {
-    core::Rectf screen;
-  };
-}
+    struct CameraData
+    {
+        core::Rectf screen;
+    };
+}  // namespace euphoria::engine
 
 #endif  // EUPHORIA_CAMERADATA_H

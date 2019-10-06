@@ -9,79 +9,75 @@
 
 namespace euphoria::core
 {
+    enum class ValueType
+    {
+        Int,
+        Float,
+        Vec3f,
+        Point3f,
+        Struct
+    };
 
-enum class ValueType
-{
-  Int,
-  Float,
-  Vec3f,
-  Point3f,
-  Struct
-};
+    class Value
+    {
+        public:
+        explicit Value(ValueType vt) : type(vt) {}
 
-class Value
-{
- public:
-  explicit Value(ValueType vt)
-      : type(vt)
-  {
-  }
+        virtual ~Value() = default;
 
-  virtual ~Value() = default;
+        const ValueType type;
+    };
 
-  const ValueType type;
-};
+    struct ValueInt : public Value
+    {
+        explicit ValueInt(int i);
+        int value;
 
-struct ValueInt : public Value
-{
-  explicit ValueInt(int i);
-  int value;
+        static int&
+        Cast(Value* value);
+    };
 
-  static int&
-  Cast(Value* value);
-};
+    struct ValueFloat : public Value
+    {
+        explicit ValueFloat(float f);
+        float value;
 
-struct ValueFloat : public Value
-{
-  explicit ValueFloat(float f);
-  float value;
+        static float&
+        Cast(Value* value);
+    };
 
-  static float&
-  Cast(Value* value);
-};
+    struct ValueVec3f : public Value
+    {
+        explicit ValueVec3f(const vec3f& v);
+        vec3f value;
 
-struct ValueVec3f : public Value
-{
-  explicit ValueVec3f(const vec3f& v);
-  vec3f value;
+        static vec3f&
+        Cast(Value* value);
+    };
 
-  static vec3f&
-  Cast(Value* value);
-};
+    struct ValuePoint3f : public Value
+    {
+        explicit ValuePoint3f(const vec3f& v);
+        vec3f value;
 
-struct ValuePoint3f : public Value
-{
-  explicit ValuePoint3f(const vec3f& v);
-  vec3f value;
+        static vec3f&
+        Cast(Value* value);
+    };
 
-  static vec3f&
-  Cast(Value* value);
-};
+    class PropertyTree : public Value
+    {
+        public:
+        PropertyTree();
 
-class PropertyTree : public Value
-{
- public:
-  PropertyTree();
+        void
+        Set(const std::string& name, std::shared_ptr<Value> value);
 
-  void
-  Set(const std::string& name, std::shared_ptr<Value> value);
+        std::shared_ptr<Value>
+        GetOrNull(const std::string& name);
 
-  std::shared_ptr<Value>
-  GetOrNull(const std::string& name);
+        std::map<std::string, std::shared_ptr<Value>> properties;
+    };
 
-  std::map<std::string, std::shared_ptr<Value>> properties;
-};
-
-}
+}  // namespace euphoria::core
 
 #endif  // EUPHORIA_PROPERTYTREE_H

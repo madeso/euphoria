@@ -7,30 +7,30 @@
 
 namespace euphoria::render
 {
-  class Shader;
+    class Shader;
 
-  class ShaderUniform
-  {
-  public:
-    ShaderUniform(const ShaderUniform&) = default;
-    ShaderUniform(std::string aname, glint aid, Shader* ashader);
+    class ShaderUniform
+    {
+        public:
+        ShaderUniform(const ShaderUniform&) = default;
+        ShaderUniform(std::string aname, glint aid, Shader* ashader);
 
-    static const ShaderUniform&
-    Null();
+        static const ShaderUniform&
+        Null();
+
+        bool
+        IsNull() const;
+
+        std::string name;
+        glint       id;
+        Shader*     shader;
+
+        private:
+        ShaderUniform();  // creates a null shader
+    };
 
     bool
-    IsNull() const;
-
-    std::string name;
-    glint       id;
-    Shader*     shader;
-
-  private:
-    ShaderUniform();  // creates a null shader
-  };
-
-  bool
-  operator==(const ShaderUniform& lhs, const ShaderUniform& rhs);
-}
+    operator==(const ShaderUniform& lhs, const ShaderUniform& rhs);
+}  // namespace euphoria::render
 
 #endif  // RENDER_SHADERUNIFORM_H

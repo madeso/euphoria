@@ -8,23 +8,25 @@
 
 namespace euphoria::duk
 {
-  class ObjectBinder
-  {
-   public:
-    ObjectBinder&
-    AddFunction(const std::string& name, const std::shared_ptr<Function>& bind);
-
-    struct MemberFunction
+    class ObjectBinder
     {
-      std::string               name;
-      std::shared_ptr<Function> function;
+        public:
+        ObjectBinder&
+        AddFunction(
+                const std::string&               name,
+                const std::shared_ptr<Function>& bind);
+
+        struct MemberFunction
+        {
+            std::string               name;
+            std::shared_ptr<Function> function;
+        };
+
+        std::vector<MemberFunction> functions;
     };
 
-    std::vector<MemberFunction> functions;
-  };
-
-  ObjectBinder
-  BindObject();
-}
+    ObjectBinder
+    BindObject();
+}  // namespace euphoria::duk
 
 #endif  // EUPHORIA_DUK_BINDOBJECT_H

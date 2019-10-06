@@ -7,13 +7,13 @@
 
 namespace euphoria::core
 {
-  class Angle;
-  class Rgb;
-}
+    class Angle;
+    class Rgb;
+}  // namespace euphoria::core
 
 namespace euphoria::render
 {
-  class Texture2d;
+    class Texture2d;
 }
 
 struct ImVec2;
@@ -21,48 +21,51 @@ struct ImVec2;
 
 namespace euphoria::window
 {
-  bool
-  InputText(const char* label, std::string* str);
+    bool
+    InputText(const char* label, std::string* str);
 
-  void
-  ImguiLabel(const std::string& str);
+    void
+    ImguiLabel(const std::string& str);
 
-  void
-  ImguiAngleSlider(
-      const char* const name, core::Angle* angle, float mindeg, float maxdeg);
+    void
+    ImguiAngleSlider(
+            const char* const name,
+            core::Angle*      angle,
+            float             mindeg,
+            float             maxdeg);
 
-  void
-  ImguiImage(render::Texture2d* texture);
+    void
+    ImguiImage(render::Texture2d* texture);
 
-  void
-  ImGuiColorEdit3(const char* const name, core::Rgb* rgb);
+    void
+    ImGuiColorEdit3(const char* const name, core::Rgb* rgb);
 
-  enum class ImguiCorner
-  {
-    TopLeft     = 0,
-    TopRight    = 1,
-    BottomLeft  = 2,
-    BottomRight = 3,
-    Center      = 4
-  };
+    enum class ImguiCorner
+    {
+        TopLeft     = 0,
+        TopRight    = 1,
+        BottomLeft  = 2,
+        BottomRight = 3,
+        Center      = 4
+    };
 
-  bool
-  BeginFixedOverlay(ImguiCorner corner, const std::string& title);
+    bool
+    BeginFixedOverlay(ImguiCorner corner, const std::string& title);
 
-  ImVec2
-  C(const core::vec2f& v);
+    ImVec2
+    C(const core::vec2f& v);
 
-  core::vec2f
-  C(const ImVec2& v);
+    core::vec2f
+    C(const ImVec2& v);
 
-  struct ImguiDisabled
-  {
-    ImguiDisabled();
-    ~ImguiDisabled();
-  };
+    struct ImguiDisabled
+    {
+        ImguiDisabled();
+        ~ImguiDisabled();
+    };
 
-  bool
-  ImguiSelectableOrDisabled(bool enabled, const char* label);
-}
+    bool
+    ImguiSelectableOrDisabled(bool enabled, const char* label);
+}  // namespace euphoria::window
 
 #endif  // EUPHORIA_IMGUI_H

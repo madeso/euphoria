@@ -6,17 +6,16 @@
 
 namespace euphoria::core
 {
+    struct RayIntersectionResult
+    {
+        bool  intersected;
+        float start;
+        float end;
+    };
 
-struct RayIntersectionResult
-{
-  bool  intersected;
-  float start;
-  float end;
-};
+    RayIntersectionResult
+    Intersect(const UnitRay3f& r, const Aabb& aabb);
 
-RayIntersectionResult
-Intersect(const UnitRay3f& r, const Aabb& aabb);
-
-}
+}  // namespace euphoria::core
 
 #endif  // EUPHORIA_INTERSECTION_H

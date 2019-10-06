@@ -14,6 +14,6 @@ namespace euphoria::window
 
     std::string
     GetPrefPath();
-}
+}  // namespace euphoria::window
 
 #endif  // EUPHORIA_FILESYSTEM_H

@@ -5,34 +5,34 @@
 
 namespace euphoria::core
 {
-  class World;
+    class World;
 }
 
 namespace euphoria::core::vfs
 {
-  class FileSystem;
+    class FileSystem;
 }
 
 namespace euphoria::duk
 {
-  class Context;
-  class Duk;
-}
+    class Context;
+    class Duk;
+}  // namespace euphoria::duk
 
 namespace euphoria::engine
 {
-  class DukRegistry;
-  class ObjectCreator;
+    class DukRegistry;
+    class ObjectCreator;
 
-  void
-  LoadWorld(
-      core::vfs::FileSystem*        fs,
-      core::World*             world,
-      DukRegistry*       reg,
-      const std::string& path,
-      ObjectCreator*     creator,
-      duk::Context*      ctx,
-      duk::Duk*          duk);
-}
+    void
+    LoadWorld(
+            core::vfs::FileSystem* fs,
+            core::World*           world,
+            DukRegistry*           reg,
+            const std::string&     path,
+            ObjectCreator*         creator,
+            duk::Context*          ctx,
+            duk::Duk*              duk);
+}  // namespace euphoria::engine
 
 #endif  // EUPHORIA_LOADWORLD_H

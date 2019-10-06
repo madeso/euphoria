@@ -10,18 +10,18 @@
 
 namespace euphoria::window
 {
-  class SdlTimer
-  {
-  public:
-    SdlTimer();
+    class SdlTimer
+    {
+        public:
+        SdlTimer();
 
-    float
-    Update();
+        float
+        Update();
 
-  private:
-    Uint64 current_time_;
-    Uint64 last_time_;
-  };
-}
+        private:
+        Uint64 current_time_;
+        Uint64 last_time_;
+    };
+}  // namespace euphoria::window
 
 #endif  // EUPHORIA_TIMER_H

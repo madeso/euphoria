@@ -3,13 +3,13 @@
 
 namespace euphoria::duk
 {
-  class Duk;
+    class Duk;
 }
 
 namespace euphoria::engine
 {
-  void
-  AddPrint(euphoria::duk::Duk* duk);
+    void
+    AddPrint(euphoria::duk::Duk* duk);
 }
 
 #endif  // EUPHORIA_DUKPRINT_H

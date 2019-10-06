@@ -11,16 +11,13 @@
 
 namespace euphoria::engine
 {
-    CPosition2::CPosition2()
-        : COMPONENT_CONSTRUCTOR_ARG(CPosition2) pos(0, 0)
-    {
-    }
+    CPosition2::CPosition2() : COMPONENT_CONSTRUCTOR_ARG(CPosition2) pos(0, 0)
+    {}
 
     Components::Components(core::Registry* reg)
         : position2(reg->NewComponentType("Position2"))
         , sprite(reg->NewComponentType("Sprite"))
-    {
-    }
+    {}
 
     COMPONENT_CONSTRUCTOR_IMPLEMENTATION(CSprite)
 
@@ -28,6 +25,9 @@ namespace euphoria::engine
     GetSpriteRect(const core::vec2f& position, const render::Texture2d& texture)
     {
         return core::Rectf::FromPositionAnchorWidthAndHeight(
-            position, core::scale2f{0.5f, 0.5f}, texture.GetWidth(), texture.GetHeight());
+                position,
+                core::scale2f {0.5f, 0.5f},
+                texture.GetWidth(),
+                texture.GetHeight());
     }
-}
+}  // namespace euphoria::engine

@@ -5,63 +5,61 @@
 
 namespace euphoria::core
 {
+    namespace vfs
+    {
+        // represents a virtual path
+        // always lowercase
+        // forward slash specify a directory
+        // todo: transform into a path and directory class instead
+        class Path
+        {
+            public:
+            static Path
+            FromDirectory(const std::string& path);
+            static Path
+            FromRoot();
+            static Path
+            FromFile(const std::string& path);
+            static Path
+            FromGuess(const std::string& path);
 
-namespace vfs
-{
+            // get the directory containing the file, or this
+            const Path
+            GetDirectory() const;
 
-// represents a virtual path
-// always lowercase
-// forward slash specify a directory
-// todo: transform into a path and directory class instead
-class Path
-{
- public:
-  static Path
-  FromDirectory(const std::string& path);
-  static Path
-  FromRoot();
-  static Path
-  FromFile(const std::string& path);
-  static Path
-  FromGuess(const std::string& path);
+            // only valid for directory
+            const Path
+            GetParentDirectory() const;
 
-  // get the directory containing the file, or this
-  const Path
-  GetDirectory() const;
+            const Path
+            GetSubDirectory(const std::string& name) const;
+            const Path
+            GetFile(const std::string& name) const;
 
-  // only valid for directory
-  const Path
-  GetParentDirectory() const;
+            bool
+            IsDirectory() const;
+            bool
+            IsFile() const;
 
-  const Path
-  GetSubDirectory(const std::string& name) const;
-  const Path
-  GetFile(const std::string& name) const;
+            const std::string&
+            GetAbsolutePath() const;
 
-  bool
-  IsDirectory() const;
-  bool
-  IsFile() const;
+            std::string
+            GetDirectoryName() const;
 
-  const std::string&
-  GetAbsolutePath() const;
+            std::string
+            GetFileName() const;
 
-  std::string
-  GetDirectoryName() const;
+            bool
+            operator==(const Path& rhs) const;
 
-  std::string
-  GetFileName() const;
+            private:
+            Path(const std::string& absolute_path);
+            std::string absolute_path_;
+        };
 
-  bool
-  operator==(const Path& rhs) const;
+    }  // namespace vfs
 
- private:
-  Path(const std::string& absolute_path);
-  std::string absolute_path_;
-};
-
-}  // namespace vfs
-
-}
+}  // namespace euphoria::core
 
 #endif  // EUPHORIA_PATH_H

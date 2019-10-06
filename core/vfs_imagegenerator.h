@@ -5,34 +5,31 @@
 
 namespace euphoria::core
 {
+    namespace vfs
+    {
+        class FileSystemImageGenerator : public FileSystemReadRoot
+        {
+            public:
+            static void
+            AddRoot(FileSystem* fs, const std::string& base);
 
-namespace vfs
-{
+            std::shared_ptr<MemoryChunk>
+            ReadFile(const std::string& path) override;
 
+            std::string
+            Describe() override;
 
-class FileSystemImageGenerator : public FileSystemReadRoot
-{
- public:
-  static void
-  AddRoot(FileSystem* fs, const std::string& base);
+            explicit FileSystemImageGenerator(const std::string& base);
 
-  std::shared_ptr<MemoryChunk>
-  ReadFile(const std::string& path) override;
+            FileList
+            ListFiles(const Path& path) override;
 
-  std::string
-  Describe() override;
+            private:
+            std::string base_;
+        };
 
-  explicit FileSystemImageGenerator(const std::string& base);
+    }  // namespace vfs
 
-  FileList
-  ListFiles(const Path& path) override;
-
- private:
-  std::string base_;
-};
-
-}  // namespace vfs
-
-}
+}  // namespace euphoria::core
 
 #endif  // EUPHORIA_FILESYSTEMIMAGEGENERATOR_H

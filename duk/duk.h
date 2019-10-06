@@ -15,61 +15,63 @@
 
 namespace euphoria::duk
 {
-  class ObjectBinder;
+    class ObjectBinder;
 
-  class ClassBinder;
+    class ClassBinder;
 
-  class Function;
+    class Function;
 
-  class RegisteredClass;
+    class RegisteredClass;
 
-  class Duk : private Context
-  {
-   public:
-    Duk();
+    class Duk : private Context
+    {
+        public:
+        Duk();
 
-    Context*
-    AsContext();
+        Context*
+        AsContext();
 
-    ObjectReference
-    CreateGlobal(const std::string& name);
+        ObjectReference
+        CreateGlobal(const std::string& name);
 
-    bool
-    EvalString(
-        const std::string& line,
-        const std::string& file,
-        std::string*       error,
-        std::string*       output);
+        bool
+        EvalString(
+                const std::string& line,
+                const std::string& file,
+                std::string*       error,
+                std::string*       output);
 
-    void
-    BindPrint(std::function<void(const std::string&)> on_print);
+        void
+        BindPrint(std::function<void(const std::string&)> on_print);
 
-    void
-    BindGlobalFunction(
-        const std::string& name, const std::shared_ptr<Function>& overload);
+        void
+        BindGlobalFunction(
+                const std::string&               name,
+                const std::shared_ptr<Function>& overload);
 
-    void
-    BindObject(const std::string& name, const ObjectBinder& bind);
+        void
+        BindObject(const std::string& name, const ObjectBinder& bind);
 
-    void
-    BindClass(const std::string& name, const ClassBinder& bind);
+        void
+        BindClass(const std::string& name, const ClassBinder& bind);
 
-    ~Duk();
+        ~Duk();
 
-    Function*
-    CreateFunction(const std::shared_ptr<Function>& overload);
+        Function*
+        CreateFunction(const std::shared_ptr<Function>& overload);
 
-    RegisteredClass*
-    TypeToProto(core::TypeId id CLASS_ARG(core::TypeName name));
+        RegisteredClass*
+        TypeToProto(core::TypeId id CLASS_ARG(core::TypeName name));
 
-    ReferenceStorage references;
+        ReferenceStorage references;
 
-    std::function<void(const std::string&)> on_print;
+        std::function<void(const std::string&)> on_print;
 
-    std::vector<std::shared_ptr<Function>> functions;
+        std::vector<std::shared_ptr<Function>> functions;
 
-    std::unordered_map<core::TypeId, std::shared_ptr<RegisteredClass>> classIds;
-  };
-}
+        std::unordered_map<core::TypeId, std::shared_ptr<RegisteredClass>>
+                classIds;
+    };
+}  // namespace euphoria::duk
 
 #endif  // EUPHORIA_DUK_DUK_H

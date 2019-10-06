@@ -6,22 +6,22 @@
 
 namespace euphoria::render
 {
+    namespace attributes2d
+    {
+        const ShaderAttribute&
+        Vertex()
+        {
+            static ShaderAttribute Attribute {
+                    "vertex", 1, ShaderAttributeSize::VEC4};
+            return Attribute;
+        }
 
-namespace attributes2d
-{
-  const ShaderAttribute&
-  Vertex()
-  {
-    static ShaderAttribute Attribute{"vertex", 1, ShaderAttributeSize::VEC4};
-    return Attribute;
-  }
+        void
+        PrebindShader(Shader* shader)
+        {
+            ASSERT(shader);
+            shader->PreBind(Vertex());
+        }
+    }  // namespace attributes2d
 
-  void
-  PrebindShader(Shader* shader)
-  {
-    ASSERT(shader);
-    shader->PreBind(Vertex());
-  }
-}  // namespace attributes2d
-
-}
+}  // namespace euphoria::render

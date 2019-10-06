@@ -5,14 +5,14 @@
 
 namespace euphoria::duk
 {
-  class RegisteredClass
-  {
-   public:
-    RegisteredClass(const std::string& n, void* p);
+    class RegisteredClass
+    {
+        public:
+        RegisteredClass(const std::string& n, void* p);
 
-    std::string name;
-    void*       prototype;
-  };
-}
+        std::string name;
+        void*       prototype;
+    };
+}  // namespace euphoria::duk
 
 #endif  // EUPHORIA_DUK_PROTOTYPE_H

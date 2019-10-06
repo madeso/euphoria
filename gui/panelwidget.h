@@ -6,25 +6,25 @@
 
 namespace euphoria::gui
 {
-  class PanelWidget : public Widget
-  {
-  public:
-    PanelWidget(UiState* state);
+    class PanelWidget : public Widget
+    {
+        public:
+        PanelWidget(UiState* state);
 
-    void
-    Render(render::SpriteRenderer* renderer) const override;
+        void
+        Render(render::SpriteRenderer* renderer) const override;
 
-    void
-    OnSize() override;
+        void
+        OnSize() override;
 
-    core::Sizef
-    CalculateMinimumSize() const override;
-    
-    void
-    Step(float dt) override;
-    
-    LayoutContainer container;
-  };
-}
+        core::Sizef
+        CalculateMinimumSize() const override;
+
+        void
+        Step(float dt) override;
+
+        LayoutContainer container;
+    };
+}  // namespace euphoria::gui
 
 #endif  // GUI_PANELWIDGET_H

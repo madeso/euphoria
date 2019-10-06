@@ -14,161 +14,165 @@
 
 namespace euphoria::duk
 {
-  class RegisteredClass;
+    class RegisteredClass;
 
-  class Duk;
+    class Duk;
 
-  class Context
-  {
-   public:
-    Context(duk_context* c, Duk* d);
+    class Context
+    {
+        public:
+        Context(duk_context* c, Duk* d);
 
-    int
-    GetNumberOfArguments() const;
+        int
+        GetNumberOfArguments() const;
 
-    // number argument
+        // number argument
 
-    bool
-    IsNumber(int index) const;
+        bool
+        IsNumber(int index) const;
 
-    double
-    GetNumber(int index);
+        double
+        GetNumber(int index);
 
-    // string argument
+        // string argument
 
-    bool
-    IsString(int index) const;
+        bool
+        IsString(int index) const;
 
-    std::string
-    GetString(int index);
+        std::string
+        GetString(int index);
 
-    // object argument
+        // object argument
 
-    bool
-    IsObject(int index);
+        bool
+        IsObject(int index);
 
-    RegisteredClass*
-    GetObjectType(int index);
+        RegisteredClass*
+        GetObjectType(int index);
 
-    RegisteredClass*
-    TypeToProto(core::TypeId id CLASS_ARG(core::TypeName name));
+        RegisteredClass*
+        TypeToProto(core::TypeId id CLASS_ARG(core::TypeName name));
 
-    void*
-    GetObjectPtr(int index);
+        void*
+        GetObjectPtr(int index);
 
-    // function
+        // function
 
-    void*
-    GetFunctionPtr(int index);
+        void*
+        GetFunctionPtr(int index);
 
-    bool
-    IsFunction(int index);
+        bool
+        IsFunction(int index);
 
-    // array handling
-    bool
-    IsArray(int index);
+        // array handling
+        bool
+        IsArray(int index);
 
-    int
-    GetArrayLength(int index);
+        int
+        GetArrayLength(int index);
 
-    void
-    GetArrayIndex(int array, int index);
+        void
+        GetArrayIndex(int array, int index);
 
-    void
-    StopArrayIndex();
+        void
+        StopArrayIndex();
 
-    // array return
+        // array return
 
-    int
-    PushArray();
+        int
+        PushArray();
 
-    void
-    PutArrayIndex(int arr, unsigned int i);
+        void
+        PutArrayIndex(int arr, unsigned int i);
 
-    // return handling
+        // return handling
 
-    int
-    ReturnVoid();
+        int
+        ReturnVoid();
 
-    int
-    Return(int value);
+        int
+        Return(int value);
 
-    int
-    Return(const std::string& value);
+        int
+        Return(const std::string& value);
 
-    int
-    Return(ObjectReference val);
+        int
+        Return(ObjectReference val);
+
+        template <typename T>
+        int
+        ReturnArray(const std::vector<T> array);
+
+        int
+        ReturnNumber(double num);
+
+        int
+        ReturnBool(bool num);
+
+        int
+        ReturnString(const std::string& str);
+
+        int
+        ReturnObject(
+                void*          object,
+                core::TypeId   type,
+                duk_c_function finalizer,
+                void* data CLASS_ARG(core::TypeName name));
+
+        template <typename T>
+        int
+        ReturnFreeObject(T* t)
+        {
+            return ReturnObject(
+                    t,
+                    TYPEID_ID(T),
+                    nullptr,
+                    nullptr CLASS_ARG(TYPEID_NAME(T)));
+        }
+
+        template <typename T>
+        int
+        ReturnObject(std::shared_ptr<T> t)
+        {
+            if (t.get() == nullptr)
+            {
+                return ReturnFreeObject<T>(nullptr);
+            }
+            auto* ptr = new std::shared_ptr<T>(t);
+            return ReturnObject(
+                    ptr->get(),
+                    TYPEID_ID(T),
+                    // this needs to conform to a duktape c function pointer
+                    // if needed move to global scope and make a template
+                    [](duk_context* ctx) -> duk_ret_t {
+                        void* data = GetHiddenProperty(ctx, 0, "data");
+                        auto* my_ptr
+                                = reinterpret_cast<std::shared_ptr<T>*>(data);
+                        delete my_ptr;
+                        return 0;
+                    },
+                    ptr CLASS_ARG(TYPEID_NAME(T)));
+        }
+
+        duk_context* ctx;
+        Duk*         duk;
+    };
 
     template <typename T>
     int
-    ReturnArray(const std::vector<T> array);
-
-    int
-    ReturnNumber(double num);
-
-    int
-    ReturnBool(bool num);
-
-    int
-    ReturnString(const std::string& str);
-
-    int
-    ReturnObject(
-        void*          object,
-        core::TypeId         type,
-        duk_c_function finalizer,
-        void* data CLASS_ARG(core::TypeName name));
-
-    template <typename T>
-    int
-    ReturnFreeObject(T* t)
+    Context::ReturnArray(const std::vector<T> array)
     {
-      return ReturnObject(
-          t, TYPEID_ID(T), nullptr, nullptr CLASS_ARG(TYPEID_NAME(T)));
+        const auto   arr = PushArray();
+        unsigned int i   = 0;
+        for (const T& t: array)
+        {
+            PushVar(this, t);
+            PutArrayIndex(arr, i);
+            i += 1;
+        }
+
+        return 1;
     }
-
-    template <typename T>
-    int
-    ReturnObject(std::shared_ptr<T> t)
-    {
-      if(t.get() == nullptr)
-      {
-        return ReturnFreeObject<T>(nullptr);
-      }
-      auto* ptr = new std::shared_ptr<T>(t);
-      return ReturnObject(
-          ptr->get(),
-          TYPEID_ID(T),
-          // this needs to conform to a duktape c function pointer
-          // if needed move to global scope and make a template
-          [](duk_context* ctx) -> duk_ret_t {
-            void* data   = GetHiddenProperty(ctx, 0, "data");
-            auto* my_ptr = reinterpret_cast<std::shared_ptr<T>*>(data);
-            delete my_ptr;
-            return 0;
-          },
-          ptr CLASS_ARG(TYPEID_NAME(T)));
-    }
-
-    duk_context* ctx;
-    Duk*         duk;
-  };
-
-  template <typename T>
-  int
-  Context::ReturnArray(const std::vector<T> array)
-  {
-    const auto   arr = PushArray();
-    unsigned int i   = 0;
-    for(const T& t : array)
-    {
-      PushVar(this, t);
-      PutArrayIndex(arr, i);
-      i += 1;
-    }
-
-    return 1;
-  }
-}
+}  // namespace euphoria::duk
 
 #endif  // EUPHORIA_DUK_CONTEXT_H

@@ -7,37 +7,37 @@
 
 namespace euphoria::render
 {
+    typedef void* (*LoaderFunction)(const char* name);
 
-typedef void* (*LoaderFunction)(const char* name);
+    // todo: come up with a better name
+    class Init
+    {
+        public:
+        enum class BlendHack
+        {
+            NoHack,
+            EnableHack
+        };
 
-// todo: come up with a better name
-class Init
-{
- public:
-  enum class BlendHack
-  {
-    NoHack,
-    EnableHack
-  };
+        explicit Init(
+                LoaderFunction loader,
+                BlendHack      blend_hack = BlendHack::NoHack);
+        ~Init();
 
-  explicit Init(
-      LoaderFunction loader, BlendHack blend_hack = BlendHack::NoHack);
-  ~Init();
+        core::mat4f
+        GetOrthoProjection(float width, float height);
 
-  core::mat4f
-  GetOrthoProjection(float width, float height);
+        // todo: move to some better place
+        void
+        Use2d();
 
-  // todo: move to some better place
-  void
-  Use2d();
+        // todo: move to some place better
+        void
+        ClearScreen(const core::Rgb& color);
 
-  // todo: move to some place better
-  void
-  ClearScreen(const core::Rgb& color);
+        bool ok;
+    };
 
-  bool ok;
-};
-
-}
+}  // namespace euphoria::render
 
 #endif  // RENDER_INIT_H

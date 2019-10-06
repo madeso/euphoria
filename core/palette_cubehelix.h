@@ -4,37 +4,35 @@
 
 namespace euphoria::core
 {
+    struct Palette;
 
-struct Palette;
+    namespace palette
+    {
+        const Palette&
+        Classic();
 
-namespace palette
-{
-  const Palette&
-  Classic();
+        const Palette&
+        Perceptual_rainbow();
 
-  const Palette&
-  Perceptual_rainbow();
+        const Palette&
+        Purple();
 
-  const Palette&
-  Purple();
+        const Palette&
+        Jim_special();
 
-  const Palette&
-  Jim_special();
+        const Palette&
+        Red();
 
-  const Palette&
-  Red();
+        const Palette&
+        Cubehelix1();
 
-  const Palette&
-  Cubehelix1();
+        const Palette&
+        Cubehelix2();
 
-  const Palette&
-  Cubehelix2();
+        const Palette&
+        Cubehelix3();
+    }  // namespace palette
 
-  const Palette&
-  Cubehelix3();
-}
-
-}
+}  // namespace euphoria::core
 
 #endif  // EUPHORIA_PALETTE_CUBEHELIX_H
-

@@ -3,14 +3,14 @@
 
 namespace euphoria::window
 {
-  class SdlLibrary
-  {
-  public:
-    SdlLibrary();
-    ~SdlLibrary();
+    class SdlLibrary
+    {
+        public:
+        SdlLibrary();
+        ~SdlLibrary();
 
-    bool ok;
-  };
-}
+        bool ok;
+    };
+}  // namespace euphoria::window
 
 #endif  // EUPHORIA_SDLLIBRARY_H

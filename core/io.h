@@ -8,13 +8,16 @@
 
 namespace euphoria::core
 {
+    namespace io
+    {
+        void
+        ChunkToFile(
+                std::shared_ptr<MemoryChunk> chunk,
+                const std::string&           full_path);
+        std::shared_ptr<MemoryChunk>
+        FileToChunk(const std::string& full_path);
+    }  // namespace io
 
-namespace io
-{
-  void ChunkToFile(std::shared_ptr<MemoryChunk> chunk, const std::string& full_path);
-  std::shared_ptr<MemoryChunk> FileToChunk(const std::string& full_path);
-}
-
-}
+}  // namespace euphoria::core
 
 #endif  // CORE_IO_H

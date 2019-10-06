@@ -14,11 +14,10 @@ namespace euphoria::core
     {
         class Path;
     }
-}
+}  // namespace euphoria::core
 
 namespace euphoria::render
 {
-
     class Texture2d;
     class MaterialShader;
     class Light;
@@ -29,7 +28,7 @@ namespace euphoria::render
     // one part of the mesh, single material
     class CompiledMeshPart
     {
-    public:
+        public:
         Vbo          data;
         Vao          config;
         Ebo          tris;
@@ -39,7 +38,7 @@ namespace euphoria::render
 
     class CompiledMeshMaterial
     {
-    public:
+        public:
         CompiledMeshMaterial();
 
         void
@@ -47,21 +46,22 @@ namespace euphoria::render
 
         void
         SetColors(
-            const core::Rgb& ambient,
-            const core::Rgb& diffuse,
-            const core::Rgb& specular,
-            float      shininess);
+                const core::Rgb& ambient,
+                const core::Rgb& diffuse,
+                const core::Rgb& specular,
+                float            shininess);
 
         void
-        SetTexture(const core::EnumValue& name, std::shared_ptr<Texture2d> texture);
+        SetTexture(
+                const core::EnumValue&     name,
+                std::shared_ptr<Texture2d> texture);
 
         void
-        Apply(
-            const core::mat4f& model_matrix,
-            const core::mat4f& projection_matrix,
-            const core::mat4f& view_matrix,
-            const core::vec3f& camera,
-            const Light& light) const;
+        Apply(const core::mat4f& model_matrix,
+              const core::mat4f& projection_matrix,
+              const core::mat4f& view_matrix,
+              const core::vec3f& camera,
+              const Light&       light) const;
 
         // gets the default materials from the shader if they are null/not set
         void
@@ -72,19 +72,19 @@ namespace euphoria::render
         bool
         Validate() const;
 
-    private:
-        core::Rgb                       ambient_;
-        core::Rgb                       diffuse_;
-        core::Rgb                       specular_;
-        float                           shininess_;
-        std::shared_ptr<MaterialShader> shader_;
+        private:
+        core::Rgb                                             ambient_;
+        core::Rgb                                             diffuse_;
+        core::Rgb                                             specular_;
+        float                                                 shininess_;
+        std::shared_ptr<MaterialShader>                       shader_;
         std::map<core::EnumValue, std::shared_ptr<Texture2d>> textures_;
     };
 
     // a collection of parts making up a mesh
     class CompiledMesh
     {
-    public:
+        public:
         std::vector<std::shared_ptr<CompiledMeshPart>> parts;
         std::vector<CompiledMeshMaterial>              materials;
 
@@ -92,29 +92,28 @@ namespace euphoria::render
         GetNoOverriddenMaterials() const;
 
         void
-        Render(
-            const core::mat4f& model_matrix,
-            const core::mat4f& projection_matrix,
-            const core::mat4f& view_matrix,
-            const core::vec3f& camera,
-            const Light& light,
-            const std::vector<std::shared_ptr<CompiledMeshMaterial>>&
-                overridden_materials);
+        Render(const core::mat4f& model_matrix,
+               const core::mat4f& projection_matrix,
+               const core::mat4f& view_matrix,
+               const core::vec3f& camera,
+               const Light&       light,
+               const std::vector<std::shared_ptr<CompiledMeshMaterial>>&
+                       overridden_materials);
 
         void
         BasicRender(
-            const core::mat4f&                    model_matrix,
-            const core::mat4f&                    projection_matrix,
-            const core::mat4f&                    view_matrix,
-            std::shared_ptr<MaterialShader> shader);
+                const core::mat4f&              model_matrix,
+                const core::mat4f&              projection_matrix,
+                const core::mat4f&              view_matrix,
+                std::shared_ptr<MaterialShader> shader);
     };
 
     std::shared_ptr<CompiledMesh>
     CompileMesh(
-        const core::Mesh&          mesh,
-        MaterialShaderCache* shader_cache,
-        TextureCache*        texture_cache,
-        const core::vfs::Path&          texture_folder);
-}
+            const core::Mesh&      mesh,
+            MaterialShaderCache*   shader_cache,
+            TextureCache*          texture_cache,
+            const core::vfs::Path& texture_folder);
+}  // namespace euphoria::render
 
 #endif  // EUPHORIA_COMPILEDMESH_H

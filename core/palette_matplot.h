@@ -3,20 +3,22 @@
 
 namespace euphoria::core
 {
+    struct Palette;
 
-struct Palette;
+    // https://bids.github.io/colormap/
 
-// https://bids.github.io/colormap/
+    namespace palette
+    {
+        const Palette&
+        Magma();
+        const Palette&
+        Inferno();
+        const Palette&
+        Plasma();
+        const Palette&
+        Viridis();
+    }  // namespace palette
 
-namespace palette
-{
-  const Palette& Magma();
-  const Palette& Inferno();
-  const Palette& Plasma();
-  const Palette& Viridis();
-}
-
-}
+}  // namespace euphoria::core
 
 #endif  // EUPHORIA_PALETTE_MATPLOT_H
-

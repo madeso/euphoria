@@ -5,20 +5,20 @@
 
 namespace euphoria::render
 {
-  class Shader;
+    class Shader;
 
-  namespace attributes3d
-  {
-    const ShaderAttribute&
-    Vertex();
-    const ShaderAttribute&
-    Normal();
-    const ShaderAttribute&
-    TexCoord();
+    namespace attributes3d
+    {
+        const ShaderAttribute&
+        Vertex();
+        const ShaderAttribute&
+        Normal();
+        const ShaderAttribute&
+        TexCoord();
 
-    void
-    PrebindShader(Shader* shader);
-  }
-}
+        void
+        PrebindShader(Shader* shader);
+    }  // namespace attributes3d
+}  // namespace euphoria::render
 
 #endif  // EUPHORIA_SHADERATTRIBUTE3D_H

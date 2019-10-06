@@ -8,73 +8,69 @@ using namespace euphoria::core;
 
 enum class Type
 {
-  Simple,
-  Grid
+    Simple,
+    Grid
 };
 
 std::string
 StreamToString(std::istream& out)
 {
-  std::stringstream ss;
-  ss << out.rdbuf();
-  return ss.str();
+    std::stringstream ss;
+    ss << out.rdbuf();
+    return ss.str();
 }
 
 int
 main(int argc, char* argv[])
 {
-  std::vector<std::string> files;
-  std::string              format = ",\"";
-  Type                     type   = Type::Simple;
+    std::vector<std::string> files;
+    std::string              format = ",\"";
+    Type                     type   = Type::Simple;
 
-  {
-    auto parser = argparse::Parser{"csvtool"};
-
-    parser.AddSimple("-format", &format).Help("The CSV format used");
-    parser.AddSimpleFunction("-simple", [&type]() { type = Type::Simple; });
-    parser.AddSimpleFunction("-grid", [&type]() { type = Type::Grid; });
-    parser.AddVector("files", &files).MetaVar("CSV-file");
-    auto r = parser.Parse(argc, argv);
-    if(r != argparse::ParseResult::Ok)
     {
-      return -1;
-    }
-  }
+        auto parser = argparse::Parser {"csvtool"};
 
-  int ret = 0;
-
-  bool first = true;
-  for(const auto& f : files)
-  {
-    if(first)
-    {
-      first = false;
-    }
-    else
-    {
-      std::cout << "\n\n\n";
+        parser.AddSimple("-format", &format).Help("The CSV format used");
+        parser.AddSimpleFunction("-simple", [&type]() { type = Type::Simple; });
+        parser.AddSimpleFunction("-grid", [&type]() { type = Type::Grid; });
+        parser.AddVector("files", &files).MetaVar("CSV-file");
+        auto r = parser.Parse(argc, argv);
+        if (r != argparse::ParseResult::Ok)
+        {
+            return -1;
+        }
     }
 
-    Table<std::string> table;
-    {
-      std::ifstream stream{f};
-      if (!stream)
-      {
-        std::cerr << "Failed to load " << f << "\n";
-        ret = -1;
-      }
-      table = TableFromCsv(StreamToString(stream), format[0], format[1]);
-    }
+    int ret = 0;
 
-    switch(type)
+    bool first = true;
+    for (const auto& f: files)
     {
-      case Type::Simple:
-        PrintTableSimple(std::cout, table);
-        break;
-      case Type::Grid:
-        PrintTableGrid(std::cout, table);
-        break;
+        if (first)
+        {
+            first = false;
+        }
+        else
+        {
+            std::cout << "\n\n\n";
+        }
+
+        Table<std::string> table;
+        {
+            std::ifstream stream {f};
+            if (!stream)
+            {
+                std::cerr << "Failed to load " << f << "\n";
+                ret = -1;
+            }
+            table = TableFromCsv(StreamToString(stream), format[0], format[1]);
+        }
+
+        switch (type)
+        {
+        case Type::Simple: PrintTableSimple(std::cout, table); break;
+        case Type::Grid: PrintTableGrid(std::cout, table); break;
+        }
     }
-  }
-  return ret;
+    return ret;
 }

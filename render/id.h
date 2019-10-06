@@ -6,18 +6,18 @@
 
 namespace euphoria::render
 {
-  class Id : core::Noncopyable
-  {
-  public:
-    Id();
-    ~Id();
+    class Id : core::Noncopyable
+    {
+        public:
+        Id();
+        ~Id();
 
-    gluint
-    GetId() const;
+        gluint
+        GetId() const;
 
-  protected:
-    gluint id_;
-  };
-}
+        protected:
+        gluint id_;
+    };
+}  // namespace euphoria::render
 
 #endif  // RENDER_ID_H

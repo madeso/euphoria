@@ -3,42 +3,42 @@
 
 namespace euphoria::gui
 {
-  class LayoutData
-  {
-  public:
-    LayoutData();
-    ~LayoutData();
+    class LayoutData
+    {
+        public:
+        LayoutData();
+        ~LayoutData();
 
-    int
-    GetColumn() const;
-    
-    LayoutData&
-    SetColumn(int c);
+        int
+        GetColumn() const;
 
-    int
-    GetRow() const;
+        LayoutData&
+        SetColumn(int c);
 
-    LayoutData&
-    SetRow(int r);
+        int
+        GetRow() const;
 
-    float
-    GetPreferredWidth() const;
+        LayoutData&
+        SetRow(int r);
 
-    LayoutData&
-    SetPreferredWidth(float w);
+        float
+        GetPreferredWidth() const;
 
-    float
-    GetPreferredHeight() const;
+        LayoutData&
+        SetPreferredWidth(float w);
 
-    LayoutData&
-    SetPreferredHeight(float h);
+        float
+        GetPreferredHeight() const;
 
-  private:
-    int   column_;
-    int   row_;
-    float preferred_width_;
-    float preferred_height_;
-  };
-}
+        LayoutData&
+        SetPreferredHeight(float h);
+
+        private:
+        int   column_;
+        int   row_;
+        float preferred_width_;
+        float preferred_height_;
+    };
+}  // namespace euphoria::gui
 
 #endif  // GUI_LAYOUTDATA_H

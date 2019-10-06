@@ -1,7 +1,8 @@
 #ifndef EUPHORIA_DUKMATHBINDINGS_H
 #define EUPHORIA_DUKMATHBINDINGS_H
 
-namespace euphoria::duk {
+namespace euphoria::duk
+{
     class Duk;
 }
 

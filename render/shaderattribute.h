@@ -7,29 +7,31 @@
 
 namespace euphoria::render
 {
+    enum class ShaderAttributeSize
+    {
+        VEC1  = 1,
+        VEC2  = 2,
+        VEC3  = 3,
+        VEC4  = 4,
+        MAT44 = 16
+    };
 
-  enum class ShaderAttributeSize
-  {
-    VEC1  = 1,
-    VEC2  = 2,
-    VEC3  = 3,
-    VEC4  = 4,
-    MAT44 = 16
-  };
+    class ShaderAttribute
+    {
+        public:
+        ShaderAttribute(
+                std::string         aname,
+                glint               aid,
+                ShaderAttributeSize asize);
 
-  class ShaderAttribute
-  {
-  public:
-    ShaderAttribute(std::string aname, glint aid, ShaderAttributeSize asize);
+        std::string         name;
+        glint               id;
+        ShaderAttributeSize size;
+    };
 
-    std::string         name;
-    glint               id;
-    ShaderAttributeSize size;
-  };
+    bool
+    operator==(const ShaderAttribute& lhs, const ShaderAttribute& rhs);
 
-  bool
-  operator==(const ShaderAttribute& lhs, const ShaderAttribute& rhs);
-
-}
+}  // namespace euphoria::render
 
 #endif  // RENDER_SHADERATTRIBUTE_H

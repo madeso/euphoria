@@ -10,48 +10,47 @@
 
 namespace euphoria::core
 {
+    class CompiledCamera
+    {
+        public:
+        CompiledCamera(const mat4f& view_, const mat4f& projection_);
 
-class CompiledCamera
-{
- public:
-  CompiledCamera(const mat4f& view_, const mat4f& projection_);
+        vec3f
+        WorldToClip(const vec3f& in_world) const;
 
-  vec3f
-  WorldToClip(const vec3f& in_world) const;
+        vec3f
+        ClipToWorld(const vec3f& in_clip) const;
 
-  vec3f
-  ClipToWorld(const vec3f& in_clip) const;
+        Ray3f
+        ClipToWorldRay(const vec2f& p) const;
 
-  Ray3f
-  ClipToWorldRay(const vec2f& p) const;
-
-  mat4f view;
-  mat4f projection;
-  mat4f combined;
-  mat4f combined_inverted;
-};
+        mat4f view;
+        mat4f projection;
+        mat4f combined;
+        mat4f combined_inverted;
+    };
 
 
-class Camera
-{
- public:
-  Camera();
+    class Camera
+    {
+        public:
+        Camera();
 
-  CompiledCamera
-  Compile(float aspect) const;
+        CompiledCamera
+        Compile(float aspect) const;
 
-  mat4f
-  CalculateProjectionMatrix(float aspect) const;
+        mat4f
+        CalculateProjectionMatrix(float aspect) const;
 
-  mat4f
-  CalculateViewMatrix() const;
+        mat4f
+        CalculateViewMatrix() const;
 
-  vec3f position;
-  quatf rotation;
-  float fov;
-  float near;
-  float far;
-};
-}
+        vec3f position;
+        quatf rotation;
+        float fov;
+        float near;
+        float far;
+    };
+}  // namespace euphoria::core
 
 #endif  // EUPHORIA_CAMERA_H

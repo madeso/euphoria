@@ -6,19 +6,22 @@
 
 namespace euphoria::core
 {
+    class Image;
 
-class Image;
+    struct ImageMapAction
+    {
+        char to;
+        Rgbi from_color;
+    };
 
-struct ImageMapAction
-{
-  char to;
-  Rgbi from_color;
-};
+    Table<char>
+    ImageToStringTable(
+            const Image&                       img,
+            const std::vector<ImageMapAction>& map);
 
-Table<char> ImageToStringTable(const Image& img, const std::vector<ImageMapAction>& map);
+    Table<char>
+    ImageToStringTable(const Image& img, bool shorter);
 
-Table<char> ImageToStringTable(const Image& img, bool shorter);
-
-}
+}  // namespace euphoria::core
 
 #endif  // CORE_IMAGEOPS_H

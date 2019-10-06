@@ -11,30 +11,32 @@
 
 namespace euphoria::engine
 {
-  struct CPosition2 : public core::Component
-  {
-    CPosition2();
-    core::vec2f pos;
-  };
+    struct CPosition2 : public core::Component
+    {
+        CPosition2();
+        core::vec2f pos;
+    };
 
-  struct CSprite : public core::Component
-  {
-    COMPONENT_CONSTRUCTOR_DEFINITION(CSprite)
+    struct CSprite : public core::Component
+    {
+        COMPONENT_CONSTRUCTOR_DEFINITION(CSprite)
 
-    std::shared_ptr<render::Texture2d> texture;
-  };
+        std::shared_ptr<render::Texture2d> texture;
+    };
 
-  struct Components
-  {
-    Components(core::Registry* reg);
+    struct Components
+    {
+        Components(core::Registry* reg);
 
-    core::ComponentId position2;
-    core::ComponentId sprite;
-  };
+        core::ComponentId position2;
+        core::ComponentId sprite;
+    };
 
-  core::Rectf
-  GetSpriteRect(const core::vec2f& position, const render::Texture2d& texture);
-}
+    core::Rectf
+    GetSpriteRect(
+            const core::vec2f&       position,
+            const render::Texture2d& texture);
+}  // namespace euphoria::engine
 
 TYPEID_SETUP_TYPE(euphoria::engine::CPosition2);
 TYPEID_SETUP_TYPE(euphoria::engine::CSprite);

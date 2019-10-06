@@ -7,6 +7,6 @@ namespace euphoria::render
     typedef unsigned int gluint;
     typedef int          glint;
     typedef char         glchar;
-}
+}  // namespace euphoria::render
 
 #endif  // RENDER_GLTYPES_H

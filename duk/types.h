@@ -3,7 +3,8 @@
 
 // #include "duk_config.h"
 
-extern "C" {
+extern "C"
+{
     struct duk_hthread;
     typedef struct duk_hthread duk_context;
     typedef int                duk_small_int_t;

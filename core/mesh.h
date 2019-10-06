@@ -11,110 +11,111 @@
 
 namespace euphoria::core
 {
+    namespace vfs
+    {
+        class FileSystem;
+    }
 
-namespace vfs
-{
-class FileSystem;
-}
+    enum class WrapMode
+    {
+        REPEAT,
+        CLAMP_TO_EDGE,
+        MIRROR_REPEAT
+    };
 
-enum class WrapMode
-{
-  REPEAT,
-  CLAMP_TO_EDGE,
-  MIRROR_REPEAT
-};
+    class MeshPart
+    {
+        public:
+        MeshPart();
 
-class MeshPart
-{
- public:
-  MeshPart();
+        unsigned int              material;
+        std::vector<float>        points;
+        std::vector<unsigned int> faces;
+        int                       facecount;
 
-  unsigned int              material;
-  std::vector<float>        points;
-  std::vector<unsigned int> faces;
-  int                       facecount;
+        void
+        AddPoint(
+                float x,
+                float y,
+                float z,
+                float nx,
+                float ny,
+                float nz,
+                float u,
+                float v);
 
-  void
-  AddPoint(
-      float x,
-      float y,
-      float z,
-      float nx,
-      float ny,
-      float nz,
-      float u,
-      float v);
+        void
+        AddFace(unsigned int a, unsigned int b, unsigned int c);
 
-  void
-  AddFace(unsigned int a, unsigned int b, unsigned int c);
+        Aabb
+        CalculateAabb() const;
+    };
 
-  Aabb
-  CalculateAabb() const;
-};
+    class MaterialTexture
+    {
+        public:
+        MaterialTexture(std::string p, EnumValue t);
+        std::string path;
+        EnumValue   type;
+    };
 
-class MaterialTexture
-{
- public:
-  MaterialTexture(std::string p, EnumValue t);
-  std::string path;
-  EnumValue   type;
-};
+    class Material
+    {
+        public:
+        Material();
 
-class Material
-{
- public:
-  Material();
+        void
+        SetTexture(
+                const std::string& texture_name,
+                const std::string& texture_path);
 
-  void
-  SetTexture(const std::string& texture_name, const std::string& texture_path);
+        std::string name;
 
-  std::string name;
+        std::string shader;
 
-  std::string shader;
+        // tints
+        Rgb ambient;
+        Rgb diffuse;
+        Rgb specular;
 
-  // tints
-  Rgb ambient;
-  Rgb diffuse;
-  Rgb specular;
+        float shininess;
 
-  float shininess;
+        float                        alpha;
+        std::vector<MaterialTexture> textures;
+        WrapMode                     wraps;
+        WrapMode                     wrapt;
+    };
 
-  float                        alpha;
-  std::vector<MaterialTexture> textures;
-  WrapMode                     wraps;
-  WrapMode                     wrapt;
-};
+    class Mesh
+    {
+        public:
+        std::vector<Material> materials;
+        std::vector<MeshPart> parts;
 
-class Mesh
-{
- public:
-  std::vector<Material> materials;
-  std::vector<MeshPart> parts;
+        Aabb
+        CalculateAabb() const;
+    };
 
-  Aabb
-  CalculateAabb() const;
-};
+    class MeshLoadResult
+    {
+        public:
+        Mesh        mesh;
+        std::string error;
+    };
 
-class MeshLoadResult
-{
- public:
-  Mesh        mesh;
-  std::string error;
-};
+    namespace meshes
+    {
+        MeshLoadResult
+        LoadMesh(vfs::FileSystem* fs, const std::string& path);
 
-namespace meshes
-{
-  MeshLoadResult
-  LoadMesh(vfs::FileSystem* fs, const std::string& path);
+        Mesh
+        CreateCube(float size);
+        Mesh
+        CreateSphere(float size, const std::string& texture);
+        Mesh
+        CreateBox(float width, float height, float depth);
+    }  // namespace meshes
 
-  Mesh
-  CreateCube(float size);
-  Mesh
-  CreateSphere(float size, const std::string& texture);
-  Mesh
-  CreateBox(float width, float height, float depth);
-}
-
-}
+}  // namespace euphoria::core
 
 #endif  // CORE_MESH_H

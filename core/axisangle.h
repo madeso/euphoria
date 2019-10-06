@@ -8,28 +8,27 @@
 
 namespace euphoria::core
 {
+    class AxisAngle
+    {
+        public:
+        static const AxisAngle
+        RightHandAround(const unit3f& axis, const Angle& angle);
 
-class AxisAngle
-{
- public:
-  static const AxisAngle
-  RightHandAround(const unit3f& axis, const Angle& angle);
-
-  /** a unit-vector.
+        /** a unit-vector.
   */
-  unit3f axis;
+        unit3f axis;
 
-  /** rotation according to right-hand rule.
+        /** rotation according to right-hand rule.
   */
-  Angle angle;
+        Angle angle;
 
- private:
-  AxisAngle(const unit3f& ax, const Angle& ang);
-};
+        private:
+        AxisAngle(const unit3f& ax, const Angle& ang);
+    };
 
-std::ostream&
-operator<<(std::ostream& stream, const AxisAngle& aa);
+    std::ostream&
+    operator<<(std::ostream& stream, const AxisAngle& aa);
 
-}
+}  // namespace euphoria::core
 
 #endif  // CORE_AXISANGLE_H

@@ -5,19 +5,19 @@
 
 namespace euphoria::render
 {
-  class Viewport
-  {
-  public:
-    Viewport(const core::Recti& viewport);
+    class Viewport
+    {
+        public:
+        Viewport(const core::Recti& viewport);
 
-    void
-    Activate();  // sets the gl viewport
+        void
+        Activate();  // sets the gl viewport
 
-    float
-    GetAspectRatio() const;
+        float
+        GetAspectRatio() const;
 
-    const core::Recti viewport;
-  };
-}
+        const core::Recti viewport;
+    };
+}  // namespace euphoria::render
 
 #endif  // RENDER_VIEWPORT_H

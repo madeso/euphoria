@@ -10,163 +10,172 @@
 
 namespace euphoria::core
 {
+    namespace vfs
+    {
+        class Path;
 
-namespace vfs
-{
+        struct ListedFile
+        {
+            std::string name;
+            bool        is_builtin = false;
 
-class Path;
+            ListedFile() = default;
+            ListedFile(const std::string& n, bool b);
+        };
 
-struct ListedFile
-{
-  std::string name;
-  bool        is_builtin = false;
+        struct FileList
+        {
+            std::map<std::string, ListedFile> files;
+            std::map<std::string, ListedFile> folders;
 
-  ListedFile() = default;
-  ListedFile(const std::string& n, bool b);
-};
+            void
+            Add(const ListedFile& file);
 
-struct FileList
-{
-  std::map<std::string, ListedFile> files;
-  std::map<std::string, ListedFile> folders;
+            void
+            Add(const std::string& n, bool b);
+        };
 
-  void
-  Add(const ListedFile& file);
+        // todo: use path class
 
-  void
-  Add(const std::string& n, bool b);
-};
+        class FileSystemReadRoot
+        {
+            public:
+            virtual ~FileSystemReadRoot();
 
-// todo: use path class
+            virtual std::string
+            Describe()
+                    = 0;
 
-class FileSystemReadRoot
-{
- public:
-  virtual ~FileSystemReadRoot();
+            virtual std::shared_ptr<MemoryChunk>
+            ReadFile(const std::string& path) = 0;
 
-  virtual std::string
-  Describe() = 0;
+            virtual FileList
+            ListFiles(const Path& path)
+                    = 0;
+        };
 
-  virtual std::shared_ptr<MemoryChunk>
-  ReadFile(const std::string& path) = 0;
+        class FileSystemWriteRoot
+        {
+            public:
+            virtual ~FileSystemWriteRoot();
 
-  virtual FileList
-  ListFiles(const Path& path) = 0;
-};
+            virtual void
+            WriteFile(
+                    const std::string&           path,
+                    std::shared_ptr<MemoryChunk> data)
+                    = 0;
+        };
 
-class FileSystemWriteRoot
-{
- public:
-  virtual ~FileSystemWriteRoot();
+        class FileSystem
+        {
+            public:
+            FileSystem();
+            ~FileSystem();
 
-  virtual void
-  WriteFile(const std::string& path, std::shared_ptr<MemoryChunk> data) = 0;
-};
+            void
+            AddReadRoot(const std::shared_ptr<FileSystemReadRoot>& root);
 
-class FileSystem
-{
- public:
-  FileSystem();
-  ~FileSystem();
+            void
+            SetWrite(const std::shared_ptr<FileSystemWriteRoot>& root);
 
-  void
-  AddReadRoot(const std::shared_ptr<FileSystemReadRoot>& root);
+            std::shared_ptr<MemoryChunk>
+            ReadFile(const std::string& path);
 
-  void
-  SetWrite(const std::shared_ptr<FileSystemWriteRoot>& root);
+            void
+            WriteFile(
+                    const std::string&           path,
+                    std::shared_ptr<MemoryChunk> data);
 
-  std::shared_ptr<MemoryChunk>
-  ReadFile(const std::string& path);
+            std::vector<ListedFile>
+            ListFiles(const Path& path);
 
-  void
-  WriteFile(const std::string& path, std::shared_ptr<MemoryChunk> data);
+            std::string
+            GetRootsAsString();
 
-  std::vector<ListedFile>
-  ListFiles(const Path& path);
+            // todo: need to support paging too
+            bool
+            ReadFileToString(const std::string& path, std::string* source);
 
-  std::string
-  GetRootsAsString();
+            // todo: support different roots such as real file system, zip/container file
+            // etc
+            // todo: support encryption
+            // todo: support listing/enumerating files
 
-  // todo: need to support paging too
-  bool
-  ReadFileToString(const std::string& path, std::string* source);
+            private:
+            std::vector<std::shared_ptr<FileSystemReadRoot>> roots_;
+            std::shared_ptr<FileSystemWriteRoot>             write_;
+        };
 
-  // todo: support different roots such as real file system, zip/container file
-  // etc
-  // todo: support encryption
-  // todo: support listing/enumerating files
+        class FileSystemRootCatalog : public FileSystemReadRoot
+        {
+            public:
+            FileSystemRootCatalog();
 
- private:
-  std::vector<std::shared_ptr<FileSystemReadRoot>> roots_;
-  std::shared_ptr<FileSystemWriteRoot>             write_;
-};
+            void
+            RegisterFileString(
+                    const std::string& path,
+                    const std::string& content);
+            void
+            RegisterFileData(
+                    const std::string&                  path,
+                    const std::shared_ptr<MemoryChunk>& content);
 
-class FileSystemRootCatalog : public FileSystemReadRoot
-{
- public:
-  FileSystemRootCatalog();
+            static std::shared_ptr<FileSystemRootCatalog>
+            AddRoot(FileSystem* fs);
 
-  void
-  RegisterFileString(const std::string& path, const std::string& content);
-  void
-  RegisterFileData(
-      const std::string& path, const std::shared_ptr<MemoryChunk>& content);
+            std::shared_ptr<MemoryChunk>
+            ReadFile(const std::string& path) override;
 
-  static std::shared_ptr<FileSystemRootCatalog>
-  AddRoot(FileSystem* fs);
+            std::string
+            Describe() override;
 
-  std::shared_ptr<MemoryChunk>
-  ReadFile(const std::string& path) override;
+            FileList
+            ListFiles(const Path& path) override;
 
-  std::string
-  Describe() override;
+            private:
+            std::map<std::string, std::shared_ptr<MemoryChunk>> catalog_;
+        };
 
-  FileList
-  ListFiles(const Path& path) override;
+        class FileSystemRootFolder : public FileSystemReadRoot
+        {
+            public:
+            explicit FileSystemRootFolder(std::string folder);
 
- private:
-  std::map<std::string, std::shared_ptr<MemoryChunk>> catalog_;
-};
+            std::shared_ptr<MemoryChunk>
+            ReadFile(const std::string& path) override;
 
-class FileSystemRootFolder : public FileSystemReadRoot
-{
- public:
-  explicit FileSystemRootFolder(std::string folder);
+            static void
+            AddRoot(FileSystem* fs, const std::string& folder);
 
-  std::shared_ptr<MemoryChunk>
-  ReadFile(const std::string& path) override;
+            static void
+            AddRoot(FileSystem* fs);
 
-  static void
-  AddRoot(FileSystem* fs, const std::string& folder);
+            std::string
+            Describe() override;
 
-  static void
-  AddRoot(FileSystem* fs);
+            FileList
+            ListFiles(const Path& path) override;
 
-  std::string
-  Describe() override;
+            private:
+            std::string folder_;
+        };
 
-  FileList
-  ListFiles(const Path& path) override;
+        class FileSystemWriteFolder : public FileSystemWriteRoot
+        {
+            public:
+            explicit FileSystemWriteFolder(const std::string& f);
 
- private:
-  std::string folder_;
-};
+            void
+            WriteFile(
+                    const std::string&           path,
+                    std::shared_ptr<MemoryChunk> data) override;
 
-class FileSystemWriteFolder : public FileSystemWriteRoot
-{
- public:
-  explicit FileSystemWriteFolder(const std::string& f);
-
-  void
-  WriteFile(
-      const std::string& path, std::shared_ptr<MemoryChunk> data) override;
-
-  std::string folder;
-};
+            std::string folder;
+        };
 
 
-}  // namespace vfs
+    }  // namespace vfs
 
-}
+}  // namespace euphoria::core
 
 #endif  // EUPHORIA_FILESYSTEM_H

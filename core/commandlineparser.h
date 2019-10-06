@@ -6,9 +6,8 @@
 
 namespace euphoria::core
 {
-
-std::vector<std::string>
-ParseCommandLine(const std::string& str);
+    std::vector<std::string>
+    ParseCommandLine(const std::string& str);
 
 }
 

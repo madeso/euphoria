@@ -6,34 +6,34 @@
 
 namespace euphoria::render
 {
-  class SpriteRenderer;
+    class SpriteRenderer;
 }
 
 namespace euphoria::gui
 {
-  class Widget;
+    class Widget;
 
-  class Container
-  {
-  public:
-    Container();
-    ~Container();
+    class Container
+    {
+        public:
+        Container();
+        ~Container();
 
-    bool
-    HasWidgets() const;
+        bool
+        HasWidgets() const;
 
-    void
-    Add(std::shared_ptr<Widget> widget);
+        void
+        Add(std::shared_ptr<Widget> widget);
 
-    void
-    Step(float dt);
+        void
+        Step(float dt);
 
-    void
-    Render(render::SpriteRenderer* renderer) const;
+        void
+        Render(render::SpriteRenderer* renderer) const;
 
-  protected:
-    std::vector<std::shared_ptr<Widget>> widgets_;
-  };
-}
+        protected:
+        std::vector<std::shared_ptr<Widget>> widgets_;
+    };
+}  // namespace euphoria::gui
 
 #endif  // GUI_CONTAINER_H

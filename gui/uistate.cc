@@ -3,57 +3,56 @@
 
 namespace euphoria::gui
 {
-  UiState::UiState()
-      : mouse(0, 0)
-      , mouse_down(false)
-      , hot(nullptr)
-      , active(nullptr)
-      , has_active(false)
-  {
-  }
+    UiState::UiState()
+        : mouse(0, 0)
+        , mouse_down(false)
+        , hot(nullptr)
+        , active(nullptr)
+        , has_active(false)
+    {}
 
-  void
-  UiState::Begin()
-  {
-    hot = nullptr;
-  }
-
-  void
-  UiState::End()
-  {
-    if(IsMouseDown() == false)
+    void
+    UiState::Begin()
     {
-      active     = nullptr;
-      has_active = false;
+        hot = nullptr;
     }
-    else
+
+    void
+    UiState::End()
     {
-      if(has_active == false && active == nullptr)
-      {
-        has_active = true;
-      }
+        if (IsMouseDown() == false)
+        {
+            active     = nullptr;
+            has_active = false;
+        }
+        else
+        {
+            if (has_active == false && active == nullptr)
+            {
+                has_active = true;
+            }
+        }
     }
-  }
 
-  void
-  UiState::SetHot(Widget* w)
-  {
-    hot = w;
-  }
-
-  void
-  UiState::SetActive(Widget* w)
-  {
-    if(has_active == false && active == nullptr)
+    void
+    UiState::SetHot(Widget* w)
     {
-      active     = w;
-      has_active = true;
+        hot = w;
     }
-  }
 
-  bool
-  UiState::IsMouseDown() const
-  {
-    return mouse_down;
-  }
-}
+    void
+    UiState::SetActive(Widget* w)
+    {
+        if (has_active == false && active == nullptr)
+        {
+            active     = w;
+            has_active = true;
+        }
+    }
+
+    bool
+    UiState::IsMouseDown() const
+    {
+        return mouse_down;
+    }
+}  // namespace euphoria::gui

@@ -21,17 +21,18 @@
 
 namespace euphoria::core
 {
+    // 2D simplex noise
+    double
+    noise(double xin, double yin);
 
-// 2D simplex noise
-double noise(double xin, double yin);
+    // 3D simplex noise
+    double
+    noise(double xin, double yin, double zin);
 
-// 3D simplex noise
-double noise(double xin, double yin, double zin);
+    // 4D simplex noise, better simplex rank ordering method 2012-03-09
+    double
+    noise(double x, double y, double z, double w);
 
-// 4D simplex noise, better simplex rank ordering method 2012-03-09
-double noise(double x, double y, double z, double w);
+}  // namespace euphoria::core
 
-}
-
-#endif // CORE_SIMPLE_H
-
+#endif  // CORE_SIMPLE_H

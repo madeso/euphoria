@@ -5,49 +5,49 @@
 
 namespace euphoria::core
 {
-  class Systems;
-  class World;
-}
+    class Systems;
+    class World;
+}  // namespace euphoria::core
 
 namespace euphoria::duk
 {
-  class Duk;
+    class Duk;
 }
 
 namespace euphoria::engine
 {
-  class Input;
-  struct DukRegistry;
-  class ObjectCreator;
-  struct DukIntegrationPimpl;
-  class CameraData;
-  struct Components;
-  
+    class Input;
+    struct DukRegistry;
+    class ObjectCreator;
+    struct DukIntegrationPimpl;
+    class CameraData;
+    struct Components;
 
-  class DukIntegration
-  {
-  public:
-    DukIntegration(
-        core::Systems*       systems,
-        core::World*         reg,
-        duk::Duk*           duk,
-        ObjectCreator* creator,
-        Components*    components,
-        CameraData*    camera);
-    ~DukIntegration();
 
-    void
-    Clear();
+    class DukIntegration
+    {
+        public:
+        DukIntegration(
+                core::Systems* systems,
+                core::World*   reg,
+                duk::Duk*      duk,
+                ObjectCreator* creator,
+                Components*    components,
+                CameraData*    camera);
+        ~DukIntegration();
 
-    DukRegistry&
-    Registry();
+        void
+        Clear();
 
-    void
-    BindKeys(duk::Duk* duk, const Input& input);
+        DukRegistry&
+        Registry();
 
-  private:
-    std::unique_ptr<DukIntegrationPimpl> pimpl;
-  };
-}
+        void
+        BindKeys(duk::Duk* duk, const Input& input);
+
+        private:
+        std::unique_ptr<DukIntegrationPimpl> pimpl;
+    };
+}  // namespace euphoria::engine
 
 #endif  // EUPHORIA_DUKINTEGRATION_H

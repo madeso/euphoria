@@ -10,37 +10,35 @@
 
 namespace euphoria::render
 {
+    // texture & shader will be handled by 2d world and sprite
+    class SpriteBatch
+    {
+        public:
+        SpriteBatch();
+        ~SpriteBatch();
 
-  // texture & shader will be handled by 2d world and sprite
-  class SpriteBatch
-  {
-  public:
-    SpriteBatch();
-    ~SpriteBatch();
+        void
+        Begin();
+        void
+        Quad(const core::vec2f&   pos,
+             const core::Sizef&   quad,
+             const core::Rectf&   uv,
+             const core::scale2f& center,
+             const core::Angle&   rotation,
+             const core::Rgba&    color);
+        void
+        End();
+        void
+        Flush();
 
-    void
-    Begin();
-    void
-    Quad(
-        const core::vec2f& pos,
-        const core::Sizef& quad,
-        const core::Rectf& uv,
-        const core::scale2f& center,
-        const core::Angle& rotation,
-        const core::Rgba&  color);
-    void
-    End();
-    void
-    Flush();
+        private:
+        bool               inside_;
+        unsigned int       count_;
+        unsigned int       rendercalls_;
+        std::vector<float> data_;
+        std::vector<int>   index_;
+    };
 
-  private:
-    bool               inside_;
-    unsigned int       count_;
-    unsigned int       rendercalls_;
-    std::vector<float> data_;
-    std::vector<int>   index_;
-  };
-
-}
+}  // namespace euphoria::render
 
 #endif  // RENDER_SPRITEBATCH_H

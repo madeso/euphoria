@@ -8,54 +8,54 @@
 
 namespace euphoria::core
 {
-  /// todo(Gustav): move to core?
-  class FpsController
-  {
-  public:
-    FpsController();
+    /// todo(Gustav): move to core?
+    class FpsController
+    {
+        public:
+        FpsController();
 
-    void
-    Look(float delta_rot, float delta_look);
+        void
+        Look(float delta_rot, float delta_look);
 
-    void
-    MoveLeft(bool down);
-    void
-    MoveRight(bool down);
-    void
-    MoveForward(bool down);
-    void
-    MoveBackward(bool down);
-    void
-    MoveUp(bool down);
-    void
-    MoveDown(bool down);
+        void
+        MoveLeft(bool down);
+        void
+        MoveRight(bool down);
+        void
+        MoveForward(bool down);
+        void
+        MoveBackward(bool down);
+        void
+        MoveUp(bool down);
+        void
+        MoveDown(bool down);
 
-    void
-    HandleKey(Key key, bool down);
+        void
+        HandleKey(Key key, bool down);
 
-    void
-    Update(float delta);
+        void
+        Update(float delta);
 
-    quatf
-    GetRotation() const;
+        quatf
+        GetRotation() const;
 
-  private:
-    Angle rotation_;
-    Angle look_;
+        private:
+        Angle rotation_;
+        Angle look_;
 
-    bool left_down_     = false;
-    bool right_down_    = false;
-    bool forward_down_  = false;
-    bool backward_down_ = false;
-    bool up_down_       = false;
-    bool down_down_     = false;
+        bool left_down_     = false;
+        bool right_down_    = false;
+        bool forward_down_  = false;
+        bool backward_down_ = false;
+        bool up_down_       = false;
+        bool down_down_     = false;
 
-  public:
-    vec3f position;
-    float speed       = 3.0f;
-    float sensitivity = 0.10f;
-  };
+        public:
+        vec3f position;
+        float speed       = 3.0f;
+        float sensitivity = 0.10f;
+    };
 
-}
+}  // namespace euphoria::core
 
 #endif  // EUPHORIA_FPSCONTROLLER_H

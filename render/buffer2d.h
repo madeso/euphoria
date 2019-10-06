@@ -5,24 +5,23 @@
 
 namespace euphoria::render
 {
+    class BufferBuilder2d;
 
-class BufferBuilder2d;
+    class Buffer2d
+    {
+        public:
+        Buffer2d(const BufferBuilder2d& bb);
 
-class Buffer2d
-{
- public:
-  Buffer2d(const BufferBuilder2d& bb);
+        void
+        Draw() const;
 
-  void
-  Draw() const;
+        private:
+        unsigned int index_count_;
+        Vbo          vbo_;
+        Vao          vao_;
+        Ebo          ebo_;
+    };
 
- private:
-  unsigned int index_count_;
-  Vbo          vbo_;
-  Vao          vao_;
-  Ebo          ebo_;
-};
-
-}
+}  // namespace euphoria::render
 
 #endif  // RENDER_BUFFER_2D_H

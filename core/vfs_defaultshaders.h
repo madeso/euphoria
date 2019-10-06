@@ -6,33 +6,31 @@
 
 namespace euphoria::core
 {
+    namespace vfs
+    {
+        class FileSystemDefaultShaders : public FileSystemReadRoot
+        {
+            public:
+            static void
+            AddRoot(FileSystem* fs, const std::string& base);
 
-namespace vfs
-{
+            std::shared_ptr<MemoryChunk>
+            ReadFile(const std::string& path) override;
 
-class FileSystemDefaultShaders : public FileSystemReadRoot
-{
- public:
-  static void
-  AddRoot(FileSystem* fs, const std::string& base);
+            std::string
+            Describe() override;
 
-  std::shared_ptr<MemoryChunk>
-  ReadFile(const std::string& path) override;
+            explicit FileSystemDefaultShaders(const std::string& base);
 
-  std::string
-  Describe() override;
+            FileList
+            ListFiles(const Path& path) override;
 
-  explicit FileSystemDefaultShaders(const std::string& base);
+            private:
+            std::string base_;
+        };
 
-  FileList
-  ListFiles(const Path& path) override;
+    }  // namespace vfs
 
- private:
-  std::string base_;
-};
-
-}  // namespace vfs
-
-}
+}  // namespace euphoria::core
 
 #endif  // CORE_FILESYSTEMDEFAULTSHADERS_H

@@ -8,30 +8,30 @@
 
 namespace euphoria::render
 {
-  class ShaderAttribute;
-  class CompiledMeshPart;
+    class ShaderAttribute;
+    class CompiledMeshPart;
 
-  class AttributeBinder
-  {
-  public:
-    void
-    Register(const ShaderAttribute& attribute);
-
-    void
-    Bind(const std::shared_ptr<CompiledMeshPart>& part);
-
-  private:
-    struct BindData
+    class AttributeBinder
     {
-      BindData(ShaderAttribute a, int s);
+        public:
+        void
+        Register(const ShaderAttribute& attribute);
 
-      ShaderAttribute attribute;
-      int             size;
+        void
+        Bind(const std::shared_ptr<CompiledMeshPart>& part);
+
+        private:
+        struct BindData
+        {
+            BindData(ShaderAttribute a, int s);
+
+            ShaderAttribute attribute;
+            int             size;
+        };
+
+        int                   total_size_ = 0;
+        std::vector<BindData> bind_datas_;
     };
-
-    int                   total_size_ = 0;
-    std::vector<BindData> bind_datas_;
-  };
-}
+}  // namespace euphoria::render
 
 #endif  // EUPHORIA_ATTRIBUTEBINDER_H

@@ -6,52 +6,51 @@
 
 namespace euphoria::core
 {
+    class IdGenerator
+    {
+        public:
+        typedef uint32 ID;
 
-class IdGenerator
-{
- public:
-  typedef uint32 ID;
+        IdGenerator();
 
-  IdGenerator();
+        const ID
+        Generate();
 
-  const ID
-  Generate();
+        void
+        Release(ID id);
 
-  void
-  Release(ID id);
+        private:
+        ID              current_;
+        std::vector<ID> released_;
+    };
 
- private:
-  ID              current_;
-  std::vector<ID> released_;
-};
+    class Id
+    {
+        private:
+        Id();
 
-class Id
-{
- private:
-  Id();
+        public:
+        explicit Id(IdGenerator* generator);
 
- public:
-  explicit Id(IdGenerator* generator);
+        static const Id&
+        Invalid();
 
-  static const Id&
-  Invalid();
+        ~Id();
 
-  ~Id();
+        bool
+        IsValid() const;
 
-  bool
-  IsValid() const;
+        void
+        Generate(IdGenerator* generator);
 
-  void
-  Generate(IdGenerator* generator);
+        const IdGenerator::ID
+        GetValue() const;
 
-  const IdGenerator::ID
-  GetValue() const;
+        private:
+        IdGenerator::ID value_;
+        IdGenerator*    generator_;
+    };
 
- private:
-  IdGenerator::ID value_;
-  IdGenerator*    generator_;
-};
-
-}
+}  // namespace euphoria::core
 
 #endif  // EUPHORIA_ID_H

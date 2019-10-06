@@ -19,102 +19,100 @@
 
 namespace euphoria::core
 {
-  namespace vfs
-  {
-    class FileSystem;
-  }
-}
+    namespace vfs
+    {
+        class FileSystem;
+    }
+}  // namespace euphoria::core
 
 namespace euphoria::render
 {
+    class ShaderId : core::Noncopyable
+    {
+        public:
+        ShaderId();
+        ~ShaderId();
 
-class ShaderId : core::Noncopyable
-{
- public:
-  ShaderId();
-  ~ShaderId();
+        bool
+        IsCurrentlyBound() const;
 
-  bool
-  IsCurrentlyBound() const;
+        gluint
+        GetId() const;
 
-  gluint
-  GetId() const;
+        private:
+        gluint id_;
+    };
 
- private:
-  gluint id_;
-};
+    void
+    Use(const Shader* shader);
 
-void
-Use(const Shader* shader);
+    class Shader : public ShaderId
+    {
+        public:
+        Shader();
 
-class Shader : public ShaderId
-{
- public:
-  Shader();
+        // shader attribute =
+        void
+        PreBind(const ShaderAttribute& attribute);
+        bool
+        Load(core::vfs::FileSystem* fs, const std::string& file_path);
 
-  // shader attribute =
-  void
-  PreBind(const ShaderAttribute& attribute);
-  bool
-  Load(core::vfs::FileSystem* fs, const std::string& file_path);
+        bool
+        Compile(const glchar* vertex_source,
+                const glchar* fragment_source,
+                const glchar* geometry_source = nullptr);
 
-  bool
-  Compile(
-      const glchar* vertex_source,
-      const glchar* fragment_source,
-      const glchar* geometry_source = nullptr);
+        public:
+        // uniform = shader global
+        ShaderUniform
+        GetUniform(const std::string& name);
 
- public:
-  // uniform = shader global
-  ShaderUniform
-  GetUniform(const std::string& name);
+        void
+        SetUniform(const ShaderUniform& attribute, glint val);
+        void
+        SetUniform(const ShaderUniform& attribute, float val);
+        void
+        SetUniform(const ShaderUniform& attribute, const core::Rgb& val);
+        void
+        SetUniform(const ShaderUniform& attribute, const core::Rgba& val);
+        void
+        SetUniform(const ShaderUniform& attribute, const core::vec3f& val);
+        void
+        SetUniform(const ShaderUniform& attribute, const core::vec4f& val);
+        void
+        SetUniform(const ShaderUniform& attribute, const core::mat3f& val);
+        void
+        SetUniform(const ShaderUniform& attribute, const core::mat4f& val);
+        void
+        SetUniform(const ShaderUniform& attribute, const core::Rectf& val);
 
-  void
-  SetUniform(const ShaderUniform& attribute, glint val);
-  void
-  SetUniform(const ShaderUniform& attribute, float val);
-  void
-  SetUniform(const ShaderUniform& attribute, const core::Rgb& val);
-  void
-  SetUniform(const ShaderUniform& attribute, const core::Rgba& val);
-  void
-  SetUniform(const ShaderUniform& attribute, const core::vec3f& val);
-  void
-  SetUniform(const ShaderUniform& attribute, const core::vec4f& val);
-  void
-  SetUniform(const ShaderUniform& attribute, const core::mat3f& val);
-  void
-  SetUniform(const ShaderUniform& attribute, const core::mat4f& val);
-  void
-  SetUniform(const ShaderUniform& attribute, const core::Rectf& val);
+        // debug
+        static const Shader*
+        CurrentlyBound();
+        const std::vector<ShaderAttribute>&
+        GetAttributes() const;
+        const std::string&
+        GetName() const;
 
-  // debug
-  static const Shader*
-  CurrentlyBound();
-  const std::vector<ShaderAttribute>&
-  GetAttributes() const;
-  const std::string&
-  GetName() const;
+        private:
+        // debug
+        std::vector<ShaderAttribute> bound_attributes_;
+        bool
+                                   HasBoundAttribute(const ShaderAttribute& attribute) const;
+        std::vector<ShaderUniform> bound_uniforms_;
+        bool
+                    HasBoundUniform(const ShaderUniform& uniform) const;
+        std::string shader_name_;
+    };
 
- private:
-  // debug
-  std::vector<ShaderAttribute> bound_attributes_;
-  bool
-  HasBoundAttribute(const ShaderAttribute& attribute) const;
-  std::vector<ShaderUniform> bound_uniforms_;
-  bool
-  HasBoundUniform(const ShaderUniform& uniform) const;
-  std::string shader_name_;
-};
+    class Texture2d;
+    void
+    BindTextureToShader(
+            Texture2d*           texture,
+            Shader*              shader,
+            const ShaderUniform& attribute,
+            glint                index);
 
-class Texture2d;
-void
-BindTextureToShader(
-    Texture2d*           texture,
-    Shader*              shader,
-    const ShaderUniform& attribute,
-    glint                index);
-
-}
+}  // namespace euphoria::render
 
 #endif

@@ -8,29 +8,27 @@
 
 namespace euphoria::render
 {
-
-  class MaterialShaderCache
-      : public core::Cache<std::string, MaterialShader, MaterialShaderCache>
-  {
-  public:
-    MaterialShaderCache(core::vfs::FileSystem* fs)
-        : fs_(fs)
+    class MaterialShaderCache
+        : public core::Cache<std::string, MaterialShader, MaterialShaderCache>
     {
-      ASSERT(fs);
-    }
+        public:
+        MaterialShaderCache(core::vfs::FileSystem* fs) : fs_(fs)
+        {
+            ASSERT(fs);
+        }
 
-    std::shared_ptr<MaterialShader>
-    Create(const std::string& path)
-    {
-      auto ret = std::make_shared<MaterialShader>();
-      ret->Load(fs_, path);
-      return ret;
-    }
+        std::shared_ptr<MaterialShader>
+        Create(const std::string& path)
+        {
+            auto ret = std::make_shared<MaterialShader>();
+            ret->Load(fs_, path);
+            return ret;
+        }
 
-  private:
-    core::vfs::FileSystem* fs_;
-  };
+        private:
+        core::vfs::FileSystem* fs_;
+    };
 
-}
+}  // namespace euphoria::render
 
 #endif  // EUPHORIA_MATERIALSHADERCACHE_H

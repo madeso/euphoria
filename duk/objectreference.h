@@ -10,44 +10,44 @@
 
 namespace euphoria::duk
 {
-  class StoredReference;
-  class Duk;
-  class Context;
+    class StoredReference;
+    class Duk;
+    class Context;
 
-  // represents a object
-  class ObjectReference
-  {
-   public:
-    ObjectReference();
-    explicit ObjectReference(void* p);
-
-    ~ObjectReference();
-
-    bool
-    IsValid() const;
-
-    // call this make the reference to be collected by the GC
-    void
-    StoreReference(Duk* duk);
-
-    void
-    SetFreeImpl(
-        Context*           ctx,
-        const std::string& name,
-        void*              object,
-        core::TypeId type CLASS_ARG(core::TypeName classname));
-
-    template <typename T>
-    void
-    SetFree(Context* ctx, const std::string& name, T* t)
+    // represents a object
+    class ObjectReference
     {
-      SetFreeImpl(ctx, name, t, TYPEID_ID(T) CLASS_ARG(TYPEID_NAME(T)));
-    }
+        public:
+        ObjectReference();
+        explicit ObjectReference(void* p);
 
-    void* ptr;
+        ~ObjectReference();
 
-    std::shared_ptr<StoredReference> reference;
-  };
-}
+        bool
+        IsValid() const;
+
+        // call this make the reference to be collected by the GC
+        void
+        StoreReference(Duk* duk);
+
+        void
+        SetFreeImpl(
+                Context*           ctx,
+                const std::string& name,
+                void*              object,
+                core::TypeId type CLASS_ARG(core::TypeName classname));
+
+        template <typename T>
+        void
+        SetFree(Context* ctx, const std::string& name, T* t)
+        {
+            SetFreeImpl(ctx, name, t, TYPEID_ID(T) CLASS_ARG(TYPEID_NAME(T)));
+        }
+
+        void* ptr;
+
+        std::shared_ptr<StoredReference> reference;
+    };
+}  // namespace euphoria::duk
 
 #endif  // EUPHORIA_DUK_VALUE_H

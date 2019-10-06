@@ -6,34 +6,33 @@
 
 namespace euphoria::core
 {
-  namespace vfs
-  {
-    class FileSystem;
-  }
-}
+    namespace vfs
+    {
+        class FileSystem;
+    }
+}  // namespace euphoria::core
 
 namespace euphoria::render
 {
+    class Texture2d;
 
-  class Texture2d;
+    class TextureCache
+    {
+        public:
+        explicit TextureCache(core::vfs::FileSystem* fs);
+        ~TextureCache();
 
-  class TextureCache
-  {
-  public:
-    explicit TextureCache(core::vfs::FileSystem* fs);
-    ~TextureCache();
+        std::shared_ptr<Texture2d>
+        GetTexture(const std::string& path);
 
-    std::shared_ptr<Texture2d>
-    GetTexture(const std::string& path);
+        std::shared_ptr<Texture2d>
+        GetTextureIfNotEmpty(const std::string& path);
 
-    std::shared_ptr<Texture2d>
-    GetTextureIfNotEmpty(const std::string& path);
+        private:
+        struct TextureCachePimpl;
+        std::unique_ptr<TextureCachePimpl> pimp_;
+    };
 
-  private:
-    struct TextureCachePimpl;
-    std::unique_ptr<TextureCachePimpl> pimp_;
-  };
-
-}
+}  // namespace euphoria::render
 
 #endif  // SPACETYPER_TEXTURECACHE_H

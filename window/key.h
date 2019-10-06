@@ -13,6 +13,6 @@ namespace euphoria::window
 
     core::MouseButton
     ToKey(SDL_MouseButtonEvent mb);
-}
+}  // namespace euphoria::window
 
 #endif  // EUPHORIA_WINDOW_KEY_H

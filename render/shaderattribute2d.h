@@ -5,18 +5,17 @@
 
 namespace euphoria::render
 {
+    class Shader;
 
-class Shader;
+    namespace attributes2d
+    {
+        const ShaderAttribute&
+        Vertex();
 
-namespace attributes2d
-{
-  const ShaderAttribute&
-  Vertex();
+        void
+        PrebindShader(Shader* shader);
+    }  // namespace attributes2d
 
-  void
-  PrebindShader(Shader* shader);
-}
-
-}
+}  // namespace euphoria::render
 
 #endif  // RENDER_SHADERATTRIBUTE2D_H

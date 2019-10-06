@@ -6,18 +6,18 @@
 
 namespace euphoria::window
 {
-  class SdlWindow;
+    class SdlWindow;
 
-  class SdlGlContext
-  {
-  public:
-    SdlGlContext(SdlWindow* window);
+    class SdlGlContext
+    {
+        public:
+        SdlGlContext(SdlWindow* window);
 
-    ~SdlGlContext();
+        ~SdlGlContext();
 
-    void* context;
-  };
-}
+        void* context;
+    };
+}  // namespace euphoria::window
 
 
 #endif  // EUPHORIA_SDLGLCONTEXT_H
