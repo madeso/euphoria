@@ -1,35 +1,32 @@
 BasedOnStyle: Google
-Standard: Cpp11
 
-AlignAfterOpenBracket: Align
-AllowShortBlocksOnASingleLine: false
+Standard: Cpp11                           # in 10 change to cpp17
+Language: Cpp
+
+AccessModifierOffset: 0
+AlignAfterOpenBracket: AlwaysBreak
+AlignConsecutiveAssignments:  true  # not sure
+AlignConsecutiveDeclarations: true  # not sure
+# AlignConsecutiveMacros: true                  # in 10, uncomment
+AlignEscapedNewlines: Right
+AlignOperands: true                 # I think...
+AlignTrailingComments: false        # I think...
+# AllowAllArgumentsOnNextLine                   # no effect?
+# AllowAllConstructorInitializersOnNextLine     # no effect?
+AllowAllParametersOfDeclarationOnNextLine: false
+AllowShortBlocksOnASingleLine: false            # in 10, change to empty?
+AllowShortCaseLabelsOnASingleLine: true
 AllowShortFunctionsOnASingleLine: Empty
-AllowShortIfStatementsOnASingleLine: false
+AllowShortIfStatementsOnASingleLine: false      # in 10, change to never?
+# AllowShortLambdasOnASingleLine: Inline        # in 10, uncomment
 AllowShortLoopsOnASingleLine: false
-AlwaysBreakBeforeMultilineStrings: true
-AlwaysBreakTemplateDeclarations: true
-# FixNamespaceComments: true #v6
-# BreakConstructorInitializers: BeforeComma #v6
-BreakConstructorInitializersBeforeComma: true
-ConstructorInitializerAllOnOneLineOrOnePerLine: false
-NamespaceIndentation: All
-MaxEmptyLinesToKeep: 2
-KeepEmptyLinesAtTheStartOfBlocks: false
-IndentCaseLabels: true
-Cpp11BracedListStyle: true
+# AlwaysBreakAfterDefinitionReturnType # deprecated
 AlwaysBreakAfterReturnType: All
-# BreakConstructorInitializers: BeforeColon # v6
-SpaceBeforeParens: Never
-SpaceInEmptyParentheses: false
-SpacesInParentheses: false
-
-DerivePointerAlignment: false
-PointerAlignment: Left
-
-#temporary, need to look into better sorting first
-SortIncludes: false
-
-BreakBeforeBraces: Custom
+AlwaysBreakBeforeMultilineStrings: true
+AlwaysBreakTemplateDeclarations: Yes
+BinPackArguments: false
+BinPackParameters: false
+# todo go through everything.....
 BraceWrapping:
   AfterClass: true
   AfterControlStatement: true
@@ -39,19 +36,68 @@ BraceWrapping:
   AfterObjCDeclaration: true
   AfterStruct: true
   AfterUnion: true
+  AfterExternBlock: true
   BeforeCatch: true
   BeforeElse: true
   IndentBraces: false
-#  SplitEmptyFunctionBody: false # v6
-
-# not sure about these
-AlignConsecutiveAssignments: true
-AlignConsecutiveDeclarations: true
-
-
-AllowAllParametersOfDeclarationOnNextLine: true
-BinPackArguments: false
-BinPackParameters: false
-AlignAfterOpenBracket: AlwaysBreak
-
-# IncludeCategories
+  SplitEmptyFunction: false
+  SplitEmptyRecord: false
+  SplitEmptyNamespace: false
+BreakBeforeBinaryOperators: All
+BreakBeforeBraces: Custom
+BreakBeforeTernaryOperators: true
+BreakConstructorInitializers: BeforeComma
+BreakInheritanceList: BeforeComma
+BreakStringLiterals: false
+ColumnLimit: 80                   # switch to 120?
+# CommentPragmas
+CompactNamespaces: false
+ConstructorInitializerAllOnOneLineOrOnePerLine: true  # was false? why?
+ConstructorInitializerIndentWidth: 4
+ContinuationIndentWidth: 8
+Cpp11BracedListStyle: true
+DerivePointerAlignment: false
+DisableFormat: false
+FixNamespaceComments: true
+# ForEachMacros
+IncludeBlocks: Preserve
+# IncludeCategories:       # later
+# IncludeIsMainRegex
+IndentCaseLabels: false
+#  IndentGotoLabels: false           # in 10, uncomment...
+# PPDirectiveIndentStyle: AfterHash  # in 10, uncomment
+IndentWidth: 4
+IndentWrappedFunctionNames: false
+KeepEmptyLinesAtTheStartOfBlocks: false
+# MacroBlockBegin
+# MacroBlockEnd
+MaxEmptyLinesToKeep: 2
+NamespaceIndentation: All
+# NamespaceMacros
+# penalty variables here, not sure how to use them...
+PointerAlignment: Left
+# RawStringFormats            # look into this for formatting glsl code
+ReflowComments: false
+SortIncludes: false           # temporary, need to look into better sorting first
+SortUsingDeclarations: true
+SpaceAfterCStyleCast: false
+# SpaceAfterLogicalNot: false        # in 10, uncomment
+SpaceAfterTemplateKeyword: true
+SpaceBeforeAssignmentOperators: true
+SpaceBeforeCpp11BracedList: true
+SpaceBeforeCtorInitializerColon: true
+SpaceBeforeInheritanceColon: true
+SpaceBeforeParens: ControlStatements    # or never?
+SpaceBeforeRangeBasedForLoopColon: false
+# SpaceInEmptyBlock: false          # in 10, uncomment
+SpaceInEmptyParentheses: false
+SpacesBeforeTrailingComments: 2   # or?
+SpacesInAngles: false
+SpacesInCStyleCastParentheses: false
+# SpacesInContainerLiterals: false    #objc or js
+SpacesInParentheses: false
+SpacesInSquareBrackets: false
+# StatementMacros
+TabWidth: 8
+# TypenameMacros
+UseTab: Never
