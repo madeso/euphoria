@@ -15,18 +15,3 @@ add_library(duk STATIC ${src})
 target_link_libraries(duk
                       core
                       )
-
-if(CLANG_TIDY_EXE)
-  # -fix
-  ADD_CUSTOM_TARGET(tidy-duk
-                    COMMAND ${CLANG_TIDY_EXE} -p=${CMAKE_BINARY_DIR} ${app_only_src}
-                    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
-endif()
-
-if(CLANG_FORMAT_EXE)
-  # -fix
-  ADD_CUSTOM_TARGET(format-duk
-                    COMMAND ${CLANG_FORMAT_EXE} -i ${app_src}
-                    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
-endif()
-

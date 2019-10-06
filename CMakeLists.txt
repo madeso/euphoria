@@ -3,8 +3,6 @@ set_property(GLOBAL PROPERTY USE_FOLDERS OFF)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 project(euphoria)
 
-option(BUILD_USE_CLANG_FORMAT "try to use clang-format as a build command." OFF)
-option(BUILD_USE_CLANG_TIDY "try to use clang-tidy as a build command." OFF)
 option(BUILD_ENTITY_DEBUG_COMPONENT "when converting components, (debug) assert of bad casts" OFF)
 set(BUILD_TYPEINFO_IMPL "rtti" CACHE STRING "rtti, ctti, custom_hashed, custom_rt")
 
@@ -89,39 +87,6 @@ endif()
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 include_directories(SYSTEM ${CMAKE_CURRENT_BINARY_DIR})
 
-if(BUILD_USE_CLANG_TIDY)
-  find_program(
-    CLANG_TIDY_BINARY
-    NAMES "clang-tidy"
-    DOC "Path to clang-tidy executable"
-  )
-  if(NOT CLANG_TIDY_BINARY)
-    message(STATUS "clang-tidy not found.")
-  else()
-    set(CLANG_TIDY_EXE ${CLANG_TIDY_BINARY})
-    message(STATUS "clang-tidy found: ${CLANG_TIDY_EXE}")
-  endif()
-else()
-  message(STATUS "not including clang-tidy in builds")
-endif()
-
-if(BUILD_USE_CLANG_FORMAT)
-  find_program(
-    CLANG_FORMAT_BINARY
-    NAMES "clang-format"
-    DOC "Path to clang-format executable"
-  )
-  if(NOT CLANG_FORMAT_BINARY)
-    message(STATUS "clang-format not found.")
-  else()
-    set(CLANG_FORMAT_EXE ${CLANG_FORMAT_BINARY})
-    message(STATUS "clang-format found: ${CLANG_FORMAT_EXE}")
-  endif()
-else()
-  message(STATUS "not including clang-format in builds")
-  unset(CLANG_FORMAT_EXE)
-endif()
-
 find_program(
   CLOC_EXE
   NAMES "cloc"
@@ -161,38 +126,3 @@ add_subdirectory(img)
 add_subdirectory(editor)
 add_subdirectory(painter)
 add_subdirectory(tabletool)
-
-if(CLANG_TIDY_EXE)
-  add_custom_target(tidy)
-  add_dependencies(
-                    tidy
-                    tidy-base64
-                    tidy-chatbot
-                    tidy-worldgen
-                    tidy-img
-                    tidy-core
-                    tidy-demo
-                    tidy-duk
-                    tidy-engine
-                    tidy-gui
-                    tidy-render
-                    tidy-window
-                    )
-endif()
-
-if(CLANG_FORMAT_EXE)
-  add_custom_target(format)
-  add_dependencies(
-                    format
-                    format-base64
-                    format-chatbot
-                    format-img
-                    format-core
-                    format-demo
-                    format-duk
-                    format-engine
-                    format-gui
-                    format-render
-                    format-window
-                    )
-endif()

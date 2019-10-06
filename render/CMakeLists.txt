@@ -50,17 +50,3 @@ target_link_libraries(render
                       ${FREETYPE_LIBRARIES}
                       ${CMAKE_DL_LIBS}
                       )
-
-if(CLANG_TIDY_EXE)
-  # -fix
-  ADD_CUSTOM_TARGET(tidy-render
-                    COMMAND ${CLANG_TIDY_EXE} -p=${CMAKE_BINARY_DIR} ${app_src}
-                    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
-endif()
-
-if(CLANG_FORMAT_EXE)
-  # -fix
-  ADD_CUSTOM_TARGET(format-render
-                    COMMAND ${CLANG_FORMAT_EXE} -i ${app_src}
-                    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
-endif()

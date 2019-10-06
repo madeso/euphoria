@@ -27,17 +27,3 @@ target_link_libraries(editor
                       window
                       ${SDL2_LIBRARY}
                       )
-
-if(CLANG_TIDY_EXE)
-  # -fix
-  ADD_CUSTOM_TARGET(tidy-editor
-                    COMMAND ${CLANG_TIDY_EXE} -p=${CMAKE_BINARY_DIR} ${app_src}
-                    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
-endif()
-
-if(CLANG_FORMAT_EXE)
-  # -fix
-  ADD_CUSTOM_TARGET(format-editor
-                    COMMAND ${CLANG_FORMAT_EXE} -i ${app_src}
-                    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
-endif()
