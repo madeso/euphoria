@@ -3,7 +3,7 @@ BasedOnStyle: Google
 Standard: Cpp11                           # in 10 change to cpp17
 Language: Cpp
 
-AccessModifierOffset: 0
+AccessModifierOffset: -4
 AlignAfterOpenBracket: AlwaysBreak
 AlignConsecutiveAssignments:  true  # not sure
 AlignConsecutiveDeclarations: true  # not sure
