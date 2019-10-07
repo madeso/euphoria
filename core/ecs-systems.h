@@ -6,8 +6,8 @@
 #include <string>
 #include <vector>
 
-#include "core/entityid.h"
 #include "core/ecs.h"
+#include "core/ecs-id.h"
 
 namespace euphoria::render
 {

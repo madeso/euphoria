@@ -2,7 +2,7 @@
 
 #include "core/proto.h"
 #include "core/log.h"
-#include "core/componentsystem.h"
+#include "core/ecs-systems.h"
 
 #include "engine/components.h"
 #include "engine/dukregistry.h"

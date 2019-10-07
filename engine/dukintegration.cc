@@ -2,7 +2,7 @@
 
 #include <map>
 
-#include "core/componentsystem.h"
+#include "core/ecs-systems.h"
 #include "core/random.h"
 #include "core/log.h"
 

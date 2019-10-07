@@ -2,7 +2,7 @@
 
 #include <memory>
 
-#include "core/componentsystem.h"
+#include "core/ecs-systems.h"
 #include "core/vec2.h"
 
 #include "render/texture.h"

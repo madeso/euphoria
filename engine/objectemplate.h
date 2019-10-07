@@ -1,7 +1,7 @@
 #ifndef EUPHORIA_OBJECTTEMPLATE_H
 #define EUPHORIA_OBJECTTEMPLATE_H
 
-#include "core/entityid.h"
+#include "core/ecs-id.h"
 
 #include <string>
 #include <vector>

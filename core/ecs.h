@@ -7,7 +7,7 @@
 #include <vector>
 
 #include "core/typeinfo.h"
-#include "core/entityid.h"
+#include "core/ecs-id.h"
 #include "core/assert.h"
 
 #include "euph_generated_config.h"

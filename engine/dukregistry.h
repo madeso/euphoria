@@ -1,7 +1,7 @@
 #ifndef EUPHORIA_DUKREGISTRY_H
 #define EUPHORIA_DUKREGISTRY_H
 
-#include "core/componentsystem.h"
+#include "core/ecs-systems.h"
 #include "core/ecs.h"
 
 #include "duk/functionreference.h"
