@@ -1,5 +1,7 @@
 #include "core/stringtable.h"
 
+#include "core/stringutils.h"
+
 #include <algorithm>
 
 namespace euphoria::core
@@ -23,6 +25,8 @@ namespace euphoria::core
         std::stringstream        ss;
         bool                     inside_string = false;
         bool                     added         = false;
+        bool was_from_string = false;
+
         while (file.HasMore())
         {
             const auto c = file.ReadChar();
@@ -32,7 +36,6 @@ namespace euphoria::core
                 {
                     if (file.PeekChar() == options.str)
                     {
-                        added = true;
                         ss << c;
                         file.ReadChar();
                     }
@@ -44,7 +47,6 @@ namespace euphoria::core
                 else
                 {
                     ss << c;
-                    added = true;
                 }
             }
             else
@@ -52,35 +54,62 @@ namespace euphoria::core
                 if (c == options.str)
                 {
                     inside_string = true;
+                    was_from_string = true;
+                    added = true;
                 }
                 else if (c == options.delim)
                 {
-                    row.push_back(ss.str());
+                    auto data = ss.str();
+                    if(!was_from_string && options.trim == CsvTrim::Trim)
+                    {
+                        data = Trim(data);
+                    }
+                    row.push_back(data);
                     ss.str("");
                     added = false;
+                    was_from_string = false;
                 }
                 else if (c == '\n')
                 {
                     if (added)
                     {
-                        row.push_back(ss.str());
+                        auto data = ss.str();
+                        if(!was_from_string && options.trim == CsvTrim::Trim)
+                        {
+                            data = Trim(data);
+                        }
+                        row.push_back(data);
                     }
                     ss.str("");
                     AddRowToTable(&table, row);
                     row.resize(0);
                     added = false;
+                    was_from_string = false;
                 }
                 else
                 {
-                    ss << c;
-                    added = true;
+                    if(was_from_string)
+                    {
+                        // skip
+                        // todo: error on non whitespace?
+                    }
+                    else
+                    {
+                        ss << c;
+                        added = true;
+                    }
                 }
             }
         }
 
         if (added)
         {
-            row.push_back(ss.str());
+            auto data = ss.str();
+            if(!was_from_string && options.trim == CsvTrim::Trim)
+            {
+                data = Trim(data);
+            }
+            row.push_back(data);
         }
         AddRowToTable(&table, row);
 
