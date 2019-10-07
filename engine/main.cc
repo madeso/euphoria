@@ -52,6 +52,7 @@
 LOG_SPECIFY_DEFAULT_LOGGER("engine")
 
 using namespace euphoria::core;
+using namespace euphoria::core::ecs;
 using namespace euphoria::duk;
 using namespace euphoria::render;
 using namespace euphoria::window;

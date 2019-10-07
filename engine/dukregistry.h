@@ -2,7 +2,7 @@
 #define EUPHORIA_DUKREGISTRY_H
 
 #include "core/componentsystem.h"
-#include "core/entity.h"
+#include "core/ecs.h"
 
 #include "duk/functionreference.h"
 
@@ -22,48 +22,48 @@ namespace euphoria::engine
     class DukRegistry
     {
         public:
-        DukRegistry(core::EntReg* r, Components* components);
+        DukRegistry(core::ecs::EntReg* r, Components* components);
 
-        core::ComponentId
+        core::ecs::ComponentId
         CreateNewId(const std::string& name, const duk::FunctionReference& fv);
 
         bool
         GetCustomComponentByName(
                 const std::string& name,
-                core::ComponentId* id);
+                core::ecs::ComponentId* id);
 
-        std::vector<core::EntityId>
-        EntityView(const std::vector<core::ComponentId>& types);
+        std::vector<core::ecs::EntityId>
+        EntityView(const std::vector<core::ecs::ComponentId>& types);
 
         duk::ObjectReference
-        GetProperty(core::EntityId ent, core::ComponentId comp);
+        GetProperty(core::ecs::EntityId ent, core::ecs::ComponentId comp);
 
         void
         SetProperty(
-                core::EntityId       ent,
-                core::ComponentId    comp,
+                core::ecs::EntityId       ent,
+                core::ecs::ComponentId    comp,
                 duk::ObjectReference value);
 
         duk::ObjectReference
         CreateComponent(
-                core::ComponentId      comp,
+                core::ecs::ComponentId      comp,
                 duk::Context*          ctx,
                 const CustomArguments& arguments);
 
         void
-        DestroyEntity(core::EntityId id);
+        DestroyEntity(core::ecs::EntityId id);
 
         template <typename T>
         T*
-        GetComponentOrNull(core::EntityId ent, core::ComponentId comp)
+        GetComponentOrNull(core::ecs::EntityId ent, core::ecs::ComponentId comp)
         {
             return reg->GetComponentOrNull<T>(ent, comp);
         }
 
         using ScriptComponentMap
-                = std::map<core::ComponentId, duk::FunctionReference>;
+                = std::map<core::ecs::ComponentId, duk::FunctionReference>;
 
-        core::EntReg*      reg;
+        core::ecs::EntReg*      reg;
         Components*        components;
         ScriptComponentMap scriptComponents;
     };

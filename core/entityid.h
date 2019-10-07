@@ -3,7 +3,7 @@
 
 #include <cstdint>
 
-namespace euphoria::core
+namespace euphoria::core::ecs
 {
     using EntityId      = std::uint32_t;
     using EntityVersion = std::uint16_t;

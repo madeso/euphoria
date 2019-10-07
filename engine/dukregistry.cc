@@ -4,7 +4,7 @@
 
 namespace euphoria::engine
 {
-    struct ScriptComponent : public core::Component
+    struct ScriptComponent : public core::ecs::Component
     {
         COMPONENT_CONSTRUCTOR_DEFINITION(ScriptComponent)
 
@@ -13,11 +13,11 @@ namespace euphoria::engine
 
     COMPONENT_CONSTRUCTOR_IMPLEMENTATION(ScriptComponent)
 
-    DukRegistry::DukRegistry(core::EntReg* r, Components* c)
+    DukRegistry::DukRegistry(core::ecs::EntReg* r, Components* c)
         : reg(r), components(c)
     {}
 
-    core::ComponentId
+    core::ecs::ComponentId
     DukRegistry::CreateNewId(
             const std::string&            name,
             const duk::FunctionReference& fv)
@@ -30,19 +30,19 @@ namespace euphoria::engine
     bool
     DukRegistry::GetCustomComponentByName(
             const std::string& name,
-            core::ComponentId* id)
+            core::ecs::ComponentId* id)
     {
         return reg->GetCustomComponentByName(name, id);
     }
 
-    std::vector<core::EntityId>
-    DukRegistry::EntityView(const std::vector<core::ComponentId>& types)
+    std::vector<core::ecs::EntityId>
+    DukRegistry::EntityView(const std::vector<core::ecs::ComponentId>& types)
     {
         return reg->View(types);
     }
 
     duk::ObjectReference
-    DukRegistry::GetProperty(core::EntityId ent, core::ComponentId comp)
+    DukRegistry::GetProperty(core::ecs::EntityId ent, core::ecs::ComponentId comp)
     {
         ASSERT(scriptComponents.find(comp) != scriptComponents.end());
         auto c = reg->GetComponent(ent, comp);
@@ -59,9 +59,9 @@ namespace euphoria::engine
     ScriptComponent*
     GetScriptComponent(
             const DukRegistry::ScriptComponentMap& scriptComponents,
-            core::EntReg*                          reg,
-            core::EntityId                         ent,
-            core::ComponentId                      comp)
+            core::ecs::EntReg*                          reg,
+            core::ecs::EntityId                         ent,
+            core::ecs::ComponentId                      comp)
     {
         ASSERT(scriptComponents.find(comp) != scriptComponents.end());
 
@@ -80,8 +80,8 @@ namespace euphoria::engine
 
     void
     DukRegistry::SetProperty(
-            core::EntityId       ent,
-            core::ComponentId    comp,
+            core::ecs::EntityId       ent,
+            core::ecs::ComponentId    comp,
             duk::ObjectReference value)
     {
         ScriptComponent* scriptComponent
@@ -91,7 +91,7 @@ namespace euphoria::engine
 
     duk::ObjectReference
     DukRegistry::CreateComponent(
-            core::ComponentId      comp,
+            core::ecs::ComponentId      comp,
             duk::Context*          ctx,
             const CustomArguments& arguments)
     {
@@ -114,7 +114,7 @@ namespace euphoria::engine
     }
 
     void
-    DukRegistry::DestroyEntity(core::EntityId id)
+    DukRegistry::DestroyEntity(core::ecs::EntityId id)
     {
         reg->DestroyEntity(id);
     }

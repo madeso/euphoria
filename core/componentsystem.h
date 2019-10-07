@@ -7,7 +7,7 @@
 #include <vector>
 
 #include "core/entityid.h"
-#include "core/entity.h"
+#include "core/ecs.h"
 
 namespace euphoria::render
 {
@@ -17,7 +17,7 @@ namespace euphoria::render
     class SpriteRenderer;
 }  // namespace euphoria::render
 
-namespace euphoria::core
+namespace euphoria::core::ecs
 {
     typedef Registry EntReg;
 

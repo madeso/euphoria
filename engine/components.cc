@@ -14,7 +14,7 @@ namespace euphoria::engine
     CPosition2::CPosition2() : COMPONENT_CONSTRUCTOR_ARG(CPosition2) pos(0, 0)
     {}
 
-    Components::Components(core::Registry* reg)
+    Components::Components(core::ecs::Registry* reg)
         : position2(reg->NewComponentType("Position2"))
         , sprite(reg->NewComponentType("Sprite"))
     {}

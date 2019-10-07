@@ -13,7 +13,7 @@ namespace game
     class Game;
 }
 
-namespace euphoria::core
+namespace euphoria::core::ecs
 {
     class World;
 }
@@ -36,13 +36,13 @@ namespace euphoria::engine
 
     struct ObjectCreationArgs
     {
-        core::World*  world;
+        core::ecs::World*  world;
         DukRegistry*  reg;
         duk::Context* ctx;
         duk::Duk*     duk;
 
         ObjectCreationArgs(
-                core::World*  aworld,
+                core::ecs::World*  aworld,
                 DukRegistry*  areg,
                 duk::Context* actx,
                 duk::Duk*     aduk);
@@ -53,14 +53,14 @@ namespace euphoria::engine
         public:
         virtual ~ComponentCreator() = default;
         virtual void
-        CreateComponent(const ObjectCreationArgs& args, core::EntityId id)
+        CreateComponent(const ObjectCreationArgs& args, core::ecs::EntityId id)
                 = 0;
     };
 
     class ObjectTemplate
     {
         public:
-        core::EntityId
+        core::ecs::EntityId
         CreateObject(const ObjectCreationArgs& args);
 
         std::vector<std::shared_ptr<ComponentCreator>> components;

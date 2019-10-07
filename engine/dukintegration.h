@@ -3,7 +3,7 @@
 
 #include <memory>
 
-namespace euphoria::core
+namespace euphoria::core::ecs
 {
     class Systems;
     class World;
@@ -28,8 +28,8 @@ namespace euphoria::engine
     {
         public:
         DukIntegration(
-                core::Systems* systems,
-                core::World*   reg,
+                core::ecs::Systems* systems,
+                core::ecs::World*   reg,
                 duk::Duk*      duk,
                 ObjectCreator* creator,
                 Components*    components,

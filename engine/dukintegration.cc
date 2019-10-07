@@ -22,8 +22,8 @@ LOG_SPECIFY_DEFAULT_LOGGER("engine.duk.integration")
 namespace euphoria::engine
 {
     class DukUpdateSystem
-        : public core::ComponentSystem
-        , public core::ComponentSystemUpdate
+        : public core::ecs::ComponentSystem
+        , public core::ecs::ComponentSystemUpdate
     {
         duk::FunctionReference func;
         duk::Duk*              duk;
@@ -37,40 +37,40 @@ namespace euphoria::engine
         {}
 
         void
-        Update(core::EntReg* reg, float dt) const override
+        Update(core::ecs::EntReg* reg, float dt) const override
         {
             ASSERT(duk);
             func.VoidCall(duk->AsContext(), dt);
         }
 
         void
-        RegisterCallbacks(core::Systems* systems) override
+        RegisterCallbacks(core::ecs::Systems* systems) override
         {
             systems->update.Add(this);
         }
     };
 
     class DukInitSystem
-        : public core::ComponentSystem
-        , public core::ComponentSystemInit
+        : public core::ecs::ComponentSystem
+        , public core::ecs::ComponentSystemInit
     {
-        core::EntReg*                  reg;
-        std::vector<core::ComponentId> types;
+        core::ecs::EntReg*                  reg;
+        std::vector<core::ecs::ComponentId> types;
         duk::FunctionReference         func;
         duk::Duk*                      duk;
 
         public:
         DukInitSystem(
                 const std::string&                    name,
-                core::EntReg*                         r,
-                const std::vector<core::ComponentId>& t,
+                core::ecs::EntReg*                         r,
+                const std::vector<core::ecs::ComponentId>& t,
                 duk::FunctionReference                f,
                 duk::Duk*                             d)
             : ComponentSystem(name), reg(r), types(t), func(f), duk(d)
         {}
 
         void
-        OnAdd(core::EntityId entity) const override
+        OnAdd(core::ecs::EntityId entity) const override
         {
             ASSERT(duk);
             ASSERT(reg);
@@ -89,7 +89,7 @@ namespace euphoria::engine
         }
 
         void
-        RegisterCallbacks(core::Systems* systems) override
+        RegisterCallbacks(core::ecs::Systems* systems) override
         {
             systems->init.Add(this);
         }
@@ -98,10 +98,10 @@ namespace euphoria::engine
     class DukSystems
     {
         public:
-        core::Systems* systems;
+        core::ecs::Systems* systems;
         duk::Duk*      duk;
 
-        DukSystems(core::Systems* s, duk::Duk* d) : systems(s), duk(d) {}
+        DukSystems(core::ecs::Systems* s, duk::Duk* d) : systems(s), duk(d) {}
 
         void
         AddUpdate(const std::string& name, duk::FunctionReference func)
@@ -112,8 +112,8 @@ namespace euphoria::engine
 
         void
         AddInit(const std::string&                    name,
-                core::EntReg*                         reg,
-                const std::vector<core::ComponentId>& types,
+                core::ecs::EntReg*                         reg,
+                const std::vector<core::ecs::ComponentId>& types,
                 duk::FunctionReference                func)
         {
             systems->AddAndRegister(std::make_shared<DukInitSystem>(
@@ -124,8 +124,8 @@ namespace euphoria::engine
     struct DukIntegrationPimpl
     {
         DukIntegrationPimpl(
-                core::Systems* sys,
-                core::World*   world,
+                core::ecs::Systems* sys,
+                core::ecs::World*   world,
                 duk::Duk*      duk,
                 ObjectCreator* creator,
                 Components*    components,
@@ -161,12 +161,12 @@ namespace euphoria::engine
                                     "OnInit",
                                     MakeBind<
                                             std::string,
-                                            std::vector<core::ComponentId>,
+                                            std::vector<core::ecs::ComponentId>,
                                             FunctionReference>(
                                             [&](Context*           ctx,
                                                 const std::string& name,
                                                 const std::vector<
-                                                        core::ComponentId>&
+                                                        core::ecs::ComponentId>&
                                                                   types,
                                                 FunctionReference func) -> int {
                                                 func.StoreReference(ctx);
@@ -243,10 +243,10 @@ namespace euphoria::engine
                     BindObject()
                             .AddFunction(
                                     "Entities",
-                                    MakeBind<std::vector<core::ComponentId>>(
+                                    MakeBind<std::vector<core::ecs::ComponentId>>(
                                             [&](Context* ctx,
                                                 const std::vector<
-                                                        core::ComponentId>&
+                                                        core::ecs::ComponentId>&
                                                         types) -> int {
                                                 return ctx->ReturnArray(
                                                         registry.EntityView(
@@ -260,9 +260,9 @@ namespace euphoria::engine
                                     }))
                             .AddFunction(
                                     "DestroyEntity",
-                                    MakeBind<core::EntityId>(
+                                    MakeBind<core::ecs::EntityId>(
                                             [&](Context*       ctx,
-                                                core::EntityId entity) -> int {
+                                                core::ecs::EntityId entity) -> int {
                                                 registry.DestroyEntity(entity);
                                                 return ctx->ReturnVoid();
                                             }))
@@ -306,10 +306,10 @@ namespace euphoria::engine
                                             }))
                             .AddFunction(
                                     "Get",
-                                    MakeBind<core::EntityId, core::ComponentId>(
+                                    MakeBind<core::ecs::EntityId, core::ecs::ComponentId>(
                                             [&](Context*          ctx,
-                                                core::EntityId    ent,
-                                                core::ComponentId comp) -> int {
+                                                core::ecs::EntityId    ent,
+                                                core::ecs::ComponentId comp) -> int {
                                                 return ctx->Return(
                                                         registry.GetProperty(
                                                                 ent, comp));
@@ -317,12 +317,12 @@ namespace euphoria::engine
                             .AddFunction(
                                     "Set",
                                     MakeBind<
-                                            core::EntityId,
-                                            core::ComponentId,
+                                            core::ecs::EntityId,
+                                            core::ecs::ComponentId,
                                             ObjectReference>(
                                             [&](Context*          ctx,
-                                                core::EntityId    ent,
-                                                core::ComponentId comp,
+                                                core::ecs::EntityId    ent,
+                                                core::ecs::ComponentId comp,
                                                 ObjectReference   val) -> int {
                                                 registry.SetProperty(
                                                         ent, comp, val);
@@ -330,9 +330,9 @@ namespace euphoria::engine
                                             }))
                             .AddFunction(
                                     "GetSprite",
-                                    MakeBind<core::ComponentId>(
+                                    MakeBind<core::ecs::ComponentId>(
                                             [&](Context*          ctx,
-                                                core::ComponentId ent) -> int {
+                                                core::ecs::ComponentId ent) -> int {
                                                 return ctx->ReturnFreeObject(
                                                         registry.GetComponentOrNull<
                                                                 CSprite>(
@@ -342,9 +342,9 @@ namespace euphoria::engine
                                             }))
                             .AddFunction(
                                     "GetPosition2",
-                                    MakeBind<core::ComponentId>(
+                                    MakeBind<core::ecs::ComponentId>(
                                             [&](Context*          ctx,
-                                                core::ComponentId ent) -> int {
+                                                core::ecs::ComponentId ent) -> int {
                                                 return ctx->ReturnFreeObject(
                                                         registry.GetComponentOrNull<
                                                                 CPosition2>(
@@ -354,9 +354,9 @@ namespace euphoria::engine
                                             }))
                             .AddFunction(
                                     "GetPosition2vec",
-                                    MakeBind<core::ComponentId>(
+                                    MakeBind<core::ecs::ComponentId>(
                                             [&](Context*          ctx,
-                                                core::ComponentId ent) -> int {
+                                                core::ecs::ComponentId ent) -> int {
                                                 auto c = registry.GetComponentOrNull<
                                                         CPosition2>(
                                                         ent,
@@ -527,15 +527,15 @@ namespace euphoria::engine
         DukSystems           systems;
         DukRegistry          registry;
         duk::ObjectReference input;
-        core::World*         world;
+        core::ecs::World*         world;
         ObjectCreator*       creator;
         Components*          components;
         CameraData*          camera;
     };
 
     DukIntegration::DukIntegration(
-            core::Systems* systems,
-            core::World*   reg,
+            core::ecs::Systems* systems,
+            core::ecs::World*   reg,
             duk::Duk*      duk,
             ObjectCreator* creator,
             Components*    components,

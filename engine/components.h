@@ -4,20 +4,20 @@
 #include <memory>
 
 #include "core/vec2.h"
-#include "core/entity.h"
+#include "core/ecs.h"
 #include "core/rect.h"
 
 #include "render/texturecache.h"
 
 namespace euphoria::engine
 {
-    struct CPosition2 : public core::Component
+    struct CPosition2 : public core::ecs::Component
     {
         CPosition2();
         core::vec2f pos;
     };
 
-    struct CSprite : public core::Component
+    struct CSprite : public core::ecs::Component
     {
         COMPONENT_CONSTRUCTOR_DEFINITION(CSprite)
 
@@ -26,10 +26,10 @@ namespace euphoria::engine
 
     struct Components
     {
-        Components(core::Registry* reg);
+        Components(core::ecs::Registry* reg);
 
-        core::ComponentId position2;
-        core::ComponentId sprite;
+        core::ecs::ComponentId position2;
+        core::ecs::ComponentId sprite;
     };
 
     core::Rectf

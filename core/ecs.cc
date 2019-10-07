@@ -1,11 +1,11 @@
-#include "core/entity.h"
+#include "core/ecs.h"
 
 #include <algorithm>
 
 #include "core/stdutils.h"
 #include "core/log.h"
 
-namespace euphoria::core
+namespace euphoria::core::ecs
 {
     LOG_SPECIFY_DEFAULT_LOGGER("core.entity")
 

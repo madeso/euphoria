@@ -25,7 +25,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 
-namespace euphoria::core
+namespace euphoria::core::ecs
 {
     EntityId
     GetValue(EntityId id);

@@ -1,7 +1,7 @@
 #include "core/componentsystem.h"
 
 
-namespace euphoria::core
+namespace euphoria::core::ecs
 {
     ComponentSystem::ComponentSystem(const std::string& the_name)
         : name(the_name)

@@ -11,19 +11,19 @@
 namespace euphoria::engine
 {
     struct SystemSpriteDraw
-        : public core::ComponentSystem
-        , public core::ComponentSystemSpriteDraw
+        : public core::ecs::ComponentSystem
+        , public core::ecs::ComponentSystemSpriteDraw
     {
         Components* components;
 
         explicit SystemSpriteDraw(Components* c)
-            : core::ComponentSystem("sprite draw"), components(c)
+            : ComponentSystem("sprite draw"), components(c)
         {}
 
         void
-        Draw(core::EntReg* reg, render::SpriteRenderer* renderer) const override
+        Draw(core::ecs::EntReg* reg, render::SpriteRenderer* renderer) const override
         {
-            const auto items = reg->View(std::vector<core::ComponentId> {
+            const auto items = reg->View(std::vector<core::ecs::ComponentId> {
                     components->position2, components->sprite});
             for (auto ent: items)
             {
@@ -38,7 +38,7 @@ namespace euphoria::engine
         }
 
         void
-        RegisterCallbacks(core::Systems* systems) override
+        RegisterCallbacks(core::ecs::Systems* systems) override
         {
             systems->spriteDraw.Add(this);
         }
@@ -46,7 +46,7 @@ namespace euphoria::engine
 
 
     void
-    AddSystems(core::Systems* systems, duk::Duk* duk, Components* components)
+    AddSystems(core::ecs::Systems* systems, duk::Duk* duk, Components* components)
     {
         systems->AddAndRegister(std::make_shared<SystemSpriteDraw>(components));
     }

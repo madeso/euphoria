@@ -17,7 +17,7 @@ namespace euphoria::engine
     void
     LoadWorld(
             core::vfs::FileSystem* fs,
-            core::World*           world,
+            core::ecs::World*           world,
             DukRegistry*           reg,
             const std::string&     path,
             ObjectCreator*         creator,
