@@ -53,6 +53,11 @@ namespace euphoria::core
             {
                 if (c == options.str)
                 {
+                    if(added)
+                    {
+                        // todo: generate error if string contains stuff other than whitespace
+                        ss.str("");
+                    }
                     inside_string = true;
                     was_from_string = true;
                     added = true;
