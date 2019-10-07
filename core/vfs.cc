@@ -3,7 +3,6 @@
 #include <fstream>
 
 #include "core/assert.h"
-#include "core/ints.h"
 #include "core/os.h"
 #include "core/stringmerger.h"
 #include "core/vfs_path.h"

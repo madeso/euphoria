@@ -2,14 +2,13 @@
 #define EUPHORIA_ID_H
 
 #include <vector>
-#include "core/ints.h"
 
 namespace euphoria::core
 {
     class IdGenerator
     {
     public:
-        typedef uint32 ID;
+        typedef int ID;
 
         IdGenerator();
 

@@ -17,24 +17,24 @@ namespace euphoria::core
         return data_.get();
     }
 
-    fuint64
+    int
     MemoryChunk::GetSize() const
     {
         return size_;
     }
 
-    char MemoryChunk::operator[](fuint64 index) const
+    char MemoryChunk::operator[](int index) const
     {
         return data_[index];
     }
 
-    char& MemoryChunk::operator[](fuint64 index)
+    char& MemoryChunk::operator[](int index)
     {
         return data_[index];
     }
 
     std::shared_ptr<MemoryChunk>
-    MemoryChunk::Alloc(fuint64 size)
+    MemoryChunk::Alloc(int size)
     {
         std::shared_ptr<MemoryChunk> ret {new MemoryChunk(size)};
         return ret;
@@ -47,7 +47,7 @@ namespace euphoria::core
         return ret;
     }
 
-    MemoryChunk::MemoryChunk(fuint64 size) : size_(size)
+    MemoryChunk::MemoryChunk(int size) : size_(size)
     {
         ASSERT(size > 0);
         data_ = std::make_unique<char[]>(size);
@@ -73,7 +73,7 @@ namespace euphoria::core
     {}
 
     void
-    MemoryChunkFile::Write(const void* src, fuint64 size)
+    MemoryChunkFile::Write(const void* src, int size)
     {
         ASSERT(position + size <= data->GetSize());
         std::memcpy(data->GetData() + position, src, sizeof(char) * size);

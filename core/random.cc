@@ -24,14 +24,14 @@ better numbers than Mersenne. How can you go wrong? :)
     // http://stackoverflow.com/questions/1046714/what-is-a-good-random-number-generator-for-a-game
     // http://stackoverflow.com/a/1227137
 
-    uint32
+    u32
     Random::TimeSeed()
     {
         // idea from http://www.eternallyconfuzzled.com/arts/jsw_art_rand.aspx
         time_t now = time(nullptr);
 
         auto*  p    = reinterpret_cast<unsigned char*>(&now);  // NOLINT
-        uint32 seed = 0;
+        u32 seed = 0;
 
         for (size_t i = 0; i < sizeof(time_t); i++)
         {
@@ -42,19 +42,19 @@ better numbers than Mersenne. How can you go wrong? :)
         return seed;
     }
 
-    Random::Random(uint32 seed)
+    Random::Random(u32 seed)
         : index_(0), state_ {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
     {
-        for (uint32 i = 0; i < 16; ++i)
+        for (u32 i = 0; i < 16; ++i)
         {
             state_[i] = seed * i;
         }
     }
 
-    uint32
+    u32
     Random::NextInteger()
     {
-        uint32 a, b, c, d;
+        u32 a, b, c, d;
         a = state_[index_];
         c = state_[(index_ + 13) & 15];
         b = a ^ c ^ (a << 16) ^ (c << 15);
@@ -72,7 +72,7 @@ better numbers than Mersenne. How can you go wrong? :)
     Random::NextFloat01()
     {
         return static_cast<float>(NextInteger())
-               / std::numeric_limits<uint32>::max();
+               / std::numeric_limits<u32>::max();
     }
 
     float

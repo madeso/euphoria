@@ -4,8 +4,6 @@
 #include <memory>
 #include <string>
 
-#include "core/ints.h"
-
 namespace euphoria::core
 {
     class MemoryChunk
@@ -17,22 +15,22 @@ namespace euphoria::core
         const char*
         GetData() const;
 
-        fuint64
+        int
         GetSize() const;
 
-        char  operator[](fuint64 index) const;
-        char& operator[](fuint64 index);
+        char  operator[](int index) const;
+        char& operator[](int index);
 
         static std::shared_ptr<MemoryChunk>
-        Alloc(fuint64 size);
+        Alloc(int size);
 
         static std::shared_ptr<MemoryChunk>
         Null();
 
     private:
-        explicit MemoryChunk(fuint64 size);
+        explicit MemoryChunk(int size);
         std::unique_ptr<char[]> data_;
-        fuint64                 size_;
+        int                 size_;
     };
 
     void
@@ -47,10 +45,10 @@ namespace euphoria::core
         explicit MemoryChunkFile(std::shared_ptr<MemoryChunk> d);
 
         void
-        Write(const void* src, fuint64 size);
+        Write(const void* src, int size);
 
         std::shared_ptr<MemoryChunk> data;
-        fuint64                      position;
+        int                      position;
     };
 
 }  // namespace euphoria::core

@@ -37,7 +37,7 @@ namespace euphoria::core
             }
 
             is.seekg(0, is.end);
-            fint64 length = is.tellg();
+            auto length = is.tellg();
             is.seekg(0, is.beg);
 
             if (length <= 0)

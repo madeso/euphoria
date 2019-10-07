@@ -19,11 +19,12 @@ namespace euphoria::core
         // possible suggestion, rename to RandomGenerator and have a global
         // Random function with overloads in all files instead of here.
     public:
-        static uint32
+        static u32
         TimeSeed();
-        explicit Random(uint32 seed = TimeSeed());
 
-        uint32
+        explicit Random(u32 seed = TimeSeed());
+
+        u32
         NextInteger();
 
         float
@@ -68,6 +69,7 @@ namespace euphoria::core
         // move to point class or a circle class?
         vec2f
         PointOnUnitCircle_CenterFocused();
+        
         vec2f
         PointOnUnitCircle_Uniform();
 
@@ -85,8 +87,8 @@ namespace euphoria::core
         }
 
     private:
-        uint32 index_;
-        uint32 state_[16];
+        u32 index_;
+        u32 state_[16];
     };
 
 }  // namespace euphoria::core

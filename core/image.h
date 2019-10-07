@@ -5,7 +5,6 @@
 #include <vector>
 #include <memory>
 
-#include "core/ints.h"
 #include "core/rgb.h"
 #include "core/memorychunk.h"
 #include "core/vfs.h"
@@ -109,7 +108,7 @@ namespace euphoria::core
         int
         GetPixelByteSize() const;
 
-        fuint64
+        int
         GetPixelIndex(int x, int y) const;
 
         // todo: replace with a array instead of a vector

@@ -23,7 +23,7 @@ namespace euphoria::core
             // StringBuilder out = new StringBuilder((in.length * 4) / 3);
             std::ostringstream out;
             int                b;
-            for (fuint64 i = 0; i < in.GetSize(); i += 3)
+            for (int i = 0; i < in.GetSize(); i += 3)
             {
                 b = (in[i] & 0xFC) >> 2;
                 out << CODES[b];
@@ -66,7 +66,7 @@ namespace euphoria::core
                 auto    asize = (input.length() * 3) / 4;
                 auto    found = input.find('=') != std::string::npos;
                 auto    bsize = found ? (input.length() - input.find('=')) : 0;
-                fuint64 size  = asize - bsize;
+                int size  = asize - bsize;
 
                 ASSERT(size > 0);
 
@@ -77,7 +77,7 @@ namespace euphoria::core
                 unsigned long b[4]     = {
                         0,
                 };
-                for (fuint64 i = 0; i < input.size(); i += 4)
+                for (int i = 0; i < input.size(); i += 4)
                 {
                     // This could be made faster (but more complicated) by precomputing
                     // these index locations.

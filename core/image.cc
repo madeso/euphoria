@@ -81,13 +81,13 @@ namespace euphoria::core
         ASSERT(IsValid());
     }
 
-    fuint64
+    int
     Image::GetPixelIndex(int x, int y) const
     {
         ASSERT(x >= 0 && x < width_);
         ASSERT(y >= 0 && y < height_);
 
-        return (y * static_cast<fuint64>(width_) + x) * GetPixelByteSize();
+        return (y * width_ + x) * GetPixelByteSize();
     }
 
     void
@@ -178,7 +178,7 @@ namespace euphoria::core
         DetermineImageSize(void* context, void* /*unused*/, int size)
         {
             ASSERT(size >= 0);
-            auto* total_size = static_cast<fuint64*>(context);
+            auto* total_size = static_cast<int*>(context);
             *total_size += size;
         }
 
@@ -224,16 +224,16 @@ namespace euphoria::core
 
         std::vector<unsigned char> pixels(
                 width_ * height_ * number_of_components, 0);
-        for (fuint64 y = 0; y < height_; y += 1)
+        for (int y = 0; y < height_; y += 1)
         {
-            const fuint64 iy = height_ - (y + 1);
+            const int iy = height_ - (y + 1);
 
             ASSERTX(IsWithinInclusivei(0, iy, height_ - 1), iy, y, height_);
-            for (fuint64 x = 0; x < width_; x += 1)
+            for (int x = 0; x < width_; x += 1)
             {
-                const fuint64 target_index
+                const int target_index
                         = (x + width_ * y) * number_of_components;
-                const fuint64 source_index
+                const int source_index
                         = (x + width_ * iy) * number_of_components;
                 for (int component = 0; component < number_of_components;
                      component += 1)
@@ -244,7 +244,7 @@ namespace euphoria::core
             }
         }
 
-        fuint64 size        = 0;
+        int size        = 0;
         int     size_result = WriteImageData(
                 DetermineImageSize,
                 &size,
@@ -374,8 +374,8 @@ namespace euphoria::core
         {
             for (int x = 0; x < image_width; ++x)
             {
-                const fuint64 src_index
-                        = (y * static_cast<fuint64>(image_width) + x)
+                const int src_index
+                        = (y * image_width + x)
                           * channels;
 
                 // get component values
