@@ -5,7 +5,7 @@
 namespace euphoria::core
 {
     Table<std::string>
-    TableFromCsv(const std::string& data, char delim, char str)
+    TableFromCsv(const std::string& data, const CsvParserOptions& options)
     {
         const auto AddRowToTable = [](Table<std::string>*             table,
                                       const std::vector<std::string>& row) {
@@ -28,9 +28,9 @@ namespace euphoria::core
             const auto c = file.ReadChar();
             if (inside_string)
             {
-                if (c == str)
+                if (c == options.str)
                 {
-                    if (file.PeekChar() == str)
+                    if (file.PeekChar() == options.str)
                     {
                         added = true;
                         ss << c;
@@ -49,11 +49,11 @@ namespace euphoria::core
             }
             else
             {
-                if (c == str)
+                if (c == options.str)
                 {
                     inside_string = true;
                 }
-                else if (c == delim)
+                else if (c == options.delim)
                 {
                     row.push_back(ss.str());
                     ss.str("");

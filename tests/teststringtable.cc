@@ -75,6 +75,7 @@ TEST_CASE("stringtable-from_csv_default", "[stringtable]")
     const auto firstcol       = std::vector<std::string> {"a", "1"};
     const auto firstcolstring = std::vector<std::string> {"a b", "1"};
     const auto secondcol      = std::vector<std::string> {"b", "2"};
+    const auto secondcolspace      = std::vector<std::string> {" b ", "2"};
 
     SECTION("not ending with newline")
     {
@@ -92,6 +93,39 @@ TEST_CASE("stringtable-from_csv_default", "[stringtable]")
         REQUIRE(table.Height() == 2);
         CHECK(euco::CalcColumnAsVector(table, 0) == firstcol);
         CHECK(euco::CalcColumnAsVector(table, 1) == secondcol);
+    }
+
+    SECTION("with spaces (trim)")
+    {
+        euco::CsvParserOptions options;
+        options.trim = euco::CsvTrim::Trim;
+
+        const auto table = euco::TableFromCsv("  a,  b\n1    ,  2  ", options);
+        REQUIRE(table.Width() == 2);
+        REQUIRE(table.Height() == 2);
+        CHECK(euco::CalcColumnAsVector(table, 0) == firstcol);
+        CHECK(euco::CalcColumnAsVector(table, 1) == secondcol);
+    }
+
+    SECTION("with spaces (keep)")
+    {
+        const auto table = euco::TableFromCsv("a, b \n1,2");
+        REQUIRE(table.Width() == 2);
+        REQUIRE(table.Height() == 2);
+        CHECK(euco::CalcColumnAsVector(table, 0) == firstcol);
+        CHECK(euco::CalcColumnAsVector(table, 1) == secondcolspace);
+    }
+
+    SECTION("with spaces (string)")
+    {
+        euco::CsvParserOptions options;
+        options.trim = euco::CsvTrim::Trim;
+
+        const auto table = euco::TableFromCsv("a,\" b \"\n1,2", options);
+        REQUIRE(table.Width() == 2);
+        REQUIRE(table.Height() == 2);
+        CHECK(euco::CalcColumnAsVector(table, 0) == firstcol);
+        CHECK(euco::CalcColumnAsVector(table, 1) == secondcolspace);
     }
 
     SECTION("strings")
@@ -139,12 +173,13 @@ TEST_CASE("stringtable-from_csv_not_default", "[stringtable]")
     const auto firstcolstring = std::vector<std::string> {"a b", "1"};
     const auto secondcol      = std::vector<std::string> {"b", "2"};
 
-    const auto comma  = 'c';
-    const auto string = 's';
+    euco::CsvParserOptions options;
+    options.delim  = 'c';
+    options.str = 's';
 
     SECTION("not ending with newline")
     {
-        const auto table = euco::TableFromCsv("acb\n1c2", comma, string);
+        const auto table = euco::TableFromCsv("acb\n1c2", options);
         REQUIRE(table.Width() == 2);
         REQUIRE(table.Height() == 2);
         CHECK(euco::CalcColumnAsVector(table, 0) == firstcol);
@@ -154,7 +189,7 @@ TEST_CASE("stringtable-from_csv_not_default", "[stringtable]")
     SECTION("ending with newlines")
     {
         const auto table
-                = euco::TableFromCsv("acb\n\n\n1c2\n\n", comma, string);
+                = euco::TableFromCsv("acb\n\n\n1c2\n\n", options);
         REQUIRE(table.Width() == 2);
         REQUIRE(table.Height() == 2);
         CHECK(euco::CalcColumnAsVector(table, 0) == firstcol);
@@ -163,7 +198,7 @@ TEST_CASE("stringtable-from_csv_not_default", "[stringtable]")
 
     SECTION("strings")
     {
-        const auto table = euco::TableFromCsv("sa bscb\n1c2", comma, string);
+        const auto table = euco::TableFromCsv("sa bscb\n1c2", options);
         REQUIRE(table.Width() == 2);
         REQUIRE(table.Height() == 2);
         CHECK(euco::CalcColumnAsVector(table, 0) == firstcolstring);
@@ -172,7 +207,7 @@ TEST_CASE("stringtable-from_csv_not_default", "[stringtable]")
 
     SECTION("not ending strings single col")
     {
-        const auto table    = euco::TableFromCsv("sa b", comma, string);
+        const auto table    = euco::TableFromCsv("sa b", options);
         const auto errorcol = std::vector<std::string> {"a b"};
         REQUIRE(table.Width() == 1);
         REQUIRE(table.Height() == 1);
@@ -181,7 +216,7 @@ TEST_CASE("stringtable-from_csv_not_default", "[stringtable]")
 
     SECTION("not ending strings 2 cols")
     {
-        const auto table     = euco::TableFromCsv("errcsa b", comma, string);
+        const auto table     = euco::TableFromCsv("errcsa b", options);
         const auto errorcol1 = std::vector<std::string> {"err"};
         const auto errorcol2 = std::vector<std::string> {"a b"};
         REQUIRE(table.Width() == 2);
@@ -192,7 +227,7 @@ TEST_CASE("stringtable-from_csv_not_default", "[stringtable]")
 
     SECTION("string with quote")
     {
-        const auto table = euco::TableFromCsv("sa ss bs", comma, string);
+        const auto table = euco::TableFromCsv("sa ss bs", options);
         const auto col   = std::vector<std::string> {"a s b"};
         REQUIRE(table.Width() == 1);
         REQUIRE(table.Height() == 1);

@@ -63,7 +63,10 @@ main(int argc, char* argv[])
                 std::cerr << "Failed to load " << f << "\n";
                 ret = -1;
             }
-            table = TableFromCsv(StreamToString(stream), format[0], format[1]);
+            CsvParserOptions options;
+            options.delim = format[0];
+            options.str = format[1];
+            table = TableFromCsv(StreamToString(stream), options);
         }
 
         switch (type)
