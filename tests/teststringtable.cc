@@ -121,7 +121,7 @@ TEST_CASE("stringtable-from_csv_default", "[stringtable]")
         euco::CsvParserOptions options;
         options.trim = euco::CsvTrim::Trim;
 
-        const auto table = euco::TableFromCsv("a,\" b \"\n1,2", options);
+        const auto table = euco::TableFromCsv("a,   \" b \"   \n1,2", options);
         REQUIRE(table.Width() == 2);
         REQUIRE(table.Height() == 2);
         CHECK(euco::CalcColumnAsVector(table, 0) == firstcol);
