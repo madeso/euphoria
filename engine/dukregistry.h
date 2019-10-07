@@ -21,7 +21,7 @@ namespace euphoria::engine
 
     class DukRegistry
     {
-        public:
+    public:
         DukRegistry(core::ecs::EntReg* r, Components* components);
 
         core::ecs::ComponentId
@@ -29,7 +29,7 @@ namespace euphoria::engine
 
         bool
         GetCustomComponentByName(
-                const std::string& name,
+                const std::string&      name,
                 core::ecs::ComponentId* id);
 
         std::vector<core::ecs::EntityId>
@@ -40,13 +40,13 @@ namespace euphoria::engine
 
         void
         SetProperty(
-                core::ecs::EntityId       ent,
-                core::ecs::ComponentId    comp,
-                duk::ObjectReference value);
+                core::ecs::EntityId    ent,
+                core::ecs::ComponentId comp,
+                duk::ObjectReference   value);
 
         duk::ObjectReference
         CreateComponent(
-                core::ecs::ComponentId      comp,
+                core::ecs::ComponentId comp,
                 duk::Context*          ctx,
                 const CustomArguments& arguments);
 
@@ -63,7 +63,7 @@ namespace euphoria::engine
         using ScriptComponentMap
                 = std::map<core::ecs::ComponentId, duk::FunctionReference>;
 
-        core::ecs::EntReg*      reg;
+        core::ecs::EntReg* reg;
         Components*        components;
         ScriptComponentMap scriptComponents;
     };

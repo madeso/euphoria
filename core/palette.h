@@ -62,7 +62,7 @@ namespace euphoria::core
                 float        saturation,
                 float        lightness);
 
-        private:
+    private:
         explicit Palette(const std::string& n);
     };
 

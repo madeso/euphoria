@@ -13,7 +13,7 @@ namespace euphoria::render
 {
     class Actor
     {
-        public:
+    public:
         Actor(const std::shared_ptr<CompiledMesh>& mesh);
 
         // todo: make poisition and rotation public and skip getters and setters
@@ -62,11 +62,11 @@ namespace euphoria::render
         core::vec3f                   position_;
         core::quatf                   rotation_;
 
-        private:
+    private:
         std::vector<std::shared_ptr<CompiledMeshMaterial>>
                 overridden_materials_;
 
-        public:
+    public:
         bool      has_outline;
         core::Rgb outline_color;
     };

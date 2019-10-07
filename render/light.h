@@ -9,7 +9,7 @@ namespace euphoria::render
 {
     class LightAttenuation
     {
-        public:
+    public:
         LightAttenuation();
 
         float
@@ -21,7 +21,7 @@ namespace euphoria::render
         float
         GetQuadratic() const;
 
-        private:
+    private:
         float constant_;
         float linear_;
         float quadratic_;
@@ -29,7 +29,7 @@ namespace euphoria::render
 
     class Light
     {
-        public:
+    public:
         Light();
 
         // todo: move this to a light def file and let it be specified in a editor
@@ -107,7 +107,7 @@ namespace euphoria::render
         core::Angle*
         GetCutoffAngleInnerMod();
 
-        private:
+    private:
         Type         type_;
         core::vec3f  position_;
         core::unit3f direction_;

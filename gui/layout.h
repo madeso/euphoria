@@ -13,7 +13,7 @@ namespace euphoria::gui
 
     class Layout
     {
-        public:
+    public:
         Layout();
 
         virtual ~Layout();
@@ -30,7 +30,7 @@ namespace euphoria::gui
 
     class TableLayout : public Layout
     {
-        public:
+    public:
         TableLayout(
                 const std::vector<bool> expandable_rows,
                 const std::vector<bool> expandable_cols,
@@ -52,7 +52,7 @@ namespace euphoria::gui
 
     class SingleRowLayout : public Layout
     {
-        public:
+    public:
         SingleRowLayout(float padding);
 
         virtual core::Sizef
@@ -64,7 +64,7 @@ namespace euphoria::gui
                 std::vector<std::shared_ptr<Widget>>* widgets,
                 const core::Rectf&                    area) const override;
 
-        private:
+    private:
         float padding_;
     };
 }  // namespace euphoria::gui

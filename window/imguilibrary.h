@@ -9,7 +9,7 @@ namespace euphoria::window
 {
     class ImguiLibrary
     {
-        public:
+    public:
         ImguiLibrary(SDL_Window* window, const std::string& path);
         ~ImguiLibrary();
 
@@ -22,7 +22,7 @@ namespace euphoria::window
         void
         Render();
 
-        private:
+    private:
         SDL_Window* window_;
         std::string path_;
     };

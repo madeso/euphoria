@@ -20,7 +20,7 @@ namespace euphoria::core
 
     class Value
     {
-        public:
+    public:
         explicit Value(ValueType vt) : type(vt) {}
 
         virtual ~Value() = default;
@@ -66,7 +66,7 @@ namespace euphoria::core
 
     class PropertyTree : public Value
     {
-        public:
+    public:
         PropertyTree();
 
         void

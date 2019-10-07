@@ -8,7 +8,7 @@ namespace euphoria::core
 {
     class IdGenerator
     {
-        public:
+    public:
         typedef uint32 ID;
 
         IdGenerator();
@@ -19,17 +19,17 @@ namespace euphoria::core
         void
         Release(ID id);
 
-        private:
+    private:
         ID              current_;
         std::vector<ID> released_;
     };
 
     class Id
     {
-        private:
+    private:
         Id();
 
-        public:
+    public:
         explicit Id(IdGenerator* generator);
 
         static const Id&
@@ -46,7 +46,7 @@ namespace euphoria::core
         const IdGenerator::ID
         GetValue() const;
 
-        private:
+    private:
         IdGenerator::ID value_;
         IdGenerator*    generator_;
     };

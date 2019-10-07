@@ -8,14 +8,14 @@ namespace euphoria::render
 {
     class Id : core::Noncopyable
     {
-        public:
+    public:
         Id();
         ~Id();
 
         gluint
         GetId() const;
 
-        protected:
+    protected:
         gluint id_;
     };
 }  // namespace euphoria::render

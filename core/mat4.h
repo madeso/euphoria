@@ -14,7 +14,7 @@ namespace euphoria::core
     template <typename T>
     class mat4
     {
-        private:
+    private:
         T data[16];  // col-major
         mat4() {}
         mat4(T t00,
@@ -51,7 +51,7 @@ namespace euphoria::core
                     t33}
         {}
 
-        public:
+    public:
         static mat4<T>
         FromColMajor(
                 T t00,

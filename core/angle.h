@@ -11,7 +11,7 @@ namespace euphoria::core
 
     class Angle
     {
-        private:
+    private:
         static constexpr float
         RadianToDegrees(float rad)
         {
@@ -24,7 +24,7 @@ namespace euphoria::core
             return Pi() / 180.0f * deg;
         }
 
-        public:
+    public:
         constexpr float
         InDegrees() const
         {
@@ -90,7 +90,7 @@ namespace euphoria::core
         Angle
         operator-() const;
 
-        private:
+    private:
         constexpr explicit Angle(float rad) : mRad(rad) {}
 
         float mRad;

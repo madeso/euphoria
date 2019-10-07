@@ -10,7 +10,7 @@ namespace euphoria::duk
 {
     class ObjectBinder
     {
-        public:
+    public:
         ObjectBinder&
         AddFunction(
                 const std::string&               name,

@@ -13,7 +13,7 @@ namespace euphoria::window
 {
     class SdlWindow
     {
-        public:
+    public:
         SdlWindow(
                 const std::string& title,
                 int                width,

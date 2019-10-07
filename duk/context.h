@@ -20,7 +20,7 @@ namespace euphoria::duk
 
     class Context
     {
-        public:
+    public:
         Context(duk_context* c, Duk* d);
 
         int

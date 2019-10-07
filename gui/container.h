@@ -15,7 +15,7 @@ namespace euphoria::gui
 
     class Container
     {
-        public:
+    public:
         Container();
         ~Container();
 
@@ -31,7 +31,7 @@ namespace euphoria::gui
         void
         Render(render::SpriteRenderer* renderer) const;
 
-        protected:
+    protected:
         std::vector<std::shared_ptr<Widget>> widgets_;
     };
 }  // namespace euphoria::gui

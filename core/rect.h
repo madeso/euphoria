@@ -18,7 +18,7 @@ namespace euphoria::core
     template <typename T>
     class Rect
     {
-        public:
+    public:
         T left;
         T right;
         T top;
@@ -29,12 +29,12 @@ namespace euphoria::core
 
         Rect() : left(0), right(0), top(0), bottom(0) {}
 
-        private:
+    private:
         Rect(T aleft, T aright, T atop, T abottom)
             : left(aleft), right(aright), top(atop), bottom(abottom)
         {}
 
-        public:
+    public:
         static Rect
         FromLeftRightBottomTop(T aleft, T aright, T abottom, T atop)
         {

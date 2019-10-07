@@ -13,7 +13,7 @@ namespace euphoria::core
         // todo: transform into a path and directory class instead
         class Path
         {
-            public:
+        public:
             static Path
             FromDirectory(const std::string& path);
             static Path
@@ -53,7 +53,7 @@ namespace euphoria::core
             bool
             operator==(const Path& rhs) const;
 
-            private:
+        private:
             Path(const std::string& absolute_path);
             std::string absolute_path_;
         };

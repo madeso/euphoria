@@ -5,7 +5,7 @@ namespace euphoria::gui
 {
     class LayoutData
     {
-        public:
+    public:
         LayoutData();
         ~LayoutData();
 
@@ -33,7 +33,7 @@ namespace euphoria::gui
         LayoutData&
         SetPreferredHeight(float h);
 
-        private:
+    private:
         int   column_;
         int   row_;
         float preferred_width_;

@@ -25,7 +25,7 @@ namespace euphoria::core
 
     class MeshPart
     {
-        public:
+    public:
         MeshPart();
 
         unsigned int              material;
@@ -53,7 +53,7 @@ namespace euphoria::core
 
     class MaterialTexture
     {
-        public:
+    public:
         MaterialTexture(std::string p, EnumValue t);
         std::string path;
         EnumValue   type;
@@ -61,7 +61,7 @@ namespace euphoria::core
 
     class Material
     {
-        public:
+    public:
         Material();
 
         void
@@ -88,7 +88,7 @@ namespace euphoria::core
 
     class Mesh
     {
-        public:
+    public:
         std::vector<Material> materials;
         std::vector<MeshPart> parts;
 
@@ -98,7 +98,7 @@ namespace euphoria::core
 
     class MeshLoadResult
     {
-        public:
+    public:
         Mesh        mesh;
         std::string error;
     };

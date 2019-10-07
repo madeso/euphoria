@@ -25,7 +25,7 @@ namespace euphoria::duk
 
     class Duk : private Context
     {
-        public:
+    public:
         Duk();
 
         Context*

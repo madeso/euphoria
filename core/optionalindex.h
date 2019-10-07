@@ -6,7 +6,7 @@ namespace euphoria::core
     template <typename T>
     class OptionalIndex
     {
-        public:
+    public:
         static OptionalIndex<T>
         Null()
         {
@@ -31,7 +31,7 @@ namespace euphoria::core
             return is_valid;
         }
 
-        private:
+    private:
         OptionalIndex() : is_valid(false), index(0) {}
 
         OptionalIndex(T index) : is_valid(true), index(index) {}

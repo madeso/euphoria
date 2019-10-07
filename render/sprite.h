@@ -16,7 +16,7 @@ namespace euphoria::render
 
     class Sprite
     {
-        public:
+    public:
         // todo: remove getters and setters
         explicit Sprite(
                 std::shared_ptr<Texture2d> texture,
@@ -41,14 +41,14 @@ namespace euphoria::render
         void
         Render(SpriteRenderer* render);
 
-        private:
+    private:
         std::shared_ptr<Texture2d> texture_;
         core::vec2f                position_;
 
-        public:
+    public:
         core::Angle rotation;
 
-        private:
+    private:
         core::scale2f scale_;
         core::Rgb     color_;
         float         alpha_;
@@ -56,7 +56,7 @@ namespace euphoria::render
 
     class Layer
     {
-        public:
+    public:
         explicit Layer(SpriteRenderer* render);
 
         void
@@ -68,7 +68,7 @@ namespace euphoria::render
         void
         Render();
 
-        private:
+    private:
         SpriteRenderer*                                          render_;
         typedef std::vector<Sprite*>                             SpriteList;
         typedef std::map<std::shared_ptr<Texture2d>, SpriteList> SpriteMap;

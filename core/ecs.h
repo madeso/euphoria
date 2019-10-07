@@ -40,7 +40,7 @@ namespace euphoria::core::ecs
 
     class Component
     {
-        public:
+    public:
 #if BUILD_ENTITY_DEBUG_COMPONENT == 1
         Component(TypeName n, TypeId i);
 #endif
@@ -56,7 +56,7 @@ namespace euphoria::core::ecs
 
     struct RegistryEntityCallback
     {
-        public:
+    public:
         virtual ~RegistryEntityCallback() = default;
 
         virtual void
@@ -90,7 +90,7 @@ namespace euphoria::core::ecs
     struct RegistryImpl;
     class Registry
     {
-        public:
+    public:
         Registry();
         ~Registry();
 
@@ -156,12 +156,12 @@ namespace euphoria::core::ecs
         void
         RemoveRemoved();
 
-        private:
+    private:
         std::unique_ptr<RegistryImpl> impl;
     };
 
     ////////////////////////////////////////////////////////////////////////////////
 
-}  // namespace euphoria::core
+}  // namespace euphoria::core::ecs
 
 #endif  // EUPHORIA_ENTITY_H

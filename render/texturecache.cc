@@ -9,7 +9,7 @@ namespace euphoria::render
     struct TextureCache::TextureCachePimpl
         : core::Cache<std::string, Texture2d, TextureCache::TextureCachePimpl>
     {
-        public:
+    public:
         explicit TextureCachePimpl(core::vfs::FileSystem* fs) : fs_(fs)
         {
             ASSERT(fs);
@@ -24,7 +24,7 @@ namespace euphoria::render
             return ret;
         }
 
-        private:
+    private:
         core::vfs::FileSystem* fs_;
     };
 

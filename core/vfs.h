@@ -39,7 +39,7 @@ namespace euphoria::core
 
         class FileSystemReadRoot
         {
-            public:
+        public:
             virtual ~FileSystemReadRoot();
 
             virtual std::string
@@ -56,7 +56,7 @@ namespace euphoria::core
 
         class FileSystemWriteRoot
         {
-            public:
+        public:
             virtual ~FileSystemWriteRoot();
 
             virtual void
@@ -68,7 +68,7 @@ namespace euphoria::core
 
         class FileSystem
         {
-            public:
+        public:
             FileSystem();
             ~FileSystem();
 
@@ -101,14 +101,14 @@ namespace euphoria::core
             // todo: support encryption
             // todo: support listing/enumerating files
 
-            private:
+        private:
             std::vector<std::shared_ptr<FileSystemReadRoot>> roots_;
             std::shared_ptr<FileSystemWriteRoot>             write_;
         };
 
         class FileSystemRootCatalog : public FileSystemReadRoot
         {
-            public:
+        public:
             FileSystemRootCatalog();
 
             void
@@ -132,13 +132,13 @@ namespace euphoria::core
             FileList
             ListFiles(const Path& path) override;
 
-            private:
+        private:
             std::map<std::string, std::shared_ptr<MemoryChunk>> catalog_;
         };
 
         class FileSystemRootFolder : public FileSystemReadRoot
         {
-            public:
+        public:
             explicit FileSystemRootFolder(std::string folder);
 
             std::shared_ptr<MemoryChunk>
@@ -156,13 +156,13 @@ namespace euphoria::core
             FileList
             ListFiles(const Path& path) override;
 
-            private:
+        private:
             std::string folder_;
         };
 
         class FileSystemWriteFolder : public FileSystemWriteRoot
         {
-            public:
+        public:
             explicit FileSystemWriteFolder(const std::string& f);
 
             void

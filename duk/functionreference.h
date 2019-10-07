@@ -17,7 +17,7 @@ namespace euphoria::duk
     // todo: rename to DukFunc
     class FunctionReference
     {
-        public:
+    public:
         explicit FunctionReference(void* ptr = nullptr);
 
         bool

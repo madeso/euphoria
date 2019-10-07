@@ -23,7 +23,7 @@ namespace euphoria::core
 
     class Logger
     {
-        public:
+    public:
         Logger(Logger* parent, std::string name);
         bool
         IsEnabledForLevel(LogLevel level) const;
@@ -33,7 +33,7 @@ namespace euphoria::core
         static LoggerPtr
         GetLogger(const std::string& name);
 
-        private:
+    private:
         Logger*     parent_;
         std::string name_;
         LogLevel    level_;

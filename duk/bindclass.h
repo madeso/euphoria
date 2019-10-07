@@ -15,7 +15,7 @@ namespace euphoria::duk
 {
     class ClassBinder
     {
-        public:
+    public:
         explicit ClassBinder(core::TypeId i);
 
         // todo: add constructor

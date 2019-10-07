@@ -11,7 +11,7 @@ namespace euphoria::core
     /// todo(Gustav): move to core?
     class FpsController
     {
-        public:
+    public:
         FpsController();
 
         void
@@ -39,7 +39,7 @@ namespace euphoria::core
         quatf
         GetRotation() const;
 
-        private:
+    private:
         Angle rotation_;
         Angle look_;
 
@@ -50,7 +50,7 @@ namespace euphoria::core
         bool up_down_       = false;
         bool down_down_     = false;
 
-        public:
+    public:
         vec3f position;
         float speed       = 3.0f;
         float sensitivity = 0.10f;

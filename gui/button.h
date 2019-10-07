@@ -22,7 +22,7 @@ namespace euphoria::gui
 
     class Button : public Widget
     {
-        public:
+    public:
         Button(UiState* state);
         ~Button();
 
@@ -51,7 +51,7 @@ namespace euphoria::gui
         void
         SetSkin(Skin* skin);
 
-        private:
+    private:
         ButtonState*                            last_state_;
         std::shared_ptr<render::ScalableSprite> sprite_;
         TextData                                text_;

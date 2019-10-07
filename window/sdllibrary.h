@@ -5,7 +5,7 @@ namespace euphoria::window
 {
     class SdlLibrary
     {
-        public:
+    public:
         SdlLibrary();
         ~SdlLibrary();
 

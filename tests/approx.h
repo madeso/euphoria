@@ -47,7 +47,7 @@ namespace euphoria::tests
         template <typename T>
         class Approx
         {
-            public:
+        public:
             explicit Approx(T value)
                 : m_epsilon(std::numeric_limits<float>::epsilon() * 100)
                 , m_margin(0.0)
@@ -113,7 +113,7 @@ namespace euphoria::tests
                 return rss.str();
             }
 
-            private:
+        private:
             double m_epsilon;
             double m_margin;
             double m_scale;

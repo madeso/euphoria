@@ -9,7 +9,7 @@ namespace euphoria::duk
 
     class Function
     {
-        public:
+    public:
         Function() = default;
 
         virtual ~Function() = default;

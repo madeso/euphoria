@@ -12,7 +12,7 @@ namespace euphoria::render
     // Stores vertices, uv, etc
     class Vbo : public Id
     {
-        public:
+    public:
         Vbo();
         ~Vbo();
 
@@ -29,7 +29,7 @@ namespace euphoria::render
     // Stores what the data in the Vbo is and how it is laid out/used
     class Vao : public Id
     {
-        public:
+    public:
         Vao();
         ~Vao();
 
@@ -49,7 +49,7 @@ namespace euphoria::render
     // Reuses points
     class Ebo : public Id
     {
-        public:
+    public:
         Ebo();
         ~Ebo();
 

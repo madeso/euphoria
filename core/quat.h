@@ -12,7 +12,7 @@ namespace euphoria::core
     template <typename T>
     class quat
     {
-        public:
+    public:
         using Q     = quat<T>;
         using Vec   = vec3<T>;
         using Point = vec3<T>;

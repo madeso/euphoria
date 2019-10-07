@@ -36,21 +36,21 @@ namespace euphoria::engine
 
     struct ObjectCreationArgs
     {
-        core::ecs::World*  world;
-        DukRegistry*  reg;
-        duk::Context* ctx;
-        duk::Duk*     duk;
+        core::ecs::World* world;
+        DukRegistry*      reg;
+        duk::Context*     ctx;
+        duk::Duk*         duk;
 
         ObjectCreationArgs(
-                core::ecs::World*  aworld,
-                DukRegistry*  areg,
-                duk::Context* actx,
-                duk::Duk*     aduk);
+                core::ecs::World* aworld,
+                DukRegistry*      areg,
+                duk::Context*     actx,
+                duk::Duk*         aduk);
     };
 
     class ComponentCreator
     {
-        public:
+    public:
         virtual ~ComponentCreator() = default;
         virtual void
         CreateComponent(const ObjectCreationArgs& args, core::ecs::EntityId id)
@@ -59,7 +59,7 @@ namespace euphoria::engine
 
     class ObjectTemplate
     {
-        public:
+    public:
         core::ecs::EntityId
         CreateObject(const ObjectCreationArgs& args);
 
@@ -68,7 +68,7 @@ namespace euphoria::engine
 
     class ObjectCreator
     {
-        public:
+    public:
         std::map<std::string, std::shared_ptr<ObjectTemplate>> templates;
 
         ObjectTemplate*

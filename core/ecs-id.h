@@ -10,6 +10,6 @@ namespace euphoria::core::ecs
 
     using ComponentId = std::uint32_t;
 
-}  // namespace euphoria::core
+}  // namespace euphoria::core::ecs
 
 #endif  // EUPHORIA_ENTITYID_H

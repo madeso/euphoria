@@ -13,7 +13,7 @@ namespace euphoria::core
     template <typename T>
     class mat3
     {
-        private:
+    private:
         using tuple3 = std::tuple<T, T, T>;
 
         T data[9];  // col-major
@@ -24,7 +24,7 @@ namespace euphoria::core
             : data {t00, t01, t02, t10, t11, t12, t20, t21, t22}
         {}
 
-        public:
+    public:
         static mat3<T>
         FromColMajor(
                 T t00,

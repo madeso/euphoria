@@ -8,12 +8,12 @@ namespace euphoria::duk
 {
     class StoredReference
     {
-        public:
+    public:
         StoredReference(void* ptr, ReferenceStorage* duk);
 
         ~StoredReference();
 
-        private:
+    private:
         ReferenceStorage*       duk;
         ReferenceStorage::Index stored_index;
     };

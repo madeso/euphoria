@@ -9,7 +9,7 @@ namespace euphoria::duk
 {
     class ReferenceStorage
     {
-        public:
+    public:
         explicit ReferenceStorage(duk_context* c);
 
         using Index = unsigned int;
@@ -23,7 +23,7 @@ namespace euphoria::duk
         void
         SetReference(void* p, Index index);
 
-        private:
+    private:
         duk_context*       ctx;
         std::vector<Index> free_indices;
         Index              reference_index = 0;

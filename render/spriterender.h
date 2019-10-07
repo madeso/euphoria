@@ -36,7 +36,7 @@ namespace euphoria::render
 
     class SpriteRenderer
     {
-        public:
+    public:
         SpriteRenderer(Shader* shader);
         ~SpriteRenderer();
 
@@ -63,7 +63,7 @@ namespace euphoria::render
                 const core::Rectf&    rect,
                 const core::Rgba&     tint);
 
-        private:
+    private:
         Shader*                   shader_;
         ShaderUniform             color_;
         ShaderUniform             model_;

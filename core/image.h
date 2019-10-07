@@ -22,7 +22,7 @@ namespace euphoria::core
 
     class Image
     {
-        public:
+    public:
         void
         MakeInvalid();
         bool
@@ -102,7 +102,7 @@ namespace euphoria::core
         std::shared_ptr<MemoryChunk>
         Write(ImageWriteFormat format, int jpeg_quality = 100) const;
 
-        private:
+    private:
         void
         Setup(int image_width, int image_height, bool alpha, int default_value);
 
@@ -121,7 +121,7 @@ namespace euphoria::core
 
     class ImageLoadResult
     {
-        public:
+    public:
         Image image;
 
         std::string error;

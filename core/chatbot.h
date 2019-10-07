@@ -167,7 +167,7 @@ namespace euphoria::core
 
     class ChatBot
     {
-        public:
+    public:
         ChatBot();
 
         std::string

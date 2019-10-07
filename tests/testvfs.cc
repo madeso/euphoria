@@ -9,7 +9,7 @@ namespace euco = euphoria::core;
 
 class AlwaysExist : public FileSystemReadRoot
 {
-    public:
+public:
     std::shared_ptr<euco::MemoryChunk>
     ReadFile(const std::string& path) override
     {
@@ -33,7 +33,7 @@ class AlwaysExist : public FileSystemReadRoot
 
 class NeverExist : public FileSystemReadRoot
 {
-    public:
+public:
     std::shared_ptr<euco::MemoryChunk>
     ReadFile(const std::string& path) override
     {

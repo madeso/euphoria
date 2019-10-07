@@ -29,7 +29,7 @@ namespace euphoria::engine
 
     bool
     DukRegistry::GetCustomComponentByName(
-            const std::string& name,
+            const std::string&      name,
             core::ecs::ComponentId* id)
     {
         return reg->GetCustomComponentByName(name, id);
@@ -42,7 +42,9 @@ namespace euphoria::engine
     }
 
     duk::ObjectReference
-    DukRegistry::GetProperty(core::ecs::EntityId ent, core::ecs::ComponentId comp)
+    DukRegistry::GetProperty(
+            core::ecs::EntityId    ent,
+            core::ecs::ComponentId comp)
     {
         ASSERT(scriptComponents.find(comp) != scriptComponents.end());
         auto c = reg->GetComponent(ent, comp);
@@ -59,9 +61,9 @@ namespace euphoria::engine
     ScriptComponent*
     GetScriptComponent(
             const DukRegistry::ScriptComponentMap& scriptComponents,
-            core::ecs::EntReg*                          reg,
-            core::ecs::EntityId                         ent,
-            core::ecs::ComponentId                      comp)
+            core::ecs::EntReg*                     reg,
+            core::ecs::EntityId                    ent,
+            core::ecs::ComponentId                 comp)
     {
         ASSERT(scriptComponents.find(comp) != scriptComponents.end());
 
@@ -80,9 +82,9 @@ namespace euphoria::engine
 
     void
     DukRegistry::SetProperty(
-            core::ecs::EntityId       ent,
-            core::ecs::ComponentId    comp,
-            duk::ObjectReference value)
+            core::ecs::EntityId    ent,
+            core::ecs::ComponentId comp,
+            duk::ObjectReference   value)
     {
         ScriptComponent* scriptComponent
                 = GetScriptComponent(scriptComponents, reg, ent, comp);
@@ -91,7 +93,7 @@ namespace euphoria::engine
 
     duk::ObjectReference
     DukRegistry::CreateComponent(
-            core::ecs::ComponentId      comp,
+            core::ecs::ComponentId comp,
             duk::Context*          ctx,
             const CustomArguments& arguments)
     {

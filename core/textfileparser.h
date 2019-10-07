@@ -10,7 +10,7 @@ namespace euphoria::core
 
     class TextFileParser
     {
-        public:
+    public:
         TextFileParser(const std::string& str);
 
         char
@@ -46,7 +46,7 @@ namespace euphoria::core
         unsigned int
         GetColumn();
 
-        private:
+    private:
         std::string  string_;
         unsigned int length_;
         unsigned int position_;

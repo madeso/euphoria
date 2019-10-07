@@ -20,7 +20,7 @@ namespace euphoria::core
     // Rgb no alpha support - int based
     class Rgbi
     {
-        public:
+    public:
         Rgbi(unsigned char red, unsigned char green, unsigned char blue);
         explicit Rgbi(unsigned char gray);
         Rgbi(Color color);
@@ -40,7 +40,7 @@ namespace euphoria::core
 
     class Rgbai
     {
-        public:
+    public:
         Rgbai(const Rgbi& rgb, unsigned char alpha = 255);
 
         explicit Rgbai(const Rgba& rgba);
@@ -56,7 +56,7 @@ namespace euphoria::core
 
     class Rgb
     {
-        public:
+    public:
         Rgb(float red, float green, float blue);
         explicit Rgb(float gray);
 
@@ -133,7 +133,7 @@ namespace euphoria::core
 
     class Rgba
     {
-        public:
+    public:
         Rgba(const Rgb& rgb, float alpha = 1.0f);
 
         float r;

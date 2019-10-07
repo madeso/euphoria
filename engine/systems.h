@@ -16,7 +16,10 @@ namespace euphoria::engine
     struct Components;
 
     void
-    AddSystems(core::ecs::Systems* systems, duk::Duk* duk, Components* components);
+    AddSystems(
+            core::ecs::Systems* systems,
+            duk::Duk*           duk,
+            Components*         components);
 }  // namespace euphoria::engine
 
 #endif  // EUPHORIA_SYSTEMS_H

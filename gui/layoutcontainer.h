@@ -24,7 +24,7 @@ namespace euphoria::gui
 
     class LayoutContainer : public Container
     {
-        public:
+    public:
         LayoutContainer();
         virtual ~LayoutContainer();
 
@@ -39,7 +39,7 @@ namespace euphoria::gui
         core::Sizef
         CalculateMinimumArea() const;
 
-        private:
+    private:
         std::shared_ptr<Layout> layout_;
     };
 }  // namespace euphoria::gui

@@ -9,13 +9,13 @@ namespace euphoria::render
 
     class Buffer2d
     {
-        public:
+    public:
         Buffer2d(const BufferBuilder2d& bb);
 
         void
         Draw() const;
 
-        private:
+    private:
         unsigned int index_count_;
         Vbo          vbo_;
         Vao          vao_;

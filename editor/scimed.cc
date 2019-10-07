@@ -41,7 +41,7 @@ namespace euphoria::editor
     /// between the dividing lines.
     class SpaceData
     {
-        public:
+    public:
         SpaceData(int aleft, int aright, int i)
             : left(aleft), right(aright), index(i)
         {}
@@ -55,7 +55,7 @@ namespace euphoria::editor
     /// The actual data is either the row or col array of the ScalingSprite struct
     class SplitData
     {
-        public:
+    public:
         SplitData(int p, int mi, int ma)
             : position(p), min_value(mi), max_value(ma)
         {}

@@ -12,7 +12,7 @@ namespace euphoria::render
     // todo: come up with a better name
     class Init
     {
-        public:
+    public:
         enum class BlendHack
         {
             NoHack,

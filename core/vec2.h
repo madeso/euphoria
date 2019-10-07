@@ -188,7 +188,7 @@ namespace euphoria::core
             return IsEqual(GetLengthSquared(), 1);
         }
 
-        private:
+    private:
         explicit unit2(const vec2<T>& v) : x(v.x), y(v.y)
         {
             ASSERT(IsValid());

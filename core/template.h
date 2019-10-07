@@ -13,7 +13,7 @@ namespace euphoria::core
 {
     class Defines
     {
-        public:
+    public:
         Defines();
 
         bool
@@ -26,13 +26,13 @@ namespace euphoria::core
         void
         Define(const std::string& name, const std::string& value);
 
-        private:
+    private:
         std::map<std::string, std::string> values_;
     };
 
     class TemplateError
     {
-        public:
+    public:
         TemplateError();
 
         bool
@@ -47,7 +47,7 @@ namespace euphoria::core
         std::string
         GetCombinedErrors() const;
 
-        private:
+    private:
         std::vector<std::string> errors_;
     };
 
@@ -55,7 +55,7 @@ namespace euphoria::core
 
     class Template
     {
-        public:
+    public:
         explicit Template(const std::string& text);
         Template(vfs::FileSystem* fs, const std::string& path);
         ~Template();
@@ -65,7 +65,7 @@ namespace euphoria::core
         const TemplateError&
         GetErrors() const;
 
-        private:
+    private:
         TemplateError                     errors_;
         std::shared_ptr<TemplateNodeList> nodes_;
     };

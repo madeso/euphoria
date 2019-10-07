@@ -12,13 +12,13 @@ namespace euphoria::window
 {
     class SdlTimer
     {
-        public:
+    public:
         SdlTimer();
 
         float
         Update();
 
-        private:
+    private:
         Uint64 current_time_;
         Uint64 last_time_;
     };

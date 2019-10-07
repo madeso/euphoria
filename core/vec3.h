@@ -261,7 +261,7 @@ namespace euphoria::core
             return Self {v.x, v.y, v.z};
         }
 
-        private:
+    private:
         explicit unit3(T a, T b, T c) : vec3<T>(a, b, c)
         {
             ASSERT(IsValid());

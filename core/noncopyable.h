@@ -11,7 +11,7 @@ namespace euphoria::core
 {
     class Noncopyable
     {
-        public:
+    public:
         Noncopyable() {}
 
         NONCOPYABLE_CONSTRUCTOR(Noncopyable);

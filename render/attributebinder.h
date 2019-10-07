@@ -13,14 +13,14 @@ namespace euphoria::render
 
     class AttributeBinder
     {
-        public:
+    public:
         void
         Register(const ShaderAttribute& attribute);
 
         void
         Bind(const std::shared_ptr<CompiledMeshPart>& part);
 
-        private:
+    private:
         struct BindData
         {
             BindData(ShaderAttribute a, int s);

@@ -17,7 +17,7 @@ namespace euphoria::gui
 {
     class ButtonState
     {
-        public:
+    public:
         ButtonState();
         ~ButtonState();
 
@@ -40,7 +40,7 @@ namespace euphoria::gui
 
     class Skin
     {
-        public:
+    public:
         Skin();
         ~Skin();
 

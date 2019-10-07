@@ -123,7 +123,7 @@ namespace euphoria::core
     template <typename Type, typename Transform>
     class Interpolate
     {
-        public:
+    public:
         typedef Interpolate<Type, Transform> This;
         explicit Interpolate(Type v)
             : value_(v), from_(v), position_in_current_interpolation_(0.0f)
@@ -361,7 +361,7 @@ namespace euphoria::core
         }
 
 
-        private:
+    private:
         typedef float (*EasingFunction)(float);
 
         template <typename TType>

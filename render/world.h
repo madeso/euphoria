@@ -21,7 +21,7 @@ namespace euphoria::render
 
     class World
     {
-        public:
+    public:
         World();
 
         void
@@ -44,7 +44,7 @@ namespace euphoria::render
 
         bool use_outline = false;
 
-        private:
+    private:
         std::vector<std::shared_ptr<Actor>> actors_;
     };
 

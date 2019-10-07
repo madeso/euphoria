@@ -204,7 +204,7 @@ namespace euphoria::core
         const float percent
                 = (num - lower)
                   / gran;  // 1.0 is upper, 0.0 is lower, 0.25 is 25% between
-                // lower and upper, moving from lower to upper
+        // lower and upper, moving from lower to upper
 
         if (percent >= 0.5)
         {

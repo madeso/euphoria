@@ -11,7 +11,7 @@ namespace euphoria::core
     // source: http://mathworld.wolfram.com/SphericalCoordinates.html
     class PolarCoord
     {
-        public:
+    public:
         PolarCoord(float azimuthal01, float polar01);
 
         unit3f
@@ -20,7 +20,7 @@ namespace euphoria::core
         static PolarCoord
         Random(::euphoria::core::Random* random);
 
-        private:
+    private:
         Angle azimuthal_;  // longitude, 0-2pi
         Angle polar_;  // zenith, colatitude, 0-pi
     };

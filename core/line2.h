@@ -8,7 +8,7 @@ namespace euphoria::core
     template <typename T>
     class line2
     {
-        public:
+    public:
         typedef line2<T> Self;
         typedef vec2<T>  vec;
         typedef vec2<T>  tpoint;
@@ -33,7 +33,7 @@ namespace euphoria::core
 
         struct Collision
         {
-            public:
+        public:
             static Collision
             Parallel()
             {
@@ -92,7 +92,7 @@ namespace euphoria::core
             T      u;
             T      v;
 
-            private:
+        private:
             Collision()
                 : collision(false), is_parallel(false), point(0, 0), u(0), v(0)
             {}
@@ -145,7 +145,7 @@ namespace euphoria::core
             return Collision::NoCollision();
         }
 
-        private:
+    private:
         tpoint position;
         vec    direction;
 

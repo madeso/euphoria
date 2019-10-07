@@ -10,7 +10,7 @@ namespace euphoria::window
 
     class SdlGlContext
     {
-        public:
+    public:
         SdlGlContext(SdlWindow* window);
 
         ~SdlGlContext();

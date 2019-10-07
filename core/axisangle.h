@@ -10,7 +10,7 @@ namespace euphoria::core
 {
     class AxisAngle
     {
-        public:
+    public:
         static const AxisAngle
         RightHandAround(const unit3f& axis, const Angle& angle);
 
@@ -22,7 +22,7 @@ namespace euphoria::core
   */
         Angle angle;
 
-        private:
+    private:
         AxisAngle(const unit3f& ax, const Angle& ang);
     };
 

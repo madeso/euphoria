@@ -67,4 +67,4 @@ namespace euphoria::core::ecs
         systems->spriteDraw.Draw(&reg, renderer);
     }
 
-}  // namespace euphoria::core
+}  // namespace euphoria::core::ecs

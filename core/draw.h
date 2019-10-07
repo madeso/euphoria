@@ -12,7 +12,7 @@ namespace euphoria::core
 {
     class Draw
     {
-        public:
+    public:
         explicit Draw(Image* image);
 
         Recti
@@ -54,7 +54,7 @@ namespace euphoria::core
         Draw&
         PasteImage(const vec2i& position, const Image& source_image);
 
-        private:
+    private:
         Image* image_;
     };
 

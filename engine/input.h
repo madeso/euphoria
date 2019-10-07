@@ -33,7 +33,7 @@ namespace euphoria::engine
 
     class Input
     {
-        public:
+    public:
         static void
         Bind(duk::Duk* duk);
 
@@ -49,7 +49,7 @@ namespace euphoria::engine
         void
         UpdateState();
 
-        private:
+    private:
         std::vector<std::shared_ptr<BoundVar>> binds;
     };
 }  // namespace euphoria::engine

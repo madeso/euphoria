@@ -9,7 +9,7 @@ namespace euphoria::core
     template <typename T>
     class Size
     {
-        public:
+    public:
         typedef Size<T> Self;
         Size() : width_(-1), height_(-1) {}
         static Self
@@ -95,7 +95,7 @@ namespace euphoria::core
             return vec2<T>(x, y);
         }
 
-        private:
+    private:
         Size(T w, T h) : width_(w), height_(h) {}
         T width_;
         T height_;

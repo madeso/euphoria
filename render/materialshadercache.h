@@ -11,7 +11,7 @@ namespace euphoria::render
     class MaterialShaderCache
         : public core::Cache<std::string, MaterialShader, MaterialShaderCache>
     {
-        public:
+    public:
         MaterialShaderCache(core::vfs::FileSystem* fs) : fs_(fs)
         {
             ASSERT(fs);
@@ -25,7 +25,7 @@ namespace euphoria::render
             return ret;
         }
 
-        private:
+    private:
         core::vfs::FileSystem* fs_;
     };
 

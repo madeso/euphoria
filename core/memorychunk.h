@@ -10,7 +10,7 @@ namespace euphoria::core
 {
     class MemoryChunk
     {
-        public:
+    public:
         char*
         GetData();
 
@@ -29,7 +29,7 @@ namespace euphoria::core
         static std::shared_ptr<MemoryChunk>
         Null();
 
-        private:
+    private:
         explicit MemoryChunk(fuint64 size);
         std::unique_ptr<char[]> data_;
         fuint64                 size_;
@@ -43,7 +43,7 @@ namespace euphoria::core
 
     class MemoryChunkFile
     {
-        public:
+    public:
         explicit MemoryChunkFile(std::shared_ptr<MemoryChunk> d);
 
         void

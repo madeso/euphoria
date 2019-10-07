@@ -10,7 +10,7 @@ namespace euphoria::render
     struct FontCache::FontCachePimpl
         : core::Cache<std::string, Font, FontCache::FontCachePimpl>
     {
-        public:
+    public:
         explicit FontCachePimpl(core::vfs::FileSystem* fs, TextureCache* cache)
             : fs_(fs), cache_(cache)
         {
@@ -24,7 +24,7 @@ namespace euphoria::render
             return ret;
         }
 
-        private:
+    private:
         core::vfs::FileSystem* fs_;
         TextureCache*          cache_;
     };

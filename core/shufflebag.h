@@ -11,7 +11,7 @@ namespace euphoria::core
     template <typename T>
     class ShuffleBag
     {
-        public:
+    public:
         unsigned long
         GetSize() const
         {
@@ -56,7 +56,7 @@ namespace euphoria::core
             return data_[cursor_ + 1];
         }
 
-        private:
+    private:
         std::vector<T> data_;
         unsigned long  cursor_ = 0;
     };

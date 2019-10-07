@@ -143,7 +143,7 @@ namespace euphoria::core
             return y * width + x;
         }
 
-        private:
+    private:
         Table(I c, I r, T d = T()) : data(c * r, d), width(c), height(r)
         {
             ASSERTX(width >= 0 && height >= 0, width, height);

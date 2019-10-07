@@ -21,14 +21,14 @@ namespace euphoria
 
         class FontCache
         {
-            public:
+        public:
             FontCache(core::vfs::FileSystem* fs, TextureCache* cache);
             ~FontCache();
 
             std::shared_ptr<Font>
             GetFont(const std::string& path);
 
-            private:
+        private:
             struct FontCachePimpl;
             std::unique_ptr<FontCachePimpl> pimp;
         };

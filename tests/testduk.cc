@@ -13,7 +13,7 @@ int allocated_dogs = 0;
 
 class Dog
 {
-    public:
+public:
     Dog(const std::string& n) : name(n)
     {
         allocated_dogs += 1;

@@ -16,7 +16,7 @@ namespace euphoria::core
 
         class Node
         {
-            public:
+        public:
             virtual ~Node() = default;
 
             virtual void
@@ -27,7 +27,7 @@ namespace euphoria::core
 
         class TextNode : public Node
         {
-            public:
+        public:
             std::string text;
 
             explicit TextNode(const std::string& t);
@@ -38,7 +38,7 @@ namespace euphoria::core
 
         class ImageNode : public Node
         {
-            public:
+        public:
             std::string image;
 
             explicit ImageNode(const std::string& t);
@@ -49,7 +49,7 @@ namespace euphoria::core
 
         class BeginEndNode : public Node
         {
-            public:
+        public:
             bool begin;
 
             explicit BeginEndNode(bool b);
@@ -60,7 +60,7 @@ namespace euphoria::core
 
         class Visitor
         {
-            public:
+        public:
             virtual void
             OnText(const std::string& text)
                     = 0;
@@ -79,7 +79,7 @@ namespace euphoria::core
 
         class VisitorDebugString : public Visitor
         {
-            public:
+        public:
             std::ostringstream ss;
 
             void
@@ -107,7 +107,7 @@ namespace euphoria::core
     // id/number also should be displayed.
     class ParsedText
     {
-        public:
+    public:
         void
         Clear();
         void
@@ -132,7 +132,7 @@ namespace euphoria::core
         void
         Visit(textparser::Visitor* visitor) const;
 
-        private:
+    private:
         std::vector<std::shared_ptr<textparser::Node>> nodes;
     };
 

@@ -10,7 +10,7 @@ namespace euphoria::core
  */
     class Str
     {
-        public:
+    public:
         /** Generate a string.
   @see toString()
   @return the generated string.
@@ -36,7 +36,7 @@ namespace euphoria::core
             return *this;
         }
 
-        private:
+    private:
         std::ostringstream stream_;
     };
 

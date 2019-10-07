@@ -18,7 +18,7 @@ namespace euphoria::render
 
     class TextureCache
     {
-        public:
+    public:
         explicit TextureCache(core::vfs::FileSystem* fs);
         ~TextureCache();
 
@@ -28,7 +28,7 @@ namespace euphoria::render
         std::shared_ptr<Texture2d>
         GetTextureIfNotEmpty(const std::string& path);
 
-        private:
+    private:
         struct TextureCachePimpl;
         std::unique_ptr<TextureCachePimpl> pimp_;
     };

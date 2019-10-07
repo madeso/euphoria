@@ -48,7 +48,7 @@ namespace euphoria::gui
 
     class CmdButton : public Button
     {
-        public:
+    public:
         explicit CmdButton(UiState* state) : Button(state) {}
         void
         OnClicked() override

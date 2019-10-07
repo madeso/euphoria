@@ -97,7 +97,7 @@ namespace euphoria::render
 
     class Text
     {
-        public:
+    public:
         explicit Text(Font* font);
         ~Text();
 
@@ -130,7 +130,7 @@ namespace euphoria::render
         void
         Compile() const;
 
-        private:
+    private:
         const Font*      font_;
         float            size_;
         core::ParsedText text_;
@@ -146,7 +146,7 @@ namespace euphoria::render
 
     class Font
     {
-        public:
+    public:
         Font(core::vfs::FileSystem* fs,
              TextureCache*          cache,
              const std::string&     font_file);
@@ -161,7 +161,7 @@ namespace euphoria::render
         TextDrawCommandList
         CompileList(const core::ParsedText& text, float size) const;
 
-        private:
+    private:
         std::unique_ptr<Texture2d> texture_;
         std::shared_ptr<Texture2d> background;
         CharDataMap                chars_;

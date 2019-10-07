@@ -11,7 +11,7 @@ namespace euphoria::render
 
     class ShaderUniform
     {
-        public:
+    public:
         ShaderUniform(const ShaderUniform&) = default;
         ShaderUniform(std::string aname, glint aid, Shader* ashader);
 
@@ -25,7 +25,7 @@ namespace euphoria::render
         glint       id;
         Shader*     shader;
 
-        private:
+    private:
         ShaderUniform();  // creates a null shader
     };
 

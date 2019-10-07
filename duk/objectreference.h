@@ -17,7 +17,7 @@ namespace euphoria::duk
     // represents a object
     class ObjectReference
     {
-        public:
+    public:
         ObjectReference();
         explicit ObjectReference(void* p);
 

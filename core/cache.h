@@ -12,7 +12,7 @@ namespace euphoria::core
     template <typename Key, typename Data, typename Loader>
     class Cache
     {
-        public:
+    public:
         std::shared_ptr<Data>
         Get(const Key& key)
         {
@@ -36,7 +36,7 @@ namespace euphoria::core
             return data;
         }
 
-        private:
+    private:
         std::map<Key, std::weak_ptr<Data>> cache;
     };
 }  // namespace euphoria::core

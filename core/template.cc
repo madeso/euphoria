@@ -85,7 +85,7 @@ namespace euphoria::core
 
     class TemplateNode
     {
-        public:
+    public:
         TemplateNode()          = default;
         virtual ~TemplateNode() = default;
 
@@ -103,7 +103,7 @@ namespace euphoria::core
 
     class TemplateNodeString : public TemplateNode
     {
-        public:
+    public:
         explicit TemplateNodeString(std::string text) : text_(std::move(text))
         {}
         void
@@ -115,7 +115,7 @@ namespace euphoria::core
             *out << text_;
         }
 
-        private:
+    private:
         std::string text_;
     };
 
@@ -123,7 +123,7 @@ namespace euphoria::core
 
     class TemplateNodeList : public TemplateNode
     {
-        public:
+    public:
         TemplateNodeList() = default;
 
         void
@@ -143,7 +143,7 @@ namespace euphoria::core
             nodes_.push_back(node);
         }
 
-        private:
+    private:
         std::vector<std::shared_ptr<TemplateNode>> nodes_;
     };
 
@@ -151,7 +151,7 @@ namespace euphoria::core
 
     class TemplateNodeScopedList : public TemplateNodeList
     {
-        public:
+    public:
         TemplateNodeScopedList() = default;
 
         void
@@ -169,7 +169,7 @@ namespace euphoria::core
 
     class TemplateNodeIfdef : public TemplateNode
     {
-        public:
+    public:
         TemplateNodeIfdef(std::string name, std::shared_ptr<TemplateNode> node)
             : name_(std::move(name)), node_(std::move(node))
         {}
@@ -186,7 +186,7 @@ namespace euphoria::core
             }
         }
 
-        private:
+    private:
         std::string                   name_;
         std::shared_ptr<TemplateNode> node_;
     };
@@ -195,7 +195,7 @@ namespace euphoria::core
 
     class TemplateNodeEval : public TemplateNode
     {
-        public:
+    public:
         explicit TemplateNodeEval(std::string name) : name_(std::move(name)) {}
 
         void
@@ -215,7 +215,7 @@ namespace euphoria::core
             *out << defines->GetValue(name_);
         }
 
-        private:
+    private:
         std::string name_;
     };
 
@@ -223,7 +223,7 @@ namespace euphoria::core
 
     class TemplateNodeSet : public TemplateNode
     {
-        public:
+    public:
         TemplateNodeSet(std::string name, std::string value)
             : name_(std::move(name)), value_(std::move(value))
         {}
@@ -239,7 +239,7 @@ namespace euphoria::core
             defines->Define(name_, value_);
         }
 
-        private:
+    private:
         std::string name_;
         std::string value_;
     };
@@ -294,7 +294,7 @@ namespace euphoria::core
 
     class Lex
     {
-        public:
+    public:
         Lex(LexType t, unsigned int l, unsigned int c, std::string v = "")
             : type(t), value(std::move(v)), line(l), column(c)
         {}
@@ -440,7 +440,7 @@ namespace euphoria::core
 
     class LexReader
     {
-        public:
+    public:
         explicit LexReader(const std::vector<Lex>& input)
             : lex_(input), pos_(0), size_(input.size())
         {}
@@ -488,7 +488,7 @@ namespace euphoria::core
             return Peek().column;
         }
 
-        private:
+    private:
         std::vector<Lex> lex_;
         unsigned int     pos_;
         unsigned int     size_;

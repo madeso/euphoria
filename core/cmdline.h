@@ -11,7 +11,7 @@ namespace euphoria::core
 {
     class CmdLine
     {
-        public:
+    public:
         typedef std::vector<std::string>         Args;
         typedef std::function<void(const Args&)> Callback;
 
@@ -26,7 +26,7 @@ namespace euphoria::core
         void
         PrintHelp(const Args& args) const;
 
-        private:
+    private:
         std::ostream*                   out;
         std::map<std::string, Callback> callbacks;
     };

@@ -11,7 +11,7 @@ namespace euphoria::render
 
     class Point
     {
-        public:
+    public:
         Point(float x, float y, float u, float v);
         Point(const core::vec2f& apos, const core::vec2f& avert);
 
@@ -23,7 +23,7 @@ namespace euphoria::render
 
     class BufferBuilder2d
     {
-        public:
+    public:
         BufferBuilder2d();
 
         void
@@ -38,7 +38,7 @@ namespace euphoria::render
         const std::vector<unsigned int>&
         GetTriangleIndices() const;
 
-        private:
+    private:
         std::vector<float>        data;
         std::vector<unsigned int> tris;
     };

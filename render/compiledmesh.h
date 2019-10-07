@@ -28,7 +28,7 @@ namespace euphoria::render
     // one part of the mesh, single material
     class CompiledMeshPart
     {
-        public:
+    public:
         Vbo          data;
         Vao          config;
         Ebo          tris;
@@ -38,7 +38,7 @@ namespace euphoria::render
 
     class CompiledMeshMaterial
     {
-        public:
+    public:
         CompiledMeshMaterial();
 
         void
@@ -72,7 +72,7 @@ namespace euphoria::render
         bool
         Validate() const;
 
-        private:
+    private:
         core::Rgb                                             ambient_;
         core::Rgb                                             diffuse_;
         core::Rgb                                             specular_;
@@ -84,7 +84,7 @@ namespace euphoria::render
     // a collection of parts making up a mesh
     class CompiledMesh
     {
-        public:
+    public:
         std::vector<std::shared_ptr<CompiledMeshPart>> parts;
         std::vector<CompiledMeshMaterial>              materials;
 

@@ -29,7 +29,7 @@ namespace euphoria::render
 {
     class ShaderId : core::Noncopyable
     {
-        public:
+    public:
         ShaderId();
         ~ShaderId();
 
@@ -39,7 +39,7 @@ namespace euphoria::render
         gluint
         GetId() const;
 
-        private:
+    private:
         gluint id_;
     };
 
@@ -48,7 +48,7 @@ namespace euphoria::render
 
     class Shader : public ShaderId
     {
-        public:
+    public:
         Shader();
 
         // shader attribute =
@@ -62,7 +62,7 @@ namespace euphoria::render
                 const glchar* fragment_source,
                 const glchar* geometry_source = nullptr);
 
-        public:
+    public:
         // uniform = shader global
         ShaderUniform
         GetUniform(const std::string& name);
@@ -94,7 +94,7 @@ namespace euphoria::render
         const std::string&
         GetName() const;
 
-        private:
+    private:
         // debug
         std::vector<ShaderAttribute> bound_attributes_;
         bool

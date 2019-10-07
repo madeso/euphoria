@@ -28,7 +28,7 @@ namespace euphoria::gui
 
     class Widget
     {
-        public:
+    public:
         std::string name;
         Lrtb        margin;
         Lrtb        padding;
@@ -65,19 +65,19 @@ namespace euphoria::gui
         virtual void
         Render(render::SpriteRenderer* renderer) const = 0;
 
-        protected:
+    protected:
         const UiState&
         GetState() const;
         UiState*
         GetStatePtr();
 
-        private:
+    private:
         UiState* state_;
 
-        public:
+    public:
         LayoutData layout;
 
-        private:
+    private:
         core::Rectf rect_;
     };
 }  // namespace euphoria::gui

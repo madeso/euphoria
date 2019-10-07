@@ -9,7 +9,7 @@ namespace euphoria::core
 
     class Aabb
     {
-        public:
+    public:
         Aabb(const vec3f& amin, const vec3f& amax);
 
         vec3f

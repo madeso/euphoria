@@ -21,7 +21,8 @@ namespace euphoria::engine
         {}
 
         void
-        Draw(core::ecs::EntReg* reg, render::SpriteRenderer* renderer) const override
+        Draw(core::ecs::EntReg*      reg,
+             render::SpriteRenderer* renderer) const override
         {
             const auto items = reg->View(std::vector<core::ecs::ComponentId> {
                     components->position2, components->sprite});
@@ -46,7 +47,10 @@ namespace euphoria::engine
 
 
     void
-    AddSystems(core::ecs::Systems* systems, duk::Duk* duk, Components* components)
+    AddSystems(
+            core::ecs::Systems* systems,
+            duk::Duk*           duk,
+            Components*         components)
     {
         systems->AddAndRegister(std::make_shared<SystemSpriteDraw>(components));
     }

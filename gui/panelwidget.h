@@ -8,7 +8,7 @@ namespace euphoria::gui
 {
     class PanelWidget : public Widget
     {
-        public:
+    public:
         PanelWidget(UiState* state);
 
         void

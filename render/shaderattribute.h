@@ -18,7 +18,7 @@ namespace euphoria::render
 
     class ShaderAttribute
     {
-        public:
+    public:
         ShaderAttribute(
                 std::string         aname,
                 glint               aid,

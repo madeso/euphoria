@@ -13,7 +13,7 @@ namespace euphoria::render
     // texture & shader will be handled by 2d world and sprite
     class SpriteBatch
     {
-        public:
+    public:
         SpriteBatch();
         ~SpriteBatch();
 
@@ -31,7 +31,7 @@ namespace euphoria::render
         void
         Flush();
 
-        private:
+    private:
         bool               inside_;
         unsigned int       count_;
         unsigned int       rendercalls_;

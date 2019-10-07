@@ -65,7 +65,7 @@ namespace euphoria::core::argparse
         static Name
         Positional(const std::string& names);
 
-        private:
+    private:
         Name(bool o, const std::vector<std::string>& n);
 
 #ifdef _DEBUG

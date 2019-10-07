@@ -15,7 +15,7 @@ namespace euphoria::gui
 {
     class TextData
     {
-        public:
+    public:
         TextData();
         ~TextData();
 
@@ -43,7 +43,7 @@ namespace euphoria::gui
         void
         SetSize(float size);
 
-        private:
+    private:
         void
                                       UpdateText();
         std::shared_ptr<render::Font> font_;

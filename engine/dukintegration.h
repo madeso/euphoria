@@ -7,7 +7,7 @@ namespace euphoria::core::ecs
 {
     class Systems;
     class World;
-}  // namespace euphoria::core
+}  // namespace euphoria::core::ecs
 
 namespace euphoria::duk
 {
@@ -26,14 +26,14 @@ namespace euphoria::engine
 
     class DukIntegration
     {
-        public:
+    public:
         DukIntegration(
                 core::ecs::Systems* systems,
                 core::ecs::World*   reg,
-                duk::Duk*      duk,
-                ObjectCreator* creator,
-                Components*    components,
-                CameraData*    camera);
+                duk::Duk*           duk,
+                ObjectCreator*      creator,
+                Components*         components,
+                CameraData*         camera);
         ~DukIntegration();
 
         void
@@ -45,7 +45,7 @@ namespace euphoria::engine
         void
         BindKeys(duk::Duk* duk, const Input& input);
 
-        private:
+    private:
         std::unique_ptr<DukIntegrationPimpl> pimpl;
     };
 }  // namespace euphoria::engine

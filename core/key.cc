@@ -14,7 +14,7 @@ namespace euphoria::core
         template <typename T>
         class Keyname
         {
-            public:
+        public:
             Keyname(T unbound, T invalid) : invalid_(invalid), unbound_(unbound)
             {
                 (*this)(invalid_, "<invalid>")(unbound_, "<unbound>");

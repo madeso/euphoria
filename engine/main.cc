@@ -88,7 +88,7 @@ struct RunResult
         return RunResult {false, message};
     };
 
-    private:
+private:
     RunResult(bool b, const std::string& str) : ok(b), message(str) {}
 };
 

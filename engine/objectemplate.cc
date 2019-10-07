@@ -18,10 +18,10 @@ namespace euphoria::engine
     ////////////////////////////////////////////////////////////////////////////////
 
     ObjectCreationArgs::ObjectCreationArgs(
-            core::ecs::World*  aworld,
-            DukRegistry*  areg,
-            duk::Context* actx,
-            duk::Duk*     aduk)
+            core::ecs::World* aworld,
+            DukRegistry*      areg,
+            duk::Context*     actx,
+            duk::Duk*         aduk)
         : world(aworld), reg(areg), ctx(actx), duk(aduk)
     {}
 
@@ -29,7 +29,7 @@ namespace euphoria::engine
 
     class PositionComponentCreator : public ComponentCreator
     {
-        public:
+    public:
         core::vec2f p;
         Components* components;
 
@@ -56,7 +56,7 @@ namespace euphoria::engine
 
     class SpriteComponentCreator : public ComponentCreator
     {
-        public:
+    public:
         std::shared_ptr<render::Texture2d> texture;
         Components*                        components;
 
@@ -84,13 +84,13 @@ namespace euphoria::engine
 
     class CustomComponentCreator : public ComponentCreator
     {
-        public:
+    public:
         core::ecs::ComponentId comp;
-        CustomArguments   arguments;
+        CustomArguments        arguments;
 
         static std::shared_ptr<CustomComponentCreator>
         Create(const std::string&            name,
-               core::ecs::ComponentId             id,
+               core::ecs::ComponentId        id,
                const std::vector<game::Var>& arguments)
         {
             auto ptr  = std::make_shared<CustomComponentCreator>();
@@ -141,7 +141,7 @@ namespace euphoria::engine
         }
         else if (comp.custom)
         {
-            const auto&       s = *comp.custom;
+            const auto&            s = *comp.custom;
             core::ecs::ComponentId id;
             if (reg->GetCustomComponentByName(s.name, &id))
             {

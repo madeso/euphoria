@@ -26,7 +26,7 @@ namespace euphoria::core::ecs
     // only a base class container
     class ComponentSystem
     {
-        public:
+    public:
         explicit ComponentSystem(const std::string& the_name);
         virtual ~ComponentSystem() = default;
 
@@ -40,33 +40,33 @@ namespace euphoria::core::ecs
 
     class ComponentSystemStore
     {
-        public:
+    public:
         ComponentSystemStore() = default;
 
         void
         Add(std::shared_ptr<ComponentSystem> system);
 
-        private:
+    private:
         std::vector<std::shared_ptr<ComponentSystem>> systems;
     };
 
     class ComponentSystemUpdate
     {
-        public:
+    public:
         virtual void
         Update(EntReg* reg, float dt) const = 0;
     };
 
     class ComponentSystemInit
     {
-        public:
+    public:
         virtual void
         OnAdd(EntityId entity) const = 0;
     };
 
     class ComponentSystemSpriteDraw
     {
-        public:
+    public:
         virtual void
         Draw(EntReg* reg, render::SpriteRenderer* renderer) const = 0;
     };
@@ -74,27 +74,27 @@ namespace euphoria::core::ecs
     template <typename TSystem>
     class SystemStore
     {
-        public:
+    public:
         void
         Add(TSystem* system)
         {
             systems.emplace_back(system);
         }
 
-        protected:
+    protected:
         std::vector<TSystem*> systems;
     };
 
     class ComponentSystemUpdateStore : public SystemStore<ComponentSystemUpdate>
     {
-        public:
+    public:
         void
         Update(EntReg* reg, float dt) const;
     };
 
     class ComponentSystemInitStore : public SystemStore<ComponentSystemInit>
     {
-        public:
+    public:
         void
         OnAdd(EntityId ent) const;
     };
@@ -102,14 +102,14 @@ namespace euphoria::core::ecs
     class ComponentSystemSpriteDrawStore
         : public SystemStore<ComponentSystemSpriteDraw>
     {
-        public:
+    public:
         void
         Draw(EntReg* reg, render::SpriteRenderer* renderer) const;
     };
 
     class Systems
     {
-        public:
+    public:
         void
         AddAndRegister(std::shared_ptr<ComponentSystem> system);
 
@@ -124,7 +124,7 @@ namespace euphoria::core::ecs
 
     class World
     {
-        public:
+    public:
         EntReg   reg;
         Systems* systems;
 
@@ -137,6 +137,6 @@ namespace euphoria::core::ecs
         Draw(render::SpriteRenderer* renderer);
     };
 
-}  // namespace euphoria::core
+}  // namespace euphoria::core::ecs
 
 #endif  // EUPHORIA_COMPONENTSYSTEM_H

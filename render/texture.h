@@ -51,7 +51,7 @@ namespace euphoria::render
 
     class TextureId : core::Noncopyable
     {
-        public:
+    public:
         TextureId();
         ~TextureId();
 
@@ -60,7 +60,7 @@ namespace euphoria::render
         gluint
         GetId() const;
 
-        private:
+    private:
         gluint id_;
     };
 
@@ -69,7 +69,7 @@ namespace euphoria::render
 
     class Texture2d : public TextureId
     {
-        public:
+    public:
         Texture2d();
 
         void
@@ -97,7 +97,7 @@ namespace euphoria::render
         int
         GetHeight() const;
 
-        private:
+    private:
         int width_, height_;
     };
 

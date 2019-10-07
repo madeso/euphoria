@@ -10,7 +10,7 @@ namespace euphoria::core
     {
         class FileSystemDefaultShaders : public FileSystemReadRoot
         {
-            public:
+        public:
             static void
             AddRoot(FileSystem* fs, const std::string& base);
 
@@ -25,7 +25,7 @@ namespace euphoria::core
             FileList
             ListFiles(const Path& path) override;
 
-            private:
+        private:
             std::string base_;
         };
 

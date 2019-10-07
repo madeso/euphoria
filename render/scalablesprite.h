@@ -24,7 +24,7 @@ namespace euphoria::render
 
     class ScalableSprite
     {
-        public:
+    public:
         ScalableSprite(
                 core::vfs::FileSystem* fs,
                 const std::string&     path,
@@ -40,7 +40,7 @@ namespace euphoria::render
                const core::Rectf& pos,
                const core::Rgba&  tint) const;
 
-        private:
+    private:
         std::shared_ptr<Texture2d> texture_;
 
         std::vector<float> cols_;

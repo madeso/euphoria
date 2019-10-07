@@ -12,7 +12,7 @@ namespace euphoria::render
 
     class MaterialShaderDefaultTexture
     {
-        public:
+    public:
         MaterialShaderDefaultTexture(
                 const core::EnumValue& name,
                 const std::string&     path);
@@ -23,14 +23,14 @@ namespace euphoria::render
         const std::string&
         GetPath() const;
 
-        private:
+    private:
         core::EnumValue name_;
         std::string     path_;
     };
 
     class MaterialShaderBinding
     {
-        public:
+    public:
         MaterialShaderBinding(
                 ShaderUniform          uniform,
                 const core::EnumValue& name);
@@ -41,14 +41,14 @@ namespace euphoria::render
         const core::EnumValue&
         GetName() const;
 
-        private:
+    private:
         ShaderUniform   uniform_;
         core::EnumValue name_;
     };
 
     class MaterialShader
     {
-        public:
+    public:
         MaterialShader();
 
         // todo: add default textures, so we can optionally bind a white texture

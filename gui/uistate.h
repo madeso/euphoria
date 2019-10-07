@@ -9,7 +9,7 @@ namespace euphoria::gui
 
     class UiState
     {
-        public:
+    public:
         UiState();
 
         core::vec2f mouse;

@@ -30,7 +30,7 @@ namespace euphoria::gui
     class Skin;
     class Root
     {
-        public:
+    public:
         Root(const core::Sizef& size);
         ~Root();
 

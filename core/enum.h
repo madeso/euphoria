@@ -23,7 +23,7 @@ namespace euphoria::core
     // perhaps faster to generate?
     class EnumType
     {
-        public:
+    public:
         EnumType(std::string name);
         ~EnumType();
 
@@ -35,7 +35,7 @@ namespace euphoria::core
         void
         AddEnums(const std::vector<std::string>& names);
 
-        private:
+    private:
         typedef std::map<size_t, std::string> ValueToName;
         typedef std::map<std::string, size_t> NameToValue;
 
@@ -53,7 +53,7 @@ namespace euphoria::core
 
     class EnumValue
     {
-        public:
+    public:
         EnumValue(EnumType* t, size_t v);
 
         // todo: add EnumType to the parameter to verify against stored member
@@ -70,7 +70,7 @@ namespace euphoria::core
         bool
         operator<(const EnumValue& other) const;
 
-        private:
+    private:
         // todo: only have type_ in debug/test builds
         EnumType* type_;
         size_t    value_;

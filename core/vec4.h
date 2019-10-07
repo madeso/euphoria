@@ -14,7 +14,7 @@ namespace euphoria::core
     template <typename T>
     class vec4
     {
-        public:
+    public:
         T x;
         T y;
         T z;
