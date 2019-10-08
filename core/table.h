@@ -12,20 +12,20 @@ namespace euphoria::core
     template <typename T>
     struct Table
     {
-        using I = unsigned int;
+        using I = int;
 
         Table() : width(0), height(0) {}
 
         static Table
-        FromWidthHeight(I c, I r, T d = T())
+        FromWidthHeight(I width, I height, T d = T())
         {
-            return Table(c, r, d);
+            return Table(width, height, d);
         }
 
         static Table
-        FromHeightWidth(I r, I c, T d = T())
+        FromHeightWidth(I height, I width, T d = T())
         {
-            return Table(c, r, d);
+            return Table(width, height, d);
         }
 
         void

@@ -69,7 +69,7 @@ namespace euphoria::core
         // move to point class or a circle class?
         vec2f
         PointOnUnitCircle_CenterFocused();
-        
+
         vec2f
         PointOnUnitCircle_Uniform();
 

@@ -63,18 +63,21 @@ namespace euphoria::core
 
     enum class CsvTrim
     {
-        Trim, DontTrim
+        Trim,
+        DontTrim
     };
 
     struct CsvParserOptions
     {
-        char delim = ',';
-        char str = '\"';
-        CsvTrim trim = CsvTrim::DontTrim;
+        char    delim = ',';
+        char    str   = '\"';
+        CsvTrim trim  = CsvTrim::DontTrim;
     };
 
     Table<std::string>
-    TableFromCsv(const std::string& data, const CsvParserOptions& options = CsvParserOptions());
+    TableFromCsv(
+            const std::string&      data,
+            const CsvParserOptions& options = CsvParserOptions());
 
 
     /*

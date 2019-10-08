@@ -23,9 +23,9 @@ namespace euphoria::core
 
         std::vector<std::string> row;
         std::stringstream        ss;
-        bool                     inside_string = false;
-        bool                     added         = false;
-        bool was_from_string = false;
+        bool                     inside_string   = false;
+        bool                     added           = false;
+        bool                     was_from_string = false;
 
         while (file.HasMore())
         {
@@ -53,25 +53,25 @@ namespace euphoria::core
             {
                 if (c == options.str)
                 {
-                    if(added)
+                    if (added)
                     {
                         // todo: generate error if string contains stuff other than whitespace
                         ss.str("");
                     }
-                    inside_string = true;
+                    inside_string   = true;
                     was_from_string = true;
-                    added = true;
+                    added           = true;
                 }
                 else if (c == options.delim)
                 {
                     auto data = ss.str();
-                    if(!was_from_string && options.trim == CsvTrim::Trim)
+                    if (!was_from_string && options.trim == CsvTrim::Trim)
                     {
                         data = Trim(data);
                     }
                     row.push_back(data);
                     ss.str("");
-                    added = false;
+                    added           = false;
                     was_from_string = false;
                 }
                 else if (c == '\n')
@@ -79,7 +79,7 @@ namespace euphoria::core
                     if (added)
                     {
                         auto data = ss.str();
-                        if(!was_from_string && options.trim == CsvTrim::Trim)
+                        if (!was_from_string && options.trim == CsvTrim::Trim)
                         {
                             data = Trim(data);
                         }
@@ -88,12 +88,12 @@ namespace euphoria::core
                     ss.str("");
                     AddRowToTable(&table, row);
                     row.resize(0);
-                    added = false;
+                    added           = false;
                     was_from_string = false;
                 }
                 else
                 {
-                    if(was_from_string)
+                    if (was_from_string)
                     {
                         // skip
                         // todo: error on non whitespace?
@@ -110,7 +110,7 @@ namespace euphoria::core
         if (added)
         {
             auto data = ss.str();
-            if(!was_from_string && options.trim == CsvTrim::Trim)
+            if (!was_from_string && options.trim == CsvTrim::Trim)
             {
                 data = Trim(data);
             }
@@ -124,6 +124,7 @@ namespace euphoria::core
     int
     WidthOfString(const std::string& t)
     {
+        // todo: bugfix longstring\nshort will return length of short, not longstring
         int w = 0;
 
         for (auto c: t)
@@ -142,6 +143,20 @@ namespace euphoria::core
     }
 
     int
+    HeightOfString(const std::string& t)
+    {
+        int h = 1;
+        for (auto c: t)
+        {
+            if (c == '\n')
+            {
+                h += 1;
+            }
+        }
+        return h;
+    }
+
+    int
     ColumnWidth(const Table<std::string>& t, int c)
     {
         int width = 0;
@@ -150,6 +165,17 @@ namespace euphoria::core
             width = std::max<int>(width, WidthOfString(t.Value(c, y)));
         }
         return width;
+    }
+
+    int
+    RowHeight(const Table<std::string>& t, int r)
+    {
+        int height = 0;
+        for (size_t x = 0; x < t.Width(); x += 1)
+        {
+            height = std::max<int>(height, HeightOfString(t.Value(x, r)));
+        }
+        return height;
     }
 
     std::vector<int>
@@ -164,8 +190,24 @@ namespace euphoria::core
         return sizes;
     }
 
+    /// Return a new table based on row, where each cell is split at newline over many rows
+    Table<std::string>
+    SplitTableCellsOnNewline(const Table<std::string>& table, size_t row)
+    {
+        auto ret = Table<std::string>::FromWidthHeight(table.Width(), RowHeight(table, row));
+        for (int c = 0; c < table.Width(); c += 1)
+        {
+            const auto rows = Split(table.Value(c, row), '\n');
+            for (int i = 0; i < rows.size(); i += 1)
+            {
+                ret.Value(c, i, rows[i]);
+            }
+        }
+        return ret;
+    }
+
     void
-    PrintTableSimple(std::ostream& out, const Table<std::string>& table)
+    PrintTableSimple(std::ostream& out, const Table<std::string>& maintable)
     {
         // todo: cleanup this function...
         const auto begin_str_padding = 1;
@@ -173,55 +215,48 @@ namespace euphoria::core
 
         const auto begin_str      = std::string(begin_str_padding, ' ');
         const auto end_str        = std::string(end_space_padding, ' ');
-        const auto number_of_cols = table.Width();
-        const auto number_of_rows = table.Height();
+        const auto number_of_cols = maintable.Width();
+        const auto number_of_rows = maintable.Height();
 
-        const std::vector<int> sizes = ColumnWidths(table, 1);
+        const std::vector<int> sizes = ColumnWidths(maintable, 1);
 
         const auto total_padding = begin_str_padding + end_space_padding;
 
-        for (size_t row = 0; row < number_of_rows; ++row)
+        for (size_t mainrow = 0; mainrow < number_of_rows; ++mainrow)
         {
-            for (size_t col = 0; col < number_of_cols; ++col)
-            {
-                const auto cell        = begin_str + table.Value(col, row);
-                int        line_length = 0;
-                for (auto c: cell)
-                {
-                    out << c;
-                    line_length += 1;
-                    if (c == '\n')
-                    {
-                        line_length = 0;
-                        for (int subcol = 0; subcol < col; subcol += 1)
-                        {
-                            out << begin_str;
-                            out << std::string(sizes[subcol], ' ');
-                            out << end_str;
-                        }
-                    }
-                }
-                if (col != number_of_cols - 1)
-                {
-                    for (size_t i = line_length; i < sizes[col] + total_padding;
-                         ++i)
-                    {
-                        out << ' ';
-                    }
-                }
-            }
-            out << '\n';
-
-            if (row == 0)
+            const auto subtable = SplitTableCellsOnNewline(maintable, mainrow);
+            for (size_t subrow = 0; subrow < subtable.Height(); ++subrow)
             {
                 for (size_t col = 0; col < number_of_cols; ++col)
                 {
-                    const auto row_text
-                            = std::string(sizes[col] + begin_str_padding, '-')
-                              + std::string(end_space_padding, ' ');
-                    out << row_text;
+                    const auto cell = begin_str + subtable.Value(col, subrow);
+                    int        line_length = cell.length();
+                    out << cell;
+
+                    if (col != number_of_cols - 1)
+                    {
+                        for (size_t i = line_length;
+                             i < sizes[col] + total_padding;
+                             ++i)
+                        {
+                            out << ' ';
+                        }
+                    }
                 }
                 out << '\n';
+
+                if (mainrow == 0)
+                {
+                    for (size_t col = 0; col < number_of_cols; ++col)
+                    {
+                        const auto row_text
+                                = std::string(
+                                          sizes[col] + begin_str_padding, '-')
+                                  + std::string(end_space_padding, ' ');
+                        out << row_text;
+                    }
+                    out << '\n';
+                }
             }
         }
     }

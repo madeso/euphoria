@@ -245,7 +245,7 @@ namespace euphoria::core
         }
 
         int size        = 0;
-        int     size_result = WriteImageData(
+        int size_result = WriteImageData(
                 DetermineImageSize,
                 &size,
                 GetWidth(),
@@ -374,9 +374,7 @@ namespace euphoria::core
         {
             for (int x = 0; x < image_width; ++x)
             {
-                const int src_index
-                        = (y * image_width + x)
-                          * channels;
+                const int src_index = (y * image_width + x) * channels;
 
                 // get component values
                 const unsigned char zero = 0;

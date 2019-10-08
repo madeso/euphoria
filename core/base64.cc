@@ -63,10 +63,10 @@ namespace euphoria::core
             if (input.length() % 4 == 0)
             {
                 ASSERT(!input.empty());
-                auto    asize = (input.length() * 3) / 4;
-                auto    found = input.find('=') != std::string::npos;
-                auto    bsize = found ? (input.length() - input.find('=')) : 0;
-                int size  = asize - bsize;
+                auto asize = (input.length() * 3) / 4;
+                auto found = input.find('=') != std::string::npos;
+                auto bsize = found ? (input.length() - input.find('=')) : 0;
+                int  size  = asize - bsize;
 
                 ASSERT(size > 0);
 

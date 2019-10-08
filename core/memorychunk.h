@@ -30,7 +30,7 @@ namespace euphoria::core
     private:
         explicit MemoryChunk(int size);
         std::unique_ptr<char[]> data_;
-        int                 size_;
+        int                     size_;
     };
 
     void
@@ -48,7 +48,7 @@ namespace euphoria::core
         Write(const void* src, int size);
 
         std::shared_ptr<MemoryChunk> data;
-        int                      position;
+        int                          position;
     };
 
 }  // namespace euphoria::core
