@@ -75,24 +75,24 @@ namespace euphoria::core
         {
             // todo: implement better search
             std::vector<SinglePalette> r;
-            for (const auto& br: All())
+            for(const auto& br: All())
             {
-                if (type)
+                if(type)
                 {
-                    if (br.type != *type)
+                    if(br.type != *type)
                         continue;
                 }
-                if (size)
+                if(size)
                 {
                     auto found = br.palettes.find(*size);
-                    if (found != br.palettes.end())
+                    if(found != br.palettes.end())
                     {
                         r.push_back(SinglePalette {br.name, found->second});
                     }
                 }
                 else
                 {
-                    for (const auto& p: br.palettes)
+                    for(const auto& p: br.palettes)
                     {
                         r.push_back(SinglePalette {br.name, p.second});
                     }

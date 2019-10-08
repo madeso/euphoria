@@ -24,7 +24,7 @@ namespace euphoria::core
     KeysOf(const std::map<K, V>& m)
     {
         std::vector<K> r;
-        for (const auto& p: m)
+        for(const auto& p: m)
         {
             r.emplace_back(p.first);
         }
@@ -82,7 +82,7 @@ namespace euphoria::core
     {
         Aabb aabb = Aabb::Empty();
 
-        for (unsigned int i = 0; i < points.size(); i += NUMBER_OF_COMPONENTS)
+        for(unsigned int i = 0; i < points.size(); i += NUMBER_OF_COMPONENTS)
         {
             aabb.Extend(vec3f {&points[i]});
         }
@@ -118,7 +118,7 @@ namespace euphoria::core
     {
         Aabb aabb = Aabb::Empty();
 
-        for (const auto& part: parts)
+        for(const auto& part: parts)
         {
             aabb.Extend(part.CalculateAabb());
         }
@@ -148,7 +148,7 @@ namespace euphoria::core
         WrapMode
         GetTextureWrappingMode(const int mode)
         {
-            switch (mode)
+            switch(mode)
             {
             case aiTextureMapMode_Wrap: return WrapMode::REPEAT;
             case aiTextureMapMode_Clamp: return WrapMode::CLAMP_TO_EDGE;
@@ -168,15 +168,15 @@ namespace euphoria::core
         void
         AddMaterials(Mesh* ret, const aiScene* scene)
         {
-            for (unsigned int material_id = 0;
-                 material_id < scene->mNumMaterials;
-                 ++material_id)
+            for(unsigned int material_id = 0;
+                material_id < scene->mNumMaterials;
+                ++material_id)
             {
                 const aiMaterial* mat = scene->mMaterials[material_id];
 
                 Material material;
 
-                if (mat->GetTextureCount(aiTextureType_DIFFUSE) <= 0)
+                if(mat->GetTextureCount(aiTextureType_DIFFUSE) <= 0)
                 {
                     // do nothing
                 }
@@ -199,12 +199,12 @@ namespace euphoria::core
                         = aiReturn_SUCCESS
                           == mat->Get(AI_MATKEY_OPACITY, material.alpha);
 
-                if (!got_shininess)
+                if(!got_shininess)
                 {
                     material.shininess = 0.0f;
                 }
 
-                if (!got_alpha)
+                if(!got_alpha)
                 {
                     material.alpha = 1.0f;
                 }
@@ -236,7 +236,7 @@ namespace euphoria::core
         void
         AddFaces(MeshPart* part, const aiMesh* mesh)
         {
-            for (unsigned int face_id = 0; face_id < mesh->mNumFaces; ++face_id)
+            for(unsigned int face_id = 0; face_id < mesh->mNumFaces; ++face_id)
             {
                 const aiFace& face = mesh->mFaces[face_id];
                 part->AddFace(
@@ -247,13 +247,13 @@ namespace euphoria::core
         void
         AddPoints(MeshPart* part, const aiMesh* mesh)
         {
-            for (unsigned int index = 0; index < mesh->mNumVertices; ++index)
+            for(unsigned int index = 0; index < mesh->mNumVertices; ++index)
             {
                 const aiVector3D& vertex = mesh->mVertices[index];
                 const aiVector3D& normal = mesh->mNormals[index];
                 float             u      = 0;
                 float             v      = 0;
-                if (mesh->HasTextureCoords(0))
+                if(mesh->HasTextureCoords(0))
                 {
                     const aiVector3D uv = mesh->mTextureCoords[0][index];
                     u                   = uv.x;
@@ -292,12 +292,12 @@ namespace euphoria::core
     dynamically animate some rotors, wings etc. for example
      */
 
-            if (scene->HasMeshes())
+            if(scene->HasMeshes())
             {
                 AddMaterials(&ret, scene);
 
-                for (unsigned int meshid = 0; meshid < scene->mNumMeshes;
-                     ++meshid)
+                for(unsigned int meshid = 0; meshid < scene->mNumMeshes;
+                    ++meshid)
                 {
                     const aiMesh*  mesh = scene->mMeshes[meshid];
                     const MeshPart part = ConvertMesh(mesh);
@@ -316,7 +316,7 @@ namespace euphoria::core
 
             const aiScene* scene = importer.ReadFileFromMemory(
                     nff.c_str(), nff.length() + 1, AssimpFlags, format.c_str());
-            if (scene == nullptr)
+            if(scene == nullptr)
             {
                 throw std::string {importer.GetErrorString()};
             }
@@ -333,15 +333,15 @@ namespace euphoria::core
                 const mesh::Mesh&  json)
         {
             std::map<std::string, Material*> mesh_materials;
-            for (auto& material: mesh->materials)
+            for(auto& material: mesh->materials)
             {
                 mesh_materials[material.name] = &material;
             }
 
-            for (const auto& material: json.materials)
+            for(const auto& material: json.materials)
             {
                 auto found = mesh_materials.find(material.name);
-                if (found == mesh_materials.end())
+                if(found == mesh_materials.end())
                 {
                     LOG_ERROR(
                             "Unable to find "
@@ -353,7 +353,7 @@ namespace euphoria::core
                 }
 
                 auto* other = found->second;
-                for (const auto& src_texture: material.textures)
+                for(const auto& src_texture: material.textures)
                 {
                     other->SetTexture(src_texture.type, src_texture.path);
                 }
@@ -363,7 +363,7 @@ namespace euphoria::core
         void
         DecorateMeshMaterialsIgnoreAmbient(Mesh* mesh)
         {
-            for (auto& material: mesh->materials)
+            for(auto& material: mesh->materials)
             {
                 material.ambient = material.diffuse;
             }
@@ -377,17 +377,17 @@ namespace euphoria::core
         {
             mesh::Mesh json;
             const auto error = LoadProtoJson(fs, &json, json_path);
-            if (!error.empty())
+            if(!error.empty())
             {
                 LOG_WARN("Mesh " << json_path << " failed to load: " << error);
             }
 
-            if (json.diffuse_and_ambient_are_same)
+            if(json.diffuse_and_ambient_are_same)
             {
                 DecorateMeshMaterialsIgnoreAmbient(mesh);
             }
 
-            if (!json.materials.empty())
+            if(!json.materials.empty())
             {
                 DecorateMeshMaterials(mesh, json_path, json);
             }
@@ -405,7 +405,7 @@ namespace euphoria::core
             MeshLoadResult   res;
 
             const aiScene* scene = importer.ReadFile(path, AssimpFlags);
-            if (scene == nullptr)
+            if(scene == nullptr)
             {
                 res.error = importer.GetErrorString();
             }

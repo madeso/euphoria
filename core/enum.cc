@@ -33,7 +33,7 @@ namespace euphoria::core
     {
         ASSERT(v < nextIndex_);
         auto f = valueToName_.find(v);
-        if (f != valueToName_.end())
+        if(f != valueToName_.end())
         {
             return f->second;
         }
@@ -50,12 +50,12 @@ namespace euphoria::core
     EnumType::ToEnum(const std::string& name)
     {
         NameToValue::const_iterator r = nameToValue_.find(name);
-        if (r != nameToValue_.end())
+        if(r != nameToValue_.end())
         {
             return EnumValue(this, r->second);
         }
 
-        if (!isAdding_)
+        if(!isAdding_)
         {
             std::cerr << "Enum value doesnt exist, " << name << "\n";
             return EnumValue(this, 0);
@@ -70,18 +70,18 @@ namespace euphoria::core
     {
         ASSERT(isAdding_);
         std::set<std::string> valid_names;
-        for (const auto& name: names)
+        for(const auto& name: names)
         {
             AddEnum(name);
             valid_names.insert(name);
         }
 
         // validate all names against true names
-        for (const auto& name: nameToValue_)
+        for(const auto& name: nameToValue_)
         {
             const bool missing
                     = valid_names.find(name.first) == valid_names.end();
-            if (missing)
+            if(missing)
             {
                 std::cerr << "Enum " << name_ << " was registered with name "
                           << name.first << " but that is invalid.\n";
@@ -96,7 +96,7 @@ namespace euphoria::core
     {
         ASSERT(isAdding_);
         NameToValue::const_iterator r = nameToValue_.find(name);
-        if (r != nameToValue_.end())
+        if(r != nameToValue_.end())
         {
             return;
         }
@@ -160,14 +160,14 @@ namespace euphoria::core
 
         std::vector<std::string> names;
 
-        if (!load_error.empty())
+        if(!load_error.empty())
         {
             std::cerr << "Failed to load enums " << path << ": " << load_error
                       << "\n";
         }
         else
         {
-            for (const auto& name: root.name)
+            for(const auto& name: root.name)
             {
                 names.push_back(name);
             }

@@ -92,9 +92,9 @@ namespace euphoria::render
     void
     Layer::Render()
     {
-        for (auto& list: sprites_)
+        for(auto& list: sprites_)
         {
-            for (auto& sp: list.second)
+            for(auto& sp: list.second)
             {
                 sp->Render(render_);
             }

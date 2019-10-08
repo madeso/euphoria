@@ -42,13 +42,13 @@ namespace euphoria::core
 #define LOG_BASE(LOGGER, MESSAGE, LEVEL)                                       \
     do                                                                         \
     {                                                                          \
-        if (LOGGER->IsEnabledForLevel(LEVEL))                                  \
+        if(LOGGER->IsEnabledForLevel(LEVEL))                                   \
         {                                                                      \
             std::ostringstream log_message_stream;                             \
             log_message_stream << MESSAGE;                                     \
             LOGGER->AddLog(LEVEL, log_message_stream.str());                   \
         }                                                                      \
-    } while (false)
+    } while(false)
 
 #define LOG_SPECIFY_DEFAULT_LOGGER(NAME)                                       \
     namespace                                                                  \

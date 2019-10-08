@@ -207,7 +207,7 @@ TEST_CASE("duk-eval", "[duk]")
                     "test",
                     MakeBind<Optional<int>>(
                             [&](Context* ctx, Optional<int> i) -> int {
-                                if (i)
+                                if(i)
                                 {
                                     value = i.value;
                                 }

@@ -49,7 +49,7 @@ namespace euphoria::core
     void
     FpsController::HandleKey(Key key, bool down)
     {
-        switch (key)
+        switch(key)
         {
         case Key::W:
         case Key::UP: MoveForward(down); return;
@@ -73,34 +73,34 @@ namespace euphoria::core
         int right   = 0;
         int up      = 0;
 
-        if (forward_down_)
+        if(forward_down_)
         {
             forward += 1;
         }
-        if (backward_down_)
+        if(backward_down_)
         {
             forward -= 1;
         }
 
-        if (right_down_)
+        if(right_down_)
         {
             right += 1;
         }
-        if (left_down_)
+        if(left_down_)
         {
             right -= 1;
         }
 
-        if (up_down_)
+        if(up_down_)
         {
             up += 1;
         }
-        if (down_down_)
+        if(down_down_)
         {
             up -= 1;
         }
 
-        if (forward == 0 && right == 0 && up == 0)
+        if(forward == 0 && right == 0 && up == 0)
         {
             return;
         }

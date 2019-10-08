@@ -64,7 +64,7 @@ LoadGameData(vfs::FileSystem* fs)
 {
     game::Game game;
     const auto err = LoadProtoJson(fs, &game, "gamedata.json");
-    if (!err.empty())
+    if(!err.empty())
     {
         LOG_ERROR("Failed to load gamedata.json: " << err);
     }
@@ -97,7 +97,7 @@ RunMainScriptFile(duk::Duk* duk, vfs::FileSystem* fs, const std::string& path)
 {
     std::string content;
     const bool  loaded = fs->ReadFileToString(path, &content);
-    if (!loaded)
+    if(!loaded)
     {
         const std::string error_message = Str() << "Unable to open " << path
                                                 << " for running";
@@ -106,7 +106,7 @@ RunMainScriptFile(duk::Duk* duk, vfs::FileSystem* fs, const std::string& path)
     }
     std::string error;
     const bool  eval = duk->EvalString(content, path, &error, nullptr);
-    if (!eval)
+    if(!eval)
     {
         const std::string error_message = Str() << "Failed to run " << path
                                                 << ": " << error;
@@ -134,11 +134,11 @@ struct ViewportHandler
     void
     SetSize(const ViewportDef& vp, bool shaders_too = true)
     {
-        if (shaders_too)
+        if(shaders_too)
         {
             const mat4f projection = init->GetOrthoProjection(
                     vp.virtual_width, vp.virtual_height);
-            for (auto* shader: shaders)
+            for(auto* shader: shaders)
             {
                 shader->SetUniform(
                         shader->GetUniform("projection"), projection);
@@ -156,7 +156,7 @@ struct ViewportHandler
 ViewportDef
 GetViewport(const game::Viewport& vp, int window_width, int window_height)
 {
-    switch (vp.type)
+    switch(vp.type)
     {
     case game::ViewportType::FitWithBlackBars:
         return ViewportDef::FitWithBlackBars(
@@ -175,12 +175,12 @@ GetViewport(const game::Viewport& vp, int window_width, int window_height)
 Rgb
 GetColor(std::shared_ptr<game::Color> c)
 {
-    if (c == nullptr)
+    if(c == nullptr)
     {
         return Color::Gray;
     }
 
-    if (c->hex != nullptr)
+    if(c->hex != nullptr)
     {
         return Rgb::FromHex(colorutil::FromStringToHex(*c->hex));
     }
@@ -195,7 +195,7 @@ int
 main(int argc, char** argv)
 {
     Engine engine;
-    if (engine.Setup() == false)
+    if(engine.Setup() == false)
     {
         return -1;
     }
@@ -211,8 +211,8 @@ main(int argc, char** argv)
     int window_width  = 800;
     int window_height = 600;
 
-    if (engine.CreateWindow(gamedata.title, window_width, window_height, true)
-        == false)
+    if(engine.CreateWindow(gamedata.title, window_width, window_height, true)
+       == false)
     {
         return -1;
     }
@@ -223,10 +223,10 @@ main(int argc, char** argv)
 
     Input input;
 
-    for (const auto& bind: gamedata.binds)
+    for(const auto& bind: gamedata.binds)
     {
         auto key = ToKey(bind.key);
-        if (key == Key::INVALID)
+        if(key == Key::INVALID)
         {
             LOG_ERROR("Invalid key: " << bind.key);
             key = Key::UNBOUND;
@@ -261,7 +261,7 @@ main(int argc, char** argv)
             &systems, &world, &duk, &templates, &components, &camera_data};
     const auto error_run_main
             = RunMainScriptFile(&duk, engine.file_system.get(), "main.js");
-    if (!error_run_main.ok)
+    if(!error_run_main.ok)
     {
         has_crashed          = true;
         crash_message_string = error_run_main.message;
@@ -303,7 +303,7 @@ main(int argc, char** argv)
 
     engine.init->Use2d();
 
-    while (running)
+    while(running)
     {
         last           = now;
         now            = SDL_GetPerformanceCounter();
@@ -312,13 +312,13 @@ main(int argc, char** argv)
 
         engine.imgui->StartNewFrame();
 
-        if (!has_crashed)
+        if(!has_crashed)
         {
             try
             {
                 world.Update(dt);
             }
-            catch (const std::exception& ex)
+            catch(const std::exception& ex)
             {
                 has_crashed          = true;
                 crash_message_string = ex.what();
@@ -327,25 +327,25 @@ main(int argc, char** argv)
 
         input.UpdateState();
 
-        while (SDL_PollEvent(&e) != 0)
+        while(SDL_PollEvent(&e) != 0)
         {
-            if (e.type == SDL_QUIT)
+            if(e.type == SDL_QUIT)
             {
                 running = false;
             }
-            if (engine.HandleResize(e, &window_width, &window_height))
+            if(engine.HandleResize(e, &window_width, &window_height))
             {
                 viewport_handler.SetSize(GetViewport(
                         gamedata.viewport, window_width, window_height));
             }
 
-            if (has_crashed)
+            if(has_crashed)
             {
                 engine.imgui->ProcessEvents(&e);
-                if (e.type == SDL_KEYUP)
+                if(e.type == SDL_KEYUP)
                 {
                     const auto key = ToKey(e.key.keysym);
-                    if (key == Key::ESCAPE)
+                    if(key == Key::ESCAPE)
                     {
                         running = false;
                     }
@@ -353,42 +353,41 @@ main(int argc, char** argv)
             }
             else
             {
-                if (e.type == SDL_MOUSEMOTION)
+                if(e.type == SDL_MOUSEMOTION)
                 {
                     window_mouse_x = e.motion.x;
                     window_mouse_y = e.motion.y;
                 }
-                else if (e.type == SDL_KEYUP || e.type == SDL_KEYDOWN)
+                else if(e.type == SDL_KEYUP || e.type == SDL_KEYDOWN)
                 {
                     const bool down = e.type == SDL_KEYDOWN;
                     const auto key  = ToKey(e.key.keysym);
                     input.SetKeyState(key, down ? 1.0f : 0.0f);
                 }
-                else if (
-                        e.type == SDL_MOUSEBUTTONDOWN
+                else if(e.type == SDL_MOUSEBUTTONDOWN
                         || e.type == SDL_MOUSEBUTTONUP)
                 {
                     const bool down = e.type == SDL_MOUSEBUTTONDOWN;
                     window_mouse_x  = e.button.x;
                     window_mouse_y  = e.button.y;
-                    if (e.button.button == SDL_BUTTON_LEFT)
+                    if(e.button.button == SDL_BUTTON_LEFT)
                     {
                         mouse_lmb_down = down;
                     }
                 }
-                else if (e.type == SDL_TEXTINPUT)
+                else if(e.type == SDL_TEXTINPUT)
                 {
                     const std::string& input = e.text.text;
                 }
             }
         }
 
-        if (has_crashed == false)
+        if(has_crashed == false)
         {
             integration.BindKeys(&duk, input);
         }
 
-        if (gamedata.viewport.type == game::ViewportType::FitWithBlackBars)
+        if(gamedata.viewport.type == game::ViewportType::FitWithBlackBars)
         {
             // LOG_INFO("Clearing black" << window_width << " " << window_height);
             viewport_handler.SetSize(
@@ -400,7 +399,7 @@ main(int argc, char** argv)
                     false);
         }
 
-        if (has_crashed)
+        if(has_crashed)
         {
             // todo: fix crash rendering, perhaps by using a debug gui or imgui
             // nothing much is required just a better overflow detection
@@ -408,10 +407,10 @@ main(int argc, char** argv)
             // though clicking around and debugging might be useful...
             engine.init->ClearScreen(Color::CornflowerBlue);
 
-            if (BeginFixedOverlay(ImguiCorner::Center, "Crashed"))
+            if(BeginFixedOverlay(ImguiCorner::Center, "Crashed"))
             {
                 ImGui::TextDisabled("%s", crash_message_string.c_str());
-                if (ImGui::Button("Quit"))
+                if(ImGui::Button("Quit"))
                 {
                     running = false;
                 }

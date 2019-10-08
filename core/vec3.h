@@ -158,7 +158,7 @@ namespace euphoria::core
         Normalize()
         {
             const T l2 = GetLengthSquared();
-            if (IsEqual(l2, 0))
+            if(IsEqual(l2, 0))
             {
                 *this = Unit::Up();
             }

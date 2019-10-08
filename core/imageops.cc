@@ -9,7 +9,7 @@ namespace euphoria::core
     ImageToStringTable(const Image& img, const std::vector<ImageMapAction>& map)
     {
         auto pal = Palette::Empty("");
-        for (const auto m: map)
+        for(const auto m: map)
         {
             pal.colors.push_back(m.from_color);
         }

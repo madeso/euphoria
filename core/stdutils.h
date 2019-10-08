@@ -15,7 +15,7 @@ namespace euphoria::core
     Keys(const std::map<K, V>& m)
     {
         std::vector<K> r;
-        for (const auto& x: m)
+        for(const auto& x: m)
         {
             r.push_back(x.first);
         }
@@ -36,7 +36,7 @@ namespace euphoria::core
     KeysAsStrings(const std::map<K, V>& m)
     {
         std::vector<std::string> strings;
-        for (const auto& x: m)
+        for(const auto& x: m)
         {
             strings.push_back(Str() << x.first);
         }
@@ -51,7 +51,7 @@ namespace euphoria::core
         typedef std::vector<T> Vec;
         typename Vec::iterator result
                 = std::find(from->begin(), from->end(), what);
-        if (result == from->end())
+        if(result == from->end())
         {
             return false;
         }
@@ -75,9 +75,9 @@ namespace euphoria::core
     typename std::vector<T>::iterator
     Search(std::vector<T>& v, TFunc condition)
     {
-        for (auto i = v.begin(); i != v.end(); i++)
+        for(auto i = v.begin(); i != v.end(); i++)
         {
-            if (condition(*i))
+            if(condition(*i))
             {
                 return i;
             }

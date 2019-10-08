@@ -23,7 +23,7 @@ namespace euphoria::core
         std::string source;
 
         const bool load_result = fs->ReadFileToString(file_name, &source);
-        if (!load_result)
+        if(!load_result)
         {
             return Str() << "Unable to load file " << file_name << " from "
                          << fs->GetRootsAsString();
@@ -41,7 +41,7 @@ namespace euphoria::core
                   | rapidjson::kParseTrailingCommasFlag;
         doc->ParseStream<ParseFlags, rapidjson::UTF8<>, InputStream>(stream);
 
-        if (doc->HasParseError())
+        if(doc->HasParseError())
         {
             // todo: add file and parse error to error
             return Str {} << "JSON parse error(" << stream.GetLine() << ":"

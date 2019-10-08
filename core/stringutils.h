@@ -135,7 +135,7 @@ terminator)
     MapToStringVector(const std::map<Key, Value>& map)
     {
         std::vector<std::string> ret;
-        for (const auto& m: map)
+        for(const auto& m: map)
         {
             const std::string str = Str()
                                     << "(" << m.first << ":" << m.second << ")";
@@ -150,7 +150,7 @@ terminator)
     {
         std::vector<std::string> ret;
         ret.reserve(data.size());
-        for (const auto& d: data)
+        for(const auto& d: data)
         {
             const std::string str = Str() << d;
             ret.emplace_back(str);
@@ -164,7 +164,7 @@ terminator)
     {
         std::vector<std::string> ret;
         ret.reserve(data.size());
-        for (const auto& d: data)
+        for(const auto& d: data)
         {
             ret.emplace_back(callback(d));
         }

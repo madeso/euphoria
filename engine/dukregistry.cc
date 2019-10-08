@@ -48,7 +48,7 @@ namespace euphoria::engine
     {
         ASSERT(scriptComponents.find(comp) != scriptComponents.end());
         auto c = reg->GetComponent(ent, comp);
-        if (c == nullptr)
+        if(c == nullptr)
         {
             return duk::ObjectReference {};
         }
@@ -68,7 +68,7 @@ namespace euphoria::engine
         ASSERT(scriptComponents.find(comp) != scriptComponents.end());
 
         auto c = reg->GetComponent(ent, comp);
-        if (c == nullptr)
+        if(c == nullptr)
         {
             auto d = std::make_shared<ScriptComponent>();
             reg->AddComponent(ent, comp, d);
@@ -99,12 +99,12 @@ namespace euphoria::engine
     {
         auto res = scriptComponents.find(comp);
         ASSERT(res != scriptComponents.end());
-        if (res == scriptComponents.end())
+        if(res == scriptComponents.end())
         {
             return duk::ObjectReference {};
         }
 
-        if (!res->second.IsValid())
+        if(!res->second.IsValid())
         {
             return duk::ObjectReference {};
         }

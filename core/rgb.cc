@@ -210,22 +210,22 @@ namespace euphoria::core
     rgb(const Hsl& hsl)
     {
         // based on https://gist.github.com/mjackson/5311256
-        if (hsl.s == 0)
+        if(hsl.s == 0)
         {
             return Rgb {hsl.l};  // achromatic
         }
         else
         {
             auto hue2rgb = [](float p, float q, float t) {
-                if (t < 0.0f)
+                if(t < 0.0f)
                     t += 1.0f;
-                if (t > 1.0f)
+                if(t > 1.0f)
                     t -= 1.0f;
-                if (t < 1.0f / 6.0f)
+                if(t < 1.0f / 6.0f)
                     return p + (q - p) * 6.0f * t;
-                if (t < 1.0f / 2.0f)
+                if(t < 1.0f / 2.0f)
                     return q;
-                if (t < 2.0f / 3.0f)
+                if(t < 2.0f / 3.0f)
                     return p + (q - p) * (2.0f / 3.0f - t) * 6.0f;
                 return p;
             };
@@ -262,15 +262,15 @@ namespace euphoria::core
 
         auto cl = [](float r, float g, float b) -> Biggest {
             constexpr auto min_diff = 0.001f;
-            if (Abs(r - g) < min_diff && Abs(g - b) < min_diff)
+            if(Abs(r - g) < min_diff && Abs(g - b) < min_diff)
             {
                 return Biggest::Same;
             }
-            if (r >= g && r >= b)
+            if(r >= g && r >= b)
             {
                 return Biggest::Red;
             }
-            if (g >= r && g >= b)
+            if(g >= r && g >= b)
             {
                 return Biggest::Green;
             }
@@ -278,7 +278,7 @@ namespace euphoria::core
             return Biggest::Blue;
         }(c.r, c.g, c.b);
 
-        if (cl == Biggest::Same)
+        if(cl == Biggest::Same)
         {
             return {Angle::FromRadians(0), 0, l};  // achromatic
         }
@@ -288,7 +288,7 @@ namespace euphoria::core
             const auto s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
 
             float h = 0;
-            switch (cl)
+            switch(cl)
             {
             case Biggest::Red: h = (c.g - c.b) / d + (c.g < c.b ? 6 : 0); break;
             case Biggest::Green: h = (c.b - c.r) / d + 2; break;
@@ -342,7 +342,7 @@ namespace euphoria::core
     {
         auto hsl = ahsl;
 
-        if (method == Method::Relative)
+        if(method == Method::Relative)
         {
             hsl.s += hsl.s * amount;
         }
@@ -359,7 +359,7 @@ namespace euphoria::core
     {
         auto hsl = ahsl;
 
-        if (method == Method::Relative)
+        if(method == Method::Relative)
         {
             hsl.s -= hsl.s * amount;
         }
@@ -376,7 +376,7 @@ namespace euphoria::core
     {
         auto hsl = ahsl;
 
-        if (method == Method::Relative)
+        if(method == Method::Relative)
         {
             hsl.l += hsl.l * amount;
         }
@@ -393,7 +393,7 @@ namespace euphoria::core
     {
         auto hsl = ahsl;
 
-        if (method == Method::Relative)
+        if(method == Method::Relative)
         {
             hsl.l -= hsl.l * amount;
         }
@@ -466,11 +466,11 @@ namespace euphoria::core
             auto s = Trim(str);
             ASSERT(!s.empty());
             s = s[0] == '#' ? ToLower(s.substr(1)) : ToLower(s);
-            if (s.length() == 3)
+            if(s.length() == 3)
             {
                 s = Str() << s[0] << s[0] << s[1] << s[1] << s[2] << s[2];
             }
-            if (s.length() != 6)
+            if(s.length() != 6)
                 return 0;
             std::istringstream ss {s};
             unsigned int       hex = 0;

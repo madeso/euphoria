@@ -24,7 +24,7 @@ namespace euphoria::core
     {
         rapidjson::Document doc;
         const std::string   r = LoadProtoJson_Internal(fs, &doc, file_name);
-        if (r.empty())
+        if(r.empty())
         {
             return ReadFromJsonValue(message, doc, "");
         }

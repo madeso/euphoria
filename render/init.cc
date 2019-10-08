@@ -13,7 +13,7 @@ namespace euphoria::render
     Init::Init(LoaderFunction loader, Init::BlendHack blend_hack) : ok(true)
     {
         const int glad_result = gladLoadGLLoader(loader);
-        if (glad_result == 0)
+        if(glad_result == 0)
         {
             LOG_ERROR("Failed to init glad, error: " << glad_result);
             ok = false;
@@ -36,7 +36,7 @@ namespace euphoria::render
         glEnable(
                 GL_SCISSOR_TEST);  // need scissor test for the viewport clearing
 
-        if (blend_hack == Init::BlendHack::EnableHack)
+        if(blend_hack == Init::BlendHack::EnableHack)
         {
             LOG_INFO("Enabled blend hack");
             // need to be enabled for shitty 2d rendering to work

@@ -30,13 +30,13 @@ std::vector<Difference>
 FindDifferences(const Table<bool>& src, const Table<bool>& dst)
 {
     std::vector<Difference> ret;
-    for (int y = 0; y < src.Height(); y += 1)
+    for(int y = 0; y < src.Height(); y += 1)
     {
-        for (int x = 0; x < src.Width(); x += 1)
+        for(int x = 0; x < src.Width(); x += 1)
         {
             const auto lhs = src.Value(x, y);
             const auto rhs = dst.Value(x, y);
-            if (lhs != rhs)
+            if(lhs != rhs)
             {
                 ret.push_back({x, y, lhs});
             }
@@ -56,9 +56,9 @@ PrintMazeToConsole(const generator::Drawer& drawer, const generator::Maze& maze)
              {' ', drawer.cell_visited_color},
              {'O', drawer.unit_color}});
 
-    for (int r = 0; r < table.Height(); r += 1)
+    for(int r = 0; r < table.Height(); r += 1)
     {
-        for (int c = 0; c < table.Width(); c += 1)
+        for(int c = 0; c < table.Width(); c += 1)
         {
             std::cout << table.Value(c, r);
         }
@@ -76,7 +76,7 @@ struct Output
     {
         std::ostringstream ss;
         index += 1;
-        if (print)
+        if(print)
         {
             std::cout << "Generating " << index << "...\n";
         }
@@ -112,7 +112,7 @@ maze(MazeAlgorithm      algo,
 
     std::unique_ptr<generator::Algorithm> gen;
 
-    switch (algo)
+    switch(algo)
     {
     case MazeAlgorithm::RecursiveBacktracker:
     {
@@ -142,7 +142,7 @@ maze(MazeAlgorithm      algo,
     drawer.wall_size = wall_size;
 
     auto draw_frame = [&]() {
-        if (!output.single)
+        if(!output.single)
         {
             drawer.Draw();
             io::ChunkToFile(
@@ -153,7 +153,7 @@ maze(MazeAlgorithm      algo,
 
     draw_frame();
 
-    while (gen->HasMoreWork())
+    while(gen->HasMoreWork())
     {
         gen->Work();
         draw_frame();
@@ -161,20 +161,20 @@ maze(MazeAlgorithm      algo,
 
     drawer.Draw();
 
-    if (console)
+    if(console)
     {
         PrintMazeToConsole(drawer, maze);
     }
     else
     {
-        if (output.single)
+        if(output.single)
         {
             io::ChunkToFile(
                     drawer.image.Write(ImageWriteFormat::PNG), output.file);
         }
         else
         {
-            for (int i = 0; i < 5; i += 1)
+            for(int i = 0; i < 5; i += 1)
             {
                 io::ChunkToFile(
                         drawer.image.Write(ImageWriteFormat::PNG),
@@ -210,7 +210,7 @@ cell(bool                     debug,
     drawer.scale = world_scale;
     world.Clear(false);
 
-    if (!output.single)
+    if(!output.single)
     {
         drawer.Draw();
         io::ChunkToFile(
@@ -218,24 +218,24 @@ cell(bool                     debug,
     }
 
     auto world_copy = world;
-    if (!output.single)
+    if(!output.single)
     {
         drawer.world = &world_copy;
     }
     auto shuffle_random = Random {};
     auto draw_multi     = [&]() {
-        if (!output.single)
+        if(!output.single)
         {
             auto diffs = FindDifferences(world, world_copy);
             KnuthShuffle(&diffs, &shuffle_random);
             int        dindex = 0;
             const auto s      = (diffs.size() / 25);
             const auto m      = s < 2 ? 2 : s;
-            for (const auto d: diffs)
+            for(const auto d: diffs)
             {
                 // std::cout << "Setting " << d.x << " " << d.y << " to " << d.new_value << "\n";
                 world_copy.Value(d.x, d.y, d.new_value);
-                if ((dindex % m) == 0)
+                if((dindex % m) == 0)
                 {
                     drawer.Draw();
                     io::ChunkToFile(
@@ -244,7 +244,7 @@ cell(bool                     debug,
                 }
                 dindex += 1;
             }
-            for (int i = 0; i < 5; i += 1)
+            for(int i = 0; i < 5; i += 1)
             {
                 io::ChunkToFile(
                         drawer.image.Write(ImageWriteFormat::PNG),
@@ -258,7 +258,7 @@ cell(bool                     debug,
     draw_multi();
 
 
-    while (!debug && cell.HasMoreWork())
+    while(!debug && cell.HasMoreWork())
     {
         // std::cout << "Work #######\n";
         cell.Work();
@@ -266,7 +266,7 @@ cell(bool                     debug,
     }
 
     drawer.Draw();
-    if (output.single)
+    if(output.single)
     {
         io::ChunkToFile(drawer.image.Write(ImageWriteFormat::PNG), output.file);
     }
@@ -353,7 +353,7 @@ main(int argc, char* argv[])
     add_cell(*pcell);
 
     const auto status = parser.Parse(argc, argv);
-    if (status != argparse::ParseResult::Ok)
+    if(status != argparse::ParseResult::Ok)
     {
         return -1;
     }

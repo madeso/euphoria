@@ -13,7 +13,7 @@ namespace euphoria::duk
     ReferenceStorage::StoreReference(void* p)
     {
         ReferenceStorage::Index index;
-        if (free_indices.empty())
+        if(free_indices.empty())
         {
             index = reference_index;
             reference_index += 1;
@@ -42,7 +42,7 @@ namespace euphoria::duk
     {
         // todo: store references in some sub object instead of directly at root?
         duk_push_heap_stash(ctx);  // heap
-        if (p != nullptr)
+        if(p != nullptr)
         {
             duk_push_heapptr(ctx, p);  // heap ptr
         }

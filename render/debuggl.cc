@@ -9,7 +9,7 @@ namespace euphoria::render
     std::string
     OpenglErrorToString(GLenum error_code)
     {
-        switch (error_code)
+        switch(error_code)
         {
         case GL_INVALID_ENUM: return "INVALID_ENUM"; break;
         case GL_INVALID_VALUE: return "INVALID_VALUE"; break;
@@ -32,7 +32,7 @@ namespace euphoria::render
     PrintAllOpenglErrors(const char* file, int line)
     {
         GLenum error_code;
-        while ((error_code = glGetError()) != GL_NO_ERROR)
+        while((error_code = glGetError()) != GL_NO_ERROR)
         {
             std::string error;
             error = OpenglErrorToString(error_code);
@@ -46,7 +46,7 @@ namespace euphoria::render
         std::string
         SourceToString(GLenum source)
         {
-            switch (source)
+            switch(source)
             {
             case GL_DEBUG_SOURCE_API_ARB: return "API"; break;
             case GL_DEBUG_SOURCE_WINDOW_SYSTEM_ARB:
@@ -65,7 +65,7 @@ namespace euphoria::render
         std::string
         TypeToString(GLenum type)
         {
-            switch (type)
+            switch(type)
             {
             case GL_DEBUG_TYPE_ERROR_ARB: return "Error"; break;
             case GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR_ARB:
@@ -84,7 +84,7 @@ namespace euphoria::render
         std::string
         SeverityToString(GLenum severity)
         {
-            switch (severity)
+            switch(severity)
             {
             case GL_DEBUG_SEVERITY_HIGH_ARB: return "high"; break;
             case GL_DEBUG_SEVERITY_MEDIUM_ARB: return "medium"; break;
@@ -106,14 +106,14 @@ namespace euphoria::render
                  const GLvoid* /*userParam*/)
     {
         // ignore non-significant error/warning codes
-        if (type == GL_DEBUG_TYPE_OTHER_ARB)
+        if(type == GL_DEBUG_TYPE_OTHER_ARB)
         {
             return;
         }
 
         // only display the first 10
         static int ErrorCount = 0;
-        if (ErrorCount > 10)
+        if(ErrorCount > 10)
         {
             return;
         }
@@ -131,7 +131,7 @@ namespace euphoria::render
     SetupOpenglDebug()
     {
         const bool has_debug = GLAD_GL_ARB_debug_output == 1;
-        if (has_debug)
+        if(has_debug)
         {
             std::cout << "Enabling OpenGL debug output\n";
             glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS_ARB);

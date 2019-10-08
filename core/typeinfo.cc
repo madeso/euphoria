@@ -13,7 +13,7 @@ namespace euphoria::core
         static std::unordered_map<std::string, TypeId> saved;
 
         auto found = saved.find(name);
-        if (found != saved.end())
+        if(found != saved.end())
         {
             return found->second;
         }

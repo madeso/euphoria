@@ -118,7 +118,7 @@ closest half integer, at 2 even integers etc...
     T
     DefaultIfCloseToZero(T value, T def, T epsilon)
     {
-        if (Abs(value) < epsilon)
+        if(Abs(value) < epsilon)
             return def;
         else
             return value;

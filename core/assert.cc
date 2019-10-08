@@ -39,7 +39,7 @@ namespace euphoria::core
             const std::unique_ptr<char, decltype(&std::free)> demangled(
                     abi::__cxa_demangle(symbol, nullptr, nullptr, nullptr),
                     &std::free);
-            if (demangled)
+            if(demangled)
             {
                 return demangled.get();
             }
@@ -61,30 +61,30 @@ namespace euphoria::core
                     &std::free);
 
             std::vector<std::string> ret;
-            for (int i = skip; i < n; ++i)
+            for(int i = skip; i < n; ++i)
             {
                 // we parse the symbols retrieved from backtrace_symbols() to
                 // extract the "real" symbols that represent the mangled names.
                 char* const symbol = symbols.get()[i];
                 char*       end    = symbol;
-                while (*end != 0)
+                while(*end != 0)
                 {
                     ++end;
                 }
                 // scanning is done backwards, since the module name
                 // might contain both '+' or '(' characters.
-                while (end != symbol && *end != '+')
+                while(end != symbol && *end != '+')
                 {
                     --end;
                 }
                 char* begin = end;
-                while (begin != symbol && *begin != '(')
+                while(begin != symbol && *begin != '(')
                 {
                     --begin;
                 }
 
                 std::ostringstream ss;
-                if (begin != symbol)
+                if(begin != symbol)
                 {
                     ss << std::string(symbol, ++begin - symbol);
                     *end++ = '\0';
@@ -131,10 +131,10 @@ namespace euphoria::core
                << "Function: " << function << "\n"
                << "File: " << file << ":" << line << "\n";
 
-            if (!arguments.empty())
+            if(!arguments.empty())
             {
                 std::vector<std::string> args;
-                for (const auto& a: arguments)
+                for(const auto& a: arguments)
                 {
                     args.push_back(a.value);
                 }
@@ -143,16 +143,16 @@ namespace euphoria::core
             }
 
             const auto trace = RunBacktrace(2);
-            if (!trace.empty())
+            if(!trace.empty())
             {
                 ss << "Backtrace:\n";
-                for (const auto& b: trace)
+                for(const auto& b: trace)
                 {
                     ss << b << "\n";
                 }
             }
 
-            if (ShouldThrow())
+            if(ShouldThrow())
             {
                 throw ss.str();
             }

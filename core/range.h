@@ -99,11 +99,11 @@ namespace euphoria::core
     T
     KeepWithin(const Range<T>& range, T value)
     {
-        if (value > range.upper_bound)
+        if(value > range.upper_bound)
         {
             return range.upper_bound;
         }
-        if (value < range.lower_bound)
+        if(value < range.lower_bound)
         {
             return range.lower_bound;
         }
@@ -118,11 +118,11 @@ namespace euphoria::core
         const T diff = range.upper_bound - range.lower_bound;
         ASSERT(diff > 0);
         T wrapped = value - range.lower_bound;
-        while (wrapped < 0)
+        while(wrapped < 0)
         {
             wrapped += diff;
         }
-        while (wrapped > diff)
+        while(wrapped > diff)
         {
             wrapped -= diff;
         }

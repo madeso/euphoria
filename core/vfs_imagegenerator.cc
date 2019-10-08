@@ -25,7 +25,7 @@ namespace euphoria::core
         std::shared_ptr<MemoryChunk>
         FileSystemImageGenerator::ReadFile(const std::string& path)
         {
-            if (!StartsWith(path, base_))
+            if(!StartsWith(path, base_))
             {
                 return MemoryChunk::Null();
             }
@@ -36,7 +36,7 @@ namespace euphoria::core
 
             const auto found_color = StringToEnum<Color>(color_name);
 
-            if (!found_color.single_match)
+            if(!found_color.single_match)
             {
                 LOG_WARN(
                         "Invalid color name: "
@@ -66,7 +66,7 @@ namespace euphoria::core
                 const std::string& base)
             : base_(base)
         {
-            if (!EndsWith(base, "/"))
+            if(!EndsWith(base, "/"))
             {
                 base_ = base + "/";
             }
@@ -79,15 +79,15 @@ namespace euphoria::core
 
             FileList ret;
 
-            if (path == self.GetParentDirectory())
+            if(path == self.GetParentDirectory())
             {
                 ret.Add(self.GetDirectoryName(), true);
             }
 
-            if (path == self)
+            if(path == self)
             {
                 const auto names = EnumToString<Color>();
-                for (const auto& n: names)
+                for(const auto& n: names)
                 {
                     ret.Add(n, true);
                 }

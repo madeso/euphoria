@@ -37,12 +37,12 @@ namespace euphoria::core
             const auto s = column_titles.size();
 
             const auto indices = GetSortedIndices(data, *this);
-            for (const auto index: indices)
+            for(const auto index: indices)
             {
                 const auto&              d = data[index];
                 std::vector<std::string> row_strings;
                 row_strings.reserve(s);
-                for (size_t i = 0; i < s; ++i)
+                for(size_t i = 0; i < s; ++i)
                 {
                     row_strings.emplace_back(column_converter[i](d));
                 }

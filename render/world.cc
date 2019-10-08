@@ -60,13 +60,13 @@ namespace euphoria::render
         const auto projection_matrix = compiled.projection;
         const auto view_matrix       = compiled.view;
 
-        if (use_outline)
+        if(use_outline)
         {
             glEnable(GL_DEPTH_TEST);
             glStencilOp(GL_KEEP, GL_REPLACE, GL_REPLACE);
         }
 
-        for (const auto& actor: actors_)
+        for(const auto& actor: actors_)
         {
             // todo: instead of direct rendering, move to a material sorting/render
             // command system
@@ -77,9 +77,9 @@ namespace euphoria::render
             // http://aras-p.info/blog/2014/01/16/rough-sorting-by-depth/
             // useful?
             // https://gamedev.stackexchange.com/questions/45626/how-to-organize-rendering
-            if (use_outline)
+            if(use_outline)
             {
-                if (actor->has_outline)
+                if(actor->has_outline)
                 {
                     glStencilFunc(GL_ALWAYS, 1, 0xFF);
                     glStencilMask(0xFF);
@@ -94,7 +94,7 @@ namespace euphoria::render
                     projection_matrix, view_matrix, camera.position, light);
         }
 
-        if (use_outline)
+        if(use_outline)
         {
             glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
             glStencilMask(0x00);
@@ -102,9 +102,9 @@ namespace euphoria::render
 
             outline_shader->UseShader();
 
-            for (const auto& actor: actors_)
+            for(const auto& actor: actors_)
             {
-                if (actor->has_outline)
+                if(actor->has_outline)
                 {
                     outline_shader->shader_.SetUniform(
                             *outline_color, actor->outline_color);

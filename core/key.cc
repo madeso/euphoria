@@ -33,7 +33,7 @@ namespace euphoria::core
             FromKey(T key) const
             {
                 auto r = keytostr.find(key);
-                if (r == keytostr.end())
+                if(r == keytostr.end())
                 {
                     return "Unknown";
                 }
@@ -46,12 +46,12 @@ namespace euphoria::core
             T
             FromString(const std::string& keyname) const
             {
-                if (keyname == "")
+                if(keyname == "")
                 {
                     return unbound_;
                 }
                 auto r = strtokey.find(ToLower(keyname));
-                if (r == strtokey.end())
+                if(r == strtokey.end())
                 {
                     return invalid_;
                 }

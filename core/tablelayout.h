@@ -22,9 +22,9 @@ namespace euphoria::core
 
         T min_size         = 0;
         T total_percentage = 0;
-        for (T f: pieces)
+        for(T f: pieces)
         {
-            if (f > 0)
+            if(f > 0)
                 min_size += f;
             else
                 total_percentage += -f;
@@ -34,15 +34,15 @@ namespace euphoria::core
 
         std::vector<T> ret;
         ret.reserve(pieces.size());
-        for (T f: pieces)
+        for(T f: pieces)
         {
-            if (f > 0)
+            if(f > 0)
             {
                 ret.push_back(f * fixed_scale);
             }
             else
             {
-                if (size_left <= 0)
+                if(size_left <= 0)
                 {
                     // no more room, add 0
                     ret.push_back(zero);

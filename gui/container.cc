@@ -22,7 +22,7 @@ namespace euphoria::gui
     void
     Container::Step(float dt)
     {
-        for (const auto& w: widgets_)
+        for(const auto& w: widgets_)
         {
             w->Step(dt);
         }
@@ -31,7 +31,7 @@ namespace euphoria::gui
     void
     Container::Render(render::SpriteRenderer* renderer) const
     {
-        for (const auto& w: widgets_)
+        for(const auto& w: widgets_)
         {
             w->Render(renderer);
         }

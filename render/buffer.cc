@@ -127,11 +127,11 @@ namespace euphoria::render
         ASSERT(shader);
 
         const auto& a = shader->GetAttributes();
-        for (const auto& attribute: vao->attributes)
+        for(const auto& attribute: vao->attributes)
         {
             const bool found_in_shader
                     = std::find(a.begin(), a.end(), attribute) != a.end();
-            if (!found_in_shader)
+            if(!found_in_shader)
             {
                 std::cerr << "Failed to find attribute " << attribute.name
                           << " bound in shader " << shader->GetName() << "\n";

@@ -38,7 +38,7 @@ namespace euphoria::window
     Engine::Setup()
     {
         sdl = std::make_unique<SdlLibrary>();
-        if (sdl->ok == false)
+        if(sdl->ok == false)
         {
             LOG_ERROR("Failed to create SDL");
             return false;
@@ -71,7 +71,7 @@ namespace euphoria::window
 
         window = std::make_unique<SdlWindow>(title, width, height, true);
 
-        if (window->window == nullptr)
+        if(window->window == nullptr)
         {
             LOG_ERROR("Failed to create window " << SDL_GetError());
             return false;
@@ -81,7 +81,7 @@ namespace euphoria::window
 
         context.reset(new SdlGlContext {window.get()});
 
-        if (context->context == nullptr)
+        if(context->context == nullptr)
         {
             LOG_ERROR("Failed to create SDL context " << SDL_GetError());
             return false;
@@ -92,7 +92,7 @@ namespace euphoria::window
                 blend_hack ? render::Init::BlendHack::EnableHack
                            : render::Init::BlendHack::NoHack});
 
-        if (init->ok == false)
+        if(init->ok == false)
         {
             LOG_ERROR("Failed to create Init");
             return false;
@@ -109,11 +109,11 @@ namespace euphoria::window
     bool
     Engine::HandleResize(SDL_Event e, int* width, int* height)
     {
-        if (e.type == SDL_WINDOWEVENT)
+        if(e.type == SDL_WINDOWEVENT)
         {
-            if (e.window.windowID == window_id)
+            if(e.window.windowID == window_id)
             {
-                switch (e.window.event)
+                switch(e.window.event)
                 {
                 case SDL_WINDOWEVENT_SIZE_CHANGED:
                     SDL_GetWindowSize(window->window, width, height);

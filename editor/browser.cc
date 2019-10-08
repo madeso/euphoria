@@ -17,9 +17,9 @@ namespace euphoria::editor
     IndexOf(const std::vector<T>& ss, const G& finder)
     {
         int index = 0;
-        for (const auto& s: ss)
+        for(const auto& s: ss)
         {
-            if (finder(s))
+            if(finder(s))
             {
                 return index;
             }
@@ -37,12 +37,12 @@ namespace euphoria::editor
     std::string
     FileBrowser::GetSelectedFile()
     {
-        if (selected_file >= 0 && selected_file < files.size())
+        if(selected_file >= 0 && selected_file < files.size())
         {
             const auto suggested = files[selected_file];
-            if (!EndsWith(suggested.name, '/'))
+            if(!EndsWith(suggested.name, '/'))
             {
-                if (current_folder.empty())
+                if(current_folder.empty())
                 {
                     return suggested.name;
                 }
@@ -61,7 +61,7 @@ namespace euphoria::editor
         const auto file = vfs::Path::FromFile(p);
         current_folder  = file.GetDirectory().GetAbsolutePath();
         Refresh();
-        if (!p.empty())
+        if(!p.empty())
         {
             selected_file
                     = IndexOf(files, [&](const vfs::ListedFile& n) -> bool {
@@ -75,7 +75,7 @@ namespace euphoria::editor
     {
         files = file_system->ListFiles(
                 vfs::Path::FromDirectory(current_folder));
-        if (!current_folder.empty())
+        if(!current_folder.empty())
         {
             // files.emplace_back();
             files.insert(files.begin(), vfs::ListedFile {"../", true});
@@ -96,51 +96,50 @@ namespace euphoria::editor
         const auto ff
                 = files;  // if files is updated during iteration, bad things
         // will probably happen, so we iterate a copy
-        for (const auto& item: ff)
+        for(const auto& item: ff)
         {
             const bool custom  = item.is_builtin;
             bool       display = true;
 
-            if (!EndsWith(item.name, '/'))
+            if(!EndsWith(item.name, '/'))
             {
-                if (!filter.empty())
+                if(!filter.empty())
                 {
-                    if (!EndsWith(item.name, filter))
+                    if(!EndsWith(item.name, filter))
                     {
                         display = false;
                     }
                 }
             }
 
-            if (display)
+            if(display)
             {
-                if (custom)
+                if(custom)
                 {
                     ImGui::PushStyleColor(
                             ImGuiCol_Text, ImColor {0, 0, 255}.Value);
                 }
-                if (ImGui::Selectable(
-                            item.name.c_str(), index == selected_file))
+                if(ImGui::Selectable(item.name.c_str(), index == selected_file))
                 {
                     selected_file = index;
                 }
-                if (ImGui::IsItemHovered(
-                            ImGuiHoveredFlags_AllowWhenBlockedByPopup)
-                    && ImGui::IsMouseClicked(1))
+                if(ImGui::IsItemHovered(
+                           ImGuiHoveredFlags_AllowWhenBlockedByPopup)
+                   && ImGui::IsMouseClicked(1))
                 {
                     // also select when right click
                     selected_file = index;
                 }
-                if (custom)
+                if(custom)
                 {
                     ImGui::PopStyleColor();
                 }
 
-                if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0))
+                if(ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0))
                 {
-                    if (EndsWith(item.name, '/'))
+                    if(EndsWith(item.name, '/'))
                     {
-                        if (item.name == "../")
+                        if(item.name == "../")
                         {
                             current_folder
                                     = vfs::Path::FromDirectory(current_folder)

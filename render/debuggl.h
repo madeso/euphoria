@@ -12,7 +12,7 @@ namespace euphoria::render
     do                                                                         \
     {                                                                          \
         ::euphoria::render::PrintAllOpenglErrors(__FILE__, __LINE__);          \
-    } while (false)
+    } while(false)
 
 }  // namespace euphoria::render
 

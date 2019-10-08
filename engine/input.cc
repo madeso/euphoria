@@ -53,9 +53,9 @@ namespace euphoria::engine
     Input::SetKeyState(core::Key key, float state)
     {
         // todo: move state to another class, and fix this loop
-        for (const auto& bind: binds)
+        for(const auto& bind: binds)
         {
-            if (bind->key == key)
+            if(bind->key == key)
             {
                 bind->state = state;
             }
@@ -65,7 +65,7 @@ namespace euphoria::engine
     void
     Input::Set(duk::Duk* duk, duk::ObjectReference container) const
     {
-        for (const auto& bind: binds)
+        for(const auto& bind: binds)
         {
             container.SetFree(duk->AsContext(), bind->name, bind.get());
         }
@@ -107,7 +107,7 @@ namespace euphoria::engine
     void
     Input::UpdateState()
     {
-        for (auto& bind: binds)
+        for(auto& bind: binds)
         {
             bind->last_state = bind->state;
         }

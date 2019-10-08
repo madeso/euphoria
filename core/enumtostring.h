@@ -39,7 +39,7 @@ namespace euphoria::core
         ToString(T t) const
         {
             auto found = enum_to_string.find(t);
-            if (found != enum_to_string.end())
+            if(found != enum_to_string.end())
             {
                 return found->second;
             }
@@ -51,7 +51,7 @@ namespace euphoria::core
         ListNames() const
         {
             std::vector<std::string> ret;
-            for (auto entry: enum_to_string)
+            for(auto entry: enum_to_string)
             {
                 ret.emplace_back(entry.second);
             }
@@ -62,7 +62,7 @@ namespace euphoria::core
         ListValues() const
         {
             std::vector<T> ret;
-            for (auto entry: enum_to_string)
+            for(auto entry: enum_to_string)
             {
                 ret.emplace_back(entry.first);
             }
@@ -73,7 +73,7 @@ namespace euphoria::core
         Match(const std::string& input, size_t max_size) const
         {
             auto found = string_to_enum.find(ToLower(input));
-            if (found != string_to_enum.end())
+            if(found != string_to_enum.end())
             {
                 return MatchedEnum<T> {true, {found->second}};
             }
@@ -88,19 +88,19 @@ namespace euphoria::core
                 }
             };
             std::priority_queue<Match> matches;
-            for (auto entry: enum_to_string)
+            for(auto entry: enum_to_string)
             {
                 const auto t       = entry.first;
                 const auto str     = entry.second;
                 const auto changes = EditDistance(str, input);
                 matches.push({t, changes});
-                if (matches.size() > max_size)
+                if(matches.size() > max_size)
                 {
                     matches.pop();
                 }
             }
             auto ret = MatchedEnum<T> {};
-            while (!matches.empty())
+            while(!matches.empty())
             {
                 ret.values.insert(ret.values.begin(), matches.top().t);
                 matches.pop();
@@ -144,7 +144,7 @@ namespace euphoria::core
     EnumToString(const std::vector<T>& ts)
     {
         std::vector<std::string> ret;
-        for (auto t: ts)
+        for(auto t: ts)
         {
             ret.emplace_back(GetEnumToString<T>::EnumValues().ToString(t));
         }

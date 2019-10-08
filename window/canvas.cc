@@ -18,8 +18,8 @@ namespace euphoria::window
 
         const float scaled_grid_size = cc.grid_size * view.scale;
 
-        for (float x = fmodf(view.scroll.x, scaled_grid_size); x < size.x;
-             x += scaled_grid_size)
+        for(float x = fmodf(view.scroll.x, scaled_grid_size); x < size.x;
+            x += scaled_grid_size)
         {
             draw_list->AddLine(
                     ImVec2(x, 0.0f) + position,
@@ -27,8 +27,8 @@ namespace euphoria::window
                     cc.grid_color);
         }
 
-        for (float y = fmodf(view.scroll.y, scaled_grid_size); y < size.y;
-             y += scaled_grid_size)
+        for(float y = fmodf(view.scroll.y, scaled_grid_size); y < size.y;
+            y += scaled_grid_size)
         {
             draw_list->AddLine(
                     ImVec2(0.0f, y) + position,
@@ -69,8 +69,8 @@ namespace euphoria::window
 
         const float scaled_grid_size = ruler_interval * view.scale;
 
-        for (float x = fmodf(view.scroll.x, scaled_grid_size); x < size.x;
-             x += scaled_grid_size)
+        for(float x = fmodf(view.scroll.x, scaled_grid_size); x < size.x;
+            x += scaled_grid_size)
         {
             draw_list->AddLine(
                     ImVec2(x, 0.0f) + position,
@@ -78,8 +78,8 @@ namespace euphoria::window
                     ruler_color);
         }
 
-        for (float y = fmodf(view.scroll.y, scaled_grid_size); y < size.y;
-             y += scaled_grid_size)
+        for(float y = fmodf(view.scroll.y, scaled_grid_size); y < size.y;
+            y += scaled_grid_size)
         {
             draw_list->AddLine(
                     ImVec2(0.0f, y) + position,
@@ -113,8 +113,8 @@ namespace euphoria::window
     void
     DoCanvasScroll(Canvas* canvas)
     {
-        if (ImGui::IsWindowHovered() && !ImGui::IsAnyItemActive()
-            && ImGui::IsMouseDragging(2, 0.0f))
+        if(ImGui::IsWindowHovered() && !ImGui::IsAnyItemActive()
+           && ImGui::IsMouseDragging(2, 0.0f))
         {
             canvas->view.Pan(C(ImGui::GetIO().MouseDelta));
         }
@@ -123,7 +123,7 @@ namespace euphoria::window
     void
     DoCanvasZoom(Canvas* canvas, const CanvasConfig& cc)
     {
-        if (ImGui::IsWindowHovered() && !ImGui::IsAnyItemActive())
+        if(ImGui::IsWindowHovered() && !ImGui::IsAnyItemActive())
         {
             const auto mouse = ImGui::GetIO().MousePos - canvas->position;
             const auto zoom  = ImGui::GetIO().MouseWheel;

@@ -71,7 +71,7 @@ namespace euphoria::core
     PropertyTree::GetOrNull(const std::string& name)
     {
         auto found = properties.find(name);
-        if (found == properties.end())
+        if(found == properties.end())
         {
             return nullptr;
         }

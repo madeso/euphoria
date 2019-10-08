@@ -155,7 +155,7 @@ namespace euphoria::core::argparse
         std::stringstream ss(value);
         T                 t;
         ss >> t;
-        if (ss.fail() || !ss.eof())
+        if(ss.fail() || !ss.eof())
         {
             output->OnError(
                     Str() << value << " for " << name << " is not accepted.");
@@ -192,7 +192,7 @@ namespace euphoria::core::argparse
         ParseResult
         Parse(const std::string& cmd_name, Running* running) override
         {
-            if (running->HasMore())
+            if(running->HasMore())
             {
                 const auto value = running->Read();
                 // todo: add validator (InRange, etc...)
@@ -233,11 +233,11 @@ namespace euphoria::core::argparse
         ParseResult
         Parse(const std::string& cmd_name, Running* running) override
         {
-            if (running->HasMore())
+            if(running->HasMore())
             {
                 const auto value = running->Read();
                 const auto match = StringToEnum<T>(value);
-                if (match.single_match)
+                if(match.single_match)
                 {
                     *target = match.values[0];
                     return ParseResult::Ok;
@@ -353,7 +353,7 @@ namespace euphoria::core::argparse
         ParseResult
         ParseOne(const std::string& cmd_name, Running* running)
         {
-            if (!running->HasMore())
+            if(!running->HasMore())
             {
                 running->output->OnError(Str() << cmd_name << " missing value");
                 return ParseResult::Failed;
@@ -362,7 +362,7 @@ namespace euphoria::core::argparse
             T          t;
             const auto r
                     = SimpleParser<T>(&t, cmd_name, value, running->output);
-            if (r == ParseResult::Ok)
+            if(r == ParseResult::Ok)
             {
                 // todo: add validator (InRange, etc...)
                 target->emplace_back(t);
@@ -373,12 +373,12 @@ namespace euphoria::core::argparse
         ParseResult
         Parse(const std::string& cmd_name, Running* running) override
         {
-            if (greedy == Greedy::Yes)
+            if(greedy == Greedy::Yes)
             {
-                while (running->HasMore())
+                while(running->HasMore())
                 {
                     auto r = ParseOne(cmd_name, running);
-                    if (r != ParseResult::Ok)
+                    if(r != ParseResult::Ok)
                     {
                         return r;
                     }
@@ -395,7 +395,7 @@ namespace euphoria::core::argparse
         std::string
         ToShortArgumentString() override
         {
-            if (greedy == Greedy::Yes)
+            if(greedy == Greedy::Yes)
             {
                 return Str() << " " << meta_var << "+";
             }

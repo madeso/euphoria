@@ -70,7 +70,7 @@ namespace euphoria::editor
     std::string
     PixelsOrPercentageString(int data_value, int total_percentage)
     {
-        if (data_value > 0)
+        if(data_value > 0)
         {
             return Str {} << data_value << "px";
         }
@@ -85,9 +85,9 @@ namespace euphoria::editor
     GetTotalPercentage(const std::vector<int>& data)
     {
         int total = 0;
-        for (int i: data)
+        for(int i: data)
         {
-            if (i < 0)
+            if(i < 0)
             {
                 total += -i;
             }
@@ -101,7 +101,7 @@ namespace euphoria::editor
     {
         std::vector<SpaceData> ret;
         int                    x = 0;
-        for (unsigned int index = 0; index < data.size(); ++index)
+        for(unsigned int index = 0; index < data.size(); ++index)
         {
             const int value = data[index];
             const int step  = abs(value);
@@ -117,10 +117,10 @@ namespace euphoria::editor
         const auto data  = CalculateAllSpaces(data_ptr);
         int        last  = 0;
         int        index = 0;
-        for (const auto& d: data)
+        for(const auto& d: data)
         {
             last = index;
-            if (x < d.right)
+            if(x < d.right)
             {
                 return last;
             }
@@ -134,7 +134,7 @@ namespace euphoria::editor
     {
         const bool within_image = y > 0 && y < image_size;
 
-        if (within_image)
+        if(within_image)
         {
             return PositionClassification::FromIndex(FindSpaceIndex(data, y));
         }
@@ -151,10 +151,10 @@ namespace euphoria::editor
         bool                   has_data = false;
         int                    x        = 0;
         int                    last_x   = 0;
-        for (const auto i: data)
+        for(const auto i: data)
         {
             int dx = std::abs(i);
-            if (has_data)
+            if(has_data)
             {
                 ret.emplace_back(SplitData(x, last_x, x + dx));
             }
@@ -271,14 +271,14 @@ namespace euphoria::editor
         const int total_percentage = GetTotalPercentage(data);
 
         int index = 0;
-        for (const auto& t: spaces)
+        for(const auto& t: spaces)
         {
             const bool clicked = button_function(
                     t.left,
                     t.right,
                     -sc.sizer_text_distance,
                     PixelsOrPercentageString(data[index], total_percentage));
-            if (clicked)
+            if(clicked)
             {
                 data[index] = -data[index];
             }
@@ -374,13 +374,13 @@ namespace euphoria::editor
         int ret = -1;
 
         int i = 0;
-        for (auto s: splits)
+        for(auto s: splits)
         {
             line_function(s.position);
             const auto p = canvas->WorldToScreen(
                     ImVec2 {static_cast<float>(s.position),
                             static_cast<float>(s.position)});
-            if (IsCloseTo(coord_function(mouse), coord_function(p)))
+            if(IsCloseTo(coord_function(mouse), coord_function(p)))
             {
                 ret = i;
             }
@@ -422,13 +422,13 @@ namespace euphoria::editor
     void
     SetMouseCursorFromHover(const LineHoverData& hover)
     {
-        if (hover.horizontal_index != -1 || hover.vertical_index != -1)
+        if(hover.horizontal_index != -1 || hover.vertical_index != -1)
         {
-            if (hover.horizontal_index != -1 && hover.vertical_index != -1)
+            if(hover.horizontal_index != -1 && hover.vertical_index != -1)
             {
                 ImGui::SetMouseCursor(ImGuiMouseCursor_ResizeAll);
             }
-            else if (hover.horizontal_index != -1)
+            else if(hover.horizontal_index != -1)
             {
                 ImGui::SetMouseCursor(ImGuiMouseCursor_ResizeNS);
             }
@@ -443,7 +443,7 @@ namespace euphoria::editor
     void
     MoveSplit(int split_index, std::vector<int>* data_ptr, float world_position)
     {
-        if (split_index == -1)
+        if(split_index == -1)
         {
             return;
         }
@@ -491,7 +491,7 @@ namespace euphoria::editor
 
         const auto mouse = ImGui::GetMousePos();
 
-        if (!texture)
+        if(!texture)
         {
             canvas.ShowRuler(cc);
             canvas.End(cc);
@@ -512,7 +512,7 @@ namespace euphoria::editor
         canvas.ShowRuler(cc);
         canvas.End(cc);
 
-        if (ImGui::IsItemHovered() && ImGui::IsMouseClicked(0))
+        if(ImGui::IsItemHovered() && ImGui::IsMouseClicked(0))
         {
             hover = current_hover;
         }
@@ -520,9 +520,9 @@ namespace euphoria::editor
         const bool is_tracking
                 = hover.horizontal_index != -1 || hover.vertical_index != -1;
 
-        if (is_tracking)
+        if(is_tracking)
         {
-            if (ImGui::IsMouseDown(0))
+            if(ImGui::IsMouseDown(0))
             {
                 SetMouseCursorFromHover(hover);
 
@@ -531,41 +531,40 @@ namespace euphoria::editor
                 MoveSplit(hover.horizontal_index, &scaling->rows, me.y);
                 MoveSplit(hover.vertical_index, &scaling->cols, me.x);
             }
-            else if (ImGui::IsItemHovered())
+            else if(ImGui::IsItemHovered())
             {
                 SetMouseCursorFromHover(current_hover);
                 hover = LineHoverData {};
             }
         }
-        else if (ImGui::IsItemHovered())
+        else if(ImGui::IsItemHovered())
         {
             SetMouseCursorFromHover(current_hover);
         }
 
-        if (ImGui::IsItemHovered() && ImGui::IsMouseClicked(1))
+        if(ImGui::IsItemHovered() && ImGui::IsMouseClicked(1))
         {
             ImGui::OpenPopup("asd");
             const auto w = canvas.ScreenToWorld(ImGui::GetMousePos());
             mouse_popup  = vec2i {static_cast<int>(w.x), static_cast<int>(w.y)};
         }
 
-        if (ImGui::BeginPopup("asd"))
+        if(ImGui::BeginPopup("asd"))
         {
             const auto space_index_y = FindSpaceIndexOrNull(
                     scaling->rows, mouse_popup.y, texture->GetHeight());
             const auto space_index_x = FindSpaceIndexOrNull(
                     scaling->cols, mouse_popup.x, texture->GetWidth());
 
-            if (window::ImguiSelectableOrDisabled(
-                        space_index_y,
-                        ICON_FK_ARROWS_H " New Horizontal divider"))
+            if(window::ImguiSelectableOrDisabled(
+                       space_index_y,
+                       ICON_FK_ARROWS_H " New Horizontal divider"))
             {
                 SplitSpaceInTwo(&scaling->rows, space_index_y, mouse_popup.y);
             }
 
-            if (window::ImguiSelectableOrDisabled(
-                        space_index_x,
-                        ICON_FK_ARROWS_V " New Vertical divider"))
+            if(window::ImguiSelectableOrDisabled(
+                       space_index_x, ICON_FK_ARROWS_V " New Vertical divider"))
             {
                 SplitSpaceInTwo(&scaling->cols, space_index_x, mouse_popup.x);
             }

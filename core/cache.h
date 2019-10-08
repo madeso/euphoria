@@ -17,10 +17,10 @@ namespace euphoria::core
         Get(const Key& key)
         {
             auto found = cache.find(key);
-            if (found != cache.end())
+            if(found != cache.end())
             {
                 auto cached = found->second.lock();
-                if (cached)
+                if(cached)
                 {
                     return cached;
                 }

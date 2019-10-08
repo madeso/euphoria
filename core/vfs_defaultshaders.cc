@@ -22,14 +22,14 @@ namespace euphoria::core
         std::shared_ptr<MemoryChunk>
         FileSystemDefaultShaders::ReadFile(const std::string& path)
         {
-            if (!StartsWith(path, base_))
+            if(!StartsWith(path, base_))
             {
                 return MemoryChunk::Null();
             }
             const auto command     = path.substr(base_.length());
             const auto shader_name = ToLower(command);
 
-            if (shader_name == "sprite.vert")
+            if(shader_name == "sprite.vert")
             {
                 return MemoryChunkFromText(R"STRING(
 #version 330 core
@@ -52,7 +52,7 @@ void main()
 }
 )STRING");
             }
-            else if (shader_name == "sprite.frag")
+            else if(shader_name == "sprite.frag")
             {
                 return MemoryChunkFromText(R"STRING(
 #version 330 core
@@ -83,7 +83,7 @@ void main()
                 const std::string& base)
             : base_(base)
         {
-            if (!EndsWith(base, "/"))
+            if(!EndsWith(base, "/"))
             {
                 base_ = base + "/";
             }
@@ -96,12 +96,12 @@ void main()
 
             FileList ret;
 
-            if (path == self.GetParentDirectory())
+            if(path == self.GetParentDirectory())
             {
                 ret.Add(self.GetDirectoryName(), true);
             }
 
-            if (path == self)
+            if(path == self)
             {
                 ret.Add("sprite.vert", true);
                 ret.Add("sprite.frag", true);

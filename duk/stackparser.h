@@ -41,19 +41,19 @@ namespace euphoria::duk
         static std::string
         CanMatch(Context* ctx, int index, int arg)
         {
-            if (ctx->IsObject(index))
+            if(ctx->IsObject(index))
             {
                 const auto* id        = ctx->GetObjectType(index);
                 const auto* self_type = ctx->TypeToProto(
                         TYPEID_ID(T) CLASS_ARG(TYPEID_NAME(T)));
                 ASSERT(self_type != nullptr);
-                if (id == self_type)
+                if(id == self_type)
                 {
                     return "";
                 }
                 else
                 {
-                    if (self_type)
+                    if(self_type)
                     {
                         return ArgumentError(
                                 arg,
@@ -86,7 +86,7 @@ namespace euphoria::duk
         {
             auto* proto
                     = ctx->TypeToProto(TYPEID_ID(T) CLASS_ARG(TYPEID_NAME(T)));
-            if (proto)
+            if(proto)
             {
                 return proto->name;
             }
@@ -110,7 +110,7 @@ namespace euphoria::duk
         static std::string
         CanMatch(Context* ctx, int index, int arg)
         {
-            if (ctx->IsNumber(index))
+            if(ctx->IsNumber(index))
             {
                 // todo: validate if is within T range
                 return "";
@@ -146,7 +146,7 @@ namespace euphoria::duk
         static std::string
         CanMatch(Context* ctx, int index, int arg)
         {
-            if (ctx->IsString(index))
+            if(ctx->IsString(index))
             {
                 return "";
             }
@@ -181,7 +181,7 @@ namespace euphoria::duk
         static std::string
         CanMatch(Context* ctx, int index, int arg)
         {
-            if (ctx->IsObject(index))
+            if(ctx->IsObject(index))
             {
                 return "";
             }
@@ -217,15 +217,15 @@ namespace euphoria::duk
         static std::string
         CanMatch(Context* ctx, int index, int arg)
         {
-            if (ctx->IsArray(index))
+            if(ctx->IsArray(index))
             {
                 const auto array_size = ctx->GetArrayLength(index);
-                for (int i = 0; i < array_size; i += 1)
+                for(int i = 0; i < array_size; i += 1)
                 {
                     ctx->GetArrayIndex(index, i);
                     const auto& match = StackParser<T>::CanMatch(ctx, -1, -1);
                     ctx->StopArrayIndex();
-                    if (!match.empty())
+                    if(!match.empty())
                     {
                         return ArgumentError(
                                 arg,
@@ -249,7 +249,7 @@ namespace euphoria::duk
             std::vector<T> arr;
 
             const auto array_size = ctx->GetArrayLength(index);
-            for (int i = 0; i < array_size; i += 1)
+            for(int i = 0; i < array_size; i += 1)
             {
                 ctx->GetArrayIndex(index, i);
                 arr.emplace_back(StackParser<T>::Parse(ctx, -1));
@@ -278,7 +278,7 @@ namespace euphoria::duk
         static std::string
         CanMatch(Context* ctx, int index, int arg)
         {
-            if (index >= 0)
+            if(index >= 0)
             {
                 return "";
             }
@@ -291,7 +291,7 @@ namespace euphoria::duk
         static Optional<T>
         Parse(Context* ctx, int index)
         {
-            if (index >= 0)
+            if(index >= 0)
             {
                 return Optional<T> {};
             }

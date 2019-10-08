@@ -11,12 +11,12 @@ namespace euphoria::core
         bool
         IsNewline(const char c)
         {
-            if (c == '\n')
+            if(c == '\n')
             {
                 return true;
             }
 
-            if (c == '\r')
+            if(c == '\r')
             {
                 return true;
             }
@@ -37,7 +37,7 @@ namespace euphoria::core
     TextFileParser::PeekChar(unsigned int advance)
     {
         const auto p = position_ + advance;
-        if (p < length_)
+        if(p < length_)
         {
             return string_[p];
         }
@@ -50,7 +50,7 @@ namespace euphoria::core
     {
         const auto         c = PeekChar(advance);
         std::ostringstream ss;
-        switch (c)
+        switch(c)
         {
         case 0: ss << "<null>"; break;
         case ' ': ss << "<space>"; break;
@@ -66,7 +66,7 @@ namespace euphoria::core
     bool
     TextFileParser::ExpectChar(char c)
     {
-        if (PeekChar() == c)
+        if(PeekChar() == c)
         {
             ReadChar();
             return true;
@@ -83,7 +83,7 @@ namespace euphoria::core
     {
         const char r = PeekChar();
 
-        if (IsNewline(r))
+        if(IsNewline(r))
         {
             column_ = 1;
             line_ += 1;
@@ -108,19 +108,19 @@ namespace euphoria::core
         bool
         IsIdentChar(char c, bool first_char)
         {
-            if (IsWithinInclusivei('a', c, 'z'))
+            if(IsWithinInclusivei('a', c, 'z'))
             {
                 return true;
             }
-            if (IsWithinInclusivei('A', c, 'Z'))
+            if(IsWithinInclusivei('A', c, 'Z'))
             {
                 return true;
             }
-            if (IsWithinInclusivei('0', c, '9'))
+            if(IsWithinInclusivei('0', c, '9'))
             {
                 return !first_char;
             }
-            if (c == '_')
+            if(c == '_')
             {
                 return true;
             }
@@ -140,7 +140,7 @@ namespace euphoria::core
     {
         std::ostringstream ss;
         bool               first = true;
-        while (IsIdentChar(PeekChar(), first))
+        while(IsIdentChar(PeekChar(), first))
         {
             first = false;
             ss << ReadChar();
@@ -153,30 +153,30 @@ namespace euphoria::core
     {
         std::ostringstream ss;
         const char         quote = '\"';
-        if (PeekChar() != quote)
+        if(PeekChar() != quote)
         {
             return "";
         }
         AdvanceChar();  // skip " char
-        while (PeekChar() != quote)
+        while(PeekChar() != quote)
         {
             const char c = ReadChar();
-            if (c == '\\')
+            if(c == '\\')
             {
                 const char nc = ReadChar();
-                if (nc == '\\')
+                if(nc == '\\')
                 {
                     ss << '\\';
                 }
-                else if (nc == 't')
+                else if(nc == 't')
                 {
                     ss << '\t';
                 }
-                else if (nc == '\n')
+                else if(nc == '\n')
                 {
                     ss << '\n';
                 }
-                else if (nc == '\"')
+                else if(nc == '\"')
                 {
                     ss << '\"';
                 }
@@ -191,7 +191,7 @@ namespace euphoria::core
             }
         }
         const char c = ReadChar();
-        if (c != quote)
+        if(c != quote)
         {
             return "";
         }
@@ -202,10 +202,10 @@ namespace euphoria::core
     TextFileParser::ReadToEndOfLine()
     {
         std::ostringstream ss;
-        while (!IsNewline(PeekChar()))
+        while(!IsNewline(PeekChar()))
         {
             const char c = ReadChar();
-            if (c == 0)
+            if(c == 0)
             {
                 return ss.str();
             }
@@ -220,7 +220,7 @@ namespace euphoria::core
         bool
         IsSpaceCharacter(char c, bool include_newline)
         {
-            switch (c)
+            switch(c)
             {
             case ' ':
             case '\t': return true;
@@ -234,7 +234,7 @@ namespace euphoria::core
     void
     TextFileParser::SkipSpaces(bool include_newline)
     {
-        while (IsSpaceCharacter(PeekChar(), include_newline))
+        while(IsSpaceCharacter(PeekChar(), include_newline))
         {
             ReadChar();
         }

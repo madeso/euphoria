@@ -190,7 +190,7 @@ namespace euphoria::duk
             duk_c_function finalizer,
             void* data CLASS_ARG(core::TypeName name))
     {
-        if (object == nullptr)
+        if(object == nullptr)
         {
             duk_push_null(ctx);
             return 1;
@@ -212,7 +212,7 @@ namespace euphoria::duk
         duk_put_prop_string(
                 ctx, object_id, DUK_HIDDEN_SYMBOL("ptr"));  // object
 
-        if (finalizer)
+        if(finalizer)
         {
             duk_push_pointer(ctx, data);  // object data
             duk_put_prop_string(

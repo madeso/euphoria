@@ -37,7 +37,7 @@ namespace euphoria::render
     {
         ASSERT(inside_ && "batch need to be open");
 
-        if ((count_ + 1) >= QuadCount)
+        if((count_ + 1) >= QuadCount)
         {
             Flush();
         }
@@ -78,7 +78,7 @@ namespace euphoria::render
         data_.push_back(uv.bottom);
 
         // add color
-        for (int i = 0; i < 4; ++i)
+        for(int i = 0; i < 4; ++i)
         {
             data_.push_back(color.r);
             data_.push_back(color.g);
@@ -111,7 +111,7 @@ namespace euphoria::render
     void
     SpriteBatch::Flush()
     {
-        if (count_ == 0)
+        if(count_ == 0)
         {
             return;
         }

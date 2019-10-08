@@ -94,7 +94,7 @@ namespace euphoria::core
     {                                                                          \
         FUNC(NAME##_EnumType());                                               \
         NAME##_EnumType().StopAdding();                                        \
-    } while (false)
+    } while(false)
 
 // std::string constructor may throw
 // todo: provide compile time option to use hashes instead

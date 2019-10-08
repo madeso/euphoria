@@ -41,13 +41,13 @@ namespace euphoria::core
         const int bottom = rect.BottomLeft().y;
         // ASSERTX(left >= 0, left);
         // ASSERTX(bottom >= 0, bottom);
-        for (int y = bottom; y < top; ++y)
+        for(int y = bottom; y < top; ++y)
         {
-            if (y < 0 || y >= image_->GetHeight())
+            if(y < 0 || y >= image_->GetHeight())
                 continue;
-            for (int x = left; x < right; ++x)
+            for(int x = left; x < right; ++x)
             {
-                if (x < 0 || x >= image_->GetWidth())
+                if(x < 0 || x >= image_->GetWidth())
                     continue;
                 image_->SetPixel(x, y, color);
             }
@@ -82,9 +82,9 @@ namespace euphoria::core
         // color modes
         // nothing INNER-SOFTNESS fade INNER full RADIUS fade RADIUS+SOFTNESS nothing
 
-        for (int y = top; y < bottom; ++y)
+        for(int y = top; y < bottom; ++y)
         {
-            for (int x = left; x < right; ++x)
+            for(int x = left; x < right; ++x)
             {
                 // todo: use length squared!
                 const float sq = vec2f::FromTo(
@@ -98,17 +98,17 @@ namespace euphoria::core
                 const auto a = MakeRange(inner - softness, inner);
                 const auto b = MakeRange(radius, radius + softness);
 
-                if (IsWithin(a, sq))
+                if(IsWithin(a, sq))
                 {
                     blend_factor = To01(a, sq);
                     blend        = true;
                 }
-                else if (IsWithin(b, sq))
+                else if(IsWithin(b, sq))
                 {
                     blend_factor = 1.0f - To01(b, sq);
                     blend        = true;
                 }
-                else if (IsWithin(MakeRange(inner, radius), sq))
+                else if(IsWithin(MakeRange(inner, radius), sq))
                 {
                     // full color
                 }
@@ -147,23 +147,23 @@ namespace euphoria::core
                 = deltax == 0 ? -1 : Abs(deltay / static_cast<float>(deltax));
         float error = deltaerr - 0.5f;
         int   y     = y0;
-        for (int x = x0; x < x1; x += 1)
+        for(int x = x0; x < x1; x += 1)
         {
             const bool valid_x
                     = IsWithinInclusivei(0, x, image_->GetWidth() - 1);
             const bool valid_y
                     = IsWithinInclusivei(0, y, image_->GetHeight() - 1);
-            if (valid_x && valid_y)
+            if(valid_x && valid_y)
             {
                 image_->SetPixel(x, y, color);
             }
 
-            if (deltaerr > 0)
+            if(deltaerr > 0)
             {
                 error = error + deltaerr;
-                if (error >= 0.5)
+                if(error >= 0.5)
                 {
-                    if (deltay > 0)
+                    if(deltay > 0)
                     {
                         y = y + 1;
                     }
@@ -203,7 +203,7 @@ namespace euphoria::core
     {
         const bool valid_x = IsWithinInclusivei(0, x, image->GetWidth() - 1);
         const bool valid_y = IsWithinInclusivei(0, y, image->GetHeight() - 1);
-        if (valid_x && valid_y)
+        if(valid_x && valid_y)
         {
             const Rgb paint_color = RgbTransform::Transform(
                     rgb(image->GetPixel(x, y)), brightness, color);
@@ -230,12 +230,12 @@ namespace euphoria::core
 
         bool steep = Abs(y1 - y0) > Abs(x1 - x0);
 
-        if (steep)
+        if(steep)
         {
             std::swap(x0, y0);
             std::swap(x1, y1);
         }
-        if (x0 > x1)
+        if(x0 > x1)
         {
             std::swap(x0, x1);
             std::swap(y0, y1);
@@ -251,7 +251,7 @@ namespace euphoria::core
         float xgap  = GetOneMinusFractionalPart(x0 + 0.5);
         int   xpxl1 = xend;  // this will be used in the main loop
         float ypxl1 = Floori(yend);
-        if (steep)
+        if(steep)
         {
             Plot(ypxl1,
                  xpxl1,
@@ -285,7 +285,7 @@ namespace euphoria::core
         xgap      = GetFractionalPart(x1 + 0.5);
         int xpxl2 = xend;  // this will be used in the main loop
         int ypxl2 = Floori(yend);
-        if (steep)
+        if(steep)
         {
             Plot(ypxl2,
                  xpxl2,
@@ -313,9 +313,9 @@ namespace euphoria::core
         }
 
         // main loop
-        if (steep)
+        if(steep)
         {
-            for (int x = xpxl1 + 1; x < xpxl2 - 1; x += 1)
+            for(int x = xpxl1 + 1; x < xpxl2 - 1; x += 1)
             {
                 Plot(Floori(intery),
                      x,
@@ -332,7 +332,7 @@ namespace euphoria::core
         }
         else
         {
-            for (int x = xpxl1 + 1; x < xpxl2 - 1; x += 1)
+            for(int x = xpxl1 + 1; x < xpxl2 - 1; x += 1)
             {
                 Plot(x,
                      Floori(intery),
@@ -369,14 +369,14 @@ namespace euphoria::core
     {
         ASSERT(image);
         const unsigned char* glyph = GetCharGlyph(c);
-        for (int y = 0; y < 8; y += 1)
+        for(int y = 0; y < 8; y += 1)
         {
-            for (int x = 0; x < 8; x += 1)
+            for(int x = 0; x < 8; x += 1)
             {
                 // extract pixel from character
                 // glyph is defined in "y down" order, fix by inverting sample point on y
                 bool pixel = 0 != (glyph[7 - y] & 1 << x);
-                if (pixel)
+                if(pixel)
                 {
                     image->Square(
                             color, pos.x + x * scale, pos.y + y * scale, scale);
@@ -396,11 +396,11 @@ namespace euphoria::core
         ASSERT(scale > 0);
 
         vec2i pos = start_pos;
-        for (unsigned int i = 0; i < text.length(); i += 1)
+        for(unsigned int i = 0; i < text.length(); i += 1)
         {
             const char c = text[i];
 
-            if (pos.x + 8 * scale > image_->GetWidth())
+            if(pos.x + 8 * scale > image_->GetWidth())
             {
                 pos.x = start_pos.x;
                 pos.y -= 8 * scale;
@@ -416,9 +416,9 @@ namespace euphoria::core
     Draw&
     Draw::PasteImage(const vec2i& position, const Image& source_image)
     {
-        for (int y = 0; y < source_image.GetHeight(); ++y)
+        for(int y = 0; y < source_image.GetHeight(); ++y)
         {
-            for (int x = 0; x < source_image.GetWidth(); ++x)
+            for(int x = 0; x < source_image.GetWidth(); ++x)
             {
                 image_->SetPixel(
                         position.x + x,

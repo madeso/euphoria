@@ -40,12 +40,12 @@ namespace euphoria::core
             const auto& search      = keywords.words;
             const auto  search_size = search.size();
             const auto  input_size  = input.size();
-            if (search_size > input_size)
+            if(search_size > input_size)
             {
                 return -1;
             }
 
-            if (keywords.location == Input::ALONE && search_size != input_size)
+            if(keywords.location == Input::ALONE && search_size != input_size)
             {
                 return -1;
             }
@@ -57,24 +57,24 @@ namespace euphoria::core
                                            ? search_size - 1
                                            : input_size - search_size;
 
-            for (auto input_index = start_index; input_index <= end_index;
-                 input_index += 1)
+            for(auto input_index = start_index; input_index <= end_index;
+                input_index += 1)
             {
                 bool is_match = true;
-                for (auto search_index = decltype(search_size) {0};
-                     search_index < search_size;
-                     search_index += 1)
+                for(auto search_index = decltype(search_size) {0};
+                    search_index < search_size;
+                    search_index += 1)
                 {
                     const auto& input_data  = input[input_index + search_index];
                     const auto& search_data = search[search_index];
-                    if (input_data != search_data)
+                    if(input_data != search_data)
                     {
                         is_match = false;
                         break;
                     }
                 }
 
-                if (is_match)
+                if(is_match)
                 {
                     return input_index;
                 }
@@ -88,19 +88,18 @@ namespace euphoria::core
         {
             const auto index = IndexOfMatchedInput(source, input);
 
-            if (index == -1)
+            if(index == -1)
             {
                 return source;
             }
 
             std::vector<std::string> ret;
-            for (long i = 0; i < index; i += 1)
+            for(long i = 0; i < index; i += 1)
             {
                 ret.emplace_back(source[i]);
             }
-            for (unsigned long i = index + input.words.size();
-                 i < source.size();
-                 i += 1)
+            for(unsigned long i = index + input.words.size(); i < source.size();
+                i += 1)
             {
                 ret.emplace_back(source[i]);
             }
@@ -188,9 +187,9 @@ namespace euphoria::core
         Transposer::Transpose(const std::string& input) const
         {
             // todo change to a map
-            for (const auto& s: store)
+            for(const auto& s: store)
             {
-                if (s.first == input)
+                if(s.first == input)
                 {
                     return s.second;
                 }
@@ -208,7 +207,7 @@ namespace euphoria::core
         void
         ConversationTopics::Decrease()
         {
-            for (auto& topic: topics)
+            for(auto& topic: topics)
             {
                 *topic.second -= 1;
             }
@@ -217,9 +216,9 @@ namespace euphoria::core
         void
         ConversationTopics::Remove()
         {
-            for (auto it = topics.begin(); it != topics.end();)
+            for(auto it = topics.begin(); it != topics.end();)
             {
-                if (*it->second < 0)
+                if(*it->second < 0)
                 {
                     it = topics.erase(it);
                 }
@@ -268,7 +267,7 @@ namespace euphoria::core
         CollectTopics(const ConversationTopics& current_topics)
         {
             std::vector<ConversationStatus::TopicEntry> ret;
-            for (const auto& t: current_topics.topics)
+            for(const auto& t: current_topics.topics)
             {
                 ConversationStatus::TopicEntry entry;
                 entry.topic = t.first;
@@ -284,7 +283,7 @@ namespace euphoria::core
         chatbot::Input::Location
         C(chat::Location loc)
         {
-            switch (loc)
+            switch(loc)
             {
             case chat::Location::IN_MIDDLE: return chatbot::Input::IN_MIDDLE;
             case chat::Location::AT_START: return chatbot::Input::AT_START;
@@ -301,7 +300,7 @@ namespace euphoria::core
         chat::Root root;
 
         std::string error = LoadProtoJson(fs, &root, path);
-        if (!error.empty())
+        if(!error.empty())
         {
             return error;
         }
@@ -317,29 +316,29 @@ namespace euphoria::core
         database.empty_repetition = root.empty_repetition;
 
         transposer = chatbot::Transposer {};
-        for (const auto& t: root.transposes)
+        for(const auto& t: root.transposes)
         {
             transposer.Add(t.from, t.to);
         }
 
-        for (const auto& r: root.responses)
+        for(const auto& r: root.responses)
         {
             chatbot::Response& response = database.CreateResponse();
             response.ends_conversation  = r.ends_conversation;
-            for (const auto& topic: r.topics_required)
+            for(const auto& topic: r.topics_required)
             {
                 response.topics_required.emplace_back(topic);
             }
-            for (const auto& rr: r.responses)
+            for(const auto& rr: r.responses)
             {
                 response.responses.emplace_back(rr.say);
                 auto& topics = response.responses.rbegin()->topics_mentioned;
-                for (const auto& topic: rr.topics_mentioned)
+                for(const auto& topic: rr.topics_mentioned)
                 {
                     topics.emplace_back(topic);
                 }
             }
-            for (const auto& i: r.inputs)
+            for(const auto& i: r.inputs)
             {
                 response.inputs.emplace_back(i.input, C(i.location));
             }
@@ -372,7 +371,7 @@ namespace euphoria::core
         {
             std::vector<std::string> r;
             r.reserve(input.size());
-            for (const std::string& in: input)
+            for(const std::string& in: input)
             {
                 r.push_back(transposer.Transpose(in));
             }
@@ -387,7 +386,7 @@ namespace euphoria::core
                 const std::string& input)
         {
             const auto star = selected_response.find('*');
-            if (star == std::string::npos)
+            if(star == std::string::npos)
             {
                 return selected_response;
             }
@@ -410,7 +409,7 @@ namespace euphoria::core
                 const std::vector<T>&                  responses,
                 std::function<std::string(const T& t)> callback)
         {
-            if (responses.empty())
+            if(responses.empty())
             {
                 LOG_ERROR("Empty response.");
                 return 0;
@@ -419,16 +418,16 @@ namespace euphoria::core
             std::iota(indices.begin(), indices.end(), 0);
             unsigned long suggested = 0;
 
-            while (!indices.empty())
+            while(!indices.empty())
             {
                 const auto index = chatbot->random.NextRange(indices.size());
                 suggested        = indices[index];
                 const auto& resp = chatbot->last_responses;
-                if (std::find(
-                            resp.begin(),
-                            resp.end(),
-                            callback(responses[suggested]))
-                    != resp.end())
+                if(std::find(
+                           resp.begin(),
+                           resp.end(),
+                           callback(responses[suggested]))
+                   != resp.end())
                 {
                     indices.erase(indices.begin() + index);
                 }
@@ -440,7 +439,7 @@ namespace euphoria::core
 
             chatbot->last_responses.emplace_back(
                     callback(responses[suggested]));
-            if (chatbot->last_responses.size() >= chatbot->max_responses)
+            if(chatbot->last_responses.size() >= chatbot->max_responses)
             {
                 chatbot->last_responses.pop_front();
             }
@@ -454,7 +453,7 @@ namespace euphoria::core
                 const std::vector<std::string>& responses,
                 const char* const               name)
         {
-            if (responses.empty())
+            if(responses.empty())
             {
                 LOG_ERROR("Empty basic response for " << name);
                 return "";
@@ -484,7 +483,7 @@ namespace euphoria::core
             const auto suggested = responses[index];
 
             // todo: add this to memory when this response is returned, not suggested
-            for (const auto& topic: suggested.topics_mentioned)
+            for(const auto& topic: suggested.topics_mentioned)
             {
                 chatbot->current_topics.Add(topic);
             }
@@ -502,9 +501,9 @@ namespace euphoria::core
 
         const std::vector<std::string> input = chatbot::CleanInput(dirty_input);
 
-        if (input.empty())
+        if(input.empty())
         {
-            if (last_input.empty())
+            if(last_input.empty())
             {
                 ret.section  = "empty repetition";
                 ret.response = chatbot::SelectBasicResponse(
@@ -518,7 +517,7 @@ namespace euphoria::core
             return ret;
         }
 
-        if (input == last_input)
+        if(input == last_input)
         {
             ret.section  = "same input";
             ret.response = chatbot::SelectBasicResponse(
@@ -533,7 +532,7 @@ namespace euphoria::core
         chatbot::Input::Location match_location = chatbot::Input::LOWEST;
         std::string              response;
 
-        for (const auto& resp: database.responses)
+        for(const auto& resp: database.responses)
         {
             ret.logs.emplace_back();
             ret.logs.rbegin()->titles = VectorToStringVector(
@@ -542,13 +541,13 @@ namespace euphoria::core
                     });
             auto& log = ret.logs.rbegin()->lines;
             // do not check this response if it isnt applied within the current topic
-            if (!resp.topics_required.empty())
+            if(!resp.topics_required.empty())
             {
                 log.emplace_back("Requires topic");
                 bool valid_response = true;
-                for (const auto& topic: resp.topics_required)
+                for(const auto& topic: resp.topics_required)
                 {
-                    if (!current_topics.Has(topic))
+                    if(!current_topics.Has(topic))
                     {
                         log.emplace_back(
                                 Str() << "Doesnt have topic " << topic);
@@ -556,7 +555,7 @@ namespace euphoria::core
                         break;
                     }
                 }
-                if (!valid_response)
+                if(!valid_response)
                 {
                     log.emplace_back("Response is not valid");
                     continue;
@@ -564,7 +563,7 @@ namespace euphoria::core
             }
 
 
-            for (const auto& keyword: resp.inputs)
+            for(const auto& keyword: resp.inputs)
             {
                 // todo: look into levenshtein distance
                 const bool longer_keyword = keyword.words.size() > match_length;
@@ -592,15 +591,15 @@ namespace euphoria::core
                         << ")");
                 const bool should_check_keyword
                         = longer_keyword || same_size_but_better;
-                if (!should_check_keyword)
+                if(!should_check_keyword)
                 {
                     log.emplace_back("Wont check keyword");
                 }
-                if (should_check_keyword)
+                if(should_check_keyword)
                 {
                     const auto matched_index
                             = chatbot::IndexOfMatchedInput(input, keyword);
-                    if (matched_index == -1)
+                    if(matched_index == -1)
                     {
                         log.emplace_back("No match");
                     }
@@ -612,7 +611,7 @@ namespace euphoria::core
                                 Str() << "Matched at" << matched_index
                                       << " of length " << match_length
                                       << " with " << match_location);
-                        if (last_event == resp.event_id)
+                        if(last_event == resp.event_id)
                         {
                             log.emplace_back("Same event as last time");
                             response = chatbot::SelectBasicResponse(
@@ -627,7 +626,7 @@ namespace euphoria::core
                                     this, resp.responses, keyword, dirty_input);
                         }
 
-                        if (resp.ends_conversation)
+                        if(resp.ends_conversation)
                         {
                             // todo: move to end when we have accepted this response as final
                             log.emplace_back("ending conversation");
@@ -640,7 +639,7 @@ namespace euphoria::core
             }
         }
 
-        if (response.empty())
+        if(response.empty())
         {
             ret.section = "empty response";
             missing_input.emplace_back(dirty_input);
@@ -666,7 +665,7 @@ namespace euphoria::core
     ChatBot::DebugLastResponse(const std::vector<std::string>& search) const
     {
         const auto searches = ToLower(search);
-        if (history.empty())
+        if(history.empty())
         {
             return "";
         }
@@ -678,18 +677,18 @@ namespace euphoria::core
         ss << "SECTION: " << last.section << "\n";
         ss << "RESPONSE: " << last.response << "\n";
 
-        if (!last.topics.empty())
+        if(!last.topics.empty())
         {
             ss << "\n";
             ss << "TOPICS:\n";
-            for (const auto& t: last.topics)
+            for(const auto& t: last.topics)
             {
                 ss << t.topic << "(" << t.time << ")\n";
             }
             ss << "\n";
         }
 
-        if (!last.logs.empty())
+        if(!last.logs.empty())
         {
             ss << "\n";
             ss << "---------------\n";
@@ -697,17 +696,17 @@ namespace euphoria::core
             ss << "---------------\n";
             ss << "\n";
 
-            for (const auto& l: last.logs)
+            for(const auto& l: last.logs)
             {
                 bool display = searches.empty();
-                if (!searches.empty())
+                if(!searches.empty())
                 {
                     const auto titles = ToLower(l.titles);
                     display           = Find(titles, searches);
                 }
-                if (display)
+                if(display)
                 {
-                    for (const auto& li: l.lines)
+                    for(const auto& li: l.lines)
                     {
                         ss << "  " << li << "\n";
                     }

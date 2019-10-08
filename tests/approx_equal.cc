@@ -86,9 +86,9 @@ namespace euphoria::tests
             core::AxisAngle const& rhs,
             const ApproxData&      data)
     {
-        if (approximately_equal(
-                    lhs.angle.InDegrees(), rhs.angle.InDegrees(), data)
-            && approximately_equal(lhs.angle.InDegrees(), 0.0f, data))
+        if(approximately_equal(
+                   lhs.angle.InDegrees(), rhs.angle.InDegrees(), data)
+           && approximately_equal(lhs.angle.InDegrees(), 0.0f, data))
         {
             return true;  // zero rotation is always equal zero
         }

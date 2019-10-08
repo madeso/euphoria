@@ -37,9 +37,9 @@ namespace euphoria::duk
             const std::size_t argument_count
                     = std::count(required.begin(), required.end(), true);
             const std::size_t max_argument_count = sizeof...(TArgs);
-            if (!IsWithin(
-                        core::MakeRange(argument_count, max_argument_count),
-                        passed_argument_count))
+            if(!IsWithin(
+                       core::MakeRange(argument_count, max_argument_count),
+                       passed_argument_count))
             {
                 // todo: smaller error message when both max and min are the same
                 return core::Str {} << "expected " << argument_count << " to "
@@ -53,9 +53,9 @@ namespace euphoria::duk
                             ctx,
                             -passed_argument_count + static_cast<int>(I),
                             static_cast<int>(I) + 1)...};
-            for (const auto& m: matches)
+            for(const auto& m: matches)
             {
-                if (!m.empty())
+                if(!m.empty())
                 {
                     return m;
                 }

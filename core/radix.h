@@ -59,7 +59,7 @@ namespace euphoria::core
         static bool
         KeepLooping(Int max_value, int exp)
         {
-            if (exp == 0)
+            if(exp == 0)
                 return true;
             // -1 because we need to be sure we have passed the max value
             // todo: use some smart bit technique to set F up to exp
@@ -78,10 +78,10 @@ namespace euphoria::core
     GetMax(const std::vector<T>& arr)
     {
         Int mx = IdExtractor::GetId(arr[0]);
-        for (const auto& i: arr)
+        for(const auto& i: arr)
         {
             Int val = IdExtractor::GetId(i);
-            if (val > mx)
+            if(val > mx)
             {
                 mx = val;
             }
@@ -97,12 +97,12 @@ namespace euphoria::core
 
         int sum[Bucket::COUNT] = {0};
 
-        for (int i = 0; i < size; i++)
+        for(int i = 0; i < size; i++)
         {
             sum[Bucket::GetIndex(IdExtractor::GetId(arr[i]), exp)]++;
         }
 
-        for (int i = 1; i < Bucket::COUNT; i++)
+        for(int i = 1; i < Bucket::COUNT; i++)
         {
             sum[i] += sum[i - 1];
         }
@@ -114,7 +114,7 @@ namespace euphoria::core
         // todo: look into swapping the input array instead?
         std::vector<T> ret = arr;
 
-        for (int i = size - 1; i >= 0; i--)
+        for(int i = size - 1; i >= 0; i--)
         {
             auto index  = Bucket::GetIndex(IdExtractor::GetId(arr[i]), exp);
             auto target = sum[index] - 1;
@@ -131,8 +131,8 @@ namespace euphoria::core
     {
         const Int max_value = GetMax<T, IdExtractor, Int>(*arr);
 
-        for (int exp = Bucket::GetStart(); Bucket::KeepLooping(max_value, exp);
-             exp     = Bucket::NextValue(max_value, exp))
+        for(int exp = Bucket::GetStart(); Bucket::KeepLooping(max_value, exp);
+            exp     = Bucket::NextValue(max_value, exp))
         {
             *arr = CountSort<T, IdExtractor, Bucket, Int>(*arr, exp);
         }

@@ -10,7 +10,7 @@ namespace euphoria::core
         bool
         IsSpace(char c)
         {
-            switch (c)
+            switch(c)
             {
             case '\t':
             case ' ': return true;
@@ -21,7 +21,7 @@ namespace euphoria::core
         bool
         IsQuote(char c)
         {
-            switch (c)
+            switch(c)
             {
             case '\"':
             case '\'': return true;
@@ -32,7 +32,7 @@ namespace euphoria::core
         char
         HandleEscapeCharacter(char c)
         {
-            switch (c)
+            switch(c)
             {
             case 'n': return '\n';
             case 't': return '\t';
@@ -50,24 +50,24 @@ namespace euphoria::core
         char               current_string_character = 0;
         std::ostringstream buffer;
 
-        for (char c: str)
+        for(char c: str)
         {
-            if (escape)
+            if(escape)
             {
                 buffer << HandleEscapeCharacter(c);
                 escape = false;
             }
             else
             {
-                if (c == '\\')
+                if(c == '\\')
                 {
                     escape = true;
                 }
                 else
                 {
-                    if (current_string_character != 0)
+                    if(current_string_character != 0)
                     {
-                        if (c == current_string_character)
+                        if(c == current_string_character)
                         {
                             current_string_character = 0;
                             ret.emplace_back(buffer.str());
@@ -81,14 +81,14 @@ namespace euphoria::core
                     else
                     {
                         // not within string
-                        if (IsQuote(c) || IsSpace(c))
+                        if(IsQuote(c) || IsSpace(c))
                         {
-                            if (IsQuote(c))
+                            if(IsQuote(c))
                             {
                                 current_string_character = c;
                             }
                             const auto b = buffer.str();
-                            if (!b.empty())
+                            if(!b.empty())
                             {
                                 ret.emplace_back(b);
                                 buffer.str("");
@@ -105,7 +105,7 @@ namespace euphoria::core
         }
 
         const auto rest = buffer.str();
-        if (!rest.empty() || current_string_character != 0)
+        if(!rest.empty() || current_string_character != 0)
         {
             ret.emplace_back(rest);
         }

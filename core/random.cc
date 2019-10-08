@@ -33,7 +33,7 @@ better numbers than Mersenne. How can you go wrong? :)
         auto* p    = reinterpret_cast<unsigned char*>(&now);  // NOLINT
         u32   seed = 0;
 
-        for (size_t i = 0; i < sizeof(time_t); i++)
+        for(size_t i = 0; i < sizeof(time_t); i++)
         {
             seed = seed * (std::numeric_limits<unsigned char>().max() + 2U)
                    + p[i];
@@ -45,7 +45,7 @@ better numbers than Mersenne. How can you go wrong? :)
     Random::Random(u32 seed)
         : index_(0), state_ {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
     {
-        for (u32 i = 0; i < 16; ++i)
+        for(u32 i = 0; i < 16; ++i)
         {
             state_[i] = seed * i;
         }
@@ -88,7 +88,7 @@ better numbers than Mersenne. How can you go wrong? :)
             v1 = Next(R11());
             v2 = Next(R11());
             s  = v1 * v1 + v2 * v2;
-        } while (s >= 1.0f || IsZero(s));
+        } while(s >= 1.0f || IsZero(s));
 
         s = Sqrt((-2.0f * Log(s)) / s);
 
@@ -108,7 +108,7 @@ better numbers than Mersenne. How can you go wrong? :)
         do
         {
             x = NextGaussian(mean, std_dev);
-        } while (!IsWithin(r, x));
+        } while(!IsWithin(r, x));
         return x;
     }
 

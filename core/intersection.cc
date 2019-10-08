@@ -37,15 +37,15 @@ namespace euphoria::core
         const float tymin = (bounds[r_sign[1]].y - r.from.y) * r_invdir.y;
         const float tymax = (bounds[1 - r_sign[1]].y - r.from.y) * r_invdir.y;
 
-        if ((tmin > tymax) || (tymin > tmax))
+        if((tmin > tymax) || (tymin > tmax))
         {
             return RayIntersectionResultFalse();
         }
-        if (tymin > tmin)
+        if(tymin > tmin)
         {
             tmin = tymin;
         }
-        if (tymax < tmax)
+        if(tymax < tmax)
         {
             tmax = tymax;
         }
@@ -53,16 +53,16 @@ namespace euphoria::core
         const float tzmin = (bounds[r_sign[2]].z - r.from.z) * r_invdir.z;
         const float tzmax = (bounds[1 - r_sign[2]].z - r.from.z) * r_invdir.z;
 
-        if ((tmin > tzmax) || (tzmin > tmax))
+        if((tmin > tzmax) || (tzmin > tmax))
         {
             return RayIntersectionResultFalse();
         }
 
-        if (tzmin > tmin)
+        if(tzmin > tmin)
         {
             tmin = tzmin;
         }
-        if (tzmax < tmax)
+        if(tzmax < tmax)
         {
             tmax = tzmax;
         }

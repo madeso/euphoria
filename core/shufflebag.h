@@ -29,7 +29,7 @@ namespace euphoria::core
         {
             ASSERT(amount > 0);
 
-            for (int i = 0; i < amount; i++)
+            for(int i = 0; i < amount; i++)
                 data_.push_back(item);
 
             cursor_ = GetSize() - 1;
@@ -41,7 +41,7 @@ namespace euphoria::core
             ASSERT(random);
             ASSERT(!data_.empty());  // needs data
 
-            if (cursor_ < 1)
+            if(cursor_ < 1)
             {
                 cursor_ = GetSize() - 1;
                 return data_[0];

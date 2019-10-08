@@ -13,13 +13,13 @@ namespace euphoria::core
         CellularAutomata::Setup()
         {
             world->SetAll([this](unsigned x, unsigned y) {
-                if (border_control != BorderControl::RandomWall
-                    && border_control != BorderControl::RandomEmpty)
+                if(border_control != BorderControl::RandomWall
+                   && border_control != BorderControl::RandomEmpty)
                 {
                     const auto is_border = x == 0 || y == 0
                                            || x == world->Width() - 1
                                            || y == world->Height() - 1;
-                    if (is_border)
+                    if(is_border)
                     {
                         return border_control == BorderControl::AlwaysWall;
                     }
@@ -43,22 +43,22 @@ namespace euphoria::core
                 int          step = 1)
         {
             int walls = 0;
-            for (int y = cy - step; y <= cy + step; y += 1)
+            for(int y = cy - step; y <= cy + step; y += 1)
             {
-                for (int x = cx - step; x <= cx + step; x += 1)
+                for(int x = cx - step; x <= cx + step; x += 1)
                 {
-                    if (x == cx && y == cy)
+                    if(x == cx && y == cy)
                         continue;
-                    if (!world.Indices().ContainsInclusive(x, y))
+                    if(!world.Indices().ContainsInclusive(x, y))
                     {
-                        if (outside_is_wall)
+                        if(outside_is_wall)
                         {
                             walls += 1;
                         }
                     }
                     else
                     {
-                        if (world.Value(x, y))
+                        if(world.Value(x, y))
                             walls += 1;
                     }
                 }
@@ -72,11 +72,11 @@ namespace euphoria::core
             const World current = *world;
             world->SetAll([&current, outside_is_wall](int x, int y) {
                 const auto walls = CountWalls(current, outside_is_wall, x, y);
-                if (walls > 4)
+                if(walls > 4)
                 {
                     return true;
                 }
-                if (walls < 4)
+                if(walls < 4)
                 {
                     return false;
                 }
@@ -107,9 +107,9 @@ namespace euphoria::core
             auto draw = ::euphoria::core::Draw {&image};
             draw.Clear(space_color);
 
-            for (unsigned int x = 0; x < world->Width(); x += 1)
+            for(unsigned int x = 0; x < world->Width(); x += 1)
             {
-                for (unsigned int y = 0; y < world->Height(); y += 1)
+                for(unsigned int y = 0; y < world->Height(); y += 1)
                 {
                     const auto px = x * scale;
                     const auto py = y * scale;

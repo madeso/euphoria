@@ -18,7 +18,7 @@ main()
     vfs::FileSystemRootFolder::AddRoot(&file_system, current_directory);
 
     const auto error = chatbot.LoadFromFile(&file_system, "chatbot.json");
-    if (!error.empty())
+    if(!error.empty())
     {
         std::cerr << "Failed to load chatbot: " << error << "\n";
         return -2;
@@ -40,9 +40,9 @@ main()
     bool first = true;
     do
     {
-        if (!first)
+        if(!first)
         {
-            if (!input.empty() && input[0] == '@')
+            if(!input.empty() && input[0] == '@')
             {
                 const std::string in {input.begin() + 1, input.end()};
                 cmdline.Run(in);
@@ -55,7 +55,7 @@ main()
         }
         std::cout << "> ";
         first = false;
-    } while (chatbot.IsInConversation() && std::getline(std::cin, input));
+    } while(chatbot.IsInConversation() && std::getline(std::cin, input));
 
     return 0;
 }

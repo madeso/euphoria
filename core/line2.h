@@ -59,10 +59,10 @@ namespace euphoria::core
             static Collision
             GetClosestCollision(const Collision& a, const Collision& b)
             {
-                if (a.collision && b.collision)
+                if(a.collision && b.collision)
                 {
                     // determine closest
-                    if (a.u < b.u)
+                    if(a.u < b.u)
                     {
                         return a;
                     }
@@ -71,11 +71,11 @@ namespace euphoria::core
                         return b;
                     }
                 }
-                else if (a.collision)
+                else if(a.collision)
                 {
                     return a;
                 }
-                else if (b.collision)
+                else if(b.collision)
                 {
                     return b;
                 }
@@ -127,7 +127,7 @@ namespace euphoria::core
             const T den = (-s2_x * s1_y + s1_x * s2_y);
 
             // todo: implement a check for zero for T
-            if (Abs(den) < 0.00001f)
+            if(Abs(den) < 0.00001f)
             {
                 return Collision::Parallel();
             }
@@ -135,7 +135,7 @@ namespace euphoria::core
             const T s = (-s1_y * (p0_x - p2_x) + s1_x * (p0_y - p2_y)) / den;
             const T t = (s2_x * (p0_y - p2_y) - s2_y * (p0_x - p2_x)) / den;
 
-            if (s >= 0 && s <= 1 && t >= 0 && t <= 1)
+            if(s >= 0 && s <= 1 && t >= 0 && t <= 1)
             {
                 const T x = p0_x + (t * s1_x);
                 const T y = p0_y + (t * s1_y);

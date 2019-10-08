@@ -79,7 +79,7 @@ namespace euphoria::core
         {
             const auto size = v.size();
             ASSERT(size > 0);
-            if (size == 1)
+            if(size == 1)
             {
                 return v[0];
             }

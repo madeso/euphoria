@@ -24,7 +24,7 @@ main(int argc, char* argv[])
 
     auto load_image = [&] {
         auto ret = LoadImage(io::FileToChunk(input), input, AlphaLoad::Keep);
-        if (!ret.error.empty())
+        if(!ret.error.empty())
         {
             std::cerr << ret.error << "\n";
             return false;
@@ -44,7 +44,7 @@ main(int argc, char* argv[])
             .Help("Where to write the resulting image");
 
     parser.AddSubParser("nop", "Don't do anything", [&] {
-        if (!load_image())
+        if(!load_image())
         {
             return;
         }
@@ -53,7 +53,7 @@ main(int argc, char* argv[])
 
     Grayscale grayscale = Grayscale::Average;
     auto pgrayscale = parser.AddSubParser("grayscale", "Apply grayscale", [&] {
-        if (!load_image())
+        if(!load_image())
         {
             return;
         }
@@ -65,11 +65,11 @@ main(int argc, char* argv[])
     palette::PaletteName palette    = palette::PaletteName::OneBit;
     bool                 pal_dither = false;
     auto ppalette = parser.AddSubParser("palswap", "Switch palette", [&] {
-        if (!load_image())
+        if(!load_image())
         {
             return;
         }
-        if (pal_dither)
+        if(pal_dither)
         {
             ImageFilter {&image}.MatchPaletteDither(
                     palette::GetPalette(palette));
@@ -85,7 +85,7 @@ main(int argc, char* argv[])
 
     float edge_r = 0.5f;
     auto  pedge  = parser.AddSubParser("edge", "Edge detection", [&] {
-        if (!load_image())
+        if(!load_image())
         {
             return;
         }
@@ -96,7 +96,7 @@ main(int argc, char* argv[])
 
     auto color_color = Color::Red;
     auto pcolor      = parser.AddSubParser("color", "Detect colors", [&] {
-        if (!load_image())
+        if(!load_image())
         {
             return;
         }
@@ -108,7 +108,7 @@ main(int argc, char* argv[])
 
     int  bright_c = 10;
     auto pbright  = parser.AddSubParser("bright", "Change brightness", [&] {
-        if (!load_image())
+        if(!load_image())
         {
             return;
         }
@@ -119,7 +119,7 @@ main(int argc, char* argv[])
 
     float contrast = 10;
     auto  pcontr   = parser.AddSubParser("contrast", "Change contrast", [&] {
-        if (!load_image())
+        if(!load_image())
         {
             return;
         }
@@ -130,7 +130,7 @@ main(int argc, char* argv[])
 
 
     const auto status = parser.Parse(argc, argv);
-    if (status != argparse::ParseResult::Ok)
+    if(status != argparse::ParseResult::Ok)
     {
         return -1;
     }

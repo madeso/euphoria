@@ -19,7 +19,7 @@ namespace euphoria::gui
             render::TextureCache*  cache)
     {
         const bool result = euphoria::gui::Load(this, fs, font, path, cache);
-        if (result)
+        if(result)
         {
             container_.DoLayout(core::Rectf::FromWidthHeight(size_));
         }
@@ -48,7 +48,7 @@ namespace euphoria::gui
 
         auto image = state_.hot != nullptr ? hover_image : cursor_image;
 
-        if (image)
+        if(image)
         {
             sp->DrawSprite(
                     *image,

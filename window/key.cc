@@ -7,7 +7,7 @@ namespace euphoria::window
     core::Key
     ToKey(SDL_Keysym key)
     {
-        switch (key.sym)
+        switch(key.sym)
         {
         case SDLK_RETURN: return core::Key::RETURN;
         case SDLK_ESCAPE: return core::Key::ESCAPE;
@@ -254,7 +254,7 @@ namespace euphoria::window
     core::MouseButton
     ToKey(SDL_MouseButtonEvent mb)
     {
-        switch (mb.button)
+        switch(mb.button)
         {
         case SDL_BUTTON_LEFT: return core::MouseButton::LEFT;
         case SDL_BUTTON_MIDDLE: return core::MouseButton::MIDDLE;

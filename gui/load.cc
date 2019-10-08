@@ -26,7 +26,7 @@ namespace euphoria::gui
     std::shared_ptr<Layout>
     GetLayout(const ::gui::Layout& c)
     {
-        if (c.table)
+        if(c.table)
         {
             LOG_INFO("Creating a table layout");
             return CreateTableLayout(
@@ -34,7 +34,7 @@ namespace euphoria::gui
                     c.table->expanded_cols,
                     c.table->padding);
         }
-        else if (c.single_row)
+        else if(c.single_row)
         {
             LOG_INFO("Creating a single row layout");
             return CreateSingleRowLayout(c.single_row->padding);
@@ -96,14 +96,14 @@ namespace euphoria::gui
     {
         std::shared_ptr<Widget> ret;
 
-        if (w.button)
+        if(w.button)
         {
             LOG_INFO("Creating a button widget");
             auto* b = new CmdButton(state);
 
             const std::string skin_name = w.button->skin;
             const auto        skin_it   = skins.find(skin_name);
-            if (skin_it != skins.end())
+            if(skin_it != skins.end())
             {
                 b->SetSkin(skin_it->second);
             }
@@ -113,7 +113,7 @@ namespace euphoria::gui
             }
             Skin* skin = skin_it->second;
 
-            if (!skin_it->second->button_image.empty())
+            if(!skin_it->second->button_image.empty())
             {
                 std::shared_ptr<render::ScalableSprite> sp(
                         new render::ScalableSprite(
@@ -128,7 +128,7 @@ namespace euphoria::gui
             b->Text().SetString(w.button->text);
             b->Text().SetFont(skin->font);
         }
-        else if (w.panel)
+        else if(w.panel)
         {
             LOG_INFO("Creating a panel widget");
             PanelWidget* l = new PanelWidget(state);
@@ -163,7 +163,7 @@ namespace euphoria::gui
             const std::map<std::string, Skin*>& skins)
     {
         root->SetLayout(GetLayout(c.layout));
-        for (const auto& widget: c.widgets)
+        for(const auto& widget: c.widgets)
         {
             root->Add(CreateWidget(fs, state, widget, cache, skins));
         }
@@ -178,7 +178,7 @@ namespace euphoria::gui
     core::InterpolationType
     Load(::gui::InterpolationType t)
     {
-        switch (t)
+        switch(t)
         {
 #define FUN(NAME, FUNC)                                                        \
     case ::gui::InterpolationType::NAME: return core::InterpolationType::NAME;
@@ -282,7 +282,7 @@ namespace euphoria::gui
     {
         ::gui::File       f;
         const std::string load_result = core::LoadProtoJson(fs, &f, path);
-        if (false == load_result.empty())
+        if(false == load_result.empty())
         {
             std::cerr << "Failed to load gui from " << path << ": "
                       << load_result << "\n";
@@ -294,7 +294,7 @@ namespace euphoria::gui
 
         std::map<std::string, Skin*> skin_map;
 
-        for (const auto& skin: f.skins)
+        for(const auto& skin: f.skins)
         {
             std::shared_ptr<Skin> skin_ptr = LoadSkin(skin, font);
             skin_map.insert(std::make_pair(skin.name, skin_ptr.get()));

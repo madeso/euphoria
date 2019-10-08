@@ -16,7 +16,7 @@ namespace euphoria::core::ecs
     void
     ComponentSystemUpdateStore::Update(EntReg* reg, float dt) const
     {
-        for (const auto s: systems)
+        for(const auto s: systems)
         {
             s->Update(reg, dt);
         }
@@ -25,7 +25,7 @@ namespace euphoria::core::ecs
     void
     ComponentSystemInitStore::OnAdd(EntityId ent) const
     {
-        for (const auto s: systems)
+        for(const auto s: systems)
         {
             s->OnAdd(ent);
         }
@@ -36,7 +36,7 @@ namespace euphoria::core::ecs
             EntReg*                 reg,
             render::SpriteRenderer* renderer) const
     {
-        for (const auto s: systems)
+        for(const auto s: systems)
         {
             s->Draw(reg, renderer);
         }

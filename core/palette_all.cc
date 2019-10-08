@@ -16,7 +16,7 @@ namespace euphoria::core
         const Palette&
         GetPalette(PaletteName name)
         {
-            switch (name)
+            switch(name)
             {
             // standard
             case PaletteName::Dawnbringer: return Dawnbringer();

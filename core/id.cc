@@ -9,7 +9,7 @@ namespace euphoria::core
     const IdGenerator::ID
     IdGenerator::Generate()
     {
-        if (released_.empty())
+        if(released_.empty())
         {
             const ID value = current_;
             ++current_;

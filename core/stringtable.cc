@@ -11,7 +11,7 @@ namespace euphoria::core
     {
         const auto AddRowToTable = [](Table<std::string>*             table,
                                       const std::vector<std::string>& row) {
-            if (row.empty())
+            if(row.empty())
             {
                 return;
             }
@@ -27,14 +27,14 @@ namespace euphoria::core
         bool                     added           = false;
         bool                     was_from_string = false;
 
-        while (file.HasMore())
+        while(file.HasMore())
         {
             const auto c = file.ReadChar();
-            if (inside_string)
+            if(inside_string)
             {
-                if (c == options.str)
+                if(c == options.str)
                 {
-                    if (file.PeekChar() == options.str)
+                    if(file.PeekChar() == options.str)
                     {
                         ss << c;
                         file.ReadChar();
@@ -51,9 +51,9 @@ namespace euphoria::core
             }
             else
             {
-                if (c == options.str)
+                if(c == options.str)
                 {
-                    if (added)
+                    if(added)
                     {
                         // todo: generate error if string contains stuff other than whitespace
                         ss.str("");
@@ -62,10 +62,10 @@ namespace euphoria::core
                     was_from_string = true;
                     added           = true;
                 }
-                else if (c == options.delim)
+                else if(c == options.delim)
                 {
                     auto data = ss.str();
-                    if (!was_from_string && options.trim == CsvTrim::Trim)
+                    if(!was_from_string && options.trim == CsvTrim::Trim)
                     {
                         data = Trim(data);
                     }
@@ -74,12 +74,12 @@ namespace euphoria::core
                     added           = false;
                     was_from_string = false;
                 }
-                else if (c == '\n')
+                else if(c == '\n')
                 {
-                    if (added)
+                    if(added)
                     {
                         auto data = ss.str();
-                        if (!was_from_string && options.trim == CsvTrim::Trim)
+                        if(!was_from_string && options.trim == CsvTrim::Trim)
                         {
                             data = Trim(data);
                         }
@@ -93,7 +93,7 @@ namespace euphoria::core
                 }
                 else
                 {
-                    if (was_from_string)
+                    if(was_from_string)
                     {
                         // skip
                         // todo: error on non whitespace?
@@ -107,10 +107,10 @@ namespace euphoria::core
             }
         }
 
-        if (added)
+        if(added)
         {
             auto data = ss.str();
-            if (!was_from_string && options.trim == CsvTrim::Trim)
+            if(!was_from_string && options.trim == CsvTrim::Trim)
             {
                 data = Trim(data);
             }
@@ -127,9 +127,9 @@ namespace euphoria::core
         // todo: bugfix longstring\nshort will return length of short, not longstring
         int w = 0;
 
-        for (auto c: t)
+        for(auto c: t)
         {
-            if (c == '\n')
+            if(c == '\n')
             {
                 w = 0;
             }
@@ -146,9 +146,9 @@ namespace euphoria::core
     HeightOfString(const std::string& t)
     {
         int h = 1;
-        for (auto c: t)
+        for(auto c: t)
         {
-            if (c == '\n')
+            if(c == '\n')
             {
                 h += 1;
             }
@@ -160,7 +160,7 @@ namespace euphoria::core
     ColumnWidth(const Table<std::string>& t, int c)
     {
         int width = 0;
-        for (size_t y = 0; y < t.Height(); y += 1)
+        for(size_t y = 0; y < t.Height(); y += 1)
         {
             width = std::max<int>(width, WidthOfString(t.Value(c, y)));
         }
@@ -171,7 +171,7 @@ namespace euphoria::core
     RowHeight(const Table<std::string>& t, int r)
     {
         int height = 0;
-        for (size_t x = 0; x < t.Width(); x += 1)
+        for(size_t x = 0; x < t.Width(); x += 1)
         {
             height = std::max<int>(height, HeightOfString(t.Value(x, r)));
         }
@@ -183,7 +183,7 @@ namespace euphoria::core
     {
         const auto       number_of_cols = table.Width();
         std::vector<int> sizes(number_of_cols);
-        for (size_t i = 0; i < number_of_cols; ++i)
+        for(size_t i = 0; i < number_of_cols; ++i)
         {
             sizes[i] = ColumnWidth(table, i) + extra;
         }
@@ -196,10 +196,10 @@ namespace euphoria::core
     {
         auto ret = Table<std::string>::FromWidthHeight(
                 table.Width(), RowHeight(table, row));
-        for (int c = 0; c < table.Width(); c += 1)
+        for(int c = 0; c < table.Width(); c += 1)
         {
             const auto rows = Split(table.Value(c, row), '\n');
-            for (int i = 0; i < rows.size(); i += 1)
+            for(int i = 0; i < rows.size(); i += 1)
             {
                 ret.Value(c, i, rows[i]);
             }
@@ -223,22 +223,22 @@ namespace euphoria::core
 
         const auto total_padding = begin_str_padding + end_space_padding;
 
-        for (size_t mainrow = 0; mainrow < number_of_rows; ++mainrow)
+        for(size_t mainrow = 0; mainrow < number_of_rows; ++mainrow)
         {
             const auto subtable = SplitTableCellsOnNewline(maintable, mainrow);
-            for (size_t subrow = 0; subrow < subtable.Height(); ++subrow)
+            for(size_t subrow = 0; subrow < subtable.Height(); ++subrow)
             {
-                for (size_t col = 0; col < number_of_cols; ++col)
+                for(size_t col = 0; col < number_of_cols; ++col)
                 {
                     const auto cell = begin_str + subtable.Value(col, subrow);
                     int        line_length = cell.length();
                     out << cell;
 
-                    if (col != number_of_cols - 1)
+                    if(col != number_of_cols - 1)
                     {
-                        for (size_t i = line_length;
-                             i < sizes[col] + total_padding;
-                             ++i)
+                        for(size_t i = line_length;
+                            i < sizes[col] + total_padding;
+                            ++i)
                         {
                             out << ' ';
                         }
@@ -246,9 +246,9 @@ namespace euphoria::core
                 }
                 out << '\n';
 
-                if (mainrow == 0)
+                if(mainrow == 0)
                 {
-                    for (size_t col = 0; col < number_of_cols; ++col)
+                    for(size_t col = 0; col < number_of_cols; ++col)
                     {
                         const auto row_text
                                 = std::string(
@@ -270,7 +270,7 @@ namespace euphoria::core
         constexpr auto internal_space = 1;
 
         auto some_space = [&out](int spaces, char c = ' ') {
-            for (int i = 0; i < spaces; i += 1)
+            for(int i = 0; i < spaces; i += 1)
             {
                 out << c;
             }
@@ -278,7 +278,7 @@ namespace euphoria::core
 
         auto horizontal_line = [internal_space, &some_space, &out, &sizes]() {
             out << '+';
-            for (auto s: sizes)
+            for(auto s: sizes)
             {
                 some_space(s + internal_space * 2, '-');
                 out << '+';
@@ -288,13 +288,13 @@ namespace euphoria::core
 
         horizontal_line();
 
-        for (size_t y = 0; y < maintable.Height(); ++y)
+        for(size_t y = 0; y < maintable.Height(); ++y)
         {
             const auto subtable = SplitTableCellsOnNewline(maintable, y);
-            for (size_t suby = 0; suby < subtable.Height(); suby += 1)
+            for(size_t suby = 0; suby < subtable.Height(); suby += 1)
             {
                 out << "|";
-                for (size_t x = 0; x < subtable.Width(); ++x)
+                for(size_t x = 0; x < subtable.Width(); ++x)
                 {
                     const auto cell = subtable.Value(x, suby);
                     some_space(internal_space);
@@ -306,7 +306,7 @@ namespace euphoria::core
                 out << '\n';
             }
 
-            if (y == 0)
+            if(y == 0)
             {
                 horizontal_line();
             }

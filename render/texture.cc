@@ -25,7 +25,7 @@ namespace euphoria::render
         gluint
         C(TextureWrap v)
         {
-            switch (v)
+            switch(v)
             {
             case TextureWrap::REPEAT: return GL_REPEAT;
             case TextureWrap::MIRRORED_REPEAT: return GL_MIRRORED_REPEAT;
@@ -39,7 +39,7 @@ namespace euphoria::render
         gluint
         C(FilterMagnification v)
         {
-            switch (v)
+            switch(v)
             {
             case FilterMagnification::NEAREST: return GL_NEAREST;
             case FilterMagnification::LINEAR: return GL_LINEAR;
@@ -53,7 +53,7 @@ namespace euphoria::render
         gluint
         C(FilterMinification v)
         {
-            switch (v)
+            switch(v)
             {
             case FilterMinification::NEAREST: return GL_NEAREST;
             case FilterMinification::LINEAR: return GL_LINEAR;
@@ -129,7 +129,7 @@ namespace euphoria::render
     void
     Use(const TextureId* texture)
     {
-        if (texture != nullptr)
+        if(texture != nullptr)
         {
             glBindTexture(GL_TEXTURE_2D, texture->GetId());
         }
@@ -180,7 +180,7 @@ namespace euphoria::render
             const Texture2dLoadData& data)
     {
         auto i = core::LoadImage(fs, path, alpha);
-        if (!i.image.IsValid())
+        if(!i.image.IsValid())
         {
             std::cerr << "Failed to load image " << path << "\n"
                       << "  " << i.error << "\n";
@@ -197,7 +197,7 @@ namespace euphoria::render
     {
         GLuint internal_format = GL_RGB;
         GLuint image_format    = GL_RGB;
-        if (image.HasAlpha() && alpha == core::AlphaLoad::Keep)
+        if(image.HasAlpha() && alpha == core::AlphaLoad::Keep)
         {
             internal_format = GL_RGBA;
             image_format    = GL_RGBA;

@@ -134,7 +134,7 @@ namespace euphoria::duk
         int
         ReturnObject(std::shared_ptr<T> t)
         {
-            if (t.get() == nullptr)
+            if(t.get() == nullptr)
             {
                 return ReturnFreeObject<T>(nullptr);
             }
@@ -164,7 +164,7 @@ namespace euphoria::duk
     {
         const auto   arr = PushArray();
         unsigned int i   = 0;
-        for (const T& t: array)
+        for(const T& t: array)
         {
             PushVar(this, t);
             PutArrayIndex(arr, i);

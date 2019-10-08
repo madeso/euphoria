@@ -56,7 +56,7 @@ namespace euphoria::core::ecs
         GetComponent(EntityId entity)
         {
             auto found = components.find(entity);
-            if (found != components.end())
+            if(found != components.end())
             {
                 return found->second;
             }
@@ -98,7 +98,7 @@ namespace euphoria::core::ecs
         EntityId
         Create()
         {
-            if (free_entities.empty())
+            if(free_entities.empty())
             {
                 current += 1;
                 SetAlive(current);
@@ -119,7 +119,7 @@ namespace euphoria::core::ecs
         void
         PostCreate(EntityId id)
         {
-            for (auto& c: callbacks)
+            for(auto& c: callbacks)
             {
                 c->OnCreated(id);
             }
@@ -156,12 +156,12 @@ namespace euphoria::core::ecs
         void
         RemovePostponedEntities()
         {
-            for (const auto id: destroyed_entities)
+            for(const auto id: destroyed_entities)
             {
                 // todo: postpone!
-                if (SwapBackAndEraseObject(id, &alive))
+                if(SwapBackAndEraseObject(id, &alive))
                 {
-                    for (const auto& entry: components)
+                    for(const auto& entry: components)
                     {
                         entry.second->RemoveComponent(id);
                     }
@@ -208,10 +208,10 @@ namespace euphoria::core::ecs
             ASSERT(!component_list.empty());
             bool                  first = true;
             std::vector<EntityId> r;
-            for (const auto c: component_list)
+            for(const auto c: component_list)
             {
                 const auto v = components[c]->View();
-                if (first)
+                if(first)
                 {
                     r     = v;
                     first = false;
@@ -237,7 +237,7 @@ namespace euphoria::core::ecs
         {
             ASSERT(id);
             const auto found_component = name_to_component.find(name);
-            if (found_component == name_to_component.end())
+            if(found_component == name_to_component.end())
             {
                 return false;
             }

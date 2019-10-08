@@ -92,7 +92,7 @@ OpenOrFocusWindow(
                 return wind->name == title_name;
             });
 
-    if (found == windows->end())
+    if(found == windows->end())
     {
         auto the_window  = create_window_function();
         the_window->name = title_name;
@@ -147,7 +147,7 @@ ColorEdit4(const char* label, ImU32* color)
 {
     ImVec4 temp = ImColor {*color};
 
-    if (ImGui::ColorEdit4(label, &temp.x))
+    if(ImGui::ColorEdit4(label, &temp.x))
     {
         *color = ImColor(temp);
     }
@@ -169,7 +169,7 @@ struct StyleEditorWindow : GenericWindow
         ImGui::InputInt("Sizer distance", &s->scc.sizer_distance);
         ImGui::InputInt("Sizer text distance", &s->scc.sizer_text_distance);
 
-        if (ImGui::Button("Set Default"))
+        if(ImGui::Button("Set Default"))
         {
             *s = StyleData {};
         }
@@ -195,7 +195,7 @@ struct TextEditorWindow : GenericWindow
     {
         ImGui::InputTextMultiline(
                 "", &buffer[0], buffer.capacity(), ImVec2 {-1, -1});
-        if (buffer.size() + 2 > buffer.capacity())
+        if(buffer.size() + 2 > buffer.capacity())
         {
             buffer.push_back(0);
             buffer.push_back(0);
@@ -221,7 +221,7 @@ OpenOrFocusTextFile(
 {
     OpenOrFocusWindow(windows, Str {} << "File: " << path, [&]() {
         std::string str;
-        if (!fs->ReadFileToString(path, &str))
+        if(!fs->ReadFileToString(path, &str))
         {
             str = Str {} << "Failed to open " << path;
         }
@@ -254,14 +254,14 @@ LoadFile(
     scimed->texture = cache->GetTexture(path);
     scimed->scaling = scache->Get(path + ".json");
 
-    if (scimed->texture)
+    if(scimed->texture)
     {
-        if (scimed->scaling->rows.empty())
+        if(scimed->scaling->rows.empty())
         {
             scimed->scaling->rows.emplace_back(scimed->texture->GetHeight());
         }
 
-        if (scimed->scaling->cols.empty())
+        if(scimed->scaling->cols.empty())
         {
             scimed->scaling->cols.emplace_back(scimed->texture->GetWidth());
         }
@@ -294,7 +294,7 @@ OpenOrFocusScimedEditior(
         ScalingSpriteCache* sc)
 {
     std::string file = path;
-    if (!EndsWith(file, ".json"))
+    if(!EndsWith(file, ".json"))
     {
         file += ".json";
     }
@@ -326,7 +326,7 @@ OpenOrFocusOnGenericWindow(
                 auto window = CreateGenericWindow(
                         T {}, [=](T& t) { run_function(&t); });
                 const auto err = LoadProtoJson(fs, &window->data, path);
-                if (!err.empty())
+                if(!err.empty())
                 {
                     LOG_ERROR("Failed to load: " << err);
                 }
@@ -397,9 +397,9 @@ struct FileHandlerList
     bool
     Open(Windows* windows, const std::string& path)
     {
-        for (auto& handler: handlers)
+        for(auto& handler: handlers)
         {
-            if (handler->Matches(path))
+            if(handler->Matches(path))
             {
                 handler->Open(windows, path);
                 return true;
@@ -413,10 +413,10 @@ struct FileHandlerList
     RunImguiSelectable(Windows* windows, const std::string& path)
     {
         // todo: come up with a better name for this function
-        for (auto& handler: handlers)
+        for(auto& handler: handlers)
         {
-            if (ImguiSelectableOrDisabled(
-                        !path.empty(), handler->context_menu.c_str()))
+            if(ImguiSelectableOrDisabled(
+                       !path.empty(), handler->context_menu.c_str()))
             {
                 handler->Open(windows, path);
             }
@@ -440,7 +440,7 @@ main(int argc, char** argv)
 {
     Engine engine;
 
-    if (engine.Setup() == false)
+    if(engine.Setup() == false)
     {
         return -1;
     }
@@ -449,8 +449,8 @@ main(int argc, char** argv)
     int window_width  = 1280;
     int window_height = 720;
 
-    if (!engine.CreateWindow(
-                "Euphoria Editor", window_width, window_height, true))
+    if(!engine.CreateWindow(
+               "Euphoria Editor", window_width, window_height, true))
     {
         return -1;
     }
@@ -549,19 +549,19 @@ main(int argc, char** argv)
     //////////////////////////////////////////////////////////////////////////////
     // main loop
 
-    while (running)
+    while(running)
     {
         SDL_Event e;
-        while (SDL_PollEvent(&e) != 0)
+        while(SDL_PollEvent(&e) != 0)
         {
             engine.imgui->ProcessEvents(&e);
 
-            if (engine.HandleResize(e, &window_width, &window_height))
+            if(engine.HandleResize(e, &window_width, &window_height))
             {
                 viewport_handler.SetSize(window_width, window_height);
             }
 
-            switch (e.type)
+            switch(e.type)
             {
             case SDL_QUIT: running = false; break;
             default:
@@ -572,26 +572,26 @@ main(int argc, char** argv)
 
         engine.imgui->StartNewFrame();
 
-        if (ImGui::BeginMainMenuBar())
+        if(ImGui::BeginMainMenuBar())
         {
-            if (ImGui::BeginMenu("File"))
+            if(ImGui::BeginMenu("File"))
             {
-                if (ImGui::MenuItem("Exit", "Ctrl+Q"))
+                if(ImGui::MenuItem("Exit", "Ctrl+Q"))
                 {
                     running = false;
                 }
-                if (ImGui::MenuItem("Style editor"))
+                if(ImGui::MenuItem("Style editor"))
                 {
                     OpenOrFocusStyleEditor(&windows);
                 }
                 ImGui::EndMenu();
             }
 
-            if (ImGui::BeginMenu("Window"))
+            if(ImGui::BeginMenu("Window"))
             {
-                for (const auto& win: windows)
+                for(const auto& win: windows)
                 {
-                    if (ImGui::MenuItem(win->name.c_str()))
+                    if(ImGui::MenuItem(win->name.c_str()))
                     {
                         ImGui::SetNextWindowFocus();
                         ImGui::Begin(win->name.c_str());
@@ -604,9 +604,9 @@ main(int argc, char** argv)
         }
         ImGui::EndMainMenuBar();
 
-        if (ImGui::Begin("Solution explorer"))
+        if(ImGui::Begin("Solution explorer"))
         {
-            if (ImGui::BeginCombo("test combo", "[val]"))
+            if(ImGui::BeginCombo("test combo", "[val]"))
             {
                 const auto wsize   = ImGui::GetWindowSize();
                 const auto spacing = ImGui::GetItemsLineHeightWithSpacing() * 2;
@@ -617,17 +617,17 @@ main(int argc, char** argv)
                 const auto  sizer = [=](int id) -> float {
                     return id == 1 ? big : small;
                 };
-                for (int yi = 0; yi < 3; yi += 1)
+                for(int yi = 0; yi < 3; yi += 1)
                 {
                     ImGui::PushID(yi);
-                    for (int xi = 0; xi < 3; xi += 1)
+                    for(int xi = 0; xi < 3; xi += 1)
                     {
                         ImGui::PushID(xi);
-                        if (ImGui::Button("a", ImVec2 {sizer(xi), sizer(yi)}))
+                        if(ImGui::Button("a", ImVec2 {sizer(xi), sizer(yi)}))
                         {
                             ImGui::CloseCurrentPopup();
                         }
-                        if (xi < 2)
+                        if(xi < 2)
                         {
                             ImGui::SameLine();
                         }
@@ -638,12 +638,12 @@ main(int argc, char** argv)
                 ImGui::EndCombo();
             }
 
-            if (browser.Run())
+            if(browser.Run())
             {
                 const auto file = browser.GetSelectedFile();
                 file_types.Open(&windows, file);
             }
-            if (ImGui::BeginPopupContextItem("browser popup"))
+            if(ImGui::BeginPopupContextItem("browser popup"))
             {
                 const auto file = browser.GetSelectedFile();
                 file_types.RunImguiSelectable(&windows, file);
@@ -652,10 +652,10 @@ main(int argc, char** argv)
         }
         ImGui::End();
 
-        for (auto& win: windows)
+        for(auto& win: windows)
         {
             ImGui::SetNextWindowSize(ImVec2 {300, 300}, ImGuiCond_FirstUseEver);
-            if (ImGui::Begin(win->name.c_str(), &win->open))
+            if(ImGui::Begin(win->name.c_str(), &win->open))
             {
                 win->Run(&style_data);
             }

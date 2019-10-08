@@ -21,7 +21,7 @@ namespace euphoria::core
         Path
         Path::FromDirectory(const std::string& path)
         {
-            if (path.empty() || EndsWith(path, DirectoryString()))
+            if(path.empty() || EndsWith(path, DirectoryString()))
             {
                 return Path {path};
             }
@@ -53,14 +53,14 @@ namespace euphoria::core
         const Path
         Path::GetDirectory() const
         {
-            if (IsDirectory())
+            if(IsDirectory())
             {
                 return *this;
             }
             else
             {
                 const auto dir_char = absolute_path_.rfind(DirectoryChar());
-                if (dir_char == std::string::npos)
+                if(dir_char == std::string::npos)
                 {
                     // this is a root file, so return root directory
                     return FromDirectory("");
@@ -75,19 +75,19 @@ namespace euphoria::core
         const Path
         Path::GetParentDirectory() const
         {
-            if (absolute_path_.empty())
+            if(absolute_path_.empty())
             {
                 return *this;
             }
             ASSERTX(IsDirectory(), absolute_path_);
-            if (!IsDirectory())
+            if(!IsDirectory())
             {
                 return FromDirectory("not a directory");
             }
 
             const auto dir_char = absolute_path_.rfind(
                     DirectoryChar(), absolute_path_.length() - 2);
-            if (dir_char == std::string::npos)
+            if(dir_char == std::string::npos)
             {
                 // this is a root file, so return root directory
                 return FromDirectory("");
@@ -111,7 +111,7 @@ namespace euphoria::core
             ASSERT(IsDirectory());
             ASSERT(!EndsWith(name, DirectoryString()));
 
-            if (StartsWith(name, "~"))
+            if(StartsWith(name, "~"))
             {
                 return FromFile(name.substr(1));
             }
@@ -144,7 +144,7 @@ namespace euphoria::core
             const auto dir_char = absolute_path_.rfind(
                     DirectoryChar(), absolute_path_.length() - 2);
 
-            if (dir_char == std::string::npos)
+            if(dir_char == std::string::npos)
             {
                 // this is a root file, so return root directory
                 return absolute_path_;
@@ -160,7 +160,7 @@ namespace euphoria::core
             const auto dir_char = absolute_path_.rfind(
                     DirectoryChar(), absolute_path_.length() - 2);
 
-            if (dir_char == std::string::npos)
+            if(dir_char == std::string::npos)
             {
                 // this is a root file, so return root directory
                 return absolute_path_;

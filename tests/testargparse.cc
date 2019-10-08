@@ -45,7 +45,7 @@ END_ENUM_LIST()
 std::ostream&
 operator<<(std::ostream& s, const Entry& e)
 {
-    if (!e.ok)
+    if(!e.ok)
         s << "(ERR): ";
     s << e.text;
     return s;

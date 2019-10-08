@@ -25,7 +25,7 @@ namespace euphoria::duk
     ObjectReference::StoreReference(Duk* duk)
     {
         ASSERT(duk);
-        if (reference == nullptr)
+        if(reference == nullptr)
         {
             reference
                     = std::make_shared<StoredReference>(ptr, &duk->references);

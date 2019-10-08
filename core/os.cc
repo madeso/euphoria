@@ -35,9 +35,9 @@ namespace euphoria::core
     {
         char current_directory[FILENAME_MAX];
 
-        if (!GET_CURRENT_DIR(
-                    static_cast<char*>(current_directory),
-                    sizeof(current_directory)))
+        if(!GET_CURRENT_DIR(
+                   static_cast<char*>(current_directory),
+                   sizeof(current_directory)))
         {
             return "";
         }
@@ -60,7 +60,7 @@ namespace euphoria::core
         HANDLE            hFind = ::FindFirstFile(search_path.c_str(), &fd);
 
 
-        if (hFind != INVALID_HANDLE_VALUE)
+        if(hFind != INVALID_HANDLE_VALUE)
         {
             DirectoryList ret;
             ret.valid = true;
@@ -69,7 +69,7 @@ namespace euphoria::core
             {
                 // read all (real) files in current folder, delete '!' read other 2
                 // default folder . and ..
-                if (!(fd.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY))
+                if(!(fd.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY))
                 {
                     ret.files.push_back(fd.cFileName);
                 }
@@ -77,7 +77,7 @@ namespace euphoria::core
                 {
                     ret.directories.push_back(fd.cFileName);
                 }
-            } while (::FindNextFile(hFind, &fd));
+            } while(::FindNextFile(hFind, &fd));
             ::FindClose(hFind);
 
             return ret;
@@ -96,22 +96,22 @@ namespace euphoria::core
         DIR*           dir;
         struct dirent* ent;
         dir = opendir(path.c_str());
-        if (dir != nullptr)
+        if(dir != nullptr)
         {
             DirectoryList ret;
             ret.valid = true;
 
             /* print all the files and directories within directory */
-            while ((ent = readdir(dir)) != nullptr)
+            while((ent = readdir(dir)) != nullptr)
             {
                 const std::string name = ent->d_name;
-                if (ent->d_type == DT_REG)
+                if(ent->d_type == DT_REG)
                 {
                     ret.files.emplace_back(name);
                 }
-                else if (ent->d_type == DT_DIR)
+                else if(ent->d_type == DT_DIR)
                 {
-                    if (name == "." || name == "..")
+                    if(name == "." || name == "..")
                     {
                     }
                     else
@@ -138,7 +138,7 @@ namespace euphoria::core
     {
         const auto l = str.length();
 
-        if (l == 0)
+        if(l == 0)
         {
             return false;
         }
@@ -149,7 +149,7 @@ namespace euphoria::core
     std::string
     JoinPath(const std::string& left, const std::string& right)
     {
-        if (EndsWith(left, PATH_SEPARATOR))
+        if(EndsWith(left, PATH_SEPARATOR))
         {
             return left + right;
         }
@@ -169,7 +169,7 @@ namespace euphoria::core
     GetFileNameIncludingExtension(const std::string& path)
     {
         const auto r = LastStrings(path, PATH_SEPARATOR).second;
-        if (r.empty())
+        if(r.empty())
         {
             return r;
         }

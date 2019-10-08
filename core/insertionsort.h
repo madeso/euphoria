@@ -14,10 +14,10 @@ namespace euphoria::core
         const auto length = A.size();
 
         size_t i = 1;
-        while (i < length)
+        while(i < length)
         {
             size_t j = i;
-            while (j > 0 && sort_func(A[j - 1], A[j]) > 0)
+            while(j > 0 && sort_func(A[j - 1], A[j]) > 0)
             {
                 std::swap(A[j], A[j - 1]);
                 j = j - 1;
@@ -39,7 +39,7 @@ namespace euphoria::core
     int
     DefaultInsertionSort(const T& lhs, const T& rhs)
     {
-        if (lhs == rhs)
+        if(lhs == rhs)
             return 0;
         return lhs < rhs ? -1 : 1;
     }

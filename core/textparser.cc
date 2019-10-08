@@ -33,7 +33,7 @@ namespace euphoria::core
         void
         BeginEndNode::Visit(Visitor* visitor) const
         {
-            if (begin)
+            if(begin)
             {
                 visitor->OnBegin();
             }
@@ -142,16 +142,16 @@ namespace euphoria::core
             {
                 const std::string data = buff.str();
                 buff.str("");
-                switch (state)
+                switch(state)
                 {
                 case State::TEXT:
-                    if (!data.empty())
+                    if(!data.empty())
                     {
                         nodes->AddText(data);
                     }
                     break;
                 case State::IMAGE:
-                    if (!data.empty())
+                    if(!data.empty())
                     {
                         nodes->AddImage(data);
                     }
@@ -167,17 +167,17 @@ namespace euphoria::core
             void
             OnChar(char c)
             {
-                switch (state)
+                switch(state)
                 {
                 case State::TEXT:
-                    if (escape)
+                    if(escape)
                     {
                         buff << c;
                         escape = false;
                     }
                     else
                     {
-                        switch (c)
+                        switch(c)
                         {
                         case '@':
                             Close();
@@ -197,8 +197,8 @@ namespace euphoria::core
                     }
                     break;
                 case State::IMAGE:
-                    if (('a' <= c && c <= 'z') || ('A' <= c && c <= 'Z')
-                        || c == '-' || c == '_')
+                    if(('a' <= c && c <= 'z') || ('A' <= c && c <= 'Z')
+                       || c == '-' || c == '_')
                     {
                         buff << c;
                     }
@@ -206,7 +206,7 @@ namespace euphoria::core
                     {
                         Close();
                         state = State::TEXT;
-                        if (c == ' ')
+                        if(c == ' ')
                         {
                             // nop
                         }
@@ -229,21 +229,21 @@ namespace euphoria::core
         Parser parser;
         parser.nodes = this;
 
-        for (char c: str)
+        for(char c: str)
         {
             parser.OnChar(c);
-            if (!parser.ok)
+            if(!parser.ok)
             {
                 return false;
             }
         }
 
         parser.Close();
-        if (!parser.ok)
+        if(!parser.ok)
         {
             return false;
         }
-        if (parser.escape)
+        if(parser.escape)
         {
             LOG_ERROR("Ending with escape");
             return false;
@@ -262,7 +262,7 @@ namespace euphoria::core
     void
     ParsedText::Visit(textparser::Visitor* visitor)
     {
-        for (auto& node: nodes)
+        for(auto& node: nodes)
         {
             node->Visit(visitor);
         }
@@ -271,7 +271,7 @@ namespace euphoria::core
     void
     ParsedText::Visit(textparser::Visitor* visitor) const
     {
-        for (auto& node: nodes)
+        for(auto& node: nodes)
         {
             node->Visit(visitor);
         }

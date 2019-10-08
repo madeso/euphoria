@@ -95,9 +95,9 @@ namespace euphoria::engine
         {
             auto ptr  = std::make_shared<CustomComponentCreator>();
             ptr->comp = id;
-            for (const auto& a: arguments)
+            for(const auto& a: arguments)
             {
-                if (a.number != nullptr)
+                if(a.number != nullptr)
                 {
                     ptr->arguments.numbers[a.name] = a.number->value;
                 }
@@ -130,20 +130,20 @@ namespace euphoria::engine
             render::TextureCache*  cache,
             Components*            components)
     {
-        if (comp.position)
+        if(comp.position)
         {
             return PositionComponentCreator::Create(*comp.position, components);
         }
-        else if (comp.sprite)
+        else if(comp.sprite)
         {
             return SpriteComponentCreator::Create(
                     *comp.sprite, cache, components);
         }
-        else if (comp.custom)
+        else if(comp.custom)
         {
             const auto&            s = *comp.custom;
             core::ecs::ComponentId id;
-            if (reg->GetCustomComponentByName(s.name, &id))
+            if(reg->GetCustomComponentByName(s.name, &id))
             {
                 return CustomComponentCreator::Create(s.name, id, s.arguments);
             }
@@ -168,10 +168,10 @@ namespace euphoria::engine
             render::TextureCache* cache,
             Components*           components)
     {
-        for (const auto& comp: ct.components)
+        for(const auto& comp: ct.components)
         {
             auto c = CreateCreator(comp, reg, cache, components);
-            if (c != nullptr)
+            if(c != nullptr)
             {
                 ot->components.emplace_back(c);
             }
@@ -182,7 +182,7 @@ namespace euphoria::engine
     ObjectTemplate::CreateObject(const ObjectCreationArgs& args)
     {
         auto ent = args.world->reg.Create();
-        for (const auto& c: components)
+        for(const auto& c: components)
         {
             c->CreateComponent(args, ent);
         }
@@ -198,7 +198,7 @@ namespace euphoria::engine
     void
     LoadTemplatesButOnlyNames(const game::Game& json, ObjectCreator* temp)
     {
-        for (const auto& t: json.templates)
+        for(const auto& t: json.templates)
         {
             auto o = std::make_shared<ObjectTemplate>();
             temp->templates.insert(std::make_pair(t.name, o));
@@ -213,12 +213,12 @@ namespace euphoria::engine
             render::TextureCache* cache,
             Components*           components)
     {
-        for (const auto& t: json.templates)
+        for(const auto& t: json.templates)
         {
             auto o = std::make_shared<ObjectTemplate>();
 
             auto fr = temp->templates.find(t.name);
-            if (fr == temp->templates.end())
+            if(fr == temp->templates.end())
             {
                 temp->templates.insert(std::make_pair(t.name, o));
             }
@@ -235,7 +235,7 @@ namespace euphoria::engine
     ObjectCreator::FindTemplate(const std::string& name)
     {
         auto result = templates.find(name);
-        if (result == templates.end())
+        if(result == templates.end())
         {
             LOG_ERROR(
                     "Failed to find template named "

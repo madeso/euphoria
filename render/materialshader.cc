@@ -90,7 +90,7 @@ namespace euphoria::render
     {
         sh->hasLight_ = material_shader_file.has_light;
 
-        for (const auto& texture: material_shader_file.textures)
+        for(const auto& texture: material_shader_file.textures)
         {
             const auto uniform = sh->shader_.GetUniform(texture.uniform);
             DEFINE_ENUM_VALUE(core::TextureType, texture_name, texture.texture);
@@ -100,7 +100,7 @@ namespace euphoria::render
             sh->bindings_.emplace_back(uniform, texture_name);
         }
 
-        for (const auto& texture: material_shader_file.default_textures)
+        for(const auto& texture: material_shader_file.default_textures)
         {
             DEFINE_ENUM_VALUE(core::TextureType, texture_name, texture.texture);
             sh->default_textures_.emplace_back(texture_name, texture.path);
@@ -111,26 +111,26 @@ namespace euphoria::render
         sh->view_       = sh->shader_.GetUniform("uView");
         sh->model_      = sh->shader_.GetUniform("uModel");
 
-        if (!material_shader_file.ambient.empty())
+        if(!material_shader_file.ambient.empty())
         {
             sh->ambient_ = sh->shader_.GetUniform(material_shader_file.ambient);
         }
-        if (!material_shader_file.diffuse.empty())
+        if(!material_shader_file.diffuse.empty())
         {
             sh->diffuse_ = sh->shader_.GetUniform(material_shader_file.diffuse);
         }
-        if (!material_shader_file.specular.empty())
+        if(!material_shader_file.specular.empty())
         {
             sh->specular_
                     = sh->shader_.GetUniform(material_shader_file.specular);
         }
-        if (!material_shader_file.shininess.empty())
+        if(!material_shader_file.shininess.empty())
         {
             sh->shininess_
                     = sh->shader_.GetUniform(material_shader_file.shininess);
         }
 
-        if (sh->hasLight_)
+        if(sh->hasLight_)
         {
             sh->lightAmbient_   = sh->shader_.GetUniform("uLight.ambient");
             sh->lightDiffuse_   = sh->shader_.GetUniform("uLight.diffuse");
@@ -168,7 +168,7 @@ namespace euphoria::render
         const std::string              proto_path = path + ".json";
         std::string                    error      = core::LoadProtoJson(
                 file_system, &material_shader_file, proto_path);
-        if (!error.empty())
+        if(!error.empty())
         {
             std::cerr << "Failed to load material shader json " << path << ": "
                       << error << "\n";
@@ -219,7 +219,7 @@ namespace euphoria::render
     MaterialShader::SetModel(const core::mat4f& model)
     {
         shader_.SetUniform(model_, model);
-        if (hasLight_)
+        if(hasLight_)
         {
             core::mat4f normal   = model;
             const bool  inverted = normal.Invert();
@@ -232,7 +232,7 @@ namespace euphoria::render
     void
     MaterialShader::SetupLight(const Light& light, const core::vec3f& camera)
     {
-        if (!hasLight_)
+        if(!hasLight_)
         {
             return;
         }
@@ -263,24 +263,24 @@ namespace euphoria::render
             const core::Rgb& specular,
             float            shininess)
     {
-        if (!ambient_.IsNull())
+        if(!ambient_.IsNull())
         {
             shader_.SetUniform(ambient_, ambient);
         }
 
-        if (!diffuse_.IsNull())
+        if(!diffuse_.IsNull())
         {
             shader_.SetUniform(diffuse_, diffuse);
         }
 
-        if (!specular_.IsNull())
+        if(!specular_.IsNull())
         {
             const auto the_specular
                     = shininess > 0 ? specular : core::Rgb {core::Color::Black};
             shader_.SetUniform(specular_, the_specular);
         }
 
-        if (!shininess_.IsNull())
+        if(!shininess_.IsNull())
         {
             const auto the_shininess = shininess > 0 ? shininess : 1.0f;
             shader_.SetUniform(shininess_, the_shininess);

@@ -53,7 +53,7 @@ namespace euphoria::core
     int
     DefaultSortFunc(T lhs, T rhs)
     {
-        if (lhs == rhs)
+        if(lhs == rhs)
             return 0;
         return lhs < rhs ? 1 : -1;
     }
@@ -100,22 +100,22 @@ namespace euphoria::core
     {
         std::vector<size_t> r(data.size());
         std::iota(std::begin(r), std::end(r), 0);
-        if (builder.sort_order.empty())
+        if(builder.sort_order.empty())
         {
             return r;
         }
         const auto sort_function
                 = [&data, &builder](size_t lhs, size_t rhs) -> int {
-            for (const auto& so: builder.sort_order)
+            for(const auto& so: builder.sort_order)
             {
                 const auto result = so->Sort(data[lhs], data[rhs]);
-                if (result != 0)
+                if(result != 0)
                     return -result;
             }
             return 0;
         };
         // is a stable sort is requested, use insertion sort, otherwise use the faster quick sort
-        if (builder.stable_sort)
+        if(builder.stable_sort)
             InsertionSort(&r, sort_function);
         else
             QuickSort(&r, sort_function);

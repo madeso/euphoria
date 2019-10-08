@@ -39,16 +39,16 @@ RunDecode(const std::string& data)
 int
 main(int argc, char** argv)
 {
-    if (argc == 3)
+    if(argc == 3)
     {
         const std::string command = argv[1];
         const std::string data    = argv[2];
 
-        if (command == "encode")
+        if(command == "encode")
         {
             return RunEncode(data);
         }
-        if (command == "decode")
+        if(command == "decode")
         {
             return RunDecode(data);
         }

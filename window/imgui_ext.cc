@@ -18,7 +18,7 @@ namespace euphoria::window
         };
         strncpy(buffer, str->c_str(), size);
         const bool r = ImGui::InputText(label, buffer, size);
-        if (r)
+        if(r)
         {
             *str = buffer;
         }
@@ -67,27 +67,27 @@ namespace euphoria::window
                 ImVec2(1, 1),
                 ImColor(255, 255, 255, 255),
                 ImColor(255, 255, 255, 128));
-        if (ImGui::IsItemHovered())
+        if(ImGui::IsItemHovered())
         {
             ImGui::BeginTooltip();
             float focus_sz = 32.0f;
             float focus_x  = ImGui::GetMousePos().x - tex_screen_pos.x
                             - focus_sz * 0.5f;
-            if (focus_x < 0.0f)
+            if(focus_x < 0.0f)
             {
                 focus_x = 0.0f;
             }
-            else if (focus_x > tex_w - focus_sz)
+            else if(focus_x > tex_w - focus_sz)
             {
                 focus_x = tex_w - focus_sz;
             }
             float focus_y = ImGui::GetMousePos().y - tex_screen_pos.y
                             - focus_sz * 0.5f;
-            if (focus_y < 0.0f)
+            if(focus_y < 0.0f)
             {
                 focus_y = 0.0f;
             }
-            else if (focus_y > tex_h - focus_sz)
+            else if(focus_y > tex_h - focus_sz)
             {
                 focus_y = tex_h - focus_sz;
             }
@@ -171,9 +171,9 @@ namespace euphoria::window
     bool
     ImguiSelectableOrDisabled(bool enabled, const char* label)
     {
-        if (enabled)
+        if(enabled)
         {
-            if (ImGui::Selectable(label))
+            if(ImGui::Selectable(label))
             {
                 return true;
             }

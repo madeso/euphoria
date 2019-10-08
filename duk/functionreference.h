@@ -66,7 +66,7 @@ namespace euphoria::duk
         static std::string
         CanMatch(Context* ctx, int index, int arg)
         {
-            if (ctx->IsFunction(index))
+            if(ctx->IsFunction(index))
             {
                 return "";
             }
@@ -109,14 +109,14 @@ namespace euphoria::duk
     FunctionReference::Call(Context* context, TArgs... args) const
     {
         const bool ret = SubCall(context, args...);
-        if (!ret)
+        if(!ret)
         {
             throw std::runtime_error(CollectError(context));
         }
 
         const auto match = StackParser<TReturn>::CanMatch(context, -1, 0);
 
-        if (match.empty())
+        if(match.empty())
         {
             const TReturn ret = StackParser<TReturn>::Parse(context, -1);
             DoneFunction(context);
@@ -136,7 +136,7 @@ namespace euphoria::duk
     FunctionReference::VoidCall(Context* context, TArgs... args) const
     {
         const bool ret = SubCall(context, args...);
-        if (!ret)
+        if(!ret)
         {
             throw std::runtime_error(CollectError(context));
         }

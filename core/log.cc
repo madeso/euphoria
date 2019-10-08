@@ -15,7 +15,7 @@ namespace euphoria::core
         char const* const
         LevelToString(LogLevel level)
         {
-            switch (level)
+            switch(level)
             {
             case LogLevel::Trace: return "trace";
             case LogLevel::Debug: return "debug";
@@ -70,7 +70,7 @@ namespace euphoria::core
         ASSERT(ToLower(name) == name);  // name should be lower string
 
         auto result = storage.find(name);
-        if (result != storage.end())
+        if(result != storage.end())
         {
             return result->second;
         }

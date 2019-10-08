@@ -17,12 +17,12 @@ namespace euphoria::core
 
         const float scale_factor = 1 + 0.01f * Abs(zoom);
 
-        if (zoom < 0.0f)
+        if(zoom < 0.0f)
         {
             scale /= scale_factor;
         }
 
-        if (zoom > 0.0f)
+        if(zoom > 0.0f)
         {
             scale *= scale_factor;
         }

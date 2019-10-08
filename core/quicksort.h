@@ -15,18 +15,18 @@ namespace euphoria::core
         const auto pivot       = A[pivot_index];
         auto       i           = lo - 1;
         auto       j           = hi + 1;
-        while (true)
+        while(true)
         {
             do
             {
                 i += 1;
-            } while (sort_func(A[i], pivot) < 0);
+            } while(sort_func(A[i], pivot) < 0);
             do
             {
                 j -= 1;
-            } while (sort_func(A[j], pivot) > 0);
+            } while(sort_func(A[j], pivot) > 0);
 
-            if (i >= j)
+            if(i >= j)
             {
                 return j;
             }
@@ -39,7 +39,7 @@ namespace euphoria::core
     void
     QuickSortSub(SortFunc sort_func, std::vector<T>& A, int lo, int hi)
     {
-        if (lo < hi)
+        if(lo < hi)
         {
             const auto p = Partition(sort_func, A, lo, hi);
             QuickSortSub(sort_func, A, lo, p);
@@ -67,7 +67,7 @@ namespace euphoria::core
     int
     DefaultQuickSortFunction(const T& lhs, const T& rhs)
     {
-        if (lhs == rhs)
+        if(lhs == rhs)
             return 0;
         return lhs < rhs ? -1 : 1;
     }

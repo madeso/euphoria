@@ -165,10 +165,10 @@ namespace euphoria::core
         bool
         UpdateValueFromInterpolationPosition()
         {
-            if (data_.empty())
+            if(data_.empty())
                 return false;
             const InterpolationData<Type>& d = data_.front();
-            if (d.type != nullptr)
+            if(d.type != nullptr)
             {
                 const float interpolated
                         = d.type(position_in_current_interpolation_);
@@ -182,9 +182,9 @@ namespace euphoria::core
         {
             float dt = adt;
 
-            while (dt > 0.0f)
+            while(dt > 0.0f)
             {
-                if (data_.empty())
+                if(data_.empty())
                 {
                     UpdateValueFromInterpolationPosition();
                     return;
@@ -194,7 +194,7 @@ namespace euphoria::core
                 const bool over = position_in_current_interpolation_ >= 1.0f;
 
                 // update the delta time for the next interpolation step
-                if (over)
+                if(over)
                 {
                     dt = (1 - position_in_current_interpolation_) * d.time;
                 }
@@ -203,7 +203,7 @@ namespace euphoria::core
                     dt = -1;
                 }
 
-                if (over)
+                if(over)
                 {
                     position_in_current_interpolation_ -= 1.0f;
                     value_ = d.target;
@@ -297,7 +297,7 @@ namespace euphoria::core
     case InterpolationType::NAME:                                              \
         AddInterpolation(easing::NAME, target, time);                          \
         return *this;
-            switch (type)
+            switch(type)
             {
                 // Linear interpolation (no easing)
                 FUN(Linear, LinearInterpolation)
@@ -384,7 +384,7 @@ namespace euphoria::core
         {
             ASSERT(time > 0.0f);
 
-            if (data_.empty())
+            if(data_.empty())
             {
                 from_ = value_;
             }

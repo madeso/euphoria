@@ -64,7 +64,7 @@ main(int argc, char** argv)
 {
     Engine engine;
 
-    if (engine.Setup() == false)
+    if(engine.Setup() == false)
     {
         return -1;
     }
@@ -73,7 +73,7 @@ main(int argc, char** argv)
     int window_width  = 1280;
     int window_height = 720;
 
-    if (!engine.CreateWindow("Painter", window_width, window_height, true))
+    if(!engine.CreateWindow("Painter", window_width, window_height, true))
     {
         return -1;
     }
@@ -91,19 +91,19 @@ main(int argc, char** argv)
     BezierPath2  path(vec2f(0, 0));
     int          index = -1;
 
-    while (running)
+    while(running)
     {
         SDL_Event e;
-        while (SDL_PollEvent(&e) != 0)
+        while(SDL_PollEvent(&e) != 0)
         {
             engine.imgui->ProcessEvents(&e);
 
-            if (engine.HandleResize(e, &window_width, &window_height))
+            if(engine.HandleResize(e, &window_width, &window_height))
             {
                 // viewport_handler.SetSize(window_width, window_height);
             }
 
-            switch (e.type)
+            switch(e.type)
             {
             case SDL_QUIT: running = false; break;
             default:
@@ -114,11 +114,11 @@ main(int argc, char** argv)
 
         engine.imgui->StartNewFrame();
 
-        if (ImGui::BeginMainMenuBar())
+        if(ImGui::BeginMainMenuBar())
         {
-            if (ImGui::BeginMenu("File"))
+            if(ImGui::BeginMenu("File"))
             {
-                if (ImGui::MenuItem("Exit", "Ctrl+Q"))
+                if(ImGui::MenuItem("Exit", "Ctrl+Q"))
                 {
                     running = false;
                 }
@@ -128,14 +128,14 @@ main(int argc, char** argv)
         ImGui::EndMainMenuBar();
 
         ImGui::SetNextWindowSize(ImVec2 {300, 300}, ImGuiCond_FirstUseEver);
-        if (ImGui::Begin("painter"))
+        if(ImGui::Begin("painter"))
         {
             // win->Run(&style_data);
             const auto a = !ImGui::IsAnyItemHovered();
             const auto b = ImGui::IsMouseHoveringWindow();
             const auto c = ImGui::IsMouseClicked(1);
             // LOG_INFO("bools " << a << " " << b << " " << c);
-            if (a && c)
+            if(a && c)
             {
                 ImGui::OpenPopup("context_menu");
             }
@@ -143,7 +143,7 @@ main(int argc, char** argv)
             canvas.Begin(cc);
             canvas.ShowGrid(cc);
 
-            if (ImGui::IsMouseReleased(0))
+            if(ImGui::IsMouseReleased(0))
             {
                 index = -1;
             }
@@ -156,15 +156,15 @@ main(int argc, char** argv)
                 const auto  hover
                         = vec2f::FromTo(C(me), C(sp)).GetLengthSquared()
                           < size * size;
-                if (index == -1 && hover && ImGui::IsMouseDown(0))
+                if(index == -1 && hover && ImGui::IsMouseDown(0))
                 {
                     index = id;
                 }
                 draw_list->AddCircleFilled(sp, size, color);
-                if (index == id)
+                if(index == id)
                 {
                     // capture current drag item...
-                    if (ImGui::IsMouseDragging())
+                    if(ImGui::IsMouseDragging())
                     {
                         const auto d = ImGui::GetMouseDragDelta();
                         ImGui::ResetMouseDragDelta();
@@ -186,12 +186,12 @@ main(int argc, char** argv)
             const auto line_color  = IM_COL32(0, 0, 0, 255);
 
             // draw handles
-            for (size_t point_index = 0; point_index < path.points.size();
-                 point_index += 1)
+            for(size_t point_index = 0; point_index < path.points.size();
+                point_index += 1)
             {
                 const bool is_anchor_point
                         = BezierPath2::IsAnchorPoint(point_index);
-                if (path.autoset_ && !is_anchor_point)
+                if(path.autoset_ && !is_anchor_point)
                 {
                     continue;
                 }
@@ -201,9 +201,9 @@ main(int argc, char** argv)
                                             : IM_COL32(200, 20, 20, alpha);
                 auto r = handle(
                         C(path.points[point_index]), point_index, color);
-                if (r.first)
+                if(r.first)
                 {
-                    if (ImGui::GetIO().KeyCtrl)
+                    if(ImGui::GetIO().KeyCtrl)
                     {
                         path.points[point_index] += r.second;
                     }
@@ -215,7 +215,7 @@ main(int argc, char** argv)
             }
             // draw bezier and link lines
             const auto tseg = path.GetNumberOfSegments();
-            for (size_t seg = 0; seg < tseg; seg += 1)
+            for(size_t seg = 0; seg < tseg; seg += 1)
             {
                 auto  s  = path.GetPointsInSegment(seg);
                 auto* dl = ImGui::GetWindowDrawList();
@@ -227,7 +227,7 @@ main(int argc, char** argv)
                         curve_color,
                         1);
 
-                if (!path.autoset_)
+                if(!path.autoset_)
                 {
                     line(canvas.WorldToScreen(C(s.a0)),
                          canvas.WorldToScreen(C(s.c0)),
@@ -241,21 +241,21 @@ main(int argc, char** argv)
             canvas.ShowRuler(cc);
             canvas.End(cc);
 
-            if (ImGui::BeginPopup("context_menu"))
+            if(ImGui::BeginPopup("context_menu"))
             {
                 const auto p = canvas.ScreenToWorld(
                         ImGui::GetMousePosOnOpeningCurrentPopup());
-                if (ImGui::MenuItem("Add"))
+                if(ImGui::MenuItem("Add"))
                 {
                     path.AddPoint(C(p));
                 }
                 auto ic = path.is_closed_;
-                if (ImGui::Checkbox("Is closed", &ic))
+                if(ImGui::Checkbox("Is closed", &ic))
                 {
                     path.ToggleClosed();
                 }
                 auto as = path.autoset_;
-                if (ImGui::Checkbox("Autoset control points", &as))
+                if(ImGui::Checkbox("Autoset control points", &as))
                 {
                     path.ToggleAutoSetControlPoints();
                 }

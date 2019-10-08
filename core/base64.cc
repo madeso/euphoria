@@ -23,17 +23,17 @@ namespace euphoria::core
             // StringBuilder out = new StringBuilder((in.length * 4) / 3);
             std::ostringstream out;
             int                b;
-            for (int i = 0; i < in.GetSize(); i += 3)
+            for(int i = 0; i < in.GetSize(); i += 3)
             {
                 b = (in[i] & 0xFC) >> 2;
                 out << CODES[b];
                 b = (in[i] & 0x03) << 4;
-                if (i + 1 < in.GetSize())
+                if(i + 1 < in.GetSize())
                 {
                     b |= (in[i + 1] & 0xF0) >> 4;
                     out << CODES[b];
                     b = (in[i + 1] & 0x0F) << 2;
-                    if (i + 2 < in.GetSize())
+                    if(i + 2 < in.GetSize())
                     {
                         b |= (in[i + 2] & 0xC0) >> 6;
                         out << CODES[b];
@@ -60,7 +60,7 @@ namespace euphoria::core
         Decode(const std::string& input)
         {
             const std::string codes = CODES;
-            if (input.length() % 4 == 0)
+            if(input.length() % 4 == 0)
             {
                 ASSERT(!input.empty());
                 auto asize = (input.length() * 3) / 4;
@@ -77,7 +77,7 @@ namespace euphoria::core
                 unsigned long b[4]     = {
                         0,
                 };
-                for (int i = 0; i < input.size(); i += 4)
+                for(int i = 0; i < input.size(); i += 4)
                 {
                     // This could be made faster (but more complicated) by precomputing
                     // these index locations.
@@ -86,11 +86,11 @@ namespace euphoria::core
                     b[2]         = codes.find(in_chars[i + 2]);
                     b[3]         = codes.find(in_chars[i + 3]);
                     decoded[j++] = static_cast<char>((b[0] << 2) | (b[1] >> 4));
-                    if (b[2] < 64)
+                    if(b[2] < 64)
                     {
                         decoded[j++]
                                 = static_cast<char>((b[1] << 4) | (b[2] >> 2));
-                        if (b[3] < 64)
+                        if(b[3] < 64)
                         {
                             decoded[j++]
                                     = static_cast<char>((b[2] << 6) | b[3]);

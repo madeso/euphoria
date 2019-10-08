@@ -55,7 +55,7 @@ namespace euphoria::render
             const core::EnumValue&     name,
             std::shared_ptr<Texture2d> texture)
     {
-        if (textures_.find(name) != textures_.end())
+        if(textures_.find(name) != textures_.end())
         {
             LOG_WARN(name.ToString() << " is already assigned, overwriting...");
         }
@@ -84,11 +84,11 @@ namespace euphoria::render
         const auto& bindings = shader_->GetBindings();
 
         int texture_index = 0;
-        for (const auto& binding: bindings)
+        for(const auto& binding: bindings)
         {
             const auto name    = binding.GetName();
             auto       texture = textures_.find(name);
-            if (texture == textures_.end())
+            if(texture == textures_.end())
             {
                 // todo: this is a error and should have been caught by the Validate,
                 // abort?
@@ -110,11 +110,11 @@ namespace euphoria::render
     {
         const auto textures = shader_->GetDefaultTextures();
 
-        for (const auto& texture: textures)
+        for(const auto& texture: textures)
         {
             const bool missing
                     = textures_.find(texture.GetName()) == textures_.end();
-            if (missing)
+            if(missing)
             {
                 textures_[texture.GetName()]
                         = cache->GetTexture(texture.GetPath());
@@ -133,12 +133,12 @@ namespace euphoria::render
 
         bool ok = true;
 
-        for (const auto& binding: bindings)
+        for(const auto& binding: bindings)
         {
             const auto name = binding.GetName();
             values.insert(name);
             const bool missing = textures_.find(name) == textures_.end();
-            if (missing)
+            if(missing)
             {
                 LOG_ERROR(
                         "Material is missing shader required texture "
@@ -147,11 +147,11 @@ namespace euphoria::render
             }
         }
 
-        for (const auto& texture: textures_)
+        for(const auto& texture: textures_)
         {
             const auto name    = texture.first;
             const bool missing = values.find(name) == values.end();
-            if (missing)
+            if(missing)
             {
                 LOG_ERROR(
                         "Texture " << name.ToString()
@@ -184,7 +184,7 @@ namespace euphoria::render
 
         int material_index = 0;
 
-        for (const auto& material_src: mesh.materials)
+        for(const auto& material_src: mesh.materials)
         {
             material_index += 1;
             CompiledMeshMaterial mat;
@@ -195,7 +195,7 @@ namespace euphoria::render
                     material_src.shininess);
 
             std::string shader_name = material_src.shader;
-            if (shader_name.empty())
+            if(shader_name.empty())
             {
                 // todo: determine better shader name
                 // perhaps by setting a few default shaders on a "project" and we try to
@@ -203,7 +203,7 @@ namespace euphoria::render
                 shader_name = "default_shader";
             }
             mat.SetShader(shader_cache->Get(shader_name));
-            for (const auto& texture_src: material_src.textures)
+            for(const auto& texture_src: material_src.textures)
             {
                 const auto texture_path
                         = texture_folder.GetFile(texture_src.path)
@@ -214,7 +214,7 @@ namespace euphoria::render
 
             mat.LoadDefaultMaterialsFromShader(texture_cache);
 
-            if (!mat.Validate())
+            if(!mat.Validate())
             {
                 LOG_WARN(
                         "Material " << material_src.name << "("
@@ -227,7 +227,7 @@ namespace euphoria::render
 
         const auto material_count = ret->materials.size();
 
-        for (const auto& part_src: mesh.parts)
+        for(const auto& part_src: mesh.parts)
         {
             std::shared_ptr<CompiledMeshPart> part {new CompiledMeshPart()};
 
@@ -253,7 +253,7 @@ namespace euphoria::render
 
             part->material = part_src.material;
 
-            if (part->material >= material_count)
+            if(part->material >= material_count)
             {
                 LOG_ERROR(
                         "Mesh part is using a invalid material, defaulting to first.");
@@ -272,7 +272,7 @@ namespace euphoria::render
         std::vector<std::shared_ptr<CompiledMeshMaterial>> ret;
         ret.reserve(materials.size());
 
-        for (unsigned int i = 0; i < materials.size(); ++i)
+        for(unsigned int i = 0; i < materials.size(); ++i)
         {
             ret.push_back(nullptr);
         }
@@ -292,7 +292,7 @@ namespace euphoria::render
     {
         ASSERT(materials.size() == overridden_materials.size());
 
-        for (const auto& part: parts)
+        for(const auto& part: parts)
         {
             const auto& base_material = materials[part->material];
             const auto& overridden_material
@@ -327,7 +327,7 @@ namespace euphoria::render
         shader->SetModel(model_matrix);
         shader->SetView(view_matrix);
 
-        for (const auto& part: parts)
+        for(const auto& part: parts)
         {
             Vao::Bind(&part->config);
             Ebo::Bind(&part->tris);

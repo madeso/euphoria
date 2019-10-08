@@ -59,8 +59,8 @@ namespace euphoria::core
         void
         Filter(Func f)
         {
-            for (int y = 0; y < GetHeight(); y += 1)
-                for (int x = 0; x < GetWidth(); x += 1)
+            for(int y = 0; y < GetHeight(); y += 1)
+                for(int x = 0; x < GetWidth(); x += 1)
                 {
                     SetPixel(x, y, f(GetPixel(x, y)));
                 }
@@ -70,8 +70,8 @@ namespace euphoria::core
         void
         SetAllTopBottom(Func f)
         {
-            for (int y = GetHeight(); y > 0; y -= 1)
-                for (int x = 0; x < GetWidth(); x += 1)
+            for(int y = GetHeight(); y > 0; y -= 1)
+                for(int x = 0; x < GetWidth(); x += 1)
                 {
                     SetPixel(x, y - 1, f(x, y - 1));
                 }
@@ -81,8 +81,8 @@ namespace euphoria::core
         void
         SetAllBottomTop(Func f)
         {
-            for (int y = 0; y < GetHeight(); y += 1)
-                for (int x = 0; x < GetWidth(); x += 1)
+            for(int y = 0; y < GetHeight(); y += 1)
+                for(int x = 0; x < GetWidth(); x += 1)
                 {
                     SetPixel(x, y, f(x, y));
                 }

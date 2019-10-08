@@ -26,7 +26,7 @@ namespace euphoria::engine
         {
             const auto items = reg->View(std::vector<core::ecs::ComponentId> {
                     components->position2, components->sprite});
-            for (auto ent: items)
+            for(auto ent: items)
             {
                 auto* sprite = reg->GetComponentOrNull<CSprite>(
                         ent, components->sprite);

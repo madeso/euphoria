@@ -70,7 +70,7 @@ int
 main(int argc, char** argv)
 {
     Engine engine;
-    if (!engine.Setup())
+    if(!engine.Setup())
     {
         return -1;
     }
@@ -78,7 +78,7 @@ main(int argc, char** argv)
     int width  = 1280;
     int height = 720;
 
-    if (!engine.CreateWindow("Euphoria 3d demo", width, height, false))
+    if(!engine.CreateWindow("Euphoria 3d demo", width, height, false))
     {
         return -1;
     }
@@ -100,7 +100,7 @@ main(int argc, char** argv)
     drawer.Clear(Color::Red);
     Random random {42};
 
-    for (int i = 0; i < 20; i += 1)
+    for(int i = 0; i < 20; i += 1)
     {
         const Rgb  color = rgb(palette::Dawnbringer().GetRandomColor(&random));
         const auto pos   = wi.RandomPoint(&random);
@@ -171,7 +171,7 @@ main(int argc, char** argv)
     // 0=do nothing, 1=use light actor, 2=follow camera
     int light_update = 1;
 
-    for (int i = 0; i < 20; ++i)
+    for(int i = 0; i < 20; ++i)
     {
         std::shared_ptr<Actor> actor
                 = std::make_shared<Actor>(random.NextBool() ? box1 : box2);
@@ -191,7 +191,7 @@ main(int argc, char** argv)
         do
         {
             position = box_extents.RandomPoint(&random);
-        } while (position.GetLength() < 1.4f);
+        } while(position.GetLength() < 1.4f);
 
         actor->SetPosition(position);
         actor->SetRotation(anim.from);
@@ -226,12 +226,12 @@ main(int argc, char** argv)
 
     bool paused = true;
 
-    while (running)
+    while(running)
     {
         const bool  show_imgui = !capturing_mouse_movement;
         const float delta      = timer.Update();
 
-        if (show_imgui)
+        if(show_imgui)
         {
             engine.imgui->StartNewFrame();
 
@@ -282,7 +282,7 @@ main(int argc, char** argv)
                                          * 2.0f;
         light_actor->SetPosition(light_pos);
 
-        switch (light_update)
+        switch(light_update)
         {
         case 1: world.light.SetPosition(light_pos); break;
         case 2:
@@ -291,13 +291,13 @@ main(int argc, char** argv)
         }
 
 
-        for (auto& anim: animation_handler)
+        for(auto& anim: animation_handler)
         {
-            if (paused == false)
+            if(paused == false)
             {
                 anim.timer += delta * anim.rotation_speed;
                 int count = 0;
-                while (anim.timer > 1.0f)
+                while(anim.timer > 1.0f)
                 {
                     count += 1;
                     anim.timer -= 1.0f;
@@ -318,17 +318,17 @@ main(int argc, char** argv)
         }
 
         SDL_Event e;
-        while (SDL_PollEvent(&e) != 0)
+        while(SDL_PollEvent(&e) != 0)
         {
-            if (show_imgui)
+            if(show_imgui)
             {
                 engine.imgui->ProcessEvents(&e);
             }
-            switch (e.type)
+            switch(e.type)
             {
             case SDL_QUIT: running = false; break;
             case SDL_MOUSEMOTION:
-                if (capturing_mouse_movement)
+                if(capturing_mouse_movement)
                 {
                     fps.Look(e.motion.xrel, e.motion.yrel);
                 }
@@ -340,22 +340,22 @@ main(int argc, char** argv)
 
                 fps.HandleKey(ToKey(e.key.keysym), down);
 
-                switch (e.key.keysym.sym)
+                switch(e.key.keysym.sym)
                 {
                 case SDLK_ESCAPE:
-                    if (down)
+                    if(down)
                     {
                         running = false;
                     }
                     break;
                 case SDLK_p:
-                    if (!down)
+                    if(!down)
                     {
                         paused = !paused;
                     }
                     break;
                 case SDLK_TAB:
-                    if (!down)
+                    if(!down)
                     {
                         capturing_mouse_movement = !capturing_mouse_movement;
                         engine.window->KeepWithin(capturing_mouse_movement);
@@ -380,7 +380,7 @@ main(int argc, char** argv)
         engine.init->ClearScreen(Color::Black);
         world.Render(viewport, camera);
 
-        if (show_imgui)
+        if(show_imgui)
         {
             engine.imgui->Render();
         }

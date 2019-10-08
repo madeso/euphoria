@@ -29,14 +29,14 @@ namespace euphoria::render
         {
             dest->reserve(src.size());
             float size = 0;
-            for (const int s: src)
+            for(const int s: src)
             {
                 const auto f = static_cast<float>(s);
                 dest->push_back(f);
                 size += core::Abs(f);
             }
 
-            if (dest->empty())
+            if(dest->empty())
             {
                 dest->push_back(-100.0f);
                 return 100.0f;
@@ -69,9 +69,9 @@ namespace euphoria::render
         GetConstantSize(const std::vector<float>& data)
         {
             float r = 0;
-            for (float f: data)
+            for(float f: data)
             {
-                if (f > 0)
+                if(f > 0)
                 {
                     r += f;
                 }
@@ -109,7 +109,7 @@ namespace euphoria::render
 
         float position_current_col = 0;
         float uv_current_col       = 0;
-        for (unsigned int c = 0; c < cols_size; ++c)
+        for(unsigned int c = 0; c < cols_size; ++c)
         {
             float position_current_row = size_.GetHeight();
             float uv_current_row       = 1;
@@ -119,7 +119,7 @@ namespace euphoria::render
             const auto uv_next_col
                     = uv_current_col + core::Abs(cols_[c]) / max_col_;
 
-            for (unsigned int r = 0; r < rows_size; ++r)
+            for(unsigned int r = 0; r < rows_size; ++r)
             {
                 const auto position_next_row
                         = position_current_row - position_rows[r];

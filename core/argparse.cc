@@ -25,7 +25,7 @@ namespace euphoria::core
         bool
         Name::IsOptional(const std::string& arg)
         {
-            if (arg.empty())
+            if(arg.empty())
             {
                 return false;
             }
@@ -45,9 +45,9 @@ namespace euphoria::core
         Name::Name(const char* str)
             : is_optional(IsOptional(Trim(str))), names(Split(str, ','))
         {
-            if (is_optional)
+            if(is_optional)
             {
-                for (auto& n: names)
+                for(auto& n: names)
                 {
                     ASSERTX(IsOptional(Trim(n)), n);
                     n = OptionalName(Trim(n));
@@ -89,7 +89,7 @@ namespace euphoria::core
         void
         Name::AssertValid()
         {
-            if (is_optional)
+            if(is_optional)
             {
                 ASSERTX(names.size() > 0, names.size());
             }
@@ -129,7 +129,7 @@ namespace euphoria::core
         std::string
         Running::Read()
         {
-            if (next_index < arguments.size())
+            if(next_index < arguments.size())
             {
                 const auto ret = arguments[next_index];
                 next_index += 1;
@@ -146,7 +146,7 @@ namespace euphoria::core
         {
             ASSERTX(advance > 0, advance);
             const auto suggested_index = next_index + advance - 1;
-            if (suggested_index < arguments.size())
+            if(suggested_index < arguments.size())
             {
                 return arguments[suggested_index];
             }
@@ -197,12 +197,12 @@ namespace euphoria::core
                 Output*            output)
         {
             auto v = Trim(ToLower(value));
-            if (v == "t" || v == "1" || v == "true" || v == "yes" || v == "y")
+            if(v == "t" || v == "1" || v == "true" || v == "yes" || v == "y")
             {
                 *target = true;
                 return ParseResult::Ok;
             }
-            if (v == "f" || v == "0" || v == "false" || v == "no" || v == "n")
+            if(v == "f" || v == "0" || v == "false" || v == "no" || v == "n")
             {
                 *target = false;
                 return ParseResult::Ok;
@@ -287,7 +287,7 @@ namespace euphoria::core
             const auto indent     = "  ";
             auto*      o          = running->output;
             o->OnInfo(empty_line);
-            if (!documentation.empty())
+            if(!documentation.empty())
             {
                 o->OnInfo(documentation);
                 o->OnInfo(empty_line);
@@ -316,21 +316,21 @@ namespace euphoria::core
 
             // determine max_size
             size_t max_size = 0;
-            for (auto p: pos_args)
+            for(auto p: pos_args)
             {
-                if (p->show_in_long_description)
+                if(p->show_in_long_description)
                 {
                     max_size = std::max(max_size, p->name.names[0].length());
                 }
             }
-            for (auto p: optional_arguments_list)
+            for(auto p: optional_arguments_list)
             {
-                if (p->show_in_long_description)
+                if(p->show_in_long_description)
                 {
                     max_size = std::max(max_size, arg_name_string(p).length());
                 }
             }
-            for (const auto& p: subps)
+            for(const auto& p: subps)
             {
                 max_size = std::max(max_size, p.first.length());
             }
@@ -340,10 +340,10 @@ namespace euphoria::core
             auto pa = Filter(pos_args, [](auto p) {
                 return p && p->show_in_long_description;
             });
-            if (!pa.empty())
+            if(!pa.empty())
             {
                 o->OnInfo("positional arguments");
-                for (auto p: pa)
+                for(auto p: pa)
                 {
                     o->OnInfo(
                             Str() << indent << std::left << std::setw(max_size)
@@ -356,10 +356,10 @@ namespace euphoria::core
             auto oa = Filter(optional_arguments_list, [](auto p) {
                 return p && p->show_in_long_description;
             });
-            if (!oa.empty())
+            if(!oa.empty())
             {
                 o->OnInfo("optional arguments");
-                for (auto p: oa)
+                for(auto p: oa)
                 {
                     o->OnInfo(
                             Str() << indent << std::left << std::setw(max_size)
@@ -369,10 +369,10 @@ namespace euphoria::core
                 o->OnInfo(empty_line);
             }
 
-            if (!subps.empty())
+            if(!subps.empty())
             {
                 o->OnInfo("sub commands");
-                for (auto p: subps)
+                for(auto p: subps)
                 {
                     o->OnInfo(
                             Str()
@@ -399,7 +399,7 @@ namespace euphoria::core
                 ASSERT(running->HasMore());
                 const auto name  = running->Read();
                 auto       match = parsers->Match(name, 3);
-                if (!match.single_match)
+                if(!match.single_match)
                 {
                     auto matches = VectorToStringVector(
                             match.values, [this](std::shared_ptr<SubParser> p) {
@@ -413,7 +413,7 @@ namespace euphoria::core
                 }
 
                 std::vector<std::string> args;
-                while (running->HasMore())
+                while(running->HasMore())
                 {
                     args.emplace_back(running->Read());
                 }
@@ -421,7 +421,7 @@ namespace euphoria::core
                 auto sub = match.values[0];
                 ASSERT(sub);
                 auto r = sub->parser->Parse(running->name + " " + name, args);
-                if (r == ParseResult::Ok)
+                if(r == ParseResult::Ok)
                 {
                     sub->callback();
                 }
@@ -454,7 +454,7 @@ namespace euphoria::core
         Parser::GetAllPosArgs() const
         {
             auto pos_args = the_positional_arguments;
-            if (subparsers != nullptr)
+            if(subparsers != nullptr)
             {
                 pos_args.push_back(std::make_shared<SubParserArg>(subparsers));
             }
@@ -467,20 +467,20 @@ namespace euphoria::core
             arg->name     = name;
             arg->meta_var = ToUpper(name.names[0]);
             // strip away all - from the start
-            while (Name::IsOptional(arg->meta_var))
+            while(Name::IsOptional(arg->meta_var))
             {
                 arg->meta_var = Name::OptionalName(arg->meta_var);
             }
             // if empty, just set to some default
-            if (arg->meta_var.empty())
+            if(arg->meta_var.empty())
             {
                 arg->meta_var = "VAR";
             }
 
-            if (name.is_optional)
+            if(name.is_optional)
             {
                 ASSERT(!name.names.empty());
-                for (auto n: name.names)
+                for(auto n: name.names)
                 {
                     ASSERTX(optional_arguments.find(n)
                                     == optional_arguments.end(),
@@ -500,7 +500,7 @@ namespace euphoria::core
         std::shared_ptr<SubParser>
         Parser::AddSubParser(const std::string& name, const std::string& desc)
         {
-            if (subparsers == nullptr)
+            if(subparsers == nullptr)
             {
                 subparsers = std::make_shared<SubParsers>();
             }
@@ -545,7 +545,7 @@ namespace euphoria::core
         Parser::Parse(int argc, char* argv[]) const
         {
             auto args = std::vector<std::string> {};
-            for (int i = 1; i < argc; i += 1)
+            for(int i = 1; i < argc; i += 1)
             {
                 args.push_back(argv[i]);
             }
@@ -577,7 +577,7 @@ namespace euphoria::core
 
             size_t next_positional_index = 0;
 
-            while (running.HasMore())
+            while(running.HasMore())
             {
                 const auto is_optional = Name::IsOptional(running.Peek());
                 const auto has_more_positionals
@@ -591,11 +591,11 @@ namespace euphoria::core
                         = [this, &arg, &arg_name, &found_args](
                                   const std::string& optional_name) -> bool {
                     const auto chars = Name::OptionalName(optional_name);
-                    for (char c: chars)
+                    for(char c: chars)
                     {
                         auto f = optional_arguments.find(std::string(1, c));
-                        if (f == optional_arguments.end()
-                            || f->second->TakesArguments())
+                        if(f == optional_arguments.end()
+                           || f->second->TakesArguments())
                         {
                             // if there aren't a matching cmdline argument name or it takes a argument it is an errror
                             break;
@@ -605,7 +605,7 @@ namespace euphoria::core
                             found_args.push_back(f->second);
                         }
                     }
-                    if (chars.size() == found_args.size())
+                    if(chars.size() == found_args.size())
                     {
                         arg      = found_args[0];
                         arg_name = chars;
@@ -618,17 +618,17 @@ namespace euphoria::core
                     }
                 };
 
-                if (has_more_positionals)
+                if(has_more_positionals)
                 {
                     // if it is a valid optional, parse it, otherwise send to optional
-                    if (is_optional)
+                    if(is_optional)
                     {
                         const auto testing_arg = running.Peek();
                         auto       found       = optional_arguments.find(
                                 Name::OptionalName(testing_arg));
-                        if (found != optional_arguments.end())
+                        if(found != optional_arguments.end())
                         {
-                            if (!has_read(found->second))
+                            if(!has_read(found->second))
                             {
                                 arg_name = running.Read();
                                 ASSERT(Name::IsOptional(arg_name));
@@ -637,14 +637,14 @@ namespace euphoria::core
                         }
                         else
                         {
-                            if (add_multi_argument(testing_arg))
+                            if(add_multi_argument(testing_arg))
                             {
                                 running.Read();
                             }
                         }
                     }
 
-                    if (arg == nullptr)
+                    if(arg == nullptr)
                     {
                         arg = pos_args[next_positional_index];
                         ASSERT(!arg->name.names.empty());
@@ -656,7 +656,7 @@ namespace euphoria::core
                 {
                     // no more positionals, must be a optional
                     const auto optional_name = running.Read();
-                    if (!Name::IsOptional(optional_name))
+                    if(!Name::IsOptional(optional_name))
                     {
                         running.output->OnError(
                                 Str() << "Got " << optional_name
@@ -666,9 +666,9 @@ namespace euphoria::core
 
                     auto found = optional_arguments.find(
                             Name::OptionalName(optional_name));
-                    if (found == optional_arguments.end())
+                    if(found == optional_arguments.end())
                     {
-                        if (false == add_multi_argument(optional_name))
+                        if(false == add_multi_argument(optional_name))
                         {
                             running.output->OnError(
                                     Str() << "Not a valid argument: "
@@ -684,7 +684,7 @@ namespace euphoria::core
                     }
                 }
 
-                if (has_read(arg))
+                if(has_read(arg))
                 {
                     running.output->OnError(
                             Str() << arg_name << " specified earlier");
@@ -695,30 +695,30 @@ namespace euphoria::core
                                           std::shared_ptr<Arg> arg,
                                           const std::string&   arg_name) {
                     auto r = arg->Parse(arg_name, &running);
-                    if (r != ParseResult::Ok)
+                    if(r != ParseResult::Ok)
                     {
                         return r;
                     }
-                    if (arg->CanCallManyTimes() == false)
+                    if(arg->CanCallManyTimes() == false)
                     {
                         read_arg(arg);
                     }
                     return ParseResult::Ok;
                 };
-                if (found_args.empty())
+                if(found_args.empty())
                 {
                     const auto r = handle_arg(arg, arg_name);
-                    if (r != ParseResult::Ok)
+                    if(r != ParseResult::Ok)
                     {
                         return r;
                     }
                 }
                 else
                 {
-                    for (auto a: found_args)
+                    for(auto a: found_args)
                     {
                         const auto r = handle_arg(a, "");
-                        if (r != ParseResult::Ok)
+                        if(r != ParseResult::Ok)
                         {
                             return r;
                         }
@@ -727,7 +727,7 @@ namespace euphoria::core
             }
 
             std::vector<std::string> missing_positionals;
-            for (size_t i = next_positional_index; i < pos_args.size(); i += 1)
+            for(size_t i = next_positional_index; i < pos_args.size(); i += 1)
             {
                 auto names = pos_args[i]->name.names;
                 ASSERT(!names.empty());
@@ -735,7 +735,7 @@ namespace euphoria::core
                 missing_positionals.push_back(name);
             }
 
-            if (!missing_positionals.empty())
+            if(!missing_positionals.empty())
             {
                 running.output->OnError(
                         Str() << "error: the following arguments are required: "

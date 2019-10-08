@@ -11,7 +11,7 @@ namespace euphoria::core
     unsigned int
     ToColorHex(Color color)
     {
-        switch (color)
+        switch(color)
         {
         case Color::White: return RGB(255, 255, 255);
         case Color::LightGray: return RGB(160, 160, 160);

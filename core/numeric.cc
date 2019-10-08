@@ -25,7 +25,7 @@ namespace euphoria::core
     float
     ZeroOrValue(float r)
     {
-        if (IsZero(r))
+        if(IsZero(r))
         {
             return 0;
         }
@@ -60,7 +60,7 @@ namespace euphoria::core
     int
     Sign(float r)
     {
-        if (r >= 0.0f)
+        if(r >= 0.0f)
         {
             return 1;
         }
@@ -80,7 +80,7 @@ namespace euphoria::core
         const int   sign = Sign(old_value - new_value);
         const float slip = (old_value - new_value) / smoothing_value;
         const float val  = old_value - slip;
-        if (sign != Sign(val - new_value))
+        if(sign != Sign(val - new_value))
         {
             return new_value;
         }
@@ -111,7 +111,7 @@ namespace euphoria::core
     float
     Abs(float r)
     {
-        if (r < 0.0f)
+        if(r < 0.0f)
         {
             return -r;
         }
@@ -123,7 +123,7 @@ namespace euphoria::core
     float
     Min(float lhs, float rhs)
     {
-        if (lhs < rhs)
+        if(lhs < rhs)
         {
             return lhs;
         }
@@ -135,7 +135,7 @@ namespace euphoria::core
     int
     Min(int lhs, int rhs)
     {
-        if (lhs < rhs)
+        if(lhs < rhs)
         {
             return lhs;
         }
@@ -147,7 +147,7 @@ namespace euphoria::core
     float
     Max(float lhs, float rhs)
     {
-        if (lhs > rhs)
+        if(lhs > rhs)
         {
             return lhs;
         }
@@ -159,7 +159,7 @@ namespace euphoria::core
     int
     Max(int lhs, int rhs)
     {
-        if (lhs > rhs)
+        if(lhs > rhs)
         {
             return lhs;
         }
@@ -206,7 +206,7 @@ namespace euphoria::core
                   / gran;  // 1.0 is upper, 0.0 is lower, 0.25 is 25% between
         // lower and upper, moving from lower to upper
 
-        if (percent >= 0.5)
+        if(percent >= 0.5)
         {
             return upper;
         }

@@ -24,7 +24,7 @@ namespace euphoria::window
                 SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN
                         | (resize ? SDL_WINDOW_RESIZABLE : 0));
 
-        if (window == nullptr)
+        if(window == nullptr)
         {
             LOG_ERROR("Failed to create window " << SDL_GetError());
         }
@@ -46,7 +46,7 @@ namespace euphoria::window
     void
     SdlWindow::EnableCharEvent(bool enable)
     {
-        if (enable)
+        if(enable)
         {
             SDL_StartTextInput();
         }

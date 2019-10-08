@@ -63,7 +63,7 @@ namespace euphoria::gui
     TextData::SetSize(float size)
     {
         this->size = size;
-        if (HasText())
+        if(HasText())
         {
             GetText().SetSize(size);
         }
@@ -72,12 +72,12 @@ namespace euphoria::gui
     void
     TextData::UpdateText()
     {
-        if (text_ == nullptr && font_ != nullptr)
+        if(text_ == nullptr && font_ != nullptr)
         {
             text_.reset(new render::Text {font_.get()});
         }
 
-        if (text_ != nullptr)
+        if(text_ != nullptr)
         {
             // button assumes this is bottom left
             text_->SetAlignment(render::Align::BOTTOM_LEFT);

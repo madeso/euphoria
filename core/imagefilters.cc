@@ -33,7 +33,7 @@ namespace euphoria::core
     void
     ImageFilter::MakeGrayscale(Grayscale grayscale)
     {
-        switch (grayscale)
+        switch(grayscale)
         {
         case Grayscale::R:
             image->Filter([](const Rgbai& c) { return Gray(c.r, c.a); });
@@ -88,7 +88,7 @@ namespace euphoria::core
     {
         Image& image = *filter->image;
         Image  ret;
-        if (image.HasAlpha())
+        if(image.HasAlpha())
         {
             ret.SetupWithAlphaSupport(image.GetWidth(), image.GetHeight(), -1);
         }
@@ -132,12 +132,12 @@ namespace euphoria::core
                     {vec2i(0, -1), 5.0f / 16.0f},
                     {vec2i(-1, -1), 3.0f / 16.0f}};
 
-            for (auto fs: floyd_steinberg)
+            for(auto fs: floyd_steinberg)
             {
                 auto nx     = static_cast<int>(x) + fs.first.x;
                 auto ny     = static_cast<int>(y) + fs.first.y;
                 auto factor = fs.second;
-                if (errors_range.ContainsInclusive(nx, ny))
+                if(errors_range.ContainsInclusive(nx, ny))
                 {
                     auto& e = errors.RefValue(nx, ny);
                     e.r += factor * error.r;
@@ -208,7 +208,7 @@ namespace euphoria::core
     {
         std::vector<unsigned char> lut;
         lut.reserve(256);
-        for (int i = 0; i < 256; i++)
+        for(int i = 0; i < 256; i++)
         {
             lut.emplace_back(c(i));
         }
@@ -233,9 +233,9 @@ namespace euphoria::core
         LutTransform(image, [&](int i) {
             const auto a = 128.0f + 128.0f * tc;
             const auto b = 128.0f - 128.0f * tc;
-            if (i < a && b < i)
+            if(i < a && b < i)
                 return static_cast<int>((i - 128) / tc + 128);
-            else if (i > a)
+            else if(i > a)
                 return 255;
             else
                 return 0;

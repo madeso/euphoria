@@ -19,18 +19,18 @@ namespace euphoria::core
     void
     CmdLine::Run(const std::string& cmd)
     {
-        if (cmd.empty())
+        if(cmd.empty())
         {
             return;
         }
         const auto line = ParseCommandLine(cmd);
-        if (line.empty())
+        if(line.empty())
         {
             return;
         }
         const auto name  = line[0];
         auto       found = callbacks.find(ToLower(name));
-        if (found == callbacks.end())
+        if(found == callbacks.end())
         {
             // unable to find cmd
             (*out) << "Unknown command " << name << "\n";
@@ -45,7 +45,7 @@ namespace euphoria::core
     CmdLine::PrintHelp(const Args&) const
     {
         (*out) << "Available commands:\n";
-        for (const auto& c: callbacks)
+        for(const auto& c: callbacks)
         {
             (*out) << "  " << c.first << "\n";
         }

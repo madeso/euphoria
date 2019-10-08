@@ -50,10 +50,10 @@ namespace euphoria::core
 
         unsigned int index_best = 0;
         const auto   size       = colors.size();
-        for (unsigned int index = 1; index < size; index += 1)
+        for(unsigned int index = 1; index < size; index += 1)
         {
             const auto diff = Diff(c, colors[index]);
-            if (diff < diff_best)
+            if(diff < diff_best)
             {
                 diff_best  = diff;
                 index_best = index;
@@ -85,7 +85,7 @@ namespace euphoria::core
     {
         ASSERT(count > 1);
         auto pal = Palette::Empty("Rainbow");
-        for (int i = 0; i < count; i += 1)
+        for(int i = 0; i < count; i += 1)
         {
             float      d    = i / static_cast<float>(count - 1);
             const auto rgbf = rgb(Hsl {AngleTransform::Transform(from, d, to),
@@ -141,7 +141,7 @@ namespace euphoria::core
         {
             auto       p  = Palette::Empty("named");
             const auto cs = EnumValues<Color>();
-            for (auto c: cs)
+            for(auto c: cs)
             {
                 p.colors.push_back(c);
             }

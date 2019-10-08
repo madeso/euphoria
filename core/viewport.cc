@@ -50,7 +50,7 @@ namespace euphoria::core
         const auto h = window_height / height;
         const auto r = Recti::FromWidthHeight(window_width, window_height)
                                .SetBottomLeftToCopy(0, 0);
-        if (w < h)
+        if(w < h)
         {
             const auto s = DetermineExtendScale(w, height, window_height);
             return ViewportDef {r, width, height * s};

@@ -29,7 +29,7 @@ namespace euphoria::core
 
             auto&      target = is_file ? files : folders;
             const auto found  = target.find(file.name);
-            if (found == target.end())
+            if(found == target.end())
             {
                 target[file.name] = file;
             }
@@ -68,10 +68,10 @@ namespace euphoria::core
         std::shared_ptr<MemoryChunk>
         FileSystem::ReadFile(const std::string& path)
         {
-            for (auto& root: roots_)
+            for(auto& root: roots_)
             {
                 std::shared_ptr<MemoryChunk> file = root->ReadFile(path);
-                if (file != nullptr)
+                if(file != nullptr)
                 {
                     return file;
                 }
@@ -93,25 +93,25 @@ namespace euphoria::core
         FileSystem::ListFiles(const Path& path)
         {
             FileList combined;
-            for (auto& root: roots_)
+            for(auto& root: roots_)
             {
                 const auto files = root->ListFiles(path);
-                for (const auto& f: files.files)
+                for(const auto& f: files.files)
                 {
                     combined.Add(f.second);
                 }
-                for (const auto& f: files.folders)
+                for(const auto& f: files.folders)
                 {
                     combined.Add(f.second);
                 }
             }
 
             std::vector<ListedFile> r;
-            for (const auto& f: combined.folders)
+            for(const auto& f: combined.folders)
             {
                 r.emplace_back(f.second);
             }
-            for (const auto& f: combined.files)
+            for(const auto& f: combined.files)
             {
                 r.emplace_back(f.second);
             }
@@ -122,10 +122,10 @@ namespace euphoria::core
         FileSystem::GetRootsAsString()
         {
             std::vector<std::string> ret;
-            for (auto& root: roots_)
+            for(auto& root: roots_)
             {
                 const auto desc = root->Describe();
-                if (!desc.empty())
+                if(!desc.empty())
                 {
                     ret.push_back(desc);
                 }
@@ -142,7 +142,7 @@ namespace euphoria::core
             ASSERT(source);
 
             std::shared_ptr<MemoryChunk> file = ReadFile(path);
-            if (file == nullptr)
+            if(file == nullptr)
             {
                 return false;
             }
@@ -187,7 +187,7 @@ namespace euphoria::core
         {
             const auto found = catalog_.find(path);
 
-            if (found == catalog_.end())
+            if(found == catalog_.end())
             {
                 return MemoryChunk::Null();
             }
@@ -205,11 +205,11 @@ namespace euphoria::core
         FileSystemRootCatalog::ListFiles(const Path& path)
         {
             FileList r;
-            for (const auto& f: catalog_)
+            for(const auto& f: catalog_)
             {
                 const auto file   = Path::FromFile(f.first);
                 const auto folder = file.GetDirectory();
-                if (path == folder)
+                if(path == folder)
                 {
                     r.Add(file.GetFileName(), true);
                 }
@@ -282,16 +282,16 @@ namespace euphoria::core
 
             FileList r;
 
-            if (found.valid)
+            if(found.valid)
             {
-                for (const auto& f: found.files)
+                for(const auto& f: found.files)
                 {
                     r.Add(f, false);
                 }
-                for (const auto& d: found.directories)
+                for(const auto& d: found.directories)
                 {
                     auto f = d;
-                    if (!EndsWith(f, '/'))
+                    if(!EndsWith(f, '/'))
                     {
                         f += +"/";
                     }

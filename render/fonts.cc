@@ -37,7 +37,7 @@ namespace euphoria::render
         void
         Error(FT_Error err)
         {
-            if (err == 0)
+            if(err == 0)
             {
                 return;
             }
@@ -47,7 +47,7 @@ namespace euphoria::render
         void
         ErrorNoThrow(FT_Error err)
         {
-            if (err == 0)
+            if(err == 0)
             {
                 return;
             }
@@ -145,7 +145,7 @@ namespace euphoria::render
         {
             const FT_Error error
                     = FT_Load_Char(face, CharToFt(c), FT_LOAD_RENDER);
-            if (error != 0)
+            if(error != 0)
             {
                 std::cerr << "Failed to get char\n";
                 return LoadedGlyph();
@@ -161,7 +161,7 @@ namespace euphoria::render
             ch.valid     = true;
             ch.advance   = slot->advance.x >> 6;
             // pen_y += slot->advance.y >> 6;
-            if (slot->bitmap.width == 0)
+            if(slot->bitmap.width == 0)
             {
                 ch.image.MakeInvalid();
             }
@@ -172,9 +172,9 @@ namespace euphoria::render
                 ch.image.SetupWithAlphaSupport(
                         slot->bitmap.width, slot->bitmap.rows);
                 auto* buffer = slot->bitmap.buffer;
-                for (int y = 0; y < ch.image.GetHeight(); y += 1)
+                for(int y = 0; y < ch.image.GetHeight(); y += 1)
                 {
-                    for (int x = 0; x < ch.image.GetWidth(); x += 1)
+                    for(int x = 0; x < ch.image.GetWidth(); x += 1)
                     {
                         const int target_y
                                 = upside_down ? ch.image.GetHeight() - (y + 1)
@@ -220,15 +220,15 @@ namespace euphoria::render
         void
         CombineWith(const LoadedFont& fc)
         {
-            for (const auto& c: fc.chars)
+            for(const auto& c: fc.chars)
             {
                 chars.push_back(c);
             }
 
-            for (const auto& e: fc.kerning)
+            for(const auto& e: fc.kerning)
             {
                 const auto found = kerning.find(e.first);
-                if (found == kerning.end())
+                if(found == kerning.end())
                 {
                     kerning.insert(e);
                 }
@@ -249,7 +249,7 @@ namespace euphoria::render
 
         core::ImageLoadResult loaded
                 = core::LoadImage(fs, img.file, core::AlphaLoad::Keep);
-        if (loaded.error.empty())
+        if(loaded.error.empty())
         {
             const auto  s = 1 / img.scale;
             LoadedGlyph glyph;
@@ -292,7 +292,7 @@ namespace euphoria::render
     void
     LoadCharactersFromBuiltin(LoadedFont* font, int scale)
     {
-        for (int c = ' '; c < 128; c += 1)
+        for(int c = ' '; c < 128; c += 1)
         {
             const std::string text(1, static_cast<char>(c));
             font->CombineWith(GetCharacterFromBuiltin(text, scale));
@@ -310,10 +310,10 @@ namespace euphoria::render
 
         LoadedFont fontchars {};
         fontchars.chars.reserve(chars.length());
-        for (char c: chars)
+        for(char c: chars)
         {
             LoadedGlyph cc = f.LoadGlyph(c);
-            if (!cc.valid)
+            if(!cc.valid)
             {
                 continue;
             }
@@ -329,13 +329,13 @@ namespace euphoria::render
 
         const float scale = 1 / static_cast<float>(font_size);
 
-        if (use_kerning == 1)
+        if(use_kerning == 1)
         {
-            for (const char previous: chars)
+            for(const char previous: chars)
             {
-                for (const char current: chars)
+                for(const char current: chars)
                 {
-                    if (previous == current)
+                    if(previous == current)
                     {
                         continue;
                     }
@@ -349,7 +349,7 @@ namespace euphoria::render
                             FT_KERNING_DEFAULT,
                             &delta);
                     int dx = delta.x >> 6;
-                    if (dx != 0)
+                    if(dx != 0)
                     {
                         fontchars.kerning.insert(KerningMap::value_type(
                                 KerningMap::key_type(previous_c, current_c),
@@ -412,24 +412,24 @@ namespace euphoria::render
         font::Root font_root;
 
         std::string error = core::LoadProtoJson(fs, &font_root, font_file);
-        if (!error.empty())
+        if(!error.empty())
         {
             LOG_ERROR("Failed to load " << font_file << ": " << error);
         }
-        for (const auto& source: font_root.sources)
+        for(const auto& source: font_root.sources)
         {
-            if (source.font)
+            if(source.font)
             {
                 const font::FontFile& font = *source.font;
                 fontchars.CombineWith(GetCharactersFromFont(
                         font.file, font_root.size, font.characters));
             }
-            if (source.image)
+            if(source.image)
             {
                 const font::SingleImage& image = *source.image;
                 fontchars.CombineWith(GetCharactersFromSingleImage(fs, image));
             }
-            if (source.builtin)
+            if(source.builtin)
             {
                 LoadCharactersFromBuiltin(&fontchars, source.builtin->scale);
             }
@@ -442,7 +442,7 @@ namespace euphoria::render
         // pack char textures to a single texture
         const int               num_rects = fontchars.chars.size();
         std::vector<stbrp_rect> rects(num_rects);
-        for (int i = 0; i < num_rects; ++i)
+        for(int i = 0; i < num_rects; ++i)
         {
             stbrp_rect& r = rects[i];
             r.id          = i;
@@ -459,10 +459,10 @@ namespace euphoria::render
         CharDataMap map;
         core::Image image;
         image.SetupWithAlphaSupport(texture_width, texture_height);
-        for (int i = 0; i < num_rects; ++i)
+        for(int i = 0; i < num_rects; ++i)
         {
             const stbrp_rect& src_rect = rects[i];
-            if (src_rect.was_packed == 0)
+            if(src_rect.was_packed == 0)
             {
                 std::cerr << "Failed to pack\n";
                 continue;
@@ -538,7 +538,7 @@ namespace euphoria::render
             const core::Rgb&   base_color,
             const core::Rgb&   hi_color)
     {
-        for (const auto& cmd: commands)
+        for(const auto& cmd: commands)
         {
             const auto tint = cmd.hi ? hi_color : base_color;
             renderer->DrawRect(
@@ -582,7 +582,7 @@ namespace euphoria::render
         void
         OnText(const std::string& text) override
         {
-            for (char c: text)
+            for(char c: text)
             {
                 const std::string char_index = ConvertCharToIndex(c);
                 AddCharIndex(char_index);
@@ -610,7 +610,7 @@ namespace euphoria::render
         void
         AddCharIndex(const std::string& char_index)
         {
-            if (char_index == "\n")
+            if(char_index == "\n")
             {
                 position.x = 0;
                 position.y -= size;
@@ -618,7 +618,7 @@ namespace euphoria::render
             else
             {
                 auto it = chars_->find(char_index);
-                if (it == chars_->end())
+                if(it == chars_->end())
                 {
                     LOG_ERROR("Failed to print '" << char_index << "'");
                     return;
@@ -658,7 +658,7 @@ namespace euphoria::render
     TextDrawCommandList::GetExtents() const
     {
         core::Rectf ret;
-        for (const auto& cmd: commands)
+        for(const auto& cmd: commands)
         {
             ret.Include(cmd.sprite_rect);
         }
@@ -699,7 +699,7 @@ namespace euphoria::render
     void
     Text::SetSize(float new_size)
     {
-        if (size_ != new_size)
+        if(size_ != new_size)
         {
             size_ = new_size;
             dirty = true;
@@ -715,7 +715,7 @@ namespace euphoria::render
         const auto top    = extent.top;
         const auto bottom = -extent.bottom;
 
-        switch (alignment)
+        switch(alignment)
         {
         case Align::TOP_LEFT: return core::vec2f(0.0f, top);
         case Align::TOP_CENTER: return core::vec2f(middle, top);
@@ -749,13 +749,13 @@ namespace euphoria::render
         Compile();
         ASSERT(!dirty);
 
-        if (font_ == nullptr)
+        if(font_ == nullptr)
         {
             return;
         }
         const auto e   = GetExtents();
         const auto off = GetOffset(alignment_, e);
-        if (use_background_)
+        if(use_background_)
         {
             font_->DrawBackground(
                     renderer,
@@ -769,7 +769,7 @@ namespace euphoria::render
     void
     Text::Compile() const
     {
-        if (dirty)
+        if(dirty)
         {
             dirty    = false;
             commands = font_->CompileList(text_, size_);

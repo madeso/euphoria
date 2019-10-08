@@ -16,7 +16,7 @@ namespace euphoria::render
     AttributeBinder::Bind(const std::shared_ptr<CompiledMeshPart>& part)
     {
         int stride = 0;
-        for (const auto& d: bind_datas_)
+        for(const auto& d: bind_datas_)
         {
             part->config.BindVboData(d.attribute, total_size_, stride);
             stride += d.size;

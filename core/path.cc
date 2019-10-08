@@ -36,7 +36,7 @@ namespace euphoria::core
         points.push_back(p5);
         points.push_back(p6);
 
-        if (autoset_)
+        if(autoset_)
         {
             AutoSetAffectedControlPoints(points.size() - 1);
         }
@@ -58,7 +58,7 @@ namespace euphoria::core
     void
     BezierPath2::MovePoint(int i, const vec2f& delta)
     {
-        if (autoset_ && IsControlPoint(i))
+        if(autoset_ && IsControlPoint(i))
         {
             // that point is on autoset
             return;
@@ -67,20 +67,20 @@ namespace euphoria::core
         const auto r = MakeRange(points);
         points[i] += delta;
 
-        if (autoset_)
+        if(autoset_)
         {
             AutoSetAffectedControlPoints(i);
             return;
         }
 
-        if (IsAnchorPoint(i))
+        if(IsAnchorPoint(i))
         {
             // anchor point, move control points too
-            if (is_closed_ || IsWithin(r, i + 1))
+            if(is_closed_ || IsWithin(r, i + 1))
             {
                 points[LoopIndex(i + 1)] += delta;
             }
-            if (is_closed_ || IsWithin(r, i - 1))
+            if(is_closed_ || IsWithin(r, i - 1))
             {
                 points[LoopIndex(i - 1)] += delta;
             }
@@ -91,7 +91,7 @@ namespace euphoria::core
             const int corresponding_control_index
                     = IsAnchorPoint(i + 1) ? i + 2 : i - 2;
             const int anchor_index = IsAnchorPoint(i + 1) ? i + 1 : i - 1;
-            if (is_closed_ || IsWithin(r, corresponding_control_index))
+            if(is_closed_ || IsWithin(r, corresponding_control_index))
             {
                 const auto cci = LoopIndex(corresponding_control_index);
                 const auto ai  = LoopIndex(anchor_index);
@@ -125,14 +125,14 @@ namespace euphoria::core
     void
     BezierPath2::SetClosed(bool is_closed)
     {
-        if (is_closed_ == is_closed)
+        if(is_closed_ == is_closed)
         {
             return;
         }
 
         is_closed_ = is_closed;
 
-        if (is_closed)
+        if(is_closed)
         {
             //              anchor                    control                                anchor (again)
             const auto p1 = points[points.size() - 1]
@@ -143,7 +143,7 @@ namespace euphoria::core
             points.push_back(p1);
             points.push_back(p2);
 
-            if (autoset_)
+            if(autoset_)
             {
                 AutoSetAnchorControlPoints(0);
                 AutoSetAnchorControlPoints(points.size() - 3);
@@ -154,7 +154,7 @@ namespace euphoria::core
             points.pop_back();
             points.pop_back();
 
-            if (autoset_)
+            if(autoset_)
             {
                 AutoSetStartAndEndControlPoints();
             }
@@ -171,14 +171,14 @@ namespace euphoria::core
     void
     BezierPath2::SetAutoSetControlPoints(bool is_autoset)
     {
-        if (is_autoset == autoset_)
+        if(is_autoset == autoset_)
         {
             return;
         }
 
         autoset_ = is_autoset;
 
-        if (autoset_)
+        if(autoset_)
         {
             AutoSetAllControlPoints();
         }
@@ -202,10 +202,10 @@ namespace euphoria::core
     BezierPath2::AutoSetAffectedControlPoints(int updated_anchor_index)
     {
         const auto r = MakeRange(points);
-        for (int i = updated_anchor_index - 3; i <= updated_anchor_index + 3;
-             i += 3)
+        for(int i = updated_anchor_index - 3; i <= updated_anchor_index + 3;
+            i += 3)
         {
-            if (is_closed_ || IsWithin(r, i))
+            if(is_closed_ || IsWithin(r, i))
             {
                 AutoSetAnchorControlPoints(LoopIndex(i));
             }
@@ -218,7 +218,7 @@ namespace euphoria::core
     void
     BezierPath2::AutoSetAllControlPoints()
     {
-        for (int i = 0; i < points.size(); i += 3)
+        for(int i = 0; i < points.size(); i += 3)
         {
             AutoSetAnchorControlPoints(i);
         }
@@ -228,12 +228,12 @@ namespace euphoria::core
     void
     BezierPath2::AutoSetStartAndEndControlPoints()
     {
-        if (is_closed_)
+        if(is_closed_)
         {
             return;
         }
 
-        for (int i = 0; i < 2; i += 1)
+        for(int i = 0; i < 2; i += 1)
         {
             const auto b  = std::array<size_t, 2> {0, points.size() - 3}[i];
             points[b + 1] = (points[b + 0] + points[b + 2]) * 0.5f;
@@ -250,7 +250,7 @@ namespace euphoria::core
 
         auto f = [&](int scale, int dist_index) {
             const auto index = anchor_index - 3 * scale;
-            if (is_closed_ || IsWithin(r, index))
+            if(is_closed_ || IsWithin(r, index))
             {
                 auto offset
                         = (vec2f::FromTo(anchor_pos, points[LoopIndex(index)]))
@@ -263,11 +263,11 @@ namespace euphoria::core
         f(-1, 1);
         dir.Normalize();
 
-        for (int i = 0; i < 2; i += 1)
+        for(int i = 0; i < 2; i += 1)
         {
             const auto control_index
                     = anchor_index + std::array<int, 2> {-1, 1}[i];
-            if (is_closed_ || IsWithin(r, control_index))
+            if(is_closed_ || IsWithin(r, control_index))
             {
                 points[LoopIndex(control_index)]
                         = anchor_pos + dir * distances[i] * 0.5f;

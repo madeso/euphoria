@@ -12,7 +12,7 @@
 #define BREAK_IN_DEBUG()                                                       \
     do                                                                         \
     {                                                                          \
-    } while (false)
+    } while(false)
 #endif
 
 #ifdef RELEASE
@@ -31,7 +31,7 @@
 #define ASSERT(x)                                                              \
     do                                                                         \
     {                                                                          \
-        if (x)                                                                 \
+        if(x)                                                                  \
         {                                                                      \
         }                                                                      \
         else                                                                   \
@@ -45,12 +45,12 @@
                     {},                                                        \
                     static_cast<const char* const>(__PRETTY_FUNCTION__));      \
         }                                                                      \
-    } while (false)
+    } while(false)
 
 #define ASSERTX(x, ...)                                                        \
     do                                                                         \
     {                                                                          \
-        if (x)                                                                 \
+        if(x)                                                                  \
         {                                                                      \
         }                                                                      \
         else                                                                   \
@@ -64,7 +64,7 @@
                     {__VA_ARGS__},                                             \
                     static_cast<const char* const>(__PRETTY_FUNCTION__));      \
         }                                                                      \
-    } while (false)
+    } while(false)
 
 #define DIE(message)                                                           \
     ::euphoria::core::assertlib::OnAssert(                                     \

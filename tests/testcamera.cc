@@ -13,18 +13,18 @@ TEST_CASE("camera-clip2world", "[camera]")
 
     const std::vector<float> aspects {1.0f, 2.0f, 0.5f};
 
-    for (float aspect: aspects)
+    for(float aspect: aspects)
     {
         const auto cc = camera.Compile(aspect);
         CAPTURE(aspect);
 
         const std::vector<float> values {0.0f, 1.0f, 2.0f, -1.0f};
 
-        for (float x: values)
+        for(float x: values)
         {
-            for (float y: values)
+            for(float y: values)
             {
-                for (float z: values)
+                for(float z: values)
                 {
                     const auto start = euco::vec3f {x, y, z};
                     const auto world = cc.ClipToWorld(start);

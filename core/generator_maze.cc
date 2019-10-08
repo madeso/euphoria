@@ -11,7 +11,7 @@ namespace euphoria::core
         vec2i
         DirToOffset(const Dir d)
         {
-            switch (d)
+            switch(d)
             {
             case Dir::South: return vec2i {0, -1};
             case Dir::North: return vec2i {0, 1};
@@ -34,7 +34,7 @@ namespace euphoria::core
         Dir
         FlipDirection(const Dir d)
         {
-            switch (d)
+            switch(d)
             {
             case Dir::North: return Dir::South;
             case Dir::South: return Dir::North;
@@ -48,7 +48,7 @@ namespace euphoria::core
         Cell::Type
         DirToCellPath(const Dir d)
         {
-            switch (d)
+            switch(d)
             {
             case Dir::North: return Cell::PathNorth;
             case Dir::South: return Cell::PathSouth;
@@ -143,16 +143,16 @@ namespace euphoria::core
 
             std::vector<Dir> neighbours;
 
-            for (auto d: AllDirs())
+            for(auto d: AllDirs())
             {
                 const auto np = c + DirToOffset(d);
-                if (CanVisitWithoutMakingLoop(maze, np))
+                if(CanVisitWithoutMakingLoop(maze, np))
                 {
                     neighbours.push_back(d);
                 }
             }
 
-            if (neighbours.empty())
+            if(neighbours.empty())
             {
                 stack.pop();
             }
@@ -175,9 +175,9 @@ namespace euphoria::core
                 const vec2i&                         p)
         {
             Visit(maze, p);
-            for (auto d: AllDirs())
+            for(auto d: AllDirs())
             {
-                if (CanVisitWithoutMakingLoop(maze, p + DirToOffset(d)))
+                if(CanVisitWithoutMakingLoop(maze, p + DirToOffset(d)))
                 {
                     frontier->push_back({p, d});
                 }
@@ -207,7 +207,7 @@ namespace euphoria::core
             auto       f  = PopRandom(&frontier, random);
             const auto np = f.position + DirToOffset(f.direction);
 
-            if (!CanVisitWithoutMakingLoop(maze, np))
+            if(!CanVisitWithoutMakingLoop(maze, np))
             {
                 return;
             }
@@ -232,28 +232,28 @@ namespace euphoria::core
         {
             const auto cell_value = maze->Value(x, y);
 
-            if (tracker && tracker->HasMoreWork() && !tracker->stack.empty())
+            if(tracker && tracker->HasMoreWork() && !tracker->stack.empty())
             {
                 const auto t = tracker->stack.top();
-                if (x == t.x && y == t.y)
+                if(x == t.x && y == t.y)
                 {
                     return unit_color;
                 }
             }
 
-            if (traversal)
+            if(traversal)
             {
-                for (auto e: traversal->frontier)
+                for(auto e: traversal->frontier)
                 {
                     auto p = e.position + DirToOffset(e.direction);
-                    if (p.x == x && p.y == y)
+                    if(p.x == x && p.y == y)
                     {
                         return unit_color;
                     }
                 }
             }
 
-            if (cell_value & Cell::Visited)
+            if(cell_value & Cell::Visited)
             {
                 return cell_visited_color;
             }
@@ -275,9 +275,9 @@ namespace euphoria::core
             auto draw = ::euphoria::core::Draw {&image};
             draw.Clear(wall_color);
 
-            for (unsigned int x = 0; x < maze->Width(); x += 1)
+            for(unsigned int x = 0; x < maze->Width(); x += 1)
             {
-                for (unsigned int y = 0; y < maze->Height(); y += 1)
+                for(unsigned int y = 0; y < maze->Height(); y += 1)
                 {
                     const auto px = wall_size + x * path_size;
                     const auto py = wall_size + y * path_size + cell_size - 1;
@@ -290,13 +290,13 @@ namespace euphoria::core
 
                     const auto cell_value = maze->Value(x, y);
 
-                    if (cell_value & Cell::PathSouth)
+                    if(cell_value & Cell::PathSouth)
                     {
                         draw.Rect(
                                 corridor_color,
                                 xywh(px, py - cell_size, cell_size, wall_size));
                     }
-                    if (cell_value & Cell::PathEast)
+                    if(cell_value & Cell::PathEast)
                     {
                         draw.Rect(
                                 corridor_color,

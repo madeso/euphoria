@@ -15,7 +15,7 @@ namespace euphoria::core
     LastStrings(const std::string& str, char sep)
     {
         auto result = str.find(sep);
-        if (result == std::string::npos)
+        if(result == std::string::npos)
         {
             return std::make_pair(str, "");
         }
@@ -29,7 +29,7 @@ namespace euphoria::core
     StripLastString(const std::string& str, char sep)
     {
         auto result = str.find(sep);
-        if (result == std::string::npos)
+        if(result == std::string::npos)
         {
             return "";
         }
@@ -67,7 +67,7 @@ namespace euphoria::core
     {
         const std::string::size_type length       = start.length();
         const std::string::size_type other_length = string_to_test.length();
-        if (other_length < length)
+        if(other_length < length)
         {
             return false;
         }
@@ -80,7 +80,7 @@ namespace euphoria::core
     {
         const std::string::size_type length       = end.length();
         const std::string::size_type other_length = string_to_test.length();
-        if (other_length < length)
+        if(other_length < length)
         {
             return false;
         }
@@ -92,7 +92,7 @@ namespace euphoria::core
     char
     ToLower(char b)
     {
-        if (b >= 'A' && b <= 'Z')
+        if(b >= 'A' && b <= 'Z')
             return b - 'A' + 'a';
         return b;
     }
@@ -139,7 +139,7 @@ namespace euphoria::core
         std::size_t       index       = string->find(to_find);
         const std::size_t find_length = to_find.length();
         ASSERT(find_length > 0);
-        while (index != std::string::npos)
+        while(index != std::string::npos)
         {
             string->erase(index, find_length);
             string->insert(index, to_replace);
@@ -172,7 +172,7 @@ namespace euphoria::core
             const char         to_replace)
     {
         std::string s = string;
-        for (char c: to_find)
+        for(char c: to_find)
         {
             std::replace(s.begin(), s.end(), c, to_replace);
         }
@@ -182,10 +182,10 @@ namespace euphoria::core
     std::string
     RemoveFromEnd(const std::string& str, const std::string& end)
     {
-        if (EndsWith(str, end))
+        if(EndsWith(str, end))
         {
             const auto new_length = str.length() - end.length();
-            if (new_length == 0)
+            if(new_length == 0)
             {
                 return "";
             }
@@ -200,9 +200,9 @@ namespace euphoria::core
     Strip(const std::string& str, const std::string& ch)
     {
         std::stringstream ss;
-        for (const char c: str)
+        for(const char c: str)
         {
-            if (ch.find(c) == std::string::npos)
+            if(ch.find(c) == std::string::npos)
             {
                 ss << c;
             }
@@ -216,16 +216,16 @@ namespace euphoria::core
     {
         std::stringstream ss;
         bool              skip = false;
-        for (const char c: str)
+        for(const char c: str)
         {
-            if (ch.find(c) == std::string::npos)
+            if(ch.find(c) == std::string::npos)
             {
                 ss << c;
                 skip = false;
             }
             else
             {
-                if (!skip)
+                if(!skip)
                 {
                     ss << c;
                     skip = true;
@@ -241,7 +241,7 @@ namespace euphoria::core
     {
         std::stringstream ss(s);
         std::string       item;
-        while (std::getline(ss, item, delim))
+        while(std::getline(ss, item, delim))
         {
             *(result++) = item;
         }
@@ -258,7 +258,7 @@ namespace euphoria::core
     const std::string&
     OpString(bool b, const std::string& str)
     {
-        if (b)
+        if(b)
         {
             return str;
         }
@@ -273,7 +273,7 @@ namespace euphoria::core
     char
     IsNumber(char b)
     {
-        if (b >= '0' && b <= '9')
+        if(b >= '0' && b <= '9')
             return 1;
         return 0;
     }
@@ -284,7 +284,7 @@ namespace euphoria::core
         int result = *a - '0';
         ++a;
 
-        while (IsNumber(*a))
+        while(IsNumber(*a))
         {
             result *= 10;
             result += *a - '0';
@@ -301,19 +301,19 @@ namespace euphoria::core
         const auto* a = lhs.c_str();
         const auto* b = rhs.c_str();
 
-        if (a == b)
+        if(a == b)
             return 0;
 
-        if (a == NULL)
+        if(a == NULL)
             return -1;
-        if (b == NULL)
+        if(b == NULL)
             return 1;
 
-        while (*a && *b)
+        while(*a && *b)
         {
             int a0, b0;  // will contain either a number or a letter
 
-            if (IsNumber(*a))
+            if(IsNumber(*a))
             {
                 a0 = ParseNumber(a) + 256;
             }
@@ -321,7 +321,7 @@ namespace euphoria::core
             {
                 a0 = ToLower(*a);
             }
-            if (IsNumber(*b))
+            if(IsNumber(*b))
             {
                 b0 = ParseNumber(b) + 256;
             }
@@ -330,18 +330,18 @@ namespace euphoria::core
                 b0 = ToLower(*b);
             }
 
-            if (a0 < b0)
+            if(a0 < b0)
                 return -1;
-            if (a0 > b0)
+            if(a0 > b0)
                 return 1;
 
             ++a;
             ++b;
         }
 
-        if (*a)
+        if(*a)
             return 1;
-        if (*b)
+        if(*b)
             return -1;
 
         return 0;

@@ -8,7 +8,7 @@ tracery::Result
 LoadFromFile(tracery::Grammar* grammar, const std::string& file)
 {
     std::ifstream t(file);
-    if (t.good() == false)
+    if(t.good() == false)
     {
         return tracery::Result(tracery::Result::UNABLE_TO_OPEN_FILE) << file;
     }
@@ -21,7 +21,7 @@ LoadFromFile(tracery::Grammar* grammar, const std::string& file)
 int
 main(int argc, char* argv[])
 {
-    if (argc >= 2)
+    if(argc >= 2)
     {
         tracery::Grammar grammar;
 
@@ -30,7 +30,7 @@ main(int argc, char* argv[])
         grammar.RegisterEnglish();
 
         const auto r = LoadFromFile(&grammar, file);
-        if (r == false)
+        if(r == false)
         {
             std::cerr << r << "\n";
             return 3;
@@ -38,10 +38,10 @@ main(int argc, char* argv[])
 
         const std::string rule  = (argc >= 3) ? argv[2] : "#origin#";
         const int         count = (argc >= 4) ? atoi(argv[3]) : 1;
-        for (int i = 0; i < count; ++i)
+        for(int i = 0; i < count; ++i)
         {
             const auto r = grammar.Flatten(rule);
-            if (r == false)
+            if(r == false)
             {
                 std::cerr << r;
                 return 2;

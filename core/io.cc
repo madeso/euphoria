@@ -18,7 +18,7 @@ namespace euphoria::core
         {
             std::ofstream file_handle(
                     full_path, std::ios::binary | std::ios::out);
-            if (!file_handle.good())
+            if(!file_handle.good())
             {
                 LOG_ERROR("Failed to read file " << full_path);
                 return;
@@ -30,7 +30,7 @@ namespace euphoria::core
         FileToChunk(const std::string& full_path)
         {
             std::ifstream is(full_path, std::ifstream::binary);
-            if (!is)
+            if(!is)
             {
                 LOG_ERROR("Failed to write file " << full_path);
                 return MemoryChunk::Null();
@@ -40,7 +40,7 @@ namespace euphoria::core
             auto length = is.tellg();
             is.seekg(0, is.beg);
 
-            if (length <= 0)
+            if(length <= 0)
             {
                 return MemoryChunk::Null();
             }

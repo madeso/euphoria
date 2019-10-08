@@ -51,7 +51,7 @@ namespace euphoria::render
     void
     Use(const Shader* shader)
     {
-        if (shader != nullptr)
+        if(shader != nullptr)
         {
             glUseProgram(shader->GetId());
         }
@@ -93,7 +93,7 @@ namespace euphoria::render
         {
             int length = 0;
             glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &length);
-            if (length <= 0)
+            if(length <= 0)
             {
                 return "";
             }
@@ -108,7 +108,7 @@ namespace euphoria::render
         {
             int length = 0;
             glGetProgramiv(shader, GL_INFO_LOG_LENGTH, &length);
-            if (length <= 0)
+            if(length <= 0)
             {
                 return "";
             }
@@ -131,7 +131,7 @@ namespace euphoria::render
     bool
     PrintErrorProgram(GLuint program)
     {
-        if (GetProgramLinkStatus(program))
+        if(GetProgramLinkStatus(program))
         {
             return true;
         }
@@ -143,7 +143,7 @@ namespace euphoria::render
     void
     PrintErrorShader(GLuint shader, const std::string& type)
     {
-        if (GetShaderCompileStatus(shader))
+        if(GetShaderCompileStatus(shader))
         {
             return;
         }
@@ -182,7 +182,7 @@ namespace euphoria::render
                 GL_FRAGMENT_SHADER, fragment_source, "FRAGMENT");
 
         GLuint geometry_shader_id = 0;
-        if (geometry_source != nullptr)
+        if(geometry_source != nullptr)
         {
             geometry_shader_id = CompileShader(
                     GL_GEOMETRY_SHADER, geometry_source, "GEOMETRY");
@@ -190,33 +190,33 @@ namespace euphoria::render
 
         glAttachShader(GetId(), vertex_shader_id);
         glAttachShader(GetId(), fragment_shader_id);
-        if (geometry_source != nullptr)
+        if(geometry_source != nullptr)
         {
             glAttachShader(GetId(), geometry_shader_id);
         }
         glLinkProgram(GetId());
         const bool link_error = PrintErrorProgram(GetId());
-        if (!link_error)
+        if(!link_error)
         {
             ret = false;
         }
 
         glDeleteShader(vertex_shader_id);
         glDeleteShader(fragment_shader_id);
-        if (geometry_source != nullptr)
+        if(geometry_source != nullptr)
         {
             glDeleteShader(geometry_shader_id);
         }
 
-        for (const auto& attribute: bound_attributes_)
+        for(const auto& attribute: bound_attributes_)
         {
             int attribute_id
                     = glGetAttribLocation(GetId(), attribute.name.c_str());
-            if (attribute_id == attribute.id)
+            if(attribute_id == attribute.id)
             {
                 continue;
             }
-            if (attribute_id == -1)
+            if(attribute_id == -1)
             {
                 continue;
             }
@@ -236,7 +236,7 @@ namespace euphoria::render
         ShaderUniform uniform(name, uniform_id, this);
         bound_uniforms_.push_back(uniform);
 
-        if (uniform.id == -1)
+        if(uniform.id == -1)
         {
             LOG_ERROR(
                     "Failed to load uniform " << uniform.name << " from shader "
@@ -268,7 +268,7 @@ namespace euphoria::render
     {
         ASSERT(IsCurrentlyBound());
         ASSERT(HasBoundUniform(attribute));
-        if (attribute.id == -1)
+        if(attribute.id == -1)
         {
             return;
         }
@@ -280,7 +280,7 @@ namespace euphoria::render
     {
         ASSERT(IsCurrentlyBound());
         ASSERT(HasBoundUniform(attribute));
-        if (attribute.id == -1)
+        if(attribute.id == -1)
         {
             return;
         }
@@ -292,7 +292,7 @@ namespace euphoria::render
     {
         ASSERT(IsCurrentlyBound());
         ASSERT(HasBoundUniform(attribute));
-        if (attribute.id == -1)
+        if(attribute.id == -1)
         {
             return;
         }
@@ -304,7 +304,7 @@ namespace euphoria::render
     {
         ASSERT(IsCurrentlyBound());
         ASSERT(HasBoundUniform(attribute));
-        if (attribute.id == -1)
+        if(attribute.id == -1)
         {
             return;
         }
@@ -316,7 +316,7 @@ namespace euphoria::render
     {
         ASSERT(IsCurrentlyBound());
         ASSERT(HasBoundUniform(attribute));
-        if (attribute.id == -1)
+        if(attribute.id == -1)
         {
             return;
         }
@@ -328,7 +328,7 @@ namespace euphoria::render
     {
         ASSERT(IsCurrentlyBound());
         ASSERT(HasBoundUniform(attribute));
-        if (attribute.id == -1)
+        if(attribute.id == -1)
         {
             return;
         }
@@ -340,7 +340,7 @@ namespace euphoria::render
     {
         ASSERT(IsCurrentlyBound());
         ASSERT(HasBoundUniform(attribute));
-        if (attribute.id == -1)
+        if(attribute.id == -1)
         {
             return;
         }
@@ -356,7 +356,7 @@ namespace euphoria::render
         {
             // todo: replace with a template instead of basic string
             std::string content;
-            if (!fs->ReadFileToString(path, &content))
+            if(!fs->ReadFileToString(path, &content))
             {
                 return "";
             }
@@ -373,19 +373,19 @@ namespace euphoria::render
         auto frag         = LoadPath(fs, file_path + ".frag");
         auto geom         = LoadPath(fs, file_path + ".geom");
         bool loaded_files = true;
-        if (vert.empty())
+        if(vert.empty())
         {
             LOG_ERROR("Failed to load vert shader " << file_path);
             loaded_files = false;
         }
 
-        if (frag.empty())
+        if(frag.empty())
         {
             LOG_ERROR("Failed to load frag shader " << file_path);
             loaded_files = false;
         }
 
-        if (!loaded_files)
+        if(!loaded_files)
         {
             return false;
         }
@@ -394,7 +394,7 @@ namespace euphoria::render
                 vert.c_str(),
                 frag.c_str(),
                 geom.empty() ? nullptr : geom.c_str());
-        if (!shader_compiled)
+        if(!shader_compiled)
         {
             LOG_ERROR("Failed to compile shader " << file_path);
         }

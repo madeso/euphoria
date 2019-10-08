@@ -20,14 +20,14 @@ namespace euphoria::gui
     void
     UiState::End()
     {
-        if (IsMouseDown() == false)
+        if(IsMouseDown() == false)
         {
             active     = nullptr;
             has_active = false;
         }
         else
         {
-            if (has_active == false && active == nullptr)
+            if(has_active == false && active == nullptr)
             {
                 has_active = true;
             }
@@ -43,7 +43,7 @@ namespace euphoria::gui
     void
     UiState::SetActive(Widget* w)
     {
-        if (has_active == false && active == nullptr)
+        if(has_active == false && active == nullptr)
         {
             active     = w;
             has_active = true;

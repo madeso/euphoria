@@ -38,7 +38,7 @@ main(int argc, char* argv[])
         parser.AddSimpleFunction("-grid", [&type]() { type = Type::Grid; });
         parser.AddVector("files", &files).MetaVar("CSV-file");
         auto r = parser.Parse(argc, argv);
-        if (r != argparse::ParseResult::Ok)
+        if(r != argparse::ParseResult::Ok)
         {
             return -1;
         }
@@ -47,9 +47,9 @@ main(int argc, char* argv[])
     int ret = 0;
 
     bool first = true;
-    for (const auto& f: files)
+    for(const auto& f: files)
     {
-        if (first)
+        if(first)
         {
             first = false;
         }
@@ -61,7 +61,7 @@ main(int argc, char* argv[])
         Table<std::string> table;
         {
             std::ifstream stream {f};
-            if (!stream)
+            if(!stream)
             {
                 std::cerr << "Failed to load " << f << "\n";
                 ret = -1;
@@ -73,7 +73,7 @@ main(int argc, char* argv[])
             table         = TableFromCsv(StreamToString(stream), options);
         }
 
-        switch (type)
+        switch(type)
         {
         case Type::Simple: PrintTableSimple(std::cout, table); break;
         case Type::Grid: PrintTableGrid(std::cout, table); break;

@@ -68,7 +68,7 @@ namespace euphoria::core
 
         components.resize(0);  // clear all pixels
         const unsigned int size = width_ * height_ * GetPixelByteSize();
-        if (default_value < 0)
+        if(default_value < 0)
         {
             components.resize(size);
         }
@@ -113,7 +113,7 @@ namespace euphoria::core
         components[base_index + 1] = g;
         components[base_index + 2] = b;
 
-        if (has_alpha_)
+        if(has_alpha_)
         {
             components[base_index + 3] = a;
         }
@@ -131,7 +131,7 @@ namespace euphoria::core
         const auto green = components[base_index + 1];
         const auto blue  = components[base_index + 2];
 
-        if (has_alpha_)
+        if(has_alpha_)
         {
             const auto alpha = components[base_index + 3];
             return Rgbai {Rgbi {red, green, blue}, alpha};
@@ -202,7 +202,7 @@ namespace euphoria::core
             ImageWriteFormat format,
             int              jpeg_quality)
     {
-        switch (format)
+        switch(format)
         {
         case ImageWriteFormat::PNG:
             return stbi_write_png_to_func(func, context, w, h, comp, data, 0);
@@ -224,19 +224,19 @@ namespace euphoria::core
 
         std::vector<unsigned char> pixels(
                 width_ * height_ * number_of_components, 0);
-        for (int y = 0; y < height_; y += 1)
+        for(int y = 0; y < height_; y += 1)
         {
             const int iy = height_ - (y + 1);
 
             ASSERTX(IsWithinInclusivei(0, iy, height_ - 1), iy, y, height_);
-            for (int x = 0; x < width_; x += 1)
+            for(int x = 0; x < width_; x += 1)
             {
                 const int target_index
                         = (x + width_ * y) * number_of_components;
                 const int source_index
                         = (x + width_ * iy) * number_of_components;
-                for (int component = 0; component < number_of_components;
-                     component += 1)
+                for(int component = 0; component < number_of_components;
+                    component += 1)
                 {
                     pixels[target_index + component]
                             = components[source_index + component];
@@ -254,7 +254,7 @@ namespace euphoria::core
                 &pixels[0],
                 format,
                 jpeg_quality);
-        if (size_result == 0)
+        if(size_result == 0)
         {
             return MemoryChunk::Null();
         }
@@ -270,7 +270,7 @@ namespace euphoria::core
                 &pixels[0],
                 format,
                 jpeg_quality);
-        if (write_result == 0)
+        if(write_result == 0)
         {
             return MemoryChunk::Null();
         }
@@ -287,7 +287,7 @@ namespace euphoria::core
                unsigned char c,
                unsigned char d)
         {
-            switch (ch)
+            switch(ch)
             {
             case 1:  // grey
                 return a;
@@ -306,7 +306,7 @@ namespace euphoria::core
     LoadImage(vfs::FileSystem* fs, const std::string& path, AlphaLoad alpha)
     {
         auto file_memory = fs->ReadFile(path);
-        if (file_memory == nullptr)
+        if(file_memory == nullptr)
         {
             ImageLoadResult result;
             result.error = "File doesnt exist";
@@ -340,7 +340,7 @@ namespace euphoria::core
                 &channels,
                 0);
 
-        if (data == nullptr)
+        if(data == nullptr)
         {
             ImageLoadResult result;
             result.error = stbi_failure_reason();
@@ -350,7 +350,7 @@ namespace euphoria::core
         }
 
         bool has_alpha = false;
-        if (alpha == AlphaLoad::Keep)
+        if(alpha == AlphaLoad::Keep)
         {
             has_alpha = channels == 2 || channels == 4;
         }
@@ -361,7 +361,7 @@ namespace euphoria::core
                           << channels);
 
         ImageLoadResult result;
-        if (has_alpha)
+        if(has_alpha)
         {
             result.image.SetupWithAlphaSupport(image_width, image_height, -1);
         }
@@ -370,9 +370,9 @@ namespace euphoria::core
             result.image.SetupNoAlphaSupport(image_width, image_height, -1);
         }
 
-        for (int y = 0; y < image_height; ++y)
+        for(int y = 0; y < image_height; ++y)
         {
-            for (int x = 0; x < image_width; ++x)
+            for(int x = 0; x < image_width; ++x)
             {
                 const int src_index = (y * image_width + x) * channels;
 

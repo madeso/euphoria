@@ -20,7 +20,7 @@ namespace euphoria::core
     {
         std::vector<std::pair<A, B>> ret;
         const auto                   s = std::min(as.size(), bs.size());
-        for (size_t i = 0; i < s; i += 1)
+        for(size_t i = 0; i < s; i += 1)
         {
             ret.emplace_back(std::make_pair<A, B>(as[i], bs[i]));
         }
@@ -35,7 +35,7 @@ namespace euphoria::core
     {
         std::vector<T> r;
         r.reserve(fs.size());
-        for (const auto f: fs)
+        for(const auto f: fs)
         {
             r.emplace_back(convert(f));
         }
@@ -47,7 +47,7 @@ namespace euphoria::core
     {
         std::vector<T> r;
         r.reserve(fs.size());
-        for (const auto f: fs)
+        for(const auto f: fs)
         {
             r.emplace_back(convert(f.first, f.second));
         }
@@ -63,9 +63,9 @@ namespace euphoria::core
     {
         std::vector<T> r;
         r.reserve(ts.size());
-        for (const auto t: ts)
+        for(const auto t: ts)
         {
-            if (check(t))
+            if(check(t))
             {
                 r.emplace_back(t);
             }
@@ -82,9 +82,9 @@ namespace euphoria::core
     {
         std::vector<T> r;
         r.reserve(ts.size());
-        for (const auto t: ts)
+        for(const auto t: ts)
         {
-            if (!check(t))
+            if(!check(t))
             {
                 return false;
             }
@@ -99,9 +99,9 @@ namespace euphoria::core
     {
         std::vector<T> r;
         r.reserve(ts.size());
-        for (const auto t: ts)
+        for(const auto t: ts)
         {
-            if (check(t))
+            if(check(t))
             {
                 return true;
             }
@@ -123,7 +123,7 @@ namespace euphoria::core
     Fold(const std::vector<T>& ts, C concat, R zero)
     {
         R r = zero;
-        for (const auto& t: ts)
+        for(const auto& t: ts)
         {
             r = concat(r, t);
         }

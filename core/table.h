@@ -39,7 +39,7 @@ namespace euphoria::core
         void
         Clear(T d = T())
         {
-            for (size_t i = 0; i < data.size(); i += 1)
+            for(size_t i = 0; i < data.size(); i += 1)
             {
                 data[i] = d;
             }
@@ -49,9 +49,9 @@ namespace euphoria::core
         void
         SetAll(Func f)
         {
-            for (unsigned y = 0; y < height; y += 1)
+            for(unsigned y = 0; y < height; y += 1)
             {
-                for (unsigned x = 0; x < width; x += 1)
+                for(unsigned x = 0; x < width; x += 1)
                 {
                     Value(x, y, f(x, y));
                 }
@@ -69,13 +69,13 @@ namespace euphoria::core
         {
             ASSERT(row.size() == width || (width == 0 && row.size() > 0));
             I added = 0;
-            for (const T& t: row)
+            for(const T& t: row)
             {
                 data.push_back(t);
                 ++added;
             }
             height += 1;
-            if (width == 0)
+            if(width == 0)
             {
                 width = added;
             }
@@ -162,7 +162,7 @@ namespace euphoria::core
         ASSERTX(x < t.Width(), x, t.Width());
         std::vector<T> r;
         r.reserve(t.Height());
-        for (typename Table<T>::I y = 0; y < t.Height(); ++y)
+        for(typename Table<T>::I y = 0; y < t.Height(); ++y)
         {
             r.emplace_back(t.Value(x, y));
         }
@@ -177,7 +177,7 @@ namespace euphoria::core
 
         std::vector<T> r;
         r.reserve(t.Width());
-        for (typename Table<T>::I x = 0; x < t.Width(); ++x)
+        for(typename Table<T>::I x = 0; x < t.Width(); ++x)
         {
             r.emplace_back(t.Value(x, y));
         }

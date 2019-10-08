@@ -86,11 +86,11 @@ namespace euphoria::core
             const Vec in        = Unit::In();
             float     dot_value = dot(in, dir);
 
-            if (Abs(dot_value - (-1.0f)) < 0.000001f)
+            if(Abs(dot_value - (-1.0f)) < 0.000001f)
             {
                 return Q(3.1415926535897932f, up);
             }
-            if (Abs(dot_value - (1.0f)) < 0.000001f)
+            if(Abs(dot_value - (1.0f)) < 0.000001f)
             {
                 return Identity();
             }
@@ -122,9 +122,9 @@ namespace euphoria::core
         GetIdentity() const
         {
             const T l2 = GetLengthSquared();
-            if (IsEqual(l2, 0))
+            if(IsEqual(l2, 0))
                 return Identity();
-            else if (IsEqual(l2, 1))
+            else if(IsEqual(l2, 1))
                 return GetConjugate();
             else
                 return quat(w / Sqrt(l2), -vec());
@@ -144,7 +144,7 @@ namespace euphoria::core
         Normalize()
         {
             const T l = GetLength();
-            if (IsZero(l))
+            if(IsZero(l))
             {
                 *this = Identity();
             }
@@ -233,14 +233,14 @@ namespace euphoria::core
             const T cosHalfTheta
                     = qa.w * qb.w + qa.x * qb.x + qa.y * qb.y + qa.z * qb.z;
             // if qa=qb or qa=-qb then theta = 0 and we can return qa
-            if (Abs(cosHalfTheta) >= 1.0)
+            if(Abs(cosHalfTheta) >= 1.0)
             {
                 return qa;
             }
             // Calculate temporary values.
             const T halfTheta    = acos(cosHalfTheta);
             const T sinHalfTheta = sqrt(1.0 - cosHalfTheta * cosHalfTheta);
-            if (Abs(sinHalfTheta) < 0.001)
+            if(Abs(sinHalfTheta) < 0.001)
             {
                 // if theta = 180 degrees then result is not fully defined
                 // we could rotate around any axis normal to qa or qb
@@ -259,7 +259,7 @@ namespace euphoria::core
         static Q
         SlerpShortway(const Q& f, const T scale, const Q& t)
         {
-            if (dot(f, t) < 0)
+            if(dot(f, t) < 0)
             {
                 return Slerp(f.GetInverse(), scale, t);
             }

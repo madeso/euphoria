@@ -53,9 +53,9 @@ namespace euphoria::duk
 
         const auto compile_result = duk_pcompile(ctx, 0);
         bool       ok             = false;
-        if (compile_result != 0)
+        if(compile_result != 0)
         {
-            if (error)
+            if(error)
             {
                 *error = duk_safe_to_string(ctx, -1);
             }
@@ -64,9 +64,9 @@ namespace euphoria::duk
         else
         {
             const auto call_result = duk_pcall(ctx, 0);
-            if (call_result != DUK_EXEC_SUCCESS)
+            if(call_result != DUK_EXEC_SUCCESS)
             {
-                if (error)
+                if(error)
                 {
                     CollectDukError(ctx, error);
                 }
@@ -74,7 +74,7 @@ namespace euphoria::duk
             }
             else
             {
-                if (output)
+                if(output)
                 {
                     *output = VarToString(
                             ctx, -1);  // duk_safe_to_string(ctx, -1);
@@ -91,7 +91,7 @@ namespace euphoria::duk
     int
     DukPrintFunctionCallback(duk_context* ctx)
     {
-        if (duk_is_constructor_call(ctx))
+        if(duk_is_constructor_call(ctx))
         {
             return duk_type_error(ctx, "%s", "Not a constructor call");
         }
@@ -108,9 +108,9 @@ namespace euphoria::duk
 
         auto first = true;
 
-        for (int arg = number_of_arguments; arg > 0; arg -= 1)
+        for(int arg = number_of_arguments; arg > 0; arg -= 1)
         {
-            if (first)
+            if(first)
             {
                 first = false;
             }
@@ -143,15 +143,15 @@ namespace euphoria::duk
     GetDukType(Context* a, int index)
     {
         duk_context* ctx = a->ctx;
-        if (duk_is_number(ctx, index))
+        if(duk_is_number(ctx, index))
         {
             return "number";
         }
-        if (duk_is_object(ctx, index))
+        if(duk_is_object(ctx, index))
         {
             return "object";
         }
-        if (duk_is_string(ctx, index))
+        if(duk_is_string(ctx, index))
         {
             return "string";
         }
@@ -163,7 +163,7 @@ namespace euphoria::duk
     {
         const int                args = ctx->GetNumberOfArguments();
         std::vector<std::string> types;
-        for (int i = 0; i < args; i += 1)
+        for(int i = 0; i < args; i += 1)
         {
             const int index = -args + i;
 #if 1
@@ -189,11 +189,11 @@ namespace euphoria::duk
     int
     DukGenericFunctionCallback(duk_context* ctx)
     {
-        if (TConstructor)
+        if(TConstructor)
         {
-            if (!duk_is_constructor_call(ctx))
+            if(!duk_is_constructor_call(ctx))
             {
-                if (TPushThis)
+                if(TPushThis)
                 {
                     return duk_type_error(ctx, "%s", "Not a method call");
                 }
@@ -205,7 +205,7 @@ namespace euphoria::duk
         }
         else
         {
-            if (duk_is_constructor_call(ctx))
+            if(duk_is_constructor_call(ctx))
             {
                 return duk_type_error(ctx, "%s", "Not a constructor call");
             }
@@ -217,11 +217,11 @@ namespace euphoria::duk
 
         Context context {ctx, duk};
 
-        if (TPushThis)
+        if(TPushThis)
         {
             const auto arguments = duk_get_top(ctx);
             duk_push_this(ctx);
-            if (arguments != 0)
+            if(arguments != 0)
             {
                 // don't insert if there are 0 arguments
                 duk_insert(ctx, -(arguments + 1));
@@ -232,7 +232,7 @@ namespace euphoria::duk
 
         {
             const auto match_error = function->Matches(&context);
-            if (match_error.empty())
+            if(match_error.empty())
             {
                 return function->Call(&context);
             }
@@ -289,7 +289,7 @@ namespace euphoria::duk
     {
         const auto object_index = duk_push_object(ctx);
 
-        for (const auto& func: bind.functions)
+        for(const auto& func: bind.functions)
         {
             PlaceFunctionOnStack(
                     ctx,
@@ -309,7 +309,7 @@ namespace euphoria::duk
     void
     Duk::BindClass(const std::string& name, const ClassBinder& bind)
     {
-        if (bind.constructor)
+        if(bind.constructor)
         {
             // constructor
             PlaceFunctionOnStack(
@@ -325,7 +325,7 @@ namespace euphoria::duk
         // use duk_push_bare_object?
         const auto prototype_index = duk_push_object(ctx);  // prototype
 
-        for (const auto& method: bind.methods)
+        for(const auto& method: bind.methods)
         {
             PlaceFunctionOnStack(
                     ctx,
@@ -337,13 +337,13 @@ namespace euphoria::duk
             ASSERTX(function_added == 1, function_added);
         }
 
-        for (const auto& prop: bind.properties)
+        for(const auto& prop: bind.properties)
         {
             duk_uint_t flags = 0;
 
             duk_push_string(ctx, prop.name.c_str());
 
-            if (prop.get)
+            if(prop.get)
             {
                 PlaceFunctionOnStack(
                         ctx,
@@ -353,7 +353,7 @@ namespace euphoria::duk
                         0);
                 flags |= DUK_DEFPROP_HAVE_GETTER;
             }
-            if (prop.set)
+            if(prop.set)
             {
                 PlaceFunctionOnStack(
                         ctx,
@@ -393,7 +393,7 @@ namespace euphoria::duk
     Duk::TypeToProto(core::TypeId id CLASS_ARG(core::TypeName name))
     {
         const auto found = classIds.find(id);
-        if (found == classIds.end())
+        if(found == classIds.end())
         {
             const std::string error
                     = core::Str() << "class not added" CLASS_NAME(": " << name);

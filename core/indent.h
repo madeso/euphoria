@@ -24,7 +24,7 @@ namespace euphoria::core
         void
         print()
         {
-            for (int i = 0; i < val(); ++i)
+            for(int i = 0; i < val(); ++i)
             {
                 std::cout << "  ";
             }
@@ -37,7 +37,7 @@ namespace euphoria::core
     {                                                                          \
         local_indent.print();                                                  \
         std::cout << x << "\n";                                                \
-    } while (false)
+    } while(false)
 
 
 }  // namespace euphoria::core

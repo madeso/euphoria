@@ -30,7 +30,7 @@ namespace euphoria::core::tracery
         std::stringstream ss;
         ss.str(s);
         std::string item;
-        while (std::getline(ss, item, delim))
+        while(std::getline(ss, item, delim))
         {
             *(result++) = item;
         }
@@ -60,18 +60,18 @@ namespace euphoria::core::tracery
     Result
     ParseJson(Symbol* rule, const rapidjson::Value& value)
     {
-        if (value.IsString())
+        if(value.IsString())
         {
             return rule->AddRule(value.GetString());
         }
-        else if (value.IsArray())
+        else if(value.IsArray())
         {
-            for (const auto& v: value.GetArray())
+            for(const auto& v: value.GetArray())
             {
-                if (v.IsString())
+                if(v.IsString())
                 {
                     Result r = rule->AddRule(v.GetString());
-                    if (r == false)
+                    if(r == false)
                     {
                         return r;
                     }
@@ -95,7 +95,7 @@ namespace euphoria::core::tracery
     FromJson(Symbol* rule, const rapidjson::Value& value)
     {
         auto r = ParseJson(rule, value);
-        if (r == false)
+        if(r == false)
         {
             // todo: add json error information
             r << "for symbol " << rule->key;
@@ -149,11 +149,11 @@ namespace euphoria::core::tracery
         {
             GeneratorArgument arg = *generator;
 
-            for (const auto& r: action_rules)
+            for(const auto& r: action_rules)
             {
                 const Result result
                         = arg.grammar->GetStringFromSymbol(r.symbol, &arg);
-                if (result == false)
+                if(result == false)
                 {
                     return result;
                 }
@@ -161,17 +161,17 @@ namespace euphoria::core::tracery
             }
 
             Result result = arg.grammar->GetStringFromSymbol(symbol, &arg);
-            if (result == false)
+            if(result == false)
             {
                 return result;
             }
 
             std::string ret = result.GetText();
 
-            for (const std::string& f: modifiers)
+            for(const std::string& f: modifiers)
             {
                 Result r = generator->grammar->ApplyModifier(f, ret);
-                if (r == false)
+                if(r == false)
                 {
                     return r;
                 }
@@ -204,7 +204,7 @@ namespace euphoria::core::tracery
     Result::GetText() const
     {
         std::ostringstream ss;
-        for (const auto& s: text)
+        for(const auto& s: text)
         {
             ss << s;
         }
@@ -214,7 +214,7 @@ namespace euphoria::core::tracery
     std::ostream&
     operator<<(std::ostream& o, const Result& r)
     {
-        switch (r.type)
+        switch(r.type)
         {
         case Result::NO_ERROR: o << "No error detected"; break;
         case Result::UNABLE_TO_OPEN_FILE:
@@ -261,7 +261,7 @@ namespace euphoria::core::tracery
                   "_-+";
 
         std::ostringstream ss;
-        while (valid.find(parser->PeekChar()) != std::string::npos)
+        while(valid.find(parser->PeekChar()) != std::string::npos)
         {
             ss << parser->ReadChar();
         }
@@ -274,26 +274,26 @@ namespace euphoria::core::tracery
 #define EMPTY_STRING(str, err)                                                 \
     do                                                                         \
     {                                                                          \
-        if (str.empty())                                                       \
+        if(str.empty())                                                        \
         {                                                                      \
             return ParseError(&parser) << err;                                 \
         }                                                                      \
-    } while (false)
+    } while(false)
 
 #define EXPECT_CHAR(chr, err)                                                  \
     do                                                                         \
     {                                                                          \
-        if (false == parser.ExpectChar(chr))                                   \
+        if(false == parser.ExpectChar(chr))                                    \
         {                                                                      \
             return ParseError(&parser) << err;                                 \
         }                                                                      \
-    } while (false)
+    } while(false)
 
         auto               parser = TextFileParser {s};
         std::ostringstream buffer;
-        while (parser.HasMore())
+        while(parser.HasMore())
         {
-            switch (parser.PeekChar())
+            switch(parser.PeekChar())
             {
             case '\\':
                 parser.ReadChar();
@@ -305,19 +305,19 @@ namespace euphoria::core::tracery
                 parser.ReadChar();
                 const auto text = buffer.str();
                 buffer.str("");
-                if (text.empty() == false)
+                if(text.empty() == false)
                 {
                     Add(std::make_shared<LiteralStringNode>(text));
                 }
                 auto n = std::make_shared<CallSymbolNode>();
-                while (parser.PeekChar() == '[')
+                while(parser.PeekChar() == '[')
                 {
                     parser.ReadChar();
                     const auto key_name = ReadTraceryIdent(&parser);
                     EMPTY_STRING(key_name, "got empty key");
 
                     EXPECT_CHAR(':', "expected : after key name");
-                    if (parser.PeekChar() == '#')
+                    if(parser.PeekChar() == '#')
                     {
                         parser.ReadChar();
                         const auto symbol_name = ReadTraceryIdent(&parser);
@@ -336,9 +336,9 @@ namespace euphoria::core::tracery
                 EMPTY_STRING(symbol_name, "Empty symbol name");
                 n->symbol = symbol_name;
                 bool run  = true;
-                while (run && parser.HasMore())
+                while(run && parser.HasMore())
                 {
-                    switch (parser.PeekChar())
+                    switch(parser.PeekChar())
                     {
                     case '.':
                     {
@@ -363,7 +363,7 @@ namespace euphoria::core::tracery
                     }
                 }
                 Add(n);
-                if (run)
+                if(run)
                 {
                     return Result(Result::RULE_EOF);
                 }
@@ -375,7 +375,7 @@ namespace euphoria::core::tracery
         }
 
         const auto text = buffer.str();
-        if (text.empty() == false)
+        if(text.empty() == false)
         {
             Add(std::make_shared<LiteralStringNode>(text));
         }
@@ -389,10 +389,10 @@ namespace euphoria::core::tracery
     Rule::Flatten(GeneratorArgument* gen)
     {
         std::string ret;
-        for (std::shared_ptr<Node> s: syntax)
+        for(std::shared_ptr<Node> s: syntax)
         {
             const Result r = s->Flatten(gen);
-            if (r == false)
+            if(r == false)
                 return r;
             ret += r.GetText();
         }
@@ -415,7 +415,7 @@ namespace euphoria::core::tracery
     {
         Rule   syntax;
         Result r = syntax.Compile(rule);
-        if (r)
+        if(r)
         {
             ruleset.push_back(syntax);
         }
@@ -467,16 +467,16 @@ namespace euphoria::core::tracery
         {
             std::string s2      = "";
             bool        capNext = true;
-            for (unsigned int i = 0; i < s.length(); i++)
+            for(unsigned int i = 0; i < s.length(); i++)
             {
-                if (!isAlphaNum(s[i]))
+                if(!isAlphaNum(s[i]))
                 {
                     capNext = true;
                     s2 += s[i];
                 }
                 else
                 {
-                    if (!capNext)
+                    if(!capNext)
                     {
                         s2 += s[i];
                     }
@@ -503,18 +503,18 @@ namespace euphoria::core::tracery
         std::string
         a(const std::string& s)
         {
-            if (s.length() > 0)
+            if(s.length() > 0)
             {
-                if (tolower(s[0]) == 'u')
+                if(tolower(s[0]) == 'u')
                 {
-                    if (s.length() > 2)
+                    if(s.length() > 2)
                     {
-                        if (tolower(s[2]) == 'i')
+                        if(tolower(s[2]) == 'i')
                             return "a " + s;
                     }
                 }
 
-                if (isVowel(s[0]))
+                if(isVowel(s[0]))
                 {
                     return "an " + s;
                 }
@@ -526,13 +526,13 @@ namespace euphoria::core::tracery
         std::string
         s(const std::string& s)
         {
-            switch (s[s.length() - 1])
+            switch(s[s.length() - 1])
             {
             case 's': return s + "es"; break;
             case 'h': return s + "es"; break;
             case 'x': return s + "es"; break;
             case 'y':
-                if (!isVowel(s[s.length() - 2]))
+                if(!isVowel(s[s.length() - 2]))
                     return s.substr(0, s.length() - 1) + "ies";
                 else
                     return s + "s";
@@ -544,14 +544,14 @@ namespace euphoria::core::tracery
         std::string
         ed(const std::string& s)
         {
-            switch (s[s.length() - 1])
+            switch(s[s.length() - 1])
             {
             case 's': return s + "ed";
             case 'e': return s + "d";
             case 'h': return s + "ed";
             case 'x': return s + "ed";
             case 'y':
-                if (!isVowel(s[s.length() - 2]))
+                if(!isVowel(s[s.length() - 2]))
                     return s.substr(0, s.length() - 1) + "ied";
                 else
                     return s + "d";
@@ -611,20 +611,20 @@ namespace euphoria::core::tracery
         rapidjson::Document doc;
         doc.Parse(data.c_str());
         const rapidjson::ParseResult ok = doc;
-        if (!ok)
+        if(!ok)
         {
             return Result(Result::JSON_PARSE)
                    << rapidjson::GetParseError_En(ok.Code());
         }
 
-        for (rapidjson::Value::ConstMemberIterator itr = doc.MemberBegin();
-             itr != doc.MemberEnd();
-             ++itr)
+        for(rapidjson::Value::ConstMemberIterator itr = doc.MemberBegin();
+            itr != doc.MemberEnd();
+            ++itr)
         {
             const std::string ruleName = itr->name.GetString();
             Symbol            rule {ruleName};
             Result            r = FromJson(&rule, itr->value);
-            if (r == false)
+            if(r == false)
             {
                 return r;
             }
@@ -640,13 +640,13 @@ namespace euphoria::core::tracery
             GeneratorArgument* generator)
     {
         const auto has_overridden = generator->overridden_rules.find(rule);
-        if (has_overridden != generator->overridden_rules.end())
+        if(has_overridden != generator->overridden_rules.end())
         {
             return Result(Result::NO_ERROR) << has_overridden->second;
         }
 
         const auto found = rules.find(rule);
-        if (found == rules.end())
+        if(found == rules.end())
         {
             // todo: handle errors better
             return Result(Result::MISSING_RULE) << rule;
@@ -666,7 +666,7 @@ namespace euphoria::core::tracery
     Grammar::ApplyModifier(const std::string& name, const std::string& data)
     {
         auto r = modifiers.find(name);
-        if (r == modifiers.end())
+        if(r == modifiers.end())
         {
             return Result(Result::INVALID_MODIFIER) << name;
         }

@@ -76,11 +76,11 @@ namespace euphoria::engine
             ASSERT(reg);
             ASSERT(!types.empty());
 
-            for (const auto& type: types)
+            for(const auto& type: types)
             {
                 const bool has_component
                         = reg->GetComponent(entity, type) != nullptr;
-                if (!has_component)
+                if(!has_component)
                 {
                     return;
                 }
@@ -228,7 +228,7 @@ namespace euphoria::engine
                                        const CustomArguments& args,
                                        const std::string&     name) -> int {
                                         const auto f = args.numbers.find(name);
-                                        if (f == args.numbers.end())
+                                        if(f == args.numbers.end())
                                         {
                                             return ctx->ReturnNumber(0);
                                         }
@@ -289,7 +289,7 @@ namespace euphoria::engine
                                                 const std::string& name,
                                                 Optional<FunctionReference>
                                                         setup) -> int {
-                                                if (setup)
+                                                if(setup)
                                                 {
                                                     LOG_INFO("New id with ref");
                                                     ASSERT(setup->IsValid());

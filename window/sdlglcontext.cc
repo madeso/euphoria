@@ -14,7 +14,7 @@ namespace euphoria::window
     SdlGlContext::SdlGlContext(SdlWindow* window) : context(nullptr)
     {
         context = SDL_GL_CreateContext(window->window);
-        if (context == nullptr)
+        if(context == nullptr)
         {
             LOG_ERROR("Failed to create GL context " << SDL_GetError());
             return;

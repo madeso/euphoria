@@ -135,7 +135,7 @@ namespace euphoria::core::ecs
         GetComponentOrNull(EntityId entity, ComponentId component)
         {
             auto c = GetComponent(entity, component);
-            if (c.get() == nullptr)
+            if(c.get() == nullptr)
             {
                 return nullptr;
             }
