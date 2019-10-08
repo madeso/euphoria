@@ -610,10 +610,9 @@ main(int argc, char** argv)
         {
             if(ImGui::BeginCombo("test combo", "[val]"))
             {
-                const auto wsize   = ImGui::GetWindowSize();
-                const auto spacing = ImGui::GetItemsLineHeightWithSpacing() * 2;
-                const auto space
-                        = ImVec2 {wsize.x - spacing, wsize.y - spacing};
+                // const auto wsize   = ImGui::GetWindowSize();
+                // const auto spacing = ImGui::GetItemsLineHeightWithSpacing() * 2;
+                // const auto space = ImVec2 {wsize.x - spacing, wsize.y - spacing};
                 const float small = 30;
                 const float big   = 60;
                 const auto  sizer = [=](int id) -> float {
