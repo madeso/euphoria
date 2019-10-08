@@ -194,7 +194,8 @@ namespace euphoria::core
     Table<std::string>
     SplitTableCellsOnNewline(const Table<std::string>& table, size_t row)
     {
-        auto ret = Table<std::string>::FromWidthHeight(table.Width(), RowHeight(table, row));
+        auto ret = Table<std::string>::FromWidthHeight(
+                table.Width(), RowHeight(table, row));
         for (int c = 0; c < table.Width(); c += 1)
         {
             const auto rows = Split(table.Value(c, row), '\n');
@@ -262,9 +263,9 @@ namespace euphoria::core
     }
 
     void
-    PrintTableGrid(std::ostream& out, const Table<std::string>& table)
+    PrintTableGrid(std::ostream& out, const Table<std::string>& maintable)
     {
-        const std::vector<int> sizes = ColumnWidths(table, 0);
+        const std::vector<int> sizes = ColumnWidths(maintable, 0);
 
         constexpr auto internal_space = 1;
 
@@ -287,19 +288,23 @@ namespace euphoria::core
 
         horizontal_line();
 
-        for (size_t y = 0; y < table.Height(); ++y)
+        for (size_t y = 0; y < maintable.Height(); ++y)
         {
-            out << "|";
-            for (size_t x = 0; x < table.Width(); ++x)
+            const auto subtable = SplitTableCellsOnNewline(maintable, y);
+            for (size_t suby = 0; suby < subtable.Height(); suby += 1)
             {
-                const auto cell = table.Value(x, y);
-                some_space(internal_space);
-                out << cell;
-                some_space(sizes[x] - cell.length());
-                some_space(internal_space);
-                out << '|';
+                out << "|";
+                for (size_t x = 0; x < subtable.Width(); ++x)
+                {
+                    const auto cell = subtable.Value(x, suby);
+                    some_space(internal_space);
+                    out << cell;
+                    some_space(sizes[x] - cell.length());
+                    some_space(internal_space);
+                    out << '|';
+                }
+                out << '\n';
             }
-            out << '\n';
 
             if (y == 0)
             {
