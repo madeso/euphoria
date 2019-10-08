@@ -75,6 +75,8 @@ struct GenericWindow
     std::string name;
     bool        open = true;
 
+    virtual ~GenericWindow() = default;
+
     virtual void
     Run(StyleData* style_data)
             = 0;
