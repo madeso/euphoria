@@ -87,7 +87,7 @@ SpaceBeforeAssignmentOperators: true
 SpaceBeforeCpp11BracedList: true
 SpaceBeforeCtorInitializerColon: true
 SpaceBeforeInheritanceColon: true
-SpaceBeforeParens: ControlStatements    # or never?
+SpaceBeforeParens: Never    # or ControlStatements?
 SpaceBeforeRangeBasedForLoopColon: false
 # SpaceInEmptyBlock: false          # in 10, uncomment
 SpaceInEmptyParentheses: false
