@@ -76,6 +76,7 @@ TEST_CASE("stringtable-from_csv_default", "[stringtable]")
     const auto firstcolstring = std::vector<std::string> {"a b", "1"};
     const auto secondcol      = std::vector<std::string> {"b", "2"};
     const auto secondcolspace = std::vector<std::string> {" b ", "2"};
+    const auto ab12           = std::vector<std::string> {"ab", "12"};
 
     SECTION("not ending with newline")
     {
@@ -84,6 +85,14 @@ TEST_CASE("stringtable-from_csv_default", "[stringtable]")
         REQUIRE(table.Height() == 2);
         CHECK(euco::CalcColumnAsVector(table, 0) == firstcol);
         CHECK(euco::CalcColumnAsVector(table, 1) == secondcol);
+    }
+
+    SECTION("single column")
+    {
+        const auto table = euco::TableFromCsv("ab\n12");
+        REQUIRE(table.Width() == 1);
+        REQUIRE(table.Height() == 2);
+        CHECK(euco::CalcColumnAsVector(table, 0) == ab12);
     }
 
     SECTION("ending with newlines")

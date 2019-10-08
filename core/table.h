@@ -64,21 +64,74 @@ namespace euphoria::core
             return Recti::FromWidthHeight(width - 1, height - 1);
         }
 
+        /** Add a new row to the table.
+         * Places the new row at the bottom left and resizes the table if necessary.
+         * Fills the (new) empty space with default values.
+         * @param row the new row
+         * @param d the default value (if needed)
+         */
         void
-        NewRow(const std::vector<T>& row)
+        NewRow(const std::vector<T>& row, T d = T())
         {
-            ASSERT(row.size() == width || (width == 0 && row.size() > 0));
-            I added = 0;
-            for(const T& t: row)
-            {
-                data.push_back(t);
-                ++added;
-            }
-            height += 1;
+            // do nothing on empty rows
+            if(row.empty())
+                return;
+
             if(width == 0)
             {
-                width = added;
+                // this is a new table, the row is the new table
+                ASSERTX(height == 0, height);
+                data   = row;
+                width  = row.size();
+                height = 1;
             }
+            else if(width == row.size())
+            {
+                // the number of columns math the new new, just insert it
+                data.insert(data.end(), row.begin(), row.end());
+                height += 1;
+            }
+            else if(width > row.size())
+            {
+                // new row has less columns than the table, solve by expanding the new row with empties
+                data.insert(data.end(), row.begin(), row.end());
+                for(auto i = row.size(); i < width; i += 1)
+                {
+                    data.push_back(d);
+                }
+                height += 1;
+            }
+            else
+            {
+                // new row has more columns, solve by expanding table with empties
+                ASSERTX(width < row.size(), width, row.size());
+                ExpandWidth(row.size(), d);
+                data.insert(data.end(), row.begin(), row.end());
+                height += 1;
+            }
+        }
+
+        /** Expand the table to the new width.
+         * Aligns existing content to the left, fills the empty space with default values.
+         * @param new_width the new width
+         * @param d the default value
+         */
+        void
+        ExpandWidth(I new_width, T d = T())
+        {
+            // todo: only insert the columns we need
+            ASSERTX(width != 0);
+            ASSERTX(width < new_width, width, new_width);
+
+            auto t = Table<T>::FromWidthHeight(new_width, height, d);
+            for(I x = 0; x < width; x += 1)
+            {
+                for(I y = 0; y < height; y += 1)
+                {
+                    t.Value(x, y, this->Value(x, y));
+                }
+            }
+            *this = t;
         }
 
         // NewCol function??? probably less useful than insert functions

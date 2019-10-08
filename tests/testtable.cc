@@ -91,27 +91,58 @@ TEST_CASE("table-test_add", "[table]")
     REQUIRE(0 == t.Width());
     REQUIRE(0 == t.Height());
 
-    t.NewRow(std::vector<int> {1, 2, 3});
+    SECTION("basic usage")
+    {
+        t.NewRow(std::vector<int> {1, 2, 3});
 
-    REQUIRE(3 == t.Width());
-    REQUIRE(1 == t.Height());
+        REQUIRE(3 == t.Width());
+        REQUIRE(1 == t.Height());
 
-    t.NewRow();
-    t.Value(0, 1, 4);
-    t.Value(1, 1, 5);
-    t.Value(2, 1, 6);
+        t.NewRow();
+        t.Value(0, 1, 4);
+        t.Value(1, 1, 5);
+        t.Value(2, 1, 6);
 
-    REQUIRE(3 == t.Width());
-    REQUIRE(2 == t.Height());
+        REQUIRE(3 == t.Width());
+        REQUIRE(2 == t.Height());
 
-    t.NewRow(std::vector<int> {7, 8, 9});
+        t.NewRow(std::vector<int> {7, 8, 9});
 
-    const auto r0 = std::vector<int> {1, 2, 3};
-    CHECK(euco::CalcRowAsVector(t, 0) == r0);
+        const auto r0 = std::vector<int> {1, 2, 3};
+        CHECK(euco::CalcRowAsVector(t, 0) == r0);
 
-    const auto r1 = std::vector<int> {4, 5, 6};
-    CHECK(euco::CalcRowAsVector(t, 1) == r1);
+        const auto r1 = std::vector<int> {4, 5, 6};
+        CHECK(euco::CalcRowAsVector(t, 1) == r1);
 
-    const auto r2 = std::vector<int> {7, 8, 9};
-    CHECK(euco::CalcRowAsVector(t, 2) == r2);
+        const auto r2 = std::vector<int> {7, 8, 9};
+        CHECK(euco::CalcRowAsVector(t, 2) == r2);
+    }
+
+    SECTION("different array sizes")
+    {
+        const int  d   = -42;
+        const auto r1d = std::vector<int> {1};
+        const auto r10 = std::vector<int> {1, d};
+        const auto r12 = std::vector<int> {1, 2};
+
+        SECTION("1 then 2")
+        {
+            t.NewRow(r1d, d);
+            t.NewRow(r12, d);
+            REQUIRE(2 == t.Width());
+            REQUIRE(2 == t.Height());
+            CHECK(euco::CalcRowAsVector(t, 0) == r10);
+            CHECK(euco::CalcRowAsVector(t, 1) == r12);
+        }
+
+        SECTION("2 then 1")
+        {
+            t.NewRow(r12, d);
+            t.NewRow(r1d, d);
+            REQUIRE(2 == t.Width());
+            REQUIRE(2 == t.Height());
+            CHECK(euco::CalcRowAsVector(t, 0) == r12);
+            CHECK(euco::CalcRowAsVector(t, 1) == r10);
+        }
+    }
 }
