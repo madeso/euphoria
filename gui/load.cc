@@ -119,7 +119,6 @@ namespace euphoria::gui
                         new render::ScalableSprite(
                                 fs,
                                 skin->button_image,
-                                core::Sizef::FromSquare(2.0f),
                                 cache));
                 b->SetSprite(sp);
             }

@@ -67,7 +67,7 @@ struct CubeAnimation
 // 3d demo
 
 int
-main(int argc, char** argv)
+main(int, char**)
 {
     Engine engine;
     if(!engine.Setup())

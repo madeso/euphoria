@@ -254,7 +254,6 @@ namespace euphoria::editor
             typename TButtonFunction>
     void
     DrawSizerCommon(
-            std::shared_ptr<render::Texture2d> image,
             const ScimedConfig&                sc,
             std::vector<int>*                  data_ptr,
             int                                end,
@@ -295,7 +294,6 @@ namespace euphoria::editor
     {
         int sized_id = 0;
         DrawSizerCommon(
-                image,
                 scc,
                 &sprite->cols,
                 image->GetWidth(),
@@ -327,7 +325,6 @@ namespace euphoria::editor
                 });
 
         DrawSizerCommon(
-                image,
                 scc,
                 &sprite->rows,
                 image->GetHeight(),

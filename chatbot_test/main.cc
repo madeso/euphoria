@@ -30,7 +30,7 @@ main()
         std::cout << chatbot.DebugLastResponse(args);
         std::cout << "\n\n";
     });
-    cmdline.Register("kill", [&chatbot](const CmdLine::Args& args) {
+    cmdline.Register("kill", [&chatbot](const CmdLine::Args&) {
         chatbot.is_in_conversation = false;
         std::cout << "Killing chatbot.\n\n";
     });

@@ -37,7 +37,7 @@ namespace euphoria::engine
         {}
 
         void
-        Update(core::ecs::EntReg* reg, float dt) const override
+        Update(core::ecs::EntReg*, float dt) const override
         {
             ASSERT(duk);
             func.VoidCall(duk->AsContext(), dt);

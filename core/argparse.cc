@@ -393,7 +393,7 @@ namespace euphoria::core
             }
 
             ParseResult
-            Parse(const std::string& arg_name, Running* running) override
+            Parse(const std::string&, Running* running) override
             {
                 ASSERT(parsers);
                 ASSERT(running->HasMore());

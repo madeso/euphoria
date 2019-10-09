@@ -49,7 +49,6 @@ namespace euphoria::engine
     void
     AddSystems(
             core::ecs::Systems* systems,
-            duk::Duk*           duk,
             Components*         components)
     {
         systems->AddAndRegister(std::make_shared<SystemSpriteDraw>(components));

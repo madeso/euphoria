@@ -46,7 +46,7 @@ FindDifferences(const Table<bool>& src, const Table<bool>& dst)
 }
 
 void
-PrintMazeToConsole(const generator::Drawer& drawer, const generator::Maze& maze)
+PrintMazeToConsole(const generator::Drawer& drawer)
 {
     auto table = ImageToStringTable(
             drawer.image,
@@ -163,7 +163,7 @@ maze(MazeAlgorithm      algo,
 
     if(console)
     {
-        PrintMazeToConsole(drawer, maze);
+        PrintMazeToConsole(drawer);
     }
     else
     {

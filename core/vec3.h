@@ -319,7 +319,7 @@ namespace euphoria::core
     vec3<T>
     operator/(T lhs, const vec3<T>& rhs)
     {
-        const vec3<T> r {1 / rhs.x, 1 / rhs.y, 1 / rhs.z};
+        const vec3<T> r {lhs / rhs.x, lhs / rhs.y, lhs / rhs.z};
         return r;
     }
 

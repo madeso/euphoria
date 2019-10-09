@@ -206,7 +206,7 @@ TEST_CASE("duk-eval", "[duk]")
             duk.BindGlobalFunction(
                     "test",
                     MakeBind<Optional<int>>(
-                            [&](Context* ctx, Optional<int> i) -> int {
+                            [&](Context*, Optional<int> i) -> int {
                                 if(i)
                                 {
                                     value = i.value;

@@ -116,7 +116,7 @@ namespace euphoria::core::tracery
         std::string text;
 
         Result
-        Flatten(GeneratorArgument* generator) override
+        Flatten(GeneratorArgument*) override
         {
             return Result(Result::NO_ERROR) << text;
         }

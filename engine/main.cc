@@ -192,7 +192,7 @@ GetColor(std::shared_ptr<game::Color> c)
 // engine
 
 int
-main(int argc, char** argv)
+main(int, char**)
 {
     Engine engine;
     if(engine.Setup() == false)
@@ -252,7 +252,7 @@ main(int argc, char** argv)
     Systems    systems;
     World      world {&systems};
     Components components {&world.reg};
-    AddSystems(&systems, &duk, &components);
+    AddSystems(&systems, &components);
     ObjectCreator templates;
     LoadTemplatesButOnlyNames(gamedata, &templates);
     CameraData camera_data;

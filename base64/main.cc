@@ -30,7 +30,7 @@ RunEncode(const std::string& data)
 }
 
 int
-RunDecode(const std::string& data)
+RunDecode(const std::string&)
 {
     std::cerr << "Not implemented yet...\n";
     return -100;
@@ -39,6 +39,7 @@ RunDecode(const std::string& data)
 int
 main(int argc, char** argv)
 {
+    // todo(Gustav): use the argparse instead...
     if(argc == 3)
     {
         const std::string command = argv[1];

@@ -38,8 +38,7 @@ namespace euphoria::render
         Render(const Viewport& viewport, const core::Camera& camera);
 
         void
-        Render(const Viewport&             viewport,
-               const core::Camera&         camera,
+        Render(const core::Camera&         camera,
                const core::CompiledCamera& compiled);
 
         bool use_outline = false;

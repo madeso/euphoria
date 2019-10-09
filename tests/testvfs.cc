@@ -11,7 +11,7 @@ class AlwaysExist : public FileSystemReadRoot
 {
 public:
     std::shared_ptr<euco::MemoryChunk>
-    ReadFile(const std::string& path) override
+    ReadFile(const std::string&) override
     {
         // alloc some garbage
         return euco::MemoryChunk::Alloc(32);
@@ -24,7 +24,7 @@ public:
     }
 
     FileList
-    ListFiles(const Path& path) override
+    ListFiles(const Path&) override
     {
         FileList ret;
         return ret;
@@ -35,7 +35,7 @@ class NeverExist : public FileSystemReadRoot
 {
 public:
     std::shared_ptr<euco::MemoryChunk>
-    ReadFile(const std::string& path) override
+    ReadFile(const std::string&) override
     {
         return euco::MemoryChunk::Null();
     }
@@ -48,7 +48,7 @@ public:
     }
 
     FileList
-    ListFiles(const Path& path) override
+    ListFiles(const Path&) override
     {
         FileList ret;
         return ret;

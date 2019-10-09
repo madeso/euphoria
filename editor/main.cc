@@ -130,7 +130,7 @@ struct GenericEditorWindow : public GenericWindow
     {}
 
     void
-    Run(StyleData* style_data) override
+    Run(StyleData*) override
     {
         edit_function(data);
     }
@@ -193,7 +193,7 @@ struct TextEditorWindow : GenericWindow
     }
 
     void
-    Run(StyleData* s) override
+    Run(StyleData*) override
     {
         ImGui::InputTextMultiline(
                 "", &buffer[0], buffer.capacity(), ImVec2 {-1, -1});
@@ -238,9 +238,9 @@ struct ScalingSpriteCache
               ScalingSpriteCache>
 {
     std::shared_ptr<scalingsprite::ScalingSprite>
-    Create(const std::string& path)
+    Create(const std::string&)
     {
-        // todo: load from filename
+        // todo(Gustav): load from filename
         return std::make_shared<scalingsprite::ScalingSprite>();
     }
 };
@@ -250,7 +250,6 @@ LoadFile(
         Scimed*             scimed,
         TextureCache*       cache,
         ScalingSpriteCache* scache,
-        vfs::FileSystem*    fs,
         const std::string&  path)
 {
     scimed->texture = cache->GetTexture(path);
@@ -274,7 +273,6 @@ void
 OpenOrFocusScimed(
         Windows*            windows,
         const std::string&  file,
-        vfs::FileSystem*    fs,
         TextureCache*       tc,
         ScalingSpriteCache* sc)
 {
@@ -283,7 +281,7 @@ OpenOrFocusScimed(
             Str {} << "Scimed: " << file,
             [&]() -> std::shared_ptr<GenericWindow> {
                 auto scimed = std::make_shared<ScimedWindow>();
-                LoadFile(&scimed->scimed, tc, sc, fs, file);
+                LoadFile(&scimed->scimed, tc, sc, file);
                 return scimed;
             });
 }
@@ -292,7 +290,6 @@ void
 OpenOrFocusScimedEditior(
         Windows*            windows,
         const std::string&  path,
-        vfs::FileSystem*    fs,
         ScalingSpriteCache* sc)
 {
     std::string file = path;
@@ -311,14 +308,13 @@ OpenOrFocusScimedEditior(
             });
 }
 
-template <typename T, typename TOpen, typename TRun>
+template <typename T, typename TRun>
 void
 OpenOrFocusOnGenericWindow(
         Windows*           windows,
         const std::string& path,
         vfs::FileSystem*   fs,
         const std::string& title,
-        TOpen              open_function,
         TRun               run_function)
 {
     OpenOrFocusWindow(
@@ -438,7 +434,7 @@ struct ViewportHandler
 };
 
 int
-main(int argc, char** argv)
+main(int, char**)
 {
     Engine engine;
 
@@ -486,7 +482,6 @@ main(int argc, char** argv)
                         file,
                         engine.file_system.get(),
                         "Game",
-                        [](auto* s, const std::string& data) {},
                         [](auto* s) { game::RunImgui(s); });
             }));
 
@@ -501,19 +496,17 @@ main(int argc, char** argv)
                         file,
                         engine.file_system.get(),
                         "World",
-                        [](auto* s, const std::string& data) {},
                         [](auto* s) { world::RunImgui(s); });
             }));
     file_types.Add(CreateHandler(
             "Open with Enum Editor",
-            [](const std::string& file) -> bool { return false; },
+            [](const std::string&) -> bool { return false; },
             [&](Windows* windows, const std::string& file) {
                 OpenOrFocusOnGenericWindow<enumlist::Enumroot>(
                         windows,
                         file,
                         engine.file_system.get(),
                         "Enums",
-                        [](auto* s, const std::string& data) {},
                         [](auto* s) { enumlist::RunImgui(s); });
             }));
 
@@ -535,17 +528,16 @@ main(int argc, char** argv)
                 OpenOrFocusScimed(
                         windows,
                         file,
-                        engine.file_system.get(),
                         &texture_cache,
                         &sprite_cache);
             }));
 
     file_types.Add(CreateHandler(
             "Open with auto scimed editor",
-            [](const std::string& file) -> bool { return false; },
+            [](const std::string&) -> bool { return false; },
             [&](Windows* windows, const std::string& file) {
                 OpenOrFocusScimedEditior(
-                        windows, file, engine.file_system.get(), &sprite_cache);
+                        windows, file, &sprite_cache);
             }));
 
     //////////////////////////////////////////////////////////////////////////////

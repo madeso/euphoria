@@ -60,7 +60,7 @@ using namespace euphoria::render;
 using namespace euphoria::window;
 
 int
-main(int argc, char** argv)
+main(int, char**)
 {
     Engine engine;
 

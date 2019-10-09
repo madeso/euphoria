@@ -49,7 +49,6 @@ namespace euphoria::render
     ScalableSprite::ScalableSprite(
             core::vfs::FileSystem* fs,
             const std::string&     path,
-            const core::Sizef&     size,
             TextureCache*          cache)
         : texture_(cache->GetTexture(path))
     {
