@@ -5,6 +5,7 @@
 #include "core/os.h"
 #include "core/vfs_path.h"
 #include "core/stringutils.h"
+#include "core/cint.h"
 
 #include "window/imgui_ext.h"
 
@@ -37,7 +38,7 @@ namespace euphoria::editor
     std::string
     FileBrowser::GetSelectedFile()
     {
-        if(selected_file >= 0 && selected_file < files.size())
+        if(selected_file >= 0 && selected_file < Csizet(files.size()))
         {
             const auto suggested = files[selected_file];
             if(!EndsWith(suggested.name, '/'))

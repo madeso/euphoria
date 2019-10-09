@@ -489,7 +489,7 @@ namespace euphoria::editor
         canvas.ShowGrid(cc);
         ImDrawList* draw_list = ImGui::GetWindowDrawList();
 
-        const auto mouse = ImGui::GetMousePos();
+        // const auto mouse = ImGui::GetMousePos();
 
         if(!texture)
         {

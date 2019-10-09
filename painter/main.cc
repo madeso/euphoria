@@ -53,7 +53,7 @@
 #include "imgui/imgui_internal.h"
 #include "window/imgui_ext.h"
 
-LOG_SPECIFY_DEFAULT_LOGGER("painter")
+// LOG_SPECIFY_DEFAULT_LOGGER("painter")
 
 using namespace euphoria::core;
 using namespace euphoria::render;
@@ -132,7 +132,7 @@ main(int argc, char** argv)
         {
             // win->Run(&style_data);
             const auto a = !ImGui::IsAnyItemHovered();
-            const auto b = ImGui::IsMouseHoveringWindow();
+            // const auto b = ImGui::IsMouseHoveringWindow();
             const auto c = ImGui::IsMouseClicked(1);
             // LOG_INFO("bools " << a << " " << b << " " << c);
             if(a && c)

@@ -377,7 +377,7 @@ main(int argc, char** argv)
                 }
                 else if(e.type == SDL_TEXTINPUT)
                 {
-                    const std::string& input = e.text.text;
+                    // const std::string& input = e.text.text;
                 }
             }
         }

@@ -21,7 +21,7 @@ namespace euphoria::duk
 
 namespace euphoria::engine
 {
-    class DukRegistry;
+    struct DukRegistry;
     class ObjectCreator;
 
     void

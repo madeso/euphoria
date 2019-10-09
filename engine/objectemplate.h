@@ -31,7 +31,7 @@ namespace euphoria::render
 
 namespace euphoria::engine
 {
-    class DukRegistry;
+    struct DukRegistry;
     struct Components;
 
     struct ObjectCreationArgs

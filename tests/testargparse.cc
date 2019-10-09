@@ -42,15 +42,6 @@ ENUM_VALUE(MyEnum, Cat)
 ENUM_VALUE(MyEnum, ReallyLongValue)
 END_ENUM_LIST()
 
-std::ostream&
-operator<<(std::ostream& s, const Entry& e)
-{
-    if(!e.ok)
-        s << "(ERR): ";
-    s << e.text;
-    return s;
-}
-
 struct TestOutput : public euco::argparse::Output
 {
     std::vector<Entry> out;

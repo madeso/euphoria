@@ -20,7 +20,7 @@ namespace euphoria::engine
     struct DukRegistry;
     class ObjectCreator;
     struct DukIntegrationPimpl;
-    class CameraData;
+    struct CameraData;
     struct Components;
 
 

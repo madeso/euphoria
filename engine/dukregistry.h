@@ -19,7 +19,7 @@ namespace euphoria::engine
         std::map<std::string, float> numbers;
     };
 
-    class DukRegistry
+    struct DukRegistry
     {
     public:
         DukRegistry(core::ecs::EntReg* r, Components* components);
