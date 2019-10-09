@@ -214,16 +214,16 @@ namespace euphoria::core
     namespace colorutil
     {
         // internal function, exposed for unit tests
-        const unsigned char
+        unsigned char
         GetComponent(unsigned int i, int steps);
 
-        const unsigned char
+        unsigned char
         GetRed(unsigned int rgb);
 
-        const unsigned char
+        unsigned char
         GetGreen(unsigned int rgb);
 
-        const unsigned char
+        unsigned char
         GetBlue(unsigned int rgb);
 
         float

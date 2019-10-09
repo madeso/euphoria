@@ -422,7 +422,7 @@ namespace euphoria::core
 
     namespace colorutil
     {
-        const unsigned char
+        unsigned char
         GetComponent(unsigned int i, int steps)
         {
             const int value = ((i >> 8 * steps) & 0xff);
@@ -430,19 +430,19 @@ namespace euphoria::core
             return static_cast<unsigned char>(value);
         }
 
-        const unsigned char
+        unsigned char
         GetRed(unsigned int rgb)
         {
             return GetComponent(rgb, 2);
         }
 
-        const unsigned char
+        unsigned char
         GetGreen(unsigned int rgb)
         {
             return GetComponent(rgb, 1);
         }
 
-        const unsigned char
+        unsigned char
         GetBlue(unsigned int rgb)
         {
             return GetComponent(rgb, 0);

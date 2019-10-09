@@ -46,7 +46,7 @@ namespace euphoria::core
         return invalid;
     }
 
-    const EnumValue
+    EnumValue
     EnumType::ToEnum(const std::string& name)
     {
         NameToValue::const_iterator r = nameToValue_.find(name);
@@ -111,13 +111,13 @@ namespace euphoria::core
 
     EnumValue::EnumValue(EnumType* t, size_t v) : type_(t), value_(v) {}
 
-    const std::string
+    std::string
     EnumValue::ToString() const
     {
         return type_->ToString(value_);
     }
 
-    const size_t
+    size_t
     EnumValue::ToValue() const
     {
         return value_;

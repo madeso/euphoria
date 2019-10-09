@@ -72,7 +72,6 @@ else()
 
   # fix the code for this
   add_compile_options(-Wno-unused-parameter)
-  add_compile_options(-Wno-ignored-qualifiers)
 endif()
 
 find_package(SDL2 REQUIRED)

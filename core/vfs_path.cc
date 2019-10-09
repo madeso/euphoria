@@ -7,11 +7,12 @@ namespace euphoria::core
 {
     namespace vfs
     {
-        const char
+        char
         DirectoryChar()
         {
             return '/';
         }
+        
         std::string
         DirectoryString()
         {

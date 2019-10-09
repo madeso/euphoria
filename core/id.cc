@@ -6,7 +6,7 @@ namespace euphoria::core
 {
     IdGenerator::IdGenerator() : current_(1) {}
 
-    const IdGenerator::ID
+    IdGenerator::ID
     IdGenerator::Generate()
     {
         if(released_.empty())
@@ -75,7 +75,7 @@ namespace euphoria::core
         generator_ = generator;
     }
 
-    const IdGenerator::ID
+    IdGenerator::ID
     Id::GetValue() const
     {
         ASSERT(IsValid());

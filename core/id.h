@@ -12,7 +12,7 @@ namespace euphoria::core
 
         IdGenerator();
 
-        const ID
+        ID
         Generate();
 
         void
@@ -42,7 +42,7 @@ namespace euphoria::core
         void
         Generate(IdGenerator* generator);
 
-        const IdGenerator::ID
+        IdGenerator::ID
         GetValue() const;
 
     private:

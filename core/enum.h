@@ -29,7 +29,8 @@ namespace euphoria::core
 
         std::string
         ToString(size_t v) const;
-        const EnumValue
+
+        EnumValue
         ToEnum(const std::string& name);
 
         void
@@ -58,9 +59,10 @@ namespace euphoria::core
 
         // todo: add EnumType to the parameter to verify against stored member
         // so
-        const std::string
+        std::string
         ToString() const;
-        const size_t
+
+        size_t
         ToValue() const;
 
         bool

@@ -12,7 +12,7 @@ namespace euphoria::core
 {
     namespace  // local
     {
-        char const* const
+        char const*
         LevelToString(LogLevel level)
         {
             switch(level)
