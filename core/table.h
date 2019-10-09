@@ -6,6 +6,7 @@
 #include "core/assert.h"
 #include "core/numeric.h"
 #include "core/rect.h"
+#include "core/cint.h"
 
 namespace euphoria::core
 {
@@ -13,6 +14,8 @@ namespace euphoria::core
     struct Table
     {
         using I = int;
+
+        static constexpr I Ci(size_t t) {return Csizet(t);}
 
         Table() : width(0), height(0) {}
 
@@ -49,9 +52,9 @@ namespace euphoria::core
         void
         SetAll(Func f)
         {
-            for(unsigned y = 0; y < height; y += 1)
+            for(I y = 0; y < height; y += 1)
             {
-                for(unsigned x = 0; x < width; x += 1)
+                for(I x = 0; x < width; x += 1)
                 {
                     Value(x, y, f(x, y));
                 }
@@ -85,17 +88,17 @@ namespace euphoria::core
                 width  = row.size();
                 height = 1;
             }
-            else if(width == row.size())
+            else if(width == Ci(row.size()))
             {
                 // the number of columns math the new new, just insert it
                 data.insert(data.end(), row.begin(), row.end());
                 height += 1;
             }
-            else if(width > row.size())
+            else if(width > Ci(row.size()))
             {
                 // new row has less columns than the table, solve by expanding the new row with empties
                 data.insert(data.end(), row.begin(), row.end());
-                for(auto i = row.size(); i < width; i += 1)
+                for(auto i = Ci(row.size()); i < width; i += 1)
                 {
                     data.push_back(d);
                 }
@@ -104,7 +107,7 @@ namespace euphoria::core
             else
             {
                 // new row has more columns, solve by expanding table with empties
-                ASSERTX(width < row.size(), width, row.size());
+                ASSERTX(width < Ci(row.size()), width, row.size());
                 ExpandWidth(row.size(), d);
                 data.insert(data.end(), row.begin(), row.end());
                 height += 1;
@@ -120,7 +123,7 @@ namespace euphoria::core
         ExpandWidth(I new_width, T d = T())
         {
             // todo: only insert the columns we need
-            ASSERTX(width != 0);
+            ASSERT(width != 0);
             ASSERTX(width < new_width, width, new_width);
 
             auto t = Table<T>::FromWidthHeight(new_width, height, d);

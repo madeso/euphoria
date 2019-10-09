@@ -1,6 +1,7 @@
 #include "core/base64.h"
 
 #include "core/assert.h"
+#include "core/cint.h"
 
 #include <sstream>
 
@@ -77,7 +78,7 @@ namespace euphoria::core
                 unsigned long b[4]     = {
                         0,
                 };
-                for(int i = 0; i < input.size(); i += 4)
+                for(int i = 0; i < Csizet(input.size()); i += 4)
                 {
                     // This could be made faster (but more complicated) by precomputing
                     // these index locations.

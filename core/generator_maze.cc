@@ -275,9 +275,9 @@ namespace euphoria::core
             auto draw = ::euphoria::core::Draw {&image};
             draw.Clear(wall_color);
 
-            for(unsigned int x = 0; x < maze->Width(); x += 1)
+            for(int x = 0; x < maze->Width(); x += 1)
             {
-                for(unsigned int y = 0; y < maze->Height(); y += 1)
+                for(int y = 0; y < maze->Height(); y += 1)
                 {
                     const auto px = wall_size + x * path_size;
                     const auto py = wall_size + y * path_size + cell_size - 1;

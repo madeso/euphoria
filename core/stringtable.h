@@ -15,7 +15,7 @@
 
 namespace euphoria::core
 {
-    // generator
+    using StringTable = Table<std::string>;
 
     template <typename T>
     struct TableGenerator : public SortBuilder<T, TableGenerator<T>>
@@ -28,10 +28,10 @@ namespace euphoria::core
 
         explicit TableGenerator(const std::vector<T>& d) : data(d) {}
 
-        Table<std::string>
+        StringTable
         ToTable() const
         {
-            Table<std::string> ret;
+            StringTable ret;
             ret.NewRow(column_titles);
 
             const auto s = column_titles.size();
@@ -74,7 +74,7 @@ namespace euphoria::core
         CsvTrim trim  = CsvTrim::DontTrim;
     };
 
-    Table<std::string>
+    StringTable
     TableFromCsv(
             const std::string&      data,
             const CsvParserOptions& options = CsvParserOptions());
@@ -89,7 +89,7 @@ namespace euphoria::core
  George         Costanza
 */
     void
-    PrintTableSimple(std::ostream& out, const Table<std::string>& table);
+    PrintTableSimple(std::ostream& out, const StringTable& table);
 
     /*
 +------------+-----------+
@@ -102,7 +102,7 @@ namespace euphoria::core
 +------------+-----------+
 */
     void
-    PrintTableGrid(std::ostream& out, const Table<std::string>& table);
+    PrintTableGrid(std::ostream& out, const StringTable& table);
 
 }  // namespace euphoria::core
 

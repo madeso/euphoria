@@ -12,7 +12,7 @@ namespace euphoria::core
         void
         CellularAutomata::Setup()
         {
-            world->SetAll([this](unsigned x, unsigned y) {
+            world->SetAll([this](int x, int y) {
                 if(border_control != BorderControl::RandomWall
                    && border_control != BorderControl::RandomEmpty)
                 {
@@ -107,9 +107,9 @@ namespace euphoria::core
             auto draw = ::euphoria::core::Draw {&image};
             draw.Clear(space_color);
 
-            for(unsigned int x = 0; x < world->Width(); x += 1)
+            for(int x = 0; x < world->Width(); x += 1)
             {
-                for(unsigned int y = 0; y < world->Height(); y += 1)
+                for(int y = 0; y < world->Height(); y += 1)
                 {
                     const auto px = x * scale;
                     const auto py = y * scale;

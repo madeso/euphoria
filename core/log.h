@@ -34,7 +34,6 @@ namespace euphoria::core
         GetLogger(const std::string& name);
 
     private:
-        Logger*     parent_;
         std::string name_;
         LogLevel    level_;
     };

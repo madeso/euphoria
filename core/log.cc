@@ -30,8 +30,8 @@ namespace euphoria::core
         }
     }  // namespace
 
-    Logger::Logger(Logger* parent, std::string name)
-        : parent_(parent), name_(std::move(name)), level_(LogLevel::Info)
+    Logger::Logger(Logger*, std::string name)
+        : name_(std::move(name)), level_(LogLevel::Info)
     {}
 
     bool
