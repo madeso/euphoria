@@ -87,18 +87,6 @@ endif()
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 include_directories(SYSTEM ${CMAKE_CURRENT_BINARY_DIR})
 
-find_program(
-  CLOC_EXE
-  NAMES "cloc"
-  DOC "Path to cloc executable"
-)
-if(CLOC_EXE)
-  add_custom_target(codestat
-                  ${CLOC_EXE} core demo gui proto render tests CMakeLists.txt
-                  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-                  COMMENT "Running cloc")
-endif()
-
 if(BUILD_TYPEINFO_IMPL_CTTI)
   include_directories(SYSTEM external/ctti/include)
 endif()
