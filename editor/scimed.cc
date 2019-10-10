@@ -254,12 +254,12 @@ namespace euphoria::editor
             typename TButtonFunction>
     void
     DrawSizerCommon(
-            const ScimedConfig&                sc,
-            std::vector<int>*                  data_ptr,
-            int                                end,
-            TAnchorFunction                    anchor_function,
-            TLineFunction                      line_function,
-            TButtonFunction                    button_function)
+            const ScimedConfig& sc,
+            std::vector<int>*   data_ptr,
+            int                 end,
+            TAnchorFunction     anchor_function,
+            TLineFunction       line_function,
+            TButtonFunction     button_function)
     {
         auto&      data   = *data_ptr;
         const auto spaces = CalculateAllSpaces(data);

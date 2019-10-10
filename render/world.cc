@@ -52,7 +52,9 @@ namespace euphoria::render
     }
 
     void
-    World::Render(const core::Camera&         camera, const core::CompiledCamera& compiled)
+    World::Render(
+            const core::Camera&         camera,
+            const core::CompiledCamera& compiled)
     {
         const auto projection_matrix = compiled.projection;
         const auto view_matrix       = compiled.view;

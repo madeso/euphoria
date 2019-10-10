@@ -11,9 +11,7 @@ namespace euphoria::engine
     struct Components;
 
     void
-    AddSystems(
-            core::ecs::Systems* systems,
-            Components*         components);
+    AddSystems(core::ecs::Systems* systems, Components* components);
 }  // namespace euphoria::engine
 
 #endif  // EUPHORIA_SYSTEMS_H

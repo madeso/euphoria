@@ -9,14 +9,14 @@ namespace euphoria::core
     StringTable
     TableFromCsv(const std::string& csv_data, const CsvParserOptions& options)
     {
-        const auto AddRowToTable = [](StringTable*             table,
-                                      const std::vector<std::string>& row) {
-            if(row.empty())
-            {
-                return;
-            }
-            table->NewRow(row);
-        };
+        const auto AddRowToTable
+                = [](StringTable* table, const std::vector<std::string>& row) {
+                      if(row.empty())
+                      {
+                          return;
+                      }
+                      table->NewRow(row);
+                  };
         auto file = TextFileParser {csv_data};
 
         StringTable table;

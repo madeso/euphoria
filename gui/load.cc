@@ -117,9 +117,7 @@ namespace euphoria::gui
             {
                 std::shared_ptr<render::ScalableSprite> sp(
                         new render::ScalableSprite(
-                                fs,
-                                skin->button_image,
-                                cache));
+                                fs, skin->button_image, cache));
                 b->SetSprite(sp);
             }
             ret.reset(b);

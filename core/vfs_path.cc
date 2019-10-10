@@ -12,7 +12,7 @@ namespace euphoria::core
         {
             return '/';
         }
-        
+
         std::string
         DirectoryString()
         {

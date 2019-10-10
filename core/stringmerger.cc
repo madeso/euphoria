@@ -125,7 +125,9 @@ namespace euphoria::core
     }
 
     StringMerger&
-    StringMerger::StartAndEnd(const std::string& the_start, const std::string& the_end)
+    StringMerger::StartAndEnd(
+            const std::string& the_start,
+            const std::string& the_end)
     {
         this->start = the_start;
         this->end   = the_end;

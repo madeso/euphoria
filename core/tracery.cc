@@ -139,7 +139,9 @@ namespace euphoria::core::tracery
         std::vector<ActionRule>  action_rules;
 
         void
-        AddActionRule(const std::string& action_key, const std::string& action_symbol)
+        AddActionRule(
+                const std::string& action_key,
+                const std::string& action_symbol)
         {
             action_rules.push_back(ActionRule {action_key, action_symbol});
         }

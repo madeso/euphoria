@@ -171,7 +171,7 @@ namespace euphoria::core::ecs
             destroyed_entities.resize(0);
         }
 
-        ComponentId                                           next_component_id = 0;
+        ComponentId next_component_id = 0;
         std::map<ComponentId, std::shared_ptr<ComponentList>> components;
         std::map<std::string, ComponentId>                    name_to_component;
 

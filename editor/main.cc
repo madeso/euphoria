@@ -525,19 +525,14 @@ main(int, char**)
                 return EndsWith(file, ".png");
             },
             [&](Windows* windows, const std::string& file) {
-                OpenOrFocusScimed(
-                        windows,
-                        file,
-                        &texture_cache,
-                        &sprite_cache);
+                OpenOrFocusScimed(windows, file, &texture_cache, &sprite_cache);
             }));
 
     file_types.Add(CreateHandler(
             "Open with auto scimed editor",
             [](const std::string&) -> bool { return false; },
             [&](Windows* windows, const std::string& file) {
-                OpenOrFocusScimedEditior(
-                        windows, file, &sprite_cache);
+                OpenOrFocusScimedEditior(windows, file, &sprite_cache);
             }));
 
     //////////////////////////////////////////////////////////////////////////////

@@ -45,7 +45,7 @@ TEST_CASE("table-size", "[table]")
 TEST_CASE("table-section_and_rows", "[table]")
 {
     using T = euco::Table<std::string>;
-    auto t = T::FromWidthHeight(3, 2, "");
+    auto t  = T::FromWidthHeight(3, 2, "");
     for(T::I y = 0; y < t.Height(); ++y)
         for(T::I x = 0; x < t.Width(); ++x)
         {

@@ -118,7 +118,8 @@ namespace euphoria::duk
 
         if(match.empty())
         {
-            const TReturn parse_result = StackParser<TReturn>::Parse(context, -1);
+            const TReturn parse_result
+                    = StackParser<TReturn>::Parse(context, -1);
             DoneFunction(context);
             return parse_result;
         }

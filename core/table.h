@@ -15,7 +15,11 @@ namespace euphoria::core
     {
         using I = int;
 
-        static constexpr I Ci(size_t t) {return Csizet(t);}
+        static constexpr I
+        Ci(size_t t)
+        {
+            return Csizet(t);
+        }
 
         Table() : width(0), height(0) {}
 
