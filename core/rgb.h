@@ -27,6 +27,7 @@ namespace euphoria::core
 
         explicit Rgbi(const Rgb& rgb);
 
+        [[nodiscard]]
         static Rgbi
         FromHex(unsigned int hex);
 
@@ -62,6 +63,7 @@ namespace euphoria::core
 
         Rgb(Color color);
 
+        [[nodiscard]]
         static Rgb
         FromHex(unsigned int hex);
 
@@ -86,16 +88,27 @@ namespace euphoria::core
         float s;  // 0-1
         float l;  // 0-1
 
+        [[nodiscard]]
         static const Angle&
         Red();
+
+        [[nodiscard]]
         static const Angle&
         Yellow();
+
+        [[nodiscard]]
         static const Angle&
         Green();
+
+        [[nodiscard]]
         static const Angle&
         Cyan();
+
+        [[nodiscard]]
         static const Angle&
         Blue();
+
+        [[nodiscard]]
         static const Angle&
         Magenta();
     };

@@ -31,6 +31,7 @@ namespace euphoria::core
 
         quat(T w, const Vec& v) : w(w), x(v.x), y(v.y), z(v.z) {}
 
+        [[nodiscard]]
         static Q
         FromAxisAngle(const AxisAngle& aa)
         {
@@ -41,6 +42,7 @@ namespace euphoria::core
             return r;
         }
 
+        [[nodiscard]]
         static Q
         FromRandom(Random* random)
         {
@@ -70,16 +72,21 @@ namespace euphoria::core
 
         // static Q FromAngles(T x, T y, T z);
 
+        [[nodiscard]]
         static Q
         Identity()
         {
             return Q(1, Vec(0, 0, 0));
         }
+
+        [[nodiscard]]
         static Q
         LookAt(const Point& from, const Point& to, const typename Vec::Unit up)
         {
             return LookInDirection(Vec::FromTo(from, to).GetNormalized(), up);
         }
+
+        [[nodiscard]]
         static Q
         LookInDirection(const Unit& dir, const Unit& up)
         {
@@ -218,12 +225,14 @@ namespace euphoria::core
             return ret.vec().GetNormalized();
         }
 
+        [[nodiscard]]
         static Q
         Lerp(const Q& f, const T scale, const Q& t)
         {
             return f * (1 - scale) + t * scale;
         }
 
+        [[nodiscard]]
         static Q
         Slerp(const Q& qa, const T t, const Q& qb)
         {
@@ -256,6 +265,7 @@ namespace euphoria::core
             return qa * ratioA + qb * ratioB;
         }
 
+        [[nodiscard]]
         static Q
         SlerpShortway(const Q& f, const T scale, const Q& t)
         {
@@ -295,6 +305,7 @@ namespace euphoria::core
             z *= rhs;
             w *= rhs;
         }
+
         void
         operator*=(const Q& rhs)
         {
@@ -375,6 +386,7 @@ namespace euphoria::core
         r += lhs;
         return r;
     }
+
     template <typename T>
     quat<T>
     operator-(const quat<T>& lhs, const quat<T>& rhs)
@@ -394,7 +406,6 @@ namespace euphoria::core
 
     typedef quat<float> quatf;
     typedef quat<int>   quati;
-
 }  // namespace euphoria::core
 
 #endif  // CORE_QUAT_H

@@ -15,12 +15,14 @@ namespace euphoria::core
 
         UnitRay3(const Point& from, const Unit& dir) : from(from), dir(dir) {}
 
+        [[nodiscard]]
         static Self
         FromTo(const Point& from, const Point& to)
         {
             return Self {from, vec3<T>::FromTo(from, to).GetNormalized()};
         }
 
+        [[nodiscard]]
         static Self
         FromDirection(const Unit& dir)
         {
@@ -47,12 +49,14 @@ namespace euphoria::core
 
         Ray3(const Point& from, const Vec& dir) : from(from), dir(dir) {}
 
+        [[nodiscard]]
         static Self
         FromTo(const Point& from, const Point& to)
         {
             return Self {from, Vec::FromTo(from, to)};
         }
 
+        [[nodiscard]]
         static Self
         FromDirection(const Vec& dir)
         {

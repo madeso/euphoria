@@ -15,6 +15,7 @@ namespace euphoria::core
     {
         using I = int;
 
+        [[nodiscard]]
         static constexpr I
         Ci(size_t t)
         {
@@ -23,12 +24,14 @@ namespace euphoria::core
 
         Table() : width(0), height(0) {}
 
+        [[nodiscard]]
         static Table
         FromWidthHeight(I width, I height, T d = T())
         {
             return Table(width, height, d);
         }
 
+        [[nodiscard]]
         static Table
         FromHeightWidth(I height, I width, T d = T())
         {

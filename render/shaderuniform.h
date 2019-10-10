@@ -15,6 +15,7 @@ namespace euphoria::render
         ShaderUniform(const ShaderUniform&) = default;
         ShaderUniform(std::string aname, glint aid, Shader* ashader);
 
+        [[nodiscard]]
         static const ShaderUniform&
         Null();
 

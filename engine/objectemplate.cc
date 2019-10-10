@@ -37,6 +37,7 @@ namespace euphoria::engine
             : p(pp), components(components)
         {}
 
+        [[nodiscard]]
         static std::shared_ptr<PositionComponentCreator>
         Create(const game::vec2f& p, Components* components)
         {
@@ -62,6 +63,7 @@ namespace euphoria::engine
 
         explicit SpriteComponentCreator(Components* c) : components(c) {}
 
+        [[nodiscard]]
         static std::shared_ptr<SpriteComponentCreator>
         Create(const game::Sprite&   sprite,
                render::TextureCache* cache,
@@ -88,6 +90,7 @@ namespace euphoria::engine
         core::ecs::ComponentId comp;
         CustomArguments        arguments;
 
+        [[nodiscard]]
         static std::shared_ptr<CustomComponentCreator>
         Create(const std::string&            name,
                core::ecs::ComponentId        id,

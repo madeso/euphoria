@@ -62,6 +62,7 @@ namespace euphoria::render
 
         static void
         Bind(const Ebo* ebo);
+        
         static const Ebo*&
         GetBound();
     };

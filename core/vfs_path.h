@@ -14,12 +14,19 @@ namespace euphoria::core
         class Path
         {
         public:
+            [[nodiscard]]
             static Path
             FromDirectory(const std::string& path);
+
+            [[nodiscard]]
             static Path
             FromRoot();
+
+            [[nodiscard]]
             static Path
             FromFile(const std::string& path);
+
+            [[nodiscard]]
             static Path
             FromGuess(const std::string& path);
 

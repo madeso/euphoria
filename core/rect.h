@@ -35,6 +35,7 @@ namespace euphoria::core
         {}
 
     public:
+        [[nodiscard]]
         static Rect
         FromLeftRightBottomTop(T aleft, T aright, T abottom, T atop)
         {
@@ -43,6 +44,7 @@ namespace euphoria::core
             return Rect(aleft, aright, atop, abottom);
         }
 
+        [[nodiscard]]
         static Rect
         FromLeftRightTopBottom(T aleft, T aright, T atop, T abottom)
         {
@@ -51,6 +53,7 @@ namespace euphoria::core
             return Rect(aleft, aright, atop, abottom);
         }
 
+        [[nodiscard]]
         static Rect
         FromPositionAnchorWidthAndHeight(
                 const vec2<T>&   pos,
@@ -65,6 +68,7 @@ namespace euphoria::core
                     left, left + width, bottom, bottom + height);
         }
 
+        [[nodiscard]]
         static Rect
         FromTopLeftWidthHeight(T atop, T aleft, T width, T height)
         {
@@ -74,6 +78,7 @@ namespace euphoria::core
                     aleft, aleft + width, atop, atop - height);
         }
 
+        [[nodiscard]]
         static Rect
         FromWidthHeight(T width, T height)
         {
@@ -82,12 +87,14 @@ namespace euphoria::core
             return FromLeftRightBottomTop(0, width, 0, height);
         }
 
+        [[nodiscard]]
         static Rect
         FromWidthHeight(const Size<T>& s)
         {
             return FromWidthHeight(s.GetWidth(), s.GetHeight());
         }
 
+        [[nodiscard]]
         static Rect
         FromPoint(const vec2<T>& point)
         {

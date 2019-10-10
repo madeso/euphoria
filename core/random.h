@@ -19,6 +19,7 @@ namespace euphoria::core
         // possible suggestion, rename to RandomGenerator and have a global
         // Random function with overloads in all files instead of here.
     public:
+        [[nodiscard]]
         static u32
         TimeSeed();
 
