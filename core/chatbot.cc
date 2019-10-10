@@ -125,18 +125,18 @@ namespace euphoria::core
         }
 
         ResponseBuilder&
-        ResponseBuilder::operator()(const std::string& response)
+        ResponseBuilder::operator()(const std::string& say)
         {
-            this->response->responses.emplace_back(response);
+            this->response->responses.emplace_back(say);
             return *this;
         }
 
         ResponseBuilder&
         ResponseBuilder::operator()(
-                const std::string& response,
+                const std::string& say,
                 const std::string& topic)
         {
-            SingleResponse resp {response};
+            SingleResponse resp {say};
             resp.topics_mentioned.push_back(topic);
             this->response->responses.emplace_back(resp);
             return *this;

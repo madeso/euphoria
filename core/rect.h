@@ -258,10 +258,10 @@ namespace euphoria::core
         }
 
         Rect<T>
-        InsetCopy(T left, T right, T top, T bottom) const
+        InsetCopy(T l, T r, T t, T b) const
         {
             Rect<T> ret = *this;
-            ret.Inset(left, right, top, bottom);
+            ret.Inset(l, r, t, b);
             return ret;
         }
 

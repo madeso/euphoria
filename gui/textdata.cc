@@ -60,12 +60,12 @@ namespace euphoria::gui
     }
 
     void
-    TextData::SetSize(float size)
+    TextData::SetSize(float new_size)
     {
-        this->size = size;
+        this->size = new_size;
         if(HasText())
         {
-            GetText().SetSize(size);
+            GetText().SetSize(new_size);
         }
     }
 

@@ -21,6 +21,7 @@ LoadFromFile(tracery::Grammar* grammar, const std::string& file)
 int
 main(int argc, char* argv[])
 {
+    // todo(Gustav): use argparse!
     if(argc >= 2)
     {
         tracery::Grammar grammar;
@@ -29,10 +30,10 @@ main(int argc, char* argv[])
 
         grammar.RegisterEnglish();
 
-        const auto r = LoadFromFile(&grammar, file);
-        if(r == false)
+        const auto load_result = LoadFromFile(&grammar, file);
+        if(load_result == false)
         {
-            std::cerr << r << "\n";
+            std::cerr << load_result << "\n";
             return 3;
         }
 
@@ -40,13 +41,13 @@ main(int argc, char* argv[])
         const int         count = (argc >= 4) ? atoi(argv[3]) : 1;
         for(int i = 0; i < count; ++i)
         {
-            const auto r = grammar.Flatten(rule);
-            if(r == false)
+            const auto flatten_result = grammar.Flatten(rule);
+            if(flatten_result == false)
             {
-                std::cerr << r;
+                std::cerr << flatten_result;
                 return 2;
             }
-            std::cout << r.GetText() << "\n";
+            std::cout << flatten_result.GetText() << "\n";
         }
     }
     else

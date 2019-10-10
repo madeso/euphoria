@@ -108,8 +108,8 @@ namespace euphoria::duk
     TReturn
     FunctionReference::Call(Context* context, TArgs... args) const
     {
-        const bool ret = SubCall(context, args...);
-        if(!ret)
+        const bool call_result = SubCall(context, args...);
+        if(!call_result)
         {
             throw std::runtime_error(CollectError(context));
         }
@@ -118,9 +118,9 @@ namespace euphoria::duk
 
         if(match.empty())
         {
-            const TReturn ret = StackParser<TReturn>::Parse(context, -1);
+            const TReturn parse_result = StackParser<TReturn>::Parse(context, -1);
             DoneFunction(context);
-            return ret;
+            return parse_result;
         }
 
         DoneFunction(context);

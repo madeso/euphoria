@@ -144,8 +144,8 @@ namespace euphoria::duk
                     TYPEID_ID(T),
                     // this needs to conform to a duktape c function pointer
                     // if needed move to global scope and make a template
-                    [](duk_context* ctx) -> duk_ret_t {
-                        void* data = GetHiddenProperty(ctx, 0, "data");
+                    [](duk_context* calling_ctx) -> duk_ret_t {
+                        void* data = GetHiddenProperty(calling_ctx, 0, "data");
                         auto* my_ptr
                                 = reinterpret_cast<std::shared_ptr<T>*>(data);
                         delete my_ptr;

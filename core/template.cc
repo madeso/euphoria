@@ -313,11 +313,11 @@ namespace euphoria::core
     };
 
     std::vector<Lex>
-    Lexer(const std::string& str, TemplateError* error, const std::string& file)
+    Lexer(const std::string& content, TemplateError* error, const std::string& file)
     {
         ASSERT(error);
 
-        TextFileParser   parser(str);
+        TextFileParser   parser(content);
         std::vector<Lex> r;
 
         bool inside = false;

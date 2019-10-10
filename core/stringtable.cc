@@ -7,7 +7,7 @@
 namespace euphoria::core
 {
     StringTable
-    TableFromCsv(const std::string& data, const CsvParserOptions& options)
+    TableFromCsv(const std::string& csv_data, const CsvParserOptions& options)
     {
         const auto AddRowToTable = [](StringTable*             table,
                                       const std::vector<std::string>& row) {
@@ -17,7 +17,7 @@ namespace euphoria::core
             }
             table->NewRow(row);
         };
-        auto file = TextFileParser {data};
+        auto file = TextFileParser {csv_data};
 
         StringTable table;
 
@@ -64,12 +64,12 @@ namespace euphoria::core
                 }
                 else if(c == options.delim)
                 {
-                    auto data = ss.str();
+                    auto column_data = ss.str();
                     if(!was_from_string && options.trim == CsvTrim::Trim)
                     {
-                        data = Trim(data);
+                        column_data = Trim(column_data);
                     }
-                    row.push_back(data);
+                    row.push_back(column_data);
                     ss.str("");
                     added           = false;
                     was_from_string = false;
@@ -78,12 +78,12 @@ namespace euphoria::core
                 {
                     if(added)
                     {
-                        auto data = ss.str();
+                        auto column_data = ss.str();
                         if(!was_from_string && options.trim == CsvTrim::Trim)
                         {
-                            data = Trim(data);
+                            column_data = Trim(column_data);
                         }
-                        row.push_back(data);
+                        row.push_back(column_data);
                     }
                     ss.str("");
                     AddRowToTable(&table, row);
@@ -109,12 +109,12 @@ namespace euphoria::core
 
         if(added)
         {
-            auto data = ss.str();
+            auto column_data = ss.str();
             if(!was_from_string && options.trim == CsvTrim::Trim)
             {
-                data = Trim(data);
+                column_data = Trim(column_data);
             }
-            row.push_back(data);
+            row.push_back(column_data);
         }
         AddRowToTable(&table, row);
 

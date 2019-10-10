@@ -441,10 +441,10 @@ namespace euphoria::render
 
         // pack char textures to a single texture
         const int               num_rects = fontchars.chars.size();
-        std::vector<stbrp_rect> rects(num_rects);
+        std::vector<stbrp_rect> packed_rects(num_rects);
         for(int i = 0; i < num_rects; ++i)
         {
-            stbrp_rect& r = rects[i];
+            stbrp_rect& r = packed_rects[i];
             r.id          = i;
             r.w = fontchars.chars[i].image.GetWidth() + half_margin * 2;
             r.h = fontchars.chars[i].image.GetHeight() + half_margin * 2;
@@ -454,14 +454,14 @@ namespace euphoria::render
         std::vector<stbrp_node> nodes(num_nodes);
         stbrp_init_target(
                 &context, texture_width, texture_height, &nodes[0], num_nodes);
-        stbrp_pack_rects(&context, &rects[0], num_rects);
+        stbrp_pack_rects(&context, &packed_rects[0], num_rects);
 
         CharDataMap map;
         core::Image image;
         image.SetupWithAlphaSupport(texture_width, texture_height);
         for(int i = 0; i < num_rects; ++i)
         {
-            const stbrp_rect& src_rect = rects[i];
+            const stbrp_rect& src_rect = packed_rects[i];
             if(src_rect.was_packed == 0)
             {
                 std::cerr << "Failed to pack\n";
@@ -472,12 +472,12 @@ namespace euphoria::render
                     core::vec2i {src_rect.x + half_margin,
                                  src_rect.y + half_margin},
                     src_char.image);
-            const auto rects = ConstructCharacterRects(
+            const auto sprite_and_texture_rects = ConstructCharacterRects(
                     src_rect, src_char, texture_width, texture_height);
 
             std::shared_ptr<Glyph> dest(new Glyph(
-                    rects.first,
-                    rects.second,
+                    sprite_and_texture_rects.first,
+                    sprite_and_texture_rects.second,
                     src_char.c,
                     src_char.advance / src_char.size));
             map.insert(CharDataMap::value_type(dest->c, dest));

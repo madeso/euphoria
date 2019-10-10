@@ -127,9 +127,9 @@ namespace euphoria::duk
     }
 
     void
-    Duk::BindPrint(std::function<void(const std::string&)> on_print)
+    Duk::BindPrint(std::function<void(const std::string&)> new_on_print)
     {
-        this->on_print = on_print;
+        this->on_print = new_on_print;
 
         duk_push_c_function(ctx, DukPrintFunctionCallback, DUK_VARARGS);  // fun
         duk_push_pointer(ctx, this);  // fun pointer

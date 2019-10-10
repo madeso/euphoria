@@ -171,15 +171,15 @@ namespace euphoria::core::ecs
             destroyed_entities.resize(0);
         }
 
-        ComponentId                                           component = 0;
+        ComponentId                                           next_component_id = 0;
         std::map<ComponentId, std::shared_ptr<ComponentList>> components;
         std::map<std::string, ComponentId>                    name_to_component;
 
         ComponentId
         NewComponentType(const std::string& name)
         {
-            const auto ret = component;
-            component += 1;
+            const auto ret = next_component_id;
+            next_component_id += 1;
             components[ret]         = std::make_shared<ComponentList>(name);
             name_to_component[name] = ret;
 
@@ -187,18 +187,18 @@ namespace euphoria::core::ecs
         }
 
         std::shared_ptr<Component>
-        GetComponent(EntityId entity, ComponentId component)
+        GetComponent(EntityId entity, ComponentId id)
         {
-            return components[component]->GetComponent(entity);
+            return components[id]->GetComponent(entity);
         }
 
         void
         AddComponent(
                 EntityId                   entity,
-                ComponentId                component,
+                ComponentId                id,
                 std::shared_ptr<Component> data)
         {
-            components[component]->AddComponent(entity, data);
+            components[id]->AddComponent(entity, data);
         }
 
 

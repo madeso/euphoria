@@ -101,67 +101,67 @@ namespace euphoria::core
 
     StringMerger&
     StringMerger::Separator(
-            const std::string& separator,
-            const std::string& final_separator)
+            const std::string& the_separator,
+            const std::string& the_final_separator)
     {
-        this->separator       = separator;
-        this->final_separator = final_separator;
+        this->separator       = the_separator;
+        this->final_separator = the_final_separator;
         return *this;
     }
 
     StringMerger&
-    StringMerger::Separator(const std::string& separator)
+    StringMerger::Separator(const std::string& the_separator)
     {
-        this->separator       = separator;
-        this->final_separator = separator;
+        this->separator       = the_separator;
+        this->final_separator = the_separator;
         return *this;
     }
 
     StringMerger&
-    StringMerger::Empty(const std::string& empty)
+    StringMerger::Empty(const std::string& the_empty)
     {
-        this->empty = empty;
+        this->empty = the_empty;
         return *this;
     }
 
     StringMerger&
-    StringMerger::StartAndEnd(const std::string& start, const std::string& end)
+    StringMerger::StartAndEnd(const std::string& the_start, const std::string& the_end)
     {
-        this->start = start;
-        this->end   = end;
+        this->start = the_start;
+        this->end   = the_end;
         return *this;
     }
 
     StringMerger&
-    StringMerger::StartAndEnd(const std::string& same)
+    StringMerger::StartAndEnd(const std::string& start_and_end)
     {
-        this->start = same;
-        this->end   = same;
+        this->start = start_and_end;
+        this->end   = start_and_end;
         return *this;
     }
 
     StringMerger&
-    StringMerger::BeforeEach(const std::string& before_each)
+    StringMerger::BeforeEach(const std::string& the_before_each)
     {
-        this->before_each = before_each;
+        this->before_each = the_before_each;
         return *this;
     }
 
     StringMerger&
-    StringMerger::AfterEach(const std::string& same)
+    StringMerger::AfterEach(const std::string& after_each_and_final)
     {
-        this->after_each       = same;
-        this->final_after_each = same;
+        this->after_each       = after_each_and_final;
+        this->final_after_each = after_each_and_final;
         return *this;
     }
 
     StringMerger&
     StringMerger::AfterEach(
-            const std::string& after_each,
-            const std::string& final_after_each)
+            const std::string& the_after_each,
+            const std::string& the_final_after_each)
     {
-        this->after_each       = after_each;
-        this->final_after_each = final_after_each;
+        this->after_each       = the_after_each;
+        this->final_after_each = the_final_after_each;
         return *this;
     }
 
