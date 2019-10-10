@@ -12,7 +12,7 @@ namespace euphoria::core
 {
     namespace vfs
     {
-        class Path;
+        struct Path;
 
         struct ListedFile
         {
@@ -37,7 +37,7 @@ namespace euphoria::core
 
         // todo: use path class
 
-        class FileSystemReadRoot
+        struct FileSystemReadRoot
         {
         public:
             virtual ~FileSystemReadRoot();
@@ -54,7 +54,7 @@ namespace euphoria::core
                     = 0;
         };
 
-        class FileSystemWriteRoot
+        struct FileSystemWriteRoot
         {
         public:
             virtual ~FileSystemWriteRoot();
@@ -66,7 +66,7 @@ namespace euphoria::core
                     = 0;
         };
 
-        class FileSystem
+        struct FileSystem
         {
         public:
             FileSystem();
@@ -106,7 +106,7 @@ namespace euphoria::core
             std::shared_ptr<FileSystemWriteRoot>             write_;
         };
 
-        class FileSystemRootCatalog : public FileSystemReadRoot
+        struct FileSystemRootCatalog : public FileSystemReadRoot
         {
         public:
             FileSystemRootCatalog();
@@ -136,7 +136,7 @@ namespace euphoria::core
             std::map<std::string, std::shared_ptr<MemoryChunk>> catalog_;
         };
 
-        class FileSystemRootFolder : public FileSystemReadRoot
+        struct FileSystemRootFolder : public FileSystemReadRoot
         {
         public:
             explicit FileSystemRootFolder(std::string folder);
@@ -160,7 +160,7 @@ namespace euphoria::core
             std::string folder_;
         };
 
-        class FileSystemWriteFolder : public FileSystemWriteRoot
+        struct FileSystemWriteFolder : public FileSystemWriteRoot
         {
         public:
             explicit FileSystemWriteFolder(const std::string& f);

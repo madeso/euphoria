@@ -7,13 +7,13 @@
 
 namespace euphoria::render
 {
-    class Font;
-    class Text;
+    struct Font;
+    struct Text;
 }  // namespace euphoria::render
 
 namespace euphoria::gui
 {
-    class TextData
+    struct TextData
     {
     public:
         TextData();

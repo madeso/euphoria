@@ -8,15 +8,15 @@ namespace euphoria::core
 {
     namespace vfs
     {
-        class FileSystem;
+        struct FileSystem;
     }
 }  // namespace euphoria::core
 
 namespace euphoria::render
 {
-    class Texture2d;
+    struct Texture2d;
 
-    class TextureCache
+    struct TextureCache
     {
     public:
         explicit TextureCache(core::vfs::FileSystem* fs);

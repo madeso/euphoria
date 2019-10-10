@@ -8,13 +8,13 @@
 
 namespace euphoria::core
 {
-    class ParsedText;
+    struct ParsedText;
 
     namespace textparser
     {
-        class Visitor;
+        struct Visitor;
 
-        class Node
+        struct Node
         {
         public:
             virtual ~Node() = default;
@@ -25,7 +25,7 @@ namespace euphoria::core
 
         // todo: move nodes to private
 
-        class TextNode : public Node
+        struct TextNode : public Node
         {
         public:
             std::string text;
@@ -36,7 +36,7 @@ namespace euphoria::core
             Visit(Visitor* visitor) const override;
         };
 
-        class ImageNode : public Node
+        struct ImageNode : public Node
         {
         public:
             std::string image;
@@ -47,7 +47,7 @@ namespace euphoria::core
             Visit(Visitor* visitor) const override;
         };
 
-        class BeginEndNode : public Node
+        struct BeginEndNode : public Node
         {
         public:
             bool begin;
@@ -58,7 +58,7 @@ namespace euphoria::core
             Visit(Visitor* visitor) const override;
         };
 
-        class Visitor
+        struct Visitor
         {
         public:
             virtual void
@@ -77,7 +77,7 @@ namespace euphoria::core
             OnEnd() = 0;
         };
 
-        class VisitorDebugString : public Visitor
+        struct VisitorDebugString : public Visitor
         {
         public:
             std::ostringstream ss;
@@ -105,30 +105,37 @@ namespace euphoria::core
     // sprite/ninepath w/ text representing the bind this could also be useful when
     // displaying all the keybinds. needs to work out how (or if) the joystick
     // id/number also should be displayed.
-    class ParsedText
+    struct ParsedText
     {
     public:
         void
         Clear();
+        
         void
         AddText(const std::string& str);
+
         void
         AddImage(const std::string& img);
+
         void
         AddBegin();
+
         void
         AddEnd();
 
         void
         CreateText(const std::string& str);
+
         bool
         CreateParse(const std::string& str);
 
+        [[nodiscard]]
         static ParsedText
         FromText(const std::string& str);
 
         void
         Visit(textparser::Visitor* visitor);
+
         void
         Visit(textparser::Visitor* visitor) const;
 

@@ -6,9 +6,9 @@
 
 namespace euphoria::window
 {
-    class SdlWindow;
+    struct SdlWindow;
 
-    class SdlGlContext
+    struct SdlGlContext
     {
     public:
         SdlGlContext(SdlWindow* window);

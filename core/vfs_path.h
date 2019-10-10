@@ -11,7 +11,7 @@ namespace euphoria::core
         // always lowercase
         // forward slash specify a directory
         // todo: transform into a path and directory class instead
-        class Path
+        struct Path
         {
         public:
             [[nodiscard]]

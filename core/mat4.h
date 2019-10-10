@@ -12,7 +12,7 @@
 namespace euphoria::core
 {
     template <typename T>
-    class mat4
+    struct mat4
     {
     private:
         T data[16];  // col-major

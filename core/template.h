@@ -11,7 +11,7 @@
 
 namespace euphoria::core
 {
-    class Defines
+    struct Defines
     {
     public:
         Defines();
@@ -30,7 +30,7 @@ namespace euphoria::core
         std::map<std::string, std::string> values_;
     };
 
-    class TemplateError
+    struct TemplateError
     {
     public:
         TemplateError();
@@ -51,9 +51,9 @@ namespace euphoria::core
         std::vector<std::string> errors_;
     };
 
-    class TemplateNodeList;
+    struct TemplateNodeList;
 
-    class Template
+    struct Template
     {
     public:
         explicit Template(const std::string& text);

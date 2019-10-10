@@ -4,7 +4,7 @@
 namespace euphoria::core
 {
     template <typename T>
-    class OptionalIndex
+    struct OptionalIndex
     {
     public:
         [[nodiscard]]

@@ -7,7 +7,7 @@
 
 namespace euphoria::core
 {
-    class Random;
+    struct Random;
 
     struct Palette
     {

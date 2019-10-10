@@ -5,26 +5,26 @@
 
 namespace euphoria::core::ecs
 {
-    class Systems;
-    class World;
+    struct Systems;
+    struct World;
 }  // namespace euphoria::core::ecs
 
 namespace euphoria::duk
 {
-    class Duk;
+    struct Duk;
 }
 
 namespace euphoria::engine
 {
-    class Input;
+    struct Input;
     struct DukRegistry;
-    class ObjectCreator;
+    struct ObjectCreator;
     struct DukIntegrationPimpl;
     struct CameraData;
     struct Components;
 
 
-    class DukIntegration
+    struct DukIntegration
     {
     public:
         DukIntegration(

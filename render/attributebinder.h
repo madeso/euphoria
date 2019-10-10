@@ -8,10 +8,10 @@
 
 namespace euphoria::render
 {
-    class ShaderAttribute;
-    class CompiledMeshPart;
+    struct ShaderAttribute;
+    struct CompiledMeshPart;
 
-    class AttributeBinder
+    struct AttributeBinder
     {
     public:
         void

@@ -6,8 +6,8 @@
 
 namespace euphoria::core
 {
-    class Image;
-    class Rgb;
+    struct Image;
+    struct Rgb;
     struct Palette;
 
     enum class Grayscale

@@ -7,9 +7,9 @@
 
 namespace euphoria::render
 {
-    class Shader;
+    struct Shader;
 
-    class ShaderUniform
+    struct ShaderUniform
     {
     public:
         ShaderUniform(const ShaderUniform&) = default;

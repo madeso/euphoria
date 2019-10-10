@@ -3,7 +3,7 @@
 
 namespace euphoria::window
 {
-    class SdlLibrary
+    struct SdlLibrary
     {
     public:
         SdlLibrary();

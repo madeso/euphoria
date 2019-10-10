@@ -11,7 +11,7 @@
 namespace euphoria::render
 {
     // texture & shader will be handled by 2d world and sprite
-    class SpriteBatch
+    struct SpriteBatch
     {
     public:
         SpriteBatch();

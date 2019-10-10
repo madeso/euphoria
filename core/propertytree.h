@@ -18,7 +18,7 @@ namespace euphoria::core
         Struct
     };
 
-    class Value
+    struct Value
     {
     public:
         explicit Value(ValueType vt) : type(vt) {}
@@ -68,7 +68,7 @@ namespace euphoria::core
         Cast(Value* value);
     };
 
-    class PropertyTree : public Value
+    struct PropertyTree : public Value
     {
     public:
         PropertyTree();

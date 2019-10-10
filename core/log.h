@@ -17,11 +17,11 @@ namespace euphoria::core
         Fatal
     };
 
-    class Logger;
+    struct Logger;
 
     typedef std::shared_ptr<Logger> LoggerPtr;
 
-    class Logger
+    struct Logger
     {
     public:
         Logger(Logger* parent, std::string name);

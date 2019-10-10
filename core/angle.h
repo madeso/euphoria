@@ -7,9 +7,9 @@
 
 namespace euphoria::core
 {
-    class Random;
+    struct Random;
 
-    class Angle
+    struct Angle
     {
     private:
         [[nodiscard]]

@@ -38,7 +38,7 @@ namespace euphoria::core::ecs
 
     ////////////////////////////////////////////////////////////////////////////////
 
-    class Component
+    struct Component
     {
     public:
 #if BUILD_ENTITY_DEBUG_COMPONENT == 1
@@ -88,7 +88,7 @@ namespace euphoria::core::ecs
     ////////////////////////////////////////////////////////////////////////////////
 
     struct RegistryImpl;
-    class Registry
+    struct Registry
     {
     public:
         Registry();

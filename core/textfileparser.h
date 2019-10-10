@@ -8,7 +8,7 @@ namespace euphoria::core
     bool
     IsIdentStart(const char c);
 
-    class TextFileParser
+    struct TextFileParser
     {
     public:
         TextFileParser(const std::string& str);

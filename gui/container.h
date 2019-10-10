@@ -6,14 +6,14 @@
 
 namespace euphoria::render
 {
-    class SpriteRenderer;
+    struct SpriteRenderer;
 }
 
 namespace euphoria::gui
 {
-    class Widget;
+    struct Widget;
 
-    class Container
+    struct Container
     {
     public:
         Container();

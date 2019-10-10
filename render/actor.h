@@ -11,7 +11,7 @@
 
 namespace euphoria::render
 {
-    class Actor
+    struct Actor
     {
     public:
         Actor(const std::shared_ptr<CompiledMesh>& mesh);

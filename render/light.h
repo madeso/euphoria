@@ -7,7 +7,7 @@
 
 namespace euphoria::render
 {
-    class LightAttenuation
+    struct LightAttenuation
     {
     public:
         LightAttenuation();
@@ -27,7 +27,7 @@ namespace euphoria::render
         float quadratic_;
     };
 
-    class Light
+    struct Light
     {
     public:
         Light();

@@ -17,7 +17,7 @@
 namespace euphoria::duk
 {
     template <typename Callback, typename... TArgs>
-    class GenericFunction : public Function
+    struct GenericFunction : public Function
     {
     public:
         Callback callback;

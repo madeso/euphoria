@@ -5,7 +5,7 @@
 
 namespace euphoria::core
 {
-    class IdGenerator
+    struct IdGenerator
     {
     public:
         typedef int ID;
@@ -23,7 +23,7 @@ namespace euphoria::core
         std::vector<ID> released_;
     };
 
-    class Id
+    struct Id
     {
     private:
         Id();

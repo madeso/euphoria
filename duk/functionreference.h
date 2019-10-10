@@ -12,10 +12,10 @@
 
 namespace euphoria::duk
 {
-    class Context;
+    struct Context;
 
     // todo: rename to DukFunc
-    class FunctionReference
+    struct FunctionReference
     {
     public:
         explicit FunctionReference(void* ptr = nullptr);

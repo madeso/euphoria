@@ -121,7 +121,7 @@ namespace euphoria::core
 
     // Transform should have a function Transform(T from, float zeroToOne, T to)
     template <typename Type, typename Transform>
-    class Interpolate
+    struct Interpolate
     {
     public:
         typedef Interpolate<Type, Transform> This;

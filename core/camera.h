@@ -10,7 +10,7 @@
 
 namespace euphoria::core
 {
-    class CompiledCamera
+    struct CompiledCamera
     {
     public:
         CompiledCamera(const mat4f& view_, const mat4f& projection_);
@@ -31,7 +31,7 @@ namespace euphoria::core
     };
 
 
-    class Camera
+    struct Camera
     {
     public:
         Camera();

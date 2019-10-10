@@ -10,16 +10,16 @@ namespace euphoria
     {
         namespace vfs
         {
-            class FileSystem;
+            struct FileSystem;
         }
     }  // namespace core
 
     namespace render
     {
-        class Font;
-        class TextureCache;
+        struct Font;
+        struct TextureCache;
 
-        class FontCache
+        struct FontCache
         {
         public:
             FontCache(core::vfs::FileSystem* fs, TextureCache* cache);

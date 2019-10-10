@@ -5,9 +5,9 @@
 
 namespace euphoria::duk
 {
-    class Context;
+    struct Context;
 
-    class Function
+    struct Function
     {
     public:
         Function() = default;

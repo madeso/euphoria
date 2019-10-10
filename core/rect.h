@@ -16,7 +16,7 @@
 namespace euphoria::core
 {
     template <typename T>
-    class Rect
+    struct Rect
     {
     public:
         T left;

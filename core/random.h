@@ -12,8 +12,8 @@
 namespace euphoria::core
 {
     /** WEL512 Random Number Generator.
- */
-    class Random
+    */
+    struct Random
     {
         // todo: make simpler
         // possible suggestion, rename to RandomGenerator and have a global

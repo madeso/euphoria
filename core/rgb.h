@@ -9,16 +9,16 @@
 namespace euphoria::core
 {
     // unsigned char colors: 0 - 255
-    class Rgbi;
-    class Rgbai;
+    struct Rgbi;
+    struct Rgbai;
 
     // float based colors: 0.0 - 1.0
-    class Rgb;
-    class Rgba;
+    struct Rgb;
+    struct Rgba;
 
     ////////////////////////////////////////////////////////////////////////////////
     // Rgb no alpha support - int based
-    class Rgbi
+    struct Rgbi
     {
     public:
         Rgbi(unsigned char red, unsigned char green, unsigned char blue);
@@ -39,7 +39,7 @@ namespace euphoria::core
     ////////////////////////////////////////////////////////////////////////////////
     // Rgb with alpha - int based
 
-    class Rgbai
+    struct Rgbai
     {
     public:
         Rgbai(const Rgbi& rgb, unsigned char alpha = 255);
@@ -55,7 +55,7 @@ namespace euphoria::core
     ////////////////////////////////////////////////////////////////////////////////
     // Rgb no alpha support - float based
 
-    class Rgb
+    struct Rgb
     {
     public:
         Rgb(float red, float green, float blue);
@@ -144,7 +144,7 @@ namespace euphoria::core
     ////////////////////////////////////////////////////////////////////////////////
     // Rgb with alpha - float based
 
-    class Rgba
+    struct Rgba
     {
     public:
         Rgba(const Rgb& rgb, float alpha = 1.0f);

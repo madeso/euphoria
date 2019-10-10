@@ -13,7 +13,7 @@ namespace euphoria::core
 {
     namespace vfs
     {
-        class FileSystem;
+        struct FileSystem;
     }
 
     namespace chatbot
@@ -165,7 +165,7 @@ namespace euphoria::core
         };
     }  // namespace chatbot
 
-    class ChatBot
+    struct ChatBot
     {
     public:
         ChatBot();

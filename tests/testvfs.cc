@@ -7,7 +7,7 @@ using namespace euphoria::core::vfs;
 
 namespace euco = euphoria::core;
 
-class AlwaysExist : public FileSystemReadRoot
+struct AlwaysExist : public FileSystemReadRoot
 {
 public:
     std::shared_ptr<euco::MemoryChunk>
@@ -31,7 +31,7 @@ public:
     }
 };
 
-class NeverExist : public FileSystemReadRoot
+struct NeverExist : public FileSystemReadRoot
 {
 public:
     std::shared_ptr<euco::MemoryChunk>

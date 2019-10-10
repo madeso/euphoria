@@ -10,7 +10,7 @@
 
 namespace euphoria::core
 {
-    class Draw
+    struct Draw
     {
     public:
         explicit Draw(Image* image);

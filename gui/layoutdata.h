@@ -3,7 +3,7 @@
 
 namespace euphoria::gui
 {
-    class LayoutData
+    struct LayoutData
     {
     public:
         LayoutData();

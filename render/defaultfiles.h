@@ -9,7 +9,7 @@ namespace euphoria
     {
         namespace vfs
         {
-            class FileSystemRootCatalog;
+            struct FileSystemRootCatalog;
         }
     }  // namespace core
 

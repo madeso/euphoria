@@ -19,7 +19,7 @@ namespace euphoria::core
         JPEG
     };
 
-    class Image
+    struct Image
     {
     public:
         void
@@ -118,7 +118,7 @@ namespace euphoria::core
         bool                       has_alpha_;
     };
 
-    class ImageLoadResult
+    struct ImageLoadResult
     {
     public:
         Image image;

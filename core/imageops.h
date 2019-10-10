@@ -6,7 +6,7 @@
 
 namespace euphoria::core
 {
-    class Image;
+    struct Image;
 
     struct ImageMapAction
     {

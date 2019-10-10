@@ -14,17 +14,17 @@ namespace euphoria::render
     // its horrible to reference in another module,
     // but for now we only need a pointer to pass around
     // todo: fix this by merging in more of the renderer into core?
-    class SpriteRenderer;
+    struct SpriteRenderer;
 }  // namespace euphoria::render
 
 namespace euphoria::core::ecs
 {
     typedef Registry EntReg;
 
-    class Systems;
+    struct Systems;
 
     // only a base class container
-    class ComponentSystem
+    struct ComponentSystem
     {
     public:
         explicit ComponentSystem(const std::string& the_name);
@@ -38,7 +38,7 @@ namespace euphoria::core::ecs
         const std::string name;
     };
 
-    class ComponentSystemStore
+    struct ComponentSystemStore
     {
     public:
         ComponentSystemStore() = default;
@@ -50,21 +50,21 @@ namespace euphoria::core::ecs
         std::vector<std::shared_ptr<ComponentSystem>> systems;
     };
 
-    class ComponentSystemUpdate
+    struct ComponentSystemUpdate
     {
     public:
         virtual void
         Update(EntReg* reg, float dt) const = 0;
     };
 
-    class ComponentSystemInit
+    struct ComponentSystemInit
     {
     public:
         virtual void
         OnAdd(EntityId entity) const = 0;
     };
 
-    class ComponentSystemSpriteDraw
+    struct ComponentSystemSpriteDraw
     {
     public:
         virtual void
@@ -72,7 +72,7 @@ namespace euphoria::core::ecs
     };
 
     template <typename TSystem>
-    class SystemStore
+    struct SystemStore
     {
     public:
         void
@@ -85,21 +85,21 @@ namespace euphoria::core::ecs
         std::vector<TSystem*> systems;
     };
 
-    class ComponentSystemUpdateStore : public SystemStore<ComponentSystemUpdate>
+    struct ComponentSystemUpdateStore : public SystemStore<ComponentSystemUpdate>
     {
     public:
         void
         Update(EntReg* reg, float dt) const;
     };
 
-    class ComponentSystemInitStore : public SystemStore<ComponentSystemInit>
+    struct ComponentSystemInitStore : public SystemStore<ComponentSystemInit>
     {
     public:
         void
         OnAdd(EntityId ent) const;
     };
 
-    class ComponentSystemSpriteDrawStore
+    struct ComponentSystemSpriteDrawStore
         : public SystemStore<ComponentSystemSpriteDraw>
     {
     public:
@@ -107,7 +107,7 @@ namespace euphoria::core::ecs
         Draw(EntReg* reg, render::SpriteRenderer* renderer) const;
     };
 
-    class Systems
+    struct Systems
     {
     public:
         void
@@ -122,7 +122,7 @@ namespace euphoria::core::ecs
         ComponentSystemSpriteDrawStore spriteDraw;
     };
 
-    class World
+    struct World
     {
     public:
         EntReg   reg;

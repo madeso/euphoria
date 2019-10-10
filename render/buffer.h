@@ -10,7 +10,7 @@ namespace euphoria::render
 {
     // Vertex Buffer Object
     // Stores vertices, uv, etc
-    class Vbo : public Id
+    struct Vbo : public Id
     {
     public:
         Vbo();
@@ -27,7 +27,7 @@ namespace euphoria::render
 
     // Vertex Array Object
     // Stores what the data in the Vbo is and how it is laid out/used
-    class Vao : public Id
+    struct Vao : public Id
     {
     public:
         Vao();
@@ -47,7 +47,7 @@ namespace euphoria::render
 
     // Element Buffer Object
     // Reuses points
-    class Ebo : public Id
+    struct Ebo : public Id
     {
     public:
         Ebo();

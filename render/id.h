@@ -6,7 +6,7 @@
 
 namespace euphoria::render
 {
-    class Id : core::Noncopyable
+    struct Id : core::Noncopyable
     {
     public:
         Id();

@@ -10,7 +10,7 @@ namespace euphoria::core
     // todo: support hotloading
 
     template <typename Key, typename Data, typename Loader>
-    class Cache
+    struct Cache
     {
     public:
         std::shared_ptr<Data>

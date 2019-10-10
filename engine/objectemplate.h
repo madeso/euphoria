@@ -10,23 +10,23 @@
 
 namespace game
 {
-    class Game;
+    struct Game;
 }
 
 namespace euphoria::core::ecs
 {
-    class World;
+    struct World;
 }
 
 namespace euphoria::duk
 {
-    class Context;
-    class Duk;
+    struct Context;
+    struct Duk;
 }  // namespace euphoria::duk
 
 namespace euphoria::render
 {
-    class TextureCache;
+    struct TextureCache;
 }
 
 namespace euphoria::engine
@@ -48,7 +48,7 @@ namespace euphoria::engine
                 duk::Duk*         aduk);
     };
 
-    class ComponentCreator
+    struct ComponentCreator
     {
     public:
         virtual ~ComponentCreator() = default;
@@ -57,7 +57,7 @@ namespace euphoria::engine
                 = 0;
     };
 
-    class ObjectTemplate
+    struct ObjectTemplate
     {
     public:
         core::ecs::EntityId
@@ -66,7 +66,7 @@ namespace euphoria::engine
         std::vector<std::shared_ptr<ComponentCreator>> components;
     };
 
-    class ObjectCreator
+    struct ObjectCreator
     {
     public:
         std::map<std::string, std::shared_ptr<ObjectTemplate>> templates;

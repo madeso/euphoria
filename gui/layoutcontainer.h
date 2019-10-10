@@ -11,7 +11,7 @@
 
 namespace euphoria::gui
 {
-    class Layout;
+    struct Layout;
 
     std::shared_ptr<Layout>
     CreateTableLayout(
@@ -22,7 +22,7 @@ namespace euphoria::gui
     std::shared_ptr<Layout>
     CreateSingleRowLayout(float padding);
 
-    class LayoutContainer : public Container
+    struct LayoutContainer : public Container
     {
     public:
         LayoutContainer();

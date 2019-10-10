@@ -9,13 +9,13 @@
 
 namespace euphoria::render
 {
-    class Font;
+    struct Font;
 }
 
 
 namespace euphoria::gui
 {
-    class ButtonState
+    struct ButtonState
     {
     public:
         ButtonState();
@@ -38,7 +38,7 @@ namespace euphoria::gui
         float                   interpolationSizeTime;
     };
 
-    class Skin
+    struct Skin
     {
     public:
         Skin();

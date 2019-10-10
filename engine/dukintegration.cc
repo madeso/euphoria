@@ -21,7 +21,7 @@ LOG_SPECIFY_DEFAULT_LOGGER("engine.duk.integration")
 
 namespace euphoria::engine
 {
-    class DukUpdateSystem
+    struct DukUpdateSystem
         : public core::ecs::ComponentSystem
         , public core::ecs::ComponentSystemUpdate
     {
@@ -50,7 +50,7 @@ namespace euphoria::engine
         }
     };
 
-    class DukInitSystem
+    struct DukInitSystem
         : public core::ecs::ComponentSystem
         , public core::ecs::ComponentSystemInit
     {
@@ -95,7 +95,7 @@ namespace euphoria::engine
         }
     };
 
-    class DukSystems
+    struct DukSystems
     {
     public:
         core::ecs::Systems* systems;

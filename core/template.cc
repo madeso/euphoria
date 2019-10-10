@@ -83,7 +83,7 @@ namespace euphoria::core
 
     ////////////////////////////////////////////////////////////////////////////////
 
-    class TemplateNode
+    struct TemplateNode
     {
     public:
         TemplateNode()          = default;
@@ -101,7 +101,7 @@ namespace euphoria::core
 
     // -----------------------------------------------------------------------------
 
-    class TemplateNodeString : public TemplateNode
+    struct TemplateNodeString : public TemplateNode
     {
     public:
         explicit TemplateNodeString(std::string text) : text_(std::move(text))
@@ -121,7 +121,7 @@ namespace euphoria::core
 
     // -----------------------------------------------------------------------------
 
-    class TemplateNodeList : public TemplateNode
+    struct TemplateNodeList : public TemplateNode
     {
     public:
         TemplateNodeList() = default;
@@ -149,7 +149,7 @@ namespace euphoria::core
 
     // -----------------------------------------------------------------------------
 
-    class TemplateNodeScopedList : public TemplateNodeList
+    struct TemplateNodeScopedList : public TemplateNodeList
     {
     public:
         TemplateNodeScopedList() = default;
@@ -167,7 +167,7 @@ namespace euphoria::core
 
     // -----------------------------------------------------------------------------
 
-    class TemplateNodeIfdef : public TemplateNode
+    struct TemplateNodeIfdef : public TemplateNode
     {
     public:
         TemplateNodeIfdef(std::string name, std::shared_ptr<TemplateNode> node)
@@ -193,7 +193,7 @@ namespace euphoria::core
 
     // -----------------------------------------------------------------------------
 
-    class TemplateNodeEval : public TemplateNode
+    struct TemplateNodeEval : public TemplateNode
     {
     public:
         explicit TemplateNodeEval(std::string name) : name_(std::move(name)) {}
@@ -221,7 +221,7 @@ namespace euphoria::core
 
     // -----------------------------------------------------------------------------
 
-    class TemplateNodeSet : public TemplateNode
+    struct TemplateNodeSet : public TemplateNode
     {
     public:
         TemplateNodeSet(std::string name, std::string value)
@@ -292,7 +292,7 @@ namespace euphoria::core
         return str;
     }
 
-    class Lex
+    struct Lex
     {
     public:
         Lex(LexType t, unsigned int l, unsigned int c, std::string v = "")
@@ -440,7 +440,7 @@ namespace euphoria::core
 
     ////////////////////////////////////////////////////////////////////////////////
 
-    class LexReader
+    struct LexReader
     {
     public:
         explicit LexReader(const std::vector<Lex>& input)

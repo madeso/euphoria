@@ -14,8 +14,8 @@
 
 namespace euphoria::render
 {
-    class ScalableSprite;
-    class Buffer2d;
+    struct ScalableSprite;
+    struct Buffer2d;
 
     struct DrawData
     {
@@ -34,7 +34,7 @@ namespace euphoria::render
         Tint(const core::Rgba& t);
     };
 
-    class SpriteRenderer
+    struct SpriteRenderer
     {
     public:
         SpriteRenderer(Shader* shader);

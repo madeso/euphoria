@@ -9,7 +9,7 @@
 namespace euphoria::core
 {
     template <typename T>
-    class ShuffleBag
+    struct ShuffleBag
     {
     public:
         unsigned long

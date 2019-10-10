@@ -6,7 +6,7 @@
 
 namespace euphoria::gui
 {
-    class PanelWidget : public Widget
+    struct PanelWidget : public Widget
     {
     public:
         PanelWidget(UiState* state);

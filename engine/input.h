@@ -11,7 +11,7 @@
 
 namespace euphoria::duk
 {
-    class Duk;
+    struct Duk;
 }
 
 namespace euphoria::engine
@@ -31,7 +31,7 @@ namespace euphoria::engine
         // todo: figure out how to handle inputs other than keyboard
     };
 
-    class Input
+    struct Input
     {
     public:
         static void

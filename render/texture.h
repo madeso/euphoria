@@ -8,7 +8,7 @@
 
 namespace euphoria::core
 {
-    class Image;
+    struct Image;
 }
 
 namespace euphoria::render
@@ -49,7 +49,7 @@ namespace euphoria::render
         FilterMagnification mag;
     };
 
-    class TextureId : core::Noncopyable
+    struct TextureId : core::Noncopyable
     {
     public:
         TextureId();
@@ -67,7 +67,7 @@ namespace euphoria::render
     void
     Use(const TextureId* texture);
 
-    class Texture2d : public TextureId
+    struct Texture2d : public TextureId
     {
     public:
         Texture2d();

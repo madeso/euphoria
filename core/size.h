@@ -7,7 +7,7 @@
 namespace euphoria::core
 {
     template <typename T>
-    class Size
+    struct Size
     {
     public:
         typedef Size<T> Self;

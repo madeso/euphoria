@@ -11,8 +11,8 @@
 
 namespace euphoria::render
 {
-    class Texture2d;
-    class TextureCache;
+    struct Texture2d;
+    struct TextureCache;
 }  // namespace euphoria::render
 
 namespace euphoria::editor

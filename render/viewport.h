@@ -5,7 +5,7 @@
 
 namespace euphoria::render
 {
-    class Viewport
+    struct Viewport
     {
     public:
         Viewport(const core::Recti& viewport);

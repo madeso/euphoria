@@ -8,7 +8,7 @@
 
 namespace euphoria::duk
 {
-    class ObjectBinder
+    struct ObjectBinder
     {
     public:
         ObjectBinder&

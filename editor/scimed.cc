@@ -39,9 +39,8 @@ namespace euphoria::editor
     /// Extra calculated data from the corresponding data row (either row or column)
     /// in the ScalingSprite struct. Like the data, this can be viewed as the space
     /// between the dividing lines.
-    class SpaceData
+    struct SpaceData
     {
-    public:
         SpaceData(int aleft, int aright, int i)
             : left(aleft), right(aright), index(i)
         {}
@@ -53,9 +52,8 @@ namespace euphoria::editor
 
     /// The visual representation of a line, dividing or splitting a area
     /// The actual data is either the row or col array of the ScalingSprite struct
-    class SplitData
+    struct SplitData
     {
-    public:
         SplitData(int p, int mi, int ma)
             : position(p), min_value(mi), max_value(ma)
         {}

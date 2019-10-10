@@ -6,10 +6,10 @@
 
 namespace euphoria::core
 {
-    class Random;
+    struct Random;
 
     // source: http://mathworld.wolfram.com/SphericalCoordinates.html
-    class PolarCoord
+    struct PolarCoord
     {
     public:
         PolarCoord(float azimuthal01, float polar01);

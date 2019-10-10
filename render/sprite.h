@@ -11,10 +11,10 @@
 
 namespace euphoria::render
 {
-    class Texture2d;
-    class SpriteRenderer;
+    struct Texture2d;
+    struct SpriteRenderer;
 
-    class Sprite
+    struct Sprite
     {
     public:
         // todo: remove getters and setters
@@ -54,7 +54,7 @@ namespace euphoria::render
         float         alpha_;
     };
 
-    class Layer
+    struct Layer
     {
     public:
         explicit Layer(SpriteRenderer* render);

@@ -7,13 +7,13 @@
 
 namespace euphoria::core
 {
-    class Angle;
-    class Rgb;
+    struct Angle;
+    struct Rgb;
 }  // namespace euphoria::core
 
 namespace euphoria::render
 {
-    class Texture2d;
+    struct Texture2d;
 }
 
 struct ImVec2;

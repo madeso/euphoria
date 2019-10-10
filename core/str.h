@@ -8,7 +8,7 @@ namespace euphoria::core
 {
     /** Basic string builder.
  */
-    class Str
+    struct Str
     {
     public:
         /** Generate a string.

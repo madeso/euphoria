@@ -3,7 +3,7 @@
 
 namespace euphoria::core::ecs
 {
-    class Systems;
+    struct Systems;
 }
 
 namespace euphoria::engine

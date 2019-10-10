@@ -9,17 +9,17 @@
 
 namespace euphoria::core
 {
-    class Camera;
-    class CompiledCamera;
+    struct Camera;
+    struct CompiledCamera;
 }  // namespace euphoria::core
 
 namespace euphoria::render
 {
-    class Viewport;
-    class MaterialShader;
-    class ShaderUniform;
+    struct Viewport;
+    struct MaterialShader;
+    struct ShaderUniform;
 
-    class World
+    struct World
     {
     public:
         World();

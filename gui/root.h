@@ -14,21 +14,21 @@ namespace euphoria::core
 {
     namespace vfs
     {
-        class FileSystem;
+        struct FileSystem;
     }
 }  // namespace euphoria::core
 
 namespace euphoria::render
 {
-    class Texture2d;
-    class FontCache;
-    class TextureCache;
+    struct Texture2d;
+    struct FontCache;
+    struct TextureCache;
 }  // namespace euphoria::render
 
 namespace euphoria::gui
 {
-    class Skin;
-    class Root
+    struct Skin;
+    struct Root
     {
     public:
         Root(const core::Sizef& size);

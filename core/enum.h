@@ -9,10 +9,10 @@ namespace euphoria::core
 {
     namespace vfs
     {
-        class FileSystem;
+        struct FileSystem;
     }
 
-    class EnumValue;
+    struct EnumValue;
 
     // todo: as a compile option, use a hash instead of the string enum
 
@@ -21,7 +21,7 @@ namespace euphoria::core
     /// verifies created and asserts misspelled values.
     // Advantages over hashes: type safety, catches bad spelling, no collisions and
     // perhaps faster to generate?
-    class EnumType
+    struct EnumType
     {
     public:
         EnumType(std::string name);
@@ -52,7 +52,7 @@ namespace euphoria::core
         size_t nextIndex_;
     };
 
-    class EnumValue
+    struct EnumValue
     {
     public:
         EnumValue(EnumType* t, size_t v);

@@ -21,13 +21,13 @@ namespace euphoria::core
 {
     namespace vfs
     {
-        class FileSystem;
+        struct FileSystem;
     }
 }  // namespace euphoria::core
 
 namespace euphoria::render
 {
-    class ShaderId : core::Noncopyable
+    struct ShaderId : core::Noncopyable
     {
     public:
         ShaderId();
@@ -46,7 +46,7 @@ namespace euphoria::render
     void
     Use(const Shader* shader);
 
-    class Shader : public ShaderId
+    struct Shader : public ShaderId
     {
     public:
         Shader();
@@ -105,7 +105,7 @@ namespace euphoria::render
         std::string shader_name_;
     };
 
-    class Texture2d;
+    struct Texture2d;
     void
     BindTextureToShader(
             Texture2d*           texture,

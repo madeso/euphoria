@@ -12,15 +12,15 @@
 
 namespace euphoria::render
 {
-    class ScalableSprite;
+    struct ScalableSprite;
 }
 
 namespace euphoria::gui
 {
-    class Skin;
-    class ButtonState;
+    struct Skin;
+    struct ButtonState;
 
-    class Button : public Widget
+    struct Button : public Widget
     {
     public:
         Button(UiState* state);

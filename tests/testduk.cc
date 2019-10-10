@@ -11,7 +11,7 @@ using namespace euphoria::duk;
 
 int allocated_dogs = 0;
 
-class Dog
+struct Dog
 {
 public:
     Dog(const std::string& n) : name(n)

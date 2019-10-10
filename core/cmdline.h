@@ -9,7 +9,7 @@
 
 namespace euphoria::core
 {
-    class CmdLine
+    struct CmdLine
     {
     public:
         typedef std::vector<std::string>         Args;

@@ -392,16 +392,16 @@ main(int, char**)
 }
 
 #if 0
-class View {
+struct View {
 Camera[] cameras;
 };
 
-class CameraView {
+struct CameraView {
 Camera;
 ViewPort area; // glViewport
 };
 
-class Camera {
+struct Camera {
 Mode mode;
 World world;
 culling info from world, created when camera is added to world
@@ -416,24 +416,24 @@ toWorldSpace();
 };
 
 // normal, thermo optics/powerup
-class Mode {
+struct Mode {
 Pass[] passes;
 };
 
-class Pass {
+struct Pass {
 tag/list
 Shader shader;
 };
 
-class Shader {
+struct Shader {
 texture list: list of texture names mapped to shader variables
 };
 
-class World {
+struct World {
 Actor[] objects;
 };
 
-class Actor {
+struct Actor {
 Mesh mesh;
 position;
 rotation;
@@ -442,19 +442,19 @@ ToLocalSpace();
 ToWorldSpace();
 };
 
-class Mesh {
+struct Mesh {
 MeshPart[] meshParts;
 };
 
-class MeshPart {
+struct MeshPart {
 Material material;
 };
 
-class MaterialList {
+struct MaterialList {
 maps id, material name, shader variable
 };
 
-class Material {
+struct Material {
 Texture[] textures;
 };
 #endif

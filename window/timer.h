@@ -10,7 +10,7 @@
 
 namespace euphoria::window
 {
-    class SdlTimer
+    struct SdlTimer
     {
     public:
         SdlTimer();

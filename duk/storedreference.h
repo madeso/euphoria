@@ -6,7 +6,7 @@
 
 namespace euphoria::duk
 {
-    class StoredReference
+    struct StoredReference
     {
     public:
         StoredReference(void* ptr, ReferenceStorage* duk);

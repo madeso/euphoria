@@ -15,15 +15,12 @@
 
 namespace euphoria::duk
 {
-    class ObjectBinder;
+    struct ObjectBinder;
+    struct ClassBinder;
+    struct Function;
+    struct RegisteredClass;
 
-    class ClassBinder;
-
-    class Function;
-
-    class RegisteredClass;
-
-    class Duk : private Context
+    struct Duk : private Context
     {
     public:
         Duk();

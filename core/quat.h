@@ -10,7 +10,7 @@
 namespace euphoria::core
 {
     template <typename T>
-    class quat
+    struct quat
     {
     public:
         using Q     = quat<T>;

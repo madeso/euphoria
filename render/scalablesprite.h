@@ -9,20 +9,20 @@ namespace euphoria::core
 {
     namespace vfs
     {
-        class FileSystem;
+        struct FileSystem;
     }
-    class Rgba;
+    struct Rgba;
 }  // namespace euphoria::core
 
 namespace euphoria::render
 {
-    class Buffer2d;
-    class Texture2d;
-    class TextureId;
-    class TextureCache;
-    class SpriteRenderer;
+    struct Buffer2d;
+    struct Texture2d;
+    struct TextureId;
+    struct TextureCache;
+    struct SpriteRenderer;
 
-    class ScalableSprite
+    struct ScalableSprite
     {
     public:
         ScalableSprite(

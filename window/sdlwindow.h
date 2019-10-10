@@ -11,7 +11,7 @@ extern "C"
 
 namespace euphoria::window
 {
-    class SdlWindow
+    struct SdlWindow
     {
     public:
         SdlWindow(

@@ -9,7 +9,7 @@
 namespace euphoria::core
 {
     /// todo(Gustav): move to core?
-    class FpsController
+    struct FpsController
     {
     public:
         FpsController();

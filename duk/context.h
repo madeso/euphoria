@@ -14,11 +14,11 @@
 
 namespace euphoria::duk
 {
-    class RegisteredClass;
+    struct RegisteredClass;
 
-    class Duk;
+    struct Duk;
 
-    class Context
+    struct Context
     {
     public:
         Context(duk_context* c, Duk* d);

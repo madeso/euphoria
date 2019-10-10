@@ -10,12 +10,12 @@
 
 namespace euphoria::duk
 {
-    class StoredReference;
-    class Duk;
-    class Context;
+    struct StoredReference;
+    struct Duk;
+    struct Context;
 
     // represents a object
-    class ObjectReference
+    struct ObjectReference
     {
     public:
         ObjectReference();

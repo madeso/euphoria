@@ -13,7 +13,7 @@ namespace euphoria::core
 {
     namespace vfs
     {
-        class FileSystem;
+        struct FileSystem;
     }
 
     enum class WrapMode
@@ -23,7 +23,7 @@ namespace euphoria::core
         MIRROR_REPEAT
     };
 
-    class MeshPart
+    struct MeshPart
     {
     public:
         MeshPart();
@@ -51,7 +51,7 @@ namespace euphoria::core
         CalculateAabb() const;
     };
 
-    class MaterialTexture
+    struct MaterialTexture
     {
     public:
         MaterialTexture(std::string p, EnumValue t);
@@ -59,7 +59,7 @@ namespace euphoria::core
         EnumValue   type;
     };
 
-    class Material
+    struct Material
     {
     public:
         Material();
@@ -86,7 +86,7 @@ namespace euphoria::core
         WrapMode                     wrapt;
     };
 
-    class Mesh
+    struct Mesh
     {
     public:
         std::vector<Material> materials;
@@ -96,7 +96,7 @@ namespace euphoria::core
         CalculateAabb() const;
     };
 
-    class MeshLoadResult
+    struct MeshLoadResult
     {
     public:
         Mesh        mesh;

@@ -8,7 +8,7 @@ namespace euphoria::core
 {
     namespace vfs
     {
-        class FileSystemDefaultShaders : public FileSystemReadRoot
+        struct FileSystemDefaultShaders : public FileSystemReadRoot
         {
         public:
             static void

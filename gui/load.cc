@@ -46,7 +46,7 @@ namespace euphoria::gui
         }
     }
 
-    class CmdButton : public Button
+    struct CmdButton : public Button
     {
     public:
         explicit CmdButton(UiState* state) : Button(state) {}

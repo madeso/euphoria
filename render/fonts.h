@@ -18,15 +18,15 @@ namespace euphoria::core
 {
     namespace vfs
     {
-        class FileSystem;
+        struct FileSystem;
     }
 }  // namespace euphoria::core
 
 
 namespace euphoria::render
 {
-    class SpriteRenderer;
-    class TextureCache;
+    struct SpriteRenderer;
+    struct TextureCache;
 
     // todo: seperate rendering and the rest and move to core
 
@@ -46,7 +46,7 @@ namespace euphoria::render
     typedef std::map<std::string, std::shared_ptr<Glyph>>        CharDataMap;
     typedef std::map<std::pair<std::string, std::string>, float> KerningMap;
 
-    class Font;
+    struct Font;
 
     enum class Align
     {
@@ -95,7 +95,7 @@ namespace euphoria::render
         GetExtents() const;
     };
 
-    class Text
+    struct Text
     {
     public:
         explicit Text(Font* font);
@@ -144,7 +144,7 @@ namespace euphoria::render
         mutable TextDrawCommandList commands;
     };
 
-    class Font
+    struct Font
     {
     public:
         Font(core::vfs::FileSystem* fs,

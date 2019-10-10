@@ -10,7 +10,7 @@
 
 namespace euphoria::core
 {
-    class Random;
+    struct Random;
 }
 
 namespace euphoria::core::generator

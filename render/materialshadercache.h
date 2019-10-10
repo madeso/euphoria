@@ -8,7 +8,7 @@
 
 namespace euphoria::render
 {
-    class MaterialShaderCache
+    struct MaterialShaderCache
         : public core::Cache<std::string, MaterialShader, MaterialShaderCache>
     {
     public:

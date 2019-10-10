@@ -45,7 +45,7 @@ namespace euphoria::tests
     namespace custom
     {
         template <typename T>
-        class Approx
+        struct Approx
         {
         public:
             explicit Approx(T value)

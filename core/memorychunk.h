@@ -6,7 +6,7 @@
 
 namespace euphoria::core
 {
-    class MemoryChunk
+    struct MemoryChunk
     {
     public:
         char*
@@ -41,7 +41,7 @@ namespace euphoria::core
     std::shared_ptr<MemoryChunk>
     MemoryChunkFromText(const std::string& content);
 
-    class MemoryChunkFile
+    struct MemoryChunkFile
     {
     public:
         explicit MemoryChunkFile(std::shared_ptr<MemoryChunk> d);

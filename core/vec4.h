@@ -12,7 +12,7 @@ namespace euphoria::core
 {
     // represents a homogeneous coordinate
     template <typename T>
-    class vec4
+    struct vec4
     {
     public:
         T x;

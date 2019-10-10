@@ -6,7 +6,7 @@
 namespace euphoria::core
 {
     template <typename T>
-    class line2
+    struct line2
     {
     public:
         typedef line2<T> Self;

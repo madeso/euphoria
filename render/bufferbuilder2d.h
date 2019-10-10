@@ -6,10 +6,10 @@
 
 namespace euphoria::render
 {
-    class Vao;
-    class Ebo;
+    struct Vao;
+    struct Ebo;
 
-    class Point
+    struct Point
     {
     public:
         Point(float x, float y, float u, float v);
@@ -21,7 +21,7 @@ namespace euphoria::render
         const core::vec2f vert;
     };
 
-    class BufferBuilder2d
+    struct BufferBuilder2d
     {
     public:
         BufferBuilder2d();

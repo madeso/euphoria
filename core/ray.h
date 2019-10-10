@@ -6,7 +6,7 @@
 namespace euphoria::core
 {
     template <typename T>
-    class UnitRay3
+    struct UnitRay3
     {
     public:
         typedef unit3<T>    Unit;
@@ -40,7 +40,7 @@ namespace euphoria::core
     };
 
     template <typename T>
-    class Ray3
+    struct Ray3
     {
     public:
         typedef vec3<T> Point;

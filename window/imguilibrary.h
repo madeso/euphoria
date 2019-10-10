@@ -7,7 +7,7 @@
 
 namespace euphoria::window
 {
-    class ImguiLibrary
+    struct ImguiLibrary
     {
     public:
         ImguiLibrary(SDL_Window* window, const std::string& path);

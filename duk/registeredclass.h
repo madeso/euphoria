@@ -5,7 +5,7 @@
 
 namespace euphoria::duk
 {
-    class RegisteredClass
+    struct RegisteredClass
     {
     public:
         RegisteredClass(const std::string& n, void* p);

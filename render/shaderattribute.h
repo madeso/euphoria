@@ -16,7 +16,7 @@ namespace euphoria::render
         MAT44 = 16
     };
 
-    class ShaderAttribute
+    struct ShaderAttribute
     {
     public:
         ShaderAttribute(

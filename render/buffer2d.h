@@ -5,9 +5,9 @@
 
 namespace euphoria::render
 {
-    class BufferBuilder2d;
+    struct BufferBuilder2d;
 
-    class Buffer2d
+    struct Buffer2d
     {
     public:
         Buffer2d(const BufferBuilder2d& bb);

@@ -6,7 +6,7 @@
 
 namespace euphoria::core
 {
-    class CanvasLogic
+    struct CanvasLogic
     {
     public:
         // canvas view

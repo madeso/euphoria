@@ -11,12 +11,12 @@
 
 namespace euphoria::render
 {
-    class SpriteRenderer;
+    struct SpriteRenderer;
 }
 
 namespace euphoria::gui
 {
-    class UiState;
+    struct UiState;
 
     struct Lrtb
     {
@@ -26,7 +26,7 @@ namespace euphoria::gui
         float bottom;
     };
 
-    class Widget
+    struct Widget
     {
     public:
         std::string name;

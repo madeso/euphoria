@@ -3,7 +3,7 @@
 
 namespace euphoria::duk
 {
-    class Duk;
+    struct Duk;
 }
 
 namespace euphoria::engine

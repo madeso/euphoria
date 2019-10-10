@@ -9,7 +9,7 @@
 
 namespace euphoria::core
 {
-    class Noncopyable
+    struct Noncopyable
     {
     public:
         Noncopyable() {}

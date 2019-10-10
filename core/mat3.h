@@ -11,7 +11,7 @@
 namespace euphoria::core
 {
     template <typename T>
-    class mat3
+    struct mat3
     {
     private:
         using tuple3 = std::tuple<T, T, T>;

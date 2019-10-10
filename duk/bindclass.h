@@ -13,7 +13,7 @@
 
 namespace euphoria::duk
 {
-    class ClassBinder
+    struct ClassBinder
     {
     public:
         explicit ClassBinder(core::TypeId i);

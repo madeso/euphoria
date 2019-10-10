@@ -9,9 +9,9 @@
 
 namespace euphoria::gui
 {
-    class Widget;
+    struct Widget;
 
-    class Layout
+    struct Layout
     {
     public:
         Layout();
@@ -28,7 +28,7 @@ namespace euphoria::gui
                 const core::Rectf&                    area) const = 0;
     };
 
-    class TableLayout : public Layout
+    struct TableLayout : public Layout
     {
     public:
         TableLayout(
@@ -50,7 +50,7 @@ namespace euphoria::gui
         float             combined_padding_;
     };
 
-    class SingleRowLayout : public Layout
+    struct SingleRowLayout : public Layout
     {
     public:
         SingleRowLayout(float padding);

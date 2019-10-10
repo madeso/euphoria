@@ -5,7 +5,7 @@
 
 namespace euphoria::render
 {
-    class Shader;
+    struct Shader;
 
     namespace attributes2d
     {

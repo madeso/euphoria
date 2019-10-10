@@ -10,7 +10,7 @@ namespace euphoria::render
     typedef void* (*LoaderFunction)(const char* name);
 
     // todo: come up with a better name
-    class Init
+    struct Init
     {
     public:
         enum class BlendHack

@@ -5,9 +5,9 @@
 
 namespace euphoria::gui
 {
-    class Widget;
+    struct Widget;
 
-    class UiState
+    struct UiState
     {
     public:
         UiState();

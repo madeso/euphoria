@@ -3,7 +3,7 @@
 
 namespace euphoria::core
 {
-    class MemoryChunk;
+    struct MemoryChunk;
 
     unsigned long
     Crc32(const MemoryChunk& chunk);

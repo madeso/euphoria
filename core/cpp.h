@@ -6,7 +6,7 @@
 
 namespace euphoria::core
 {
-    template <class T>
+    template <typename T>
     void
     NotUsed(T const&)
     {}

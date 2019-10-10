@@ -27,7 +27,7 @@ namespace euphoria::engine
 
     ////////////////////////////////////////////////////////////////////////////////
 
-    class PositionComponentCreator : public ComponentCreator
+    struct PositionComponentCreator : public ComponentCreator
     {
     public:
         core::vec2f p;
@@ -55,7 +55,7 @@ namespace euphoria::engine
         }
     };
 
-    class SpriteComponentCreator : public ComponentCreator
+    struct SpriteComponentCreator : public ComponentCreator
     {
     public:
         std::shared_ptr<render::Texture2d> texture;
@@ -84,7 +84,7 @@ namespace euphoria::engine
         }
     };
 
-    class CustomComponentCreator : public ComponentCreator
+    struct CustomComponentCreator : public ComponentCreator
     {
     public:
         core::ecs::ComponentId comp;

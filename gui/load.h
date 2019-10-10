@@ -9,19 +9,19 @@ namespace euphoria::core
 {
     namespace vfs
     {
-        class FileSystem;
+        struct FileSystem;
     }
 }  // namespace euphoria::core
 
 namespace euphoria::render
 {
-    class TextureCache;
-    class FontCache;
+    struct TextureCache;
+    struct FontCache;
 }  // namespace euphoria::render
 
 namespace euphoria::gui
 {
-    class Root;
+    struct Root;
 
     bool
     Load(Root*                  root,

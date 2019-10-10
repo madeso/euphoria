@@ -8,9 +8,9 @@
 
 namespace euphoria::render
 {
-    class Light;
+    struct Light;
 
-    class MaterialShaderDefaultTexture
+    struct MaterialShaderDefaultTexture
     {
     public:
         MaterialShaderDefaultTexture(
@@ -28,7 +28,7 @@ namespace euphoria::render
         std::string     path_;
     };
 
-    class MaterialShaderBinding
+    struct MaterialShaderBinding
     {
     public:
         MaterialShaderBinding(
@@ -46,7 +46,7 @@ namespace euphoria::render
         core::EnumValue name_;
     };
 
-    class MaterialShader
+    struct MaterialShader
     {
     public:
         MaterialShader();

@@ -12,7 +12,7 @@ namespace euphoria::core
     namespace
     {
         template <typename T>
-        class Keyname
+        struct Keyname
         {
         public:
             Keyname(T unbound, T invalid) : invalid_(invalid), unbound_(unbound)

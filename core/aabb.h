@@ -5,9 +5,9 @@
 
 namespace euphoria::core
 {
-    class Random;
+    struct Random;
 
-    class Aabb
+    struct Aabb
     {
     public:
         Aabb(const vec3f& amin, const vec3f& amax);

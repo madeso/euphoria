@@ -11,23 +11,23 @@ namespace euphoria::core
 {
     namespace vfs
     {
-        class FileSystem;
-        class FileSystemRootCatalog;
+        struct FileSystem;
+        struct FileSystemRootCatalog;
     }  // namespace vfs
 }  // namespace euphoria::core
 
 namespace euphoria::render
 {
-    class Init;
+    struct Init;
 }
 
 namespace euphoria::window
 {
-    class SdlLibrary;
-    class SdlWindow;
-    class ImguiLibrary;
-    class SdlGlContext;
-    class ImguiLibrary;
+    struct SdlLibrary;
+    struct SdlWindow;
+    struct ImguiLibrary;
+    struct SdlGlContext;
+    struct ImguiLibrary;
 
     struct Engine
     {

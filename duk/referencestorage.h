@@ -7,7 +7,7 @@
 
 namespace euphoria::duk
 {
-    class ReferenceStorage
+    struct ReferenceStorage
     {
     public:
         explicit ReferenceStorage(duk_context* c);

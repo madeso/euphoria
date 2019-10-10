@@ -5,24 +5,24 @@
 
 namespace euphoria::core::ecs
 {
-    class World;
+    struct World;
 }
 
 namespace euphoria::core::vfs
 {
-    class FileSystem;
+    struct FileSystem;
 }
 
 namespace euphoria::duk
 {
-    class Context;
-    class Duk;
+    struct Context;
+    struct Duk;
 }  // namespace euphoria::duk
 
 namespace euphoria::engine
 {
     struct DukRegistry;
-    class ObjectCreator;
+    struct ObjectCreator;
 
     void
     LoadWorld(

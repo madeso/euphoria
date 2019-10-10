@@ -12,21 +12,21 @@ namespace euphoria::core
 {
     namespace vfs
     {
-        class Path;
+        struct Path;
     }
 }  // namespace euphoria::core
 
 namespace euphoria::render
 {
-    class Texture2d;
-    class MaterialShader;
-    class Light;
+    struct Texture2d;
+    struct MaterialShader;
+    struct Light;
 
-    class MaterialShaderCache;
-    class TextureCache;
+    struct MaterialShaderCache;
+    struct TextureCache;
 
     // one part of the mesh, single material
-    class CompiledMeshPart
+    struct CompiledMeshPart
     {
     public:
         Vbo          data;
@@ -36,7 +36,7 @@ namespace euphoria::render
         unsigned int material;
     };
 
-    class CompiledMeshMaterial
+    struct CompiledMeshMaterial
     {
     public:
         CompiledMeshMaterial();
@@ -82,7 +82,7 @@ namespace euphoria::render
     };
 
     // a collection of parts making up a mesh
-    class CompiledMesh
+    struct CompiledMesh
     {
     public:
         std::vector<std::shared_ptr<CompiledMeshPart>> parts;
