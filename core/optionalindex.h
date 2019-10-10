@@ -7,12 +7,14 @@ namespace euphoria::core
     class OptionalIndex
     {
     public:
+        [[nodiscard]]
         static OptionalIndex<T>
         Null()
         {
             return {};
         }
 
+        [[nodiscard]]
         static OptionalIndex<T>
         FromIndex(T index)
         {

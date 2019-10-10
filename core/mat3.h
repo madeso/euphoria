@@ -25,6 +25,7 @@ namespace euphoria::core
         {}
 
     public:
+        [[nodiscard]]
         static mat3<T>
         FromColMajor(
                 T t00,
@@ -39,6 +40,8 @@ namespace euphoria::core
         {
             return mat3<T>(t00, t01, t02, t10, t11, t12, t20, t21, t22);
         }
+
+        [[nodiscard]]
         static mat3<T>
         FromRowMajor(
                 T t00,
@@ -54,6 +57,7 @@ namespace euphoria::core
             return mat3<T>(t00, t01, t02, t10, t11, t12, t20, t21, t22);
         }
 
+        [[nodiscard]]
         static mat3<T>
         FromMajor(const scale3<T>& major)
         {
@@ -70,12 +74,14 @@ namespace euphoria::core
                     major.z);
         }
 
+        [[nodiscard]]
         static mat3<T>
         FromScale(const scale3<T>& scale)
         {
             return FromMajor(scale);
         }
 
+        [[nodiscard]]
         static mat3<T>
         FromScalar(T scalar)
         {
@@ -83,6 +89,7 @@ namespace euphoria::core
             return FromRowMajor(scalar, z, z, z, scalar, z, z, z, scalar);
         }
 
+        [[nodiscard]]
         static mat3<T>
         FromRotX(const Angle& a)
         {
@@ -91,6 +98,7 @@ namespace euphoria::core
             return FromRowMajor(1, 0, 0, 0, c, -s, 0, s, c);
         }
 
+        [[nodiscard]]
         static mat3<T>
         FromRotY(const Angle& a)
         {
@@ -99,6 +107,7 @@ namespace euphoria::core
             return FromRowMajor(c, 0, s, 0, 1, 0, -s, 0, c);
         }
 
+        [[nodiscard]]
         static mat3<T>
         FromRotZ(const Angle& a)
         {
@@ -107,6 +116,7 @@ namespace euphoria::core
             return FromRowMajor(c, -s, 0, s, c, 0, 0, 0, 1);
         }
 
+        [[nodiscard]]
         static mat3<T>
         FromAxisAngle(const AxisAngle aa)
         {
@@ -133,6 +143,7 @@ namespace euphoria::core
 #undef w
         }
 
+        [[nodiscard]]
         static mat3<T>
         Identity()
         {

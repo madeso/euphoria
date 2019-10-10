@@ -11,15 +11,16 @@ namespace euphoria::core
     class AxisAngle
     {
     public:
+        [[nodiscard]]
         static const AxisAngle
         RightHandAround(const unit3f& axis, const Angle& angle);
 
         /** a unit-vector.
-  */
+         */
         unit3f axis;
 
         /** rotation according to right-hand rule.
-  */
+         */
         Angle angle;
 
     private:

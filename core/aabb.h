@@ -21,6 +21,7 @@ namespace euphoria::core
         void
         Extend(const Aabb& aabb);
 
+        [[nodiscard]]
         static Aabb
         Empty();
 

@@ -13,12 +13,14 @@ namespace euphoria::core
         typedef vec2<T>  vec;
         typedef vec2<T>  tpoint;
 
+        [[nodiscard]]
         static Self
         FromDirection(const vec& direction, const tpoint& pos = tpoint::Zero())
         {
             return Self(pos, direction);
         }
 
+        [[nodiscard]]
         static Self
         FromTo(const tpoint& from, const tpoint& to)
         {
@@ -34,6 +36,7 @@ namespace euphoria::core
         struct Collision
         {
         public:
+            [[nodiscard]]
             static Collision
             Parallel()
             {
@@ -42,6 +45,7 @@ namespace euphoria::core
                 return c;
             }
 
+            [[nodiscard]]
             static Collision
             NoCollision()
             {
@@ -49,6 +53,7 @@ namespace euphoria::core
                 return c;
             }
 
+            [[nodiscard]]
             static Collision
             Collided(const tpoint& p, T a, T b)
             {
@@ -56,6 +61,7 @@ namespace euphoria::core
                 return c;
             }
 
+            [[nodiscard]]
             static Collision
             GetClosestCollision(const Collision& a, const Collision& b)
             {

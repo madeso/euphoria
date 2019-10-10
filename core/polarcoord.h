@@ -17,6 +17,7 @@ namespace euphoria::core
         unit3f
         ToCartesian() const;
 
+        [[nodiscard]]
         static PolarCoord
         Random(::euphoria::core::Random* random);
 

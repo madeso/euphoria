@@ -12,12 +12,14 @@ namespace euphoria::core
     class Angle
     {
     private:
+        [[nodiscard]]
         static constexpr float
         RadianToDegrees(float rad)
         {
             return (180.0f / Pi()) * rad;
         }
 
+        [[nodiscard]]
         static constexpr float
         DegreesToRadian(float deg)
         {
@@ -25,48 +27,56 @@ namespace euphoria::core
         }
 
     public:
+        [[nodiscard]]
         constexpr float
         InDegrees() const
         {
             return RadianToDegrees(mRad);
         }
 
+        [[nodiscard]]
         constexpr float
         InRadians() const
         {
             return mRad;
         }
 
+        [[nodiscard]]
         constexpr static Angle
         FromDegrees(float deg)
         {
             return Angle(DegreesToRadian(deg));
         }
 
+        [[nodiscard]]
         constexpr static Angle
         FromRadians(float rad)
         {
             return Angle(rad);
         }
 
+        [[nodiscard]]
         constexpr static Angle
         FromPercentOf360(float percent)
         {
             return Angle::FromRadians(percent * Pi() * 2.0f);
         }
 
+        [[nodiscard]]
         constexpr float
         InPercentOf360() const
         {
             return InRadians() / (Pi() * 2.0f);
         }
 
+        [[nodiscard]]
         constexpr static Angle
         FromPercentOf180(float percent)
         {
             return Angle::FromRadians(percent * Pi());
         }
 
+        [[nodiscard]]
         const static Angle
         Random(::euphoria::core::Random* random);
 

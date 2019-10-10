@@ -23,24 +23,25 @@ namespace euphoria::core
         {}
 
         /** Create a empty palette with a name.
-    @param name the name of the palette
-    @returns a empty palette
-    */
+         * @param name the name of the palette
+         * @returns a empty palette
+         */
+        [[nodiscard]]
         static Palette
         Empty(const std::string& name);
 
         /** Get a random color.
-   @param r the random generator to use
-   @returns a random color
-   */
+         * @param r the random generator to use
+         * @returns a random color
+         */
         const Rgbi&
         GetRandomColor(Random* r) const;
 
         /** Get a color based on the index.
-    The index is modulated based on the palette size, ensuring a valid color.
-    @param i the index
-    @returns the color
-    */
+         * The index is modulated based on the palette size, ensuring a valid color.
+         * @param i the index
+         * @returns the color
+        */
         const Rgbi&
         GetSafeIndex(unsigned int i) const;
 
@@ -52,9 +53,11 @@ namespace euphoria::core
 
         // rainbow functions based on the r documentation https://rdrr.io/r/grDevices/palettes.html
 
+        [[nodiscard]]
         static Palette
         Rainbow(int count, float saturation = 1, float lightness = 1);
 
+        [[nodiscard]]
         static Palette
         Rainbow(int          count,
                 const Angle& from,

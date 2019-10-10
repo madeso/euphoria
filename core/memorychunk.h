@@ -21,9 +21,11 @@ namespace euphoria::core
         char  operator[](int index) const;
         char& operator[](int index);
 
+        [[nodiscard]]
         static std::shared_ptr<MemoryChunk>
         Alloc(int size);
 
+        [[nodiscard]]
         static std::shared_ptr<MemoryChunk>
         Null();
 

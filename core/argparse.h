@@ -47,8 +47,11 @@ namespace euphoria::core::argparse
 
     struct Name
     {
+        [[nodiscard]]
         static bool
         IsOptional(const std::string& name);
+
+        [[nodiscard]]
         static std::string
         OptionalName(const std::string& name);
 
@@ -58,10 +61,15 @@ namespace euphoria::core::argparse
         bool                     is_optional;
         std::vector<std::string> names;
 
+        [[nodiscard]]
         static Name
         Parse(const std::string& n);
+
+        [[nodiscard]]
         static Name
         Optional(std::initializer_list<std::string> names);
+
+        [[nodiscard]]
         static Name
         Positional(const std::string& names);
 
