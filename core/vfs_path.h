@@ -7,14 +7,13 @@ namespace euphoria::core
 {
     namespace vfs
     {
-        
         /** Represents a virtual path.
          * It is always lowercase and forward slash specify a directory.
          */
         struct Path
         {
             // todo(Gustav): transform into a path and directory class instead
-            
+
             [[nodiscard]] static Path
             FromDirectory(const std::string& path);
 

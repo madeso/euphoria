@@ -8,7 +8,9 @@ namespace euphoria::core
 {
     CmdLine::CmdLine()
     {
-        Register("help", [this](PrintFunction print, const Args& arg) { this->PrintHelp(print, arg); });
+        Register("help", [this](PrintFunction print, const Args& arg) {
+            this->PrintHelp(print, arg);
+        });
     }
 
     void
@@ -34,13 +36,14 @@ namespace euphoria::core
         if(found == callbacks.end())
         {
             // unable to find cmd
-            print(Str{} << "Unknown command " << name);
+            print(Str {} << "Unknown command " << name);
             // todo(Gustav): list commands that are the closest match
             return;
         }
 
         Callback callback = found->second;
-        callback(print, std::vector<std::string> {line.begin() + 1, line.end()});
+        callback(
+                print, std::vector<std::string> {line.begin() + 1, line.end()});
     }
 
     void
@@ -49,7 +52,7 @@ namespace euphoria::core
         print("Available commands:");
         for(const auto& c: callbacks)
         {
-            print(Str{}  << "  " << c.first);
+            print(Str {} << "  " << c.first);
         }
         print("");
     }

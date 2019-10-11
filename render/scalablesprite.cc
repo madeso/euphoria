@@ -93,10 +93,9 @@ namespace euphoria::render
             const core::Rectf& rect,
             const core::Rgba&  tint) const
     {
-        const auto size_ = rect.GetSize();
-        const auto pos   = rect.GetBottomLeft();
-        const auto position_cols
-                = core::PerformTableLayout(cols_, size_.width);
+        const auto size_         = rect.GetSize();
+        const auto pos           = rect.GetBottomLeft();
+        const auto position_cols = core::PerformTableLayout(cols_, size_.width);
         const auto position_rows
                 = core::PerformTableLayout(rows_, size_.height);
 

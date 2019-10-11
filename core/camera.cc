@@ -54,7 +54,10 @@ namespace euphoria::core
         CalculateProjectionMatrix(const Camera& camera, float aspect)
         {
             const mat4f projection_matrix = mat4f::Perspective(
-                    Angle::FromDegrees(camera.fov), aspect, camera.near, camera.far);
+                    Angle::FromDegrees(camera.fov),
+                    aspect,
+                    camera.near,
+                    camera.far);
             return projection_matrix;
         }
 
@@ -62,9 +65,10 @@ namespace euphoria::core
         CalculateViewMatrix(const Camera& camera)
         {
             return camera.rotation.GetConjugate().ToMat4()
-                * mat4f::FromTranslation(-static_cast<vec3f>(camera.position));
+                   * mat4f::FromTranslation(
+                           -static_cast<vec3f>(camera.position));
         }
-    }
+    }  // namespace
 
     CompiledCamera
     Camera::Compile(float aspect) const

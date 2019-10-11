@@ -209,8 +209,7 @@ namespace euphoria::core
             const auto s  = GetSize();
             const auto ns = s * scale;
             return InsetCopy(
-                    (s.width - ns.width) / 2,
-                    (s.height - ns.height) / 2);
+                    (s.width - ns.width) / 2, (s.height - ns.height) / 2);
         }
 
         void

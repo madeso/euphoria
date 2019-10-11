@@ -14,7 +14,7 @@ namespace euphoria::core
         ChunkToFile(
                 std::shared_ptr<MemoryChunk> chunk,
                 const std::string&           full_path);
-                
+
         std::shared_ptr<MemoryChunk>
         FileToChunk(const std::string& full_path);
     }  // namespace io

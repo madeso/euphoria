@@ -61,9 +61,9 @@ better numbers than Mersenne. How can you go wrong? :)
         c = state[(index + 9) & 15];
         c ^= (c >> 11);
         a = state[index] = b ^ c;
-        d                  = a ^ ((a << 5) & 0xDA442D24UL);
-        index             = (index + 15) & 15;
-        a                  = state[index];
+        d                = a ^ ((a << 5) & 0xDA442D24UL);
+        index            = (index + 15) & 15;
+        a                = state[index];
         state[index]     = a ^ b ^ d ^ (a << 2) ^ (b << 18) ^ (c << 28);
         return state[index];
     }

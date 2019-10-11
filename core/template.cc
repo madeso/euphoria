@@ -95,7 +95,9 @@ namespace euphoria::core
         NONCOPYABLE_MOVE_ASSIGNMENT(TemplateNode);
 
         virtual void
-        Eval(Defines* defines, std::ostringstream* out, TemplateErrorList* error)
+        Eval(Defines*            defines,
+             std::ostringstream* out,
+             TemplateErrorList*  error)
                 = 0;
     };
 
@@ -129,7 +131,7 @@ namespace euphoria::core
         void
         Eval(Defines*            defines,
              std::ostringstream* out,
-             TemplateErrorList*      error) override
+             TemplateErrorList*  error) override
         {
             for(const auto& node: nodes_)
             {
@@ -157,7 +159,7 @@ namespace euphoria::core
         void
         Eval(Defines*            defines,
              std::ostringstream* out,
-             TemplateErrorList*      error) override
+             TemplateErrorList*  error) override
         {
             ASSERT(defines);
             Defines my_defines = *defines;
@@ -177,7 +179,7 @@ namespace euphoria::core
         void
         Eval(Defines*            defines,
              std::ostringstream* out,
-             TemplateErrorList*      error) override
+             TemplateErrorList*  error) override
         {
             ASSERT(defines);
             if(defines->IsDefined(name_))
@@ -201,7 +203,7 @@ namespace euphoria::core
         void
         Eval(Defines*            defines,
              std::ostringstream* out,
-             TemplateErrorList*      error) override
+             TemplateErrorList*  error) override
         {
             ASSERT(out);
             ASSERT(defines);
@@ -314,7 +316,7 @@ namespace euphoria::core
 
     std::vector<Lex>
     Lexer(const std::string& content,
-          TemplateErrorList*     error,
+          TemplateErrorList* error,
           const std::string& file)
     {
         ASSERT(error);
@@ -502,7 +504,7 @@ namespace euphoria::core
     ReadTemplateList(
             std::shared_ptr<TemplateNodeList>* nodes,
             LexReader*                         reader,
-            TemplateErrorList*                     errors,
+            TemplateErrorList*                 errors,
             const std::string&                 file,
             bool                               expect_end,
             vfs::FileSystem*                   fs);
@@ -511,7 +513,7 @@ namespace euphoria::core
     LoadFromFilesystemToNodeList(
             vfs::FileSystem*                   fs,
             const std::string&                 path,
-            TemplateErrorList*                     error,
+            TemplateErrorList*                 error,
             std::shared_ptr<TemplateNodeList>* nodes)
     {
         if(fs == nullptr)
@@ -556,7 +558,7 @@ namespace euphoria::core
     std::shared_ptr<TemplateNodeEval>
     ReadEval(
             LexReader*         reader,
-            TemplateErrorList*     errors,
+            TemplateErrorList* errors,
             const std::string& file,
             vfs::FileSystem* /*unused*/)
     {
@@ -583,7 +585,7 @@ namespace euphoria::core
 
     std::shared_ptr<TemplateNodeSet>
     ReadSet(LexReader*         reader,
-            TemplateErrorList*     errors,
+            TemplateErrorList* errors,
             const std::string& file,
             vfs::FileSystem* /*unused*/)
     {
@@ -626,7 +628,7 @@ namespace euphoria::core
     std::shared_ptr<TemplateNodeIfdef>
     ReadIfdef(
             LexReader*         reader,
-            TemplateErrorList*     errors,
+            TemplateErrorList* errors,
             const std::string& file,
             vfs::FileSystem*   fs)
     {
@@ -658,7 +660,7 @@ namespace euphoria::core
     std::shared_ptr<TemplateNodeList>
     ReadInclude(
             LexReader*         reader,
-            TemplateErrorList*     errors,
+            TemplateErrorList* errors,
             const std::string& file,
             vfs::FileSystem*   fs)
     {
@@ -686,7 +688,7 @@ namespace euphoria::core
     ReadTemplateList(
             std::shared_ptr<TemplateNodeList>* nodes,
             LexReader*                         reader,
-            TemplateErrorList*                     errors,
+            TemplateErrorList*                 errors,
             const std::string&                 file,
             bool                               expect_end,
             vfs::FileSystem*                   fs)
@@ -752,8 +754,7 @@ namespace euphoria::core
 
     ////////////////////////////////////////////////////////////////////////////////
 
-    Template::Template(const std::string& text)
-        : nodes(new TemplateNodeList {})
+    Template::Template(const std::string& text) : nodes(new TemplateNodeList {})
     {
         const std::string file = "from_string";
         LexReader         reader(Lexer(text, &errors, file));

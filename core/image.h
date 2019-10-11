@@ -119,7 +119,7 @@ namespace euphoria::core
 
     struct ImageLoadResult
     {
-        Image image;
+        Image       image;
         std::string error;
     };
 

@@ -61,7 +61,7 @@ namespace euphoria::core
         std::string
         Evaluate(const Defines& defines);
 
-        TemplateErrorList                     errors;
+        TemplateErrorList errors;
 
     private:
         std::shared_ptr<TemplateNodeList> nodes;

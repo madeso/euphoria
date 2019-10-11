@@ -88,7 +88,7 @@ namespace euphoria::core
         {
             return Pi() / 180.0f * deg;
         }
-        
+
         constexpr explicit Angle(float rad) : mRad(rad) {}
 
         float mRad;

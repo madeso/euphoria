@@ -70,7 +70,7 @@ namespace euphoria::core
                 const std::string& after_each,
                 const std::string& final_after_each);
 
-                
+
         ////////////////////////////////////////////
         // member variables
         std::string separator;

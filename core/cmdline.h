@@ -14,8 +14,8 @@ namespace euphoria::core
      */
     struct CmdLine
     {
-        typedef std::vector<std::string>         Args;
-        typedef std::function<void(const std::string&)> PrintFunction;
+        typedef std::vector<std::string>                        Args;
+        typedef std::function<void(const std::string&)>         PrintFunction;
         typedef std::function<void(PrintFunction, const Args&)> Callback;
 
         CmdLine();
@@ -26,7 +26,8 @@ namespace euphoria::core
         void
         Run(PrintFunction print, const std::string& cmd);
 
-        void PrintHelp(CmdLine::PrintFunction print, const Args&);
+        void
+        PrintHelp(CmdLine::PrintFunction print, const Args&);
 
     private:
         // private to make sure the case of the name is consistent

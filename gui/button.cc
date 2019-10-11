@@ -81,15 +81,15 @@ namespace euphoria::gui
         if(sprite_ != nullptr)
         {
             const auto ms = sprite_->GetMinimumSize();
-            size.width = (size.width + ms.width);
-            size.height = (size.height + ms.height);
+            size.width    = (size.width + ms.width);
+            size.height   = (size.height + ms.height);
         }
 
         if(text_.HasText())
         {
             const auto e = text_.GetText().GetExtents();
             auto ms = core::Sizef::FromWidthHeight(e.GetWidth(), e.GetHeight());
-            size.width = (size.width + ms.width);
+            size.width  = (size.width + ms.width);
             size.height = (size.height + ms.height);
         }
 

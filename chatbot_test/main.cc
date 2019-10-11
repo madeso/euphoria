@@ -26,14 +26,17 @@ main()
 
     std::string input;
     CmdLine     cmdline;
-    cmdline.Register("debug", [&chatbot](CmdLine::PrintFunction, const CmdLine::Args& args) {
-        std::cout << chatbot.DebugLastResponse(args);
-        std::cout << "\n\n";
-    });
-    cmdline.Register("kill", [&chatbot](CmdLine::PrintFunction, const CmdLine::Args&) {
-        chatbot.is_in_conversation = false;
-        std::cout << "Killing chatbot.\n\n";
-    });
+    cmdline.Register(
+            "debug",
+            [&chatbot](CmdLine::PrintFunction, const CmdLine::Args& args) {
+                std::cout << chatbot.DebugLastResponse(args);
+                std::cout << "\n\n";
+            });
+    cmdline.Register(
+            "kill", [&chatbot](CmdLine::PrintFunction, const CmdLine::Args&) {
+                chatbot.is_in_conversation = false;
+                std::cout << "Killing chatbot.\n\n";
+            });
 
     std::cout << chatbot.GetSignOnMessage() << "\n";
 
@@ -45,7 +48,9 @@ main()
             if(!input.empty() && input[0] == '@')
             {
                 const std::string in {input.begin() + 1, input.end()};
-                cmdline.Run([](const std::string& s) { std::cout<<s<<"\n";}, in);
+                cmdline.Run(
+                        [](const std::string& s) { std::cout << s << "\n"; },
+                        in);
             }
             else
             {
