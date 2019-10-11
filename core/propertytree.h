@@ -33,8 +33,7 @@ namespace euphoria::core
         explicit ValueInt(int i);
         int value;
 
-        [[nodiscard]]
-        static int&
+        [[nodiscard]] static int&
         Cast(Value* value);
     };
 
@@ -43,8 +42,7 @@ namespace euphoria::core
         explicit ValueFloat(float f);
         float value;
 
-        [[nodiscard]]
-        static float&
+        [[nodiscard]] static float&
         Cast(Value* value);
     };
 
@@ -53,8 +51,7 @@ namespace euphoria::core
         explicit ValueVec3f(const vec3f& v);
         vec3f value;
 
-        [[nodiscard]]
-        static vec3f&
+        [[nodiscard]] static vec3f&
         Cast(Value* value);
     };
 
@@ -63,8 +60,7 @@ namespace euphoria::core
         explicit ValuePoint3f(const vec3f& v);
         vec3f value;
 
-        [[nodiscard]]
-        static vec3f&
+        [[nodiscard]] static vec3f&
         Cast(Value* value);
     };
 

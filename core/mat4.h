@@ -52,8 +52,7 @@ namespace euphoria::core
         {}
 
     public:
-        [[nodiscard]]
-        static mat4<T>
+        [[nodiscard]] static mat4<T>
         FromColMajor(
                 T t00,
                 T t01,
@@ -91,8 +90,7 @@ namespace euphoria::core
                     t33);
         }
 
-        [[nodiscard]]
-        static mat4<T>
+        [[nodiscard]] static mat4<T>
         FromRowMajor(
                 T t00,
                 T t10,
@@ -130,8 +128,7 @@ namespace euphoria::core
                     t33);
         }
 
-        [[nodiscard]]
-        static mat4<T>
+        [[nodiscard]] static mat4<T>
         FromMajor(const vec4<T>& major)
         {
             const T zero = 0;
@@ -154,15 +151,13 @@ namespace euphoria::core
                     major.w);
         }
 
-        [[nodiscard]]
-        static mat4<T>
+        [[nodiscard]] static mat4<T>
         FromScale(const scale3<T>& scale)
         {
             return FromMajor(vec4<T>(scale));
         }
 
-        [[nodiscard]]
-        static mat4<T>
+        [[nodiscard]] static mat4<T>
         FromTranslation(const vec3<T>& v)
         {
             const T one = 1;
@@ -216,8 +211,7 @@ namespace euphoria::core
             return vec3<T>(Get(0, 3), Get(1, 3), Get(2, 3));
         }
 
-        [[nodiscard]]
-        static mat4<T>
+        [[nodiscard]] static mat4<T>
         FromScalar(T scalar)
         {
             const T z = 0;
@@ -240,8 +234,7 @@ namespace euphoria::core
                     scalar);
         }
 
-        [[nodiscard]]
-        static mat4<T>
+        [[nodiscard]] static mat4<T>
         FromRotX(const Angle& a)
         {
             const auto c = Cos(a);
@@ -250,8 +243,7 @@ namespace euphoria::core
                     1, 0, 0, 0, 0, c, -s, 0, 0, s, c, 0, 0, 0, 0, 1);
         }
 
-        [[nodiscard]]
-        static mat4<T>
+        [[nodiscard]] static mat4<T>
         FromRotY(const Angle& a)
         {
             const auto c = Cos(a);
@@ -260,8 +252,7 @@ namespace euphoria::core
                     c, 0, s, 0, 0, 1, 0, 0, -s, 0, c, 0, 0, 0, 0, 1);
         }
 
-        [[nodiscard]]
-        static mat4<T>
+        [[nodiscard]] static mat4<T>
         FromRotZ(const Angle& a)
         {
             const auto c = Cos(a);
@@ -270,8 +261,7 @@ namespace euphoria::core
                     c, -s, 0, 0, s, c, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
         }
 
-        [[nodiscard]]
-        static mat4<T>
+        [[nodiscard]] static mat4<T>
         FromAxisAngle(const AxisAngle aa)
         {
             const T rcos = Cos(aa.angle);
@@ -305,8 +295,7 @@ namespace euphoria::core
 #undef w
         }
 
-        [[nodiscard]]
-        static mat4<T>
+        [[nodiscard]] static mat4<T>
         Identity()
         {
             return FromScalar(1);
@@ -525,8 +514,7 @@ namespace euphoria::core
 #undef OP
         }
 
-        [[nodiscard]]
-        static mat4<T>
+        [[nodiscard]] static mat4<T>
         Ortho(T l, T r, T b, T t, T n, T f)
         {
             // http://www.songho.ca/opengl/gl_projectionmatrix.html
@@ -549,8 +537,7 @@ namespace euphoria::core
                     1);
         }
 
-        [[nodiscard]]
-        static mat4<T>
+        [[nodiscard]] static mat4<T>
         Perspective(const Angle& fov, T a, T near, T far)
         {
             const T t  = 1 / Tan(fov / 2);

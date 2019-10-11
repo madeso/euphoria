@@ -7,15 +7,13 @@ namespace euphoria::core
     struct OptionalIndex
     {
     public:
-        [[nodiscard]]
-        static OptionalIndex<T>
+        [[nodiscard]] static OptionalIndex<T>
         Null()
         {
             return {};
         }
 
-        [[nodiscard]]
-        static OptionalIndex<T>
+        [[nodiscard]] static OptionalIndex<T>
         FromIndex(T index)
         {
             return {index};

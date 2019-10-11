@@ -30,8 +30,7 @@ namespace euphoria::core
 #define VEC2_CONSTRUCTOR(VEC, T)                                               \
     VEC(const T& ax, const T& ay) : x(ax), y(ay) {}                            \
                                                                                \
-    [[nodiscard]]                                                              \
-    static VEC Zero()                                                          \
+    [[nodiscard]] static VEC Zero()                                            \
     {                                                                          \
         return {0, 0};                                                         \
     }
@@ -113,8 +112,7 @@ namespace euphoria::core
 
         explicit vec2(const Unit& u) : x(u.x), y(u.y) {}
 
-        [[nodiscard]]
-        static Self
+        [[nodiscard]] static Self
         FromTo(const vec2<T>& from, const vec2<T>& to)
         {
             return Self {to.x - from.x, to.y - from.y};

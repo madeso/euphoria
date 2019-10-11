@@ -37,7 +37,7 @@ namespace euphoria::duk
             Context*           ctx,
             const std::string& name,
             void*              object,
-            core::TypeId type CLASS_ARG(core::TypeName classname))
+            core::TypeId type  CLASS_ARG(core::TypeName classname))
     {
         ASSERT(ctx);
         duk_push_heapptr(ctx->ctx, ptr);

@@ -110,7 +110,7 @@ namespace euphoria::core
     public:
         void
         Clear();
-        
+
         void
         AddText(const std::string& str);
 
@@ -129,8 +129,7 @@ namespace euphoria::core
         bool
         CreateParse(const std::string& str);
 
-        [[nodiscard]]
-        static ParsedText
+        [[nodiscard]] static ParsedText
         FromText(const std::string& str);
 
         void

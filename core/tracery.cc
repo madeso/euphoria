@@ -302,8 +302,7 @@ namespace euphoria::core::tracery
                 buffer << parser.ReadChar();
                 break;
 
-            case '#':
-            {
+            case '#': {
                 parser.ReadChar();
                 const auto text = buffer.str();
                 buffer.str("");
@@ -342,8 +341,7 @@ namespace euphoria::core::tracery
                 {
                     switch(parser.PeekChar())
                     {
-                    case '.':
-                    {
+                    case '.': {
                         parser.ReadChar();
                         const auto mod = ReadTraceryIdent(&parser);
                         n->modifiers.push_back(mod);
@@ -355,8 +353,7 @@ namespace euphoria::core::tracery
                         run = false;
                         break;
 
-                    default:
-                    {
+                    default: {
                         const auto c = parser.ReadChar();
                         return Result(Result::GENERAL_RULE_PARSE_ERROR)
                                << "Unknown character inside ##: "

@@ -26,8 +26,7 @@ namespace euphoria::core
          * @param name the name of the palette
          * @returns a empty palette
          */
-        [[nodiscard]]
-        static Palette
+        [[nodiscard]] static Palette
         Empty(const std::string& name);
 
         /** Get a random color.
@@ -53,12 +52,10 @@ namespace euphoria::core
 
         // rainbow functions based on the r documentation https://rdrr.io/r/grDevices/palettes.html
 
-        [[nodiscard]]
-        static Palette
+        [[nodiscard]] static Palette
         Rainbow(int count, float saturation = 1, float lightness = 1);
 
-        [[nodiscard]]
-        static Palette
+        [[nodiscard]] static Palette
         Rainbow(int          count,
                 const Angle& from,
                 const Angle& to,

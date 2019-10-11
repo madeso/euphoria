@@ -13,22 +13,19 @@ namespace euphoria::core
         typedef Size<T> Self;
         Size() : width_(-1), height_(-1) {}
 
-        [[nodiscard]]
-        static Self
+        [[nodiscard]] static Self
         FromWidthHeight(T w, T h)
         {
             return Self(w, h);
         }
 
-        [[nodiscard]]
-        static Self
+        [[nodiscard]] static Self
         FromHeightWidth(T h, T w)
         {
             return Self(w, h);
         }
 
-        [[nodiscard]]
-        static Self
+        [[nodiscard]] static Self
         FromSquare(T s)
         {
             return Self(s, s);

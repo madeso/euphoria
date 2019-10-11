@@ -31,8 +31,7 @@ namespace euphoria::core
     public:
         explicit Id(IdGenerator* generator);
 
-        [[nodiscard]]
-        static const Id&
+        [[nodiscard]] static const Id&
         Invalid();
 
         ~Id();

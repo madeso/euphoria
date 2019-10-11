@@ -85,7 +85,8 @@ namespace euphoria::core::ecs
         std::vector<TSystem*> systems;
     };
 
-    struct ComponentSystemUpdateStore : public SystemStore<ComponentSystemUpdate>
+    struct ComponentSystemUpdateStore
+        : public SystemStore<ComponentSystemUpdate>
     {
     public:
         void

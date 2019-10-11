@@ -31,8 +31,7 @@ namespace euphoria::core
 
         quat(T w, const Vec& v) : w(w), x(v.x), y(v.y), z(v.z) {}
 
-        [[nodiscard]]
-        static Q
+        [[nodiscard]] static Q
         FromAxisAngle(const AxisAngle& aa)
         {
             const T sin_a = Sin(aa.angle / 2);
@@ -42,8 +41,7 @@ namespace euphoria::core
             return r;
         }
 
-        [[nodiscard]]
-        static Q
+        [[nodiscard]] static Q
         FromRandom(Random* random)
         {
             const auto axis  = RandomUnit3(random);
@@ -72,22 +70,19 @@ namespace euphoria::core
 
         // static Q FromAngles(T x, T y, T z);
 
-        [[nodiscard]]
-        static Q
+        [[nodiscard]] static Q
         Identity()
         {
             return Q(1, Vec(0, 0, 0));
         }
 
-        [[nodiscard]]
-        static Q
+        [[nodiscard]] static Q
         LookAt(const Point& from, const Point& to, const typename Vec::Unit up)
         {
             return LookInDirection(Vec::FromTo(from, to).GetNormalized(), up);
         }
 
-        [[nodiscard]]
-        static Q
+        [[nodiscard]] static Q
         LookInDirection(const Unit& dir, const Unit& up)
         {
             const Vec in        = Unit::In();
@@ -225,15 +220,13 @@ namespace euphoria::core
             return ret.vec().GetNormalized();
         }
 
-        [[nodiscard]]
-        static Q
+        [[nodiscard]] static Q
         Lerp(const Q& f, const T scale, const Q& t)
         {
             return f * (1 - scale) + t * scale;
         }
 
-        [[nodiscard]]
-        static Q
+        [[nodiscard]] static Q
         Slerp(const Q& qa, const T t, const Q& qb)
         {
             // from:
@@ -265,8 +258,7 @@ namespace euphoria::core
             return qa * ratioA + qb * ratioB;
         }
 
-        [[nodiscard]]
-        static Q
+        [[nodiscard]] static Q
         SlerpShortway(const Q& f, const T scale, const Q& t)
         {
             if(dot(f, t) < 0)

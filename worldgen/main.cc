@@ -114,8 +114,7 @@ maze(MazeAlgorithm      algo,
 
     switch(algo)
     {
-    case MazeAlgorithm::RecursiveBacktracker:
-    {
+    case MazeAlgorithm::RecursiveBacktracker: {
         auto g         = std::make_unique<generator::RecursiveBacktracker>();
         g->maze        = &maze;
         g->random      = &random;
@@ -123,8 +122,7 @@ maze(MazeAlgorithm      algo,
         gen.reset(g.release());
     }
     break;
-    case MazeAlgorithm::RandomTraversal:
-    {
+    case MazeAlgorithm::RandomTraversal: {
         auto g           = std::make_unique<generator::RandomTraversal>();
         g->maze          = &maze;
         g->random        = &random;

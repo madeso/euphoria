@@ -14,20 +14,16 @@ namespace euphoria::core
         struct Path
         {
         public:
-            [[nodiscard]]
-            static Path
+            [[nodiscard]] static Path
             FromDirectory(const std::string& path);
 
-            [[nodiscard]]
-            static Path
+            [[nodiscard]] static Path
             FromRoot();
 
-            [[nodiscard]]
-            static Path
+            [[nodiscard]] static Path
             FromFile(const std::string& path);
 
-            [[nodiscard]]
-            static Path
+            [[nodiscard]] static Path
             FromGuess(const std::string& path);
 
             // get the directory containing the file, or this

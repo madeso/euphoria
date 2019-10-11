@@ -334,8 +334,7 @@ main(int, char**)
                 }
                 break;
             case SDL_KEYDOWN:
-            case SDL_KEYUP:
-            {
+            case SDL_KEYUP: {
                 const bool down = e.type == SDL_KEYDOWN;
 
                 fps.HandleKey(ToKey(e.key.keysym), down);

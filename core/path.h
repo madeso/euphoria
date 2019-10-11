@@ -42,12 +42,10 @@ namespace euphoria::core
 
         BezierPath2(const vec2f& center);
 
-        [[nodiscard]]
-        static bool
+        [[nodiscard]] static bool
         IsAnchorPoint(size_t i);
 
-        [[nodiscard]]
-        static bool
+        [[nodiscard]] static bool
         IsControlPoint(size_t i);
 
         // point functions

@@ -188,7 +188,7 @@ namespace euphoria::duk
             void*          object,
             core::TypeId   type,
             duk_c_function finalizer,
-            void* data CLASS_ARG(core::TypeName name))
+            void* data     CLASS_ARG(core::TypeName name))
     {
         if(object == nullptr)
         {

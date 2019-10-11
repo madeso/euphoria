@@ -12,7 +12,7 @@ namespace euphoria::core
         {
             COUNT = 10
         };
-        
+
         static int
         GetIndex(Int i, int exp)
         {

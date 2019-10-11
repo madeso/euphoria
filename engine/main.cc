@@ -76,15 +76,13 @@ struct RunResult
     bool        ok;
     std::string message;
 
-    [[nodiscard]]
-    static const RunResult
+    [[nodiscard]] static const RunResult
     Ok()
     {
         return RunResult {true, ""};
     }
 
-    [[nodiscard]]
-    static const RunResult
+    [[nodiscard]] static const RunResult
     Error(const std::string& message)
     {
         return RunResult {false, message};
