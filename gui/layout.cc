@@ -50,8 +50,8 @@ namespace euphoria::gui
         {
             const auto& d = w->layout;
             const auto& s = w->GetPreferredSize();
-            UpdateMax(&width[d.GetColumn()], s.GetWidth());
-            UpdateMax(&height[d.GetRow()], s.GetHeight());
+            UpdateMax(&width[d.GetColumn()], s.width);
+            UpdateMax(&height[d.GetRow()], s.height);
         }
 
         const auto s = core::Sizef::FromWidthHeight(
@@ -77,8 +77,8 @@ namespace euphoria::gui
         {
             const auto& d = w->layout;
             const auto& s = w->GetPreferredSize();
-            UpdateMax(&width[d.GetColumn()], s.GetWidth());
-            UpdateMax(&height[d.GetRow()], s.GetHeight());
+            UpdateMax(&width[d.GetColumn()], s.width);
+            UpdateMax(&height[d.GetRow()], s.height);
         }
 
         LOG_INFO(
@@ -165,13 +165,13 @@ namespace euphoria::gui
         for(const auto& w: widgets)
         {
             const auto& s = w->GetPreferredSize();
-            width += s.GetWidth();
+            width += s.width;
             if(!first)
             {
                 width += padding_;
             }
             first = false;
-            UpdateMax(&height, s.GetHeight());
+            UpdateMax(&height, s.height);
         }
 
         const auto s = core::Sizef::FromWidthHeight(width, height);
@@ -191,8 +191,8 @@ namespace euphoria::gui
         {
             const auto& s = w->GetPreferredSize();
             w->SetRect(core::Rectf::FromTopLeftWidthHeight(
-                    tl.y, x, s.GetWidth(), s.GetHeight()));
-            x += s.GetWidth() + padding_;
+                    tl.y, x, s.width, s.height));
+            x += s.width + padding_;
         }
     }
 }  // namespace euphoria::gui

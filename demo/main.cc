@@ -278,7 +278,7 @@ main(int, char**)
                 = Wrap(MakeRange<float>(0, 1), light_position + delta * 0.1f);
         const auto light_pos = vec3f::Zero()
                                + PolarCoord {light_position, light_position * 2}
-                                                 .ToCartesian()
+                                                 .ToUnitVector()
                                          * 2.0f;
         light_actor->SetPosition(light_pos);
 

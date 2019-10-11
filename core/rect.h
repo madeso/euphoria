@@ -84,7 +84,7 @@ namespace euphoria::core
         [[nodiscard]] static Rect
         FromWidthHeight(const Size<T>& s)
         {
-            return FromWidthHeight(s.GetWidth(), s.GetHeight());
+            return FromWidthHeight(s.width, s.height);
         }
 
         [[nodiscard]] static Rect
@@ -209,8 +209,8 @@ namespace euphoria::core
             const auto s  = GetSize();
             const auto ns = s * scale;
             return InsetCopy(
-                    (s.GetWidth() - ns.GetWidth()) / 2,
-                    (s.GetHeight() - ns.GetHeight()) / 2);
+                    (s.width - ns.width) / 2,
+                    (s.height - ns.height) / 2);
         }
 
         void

@@ -43,8 +43,8 @@ namespace euphoria::render
         }
 
         // add vertices
-        const float w           = quad.GetWidth();
-        const float h           = quad.GetHeight();
+        const float w           = quad.width;
+        const float h           = quad.height;
         const float sy          = -Sin(rotation);
         const float left        = pos.x + (-center.x * w) * sy;
         const float right       = pos.x + (-center.x * w + w) * sy;

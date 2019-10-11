@@ -62,10 +62,10 @@ namespace euphoria::gui
         const auto margin_height  = margin.top + margin.bottom;
         return core::Sizef::FromWidthHeight(
                 core::Max(
-                        min.GetWidth() + padding_width + margin_width,
+                        min.width + padding_width + margin_width,
                         layout.GetPreferredWidth()),
                 core::Max(
-                        min.GetHeight() + padding_height + margin_height,
+                        min.height + padding_height + margin_height,
                         layout.GetPreferredHeight()));
     }
 

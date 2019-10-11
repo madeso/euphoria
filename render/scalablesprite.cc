@@ -96,9 +96,9 @@ namespace euphoria::render
         const auto size_ = rect.GetSize();
         const auto pos   = rect.GetBottomLeft();
         const auto position_cols
-                = core::PerformTableLayout(cols_, size_.GetWidth());
+                = core::PerformTableLayout(cols_, size_.width);
         const auto position_rows
-                = core::PerformTableLayout(rows_, size_.GetHeight());
+                = core::PerformTableLayout(rows_, size_.height);
 
         const auto cols_size = cols_.size();
         const auto rows_size = rows_.size();
@@ -110,7 +110,7 @@ namespace euphoria::render
         float uv_current_col       = 0;
         for(unsigned int c = 0; c < cols_size; ++c)
         {
-            float position_current_row = size_.GetHeight();
+            float position_current_row = size_.height;
             float uv_current_row       = 1;
 
             const auto position_next_col
