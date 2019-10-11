@@ -11,7 +11,6 @@ namespace euphoria::core
     /// todo(Gustav): move to core?
     struct FpsController
     {
-    public:
         FpsController();
 
         void

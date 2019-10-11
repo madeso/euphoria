@@ -5,9 +5,10 @@
 
 namespace euphoria::core
 {
+    // todo(Gustav): refactor into a better design
+
     struct IdGenerator
     {
-    public:
         typedef int ID;
 
         IdGenerator();

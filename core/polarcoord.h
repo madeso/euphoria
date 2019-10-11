@@ -11,18 +11,16 @@ namespace euphoria::core
     // source: http://mathworld.wolfram.com/SphericalCoordinates.html
     struct PolarCoord
     {
-    public:
         PolarCoord(float azimuthal01, float polar01);
 
         unit3f
-        ToCartesian() const;
+        ToUnitVector() const;
 
         [[nodiscard]] static PolarCoord
         Random(::euphoria::core::Random* random);
 
-    private:
-        Angle azimuthal_;  // longitude, 0-2pi
-        Angle polar_;  // zenith, colatitude, 0-pi
+        Angle azimuthal;  // longitude, 0-2pi
+        Angle polar;  // zenith, colatitude, 0-pi
     };
 
     unit3f

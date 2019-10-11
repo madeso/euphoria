@@ -14,7 +14,6 @@ namespace euphoria::core
     template <typename T>
     struct vec4
     {
-    public:
         T x;
         T y;
         T z;

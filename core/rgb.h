@@ -20,7 +20,6 @@ namespace euphoria::core
     // Rgb no alpha support - int based
     struct Rgbi
     {
-    public:
         Rgbi(unsigned char red, unsigned char green, unsigned char blue);
         explicit Rgbi(unsigned char gray);
         Rgbi(Color color);
@@ -40,7 +39,6 @@ namespace euphoria::core
 
     struct Rgbai
     {
-    public:
         Rgbai(const Rgbi& rgb, unsigned char alpha = 255);
 
         explicit Rgbai(const Rgba& rgba);
@@ -56,7 +54,6 @@ namespace euphoria::core
 
     struct Rgb
     {
-    public:
         Rgb(float red, float green, float blue);
         explicit Rgb(float gray);
 
@@ -72,6 +69,7 @@ namespace euphoria::core
 
     float
     dot(const Rgb& lhs, const Rgb& rhs);
+
     Rgb
     Clamp(const Rgb& r);
 
@@ -85,6 +83,8 @@ namespace euphoria::core
         Angle h;
         float s;  // 0-1
         float l;  // 0-1
+
+        // todo(Gustav): why do theese functions return a angle and not a Hsl?
 
         [[nodiscard]] static const Angle&
         Red();
@@ -127,8 +127,8 @@ namespace euphoria::core
     darken(const Hsl& ahsl, float amount, Method method);
 
     /** Makes a color brighter or darker.
- * The +1 makes it white, 0% is no change, -1 makes it black.
- */
+     * The +1 makes it white, 0% is no change, -1 makes it black.
+     */
     Rgb
     ShadeColor(const Rgb& rgb, float percentage);
 

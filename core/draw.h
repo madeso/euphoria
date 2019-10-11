@@ -10,9 +10,9 @@
 
 namespace euphoria::core
 {
+    // todo(Gustav): refactor to be free functions
     struct Draw
     {
-    public:
         explicit Draw(Image* image);
 
         Recti

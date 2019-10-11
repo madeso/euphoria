@@ -8,9 +8,10 @@ namespace euphoria::core
     bool
     IsIdentStart(const char c);
 
+    /** Parses a text file in memory.
+     */
     struct TextFileParser
     {
-    public:
         TextFileParser(const std::string& str);
 
         char

@@ -21,21 +21,21 @@ namespace euphoria::core
     };
 
     /** Generate a string representation of the given button
-@param k the key
-@returns the string representation
- */
+        @param k the key
+        @returns the string representation
+    */
     std::string
     ToString(MouseButton k);
 
     /** Generate a key from a string.
-@param keyname the name of the button
-@returns the Button or None
- */
+        @param keyname the name of the button
+        @returns the Button or None
+    */
     MouseButton
     ToMouseButton(const std::string& keyname);
 
     /** A key code
- */
+     */
     enum class Key
     {
         INVALID,
@@ -278,16 +278,16 @@ namespace euphoria::core
     };
 
     /** Generate a string representation of the given key
-@param k the key
-@returns the string representation
- */
+        @param k the key
+        @returns the string representation
+    */
     std::string
     ToString(Key k);
 
     /** Generate a key from a string.
-@param keyname the name of the key
-@returns the key or None
- */
+        @param keyname the name of the key
+        @returns the key or None
+    */
     Key
     ToKey(const std::string& keyname);
 

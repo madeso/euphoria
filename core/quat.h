@@ -12,7 +12,6 @@ namespace euphoria::core
     template <typename T>
     struct quat
     {
-    public:
         using Q     = quat<T>;
         using Vec   = vec3<T>;
         using Point = vec3<T>;

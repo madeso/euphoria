@@ -81,26 +81,26 @@ namespace euphoria::core
 
 
     /*
- First name     Last name
-------------   -----------
- Jerry          Seinfeld
- Elaine         Benes
- Cosmo          Kramer
- George         Costanza
-*/
+        First name     Last name
+        ------------   -----------
+        Jerry          Seinfeld
+        Elaine         Benes
+        Cosmo          Kramer
+        George         Costanza
+        */
     void
     PrintTableSimple(std::ostream& out, const StringTable& table);
 
     /*
-+------------+-----------+
-| First name | Last name |
-+------------+-----------+
-| Jerry      | Seinfeld  |
-| Elaine     | Benes     |
-| Cosmo      | Kramer    |
-| George     | Costanza  |
-+------------+-----------+
-*/
+        +------------+-----------+
+        | First name | Last name |
+        +------------+-----------+
+        | Jerry      | Seinfeld  |
+        | Elaine     | Benes     |
+        | Cosmo      | Kramer    |
+        | George     | Costanza  |
+        +------------+-----------+
+        */
     void
     PrintTableGrid(std::ostream& out, const StringTable& table);
 

@@ -10,24 +10,23 @@ namespace euphoria::core
  */
     struct Str
     {
-    public:
         /** Generate a string.
-  @see toString()
-  @return the generated string.
-   */
+            @see toString()
+            @return the generated string.
+            */
         operator std::string() const;
 
         /** Generate a string.
-  @see operator std::string()
-  @return the generated string.
-   */
+            @see operator std::string()
+            @return the generated string.
+            */
         std::string
         ToString() const;
 
         /** Add stuff to the stream.
-  @param t object to add to the stream.
-  @return this
-   */
+            @param t object to add to the stream.
+            @return this
+            */
         template <typename Type>
         Str&
         operator<<(const Type& t)

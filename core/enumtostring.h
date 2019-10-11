@@ -13,6 +13,8 @@
 
 namespace euphoria::core
 {
+    // todo(Gustav): replace with magic enum or some other structure
+
     template <typename T>
     struct MatchedEnum
     {

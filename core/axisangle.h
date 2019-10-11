@@ -10,7 +10,6 @@ namespace euphoria::core
 {
     struct AxisAngle
     {
-    public:
         [[nodiscard]] static const AxisAngle
         RightHandAround(const unit3f& axis, const Angle& angle);
 

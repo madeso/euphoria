@@ -7,9 +7,8 @@ namespace euphoria::core
 {
     namespace vfs
     {
-        class FileSystemImageGenerator : public FileSystemReadRoot
+        struct FileSystemImageGenerator : public FileSystemReadRoot
         {
-        public:
             static void
             AddRoot(FileSystem* fs, const std::string& base);
 

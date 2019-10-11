@@ -5,6 +5,8 @@
 
 namespace euphoria::core
 {
+    // todo(Gustav): replace with one single algorithm
+
     // Levenshtein Distance Algorithm: C++ Implementation
     // by Anders Sewerin Johansen
     // http://www.merriampark.com/ldcpp.htm

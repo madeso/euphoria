@@ -8,7 +8,6 @@ namespace euphoria::core
 {
     struct MemoryChunk
     {
-    public:
         char*
         GetData();
 
@@ -41,7 +40,6 @@ namespace euphoria::core
 
     struct MemoryChunkFile
     {
-    public:
         explicit MemoryChunkFile(std::shared_ptr<MemoryChunk> d);
 
         void

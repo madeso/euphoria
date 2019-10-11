@@ -43,11 +43,11 @@ better numbers than Mersenne. How can you go wrong? :)
     }
 
     Random::Random(u32 seed)
-        : index_(0), state_ {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+        : index(0), state {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
     {
         for(u32 i = 0; i < 16; ++i)
         {
-            state_[i] = seed * i;
+            state[i] = seed * i;
         }
     }
 
@@ -55,17 +55,17 @@ better numbers than Mersenne. How can you go wrong? :)
     Random::NextInteger()
     {
         u32 a, b, c, d;
-        a = state_[index_];
-        c = state_[(index_ + 13) & 15];
+        a = state[index];
+        c = state[(index + 13) & 15];
         b = a ^ c ^ (a << 16) ^ (c << 15);
-        c = state_[(index_ + 9) & 15];
+        c = state[(index + 9) & 15];
         c ^= (c >> 11);
-        a = state_[index_] = b ^ c;
+        a = state[index] = b ^ c;
         d                  = a ^ ((a << 5) & 0xDA442D24UL);
-        index_             = (index_ + 15) & 15;
-        a                  = state_[index_];
-        state_[index_]     = a ^ b ^ d ^ (a << 2) ^ (b << 18) ^ (c << 28);
-        return state_[index_];
+        index             = (index + 15) & 15;
+        a                  = state[index];
+        state[index]     = a ^ b ^ d ^ (a << 2) ^ (b << 18) ^ (c << 28);
+        return state[index];
     }
 
     float

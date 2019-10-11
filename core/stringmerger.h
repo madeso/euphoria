@@ -20,22 +20,22 @@ namespace euphoria::core
         ////////////////////////////////////////////
         // Named constructors
 
-        static const StringMerger&
+        static const StringMerger
         EnglishAnd();
 
-        static const StringMerger&
+        static const StringMerger
         EnglishOr();
 
-        static const StringMerger&
+        static const StringMerger
         Array();
 
-        static const StringMerger&
+        static const StringMerger
         FunctionCall();
 
-        static const StringMerger&
+        static const StringMerger
         Space();
 
-        static const StringMerger&
+        static const StringMerger
         Comma();
 
 
@@ -70,9 +70,9 @@ namespace euphoria::core
                 const std::string& after_each,
                 const std::string& final_after_each);
 
+                
         ////////////////////////////////////////////
         // member variables
-
         std::string separator;
         std::string final_separator;
         std::string empty;

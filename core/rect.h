@@ -18,7 +18,6 @@ namespace euphoria::core
     template <typename T>
     struct Rect
     {
-    public:
         T left;
         T right;
         T top;

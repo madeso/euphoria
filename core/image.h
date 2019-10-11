@@ -21,7 +21,6 @@ namespace euphoria::core
 
     struct Image
     {
-    public:
         void
         MakeInvalid();
         bool
@@ -120,9 +119,7 @@ namespace euphoria::core
 
     struct ImageLoadResult
     {
-    public:
         Image image;
-
         std::string error;
     };
 

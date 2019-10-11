@@ -20,7 +20,6 @@ namespace euphoria::core
 
     struct Value
     {
-    public:
         explicit Value(ValueType vt) : type(vt) {}
 
         virtual ~Value() = default;
@@ -66,7 +65,6 @@ namespace euphoria::core
 
     struct PropertyTree : public Value
     {
-    public:
         PropertyTree();
 
         void

@@ -3,6 +3,7 @@
 
 namespace euphoria::core
 {
+    // todo(Gustav): replace with std::optional
     template <typename T>
     struct OptionalIndex
     {

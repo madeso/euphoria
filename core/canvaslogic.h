@@ -8,7 +8,6 @@ namespace euphoria::core
 {
     struct CanvasLogic
     {
-    public:
         // canvas view
         vec2f scroll = vec2f {0, 0};
         float scale  = 1;

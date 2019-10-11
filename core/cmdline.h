@@ -9,25 +9,27 @@
 
 namespace euphoria::core
 {
+    /** Provides a terminal like experience.
+     * Case of the name is not important
+     */
     struct CmdLine
     {
-    public:
         typedef std::vector<std::string>         Args;
-        typedef std::function<void(const Args&)> Callback;
+        typedef std::function<void(const std::string&)> PrintFunction;
+        typedef std::function<void(PrintFunction, const Args&)> Callback;
 
-        CmdLine(std::ostream* out);
+        CmdLine();
 
         void
         Register(const std::string& name, Callback callback);
 
         void
-        Run(const std::string& cmd);
+        Run(PrintFunction print, const std::string& cmd);
 
-        void
-        PrintHelp(const Args& args) const;
+        void PrintHelp(CmdLine::PrintFunction print, const Args&);
 
     private:
-        std::ostream*                   out;
+        // private to make sure the case of the name is consistent
         std::map<std::string, Callback> callbacks;
     };
 }  // namespace euphoria::core

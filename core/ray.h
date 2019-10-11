@@ -8,7 +8,6 @@ namespace euphoria::core
     template <typename T>
     struct UnitRay3
     {
-    public:
         typedef unit3<T>    Unit;
         typedef vec3<T>     Point;
         typedef UnitRay3<T> Self;
@@ -40,7 +39,6 @@ namespace euphoria::core
     template <typename T>
     struct Ray3
     {
-    public:
         typedef vec3<T> Point;
         typedef vec3<T> Vec;
         typedef Ray3<T> Self;

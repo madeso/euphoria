@@ -10,7 +10,6 @@ namespace euphoria::core
     {
         struct FileSystemDefaultShaders : public FileSystemReadRoot
         {
-        public:
             static void
             AddRoot(FileSystem* fs, const std::string& base);
 

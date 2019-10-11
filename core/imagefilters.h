@@ -21,6 +21,7 @@ namespace euphoria::core
         Average
     };
 
+    // todo(Gustav): make pure functions instead?
     struct ImageFilter
     {
         Image* image;

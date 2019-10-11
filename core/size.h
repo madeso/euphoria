@@ -9,9 +9,12 @@ namespace euphoria::core
     template <typename T>
     struct Size
     {
-    public:
         typedef Size<T> Self;
-        Size() : width_(-1), height_(-1) {}
+
+        T width;
+        T height;
+
+        Size() : width(-1), height(-1) {}
 
         [[nodiscard]] static Self
         FromWidthHeight(T w, T h)
@@ -31,77 +34,44 @@ namespace euphoria::core
             return Self(s, s);
         }
 
-        T
-        GetWidth() const
-        {
-            return width_;
-        }
-
-        void
-        SetWidth(T w)
-        {
-            width_ = w;
-        }
-
-        T
-        GetHeight() const
-        {
-            return height_;
-        }
-
-        void
-        SetHeight(T h)
-        {
-            height_ = h;
-        }
-
         void
         operator+=(const Self& rhs)
         {
-            width_ += rhs.width_;
-            height_ += rhs.height_;
+            width += rhs.width;
+            height += rhs.height;
         }
 
         void
         operator-=(const Self& rhs)
         {
-            width_ -= rhs.width_;
-            height_ -= rhs.height_;
+            width -= rhs.width;
+            height -= rhs.height;
         }
 
         void
         operator*=(const T& rhs)
         {
-            width_ *= rhs;
-            height_ *= rhs;
+            width *= rhs;
+            height *= rhs;
         }
 
         void
         operator/=(const T& rhs)
         {
-            width_ /= rhs;
-            height_ /= rhs;
+            width /= rhs;
+            height /= rhs;
         }
-
-        /*
-    operator vec2<T>() const
-    {
-      return vec2<T>(width_, height_);
-    }
-    */
 
         vec2<T>
         CalculateCenterOffsetFor(const Self& o)
         {
-            const T x = (GetWidth() - o.GetWidth()) / 2;
-            const T y = (GetHeight() - o.GetHeight()) / 2;
+            const T x = (width - o.width) / 2;
+            const T y = (height - o.height) / 2;
             return vec2<T>(x, y);
         }
 
     private:
-        Size(T w, T h) : width_(w), height_(h) {}
-        T width_;
-        T height_;
+        Size(T w, T h) : width(w), height(h) {}
     };
 
     template <typename T>
@@ -109,8 +79,8 @@ namespace euphoria::core
     Min(const Size<T> lhs, const Size<T> rhs)
     {
         return Size<T>::FromWidthHeight(
-                Min(lhs.GetWidth(), rhs.GetWidth()),
-                Min(lhs.GetHeight(), rhs.GetHeight()));
+                Min(lhs.width, rhs.width),
+                Min(lhs.height, rhs.height));
     }
 
     template <typename T>
@@ -118,8 +88,8 @@ namespace euphoria::core
     Max(const Size<T> lhs, const Size<T> rhs)
     {
         return Size<T>::FromWidthHeight(
-                Max(lhs.GetWidth(), rhs.GetWidth()),
-                Max(lhs.GetHeight(), rhs.GetHeight()));
+                Max(lhs.width, rhs.width),
+                Max(lhs.height, rhs.height));
     }
 
     template <typename T>
@@ -169,7 +139,7 @@ namespace euphoria::core
     S&
     operator<<(S& s, const Size<T>& r)
     {
-        s << r.GetWidth() << " x " << r.GetHeight() << ")";
+        s << r.width << " x " << r.height << ")";
         return s;
     }
 

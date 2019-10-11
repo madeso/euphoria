@@ -18,15 +18,15 @@ namespace euphoria::core
     bool
     Defines::IsDefined(const std::string& name) const
     {
-        const auto found = values_.find(name);
-        return found != values_.end();
+        const auto found = values.find(name);
+        return found != values.end();
     }
 
     std::string
     Defines::GetValue(const std::string& name) const
     {
-        const auto found = values_.find(name);
-        if(found == values_.end())
+        const auto found = values.find(name);
+        if(found == values.end())
         {
             return "";
         }
@@ -37,27 +37,27 @@ namespace euphoria::core
     void
     Defines::Undefine(const std::string& name)
     {
-        values_.erase(name);
+        values.erase(name);
     }
 
     void
     Defines::Define(const std::string& name, const std::string& value)
     {
-        values_[name] = value;
+        values[name] = value;
     }
 
     ////////////////////////////////////////////////////////////////////////////////
 
-    TemplateError::TemplateError() = default;
+    TemplateErrorList::TemplateErrorList() = default;
 
     bool
-    TemplateError::HasErrors() const
+    TemplateErrorList::HasErrors() const
     {
-        return !errors_.empty();
+        return !errors.empty();
     }
 
     void
-    TemplateError::AddError(
+    TemplateErrorList::AddError(
             const std::string& file,
             int                line,
             int /*unused*/,
@@ -65,15 +65,15 @@ namespace euphoria::core
     {
         const std::string message = Str() << file << ":" << line << ":"
                                           << " " << error;
-        errors_.push_back(message);
+        errors.push_back(message);
     }
 
     std::string
-    TemplateError::GetCombinedErrors() const
+    TemplateErrorList::GetCombinedErrors() const
     {
         std::ostringstream ss;
 
-        for(const auto& mess: errors_)
+        for(const auto& mess: errors)
         {
             ss << mess << "\n";
         }
@@ -95,7 +95,7 @@ namespace euphoria::core
         NONCOPYABLE_MOVE_ASSIGNMENT(TemplateNode);
 
         virtual void
-        Eval(Defines* defines, std::ostringstream* out, TemplateError* error)
+        Eval(Defines* defines, std::ostringstream* out, TemplateErrorList* error)
                 = 0;
     };
 
@@ -109,7 +109,7 @@ namespace euphoria::core
         void
         Eval(Defines* /*defines*/,
              std::ostringstream* out,
-             TemplateError* /*error*/) override
+             TemplateErrorList* /*error*/) override
         {
             ASSERT(out);
             *out << text_;
@@ -129,7 +129,7 @@ namespace euphoria::core
         void
         Eval(Defines*            defines,
              std::ostringstream* out,
-             TemplateError*      error) override
+             TemplateErrorList*      error) override
         {
             for(const auto& node: nodes_)
             {
@@ -157,7 +157,7 @@ namespace euphoria::core
         void
         Eval(Defines*            defines,
              std::ostringstream* out,
-             TemplateError*      error) override
+             TemplateErrorList*      error) override
         {
             ASSERT(defines);
             Defines my_defines = *defines;
@@ -177,7 +177,7 @@ namespace euphoria::core
         void
         Eval(Defines*            defines,
              std::ostringstream* out,
-             TemplateError*      error) override
+             TemplateErrorList*      error) override
         {
             ASSERT(defines);
             if(defines->IsDefined(name_))
@@ -201,7 +201,7 @@ namespace euphoria::core
         void
         Eval(Defines*            defines,
              std::ostringstream* out,
-             TemplateError*      error) override
+             TemplateErrorList*      error) override
         {
             ASSERT(out);
             ASSERT(defines);
@@ -231,7 +231,7 @@ namespace euphoria::core
         void
         Eval(Defines*            defines,
              std::ostringstream* out,
-             TemplateError* /*error*/) override
+             TemplateErrorList* /*error*/) override
         {
             ASSERT(out);
             ASSERT(defines);
@@ -314,7 +314,7 @@ namespace euphoria::core
 
     std::vector<Lex>
     Lexer(const std::string& content,
-          TemplateError*     error,
+          TemplateErrorList*     error,
           const std::string& file)
     {
         ASSERT(error);
@@ -502,7 +502,7 @@ namespace euphoria::core
     ReadTemplateList(
             std::shared_ptr<TemplateNodeList>* nodes,
             LexReader*                         reader,
-            TemplateError*                     errors,
+            TemplateErrorList*                     errors,
             const std::string&                 file,
             bool                               expect_end,
             vfs::FileSystem*                   fs);
@@ -511,7 +511,7 @@ namespace euphoria::core
     LoadFromFilesystemToNodeList(
             vfs::FileSystem*                   fs,
             const std::string&                 path,
-            TemplateError*                     error,
+            TemplateErrorList*                     error,
             std::shared_ptr<TemplateNodeList>* nodes)
     {
         if(fs == nullptr)
@@ -539,7 +539,7 @@ namespace euphoria::core
     std::shared_ptr<TemplateNodeString>
     ReadText(
             LexReader* reader,
-            TemplateError* /*unused*/,
+            TemplateErrorList* /*unused*/,
             const std::string& /*unused*/,
             vfs::FileSystem* /*unused*/)
     {
@@ -556,7 +556,7 @@ namespace euphoria::core
     std::shared_ptr<TemplateNodeEval>
     ReadEval(
             LexReader*         reader,
-            TemplateError*     errors,
+            TemplateErrorList*     errors,
             const std::string& file,
             vfs::FileSystem* /*unused*/)
     {
@@ -583,7 +583,7 @@ namespace euphoria::core
 
     std::shared_ptr<TemplateNodeSet>
     ReadSet(LexReader*         reader,
-            TemplateError*     errors,
+            TemplateErrorList*     errors,
             const std::string& file,
             vfs::FileSystem* /*unused*/)
     {
@@ -626,7 +626,7 @@ namespace euphoria::core
     std::shared_ptr<TemplateNodeIfdef>
     ReadIfdef(
             LexReader*         reader,
-            TemplateError*     errors,
+            TemplateErrorList*     errors,
             const std::string& file,
             vfs::FileSystem*   fs)
     {
@@ -658,7 +658,7 @@ namespace euphoria::core
     std::shared_ptr<TemplateNodeList>
     ReadInclude(
             LexReader*         reader,
-            TemplateError*     errors,
+            TemplateErrorList*     errors,
             const std::string& file,
             vfs::FileSystem*   fs)
     {
@@ -686,7 +686,7 @@ namespace euphoria::core
     ReadTemplateList(
             std::shared_ptr<TemplateNodeList>* nodes,
             LexReader*                         reader,
-            TemplateError*                     errors,
+            TemplateErrorList*                     errors,
             const std::string&                 file,
             bool                               expect_end,
             vfs::FileSystem*                   fs)
@@ -753,18 +753,18 @@ namespace euphoria::core
     ////////////////////////////////////////////////////////////////////////////////
 
     Template::Template(const std::string& text)
-        : nodes_(new TemplateNodeList {})
+        : nodes(new TemplateNodeList {})
     {
         const std::string file = "from_string";
-        LexReader         reader(Lexer(text, &errors_, file));
-        ReadTemplateList(&nodes_, &reader, &errors_, file, false, nullptr);
+        LexReader         reader(Lexer(text, &errors, file));
+        ReadTemplateList(&nodes, &reader, &errors, file, false, nullptr);
     }
 
     Template::Template(vfs::FileSystem* fs, const std::string& path)
-        : nodes_(new TemplateNodeList {})
+        : nodes(new TemplateNodeList {})
     {
         ASSERT(fs);
-        LoadFromFilesystemToNodeList(fs, path, &errors_, &nodes_);
+        LoadFromFilesystemToNodeList(fs, path, &errors, &nodes);
     }
 
     Template::~Template() = default;
@@ -774,24 +774,18 @@ namespace euphoria::core
     {
         std::ostringstream ss;
 
-        if(errors_.HasErrors())
+        if(errors.HasErrors())
         {
             return "";
         }
 
-        if(nodes_)
+        if(nodes)
         {
             Defines my_defines = defines;
-            nodes_->Eval(&my_defines, &ss, &errors_);
+            nodes->Eval(&my_defines, &ss, &errors);
         }
 
         return ss.str();
-    }
-
-    const TemplateError&
-    Template::GetErrors() const
-    {
-        return errors_;
     }
 
 }  // namespace euphoria::core

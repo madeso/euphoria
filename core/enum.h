@@ -16,14 +16,14 @@ namespace euphoria::core
 
     // todo: as a compile option, use a hash instead of the string enum
 
-    /// Represents a enum type. Declare globally grab specific enums before or after
-    /// load, and load adds new,
-    /// verifies created and asserts misspelled values.
-    // Advantages over hashes: type safety, catches bad spelling, no collisions and
-    // perhaps faster to generate?
+    /** Represents a dynamically loaded "enum type".
+     * Declare globally grab specific enums before or after load, and load adds new,
+     * verifies created and asserts misspelled values.
+     * Advantages over hashes: type safety, catches bad spelling, no collisions and
+     * perhaps faster to generate?
+     */
     struct EnumType
     {
-    public:
         EnumType(std::string name);
         ~EnumType();
 
@@ -54,7 +54,6 @@ namespace euphoria::core
 
     struct EnumValue
     {
-    public:
         EnumValue(EnumType* t, size_t v);
 
         // todo: add EnumType to the parameter to verify against stored member

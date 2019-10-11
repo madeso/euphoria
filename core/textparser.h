@@ -16,7 +16,6 @@ namespace euphoria::core
 
         struct Node
         {
-        public:
             virtual ~Node() = default;
 
             virtual void
@@ -27,7 +26,6 @@ namespace euphoria::core
 
         struct TextNode : public Node
         {
-        public:
             std::string text;
 
             explicit TextNode(const std::string& t);
@@ -38,7 +36,6 @@ namespace euphoria::core
 
         struct ImageNode : public Node
         {
-        public:
             std::string image;
 
             explicit ImageNode(const std::string& t);
@@ -49,7 +46,6 @@ namespace euphoria::core
 
         struct BeginEndNode : public Node
         {
-        public:
             bool begin;
 
             explicit BeginEndNode(bool b);
@@ -60,7 +56,6 @@ namespace euphoria::core
 
         struct Visitor
         {
-        public:
             virtual void
             OnText(const std::string& text)
                     = 0;
@@ -79,7 +74,6 @@ namespace euphoria::core
 
         struct VisitorDebugString : public Visitor
         {
-        public:
             std::ostringstream ss;
 
             void
@@ -99,15 +93,18 @@ namespace euphoria::core
         };
     }  // namespace textparser
 
-    // @image with text and {-begin and }-end markers \ escapes
-    // todo add ability to specify button/keys so that we can use:
+    // todo(Gustav): not really a parsed text, more like a gui string or something... rename!
+
+    /** Represents displayed text.
+     * Format: @image with text and {-begin and }-end markers \ escapes
+     */
+    // todo: add ability to specify button/keys so that we can use:
     // use "[jump] to jump" and said [jump] would look up the keybind and display a
     // sprite/ninepath w/ text representing the bind this could also be useful when
     // displaying all the keybinds. needs to work out how (or if) the joystick
     // id/number also should be displayed.
     struct ParsedText
     {
-    public:
         void
         Clear();
 
@@ -138,7 +135,6 @@ namespace euphoria::core
         void
         Visit(textparser::Visitor* visitor) const;
 
-    private:
         std::vector<std::shared_ptr<textparser::Node>> nodes;
     };
 

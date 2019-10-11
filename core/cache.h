@@ -12,7 +12,6 @@ namespace euphoria::core
     template <typename Key, typename Data, typename Loader>
     struct Cache
     {
-    public:
         std::shared_ptr<Data>
         Get(const Key& key)
         {

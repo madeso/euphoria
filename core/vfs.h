@@ -39,7 +39,6 @@ namespace euphoria::core
 
         struct FileSystemReadRoot
         {
-        public:
             virtual ~FileSystemReadRoot();
 
             virtual std::string
@@ -56,7 +55,6 @@ namespace euphoria::core
 
         struct FileSystemWriteRoot
         {
-        public:
             virtual ~FileSystemWriteRoot();
 
             virtual void
@@ -68,7 +66,6 @@ namespace euphoria::core
 
         struct FileSystem
         {
-        public:
             FileSystem();
             ~FileSystem();
 
@@ -138,7 +135,6 @@ namespace euphoria::core
 
         struct FileSystemRootFolder : public FileSystemReadRoot
         {
-        public:
             explicit FileSystemRootFolder(std::string folder);
 
             std::shared_ptr<MemoryChunk>
@@ -162,7 +158,6 @@ namespace euphoria::core
 
         struct FileSystemWriteFolder : public FileSystemWriteRoot
         {
-        public:
             explicit FileSystemWriteFolder(const std::string& f);
 
             void

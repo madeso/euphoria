@@ -11,7 +11,6 @@ namespace euphoria::core
 {
     struct Noncopyable
     {
-    public:
         Noncopyable() {}
 
         NONCOPYABLE_CONSTRUCTOR(Noncopyable);

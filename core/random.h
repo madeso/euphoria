@@ -18,7 +18,6 @@ namespace euphoria::core
         // todo: make simpler
         // possible suggestion, rename to RandomGenerator and have a global
         // Random function with overloads in all files instead of here.
-    public:
         [[nodiscard]] static u32
         TimeSeed();
 
@@ -86,9 +85,8 @@ namespace euphoria::core
             return v[NextRange(size)];
         }
 
-    private:
-        u32 index_;
-        u32 state_[16];
+        u32 index;
+        u32 state[16];
     };
 
 }  // namespace euphoria::core

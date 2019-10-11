@@ -13,30 +13,30 @@ namespace euphoria::core
 {
     struct Defines
     {
-    public:
         Defines();
 
         bool
         IsDefined(const std::string& name) const;
+
         std::string
         GetValue(const std::string& name) const;
 
         void
         Undefine(const std::string& name);
+
         void
         Define(const std::string& name, const std::string& value);
 
-    private:
-        std::map<std::string, std::string> values_;
+        std::map<std::string, std::string> values;
     };
 
-    struct TemplateError
+    struct TemplateErrorList
     {
-    public:
-        TemplateError();
+        TemplateErrorList();
 
         bool
         HasErrors() const;
+
         void
         AddError(
                 const std::string& file,
@@ -47,27 +47,24 @@ namespace euphoria::core
         std::string
         GetCombinedErrors() const;
 
-    private:
-        std::vector<std::string> errors_;
+        std::vector<std::string> errors;
     };
 
     struct TemplateNodeList;
 
     struct Template
     {
-    public:
         explicit Template(const std::string& text);
         Template(vfs::FileSystem* fs, const std::string& path);
         ~Template();
 
         std::string
         Evaluate(const Defines& defines);
-        const TemplateError&
-        GetErrors() const;
+
+        TemplateErrorList                     errors;
 
     private:
-        TemplateError                     errors_;
-        std::shared_ptr<TemplateNodeList> nodes_;
+        std::shared_ptr<TemplateNodeList> nodes;
     };
 
 }  // namespace euphoria::core

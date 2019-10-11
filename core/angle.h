@@ -11,20 +11,6 @@ namespace euphoria::core
 
     struct Angle
     {
-    private:
-        [[nodiscard]] static constexpr float
-        RadianToDegrees(float rad)
-        {
-            return (180.0f / Pi()) * rad;
-        }
-
-        [[nodiscard]] static constexpr float
-        DegreesToRadian(float deg)
-        {
-            return Pi() / 180.0f * deg;
-        }
-
-    public:
         [[nodiscard]] constexpr float
         InDegrees() const
         {
@@ -91,6 +77,18 @@ namespace euphoria::core
         operator-() const;
 
     private:
+        [[nodiscard]] static constexpr float
+        RadianToDegrees(float rad)
+        {
+            return (180.0f / Pi()) * rad;
+        }
+
+        [[nodiscard]] static constexpr float
+        DegreesToRadian(float deg)
+        {
+            return Pi() / 180.0f * deg;
+        }
+        
         constexpr explicit Angle(float rad) : mRad(rad) {}
 
         float mRad;

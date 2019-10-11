@@ -33,17 +33,10 @@ namespace euphoria::core
 
     struct Camera
     {
-    public:
         Camera();
 
         CompiledCamera
         Compile(float aspect) const;
-
-        mat4f
-        CalculateProjectionMatrix(float aspect) const;
-
-        mat4f
-        CalculateViewMatrix() const;
 
         vec3f position;
         quatf rotation;

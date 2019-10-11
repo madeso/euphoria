@@ -40,7 +40,6 @@ namespace euphoria::core::ecs
 
     struct Component
     {
-    public:
 #if BUILD_ENTITY_DEBUG_COMPONENT == 1
         Component(TypeName n, TypeId i);
 #endif
@@ -56,7 +55,6 @@ namespace euphoria::core::ecs
 
     struct RegistryEntityCallback
     {
-    public:
         virtual ~RegistryEntityCallback() = default;
 
         virtual void
@@ -90,7 +88,6 @@ namespace euphoria::core::ecs
     struct RegistryImpl;
     struct Registry
     {
-    public:
         Registry();
         ~Registry();
 

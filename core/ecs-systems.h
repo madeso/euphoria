@@ -26,7 +26,6 @@ namespace euphoria::core::ecs
     // only a base class container
     struct ComponentSystem
     {
-    public:
         explicit ComponentSystem(const std::string& the_name);
         virtual ~ComponentSystem() = default;
 
@@ -40,7 +39,6 @@ namespace euphoria::core::ecs
 
     struct ComponentSystemStore
     {
-    public:
         ComponentSystemStore() = default;
 
         void
@@ -52,21 +50,18 @@ namespace euphoria::core::ecs
 
     struct ComponentSystemUpdate
     {
-    public:
         virtual void
         Update(EntReg* reg, float dt) const = 0;
     };
 
     struct ComponentSystemInit
     {
-    public:
         virtual void
         OnAdd(EntityId entity) const = 0;
     };
 
     struct ComponentSystemSpriteDraw
     {
-    public:
         virtual void
         Draw(EntReg* reg, render::SpriteRenderer* renderer) const = 0;
     };
@@ -74,7 +69,6 @@ namespace euphoria::core::ecs
     template <typename TSystem>
     struct SystemStore
     {
-    public:
         void
         Add(TSystem* system)
         {
@@ -88,14 +82,12 @@ namespace euphoria::core::ecs
     struct ComponentSystemUpdateStore
         : public SystemStore<ComponentSystemUpdate>
     {
-    public:
         void
         Update(EntReg* reg, float dt) const;
     };
 
     struct ComponentSystemInitStore : public SystemStore<ComponentSystemInit>
     {
-    public:
         void
         OnAdd(EntityId ent) const;
     };
@@ -103,14 +95,12 @@ namespace euphoria::core::ecs
     struct ComponentSystemSpriteDrawStore
         : public SystemStore<ComponentSystemSpriteDraw>
     {
-    public:
         void
         Draw(EntReg* reg, render::SpriteRenderer* renderer) const;
     };
 
     struct Systems
     {
-    public:
         void
         AddAndRegister(std::shared_ptr<ComponentSystem> system);
 
@@ -125,7 +115,6 @@ namespace euphoria::core::ecs
 
     struct World
     {
-    public:
         EntReg   reg;
         Systems* systems;
 

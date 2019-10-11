@@ -11,7 +11,6 @@ namespace euphoria::core
     template <typename T>
     struct ShuffleBag
     {
-    public:
         unsigned long
         GetSize() const
         {

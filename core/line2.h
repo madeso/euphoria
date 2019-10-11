@@ -8,7 +8,6 @@ namespace euphoria::core
     template <typename T>
     struct line2
     {
-    public:
         typedef line2<T> Self;
         typedef vec2<T>  vec;
         typedef vec2<T>  tpoint;
@@ -33,7 +32,6 @@ namespace euphoria::core
 
         struct Collision
         {
-        public:
             [[nodiscard]] static Collision
             Parallel()
             {

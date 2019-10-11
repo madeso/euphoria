@@ -2,12 +2,13 @@
 #include "core/stringutils.h"
 
 #include "core/commandlineparser.h"
+#include "core/str.h"
 
 namespace euphoria::core
 {
-    CmdLine::CmdLine(std::ostream* out) : out(out)
+    CmdLine::CmdLine()
     {
-        Register("help", [this](const Args& arg) { this->PrintHelp(arg); });
+        Register("help", [this](PrintFunction print, const Args& arg) { this->PrintHelp(print, arg); });
     }
 
     void
@@ -17,7 +18,7 @@ namespace euphoria::core
     }
 
     void
-    CmdLine::Run(const std::string& cmd)
+    CmdLine::Run(PrintFunction print, const std::string& cmd)
     {
         if(cmd.empty())
         {
@@ -33,22 +34,23 @@ namespace euphoria::core
         if(found == callbacks.end())
         {
             // unable to find cmd
-            (*out) << "Unknown command " << name << "\n";
+            print(Str{} << "Unknown command " << name);
+            // todo(Gustav): list commands that are the closest match
             return;
         }
 
         Callback callback = found->second;
-        callback(std::vector<std::string> {line.begin() + 1, line.end()});
+        callback(print, std::vector<std::string> {line.begin() + 1, line.end()});
     }
 
     void
-    CmdLine::PrintHelp(const Args&) const
+    CmdLine::PrintHelp(CmdLine::PrintFunction print, const Args&)
     {
-        (*out) << "Available commands:\n";
+        print("Available commands:");
         for(const auto& c: callbacks)
         {
-            (*out) << "  " << c.first << "\n";
+            print(Str{}  << "  " << c.first);
         }
-        (*out) << "\n";
+        print("");
     }
 }  // namespace euphoria::core

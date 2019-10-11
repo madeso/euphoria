@@ -23,7 +23,6 @@ namespace euphoria::core
 
     struct Logger
     {
-    public:
         Logger(Logger* parent, std::string name);
         bool
         IsEnabledForLevel(LogLevel level) const;

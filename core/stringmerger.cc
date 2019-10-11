@@ -53,50 +53,40 @@ namespace euphoria::core
         return ss.str();
     }
 
-    const StringMerger&
+    const StringMerger
     StringMerger::EnglishAnd()
     {
-        static const StringMerger EnglishAnd
-                = StringMerger().Separator(", ", " and ").Empty("<none>");
-        return EnglishAnd;
+        return StringMerger().Separator(", ", " and ").Empty("<none>");
     }
 
-    const StringMerger&
+    const StringMerger
     StringMerger::EnglishOr()
     {
-        static const StringMerger EnglishOr
-                = StringMerger().Separator(", ", " or ").Empty("<none>");
-        return EnglishOr;
+        return StringMerger().Separator(", ", " or ").Empty("<none>");
     }
 
-    const StringMerger&
+    const StringMerger
     StringMerger::Array()
     {
-        static const StringMerger Array
-                = StringMerger().Separator(", ").StartAndEnd("[", "]");
-        return Array;
+        return StringMerger().Separator(", ").StartAndEnd("[", "]");
     }
 
-    const StringMerger&
+    const StringMerger
     StringMerger::FunctionCall()
     {
-        static const StringMerger FunctionCall
-                = StringMerger().Separator(", ").StartAndEnd("(", ")");
-        return FunctionCall;
+        return StringMerger().Separator(", ").StartAndEnd("(", ")");
     }
 
-    const StringMerger&
+    const StringMerger
     StringMerger::Space()
     {
-        static const StringMerger Space = StringMerger().Separator(" ");
-        return Space;
+        return StringMerger().Separator(" ");
     }
 
-    const StringMerger&
+    const StringMerger
     StringMerger::Comma()
     {
-        static const StringMerger Comma = StringMerger().Separator(", ");
-        return Comma;
+        return StringMerger().Separator(", ");
     }
 
     StringMerger&
