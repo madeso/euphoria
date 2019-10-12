@@ -108,8 +108,10 @@ namespace euphoria::core::argparse
 
         bool
         HasMore() const;
+
         std::string
         Read();
+
         std::string
         Peek(size_t advance = 1) const;
     };
@@ -123,15 +125,19 @@ namespace euphoria::core::argparse
         bool show_in_long_description = true;
 
         virtual ~Arg() {}
+
         virtual ParseResult
         Parse(const std::string& name, Running* running)
                 = 0;
+
         virtual std::string
         ToShortArgumentString()
                 = 0;
+
         virtual bool
         CanCallManyTimes()
                 = 0;
+
         virtual bool
         TakesArguments()
                 = 0;
@@ -143,6 +149,7 @@ namespace euphoria::core::argparse
 
         Extra&
         MetaVar(const std::string& m);
+
         Extra&
         Help(const std::string& h);
     };
@@ -441,6 +448,7 @@ namespace euphoria::core::argparse
 
         void
         WriteShortHelp(Running* running) const;
+
         void
         WriteLongHelp(Running* running) const;
 
@@ -471,6 +479,7 @@ namespace euphoria::core::argparse
 
         std::shared_ptr<Parser>
         AddSubParser(const std::string& name, SubParser::Callback callback);
+
         std::shared_ptr<Parser>
         AddSubParser(
                 const std::string&  name,
@@ -515,6 +524,7 @@ namespace euphoria::core::argparse
 
         Extra
         SetTrue(const Name& name, bool* b);
+
         Extra
         SetFalse(const Name& name, bool* b);
 
@@ -530,6 +540,7 @@ namespace euphoria::core::argparse
 
         ParseResult
         Parse(int argc, char* argv[]) const;
+        
         ParseResult
         Parse(const std::string&              program_name,
               const std::vector<std::string>& args) const;
