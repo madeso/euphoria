@@ -5,6 +5,8 @@ project(music)
 
 ADD_SUBDIRECTORY(external/rtmidi)
 set(BUILD_STATIC_LIBS ON)
+set(RTMIDI_BUILD_STATIC_LIBS "")
+set(RTMIDI_BUILD_SHARED_LIBS "")
 include_directories(SYSTEM external/rtmidi)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
@@ -21,6 +23,7 @@ if (MSVC)
   add_compile_options(/W4)
 else()
   add_compile_options(-Wall -Wextra -Wpedantic)
+  add_compile_options(-Wno-error=deprecated)
 endif()
 
 find_package(SDL2 REQUIRED)
@@ -39,40 +42,6 @@ include_directories(SYSTEM fake/)
 include_directories(SYSTEM ${CMAKE_CURRENT_BINARY_DIR})
 
 add_executable(binary_to_compressed_c external/imgui/misc/fonts/binary_to_compressed_c.cpp)
-add_custom_command(
-  OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/font_noto_sans_display.h"
-  COMMAND  binary_to_compressed_c
-  ARGS ${CMAKE_CURRENT_SOURCE_DIR}/NotoSansDisplay-Regular.ttf NotoSansDisplay > font_noto_sans_display.h
-  WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
-  COMMENT "Generating binary font: Noto Sans Display"
-)
-set(app_src ${app_src} ${CMAKE_CURRENT_BINARY_DIR}/font_noto_sans_display.h)
 
-set(app_src ${app_src}
-    # standard imgui
-    external/imgui/imgui.cpp
-    external/imgui/imgui.h
-    external/imgui/imgui_demo.cpp
-    external/imgui/imgui_draw.cpp
-    external/imgui/imgui_internal.h
-    external/imgui/stb_rect_pack.h
-    external/imgui/stb_textedit.h
-    external/imgui/stb_truetype.h
-    # sdl binding
-    external/imgui/examples/imgui_impl_sdl.h
-    external/imgui/examples/imgui_impl_sdl.cpp
-    # opengl binding
-    external/imgui/examples/imgui_impl_opengl3.cpp
-    external/imgui/examples/imgui_impl_opengl3.h
-    # opengl loader
-    external/glad/src/glad.c
-    external/glad/include/glad/glad.h
-    )
-
-add_executable(demo WIN32 MACOSX_BUNDLE ${app_src})
-target_link_libraries(demo
-                      ${SDL2_LIBRARY}
-                      ${CMAKE_DL_LIBS}
-                      rtmidi_static
-                      )
+add_subdirectory(musikmaskin)
 
