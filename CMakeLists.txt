@@ -35,6 +35,12 @@ set(Gaf_CUSTOM_ARGUMENTS_FROM_FILE ${CMAKE_CURRENT_SOURCE_DIR}/gaf_options.txt)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH}
     "${CMAKE_CURRENT_SOURCE_DIR}/cmake-modules")
 
+ADD_SUBDIRECTORY(external/rtmidi)
+set(BUILD_STATIC_LIBS ON)
+set(RTMIDI_BUILD_STATIC_LIBS "")
+set(RTMIDI_BUILD_SHARED_LIBS "")
+include_directories(SYSTEM external/rtmidi)
+
 find_package(OpenGL REQUIRED)
 
 include(${CMAKE_CURRENT_SOURCE_DIR}/external/gaf/gaf.cmake)
@@ -70,6 +76,7 @@ if(MSVC)
 else()
   add_compile_options(-Wall -Wextra -Wpedantic)
   add_compile_options(-Wshadow)
+  add_compile_options(-Wno-error=deprecated)
 endif()
 
 find_package(SDL2 REQUIRED)
@@ -112,3 +119,4 @@ add_subdirectory(img)
 add_subdirectory(editor)
 add_subdirectory(painter)
 add_subdirectory(tabletool)
+add_subdirectory(musikmaskin)
