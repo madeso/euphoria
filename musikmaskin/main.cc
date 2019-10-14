@@ -123,9 +123,7 @@ public:
         }
     }
 
-    ~AppBase()
-    {
-    };
+    ~AppBase() {};
 
     virtual void
     Draw() = 0;
@@ -339,12 +337,10 @@ DrawKeys(
 }
 
 
-
-
 class App : public AppBase
 {
 public:
-    MidiInputNode                   midi;
+    MidiInputNode                midi;
     KeyboardInputNode            piano;
     SingleToneNode               single_tone;
     ArpegiatorNode               arp;
@@ -468,7 +464,9 @@ public:
 
             imgui::Knob("Master", &master.volume, 0.0f, 1.0f);
 
-            CustomDropdown("Tuning", &ttf.tuning, Tuning::Max, [](auto t){return ToString(t);});
+            CustomDropdown("Tuning", &ttf.tuning, Tuning::Max, [](auto t) {
+                return ToString(t);
+            });
 
             ImGui::DragFloat(
                     "Time to start",
@@ -484,17 +482,23 @@ public:
                     1.0f);
 
             CustomDropdown(
-                    "Oscilator", &oscilator.oscilator, OscilatorType::Max, [](auto t){return ToString(t);});
+                    "Oscilator",
+                    &oscilator.oscilator,
+                    OscilatorType::Max,
+                    [](auto t) { return ToString(t); });
 
             CustomDropdown(
                     "Chord emulation",
                     &piano.chords_emulation,
-                    ChordEmulation::Max, [](auto t){return ToString(t);});
+                    ChordEmulation::Max,
+                    [](auto t) { return ToString(t); });
 
             ImGui::InputInt("Times", &scaler.times, 1, 5);
 
             ImGui::InputInt("Arp octaves", &arp.octaves);
-            CustomDropdown("Arp mode", &arp.mode, ArpMode::MAX, [](auto t){return ToString(t);});
+            CustomDropdown("Arp mode", &arp.mode, ArpMode::MAX, [](auto t) {
+                return ToString(t);
+            });
             imgui::Knob("Update time", &arp.update_time, 0, 1);
             ImGui::SameLine();
             imgui::Knob("Tone time", &arp.tone_time, 0, 1);

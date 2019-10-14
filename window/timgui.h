@@ -25,6 +25,6 @@ namespace euphoria::window
             ImGui::EndCombo();
         }
     }
-}
+}  // namespace euphoria::window
 
 #endif  // EUPHORIA_WINDOW_TIMGUI_H

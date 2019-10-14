@@ -36,7 +36,7 @@ namespace euphoria::core
         }
 
         std::vector<T> d;
-        std::size_t            max;
+        std::size_t    max;
     };
 }  // namespace euphoria::core
 
