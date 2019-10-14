@@ -1,22 +1,58 @@
-#include <iostream>
-#include <sstream>
-#include <vector>
-#include <map>
-#include <algorithm>
-#include <cmath>
-#include <set>
-#include <memory>
-
+#include <core/mat4.h>
+#include "core/draw.h"
+#include "core/random.h"
+#include "core/shufflebag.h"
+#include "core/mat4.h"
+#include "core/axisangle.h"
+#include "core/aabb.h"
+#include "core/texturetypes.h"
+#include "core/vfs.h"
+#include "core/vfs_imagegenerator.h"
+#include "core/vfs_path.h"
+#include "core/os.h"
+#include "core/range.h"
+#include "core/camera.h"
+#include "core/stringutils.h"
+#include "core/stdutils.h"
+#include "core/proto.h"
 #include "core/log.h"
 
-// #include <glad/glad.h>
+#include "core/path.h"
+
+#include <render/init.h>
+#include <render/debuggl.h>
+#include <render/materialshader.h>
+#include <render/compiledmesh.h>
+#include <render/texturecache.h>
+#include "render/shaderattribute3d.h"
+#include "render/texture.h"
+#include "render/world.h"
+#include "render/viewport.h"
+#include "render/materialshadercache.h"
+#include "render/defaultfiles.h"
+
+
+#include "window/imguilibrary.h"
+#include "window/timer.h"
+#include "window/imgui_ext.h"
+#include "window/sdllibrary.h"
+#include "window/sdlwindow.h"
+#include "window/sdlglcontext.h"
+#include "window/filesystem.h"
+#include "window/engine.h"
+#include "window/canvas.h"
+#include "window/key.h"
+
+#include "imgui/imgui.h"
+#include <SDL.h>
+#include <iostream>
+#include <memory>
+
+
 #include <imgui/imgui.h>
 #include "RtMidi.h"
-
 #define IMGUI_DEFINE_MATH_OPERATORS
 #include "imgui/imgui_internal.h"
-
-#include <SDL.h>
 
 #include "core/history.h"
 
@@ -41,12 +77,6 @@ class AppBase
 public:
     AppBase() : ok(true)
     {
-        if(SDL_Init(SDL_INIT_EVERYTHING) < 0)
-        {
-            ok = false;
-            return;
-        }
-
         SetupWindow("musik maskin");
         SetupAudioCallbacks();
     }
@@ -210,9 +240,6 @@ public:
 };
 
 
-using Key = SDL_Keycode;
-
-
 struct MidiInputNode : public euphoria::minsynth::MidiInNode
 {
     ToneTaker* tones = nullptr;
@@ -261,23 +288,6 @@ struct MidiInputNode : public euphoria::minsynth::MidiInNode
         }
     }
 };
-
-////////////////////////////////////////////////////////////////
-
-/*
-std::string
-KeyToString(SDL_Keycode k)
-{
-  if((k >= 'a' && k <= 'z') || (k >= '0' && k <= '9'))
-  {
-    const auto c = static_cast<char>(k);
-    const auto s = std::string(1, toupper(c));
-    return s;
-  }
-
-  return "";
-}
-*/
 
 
 void
@@ -533,60 +543,74 @@ public:
     }
 
     void
-    OnKey(SDL_Keycode key, bool down, float time)
+    OnKey(Key key, bool down, float time)
     {
         piano.OnInput(key, down, time);
     }
 };
 
 int
-main(int argc, char* argv[])
+main(int, char**)
 {
-    App app;
-    if(!app.ok)
+    Engine engine;
+
+    if(engine.Setup() == false)
     {
         return -1;
     }
 
-    SDL_Event event;
+    int window_width  = 1280;
+    int window_height = 720;
 
+    if(!engine.CreateWindow("Musikmaskin", window_width, window_height, true))
+    {
+        return -1;
+    }
+
+    App app;
+    app.Start();
+
+    bool running = true;
+
+    //////////////////////////////////////////////////////////////////////////////
+    // main loop
+
+    float time = 0;
     Uint64 current_time = SDL_GetPerformanceCounter();
     Uint64 last_time    = 0;
 
-    app.Start();
-
-    float time = 0;
-
-    bool run = true;
-    while(run)
+    while(running)
     {
         last_time    = current_time;
         current_time = SDL_GetPerformanceCounter();
 
         const auto dt
                 = (static_cast<float>(current_time - last_time)
-                   / SDL_GetPerformanceFrequency());
+                / SDL_GetPerformanceFrequency());
+                    
 
-        time += dt;
-
-        app.Update(dt, time);
-
-        while(SDL_PollEvent(&event))
+        SDL_Event e;
+        while(SDL_PollEvent(&e) != 0)
         {
-            // ImGui_ImplSDL2_ProcessEvent(&event);
-            switch(event.type)
+            
+            engine.imgui->ProcessEvents(&e);
+
+            if(engine.HandleResize(e, &window_width, &window_height))
             {
-            case SDL_QUIT: run = false; break;
+            }
+
+            // key handling
+            switch(e.type)
+            {
             case SDL_KEYDOWN:
             case SDL_KEYUP:
                 if(!ImGui::GetIO().WantCaptureKeyboard)
                 {
-                    if(event.key.repeat == 0)
+                    if(e.key.repeat == 0)
                     {
                         app.OnKey(
-                                event.key.keysym.sym,
-                                event.key.keysym.mod,
-                                event.type == SDL_KEYDOWN,
+                                ToKey(e.key.keysym),
+                                e.type == SDL_KEYDOWN,
                                 time);
                     }
                 }
@@ -594,18 +618,40 @@ main(int argc, char* argv[])
             default: break;
             }
 
-            if(event.type == SDL_WINDOWEVENT
-               && event.window.event == SDL_WINDOWEVENT_CLOSE
-               && event.window.windowID == SDL_GetWindowID(app.window))
+            switch(e.type)
             {
-                run = false;
+            case SDL_QUIT: running = false; break;
+            default:
+                break;
             }
         }
 
-        app.OnRender();
-    }
+        time += dt;
+        app.Update(dt, time);
 
-    SDL_Quit();
+        engine.imgui->StartNewFrame();
+
+        if(ImGui::BeginMainMenuBar())
+        {
+            if(ImGui::BeginMenu("File"))
+            {
+                if(ImGui::MenuItem("Exit", "Ctrl+Q"))
+                {
+                    running = false;
+                }
+                ImGui::EndMenu();
+            }
+        }
+        ImGui::EndMainMenuBar();
+
+        // app.OnRender();
+        // ImGui::End();
+
+        engine.init->ClearScreen(Color::LightGray);
+        engine.imgui->Render();
+
+        SDL_GL_SwapWindow(engine.window->window);
+    }
 
     return 0;
 }
