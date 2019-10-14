@@ -1,6 +1,9 @@
+#include "window/solarized.h"
 
-#include "solarized.h"
-#include "imgui.h"
+#include <imgui/imgui.h>
+
+namespace euphoria::window
+{
 
 void
 SetupSolarized(bool light, ImGuiStyle* dst)
@@ -16,19 +19,19 @@ SetupSolarized(bool light, ImGuiStyle* dst)
   constexpr Color base2   = 0xEEE8D5FF;
   constexpr Color base3   = 0xFDF6E3FF;
   constexpr Color yellow  = 0xB58900FF;
-  constexpr Color orange  = 0xCB4B16FF;
+  // constexpr Color orange  = 0xCB4B16FF;
   constexpr Color red     = 0xDC322FFF;
-  constexpr Color magenta = 0xD33682FF;
-  constexpr Color violet  = 0x6C71C4FF;
+  // constexpr Color magenta = 0xD33682FF;
+  // constexpr Color violet  = 0x6C71C4FF;
   constexpr Color blue    = 0x268BD2FF;
-  constexpr Color cyan    = 0x2AA198FF;
-  constexpr Color green   = 0x859900FF;
+  // constexpr Color cyan    = 0x2AA198FF;
+  // constexpr Color green   = 0x859900FF;
 
-  const auto really_strong_border = light ? base03 : base3;
-  const auto strong_border        = light ? base02 : base2;
-  const auto emphasized_content   = light ? base01 : base1;
+  // const auto really_strong_border = light ? base03 : base3;
+  // const auto strong_border        = light ? base02 : base2;
+  // const auto emphasized_content   = light ? base01 : base1;
   const auto primary_content      = light ? base00 : base0;
-  const auto not_used             = light ? base0 : base00;
+  // const auto not_used             = light ? base0 : base00;
   const auto comments             = light ? base1 : base01;
   const auto background_highlight = light ? base2 : base02;
   const auto background           = light ? base3 : base03;
@@ -85,6 +88,7 @@ SetupSolarized(bool light, ImGuiStyle* dst)
   colors[ImGuiCol_DragDropTarget]        = C(blue);
   colors[ImGuiCol_NavHighlight]          = C(red);
   colors[ImGuiCol_NavWindowingHighlight] = C(background);
-  colors[ImGuiCol_NavWindowingDimBg]     = C(background, 0.6f);
-  colors[ImGuiCol_ModalWindowDimBg]      = C(background, 0.6f);
+  // colors[ImGuiCol_NavWindowingDimBg]     = C(background, 0.6f);
+  // colors[ImGuiCol_ModalWindowDimBg]      = C(background, 0.6f);
+}
 }

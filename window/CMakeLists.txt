@@ -20,6 +20,7 @@ set(src_imgui
 set(src ${src} ${src_imgui})
 source_group("imgui" FILES ${src_imgui})
 
+# fonts
 add_custom_command(
   OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/font_forkawesome.h"
   COMMAND  binary_to_compressed_c
@@ -29,6 +30,17 @@ add_custom_command(
   )
 set(src ${src} ${CMAKE_CURRENT_BINARY_DIR}/font_forkawesome.h)
 source_group("fonts" FILES ${CMAKE_CURRENT_BINARY_DIR}/font_forkawesome.h)
+
+add_custom_command(
+  OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/font_noto_sans_display.h"
+  COMMAND  binary_to_compressed_c
+  ARGS ${CMAKE_CURRENT_SOURCE_DIR}/NotoSansDisplay-Regular.ttf NotoSansDisplay > font_noto_sans_display.h
+  WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+  COMMENT "Generating binary font: Noto Sans Display"
+)
+set(src ${src} ${CMAKE_CURRENT_BINARY_DIR}/font_noto_sans_display.h)
+source_group("fonts" FILES ${CMAKE_CURRENT_BINARY_DIR}/font_noto_sans_display.h)
+
 include_directories(SYSTEM ${CMAKE_CURRENT_BINARY_DIR})
 
 include_directories(SYSTEM ../external/IconFontCppHeaders/)

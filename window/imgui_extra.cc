@@ -1,12 +1,14 @@
-#include "imgui_extra.h"
+#include "window/imgui_extra.h"
 
-#include "imgui.h"
+#include "core/assert.h"
+
+#include <imgui/imgui.h>
 
 #define _USE_MATH_DEFINES
 #include <cmath>
 #include <sstream>
 #include <iomanip>
-#include <imgui_internal.h>
+#include <imgui/imgui_internal.h>
 
 namespace imgui
 {
@@ -19,7 +21,7 @@ namespace imgui
       int           num_segments,
       float         angle_offset)
   {
-    assert(draw_list);
+    ASSERT(draw_list);
 
     // implementation modified from ImDrawList AddCircleFilled
 

@@ -1,7 +1,7 @@
-#ifndef MUSIC_IMGUI_EXTRA_H
-#define MUSIC_IMGUI_EXTRA_H
+#ifndef EUPHORIA_WINDOW_IMGUI_EXTRA_H
+#define EUPHORIA_WINDOW_IMGUI_EXTRA_H
 
-#include "imgui.h"
+#include <imgui/imgui.h>
 
 namespace imgui
 {
@@ -45,4 +45,4 @@ namespace imgui
   CanvasEnd();
 }
 
-#endif  // MUSIC_IMGUI_EXTRA_H
+#endif  // EUPHORIA_WINDOW_IMGUI_EXTRA_H

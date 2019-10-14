@@ -35,7 +35,7 @@ set(Gaf_CUSTOM_ARGUMENTS_FROM_FILE ${CMAKE_CURRENT_SOURCE_DIR}/gaf_options.txt)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH}
     "${CMAKE_CURRENT_SOURCE_DIR}/cmake-modules")
 
-ADD_SUBDIRECTORY(external/rtmidi)
+add_subdirectory(external/rtmidi)
 set(BUILD_STATIC_LIBS ON)
 set(RTMIDI_BUILD_STATIC_LIBS "")
 set(RTMIDI_BUILD_SHARED_LIBS "")
@@ -104,6 +104,7 @@ add_definitions(-DIMGUI_USER_CONFIG="imgui_config.h")
 add_executable(binary_to_compressed_c external/imgui/imgui/misc/fonts/binary_to_compressed_c.cpp)
 
 add_subdirectory(tracery)
+add_subdirectory(minsynth)
 add_subdirectory(base64)
 add_subdirectory(render)
 add_subdirectory(window)
