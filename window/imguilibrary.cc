@@ -14,10 +14,12 @@ namespace euphoria::window
     AddForkAwesome()
     {
         ImGuiIO& io = ImGui::GetIO();
-        
+
         // io.Fonts->AddFontDefault();
         io.Fonts->AddFontFromMemoryCompressedTTF(
-            NotoSansDisplay_compressed_data, NotoSansDisplay_compressed_size, 16);
+                NotoSansDisplay_compressed_data,
+                NotoSansDisplay_compressed_size,
+                16);
 
         static const ImWchar icons_ranges[] = {ICON_MIN_FK, ICON_MAX_FK, 0};
         ImFontConfig         icons_config;

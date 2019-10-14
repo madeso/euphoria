@@ -540,7 +540,7 @@ namespace euphoria::core::argparse
 
         ParseResult
         Parse(int argc, char* argv[]) const;
-        
+
         ParseResult
         Parse(const std::string&              program_name,
               const std::vector<std::string>& args) const;

@@ -149,6 +149,6 @@ namespace euphoria::core::markov
         }
     };
 
-}
+}  // namespace euphoria::core::markov
 
 #endif  // CORE_MARKOV_H

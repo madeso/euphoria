@@ -7,7 +7,7 @@
 #include "core/argparse.h"
 #include "core/stringmerger.h"
 
-namespace core = euphoria::core;
+namespace core   = euphoria::core;
 namespace markov = euphoria::core::markov;
 
 std::vector<char>
@@ -51,7 +51,8 @@ IsWordChar(char c)
 {
     // ' is using in words like can't
     // - is used in words like right-handed
-    return IsCharUpper(c) || IsCharLower(c) || IsNumber(c) || c == '\'' || c == '-';
+    return IsCharUpper(c) || IsCharLower(c) || IsNumber(c) || c == '\''
+           || c == '-';
 }
 
 bool
@@ -62,51 +63,51 @@ IsWhitespace(char c)
     case ' ':
     case '\n':
     case '\t':
-    case '\r':
-        return true;
-    default:
-        return false;
+    case '\r': return true;
+    default: return false;
     }
 }
 
-bool IsEndOfSentance(char c)
+bool
+IsEndOfSentance(char c)
 {
     switch(c)
     {
     case '.':
     case '!':
-    case '?':
-        return true;
+    case '?': return true;
 
-    default:
-        return false;
+    default: return false;
     }
 }
 
-bool IsCommaLike(char c)
+bool
+IsCommaLike(char c)
 {
     const std::string SPECIAL_WORDS = ",;:\"[]()=";
     return SPECIAL_WORDS.find(c) != std::string::npos;
 }
 
-using OnSentance = std::function<void (const Sentance&)>;
+using OnSentance = std::function<void(const Sentance&)>;
 
-int CharCode(char c)
+int
+CharCode(char c)
 {
     return static_cast<int>(static_cast<unsigned char>(c));
 }
 
 struct Parser
 {
-    bool ok = true;
+    bool        ok = true;
     std::string buffer;
-    Sentance words;
-    OnSentance on_sentance;
+    Sentance    words;
+    OnSentance  on_sentance;
 
     int line = 1;
-    int ch = 0;
+    int ch   = 0;
 
-    void AddWord()
+    void
+    AddWord()
     {
         if(!buffer.empty())
         {
@@ -115,16 +116,19 @@ struct Parser
         }
     }
 
-    void UnknownCharacter(char c)
+    void
+    UnknownCharacter(char c)
     {
-        std::cout << "Unknown character(" << line << ":" << ch <<"): " << c << " (" << CharCode(c) << ")\n";
+        std::cout << "Unknown character(" << line << ":" << ch << "): " << c
+                  << " (" << CharCode(c) << ")\n";
         ok = false;
     }
 
     void
     Feed(char c)
     {
-        if(CharCode(c) >= 187) return;
+        if(CharCode(c) >= 187)
+            return;
 
         if(c == '\n')
         {
@@ -143,7 +147,7 @@ struct Parser
                 return;
             }
         }
-        
+
         if(IsWordChar(c))
         {
             buffer += c;
@@ -168,7 +172,7 @@ struct Parser
             AddWord();
             words.push_back(std::string(1, c));
             on_sentance(words);
-            words = Sentance{};
+            words = Sentance {};
             return;
         }
 
@@ -181,7 +185,7 @@ bool
 ParseSentances(std::ifstream& data, OnSentance on_sentance)
 {
     std::string line;
-    core::Dots        dots;
+    core::Dots  dots;
 
     Parser parser;
     parser.on_sentance = on_sentance;
@@ -208,10 +212,11 @@ ParseSentances(std::ifstream& data, OnSentance on_sentance)
     return parser.ok;
 }
 
-std::string SentanceToString(const Sentance& s)
+std::string
+SentanceToString(const Sentance& s)
 {
     std::ostringstream ss;
-    bool first = true;
+    bool               first = true;
 
     for(const auto w: s)
     {
@@ -222,13 +227,14 @@ std::string SentanceToString(const Sentance& s)
         else
         {
             if(IsCommaLike(w[0]) || IsEndOfSentance(w[0]))
-            {}
+            {
+            }
             else
             {
                 ss << " ";
             }
         }
-        
+
         ss << w;
     }
 
@@ -247,17 +253,16 @@ MarkovSentance(const std::string& file, int memory, int count)
     }
 
     markov::ChainBuilder<std::string> m {memory};
-    const auto parsed = ParseSentances(data, [&](const Sentance& s){
-        m.Add(s);
-    });
+    const auto                        parsed
+            = ParseSentances(data, [&](const Sentance& s) { m.Add(s); });
     if(!parsed)
     {
         std::cerr << "No sentances loaded\n";
         return;
     }
 
-    core::Random                    rnd;
-    auto b = m.Build();
+    core::Random rnd;
+    auto         b = m.Build();
 
     for(int i = 0; i < count; i += 1)
     {
@@ -269,7 +274,7 @@ MarkovSentance(const std::string& file, int memory, int count)
 void
 MarkovWord(const std::string& file, int memory, int count)
 {
-    core::Random                rnd;
+    core::Random               rnd;
     markov::ChainBuilder<char> m {memory};
 
     std::ifstream data;
@@ -281,7 +286,7 @@ MarkovWord(const std::string& file, int memory, int count)
     }
 
     std::string line;
-    core::Dots        dots;
+    core::Dots  dots;
     while(std::getline(data, line))
     {
         if(line.empty())
@@ -305,17 +310,18 @@ main(int argc, char* argv[])
     core::argparse::Parser parser {"markov tool"};
 
     std::string file;
-    int memory = 4;
-    int count = 25;
+    int         memory = 4;
+    int         count  = 25;
 
-    auto sent = parser.AddSubParser("sentance", "parses and generates sentances", [&](){
-        MarkovSentance(file, memory, count);
-    });
+    auto sent = parser.AddSubParser(
+            "sentance", "parses and generates sentances", [&]() {
+                MarkovSentance(file, memory, count);
+            });
     sent->AddSimple("file", &file);
     sent->AddSimple("--memory", &memory);
     sent->AddSimple("--count", &count);
 
-    auto word = parser.AddSubParser("word", "parses and generates word", [&](){
+    auto word = parser.AddSubParser("word", "parses and generates word", [&]() {
         MarkovWord(file, memory, count);
     });
     word->AddSimple("file", &file);
@@ -331,5 +337,4 @@ main(int argc, char* argv[])
     {
         return 0;
     }
-    
 }

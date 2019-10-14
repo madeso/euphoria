@@ -9,371 +9,385 @@
 
 namespace euphoria::minsynth
 {
+    enum class Tuning
+    {
+        A4,
+        Boston,
+        NewYork,
+        Europe,
+        French,
+        Baroque,
+        Chorton,
+        Classical,
+        Max
+    };
+
+
+    enum class ChordEmulation
+    {
+        None,
+        Major,
+        Minor,
+        Diminished,
+        Augmented,
+        Major7,
+        Dominant7,
+        Augmented7,
+        AugmentedMajor7,
+        MinorMajor7,
+        Max
+    };
+
+
+    enum class MidiEvent
+    {
+        NoteOff         = 0b000,
+        NoteOn          = 0b001,
+        Aftertouch      = 0b010,
+        ControlChange   = 0b011,
+        ProgramChange   = 0b100,
+        ChannelPressure = 0b101,
+        PitchBend       = 0b110
+    };
+
+
+    enum class ArpMode
+    {
+        Up,
+        Down,
+        UpDownInclusive,
+        UpDownExclusive,
+        Random,
+        RandomNoRepeat,
+        MAX
+    };
+
+
+    enum class OscilatorType
+    {
+        Sine,
+        Square,
+        Triangle,
+        Sawtooth,
+        Noise,
+        Max
+    };
+
+
+    // https://pages.mtu.edu/~suits/notefreqs.html
+    namespace base_frequencies
+    {
+        constexpr float c0           = 16.35f;
+        constexpr float a4           = 440.0f;
+        constexpr float boston_a4    = 441.0f;
+        constexpr float new_york_a4  = 442.0f;
+        constexpr float europe_a4    = 443.0f;
+        constexpr float french_a4    = 435.0f;
+        constexpr float baroque_a4   = 415.0f;
+        constexpr float chorton_a4   = 466.0f;  // 460-470
+        constexpr float classical_a4 = 430.0f;  // 460-470
+    };  // namespace base_frequencies
+
+    std::string
+    ToString(Tuning t);
+
+    std::string
+    ToString(ChordEmulation em);
+
+
+    std::string
+    MidiEventToString(MidiEvent e);
+
+    std::string
+    ToString(ArpMode mode);
+
+
+    std::string
+    ToString(OscilatorType osc);
+
+    float
+    TuningToBaseFrequency(Tuning t);
+
+    float
+    ToneToFrequency(int tone, float base_frequency);
 
-enum class Tuning
-{
-  A4,
-  Boston,
-  NewYork,
-  Europe,
-  French,
-  Baroque,
-  Chorton,
-  Classical,
-  Max
-};
-
-
-enum class ChordEmulation
-{
-  None,
-  Major,
-  Minor,
-  Diminished,
-  Augmented,
-  Major7,
-  Dominant7,
-  Augmented7,
-  AugmentedMajor7,
-  MinorMajor7,
-  Max
-};
-
-
-enum class MidiEvent
-{
-  NoteOff         = 0b000,
-  NoteOn          = 0b001,
-  Aftertouch      = 0b010,
-  ControlChange   = 0b011,
-  ProgramChange   = 0b100,
-  ChannelPressure = 0b101,
-  PitchBend       = 0b110
-};
-
-
-enum class ArpMode
-{
-  Up,
-  Down,
-  UpDownInclusive,
-  UpDownExclusive,
-  Random,
-  RandomNoRepeat,
-  MAX
-};
-
-
-enum class OscilatorType
-{
-  Sine,
-  Square,
-  Triangle,
-  Sawtooth,
-  Noise,
-  Max
-};
-
-
-// https://pages.mtu.edu/~suits/notefreqs.html
-namespace base_frequencies
-{
-  constexpr float c0           = 16.35f;
-  constexpr float a4           = 440.0f;
-  constexpr float boston_a4    = 441.0f;
-  constexpr float new_york_a4  = 442.0f;
-  constexpr float europe_a4    = 443.0f;
-  constexpr float french_a4    = 435.0f;
-  constexpr float baroque_a4   = 415.0f;
-  constexpr float chorton_a4   = 466.0f;  // 460-470
-  constexpr float classical_a4 = 430.0f;  // 460-470
-};
-
-std::string
-ToString(Tuning t);
-
-std::string
-ToString(ChordEmulation em);
-
-
-std::string
-MidiEventToString(MidiEvent e);
-
-std::string
-ToString(ArpMode mode);
-
-
-std::string
-ToString(OscilatorType osc);
-
-float
-TuningToBaseFrequency(Tuning t);
-
-float
-ToneToFrequency(int tone, float base_frequency);
+    // nodes
 
-// nodes
 
+    struct Node
+    {
+        virtual ~Node() = default;
 
-struct Node
-{
-    virtual ~Node() = default;
+        virtual void
+        Update(float dt, float current_time);
+    };
 
-  virtual void
-  Update(float dt, float current_time);
-};
+    struct ToneTaker
+    {
+        virtual ~ToneTaker() = default;
 
-struct ToneTaker
-{
-  virtual ~ToneTaker() = default;
+        virtual void
+        OnTone(int tone, bool down, float time)
+                = 0;
+    };
 
-  virtual void
-  OnTone(int tone, bool down, float time) = 0;
-};
+    struct ToneSender
+    {
+        ToneTaker* NextNode = nullptr;
 
-struct ToneSender
-{
-  ToneTaker* NextNode = nullptr;
+        void
+        SendTone(int tone, bool down, float time);
+    };
 
-  void
-  SendTone(int tone, bool down, float time);
-};
+    struct FrequencyTaker
+    {
+        virtual ~FrequencyTaker() = default;
 
-struct FrequencyTaker
-{
-  virtual ~FrequencyTaker() = default;
+        virtual void
+        OnFrequencyDown(int id, float freq, float time)
+                = 0;
 
-  virtual void
-  OnFrequencyDown(int id, float freq, float time) = 0;
+        virtual void
+        OnFrequencyUp(int id, float frequency, float time)
+                = 0;
+    };
 
-  virtual void
-  OnFrequencyUp(int id, float frequency, float time) = 0;
-};
+    struct WaveOut
+    {
+        virtual ~WaveOut() = default;
 
-struct WaveOut
-{
-  virtual ~WaveOut() = default;
+        virtual float
+        GetOutput(float time)
+                = 0;
+    };
 
-  virtual float
-  GetOutput(float time) = 0;
-};
+    // Tone -> Frequency
+    struct ToneToFrequencyConverterNode
+        : public ToneTaker
+        , public Node
+    {
+        Tuning tuning = Tuning::A4;
 
-// Tone -> Frequency
-struct ToneToFrequencyConverterNode : public ToneTaker, public Node
-{
-  Tuning tuning            = Tuning::A4;
+        FrequencyTaker* next = nullptr;
 
-  FrequencyTaker* next = nullptr;
+        void
+        OnTone(int tone, bool down, float time) override;
 
-  void
-  OnTone(int tone, bool down, float time) override;
+        float
+        CalculateFrequency(int semitone);
+    };
 
-  float
-  CalculateFrequency(int semitone);
-};
+    struct PianoKey
+    {
+        PianoKey(int st, core::Key kc, const std::string& n, int octave);
 
-struct PianoKey
-{
-  PianoKey(int st, core::Key kc, const std::string& n, int octave);
+        int         semitone;
+        core::Key   keycode;
+        std::string name;
 
-  int         semitone;
-  core::Key keycode;
-  std::string name;
+        bool octave_shift;
+    };
 
-  bool octave_shift;
-};
+    struct MidiInNode : public virtual Node
+    {
+        ToneTaker*   tones             = nullptr;
+        float        last_time         = 0;
+        bool         open_virtual_port = false;
+        unsigned int port_number       = 1;
 
-struct MidiInNode : public virtual Node
-{
-  ToneTaker* tones = nullptr;
-  float last_time = 0;
-  bool         open_virtual_port = false;
-  unsigned int port_number       = 1;
+        bool
+        IsStatusMessage(unsigned char b);
 
-  bool
-  IsStatusMessage(unsigned char b);
+        void
+        DebugCallback(double dt, const std::vector<unsigned char>& bytes);
 
-  void
-  DebugCallback(double dt, const std::vector<unsigned char>& bytes);
+        void
+        Callback(double dt, const std::vector<unsigned char>& bytes);
+    };
 
-  void
-  Callback(double dt, const std::vector<unsigned char>& bytes);
-};
 
+    // Node handles input from keyboard. Input -> Tones
+    struct KeyboardInputNode : public virtual Node
+    {
+        std::vector<PianoKey> keys;
+        bool                  octave_shift = false;
 
-// Node handles input from keyboard. Input -> Tones
-struct KeyboardInputNode : public virtual Node
-{
-  std::vector<PianoKey> keys;
-  bool                  octave_shift = false;
+        ToneTaker* tones = nullptr;
 
-  ToneTaker* tones = nullptr;
+        ChordEmulation chords_emulation = ChordEmulation::None;
 
-  ChordEmulation chords_emulation = ChordEmulation::None;
+        void
+        OnChord(int base, bool was_pressed, float time, int first, int second);
 
-  void
-  OnChord(int base, bool was_pressed, float time, int first, int second);
+        void
+        OnChord(int              base,
+                bool             was_pressed,
+                float            time,
+                std::vector<int> integer_notation);
 
-  void
-  OnChord(
-      int base, bool was_pressed, float time, std::vector<int> integer_notation);
+        void
+        OnInput(core::Key input, bool was_pressed, float time);
+    };
 
-  void
-  OnInput(core::Key input, bool was_pressed, float time);
-};
 
+    // Single Tone node, Tone->Tone.
+    struct SingleToneNode
+        : public ToneTaker
+        , public ToneSender
+        , public Node
+    {
+        std::map<int, float> down_tones;
 
-// Single Tone node, Tone->Tone.
-struct SingleToneNode : public ToneTaker, public ToneSender, public Node
-{
-  std::map<int, float> down_tones;
+        void
+        OnTone(int tone, bool down, float time) override;
 
-  void
-  OnTone(int tone, bool down, float time) override;
+        int
+        GetCurrentTone() const;
+    };
 
-  int
-  GetCurrentTone() const;
-};
 
+    struct ArpegiatorNode
+        : public ToneTaker
+        , public ToneSender
+        , public Node
+    {
+        std::map<int, float> down_tones;
+        float                t = 0;
 
-struct ArpegiatorNode : public ToneTaker, public ToneSender, public Node
-{
-  std::map<int, float> down_tones;
-  float t = 0;
+        int              index = 0;
+        std::vector<int> tones;
 
-  int              index = 0;
-  std::vector<int> tones;
+        ArpMode mode        = ArpMode::Up;
+        int     octaves     = 3;
+        float   update_time = 1.0f;
+        float   tone_time   = 0.3f;
 
-  ArpMode mode        = ArpMode::Up;
-  int     octaves     = 3;
-  float   update_time = 1.0f;
-  float   tone_time   = 0.3f;
+        std::map<int, float> active_tones;
 
-  std::map<int, float> active_tones;
+        void
+        Update(float dt, float current_time) override;
 
-  void
-  Update(float dt, float current_time) override;
+        void
+        OnTone(int tone, bool down, float time) override;
+    };
 
-  void
-  OnTone(int tone, bool down, float time) override;
-};
 
+    float
+    RunOscilator(float frequency, float time, OscilatorType osc);
 
-float
-RunOscilator(float frequency, float time, OscilatorType osc);
 
+    struct LiveFrequency
+    {
+        float frequency;
+        float time_start;
+    };
 
-struct LiveFrequency
-{
-  float frequency;
-  float time_start;
-};
+    struct DeadFrequency
+    {
+        bool  alive;
+        float frequency;
+        float time_end;
+        float scale;
+    };
 
-struct DeadFrequency
-{
-  bool  alive;
-  float frequency;
-  float time_end;
-  float scale;
-};
 
+    float
+    to01(float lower_bound, float value, float upper_bound);
 
-float
-to01(float lower_bound, float value, float upper_bound);
+    struct Envelope
+    {
+        float time_to_start = 0.01f;
+        float time_to_end   = 0.01f;
 
-struct Envelope
-{
-  float time_to_start = 0.01f;
-  float time_to_end   = 0.01f;
+        float
+        GetLive(float wave, float start_time, float current_time);
 
-  float
-  GetLive(float wave, float start_time, float current_time);
+        float
+        GetDead(float wave, float end_time, float current_time);
+    };
 
-  float
-  GetDead(float wave, float end_time, float current_time);
-};
 
+    /// Node represents a single Oscilator. Frequency -> WaveOutput
+    struct OscilatorNode
+        : public virtual WaveOut
+        , public virtual FrequencyTaker
+        , public Node
+    {
+        std::map<int, LiveFrequency> live;
+        std::vector<DeadFrequency>   dead;
+        OscilatorType                oscilator = OscilatorType::Sawtooth;
+        Envelope                     envelope;
 
+        int
+        GetTotalTones() const;
 
-/// Node represents a single Oscilator. Frequency -> WaveOutput
-struct OscilatorNode : public virtual WaveOut,
-                       public virtual FrequencyTaker,
-                       public Node
-{
-  std::map<int, LiveFrequency> live;
-  std::vector<DeadFrequency> dead;
-  OscilatorType oscilator = OscilatorType::Sawtooth;
-  Envelope envelope;
+        int
+        GetAliveTones() const;
 
-  int
-  GetTotalTones() const;
+        int
+        GetDeadTones() const;
 
-  int
-  GetAliveTones() const;
+        void
+        Update(float dt, float current_time) override;
 
-  int
-  GetDeadTones() const;
+        void
+        OnFrequencyDown(int id, float freq, float time) override;
 
-  void
-  Update(float dt, float current_time) override;
+        void
+        OnFrequencyUp(int id, float frequency, float time) override;
 
-  void
-  OnFrequencyDown(int id, float freq, float time) override;
 
-  void
-  OnFrequencyUp(int id, float frequency, float time) override;
+        float
+        GetOutput(float time) override;
+    };
 
 
-  float
-  GetOutput(float time) override;
-};
+    struct Effect : public WaveOut
+    {
+        float
+        GetOutput(float time) override;
 
+        virtual float
+        OnWave(float wave)
+                = 0;
 
+        WaveOut* in = nullptr;
+    };
 
+    struct VolumeNode
+        : public Effect
+        , public Node
+    {
+        float
+        OnWave(float wave) override;
 
+        float volume = 0.5f;
+    };
 
+    struct ScalerEffect
+        : public Effect
+        , public Node
+    {
+        float
+        OnWave(float wave) override;
 
+        int times = 0;
+    };
 
-struct Effect : public WaveOut
-{
-  float
-  GetOutput(float time) override;
 
-  virtual float
-  OnWave(float wave) = 0;
+    using KeyboardLayout = std::vector<std::vector<core::Key>>;
 
-  WaveOut* in = nullptr;
-};
 
-struct VolumeNode : public Effect, public Node
-{
-  float
-  OnWave(float wave) override;
+    const KeyboardLayout&
+    KeyboardLayoutQwerty();
 
-  float volume = 0.5f;
-};
+    void
+    SetupQwertyTwoOctaveLayout(
+            std::vector<PianoKey>* keys,
+            int                    base_octave,
+            int                    octave_offset);
 
-struct ScalerEffect : public Effect, public Node
-{
-  float
-  OnWave(float wave) override;
 
-  int times = 0;
-};
-
-
-using KeyboardLayout = std::vector<std::vector<core::Key>>;
-
-
-const KeyboardLayout&
-KeyboardLayoutQwerty();
-
-void
-SetupQwertyTwoOctaveLayout(
-    std::vector<PianoKey>* keys, int base_octave, int octave_offset);
-
-
-}
+}  // namespace euphoria::minsynth
 
 #endif  // EUPHORIA_MINSYNTH_SYNTH_H
-

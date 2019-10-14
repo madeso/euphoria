@@ -13,7 +13,6 @@ namespace euphoria::core
         void
         Dot(int dots_per_line);
     };
-}
+}  // namespace euphoria::core
 
 #endif  // EUPHORIA_CORE_DOTS_H
-

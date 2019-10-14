@@ -24,4 +24,4 @@ namespace euphoria::core
             index = 0;
         }
     }
-}
+}  // namespace euphoria::core

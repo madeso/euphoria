@@ -8,17 +8,14 @@ namespace euphoria::core
     template <typename T>
     struct History
     {
-        explicit History(int s)
-            : max(s)
-        {
-        }
+        explicit History(int s) : max(s) {}
 
         void
         Push(const T& t)
         {
             if(d.size() == max)
             {
-            d.erase(d.begin());
+                d.erase(d.begin());
             }
             d.push_back(t);
         }
@@ -39,6 +36,6 @@ namespace euphoria::core
         std::vector<T> d;
         int            max;
     };
-}
+}  // namespace euphoria::core
 
 #endif  // EUPHORIA_CORE_HISTORY_H
