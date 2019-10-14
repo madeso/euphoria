@@ -1,14 +1,16 @@
 #ifndef EUPHORIA_CORE_HISTORY_H
 #define EUPHORIA_CORE_HISTORY_H
 
-#include <vecotr>
+#include <vector>
+
+#include "core/assert.h"
 
 namespace euphoria::core
 {
     template <typename T>
     struct History
     {
-        explicit History(int s) : max(s) {}
+        explicit History(std::size_t s) : max(s) {}
 
         void
         Push(const T& t)
@@ -23,7 +25,7 @@ namespace euphoria::core
         const T*
         data() const
         {
-            assert(!d.empty());
+            ASSERT(!d.empty());
             return &d[0];
         }
 
@@ -34,7 +36,7 @@ namespace euphoria::core
         }
 
         std::vector<T> d;
-        int            max;
+        std::size_t            max;
     };
 }  // namespace euphoria::core
 

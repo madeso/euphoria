@@ -18,7 +18,10 @@
 
 #include <SDL.h>
 
+#include "core/history.h"
+
 #include "window/imgui_extra.h"
+#include "window/timgui.h"
 #include "window/solarized.h"
 
 #include "minsynth/synth.h"
@@ -29,6 +32,10 @@ const float pi = 3.14159f;
 #undef max
 #endif
 
+using namespace euphoria::core;
+using namespace euphoria::window;
+using namespace euphoria::minsynth;
+
 LOG_SPECIFY_DEFAULT_LOGGER("musikmaskin")
 
 class AppBase
@@ -38,10 +45,6 @@ public:
     {
         if(SDL_Init(SDL_INIT_EVERYTHING) < 0)
         {
-            SDL_LogError(
-                    SDL_LOG_CATEGORY_APPLICATION,
-                    "Unable to init: %s",
-                    SDL_GetError());
             ok = false;
             return;
         }
@@ -51,86 +54,13 @@ public:
     }
 
     void
-    SetupWindow(const char* const title)
+    SetupWindow(const std::string&)
     {
-// Decide GL+GLSL versions
-#if __APPLE__
-        // GL 3.2 Core + GLSL 150
-        const char* glsl_version = "#version 150";
-        SDL_GL_SetAttribute(
-                SDL_GL_CONTEXT_FLAGS,
-                SDL_GL_CONTEXT_FORWARD_COMPATIBLE_FLAG);  // Always required on Mac
-        SDL_GL_SetAttribute(
-                SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
-        SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
-        SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 2);
-#else
-        // GL 3.0 + GLSL 130
-        const char* glsl_version = "#version 130";
-        SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, 0);
-        SDL_GL_SetAttribute(
-                SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
-        SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
-        SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
-#endif
-
-        // Create window with graphics context
-        SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
-        SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
-        SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 8);
-        SDL_DisplayMode current;
-        SDL_GetCurrentDisplayMode(0, &current);
-        window = SDL_CreateWindow(
-                title,
-                SDL_WINDOWPOS_CENTERED,
-                SDL_WINDOWPOS_CENTERED,
-                1280,
-                720,
-                SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);
-        if(!window)
-        {
-            std::cerr << "Failed to create window.\n";
-            ok = false;
-            return;
-        }
-
-        gl_context = SDL_GL_CreateContext(window);
-        if(!gl_context)
-        {
-            std::cerr << "Failed to init GL context.\n";
-            ok = false;
-            return;
-        }
-
-        SDL_GL_SetSwapInterval(1);  // Enable vsync
-
-        if(!gladLoadGL())
-        {
-            std::cerr << "Failed to load GL.\n";
-            ok = false;
-            return;
-        }
-
-        std::cout << "OpenGL " << GLVersion.major << "." << GLVersion.minor
-                  << "\n";
-
-        // Setup Dear ImGui binding
-        IMGUI_CHECKVERSION();
-        ImGui::CreateContext();
-        ImGuiIO& io = ImGui::GetIO();
-        // io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;  // Enable Keyboard
-        // Controls
-
-        ImGui_ImplSDL2_InitForOpenGL(window, gl_context);
-        ImGui_ImplOpenGL3_Init(glsl_version);
-
         // Setup style
         ImGui::StyleColorsDark();
         // ImGui::StyleColorsClassic();
 
-
         SetupStyle();
-
         SetupSolarized(true);
     }
 
@@ -195,13 +125,6 @@ public:
 
     ~AppBase()
     {
-        ImGui_ImplOpenGL3_Shutdown();
-        ImGui_ImplSDL2_Shutdown();
-        ImGui::DestroyContext();
-
-        SDL_GL_DeleteContext(gl_context);
-        SDL_DestroyWindow(window);
-        SDL_Quit();
     };
 
     virtual void
@@ -214,12 +137,12 @@ public:
     void
     OnRender()
     {
-        ImGuiIO&     io          = ImGui::GetIO();
-        const ImVec4 clear_color = ImGui::GetStyle().Colors[ImGuiCol_WindowBg];
+        // ImGuiIO&     io          = ImGui::GetIO();
+        // const ImVec4 clear_color = ImGui::GetStyle().Colors[ImGuiCol_WindowBg];
 
         // Start the Dear ImGui frame
-        ImGui_ImplOpenGL3_NewFrame();
-        ImGui_ImplSDL2_NewFrame(window);
+        // ImGui_ImplOpenGL3_NewFrame();
+        // ImGui_ImplSDL2_NewFrame(window);
         ImGui::NewFrame();
 
         Draw();
@@ -227,11 +150,10 @@ public:
         // Rendering
         ImGui::Render();
         SDL_GL_MakeCurrent(window, gl_context);
-        glViewport(0, 0, (int)io.DisplaySize.x, (int)io.DisplaySize.y);
-        glClearColor(
-                clear_color.x, clear_color.y, clear_color.z, clear_color.w);
-        glClear(GL_COLOR_BUFFER_BIT);
-        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+        // glViewport(0, 0, (int)io.DisplaySize.x, (int)io.DisplaySize.y);
+        // glClearColor(clear_color.x, clear_color.y, clear_color.z, clear_color.w);
+        // glClear(GL_COLOR_BUFFER_BIT);
+        // ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
         SDL_GL_SwapWindow(window);
     }
 
@@ -398,7 +320,7 @@ DrawKeys(
             const auto tt = ImGui::ColorConvertFloat4ToU32(
                     style.Colors[ImGuiCol_Text]);
 
-            const auto key_text = KeyToString(key);
+            const auto key_text = ToString(key);
 
             draw_list->AddRectFilled(pos, pos + ImVec2(width, height), c);
             draw_list->AddText(pos, t, key_text.c_str());
@@ -417,28 +339,12 @@ DrawKeys(
 }
 
 
-template <typename T>
-void
-CustomDropdown(const char* name, T* current, T max)
-{
-    if(ImGui::BeginCombo(name, ToString(*current).c_str()))
-    {
-        for(int i = 0; i < static_cast<int>(max); i += 1)
-        {
-            const auto o = static_cast<T>(i);
-            if(ImGui::Selectable(ToString(o).c_str(), *current == o))
-            {
-                *current = o;
-            }
-        }
-        ImGui::EndCombo();
-    }
-}
+
 
 class App : public AppBase
 {
 public:
-    MidiInNode                   midi;
+    MidiInputNode                   midi;
     KeyboardInputNode            piano;
     SingleToneNode               single_tone;
     ArpegiatorNode               arp;
@@ -562,9 +468,7 @@ public:
 
             imgui::Knob("Master", &master.volume, 0.0f, 1.0f);
 
-            ImGui::Checkbox("Western", &ttf.use_western_scale);
-
-            CustomDropdown("Tuning", &ttf.tuning, Tuning::Max);
+            CustomDropdown("Tuning", &ttf.tuning, Tuning::Max, [](auto t){return ToString(t);});
 
             ImGui::DragFloat(
                     "Time to start",
@@ -580,17 +484,17 @@ public:
                     1.0f);
 
             CustomDropdown(
-                    "Oscilator", &oscilator.oscilator, OscilatorType::Max);
+                    "Oscilator", &oscilator.oscilator, OscilatorType::Max, [](auto t){return ToString(t);});
 
             CustomDropdown(
                     "Chord emulation",
                     &piano.chords_emulation,
-                    ChordEmulation::Max);
+                    ChordEmulation::Max, [](auto t){return ToString(t);});
 
             ImGui::InputInt("Times", &scaler.times, 1, 5);
 
             ImGui::InputInt("Arp octaves", &arp.octaves);
-            CustomDropdown("Arp mode", &arp.mode, ArpMode::MAX);
+            CustomDropdown("Arp mode", &arp.mode, ArpMode::MAX, [](auto t){return ToString(t);});
             imgui::Knob("Update time", &arp.update_time, 0, 1);
             ImGui::SameLine();
             imgui::Knob("Tone time", &arp.tone_time, 0, 1);
@@ -627,17 +531,15 @@ public:
     }
 
     void
-    OnKey(SDL_Keycode key, Uint16 mod, bool down, float time)
+    OnKey(SDL_Keycode key, bool down, float time)
     {
-        piano.OnInput(key, mod, down, time);
+        piano.OnInput(key, down, time);
     }
 };
 
 int
 main(int argc, char* argv[])
 {
-    ValidateToneFrequencies();
-
     App app;
     if(!app.ok)
     {
@@ -669,7 +571,7 @@ main(int argc, char* argv[])
 
         while(SDL_PollEvent(&event))
         {
-            ImGui_ImplSDL2_ProcessEvent(&event);
+            // ImGui_ImplSDL2_ProcessEvent(&event);
             switch(event.type)
             {
             case SDL_QUIT: run = false; break;

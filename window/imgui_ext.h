@@ -2,8 +2,8 @@
 #define EUPHORIA_IMGUI_H
 
 #include <string>
-#include "core/vec2.h"
 
+#include "core/vec2.h"
 
 namespace euphoria::core
 {

@@ -2,6 +2,7 @@
 
 #include "core/log.h"
 #include "core/assert.h"
+#include "core/numeric.h"
 
 #include <sstream>
 #include <cmath>
@@ -11,7 +12,7 @@
 namespace euphoria::minsynth
 {
     // todo: get a better number here
-    constexpr float pi = 3.14f;
+    constexpr float pi = core::Pi();
 
 
     LOG_SPECIFY_DEFAULT_LOGGER("minsynth.synth")
