@@ -163,24 +163,7 @@ public:
     void
     OnRender()
     {
-        // ImGuiIO&     io          = ImGui::GetIO();
-        // const ImVec4 clear_color = ImGui::GetStyle().Colors[ImGuiCol_WindowBg];
-
-        // Start the Dear ImGui frame
-        // ImGui_ImplOpenGL3_NewFrame();
-        // ImGui_ImplSDL2_NewFrame(window);
-        ImGui::NewFrame();
-
         Draw();
-
-        // Rendering
-        ImGui::Render();
-        SDL_GL_MakeCurrent(window, gl_context);
-        // glViewport(0, 0, (int)io.DisplaySize.x, (int)io.DisplaySize.y);
-        // glClearColor(clear_color.x, clear_color.y, clear_color.z, clear_color.w);
-        // glClear(GL_COLOR_BUFFER_BIT);
-        // ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-        SDL_GL_SwapWindow(window);
     }
 
     void
@@ -644,7 +627,7 @@ main(int, char**)
         }
         ImGui::EndMainMenuBar();
 
-        // app.OnRender();
+        app.OnRender();
         // ImGui::End();
 
         engine.init->ClearScreen(Color::LightGray);
