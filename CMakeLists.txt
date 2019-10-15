@@ -3,6 +3,7 @@ set_property(GLOBAL PROPERTY USE_FOLDERS OFF)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 project(euphoria)
 
+option(BUILD_MIDI_SUPPORT "include midi support" ON)
 option(BUILD_ENTITY_DEBUG_COMPONENT "when converting components, (debug) assert of bad casts" OFF)
 set(BUILD_TYPEINFO_IMPL "rtti" CACHE STRING "rtti, ctti, custom_hashed, custom_rt")
 
@@ -35,11 +36,13 @@ set(Gaf_CUSTOM_ARGUMENTS_FROM_FILE ${CMAKE_CURRENT_SOURCE_DIR}/gaf_options.txt)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH}
     "${CMAKE_CURRENT_SOURCE_DIR}/cmake-modules")
 
-add_subdirectory(external/rtmidi)
-set(BUILD_STATIC_LIBS ON)
-set(RTMIDI_BUILD_STATIC_LIBS "")
-set(RTMIDI_BUILD_SHARED_LIBS "")
-include_directories(SYSTEM external/rtmidi)
+if(${BUILD_MIDI_SUPPORT})
+  add_subdirectory(external/rtmidi)
+  set(BUILD_STATIC_LIBS ON)
+  set(RTMIDI_BUILD_STATIC_LIBS "")
+  set(RTMIDI_BUILD_SHARED_LIBS "")
+  include_directories(SYSTEM external/rtmidi)
+endif(${BUILD_MIDI_SUPPORT})
 
 find_package(OpenGL REQUIRED)
 

@@ -17,5 +17,8 @@ target_link_libraries(musikmaskin
                       window
                       ${SDL2_LIBRARY}
                       ${CMAKE_DL_LIBS}
-                      rtmidi
                       )
+
+if(${BUILD_MIDI_SUPPORT})
+target_link_libraries(musikmaskin rtmidi)
+endif(${BUILD_MIDI_SUPPORT})
