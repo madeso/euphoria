@@ -3,6 +3,7 @@
 #include "core/log.h"
 #include "core/assert.h"
 #include "core/numeric.h"
+#include "core/cint.h"
 
 #include <sstream>
 #include <cmath>
@@ -181,7 +182,7 @@ namespace euphoria::minsynth
 
 
     void
-    Node::Update(float dt, float current_time)
+    Node::Update(float /*dt*/, float /*current_time*/)
     {}
 
     void
@@ -303,8 +304,8 @@ namespace euphoria::minsynth
         const auto bytes_size = bytes.size();
 
         const byte message_mask = 0x7;
-        const byte channel_mask = 0xF;
-        const byte channel      = (bytes[0] >> 0) & channel_mask;
+        // const byte channel_mask = 0xF;
+        // const byte channel      = (bytes[0] >> 0) & channel_mask;
         const byte message      = (bytes[0] >> 4) & message_mask;
 
         const auto event = static_cast<MidiEvent>(message);
@@ -506,11 +507,11 @@ namespace euphoria::minsynth
     ArpegiatorNode::Update(float dt, float current_time)
     {
         int count = 0;
-        t += dt;
-        while(t > update_time && count < 10)
+        current_time_in_interval += dt;
+        while(current_time_in_interval > update_time && count < 10)
         {
             count += 1;
-            t -= update_time;
+            current_time_in_interval -= update_time;
             if(!tones.empty())
             {
                 const int size = tones.size();
@@ -537,17 +538,17 @@ namespace euphoria::minsynth
         }
 
         std::vector<int> erase;
-        for(auto& t: active_tones)
+        for(auto& tone: active_tones)
         {
-            if(t.second < current_time)
+            if(tone.second < current_time)
             {
-                SendTone(t.first, false, t.second);
-                erase.emplace_back(t.first);
+                SendTone(tone.first, false, tone.second);
+                erase.emplace_back(tone.first);
             }
         }
-        for(auto t: erase)
+        for(auto tone: erase)
         {
-            active_tones.erase(t);
+            active_tones.erase(tone);
         }
     }
 
@@ -674,7 +675,7 @@ namespace euphoria::minsynth
     }
 
     void
-    OscilatorNode::Update(float dt, float current_time)
+    OscilatorNode::Update(float, float current_time)
     {
         dead.erase(
                 std::remove_if(
@@ -854,11 +855,11 @@ namespace euphoria::minsynth
     {
         const auto K = [&](int x, int y) -> core::Key {
             const auto wy = start_row - y + 1;
-            if(wy < 0 || wy > k.size())
+            if(wy < 0 || wy > Csizet(k.size()))
                 return core::Key::UNBOUND;
             const auto& r  = k[wy];
             const auto  wx = start_col + x;
-            if(wx < 0 || wx > r.size())
+            if(wx < 0 || wx > Csizet(r.size()))
                 return core::Key::UNBOUND;
             return r[wx];
         };

@@ -252,7 +252,7 @@ namespace euphoria::minsynth
         , public Node
     {
         std::map<int, float> down_tones;
-        float                t = 0;
+        float                current_time_in_interval = 0;
 
         int              index = 0;
         std::vector<int> tones;

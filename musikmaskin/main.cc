@@ -342,7 +342,7 @@ public:
 
     std::vector<Node*> nodes;
 
-    float time = 0;
+    float current_time = 0;
 
     App()
     {
@@ -436,10 +436,10 @@ public:
                     oscilator.GetTotalTones(),
                     oscilator.GetAliveTones(),
                     oscilator.GetDeadTones());
-            ImGui::Text("Time: %.1f", time);
+            ImGui::Text("Time: %.1f", current_time);
             ImGui::Text("Sample time: %.1f", max_sample_time);
             ImGui::Text("Max diff: %.1f", max_diff);
-            const auto f = time - audio_callback_time;
+            const auto f = current_time - audio_callback_time;
             time_history.Push(f);
             if(f > max_diff)
             {
@@ -516,9 +516,8 @@ public:
     }
 
     void
-    Update(float dt, float current_time)
+    Update(float dt)
     {
-        time = current_time;
         for(auto* node: nodes)
         {
             node->Update(dt, current_time);
@@ -526,9 +525,9 @@ public:
     }
 
     void
-    OnKey(Key key, bool down, float time)
+    OnKey(Key key, bool down)
     {
-        piano.OnInput(key, down, time);
+        piano.OnInput(key, down, current_time);
     }
 };
 
@@ -570,6 +569,10 @@ main(int, char**)
         const auto dt
                 = (static_cast<float>(current_time - last_time)
                 / SDL_GetPerformanceFrequency());
+
+        time += dt;
+        app.current_time = time;
+        
                     
 
         SDL_Event e;
@@ -593,8 +596,7 @@ main(int, char**)
                     {
                         app.OnKey(
                                 ToKey(e.key.keysym),
-                                e.type == SDL_KEYDOWN,
-                                time);
+                                e.type == SDL_KEYDOWN);
                     }
                 }
                 break;
@@ -609,8 +611,7 @@ main(int, char**)
             }
         }
 
-        time += dt;
-        app.Update(dt, time);
+        app.Update(dt);
 
         engine.imgui->StartNewFrame();
 
