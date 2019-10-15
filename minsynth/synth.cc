@@ -218,7 +218,7 @@ namespace euphoria::minsynth
         const float base_freq = TuningToBaseFrequency(tuning);
         const int   tone      = semitone - 9;  // hrm.... why?
 
-        const float freq = (tone, base_freq);
+        const float freq = ToneToFrequency(tone, base_freq);
 
         return freq;
     }
