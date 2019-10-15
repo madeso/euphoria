@@ -19,7 +19,10 @@ def find_projects():
     with open(os.path.join(os.getcwd(), 'CMakeLists.txt'), 'r') as file:
         dirs = RDIRS.findall(file.read())
         for d in dirs:
-            yield d
+            if d.startswith('external'):
+                pass
+            else:
+                yield d
 
 
 def header(project_name, ch='-'):
