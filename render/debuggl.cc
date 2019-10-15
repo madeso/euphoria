@@ -1,8 +1,10 @@
 #include "render/debuggl.h"
 
-#include <iostream>
 #include "render/gl.h"
 #include "core/assert.h"
+#include "core/log.h"
+
+LOG_SPECIFY_DEFAULT_LOGGER("render.debuggl")
 
 namespace euphoria::render
 {
@@ -34,10 +36,8 @@ namespace euphoria::render
         GLenum error_code;
         while((error_code = glGetError()) != GL_NO_ERROR)
         {
-            std::string error;
-            error = OpenglErrorToString(error_code);
-            std::cout << error << " | " << file << " (" << line << ")"
-                      << std::endl;
+            const std::string error = OpenglErrorToString(error_code);
+            LOG_ERROR(error << " | " << file << " (" << line << ")");
         }
     }
 
@@ -119,11 +119,11 @@ namespace euphoria::render
         }
         ++ErrorCount;
 
-        std::cout << "---------------" << std::endl;
-        std::cout << "Debug message (" << id << "): " << message << std::endl;
-        std::cout << "Source " << SourceToString(source)
+        LOG_ERROR("---------------");
+        LOG_ERROR("Debug message (" << id << "): " << message);
+        LOG_ERROR("Source " << SourceToString(source)
                   << " type: " << TypeToString(type)
-                  << " Severity: " << SeverityToString(severity) << "\n\n";
+                  << " Severity: " << SeverityToString(severity) << "\n");
         // ASSERT(false);
     }
 
@@ -133,7 +133,7 @@ namespace euphoria::render
         const bool has_debug = GLAD_GL_ARB_debug_output == 1;
         if(has_debug)
         {
-            std::cout << "Enabling OpenGL debug output\n";
+            LOG_INFO("Enabling OpenGL debug output");
             glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS_ARB);
             glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS_ARB);
             glDebugMessageCallbackARB(OnOpenglError, nullptr);

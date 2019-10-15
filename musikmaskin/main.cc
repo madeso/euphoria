@@ -133,17 +133,14 @@ public:
 
         if(0 != SDL_OpenAudio(&spec, nullptr))
         {
-            SDL_LogError(
-                    SDL_LOG_CATEGORY_APPLICATION,
-                    "Failed to setup audio: %s",
-                    SDL_GetError());
+            LOG_ERROR("Failed to setup audio: " << SDL_GetError());
             ok = false;
         }
 
         int i, count = SDL_GetNumAudioDevices(0);
         for(i = 0; i < count; ++i)
         {
-            SDL_Log("Audio device %d: %s", i, SDL_GetAudioDeviceName(i, 0));
+            LOG_INFO("Audio device " <<  i << ": " << SDL_GetAudioDeviceName(i, 0));
         }
     }
 
