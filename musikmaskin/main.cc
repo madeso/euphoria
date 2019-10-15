@@ -140,7 +140,9 @@ public:
         int i, count = SDL_GetNumAudioDevices(0);
         for(i = 0; i < count; ++i)
         {
-            LOG_INFO("Audio device " <<  i << ": " << SDL_GetAudioDeviceName(i, 0));
+            LOG_INFO(
+                    "Audio device " << i << ": "
+                                    << SDL_GetAudioDeviceName(i, 0));
         }
     }
 
@@ -565,7 +567,7 @@ main(int, char**)
     //////////////////////////////////////////////////////////////////////////////
     // main loop
 
-    float time = 0;
+    float  time         = 0;
     Uint64 current_time = SDL_GetPerformanceCounter();
     Uint64 last_time    = 0;
 
@@ -576,17 +578,15 @@ main(int, char**)
 
         const auto dt
                 = (static_cast<float>(current_time - last_time)
-                / SDL_GetPerformanceFrequency());
+                   / SDL_GetPerformanceFrequency());
 
         time += dt;
         app.current_time = time;
-        
-                    
+
 
         SDL_Event e;
         while(SDL_PollEvent(&e) != 0)
         {
-            
             engine.imgui->ProcessEvents(&e);
 
             if(engine.HandleResize(e, &window_width, &window_height))
@@ -602,9 +602,7 @@ main(int, char**)
                 {
                     if(e.key.repeat == 0)
                     {
-                        app.OnKey(
-                                ToKey(e.key.keysym),
-                                e.type == SDL_KEYDOWN);
+                        app.OnKey(ToKey(e.key.keysym), e.type == SDL_KEYDOWN);
                     }
                 }
                 break;
@@ -614,8 +612,7 @@ main(int, char**)
             switch(e.type)
             {
             case SDL_QUIT: running = false; break;
-            default:
-                break;
+            default: break;
             }
         }
 

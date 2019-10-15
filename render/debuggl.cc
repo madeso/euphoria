@@ -121,9 +121,10 @@ namespace euphoria::render
 
         LOG_ERROR("---------------");
         LOG_ERROR("Debug message (" << id << "): " << message);
-        LOG_ERROR("Source " << SourceToString(source)
-                  << " type: " << TypeToString(type)
-                  << " Severity: " << SeverityToString(severity) << "\n");
+        LOG_ERROR(
+                "Source " << SourceToString(source)
+                          << " type: " << TypeToString(type) << " Severity: "
+                          << SeverityToString(severity) << "\n");
         // ASSERT(false);
     }
 

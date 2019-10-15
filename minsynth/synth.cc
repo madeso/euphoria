@@ -306,7 +306,7 @@ namespace euphoria::minsynth
         const byte message_mask = 0x7;
         // const byte channel_mask = 0xF;
         // const byte channel      = (bytes[0] >> 0) & channel_mask;
-        const byte message      = (bytes[0] >> 4) & message_mask;
+        const byte message = (bytes[0] >> 4) & message_mask;
 
         const auto event = static_cast<MidiEvent>(message);
         switch(event)
