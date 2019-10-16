@@ -31,7 +31,7 @@ namespace euphoria::core
     //
     // https://twitter.com/FreyaHolmer/status/1116502994684530688
     void
-    ImageFilter::MakeGrayscale(Grayscale grayscale)
+    MakeGrayscale(Image* image, Grayscale grayscale)
     {
         switch(grayscale)
         {
@@ -72,7 +72,7 @@ namespace euphoria::core
     }
 
     void
-    ImageFilter::MatchPalette(const Palette& palette)
+    MatchPalette(Image* image, const Palette& palette)
     {
         image->Filter([&palette](const Rgbai& c) {
             const auto cc = rgbi(c);
@@ -83,10 +83,9 @@ namespace euphoria::core
     }
 
     template <typename C>
-    void
-    NewImageFrom(ImageFilter* filter, C callback)
+    [[nodiscard]] Image
+    NewImageFrom(const Image& image, C callback)
     {
-        Image& image = *filter->image;
         Image  ret;
         if(image.HasAlpha())
         {
@@ -97,11 +96,11 @@ namespace euphoria::core
             ret.SetupNoAlphaSupport(image.GetWidth(), image.GetHeight(), -1);
         }
         ret.SetAllTopBottom(callback);
-        *filter->image = ret;
+        return ret;
     }
 
     void
-    ImageFilter::MatchPaletteDither(const Palette& palette)
+    MatchPaletteDither(Image* image, const Palette& palette)
     {
         struct Error
         {
@@ -112,7 +111,7 @@ namespace euphoria::core
         auto errors = Table<Error>::FromWidthHeight(
                 image->GetWidth(), image->GetHeight());
         const auto errors_range = errors.Indices();
-        NewImageFrom(this, [&](int x, int y) {
+        *image = NewImageFrom(*image, [&](int x, int y) {
             auto       pixel       = image->GetPixel(x, y);
             auto       new_color   = rgb(pixel);
             const auto pixel_error = errors.Value(x, y);
@@ -169,9 +168,9 @@ namespace euphoria::core
     }
 
     void
-    ImageFilter::EdgeDetection(float r)
+    EdgeDetection(Image* image, float r)
     {
-        NewImageFrom(this, [&](int x, int y) {
+        *image = NewImageFrom(*image, [&](int x, int y) {
             const auto pixel = Cvec3(image->GetPixel(x, y));
             const auto top
                     = y == image->GetHeight() - 1
@@ -192,7 +191,7 @@ namespace euphoria::core
 
 
     void
-    ImageFilter::ColorDetection(Rgb color, float r)
+    ColorDetection(Image* image, Rgb color, float r)
     {
         const auto basis = Cvec3(color);
         image->Filter([&](const Rgbai pixel) {
@@ -219,7 +218,7 @@ namespace euphoria::core
     }
 
     void
-    ImageFilter::ChangeBrightness(int change)
+    ChangeBrightness(Image* image, int change)
     {
         LutTransform(image, [&](int i) {
             return KeepWithin(MakeRange(0, 255), i + change);
@@ -227,7 +226,7 @@ namespace euphoria::core
     }
 
     void
-    ImageFilter::ChangeContrast(float contrast)
+    ChangeContrast(Image* image, float contrast)
     {
         const auto tc = tan(contrast);
         LutTransform(image, [&](int i) {

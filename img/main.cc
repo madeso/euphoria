@@ -57,7 +57,7 @@ main(int argc, char* argv[])
         {
             return;
         }
-        ImageFilter {&image}.MakeGrayscale(grayscale);
+        MakeGrayscale(&image, grayscale);
         write_image();
     });
     pgrayscale->AddEnum("-g,--grayscale", &grayscale);
@@ -71,12 +71,12 @@ main(int argc, char* argv[])
         }
         if(pal_dither)
         {
-            ImageFilter {&image}.MatchPaletteDither(
+            MatchPaletteDither(&image, 
                     palette::GetPalette(palette));
         }
         else
         {
-            ImageFilter {&image}.MatchPalette(palette::GetPalette(palette));
+            MatchPalette(&image, palette::GetPalette(palette));
         }
         write_image();
     });
@@ -89,7 +89,7 @@ main(int argc, char* argv[])
         {
             return;
         }
-        ImageFilter {&image}.EdgeDetection(edge_r);
+        EdgeDetection(&image, edge_r);
         write_image();
     });
     pedge->AddSimple("-r, --range", &edge_r);
@@ -100,7 +100,7 @@ main(int argc, char* argv[])
         {
             return;
         }
-        ImageFilter {&image}.ColorDetection(color_color, edge_r);
+        ColorDetection(&image, color_color, edge_r);
         write_image();
     });
     pcolor->AddSimple("-r, --range", &edge_r);
@@ -112,7 +112,7 @@ main(int argc, char* argv[])
         {
             return;
         }
-        ImageFilter {&image}.ChangeBrightness(bright_c);
+        ChangeBrightness(&image, bright_c);
         write_image();
     });
     pbright->AddSimple("-c, --change", &bright_c);
@@ -123,7 +123,7 @@ main(int argc, char* argv[])
         {
             return;
         }
-        ImageFilter {&image}.ChangeContrast(contrast);
+        ChangeContrast(&image, contrast);
         write_image();
     });
     pcontr->AddSimple("-c, --change", &contrast);

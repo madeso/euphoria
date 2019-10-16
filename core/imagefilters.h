@@ -21,33 +21,33 @@ namespace euphoria::core
         Average
     };
 
-    // todo(Gustav): make pure functions instead?
-    struct ImageFilter
-    {
-        Image* image;
+    void
+    MakeGrayscale(Image* image, Grayscale grayscale);
+    
+    void
+    MatchPalette(Image* image, const Palette& palette);
 
-        void
-        MakeGrayscale(Grayscale grayscale);
-        void
-        MatchPalette(const Palette& palette);
-        void
-        MatchPaletteDither(const Palette& palette);
-        void
-        EdgeDetection(float r);
-        void
-        ColorDetection(Rgb color, float r);
-        void
-        ChangeBrightness(int change);
-        void
-        ChangeContrast(float contrast);
+    void
+    MatchPaletteDither(Image* image, const Palette& palette);
 
-        // todo:
-        // https://www.processing.org/tutorials/pixels/
-        // https://www.codeproject.com/Articles/996192/Some-Cool-Image-Effects
-        // https://www.gamedev.net/articles/programming/graphics/an-introduction-to-digital-image-processing-r2007/
-        // https://github.com/jamieowen/glsl-blend
-        // color controls https://developer.nvidia.com/gpugems/GPUGems/gpugems_ch22.html
-    };
+    void
+    EdgeDetection(Image* image, float r);
+
+    void
+    ColorDetection(Image* image, Rgb color, float r);
+
+    void
+    ChangeBrightness(Image* image, int change);
+
+    void
+    ChangeContrast(Image* image, float contrast);
+
+    // todo:
+    // https://www.processing.org/tutorials/pixels/
+    // https://www.codeproject.com/Articles/996192/Some-Cool-Image-Effects
+    // https://www.gamedev.net/articles/programming/graphics/an-introduction-to-digital-image-processing-r2007/
+    // https://github.com/jamieowen/glsl-blend
+    // color controls https://developer.nvidia.com/gpugems/GPUGems/gpugems_ch22.html
 }  // namespace euphoria::core
 
 DECLARE_ENUM_LIST(euphoria::core::Grayscale)
