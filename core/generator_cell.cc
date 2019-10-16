@@ -1,7 +1,7 @@
 #include "core/generator_cell.h"
 
 #include "core/random.h"
-#include "core/draw.h"
+#include "core/image_draw.h"
 #include "core/colors.h"
 #include "core/image.h"
 
@@ -104,8 +104,7 @@ namespace euphoria::core
             image.SetupNoAlphaSupport(
                     world->Width() * scale, world->Height() * scale);
 
-            auto draw = ::euphoria::core::Draw {&image};
-            draw.Clear(space_color);
+            Clear(&image, space_color);
 
             for(int x = 0; x < world->Width(); x += 1)
             {
@@ -115,7 +114,7 @@ namespace euphoria::core
                     const auto py = y * scale;
                     const auto color
                             = world->Value(x, y) ? wall_color : space_color;
-                    draw.Square(color, px, py + scale - 1, scale);
+                    DrawSquare(&image, color, px, py + scale - 1, scale);
                 }
             }
         }

@@ -1,5 +1,5 @@
 #include <core/mat4.h>
-#include "core/draw.h"
+#include "core/image_draw.h"
 #include "core/random.h"
 #include "core/shufflebag.h"
 #include "core/vfs.h"
@@ -95,9 +95,8 @@ main(int, char**)
 
     Image image;
     image.SetupNoAlphaSupport(256, 256);
-    Draw       drawer {&image};
-    const auto wi = drawer.WholeImage();
-    drawer.Clear(Color::Red);
+    const auto wi = WholeImage(image);
+    Clear(&image, Color::Red);
     Random random {42};
 
     for(int i = 0; i < 20; i += 1)
@@ -106,12 +105,12 @@ main(int, char**)
         const auto pos   = wi.RandomPoint(&random);
         const auto outer = random.NextRange(55.0f, 100.0f);
         const auto inner = random.Next(MakeRange(50.0f));
-        drawer.Circle(color, pos, outer, 10, inner);
+        DrawCircle(&image, color, pos, outer, 10, inner);
     }
-    drawer.LineAntialiased(Color::Black, wi.TopLeft(), wi.BottomRight())
-            .Rect(Color::Blue, Recti::FromTopLeftWidthHeight(256, 0, 100, 25))
-            .LineAntialiased(Color::Black, wi.BottomLeft(), wi.TopRight())
-            .Text(vec2i(0, 0), "Hello world", Color::Black, 2);
+    DrawLineAntialiased(&image, Color::Black, wi.TopLeft(), wi.BottomRight());
+    DrawRect(&image, Color::Blue, Recti::FromTopLeftWidthHeight(256, 0, 100, 25));
+    DrawLineAntialiased(&image, Color::Black, wi.BottomLeft(), wi.TopRight());
+    DrawText(&image, vec2i(0, 0), "Hello world", Color::Black, 2);
     engine.catalog->RegisterFileData(
             "image", image.Write(ImageWriteFormat::PNG));
 

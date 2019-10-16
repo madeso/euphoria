@@ -1,7 +1,7 @@
 #include "core/generator_maze.h"
 
 #include "core/random.h"
-#include "core/draw.h"
+#include "core/image_draw.h"
 #include "core/colors.h"
 
 namespace euphoria::core
@@ -272,8 +272,7 @@ namespace euphoria::core
                     wall_size + maze->Width() * path_size,
                     wall_size + maze->Height() * path_size);
 
-            auto draw = ::euphoria::core::Draw {&image};
-            draw.Clear(wall_color);
+            Clear(&image, wall_color);
 
             for(int x = 0; x < maze->Width(); x += 1)
             {
@@ -282,7 +281,7 @@ namespace euphoria::core
                     const auto px = wall_size + x * path_size;
                     const auto py = wall_size + y * path_size + cell_size - 1;
 
-                    draw.Square(CalculateCellColor(x, y), px, py, cell_size);
+                    DrawSquare(&image, CalculateCellColor(x, y), px, py, cell_size);
 
                     const auto xywh = [](int x, int y, int w, int h) {
                         return Recti::FromTopLeftWidthHeight(y + 1, x, w, h);
@@ -292,13 +291,13 @@ namespace euphoria::core
 
                     if(cell_value & Cell::PathSouth)
                     {
-                        draw.Rect(
+                        DrawRect(&image,
                                 corridor_color,
                                 xywh(px, py - cell_size, cell_size, wall_size));
                     }
                     if(cell_value & Cell::PathEast)
                     {
-                        draw.Rect(
+                        DrawRect(&image,
                                 corridor_color,
                                 xywh(px + cell_size, py, wall_size, cell_size));
                     }

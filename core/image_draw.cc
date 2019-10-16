@@ -1,4 +1,4 @@
-#include "core/draw.h"
+#include "core/image_draw.h"
 
 #include "core/numeric.h"
 #include "core/assert.h"
@@ -11,30 +11,28 @@
 
 namespace euphoria::core
 {
-    Draw::Draw(Image* image) : image_(image)
-    {
-        ASSERT(image);
-    }
-
+        
     Recti
-    Draw::WholeImage() const
+    WholeImage(const Image& image)
     {
         return Recti::FromTopLeftWidthHeight(
-                image_->GetHeight(),
+                image.GetHeight(),
                 0,
-                image_->GetWidth(),
-                image_->GetHeight());
+                image.GetWidth(),
+                image.GetHeight());
     }
 
-    Draw&
-    Draw::Clear(const Rgbi& color)
+    void
+    Clear(Image* image, const Rgbi& color)
     {
-        return Rect(color, WholeImage());
+        ASSERT(image);
+        return DrawRect(image, color, WholeImage(*image));
     }
 
-    Draw&
-    Draw::Rect(const Rgbi& color, const Recti& rect)
+    void
+    DrawRect(Image* image, const Rgbi& color, const Recti& rect)
     {
+        ASSERT(image);
         const int left   = rect.TopLeft().x;
         const int right  = rect.TopRight().x;
         const int top    = rect.TopLeft().y;
@@ -43,41 +41,43 @@ namespace euphoria::core
         // ASSERTX(bottom >= 0, bottom);
         for(int y = bottom; y < top; ++y)
         {
-            if(y < 0 || y >= image_->GetHeight())
+            if(y < 0 || y >= image->GetHeight())
                 continue;
             for(int x = left; x < right; ++x)
             {
-                if(x < 0 || x >= image_->GetWidth())
+                if(x < 0 || x >= image->GetWidth())
                     continue;
-                image_->SetPixel(x, y, color);
+                image->SetPixel(x, y, color);
             }
         }
 
-        return *this;
+        
     }
 
 
-    Draw&
-    Draw::Square(const Rgbi& color, int x, int y, int size)
+    void
+    DrawSquare(Image* image, const Rgbi& color, int x, int y, int size)
     {
+        ASSERT(image);
         // is the +1 right?
-        return Rect(color, Recti::FromTopLeftWidthHeight(y + 1, x, size, size));
+        DrawRect(image, color, Recti::FromTopLeftWidthHeight(y + 1, x, size, size));
     }
 
-    Draw&
-    Draw::Circle(
+    void
+    DrawCircle(Image* image, 
             const Rgb&   color,
             const vec2i& center,
             float        radius,
             float        softness,
             float        inner)
     {
+        ASSERT(image);
         const int left = Max(0, Floori(center.x - radius - softness));
         const int right
-                = Min(image_->GetWidth(), Ceili(center.x + radius + softness));
+                = Min(image->GetWidth(), Ceili(center.x + radius + softness));
         const int top = Max(0, Floori(center.y - radius - softness));
         const int bottom
-                = Min(image_->GetHeight(), Ceili(center.y + radius + softness));
+                = Min(image->GetHeight(), Ceili(center.y + radius + softness));
 
         // color modes
         // nothing INNER-SOFTNESS fade INNER full RADIUS fade RADIUS+SOFTNESS nothing
@@ -119,21 +119,22 @@ namespace euphoria::core
                 }
 
                 const Rgb paint_color = blend ? RgbTransform::Transform(
-                                                rgb(image_->GetPixel(x, y)),
+                                                rgb(image->GetPixel(x, y)),
                                                 blend_factor,
                                                 color)
                                               : color;
 
-                image_->SetPixel(x, y, Rgbi {paint_color});
+                image->SetPixel(x, y, Rgbi {paint_color});
             }
         }
 
-        return *this;
+        
     }
 
-    Draw&
-    Draw::LineFast(const Rgbi& color, const vec2i& from, const vec2i& to)
+    void
+    DrawLineFast(Image* image, const Rgbi& color, const vec2i& from, const vec2i& to)
     {
+        ASSERT(image);
         // https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm
 
         const int x0 = from.x;
@@ -150,12 +151,12 @@ namespace euphoria::core
         for(int x = x0; x < x1; x += 1)
         {
             const bool valid_x
-                    = IsWithinInclusivei(0, x, image_->GetWidth() - 1);
+                    = IsWithinInclusivei(0, x, image->GetWidth() - 1);
             const bool valid_y
-                    = IsWithinInclusivei(0, y, image_->GetHeight() - 1);
+                    = IsWithinInclusivei(0, y, image->GetHeight() - 1);
             if(valid_x && valid_y)
             {
-                image_->SetPixel(x, y, color);
+                image->SetPixel(x, y, color);
             }
 
             if(deltaerr > 0)
@@ -176,7 +177,7 @@ namespace euphoria::core
             }
         }
 
-        return *this;
+        
     }
 
     int
@@ -201,6 +202,8 @@ namespace euphoria::core
     void
     Plot(int x, int y, float brightness, const Rgb& color, Image* image)
     {
+        ASSERT(image);
+
         const bool valid_x = IsWithinInclusivei(0, x, image->GetWidth() - 1);
         const bool valid_y = IsWithinInclusivei(0, y, image->GetHeight() - 1);
         if(valid_x && valid_y)
@@ -211,16 +214,18 @@ namespace euphoria::core
         }
     }
 
-    Draw&
-    Draw::LineAntialiased(const Rgb& color, const vec2i& from, const vec2i& to)
+    void
+    DrawLineAntialiased(Image* image, const Rgb& color, const vec2i& from, const vec2i& to)
     {
-        return LineAntialiased(
+        ASSERT(image);
+        return DrawLineAntialiased(image, 
                 color, from.StaticCast<float>(), to.StaticCast<float>());
     }
 
-    Draw&
-    Draw::LineAntialiased(const Rgb& color, const vec2f& from, const vec2f& to)
+    void
+    DrawLineAntialiased(Image* image, const Rgb& color, const vec2f& from, const vec2f& to)
     {
+        ASSERT(image);
         // https://en.wikipedia.org/wiki/Xiaolin_Wu%27s_line_algorithm
         float x0 = from.x;
         float y0 = from.y;
@@ -257,12 +262,12 @@ namespace euphoria::core
                  xpxl1,
                  GetOneMinusFractionalPart(yend) * xgap,
                  color,
-                 image_);
+                 image);
             Plot(ypxl1 + 1,
                  xpxl1,
                  GetFractionalPart(yend) * xgap,
                  color,
-                 image_);
+                 image);
         }
         else
         {
@@ -270,12 +275,12 @@ namespace euphoria::core
                  ypxl1,
                  GetOneMinusFractionalPart(yend) * xgap,
                  color,
-                 image_);
+                 image);
             Plot(xpxl1,
                  ypxl1 + 1,
                  GetFractionalPart(yend) * xgap,
                  color,
-                 image_);
+                 image);
         }
         int intery = yend + gradient;  // first y-intersection for the main loop
 
@@ -291,12 +296,12 @@ namespace euphoria::core
                  xpxl2,
                  GetOneMinusFractionalPart(yend) * xgap,
                  color,
-                 image_);
+                 image);
             Plot(ypxl2 + 1,
                  xpxl2,
                  GetFractionalPart(yend) * xgap,
                  color,
-                 image_);
+                 image);
         }
         else
         {
@@ -304,12 +309,12 @@ namespace euphoria::core
                  ypxl2,
                  GetOneMinusFractionalPart(yend) * xgap,
                  color,
-                 image_);
+                 image);
             Plot(xpxl2,
                  ypxl2 + 1,
                  GetFractionalPart(yend) * xgap,
                  color,
-                 image_);
+                 image);
         }
 
         // main loop
@@ -321,12 +326,12 @@ namespace euphoria::core
                      x,
                      GetOneMinusFractionalPart(intery),
                      color,
-                     image_);
+                     image);
                 Plot(Floori(intery) + 1,
                      x,
                      GetFractionalPart(intery),
                      color,
-                     image_);
+                     image);
                 intery = intery + gradient;
             }
         }
@@ -338,16 +343,16 @@ namespace euphoria::core
                      Floori(intery),
                      GetOneMinusFractionalPart(intery),
                      color,
-                     image_);
+                     image);
                 Plot(x,
                      Floori(intery) + 1,
                      GetFractionalPart(intery),
                      color,
-                     image_);
+                     image);
                 intery = intery + gradient;
             }
         }
-        return *this;
+        
     }
 
     const unsigned char*
@@ -361,7 +366,7 @@ namespace euphoria::core
 
     void
     PrintCharAt(
-            Draw*       image,
+            Image*       image,
             const vec2i pos,
             char        c,
             const Rgbi& color,
@@ -378,7 +383,7 @@ namespace euphoria::core
                 bool pixel = 0 != (glyph[7 - y] & 1 << x);
                 if(pixel)
                 {
-                    image->Square(
+                    DrawSquare(image, 
                             color, pos.x + x * scale, pos.y + y * scale, scale);
                     // image->SetPixel(pos.x+x*scale, pos.y + y*scale, color);
                 }
@@ -386,13 +391,14 @@ namespace euphoria::core
         }
     }
 
-    Draw&
-    Draw::Text(
+    void
+    DrawText(Image* image, 
             const vec2i&       start_pos,
             const std::string& text,
             const Rgbi&        color,
             int                scale)
     {
+        ASSERT(image);
         ASSERT(scale > 0);
 
         vec2i pos = start_pos;
@@ -400,33 +406,35 @@ namespace euphoria::core
         {
             const char c = text[i];
 
-            if(pos.x + 8 * scale > image_->GetWidth())
+            if(pos.x + 8 * scale > image->GetWidth())
             {
                 pos.x = start_pos.x;
                 pos.y -= 8 * scale;
             }
 
-            PrintCharAt(this, pos, c, color, scale);
+            PrintCharAt(image, pos, c, color, scale);
             pos.x += 8 * scale;  // move to next char
         }
 
-        return *this;
+        
     }
 
-    Draw&
-    Draw::PasteImage(const vec2i& position, const Image& source_image)
+    void
+    PasteImage(Image* image, const vec2i& position, const Image& source_image)
     {
+        ASSERT(image);
+
         for(int y = 0; y < source_image.GetHeight(); ++y)
         {
             for(int x = 0; x < source_image.GetWidth(); ++x)
             {
-                image_->SetPixel(
+                image->SetPixel(
                         position.x + x,
                         position.y + y,
                         source_image.GetPixel(x, y));
             }
         }
-        return *this;
+        
     }
 
 }  // namespace euphoria::core

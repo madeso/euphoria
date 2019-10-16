@@ -3,7 +3,7 @@
 #include "render/texture.h"
 #include "core/log.h"
 #include "core/proto.h"
-#include "core/draw.h"
+#include "core/image_draw.h"
 #include "core/textparser.h"
 
 #include <vector>
@@ -276,7 +276,7 @@ namespace euphoria::render
         LoadedGlyph glyph;
         glyph.image.SetupWithAlphaSupport(size, size, 0);
 
-        core::Draw {&glyph.image}.Text(
+        core::DrawText(&glyph.image,
                 core::vec2i::Zero(), text, core::Rgbi {255}, s);
 
         glyph.size      = glyph.image.GetHeight();
@@ -468,7 +468,7 @@ namespace euphoria::render
                 continue;
             }
             const LoadedGlyph& src_char = fontchars.chars[src_rect.id];
-            core::Draw {&image}.PasteImage(
+            core::PasteImage(&image,
                     core::vec2i {src_rect.x + half_margin,
                                  src_rect.y + half_margin},
                     src_char.image);

@@ -1,7 +1,5 @@
 #include <core/mat4.h>
-#include "core/draw.h"
 #include "core/random.h"
-#include "core/shufflebag.h"
 #include "core/mat4.h"
 #include "core/axisangle.h"
 #include "core/aabb.h"

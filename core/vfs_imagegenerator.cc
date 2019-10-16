@@ -1,7 +1,7 @@
 #include "core/vfs_imagegenerator.h"
 
 #include "core/image.h"
-#include "core/draw.h"
+#include "core/image_draw.h"
 #include "core/stringutils.h"
 #include "core/stringmerger.h"
 #include "core/log.h"
@@ -51,8 +51,7 @@ namespace euphoria::core
 
             Image image;
             image.SetupNoAlphaSupport(128, 128);
-            Draw drawer {&image};
-            drawer.Clear(color);
+            Clear(&image, color);
             return image.Write(ImageWriteFormat::PNG);
         }
 

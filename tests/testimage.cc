@@ -3,7 +3,7 @@
 #include "core/base64.h"
 #include "core/rgb.h"
 #include "tests/approx_equal.h"
-#include "core/draw.h"
+#include "core/image_draw.h"
 
 #include "catch.hpp"
 
@@ -112,11 +112,10 @@ TEST_CASE("image draw", "[img]")
     const int   width  = 10;
     const int   height = 12;
     img.SetupNoAlphaSupport(width, height);
-    euco::Draw draw {&img};
 
     SECTION("draw size is image size")
     {
-        const auto size = draw.WholeImage();
+        const auto size = euco::WholeImage(img);
         CHECK(size.bottom == 0);
         CHECK(size.left == 0);
         CHECK(size.GetWidth() == width);
@@ -132,7 +131,7 @@ TEST_CASE("image draw", "[img]")
         CHECK_FALSE(img.GetPixel(3, 3) == colora);
         CHECK_FALSE(img.GetPixel(width - 1, height - 1) == colora);
 
-        draw.Rect(color, draw.WholeImage());
+        euco::DrawRect(&img, color, euco::WholeImage(img));
         REQUIRE(img.GetPixel(0, 0) == colora);
         REQUIRE(img.GetPixel(3, 3) == colora);
         REQUIRE(img.GetPixel(width - 1, height - 1) == colora);
@@ -141,7 +140,7 @@ TEST_CASE("image draw", "[img]")
     SECTION("circle")
     {
         CHECK_FALSE(img.GetPixel(5, 5) == colora);
-        draw.Circle(rgb(color), euco::vec2i {5, 5}, 4);
+        euco::DrawCircle(&img, rgb(color), euco::vec2i {5, 5}, 4);
         CHECK_FALSE(img.GetPixel(0, 0) == colora);
         REQUIRE(img.GetPixel(5, 5) == colora);
     }
@@ -150,7 +149,7 @@ TEST_CASE("image draw", "[img]")
     {
         CHECK_FALSE(img.GetPixel(0, 0) == colora);
         CHECK_FALSE(img.GetPixel(5, 5) == colora);
-        draw.Circle(rgb(color), euco::vec2i {5, 5}, 20, 0, 3);
+        euco::DrawCircle(&img, rgb(color), euco::vec2i {5, 5}, 20, 0, 3);
         CHECK_FALSE(img.GetPixel(5, 5) == colora);
         REQUIRE(img.GetPixel(0, 0) == colora);
     }
