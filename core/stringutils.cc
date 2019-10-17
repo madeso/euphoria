@@ -91,22 +91,22 @@ namespace euphoria::core
 
     namespace
     {
-      char
-      ToLowerChar(char b)
-      {
-          if(b >= 'A' && b <= 'Z')
-              return b - 'A' + 'a';
-          return b;
-      }
+        char
+        ToLowerChar(char b)
+        {
+            if(b >= 'A' && b <= 'Z')
+                return b - 'A' + 'a';
+            return b;
+        }
 
-      char
-      ToUpperChar(char b)
-      {
-          if(b >= 'a' && b <= 'z')
-              return b + ('A' - 'a');
-          return b;
-      }
-    }
+        char
+        ToUpperChar(char b)
+        {
+            if(b >= 'a' && b <= 'z')
+                return b + ('A' - 'a');
+            return b;
+        }
+    }  // namespace
 
     std::string
     ToLower(const std::string& str)
@@ -128,7 +128,8 @@ namespace euphoria::core
     ToUpper(const std::string& str)
     {
         std::string result = str;
-        std::transform(result.begin(), result.end(), result.begin(), ToUpperChar);
+        std::transform(
+                result.begin(), result.end(), result.begin(), ToUpperChar);
         return result;
     }
 

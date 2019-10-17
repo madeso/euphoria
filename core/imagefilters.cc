@@ -86,7 +86,7 @@ namespace euphoria::core
     [[nodiscard]] Image
     NewImageFrom(const Image& image, C callback)
     {
-        Image  ret;
+        Image ret;
         if(image.HasAlpha())
         {
             ret.SetupWithAlphaSupport(image.GetWidth(), image.GetHeight(), -1);
@@ -111,7 +111,7 @@ namespace euphoria::core
         auto errors = Table<Error>::FromWidthHeight(
                 image->GetWidth(), image->GetHeight());
         const auto errors_range = errors.Indices();
-        *image = NewImageFrom(*image, [&](int x, int y) {
+        *image                  = NewImageFrom(*image, [&](int x, int y) {
             auto       pixel       = image->GetPixel(x, y);
             auto       new_color   = rgb(pixel);
             const auto pixel_error = errors.Value(x, y);

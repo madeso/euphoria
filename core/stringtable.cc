@@ -268,7 +268,10 @@ namespace euphoria::core
         const std::vector<int> sizes = ColumnWidths(maintable, 0);
 
         // prefer enum since vs2017 requires one to capture constexpr (weird I know)
-        enum { internal_space = 1 };
+        enum
+        {
+            internal_space = 1
+        };
 
         auto some_space = [&out](int spaces, char c = ' ') {
             for(int i = 0; i < spaces; i += 1)

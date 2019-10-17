@@ -281,7 +281,12 @@ namespace euphoria::core
                     const auto px = wall_size + x * path_size;
                     const auto py = wall_size + y * path_size + cell_size - 1;
 
-                    DrawSquare(&image, CalculateCellColor(x, y), px, py, cell_size);
+                    DrawSquare(
+                            &image,
+                            CalculateCellColor(x, y),
+                            px,
+                            py,
+                            cell_size);
 
                     const auto xywh = [](int x, int y, int w, int h) {
                         return Recti::FromTopLeftWidthHeight(y + 1, x, w, h);
@@ -291,13 +296,15 @@ namespace euphoria::core
 
                     if(cell_value & Cell::PathSouth)
                     {
-                        DrawRect(&image,
+                        DrawRect(
+                                &image,
                                 corridor_color,
                                 xywh(px, py - cell_size, cell_size, wall_size));
                     }
                     if(cell_value & Cell::PathEast)
                     {
-                        DrawRect(&image,
+                        DrawRect(
+                                &image,
                                 corridor_color,
                                 xywh(px + cell_size, py, wall_size, cell_size));
                     }

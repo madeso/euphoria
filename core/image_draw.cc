@@ -11,15 +11,11 @@
 
 namespace euphoria::core
 {
-        
     Recti
     WholeImage(const Image& image)
     {
         return Recti::FromTopLeftWidthHeight(
-                image.GetHeight(),
-                0,
-                image.GetWidth(),
-                image.GetHeight());
+                image.GetHeight(), 0, image.GetWidth(), image.GetHeight());
     }
 
     void
@@ -50,8 +46,6 @@ namespace euphoria::core
                 image->SetPixel(x, y, color);
             }
         }
-
-        
     }
 
 
@@ -60,11 +54,15 @@ namespace euphoria::core
     {
         ASSERT(image);
         // is the +1 right?
-        DrawRect(image, color, Recti::FromTopLeftWidthHeight(y + 1, x, size, size));
+        DrawRect(
+                image,
+                color,
+                Recti::FromTopLeftWidthHeight(y + 1, x, size, size));
     }
 
     void
-    DrawCircle(Image* image, 
+    DrawCircle(
+            Image*       image,
             const Rgb&   color,
             const vec2i& center,
             float        radius,
@@ -127,12 +125,14 @@ namespace euphoria::core
                 image->SetPixel(x, y, Rgbi {paint_color});
             }
         }
-
-        
     }
 
     void
-    DrawLineFast(Image* image, const Rgbi& color, const vec2i& from, const vec2i& to)
+    DrawLineFast(
+            Image*       image,
+            const Rgbi&  color,
+            const vec2i& from,
+            const vec2i& to)
     {
         ASSERT(image);
         // https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm
@@ -176,8 +176,6 @@ namespace euphoria::core
                 error = error - 1.0;
             }
         }
-
-        
     }
 
     int
@@ -215,15 +213,23 @@ namespace euphoria::core
     }
 
     void
-    DrawLineAntialiased(Image* image, const Rgb& color, const vec2i& from, const vec2i& to)
+    DrawLineAntialiased(
+            Image*       image,
+            const Rgb&   color,
+            const vec2i& from,
+            const vec2i& to)
     {
         ASSERT(image);
-        return DrawLineAntialiased(image, 
-                color, from.StaticCast<float>(), to.StaticCast<float>());
+        return DrawLineAntialiased(
+                image, color, from.StaticCast<float>(), to.StaticCast<float>());
     }
 
     void
-    DrawLineAntialiased(Image* image, const Rgb& color, const vec2f& from, const vec2f& to)
+    DrawLineAntialiased(
+            Image*       image,
+            const Rgb&   color,
+            const vec2f& from,
+            const vec2f& to)
     {
         ASSERT(image);
         // https://en.wikipedia.org/wiki/Xiaolin_Wu%27s_line_algorithm
@@ -352,7 +358,6 @@ namespace euphoria::core
                 intery = intery + gradient;
             }
         }
-        
     }
 
     const unsigned char*
@@ -366,7 +371,7 @@ namespace euphoria::core
 
     void
     PrintCharAt(
-            Image*       image,
+            Image*      image,
             const vec2i pos,
             char        c,
             const Rgbi& color,
@@ -383,8 +388,12 @@ namespace euphoria::core
                 bool pixel = 0 != (glyph[7 - y] & 1 << x);
                 if(pixel)
                 {
-                    DrawSquare(image, 
-                            color, pos.x + x * scale, pos.y + y * scale, scale);
+                    DrawSquare(
+                            image,
+                            color,
+                            pos.x + x * scale,
+                            pos.y + y * scale,
+                            scale);
                     // image->SetPixel(pos.x+x*scale, pos.y + y*scale, color);
                 }
             }
@@ -392,7 +401,8 @@ namespace euphoria::core
     }
 
     void
-    DrawText(Image* image, 
+    DrawText(
+            Image*             image,
             const vec2i&       start_pos,
             const std::string& text,
             const Rgbi&        color,
@@ -415,8 +425,6 @@ namespace euphoria::core
             PrintCharAt(image, pos, c, color, scale);
             pos.x += 8 * scale;  // move to next char
         }
-
-        
     }
 
     void
@@ -434,7 +442,6 @@ namespace euphoria::core
                         source_image.GetPixel(x, y));
             }
         }
-        
     }
 
 }  // namespace euphoria::core

@@ -71,8 +71,7 @@ main(int argc, char* argv[])
         }
         if(pal_dither)
         {
-            MatchPaletteDither(&image, 
-                    palette::GetPalette(palette));
+            MatchPaletteDither(&image, palette::GetPalette(palette));
         }
         else
         {

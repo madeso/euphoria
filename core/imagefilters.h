@@ -23,7 +23,7 @@ namespace euphoria::core
 
     void
     MakeGrayscale(Image* image, Grayscale grayscale);
-    
+
     void
     MatchPalette(Image* image, const Palette& palette);
 

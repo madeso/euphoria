@@ -276,8 +276,8 @@ namespace euphoria::render
         LoadedGlyph glyph;
         glyph.image.SetupWithAlphaSupport(size, size, 0);
 
-        core::DrawText(&glyph.image,
-                core::vec2i::Zero(), text, core::Rgbi {255}, s);
+        core::DrawText(
+                &glyph.image, core::vec2i::Zero(), text, core::Rgbi {255}, s);
 
         glyph.size      = glyph.image.GetHeight();
         glyph.bearing_y = glyph.image.GetHeight() + 0;
@@ -468,7 +468,8 @@ namespace euphoria::render
                 continue;
             }
             const LoadedGlyph& src_char = fontchars.chars[src_rect.id];
-            core::PasteImage(&image,
+            core::PasteImage(
+                    &image,
                     core::vec2i {src_rect.x + half_margin,
                                  src_rect.y + half_margin},
                     src_char.image);

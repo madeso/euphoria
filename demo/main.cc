@@ -108,7 +108,10 @@ main(int, char**)
         DrawCircle(&image, color, pos, outer, 10, inner);
     }
     DrawLineAntialiased(&image, Color::Black, wi.TopLeft(), wi.BottomRight());
-    DrawRect(&image, Color::Blue, Recti::FromTopLeftWidthHeight(256, 0, 100, 25));
+    DrawRect(
+            &image,
+            Color::Blue,
+            Recti::FromTopLeftWidthHeight(256, 0, 100, 25));
     DrawLineAntialiased(&image, Color::Black, wi.BottomLeft(), wi.TopRight());
     DrawText(&image, vec2i(0, 0), "Hello world", Color::Black, 2);
     engine.catalog->RegisterFileData(
