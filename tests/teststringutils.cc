@@ -24,6 +24,22 @@ TEST_CASE("stringutils-laststrings-empty", "[stringutils]")
     CHECK(r.second == "");
 }
 
+TEST_CASE("stringutils-tolower", "[stringutils]")
+{
+    CHECK("abc" == euco::ToLower("abc"));
+    CHECK("def" == euco::ToLower("DEF"));
+    CHECK("42" == euco::ToLower("42"));
+    CHECK("simple test" == euco::ToLower("simplE Test"));
+}
+
+TEST_CASE("stringutils-toupper", "[stringutils]")
+{
+    CHECK("ABC" == euco::ToUpper("abc"));
+    CHECK("DEF" == euco::ToUpper("DEF"));
+    CHECK("42" == euco::ToUpper("42"));
+    CHECK("SIMPLE TEST" == euco::ToUpper("simplE Test"));
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 
 TEST_CASE("stringutils-striplast", "[stringutils]")
