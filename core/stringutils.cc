@@ -89,21 +89,23 @@ namespace euphoria::core
         return end == actual_end;
     }
 
-    char
-    ToLower(char b)
+    namespace
     {
-        if(b >= 'A' && b <= 'Z')
-            return b - 'A' + 'a';
-        return b;
-    }
+      char
+      ToLowerChar(char b)
+      {
+          if(b >= 'A' && b <= 'Z')
+              return b - 'A' + 'a';
+          return b;
+      }
 
-    // std::transform call in the ToLower (string) function
-    // can't figure out we want the ToLower(char) function so
-    // we create a custom function to call the regular function
-    inline char
-    ToLowerChar(char b)
-    {
-        return ToLower(b);
+      char
+      ToUpperChar(char b)
+      {
+          if(b >= 'a' && b <= 'z')
+              return b + ('A' - 'a');
+          return b;
+      }
     }
 
     std::string
@@ -126,7 +128,7 @@ namespace euphoria::core
     ToUpper(const std::string& str)
     {
         std::string result = str;
-        std::transform(result.begin(), result.end(), result.begin(), toupper);
+        std::transform(result.begin(), result.end(), result.begin(), ToUpperChar);
         return result;
     }
 
@@ -319,7 +321,7 @@ namespace euphoria::core
             }
             else
             {
-                a0 = ToLower(*a);
+                a0 = ToLowerChar(*a);
             }
             if(IsNumber(*b))
             {
@@ -327,7 +329,7 @@ namespace euphoria::core
             }
             else
             {
-                b0 = ToLower(*b);
+                b0 = ToLowerChar(*b);
             }
 
             if(a0 < b0)
