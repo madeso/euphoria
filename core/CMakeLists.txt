@@ -5,10 +5,6 @@ source_group("" FILES ${app_src})
 set(src ${app_src})
 
 
-MESSAGE(STATUS "Looking for assimp")
-find_package(assimp REQUIRED)
-message(STATUS "Assimp includes at ${assimp_INCLUDE_DIRS}")
-message(STATUS "Assimp libraries at ${assimp_LIBRARIES}")
 include_directories(SYSTEM ${assimp_INCLUDE_DIRS})
 
 

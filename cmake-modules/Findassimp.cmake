@@ -79,7 +79,7 @@ else(WIN32)
 
 	if (assimp_FOUND)
 	  if (NOT assimp_FIND_QUIETLY)
-		message(STATUS "Found asset importer library: ${assimp_LIBRARIES}")
+		# message(STATUS "Found asset importer library: ${assimp_LIBRARIES}")
 	  endif (NOT assimp_FIND_QUIETLY)
 	else (assimp_FOUND)
 	  if (assimp_FIND_REQUIRED)

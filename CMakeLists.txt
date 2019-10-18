@@ -45,6 +45,11 @@ if(${BUILD_MIDI_SUPPORT})
 endif(${BUILD_MIDI_SUPPORT})
 
 find_package(OpenGL REQUIRED)
+find_package(assimp REQUIRED)
+# message(STATUS "Assimp includes at ${assimp_INCLUDE_DIRS}")
+# message(STATUS "Assimp libraries at ${assimp_LIBRARIES}")
+find_package(SDL2 REQUIRED)
+# message(STATUS "sdl2 include directory ${SDL2_INCLUDE_DIR}")
 
 include(${CMAKE_CURRENT_SOURCE_DIR}/external/gaf/gaf.cmake)
 
@@ -82,8 +87,6 @@ else()
   add_compile_options(-Wno-error=deprecated)
 endif()
 
-find_package(SDL2 REQUIRED)
-message(STATUS "sdl2 include directory ${SDL2_INCLUDE_DIR}")
 
 # force visual studio and the like to only have debug and release builds
 if(CMAKE_CONFIGURATION_TYPES)
