@@ -24,7 +24,12 @@ def install_dependency_sdl2(deps, root, build, generator: str):
         core.extract_zip(zip, root)
         core.movefiles(os.path.join(root, 'SDL2-2.0.8'), root)
         project = cmake.CMake(build_folder=build, source_folder=root, generator=generator)
-        #  project.make_static_library()
+        # project.make_static_library()
+        # this is defined by the standard library so don't add it
+        # generates '__ftol2_sse already defined' errors
+        project.add_argument('LIBC', 'ON')
+        project.add_argument('SDL_STATIC', 'ON')
+        project.add_argument('SDL_SHARED', 'OFF')
         project.config()
         project.build()
     else:
