@@ -86,7 +86,14 @@ else()
   add_compile_options(-Wshadow)
   add_compile_options(-Wnon-virtual-dtor)
   # add_compile_options(-Wold-style-cast) # todo...
+  add_compile_options(-Wcast-align)
+  add_compile_options(-Wunused)
   add_compile_options(-Woverloaded-virtual)
+  #add_compile_options(-Wconversion)
+  #add_compile_options(-Wsign-conversion)
+  add_compile_options(-Wformat=2)
+  # add_compile_options(-Wlifetime)
+
   add_compile_options(-Wno-error=deprecated)
 endif()
 
