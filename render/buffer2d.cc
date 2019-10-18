@@ -10,7 +10,7 @@ namespace euphoria::render
     Buffer2d::Buffer2d(const core::BufferBuilder2d& bb)
         : index_count_(bb.GetTriangleIndices().size())
     {
-        Vao::Bind(&vao_);
+        PointLayout::Bind(&vao_);
         VertexBuffer::Bind(&vbo_);
 
         vbo_.SetData(bb.GetVertexData());
@@ -18,9 +18,9 @@ namespace euphoria::render
         IndexBuffer::Bind(&ebo_);
         ebo_.SetData(bb.GetTriangleIndices());
 
-        vao_.BindVboData(attributes2d::Vertex(), sizeof(float) * 4, 0);
+        vao_.BindData(attributes2d::Vertex(), sizeof(float) * 4, 0);
 
-        Vao::Bind(nullptr);
+        PointLayout::Bind(nullptr);
 
         IndexBuffer::Bind(nullptr);
         VertexBuffer::Bind(nullptr);
@@ -29,9 +29,9 @@ namespace euphoria::render
     void
     Buffer2d::Draw() const
     {
-        Vao::Bind(&vao_);
+        PointLayout::Bind(&vao_);
         ebo_.Draw(index_count_);
-        Vao::Bind(nullptr);
+        PointLayout::Bind(nullptr);
     }
 
 }  // namespace euphoria::render

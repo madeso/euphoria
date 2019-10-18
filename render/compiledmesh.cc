@@ -231,7 +231,7 @@ namespace euphoria::render
         {
             std::shared_ptr<CompiledMeshPart> part {new CompiledMeshPart()};
 
-            Vao::Bind(&part->config);
+            PointLayout::Bind(&part->config);
             VertexBuffer::Bind(&part->data);
             IndexBuffer::Bind(&part->tris);
 
@@ -249,7 +249,7 @@ namespace euphoria::render
 
             IndexBuffer::Bind(nullptr);
             VertexBuffer::Bind(nullptr);
-            Vao::Bind(nullptr);
+            PointLayout::Bind(nullptr);
 
             part->material = part_src.material;
 
@@ -308,11 +308,11 @@ namespace euphoria::render
                     camera,
                     light);
 
-            Vao::Bind(&part->config);
+            PointLayout::Bind(&part->config);
             IndexBuffer::Bind(&part->tris);
             part->tris.Draw(part->tri_count);
             IndexBuffer::Bind(nullptr);
-            Vao::Bind(nullptr);
+            PointLayout::Bind(nullptr);
         }
     }
 
@@ -329,11 +329,11 @@ namespace euphoria::render
 
         for(const auto& part: parts)
         {
-            Vao::Bind(&part->config);
+            PointLayout::Bind(&part->config);
             IndexBuffer::Bind(&part->tris);
             part->tris.Draw(part->tri_count);
             IndexBuffer::Bind(nullptr);
-            Vao::Bind(nullptr);
+            PointLayout::Bind(nullptr);
         }
     }
 

@@ -47,18 +47,18 @@ namespace euphoria::render
 
     ////////////////////////////////////////////////////////////////////////////////
 
-    Vao::Vao()
+    PointLayout::PointLayout()
     {
         glGenVertexArrays(1, &id_);
     }
 
-    Vao::~Vao()
+    PointLayout::~PointLayout()
     {
         glDeleteVertexArrays(1, &id_);
     }
 
     void
-    Vao::BindVboData(const ShaderAttribute& attribute, int stride, int offset)
+    PointLayout::BindData(const ShaderAttribute& attribute, int stride, int offset)
     {
         ASSERT(GetBound() == this);
         ASSERT(VertexBuffer::GetBound() != nullptr);
@@ -79,17 +79,17 @@ namespace euphoria::render
     }
 
     void
-    Vao::Bind(const Vao* vao)
+    PointLayout::Bind(const PointLayout* vao)
     {
         const gluint id = vao != nullptr ? vao->id_ : 0;
         glBindVertexArray(id);
         GetBound() = vao;
     }
 
-    const Vao*&
-    Vao::GetBound()
+    const PointLayout*&
+    PointLayout::GetBound()
     {
-        static const Vao* Vao = nullptr;
+        static const PointLayout* Vao = nullptr;
         return Vao;
     }
 
@@ -118,10 +118,10 @@ namespace euphoria::render
     void
     IndexBuffer::Draw(int count) const
     {
-        ASSERT(Vao::GetBound() != nullptr);
+        ASSERT(PointLayout::GetBound() != nullptr);
         ASSERT(Shader::CurrentlyBound() != nullptr);
 
-        const Vao*    vao    = Vao::GetBound();
+        const PointLayout*    vao    = PointLayout::GetBound();
         const Shader* shader = Shader::CurrentlyBound();
         ASSERT(vao);
         ASSERT(shader);

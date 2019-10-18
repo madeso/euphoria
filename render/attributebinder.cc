@@ -18,7 +18,7 @@ namespace euphoria::render
         int stride = 0;
         for(const auto& d: bind_datas_)
         {
-            part->config.BindVboData(d.attribute, total_size_, stride);
+            part->config.BindData(d.attribute, total_size_, stride);
             stride += d.size;
         }
     }

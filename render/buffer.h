@@ -30,18 +30,19 @@ namespace euphoria::render
     /** Stores what the data in the VertexBuffer is and how it is laid out/used
      * Represents a OpenGL Vertex Array Object (VAO).
      */
-    struct Vao : public Id
+    struct PointLayout : public Id
     {
     public:
-        Vao();
-        ~Vao();
+        PointLayout();
+        ~PointLayout();
 
         void
-        BindVboData(const ShaderAttribute& attribute, int stride, int offset);
+        BindData(const ShaderAttribute& attribute, int stride, int offset);
 
         static void
-        Bind(const Vao* vao);
-        static const Vao*&
+        Bind(const PointLayout* vao);
+        
+        static const PointLayout*&
         GetBound();
 
         // debug

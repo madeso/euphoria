@@ -21,7 +21,7 @@ namespace euphoria::render
     private:
         unsigned int index_count_;
         VertexBuffer          vbo_;
-        Vao          vao_;
+        PointLayout          vao_;
         IndexBuffer          ebo_;
     };
 

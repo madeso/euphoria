@@ -30,7 +30,7 @@ namespace euphoria::render
     {
     public:
         VertexBuffer          data;
-        Vao          config;
+        PointLayout          config;
         IndexBuffer          tris;
         int          tri_count;
         unsigned int material;
