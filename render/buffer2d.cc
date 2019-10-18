@@ -1,12 +1,13 @@
-#include "core/assert.h"
-
 #include "render/buffer2d.h"
-#include "render/bufferbuilder2d.h"
+
+#include "core/assert.h"
+#include "core/bufferbuilder2d.h"
+
 #include "render/shaderattribute2d.h"
 
 namespace euphoria::render
 {
-    Buffer2d::Buffer2d(const BufferBuilder2d& bb)
+    Buffer2d::Buffer2d(const core::BufferBuilder2d& bb)
         : index_count_(bb.GetTriangleIndices().size())
     {
         Vao::Bind(&vao_);

@@ -1,20 +1,21 @@
 #include "render/scalablesprite.h"
 
-#include "core/assert.h"
 #include <iostream>
 #include <algorithm>
 
-#include "render/buffer2d.h"
-#include "render/bufferbuilder2d.h"
+#include "core/assert.h"
 #include "core/rect.h"
+#include "core/proto.h"
+#include "core/tablelayout.h"
+// #include "core/bufferbuilder2d.h"
+
+#include "render/buffer2d.h"
 #include "render/texture.h"
 #include "render/texturecache.h"
 #include "render/spriterender.h"
 
 #include "gaf_scalingsprite.h"
-#include "core/proto.h"
 
-#include "core/tablelayout.h"
 
 using namespace euphoria::convert;
 

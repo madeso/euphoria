@@ -1,10 +1,10 @@
-#include "render/bufferbuilder2d.h"
+#include "core/bufferbuilder2d.h"
 
-namespace euphoria::render
+namespace euphoria::core
 {
     Point::Point(float x, float y, float u, float v) : pos(x, y), vert(u, v) {}
 
-    Point::Point(const core::vec2f& apos, const core::vec2f& avert)
+    Point::Point(const vec2f& apos, const vec2f& avert)
         : pos(apos), vert(avert)
     {}
 

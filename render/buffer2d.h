@@ -3,14 +3,17 @@
 
 #include "render/buffer.h"
 
-namespace euphoria::render
+namespace euphoria::core
 {
     struct BufferBuilder2d;
+}
 
+namespace euphoria::render
+{
     struct Buffer2d
     {
     public:
-        Buffer2d(const BufferBuilder2d& bb);
+        Buffer2d(const core::BufferBuilder2d& bb);
 
         void
         Draw() const;

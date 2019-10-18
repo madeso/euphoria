@@ -4,21 +4,18 @@
 #include <vector>
 #include "core/vec2.h"
 
-namespace euphoria::render
+namespace euphoria::core
 {
-    struct Vao;
-    struct Ebo;
-
     struct Point
     {
     public:
         Point(float x, float y, float u, float v);
-        Point(const core::vec2f& apos, const core::vec2f& avert);
+        Point(const vec2f& apos, const vec2f& avert);
 
-        const core::vec2f pos;
+        const vec2f pos;
 
-        // todo: rename to uv
-        const core::vec2f vert;
+        // todo(Gustav): rename to uv
+        const vec2f vert;
     };
 
     struct BufferBuilder2d

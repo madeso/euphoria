@@ -1,9 +1,12 @@
 #include "render/spriterender.h"
+
+#include "core/bufferbuilder2d.h"
+
 #include "render/buffer2d.h"
 #include "render/scalablesprite.h"
 #include "render/shaderattribute2d.h"
 #include "render/gl.h"
-#include "render/bufferbuilder2d.h"
+
 
 using namespace euphoria::convert;
 
@@ -118,12 +121,12 @@ namespace euphoria::render
     void
     SpriteRenderer::InitRenderData()
     {
-        BufferBuilder2d data;
+        core::BufferBuilder2d data;
 
-        Point a(0.0f, 1.0f, 0.0f, 1.0f);
-        Point b(1.0f, 0.0f, 1.0f, 0.0f);
-        Point c(0.0f, 0.0f, 0.0f, 0.0f);
-        Point d(1.0f, 1.0f, 1.0f, 1.0f);
+        core::Point b(1.0f, 0.0f, 1.0f, 0.0f);
+        core::Point a(0.0f, 1.0f, 0.0f, 1.0f);
+        core::Point c(0.0f, 0.0f, 0.0f, 0.0f);
+        core::Point d(1.0f, 1.0f, 1.0f, 1.0f);
 
         data.AddQuad(c, b, a, d);
 
