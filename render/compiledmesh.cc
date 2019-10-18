@@ -233,7 +233,7 @@ namespace euphoria::render
 
             Vao::Bind(&part->config);
             VertexBuffer::Bind(&part->data);
-            Ebo::Bind(&part->tris);
+            IndexBuffer::Bind(&part->tris);
 
             part->data.SetData(part_src.points);
             AttributeBinder binder;
@@ -247,7 +247,7 @@ namespace euphoria::render
             part->tris.SetData(part_src.faces);
             part->tri_count = part_src.facecount;
 
-            Ebo::Bind(nullptr);
+            IndexBuffer::Bind(nullptr);
             VertexBuffer::Bind(nullptr);
             Vao::Bind(nullptr);
 
@@ -309,9 +309,9 @@ namespace euphoria::render
                     light);
 
             Vao::Bind(&part->config);
-            Ebo::Bind(&part->tris);
+            IndexBuffer::Bind(&part->tris);
             part->tris.Draw(part->tri_count);
-            Ebo::Bind(nullptr);
+            IndexBuffer::Bind(nullptr);
             Vao::Bind(nullptr);
         }
     }
@@ -330,9 +330,9 @@ namespace euphoria::render
         for(const auto& part: parts)
         {
             Vao::Bind(&part->config);
-            Ebo::Bind(&part->tris);
+            IndexBuffer::Bind(&part->tris);
             part->tris.Draw(part->tri_count);
-            Ebo::Bind(nullptr);
+            IndexBuffer::Bind(nullptr);
             Vao::Bind(nullptr);
         }
     }

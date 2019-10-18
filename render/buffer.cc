@@ -95,17 +95,17 @@ namespace euphoria::render
 
     ////////////////////////////////////////////////////////////////////////////////
 
-    Ebo::Ebo()
+    IndexBuffer::IndexBuffer()
     {
         glGenBuffers(1, &id_);
     }
-    Ebo::~Ebo()
+    IndexBuffer::~IndexBuffer()
     {
         glDeleteBuffers(1, &id_);
     }
 
     void
-    Ebo::SetData(const std::vector<unsigned int>& indices)
+    IndexBuffer::SetData(const std::vector<unsigned int>& indices)
     {
         ASSERT(GetBound() == this);
         glBufferData(
@@ -116,7 +116,7 @@ namespace euphoria::render
     }
 
     void
-    Ebo::Draw(int count) const
+    IndexBuffer::Draw(int count) const
     {
         ASSERT(Vao::GetBound() != nullptr);
         ASSERT(Shader::CurrentlyBound() != nullptr);
@@ -144,17 +144,17 @@ namespace euphoria::render
     }
 
     void
-    Ebo::Bind(const Ebo* ebo)
+    IndexBuffer::Bind(const IndexBuffer* ebo)
     {
         const gluint id = ebo != nullptr ? ebo->id_ : 0;
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, id);
         GetBound() = ebo;
     }
 
-    const Ebo*&
-    Ebo::GetBound()
+    const IndexBuffer*&
+    IndexBuffer::GetBound()
     {
-        static const Ebo* Ebo = nullptr;
+        static const IndexBuffer* Ebo = nullptr;
         return Ebo;
     }
 

@@ -22,7 +22,7 @@ namespace euphoria::render
         unsigned int index_count_;
         VertexBuffer          vbo_;
         Vao          vao_;
-        Ebo          ebo_;
+        IndexBuffer          ebo_;
     };
 
 }  // namespace euphoria::render

@@ -15,14 +15,14 @@ namespace euphoria::render
 
         vbo_.SetData(bb.GetVertexData());
 
-        Ebo::Bind(&ebo_);
+        IndexBuffer::Bind(&ebo_);
         ebo_.SetData(bb.GetTriangleIndices());
 
         vao_.BindVboData(attributes2d::Vertex(), sizeof(float) * 4, 0);
 
         Vao::Bind(nullptr);
 
-        Ebo::Bind(nullptr);
+        IndexBuffer::Bind(nullptr);
         VertexBuffer::Bind(nullptr);
     }
 

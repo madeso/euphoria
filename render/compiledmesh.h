@@ -31,7 +31,7 @@ namespace euphoria::render
     public:
         VertexBuffer          data;
         Vao          config;
-        Ebo          tris;
+        IndexBuffer          tris;
         int          tri_count;
         unsigned int material;
     };

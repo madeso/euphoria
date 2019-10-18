@@ -51,11 +51,11 @@ namespace euphoria::render
     /** Reuses points.
      * Represents a OpenGL Element Buffer Object (EBO).
      */
-    struct Ebo : public Id
+    struct IndexBuffer : public Id
     {
     public:
-        Ebo();
-        ~Ebo();
+        IndexBuffer();
+        ~IndexBuffer();
 
         void
         SetData(const std::vector<unsigned int>& indices);
@@ -65,9 +65,9 @@ namespace euphoria::render
         Draw(int count) const;
 
         static void
-        Bind(const Ebo* ebo);
+        Bind(const IndexBuffer* ebo);
 
-        static const Ebo*&
+        static const IndexBuffer*&
         GetBound();
     };
 
