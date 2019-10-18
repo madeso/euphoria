@@ -8,18 +8,18 @@
 
 namespace euphoria::render
 {
-    Vbo::Vbo()
+    VertexBuffer::VertexBuffer()
     {
         glGenBuffers(1, &id_);
     }
 
-    Vbo::~Vbo()
+    VertexBuffer::~VertexBuffer()
     {
         glDeleteBuffers(1, &id_);
     }
 
     void
-    Vbo::SetData(const std::vector<float>& data)
+    VertexBuffer::SetData(const std::vector<float>& data)
     {
         ASSERT(GetBound() == this);
         // use GL_DYNAMIC_DRAW or GL_STREAM_DRAW instead?
@@ -31,17 +31,17 @@ namespace euphoria::render
     }
 
     void
-    Vbo::Bind(const Vbo* vbo)
+    VertexBuffer::Bind(const VertexBuffer* vbo)
     {
         const gluint id = vbo != nullptr ? vbo->id_ : 0;
         glBindBuffer(GL_ARRAY_BUFFER, id);
         GetBound() = vbo;
     }
 
-    const Vbo*&
-    Vbo::GetBound()
+    const VertexBuffer*&
+    VertexBuffer::GetBound()
     {
-        static const Vbo* Vbo = nullptr;
+        static const VertexBuffer* Vbo = nullptr;
         return Vbo;
     }
 
@@ -61,7 +61,7 @@ namespace euphoria::render
     Vao::BindVboData(const ShaderAttribute& attribute, int stride, int offset)
     {
         ASSERT(GetBound() == this);
-        ASSERT(Vbo::GetBound() != nullptr);
+        ASSERT(VertexBuffer::GetBound() != nullptr);
         auto size = static_cast<int>(attribute.size);
         ASSERT(size >= 1 && size <= 4);
         // reinterpret_cast is probably ok since the void* is an offset

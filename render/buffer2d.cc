@@ -11,7 +11,7 @@ namespace euphoria::render
         : index_count_(bb.GetTriangleIndices().size())
     {
         Vao::Bind(&vao_);
-        Vbo::Bind(&vbo_);
+        VertexBuffer::Bind(&vbo_);
 
         vbo_.SetData(bb.GetVertexData());
 
@@ -23,7 +23,7 @@ namespace euphoria::render
         Vao::Bind(nullptr);
 
         Ebo::Bind(nullptr);
-        Vbo::Bind(nullptr);
+        VertexBuffer::Bind(nullptr);
     }
 
     void

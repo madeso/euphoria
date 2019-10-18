@@ -10,18 +10,19 @@ namespace euphoria::render
 {
     // Vertex Buffer Object
     // Stores vertices, uv, etc
-    struct Vbo : public Id
+    struct VertexBuffer : public Id
     {
     public:
-        Vbo();
-        ~Vbo();
+        VertexBuffer();
+        ~VertexBuffer();
 
         void
         SetData(const std::vector<float>& data);
 
         static void
-        Bind(const Vbo* vbo);
-        static const Vbo*&
+        Bind(const VertexBuffer* vbo);
+        
+        static const VertexBuffer*&
         GetBound();
     };
 

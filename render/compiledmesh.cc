@@ -232,7 +232,7 @@ namespace euphoria::render
             std::shared_ptr<CompiledMeshPart> part {new CompiledMeshPart()};
 
             Vao::Bind(&part->config);
-            Vbo::Bind(&part->data);
+            VertexBuffer::Bind(&part->data);
             Ebo::Bind(&part->tris);
 
             part->data.SetData(part_src.points);
@@ -248,7 +248,7 @@ namespace euphoria::render
             part->tri_count = part_src.facecount;
 
             Ebo::Bind(nullptr);
-            Vbo::Bind(nullptr);
+            VertexBuffer::Bind(nullptr);
             Vao::Bind(nullptr);
 
             part->material = part_src.material;

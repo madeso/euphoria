@@ -29,7 +29,7 @@ namespace euphoria::render
     struct CompiledMeshPart
     {
     public:
-        Vbo          data;
+        VertexBuffer          data;
         Vao          config;
         Ebo          tris;
         int          tri_count;

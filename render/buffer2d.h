@@ -20,7 +20,7 @@ namespace euphoria::render
 
     private:
         unsigned int index_count_;
-        Vbo          vbo_;
+        VertexBuffer          vbo_;
         Vao          vao_;
         Ebo          ebo_;
     };
