@@ -50,18 +50,24 @@ namespace euphoria::core::ecs
 
     struct ComponentSystemUpdate
     {
+        virtual ~ComponentSystemUpdate() = default;
+
         virtual void
         Update(EntReg* reg, float dt) const = 0;
     };
 
     struct ComponentSystemInit
     {
+        virtual ~ComponentSystemInit() = default;
+
         virtual void
         OnAdd(EntityId entity) const = 0;
     };
 
     struct ComponentSystemSpriteDraw
     {
+        virtual ~ComponentSystemSpriteDraw() = default;
+
         virtual void
         Draw(EntReg* reg, render::SpriteRenderer* renderer) const = 0;
     };

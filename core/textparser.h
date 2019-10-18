@@ -56,6 +56,8 @@ namespace euphoria::core
 
         struct Visitor
         {
+            virtual ~Visitor() = default;
+            
             virtual void
             OnText(const std::string& text)
                     = 0;

@@ -84,6 +84,9 @@ if(MSVC)
 else()
   add_compile_options(-Wall -Wextra -Wpedantic)
   add_compile_options(-Wshadow)
+  add_compile_options(-Wnon-virtual-dtor)
+  # add_compile_options(-Wold-style-cast) # todo...
+  add_compile_options(-Woverloaded-virtual)
   add_compile_options(-Wno-error=deprecated)
 endif()
 

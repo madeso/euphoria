@@ -153,7 +153,7 @@ public:
         }
     }
 
-    ~AppBase() {};
+    virtual ~AppBase() = default;
 
     virtual void
     Draw() = 0;
