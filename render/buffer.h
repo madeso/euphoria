@@ -8,8 +8,9 @@
 
 namespace euphoria::render
 {
-    // Vertex Buffer Object
-    // Stores vertices, uv, etc
+    /** Stores vertices, uv, etc.
+     * Represents a OpenGL Vertex Buffer Object (VBO).
+     */
     struct VertexBuffer : public Id
     {
     public:
@@ -21,13 +22,14 @@ namespace euphoria::render
 
         static void
         Bind(const VertexBuffer* vbo);
-        
+
         static const VertexBuffer*&
         GetBound();
     };
 
-    // Vertex Array Object
-    // Stores what the data in the Vbo is and how it is laid out/used
+    /** Stores what the data in the VertexBuffer is and how it is laid out/used
+     * Represents a OpenGL Vertex Array Object (VAO).
+     */
     struct Vao : public Id
     {
     public:
@@ -46,8 +48,9 @@ namespace euphoria::render
         std::vector<ShaderAttribute> attributes;
     };
 
-    // Element Buffer Object
-    // Reuses points
+    /** Reuses points.
+     * Represents a OpenGL Element Buffer Object (EBO).
+     */
     struct Ebo : public Id
     {
     public:
