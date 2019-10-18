@@ -29,9 +29,9 @@ namespace euphoria::render
     struct CompiledMeshPart
     {
     public:
-        VertexBuffer          data;
-        PointLayout          config;
-        IndexBuffer          tris;
+        VertexBuffer data;
+        PointLayout  config;
+        IndexBuffer  tris;
         int          tri_count;
         unsigned int material;
     };

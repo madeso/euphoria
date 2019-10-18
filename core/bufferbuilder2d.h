@@ -39,6 +39,6 @@ namespace euphoria::core
         std::vector<float>        data;
         std::vector<unsigned int> tris;
     };
-}  // namespace euphoria::render
+}  // namespace euphoria::core
 
 #endif  // RENDER_BUFFERBUILDER2D_H

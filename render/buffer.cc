@@ -58,7 +58,10 @@ namespace euphoria::render
     }
 
     void
-    PointLayout::BindData(const ShaderAttribute& attribute, int stride, int offset)
+    PointLayout::BindData(
+            const ShaderAttribute& attribute,
+            int                    stride,
+            int                    offset)
     {
         ASSERT(GetBound() == this);
         ASSERT(VertexBuffer::GetBound() != nullptr);
@@ -121,8 +124,8 @@ namespace euphoria::render
         ASSERT(PointLayout::GetBound() != nullptr);
         ASSERT(Shader::CurrentlyBound() != nullptr);
 
-        const PointLayout*    vao    = PointLayout::GetBound();
-        const Shader* shader = Shader::CurrentlyBound();
+        const PointLayout* vao    = PointLayout::GetBound();
+        const Shader*      shader = Shader::CurrentlyBound();
         ASSERT(vao);
         ASSERT(shader);
 

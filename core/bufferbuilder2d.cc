@@ -4,8 +4,7 @@ namespace euphoria::core
 {
     Point::Point(float x, float y, float u, float v) : pos(x, y), vert(u, v) {}
 
-    Point::Point(const vec2f& apos, const vec2f& avert)
-        : pos(apos), vert(avert)
+    Point::Point(const vec2f& apos, const vec2f& avert) : pos(apos), vert(avert)
     {}
 
     BufferBuilder2d::BufferBuilder2d() = default;
@@ -60,4 +59,4 @@ namespace euphoria::core
         return tris;
     }
 
-}  // namespace euphoria::render
+}  // namespace euphoria::core

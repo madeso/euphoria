@@ -41,7 +41,7 @@ namespace euphoria::render
 
         static void
         Bind(const PointLayout* vao);
-        
+
         static const PointLayout*&
         GetBound();
 
