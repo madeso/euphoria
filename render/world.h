@@ -13,6 +13,11 @@ namespace euphoria::core
     struct CompiledCamera;
 }  // namespace euphoria::core
 
+namespace euphoria::core::vfs
+{
+    struct FileSystem;
+}
+
 namespace euphoria::render
 {
     struct Viewport;
@@ -22,7 +27,7 @@ namespace euphoria::render
     struct World
     {
     public:
-        World();
+        explicit World(core::vfs::FileSystem* file_system);
 
         void
         AddActor(const std::shared_ptr<Actor>& actor);

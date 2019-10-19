@@ -7,62 +7,74 @@ namespace euphoria::render
     void
     SetupDefaultFiles(std::shared_ptr<core::vfs::FileSystemRootCatalog> catalog)
     {
+        catalog->RegisterFileString("texture_types.json",
+            R"json(
+                {
+                    "name":
+                    [
+                        "Diffuse",
+                        "Specular"
+                    ]
+                }
+            )json");
+
         catalog->RegisterFileString(
                 "default_shader.json",
                 R"json(
-                {
-                    "has_light": true,
-                    "ambient": "uMaterial.ambient",
-                    "diffuse": "uMaterial.diffuse",
-                    "specular": "uMaterial.specular",
-                    "shininess": "uMaterial.shininess",
-                    "textures":
-                    [
-                        {
-                            "texture": "Diffuse",
-                            "uniform": "uDiffuseMap"
-                        },
-                        {
-                            "texture": "Specular",
-                            "uniform": "uSpecularMap"
-                        }
-                    ],
-                    "default_textures":
-                    [
-                        {
-                            "texture": "Diffuse",
-                            "path": "img-plain/white"
-                        },
-                        {
-                            "texture": "Specular",
-                            "path": "img-plain/white"
-                        }
-                    ]
-                })json");
+                    {
+                        "has_light": true,
+                        "ambient": "uMaterial.ambient",
+                        "diffuse": "uMaterial.diffuse",
+                        "specular": "uMaterial.specular",
+                        "shininess": "uMaterial.shininess",
+                        "textures":
+                        [
+                            {
+                                "texture": "Diffuse",
+                                "uniform": "uDiffuseMap"
+                            },
+                            {
+                                "texture": "Specular",
+                                "uniform": "uSpecularMap"
+                            }
+                        ],
+                        "default_textures":
+                        [
+                            {
+                                "texture": "Diffuse",
+                                "path": "img-plain/white"
+                            },
+                            {
+                                "texture": "Specular",
+                                "path": "img-plain/white"
+                            }
+                        ]
+                    }
+                )json");
         catalog->RegisterFileString(
                 "default_shader.vert",
                 R"glsl(
-                #version 330 core
-                in vec3 aPosition;
-                in vec3 aNormal;
-                in vec2 aTexCoord;
-                
-                out vec2 texCoord;
-                out vec3 normal;
-                out vec3 fragPositionWorld;
-                
-                uniform mat4 uProjection;
-                uniform mat4 uView;
-                uniform mat4 uModel;
-                uniform mat3 uNormalMatrix;
-                
-                void main()
-                {
-                    gl_Position = uProjection * uView * uModel * vec4(aPosition, 1.0);
-                    fragPositionWorld = vec3(uModel * vec4(aPosition, 1.0));
-                    texCoord = aTexCoord;
-                    normal = uNormalMatrix * aNormal;
-                }
+                    #version 330 core
+                    in vec3 aPosition;
+                    in vec3 aNormal;
+                    in vec2 aTexCoord;
+                    
+                    out vec2 texCoord;
+                    out vec3 normal;
+                    out vec3 fragPositionWorld;
+                    
+                    uniform mat4 uProjection;
+                    uniform mat4 uView;
+                    uniform mat4 uModel;
+                    uniform mat3 uNormalMatrix;
+                    
+                    void main()
+                    {
+                        gl_Position = uProjection * uView * uModel * vec4(aPosition, 1.0);
+                        fragPositionWorld = vec3(uModel * vec4(aPosition, 1.0));
+                        texCoord = aTexCoord;
+                        normal = uNormalMatrix * aNormal;
+                    }
                 )glsl");
         catalog->RegisterFileString(
                 "default_shader.frag",
@@ -155,6 +167,10 @@ namespace euphoria::render
                         
                         FragColor = vec4(result, 1.0);
                     })glsl");
+
+
+        ///////////////////////////////////////////////////////////////////////
+        // basic_shader
         catalog->RegisterFileString(
                 "basic_shader.json",
                 R"json(
@@ -164,7 +180,7 @@ namespace euphoria::render
                         "textures": [],
                         "default_textures": []
                     }
-                    )json");
+                )json");
         catalog->RegisterFileString(
                 "basic_shader.vert",
                 R"glsl(
@@ -179,29 +195,68 @@ namespace euphoria::render
                     {
                         gl_Position = uProjection * uView * uModel * vec4(aPosition, 1.0);
                     }
-                    )glsl");
+                )glsl");
         catalog->RegisterFileString(
                 "basic_shader.frag",
-                R"glsl(#version 330 core
+                R"glsl(
+                    #version 330 core
                 
-                uniform vec3 uDiffuse;
-                
-                out vec4 FragColor;
-                
-                void main()
-                {
-                    FragColor = vec4(uDiffuse, 1.0);
-                }
-                )glsl");
-        catalog->RegisterFileString("texture_types.json", R"json(
+                    uniform vec3 uDiffuse;
+                    
+                    out vec4 FragColor;
+                    
+                    void main()
                     {
-                        "name":
-                        [
-                            "Diffuse",
-                            "Specular"
-                        ]
+                        FragColor = vec4(uDiffuse, 1.0);
+                    }
+                )glsl");
+        
+
+        ///////////////////////////////////////////////////////////////////////
+        // outline_shader
+        catalog->RegisterFileString(
+                "outline_shader.json",
+                R"json(
+                    {
+                        "diffuse": "uColor",
+                        "has_light": false,
+                        "textures": [],
+                        "default_textures": []
                     }
                     )json");
+        catalog->RegisterFileString(
+                "outline_shader.vert",
+                R"glsl(
+                    #version 330 core
+
+                    in vec3 aPosition;
+                    in vec3 aNormal;
+                    in vec2 aTexCoord;
+                    
+                    uniform mat4 uProjection;
+                    uniform mat4 uView;
+                    uniform mat4 uModel;
+                    uniform mat3 uNormalMatrix;
+                    
+                    void main()
+                    {
+                        gl_Position = uProjection * uView * uModel 
+                                      * vec4(aPosition + aNormal*0.02, 1.0);
+                    }
+                    )glsl");
+        catalog->RegisterFileString(
+                "outline_shader.frag",
+                R"glsl(
+                #version 330 core
+
+                out vec4 FragColor;
+                uniform vec3 uColor;
+
+                void main()
+                {
+                    FragColor = vec4(uColor, 1.0);
+                }
+                )glsl");
     }
 
 }  // namespace euphoria::render

@@ -9,32 +9,10 @@
 
 namespace euphoria::render
 {
-    World::World()
+    World::World(core::vfs::FileSystem* file_system)
     {
         outline_shader.reset(new MaterialShader());
-        outline_shader->Compile(
-                "#version 330 core\n"
-                "in vec3 aPosition;\n"
-                "in vec3 aNormal;\n"
-                "in vec2 aTexCoord;\n"
-                "\n"
-                "uniform mat4 uProjection;\n"
-                "uniform mat4 uView;\n"
-                "uniform mat4 uModel;\n"
-                "uniform mat3 uNormalMatrix;\n"
-                "\n"
-                "void main()\n"
-                "{\n"
-                "    gl_Position = uProjection * uView * uModel \n"
-                "                  * vec4(aPosition + aNormal*0.02, 1.0);\n"
-                "}\n",
-                "#version 330 core\n"
-                "out vec4 FragColor;\n"
-                "uniform vec3 uColor;\n"
-                "void main()\n"
-                "{\n"
-                "    FragColor = vec4(uColor, 1.0);\n"
-                "}\n");
+        outline_shader->Load(file_system, "outline_shader");
         outline_color.reset(new ShaderUniform {
                 outline_shader->shader_.GetUniform("uColor")});
     }
