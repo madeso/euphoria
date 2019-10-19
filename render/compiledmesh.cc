@@ -91,8 +91,8 @@ namespace euphoria::render
 
         for(const auto& default_texture: default_textures)
         {
-            const bool missing
-                    = textures.find(default_texture.GetName()) == textures.end();
+            const bool missing = textures.find(default_texture.GetName())
+                                 == textures.end();
             if(missing)
             {
                 textures[default_texture.GetName()]
@@ -167,9 +167,9 @@ namespace euphoria::render
         {
             material_index += 1;
             CompiledMeshMaterial mat;
-            mat.ambient = material_src.ambient;
-            mat.diffuse = material_src.diffuse;
-            mat.specular = material_src.specular;
+            mat.ambient   = material_src.ambient;
+            mat.diffuse   = material_src.diffuse;
+            mat.specular  = material_src.specular;
             mat.shininess = material_src.shininess;
 
             std::string shader_name = material_src.shader;

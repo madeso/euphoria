@@ -61,7 +61,7 @@ namespace euphoria::render
          */
         bool
         Validate() const;
-        
+
         core::Rgb                                             ambient;
         core::Rgb                                             diffuse;
         core::Rgb                                             specular;

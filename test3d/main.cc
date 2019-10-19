@@ -269,9 +269,9 @@ main(int, char**)
 
             ImGui::End();
 
-            light_material->ambient = world.light.GetAmbient();
-            light_material->diffuse = world.light.GetDiffuse();
-            light_material->specular = world.light.GetSpecular();
+            light_material->ambient   = world.light.GetAmbient();
+            light_material->diffuse   = world.light.GetDiffuse();
+            light_material->specular  = world.light.GetSpecular();
             light_material->shininess = 10;
         }
 
