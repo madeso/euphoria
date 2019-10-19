@@ -18,42 +18,18 @@ namespace euphoria::render
     ////////////////////////////////////////////////////////////////////////////////
 
     MaterialShaderDefaultTexture::MaterialShaderDefaultTexture(
-            const core::EnumValue& name,
-            const std::string&     path)
-        : name_(name), path_(path)
+            const core::EnumValue& a_name,
+            const std::string&     a_path)
+        : name(a_name), path(a_path)
     {}
-
-    const core::EnumValue&
-    MaterialShaderDefaultTexture::GetName() const
-    {
-        return name_;
-    }
-
-    const std::string&
-    MaterialShaderDefaultTexture::GetPath() const
-    {
-        return path_;
-    }
 
     ////////////////////////////////////////////////////////////////////////////////
 
     MaterialShaderBinding::MaterialShaderBinding(
-            ShaderUniform          uniform,
-            const core::EnumValue& name)
-        : uniform_(std::move(uniform)), name_(name)
+            ShaderUniform          a_uniform,
+            const core::EnumValue& a_name)
+        : uniform(std::move(a_uniform)), name(a_name)
     {}
-
-    const ShaderUniform&
-    MaterialShaderBinding::GetUniform() const
-    {
-        return uniform_;
-    }
-
-    const core::EnumValue&
-    MaterialShaderBinding::GetName() const
-    {
-        return name_;
-    }
 
 
     ////////////////////////////////////////////////////////////////////////////////

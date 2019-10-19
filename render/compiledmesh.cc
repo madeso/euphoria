@@ -65,8 +65,7 @@ namespace euphoria::render
         int texture_index = 0;
         for(const auto& binding: bindings)
         {
-            const auto name    = binding.GetName();
-            auto       texture = textures.find(name);
+            auto       texture = textures.find(binding.name);
             if(texture == textures.end())
             {
                 // todo: this is a error and should have been caught by the Validate,
@@ -78,7 +77,7 @@ namespace euphoria::render
             BindTextureToShader(
                     texture->second.get(),
                     &shader->shader_,
-                    binding.GetUniform(),
+                    binding.uniform,
                     texture_index);
             texture_index += 1;
         }
@@ -91,12 +90,12 @@ namespace euphoria::render
 
         for(const auto& default_texture: default_textures)
         {
-            const bool missing = textures.find(default_texture.GetName())
+            const bool missing = textures.find(default_texture.name)
                                  == textures.end();
             if(missing)
             {
-                textures[default_texture.GetName()]
-                        = cache->GetTexture(default_texture.GetPath());
+                textures[default_texture.name]
+                        = cache->GetTexture(default_texture.path);
             }
         }
     }
@@ -114,14 +113,13 @@ namespace euphoria::render
 
         for(const auto& binding: bindings)
         {
-            const auto name = binding.GetName();
-            values.insert(name);
-            const bool missing = textures.find(name) == textures.end();
+            values.insert(binding.name);
+            const bool missing = textures.find(binding.name) == textures.end();
             if(missing)
             {
                 LOG_ERROR(
                         "Material is missing shader required texture "
-                        << name.ToString());
+                        << binding.name.ToString());
                 ok = false;
             }
         }
