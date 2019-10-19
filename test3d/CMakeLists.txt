@@ -21,7 +21,3 @@ target_link_libraries(demo
                       window
                       ${SDL2_LIBRARY}
                       )
-
-if(CMAKE_COMPILER_IS_GNUCC)
-  set_property(TARGET demo APPEND_STRING PROPERTY COMPILE_FLAGS -Wall)
-endif()

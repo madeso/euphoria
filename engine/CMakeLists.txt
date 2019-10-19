@@ -31,7 +31,3 @@ target_link_libraries(engine
                       duk
                       ${SDL2_LIBRARY}
                       )
-
-if(CMAKE_COMPILER_IS_GNUCC)
-  set_property(TARGET engine APPEND_STRING PROPERTY COMPILE_FLAGS -Wall)
-endif()
