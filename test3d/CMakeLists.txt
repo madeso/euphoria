@@ -13,9 +13,9 @@ include_directories(SYSTEM
                     )
 
 
-add_executable(demo WIN32 MACOSX_BUNDLE ${all_src})
+add_executable(test3d WIN32 MACOSX_BUNDLE ${all_src})
 
-target_link_libraries(demo
+target_link_libraries(test3d
                       core
                       render
                       window
