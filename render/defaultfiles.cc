@@ -193,8 +193,7 @@ namespace euphoria::render
                     FragColor = vec4(uDiffuse, 1.0);
                 }
                 )glsl");
-        catalog->RegisterFileString(
-                "texture_types.json", R"json(
+        catalog->RegisterFileString("texture_types.json", R"json(
                     {
                         "name":
                         [
