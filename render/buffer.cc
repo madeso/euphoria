@@ -139,8 +139,10 @@ namespace euphoria::render
                     = std::find(a.begin(), a.end(), attribute) != a.end();
             if(!found_in_shader)
             {
-                LOG_ERROR("Failed to find attribute " << attribute.name
-                          << " bound in shader " << shader->GetName());
+                LOG_ERROR(
+                        "Failed to find attribute " << attribute.name
+                                                    << " bound in shader "
+                                                    << shader->GetName());
                 ASSERT(found_in_shader);
             }
         }

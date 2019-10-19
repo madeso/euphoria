@@ -86,8 +86,9 @@ namespace euphoria::core
                     = valid_names.find(name.first) == valid_names.end();
             if(missing)
             {
-                LOG_ERROR("Enum " << name_ << " was registered with name "
-                          << name.first << " but that is invalid.");
+                LOG_ERROR(
+                        "Enum " << name_ << " was registered with name "
+                                << name.first << " but that is invalid.");
             }
         }
 

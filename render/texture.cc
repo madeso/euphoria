@@ -185,8 +185,9 @@ namespace euphoria::render
         auto i = core::LoadImage(fs, path, alpha);
         if(!i.image.IsValid())
         {
-            LOG_ERROR("Failed to load image " << path << "\n"
-                      << "  " << i.error);
+            LOG_ERROR(
+                    "Failed to load image " << path << "\n"
+                                            << "  " << i.error);
             return;
         }
         LoadFromImage(i.image, alpha, data);

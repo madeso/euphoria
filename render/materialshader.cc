@@ -170,8 +170,9 @@ namespace euphoria::render
                 file_system, &material_shader_file, proto_path);
         if(!error.empty())
         {
-            LOG_ERROR("Failed to load material shader json " << path << ": "
-                      << error);
+            LOG_ERROR(
+                    "Failed to load material shader json " << path << ": "
+                                                           << error);
             // todo: set default shader names
         }
 
