@@ -1,29 +1,23 @@
-#include "attributebinder.h"
+#include "render/attributebinder.h"
 
-#include "render/compiledmesh.h"
+#include <numeric>
+
+#include "render/buffer.h"
 
 namespace euphoria::render
 {
     void
-    AttributeBinder::Register(const ShaderAttribute& attribute)
+    BindAttributes(const std::vector<ShaderAttribute>& attributes, PointLayout* layout)
     {
-        const int size = sizeof(float) * static_cast<int>(attribute.size);
-        bind_datas_.emplace_back(BindData {attribute, size});
-        total_size_ += size;
-    }
+        const int total_size = std::accumulate(attributes.begin(), attributes.end(), 0, [](int value, const ShaderAttribute& att) -> int {
+            return value + att.GetByteSize();
+        });
 
-    void
-    AttributeBinder::Bind(const std::shared_ptr<CompiledMeshPart>& part)
-    {
         int stride = 0;
-        for(const auto& d: bind_datas_)
+        for(const auto& attribute: attributes)
         {
-            part->config.BindData(d.attribute, total_size_, stride);
-            stride += d.size;
+            layout->BindData(attribute, total_size, stride);
+            stride += attribute.GetByteSize();
         }
     }
-
-    AttributeBinder::BindData::BindData(ShaderAttribute a, int s)
-        : attribute(std::move(a)), size(s)
-    {}
 }  // namespace euphoria::render

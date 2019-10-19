@@ -197,6 +197,9 @@ namespace euphoria::render
 
         const auto material_count = ret->materials.size();
 
+        // todo(Gustav): move this to a data file, load the mesh dynamically
+        const auto attributes = std::vector<ShaderAttribute>{attributes3d::Vertex(), attributes3d::Normal(), attributes3d::TexCoord()};
+
         for(const auto& part_src: mesh.parts)
         {
             std::shared_ptr<CompiledMeshPart> part {new CompiledMeshPart()};
@@ -206,13 +209,8 @@ namespace euphoria::render
             IndexBuffer::Bind(&part->tris);
 
             part->data.SetData(part_src.points);
-            AttributeBinder binder;
-            // todo(Gustav): move this to a data file, load the mesh dynamically
-            binder.Register(attributes3d::Vertex());
-            binder.Register(attributes3d::Normal());
-            binder.Register(attributes3d::TexCoord());
-            binder.Bind(part);
-
+            
+            BindAttributes(attributes, &part->config);
 
             part->tris.SetData(part_src.faces);
             part->tri_count = part_src.facecount;

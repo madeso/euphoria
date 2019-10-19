@@ -60,6 +60,26 @@ namespace euphoria::render
         glDeleteVertexArrays(1, &id_);
     }
 
+    namespace
+    {
+        GLenum GetOpenGLType(ShaderAttributeType type)
+        {
+            switch(type)
+            {
+            case ShaderAttributeType::FLOAT1:
+            case ShaderAttributeType::FLOAT2:
+            case ShaderAttributeType::FLOAT3:
+            case ShaderAttributeType::FLOAT4:
+            case ShaderAttributeType::FLOAT33:
+            case ShaderAttributeType::FLOAT44:
+                return GL_FLOAT;
+            default:
+                LOG_ERROR("Unhandled shader type");
+                return GL_FLOAT;
+            }
+        } 
+    }
+
     void
     PointLayout::BindData(
             const ShaderAttribute& attribute,
@@ -68,15 +88,13 @@ namespace euphoria::render
     {
         ASSERT(GetBound() == this);
         ASSERT(VertexBuffer::GetBound() != nullptr);
-        auto size = static_cast<int>(attribute.size);
-        ASSERT(size >= 1 && size <= 4);
         // reinterpret_cast is probably ok since the void* is an offset
         // and not a actual pointer
         glVertexAttribPointer(
                 attribute.id,
-                size,
-                GL_FLOAT,
-                GL_FALSE,
+                attribute.GetElementCount(),
+                GetOpenGLType(attribute.type),
+                attribute.normalize ? GL_TRUE : GL_FALSE,
                 stride,
                 reinterpret_cast<GLvoid*>(offset));  // NOLINT
         glEnableVertexAttribArray(attribute.id);

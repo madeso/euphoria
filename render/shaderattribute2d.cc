@@ -12,7 +12,7 @@ namespace euphoria::render
         Vertex()
         {
             static ShaderAttribute Attribute {
-                    "vertex", 1, ShaderAttributeSize::VEC4};
+                    1, ShaderAttributeType::FLOAT4, "vertex"};
             return Attribute;
         }
 

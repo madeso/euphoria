@@ -7,13 +7,9 @@
 
 namespace euphoria::render
 {
-    enum class ShaderAttributeSize
+    enum class ShaderAttributeType
     {
-        VEC1  = 1,
-        VEC2  = 2,
-        VEC3  = 3,
-        VEC4  = 4,
-        MAT44 = 16
+        FLOAT1, FLOAT2, FLOAT3, FLOAT4, FLOAT33, FLOAT44
     };
 
     /** Respresents a shder attribute like vertex, normal or uv coord.
@@ -22,18 +18,28 @@ namespace euphoria::render
     {
     public:
         ShaderAttribute(
-                std::string         aname,
-                glint               aid,
-                ShaderAttributeSize asize);
-
-        /// the name of the shader attribute 
-        std::string         name;
+                glint               a_id,
+                ShaderAttributeType a_type,
+                std::string         a_name,
+                bool a_normalize = false);
 
         /// the id of the attribute
         glint               id;
 
-        /// the size of the attribute
-        ShaderAttributeSize size;
+        /// the type of the attribute
+        ShaderAttributeType type;
+
+        /// the name of the shader attribute 
+        std::string         name;
+
+        // true if the attribute is normalized
+        bool normalize;
+
+        int
+        GetElementCount() const;
+
+        int
+        GetByteSize() const;
     };
 
     bool
