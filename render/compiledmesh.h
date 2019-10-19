@@ -28,7 +28,6 @@ namespace euphoria::render
     // one part of the mesh, single material
     struct CompiledMeshPart
     {
-    public:
         VertexBuffer data;
         PointLayout  config;
         IndexBuffer  tris;
@@ -38,18 +37,7 @@ namespace euphoria::render
 
     struct CompiledMeshMaterial
     {
-    public:
         CompiledMeshMaterial();
-
-        void
-        SetShader(const std::shared_ptr<MaterialShader>& shader);
-
-        void
-        SetColors(
-                const core::Rgb& ambient,
-                const core::Rgb& diffuse,
-                const core::Rgb& specular,
-                float            shininess);
 
         void
         SetTexture(
@@ -71,20 +59,18 @@ namespace euphoria::render
         // set
         bool
         Validate() const;
-
-    private:
-        core::Rgb                                             ambient_;
-        core::Rgb                                             diffuse_;
-        core::Rgb                                             specular_;
-        float                                                 shininess_;
-        std::shared_ptr<MaterialShader>                       shader_;
-        std::map<core::EnumValue, std::shared_ptr<Texture2d>> textures_;
+        
+        core::Rgb                                             ambient;
+        core::Rgb                                             diffuse;
+        core::Rgb                                             specular;
+        float                                                 shininess;
+        std::shared_ptr<MaterialShader>                       shader;
+        std::map<core::EnumValue, std::shared_ptr<Texture2d>> textures;
     };
 
     // a collection of parts making up a mesh
     struct CompiledMesh
     {
-    public:
         std::vector<std::shared_ptr<CompiledMeshPart>> parts;
         std::vector<CompiledMeshMaterial>              materials;
 

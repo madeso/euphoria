@@ -46,6 +46,8 @@ namespace euphoria::render
         core::EnumValue name_;
     };
 
+    /** Extends a regular Shader with uniform bindings for 3d rendering
+     */
     struct MaterialShader
     {
     public:

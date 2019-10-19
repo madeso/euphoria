@@ -23,43 +23,22 @@ namespace euphoria::render
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     CompiledMeshMaterial::CompiledMeshMaterial()
-        : ambient_(core::Color::White)
-        , diffuse_(core::Color::White)
-        , specular_(core::Color::White)
-        , shininess_(135.0f)
+        : ambient(core::Color::White)
+        , diffuse(core::Color::White)
+        , specular(core::Color::White)
+        , shininess(135.0f)
     {}
-
-    void
-    CompiledMeshMaterial::SetShader(
-            const std::shared_ptr<MaterialShader>& shader)
-    {
-        ASSERT(shader);
-        shader_ = shader;
-    }
-
-    void
-    CompiledMeshMaterial::SetColors(
-            const core::Rgb& ambient,
-            const core::Rgb& diffuse,
-            const core::Rgb& specular,
-            float            shininess)
-    {
-        ambient_   = ambient;
-        diffuse_   = diffuse;
-        specular_  = specular;
-        shininess_ = shininess;
-    }
 
     void
     CompiledMeshMaterial::SetTexture(
             const core::EnumValue&     name,
             std::shared_ptr<Texture2d> texture)
     {
-        if(textures_.find(name) != textures_.end())
+        if(textures.find(name) != textures.end())
         {
             LOG_WARN(name.ToString() << " is already assigned, overwriting...");
         }
-        textures_[name] = std::move(texture);
+        textures[name] = std::move(texture);
     }
 
     void
@@ -70,25 +49,25 @@ namespace euphoria::render
             const core::vec3f& camera,
             const Light&       light) const
     {
-        shader_->UseShader();
+        shader->UseShader();
 
         // set common constants
-        shader_->SetModel(model_matrix);
-        shader_->SetProjection(projection_matrix);
-        shader_->SetView(view_matrix);
-        shader_->SetupLight(light, camera);
+        shader->SetModel(model_matrix);
+        shader->SetProjection(projection_matrix);
+        shader->SetView(view_matrix);
+        shader->SetupLight(light, camera);
 
-        shader_->SetColors(ambient_, diffuse_, specular_, shininess_);
+        shader->SetColors(ambient, diffuse, specular, shininess);
 
         // bind all textures
-        const auto& bindings = shader_->GetBindings();
+        const auto& bindings = shader->GetBindings();
 
         int texture_index = 0;
         for(const auto& binding: bindings)
         {
             const auto name    = binding.GetName();
-            auto       texture = textures_.find(name);
-            if(texture == textures_.end())
+            auto       texture = textures.find(name);
+            if(texture == textures.end())
             {
                 // todo: this is a error and should have been caught by the Validate,
                 // abort?
@@ -98,7 +77,7 @@ namespace euphoria::render
             // todo: refactor to material shader
             BindTextureToShader(
                     texture->second.get(),
-                    &shader_->shader_,
+                    &shader->shader_,
                     binding.GetUniform(),
                     texture_index);
             texture_index += 1;
@@ -108,16 +87,16 @@ namespace euphoria::render
     void
     CompiledMeshMaterial::LoadDefaultMaterialsFromShader(TextureCache* cache)
     {
-        const auto textures = shader_->GetDefaultTextures();
+        const auto default_textures = shader->GetDefaultTextures();
 
-        for(const auto& texture: textures)
+        for(const auto& default_texture: default_textures)
         {
             const bool missing
-                    = textures_.find(texture.GetName()) == textures_.end();
+                    = this->textures.find(default_texture.GetName()) == this->textures.end();
             if(missing)
             {
-                textures_[texture.GetName()]
-                        = cache->GetTexture(texture.GetPath());
+                this->textures[default_texture.GetName()]
+                        = cache->GetTexture(default_texture.GetPath());
             }
         }
     }
@@ -127,9 +106,9 @@ namespace euphoria::render
     {
         std::set<core::EnumValue> values;
 
-        ASSERT(shader_);
+        ASSERT(shader);
 
-        const auto bindings = shader_->GetBindings();
+        const auto bindings = shader->GetBindings();
 
         bool ok = true;
 
@@ -137,7 +116,7 @@ namespace euphoria::render
         {
             const auto name = binding.GetName();
             values.insert(name);
-            const bool missing = textures_.find(name) == textures_.end();
+            const bool missing = textures.find(name) == textures.end();
             if(missing)
             {
                 LOG_ERROR(
@@ -147,7 +126,7 @@ namespace euphoria::render
             }
         }
 
-        for(const auto& texture: textures_)
+        for(const auto& texture: textures)
         {
             const auto name    = texture.first;
             const bool missing = values.find(name) == values.end();
@@ -188,21 +167,20 @@ namespace euphoria::render
         {
             material_index += 1;
             CompiledMeshMaterial mat;
-            mat.SetColors(
-                    material_src.ambient,
-                    material_src.diffuse,
-                    material_src.specular,
-                    material_src.shininess);
+            mat.ambient = material_src.ambient;
+            mat.diffuse = material_src.diffuse;
+            mat.specular = material_src.specular;
+            mat.shininess = material_src.shininess;
 
             std::string shader_name = material_src.shader;
             if(shader_name.empty())
             {
-                // todo: determine better shader name
+                // todo(Gustav): determine better shader name
                 // perhaps by setting a few default shaders on a "project" and we try to
                 // match a shader to the object
                 shader_name = "default_shader";
             }
-            mat.SetShader(shader_cache->Get(shader_name));
+            mat.shader = shader_cache->Get(shader_name);
             for(const auto& texture_src: material_src.textures)
             {
                 const auto texture_path
