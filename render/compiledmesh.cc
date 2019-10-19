@@ -60,10 +60,8 @@ namespace euphoria::render
         shader->SetColors(ambient, diffuse, specular, shininess);
 
         // bind all textures
-        const auto& bindings = shader->GetBindings();
-
         int texture_index = 0;
-        for(const auto& binding: bindings)
+        for(const auto& binding: shader->bindings)
         {
             auto       texture = textures.find(binding.name);
             if(texture == textures.end())
@@ -86,9 +84,7 @@ namespace euphoria::render
     void
     CompiledMeshMaterial::LoadDefaultMaterialsFromShader(TextureCache* cache)
     {
-        const auto default_textures = shader->GetDefaultTextures();
-
-        for(const auto& default_texture: default_textures)
+        for(const auto& default_texture: shader->default_textures)
         {
             const bool missing = textures.find(default_texture.name)
                                  == textures.end();
@@ -103,22 +99,20 @@ namespace euphoria::render
     bool
     CompiledMeshMaterial::Validate() const
     {
-        std::set<core::EnumValue> values;
+        std::set<core::EnumValue> shader_values;
 
         ASSERT(shader);
 
-        const auto bindings = shader->GetBindings();
-
         bool ok = true;
 
-        for(const auto& binding: bindings)
+        for(const auto& binding: shader->bindings)
         {
-            values.insert(binding.name);
+            shader_values.insert(binding.name);
             const bool missing = textures.find(binding.name) == textures.end();
             if(missing)
             {
                 LOG_ERROR(
-                        "Material is missing shader required texture "
+                        "Material is missing shader-required texture: "
                         << binding.name.ToString());
                 ok = false;
             }
@@ -127,7 +121,7 @@ namespace euphoria::render
         for(const auto& texture: textures)
         {
             const auto name    = texture.first;
-            const bool missing = values.find(name) == values.end();
+            const bool missing = shader_values.find(name) == shader_values.end();
             if(missing)
             {
                 LOG_ERROR(

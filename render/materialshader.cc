@@ -73,13 +73,13 @@ namespace euphoria::render
             LOG_INFO(
                     "Defining shader " << path << ": " << texture.uniform
                                        << " to " << texture.texture);
-            sh->bindings_.emplace_back(uniform, texture_name);
+            sh->bindings.emplace_back(uniform, texture_name);
         }
 
         for(const auto& texture: file.default_textures)
         {
             DEFINE_ENUM_VALUE(core::TextureType, texture_name, texture.texture);
-            sh->default_textures_.emplace_back(texture_name, texture.path);
+            sh->default_textures.emplace_back(texture_name, texture.path);
         }
 
         // todo: get the shader names from a trusted source
@@ -245,18 +245,6 @@ namespace euphoria::render
             const auto the_shininess = shininess > 0 ? shininess : 1.0f;
             shader_.SetUniform(shininess_, the_shininess);
         }
-    }
-
-    const std::vector<MaterialShaderBinding>&
-    MaterialShader::GetBindings() const
-    {
-        return bindings_;
-    }
-
-    const std::vector<MaterialShaderDefaultTexture>&
-    MaterialShader::GetDefaultTextures()
-    {
-        return default_textures_;
     }
 
 }  // namespace euphoria::render

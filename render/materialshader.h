@@ -63,12 +63,6 @@ namespace euphoria::render
                 const core::Rgb& specular,
                 float            shininess);
 
-        const std::vector<MaterialShaderBinding>&
-        GetBindings() const;
-
-        const std::vector<MaterialShaderDefaultTexture>&
-        GetDefaultTextures();
-
         Shader shader_;
 
         // private:
@@ -97,8 +91,8 @@ namespace euphoria::render
         ShaderUniform normalMatrix_;
         ShaderUniform viewPosition_;
 
-        std::vector<MaterialShaderBinding>        bindings_;
-        std::vector<MaterialShaderDefaultTexture> default_textures_;
+        std::vector<MaterialShaderBinding>        bindings;
+        std::vector<MaterialShaderDefaultTexture> default_textures;
     };
 
 }  // namespace euphoria::render
