@@ -41,7 +41,7 @@ namespace euphoria::render
             {
                 return;
             }
-            std::cerr << "FONT Error: " << err << "\n";
+            LOG_ERROR("FONT Error: " << err);
         }
 
         void
@@ -51,7 +51,7 @@ namespace euphoria::render
             {
                 return;
             }
-            std::cerr << "FONT Error: " << err << "\n";
+            LOG_ERROR("FONT Error: " << err);
         }
 
         std::string
@@ -147,7 +147,7 @@ namespace euphoria::render
                     = FT_Load_Char(face, CharToFt(c), FT_LOAD_RENDER);
             if(error != 0)
             {
-                std::cerr << "Failed to get char\n";
+                LOG_ERROR("Failed to get char");
                 return LoadedGlyph();
             }
 
@@ -464,7 +464,7 @@ namespace euphoria::render
             const stbrp_rect& src_rect = packed_rects[i];
             if(src_rect.was_packed == 0)
             {
-                std::cerr << "Failed to pack\n";
+                LOG_ERROR("Failed to pack");
                 continue;
             }
             const LoadedGlyph& src_char = fontchars.chars[src_rect.id];

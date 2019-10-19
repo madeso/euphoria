@@ -311,7 +311,7 @@ namespace euphoria::core
             ImageLoadResult result;
             result.error = "File doesnt exist";
             result.image.MakeInvalid();
-            std::cerr << "Failed to open " << path << ": File doesnt exist.\n";
+            LOG_ERROR("Failed to open " << path << ": File doesnt exist.");
             return result;
         }
 

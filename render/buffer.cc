@@ -1,6 +1,7 @@
 #include "render/buffer.h"
 
 #include "core/assert.h"
+#include "core/log.h"
 
 #include "render/gl.h"
 #include "render/shader.h"
@@ -8,6 +9,8 @@
 
 namespace euphoria::render
 {
+    LOG_SPECIFY_DEFAULT_LOGGER("render.buffer")
+
     VertexBuffer::VertexBuffer()
     {
         glGenBuffers(1, &id_);
@@ -136,8 +139,8 @@ namespace euphoria::render
                     = std::find(a.begin(), a.end(), attribute) != a.end();
             if(!found_in_shader)
             {
-                std::cerr << "Failed to find attribute " << attribute.name
-                          << " bound in shader " << shader->GetName() << "\n";
+                LOG_ERROR("Failed to find attribute " << attribute.name
+                          << " bound in shader " << shader->GetName());
                 ASSERT(found_in_shader);
             }
         }

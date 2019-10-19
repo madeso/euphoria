@@ -3,6 +3,7 @@
 
 #include "core/image.h"
 #include "core/assert.h"
+#include "core/log.h"
 
 #include "render/gl.h"
 #include "render/texture.h"
@@ -20,6 +21,8 @@
 
 namespace euphoria::render
 {
+    LOG_SPECIFY_DEFAULT_LOGGER("render.texture")
+
     namespace  // local
     {
         gluint
@@ -182,8 +185,8 @@ namespace euphoria::render
         auto i = core::LoadImage(fs, path, alpha);
         if(!i.image.IsValid())
         {
-            std::cerr << "Failed to load image " << path << "\n"
-                      << "  " << i.error << "\n";
+            LOG_ERROR("Failed to load image " << path << "\n"
+                      << "  " << i.error);
             return;
         }
         LoadFromImage(i.image, alpha, data);

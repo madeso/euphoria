@@ -281,8 +281,8 @@ namespace euphoria::gui
         const std::string load_result = core::LoadProtoJson(fs, &f, path);
         if(false == load_result.empty())
         {
-            std::cerr << "Failed to load gui from " << path << ": "
-                      << load_result << "\n";
+            LOG_ERROR("Failed to load gui from " << path << ": "
+                      << load_result);
             return false;
         }
 

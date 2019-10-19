@@ -9,6 +9,7 @@
 #include "core/stringmerger.h"
 #include "core/stringutils.h"
 #include "core/proto.h"
+#include "core/log.h"
 
 #ifdef assert
 #undef assert
@@ -19,6 +20,8 @@
 
 namespace euphoria::core
 {
+    LOG_SPECIFY_DEFAULT_LOGGER("core.enum")
+
     EnumType::EnumType(std::string name)
         : name_(std::move(name)), isAdding_(true), nextIndex_(1)
     {}
@@ -57,7 +60,7 @@ namespace euphoria::core
 
         if(!isAdding_)
         {
-            std::cerr << "Enum value doesnt exist, " << name << "\n";
+            LOG_ERROR("Enum value doesnt exist, " << name);
             return EnumValue(this, 0);
         }
         const size_t id = nextIndex_;
@@ -83,8 +86,8 @@ namespace euphoria::core
                     = valid_names.find(name.first) == valid_names.end();
             if(missing)
             {
-                std::cerr << "Enum " << name_ << " was registered with name "
-                          << name.first << " but that is invalid.\n";
+                LOG_ERROR("Enum " << name_ << " was registered with name "
+                          << name.first << " but that is invalid.");
             }
         }
 
@@ -162,8 +165,7 @@ namespace euphoria::core
 
         if(!load_error.empty())
         {
-            std::cerr << "Failed to load enums " << path << ": " << load_error
-                      << "\n";
+            LOG_ERROR("Failed to load enums " << path << ": " << load_error);
         }
         else
         {
