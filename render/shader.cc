@@ -73,7 +73,7 @@ namespace euphoria::render
     namespace
     {
         bool
-        GetShaderCompileStatus(GLuint object)
+        WasCompilationSuccessful(GLuint object)
         {
             int r = GL_TRUE;
             glGetShaderiv(object, GL_COMPILE_STATUS, &r);
@@ -81,7 +81,7 @@ namespace euphoria::render
         }
 
         bool
-        GetProgramLinkStatus(GLuint object)
+        WasLinkingSuccessful(GLuint object)
         {
             int r = GL_TRUE;
             glGetProgramiv(object, GL_LINK_STATUS, &r);
@@ -128,25 +128,16 @@ namespace euphoria::render
                 << "\n --------------------------------------------------------- ");
     }
 
-    bool
+    void
     PrintErrorProgram(GLuint program)
     {
-        if(GetProgramLinkStatus(program))
-        {
-            return true;
-        }
         const std::string& log = GetProgramLog(program);
         ReportError(log, "PROGRAM");
-        return false;
     }
 
     void
     PrintErrorShader(GLuint shader, const std::string& type)
     {
-        if(GetShaderCompileStatus(shader))
-        {
-            return;
-        }
         const std::string& log = GetShaderLog(shader);
         ReportError(log, type);
     }
@@ -157,8 +148,15 @@ namespace euphoria::render
         GLuint shader = glCreateShader(type);
         glShaderSource(shader, 1, &source, nullptr);
         glCompileShader(shader);
-        PrintErrorShader(shader, name);
-        return shader;
+        if(WasCompilationSuccessful(shader))
+        {
+            return shader;
+        }
+        else
+        {
+            PrintErrorShader(shader, name);
+            return shader;
+        }
     }
 
     void
@@ -195,9 +193,10 @@ namespace euphoria::render
             glAttachShader(GetId(), geometry_shader_id);
         }
         glLinkProgram(GetId());
-        const bool link_error = PrintErrorProgram(GetId());
-        if(!link_error)
+        const bool link_ok = WasLinkingSuccessful(GetId());
+        if(!link_ok)
         {
+            PrintErrorProgram(GetId());
             ret = false;
         }
 
@@ -210,18 +209,18 @@ namespace euphoria::render
 
         for(const auto& attribute: bound_attributes_)
         {
-            int attribute_id
+            int actual_attribute_id
                     = glGetAttribLocation(GetId(), attribute.name.c_str());
-            if(attribute_id == attribute.id)
+            if(actual_attribute_id == attribute.id)
             {
                 continue;
             }
-            if(attribute_id == -1)
+            if(actual_attribute_id == -1)
             {
                 continue;
             }
             LOG_ERROR(
-                    attribute.name << " was bound to " << attribute_id
+                    attribute.name << " was bound to " << actual_attribute_id
                                    << " but was requested at " << attribute.id);
             ret = false;
         }

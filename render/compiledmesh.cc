@@ -207,7 +207,7 @@ namespace euphoria::render
 
             part->data.SetData(part_src.points);
             AttributeBinder binder;
-            // todo: move this to a data file, load the mesh dynamically
+            // todo(Gustav): move this to a data file, load the mesh dynamically
             binder.Register(attributes3d::Vertex());
             binder.Register(attributes3d::Normal());
             binder.Register(attributes3d::TexCoord());

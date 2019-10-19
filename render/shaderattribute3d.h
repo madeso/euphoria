@@ -7,6 +7,13 @@ namespace euphoria::render
 {
     struct Shader;
 
+    // todo(Gustav): Refactor into a pipeline/layout structure
+    /*
+    Currently attributes are hardcoded into a special layout.
+    It would be preferable if the layout is written in script
+    and the actual values are dynamically created in script.
+     */
+
     namespace attributes3d
     {
         const ShaderAttribute&
