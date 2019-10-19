@@ -164,24 +164,24 @@ namespace euphoria::render
     }
 
     void
-    MaterialShader::SetProjection(const core::mat4f& projection)
+    MaterialShader::SetProjection(const core::mat4f& projection_data)
     {
-        shader_.SetUniform(projection_, projection);
+        shader_.SetUniform(projection_, projection_data);
     }
 
     void
-    MaterialShader::SetView(const core::mat4f& view)
+    MaterialShader::SetView(const core::mat4f& view_data)
     {
-        shader_.SetUniform(view_, view);
+        shader_.SetUniform(view_, view_data);
     }
 
     void
-    MaterialShader::SetModel(const core::mat4f& model)
+    MaterialShader::SetModel(const core::mat4f& model_data)
     {
-        shader_.SetUniform(model_, model);
+        shader_.SetUniform(model_, model_data);
         if(hasLight_)
         {
-            core::mat4f normal   = model;
+            core::mat4f normal   = model_data;
             const bool  inverted = normal.Invert();
             ASSERT(inverted);
             normal = normal.GetTransposed();
@@ -218,31 +218,32 @@ namespace euphoria::render
 
     void
     MaterialShader::SetColors(
-            const core::Rgb& ambient,
-            const core::Rgb& diffuse,
-            const core::Rgb& specular,
-            float            shininess)
+            const core::Rgb& ambient_data,
+            const core::Rgb& diffuse_data,
+            const core::Rgb& specular_data,
+            float            shininess_data)
     {
         if(!ambient_.IsNull())
         {
-            shader_.SetUniform(ambient_, ambient);
+            shader_.SetUniform(ambient_, ambient_data);
         }
 
         if(!diffuse_.IsNull())
         {
-            shader_.SetUniform(diffuse_, diffuse);
+            shader_.SetUniform(diffuse_, diffuse_data);
         }
 
         if(!specular_.IsNull())
         {
             const auto the_specular
-                    = shininess > 0 ? specular : core::Rgb {core::Color::Black};
+                    = shininess_data > 0 ? specular_data : core::Rgb {core::Color::Black};
             shader_.SetUniform(specular_, the_specular);
         }
 
         if(!shininess_.IsNull())
         {
-            const auto the_shininess = shininess > 0 ? shininess : 1.0f;
+            // todo(Gustav): change to 0 instead of 1.0
+            const auto the_shininess = shininess_data > 0 ? shininess_data : 1.0f;
             shader_.SetUniform(shininess_, the_shininess);
         }
     }

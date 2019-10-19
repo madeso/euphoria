@@ -45,23 +45,23 @@ namespace euphoria::render
         UseShader();
 
         void
-        SetProjection(const core::mat4f& projection);
+        SetProjection(const core::mat4f& projection_data);
 
         void
-        SetView(const core::mat4f& view);
+        SetView(const core::mat4f& view_data);
 
         void
-        SetModel(const core::mat4f& model);
+        SetModel(const core::mat4f& model_data);
 
         void
         SetupLight(const Light& light, const core::vec3f& camera);
 
         void
         SetColors(
-                const core::Rgb& ambient,
-                const core::Rgb& diffuse,
-                const core::Rgb& specular,
-                float            shininess);
+                const core::Rgb& ambient_data,
+                const core::Rgb& diffuse_data,
+                const core::Rgb& specular_data,
+                float            shininess_data);
 
         Shader shader_;
 
