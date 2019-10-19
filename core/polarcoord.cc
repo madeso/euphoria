@@ -12,7 +12,7 @@ namespace euphoria::core
         , polar(Angle::FromPercentOf180(polar01))
     {
         ASSERT(IsWithin(R01(), azimuthal01));
-        ASSERT(IsWithin(R01(), polar01));
+        ASSERT(IsWithin(Range<float>{0,2}, polar01));
     }
 
     unit3f
