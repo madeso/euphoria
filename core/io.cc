@@ -32,7 +32,9 @@ namespace euphoria::core
             std::ifstream is(full_path, std::ifstream::binary);
             if(!is)
             {
-                LOG_ERROR("Failed to write file " << full_path);
+                // this is actually not a error since other files might be later on in the vfs
+                // test running test3d for a example where it tries to load real files over virtual ones
+                // LOG_ERROR("Failed to read real file " << full_path);
                 return MemoryChunk::Null();
             }
 
