@@ -38,9 +38,6 @@ namespace euphoria::render
     public:
         MaterialShader();
 
-        // todo: add default textures, so we can optionally bind a white texture
-        // to Diffuse if Diffuse is missing on the material
-
         bool
         Load(core::vfs::FileSystem* file_system, const std::string& path);
 
