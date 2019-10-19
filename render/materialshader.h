@@ -44,11 +44,6 @@ namespace euphoria::render
         bool
         Load(core::vfs::FileSystem* file_system, const std::string& path);
 
-        bool
-        Compile(const glchar* vertex,
-                const glchar* fragment,
-                const glchar* geom = nullptr);
-
         void
         UseShader();
 

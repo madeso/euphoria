@@ -157,23 +157,6 @@ namespace euphoria::render
         return shader_compile;
     }
 
-    bool
-    MaterialShader::Compile(
-            const glchar* vertex,
-            const glchar* fragment,
-            const glchar* geom)
-    {
-        attributes3d::PrebindShader(&shader_);
-        const bool shader_compile = shader_.Compile(vertex, fragment, geom);
-        // if (!shader_compile) { return false; }
-
-        materialshader::MaterialShader file;
-        PostBuild(this, file, "[source compile]");
-
-        return shader_compile;
-    }
-
-
     void
     MaterialShader::UseShader()
     {
