@@ -92,10 +92,10 @@ namespace euphoria::render
         for(const auto& default_texture: default_textures)
         {
             const bool missing
-                    = this->textures.find(default_texture.GetName()) == this->textures.end();
+                    = textures.find(default_texture.GetName()) == textures.end();
             if(missing)
             {
-                this->textures[default_texture.GetName()]
+                textures[default_texture.GetName()]
                         = cache->GetTexture(default_texture.GetPath());
             }
         }
