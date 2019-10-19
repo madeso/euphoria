@@ -114,11 +114,14 @@ endif()
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config_in.h ${CMAKE_CURRENT_BINARY_DIR}/euph_generated_config.h)
 include_directories(SYSTEM ${CMAKE_CURRENT_BINARY_DIR})
 
-add_subdirectory(core)
 
-add_definitions(-DIMGUI_USER_CONFIG="imgui_config.h")
+add_definitions(-DIMGUI_USER_CONFIG="imgui_euphoria_config.h")
 add_executable(binary_to_compressed_c external/imgui/imgui/misc/fonts/binary_to_compressed_c.cpp)
 
+include_directories(SYSTEM external/imgui/)
+include_directories(SYSTEM external/IconFontCppHeaders/)
+
+add_subdirectory(core)
 add_subdirectory(tracery)
 add_subdirectory(minsynth)
 add_subdirectory(base64)

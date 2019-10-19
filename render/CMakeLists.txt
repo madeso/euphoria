@@ -17,7 +17,6 @@ source_group("glad" FILES ${src_glad})
 
 # imgui
 set(IMGUI_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../external/imgui/")
-include_directories(SYSTEM ${IMGUI_DIR})
 set(src_imgui
     ${IMGUI_DIR}/imgui/imgui.cpp
     ${IMGUI_DIR}/imgui/imgui.h

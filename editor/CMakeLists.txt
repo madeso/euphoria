@@ -15,11 +15,6 @@ set(src ${src} ${SPRITE_PROTO_SRCS} ${SPRITE_PROTO_HDRS})
 
 include_directories(SYSTEM ${SDL2_INCLUDE_DIR})
 
-include_directories(SYSTEM
-                    ../external/imgui/
-                    )
-include_directories(SYSTEM ../external/IconFontCppHeaders/)
-
 add_executable(editor WIN32 MACOSX_BUNDLE ${src})
 target_link_libraries(editor
                       core

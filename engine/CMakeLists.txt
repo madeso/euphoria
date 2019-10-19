@@ -7,10 +7,6 @@ source_group("" FILES ${app_src})
 
 set(all_src ${app_src} ${src_glew})
 
-include_directories(SYSTEM
-                    ../external/imgui/
-                    )
-
 # release date 2017-09-23 version duktape-2.2.0.tar.xz
 include_directories(SYSTEM ../external/duktape/src)
 

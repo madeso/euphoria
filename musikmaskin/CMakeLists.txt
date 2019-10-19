@@ -4,11 +4,6 @@ source_group("" FILES ${app_src})
 
 include_directories(SYSTEM ${SDL2_INCLUDE_DIR})
 
-include_directories(SYSTEM
-                    ../external/imgui/
-                    )
-include_directories(SYSTEM ../external/IconFontCppHeaders/)
-
 add_executable(musikmaskin WIN32 MACOSX_BUNDLE ${app_src})
 target_link_libraries(musikmaskin
                       core
