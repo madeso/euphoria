@@ -28,6 +28,7 @@ namespace euphoria::render
     // one part of the mesh, single material
     struct CompiledMeshPart
     {
+        // todo(Gustav): move vertex buffer and point layout to the compile mesh instead
         VertexBuffer data;
         PointLayout  config;
         IndexBuffer  tris;
@@ -51,12 +52,13 @@ namespace euphoria::render
               const core::vec3f& camera,
               const Light&       light) const;
 
-        // gets the default materials from the shader if they are null/not set
+        /** Gets the default materials from the shader if they are null/not set.
+         */
         void
         LoadDefaultMaterialsFromShader(TextureCache* cache);
 
-        // asks the shader if all the textures are set, and if more than necessary are
-        // set
+        /** Asks the shader if all the textures are set, and if more than necessary are set.
+         */
         bool
         Validate() const;
         
@@ -68,7 +70,8 @@ namespace euphoria::render
         std::map<core::EnumValue, std::shared_ptr<Texture2d>> textures;
     };
 
-    // a collection of parts making up a mesh
+    /** A collection of parts making up a mesh.
+     */
     struct CompiledMesh
     {
         std::vector<std::shared_ptr<CompiledMeshPart>> parts;
