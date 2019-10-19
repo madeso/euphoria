@@ -63,33 +63,33 @@ namespace euphoria::render
                 const core::Rgb& specular_data,
                 float            shininess_data);
 
-        Shader shader_;
+        Shader shader;
 
         // private:
-        ShaderUniform projection_;
-        ShaderUniform view_;
-        ShaderUniform model_;
+        ShaderUniform projection;
+        ShaderUniform view;
+        ShaderUniform model;
 
-        ShaderUniform ambient_;
-        ShaderUniform diffuse_;
-        ShaderUniform specular_;
-        ShaderUniform shininess_;
+        ShaderUniform ambient;
+        ShaderUniform diffuse;
+        ShaderUniform specular;
+        ShaderUniform shininess;
 
-        bool          hasLight_;
-        ShaderUniform lightAmbient_;
-        ShaderUniform lightDiffuse_;
-        ShaderUniform lightSpecular_;
-        ShaderUniform lightPosition_;
-        ShaderUniform lightDirection_;
-        ShaderUniform lightType_;
-        ShaderUniform lightAttenuationConstant_;
-        ShaderUniform lightAttenuationLinear_;
-        ShaderUniform lightAttenuationQuadratic_;
-        ShaderUniform lightCutoffAngleOuter_;
-        ShaderUniform lightCutoffAngleInner_;
+        bool          hasLight;
+        ShaderUniform lightAmbient;
+        ShaderUniform lightDiffuse;
+        ShaderUniform lightSpecular;
+        ShaderUniform lightPosition;
+        ShaderUniform lightDirection;
+        ShaderUniform lightType;
+        ShaderUniform lightAttenuationConstant;
+        ShaderUniform lightAttenuationLinear;
+        ShaderUniform lightAttenuationQuadratic;
+        ShaderUniform lightCutoffAngleOuter;
+        ShaderUniform lightCutoffAngleInner;
 
-        ShaderUniform normalMatrix_;
-        ShaderUniform viewPosition_;
+        ShaderUniform normalMatrix;
+        ShaderUniform viewPosition;
 
         std::vector<MaterialShaderBinding>        bindings;
         std::vector<MaterialShaderDefaultTexture> default_textures;

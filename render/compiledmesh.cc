@@ -74,7 +74,7 @@ namespace euphoria::render
             // todo: refactor to material shader
             BindTextureToShader(
                     texture->second.get(),
-                    &shader->shader_,
+                    &shader->shader,
                     binding.uniform,
                     texture_index);
             texture_index += 1;

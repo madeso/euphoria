@@ -14,7 +14,7 @@ namespace euphoria::render
         outline_shader.reset(new MaterialShader());
         outline_shader->Load(file_system, "outline_shader");
         outline_color.reset(new ShaderUniform {
-                outline_shader->shader_.GetUniform("uColor")});
+                outline_shader->shader.GetUniform("uColor")});
     }
 
     void
@@ -83,7 +83,7 @@ namespace euphoria::render
             {
                 if(actor->has_outline)
                 {
-                    outline_shader->shader_.SetUniform(
+                    outline_shader->shader.SetUniform(
                             *outline_color, actor->outline_color);
                     actor->BasicRender(
                             projection_matrix, view_matrix, outline_shader);

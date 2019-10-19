@@ -35,27 +35,27 @@ namespace euphoria::render
     ////////////////////////////////////////////////////////////////////////////////
 
     MaterialShader::MaterialShader()
-        : projection_(ShaderUniform::Null())
-        , view_(ShaderUniform::Null())
-        , model_(ShaderUniform::Null())
-        , ambient_(ShaderUniform::Null())
-        , diffuse_(ShaderUniform::Null())
-        , specular_(ShaderUniform::Null())
-        , shininess_(ShaderUniform::Null())
-        , hasLight_(false)
-        , lightAmbient_(ShaderUniform::Null())
-        , lightDiffuse_(ShaderUniform::Null())
-        , lightSpecular_(ShaderUniform::Null())
-        , lightPosition_(ShaderUniform::Null())
-        , lightDirection_(ShaderUniform::Null())
-        , lightType_(ShaderUniform::Null())
-        , lightAttenuationConstant_(ShaderUniform::Null())
-        , lightAttenuationLinear_(ShaderUniform::Null())
-        , lightAttenuationQuadratic_(ShaderUniform::Null())
-        , lightCutoffAngleOuter_(ShaderUniform::Null())
-        , lightCutoffAngleInner_(ShaderUniform::Null())
-        , normalMatrix_(ShaderUniform::Null())
-        , viewPosition_(ShaderUniform::Null())
+        : projection(ShaderUniform::Null())
+        , view(ShaderUniform::Null())
+        , model(ShaderUniform::Null())
+        , ambient(ShaderUniform::Null())
+        , diffuse(ShaderUniform::Null())
+        , specular(ShaderUniform::Null())
+        , shininess(ShaderUniform::Null())
+        , hasLight(false)
+        , lightAmbient(ShaderUniform::Null())
+        , lightDiffuse(ShaderUniform::Null())
+        , lightSpecular(ShaderUniform::Null())
+        , lightPosition(ShaderUniform::Null())
+        , lightDirection(ShaderUniform::Null())
+        , lightType(ShaderUniform::Null())
+        , lightAttenuationConstant(ShaderUniform::Null())
+        , lightAttenuationLinear(ShaderUniform::Null())
+        , lightAttenuationQuadratic(ShaderUniform::Null())
+        , lightCutoffAngleOuter(ShaderUniform::Null())
+        , lightCutoffAngleInner(ShaderUniform::Null())
+        , normalMatrix(ShaderUniform::Null())
+        , viewPosition(ShaderUniform::Null())
     {}
 
     void
@@ -64,11 +64,11 @@ namespace euphoria::render
             const materialshader::MaterialShader& file,
             const std::string&                    path)
     {
-        sh->hasLight_ = file.has_light;
+        sh->hasLight  = file.has_light;
 
         for(const auto& texture: file.textures)
         {
-            const auto uniform = sh->shader_.GetUniform(texture.uniform);
+            const auto uniform = sh->shader.GetUniform(texture.uniform);
             DEFINE_ENUM_VALUE(core::TextureType, texture_name, texture.texture);
             LOG_INFO(
                     "Defining shader " << path << ": " << texture.uniform
@@ -83,51 +83,51 @@ namespace euphoria::render
         }
 
         // todo: get the shader names from a trusted source
-        sh->projection_ = sh->shader_.GetUniform("uProjection");
-        sh->view_       = sh->shader_.GetUniform("uView");
-        sh->model_      = sh->shader_.GetUniform("uModel");
+        sh->projection  = sh->shader.GetUniform("uProjection");
+        sh->view        = sh->shader.GetUniform("uView");
+        sh->model       = sh->shader.GetUniform("uModel");
 
         if(!file.ambient.empty())
         {
-            sh->ambient_ = sh->shader_.GetUniform(file.ambient);
+            sh->ambient  = sh->shader.GetUniform(file.ambient);
         }
         if(!file.diffuse.empty())
         {
-            sh->diffuse_ = sh->shader_.GetUniform(file.diffuse);
+            sh->diffuse  = sh->shader.GetUniform(file.diffuse);
         }
         if(!file.specular.empty())
         {
-            sh->specular_
-                    = sh->shader_.GetUniform(file.specular);
+            sh->specular
+                    = sh->shader.GetUniform(file.specular);
         }
         if(!file.shininess.empty())
         {
-            sh->shininess_
-                    = sh->shader_.GetUniform(file.shininess);
+            sh->shininess
+                    = sh->shader.GetUniform(file.shininess);
         }
 
-        if(sh->hasLight_)
+        if(sh->hasLight)
         {
-            sh->lightAmbient_   = sh->shader_.GetUniform("uLight.ambient");
-            sh->lightDiffuse_   = sh->shader_.GetUniform("uLight.diffuse");
-            sh->lightSpecular_  = sh->shader_.GetUniform("uLight.specular");
-            sh->lightPosition_  = sh->shader_.GetUniform("uLight.position");
-            sh->lightDirection_ = sh->shader_.GetUniform("uLight.direction");
-            sh->lightType_      = sh->shader_.GetUniform("uLight.type");
-            sh->lightCutoffAngleOuter_
-                    = sh->shader_.GetUniform("uLight.cosCutoffAngleOuter");
-            sh->lightCutoffAngleInner_
-                    = sh->shader_.GetUniform("uLight.cosCutoffAngleInner");
+            sh->lightAmbient    = sh->shader.GetUniform("uLight.ambient");
+            sh->lightDiffuse    = sh->shader.GetUniform("uLight.diffuse");
+            sh->lightSpecular   = sh->shader.GetUniform("uLight.specular");
+            sh->lightPosition   = sh->shader.GetUniform("uLight.position");
+            sh->lightDirection  = sh->shader.GetUniform("uLight.direction");
+            sh->lightType       = sh->shader.GetUniform("uLight.type");
+            sh->lightCutoffAngleOuter
+                    = sh->shader.GetUniform("uLight.cosCutoffAngleOuter");
+            sh->lightCutoffAngleInner
+                    = sh->shader.GetUniform("uLight.cosCutoffAngleInner");
 
-            sh->lightAttenuationConstant_
-                    = sh->shader_.GetUniform("uLight.attConst");
-            sh->lightAttenuationLinear_
-                    = sh->shader_.GetUniform("uLight.attLin");
-            sh->lightAttenuationQuadratic_
-                    = sh->shader_.GetUniform("uLight.attQuad");
+            sh->lightAttenuationConstant
+                    = sh->shader.GetUniform("uLight.attConst");
+            sh->lightAttenuationLinear
+                    = sh->shader.GetUniform("uLight.attLin");
+            sh->lightAttenuationQuadratic
+                    = sh->shader.GetUniform("uLight.attQuad");
 
-            sh->normalMatrix_ = sh->shader_.GetUniform("uNormalMatrix");
-            sh->viewPosition_ = sh->shader_.GetUniform("uViewPosition");
+            sh->normalMatrix  = sh->shader.GetUniform("uNormalMatrix");
+            sh->viewPosition  = sh->shader.GetUniform("uViewPosition");
         }
     }
 
@@ -136,8 +136,8 @@ namespace euphoria::render
             core::vfs::FileSystem* file_system,
             const std::string&     path)
     {
-        attributes3d::PrebindShader(&shader_);
-        const bool shader_compile = shader_.Load(file_system, path);
+        attributes3d::PrebindShader(&shader);
+        const bool shader_compile = shader.Load(file_system, path);
         // if (!shader_compile) { return false; }
 
         materialshader::MaterialShader file;
@@ -160,60 +160,60 @@ namespace euphoria::render
     void
     MaterialShader::UseShader()
     {
-        Use(&shader_);
+        Use(&shader);
     }
 
     void
     MaterialShader::SetProjection(const core::mat4f& projection_data)
     {
-        shader_.SetUniform(projection_, projection_data);
+        shader.SetUniform(projection, projection_data);
     }
 
     void
     MaterialShader::SetView(const core::mat4f& view_data)
     {
-        shader_.SetUniform(view_, view_data);
+        shader.SetUniform(view, view_data);
     }
 
     void
     MaterialShader::SetModel(const core::mat4f& model_data)
     {
-        shader_.SetUniform(model_, model_data);
-        if(hasLight_)
+        shader.SetUniform(model, model_data);
+        if(hasLight)
         {
             core::mat4f normal   = model_data;
             const bool  inverted = normal.Invert();
             ASSERT(inverted);
             normal = normal.GetTransposed();
-            shader_.SetUniform(normalMatrix_, normal.GetMat3());
+            shader.SetUniform(normalMatrix, normal.GetMat3());
         }
     }
 
     void
     MaterialShader::SetupLight(const Light& light, const core::vec3f& camera)
     {
-        if(!hasLight_)
+        if(!hasLight)
         {
             return;
         }
 
-        shader_.SetUniform(lightAmbient_, light.GetAmbient());
-        shader_.SetUniform(lightDiffuse_, light.GetDiffuse());
-        shader_.SetUniform(lightSpecular_, light.GetSpecular());
-        shader_.SetUniform(lightPosition_, light.GetPosition());
-        shader_.SetUniform(lightDirection_, light.GetDirection());
-        shader_.SetUniform(
-                lightCutoffAngleOuter_, Cos(light.GetCutoffAngleOuter()));
-        shader_.SetUniform(
-                lightCutoffAngleInner_, Cos(light.GetCutoffAngleInner()));
+        shader.SetUniform(lightAmbient, light.GetAmbient());
+        shader.SetUniform(lightDiffuse, light.GetDiffuse());
+        shader.SetUniform(lightSpecular, light.GetSpecular());
+        shader.SetUniform(lightPosition, light.GetPosition());
+        shader.SetUniform(lightDirection, light.GetDirection());
+        shader.SetUniform(
+                lightCutoffAngleOuter, Cos(light.GetCutoffAngleOuter()));
+        shader.SetUniform(
+                lightCutoffAngleInner, Cos(light.GetCutoffAngleInner()));
 
         const auto att = light.GetAttenuation();
-        shader_.SetUniform(lightAttenuationConstant_, att.GetConstant());
-        shader_.SetUniform(lightAttenuationLinear_, att.GetLinear());
-        shader_.SetUniform(lightAttenuationQuadratic_, att.GetQuadratic());
+        shader.SetUniform(lightAttenuationConstant, att.GetConstant());
+        shader.SetUniform(lightAttenuationLinear, att.GetLinear());
+        shader.SetUniform(lightAttenuationQuadratic, att.GetQuadratic());
 
-        shader_.SetUniform(lightType_, static_cast<int>(light.GetType()));
-        shader_.SetUniform(viewPosition_, camera);
+        shader.SetUniform(lightType, static_cast<int>(light.GetType()));
+        shader.SetUniform(viewPosition, camera);
     }
 
     void
@@ -223,28 +223,28 @@ namespace euphoria::render
             const core::Rgb& specular_data,
             float            shininess_data)
     {
-        if(!ambient_.IsNull())
+        if(!ambient.IsNull())
         {
-            shader_.SetUniform(ambient_, ambient_data);
+            shader.SetUniform(ambient, ambient_data);
         }
 
-        if(!diffuse_.IsNull())
+        if(!diffuse.IsNull())
         {
-            shader_.SetUniform(diffuse_, diffuse_data);
+            shader.SetUniform(diffuse, diffuse_data);
         }
 
-        if(!specular_.IsNull())
+        if(!specular.IsNull())
         {
             const auto the_specular
                     = shininess_data > 0 ? specular_data : core::Rgb {core::Color::Black};
-            shader_.SetUniform(specular_, the_specular);
+            shader.SetUniform(specular, the_specular);
         }
 
-        if(!shininess_.IsNull())
+        if(!shininess.IsNull())
         {
             // todo(Gustav): change to 0 instead of 1.0
             const auto the_shininess = shininess_data > 0 ? shininess_data : 1.0f;
-            shader_.SetUniform(shininess_, the_shininess);
+            shader.SetUniform(shininess, the_shininess);
         }
     }
 
