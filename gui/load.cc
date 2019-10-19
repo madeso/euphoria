@@ -53,7 +53,7 @@ namespace euphoria::gui
         void
         OnClicked() override
         {
-            std::cout << "Executing cmd: " << cmd << "\n";
+            LOG_INFO("Executing cmd: " << cmd);
         }
         std::string cmd;
     };
