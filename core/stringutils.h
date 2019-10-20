@@ -144,6 +144,19 @@ namespace euphoria::core
         return ret;
     }
 
+    template <typename Key, typename Value>
+    std::vector<std::string>
+    KeyToStringVector(const std::map<Key, Value>& map)
+    {
+        std::vector<std::string> ret;
+        for(const auto& m: map)
+        {
+            const std::string str = Str() << m.first;
+            ret.emplace_back(str);
+        }
+        return ret;
+    }
+
     template <typename T>
     std::vector<std::string>
     VectorToStringVector(const std::vector<T>& data)

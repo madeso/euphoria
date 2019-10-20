@@ -198,7 +198,7 @@ namespace euphoria::core
         std::string
         FileSystemRootCatalog::Describe()
         {
-            return StringMerger::Array().Generate(MapToStringVector(catalog_));
+            return StringMerger::Array().Generate(KeyToStringVector(catalog_));
         }
 
         FileList
