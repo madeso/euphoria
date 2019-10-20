@@ -62,7 +62,8 @@ namespace euphoria::render
 
     namespace
     {
-        GLenum GetOpenGLType(ShaderAttributeType type)
+        GLenum
+        GetOpenGLType(ShaderAttributeType type)
         {
             switch(type)
             {
@@ -71,14 +72,11 @@ namespace euphoria::render
             case ShaderAttributeType::FLOAT3:
             case ShaderAttributeType::FLOAT4:
             case ShaderAttributeType::FLOAT33:
-            case ShaderAttributeType::FLOAT44:
-                return GL_FLOAT;
-            default:
-                LOG_ERROR("Unhandled shader type");
-                return GL_FLOAT;
+            case ShaderAttributeType::FLOAT44: return GL_FLOAT;
+            default: LOG_ERROR("Unhandled shader type"); return GL_FLOAT;
             }
-        } 
-    }
+        }
+    }  // namespace
 
     void
     PointLayout::BindData(

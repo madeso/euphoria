@@ -8,12 +8,13 @@ namespace euphoria::core
 {
     namespace vfs
     {
-        
-        void AddDefaultShaders(FileSystem* fs, const std::string& base)
+        void
+        AddDefaultShaders(FileSystem* fs, const std::string& base)
         {
             auto cat = FileSystemRootCatalog::AddRoot(fs);
-            cat->RegisterFileString(base + "/sprite.vert",
-                R"STRING(
+            cat->RegisterFileString(
+                    base + "/sprite.vert",
+                    R"STRING(
                     #version 330 core
 
                     in vec4 vertex; // <vec2 position, vec2 texCoords>
@@ -33,7 +34,8 @@ namespace euphoria::core
                         gl_Position = projection * model * vec4(vertex.xy, 0.0, 1.0);
                     }
                 )STRING");
-            cat->RegisterFileString(base+"/sprite.frag",
+            cat->RegisterFileString(
+                    base + "/sprite.frag",
                     R"STRING(
                     #version 330 core
 

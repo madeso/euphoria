@@ -15,6 +15,6 @@ namespace euphoria::core
 
     unsigned int
     Cint_to_unsigned_int(int i);
-}
+}  // namespace euphoria::core
 
 #endif  // EUPHORIA_CINT_H

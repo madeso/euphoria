@@ -9,15 +9,17 @@ namespace euphoria::core
         return static_cast<int>(t);
     }
 
-    int Cunsigned_int_to_int(unsigned int i)
+    int
+    Cunsigned_int_to_int(unsigned int i)
     {
         ASSERT(i <= static_cast<unsigned int>(std::numeric_limits<int>::max()));
         return static_cast<int>(i);
     }
 
-    unsigned int Cint_to_unsigned_int(int i)
+    unsigned int
+    Cint_to_unsigned_int(int i)
     {
         ASSERT(i >= 0);
         return static_cast<unsigned int>(i);
     }
-}
+}  // namespace euphoria::core

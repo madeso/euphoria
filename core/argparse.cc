@@ -541,7 +541,8 @@ namespace euphoria::core
             return AddSimpleFunction(name, [b]() { *b = false; });
         }
 
-        Args Args::Extract(int argc, char* argv[])
+        Args
+        Args::Extract(int argc, char* argv[])
         {
             Args ret;
             ret.program_name = argv[0];

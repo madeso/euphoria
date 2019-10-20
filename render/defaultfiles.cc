@@ -7,8 +7,9 @@ namespace euphoria::render
     void
     SetupDefaultFiles(std::shared_ptr<core::vfs::FileSystemRootCatalog> catalog)
     {
-        catalog->RegisterFileString("texture_types.json",
-            R"json(
+        catalog->RegisterFileString(
+                "texture_types.json",
+                R"json(
                 {
                     "name":
                     [
@@ -210,7 +211,7 @@ namespace euphoria::render
                         FragColor = vec4(uDiffuse, 1.0);
                     }
                 )glsl");
-        
+
 
         ///////////////////////////////////////////////////////////////////////
         // outline_shader

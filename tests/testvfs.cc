@@ -19,8 +19,7 @@ public:
 
     void
     Describe(std::vector<std::string>*) override
-    {
-    }
+    {}
 
     FileList
     ListFiles(const Path&) override
@@ -42,8 +41,7 @@ public:
 
     void
     Describe(std::vector<std::string>*) override
-    {
-    }
+    {}
 
     FileList
     ListFiles(const Path&) override

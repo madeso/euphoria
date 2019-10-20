@@ -11,24 +11,30 @@ namespace euphoria::render
         const ShaderAttribute&
         Vertex()
         {
-            static ShaderAttribute Attribute {
-                    1, ShaderAttributeType::FLOAT3, "aPosition", ShaderAttributeSource::Vertex};
+            static ShaderAttribute Attribute {1,
+                                              ShaderAttributeType::FLOAT3,
+                                              "aPosition",
+                                              ShaderAttributeSource::Vertex};
             return Attribute;
         }
 
         const ShaderAttribute&
         Normal()
         {
-            static ShaderAttribute Attribute {
-                    2, ShaderAttributeType::FLOAT3, "aNormal", ShaderAttributeSource::Normal};
+            static ShaderAttribute Attribute {2,
+                                              ShaderAttributeType::FLOAT3,
+                                              "aNormal",
+                                              ShaderAttributeSource::Normal};
             return Attribute;
         }
 
         const ShaderAttribute&
         TexCoord()
         {
-            static ShaderAttribute Attribute {
-                    3, ShaderAttributeType::FLOAT2, "aTexCoord", ShaderAttributeSource::Uv};
+            static ShaderAttribute Attribute {3,
+                                              ShaderAttributeType::FLOAT2,
+                                              "aTexCoord",
+                                              ShaderAttributeSource::Uv};
             return Attribute;
         }
 

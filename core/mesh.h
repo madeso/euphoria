@@ -26,7 +26,10 @@ namespace euphoria::core
 
     struct MeshPoint
     {
-        MeshPoint(const vec3f& a_vertex, const vec3f& a_normal, const vec2f& a_uv);
+        MeshPoint(
+                const vec3f& a_vertex,
+                const vec3f& a_normal,
+                const vec2f& a_uv);
         vec3f vertex;
         vec3f normal;
         vec2f uv;
@@ -44,9 +47,9 @@ namespace euphoria::core
     {
         MeshPart();
 
-        unsigned int              material;
-        std::vector<MeshPoint>    points;
-        std::vector<MeshFace> faces;
+        unsigned int           material;
+        std::vector<MeshPoint> points;
+        std::vector<MeshFace>  faces;
 
         Aabb
         CalculateAabb() const;

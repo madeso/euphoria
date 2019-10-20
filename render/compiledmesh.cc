@@ -64,7 +64,7 @@ namespace euphoria::render
         int texture_index = 0;
         for(const auto& binding: shader->bindings)
         {
-            auto       texture = textures.find(binding.name);
+            auto texture = textures.find(binding.name);
             if(texture == textures.end())
             {
                 // todo: this is a error and should have been caught by the Validate,
@@ -87,8 +87,8 @@ namespace euphoria::render
     {
         for(const auto& default_texture: shader->default_textures)
         {
-            const bool missing = textures.find(default_texture.name)
-                                 == textures.end();
+            const bool missing
+                    = textures.find(default_texture.name) == textures.end();
             if(missing)
             {
                 textures[default_texture.name]
@@ -121,8 +121,9 @@ namespace euphoria::render
 
         for(const auto& texture: textures)
         {
-            const auto name    = texture.first;
-            const bool missing = shader_values.find(name) == shader_values.end();
+            const auto name = texture.first;
+            const bool missing
+                    = shader_values.find(name) == shader_values.end();
             if(missing)
             {
                 LOG_ERROR(
@@ -143,52 +144,61 @@ namespace euphoria::render
         DEFINE_ENUM_VALUE(core::TextureType, DiffuseType, "Diffuse");  // NOLINT
     }  // namespace
 
-    void ConvertPointsToVertexBuffer(const std::vector<core::MeshPoint>& points, const std::vector<ShaderAttribute>& attributes, VertexBuffer* vb)
+    void
+    ConvertPointsToVertexBuffer(
+            const std::vector<core::MeshPoint>& points,
+            const std::vector<ShaderAttribute>& attributes,
+            VertexBuffer*                       vb)
     {
-        constexpr auto add_float2 = [](std::vector<float>* dst, const core::vec2f& src)
-        {
-            dst->emplace_back(src.x);
-            dst->emplace_back(src.y);
-        };
-        constexpr auto add_float3 = [](std::vector<float>* dst, const core::vec3f& src)
-        {
-            dst->emplace_back(src.x);
-            dst->emplace_back(src.y);
-            dst->emplace_back(src.z);
-        };
+        constexpr auto add_float2
+                = [](std::vector<float>* dst, const core::vec2f& src) {
+                      dst->emplace_back(src.x);
+                      dst->emplace_back(src.y);
+                  };
+        constexpr auto add_float3
+                = [](std::vector<float>* dst, const core::vec3f& src) {
+                      dst->emplace_back(src.x);
+                      dst->emplace_back(src.y);
+                      dst->emplace_back(src.z);
+                  };
         std::vector<float> data;
-        const auto total_attributes = std::accumulate(attributes.begin(), attributes.end(), 0, [](int count, const ShaderAttribute& att) -> int
-        {
-            return count + att.GetElementCount();
-        });
+        const auto         total_attributes = std::accumulate(
+                attributes.begin(),
+                attributes.end(),
+                0,
+                [](int count, const ShaderAttribute& att) -> int {
+                    return count + att.GetElementCount();
+                });
         data.reserve(total_attributes * points.size());
-        for(const auto& point : points)
+        for(const auto& point: points)
         {
             for(const auto& att: attributes)
             {
                 switch(att.source)
                 {
-                    case ShaderAttributeSource::Vertex:
-                        ASSERT(att.type == ShaderAttributeType::FLOAT3);
-                        add_float3(&data, point.vertex);
-                        break;
-                    case ShaderAttributeSource::Normal:
-                        ASSERT(att.type == ShaderAttributeType::FLOAT3);
-                        add_float3(&data, point.normal);
-                        break;
-                    case ShaderAttributeSource::Uv:
-                        ASSERT(att.type == ShaderAttributeType::FLOAT2);
-                        add_float2(&data, point.uv);
-                        break;
-                    default:
-                        DIE("Unhandled case");
+                case ShaderAttributeSource::Vertex:
+                    ASSERT(att.type == ShaderAttributeType::FLOAT3);
+                    add_float3(&data, point.vertex);
+                    break;
+                case ShaderAttributeSource::Normal:
+                    ASSERT(att.type == ShaderAttributeType::FLOAT3);
+                    add_float3(&data, point.normal);
+                    break;
+                case ShaderAttributeSource::Uv:
+                    ASSERT(att.type == ShaderAttributeType::FLOAT2);
+                    add_float2(&data, point.uv);
+                    break;
+                default: DIE("Unhandled case");
                 }
             }
         }
         vb->SetData(data);
     }
 
-    void ConvertTrisToIndexBuffer(const std::vector<core::MeshFace>& faces, IndexBuffer* b)
+    void
+    ConvertTrisToIndexBuffer(
+            const std::vector<core::MeshFace>& faces,
+            IndexBuffer*                       b)
     {
         std::vector<unsigned int> data;
         data.reserve(faces.size() * 3);
@@ -257,7 +267,10 @@ namespace euphoria::render
         const auto material_count = ret->materials.size();
 
         // todo(Gustav): move this to a data file, load the mesh dynamically
-        const auto attributes = std::vector<ShaderAttribute>{attributes3d::Vertex(), attributes3d::Normal(), attributes3d::TexCoord()};
+        const auto attributes
+                = std::vector<ShaderAttribute> {attributes3d::Vertex(),
+                                                attributes3d::Normal(),
+                                                attributes3d::TexCoord()};
 
         for(const auto& part_src: mesh.parts)
         {
@@ -267,7 +280,8 @@ namespace euphoria::render
             VertexBuffer::Bind(&part->data);
             IndexBuffer::Bind(&part->tris);
 
-            ConvertPointsToVertexBuffer(part_src.points, attributes, &part->data);
+            ConvertPointsToVertexBuffer(
+                    part_src.points, attributes, &part->data);
             BindAttributes(attributes, &part->config);
 
             ConvertTrisToIndexBuffer(part_src.faces, &part->tris);

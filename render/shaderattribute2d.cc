@@ -11,8 +11,10 @@ namespace euphoria::render
         const ShaderAttribute&
         Vertex()
         {
-            static ShaderAttribute Attribute {
-                    1, ShaderAttributeType::FLOAT4, "vertex", ShaderAttributeSource::Unknown};
+            static ShaderAttribute Attribute {1,
+                                              ShaderAttributeType::FLOAT4,
+                                              "vertex",
+                                              ShaderAttributeSource::Unknown};
             return Attribute;
         }
 

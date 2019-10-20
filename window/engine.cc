@@ -47,7 +47,8 @@ namespace euphoria::window
         auto parser = core::argparse::Parser("euphoria engine");
 
         auto current_directory = core::GetCurrentDirectory();
-        parser.AddSimple("-w", &current_directory).Help("Sets the working direction if it's differnt from the current folder");
+        parser.AddSimple("-w", &current_directory)
+                .Help("Sets the working direction if it's differnt from the current folder");
         const auto parse_result = parser.Parse(args);
         if(parse_result != core::argparse::ParseResult::Ok)
         {
@@ -60,8 +61,7 @@ namespace euphoria::window
                 file_system.get(), current_directory);
         core::vfs::FileSystemImageGenerator::AddRoot(
                 file_system.get(), "img-plain");
-        core::vfs::AddDefaultShaders(
-                file_system.get(), "shaders");
+        core::vfs::AddDefaultShaders(file_system.get(), "shaders");
 
         render::SetupDefaultFiles(catalog);
 

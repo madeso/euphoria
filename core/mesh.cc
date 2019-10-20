@@ -20,12 +20,14 @@ namespace euphoria::core
 {
     LOG_SPECIFY_DEFAULT_LOGGER("core.mesh")
 
-    MeshPoint::MeshPoint(const vec3f& a_vertex, const vec3f& a_normal, const vec2f& a_uv)
-    : vertex(a_vertex), normal(a_normal), uv(a_uv) {}
-
-    MeshFace::MeshFace(int a_a, int a_b, int a_c)
-    : a(a_a), b(a_b), c(a_c)
+    MeshPoint::MeshPoint(
+            const vec3f& a_vertex,
+            const vec3f& a_normal,
+            const vec2f& a_uv)
+        : vertex(a_vertex), normal(a_normal), uv(a_uv)
     {}
+
+    MeshFace::MeshFace(int a_a, int a_b, int a_c) : a(a_a), b(a_b), c(a_c) {}
 
     template <typename K, typename V>
     std::vector<K>
@@ -46,7 +48,7 @@ namespace euphoria::core
     {
         Aabb aabb = Aabb::Empty();
 
-        for(const auto& p : points)
+        for(const auto& p: points)
         {
             aabb.Extend(p.vertex);
         }
@@ -203,8 +205,10 @@ namespace euphoria::core
             for(unsigned int face_id = 0; face_id < mesh->mNumFaces; ++face_id)
             {
                 const aiFace& face = mesh->mFaces[face_id];
-                part->faces.push_back( MeshFace{
-                        Cunsigned_int_to_int(face.mIndices[0]), Cunsigned_int_to_int(face.mIndices[1]), Cunsigned_int_to_int(face.mIndices[2])});
+                part->faces.push_back(
+                        MeshFace {Cunsigned_int_to_int(face.mIndices[0]),
+                                  Cunsigned_int_to_int(face.mIndices[1]),
+                                  Cunsigned_int_to_int(face.mIndices[2])});
             }
         }
 
@@ -223,16 +227,10 @@ namespace euphoria::core
                     u                   = uv.x;
                     v                   = uv.y;
                 }
-                part->points.push_back( MeshPoint{
-                        vec3f{vertex.x,
-                        vertex.y,
-                        vertex.z},
-                        vec3f{normal.x,
-                        normal.y,
-                        normal.z},
-                        vec2f{u,
-                        v}
-                        });
+                part->points.push_back(
+                        MeshPoint {vec3f {vertex.x, vertex.y, vertex.z},
+                                   vec3f {normal.x, normal.y, normal.z},
+                                   vec2f {u, v}});
             }
         }
 

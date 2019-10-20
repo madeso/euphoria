@@ -108,7 +108,7 @@ TEST_CASE("argparse", "[argparse]")
 
     SECTION("test empty with arg")
     {
-        auto r = parser.Parse(euco::argparse::Args{});
+        auto r = parser.Parse(euco::argparse::Args {});
         CHECK(r == euco::argparse::ParseResult::Ok);
         REQUIRE_THAT(output.out, Catch::Matchers::Equals(empty_output));
     }

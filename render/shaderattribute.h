@@ -9,12 +9,20 @@ namespace euphoria::render
 {
     enum class ShaderAttributeType
     {
-        FLOAT1, FLOAT2, FLOAT3, FLOAT4, FLOAT33, FLOAT44
+        FLOAT1,
+        FLOAT2,
+        FLOAT3,
+        FLOAT4,
+        FLOAT33,
+        FLOAT44
     };
 
     enum class ShaderAttributeSource
     {
-        Unknown, Vertex, Normal, Uv
+        Unknown,
+        Vertex,
+        Normal,
+        Uv
     };
 
     /** Respresents a shder attribute like vertex, normal or uv coord.
@@ -23,20 +31,20 @@ namespace euphoria::render
     {
     public:
         ShaderAttribute(
-                glint               a_id,
-                ShaderAttributeType a_type,
-                std::string         a_name,
+                glint                 a_id,
+                ShaderAttributeType   a_type,
+                std::string           a_name,
                 ShaderAttributeSource a_source,
-                bool a_normalize = false);
+                bool                  a_normalize = false);
 
         /// the id of the attribute
-        glint               id;
+        glint id;
 
         /// the type of the attribute
         ShaderAttributeType type;
 
-        /// the name of the shader attribute 
-        std::string         name;
+        /// the name of the shader attribute
+        std::string name;
 
         /// the source of the shader attribute
         ShaderAttributeSource source;

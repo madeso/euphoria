@@ -64,7 +64,7 @@ namespace euphoria::render
             const materialshader::MaterialShader& file,
             const std::string&                    path)
     {
-        sh->hasLight  = file.has_light;
+        sh->hasLight = file.has_light;
 
         for(const auto& texture: file.textures)
         {
@@ -83,37 +83,35 @@ namespace euphoria::render
         }
 
         // todo: get the shader names from a trusted source
-        sh->projection  = sh->shader.GetUniform("uProjection");
-        sh->view        = sh->shader.GetUniform("uView");
-        sh->model       = sh->shader.GetUniform("uModel");
+        sh->projection = sh->shader.GetUniform("uProjection");
+        sh->view       = sh->shader.GetUniform("uView");
+        sh->model      = sh->shader.GetUniform("uModel");
 
         if(!file.ambient.empty())
         {
-            sh->ambient  = sh->shader.GetUniform(file.ambient);
+            sh->ambient = sh->shader.GetUniform(file.ambient);
         }
         if(!file.diffuse.empty())
         {
-            sh->diffuse  = sh->shader.GetUniform(file.diffuse);
+            sh->diffuse = sh->shader.GetUniform(file.diffuse);
         }
         if(!file.specular.empty())
         {
-            sh->specular
-                    = sh->shader.GetUniform(file.specular);
+            sh->specular = sh->shader.GetUniform(file.specular);
         }
         if(!file.shininess.empty())
         {
-            sh->shininess
-                    = sh->shader.GetUniform(file.shininess);
+            sh->shininess = sh->shader.GetUniform(file.shininess);
         }
 
         if(sh->hasLight)
         {
-            sh->lightAmbient    = sh->shader.GetUniform("uLight.ambient");
-            sh->lightDiffuse    = sh->shader.GetUniform("uLight.diffuse");
-            sh->lightSpecular   = sh->shader.GetUniform("uLight.specular");
-            sh->lightPosition   = sh->shader.GetUniform("uLight.position");
-            sh->lightDirection  = sh->shader.GetUniform("uLight.direction");
-            sh->lightType       = sh->shader.GetUniform("uLight.type");
+            sh->lightAmbient   = sh->shader.GetUniform("uLight.ambient");
+            sh->lightDiffuse   = sh->shader.GetUniform("uLight.diffuse");
+            sh->lightSpecular  = sh->shader.GetUniform("uLight.specular");
+            sh->lightPosition  = sh->shader.GetUniform("uLight.position");
+            sh->lightDirection = sh->shader.GetUniform("uLight.direction");
+            sh->lightType      = sh->shader.GetUniform("uLight.type");
             sh->lightCutoffAngleOuter
                     = sh->shader.GetUniform("uLight.cosCutoffAngleOuter");
             sh->lightCutoffAngleInner
@@ -121,13 +119,12 @@ namespace euphoria::render
 
             sh->lightAttenuationConstant
                     = sh->shader.GetUniform("uLight.attConst");
-            sh->lightAttenuationLinear
-                    = sh->shader.GetUniform("uLight.attLin");
+            sh->lightAttenuationLinear = sh->shader.GetUniform("uLight.attLin");
             sh->lightAttenuationQuadratic
                     = sh->shader.GetUniform("uLight.attQuad");
 
-            sh->normalMatrix  = sh->shader.GetUniform("uNormalMatrix");
-            sh->viewPosition  = sh->shader.GetUniform("uViewPosition");
+            sh->normalMatrix = sh->shader.GetUniform("uNormalMatrix");
+            sh->viewPosition = sh->shader.GetUniform("uViewPosition");
         }
     }
 
@@ -142,8 +139,7 @@ namespace euphoria::render
 
         materialshader::MaterialShader file;
         const std::string              proto_path = path + ".json";
-        std::string                    error      = core::LoadProtoJson(
-                file_system, &file, proto_path);
+        std::string error = core::LoadProtoJson(file_system, &file, proto_path);
         if(!error.empty())
         {
             LOG_ERROR(
@@ -235,15 +231,17 @@ namespace euphoria::render
 
         if(!specular.IsNull())
         {
-            const auto the_specular
-                    = shininess_data > 0 ? specular_data : core::Rgb {core::Color::Black};
+            const auto the_specular = shininess_data > 0
+                                              ? specular_data
+                                              : core::Rgb {core::Color::Black};
             shader.SetUniform(specular, the_specular);
         }
 
         if(!shininess.IsNull())
         {
             // todo(Gustav): change to 0 instead of 1.0
-            const auto the_shininess = shininess_data > 0 ? shininess_data : 1.0f;
+            const auto the_shininess
+                    = shininess_data > 0 ? shininess_data : 1.0f;
             shader.SetUniform(shininess, the_shininess);
         }
     }

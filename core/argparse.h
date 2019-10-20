@@ -447,7 +447,8 @@ namespace euphoria::core::argparse
         std::string              program_name;
         std::vector<std::string> args;
 
-        static Args Extract(int argc, char* argv[]);
+        static Args
+        Extract(int argc, char* argv[]);
     };
 
     struct Parser

@@ -10,7 +10,9 @@ namespace euphoria::render
     struct PointLayout;
 
     void
-    BindAttributes(const std::vector<ShaderAttribute>& attributes, PointLayout* layout);
+    BindAttributes(
+            const std::vector<ShaderAttribute>& attributes,
+            PointLayout*                        layout);
 }  // namespace euphoria::render
 
 #endif  // EUPHORIA_ATTRIBUTEBINDER_H
