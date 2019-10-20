@@ -219,7 +219,7 @@ namespace euphoria::core
     void
     BezierPath2::AutoSetAllControlPoints()
     {
-        for(int i = 0; i < Csizet(points.size()); i += 3)
+        for(int i = 0; i < Csizet_to_int(points.size()); i += 3)
         {
             AutoSetAnchorControlPoints(i);
         }

@@ -1,10 +1,20 @@
 #ifndef EUPHORIA_CINT_H
 #define EUPHORIA_CINT_H
 
-constexpr int
-Csizet(size_t t)
+#include "core/assert.h"
+
+#include <numeric>
+
+namespace euphoria::core
 {
-    return t;
+    int
+    Csizet_to_int(size_t t);
+
+    int
+    Cunsigned_int_to_int(unsigned int i);
+
+    unsigned int
+    Cint_to_unsigned_int(int i);
 }
 
 #endif  // EUPHORIA_CINT_H

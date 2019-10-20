@@ -30,7 +30,7 @@ namespace euphoria::render
     {
         // todo(Gustav): move vertex buffer and point layout to the compile mesh instead
         VertexBuffer data;
-        PointLayout  config;
+        PointLayout  config; // todo(Gustav): rename to something better... like layout?
         IndexBuffer  tris;
         int          tri_count;
         unsigned int material;

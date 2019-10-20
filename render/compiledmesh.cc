@@ -3,6 +3,7 @@
 #include <set>
 #include <utility>
 
+#include "core/cint.h"
 #include "core/rgb.h"
 #include "core/assert.h"
 #include "core/enum.h"
@@ -142,6 +143,64 @@ namespace euphoria::render
         DEFINE_ENUM_VALUE(core::TextureType, DiffuseType, "Diffuse");  // NOLINT
     }  // namespace
 
+    void ConvertPointsToVertexBuffer(const std::vector<core::MeshPoint>& points, const std::vector<ShaderAttribute>& attributes, VertexBuffer* vb)
+    {
+        constexpr auto add_float2 = [](std::vector<float>* dst, const core::vec2f& src)
+        {
+            dst->emplace_back(src.x);
+            dst->emplace_back(src.y);
+        };
+        constexpr auto add_float3 = [](std::vector<float>* dst, const core::vec3f& src)
+        {
+            dst->emplace_back(src.x);
+            dst->emplace_back(src.y);
+            dst->emplace_back(src.z);
+        };
+        std::vector<float> data;
+        const auto total_attributes = std::accumulate(attributes.begin(), attributes.end(), 0, [](int count, const ShaderAttribute& att) -> int
+        {
+            return count + att.GetElementCount();
+        });
+        data.reserve(total_attributes * points.size());
+        for(const auto& point : points)
+        {
+            for(const auto& att: attributes)
+            {
+                switch(att.source)
+                {
+                    case ShaderAttributeSource::Vertex:
+                        ASSERT(att.type == ShaderAttributeType::FLOAT3);
+                        add_float3(&data, point.vertex);
+                        break;
+                    case ShaderAttributeSource::Normal:
+                        ASSERT(att.type == ShaderAttributeType::FLOAT3);
+                        add_float3(&data, point.normal);
+                        break;
+                    case ShaderAttributeSource::Uv:
+                        ASSERT(att.type == ShaderAttributeType::FLOAT2);
+                        add_float2(&data, point.uv);
+                        break;
+                    default:
+                        DIE("Unhandled case");
+                }
+            }
+        }
+        vb->SetData(data);
+    }
+
+    void ConvertTrisToIndexBuffer(const std::vector<core::MeshFace>& faces, IndexBuffer* b)
+    {
+        std::vector<unsigned int> data;
+        data.reserve(faces.size() * 3);
+        for(const auto& f: faces)
+        {
+            data.emplace_back(core::Cint_to_unsigned_int(f.a));
+            data.emplace_back(core::Cint_to_unsigned_int(f.b));
+            data.emplace_back(core::Cint_to_unsigned_int(f.c));
+        }
+        b->SetData(data);
+    }
+
     std::shared_ptr<CompiledMesh>
     CompileMesh(
             const core::Mesh&      mesh,
@@ -208,12 +267,11 @@ namespace euphoria::render
             VertexBuffer::Bind(&part->data);
             IndexBuffer::Bind(&part->tris);
 
-            part->data.SetData(part_src.points);
-            
+            ConvertPointsToVertexBuffer(part_src.points, attributes, &part->data);
             BindAttributes(attributes, &part->config);
 
-            part->tris.SetData(part_src.faces);
-            part->tri_count = part_src.facecount;
+            ConvertTrisToIndexBuffer(part_src.faces, &part->tris);
+            part->tri_count = core::Csizet_to_int(part_src.faces.size());
 
             IndexBuffer::Bind(nullptr);
             VertexBuffer::Bind(nullptr);

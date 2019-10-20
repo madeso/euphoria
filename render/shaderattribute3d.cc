@@ -12,7 +12,7 @@ namespace euphoria::render
         Vertex()
         {
             static ShaderAttribute Attribute {
-                    1, ShaderAttributeType::FLOAT3, "aPosition"};
+                    1, ShaderAttributeType::FLOAT3, "aPosition", ShaderAttributeSource::Vertex};
             return Attribute;
         }
 
@@ -20,7 +20,7 @@ namespace euphoria::render
         Normal()
         {
             static ShaderAttribute Attribute {
-                    2, ShaderAttributeType::FLOAT3, "aNormal"};
+                    2, ShaderAttributeType::FLOAT3, "aNormal", ShaderAttributeSource::Normal};
             return Attribute;
         }
 
@@ -28,7 +28,7 @@ namespace euphoria::render
         TexCoord()
         {
             static ShaderAttribute Attribute {
-                    3, ShaderAttributeType::FLOAT2, "aTexCoord"};
+                    3, ShaderAttributeType::FLOAT2, "aTexCoord", ShaderAttributeSource::Uv};
             return Attribute;
         }
 

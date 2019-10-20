@@ -12,8 +12,9 @@ namespace euphoria::render
             glint               a_id,
             ShaderAttributeType a_type,
             std::string         a_name,
+            ShaderAttributeSource a_source,
             bool a_normalize)
-        : id(a_id), type(a_type), name(std::move(a_name)), normalize(a_normalize)
+        : id(a_id), type(a_type), name(std::move(a_name)), source(a_source), normalize(a_normalize)
     {}
 
     int

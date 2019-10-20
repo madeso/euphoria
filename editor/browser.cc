@@ -38,7 +38,7 @@ namespace euphoria::editor
     std::string
     FileBrowser::GetSelectedFile()
     {
-        if(selected_file >= 0 && selected_file < Csizet(files.size()))
+        if(selected_file >= 0 && selected_file < Csizet_to_int(files.size()))
         {
             const auto suggested = files[selected_file];
             if(!EndsWith(suggested.name, '/'))

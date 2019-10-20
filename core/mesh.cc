@@ -1,5 +1,6 @@
 #include "core/mesh.h"
 
+#include "core/cint.h"
 #include "core/str.h"
 #include "core/texturetypes.h"
 #include "core/proto.h"
@@ -17,7 +18,14 @@
 
 namespace euphoria::core
 {
-    LOG_SPECIFY_DEFAULT_LOGGER("mesh")
+    LOG_SPECIFY_DEFAULT_LOGGER("core.mesh")
+
+    MeshPoint::MeshPoint(const vec3f& a_vertex, const vec3f& a_normal, const vec2f& a_uv)
+    : vertex(a_vertex), normal(a_normal), uv(a_uv) {}
+
+    MeshFace::MeshFace(int a_a, int a_b, int a_c)
+    : a(a_a), b(a_b), c(a_c)
+    {}
 
     template <typename K, typename V>
     std::vector<K>
@@ -31,60 +39,16 @@ namespace euphoria::core
         return r;
     }
 
-    MeshPart::MeshPart() : material(0), facecount(0) {}
-
-    namespace  // local
-    {
-        enum
-        {
-            NUMBER_OF_COMPONENTS = 8
-        };
-    }  // namespace
-
-    void
-    MeshPart::AddPoint(
-            float x,
-            float y,
-            float z,
-            float nx,
-            float ny,
-            float nz,
-            float u,
-            float v)
-    {
-        auto start_size = points.size();
-
-        points.push_back(x);
-        points.push_back(y);
-        points.push_back(z);
-
-        points.push_back(nx);
-        points.push_back(ny);
-        points.push_back(nz);
-
-        points.push_back(u);
-        points.push_back(v);
-
-        ASSERT(start_size + NUMBER_OF_COMPONENTS == points.size());
-    }
-
-    void
-    MeshPart::AddFace(unsigned int a, unsigned int b, unsigned int c)
-    {
-        faces.push_back(a);
-        faces.push_back(b);
-        faces.push_back(c);
-        facecount += 1;
-    }
+    MeshPart::MeshPart() : material(0) {}
 
     Aabb
     MeshPart::CalculateAabb() const
     {
         Aabb aabb = Aabb::Empty();
 
-        for(unsigned int i = 0; i < points.size(); i += NUMBER_OF_COMPONENTS)
+        for(const auto& p : points)
         {
-            aabb.Extend(vec3f {&points[i]});
+            aabb.Extend(p.vertex);
         }
 
         return aabb;
@@ -239,8 +203,8 @@ namespace euphoria::core
             for(unsigned int face_id = 0; face_id < mesh->mNumFaces; ++face_id)
             {
                 const aiFace& face = mesh->mFaces[face_id];
-                part->AddFace(
-                        face.mIndices[0], face.mIndices[1], face.mIndices[2]);
+                part->faces.push_back( MeshFace{
+                        Cunsigned_int_to_int(face.mIndices[0]), Cunsigned_int_to_int(face.mIndices[1]), Cunsigned_int_to_int(face.mIndices[2])});
             }
         }
 
@@ -259,15 +223,16 @@ namespace euphoria::core
                     u                   = uv.x;
                     v                   = uv.y;
                 }
-                part->AddPoint(
-                        vertex.x,
+                part->points.push_back( MeshPoint{
+                        vec3f{vertex.x,
                         vertex.y,
-                        vertex.z,
-                        normal.x,
+                        vertex.z},
+                        vec3f{normal.x,
                         normal.y,
-                        normal.z,
-                        u,
-                        v);
+                        normal.z},
+                        vec2f{u,
+                        v}
+                        });
             }
         }
 

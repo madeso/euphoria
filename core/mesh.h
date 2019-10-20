@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 
+#include "core/vec2.h"
 #include "core/vec3.h"
 #include "core/rgb.h"
 #include "core/enum.h"
@@ -23,28 +24,29 @@ namespace euphoria::core
         MIRROR_REPEAT
     };
 
+    struct MeshPoint
+    {
+        MeshPoint(const vec3f& a_vertex, const vec3f& a_normal, const vec2f& a_uv);
+        vec3f vertex;
+        vec3f normal;
+        vec2f uv;
+    };
+
+    struct MeshFace
+    {
+        MeshFace(int a_a, int a_b, int a_c);
+        int a;
+        int b;
+        int c;
+    };
+
     struct MeshPart
     {
         MeshPart();
 
         unsigned int              material;
-        std::vector<float>        points;
-        std::vector<unsigned int> faces;
-        int                       facecount;
-
-        void
-        AddPoint(
-                float x,
-                float y,
-                float z,
-                float nx,
-                float ny,
-                float nz,
-                float u,
-                float v);
-
-        void
-        AddFace(unsigned int a, unsigned int b, unsigned int c);
+        std::vector<MeshPoint>    points;
+        std::vector<MeshFace> faces;
 
         Aabb
         CalculateAabb() const;

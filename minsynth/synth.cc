@@ -855,11 +855,11 @@ namespace euphoria::minsynth
     {
         const auto K = [&](int x, int y) -> core::Key {
             const auto wy = start_row - y + 1;
-            if(wy < 0 || wy > Csizet(k.size()))
+            if(wy < 0 || wy > core::Csizet_to_int(k.size()))
                 return core::Key::UNBOUND;
             const auto& r  = k[wy];
             const auto  wx = start_col + x;
-            if(wx < 0 || wx > Csizet(r.size()))
+            if(wx < 0 || wx > core::Csizet_to_int(r.size()))
                 return core::Key::UNBOUND;
             return r[wx];
         };
