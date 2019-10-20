@@ -541,15 +541,28 @@ namespace euphoria::core
             return AddSimpleFunction(name, [b]() { *b = false; });
         }
 
+        Args Args::Extract(int argc, char* argv[])
+        {
+            Args ret;
+            ret.program_name = argv[0];
+            for(int i = 1; i < argc; i += 1)
+            {
+                ret.args.emplace_back(argv[i]);
+            }
+            return ret;
+        }
+
         ParseResult
         Parser::Parse(int argc, char* argv[]) const
         {
-            auto args = std::vector<std::string> {};
-            for(int i = 1; i < argc; i += 1)
-            {
-                args.push_back(argv[i]);
-            }
-            return Parse(argv[0], args);
+            const auto args = Args::Extract(argc, argv);
+            return Parse(args);
+        }
+
+        ParseResult
+        Parser::Parse(const Args& args) const
+        {
+            return Parse(args.program_name, args.args);
         }
 
         ParseResult

@@ -192,10 +192,10 @@ GetColor(std::shared_ptr<game::Color> c)
 // engine
 
 int
-main(int, char**)
+main(int argc, char* argv[])
 {
     Engine engine;
-    if(engine.Setup() == false)
+    if(engine.Setup(argparse::Args::Extract(argc, argv)) == false)
     {
         return -1;
     }

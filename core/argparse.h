@@ -442,6 +442,14 @@ namespace euphoria::core::argparse
     /////////////////////////////////////////////////////////////////////////////////////////
     // Main
 
+    struct Args
+    {
+        std::string              program_name;
+        std::vector<std::string> args;
+
+        static Args Extract(int argc, char* argv[]);
+    };
+
     struct Parser
     {
         explicit Parser(const std::string& d);
@@ -540,6 +548,9 @@ namespace euphoria::core::argparse
 
         ParseResult
         Parse(int argc, char* argv[]) const;
+
+        ParseResult
+        Parse(const Args& args) const;
 
         ParseResult
         Parse(const std::string&              program_name,

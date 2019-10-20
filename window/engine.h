@@ -4,6 +4,8 @@
 #include <memory>
 #include <string>
 
+#include "core/argparse.h"
+
 #include "window/fakesdlevent.h"
 
 
@@ -35,7 +37,7 @@ namespace euphoria::window
         ~Engine();
 
         bool
-        Setup();
+        Setup(const core::argparse::Args& args = core::argparse::Args{});
 
         bool
         CreateWindow(
