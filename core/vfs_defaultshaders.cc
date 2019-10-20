@@ -8,106 +8,46 @@ namespace euphoria::core
 {
     namespace vfs
     {
-        // LOG_SPECIFY_DEFAULT_LOGGER("filesystem.default-shaders")
-
-        void
-        FileSystemDefaultShaders::AddRoot(
-                FileSystem*        fs,
-                const std::string& base)
+        
+        void AddDefaultShaders(FileSystem* fs, const std::string& base)
         {
-            auto root = std::make_shared<FileSystemDefaultShaders>(base);
-            fs->AddReadRoot(root);
-        }
+            auto cat = FileSystemRootCatalog::AddRoot(fs);
+            cat->RegisterFileString(base + "/sprite.vert",
+                R"STRING(
+                    #version 330 core
 
-        std::shared_ptr<MemoryChunk>
-        FileSystemDefaultShaders::ReadFile(const std::string& path)
-        {
-            if(!StartsWith(path, base_))
-            {
-                return MemoryChunk::Null();
-            }
-            const auto command     = path.substr(base_.length());
-            const auto shader_name = ToLower(command);
+                    in vec4 vertex; // <vec2 position, vec2 texCoords>
 
-            if(shader_name == "sprite.vert")
-            {
-                return MemoryChunkFromText(R"STRING(
-#version 330 core
+                    out vec2 TexCoords;
 
-in vec4 vertex; // <vec2 position, vec2 texCoords>
+                    uniform mat4 model;
+                    uniform mat4 projection;
 
-out vec2 TexCoords;
+                    uniform vec4 color;
+                    uniform vec4 region;
 
-uniform mat4 model;
-uniform mat4 projection;
+                    void main()
+                    {
+                        TexCoords = vec2(region.x + vertex.z * (region.y - region.x),
+                                        region.z + vertex.w * (region.w - region.z));
+                        gl_Position = projection * model * vec4(vertex.xy, 0.0, 1.0);
+                    }
+                )STRING");
+            cat->RegisterFileString(base+"/sprite.frag",
+                    R"STRING(
+                    #version 330 core
 
-uniform vec4 color;
-uniform vec4 region;
+                    in vec2 TexCoords;
+                    out vec4 outColor;
 
-void main()
-{
-    TexCoords = vec2(region.x + vertex.z * (region.y - region.x),
-                     region.z + vertex.w * (region.w - region.z));
-    gl_Position = projection * model * vec4(vertex.xy, 0.0, 1.0);
-}
-)STRING");
-            }
-            else if(shader_name == "sprite.frag")
-            {
-                return MemoryChunkFromText(R"STRING(
-#version 330 core
+                    uniform sampler2D image;
+                    uniform vec4 color;
 
-in vec2 TexCoords;
-out vec4 outColor;
-
-uniform sampler2D image;
-uniform vec4 color;
-
-void main()
-{
-    outColor = color * texture(image, TexCoords);
-}
-)STRING");
-            }
-
-            return MemoryChunk::Null();
-        }
-
-        std::string
-        FileSystemDefaultShaders::Describe()
-        {
-            return Str() << base_ << "/<default-shader>";
-        }
-
-        FileSystemDefaultShaders::FileSystemDefaultShaders(
-                const std::string& base)
-            : base_(base)
-        {
-            if(!EndsWith(base, "/"))
-            {
-                base_ = base + "/";
-            }
-        }
-
-        FileList
-        FileSystemDefaultShaders::ListFiles(const Path& path)
-        {
-            const auto self = Path::FromDirectory(base_);
-
-            FileList ret;
-
-            if(path == self.GetParentDirectory())
-            {
-                ret.Add(self.GetDirectoryName(), true);
-            }
-
-            if(path == self)
-            {
-                ret.Add("sprite.vert", true);
-                ret.Add("sprite.frag", true);
-            }
-
-            return ret;
+                    void main()
+                    {
+                        outColor = color * texture(image, TexCoords);
+                    }
+                )STRING");
         }
 
     }  // namespace vfs

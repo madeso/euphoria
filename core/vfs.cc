@@ -124,11 +124,7 @@ namespace euphoria::core
             std::vector<std::string> ret;
             for(auto& root: roots_)
             {
-                const auto desc = root->Describe();
-                if(!desc.empty())
-                {
-                    ret.push_back(desc);
-                }
+                root->Describe(&ret);
             }
 
             return StringMerger::Array().Generate(ret);
@@ -195,10 +191,11 @@ namespace euphoria::core
             return found->second;
         }
 
-        std::string
-        FileSystemRootCatalog::Describe()
+        void
+        FileSystemRootCatalog::Describe(std::vector<std::string>* strings)
         {
-            return StringMerger::Array().Generate(KeyToStringVector(catalog_));
+            const auto keys = KeyToStringVector(catalog_);
+            strings->insert(strings->end(), keys.begin(), keys.end());
         }
 
         FileList
@@ -249,10 +246,10 @@ namespace euphoria::core
             return io::FileToChunk(full_path);
         }
 
-        std::string
-        FileSystemRootFolder::Describe()
+        void
+        FileSystemRootFolder::Describe(std::vector<std::string>* strings)
         {
-            return folder_;
+            strings->emplace_back(folder_);
         }
 
         void

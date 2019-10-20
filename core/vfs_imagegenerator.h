@@ -15,8 +15,8 @@ namespace euphoria::core
             std::shared_ptr<MemoryChunk>
             ReadFile(const std::string& path) override;
 
-            std::string
-            Describe() override;
+            void
+            Describe(std::vector<std::string>* strings) override;
 
             explicit FileSystemImageGenerator(const std::string& base);
 

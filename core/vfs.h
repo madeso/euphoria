@@ -41,8 +41,8 @@ namespace euphoria::core
         {
             virtual ~FileSystemReadRoot();
 
-            virtual std::string
-            Describe()
+            virtual void
+            Describe(std::vector<std::string>* strings)
                     = 0;
 
             virtual std::shared_ptr<MemoryChunk>
@@ -123,8 +123,8 @@ namespace euphoria::core
             std::shared_ptr<MemoryChunk>
             ReadFile(const std::string& path) override;
 
-            std::string
-            Describe() override;
+            void
+            Describe(std::vector<std::string>* strings) override;
 
             FileList
             ListFiles(const Path& path) override;
@@ -146,8 +146,8 @@ namespace euphoria::core
             static void
             AddRoot(FileSystem* fs);
 
-            std::string
-            Describe() override;
+            void
+            Describe(std::vector<std::string>* strings) override;
 
             FileList
             ListFiles(const Path& path) override;

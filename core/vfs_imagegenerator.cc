@@ -55,10 +55,10 @@ namespace euphoria::core
             return image.Write(ImageWriteFormat::PNG);
         }
 
-        std::string
-        FileSystemImageGenerator::Describe()
+        void
+        FileSystemImageGenerator::Describe(std::vector<std::string>* strings)
         {
-            return Str() << base_ << "/<color>";
+            strings->emplace_back(Str() << base_ << "<color>");
         }
 
         FileSystemImageGenerator::FileSystemImageGenerator(

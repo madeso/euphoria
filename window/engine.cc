@@ -60,7 +60,7 @@ namespace euphoria::window
                 file_system.get(), current_directory);
         core::vfs::FileSystemImageGenerator::AddRoot(
                 file_system.get(), "img-plain");
-        core::vfs::FileSystemDefaultShaders::AddRoot(
+        core::vfs::AddDefaultShaders(
                 file_system.get(), "shaders");
 
         render::SetupDefaultFiles(catalog);

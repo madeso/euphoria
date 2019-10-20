@@ -17,10 +17,9 @@ public:
         return euco::MemoryChunk::Alloc(32);
     }
 
-    std::string
-    Describe() override
+    void
+    Describe(std::vector<std::string>*) override
     {
-        return "";
     }
 
     FileList
@@ -41,10 +40,9 @@ public:
     }
 
 
-    std::string
-    Describe() override
+    void
+    Describe(std::vector<std::string>*) override
     {
-        return "";
     }
 
     FileList
