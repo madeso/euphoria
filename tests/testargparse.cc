@@ -91,7 +91,6 @@ TEST_CASE("name tests", "[argparse]")
     }
 }
 
-
 TEST_CASE("argparse", "[argparse]")
 {
     const std::string app          = "hello.exe";
@@ -103,6 +102,13 @@ TEST_CASE("argparse", "[argparse]")
     SECTION("test empty")
     {
         auto r = parser.Parse(app, {});
+        CHECK(r == euco::argparse::ParseResult::Ok);
+        REQUIRE_THAT(output.out, Catch::Matchers::Equals(empty_output));
+    }
+
+    SECTION("test empty with arg")
+    {
+        auto r = parser.Parse(euco::argparse::Args{});
         CHECK(r == euco::argparse::ParseResult::Ok);
         REQUIRE_THAT(output.out, Catch::Matchers::Equals(empty_output));
     }
