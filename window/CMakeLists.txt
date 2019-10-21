@@ -24,9 +24,9 @@ set(src_imgui
     ${IMGUI_DIR}/imgui_internal.h
     ${IMGUI_DIR}/imconfig.h
     # todo: look into how different stb libs work together
-    ${IMGUI_DIR}/stb_rect_pack.h
-    ${IMGUI_DIR}/stb_textedit.h
-    ${IMGUI_DIR}/stb_truetype.h
+    ${IMGUI_DIR}/imstb_rectpack.h
+    ${IMGUI_DIR}/imstb_textedit.h
+    ${IMGUI_DIR}/imstb_truetype.h
     ${IMGUI_DIR}/examples/imgui_impl_sdl.cpp
     ${IMGUI_DIR}/examples/imgui_impl_sdl.h
     ${IMGUI_DIR}/examples/imgui_impl_opengl3.cpp
