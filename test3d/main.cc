@@ -237,10 +237,10 @@ main(int, char**)
         {
             engine.imgui->StartNewFrame();
 
-            ImGui::SetNextWindowPos(ImVec2(650, 20), ImGuiSetCond_FirstUseEver);
+            ImGui::SetNextWindowPos(ImVec2(650, 20), ImGuiCond_FirstUseEver);
 
             ImGui::SetNextWindowSize(
-                    ImVec2(200, 100), ImGuiSetCond_FirstUseEver);
+                    ImVec2(200, 100), ImGuiCond_FirstUseEver);
             ImGui::Begin("Light");
             ImGui::Combo(
                     "Type",
