@@ -7,10 +7,12 @@
 
 namespace euphoria::window
 {
+    struct SdlGlContext;
+    
     struct ImguiLibrary
     {
     public:
-        ImguiLibrary(SDL_Window* window, const std::string& path);
+        ImguiLibrary(SDL_Window* window, SdlGlContext* context, const std::string& path);
         ~ImguiLibrary();
 
         void

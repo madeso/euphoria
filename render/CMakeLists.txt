@@ -15,23 +15,6 @@ set(src_glad ../external/glad/src/glad.c ../external/glad/include/glad/glad.h)
 set(src ${src} ${src_glad})
 source_group("glad" FILES ${src_glad})
 
-# imgui
-set(IMGUI_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../external/imgui/")
-set(src_imgui
-    ${IMGUI_DIR}/imgui/imgui.cpp
-    ${IMGUI_DIR}/imgui/imgui.h
-    ${IMGUI_DIR}/imgui/imgui_demo.cpp
-    ${IMGUI_DIR}/imgui/imgui_draw.cpp
-    ${IMGUI_DIR}/imgui/imgui_internal.h
-    ${IMGUI_DIR}/imgui/imconfig.h
-    # todo: look into how different stb libs work together
-    ${IMGUI_DIR}/imgui/stb_rect_pack.h
-    ${IMGUI_DIR}/imgui/stb_textedit.h
-    ${IMGUI_DIR}/imgui/stb_truetype.h
-    )
-set(src ${src} ${src_imgui})
-source_group("imgui" FILES ${src_imgui})
-
 include_directories(SYSTEM ${CMAKE_CURRENT_BINARY_DIR})
 SET(Gaf_CUSTOM_PREFIX gaf_)
 GAF_GENERATE_CPP(PROTO_SRCS PROTO_HDRS

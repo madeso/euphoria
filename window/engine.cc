@@ -108,7 +108,7 @@ namespace euphoria::window
 
         render::SetupOpenglDebug();
 
-        imgui.reset(new ImguiLibrary {window->window, pref_path});
+        imgui.reset(new ImguiLibrary {window->window, context.get(), pref_path});
         ImGui::StyleColorsLight();
 
         return true;

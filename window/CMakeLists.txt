@@ -10,12 +10,27 @@ include_directories(SYSTEM ../external/glad/include)
 #source_group("glad" FILES ${src_glad})
 
 # imgui
-include_directories(SYSTEM
-                    ../external/imgui/
-                    )
+include_directories(SYSTEM ../external/imgui/imgui/examples)
+include_directories(SYSTEM fake_imgui)
+add_definitions(-DIMGUI_IMPL_OPENGL_LOADER_GLAD)
+# imgui
+set(IMGUI_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../external/imgui/imgui/")
 set(src_imgui
-    ../external/imgui/imgui_impl_sdl_gl3.cpp
-    ../external/imgui/imgui_impl_sdl_gl3.h
+    ${IMGUI_DIR}/imgui.cpp
+    ${IMGUI_DIR}/imgui.h
+    ${IMGUI_DIR}/imgui_demo.cpp
+    ${IMGUI_DIR}/imgui_draw.cpp
+    ${IMGUI_DIR}/imgui_widgets.cpp
+    ${IMGUI_DIR}/imgui_internal.h
+    ${IMGUI_DIR}/imconfig.h
+    # todo: look into how different stb libs work together
+    ${IMGUI_DIR}/stb_rect_pack.h
+    ${IMGUI_DIR}/stb_textedit.h
+    ${IMGUI_DIR}/stb_truetype.h
+    ${IMGUI_DIR}/examples/imgui_impl_sdl.cpp
+    ${IMGUI_DIR}/examples/imgui_impl_sdl.h
+    ${IMGUI_DIR}/examples/imgui_impl_opengl3.cpp
+    ${IMGUI_DIR}/examples/imgui_impl_opengl3.h
     )
 set(src ${src} ${src_imgui})
 source_group("imgui" FILES ${src_imgui})
