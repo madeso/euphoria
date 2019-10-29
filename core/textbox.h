@@ -2,214 +2,72 @@
 #include <vector>
 #include <algorithm>
 
-/* textbox: Abstraction for 2-dimensional text strings, with VT100 linedrawing support */
-/* Copyright (c) 2017 Joel Yliluoma - http://iki.fi/bisqwit/ */
-/* License: MIT */
-/* Requires a C++17 capable compiler and standard library. */
-struct textbox
+/* TextBox: Abstraction for 2-dimensional text strings, with VT100 linedrawing support
+Copyright (c) 2017 Joel Yliluoma - http://iki.fi/bisqwit/
+License: MIT
+Requires a C++17 capable compiler and standard library. */
+struct TextBox
 {
-    static constexpr bool enable_vt100 = true;
-    static constexpr unsigned char u=1, d=2, l=4, r=8, nonline = ~(u+d+l+r); // bitmasks
-
     std::vector<std::string> data;
 
-    /* Place a single character in the given coordinate. */
-    /* Notice that behavior is undefined if the character is in 00-1F range. */
-    void putchar(char c, std::size_t x, std::size_t y)
-    {
-        if(y >= data.size()) data.resize(y+1);
-        if(data[y].size() == x) data[y] += c;
-        else { if(data[y].size() < x) data[y].resize(x+1, ' ');
-               data[y][x] = c; }
-    }
-    /* Modify a character using a callback */
+    /** Place a single character in the given coordinate.
+    Notice that behavior is undefined if the character is in 00-1F range. */
+    void putchar(char c, std::size_t x, std::size_t y);
+
+    void extend(std::size_t x, std::size_t y);
+
+    /** Modify a character using a callback */
     template<typename F>
     void modchar(std::size_t x, std::size_t y, F&& func)
     {
-        if(y >= data.size()) data.resize(y+1);
-        if(data[y].size() <= x) data[y].resize(x+1, ' ');
+        extend(x,y);
         func(data[y][x]);
     }
-    /* Put a string of characters starting at the given coordinate */
-    /* Note that behavior is undefined if the string contains characters in 00-1F range
-     * or if the string includes multibyte characters.
-     */
-    void putline(const std::string& s, std::size_t x, std::size_t y)
-    {
-        if(y >= data.size()) { data.resize(y+1); }
-        if(x > data[y].size()) { data[y].append(x - data[y].size(), ' '); }
-        std::size_t begin = 0;
-        for(; x < data[y].size() && begin < s.size(); ++begin, ++x)
-        {
-            unsigned char c = s[begin];
-            if(c==' ' || !c) continue;
-            char &tgt = data[y][x];
-            if(tgt==' ' || !tgt || (c&nonline)) tgt = c;
-            else { if(tgt&nonline) tgt=0; tgt|=c; }
-        }
-        if(s.size() > begin) { data[y].append(s, begin, s.size()-begin); }
-    }
+
+    /** Put a string of characters starting at the given coordinate.
+    Note that behavior is undefined if the string contains characters in 00-1F range
+    or if the string includes multibyte characters.
+    */
+    void putline(const std::string& s, std::size_t x, std::size_t y);
+
     /* Put a 2D string starting at the given coordinate */
-    void putbox(std::size_t x, std::size_t y, const textbox& b)
-    {
-        for(std::size_t p = 0; p < b.data.size(); ++p) putline(b.data[p], x, y+p);
-    }
+    void putbox(std::size_t x, std::size_t y, const TextBox& b);
+
     /* Delete trailing blank from the bottom and right edges */
-    void trim()
-    {
-        for(auto& s: data)
-        {
-            std::size_t end = s.size();
-            while(end > 0 && (s[end-1]==' ' || s[end-1]=='\0')) { --end; }
-            s.erase(end);
-        }
-        while(!data.empty() && data.back().empty()) data.pop_back();
-    }
+    void trim();
 
     /* Calculate the current dimensions of the string */
-    std::size_t height() const { return data.size(); }
-    std::size_t width()  const
-    {
-        std::size_t result = 0;
-        for(const auto& s: data) result = std::max(result, s.size());
-        return result;
-    }
+    std::size_t height() const;
+    std::size_t width()  const;
 
-    /* Draw a horizontal line */
-    /* If bef=true, the line starts from the left edge of the first character cell, otherwise it starts from its center */
-    /* If aft=true, the line ends in the right edge of the last character cell, otherwise it ends in its center */
-    void hline(std::size_t x, std::size_t y, std::size_t width, bool bef, bool aft)
-    {
-        for(std::size_t p=0; p<width; ++p)
-            modchar(x+p, y, [&](char& c) { if(c&nonline) c=0; if(p>0||bef) c |= l; if(aft||(p+1)<width) c |= r; });
-    }
-    /* Draw a vertical line */
-    /* If bef=true, the line starts from the top edge of the first character cell, otherwise it starts from its center */
-    /* If aft=true, the line ends in the bottom edge of the last character cell, otherwise it ends in its center */
-    void vline(std::size_t x, std::size_t y, std::size_t height, bool bef, bool aft)
-    {
-        for(std::size_t p=0; p<height; ++p)
-            modchar(x, y+p, [&](char& c) { if(c&nonline) c=0; if(p>0||bef) c |= u; if(aft||(p+1)<height) c |= d; });
-    }
+    /** Draw a horizontal line.
+    If bef=true, the line starts from the left edge of the first character cell, otherwise it starts from its center.
+    If aft=true, the line ends in the right edge of the last character cell, otherwise it ends in its center */
+    void hline(std::size_t x, std::size_t y, std::size_t width, bool bef, bool aft);
 
-    /* Calculate the earliest X coordinate where the given box could be placed
-     * without colliding with existing content in this box. Guaranteed to be <= width().
+    /** Draw a vertical line.
+    If bef=true, the line starts from the top edge of the first character cell, otherwise it starts from its center.
+    If aft=true, the line ends in the bottom edge of the last character cell, otherwise it ends in its center */
+    void vline(std::size_t x, std::size_t y, std::size_t height, bool bef, bool aft);
+
+    /** Calculate the earliest X coordinate where the given box could be placed.
+     without colliding with existing content in this box. Guaranteed to be <= width().
      */
-    std::size_t horiz_append_position(std::size_t y, const textbox& b) const
-    {
-        // Find leftmost position where box b can be appended into *this without overlap
-        std::size_t mywidth = width()/*, myheight = height()*/, theirheight = b.height();
+    std::size_t horiz_append_position(std::size_t y, const TextBox& b) const;
 
-        std::size_t reduce = mywidth;
-        for(std::size_t p=0; p<theirheight; ++p)
-        {
-            std::size_t theirpadding = b.FindLeftPadding(p);
-            std::size_t mypadding    = FindRightPadding(y+p);
-            reduce = std::min(reduce, mypadding + theirpadding);
-        }
-        return mywidth - reduce;
-    }
-    /* Calculate the earliest Y coordinate where the given box could be placed
-     * without colliding with existing content in this box. Guaranteed to be <= height().
+    /** Calculate the earliest Y coordinate where the given box could be placed without colliding with existing content in this box. Guaranteed to be <= height().
      */
-    std::size_t vert_append_position(std::size_t x, const textbox& b) const
-    {
-        // Find topmost position where box b can be appended into *this without overlap
-        std::size_t /*mywidth = width(), */myheight = height(), theirwidth = b.width();
+    std::size_t vert_append_position(std::size_t x, const TextBox& b) const;
 
-        std::size_t reduce = myheight;
-        for(std::size_t p=0; p<theirwidth; ++p)
-        {
-            std::size_t theirpadding = b.FindTopPadding(p);
-            std::size_t mypadding    = FindBottomPadding(x+p);
-            reduce = std::min(reduce, mypadding + theirpadding);
-        }
-        return myheight - reduce;
-    }
-
-    /* Converts the contents of the box into a std::string with linefeeds and VT100 escapes. */
-    /* If enable_vt100 is false, renders using plain ASCII instead.
+    /** Converts the contents of the box into a std::string with linefeeds and VT100 escapes.
+    If enable_vt100 is false, renders using plain ASCII instead.
     */
-    std::string to_string() const
-    {
-        std::string result;
-        bool drawing = false, quo = false, space = true, unstr = false;
-        std::string cur_attr;
-        constexpr const char* const linedraw = enable_vt100 ? "xxxqjkuqmltqvwn" : "|||-'.+-`,+-+++";
-        auto attr = [&](const char* s)
-        {
-            if constexpr(enable_vt100)
-            {
-                if(cur_attr!=s) { result += "\33["; result += s; result += 'm'; cur_attr = s; }
-            }
-        };
-        auto append = [&](bool v, char c)
-        {
-            if constexpr(enable_vt100)
-            {
-                const char* a = nullptr;
-                bool num = false;
-                if(v&&!drawing)      { a = "0;32"; result += "\33)0\16"; drawing = v; }
-                else if(!v&&drawing) { a = "";     result += "\33)B\17"; drawing = v; }
-                if(!v && c=='"')             { quo = !quo; if(quo) a = "1;34"; }
-                if(!v && !quo && ((c>='0' && c<='9') || c=='-')) { a = space ? "1;38;5;165" : "0;38;5;246"; num=true; }
-                if(!v && !quo && ((c>='a' && c<='z') || c=='_')) { a = "1;37"; }
-                if(!v && !quo && c>='A' && c<='Z')               { a = "0;38;5;246"; }
-                if(!v && !quo && c=='`') { unstr = true; c = ' '; }
-                if(c == '\n') unstr = false;
-                if(unstr) a = nullptr;
-                if(a) attr(a);
-                if(!num) space = (c==' ');
-            }
-            result += c;
-        };
-        for(std::size_t h = height(), y = 0; y < h; ++y)
-        {
-            const std::string& s = data[y];
-            for(std::size_t x = 0; x < s.size(); ++x)
-            {
-                unsigned char c = s[x];
-                if(c > 0 && c < 16) append(true, linedraw[c-1]);
-                else                append(false, c);
-            }
-            attr("");
-            append(false, '\n');
-        }
-        return result;
-    }
+    std::string to_string(bool enable_vt100 = false) const;
 private:
-    std::size_t FindLeftPadding(std::size_t y) const
-    {
-        std::size_t max = width(), result = 0;
-        if(y >= data.size()) return max;
-        const std::string& line = data[y];
-        while(result < line.size() && (line[result] == ' ' || line[result] == '\0'))
-            { ++result; }
-        return result;
-    }
-    std::size_t FindRightPadding(std::size_t y) const
-    {
-        std::size_t max = width(), position = max, result = 0;
-        if(y >= data.size()) return max;
-        const std::string& line = data[y];
-        while(position-- > 0 && (position >= line.size() || line[position]==' ' || line[position]=='\0'))
-            { ++result; }
-        return result;
-    }
-    std::size_t FindTopPadding(std::size_t x) const
-    {
-        std::size_t result = 0, max = data.size();
-        while(result < max && (x >= data[result].size() || data[result][x] == ' ' || data[result][x] == '\0'))
-            { ++result; }
-        return result;
-    }
-    std::size_t FindBottomPadding(std::size_t x) const
-    {
-        std::size_t result = 0, max = data.size(), position = max;
-        while(position-- > 0 && (x >= data[position].size() || data[position][x] == ' ' || data[position][x] == '\0'))
-            { ++result; }
-        return result;
-    }
+    std::size_t FindLeftPadding(std::size_t y) const;
+    std::size_t FindRightPadding(std::size_t y) const;
+    std::size_t FindTopPadding(std::size_t x) const;
+    std::size_t FindBottomPadding(std::size_t x) const;
 };
 
 /* An utility function that can be used to create a tree graph rendering from a structure.
@@ -277,7 +135,7 @@ private:
 
 template<typename ParamType, typename AtomCreator, typename ParamCountFunc,
          typename OneLinerFunc, typename SimpleTestFunc, typename Separate1stParamTestFunc>
-textbox create_tree_graph(const ParamType& e,
+TextBox create_tree_graph(const ParamType& e,
                           std::size_t maxwidth,
                           AtomCreator&&    create_atom,
                           ParamCountFunc&& count_children,
@@ -285,13 +143,13 @@ textbox create_tree_graph(const ParamType& e,
                           SimpleTestFunc&& simple_test,
                           Separate1stParamTestFunc&& separate1st_test)
 {
-    textbox result;
+    TextBox result;
     std::string atom = create_atom(e);
     result.putline(atom, 0,0);
 
     if(auto param_range = count_children(e); param_range.first != param_range.second)
     {
-        std::vector<textbox> boxes;
+        std::vector<TextBox> boxes;
         boxes.reserve(std::distance(param_range.first, param_range.second));
         for(auto i = param_range.first; i != param_range.second; ++i)
             boxes.emplace_back(create_tree_graph(*i, (maxwidth >= (16+2)) ? maxwidth - 2 : 16,
@@ -322,8 +180,8 @@ textbox create_tree_graph(const ParamType& e,
 
         for(auto i = boxes.begin(); i != boxes.end(); ++i)
         {
-            auto next = ++std::vector<textbox>::iterator(i);
-            const textbox& cur = *i;
+            auto next = ++std::vector<TextBox>::iterator(i);
+            const TextBox& cur = *i;
             unsigned width = cur.width();
 
             std::size_t usemargin = (simple || oneliner) ? (margin/2) : margin;
@@ -347,7 +205,7 @@ textbox create_tree_graph(const ParamType& e,
                 {
                     // Enact horizontal placement by giving 1 row of room for the connector
                     horizontal = true;
-                    textbox combined = cur;
+                    TextBox combined = cur;
                     combined.putbox(cur.horiz_append_position(0, *next) + margin, 0, *next);
                     y = std::max(result.vert_append_position(x, combined), std::size_t(1));
                     if(!oneliner) ++y;
@@ -359,7 +217,7 @@ textbox create_tree_graph(const ParamType& e,
                 for(;;)
                 {
                     // Check if there is room for a horizontal connector. If not, increase y
-                    textbox conn;
+                    TextBox conn;
                     conn.putline(std::string(1+(x-0), '-'), 0, 0);
                     if(result.horiz_append_position(y-1, conn) > x) ++y; else break;
                     y = std::max(result.vert_append_position(x, cur), y);
