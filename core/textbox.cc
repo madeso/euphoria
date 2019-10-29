@@ -1,11 +1,15 @@
 #include "core/textbox.h"
 
+namespace euphoria::core
+{
+
 // bitmasks
 constexpr unsigned char u=1;
 constexpr unsigned char d=2;
 constexpr unsigned char l=4;
 constexpr unsigned char r=8;
 constexpr unsigned char nonline = ~(u+d+l+r);
+
 
 TextBox::TextBox()
 {}
@@ -247,4 +251,6 @@ std::size_t TextBox::FindBottomPadding(std::size_t x) const
     while(position-- > 0 && (x >= data[position].size() || data[position][x] == ' ' || data[position][x] == '\0'))
         { ++result; }
     return result;
+}
+
 }

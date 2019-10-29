@@ -8,6 +8,8 @@ using Catch::Matchers::Equals;
 
 constexpr bool PRINT_HEX = false;
 
+using namespace euphoria::core;
+
 namespace std
 {
     std::ostream& operator<<(std::ostream& s, const std::vector<std::string>& v)

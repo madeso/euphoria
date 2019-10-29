@@ -1,7 +1,9 @@
 #include <string>
 #include <vector>
 #include <algorithm>
-#include <tuple>
+
+namespace euphoria::core
+{
 
 /* TextBox: Abstraction for 2-dimensional text strings, with VT100 linedrawing support
 Copyright (c) 2017 Joel Yliluoma - http://iki.fi/bisqwit/
@@ -263,4 +265,6 @@ TextBox create_tree_graph(const ParamType& e,
     }
     result.trim();
     return result;
+}
+
 }
