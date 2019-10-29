@@ -1,5 +1,27 @@
 ﻿#include "core/ctree.h"
 
+#include <cstdlib>
+
+#include "core/stringutils.h"
+
+namespace
+{
+    bool TerminalSupportUtf8()
+    {
+        const auto clang = std::getenv("LANG");
+        
+        if(clang)
+        {
+            const auto lang = std::string(clang);
+            const auto lower = euphoria::core::ToLower(lang);
+            const auto ends = euphoria::core::EndsWith(lower, "utf-8");
+            return ends;
+        }
+
+        return false;
+    }
+}
+
 namespace euphoria::core
 {
 
@@ -41,7 +63,14 @@ TreeStyle CrossStyle()
 
 TreeStyle DetermineStyle()
 {
-    return CrossStyle();
+    if(TerminalSupportUtf8())
+    {
+        return Utf8Style();
+    }
+    else
+    {
+        return CrossStyle();
+    }
 }
 
 }
