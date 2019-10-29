@@ -363,3 +363,91 @@ TEST_CASE("tb_box")
         CHECK(abc.vert_append_position(1, abc) == 1);
     }
 }
+
+namespace
+{
+    struct T
+    {
+        std::string name;
+        std::vector<T> children;
+
+        T(const std::string& n) : name(n) {}
+        T(const std::string& n, std::initializer_list<T> t) : name(n), children(t) {}
+    };
+}
+
+TEST_CASE("tb_create_tree_graph")
+{
+    const auto simple_tree = T("a", { T{"1"}, T{"2"}, T{"3"} });
+
+    const auto simple_two_row = std::vector<std::string>
+        {
+            "a--+--+--.",
+            "   1  2  3"
+        };
+    const auto simple_four_row = std::vector<std::string>
+        {
+            "a",
+            "+-1",
+            "`-+----.",
+            "  2    3"
+        };
+
+    const auto tolkien_tree =
+        T{"tolkien", {
+            T{"heroes", {
+                T{"humans", {
+                    T{"aragon"},
+                    T{"boromir"}
+                }},
+                T{"hobbits", {
+                    T{"frodo"},
+                    T{"samwise"},
+                    T{"merry"},
+                    T{"pippin"},
+                }},
+                T{"other", {
+                    T{"legolas"},
+                    T{"gandalf"},
+                    T{"gimli"}
+                }}
+            }},
+            T{"enemies", {
+                T{"sauron"},
+                T{"orcs"},
+                T{"sauruman"}
+            }}
+        }};
+
+    CHECK_THAT(create_tree_graph(simple_tree, 130,
+                [](const T& e) { return e.name; },
+                [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
+                [](const T& e) { return e.children.size() >= 1; },
+                [](const T&  ) { return true; },
+                [](const T&  ) { return false; }).to_string(),
+                Eq(simple_two_row));
+    
+    CHECK_THAT(create_tree_graph(simple_tree, 130,
+                [](const T& e) { return e.name; },
+                [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
+                [](const T& e) { return e.children.size() >= 1; },
+                [](const T&  ) { return false; },
+                [](const T&  ) { return false; }).to_string(),
+                Eq(simple_two_row));
+
+    CHECK_THAT(create_tree_graph(simple_tree, 130,
+                [](const T& e) { return e.name; },
+                [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
+                [](const T& e) { return e.children.size() >= 1; },
+                [](const T&  ) { return false; },
+                [](const T&  ) { return true; }).to_string(),
+                Eq(simple_four_row));
+
+    CHECK_THAT(create_tree_graph(simple_tree, 130,
+                [](const T& e) { return e.name; },
+                [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
+                [](const T& e) { return e.children.size() >= 1; },
+                [](const T&  ) { return true; },
+                [](const T&  ) { return true; }).to_string(),
+                Eq(simple_four_row));
+}
