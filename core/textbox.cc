@@ -133,9 +133,15 @@ std::size_t TextBox::vert_append_position(std::size_t x, const TextBox& b) const
 }
 
 
-std::string TextBox::to_string(bool enable_vt100) const
+std::vector<std::string> TextBox::to_string(bool enable_vt100) const
 {
-    std::string result;
+    std::vector<std::string> ret;
+    bool want_newline = true;
+    auto last_line = [&ret, &want_newline]() -> std::string& {
+        if(want_newline) {ret.emplace_back(""); want_newline = false;}
+        return ret[ret.size()-1];
+    };
+
     bool drawing = false, quo = false, space = true, unstr = false;
     std::string cur_attr;
     const std::string_view linedraw = enable_vt100 ? "xxxqjkuqmltqvwn" : "|||-'.+-`,+-+++";
@@ -143,7 +149,7 @@ std::string TextBox::to_string(bool enable_vt100) const
     {
         if (enable_vt100)
         {
-            if(cur_attr!=s) { result += "\33["; result += s; result += 'm'; cur_attr = s; }
+            if(cur_attr!=s) { last_line() += "\33["; last_line() += s; last_line() += 'm'; cur_attr = s; }
         }
     };
     auto append = [&](bool v, char c)
@@ -152,8 +158,8 @@ std::string TextBox::to_string(bool enable_vt100) const
         {
             const char* a = nullptr;
             bool num = false;
-            if(v&&!drawing)      { a = "0;32"; result += "\33)0\16"; drawing = v; }
-            else if(!v&&drawing) { a = "";     result += "\33)B\17"; drawing = v; }
+            if(v&&!drawing)      { a = "0;32"; last_line() += "\33)0\16"; drawing = v; }
+            else if(!v&&drawing) { a = "";     last_line() += "\33)B\17"; drawing = v; }
             if(!v && c=='"')             { quo = !quo; if(quo) a = "1;34"; }
             if(!v && !quo && ((c>='0' && c<='9') || c=='-')) { a = space ? "1;38;5;165" : "0;38;5;246"; num=true; }
             if(!v && !quo && ((c>='a' && c<='z') || c=='_')) { a = "1;37"; }
@@ -164,7 +170,14 @@ std::string TextBox::to_string(bool enable_vt100) const
             if(a) attr(a);
             if(!num) space = (c==' ');
         }
-        result += c;
+        if(c == '\n')
+        {
+            want_newline = true;
+        }
+        else
+        {
+            last_line() += c;
+        }
     };
     for(std::size_t h = height(), y = 0; y < h; ++y)
     {
@@ -178,7 +191,7 @@ std::string TextBox::to_string(bool enable_vt100) const
         attr("");
         append(false, '\n');
     }
-    return result;
+    return ret;
 }
 
 std::size_t TextBox::FindLeftPadding(std::size_t y) const

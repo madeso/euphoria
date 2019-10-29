@@ -67,7 +67,11 @@ main(int, char**)
                 [](const T& e) { return e.children.size() >= 1; }, // whether simplified horizontal layout can be used
                 [](const T&  ) { return true; },                 // whether extremely simplified horiz layout can be used
                 [](const T&  ) { return false; }));
-            std::cout << result.to_string(false) << "\n";
+            auto strings = result.to_string();
+            for(auto s: strings)
+            {
+                std::cout << s << "\n";
+            }
         }
     }
 }

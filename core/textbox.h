@@ -65,7 +65,7 @@ struct TextBox
     /** Converts the contents of the box into a std::string with linefeeds and VT100 escapes.
     If enable_vt100 is false, renders using plain ASCII instead.
     */
-    std::string to_string(bool enable_vt100) const;
+    std::vector<std::string> to_string(bool enable_vt100 = false) const;
 private:
     std::size_t FindLeftPadding(std::size_t y) const;
     std::size_t FindRightPadding(std::size_t y) const;

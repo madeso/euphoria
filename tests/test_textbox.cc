@@ -6,7 +6,7 @@
 
 using Catch::Matchers::Equals;
 
-constexpr bool PRINT_HEX = true;
+constexpr bool PRINT_HEX = false;
 
 namespace std
 {
@@ -73,6 +73,7 @@ ANON_TEST_CASE()
         INFO(box.data);
         CHECK(box.Size() == S(0,0));
         CHECK_THAT(box.data, Eq({}));
+        CHECK_THAT(box.to_string(), Eq({}));
     }
 
     SECTION("putchar")
@@ -84,6 +85,7 @@ ANON_TEST_CASE()
             INFO(box.data);
             CHECK(box.Size() == S(1,1));
             CHECK_THAT(box.data, Eq({"x"}));
+            CHECK_THAT(box.to_string(), Eq({"x"}));
         }
 
         SECTION("offset")
@@ -93,6 +95,7 @@ ANON_TEST_CASE()
             INFO(box.data);
             CHECK(box.Size() == S(3,2));
             CHECK_THAT(box.data, Eq({"", "  x"}));
+            CHECK_THAT(box.to_string(), Eq({"  x"}));
         }
     }
 
@@ -105,6 +108,7 @@ ANON_TEST_CASE()
             INFO(box.data);
             CHECK(box.Size() == S(1,1));
             CHECK_THAT(box.data, Eq({"d"}));
+            CHECK_THAT(box.to_string(), Eq({"d"}));
         }
 
         SECTION("offset")
@@ -114,6 +118,7 @@ ANON_TEST_CASE()
             INFO(box.data);
             CHECK(box.Size() == S(3,2));
             CHECK_THAT(box.data, Eq({"", "  d"}));
+            CHECK_THAT(box.to_string(), Eq({"  d"}));
         }
     }
 
@@ -126,6 +131,7 @@ ANON_TEST_CASE()
             INFO(box.data);
             CHECK(box.Size() == S(3,1));
             CHECK_THAT(box.data, Eq({"dog"}));
+            CHECK_THAT(box.to_string(), Eq({"dog"}));
         }
 
         SECTION("offset")
@@ -135,6 +141,7 @@ ANON_TEST_CASE()
             INFO(box.data);
             CHECK(box.Size() == S(4,2));
             CHECK_THAT(box.data, Eq({"", " dog"}));
+            CHECK_THAT(box.to_string(), Eq({" dog"}));
         }
 
         SECTION("collision")
@@ -145,6 +152,7 @@ ANON_TEST_CASE()
             INFO(box.data);
             CHECK(box.Size() == S(5,1));
             CHECK_THAT(box.data, Eq({"ddogo"}));
+            CHECK_THAT(box.to_string(), Eq({"ddogo"}));
         }
     }
 
@@ -159,6 +167,7 @@ ANON_TEST_CASE()
             INFO(box.data);
             CHECK(box.Size() == S(0,0));
             CHECK_THAT(box.data, Eq({}));
+            CHECK_THAT(box.to_string(), Eq({}));
         }
 
         SECTION("no change")
@@ -169,6 +178,7 @@ ANON_TEST_CASE()
             INFO(box.data);
             CHECK(box.Size() == S(3,2));
             CHECK_THAT(box.data, Eq({"", "  a"}));
+            CHECK_THAT(box.to_string(), Eq({"  a"}));
         }
 
         SECTION("change")
@@ -179,6 +189,7 @@ ANON_TEST_CASE()
             INFO(box.data);
             CHECK(box.Size() == S(3,2));
             CHECK_THAT(box.data, Eq({"", "  a"}));
+            CHECK_THAT(box.to_string(), Eq({"  a"}));
         }
     }
 
@@ -192,6 +203,7 @@ ANON_TEST_CASE()
             INFO(box.data);
             CHECK(box.Size() == S(3,1));
             CHECK_THAT(box.data, Eq({ascii({8, 12, 4})}));
+            CHECK_THAT(box.to_string(), Eq({"---"}));
         }
 
         SECTION("h2")
@@ -201,6 +213,7 @@ ANON_TEST_CASE()
             INFO(box.data);
             CHECK(box.Size() == S(3,1));
             CHECK_THAT(box.data, Eq({ascii({8, 12, 12})}));
+            CHECK_THAT(box.to_string(), Eq({"---"}));
         }
 
         SECTION("h3")
@@ -210,6 +223,7 @@ ANON_TEST_CASE()
             INFO(box.data);
             CHECK(box.Size() == S(3,1));
             CHECK_THAT(box.data, Eq({ascii({12, 12, 4})}));
+            CHECK_THAT(box.to_string(), Eq({"---"}));
         }
 
         SECTION("h4")
@@ -219,6 +233,7 @@ ANON_TEST_CASE()
             INFO(box.data);
             CHECK(box.Size() == S(3,1));
             CHECK_THAT(box.data, Eq({ascii({12, 12, 12})}));
+            CHECK_THAT(box.to_string(), Eq({"---"}));
         }
 
         SECTION("v1")
@@ -228,6 +243,7 @@ ANON_TEST_CASE()
             INFO(box.data);
             CHECK(box.Size() == S(1,3));
             CHECK_THAT(box.data, Eq({ascii({2}), ascii({3}), ascii({1})}));
+            CHECK_THAT(box.to_string(), Eq({"|", "|", "|"}));
         }
 
         SECTION("v2")
@@ -237,6 +253,7 @@ ANON_TEST_CASE()
             INFO(box.data);
             CHECK(box.Size() == S(1,3));
             CHECK_THAT(box.data, Eq({ascii({2}), ascii({3}), ascii({3})}));
+            CHECK_THAT(box.to_string(), Eq({"|", "|", "|"}));
         }
 
         SECTION("v3")
@@ -246,6 +263,7 @@ ANON_TEST_CASE()
             INFO(box.data);
             CHECK(box.Size() == S(1,3));
             CHECK_THAT(box.data, Eq({ascii({3}), ascii({3}), ascii({1})}));
+            CHECK_THAT(box.to_string(), Eq({"|", "|", "|"}));
         }
 
         SECTION("v4")
@@ -255,6 +273,7 @@ ANON_TEST_CASE()
             INFO(box.data);
             CHECK(box.Size() == S(1,3));
             CHECK_THAT(box.data, Eq({ascii({3}), ascii({3}), ascii({3})}));
+            CHECK_THAT(box.to_string(), Eq({"|", "|", "|"}));
         }
     }
 }
