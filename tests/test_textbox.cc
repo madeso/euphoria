@@ -6,6 +6,8 @@
 
 using Catch::Matchers::Equals;
 
+constexpr bool PRINT_HEX = true;
+
 namespace std
 {
     std::ostream& operator<<(std::ostream& s, const std::vector<std::string>& v)
@@ -17,6 +19,19 @@ namespace std
             if(first) first = false;
             else s << ", ";
             s << '"' << st << '"';
+
+            if constexpr (PRINT_HEX)
+            {
+                s << "(";
+                bool f = true;
+                for(auto c: st)
+                {
+                    if(f) f=false;
+                    else s << " ";
+                    s << static_cast<int>(c);
+                }
+                s << ")";
+            }
         }
         s << "}";
         return s;
@@ -34,6 +49,16 @@ namespace
     std::pair<size_t, size_t> S(size_t a, size_t b)
     {
         return {a, b};
+    }
+
+    std::string ascii(std::initializer_list<int> ii)
+    {
+        std::string r;
+        for(auto i: ii)
+        {
+            r += static_cast<char>(i);
+        }
+        return r;
     }
 }
 
@@ -92,6 +117,39 @@ ANON_TEST_CASE()
         }
     }
 
+    SECTION("putline")
+    {
+        SECTION("0")
+        {
+            box.putline("dog", 0, 0);
+
+            INFO(box.data);
+            CHECK(box.Size() == S(3,1));
+            CHECK_THAT(box.data, Eq({"dog"}));
+        }
+
+        SECTION("offset")
+        {
+            box.putline("dog", 1, 1);
+
+            INFO(box.data);
+            CHECK(box.Size() == S(4,2));
+            CHECK_THAT(box.data, Eq({"", " dog"}));
+        }
+
+        SECTION("collision")
+        {
+            box.putline("doggo", 0, 0);
+            box.putline( "dog", 1, 0);
+
+            INFO(box.data);
+            CHECK(box.Size() == S(5,1));
+            CHECK_THAT(box.data, Eq({"ddogo"}));
+        }
+    }
+
+    // putbox
+
     SECTION("trim")
     {
         SECTION("empty")
@@ -121,6 +179,82 @@ ANON_TEST_CASE()
             INFO(box.data);
             CHECK(box.Size() == S(3,2));
             CHECK_THAT(box.data, Eq({"", "  a"}));
+        }
+    }
+
+    // todo(Gustav): fix bitmasks in character codes
+    SECTION("lines")
+    {
+        SECTION("h1")
+        {
+            box.hline(0, 0, 3, false, false);
+
+            INFO(box.data);
+            CHECK(box.Size() == S(3,1));
+            CHECK_THAT(box.data, Eq({ascii({8, 12, 4})}));
+        }
+
+        SECTION("h2")
+        {
+            box.hline(0, 0, 3, false, true);
+
+            INFO(box.data);
+            CHECK(box.Size() == S(3,1));
+            CHECK_THAT(box.data, Eq({ascii({8, 12, 12})}));
+        }
+
+        SECTION("h3")
+        {
+            box.hline(0, 0, 3, true, false);
+
+            INFO(box.data);
+            CHECK(box.Size() == S(3,1));
+            CHECK_THAT(box.data, Eq({ascii({12, 12, 4})}));
+        }
+
+        SECTION("h4")
+        {
+            box.hline(0, 0, 3, true, true);
+
+            INFO(box.data);
+            CHECK(box.Size() == S(3,1));
+            CHECK_THAT(box.data, Eq({ascii({12, 12, 12})}));
+        }
+
+        SECTION("v1")
+        {
+            box.vline(0, 0, 3, false, false);
+
+            INFO(box.data);
+            CHECK(box.Size() == S(1,3));
+            CHECK_THAT(box.data, Eq({ascii({2}), ascii({3}), ascii({1})}));
+        }
+
+        SECTION("v2")
+        {
+            box.vline(0, 0, 3, false, true);
+
+            INFO(box.data);
+            CHECK(box.Size() == S(1,3));
+            CHECK_THAT(box.data, Eq({ascii({2}), ascii({3}), ascii({3})}));
+        }
+
+        SECTION("v3")
+        {
+            box.vline(0, 0, 3, true, false);
+
+            INFO(box.data);
+            CHECK(box.Size() == S(1,3));
+            CHECK_THAT(box.data, Eq({ascii({3}), ascii({3}), ascii({1})}));
+        }
+
+        SECTION("v4")
+        {
+            box.vline(0, 0, 3, true, true);
+
+            INFO(box.data);
+            CHECK(box.Size() == S(1,3));
+            CHECK_THAT(box.data, Eq({ascii({3}), ascii({3}), ascii({3})}));
         }
     }
 }
