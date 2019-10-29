@@ -1,6 +1,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <tuple>
 
 /* TextBox: Abstraction for 2-dimensional text strings, with VT100 linedrawing support
 Copyright (c) 2017 Joel Yliluoma - http://iki.fi/bisqwit/
@@ -10,9 +11,13 @@ struct TextBox
 {
     std::vector<std::string> data;
 
+    TextBox();
+    TextBox(const std::vector<std::string>& a_data);
+
     /** Place a single character in the given coordinate.
     Notice that behavior is undefined if the character is in 00-1F range. */
     void putchar(char c, std::size_t x, std::size_t y);
+
 
     void extend(std::size_t x, std::size_t y);
 
@@ -32,6 +37,7 @@ struct TextBox
 
     /* Put a 2D string starting at the given coordinate */
     void putbox(std::size_t x, std::size_t y, const TextBox& b);
+    TextBox PutBoxCopy(std::size_t x, std::size_t y, const TextBox& b) const;
 
     /* Delete trailing blank from the bottom and right edges */
     void trim();

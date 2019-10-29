@@ -64,7 +64,7 @@ namespace
 
 using Eq = Catch::Vector::EqualsMatcher<std::string>;
 
-ANON_TEST_CASE()
+TEST_CASE("tb_print")
 {
     TextBox box;
 
@@ -275,5 +275,89 @@ ANON_TEST_CASE()
             CHECK_THAT(box.data, Eq({ascii({3}), ascii({3}), ascii({3})}));
             CHECK_THAT(box.to_string(), Eq({"|", "|", "|"}));
         }
+    }
+}
+
+// todo(Gustav): How is this supposed to work?
+TEST_CASE("tb_box")
+{
+    const std::vector<std::string> x_data = {"   ", " x ", "   "};
+    const std::vector<std::string> abc_data = {"abc"};
+
+    const TextBox empty;
+    const auto x = TextBox{ x_data };
+    const auto abc = TextBox{ abc_data };
+
+    SECTION("putbox")
+    {
+        CHECK_THAT(empty.PutBoxCopy(0, 0, empty).to_string(), Eq({}));
+        CHECK_THAT(empty.PutBoxCopy(0, 0, x).to_string(), Eq(x_data));
+        CHECK_THAT(empty.PutBoxCopy(0, 0, abc).to_string(), Eq(abc_data));
+        CHECK_THAT(empty.PutBoxCopy(1, 1, empty).to_string(), Eq({}));
+        CHECK_THAT(empty.PutBoxCopy(1, 1, x).to_string(), Eq({"    ", "  x ", "    "}));
+        CHECK_THAT(empty.PutBoxCopy(1, 1, empty).to_string(), Eq({}));
+    }
+
+    SECTION("empty")
+    {
+        CHECK(empty.horiz_append_position(0, empty) == 0);
+        CHECK(empty.vert_append_position(0, empty) == 0);
+
+        CHECK(empty.horiz_append_position(0, x) == 0);
+        CHECK(empty.vert_append_position(0, x) == 0);
+
+        CHECK(empty.horiz_append_position(0, abc) == 0);
+        CHECK(empty.vert_append_position(0, abc) == 0);
+
+        CHECK(empty.horiz_append_position(1, empty) == 0);
+        CHECK(empty.vert_append_position(1, empty) == 0);
+
+        CHECK(empty.horiz_append_position(1, x) == 0);
+        CHECK(empty.vert_append_position(1, x) == 0);
+
+        CHECK(empty.horiz_append_position(1, abc) == 0);
+        CHECK(empty.vert_append_position(1, abc) == 0);
+    }
+
+    SECTION("x")
+    {
+        CHECK(x.horiz_append_position(0, empty) == 0);
+        CHECK(x.vert_append_position(0, empty) == 0);
+
+        CHECK(x.horiz_append_position(0, x) == 1);
+        CHECK(x.vert_append_position(0, x) == 1);
+        
+        CHECK(x.horiz_append_position(0, abc) == 0);
+        CHECK(x.vert_append_position(0, abc) == 2);
+        
+        CHECK(x.horiz_append_position(1, empty) == 0);
+        CHECK(x.vert_append_position(1, empty) == 0);
+        
+        CHECK(x.horiz_append_position(1, x) == 0);
+        CHECK(x.vert_append_position(1, x) == 0);
+        
+        CHECK(x.horiz_append_position(1, abc) == 2);
+        CHECK(x.vert_append_position(1, abc) == 2);
+    }
+
+    SECTION("abc")
+    {
+        CHECK(abc.horiz_append_position(0, empty) == 0);
+        CHECK(abc.vert_append_position(0, empty) == 0);
+        
+        CHECK(abc.horiz_append_position(0, x) == 0);
+        CHECK(abc.vert_append_position(0, x) == 0);
+        
+        CHECK(abc.horiz_append_position(0, abc) == 3);
+        CHECK(abc.vert_append_position(0, abc) == 1);
+        
+        CHECK(abc.horiz_append_position(1, empty) == 0);
+        CHECK(abc.vert_append_position(1, empty) == 0);
+        
+        CHECK(abc.horiz_append_position(1, x) == 0);
+        CHECK(abc.vert_append_position(1, x) == 0);
+        
+        CHECK(abc.horiz_append_position(1, abc) == 0);
+        CHECK(abc.vert_append_position(1, abc) == 1);
     }
 }

@@ -7,6 +7,14 @@ constexpr unsigned char l=4;
 constexpr unsigned char r=8;
 constexpr unsigned char nonline = ~(u+d+l+r);
 
+TextBox::TextBox()
+{}
+
+
+TextBox::TextBox(const std::vector<std::string>& a_data) : data(a_data)
+{}
+
+
 void TextBox::putchar(char c, std::size_t x, std::size_t y)
 {
     extend(x,y);
@@ -53,6 +61,14 @@ void TextBox::putline(const std::string& s, std::size_t x, std::size_t y)
 void TextBox::putbox(std::size_t x, std::size_t y, const TextBox& b)
 {
     for(std::size_t p = 0; p < b.data.size(); ++p) putline(b.data[p], x, y+p);
+}
+
+
+TextBox TextBox::PutBoxCopy(std::size_t x, std::size_t y, const TextBox& b) const
+{
+    TextBox self = *this;
+    self.putbox(x, y, b);
+    return self;
 }
     
 
