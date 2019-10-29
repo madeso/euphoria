@@ -40,6 +40,9 @@ struct TextBox
     std::size_t height() const;
     std::size_t width()  const;
 
+    // width x height
+    std::pair<std::size_t, std::size_t> Size() const;
+
     /** Draw a horizontal line.
     If bef=true, the line starts from the left edge of the first character cell, otherwise it starts from its center.
     If aft=true, the line ends in the right edge of the last character cell, otherwise it ends in its center */

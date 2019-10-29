@@ -81,6 +81,11 @@ std::size_t TextBox::width()  const
     return result;
 }
 
+std::pair<std::size_t, std::size_t> TextBox::Size() const
+{
+    return {width(), height()};
+}
+
 
 void TextBox::hline(std::size_t x, std::size_t y, std::size_t width, bool bef, bool aft)
 {
