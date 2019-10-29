@@ -1,8 +1,13 @@
 #include "core/textbox.h"
 #include "catch.hpp"
 
+
 #include <vector>
 #include <string>
+
+
+#include "core/editdistance.h"
+#include <sstream>
 
 using Catch::Matchers::Equals;
 
@@ -399,95 +404,163 @@ TEST_CASE("tb_create_tree_graph")
             "  2    3"
         };
 
+    CHECK_THAT(create_tree_graph(simple_tree, 130,
+                [](const T& e) { return e.name; },
+                [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
+                [](const T&  ) { return false; },
+                [](const T&  ) { return false; },
+                [](const T&  ) { return false; }).to_string(),
+                Eq(simple_three_row));
+
+    CHECK_THAT(create_tree_graph(simple_tree, 130,
+                [](const T& e) { return e.name; },
+                [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
+                [](const T&  ) { return false; },
+                [](const T&  ) { return false; },
+                [](const T&  ) { return true; }).to_string(),
+                Eq(simple_four_row));
+    
+    CHECK_THAT(create_tree_graph(simple_tree, 130,
+                [](const T& e) { return e.name; },
+                [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
+                [](const T&  ) { return false; },
+                [](const T&  ) { return true; },
+                [](const T&  ) { return false; }).to_string(),
+                Eq(simple_three_row));
+
+    CHECK_THAT(create_tree_graph(simple_tree, 130,
+                [](const T& e) { return e.name; },
+                [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
+                [](const T&  ) { return false; },
+                [](const T&  ) { return true; },
+                [](const T&  ) { return true; }).to_string(),
+                Eq(simple_four_row));
+
+
+    CHECK_THAT(create_tree_graph(simple_tree, 130,
+                [](const T& e) { return e.name; },
+                [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
+                [](const T&  ) { return true; },
+                [](const T&  ) { return false; },
+                [](const T&  ) { return false; }).to_string(),
+                Eq(simple_two_row));
+
+    CHECK_THAT(create_tree_graph(simple_tree, 130,
+                [](const T& e) { return e.name; },
+                [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
+                [](const T&  ) { return true; },
+                [](const T&  ) { return false; },
+                [](const T&  ) { return true; }).to_string(),
+                Eq(simple_four_row));
+    
+    CHECK_THAT(create_tree_graph(simple_tree, 130,
+                [](const T& e) { return e.name; },
+                [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
+                [](const T&  ) { return true; },
+                [](const T&  ) { return true; },
+                [](const T&  ) { return false; }).to_string(),
+                Eq(simple_two_row));
+
+    CHECK_THAT(create_tree_graph(simple_tree, 130,
+                [](const T& e) { return e.name; },
+                [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
+                [](const T&  ) { return true; },
+                [](const T&  ) { return true; },
+                [](const T&  ) { return true; }).to_string(),
+                Eq(simple_four_row));
+}
+
+namespace
+{
+
+struct FalseString
+{
+    static FalseString False(const std::string& text) { return {text};}
+    static FalseString True() { return {""};}
+
+    operator bool() const
+    {
+        return str.empty();
+    }
+    
+    std::string str;
+};
+
+std::ostream& operator<<(std::ostream& s, const FalseString& f)
+{
+    if(f)
+    {
+        s << "<ok>";
+    }
+    else
+    {
+        s << f.str;
+    }
+    return s;
+}
+
+FalseString StringVecEq(const std::vector<std::string> lhs, const std::vector<std::string> rhs)
+{
+    if(lhs.size() != rhs.size())
+    {
+        return FalseString::False("size missmach");
+    }
+
+    for(size_t i =0; i < lhs.size(); i+=1)
+    {
+        if(lhs[i]!=rhs[i])
+        {
+            std::ostringstream ss;
+            ss << "Invalid at index " << i << ", lhs: '" << lhs[i] << "' and rhs '" << rhs[i] << "'";
+            ss << ", lengths are " << lhs[i].size() << " vs " << rhs[i].size();
+            ss << ", edit-distance is " << euphoria::core::EditDistance(lhs[i], rhs[i]);
+            return FalseString::False(ss.str());
+        }
+    }
+
+    return FalseString::True();
+}
+
+}
+
+TEST_CASE("tb_tolkien")
+{
     const auto tolkien_tree =
-        T{"tolkien", {
-            T{"heroes", {
-                T{"humans", {
-                    T{"aragon"},
-                    T{"boromir"}
+        T{"Tolkien characters", {
+            T{"Heroes", {
+                T{"Humans", {
+                    T{"Aragon"},
+                    T{"Boromir"}
                 }},
-                T{"hobbits", {
-                    T{"frodo"},
-                    T{"samwise"},
-                    T{"merry"},
-                    T{"pippin"},
+                T{"Hobbits", {
+                    T{"Frodo"},
+                    T{"Samwise"},
+                    T{"Merry"},
+                    T{"Pippin"},
                 }},
-                T{"other", {
-                    T{"legolas"},
-                    T{"gandalf"},
-                    T{"gimli"}
+                T{"Other", {
+                    T{"Legolas"},
+                    T{"Gandalf"},
+                    T{"Gimli"}
                 }}
             }},
-            T{"enemies", {
-                T{"sauron"},
+            T{"Enemies", {
+                T{"Sauron"},
                 T{"orcs"},
-                T{"sauruman"}
+                T{"Sauruman"}
             }}
         }};
-
-
-    CHECK_THAT(create_tree_graph(simple_tree, 130,
+    CHECK(StringVecEq(create_tree_graph(tolkien_tree, 130,
                 [](const T& e) { return e.name; },
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
-                [](const T&  ) { return false; },
-                [](const T&  ) { return false; },
-                [](const T&  ) { return false; }).to_string(),
-                Eq(simple_three_row));
-
-    CHECK_THAT(create_tree_graph(simple_tree, 130,
-                [](const T& e) { return e.name; },
-                [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
-                [](const T&  ) { return false; },
-                [](const T&  ) { return false; },
-                [](const T&  ) { return true; }).to_string(),
-                Eq(simple_four_row));
-    
-    CHECK_THAT(create_tree_graph(simple_tree, 130,
-                [](const T& e) { return e.name; },
-                [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
-                [](const T&  ) { return false; },
+                [](const T& e) { return e.children.size() >= 1; },
                 [](const T&  ) { return true; },
                 [](const T&  ) { return false; }).to_string(),
-                Eq(simple_three_row));
-
-    CHECK_THAT(create_tree_graph(simple_tree, 130,
-                [](const T& e) { return e.name; },
-                [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
-                [](const T&  ) { return false; },
-                [](const T&  ) { return true; },
-                [](const T&  ) { return true; }).to_string(),
-                Eq(simple_four_row));
-
-
-    CHECK_THAT(create_tree_graph(simple_tree, 130,
-                [](const T& e) { return e.name; },
-                [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
-                [](const T&  ) { return true; },
-                [](const T&  ) { return false; },
-                [](const T&  ) { return false; }).to_string(),
-                Eq(simple_two_row));
-
-    CHECK_THAT(create_tree_graph(simple_tree, 130,
-                [](const T& e) { return e.name; },
-                [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
-                [](const T&  ) { return true; },
-                [](const T&  ) { return false; },
-                [](const T&  ) { return true; }).to_string(),
-                Eq(simple_four_row));
-    
-    CHECK_THAT(create_tree_graph(simple_tree, 130,
-                [](const T& e) { return e.name; },
-                [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
-                [](const T&  ) { return true; },
-                [](const T&  ) { return true; },
-                [](const T&  ) { return false; }).to_string(),
-                Eq(simple_two_row));
-
-    CHECK_THAT(create_tree_graph(simple_tree, 130,
-                [](const T& e) { return e.name; },
-                [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
-                [](const T&  ) { return true; },
-                [](const T&  ) { return true; },
-                [](const T&  ) { return true; }).to_string(),
-                Eq(simple_four_row));
+                {
+  "Tolkien characters",
+  "`-+----------------------------------------------------------------------------------.",
+  "  Heroes--+------------------+----------------------------------.                    Enemies--+-------+-----.",
+  "          Humans--+-------.  Hobbits--+------+--------+------.  Other--+--------+--------.    Sauron  orcs  Sauruman",
+  "                  Aragon  Boromir     Frodo  Samwise  Merry  Pippin    Legolas  Gandalf  Gimli"
+                }));
 }
