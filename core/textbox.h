@@ -1,3 +1,6 @@
+#ifndef EUPHORIA_CORE_TEXTBOX_H
+#define EUPHORIA_CORE_TEXTBOX_H
+
 #include <string>
 #include <vector>
 #include <algorithm>
@@ -268,3 +271,5 @@ TextBox create_tree_graph(const ParamType& e,
 }
 
 }
+
+#endif  // EUPHORIA_CORE_TEXTBOX_H
