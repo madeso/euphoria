@@ -84,6 +84,11 @@ private:
     std::size_t FindBottomPadding(std::size_t x) const;
 };
 
+namespace detail
+{
+    void CreateTreeGraph(TextBox& result, size_t maxwidth, const std::vector<TextBox>& boxes, bool oneliner_test, bool simple_test, bool separate1st_test, std::string atom);
+}
+
 /* An utility function that can be used to create a tree graph rendering from a structure.
  *
  * Parameters:
@@ -158,7 +163,7 @@ TextBox create_tree_graph(const ParamType& e,
                           Separate1stParamTestFunc&& separate1st_test)
 {
     TextBox result;
-    std::string atom = create_atom(e);
+    const std::string atom = create_atom(e);
     result.putline(atom, 0,0);
 
     if(auto param_range = count_children(e); param_range.first != param_range.second)
@@ -169,102 +174,7 @@ TextBox create_tree_graph(const ParamType& e,
             boxes.emplace_back(create_tree_graph(*i, (maxwidth >= (16+2)) ? maxwidth - 2 : 16,
                                                  create_atom, count_children, oneliner_test, simple_test,
                                                  separate1st_test));
-
-        constexpr std::size_t margin = 4, firstx = 2;
-
-        std::size_t sum_width = 0;
-        for(const auto& b: boxes) sum_width += b.width()+margin;
-
-        bool oneliner = false;
-        if(oneliner_test(e) && !separate1st_test(e))
-        {
-            std::size_t totalwidth = 0;
-            for(auto i = boxes.begin(); ; )
-            {
-                const auto& cur = *i;
-                if(++i == boxes.end()) { totalwidth += cur.width(); break; }
-                //const auto& next = *i;
-                totalwidth += cur.width()/*cur.horiz_append_position(0, next)*/ + margin;
-            }
-            oneliner = (atom.size() + margin + totalwidth) < maxwidth;
-        }
-        bool simple = oneliner && boxes.size() == 1 && simple_test(e); // ret, addrof, etc.
-
-        std::size_t y = simple ? 0 : 1;
-
-        for(auto i = boxes.begin(); i != boxes.end(); ++i)
-        {
-            auto next = ++std::vector<TextBox>::iterator(i);
-            const TextBox& cur = *i;
-            unsigned width = cur.width();
-
-            std::size_t usemargin = (simple || oneliner) ? (margin/2) : margin;
-            std::size_t x = result.horiz_append_position(y, cur) + usemargin;
-            if(x==usemargin) x = oneliner ? atom.size()+usemargin : firstx;
-            if(!oneliner && (x + width > maxwidth || (separate1st_test(e) && i == ++boxes.begin())))
-            {
-                // Start a new line if this item won't fit in the end of the current line
-                x        = firstx;
-                simple   = false;
-                oneliner = false;
-            }
-
-            // At the beginning of line, judge whether to add room for horizontal placement
-            bool horizontal = x > firstx;
-            if(!oneliner && !horizontal && next != boxes.end() && !(separate1st_test(e) && i == boxes.begin()))
-            {
-                std::size_t nextwidth      = next->width();
-                std::size_t combined_width = cur.horiz_append_position(0, *next) + margin + nextwidth;
-                if(combined_width <= maxwidth)
-                {
-                    // Enact horizontal placement by giving 1 row of room for the connector
-                    horizontal = true;
-                    TextBox combined = cur;
-                    combined.putbox(cur.horiz_append_position(0, *next) + margin, 0, *next);
-                    y = std::max(result.vert_append_position(x, combined), std::size_t(1));
-                    if(!oneliner) ++y;
-                }
-            }
-            if(!horizontal)
-                y = std::max(result.vert_append_position(x, cur), std::size_t(1));
-            if(horizontal && !simple && !oneliner)
-                for(;;)
-                {
-                    // Check if there is room for a horizontal connector. If not, increase y
-                    TextBox conn;
-                    conn.putline(std::string(1+(x-0), '-'), 0, 0);
-                    if(result.horiz_append_position(y-1, conn) > x) ++y; else break;
-                    y = std::max(result.vert_append_position(x, cur), y);
-                }
-
-            if(simple)
-            {
-                if(x > atom.size())
-                    result.hline(atom.size(), 0, 1+x-atom.size(), false,false);
-            }
-            else if(oneliner)
-            {
-                unsigned cx = x, cy = y-1;
-                if(x > atom.size())
-                    result.hline(atom.size(), 0, 1+x-atom.size(), false,false);
-                result.vline(cx, cy, 1,          false,true);
-            }
-            else if(horizontal)
-            {
-                unsigned cx = x, cy = y-1;
-                result.vline(0,  1,  1 + (cy-1), true,false);
-                result.hline(0,  cy, 1 + (cx-0), false,false);
-                result.vline(cx, cy, 1,          false,true);
-            }
-            else
-            {
-                unsigned cx = x-1, cy = y;
-                result.vline(0,1,  1 + (cy-1), true,false);
-                result.hline(0,cy, 1 + (cx-0), false,true);
-            }
-
-            result.putbox(x, y, cur);
-        }
+        detail::CreateTreeGraph(result, maxwidth, boxes, oneliner_test(e), simple_test(e), separate1st_test(e), atom);
     }
     result.trim();
     return result;
