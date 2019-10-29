@@ -385,6 +385,12 @@ TEST_CASE("tb_create_tree_graph")
             "a--+--+--.",
             "   1  2  3"
         };
+    const auto simple_three_row = std::vector<std::string>
+        {
+            "a",
+            "`-+----+----.",
+            "  1    2    3"
+        };
     const auto simple_four_row = std::vector<std::string>
         {
             "a",
@@ -419,18 +425,44 @@ TEST_CASE("tb_create_tree_graph")
             }}
         }};
 
+
     CHECK_THAT(create_tree_graph(simple_tree, 130,
                 [](const T& e) { return e.name; },
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
-                [](const T& e) { return e.children.size() >= 1; },
-                [](const T&  ) { return true; },
+                [](const T&  ) { return false; },
+                [](const T&  ) { return false; },
                 [](const T&  ) { return false; }).to_string(),
-                Eq(simple_two_row));
+                Eq(simple_three_row));
+
+    CHECK_THAT(create_tree_graph(simple_tree, 130,
+                [](const T& e) { return e.name; },
+                [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
+                [](const T&  ) { return false; },
+                [](const T&  ) { return false; },
+                [](const T&  ) { return true; }).to_string(),
+                Eq(simple_four_row));
     
     CHECK_THAT(create_tree_graph(simple_tree, 130,
                 [](const T& e) { return e.name; },
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
-                [](const T& e) { return e.children.size() >= 1; },
+                [](const T&  ) { return false; },
+                [](const T&  ) { return true; },
+                [](const T&  ) { return false; }).to_string(),
+                Eq(simple_three_row));
+
+    CHECK_THAT(create_tree_graph(simple_tree, 130,
+                [](const T& e) { return e.name; },
+                [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
+                [](const T&  ) { return false; },
+                [](const T&  ) { return true; },
+                [](const T&  ) { return true; }).to_string(),
+                Eq(simple_four_row));
+
+
+    CHECK_THAT(create_tree_graph(simple_tree, 130,
+                [](const T& e) { return e.name; },
+                [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
+                [](const T&  ) { return true; },
                 [](const T&  ) { return false; },
                 [](const T&  ) { return false; }).to_string(),
                 Eq(simple_two_row));
@@ -438,15 +470,23 @@ TEST_CASE("tb_create_tree_graph")
     CHECK_THAT(create_tree_graph(simple_tree, 130,
                 [](const T& e) { return e.name; },
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
-                [](const T& e) { return e.children.size() >= 1; },
+                [](const T&  ) { return true; },
                 [](const T&  ) { return false; },
                 [](const T&  ) { return true; }).to_string(),
                 Eq(simple_four_row));
+    
+    CHECK_THAT(create_tree_graph(simple_tree, 130,
+                [](const T& e) { return e.name; },
+                [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
+                [](const T&  ) { return true; },
+                [](const T&  ) { return true; },
+                [](const T&  ) { return false; }).to_string(),
+                Eq(simple_two_row));
 
     CHECK_THAT(create_tree_graph(simple_tree, 130,
                 [](const T& e) { return e.name; },
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
-                [](const T& e) { return e.children.size() >= 1; },
+                [](const T&  ) { return true; },
                 [](const T&  ) { return true; },
                 [](const T&  ) { return true; }).to_string(),
                 Eq(simple_four_row));
