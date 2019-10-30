@@ -404,11 +404,18 @@ std::size_t TextBox::FindBottomPadding(std::size_t x) const
 
 namespace detail
 {
-    void CreateTreeGraph(TextBox& result, size_t maxwidth, const std::vector<TextBox>& boxes, bool oneliner_test, bool simple_test, bool separate1st_test, std::string atom)
+    void CreateTreeGraph(
+        TextBox& result,
+        size_t maxwidth,
+        const std::vector<TextBox>& boxes,
+        bool oneliner_test,
+        bool simple_test,
+        bool separate1st_test,
+        std::string atom,
+        std::size_t margin,
+        std::size_t firstx
+        )
     {
-        constexpr std::size_t margin = 4;
-        constexpr std::size_t firstx = 2;
-
         std::size_t sum_width = 0;
         for(const auto& b: boxes)
         {

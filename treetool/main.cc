@@ -52,9 +52,9 @@ main(int, char**)
         if(first) first = false;
         else std::cout << "\n-----------------------------------------\n\n";
 
-        PrintHierarchy(t, [](const T& t) {return t.name; }, [](const T& t) {return t.children; }, [](const std::string& s) {std::cout << s << "\n"; });
+        // PrintHierarchy(t, [](const T& t) {return t.name; }, [](const T& t) {return t.children; }, [](const std::string& s) {std::cout << s << "\n"; });
 
-        std::cout << "\n-----------------------------------------\n\n";
+        // std::cout << "\n-----------------------------------------\n\n";
 
         {
             TextBox result;

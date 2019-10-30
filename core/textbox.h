@@ -98,7 +98,18 @@ private:
 
 namespace detail
 {
-    void CreateTreeGraph(TextBox& result, size_t maxwidth, const std::vector<TextBox>& boxes, bool oneliner_test, bool simple_test, bool separate1st_test, std::string atom);
+    void CreateTreeGraph
+    (
+        TextBox& result,
+        size_t maxwidth,
+        const std::vector<TextBox>& boxes,
+        bool oneliner_test,
+        bool simple_test,
+        bool separate1st_test,
+        std::string atom,
+        std::size_t margin,
+        std::size_t firstx
+    );
 }
 
 /* An utility function that can be used to create a tree graph rendering from a structure.
@@ -123,6 +134,9 @@ namespace detail
  *                     If the result is true, create_tree_graph() will always render
  *                     the first child alone on a separate line, but the rest of them
  *                     may get rendered horizontally.
+ * 
+ * @param margin  the spacing between children
+ * @param firstx  the first child offset
  *
  * Topology types:
  *
@@ -172,7 +186,10 @@ TextBox create_tree_graph(const ParamType& e,
                           ParamCountFunc&& count_children,
                           OneLinerFunc&&   oneliner_test,
                           SimpleTestFunc&& simple_test,
-                          Separate1stParamTestFunc&& separate1st_test)
+                          Separate1stParamTestFunc&& separate1st_test,
+                          std::size_t margin = 4,
+                          std::size_t firstx = 2
+                          )
 {
     TextBox result;
     const std::string atom = create_atom(e);
@@ -188,9 +205,9 @@ TextBox create_tree_graph(const ParamType& e,
         {
             boxes.emplace_back(create_tree_graph(*i, (maxwidth >= (16+2)) ? maxwidth - 2 : 16,
                                                  create_atom, count_children, oneliner_test, simple_test,
-                                                 separate1st_test));
+                                                 separate1st_test, margin, firstx));
         }
-        detail::CreateTreeGraph(result, maxwidth, boxes, oneliner_test(e), simple_test(e), separate1st_test(e), atom);
+        detail::CreateTreeGraph(result, maxwidth, boxes, oneliner_test(e), simple_test(e), separate1st_test(e), atom, margin, firstx);
     }
     result.trim();
     return result;
