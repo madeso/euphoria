@@ -87,8 +87,13 @@ namespace euphoria::core
     std::string
     ToUpper(const std::string& str);
 
+    enum class CharToStringStyle
+    {
+        Smart, IncludeHex
+    };
+
     std::string
-    CharToString(char c);
+    CharToString(char c, CharToStringStyle style=CharToStringStyle::Smart);
 
     const int
     FindFirstIndexOfMismatch(const std::string& lhs, const std::string& rhs);

@@ -134,13 +134,27 @@ namespace euphoria::core
     }
 
     std::string
-    CharToString(char c)
+    CharToString(char c, CharToStringStyle style)
     {
+        constexpr std::string_view smart_characters
+            = "abcdefghijklmnopqrstuwxyz"
+              "ABCDEFGHIJKLMNOPQRSTUWXYZ"
+              " "
+              "~!@#$%^&*()_+"
+              "`123456790-="
+              ",.<>/?"
+              "{}[]:;\"'\\|"
+              "\n\r\t"
+            ;
         std::ostringstream ss;
         switch(c)
         {
         case 0:
             ss << "<null>";
+            if(style == CharToStringStyle::Smart)
+            {
+                return ss.str();
+            }
             break;
         case '\n':
             ss << "<\\n>";
@@ -151,6 +165,40 @@ namespace euphoria::core
         case '\t':
             ss << "<tab>";
             break;
+        // source: http://www.asciitable.com/
+        case  1: ss << "<start of heading>"; break;
+        case  2: ss << "<start of text>"; break;
+        case  3: ss << "<end of text>"; break;
+        case  4: ss << "<end of transmission>"; break;
+        case  5: ss << "<enquiry>"; break;
+        case  6: ss << "<acknowledge>"; break;
+        case  7: ss << "<bell>"; break;
+        case  8: ss << "<backspace>"; break;
+        // case  9: ss << "<horizontal tab>"; break;
+        // case 10: ss << "<newline>"; break;
+        case 11: ss << "<vertical tab>"; break;
+        case 12: ss << "<new page>"; break;
+        // case 13: ss << "<carriage return>"; break;
+        case 14: ss << "<shift out>"; break;
+        case 15: ss << "<shift in>"; break;
+        case 16: ss << "<data link esqape>"; break;
+        case 17: ss << "<device control 1>"; break;
+        case 18: ss << "<device control 2>"; break;
+        case 19: ss << "<device control 3>"; break;
+        case 20: ss << "<device control 4>"; break;
+        case 21: ss << "<negative acknowledge>"; break;
+        case 22: ss << "<synchronous idle>"; break;
+        case 23: ss << "<end of trans. block>"; break;
+        case 24: ss << "<cancel>"; break;
+        case 25: ss << "<end of medium>"; break;
+        case 26: ss << "<substitute>"; break;
+        case 27: ss << "<escape>"; break;
+        case 28: ss << "<file separator>"; break;
+        case 29: ss << "<group separator>"; break;
+        case 30: ss << "<record separator>"; break;
+        case 31: ss << "<unit separator>"; break;
+        case 127: ss << "<DEL>"; break;
+        
         case ' ':
             ss << "<space>";
             break;
@@ -159,7 +207,10 @@ namespace euphoria::core
             break;
         }
 
-        ss << "(" << static_cast<int>(c) << ")";
+        if(style == CharToStringStyle::IncludeHex || smart_characters.find(c) == std::string_view::npos)
+        {
+            ss << "(0x" << std::hex << static_cast<int>(c) << ")";
+        }
         return ss.str();
     }
 

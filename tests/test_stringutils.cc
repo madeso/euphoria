@@ -43,6 +43,18 @@ TEST_CASE("stringutils-toupper", "[stringutils]")
     CHECK("SIMPLE TEST" == euco::ToUpper("simplE Test"));
 }
 
+TEST_CASE("stringutils-chartostring", "[stringutils]")
+{
+    CHECK("<space>" == euco::CharToString(' '));
+    CHECK("<null>" == euco::CharToString(0));
+    CHECK("<\\n>" == euco::CharToString('\n')); // can also be \r and while newline might be true, \n is easier to recognize
+    CHECK("A" == euco::CharToString('A'));
+    CHECK("<start of heading>(0x1)" == euco::CharToString(1));
+
+    CHECK("<space>(0x20)" == euco::CharToString(' ', euco::CharToStringStyle::IncludeHex));
+    CHECK("P(0x50)" == euco::CharToString('P', euco::CharToStringStyle::IncludeHex));
+}
+
 TEST_CASE("stringutils-findfirstindexmismatch", "[stringutils]")
 {
     CHECK(-1 == euco::FindFirstIndexOfMismatch("dog", "dog"));
