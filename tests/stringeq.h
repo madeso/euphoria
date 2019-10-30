@@ -25,6 +25,9 @@ namespace euphoria::tests
     FalseString
     StringEq(const std::vector<std::string> lhs, const std::vector<std::string> rhs);
 
+    FalseString
+    StringEq(const std::string& lhs, const std::string& rhs);
+
 }  // namespace euphoria::tests
 
 #endif  // EUPHORIA_TESTS_STRINGEQ_H

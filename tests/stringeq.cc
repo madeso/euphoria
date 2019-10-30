@@ -10,7 +10,10 @@
 
 namespace euphoria::tests
 {
-    FalseString FalseString::False(const std::string& text) { return {text};}
+    FalseString FalseString::False(const std::string& text)
+    {
+        return {text};
+    }
 
     FalseString
     FalseString::True()
@@ -37,6 +40,33 @@ namespace euphoria::tests
         return s;
     }
 
+    FalseString
+    StringEq(const std::string& lhs, const std::string& rhs)
+    {
+        const auto s = core::FindFirstIndexOfMismatch(lhs, rhs);
+        ASSERTX((s==-1 && lhs == rhs) || (s >= 0 && lhs != rhs), s, lhs, rhs);
+        if(s >= 0 )
+        {
+            std::ostringstream ss;
+                
+            ss << "lhs: '" << lhs << "' and "
+                << "rhs: '" << rhs << "'";
+            ss << ", lengths are "
+                << lhs.size()
+                << " vs "
+                << rhs.size();
+            ss << ", first diff at " << s << " with "
+                << core::CharToString(lhs[s])
+                << "/"
+                << core::CharToString(rhs[s]);
+            ss << ", edit-distance is " << core::EditDistance(lhs, rhs);
+
+            return FalseString::False(ss.str());
+        }
+
+        return FalseString::True();
+    }
+
 
     FalseString
     StringEq(const std::vector<std::string> lhs, const std::vector<std::string> rhs)
@@ -48,25 +78,12 @@ namespace euphoria::tests
 
         for(size_t i =0; i < lhs.size(); i+=1)
         {
-            const auto s = core::FindFirstIndexOfMismatch(lhs[i], rhs[i]);
-            ASSERTX((s==-1 && lhs[i] == rhs [i]) || (s >= 0 && lhs[i] != rhs[i]), s, lhs[i], rhs[i]);
-            if(s >= 0 )
+            const FalseString equals = StringEq(lhs[i], rhs[i]);
+            if(!equals)
             {
                 std::ostringstream ss;
-                
                 ss << "Invalid at index " << i << ", "
-                   << "lhs: '" << lhs[i] << "' and "
-                   << "rhs: '" << rhs[i] << "'";
-                ss << ", lengths are "
-                   << lhs[i].size()
-                   << " vs "
-                   << rhs[i].size();
-                ss << ", first diff at " << s << " with "
-                   << core::CharToString(lhs[i][s])
-                   << "/"
-                   << core::CharToString(rhs[i][s]);
-                ss << ", edit-distance is " << core::EditDistance(lhs[i], rhs[i]);
-
+                    << equals.str;
                 return FalseString::False(ss.str());
             }
         }
