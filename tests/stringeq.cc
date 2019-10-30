@@ -39,7 +39,7 @@ namespace euphoria::tests
 
 
     FalseString
-    StringVecEq(const std::vector<std::string> lhs, const std::vector<std::string> rhs)
+    StringEq(const std::vector<std::string> lhs, const std::vector<std::string> rhs)
     {
         if(lhs.size() != rhs.size())
         {

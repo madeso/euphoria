@@ -23,7 +23,7 @@ namespace euphoria::tests
     operator<<(std::ostream& s, const FalseString& f);
 
     FalseString
-    StringVecEq(const std::vector<std::string> lhs, const std::vector<std::string> rhs);
+    StringEq(const std::vector<std::string> lhs, const std::vector<std::string> rhs);
 
 }  // namespace euphoria::tests
 

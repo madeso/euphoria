@@ -6,12 +6,12 @@ using namespace euphoria::tests;
 
 TEST_CASE("tests-stringeq", "[tests]")
 {
-    CHECK(StringVecEq({}, {}));
-    CHECK(StringVecEq({"dog"}, {"dog"}));
-    CHECK(StringVecEq({"dog", "cat"}, {"dog", "cat"}));
+    CHECK(StringEq({}, {}));
+    CHECK(StringEq({"dog"}, {"dog"}));
+    CHECK(StringEq({"dog", "cat"}, {"dog", "cat"}));
 
-    CHECK_FALSE(StringVecEq({"dog"}, {}));
-    CHECK_FALSE(StringVecEq({}, {"dog"}));
-    CHECK_FALSE(StringVecEq({"dog"}, {"doggo"}));
-    CHECK_FALSE(StringVecEq({"dog", "cat"}, {"dog", "catz"}));
+    CHECK_FALSE(StringEq({"dog"}, {}));
+    CHECK_FALSE(StringEq({}, {"dog"}));
+    CHECK_FALSE(StringEq({"dog"}, {"doggo"}));
+    CHECK_FALSE(StringEq({"dog", "cat"}, {"dog", "catz"}));
 }

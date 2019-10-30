@@ -496,7 +496,7 @@ TEST_CASE("tb_tolkien")
                 T{"Sauruman"}
             }}
         }};
-    CHECK(StringVecEq(create_tree_graph(tolkien_tree, 130,
+    CHECK(StringEq(create_tree_graph(tolkien_tree, 130,
                 [](const T& e) { return e.name; },
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
                 [](const T& e) { return e.children.size() >= 1; },
