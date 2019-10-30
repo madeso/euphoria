@@ -1,12 +1,12 @@
 #include "core/textbox.h"
 #include "catch.hpp"
 
-
 #include <vector>
 #include <string>
 
 
 #include "core/editdistance.h"
+#include "core/assert.h"
 #include <sstream>
 
 using Catch::Matchers::Equals;
@@ -499,6 +499,55 @@ std::ostream& operator<<(std::ostream& s, const FalseString& f)
     return s;
 }
 
+const int StringCompare(const std::string& lhs, const std::string& rhs)
+{
+  const auto end = std::min(lhs.size(), rhs.size());
+  int index = 0;
+  for(; index < end; index+=1)
+  {
+    if(lhs[index]!=rhs[index])
+    {
+      return index;
+    }
+  }
+  if(index >= lhs.size() && index >= rhs.size())
+  {
+    return -1;
+  }
+  else
+  {
+    return end;
+  }
+}
+
+std::string CharToString(char c)
+{
+  std::ostringstream ss;
+  switch(c)
+  {
+  case 0:
+    ss << "<null>";
+    break;
+  case '\n':
+    ss << "<\\n>";
+    break;
+  case '\r':
+    ss << "<\\r>";
+    break;
+  case '\t':
+    ss << "<tab>";
+    break;
+  case ' ':
+    ss << "<space>";
+    break;
+  default:
+    ss << c;
+    break;
+  }
+  ss << "(" << static_cast<int>(c) << ")";
+  return ss.str();
+}
+
 FalseString StringVecEq(const std::vector<std::string> lhs, const std::vector<std::string> rhs)
 {
     if(lhs.size() != rhs.size())
@@ -508,11 +557,14 @@ FalseString StringVecEq(const std::vector<std::string> lhs, const std::vector<st
 
     for(size_t i =0; i < lhs.size(); i+=1)
     {
-        if(lhs[i]!=rhs[i])
+        const auto s = StringCompare(lhs[i], rhs[i]);
+        ASSERTX((s==-1 && lhs[i] == rhs [i]) || (s >= 0 && lhs[i] != rhs[i]), s, lhs[i], rhs[i]);
+        if(s >= 0 )
         {
             std::ostringstream ss;
             ss << "Invalid at index " << i << ", lhs: '" << lhs[i] << "' and rhs '" << rhs[i] << "'";
             ss << ", lengths are " << lhs[i].size() << " vs " << rhs[i].size();
+            ss << ", first diff at " << s << " with " << CharToString(lhs[i][s]) << "/" << CharToString(rhs[i][s]);
             ss << ", edit-distance is " << euphoria::core::EditDistance(lhs[i], rhs[i]);
             return FalseString::False(ss.str());
         }
