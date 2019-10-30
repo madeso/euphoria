@@ -3,25 +3,28 @@
 
 namespace euco = euphoria::core;
 
-TEST_CASE("stringutils-laststrings-basic", "[stringutils]")
+TEST_CASE("stringutils-laststrings", "[stringutils]")
 {
-    const auto r = euco::LastStrings("hello.world", '.');
-    CHECK(r.first == "hello");
-    CHECK(r.second == ".world");
-}
+    SECTION("basic")
+    {
+        const auto r = euco::LastStrings("hello.world", '.');
+        CHECK(r.first == "hello");
+        CHECK(r.second == ".world");
+    }
 
-TEST_CASE("stringutils-laststrings-last", "[stringutils]")
-{
-    const auto r = euco::LastStrings("hello.", '.');
-    CHECK(r.first == "hello");
-    CHECK(r.second == ".");
-}
+    SECTION("last")
+    {
+        const auto r = euco::LastStrings("hello.", '.');
+        CHECK(r.first == "hello");
+        CHECK(r.second == ".");
+    }
 
-TEST_CASE("stringutils-laststrings-empty", "[stringutils]")
-{
-    const auto r = euco::LastStrings("hello_world", '.');
-    CHECK(r.first == "hello_world");
-    CHECK(r.second == "");
+    SECTION("empty")
+    {
+        const auto r = euco::LastStrings("hello_world", '.');
+        CHECK(r.first == "hello_world");
+        CHECK(r.second == "");
+    }
 }
 
 TEST_CASE("stringutils-tolower", "[stringutils]")
@@ -40,15 +43,12 @@ TEST_CASE("stringutils-toupper", "[stringutils]")
     CHECK("SIMPLE TEST" == euco::ToUpper("simplE Test"));
 }
 
-////////////////////////////////////////////////////////////////////////////////
-
 TEST_CASE("stringutils-striplast", "[stringutils]")
 {
     CHECK("hello" == euco::StripLastString("hello.world", '.'));
     CHECK("" == euco::StripLastString("hello_world", '.'));
 }
 
-////////////////////////////////////////////////////////////////////////////////
 
 TEST_CASE("stringutils-strip", "[stringutils]")
 {
