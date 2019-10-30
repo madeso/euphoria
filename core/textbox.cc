@@ -54,12 +54,11 @@ TextBoxStyle AsciiStyle()
 }
 
 // bitmasks
-constexpr unsigned char BIT_UP=1;
-constexpr unsigned char BIT_DOWN=2;
-constexpr unsigned char BIT_LEFT=4;
-constexpr unsigned char BIT_RIGHT=8;
-constexpr unsigned char BIT_NO_LINE = ~(BIT_UP+BIT_DOWN+BIT_LEFT+BIT_RIGHT);
-
+constexpr unsigned char BIT_UP      = 1 << 0;
+constexpr unsigned char BIT_DOWN    = 1 << 1 ;
+constexpr unsigned char BIT_LEFT    = 1 << 2;
+constexpr unsigned char BIT_RIGHT   = 1 << 3;
+constexpr unsigned char BIT_NO_LINE = ~(BIT_UP | BIT_DOWN | BIT_LEFT | BIT_RIGHT);
 
 TextBox::TextBox()
 {}
