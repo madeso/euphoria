@@ -87,6 +87,9 @@ namespace euphoria::core
     std::string
     ToUpper(const std::string& str);
 
+    std::string
+    CharToString(char c);
+
     /** Replace all occurrences in a string.
     @param string the source string.
     @param to_find the string to find.

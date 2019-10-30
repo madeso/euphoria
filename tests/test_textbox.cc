@@ -7,6 +7,7 @@
 
 #include "core/editdistance.h"
 #include "core/assert.h"
+#include "core/stringutils.h"
 #include <sstream>
 
 using Catch::Matchers::Equals;
@@ -520,33 +521,6 @@ const int StringCompare(const std::string& lhs, const std::string& rhs)
   }
 }
 
-std::string CharToString(char c)
-{
-  std::ostringstream ss;
-  switch(c)
-  {
-  case 0:
-    ss << "<null>";
-    break;
-  case '\n':
-    ss << "<\\n>";
-    break;
-  case '\r':
-    ss << "<\\r>";
-    break;
-  case '\t':
-    ss << "<tab>";
-    break;
-  case ' ':
-    ss << "<space>";
-    break;
-  default:
-    ss << c;
-    break;
-  }
-  ss << "(" << static_cast<int>(c) << ")";
-  return ss.str();
-}
 
 FalseString StringVecEq(const std::vector<std::string> lhs, const std::vector<std::string> rhs)
 {

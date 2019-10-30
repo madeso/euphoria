@@ -133,6 +133,36 @@ namespace euphoria::core
         return result;
     }
 
+    std::string
+    CharToString(char c)
+    {
+        std::ostringstream ss;
+        switch(c)
+        {
+        case 0:
+            ss << "<null>";
+            break;
+        case '\n':
+            ss << "<\\n>";
+            break;
+        case '\r':
+            ss << "<\\r>";
+            break;
+        case '\t':
+            ss << "<tab>";
+            break;
+        case ' ':
+            ss << "<space>";
+            break;
+        default:
+            ss << c;
+            break;
+        }
+
+        ss << "(" << static_cast<int>(c) << ")";
+        return ss.str();
+    }
+
     void
     StringReplace(
             std::string*       string,
