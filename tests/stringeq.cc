@@ -1,0 +1,103 @@
+#include "tests/stringeq.h"
+
+#include <sstream>
+#include <algorithm>
+
+#include "core/editdistance.h"
+#include "core/assert.h"
+#include "core/stringutils.h"
+
+namespace
+{
+    const int
+    StringCompare(const std::string& lhs, const std::string& rhs)
+    {
+        const auto end = std::min(lhs.size(), rhs.size());
+
+        int index = 0;
+        for(; index < end; index+=1)
+        {
+            if(lhs[index]!=rhs[index])
+            {
+                return index;
+            }
+        }
+
+        if(index >= lhs.size() && index >= rhs.size())
+        {
+            return -1;
+        }
+        else
+        {
+            return end;
+        }
+    }
+}  // namespace
+
+
+namespace euphoria::tests
+{
+    FalseString FalseString::False(const std::string& text) { return {text};}
+
+    FalseString
+    FalseString::True()
+    {
+        return {""};
+    }
+
+    FalseString::operator bool() const
+    {
+        return str.empty();
+    }
+
+    std::ostream&
+    operator<<(std::ostream& s, const FalseString& f)
+    {
+        if(f)
+        {
+            s << "<ok>";
+        }
+        else
+        {
+            s << f.str;
+        }
+        return s;
+    }
+
+
+    FalseString
+    StringVecEq(const std::vector<std::string> lhs, const std::vector<std::string> rhs)
+    {
+        if(lhs.size() != rhs.size())
+        {
+            return FalseString::False("size missmach");
+        }
+
+        for(size_t i =0; i < lhs.size(); i+=1)
+        {
+            const auto s = StringCompare(lhs[i], rhs[i]);
+            ASSERTX((s==-1 && lhs[i] == rhs [i]) || (s >= 0 && lhs[i] != rhs[i]), s, lhs[i], rhs[i]);
+            if(s >= 0 )
+            {
+                std::ostringstream ss;
+                
+                ss << "Invalid at index " << i << ", "
+                   << "lhs: '" << lhs[i] << "' and "
+                   << "rhs: '" << rhs[i] << "'";
+                ss << ", lengths are "
+                   << lhs[i].size()
+                   << " vs "
+                   << rhs[i].size();
+                ss << ", first diff at " << s << " with "
+                   << euphoria::core::CharToString(lhs[i][s])
+                   << "/"
+                   << euphoria::core::CharToString(rhs[i][s]);
+                ss << ", edit-distance is " << euphoria::core::EditDistance(lhs[i], rhs[i]);
+
+                return FalseString::False(ss.str());
+            }
+        }
+
+        return FalseString::True();
+    }
+}  // namespace euphoria::tests

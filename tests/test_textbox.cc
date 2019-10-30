@@ -4,17 +4,14 @@
 #include <vector>
 #include <string>
 
-
-#include "core/editdistance.h"
-#include "core/assert.h"
-#include "core/stringutils.h"
-#include <sstream>
+#include "tests/stringeq.h"
 
 using Catch::Matchers::Equals;
 
 constexpr bool PRINT_HEX = false;
 
 using namespace euphoria::core;
+using namespace euphoria::tests;
 
 namespace std
 {
@@ -471,83 +468,6 @@ TEST_CASE("tb_create_tree_graph")
                 Eq(simple_four_row));
 }
 
-namespace
-{
-
-struct FalseString
-{
-    static FalseString False(const std::string& text) { return {text};}
-    static FalseString True() { return {""};}
-
-    operator bool() const
-    {
-        return str.empty();
-    }
-    
-    std::string str;
-};
-
-std::ostream& operator<<(std::ostream& s, const FalseString& f)
-{
-    if(f)
-    {
-        s << "<ok>";
-    }
-    else
-    {
-        s << f.str;
-    }
-    return s;
-}
-
-const int StringCompare(const std::string& lhs, const std::string& rhs)
-{
-  const auto end = std::min(lhs.size(), rhs.size());
-  int index = 0;
-  for(; index < end; index+=1)
-  {
-    if(lhs[index]!=rhs[index])
-    {
-      return index;
-    }
-  }
-  if(index >= lhs.size() && index >= rhs.size())
-  {
-    return -1;
-  }
-  else
-  {
-    return end;
-  }
-}
-
-
-FalseString StringVecEq(const std::vector<std::string> lhs, const std::vector<std::string> rhs)
-{
-    if(lhs.size() != rhs.size())
-    {
-        return FalseString::False("size missmach");
-    }
-
-    for(size_t i =0; i < lhs.size(); i+=1)
-    {
-        const auto s = StringCompare(lhs[i], rhs[i]);
-        ASSERTX((s==-1 && lhs[i] == rhs [i]) || (s >= 0 && lhs[i] != rhs[i]), s, lhs[i], rhs[i]);
-        if(s >= 0 )
-        {
-            std::ostringstream ss;
-            ss << "Invalid at index " << i << ", lhs: '" << lhs[i] << "' and rhs '" << rhs[i] << "'";
-            ss << ", lengths are " << lhs[i].size() << " vs " << rhs[i].size();
-            ss << ", first diff at " << s << " with " << CharToString(lhs[i][s]) << "/" << CharToString(rhs[i][s]);
-            ss << ", edit-distance is " << euphoria::core::EditDistance(lhs[i], rhs[i]);
-            return FalseString::False(ss.str());
-        }
-    }
-
-    return FalseString::True();
-}
-
-}
 
 TEST_CASE("tb_tolkien")
 {
