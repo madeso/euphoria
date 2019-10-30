@@ -450,7 +450,10 @@ namespace detail
         constexpr std::size_t margin = 4, firstx = 2;
 
         std::size_t sum_width = 0;
-        for(const auto& b: boxes) sum_width += b.width()+margin;
+        for(const auto& b: boxes)
+        {
+          sum_width += b.width()+margin;
+        }
 
         bool oneliner = false;
         if(oneliner_test && !separate1st_test)
@@ -459,7 +462,12 @@ namespace detail
             for(auto i = boxes.begin(); ; )
             {
                 const auto& cur = *i;
-                if(++i == boxes.end()) { totalwidth += cur.width(); break; }
+                if(++i == boxes.end())
+                {
+                  totalwidth += cur.width();
+                  break;
+                }
+
                 totalwidth += cur.width() + margin;
             }
             oneliner = (atom.size() + margin + totalwidth) < maxwidth;
@@ -477,7 +485,11 @@ namespace detail
 
             std::size_t usemargin = (simple || oneliner) ? (margin/2) : margin;
             std::size_t x = result.horiz_append_position(y, cur) + usemargin;
-            if(x==usemargin) x = oneliner ? atom.size()+usemargin : firstx;
+            if(x==usemargin)
+            {
+              x = oneliner ? atom.size()+usemargin : firstx;
+            }
+
             if(!oneliner && (x + width > maxwidth || (separate1st_test && i == ++boxes.begin())))
             {
                 // Start a new line if this item won't fit in the end of the current line
@@ -499,31 +511,49 @@ namespace detail
                     TextBox combined = cur;
                     combined.putbox(cur.horiz_append_position(0, *next) + margin, 0, *next);
                     y = std::max(result.vert_append_position(x, combined), std::size_t(1));
-                    if(!oneliner) ++y;
+                    if(!oneliner)
+                    {
+                      ++y;
+                    }
                 }
             }
             if(!horizontal)
+            {
                 y = std::max(result.vert_append_position(x, cur), std::size_t(1));
+            }
             if(horizontal && !simple && !oneliner)
+            {
                 for(;;)
                 {
                     // Check if there is room for a horizontal connector. If not, increase y
                     TextBox conn;
                     conn.putline(std::string(1+(x-0), '-'), 0, 0);
-                    if(result.horiz_append_position(y-1, conn) > x) ++y; else break;
+                    if(result.horiz_append_position(y-1, conn) > x)
+                    {
+                      ++y;
+                    }
+                    else
+                    {
+                      break;
+                    }
                     y = std::max(result.vert_append_position(x, cur), y);
                 }
+            }
 
             if(simple)
             {
                 if(x > atom.size())
+                {
                     result.hline(atom.size(), 0, 1+x-atom.size(), false,false);
+                }
             }
             else if(oneliner)
             {
                 unsigned cx = x, cy = y-1;
                 if(x > atom.size())
+                {
                     result.hline(atom.size(), 0, 1+x-atom.size(), false,false);
+                }
                 result.vline(cx, cy, 1,          false,true);
             }
             else if(horizontal)
