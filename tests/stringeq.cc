@@ -130,11 +130,12 @@ namespace euphoria::tests
 
                 if(!size_equal)
                 {
-                    ss << size_equal.str << ", and invalid";
+                    ss << size_equal.str << ", and first invalid";
                 }
                 else
                 {
-                    ss << "Invalid";
+                    ss << VectorToString(lhs) << "vs" << VectorToString(rhs);
+                    ss << "First invalid";
                 }
 
 
