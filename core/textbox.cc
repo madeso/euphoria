@@ -280,56 +280,34 @@ std::vector<std::string> TextBox::to_string(const TextBoxStyle& style) const
         return ret[ret.size()-1];
     };
 
-    bool drawing = false, quo = false, space = true, unstr = false;
+    bool drawing = false;
+    bool quo = false;
+    bool space = true;
+    bool unstr = false;
     std::string cur_attr;
-    const std::string_view linedraw = style.enable_vt100 ? "xxxqjkuqmltqvwn" : "|||-'.+-`,+-+++";
-    
-    auto attr = [&](const char* s)
-    {
-        if (style.enable_vt100)
-        {
-            // if(cur_attr!=s) { last_line() += "\33["; last_line() += s; last_line() += 'm'; cur_attr = s; }
-        }
-    };
 
     auto append = [&](bool v, char c)
     {
         if (style.enable_vt100)
         {
-            const char* a = nullptr;
             bool num = false;
             if(v&&!drawing)
             {
-              a = "0;32";
               last_line() += "\33)0\16";
               drawing = v;
             }
             else if(!v&&drawing)
             {
-              a = "";
               last_line() += "\33)B\17";
               drawing = v;
             }
             if(!v && c=='"')
             {
               quo = !quo;
-              if(quo)
-              {
-                a = "1;34";
-              }
             }
             if(!v && !quo && ((c>='0' && c<='9') || c=='-'))
             {
-              a = space ? "1;38;5;165" : "0;38;5;246";
               num=true;
-            }
-            if(!v && !quo && ((c>='a' && c<='z') || c=='_'))
-            {
-              a = "1;37";
-            }
-            if(!v && !quo && c>='A' && c<='Z')
-            {
-              a = "0;38;5;246";
             }
             if(!v && !quo && c=='`')
             {
@@ -339,14 +317,6 @@ std::vector<std::string> TextBox::to_string(const TextBoxStyle& style) const
             if(c == '\n')
             {
               unstr = false;
-            }
-            if(unstr)
-            {
-              a = nullptr;
-            }
-            if(a)
-            {
-              attr(a);
             }
             if(!num)
             {
@@ -372,6 +342,7 @@ std::vector<std::string> TextBox::to_string(const TextBoxStyle& style) const
             unsigned char c = s[x];
             if(c > 0 && c < 16)
             {
+              const std::string_view linedraw = style.enable_vt100 ? "xxxqjkuqmltqvwn" : "|||-'.+-`,+-+++";
               append(true, linedraw[c-1]);
             }
             else
@@ -379,7 +350,6 @@ std::vector<std::string> TextBox::to_string(const TextBoxStyle& style) const
               append(false, c);
             }
         }
-        attr("");
         append(false, '\n');
     }
     return ret;
