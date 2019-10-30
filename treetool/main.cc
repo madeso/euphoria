@@ -22,24 +22,28 @@ main(int, char**)
     const auto simple_tree = T("a", { T{"1"}, T{"2"}, T{"3"} });
 
     const auto root_tree =
-        T{"root", {
-            T{"branch-A", {
-                T{"sibling-X", {
-                    T{"grandchild-A"},
-                    T{"grandchild-B"}
+        T{"Tolkien characters", {
+            T{"Heroes", {
+                T{"Humans", {
+                    T{"Aragon"},
+                    T{"Boromir"}
                 }},
-                T{"sibling-Y", {
-                    T{"grandchild-C"},
-                    T{"grandchild-D"}
+                T{"Hobbits", {
+                    T{"Frodo"},
+                    T{"Samwise"},
+                    T{"Merry"},
+                    T{"Pippin"},
                 }},
-                T{"sibling-Z", {
-                    T{"grandchild-E"},
-                    T{"grandchild-F"}
+                T{"Other", {
+                    T{"Legolas"},
+                    T{"Gandalf"},
+                    T{"Gimli"}
                 }}
             }},
-            T{"branch-B", {
-                T{"sibling-J"},
-                T{"sibling-K"}
+            T{"Enemies", {
+                T{"Sauron"},
+                T{"orcs"},
+                T{"Sauruman"}
             }}
         }};
 
