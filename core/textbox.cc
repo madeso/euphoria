@@ -74,7 +74,6 @@ TextBoxStyle::TextBoxStyle()
 TextBoxStyle Utf8Style()
 {
     TextBoxStyle style;
-    style.enable_vt100 = false;
 
     SetLineCharacter(&style, [](char c) {
         switch(c) {
@@ -105,7 +104,6 @@ TextBoxStyle Utf8Style()
 TextBoxStyle AsciiStyle()
 {
     TextBoxStyle style;
-    style.enable_vt100 = false;
 
     SetLineCharacter(&style, [](char c) {
         switch(c) {
@@ -357,24 +355,8 @@ std::vector<std::string> TextBox::to_string(const TextBoxStyle& style) const
         return ret[ret.size()-1];
     };
 
-    bool drawing = false;
-
-    auto append = [&](bool v, char c)
+    auto append = [&](char c)
     {
-        if (style.enable_vt100)
-        {
-            if(v&&!drawing)
-            {
-              last_line() += "\33)0\16";
-              drawing = v;
-            }
-            else if(!v&&drawing)
-            {
-              last_line() += "\33)B\17";
-              drawing = v;
-            }
-        }
-
         if(c == '\n')
         {
             if(want_newline)
@@ -399,20 +381,18 @@ std::vector<std::string> TextBox::to_string(const TextBoxStyle& style) const
             unsigned char c = s[x];
             if(c > 0 && c < 16)
             {
-              // const std::string_view linedraw = style.enable_vt100 ? "xxxqjkuqmltqvwn" : "|||-'.+-`,+-+++";
-              // append(true, linedraw[c-1]);
               const auto str = GetLineCharacter(style, c);
               for(auto line_char: str)
               {
-                  append(false, line_char);
+                  append(line_char);
               }
             }
             else
             {
-              append(false, c);
+              append(c);
             }
         }
-        append(false, '\n');
+        append('\n');
     }
     return ret;
 }
