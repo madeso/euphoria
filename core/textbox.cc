@@ -266,39 +266,91 @@ std::vector<std::string> TextBox::to_string(const TextBoxStyle& style) const
 {
     std::vector<std::string> ret;
     bool want_newline = true;
-    auto last_line = [&ret, &want_newline]() -> std::string& {
-        if(want_newline) {ret.emplace_back(""); want_newline = false;}
+    auto last_line = [&ret, &want_newline]() -> std::string&
+    {
+        if(want_newline)
+        {
+          ret.emplace_back("");
+          want_newline = false;
+        }
+
         return ret[ret.size()-1];
     };
 
     bool drawing = false, quo = false, space = true, unstr = false;
     std::string cur_attr;
     const std::string_view linedraw = style.enable_vt100 ? "xxxqjkuqmltqvwn" : "|||-'.+-`,+-+++";
+    
     auto attr = [&](const char* s)
     {
         if (style.enable_vt100)
         {
-            if(cur_attr!=s) { last_line() += "\33["; last_line() += s; last_line() += 'm'; cur_attr = s; }
+            // if(cur_attr!=s) { last_line() += "\33["; last_line() += s; last_line() += 'm'; cur_attr = s; }
         }
     };
+
     auto append = [&](bool v, char c)
     {
         if (style.enable_vt100)
         {
             const char* a = nullptr;
             bool num = false;
-            if(v&&!drawing)      { a = "0;32"; last_line() += "\33)0\16"; drawing = v; }
-            else if(!v&&drawing) { a = "";     last_line() += "\33)B\17"; drawing = v; }
-            if(!v && c=='"')             { quo = !quo; if(quo) a = "1;34"; }
-            if(!v && !quo && ((c>='0' && c<='9') || c=='-')) { a = space ? "1;38;5;165" : "0;38;5;246"; num=true; }
-            if(!v && !quo && ((c>='a' && c<='z') || c=='_')) { a = "1;37"; }
-            if(!v && !quo && c>='A' && c<='Z')               { a = "0;38;5;246"; }
-            if(!v && !quo && c=='`') { unstr = true; c = ' '; }
-            if(c == '\n') unstr = false;
-            if(unstr) a = nullptr;
-            if(a) attr(a);
-            if(!num) space = (c==' ');
+            if(v&&!drawing)
+            {
+              a = "0;32";
+              last_line() += "\33)0\16";
+              drawing = v;
+            }
+            else if(!v&&drawing)
+            {
+              a = "";
+              last_line() += "\33)B\17";
+              drawing = v;
+            }
+            if(!v && c=='"')
+            {
+              quo = !quo;
+              if(quo)
+              {
+                a = "1;34";
+              }
+            }
+            if(!v && !quo && ((c>='0' && c<='9') || c=='-'))
+            {
+              a = space ? "1;38;5;165" : "0;38;5;246";
+              num=true;
+            }
+            if(!v && !quo && ((c>='a' && c<='z') || c=='_'))
+            {
+              a = "1;37";
+            }
+            if(!v && !quo && c>='A' && c<='Z')
+            {
+              a = "0;38;5;246";
+            }
+            if(!v && !quo && c=='`')
+            {
+              unstr = true;
+              c = ' ';
+            }
+            if(c == '\n')
+            {
+              unstr = false;
+            }
+            if(unstr)
+            {
+              a = nullptr;
+            }
+            if(a)
+            {
+              attr(a);
+            }
+            if(!num)
+            {
+              space = (c==' ');
+            }
         }
+
         if(c == '\n')
         {
             want_newline = true;
@@ -308,14 +360,21 @@ std::vector<std::string> TextBox::to_string(const TextBoxStyle& style) const
             last_line() += c;
         }
     };
+
     for(std::size_t h = height(), y = 0; y < h; ++y)
     {
         const std::string& s = data[y];
         for(std::size_t x = 0; x < s.size(); ++x)
         {
             unsigned char c = s[x];
-            if(c > 0 && c < 16) append(true, linedraw[c-1]);
-            else                append(false, c);
+            if(c > 0 && c < 16)
+            {
+              append(true, linedraw[c-1]);
+            }
+            else
+            {
+              append(false, c);
+            }
         }
         attr("");
         append(false, '\n');
