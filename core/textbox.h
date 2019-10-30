@@ -8,6 +8,16 @@
 namespace euphoria::core
 {
 
+    struct TextBoxStyle
+    {
+        bool enable_vt100 = false;
+    };
+
+    TextBoxStyle TerminalStyle();
+
+    TextBoxStyle Utf8Style();
+    TextBoxStyle AsciiStyle();
+
 /* TextBox: Abstraction for 2-dimensional text strings, with VT100 linedrawing support
 Copyright (c) 2017 Joel Yliluoma - http://iki.fi/bisqwit/
 License: MIT
@@ -76,7 +86,7 @@ struct TextBox
     /** Converts the contents of the box into a std::string with linefeeds and VT100 escapes.
     If enable_vt100 is false, renders using plain ASCII instead.
     */
-    std::vector<std::string> to_string(bool enable_vt100 = false) const;
+    std::vector<std::string> to_string(const TextBoxStyle& style = TerminalStyle()) const;
 private:
     std::size_t FindLeftPadding(std::size_t y) const;
     std::size_t FindRightPadding(std::size_t y) const;

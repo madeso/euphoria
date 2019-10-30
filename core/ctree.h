@@ -23,7 +23,7 @@ TreeStyle DetermineStyle();
 
 TreeStyle SlashStyle();
 TreeStyle CrossStyle();
-TreeStyle Utf8Style();
+TreeStyle Utf8TreeStyle();
 
 template
 <

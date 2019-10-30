@@ -80,7 +80,7 @@ TEST_CASE("tb_print")
         INFO(box.data);
         CHECK(box.Size() == S(0,0));
         CHECK_THAT(box.data, Eq({}));
-        CHECK_THAT(box.to_string(), Eq({}));
+        CHECK_THAT(box.to_string(AsciiStyle()), Eq({}));
     }
 
     SECTION("putchar")
@@ -92,7 +92,7 @@ TEST_CASE("tb_print")
             INFO(box.data);
             CHECK(box.Size() == S(1,1));
             CHECK_THAT(box.data, Eq({"x"}));
-            CHECK_THAT(box.to_string(), Eq({"x"}));
+            CHECK_THAT(box.to_string(AsciiStyle()), Eq({"x"}));
         }
 
         SECTION("offset")
@@ -102,7 +102,7 @@ TEST_CASE("tb_print")
             INFO(box.data);
             CHECK(box.Size() == S(3,2));
             CHECK_THAT(box.data, Eq({"", "  x"}));
-            CHECK_THAT(box.to_string(), Eq({"  x"}));
+            CHECK_THAT(box.to_string(AsciiStyle()), Eq({"  x"}));
         }
     }
 
@@ -115,7 +115,7 @@ TEST_CASE("tb_print")
             INFO(box.data);
             CHECK(box.Size() == S(1,1));
             CHECK_THAT(box.data, Eq({"d"}));
-            CHECK_THAT(box.to_string(), Eq({"d"}));
+            CHECK_THAT(box.to_string(AsciiStyle()), Eq({"d"}));
         }
 
         SECTION("offset")
@@ -125,7 +125,7 @@ TEST_CASE("tb_print")
             INFO(box.data);
             CHECK(box.Size() == S(3,2));
             CHECK_THAT(box.data, Eq({"", "  d"}));
-            CHECK_THAT(box.to_string(), Eq({"  d"}));
+            CHECK_THAT(box.to_string(AsciiStyle()), Eq({"  d"}));
         }
     }
 
@@ -138,7 +138,7 @@ TEST_CASE("tb_print")
             INFO(box.data);
             CHECK(box.Size() == S(3,1));
             CHECK_THAT(box.data, Eq({"dog"}));
-            CHECK_THAT(box.to_string(), Eq({"dog"}));
+            CHECK_THAT(box.to_string(AsciiStyle()), Eq({"dog"}));
         }
 
         SECTION("offset")
@@ -148,7 +148,7 @@ TEST_CASE("tb_print")
             INFO(box.data);
             CHECK(box.Size() == S(4,2));
             CHECK_THAT(box.data, Eq({"", " dog"}));
-            CHECK_THAT(box.to_string(), Eq({" dog"}));
+            CHECK_THAT(box.to_string(AsciiStyle()), Eq({" dog"}));
         }
 
         SECTION("collision")
@@ -159,7 +159,7 @@ TEST_CASE("tb_print")
             INFO(box.data);
             CHECK(box.Size() == S(5,1));
             CHECK_THAT(box.data, Eq({"ddogo"}));
-            CHECK_THAT(box.to_string(), Eq({"ddogo"}));
+            CHECK_THAT(box.to_string(AsciiStyle()), Eq({"ddogo"}));
         }
     }
 
@@ -174,7 +174,7 @@ TEST_CASE("tb_print")
             INFO(box.data);
             CHECK(box.Size() == S(0,0));
             CHECK_THAT(box.data, Eq({}));
-            CHECK_THAT(box.to_string(), Eq({}));
+            CHECK_THAT(box.to_string(AsciiStyle()), Eq({}));
         }
 
         SECTION("no change")
@@ -185,7 +185,7 @@ TEST_CASE("tb_print")
             INFO(box.data);
             CHECK(box.Size() == S(3,2));
             CHECK_THAT(box.data, Eq({"", "  a"}));
-            CHECK_THAT(box.to_string(), Eq({"  a"}));
+            CHECK_THAT(box.to_string(AsciiStyle()), Eq({"  a"}));
         }
 
         SECTION("change")
@@ -196,7 +196,7 @@ TEST_CASE("tb_print")
             INFO(box.data);
             CHECK(box.Size() == S(3,2));
             CHECK_THAT(box.data, Eq({"", "  a"}));
-            CHECK_THAT(box.to_string(), Eq({"  a"}));
+            CHECK_THAT(box.to_string(AsciiStyle()), Eq({"  a"}));
         }
     }
 
@@ -210,7 +210,7 @@ TEST_CASE("tb_print")
             INFO(box.data);
             CHECK(box.Size() == S(3,1));
             CHECK_THAT(box.data, Eq({ascii({8, 12, 4})}));
-            CHECK_THAT(box.to_string(), Eq({"---"}));
+            CHECK_THAT(box.to_string(AsciiStyle()), Eq({"---"}));
         }
 
         SECTION("h2")
@@ -220,7 +220,7 @@ TEST_CASE("tb_print")
             INFO(box.data);
             CHECK(box.Size() == S(3,1));
             CHECK_THAT(box.data, Eq({ascii({8, 12, 12})}));
-            CHECK_THAT(box.to_string(), Eq({"---"}));
+            CHECK_THAT(box.to_string(AsciiStyle()), Eq({"---"}));
         }
 
         SECTION("h3")
@@ -230,7 +230,7 @@ TEST_CASE("tb_print")
             INFO(box.data);
             CHECK(box.Size() == S(3,1));
             CHECK_THAT(box.data, Eq({ascii({12, 12, 4})}));
-            CHECK_THAT(box.to_string(), Eq({"---"}));
+            CHECK_THAT(box.to_string(AsciiStyle()), Eq({"---"}));
         }
 
         SECTION("h4")
@@ -240,7 +240,7 @@ TEST_CASE("tb_print")
             INFO(box.data);
             CHECK(box.Size() == S(3,1));
             CHECK_THAT(box.data, Eq({ascii({12, 12, 12})}));
-            CHECK_THAT(box.to_string(), Eq({"---"}));
+            CHECK_THAT(box.to_string(AsciiStyle()), Eq({"---"}));
         }
 
         SECTION("v1")
@@ -250,7 +250,7 @@ TEST_CASE("tb_print")
             INFO(box.data);
             CHECK(box.Size() == S(1,3));
             CHECK_THAT(box.data, Eq({ascii({2}), ascii({3}), ascii({1})}));
-            CHECK_THAT(box.to_string(), Eq({"|", "|", "|"}));
+            CHECK_THAT(box.to_string(AsciiStyle()), Eq({"|", "|", "|"}));
         }
 
         SECTION("v2")
@@ -260,7 +260,7 @@ TEST_CASE("tb_print")
             INFO(box.data);
             CHECK(box.Size() == S(1,3));
             CHECK_THAT(box.data, Eq({ascii({2}), ascii({3}), ascii({3})}));
-            CHECK_THAT(box.to_string(), Eq({"|", "|", "|"}));
+            CHECK_THAT(box.to_string(AsciiStyle()), Eq({"|", "|", "|"}));
         }
 
         SECTION("v3")
@@ -270,7 +270,7 @@ TEST_CASE("tb_print")
             INFO(box.data);
             CHECK(box.Size() == S(1,3));
             CHECK_THAT(box.data, Eq({ascii({3}), ascii({3}), ascii({1})}));
-            CHECK_THAT(box.to_string(), Eq({"|", "|", "|"}));
+            CHECK_THAT(box.to_string(AsciiStyle()), Eq({"|", "|", "|"}));
         }
 
         SECTION("v4")
@@ -280,7 +280,7 @@ TEST_CASE("tb_print")
             INFO(box.data);
             CHECK(box.Size() == S(1,3));
             CHECK_THAT(box.data, Eq({ascii({3}), ascii({3}), ascii({3})}));
-            CHECK_THAT(box.to_string(), Eq({"|", "|", "|"}));
+            CHECK_THAT(box.to_string(AsciiStyle()), Eq({"|", "|", "|"}));
         }
     }
 }
@@ -297,12 +297,12 @@ TEST_CASE("tb_box")
 
     SECTION("putbox")
     {
-        CHECK_THAT(empty.PutBoxCopy(0, 0, empty).to_string(), Eq({}));
-        CHECK_THAT(empty.PutBoxCopy(0, 0, x).to_string(), Eq(x_data));
-        CHECK_THAT(empty.PutBoxCopy(0, 0, abc).to_string(), Eq(abc_data));
-        CHECK_THAT(empty.PutBoxCopy(1, 1, empty).to_string(), Eq({}));
-        CHECK_THAT(empty.PutBoxCopy(1, 1, x).to_string(), Eq({"    ", "  x ", "    "}));
-        CHECK_THAT(empty.PutBoxCopy(1, 1, empty).to_string(), Eq({}));
+        CHECK_THAT(empty.PutBoxCopy(0, 0, empty).to_string(AsciiStyle()), Eq({}));
+        CHECK_THAT(empty.PutBoxCopy(0, 0, x).to_string(AsciiStyle()), Eq(x_data));
+        CHECK_THAT(empty.PutBoxCopy(0, 0, abc).to_string(AsciiStyle()), Eq(abc_data));
+        CHECK_THAT(empty.PutBoxCopy(1, 1, empty).to_string(AsciiStyle()), Eq({}));
+        CHECK_THAT(empty.PutBoxCopy(1, 1, x).to_string(AsciiStyle()), Eq({"    ", "  x ", "    "}));
+        CHECK_THAT(empty.PutBoxCopy(1, 1, empty).to_string(AsciiStyle()), Eq({}));
     }
 
     SECTION("empty")
@@ -409,7 +409,7 @@ TEST_CASE("tb_create_tree_graph")
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
                 [](const T&  ) { return false; },
                 [](const T&  ) { return false; },
-                [](const T&  ) { return false; }).to_string(),
+                [](const T&  ) { return false; }).to_string(AsciiStyle()),
                 Eq(simple_three_row));
 
     CHECK_THAT(create_tree_graph(simple_tree, 130,
@@ -417,7 +417,7 @@ TEST_CASE("tb_create_tree_graph")
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
                 [](const T&  ) { return false; },
                 [](const T&  ) { return false; },
-                [](const T&  ) { return true; }).to_string(),
+                [](const T&  ) { return true; }).to_string(AsciiStyle()),
                 Eq(simple_four_row));
     
     CHECK_THAT(create_tree_graph(simple_tree, 130,
@@ -425,7 +425,7 @@ TEST_CASE("tb_create_tree_graph")
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
                 [](const T&  ) { return false; },
                 [](const T&  ) { return true; },
-                [](const T&  ) { return false; }).to_string(),
+                [](const T&  ) { return false; }).to_string(AsciiStyle()),
                 Eq(simple_three_row));
 
     CHECK_THAT(create_tree_graph(simple_tree, 130,
@@ -433,7 +433,7 @@ TEST_CASE("tb_create_tree_graph")
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
                 [](const T&  ) { return false; },
                 [](const T&  ) { return true; },
-                [](const T&  ) { return true; }).to_string(),
+                [](const T&  ) { return true; }).to_string(AsciiStyle()),
                 Eq(simple_four_row));
 
 
@@ -442,7 +442,7 @@ TEST_CASE("tb_create_tree_graph")
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
                 [](const T&  ) { return true; },
                 [](const T&  ) { return false; },
-                [](const T&  ) { return false; }).to_string(),
+                [](const T&  ) { return false; }).to_string(AsciiStyle()),
                 Eq(simple_two_row));
 
     CHECK_THAT(create_tree_graph(simple_tree, 130,
@@ -450,7 +450,7 @@ TEST_CASE("tb_create_tree_graph")
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
                 [](const T&  ) { return true; },
                 [](const T&  ) { return false; },
-                [](const T&  ) { return true; }).to_string(),
+                [](const T&  ) { return true; }).to_string(AsciiStyle()),
                 Eq(simple_four_row));
     
     CHECK_THAT(create_tree_graph(simple_tree, 130,
@@ -458,7 +458,7 @@ TEST_CASE("tb_create_tree_graph")
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
                 [](const T&  ) { return true; },
                 [](const T&  ) { return true; },
-                [](const T&  ) { return false; }).to_string(),
+                [](const T&  ) { return false; }).to_string(AsciiStyle()),
                 Eq(simple_two_row));
 
     CHECK_THAT(create_tree_graph(simple_tree, 130,
@@ -466,7 +466,7 @@ TEST_CASE("tb_create_tree_graph")
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
                 [](const T&  ) { return true; },
                 [](const T&  ) { return true; },
-                [](const T&  ) { return true; }).to_string(),
+                [](const T&  ) { return true; }).to_string(AsciiStyle()),
                 Eq(simple_four_row));
 }
 
@@ -555,7 +555,7 @@ TEST_CASE("tb_tolkien")
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
                 [](const T& e) { return e.children.size() >= 1; },
                 [](const T&  ) { return true; },
-                [](const T&  ) { return false; }).to_string(),
+                [](const T&  ) { return false; }).to_string(AsciiStyle()),
                 {
   "Tolkien characters",
   "`-+----------------------------------------------------------------------------------.",

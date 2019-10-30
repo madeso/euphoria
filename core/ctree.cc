@@ -37,7 +37,7 @@ TreeStyle SlashStyle()
     return r;
 }
 
-TreeStyle Utf8Style()
+TreeStyle Utf8TreeStyle()
 {
     auto r = TreeStyle{};
     r.t_cross = u8"├╴";
@@ -65,7 +65,7 @@ TreeStyle DetermineStyle()
 {
     if(TerminalSupportUtf8())
     {
-        return Utf8Style();
+        return Utf8TreeStyle();
     }
     else
     {

@@ -1,7 +1,56 @@
 #include "core/textbox.h"
 
+#include <cstdlib>
+
+#include "core/stringutils.h"
+
+namespace
+{
+    bool TerminalSupportUtf8()
+    {
+        const auto clang = std::getenv("LANG");
+        
+        if(clang)
+        {
+            const auto lang = std::string(clang);
+            const auto lower = euphoria::core::ToLower(lang);
+            const auto ends = euphoria::core::EndsWith(lower, "utf-8");
+            return ends;
+        }
+
+        return false;
+    }
+}
+
+
 namespace euphoria::core
 {
+
+TextBoxStyle TerminalStyle()
+{
+    if(TerminalSupportUtf8())
+    {
+        return Utf8Style();
+    }
+    else
+    {
+        return AsciiStyle();
+    }
+}
+    
+TextBoxStyle Utf8Style()
+{
+    TextBoxStyle style;
+    style.enable_vt100 = true;
+    return style;
+}
+
+TextBoxStyle AsciiStyle()
+{
+    TextBoxStyle style;
+    style.enable_vt100 = false;
+    return style;
+}
 
 // bitmasks
 constexpr unsigned char u=1;
@@ -153,7 +202,7 @@ std::size_t TextBox::vert_append_position(std::size_t x, const TextBox& b) const
 }
 
 
-std::vector<std::string> TextBox::to_string(bool enable_vt100) const
+std::vector<std::string> TextBox::to_string(const TextBoxStyle& style) const
 {
     std::vector<std::string> ret;
     bool want_newline = true;
@@ -164,17 +213,17 @@ std::vector<std::string> TextBox::to_string(bool enable_vt100) const
 
     bool drawing = false, quo = false, space = true, unstr = false;
     std::string cur_attr;
-    const std::string_view linedraw = enable_vt100 ? "xxxqjkuqmltqvwn" : "|||-'.+-`,+-+++";
+    const std::string_view linedraw = style.enable_vt100 ? "xxxqjkuqmltqvwn" : "|||-'.+-`,+-+++";
     auto attr = [&](const char* s)
     {
-        if (enable_vt100)
+        if (style.enable_vt100)
         {
             if(cur_attr!=s) { last_line() += "\33["; last_line() += s; last_line() += 'm'; cur_attr = s; }
         }
     };
     auto append = [&](bool v, char c)
     {
-        if (enable_vt100)
+        if (style.enable_vt100)
         {
             const char* a = nullptr;
             bool num = false;
