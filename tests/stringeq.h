@@ -6,6 +6,30 @@
 
 namespace euphoria::tests
 {
+    struct FalseString;
+
+    /*
+    
+    Usage:
+    
+    using namespace euphoria::tests;
+    
+    CHECK(StringEq(foo(), "string"));
+    CHECK(StringEq(bar(), {"some", "strings"}));
+
+    */
+
+    FalseString
+    StringEq(const std::vector<std::string> lhs, const std::vector<std::string> rhs);
+
+    FalseString
+    StringEq(const std::string& lhs, const std::string& rhs);
+
+
+    //
+    // Implementation details:
+    // 
+
     struct FalseString
     {
         static FalseString
@@ -21,12 +45,6 @@ namespace euphoria::tests
 
     std::ostream&
     operator<<(std::ostream& s, const FalseString& f);
-
-    FalseString
-    StringEq(const std::vector<std::string> lhs, const std::vector<std::string> rhs);
-
-    FalseString
-    StringEq(const std::string& lhs, const std::string& rhs);
 
 }  // namespace euphoria::tests
 
