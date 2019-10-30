@@ -74,4 +74,23 @@ main(int, char**)
             }
         }
     }
+
+    {
+        TextBox box;
+        for(int i=1; i<16; i+=1)
+        {
+            constexpr auto spacing = 2;
+            box.putchar(static_cast<char>(i), (i % 4) * spacing, (i/4) * spacing );
+        }
+        auto print = [&box](TextBoxStyle style){
+            auto strings = box.to_string(style);
+            for(auto s: strings)
+            {
+                std::cout << s << "\n";
+            }
+        };
+        print(TerminalStyle());
+        std::cout << "\n-------\n\n";
+        print(AsciiStyle());
+    }
 }

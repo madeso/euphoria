@@ -363,6 +363,23 @@ TEST_CASE("tb_box")
     }
 }
 
+TEST_CASE("tb_arrows")
+{
+    TextBox box;
+    for(int i=1; i<16; i+=1)
+    {
+        box.putchar(static_cast<char>(i), (i % 4), (i/4));
+    }
+
+    CHECK(StringEq(box.to_string(AsciiStyle()),
+    {
+        " |||",
+        "-'.+",
+        "-`,+",
+        "-+++"
+    }));
+}
+
 namespace
 {
     struct T
