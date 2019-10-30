@@ -1,8 +1,11 @@
 #include "core/enumtostring.h"
 
 #include "tests/utils.h"
+#include "tests/stringeq.h"
 
 namespace euco = euphoria::core;
+
+using namespace euphoria::tests;
 
 namespace
 {
@@ -42,18 +45,18 @@ TEST_CASE("enum2string", "[enum2string]")
 
     SECTION("no arg ToString")
     {
-        CHECK_THAT(
+        CHECK(StringEq(
                 euco::EnumToString<MyEnum>(),
-                CATCH_IS_VECTOR(std::string, "X", "Cat", "ReallyLongValue"));
+            {"X", "Cat", "ReallyLongValue"}));
     }
 
     SECTION("vector arg ToString")
     {
         const auto vec
                 = std::vector<MyEnum> {MyEnum::Cat, MyEnum::X, MyEnum::Cat};
-        CHECK_THAT(
+        CHECK(StringEq(
                 euco::EnumToString<MyEnum>(vec),
-                CATCH_IS_VECTOR(std::string, "Cat", "X", "Cat"));
+                {"Cat", "X", "Cat"}));
     }
 
     SECTION("match different cases")

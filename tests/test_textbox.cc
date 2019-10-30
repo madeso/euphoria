@@ -6,8 +6,6 @@
 
 #include "tests/stringeq.h"
 
-using Catch::Matchers::Equals;
-
 constexpr bool PRINT_HEX = false;
 
 using namespace euphoria::core;
@@ -67,8 +65,6 @@ namespace
     }
 }
 
-using Eq = Catch::Vector::EqualsMatcher<std::string>;
-
 TEST_CASE("tb_print")
 {
     TextBox box;
@@ -77,8 +73,8 @@ TEST_CASE("tb_print")
     {
         INFO(box.data);
         CHECK(box.Size() == S(0,0));
-        CHECK_THAT(box.data, Eq({}));
-        CHECK_THAT(box.to_string(AsciiStyle()), Eq({}));
+        CHECK(StringEq(box.data, {}));
+        CHECK(StringEq(box.to_string(AsciiStyle()), {}));
     }
 
     SECTION("putchar")
@@ -89,8 +85,8 @@ TEST_CASE("tb_print")
 
             INFO(box.data);
             CHECK(box.Size() == S(1,1));
-            CHECK_THAT(box.data, Eq({"x"}));
-            CHECK_THAT(box.to_string(AsciiStyle()), Eq({"x"}));
+            CHECK(StringEq(box.data, {"x"}));
+            CHECK(StringEq(box.to_string(AsciiStyle()), {"x"}));
         }
 
         SECTION("offset")
@@ -99,8 +95,8 @@ TEST_CASE("tb_print")
 
             INFO(box.data);
             CHECK(box.Size() == S(3,2));
-            CHECK_THAT(box.data, Eq({"", "  x"}));
-            CHECK_THAT(box.to_string(AsciiStyle()), Eq({"  x"}));
+            CHECK(StringEq(box.data, {"", "  x"}));
+            CHECK(StringEq(box.to_string(AsciiStyle()), {"  x"}));
         }
     }
 
@@ -112,8 +108,8 @@ TEST_CASE("tb_print")
 
             INFO(box.data);
             CHECK(box.Size() == S(1,1));
-            CHECK_THAT(box.data, Eq({"d"}));
-            CHECK_THAT(box.to_string(AsciiStyle()), Eq({"d"}));
+            CHECK(StringEq(box.data, {"d"}));
+            CHECK(StringEq(box.to_string(AsciiStyle()), {"d"}));
         }
 
         SECTION("offset")
@@ -122,8 +118,8 @@ TEST_CASE("tb_print")
 
             INFO(box.data);
             CHECK(box.Size() == S(3,2));
-            CHECK_THAT(box.data, Eq({"", "  d"}));
-            CHECK_THAT(box.to_string(AsciiStyle()), Eq({"  d"}));
+            CHECK(StringEq(box.data, {"", "  d"}));
+            CHECK(StringEq(box.to_string(AsciiStyle()), {"  d"}));
         }
     }
 
@@ -135,8 +131,8 @@ TEST_CASE("tb_print")
 
             INFO(box.data);
             CHECK(box.Size() == S(3,1));
-            CHECK_THAT(box.data, Eq({"dog"}));
-            CHECK_THAT(box.to_string(AsciiStyle()), Eq({"dog"}));
+            CHECK(StringEq(box.data, {"dog"}));
+            CHECK(StringEq(box.to_string(AsciiStyle()), {"dog"}));
         }
 
         SECTION("offset")
@@ -145,8 +141,8 @@ TEST_CASE("tb_print")
 
             INFO(box.data);
             CHECK(box.Size() == S(4,2));
-            CHECK_THAT(box.data, Eq({"", " dog"}));
-            CHECK_THAT(box.to_string(AsciiStyle()), Eq({" dog"}));
+            CHECK(StringEq(box.data, {"", " dog"}));
+            CHECK(StringEq(box.to_string(AsciiStyle()), {" dog"}));
         }
 
         SECTION("collision")
@@ -156,8 +152,8 @@ TEST_CASE("tb_print")
 
             INFO(box.data);
             CHECK(box.Size() == S(5,1));
-            CHECK_THAT(box.data, Eq({"ddogo"}));
-            CHECK_THAT(box.to_string(AsciiStyle()), Eq({"ddogo"}));
+            CHECK(StringEq(box.data, {"ddogo"}));
+            CHECK(StringEq(box.to_string(AsciiStyle()), {"ddogo"}));
         }
     }
 
@@ -171,8 +167,8 @@ TEST_CASE("tb_print")
 
             INFO(box.data);
             CHECK(box.Size() == S(0,0));
-            CHECK_THAT(box.data, Eq({}));
-            CHECK_THAT(box.to_string(AsciiStyle()), Eq({}));
+            CHECK(StringEq(box.data, {}));
+            CHECK(StringEq(box.to_string(AsciiStyle()), {}));
         }
 
         SECTION("no change")
@@ -182,8 +178,8 @@ TEST_CASE("tb_print")
 
             INFO(box.data);
             CHECK(box.Size() == S(3,2));
-            CHECK_THAT(box.data, Eq({"", "  a"}));
-            CHECK_THAT(box.to_string(AsciiStyle()), Eq({"  a"}));
+            CHECK(StringEq(box.data, {"", "  a"}));
+            CHECK(StringEq(box.to_string(AsciiStyle()), {"  a"}));
         }
 
         SECTION("change")
@@ -193,8 +189,8 @@ TEST_CASE("tb_print")
 
             INFO(box.data);
             CHECK(box.Size() == S(3,2));
-            CHECK_THAT(box.data, Eq({"", "  a"}));
-            CHECK_THAT(box.to_string(AsciiStyle()), Eq({"  a"}));
+            CHECK(StringEq(box.data, {"", "  a"}));
+            CHECK(StringEq(box.to_string(AsciiStyle()), {"  a"}));
         }
     }
 
@@ -207,8 +203,8 @@ TEST_CASE("tb_print")
 
             INFO(box.data);
             CHECK(box.Size() == S(3,1));
-            CHECK_THAT(box.data, Eq({ascii({8, 12, 4})}));
-            CHECK_THAT(box.to_string(AsciiStyle()), Eq({"---"}));
+            CHECK(StringEq(box.data, {ascii({8, 12, 4})}));
+            CHECK(StringEq(box.to_string(AsciiStyle()), {"---"}));
         }
 
         SECTION("h2")
@@ -217,8 +213,8 @@ TEST_CASE("tb_print")
 
             INFO(box.data);
             CHECK(box.Size() == S(3,1));
-            CHECK_THAT(box.data, Eq({ascii({8, 12, 12})}));
-            CHECK_THAT(box.to_string(AsciiStyle()), Eq({"---"}));
+            CHECK(StringEq(box.data, {ascii({8, 12, 12})}));
+            CHECK(StringEq(box.to_string(AsciiStyle()), {"---"}));
         }
 
         SECTION("h3")
@@ -227,8 +223,8 @@ TEST_CASE("tb_print")
 
             INFO(box.data);
             CHECK(box.Size() == S(3,1));
-            CHECK_THAT(box.data, Eq({ascii({12, 12, 4})}));
-            CHECK_THAT(box.to_string(AsciiStyle()), Eq({"---"}));
+            CHECK(StringEq(box.data, {ascii({12, 12, 4})}));
+            CHECK(StringEq(box.to_string(AsciiStyle()), {"---"}));
         }
 
         SECTION("h4")
@@ -237,8 +233,8 @@ TEST_CASE("tb_print")
 
             INFO(box.data);
             CHECK(box.Size() == S(3,1));
-            CHECK_THAT(box.data, Eq({ascii({12, 12, 12})}));
-            CHECK_THAT(box.to_string(AsciiStyle()), Eq({"---"}));
+            CHECK(StringEq(box.data, {ascii({12, 12, 12})}));
+            CHECK(StringEq(box.to_string(AsciiStyle()), {"---"}));
         }
 
         SECTION("v1")
@@ -247,8 +243,8 @@ TEST_CASE("tb_print")
 
             INFO(box.data);
             CHECK(box.Size() == S(1,3));
-            CHECK_THAT(box.data, Eq({ascii({2}), ascii({3}), ascii({1})}));
-            CHECK_THAT(box.to_string(AsciiStyle()), Eq({"|", "|", "|"}));
+            CHECK(StringEq(box.data, {ascii({2}), ascii({3}), ascii({1})}));
+            CHECK(StringEq(box.to_string(AsciiStyle()), {"|", "|", "|"}));
         }
 
         SECTION("v2")
@@ -257,8 +253,8 @@ TEST_CASE("tb_print")
 
             INFO(box.data);
             CHECK(box.Size() == S(1,3));
-            CHECK_THAT(box.data, Eq({ascii({2}), ascii({3}), ascii({3})}));
-            CHECK_THAT(box.to_string(AsciiStyle()), Eq({"|", "|", "|"}));
+            CHECK(StringEq(box.data, {ascii({2}), ascii({3}), ascii({3})}));
+            CHECK(StringEq(box.to_string(AsciiStyle()), {"|", "|", "|"}));
         }
 
         SECTION("v3")
@@ -267,8 +263,8 @@ TEST_CASE("tb_print")
 
             INFO(box.data);
             CHECK(box.Size() == S(1,3));
-            CHECK_THAT(box.data, Eq({ascii({3}), ascii({3}), ascii({1})}));
-            CHECK_THAT(box.to_string(AsciiStyle()), Eq({"|", "|", "|"}));
+            CHECK(StringEq(box.data, {ascii({3}), ascii({3}), ascii({1})}));
+            CHECK(StringEq(box.to_string(AsciiStyle()), {"|", "|", "|"}));
         }
 
         SECTION("v4")
@@ -277,8 +273,8 @@ TEST_CASE("tb_print")
 
             INFO(box.data);
             CHECK(box.Size() == S(1,3));
-            CHECK_THAT(box.data, Eq({ascii({3}), ascii({3}), ascii({3})}));
-            CHECK_THAT(box.to_string(AsciiStyle()), Eq({"|", "|", "|"}));
+            CHECK(StringEq(box.data, {ascii({3}), ascii({3}), ascii({3})}));
+            CHECK(StringEq(box.to_string(AsciiStyle()), {"|", "|", "|"}));
         }
     }
 }
@@ -295,12 +291,12 @@ TEST_CASE("tb_box")
 
     SECTION("putbox")
     {
-        CHECK_THAT(empty.PutBoxCopy(0, 0, empty).to_string(AsciiStyle()), Eq({}));
-        CHECK_THAT(empty.PutBoxCopy(0, 0, x).to_string(AsciiStyle()), Eq(x_data));
-        CHECK_THAT(empty.PutBoxCopy(0, 0, abc).to_string(AsciiStyle()), Eq(abc_data));
-        CHECK_THAT(empty.PutBoxCopy(1, 1, empty).to_string(AsciiStyle()), Eq({}));
-        CHECK_THAT(empty.PutBoxCopy(1, 1, x).to_string(AsciiStyle()), Eq({"    ", "  x ", "    "}));
-        CHECK_THAT(empty.PutBoxCopy(1, 1, empty).to_string(AsciiStyle()), Eq({}));
+        CHECK(StringEq(empty.PutBoxCopy(0, 0, empty).to_string(AsciiStyle()), {}));
+        CHECK(StringEq(empty.PutBoxCopy(0, 0, x).to_string(AsciiStyle()), x_data));
+        CHECK(StringEq(empty.PutBoxCopy(0, 0, abc).to_string(AsciiStyle()), abc_data));
+        CHECK(StringEq(empty.PutBoxCopy(1, 1, empty).to_string(AsciiStyle()), {}));
+        CHECK(StringEq(empty.PutBoxCopy(1, 1, x).to_string(AsciiStyle()), {"    ", "  x ", "    "}));
+        CHECK(StringEq(empty.PutBoxCopy(1, 1, empty).to_string(AsciiStyle()), {}));
     }
 
     SECTION("empty")
@@ -402,70 +398,70 @@ TEST_CASE("tb_create_tree_graph")
             "  2    3"
         };
 
-    CHECK_THAT(create_tree_graph(simple_tree, 130,
+    CHECK(StringEq(create_tree_graph(simple_tree, 130,
                 [](const T& e) { return e.name; },
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
                 [](const T&  ) { return false; },
                 [](const T&  ) { return false; },
                 [](const T&  ) { return false; }).to_string(AsciiStyle()),
-                Eq(simple_three_row));
+                simple_three_row));
 
-    CHECK_THAT(create_tree_graph(simple_tree, 130,
+    CHECK(StringEq(create_tree_graph(simple_tree, 130,
                 [](const T& e) { return e.name; },
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
                 [](const T&  ) { return false; },
                 [](const T&  ) { return false; },
                 [](const T&  ) { return true; }).to_string(AsciiStyle()),
-                Eq(simple_four_row));
+                simple_four_row));
     
-    CHECK_THAT(create_tree_graph(simple_tree, 130,
+    CHECK(StringEq(create_tree_graph(simple_tree, 130,
                 [](const T& e) { return e.name; },
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
                 [](const T&  ) { return false; },
                 [](const T&  ) { return true; },
                 [](const T&  ) { return false; }).to_string(AsciiStyle()),
-                Eq(simple_three_row));
+                simple_three_row));
 
-    CHECK_THAT(create_tree_graph(simple_tree, 130,
+    CHECK(StringEq(create_tree_graph(simple_tree, 130,
                 [](const T& e) { return e.name; },
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
                 [](const T&  ) { return false; },
                 [](const T&  ) { return true; },
                 [](const T&  ) { return true; }).to_string(AsciiStyle()),
-                Eq(simple_four_row));
+                simple_four_row));
 
 
-    CHECK_THAT(create_tree_graph(simple_tree, 130,
+    CHECK(StringEq(create_tree_graph(simple_tree, 130,
                 [](const T& e) { return e.name; },
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
                 [](const T&  ) { return true; },
                 [](const T&  ) { return false; },
                 [](const T&  ) { return false; }).to_string(AsciiStyle()),
-                Eq(simple_two_row));
+                simple_two_row));
 
-    CHECK_THAT(create_tree_graph(simple_tree, 130,
+    CHECK(StringEq(create_tree_graph(simple_tree, 130,
                 [](const T& e) { return e.name; },
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
                 [](const T&  ) { return true; },
                 [](const T&  ) { return false; },
                 [](const T&  ) { return true; }).to_string(AsciiStyle()),
-                Eq(simple_four_row));
+                simple_four_row));
     
-    CHECK_THAT(create_tree_graph(simple_tree, 130,
+    CHECK(StringEq(create_tree_graph(simple_tree, 130,
                 [](const T& e) { return e.name; },
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
                 [](const T&  ) { return true; },
                 [](const T&  ) { return true; },
                 [](const T&  ) { return false; }).to_string(AsciiStyle()),
-                Eq(simple_two_row));
+                simple_two_row));
 
-    CHECK_THAT(create_tree_graph(simple_tree, 130,
+    CHECK(StringEq(create_tree_graph(simple_tree, 130,
                 [](const T& e) { return e.name; },
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
                 [](const T&  ) { return true; },
                 [](const T&  ) { return true; },
                 [](const T&  ) { return true; }).to_string(AsciiStyle()),
-                Eq(simple_four_row));
+                simple_four_row));
 }
 
 
