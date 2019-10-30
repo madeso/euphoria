@@ -16,7 +16,9 @@ namespace euphoria::core
 
     TextBoxStyle TerminalStyle();
 
-    TextBoxStyle Utf8Style();
+    TextBoxStyle Utf8StraightStyle();
+    TextBoxStyle Utf8RoundedStyle();
+    TextBoxStyle Utf8DoubleLineStyle();
     TextBoxStyle AsciiStyle();
 
 /* TextBox: Abstraction for 2-dimensional text strings, with VT100 linedrawing support

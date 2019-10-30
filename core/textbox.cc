@@ -57,7 +57,8 @@ TextBoxStyle TerminalStyle()
 {
     if(TerminalSupportUtf8())
     {
-        return Utf8Style();
+        // return Utf8StraightStyle();
+        return Utf8RoundedStyle();
     }
     else
     {
@@ -70,8 +71,8 @@ TextBoxStyle::TextBoxStyle()
     connections.resize(15);
     SetLineCharacter(this, [](char) { return "";});
 }
-    
-TextBoxStyle Utf8Style()
+
+TextBoxStyle Utf8StraightStyle()
 {
     TextBoxStyle style;
 
@@ -92,6 +93,66 @@ TextBoxStyle Utf8Style()
         case BIT_LEFT | BIT_UP | BIT_DOWN:             return u8"┤";
         case BIT_RIGHT | BIT_UP | BIT_DOWN:            return u8"├";
         case BIT_LEFT | BIT_RIGHT | BIT_UP | BIT_DOWN: return u8"┼";
+        default:
+            DIE("Invalid combination");
+            return "X";
+        }
+    });
+
+    return style;
+}
+
+TextBoxStyle Utf8RoundedStyle()
+{
+    TextBoxStyle style;
+
+    SetLineCharacter(&style, [](char c) {
+        switch(c) {
+        case BIT_LEFT:                                 return u8"─";
+        case BIT_RIGHT:                                return u8"─";
+        case BIT_LEFT | BIT_RIGHT:                     return u8"─";
+        case BIT_UP:                                   return u8"│";
+        case BIT_DOWN:                                 return u8"│";
+        case BIT_UP | BIT_DOWN:                        return u8"│";
+        case BIT_LEFT| BIT_UP:                         return u8"╯";
+        case BIT_LEFT | BIT_DOWN:                      return u8"╮";
+        case BIT_RIGHT | BIT_UP:                       return u8"╰";
+        case BIT_RIGHT | BIT_DOWN:                     return u8"╭";
+        case BIT_LEFT | BIT_RIGHT | BIT_UP:            return u8"┴";
+        case BIT_LEFT | BIT_RIGHT | BIT_DOWN:          return u8"┬";
+        case BIT_LEFT | BIT_UP | BIT_DOWN:             return u8"┤";
+        case BIT_RIGHT | BIT_UP | BIT_DOWN:            return u8"├";
+        case BIT_LEFT | BIT_RIGHT | BIT_UP | BIT_DOWN: return u8"┼";
+        default:
+            DIE("Invalid combination");
+            return "X";
+        }
+    });
+
+    return style;
+}
+
+TextBoxStyle Utf8DoubleLineStyle()
+{
+    TextBoxStyle style;
+
+    SetLineCharacter(&style, [](char c) {
+        switch(c) {
+        case BIT_LEFT:                                 return u8"═";
+        case BIT_RIGHT:                                return u8"═";
+        case BIT_LEFT | BIT_RIGHT:                     return u8"═";
+        case BIT_UP:                                   return u8"║";
+        case BIT_DOWN:                                 return u8"║";
+        case BIT_UP | BIT_DOWN:                        return u8"║";
+        case BIT_LEFT| BIT_UP:                         return u8"╝";
+        case BIT_LEFT | BIT_DOWN:                      return u8"╗";
+        case BIT_RIGHT | BIT_UP:                       return u8"╚";
+        case BIT_RIGHT | BIT_DOWN:                     return u8"╔";
+        case BIT_LEFT | BIT_RIGHT | BIT_UP:            return u8"╩";
+        case BIT_LEFT | BIT_RIGHT | BIT_DOWN:          return u8"╦";
+        case BIT_LEFT | BIT_UP | BIT_DOWN:             return u8"╣";
+        case BIT_RIGHT | BIT_UP | BIT_DOWN:            return u8"╠";
+        case BIT_LEFT | BIT_RIGHT | BIT_UP | BIT_DOWN: return u8"╬";
         default:
             DIE("Invalid combination");
             return "X";
