@@ -214,12 +214,12 @@ namespace euphoria::core
         return ss.str();
     }
 
-    int
+    std::string::size_type
     FindFirstIndexOfMismatch(const std::string& lhs, const std::string& rhs)
     {
         const auto end = std::min(lhs.size(), rhs.size());
 
-        int index = 0;
+        std::string::size_type index = 0;
         for(; index < end; index+=1)
         {
             if(lhs[index]!=rhs[index])
@@ -230,7 +230,7 @@ namespace euphoria::core
 
         if(index >= lhs.size() && index >= rhs.size())
         {
-            return -1;
+            return std::string::npos;
         }
         else
         {

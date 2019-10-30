@@ -57,8 +57,8 @@ TEST_CASE("stringutils-chartostring", "[stringutils]")
 
 TEST_CASE("stringutils-findfirstindexmismatch", "[stringutils]")
 {
-    CHECK(-1 == euco::FindFirstIndexOfMismatch("dog", "dog"));
-    CHECK(-1 == euco::FindFirstIndexOfMismatch("", ""));
+    CHECK(std::string::npos == euco::FindFirstIndexOfMismatch("dog", "dog"));
+    CHECK(std::string::npos == euco::FindFirstIndexOfMismatch("", ""));
     CHECK(0 == euco::FindFirstIndexOfMismatch("a", "b"));
     CHECK(0 == euco::FindFirstIndexOfMismatch("a", "A"));
     CHECK(1 == euco::FindFirstIndexOfMismatch("dog", "dag"));

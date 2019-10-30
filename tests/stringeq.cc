@@ -81,8 +81,8 @@ namespace euphoria::tests
     StringEq(const std::string& lhs, const std::string& rhs)
     {
         const auto s = core::FindFirstIndexOfMismatch(lhs, rhs);
-        ASSERTX((s==-1 && lhs == rhs) || (s >= 0 && lhs != rhs), s, lhs, rhs);
-        if(s >= 0 )
+        ASSERTX((s==std::string::npos && lhs == rhs) || (s != std::string::npos && lhs != rhs), s, lhs, rhs);
+        if(s != std::string::npos )
         {
             std::ostringstream ss;
                 

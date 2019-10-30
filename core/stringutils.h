@@ -95,7 +95,7 @@ namespace euphoria::core
     std::string
     CharToString(char c, CharToStringStyle style=CharToStringStyle::Smart);
 
-    int
+    std::string::size_type
     FindFirstIndexOfMismatch(const std::string& lhs, const std::string& rhs);
 
     /** Replace all occurrences in a string.
