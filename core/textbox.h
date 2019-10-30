@@ -76,10 +76,12 @@ struct TextBox
 
     /** Calculate the earliest X coordinate where the given box could be placed.
      without colliding with existing content in this box. Guaranteed to be <= width().
+     Find leftmost position where box b can be appended into *this without overlap
      */
     std::size_t horiz_append_position(std::size_t y, const TextBox& b) const;
 
     /** Calculate the earliest Y coordinate where the given box could be placed without colliding with existing content in this box. Guaranteed to be <= height().
+     * Find topmost position where box b can be appended into *this without overlap
      */
     std::size_t vert_append_position(std::size_t x, const TextBox& b) const;
 
@@ -174,16 +176,20 @@ TextBox create_tree_graph(const ParamType& e,
 {
     TextBox result;
     const std::string atom = create_atom(e);
+    
     result.putline(atom, 0,0);
 
     if(auto param_range = count_children(e); param_range.first != param_range.second)
     {
         std::vector<TextBox> boxes;
+
         boxes.reserve(std::distance(param_range.first, param_range.second));
         for(auto i = param_range.first; i != param_range.second; ++i)
+        {
             boxes.emplace_back(create_tree_graph(*i, (maxwidth >= (16+2)) ? maxwidth - 2 : 16,
                                                  create_atom, count_children, oneliner_test, simple_test,
                                                  separate1st_test));
+        }
         detail::CreateTreeGraph(result, maxwidth, boxes, oneliner_test(e), simple_test(e), separate1st_test(e), atom);
     }
     result.trim();

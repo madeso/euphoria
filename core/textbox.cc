@@ -2,6 +2,7 @@
 
 #include <cstdlib>
 
+#include "core/assert.h"
 #include "core/stringutils.h"
 
 namespace
@@ -88,32 +89,45 @@ void TextBox::extend(std::size_t x, std::size_t y)
 }
 
 
-void TextBox::putline(const std::string& s, std::size_t x, std::size_t y)
+void TextBox::putline(const std::string& s, std::size_t x_start, std::size_t y)
 {
-    if(y >= data.size()) { data.resize(y+1); }
-    if(x > data[y].size()) { data[y].append(x - data[y].size(), ' '); }
+    auto xx = s.empty() ? 0 : s.size()-1;
+    extend(x_start+xx, y);
     
-    std::size_t begin = 0;
-    
-    for(; x < data[y].size() && begin < s.size(); ++begin, ++x)
+    for(std::size_t begin = 0; begin < s.size(); ++begin)
     {
-        unsigned char c = s[begin];
-        if(c==' ' || !c) continue;
-        char &tgt = data[y][x];
-        if(tgt==' ' || !tgt || (c&nonline)) tgt = c;
-        else { if(tgt&nonline) tgt=0; tgt|=c; }
-    }
+        const auto x = x_start + begin;
+        const unsigned char c = s[begin];
 
-    if(s.size() > begin)
-    {
-        data[y].append(s, begin, s.size()-begin);
+        ASSERT(x < data[y].size());
+
+        if(c==' ' || !c)
+        {
+            continue;
+        }
+
+        char &tgt = data[y][x];
+        if(tgt==' ' || !tgt || (c&nonline))
+        {
+            tgt = c;
+        }
+        else
+        {
+            if(tgt&nonline)
+            {
+                tgt=0; tgt|=c;
+            }
+        }
     }
 }
 
 
 void TextBox::putbox(std::size_t x, std::size_t y, const TextBox& b)
 {
-    for(std::size_t p = 0; p < b.data.size(); ++p) putline(b.data[p], x, y+p);
+    for(std::size_t p = 0; p < b.data.size(); ++p)
+    {
+        putline(b.data[p], x, y+p);
+    }
 }
 
 
@@ -130,10 +144,17 @@ void TextBox::trim()
     for(auto& s: data)
     {
         std::size_t end = s.size();
-        while(end > 0 && (s[end-1]==' ' || s[end-1]=='\0')) { --end; }
+        while(end > 0 && (s[end-1]==' ' || s[end-1]=='\0'))
+        {
+            --end;
+        }
         s.erase(end);
     }
-    while(!data.empty() && data.back().empty()) data.pop_back();
+
+    while(!data.empty() && data.back().empty())
+    {
+        data.pop_back();
+    }
 }
 
 
@@ -146,7 +167,11 @@ std::size_t TextBox::height() const
 std::size_t TextBox::width()  const
 {
     std::size_t result = 0;
-    for(const auto& s: data) result = std::max(result, s.size());
+    for(const auto& s: data)
+    {
+        result = std::max(result, s.size());
+    }
+
     return result;
 }
 
@@ -159,39 +184,74 @@ std::pair<std::size_t, std::size_t> TextBox::Size() const
 void TextBox::hline(std::size_t x, std::size_t y, std::size_t width, bool bef, bool aft)
 {
     for(std::size_t p=0; p<width; ++p)
-        modchar(x+p, y, [&](char& c) { if(c&nonline) c=0; if(p>0||bef) c |= l; if(aft||(p+1)<width) c |= r; });
+    {
+        modchar(x+p, y, [&](char& c)
+        {
+            if(c&nonline)
+            {
+                c=0;
+            }
+
+            if(p>0||bef)
+            {
+                c |= l;
+            }
+
+            if(aft||(p+1)<width)
+            {
+                c |= r;
+            }
+        });
+    }
 }
     
 
 void TextBox::vline(std::size_t x, std::size_t y, std::size_t height, bool bef, bool aft)
 {
     for(std::size_t p=0; p<height; ++p)
-        modchar(x, y+p, [&](char& c) { if(c&nonline) c=0; if(p>0||bef) c |= u; if(aft||(p+1)<height) c |= d; });
+    {
+        modchar(x, y+p, [&](char& c)
+        {
+            if(c&nonline)
+            {
+                c=0;
+            }
+
+            if(p>0||bef)
+            {
+                c |= u;
+            }
+
+            if(aft||(p+1)<height)
+            {
+                c |= d;
+            }
+        });
+    }
 }
 
 
 std::size_t TextBox::horiz_append_position(std::size_t y, const TextBox& b) const
 {
-    // Find leftmost position where box b can be appended into *this without overlap
-    std::size_t mywidth = width()/*, myheight = height()*/, theirheight = b.height();
-
+    std::size_t mywidth = width(), theirheight = b.height();
     std::size_t reduce = mywidth;
+
     for(std::size_t p=0; p<theirheight; ++p)
     {
         std::size_t theirpadding = b.FindLeftPadding(p);
         std::size_t mypadding    = FindRightPadding(y+p);
         reduce = std::min(reduce, mypadding + theirpadding);
     }
+
     return mywidth - reduce;
 }
 
 
 std::size_t TextBox::vert_append_position(std::size_t x, const TextBox& b) const
 {
-    // Find topmost position where box b can be appended into *this without overlap
-    std::size_t /*mywidth = width(), */myheight = height(), theirwidth = b.width();
-
+    std::size_t myheight = height(), theirwidth = b.width();
     std::size_t reduce = myheight;
+    
     for(std::size_t p=0; p<theirwidth; ++p)
     {
         std::size_t theirpadding = b.FindTopPadding(p);
@@ -266,10 +326,17 @@ std::vector<std::string> TextBox::to_string(const TextBoxStyle& style) const
 std::size_t TextBox::FindLeftPadding(std::size_t y) const
 {
     std::size_t max = width(), result = 0;
-    if(y >= data.size()) return max;
+    if(y >= data.size())
+    {
+        return max;
+    }
+
     const std::string& line = data[y];
     while(result < line.size() && (line[result] == ' ' || line[result] == '\0'))
-        { ++result; }
+    {
+        ++result;
+    }
+
     return result;
 }
 
@@ -277,10 +344,17 @@ std::size_t TextBox::FindLeftPadding(std::size_t y) const
 std::size_t TextBox::FindRightPadding(std::size_t y) const
 {
     std::size_t max = width(), position = max, result = 0;
-    if(y >= data.size()) return max;
+    if(y >= data.size())
+    {
+        return max;
+    }
+
     const std::string& line = data[y];
     while(position-- > 0 && (position >= line.size() || line[position]==' ' || line[position]=='\0'))
-        { ++result; }
+    {
+        ++result;
+    }
+
     return result;
 }
 
@@ -288,8 +362,12 @@ std::size_t TextBox::FindRightPadding(std::size_t y) const
 std::size_t TextBox::FindTopPadding(std::size_t x) const
 {
     std::size_t result = 0, max = data.size();
+    
     while(result < max && (x >= data[result].size() || data[result][x] == ' ' || data[result][x] == '\0'))
-        { ++result; }
+    {
+        ++result;
+    }
+
     return result;
 }
 
@@ -297,8 +375,12 @@ std::size_t TextBox::FindTopPadding(std::size_t x) const
 std::size_t TextBox::FindBottomPadding(std::size_t x) const
 {
     std::size_t result = 0, max = data.size(), position = max;
+    
     while(position-- > 0 && (x >= data[position].size() || data[position][x] == ' ' || data[position][x] == '\0'))
-        { ++result; }
+    {
+        ++result;
+    }
+
     return result;
 }
 
