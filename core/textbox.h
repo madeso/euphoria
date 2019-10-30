@@ -5,6 +5,8 @@
 #include <vector>
 #include <algorithm>
 
+#include "core/assert.h"
+
 namespace euphoria::core
 {
 
@@ -194,6 +196,8 @@ TextBox create_tree_graph(const ParamType& e,
                           std::size_t firstx = 2
                           )
 {
+    ASSERTX(maxwidth >=16, maxwidth);
+
     TextBox result;
     const std::string atom = create_atom(e);
     
@@ -206,7 +210,7 @@ TextBox create_tree_graph(const ParamType& e,
         boxes.reserve(std::distance(param_range.first, param_range.second));
         for(auto i = param_range.first; i != param_range.second; ++i)
         {
-            boxes.emplace_back(create_tree_graph(*i, (maxwidth >= (16+2)) ? maxwidth - 2 : 16,
+            boxes.emplace_back(create_tree_graph(*i, std::max<std::size_t>(maxwidth - 2, 16),
                                                  create_atom, count_children, oneliner_test, simple_test,
                                                  separate1st_test, margin, firstx));
         }
