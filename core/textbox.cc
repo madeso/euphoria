@@ -281,16 +281,11 @@ std::vector<std::string> TextBox::to_string(const TextBoxStyle& style) const
     };
 
     bool drawing = false;
-    bool quo = false;
-    bool space = true;
-    bool unstr = false;
-    std::string cur_attr;
 
     auto append = [&](bool v, char c)
     {
         if (style.enable_vt100)
         {
-            bool num = false;
             if(v&&!drawing)
             {
               last_line() += "\33)0\16";
@@ -300,27 +295,6 @@ std::vector<std::string> TextBox::to_string(const TextBoxStyle& style) const
             {
               last_line() += "\33)B\17";
               drawing = v;
-            }
-            if(!v && c=='"')
-            {
-              quo = !quo;
-            }
-            if(!v && !quo && ((c>='0' && c<='9') || c=='-'))
-            {
-              num=true;
-            }
-            if(!v && !quo && c=='`')
-            {
-              unstr = true;
-              c = ' ';
-            }
-            if(c == '\n')
-            {
-              unstr = false;
-            }
-            if(!num)
-            {
-              space = (c==' ');
             }
         }
 
@@ -334,7 +308,8 @@ std::vector<std::string> TextBox::to_string(const TextBoxStyle& style) const
         }
     };
 
-    for(std::size_t h = height(), y = 0; y < h; ++y)
+    const std::size_t h = height();
+    for(std::size_t y = 0; y < h; ++y)
     {
         const std::string& s = data[y];
         for(std::size_t x = 0; x < s.size(); ++x)
