@@ -2,11 +2,20 @@
 
 #include <cstdlib>
 
+#include "core/cint.h"
 #include "core/assert.h"
 #include "core/stringutils.h"
 
+// bitmasks
+constexpr unsigned char BIT_UP      = 1 << 0;
+constexpr unsigned char BIT_DOWN    = 1 << 1 ;
+constexpr unsigned char BIT_LEFT    = 1 << 2;
+constexpr unsigned char BIT_RIGHT   = 1 << 3;
+constexpr unsigned char BIT_NO_LINE = ~(BIT_UP | BIT_DOWN | BIT_LEFT | BIT_RIGHT);
+
 namespace
 {
+    using namespace euphoria::core;
     bool TerminalSupportUtf8()
     {
         const auto clang = std::getenv("LANG");
@@ -20,6 +29,23 @@ namespace
         }
 
         return false;
+    }
+
+    std::string GetLineCharacter(const euphoria::core::TextBoxStyle& style, char c)
+    {
+        ASSERTX(c>0, c);
+        ASSERTX(c-1 < Csizet_to_int(style.connections.size()), CharToString(c, CharToStringStyle::IncludeHex), style.connections.size());
+        return style.connections[c-1];
+    }
+
+    template<typename Func>
+    void SetLineCharacter(euphoria::core::TextBoxStyle* style, Func func)
+    {
+        for(char c=1; c<16; c+=1)
+        {
+            ASSERTX(c-1 < Csizet_to_int(style->connections.size()), CharToString(c, CharToStringStyle::IncludeHex), style->connections.size());
+            style->connections[c-1] = func(c);
+        }
     }
 }
 
@@ -38,11 +64,41 @@ TextBoxStyle TerminalStyle()
         return AsciiStyle();
     }
 }
+
+TextBoxStyle::TextBoxStyle()
+{
+    connections.resize(15);
+    SetLineCharacter(this, [](char) { return "";});
+}
     
 TextBoxStyle Utf8Style()
 {
     TextBoxStyle style;
-    style.enable_vt100 = true;
+    style.enable_vt100 = false;
+
+    SetLineCharacter(&style, [](char c) {
+        switch(c) {
+        case BIT_LEFT:                                 return u8"─";
+        case BIT_RIGHT:                                return u8"─";
+        case BIT_LEFT | BIT_RIGHT:                     return u8"─";
+        case BIT_UP:                                   return u8"│";
+        case BIT_DOWN:                                 return u8"│";
+        case BIT_UP | BIT_DOWN:                        return u8"│";
+        case BIT_LEFT| BIT_UP:                         return u8"┘";
+        case BIT_LEFT | BIT_DOWN:                      return u8"┐";
+        case BIT_RIGHT | BIT_UP:                       return u8"└";
+        case BIT_RIGHT | BIT_DOWN:                     return u8"┌";
+        case BIT_LEFT | BIT_RIGHT | BIT_UP:            return u8"┴";
+        case BIT_LEFT | BIT_RIGHT | BIT_DOWN:          return u8"┬";
+        case BIT_LEFT | BIT_UP | BIT_DOWN:             return u8"┤";
+        case BIT_RIGHT | BIT_UP | BIT_DOWN:            return u8"├";
+        case BIT_LEFT | BIT_RIGHT | BIT_UP | BIT_DOWN: return u8"┼";
+        default:
+            DIE("Invalid combination");
+            return "X";
+        }
+    });
+
     return style;
 }
 
@@ -50,15 +106,36 @@ TextBoxStyle AsciiStyle()
 {
     TextBoxStyle style;
     style.enable_vt100 = false;
+
+    SetLineCharacter(&style, [](char c) {
+        switch(c) {
+        case BIT_LEFT:                                 return "-";
+        case BIT_RIGHT:                                return "-";
+        case BIT_LEFT | BIT_RIGHT:                     return "-";
+        case BIT_UP:                                   return "|";
+        case BIT_DOWN:                                 return "|";
+        case BIT_UP | BIT_DOWN:                        return "|";
+        case BIT_LEFT| BIT_UP:                         return "'";
+        case BIT_LEFT | BIT_DOWN:                      return ".";
+        case BIT_RIGHT | BIT_UP:                       return "`";
+        case BIT_RIGHT | BIT_DOWN:                     return ",";
+        case BIT_LEFT | BIT_RIGHT | BIT_UP:            return "+";
+        case BIT_LEFT | BIT_RIGHT | BIT_DOWN:          return "+";
+        case BIT_LEFT | BIT_UP | BIT_DOWN:             return "+";
+        case BIT_RIGHT | BIT_UP | BIT_DOWN:            return "+";
+        case BIT_LEFT | BIT_RIGHT | BIT_UP | BIT_DOWN: return "+";
+        default:
+            DIE("Invalid combination");
+            return "X";
+        }
+    });
+    
+
+    
+
     return style;
 }
 
-// bitmasks
-constexpr unsigned char BIT_UP      = 1 << 0;
-constexpr unsigned char BIT_DOWN    = 1 << 1 ;
-constexpr unsigned char BIT_LEFT    = 1 << 2;
-constexpr unsigned char BIT_RIGHT   = 1 << 3;
-constexpr unsigned char BIT_NO_LINE = ~(BIT_UP | BIT_DOWN | BIT_LEFT | BIT_RIGHT);
 
 TextBox::TextBox()
 {}
@@ -322,8 +399,13 @@ std::vector<std::string> TextBox::to_string(const TextBoxStyle& style) const
             unsigned char c = s[x];
             if(c > 0 && c < 16)
             {
-              const std::string_view linedraw = style.enable_vt100 ? "xxxqjkuqmltqvwn" : "|||-'.+-`,+-+++";
-              append(true, linedraw[c-1]);
+              // const std::string_view linedraw = style.enable_vt100 ? "xxxqjkuqmltqvwn" : "|||-'.+-`,+-+++";
+              // append(true, linedraw[c-1]);
+              const auto str = GetLineCharacter(style, c);
+              for(auto line_char: str)
+              {
+                  append(false, line_char);
+              }
             }
             else
             {

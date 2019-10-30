@@ -10,7 +10,10 @@ namespace euphoria::core
 
     struct TextBoxStyle
     {
+        TextBoxStyle();
+        
         bool enable_vt100 = false;
+        std::vector<std::string> connections;
     };
 
     TextBoxStyle TerminalStyle();
