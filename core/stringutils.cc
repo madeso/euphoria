@@ -163,6 +163,30 @@ namespace euphoria::core
         return ss.str();
     }
 
+    const int
+    FindFirstIndexOfMismatch(const std::string& lhs, const std::string& rhs)
+    {
+        const auto end = std::min(lhs.size(), rhs.size());
+
+        int index = 0;
+        for(; index < end; index+=1)
+        {
+            if(lhs[index]!=rhs[index])
+            {
+                return index;
+            }
+        }
+
+        if(index >= lhs.size() && index >= rhs.size())
+        {
+            return -1;
+        }
+        else
+        {
+            return end;
+        }
+    }
+
     void
     StringReplace(
             std::string*       string,

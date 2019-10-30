@@ -43,6 +43,17 @@ TEST_CASE("stringutils-toupper", "[stringutils]")
     CHECK("SIMPLE TEST" == euco::ToUpper("simplE Test"));
 }
 
+TEST_CASE("stringutils-findfirstindexmismatch", "[stringutils]")
+{
+    CHECK(-1 == euco::FindFirstIndexOfMismatch("dog", "dog"));
+    CHECK(-1 == euco::FindFirstIndexOfMismatch("", ""));
+    CHECK(0 == euco::FindFirstIndexOfMismatch("a", "b"));
+    CHECK(0 == euco::FindFirstIndexOfMismatch("a", "A"));
+    CHECK(1 == euco::FindFirstIndexOfMismatch("dog", "dag"));
+    CHECK(3 == euco::FindFirstIndexOfMismatch("dog", "doggo"));
+    CHECK(3 == euco::FindFirstIndexOfMismatch("doggo", "dog"));
+}
+
 TEST_CASE("stringutils-striplast", "[stringutils]")
 {
     CHECK("hello" == euco::StripLastString("hello.world", '.'));

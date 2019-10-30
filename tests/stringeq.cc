@@ -7,33 +7,6 @@
 #include "core/assert.h"
 #include "core/stringutils.h"
 
-namespace
-{
-    const int
-    StringCompare(const std::string& lhs, const std::string& rhs)
-    {
-        const auto end = std::min(lhs.size(), rhs.size());
-
-        int index = 0;
-        for(; index < end; index+=1)
-        {
-            if(lhs[index]!=rhs[index])
-            {
-                return index;
-            }
-        }
-
-        if(index >= lhs.size() && index >= rhs.size())
-        {
-            return -1;
-        }
-        else
-        {
-            return end;
-        }
-    }
-}  // namespace
-
 
 namespace euphoria::tests
 {
@@ -75,7 +48,7 @@ namespace euphoria::tests
 
         for(size_t i =0; i < lhs.size(); i+=1)
         {
-            const auto s = StringCompare(lhs[i], rhs[i]);
+            const auto s = core::FindFirstIndexOfMismatch(lhs[i], rhs[i]);
             ASSERTX((s==-1 && lhs[i] == rhs [i]) || (s >= 0 && lhs[i] != rhs[i]), s, lhs[i], rhs[i]);
             if(s >= 0 )
             {
@@ -89,10 +62,10 @@ namespace euphoria::tests
                    << " vs "
                    << rhs[i].size();
                 ss << ", first diff at " << s << " with "
-                   << euphoria::core::CharToString(lhs[i][s])
+                   << core::CharToString(lhs[i][s])
                    << "/"
-                   << euphoria::core::CharToString(rhs[i][s]);
-                ss << ", edit-distance is " << euphoria::core::EditDistance(lhs[i], rhs[i]);
+                   << core::CharToString(rhs[i][s]);
+                ss << ", edit-distance is " << core::EditDistance(lhs[i], rhs[i]);
 
                 return FalseString::False(ss.str());
             }

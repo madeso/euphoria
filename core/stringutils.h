@@ -90,6 +90,9 @@ namespace euphoria::core
     std::string
     CharToString(char c);
 
+    const int
+    FindFirstIndexOfMismatch(const std::string& lhs, const std::string& rhs);
+
     /** Replace all occurrences in a string.
     @param string the source string.
     @param to_find the string to find.
