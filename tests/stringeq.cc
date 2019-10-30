@@ -7,6 +7,43 @@
 #include "core/assert.h"
 #include "core/stringutils.h"
 
+#include "catch.hpp"
+
+namespace
+{
+    std::string EscapeString(const std::string& str)
+    {
+        return ::Catch::Detail::stringify(str);
+    }
+
+    std::string VectorToString(const std::vector<std::string>& v, bool one_line)
+    {
+        std::ostringstream ss;
+        bool first = true;
+
+        std::string newline = one_line ? "" : "\n";
+
+        ss << newline << "{" << newline;
+        for(const auto s: v)
+        {
+            if(first) first = false;
+            else ss << ", " << newline;
+            if(one_line == false) ss << "  ";
+            ss << EscapeString(s);
+        }
+        if(!v.empty()) ss << newline;
+        ss << "}" << newline;
+
+        return ss.str();
+    }
+
+    std::string VectorToString(const std::vector<std::string>& v)
+    {
+        const auto oneline = VectorToString(v, true);
+        if( oneline.size() <15)  return oneline;
+        else return VectorToString(v, false);
+    }
+}
 
 namespace euphoria::tests
 {
@@ -49,8 +86,8 @@ namespace euphoria::tests
         {
             std::ostringstream ss;
                 
-            ss << "lhs: '" << lhs << "' and "
-                << "rhs: '" << rhs << "'";
+            ss << "lhs: " << EscapeString(lhs) << " and "
+               << "rhs: " << EscapeString(rhs) ;
             ss << ", lengths are "
                 << lhs.size()
                 << " vs "
@@ -71,21 +108,46 @@ namespace euphoria::tests
     FalseString
     StringEq(const std::vector<std::string> lhs, const std::vector<std::string> rhs)
     {
+        auto size_equal = FalseString::True();
         if(lhs.size() != rhs.size())
         {
-            return FalseString::False("size missmach");
+            std::ostringstream ss;
+            ss << "Size mismatch: "
+               << lhs.size()
+               << " vs "
+               << rhs.size();
+            ss << VectorToString(lhs) << " " << VectorToString(rhs);
+            size_equal = FalseString::False(ss.str());
         }
 
-        for(size_t i =0; i < lhs.size(); i+=1)
+        const auto size = std::min(lhs.size(), rhs.size());
+        for(size_t i =0; i < size; i+=1)
         {
             const FalseString equals = StringEq(lhs[i], rhs[i]);
             if(!equals)
             {
                 std::ostringstream ss;
-                ss << "Invalid at index " << i << ", "
+
+                if(!size_equal)
+                {
+                    ss << size_equal.str << ", and invalid";
+                }
+                else
+                {
+                    ss << "Invalid";
+                }
+
+
+                ss << " value at index ";
+                ss << i << ", "
                     << equals.str;
                 return FalseString::False(ss.str());
             }
+        }
+
+        if(!size_equal)
+        {
+            return size_equal;
         }
 
         return FalseString::True();
