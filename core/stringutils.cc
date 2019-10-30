@@ -214,7 +214,7 @@ namespace euphoria::core
         return ss.str();
     }
 
-    const int
+    int
     FindFirstIndexOfMismatch(const std::string& lhs, const std::string& rhs)
     {
         const auto end = std::min(lhs.size(), rhs.size());
