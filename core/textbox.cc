@@ -90,8 +90,8 @@ void TextBox::extend(std::size_t x, std::size_t y)
 
 void TextBox::putline(const std::string& s, std::size_t x_start, std::size_t y)
 {
-    auto xx = s.empty() ? 0 : s.size()-1;
-    extend(x_start+xx, y);
+    auto size_minus_1 = s.empty() ? 0 : s.size()-1;
+    extend(x_start+size_minus_1, y);
     
     for(std::size_t begin = 0; begin < s.size(); ++begin)
     {
@@ -105,16 +105,17 @@ void TextBox::putline(const std::string& s, std::size_t x_start, std::size_t y)
             continue;
         }
 
-        char &tgt = data[y][x];
-        if(tgt==' ' || !tgt || (c&BIT_NO_LINE))
+        char& target = data[y][x];
+        if(target==' ' || !target || (c & BIT_NO_LINE))
         {
-            tgt = c;
+            target = c;
         }
         else
         {
-            if(tgt&BIT_NO_LINE)
+            if(target & BIT_NO_LINE)
             {
-                tgt=0; tgt|=c;
+                target = 0;
+                target |= c;
             }
         }
     }
@@ -166,6 +167,7 @@ std::size_t TextBox::height() const
 std::size_t TextBox::width()  const
 {
     std::size_t result = 0;
+
     for(const auto& s: data)
     {
         result = std::max(result, s.size());
@@ -180,23 +182,23 @@ std::pair<std::size_t, std::size_t> TextBox::Size() const
 }
 
 
-void TextBox::hline(std::size_t x, std::size_t y, std::size_t width, bool bef, bool aft)
+void TextBox::hline(std::size_t x, std::size_t y, std::size_t line_width, bool bef, bool aft)
 {
-    for(std::size_t p=0; p<width; ++p)
+    for(std::size_t line_index=0; line_index<line_width; ++line_index)
     {
-        modchar(x+p, y, [&](char& c)
+        modchar(x+line_index, y, [&](char& c)
         {
-            if(c&BIT_NO_LINE)
+            if(c & BIT_NO_LINE)
             {
-                c=0;
+                c = 0;
             }
 
-            if(p>0||bef)
+            if(line_index>0 || bef)
             {
                 c |= BIT_LEFT;
             }
 
-            if(aft||(p+1)<width)
+            if(aft || (line_index+1)<line_width)
             {
                 c |= BIT_RIGHT;
             }
@@ -205,23 +207,23 @@ void TextBox::hline(std::size_t x, std::size_t y, std::size_t width, bool bef, b
 }
     
 
-void TextBox::vline(std::size_t x, std::size_t y, std::size_t height, bool bef, bool aft)
+void TextBox::vline(std::size_t x, std::size_t y, std::size_t line_height, bool bef, bool aft)
 {
-    for(std::size_t p=0; p<height; ++p)
+    for(std::size_t line_index=0; line_index<line_height; ++line_index)
     {
-        modchar(x, y+p, [&](char& c)
+        modchar(x, y+line_index, [&](char& c)
         {
-            if(c&BIT_NO_LINE)
+            if(c & BIT_NO_LINE)
             {
-                c=0;
+                c = 0;
             }
 
-            if(p>0||bef)
+            if(line_index>0 || bef)
             {
                 c |= BIT_UP;
             }
 
-            if(aft||(p+1)<height)
+            if(aft || (line_index+1)<line_height)
             {
                 c |= BIT_DOWN;
             }
@@ -232,7 +234,8 @@ void TextBox::vline(std::size_t x, std::size_t y, std::size_t height, bool bef, 
 
 std::size_t TextBox::horiz_append_position(std::size_t y, const TextBox& b) const
 {
-    std::size_t mywidth = width(), theirheight = b.height();
+    std::size_t mywidth = width();
+    std::size_t theirheight = b.height();
     std::size_t reduce = mywidth;
 
     for(std::size_t p=0; p<theirheight; ++p)
@@ -248,7 +251,8 @@ std::size_t TextBox::horiz_append_position(std::size_t y, const TextBox& b) cons
 
 std::size_t TextBox::vert_append_position(std::size_t x, const TextBox& b) const
 {
-    std::size_t myheight = height(), theirwidth = b.width();
+    std::size_t myheight = height();
+    std::size_t theirwidth = b.width();
     std::size_t reduce = myheight;
     
     for(std::size_t p=0; p<theirwidth; ++p)
@@ -383,7 +387,8 @@ std::vector<std::string> TextBox::to_string(const TextBoxStyle& style) const
 
 std::size_t TextBox::FindLeftPadding(std::size_t y) const
 {
-    std::size_t max = width(), result = 0;
+    std::size_t max = width();
+    std::size_t result = 0;
     if(y >= data.size())
     {
         return max;
@@ -401,7 +406,9 @@ std::size_t TextBox::FindLeftPadding(std::size_t y) const
 
 std::size_t TextBox::FindRightPadding(std::size_t y) const
 {
-    std::size_t max = width(), position = max, result = 0;
+    std::size_t max = width();
+    std::size_t position = max;
+    std::size_t result = 0;
     if(y >= data.size())
     {
         return max;
@@ -419,7 +426,8 @@ std::size_t TextBox::FindRightPadding(std::size_t y) const
 
 std::size_t TextBox::FindTopPadding(std::size_t x) const
 {
-    std::size_t result = 0, max = data.size();
+    std::size_t result = 0;
+    std::size_t max = data.size();
     
     while(result < max && (x >= data[result].size() || data[result][x] == ' ' || data[result][x] == '\0'))
     {
@@ -432,7 +440,9 @@ std::size_t TextBox::FindTopPadding(std::size_t x) const
 
 std::size_t TextBox::FindBottomPadding(std::size_t x) const
 {
-    std::size_t result = 0, max = data.size(), position = max;
+    std::size_t result = 0;
+    std::size_t max = data.size();
+    std::size_t position = max;
     
     while(position-- > 0 && (x >= data[position].size() || data[position][x] == ' ' || data[position][x] == '\0'))
     {
@@ -446,7 +456,8 @@ namespace detail
 {
     void CreateTreeGraph(TextBox& result, size_t maxwidth, const std::vector<TextBox>& boxes, bool oneliner_test, bool simple_test, bool separate1st_test, std::string atom)
     {
-        constexpr std::size_t margin = 4, firstx = 2;
+        constexpr std::size_t margin = 4;
+        constexpr std::size_t firstx = 2;
 
         std::size_t sum_width = 0;
         for(const auto& b: boxes)
@@ -548,7 +559,8 @@ namespace detail
             }
             else if(oneliner)
             {
-                unsigned cx = x, cy = y-1;
+                unsigned cx = x;
+                unsigned cy = y-1;
                 if(x > atom.size())
                 {
                     result.hline(atom.size(), 0, 1+x-atom.size(), false,false);
@@ -557,14 +569,16 @@ namespace detail
             }
             else if(horizontal)
             {
-                unsigned cx = x, cy = y-1;
+                unsigned cx = x;
+                unsigned cy = y-1;
                 result.vline(0,  1,  1 + (cy-1), true,false);
                 result.hline(0,  cy, 1 + (cx-0), false,false);
                 result.vline(cx, cy, 1,          false,true);
             }
             else
             {
-                unsigned cx = x-1, cy = y;
+                unsigned cx = x-1;
+                unsigned cy = y;
                 result.vline(0,1,  1 + (cy-1), true,false);
                 result.hline(0,cy, 1 + (cx-0), false,true);
             }
