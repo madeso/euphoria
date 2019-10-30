@@ -96,7 +96,7 @@ TEST_CASE("tb_print")
             INFO(box.data);
             CHECK(box.Size() == S(3,2));
             CHECK(StringEq(box.data, {"", "  x"}));
-            CHECK(StringEq(box.to_string(AsciiStyle()), {"  x"}));
+            CHECK(StringEq(box.to_string(AsciiStyle()), {"", "  x"}));
         }
     }
 
@@ -119,7 +119,7 @@ TEST_CASE("tb_print")
             INFO(box.data);
             CHECK(box.Size() == S(3,2));
             CHECK(StringEq(box.data, {"", "  d"}));
-            CHECK(StringEq(box.to_string(AsciiStyle()), {"  d"}));
+            CHECK(StringEq(box.to_string(AsciiStyle()), {"", "  d"}));
         }
     }
 
@@ -142,7 +142,7 @@ TEST_CASE("tb_print")
             INFO(box.data);
             CHECK(box.Size() == S(4,2));
             CHECK(StringEq(box.data, {"", " dog"}));
-            CHECK(StringEq(box.to_string(AsciiStyle()), {" dog"}));
+            CHECK(StringEq(box.to_string(AsciiStyle()), {"", " dog"}));
         }
 
         SECTION("collision")
@@ -179,7 +179,7 @@ TEST_CASE("tb_print")
             INFO(box.data);
             CHECK(box.Size() == S(3,2));
             CHECK(StringEq(box.data, {"", "  a"}));
-            CHECK(StringEq(box.to_string(AsciiStyle()), {"  a"}));
+            CHECK(StringEq(box.to_string(AsciiStyle()), {"", "  a"}));
         }
 
         SECTION("change")
@@ -190,7 +190,7 @@ TEST_CASE("tb_print")
             INFO(box.data);
             CHECK(box.Size() == S(3,2));
             CHECK(StringEq(box.data, {"", "  a"}));
-            CHECK(StringEq(box.to_string(AsciiStyle()), {"  a"}));
+            CHECK(StringEq(box.to_string(AsciiStyle()), {"", "  a"}));
         }
     }
 
@@ -295,7 +295,7 @@ TEST_CASE("tb_box")
         CHECK(StringEq(empty.PutBoxCopy(0, 0, x).to_string(AsciiStyle()), x_data));
         CHECK(StringEq(empty.PutBoxCopy(0, 0, abc).to_string(AsciiStyle()), abc_data));
         CHECK(StringEq(empty.PutBoxCopy(1, 1, empty).to_string(AsciiStyle()), {}));
-        CHECK(StringEq(empty.PutBoxCopy(1, 1, x).to_string(AsciiStyle()), {"    ", "  x ", "    "}));
+        CHECK(StringEq(empty.PutBoxCopy(1, 1, x).to_string(AsciiStyle()), {"", "    ", "  x ", "    "}));
         CHECK(StringEq(empty.PutBoxCopy(1, 1, empty).to_string(AsciiStyle()), {}));
     }
 

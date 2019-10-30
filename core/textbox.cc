@@ -300,6 +300,11 @@ std::vector<std::string> TextBox::to_string(const TextBoxStyle& style) const
 
         if(c == '\n')
         {
+            if(want_newline)
+            {
+                // if we want another newline, add the one before first
+                last_line();
+            }
             want_newline = true;
         }
         else
