@@ -54,11 +54,11 @@ TextBoxStyle AsciiStyle()
 }
 
 // bitmasks
-constexpr unsigned char u=1;
-constexpr unsigned char d=2;
-constexpr unsigned char l=4;
-constexpr unsigned char r=8;
-constexpr unsigned char nonline = ~(u+d+l+r);
+constexpr unsigned char BIT_UP=1;
+constexpr unsigned char BIT_DOWN=2;
+constexpr unsigned char BIT_LEFT=4;
+constexpr unsigned char BIT_RIGHT=8;
+constexpr unsigned char BIT_NO_LINE = ~(BIT_UP+BIT_DOWN+BIT_LEFT+BIT_RIGHT);
 
 
 TextBox::TextBox()
@@ -107,13 +107,13 @@ void TextBox::putline(const std::string& s, std::size_t x_start, std::size_t y)
         }
 
         char &tgt = data[y][x];
-        if(tgt==' ' || !tgt || (c&nonline))
+        if(tgt==' ' || !tgt || (c&BIT_NO_LINE))
         {
             tgt = c;
         }
         else
         {
-            if(tgt&nonline)
+            if(tgt&BIT_NO_LINE)
             {
                 tgt=0; tgt|=c;
             }
@@ -187,19 +187,19 @@ void TextBox::hline(std::size_t x, std::size_t y, std::size_t width, bool bef, b
     {
         modchar(x+p, y, [&](char& c)
         {
-            if(c&nonline)
+            if(c&BIT_NO_LINE)
             {
                 c=0;
             }
 
             if(p>0||bef)
             {
-                c |= l;
+                c |= BIT_LEFT;
             }
 
             if(aft||(p+1)<width)
             {
-                c |= r;
+                c |= BIT_RIGHT;
             }
         });
     }
@@ -212,19 +212,19 @@ void TextBox::vline(std::size_t x, std::size_t y, std::size_t height, bool bef, 
     {
         modchar(x, y+p, [&](char& c)
         {
-            if(c&nonline)
+            if(c&BIT_NO_LINE)
             {
                 c=0;
             }
 
             if(p>0||bef)
             {
-                c |= u;
+                c |= BIT_UP;
             }
 
             if(aft||(p+1)<height)
             {
-                c |= d;
+                c |= BIT_DOWN;
             }
         });
     }
