@@ -233,7 +233,7 @@ TEST_CASE("tb_arrows")
 
             CHECK(box.Size() == S(3,1));
             CHECK(StringEq(box.data, {ascii({8, 12, 4})}));
-            CHECK(StringEq(box.to_string(AsciiStyle()), {"---"}));
+            CHECK(StringEq(box.to_string(abc_style), {"bca"}));
         }
 
         SECTION("h2")
@@ -242,7 +242,7 @@ TEST_CASE("tb_arrows")
 
             CHECK(box.Size() == S(3,1));
             CHECK(StringEq(box.data, {ascii({8, 12, 12})}));
-            CHECK(StringEq(box.to_string(AsciiStyle()), {"---"}));
+            CHECK(StringEq(box.to_string(abc_style), {"bcc"}));
         }
 
         SECTION("h3")
@@ -251,7 +251,7 @@ TEST_CASE("tb_arrows")
 
             CHECK(box.Size() == S(3,1));
             CHECK(StringEq(box.data, {ascii({12, 12, 4})}));
-            CHECK(StringEq(box.to_string(AsciiStyle()), {"---"}));
+            CHECK(StringEq(box.to_string(abc_style), {"cca"}));
         }
 
         SECTION("h4")
@@ -260,7 +260,7 @@ TEST_CASE("tb_arrows")
 
             CHECK(box.Size() == S(3,1));
             CHECK(StringEq(box.data, {ascii({12, 12, 12})}));
-            CHECK(StringEq(box.to_string(AsciiStyle()), {"---"}));
+            CHECK(StringEq(box.to_string(abc_style), {"ccc"}));
         }
 
         SECTION("v1")
@@ -269,7 +269,7 @@ TEST_CASE("tb_arrows")
 
             CHECK(box.Size() == S(1,3));
             CHECK(StringEq(box.data, {ascii({2}), ascii({3}), ascii({1})}));
-            CHECK(StringEq(box.to_string(AsciiStyle()), {"|", "|", "|"}));
+            CHECK(StringEq(box.to_string(abc_style), {"e", "f", "d"}));
         }
 
         SECTION("v2")
@@ -278,7 +278,7 @@ TEST_CASE("tb_arrows")
 
             CHECK(box.Size() == S(1,3));
             CHECK(StringEq(box.data, {ascii({2}), ascii({3}), ascii({3})}));
-            CHECK(StringEq(box.to_string(AsciiStyle()), {"|", "|", "|"}));
+            CHECK(StringEq(box.to_string(abc_style), {"e", "f", "f"}));
         }
 
         SECTION("v3")
@@ -287,7 +287,7 @@ TEST_CASE("tb_arrows")
 
             CHECK(box.Size() == S(1,3));
             CHECK(StringEq(box.data, {ascii({3}), ascii({3}), ascii({1})}));
-            CHECK(StringEq(box.to_string(AsciiStyle()), {"|", "|", "|"}));
+            CHECK(StringEq(box.to_string(abc_style), {"f", "f", "d"}));
         }
 
         SECTION("v4")
@@ -296,7 +296,7 @@ TEST_CASE("tb_arrows")
 
             CHECK(box.Size() == S(1,3));
             CHECK(StringEq(box.data, {ascii({3}), ascii({3}), ascii({3})}));
-            CHECK(StringEq(box.to_string(AsciiStyle()), {"|", "|", "|"}));
+            CHECK(StringEq(box.to_string(abc_style), {"f", "f", "f"}));
         }
     }
 }
