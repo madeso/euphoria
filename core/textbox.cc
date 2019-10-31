@@ -206,34 +206,39 @@ void TextBox::extend(std::size_t x, std::size_t y)
 }
 
 
-void TextBox::putline(const std::string& s, std::size_t x_start, std::size_t y)
+void TextBox::putline(const std::string& line, std::size_t x_start, std::size_t y)
 {
-    auto size_minus_1 = s.empty() ? 0 : s.size()-1;
+    auto size_minus_1 = line.empty() ? 0 : line.size()-1;
     extend(x_start+size_minus_1, y);
     
-    for(std::size_t begin = 0; begin < s.size(); ++begin)
+    for(std::size_t line_index = 0; line_index < line.size(); ++line_index)
     {
-        const auto x = x_start + begin;
-        const unsigned char c = s[begin];
+        const auto x = x_start + line_index;
+        const auto source_texel = line[line_index];
 
         ASSERT(x < data[y].size());
 
-        if(c==' ' || !c)
+        auto is_empty = [](char c) -> bool
+        {
+            return c ==' ' || !c;
+        };
+
+        if(is_empty(source_texel))
         {
             continue;
         }
 
         char& target = data[y][x];
-        if(target==' ' || !target || (c & BIT_NO_LINE))
+        if( is_empty(target) || (source_texel & BIT_NO_LINE))
         {
-            target = c;
+            target = source_texel;
         }
         else
         {
             if(target & BIT_NO_LINE)
             {
                 target = 0;
-                target |= c;
+                target |= source_texel;
             }
         }
     }
