@@ -67,7 +67,7 @@ namespace
 
 TEST_CASE("tb_print")
 {
-    TextBox box;
+    auto box = TextBox::Empty();
 
     SECTION("empty")
     {
@@ -285,9 +285,9 @@ TEST_CASE("tb_box")
     const std::vector<std::string> x_data = {"   ", " x ", "   "};
     const std::vector<std::string> abc_data = {"abc"};
 
-    const TextBox empty;
-    const auto x = TextBox{ x_data };
-    const auto abc = TextBox{ abc_data };
+    const auto empty = TextBox::Empty();
+    const auto x = TextBox::FromString(x_data);
+    const auto abc = TextBox::FromString(abc_data);
 
     SECTION("putbox")
     {
@@ -365,7 +365,7 @@ TEST_CASE("tb_box")
 
 TEST_CASE("tb_arrows")
 {
-    TextBox box;
+    auto box = TextBox::Empty();
     for(int i=1; i<16; i+=1)
     {
         box.putchar(static_cast<char>(i), (i % 4), (i/4));

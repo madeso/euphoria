@@ -199,9 +199,17 @@ TextBoxStyle AsciiStyle()
 TextBox::TextBox()
 {}
 
+TextBox TextBox::Empty()
+{
+    return {};
+}
 
-TextBox::TextBox(const std::vector<std::string>& a_data) : data(a_data)
-{}
+TextBox TextBox::FromString(const std::vector<std::string>& str)
+{
+    TextBox ret;
+    ret.data = str;
+    return ret;
+}
 
 
 void TextBox::putchar(char c, std::size_t x, std::size_t y)
@@ -616,9 +624,9 @@ namespace detail
                 for(;;)
                 {
                     // Check if there is room for a horizontal connector. If not, increase y
-                    TextBox conn;
-                    conn.putline(std::string(1+(x-0), '-'), 0, 0);
-                    if(result.horiz_append_position(y-1, conn) > x)
+                    auto connector = TextBox::Empty();
+                    connector.putline(std::string(1+(x-0), '-'), 0, 0);
+                    if(result.horiz_append_position(y-1, connector) > x)
                     {
                       ++y;
                     }

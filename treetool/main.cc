@@ -61,7 +61,7 @@ main(int, char**)
         std::cout << "\n-----------------------------------------\n\n";
 
         {
-            TextBox result;
+            auto result = TextBox::Empty();
             result.putbox(2,0, create_tree_graph(t, 132-2,
                 [](const T& e)
                 {

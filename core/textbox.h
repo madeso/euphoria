@@ -31,8 +31,12 @@ struct TextBox
 {
     std::vector<std::string> data;
 
+    private:
     TextBox();
-    TextBox(const std::vector<std::string>& a_data);
+
+    public:
+    static TextBox Empty();
+    static TextBox FromString(const std::vector<std::string>& str);
 
     /** Place a single character in the given coordinate.
     Notice that behavior is undefined if the character is in 00-1F range. */
@@ -198,7 +202,7 @@ TextBox create_tree_graph(const ParamType& e,
 {
     ASSERTX(maxwidth >=16, maxwidth);
 
-    TextBox result;
+    auto result = TextBox::Empty();
     const std::string atom = create_atom(e);
     
     result.putline(atom, 0,0);
