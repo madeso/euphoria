@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <functional>
 
 #include "core/assert.h"
 
@@ -12,7 +13,14 @@ namespace euphoria::core
 
     struct TextBoxStyle
     {
+        private:
         TextBoxStyle();
+
+        public:
+        static TextBoxStyle Create(std::function<std::string(char)> connections_func);
+        std::string GetString(char s) const;
+
+        private:
         std::vector<std::string> connections;
     };
 

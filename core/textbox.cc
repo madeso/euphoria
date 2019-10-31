@@ -15,7 +15,6 @@ constexpr unsigned char BIT_NO_LINE = ~(BIT_UP | BIT_DOWN | BIT_LEFT | BIT_RIGHT
 
 namespace
 {
-    using namespace euphoria::core;
     bool TerminalSupportUtf8()
     {
         const auto clang = std::getenv("LANG");
@@ -30,28 +29,30 @@ namespace
 
         return false;
     }
-
-    std::string GetLineCharacter(const euphoria::core::TextBoxStyle& style, char c)
-    {
-        ASSERTX(c>0, c);
-        ASSERTX(c-1 < Csizet_to_int(style.connections.size()), CharToString(c, CharToStringStyle::IncludeHex), style.connections.size());
-        return style.connections[c-1];
-    }
-
-    template<typename Func>
-    void SetLineCharacter(euphoria::core::TextBoxStyle* style, Func func)
-    {
-        for(char c=1; c<16; c+=1)
-        {
-            ASSERTX(c-1 < Csizet_to_int(style->connections.size()), CharToString(c, CharToStringStyle::IncludeHex), style->connections.size());
-            style->connections[c-1] = func(c);
-        }
-    }
 }
 
 
 namespace euphoria::core
 {
+
+    std::string TextBoxStyle::GetString(char c) const
+    {
+        ASSERTX(c>0, c);
+        ASSERTX(c-1 < Csizet_to_int(connections.size()), CharToString(c, CharToStringStyle::IncludeHex), connections.size());
+        return connections[c-1];
+    }
+
+
+    TextBoxStyle TextBoxStyle::Create(std::function<std::string(char)> connections_func)
+    {
+        euphoria::core::TextBoxStyle style;
+        for(char c=1; c<16; c+=1)
+        {
+            ASSERTX(c-1 < Csizet_to_int(style.connections.size()), CharToString(c, CharToStringStyle::IncludeHex), style.connections.size());
+            style.connections[c-1] = connections_func(c);
+        }
+        return style;
+    }
 
 TextBoxStyle TerminalStyle()
 {
@@ -69,14 +70,11 @@ TextBoxStyle TerminalStyle()
 TextBoxStyle::TextBoxStyle()
 {
     connections.resize(15);
-    SetLineCharacter(this, [](char) { return "";});
 }
 
 TextBoxStyle Utf8StraightStyle()
 {
-    TextBoxStyle style;
-
-    SetLineCharacter(&style, [](char c) {
+    return TextBoxStyle::Create([](char c) {
         switch(c) {
         case BIT_LEFT:                                 return u8"─";
         case BIT_RIGHT:                                return u8"─";
@@ -98,15 +96,11 @@ TextBoxStyle Utf8StraightStyle()
             return "X";
         }
     });
-
-    return style;
 }
 
 TextBoxStyle Utf8RoundedStyle()
 {
-    TextBoxStyle style;
-
-    SetLineCharacter(&style, [](char c) {
+    return TextBoxStyle::Create([](char c) {
         switch(c) {
         case BIT_LEFT:                                 return u8"─";
         case BIT_RIGHT:                                return u8"─";
@@ -128,15 +122,11 @@ TextBoxStyle Utf8RoundedStyle()
             return "X";
         }
     });
-
-    return style;
 }
 
 TextBoxStyle Utf8DoubleLineStyle()
 {
-    TextBoxStyle style;
-
-    SetLineCharacter(&style, [](char c) {
+    return TextBoxStyle::Create([](char c) {
         switch(c) {
         case BIT_LEFT:                                 return u8"═";
         case BIT_RIGHT:                                return u8"═";
@@ -158,15 +148,11 @@ TextBoxStyle Utf8DoubleLineStyle()
             return "X";
         }
     });
-
-    return style;
 }
 
 TextBoxStyle AsciiStyle()
 {
-    TextBoxStyle style;
-
-    SetLineCharacter(&style, [](char c) {
+    return TextBoxStyle::Create([](char c) {
         switch(c) {
         case BIT_LEFT:                                 return "-";
         case BIT_RIGHT:                                return "-";
@@ -188,11 +174,6 @@ TextBoxStyle AsciiStyle()
             return "X";
         }
     });
-    
-
-    
-
-    return style;
 }
 
 
@@ -450,7 +431,7 @@ std::vector<std::string> TextBox::to_string(const TextBoxStyle& style) const
             unsigned char c = s[x];
             if(c > 0 && c < 16)
             {
-              const auto str = GetLineCharacter(style, c);
+              const auto str = style.GetString(c);
               for(auto line_char: str)
               {
                   append(line_char);
