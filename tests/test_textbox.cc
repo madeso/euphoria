@@ -71,9 +71,7 @@ TEST_CASE("tb_print")
 
     SECTION("empty")
     {
-        INFO(box.data);
         CHECK(box.Size() == S(0,0));
-        CHECK(StringEq(box.data, {}));
         CHECK(StringEq(box.to_string(AsciiStyle()), {}));
     }
 
@@ -83,9 +81,7 @@ TEST_CASE("tb_print")
         {
             box.putchar('x', 0, 0);
 
-            INFO(box.data);
             CHECK(box.Size() == S(1,1));
-            CHECK(StringEq(box.data, {"x"}));
             CHECK(StringEq(box.to_string(AsciiStyle()), {"x"}));
         }
 
@@ -93,9 +89,7 @@ TEST_CASE("tb_print")
         {
             box.putchar('x', 2, 1);
 
-            INFO(box.data);
             CHECK(box.Size() == S(3,2));
-            CHECK(StringEq(box.data, {"", "  x"}));
             CHECK(StringEq(box.to_string(AsciiStyle()), {"", "  x"}));
         }
     }
@@ -106,9 +100,7 @@ TEST_CASE("tb_print")
         {
             box.modchar(0, 0, [](char& c){c = 'd';});
 
-            INFO(box.data);
             CHECK(box.Size() == S(1,1));
-            CHECK(StringEq(box.data, {"d"}));
             CHECK(StringEq(box.to_string(AsciiStyle()), {"d"}));
         }
 
@@ -116,9 +108,7 @@ TEST_CASE("tb_print")
         {
             box.modchar(2, 1, [](char& c){c = 'd';});
 
-            INFO(box.data);
             CHECK(box.Size() == S(3,2));
-            CHECK(StringEq(box.data, {"", "  d"}));
             CHECK(StringEq(box.to_string(AsciiStyle()), {"", "  d"}));
         }
     }
@@ -129,9 +119,7 @@ TEST_CASE("tb_print")
         {
             box.putline("dog", 0, 0);
 
-            INFO(box.data);
             CHECK(box.Size() == S(3,1));
-            CHECK(StringEq(box.data, {"dog"}));
             CHECK(StringEq(box.to_string(AsciiStyle()), {"dog"}));
         }
 
@@ -139,9 +127,7 @@ TEST_CASE("tb_print")
         {
             box.putline("dog", 1, 1);
 
-            INFO(box.data);
             CHECK(box.Size() == S(4,2));
-            CHECK(StringEq(box.data, {"", " dog"}));
             CHECK(StringEq(box.to_string(AsciiStyle()), {"", " dog"}));
         }
 
@@ -150,9 +136,7 @@ TEST_CASE("tb_print")
             box.putline("doggo", 0, 0);
             box.putline( "dog", 1, 0);
 
-            INFO(box.data);
             CHECK(box.Size() == S(5,1));
-            CHECK(StringEq(box.data, {"ddogo"}));
             CHECK(StringEq(box.to_string(AsciiStyle()), {"ddogo"}));
         }
     }
@@ -165,31 +149,25 @@ TEST_CASE("tb_print")
         {
             box.trim();
 
-            INFO(box.data);
             CHECK(box.Size() == S(0,0));
-            CHECK(StringEq(box.data, {}));
             CHECK(StringEq(box.to_string(AsciiStyle()), {}));
         }
 
         SECTION("no change")
         {
-            box.data = {"", "  a"};
+            box = TextBox::FromString({"", "  a"});
             box.trim();
 
-            INFO(box.data);
             CHECK(box.Size() == S(3,2));
-            CHECK(StringEq(box.data, {"", "  a"}));
             CHECK(StringEq(box.to_string(AsciiStyle()), {"", "  a"}));
         }
 
         SECTION("change")
         {
-            box.data = {"    ", "  a ", ""};
+            box = TextBox::FromString({"    ", "  a ", ""});
             box.trim();
 
-            INFO(box.data);
             CHECK(box.Size() == S(3,2));
-            CHECK(StringEq(box.data, {"", "  a"}));
             CHECK(StringEq(box.to_string(AsciiStyle()), {"", "  a"}));
         }
     }
@@ -201,7 +179,6 @@ TEST_CASE("tb_print")
         {
             box.hline(0, 0, 3, false, false);
 
-            INFO(box.data);
             CHECK(box.Size() == S(3,1));
             CHECK(StringEq(box.data, {ascii({8, 12, 4})}));
             CHECK(StringEq(box.to_string(AsciiStyle()), {"---"}));
@@ -211,7 +188,6 @@ TEST_CASE("tb_print")
         {
             box.hline(0, 0, 3, false, true);
 
-            INFO(box.data);
             CHECK(box.Size() == S(3,1));
             CHECK(StringEq(box.data, {ascii({8, 12, 12})}));
             CHECK(StringEq(box.to_string(AsciiStyle()), {"---"}));
@@ -221,7 +197,6 @@ TEST_CASE("tb_print")
         {
             box.hline(0, 0, 3, true, false);
 
-            INFO(box.data);
             CHECK(box.Size() == S(3,1));
             CHECK(StringEq(box.data, {ascii({12, 12, 4})}));
             CHECK(StringEq(box.to_string(AsciiStyle()), {"---"}));
@@ -231,7 +206,6 @@ TEST_CASE("tb_print")
         {
             box.hline(0, 0, 3, true, true);
 
-            INFO(box.data);
             CHECK(box.Size() == S(3,1));
             CHECK(StringEq(box.data, {ascii({12, 12, 12})}));
             CHECK(StringEq(box.to_string(AsciiStyle()), {"---"}));
@@ -241,7 +215,6 @@ TEST_CASE("tb_print")
         {
             box.vline(0, 0, 3, false, false);
 
-            INFO(box.data);
             CHECK(box.Size() == S(1,3));
             CHECK(StringEq(box.data, {ascii({2}), ascii({3}), ascii({1})}));
             CHECK(StringEq(box.to_string(AsciiStyle()), {"|", "|", "|"}));
@@ -251,7 +224,6 @@ TEST_CASE("tb_print")
         {
             box.vline(0, 0, 3, false, true);
 
-            INFO(box.data);
             CHECK(box.Size() == S(1,3));
             CHECK(StringEq(box.data, {ascii({2}), ascii({3}), ascii({3})}));
             CHECK(StringEq(box.to_string(AsciiStyle()), {"|", "|", "|"}));
@@ -261,7 +233,6 @@ TEST_CASE("tb_print")
         {
             box.vline(0, 0, 3, true, false);
 
-            INFO(box.data);
             CHECK(box.Size() == S(1,3));
             CHECK(StringEq(box.data, {ascii({3}), ascii({3}), ascii({1})}));
             CHECK(StringEq(box.to_string(AsciiStyle()), {"|", "|", "|"}));
@@ -271,7 +242,6 @@ TEST_CASE("tb_print")
         {
             box.vline(0, 0, 3, true, true);
 
-            INFO(box.data);
             CHECK(box.Size() == S(1,3));
             CHECK(StringEq(box.data, {ascii({3}), ascii({3}), ascii({3})}));
             CHECK(StringEq(box.to_string(AsciiStyle()), {"|", "|", "|"}));
