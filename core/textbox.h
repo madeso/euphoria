@@ -44,7 +44,7 @@ License: MIT
 Requires a C++17 capable compiler and standard library. */
 struct TextBox
 {
-    // private:
+    private:
     std::vector<std::string> data;
 
     private:

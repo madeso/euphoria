@@ -53,16 +53,6 @@ namespace
     {
         return {a, b};
     }
-
-    std::string ascii(std::initializer_list<int> ii)
-    {
-        std::string r;
-        for(auto i: ii)
-        {
-            r += static_cast<char>(i);
-        }
-        return r;
-    }
 }
 
 TEST_CASE("tb_print")
@@ -224,7 +214,6 @@ TEST_CASE("tb_arrows")
         }));
     }
 
-    // todo(Gustav): fix bitmasks in character codes
     SECTION("lines")
     {
         SECTION("h1")
@@ -232,7 +221,6 @@ TEST_CASE("tb_arrows")
             box.hline(0, 0, 3, false, false);
 
             CHECK(box.Size() == S(3,1));
-            CHECK(StringEq(box.data, {ascii({8, 12, 4})}));
             CHECK(StringEq(box.to_string(abc_style), {"bca"}));
         }
 
@@ -241,7 +229,6 @@ TEST_CASE("tb_arrows")
             box.hline(0, 0, 3, false, true);
 
             CHECK(box.Size() == S(3,1));
-            CHECK(StringEq(box.data, {ascii({8, 12, 12})}));
             CHECK(StringEq(box.to_string(abc_style), {"bcc"}));
         }
 
@@ -250,7 +237,6 @@ TEST_CASE("tb_arrows")
             box.hline(0, 0, 3, true, false);
 
             CHECK(box.Size() == S(3,1));
-            CHECK(StringEq(box.data, {ascii({12, 12, 4})}));
             CHECK(StringEq(box.to_string(abc_style), {"cca"}));
         }
 
@@ -259,7 +245,6 @@ TEST_CASE("tb_arrows")
             box.hline(0, 0, 3, true, true);
 
             CHECK(box.Size() == S(3,1));
-            CHECK(StringEq(box.data, {ascii({12, 12, 12})}));
             CHECK(StringEq(box.to_string(abc_style), {"ccc"}));
         }
 
@@ -268,7 +253,6 @@ TEST_CASE("tb_arrows")
             box.vline(0, 0, 3, false, false);
 
             CHECK(box.Size() == S(1,3));
-            CHECK(StringEq(box.data, {ascii({2}), ascii({3}), ascii({1})}));
             CHECK(StringEq(box.to_string(abc_style), {"e", "f", "d"}));
         }
 
@@ -277,7 +261,6 @@ TEST_CASE("tb_arrows")
             box.vline(0, 0, 3, false, true);
 
             CHECK(box.Size() == S(1,3));
-            CHECK(StringEq(box.data, {ascii({2}), ascii({3}), ascii({3})}));
             CHECK(StringEq(box.to_string(abc_style), {"e", "f", "f"}));
         }
 
@@ -286,7 +269,6 @@ TEST_CASE("tb_arrows")
             box.vline(0, 0, 3, true, false);
 
             CHECK(box.Size() == S(1,3));
-            CHECK(StringEq(box.data, {ascii({3}), ascii({3}), ascii({1})}));
             CHECK(StringEq(box.to_string(abc_style), {"f", "f", "d"}));
         }
 
@@ -295,7 +277,6 @@ TEST_CASE("tb_arrows")
             box.vline(0, 0, 3, true, true);
 
             CHECK(box.Size() == S(1,3));
-            CHECK(StringEq(box.data, {ascii({3}), ascii({3}), ascii({3})}));
             CHECK(StringEq(box.to_string(abc_style), {"f", "f", "f"}));
         }
     }
