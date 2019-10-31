@@ -120,4 +120,4 @@ struct Lexer
 }
 
 
-#endif EUPHHORIA_CORE_LEXER_H
+#endif  // EUPHHORIA_CORE_LEXER_H

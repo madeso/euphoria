@@ -6,10 +6,6 @@
 
 #include "core/assert.h"
 
-using Catch::Matchers::Equals;
-
-using Eq = Catch::Vector::EqualsMatcher;
-
 using namespace euphoria::core::lexer;
 
 namespace
@@ -41,6 +37,12 @@ namespace euphoria::core::lexer
 
 namespace
 {
+    template<typename T>
+    auto Eq( std::vector<T> const& comparator )
+    {
+        return Catch::Matchers::Equals(comparator);
+    }
+
     // mirrors Token
     struct T
     {
