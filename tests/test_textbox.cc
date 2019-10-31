@@ -175,9 +175,32 @@ TEST_CASE("tb_print")
 
 TEST_CASE("tb_arrows")
 {
+    const auto abc_style = TextBoxStyle::Create([](char c) {
+        switch(c) {
+        case BIT_LEFT:                                 return u8"a";
+        case BIT_RIGHT:                                return u8"b";
+        case BIT_LEFT | BIT_RIGHT:                     return u8"c";
+        case BIT_UP:                                   return u8"d";
+        case BIT_DOWN:                                 return u8"e";
+        case BIT_UP | BIT_DOWN:                        return u8"f";
+        case BIT_LEFT| BIT_UP:                         return u8"g";
+        case BIT_LEFT | BIT_DOWN:                      return u8"h";
+        case BIT_RIGHT | BIT_UP:                       return u8"i";
+        case BIT_RIGHT | BIT_DOWN:                     return u8"j";
+        case BIT_LEFT | BIT_RIGHT | BIT_UP:            return u8"k";
+        case BIT_LEFT | BIT_RIGHT | BIT_DOWN:          return u8"l";
+        case BIT_LEFT | BIT_UP | BIT_DOWN:             return u8"m";
+        case BIT_RIGHT | BIT_UP | BIT_DOWN:            return u8"n";
+        case BIT_LEFT | BIT_RIGHT | BIT_UP | BIT_DOWN: return u8"o";
+        default:
+            DIE("Invalid combination");
+            return "?";
+        }
+    });
+
     auto box = TextBox::Empty();
 
-    SECTION("combos")
+    SECTION("all combos")
     {
         for(int i=1; i<16; i+=1)
         {
@@ -190,6 +213,14 @@ TEST_CASE("tb_arrows")
             "-'.+",
             "-`,+",
             "-+++"
+        }));
+
+        CHECK(StringEq(box.to_string(abc_style),
+        {
+            " def",
+            "aghm",
+            "bijn",
+            "cklo"
         }));
     }
 
