@@ -282,13 +282,15 @@ TEST_CASE("tb_arrows")
     }
 }
 
-TEST_CASE("line on text")
+TEST_CASE("tb_line on text")
 {
     auto text = TextBox::Empty();
     text.putline("d g", 1, 0);
+    CHECK(StringEq(text.to_string(AsciiStyle()), {" d g"}));
 
     auto line = TextBox::Empty();
     line.hline(0, 0, 5, true, true);
+    CHECK(StringEq(line.to_string(AsciiStyle()), {"-----"}));
 
     /// hrm... this is a weird behaviour...
 
@@ -302,6 +304,29 @@ TEST_CASE("line on text")
     {
         const auto r = line.PutBoxCopy(0, 0, text);
         CHECK(StringEq(r.to_string(AsciiStyle()), {"-d-g-"}));
+    }
+}
+
+TEST_CASE("tb_line on line")
+{
+    auto hor = TextBox::Empty();
+    hor.hline(0, 0, 1, true, true);
+    CHECK(StringEq(hor.to_string(AsciiStyle()), {"-"}));
+
+    auto vert = TextBox::Empty();
+    vert.vline(0, 0, 1, true, true);
+    CHECK(StringEq(vert.to_string(AsciiStyle()), {"|"}));
+
+    SECTION("hor on vert")
+    {
+        const auto r = vert.PutBoxCopy(0, 0, hor);
+        CHECK(StringEq(r.to_string(AsciiStyle()), {"|"}));
+    }
+
+    SECTION("vert on hor")
+    {
+        const auto r = hor.PutBoxCopy(0, 0, vert);
+        CHECK(StringEq(r.to_string(AsciiStyle()), {"-"}));
     }
 }
 
