@@ -282,6 +282,29 @@ TEST_CASE("tb_arrows")
     }
 }
 
+TEST_CASE("line on text")
+{
+    auto text = TextBox::Empty();
+    text.putline("d g", 1, 0);
+
+    auto line = TextBox::Empty();
+    line.hline(0, 0, 5, true, true);
+
+    /// hrm... this is a weird behaviour...
+
+    SECTION("text on line")
+    {
+        const auto r = text.PutBoxCopy(0, 0, line);
+        CHECK(StringEq(r.to_string(AsciiStyle()), {"-----"}));
+    }
+
+    SECTION("line on text")
+    {
+        const auto r = line.PutBoxCopy(0, 0, text);
+        CHECK(StringEq(r.to_string(AsciiStyle()), {"-d-g-"}));
+    }
+}
+
 // todo(Gustav): How is this supposed to work?
 TEST_CASE("tb_box")
 {
