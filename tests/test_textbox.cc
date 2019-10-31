@@ -171,6 +171,27 @@ TEST_CASE("tb_print")
             CHECK(StringEq(box.to_string(AsciiStyle()), {"", "  a"}));
         }
     }
+}
+
+TEST_CASE("tb_arrows")
+{
+    auto box = TextBox::Empty();
+
+    SECTION("combos")
+    {
+        for(int i=1; i<16; i+=1)
+        {
+            box.putchar(static_cast<char>(i), (i % 4), (i/4));
+        }
+
+        CHECK(StringEq(box.to_string(AsciiStyle()),
+        {
+            " |||",
+            "-'.+",
+            "-`,+",
+            "-+++"
+        }));
+    }
 
     // todo(Gustav): fix bitmasks in character codes
     SECTION("lines")
@@ -331,23 +352,6 @@ TEST_CASE("tb_box")
         CHECK(abc.horiz_append_position(1, abc) == 0);
         CHECK(abc.vert_append_position(1, abc) == 1);
     }
-}
-
-TEST_CASE("tb_arrows")
-{
-    auto box = TextBox::Empty();
-    for(int i=1; i<16; i+=1)
-    {
-        box.putchar(static_cast<char>(i), (i % 4), (i/4));
-    }
-
-    CHECK(StringEq(box.to_string(AsciiStyle()),
-    {
-        " |||",
-        "-'.+",
-        "-`,+",
-        "-+++"
-    }));
 }
 
 namespace
