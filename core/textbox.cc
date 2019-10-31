@@ -22,6 +22,16 @@ namespace
 
         return false;
     }
+
+    bool HasChar(char c)
+    {
+        return c & euphoria::core::BIT_NO_LINE;
+    }
+
+    bool IsEmpty(char c)
+    {
+        return c ==' ' || !c;
+    };
 }
 
 
@@ -218,24 +228,19 @@ void TextBox::putline(const std::string& line, std::size_t x_start, std::size_t 
 
         ASSERT(x < data[y].size());
 
-        auto is_empty = [](char c) -> bool
-        {
-            return c ==' ' || !c;
-        };
-
-        if(is_empty(source_texel))
+        if(IsEmpty(source_texel))
         {
             continue;
         }
 
         char& target = data[y][x];
-        if( is_empty(target) || (source_texel & BIT_NO_LINE))
+        if( IsEmpty(target) || HasChar(source_texel))
         {
             target = source_texel;
         }
         else
         {
-            if(target & BIT_NO_LINE)
+            if( HasChar(target) )
             {
                 target = 0;
                 target |= source_texel;
@@ -267,7 +272,7 @@ void TextBox::trim()
     for(auto& s: data)
     {
         std::size_t end = s.size();
-        while(end > 0 && (s[end-1]==' ' || s[end-1]=='\0'))
+        while(end > 0 && IsEmpty(s[end-1]))
         {
             --end;
         }
@@ -311,7 +316,7 @@ void TextBox::hline(std::size_t x, std::size_t y, std::size_t line_width, bool b
     {
         modchar(x+line_index, y, [&](char& c)
         {
-            if(c & BIT_NO_LINE)
+            if( HasChar(c) )
             {
                 c = 0;
             }
@@ -336,7 +341,7 @@ void TextBox::vline(std::size_t x, std::size_t y, std::size_t line_height, bool 
     {
         modchar(x, y+line_index, [&](char& c)
         {
-            if(c & BIT_NO_LINE)
+            if( HasChar(c) )
             {
                 c = 0;
             }
@@ -455,7 +460,7 @@ std::size_t TextBox::FindLeftPadding(std::size_t y) const
     }
 
     const std::string& line = data[y];
-    while(result < line.size() && (line[result] == ' ' || line[result] == '\0'))
+    while(result < line.size() && IsEmpty(line[result]))
     {
         ++result;
     }
@@ -475,7 +480,7 @@ std::size_t TextBox::FindRightPadding(std::size_t y) const
     }
 
     const std::string& line = data[y];
-    while(position-- > 0 && (position >= line.size() || line[position]==' ' || line[position]=='\0'))
+    while(position-- > 0 && (position >= line.size() || IsEmpty(line[position])))
     {
         ++result;
     }
@@ -489,7 +494,7 @@ std::size_t TextBox::FindTopPadding(std::size_t x) const
     std::size_t result = 0;
     std::size_t max = data.size();
     
-    while(result < max && (x >= data[result].size() || data[result][x] == ' ' || data[result][x] == '\0'))
+    while(result < max && (x >= data[result].size() || IsEmpty(data[result][x])))
     {
         ++result;
     }
@@ -504,7 +509,7 @@ std::size_t TextBox::FindBottomPadding(std::size_t x) const
     std::size_t max = data.size();
     std::size_t position = max;
     
-    while(position-- > 0 && (x >= data[position].size() || data[position][x] == ' ' || data[position][x] == '\0'))
+    while(position-- > 0 && (x >= data[position].size() || IsEmpty(data[position][x])))
     {
         ++result;
     }
