@@ -452,14 +452,16 @@ std::vector<std::string> TextBox::to_string(const TextBoxStyle& style) const
 
 std::size_t TextBox::FindLeftPadding(std::size_t y) const
 {
-    std::size_t max = width();
-    std::size_t result = 0;
+    const std::size_t max = width();
+    
     if(y >= data.size())
     {
         return max;
     }
 
     const std::string& line = data[y];
+
+    std::size_t result = 0;
     while(result < line.size() && IsEmpty(line[result]))
     {
         ++result;
@@ -471,22 +473,42 @@ std::size_t TextBox::FindLeftPadding(std::size_t y) const
 
 std::size_t TextBox::FindRightPadding(std::size_t y) const
 {
-    std::size_t max = width();
-    std::size_t position = max;
-    std::size_t result = 0;
+    const std::size_t max = width();
+    
     if(y >= data.size())
     {
         return max;
     }
 
     const std::string& line = data[y];
-    while(position-- > 0 && (position >= line.size() || IsEmpty(line[position])))
+    std::size_t position = max;
+    std::size_t result = 0;
+    while(position != 0 && (position-1 >= line.size() || IsEmpty(line[position-1])))
     {
+        position--;
         ++result;
     }
 
     return result;
 }
+
+
+std::size_t TextBox::FindBottomPadding(std::size_t x) const
+{
+    const std::size_t max = data.size();
+
+    std::size_t result = 0;
+    std::size_t position = max;
+    
+    while(position != 0 && (x >= data[position-1].size() || IsEmpty(data[position-1][x])))
+    {
+        position--;
+        ++result;
+    }
+
+    return result;
+}
+
 
 
 std::size_t TextBox::FindTopPadding(std::size_t x) const
@@ -502,20 +524,6 @@ std::size_t TextBox::FindTopPadding(std::size_t x) const
     return result;
 }
 
-
-std::size_t TextBox::FindBottomPadding(std::size_t x) const
-{
-    std::size_t result = 0;
-    std::size_t max = data.size();
-    std::size_t position = max;
-    
-    while(position-- > 0 && (x >= data[position].size() || IsEmpty(data[position][x])))
-    {
-        ++result;
-    }
-
-    return result;
-}
 
 namespace detail
 {
