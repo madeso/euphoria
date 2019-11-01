@@ -69,7 +69,7 @@ TEST_CASE("tb_print")
     {
         SECTION("0")
         {
-            box.putchar('x', 0, 0);
+            box.PutChar(0, 0, 'x');
 
             CHECK(box.Size() == S(1,1));
             CHECK(StringEq(box.to_string(AsciiStyle()), {"x"}));
@@ -77,7 +77,7 @@ TEST_CASE("tb_print")
 
         SECTION("offset")
         {
-            box.putchar('x', 2, 1);
+            box.PutChar(2, 1, 'x');
 
             CHECK(box.Size() == S(3,2));
             CHECK(StringEq(box.to_string(AsciiStyle()), {"", "  x"}));
@@ -88,7 +88,7 @@ TEST_CASE("tb_print")
     {
         SECTION("0")
         {
-            box.modchar(0, 0, [](char& c){c = 'd';});
+            box.ModChar(0, 0, [](char& c){c = 'd';});
 
             CHECK(box.Size() == S(1,1));
             CHECK(StringEq(box.to_string(AsciiStyle()), {"d"}));
@@ -96,7 +96,7 @@ TEST_CASE("tb_print")
 
         SECTION("offset")
         {
-            box.modchar(2, 1, [](char& c){c = 'd';});
+            box.ModChar(2, 1, [](char& c){c = 'd';});
 
             CHECK(box.Size() == S(3,2));
             CHECK(StringEq(box.to_string(AsciiStyle()), {"", "  d"}));
@@ -194,7 +194,7 @@ TEST_CASE("tb_arrows")
     {
         for(int i=1; i<16; i+=1)
         {
-            box.putchar(static_cast<char>(i), (i % 4), (i/4));
+            box.PutChar((i % 4), (i/4), static_cast<char>(i));
         }
 
         CHECK(StringEq(box.to_string(AsciiStyle()),

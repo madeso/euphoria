@@ -44,28 +44,21 @@ License: MIT
 Requires a C++17 capable compiler and standard library. */
 struct TextBox
 {
-    private:
-    std::vector<std::string> data;
-
-    private:
-    TextBox();
-
-    public:
     static TextBox Empty();
     static TextBox FromString(const std::vector<std::string>& str);
 
     /** Place a single character in the given coordinate.
     Notice that behavior is undefined if the character is in 00-1F range. */
-    void putchar(char c, std::size_t x, std::size_t y);
+    void PutChar(std::size_t x, std::size_t y, char c);
 
 
-    void extend(std::size_t x, std::size_t y);
+    void ExtendTo(std::size_t x, std::size_t y);
 
     /** Modify a character using a callback */
     template<typename F>
-    void modchar(std::size_t x, std::size_t y, F&& func)
+    void ModChar(std::size_t x, std::size_t y, F&& func)
     {
-        extend(x,y);
+        ExtendTo(x,y);
         func(data[y][x]);
     }
 
@@ -114,11 +107,15 @@ struct TextBox
     If enable_vt100 is false, renders using plain ASCII instead.
     */
     std::vector<std::string> to_string(const TextBoxStyle& style = TerminalStyle()) const;
-private:
+
     std::size_t FindLeftPadding(std::size_t y) const;
     std::size_t FindRightPadding(std::size_t y) const;
     std::size_t FindTopPadding(std::size_t x) const;
     std::size_t FindBottomPadding(std::size_t x) const;
+
+private:
+    std::vector<std::string> data;
+    TextBox();
 };
 
 namespace detail

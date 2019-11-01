@@ -196,14 +196,14 @@ TextBox TextBox::FromString(const std::vector<std::string>& str)
 }
 
 
-void TextBox::putchar(char c, std::size_t x, std::size_t y)
+void TextBox::PutChar(std::size_t x, std::size_t y, char c)
 {
-    extend(x,y);
+    ExtendTo(x,y);
     data[y][x] = c;
 }
 
 
-void TextBox::extend(std::size_t x, std::size_t y)
+void TextBox::ExtendTo(std::size_t x, std::size_t y)
 {
     if(y >= data.size())
     {
@@ -219,7 +219,7 @@ void TextBox::extend(std::size_t x, std::size_t y)
 void TextBox::putline(const std::string& line, std::size_t x_start, std::size_t y)
 {
     auto size_minus_1 = line.empty() ? 0 : line.size()-1;
-    extend(x_start+size_minus_1, y);
+    ExtendTo(x_start+size_minus_1, y);
     
     for(std::size_t line_index = 0; line_index < line.size(); ++line_index)
     {
@@ -314,7 +314,7 @@ void TextBox::hline(std::size_t x, std::size_t y, std::size_t line_width, bool b
 {
     for(std::size_t line_index=0; line_index<line_width; ++line_index)
     {
-        modchar(x+line_index, y, [&](char& c)
+        ModChar(x+line_index, y, [&](char& c)
         {
             if( HasChar(c) )
             {
@@ -339,7 +339,7 @@ void TextBox::vline(std::size_t x, std::size_t y, std::size_t line_height, bool 
 {
     for(std::size_t line_index=0; line_index<line_height; ++line_index)
     {
-        modchar(x, y+line_index, [&](char& c)
+        ModChar(x, y+line_index, [&](char& c)
         {
             if( HasChar(c) )
             {
