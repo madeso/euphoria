@@ -513,8 +513,8 @@ std::size_t TextBox::FindBottomPadding(std::size_t x) const
 
 std::size_t TextBox::FindTopPadding(std::size_t x) const
 {
+    const std::size_t max = data.size();
     std::size_t result = 0;
-    std::size_t max = data.size();
     
     while(result < max && (x >= data[result].size() || IsEmpty(data[result][x])))
     {
