@@ -221,7 +221,7 @@ void TextBox::putline(const std::string& line, std::size_t x_start, std::size_t 
     auto size_minus_1 = line.empty() ? 0 : line.size()-1;
     ExtendTo(x_start+size_minus_1, y);
     
-    for(std::size_t line_index = 0; line_index < line.size(); ++line_index)
+    for(std::size_t line_index = 0; line_index < line.size(); line_index+=1)
     {
         const auto x = x_start + line_index;
         const auto source_texel = line[line_index];
@@ -252,7 +252,7 @@ void TextBox::putline(const std::string& line, std::size_t x_start, std::size_t 
 
 void TextBox::putbox(std::size_t x, std::size_t y, const TextBox& b)
 {
-    for(std::size_t p = 0; p < b.data.size(); ++p)
+    for(std::size_t p = 0; p < b.data.size(); p+=1)
     {
         putline(b.data[p], x, y+p);
     }
@@ -274,7 +274,7 @@ void TextBox::trim()
         std::size_t end = s.size();
         while(end > 0 && IsEmpty(s[end-1]))
         {
-            --end;
+            end-=1;
         }
         s.erase(end);
     }
@@ -312,7 +312,7 @@ std::pair<std::size_t, std::size_t> TextBox::Size() const
 
 void TextBox::hline(std::size_t x, std::size_t y, std::size_t line_width, bool bef, bool aft)
 {
-    for(std::size_t line_index=0; line_index<line_width; ++line_index)
+    for(std::size_t line_index=0; line_index<line_width; line_index+=1)
     {
         ModChar(x+line_index, y, [&](char& c)
         {
@@ -337,7 +337,7 @@ void TextBox::hline(std::size_t x, std::size_t y, std::size_t line_width, bool b
 
 void TextBox::vline(std::size_t x, std::size_t y, std::size_t line_height, bool bef, bool aft)
 {
-    for(std::size_t line_index=0; line_index<line_height; ++line_index)
+    for(std::size_t line_index=0; line_index<line_height; line_index+=1)
     {
         ModChar(x, y+line_index, [&](char& c)
         {
@@ -366,7 +366,7 @@ std::size_t TextBox::horiz_append_position(std::size_t y, const TextBox& b) cons
     std::size_t theirheight = b.height();
     std::size_t reduce = mywidth;
 
-    for(std::size_t p=0; p<theirheight; ++p)
+    for(std::size_t p=0; p<theirheight; p+=1)
     {
         std::size_t theirpadding = b.FindLeftPadding(p);
         std::size_t mypadding    = FindRightPadding(y+p);
@@ -383,7 +383,7 @@ std::size_t TextBox::vert_append_position(std::size_t x, const TextBox& b) const
     std::size_t theirwidth = b.width();
     std::size_t reduce = myheight;
     
-    for(std::size_t p=0; p<theirwidth; ++p)
+    for(std::size_t p=0; p<theirwidth; p+=1)
     {
         std::size_t theirpadding = b.FindTopPadding(p);
         std::size_t mypadding    = FindBottomPadding(x+p);
@@ -426,10 +426,10 @@ std::vector<std::string> TextBox::to_string(const TextBoxStyle& style) const
     };
 
     const std::size_t h = height();
-    for(std::size_t y = 0; y < h; ++y)
+    for(std::size_t y = 0; y < h; y+=1)
     {
         const std::string& s = data[y];
-        for(std::size_t x = 0; x < s.size(); ++x)
+        for(std::size_t x = 0; x < s.size(); x+=1)
         {
             unsigned char c = s[x];
             if(c > 0 && c < 16)
@@ -464,7 +464,7 @@ std::size_t TextBox::FindLeftPadding(std::size_t y) const
     std::size_t result = 0;
     while(result < line.size() && IsEmpty(line[result]))
     {
-        ++result;
+        result+=1;
     }
 
     return result;
@@ -485,8 +485,8 @@ std::size_t TextBox::FindRightPadding(std::size_t y) const
     std::size_t result = 0;
     while(position != 0 && (position-1 >= line.size() || IsEmpty(line[position-1])))
     {
-        position--;
-        ++result;
+        position-=1;
+        result+=1;
     }
 
     return result;
@@ -502,8 +502,8 @@ std::size_t TextBox::FindBottomPadding(std::size_t x) const
     
     while(position != 0 && (x >= data[position-1].size() || IsEmpty(data[position-1][x])))
     {
-        position--;
-        ++result;
+        position-=1;
+        result+=1;
     }
 
     return result;
@@ -518,7 +518,7 @@ std::size_t TextBox::FindTopPadding(std::size_t x) const
     
     while(result < max && (x >= data[result].size() || IsEmpty(data[result][x])))
     {
-        ++result;
+        result+=1;
     }
 
     return result;
@@ -549,17 +549,11 @@ namespace detail
         if(oneliner_test && !separate1st_test)
         {
             std::size_t totalwidth = 0;
-            for(auto i = boxes.begin(); ; )
+            for(const auto& cur : boxes)
             {
-                const auto& cur = *i;
-                if(++i == boxes.end())
-                {
-                  totalwidth += cur.width();
-                  break;
-                }
-
                 totalwidth += cur.width() + margin;
             }
+            if(!boxes.empty()) { totalwidth -= margin; }
             oneliner = (atom.size() + margin + totalwidth) < maxwidth;
         }
 
@@ -567,7 +561,7 @@ namespace detail
 
         std::size_t y = simple ? 0 : 1;
 
-        for(auto i = boxes.begin(); i != boxes.end(); ++i)
+        for(auto i = boxes.begin(); i != boxes.end(); i+=1)
         {
             auto next = std::next(i);
             const TextBox& cur = *i;
@@ -580,7 +574,7 @@ namespace detail
               x = oneliner ? atom.size()+usemargin : firstx;
             }
 
-            if(!oneliner && (x + width > maxwidth || (separate1st_test && i == ++boxes.begin())))
+            if(!oneliner && (x + width > maxwidth || (separate1st_test && i == std::next(boxes.begin()))))
             {
                 // Start a new line if this item won't fit in the end of the current line
                 x        = firstx;
@@ -603,7 +597,7 @@ namespace detail
                     y = std::max(result.vert_append_position(x, combined), std::size_t(1));
                     if(!oneliner)
                     {
-                      ++y;
+                      y+=1;
                     }
                 }
             }
@@ -617,10 +611,10 @@ namespace detail
                 {
                     // Check if there is room for a horizontal connector. If not, increase y
                     auto connector = TextBox::Empty();
-                    connector.putline(std::string(1+(x-0), '-'), 0, 0);
+                    connector.putline(std::string(1+x, '-'), 0, 0);
                     if(result.horiz_append_position(y-1, connector) > x)
                     {
-                      ++y;
+                      y+=1;
                     }
                     else
                     {
