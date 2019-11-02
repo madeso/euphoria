@@ -216,7 +216,7 @@ void TextBox::ExtendTo(std::size_t x, std::size_t y)
 }
 
 
-void TextBox::putline(const std::string& line, std::size_t x_start, std::size_t y)
+void TextBox::putline(std::size_t x_start, std::size_t y, const std::string& line)
 {
     auto size_minus_1 = line.empty() ? 0 : line.size()-1;
     ExtendTo(x_start+size_minus_1, y);
@@ -254,7 +254,7 @@ void TextBox::PutBox(std::size_t x, std::size_t y, const TextBox& b)
 {
     for(std::size_t p = 0; p < b.data.size(); p+=1)
     {
-        putline(b.data[p], x, y+p);
+        putline(x, y+p, b.data[p]);
     }
 }
 
@@ -612,7 +612,7 @@ namespace detail
                 {
                     // Check if there is room for a horizontal connector. If not, increase y
                     auto connector = TextBox::Empty();
-                    connector.putline(std::string(1+x, '-'), 0, 0);
+                    connector.putline(0, 0, std::string(1+x, '-'));
                     if(result.horiz_append_position(y-1, connector) > x)
                     {
                       y+=1;

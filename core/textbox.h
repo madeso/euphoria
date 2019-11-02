@@ -47,12 +47,13 @@ struct TextBox
     static TextBox Empty();
     static TextBox FromString(const std::vector<std::string>& str);
 
+
+    ///////////////////////////////////////////////////////////////////////////
+    // Drawing functions
+
     /** Place a single character in the given coordinate.
     Notice that behavior is undefined if the character is in 00-1F range. */
     void PutChar(std::size_t x, std::size_t y, char c);
-
-
-    void ExtendTo(std::size_t x, std::size_t y);
 
     /** Modify a character using a callback */
     template<typename F>
@@ -66,21 +67,12 @@ struct TextBox
     Note that behavior is undefined if the string contains characters in 00-1F range
     or if the string includes multibyte characters.
     */
-    void putline(const std::string& s, std::size_t x, std::size_t y);
+    void putline(std::size_t x, std::size_t y, const std::string& s);
+
 
     /* Put a 2D string starting at the given coordinate */
     void PutBox(std::size_t x, std::size_t y, const TextBox& b);
     TextBox PutBoxCopy(std::size_t x, std::size_t y, const TextBox& b) const;
-
-    /* Delete trailing blank from the bottom and right edges */
-    void Trim();
-
-    /* Calculate the current dimensions of the string */
-    std::size_t Height() const;
-    std::size_t Width()  const;
-
-    // width x height
-    std::pair<std::size_t, std::size_t> Size() const;
 
     /** Draw a horizontal line.
     If bef=true, the line starts from the left edge of the first character cell, otherwise it starts from its center.
@@ -91,6 +83,33 @@ struct TextBox
     If bef=true, the line starts from the top edge of the first character cell, otherwise it starts from its center.
     If aft=true, the line ends in the bottom edge of the last character cell, otherwise it ends in its center */
     void vline(std::size_t x, std::size_t y, std::size_t height, bool bef, bool aft);
+
+
+    ///////////////////////////////////////////////////////////////////////////
+    // General operations
+
+    std::vector<std::string> ToString(const TextBoxStyle& style = TerminalStyle()) const;
+
+    /* Delete trailing blank from the bottom and right edges */
+    void Trim();
+
+
+    ///////////////////////////////////////////////////////////////////////////
+    // Status
+
+    /* Calculate the current dimensions of the string */
+    std::size_t Height() const;
+    std::size_t Width()  const;
+
+    // width x height
+    std::pair<std::size_t, std::size_t> Size() const;
+
+    
+
+    ///////////////////////////////////////////////////////////////////////////
+    // private functions
+
+    void ExtendTo(std::size_t x, std::size_t y);
 
     /** Calculate the earliest X coordinate where the given box could be placed.
      without colliding with existing content in this box. Guaranteed to be <= width().
@@ -103,10 +122,6 @@ struct TextBox
      */
     std::size_t vert_append_position(std::size_t x, const TextBox& b) const;
 
-    /** Converts the contents of the box into a std::string with linefeeds and VT100 escapes.
-    If enable_vt100 is false, renders using plain ASCII instead.
-    */
-    std::vector<std::string> ToString(const TextBoxStyle& style = TerminalStyle()) const;
 
     std::size_t FindLeftPadding(std::size_t y) const;
     std::size_t FindRightPadding(std::size_t y) const;
@@ -218,7 +233,7 @@ TextBox create_tree_graph(const ParamType& e,
     auto result = TextBox::Empty();
     const std::string atom = create_atom(e);
     
-    result.putline(atom, 0,0);
+    result.putline(0, 0, atom);
 
     if(auto param_range = count_children(e); param_range.first != param_range.second)
     {
