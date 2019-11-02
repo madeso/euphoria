@@ -62,7 +62,7 @@ main(int, char**)
 
         {
             auto result = TextBox::Empty();
-            result.putbox(2,0, create_tree_graph(t, 132-2,
+            result.PutBox(2,0, create_tree_graph(t, 132-2,
                 [](const T& e)
                 {
                     return e.name;
@@ -71,7 +71,7 @@ main(int, char**)
                 [](const T& e) { return e.children.size() >= 1; }, // whether simplified horizontal layout can be used
                 [](const T&  ) { return true; },                 // whether extremely simplified horiz layout can be used
                 [](const T&  ) { return false; }));
-            auto strings = result.to_string();
+            auto strings = result.ToString();
             for(auto s: strings)
             {
                 std::cout << s << "\n";

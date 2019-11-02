@@ -31,7 +31,7 @@ namespace
     bool IsEmpty(char c)
     {
         return c ==' ' || !c;
-    };
+    }
 }
 
 
@@ -250,7 +250,7 @@ void TextBox::putline(const std::string& line, std::size_t x_start, std::size_t 
 }
 
 
-void TextBox::putbox(std::size_t x, std::size_t y, const TextBox& b)
+void TextBox::PutBox(std::size_t x, std::size_t y, const TextBox& b)
 {
     for(std::size_t p = 0; p < b.data.size(); p+=1)
     {
@@ -262,12 +262,12 @@ void TextBox::putbox(std::size_t x, std::size_t y, const TextBox& b)
 TextBox TextBox::PutBoxCopy(std::size_t x, std::size_t y, const TextBox& b) const
 {
     TextBox self = *this;
-    self.putbox(x, y, b);
+    self.PutBox(x, y, b);
     return self;
 }
     
 
-void TextBox::trim()
+void TextBox::Trim()
 {
     for(auto& s: data)
     {
@@ -286,13 +286,13 @@ void TextBox::trim()
 }
 
 
-std::size_t TextBox::height() const
+std::size_t TextBox::Height() const
 {
     return data.size();
 }
 
 
-std::size_t TextBox::width()  const
+std::size_t TextBox::Width()  const
 {
     std::size_t result = 0;
 
@@ -306,7 +306,7 @@ std::size_t TextBox::width()  const
 
 std::pair<std::size_t, std::size_t> TextBox::Size() const
 {
-    return {width(), height()};
+    return {Width(), Height()};
 }
 
 
@@ -362,8 +362,8 @@ void TextBox::vline(std::size_t x, std::size_t y, std::size_t line_height, bool 
 
 std::size_t TextBox::horiz_append_position(std::size_t y, const TextBox& b) const
 {
-    std::size_t mywidth = width();
-    std::size_t theirheight = b.height();
+    std::size_t mywidth = Width();
+    std::size_t theirheight = b.Height();
     std::size_t reduce = mywidth;
 
     for(std::size_t p=0; p<theirheight; p+=1)
@@ -379,8 +379,8 @@ std::size_t TextBox::horiz_append_position(std::size_t y, const TextBox& b) cons
 
 std::size_t TextBox::vert_append_position(std::size_t x, const TextBox& b) const
 {
-    std::size_t myheight = height();
-    std::size_t theirwidth = b.width();
+    std::size_t myheight = Height();
+    std::size_t theirwidth = b.Width();
     std::size_t reduce = myheight;
     
     for(std::size_t p=0; p<theirwidth; p+=1)
@@ -393,7 +393,7 @@ std::size_t TextBox::vert_append_position(std::size_t x, const TextBox& b) const
 }
 
 
-std::vector<std::string> TextBox::to_string(const TextBoxStyle& style) const
+std::vector<std::string> TextBox::ToString(const TextBoxStyle& style) const
 {
     std::vector<std::string> ret;
     bool want_newline = true;
@@ -425,7 +425,7 @@ std::vector<std::string> TextBox::to_string(const TextBoxStyle& style) const
         }
     };
 
-    const std::size_t h = height();
+    const std::size_t h = Height();
     for(std::size_t y = 0; y < h; y+=1)
     {
         const std::string& s = data[y];
@@ -450,9 +450,10 @@ std::vector<std::string> TextBox::to_string(const TextBoxStyle& style) const
     return ret;
 }
 
+
 std::size_t TextBox::FindLeftPadding(std::size_t y) const
 {
-    const std::size_t max = width();
+    const std::size_t max = Width();
     
     if(y >= data.size())
     {
@@ -473,7 +474,7 @@ std::size_t TextBox::FindLeftPadding(std::size_t y) const
 
 std::size_t TextBox::FindRightPadding(std::size_t y) const
 {
-    const std::size_t max = width();
+    const std::size_t max = Width();
     
     if(y >= data.size())
     {
@@ -542,7 +543,7 @@ namespace detail
         std::size_t sum_width = 0;
         for(const auto& b: boxes)
         {
-          sum_width += b.width()+margin;
+          sum_width += b.Width()+margin;
         }
 
         bool oneliner = false;
@@ -551,7 +552,7 @@ namespace detail
             std::size_t totalwidth = 0;
             for(const auto& cur : boxes)
             {
-                totalwidth += cur.width() + margin;
+                totalwidth += cur.Width() + margin;
             }
             if(!boxes.empty()) { totalwidth -= margin; }
             oneliner = (atom.size() + margin + totalwidth) < maxwidth;
@@ -565,7 +566,7 @@ namespace detail
         {
             auto next = std::next(i);
             const TextBox& cur = *i;
-            unsigned width = cur.width();
+            unsigned width = cur.Width();
 
             std::size_t usemargin = (simple || oneliner) ? (margin/2) : margin;
             std::size_t x = result.horiz_append_position(y, cur) + usemargin;
@@ -586,14 +587,14 @@ namespace detail
             bool horizontal = x > firstx;
             if(!oneliner && !horizontal && next != boxes.end() && !(separate1st_test && i == boxes.begin()))
             {
-                std::size_t nextwidth      = next->width();
+                std::size_t nextwidth      = next->Width();
                 std::size_t combined_width = cur.horiz_append_position(0, *next) + margin + nextwidth;
                 if(combined_width <= maxwidth)
                 {
                     // Enact horizontal placement by giving 1 row of room for the connector
                     horizontal = true;
                     TextBox combined = cur;
-                    combined.putbox(cur.horiz_append_position(0, *next) + margin, 0, *next);
+                    combined.PutBox(cur.horiz_append_position(0, *next) + margin, 0, *next);
                     y = std::max(result.vert_append_position(x, combined), std::size_t(1));
                     if(!oneliner)
                     {
@@ -657,7 +658,7 @@ namespace detail
                 result.hline(0,cy, 1 + (cx-0), false,true);
             }
 
-            result.putbox(x, y, cur);
+            result.PutBox(x, y, cur);
         }
     }
 }
