@@ -216,7 +216,16 @@ void TextBox::ExtendTo(std::size_t x, std::size_t y)
 }
 
 
-void TextBox::putline(std::size_t x_start, std::size_t y, const std::string& line)
+void TextBox::PutString(std::size_t x, std::size_t y, const std::string& line)
+{
+    for(std::size_t index = 0; index < line.length(); index+=1)
+    {
+        PutChar(x+index, y, line[index]);
+    }
+}
+
+
+void TextBox::MergeLine(std::size_t x_start, std::size_t y, const std::string& line)
 {
     auto size_minus_1 = line.empty() ? 0 : line.size()-1;
     ExtendTo(x_start+size_minus_1, y);
@@ -254,7 +263,7 @@ void TextBox::PutBox(std::size_t x, std::size_t y, const TextBox& b)
 {
     for(std::size_t p = 0; p < b.data.size(); p+=1)
     {
-        putline(x, y+p, b.data[p]);
+        MergeLine(x, y+p, b.data[p]);
     }
 }
 
@@ -610,7 +619,7 @@ std::size_t TextBox::FindTopPadding(std::size_t x) const
                 {
                     // Check if there is room for a horizontal connector. If not, increase y
                     auto connector = TextBox::Empty();
-                    connector.putline(0, 0, std::string(1+x, '-'));
+                    connector.PutString(0, 0, std::string(1+x, '-'));
                     if(result.horiz_append_position(y-1, connector) > x)
                     {
                       y+=1;

@@ -67,7 +67,9 @@ struct TextBox
     Note that behavior is undefined if the string contains characters in 00-1F range
     or if the string includes multibyte characters.
     */
-    void putline(std::size_t x, std::size_t y, const std::string& s);
+    void PutString(std::size_t x, std::size_t y, const std::string& s);
+
+    void MergeLine(std::size_t x, std::size_t y, const std::string& s);
 
 
     /* Put a 2D string starting at the given coordinate */
@@ -191,7 +193,7 @@ struct TextBox
         auto result = TextBox::Empty();
         const std::string atom = create_atom(e);
         
-        result.putline(0, 0, atom);
+        result.PutString(0, 0, atom);
 
         if(auto param_range = count_children(e); param_range.first != param_range.second)
         {

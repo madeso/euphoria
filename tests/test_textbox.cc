@@ -107,7 +107,7 @@ TEST_CASE("tb_print")
     {
         SECTION("0")
         {
-            box.putline(0, 0, "dog");
+            box.PutString(0, 0, "dog");
 
             CHECK(box.Size() == S(3,1));
             CHECK(StringEq(box.ToString(AsciiStyle()), {"dog"}));
@@ -115,7 +115,7 @@ TEST_CASE("tb_print")
 
         SECTION("offset")
         {
-            box.putline(1, 1, "dog");
+            box.PutString(1, 1, "dog");
 
             CHECK(box.Size() == S(4,2));
             CHECK(StringEq(box.ToString(AsciiStyle()), {"", " dog"}));
@@ -123,8 +123,8 @@ TEST_CASE("tb_print")
 
         SECTION("collision")
         {
-            box.putline(0, 0, "doggo");
-            box.putline(1, 0, "dog");
+            box.PutString(0, 0, "doggo");
+            box.PutString(1, 0, "dog");
 
             CHECK(box.Size() == S(5,1));
             CHECK(StringEq(box.ToString(AsciiStyle()), {"ddogo"}));
@@ -285,7 +285,7 @@ TEST_CASE("tb_arrows")
 TEST_CASE("tb_line on text")
 {
     auto text = TextBox::Empty();
-    text.putline(1, 0, "d g");
+    text.PutString(1, 0, "d g");
     CHECK(StringEq(text.ToString(AsciiStyle()), {" d g"}));
 
     auto line = TextBox::Empty();
