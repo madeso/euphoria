@@ -62,7 +62,7 @@ main(int, char**)
 
         {
             auto result = TextBox::Empty();
-            result.PutBox(2,0, create_tree_graph(t, 132-2,
+            result.PutBox(2,0, TextBox::CreateTreeGraph(t, 132-2,
                 [](const T& e)
                 {
                     return e.name;

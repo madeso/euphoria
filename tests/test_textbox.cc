@@ -449,7 +449,7 @@ TEST_CASE("tb_create_tree_graph")
             "  2    3"
         };
 
-    CHECK(StringEq(create_tree_graph(simple_tree, 130,
+    CHECK(StringEq(TextBox::CreateTreeGraph(simple_tree, 130,
                 [](const T& e) { return e.name; },
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
                 [](const T&  ) { return false; },
@@ -457,7 +457,7 @@ TEST_CASE("tb_create_tree_graph")
                 [](const T&  ) { return false; }).ToString(AsciiStyle()),
                 simple_three_row));
 
-    CHECK(StringEq(create_tree_graph(simple_tree, 130,
+    CHECK(StringEq(TextBox::CreateTreeGraph(simple_tree, 130,
                 [](const T& e) { return e.name; },
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
                 [](const T&  ) { return false; },
@@ -465,7 +465,7 @@ TEST_CASE("tb_create_tree_graph")
                 [](const T&  ) { return true; }).ToString(AsciiStyle()),
                 simple_four_row));
     
-    CHECK(StringEq(create_tree_graph(simple_tree, 130,
+    CHECK(StringEq(TextBox::CreateTreeGraph(simple_tree, 130,
                 [](const T& e) { return e.name; },
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
                 [](const T&  ) { return false; },
@@ -473,7 +473,7 @@ TEST_CASE("tb_create_tree_graph")
                 [](const T&  ) { return false; }).ToString(AsciiStyle()),
                 simple_three_row));
 
-    CHECK(StringEq(create_tree_graph(simple_tree, 130,
+    CHECK(StringEq(TextBox::CreateTreeGraph(simple_tree, 130,
                 [](const T& e) { return e.name; },
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
                 [](const T&  ) { return false; },
@@ -482,7 +482,7 @@ TEST_CASE("tb_create_tree_graph")
                 simple_four_row));
 
 
-    CHECK(StringEq(create_tree_graph(simple_tree, 130,
+    CHECK(StringEq(TextBox::CreateTreeGraph(simple_tree, 130,
                 [](const T& e) { return e.name; },
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
                 [](const T&  ) { return true; },
@@ -490,7 +490,7 @@ TEST_CASE("tb_create_tree_graph")
                 [](const T&  ) { return false; }).ToString(AsciiStyle()),
                 simple_two_row));
 
-    CHECK(StringEq(create_tree_graph(simple_tree, 130,
+    CHECK(StringEq(TextBox::CreateTreeGraph(simple_tree, 130,
                 [](const T& e) { return e.name; },
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
                 [](const T&  ) { return true; },
@@ -498,7 +498,7 @@ TEST_CASE("tb_create_tree_graph")
                 [](const T&  ) { return true; }).ToString(AsciiStyle()),
                 simple_four_row));
     
-    CHECK(StringEq(create_tree_graph(simple_tree, 130,
+    CHECK(StringEq(TextBox::CreateTreeGraph(simple_tree, 130,
                 [](const T& e) { return e.name; },
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
                 [](const T&  ) { return true; },
@@ -506,7 +506,7 @@ TEST_CASE("tb_create_tree_graph")
                 [](const T&  ) { return false; }).ToString(AsciiStyle()),
                 simple_two_row));
 
-    CHECK(StringEq(create_tree_graph(simple_tree, 130,
+    CHECK(StringEq(TextBox::CreateTreeGraph(simple_tree, 130,
                 [](const T& e) { return e.name; },
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
                 [](const T&  ) { return true; },
@@ -543,7 +543,7 @@ TEST_CASE("tb_tolkien")
                 T{"Sauruman"}
             }}
         }};
-    CHECK(StringEq(create_tree_graph(tolkien_tree, 130,
+    CHECK(StringEq(TextBox::CreateTreeGraph(tolkien_tree, 130,
                 [](const T& e) { return e.name; },
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
                 [](const T& e) { return e.children.size() >= 1; },

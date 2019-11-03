@@ -526,9 +526,7 @@ std::size_t TextBox::FindTopPadding(std::size_t x) const
 }
 
 
-namespace detail
-{
-    void CreateTreeGraph(
+    void TextBox::SubCreateTreeGraph(
         TextBox& result,
         size_t maxwidth,
         const std::vector<TextBox>& boxes,
@@ -661,6 +659,4 @@ namespace detail
             result.PutBox(x, y, cur);
         }
     }
-}
-
 }
