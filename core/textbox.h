@@ -69,8 +69,6 @@ struct TextBox
     */
     void PutString(std::size_t x, std::size_t y, const std::string& s);
 
-    void MergeLine(std::size_t x, std::size_t y, const std::string& s);
-
 
     /* Put a 2D string starting at the given coordinate */
     void PutBox(std::size_t x, std::size_t y, const TextBox& b);

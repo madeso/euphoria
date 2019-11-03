@@ -225,45 +225,40 @@ void TextBox::PutString(std::size_t x, std::size_t y, const std::string& line)
 }
 
 
-void TextBox::MergeLine(std::size_t x_start, std::size_t y, const std::string& line)
-{
-    auto size_minus_1 = line.empty() ? 0 : line.size()-1;
-    ExtendTo(x_start+size_minus_1, y);
-    
-    for(std::size_t line_index = 0; line_index < line.size(); line_index+=1)
-    {
-        const auto x = x_start + line_index;
-        const auto source_texel = line[line_index];
-
-        ASSERT(x < data[y].size());
-
-        if(IsEmpty(source_texel))
-        {
-            continue;
-        }
-
-        char& target = data[y][x];
-        if( IsEmpty(target) || HasChar(source_texel))
-        {
-            target = source_texel;
-        }
-        else
-        {
-            if( HasChar(target) )
-            {
-                target = 0;
-                target |= source_texel;
-            }
-        }
-    }
-}
-
-
-void TextBox::PutBox(std::size_t x, std::size_t y, const TextBox& b)
+void TextBox::PutBox(std::size_t x_start, std::size_t y_start, const TextBox& b)
 {
     for(std::size_t p = 0; p < b.data.size(); p+=1)
     {
-        MergeLine(x, y+p, b.data[p]);
+        const auto line = b.data[p];
+        const auto y = y_start + p;
+
+        const auto size_minus_1 = line.empty() ? 0 : line.size()-1;
+        ExtendTo(x_start+size_minus_1, y);
+        
+        for(std::size_t line_index = 0; line_index < line.size(); line_index+=1)
+        {
+            const auto x = x_start + line_index;
+            const auto source_texel = line[line_index];
+
+            ASSERT(x < data[y].size());
+
+            if(!IsEmpty(source_texel))
+            {
+                char& target = data[y][x];
+                if( IsEmpty(target) || HasChar(source_texel))
+                {
+                    target = source_texel;
+                }
+                else
+                {
+                    if( HasChar(target) )
+                    {
+                        target = 0;
+                        target |= source_texel;
+                    }
+                }
+            }
+        }
     }
 }
 
