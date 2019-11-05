@@ -10,7 +10,7 @@ namespace euphoria::core
     struct Random;
 
     std::string_view
-    GetCp437(int row, int column);
+    GetCp437(int c);
 
     std::string_view
     GetRandomCp437InUtf8(Random* random);
