@@ -314,7 +314,7 @@ std::pair<std::size_t, std::size_t> TextBox::Size() const
 }
 
 
-void TextBox::hline(std::size_t x, std::size_t y, std::size_t line_width, bool bef, bool aft)
+void TextBox::PutHorizontalLine(std::size_t x, std::size_t y, std::size_t line_width, bool bef, bool aft)
 {
     for(std::size_t line_index=0; line_index<line_width; line_index+=1)
     {
@@ -339,7 +339,7 @@ void TextBox::hline(std::size_t x, std::size_t y, std::size_t line_width, bool b
 }
     
 
-void TextBox::vline(std::size_t x, std::size_t y, std::size_t line_height, bool bef, bool aft)
+void TextBox::PutVerticalLine(std::size_t x, std::size_t y, std::size_t line_height, bool bef, bool aft)
 {
     for(std::size_t line_index=0; line_index<line_height; line_index+=1)
     {
@@ -631,7 +631,7 @@ std::size_t TextBox::FindTopPadding(std::size_t x) const
             {
                 if(x > atom.size())
                 {
-                    result.hline(atom.size(), 0, 1+x-atom.size(), false,false);
+                    result.PutHorizontalLine(atom.size(), 0, 1+x-atom.size(), false,false);
                 }
             }
             else if(oneliner)
@@ -640,24 +640,24 @@ std::size_t TextBox::FindTopPadding(std::size_t x) const
                 unsigned cy = y-1;
                 if(x > atom.size())
                 {
-                    result.hline(atom.size(), 0, 1+x-atom.size(), false,false);
+                    result.PutHorizontalLine(atom.size(), 0, 1+x-atom.size(), false,false);
                 }
-                result.vline(cx, cy, 1,          false,true);
+                result.PutVerticalLine(cx, cy, 1,          false,true);
             }
             else if(horizontal)
             {
                 unsigned cx = x;
                 unsigned cy = y-1;
-                result.vline(0,  1,  1 + (cy-1), true,false);
-                result.hline(0,  cy, 1 + (cx-0), false,false);
-                result.vline(cx, cy, 1,          false,true);
+                result.PutVerticalLine(0,  1,  1 + (cy-1), true,false);
+                result.PutHorizontalLine(0,  cy, 1 + (cx-0), false,false);
+                result.PutVerticalLine(cx, cy, 1,          false,true);
             }
             else
             {
                 unsigned cx = x-1;
                 unsigned cy = y;
-                result.vline(0,1,  1 + (cy-1), true,false);
-                result.hline(0,cy, 1 + (cx-0), false,true);
+                result.PutVerticalLine(0,1,  1 + (cy-1), true,false);
+                result.PutHorizontalLine(0,cy, 1 + (cx-0), false,true);
             }
 
             result.PutBox(x, y, cur);
