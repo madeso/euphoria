@@ -139,6 +139,13 @@ namespace euphoria::core
             const std::string&           path,
             AlphaLoad                    alpha);
 
+    ImageLoadResult
+    LoadImage(
+            void* compressed_data,
+            int compressed_size,
+            const std::string&           path,
+            AlphaLoad                    alpha);
+
 }  // namespace euphoria::core
 
 #endif  // CORE_IMAGE_H

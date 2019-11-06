@@ -12,6 +12,7 @@
 #include "stb_image_write.h"
 
 #include "core/log.h"
+#include "core/decompress.h"
 
 namespace euphoria::core
 {
@@ -399,6 +400,30 @@ namespace euphoria::core
 
         stbi_image_free(data);
         return result;
+    }
+
+    ImageLoadResult
+    LoadImage(
+            void* compressed_data,
+            int compressed_size,
+            const std::string&           path,
+            AlphaLoad                    alpha)
+    {
+        Decompress dec;
+        const unsigned int decompressed_size = Decompress::stb_decompress_length((const unsigned char*)compressed_data);
+        auto decompressed = MemoryChunk::Alloc(decompressed_size);
+        const auto len = dec.stb_decompress(reinterpret_cast<unsigned char*>(decompressed->GetData()),
+            reinterpret_cast<const unsigned char*>(compressed_data),
+            static_cast<unsigned int>(compressed_size));
+        if(len == 0)
+        {
+            ImageLoadResult result;
+            result.error = "failed to decompress before loading image";
+            result.image.MakeInvalid();
+            return result;
+        }
+
+        return LoadImage(decompressed, path, alpha);
     }
 
 }  // namespace euphoria::core
