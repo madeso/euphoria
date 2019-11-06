@@ -48,21 +48,18 @@ FindDifferences(const Table<bool>& src, const Table<bool>& dst)
 void
 PrintMazeToConsole(const generator::Drawer& drawer)
 {
-    auto table = ImageToStringTable(
+    const auto table = ImageToStringTable(
             drawer.image,
             {{'#', drawer.wall_color},
              {'/', drawer.cell_color},
              {' ', drawer.wall_color},
              {' ', drawer.cell_visited_color},
              {'O', drawer.unit_color}});
+    const auto strings = ToStrings(table);
 
-    for(int r = 0; r < table.Height(); r += 1)
+    for(const auto s&: strings)
     {
-        for(int c = 0; c < table.Width(); c += 1)
-        {
-            std::cout << table.Value(c, r);
-        }
-        std::cout << "\n";
+        std::cout << s << "\n";
     }
 }
 

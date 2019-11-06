@@ -1,14 +1,20 @@
 #include "core/image.h"
+
 #include "core/vfs.h"
 #include "core/base64.h"
 #include "core/rgb.h"
-#include "tests/approx_equal.h"
 #include "core/image_draw.h"
+#include "core/imageops.h"
+
+#include "tests/approx_equal.h"
+#include "tests/stringeq.h"
 
 #include "catch.hpp"
 
 namespace vfs  = euphoria::core::vfs;
 namespace euco = euphoria::core;
+
+using namespace euphoria::tests;
 
 // 4x4 image without transperency
 // white  / red
@@ -153,4 +159,32 @@ TEST_CASE("image draw", "[img]")
         CHECK_FALSE(img.GetPixel(5, 5) == colora);
         REQUIRE(img.GetPixel(0, 0) == colora);
     }
+}
+
+TEST_CASE("image text")
+{
+    auto draw_text = [](const std::string& text, int width, int height) -> std::vector<std::string>
+    {
+        euco::Image image;
+        image.SetupNoAlphaSupport(width, height);
+        euco::DrawRect(&image, euco::Color::White, euco::WholeImage(image));
+        euco::DrawText(&image, euco::vec2i(0,0), text, euco::Color::Black, 1);
+        const auto table = euco::ImageToStringTable(
+            image,
+            { {'#', euco::Color::Black}, {' ', euco::Color::White} }); 
+        const auto strings = euco::ToStrings(table);
+        return strings;
+    };
+
+    CHECK(StringEq(draw_text("dog !", 8*6, 8),
+        {
+    "   ###                             ##           ", 
+    "    ##                            ####          ", 
+    "    ##   ####    ### ##           ####          ", 
+    " #####  ##  ##  ##  ##             ##           ", 
+    "##  ##  ##  ##  ##  ##             ##           ", 
+    "##  ##  ##  ##   #####                          ", 
+    " ### ##  ####       ##             ##           ", 
+    "                #####                           "
+        }));
 }

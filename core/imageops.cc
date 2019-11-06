@@ -1,5 +1,7 @@
 #include "core/imageops.h"
 
+#include <iostream>
+
 #include "core/image.h"
 #include "core/palette.h"
 
@@ -39,6 +41,24 @@ namespace euphoria::core
             const auto index = Floori(p * (characters.size() - 1));
             return characters[index];
         });
+
+        return ret;
+    }
+
+    std::vector<std::string>
+    ToStrings(const Table<char>& table)
+    {
+        std::vector<std::string> ret;
+
+        for(int r = 0; r < table.Height(); r += 1)
+        {
+            std::stringstream ss;
+            for(int c = 0; c < table.Width(); c += 1)
+            {
+                ss << table.Value(c, r);
+            }
+            ret.insert(ret.begin(), ss.str());
+        }
 
         return ret;
     }

@@ -1,6 +1,9 @@
 #ifndef CORE_IMAGEOPS_H
 #define CORE_IMAGEOPS_H
 
+#include <vector>
+#include <string>
+
 #include "core/table.h"
 #include "core/rgb.h"
 
@@ -23,6 +26,9 @@ namespace euphoria::core
 
     Table<char>
     ImageToStringTable(const Image& img, bool shorter);
+
+    std::vector<std::string>
+    ToStrings(const Table<char>& t);
 
     // todo(Gustav): add function to print image using colored unicode blocks
 
