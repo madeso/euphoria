@@ -2,6 +2,7 @@
 #define EUPHORIA_CORE_FONTS_H
 
 #include <string>
+#include <map>
 
 #include "core/image.h"
 
@@ -26,7 +27,7 @@ namespace euphoria::core
         //
 
         bool        valid {false};
-        std::string c;
+        unsigned int code_point {0};
         int         bearing_x {0};
         int         bearing_y {0};
         int         advance {0};
@@ -34,21 +35,18 @@ namespace euphoria::core
         float       size;
     };
 
-    typedef std::map<std::pair<std::string, std::string>, float> KerningMap;
+    typedef std::map<std::pair<unsigned int, unsigned int>, float> KerningMap;
 
     // represent a loaded font (or a part), but it not yet been converted
     // into a renderable data and texture.
     struct LoadedFont
     {
-        std::vector<LoadedGlyph> chars;
+        std::map<unsigned int, LoadedGlyph> codepoint_to_glyph;
         KerningMap               kerning;
 
         void
         CombineWith(const LoadedFont& fc);
     };
-
-    std::string
-    ConvertCharToIndex(char c);
 
     void
     LoadCharactersFromBuiltin(core::LoadedFont* font, int scale);

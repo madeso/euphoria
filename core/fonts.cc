@@ -4,6 +4,7 @@
 #include "core/assert.h"
 #include "core/noncopyable.h"
 #include "core/image_draw.h"
+#include "core/utf8.h"
 
 #include <ft2build.h>
 #include FT_FREETYPE_H
@@ -35,24 +36,6 @@ namespace euphoria::core
         }
     }  // namespace
 
-
-    // todo(Gustav): add better utf8 support
-    std::string
-    ConvertCharToIndex(char c)
-    {
-        return std::string {c};
-    }
-
-    namespace
-    {
-        // todo: use instad FT_Get_Char_Index( FT_Face face, FT_ULong charcode);
-        FT_UInt
-        CharToFt(char c)
-        {
-            // todo: support unicode/utf-8 character encoding
-            return static_cast<FT_UInt>(c);
-        }
-    }  // namespace
 
     struct FreetypeLibrary : Noncopyable
     {
@@ -96,10 +79,10 @@ namespace euphoria::core
         }
 
         LoadedGlyph
-        LoadGlyph(char c)
+        LoadGlyph(unsigned int code_point)
         {
             const FT_Error error
-                    = FT_Load_Char(face, CharToFt(c), FT_LOAD_RENDER);
+                    = FT_Load_Char(face, code_point, FT_LOAD_RENDER);
             if(error != 0)
             {
                 LOG_ERROR("Failed to get char");
@@ -109,7 +92,7 @@ namespace euphoria::core
             FT_GlyphSlot slot = face->glyph;
 
             LoadedGlyph ch;
-            ch.c         = c;
+            ch.code_point= code_point;
             ch.size      = size;
             ch.bearing_x = slot->bitmap_left;
             ch.bearing_y = slot->bitmap_top;
@@ -162,9 +145,17 @@ namespace euphoria::core
     void
     LoadedFont::CombineWith(const LoadedFont& fc)
     {
-        for(const auto& c: fc.chars)
+        for(const auto& glyph_iterator: fc.codepoint_to_glyph)
         {
-            chars.push_back(c);
+            const auto found = codepoint_to_glyph.find(glyph_iterator.first);
+            if(found == codepoint_to_glyph.end())
+            {
+                codepoint_to_glyph.insert(glyph_iterator);
+            }
+            else
+            {
+                LOG_ERROR("Multiple codepoints for " << glyph_iterator.first << " found when trying to combine");
+            }
         }
 
         for(const auto& e: fc.kerning)
@@ -191,6 +182,9 @@ namespace euphoria::core
         core::LoadedGlyph glyph;
         glyph.image.SetupWithAlphaSupport(size, size, 0);
 
+        unsigned int code_point = 0;
+        Utf8ToCodepoints(text, [&](unsigned int cp){code_point = cp;} );
+
         core::DrawText(
                 &glyph.image, core::vec2i::Zero(), text, core::Rgbi {255}, s);
 
@@ -198,8 +192,8 @@ namespace euphoria::core
         glyph.bearing_y = glyph.image.GetHeight() + 0;
         glyph.bearing_x = 0;
         glyph.advance   = glyph.image.GetWidth() + 0;
-        glyph.c         = text;
-        font.chars.emplace_back(glyph);
+        glyph.code_point= code_point;
+        font.codepoint_to_glyph[code_point] = glyph;
 
         return font;
     }
@@ -223,22 +217,24 @@ namespace euphoria::core
         FreetypeLibrary lib;
         FreetypeFace    f(&lib, font_file, font_size);
 
+        std::vector<unsigned int> code_points;
+        Utf8ToCodepoints(chars, [&](unsigned int cp){code_points.emplace_back(cp);});
+
         LoadedFont fontchars {};
-        fontchars.chars.reserve(chars.length());
-        for(char c: chars)
+        for(char code_point: code_points)
         {
-            LoadedGlyph cc = f.LoadGlyph(c);
+            LoadedGlyph cc = f.LoadGlyph(code_point);
             if(!cc.valid)
             {
                 continue;
             }
-            fontchars.chars.push_back(cc);
+            fontchars.codepoint_to_glyph[code_point] = cc;
         }
 
         const FT_Long use_kerning = FT_HAS_KERNING(f.face);
 
         LOG_INFO(
-                "Loaded " << fontchars.chars.size() << " characters from "
+                "Loaded " << fontchars.codepoint_to_glyph.size() << " characters from "
                           << font_file);
         LOG_INFO("kerning: " << static_cast<int>(use_kerning));
 
@@ -246,28 +242,28 @@ namespace euphoria::core
 
         if(use_kerning == 1)
         {
-            for(const char previous: chars)
+            for(const char previous: code_points)
             {
-                for(const char current: chars)
+                for(const char current: code_points)
                 {
                     if(previous == current)
                     {
                         continue;
                     }
-                    const std::string previous_c = ConvertCharToIndex(previous);
-                    const std::string current_c  = ConvertCharToIndex(current);
+                    const auto previous_index = FT_Get_Char_Index(f.face, previous);
+                    const auto current_index  = FT_Get_Char_Index(f.face, current);
                     FT_Vector         delta {};
                     FT_Get_Kerning(
                             f.face,
-                            CharToFt(previous),
-                            CharToFt(current),
+                            previous_index,
+                            current_index,
                             FT_KERNING_DEFAULT,
                             &delta);
                     int dx = delta.x >> 6;
                     if(dx != 0)
                     {
                         fontchars.kerning.insert(KerningMap::value_type(
-                                KerningMap::key_type(previous_c, current_c),
+                                KerningMap::key_type(previous, current),
                                 dx * scale));
                     }
                 }
