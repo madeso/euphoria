@@ -5,10 +5,6 @@ source_group("" FILES ${app_src})
 
 include_directories(SYSTEM ../external/stb)
 
-# freetype
-find_package(Freetype REQUIRED)
-include_directories(${FREETYPE_INCLUDE_DIRS})
-
 # glad
 include_directories(SYSTEM ../external/glad/include)
 set(src_glad ../external/glad/src/glad.c ../external/glad/include/glad/glad.h)
@@ -29,6 +25,5 @@ add_library(render STATIC ${src})
 target_link_libraries(render
                       core
                       ${OPENGL_LIBRARIES}
-                      ${FREETYPE_LIBRARIES}
                       ${CMAKE_DL_LIBS}
                       )

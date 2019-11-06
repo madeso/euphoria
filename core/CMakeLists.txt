@@ -13,6 +13,10 @@ include_directories(SYSTEM ${assimp_INCLUDE_DIRS})
 include_directories(SYSTEM ../external/stb)
 
 
+# freetype
+find_package(Freetype REQUIRED)
+include_directories(${FREETYPE_INCLUDE_DIRS})
+
 
 # release date 2017-09-23 version duktape-2.2.0.tar.xz
 include_directories(SYSTEM ../external/duktape)
@@ -45,4 +49,5 @@ include_directories(../external/font8x8/)
 add_library(core STATIC ${src})
 target_link_libraries(core
     ${assimp_LIBRARIES}
+    ${FREETYPE_LIBRARIES}
     )

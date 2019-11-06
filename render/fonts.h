@@ -5,6 +5,7 @@
 #include <map>
 #include <memory>
 
+#include "core/fonts.h"
 #include "core/vec2.h"
 #include "core/vec3.h"
 #include "core/rgb.h"
@@ -44,7 +45,6 @@ namespace euphoria::render
     };
 
     typedef std::map<std::string, std::shared_ptr<Glyph>>        CharDataMap;
-    typedef std::map<std::pair<std::string, std::string>, float> KerningMap;
 
     struct Font;
 
@@ -165,7 +165,7 @@ namespace euphoria::render
         std::unique_ptr<Texture2d> texture_;
         std::shared_ptr<Texture2d> background;
         CharDataMap                chars_;
-        KerningMap                 kerning_;
+        core::KerningMap                 kerning_;
     };
 
 }  // namespace euphoria::render
