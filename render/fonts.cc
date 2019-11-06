@@ -30,7 +30,7 @@ using namespace euphoria::convert;
 
 namespace euphoria::render
 {
-    LOG_SPECIFY_DEFAULT_LOGGER("core.font")
+    LOG_SPECIFY_DEFAULT_LOGGER("render.font")
 
     namespace
     {
