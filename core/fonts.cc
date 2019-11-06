@@ -1,5 +1,7 @@
 #include "core/fonts.h"
 
+#include <set>
+
 #include "core/log.h"
 #include "core/assert.h"
 #include "core/noncopyable.h"
@@ -140,21 +142,42 @@ namespace euphoria::core
         }
     };
 
-    
+    unsigned int
+    LoadedFont::NewPrivateUse(const std::string& alias)
+    {
+        // detect existing private use alias!
+        const auto pu = next_private_use;
+        next_private_use += 1;
+        private_use_aliases[alias] = pu;
+        return pu;
+    }
 
     void
     LoadedFont::CombineWith(const LoadedFont& fc)
     {
+        std::map<unsigned int, unsigned int> pus;
+        for(const auto [alias, id]: fc.private_use_aliases)
+        {
+            pus[id] = NewPrivateUse(alias);
+        }
+
         for(const auto& glyph_iterator: fc.codepoint_to_glyph)
         {
-            const auto found = codepoint_to_glyph.find(glyph_iterator.first);
+            auto code_point = glyph_iterator.first;
+            auto found_pus = pus.find(code_point);
+            if(found_pus != pus.end())
+            {
+                // private use: move to new private use to avoid collisions
+                code_point = found_pus->second;
+            }
+            const auto found = codepoint_to_glyph.find(code_point);
             if(found == codepoint_to_glyph.end())
             {
-                codepoint_to_glyph.insert(glyph_iterator);
+                codepoint_to_glyph[code_point] = glyph_iterator.second;
             }
             else
             {
-                LOG_ERROR("Multiple codepoints for " << glyph_iterator.first << " found when trying to combine");
+                LOG_ERROR("Multiple codepoints for " << code_point << " found when trying to combine");
             }
         }
 

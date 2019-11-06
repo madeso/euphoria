@@ -43,6 +43,11 @@ namespace euphoria::core
     {
         std::map<unsigned int, LoadedGlyph> codepoint_to_glyph;
         KerningMap               kerning;
+        std::map<std::string, unsigned int> private_use_aliases;
+        unsigned int next_private_use = 0xE000;
+
+        unsigned int
+        NewPrivateUse(const std::string& alias);
 
         void
         CombineWith(const LoadedFont& fc);
