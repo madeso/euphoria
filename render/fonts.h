@@ -35,16 +35,16 @@ namespace euphoria::render
     {
         Glyph(const core::Rectf& sprite,
               const core::Rectf& texture,
-              const std::string& ch,
+              unsigned int ch,
               float              ad);
 
         core::Rectf sprite_rect;  // relative to 0,0
         core::Rectf texture_rect;  // image texture uvs
-        std::string c;  // the character or string id
+        unsigned int code_point;  // the character or string id
         float       advance;
     };
 
-    typedef std::map<std::string, std::shared_ptr<Glyph>>        CharDataMap;
+    typedef std::map<unsigned int, std::shared_ptr<Glyph>> CharDataMap;
 
     struct Font;
 
@@ -144,6 +144,8 @@ namespace euphoria::render
         mutable TextDrawCommandList commands;
     };
 
+    struct ParsedTextCompileVisitor;
+
     struct Font
     {
     public:
@@ -162,10 +164,12 @@ namespace euphoria::render
         CompileList(const core::ParsedText& text, float size) const;
 
     private:
+        friend ParsedTextCompileVisitor;
         std::unique_ptr<Texture2d> texture_;
         std::shared_ptr<Texture2d> background;
         CharDataMap                chars_;
         core::KerningMap                 kerning_;
+        std::map<std::string, unsigned int> private_use_aliases;
     };
 
 }  // namespace euphoria::render

@@ -5,6 +5,7 @@
 #include "core/proto.h"
 #include "core/image_draw.h"
 #include "core/textparser.h"
+#include "core/utf8.h"
 
 #include <vector>
 #include <memory>
@@ -32,9 +33,9 @@ namespace euphoria::render
     Glyph::Glyph(
             const core::Rectf& sprite,
             const core::Rectf& texture,
-            const std::string& ch,
+            unsigned int ch,
             float              ad)
-        : sprite_rect(sprite), texture_rect(texture), c(ch), advance(ad)
+        : sprite_rect(sprite), texture_rect(texture), code_point(ch), advance(ad)
     {}
 
     core::LoadedFont
@@ -54,10 +55,10 @@ namespace euphoria::render
             glyph.bearing_y = s * loaded.image.GetHeight() + img.bearing_y;
             glyph.bearing_x = img.bearing_x;
             glyph.advance   = s * loaded.image.GetWidth() + img.advance;
-            glyph.c         = img.alias;
+            glyph.code_point= font.NewPrivateUse(img.alias);
             // todo: add ability to clip image
             glyph.image = loaded.image;
-            font.chars.emplace_back(glyph);
+            font.codepoint_to_glyph[glyph.code_point] = glyph;
         }
 
         return font;
@@ -87,8 +88,8 @@ namespace euphoria::render
                 = uv_bottom + std::max(static_cast<stbrp_coord>(1), src_rect.h);
 
         // todo: add ability to be a quad for tighter fit
-        ASSERTX(vert_top > vert_bottom, vert_top, vert_bottom, src_char.c);
-        ASSERTX(uv_top > uv_bottom, uv_top, uv_bottom, src_char.c);
+        ASSERTX(vert_top > vert_bottom, vert_top, vert_bottom, src_char.code_point);
+        ASSERTX(uv_top > uv_bottom, uv_top, uv_bottom, src_char.code_point);
         const auto sprite = core::Rectf::FromLeftRightTopBottom(
                 vert_left, vert_right, vert_top, vert_bottom);
         const auto texture = core::Rectf::FromLeftRightTopBottom(
@@ -142,14 +143,20 @@ namespace euphoria::render
         const int half_margin = 1;
 
         // pack char textures to a single texture
-        const int               num_rects = fontchars.chars.size();
+        const int               num_rects = fontchars.codepoint_to_glyph.size();
         std::vector<stbrp_rect> packed_rects(num_rects);
-        for(int i = 0; i < num_rects; ++i)
+        std::map<int, unsigned int> id_to_codepoint;
         {
-            stbrp_rect& r = packed_rects[i];
-            r.id          = i;
-            r.w = fontchars.chars[i].image.GetWidth() + half_margin * 2;
-            r.h = fontchars.chars[i].image.GetHeight() + half_margin * 2;
+            int index = 0;
+            for(const auto [codepoint, glyph]: fontchars.codepoint_to_glyph)
+            {
+                stbrp_rect& r = packed_rects[index];
+                r.id          = index;
+                r.w = glyph.image.GetWidth() + half_margin * 2;
+                r.h = glyph.image.GetHeight() + half_margin * 2;
+                id_to_codepoint[index] = codepoint;
+                index +=1;
+            }
         }
         stbrp_context           context {};
         const int               num_nodes = texture_width;
@@ -169,7 +176,7 @@ namespace euphoria::render
                 LOG_ERROR("Failed to pack");
                 continue;
             }
-            const auto& src_char = fontchars.chars[src_rect.id];
+            const auto& src_char = fontchars.codepoint_to_glyph[id_to_codepoint[src_rect.id]];
             core::PasteImage(
                     &image,
                     core::vec2i {src_rect.x + half_margin,
@@ -181,9 +188,9 @@ namespace euphoria::render
             std::shared_ptr<Glyph> dest(new Glyph(
                     sprite_and_texture_rects.first,
                     sprite_and_texture_rects.second,
-                    src_char.c,
+                    src_char.code_point,
                     src_char.advance / src_char.size));
-            map.insert(CharDataMap::value_type(dest->c, dest));
+            map.insert(CharDataMap::value_type(dest->code_point, dest));
         }
 
         // for debug
@@ -256,26 +263,20 @@ namespace euphoria::render
 
     struct ParsedTextCompileVisitor : public core::textparser::Visitor
     {
-        const Texture2d*   texture_;
-        const CharDataMap* chars_;
-        const core::KerningMap*  kerning_;
+        const Font& font;
         float              size;
         bool               apply_highlight;
         core::vec2f        position;  // todo: rename to offset
-        std::string        last_char_index;
+        unsigned int        last_char_index = 0;
 
         // return value
         TextDrawCommandList* list;
 
         ParsedTextCompileVisitor(
-                const Texture2d*     texture,
-                const CharDataMap*   chars,
-                const core::KerningMap*    kerning,
+                const Font&     f,
                 float                size,
                 TextDrawCommandList* list)
-            : texture_(texture)
-            , chars_(chars)
-            , kerning_(kerning)
+            : font(f)
             , size(size)
             , apply_highlight(false)
             , position(0, 0)
@@ -285,17 +286,21 @@ namespace euphoria::render
         void
         OnText(const std::string& text) override
         {
-            for(char c: text)
+            core::Utf8ToCodepoints(text, [this](unsigned int cp)
             {
-                const std::string char_index = core::ConvertCharToIndex(c);
-                AddCharIndex(char_index);
-            }
+                AddCharIndex(cp);
+            });
         }
 
         void
         OnImage(const std::string& image) override
         {
-            AddCharIndex(image);
+            // todo(Gustav): handle invalud font alias
+            auto found = font.private_use_aliases.find(image);
+            if(found != font.private_use_aliases.end())
+            {
+                AddCharIndex( found->second );
+            }
         }
 
         void
@@ -311,37 +316,37 @@ namespace euphoria::render
         }
 
         void
-        AddCharIndex(const std::string& char_index)
+        AddCharIndex(unsigned int code_point)
         {
-            if(char_index == "\n")
+            if(code_point == '\n')
             {
                 position.x = 0;
                 position.y -= size;
             }
             else
             {
-                auto it = chars_->find(char_index);
-                if(it == chars_->end())
+                auto it = font.chars_.find(code_point);
+                if(it == font.chars_.end())
                 {
-                    LOG_ERROR("Failed to print '" << char_index << "'");
+                    LOG_ERROR("Failed to print '" << code_point << "'");
                     return;
                 }
                 std::shared_ptr<Glyph> ch = it->second;
 
                 list->Add(
-                        texture_,
+                        font.texture_.get(),
                         ch->sprite_rect.ScaleCopy(size, size)
                                 .OffsetCopy(position),
                         ch->texture_rect,
                         apply_highlight);
 
-                auto kerning = kerning_->find(
-                        std::make_pair(last_char_index, char_index));
+                auto kerning = font.kerning_.find(
+                        std::make_pair(last_char_index, code_point));
                 int the_kerning
-                        = kerning == kerning_->end() ? 0 : kerning->second;
+                        = kerning == font.kerning_.end() ? 0 : kerning->second;
                 position.x += (ch->advance + the_kerning) * size;
             }
-            last_char_index = char_index;
+            last_char_index = code_point;
         }
     };
 
@@ -350,8 +355,7 @@ namespace euphoria::render
     {
         TextDrawCommandList list;
 
-        ParsedTextCompileVisitor vis {
-                texture_.get(), &chars_, &kerning_, size, &list};
+        ParsedTextCompileVisitor vis {*this, size, &list};
         text.Visit(&vis);
 
         return list;
