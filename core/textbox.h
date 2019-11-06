@@ -45,7 +45,7 @@ Requires a C++17 capable compiler and standard library. */
 struct TextBox
 {
     static TextBox Empty();
-    static TextBox FromString(const std::vector<std::string>& str);
+    static TextBox FromStrings(const std::vector<std::string>& str);
 
 
     ///////////////////////////////////////////////////////////////////////////
@@ -68,6 +68,7 @@ struct TextBox
     or if the string includes multibyte characters.
     */
     void PutString(std::size_t x, std::size_t y, const std::string& s);
+    static TextBox FromString(const std::string& s, std::size_t x=0, std::size_t y=0);
 
 
     /* Put a 2D string starting at the given coordinate */
@@ -113,19 +114,19 @@ struct TextBox
     *   e:                The element that will be rendered.
     *                     Possibly some user-defined type that represents a node in a tree structure.
     *   maxwidth:         The maximum width of the resulting box in characters.
-    *   create_atom:      A functor of type std::string(const ParamType&).
+    *   to_string:         A functor of type std::string(const T&).
     *                     It renders the given element into an 1D string.
     *                     Note that the string must not contain multibyte characters,
     *                     because size() will be used to determine its width in columns.
-    *   count_children:   A functor of type std::pair<ForwardIterator,ForwardIterator>(const ParamType&).
+    *   count_children:   A functor of type std::pair<ForwardIterator,ForwardIterator>(const T&).
     *                     It returns a pair of iterators representing the range of children
     *                     for the given element.
     *                     create_tree_graph will call itself recursively for each element in this range.
-    *   oneliner_test:    A functor of type bool(const ParamType&).
+    *   oneliner_test:    A functor of type bool(const T&).
     *                     If the result is true, enables simplified horizontal topology.
-    *   simple_test:      A functor of type bool(const ParamType&).
+    *   simple_test:      A functor of type bool(const T&).
     *                     If the result is true, enables very simplified horizontal topology.
-    *   separate1st_test: A functor of type bool(const ParamType&).
+    *   separate1st_test: A functor of type bool(const T&).
     *                     If the result is true, create_tree_graph() will always render
     *                     the first child alone on a separate line, but the rest of them
     *                     may get rendered horizontally.
@@ -173,11 +174,11 @@ struct TextBox
     *                                          and it fits on one line.
     */
 
-    template<typename ParamType, typename AtomCreator, typename ParamCountFunc,
+    template<typename T, typename ToStringFunction, typename ParamCountFunc,
             typename OneLinerFunc, typename SimpleTestFunc, typename Separate1stParamTestFunc>
-    static TextBox CreateTreeGraph(const ParamType& e,
+    static TextBox CreateTreeGraph(const T& e,
                             std::size_t maxwidth,
-                            AtomCreator&&    create_atom,
+                            ToStringFunction&& to_string,
                             ParamCountFunc&& count_children,
                             OneLinerFunc&&   oneliner_test,
                             SimpleTestFunc&& simple_test,
@@ -188,10 +189,8 @@ struct TextBox
     {
         ASSERTX(maxwidth >=16, maxwidth);
 
-        auto result = TextBox::Empty();
-        const std::string atom = create_atom(e);
-        
-        result.PutString(0, 0, atom);
+        const auto label = to_string(e);
+        auto result = TextBox::FromString(label);
 
         if(auto param_range = count_children(e); param_range.first != param_range.second)
         {
@@ -201,10 +200,10 @@ struct TextBox
             for(auto i = param_range.first; i != param_range.second; ++i)
             {
                 boxes.emplace_back(CreateTreeGraph(*i, std::max<std::size_t>(maxwidth - 2, 16),
-                                                    create_atom, count_children, oneliner_test, simple_test,
+                                                    to_string, count_children, oneliner_test, simple_test,
                                                     separate1st_test, margin, firstx));
             }
-            SubCreateTreeGraph(result, maxwidth, boxes, oneliner_test(e), simple_test(e), separate1st_test(e), atom, margin, firstx);
+            SubCreateTreeGraph(result, maxwidth, boxes, oneliner_test(e), simple_test(e), separate1st_test(e), label, margin, firstx);
         }
         result.Trim();
         return result;

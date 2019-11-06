@@ -145,7 +145,7 @@ TEST_CASE("tb_print")
 
         SECTION("no change")
         {
-            box = TextBox::FromString({"", "  a"});
+            box = TextBox::FromStrings({"", "  a"});
             box.Trim();
 
             CHECK(box.Size() == S(3,2));
@@ -154,7 +154,7 @@ TEST_CASE("tb_print")
 
         SECTION("change")
         {
-            box = TextBox::FromString({"    ", "  a ", ""});
+            box = TextBox::FromStrings({"    ", "  a ", ""});
             box.Trim();
 
             CHECK(box.Size() == S(3,2));
@@ -337,8 +337,8 @@ TEST_CASE("tb_box")
     const std::vector<std::string> abc_data = {"abc"};
 
     const auto empty = TextBox::Empty();
-    const auto x = TextBox::FromString(x_data);
-    const auto abc = TextBox::FromString(abc_data);
+    const auto x = TextBox::FromStrings(x_data);
+    const auto abc = TextBox::FromStrings(abc_data);
 
     SECTION("putbox")
     {

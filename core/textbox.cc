@@ -188,7 +188,7 @@ TextBox TextBox::Empty()
     return {};
 }
 
-TextBox TextBox::FromString(const std::vector<std::string>& str)
+TextBox TextBox::FromStrings(const std::vector<std::string>& str)
 {
     TextBox ret;
     ret.data = str;
@@ -222,6 +222,13 @@ void TextBox::PutString(std::size_t x, std::size_t y, const std::string& line)
     {
         PutChar(x+index, y, line[index]);
     }
+}
+
+TextBox TextBox::FromString(const std::string& s, std::size_t x, std::size_t y)
+{
+    auto tb = Empty();
+    tb.PutString(x, y, s);
+    return tb;
 }
 
 
