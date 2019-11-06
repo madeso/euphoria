@@ -10,7 +10,7 @@ namespace euphoria::core
     bool Utf8ToCodepoints(const String& string, OnCodepoint on_codepoint)
     {
         // reference: https://en.wikipedia.org/wiki/UTF-8
-        using Int = int;
+        using Int = unsigned int;
         auto ToByte = [](char c)->std::byte { return static_cast<std::byte>(c); };
 
         constexpr std::byte mask0 = std::byte{0b10000000}; constexpr std::byte bit0 = std::byte{0b00000000};

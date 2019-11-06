@@ -9,7 +9,7 @@ using namespace euphoria::core;
 
 namespace
 {
-    using T = std::vector<int>;
+    using T = std::vector<unsigned int>;
 
     std::pair<bool, T>
     Parse(const std::string& str)
@@ -17,7 +17,7 @@ namespace
         auto ret = T{};
         
         const auto r = Utf8ToCodepoints(str,
-            [&](const int cp) { ret.push_back(cp); }
+            [&](unsigned int cp) { ret.push_back(cp); }
         );
 
         return std::make_pair(r, ret);
