@@ -192,12 +192,12 @@ struct TextBox
         const auto label = to_string(e);
         auto result = TextBox::FromString(label);
 
-        if(auto param_range = count_children(e); param_range.first != param_range.second)
+        if(auto [begin, end] = count_children(e); begin != end)
         {
             std::vector<TextBox> boxes;
 
-            boxes.reserve(std::distance(param_range.first, param_range.second));
-            for(auto i = param_range.first; i != param_range.second; ++i)
+            boxes.reserve(std::distance(begin, end));
+            for(auto i = begin; i != end; ++i)
             {
                 boxes.emplace_back(CreateTreeGraph(*i, std::max<std::size_t>(maxwidth - 2, 16),
                                                     to_string, count_children, oneliner_test, simple_test,
