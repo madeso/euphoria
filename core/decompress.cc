@@ -1,5 +1,7 @@
 #include "core/decompress.h"
 
+#include <cstring>
+
 #include "core/assert.h"
 
 namespace euphoria::core
