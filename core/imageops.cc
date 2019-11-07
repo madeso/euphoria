@@ -28,6 +28,35 @@ namespace euphoria::core
     }
 
     Table<char>
+    ImageToStringTableExact(
+            const Image&                       img,
+            const std::vector<ImageMapAction>& map, char missing)
+    {
+        auto find_match = [&](const Rgbi& c) -> char
+        {
+            for(const auto& m: map)
+            {
+                if(m.from_color == c)
+                {
+                    return m.to;
+                }
+            }
+
+            return missing;
+        };
+        auto ret = Table<char>::FromWidthHeight(
+                img.GetWidth(), img.GetHeight(), ' ');
+        ret.SetAll([&](int x, int y) {
+            const auto p = img.GetPixel(x, y);
+            const auto c = Rgbi {p.r, p.g, p.b};
+            const auto r = find_match(c);
+            return r;
+        });
+
+        return ret;
+    }
+
+    Table<char>
     ImageToStringTable(const Image& img, bool shorter)
     {
         auto ret = Table<char>::FromWidthHeight(

@@ -170,9 +170,9 @@ TEST_CASE("image text")
         image.SetupNoAlphaSupport(width, height);
         euco::DrawRect(&image, euco::Color::White, euco::WholeImage(image));
         euco::DrawText(&image, euco::vec2i(0,0), text, euco::Color::Black, euco::LoadCharactersFromBuiltin());
-        const auto table = euco::ImageToStringTable(
+        const auto table = euco::ImageToStringTableExact(
             image,
-            { {'#', euco::Color::Black}, {' ', euco::Color::White} }); 
+            { {'#', euco::Color::Black}, {' ', euco::Color::White} }, '?'); 
         const auto strings = euco::ToStrings(table);
         return strings;
     };

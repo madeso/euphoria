@@ -25,6 +25,11 @@ namespace euphoria::core
             const std::vector<ImageMapAction>& map);
 
     Table<char>
+    ImageToStringTableExact(
+            const Image&                       img,
+            const std::vector<ImageMapAction>& map, char missing);
+
+    Table<char>
     ImageToStringTable(const Image& img, bool shorter);
 
     std::vector<std::string>
