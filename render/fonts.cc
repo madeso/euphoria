@@ -203,6 +203,7 @@ namespace euphoria::render
         texture_ = std::make_unique<Texture2d>();
         texture_->LoadFromImage(
                 image, core::AlphaLoad::Keep, Texture2dLoadData());
+        line_height = fontchars.line_height;
     }
 
     void
@@ -321,7 +322,7 @@ namespace euphoria::render
             if(code_point == '\n')
             {
                 position.x = 0;
-                position.y -= size;
+                position.y -= size*font.line_height;
             }
             else
             {

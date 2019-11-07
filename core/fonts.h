@@ -45,6 +45,7 @@ namespace euphoria::core
         KerningMap               kerning;
         std::map<std::string, unsigned int> private_use_aliases;
         unsigned int next_private_use = 0xE000;
+        int line_height = -1;
 
         unsigned int
         NewPrivateUse(const std::string& alias);

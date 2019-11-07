@@ -195,6 +195,8 @@ namespace euphoria::core
                 LOG_ERROR("Multiple kernings found when trying to combine");
             }
         }
+
+        line_height = std::max(line_height, fc.line_height);
     }
 
     template<typename Glyphs>
@@ -204,6 +206,7 @@ namespace euphoria::core
         ASSERTX(start_codepoint < end_codepoint, start_codepoint, end_codepoint);
         const auto number_of_glyphs = (end_codepoint+1) - start_codepoint;
         core::LoadedFont font;
+        font.line_height = 8;
 
         for(unsigned int glyph_index=0; glyph_index < number_of_glyphs; glyph_index+=1)
         {
@@ -268,6 +271,8 @@ namespace euphoria::core
             }
             fontchars.codepoint_to_glyph[code_point] = cc;
         }
+
+        fontchars.line_height = f.face->size->metrics.height;
 
         const FT_Long use_kerning = FT_HAS_KERNING(f.face);
 

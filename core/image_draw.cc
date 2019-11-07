@@ -414,7 +414,7 @@ namespace euphoria::core
             {
                 pos.x = start_pos.x;
                 // todo(Gustav): font needs lineheight...
-                pos.y -= 8;
+                pos.y -= font.line_height;
             }
             else
             {

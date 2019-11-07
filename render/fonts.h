@@ -163,6 +163,8 @@ namespace euphoria::render
         TextDrawCommandList
         CompileList(const core::ParsedText& text, float size) const;
 
+        float line_height=1;
+
     private:
         friend ParsedTextCompileVisitor;
         std::unique_ptr<Texture2d> texture_;
