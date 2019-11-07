@@ -416,13 +416,15 @@ namespace euphoria::core
                 // todo(Gustav): font needs lineheight...
                 pos.y -= 8;
             }
-
-            const auto glyph_found = font.codepoint_to_glyph.find(cp);
-            if(glyph_found != font.codepoint_to_glyph.end())
+            else
             {
-                const auto& glyph = glyph_found->second;
-                SimpleImageBlend(image, pos, glyph.image, color);
-                pos.x += glyph.advance;
+                const auto glyph_found = font.codepoint_to_glyph.find(cp);
+                if(glyph_found != font.codepoint_to_glyph.end())
+                {
+                    const auto& glyph = glyph_found->second;
+                    SimpleImageBlend(image, pos, glyph.image, color);
+                    pos.x += glyph.advance;
+                }
             }
         });
     }
