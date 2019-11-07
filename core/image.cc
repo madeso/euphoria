@@ -123,8 +123,8 @@ namespace euphoria::core
     Rgbai
     Image::GetPixel(int x, int y) const
     {
-        ASSERT(IsWithinInclusivei(0, x, GetWidth() - 1));
-        ASSERT(IsWithinInclusivei(0, y, GetHeight() - 1));
+        ASSERTX(IsWithinInclusivei(0, x, GetWidth() - 1), x, GetWidth());
+        ASSERTX(IsWithinInclusivei(0, y, GetHeight() - 1), y, GetHeight());
 
         const auto base_index = GetPixelIndex(x, y);
 
