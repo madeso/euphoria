@@ -57,7 +57,7 @@ PrintMazeToConsole(const generator::Drawer& drawer)
              {'O', drawer.unit_color}});
     const auto strings = ToStrings(table);
 
-    for(const auto s&: strings)
+    for(const auto& s: strings)
     {
         std::cout << s << "\n";
     }
