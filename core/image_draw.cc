@@ -5,6 +5,7 @@
 #include "core/range.h"
 #include "core/fonts.h"
 #include "core/utf8.h"
+#include "core/rgb_blend.h"
 
 #include <utility>
 
@@ -378,31 +379,6 @@ namespace euphoria::core
         return rgbai(Tint(rgba(c), rgb(tint)));
     }
 
-    float
-    Blend(float lhs, float rhs, float a)
-    {
-        // todo(Gustav): improve this shitty blend
-        return lhs * (1-a) + rhs * a;
-    }
-
-    Rgba Blend(const Rgba& lhs, const Rgba& rhs)
-    {
-        return
-            {
-                {
-                    Blend(lhs.r, rhs.r, rhs.a),
-                    Blend(lhs.g, rhs.g, rhs.a),
-                    Blend(lhs.b, rhs.b, rhs.a),
-                },
-                Blend(lhs.a, rhs.a, rhs.a)
-            };
-    }
-
-    Rgbai Blend(const Rgbai& lhs, const Rgbai& rhs)
-    {
-        return rgbai(Blend(rgba(lhs), rgba(rhs)));
-    }
-
     void
     SimpleImageBlend(Image* dst, const vec2i& p, const Image& src, const Rgbi& tint)
     {
@@ -411,9 +387,11 @@ namespace euphoria::core
         {
             const auto dx = p.x + x;
             const auto dy = p.y + y;
-            const auto s = Tint(src.GetPixel(x, y), tint);
-            const auto c = Blend(dst->GetPixel(dx, dy), s);
-            dst->SetPixel(dx, dy, c);
+            const auto src_color = src.GetPixel(x, y);
+            const auto tinted_color = Tint(src_color, tint);
+            const auto dst_color = dst->GetPixel(dx, dy);
+            const auto result_color = Blend(tinted_color, dst_color);
+            dst->SetPixel(dx, dy, result_color);
         }
     }
 
