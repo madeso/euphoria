@@ -86,8 +86,8 @@ namespace euphoria::core
         template<typename F>
         Rgbai Blend(const Rgbai& top, const Rgbai& bottom, F f)
         {
-            const auto factor = bottom.a/255.0f;
-            const auto ff = [&](uint8 a_top,uint8 a_bottom){ return ChannelBlend_AlphaF(a_top, a_bottom, 1-factor, f); };
+            const auto factor = top.a/255.0f;
+            const auto ff = [&](uint8 a_top,uint8 a_bottom){ return ChannelBlend_AlphaF(a_top, a_bottom, factor, f); };
             return
             {
                 {
@@ -95,7 +95,7 @@ namespace euphoria::core
                     ff(top.g, bottom.g),
                     ff(top.b, bottom.b)
                 },
-                AlphaBlend(top.a, bottom.a, factor)
+                AlphaBlend(top.a, bottom.a, 1-factor)
             };
         }
 

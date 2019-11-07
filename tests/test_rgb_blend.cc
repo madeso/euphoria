@@ -28,4 +28,14 @@ TEST_CASE("rgb_blend")
     {
         CHECK(Blend(A{Color::Green, 255}, A{Color::Red,   0}) == A{Color::Green, 255});
     }
+
+    SECTION("1 on 1 same")
+    {
+        CHECK(Blend(A{Color::Red, 255}, A{Color::Red, 255}) == A{Color::Red, 255});
+    }
+
+    SECTION("1 on 1 different")
+    {
+        CHECK(Blend(A{Color::Green, 255}, A{Color::Red, 255}) == A{Color::Green, 255});
+    }
 }
