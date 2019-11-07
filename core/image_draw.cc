@@ -379,10 +379,10 @@ namespace euphoria::core
     }
 
     float
-    Blend(float, float rhs, float a)
+    Blend(float lhs, float rhs, float a)
     {
         // todo(Gustav): improve this shitty blend
-        return rhs * a;
+        return lhs * (1-a) + rhs * a;
     }
 
     Rgba Blend(const Rgba& lhs, const Rgba& rhs)
