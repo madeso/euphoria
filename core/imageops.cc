@@ -59,6 +59,7 @@ namespace euphoria::core
     Table<char>
     ImageToStringTable(const Image& img, bool shorter)
     {
+        // todo(Gustav): use grayscale function from imagefiler
         auto ret = Table<char>::FromWidthHeight(
                 img.GetWidth(), img.GetHeight(), ' ');
         ret.SetAll([shorter, &img](int x, int y) {
