@@ -15,6 +15,7 @@ struct SingleImage {
 }
 
 struct Bultin {
+  // todo(Gustav): remove this...
   int32 scale = 1;
 }
 
