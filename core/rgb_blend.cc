@@ -10,6 +10,7 @@ namespace euphoria::core
 {
     namespace
     {
+        // todo(Gustav): replace uint8 with float
         using uint8 = std::uint8_t;
 
         uint8 min(uint8 lhs, uint8 rhs)
