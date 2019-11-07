@@ -11,6 +11,8 @@
 #include <ft2build.h>
 #include FT_FREETYPE_H
 
+#include <font8x8/font8x8_basic.h>
+
 namespace euphoria::core
 {
     LOG_SPECIFY_DEFAULT_LOGGER("core.font")
@@ -195,40 +197,50 @@ namespace euphoria::core
         }
     }
 
+    template<typename Glyphs>
     core::LoadedFont
-    GetCharacterFromBuiltin(const std::string& text, int s)
+    GetCharacterFromBuiltin(const unsigned int start_codepoint, unsigned int end_codepoint, Glyphs glyphs)
     {
+        ASSERTX(start_codepoint < end_codepoint, start_codepoint, end_codepoint);
+        const auto number_of_glyphs = (end_codepoint+1) - start_codepoint;
         core::LoadedFont font;
 
-        const int size = 8 * s;
+        for(unsigned int glyph_index=0; glyph_index < number_of_glyphs; glyph_index+=1)
+        {
+            const auto code_point = glyph_index + start_codepoint;
+            core::LoadedGlyph glyph;
+            glyph.image.SetupWithAlphaSupport(8, 8, 0);
 
-        core::LoadedGlyph glyph;
-        glyph.image.SetupWithAlphaSupport(size, size, 0);
+            for(int y = 0; y < 8; y += 1)
+            {
+                for(int x = 0; x < 8; x += 1)
+                {
+                    // extract pixel from character
+                    // glyph is defined in "y down" order, fix by inverting sample point on y
+                    bool pixel = 0 != (glyphs[glyph_index][7 - y] & 1 << x);
+                    if(pixel)
+                    {
+                        // glyph.image.SetPixel(x, y, Color::White);
+                        DrawSquare(&glyph.image, Color::White, x, y, 1);
+                    }
+                }
+            }
 
-        unsigned int code_point = 0;
-        Utf8ToCodepoints(text, [&](unsigned int cp){code_point = cp;} );
-
-        core::DrawText(
-                &glyph.image, core::vec2i::Zero(), text, core::Rgbi {255}, s);
-
-        glyph.size      = glyph.image.GetHeight();
-        glyph.bearing_y = glyph.image.GetHeight() + 0;
-        glyph.bearing_x = 0;
-        glyph.advance   = glyph.image.GetWidth() + 0;
-        glyph.code_point= code_point;
-        font.codepoint_to_glyph[code_point] = glyph;
+            glyph.size      = glyph.image.GetHeight();
+            glyph.bearing_y = glyph.image.GetHeight() + 0;
+            glyph.bearing_x = 0;
+            glyph.advance   = glyph.image.GetWidth() + 0;
+            glyph.code_point= code_point;
+            font.codepoint_to_glyph[code_point] = glyph;
+        }
 
         return font;
     }
 
     void
-    LoadCharactersFromBuiltin(core::LoadedFont* font, int scale)
+    LoadCharactersFromBuiltin(core::LoadedFont* font)
     {
-        for(int c = ' '; c < 128; c += 1)
-        {
-            const std::string text(1, static_cast<char>(c));
-            font->CombineWith(GetCharacterFromBuiltin(text, scale));
-        }
+        font->CombineWith(GetCharacterFromBuiltin(0x0000, 0x007F, font8x8_basic));
     }
 
     LoadedFont

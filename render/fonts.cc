@@ -134,7 +134,7 @@ namespace euphoria::render
             }
             if(source.builtin)
             {
-                LoadCharactersFromBuiltin(&fontchars, source.builtin->scale);
+                LoadCharactersFromBuiltin(&fontchars);
             }
             // todo: add more sources, built in image font or images
         }
