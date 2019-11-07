@@ -169,7 +169,7 @@ TEST_CASE("image text")
         euco::Image image;
         image.SetupNoAlphaSupport(width, height);
         euco::DrawRect(&image, euco::Color::White, euco::WholeImage(image));
-        euco::DrawText(&image, euco::vec2i(0,0), text, euco::Color::Black, euco::LoadCharactersFromBuiltin());
+        euco::DrawText(&image, euco::vec2i(0,height-8), text, euco::Color::Black, euco::LoadCharactersFromBuiltin());
         const auto table = euco::ImageToStringTableExact(
             image,
             { {'#', euco::Color::Black}, {' ', euco::Color::White} }, '?'); 
@@ -189,7 +189,7 @@ TEST_CASE("image text")
     "                #####                           "
         }));
 
-    CHECK(StringEq(draw_text("CAT", 8, 8),
+    CHECK(StringEq(draw_text("CAT", 8, 8+1),
         {
             "  ####  ",
             " ##  ## ",
@@ -198,6 +198,7 @@ TEST_CASE("image text")
             "##      ",
             " ##  ## ",
             "  ####  ",
+            "        ",
             "        "
         }));
 }
