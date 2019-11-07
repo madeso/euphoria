@@ -203,6 +203,13 @@ namespace euphoria::core
     Rgbi
     rgbi(const Rgbai& rgb);
 
+    // convert functions rgba
+    Rgba
+    rgba(const Rgbai& rgb);
+
+    Rgbai
+    rgbai(const Rgba& rgb);
+
     ////////////////////////////////////////////////////////////////////////////////
     // Transforms
 

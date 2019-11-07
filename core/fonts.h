@@ -53,8 +53,8 @@ namespace euphoria::core
         CombineWith(const LoadedFont& fc);
     };
 
-    void
-    LoadCharactersFromBuiltin(core::LoadedFont* font);
+    core::LoadedFont
+    LoadCharactersFromBuiltin();
 
     LoadedFont
     GetCharactersFromFont(

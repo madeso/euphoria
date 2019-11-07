@@ -10,6 +10,8 @@
 
 namespace euphoria::core
 {
+    struct LoadedFont;
+
     Recti
     WholeImage(const Image& image);
 
@@ -53,14 +55,13 @@ namespace euphoria::core
             const vec2i& to);
 
     // position is lower left of text
-    // each character is 8x8
     void
     DrawText(
             Image*             image,
             const vec2i&       start_pos,
             const std::string& text,
             const Rgbi&        color,
-            int                scale);
+            const LoadedFont& font);
 
     void
     PasteImage(Image* image, const vec2i& position, const Image& source_image);

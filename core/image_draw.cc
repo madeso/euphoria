@@ -3,8 +3,8 @@
 #include "core/numeric.h"
 #include "core/assert.h"
 #include "core/range.h"
-
-#include <font8x8/font8x8_basic.h>
+#include "core/fonts.h"
+#include "core/utf8.h"
 
 #include <utility>
 
@@ -360,43 +360,60 @@ namespace euphoria::core
         }
     }
 
-    const unsigned char*
-    GetCharGlyph(char ac)
+    Rgba Tint(const Rgba& c, const Rgb& tint)
     {
-        auto c = static_cast<int>(ac);
-        ASSERT(c >= 0);
-        ASSERT(c < 128);
-        return static_cast<const unsigned char*>(font8x8_basic[c]);
+        return
+            {
+                {
+                    c.r * tint.r,
+                    c.g * tint.g,
+                    c.b * tint.b
+                },
+                c.a
+            };
+    }
+
+    Rgbai Tint(const Rgbai& c, const Rgbi& tint)
+    {
+        return rgbai(Tint(rgba(c), rgb(tint)));
+    }
+
+    float
+    Blend(float, float rhs, float a)
+    {
+        // todo(Gustav): improve this shitty blend
+        return rhs * a;
+    }
+
+    Rgba Blend(const Rgba& lhs, const Rgba& rhs)
+    {
+        return
+            {
+                {
+                    Blend(lhs.r, rhs.r, rhs.a),
+                    Blend(lhs.g, rhs.g, rhs.a),
+                    Blend(lhs.b, rhs.b, rhs.a),
+                },
+                Blend(lhs.a, rhs.a, rhs.a)
+            };
+    }
+
+    Rgbai Blend(const Rgbai& lhs, const Rgbai& rhs)
+    {
+        return rgbai(Blend(rgba(lhs), rgba(rhs)));
     }
 
     void
-    PrintCharAt(
-            Image*      image,
-            const vec2i pos,
-            char        c,
-            const Rgbi& color,
-            int         scale)
+    SimpleImageBlend(Image* dst, const vec2i& p, const Image& src, const Rgbi& tint)
     {
-        ASSERT(image);
-        const unsigned char* glyph = GetCharGlyph(c);
-        for(int y = 0; y < 8; y += 1)
+        for(int y=0; y<src.GetHeight(); y+=1)
+        for(int x=0; x<src.GetWidth();  x+=1)
         {
-            for(int x = 0; x < 8; x += 1)
-            {
-                // extract pixel from character
-                // glyph is defined in "y down" order, fix by inverting sample point on y
-                bool pixel = 0 != (glyph[7 - y] & 1 << x);
-                if(pixel)
-                {
-                    DrawSquare(
-                            image,
-                            color,
-                            pos.x + x * scale,
-                            pos.y + y * scale,
-                            scale);
-                    // image->SetPixel(pos.x+x*scale, pos.y + y*scale, color);
-                }
-            }
+            const auto dx = p.x + x;
+            const auto dy = p.y + y;
+            const auto s = Tint(src.GetPixel(x, y), tint);
+            const auto c = Blend(dst->GetPixel(dx, dy), s);
+            dst->SetPixel(dx, dy, c);
         }
     }
 
@@ -406,25 +423,28 @@ namespace euphoria::core
             const vec2i&       start_pos,
             const std::string& text,
             const Rgbi&        color,
-            int                scale)
+            const LoadedFont& font)
     {
         ASSERT(image);
-        ASSERT(scale > 0);
 
         vec2i pos = start_pos;
-        for(unsigned int i = 0; i < text.length(); i += 1)
+        Utf8ToCodepoints(text, [&](unsigned int cp)
         {
-            const char c = text[i];
-
-            if(pos.x + 8 * scale > image->GetWidth())
+            if(cp == '\n')
             {
                 pos.x = start_pos.x;
-                pos.y -= 8 * scale;
+                // todo(Gustav): font needs lineheight...
+                pos.y -= 8;
             }
 
-            PrintCharAt(image, pos, c, color, scale);
-            pos.x += 8 * scale;  // move to next char
-        }
+            const auto glyph_found = font.codepoint_to_glyph.find(cp);
+            if(glyph_found != font.codepoint_to_glyph.end())
+            {
+                const auto& glyph = glyph_found->second;
+                SimpleImageBlend(image, pos, glyph.image, color);
+                pos.x += glyph.advance;
+            }
+        });
     }
 
     void

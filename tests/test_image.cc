@@ -8,6 +8,7 @@
 
 #include "tests/approx_equal.h"
 #include "tests/stringeq.h"
+#include "core/fonts.h"
 
 #include "catch.hpp"
 
@@ -168,7 +169,7 @@ TEST_CASE("image text")
         euco::Image image;
         image.SetupNoAlphaSupport(width, height);
         euco::DrawRect(&image, euco::Color::White, euco::WholeImage(image));
-        euco::DrawText(&image, euco::vec2i(0,0), text, euco::Color::Black, 1);
+        euco::DrawText(&image, euco::vec2i(0,0), text, euco::Color::Black, euco::LoadCharactersFromBuiltin());
         const auto table = euco::ImageToStringTable(
             image,
             { {'#', euco::Color::Black}, {' ', euco::Color::White} }); 

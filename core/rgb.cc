@@ -325,6 +325,35 @@ namespace euphoria::core
         return {rgb.r, rgb.g, rgb.b};
     }
 
+    //
+    Rgba
+    rgba(const Rgbai& rgb)
+    {
+        return
+        {
+            {
+                colorutil::ToFloat(rgb.r),
+                colorutil::ToFloat(rgb.g),
+                colorutil::ToFloat(rgb.b),
+            },
+            colorutil::ToFloat(rgb.a)
+        };
+    }
+
+    Rgbai
+    rgbai(const Rgba& rgb)
+    {
+        return
+        {
+            {
+                colorutil::ToUnsignedChar(rgb.r),
+                colorutil::ToUnsignedChar(rgb.g),
+                colorutil::ToUnsignedChar(rgb.b),
+            },
+            colorutil::ToUnsignedChar(rgb.a)
+        };
+    }
+
     ////////////////////////////////////////////////////////////////////////////////
 
     Rgb

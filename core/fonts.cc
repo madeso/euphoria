@@ -237,10 +237,13 @@ namespace euphoria::core
         return font;
     }
 
-    void
-    LoadCharactersFromBuiltin(core::LoadedFont* font)
+    core::LoadedFont
+    LoadCharactersFromBuiltin()
     {
-        font->CombineWith(GetCharacterFromBuiltin(0x0000, 0x007F, font8x8_basic));
+        core::LoadedFont font;
+        // todo(Gustav): Add more characters
+        font.CombineWith(GetCharacterFromBuiltin(0x0000, 0x007F, font8x8_basic));
+        return font;
     }
 
     LoadedFont
