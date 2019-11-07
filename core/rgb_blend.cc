@@ -148,31 +148,31 @@ namespace euphoria::core
         {
             switch(mode)
             {
-                case BlendMode::Normal     : return    Blend(top, bottom, [](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_Normal     );});
-                case BlendMode::Lighten    : return    Blend(top, bottom, [](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_Lighten    );});
-                case BlendMode::Darken     : return    Blend(top, bottom, [](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_Darken     );});
-                case BlendMode::Multiply   : return    Blend(top, bottom, [](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_Multiply   );});
-                case BlendMode::Average    : return    Blend(top, bottom, [](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_Average    );});
-                case BlendMode::Add        : return    Blend(top, bottom, [](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_Add        );});
-                case BlendMode::Subtract   : return    Blend(top, bottom, [](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_Subtract   );});
-                case BlendMode::Difference : return    Blend(top, bottom, [](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_Difference );});
-                case BlendMode::Negation   : return    Blend(top, bottom, [](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_Negation   );});
-                case BlendMode::Screen     : return    Blend(top, bottom, [](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_Screen     );});
-                case BlendMode::Exclusion  : return    Blend(top, bottom, [](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_Exclusion  );});
-                case BlendMode::Overlay    : return    Blend(top, bottom, [](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_Overlay    );});
-                case BlendMode::SoftLight  : return    Blend(top, bottom, [](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_SoftLight  );});
-                case BlendMode::HardLight  : return    Blend(top, bottom, [](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_HardLight  );});
-                case BlendMode::ColorDodge : return    Blend(top, bottom, [](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_ColorDodge );});
-                case BlendMode::ColorBurn  : return    Blend(top, bottom, [](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_ColorBurn  );});
-                case BlendMode::LinearDodge: return    Blend(top, bottom, [](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_LinearDodge);});
-                case BlendMode::LinearBurn : return    Blend(top, bottom, [](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_LinearBurn );});
-                case BlendMode::LinearLight: return    Blend(top, bottom, [](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_LinearLight);});
-                case BlendMode::VividLight : return    Blend(top, bottom, [](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_VividLight );});
-                case BlendMode::PinLight   : return    Blend(top, bottom, [](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_PinLight   );});
-                case BlendMode::HardMix    : return    Blend(top, bottom, [](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_HardMix    );});
-                case BlendMode::Reflect    : return    Blend(top, bottom, [](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_Reflect    );});
-                case BlendMode::Glow       : return    Blend(top, bottom, [](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_Glow       );});
-                case BlendMode::Phoenix    : return    Blend(top, bottom, [](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_Phoenix    );});
+                case BlendMode::Normal     : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_Normal     );});
+                case BlendMode::Lighten    : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_Lighten    );});
+                case BlendMode::Darken     : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_Darken     );});
+                case BlendMode::Multiply   : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_Multiply   );});
+                case BlendMode::Average    : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_Average    );});
+                case BlendMode::Add        : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_Add        );});
+                case BlendMode::Subtract   : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_Subtract   );});
+                case BlendMode::Difference : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_Difference );});
+                case BlendMode::Negation   : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_Negation   );});
+                case BlendMode::Screen     : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_Screen     );});
+                case BlendMode::Exclusion  : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_Exclusion  );});
+                case BlendMode::Overlay    : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_Overlay    );});
+                case BlendMode::SoftLight  : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_SoftLight  );});
+                case BlendMode::HardLight  : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_HardLight  );});
+                case BlendMode::ColorDodge : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_ColorDodge );});
+                case BlendMode::ColorBurn  : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_ColorBurn  );});
+                case BlendMode::LinearDodge: return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_LinearDodge);});
+                case BlendMode::LinearBurn : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_LinearBurn );});
+                case BlendMode::LinearLight: return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_LinearLight);});
+                case BlendMode::VividLight : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_VividLight );});
+                case BlendMode::PinLight   : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_PinLight   );});
+                case BlendMode::HardMix    : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_HardMix    );});
+                case BlendMode::Reflect    : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_Reflect    );});
+                case BlendMode::Glow       : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_Glow       );});
+                case BlendMode::Phoenix    : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_Phoenix    );});
                 default:
                     DIE("unhandled alpha blend case");
                     return top;
