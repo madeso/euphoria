@@ -387,9 +387,11 @@ namespace euphoria::core
         {
             const auto dx = p.x + x;
             const auto dy = p.y + y;
+            if(dx >= dst->GetWidth()) continue;
+            if(dy >= dst->GetHeight()) continue;
+            const auto dst_color = dst->GetPixel(dx, dy);
             const auto src_color = src.GetPixel(x, y);
             const auto tinted_color = Tint(src_color, tint);
-            const auto dst_color = dst->GetPixel(dx, dy);
             const auto result_color = Blend(tinted_color, dst_color);
             dst->SetPixel(dx, dy, result_color);
         }
