@@ -78,12 +78,12 @@ struct TextBox
     /** Draw a horizontal line.
     If bef=true, the line starts from the left edge of the first character cell, otherwise it starts from its center.
     If aft=true, the line ends in the right edge of the last character cell, otherwise it ends in its center */
-    void PutHorizontalLine(std::size_t x, std::size_t y, std::size_t width, bool bef, bool aft);
+    void PutHoriLine(std::size_t x, std::size_t y, std::size_t width, bool bef, bool aft);
 
     /** Draw a vertical line.
     If bef=true, the line starts from the top edge of the first character cell, otherwise it starts from its center.
     If aft=true, the line ends in the bottom edge of the last character cell, otherwise it ends in its center */
-    void PutVerticalLine(std::size_t x, std::size_t y, std::size_t height, bool bef, bool aft);
+    void PutVertLine(std::size_t x, std::size_t y, std::size_t height, bool bef, bool aft);
 
 
     ///////////////////////////////////////////////////////////////////////////

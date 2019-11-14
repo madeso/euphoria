@@ -218,7 +218,7 @@ TEST_CASE("tb_arrows")
     {
         SECTION("h1")
         {
-            box.PutHorizontalLine(0, 0, 3, false, false);
+            box.PutHoriLine(0, 0, 3, false, false);
 
             CHECK(box.Size() == S(3,1));
             CHECK(StringEq(box.ToString(abc_style), {"bca"}));
@@ -226,7 +226,7 @@ TEST_CASE("tb_arrows")
 
         SECTION("h2")
         {
-            box.PutHorizontalLine(0, 0, 3, false, true);
+            box.PutHoriLine(0, 0, 3, false, true);
 
             CHECK(box.Size() == S(3,1));
             CHECK(StringEq(box.ToString(abc_style), {"bcc"}));
@@ -234,7 +234,7 @@ TEST_CASE("tb_arrows")
 
         SECTION("h3")
         {
-            box.PutHorizontalLine(0, 0, 3, true, false);
+            box.PutHoriLine(0, 0, 3, true, false);
 
             CHECK(box.Size() == S(3,1));
             CHECK(StringEq(box.ToString(abc_style), {"cca"}));
@@ -242,7 +242,7 @@ TEST_CASE("tb_arrows")
 
         SECTION("h4")
         {
-            box.PutHorizontalLine(0, 0, 3, true, true);
+            box.PutHoriLine(0, 0, 3, true, true);
 
             CHECK(box.Size() == S(3,1));
             CHECK(StringEq(box.ToString(abc_style), {"ccc"}));
@@ -250,7 +250,7 @@ TEST_CASE("tb_arrows")
 
         SECTION("v1")
         {
-            box.PutVerticalLine(0, 0, 3, false, false);
+            box.PutVertLine(0, 0, 3, false, false);
 
             CHECK(box.Size() == S(1,3));
             CHECK(StringEq(box.ToString(abc_style), {"e", "f", "d"}));
@@ -258,7 +258,7 @@ TEST_CASE("tb_arrows")
 
         SECTION("v2")
         {
-            box.PutVerticalLine(0, 0, 3, false, true);
+            box.PutVertLine(0, 0, 3, false, true);
 
             CHECK(box.Size() == S(1,3));
             CHECK(StringEq(box.ToString(abc_style), {"e", "f", "f"}));
@@ -266,7 +266,7 @@ TEST_CASE("tb_arrows")
 
         SECTION("v3")
         {
-            box.PutVerticalLine(0, 0, 3, true, false);
+            box.PutVertLine(0, 0, 3, true, false);
 
             CHECK(box.Size() == S(1,3));
             CHECK(StringEq(box.ToString(abc_style), {"f", "f", "d"}));
@@ -274,7 +274,7 @@ TEST_CASE("tb_arrows")
 
         SECTION("v4")
         {
-            box.PutVerticalLine(0, 0, 3, true, true);
+            box.PutVertLine(0, 0, 3, true, true);
 
             CHECK(box.Size() == S(1,3));
             CHECK(StringEq(box.ToString(abc_style), {"f", "f", "f"}));
@@ -289,7 +289,7 @@ TEST_CASE("tb_line on text")
     CHECK(StringEq(text.ToString(AsciiStyle()), {" d g"}));
 
     auto line = TextBox::Empty();
-    line.PutHorizontalLine(0, 0, 5, true, true);
+    line.PutHoriLine(0, 0, 5, true, true);
     CHECK(StringEq(line.ToString(AsciiStyle()), {"-----"}));
 
     /// hrm... this is a weird behaviour...
@@ -310,11 +310,11 @@ TEST_CASE("tb_line on text")
 TEST_CASE("tb_line on line")
 {
     auto hor = TextBox::Empty();
-    hor.PutHorizontalLine(0, 0, 1, true, true);
+    hor.PutHoriLine(0, 0, 1, true, true);
     CHECK(StringEq(hor.ToString(AsciiStyle()), {"-"}));
 
     auto vert = TextBox::Empty();
-    vert.PutVerticalLine(0, 0, 1, true, true);
+    vert.PutVertLine(0, 0, 1, true, true);
     CHECK(StringEq(vert.ToString(AsciiStyle()), {"|"}));
 
     SECTION("hor on vert")
