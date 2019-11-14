@@ -563,8 +563,10 @@ std::size_t TextBox::FindTopPadding(std::size_t x) const
             {
                 totalwidth += box.Width() + margin;
             }
-            if(boxes.empty()) { totalwidth += margin; }
-            oneliner = (label.size() + totalwidth) < maxwidth;
+            // margin is only between boxes
+            if(!boxes.empty()) { totalwidth -= margin; }
+            
+            oneliner = (label.size() + margin + totalwidth) < maxwidth;
         }
 
         bool simple = oneliner && boxes.size() == 1 && simple_test;
