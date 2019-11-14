@@ -544,7 +544,7 @@ std::size_t TextBox::FindTopPadding(std::size_t x) const
         bool oneliner_test,
         bool simple_test,
         bool separate1st_test,
-        std::string atom,
+        const std::string& label,
         std::size_t margin,
         std::size_t firstx
         )
@@ -559,32 +559,31 @@ std::size_t TextBox::FindTopPadding(std::size_t x) const
         if(oneliner_test && !separate1st_test)
         {
             std::size_t totalwidth = 0;
-            for(const auto& cur : boxes)
+            for(const auto& box : boxes)
             {
-                totalwidth += cur.Width() + margin;
+                totalwidth += box.Width() + margin;
             }
-            if(!boxes.empty()) { totalwidth -= margin; }
-            oneliner = (atom.size() + margin + totalwidth) < maxwidth;
+            if(boxes.empty()) { totalwidth += margin; }
+            oneliner = (label.size() + totalwidth) < maxwidth;
         }
 
         bool simple = oneliner && boxes.size() == 1 && simple_test;
 
         std::size_t y = simple ? 0 : 1;
 
-        for(auto i = boxes.begin(); i != boxes.end(); i+=1)
+        for(auto box_iterator = boxes.begin(); box_iterator != boxes.end(); box_iterator+=1)
         {
-            auto next = std::next(i);
-            const TextBox& cur = *i;
-            unsigned width = cur.Width();
+            const TextBox& current_box = *box_iterator;
+            unsigned width = current_box.Width();
 
             std::size_t usemargin = (simple || oneliner) ? (margin/2) : margin;
-            std::size_t x = result.horiz_append_position(y, cur) + usemargin;
+            std::size_t x = result.horiz_append_position(y, current_box) + usemargin;
             if(x==usemargin)
             {
-              x = oneliner ? atom.size()+usemargin : firstx;
+              x = oneliner ? label.size()+usemargin : firstx;
             }
 
-            if(!oneliner && (x + width > maxwidth || (separate1st_test && i == std::next(boxes.begin()))))
+            if(!oneliner && (x + width > maxwidth || (separate1st_test && box_iterator == std::next(boxes.begin()))))
             {
                 // Start a new line if this item won't fit in the end of the current line
                 x        = firstx;
@@ -594,16 +593,19 @@ std::size_t TextBox::FindTopPadding(std::size_t x) const
 
             // At the beginning of line, judge whether to add room for horizontal placement
             bool horizontal = x > firstx;
-            if(!oneliner && !horizontal && next != boxes.end() && !(separate1st_test && i == boxes.begin()))
+            if( !oneliner &&
+                !horizontal &&
+                std::next(box_iterator) != boxes.end() &&
+                !(separate1st_test && box_iterator == boxes.begin())
+                )
             {
-                std::size_t nextwidth      = next->Width();
-                std::size_t combined_width = cur.horiz_append_position(0, *next) + margin + nextwidth;
+                const auto& next_box = *std::next(box_iterator);
+                std::size_t combined_width = current_box.horiz_append_position(0, next_box) + margin + next_box.Width();
                 if(combined_width <= maxwidth)
                 {
                     // Enact horizontal placement by giving 1 row of room for the connector
                     horizontal = true;
-                    TextBox combined = cur;
-                    combined.PutBox(cur.horiz_append_position(0, *next) + margin, 0, *next);
+                    const TextBox combined = current_box.PutBoxCopy(current_box.horiz_append_position(0, next_box) + margin, 0, next_box);
                     y = std::max(result.vert_append_position(x, combined), std::size_t(1));
                     if(!oneliner)
                     {
@@ -613,15 +615,14 @@ std::size_t TextBox::FindTopPadding(std::size_t x) const
             }
             if(!horizontal)
             {
-                y = std::max(result.vert_append_position(x, cur), std::size_t(1));
+                y = std::max(result.vert_append_position(x, current_box), std::size_t(1));
             }
             if(horizontal && !simple && !oneliner)
             {
-                for(;;)
+                while(true)
                 {
                     // Check if there is room for a horizontal connector. If not, increase y
-                    auto connector = TextBox::Empty();
-                    connector.PutString(0, 0, std::string(1+x, '-'));
+                    const auto connector = TextBox::FromString(std::string(1+x, '-'));
                     if(result.horiz_append_position(y-1, connector) > x)
                     {
                       y+=1;
@@ -630,24 +631,24 @@ std::size_t TextBox::FindTopPadding(std::size_t x) const
                     {
                       break;
                     }
-                    y = std::max(result.vert_append_position(x, cur), y);
+                    y = std::max(result.vert_append_position(x, current_box), y);
                 }
             }
 
             if(simple)
             {
-                if(x > atom.size())
+                if(x > label.size())
                 {
-                    result.PutHoriLine(atom.size(), 0, 1+x-atom.size(), false,false);
+                    result.PutHoriLine(label.size(), 0, 1+x-label.size(), false,false);
                 }
             }
             else if(oneliner)
             {
                 unsigned cx = x;
                 unsigned cy = y-1;
-                if(x > atom.size())
+                if(x > label.size())
                 {
-                    result.PutHoriLine(atom.size(), 0, 1+x-atom.size(), false,false);
+                    result.PutHoriLine(label.size(), 0, 1+x-label.size(), false,false);
                 }
                 result.PutVertLine(cx, cy, 1,          false,true);
             }
@@ -667,7 +668,7 @@ std::size_t TextBox::FindTopPadding(std::size_t x) const
                 result.PutHoriLine(0,cy, 1 + (cx-0), false,true);
             }
 
-            result.PutBox(x, y, cur);
+            result.PutBox(x, y, current_box);
         }
     }
 }

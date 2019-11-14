@@ -242,7 +242,7 @@ private:
         bool oneliner_test,
         bool simple_test,
         bool separate1st_test,
-        std::string atom,
+        const std::string& label,
         std::size_t margin,
         std::size_t firstx
     );
