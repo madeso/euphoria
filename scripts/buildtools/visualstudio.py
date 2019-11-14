@@ -26,7 +26,7 @@ def get_vs_root(compiler: args.Compiler):
     vs_root = r'C:\Program Files (x86)\Microsoft Visual Studio {}\Common7\IDE'.format(version)
     if core.is_windows():
         import winreg
-        with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, 'SOFTWARE\\Microsoft\\VisualStudio\\14.0') as st:
+        with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, 'SOFTWARE\\Microsoft\\VisualStudio\\{}'.format(version)) as st:
             val = winreg.QueryValueEx(st, 'InstallDir')
             vs = val[0]
             vs_root = vs
