@@ -9,10 +9,21 @@ import buildtools.args as args
 import typing
 
 
+def get_vs_major_version(compiler: args.Compiler):
+    if compiler == args.Compiler.VS2015:
+        return '14.0'
+    elif compiler == args.Compiler.VS2017:
+        return '15.0'
+    elif compiler == args.Compiler.VS2019:
+        return '16.0'
+    else:
+        raise Exception('Invalid compiler')
+
+
 def get_vs_root(compiler: args.Compiler):
     # warn if default value?
-    # todo: determine path based on compiler
-    vs_root = r'C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE'
+    version = get_vs_major_version(compiler)
+    vs_root = r'C:\Program Files (x86)\Microsoft Visual Studio {}\Common7\IDE'.format(version)
     if core.is_windows():
         import winreg
         with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, 'SOFTWARE\\Microsoft\\VisualStudio\\14.0') as st:
