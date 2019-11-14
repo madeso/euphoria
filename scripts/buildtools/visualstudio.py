@@ -39,9 +39,9 @@ def visual_studio_generator(compiler: args.Compiler, platform: args.Platform) ->
             return 'Visual Studio 15'
     elif compiler == args.Compiler.VS2019:
         if args.is_64bit(platform):
-            return 'Visual Studio 16 Win64'
+            return 'Visual Studio 16 2019 Win64'
         else:
-            return 'Visual Studio 16'
+            return 'Visual Studio 16 2019'
     else:
         raise Exception('Invalid compiler')
 
