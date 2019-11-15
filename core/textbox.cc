@@ -549,6 +549,8 @@ std::size_t TextBox::FindTopPadding(std::size_t x) const
         std::size_t firstx
         )
     {
+        constexpr std::size_t min_y = 1;
+        
         std::size_t sum_width = 0;
         for(const auto& b: boxes)
         {
@@ -639,6 +641,14 @@ std::size_t TextBox::FindTopPadding(std::size_t x) const
 
             if(simple)
             {
+            }
+            else
+            {
+                y = std::max(y, min_y);
+            }
+
+            if(simple)
+            {
                 if(x > label.size())
                 {
                     result.PutHoriLine(label.size(), 0, 1+x-label.size(), false,false);
@@ -647,12 +657,12 @@ std::size_t TextBox::FindTopPadding(std::size_t x) const
             else if(oneliner)
             {
                 unsigned cx = x;
-                unsigned cy = y-1;
+                unsigned cy = y > min_y ? y-min_y : 0;
                 if(x > label.size())
                 {
                     result.PutHoriLine(label.size(), 0, 1+x-label.size(), false,false);
                 }
-                result.PutVertLine(cx, cy, 1,          false,true);
+                result.PutVertLine(cx, cy, min_y,          false,true);
             }
             else if(horizontal)
             {
