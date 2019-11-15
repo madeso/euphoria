@@ -54,9 +54,9 @@ def on_cmd_install(arg):
     compiler = args.get_compiler(arg)
     platform = args.get_platform(arg)
     generator = visualstudio.visual_studio_generator(compiler, platform)
-    deps.install_dependency_freetype(get_dependency_folder(), get_freetype2_folder(), compiler, platform)
     deps.install_dependency_assimp(get_dependency_folder(), get_assimp_folder(), get_assimp_install_folder(), generator)
     deps.install_dependency_sdl2(get_dependency_folder(), get_sdl2_folder(), get_sdl2_build_folder(), generator)
+    deps.install_dependency_freetype(get_dependency_folder(), get_freetype2_folder(), compiler, platform)
 
 
 def on_cmd_cmake(arg):

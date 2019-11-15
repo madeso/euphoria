@@ -9,36 +9,13 @@ import buildtools.args as args
 import typing
 
 
-def get_vs_major_version(compiler: args.Compiler):
-    if compiler == args.Compiler.VS2015:
-        return '14.0'
-    elif compiler == args.Compiler.VS2017:
-        return '15.0'
-    elif compiler == args.Compiler.VS2019:
-        return '16.0'
-    else:
-        raise Exception('Invalid compiler')
-
-
-def list_keys(key):
-    import winreg
-    index = 1
-    try:
-        d = winreg.EnumValue(key, index)
-        print(d[0])
-        index += 1
-    except OSError:
-        pass
-
-
 def get_vs_root(compiler: args.Compiler):
     # warn if default value?
-    version = get_vs_major_version(compiler)
-    vs_root = r'C:\Program Files (x86)\Microsoft Visual Studio {}\Common7\IDE'.format(version)
+    # todo: determine path based on compiler
+    vs_root = r'C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE'
     if core.is_windows():
         import winreg
-        with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, 'SOFTWARE\\Microsoft\\VisualStudio\\{}'.format(version)) as st:
-            list_keys(st)
+        with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, 'SOFTWARE\\Microsoft\\VisualStudio\\14.0') as st:
             val = winreg.QueryValueEx(st, 'InstallDir')
             vs = val[0]
             vs_root = vs
@@ -62,7 +39,7 @@ def visual_studio_generator(compiler: args.Compiler, platform: args.Platform) ->
             return 'Visual Studio 15'
     elif compiler == args.Compiler.VS2019:
         if args.is_64bit(platform):
-            return 'Visual Studio 16 2019'
+            return 'Visual Studio 16 2019 Win64'
         else:
             return 'Visual Studio 16 2019'
     else:
