@@ -19,7 +19,7 @@ struct T
 int
 main(int, char**)
 {
-    const auto simple_tree = T("a", { T{"1"}, T{"2"}, T{"3"} });
+    const auto simple_tree = T("a", { T{"1"} });
 
     const auto root_tree =
         T{"Tolkien characters", {
