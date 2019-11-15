@@ -9,7 +9,6 @@ from enum import Enum
 class Compiler(Enum):
     VS2015 = 1
     VS2017 = 2
-    VS2019 = 3
 
 
 class Platform(Enum):
@@ -32,8 +31,6 @@ def get_compiler(args) -> Compiler:
         return Compiler.VS2015
     elif c == 'vs2017':
         return Compiler.VS2017
-    elif c == 'vs2019':
-        return Compiler.VS2019
     else:
         print('Unknown compiler: ', c)
         return Compiler.VS2017
@@ -60,8 +57,6 @@ def get_msbuild_toolset(c: Compiler) -> str:
         return 'v140'
     if c == Compiler.VS2017:
         return 'v141'
-    if c == Compiler.VS2019:
-        return 'v142'
     return 'invalid_compiler'
 
 
