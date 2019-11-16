@@ -578,9 +578,9 @@ std::size_t TextBox::FindTopPadding(std::size_t x) const
         for(auto box_iterator = boxes.begin(); box_iterator != boxes.end(); box_iterator+=1)
         {
             const TextBox& current_box = *box_iterator;
-            unsigned width = current_box.Width();
+            const unsigned width = current_box.Width();
 
-            std::size_t usemargin = (simple || oneliner) ? (margin/2) : margin;
+            const std::size_t usemargin = (simple || oneliner) ? (margin/2) : margin;
             std::size_t x = result.horiz_append_position(y, current_box) + usemargin;
             if(x==usemargin)
             {
