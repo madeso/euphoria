@@ -551,16 +551,11 @@ std::size_t TextBox::FindTopPadding(std::size_t x) const
     {
         constexpr std::size_t min_y = 1;
 
-        bool oneliner = false;
-        if(consider_oneliner)
-        {
-            const auto totalwidth = boxes.empty() ? 0 : 
+        const auto totalwidth = boxes.empty() ? 0 : 
                 std::accumulate(boxes.begin(), boxes.end(), 0, [](auto t, const auto& b) {return t + b.Width();})
                 + (boxes.size()-1) * margin;
-            
-            oneliner = (label.size() + margin + totalwidth) < maxwidth;
-        }
 
+        bool oneliner = consider_oneliner && (label.size() + margin + totalwidth) < maxwidth;
         bool simple = consider_simple && oneliner && boxes.size() == 1;
 
         std::size_t y = simple ? 0 : 1;
@@ -569,13 +564,14 @@ std::size_t TextBox::FindTopPadding(std::size_t x) const
         {
             const TextBox& current_box = *box_iterator;
             const unsigned width = current_box.Width();
-
             const std::size_t usemargin = (simple || oneliner) ? (margin/2) : margin;
-            std::size_t x = result.horiz_append_position(y, current_box) + usemargin;
-            if(x==usemargin)
-            {
-              x = oneliner ? label.size()+usemargin : firstx;
-            }
+            const auto first_valid_x = result.horiz_append_position(y, current_box);
+            std::size_t x = first_valid_x != 0 ? first_valid_x + usemargin
+                :(
+                    oneliner
+                    ? label.size()+usemargin
+                    : firstx
+                );
 
             if(!oneliner && (x + width > maxwidth))
             {
