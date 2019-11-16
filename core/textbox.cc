@@ -1,6 +1,7 @@
 #include "core/textbox.h"
 
 #include <cstdlib>
+#include <numeric>
 
 #include "core/cint.h"
 #include "core/assert.h"
@@ -549,28 +550,18 @@ std::size_t TextBox::FindTopPadding(std::size_t x) const
         )
     {
         constexpr std::size_t min_y = 1;
-        
-        std::size_t sum_width = 0;
-        for(const auto& b: boxes)
-        {
-          sum_width += b.Width()+margin;
-        }
 
         bool oneliner = false;
         if(consider_oneliner)
         {
-            std::size_t totalwidth = 0;
-            for(const auto& box : boxes)
-            {
-                totalwidth += box.Width() + margin;
-            }
-            // margin is only between boxes
-            if(!boxes.empty()) { totalwidth -= margin; }
+            const auto totalwidth = boxes.empty() ? 0 : 
+                std::accumulate(boxes.begin(), boxes.end(), 0, [](auto t, const auto& b) {return t + b.Width();})
+                + (boxes.size()-1) * margin;
             
             oneliner = (label.size() + margin + totalwidth) < maxwidth;
         }
 
-        bool simple = oneliner && boxes.size() == 1 && consider_simple;
+        bool simple = consider_simple && oneliner && boxes.size() == 1;
 
         std::size_t y = simple ? 0 : 1;
 
