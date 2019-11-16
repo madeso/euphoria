@@ -548,7 +548,6 @@ std::size_t TextBox::FindTopPadding(std::size_t x) const
         std::size_t firstx
         )
     {
-        constexpr bool consider_separate_first = false;
         constexpr std::size_t min_y = 1;
         
         std::size_t sum_width = 0;
@@ -558,7 +557,7 @@ std::size_t TextBox::FindTopPadding(std::size_t x) const
         }
 
         bool oneliner = false;
-        if(consider_oneliner && !consider_separate_first)
+        if(consider_oneliner)
         {
             std::size_t totalwidth = 0;
             for(const auto& box : boxes)
@@ -587,7 +586,7 @@ std::size_t TextBox::FindTopPadding(std::size_t x) const
               x = oneliner ? label.size()+usemargin : firstx;
             }
 
-            if(!oneliner && (x + width > maxwidth || (consider_separate_first && box_iterator == std::next(boxes.begin()))))
+            if(!oneliner && (x + width > maxwidth))
             {
                 // Start a new line if this item won't fit in the end of the current line
                 x        = firstx;
@@ -599,8 +598,7 @@ std::size_t TextBox::FindTopPadding(std::size_t x) const
             bool horizontal = x > firstx;
             if( !oneliner &&
                 !horizontal &&
-                std::next(box_iterator) != boxes.end() &&
-                !(consider_separate_first && box_iterator == boxes.begin())
+                std::next(box_iterator) != boxes.end()
                 )
             {
                 const auto& next_box = *std::next(box_iterator);
