@@ -543,12 +543,12 @@ std::size_t TextBox::FindTopPadding(std::size_t x) const
         const std::vector<TextBox>& boxes,
         bool consider_oneliner,
         bool consider_simple,
-        bool consider_separate_first,
         const std::string& label,
         std::size_t margin,
         std::size_t firstx
         )
     {
+        constexpr bool consider_separate_first = false;
         constexpr std::size_t min_y = 1;
         
         std::size_t sum_width = 0;

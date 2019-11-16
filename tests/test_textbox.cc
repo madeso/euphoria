@@ -441,78 +441,35 @@ TEST_CASE("tb_create_tree_graph")
             "`-+----+----.",
             "  1    2    3"
         };
-    const auto simple_four_row = std::vector<std::string>
-        {
-            "a",
-            "+-1",
-            "`-+----.",
-            "  2    3"
-        };
 
     CHECK(StringEq(TextBox::CreateTreeGraph(simple_tree, 130,
                 [](const T& e) { return e.name; },
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
-                [](const T&  ) { return false; },
                 [](const T&  ) { return false; },
                 [](const T&  ) { return false; }).ToString(AsciiStyle()),
                 simple_three_row));
-
-    CHECK(StringEq(TextBox::CreateTreeGraph(simple_tree, 130,
-                [](const T& e) { return e.name; },
-                [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
-                [](const T&  ) { return false; },
-                [](const T&  ) { return false; },
-                [](const T&  ) { return true; }).ToString(AsciiStyle()),
-                simple_four_row));
     
     CHECK(StringEq(TextBox::CreateTreeGraph(simple_tree, 130,
                 [](const T& e) { return e.name; },
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
                 [](const T&  ) { return false; },
-                [](const T&  ) { return true; },
-                [](const T&  ) { return false; }).ToString(AsciiStyle()),
+                [](const T&  ) { return true; }).ToString(AsciiStyle()),
                 simple_three_row));
 
-    CHECK(StringEq(TextBox::CreateTreeGraph(simple_tree, 130,
-                [](const T& e) { return e.name; },
-                [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
-                [](const T&  ) { return false; },
-                [](const T&  ) { return true; },
-                [](const T&  ) { return true; }).ToString(AsciiStyle()),
-                simple_four_row));
-
 
     CHECK(StringEq(TextBox::CreateTreeGraph(simple_tree, 130,
                 [](const T& e) { return e.name; },
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
                 [](const T&  ) { return true; },
-                [](const T&  ) { return false; },
                 [](const T&  ) { return false; }).ToString(AsciiStyle()),
                 simple_two_row));
-
-    CHECK(StringEq(TextBox::CreateTreeGraph(simple_tree, 130,
-                [](const T& e) { return e.name; },
-                [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
-                [](const T&  ) { return true; },
-                [](const T&  ) { return false; },
-                [](const T&  ) { return true; }).ToString(AsciiStyle()),
-                simple_four_row));
     
     CHECK(StringEq(TextBox::CreateTreeGraph(simple_tree, 130,
                 [](const T& e) { return e.name; },
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
                 [](const T&  ) { return true; },
-                [](const T&  ) { return true; },
-                [](const T&  ) { return false; }).ToString(AsciiStyle()),
-                simple_two_row));
-
-    CHECK(StringEq(TextBox::CreateTreeGraph(simple_tree, 130,
-                [](const T& e) { return e.name; },
-                [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
-                [](const T&  ) { return true; },
-                [](const T&  ) { return true; },
                 [](const T&  ) { return true; }).ToString(AsciiStyle()),
-                simple_four_row));
+                simple_two_row));
 }
 
 
@@ -547,8 +504,7 @@ TEST_CASE("tb_tolkien")
                 [](const T& e) { return e.name; },
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
                 [](const T& e) { return e.children.size() >= 1; },
-                [](const T&  ) { return true; },
-                [](const T&  ) { return false; }).ToString(AsciiStyle()),
+                [](const T&  ) { return true; }).ToString(AsciiStyle()),
                 {
   "Tolkien characters",
   "`-+----------------------------------------------------------------------------------.",

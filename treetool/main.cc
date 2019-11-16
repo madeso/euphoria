@@ -69,8 +69,7 @@ main(int, char**)
                 },
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
                 [](const T& e) { return e.children.size() >= 1; }, // whether simplified horizontal layout can be used
-                [](const T&  ) { return true; },                 // whether extremely simplified horiz layout can be used
-                [](const T&  ) { return false; }));
+                [](const T&  ) { return true; }));
             auto strings = result.ToString();
             for(auto s: strings)
             {

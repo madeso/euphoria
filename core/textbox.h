@@ -175,14 +175,13 @@ struct TextBox
     */
 
     template<typename T, typename ToStringFunction, typename ParamCountFunc,
-            typename OneLinerFunc, typename SimpleTestFunc, typename Separate1stParamTestFunc>
+            typename OneLinerFunc, typename SimpleTestFunc>
     static TextBox CreateTreeGraph(const T& e,
                             std::size_t maxwidth,
                             ToStringFunction&& to_string,
                             ParamCountFunc&& count_children,
                             OneLinerFunc&&   oneliner_test,
                             SimpleTestFunc&& simple_test,
-                            Separate1stParamTestFunc&& separate1st_test,
                             std::size_t margin = 4,
                             std::size_t firstx = 2
                             )
@@ -201,9 +200,9 @@ struct TextBox
             {
                 boxes.emplace_back(CreateTreeGraph(*i, std::max<std::size_t>(maxwidth - 2, 16),
                                                     to_string, count_children, oneliner_test, simple_test,
-                                                    separate1st_test, margin, firstx));
+                                                    margin, firstx));
             }
-            SubCreateTreeGraph(result, maxwidth, boxes, oneliner_test(e), simple_test(e), separate1st_test(e), label, margin, firstx);
+            SubCreateTreeGraph(result, maxwidth, boxes, oneliner_test(e), simple_test(e), label, margin, firstx);
         }
         result.Trim();
         return result;
@@ -241,7 +240,6 @@ private:
         const std::vector<TextBox>& boxes,
         bool oneliner_test,
         bool simple_test,
-        bool separate1st_test,
         const std::string& label,
         std::size_t margin,
         std::size_t firstx
