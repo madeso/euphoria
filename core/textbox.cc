@@ -541,9 +541,9 @@ std::size_t TextBox::FindTopPadding(std::size_t x) const
         TextBox& result,
         size_t maxwidth,
         const std::vector<TextBox>& boxes,
-        bool oneliner_test,
-        bool simple_test,
-        bool separate1st_test,
+        bool consider_oneliner,
+        bool consider_simple,
+        bool consider_separate_first,
         const std::string& label,
         std::size_t margin,
         std::size_t firstx
@@ -558,7 +558,7 @@ std::size_t TextBox::FindTopPadding(std::size_t x) const
         }
 
         bool oneliner = false;
-        if(oneliner_test && !separate1st_test)
+        if(consider_oneliner && !consider_separate_first)
         {
             std::size_t totalwidth = 0;
             for(const auto& box : boxes)
@@ -571,7 +571,7 @@ std::size_t TextBox::FindTopPadding(std::size_t x) const
             oneliner = (label.size() + margin + totalwidth) < maxwidth;
         }
 
-        bool simple = oneliner && boxes.size() == 1 && simple_test;
+        bool simple = oneliner && boxes.size() == 1 && consider_simple;
 
         std::size_t y = simple ? 0 : 1;
 
@@ -587,7 +587,7 @@ std::size_t TextBox::FindTopPadding(std::size_t x) const
               x = oneliner ? label.size()+usemargin : firstx;
             }
 
-            if(!oneliner && (x + width > maxwidth || (separate1st_test && box_iterator == std::next(boxes.begin()))))
+            if(!oneliner && (x + width > maxwidth || (consider_separate_first && box_iterator == std::next(boxes.begin()))))
             {
                 // Start a new line if this item won't fit in the end of the current line
                 x        = firstx;
@@ -600,7 +600,7 @@ std::size_t TextBox::FindTopPadding(std::size_t x) const
             if( !oneliner &&
                 !horizontal &&
                 std::next(box_iterator) != boxes.end() &&
-                !(separate1st_test && box_iterator == boxes.begin())
+                !(consider_separate_first && box_iterator == boxes.begin())
                 )
             {
                 const auto& next_box = *std::next(box_iterator);
