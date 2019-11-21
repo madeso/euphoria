@@ -374,34 +374,29 @@ void TextBox::PutVertLine(std::size_t x, std::size_t y, std::size_t line_height,
 
 std::size_t TextBox::horiz_append_position(std::size_t y, const TextBox& b) const
 {
-    std::size_t mywidth = Width();
-    std::size_t theirheight = b.Height();
-    std::size_t reduce = mywidth;
-
-    for(std::size_t p=0; p<theirheight; p+=1)
+    const std::size_t my_width = Width();
+    
+    std::size_t reduce = my_width;
+    for(std::size_t p=0; p<b.Height(); p+=1)
     {
-        std::size_t theirpadding = b.FindLeftPadding(p);
-        std::size_t mypadding    = FindRightPadding(y+p);
-        reduce = std::min(reduce, mypadding + theirpadding);
+        reduce = std::min(reduce, FindRightPadding(y+p) + b.FindLeftPadding(p));
     }
 
-    return mywidth - reduce;
+    return my_width - reduce;
 }
 
 
 std::size_t TextBox::vert_append_position(std::size_t x, const TextBox& b) const
 {
-    std::size_t myheight = Height();
-    std::size_t theirwidth = b.Width();
-    std::size_t reduce = myheight;
+    const std::size_t my_height = Height();
     
-    for(std::size_t p=0; p<theirwidth; p+=1)
+    std::size_t reduce = my_height;
+    for(std::size_t p=0; p<b.Width(); p+=1)
     {
-        std::size_t theirpadding = b.FindTopPadding(p);
-        std::size_t mypadding    = FindBottomPadding(x+p);
-        reduce = std::min(reduce, mypadding + theirpadding);
+        reduce = std::min(reduce, FindBottomPadding(x+p) + b.FindTopPadding(p));
     }
-    return myheight - reduce;
+    
+    return my_height - reduce;
 }
 
 
