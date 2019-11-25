@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include <optional>
+#include <memory>
 
 #include "core/vec2.h"
 #include "core/rgb.h"
