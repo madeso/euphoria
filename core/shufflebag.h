@@ -60,6 +60,20 @@ namespace euphoria::core
         unsigned long  cursor_ = 0;
     };
 
+    template<typename T>
+    [[nodiscard]]
+    constexpr ShuffleBag<T>
+    CreateShuffleBag(const std::vector<T>& items, int amount)
+    {
+        auto b = ShuffleBag<T>{};
+        b.Reserve(items.size() * amount);
+        for(const auto& it: items)
+        {
+            b.Add(it, amount);
+        }
+        return b;
+    }
+
 }  // namespace euphoria::core
 
 #endif  // EUPHORIA_SHUFFLEBAG_H
