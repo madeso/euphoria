@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <string>
+#include <optional>
 
 #include "core/vec2.h"
 #include "core/rgb.h"
@@ -18,13 +19,14 @@ namespace euphoria::core::svg
     struct Poly
     {
         Rgbi stroke_color = Color::Black;
-        Rgbi fill_color = Color::Green;
-        bool is_filled = false;
+        std::optional<Rgbi> fill_color;
+        bool is_closed = false;
         std::vector<int> stroke;
 
         Poly& Stroke(const std::vector<int>& new_stroke);
 
-        Poly& Close(const Rgbi& fill_color = Color::Green);
+        Poly& Close();
+        Poly& Fill(const Rgbi& fill_color);
 
         std::vector<vec2f> points;
     };

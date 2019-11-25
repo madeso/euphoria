@@ -33,10 +33,19 @@ namespace euphoria::core::svg
         return *this;
     }
 
-    Poly& Poly::Close(const Rgbi& a_fill_color)
+    Poly& Poly::Fill(const Rgbi& a_fill_color)
     {
         fill_color = a_fill_color;
-        is_filled = true;
+        return *this;
+    }
+
+    Poly& Poly::Close()
+    {
+        if(!is_closed)
+        {
+            points.emplace_back(points[0]);
+        }
+        is_closed = true;
         return *this;
     }
 
@@ -100,13 +109,13 @@ namespace euphoria::core::svg
                             << writer.py(p.y);
             }}
             writer.file << "\" style=\"fill:";
-            if(!poly->is_filled)
+            if(!poly->fill_color)
             {
                 writer.file << "none";
             }
             else
             {
-                writer.file << ToHtml(poly->fill_color);
+                writer.file << ToHtml(*poly->fill_color);
             }
             writer.file << ";stroke:";
             writer.file << ToHtml(poly->stroke_color);
