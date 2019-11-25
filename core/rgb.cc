@@ -10,11 +10,11 @@ namespace euphoria::core
 {
     ////////////////////////////////////////////////////////////////////////////////
 
-    Rgbi::Rgbi(unsigned char red, unsigned char green, unsigned char blue)
+    Rgbi::Rgbi(std::uint8_t red, std::uint8_t green, std::uint8_t blue)
         : r(red), g(green), b(blue)
     {}
 
-    Rgbi::Rgbi(unsigned char gray) : r(gray), g(gray), b(gray) {}
+    Rgbi::Rgbi(std::uint8_t gray) : r(gray), g(gray), b(gray) {}
 
     Rgbi::Rgbi(Color color) : Rgbi(Rgbi::FromHex(ToColorHex(color))) {}
 
@@ -35,7 +35,7 @@ namespace euphoria::core
 
     ////////////////////////////////////////////////////////////////////////////////
 
-    Rgbai::Rgbai(const Rgbi& rgb, unsigned char alpha)
+    Rgbai::Rgbai(const Rgbi& rgb, std::uint8_t alpha)
         : r(rgb.r), g(rgb.g), b(rgb.b), a(alpha)
     {}
 
@@ -439,7 +439,7 @@ namespace euphoria::core
     {
         // //
         // https://stackoverflow.com/questions/5560248/programmatically-lighten-or-darken-a-hex-color-or-rgb-and-blend-colors
-        const float t = percentage < 0 ? 0 : 1;
+        const float t = percentage < 0 ? 0.0f : 1.0f;
         const float p = percentage < 0 ? -percentage : percentage;
         const float r = (t - rgb.r) * p + rgb.r;
         const float g = (t - rgb.g) * p + rgb.g;
@@ -451,42 +451,42 @@ namespace euphoria::core
 
     namespace colorutil
     {
-        unsigned char
+        std::uint8_t
         GetComponent(unsigned int i, int steps)
         {
             const int value = ((i >> 8 * steps) & 0xff);
             ASSERTX(IsWithinInclusivei(0, value, 255), value);
-            return static_cast<unsigned char>(value);
+            return static_cast<std::uint8_t>(value);
         }
 
-        unsigned char
+        std::uint8_t
         GetRed(unsigned int rgb)
         {
             return GetComponent(rgb, 2);
         }
 
-        unsigned char
+        std::uint8_t
         GetGreen(unsigned int rgb)
         {
             return GetComponent(rgb, 1);
         }
 
-        unsigned char
+        std::uint8_t
         GetBlue(unsigned int rgb)
         {
             return GetComponent(rgb, 0);
         }
 
         float
-        ToFloat(unsigned char c)
+        ToFloat(std::uint8_t c)
         {
             return c / 255.0f;
         }
 
-        unsigned char
+        std::uint8_t
         ToUnsignedChar(float f)
         {
-            return static_cast<unsigned char>(f * 255.0f);
+            return static_cast<std::uint8_t>(f * 255.0f);
         }
 
         unsigned int

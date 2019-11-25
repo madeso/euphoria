@@ -2,13 +2,14 @@
 #define CORE_RGB_H
 
 #include <string>
+#include <cstdint>
 
 #include "core/colors.h"
 #include "core/angle.h"
 
 namespace euphoria::core
 {
-    // unsigned char colors: 0 - 255
+    // std::uint8_t colors: 0 - 255
     struct Rgbi;
     struct Rgbai;
 
@@ -20,8 +21,8 @@ namespace euphoria::core
     // Rgb no alpha support - int based
     struct Rgbi
     {
-        Rgbi(unsigned char red, unsigned char green, unsigned char blue);
-        explicit Rgbi(unsigned char gray);
+        Rgbi(std::uint8_t red, std::uint8_t green, std::uint8_t blue);
+        explicit Rgbi(std::uint8_t gray);
         Rgbi(Color color);
 
         explicit Rgbi(const Rgb& rgb);
@@ -29,9 +30,9 @@ namespace euphoria::core
         [[nodiscard]] static Rgbi
         FromHex(unsigned int hex);
 
-        unsigned char r;
-        unsigned char g;
-        unsigned char b;
+        std::uint8_t r;
+        std::uint8_t g;
+        std::uint8_t b;
     };
 
     ////////////////////////////////////////////////////////////////////////////////
@@ -39,14 +40,14 @@ namespace euphoria::core
 
     struct Rgbai
     {
-        Rgbai(const Rgbi& rgb, unsigned char alpha = 255);
+        Rgbai(const Rgbi& rgb, std::uint8_t alpha = 255);
 
         explicit Rgbai(const Rgba& rgba);
 
-        unsigned char r;
-        unsigned char g;
-        unsigned char b;
-        unsigned char a;
+        std::uint8_t r;
+        std::uint8_t g;
+        std::uint8_t b;
+        std::uint8_t a;
     };
 
     ////////////////////////////////////////////////////////////////////////////////
@@ -226,22 +227,22 @@ namespace euphoria::core
     namespace colorutil
     {
         // internal function, exposed for unit tests
-        unsigned char
+        std::uint8_t
         GetComponent(unsigned int i, int steps);
 
-        unsigned char
+        std::uint8_t
         GetRed(unsigned int rgb);
 
-        unsigned char
+        std::uint8_t
         GetGreen(unsigned int rgb);
 
-        unsigned char
+        std::uint8_t
         GetBlue(unsigned int rgb);
 
         float
-        ToFloat(unsigned char c);
+        ToFloat(std::uint8_t c);
 
-        unsigned char
+        std::uint8_t
         ToUnsignedChar(float f);
 
         unsigned int
