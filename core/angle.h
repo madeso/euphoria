@@ -41,6 +41,12 @@ namespace euphoria::core
             return Angle::FromRadians(percent * Pi() * 2.0f);
         }
 
+        [[nodiscard]] constexpr static Angle
+        OneTurn()
+        {
+            return Angle::FromRadians(Pi() * 2.0f);
+        }
+
         [[nodiscard]] constexpr float
         InPercentOf360() const
         {
