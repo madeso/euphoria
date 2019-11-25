@@ -6,6 +6,7 @@
 #include "core/range.h"
 #include "core/palette.h"
 #include "core/palette_tableu.h"
+#include "core/shufflebag.h"
 
 using namespace euphoria::core;
 using namespace euphoria::core::svg;
@@ -34,7 +35,7 @@ main(int, char*[])
 {
     Random rand;
 
-    auto pal = palette::Tableau_20();
+    auto pal = CreateShuffleBag(palette::ColorBlind_10().colors, 2);
 
     auto svg = Svg{};
 
@@ -42,7 +43,7 @@ main(int, char*[])
     {
         const auto p = rand.PointOnUnitCircle_CenterFocused()*100.0f;
         const auto s = rand.Next(Range{5.0f, 30.0f});
-        const auto c = pal.GetRandomColor(&rand);
+        const auto c = pal.Next(&rand);
         const auto r = Angle::FromPercentOf360(rand.NextFloat01());
         svg << MakeStar(p, s, c, r);
     }
