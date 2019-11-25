@@ -245,11 +245,12 @@ namespace euphoria::core::svg
 
     void Svg::Write(const std::string& path, int width, int height, int space) const
     {
-        // todo(Gustav): grab features/ideas from nbg/faddi code
-        // todo(Gustav): background grid
         // todo(Gustav): improve api
-        // todo(Gustav): zoom & pan grid view
+        // todo(Gustav): interactive zoom & pan grid view (in canvas)
         // todo(Gustav): list of polys and view and hover over points
+        // todo(Gustav): hide polys
+        // todo(Gustav): attach string->string properties
+        // todo(Gustav): option to replace string with polylines so we can measure and layout text
 
         const auto r = CalculateSizeAndOffset();
         const auto size = r.first;
