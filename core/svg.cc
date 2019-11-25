@@ -41,10 +41,6 @@ namespace euphoria::core::svg
 
     Poly& Poly::Close()
     {
-        if(!is_closed)
-        {
-            points.emplace_back(points[0]);
-        }
         is_closed = true;
         return *this;
     }
@@ -99,15 +95,30 @@ namespace euphoria::core::svg
         void WritePoly(Writer& writer, const Poly* poly)
         {
             writer.file << "<polyline points=\"";
-            {bool first = true;
-            for(const auto p: poly->points)
             {
-                if(first) {first = false;}
-                else {writer.file << " ";}
+                bool first = true;
 
-                writer.file << writer.px(p.x) << ","
-                            << writer.py(p.y);
-            }}
+                auto write_point = [&writer](const vec2f& p)
+                {
+                    writer.file << writer.px(p.x) << ","
+                                << writer.py(p.y);
+                };
+
+                for(const auto p: poly->points)
+                {
+                    if(first) {first = false;}
+                    else {writer.file << " ";}
+
+                    write_point(p);
+                }
+
+                if(poly->is_closed && !poly->points.empty())
+                {
+                    writer.file << " ";
+                    write_point(poly->points[0]);
+                }
+            }
+
             writer.file << "\" style=\"fill:";
             if(!poly->fill_color)
             {
