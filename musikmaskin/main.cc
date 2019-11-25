@@ -135,6 +135,8 @@ public:
             ok = false;
         }
 
+        audio_opened = true;
+
         int i, count = SDL_GetNumAudioDevices(0);
         for(i = 0; i < count; ++i)
         {
@@ -153,7 +155,13 @@ public:
         }
     }
 
-    virtual ~AppBase() = default;
+    virtual ~AppBase()
+    {
+        if(audio_opened)
+        {
+            SDL_CloseAudio();
+        }
+    }
 
     virtual void
     Draw() = 0;
@@ -214,6 +222,7 @@ public:
     bool ok;
 
 protected:
+    bool audio_opened = false;
     float max_sample_time     = 0;
     int   sample_frequency    = 44100;
     float audio_callback_time = 0;
