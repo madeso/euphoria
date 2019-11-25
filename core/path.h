@@ -83,6 +83,7 @@ namespace euphoria::core
         AutoSetAnchorControlPoints(int anchor_index);
     };
 
+    // todo(Gustav): merge with svg::Poly
     struct VertexPath2
     {
         std::vector<vec2f> points;
