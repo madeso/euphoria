@@ -51,7 +51,9 @@ main(int, char*[])
         const auto inner = rand.Next(Range{0.3f, 0.75f});
         const auto fill = pal.Next(&rand);
         const auto rotation = Angle::FromPercentOf360(rand.NextFloat01());
-        svg << MakeStar(center, radius, rotation, p, inner).Close().Fill(fill) << Text(center, Str{} << p << " / " << std::setprecision( 2 ) << inner);
+        svg << MakeStar(center, radius, rotation, p, inner).Close().Fill(fill)
+            // << Text(center, Str{} << p << " / " << std::setprecision( 2 ) << inner)
+            ;
     }
     svg.AddAxis();
     svg.Write("stars.html");
