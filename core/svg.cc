@@ -256,6 +256,7 @@ namespace euphoria::core::svg
 
     void Svg::Write(const std::string& path, int width, int height, int space) const
     {
+        // reference: https://www.w3schools.com/graphics/svg_path.asp
         // todo(Gustav): improve api
         // todo(Gustav): interactive zoom & pan grid view (in canvas)
         // todo(Gustav): list of polys and view and hover over points
