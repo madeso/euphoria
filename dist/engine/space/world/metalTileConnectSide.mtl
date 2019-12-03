@@ -1,0 +1,18 @@
+# Made using Asset Forge (www.assetforge.io) version 1.0 
+
+newmtl net
+Ka 0.000000 0.000000 0.000000 
+Kd 1 1 1 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/net.png
+
+newmtl metal
+Ka 0.000000 0.000000 0.000000 
+Kd 0.8862745 0.4 0.2705882 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl light
+Ka 0.000000 0.000000 0.000000 
+Kd 0.945098 0.9490196 0.9647059 
+Ks 0.330000 0.330000 0.330000 
+
