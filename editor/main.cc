@@ -28,6 +28,7 @@
 #include "render/viewport.h"
 #include "render/materialshadercache.h"
 #include "render/defaultfiles.h"
+#include "render/viewporthandler.h"
 
 #include "window/imguilibrary.h"
 #include "window/timer.h"
@@ -421,23 +422,11 @@ struct FileHandlerList
     }
 };
 
-struct ViewportHandler
-{
-    void
-    SetSize(int width, int height)
-    {
-        Viewport viewport {Recti::FromWidthHeight(width, height)
-                                   .SetBottomLeftToCopy(0, 0)};
-        viewport.Activate();
-    }
-};
-
 int
-main(int, char**)
+main(int argc, char* argv[])
 {
     Engine engine;
-
-    if(engine.Setup() == false)
+    if(engine.Setup(argparse::Args::Extract(argc, argv)) == false)
     {
         return -1;
     }

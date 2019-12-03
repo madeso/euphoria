@@ -27,9 +27,12 @@ TileLibrary::AddDirectory(
     render::MaterialShaderCache* shader_cache,
     render::TextureCache*        texture_cache)
 {
+  // todo(Gustav): iterate files in the vfs, not filesystem!
+  // bug: ignores the vfs
   const auto directory = core::ListDirectory(directory_path);
   for(const auto& file : directory.files)
   {
+    LOG_INFO("Looking at file " << file);
     if(core::GetExtension(file) == ".obj")
     {
       AddFile(

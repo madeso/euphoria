@@ -7,7 +7,7 @@ namespace euphoria::render
     Viewport::Viewport(const core::Recti& viewport) : viewport(viewport) {}
 
     void
-    Viewport::Activate()
+    Viewport::Activate() const
     {
         const auto bottom_left = viewport.BottomLeft();
         glViewport(

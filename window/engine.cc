@@ -55,6 +55,8 @@ namespace euphoria::window
             return false;
         }
 
+        LOG_INFO("Current directory: " << current_directory);
+
         file_system.reset(new core::vfs::FileSystem {});
         catalog = core::vfs::FileSystemRootCatalog::AddRoot(file_system.get());
         core::vfs::FileSystemRootFolder::AddRoot(

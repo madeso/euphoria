@@ -13,6 +13,7 @@
 #include "core/mat4.h"
 #include "core/fpscontroller.h"
 #include "core/camera.h"
+#include "core/log.h"
 
 // #include "render/camera.h"
 #include "render/defaultfiles.h"
@@ -26,6 +27,7 @@
 #include <render/init.h>
 #include <render/materialshader.h>
 #include <render/texturecache.h>
+#include "render/viewporthandler.h"
 
 #include "window/filesystem.h"
 #include "window/imgui_ext.h"
@@ -35,6 +37,7 @@
 #include "window/sdlwindow.h"
 #include "window/timer.h"
 #include "window/key.h"
+#include "window/engine.h"
 
 #include "imgui/imgui.h"
 #include <SDL.h>
@@ -49,6 +52,8 @@ using namespace euphoria::t3d;
 using namespace euphoria::render;
 using namespace euphoria::window;
 
+LOG_SPECIFY_DEFAULT_LOGGER("t3d")
+
 void
 HandleEvents(
     bool           show_imgui,
@@ -56,15 +61,21 @@ HandleEvents(
     bool&          immersive_mode,
     FpsController& fps,
     float          delta,
-    ImguiLibrary&  imgui,
-    SdlWindow&     window)
+    Engine*        engine, ViewportHandler* viewport_handler)
 {
   SDL_Event e;
   while(SDL_PollEvent(&e) != 0)
   {
     if(show_imgui)
     {
-      imgui.ProcessEvents(&e);
+      engine->imgui->ProcessEvents(&e);
+    }
+
+    int window_width = 0;
+    int window_height = 0;
+    if(engine->HandleResize(e, &window_width, &window_height))
+    {
+      viewport_handler->SetSize(window_width, window_height);
     }
     switch(e.type)
     {
@@ -99,8 +110,8 @@ HandleEvents(
             if(!down)
             {
               immersive_mode = !immersive_mode;
-              window.KeepWithin(immersive_mode);
-              window.EnableCharEvent(!immersive_mode);
+              engine->window->KeepWithin(immersive_mode);
+              engine->window->EnableCharEvent(!immersive_mode);
             }
             break;
           default:
@@ -109,6 +120,9 @@ HandleEvents(
         }
       }
       break;
+
+
+
       default:
         // ignore other events
         break;
@@ -121,8 +135,9 @@ HandleEvents(
 int
 main(int argc, char** argv)
 {
-  SdlLibrary sdl;
-  if(sdl.ok == false)
+  Engine engine;
+
+  if(engine.Setup(argparse::Args::Extract(argc, argv)) == false)
   {
     return -1;
   }
@@ -130,56 +145,32 @@ main(int argc, char** argv)
   int width  = 1280;
   int height = 720;
 
-  SdlWindow window{"t3d", width, height};
-  if(window.window == nullptr)
+  if(engine.CreateWindow("t3d", width, height) == false)
   {
     return -1;
   }
 
-  SdlGlContext context{&window};
+  ViewportHandler viewport_handler;
 
-  if(context.context == nullptr)
-  {
-    return -1;
-  }
+  viewport_handler.SetSize(width, height);
 
-  Init init{SDL_GL_GetProcAddress};
-  if(!init.ok)
-  {
-    return -4;
-  }
-
-  SetupOpenglDebug();
-
-  const auto current_directory = GetCurrentDirectory();
-  const auto base_path         = GetBasePath();
-  const auto pref_path         = GetPrefPath();
-
-  ImguiLibrary imgui{window.window, &context, pref_path};
-
-  Viewport viewport{
-      Recti::FromWidthHeight(width, height).SetBottomLeftToCopy(0, 0)};
-  viewport.Activate();
-
-  FileSystem file_system;
-  auto       catalog = FileSystemRootCatalog::AddRoot(&file_system);
-
-  FileSystemRootFolder::AddRoot(&file_system, current_directory);
-  FileSystemImageGenerator::AddRoot(&file_system, "img-plain");
-
-  SetupDefaultFiles(catalog);
-
-  MaterialShaderCache material_shader_cache{&file_system};
+  MaterialShaderCache material_shader_cache{engine.file_system.get()};
 
   // SET_ENUM_VALUES(TextureType, SetupTextureNames);
-  SET_ENUM_FROM_FILE(&file_system, "texture_types.json", TextureType);
+  SET_ENUM_FROM_FILE(engine.file_system.get(), "texture_types.json", TextureType);
 
-  TextureCache texture_cache{&file_system};
+  TextureCache texture_cache{engine.file_system.get()};
 
   TileLibrary tile_library;
   tile_library.AddDirectory("world", &material_shader_cache, &texture_cache);
 
-  World world {&file_system};
+  if(tile_library.tiles.empty())
+  {
+    LOG_ERROR("No tile loaded!");
+    return -2;
+  }
+
+  World world {engine.file_system.get()};
 
   std::vector<std::shared_ptr<Actor>> actors;
 
@@ -202,7 +193,7 @@ main(int argc, char** argv)
 
   FpsController fps;
   fps.position = vec3f{0, 0, 3};
-  window.EnableCharEvent(!immersive_mode);
+  engine.window->EnableCharEvent(!immersive_mode);
 
   int   items_per_row = 5;
   float size          = 3;
@@ -213,11 +204,11 @@ main(int argc, char** argv)
     const float delta      = timer.Update();
 
     HandleEvents(
-        show_imgui, running, immersive_mode, fps, delta, imgui, window);
+        show_imgui, running, immersive_mode, fps, delta, &engine, &viewport_handler);
 
     if(show_imgui)
     {
-      imgui.StartNewFrame();
+      engine.imgui->StartNewFrame();
 
       ImGui::SetNextWindowPos(ImVec2(650, 20), ImGuiCond_FirstUseEver);
 
@@ -284,15 +275,18 @@ main(int argc, char** argv)
     camera.position = fps.position;
     camera.rotation = fps.GetRotation();
 
-    init.ClearScreen(Color::LightGray);
-    world.Render(viewport, camera);
+    {
+      auto viewport = viewport_handler.GetFullViewport();
+      engine.init->ClearScreen(Color::LightGray);
+      world.Render(viewport, camera);
+    }
 
     if(show_imgui)
     {
-      imgui.Render();
+      engine.imgui->Render();
     }
 
-    SDL_GL_SwapWindow(window.window);
+    SDL_GL_SwapWindow(engine.window->window);
   }
 
   return 0;

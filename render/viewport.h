@@ -11,7 +11,7 @@ namespace euphoria::render
         Viewport(const core::Recti& viewport);
 
         void
-        Activate();  // sets the gl viewport
+        Activate() const;  // sets the gl viewport
 
         float
         GetAspectRatio() const;
