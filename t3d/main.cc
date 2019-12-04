@@ -161,7 +161,7 @@ main(int argc, char** argv)
 
   TextureCache texture_cache{engine.file_system.get()};
 
-  TileLibrary tile_library;
+  TileLibrary tile_library {engine.file_system.get()};
   tile_library.AddDirectory("world", &material_shader_cache, &texture_cache);
 
   if(tile_library.tiles.empty())

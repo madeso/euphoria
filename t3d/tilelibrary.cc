@@ -4,7 +4,6 @@
 #include "core/mesh.h"
 #include "core/vfs.h"
 #include "core/log.h"
-#include "core/path.h"
 #include "core/vfs_path.h"
 
 namespace euphoria::t3d
@@ -17,9 +16,15 @@ Tile::Tile()
 {
 }
 
+
 Tile::~Tile()
 {
 }
+
+
+TileLibrary::TileLibrary(core::vfs::FileSystem* fs) : file_system(fs)
+{}
+
 
 void
 TileLibrary::AddDirectory(
@@ -27,17 +32,16 @@ TileLibrary::AddDirectory(
     render::MaterialShaderCache* shader_cache,
     render::TextureCache*        texture_cache)
 {
-  // todo(Gustav): iterate files in the vfs, not filesystem!
-  // bug: ignores the vfs
-  const auto directory = core::ListDirectory(directory_path);
-  for(const auto& file : directory.files)
+  const auto dir = core::vfs::Path::FromDirectory(directory_path);
+  auto files = file_system->ListFiles(dir);
+  for(const auto& relative_file : files)
   {
-    LOG_INFO("Looking at file " << file);
-    if(core::GetExtension(file) == ".obj")
+    const auto file = dir.GetFile(relative_file.name);
+    const auto file_path = file.GetAbsolutePath();
+    if(core::GetExtension(relative_file.name) == ".obj")
     {
       AddFile(
-          directory_path,
-          core::JoinPath(directory_path, file),
+          file_path,
           shader_cache,
           texture_cache);
     }
@@ -46,14 +50,11 @@ TileLibrary::AddDirectory(
 
 void
 TileLibrary::AddFile(
-    const std::string&   current_directory,
     const std::string&   path,
     render::MaterialShaderCache* shader_cache,
     render::TextureCache*        texture_cache)
 {
-  core::vfs::FileSystem file_system;
-  core::vfs::FileSystemRootFolder::AddRoot(&file_system, current_directory);
-  const auto loaded_mesh = core::meshes::LoadMesh(&file_system, path);
+  const auto loaded_mesh = core::meshes::LoadMesh(file_system, path);
   if(!loaded_mesh.error.empty())
   {
     LOG_WARN("Failed to open " << path << ": " << loaded_mesh.error);

@@ -7,6 +7,11 @@
 #include "core/aabb.h"
 #include "render/compiledmesh.h"
 
+namespace euphoria::core::vfs
+{
+  struct FileSystem;
+}
+
 namespace euphoria::t3d
 {
 
@@ -26,6 +31,10 @@ class Tile
 class TileLibrary
 {
  public:
+ core::vfs::FileSystem* file_system;
+
+ TileLibrary(core::vfs::FileSystem* fs);
+
   void
   AddDirectory(
       const std::string&   directory_path,
@@ -34,7 +43,6 @@ class TileLibrary
 
   void
   AddFile(
-      const std::string&   current_directory,
       const std::string&   path,
       render::MaterialShaderCache* shader_cache,
       render::TextureCache*        texture_cache);
