@@ -6,8 +6,11 @@
 #include "core/proto.h"
 #include "core/log.h"
 #include "core/stringmerger.h"
+#include "core/vfs.h"
 
 #include <assimp/Importer.hpp>
+#include <assimp/IOSystem.hpp>
+#include <assimp/IOStream.hpp>
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
 
@@ -361,10 +364,110 @@ namespace euphoria::core
 
     namespace meshes
     {
+        struct FileForAssimp : public Assimp::IOStream
+        {
+            size_t index = 0;
+            std::shared_ptr<MemoryChunk> content;
+
+            size_t Read(void* target_buffer, size_t size, size_t count) override
+            {
+                char* target = static_cast<char*>(target_buffer);
+                size_t objects_read = 0;
+                for(size_t i =0; i<count; i+=1)
+                {
+                    if(index + size > content->GetSize())
+                    {
+                        return objects_read;
+                    }
+                    memcpy(target, content->GetData() + index, size);
+                    index += size;
+                    target += size;
+                    objects_read += 1;
+                }
+                return objects_read;
+            }
+
+            virtual size_t Write(const void* , size_t , size_t ) override
+            {
+                return 0;
+            }
+
+            virtual aiReturn Seek(size_t pOffset, aiOrigin pOrigin) override
+            {
+                switch(pOrigin)
+                {
+                    case aiOrigin_SET: index = pOffset; return aiReturn_SUCCESS;
+                    case aiOrigin_CUR: index += pOffset; return aiReturn_SUCCESS;
+                    case aiOrigin_END: DIE("end seek with unsinged int?"); return aiReturn_FAILURE;
+                    default: DIE("unknown seek"); return aiReturn_FAILURE;
+                }
+            }
+
+            virtual size_t Tell() const override
+            {
+                return index;
+            }
+
+            virtual size_t FileSize() const override
+            {
+                return content->GetSize();
+            }
+
+            virtual void Flush() override
+            {
+            }
+        };
+        
+        struct FilesystemForAssimp : public Assimp::IOSystem
+        {
+            vfs::FileSystem* file_system;
+
+            FilesystemForAssimp(vfs::FileSystem* fs) : file_system(fs) {}
+
+            bool Exists( const char* pFile) const override
+            {
+                auto content = file_system->ReadFile(pFile);
+                return content != nullptr;
+            }
+
+            char getOsSeparator() const override
+            {
+                return '/';
+            }
+
+            Assimp::IOStream* Open(const char* pFile, const char* pMode) override
+            {
+                std::string mode = pMode;
+                ASSERT(mode.find('w') == std::string::npos);
+                ASSERT(mode.find('r') != std::string::npos);
+                auto content = file_system->ReadFile(pFile);
+                if(content == nullptr)
+                {
+                    return nullptr;
+                }
+                auto* data = new FileForAssimp();
+                data->content = content;
+                return data;
+            }
+            
+            void Close(Assimp::IOStream* pFile) override
+            {
+                delete pFile;
+            }
+
+            bool DeleteFile( const std::string& ) override
+            {
+                return false;
+            }
+        };
+
+
         MeshLoadResult
         LoadMesh(vfs::FileSystem* fs, const std::string& path)
         {
             Assimp::Importer importer;
+            importer.SetIOHandler(new FilesystemForAssimp{fs});
+
             MeshLoadResult   res;
 
             const aiScene* scene = importer.ReadFile(path, AssimpFlags);
