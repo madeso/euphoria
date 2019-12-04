@@ -345,7 +345,7 @@ namespace euphoria::core
             const auto error = LoadProtoJson(fs, &json, json_path);
             if(!error.empty())
             {
-                LOG_WARN("Mesh " << json_path << " failed to load: " << error);
+                // LOG_WARN("Mesh " << json_path << " failed to load: " << error);
             }
 
             if(json.diffuse_and_ambient_are_same)
