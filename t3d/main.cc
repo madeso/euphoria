@@ -198,6 +198,10 @@ main(int argc, char** argv)
   int   items_per_row = 5;
   float size          = 3;
 
+  bool enviroment_window = true;
+  bool camera_window = true;
+  bool tiles_window = true;
+
   while(running)
   {
     const bool  show_imgui = !immersive_mode;
@@ -210,45 +214,73 @@ main(int argc, char** argv)
     {
       engine.imgui->StartNewFrame();
 
+      if(ImGui::BeginMainMenuBar())
+        {
+            if(ImGui::BeginMenu("File"))
+            {
+                if(ImGui::MenuItem("Exit", "Ctrl+Q"))
+                {
+                    running = false;
+                }
+                ImGui::EndMenu();
+            }
+
+            if(ImGui::BeginMenu("Window"))
+            {
+                ImGui::MenuItem("Enviroment", nullptr, &enviroment_window);
+                ImGui::MenuItem("Camera", nullptr, &camera_window);
+                ImGui::MenuItem("Tiles", nullptr, &tiles_window);
+                ImGui::EndMenu();
+            }
+        }
+        ImGui::EndMainMenuBar();
+
       ImGui::SetNextWindowPos(ImVec2(650, 20), ImGuiCond_FirstUseEver);
 
       ImGui::SetNextWindowSize(ImVec2(200, 100), ImGuiCond_FirstUseEver);
-      ImGui::Begin("Light");
-      ImGui::Combo(
-          "Type",
-          reinterpret_cast<int*>(world.light.GetTypeMod()),
-          "Directional\0Point\0Spot\0\0");
-      ImGuiColorEdit3("Ambient", world.light.ModifyAmbient());
-      ImGuiColorEdit3("Diffuse", world.light.ModifyDiffuse());
-      ImGuiColorEdit3("Specular", world.light.ModifySpecular());
-      ImGui::End();
+      if(enviroment_window)
+      {
+        ImGui::Begin("Enviroment", &enviroment_window);
+        ImGui::Combo(
+            "Type",
+            reinterpret_cast<int*>(world.light.GetTypeMod()),
+            "Directional\0Point\0Spot\0\0");
+        ImGuiColorEdit3("Ambient", world.light.ModifyAmbient());
+        ImGuiColorEdit3("Diffuse", world.light.ModifyDiffuse());
+        ImGuiColorEdit3("Specular", world.light.ModifySpecular());
+        ImGui::End();
+      }
 
-      ImGui::Begin("Camera");
-      ImGui::DragFloat("Speed", &fps.speed, 0.1f, 0.001f, 10.0f);
-      ImGui::End();
-
-      ImGui::ShowTestWindow();
+      if(camera_window)
+      {
+        ImGui::Begin("Camera", &camera_window);
+        ImGui::DragFloat("Speed", &fps.speed, 0.1f, 0.001f, 10.0f);
+        ImGui::End();
+      }
 
 
       // ImGui::ListBox("", &selection[i], items, IM_ARRAYSIZE(items));
-      ImGui::Begin("Tiles");
-      ImGui::InputInt("Items per row", &items_per_row);
-      ImGui::DragFloat("Size", &size, 0.01f);
-
-      if(!tile_library.tiles.empty())
+      if(tiles_window)
       {
-        ImGui::ListBoxHeader("Tiles");
+        ImGui::Begin("Tiles", &tiles_window);
+        ImGui::InputInt("Items per row", &items_per_row);
+        ImGui::DragFloat("Size", &size, 0.01f);
 
-        for(auto tile : tile_library.tiles)
+        if(!tile_library.tiles.empty())
         {
-          std::string display = Str{} << tile->name << ": "
-                                      << tile->aabb.GetSize();
-          ImGui::Selectable(display.c_str());
-        }
+          ImGui::ListBoxHeader("Tiles");
 
-        ImGui::ListBoxFooter();
+          for(auto tile : tile_library.tiles)
+          {
+            std::string display = Str{} << tile->name << ": "
+                                        << tile->aabb.GetSize();
+            ImGui::Selectable(display.c_str());
+          }
+
+          ImGui::ListBoxFooter();
+        }
+        ImGui::End();
       }
-      ImGui::End();
     }
 
     int col = 0;
