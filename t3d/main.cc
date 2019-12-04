@@ -224,7 +224,7 @@ main(int argc, char** argv)
       ImGui::End();
 
       ImGui::Begin("Camera");
-      ImGui::InputFloat("Speed", &fps.speed);
+      ImGui::DragFloat("Speed", &fps.speed, 0.1f, 0.001f, 10.0f);
       ImGui::End();
 
       ImGui::ShowTestWindow();
@@ -233,7 +233,7 @@ main(int argc, char** argv)
       // ImGui::ListBox("", &selection[i], items, IM_ARRAYSIZE(items));
       ImGui::Begin("Tiles");
       ImGui::InputInt("Items per row", &items_per_row);
-      ImGui::InputFloat("Size", &size);
+      ImGui::DragFloat("Size", &size, 0.01f);
 
       if(!tile_library.tiles.empty())
       {
