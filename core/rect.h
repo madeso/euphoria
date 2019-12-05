@@ -4,7 +4,6 @@
 #include "core/assert.h"
 #include "core/vec2.h"
 #include "core/size.h"
-#include "core/line2.h"
 #include "core/range.h"
 #include "core/random.h"
 
@@ -22,8 +21,6 @@ namespace euphoria::core
         T right;
         T top;
         T bottom;
-
-        typedef line2<T> Line;
         // typedef vec2<T>  vec;
 
         Rect() : left(0), right(0), top(0), bottom(0) {}
@@ -427,30 +424,6 @@ namespace euphoria::core
         BottomRight() const
         {
             return vec2<T>(right, bottom);
-        }
-
-        const Line
-        LeftEdge() const
-        {
-            return Line::FromTo(TopLeft(), BottomLeft());
-        }
-
-        const Line
-        RightEdge() const
-        {
-            return Line::FromTo(TopRight(), BottomRight());
-        }
-
-        const Line
-        TopEdge() const
-        {
-            return Line::FromTo(TopLeft(), TopRight());
-        }
-
-        const Line
-        BottomEdge() const
-        {
-            return Line::FromTo(BottomLeft(), BottomRight());
         }
 
         vec2<T>
