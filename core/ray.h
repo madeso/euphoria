@@ -5,76 +5,42 @@
 
 namespace euphoria::core
 {
-    template <typename T>
-    struct UnitRay3
+    struct UnitRay3f
     {
-        typedef unit3<T>    Unit;
-        typedef vec3<T>     Point;
-        typedef UnitRay3<T> Self;
+        UnitRay3f(const vec3f& from, const unit3f& dir);
 
-        UnitRay3(const Point& from, const Unit& dir) : from(from), dir(dir) {}
+        [[nodiscard]] static UnitRay3f
+        FromTo(const vec3f& from, const vec3f& to);
 
-        [[nodiscard]] static Self
-        FromTo(const Point& from, const Point& to)
-        {
-            return Self {from, vec3<T>::FromTo(from, to).GetNormalized()};
-        }
+        [[nodiscard]] static UnitRay3f
+        FromDirection(const unit3f& dir);
 
-        [[nodiscard]] static Self
-        FromDirection(const Unit& dir)
-        {
-            return Self {Point::Zero(), dir};
-        }
+        vec3f
+        GetPoint(float at) const;
 
-        Point
-        GetPoint(T at) const
-        {
-            return from + dir * at;
-        }
-
-        Point from;
-        Unit  dir;
+        vec3f from;
+        unit3f  dir;
     };
 
-    template <typename T>
-    struct Ray3
+    struct Ray3f
     {
-        typedef vec3<T> Point;
-        typedef vec3<T> Vec;
-        typedef Ray3<T> Self;
+        Ray3f(const vec3f& from, const vec3f& dir);
 
-        Ray3(const Point& from, const Vec& dir) : from(from), dir(dir) {}
+        [[nodiscard]] static Ray3f
+        FromTo(const vec3f& from, const vec3f& to);
 
-        [[nodiscard]] static Self
-        FromTo(const Point& from, const Point& to)
-        {
-            return Self {from, Vec::FromTo(from, to)};
-        }
+        [[nodiscard]] static Ray3f
+        FromDirection(const vec3f& dir);
 
-        [[nodiscard]] static Self
-        FromDirection(const Vec& dir)
-        {
-            return Self {Point::Zero(), dir};
-        }
+        vec3f
+        GetPoint(float at) const;
 
-        Point
-        GetPoint(T at) const
-        {
-            return from + dir * at;
-        }
+        UnitRay3f
+        GetNormalized() const;
 
-        UnitRay3<T>
-        GetNormalized() const
-        {
-            return UnitRay3<T> {from, dir.GetNormalized()};
-        }
-
-        Point from;
-        Vec   dir;
+        vec3f from;
+        vec3f   dir;
     };
-
-    typedef Ray3<float>     Ray3f;
-    typedef UnitRay3<float> UnitRay3f;
 
 }  // namespace euphoria::core
 

@@ -1,5 +1,8 @@
 #include "core/intersection.h"
 
+#include "core/ray.h"
+#include "core/aabb.h"
+
 namespace euphoria::core
 {
     RayIntersectionResult

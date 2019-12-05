@@ -1,11 +1,11 @@
 #ifndef EUPHORIA_INTERSECTION_H
 #define EUPHORIA_INTERSECTION_H
 
-#include "core/ray.h"
-#include "core/aabb.h"
-
 namespace euphoria::core
 {
+    struct UnitRay3f;
+    struct Aabb;
+
     struct RayIntersectionResult
     {
         bool  intersected;
