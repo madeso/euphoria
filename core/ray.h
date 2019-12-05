@@ -22,6 +22,24 @@ namespace euphoria::core
         unit3f  dir;
     };
 
+
+    struct Ray2f
+    {
+        Ray2f(const vec2f& p, const vec2f& d);
+
+        [[nodiscard]] static Ray2f
+        FromTo(const vec2f& from, const vec2f& to);
+
+        [[nodiscard]] static Ray2f
+        FromDirection(const vec2f& direction, const vec2f& pos = vec2f::Zero());
+
+        vec2f
+        GetPosition(float d) const;
+
+        vec2f position;
+        vec2f direction;
+    };
+
     struct Ray3f
     {
         Ray3f(const vec3f& from, const vec3f& dir);

@@ -21,6 +21,29 @@ namespace euphoria::core
     {
         return from + dir * at;
     }
+
+    
+    [[nodiscard]] Ray2f
+    Ray2f::FromDirection(const vec2f& direction, const vec2f& pos)
+    {
+        return Ray2f(pos, direction);
+    }
+
+    [[nodiscard]] Ray2f
+    Ray2f::FromTo(const vec2f& from, const vec2f& to)
+    {
+        return Ray2f(from, vec2f::FromTo(from, to));
+    }
+
+    vec2f
+    Ray2f::GetPosition(float d) const
+    {
+        return position + d * direction;
+    }
+    
+    Ray2f::Ray2f(const vec2f& p, const vec2f& d) : position(p), direction(d) {}
+
+
     
     Ray3f::Ray3f(const vec3f& from, const vec3f& dir) : from(from), dir(dir) {}
 
