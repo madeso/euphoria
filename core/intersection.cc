@@ -6,29 +6,33 @@
 
 namespace euphoria::core
 {
-    RayIntersectionResult
-    RayIntersectionResultFalse()
+    namespace
     {
-        RayIntersectionResult r;
-        r.intersected = false;
-        r.start = r.end = -1.0f;
-        return r;
+        RayIntersectionResult
+        RayIntersectionResult_False()
+        {
+            RayIntersectionResult r;
+            r.intersected = false;
+            r.start = r.end = -1.0f;
+            return r;
+        }
+
+        RayIntersectionResult
+        RayIntersectionResult_True(float start, float end)
+        {
+            RayIntersectionResult r;
+            r.intersected = true;
+            r.start       = start;
+            r.end         = end;
+            return r;
+        }
     }
 
-    RayIntersectionResult
-    RayIntersectionResultTrue(float start, float end)
-    {
-        RayIntersectionResult r;
-        r.intersected = true;
-        r.start       = start;
-        r.end         = end;
-        return r;
-    }
-
-    // https://www.scratchapixel.com/lessons/3d-basic-rendering/minimal-ray-tracer-rendering-simple-shapes/ray-box-intersection
     RayIntersectionResult
     Intersect(const UnitRay3f& r, const Aabb& aabb)
     {
+        // https://www.scratchapixel.com/lessons/3d-basic-rendering/minimal-ray-tracer-rendering-simple-shapes/ray-box-intersection
+
         // todo: refactor aabb class?
         const vec3f bounds[] {aabb.min, aabb.max};
 
@@ -43,7 +47,7 @@ namespace euphoria::core
 
         if((tmin > tymax) || (tymin > tmax))
         {
-            return RayIntersectionResultFalse();
+            return RayIntersectionResult_False();
         }
         if(tymin > tmin)
         {
@@ -59,7 +63,7 @@ namespace euphoria::core
 
         if((tmin > tzmax) || (tzmin > tmax))
         {
-            return RayIntersectionResultFalse();
+            return RayIntersectionResult_False();
         }
 
         if(tzmin > tmin)
@@ -71,68 +75,29 @@ namespace euphoria::core
             tmax = tzmax;
         }
 
-        return RayIntersectionResultTrue(tmin, tmax);
+        return RayIntersectionResult_True(tmin, tmax);
     }
 
-
-    
-    [[nodiscard]] Ray2fIntersectionResult
-    Ray2fIntersectionResult::Parallel()
+    namespace
     {
-        Ray2fIntersectionResult c;
-        c.is_parallel = true;
-        return c;
-    }
-
-    [[nodiscard]] Ray2fIntersectionResult
-    Ray2fIntersectionResult::NoCollision()
-    {
-        Ray2fIntersectionResult c;
-        return c;
-    }
-
-    [[nodiscard]] Ray2fIntersectionResult
-    Ray2fIntersectionResult::Collided(const vec2f& p, float a, float b)
-    {
-        Ray2fIntersectionResult c {p, a, b};
-        return c;
-    }
-
-    [[nodiscard]] Ray2fIntersectionResult
-    Ray2fIntersectionResult::GetClosestCollision(const Ray2fIntersectionResult& a, const Ray2fIntersectionResult& b)
-    {
-        if(a.collision && b.collision)
+        Ray2fIntersectionResult
+        Ray2fIntersectionResult_Parallel()
         {
-            // determine closest
-            if(a.u < b.u)
-            {
-                return a;
-            }
-            else
-            {
-                return b;
-            }
+            return {false, true, vec2f::Zero(), -1.0f, -1.0f};
         }
-        else if(a.collision)
+
+        Ray2fIntersectionResult
+        Ray2fIntersectionResult_NoCollision()
         {
-            return a;
+            return {false, false, vec2f::Zero(), -1.0f, -1.0f};
         }
-        else if(b.collision)
+
+        Ray2fIntersectionResult
+        Ray2fIntersectionResult_Collided(const vec2f& p, float a, float b)
         {
-            return b;
-        }
-        else
-        {
-            return Ray2fIntersectionResult::NoCollision();
+            return {false, true, p, a, b};
         }
     }
-
-    Ray2fIntersectionResult::Ray2fIntersectionResult()
-        : collision(false), is_parallel(false), point(0, 0), u(0), v(0)
-    {}
-    Ray2fIntersectionResult::Ray2fIntersectionResult(const vec2f& p, float a, float b)
-        : collision(true), is_parallel(false), point(p), u(a), v(b)
-    {}
 
     Ray2fIntersectionResult
     GetIntersection(const Ray2f& lhs, const Ray2f& rhs)
@@ -162,7 +127,7 @@ namespace euphoria::core
         // todo: implement a check for zero for float
         if(Abs(den) < 0.00001f)
         {
-            return Ray2fIntersectionResult::Parallel();
+            return Ray2fIntersectionResult_Parallel();
         }
 
         const float s = (-s1_y * (p0_x - p2_x) + s1_x * (p0_y - p2_y)) / den;
@@ -172,10 +137,10 @@ namespace euphoria::core
         {
             const float x = p0_x + (t * s1_x);
             const float y = p0_y + (t * s1_y);
-            return Ray2fIntersectionResult::Collided(vec2f(x, y), s, t);
+            return Ray2fIntersectionResult_Collided(vec2f(x, y), s, t);
         }
 
-        return Ray2fIntersectionResult::NoCollision();
+        return Ray2fIntersectionResult_NoCollision();
     }
 
     bool
