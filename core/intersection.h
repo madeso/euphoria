@@ -51,6 +51,16 @@ namespace euphoria::core
     ClosestPoint(const Sphere& sphere, const vec3f& point);
 
 
+    // --------------------------------
+    // aabb - point
+
+    bool
+    ContainsPoint(const Aabb& aabb, const vec3f& point);
+
+    vec3f
+    ClosestPoint(const Aabb& aabb, const vec3f& point);
+
+
     ///////////////////////////////////////////////////////////////////////////
     // collision results
 

@@ -161,4 +161,30 @@ namespace euphoria::core
         return UnitRay3f::FromTo(sphere.center, point).GetPoint(sphere.radius);
     }
 
+    bool
+    ContainsPoint(const Aabb& aabb, const vec3f& point)
+    {
+        ASSERT(aabb.IsValid());
+
+        return
+            // greater than min
+            point.x >= aabb.min.x &&
+            point.y >= aabb.min.y &&
+            point.z >= aabb.min.z &&
+            // and less than max
+            point.x <= aabb.max.x &&
+            point.y <= aabb.max.y &&
+            point.z <= aabb.max.z;
+    }
+
+    vec3f
+    ClosestPoint(const Aabb& aabb, const vec3f& point)
+    {
+        ASSERT(aabb.IsValid());
+
+        #define VEC(N) (point.N > aabb.max.N ? aabb.max.N : (point.N < aabb.min.N ? aabb.min.N : point.N))
+        return {VEC(x), VEC(y), VEC(z)};
+        #undef VEC
+    }
+
 }  // namespace euphoria::core
