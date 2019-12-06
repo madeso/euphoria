@@ -13,23 +13,24 @@ namespace euphoria::core
     struct Sphere;
 
     // defined later
-    struct RayIntersectionResult;
-    struct Ray2fIntersectionResult;
+    struct Ray3AabbResult;
+    struct Ray2Ray2Result;
 
 
     ///////////////////////////////////////////////////////////////////////////
     // collision functions
 
     // --------------------------------
-    // ray - rect
+    // ray - aabb
 
-    RayIntersectionResult
-    Intersect(const UnitRay3f& r, const Aabb& aabb);
+    Ray3AabbResult
+    GetIntersection(const UnitRay3f& r, const Aabb& aabb);
+
 
     // --------------------------------
     // ray - ray
 
-    Ray2fIntersectionResult
+    Ray2Ray2Result
     GetIntersection(const Ray2f& lhs, const Ray2f& rhs);
 
 
@@ -53,7 +54,7 @@ namespace euphoria::core
     ///////////////////////////////////////////////////////////////////////////
     // collision results
 
-    struct Ray2fIntersectionResult
+    struct Ray2Ray2Result
     {
         bool collision;
         bool is_parallel;
@@ -63,7 +64,7 @@ namespace euphoria::core
         float      v;
     };
 
-    struct RayIntersectionResult
+    struct Ray3AabbResult
     {
         bool  intersected;
 

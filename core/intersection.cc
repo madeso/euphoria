@@ -8,19 +8,19 @@ namespace euphoria::core
 {
     namespace
     {
-        RayIntersectionResult
-        RayIntersectionResult_False()
+        Ray3AabbResult
+        Ray3AabbResult_False()
         {
-            RayIntersectionResult r;
+            Ray3AabbResult r;
             r.intersected = false;
             r.start = r.end = -1.0f;
             return r;
         }
 
-        RayIntersectionResult
-        RayIntersectionResult_True(float start, float end)
+        Ray3AabbResult
+        Ray3AabbResult_True(float start, float end)
         {
-            RayIntersectionResult r;
+            Ray3AabbResult r;
             r.intersected = true;
             r.start       = start;
             r.end         = end;
@@ -28,8 +28,8 @@ namespace euphoria::core
         }
     }
 
-    RayIntersectionResult
-    Intersect(const UnitRay3f& r, const Aabb& aabb)
+    Ray3AabbResult
+    GetIntersection(const UnitRay3f& r, const Aabb& aabb)
     {
         // https://www.scratchapixel.com/lessons/3d-basic-rendering/minimal-ray-tracer-rendering-simple-shapes/ray-box-intersection
 
@@ -47,7 +47,7 @@ namespace euphoria::core
 
         if((tmin > tymax) || (tymin > tmax))
         {
-            return RayIntersectionResult_False();
+            return Ray3AabbResult_False();
         }
         if(tymin > tmin)
         {
@@ -63,7 +63,7 @@ namespace euphoria::core
 
         if((tmin > tzmax) || (tzmin > tmax))
         {
-            return RayIntersectionResult_False();
+            return Ray3AabbResult_False();
         }
 
         if(tzmin > tmin)
@@ -75,31 +75,31 @@ namespace euphoria::core
             tmax = tzmax;
         }
 
-        return RayIntersectionResult_True(tmin, tmax);
+        return Ray3AabbResult_True(tmin, tmax);
     }
 
     namespace
     {
-        Ray2fIntersectionResult
-        Ray2fIntersectionResult_Parallel()
+        Ray2Ray2Result
+        Ray2Ray2Result_Parallel()
         {
             return {false, true, vec2f::Zero(), -1.0f, -1.0f};
         }
 
-        Ray2fIntersectionResult
-        Ray2fIntersectionResult_NoCollision()
+        Ray2Ray2Result
+        Ray2Ray2Result_NoCollision()
         {
             return {false, false, vec2f::Zero(), -1.0f, -1.0f};
         }
 
-        Ray2fIntersectionResult
-        Ray2fIntersectionResult_Collided(const vec2f& p, float a, float b)
+        Ray2Ray2Result
+        Ray2Ray2Result_Collided(const vec2f& p, float a, float b)
         {
             return {false, true, p, a, b};
         }
     }
 
-    Ray2fIntersectionResult
+    Ray2Ray2Result
     GetIntersection(const Ray2f& lhs, const Ray2f& rhs)
     {
         // https://stackoverflow.com/a/1968345/180307
@@ -127,7 +127,7 @@ namespace euphoria::core
         // todo: implement a check for zero for float
         if(Abs(den) < 0.00001f)
         {
-            return Ray2fIntersectionResult_Parallel();
+            return Ray2Ray2Result_Parallel();
         }
 
         const float s = (-s1_y * (p0_x - p2_x) + s1_x * (p0_y - p2_y)) / den;
@@ -137,10 +137,10 @@ namespace euphoria::core
         {
             const float x = p0_x + (t * s1_x);
             const float y = p0_y + (t * s1_y);
-            return Ray2fIntersectionResult_Collided(vec2f(x, y), s, t);
+            return Ray2Ray2Result_Collided(vec2f(x, y), s, t);
         }
 
-        return Ray2fIntersectionResult_NoCollision();
+        return Ray2Ray2Result_NoCollision();
     }
 
     bool
