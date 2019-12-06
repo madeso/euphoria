@@ -6,21 +6,52 @@
 
 namespace euphoria::core
 {
+    // defined elsewhere
     struct Ray2f;
     struct UnitRay3f;
     struct Aabb;
     struct Sphere;
 
-    struct RayIntersectionResult
-    {
-        bool  intersected;
-        
-        float start;
-        float end;
-    };
+    // defined later
+    struct RayIntersectionResult;
+    struct Ray2fIntersectionResult;
+
+
+    ///////////////////////////////////////////////////////////////////////////
+    // collision functions
+
+    // --------------------------------
+    // ray - rect
 
     RayIntersectionResult
     Intersect(const UnitRay3f& r, const Aabb& aabb);
+
+    // --------------------------------
+    // ray - ray
+
+    Ray2fIntersectionResult
+    GetIntersection(const Ray2f& lhs, const Ray2f& rhs);
+
+
+    // --------------------------------
+    // sphere - sphere
+
+    bool
+    GetIntersection(const Sphere& lhs, const Sphere& rhs);
+
+
+    // --------------------------------
+    // sphere - point
+
+    bool
+    ContainsPoint(const Sphere& sphere, const vec3f& point);
+
+    vec3f
+    ClosestPoint(const Sphere& sphere, const vec3f& point);
+
+
+    ///////////////////////////////////////////////////////////////////////////
+    // collision results
 
     struct Ray2fIntersectionResult
     {
@@ -32,17 +63,13 @@ namespace euphoria::core
         float      v;
     };
 
-    Ray2fIntersectionResult
-    GetIntersection(const Ray2f& lhs, const Ray2f& rhs);
+    struct RayIntersectionResult
+    {
+        bool  intersected;
 
-    bool
-    GetIntersection(const Sphere& lhs, const Sphere& rhs);
-
-    bool
-    ContainsPoint(const Sphere& sphere, const vec3f& point);
-
-    vec3f
-    ClosestPoint(const Sphere& sphere, const vec3f& point);
+        float start;
+        float end;
+    };
 
 }  // namespace euphoria::core
 
