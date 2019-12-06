@@ -2,6 +2,7 @@
 
 #include "core/ray.h"
 #include "core/aabb.h"
+#include "core/sphere.h"
 
 namespace euphoria::core
 {
@@ -175,6 +176,24 @@ namespace euphoria::core
         }
 
         return Ray2fIntersectionResult::NoCollision();
+    }
+
+    bool
+    GetIntersection(const Sphere& lhs, const Sphere& rhs)
+    {
+        return vec3f::FromTo(lhs.center, rhs.center).GetLengthSquared() < Square(lhs.radius + rhs.radius);
+    }
+
+    bool
+    ContainsPoint(const Sphere& sphere, const vec3f& point)
+    {
+        return vec3f::FromTo(sphere.center, point).GetLengthSquared() < Square(sphere.radius);
+    }
+
+    vec3f
+    ClosestPoint(const Sphere& sphere, const vec3f& point)
+    {
+        return UnitRay3f::FromTo(sphere.center, point).GetPoint(sphere.radius);
     }
 
 }  // namespace euphoria::core
