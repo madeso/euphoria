@@ -5,6 +5,8 @@
 #include "core/angle.h"
 #include "core/palette_tableu.h"
 #include "core/shufflebag.h"
+#include "core/plane.h"
+#include "core/ray.h"
 
 #include "core/aabb.h"
 
@@ -39,6 +41,13 @@ main(int, char*[])
     }
 
     AddSpiral(dump, 100, 4, 5, 2.5, pal.Next(&rand));
+
+    dump.AddPlane(Plane::FromNormalAndPoint(unit3f::Right(), vec3f(1, 2, 3)), pal.Next(&rand));
+
+    dump.AddArrow(Ray3f::FromTo(vec3f{3, 2, 1}, vec3f{0,0,0}), pal.Next(&rand));
+
+    dump.AddAxis();
+    dump.AddGrid();
 
     // dump.AddAxis();
 }

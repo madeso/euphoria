@@ -5,6 +5,8 @@
 #include <sstream>
 
 #include "core/assert.h"
+#include "core/plane.h"
+#include "core/ray.h"
 
 
 namespace euphoria::core::dump2d
@@ -440,6 +442,10 @@ namespace euphoria::core::dump3d
         ;
     }
 
+    namespace
+    {
+        constexpr auto s = "        ";
+    }
 
     Dumper::~Dumper()
     {
@@ -476,15 +482,14 @@ namespace euphoria::core::dump3d
     void
     Dumper::AddSphere(const vec3f& p, float radius, const Rgbi& color)
     {
-        file << "        add_geom(new THREE.SphereGeometry(" << radius << "), " << ToHex(color) << ")\n"
-             << "          .position.set("<<p.x<<", "<<p.y<<", "<<p.z<<");\n";
+        file << s << "add_geom(new THREE.SphereGeometry(" << radius << "), " << ToHex(color) << ")\n"
+             << s << "  .position.set("<<p.x<<", "<<p.y<<", "<<p.z<<");\n";
     }
     
 
     void
     Dumper::AddLines(const std::vector<vec3f>& points, const Rgbi& color)
     {
-        constexpr auto s = "        ";
         file
         << s << "(function() {\n"
         << s << "  var material = new THREE.LineBasicMaterial( { color: " << ToHex(color) <<" } );\n"
@@ -502,5 +507,58 @@ namespace euphoria::core::dump3d
         << s << "  scene.add( line );\n"
         << s << "})();\n"
         ;
+    }
+
+
+    std::string
+    ToThree(const vec3f& v)
+    {
+        std::ostringstream ss;
+        ss << "new THREE.Vector3(" << v.x << ", " << v.y << ", " << v.z << ")";
+        return ss.str();
+    }
+
+
+    void
+    Dumper::AddPlane(const Plane& plane, const Rgbi& color)
+    {
+        constexpr auto size = 5;
+        file
+        << s << "scene.add( new THREE.PlaneHelper( new THREE.Plane( "
+        << ToThree(plane.normal) << ", " << plane.distance
+        << "), " << size << ", " << ToHex(color) << ") );\n"
+        ;
+    }
+
+
+    void
+    Dumper::AddArrow(const Ray3f& ray, const Rgbi& color)
+    {
+        file
+        << s << "scene.add(new THREE.ArrowHelper("
+        << ToThree(ray.dir.GetNormalized()) << ", "
+        << ToThree(ray.from) << ", "
+        << ray.dir.GetLength() << ", "
+        << ToHex(color) << ") );\n";
+    }
+
+
+    void
+    Dumper::AddAxis()
+    {
+        constexpr auto size = 2;
+        file
+        << s << "scene.add(new THREE.AxesHelper("<< size <<") );\n";
+    }
+
+
+    void
+    Dumper::AddGrid()
+    {
+        constexpr auto size = 10;
+        constexpr auto divisions = 10;
+
+        file
+        << s << "scene.add(new THREE.GridHelper("<< size <<", " << divisions<<") );\n";
     }
 }

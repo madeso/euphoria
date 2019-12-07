@@ -12,6 +12,12 @@
 #include "core/rgb.h"
 #include "core/colors.h"
 
+namespace euphoria::core
+{
+    struct Plane;
+    struct Ray3f;
+}
+
 namespace euphoria::core::dump2d
 {
     namespace strokes
@@ -102,6 +108,12 @@ namespace euphoria::core::dump3d
 
         void AddSphere(const vec3f& p, float radius, const Rgbi& color);
         void AddLines(const std::vector<vec3f>& lines, const Rgbi& color);
+        void AddPlane(const Plane& plane, const Rgbi& color);
+        void AddArrow(const Ray3f& ray, const Rgbi& color);
+
+        void AddAxis();
+        void AddGrid();
+
 
         std::ofstream file;
     };
