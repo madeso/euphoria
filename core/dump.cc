@@ -434,7 +434,6 @@ namespace euphoria::core::dump3d
           var wireframe = new THREE.LineSegments( geo, mat );
           mesh.add( wireframe );
       }
-      var x;
 
       // add_wire(new THREE.BoxGeometry( 1, 1, 1 ));
 )html"
@@ -485,21 +484,23 @@ namespace euphoria::core::dump3d
     void
     Dumper::AddLines(const std::vector<vec3f>& points, const Rgbi& color)
     {
-        file <<
-        R"html(
-      (function() {
-        var material = new THREE.LineBasicMaterial( { color: 0x0000ff } );
-        var geometry = new THREE.Geometry();
-        )html";
+        constexpr auto s = "        ";
+        file
+        << s << "(function() {\n"
+        << s << "  var material = new THREE.LineBasicMaterial( { color: " << ToHex(color) <<" } );\n"
+        << s << "  var geometry = new THREE.Geometry();\n"
+        ;
         for(auto p: points)
         {
-            file <<
-                "        geometry.vertices.push(new THREE.Vector3( "
-                << p.x <<", " << p.y << ", " << p.z << ") );\n";
+            file
+            << s << "  geometry.vertices.push(new THREE.Vector3( "
+                 << p.x <<", " << p.y << ", " << p.z << ") );\n"
+            ;
         }
-        file << R"html(
-        var line = new THREE.Line( geometry, material );
-        scene.add( line );
-      })();)html" "\n";
+        file
+        << s << "  var line = new THREE.Line( geometry, material );\n"
+        << s << "  scene.add( line );\n"
+        << s << "})();\n"
+        ;
     }
 }

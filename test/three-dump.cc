@@ -2,6 +2,7 @@
 
 #include "core/random.h"
 #include "core/palette.h"
+#include "core/angle.h"
 #include "core/palette_tableu.h"
 #include "core/shufflebag.h"
 
@@ -9,6 +10,17 @@
 
 using namespace euphoria::core;
 using namespace euphoria::core::dump3d;
+
+void AddSpiral(Dumper& dump, int resolution, float number_of_spins, float height, float size, const Rgbi& color)
+{
+    std::vector<vec3f> points;
+    for(int i=0; i<resolution; i+=1)
+    {
+        const auto angle = Angle::FromPercentOf360(i*number_of_spins / resolution);
+        points.emplace_back(Sin(angle)*size, i*height/resolution, Cos(angle)*size);
+    }
+    dump.AddLines(points, color);
+}
 
 int
 main(int, char*[])
@@ -25,6 +37,8 @@ main(int, char*[])
     {
         dump.AddSphere(area.RandomPoint(&rand), 1.0f, pal.Next(&rand));
     }
+
+    AddSpiral(dump, 100, 4, 5, 2.5, pal.Next(&rand));
 
     // dump.AddAxis();
 }
