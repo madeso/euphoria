@@ -1,5 +1,5 @@
-#ifndef CORE_SVG_H
-#define CORE_SVG_H
+#ifndef CORE_DUMP_H
+#define CORE_DUMP_H
 
 #include <vector>
 #include <string>
@@ -10,7 +10,7 @@
 #include "core/rgb.h"
 #include "core/colors.h"
 
-namespace euphoria::core::svg
+namespace euphoria::core::dump2d
 {
     namespace strokes
     {
@@ -65,7 +65,7 @@ namespace euphoria::core::svg
         Group& operator<<(const Item& item);
     };
 
-    struct Svg
+    struct Dumper
     {
         std::vector<Item> items;
 
@@ -76,13 +76,13 @@ namespace euphoria::core::svg
         double gridx =-1;
         double gridy =-1;
 
-        Svg& AddAxis();
+        Dumper& AddAxis();
 
-        Svg& Grid(double xy);
+        Dumper& Grid(double xy);
 
-        Svg& DrawPoints(int size=3);
+        Dumper& DrawPoints(int size=3);
 
-        Svg& operator<<(const Item& item);
+        Dumper& operator<<(const Item& item);
 
         // calculate total area size and offset so that x+offset will never be lower than 0
         std::pair<vec2f,vec2f> CalculateSizeAndOffset() const;
@@ -91,4 +91,4 @@ namespace euphoria::core::svg
     };
 }
 
-#endif  // CORE_SVG_H
+#endif  // CORE_DUMP_H

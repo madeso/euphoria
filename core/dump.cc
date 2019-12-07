@@ -1,4 +1,4 @@
-#include "core/svg.h"
+#include "core/dump.h"
 
 #include <functional>
 #include <fstream>
@@ -7,7 +7,7 @@
 #include "core/assert.h"
 
 
-namespace euphoria::core::svg
+namespace euphoria::core::dump2d
 {
     std::string ToHtml(const Rgbi& c)
     {
@@ -210,33 +210,33 @@ namespace euphoria::core::svg
         }
     }
 
-    Svg& Svg::AddAxis()
+    Dumper& Dumper::AddAxis()
     {
         add_axis = true;
         return *this;
     }
 
-    Svg& Svg::Grid(double xy)
+    Dumper& Dumper::Grid(double xy)
     {
         gridx = xy;
         gridy = xy;
         return *this;
     }
 
-    Svg& Svg::DrawPoints(int size)
+    Dumper& Dumper::DrawPoints(int size)
     {
         point_size = size;
         return *this;
     }
 
-    Svg& Svg::operator<<(const Item& item)
+    Dumper& Dumper::operator<<(const Item& item)
     {
         items.emplace_back(item);
         return *this;
     }
 
     // calculate total area size and offset so that x+offset will never be lower than 0
-    std::pair<vec2f,vec2f> Svg::CalculateSizeAndOffset() const
+    std::pair<vec2f,vec2f> Dumper::CalculateSizeAndOffset() const
     {
         detail::MinMax minmax;
 
@@ -254,7 +254,7 @@ namespace euphoria::core::svg
         return {size, offset};
     }
 
-    void Svg::Write(const std::string& path, int width, int height, int space) const
+    void Dumper::Write(const std::string& path, int width, int height, int space) const
     {
         // reference: https://www.w3schools.com/graphics/svg_path.asp
         // todo(Gustav): improve api

@@ -1,4 +1,4 @@
-#include "core/svg.h"
+#include "core/dump.h"
 
 #include <iomanip>
 
@@ -12,7 +12,7 @@
 #include "core/str.h"
 
 using namespace euphoria::core;
-using namespace euphoria::core::svg;
+using namespace euphoria::core::dump2d;
 
 Poly
 MakeStar(const vec2f& origo, float radius, const Angle& rotation, int number_of_points=5, float inner_scale=0.5f)
@@ -41,7 +41,7 @@ main(int, char*[])
 
     auto pal = CreateShuffleBag(palette::ColorBlind_10().colors, 2);
 
-    auto svg = Svg{};
+    auto svg = Dumper{};
 
     for(int i=0; i<30; i+=1)
     {
