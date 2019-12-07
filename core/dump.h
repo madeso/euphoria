@@ -5,8 +5,10 @@
 #include <string>
 #include <optional>
 #include <memory>
+#include <fstream>
 
 #include "core/vec2.h"
+#include "core/vec3.h"
 #include "core/rgb.h"
 #include "core/colors.h"
 
@@ -88,6 +90,20 @@ namespace euphoria::core::dump2d
         std::pair<vec2f,vec2f> CalculateSizeAndOffset() const;
 
         void Write(const std::string& path, int width=1280, int height=1024, int space = 6) const;
+    };
+}
+
+namespace euphoria::core::dump3d
+{
+    struct Dumper
+    {
+        Dumper(const std::string& path);
+        ~Dumper();
+
+        void AddSphere(const vec3f& p, float radius, const Rgbi& color);
+        void AddLines(const std::vector<vec3f>& lines, const Rgbi& color);
+
+        std::ofstream file;
     };
 }
 

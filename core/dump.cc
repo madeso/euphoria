@@ -369,3 +369,137 @@ namespace euphoria::core::dump2d
         writer.file << "</html>\n";
     }
 }
+
+namespace euphoria::core::dump3d
+{
+
+    Dumper::Dumper(const std::string& path)
+        : file(path.c_str())
+    {
+        file <<
+        R"html(<html>
+  <head>
+    <title>My first three.js app</title>
+    <style>
+      body { margin: 0; }
+      canvas { width: 100%; height: 100% }
+    </style>
+  </head>
+  <body>
+    <script src="https://threejs.org/build/three.min.js"></script>
+    <script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>
+
+    <script>
+      var scene = new THREE.Scene();
+      scene.background = new THREE.Color( 0x0096ff );
+      var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+
+      // https://threejs.org/examples/#webgl_shadowmesh
+
+      var light = new THREE.HemisphereLight( 0xeeeeee, 0x888888, 1 );
+      light.position.set( 0, 20, 0 );
+      scene.add( light );
+      // scene.add( new THREE.AxisHelper( 20 ) );
+
+      var renderer = new THREE.WebGLRenderer();
+      renderer.setSize( window.innerWidth, window.innerHeight );
+      document.body.appendChild( renderer.domElement );
+      function onWindowResize() {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize( window.innerWidth, window.innerHeight );
+      }
+      window.addEventListener( 'resize', onWindowResize, false );
+
+      var add_geom = function(geom, c)
+      {
+          var material = new THREE.MeshPhongMaterial( {
+              color: c, 
+              // shading: THREE.FlatShading,
+              polygonOffset: true,
+              polygonOffsetFactor: 1,
+              polygonOffsetUnits: 1
+          } );
+
+          var mesh = new THREE.Mesh( geom, material );
+          scene.add( mesh );
+          return mesh;
+      }
+
+      var add_wire = function(geom, c)
+      {
+          mesh = add_geom(geom, c);
+          var geo = new THREE.EdgesGeometry( mesh.geometry ); // or WireframeGeometry
+          var mat = new THREE.LineBasicMaterial( { color: 0xffffff, linewidth: 2 } );
+          var wireframe = new THREE.LineSegments( geo, mat );
+          mesh.add( wireframe );
+      }
+      var x;
+
+      // add_wire(new THREE.BoxGeometry( 1, 1, 1 ));
+)html"
+        ;
+    }
+
+
+    Dumper::~Dumper()
+    {
+        file <<
+        R"html(
+      camera.position.z = 5;
+      new THREE.OrbitControls( camera, renderer.domElement );
+
+      var animate = function () {
+        requestAnimationFrame( animate );
+        renderer.render( scene, camera );
+      };
+
+      animate();
+    </script>
+  </body>
+</html>)html"
+        ;
+    }
+
+
+    std::string ToHex(const Rgbi& c)
+    {
+        std::stringstream ss;
+        ss << "0x" << std::hex
+            << static_cast<unsigned int>(c.r)
+            << static_cast<unsigned int>(c.g)
+            << static_cast<unsigned int>(c.b)
+            ;
+        return ss.str();
+    }
+
+
+    void
+    Dumper::AddSphere(const vec3f& p, float radius, const Rgbi& color)
+    {
+        file << "        add_geom(new THREE.SphereGeometry(" << radius << "), " << ToHex(color) << ")\n"
+             << "          .position.set("<<p.x<<", "<<p.y<<", "<<p.z<<");\n";
+    }
+    
+
+    void
+    Dumper::AddLines(const std::vector<vec3f>& points, const Rgbi& color)
+    {
+        file <<
+        R"html(
+      (function() {
+        var material = new THREE.LineBasicMaterial( { color: 0x0000ff } );
+        var geometry = new THREE.Geometry();
+        )html";
+        for(auto p: points)
+        {
+            file <<
+                "        geometry.vertices.push(new THREE.Vector3( "
+                << p.x <<", " << p.y << ", " << p.z << ") );\n";
+        }
+        file << R"html(
+        var line = new THREE.Line( geometry, material );
+        scene.add( line );
+      })();)html" "\n";
+    }
+}
