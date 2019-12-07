@@ -1,4 +1,4 @@
-#include "tests/approx.h"
+#include "approx.h"
 
 namespace
 {

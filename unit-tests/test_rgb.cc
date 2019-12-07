@@ -1,8 +1,8 @@
+#include "approx_equal.h"
+
 #include "core/rgb.h"
 
 #include "catch.hpp"
-
-#include "tests/approx_equal.h"
 
 namespace euco = euphoria::core;
 using namespace euphoria::tests;

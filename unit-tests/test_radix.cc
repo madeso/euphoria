@@ -1,6 +1,6 @@
-#include "core/radix.h"
+#include "approx_equal.h"
 
-#include "tests/approx_equal.h"
+#include "core/radix.h"
 
 #include <vector>
 #include <string>

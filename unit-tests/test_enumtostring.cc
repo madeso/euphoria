@@ -1,7 +1,7 @@
 #include "core/enumtostring.h"
 
-#include "tests/utils.h"
-#include "tests/stringeq.h"
+#include "utils.h"
+#include "stringeq.h"
 
 namespace euco = euphoria::core;
 

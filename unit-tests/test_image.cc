@@ -6,8 +6,8 @@
 #include "core/image_draw.h"
 #include "core/imageops.h"
 
-#include "tests/approx_equal.h"
-#include "tests/stringeq.h"
+#include "approx_equal.h"
+#include "stringeq.h"
 #include "core/fonts.h"
 
 #include "catch.hpp"

@@ -1,6 +1,6 @@
 #include "core/argparse.h"
 
-#include "tests/utils.h"
+#include "utils.h"
 
 namespace euco = euphoria::core;
 

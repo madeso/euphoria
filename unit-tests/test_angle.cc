@@ -2,7 +2,7 @@
 #include "core/numeric.h"
 
 #include "catch.hpp"
-#include "tests/approx.h"
+#include "approx.h"
 
 // todo: don't use horrible define to use out custom Approx
 #define Approx ::euphoria::tests::custom::Approx<float>

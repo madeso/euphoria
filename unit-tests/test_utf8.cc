@@ -1,9 +1,9 @@
+#include "stringeq.h"
+
 #include "core/utf8.h"
 #include "catch.hpp"
 #include <vector>
 #include <string>
-
-#include "tests/stringeq.h"
 
 using namespace euphoria::core;
 

@@ -1,7 +1,7 @@
 #ifndef TESTS_TESTBASE_H
 #define TESTS_TESTBASE_H
 
-#include "tests/approx.h"
+#include "approx.h"
 
 #include "core/vec3.h"
 #include "core/axisangle.h"

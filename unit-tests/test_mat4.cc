@@ -1,7 +1,7 @@
 #include "core/mat4.h"
 #include "core/numeric.h"
 
-#include "tests/approx_equal.h"
+#include "approx_equal.h"
 
 #include "catch.hpp"
 

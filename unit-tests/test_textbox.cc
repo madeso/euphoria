@@ -1,10 +1,10 @@
+#include "stringeq.h"
+
 #include "core/textbox.h"
 #include "catch.hpp"
 
 #include <vector>
 #include <string>
-
-#include "tests/stringeq.h"
 
 constexpr bool PRINT_HEX = false;
 

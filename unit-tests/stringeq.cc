@@ -1,4 +1,4 @@
-#include "tests/stringeq.h"
+#include "stringeq.h"
 
 #include <sstream>
 #include <algorithm>

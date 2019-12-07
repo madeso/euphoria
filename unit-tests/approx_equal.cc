@@ -1,4 +1,4 @@
-#include "tests/approx_equal.h"
+#include "approx_equal.h"
 
 namespace euphoria::tests
 {
