@@ -8,6 +8,7 @@ namespace euphoria::core
 {
     // defined elsewhere
     struct Ray2f;
+    struct Ray3f;
     struct UnitRay3f;
     struct Aabb;
     struct Sphere;
@@ -43,6 +44,16 @@ namespace euphoria::core
 
     vec3f
     ClosestPoint(const Plane& plane, const vec3f& p);
+
+
+    // --------------------------------
+    // ray - point
+
+    float
+    DistanceBetween(const UnitRay3f& ray, const vec3f& p);
+
+    vec3f
+    ClosestPoint(const UnitRay3f& ray, const vec3f& p);
 
 
     // --------------------------------

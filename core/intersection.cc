@@ -161,6 +161,31 @@ namespace euphoria::core
     }
 
 
+    float
+    DistanceBetween(const UnitRay3f& ray, const vec3f& point)
+    {
+        const auto newNorm = (point - ray.from).GetNormalized();
+
+        const auto d = dot(newNorm, ray.dir);
+        return Abs(1.0f - d);
+    }
+
+    vec3f
+    ClosestPoint(const UnitRay3f& ray, const vec3f& c)
+    {
+        const auto ab = ray;
+        const auto a = ray.from;
+        // const auto b = ray.GetPoint(1);
+
+        auto t = dot(c - a, ab.dir) / dot(ab.dir, ab.dir);
+
+        t = Max(t, 0.0f);
+
+        const auto d = ray.GetPoint(t);
+        return d;
+    }
+
+
     bool
     GetIntersection(const Sphere& lhs, const vec3f& lhs_center, const Sphere& rhs, const vec3f& rhs_center)
     {
