@@ -3,6 +3,7 @@
 #include "core/ray.h"
 #include "core/aabb.h"
 #include "core/sphere.h"
+#include "core/plane.h"
 
 namespace euphoria::core
 {
@@ -144,6 +145,19 @@ namespace euphoria::core
         }
 
         return Ray2Ray2Result_NoCollision();
+    }
+
+    float
+    DistanceBetween(const Plane& plane, const vec3f& p)
+    {
+        return dot(plane.normal, p) + plane.distance;
+    }
+
+    vec3f
+    ClosestPoint(const Plane& plane, const vec3f& point)
+    {
+        const auto distance = dot(plane.normal, point) - plane.distance;
+        return point - distance * plane.normal;
     }
 
 

@@ -10,6 +10,9 @@ target_link_libraries(base64 core)
 add_executable(chatbot chatbot.cc)
 target_link_libraries(chatbot core)
 
+add_executable(coldet coldet.cc)
+target_link_libraries(coldet core)
+
 add_executable(img img.cc)
 target_link_libraries(img core)
 
