@@ -398,8 +398,7 @@ namespace euphoria::core::dump3d
 
       // https://threejs.org/examples/#webgl_shadowmesh
 
-      var light = new THREE.HemisphereLight( 0xeeeeee, 0x888888, 1 );
-      light.position.set( 0, 20, 0 );
+      var light = new THREE.AmbientLight(0xffffff);
       scene.add( light );
       // scene.add( new THREE.AxisHelper( 20 ) );
 
