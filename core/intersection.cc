@@ -28,6 +28,7 @@ namespace euphoria::core
         }
     }
 
+
     Ray3AabbResult
     GetIntersection(const UnitRay3f& r, const Aabb& aabb)
     {
@@ -78,6 +79,7 @@ namespace euphoria::core
         return Ray3AabbResult_True(tmin, tmax);
     }
 
+
     namespace
     {
         Ray2Ray2Result
@@ -98,6 +100,7 @@ namespace euphoria::core
             return {false, true, p, a, b};
         }
     }
+
 
     Ray2Ray2Result
     GetIntersection(const Ray2f& lhs, const Ray2f& rhs)
@@ -143,23 +146,27 @@ namespace euphoria::core
         return Ray2Ray2Result_NoCollision();
     }
 
-    bool
-    GetIntersection(const Sphere& lhs, const Sphere& rhs)
-    {
-        return vec3f::FromTo(lhs.center, rhs.center).GetLengthSquared() < Square(lhs.radius + rhs.radius);
-    }
 
     bool
-    ContainsPoint(const Sphere& sphere, const vec3f& point)
+    GetIntersection(const Sphere& lhs, const vec3f& lhs_center, const Sphere& rhs, const vec3f& rhs_center)
     {
-        return vec3f::FromTo(sphere.center, point).GetLengthSquared() < Square(sphere.radius);
+        return vec3f::FromTo(lhs_center, rhs_center).GetLengthSquared() < Square(lhs.radius + rhs.radius);
     }
+
+
+    bool
+    ContainsPoint(const Sphere& sphere, const vec3f& sphere_center, const vec3f& point)
+    {
+        return vec3f::FromTo(sphere_center, point).GetLengthSquared() < Square(sphere.radius);
+    }
+
 
     vec3f
-    ClosestPoint(const Sphere& sphere, const vec3f& point)
+    ClosestPoint(const Sphere& sphere, const vec3f& sphere_center, const vec3f& point)
     {
-        return UnitRay3f::FromTo(sphere.center, point).GetPoint(sphere.radius);
+        return UnitRay3f::FromTo(sphere_center, point).GetPoint(sphere.radius);
     }
+
 
     bool
     ContainsPoint(const Aabb& aabb, const vec3f& point)
@@ -176,6 +183,7 @@ namespace euphoria::core
             point.y <= aabb.max.y &&
             point.z <= aabb.max.z;
     }
+
 
     vec3f
     ClosestPoint(const Aabb& aabb, const vec3f& point)

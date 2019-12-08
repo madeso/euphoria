@@ -38,17 +38,17 @@ namespace euphoria::core
     // sphere - sphere
 
     bool
-    GetIntersection(const Sphere& lhs, const Sphere& rhs);
+    GetIntersection(const Sphere& lhs, const vec3f& lhs_center, const Sphere& rhs, const vec3f& rhs_center);
 
 
     // --------------------------------
     // sphere - point
 
     bool
-    ContainsPoint(const Sphere& sphere, const vec3f& point);
+    ContainsPoint(const Sphere& sphere, const vec3f& sphere_center, const vec3f& point);
 
     vec3f
-    ClosestPoint(const Sphere& sphere, const vec3f& point);
+    ClosestPoint(const Sphere& sphere, const vec3f& sphere_center, const vec3f& point);
 
 
     // --------------------------------
