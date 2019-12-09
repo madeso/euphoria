@@ -53,7 +53,7 @@ namespace euphoria::core
         // rainbow functions based on the r documentation https://rdrr.io/r/grDevices/palettes.html
 
         [[nodiscard]] static Palette
-        Rainbow(int count, float saturation = 1, float lightness = 1);
+        Rainbow(int count, float saturation = 0.5f, float lightness = 0.5f);
 
         [[nodiscard]] static Palette
         Rainbow(int          count,
