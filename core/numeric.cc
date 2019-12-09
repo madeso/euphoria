@@ -98,7 +98,7 @@ namespace euphoria::core
     float
     Sqrt(float r)
     {
-        ASSERT(r >= 0 && "input must be bigger than 0");
+        ASSERTX(r >= 0 && "input must be bigger than 0", r);
         return std::sqrt(r);
     }
 
