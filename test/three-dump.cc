@@ -31,7 +31,7 @@ main(int, char*[])
 
     auto pal = CreateShuffleBag(palette::ColorBlind_10().colors, 2);
 
-    const auto size = 15;
+    const auto size = 15.0f;
     auto area = Aabb{vec3f{-size, -size, -size}, vec3f{size, size, size}};
     auto dump = Dumper{"three.html"};
 
