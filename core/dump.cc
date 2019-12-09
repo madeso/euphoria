@@ -21,6 +21,18 @@ namespace euphoria::core::dump2d
         return s.str();
     }
 
+    std::string ToHtmlOrNone(const std::optional<Rgbi>& c)
+    {
+        if(!c)
+        {
+            return "none";
+        }
+        else
+        {
+            return ToHtml(*c);
+        }
+    }
+
     namespace strokes
     {
         std::vector<int> Dash(int size)
@@ -48,15 +60,26 @@ namespace euphoria::core::dump2d
     }
 
     Text::Text(const vec2f& p, const std::string& t, const Rgbi& c)
-        : point(p), text(t), color(c){}
+        : point(p), text(t), color(c) {}
+
+    Circle&
+    Circle::Line(const Rgbi& lc)
+    {
+        line_color = lc;
+        return *this;
+    }
+    Circle::Circle(const vec2f& p, float r, std::optional<Rgbi> c)
+        : point(p), radius(r), fill_color(c) {}
 
     Item::Item(const Poly& p)  : poly(std::make_shared<Poly>(p)) {}
     Item::Item(const Text& p)  : text(std::make_shared<Text>(p)) {}
     Item::Item(const Group& g) : group(std::make_shared<Group>(g)) {}
+    Item::Item(const Circle& c) : circle(std::make_shared<Circle>(c)) {}
 
     const Poly*  AsPoly(const Item* item)  { return item->poly?  item->poly.get()  : nullptr; }
     const Text*  AsText(const Item* item)  { return item->text?  item->text.get()  : nullptr; }
     const Group* AsGroup(const Item* item) { return item->group? item->group.get() : nullptr; }
+    const Circle* AsCircle(const Item* item) { return item->circle? item->circle.get() : nullptr; }
 
     Group& Group::operator<<(const Item& item)
     {
@@ -82,15 +105,20 @@ namespace euphoria::core::dump2d
             vec2f min = vec2f::Zero();
             vec2f max = vec2f::Zero();
 
-            MinMax& operator<<(const vec2f& point)
+            MinMax& Include(const vec2f& point, float extra=0)
             {
-                min.x = std::min(min.x, point.x);
-                min.y = std::min(min.y, point.y);
+                min.x = std::min(min.x, point.x - extra);
+                min.y = std::min(min.y, point.y - extra);
 
-                max.x = std::max(max.x, point.x);
-                max.y = std::max(max.y, point.y);
+                max.x = std::max(max.x, point.x + extra);
+                max.y = std::max(max.y, point.y + extra);
 
                 return *this;
+            }
+
+            MinMax& operator<<(const vec2f& point)
+            {
+                return Include(point);
             }
         };
 
@@ -122,14 +150,7 @@ namespace euphoria::core::dump2d
             }
 
             writer.file << "\" style=\"fill:";
-            if(!poly->fill_color)
-            {
-                writer.file << "none";
-            }
-            else
-            {
-                writer.file << ToHtml(*poly->fill_color);
-            }
+            writer.file << ToHtmlOrNone(poly->fill_color);
             writer.file << ";stroke:";
             writer.file << ToHtml(poly->stroke_color);
             writer.file << ";stroke-width:1\"";
@@ -154,11 +175,21 @@ namespace euphoria::core::dump2d
                             << "\" y=\""<< writer.py(text->point.y) << "\" fill=\"" << ToHtml(text->color) << "\">" << text->text << "</text>\n";
         }
 
+        void WriteCircle(Writer& writer, const Circle* circle)
+        {
+            writer.file
+                << "<circle cx=\"" << writer.px(circle->point.x) << "\" cy=\""<< writer.py(circle->point.y)
+                << "\" r=\"" << circle->radius << "\" stroke=\"" << ToHtmlOrNone(circle->line_color)
+                << "\" fill=\"" << ToHtmlOrNone(circle->fill_color) << "\""
+                << "/>\n";
+        }
+
         void WriteItem(Writer& writer, const Item& item)
         {
             auto poly = AsPoly(&item);
             auto text = AsText(&item);
             auto group = AsGroup(&item);
+            auto circle = AsCircle(&item);
             if(poly)
             {
                 WritePoly(writer, poly);
@@ -176,6 +207,10 @@ namespace euphoria::core::dump2d
                 }
                 writer.file << "</g>\n";
             }
+            else if(circle)
+            {
+                WriteCircle(writer, circle);
+            }
             else
             {
                 DIE("unhandled type");
@@ -187,6 +222,7 @@ namespace euphoria::core::dump2d
             auto poly = AsPoly(&item);
             auto text = AsText(&item);
             auto group = AsGroup(&item);
+            auto circle = AsCircle(&item);
             if(poly)
             {
                 for(const auto& point: poly->points)
@@ -197,6 +233,10 @@ namespace euphoria::core::dump2d
             else if(text)
             {
                 mm << text->point;
+            }
+            else if(circle)
+            {
+                mm.Include(circle->point, circle->radius);
             }
             else if(group)
             {

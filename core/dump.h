@@ -49,6 +49,18 @@ namespace euphoria::core::dump2d
         Text(const vec2f& p, const std::string& t, const Rgbi& c = Color::Black);
     };
 
+    struct Circle
+    {
+        vec2f point;
+        float radius;
+        std::optional<Rgbi> line_color;
+        std::optional<Rgbi> fill_color;
+
+        Circle& Line(const Rgbi& lc);
+
+        Circle(const vec2f& p, float r, std::optional<Rgbi> c = std::nullopt);
+    };
+
     struct Group;
 
     // todo(Gustav): replace with std::variant
@@ -57,14 +69,17 @@ namespace euphoria::core::dump2d
         Item(const Poly& p);
         Item(const Text& p);
         Item(const Group& g);
+        Item(const Circle& c);
 
         std::shared_ptr<Poly>  poly;
         std::shared_ptr<Text>  text;
         std::shared_ptr<Group> group;
+        std::shared_ptr<Circle> circle;
     };
     const Poly*  AsPoly(const Item* item);
     const Text*  AsText(const Item* item);
     const Group* AsGroup(const Item* item);
+    const Circle* AsCircle(const Item* item);
 
     struct Group
     {
