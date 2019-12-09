@@ -54,7 +54,7 @@ namespace euphoria::core
         }
 
         template <typename T>
-        int
+        T
         NextRange(T max)
         {
             return NextRange<T>(0, max);
