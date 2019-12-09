@@ -10,6 +10,7 @@
 #include <set>
 #include <memory>
 #include <iomanip>
+#include <filesystem>
 
 #include "core/assert.h"
 #include "core/stringutils.h"
@@ -547,6 +548,11 @@ namespace euphoria::core
         std::string
         FileOutput::NextFile(bool print)
         {
+            if(single)
+            {
+                return file;
+            }
+            
             std::ostringstream ss;
             index += 1;
             if(print)
@@ -555,6 +561,13 @@ namespace euphoria::core
             }
             ss << file << std::setfill('0') << std::setw(5) << index << ".png";
             return ss.str();
+        }
+
+        void
+        FileOutput::CreateDirIfMissing() const
+        {
+            if(single) return;
+            std::filesystem::create_directories(file);
         }
 
         Args

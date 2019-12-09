@@ -448,6 +448,9 @@ namespace euphoria::core::argparse
         std::string
         NextFile(bool print = true);
 
+        void
+        CreateDirIfMissing() const;
+
         std::string file;
         bool        single;
         int         index = 0;
