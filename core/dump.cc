@@ -96,6 +96,8 @@ namespace euphoria::core::dump2d
             std::function<double (double)> px;
             std::function<double (double)> py;
 
+            double scale = 1;
+
             explicit Writer(const std::string& path)
                 : file(path.c_str()) {}
         };
@@ -179,7 +181,7 @@ namespace euphoria::core::dump2d
         {
             writer.file
                 << "<circle cx=\"" << writer.px(circle->point.x) << "\" cy=\""<< writer.py(circle->point.y)
-                << "\" r=\"" << circle->radius << "\" stroke=\"" << ToHtmlOrNone(circle->line_color)
+                << "\" r=\"" << circle->radius*writer.scale << "\" stroke=\"" << ToHtmlOrNone(circle->line_color)
                 << "\" fill=\"" << ToHtmlOrNone(circle->fill_color) << "\""
                 << "/>\n";
         }
@@ -318,6 +320,7 @@ namespace euphoria::core::dump2d
         detail::Writer writer(path);
         writer.px = px;
         writer.py = py;
+        writer.scale = scale;
             
         writer.file << "<html style=\"height: 100%\">\n";
         writer.file << "<body style=\"background-color:" << ToHtml(Color::DarkGray) << "; height: 100%\">\n";
@@ -327,7 +330,7 @@ namespace euphoria::core::dump2d
 
         writer.file << "<svg width=\""  << width << "\" height=\"" << height << "\">\n";
         writer.file << "<rect width=\"" << width << "\" height=\"" << height << "\""
-                " style=\"fill:" << ToHtml(Color::White) << ";stroke-width:0\" />\n";
+                " style=\"fill:" << ToHtml(canvas_color) << ";stroke-width:0\" />\n";
 
         for(const auto& item: items)
         {

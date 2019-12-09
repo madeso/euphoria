@@ -90,6 +90,7 @@ namespace euphoria::core::dump2d
 
     struct Dumper
     {
+        Rgbi canvas_color = Color::White;
         std::vector<Item> items;
 
         bool add_axis = false;
