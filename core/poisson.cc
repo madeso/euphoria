@@ -52,9 +52,8 @@ namespace euphoria::core
             return true;
         };
 
-        while(!active.empty())
+        auto try_place = [&](int active_index)
         {
-            const auto active_index = random->NextRange(active.size());
             const auto base_sample = samples[active[active_index]];
 
             for(int try_index = 0; try_index<k; try_index +=1)
@@ -64,7 +63,7 @@ namespace euphoria::core
                 const auto sample = base_sample + unit * random_range;
                 const auto sample_index = point_to_index(sample);
 
-                if(!grid.IsInside(sample_index.x, sample_index.y)) {continue;}
+                if(!grid.IsInside(sample_index.x, sample_index.y)) { try_index -=1; continue;}
 
                 if(can_place_at(sample, sample_index))
                 {
@@ -74,12 +73,22 @@ namespace euphoria::core
                     ASSERT( grid.Value(sample_index.x, sample_index.y) == -1);
                     grid.Value(sample_index.x, sample_index.y, point_index);
                     active.emplace_back(point_index);
+
+                    return true;
                 }
-                else
-                {
-                    active.erase(active.begin() + active_index);
-                    break;
-                }
+            }
+
+            return false;
+        };
+
+        while(!active.empty())
+        {
+            const auto active_index = random->NextRange(active.size());
+            
+            const auto placed = try_place(active_index);
+            if(!placed)
+            {
+                active.erase(active.begin() + active_index);
             }
         }
 

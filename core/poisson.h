@@ -14,4 +14,4 @@ namespace euphoria::core
     std::vector<vec2f> PoissonSample(const Rectf& area, Random* random, float r, int k=30);
 }
 
-#endif EUPHORIA_CORE_POISSON_H
+#endif  // EUPHORIA_CORE_POISSON_H
