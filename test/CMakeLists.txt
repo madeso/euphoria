@@ -36,3 +36,6 @@ target_link_libraries(tree core)
 
 add_executable(worldgen worldgen.cc)
 target_link_libraries(worldgen core)
+
+add_executable(voronoi voronoi.cc)
+target_link_libraries(voronoi core)
