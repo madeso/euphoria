@@ -4,6 +4,7 @@
 #include "core/colors.h"
 #include "core/ray.h"
 #include "core/plane.h"
+#include "core/sphere.h"
 
 #include <vector>
 #include <string>
@@ -114,6 +115,50 @@ namespace ray
 
 }
 
+void
+ray_sphere()
+{
+    const auto test = []
+    (
+        float rayX, float rayY, float rayZ,
+        float normX, float normY, float normZ, 
+        float sphereX, float sphereY, float sphereZ,
+        float rad,
+        bool res
+    )
+    {
+        // todo(Gustav): add scene support to dumper...
+        const auto ray = Ray3f(vec3f(rayX, rayY, rayZ), vec3f(normX, normY, normZ).GetNormalized());
+        const auto sphere = Sphere{rad};
+        const auto sphere_center = vec3f(sphereX, sphereY, sphereZ);
+        const auto collision = GetIntersection(ray.GetNormalized(), sphere, sphere_center);
+        const auto collided = collision >= 0.0f; 
+        if(collided != res)
+        {
+            std::cout
+                << "Collision was " << ( res ? "expected" : "_not_ expected")
+                << ", but ";
+            if(collided)
+            {
+                std::cout << "occured at: " << collision;
+            }
+            else
+            {
+                std::cout << "never occured";
+            }
+            std::cout << ".\n";
+        }
+    };
+    
+    test(-2, 1, 0, 2, 0, 0, 2, 0, 0, 2, true);
+    test(-2, 0, 0, 2, 0, 0, 2, 2, 0, 2, true);
+    test(-2, 0, 0, 2, 0, 0, 0, 0, 0, 2, true);
+    test(-2, 2, 0, 2, -1, 2, 0, 0, 0, 2, true);
+    test(2, 1, 0, 2, 0, 0, 2, 0, 0, 2, true);
+    test(-2, 1, 0, -1, 0, 0, 2, 0, 0, 2, false);
+    test(-5, 1, 0, 2, 0.4f, 0, 2, 0, 0, 2, false);
+}
+
 int
 main(int, char**)
 {
@@ -122,4 +167,6 @@ main(int, char**)
 
     ray::point_on_ray();
     ray::closest_point_on_ray();
+
+    ray_sphere();
 }

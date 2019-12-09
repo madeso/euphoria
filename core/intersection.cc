@@ -207,6 +207,40 @@ namespace euphoria::core
     }
 
 
+    float
+    GetIntersection(const UnitRay3f& ray, const Sphere& sphere, const vec3f& sphere_center)
+    {
+        const auto p0 = ray.from;
+        const auto d = ray.dir;
+        const auto c = sphere_center;
+        const auto r = sphere.radius;
+        const auto r2 = Square(r);
+
+        const auto e = c - p0;
+        const auto el2 = e.GetLengthSquared();
+        const auto a = dot(e, d);
+        const auto a2 = Square(a);
+        const auto b2 = el2 - a2;
+        const auto f2 = r2 - b2;
+
+        if (f2 < 0.0f)
+        {
+            return -1;
+        }
+
+        const auto f = Sqrt(f2);
+
+        if (el2 < r2)
+        {
+            return a + f;
+        }
+        else
+        {
+            return a - f;
+        }
+    }
+
+
     bool
     ContainsPoint(const Aabb& aabb, const vec3f& point)
     {

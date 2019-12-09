@@ -74,6 +74,14 @@ namespace euphoria::core
 
 
     // --------------------------------
+    // sphere - ray
+
+    // returns distance along the ray where intersection occured or -1 if nothing occured
+    float
+    GetIntersection(const UnitRay3f& r, const Sphere& sphere, const vec3f& sphere_center);
+
+
+    // --------------------------------
     // aabb - point
 
     bool
