@@ -12,6 +12,8 @@
 
 namespace euphoria::core
 {
+    struct Random;
+
     ////////////////////////////////////////////////////////////////////////////////
     /// Forward declarations
 
@@ -188,6 +190,11 @@ namespace euphoria::core
             return IsEqual(GetLengthSquared(), 1);
         }
 
+        explicit unit2(T ax, T ay) : x(ax), y(ay)
+        {
+            ASSERT(IsValid());
+        }
+
     private:
         explicit unit2(const vec2<T>& v) : x(v.x), y(v.y)
         {
@@ -349,6 +356,9 @@ namespace euphoria::core
     typedef scale2<int>        scale2i;
     typedef unit2<int>         unit2i;
     typedef Vec2Transform<int> Vec2iTransform;
+
+    // util functions
+    unit2f RandomUnit(Random* random);
 
 }  // namespace euphoria::core
 

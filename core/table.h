@@ -71,6 +71,12 @@ namespace euphoria::core
             return Recti::FromWidthHeight(width - 1, height - 1);
         }
 
+        bool
+        IsInside(I x, I y) const
+        {
+            return Indices().ContainsInclusive(x, y);
+        }
+
         /** Add a new row to the table.
          * Places the new row at the bottom left and resizes the table if necessary.
          * Fills the (new) empty space with default values.

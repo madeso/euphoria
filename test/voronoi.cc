@@ -10,6 +10,7 @@
 #include "core/rect.h"
 
 #include "core/palette_tableu.h"
+#include "core/poisson.h"
 
 using namespace euphoria::core;
 
@@ -37,7 +38,10 @@ main(int argc, char* argv[])
 
     Random rand;
 
-    const auto random_points = GenerateRandomPoints(30, Rectf::FromWidthHeight(size, size), &rand);
+    const auto area = Rectf::FromWidthHeight(size, size);
+    const auto random_points = GenerateRandomPoints(30, area, &rand);
+    // const auto random_points = PoissonSample(area, &rand, 10.0f);
+
 
     using DistFunc = std::function<float(const vec2f&, const vec2f&)>;
 
