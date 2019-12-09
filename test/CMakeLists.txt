@@ -19,6 +19,9 @@ target_link_libraries(img core)
 add_executable(markov markov.cc)
 target_link_libraries(markov core)
 
+add_executable(poisson-test poisson-test.cc)
+target_link_libraries(poisson-test core)
+
 add_executable(svg-dump svg-dump.cc)
 target_link_libraries(svg-dump core)
 
