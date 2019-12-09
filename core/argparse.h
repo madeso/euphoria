@@ -440,6 +440,20 @@ namespace euphoria::core::argparse
     using SubParsers = EnumToStringImpl<std::shared_ptr<SubParser>>;
 
     /////////////////////////////////////////////////////////////////////////////////////////
+
+    struct FileOutput
+    {
+        explicit FileOutput(const std::string& o);
+
+        std::string
+        NextFile(bool print = true);
+
+        std::string file;
+        bool        single;
+        int         index = 0;
+    };
+
+    /////////////////////////////////////////////////////////////////////////////////////////
     // Main
 
     struct Args

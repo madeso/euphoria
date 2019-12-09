@@ -541,6 +541,22 @@ namespace euphoria::core
             return AddSimpleFunction(name, [b]() { *b = false; });
         }
 
+        FileOutput::FileOutput(const std::string& o) : file(o), single(!EndsWith(o, "/"))
+        {}
+
+        std::string
+        FileOutput::NextFile(bool print)
+        {
+            std::ostringstream ss;
+            index += 1;
+            if(print)
+            {
+                std::cout << "Generating " << index << "...\n";
+            }
+            ss << file << std::setfill('0') << std::setw(5) << index << ".png";
+            return ss.str();
+        }
+
         Args
         Args::Extract(int argc, char* argv[])
         {

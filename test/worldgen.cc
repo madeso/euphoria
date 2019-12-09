@@ -63,28 +63,6 @@ PrintMazeToConsole(const generator::Drawer& drawer)
     }
 }
 
-struct Output
-{
-    explicit Output(const std::string& o) : file(o), single(!EndsWith(o, "/"))
-    {}
-
-    std::string
-    NextFile(bool print = true)
-    {
-        std::ostringstream ss;
-        index += 1;
-        if(print)
-        {
-            std::cout << "Generating " << index << "...\n";
-        }
-        ss << file << std::setfill('0') << std::setw(5) << index << ".png";
-        return ss.str();
-    }
-
-    std::string file;
-    bool        single;
-    int         index = 0;
-};
 
 enum class MazeAlgorithm
 {
@@ -101,7 +79,7 @@ maze(MazeAlgorithm      algo,
      const std::string& f,
      bool               console)
 {
-    auto output = Output {f};
+    auto output = argparse::FileOutput {f};
     auto random = Random {};
     auto maze   = generator::Maze::FromWidthHeight(world_width, world_height);
 
@@ -188,7 +166,7 @@ cell(bool                     debug,
      const std::string&       f,
      int                      world_scale)
 {
-    auto output = Output {f};
+    auto output = argparse::FileOutput {f};
 
     auto random = Random {};
     auto world  = generator::World::FromWidthHeight(world_width, world_height);
