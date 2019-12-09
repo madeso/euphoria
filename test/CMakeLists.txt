@@ -13,6 +13,9 @@ target_link_libraries(chatbot core)
 add_executable(coldet coldet.cc)
 target_link_libraries(coldet core)
 
+add_executable(draw-test draw-test.cc)
+target_link_libraries(draw-test core)
+
 add_executable(img img.cc)
 target_link_libraries(img core)
 
