@@ -35,18 +35,19 @@ namespace euphoria::core
 
 
     bool
-    PoissonWorker::can_place_at(const vec2f& sample, const vec2i& sample_index)
+    PoissonWorker::can_place_at(const vec2f& potential_sample, const vec2i& potential_sample_pos)
     {
-        for(int dy=-1; dy<=1; dy+=1)
+        const int range = 1;
+        for(int dy=-range; dy<=range; dy+=1)
         {
-            for(int dx=-1; dx<=1; dx+=1)
+            for(int dx=-range; dx<=range; dx+=1)
             {
-                const auto check_index = sample_index + vec2i{dx, dy};
-                if(!grid.IsInside(check_index.x, check_index.y)) continue;
-                const auto potential_active_index = grid.Value(check_index.x, check_index.y);
-                if(potential_active_index == -1) continue;
-                const auto d2 = vec2f::FromTo(samples[potential_active_index], sample).GetLengthSquared();
-                if(d2 < Square(r))
+                const auto neighbour_pos = potential_sample_pos + vec2i{dx, dy};
+                if(!grid.IsInside(neighbour_pos.x, neighbour_pos.y)) continue;
+                const auto neighbour_sample_index = grid.Value(neighbour_pos.x, neighbour_pos.y);
+                if(neighbour_sample_index == -1) continue;
+                const auto d2 = vec2f::FromTo(samples[neighbour_sample_index], potential_sample).GetLengthSquared();
+                if(d2 <= Square(r))
                 {
                     return false;
                 }
@@ -57,7 +58,7 @@ namespace euphoria::core
     }
 
 
-    bool
+    std::tuple<bool, vec2f>
     PoissonWorker::try_place(int active_index)
     {
         const auto base_sample = samples[active[active_index]];
@@ -67,24 +68,25 @@ namespace euphoria::core
             const auto unit = RandomUnit(random);
             const auto random_range = random->NextRange(r, 2*r);
             const auto sample = base_sample + unit * random_range;
-            const auto sample_index = point_to_index(sample);
+            const auto sample_pos = point_to_index(sample);
 
-            if(!grid.IsInside(sample_index.x, sample_index.y)) { try_index -=1; continue;}
+            if(!grid.IsInside(sample_pos.x, sample_pos.y)) { try_index -=1; continue;}
 
-            if(can_place_at(sample, sample_index))
+            if(can_place_at(sample, sample_pos))
             {
                 const auto point_index = samples.size();
 
+                ASSERT( grid.Value(sample_pos.x, sample_pos.y) == -1);
+
                 samples.emplace_back(sample);
-                ASSERT( grid.Value(sample_index.x, sample_index.y) == -1);
-                grid.Value(sample_index.x, sample_index.y, point_index);
+                grid.Value(sample_pos.x, sample_pos.y, point_index);
                 active.emplace_back(point_index);
 
-                return true;
+                return {true, sample};
             }
         }
 
-        return false;
+        return {false, vec2f::Zero()};
     }
 
 
@@ -93,22 +95,29 @@ namespace euphoria::core
     {
         return active.empty();
     }
-    
 
-    void
+
+    std::optional<std::tuple<vec2f, vec2f>>
     PoissonWorker::Step()
     {
         if(active.empty())
         {
-            return;
+            return std::nullopt;
         }
 
         const auto active_index = random->NextRange(active.size());
         
-        const auto placed = try_place(active_index);
-        if(!placed)
+        const auto [placed, sample] = try_place(active_index);
+        if(placed)
+        {
+            const vec2f from = samples[active[active_index]];
+            const vec2f to = sample; //*samples.rbegin();
+            return std::make_tuple(from, to);
+        }
+        else
         {
             active.erase(active.begin() + active_index);
+            return std::nullopt;
         }
     }
 

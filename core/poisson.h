@@ -2,6 +2,8 @@
 #define EUPHORIA_CORE_POISSON_H
 
 #include <vector>
+#include <tuple>
+#include <optional>
 
 #include "core/vec2.h"
 #include "core/rect.h"
@@ -28,14 +30,17 @@ namespace euphoria::core
         bool
         IsDone() const;
 
-        void
+        std::optional<std::tuple<vec2f, vec2f>>
         Step();
 
         vec2f random_point();
         vec2i point_to_index(const vec2f& p);
 
-        bool can_place_at(const vec2f& sample, const vec2i& sample_index);
-        bool try_place(int active_index);
+        bool
+        can_place_at(const vec2f& sample, const vec2i& sample_index);
+        
+        std::tuple<bool, vec2f>
+        try_place(int active_index);
     };
 
     // r = minimum distance

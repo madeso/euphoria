@@ -40,43 +40,56 @@ png_dump()
     const float world_size = 100;
     const auto radius = 5.0f;
     const auto extra_images = 10;
+    auto frames = argparse::FileOutput("poisson-frames/");
 
     auto image = Image{};
     image.SetupNoAlphaSupport(image_size, image_size);
-    const auto area = Rectf::FromWidthHeight(world_size, world_size);
-    auto frames = argparse::FileOutput("poisson-frames");
     frames.CreateDirIfMissing();
 
-    auto worker = PoissonWorker{area, &random, radius, 30};
+    auto worker = PoissonWorker{Rectf::FromWidthHeight(world_size, world_size), &random, radius, 30};
 
     const auto world_to_image = image_size / world_size;
 
-    auto write_image = [&]()
+    auto write_image = [&](std::optional<std::tuple<vec2f, vec2f>> line)
     {
+        // auto svg = Dumper{};
+        // svg.canvas_color = Color::Black;
+
         Clear(&image, Color::Black);
         for(int i=0; i<worker.samples.size(); i+=1)
         {
             const auto is_active = std::find(worker.active.begin(), worker.active.end(), i) != worker.active.end();
-            DrawCircle(&image, is_active ? Color::Blue : Color::White, (worker.samples[i]*world_to_image).StaticCast<int>(), radius * world_to_image);
+            const auto circle_color = is_active ? Color::Blue : Color::White;
+            const auto cp = worker.samples[i]*world_to_image;
+            const auto circle_position = (cp).StaticCast<int>();
+            const auto circle_radius = radius * world_to_image;
+            DrawCircle(&image, circle_color, circle_position, circle_radius);
+            // svg << Circle(circle_position.StaticCast<float>(), circle_radius, circle_color);
+        }
+        if(line)
+        {
+            const auto [from, to] = *line;
+            DrawLineAntialiased(&image, Color::PureRed, from*world_to_image, to*world_to_image);
         }
         io::ChunkToFile(image.Write(ImageWriteFormat::PNG), frames.NextFile());
+        // svg.Write("poisson.html", 800, 600);
     };
 
     if(!frames.single)
     {
         for(int i=0; i<extra_images; i +=1)
         {
-            write_image();
+            write_image(std::nullopt);
         }
     }
 
     while(!worker.IsDone())
     {
-        worker.Step();
+        auto r = worker.Step();
 
         if(!frames.single)
         {
-            write_image();
+            write_image(r);
         }
     }
 
@@ -84,11 +97,11 @@ png_dump()
     {
         for(int i=0; i<extra_images; i +=1)
         {
-            write_image();
+            write_image(std::nullopt);
         }
     }
 
-    write_image();
+    write_image(std::nullopt);
 }
 
 
