@@ -7,6 +7,8 @@
 #include "core/utf8.h"
 #include "core/rgb_blend.h"
 
+#include "core/log.h"
+
 #include <utility>
 
 
@@ -138,44 +140,74 @@ namespace euphoria::core
         ASSERT(image);
         // https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm
 
-        const int x0 = from.x;
-        const int y0 = from.y;
-        const int x1 = to.x;
-        const int y1 = to.y;
-
-        int         deltax = x1 - x0;
-        int         deltay = y1 - y0;
-        const float deltaerr
-                = deltax == 0 ? -1 : Abs(deltay / static_cast<float>(deltax));
-        float error = deltaerr - 0.5f;
-        int   y     = y0;
-        for(int x = x0; x < x1; x += 1)
+        auto plot = [&](int x, int y)
         {
-            const bool valid_x
-                    = IsWithinInclusivei(0, x, image->GetWidth() - 1);
-            const bool valid_y
-                    = IsWithinInclusivei(0, y, image->GetHeight() - 1);
-            if(valid_x && valid_y)
-            {
-                image->SetPixel(x, y, color);
-            }
+            image->SetPixel(x, y, color);
+        };
 
-            if(deltaerr > 0)
+        auto plot_line_low = [&](int x0, int y0, int x1, int y1)
+        {
+          auto dx = x1 - x0;
+          auto dy = y1 - y0;
+          auto yi = 1;
+          if(dy < 0)
+          {
+            yi = -1;
+            dy = -dy;
+          }
+          auto D = 2*dy - dx;
+          auto y = y0;
+
+          for(int x=x0; x<x1; x+=1)
+          {
+            plot(x,y);
+            if(D > 0)
             {
-                error = error + deltaerr;
-                if(error >= 0.5)
-                {
-                    if(deltay > 0)
-                    {
-                        y = y + 1;
-                    }
-                    else
-                    {
-                        y = y - 1;
-                    }
-                }
-                error = error - 1.0;
+               y = y + yi;
+               D = D - 2*dx;
             }
+            D = D + 2*dy;
+          }
+        };
+
+        auto plot_line_high = [&](int x0, int y0, int x1, int y1)
+        {
+          int dx = x1 - x0;
+          int dy = y1 - y0;
+          int xi = 1;
+          if(dx < 0)
+          {
+            xi = -1;
+            dx = -dx;
+          }
+          int D = 2*dx - dy;
+          int x = x0;
+
+          for(int y=y0; y<y1; y+=1)
+          {
+            plot(x,y);
+            if(D > 0)
+            {
+               x = x + xi;
+               D = D - 2*dy;
+            }
+            D = D + 2*dx;
+          }
+        };
+
+        const auto x0 = from.x;
+        const auto y0 = from.y;
+        const auto x1 = to.x;
+        const auto y1 = to.y;
+        if(abs(y1 - y0) < abs(x1 - x0))
+        {
+            if(x0 > x1) { plot_line_low(x1, y1, x0, y0); }
+            else        { plot_line_low(x0, y0, x1, y1); }
+        }
+        else
+        {
+            if(y0 > y1) { plot_line_high(x1, y1, x0, y0); }
+            else        { plot_line_high(x0, y0, x1, y1); }
         }
     }
 
