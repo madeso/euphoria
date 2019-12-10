@@ -8,15 +8,40 @@ namespace euphoria::core
 {
     // todo(Gustav): verify samples is inside rect and considers the offset of the rect
 
-    PoissonWorker::PoissonWorker(const Rectf& aarea, Random* arandom, float ar, int ak)
+    bool
+    AllInside(const Rectf& a, const vec2f& p, float r)
+    {
+        return
+            a.left   < p.x - r &&
+            a.right  > p.x + r &&
+            a.top    > p.y + r &&
+            a.bottom < p.y - r;
+    }
+
+    PoissonWorker::PoissonWorker(const Rectf& aarea, Random* arandom, float ar, float bs, int ak)
         : area(aarea)
         , random(arandom)
         , r(ar)
+        , bounds_check(bs)
         , k(ak)
         , w(r / Sqrt(2))
         , grid(Table<int>::FromWidthHeight(Floori(area.GetWidth()/w), Floori(area.GetHeight()/w), -1))
     {
-        const auto p = random_point();
+        auto p = random_point();
+        if(bounds_check > 0)
+        {
+            for(int i=0; i<k; i+=1)
+            {
+                if(AllInside(area, p, bounds_check))
+                {
+                    break;
+                }
+                else
+                {
+                    p = random_point();
+                }
+            }
+        }
         const auto i = point_to_index(p);
         active.emplace_back(0);
         samples.emplace_back(p);
@@ -37,7 +62,7 @@ namespace euphoria::core
     bool
     PoissonWorker::can_place_at(const vec2f& potential_sample, const vec2i& potential_sample_pos)
     {
-        const int range = 1;
+        const int range = 3;
         for(int dy=-range; dy<=range; dy+=1)
         {
             for(int dx=-range; dx<=range; dx+=1)
@@ -71,6 +96,11 @@ namespace euphoria::core
             const auto sample_pos = point_to_index(sample);
 
             if(!grid.IsInside(sample_pos.x, sample_pos.y)) { try_index -=1; continue;}
+
+            if(bounds_check > 0)
+            {
+                if(!AllInside(area, sample, bounds_check)){ continue;}
+            }
 
             if(can_place_at(sample, sample_pos))
             {
@@ -123,9 +153,9 @@ namespace euphoria::core
 
 
     std::vector<vec2f>
-    PoissonSample(const Rectf& area, Random* random, float r, int k)
+    PoissonSample(const Rectf& area, Random* random, float r, float bs, int k)
     {
-        auto worker = PoissonWorker{area, random, r, k};
+        auto worker = PoissonWorker{area, random, r, bs, k};
         while(!worker.IsDone())
         {
             worker.Step();

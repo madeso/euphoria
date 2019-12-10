@@ -18,7 +18,7 @@ svg_dump()
     const auto area = Rectf::FromWidthHeight(100, 100);
     const auto radius = 5.0f;
 
-    const auto points = PoissonSample(area, &random, radius);
+    const auto points = PoissonSample(area, &random, radius*2, radius);
 
     auto svg = Dumper{};
 
@@ -46,7 +46,7 @@ png_dump()
     image.SetupNoAlphaSupport(image_size, image_size);
     frames.CreateDirIfMissing();
 
-    auto worker = PoissonWorker{Rectf::FromWidthHeight(world_size, world_size), &random, radius, 30};
+    auto worker = PoissonWorker{Rectf::FromWidthHeight(world_size, world_size), &random, radius*2, radius, 30};
 
     const auto world_to_image = image_size / world_size;
 
@@ -69,7 +69,10 @@ png_dump()
         if(line)
         {
             const auto [from, to] = *line;
-            DrawLineAntialiased(&image, Color::PureRed, from*world_to_image, to*world_to_image);
+            std::cout << from << " -> " << to << "\n";
+            DrawLineFast(&image, Color::PureRed, (from*world_to_image).StaticCast<int>(), (to*world_to_image).StaticCast<int>());
+            DrawCircle(&image, Color::PureRed,    (  to*world_to_image).StaticCast<int>(), 10);
+            DrawCircle(&image, Color::PureYellow, (from*world_to_image).StaticCast<int>(), 10);
         }
         io::ChunkToFile(image.Write(ImageWriteFormat::PNG), frames.NextFile());
         // svg.Write("poisson.html", 800, 600);

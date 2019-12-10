@@ -15,11 +15,12 @@ namespace euphoria::core
 
     struct PoissonWorker
     {
-        PoissonWorker(const Rectf& area, Random* random, float r, int k);
+        PoissonWorker(const Rectf& area, Random* random, float r, float bs, int k);
 
         Rectf area;
         Random* random;
         float r;
+        float bounds_check;
         int k;
 
         float w;
@@ -44,7 +45,7 @@ namespace euphoria::core
     };
 
     // r = minimum distance
-    std::vector<vec2f> PoissonSample(const Rectf& area, Random* random, float r, int k=30);
+    std::vector<vec2f> PoissonSample(const Rectf& area, Random* random, float r, float bs=-1.0f, int k=30);
 }
 
 #endif  // EUPHORIA_CORE_POISSON_H
