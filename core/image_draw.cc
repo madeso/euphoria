@@ -211,40 +211,6 @@ namespace euphoria::core
         }
     }
 
-    int
-    Round(float x)
-    {
-        return Floori(x + 0.5f);
-    }
-
-    // fractional part of x
-    float
-    GetFractionalPart(float x)
-    {
-        return x - Floor(x);
-    }
-
-    float
-    GetOneMinusFractionalPart(float x)
-    {
-        return 1.0f - GetFractionalPart(x);
-    }
-
-    void
-    Plot(int x, int y, float brightness, const Rgb& color, Image* image)
-    {
-        ASSERT(image);
-
-        const bool valid_x = IsWithinInclusivei(0, x, image->GetWidth() - 1);
-        const bool valid_y = IsWithinInclusivei(0, y, image->GetHeight() - 1);
-        if(valid_x && valid_y)
-        {
-            const Rgb paint_color = RgbTransform::Transform(
-                    rgb(image->GetPixel(x, y)), brightness, color);
-            image->SetPixel(x, y, Rgbi {paint_color});
-        }
-    }
-
     void
     DrawLineAntialiased(
             Image*       image,
@@ -264,6 +230,24 @@ namespace euphoria::core
             const vec2f& from,
             const vec2f& to)
     {
+        auto ipart = [&](float x) { return Floori(x); };
+        auto round = [&](float x) { return ipart(x + 0.5); };
+        auto fpart = [&](float x) { return x - floor(x); };
+        auto rfpart = [&](float x) { return 1 - fpart(x); };
+
+        auto plot = [&](int x, int y, float c)
+        {
+            // plot the pixel at (x, y) with brightness c (where 0 ≤ c ≤ 1)
+            const bool valid_x = IsWithinInclusivei(0, x, image->GetWidth() - 1);
+            const bool valid_y = IsWithinInclusivei(0, y, image->GetHeight() - 1);
+            if(valid_x && valid_y)
+            {
+                const Rgb paint_color = RgbTransform::Transform(
+                        rgb(image->GetPixel(x, y)), c, color);
+                image->SetPixel(x, y, Rgbi {paint_color});
+            }
+        };
+
         ASSERT(image);
         // https://en.wikipedia.org/wiki/Xiaolin_Wu%27s_line_algorithm
         float x0 = from.x;
@@ -271,126 +255,85 @@ namespace euphoria::core
         float x1 = to.x;
         float y1 = to.y;
 
+        using std::swap;
 
-        bool steep = Abs(y1 - y0) > Abs(x1 - x0);
-
+        auto steep = abs(y1 - y0) > abs(x1 - x0);
+    
         if(steep)
         {
-            std::swap(x0, y0);
-            std::swap(x1, y1);
+            swap(x0, y0);
+            swap(x1, y1);
         }
         if(x0 > x1)
         {
-            std::swap(x0, x1);
-            std::swap(y0, y1);
+            swap(x0, x1);
+            swap(y0, y1);
         }
-
-        float dx       = x1 - x0;
-        float dy       = y1 - y0;
-        float gradient = dx == 0.0 ? 1.0 : dy / dx;
+    
+        auto dx = x1 - x0;
+        auto dy = y1 - y0;
+        auto gradient = dy / dx;
+        if(dx == 0.0)
+        {
+            gradient = 1.0;
+        }
 
         // handle first endpoint
-        int   xend  = Round(x0);
-        float yend  = y0 + gradient * (xend - x0);
-        float xgap  = GetOneMinusFractionalPart(x0 + 0.5);
-        int   xpxl1 = xend;  // this will be used in the main loop
-        float ypxl1 = Floori(yend);
+        auto xend = round(x0);
+        auto yend = y0 + gradient * (xend - x0);
+        auto xgap = rfpart(x0 + 0.5);
+        auto xpxl1 = xend; // this will be used in the main loop
+        auto ypxl1 = ipart(yend);
         if(steep)
         {
-            Plot(ypxl1,
-                 xpxl1,
-                 GetOneMinusFractionalPart(yend) * xgap,
-                 color,
-                 image);
-            Plot(ypxl1 + 1,
-                 xpxl1,
-                 GetFractionalPart(yend) * xgap,
-                 color,
-                 image);
+            plot(ypxl1,   xpxl1, rfpart(yend) * xgap);
+            plot(ypxl1+1, xpxl1,  fpart(yend) * xgap);
         }
         else
         {
-            Plot(xpxl1,
-                 ypxl1,
-                 GetOneMinusFractionalPart(yend) * xgap,
-                 color,
-                 image);
-            Plot(xpxl1,
-                 ypxl1 + 1,
-                 GetFractionalPart(yend) * xgap,
-                 color,
-                 image);
+            plot(xpxl1, ypxl1  , rfpart(yend) * xgap);
+            plot(xpxl1, ypxl1+1,  fpart(yend) * xgap);
         }
-        int intery = yend + gradient;  // first y-intersection for the main loop
-
+        auto intery = yend + gradient; // first y-intersection for the main loop
+    
         // handle second endpoint
-        xend      = Round(x1);
-        yend      = y1 + gradient * (xend - x1);
-        xgap      = GetFractionalPart(x1 + 0.5);
-        int xpxl2 = xend;  // this will be used in the main loop
-        int ypxl2 = Floori(yend);
+        xend = round(x1);
+        yend = y1 + gradient * (xend - x1);
+        xgap = fpart(x1 + 0.5);
+        auto xpxl2 = xend; //this will be used in the main loop
+        auto ypxl2 = ipart(yend);
         if(steep)
         {
-            Plot(ypxl2,
-                 xpxl2,
-                 GetOneMinusFractionalPart(yend) * xgap,
-                 color,
-                 image);
-            Plot(ypxl2 + 1,
-                 xpxl2,
-                 GetFractionalPart(yend) * xgap,
-                 color,
-                 image);
+            plot(ypxl2  , xpxl2, rfpart(yend) * xgap);
+            plot(ypxl2+1, xpxl2,  fpart(yend) * xgap);
         }
         else
         {
-            Plot(xpxl2,
-                 ypxl2,
-                 GetOneMinusFractionalPart(yend) * xgap,
-                 color,
-                 image);
-            Plot(xpxl2,
-                 ypxl2 + 1,
-                 GetFractionalPart(yend) * xgap,
-                 color,
-                 image);
+            plot(xpxl2, ypxl2,  rfpart(yend) * xgap);
+            plot(xpxl2, ypxl2+1, fpart(yend) * xgap);
         }
-
+    
         // main loop
         if(steep)
         {
-            for(int x = xpxl1 + 1; x < xpxl2 - 1; x += 1)
+            for(auto x=xpxl1 + 1; x<=xpxl2 - 1; x+=1)
             {
-                Plot(Floori(intery),
-                     x,
-                     GetOneMinusFractionalPart(intery),
-                     color,
-                     image);
-                Plot(Floori(intery) + 1,
-                     x,
-                     GetFractionalPart(intery),
-                     color,
-                     image);
+                plot(ipart(intery)  , x, rfpart(intery));
+                plot(ipart(intery)+1, x,  fpart(intery));
                 intery = intery + gradient;
             }
         }
         else
         {
-            for(int x = xpxl1 + 1; x < xpxl2 - 1; x += 1)
+            for(auto x = xpxl1 + 1; x<xpxl2 - 1; x+=1)
             {
-                Plot(x,
-                     Floori(intery),
-                     GetOneMinusFractionalPart(intery),
-                     color,
-                     image);
-                Plot(x,
-                     Floori(intery) + 1,
-                     GetFractionalPart(intery),
-                     color,
-                     image);
+                plot(x, ipart(intery),  rfpart(intery));
+                plot(x, ipart(intery)+1, fpart(intery));
                 intery = intery + gradient;
             }
         }
+
+        
     }
 
     Rgba Tint(const Rgba& c, const Rgb& tint)
