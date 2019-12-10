@@ -54,4 +54,4 @@ namespace euphoria::core
     };
 }
 
-#endif EUPHORIA_CORE_CLOSESTPOINT_H
+#endif  // EUPHORIA_CORE_CLOSESTPOINT_H
