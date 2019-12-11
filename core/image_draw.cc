@@ -6,6 +6,8 @@
 #include "core/fonts.h"
 #include "core/utf8.h"
 #include "core/rgb_blend.h"
+#include "core/minmax.h"
+#include "core/intersection.h"
 
 #include "core/log.h"
 
@@ -257,7 +259,7 @@ namespace euphoria::core
 
         using std::swap;
 
-        auto steep = abs(y1 - y0) > abs(x1 - x0);
+        auto steep = Abs(y1 - y0) > Abs(x1 - x0);
     
         if(steep)
         {
@@ -420,5 +422,107 @@ namespace euphoria::core
             }
         }
     }
+
+    void
+    FillTriangle
+    (
+        Image* image,
+        const vec2f& a,
+        const vec2f& b,
+        const vec2f& c,
+        const Rgbi& color
+    )
+    {
+        const auto [minf, maxf] = FindMinMax<vec2f, std::vector<vec2f> >
+        (
+            {a, b, c},
+            [](const vec2f& lhs, const vec2f& rhs) -> vec2f
+                { return {std::min(lhs.x, rhs.x), std::min(lhs.y, rhs.y)}; },
+            [](const vec2f& lhs, const vec2f& rhs) -> vec2f
+                { return {std::max(lhs.x, rhs.x), std::max(lhs.y, rhs.y)}; }
+        );
+
+        const auto min = minf.StaticCast<int>();
+        const auto max = maxf.StaticCast<int>();
+
+        for(int y=min.y; y<=max.y; y+=1)
+        {
+            for(int x=min.x; x<=max.x; x+=1)
+            {
+                const bool valid_x = IsWithinInclusivei(0, x, image->GetWidth() - 1);
+                const bool valid_y = IsWithinInclusivei(0, y, image->GetHeight() - 1);
+                if(valid_x && valid_y)
+                {
+                    const auto inside_triangle = IsPointInTriangle(a, b, c, vec2f{x,y});
+                    if(inside_triangle)
+                    {
+                        image->SetPixel(x, y, color);
+                    }
+                }
+            }
+        }
+    }
+
+
+    void
+    DrawArrow
+    (
+        Image* image,
+        const vec2f& from,
+        const vec2f& to,
+        const Rgbi& color,
+        int size
+    )
+    {
+        // based on code from https://www.codeproject.com/Questions/125049/Draw-an-arrow-with-big-cap
+        // todo(Gustav): this is too complicated, and hard to customize, different pointy arrows that ain't 90 degrees
+        // there must be a better way to do it
+        // also generalize it so we can have arrows in dvg/dummper code too
+        const vec2f arrowPoint = to;
+
+        const auto arrowLength = Sqrt(Square(Abs(from.x - to.x)) +
+                                Square(Abs(from.y - to.y)));
+
+        const auto arrowAngle = Atan2(Abs(from.y - to.y),Abs(from.x - to.x));
+        const auto angleB = Atan2((3 * size), (arrowLength - (3 * size)));
+        const auto secondaryLength = (3 * size)/Sin(angleB);
+
+        auto angleC = Angle::FromDegrees(90) - arrowAngle - angleB;
+        const auto arrowPointLeft = vec2f
+        {
+            from.x > to.x
+            ? from.x - (Sin(angleC) * secondaryLength)
+            : (Sin(angleC) * secondaryLength) + from.x
+            ,
+            from.y > to.y
+            ? from.y - (Cos(angleC) * secondaryLength)
+            : (Cos(angleC) * secondaryLength) + from.y
+        };
+
+        //move to the right point
+        angleC = arrowAngle - angleB;
+
+        const auto arrowPointRight = vec2f
+        {
+            from.x > to.x
+            ? from.x - (Cos(angleC) * secondaryLength)
+            : (Cos(angleC) * secondaryLength) + from.x
+            ,
+            from.y > to.y
+            ? from.y - (Sin(angleC) * secondaryLength)
+            : (Sin(angleC) * secondaryLength) + from.y
+        };
+
+        // line
+        DrawLineAntialiased(image, rgb(color), from, to);
+
+        // wings
+        // DrawLineAntialiased(image, rgb(color), arrowPoint, arrowPointLeft);
+        // DrawLineAntialiased(image, rgb(color), arrowPoint, arrowPointRight);
+        // DrawLineAntialiased(image, rgb(color), arrowPointLeft, arrowPointRight);
+
+        FillTriangle(image, arrowPointLeft, arrowPoint, arrowPointRight, color);
+    }
+
 
 }  // namespace euphoria::core

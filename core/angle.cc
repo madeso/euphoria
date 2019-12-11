@@ -104,6 +104,12 @@ namespace euphoria::core
     }
 
     Angle
+    Atan2(float y, float x)
+    {
+        return Angle::FromRadians(std::atan2(y, x));
+    }
+
+    Angle
     Angle::GetWrapped() const
     {
         Angle temp = *this;

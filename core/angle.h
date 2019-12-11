@@ -115,6 +115,8 @@ namespace euphoria::core
     Acos(float v);
     Angle
     Atan(float v);
+    Angle
+    Atan2(float y, float x);
 
     Angle
     operator+(const Angle& lhs, const Angle& rhs);

@@ -67,6 +67,16 @@ namespace euphoria::core
     PasteImage(Image* image, const vec2i& position, const Image& source_image);
 
 
+    void
+    DrawArrow
+    (
+        Image* image,
+        const vec2f& from,
+        const vec2f& to,
+        const Rgbi& color,
+        int size
+    );
+
 }  // namespace euphoria::core
 
 #endif  // EUPHORIA_DRAW_H

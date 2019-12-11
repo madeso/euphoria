@@ -32,14 +32,13 @@ svg_dump()
 
 
 void
-png_dump()
+png_dump(int extra_images)
 {
     Random random;
 
     const auto image_size = 512;
     const float world_size = 100;
     const auto radius = 5.0f;
-    const auto extra_images = 10;
     auto frames = argparse::FileOutput("poisson-frames/");
 
     auto image = Image{};
@@ -69,10 +68,10 @@ png_dump()
         if(line)
         {
             const auto [from, to] = *line;
-            std::cout << from << " -> " << to << "\n";
-            DrawLineFast(&image, Color::PureRed, (from*world_to_image).StaticCast<int>(), (to*world_to_image).StaticCast<int>());
-            DrawCircle(&image, Color::PureRed,    (  to*world_to_image).StaticCast<int>(), 10);
-            DrawCircle(&image, Color::PureYellow, (from*world_to_image).StaticCast<int>(), 10);
+            // DrawLineFast(&image, Color::PureRed, (from*world_to_image).StaticCast<int>(), (to*world_to_image).StaticCast<int>());
+            // DrawCircle(&image, Color::PureRed,    (  to*world_to_image).StaticCast<int>(), 10);
+            // DrawCircle(&image, Color::PureYellow, (from*world_to_image).StaticCast<int>(), 10);
+            DrawArrow(&image, from*world_to_image, to*world_to_image, Color::PureRed, 2);
         }
         io::ChunkToFile(image.Write(ImageWriteFormat::PNG), frames.NextFile());
         // svg.Write("poisson.html", 800, 600);
@@ -113,6 +112,8 @@ main(int argc, char* argv[])
 {
     auto parser = argparse::Parser {"Poisson test"};
 
+    int extra_frames = 10;
+
     auto psvg = parser.AddSubParser(
             "svg", "generate svg file", [&] {
                 svg_dump();
@@ -120,8 +121,9 @@ main(int argc, char* argv[])
 
     auto ppng = parser.AddSubParser(
             "png", "generate svg file", [&] {
-                png_dump();
+                png_dump(extra_frames);
             });
+    ppng->AddSimple("--extra-frames", &extra_frames);
 
     const auto status = parser.Parse(argc, argv);
     if(status != argparse::ParseResult::Ok)

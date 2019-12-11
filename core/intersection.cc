@@ -268,4 +268,19 @@ namespace euphoria::core
         #undef VEC
     }
 
+
+    bool
+    IsPointInTriangle(const vec2f& A, const vec2f& B, const vec2f& C, const vec2f& P)
+    {
+        const auto s1 = C.y - A.y;
+        const auto s2 = C.x - A.x;
+        const auto s3 = B.y - A.y;
+        const auto s4 = P.y - A.y;
+
+        const auto w1 = (A.x*s1 + s4*s2 - P.x*s1) / (s3*s2 - (B.x -  A.x)*s1);
+        const auto w2 = (s4 - w1*s3) / s1;
+        return w1 >= 0 && w2 >= 0 && (w1 + w2) <= 1;
+    }
+
+
 }  // namespace euphoria::core

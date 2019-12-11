@@ -91,6 +91,12 @@ namespace euphoria::core
     ClosestPoint(const Aabb& aabb, const vec3f& point);
 
 
+    // --------------------------------
+    // point inside 2d geoms
+
+    bool
+    IsPointInTriangle(const vec2f& A, const vec2f& B, const vec2f& C, const vec2f& P);
+
     ///////////////////////////////////////////////////////////////////////////
     // collision results
 
