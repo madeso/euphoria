@@ -2,6 +2,7 @@
 #define RENDER_VIEWPORT_H
 
 #include "core/rect.h"
+#include "core/vec2.h"
 
 namespace euphoria::render
 {
@@ -16,7 +17,10 @@ namespace euphoria::render
         float
         GetAspectRatio() const;
 
-        const core::Recti viewport;
+        core::vec2f
+        ToClipCoord(const core::vec2i& p) const;
+
+        core::Recti viewport;
     };
 }  // namespace euphoria::render
 
