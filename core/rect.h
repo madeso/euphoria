@@ -31,6 +31,19 @@ namespace euphoria::core
         {}
 
     public:
+        template<typename Y>
+        Rect<Y>
+        StaticCast() const
+        {
+            return
+            Rect<Y>::FromLeftRightTopBottom(
+                static_cast<Y>(left),
+                static_cast<Y>(right),
+                static_cast<Y>(top),
+                static_cast<Y>(bottom)
+            );
+        }
+
         [[nodiscard]] static Rect
         FromLeftRightBottomTop(T aleft, T aright, T abottom, T atop)
         {
