@@ -62,6 +62,7 @@ main(int argc, char* argv[])
     auto number_of_points = 30;
     auto poisson_radius = 10.0f;
     auto use_colorblind = false;
+    auto crazy_distance = false;
     std::string output_path = "voronoi.png";
 
     auto parser = argparse::Parser {"voronoi generator"};
@@ -71,6 +72,7 @@ main(int argc, char* argv[])
     parser.AddSimple("-imsize", &size).Help("image size");
     parser.AddSimple("-output", &output_path).Help("where to save the result");
     parser.SetTrue("-colorblind", &use_colorblind).Help("Switch to a colorblind palette");
+    parser.SetTrue("-crazy", &crazy_distance).Help("Sort distance acording to abs(size-distance)");
     parser.AddEnum("-distance", &distance_function).Help("How to calculate distance");
     parser.AddEnum("-gen", &point_generation).Help("How to generate points");
 
@@ -104,12 +106,26 @@ main(int argc, char* argv[])
     Image image;
     image.SetupNoAlphaSupport(size, size);
 
-    ClosestPoint<vec2f, int, DistFunc, float> points
-        (
-            distance_function == DistanceFunction::Euclidian
-            ? euclidian_distance
-            : manhattan_distance
-        )
+    const float max_distance = (area.GetWidth() + area.GetHeight())/2;
+
+    auto points = ClosestPoint<vec2f, int, DistFunc, float>
+        {
+            [&](const vec2f& lhs, const vec2f& rhs)
+            {
+                const auto dist_func = distance_function == DistanceFunction::Euclidian
+                    ? euclidian_distance
+                    : manhattan_distance;
+                const auto dist = dist_func(lhs, rhs);
+                if(crazy_distance)
+                {
+                    return Abs(max_distance - dist);
+                }
+                else
+                {
+                    return dist;
+                }
+            }
+        }
         ;
     {
         int index = 0;
