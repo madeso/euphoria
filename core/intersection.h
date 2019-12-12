@@ -29,6 +29,10 @@ namespace euphoria::core
     GetIntersection(const UnitRay3f& r, const Aabb& aabb);
 
 
+    float
+    GetIntersection(const UnitRay3f& r, const Plane& p);
+
+
     // --------------------------------
     // ray - ray
 

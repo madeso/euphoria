@@ -81,6 +81,13 @@ namespace euphoria::core
     }
 
 
+    float
+    GetIntersection(const UnitRay3f& r, const Plane& p)
+    {
+        return -(dot(r.from, p.normal) + p.distance)/dot(r.dir, p.normal);
+    }
+
+
     namespace
     {
         Ray2Ray2Result
