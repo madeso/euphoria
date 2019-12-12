@@ -14,6 +14,8 @@
 #include "core/fpscontroller.h"
 #include "core/camera.h"
 #include "core/log.h"
+#include "core/plane.h"
+#include "core/intersection.h"
 
 // #include "render/camera.h"
 #include "render/defaultfiles.h"
@@ -54,35 +56,46 @@ using namespace euphoria::window;
 
 LOG_SPECIFY_DEFAULT_LOGGER("t3d")
 
-void
-HandleEvents(
+bool
+HandleEvents
+(
     bool           show_imgui,
     bool&          running,
     bool&          immersive_mode,
     FpsController& fps,
     float          delta,
-    Engine*        engine, ViewportHandler* viewport_handler)
+    Engine*        engine, ViewportHandler* viewport_handler,
+    vec2i* mouse
+)
 {
   SDL_Event e;
   while(SDL_PollEvent(&e) != 0)
   {
-    if(show_imgui)
-    {
-      engine->imgui->ProcessEvents(&e);
-    }
-
     int window_width = 0;
     int window_height = 0;
     if(engine->HandleResize(e, &window_width, &window_height))
     {
       viewport_handler->SetSize(window_width, window_height);
     }
+    if(show_imgui)
+    {
+      engine->imgui->ProcessEvents(&e);
+    }
+
+    auto& io = ImGui::GetIO();
+    const auto forward_keyboard = !(show_imgui && io.WantCaptureKeyboard);
+    const auto forward_mouse = !(show_imgui && io.WantCaptureMouse);
+
     switch(e.type)
     {
       case SDL_QUIT:
         running = false;
         break;
       case SDL_MOUSEMOTION:
+        if(forward_mouse)
+        {
+          *mouse = vec2i(e.motion.x, viewport_handler->height - e.motion.y);
+        }
         if(!show_imgui)
         {
           fps.Look(e.motion.xrel, e.motion.yrel);
@@ -98,25 +111,29 @@ HandleEvents(
           fps.HandleKey(ToKey(e.key.keysym), down);
         }
 
-        switch(e.key.keysym.sym)
+        if(forward_keyboard)
         {
-          case SDLK_ESCAPE:
-            if(down)
-            {
-              running = false;
-            }
-            break;
-          case SDLK_TAB:
-            if(!down)
-            {
-              immersive_mode = !immersive_mode;
-              engine->window->KeepWithin(immersive_mode);
-              engine->window->EnableCharEvent(!immersive_mode);
-            }
-            break;
-          default:
-            // ignore other keys
-            break;
+
+          switch(e.key.keysym.sym)
+          {
+            case SDLK_ESCAPE:
+              if(down)
+              {
+                running = false;
+              }
+              break;
+            case SDLK_TAB:
+              if(!down)
+              {
+                immersive_mode = !immersive_mode;
+                engine->window->KeepWithin(immersive_mode);
+                engine->window->EnableCharEvent(!immersive_mode);
+              }
+              break;
+            default:
+              // ignore other keys
+              break;
+          }
         }
       }
       break;
@@ -130,7 +147,176 @@ HandleEvents(
   }
 
   fps.Update(delta);
+
+  return true;
 }
+
+struct Editor;
+
+struct Tool
+{
+  virtual ~Tool() = default;
+
+  virtual void MeshHasChanged(Editor* editor) = 0;
+  virtual bool IsBusy(Editor* editor) = 0;
+  virtual void Step(Editor* editor) = 0;
+  virtual void OnMouse(Editor* editor, MouseButton key) = 0;
+  virtual void OnKey(Editor* editor, Key key) = 0;
+  virtual void OnEditor() = 0;
+};
+
+struct Tools;
+
+struct ToolAction
+{
+  virtual ~ToolAction() = default;
+  virtual void Act(Tools* tools) = 0;
+};
+
+struct PushToolAction : public ToolAction
+{
+  std::shared_ptr<Tool> new_tool;
+  void Act(Tools* tools) override;
+
+  explicit PushToolAction(std::shared_ptr<Tool> anew_tool)
+    : new_tool(anew_tool)
+    {}
+};
+
+struct PopToolAction : public ToolAction
+{
+  void Act(Tools* tools) override;
+};
+
+struct Tools
+{
+  Tool* GetCurrentTool()
+  {
+    ASSERT(!current_tool.empty());
+    Tool* tool = current_tool.rbegin()->get();
+    ASSERT(tool);
+    return tool;
+  }
+
+  void PushTool(std::shared_ptr<Tool> new_tool)
+  {
+    pending_actions.push_back(std::make_shared<PushToolAction>(new_tool));
+  }
+
+  void PopTool()
+  {
+    pending_actions.push_back(std::make_shared<PopToolAction>());
+  }
+
+  void PerformTools()
+  {
+    for(auto t : pending_actions)
+    {
+      t->Act(this);
+    }
+    pending_actions.resize(0);
+  }
+
+  std::vector<std::shared_ptr<Tool>> current_tool;
+  std::vector<std::shared_ptr<ToolAction>> pending_actions;
+};
+
+
+void PushToolAction::Act(Tools* tools)
+  { tools->current_tool.push_back(new_tool); }
+
+void PopToolAction::Act(Tools* tools)
+  { tools->current_tool.pop_back(); }
+
+
+struct Editor
+{
+  World* world;
+  TileLibrary* tile_library;
+  CompiledCamera camera;
+  Viewport viewport;
+
+  Editor(World* aworld, TileLibrary* atile_library)
+    : world(aworld)
+    , tile_library(atile_library)
+    , camera(mat4f::Identity(), mat4f::Identity())
+    , viewport(Recti::FromWidthHeight(10, 10))
+  {}
+
+  vec2i mouse = vec2i{0,0};
+  Tools tools;
+
+  // current tool callbacks
+  void MeshHasChanged()
+    { tools.GetCurrentTool()->MeshHasChanged(this); }
+
+  bool IsBusy()
+    { return tools.GetCurrentTool()->IsBusy(this); }
+
+  void Step()
+    { tools.GetCurrentTool()->Step(this); }
+
+  void OnMouse(MouseButton button)
+    { tools.GetCurrentTool()->OnMouse(this, button); }
+  void OnKey(Key key)
+    { tools.GetCurrentTool()->OnKey(this, key); }
+  void OnEditor()
+    { tools.GetCurrentTool()->OnEditor(); }
+
+  // todo(Gustav): move camera here so we can have camera movement
+  // change so that fps control rotate focuspoint around current camera pos
+
+  std::vector<std::shared_ptr<Actor>> actors;
+  std::shared_ptr<CompiledMesh> selected_mesh;
+};
+
+struct NoTool : public Tool
+{
+  void MeshHasChanged(Editor*) override {}
+  bool IsBusy(Editor*) override { return false; }
+  void Step(Editor*) override {}
+
+  void OnMouse(Editor*, MouseButton) override {}
+  void OnKey(Editor*, Key) override {}
+  void OnEditor() override {}
+};
+
+struct PlaceMeshOnPlane : public Tool
+{
+  std::shared_ptr<Actor> actor;
+  Plane plane = Plane::FromNormalAndPoint(unit3f::Up(), vec3f::Zero());
+
+  PlaceMeshOnPlane(std::shared_ptr<Actor> aactor)
+    : actor(aactor)
+    {}
+
+  void MeshHasChanged(Editor* editor) override
+  {
+    // todo(Gustav): ugh... fix this ugly hack.. this currently crashes/asserts
+    actor->mesh_ = editor->selected_mesh;
+  }
+
+  bool IsBusy(Editor*) override { return true;}
+
+  void Step(Editor* editor) override
+  {
+    auto ray = editor->camera.ClipToWorldRay(editor->viewport.ToClipCoord(editor->mouse)).GetNormalized();
+    
+    const auto t = GetIntersection(ray, plane);
+
+    // LOG_INFO("Step " << editor->mouse << ", " << t);
+
+    if(t < 0) { return; }
+    // do intersection with plane...
+    const auto p = ray.GetPoint(t);
+    actor->SetPosition(p);
+  }
+
+  void OnMouse(Editor*, MouseButton) override {}
+  void OnKey(Editor*, Key) override {}
+  void OnEditor() override {}
+};
+
 
 int
 main(int argc, char** argv)
@@ -172,14 +358,11 @@ main(int argc, char** argv)
 
   World world {engine.file_system.get()};
 
-  std::vector<std::shared_ptr<Actor>> actors;
+  Camera camera {};
+  camera.position = vec3f(0, 0, 0);
 
-  for(auto tile : tile_library.tiles)
-  {
-    auto actor = std::make_shared<Actor>(tile->mesh);
-    world.AddActor(actor);
-    actors.emplace_back(actor);
-  }
+  Editor editor {&world, &tile_library};
+  editor.tools.PushTool(std::make_shared<NoTool>());
 
   bool running = true;
 
@@ -188,15 +371,11 @@ main(int argc, char** argv)
 
   bool immersive_mode = false;
 
-  Camera camera {};
-  camera.position = vec3f(0, 0, 0);
+  
 
   FpsController fps;
   fps.position = vec3f{0, 0, 3};
   engine.window->EnableCharEvent(!immersive_mode);
-
-  int   items_per_row = 5;
-  float size          = 3;
 
   bool enviroment_window = true;
   bool camera_window = true;
@@ -207,8 +386,15 @@ main(int argc, char** argv)
     const bool  show_imgui = !immersive_mode;
     const float delta      = timer.Update();
 
-    HandleEvents(
-        show_imgui, running, immersive_mode, fps, delta, &engine, &viewport_handler);
+    editor.tools.PerformTools();
+
+    const auto events_handled = HandleEvents(
+        show_imgui, running, immersive_mode, fps, delta, &engine, &viewport_handler, &editor.mouse);
+      
+    if(events_handled)
+    {
+      editor.Step();
+    }
 
     if(show_imgui)
     {
@@ -263,43 +449,36 @@ main(int argc, char** argv)
       if(tiles_window)
       {
         ImGui::Begin("Tiles", &tiles_window);
-        ImGui::InputInt("Items per row", &items_per_row);
-        ImGui::DragFloat("Size", &size, 0.01f);
 
         if(!tile_library.tiles.empty())
         {
           ImGui::ListBoxHeader("Tiles");
-
           for(auto tile : tile_library.tiles)
           {
             std::string display = Str{} << tile->name << ": "
                                         << tile->aabb.GetSize();
-            ImGui::Selectable(display.c_str());
+            if(ImGui::Selectable(display.c_str(), editor.selected_mesh == tile->mesh))
+            {
+              editor.selected_mesh = tile->mesh;
+              editor.MeshHasChanged();
+            }
           }
-
           ImGui::ListBoxFooter();
+
+          if(ImGui::Button("Add"))
+          {
+            if(editor.selected_mesh && !editor.IsBusy() )
+            {
+              auto actor = std::make_shared<Actor>(editor.selected_mesh);
+              world.AddActor(actor);
+              editor.actors.emplace_back(actor);
+
+              editor.tools.PushTool(std::make_shared<PlaceMeshOnPlane>(actor));
+            }
+          }
         }
+        editor.OnEditor();
         ImGui::End();
-      }
-    }
-
-    int col = 0;
-    int row = 0;
-
-    if(items_per_row > 0)
-    {
-      for(auto a : actors)
-      {
-        const auto x = col * size;
-        const auto z = row * size;
-        a->SetPosition(vec3f{x, 0, z});
-
-        col += 1;
-        if(col > items_per_row)
-        {
-          col = 0;
-          row += 1;
-        }
       }
     }
 
@@ -310,6 +489,8 @@ main(int argc, char** argv)
     {
       auto viewport = viewport_handler.GetFullViewport();
       engine.init->ClearScreen(Color::LightGray);
+      editor.camera = camera.Compile(viewport.GetAspectRatio());
+      editor.viewport = viewport;
       world.Render(viewport, camera);
     }
 
