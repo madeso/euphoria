@@ -33,12 +33,14 @@ std::vector<vec2f> GenerateRandomPoints(int count, const Rectf& size, Random* ra
 
 enum class DistanceFunction
 {
-    Euclidian, Manhattan
+    Euclidian, Manhattan, Min, Max
 };
 DECLARE_ENUM_LIST(DistanceFunction)
 BEGIN_ENUM_LIST(DistanceFunction)
     ENUM_VALUE(DistanceFunction, Euclidian)
     ENUM_VALUE(DistanceFunction, Manhattan)
+    ENUM_VALUE(DistanceFunction, Min)
+    ENUM_VALUE(DistanceFunction, Max)
 END_ENUM_LIST()
 
 enum class PointGeneration
@@ -51,6 +53,47 @@ BEGIN_ENUM_LIST(PointGeneration)
     ENUM_VALUE(PointGeneration, Poisson)
 END_ENUM_LIST()
 
+vec2f Abs(const vec2f& a)
+{
+    return {Abs(a.x), Abs(a.y)};
+}
+
+float euclidian_distance(const vec2f& lhs, const vec2f& rhs)
+{
+    return (lhs-rhs).GetLengthSquared();
+}
+
+float manhattan_distance(const vec2f& lhs, const vec2f& rhs)
+{
+    const auto d = Abs(lhs-rhs);
+    return d.x + d.y;
+}
+
+float min_distance(const vec2f& lhs, const vec2f& rhs)
+{
+    const auto d = Abs(lhs-rhs);
+    return Min(d.x, d.y);
+}
+
+float max_distance(const vec2f& lhs, const vec2f& rhs)
+{
+    const auto d = Abs(lhs-rhs);
+    return Max(d.x, d.y);
+}
+
+float GetDistance(DistanceFunction f, const vec2f& lhs, const vec2f& rhs)
+{
+    switch(f)
+    {
+        case DistanceFunction::Euclidian: return euclidian_distance(lhs, rhs);
+        case DistanceFunction::Manhattan: return manhattan_distance(lhs, rhs);
+        case DistanceFunction::Min: return min_distance(lhs, rhs);
+        case DistanceFunction::Max: return max_distance(lhs, rhs);
+    }
+    DIE("Unhandled distancfe function");
+};
+
+
 int
 main(int argc, char* argv[])
 {
@@ -62,7 +105,8 @@ main(int argc, char* argv[])
     auto number_of_points = 30;
     auto poisson_radius = 10.0f;
     auto use_colorblind = false;
-    auto crazy_distance = false;
+    auto cos_distance = false;
+    auto crazy_distance = 0.0f;
     std::string output_path = "voronoi.png";
 
     auto parser = argparse::Parser {"voronoi generator"};
@@ -72,7 +116,8 @@ main(int argc, char* argv[])
     parser.AddSimple("-imsize", &size).Help("image size");
     parser.AddSimple("-output", &output_path).Help("where to save the result");
     parser.SetTrue("-colorblind", &use_colorblind).Help("Switch to a colorblind palette");
-    parser.SetTrue("-crazy", &crazy_distance).Help("Sort distance acording to abs(size-distance)");
+    parser.AddSimple("-crazy", &crazy_distance).Help("Sort distance acording to abs(value-distance)");
+    parser.AddSimple("-cos", &crazy_distance).Help("Instead of distance, cos(distance)");
     parser.AddEnum("-distance", &distance_function).Help("How to calculate distance");
     parser.AddEnum("-gen", &point_generation).Help("How to generate points");
 
@@ -86,43 +131,24 @@ main(int argc, char* argv[])
         ? GenerateRandomPoints(number_of_points, area, &rand)
         : PoissonSample(area, &rand, poisson_radius*2, poisson_radius);
 
-
-    using DistFunc = std::function<float(const vec2f&, const vec2f&)>;
-
-    DistFunc euclidian_distance = [](const vec2f& lhs, const vec2f& rhs)
-    {
-        return (lhs-rhs).GetLengthSquared();
-    };
-
-    DistFunc manhattan_distance = [](const vec2f& lhs, const vec2f& rhs)
-    {
-        const auto d = (lhs-rhs);
-        return Abs(d.x) + Abs(d.y);
-    };
-    
     auto pal = use_colorblind
         ? palette::ColorBlind_10()
         : Palette::Rainbow(random_points.size());
     Image image;
     image.SetupNoAlphaSupport(size, size);
 
-    const float max_distance = (area.GetWidth() + area.GetHeight())/2;
-
-    auto points = ClosestPoint<vec2f, int, DistFunc, float>
+    auto points = ClosestPoint<vec2f, int, std::function<float (const vec2f&, const vec2f&)>, float>
         {
             [&](const vec2f& lhs, const vec2f& rhs)
             {
-                const auto dist_func = distance_function == DistanceFunction::Euclidian
-                    ? euclidian_distance
-                    : manhattan_distance;
-                const auto dist = dist_func(lhs, rhs);
-                if(crazy_distance)
+                const auto dist = GetDistance(distance_function, lhs, rhs);
+                if(cos_distance)
                 {
-                    return Abs(max_distance - dist);
+                    return Cos(Angle::FromDegrees(dist/crazy_distance));
                 }
                 else
                 {
-                    return dist;
+                    return Abs(crazy_distance - dist);
                 }
             }
         }
