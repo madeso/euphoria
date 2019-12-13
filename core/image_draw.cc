@@ -453,7 +453,7 @@ namespace euphoria::core
                 const bool valid_y = IsWithinInclusivei(0, y, image->GetHeight() - 1);
                 if(valid_x && valid_y)
                 {
-                    const auto inside_triangle = IsPointInTriangle(a, b, c, vec2f{x,y});
+                    const auto inside_triangle = IsPointInTriangle(a, b, c, vec2f{static_cast<float>(x), static_cast<float>(y)});
                     if(inside_triangle)
                     {
                         image->SetPixel(x, y, color);
