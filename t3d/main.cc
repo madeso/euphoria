@@ -56,100 +56,6 @@ using namespace euphoria::window;
 
 LOG_SPECIFY_DEFAULT_LOGGER("t3d")
 
-bool
-HandleEvents
-(
-    bool           show_imgui,
-    bool&          running,
-    bool&          immersive_mode,
-    FpsController& fps,
-    float          delta,
-    Engine*        engine, ViewportHandler* viewport_handler,
-    vec2i* mouse
-)
-{
-  SDL_Event e;
-  while(SDL_PollEvent(&e) != 0)
-  {
-    int window_width = 0;
-    int window_height = 0;
-    if(engine->HandleResize(e, &window_width, &window_height))
-    {
-      viewport_handler->SetSize(window_width, window_height);
-    }
-    if(show_imgui)
-    {
-      engine->imgui->ProcessEvents(&e);
-    }
-
-    auto& io = ImGui::GetIO();
-    const auto forward_keyboard = !(show_imgui && io.WantCaptureKeyboard);
-    const auto forward_mouse = !(show_imgui && io.WantCaptureMouse);
-
-    switch(e.type)
-    {
-      case SDL_QUIT:
-        running = false;
-        break;
-      case SDL_MOUSEMOTION:
-        if(forward_mouse)
-        {
-          *mouse = vec2i(e.motion.x, viewport_handler->height - e.motion.y);
-        }
-        if(!show_imgui)
-        {
-          fps.Look(e.motion.xrel, e.motion.yrel);
-        }
-        break;
-      case SDL_KEYDOWN:
-      case SDL_KEYUP:
-      {
-        const bool down = e.type == SDL_KEYDOWN;
-
-        if(!show_imgui)
-        {
-          fps.HandleKey(ToKey(e.key.keysym), down);
-        }
-
-        if(forward_keyboard)
-        {
-
-          switch(e.key.keysym.sym)
-          {
-            case SDLK_ESCAPE:
-              if(down)
-              {
-                running = false;
-              }
-              break;
-            case SDLK_TAB:
-              if(!down)
-              {
-                immersive_mode = !immersive_mode;
-                engine->window->KeepWithin(immersive_mode);
-                engine->window->EnableCharEvent(!immersive_mode);
-              }
-              break;
-            default:
-              // ignore other keys
-              break;
-          }
-        }
-      }
-      break;
-
-
-
-      default:
-        // ignore other events
-        break;
-    }
-  }
-
-  fps.Update(delta);
-
-  return true;
-}
 
 struct Editor;
 
@@ -160,9 +66,10 @@ struct Tool
   virtual void MeshHasChanged(Editor* editor) = 0;
   virtual bool IsBusy(Editor* editor) = 0;
   virtual void Step(Editor* editor) = 0;
-  virtual void OnMouse(Editor* editor, MouseButton key) = 0;
-  virtual void OnKey(Editor* editor, Key key) = 0;
-  virtual void OnEditor() = 0;
+  virtual void OnMouse(Editor* editor, MouseButton key, bool down) = 0;
+  virtual void OnKey(Editor* editor, Key key, bool down) = 0;
+  virtual void OnScroll(Editor* editor, const vec2i& scroll) = 0;
+  virtual void OnEditor(Editor* editor) = 0;
 };
 
 struct Tools;
@@ -256,12 +163,14 @@ struct Editor
   void Step()
     { tools.GetCurrentTool()->Step(this); }
 
-  void OnMouse(MouseButton button)
-    { tools.GetCurrentTool()->OnMouse(this, button); }
-  void OnKey(Key key)
-    { tools.GetCurrentTool()->OnKey(this, key); }
+  void OnMouse(MouseButton button, bool down)
+    { tools.GetCurrentTool()->OnMouse(this, button, down); }
+  void OnKey(Key key, bool down)
+    { tools.GetCurrentTool()->OnKey(this, key, down); }
+  void OnScroll(const vec2i& scroll)
+    { tools.GetCurrentTool()->OnScroll(this, scroll); }
   void OnEditor()
-    { tools.GetCurrentTool()->OnEditor(); }
+    { tools.GetCurrentTool()->OnEditor(this); }
 
   // todo(Gustav): move camera here so we can have camera movement
   // change so that fps control rotate focuspoint around current camera pos
@@ -276,9 +185,13 @@ struct NoTool : public Tool
   bool IsBusy(Editor*) override { return false; }
   void Step(Editor*) override {}
 
-  void OnMouse(Editor*, MouseButton) override {}
-  void OnKey(Editor*, Key) override {}
-  void OnEditor() override {}
+  void OnMouse(Editor*, MouseButton, bool) override {}
+  void OnKey(Editor*, Key, bool) override {}
+  void OnScroll(Editor*, const vec2i&) override {}
+  void OnEditor(Editor*) override
+  {
+    ImGui::Text("<No tool>");
+  }
 };
 
 struct PlaceMeshOnPlane : public Tool
@@ -312,9 +225,32 @@ struct PlaceMeshOnPlane : public Tool
     actor->SetPosition(p);
   }
 
-  void OnMouse(Editor*, MouseButton) override {}
-  void OnKey(Editor*, Key) override {}
-  void OnEditor() override {}
+  void OnMouse(Editor* editor, MouseButton button, bool down) override
+  {
+    if(down) return;
+    switch(button)
+    {
+      case MouseButton::LEFT:
+        editor->tools.PopTool();
+        break;
+    }
+  }
+
+  void OnKey(Editor* editor, Key key, bool down) override
+  {
+    if(down) return;
+    switch(key)
+    {
+      case Key::RETURN:
+        editor->tools.PopTool();
+        break;
+    }
+  }
+  void OnScroll(Editor*, const vec2i&) override {}  
+  void OnEditor(Editor*) override 
+  {
+    ImGui::Text("Placing object in world!");
+  }
 };
 
 
@@ -377,8 +313,8 @@ main(int argc, char** argv)
   fps.position = vec3f{0, 0, 3};
   engine.window->EnableCharEvent(!immersive_mode);
 
-  bool enviroment_window = true;
-  bool camera_window = true;
+  bool enviroment_window = false;
+  bool camera_window = false;
   bool tiles_window = true;
 
   while(running)
@@ -388,13 +324,108 @@ main(int argc, char** argv)
 
     editor.tools.PerformTools();
 
-    const auto events_handled = HandleEvents(
-        show_imgui, running, immersive_mode, fps, delta, &engine, &viewport_handler, &editor.mouse);
-      
-    if(events_handled)
     {
-      editor.Step();
+      SDL_Event e;
+      while(SDL_PollEvent(&e) != 0)
+      {
+        int window_width = 0;
+        int window_height = 0;
+        if(engine.HandleResize(e, &window_width, &window_height))
+        {
+          viewport_handler.SetSize(window_width, window_height);
+        }
+        if(show_imgui)
+        {
+          engine.imgui->ProcessEvents(&e);
+        }
+
+        auto& io = ImGui::GetIO();
+        const auto forward_keyboard = !(show_imgui && io.WantCaptureKeyboard);
+        const auto forward_mouse = !(show_imgui && io.WantCaptureMouse);
+
+        switch(e.type)
+        {
+          case SDL_QUIT:
+            running = false;
+            break;
+          case SDL_MOUSEMOTION:
+            if(forward_mouse)
+            {
+              editor.mouse = vec2i(e.motion.x, viewport_handler.height - e.motion.y);
+            }
+            if(!show_imgui)
+            {
+              fps.Look(e.motion.xrel, e.motion.yrel);
+            }
+            break;
+          case SDL_KEYDOWN:
+          case SDL_KEYUP:
+          {
+            const bool down = e.type == SDL_KEYDOWN;
+
+            if(!show_imgui)
+            {
+              fps.HandleKey(ToKey(e.key.keysym), down);
+            }
+
+            if(forward_keyboard)
+            {
+
+              switch(e.key.keysym.sym)
+              {
+                case SDLK_ESCAPE:
+                  if(down)
+                  {
+                    running = false;
+                  }
+                  break;
+                case SDLK_TAB:
+                  if(!down)
+                  {
+                    immersive_mode = !immersive_mode;
+                    engine.window->KeepWithin(immersive_mode);
+                    engine.window->EnableCharEvent(!immersive_mode);
+                  }
+                  break;
+                default:
+                  if(forward_keyboard)
+                  {
+                    editor.OnKey(ToKey(e.key.keysym), down);
+                  }
+                  break;
+              }
+            }
+          }
+          break;
+
+          case SDL_MOUSEBUTTONDOWN:
+          case SDL_MOUSEBUTTONUP:
+            if(forward_mouse)
+            {
+              const bool down = e.type == SDL_MOUSEBUTTONDOWN;
+              editor.OnMouse(ToKey(e.button), down);
+            }
+            break;
+          
+          case SDL_MOUSEWHEEL:
+            if(forward_mouse)
+            {
+              editor.OnScroll(vec2i(e.wheel.x, e.wheel.y));
+            }
+            break;
+
+
+
+          default:
+            // ignore other events
+            break;
+        }
+      }
+
+      fps.Update(delta);
     }
+      
+    editor.Step();
 
     if(show_imgui)
     {
