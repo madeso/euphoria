@@ -11,6 +11,11 @@
 
 namespace euphoria::render
 {
+    struct MaterialOverride
+    {
+        std::vector<CompiledMeshMaterial> materials;
+    };
+    
     struct Actor
     {
     public:
@@ -30,18 +35,6 @@ namespace euphoria::render
         void
         SetRotation(const core::quatf& rotation);
 
-        void
-        BeginMaterialOverride(unsigned int index);
-
-        bool
-        IsMaterialOverridden(unsigned int index) const;
-
-        CompiledMeshMaterial*
-        GetOverriddenMaterial(unsigned int index);
-
-        void
-        EndMaterialOverride(unsigned int index);
-
         core::mat4f
         GetModelMatrix() const;
 
@@ -58,13 +51,14 @@ namespace euphoria::render
                 std::shared_ptr<MaterialShader> shader);
 
 
+        std::shared_ptr<MaterialOverride>
+        CreateOverride();
+
+
         std::shared_ptr<CompiledMesh> mesh_;
+        std::shared_ptr<MaterialOverride> overriden_materials;
         core::vec3f                   position_;
         core::quatf                   rotation_;
-
-    private:
-        std::vector<std::shared_ptr<CompiledMeshMaterial>>
-                overridden_materials_;
 
     public:
         bool      has_outline;

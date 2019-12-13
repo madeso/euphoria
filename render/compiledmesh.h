@@ -21,6 +21,7 @@ namespace euphoria::render
     struct Texture2d;
     struct MaterialShader;
     struct Light;
+    struct MaterialOverride;
 
     struct MaterialShaderCache;
     struct TextureCache;
@@ -78,24 +79,26 @@ namespace euphoria::render
         std::vector<std::shared_ptr<CompiledMeshPart>> parts;
         std::vector<CompiledMeshMaterial>              materials;
 
-        std::vector<std::shared_ptr<CompiledMeshMaterial>>
-        GetNoOverriddenMaterials() const;
+        void
+        Render
+        (
+            const core::mat4f& model_matrix,
+            const core::mat4f& projection_matrix,
+            const core::mat4f& view_matrix,
+            const core::vec3f& camera,
+            const Light&       light,
+            const std::shared_ptr<MaterialOverride>& overridden_materials
+        );
+
 
         void
-        Render(const core::mat4f& model_matrix,
-               const core::mat4f& projection_matrix,
-               const core::mat4f& view_matrix,
-               const core::vec3f& camera,
-               const Light&       light,
-               const std::vector<std::shared_ptr<CompiledMeshMaterial>>&
-                       overridden_materials);
-
-        void
-        BasicRender(
-                const core::mat4f&              model_matrix,
-                const core::mat4f&              projection_matrix,
-                const core::mat4f&              view_matrix,
-                std::shared_ptr<MaterialShader> shader);
+        BasicRender
+        (
+            const core::mat4f&              model_matrix,
+            const core::mat4f&              projection_matrix,
+            const core::mat4f&              view_matrix,
+            std::shared_ptr<MaterialShader> shader
+        );
     };
 
     std::shared_ptr<CompiledMesh>

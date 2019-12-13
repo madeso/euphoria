@@ -204,8 +204,9 @@ main(int, char**)
 
     auto light_actor = std::make_shared<Actor>(light);
     world.AddActor(light_actor);
-    light_actor->BeginMaterialOverride(0);
-    auto* light_material = light_actor->GetOverriddenMaterial(0);
+    light_actor->overriden_materials = light_actor->CreateOverride();
+    ASSERT(light_actor->overriden_materials->materials.size() == 1);
+    auto& light_material = light_actor->overriden_materials->materials[0];
 
 #if 0
   auto loaded_dude = meshes::LoadMesh(&file_system, "nanosuit/nanosuit.obj");
@@ -270,10 +271,10 @@ main(int, char**)
 
             ImGui::End();
 
-            light_material->ambient   = world.light.GetAmbient();
-            light_material->diffuse   = world.light.GetDiffuse();
-            light_material->specular  = world.light.GetSpecular();
-            light_material->shininess = 10;
+            light_material.ambient   = world.light.GetAmbient();
+            light_material.diffuse   = world.light.GetDiffuse();
+            light_material.specular  = world.light.GetSpecular();
+            light_material.shininess = 10;
         }
 
         light_position

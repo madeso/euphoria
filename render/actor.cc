@@ -6,9 +6,9 @@ namespace euphoria::render
 {
     Actor::Actor(const std::shared_ptr<CompiledMesh>& mesh)
         : mesh_(mesh)
+        , overriden_materials()
         , position_(core::vec3f::Zero())
         , rotation_(core::quatf::Identity())
-        , overridden_materials_(mesh->GetNoOverriddenMaterials())
         , has_outline(false)
         , outline_color(core::Color::White)
     {
@@ -39,36 +39,17 @@ namespace euphoria::render
         rotation_ = rotation;
     }
 
-    void
-    Actor::BeginMaterialOverride(unsigned int index)
+    std::shared_ptr<MaterialOverride>
+    Actor::CreateOverride()
     {
-        ASSERT(index < overridden_materials_.size());
-        ASSERT(!IsMaterialOverridden(index));
-        overridden_materials_[index] = std::make_shared<CompiledMeshMaterial>(
-                mesh_->materials[index]);
-    }
-
-    bool
-    Actor::IsMaterialOverridden(unsigned int index) const
-    {
-        ASSERT(index < overridden_materials_.size());
-        return overridden_materials_[index] != nullptr;
-    }
-
-    CompiledMeshMaterial*
-    Actor::GetOverriddenMaterial(unsigned int index)
-    {
-        ASSERT(index < overridden_materials_.size());
-        ASSERT(IsMaterialOverridden(index));
-        return overridden_materials_[index].get();
-    }
-
-    void
-    Actor::EndMaterialOverride(unsigned int index)
-    {
-        ASSERT(index < overridden_materials_.size());
-        ASSERT(!IsMaterialOverridden(index));
-        overridden_materials_[index] = nullptr;
+        const auto s = mesh_->materials.size();
+        auto r = std::make_shared<MaterialOverride>();
+        r->materials.resize(s);
+        for(std::size_t index=0; index<s; index+=1)
+        {
+            r->materials[index] = mesh_->materials[index];
+        }
+        return r;
     }
 
     core::mat4f
@@ -90,7 +71,7 @@ namespace euphoria::render
                 view_matrix,
                 camera,
                 light,
-                overridden_materials_);
+                overriden_materials);
     }
 
     void

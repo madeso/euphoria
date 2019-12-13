@@ -16,6 +16,7 @@
 #include "render/attributebinder.h"
 #include "render/materialshadercache.h"
 #include "render/texturecache.h"
+#include "render/actor.h"
 
 namespace euphoria::render
 {
@@ -306,20 +307,6 @@ namespace euphoria::render
         return ret;
     }
 
-    std::vector<std::shared_ptr<CompiledMeshMaterial>>
-    CompiledMesh::GetNoOverriddenMaterials() const
-    {
-        std::vector<std::shared_ptr<CompiledMeshMaterial>> ret;
-        ret.reserve(materials.size());
-
-        for(unsigned int i = 0; i < materials.size(); ++i)
-        {
-            ret.push_back(nullptr);
-        }
-
-        return ret;
-    }
-
     void
     CompiledMesh::Render(
             const core::mat4f& model_matrix,
@@ -327,26 +314,29 @@ namespace euphoria::render
             const core::mat4f& view_matrix,
             const core::vec3f& camera,
             const Light&       light,
-            const std::vector<std::shared_ptr<CompiledMeshMaterial>>&
-                    overridden_materials)
+            const std::shared_ptr<MaterialOverride>& overridden_materials)
     {
-        ASSERT(materials.size() == overridden_materials.size());
+        ASSERT
+        (
+            overridden_materials == nullptr ||
+            materials.size() == overridden_materials->materials.size()
+        );
 
         for(const auto& part: parts)
         {
-            const auto& base_material = materials[part->material];
-            const auto& overridden_material
-                    = overridden_materials[part->material];
-            const auto& material = overridden_material == nullptr
-                                           ? base_material
-                                           : *overridden_material;
+            const auto& material
+                = overridden_materials == nullptr
+                ? materials[part->material]
+                : overridden_materials->materials[part->material];
 
-            material.Apply(
-                    model_matrix,
-                    projection_matrix,
-                    view_matrix,
-                    camera,
-                    light);
+            material.Apply
+            (
+                model_matrix,
+                projection_matrix,
+                view_matrix,
+                camera,
+                light
+            );
 
             PointLayout::Bind(&part->config);
             IndexBuffer::Bind(&part->tris);
