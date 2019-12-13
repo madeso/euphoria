@@ -9,14 +9,6 @@
 
 namespace euphoria::render
 {
-    World::World(core::vfs::FileSystem* file_system)
-    {
-        outline_shader.reset(new MaterialShader());
-        outline_shader->Load(file_system, "outline_shader");
-        outline_color.reset(new ShaderUniform {
-                outline_shader->shader.GetUniform("uColor")});
-    }
-
     void
     World::AddActor(const std::shared_ptr<Actor>& actor)
     {
@@ -37,12 +29,6 @@ namespace euphoria::render
         const auto projection_matrix = compiled.projection;
         const auto view_matrix       = compiled.view;
 
-        if(use_outline)
-        {
-            glEnable(GL_DEPTH_TEST);
-            glStencilOp(GL_KEEP, GL_REPLACE, GL_REPLACE);
-        }
-
         for(const auto& actor: actors_)
         {
             // todo: instead of direct rendering, move to a material sorting/render
@@ -54,45 +40,8 @@ namespace euphoria::render
             // http://aras-p.info/blog/2014/01/16/rough-sorting-by-depth/
             // useful?
             // https://gamedev.stackexchange.com/questions/45626/how-to-organize-rendering
-            if(use_outline)
-            {
-                if(actor->has_outline)
-                {
-                    glStencilFunc(GL_ALWAYS, 1, 0xFF);
-                    glStencilMask(0xFF);
-                }
-                else
-                {
-                    // glStencilFunc(GL_ALWAYS, 1, 0xFF);
-                    glStencilMask(0x00);
-                }
-            }
             actor->Render(
                     projection_matrix, view_matrix, camera.position, light);
-        }
-
-        if(use_outline)
-        {
-            glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
-            glStencilMask(0x00);
-            glDisable(GL_DEPTH_TEST);
-
-            outline_shader->UseShader();
-
-            for(const auto& actor: actors_)
-            {
-                if(actor->has_outline)
-                {
-                    outline_shader->shader.SetUniform(
-                            *outline_color, actor->outline_color);
-                    actor->BasicRender(
-                            projection_matrix, view_matrix, outline_shader);
-                }
-            }
-
-            glStencilOp(GL_ZERO, GL_ZERO, GL_ZERO);
-            glStencilMask(0xFF);
-            glEnable(GL_DEPTH_TEST);
         }
     }
 

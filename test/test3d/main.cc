@@ -124,7 +124,7 @@ main(int, char**)
 
     SdlTimer timer;
 
-    auto world = World {engine.file_system.get()};
+    auto world = World {};
 
     auto box_mesh1 = meshes::CreateCube(0.5f);
     box_mesh1.materials[0].SetTexture("Diffuse", "container2.png");

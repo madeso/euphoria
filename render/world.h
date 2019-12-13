@@ -27,17 +27,11 @@ namespace euphoria::render
     struct World
     {
     public:
-        explicit World(core::vfs::FileSystem* file_system);
-
         void
         AddActor(const std::shared_ptr<Actor>& actor);
 
         // todo: improve light support
         Light light;
-
-        // todo: move to a better place
-        std::shared_ptr<MaterialShader> outline_shader;
-        std::shared_ptr<ShaderUniform>  outline_color;
 
         void
         Render(const Viewport& viewport, const core::Camera& camera);
@@ -45,8 +39,6 @@ namespace euphoria::render
         void
         Render(const core::Camera&         camera,
                const core::CompiledCamera& compiled);
-
-        bool use_outline = false;
 
     private:
         std::vector<std::shared_ptr<Actor>> actors_;

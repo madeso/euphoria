@@ -9,8 +9,6 @@ namespace euphoria::render
         , overriden_materials()
         , position_(core::vec3f::Zero())
         , rotation_(core::quatf::Identity())
-        , has_outline(false)
-        , outline_color(core::Color::White)
     {
         ASSERT(mesh);
     }

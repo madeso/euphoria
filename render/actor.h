@@ -59,10 +59,6 @@ namespace euphoria::render
         std::shared_ptr<MaterialOverride> overriden_materials;
         core::vec3f                   position_;
         core::quatf                   rotation_;
-
-    public:
-        bool      has_outline;
-        core::Rgb outline_color;
     };
 
 }  // namespace euphoria::render

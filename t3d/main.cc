@@ -292,7 +292,7 @@ main(int argc, char** argv)
     return -2;
   }
 
-  World world {engine.file_system.get()};
+  World world;
 
   Camera camera {};
   camera.position = vec3f(0, 0, 0);

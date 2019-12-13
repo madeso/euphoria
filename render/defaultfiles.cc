@@ -211,53 +211,6 @@ namespace euphoria::render
                         FragColor = vec4(uDiffuse, 1.0);
                     }
                 )glsl");
-
-
-        ///////////////////////////////////////////////////////////////////////
-        // outline_shader
-        catalog->RegisterFileString(
-                "outline_shader.json",
-                R"json(
-                    {
-                        "diffuse": "uColor",
-                        "has_light": false,
-                        "textures": [],
-                        "default_textures": []
-                    }
-                    )json");
-        catalog->RegisterFileString(
-                "outline_shader.vert",
-                R"glsl(
-                    #version 330 core
-
-                    in vec3 aPosition;
-                    in vec3 aNormal;
-                    in vec2 aTexCoord;
-                    
-                    uniform mat4 uProjection;
-                    uniform mat4 uView;
-                    uniform mat4 uModel;
-                    uniform mat3 uNormalMatrix;
-                    
-                    void main()
-                    {
-                        gl_Position = uProjection * uView * uModel 
-                                      * vec4(aPosition + aNormal*0.02, 1.0);
-                    }
-                    )glsl");
-        catalog->RegisterFileString(
-                "outline_shader.frag",
-                R"glsl(
-                #version 330 core
-
-                out vec4 FragColor;
-                uniform vec3 uColor;
-
-                void main()
-                {
-                    FragColor = vec4(uColor, 1.0);
-                }
-                )glsl");
     }
 
 }  // namespace euphoria::render
