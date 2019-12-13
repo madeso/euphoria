@@ -34,6 +34,9 @@ target_link_libraries(tabletool core)
 add_executable(three-dump three-dump.cc)
 target_link_libraries(three-dump core)
 
+add_executable(identicon identicon-main.cc)
+target_link_libraries(identicon core)
+
 add_executable(tracery tracery.cc)
 target_link_libraries(tracery core)
 
