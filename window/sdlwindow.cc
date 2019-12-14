@@ -2,7 +2,7 @@
 
 #include "core/log.h"
 
-#include <SDL.h>
+#include "SDL.h"
 
 namespace euphoria::window
 {

@@ -5,7 +5,7 @@
 #ifndef EUPHORIA_TIMER_H
 #define EUPHORIA_TIMER_H
 
-#include <SDL_types.h>
+#include "SDL_types.h"
 
 
 namespace euphoria::window

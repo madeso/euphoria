@@ -4,7 +4,7 @@
 
 #include "window/sdlwindow.h"
 
-#include <SDL.h>
+#include "SDL.h"
 
 
 namespace euphoria::window

@@ -24,11 +24,11 @@
 #include "render/texture.h"
 #include "render/viewport.h"
 #include "render/world.h"
-#include <render/compiledmesh.h>
-#include <render/debuggl.h>
-#include <render/init.h>
-#include <render/materialshader.h>
-#include <render/texturecache.h>
+#include "render/compiledmesh.h"
+#include "render/debuggl.h"
+#include "render/init.h"
+#include "render/materialshader.h"
+#include "render/texturecache.h"
 #include "render/viewporthandler.h"
 #include "render/actor.h"
 
@@ -43,7 +43,7 @@
 #include "window/engine.h"
 
 #include "imgui/imgui.h"
-#include <SDL.h>
+#include "SDL.h"
 #include <iostream>
 #include <memory>
 

@@ -1,7 +1,7 @@
 #ifndef EUPHORIA_WINDOW_IMGUI_EXTRA_H
 #define EUPHORIA_WINDOW_IMGUI_EXTRA_H
 
-#include <imgui/imgui.h>
+#include "imgui/imgui.h"
 
 namespace imgui
 {

@@ -3,7 +3,7 @@
 
 #include <vector>
 
-#include <core/assert.h>
+#include "core/assert.h"
 
 #include "core/ints.h"
 #include "core/vec2.h"

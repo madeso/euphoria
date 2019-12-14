@@ -1,4 +1,4 @@
-#include <core/mat4.h>
+#include "core/mat4.h"
 #include "core/random.h"
 #include "core/mat4.h"
 #include "core/axisangle.h"
@@ -17,11 +17,11 @@
 
 #include "core/path.h"
 
-#include <render/init.h>
-#include <render/debuggl.h>
-#include <render/materialshader.h>
-#include <render/compiledmesh.h>
-#include <render/texturecache.h>
+#include "render/init.h"
+#include "render/debuggl.h"
+#include "render/materialshader.h"
+#include "render/compiledmesh.h"
+#include "render/texturecache.h"
 #include "render/shaderattribute3d.h"
 #include "render/texture.h"
 #include "render/world.h"
@@ -42,7 +42,7 @@
 #include "window/canvas.h"
 
 #include "imgui/imgui.h"
-#include <SDL.h>
+#include "SDL.h"
 #include <iostream>
 #include <memory>
 

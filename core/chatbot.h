@@ -7,7 +7,7 @@
 #include <memory>
 #include <deque>
 
-#include <core/random.h>
+#include "core/random.h"
 
 namespace euphoria::core
 {

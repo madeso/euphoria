@@ -1,6 +1,6 @@
 #include "window/timer.h"
 
-#include <SDL_timer.h>
+#include "SDL_timer.h"
 
 namespace euphoria::window
 {

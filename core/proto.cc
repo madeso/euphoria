@@ -6,9 +6,9 @@
 #include "core/vfs.h"
 #include "core/str.h"
 
-#include <rapidjson/error/en.h>
-#include <rapidjson/stream.h>
-#include <rapidjson/cursorstreamwrapper.h>
+#include "rapidjson/error/en.h"
+#include "rapidjson/stream.h"
+#include "rapidjson/cursorstreamwrapper.h"
 
 #include <fstream>
 

@@ -8,11 +8,11 @@
 #include "core/stringmerger.h"
 #include "core/vfs.h"
 
-#include <assimp/Importer.hpp>
-#include <assimp/IOSystem.hpp>
-#include <assimp/IOStream.hpp>
-#include <assimp/scene.h>
-#include <assimp/postprocess.h>
+#include "assimp/Importer.hpp"
+#include "assimp/IOSystem.hpp"
+#include "assimp/IOStream.hpp"
+#include "assimp/scene.h"
+#include "assimp/postprocess.h"
 
 #include <sstream>
 #include <utility>

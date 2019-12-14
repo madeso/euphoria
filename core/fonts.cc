@@ -8,10 +8,10 @@
 #include "core/image_draw.h"
 #include "core/utf8.h"
 
-#include <ft2build.h>
+#include "ft2build.h"
 #include FT_FREETYPE_H
 
-#include <font8x8/font8x8_basic.h>
+#include "font8x8/font8x8_basic.h"
 
 namespace euphoria::core
 {

@@ -1,6 +1,6 @@
 #include "window/filesystem.h"
 
-#include <SDL_filesystem.h>
+#include "SDL_filesystem.h"
 
 namespace euphoria::window
 {

@@ -1,7 +1,7 @@
 #ifndef EUPHORIA_SDLGLCONTEXT_H
 #define EUPHORIA_SDLGLCONTEXT_H
 
-#include <SDL_video.h>
+#include "SDL_video.h"
 
 
 namespace euphoria::window
