@@ -257,7 +257,7 @@ struct PlaceMeshOnPlane : public Tool
 int
 main(int argc, char** argv)
 {
-  Engine engine;
+  auto engine = Engine{};
 
   if(engine.Setup(argparse::Args::Extract(argc, argv)) == false)
   {
@@ -272,18 +272,17 @@ main(int argc, char** argv)
     return -1;
   }
 
-  ViewportHandler viewport_handler;
-
+  auto viewport_handler = ViewportHandler{};
   viewport_handler.SetSize(width, height);
 
-  MaterialShaderCache material_shader_cache{engine.file_system.get()};
+  auto material_shader_cache = MaterialShaderCache{engine.file_system.get()};
 
   // SET_ENUM_VALUES(TextureType, SetupTextureNames);
   SET_ENUM_FROM_FILE(engine.file_system.get(), "texture_types.json", TextureType);
 
-  TextureCache texture_cache{engine.file_system.get()};
+  auto texture_cache = TextureCache{engine.file_system.get()};
 
-  TileLibrary tile_library {engine.file_system.get()};
+  auto tile_library = TileLibrary{engine.file_system.get()};
   tile_library.AddDirectory("world", &material_shader_cache, &texture_cache);
 
   if(tile_library.tiles.empty())
@@ -292,9 +291,9 @@ main(int argc, char** argv)
     return -2;
   }
 
-  World world;
+  auto world = World{};
 
-  Camera camera {};
+  auto camera = Camera{};
   camera.position = vec3f(0, 0, 0);
 
   Editor editor {&world, &tile_library};
