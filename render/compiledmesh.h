@@ -89,16 +89,6 @@ namespace euphoria::render
             const Light&       light,
             const std::shared_ptr<MaterialOverride>& overridden_materials
         );
-
-
-        void
-        BasicRender
-        (
-            const core::mat4f&              model_matrix,
-            const core::mat4f&              projection_matrix,
-            const core::mat4f&              view_matrix,
-            std::shared_ptr<MaterialShader> shader
-        );
     };
 
     std::shared_ptr<CompiledMesh>

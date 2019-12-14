@@ -44,12 +44,6 @@ namespace euphoria::render
                const core::vec3f& camera,
                const Light&       light);
 
-        void
-        BasicRender(
-                const core::mat4f&              projection_matrix,
-                const core::mat4f&              view_matrix,
-                std::shared_ptr<MaterialShader> shader);
-
 
         std::shared_ptr<MaterialOverride>
         CreateOverride();

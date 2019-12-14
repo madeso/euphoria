@@ -72,14 +72,4 @@ namespace euphoria::render
                 overriden_materials);
     }
 
-    void
-    Actor::BasicRender(
-            const core::mat4f&              projection_matrix,
-            const core::mat4f&              view_matrix,
-            std::shared_ptr<MaterialShader> shader)
-    {
-        mesh_->BasicRender(
-                GetModelMatrix(), projection_matrix, view_matrix, shader);
-    }
-
 }  // namespace euphoria::render

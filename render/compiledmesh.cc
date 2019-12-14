@@ -346,25 +346,4 @@ namespace euphoria::render
         }
     }
 
-    void
-    CompiledMesh::BasicRender(
-            const core::mat4f&              model_matrix,
-            const core::mat4f&              projection_matrix,
-            const core::mat4f&              view_matrix,
-            std::shared_ptr<MaterialShader> shader)
-    {
-        shader->SetProjection(projection_matrix);
-        shader->SetModel(model_matrix);
-        shader->SetView(view_matrix);
-
-        for(const auto& part: parts)
-        {
-            PointLayout::Bind(&part->config);
-            IndexBuffer::Bind(&part->tris);
-            part->tris.Draw(part->tri_count);
-            IndexBuffer::Bind(nullptr);
-            PointLayout::Bind(nullptr);
-        }
-    }
-
 }  // namespace euphoria::render
