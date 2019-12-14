@@ -55,7 +55,6 @@
 
 #include "window/imgui_extra.h"
 #include "window/timgui.h"
-#include "window/solarized.h"
 
 #include "minsynth/synth.h"
 
@@ -90,31 +89,6 @@ public:
         // Setup style
         ImGui::StyleColorsDark();
         // ImGui::StyleColorsClassic();
-
-        SetupStyle();
-        SetupSolarized(true);
-    }
-
-    void
-    SetupStyle()
-    {
-        ImGuiStyle& style = ImGui::GetStyle();
-
-        style.FrameBorderSize  = 1.0f;
-        style.WindowPadding    = ImVec2(10, 10);
-        style.FramePadding     = ImVec2(6, 2);
-        style.ItemSpacing      = ImVec2(6, 4);
-        style.ItemInnerSpacing = ImVec2(8, 6);
-        style.IndentSpacing    = 25.0f;
-        style.ScrollbarSize    = 15.0f;
-        style.GrabMinSize      = 12.0f;
-
-        style.WindowRounding    = 0.0f;
-        style.FrameRounding     = 0.0f;
-        style.GrabRounding      = 0.0f;
-        style.ScrollbarRounding = 0.0f;
-        style.PopupRounding     = 0.0f;
-        style.ChildRounding     = 0.0f;
     }
 
     void
@@ -408,17 +382,6 @@ public:
             if(ImGui::Button("Dark"))
             {
                 ImGui::StyleColorsDark();
-            }
-
-            ImGui::Text("Solarized");
-            if(ImGui::Button("Light##solarized"))
-            {
-                SetupSolarized(true);
-            }
-            ImGui::SameLine();
-            if(ImGui::Button("Dark##solarized"))
-            {
-                SetupSolarized(false);
             }
         }
         ImGui::End();
