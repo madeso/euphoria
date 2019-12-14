@@ -7,6 +7,8 @@
 #include "core/vec3.h"
 #include "core/quat.h"
 #include "core/rgb.h"
+
+#include "render/instance.h"
 #include "render/compiledmesh.h"
 
 namespace euphoria::render
@@ -16,7 +18,7 @@ namespace euphoria::render
         std::vector<CompiledMeshMaterial> materials;
     };
     
-    struct Actor
+    struct Actor : public Instance
     {
     public:
         Actor(const std::shared_ptr<CompiledMesh>& mesh);
@@ -39,10 +41,13 @@ namespace euphoria::render
         GetModelMatrix() const;
 
         void
-        Render(const core::mat4f& projection_matrix,
-               const core::mat4f& view_matrix,
-               const core::vec3f& camera,
-               const Light&       light);
+        Render
+        (
+            const core::mat4f& projection_matrix,
+            const core::mat4f& view_matrix,
+            const core::vec3f& camera,
+            const Light&       light
+        ) override;
 
 
         std::shared_ptr<MaterialOverride>

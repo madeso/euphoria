@@ -10,7 +10,7 @@
 namespace euphoria::render
 {
     void
-    World::AddActor(const std::shared_ptr<Actor>& actor)
+    World::AddActor(const std::shared_ptr<Instance>& actor)
     {
         actors_.push_back(actor);
     }

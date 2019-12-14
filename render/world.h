@@ -4,7 +4,7 @@
 #include <memory>
 #include <vector>
 
-#include "render/actor.h"
+#include "render/instance.h"
 #include "render/light.h"
 
 namespace euphoria::core
@@ -28,7 +28,7 @@ namespace euphoria::render
     {
     public:
         void
-        AddActor(const std::shared_ptr<Actor>& actor);
+        AddActor(const std::shared_ptr<Instance>& actor);
 
         // todo: improve light support
         Light light;
@@ -41,7 +41,7 @@ namespace euphoria::render
                const core::CompiledCamera& compiled);
 
     private:
-        std::vector<std::shared_ptr<Actor>> actors_;
+        std::vector<std::shared_ptr<Instance>> actors_;
     };
 
 }  // namespace euphoria::render

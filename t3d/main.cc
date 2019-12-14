@@ -30,6 +30,7 @@
 #include <render/materialshader.h>
 #include <render/texturecache.h>
 #include "render/viewporthandler.h"
+#include "render/actor.h"
 
 #include "window/filesystem.h"
 #include "window/imgui_ext.h"
