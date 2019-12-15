@@ -7,6 +7,8 @@
 #include "render/viewport.h"
 #include "render/gl.h"
 
+#include <algorithm>
+
 namespace euphoria::render
 {
     void
@@ -22,6 +24,24 @@ namespace euphoria::render
     }
 
     void
+    World::Step()
+    {
+        actors_.erase
+        (
+            std::remove_if
+            (
+                actors_.begin(),
+                actors_.end(),
+                [](const std::shared_ptr<Instance>& instance)
+                {
+                    return instance->remove_this;
+                }
+            ),
+            actors_.end()
+        );
+    }
+
+    void
     World::Render(
             const core::Camera&         camera,
             const core::CompiledCamera& compiled)
@@ -31,6 +51,11 @@ namespace euphoria::render
 
         for(const auto& actor: actors_)
         {
+            if(actor->remove_this)
+            {
+                continue;
+            }
+
             // todo: instead of direct rendering, move to a material sorting/render
             // command system
             // general design: http://realtimecollisiondetection.net/blog/?p=86

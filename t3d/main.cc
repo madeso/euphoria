@@ -359,7 +359,7 @@ main(int argc, char** argv)
     return grid;
   };
 
-  add_grid(0.5f, 1.0f, 10.0f);
+  auto grid = add_grid(0.5f, 1.0f, 10.0f);
 
   FpsController fps;
   fps.position = vec3f{0, 0, 3};
@@ -374,6 +374,7 @@ main(int argc, char** argv)
     const bool  show_imgui = !immersive_mode;
     const float delta      = timer.Update();
 
+    world.Step();
     editor.tools.PerformTools();
 
     {
@@ -438,6 +439,9 @@ main(int argc, char** argv)
                     engine.window->KeepWithin(immersive_mode);
                     engine.window->EnableCharEvent(!immersive_mode);
                   }
+                  break;
+                case SDLK_g:
+                  grid->remove_this = true;
                   break;
                 default:
                   if(forward_keyboard)

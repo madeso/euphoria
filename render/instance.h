@@ -53,6 +53,9 @@ namespace euphoria::render
         ) = 0;
 
 
+        bool remove_this = false;
+
+
     private:
         core::vec3f                   position;
         core::quatf                   rotation;

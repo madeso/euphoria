@@ -37,6 +37,9 @@ namespace euphoria::render
         Render(const Viewport& viewport, const core::Camera& camera);
 
         void
+        Step();
+
+        void
         Render(const core::Camera&         camera,
                const core::CompiledCamera& compiled);
 
