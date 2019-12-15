@@ -16,6 +16,7 @@
 #include "core/log.h"
 #include "core/plane.h"
 #include "core/intersection.h"
+#include "core/lines.h"
 
 // #include "render/camera.h"
 #include "render/defaultfiles.h"
@@ -31,6 +32,8 @@
 #include "render/texturecache.h"
 #include "render/viewporthandler.h"
 #include "render/actor.h"
+#include "render/compiledlines.h"
+#include "render/positionedlines.h"
 
 #include "window/filesystem.h"
 #include "window/imgui_ext.h"
@@ -306,6 +309,30 @@ main(int argc, char** argv)
 
 
   bool immersive_mode = false;
+
+  {
+    constexpr auto step = 0.5f;
+    constexpr auto size = 10.0f;
+    constexpr auto color = Color::Black;
+    constexpr auto x_color = Color::PureBlue;
+    constexpr auto z_color = Color::PureRed;
+
+    auto def = Lines{};
+    for(float x = step; x < size; x+= step)
+    {
+      def.AddLine(vec3f{x, 0, -size}, vec3f{x, 0, size}, color);
+      def.AddLine(vec3f{-size, 0, x}, vec3f{size, 0, x}, color);
+      def.AddLine(vec3f{-x, 0, -size}, vec3f{-x, 0, size}, color);
+      def.AddLine(vec3f{-size, 0, -x}, vec3f{size, 0, -x}, color);
+    }
+
+    def.AddLine(vec3f{-size, 0, 0}, vec3f{size, 0, 0}, x_color);
+    def.AddLine(vec3f{0, 0, -size}, vec3f{0, 0, size}, z_color);
+
+    auto compiled = Compile(&material_shader_cache, def);
+    auto grid = std::make_shared<PositionedLines>(compiled);
+    world.AddActor(grid);
+  }
 
   
 

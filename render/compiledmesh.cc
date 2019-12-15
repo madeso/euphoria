@@ -31,6 +31,7 @@ namespace euphoria::render
         , shininess(135.0f)
     {}
 
+
     void
     CompiledMeshMaterial::SetTexture(
             const core::EnumValue&     name,
@@ -42,6 +43,7 @@ namespace euphoria::render
         }
         textures[name] = std::move(texture);
     }
+
 
     void
     CompiledMeshMaterial::Apply(
@@ -83,6 +85,7 @@ namespace euphoria::render
         }
     }
 
+
     void
     CompiledMeshMaterial::LoadDefaultMaterialsFromShader(TextureCache* cache)
     {
@@ -97,6 +100,7 @@ namespace euphoria::render
             }
         }
     }
+
 
     bool
     CompiledMeshMaterial::Validate() const
@@ -144,6 +148,7 @@ namespace euphoria::render
     {
         DEFINE_ENUM_VALUE(core::TextureType, DiffuseType, "Diffuse");  // NOLINT
     }  // namespace
+
 
     void
     ConvertPointsToVertexBuffer(
@@ -195,6 +200,7 @@ namespace euphoria::render
         }
         vb->SetData(data);
     }
+
 
     void
     ConvertTrisToIndexBuffer(
@@ -307,6 +313,7 @@ namespace euphoria::render
         return ret;
     }
 
+
     void
     CompiledMesh::Render(
             const core::mat4f& model_matrix,
@@ -340,7 +347,7 @@ namespace euphoria::render
 
             PointLayout::Bind(&part->config);
             IndexBuffer::Bind(&part->tris);
-            part->tris.Draw(part->tri_count);
+            part->tris.Draw(RenderMode::Triangles, part->tri_count);
             IndexBuffer::Bind(nullptr);
             PointLayout::Bind(nullptr);
         }

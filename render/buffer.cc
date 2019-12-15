@@ -138,7 +138,7 @@ namespace euphoria::render
     }
 
     void
-    IndexBuffer::Draw(int count) const
+    IndexBuffer::Draw(RenderMode mode, int count) const
     {
         ASSERT(PointLayout::GetBound() != nullptr);
         ASSERT(Shader::CurrentlyBound() != nullptr);
@@ -163,8 +163,14 @@ namespace euphoria::render
             }
         }
 
-
-        glDrawElements(GL_TRIANGLES, count * 3, GL_UNSIGNED_INT, nullptr);
+        if(mode == RenderMode::Triangles)
+        {
+            glDrawElements(GL_TRIANGLES, count * 3, GL_UNSIGNED_INT, nullptr);
+        }
+        else
+        {
+            glDrawElements(GL_LINES, count * 2, GL_UNSIGNED_INT, nullptr);
+        }
     }
 
     void

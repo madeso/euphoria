@@ -29,8 +29,9 @@ namespace euphoria::render
     void
     Buffer2d::Draw() const
     {
+        DIE("Hrm... using triangles doesn't look right here. Investigate!");
         PointLayout::Bind(&vao_);
-        ebo_.Draw(index_count_);
+        ebo_.Draw(RenderMode::Triangles, index_count_);
         PointLayout::Bind(nullptr);
     }
 

@@ -16,53 +16,68 @@ namespace euphoria::core
     }
 }  // namespace euphoria::core
 
+
 namespace euphoria::render
 {
     struct Texture2d;
     struct MaterialShader;
     struct Light;
     struct MaterialOverride;
-
     struct MaterialShaderCache;
     struct TextureCache;
+
 
     // one part of the mesh, single material
     struct CompiledMeshPart
     {
-        // todo(Gustav): move vertex buffer and point layout to the compile mesh instead
+        // todo(Gustav): move vertex buffer and point layout to the
+        //   compile mesh instead
         VertexBuffer data;
-        PointLayout
-                     config;  // todo(Gustav): rename to something better... like layout?
+
+        // todo(Gustav): rename config to something better... like layout?
+        PointLayout config;
         IndexBuffer  tris;
         int          tri_count;
         unsigned int material;
     };
 
+
     struct CompiledMeshMaterial
     {
         CompiledMeshMaterial();
 
-        void
-        SetTexture(
-                const core::EnumValue&     name,
-                std::shared_ptr<Texture2d> texture);
 
         void
-        Apply(const core::mat4f& model_matrix,
-              const core::mat4f& projection_matrix,
-              const core::mat4f& view_matrix,
-              const core::vec3f& camera,
-              const Light&       light) const;
+        SetTexture
+        (
+            const core::EnumValue&     name,
+            std::shared_ptr<Texture2d> texture
+        );
+
+
+        void
+        Apply
+        (
+            const core::mat4f& model_matrix,
+            const core::mat4f& projection_matrix,
+            const core::mat4f& view_matrix,
+            const core::vec3f& camera,
+            const Light&       light
+        ) const;
+
 
         /** Gets the default materials from the shader if they are null/not set.
          */
         void
         LoadDefaultMaterialsFromShader(TextureCache* cache);
 
-        /** Asks the shader if all the textures are set, and if more than necessary are set.
+
+        /** Asks the shader if all the textures are set,
+         * and if more than necessary are set.
          */
         bool
         Validate() const;
+
 
         core::Rgb                                             ambient;
         core::Rgb                                             diffuse;
@@ -72,12 +87,14 @@ namespace euphoria::render
         std::map<core::EnumValue, std::shared_ptr<Texture2d>> textures;
     };
 
+
     /** A collection of parts making up a mesh.
      */
     struct CompiledMesh
     {
         std::vector<std::shared_ptr<CompiledMeshPart>> parts;
         std::vector<CompiledMeshMaterial>              materials;
+
 
         void
         Render
@@ -90,6 +107,7 @@ namespace euphoria::render
             const std::shared_ptr<MaterialOverride>& overridden_materials
         );
     };
+
 
     std::shared_ptr<CompiledMesh>
     CompileMesh(

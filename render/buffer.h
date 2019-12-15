@@ -49,6 +49,9 @@ namespace euphoria::render
         std::vector<ShaderAttribute> attributes;
     };
 
+    enum class RenderMode
+    {Lines, Triangles};
+
     /** Reuses points.
      * Represents a OpenGL Element Buffer Object (EBO).
      */
@@ -63,7 +66,7 @@ namespace euphoria::render
 
         // count = the number of triangles
         void
-        Draw(int count) const;
+        Draw(RenderMode mode, int count) const;
 
         static void
         Bind(const IndexBuffer* ebo);

@@ -22,7 +22,8 @@ namespace euphoria::render
         Unknown,
         Vertex,
         Normal,
-        Uv
+        Uv,
+        Color
     };
 
     /** Respresents a shder attribute like vertex, normal or uv coord.

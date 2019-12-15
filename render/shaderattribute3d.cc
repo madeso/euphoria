@@ -18,6 +18,7 @@ namespace euphoria::render
             return Attribute;
         }
 
+
         const ShaderAttribute&
         Normal()
         {
@@ -27,6 +28,7 @@ namespace euphoria::render
                                               ShaderAttributeSource::Normal};
             return Attribute;
         }
+
 
         const ShaderAttribute&
         TexCoord()
@@ -38,6 +40,21 @@ namespace euphoria::render
             return Attribute;
         }
 
+
+        const ShaderAttribute&
+        Color()
+        {
+            static ShaderAttribute Attribute
+            {
+                4,
+                ShaderAttributeType::FLOAT3,
+                "aColor",
+                ShaderAttributeSource::Color
+            };
+            return Attribute;
+        }
+
+
         void
         PrebindShader(Shader* shader)
         {
@@ -45,6 +62,7 @@ namespace euphoria::render
             shader->PreBind(Vertex());
             shader->PreBind(Normal());
             shader->PreBind(TexCoord());
+            shader->PreBind(Color());
         }
     }  // namespace attributes3d
 }  // namespace euphoria::render

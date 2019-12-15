@@ -18,10 +18,19 @@ namespace euphoria::render
     {
         const ShaderAttribute&
         Vertex();
+
+
         const ShaderAttribute&
         Normal();
+
+
         const ShaderAttribute&
         TexCoord();
+
+
+        const ShaderAttribute&
+        Color();
+
 
         void
         PrebindShader(Shader* shader);
