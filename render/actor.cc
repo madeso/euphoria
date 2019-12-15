@@ -7,34 +7,8 @@ namespace euphoria::render
     Actor::Actor(const std::shared_ptr<CompiledMesh>& mesh)
         : mesh_(mesh)
         , overriden_materials()
-        , position_(core::vec3f::Zero())
-        , rotation_(core::quatf::Identity())
     {
         ASSERT(mesh);
-    }
-
-    const core::vec3f&
-    Actor::GetPosition()
-    {
-        return position_;
-    }
-
-    const core::quatf&
-    Actor::GetRotation()
-    {
-        return rotation_;
-    }
-
-    void
-    Actor::SetPosition(const core::vec3f& position)
-    {
-        position_ = position;
-    }
-
-    void
-    Actor::SetRotation(const core::quatf& rotation)
-    {
-        rotation_ = rotation;
     }
 
     std::shared_ptr<MaterialOverride>
@@ -48,12 +22,6 @@ namespace euphoria::render
             r->materials[index] = mesh_->materials[index];
         }
         return r;
-    }
-
-    core::mat4f
-    Actor::GetModelMatrix() const
-    {
-        return core::mat4f::FromTranslation(position_) * rotation_.ToMat4();
     }
 
     void

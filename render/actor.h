@@ -23,23 +23,6 @@ namespace euphoria::render
     public:
         Actor(const std::shared_ptr<CompiledMesh>& mesh);
 
-        // todo: make poisition and rotation public and skip getters and setters
-
-        const core::vec3f&
-        GetPosition();
-
-        const core::quatf&
-        GetRotation();
-
-        void
-        SetPosition(const core::vec3f& position);
-
-        void
-        SetRotation(const core::quatf& rotation);
-
-        core::mat4f
-        GetModelMatrix() const;
-
         void
         Render
         (
@@ -52,12 +35,10 @@ namespace euphoria::render
 
         std::shared_ptr<MaterialOverride>
         CreateOverride();
-
+        
 
         std::shared_ptr<CompiledMesh> mesh_;
         std::shared_ptr<MaterialOverride> overriden_materials;
-        core::vec3f                   position_;
-        core::quatf                   rotation_;
     };
 
 }  // namespace euphoria::render

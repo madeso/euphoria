@@ -3,6 +3,7 @@
 
 #include "core/mat4.h"
 #include "core/vec3.h"
+#include "core/quat.h"
 
 namespace euphoria::render
 {
@@ -10,7 +11,37 @@ namespace euphoria::render
 
     struct Instance
     {
+        Instance();
+
+
         virtual ~Instance() = default;
+
+
+        // todo(Gustav): make poisition and rotation public and skip
+        // getters and setters or provide a position/rotation dirty flag
+        // that the world can clear when it has repositioned the instance
+        // in the current layout.
+
+
+        const core::vec3f&
+        GetPosition();
+
+
+        const core::quatf&
+        GetRotation();
+
+
+        void
+        SetPosition(const core::vec3f& position);
+
+
+        void
+        SetRotation(const core::quatf& rotation);
+
+
+        core::mat4f
+        GetModelMatrix() const;
+
 
         virtual void
         Render
@@ -20,6 +51,11 @@ namespace euphoria::render
             const core::vec3f& camera,
             const Light&       light
         ) = 0;
+
+
+    private:
+        core::vec3f                   position;
+        core::quatf                   rotation;
     };
 }
 
