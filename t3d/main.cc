@@ -310,20 +310,44 @@ main(int argc, char** argv)
 
   bool immersive_mode = false;
 
+  auto add_single_grid_line = []
+  (
+    Lines& def,
+    float size,
+    float x,
+    const Rgb& color
+  )
   {
-    constexpr auto step = 0.5f;
-    constexpr auto size = 10.0f;
-    constexpr auto color = Color::Black;
+    def.AddLine(vec3f{x, 0, -size}, vec3f{x, 0, size}, color);
+    def.AddLine(vec3f{-size, 0, x}, vec3f{size, 0, x}, color);
+    def.AddLine(vec3f{-x, 0, -size}, vec3f{-x, 0, size}, color);
+    def.AddLine(vec3f{-size, 0, -x}, vec3f{size, 0, -x}, color);
+  };
+
+  auto add_grid = [&material_shader_cache, &world, &add_single_grid_line]
+  (
+    float small_step,
+    float big_step,
+    float size
+  ) -> std::shared_ptr<PositionedLines>
+  {
+    constexpr auto small_color = Color::Gray;
+    constexpr auto big_color = Color::Black;
     constexpr auto x_color = Color::PureBlue;
     constexpr auto z_color = Color::PureRed;
 
     auto def = Lines{};
-    for(float x = step; x < size; x+= step)
+    for(float x = small_step; x < size; x+= small_step)
     {
-      def.AddLine(vec3f{x, 0, -size}, vec3f{x, 0, size}, color);
-      def.AddLine(vec3f{-size, 0, x}, vec3f{size, 0, x}, color);
-      def.AddLine(vec3f{-x, 0, -size}, vec3f{-x, 0, size}, color);
-      def.AddLine(vec3f{-size, 0, -x}, vec3f{size, 0, -x}, color);
+      if(!IsZero(fmod(x, big_step)))
+      {
+        add_single_grid_line(def, size, x, small_color);
+      }
+    }
+
+    for(float x = big_step; x < size; x+= big_step)
+    {
+      add_single_grid_line(def, size, x, big_color);
     }
 
     def.AddLine(vec3f{-size, 0, 0}, vec3f{size, 0, 0}, x_color);
@@ -332,9 +356,10 @@ main(int argc, char** argv)
     auto compiled = Compile(&material_shader_cache, def);
     auto grid = std::make_shared<PositionedLines>(compiled);
     world.AddActor(grid);
-  }
+    return grid;
+  };
 
-  
+  add_grid(0.5f, 1.0f, 10.0f);
 
   FpsController fps;
   fps.position = vec3f{0, 0, 3};
