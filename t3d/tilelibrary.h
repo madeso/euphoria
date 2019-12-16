@@ -9,47 +9,45 @@
 
 namespace euphoria::core::vfs
 {
-  struct FileSystem;
+    struct FileSystem;
 }
 
 namespace euphoria::t3d
 {
+    class Tile
+    {
+    public:
+        Tile();
+        ~Tile();
 
-class Tile
-{
- public:
-  Tile();
-  ~Tile();
+        std::string path;
+        core::Aabb  aabb;
+        std::string name;
 
-  std::string path;
-  core::Aabb        aabb;
-  std::string name;
+        std::shared_ptr<render::CompiledMesh> mesh;
+    };
 
-  std::shared_ptr<render::CompiledMesh> mesh;
-};
+    class TileLibrary
+    {
+    public:
+        core::vfs::FileSystem* file_system;
 
-class TileLibrary
-{
- public:
- core::vfs::FileSystem* file_system;
+        TileLibrary(core::vfs::FileSystem* fs);
 
- TileLibrary(core::vfs::FileSystem* fs);
+        void
+        AddDirectory(
+                const std::string&           directory_path,
+                render::MaterialShaderCache* shader_cache,
+                render::TextureCache*        texture_cache);
 
-  void
-  AddDirectory(
-      const std::string&   directory_path,
-      render::MaterialShaderCache* shader_cache,
-      render::TextureCache*        texture_cache);
+        void
+        AddFile(const std::string&           path,
+                render::MaterialShaderCache* shader_cache,
+                render::TextureCache*        texture_cache);
 
-  void
-  AddFile(
-      const std::string&   path,
-      render::MaterialShaderCache* shader_cache,
-      render::TextureCache*        texture_cache);
+        std::vector<std::shared_ptr<Tile>> tiles;
+    };
 
-  std::vector<std::shared_ptr<Tile>> tiles;
-};
-
-}
+}  // namespace euphoria::t3d
 
 #endif  // T3D_TILELIBRARY_H

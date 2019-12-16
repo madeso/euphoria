@@ -65,529 +65,659 @@ struct Editor;
 
 struct Tool
 {
-  virtual ~Tool() = default;
+    virtual ~Tool() = default;
 
-  virtual void MeshHasChanged(Editor* editor) = 0;
-  virtual bool IsBusy(Editor* editor) = 0;
-  virtual void Step(Editor* editor) = 0;
-  virtual void OnMouse(Editor* editor, MouseButton key, bool down) = 0;
-  virtual void OnKey(Editor* editor, Key key, bool down) = 0;
-  virtual void OnScroll(Editor* editor, const vec2i& scroll) = 0;
-  virtual void OnEditor(Editor* editor) = 0;
+    virtual void
+    MeshHasChanged(Editor* editor) = 0;
+
+
+    virtual bool
+    IsBusy(Editor* editor) = 0;
+
+
+    virtual void
+    Step(Editor* editor) = 0;
+
+
+    virtual void
+    OnMouse(Editor* editor, MouseButton key, bool down) = 0;
+    
+    
+    virtual void
+    OnKey(Editor* editor, Key key, bool down) = 0;
+    
+    
+    virtual void
+    OnScroll(Editor* editor, const vec2i& scroll) = 0;
+    
+    
+    virtual void
+    OnEditor(Editor* editor) = 0;
 };
 
 struct Tools;
 
 struct ToolAction
 {
-  virtual ~ToolAction() = default;
-  virtual void Act(Tools* tools) = 0;
+    virtual ~ToolAction() = default;
+
+
+    virtual void
+    Act(Tools* tools) = 0;
 };
 
 struct PushToolAction : public ToolAction
 {
-  std::shared_ptr<Tool> new_tool;
-  void Act(Tools* tools) override;
+    std::shared_ptr<Tool> new_tool;
 
-  explicit PushToolAction(std::shared_ptr<Tool> anew_tool)
-    : new_tool(anew_tool)
+
+    void
+    Act(Tools* tools) override;
+
+
+    explicit PushToolAction(std::shared_ptr<Tool> anew_tool)
+        : new_tool(anew_tool)
     {}
 };
 
 struct PopToolAction : public ToolAction
 {
-  void Act(Tools* tools) override;
+    void
+    Act(Tools* tools) override;
 };
 
 struct Tools
 {
-  Tool* GetCurrentTool()
-  {
-    ASSERT(!current_tool.empty());
-    Tool* tool = current_tool.rbegin()->get();
-    ASSERT(tool);
-    return tool;
-  }
-
-  void PushTool(std::shared_ptr<Tool> new_tool)
-  {
-    pending_actions.push_back(std::make_shared<PushToolAction>(new_tool));
-  }
-
-  void PopTool()
-  {
-    pending_actions.push_back(std::make_shared<PopToolAction>());
-  }
-
-  void PerformTools()
-  {
-    for(auto t : pending_actions)
+    Tool*
+    GetCurrentTool()
     {
-      t->Act(this);
+        ASSERT(!current_tool.empty());
+        Tool* tool = current_tool.rbegin()->get();
+        ASSERT(tool);
+        return tool;
     }
-    pending_actions.resize(0);
-  }
 
-  std::vector<std::shared_ptr<Tool>> current_tool;
-  std::vector<std::shared_ptr<ToolAction>> pending_actions;
+
+    void
+    PushTool(std::shared_ptr<Tool> new_tool)
+    {
+        pending_actions.push_back(std::make_shared<PushToolAction>(new_tool));
+    }
+
+
+    void
+    PopTool()
+    {
+        pending_actions.push_back(std::make_shared<PopToolAction>());
+    }
+
+
+    void
+    PerformTools()
+    {
+        for(auto t: pending_actions)
+        {
+            t->Act(this);
+        }
+        pending_actions.resize(0);
+    }
+
+    std::vector<std::shared_ptr<Tool>>       current_tool;
+    std::vector<std::shared_ptr<ToolAction>> pending_actions;
 };
 
 
-void PushToolAction::Act(Tools* tools)
-  { tools->current_tool.push_back(new_tool); }
+void
+PushToolAction::Act(Tools* tools)
+{
+    tools->current_tool.push_back(new_tool);
+}
 
-void PopToolAction::Act(Tools* tools)
-  { tools->current_tool.pop_back(); }
+void
+PopToolAction::Act(Tools* tools)
+{
+    tools->current_tool.pop_back();
+}
 
 
 struct Editor
 {
-  World* world;
-  TileLibrary* tile_library;
-  CompiledCamera camera;
-  Viewport viewport;
+    World*         world;
+    TileLibrary*   tile_library;
+    CompiledCamera camera;
+    Viewport       viewport;
 
-  Editor(World* aworld, TileLibrary* atile_library)
-    : world(aworld)
-    , tile_library(atile_library)
-    , camera(mat4f::Identity(), mat4f::Identity())
-    , viewport(Recti::FromWidthHeight(10, 10))
-  {}
 
-  vec2i mouse = vec2i{0,0};
-  Tools tools;
+    Editor(World* aworld, TileLibrary* atile_library)
+        : world(aworld)
+        , tile_library(atile_library)
+        , camera(mat4f::Identity(), mat4f::Identity())
+        , viewport(Recti::FromWidthHeight(10, 10))
+    {}
 
-  // current tool callbacks
-  void MeshHasChanged()
-    { tools.GetCurrentTool()->MeshHasChanged(this); }
 
-  bool IsBusy()
-    { return tools.GetCurrentTool()->IsBusy(this); }
+    vec2i mouse = vec2i {0, 0};
+    Tools tools;
 
-  void Step()
-    { tools.GetCurrentTool()->Step(this); }
 
-  void OnMouse(MouseButton button, bool down)
-    { tools.GetCurrentTool()->OnMouse(this, button, down); }
-  void OnKey(Key key, bool down)
-    { tools.GetCurrentTool()->OnKey(this, key, down); }
-  void OnScroll(const vec2i& scroll)
-    { tools.GetCurrentTool()->OnScroll(this, scroll); }
-  void OnEditor()
-    { tools.GetCurrentTool()->OnEditor(this); }
+    // current tool callbacks
+    void
+    MeshHasChanged()
+    {
+        tools.GetCurrentTool()->MeshHasChanged(this);
+    }
 
-  // todo(Gustav): move camera here so we can have camera movement
-  // change so that fps control rotate focuspoint around current camera pos
 
-  std::vector<std::shared_ptr<Actor>> actors;
-  std::shared_ptr<CompiledMesh> selected_mesh;
+    bool
+    IsBusy()
+    {
+        return tools.GetCurrentTool()->IsBusy(this);
+    }
+
+
+    void
+    Step()
+    {
+        tools.GetCurrentTool()->Step(this);
+    }
+
+
+    void
+    OnMouse(MouseButton button, bool down)
+    {
+        tools.GetCurrentTool()->OnMouse(this, button, down);
+    }
+
+
+    void
+    OnKey(Key key, bool down)
+    {
+        tools.GetCurrentTool()->OnKey(this, key, down);
+    }
+
+
+    void
+    OnScroll(const vec2i& scroll)
+    {
+        tools.GetCurrentTool()->OnScroll(this, scroll);
+    }
+
+
+    void
+    OnEditor()
+    {
+        tools.GetCurrentTool()->OnEditor(this);
+    }
+
+    // todo(Gustav): move camera here so we can have camera movement
+    // change so that fps control rotate focuspoint around current camera pos
+
+    std::vector<std::shared_ptr<Actor>> actors;
+    std::shared_ptr<CompiledMesh>       selected_mesh;
 };
 
 struct NoTool : public Tool
 {
-  void MeshHasChanged(Editor*) override {}
-  bool IsBusy(Editor*) override { return false; }
-  void Step(Editor*) override {}
+    void
+    MeshHasChanged(Editor*) override
+    {}
 
-  void OnMouse(Editor*, MouseButton, bool) override {}
-  void OnKey(Editor*, Key, bool) override {}
-  void OnScroll(Editor*, const vec2i&) override {}
-  void OnEditor(Editor*) override
-  {
-    ImGui::Text("<No tool>");
-  }
+
+    bool
+    IsBusy(Editor*) override
+    {
+        return false;
+    }
+
+
+    void
+    Step(Editor*) override
+    {}
+
+
+    void
+    OnMouse(Editor*, MouseButton, bool) override
+    {}
+
+
+    void
+    OnKey(Editor*, Key, bool) override
+    {}
+
+
+    void
+    OnScroll(Editor*, const vec2i&) override
+    {}
+
+
+    void
+    OnEditor(Editor*) override
+    {
+        ImGui::Text("<No tool>");
+    }
 };
 
 struct PlaceMeshOnPlane : public Tool
 {
-  std::shared_ptr<Actor> actor;
-  Plane plane = Plane::FromNormalAndPoint(unit3f::Up(), vec3f::Zero());
+    std::shared_ptr<Actor> actor;
+    Plane plane = Plane::FromNormalAndPoint(unit3f::Up(), vec3f::Zero());
 
-  PlaceMeshOnPlane(std::shared_ptr<Actor> aactor)
-    : actor(aactor)
+
+    PlaceMeshOnPlane(std::shared_ptr<Actor> aactor) : actor(aactor) {}
+
+
+    void
+    MeshHasChanged(Editor* editor) override
+    {
+        // todo(Gustav): ugh... fix this ugly hack.. this currently crashes/asserts
+        actor->mesh_ = editor->selected_mesh;
+    }
+
+
+    bool
+    IsBusy(Editor*) override
+    {
+        return true;
+    }
+
+
+    void
+    Step(Editor* editor) override
+    {
+        auto ray = editor->camera
+                           .ClipToWorldRay(
+                                   editor->viewport.ToClipCoord(editor->mouse))
+                           .GetNormalized();
+
+        const auto t = GetIntersection(ray, plane);
+
+        // LOG_INFO("Step " << editor->mouse << ", " << t);
+
+        if(t < 0)
+        {
+            return;
+        }
+        // do intersection with plane...
+        const auto p = ray.GetPoint(t);
+        actor->SetPosition(p);
+    }
+
+
+    void
+    OnMouse(Editor* editor, MouseButton button, bool down) override
+    {
+        if(down)
+            return;
+        switch(button)
+        {
+        case MouseButton::LEFT: editor->tools.PopTool(); break;
+        }
+    }
+
+
+    void
+    OnKey(Editor* editor, Key key, bool down) override
+    {
+        if(down)
+            return;
+        switch(key)
+        {
+        case Key::RETURN: editor->tools.PopTool(); break;
+        }
+    }
+
+
+    void
+    OnScroll(Editor*, const vec2i&) override
     {}
 
-  void MeshHasChanged(Editor* editor) override
-  {
-    // todo(Gustav): ugh... fix this ugly hack.. this currently crashes/asserts
-    actor->mesh_ = editor->selected_mesh;
-  }
 
-  bool IsBusy(Editor*) override { return true;}
-
-  void Step(Editor* editor) override
-  {
-    auto ray = editor->camera.ClipToWorldRay(editor->viewport.ToClipCoord(editor->mouse)).GetNormalized();
-    
-    const auto t = GetIntersection(ray, plane);
-
-    // LOG_INFO("Step " << editor->mouse << ", " << t);
-
-    if(t < 0) { return; }
-    // do intersection with plane...
-    const auto p = ray.GetPoint(t);
-    actor->SetPosition(p);
-  }
-
-  void OnMouse(Editor* editor, MouseButton button, bool down) override
-  {
-    if(down) return;
-    switch(button)
+    void
+    OnEditor(Editor*) override
     {
-      case MouseButton::LEFT:
-        editor->tools.PopTool();
-        break;
+        ImGui::Text("Placing object in world!");
     }
-  }
-
-  void OnKey(Editor* editor, Key key, bool down) override
-  {
-    if(down) return;
-    switch(key)
-    {
-      case Key::RETURN:
-        editor->tools.PopTool();
-        break;
-    }
-  }
-  void OnScroll(Editor*, const vec2i&) override {}  
-  void OnEditor(Editor*) override 
-  {
-    ImGui::Text("Placing object in world!");
-  }
 };
 
 
 int
 main(int argc, char** argv)
 {
-  auto engine = Engine{};
+    auto engine = Engine {};
 
-  if(engine.Setup(argparse::Args::Extract(argc, argv)) == false)
-  {
-    return -1;
-  }
-
-  int width  = 1280;
-  int height = 720;
-
-  if(engine.CreateWindow("t3d", width, height) == false)
-  {
-    return -1;
-  }
-
-  auto viewport_handler = ViewportHandler{};
-  viewport_handler.SetSize(width, height);
-
-  auto material_shader_cache = MaterialShaderCache{engine.file_system.get()};
-
-  // SET_ENUM_VALUES(TextureType, SetupTextureNames);
-  SET_ENUM_FROM_FILE(engine.file_system.get(), "texture_types.json", TextureType);
-
-  auto texture_cache = TextureCache{engine.file_system.get()};
-
-  auto tile_library = TileLibrary{engine.file_system.get()};
-  tile_library.AddDirectory("world", &material_shader_cache, &texture_cache);
-
-  if(tile_library.tiles.empty())
-  {
-    LOG_ERROR("No tile loaded!");
-    return -2;
-  }
-
-  auto world = World{};
-
-  auto camera = Camera{};
-  camera.position = vec3f(0, 0, 0);
-
-  Editor editor {&world, &tile_library};
-  editor.tools.PushTool(std::make_shared<NoTool>());
-
-  bool running = true;
-
-  SdlTimer timer;
-
-
-  bool immersive_mode = false;
-
-  auto add_single_grid_line = []
-  (
-    Lines& def,
-    float size,
-    float x,
-    const Rgb& color
-  )
-  {
-    def.AddLine(vec3f{x, 0, -size}, vec3f{x, 0, size}, color);
-    def.AddLine(vec3f{-size, 0, x}, vec3f{size, 0, x}, color);
-    def.AddLine(vec3f{-x, 0, -size}, vec3f{-x, 0, size}, color);
-    def.AddLine(vec3f{-size, 0, -x}, vec3f{size, 0, -x}, color);
-  };
-
-  auto add_grid = [&material_shader_cache, &world, &add_single_grid_line]
-  (
-    float small_step,
-    float big_step,
-    float size
-  ) -> std::shared_ptr<PositionedLines>
-  {
-    constexpr auto small_color = Color::Gray;
-    constexpr auto big_color = Color::Black;
-    constexpr auto x_color = Color::PureBlue;
-    constexpr auto z_color = Color::PureRed;
-
-    auto def = Lines{};
-    for(float x = small_step; x < size; x+= small_step)
+    if(engine.Setup(argparse::Args::Extract(argc, argv)) == false)
     {
-      if(!IsZero(fmod(x, big_step)))
-      {
-        add_single_grid_line(def, size, x, small_color);
-      }
+        return -1;
     }
 
-    for(float x = big_step; x < size; x+= big_step)
+    int width  = 1280;
+    int height = 720;
+
+    if(engine.CreateWindow("t3d", width, height) == false)
     {
-      add_single_grid_line(def, size, x, big_color);
+        return -1;
     }
 
-    def.AddLine(vec3f{-size, 0, 0}, vec3f{size, 0, 0}, x_color);
-    def.AddLine(vec3f{0, 0, -size}, vec3f{0, 0, size}, z_color);
+    auto viewport_handler = ViewportHandler {};
+    viewport_handler.SetSize(width, height);
 
-    auto compiled = Compile(&material_shader_cache, def);
-    auto grid = std::make_shared<PositionedLines>(compiled);
-    world.AddActor(grid);
-    return grid;
-  };
+    auto material_shader_cache = MaterialShaderCache {engine.file_system.get()};
 
-  auto grid = add_grid(0.5f, 1.0f, 10.0f);
+    // SET_ENUM_VALUES(TextureType, SetupTextureNames);
+    SET_ENUM_FROM_FILE(
+            engine.file_system.get(), "texture_types.json", TextureType);
 
-  FpsController fps;
-  fps.position = vec3f{0, 0, 3};
-  engine.window->EnableCharEvent(!immersive_mode);
+    auto texture_cache = TextureCache {engine.file_system.get()};
 
-  bool enviroment_window = false;
-  bool camera_window = false;
-  bool tiles_window = true;
+    auto tile_library = TileLibrary {engine.file_system.get()};
+    tile_library.AddDirectory("world", &material_shader_cache, &texture_cache);
 
-  while(running)
-  {
-    const bool  show_imgui = !immersive_mode;
-    const float delta      = timer.Update();
-
-    world.Step();
-    editor.tools.PerformTools();
-
+    if(tile_library.tiles.empty())
     {
-      SDL_Event e;
-      while(SDL_PollEvent(&e) != 0)
-      {
-        int window_width = 0;
-        int window_height = 0;
-        if(engine.HandleResize(e, &window_width, &window_height))
+        LOG_ERROR("No tile loaded!");
+        return -2;
+    }
+
+    auto world = World {};
+
+    auto camera     = Camera {};
+    camera.position = vec3f(0, 0, 0);
+
+    Editor editor {&world, &tile_library};
+    editor.tools.PushTool(std::make_shared<NoTool>());
+
+    bool running = true;
+
+    SdlTimer timer;
+
+
+    bool immersive_mode = false;
+
+    auto add_single_grid_line = []
+    (
+        Lines& def,
+        float size,
+        float x,
+        const Rgb& color
+    )
+    {
+        def.AddLine(vec3f {x, 0, -size}, vec3f {x, 0, size}, color);
+        def.AddLine(vec3f {-size, 0, x}, vec3f {size, 0, x}, color);
+        def.AddLine(vec3f {-x, 0, -size}, vec3f {-x, 0, size}, color);
+        def.AddLine(vec3f {-size, 0, -x}, vec3f {size, 0, -x}, color);
+    };
+
+    auto add_grid = [&material_shader_cache, &world, &add_single_grid_line]
+    (
+        float small_step,
+        float big_step,
+        float size
+    )
+    {
+        constexpr auto small_color = Color::Gray;
+        constexpr auto big_color   = Color::Black;
+        constexpr auto x_color     = Color::PureBlue;
+        constexpr auto z_color     = Color::PureRed;
+
+        auto def = Lines {};
+        for(float x = small_step; x < size; x += small_step)
         {
-          viewport_handler.SetSize(window_width, window_height);
+            if(!IsZero(fmod(x, big_step)))
+            {
+                add_single_grid_line(def, size, x, small_color);
+            }
         }
+
+        for(float x = big_step; x < size; x += big_step)
+        {
+            add_single_grid_line(def, size, x, big_color);
+        }
+
+        def.AddLine(vec3f {-size, 0, 0}, vec3f {size, 0, 0}, x_color);
+        def.AddLine(vec3f {0, 0, -size}, vec3f {0, 0, size}, z_color);
+
+        auto compiled = Compile(&material_shader_cache, def);
+        auto grid     = std::make_shared<PositionedLines>(compiled);
+        world.AddActor(grid);
+        return grid;
+    };
+
+    auto grid = add_grid(0.5f, 1.0f, 10.0f);
+
+    FpsController fps;
+    fps.position = vec3f {0, 0, 3};
+    engine.window->EnableCharEvent(!immersive_mode);
+
+    bool enviroment_window = false;
+    bool camera_window     = false;
+    bool tiles_window      = true;
+
+    while(running)
+    {
+        const bool  show_imgui = !immersive_mode;
+        const float delta      = timer.Update();
+
+        world.Step();
+        editor.tools.PerformTools();
+
+        {
+            SDL_Event e;
+            while(SDL_PollEvent(&e) != 0)
+            {
+                int window_width  = 0;
+                int window_height = 0;
+                if(engine.HandleResize(e, &window_width, &window_height))
+                {
+                    viewport_handler.SetSize(window_width, window_height);
+                }
+                if(show_imgui)
+                {
+                    engine.imgui->ProcessEvents(&e);
+                }
+
+                auto&      io = ImGui::GetIO();
+                const auto forward_keyboard
+                        = !(show_imgui && io.WantCaptureKeyboard);
+                const auto forward_mouse = !(show_imgui && io.WantCaptureMouse);
+
+                switch(e.type)
+                {
+                case SDL_QUIT: running = false; break;
+                case SDL_MOUSEMOTION:
+                    if(forward_mouse)
+                    {
+                        editor.mouse = vec2i
+                        (
+                            e.motion.x,
+                            viewport_handler.height - e.motion.y
+                        );
+                    }
+                    if(!show_imgui)
+                    {
+                        fps.Look(e.motion.xrel, e.motion.yrel);
+                    }
+                    break;
+                case SDL_KEYDOWN:
+                case SDL_KEYUP: {
+                    const bool down = e.type == SDL_KEYDOWN;
+
+                    if(!show_imgui)
+                    {
+                        fps.HandleKey(ToKey(e.key.keysym), down);
+                    }
+
+                    if(forward_keyboard)
+                    {
+                        switch(e.key.keysym.sym)
+                        {
+                        case SDLK_ESCAPE:
+                            if(down)
+                            {
+                                running = false;
+                            }
+                            break;
+                        case SDLK_TAB:
+                            if(!down)
+                            {
+                                immersive_mode = !immersive_mode;
+                                engine.window->KeepWithin(immersive_mode);
+                                engine.window->EnableCharEvent(!immersive_mode);
+                            }
+                            break;
+                        case SDLK_g: grid->remove_this = true; break;
+                        default:
+                            if(forward_keyboard)
+                            {
+                                editor.OnKey(ToKey(e.key.keysym), down);
+                            }
+                            break;
+                        }
+                    }
+                }
+                break;
+
+                case SDL_MOUSEBUTTONDOWN:
+                case SDL_MOUSEBUTTONUP:
+                    if(forward_mouse)
+                    {
+                        const bool down = e.type == SDL_MOUSEBUTTONDOWN;
+                        editor.OnMouse(ToKey(e.button), down);
+                    }
+                    break;
+
+                case SDL_MOUSEWHEEL:
+                    if(forward_mouse)
+                    {
+                        editor.OnScroll(vec2i(e.wheel.x, e.wheel.y));
+                    }
+                    break;
+
+
+                default:
+                    // ignore other events
+                    break;
+                }
+            }
+
+            fps.Update(delta);
+        }
+
+        editor.Step();
+
         if(show_imgui)
         {
-          engine.imgui->ProcessEvents(&e);
-        }
+            engine.imgui->StartNewFrame();
 
-        auto& io = ImGui::GetIO();
-        const auto forward_keyboard = !(show_imgui && io.WantCaptureKeyboard);
-        const auto forward_mouse = !(show_imgui && io.WantCaptureMouse);
-
-        switch(e.type)
-        {
-          case SDL_QUIT:
-            running = false;
-            break;
-          case SDL_MOUSEMOTION:
-            if(forward_mouse)
+            if(ImGui::BeginMainMenuBar())
             {
-              editor.mouse = vec2i(e.motion.x, viewport_handler.height - e.motion.y);
-            }
-            if(!show_imgui)
-            {
-              fps.Look(e.motion.xrel, e.motion.yrel);
-            }
-            break;
-          case SDL_KEYDOWN:
-          case SDL_KEYUP:
-          {
-            const bool down = e.type == SDL_KEYDOWN;
-
-            if(!show_imgui)
-            {
-              fps.HandleKey(ToKey(e.key.keysym), down);
-            }
-
-            if(forward_keyboard)
-            {
-
-              switch(e.key.keysym.sym)
-              {
-                case SDLK_ESCAPE:
-                  if(down)
-                  {
-                    running = false;
-                  }
-                  break;
-                case SDLK_TAB:
-                  if(!down)
-                  {
-                    immersive_mode = !immersive_mode;
-                    engine.window->KeepWithin(immersive_mode);
-                    engine.window->EnableCharEvent(!immersive_mode);
-                  }
-                  break;
-                case SDLK_g:
-                  grid->remove_this = true;
-                  break;
-                default:
-                  if(forward_keyboard)
-                  {
-                    editor.OnKey(ToKey(e.key.keysym), down);
-                  }
-                  break;
-              }
-            }
-          }
-          break;
-
-          case SDL_MOUSEBUTTONDOWN:
-          case SDL_MOUSEBUTTONUP:
-            if(forward_mouse)
-            {
-              const bool down = e.type == SDL_MOUSEBUTTONDOWN;
-              editor.OnMouse(ToKey(e.button), down);
-            }
-            break;
-          
-          case SDL_MOUSEWHEEL:
-            if(forward_mouse)
-            {
-              editor.OnScroll(vec2i(e.wheel.x, e.wheel.y));
-            }
-            break;
-
-
-
-          default:
-            // ignore other events
-            break;
-        }
-      }
-
-      fps.Update(delta);
-    }
-      
-    editor.Step();
-
-    if(show_imgui)
-    {
-      engine.imgui->StartNewFrame();
-
-      if(ImGui::BeginMainMenuBar())
-        {
-            if(ImGui::BeginMenu("File"))
-            {
-                if(ImGui::MenuItem("Exit", "Ctrl+Q"))
+                if(ImGui::BeginMenu("File"))
                 {
-                    running = false;
+                    if(ImGui::MenuItem("Exit", "Ctrl+Q"))
+                    {
+                        running = false;
+                    }
+                    ImGui::EndMenu();
                 }
-                ImGui::EndMenu();
+
+                if(ImGui::BeginMenu("Window"))
+                {
+                    ImGui::MenuItem("Enviroment", nullptr, &enviroment_window);
+                    ImGui::MenuItem("Camera", nullptr, &camera_window);
+                    ImGui::MenuItem("Tiles", nullptr, &tiles_window);
+                    ImGui::EndMenu();
+                }
+            }
+            ImGui::EndMainMenuBar();
+
+            ImGui::SetNextWindowPos(ImVec2(650, 20), ImGuiCond_FirstUseEver);
+
+            ImGui::SetNextWindowSize(ImVec2(200, 100), ImGuiCond_FirstUseEver);
+            if(enviroment_window)
+            {
+                ImGui::Begin("Enviroment", &enviroment_window);
+                ImGui::Combo
+                (
+                    "Type",
+                    reinterpret_cast<int*>(world.light.GetTypeMod()),
+                    "Directional\0Point\0Spot\0\0"
+                );
+                ImGuiColorEdit3("Ambient", world.light.ModifyAmbient());
+                ImGuiColorEdit3("Diffuse", world.light.ModifyDiffuse());
+                ImGuiColorEdit3("Specular", world.light.ModifySpecular());
+                ImGui::End();
             }
 
-            if(ImGui::BeginMenu("Window"))
+            if(camera_window)
             {
-                ImGui::MenuItem("Enviroment", nullptr, &enviroment_window);
-                ImGui::MenuItem("Camera", nullptr, &camera_window);
-                ImGui::MenuItem("Tiles", nullptr, &tiles_window);
-                ImGui::EndMenu();
+                ImGui::Begin("Camera", &camera_window);
+                ImGui::DragFloat("Speed", &fps.speed, 0.1f, 0.001f, 10.0f);
+                ImGui::End();
+            }
+
+
+            // ImGui::ListBox("", &selection[i], items, IM_ARRAYSIZE(items));
+            if(tiles_window)
+            {
+                ImGui::Begin("Tiles", &tiles_window);
+
+                if(!tile_library.tiles.empty())
+                {
+                    ImGui::ListBoxHeader("Tiles");
+                    for(auto tile: tile_library.tiles)
+                    {
+                        std::string display = Str {}
+                            << tile->name << ": "
+                            << tile->aabb.GetSize();
+                        if(ImGui::Selectable(
+                                   display.c_str(),
+                                   editor.selected_mesh == tile->mesh))
+                        {
+                            editor.selected_mesh = tile->mesh;
+                            editor.MeshHasChanged();
+                        }
+                    }
+                    ImGui::ListBoxFooter();
+
+                    if(ImGui::Button("Add"))
+                    {
+                        if(editor.selected_mesh && !editor.IsBusy())
+                        {
+                            auto actor = std::make_shared<Actor>(
+                                    editor.selected_mesh);
+                            world.AddActor(actor);
+                            editor.actors.emplace_back(actor);
+
+                            editor.tools.PushTool
+                            (
+                                std::make_shared<PlaceMeshOnPlane>(actor)
+                            );
+                        }
+                    }
+                }
+                editor.OnEditor();
+                ImGui::End();
             }
         }
-        ImGui::EndMainMenuBar();
-
-      ImGui::SetNextWindowPos(ImVec2(650, 20), ImGuiCond_FirstUseEver);
-
-      ImGui::SetNextWindowSize(ImVec2(200, 100), ImGuiCond_FirstUseEver);
-      if(enviroment_window)
-      {
-        ImGui::Begin("Enviroment", &enviroment_window);
-        ImGui::Combo(
-            "Type",
-            reinterpret_cast<int*>(world.light.GetTypeMod()),
-            "Directional\0Point\0Spot\0\0");
-        ImGuiColorEdit3("Ambient", world.light.ModifyAmbient());
-        ImGuiColorEdit3("Diffuse", world.light.ModifyDiffuse());
-        ImGuiColorEdit3("Specular", world.light.ModifySpecular());
-        ImGui::End();
-      }
-
-      if(camera_window)
-      {
-        ImGui::Begin("Camera", &camera_window);
-        ImGui::DragFloat("Speed", &fps.speed, 0.1f, 0.001f, 10.0f);
-        ImGui::End();
-      }
 
 
-      // ImGui::ListBox("", &selection[i], items, IM_ARRAYSIZE(items));
-      if(tiles_window)
-      {
-        ImGui::Begin("Tiles", &tiles_window);
+        camera.position = fps.position;
+        camera.rotation = fps.GetRotation();
 
-        if(!tile_library.tiles.empty())
         {
-          ImGui::ListBoxHeader("Tiles");
-          for(auto tile : tile_library.tiles)
-          {
-            std::string display = Str{} << tile->name << ": "
-                                        << tile->aabb.GetSize();
-            if(ImGui::Selectable(display.c_str(), editor.selected_mesh == tile->mesh))
-            {
-              editor.selected_mesh = tile->mesh;
-              editor.MeshHasChanged();
-            }
-          }
-          ImGui::ListBoxFooter();
-
-          if(ImGui::Button("Add"))
-          {
-            if(editor.selected_mesh && !editor.IsBusy() )
-            {
-              auto actor = std::make_shared<Actor>(editor.selected_mesh);
-              world.AddActor(actor);
-              editor.actors.emplace_back(actor);
-
-              editor.tools.PushTool(std::make_shared<PlaceMeshOnPlane>(actor));
-            }
-          }
+            auto viewport = viewport_handler.GetFullViewport();
+            engine.init->ClearScreen(Color::LightGray);
+            editor.camera = camera.Compile(viewport.GetAspectRatio());
+            editor.viewport = viewport;
+            world.Render(viewport, camera);
         }
-        editor.OnEditor();
-        ImGui::End();
-      }
+
+        if(show_imgui)
+        {
+            engine.imgui->Render();
+        }
+
+        SDL_GL_SwapWindow(engine.window->window);
     }
 
-
-    camera.position = fps.position;
-    camera.rotation = fps.GetRotation();
-
-    {
-      auto viewport = viewport_handler.GetFullViewport();
-      engine.init->ClearScreen(Color::LightGray);
-      editor.camera = camera.Compile(viewport.GetAspectRatio());
-      editor.viewport = viewport;
-      world.Render(viewport, camera);
-    }
-
-    if(show_imgui)
-    {
-      engine.imgui->Render();
-    }
-
-    SDL_GL_SwapWindow(engine.window->window);
-  }
-
-  return 0;
+    return 0;
 }
