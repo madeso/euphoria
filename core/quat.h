@@ -4,6 +4,7 @@
 #include "core/vec3.h"
 #include "core/numeric.h"
 #include "core/axisangle.h"
+#include "core/angle.h"
 #include "core/mat4.h"
 #include "core/polarcoord.h"
 
@@ -28,7 +29,9 @@ namespace euphoria::core
             return Vec(x, y, z);
         }
 
+
         quat(T w, const Vec& v) : w(w), x(v.x), y(v.y), z(v.z) {}
+
 
         [[nodiscard]] static Q
         FromAxisAngle(const AxisAngle& aa)
@@ -40,6 +43,35 @@ namespace euphoria::core
             return r;
         }
 
+        [[nodiscard]]
+        static Q
+        FromYawPitchRoll
+        (
+            const Angle& yaw,
+            const Angle& pitch,
+            const Angle& roll
+        )
+        {
+            const auto cy = Cos(yaw * 0.5);
+            const auto sy = Sin(yaw * 0.5);
+            const auto cp = Cos(pitch * 0.5);
+            const auto sp = Sin(pitch * 0.5);
+            const auto cr = Cos(roll * 0.5);
+            const auto sr = Sin(roll * 0.5);
+
+            return
+            {
+                cy * cp * cr + sy * sp * sr,
+                Vec
+                {
+                    cy * cp * sr - sy * sp * cr,
+                    sy * cp * sr + cy * sp * cr,
+                    sy * cp * cr - cy * sp * sr
+                }
+            };
+        }
+
+
         [[nodiscard]] static Q
         FromRandom(Random* random)
         {
@@ -49,11 +81,13 @@ namespace euphoria::core
             return Q::FromAxisAngle(AxisAngle::RightHandAround(axis, angle));
         }
 
+
         mat4<T>
         ToMat4() const
         {
             return mat4<T>::FromAxisAngle(ToAxisAngle());
         }
+
 
         AxisAngle
         ToAxisAngle() const
@@ -67,6 +101,7 @@ namespace euphoria::core
                     (vec() / sin_a).GetNormalized(), angle);
         }
 
+
         // static Q FromAngles(T x, T y, T z);
 
         [[nodiscard]] static Q
@@ -75,11 +110,13 @@ namespace euphoria::core
             return Q(1, Vec(0, 0, 0));
         }
 
+
         [[nodiscard]] static Q
         LookAt(const Point& from, const Point& to, const typename Vec::Unit up)
         {
             return LookInDirection(Vec::FromTo(from, to).GetNormalized(), up);
         }
+
 
         [[nodiscard]] static Q
         LookInDirection(const Unit& dir, const Unit& up)
@@ -102,23 +139,29 @@ namespace euphoria::core
                     AxisAngle::RightHandAround(rotAxis, rotAngle));
         }
 
+
         Q
         Rotate(const Q& q) const
         {
             return q * *this;
         }
 
+
         Q
         GetConjugate() const
         {
             return quat(w, -vec());
         }
+
+
         // the inverse represent the same rotation
         Q
         GetInverse() const
         {
             return quat(-w, -vec());
         }
+
+
         Q
         GetIdentity() const
         {
@@ -130,16 +173,21 @@ namespace euphoria::core
             else
                 return quat(w / Sqrt(l2), -vec());
         }
+
+
         T
         GetLength() const
         {
             return Sqrt(GetLengthSquared());
         }
+
+
         T
         GetLengthSquared() const
         {
             return x * x + y * y + z * z + w * w;
         }
+
 
         void
         Normalize()
@@ -158,6 +206,7 @@ namespace euphoria::core
             }
         }
 
+
         Q
         GetNormalized() const
         {
@@ -166,11 +215,13 @@ namespace euphoria::core
             return r;
         }
 
+
         Unit
         In() const
         {
             return RotateAroundOrigo(-Unit::ZAxis());
         }
+
 
         Unit
         Out() const
@@ -178,11 +229,13 @@ namespace euphoria::core
             return RotateAroundOrigo(Unit::ZAxis());
         }
 
+
         Unit
         Right() const
         {
             return RotateAroundOrigo(Unit::XAxis());
         }
+
 
         Unit
         Left() const
@@ -190,11 +243,13 @@ namespace euphoria::core
             return RotateAroundOrigo(-Unit::XAxis());
         }
 
+
         Unit
         Up() const
         {
             return RotateAroundOrigo(Unit::YAxis());
         }
+
 
         Unit
         Down() const
@@ -202,12 +257,14 @@ namespace euphoria::core
             return RotateAroundOrigo(-Unit::YAxis());
         }
 
+
         // In*Z + Right*X + Up*Y
         Vec
         RightUpIn(const Vec v) const
         {
             return In() * v.z + Right() * v.x + Up() * v.y;
         }
+
 
         Unit
         RotateAroundOrigo(const Unit& v) const
@@ -219,11 +276,13 @@ namespace euphoria::core
             return ret.vec().GetNormalized();
         }
 
+
         [[nodiscard]] static Q
         Lerp(const Q& f, const T scale, const Q& t)
         {
             return f * (1 - scale) + t * scale;
         }
+
 
         [[nodiscard]] static Q
         Slerp(const Q& qa, const T t, const Q& qb)
@@ -257,6 +316,7 @@ namespace euphoria::core
             return qa * ratioA + qb * ratioB;
         }
 
+
         [[nodiscard]] static Q
         SlerpShortway(const Q& f, const T scale, const Q& t)
         {
@@ -270,6 +330,7 @@ namespace euphoria::core
             }
         }
 
+
         void
         operator+=(const Q& rhs)
         {
@@ -278,6 +339,7 @@ namespace euphoria::core
             z += rhs.z;
             w += rhs.w;
         }
+
 
         void
         operator-=(const Q& rhs)
@@ -288,6 +350,7 @@ namespace euphoria::core
             w -= rhs.w;
         }
 
+
         void
         operator*=(const T& rhs)
         {
@@ -296,6 +359,7 @@ namespace euphoria::core
             z *= rhs;
             w *= rhs;
         }
+
 
         void
         operator*=(const Q& rhs)
@@ -329,6 +393,7 @@ namespace euphoria::core
         }
     };
 
+
     template <typename T>
     std::ostream&
     operator<<(std::ostream& stream, const quat<T>& v)
@@ -337,12 +402,14 @@ namespace euphoria::core
                       << "))";
     }
 
+
     template <typename T>
     T
     dot(const quat<T>& lhs, const quat<T>& rhs)
     {
         return lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z + lhs.w * rhs.w;
     }
+
 
     template <typename T>
     quat<T> operator*(const quat<T>& lhs, const quat<T>& rhs)
@@ -352,6 +419,7 @@ namespace euphoria::core
         return r;
     }
 
+
     template <typename T>
     quat<T> operator*(T scale, const quat<T>& q)
     {
@@ -359,6 +427,7 @@ namespace euphoria::core
         r *= scale;
         return r;
     }
+
 
     template <typename T>
     quat<T> operator*(const quat<T>& q, T scale)
@@ -378,6 +447,7 @@ namespace euphoria::core
         return r;
     }
 
+
     template <typename T>
     quat<T>
     operator-(const quat<T>& lhs, const quat<T>& rhs)
@@ -387,6 +457,7 @@ namespace euphoria::core
         return r;
     }
 
+
     template <typename T>
     bool
     operator==(const quat<T>& lhs, const quat<T>& rhs)
@@ -394,6 +465,7 @@ namespace euphoria::core
         return lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z
                && lhs.w == rhs.w;
     }
+
 
     typedef quat<float> quatf;
     typedef quat<int>   quati;

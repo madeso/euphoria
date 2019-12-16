@@ -11,12 +11,12 @@
 #include "core/texturetypes.h"
 #include "core/str.h"
 #include "core/mat4.h"
-#include "core/fpscontroller.h"
 #include "core/camera.h"
 #include "core/log.h"
 #include "core/plane.h"
 #include "core/intersection.h"
 #include "core/lines.h"
+#include "core/orbitcontroller.h"
 
 // #include "render/camera.h"
 #include "render/defaultfiles.h"
@@ -484,13 +484,15 @@ main(int argc, char** argv)
 
     auto grid = add_grid(0.5f, 1.0f, 10.0f);
 
-    FpsController fps;
-    fps.position = vec3f {0, 0, 3};
     engine.window->EnableCharEvent(!immersive_mode);
 
     bool enviroment_window = false;
     bool camera_window     = false;
     bool tiles_window      = true;
+
+    auto orbit = OrbitController{};
+    bool mmb_down = false;
+    bool shift_down = false;
 
     while(running)
     {
@@ -524,27 +526,33 @@ main(int argc, char** argv)
                 {
                 case SDL_QUIT: running = false; break;
                 case SDL_MOUSEMOTION:
+                {
+                    const auto mouse_position = vec2i
+                    (
+                        e.motion.x,
+                        viewport_handler.height - e.motion.y
+                    );
+                    const auto mouse_movement = vec2i
+                    (
+                        e.motion.xrel,
+                        e.motion.yrel
+                    );
                     if(forward_mouse)
                     {
-                        editor.mouse = vec2i
-                        (
-                            e.motion.x,
-                            viewport_handler.height - e.motion.y
-                        );
-                    }
-                    if(!show_imgui)
-                    {
-                        fps.Look(e.motion.xrel, e.motion.yrel);
+                        editor.mouse = mouse_position;
+
+                        if(mmb_down)
+                        {
+                            const auto mm = mouse_movement.StaticCast<float>();
+                            if(shift_down) { orbit.Pan(mm.x, mm.y); }
+                            else { orbit.Rotate(mm.x, mm.y); }
+                        }
                     }
                     break;
+                }
                 case SDL_KEYDOWN:
                 case SDL_KEYUP: {
                     const bool down = e.type == SDL_KEYDOWN;
-
-                    if(!show_imgui)
-                    {
-                        fps.HandleKey(ToKey(e.key.keysym), down);
-                    }
 
                     if(forward_keyboard)
                     {
@@ -573,6 +581,18 @@ main(int argc, char** argv)
                             break;
                         }
                     }
+                
+                    {
+                        switch(e.key.keysym.sym)
+                        {
+                            case SDLK_LSHIFT:
+                            case SDLK_RSHIFT:
+                                shift_down = down;
+                                break;
+                            default:
+                                break;
+                        }
+                    }
                 }
                 break;
 
@@ -582,6 +602,19 @@ main(int argc, char** argv)
                     {
                         const bool down = e.type == SDL_MOUSEBUTTONDOWN;
                         editor.OnMouse(ToKey(e.button), down);
+                    }
+                    
+                    {
+                        const bool down = e.type == SDL_MOUSEBUTTONDOWN;
+                        const auto k = ToKey(e.button);
+                        switch(k)
+                        {
+                        case MouseButton::MIDDLE:
+                            mmb_down = down;
+                            break;
+                        default:
+                            break;
+                        }
                     }
                     break;
 
@@ -598,8 +631,6 @@ main(int argc, char** argv)
                     break;
                 }
             }
-
-            fps.Update(delta);
         }
 
         editor.Step();
@@ -650,7 +681,7 @@ main(int argc, char** argv)
             if(camera_window)
             {
                 ImGui::Begin("Camera", &camera_window);
-                ImGui::DragFloat("Speed", &fps.speed, 0.1f, 0.001f, 10.0f);
+                // ImGui::DragFloat("Speed", &fps.speed, 0.1f, 0.001f, 10.0f);
                 ImGui::End();
             }
 
@@ -700,8 +731,8 @@ main(int argc, char** argv)
         }
 
 
-        camera.position = fps.position;
-        camera.rotation = fps.GetRotation();
+        camera.position = orbit.GetCameraPosition();
+        camera.rotation = orbit.GetRotation();
 
         {
             auto viewport = viewport_handler.GetFullViewport();
