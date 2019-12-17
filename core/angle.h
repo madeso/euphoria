@@ -54,6 +54,13 @@ namespace euphoria::core
 
 
         [[nodiscard]] constexpr static Angle
+        Quarter()
+        {
+            return Angle::FromRadians(Pi() / 2.0f);
+        }
+
+
+        [[nodiscard]] constexpr static Angle
         Zero()
         {
             return Angle::FromRadians(0.0f);
@@ -174,6 +181,22 @@ namespace euphoria::core
 
     std::ostream&
     operator<<(std::ostream& stream, const Angle& a);
+
+
+    bool
+    operator<(const Angle& lhs, const Angle& rhs);
+
+
+    bool
+    operator<=(const Angle& lhs, const Angle& rhs);
+
+
+    bool
+    operator>(const Angle& lhs, const Angle& rhs);
+
+
+    bool
+    operator>=(const Angle& lhs, const Angle& rhs);
 
 
     struct AngleTransform

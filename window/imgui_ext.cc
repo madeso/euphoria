@@ -25,31 +25,49 @@ namespace euphoria::window
         return r;
     }
 
+
     void
     ImguiLabel(const std::string& str)
     {
         ImGui::Text("%s", str.c_str());
     }
 
-    void
-    ImguiAngleSlider(
-            const char* const name,
-            core::Angle*      angle,
-            float             mindeg,
-            float             maxdeg)
+
+    bool
+    ImguiAngleSlider
+    (
+        const char* const name,
+        core::Angle* angle,
+        const core::Angle& mindeg,
+        const core::Angle& maxdeg
+    )
     {
         ASSERT(angle);
 
         float degrees = angle->InDegrees();
-        ImGui::SliderFloat(name, &degrees, mindeg, maxdeg);
-        *angle = core::Angle::FromDegrees(degrees);
+        const auto value_was_changed = ImGui::SliderFloat
+        (
+            name,
+            &degrees,
+            mindeg.InDegrees(),
+            maxdeg.InDegrees()
+        );
+
+        if(value_was_changed)
+        {
+            *angle = core::Angle::FromDegrees(degrees);
+        }
+
+        return value_was_changed;
     }
+
 
     void
     ImGuiColorEdit3(const char* const name, core::Rgb* rgb)
     {
         ImGui::ColorEdit3(name, &rgb->r);
     }
+
 
     void
     ImguiImage(render::Texture2d* texture)
@@ -110,6 +128,7 @@ namespace euphoria::window
         }
     }
 
+
     // stolen from ShowExampleAppFixedOverlay function in imgui_demo
     bool
     BeginFixedOverlay(ImguiCorner corner, const std::string& title)
@@ -141,17 +160,20 @@ namespace euphoria::window
                         | ImGuiWindowFlags_NoSavedSettings);
     }
 
+
     ImVec2
     C(const core::vec2f& v)
     {
         return ImVec2 {v.x, v.y};
     }
 
+
     core::vec2f
     C(const ImVec2& v)
     {
         return core::vec2f {v.x, v.y};
     }
+
 
     // from https://github.com/ocornut/imgui/issues/211
     ImguiDisabled::ImguiDisabled()
@@ -160,6 +182,7 @@ namespace euphoria::window
         ImGui::PushStyleVar(
                 ImGuiStyleVar_Alpha, ImGui::GetStyle().Alpha * 0.5f);
     }
+
 
     ImguiDisabled::~ImguiDisabled()
     {

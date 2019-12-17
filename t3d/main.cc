@@ -451,6 +451,7 @@ main(int argc, char** argv)
     (
         float small_step,
         float big_step,
+        float normal,
         float size
     )
     {
@@ -458,8 +459,15 @@ main(int argc, char** argv)
         constexpr auto big_color   = Color::Black;
         constexpr auto x_color     = Color::PureBlue;
         constexpr auto z_color     = Color::PureRed;
+        constexpr auto y_color     = Color::PureYellow;
 
         auto def = Lines {};
+
+        if(normal > 0)
+        {
+            def.AddLine(vec3f {0, 0, 0}, vec3f {0, normal, 0}, y_color);
+        }
+
         for(float x = small_step; x < size; x += small_step)
         {
             if(!IsZero(fmod(x, big_step)))
@@ -482,7 +490,7 @@ main(int argc, char** argv)
         return grid;
     };
 
-    auto grid = add_grid(0.5f, 1.0f, 10.0f);
+    auto grid = add_grid(0.5f, 1.0f, 1.0f, 10.0f);
 
     engine.window->EnableCharEvent(!immersive_mode);
 
@@ -622,6 +630,7 @@ main(int argc, char** argv)
                     if(forward_mouse)
                     {
                         editor.OnScroll(vec2i(e.wheel.x, e.wheel.y));
+                        orbit.Zoom(e.wheel.y);
                     }
                     break;
 
@@ -682,6 +691,36 @@ main(int argc, char** argv)
             {
                 ImGui::Begin("Camera", &camera_window);
                 // ImGui::DragFloat("Speed", &fps.speed, 0.1f, 0.001f, 10.0f);
+                ImguiAngleSlider
+                (
+                    "Horizontal",
+                    &orbit.horizontal_rotation,
+                    Angle::Zero(),
+                    Angle::OneTurn()
+                );
+                ImguiAngleSlider
+                (
+                    "Vertical",
+                    &orbit.vertical_rotation,
+                    -Angle::Quarter(),
+                    Angle::Quarter()
+                );
+                ImGui::InputFloat3("Position", orbit.center.GetDataPtr());
+                ImGui::Spacing();
+                ImGui::InputFloat("Distance", &orbit.distance);
+                auto sens = [](const char* label, Sensitivity* s)
+                {
+                    ImGui::PushID(label);
+                    ImGui::Checkbox("##inverted", &s->inverted);
+                    ImGui::PopID();
+                    ImGui::SameLine();
+                    ImGui::DragFloat(label, &s->value, 0.1f, 0.0f);
+                };
+                sens("Pan dX", &orbit.pan_dx);
+                sens("Pan dY", &orbit.pan_dy);
+                sens("Rotate dY", &orbit.rotate_dx);
+                sens("Rotate dX", &orbit.rotate_dy);
+                sens("Zoom", &orbit.zoom);
                 ImGui::End();
             }
 

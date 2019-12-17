@@ -4,6 +4,7 @@
 #include <string>
 
 #include "core/vec2.h"
+#include "core/vec3.h"
 
 namespace euphoria::core
 {
@@ -24,21 +25,28 @@ namespace euphoria::window
     bool
     InputText(const char* label, std::string* str);
 
+
     void
     ImguiLabel(const std::string& str);
 
-    void
-    ImguiAngleSlider(
-            const char* const name,
-            core::Angle*      angle,
-            float             mindeg,
-            float             maxdeg);
+
+    bool
+    ImguiAngleSlider
+    (
+        const char* const name,
+        core::Angle* angle,
+        const core::Angle& mindeg,
+        const core::Angle& maxdeg
+    );
+
 
     void
     ImguiImage(render::Texture2d* texture);
 
+
     void
     ImGuiColorEdit3(const char* const name, core::Rgb* rgb);
+
 
     enum class ImguiCorner
     {
@@ -49,20 +57,25 @@ namespace euphoria::window
         Center      = 4
     };
 
+
     bool
     BeginFixedOverlay(ImguiCorner corner, const std::string& title);
+
 
     ImVec2
     C(const core::vec2f& v);
 
+
     core::vec2f
     C(const ImVec2& v);
+
 
     struct ImguiDisabled
     {
         ImguiDisabled();
         ~ImguiDisabled();
     };
+
 
     bool
     ImguiSelectableOrDisabled(bool enabled, const char* label);

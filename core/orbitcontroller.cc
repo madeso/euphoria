@@ -1,5 +1,7 @@
 #include "core/orbitcontroller.h"
 
+#include "core/range.h"
+
 namespace euphoria::core
 {
     OrbitController::OrbitController()
@@ -43,7 +45,7 @@ namespace euphoria::core
             -dy * pan_dy.GetValueWithSign(),
             0
         });
-        center += movement * 0.001f;
+        center += movement * 0.01f;
     }
 
 
@@ -52,19 +54,23 @@ namespace euphoria::core
     {
         horizontal_rotation += Angle::FromDegrees
         (
-            dx * rotate_dx.GetValueWithSign()
+            -dx * rotate_dx.GetValueWithSign()
         );
+        horizontal_rotation.Wrap();
         
         vertical_rotation += Angle::FromDegrees
         (
-            dy * rotate_dy.GetValueWithSign()
+            -dy * rotate_dy.GetValueWithSign()
         );
+        
+        const auto r = MakeRange(-Angle::Quarter(), Angle::Quarter());
+        vertical_rotation = KeepWithin(r, vertical_rotation);
     }
 
     void
     OrbitController::Zoom(const float z)
     {
-        distance -= z * zoom.GetValueWithSign();
+        distance = Max(0.0f, distance + z * zoom.GetValueWithSign());
     }
 
 

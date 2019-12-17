@@ -68,6 +68,14 @@ namespace euphoria::core
     }
 
 
+    int
+    Sign(int r)
+    {
+        if(r >= 0) { return 1; }
+        else { return -1; }
+    }
+
+
     float
     Sign(bool b)
     {

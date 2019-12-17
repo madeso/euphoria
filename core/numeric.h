@@ -33,6 +33,10 @@ namespace euphoria::core
     Sign(float r);
 
 
+    int
+    Sign(int r);
+
+
     /** Returns either 1 or -1 */
     float
     Sign(bool b);

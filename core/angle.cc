@@ -159,6 +159,35 @@ namespace euphoria::core
         return stream << a.InDegrees() << " deg";
     }
 
+
+    bool
+    operator<(const Angle& lhs, const Angle& rhs)
+    {
+        return lhs.InRadians() < rhs.InRadians();
+    }
+
+
+    bool
+    operator<=(const Angle& lhs, const Angle& rhs)
+    {
+        return lhs.InRadians() <= rhs.InRadians();
+    }
+
+
+    bool
+    operator>(const Angle& lhs, const Angle& rhs)
+    {
+        return lhs.InRadians() > rhs.InRadians();
+    }
+
+
+    bool
+    operator>=(const Angle& lhs, const Angle& rhs)
+    {
+        return lhs.InRadians() >= rhs.InRadians();
+    }
+
+
     Angle
     AngleTransform::Transform(const Angle& from, float v, const Angle& to)
     {
