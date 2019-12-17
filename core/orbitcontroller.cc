@@ -4,7 +4,6 @@ namespace euphoria::core
 {
     OrbitController::OrbitController()
         : center(vec3f::Zero())
-        , distance(1.0f)
         , horizontal_rotation(Angle::FromDegrees(45.0f))
         , vertical_rotation(Angle::FromDegrees(45.0f))
     {}
@@ -32,25 +31,40 @@ namespace euphoria::core
                 )
             );
         return hor * vert;
-        // return quatf::FromYawPitchRoll
-        // (
-        //     horizontal_rotation,
-        //     vertical_rotation,
-        //     Angle::Zero()
-        // );
     }
+
 
     void
     OrbitController::Pan(const float dx, const float dy)
     {
-        center += GetRotation().RightUpIn(vec3f{dx, dy, 0}) * 0.001f;
+        const auto movement = GetRotation().RightUpIn(vec3f
+        {
+            dx * pan_dx.GetValueWithSign(),
+            -dy * pan_dy.GetValueWithSign(),
+            0
+        });
+        center += movement * 0.001f;
     }
+
 
     void
     OrbitController::Rotate(const float dx, const float dy)
     {
-        horizontal_rotation += Angle::FromDegrees(dx);
-        vertical_rotation += Angle::FromDegrees(dy);
+        horizontal_rotation += Angle::FromDegrees
+        (
+            dx * rotate_dx.GetValueWithSign()
+        );
+        
+        vertical_rotation += Angle::FromDegrees
+        (
+            dy * rotate_dy.GetValueWithSign()
+        );
+    }
+
+    void
+    OrbitController::Zoom(const float z)
+    {
+        distance -= z * zoom.GetValueWithSign();
     }
 
 

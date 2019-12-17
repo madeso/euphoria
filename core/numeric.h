@@ -24,12 +24,19 @@ namespace euphoria::core
     int
     Ceili(float v);
 
+
     /** Calculates the sign as a positive or a negative int.
-@returns 1 if r is greater than 0, -1 if not.
-@see Abs()
-*/
+    @returns 1 if r is greater than 0, -1 if not.
+    @see Abs()
+    */
     int
     Sign(float r);
+
+
+    /** Returns either 1 or -1 */
+    float
+    Sign(bool b);
+
 
     float
     Lerp(float f, float scale, float t);
