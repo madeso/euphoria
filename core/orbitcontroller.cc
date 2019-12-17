@@ -13,12 +13,31 @@ namespace euphoria::core
     quatf
     OrbitController::GetRotation() const
     {
-        return quatf::FromYawPitchRoll
-        (
-            horizontal_rotation,
-            vertical_rotation,
-            Angle::Zero()
-        );
+        const auto hor = 
+            quatf::FromAxisAngle
+            (
+                AxisAngle::RightHandAround
+                (
+                    unit3f::Up(),
+                    -horizontal_rotation
+                )
+            );
+        const auto vert = 
+            quatf::FromAxisAngle
+            (
+                AxisAngle::RightHandAround
+                (
+                    unit3f::Right(),
+                    -vertical_rotation
+                )
+            );
+        return hor * vert;
+        // return quatf::FromYawPitchRoll
+        // (
+        //     horizontal_rotation,
+        //     vertical_rotation,
+        //     Angle::Zero()
+        // );
     }
 
     void

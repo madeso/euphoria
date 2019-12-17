@@ -43,34 +43,6 @@ namespace euphoria::core
             return r;
         }
 
-        [[nodiscard]]
-        static Q
-        FromYawPitchRoll
-        (
-            const Angle& yaw,
-            const Angle& pitch,
-            const Angle& roll
-        )
-        {
-            const auto cy = Cos(yaw * 0.5);
-            const auto sy = Sin(yaw * 0.5);
-            const auto cp = Cos(pitch * 0.5);
-            const auto sp = Sin(pitch * 0.5);
-            const auto cr = Cos(roll * 0.5);
-            const auto sr = Sin(roll * 0.5);
-
-            return
-            {
-                cy * cp * cr + sy * sp * sr,
-                Vec
-                {
-                    cy * cp * sr - sy * sp * cr,
-                    sy * cp * sr + cy * sp * cr,
-                    sy * cp * cr - cy * sp * sr
-                }
-            };
-        }
-
 
         [[nodiscard]] static Q
         FromRandom(Random* random)
