@@ -447,19 +447,49 @@ main(int argc, char** argv)
         def.AddLine(vec3f {-size, 0, -x}, vec3f {size, 0, -x}, color);
     };
 
-    auto add_grid = [&material_shader_cache, &world, &add_single_grid_line]
-    (
-        float small_step,
-        float big_step,
-        float normal,
-        float size
-    )
+    std::shared_ptr<PositionedLines> grid;
+
+    bool grid_visible = true;
+    float grid_small_step = 0.5f;
+    float grid_big_step = 1.0f;
+    float grid_normal = 1.0f;
+    float grid_size = 10.0f;
+
+    auto update_grid =
+    [
+        &grid,
+        &material_shader_cache,
+        &world,
+        &add_single_grid_line,
+        &grid_small_step,
+        &grid_big_step,
+        &grid_normal,
+        &grid_size,
+        &grid_visible
+    ]()
     {
+        constexpr auto smallest_step = 0.01f;
         constexpr auto small_color = Color::Gray;
         constexpr auto big_color   = Color::Black;
         constexpr auto x_color     = Color::PureBlue;
         constexpr auto z_color     = Color::PureRed;
         constexpr auto y_color     = Color::PureYellow;
+
+        if(grid)
+        {
+            grid->remove_this = true;
+            grid = nullptr;
+        }
+
+        if(grid_visible == false)
+        {
+            return;
+        }
+
+        const auto small_step = Max(smallest_step, grid_small_step);
+        const auto big_step = Max(smallest_step, grid_big_step);
+        const auto size = Max(0.0f, grid_size);
+        const auto normal = grid_normal;
 
         auto def = Lines {};
 
@@ -485,18 +515,18 @@ main(int argc, char** argv)
         def.AddLine(vec3f {0, 0, -size}, vec3f {0, 0, size}, z_color);
 
         auto compiled = Compile(&material_shader_cache, def);
-        auto grid     = std::make_shared<PositionedLines>(compiled);
+        grid     = std::make_shared<PositionedLines>(compiled);
         world.AddActor(grid);
-        return grid;
     };
 
-    auto grid = add_grid(0.5f, 1.0f, 1.0f, 10.0f);
+    update_grid();
 
     engine.window->EnableCharEvent(!immersive_mode);
 
     bool enviroment_window = false;
     bool camera_window     = false;
     bool tiles_window      = true;
+    bool grid_window      = true;
 
     auto orbit = OrbitController{};
     bool mmb_down = false;
@@ -664,6 +694,7 @@ main(int argc, char** argv)
                     ImGui::MenuItem("Enviroment", nullptr, &enviroment_window);
                     ImGui::MenuItem("Camera", nullptr, &camera_window);
                     ImGui::MenuItem("Tiles", nullptr, &tiles_window);
+                    ImGui::MenuItem("Grid", nullptr, &grid_window);
                     ImGui::EndMenu();
                 }
             }
@@ -685,6 +716,47 @@ main(int argc, char** argv)
                 ImGuiColorEdit3("Diffuse", &world.light.diffuse);
                 ImGuiColorEdit3("Specular", &world.light.specular);
                 ImGui::End();
+            }
+
+            if(grid_window)
+            {
+                constexpr auto uistep = 0.01f;
+                constexpr auto uimin = 0.0f;
+                constexpr auto uimax = 100.0f;
+                bool dirty = false;
+                ImGui::Begin("Grid", &grid_window);
+                dirty = ImGui::Checkbox("Show grid", &grid_visible) || dirty;
+                dirty = ImGui::DragFloat
+                (
+                    "Small",
+                    &grid_small_step,
+                    uistep,
+                    uimin,
+                    uimax
+                ) || dirty;
+                dirty = ImGui::DragFloat
+                (
+                    "Big",
+                    &grid_big_step,
+                    uistep,
+                    uimin,
+                    uimax
+                ) || dirty;
+                dirty = ImGui::DragFloat
+                (
+                    "Normal",
+                    &grid_normal,
+                    uistep,
+                    uimin,
+                    uimax
+                ) || dirty;
+                dirty = ImGui::DragFloat("Size", &grid_size, 0.1f) || dirty;
+                ImGui::End();
+
+                if(dirty)
+                {
+                    update_grid();
+                }
             }
 
             if(camera_window)
