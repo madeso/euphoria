@@ -351,6 +351,7 @@ struct PlaceMeshOnPlane : public Tool
         switch(button)
         {
         case MouseButton::LEFT: editor->tools.PopTool(); break;
+        default: break;
         }
     }
 
@@ -363,6 +364,7 @@ struct PlaceMeshOnPlane : public Tool
         switch(key)
         {
         case Key::RETURN: editor->tools.PopTool(); break;
+        default: break;
         }
     }
 
@@ -451,9 +453,9 @@ main(int argc, char** argv)
 
     bool grid_visible = true;
     float grid_small_step = 0.5f;
-    float grid_big_step = 1.0f;
+    int grid_big_step_interval = 5;
     float grid_normal = 1.0f;
-    float grid_size = 10.0f;
+    int grid_size = 10;
 
     auto update_grid =
     [
@@ -462,7 +464,7 @@ main(int argc, char** argv)
         &world,
         &add_single_grid_line,
         &grid_small_step,
-        &grid_big_step,
+        &grid_big_step_interval,
         &grid_normal,
         &grid_size,
         &grid_visible
@@ -487,8 +489,7 @@ main(int argc, char** argv)
         }
 
         const auto small_step = Max(smallest_step, grid_small_step);
-        const auto big_step = Max(smallest_step, grid_big_step);
-        const auto size = Max(0.0f, grid_size);
+        const auto size = Abs(grid_size * grid_small_step);
         const auto normal = grid_normal;
 
         auto def = Lines {};
@@ -498,17 +499,19 @@ main(int argc, char** argv)
             def.AddLine(vec3f {0, 0, 0}, vec3f {0, normal, 0}, y_color);
         }
 
-        for(float x = small_step; x < size; x += small_step)
+        for(int index = 0; index < grid_size; index += 1)
         {
-            if(!IsZero(fmod(x, big_step)))
-            {
-                add_single_grid_line(def, size, x, small_color);
-            }
-        }
+            float x = small_step * (index+1);
 
-        for(float x = big_step; x < size; x += big_step)
-        {
-            add_single_grid_line(def, size, x, big_color);
+            auto color = big_color;
+            if(grid_big_step_interval > 1)
+            {
+                if(((index+1) % grid_big_step_interval) != 0 )
+                {
+                    color = small_color;
+                }
+            }
+            add_single_grid_line(def, size, x, color);
         }
 
         def.AddLine(vec3f {-size, 0, 0}, vec3f {size, 0, 0}, x_color);
@@ -725,32 +728,30 @@ main(int argc, char** argv)
                 constexpr auto uimax = 100.0f;
                 bool dirty = false;
                 ImGui::Begin("Grid", &grid_window);
+
                 dirty = ImGui::Checkbox("Show grid", &grid_visible) || dirty;
                 dirty = ImGui::DragFloat
                 (
-                    "Small",
+                    "Snap interval",
                     &grid_small_step,
                     uistep,
                     uimin,
                     uimax
                 ) || dirty;
-                dirty = ImGui::DragFloat
+                dirty = ImGui::DragInt
                 (
-                    "Big",
-                    &grid_big_step,
-                    uistep,
-                    uimin,
-                    uimax
+                    "Major line increment",
+                    &grid_big_step_interval
                 ) || dirty;
                 dirty = ImGui::DragFloat
                 (
-                    "Normal",
+                    "Normal size",
                     &grid_normal,
                     uistep,
                     uimin,
                     uimax
                 ) || dirty;
-                dirty = ImGui::DragFloat("Size", &grid_size, 0.1f) || dirty;
+                dirty = ImGui::DragInt("Lines on grid", &grid_size) || dirty;
                 ImGui::End();
 
                 if(dirty)
