@@ -42,67 +42,92 @@ namespace euphoria::render
 
         void
         SetType(Type type);
+
+
         Type
         GetType() const;
+
+
         Type*
         GetTypeMod();
+
 
         // todo: replace with public variable instead
         void
         SetPosition(const core::vec3f& pos);
+
+
         const core::vec3f&
         GetPosition() const;
+
 
         void
         SetDirection(const core::unit3f& direction);
 
+
         const core::unit3f&
         GetDirection() const;
+
 
         void
         SetAmbient(const core::Rgb& c);
 
+
         const core::Rgb&
         GetAmbient() const;
+
 
         core::Rgb*
         ModifyAmbient();
 
+
         void
         SetDiffuse(const core::Rgb& c);
+
 
         const core::Rgb&
         GetDiffuse() const;
 
+
         core::Rgb*
         ModifyDiffuse();
+
 
         void
         SetSpecular(const core::Rgb& c);
 
+
         const core::Rgb&
         GetSpecular() const;
+
 
         core::Rgb*
         ModifySpecular();
 
+
         const LightAttenuation&
         GetAttenuation() const;
+
 
         const core::Angle&
         GetCutoffAngleOuter() const;
 
+
         void
         SetCutoffAngleOuter(const core::Angle& angle);
+
 
         core::Angle*
         GetCutoffAngleOuterMod();
 
+
         const core::Angle&
         GetCutoffAngleInner() const;
 
+
         void
         SetCutoffAngleInner(const core::Angle& angle);
+
 
         core::Angle*
         GetCutoffAngleInnerMod();
