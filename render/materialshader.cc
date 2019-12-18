@@ -193,22 +193,28 @@ namespace euphoria::render
             return;
         }
 
-        shader.SetUniform(lightAmbient, light.GetAmbient());
-        shader.SetUniform(lightDiffuse, light.GetDiffuse());
-        shader.SetUniform(lightSpecular, light.GetSpecular());
-        shader.SetUniform(lightPosition, light.GetPosition());
-        shader.SetUniform(lightDirection, light.GetDirection());
-        shader.SetUniform(
-                lightCutoffAngleOuter, Cos(light.GetCutoffAngleOuter()));
-        shader.SetUniform(
-                lightCutoffAngleInner, Cos(light.GetCutoffAngleInner()));
+        shader.SetUniform(lightAmbient, light.ambient);
+        shader.SetUniform(lightDiffuse, light.diffuse);
+        shader.SetUniform(lightSpecular, light.specular);
+        shader.SetUniform(lightPosition, light.position);
+        shader.SetUniform(lightDirection, light.direction);
+        shader.SetUniform
+        (
+            lightCutoffAngleOuter,
+            Cos(light.cutoff_angle_outer)
+        );
+        shader.SetUniform
+        (
+            lightCutoffAngleInner,
+            Cos(light.cutoff_angle_inner)
+        );
 
-        const auto att = light.GetAttenuation();
+        const auto att = light.attenuation;
         shader.SetUniform(lightAttenuationConstant, att.GetConstant());
         shader.SetUniform(lightAttenuationLinear, att.GetLinear());
         shader.SetUniform(lightAttenuationQuadratic, att.GetQuadratic());
 
-        shader.SetUniform(lightType, static_cast<int>(light.GetType()));
+        shader.SetUniform(lightType, static_cast<int>(light.type));
         shader.SetUniform(viewPosition, camera);
     }
 

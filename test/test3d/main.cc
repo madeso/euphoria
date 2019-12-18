@@ -245,29 +245,33 @@ main(int, char**)
             ImGui::SetNextWindowSize(
                     ImVec2(200, 100), ImGuiCond_FirstUseEver);
             ImGui::Begin("Light");
-            ImGui::Combo(
-                    "Type",
-                    reinterpret_cast<int*>(world.light.GetTypeMod()),
-                    "Directional\0Point\0Spot\0\0");
-            ImGuiColorEdit3("Ambient", world.light.ModifyAmbient());
-            ImGuiColorEdit3("Diffuse", world.light.ModifyDiffuse());
-            ImGuiColorEdit3("Specular", world.light.ModifySpecular());
-            ImGui::Combo(
-                    "Update",
-                    &light_update,
-                    "Do nothing\0Follow actor\0Follow camera\0\0");
+            ImGui::Combo
+            (
+                "Type",
+                reinterpret_cast<int*>(&world.light.type),
+                "Directional\0Point\0Spot\0\0"
+            );
+            ImGuiColorEdit3("Ambient", &world.light.ambient);
+            ImGuiColorEdit3("Diffuse", &world.light.diffuse);
+            ImGuiColorEdit3("Specular", &world.light.specular);
+            ImGui::Combo
+            (
+                "Update",
+                &light_update,
+                "Do nothing\0Follow actor\0Follow camera\0\0"
+            );
 
             ImguiAngleSlider
             (
                 "Cutoff Angle Inner",
-                world.light.GetCutoffAngleInnerMod(),
+                &world.light.cutoff_angle_inner,
                 Angle::Zero(),
                 Angle::Quarter()/2
             );
             ImguiAngleSlider
             (
                 "Cutoff Angle Outer",
-                world.light.GetCutoffAngleOuterMod(),
+                &world.light.cutoff_angle_outer,
                 Angle::Zero(),
                 Angle::Quarter()
             );
@@ -276,9 +280,9 @@ main(int, char**)
 
             ImGui::End();
 
-            light_material.ambient   = world.light.GetAmbient();
-            light_material.diffuse   = world.light.GetDiffuse();
-            light_material.specular  = world.light.GetSpecular();
+            light_material.ambient   = world.light.ambient;
+            light_material.diffuse   = world.light.diffuse;
+            light_material.specular  = world.light.specular;
             light_material.shininess = 10;
         }
 
@@ -292,10 +296,13 @@ main(int, char**)
 
         switch(light_update)
         {
-        case 1: world.light.SetPosition(light_pos); break;
+        case 1:
+            world.light.position = light_pos;
+            break;
         case 2:
-            world.light.SetPosition(fps.position);
-            world.light.SetDirection(fps.GetRotation().In().GetNormalized());
+            world.light.position = fps.position;
+            world.light.direction = fps.GetRotation().In().GetNormalized();
+            break;
         }
 
 

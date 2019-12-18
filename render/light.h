@@ -39,110 +39,17 @@ namespace euphoria::render
             Directional,
             Point
         };
+        
+        Type         type;
+        core::vec3f  position;
+        core::unit3f direction;
+        core::Rgb    ambient;
+        core::Rgb    diffuse;
+        core::Rgb    specular;
+        core::Angle  cutoff_angle_outer;
+        core::Angle  cutoff_angle_inner;
 
-        void
-        SetType(Type type);
-
-
-        Type
-        GetType() const;
-
-
-        Type*
-        GetTypeMod();
-
-
-        // todo: replace with public variable instead
-        void
-        SetPosition(const core::vec3f& pos);
-
-
-        const core::vec3f&
-        GetPosition() const;
-
-
-        void
-        SetDirection(const core::unit3f& direction);
-
-
-        const core::unit3f&
-        GetDirection() const;
-
-
-        void
-        SetAmbient(const core::Rgb& c);
-
-
-        const core::Rgb&
-        GetAmbient() const;
-
-
-        core::Rgb*
-        ModifyAmbient();
-
-
-        void
-        SetDiffuse(const core::Rgb& c);
-
-
-        const core::Rgb&
-        GetDiffuse() const;
-
-
-        core::Rgb*
-        ModifyDiffuse();
-
-
-        void
-        SetSpecular(const core::Rgb& c);
-
-
-        const core::Rgb&
-        GetSpecular() const;
-
-
-        core::Rgb*
-        ModifySpecular();
-
-
-        const LightAttenuation&
-        GetAttenuation() const;
-
-
-        const core::Angle&
-        GetCutoffAngleOuter() const;
-
-
-        void
-        SetCutoffAngleOuter(const core::Angle& angle);
-
-
-        core::Angle*
-        GetCutoffAngleOuterMod();
-
-
-        const core::Angle&
-        GetCutoffAngleInner() const;
-
-
-        void
-        SetCutoffAngleInner(const core::Angle& angle);
-
-
-        core::Angle*
-        GetCutoffAngleInnerMod();
-
-    private:
-        Type         type_;
-        core::vec3f  position_;
-        core::unit3f direction_;
-        core::Rgb    ambient_;
-        core::Rgb    diffuse_;
-        core::Rgb    specular_;
-        core::Angle  cutoffAngleOuter_;
-        core::Angle  cutoffAngleInner_;
-
-        LightAttenuation attenuation_;
+        LightAttenuation attenuation;
     };
 
 }  // namespace euphoria::render

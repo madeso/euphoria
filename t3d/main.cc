@@ -678,12 +678,12 @@ main(int argc, char** argv)
                 ImGui::Combo
                 (
                     "Type",
-                    reinterpret_cast<int*>(world.light.GetTypeMod()),
+                    reinterpret_cast<int*>(&world.light.type),
                     "Directional\0Point\0Spot\0\0"
                 );
-                ImGuiColorEdit3("Ambient", world.light.ModifyAmbient());
-                ImGuiColorEdit3("Diffuse", world.light.ModifyDiffuse());
-                ImGuiColorEdit3("Specular", world.light.ModifySpecular());
+                ImGuiColorEdit3("Ambient", &world.light.ambient);
+                ImGuiColorEdit3("Diffuse", &world.light.diffuse);
+                ImGuiColorEdit3("Specular", &world.light.specular);
                 ImGui::End();
             }
 
