@@ -257,16 +257,20 @@ main(int, char**)
                     &light_update,
                     "Do nothing\0Follow actor\0Follow camera\0\0");
 
-            ImguiAngleSlider(
-                    "Cutoff Angle Inner",
-                    world.light.GetCutoffAngleInnerMod(),
-                    0,
-                    45);
-            ImguiAngleSlider(
-                    "Cutoff Angle Outer",
-                    world.light.GetCutoffAngleOuterMod(),
-                    0,
-                    90);
+            ImguiAngleSlider
+            (
+                "Cutoff Angle Inner",
+                world.light.GetCutoffAngleInnerMod(),
+                Angle::Zero(),
+                Angle::Quarter()/2
+            );
+            ImguiAngleSlider
+            (
+                "Cutoff Angle Outer",
+                world.light.GetCutoffAngleOuterMod(),
+                Angle::Zero(),
+                Angle::Quarter()
+            );
 
             ImguiImage(debug_texture.get());
 
