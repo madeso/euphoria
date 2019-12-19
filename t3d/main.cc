@@ -383,59 +383,81 @@ struct PlaceMeshOnPlane : public Tool
 };
 
 
-int
-main(int argc, char** argv)
+struct T3d
 {
-    auto engine = std::make_shared<Engine>();
+    // step 1
+    std::shared_ptr<Engine> engine;
+    ViewportHandler viewport_handler;
+    std::shared_ptr<MaterialShaderCache> material_shader_cache;
+    std::shared_ptr<TextureCache> texture_cache;
+    std::shared_ptr<TileLibrary> tile_library;
 
-    if(engine->Setup(argparse::Args::Extract(argc, argv)) == false)
-    {
-        return -1;
-    }
-
-    int width  = 1280;
-    int height = 720;
-
-    if(engine->CreateWindow("t3d", width, height) == false)
-    {
-        return -1;
-    }
-
-    auto viewport_handler = ViewportHandler {};
-    viewport_handler.SetSize(width, height);
-
-    auto material_shader_cache = std::make_shared<MaterialShaderCache>(engine->file_system.get());
-
-    // SET_ENUM_VALUES(TextureType, SetupTextureNames);
-    SET_ENUM_FROM_FILE(
-            engine->file_system.get(), "texture_types.json", TextureType);
-
-    auto texture_cache = std::make_shared<TextureCache>(engine->file_system.get());
-
-    auto tile_library = std::make_shared<TileLibrary>(engine->file_system.get());
-    tile_library->AddDirectory("world", material_shader_cache.get(), texture_cache.get());
-
-    if(tile_library->tiles.empty())
-    {
-        LOG_ERROR("No tile loaded!");
-        return -2;
-    }
-
-    auto world = std::make_shared<World>();
-
-    auto camera     = Camera {};
-
-    auto editor = std::make_shared<Editor>(world.get(), tile_library.get());
-    editor->tools.PushTool(std::make_shared<NoTool>());
-
+    // step 2
+    std::shared_ptr<World> world;
+    Camera camera;
+    std::shared_ptr<Editor> editor;
     bool running = true;
-
-    auto timer = std::make_shared<SdlTimer>();
-
-
+    std::shared_ptr<SdlTimer> timer;
     bool immersive_mode = false;
+    std::shared_ptr<PositionedLines> grid;
+    bool grid_visible = true;
+    float grid_small_step = 0.5f;
+    int grid_big_step_interval = 5;
+    float grid_normal = 1.0f;
+    int grid_size = 10;
 
-    auto add_single_grid_line = []
+    bool enviroment_window = false;
+    bool camera_window     = false;
+    bool tiles_window      = true;
+    bool grid_window      = true;
+
+    OrbitController orbit;
+    bool mmb_down = false;
+    bool shift_down = false;
+
+
+    [[nodiscard]] bool
+    Step1(const argparse::Args& args)
+    {
+        engine = std::make_shared<Engine>();
+
+        if(engine->Setup(args) == false)
+        {
+            return false;
+        }
+
+        int width  = 1280;
+        int height = 720;
+
+        if(engine->CreateWindow("t3d", width, height) == false)
+        {
+            return false;
+        }
+
+        viewport_handler = ViewportHandler {};
+        viewport_handler.SetSize(width, height);
+
+        material_shader_cache = std::make_shared<MaterialShaderCache>(engine->file_system.get());
+
+        // SET_ENUM_VALUES(TextureType, SetupTextureNames);
+        SET_ENUM_FROM_FILE(
+                engine->file_system.get(), "texture_types.json", TextureType);
+
+        texture_cache = std::make_shared<TextureCache>(engine->file_system.get());
+
+        tile_library = std::make_shared<TileLibrary>(engine->file_system.get());
+
+        return true;
+    }
+
+    void
+    AddLibrary(const std::string& path)
+    {
+        tile_library->AddDirectory(path, material_shader_cache.get(), texture_cache.get());
+    }
+
+    void
+    add_single_grid_line
     (
         Lines& def,
         float size,
@@ -447,28 +469,10 @@ main(int argc, char** argv)
         def.AddLine(vec3f {-size, 0, x}, vec3f {size, 0, x}, color);
         def.AddLine(vec3f {-x, 0, -size}, vec3f {-x, 0, size}, color);
         def.AddLine(vec3f {-size, 0, -x}, vec3f {size, 0, -x}, color);
-    };
+    }
 
-    std::shared_ptr<PositionedLines> grid;
-
-    bool grid_visible = true;
-    float grid_small_step = 0.5f;
-    int grid_big_step_interval = 5;
-    float grid_normal = 1.0f;
-    int grid_size = 10;
-
-    auto update_grid =
-    [
-        &grid,
-        &material_shader_cache,
-        &world,
-        &add_single_grid_line,
-        &grid_small_step,
-        &grid_big_step_interval,
-        &grid_normal,
-        &grid_size,
-        &grid_visible
-    ]()
+    void
+    update_grid()
     {
         constexpr auto smallest_step = 0.01f;
         constexpr auto small_color = Color::Gray;
@@ -520,22 +524,24 @@ main(int argc, char** argv)
         auto compiled = Compile(material_shader_cache.get(), def);
         grid     = std::make_shared<PositionedLines>(compiled);
         world->AddActor(grid);
-    };
+    }
 
-    update_grid();
+    void Step2()
+    {
+        world = std::make_shared<World>();
 
-    engine->window->EnableCharEvent(!immersive_mode);
+        editor = std::make_shared<Editor>(world.get(), tile_library.get());
+        editor->tools.PushTool(std::make_shared<NoTool>());
 
-    bool enviroment_window = false;
-    bool camera_window     = false;
-    bool tiles_window      = true;
-    bool grid_window      = true;
+        timer = std::make_shared<SdlTimer>();
+        
+        update_grid();
 
-    auto orbit = OrbitController{};
-    bool mmb_down = false;
-    bool shift_down = false;
+        engine->window->EnableCharEvent(!immersive_mode);
+    }
 
-    while(running)
+    void
+    Frame()
     {
         const bool  show_imgui = !immersive_mode;
         const float delta      = timer->Update();
@@ -879,6 +885,32 @@ main(int argc, char** argv)
         }
 
         SDL_GL_SwapWindow(engine->window->window);
+    }
+};
+
+int
+main(int argc, char** argv)
+{
+    T3d t3d;
+
+    if(t3d.Step1(argparse::Args::Extract(argc, argv)) == false)
+    {
+        return -1;
+    }
+
+    t3d.AddLibrary("world");
+
+    if(t3d.tile_library->tiles.empty())
+    {
+        LOG_ERROR("No tile loaded!");
+        return -2;
+    }
+
+    t3d.Step2();
+
+    while(t3d.running)
+    {
+        t3d.Frame();
     }
 
     return 0;
