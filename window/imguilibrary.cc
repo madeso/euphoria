@@ -91,7 +91,7 @@ namespace euphoria::window
     }
 
     void
-    ImguiLibrary::ProcessEvents(SDL_Event* event)
+    ImguiLibrary::ProcessEvents(const SDL_Event* event)
     {
         ImGui_ImplSDL2_ProcessEvent(event);
     }

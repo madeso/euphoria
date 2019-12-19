@@ -16,7 +16,7 @@ namespace euphoria::window
         ~ImguiLibrary();
 
         void
-        ProcessEvents(SDL_Event*);
+        ProcessEvents(const SDL_Event*);
 
         void
         StartNewFrame();

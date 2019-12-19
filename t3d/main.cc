@@ -385,14 +385,11 @@ struct PlaceMeshOnPlane : public Tool
 
 struct T3d
 {
-    // step 1
     std::shared_ptr<Engine> engine;
     ViewportHandler viewport_handler;
     std::shared_ptr<MaterialShaderCache> material_shader_cache;
     std::shared_ptr<TextureCache> texture_cache;
     std::shared_ptr<TileLibrary> tile_library;
-
-    // step 2
     std::shared_ptr<World> world;
     Camera camera;
     std::shared_ptr<Editor> editor;
@@ -405,19 +402,17 @@ struct T3d
     int grid_big_step_interval = 5;
     float grid_normal = 1.0f;
     int grid_size = 10;
-
     bool enviroment_window = false;
     bool camera_window     = false;
     bool tiles_window      = true;
     bool grid_window      = true;
-
     OrbitController orbit;
     bool mmb_down = false;
     bool shift_down = false;
 
 
     [[nodiscard]] bool
-    Step1(const argparse::Args& args)
+    Start(const argparse::Args& args)
     {
         engine = std::make_shared<Engine>();
 
@@ -447,14 +442,27 @@ struct T3d
 
         tile_library = std::make_shared<TileLibrary>(engine->file_system.get());
 
+        world = std::make_shared<World>();
+
+        editor = std::make_shared<Editor>(world.get(), tile_library.get());
+        editor->tools.PushTool(std::make_shared<NoTool>());
+
+        timer = std::make_shared<SdlTimer>();
+        
+        update_grid();
+
+        engine->window->EnableCharEvent(!immersive_mode);
+
         return true;
     }
+
 
     void
     AddLibrary(const std::string& path)
     {
         tile_library->AddDirectory(path, material_shader_cache.get(), texture_cache.get());
     }
+
 
     void
     add_single_grid_line
@@ -470,6 +478,7 @@ struct T3d
         def.AddLine(vec3f {-x, 0, -size}, vec3f {-x, 0, size}, color);
         def.AddLine(vec3f {-size, 0, -x}, vec3f {size, 0, -x}, color);
     }
+
 
     void
     update_grid()
@@ -526,358 +535,401 @@ struct T3d
         world->AddActor(grid);
     }
 
-    void Step2()
+
+    void
+    OnSingleEvent(const SDL_Event& e)
     {
-        world = std::make_shared<World>();
+        int window_width  = 0;
+        int window_height = 0;
+        if(engine->HandleResize(e, &window_width, &window_height))
+        {
+            viewport_handler.SetSize(window_width, window_height);
+        }
+        if(show_imgui)
+        {
+            engine->imgui->ProcessEvents(&e);
+        }
 
-        editor = std::make_shared<Editor>(world.get(), tile_library.get());
-        editor->tools.PushTool(std::make_shared<NoTool>());
+        auto&      io = ImGui::GetIO();
+        const auto forward_keyboard
+                = !(show_imgui && io.WantCaptureKeyboard);
+        const auto forward_mouse = !(show_imgui && io.WantCaptureMouse);
 
-        timer = std::make_shared<SdlTimer>();
+        switch(e.type)
+        {
+        case SDL_QUIT: running = false; break;
+        case SDL_MOUSEMOTION:
+        {
+            const auto mouse_position = vec2i
+            (
+                e.motion.x,
+                viewport_handler.height - e.motion.y
+            );
+            const auto mouse_movement = vec2i
+            (
+                e.motion.xrel,
+                e.motion.yrel
+            );
+            if(forward_mouse)
+            {
+                editor->mouse = mouse_position;
+
+                if(mmb_down)
+                {
+                    const auto mm = mouse_movement.StaticCast<float>();
+                    if(shift_down) { orbit.Pan(mm.x, mm.y); }
+                    else { orbit.Rotate(mm.x, mm.y); }
+                }
+            }
+            break;
+        }
+        case SDL_KEYDOWN:
+        case SDL_KEYUP: {
+            const bool down = e.type == SDL_KEYDOWN;
+
+            if(forward_keyboard)
+            {
+                switch(e.key.keysym.sym)
+                {
+                case SDLK_ESCAPE:
+                    if(down)
+                    {
+                        running = false;
+                    }
+                    break;
+                case SDLK_TAB:
+                    if(!down)
+                    {
+                        immersive_mode = !immersive_mode;
+                        engine->window->KeepWithin(immersive_mode);
+                        engine->window->EnableCharEvent(!immersive_mode);
+                    }
+                    break;
+                case SDLK_g: grid->remove_this = true; break;
+                default:
+                    if(forward_keyboard)
+                    {
+                        editor->OnKey(ToKey(e.key.keysym), down);
+                    }
+                    break;
+                }
+            }
         
-        update_grid();
+            {
+                switch(e.key.keysym.sym)
+                {
+                    case SDLK_LSHIFT:
+                    case SDLK_RSHIFT:
+                        shift_down = down;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+        break;
 
-        engine->window->EnableCharEvent(!immersive_mode);
+        case SDL_MOUSEBUTTONDOWN:
+        case SDL_MOUSEBUTTONUP:
+            if(forward_mouse)
+            {
+                const bool down = e.type == SDL_MOUSEBUTTONDOWN;
+                editor->OnMouse(ToKey(e.button), down);
+            }
+            
+            {
+                const bool down = e.type == SDL_MOUSEBUTTONDOWN;
+                const auto k = ToKey(e.button);
+                switch(k)
+                {
+                case MouseButton::MIDDLE:
+                    mmb_down = down;
+                    break;
+                default:
+                    break;
+                }
+            }
+            break;
+
+        case SDL_MOUSEWHEEL:
+            if(forward_mouse)
+            {
+                editor->OnScroll(vec2i(e.wheel.x, e.wheel.y));
+                orbit.Zoom(e.wheel.y);
+            }
+            break;
+
+
+        default:
+            // ignore other events
+            break;
+        }
     }
+
+
+    void
+    HandleEvents()
+    {
+        SDL_Event e;
+        while(SDL_PollEvent(&e) != 0)
+        {
+            OnSingleEvent(e);
+        }
+    }
+
+
+    bool show_imgui = false;
+
+
+    void
+    ProcessImgui()
+    {
+        if(ImGui::BeginMainMenuBar())
+        {
+            OnMainMenu();
+        }
+        ImGui::EndMainMenuBar();
+        
+        if(enviroment_window)
+        {
+            ImGui::Begin("Enviroment", &enviroment_window);
+            OnEnviromentWindow();
+            ImGui::End();
+        }
+
+        if(grid_window)
+        {
+            BeginFixedOverlay(ImguiCorner::TopLeft, "grid overlay", 10.0f, 30.0f);
+            OnGridWindow();
+            ImGui::End();
+        }
+
+        if(camera_window)
+        {
+            ImGui::Begin("Camera", &camera_window);
+            OnCameraWindow();
+            ImGui::End();
+        }
+
+        if(tiles_window)
+        {
+            ImGui::Begin("Tiles", &tiles_window);
+            OnTileWindow();
+            ImGui::End();
+        }
+    }
+
+
+    void
+    OnMainMenu()
+    {
+        if(ImGui::BeginMenu("File"))
+        {
+            if(ImGui::MenuItem("Exit", "Ctrl+Q"))
+            {
+                running = false;
+            }
+            ImGui::EndMenu();
+        }
+
+        if(ImGui::BeginMenu("Window"))
+        {
+            ImGui::MenuItem("Enviroment", nullptr, &enviroment_window);
+            ImGui::MenuItem("Camera", nullptr, &camera_window);
+            ImGui::MenuItem("Tiles", nullptr, &tiles_window);
+            ImGui::MenuItem("Grid", nullptr, &grid_window);
+            ImGui::EndMenu();
+        }
+    }
+
+
+    void
+    OnEnviromentWindow()
+    {
+        ImGui::Combo
+        (
+            "Type",
+            reinterpret_cast<int*>(&world->light.type),
+            "Directional\0Point\0Spot\0\0"
+        );
+        ImGuiColorEdit3("Ambient", &world->light.ambient);
+        ImGuiColorEdit3("Diffuse", &world->light.diffuse);
+        ImGuiColorEdit3("Specular", &world->light.specular);
+    }
+
+
+    void
+    OnGridWindow()
+    {
+        constexpr auto uistep = 0.01f;
+        constexpr auto uimin = 0.0f;
+        constexpr auto uimax = 100.0f;
+        bool dirty = false;
+
+        
+        const std::string str = Str{} << grid_small_step;
+        constexpr auto popup_grid = "popup_grid";
+        if(ImGui::Button(str.c_str()))
+        {
+            ImGui::OpenPopup(popup_grid);
+        }
+        if(ImGui::BeginPopup(popup_grid))
+        {
+            dirty = ImGui::DragFloat
+            (
+                "Snap interval",
+                &grid_small_step,
+                uistep,
+                uimin,
+                uimax
+            ) || dirty;
+            dirty = ImGui::DragInt
+            (
+                "Major line increment",
+                &grid_big_step_interval
+            ) || dirty;
+            dirty = ImGui::DragFloat
+            (
+                "Normal size",
+                &grid_normal,
+                uistep,
+                uimin,
+                uimax
+            ) || dirty;
+            dirty = ImGui::DragInt("Lines on grid", &grid_size)
+                || dirty;
+
+            ImGui::EndPopup();
+        }
+
+        if(ImGui::Button(grid_visible
+            ? ICON_MDI_GRID
+            : ICON_MDI_GRID_OFF
+        ))
+        {
+            grid_visible = !grid_visible;
+            dirty = true;
+        }
+
+        if(dirty)
+        {
+            update_grid();
+        }
+    }
+
+
+    void
+    OnCameraWindow()
+    {
+        ImguiAngleSlider
+        (
+            "Horizontal",
+            &orbit.horizontal_rotation,
+            Angle::Zero(),
+            Angle::OneTurn()
+        );
+        ImguiAngleSlider
+        (
+            "Vertical",
+            &orbit.vertical_rotation,
+            -Angle::Quarter(),
+            Angle::Quarter()
+        );
+        ImGui::InputFloat3("Position", orbit.center.GetDataPtr());
+        ImGui::Spacing();
+        ImGui::InputFloat("Distance", &orbit.distance);
+        auto sens = [](const char* label, Sensitivity* s)
+        {
+            ImGui::PushID(label);
+            ImGui::Checkbox("##inverted", &s->inverted);
+            ImGui::PopID();
+            ImGui::SameLine();
+            ImGui::DragFloat(label, &s->value, 0.1f, 0.0f);
+        };
+        sens("Pan dX", &orbit.pan_dx);
+        sens("Pan dY", &orbit.pan_dy);
+        sens("Rotate dY", &orbit.rotate_dx);
+        sens("Rotate dX", &orbit.rotate_dy);
+        sens("Zoom", &orbit.zoom);
+    }
+
+
+    void
+    OnTileWindow()
+    {
+        if(!tile_library->tiles.empty())
+        {
+            ImGui::ListBoxHeader("Tiles");
+            for(auto tile: tile_library->tiles)
+            {
+                std::string display = Str {}
+                    << tile->name << ": "
+                    << tile->aabb.GetSize();
+                if(ImGui::Selectable(
+                            display.c_str(),
+                            editor->selected_mesh == tile->mesh))
+                {
+                    editor->selected_mesh = tile->mesh;
+                    editor->MeshHasChanged();
+                }
+            }
+            ImGui::ListBoxFooter();
+
+            if(ImGui::Button("Add"))
+            {
+                if(editor->selected_mesh && !editor->IsBusy())
+                {
+                    auto actor = std::make_shared<Actor>(
+                            editor->selected_mesh);
+                    world->AddActor(actor);
+                    editor->actors.emplace_back(actor);
+
+                    editor->tools.PushTool
+                    (
+                        std::make_shared<PlaceMeshOnPlane>(actor)
+                    );
+                }
+            }
+        }
+        editor->OnEditor();
+    }
+
+
+    void
+    Render()
+    {
+        auto viewport = viewport_handler.GetFullViewport();
+        editor->camera = camera.Compile(viewport.GetAspectRatio());
+        editor->viewport = viewport;
+        world->Render(viewport, camera);
+    }
+
 
     void
     Frame()
     {
-        const bool  show_imgui = !immersive_mode;
+        show_imgui = !immersive_mode;
         const float delta      = timer->Update();
 
         world->Step();
         editor->tools.PerformTools();
 
-        {
-            SDL_Event e;
-            while(SDL_PollEvent(&e) != 0)
-            {
-                int window_width  = 0;
-                int window_height = 0;
-                if(engine->HandleResize(e, &window_width, &window_height))
-                {
-                    viewport_handler.SetSize(window_width, window_height);
-                }
-                if(show_imgui)
-                {
-                    engine->imgui->ProcessEvents(&e);
-                }
-
-                auto&      io = ImGui::GetIO();
-                const auto forward_keyboard
-                        = !(show_imgui && io.WantCaptureKeyboard);
-                const auto forward_mouse = !(show_imgui && io.WantCaptureMouse);
-
-                switch(e.type)
-                {
-                case SDL_QUIT: running = false; break;
-                case SDL_MOUSEMOTION:
-                {
-                    const auto mouse_position = vec2i
-                    (
-                        e.motion.x,
-                        viewport_handler.height - e.motion.y
-                    );
-                    const auto mouse_movement = vec2i
-                    (
-                        e.motion.xrel,
-                        e.motion.yrel
-                    );
-                    if(forward_mouse)
-                    {
-                        editor->mouse = mouse_position;
-
-                        if(mmb_down)
-                        {
-                            const auto mm = mouse_movement.StaticCast<float>();
-                            if(shift_down) { orbit.Pan(mm.x, mm.y); }
-                            else { orbit.Rotate(mm.x, mm.y); }
-                        }
-                    }
-                    break;
-                }
-                case SDL_KEYDOWN:
-                case SDL_KEYUP: {
-                    const bool down = e.type == SDL_KEYDOWN;
-
-                    if(forward_keyboard)
-                    {
-                        switch(e.key.keysym.sym)
-                        {
-                        case SDLK_ESCAPE:
-                            if(down)
-                            {
-                                running = false;
-                            }
-                            break;
-                        case SDLK_TAB:
-                            if(!down)
-                            {
-                                immersive_mode = !immersive_mode;
-                                engine->window->KeepWithin(immersive_mode);
-                                engine->window->EnableCharEvent(!immersive_mode);
-                            }
-                            break;
-                        case SDLK_g: grid->remove_this = true; break;
-                        default:
-                            if(forward_keyboard)
-                            {
-                                editor->OnKey(ToKey(e.key.keysym), down);
-                            }
-                            break;
-                        }
-                    }
-                
-                    {
-                        switch(e.key.keysym.sym)
-                        {
-                            case SDLK_LSHIFT:
-                            case SDLK_RSHIFT:
-                                shift_down = down;
-                                break;
-                            default:
-                                break;
-                        }
-                    }
-                }
-                break;
-
-                case SDL_MOUSEBUTTONDOWN:
-                case SDL_MOUSEBUTTONUP:
-                    if(forward_mouse)
-                    {
-                        const bool down = e.type == SDL_MOUSEBUTTONDOWN;
-                        editor->OnMouse(ToKey(e.button), down);
-                    }
-                    
-                    {
-                        const bool down = e.type == SDL_MOUSEBUTTONDOWN;
-                        const auto k = ToKey(e.button);
-                        switch(k)
-                        {
-                        case MouseButton::MIDDLE:
-                            mmb_down = down;
-                            break;
-                        default:
-                            break;
-                        }
-                    }
-                    break;
-
-                case SDL_MOUSEWHEEL:
-                    if(forward_mouse)
-                    {
-                        editor->OnScroll(vec2i(e.wheel.x, e.wheel.y));
-                        orbit.Zoom(e.wheel.y);
-                    }
-                    break;
-
-
-                default:
-                    // ignore other events
-                    break;
-                }
-            }
-        }
+        HandleEvents();
 
         editor->Step();
 
         if(show_imgui)
         {
             engine->imgui->StartNewFrame();
-
-            if(ImGui::BeginMainMenuBar())
-            {
-                if(ImGui::BeginMenu("File"))
-                {
-                    if(ImGui::MenuItem("Exit", "Ctrl+Q"))
-                    {
-                        running = false;
-                    }
-                    ImGui::EndMenu();
-                }
-
-                if(ImGui::BeginMenu("Window"))
-                {
-                    ImGui::MenuItem("Enviroment", nullptr, &enviroment_window);
-                    ImGui::MenuItem("Camera", nullptr, &camera_window);
-                    ImGui::MenuItem("Tiles", nullptr, &tiles_window);
-                    ImGui::MenuItem("Grid", nullptr, &grid_window);
-                    ImGui::EndMenu();
-                }
-            }
-            ImGui::EndMainMenuBar();
-
-            ImGui::SetNextWindowPos(ImVec2(650, 20), ImGuiCond_FirstUseEver);
-
-            ImGui::SetNextWindowSize(ImVec2(200, 100), ImGuiCond_FirstUseEver);
-            if(enviroment_window)
-            {
-                ImGui::Begin("Enviroment", &enviroment_window);
-                ImGui::Combo
-                (
-                    "Type",
-                    reinterpret_cast<int*>(&world->light.type),
-                    "Directional\0Point\0Spot\0\0"
-                );
-                ImGuiColorEdit3("Ambient", &world->light.ambient);
-                ImGuiColorEdit3("Diffuse", &world->light.diffuse);
-                ImGuiColorEdit3("Specular", &world->light.specular);
-                ImGui::End();
-            }
-
-            if(grid_window)
-            {
-                constexpr auto uistep = 0.01f;
-                constexpr auto uimin = 0.0f;
-                constexpr auto uimax = 100.0f;
-                bool dirty = false;
-
-                BeginFixedOverlay(ImguiCorner::TopLeft, "grid overlay", 10.0f, 30.0f);
-                const std::string str = Str{} << grid_small_step;
-                constexpr auto popup_grid = "popup_grid";
-                if(ImGui::Button(str.c_str()))
-                {
-                    ImGui::OpenPopup(popup_grid);
-                }
-                if(ImGui::BeginPopup(popup_grid))
-                {
-                    dirty = ImGui::DragFloat
-                    (
-                        "Snap interval",
-                        &grid_small_step,
-                        uistep,
-                        uimin,
-                        uimax
-                    ) || dirty;
-                    dirty = ImGui::DragInt
-                    (
-                        "Major line increment",
-                        &grid_big_step_interval
-                    ) || dirty;
-                    dirty = ImGui::DragFloat
-                    (
-                        "Normal size",
-                        &grid_normal,
-                        uistep,
-                        uimin,
-                        uimax
-                    ) || dirty;
-                    dirty = ImGui::DragInt("Lines on grid", &grid_size)
-                        || dirty;
-
-                    ImGui::EndPopup();
-                }
-
-                if(ImGui::Button(grid_visible
-                    ? ICON_MDI_GRID
-                    : ICON_MDI_GRID_OFF
-                ))
-                {
-                    grid_visible = !grid_visible;
-                    dirty = true;
-                }
-                ImGui::End();
-
-                if(dirty)
-                {
-                    update_grid();
-                }
-            }
-
-            if(camera_window)
-            {
-                ImGui::Begin("Camera", &camera_window);
-                // ImGui::DragFloat("Speed", &fps.speed, 0.1f, 0.001f, 10.0f);
-                ImguiAngleSlider
-                (
-                    "Horizontal",
-                    &orbit.horizontal_rotation,
-                    Angle::Zero(),
-                    Angle::OneTurn()
-                );
-                ImguiAngleSlider
-                (
-                    "Vertical",
-                    &orbit.vertical_rotation,
-                    -Angle::Quarter(),
-                    Angle::Quarter()
-                );
-                ImGui::InputFloat3("Position", orbit.center.GetDataPtr());
-                ImGui::Spacing();
-                ImGui::InputFloat("Distance", &orbit.distance);
-                auto sens = [](const char* label, Sensitivity* s)
-                {
-                    ImGui::PushID(label);
-                    ImGui::Checkbox("##inverted", &s->inverted);
-                    ImGui::PopID();
-                    ImGui::SameLine();
-                    ImGui::DragFloat(label, &s->value, 0.1f, 0.0f);
-                };
-                sens("Pan dX", &orbit.pan_dx);
-                sens("Pan dY", &orbit.pan_dy);
-                sens("Rotate dY", &orbit.rotate_dx);
-                sens("Rotate dX", &orbit.rotate_dy);
-                sens("Zoom", &orbit.zoom);
-                ImGui::End();
-            }
-
-            // ImGui::ListBox("", &selection[i], items, IM_ARRAYSIZE(items));
-            if(tiles_window)
-            {
-                ImGui::Begin("Tiles", &tiles_window);
-
-                if(!tile_library->tiles.empty())
-                {
-                    ImGui::ListBoxHeader("Tiles");
-                    for(auto tile: tile_library->tiles)
-                    {
-                        std::string display = Str {}
-                            << tile->name << ": "
-                            << tile->aabb.GetSize();
-                        if(ImGui::Selectable(
-                                   display.c_str(),
-                                   editor->selected_mesh == tile->mesh))
-                        {
-                            editor->selected_mesh = tile->mesh;
-                            editor->MeshHasChanged();
-                        }
-                    }
-                    ImGui::ListBoxFooter();
-
-                    if(ImGui::Button("Add"))
-                    {
-                        if(editor->selected_mesh && !editor->IsBusy())
-                        {
-                            auto actor = std::make_shared<Actor>(
-                                    editor->selected_mesh);
-                            world->AddActor(actor);
-                            editor->actors.emplace_back(actor);
-
-                            editor->tools.PushTool
-                            (
-                                std::make_shared<PlaceMeshOnPlane>(actor)
-                            );
-                        }
-                    }
-                }
-                editor->OnEditor();
-                ImGui::End();
-            }
+            ProcessImgui();
         }
-
 
         camera.position = orbit.GetCameraPosition();
         camera.rotation = orbit.GetRotation();
 
-        {
-            auto viewport = viewport_handler.GetFullViewport();
-            engine->init->ClearScreen(Color::LightGray);
-            editor->camera = camera.Compile(viewport.GetAspectRatio());
-            editor->viewport = viewport;
-            world->Render(viewport, camera);
-        }
+        engine->init->ClearScreen(Color::LightGray);
+
+        Render();
 
         if(show_imgui)
         {
@@ -888,12 +940,13 @@ struct T3d
     }
 };
 
+
 int
 main(int argc, char** argv)
 {
     T3d t3d;
 
-    if(t3d.Step1(argparse::Args::Extract(argc, argv)) == false)
+    if(t3d.Start(argparse::Args::Extract(argc, argv)) == false)
     {
         return -1;
     }
@@ -905,8 +958,6 @@ main(int argc, char** argv)
         LOG_ERROR("No tile loaded!");
         return -2;
     }
-
-    t3d.Step2();
 
     while(t3d.running)
     {
