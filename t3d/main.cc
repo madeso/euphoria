@@ -44,6 +44,7 @@
 #include "window/timer.h"
 #include "window/key.h"
 #include "window/engine.h"
+#include "window/imgui_icons.h"
 
 #include "imgui/imgui.h"
 #include "SDL.h"
@@ -727,31 +728,51 @@ main(int argc, char** argv)
                 constexpr auto uimin = 0.0f;
                 constexpr auto uimax = 100.0f;
                 bool dirty = false;
-                ImGui::Begin("Grid", &grid_window);
 
-                dirty = ImGui::Checkbox("Show grid", &grid_visible) || dirty;
-                dirty = ImGui::DragFloat
-                (
-                    "Snap interval",
-                    &grid_small_step,
-                    uistep,
-                    uimin,
-                    uimax
-                ) || dirty;
-                dirty = ImGui::DragInt
-                (
-                    "Major line increment",
-                    &grid_big_step_interval
-                ) || dirty;
-                dirty = ImGui::DragFloat
-                (
-                    "Normal size",
-                    &grid_normal,
-                    uistep,
-                    uimin,
-                    uimax
-                ) || dirty;
-                dirty = ImGui::DragInt("Lines on grid", &grid_size) || dirty;
+                BeginFixedOverlay(ImguiCorner::TopLeft, "grid overlay", 10.0f, 30.0f);
+                const std::string str = Str{} << grid_small_step;
+                constexpr auto popup_grid = "popup_grid";
+                if(ImGui::Button(str.c_str()))
+                {
+                    ImGui::OpenPopup(popup_grid);
+                }
+                if(ImGui::BeginPopup(popup_grid))
+                {
+                    dirty = ImGui::DragFloat
+                    (
+                        "Snap interval",
+                        &grid_small_step,
+                        uistep,
+                        uimin,
+                        uimax
+                    ) || dirty;
+                    dirty = ImGui::DragInt
+                    (
+                        "Major line increment",
+                        &grid_big_step_interval
+                    ) || dirty;
+                    dirty = ImGui::DragFloat
+                    (
+                        "Normal size",
+                        &grid_normal,
+                        uistep,
+                        uimin,
+                        uimax
+                    ) || dirty;
+                    dirty = ImGui::DragInt("Lines on grid", &grid_size)
+                        || dirty;
+
+                    ImGui::EndPopup();
+                }
+
+                if(ImGui::Button(grid_visible
+                    ? ICON_MDI_GRID
+                    : ICON_MDI_GRID_OFF
+                ))
+                {
+                    grid_visible = !grid_visible;
+                    dirty = true;
+                }
                 ImGui::End();
 
                 if(dirty)
@@ -796,7 +817,6 @@ main(int argc, char** argv)
                 sens("Zoom", &orbit.zoom);
                 ImGui::End();
             }
-
 
             // ImGui::ListBox("", &selection[i], items, IM_ARRAYSIZE(items));
             if(tiles_window)
