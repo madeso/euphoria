@@ -59,7 +59,13 @@ namespace euphoria::window
 
 
     bool
-    BeginFixedOverlay(ImguiCorner corner, const std::string& title);
+    BeginFixedOverlay
+    (
+        ImguiCorner corner,
+        const std::string& title,
+        float distance = 10.0f,
+        float distance_y = -1.0f
+    );
 
 
     ImVec2

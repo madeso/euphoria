@@ -551,15 +551,20 @@ namespace euphoria::editor
             const auto space_index_x = FindSpaceIndexOrNull(
                     scaling->cols, mouse_popup.x, texture->GetWidth());
 
-            if(window::ImguiSelectableOrDisabled(
-                       space_index_y,
-                       ICON_FK_ARROWS_H " New Horizontal divider"))
+            if(window::ImguiSelectableOrDisabled
+            (
+                space_index_y,
+                ICON_MDI_VIEW_SPLIT_HORIZONTAL " New Horizontal divider"
+            ))
             {
                 SplitSpaceInTwo(&scaling->rows, space_index_y, mouse_popup.y);
             }
 
-            if(window::ImguiSelectableOrDisabled(
-                       space_index_x, ICON_FK_ARROWS_V " New Vertical divider"))
+            if(window::ImguiSelectableOrDisabled
+            (
+                space_index_x,
+                ICON_MDI_VIEW_SPLIT_VERTICAL " New Vertical divider"
+            ))
             {
                 SplitSpaceInTwo(&scaling->cols, space_index_x, mouse_popup.x);
             }

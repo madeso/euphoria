@@ -37,14 +37,14 @@ source_group("imgui" FILES ${src_imgui})
 
 # fonts
 add_custom_command(
-  OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/font_forkawesome.h"
+  OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/font_material_design_icons.h"
   COMMAND  binary_to_compressed_c
-  ARGS ${CMAKE_CURRENT_SOURCE_DIR}/forkawesome.ttf ForkAwesome > font_forkawesome.h
+  ARGS ${CMAKE_CURRENT_SOURCE_DIR}/material_design_icons.ttf MaterialDesignIcons > font_material_design_icons.h
   WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
   COMMENT "Generating binary font"
   )
-set(src ${src} ${CMAKE_CURRENT_BINARY_DIR}/font_forkawesome.h)
-source_group("fonts" FILES ${CMAKE_CURRENT_BINARY_DIR}/font_forkawesome.h)
+set(src ${src} ${CMAKE_CURRENT_BINARY_DIR}/font_material_design_icons.h)
+source_group("fonts" FILES ${CMAKE_CURRENT_BINARY_DIR}/font_material_design_icons.h)
 
 add_custom_command(
   OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/font_noto_sans_display.h"

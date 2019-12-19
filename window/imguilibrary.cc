@@ -1,15 +1,21 @@
 #include "window/imguilibrary.h"
 
+#include <cstdint>
+
 #include "imgui/imgui.h"
 #include "imgui_impl_sdl.h"
 #include "imgui_impl_opengl3.h"
 
-#include "IconsForkAwesome.h"
-#include "font_forkawesome.h"
+#include "font_material_design_icons.h"
 
 #include "font_noto_sans_display.h"
 
+#include "core/log.h"
+
 #include "window/sdlglcontext.h"
+#include "window/imgui_icons.h"
+
+LOG_SPECIFY_DEFAULT_LOGGER("window.imguilibrary")
 
 namespace euphoria::window
 {
@@ -24,15 +30,30 @@ namespace euphoria::window
                 NotoSansDisplay_compressed_size,
                 16);
 
-        static const ImWchar icons_ranges[] = {ICON_MIN_FK, ICON_MAX_FK, 0};
+        const uint64_t min_mdi = ICON_MIN_MDI;
+        const uint64_t max_mdi = ICON_MAX_MDI;
+        const uint64_t min_imgui = static_cast<uint64_t>(std::numeric_limits<ImWchar>::min());
+        const uint64_t max_imgui = static_cast<uint64_t>(std::numeric_limits<ImWchar>::max());
+        const auto max_arg = static_cast<ImWchar>(std::min(max_mdi, max_imgui));
+        if(max_mdi > max_imgui)
+        {
+            LOG_ERROR("imgui is missing " << (max_mdi - max_imgui) << " icons!");
+
+            LOG_INFO("mdi range:   " << (max_mdi - min_mdi));
+            LOG_INFO("imgui range: " << (max_imgui - min_imgui));
+            LOG_INFO("Supplied range: " << (max_arg - min_mdi));
+        }
+
+
+        static const ImWchar icons_ranges[] = {ICON_MIN_MDI, max_arg, 0};
         ImFontConfig         icons_config;
         icons_config.MergeMode        = true;
         icons_config.PixelSnapH       = true;
         icons_config.GlyphMinAdvanceX = 13.0f;
 
         io.Fonts->AddFontFromMemoryCompressedTTF(
-                ForkAwesome_compressed_data,
-                ForkAwesome_compressed_size,
+                MaterialDesignIcons_compressed_data,
+                MaterialDesignIcons_compressed_size,
                 13.0f,
                 &icons_config,
                 icons_ranges);

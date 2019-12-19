@@ -131,24 +131,37 @@ namespace euphoria::window
 
     // stolen from ShowExampleAppFixedOverlay function in imgui_demo
     bool
-    BeginFixedOverlay(ImguiCorner corner, const std::string& title)
+    BeginFixedOverlay
+    (
+        ImguiCorner corner,
+        const std::string& title,
+        float a_distance,
+        float a_distance_y
+    )
     {
         const int   corner_int = static_cast<int>(corner);
-        const float distance   = 10.0f;
-        const auto  size       = ImGui::GetIO().DisplaySize;
-        ImVec2      window_pos = corner == ImguiCorner::Center
-                                    ? ImVec2(size.x / 2, size.y / 2)
-                                    : ImVec2(
-                                            (corner_int & 1) ? size.x - distance
-                                                             : distance,
-                                            (corner_int & 2) ? size.y - distance
-                                                             : distance);
-        ImVec2 window_pos_pivot
-                = corner == ImguiCorner::Center
-                          ? ImVec2(0.5f, 0.5f)
-                          : ImVec2(
-                                  (corner_int & 1) ? 1.0f : 0.0f,
-                                  (corner_int & 2) ? 1.0f : 0.0f);
+        // const float distance   = 10.0f;
+        const auto distance_x = a_distance;
+        const auto distance_y = a_distance_y > 0 ? a_distance_y : a_distance;
+        const auto size = ImGui::GetIO().DisplaySize;
+        const ImVec2 window_pos = corner == ImguiCorner::Center
+            ? ImVec2(size.x / 2, size.y / 2)
+            : ImVec2
+            (
+                (corner_int & 1)
+                    ? size.x - distance_x
+                    : distance_x,
+                (corner_int & 2)
+                    ? size.y - distance_y
+                    : distance_y
+            );
+        const ImVec2 window_pos_pivot = corner == ImguiCorner::Center
+            ? ImVec2(0.5f, 0.5f)
+            : ImVec2
+            (
+                (corner_int & 1) ? 1.0f : 0.0f,
+                (corner_int & 2) ? 1.0f : 0.0f
+            );
         ImGui::SetNextWindowPos(window_pos, ImGuiCond_Always, window_pos_pivot);
 
         return ImGui::Begin(
