@@ -386,9 +386,9 @@ struct PlaceMeshOnPlane : public Tool
 int
 main(int argc, char** argv)
 {
-    auto engine = Engine {};
+    auto engine = std::make_shared<Engine>();
 
-    if(engine.Setup(argparse::Args::Extract(argc, argv)) == false)
+    if(engine->Setup(argparse::Args::Extract(argc, argv)) == false)
     {
         return -1;
     }
@@ -396,7 +396,7 @@ main(int argc, char** argv)
     int width  = 1280;
     int height = 720;
 
-    if(engine.CreateWindow("t3d", width, height) == false)
+    if(engine->CreateWindow("t3d", width, height) == false)
     {
         return -1;
     }
@@ -404,34 +404,33 @@ main(int argc, char** argv)
     auto viewport_handler = ViewportHandler {};
     viewport_handler.SetSize(width, height);
 
-    auto material_shader_cache = MaterialShaderCache {engine.file_system.get()};
+    auto material_shader_cache = std::make_shared<MaterialShaderCache>(engine->file_system.get());
 
     // SET_ENUM_VALUES(TextureType, SetupTextureNames);
     SET_ENUM_FROM_FILE(
-            engine.file_system.get(), "texture_types.json", TextureType);
+            engine->file_system.get(), "texture_types.json", TextureType);
 
-    auto texture_cache = TextureCache {engine.file_system.get()};
+    auto texture_cache = std::make_shared<TextureCache>(engine->file_system.get());
 
-    auto tile_library = TileLibrary {engine.file_system.get()};
-    tile_library.AddDirectory("world", &material_shader_cache, &texture_cache);
+    auto tile_library = std::make_shared<TileLibrary>(engine->file_system.get());
+    tile_library->AddDirectory("world", material_shader_cache.get(), texture_cache.get());
 
-    if(tile_library.tiles.empty())
+    if(tile_library->tiles.empty())
     {
         LOG_ERROR("No tile loaded!");
         return -2;
     }
 
-    auto world = World {};
+    auto world = std::make_shared<World>();
 
     auto camera     = Camera {};
-    camera.position = vec3f(0, 0, 0);
 
-    Editor editor {&world, &tile_library};
-    editor.tools.PushTool(std::make_shared<NoTool>());
+    auto editor = std::make_shared<Editor>(world.get(), tile_library.get());
+    editor->tools.PushTool(std::make_shared<NoTool>());
 
     bool running = true;
 
-    SdlTimer timer;
+    auto timer = std::make_shared<SdlTimer>();
 
 
     bool immersive_mode = false;
@@ -518,14 +517,14 @@ main(int argc, char** argv)
         def.AddLine(vec3f {-size, 0, 0}, vec3f {size, 0, 0}, x_color);
         def.AddLine(vec3f {0, 0, -size}, vec3f {0, 0, size}, z_color);
 
-        auto compiled = Compile(&material_shader_cache, def);
+        auto compiled = Compile(material_shader_cache.get(), def);
         grid     = std::make_shared<PositionedLines>(compiled);
-        world.AddActor(grid);
+        world->AddActor(grid);
     };
 
     update_grid();
 
-    engine.window->EnableCharEvent(!immersive_mode);
+    engine->window->EnableCharEvent(!immersive_mode);
 
     bool enviroment_window = false;
     bool camera_window     = false;
@@ -539,10 +538,10 @@ main(int argc, char** argv)
     while(running)
     {
         const bool  show_imgui = !immersive_mode;
-        const float delta      = timer.Update();
+        const float delta      = timer->Update();
 
-        world.Step();
-        editor.tools.PerformTools();
+        world->Step();
+        editor->tools.PerformTools();
 
         {
             SDL_Event e;
@@ -550,13 +549,13 @@ main(int argc, char** argv)
             {
                 int window_width  = 0;
                 int window_height = 0;
-                if(engine.HandleResize(e, &window_width, &window_height))
+                if(engine->HandleResize(e, &window_width, &window_height))
                 {
                     viewport_handler.SetSize(window_width, window_height);
                 }
                 if(show_imgui)
                 {
-                    engine.imgui->ProcessEvents(&e);
+                    engine->imgui->ProcessEvents(&e);
                 }
 
                 auto&      io = ImGui::GetIO();
@@ -581,7 +580,7 @@ main(int argc, char** argv)
                     );
                     if(forward_mouse)
                     {
-                        editor.mouse = mouse_position;
+                        editor->mouse = mouse_position;
 
                         if(mmb_down)
                         {
@@ -610,15 +609,15 @@ main(int argc, char** argv)
                             if(!down)
                             {
                                 immersive_mode = !immersive_mode;
-                                engine.window->KeepWithin(immersive_mode);
-                                engine.window->EnableCharEvent(!immersive_mode);
+                                engine->window->KeepWithin(immersive_mode);
+                                engine->window->EnableCharEvent(!immersive_mode);
                             }
                             break;
                         case SDLK_g: grid->remove_this = true; break;
                         default:
                             if(forward_keyboard)
                             {
-                                editor.OnKey(ToKey(e.key.keysym), down);
+                                editor->OnKey(ToKey(e.key.keysym), down);
                             }
                             break;
                         }
@@ -643,7 +642,7 @@ main(int argc, char** argv)
                     if(forward_mouse)
                     {
                         const bool down = e.type == SDL_MOUSEBUTTONDOWN;
-                        editor.OnMouse(ToKey(e.button), down);
+                        editor->OnMouse(ToKey(e.button), down);
                     }
                     
                     {
@@ -663,7 +662,7 @@ main(int argc, char** argv)
                 case SDL_MOUSEWHEEL:
                     if(forward_mouse)
                     {
-                        editor.OnScroll(vec2i(e.wheel.x, e.wheel.y));
+                        editor->OnScroll(vec2i(e.wheel.x, e.wheel.y));
                         orbit.Zoom(e.wheel.y);
                     }
                     break;
@@ -676,11 +675,11 @@ main(int argc, char** argv)
             }
         }
 
-        editor.Step();
+        editor->Step();
 
         if(show_imgui)
         {
-            engine.imgui->StartNewFrame();
+            engine->imgui->StartNewFrame();
 
             if(ImGui::BeginMainMenuBar())
             {
@@ -713,12 +712,12 @@ main(int argc, char** argv)
                 ImGui::Combo
                 (
                     "Type",
-                    reinterpret_cast<int*>(&world.light.type),
+                    reinterpret_cast<int*>(&world->light.type),
                     "Directional\0Point\0Spot\0\0"
                 );
-                ImGuiColorEdit3("Ambient", &world.light.ambient);
-                ImGuiColorEdit3("Diffuse", &world.light.diffuse);
-                ImGuiColorEdit3("Specular", &world.light.specular);
+                ImGuiColorEdit3("Ambient", &world->light.ambient);
+                ImGuiColorEdit3("Diffuse", &world->light.diffuse);
+                ImGuiColorEdit3("Specular", &world->light.specular);
                 ImGui::End();
             }
 
@@ -823,41 +822,41 @@ main(int argc, char** argv)
             {
                 ImGui::Begin("Tiles", &tiles_window);
 
-                if(!tile_library.tiles.empty())
+                if(!tile_library->tiles.empty())
                 {
                     ImGui::ListBoxHeader("Tiles");
-                    for(auto tile: tile_library.tiles)
+                    for(auto tile: tile_library->tiles)
                     {
                         std::string display = Str {}
                             << tile->name << ": "
                             << tile->aabb.GetSize();
                         if(ImGui::Selectable(
                                    display.c_str(),
-                                   editor.selected_mesh == tile->mesh))
+                                   editor->selected_mesh == tile->mesh))
                         {
-                            editor.selected_mesh = tile->mesh;
-                            editor.MeshHasChanged();
+                            editor->selected_mesh = tile->mesh;
+                            editor->MeshHasChanged();
                         }
                     }
                     ImGui::ListBoxFooter();
 
                     if(ImGui::Button("Add"))
                     {
-                        if(editor.selected_mesh && !editor.IsBusy())
+                        if(editor->selected_mesh && !editor->IsBusy())
                         {
                             auto actor = std::make_shared<Actor>(
-                                    editor.selected_mesh);
-                            world.AddActor(actor);
-                            editor.actors.emplace_back(actor);
+                                    editor->selected_mesh);
+                            world->AddActor(actor);
+                            editor->actors.emplace_back(actor);
 
-                            editor.tools.PushTool
+                            editor->tools.PushTool
                             (
                                 std::make_shared<PlaceMeshOnPlane>(actor)
                             );
                         }
                     }
                 }
-                editor.OnEditor();
+                editor->OnEditor();
                 ImGui::End();
             }
         }
@@ -868,18 +867,18 @@ main(int argc, char** argv)
 
         {
             auto viewport = viewport_handler.GetFullViewport();
-            engine.init->ClearScreen(Color::LightGray);
-            editor.camera = camera.Compile(viewport.GetAspectRatio());
-            editor.viewport = viewport;
-            world.Render(viewport, camera);
+            engine->init->ClearScreen(Color::LightGray);
+            editor->camera = camera.Compile(viewport.GetAspectRatio());
+            editor->viewport = viewport;
+            world->Render(viewport, camera);
         }
 
         if(show_imgui)
         {
-            engine.imgui->Render();
+            engine->imgui->Render();
         }
 
-        SDL_GL_SwapWindow(engine.window->window);
+        SDL_GL_SwapWindow(engine->window->window);
     }
 
     return 0;
