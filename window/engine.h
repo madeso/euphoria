@@ -33,7 +33,7 @@ namespace euphoria::window
 
     struct Engine
     {
-        Engine() = default;
+        Engine();
         ~Engine();
 
         bool

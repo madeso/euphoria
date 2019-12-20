@@ -23,6 +23,8 @@ namespace euphoria::window
 {
     LOG_SPECIFY_DEFAULT_LOGGER("window.engine")
 
+    Engine::Engine() = default;
+
     Engine::~Engine()
     {
         imgui.reset();

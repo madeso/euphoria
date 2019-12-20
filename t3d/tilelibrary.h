@@ -14,9 +14,8 @@ namespace euphoria::core::vfs
 
 namespace euphoria::t3d
 {
-    class Tile
+    struct Tile
     {
-    public:
         Tile();
         ~Tile();
 
@@ -27,9 +26,9 @@ namespace euphoria::t3d
         std::shared_ptr<render::CompiledMesh> mesh;
     };
 
-    class TileLibrary
+
+    struct TileLibrary
     {
-    public:
         core::vfs::FileSystem* file_system;
 
         TileLibrary(core::vfs::FileSystem* fs);
