@@ -412,8 +412,12 @@ namespace euphoria::t3d
         ImGui::ListBoxHeader("Items");
         for(auto actor: actors)
         {
+            ASSERT(actor->tile);
+            ASSERT(actor->tile);
             const auto p = actor->actor->GetPosition();
             std::string display = core::Str {}
+                << actor->tile->name
+                << " "
                 << p;
             if(ImGui::Selectable(
                         display.c_str(),
@@ -577,7 +581,7 @@ namespace euphoria::t3d
                             display.c_str(),
                             editor->selected_mesh && editor->selected_mesh->mesh == tile->mesh))
                 {
-                    editor->selected_mesh = tile.get();
+                    editor->selected_mesh = tile;
                     editor->MeshHasChanged();
                 }
             }
@@ -588,6 +592,7 @@ namespace euphoria::t3d
                 if(editor->selected_mesh && !editor->IsBusy())
                 {
                     auto placed = std::make_shared<PlacedMesh>();
+                    placed->tile = editor->selected_mesh;
                     placed->actor = std::make_shared<render::Actor>
                     (
                             editor->selected_mesh->mesh
@@ -597,7 +602,7 @@ namespace euphoria::t3d
 
                     editor->tools.PushTool
                     (
-                        std::make_shared<PlaceMeshOnPlane>(placed->actor)
+                        std::make_shared<PlaceMeshOnPlane>(placed)
                     );
                 }
             }

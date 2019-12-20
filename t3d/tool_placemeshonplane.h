@@ -16,13 +16,15 @@ namespace euphoria::render
 
 namespace euphoria::t3d
 {
+    struct PlacedMesh;
+
     struct PlaceMeshOnPlane : public Tool
     {
-        std::shared_ptr<render::Actor> actor;
+        std::shared_ptr<PlacedMesh> actor;
         core::Plane plane;
 
 
-        PlaceMeshOnPlane(std::shared_ptr<render::Actor> aactor);
+        PlaceMeshOnPlane(std::shared_ptr<PlacedMesh> aactor);
 
 
         void

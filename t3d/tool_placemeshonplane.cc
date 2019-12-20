@@ -13,7 +13,7 @@
 
 namespace euphoria::t3d
 {
-    PlaceMeshOnPlane::PlaceMeshOnPlane(std::shared_ptr<render::Actor> aactor)
+    PlaceMeshOnPlane::PlaceMeshOnPlane(std::shared_ptr<PlacedMesh> aactor)
         : actor(aactor)
         , plane(core::Plane::FromNormalAndPoint(core::unit3f::Up(), core::vec3f::Zero()))
     {}
@@ -22,7 +22,8 @@ namespace euphoria::t3d
     void
     PlaceMeshOnPlane::MeshHasChanged(Editor* editor)
     {
-        actor->mesh_ = editor->selected_mesh->mesh;
+        actor->tile = editor->selected_mesh;
+        actor->actor->mesh_ = editor->selected_mesh->mesh;
     }
 
 
@@ -65,7 +66,7 @@ namespace euphoria::t3d
             p.z = SnapTo(p.z, editor->grid->small_step);
         }
 
-        actor->SetPosition(p);
+        actor->actor->SetPosition(p);
     }
 
 

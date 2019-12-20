@@ -27,6 +27,7 @@ namespace euphoria::t3d
     struct PlacedMesh
     {
         std::shared_ptr<render::Actor> actor;
+        std::shared_ptr<Tile> tile;
         bool is_selected = false;
     };
 
@@ -44,7 +45,7 @@ namespace euphoria::t3d
         Tools tools;
 
         std::vector<std::shared_ptr<PlacedMesh>> actors;
-        Tile* selected_mesh = nullptr;
+        std::shared_ptr<Tile> selected_mesh;
 
         // todo(Gustav): move camera here so we can have camera movement
         // change so that fps control rotate focuspoint around current camera pos
