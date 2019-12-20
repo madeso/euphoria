@@ -449,7 +449,7 @@ struct T3d
 
         timer = std::make_shared<SdlTimer>();
         
-        update_grid();
+        UpdateGrid();
 
         engine->window->EnableCharEvent(!immersive_mode);
 
@@ -465,7 +465,7 @@ struct T3d
 
 
     void
-    add_single_grid_line
+    AddSingleGridLine
     (
         Lines& def,
         float size,
@@ -481,7 +481,7 @@ struct T3d
 
 
     void
-    update_grid()
+    UpdateGrid()
     {
         constexpr auto smallest_step = 0.01f;
         constexpr auto small_color = Color::Gray;
@@ -524,7 +524,7 @@ struct T3d
                     color = small_color;
                 }
             }
-            add_single_grid_line(def, size, x, color);
+            AddSingleGridLine(def, size, x, color);
         }
 
         def.AddLine(vec3f {-size, 0, 0}, vec3f {size, 0, 0}, x_color);
@@ -813,7 +813,7 @@ struct T3d
 
         if(dirty)
         {
-            update_grid();
+            UpdateGrid();
         }
     }
 
