@@ -63,10 +63,13 @@ namespace euphoria::t3d
         bool immersive_mode = false;
         std::shared_ptr<render::PositionedLines> grid;
         Grid grid_data;
+
         bool enviroment_window = false;
         bool camera_window     = false;
         bool tiles_window      = true;
         bool grid_window      = true;
+        bool lister_window = true;
+
         core::OrbitController orbit;
         bool mmb_down = false;
         bool shift_down = false;
@@ -129,6 +132,10 @@ namespace euphoria::t3d
 
         void
         OnMainMenu();
+
+
+        void
+        OnListerWindow();
 
 
         void

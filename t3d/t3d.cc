@@ -366,6 +366,13 @@ namespace euphoria::t3d
             OnTileWindow();
             ImGui::End();
         }
+
+        if(lister_window)
+        {
+            ImGui::Begin("Lister", &lister_window);
+            OnListerWindow();
+            ImGui::End();
+        }
     }
 
 
@@ -387,7 +394,50 @@ namespace euphoria::t3d
             ImGui::MenuItem("Camera", nullptr, &camera_window);
             ImGui::MenuItem("Tiles", nullptr, &tiles_window);
             ImGui::MenuItem("Grid", nullptr, &grid_window);
+            ImGui::MenuItem("Lister", nullptr, &lister_window);
             ImGui::EndMenu();
+        }
+    }
+
+
+    void
+    T3d::OnListerWindow()
+    {
+        auto actors = editor->actors;
+        if(actors.empty())
+        {
+            return;
+        }
+
+        ImGui::ListBoxHeader("Items");
+        for(auto actor: actors)
+        {
+            const auto p = actor->actor->GetPosition();
+            std::string display = core::Str {}
+                << p;
+            if(ImGui::Selectable(
+                        display.c_str(),
+                        actor->is_selected))
+            {
+                actor->is_selected = !actor->is_selected;
+            }
+        }
+        ImGui::ListBoxFooter();
+
+        if(ImGui::Button("Select none"))
+        {
+            for(auto actor: actors)
+            {
+                actor->is_selected = false;
+            }
+        }
+        ImGui::SameLine();
+        if(ImGui::Button("Select all"))
+        {
+            for(auto actor: editor->actors)
+            {
+                actor->is_selected = true;
+            }
         }
     }
 
@@ -537,14 +587,17 @@ namespace euphoria::t3d
             {
                 if(editor->selected_mesh && !editor->IsBusy())
                 {
-                    auto actor = std::make_shared<render::Actor>(
-                            editor->selected_mesh);
-                    world->AddActor(actor);
-                    editor->actors.emplace_back(actor);
+                    auto placed = std::make_shared<PlacedMesh>();
+                    placed->actor = std::make_shared<render::Actor>
+                    (
+                            editor->selected_mesh
+                    );
+                    world->AddActor(placed->actor);
+                    editor->actors.emplace_back(placed);
 
                     editor->tools.PushTool
                     (
-                        std::make_shared<PlaceMeshOnPlane>(actor)
+                        std::make_shared<PlaceMeshOnPlane>(placed->actor)
                     );
                 }
             }

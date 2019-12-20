@@ -24,6 +24,13 @@ namespace euphoria::t3d
     struct Grid;
 
 
+    struct PlacedMesh
+    {
+        std::shared_ptr<render::Actor> actor;
+        bool is_selected = false;
+    };
+
+
     // todo(Gustav): Should editor and T3d structs be merged?
     struct Editor
     {
@@ -36,8 +43,8 @@ namespace euphoria::t3d
         core::vec2i mouse;
         Tools tools;
 
-        std::vector<std::shared_ptr<render::Actor>> actors;
-        std::shared_ptr<render::CompiledMesh>       selected_mesh;
+        std::vector<std::shared_ptr<PlacedMesh>> actors;
+        std::shared_ptr<render::CompiledMesh> selected_mesh;
 
         // todo(Gustav): move camera here so we can have camera movement
         // change so that fps control rotate focuspoint around current camera pos
