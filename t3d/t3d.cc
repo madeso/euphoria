@@ -460,6 +460,15 @@ namespace euphoria::t3d
             dirty = true;
         }
 
+        if(ImGui::Button(grid_data.snap_enabled
+            ? ICON_MDI_AXIS_ARROW_LOCK
+            : ICON_MDI_AXIS_ARROW
+        ))
+        {
+            grid_data.snap_enabled = !grid_data.snap_enabled;
+            dirty = true;
+        }
+
         if(dirty)
         {
             UpdateGrid();

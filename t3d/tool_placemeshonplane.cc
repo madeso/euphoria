@@ -3,11 +3,12 @@
 #include "imgui/imgui.h"
 
 #include "core/intersection.h"
+#include "core/numeric.h"
 
 #include "render/actor.h"
 
 #include "t3d/editor.h"
-
+#include "t3d/grid.h"
 
 namespace euphoria::t3d
 {
@@ -31,6 +32,13 @@ namespace euphoria::t3d
     }
 
 
+    float
+    SnapTo(float val, float step)
+    {
+        return core::Round(val, step);
+    }
+
+
     void
     PlaceMeshOnPlane::Step(Editor* editor)
     {
@@ -48,7 +56,14 @@ namespace euphoria::t3d
             return;
         }
         // do intersection with plane...
-        const auto p = ray.GetPoint(t);
+        auto p = ray.GetPoint(t);
+
+        if(editor->grid->snap_enabled)
+        {
+            p.x = SnapTo(p.x, editor->grid->small_step);
+            p.z = SnapTo(p.z, editor->grid->small_step);
+        }
+
         actor->SetPosition(p);
     }
 

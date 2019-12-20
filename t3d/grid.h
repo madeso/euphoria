@@ -10,6 +10,8 @@ namespace euphoria::t3d
         int big_step_interval = 5;
         float normal = 1.0f;
         int size = 10;
+
+        bool snap_enabled = true;
     };
 }
 
