@@ -570,99 +570,123 @@ struct T3d
                 e.motion.xrel,
                 e.motion.yrel
             );
-            if(forward_mouse)
-            {
-                editor->mouse = mouse_position;
-
-                if(mmb_down)
-                {
-                    const auto mm = mouse_movement.StaticCast<float>();
-                    if(shift_down) { orbit.Pan(mm.x, mm.y); }
-                    else { orbit.Rotate(mm.x, mm.y); }
-                }
-            }
+            OnMouseMovement(mouse_position, mouse_movement, forward_mouse);
             break;
         }
         case SDL_KEYDOWN:
         case SDL_KEYUP: {
+            const auto key = ToKey(e.key.keysym);
             const bool down = e.type == SDL_KEYDOWN;
-
-            if(forward_keyboard)
-            {
-                switch(e.key.keysym.sym)
-                {
-                case SDLK_ESCAPE:
-                    if(down)
-                    {
-                        running = false;
-                    }
-                    break;
-                case SDLK_TAB:
-                    if(!down)
-                    {
-                        immersive_mode = !immersive_mode;
-                        engine->window->KeepWithin(immersive_mode);
-                        engine->window->EnableCharEvent(!immersive_mode);
-                    }
-                    break;
-                case SDLK_g: grid->remove_this = true; break;
-                default:
-                    if(forward_keyboard)
-                    {
-                        editor->OnKey(ToKey(e.key.keysym), down);
-                    }
-                    break;
-                }
-            }
-        
-            {
-                switch(e.key.keysym.sym)
-                {
-                    case SDLK_LSHIFT:
-                    case SDLK_RSHIFT:
-                        shift_down = down;
-                        break;
-                    default:
-                        break;
-                }
-            }
+            OnKey(key, down, forward_keyboard);
         }
         break;
 
         case SDL_MOUSEBUTTONDOWN:
         case SDL_MOUSEBUTTONUP:
-            if(forward_mouse)
             {
+                const auto button = ToKey(e.button);
                 const bool down = e.type == SDL_MOUSEBUTTONDOWN;
-                editor->OnMouse(ToKey(e.button), down);
-            }
-            
-            {
-                const bool down = e.type == SDL_MOUSEBUTTONDOWN;
-                const auto k = ToKey(e.button);
-                switch(k)
-                {
-                case MouseButton::MIDDLE:
-                    mmb_down = down;
-                    break;
-                default:
-                    break;
-                }
+                OnMouseButton(button, down, forward_mouse);
             }
             break;
 
         case SDL_MOUSEWHEEL:
-            if(forward_mouse)
-            {
-                editor->OnScroll(vec2i(e.wheel.x, e.wheel.y));
-                orbit.Zoom(e.wheel.y);
-            }
+            OnMouseWheel(e, forward_mouse);
             break;
 
 
         default:
             // ignore other events
             break;
+        }
+    }
+
+
+    void
+    OnMouseMovement(const vec2i& position, const vec2i& movement, bool forward_mouse)
+    {
+        if(forward_mouse)
+        {
+            editor->mouse = position;
+
+            if(mmb_down)
+            {
+                const auto mm = movement.StaticCast<float>();
+                if(shift_down) { orbit.Pan(mm.x, mm.y); }
+                else { orbit.Rotate(mm.x, mm.y); }
+            }
+        }
+    }
+
+
+    void
+    OnKey(Key key, bool down, bool forward_keyboard)
+    {
+        if(forward_keyboard)
+        {
+            switch(key)
+            {
+            case Key::ESCAPE:
+                if(down)
+                {
+                    running = false;
+                }
+                break;
+            case Key::TAB:
+                if(!down)
+                {
+                    immersive_mode = !immersive_mode;
+                    engine->window->KeepWithin(immersive_mode);
+                    engine->window->EnableCharEvent(!immersive_mode);
+                }
+                break;
+            default:
+                if(forward_keyboard)
+                {
+                    editor->OnKey(key, down);
+                }
+                break;
+            }
+        }
+        
+        switch(key)
+        {
+            case Key::SHIFT_LEFT:
+            case Key::SHIFT_RIGHT:
+                shift_down = down;
+                break;
+            default:
+                break;
+        }
+    }
+
+
+    void
+    OnMouseButton(MouseButton button, bool down, bool forward_mouse)
+    {
+        if(forward_mouse)
+        {
+            editor->OnMouse(button, down);
+        }
+        
+        switch(button)
+        {
+        case MouseButton::MIDDLE:
+            mmb_down = down;
+            break;
+        default:
+            break;
+        }
+    }
+
+
+    void
+    OnMouseWheel(const SDL_Event& e, bool forward_mouse)
+    {
+        if(forward_mouse)
+        {
+            editor->OnScroll(vec2i(e.wheel.x, e.wheel.y));
+            orbit.Zoom(e.wheel.y);
         }
     }
 
