@@ -21,11 +21,13 @@ namespace euphoria::render
 namespace euphoria::t3d
 {
     struct TileLibrary;
+    struct Grid;
 
 
     // todo(Gustav): Should editor and T3d structs be merged?
     struct Editor
     {
+        Grid* grid;
         render::World*         world;
         TileLibrary*   tile_library;
         core::CompiledCamera camera;
@@ -41,7 +43,7 @@ namespace euphoria::t3d
         // change so that fps control rotate focuspoint around current camera pos
 
 
-        Editor(render::World* aworld, TileLibrary* atile_library);
+        Editor(Grid* agrid, render::World* aworld, TileLibrary* atile_library);
 
 
         // current tool callbacks

@@ -4,8 +4,14 @@
 
 namespace euphoria::t3d
 {
-    Editor::Editor(render::World* aworld, TileLibrary* atile_library)
-        : world(aworld)
+    Editor::Editor
+    (
+        Grid* agrid,
+        render::World* aworld,
+        TileLibrary* atile_library
+    )
+        : grid(agrid)
+        , world(aworld)
         , tile_library(atile_library)
         , camera(core::mat4f::Identity(), core::mat4f::Identity())
         , viewport(core::Recti::FromWidthHeight(10, 10))

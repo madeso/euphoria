@@ -69,7 +69,7 @@ namespace euphoria::t3d
 
         world = std::make_shared<render::World>();
 
-        editor = std::make_shared<Editor>(world.get(), tile_library.get());
+        editor = std::make_shared<Editor>(&grid_data, world.get(), tile_library.get());
         editor->tools.PushTool(std::make_shared<NoTool>());
 
         timer = std::make_shared<window::SdlTimer>();
@@ -121,14 +121,14 @@ namespace euphoria::t3d
             grid = nullptr;
         }
 
-        if(grid_visible == false)
+        if(grid_data.visible == false)
         {
             return;
         }
 
-        const auto small_step = core::Max(smallest_step, grid_small_step);
-        const auto size = core::Abs(grid_size * grid_small_step);
-        const auto normal = grid_normal;
+        const auto small_step = core::Max(smallest_step, grid_data.small_step);
+        const auto size = core::Abs(grid_data.size * grid_data.small_step);
+        const auto normal = grid_data.normal;
 
         auto def = core::Lines {};
 
@@ -137,14 +137,14 @@ namespace euphoria::t3d
             def.AddLine(core::vec3f {0, 0, 0}, core::vec3f {0, normal, 0}, y_color);
         }
 
-        for(int index = 0; index < grid_size; index += 1)
+        for(int index = 0; index < grid_data.size; index += 1)
         {
             float x = small_step * (index+1);
 
             auto color = big_color;
-            if(grid_big_step_interval > 1)
+            if(grid_data.big_step_interval > 1)
             {
-                if(((index+1) % grid_big_step_interval) != 0 )
+                if(((index+1) % grid_data.big_step_interval) != 0 )
                 {
                     color = small_color;
                 }
@@ -416,7 +416,7 @@ namespace euphoria::t3d
         bool dirty = false;
 
         
-        const std::string str = core::Str{} << grid_small_step;
+        const std::string str = core::Str{} << grid_data.small_step;
         constexpr auto popup_grid = "popup_grid";
         if(ImGui::Button(str.c_str()))
         {
@@ -427,7 +427,7 @@ namespace euphoria::t3d
             dirty = ImGui::DragFloat
             (
                 "Snap interval",
-                &grid_small_step,
+                &grid_data.small_step,
                 uistep,
                 uimin,
                 uimax
@@ -435,28 +435,28 @@ namespace euphoria::t3d
             dirty = ImGui::DragInt
             (
                 "Major line increment",
-                &grid_big_step_interval
+                &grid_data.big_step_interval
             ) || dirty;
             dirty = ImGui::DragFloat
             (
                 "Normal size",
-                &grid_normal,
+                &grid_data.normal,
                 uistep,
                 uimin,
                 uimax
             ) || dirty;
-            dirty = ImGui::DragInt("Lines on grid", &grid_size)
+            dirty = ImGui::DragInt("Lines on grid", &grid_data.size)
                 || dirty;
 
             ImGui::EndPopup();
         }
 
-        if(ImGui::Button(grid_visible
+        if(ImGui::Button(grid_data.visible
             ? ICON_MDI_GRID
             : ICON_MDI_GRID_OFF
         ))
         {
-            grid_visible = !grid_visible;
+            grid_data.visible = !grid_data.visible;
             dirty = true;
         }
 

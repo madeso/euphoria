@@ -15,6 +15,8 @@
 
 #include "window/fakesdlevent.h"
 
+#include "t3d/grid.h"
+
 
 namespace euphoria::core
 {
@@ -60,11 +62,7 @@ namespace euphoria::t3d
         std::shared_ptr<window::SdlTimer> timer;
         bool immersive_mode = false;
         std::shared_ptr<render::PositionedLines> grid;
-        bool grid_visible = true;
-        float grid_small_step = 0.5f;
-        int grid_big_step_interval = 5;
-        float grid_normal = 1.0f;
-        int grid_size = 10;
+        Grid grid_data;
         bool enviroment_window = false;
         bool camera_window     = false;
         bool tiles_window      = true;
