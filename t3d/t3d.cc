@@ -575,9 +575,9 @@ namespace euphoria::t3d
                     << tile->aabb.GetSize();
                 if(ImGui::Selectable(
                             display.c_str(),
-                            editor->selected_mesh == tile->mesh))
+                            editor->selected_mesh && editor->selected_mesh->mesh == tile->mesh))
                 {
-                    editor->selected_mesh = tile->mesh;
+                    editor->selected_mesh = tile.get();
                     editor->MeshHasChanged();
                 }
             }
@@ -590,7 +590,7 @@ namespace euphoria::t3d
                     auto placed = std::make_shared<PlacedMesh>();
                     placed->actor = std::make_shared<render::Actor>
                     (
-                            editor->selected_mesh
+                            editor->selected_mesh->mesh
                     );
                     world->AddActor(placed->actor);
                     editor->actors.emplace_back(placed);

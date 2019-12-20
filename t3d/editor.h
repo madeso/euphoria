@@ -14,12 +14,12 @@ namespace euphoria::render
 {
     struct World;
     struct Actor;
-    struct CompiledMesh;
 }
 
 
 namespace euphoria::t3d
 {
+    struct Tile;
     struct TileLibrary;
     struct Grid;
 
@@ -44,7 +44,7 @@ namespace euphoria::t3d
         Tools tools;
 
         std::vector<std::shared_ptr<PlacedMesh>> actors;
-        std::shared_ptr<render::CompiledMesh> selected_mesh;
+        Tile* selected_mesh = nullptr;
 
         // todo(Gustav): move camera here so we can have camera movement
         // change so that fps control rotate focuspoint around current camera pos

@@ -9,6 +9,7 @@
 
 #include "t3d/editor.h"
 #include "t3d/grid.h"
+#include "t3d/tilelibrary.h"
 
 namespace euphoria::t3d
 {
@@ -21,7 +22,7 @@ namespace euphoria::t3d
     void
     PlaceMeshOnPlane::MeshHasChanged(Editor* editor)
     {
-        actor->mesh_ = editor->selected_mesh;
+        actor->mesh_ = editor->selected_mesh->mesh;
     }
 
 
