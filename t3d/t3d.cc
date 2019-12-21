@@ -505,6 +505,7 @@ namespace euphoria::t3d
             grid_data.visible = !grid_data.visible;
             dirty = true;
         }
+        Help("Toggle the grid visibility.");
 
         if(ImGui::Button(grid_data.snap_enabled
             ? ICON_MDI_AXIS_ARROW_LOCK
@@ -514,6 +515,7 @@ namespace euphoria::t3d
             grid_data.snap_enabled = !grid_data.snap_enabled;
             dirty = true;
         }
+        Help("Toggle the grid snapping");
 
         if(dirty)
         {
@@ -584,7 +586,10 @@ namespace euphoria::t3d
                     );
                 }
             }
+            Help("Place a new tile in the world");
+
             ImGui::SameLine();
+
             if(ImGui::Button(ICON_MDI_PLUS_BOX_MULTIPLE))
             {
                 auto selected = editor->GetFirstSelectedOrNull();
@@ -607,7 +612,10 @@ namespace euphoria::t3d
                     );
                 }
             }
+            Help("Duplicate the selected tile.");
+
             ImGui::SameLine();
+
             if(ImGui::Button(ICON_MDI_ARROW_COLLAPSE_DOWN))
             {
                 auto placed = editor->GetFirstSelectedOrNull();
@@ -620,6 +628,7 @@ namespace euphoria::t3d
                     );
                 }
             }
+            Help("Place or replace selected tile on a new place.");
 
             if(editor->selected_mesh == nullptr)
             {
@@ -672,5 +681,11 @@ namespace euphoria::t3d
         }
 
         SDL_GL_SwapWindow(engine->window->window);
+    }
+
+    void
+    T3d::Help(const char* desc)
+    {
+        window::HelpText(desc); 
     }
 }

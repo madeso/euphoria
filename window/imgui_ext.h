@@ -27,6 +27,14 @@ namespace euphoria::window
 
 
     void
+    HelpMarker(const char* desc);
+
+
+    void
+    HelpText(const char* desc);
+
+
+    void
     ImguiLabel(const std::string& str);
 
 

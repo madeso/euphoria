@@ -160,6 +160,9 @@ namespace euphoria::t3d
 
         void
         Frame();
+
+        void
+        Help(const char* desc);
     };
 }
 

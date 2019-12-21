@@ -1,5 +1,6 @@
 #include "window/imgui_ext.h"
 
+
 #include "core/angle.h"
 #include "core/assert.h"
 
@@ -7,22 +8,48 @@
 
 #include "render/texture.h"
 
+#include "window/imgui_icons.h"
+
+
 namespace euphoria::window
 {
     bool
     InputText(const char* label, std::string* str)
     {
-        constexpr int size         = 500;
-        char          buffer[size] = {
-                0,
-        };
+        constexpr int size = 500;
+        char buffer[size] = { 0, };
+
         strncpy(buffer, str->c_str(), size);
         const bool r = ImGui::InputText(label, buffer, size);
         if(r)
         {
             *str = buffer;
         }
+
         return r;
+    }
+
+
+    void
+    HelpMarker(const char* desc)
+    {
+        ImGui::SameLine();
+        ImGui::TextDisabled( ICON_MDI_HELP_CIRCLE );
+        HelpText(desc);
+    }
+
+
+    void
+    HelpText(const char* desc)
+    {
+        if (ImGui::IsItemHovered())
+        {
+            ImGui::BeginTooltip();
+            ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);
+            ImGui::TextUnformatted(desc);
+            ImGui::PopTextWrapPos();
+            ImGui::EndTooltip();
+        }
     }
 
 
