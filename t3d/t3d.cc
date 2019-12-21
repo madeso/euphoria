@@ -563,7 +563,7 @@ namespace euphoria::t3d
     {
         if(!tile_library->tiles.empty())
         {
-            if(ImGui::Button("Add"))
+            if(ImGui::Button(ICON_MDI_PLUS))
             {
                 if(editor->selected_mesh && !editor->IsBusy())
                 {
@@ -585,7 +585,7 @@ namespace euphoria::t3d
                 }
             }
             ImGui::SameLine();
-            if(ImGui::Button("Duplicate"))
+            if(ImGui::Button(ICON_MDI_PLUS_BOX_MULTIPLE))
             {
                 auto selected = editor->GetFirstSelectedOrNull();
                 if(selected != nullptr && !editor->IsBusy())
@@ -608,7 +608,7 @@ namespace euphoria::t3d
                 }
             }
             ImGui::SameLine();
-            if(ImGui::Button("Replace"))
+            if(ImGui::Button(ICON_MDI_ARROW_COLLAPSE_DOWN))
             {
                 auto placed = editor->GetFirstSelectedOrNull();
                 if(placed != nullptr && !editor->IsBusy())
