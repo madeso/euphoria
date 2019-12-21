@@ -58,6 +58,10 @@ namespace euphoria::t3d
         GetFirstSelectedOrNull();
 
 
+        void
+        SetAllSelected(bool is_selected);
+
+
         // current tool callbacks
         bool
         IsBusy();

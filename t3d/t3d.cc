@@ -328,16 +328,6 @@ namespace euphoria::t3d
 
 
     void
-    T3d::SetAllSelected(bool is_selected)
-    {
-        for(auto actor: editor->actors)
-        {
-            actor->is_selected = is_selected;
-        }
-    }
-
-
-    void
     T3d::ProcessImgui()
     {
         if(ImGui::BeginMainMenuBar())
@@ -430,7 +420,7 @@ namespace euphoria::t3d
                         display.c_str(),
                         actor->is_selected))
             {
-                SetAllSelected(false);
+                editor->SetAllSelected(false);
                 actor->is_selected = !actor->is_selected;
             }
         }
@@ -438,12 +428,12 @@ namespace euphoria::t3d
 
         if(ImGui::Button("Select none"))
         {
-            SetAllSelected(false);
+            editor->SetAllSelected(false);
         }
         ImGui::SameLine();
         if(ImGui::Button("Select all"))
         {
-            SetAllSelected(true);
+            editor->SetAllSelected(true);
         }
     }
 
@@ -577,7 +567,7 @@ namespace euphoria::t3d
             {
                 if(editor->selected_mesh && !editor->IsBusy())
                 {
-                    SetAllSelected(false);
+                    editor->SetAllSelected(false);
                     auto placed = std::make_shared<PlacedMesh>();
                     placed->tile = editor->selected_mesh;
                     placed->is_selected = true;

@@ -127,10 +127,6 @@ namespace euphoria::t3d
 
 
         void
-        SetAllSelected(bool is_selected);
-
-
-        void
         ProcessImgui();
 
 

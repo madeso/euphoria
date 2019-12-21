@@ -34,6 +34,16 @@ namespace euphoria::t3d
     }
 
 
+    void
+    Editor::SetAllSelected(bool is_selected)
+    {
+        for(auto actor: actors)
+        {
+            actor->is_selected = is_selected;
+        }
+    }
+
+
     // current tool callbacks
     bool
     Editor::IsBusy()
