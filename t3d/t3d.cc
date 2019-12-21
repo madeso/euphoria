@@ -573,7 +573,30 @@ namespace euphoria::t3d
                     placed->is_selected = true;
                     placed->actor = std::make_shared<render::Actor>
                     (
-                            editor->selected_mesh->mesh
+                            placed->tile->mesh
+                    );
+                    world->AddActor(placed->actor);
+                    editor->actors.emplace_back(placed);
+
+                    editor->tools.PushTool
+                    (
+                        std::make_shared<PlaceMeshOnPlane>(placed)
+                    );
+                }
+            }
+            ImGui::SameLine();
+            if(ImGui::Button("Duplicate"))
+            {
+                auto selected = editor->GetFirstSelectedOrNull();
+                if(selected != nullptr && !editor->IsBusy())
+                {
+                    editor->SetAllSelected(false);
+                    auto placed = std::make_shared<PlacedMesh>();
+                    placed->tile = selected->tile;
+                    placed->is_selected = true;
+                    placed->actor = std::make_shared<render::Actor>
+                    (
+                            placed->tile->mesh
                     );
                     world->AddActor(placed->actor);
                     editor->actors.emplace_back(placed);
