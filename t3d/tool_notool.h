@@ -7,10 +7,6 @@ namespace euphoria::t3d
 {
     struct NoTool : public Tool
     {
-        void
-        MeshHasChanged(Editor*) override;
-
-
         bool
         IsBusy(Editor*) override;
 

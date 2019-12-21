@@ -4,11 +4,6 @@
 
 namespace euphoria::t3d
 {
-    void
-    NoTool::MeshHasChanged(Editor*)
-    {}
-
-
     bool
     NoTool::IsBusy(Editor*)
     {

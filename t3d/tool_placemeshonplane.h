@@ -27,10 +27,6 @@ namespace euphoria::t3d
         PlaceMeshOnPlane(std::shared_ptr<PlacedMesh> aactor);
 
 
-        void
-        MeshHasChanged(Editor* editor) override;
-
-
         bool
         IsBusy(Editor*) override;
 

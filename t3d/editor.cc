@@ -20,13 +20,6 @@ namespace euphoria::t3d
 
 
     // current tool callbacks
-    void
-    Editor::MeshHasChanged()
-    {
-        tools.GetCurrentTool()->MeshHasChanged(this);
-    }
-
-
     bool
     Editor::IsBusy()
     {

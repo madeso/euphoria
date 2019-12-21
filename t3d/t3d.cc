@@ -595,14 +595,6 @@ namespace euphoria::t3d
             {
                 editor->selected_mesh = tile_library->FirstTile();
             }
-
-            if(editor->selected_mesh != nullptr)
-            {
-                if(tile_library->ImGuiList(&editor->selected_mesh))
-                {
-                    editor->MeshHasChanged();
-                }
-            }
         }
         editor->OnEditor();
     }

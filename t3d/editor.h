@@ -55,10 +55,6 @@ namespace euphoria::t3d
 
 
         // current tool callbacks
-        void
-        MeshHasChanged();
-
-
         bool
         IsBusy();
 

@@ -14,10 +14,6 @@ namespace euphoria::t3d
         virtual ~Tool() = default;
 
 
-        virtual void
-        MeshHasChanged(Editor* editor) = 0;
-
-
         virtual bool
         IsBusy(Editor* editor) = 0;
 

@@ -19,14 +19,6 @@ namespace euphoria::t3d
     {}
 
 
-    void
-    PlaceMeshOnPlane::MeshHasChanged(Editor* editor)
-    {
-        actor->tile = editor->selected_mesh;
-        actor->actor->mesh_ = editor->selected_mesh->mesh;
-    }
-
-
     bool
     PlaceMeshOnPlane::IsBusy(Editor*)
     {
@@ -103,9 +95,19 @@ namespace euphoria::t3d
 
 
     void
-    PlaceMeshOnPlane::OnEditor(Editor*)
+    PlaceMeshOnPlane::OnEditor(Editor* editor)
     {
         ImGui::Text("Placing object in world!");
+
+
+        if(editor->selected_mesh != nullptr)
+        {
+            if(editor->tile_library->ImGuiList(&editor->selected_mesh))
+            {
+                actor->tile = editor->selected_mesh;
+                actor->actor->mesh_ = editor->selected_mesh->mesh;
+            }
+        }
     }
 }
 
