@@ -54,6 +54,10 @@ namespace euphoria::t3d
         Editor(Grid* agrid, render::World* aworld, TileLibrary* atile_library);
 
 
+        std::shared_ptr<PlacedMesh>
+        GetFirstSelectedOrNull();
+
+
         // current tool callbacks
         bool
         IsBusy();

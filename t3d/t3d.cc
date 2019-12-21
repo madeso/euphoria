@@ -594,6 +594,19 @@ namespace euphoria::t3d
                     );
                 }
             }
+            ImGui::SameLine();
+            if(ImGui::Button("Replace"))
+            {
+                auto placed = editor->GetFirstSelectedOrNull();
+                if(placed != nullptr && !editor->IsBusy())
+                {
+                    editor->selected_mesh = placed->tile;
+                    editor->tools.PushTool
+                    (
+                        std::make_shared<PlaceMeshOnPlane>(placed)
+                    );
+                }
+            }
 
             if(editor->selected_mesh == nullptr)
             {

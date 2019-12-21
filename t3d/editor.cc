@@ -19,6 +19,21 @@ namespace euphoria::t3d
     {}
 
 
+    std::shared_ptr<PlacedMesh>
+    Editor::GetFirstSelectedOrNull()
+    {
+        for(auto act : actors)
+        {
+            if(act->is_selected)
+            {
+                return act;
+            }
+        }
+
+        return nullptr;
+    }
+
+
     // current tool callbacks
     bool
     Editor::IsBusy()
