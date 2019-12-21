@@ -571,22 +571,6 @@ namespace euphoria::t3d
     {
         if(!tile_library->tiles.empty())
         {
-            ImGui::ListBoxHeader("Tiles");
-            for(auto tile: tile_library->tiles)
-            {
-                std::string display = core::Str {}
-                    << tile->name << ": "
-                    << tile->aabb.GetSize();
-                if(ImGui::Selectable(
-                            display.c_str(),
-                            editor->selected_mesh && editor->selected_mesh->mesh == tile->mesh))
-                {
-                    editor->selected_mesh = tile;
-                    editor->MeshHasChanged();
-                }
-            }
-            ImGui::ListBoxFooter();
-
             if(ImGui::Button("Add"))
             {
                 if(editor->selected_mesh && !editor->IsBusy())
@@ -604,6 +588,19 @@ namespace euphoria::t3d
                     (
                         std::make_shared<PlaceMeshOnPlane>(placed)
                     );
+                }
+            }
+
+            if(editor->selected_mesh == nullptr)
+            {
+                editor->selected_mesh = tile_library->FirstTile();
+            }
+
+            if(editor->selected_mesh != nullptr)
+            {
+                if(tile_library->ImGuiList(&editor->selected_mesh))
+                {
+                    editor->MeshHasChanged();
                 }
             }
         }

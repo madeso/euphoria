@@ -29,9 +29,16 @@ namespace euphoria::t3d
 
     struct TileLibrary
     {
-        core::vfs::FileSystem* file_system;
-
         TileLibrary(core::vfs::FileSystem* fs);
+
+
+        std::shared_ptr<Tile>
+        FirstTile();
+
+
+        bool
+        ImGuiList(std::shared_ptr<Tile>* selected_tile);
+
 
         void
         AddDirectory(
@@ -39,11 +46,14 @@ namespace euphoria::t3d
                 render::MaterialShaderCache* shader_cache,
                 render::TextureCache*        texture_cache);
 
+
         void
         AddFile(const std::string&           path,
                 render::MaterialShaderCache* shader_cache,
                 render::TextureCache*        texture_cache);
 
+
+        core::vfs::FileSystem* file_system;
         std::vector<std::shared_ptr<Tile>> tiles;
     };
 
