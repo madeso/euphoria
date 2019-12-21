@@ -124,6 +124,9 @@ namespace euphoria::t3d
 
         void
         HandleEvents();
+
+        void
+        SetAllSelected(bool is_selected);
         
 
         void
