@@ -69,11 +69,14 @@ namespace euphoria::t3d
         bool tiles_window      = true;
         bool grid_window      = true;
         bool lister_window = true;
+        bool preference_window = false;
 
         core::OrbitController orbit;
         bool mmb_down = false;
         bool shift_down = false;
         bool show_imgui = false;
+
+        int help_style = 0;
 
 
         T3d() = default;
@@ -152,6 +155,10 @@ namespace euphoria::t3d
 
         void
         OnTileWindow();
+
+
+        void
+        OnPreferenceWindow();
 
 
         void

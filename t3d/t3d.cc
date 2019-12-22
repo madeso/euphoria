@@ -370,6 +370,13 @@ namespace euphoria::t3d
             OnListerWindow();
             ImGui::End();
         }
+
+        if(preference_window)
+        {
+            ImGui::Begin("Preferences", &preference_window);
+            OnPreferenceWindow();
+            ImGui::End();
+        }
     }
 
 
@@ -392,6 +399,7 @@ namespace euphoria::t3d
             ImGui::MenuItem("Tiles", nullptr, &tiles_window);
             ImGui::MenuItem("Grid", nullptr, &grid_window);
             ImGui::MenuItem("Lister", nullptr, &lister_window);
+            ImGui::MenuItem("Preferences", nullptr, &preference_window);
             ImGui::EndMenu();
         }
     }
@@ -640,6 +648,18 @@ namespace euphoria::t3d
 
 
     void
+    T3d::OnPreferenceWindow()
+    {
+        constexpr const char* const help_styles_separated_by_zeros =
+            "No help\0"
+            "Help text\0"
+            "Help marker\0"
+            ;
+        ImGui::Combo("Help style", &help_style, help_styles_separated_by_zeros);
+    }
+
+
+    void
     T3d::Render()
     {
         auto viewport = viewport_handler.GetFullViewport();
@@ -686,6 +706,19 @@ namespace euphoria::t3d
     void
     T3d::Help(const char* desc)
     {
-        window::HelpText(desc); 
+        switch (help_style)
+        {
+        case 0:
+            return;
+        case 1:
+            window::HelpText(desc);
+            break;
+        case 2:
+            window::HelpMarker(desc); 
+            break;
+        default:
+            DIE("Invalid style");
+            break;
+        }
     }
 }
