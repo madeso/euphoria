@@ -10,6 +10,12 @@
 #include "t3d/toolstack.h"
 
 
+namespace euphoria::core
+{
+    struct UnitRay3f;
+}
+
+
 namespace euphoria::render
 {
     struct World;
@@ -60,6 +66,10 @@ namespace euphoria::t3d
 
         void
         SetAllSelected(bool is_selected);
+
+
+        std::vector<std::shared_ptr<PlacedMesh>>
+        Raycast(const core::UnitRay3f& ray);
 
 
         // current tool callbacks

@@ -1,6 +1,13 @@
 #include "t3d/editor.h"
 
+
+#include "core/intersection.h"
+
+#include "render/actor.h"
+
 #include "t3d/tool.h"
+#include "t3d/tilelibrary.h"
+
 
 namespace euphoria::t3d
 {
@@ -41,6 +48,25 @@ namespace euphoria::t3d
         {
             actor->is_selected = is_selected;
         }
+    }
+
+
+    std::vector<std::shared_ptr<PlacedMesh>>
+    Editor::Raycast(const core::UnitRay3f& ray)
+    {
+        std::vector<std::shared_ptr<PlacedMesh>> r;
+
+        for(auto a: actors)
+        {
+            const auto collision = core::GetIntersection(ray, a->tile->aabb.OffsetCopy(a->actor->GetPosition()));
+            
+            if(collision.intersected)
+            {
+                r.emplace_back(a);
+            }
+        }
+
+        return r;
     }
 
 

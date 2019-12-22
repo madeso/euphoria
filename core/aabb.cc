@@ -12,6 +12,7 @@ namespace euphoria::core
         ASSERT(IsValid());
     }
 
+
     const vec3f&
     Aabb::GetMin() const
     {
@@ -19,12 +20,14 @@ namespace euphoria::core
         return min;
     }
 
+
     const vec3f&
     Aabb::GetMax() const
     {
         ASSERT(IsValid());
         return max;
     }
+
 
     vec3f
     Aabb::Wrap(const vec3f& vec) const
@@ -39,6 +42,7 @@ namespace euphoria::core
         return vec3f {x, y, z};
     }
 
+
     vec3f
     Min(const vec3f& lhs, const vec3f& rhs)
     {
@@ -46,6 +50,7 @@ namespace euphoria::core
         return vec3f {M(x), M(y), M(z)};
 #undef M
     }
+
 
     vec3f
     Max(const vec3f& lhs, const vec3f& rhs)
@@ -55,6 +60,7 @@ namespace euphoria::core
 #undef M
     }
 
+
     void
     Aabb::Extend(const vec3f& vec)
     {
@@ -62,6 +68,7 @@ namespace euphoria::core
         min = Min(min, vec);
         max = Max(max, vec);
     }
+
 
     void
     Aabb::Extend(const Aabb& aabb)
@@ -71,11 +78,13 @@ namespace euphoria::core
         max = Max(max, aabb.max);
     }
 
+
     Aabb
     Aabb::Empty()
     {
         return Aabb {vec3f::Zero(), vec3f::Zero()};
     }
+
 
     vec3f
     Aabb::GetSize() const
@@ -83,6 +92,7 @@ namespace euphoria::core
         ASSERT(IsValid());
         return vec3f::FromTo(min, max);
     }
+
 
     bool
     Aabb::IsValid() const
@@ -92,12 +102,31 @@ namespace euphoria::core
 #undef M
     }
 
+
     vec3f
     Aabb::GetOffset() const
     {
         ASSERT(IsValid());
-        return vec3f::FromTo(vec3f::Zero(), min);
+        return min;
     }
+
+
+    void
+    Aabb::Offset(const vec3f& vec)
+    {
+        min += vec;
+        max += vec;
+    }
+
+
+    Aabb
+    Aabb::OffsetCopy(const vec3f& vec) const
+    {
+        auto self = *this;
+        self.Offset(vec);
+        return self;
+    }
+
 
     vec3f
     Aabb::RandomPoint(Random* random)
