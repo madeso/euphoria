@@ -17,3 +17,6 @@
 [submodule "external/rtmidi"]
 	path = external/rtmidi
 	url = https://github.com/thestk/rtmidi.git
+[submodule "external/stb"]
+	path = external/stb
+	url = git@github.com:nothings/stb.git
