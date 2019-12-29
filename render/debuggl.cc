@@ -37,7 +37,7 @@ namespace euphoria::render
         while((error_code = glGetError()) != GL_NO_ERROR)
         {
             const std::string error = OpenglErrorToString(error_code);
-            LOG_ERROR(error << " | " << file << " (" << line << ")");
+            LOG_ERROR("{0} | {1}({2})", error, file, line);
         }
     }
 
@@ -120,11 +120,14 @@ namespace euphoria::render
         ++ErrorCount;
 
         LOG_ERROR("---------------");
-        LOG_ERROR("Debug message (" << id << "): " << message);
-        LOG_ERROR(
-                "Source " << SourceToString(source)
-                          << " type: " << TypeToString(type) << " Severity: "
-                          << SeverityToString(severity) << "\n");
+        LOG_ERROR("Debug message ({0}): {1}", id, message);
+        LOG_ERROR
+        (
+            "Source {0} type: {1} Severity: {2}",
+            SourceToString(source),
+            TypeToString(type),
+            SeverityToString(severity)
+        );
         // ASSERT(false);
     }
 

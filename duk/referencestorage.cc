@@ -17,12 +17,12 @@ namespace euphoria::duk
         {
             index = reference_index;
             reference_index += 1;
-            LOG_INFO("Using new reference " << index);
+            LOG_INFO("Using new reference {0}", index);
         }
         else
         {
             index = *free_indices.rbegin();
-            LOG_DEBUG("Reusing reference " << index);
+            LOG_DEBUG("Reusing reference {0}", index);
             free_indices.pop_back();
         }
         SetReference(p, index);
@@ -34,7 +34,7 @@ namespace euphoria::duk
     {
         free_indices.emplace_back(index);
         SetReference(nullptr, index);
-        LOG_DEBUG("Freeing reference " << index);
+        LOG_DEBUG("Freeing reference {0}", index);
     }
 
     void

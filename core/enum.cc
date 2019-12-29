@@ -60,7 +60,7 @@ namespace euphoria::core
 
         if(!isAdding_)
         {
-            LOG_ERROR("Enum value doesnt exist, " << name);
+            LOG_ERROR("Enum value doesnt exist, {0}", name);
             return EnumValue(this, 0);
         }
         const size_t id = nextIndex_;
@@ -86,9 +86,7 @@ namespace euphoria::core
                     = valid_names.find(name.first) == valid_names.end();
             if(missing)
             {
-                LOG_ERROR(
-                        "Enum " << name_ << " was registered with name "
-                                << name.first << " but that is invalid.");
+                LOG_ERROR("Enum {0} was registered with name {1} but that is invalid.", name_, name.first);
             }
         }
 
@@ -166,7 +164,7 @@ namespace euphoria::core
 
         if(!load_error.empty())
         {
-            LOG_ERROR("Failed to load enums " << path << ": " << load_error);
+            LOG_ERROR("Failed to load enums {0}: {1}", path, load_error);
         }
         else
         {

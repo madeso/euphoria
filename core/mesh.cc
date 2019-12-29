@@ -309,12 +309,13 @@ namespace euphoria::core
                 auto found = mesh_materials.find(material.name);
                 if(found == mesh_materials.end())
                 {
-                    LOG_ERROR(
-                            "Unable to find "
-                            << material.name << " in mesh " << json_path
-                            << " valid names are: "
-                            << StringMerger::EnglishOr().Generate(
-                                       KeysOf(mesh_materials)));
+                    LOG_ERROR
+                    (
+                        "Unable to find {0} in mesh {1} valid names are: {2}",
+                        material.name,
+                        json_path,
+                        StringMerger::EnglishOr().Generate(KeysOf(mesh_materials))
+                    );
                     continue;
                 }
 

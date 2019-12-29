@@ -326,7 +326,7 @@ OpenOrFocusOnGenericWindow(
                 const auto err = LoadProtoJson(fs, &window->data, path);
                 if(!err.empty())
                 {
-                    LOG_ERROR("Failed to load: " << err);
+                    LOG_ERROR("Failed to load: {0}", err);
                 }
                 return window;
             });

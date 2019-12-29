@@ -26,7 +26,7 @@ namespace euphoria::core
             {
                 return;
             }
-            LOG_ERROR("FONT Error: " << err);
+            LOG_ERROR("FONT Error: {0}", err);
         }
 
         void
@@ -36,7 +36,7 @@ namespace euphoria::core
             {
                 return;
             }
-            LOG_ERROR("FONT Error: " << err);
+            LOG_ERROR("FONT Error: {0}", err);
         }
     }  // namespace
 
@@ -179,7 +179,7 @@ namespace euphoria::core
             }
             else
             {
-                LOG_ERROR("Multiple codepoints for " << code_point << " found when trying to combine");
+                LOG_ERROR("Multiple codepoints for {0} found when trying to combine", code_point);
             }
         }
 
@@ -276,10 +276,8 @@ namespace euphoria::core
 
         const FT_Long use_kerning = FT_HAS_KERNING(f.face);
 
-        LOG_INFO(
-                "Loaded " << fontchars.codepoint_to_glyph.size() << " characters from "
-                          << font_file);
-        LOG_INFO("kerning: " << static_cast<int>(use_kerning));
+        LOG_INFO("Loaded {0} characters from {0}", fontchars.codepoint_to_glyph.size(), font_file);
+        LOG_INFO("kerning: {0}", static_cast<int>(use_kerning));
 
         const float scale = 1 / static_cast<float>(font_size);
 

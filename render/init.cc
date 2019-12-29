@@ -15,20 +15,19 @@ namespace euphoria::render
         const int glad_result = gladLoadGLLoader(loader);
         if(glad_result == 0)
         {
-            LOG_ERROR("Failed to init glad, error: " << glad_result);
+            LOG_ERROR("Failed to init glad, error: {0}", glad_result);
             ok = false;
         }
 
         // todo: replace cout with log system
-        LOG_INFO("Vendor:         " << glGetString(GL_VENDOR));
-        LOG_INFO("Renderer:       " << glGetString(GL_RENDERER));
-        LOG_INFO("Version OpenGL: " << glGetString(GL_VERSION));
-        LOG_INFO(
-                "Version GLSL:   " << glGetString(GL_SHADING_LANGUAGE_VERSION));
+        LOG_INFO("Vendor:         {0}", glGetString(GL_VENDOR));
+        LOG_INFO("Renderer:       {0}", glGetString(GL_RENDERER));
+        LOG_INFO("Version OpenGL: {0}", glGetString(GL_VERSION));
+        LOG_INFO("Version GLSL:   {0}", glGetString(GL_SHADING_LANGUAGE_VERSION));
 
         int attribute_count;
         glGetIntegerv(GL_MAX_VERTEX_ATTRIBS, &attribute_count);
-        LOG_INFO("Max shader attribute count: " << attribute_count);
+        LOG_INFO("Max shader attribute count: {0}", attribute_count);
 
         // todo: move this to a better place
         glEnable(GL_DEPTH_TEST);

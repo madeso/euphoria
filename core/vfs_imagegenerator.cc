@@ -38,12 +38,13 @@ namespace euphoria::core
 
             if(!found_color.single_match)
             {
-                LOG_WARN(
-                        "Invalid color name: "
-                        << color_name << " for path " << path
-                        << " closest matches are "
-                        << StringMerger::EnglishOr().Generate(
-                                   EnumToString(found_color.values)));
+                LOG_WARN
+                (
+                    "Invalid color name: {0} for path {1} closest matches are {2}",
+                    color_name,
+                    path,
+                    StringMerger::EnglishOr().Generate(EnumToString(found_color.values))
+                );
                 return MemoryChunk::Null();
             }
 

@@ -87,7 +87,7 @@ namespace euphoria::t3d
         const auto loaded_mesh = core::meshes::LoadMesh(file_system, path);
         if(!loaded_mesh.error.empty())
         {
-            LOG_WARN("Failed to open " << path << ": " << loaded_mesh.error);
+            LOG_WARN("Failed to open {0}: {1}", path, loaded_mesh.error);
             return;
         }
 

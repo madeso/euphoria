@@ -20,7 +20,7 @@ namespace euphoria::core
                     full_path, std::ios::binary | std::ios::out);
             if(!file_handle.good())
             {
-                LOG_ERROR("Failed to open file for writing: " << full_path);
+                LOG_ERROR("Failed to open file for writing: {0}", full_path);
                 return;
             }
             file_handle.write(chunk->GetData(), chunk->GetSize());

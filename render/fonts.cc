@@ -117,7 +117,7 @@ namespace euphoria::render
         std::string error = core::LoadProtoJson(fs, &font_root, font_file);
         if(!error.empty())
         {
-            LOG_ERROR("Failed to load " << font_file << ": " << error);
+            LOG_ERROR("Failed to load {0}: {1}", font_file, error);
         }
         for(const auto& source: font_root.sources)
         {
@@ -329,7 +329,7 @@ namespace euphoria::render
                 auto it = font.chars_.find(code_point);
                 if(it == font.chars_.end())
                 {
-                    LOG_ERROR("Failed to print '" << code_point << "'");
+                    LOG_ERROR("Failed to print '{0}'", code_point);
                     return;
                 }
                 std::shared_ptr<Glyph> ch = it->second;

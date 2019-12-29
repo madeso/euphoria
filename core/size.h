@@ -69,7 +69,6 @@ namespace euphoria::core
             const T y = (height - o.height) / 2;
             return vec2<T>(x, y);
         }
-
     private:
         Size(T w, T h) : width(w), height(h) {}
     };
@@ -137,7 +136,7 @@ namespace euphoria::core
     S&
     operator<<(S& s, const Size<T>& r)
     {
-        s << r.width << " x " << r.height << ")";
+        s << "(" << r.width << " x " << r.height << ")";
         return s;
     }
 

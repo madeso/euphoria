@@ -48,7 +48,7 @@ namespace euphoria::gui
     {
         rect_ = r.InsetCopy(
                 margin.left, margin.right, margin.top, margin.bottom);
-        LOG_INFO("Setting gui rect of '" << name << "' " << rect_);
+        LOG_INFO("Setting gui rect of '{0}' {1}", name, rect_);
         OnSize();
     }
 

@@ -37,11 +37,11 @@ namespace euphoria::window
         const auto max_arg = static_cast<ImWchar>(std::min(max_mdi, max_imgui));
         if(max_mdi > max_imgui)
         {
-            LOG_ERROR("imgui is missing " << (max_mdi - max_imgui) << " icons!");
+            LOG_ERROR("imgui is missing {0} icons!", (max_mdi - max_imgui));
 
-            LOG_INFO("mdi range:   " << (max_mdi - min_mdi));
-            LOG_INFO("imgui range: " << (max_imgui - min_imgui));
-            LOG_INFO("Supplied range: " << (max_arg - min_mdi));
+            LOG_INFO("mdi range:   {0}", (max_mdi - min_mdi));
+            LOG_INFO("imgui range: {0}", (max_imgui - min_imgui));
+            LOG_INFO("Supplied range: {0}", (max_arg - min_mdi));
         }
 
 

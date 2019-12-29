@@ -176,7 +176,7 @@ namespace euphoria::duk
     void
     FatalHandler(void*, const char* msg)
     {
-        LOG_ERROR("*** FATAL ERROR: " << (msg ? msg : "no message"));
+        LOG_FATAL("*** FATAL ERROR: {0}", (msg ? msg : "no message"));
         DIE("FATAL JS ERROR");
         abort();
     }

@@ -57,7 +57,7 @@ namespace euphoria::window
             return false;
         }
 
-        LOG_INFO("Current directory: " << current_directory);
+        LOG_INFO("Current directory: {0}", current_directory);
 
         file_system.reset(new core::vfs::FileSystem {});
         catalog = core::vfs::FileSystemRootCatalog::AddRoot(file_system.get());
@@ -85,7 +85,7 @@ namespace euphoria::window
 
         if(window->window == nullptr)
         {
-            LOG_ERROR("Failed to create window " << SDL_GetError());
+            LOG_ERROR("Failed to create window {0}", SDL_GetError());
             return false;
         }
 
@@ -95,7 +95,7 @@ namespace euphoria::window
 
         if(context->context == nullptr)
         {
-            LOG_ERROR("Failed to create SDL context " << SDL_GetError());
+            LOG_ERROR("Failed to create SDL context {0}", SDL_GetError());
             return false;
         }
 

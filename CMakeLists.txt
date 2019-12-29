@@ -120,6 +120,7 @@ add_executable(binary_to_compressed_c external/imgui/imgui/misc/fonts/binary_to_
 
 include_directories(SYSTEM external/imgui/)
 include_directories(SYSTEM external/IconFontCppHeaders/)
+include_directories(SYSTEM external/spdlog/include/)
 
 add_subdirectory(core)
 add_subdirectory(minsynth)

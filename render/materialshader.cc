@@ -70,9 +70,13 @@ namespace euphoria::render
         {
             const auto uniform = sh->shader.GetUniform(texture.uniform);
             DEFINE_ENUM_VALUE(core::TextureType, texture_name, texture.texture);
-            LOG_INFO(
-                    "Defining shader " << path << ": " << texture.uniform
-                                       << " to " << texture.texture);
+            LOG_INFO
+            (
+                "Defining shader {0}: {1} to {2}",
+                path,
+                texture.uniform,
+                texture.texture
+            );
             sh->bindings.emplace_back(uniform, texture_name);
         }
 
@@ -142,9 +146,12 @@ namespace euphoria::render
         std::string error = core::LoadProtoJson(file_system, &file, proto_path);
         if(!error.empty())
         {
-            LOG_ERROR(
-                    "Failed to load material shader json " << path << ": "
-                                                           << error);
+            LOG_ERROR
+            (
+                "Failed to load material shader json {0}: {1}",
+                path,
+                error
+            );
             // todo: set default shader names
         }
 

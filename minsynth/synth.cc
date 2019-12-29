@@ -268,20 +268,21 @@ namespace euphoria::minsynth
                 const byte channel = (b >> 0) & channel_mask;
                 const byte message = (b >> 4) & message_mask;
 
-                LOG_INFO(
-                        "STAT ("
-                        << static_cast<unsigned int>(channel) << ") "
-                        << MidiEventToString(static_cast<MidiEvent>(message))
-                        << " ");
+                LOG_INFO
+                (
+                    "STAT ({0}) {1}",
+                    static_cast<unsigned int>(channel),
+                    MidiEventToString(static_cast<MidiEvent>(message))
+                );
             }
             else
             {
-                LOG_INFO(static_cast<unsigned int>(b) << " ");
+                LOG_INFO("{0}", static_cast<unsigned int>(b));
             }
         }
         if(!bytes.empty())
         {
-            LOG_INFO("stamp = " << dt << "\n");
+            LOG_INFO("stamp = {0}", dt);
         }
     }
 
@@ -297,7 +298,7 @@ namespace euphoria::minsynth
 
         if(!IsStatusMessage(bytes[0]))
         {
-            LOG_ERROR("todo: need to handle data message without status.\n");
+            LOG_ERROR("todo: need to handle data message without status.");
             return;
         }
 
@@ -331,7 +332,7 @@ namespace euphoria::minsynth
                     const int tone = note;
                     float     time = dt;
                     tones->OnTone(tone - 60, on, time + last_time);
-                    LOG_INFO("Time: " << time + last_time);
+                    LOG_INFO("Time: {0}", time + last_time);
                     last_time += time;
                 }
             }
@@ -343,7 +344,7 @@ namespace euphoria::minsynth
             break;
         }
 
-        default: LOG_ERROR("todo: handle " << MidiEventToString(event)); return;
+        default: LOG_ERROR("todo: handle {0}", MidiEventToString(event)); return;
         }
     }
 

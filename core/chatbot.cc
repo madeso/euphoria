@@ -455,7 +455,7 @@ namespace euphoria::core
         {
             if(responses.empty())
             {
-                LOG_ERROR("Empty basic response for " << name);
+                LOG_ERROR("Empty basic response for {0}", name);
                 return "";
             }
             const auto suggested = SelectBasicResponseIndex<std::string>(

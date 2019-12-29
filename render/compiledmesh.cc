@@ -39,7 +39,7 @@ namespace euphoria::render
     {
         if(textures.find(name) != textures.end())
         {
-            LOG_WARN(name.ToString() << " is already assigned, overwriting...");
+            LOG_WARN("{0} is already assigned, overwriting...", name.ToString());
         }
         textures[name] = std::move(texture);
     }
@@ -117,9 +117,11 @@ namespace euphoria::render
             const bool missing = textures.find(binding.name) == textures.end();
             if(missing)
             {
-                LOG_ERROR(
-                        "Material is missing shader-required texture: "
-                        << binding.name.ToString());
+                LOG_ERROR
+                (
+                    "Material is missing shader-required texture: {0}",
+                    binding.name.ToString()
+                );
                 ok = false;
             }
         }
@@ -131,9 +133,11 @@ namespace euphoria::render
                     = shader_values.find(name) == shader_values.end();
             if(missing)
             {
-                LOG_ERROR(
-                        "Texture " << name.ToString()
-                                   << " is specified but is missing in shader");
+                LOG_ERROR
+                (
+                    "Texture {0} is specified but is missing in shader",
+                    name.ToString()
+                );
                 ok = false;
             }
         }
@@ -262,10 +266,12 @@ namespace euphoria::render
 
             if(!mat.Validate())
             {
-                LOG_WARN(
-                        "Material " << material_src.name << "("
-                                    << material_index
-                                    << ") failed validation.");
+                LOG_WARN
+                (
+                    "Material {0}({1}) failed validation.",
+                    material_src.name,
+                    material_index
+                );
             }
 
             ret->materials.push_back(mat);
@@ -302,8 +308,7 @@ namespace euphoria::render
 
             if(part->material >= material_count)
             {
-                LOG_ERROR(
-                        "Mesh part is using a invalid material, defaulting to first.");
+                LOG_ERROR("Mesh part is using a invalid material, defaulting to first.");
                 part->material = 0;
             }
 

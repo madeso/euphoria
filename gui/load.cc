@@ -53,7 +53,7 @@ namespace euphoria::gui
         void
         OnClicked() override
         {
-            LOG_INFO("Executing cmd: " << cmd);
+            LOG_INFO("Executing cmd: {0}", cmd);
         }
         std::string cmd;
     };
@@ -109,7 +109,7 @@ namespace euphoria::gui
             }
             else
             {
-                LOG_ERROR("Failed to find skin " << skin_name);
+                LOG_ERROR("Failed to find skin {0}", skin_name);
             }
             Skin* skin = skin_it->second;
 
@@ -281,8 +281,7 @@ namespace euphoria::gui
         const std::string load_result = core::LoadProtoJson(fs, &f, path);
         if(false == load_result.empty())
         {
-            LOG_ERROR(
-                    "Failed to load gui from " << path << ": " << load_result);
+            LOG_ERROR("Failed to load gui from {0}: {1}", path, load_result);
             return false;
         }
 

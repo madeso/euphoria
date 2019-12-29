@@ -26,7 +26,7 @@ namespace euphoria::window
 
         if(window == nullptr)
         {
-            LOG_ERROR("Failed to create window " << SDL_GetError());
+            LOG_ERROR("Failed to create window {0}", SDL_GetError());
         }
     }
 

@@ -105,7 +105,7 @@ public:
 
         if(0 != SDL_OpenAudio(&spec, nullptr))
         {
-            LOG_ERROR("Failed to setup audio: " << SDL_GetError());
+            LOG_ERROR("Failed to setup audio: {0}", SDL_GetError());
             ok = false;
         }
 
@@ -114,9 +114,12 @@ public:
         int i, count = SDL_GetNumAudioDevices(0);
         for(i = 0; i < count; ++i)
         {
-            LOG_INFO(
-                    "Audio device " << i << ": "
-                                    << SDL_GetAudioDeviceName(i, 0));
+            LOG_INFO
+            (
+                "Audio device {0}: {1}",
+                i,
+                SDL_GetAudioDeviceName(i, 0)
+            );
         }
     }
 
@@ -247,11 +250,11 @@ struct MidiInputNode : public euphoria::minsynth::MidiInNode
             for(unsigned int i = 0; i < midi->getPortCount(); i += 1)
             {
                 const std::string name = midi->getPortName(i);
-                LOG_INFO("Midi port " << i << ": " << name);
+                LOG_INFO("Midi port {0}: {1}", i, name);
             }
 
             midi->openPort(port_number);
-            LOG_INFO("Using port " << midi->getPortName(port_number));
+            LOG_INFO("Using port {0}", midi->getPortName(port_number));
         }
         catch(const RtMidiError& error)
         {

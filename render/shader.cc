@@ -122,10 +122,14 @@ namespace euphoria::render
     void
     ReportError(const std::string& log, const std::string& type)
     {
-        LOG_ERROR(
-                "ERROR::SHADER: Compile-time error: Type: "
-                << type << core::Trim(log)
-                << "\n --------------------------------------------------------- ");
+        LOG_ERROR
+        (
+            "ERROR::SHADER: Compile-time error: Type: {0} \n"
+            "{1}\n"
+            "---------------------------------------------------------",
+            type,
+            core::Trim(log)
+        );
     }
 
     void
@@ -219,9 +223,13 @@ namespace euphoria::render
             {
                 continue;
             }
-            LOG_ERROR(
-                    attribute.name << " was bound to " << actual_attribute_id
-                                   << " but was requested at " << attribute.id);
+            LOG_ERROR
+            (
+                "{0} was bound to {1} but was requested at {2}",
+                attribute.name,
+                actual_attribute_id,
+                attribute.id
+            );
             ret = false;
         }
 
@@ -237,9 +245,12 @@ namespace euphoria::render
 
         if(uniform.id == -1)
         {
-            LOG_ERROR(
-                    "Failed to load uniform " << uniform.name << " from shader "
-                                              << shader_name_);
+            LOG_ERROR
+            (
+                "Failed to load uniform {0} from shader {1}",
+                uniform.name,
+                shader_name_
+            );
         }
 
         return uniform;
@@ -374,13 +385,13 @@ namespace euphoria::render
         bool loaded_files = true;
         if(vert.empty())
         {
-            LOG_ERROR("Failed to load vert shader " << file_path);
+            LOG_ERROR("Failed to load vert shader {0}", file_path);
             loaded_files = false;
         }
 
         if(frag.empty())
         {
-            LOG_ERROR("Failed to load frag shader " << file_path);
+            LOG_ERROR("Failed to load frag shader {0}", file_path);
             loaded_files = false;
         }
 
@@ -395,7 +406,7 @@ namespace euphoria::render
                 geom.empty() ? nullptr : geom.c_str());
         if(!shader_compiled)
         {
-            LOG_ERROR("Failed to compile shader " << file_path);
+            LOG_ERROR("Failed to compile shader {0}", file_path);
         }
         return shader_compiled;
     }

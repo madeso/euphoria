@@ -61,49 +61,49 @@ namespace
         void
         fillRect(int x, int y, int w, int h)
         {
-            LOG_INFO("fillRect " << x << " " << y << " " << w << " " << h);
+            // LOG_INFO("fillRect " << x << " " << y << " " << w << " " << h);
         }
 
         void
         translate(int x, int y)
         {
-            LOG_INFO("translate " << x << " " << y);
+            // LOG_INFO("translate " << x << " " << y);
         }
 
         void
         rotate(float r)
         {
-            LOG_INFO("rotate " << r);
+            // LOG_INFO("rotate " << r);
         }
 
         void
         beginPath()
         {
-            LOG_INFO("beginPath");
+            // LOG_INFO("beginPath");
         }
 
         void
         closePath()
         {
-            LOG_INFO("closePath");
+            // LOG_INFO("closePath");
         }
 
         void
         moveTo(int x, int y)
         {
-            LOG_INFO("moveTo " << x << " " << y);
+            // LOG_INFO("moveTo " << x << " " << y);
         }
 
         void
         lineTo(int x, int y)
         {
-            LOG_INFO("lineTo " << x << " " << y);
+            // LOG_INFO("lineTo " << x << " " << y);
         }
 
         void
         fill()
         {
-            LOG_INFO("fill");
+            // LOG_INFO("fill");
         }
     };
 

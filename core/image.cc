@@ -312,7 +312,7 @@ namespace euphoria::core
             ImageLoadResult result;
             result.error = "File doesnt exist";
             result.image.MakeInvalid();
-            LOG_ERROR("Failed to open " << path << ": File doesnt exist.");
+            LOG_ERROR("Failed to open {0} File doesnt exist.", path);
             return result;
         }
 
@@ -346,7 +346,7 @@ namespace euphoria::core
             ImageLoadResult result;
             result.error = stbi_failure_reason();
             result.image.MakeInvalid();
-            LOG_ERROR("Failed to read " << path << ": " << result.error);
+            LOG_ERROR("Failed to read {0}: {1}", path, result.error);
             return result;
         }
 
@@ -356,10 +356,15 @@ namespace euphoria::core
             has_alpha = channels == 2 || channels == 4;
         }
 
-        LOG_INFO(
-                "Image: " << path << " " << image_width << "x" << image_height
-                          << " alpha " << has_alpha << " channels "
-                          << channels);
+        LOG_INFO
+        (
+            "Image: {0} {1}x{2} alpha {3} channels {4}",
+            path,
+            image_width,
+            image_height,
+            has_alpha,
+            channels
+        );
 
         ImageLoadResult result;
         if(has_alpha)

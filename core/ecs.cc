@@ -134,7 +134,7 @@ namespace euphoria::core::ecs
         void
         SetAlive(EntityId id)
         {
-            LOG_DEBUG("Alive " << GetValue(id) << "/" << GetVersion(id));
+            LOG_DEBUG("Alive {0}/{1}", GetValue(id), GetVersion(id));
             alive.emplace_back(id);
         }
 
@@ -149,7 +149,7 @@ namespace euphoria::core::ecs
         void
         DestroyEntity(EntityId id)
         {
-            LOG_DEBUG("Destroy " << GetValue(id) << "/" << GetVersion(id));
+            LOG_DEBUG("Destroy {0}/{1}", GetValue(id), GetVersion(id));
             destroyed_entities.emplace_back(id);
         }
 

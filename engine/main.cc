@@ -66,7 +66,7 @@ LoadGameData(vfs::FileSystem* fs)
     const auto err = LoadProtoJson(fs, &game, "gamedata.json");
     if(!err.empty())
     {
-        LOG_ERROR("Failed to load gamedata.json: " << err);
+        LOG_ERROR("Failed to load gamedata.json: {0}", err);
     }
     return game;
 }
@@ -101,7 +101,7 @@ RunMainScriptFile(duk::Duk* duk, vfs::FileSystem* fs, const std::string& path)
     {
         const std::string error_message = Str() << "Unable to open " << path
                                                 << " for running";
-        LOG_ERROR(error_message);
+        LOG_ERROR("{0}", error_message);
         return RunResult::Error(error_message);
     }
     std::string error;
@@ -110,7 +110,7 @@ RunMainScriptFile(duk::Duk* duk, vfs::FileSystem* fs, const std::string& path)
     {
         const std::string error_message = Str() << "Failed to run " << path
                                                 << ": " << error;
-        LOG_ERROR(error_message);
+        LOG_ERROR("{0}", error_message);
         return RunResult::Error(error_message);
     }
 
@@ -228,7 +228,7 @@ main(int argc, char* argv[])
         auto key = ToKey(bind.key);
         if(key == Key::INVALID)
         {
-            LOG_ERROR("Invalid key: " << bind.key);
+            LOG_ERROR("Invalid key: {0}", bind.key);
             key = Key::UNBOUND;
         }
 

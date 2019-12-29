@@ -58,7 +58,7 @@ namespace euphoria::gui
                 std::accumulate(width.begin(), width.end(), 0),
                 std::accumulate(height.begin(), height.end(), 0));
 
-        LOG_INFO("Calculate minumum area " << s);
+        LOG_INFO("Calculate minumum area {0}", s);
 
         return s;
     }
@@ -68,7 +68,7 @@ namespace euphoria::gui
             std::vector<std::shared_ptr<Widget>>* widgets,
             const core::Rectf&                    area) const
     {
-        LOG_INFO("Doing table layout in " << area);
+        LOG_INFO("Doing table layout in {0}", area);
         // todo: include padding
         std::vector<float> width(expandable_cols_.size(), 0);
         std::vector<float> height(expandable_rows_.size(), 0);
@@ -81,19 +81,25 @@ namespace euphoria::gui
             UpdateMax(&height[d.GetRow()], s.height);
         }
 
-        LOG_INFO(
-                "Table widths: " << core::StringMerger::Array().Generate(
-                        core::VectorToStringVector(width)));
-        LOG_INFO(
-                "Table heights: " << core::StringMerger::Array().Generate(
-                        core::VectorToStringVector(height)));
+        LOG_INFO
+        (
+            "Table widths: {0}",
+            core::StringMerger::Array().
+                Generate(core::VectorToStringVector(width))
+        );
+        LOG_INFO
+        (
+            "Table heights: {0}",
+            core::StringMerger::Array().
+              Generate(core::VectorToStringVector(height))
+        );
 
         const float total_width
                 = std::accumulate(width.begin(), width.end(), 0);
         const float total_height
                 = std::accumulate(height.begin(), height.end(), 0);
 
-        LOG_INFO("Width " << total_width << " height: " << total_height);
+        LOG_INFO("Width {0} height: {1}", total_width, total_height);
 
         const float leftover_width  = area.GetWidth() - total_width;
         const float leftover_height = area.GetHeight() - total_height;
@@ -134,7 +140,13 @@ namespace euphoria::gui
             float             x       = topleft.x;
             float             y       = topleft.y;
 
-            LOG_INFO("widget x '" << w->name << "' " << x << ", y " << y);
+            LOG_INFO
+            (
+                "widget '{0}' x {1} y {2}",
+                w->name,
+                x,
+                y
+            );
 
             for(int c = 0; c < d.GetColumn(); ++c)
             {
@@ -144,8 +156,6 @@ namespace euphoria::gui
             {
                 y -= height[r];
             }
-
-            LOG_INFO("widget x '" << w->name << "' " << x << ", y " << y);
 
             w->SetRect(core::Rectf::FromTopLeftWidthHeight(
                     y, x, width[d.GetColumn()], height[d.GetRow()]));
@@ -175,7 +185,7 @@ namespace euphoria::gui
         }
 
         const auto s = core::Sizef::FromWidthHeight(width, height);
-        LOG_INFO("Single row layout min size: " << s);
+        LOG_INFO("Single row layout min size: {0}", s);
         return s;
     }
 
@@ -184,7 +194,7 @@ namespace euphoria::gui
             std::vector<std::shared_ptr<Widget>>* widgets,
             const core::Rectf&                    area) const
     {
-        LOG_INFO("Doing single row layout in " << area);
+        LOG_INFO("Doing single row layout in {0}", area);
         const auto tl = area.TopLeft();
         float      x  = tl.x;
         for(const auto& w: *widgets)

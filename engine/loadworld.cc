@@ -28,9 +28,7 @@ namespace euphoria::engine
         const auto   err = core::LoadProtoJson(fs, &json, path);
         if(!err.empty())
         {
-            LOG_ERROR(
-                    "Failed to load world components from " << path << ": "
-                                                            << err);
+            LOG_ERROR("Failed to load world components from {0}: {1}", path, err);
         }
 
         for(const auto& obj: json.objects)
@@ -39,7 +37,7 @@ namespace euphoria::engine
             auto*       t    = creator->FindTemplate(name);
             if(t == nullptr)
             {
-                LOG_ERROR("Failed to find template named " << name);
+                LOG_ERROR("Failed to find template named {0}", name);
                 continue;
             }
             t->CreateObject(ObjectCreationArgs {world, reg, ctx, duk});

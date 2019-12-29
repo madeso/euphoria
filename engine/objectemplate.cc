@@ -103,9 +103,12 @@ namespace euphoria::engine
                 }
                 else
                 {
-                    LOG_ERROR(
-                            "Invalid type for custom argument "
-                            << a.name << " for type " << name);
+                    LOG_ERROR
+                    (
+                        "Invalid type for custom argument {0} for type {1}",
+                        a.name,
+                        name
+                    );
                 }
             }
             return ptr;
@@ -149,9 +152,11 @@ namespace euphoria::engine
             }
             else
             {
-                LOG_ERROR(
-                        "No custom component named " << s.name
-                                                     << " was added.");
+                LOG_ERROR
+                (
+                    "No custom component named {0} was added.",
+                    s.name 
+                );
                 return nullptr;
             }
         }
@@ -237,12 +242,13 @@ namespace euphoria::engine
         auto result = templates.find(name);
         if(result == templates.end())
         {
-            LOG_ERROR(
-                    "Failed to find template named "
-                    << name << ", could be "
-                    << core::StringMerger::EnglishOr().Generate(
-                               core::Keys(templates))
-                    << ".");
+            LOG_ERROR
+            (
+                "Failed to find template named {0}, could be {1}.",
+                name,
+                core::StringMerger::EnglishOr().
+                    Generate(core::Keys(templates))
+            );
             return nullptr;
         }
 
