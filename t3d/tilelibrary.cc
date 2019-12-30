@@ -59,26 +59,6 @@ namespace euphoria::t3d
 
 
     void
-    TileLibrary::AddDirectory(
-            const std::string&           directory_path,
-            render::MaterialShaderCache* shader_cache,
-            render::TextureCache*        texture_cache)
-    {
-        const auto dir   = core::vfs::Path::FromDirectory(directory_path);
-        auto       files = file_system->ListFiles(dir);
-        for(const auto& relative_file: files)
-        {
-            const auto file      = dir.GetFile(relative_file.name);
-            const auto file_path = file.GetAbsolutePath();
-            if(core::GetExtension(relative_file.name) == ".obj")
-            {
-                AddFile(file_path, shader_cache, texture_cache);
-            }
-        }
-    }
-
-
-    void
     TileLibrary::AddFile(
             const std::string&           path,
             render::MaterialShaderCache* shader_cache,

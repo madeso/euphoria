@@ -16,6 +16,7 @@
 #include "window/fakesdlevent.h"
 
 #include "t3d/grid.h"
+#include "t3d/filelist.h"
 
 
 namespace euphoria::core
@@ -77,9 +78,10 @@ namespace euphoria::t3d
         bool show_imgui = false;
 
         int help_style = 0;
+        FileList pending_files;
 
 
-        T3d() = default;
+        T3d();
         ~T3d();
 
 

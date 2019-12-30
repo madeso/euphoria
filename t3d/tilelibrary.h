@@ -41,13 +41,6 @@ namespace euphoria::t3d
 
 
         void
-        AddDirectory(
-                const std::string&           directory_path,
-                render::MaterialShaderCache* shader_cache,
-                render::TextureCache*        texture_cache);
-
-
-        void
         AddFile(const std::string&           path,
                 render::MaterialShaderCache* shader_cache,
                 render::TextureCache*        texture_cache);

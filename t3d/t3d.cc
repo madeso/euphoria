@@ -32,6 +32,15 @@
 
 namespace euphoria::t3d
 {
+    T3d::T3d()
+    {
+        pending_files.extensions = std::vector<std::string>
+        {
+            ".obj"
+        };
+    }
+
+
     T3d::~T3d()
     {
     }
@@ -85,7 +94,7 @@ namespace euphoria::t3d
     void
     T3d::AddLibrary(const std::string& path)
     {
-        tile_library->AddDirectory(path, material_shader_cache.get(), texture_cache.get());
+        pending_files.AddDirectory(path, engine->file_system.get());
     }
 
 
@@ -347,6 +356,15 @@ namespace euphoria::t3d
         {
             window::BeginFixedOverlay(window::ImguiCorner::TopLeft, "grid overlay", 10.0f, 30.0f);
             OnGridWindow();
+            ImGui::End();
+        }
+
+        if(pending_files.HasMoreFiles())
+        {
+            window::BeginFixedOverlay(window::ImguiCorner::BottomLeft, "pending files");
+            const auto frac = pending_files.index / static_cast<float>(pending_files.files.size());
+            window::ImguiLabel("Loading tiles...");
+            ImGui::ProgressBar(frac, ImVec2{120, 0});
             ImGui::End();
         }
 
@@ -682,6 +700,12 @@ namespace euphoria::t3d
         HandleEvents();
 
         editor->Step();
+
+        if(pending_files.HasMoreFiles())
+        {
+            const auto file = pending_files.NextFile();
+            tile_library->AddFile(file, material_shader_cache.get(), texture_cache.get());
+        }
 
         if(show_imgui)
         {
