@@ -571,78 +571,79 @@ namespace euphoria::t3d
     void
     T3d::OnTileWindow()
     {
-        if(!tile_library->tiles.empty())
+        // if(!tile_library->tiles.empty())
+        if(ImGui::Button(ICON_MDI_PLUS) && !editor->IsBusy())
         {
-            if(ImGui::Button(ICON_MDI_PLUS))
-            {
-                if(editor->selected_mesh && !editor->IsBusy())
-                {
-                    editor->SetAllSelected(false);
-                    auto placed = std::make_shared<PlacedMesh>();
-                    placed->tile = editor->selected_mesh;
-                    placed->is_selected = true;
-                    placed->actor = std::make_shared<render::Actor>
-                    (
-                            placed->tile->mesh
-                    );
-                    world->AddActor(placed->actor);
-                    editor->actors.emplace_back(placed);
-
-                    editor->tools.PushTool
-                    (
-                        std::make_shared<PlaceMeshOnPlane>(placed)
-                    );
-                }
-            }
-            Help("Place a new tile in the world");
-
-            ImGui::SameLine();
-
-            if(ImGui::Button(ICON_MDI_PLUS_BOX_MULTIPLE))
-            {
-                auto selected = editor->GetFirstSelectedOrNull();
-                if(selected != nullptr && !editor->IsBusy())
-                {
-                    editor->SetAllSelected(false);
-                    auto placed = std::make_shared<PlacedMesh>();
-                    placed->tile = selected->tile;
-                    placed->is_selected = true;
-                    placed->actor = std::make_shared<render::Actor>
-                    (
-                            placed->tile->mesh
-                    );
-                    world->AddActor(placed->actor);
-                    editor->actors.emplace_back(placed);
-
-                    editor->tools.PushTool
-                    (
-                        std::make_shared<PlaceMeshOnPlane>(placed)
-                    );
-                }
-            }
-            Help("Duplicate the selected tile.");
-
-            ImGui::SameLine();
-
-            if(ImGui::Button(ICON_MDI_ARROW_COLLAPSE_DOWN))
-            {
-                auto placed = editor->GetFirstSelectedOrNull();
-                if(placed != nullptr && !editor->IsBusy())
-                {
-                    editor->selected_mesh = placed->tile;
-                    editor->tools.PushTool
-                    (
-                        std::make_shared<PlaceMeshOnPlane>(placed)
-                    );
-                }
-            }
-            Help("Place or replace selected tile on a new place.");
-
             if(editor->selected_mesh == nullptr)
             {
                 editor->selected_mesh = tile_library->FirstTile();
             }
+
+            // todo(Gustav): add message if tile library is empty...
+
+            if(editor->selected_mesh)
+            {
+                editor->SetAllSelected(false);
+                auto placed = std::make_shared<PlacedMesh>();
+                placed->tile = editor->selected_mesh;
+                placed->is_selected = true;
+                placed->actor = std::make_shared<render::Actor>
+                (
+                        placed->tile->mesh
+                );
+                world->AddActor(placed->actor);
+                editor->actors.emplace_back(placed);
+
+                editor->tools.PushTool
+                (
+                    std::make_shared<PlaceMeshOnPlane>(placed)
+                );
+            }
         }
+        Help("Place a new tile in the world");
+
+        ImGui::SameLine();
+
+        if(ImGui::Button(ICON_MDI_PLUS_BOX_MULTIPLE))
+        {
+            auto selected = editor->GetFirstSelectedOrNull();
+            if(selected != nullptr && !editor->IsBusy())
+            {
+                editor->SetAllSelected(false);
+                auto placed = std::make_shared<PlacedMesh>();
+                placed->tile = selected->tile;
+                placed->is_selected = true;
+                placed->actor = std::make_shared<render::Actor>
+                (
+                        placed->tile->mesh
+                );
+                world->AddActor(placed->actor);
+                editor->actors.emplace_back(placed);
+
+                editor->tools.PushTool
+                (
+                    std::make_shared<PlaceMeshOnPlane>(placed)
+                );
+            }
+        }
+        Help("Duplicate the selected tile.");
+
+        ImGui::SameLine();
+
+        if(ImGui::Button(ICON_MDI_ARROW_COLLAPSE_DOWN))
+        {
+            auto placed = editor->GetFirstSelectedOrNull();
+            if(placed != nullptr && !editor->IsBusy())
+            {
+                editor->selected_mesh = placed->tile;
+                editor->tools.PushTool
+                (
+                    std::make_shared<PlaceMeshOnPlane>(placed)
+                );
+            }
+        }
+        Help("Place or replace selected tile on a new place.");
+
         editor->OnEditor();
     }
 

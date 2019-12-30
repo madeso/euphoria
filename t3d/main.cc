@@ -20,12 +20,6 @@ main(int argc, char** argv)
 
     t3d.AddLibrary("world");
 
-    if(t3d.tile_library->tiles.empty())
-    {
-        LOG_ERROR("No tile loaded!");
-        return -2;
-    }
-
     while(t3d.running)
     {
         t3d.Frame();
