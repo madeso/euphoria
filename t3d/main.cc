@@ -19,7 +19,7 @@ main(int argc, char** argv)
     }
 
     t3d.AddLibrary("world");
-    t3d.AddLibrary("OBJ");
+    t3d.AddLibrary("FBX");
 
     while(t3d.running)
     {

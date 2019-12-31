@@ -36,7 +36,8 @@ namespace euphoria::t3d
     {
         pending_files.extensions = std::vector<std::string>
         {
-            ".obj"
+            ".obj",
+            ".fbx"
         };
     }
 
