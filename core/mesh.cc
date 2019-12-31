@@ -208,10 +208,17 @@ namespace euphoria::core
             for(unsigned int face_id = 0; face_id < mesh->mNumFaces; ++face_id)
             {
                 const aiFace& face = mesh->mFaces[face_id];
-                part->faces.push_back(
-                        MeshFace {Cunsigned_int_to_int(face.mIndices[0]),
-                                  Cunsigned_int_to_int(face.mIndices[1]),
-                                  Cunsigned_int_to_int(face.mIndices[2])});
+                if(face.mNumIndices<=3) continue;
+                ASSERTX(face.mNumIndices == 3, face.mNumIndices); 
+                const auto faceIndex0 = face.mIndices[0];
+                const auto faceIndex1 = face.mIndices[1];
+                const auto faceIndex2 = face.mIndices[2];
+                part->faces.push_back(MeshFace
+                {
+                    Cunsigned_int_to_int(faceIndex0),
+                    Cunsigned_int_to_int(faceIndex1),
+                    Cunsigned_int_to_int(faceIndex2)
+                });
             }
         }
 
