@@ -257,7 +257,7 @@ namespace euphoria::core
         }
 
         Mesh
-        ConvertScene(const aiScene* scene)
+        ConvertScene(const aiScene* scene, const std::string& file_name)
         {
             Mesh ret;
 
@@ -274,7 +274,16 @@ namespace euphoria::core
                 {
                     const aiMesh*  mesh = scene->mMeshes[meshid];
                     const MeshPart part = ConvertMesh(mesh);
-                    ret.parts.push_back(part);
+                    if(part.faces.empty())
+                    {
+                        const auto& name = mesh->mName;
+                        const char* const the_name = name.C_Str() ? name.C_Str() : "<no_name>";
+                        LOG_WARN("No faces in part {0} for {1}", the_name, file_name);
+                    }
+                    else
+                    {
+                        ret.parts.push_back(part);
+                    }
                 }
             }
 
@@ -293,7 +302,7 @@ namespace euphoria::core
             {
                 throw std::string {importer.GetErrorString()};
             }
-            return ConvertScene(scene);
+            return ConvertScene(scene, "<nff_source>");
         }
 
         const char* const FileFormatNff = "nff";
@@ -344,10 +353,12 @@ namespace euphoria::core
         }
 
         void
-        DecorateMesh(
-                vfs::FileSystem*   fs,
-                Mesh*              mesh,
-                const std::string& json_path)
+        DecorateMesh
+        (
+            vfs::FileSystem*   fs,
+            Mesh*              mesh,
+            const std::string& json_path
+        )
         {
             mesh::Mesh json;
             const auto error = LoadProtoJson(fs, &json, json_path);
@@ -366,8 +377,6 @@ namespace euphoria::core
                 DecorateMeshMaterials(mesh, json_path, json);
             }
         }
-
-
     }  // namespace
 
     namespace meshes
@@ -485,8 +494,13 @@ namespace euphoria::core
             }
             else
             {
-                res.mesh = ConvertScene(scene);
+                res.mesh = ConvertScene(scene, path);
                 DecorateMesh(fs, &res.mesh, path + ".json");
+
+                if(res.mesh.parts.empty())
+                {
+                    res.error = "No parts(faces) in mesh";
+                }
             }
             return res;
         }
