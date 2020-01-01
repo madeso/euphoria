@@ -15,7 +15,7 @@
 #include "core/proto.h"
 #include "core/log.h"
 
-#include "core/path.h"
+#include "core/bezierpath.h"
 
 #include "render/init.h"
 #include "render/debuggl.h"

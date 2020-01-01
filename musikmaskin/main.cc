@@ -15,8 +15,6 @@
 #include "core/proto.h"
 #include "core/log.h"
 
-#include "core/path.h"
-
 #include "render/init.h"
 #include "render/debuggl.h"
 #include "render/materialshader.h"
