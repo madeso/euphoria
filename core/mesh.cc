@@ -208,7 +208,7 @@ namespace euphoria::core
             for(unsigned int face_id = 0; face_id < mesh->mNumFaces; ++face_id)
             {
                 const aiFace& face = mesh->mFaces[face_id];
-                if(face.mNumIndices<=3) continue;
+                if(face.mNumIndices<3) continue;
                 ASSERTX(face.mNumIndices == 3, face.mNumIndices); 
                 const auto faceIndex0 = face.mIndices[0];
                 const auto faceIndex1 = face.mIndices[1];
