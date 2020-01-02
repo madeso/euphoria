@@ -2,11 +2,203 @@
 
 #include "core/assert.h"
 #include "core/stringutils.h"
+#include "core/stringmerger.h"
+
 
 namespace euphoria::core
 {
     namespace vfs
     {
+        namespace
+        {
+            bool
+            IsValidDirectoryName(const std::string& dir)
+            {
+                if(dir == ".") { return true; }
+                if(dir == "..") { return true; }
+                if(dir.find('.') != std::string::npos) { return false; }
+                if(dir.find('/') != std::string::npos) { return false; }
+                return true;
+            }
+
+            bool
+            IsValidFirstDirectory(const std::string& dir)
+            {
+                if(dir == "~") { return true; }
+                if(dir == ".") { return true; }
+                return false;
+            }
+        }
+        
+
+        PathToDirectory
+        PathToDirectory::FromRoot()
+        {
+            return PathToDirectory{"~/"};
+        }
+
+
+        PathToDirectory
+        PathToDirectory::FromRelative()
+        {
+            return PathToDirectory{"./"};
+        }
+
+
+        PathToDirectory
+        PathToDirectory::FromDirs(const std::vector<std::string>& dirs)
+        {
+            ASSERT(!dirs.empty());
+            ASSERTX(IsValidFirstDirectory(dirs[0]), dirs[0]);
+            for(std::size_t index=1; index<dirs.size(); index +=1)
+            {
+                ASSERTX(IsValidDirectoryName(dirs[index]), dirs[index]);
+            }
+
+            return PathToDirectory
+            {
+                StringMerger{}
+                    .Separator("/")
+                    .StartAndEnd("", "/")
+                    .Generate(dirs)
+            };
+        }
+
+
+        bool
+        PathToDirectory::IsRelative() const
+        {
+            ASSERT(!path.empty());
+            const auto first = path[0];
+            ASSERTX(first == '.' || first == '~', first);
+            return first == '.';
+        }
+
+
+        bool
+        PathToDirectory::ContainsRelative() const
+        {
+            const auto is_relative = [](const std::string& dir) -> bool
+            {
+                if(dir == ".") { return true; }
+                if(dir == "..") { return true; }
+
+                return false;
+            };
+            const auto dirs = SplitDirectories();
+
+            for(const auto d: dirs)
+            {
+                if(is_relative(d))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+
+        std::vector<std::string>
+        PathToDirectory::SplitDirectories() const
+        {
+            return Split(path, '/');
+        }
+
+
+        PathToDirectory
+        PathToDirectory::SingleCdCopy(const std::string& single) const
+        {
+            ASSERTX(IsValidDirectoryName(single), single);
+            return PathToDirectory{path + single + "/"};
+        }
+
+
+        PathToDirectory::PathToDirectory(const std::string& p)
+            : path(p)
+        {
+            ASSERT(!path.empty());
+            ASSERTX(IsValidFirstDirectory(SplitDirectories()[0]), path);
+            ASSERTX(*path.rbegin() == '/', path);
+        }
+
+
+        std::optional<PathToDirectory>
+        ResolveRelative
+        (
+            const PathToDirectory& base
+        )
+        {
+            ASSERT(!base.IsRelative());
+
+            auto dirs = base.SplitDirectories();
+            auto size = dirs.size();
+            
+            if(size == 1) { return base; }
+
+            for(std::size_t index=1; index<size;)
+            {
+                if(dirs[index] != "..")
+                {
+                    index += 1;
+                }
+                else
+                {
+                    // if it is the first directory, then this is an error
+                    // since we can't back out of the root and the
+                    // path is actually invalid, like:
+                    // ~/../outside_root/
+                    if(index == 1) { return std::nullopt; }
+
+                    // drop .. and the parent folder from the path
+                    dirs.erase
+                    (
+                        dirs.begin() + (index-1),
+                        dirs.begin() + (index+1)
+                    );
+                    index -= 1;
+                    size -= 2;
+                }
+            }
+
+            return PathToDirectory::FromDirs(dirs);
+        }
+
+
+        std::optional<PathToDirectory>
+        ResolveRelative
+        (
+            const PathToDirectory& base,
+            const PathToDirectory& root
+        )
+        {
+            ASSERT(base.IsRelative());
+            return ResolveRelative(Join(root, base));
+        }
+
+
+        PathToDirectory
+        Join(const PathToDirectory& lhs, const PathToDirectory& rhs)
+        {
+            ASSERT(rhs.IsRelative());
+            const auto dirs = rhs.SplitDirectories();
+
+            auto ret = lhs;
+            for(size_t index = 1; index < dirs.size(); index +=1 )
+            {
+                ret = ret.SingleCdCopy(dirs[index]);
+            }
+
+            return ret;
+        }
+
+
+        //
+        //---------------------------------------------------------------------
+        // old part
+        //---------------------------------------------------------------------
+        //
+
         char
         DirectoryChar()
         {

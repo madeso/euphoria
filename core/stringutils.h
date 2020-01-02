@@ -14,20 +14,24 @@ String utility functions
 namespace euphoria::core
 {
     /** @defgroup string String utility functions.
-@{
- */
+    @{
+    */
+
 
     /** Space characters.
     @returns the space characters.
     */
     const std::string kSpaceCharacters = " \n\r\t";
 
+
     // for a hello.dog and . gets hello
     std::string
     StripLastString(const std::string& str, char sep);
 
+
     std::pair<std::string, std::string>
     LastStrings(const std::string& str, char sep);
+
 
     /** Remove characters from the right, stops at a invalid character.
     @param string_to_trim the string to remove characters from.
@@ -39,6 +43,7 @@ namespace euphoria::core
             const std::string& string_to_trim,
             const std::string& trim_characters = kSpaceCharacters);
 
+
     /** Remove characters from the left, stops at invalid character.
     @param string_to_trim the string to remove characters from.
     @param trim_characters the characters to remove.
@@ -49,6 +54,7 @@ namespace euphoria::core
             const std::string& string_to_trim,
             const std::string& trim_characters = kSpaceCharacters);
 
+
     /** Remove characters from both the start and the end.
     @param string_to_trim the string to remove characters from.
     @param trim_characters the characters to remove.
@@ -58,6 +64,7 @@ namespace euphoria::core
     Trim(const std::string& string_to_trim,
          const std::string& trim_characters = kSpaceCharacters);
 
+
     /** Tests if a string starts with another string.
     @param string_to_test the string to test.
     @param start the start of the string.
@@ -65,6 +72,7 @@ namespace euphoria::core
     */
     bool
     StartsWith(const std::string& string_to_test, const std::string& start);
+
 
     /** Tests if a string ends with another string.
     @param string_to_test the string to test.
@@ -74,6 +82,7 @@ namespace euphoria::core
     bool
     EndsWith(const std::string& string_to_test, const std::string& end);
 
+
     /** Generate a string containing only lower characters.
     @param str the string to lower.
     @returns the lowered string.
@@ -81,22 +90,28 @@ namespace euphoria::core
     std::string
     ToLower(const std::string& str);
 
+
     std::vector<std::string>
     ToLower(const std::vector<std::string>& str);
 
+
     std::string
     ToUpper(const std::string& str);
+
 
     enum class CharToStringStyle
     {
         Smart, IncludeHex
     };
 
+
     std::string
     CharToString(char c, CharToStringStyle style=CharToStringStyle::Smart);
 
+
     std::string::size_type
     FindFirstIndexOfMismatch(const std::string& lhs, const std::string& rhs);
+
 
     /** Replace all occurrences in a string.
     @param string the source string.
@@ -108,6 +123,7 @@ namespace euphoria::core
             std::string*       string,
             const std::string& to_find,
             const std::string& to_replace);
+
 
     /** Replace all occurrences in a string.
     @param string the source string.
@@ -121,11 +137,13 @@ namespace euphoria::core
             const std::string& to_find,
             const std::string& to_replace);
 
+
     std::string
     ReplaceWithCharacter(
             const std::string& string,
             const std::string& to_find,
             const char         to_replace);
+
 
     /** Copy a string to a character buffer, adding null terminator at the end.
     @param dst the destination buffer.
@@ -141,6 +159,7 @@ namespace euphoria::core
     std::string
     RemoveFromEnd(const std::string& str, const std::string& end);
 
+
     template <typename Key, typename Value>
     std::vector<std::string>
     MapToStringVector(const std::map<Key, Value>& map)
@@ -155,6 +174,7 @@ namespace euphoria::core
         return ret;
     }
 
+
     template <typename Key, typename Value>
     std::vector<std::string>
     KeyToStringVector(const std::map<Key, Value>& map)
@@ -167,6 +187,7 @@ namespace euphoria::core
         }
         return ret;
     }
+
 
     template <typename T>
     std::vector<std::string>
@@ -181,6 +202,7 @@ namespace euphoria::core
         }
         return ret;
     }
+
 
     template <typename T, typename C>
     std::vector<std::string>
@@ -200,15 +222,19 @@ namespace euphoria::core
     std::string
     Strip(const std::string& str, const std::string& ch);
 
+
     // remove all characters in ch except the first one in a chain from str
     std::string
     RemoveConsecutive(const std::string& str, const std::string& ch);
 
+
     std::vector<std::string>
     Split(const std::string& string, char delim);
 
+
     const std::string&
     OpString(bool b, const std::string& str);
+
 
     // http://stereopsis.com/strcmp4humans.html
     int
