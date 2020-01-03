@@ -266,6 +266,57 @@ TEST_CASE("vfspath-file-constructor", "[vfspath]")
 }
 
 
+TEST_CASE("vfspath-file-from-dir", "[vfspath]")
+{
+    SECTION("basic")
+    {
+        const auto file = vfs::PathToDirectory{"~/dogs/"}.GetFile("good.dog");
+        CHECK(file.path == "~/dogs/good.dog");
+    }
+}
+
+
+TEST_CASE("vfspath-file-resolve-join", "[vfspath]")
+{
+    SECTION("basic")
+    {
+        const auto root = vfs::PathToDirectory{"~/dogs/"};
+        const auto relative = vfs::PathToFile{"./good.dog"};
+
+        const auto joined = vfs::Join(root, relative);
+        CHECK(joined.path == "~/dogs/good.dog");
+
+        const auto resolved = vfs::ResolveRelative(relative, root);
+        REQUIRE(resolved.has_value());
+        CHECK(resolved.value().path == "~/dogs/good.dog");
+    }
+
+    SECTION("back")
+    {
+        const auto root = vfs::PathToDirectory{"~/cats/"};
+        const auto relative = vfs::PathToFile{"./../dogs/good.dog"};
+
+        const auto joined = vfs::Join(root, relative);
+        CHECK(joined.path == "~/cats/../dogs/good.dog");
+
+        const auto resolved = vfs::ResolveRelative(relative, root);
+        REQUIRE(resolved.has_value());
+        CHECK(resolved.value().path == "~/dogs/good.dog");
+    }
+
+    SECTION("invalid")
+    {
+        const auto root = vfs::PathToDirectory{"~/"};
+        const auto relative = vfs::PathToFile{"./../dogs/good.dog"};
+
+        const auto joined = vfs::Join(root, relative);
+        CHECK(joined.path == "~/../dogs/good.dog");
+
+        const auto resolved = vfs::ResolveRelative(relative, root);
+        REQUIRE_FALSE(resolved.has_value());
+    }
+}
+
 
 
 TEST_CASE("path-test_empty_create_guess", "[path]")
