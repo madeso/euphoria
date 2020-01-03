@@ -41,6 +41,29 @@ namespace euphoria::core
         }
 
 
+        FilePath
+        FilePath::FromScript(const std::string& p)
+        {
+            if(StartsWith(p, "~/") || StartsWith(p, "./"))
+            {
+                return FilePath{p};
+            }
+            else
+            {
+                if(StartsWith(p, "/"))
+                {
+                    return FilePath{"." + p};
+                }
+                else
+                {
+                    return FilePath{"./" + p};
+                }
+                
+            }
+            
+        }
+
+
         std::tuple<DirPath, std::string>
         FilePath::SplitDirectoriesAndFile() const
         {

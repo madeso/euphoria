@@ -1,6 +1,7 @@
 #include "core/image.h"
 
 #include "core/vfs.h"
+#include "core/vfs_path.h"
 #include "core/base64.h"
 #include "core/rgb.h"
 #include "core/image_draw.h"
@@ -17,6 +18,7 @@ namespace euco = euphoria::core;
 
 using namespace euphoria::tests;
 
+
 // 4x4 image without transperency
 // white  / red
 // green / blue
@@ -26,13 +28,23 @@ const char* const TEST_IMAGE
           "gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4QgdFSAdb6CP5AAAABVJREFUCNcFw"
           "QEBAAAAgBD/TxeqIDQz2gX7fv3PJgAAAABJRU5ErkJggg==";
 
+
 TEST_CASE("image-load", "[img]")
 {
     vfs::FileSystem fs;
-    auto            catalog = vfs::FileSystemRootCatalog::AddRoot(&fs);
-    catalog->RegisterFileData("white", euco::base64::Decode(TEST_IMAGE));
+    auto catalog = vfs::FileSystemRootCatalog::AddRoot(&fs);
+    catalog->RegisterFileData
+    (
+        vfs::FilePath{"~/white"},
+        euco::base64::Decode(TEST_IMAGE)
+    );
 
-    auto loaded = euco::LoadImage(&fs, "white", euco::AlphaLoad::Remove);
+    auto loaded = euco::LoadImage
+    (
+        &fs,
+        vfs::FilePath{"~/white"},
+        euco::AlphaLoad::Remove
+    );
     REQUIRE(loaded.error == "");
     REQUIRE_FALSE(loaded.image.HasAlpha());
 
@@ -51,7 +63,7 @@ TEST_CASE("image-load", "[img]")
     SECTION("load-red")
     {
         const auto pixel = loaded.image.GetPixel(1, 1);
-        const auto red   = euco::Rgbai {euco::Rgbi {255, 0, 0}, 255};
+        const auto red = euco::Rgbai {euco::Rgbi {255, 0, 0}, 255};
         REQUIRE(pixel == red);
     }
 
@@ -92,6 +104,7 @@ TEST_CASE("image solid", "[img]")
     }
 }
 
+
 TEST_CASE("image transparent", "[img]")
 {
     euco::Image img;
@@ -111,6 +124,7 @@ TEST_CASE("image transparent", "[img]")
         REQUIRE(img.GetPixel(0, 0) == color);
     }
 }
+
 
 // todo: add paint test
 TEST_CASE("image draw", "[img]")
@@ -162,6 +176,7 @@ TEST_CASE("image draw", "[img]")
     }
 }
 
+
 TEST_CASE("image text")
 {
     auto draw_text = [](const std::string& text, int width, int height) -> std::vector<std::string>
@@ -169,10 +184,23 @@ TEST_CASE("image text")
         euco::Image image;
         image.SetupNoAlphaSupport(width, height);
         euco::DrawRect(&image, euco::Color::White, euco::WholeImage(image));
-        euco::DrawText(&image, euco::vec2i(0,height-8), text, euco::Color::Black, euco::LoadCharactersFromBuiltin());
-        const auto table = euco::ImageToStringTableExact(
+        euco::DrawText
+        (
+            &image,
+            euco::vec2i(0,height-8),
+            text,
+            euco::Color::Black,
+            euco::LoadCharactersFromBuiltin()
+        );
+        const auto table = euco::ImageToStringTableExact
+        (
             image,
-            { {'#', euco::Color::Black}, {' ', euco::Color::White} }, '?'); 
+            {
+                {'#', euco::Color::Black},
+                {' ', euco::Color::White}
+            },
+            '?'
+        );
         const auto strings = euco::ToStrings(table);
         return strings;
     };

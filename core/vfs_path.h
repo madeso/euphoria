@@ -39,6 +39,11 @@ namespace euphoria::core
 
         struct FilePath
         {
+            static
+            FilePath
+            FromScript(const std::string&);
+
+
             std::tuple<DirPath, std::string>
             SplitDirectoriesAndFile() const;
 

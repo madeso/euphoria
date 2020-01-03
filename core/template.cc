@@ -749,7 +749,7 @@ namespace euphoria::core
             {
                 new TemplateNodeScopedList {}
             };
-            const auto file_argument = vfs::FilePath{lex.value};
+            const auto file_argument = vfs::FilePath::FromScript(lex.value);
             const auto resolved_file = vfs::ResolveRelative
             (
                 file_argument,
