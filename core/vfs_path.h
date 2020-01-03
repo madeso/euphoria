@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <optional>
+#include <tuple>
 
 namespace euphoria::core
 {
@@ -29,6 +30,41 @@ namespace euphoria::core
         // a single dot (.) represesents the "current" folder (relative path)
         // twot dots (..) represents the parent folder (relative path)
 
+        struct PathToFile;
+        struct PathToDirectory;
+
+
+        struct PathToFile
+        {
+            std::tuple<PathToDirectory, std::string>
+            SplitDirectoriesAndFile() const;
+
+
+            PathToDirectory
+            GetDirectory() const;
+
+
+            std::string
+            GetFileWithExtension() const;
+
+
+            std::string
+            GetFilenameWithoutExtension() const;
+
+
+            std::string
+            GetExtension() const;
+
+
+            explicit
+            PathToFile(const std::string& p);
+
+
+            // contains either ./ or ~/ at the start
+            // has a file name and possible extension
+            std::string path;
+        };
+
 
         struct PathToDirectory
         {
@@ -45,6 +81,10 @@ namespace euphoria::core
             [[nodiscard]]
             static PathToDirectory
             FromDirs(const std::vector<std::string>& dirs);
+
+
+            PathToFile
+            GetFile(const std::string& filename) const;
 
 
             bool
@@ -65,7 +105,8 @@ namespace euphoria::core
             SingleCdCopy(const std::string& single) const;
 
 
-            explicit PathToDirectory(const std::string& p);
+            explicit
+            PathToDirectory(const std::string& p);
 
 
             // contains either . or ~ at the start, / at the end
@@ -73,25 +114,12 @@ namespace euphoria::core
         };
 
 
-        /*
-        struct PathToFile
-        {
-            bool
-            IsRooted() const;
-
-            bool
-            IsRelative() const;
-
-            // contains either . or ~ at the start
-            std::string path;
-        };
-        */
-
         std::optional<PathToDirectory>
         ResolveRelative
         (
             const PathToDirectory& base
         );
+
 
         std::optional<PathToDirectory>
         ResolveRelative
@@ -101,12 +129,28 @@ namespace euphoria::core
         );
 
 
+        std::optional<PathToFile>
+        ResolveRelative
+        (
+            const PathToFile& base
+        );
+
+
+        std::optional<PathToFile>
+        ResolveRelative
+        (
+            const PathToFile& base,
+            const PathToDirectory& root
+        );
+
+
         PathToDirectory
         Join(const PathToDirectory& lhs, const PathToDirectory& rhs);
 
-        // [[nodiscard]]
-        // static PathToFile
-        // Join(const PathToDirectory& lhs, const PathToFile& rhs);
+
+        PathToFile
+        Join(const PathToDirectory& lhs, const PathToFile& rhs);
+
 
         /** Represents a virtual path.
          * It is always lowercase and forward slash specify a directory.

@@ -222,6 +222,51 @@ TEST_CASE("vfspath-dir-resolve", "[vfspath]")
 
 
 
+TEST_CASE("vfspath-file-constructor", "[vfspath]")
+{
+    SECTION("relative-file-txt")
+    {
+        const auto file = vfs::PathToFile{"./file.txt"};
+        const auto [dir, name] = file.SplitDirectoriesAndFile();
+        CHECK(dir.path == "./");
+        CHECK(name == "file.txt");
+        CHECK(file.GetFilenameWithoutExtension() == "file");
+        CHECK(file.GetExtension() == "txt");
+    }
+
+    SECTION("relative-no-ext")
+    {
+        const auto file = vfs::PathToFile{"./cat"};
+        const auto [dir, name] = file.SplitDirectoriesAndFile();
+        CHECK(dir.path == "./");
+        CHECK(name == "cat");
+        CHECK(file.GetFilenameWithoutExtension() == "cat");
+        CHECK(file.GetExtension() == "");
+    }
+
+    SECTION("absolute-gitignore")
+    {
+        const auto file = vfs::PathToFile{"~/.gitignore"};
+        const auto [dir, name] = file.SplitDirectoriesAndFile();
+        CHECK(dir.path == "~/");
+        CHECK(name == ".gitignore");
+        CHECK(file.GetFilenameWithoutExtension() == ".gitignore");
+        CHECK(file.GetExtension() == "");
+    }
+
+    SECTION("absolute-targz")
+    {
+        const auto file = vfs::PathToFile{"~/cats.tar.gz"};
+        const auto [dir, name] = file.SplitDirectoriesAndFile();
+        CHECK(dir.path == "~/");
+        CHECK(name == "cats.tar.gz");
+        CHECK(file.GetFilenameWithoutExtension() == "cats");
+        CHECK(file.GetExtension() == "tar.gz");
+    }
+}
+
+
+
 
 TEST_CASE("path-test_empty_create_guess", "[path]")
 {

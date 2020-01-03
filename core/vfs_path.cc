@@ -14,6 +14,7 @@ namespace euphoria::core
             bool
             IsValidDirectoryName(const std::string& dir)
             {
+                if(dir.empty()) { return false; }
                 if(dir == ".") { return true; }
                 if(dir == "..") { return true; }
                 if(dir.find('.') != std::string::npos) { return false; }
@@ -28,7 +29,83 @@ namespace euphoria::core
                 if(dir == ".") { return true; }
                 return false;
             }
+
+            bool
+            IsValidFilename(const std::string& file)
+            {
+                if(file.empty()) { return false; }
+                if(file.find('/') != std::string::npos) { return false; }
+                if(file == ".") { return false; }
+                return true;
+            }
         }
+
+
+        std::tuple<PathToDirectory, std::string>
+        PathToFile::SplitDirectoriesAndFile() const
+        {
+            const auto slash = path.rfind('/');
+            ASSERTX(slash != std::string::npos, path);
+            const auto dir_part = path.substr(0, slash+1);
+            const auto file_part = path.substr(slash+1);
+            ASSERTX
+            (
+                !file_part.empty() && !dir_part.empty(),
+                path, dir_part, file_part
+            );
+            ASSERTX
+            (
+                *dir_part.rbegin() == '/' && file_part[0] != '/',
+                path, dir_part, file_part
+            );
+            return {PathToDirectory{dir_part}, file_part};
+        }
+
+
+        PathToDirectory
+        PathToFile::GetDirectory() const
+        {
+            return std::get<0>(SplitDirectoriesAndFile());
+        }
+
+
+        std::string
+        PathToFile::GetFileWithExtension() const
+        {
+            return std::get<1>(SplitDirectoriesAndFile());
+        }
+
+
+        std::string
+        PathToFile::GetFilenameWithoutExtension() const
+        {
+            const auto with_extension = GetFileWithExtension();
+            const auto dot = with_extension.find('.', 1);
+            if(dot == std::string::npos) { return with_extension; }
+            return with_extension.substr(0, dot);
+        }
+
+
+        std::string
+        PathToFile::GetExtension() const
+        {
+            const auto with_extension = GetFileWithExtension();
+            const auto dot = with_extension.find('.', 1);
+            if(dot == std::string::npos) { return ""; }
+            return with_extension.substr(dot+1);
+        }
+
+
+        PathToFile::PathToFile(const std::string& p)
+            : path(p)
+        {
+            ASSERTX(path.size() > 3, path);
+            ASSERTX((path[0] == '~' || path[0] == '.') && path[1] == '/', path);
+            ASSERTX(*path.rbegin() != '/', path);
+        }
+
+
+        // --------------------------------------------------------------------
         
 
         PathToDirectory
@@ -62,6 +139,14 @@ namespace euphoria::core
                     .StartAndEnd("", "/")
                     .Generate(dirs)
             };
+        }
+
+
+        PathToFile
+        PathToDirectory::GetFile(const std::string& filename) const
+        {
+            ASSERTX(IsValidFilename(filename), path, filename);
+            return PathToFile{path + filename};
         }
 
 
@@ -123,6 +208,9 @@ namespace euphoria::core
         }
 
 
+        // --------------------------------------------------------------------
+
+
         std::optional<PathToDirectory>
         ResolveRelative
         (
@@ -177,6 +265,32 @@ namespace euphoria::core
         }
 
 
+        std::optional<PathToFile>
+        ResolveRelative
+        (
+            const PathToFile& base
+        )
+        {
+            const auto [dir, file] = base.SplitDirectoriesAndFile();
+            const auto resolved = ResolveRelative(dir);
+            if(!resolved.has_value()) { return std::nullopt; }
+            return resolved.value().GetFile(file);
+        }
+
+        std::optional<PathToFile>
+        ResolveRelative
+        (
+            const PathToFile& base,
+            const PathToDirectory& root
+        )
+        {
+            const auto [dir, file] = base.SplitDirectoriesAndFile();
+            const auto resolved = ResolveRelative(dir, root);
+            if(!resolved.has_value()) { return std::nullopt; }
+            return resolved.value().GetFile(file);
+        }
+
+
         PathToDirectory
         Join(const PathToDirectory& lhs, const PathToDirectory& rhs)
         {
@@ -190,6 +304,14 @@ namespace euphoria::core
             }
 
             return ret;
+        }
+
+        PathToFile
+        Join(const PathToDirectory& lhs, const PathToFile& rhs)
+        {
+            const auto [dir, file] = rhs.SplitDirectoriesAndFile();
+            const auto joined = Join(lhs, dir);
+            return joined.GetFile(file);
         }
 
 
