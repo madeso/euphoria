@@ -16,8 +16,8 @@ namespace euphoria::core
     {
         ////////////////////////////////////////////////////////////////////////////////
 
-        ListedFile::ListedFile(const std::string& n, bool b)
-            : name(n), is_builtin(b)
+        ListedFile::ListedFile(const std::string& n, bool b, bool f)
+            : name(n), is_builtin(b), is_file(f)
         {}
 
         ////////////////////////////////////////////////////////////////////////////////
@@ -25,9 +25,7 @@ namespace euphoria::core
         void
         FileList::Add(const ListedFile& file)
         {
-            const bool is_file = Path::FromGuess(file.name).IsFile();
-
-            auto&      target = is_file ? files : folders;
+            auto&      target = file.is_file ? files : folders;
             const auto found  = target.find(file.name);
             if(found == target.end())
             {
@@ -36,9 +34,9 @@ namespace euphoria::core
         }
 
         void
-        FileList::Add(const std::string& n, bool b)
+        FileList::Add(const std::string& n, bool b, bool f)
         {
-            Add(ListedFile {n, b});
+            Add(ListedFile {n, b, f});
         }
 
         ////////////////////////////////////////////////////////////////////////////////
@@ -66,7 +64,7 @@ namespace euphoria::core
         }
 
         std::shared_ptr<MemoryChunk>
-        FileSystem::ReadFile(const std::string& path)
+        FileSystem::ReadFile(const FilePath& path)
         {
             for(auto& root: roots_)
             {
@@ -81,16 +79,18 @@ namespace euphoria::core
         }
 
         void
-        FileSystem::WriteFile(
-                const std::string&           path,
-                std::shared_ptr<MemoryChunk> data)
+        FileSystem::WriteFile
+        (
+            const FilePath& path,
+            std::shared_ptr<MemoryChunk> data
+        )
         {
             ASSERT(write_);
             write_->WriteFile(path, data);
         }
 
         std::vector<ListedFile>
-        FileSystem::ListFiles(const Path& path)
+        FileSystem::ListFiles(const DirPath& path)
         {
             FileList combined;
             for(auto& root: roots_)
@@ -131,9 +131,11 @@ namespace euphoria::core
         }
 
         bool
-        FileSystem::ReadFileToString(
-                const std::string& path,
-                std::string*       source)
+        FileSystem::ReadFileToString
+        (
+                const FilePath& path,
+                std::string* source
+        )
         {
             ASSERT(source);
 
@@ -153,18 +155,22 @@ namespace euphoria::core
         FileSystemRootCatalog::FileSystemRootCatalog() = default;
 
         void
-        FileSystemRootCatalog::RegisterFileString(
-                const std::string& path,
-                const std::string& content)
+        FileSystemRootCatalog::RegisterFileString
+        (
+            const FilePath& path,
+            const std::string& content
+        )
         {
             std::shared_ptr<MemoryChunk> file = MemoryChunkFromText(content);
             RegisterFileData(path, file);
         }
 
         void
-        FileSystemRootCatalog::RegisterFileData(
-                const std::string&                  path,
-                const std::shared_ptr<MemoryChunk>& content)
+        FileSystemRootCatalog::RegisterFileData
+        (
+            const FilePath& path,
+            const std::shared_ptr<MemoryChunk>& content
+        )
         {
             catalog_.insert(std::make_pair(path, content));
         }
@@ -179,7 +185,7 @@ namespace euphoria::core
         }
 
         std::shared_ptr<MemoryChunk>
-        FileSystemRootCatalog::ReadFile(const std::string& path)
+        FileSystemRootCatalog::ReadFile(const FilePath& path)
         {
             const auto found = catalog_.find(path);
 
@@ -199,16 +205,16 @@ namespace euphoria::core
         }
 
         FileList
-        FileSystemRootCatalog::ListFiles(const Path& path)
+        FileSystemRootCatalog::ListFiles(const DirPath& path)
         {
             FileList r;
             for(const auto& f: catalog_)
             {
-                const auto file   = Path::FromFile(f.first);
-                const auto folder = file.GetDirectory();
+                const auto file   = f.first;
+                const auto [folder, filename] = file.SplitDirectoriesAndFile();
                 if(path == folder)
                 {
-                    r.Add(file.GetFileName(), true);
+                    r.Add(filename, true, true);
                 }
             }
 
@@ -218,9 +224,15 @@ namespace euphoria::core
         ////////////////////////////////////////////////////////////////////////////////
 
         std::string
-        CombineFolderAndPath(const std::string& folder, const std::string& path)
+        CombineFolderAndPath(const std::string& folder, const FilePath& path)
         {
-            return folder + path;
+            return folder + path.path.substr(2);
+        }
+
+        std::string
+        CombineFolderAndPath(const std::string& folder, const DirPath& path)
+        {
+            return folder + path.path.substr(2);
         }
 
         std::string
@@ -240,7 +252,7 @@ namespace euphoria::core
         {}
 
         std::shared_ptr<MemoryChunk>
-        FileSystemRootFolder::ReadFile(const std::string& path)
+        FileSystemRootFolder::ReadFile(const FilePath& path)
         {
             const std::string& full_path = CombineFolderAndPath(folder_, path);
             return io::FileToChunk(full_path);
@@ -271,10 +283,10 @@ namespace euphoria::core
         }
 
         FileList
-        FileSystemRootFolder::ListFiles(const Path& path)
+        FileSystemRootFolder::ListFiles(const DirPath& path)
         {
             const auto real_path
-                    = CombineFolderAndPath(folder_, path.GetAbsolutePath());
+                    = CombineFolderAndPath(folder_, path);
             const auto found = ListDirectory(real_path);
 
             FileList r;
@@ -283,7 +295,7 @@ namespace euphoria::core
             {
                 for(const auto& f: found.files)
                 {
-                    r.Add(f, false);
+                    r.Add(f, false, false);
                 }
                 for(const auto& d: found.directories)
                 {
@@ -292,7 +304,7 @@ namespace euphoria::core
                     {
                         f += +"/";
                     }
-                    r.Add(f, false);
+                    r.Add(f, false, true);
                 }
             }
 
@@ -306,9 +318,11 @@ namespace euphoria::core
         {}
 
         void
-        FileSystemWriteFolder::WriteFile(
-                const std::string&           path,
-                std::shared_ptr<MemoryChunk> data)
+        FileSystemWriteFolder::WriteFile
+        (
+            const FilePath& path,
+            std::shared_ptr<MemoryChunk> data
+        )
         {
             const auto full_path = CombineFolderAndPath(folder, path);
             io::ChunkToFile(data, full_path);

@@ -7,7 +7,12 @@
 
 #include "core/rgb.h"
 #include "core/memorychunk.h"
-#include "core/vfs.h"
+
+namespace euphoria::core::vfs
+{
+    struct FileSystem;
+    struct FilePath;
+}
 
 namespace euphoria::core
 {
@@ -131,7 +136,7 @@ namespace euphoria::core
 
     // todo: move image loading to a io library instead
     ImageLoadResult
-    LoadImage(vfs::FileSystem* fs, const std::string& path, AlphaLoad alpha);
+    LoadImage(vfs::FileSystem* fs, const vfs::FilePath& path, AlphaLoad alpha);
 
     ImageLoadResult
     LoadImage(

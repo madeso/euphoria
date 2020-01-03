@@ -6,8 +6,13 @@
 #include <sstream>
 #include <memory>
 #include <vector>
+#include <optional>
 
-#include "core/vfs.h"
+namespace euphoria::core::vfs
+{
+    struct FileSystem;
+    struct FilePath;
+}
 
 namespace euphoria::core
 {
@@ -38,11 +43,13 @@ namespace euphoria::core
         HasErrors() const;
 
         void
-        AddError(
-                const std::string& file,
-                int                line,
-                int                column,
-                const std::string& error);
+        AddError
+        (
+            const std::optional<vfs::FilePath>& file,
+            int line,
+            int column,
+            const std::string& error
+        );
 
         std::string
         GetCombinedErrors() const;
@@ -55,7 +62,7 @@ namespace euphoria::core
     struct Template
     {
         explicit Template(const std::string& text);
-        Template(vfs::FileSystem* fs, const std::string& path);
+        Template(vfs::FileSystem* fs, const vfs::FilePath& path);
         ~Template();
 
         std::string

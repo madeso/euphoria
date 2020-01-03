@@ -12,15 +12,17 @@ namespace euphoria::core
 {
     namespace vfs
     {
-        struct Path;
+        struct FilePath;
+        struct DirPath;
 
         struct ListedFile
         {
             std::string name;
-            bool        is_builtin = false;
+            bool is_builtin = false;
+            bool is_file;
 
             ListedFile() = default;
-            ListedFile(const std::string& n, bool b);
+            ListedFile(const std::string& n, bool b, bool f);
         };
 
         struct FileList
@@ -32,7 +34,7 @@ namespace euphoria::core
             Add(const ListedFile& file);
 
             void
-            Add(const std::string& n, bool b);
+            Add(const std::string& n, bool b, bool f);
         };
 
         // todo: use path class
@@ -46,10 +48,10 @@ namespace euphoria::core
                     = 0;
 
             virtual std::shared_ptr<MemoryChunk>
-            ReadFile(const std::string& path) = 0;
+            ReadFile(const FilePath& path) = 0;
 
             virtual FileList
-            ListFiles(const Path& path)
+            ListFiles(const DirPath& path)
                     = 0;
         };
 
@@ -58,10 +60,7 @@ namespace euphoria::core
             virtual ~FileSystemWriteRoot();
 
             virtual void
-            WriteFile(
-                    const std::string&           path,
-                    std::shared_ptr<MemoryChunk> data)
-                    = 0;
+            WriteFile(const FilePath& path, std::shared_ptr<MemoryChunk> data) = 0;
         };
 
         struct FileSystem
@@ -76,22 +75,20 @@ namespace euphoria::core
             SetWrite(const std::shared_ptr<FileSystemWriteRoot>& root);
 
             std::shared_ptr<MemoryChunk>
-            ReadFile(const std::string& path);
+            ReadFile(const FilePath& path);
 
             void
-            WriteFile(
-                    const std::string&           path,
-                    std::shared_ptr<MemoryChunk> data);
+            WriteFile(const FilePath& path, std::shared_ptr<MemoryChunk> data);
 
             std::vector<ListedFile>
-            ListFiles(const Path& path);
+            ListFiles(const DirPath& path);
 
             std::string
             GetRootsAsString();
 
             // todo: need to support paging too
             bool
-            ReadFileToString(const std::string& path, std::string* source);
+            ReadFileToString(const FilePath& path, std::string* source);
 
             // todo: support different roots such as real file system, zip/container file
             // etc
@@ -110,27 +107,27 @@ namespace euphoria::core
 
             void
             RegisterFileString(
-                    const std::string& path,
+                    const FilePath& path,
                     const std::string& content);
             void
             RegisterFileData(
-                    const std::string&                  path,
+                    const FilePath&                  path,
                     const std::shared_ptr<MemoryChunk>& content);
 
             static std::shared_ptr<FileSystemRootCatalog>
             AddRoot(FileSystem* fs);
 
             std::shared_ptr<MemoryChunk>
-            ReadFile(const std::string& path) override;
+            ReadFile(const FilePath& path) override;
 
             void
             Describe(std::vector<std::string>* strings) override;
 
             FileList
-            ListFiles(const Path& path) override;
+            ListFiles(const DirPath& path) override;
 
         private:
-            std::map<std::string, std::shared_ptr<MemoryChunk>> catalog_;
+            std::map<FilePath, std::shared_ptr<MemoryChunk>> catalog_;
         };
 
         struct FileSystemRootFolder : public FileSystemReadRoot
@@ -138,7 +135,7 @@ namespace euphoria::core
             explicit FileSystemRootFolder(std::string folder);
 
             std::shared_ptr<MemoryChunk>
-            ReadFile(const std::string& path) override;
+            ReadFile(const FilePath& path) override;
 
             static void
             AddRoot(FileSystem* fs, const std::string& folder);
@@ -150,7 +147,7 @@ namespace euphoria::core
             Describe(std::vector<std::string>* strings) override;
 
             FileList
-            ListFiles(const Path& path) override;
+            ListFiles(const DirPath& path) override;
 
         private:
             std::string folder_;
@@ -161,9 +158,11 @@ namespace euphoria::core
             explicit FileSystemWriteFolder(const std::string& f);
 
             void
-            WriteFile(
-                    const std::string&           path,
-                    std::shared_ptr<MemoryChunk> data) override;
+            WriteFile
+            (
+                const FilePath& path,
+                std::shared_ptr<MemoryChunk> data
+            ) override;
 
             std::string folder;
         };

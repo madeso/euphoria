@@ -9,11 +9,11 @@ namespace euphoria::core
     namespace vfs
     {
         void
-        AddDefaultShaders(FileSystem* fs, const std::string& base)
+        AddDefaultShaders(FileSystem* fs, const DirPath& base)
         {
             auto cat = FileSystemRootCatalog::AddRoot(fs);
             cat->RegisterFileString(
-                    base + "/sprite.vert",
+                    base.GetFile("sprite.vert"),
                     R"STRING(
                     #version 330 core
 
@@ -35,7 +35,7 @@ namespace euphoria::core
                     }
                 )STRING");
             cat->RegisterFileString(
-                    base + "/sprite.frag",
+                    base.GetFile("sprite.frag"),
                     R"STRING(
                     #version 330 core
 

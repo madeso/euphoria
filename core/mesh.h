@@ -15,6 +15,7 @@ namespace euphoria::core
     namespace vfs
     {
         struct FileSystem;
+        struct FilePath;
     }
 
     enum class WrapMode
@@ -106,7 +107,7 @@ namespace euphoria::core
     namespace meshes
     {
         MeshLoadResult
-        LoadMesh(vfs::FileSystem* fs, const std::string& path);
+        LoadMesh(vfs::FileSystem* fs, const vfs::FilePath& path);
 
         Mesh
         CreateCube(float size);

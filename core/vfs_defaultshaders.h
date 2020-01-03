@@ -9,7 +9,7 @@ namespace euphoria::core
     namespace vfs
     {
         void
-        AddDefaultShaders(FileSystem* fs, const std::string& base);
+        AddDefaultShaders(FileSystem* fs, const DirPath& base);
 
     }  // namespace vfs
 

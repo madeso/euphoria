@@ -10,6 +10,7 @@ namespace euphoria::core
     namespace vfs
     {
         struct FileSystem;
+        struct FilePath;
     }
 
     struct EnumValue;
@@ -66,8 +67,10 @@ namespace euphoria::core
 
         bool
         operator==(const EnumValue& other) const;
+
         bool
         operator!=(const EnumValue& other) const;
+
         bool
         operator<(const EnumValue& other) const;
 
@@ -77,11 +80,19 @@ namespace euphoria::core
         size_t    value_;
     };
 
+
     std::ostream&
     operator<<(std::ostream& s, const EnumValue& v);
 
+
     void
-    LoadEnumType(EnumType* type, vfs::FileSystem* fs, const std::string& path);
+    LoadEnumType
+    (
+        EnumType* type,
+        vfs::FileSystem* fs,
+        const vfs::FilePath& path
+    );
+    
 
 #define DECLARE_ENUM_TYPE(NAME) EnumType& NAME##_EnumType();
 #define IMPLEMENT_ENUM_TYPE(NAME)                                              \
@@ -96,6 +107,7 @@ namespace euphoria::core
         FUNC(NAME##_EnumType());                                               \
         NAME##_EnumType().StopAdding();                                        \
     } while(false)
+
 
 // std::string constructor may throw
 // todo: provide compile time option to use hashes instead

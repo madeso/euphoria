@@ -9,18 +9,19 @@ namespace euphoria::core
     namespace vfs
     {
         struct FileSystem;
+        struct FilePath;
     }
 
     std::string
     LoadProtoJson_Internal(
             vfs::FileSystem*     fs,
             rapidjson::Document* doc,
-            const std::string&   file_name);
+            const vfs::FilePath&   file_name);
 
     // return error message or empty
     template <typename T>
     std::string
-    LoadProtoJson(vfs::FileSystem* fs, T* message, const std::string& file_name)
+    LoadProtoJson(vfs::FileSystem* fs, T* message, const vfs::FilePath& file_name)
     {
         rapidjson::Document doc;
         const std::string   r = LoadProtoJson_Internal(fs, &doc, file_name);

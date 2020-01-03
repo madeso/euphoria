@@ -10,6 +10,7 @@
 #include "core/stringutils.h"
 #include "core/proto.h"
 #include "core/log.h"
+#include "core/vfs_path.h"
 
 #ifdef assert
 #undef assert
@@ -22,14 +23,17 @@ namespace euphoria::core
 {
     LOG_SPECIFY_DEFAULT_LOGGER("core.enum")
 
+
     EnumType::EnumType(std::string name)
         : name_(std::move(name)), isAdding_(true), nextIndex_(1)
     {}
+
 
     EnumType::~EnumType()
     {
         ASSERT(!isAdding_);
     }
+
 
     std::string
     EnumType::ToString(size_t v) const
@@ -42,12 +46,15 @@ namespace euphoria::core
         }
 
         // ASSERT(false && "Invalid index");
-        const auto values = StringMerger::EnglishOr().Generate(
-                MapToStringVector(nameToValue_));
+        const auto values = StringMerger::EnglishOr().Generate
+        (
+            MapToStringVector(nameToValue_)
+        );
         const std::string invalid = Str() << "<invalid value " << v << " of "
                                           << values << ">";
         return invalid;
     }
+
 
     EnumValue
     EnumType::ToEnum(const std::string& name)
@@ -68,6 +75,7 @@ namespace euphoria::core
         return EnumValue(this, id);
     }
 
+
     void
     EnumType::AddEnums(const std::vector<std::string>& names)
     {
@@ -86,12 +94,18 @@ namespace euphoria::core
                     = valid_names.find(name.first) == valid_names.end();
             if(missing)
             {
-                LOG_ERROR("Enum {0} was registered with name {1} but that is invalid.", name_, name.first);
+                LOG_ERROR
+                (
+                    "Enum {0} was registered with name {1} but that is invalid.",
+                    name_,
+                    name.first
+                );
             }
         }
 
         isAdding_ = false;
     }
+
 
     void
     EnumType::AddEnum(const std::string& name)
@@ -113,17 +127,20 @@ namespace euphoria::core
 
     EnumValue::EnumValue(EnumType* t, size_t v) : type_(t), value_(v) {}
 
+
     std::string
     EnumValue::ToString() const
     {
         return type_->ToString(value_);
     }
 
+
     size_t
     EnumValue::ToValue() const
     {
         return value_;
     }
+
 
     bool
     EnumValue::operator==(const EnumValue& other) const
@@ -132,11 +149,13 @@ namespace euphoria::core
         return value_ == other.value_;
     }
 
+
     bool
     EnumValue::operator!=(const EnumValue& other) const
     {
         return !(*this == other);
     }
+
 
     bool
     EnumValue::operator<(const EnumValue& other) const
@@ -145,6 +164,7 @@ namespace euphoria::core
         return value_ < other.value_;
     }
 
+
     std::ostream&
     operator<<(std::ostream& s, const EnumValue& v)
     {
@@ -152,8 +172,14 @@ namespace euphoria::core
         return s;
     }
 
+
     void
-    LoadEnumType(EnumType* type, vfs::FileSystem* fs, const std::string& path)
+    LoadEnumType
+    (
+        EnumType* type,
+        vfs::FileSystem* fs,
+        const vfs::FilePath& path
+    )
     {
         ASSERT(type);
 

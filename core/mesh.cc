@@ -7,6 +7,7 @@
 #include "core/log.h"
 #include "core/stringmerger.h"
 #include "core/vfs.h"
+#include "core/vfs_path.h"
 
 #include "assimp/Importer.hpp"
 #include "assimp/IOSystem.hpp"
@@ -309,10 +310,12 @@ namespace euphoria::core
         const char* const FileFormatObj = "obj";
 
         void
-        DecorateMeshMaterials(
-                Mesh*              mesh,
-                const std::string& json_path,
-                const mesh::Mesh&  json)
+        DecorateMeshMaterials
+        (
+            Mesh* mesh,
+            const vfs::FilePath& json_path,
+            const mesh::Mesh& json
+        )
         {
             std::map<std::string, Material*> mesh_materials;
             for(auto& material: mesh->materials)
@@ -355,9 +358,9 @@ namespace euphoria::core
         void
         DecorateMesh
         (
-            vfs::FileSystem*   fs,
-            Mesh*              mesh,
-            const std::string& json_path
+            vfs::FileSystem* fs,
+            Mesh* mesh,
+            const vfs::FilePath& json_path
         )
         {
             mesh::Mesh json;
@@ -392,7 +395,7 @@ namespace euphoria::core
                 size_t objects_read = 0;
                 for(size_t i =0; i<count; i+=1)
                 {
-                    if(index + size > content->GetSize())
+                    if(Csizet_to_int(index + size) > content->GetSize())
                     {
                         return objects_read;
                     }
@@ -443,7 +446,7 @@ namespace euphoria::core
 
             bool Exists( const char* pFile) const override
             {
-                auto content = file_system->ReadFile(pFile);
+                auto content = file_system->ReadFile(vfs::FilePath{pFile});
                 return content != nullptr;
             }
 
@@ -457,7 +460,7 @@ namespace euphoria::core
                 std::string mode = pMode;
                 ASSERT(mode.find('w') == std::string::npos);
                 ASSERT(mode.find('r') != std::string::npos);
-                auto content = file_system->ReadFile(pFile);
+                auto content = file_system->ReadFile(vfs::FilePath{pFile});
                 if(content == nullptr)
                 {
                     return nullptr;
@@ -480,22 +483,27 @@ namespace euphoria::core
 
 
         MeshLoadResult
-        LoadMesh(vfs::FileSystem* fs, const std::string& path)
+        LoadMesh(vfs::FileSystem* fs, const vfs::FilePath& path)
         {
             Assimp::Importer importer;
             importer.SetIOHandler(new FilesystemForAssimp{fs});
 
             MeshLoadResult   res;
 
-            const aiScene* scene = importer.ReadFile(path, AssimpFlags);
+            const aiScene* scene = importer.ReadFile(path.path, AssimpFlags);
             if(scene == nullptr)
             {
                 res.error = importer.GetErrorString();
             }
             else
             {
-                res.mesh = ConvertScene(scene, path);
-                DecorateMesh(fs, &res.mesh, path + ".json");
+                res.mesh = ConvertScene(scene, path.path);
+                DecorateMesh
+                (
+                    fs,
+                    &res.mesh,
+                    path.SetExtensionCopy(path.GetExtension()+".json")
+                );
 
                 if(res.mesh.parts.empty())
                 {

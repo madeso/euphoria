@@ -13,6 +13,9 @@
 
 #include "core/log.h"
 #include "core/decompress.h"
+#include "core/vfs.h"
+#include "core/vfs_path.h"
+
 
 namespace euphoria::core
 {
@@ -304,7 +307,7 @@ namespace euphoria::core
     }  // namespace
 
     ImageLoadResult
-    LoadImage(vfs::FileSystem* fs, const std::string& path, AlphaLoad alpha)
+    LoadImage(vfs::FileSystem* fs, const vfs::FilePath& path, AlphaLoad alpha)
     {
         auto file_memory = fs->ReadFile(path);
         if(file_memory == nullptr)
@@ -316,7 +319,7 @@ namespace euphoria::core
             return result;
         }
 
-        return LoadImage(file_memory, path, alpha);
+        return LoadImage(file_memory, path.path, alpha);
     }
 
     ImageLoadResult

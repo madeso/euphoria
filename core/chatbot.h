@@ -14,24 +14,31 @@ namespace euphoria::core
     namespace vfs
     {
         struct FileSystem;
+        struct FilePath;
     }
 
     namespace chatbot
     {
         struct Input;
 
+
         std::vector<std::string>
         CleanInput(const std::string& input);
 
+
         // return -1 if no matches are found
         long
-        IndexOfMatchedInput(
-                const std::vector<std::string>& input,
-                const Input&                    keywords);
+        IndexOfMatchedInput
+        (
+            const std::vector<std::string>& input,
+            const Input& keywords
+        );
+
 
         // removes 1 match if match is found
         std::vector<std::string>
         RemoveFrom(const std::vector<std::string>& source, const Input& input);
+
 
         struct Input
         {
@@ -45,29 +52,38 @@ namespace euphoria::core
                 ALONE
             } location;
 
-            explicit Input(
-                    const std::string& input,
-                    Location           where = IN_MIDDLE);
-            explicit Input(
-                    const std::vector<std::string>& input,
-                    Location                        where = IN_MIDDLE);
+            explicit Input
+            (
+                const std::string& input,
+                Location           where = IN_MIDDLE
+            );
+
+            explicit Input
+            (
+                const std::vector<std::string>& input,
+                Location                        where = IN_MIDDLE
+            );
         };
+
 
         struct SingleResponse
         {
             explicit SingleResponse(const std::string& say);
-            std::string              to_say;
+
+            std::string to_say;
             std::vector<std::string> topics_mentioned;
         };
 
+
         struct Response
         {
-            int                         event_id = 0;
-            std::vector<Input>          inputs;
-            bool                        ends_conversation = false;
+            int event_id = 0;
+            std::vector<Input> inputs;
+            bool ends_conversation = false;
             std::vector<SingleResponse> responses;
-            std::vector<std::string>    topics_required;
+            std::vector<std::string> topics_required;
         };
+
 
         struct ResponseBuilder
         {
@@ -75,8 +91,11 @@ namespace euphoria::core
             explicit ResponseBuilder(Response* r) : response(r) {}
 
             ResponseBuilder&
-            Input(const std::string& in,
-                  Input::Location    where = Input::AT_START);
+            Input
+            (
+                const std::string& in,
+                Input::Location where = Input::AT_START
+            );
 
             ResponseBuilder&
             operator()(const std::string& response);
@@ -90,6 +109,7 @@ namespace euphoria::core
             ResponseBuilder&
             EndConversation();
         };
+
 
         struct Database
         {
@@ -109,10 +129,13 @@ namespace euphoria::core
             CreateResponse();
 
             ResponseBuilder
-            AddResponse(
-                    const std::string& input,
-                    Input::Location    where = Input::AT_START);
+            AddResponse
+            (
+                const std::string& input,
+                Input::Location    where = Input::AT_START
+            );
         };
+
 
         struct Transposer
         {
@@ -124,6 +147,7 @@ namespace euphoria::core
             std::string
             Transpose(const std::string& input) const;
         };
+
 
         struct ConversationTopics
         {
@@ -145,25 +169,29 @@ namespace euphoria::core
             std::map<std::string, std::shared_ptr<int>> topics;
         };
 
+
         struct ConversationStatus
         {
-            std::string input;
-            std::string response;
-            std::string section;
             struct TopicEntry
             {
                 std::string topic;
                 int         time;
             };
-            std::vector<TopicEntry> topics;
+
             struct LogEntry
             {
                 std::vector<std::string> titles;
                 std::vector<std::string> lines;
             };
+
+            std::string input;
+            std::string response;
+            std::string section;
+            std::vector<TopicEntry> topics;
             std::vector<LogEntry> logs;
         };
     }  // namespace chatbot
+
 
     struct ChatBot
     {
@@ -171,7 +199,7 @@ namespace euphoria::core
         ChatBot();
 
         std::string
-        LoadFromFile(vfs::FileSystem* fs, const std::string& path);
+        LoadFromFile(vfs::FileSystem* fs, const vfs::FilePath& path);
 
         std::string
         GetResponse(const std::string& input);
@@ -186,9 +214,10 @@ namespace euphoria::core
         GetSignOnMessage();
 
         std::string
-        DebugLastResponse(
-                const std::vector<std::string>& search
-                = std::vector<std::string> {}) const;
+        DebugLastResponse
+        (
+            const std::vector<std::string>& search = std::vector<std::string>{}
+        ) const;
 
         bool                                     is_in_conversation;
         int                                      last_event;

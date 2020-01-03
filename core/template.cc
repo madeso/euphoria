@@ -4,6 +4,8 @@
 #include "core/assert.h"
 #include "core/str.h"
 #include "core/noncopyable.h"
+#include "core/vfs.h"
+#include "core/vfs_path.h"
 
 #include <utility>
 #include <vector>
@@ -13,7 +15,9 @@ namespace euphoria::core
 {
     ////////////////////////////////////////////////////////////////////////////////
 
+
     Defines::Defines() = default;
+
 
     bool
     Defines::IsDefined(const std::string& name) const
@@ -21,6 +25,7 @@ namespace euphoria::core
         const auto found = values.find(name);
         return found != values.end();
     }
+
 
     std::string
     Defines::GetValue(const std::string& name) const
@@ -34,11 +39,13 @@ namespace euphoria::core
         return found->second;
     }
 
+
     void
     Defines::Undefine(const std::string& name)
     {
         values.erase(name);
     }
+
 
     void
     Defines::Define(const std::string& name, const std::string& value)
@@ -46,9 +53,12 @@ namespace euphoria::core
         values[name] = value;
     }
 
-    ////////////////////////////////////////////////////////////////////////////////
+
+    ///////////////////////////////////////////////////////////////////////////
+
 
     TemplateErrorList::TemplateErrorList() = default;
+
 
     bool
     TemplateErrorList::HasErrors() const
@@ -56,17 +66,26 @@ namespace euphoria::core
         return !errors.empty();
     }
 
+
     void
-    TemplateErrorList::AddError(
-            const std::string& file,
-            int                line,
-            int /*unused*/,
-            const std::string& error)
+    TemplateErrorList::AddError
+    (
+        const std::optional<vfs::FilePath>& file,
+        int line,
+        int /*unused*/,
+        const std::string& error
+    )
     {
-        const std::string message = Str() << file << ":" << line << ":"
+        const auto file_name
+            = file.has_value()
+            ? file.value().path
+            : "<no_file>"
+        ;
+        const std::string message = Str() << file_name << ":" << line << ":"
                                           << " " << error;
         errors.push_back(message);
     }
+
 
     std::string
     TemplateErrorList::GetCombinedErrors() const
@@ -81,7 +100,9 @@ namespace euphoria::core
         return ss.str();
     }
 
-    ////////////////////////////////////////////////////////////////////////////////
+
+    ///////////////////////////////////////////////////////////////////////////
+
 
     struct TemplateNode
     {
@@ -95,13 +116,17 @@ namespace euphoria::core
         NONCOPYABLE_MOVE_ASSIGNMENT(TemplateNode);
 
         virtual void
-        Eval(Defines*            defines,
-             std::ostringstream* out,
-             TemplateErrorList*  error)
-                = 0;
+        Eval
+        (
+            Defines*            defines,
+            std::ostringstream* out,
+            TemplateErrorList*  error
+        ) = 0;
     };
 
-    // -----------------------------------------------------------------------------
+
+    // ------------------------------------------------------------------------
+
 
     struct TemplateNodeString : public TemplateNode
     {
@@ -121,7 +146,9 @@ namespace euphoria::core
         std::string text_;
     };
 
-    // -----------------------------------------------------------------------------
+
+    // ------------------------------------------------------------------------
+
 
     struct TemplateNodeList : public TemplateNode
     {
@@ -149,7 +176,9 @@ namespace euphoria::core
         std::vector<std::shared_ptr<TemplateNode>> nodes_;
     };
 
-    // -----------------------------------------------------------------------------
+
+    // ------------------------------------------------------------------------
+
 
     struct TemplateNodeScopedList : public TemplateNodeList
     {
@@ -167,7 +196,9 @@ namespace euphoria::core
         }
     };
 
-    // -----------------------------------------------------------------------------
+
+    // ------------------------------------------------------------------------
+
 
     struct TemplateNodeIfdef : public TemplateNode
     {
@@ -193,7 +224,9 @@ namespace euphoria::core
         std::shared_ptr<TemplateNode> node_;
     };
 
-    // -----------------------------------------------------------------------------
+
+    // ------------------------------------------------------------------------
+
 
     struct TemplateNodeEval : public TemplateNode
     {
@@ -211,7 +244,13 @@ namespace euphoria::core
             if(error != nullptr && !defines->IsDefined(name_))
             {
                 // todo: add file, line and column
-                error->AddError("", 0, 0, Str() << name_ << " is not defined");
+                error->AddError
+                (
+                    std::nullopt,
+                    0,
+                    0,
+                    Str() << name_ << " is not defined"
+                );
             }
 
             *out << defines->GetValue(name_);
@@ -221,7 +260,7 @@ namespace euphoria::core
         std::string name_;
     };
 
-    // -----------------------------------------------------------------------------
+    // ------------------------------------------------------------------------
 
     struct TemplateNodeSet : public TemplateNode
     {
@@ -246,7 +285,9 @@ namespace euphoria::core
         std::string value_;
     };
 
-    ////////////////////////////////////////////////////////////////////////////////
+
+    ///////////////////////////////////////////////////////////////////////////
+
 
     enum class LexType
     {
@@ -266,8 +307,7 @@ namespace euphoria::core
     {
         switch(t)
         {
-#define CASE(V)                                                                \
-    case LexType::V: return #V
+#define CASE(V) case LexType::V: return #V
             CASE(Text);
             CASE(IfDef);
             CASE(Eval);
@@ -283,6 +323,7 @@ namespace euphoria::core
         return "<UNHANDLED_CASE>";
     }
 
+
     std::string
     FirstChars(const std::string& str, unsigned int count = 10)
     {
@@ -293,6 +334,7 @@ namespace euphoria::core
 
         return str;
     }
+
 
     struct Lex
     {
@@ -314,10 +356,14 @@ namespace euphoria::core
         unsigned int column;
     };
 
+
     std::vector<Lex>
-    Lexer(const std::string& content,
-          TemplateErrorList* error,
-          const std::string& file)
+    Lexer
+    (
+        const std::string& content,
+        TemplateErrorList* error,
+        const vfs::FilePath& file
+    )
     {
         ASSERT(error);
 
@@ -440,7 +486,9 @@ namespace euphoria::core
         return r;
     }
 
+
     ////////////////////////////////////////////////////////////////////////////////
+
 
     struct LexReader
     {
@@ -498,31 +546,40 @@ namespace euphoria::core
         unsigned int     size_;
     };
 
+
     ////////////////////////////////////////////////////////////////////////////////
 
-    void
-    ReadTemplateList(
-            std::shared_ptr<TemplateNodeList>* nodes,
-            LexReader*                         reader,
-            TemplateErrorList*                 errors,
-            const std::string&                 file,
-            bool                               expect_end,
-            vfs::FileSystem*                   fs);
 
     void
-    LoadFromFilesystemToNodeList(
-            vfs::FileSystem*                   fs,
-            const std::string&                 path,
-            TemplateErrorList*                 error,
-            std::shared_ptr<TemplateNodeList>* nodes)
+    ReadTemplateList
+    (
+        std::shared_ptr<TemplateNodeList>* nodes,
+        LexReader* reader,
+        TemplateErrorList* errors,
+        const vfs::FilePath& file,
+        bool expect_end,
+        vfs::FileSystem* fs
+    );
+
+
+    void
+    LoadFromFilesystemToNodeList
+    (
+        vfs::FileSystem* fs,
+        const vfs::FilePath& path,
+        TemplateErrorList* error,
+        std::shared_ptr<TemplateNodeList>* nodes
+    )
     {
         if(fs == nullptr)
         {
-            error->AddError(
-                    path,
-                    0,
-                    0,
-                    Str() << "Missing filesystem, Failed to read " << path);
+            error->AddError
+            (
+                path,
+                0,
+                0,
+                Str() << "Missing filesystem, Failed to read " << path
+            );
             return;
         }
         ASSERT(nodes);
@@ -536,14 +593,18 @@ namespace euphoria::core
         ReadTemplateList(nodes, &reader, error, path, false, fs);
     }
 
-    // -----------------------------------------------------------------------------
+
+    // ------------------------------------------------------------------------
+
 
     std::shared_ptr<TemplateNodeString>
-    ReadText(
-            LexReader* reader,
-            TemplateErrorList* /*unused*/,
-            const std::string& /*unused*/,
-            vfs::FileSystem* /*unused*/)
+    ReadText
+    (
+        LexReader* reader,
+        TemplateErrorList* /*unused*/,
+        const vfs::FilePath& /*unused*/,
+        vfs::FileSystem* /*unused*/
+    )
     {
         ASSERT(reader);
         const Lex& lex = reader->Read();
@@ -555,12 +616,15 @@ namespace euphoria::core
         return ret;
     }
 
+
     std::shared_ptr<TemplateNodeEval>
-    ReadEval(
-            LexReader*         reader,
-            TemplateErrorList* errors,
-            const std::string& file,
-            vfs::FileSystem* /*unused*/)
+    ReadEval
+    (
+        LexReader*         reader,
+        TemplateErrorList* errors,
+        const vfs::FilePath& file,
+        vfs::FileSystem* /*unused*/
+    )
     {
         ASSERT(reader);
         const Lex& lex = reader->Read();
@@ -583,11 +647,15 @@ namespace euphoria::core
         return ret;
     }
 
+
     std::shared_ptr<TemplateNodeSet>
-    ReadSet(LexReader*         reader,
-            TemplateErrorList* errors,
-            const std::string& file,
-            vfs::FileSystem* /*unused*/)
+    ReadSet
+    (
+        LexReader*         reader,
+        TemplateErrorList* errors,
+        const vfs::FilePath& file,
+        vfs::FileSystem* /*unused*/
+    )
     {
         ASSERT(reader);
         const Lex& name = reader->Read();
@@ -609,12 +677,14 @@ namespace euphoria::core
 
         if(val.type != LexType::String)
         {
-            errors->AddError(
-                    file,
-                    reader->GetLine(),
-                    reader->GetColumn(),
-                    Str() << "Reading SET, expected STRING but found "
-                          << val.ToString());
+            errors->AddError
+            (
+                file,
+                reader->GetLine(),
+                reader->GetColumn(),
+                Str() << "Reading SET, expected STRING but found "
+                        << val.ToString()
+            );
             std::shared_ptr<TemplateNodeSet> ret {
                     new TemplateNodeSet {name.value, "parse_error"}};
             return ret;
@@ -625,12 +695,15 @@ namespace euphoria::core
         return ret;
     }
 
+
     std::shared_ptr<TemplateNodeIfdef>
-    ReadIfdef(
-            LexReader*         reader,
-            TemplateErrorList* errors,
-            const std::string& file,
-            vfs::FileSystem*   fs)
+    ReadIfdef
+    (
+        LexReader*         reader,
+        TemplateErrorList* errors,
+        const vfs::FilePath& file,
+        vfs::FileSystem*   fs
+    )
     {
         ASSERT(reader);
         const Lex& lex = reader->Read();
@@ -657,21 +730,53 @@ namespace euphoria::core
         return ret;
     }
 
+
     std::shared_ptr<TemplateNodeList>
-    ReadInclude(
-            LexReader*         reader,
-            TemplateErrorList* errors,
-            const std::string& file,
-            vfs::FileSystem*   fs)
+    ReadInclude
+    (
+        LexReader*         reader,
+        TemplateErrorList* errors,
+        const vfs::FilePath& file,
+        vfs::FileSystem*   fs
+    )
     {
         ASSERT(reader);
         const Lex& lex = reader->Read();
 
         if(lex.type == LexType::String)
         {
-            std::shared_ptr<TemplateNodeList> ret {
-                    new TemplateNodeScopedList {}};
-            LoadFromFilesystemToNodeList(fs, lex.value, errors, &ret);
+            std::shared_ptr<TemplateNodeList> ret
+            {
+                new TemplateNodeScopedList {}
+            };
+            const auto file_argument = vfs::FilePath{lex.value};
+            const auto resolved_file = vfs::ResolveRelative
+            (
+                file_argument,
+                file.GetDirectory()
+            );
+            if(resolved_file.has_value())
+            {
+                LoadFromFilesystemToNodeList
+                (
+                    fs,
+                    resolved_file.value(),
+                    errors,
+                    &ret
+                );
+            }
+            else
+            {
+                errors->AddError
+                (
+                    file,
+                    reader->GetLine(),
+                    reader->GetColumn(),
+                    Str() << "Unable to open "
+                        << file_argument
+                );
+            }
+            
             return ret;
         }
         errors->AddError(
@@ -684,14 +789,17 @@ namespace euphoria::core
         return ret;
     }
 
+
     void
-    ReadTemplateList(
-            std::shared_ptr<TemplateNodeList>* nodes,
-            LexReader*                         reader,
-            TemplateErrorList*                 errors,
-            const std::string&                 file,
-            bool                               expect_end,
-            vfs::FileSystem*                   fs)
+    ReadTemplateList
+    (
+        std::shared_ptr<TemplateNodeList>* nodes,
+        LexReader* reader,
+        TemplateErrorList* errors,
+        const vfs::FilePath& file,
+        bool expect_end,
+        vfs::FileSystem* fs
+    )
     {
         ASSERT(nodes);
         std::shared_ptr<TemplateNodeList>& list = *nodes;
@@ -752,23 +860,28 @@ namespace euphoria::core
         }
     }
 
-    ////////////////////////////////////////////////////////////////////////////////
+
+    ///////////////////////////////////////////////////////////////////////////
+
 
     Template::Template(const std::string& text) : nodes(new TemplateNodeList {})
     {
-        const std::string file = "from_string";
+        const auto file = vfs::FilePath{"~/from_string"};
         LexReader         reader(Lexer(text, &errors, file));
         ReadTemplateList(&nodes, &reader, &errors, file, false, nullptr);
     }
 
-    Template::Template(vfs::FileSystem* fs, const std::string& path)
+
+    Template::Template(vfs::FileSystem* fs, const vfs::FilePath& path)
         : nodes(new TemplateNodeList {})
     {
         ASSERT(fs);
         LoadFromFilesystemToNodeList(fs, path, &errors, &nodes);
     }
 
+
     Template::~Template() = default;
+
 
     std::string
     Template::Evaluate(const Defines& defines)

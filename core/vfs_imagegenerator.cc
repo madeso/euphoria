@@ -16,21 +16,20 @@ namespace euphoria::core
         void
         FileSystemImageGenerator::AddRoot(
                 FileSystem*        fs,
-                const std::string& base)
+                const DirPath& base)
         {
             auto root = std::make_shared<FileSystemImageGenerator>(base);
             fs->AddReadRoot(root);
         }
 
         std::shared_ptr<MemoryChunk>
-        FileSystemImageGenerator::ReadFile(const std::string& path)
+        FileSystemImageGenerator::ReadFile(const FilePath& path)
         {
-            if(!StartsWith(path, base_))
+            const auto [dir, command] = path.SplitDirectoriesAndFile();
+            if(dir != base_)
             {
                 return MemoryChunk::Null();
             }
-
-            const auto command = path.substr(base_.length());
 
             const auto color_name = ToLower(command);
 
@@ -62,34 +61,33 @@ namespace euphoria::core
             strings->emplace_back(Str() << base_ << "<color>");
         }
 
-        FileSystemImageGenerator::FileSystemImageGenerator(
-                const std::string& base)
+        FileSystemImageGenerator::FileSystemImageGenerator(const DirPath& base)
             : base_(base)
         {
-            if(!EndsWith(base, "/"))
-            {
-                base_ = base + "/";
-            }
+            ASSERT(!base.ContainsRelative());
         }
 
         FileList
-        FileSystemImageGenerator::ListFiles(const Path& path)
+        FileSystemImageGenerator::ListFiles(const DirPath& path)
         {
-            const auto self = Path::FromDirectory(base_);
+            ASSERT(!path.ContainsRelative());
 
             FileList ret;
 
-            if(path == self.GetParentDirectory())
+            if(base_ != DirPath::FromRoot())
             {
-                ret.Add(self.GetDirectoryName(), true);
+                if(path == base_.GetParentDirectory())
+                {
+                    ret.Add(base_.GetDirectoryName(), true, false);
+                }
             }
 
-            if(path == self)
+            if(path == base_)
             {
                 const auto names = EnumToString<Color>();
                 for(const auto& n: names)
                 {
-                    ret.Add(n, true);
+                    ret.Add(n, true, true);
                 }
             }
 

@@ -5,9 +5,12 @@
 #include <vector>
 #include <optional>
 #include <tuple>
+#include <type_traits>
 
 namespace euphoria::core
 {
+    struct Str;
+
     namespace vfs
     {
         // here lies the definitions of a virtual path
@@ -56,8 +59,27 @@ namespace euphoria::core
             GetExtension() const;
 
 
+            FilePath
+            SetExtensionCopy(const std::string& ext) const;
+
+
             explicit
             FilePath(const std::string& p);
+
+
+            template
+            <
+                typename OStream,
+                typename X = std::enable_if_t
+                <
+                    !std::is_same<OStream, core::Str>::value
+                >
+            >
+            friend OStream& operator<<(OStream& os, const FilePath& p)
+            {
+                os << p.path;
+                return os;
+            }
 
 
             // contains either ./ or ~/ at the start
@@ -95,6 +117,14 @@ namespace euphoria::core
             ContainsRelative() const;
 
 
+            DirPath
+            GetParentDirectory() const;
+
+
+            std::string
+            GetDirectoryName() const;
+
+
             [[nodiscard]]
             std::vector<std::string>
             SplitDirectories() const;
@@ -107,6 +137,21 @@ namespace euphoria::core
 
             explicit
             DirPath(const std::string& p);
+
+
+            template
+            <
+                typename OStream,
+                typename X = std::enable_if_t
+                <
+                    !std::is_same<OStream, core::Str>::value
+                >
+            >
+            friend OStream& operator<<(OStream& os, const DirPath& p)
+            {
+                os << p.path;
+                return os;
+            }
 
 
             // contains either . or ~ at the start, / at the end
@@ -138,60 +183,28 @@ namespace euphoria::core
         Join(const DirPath& lhs, const FilePath& rhs);
 
 
-        /** Represents a virtual path.
-         * It is always lowercase and forward slash specify a directory.
-         */
-        struct Path
-        {
-            // todo(Gustav): transform into a path and directory class instead
+        bool
+        operator==(const DirPath& lhs, const DirPath& rhs);
 
-            [[nodiscard]] static Path
-            FromDirectory(const std::string& path);
 
-            [[nodiscard]] static Path
-            FromRoot();
+        bool
+        operator==(const FilePath& lhs, const FilePath& rhs);
 
-            [[nodiscard]] static Path
-            FromFile(const std::string& path);
 
-            [[nodiscard]] static Path
-            FromGuess(const std::string& path);
+        bool
+        operator!=(const DirPath& lhs, const DirPath& rhs);
 
-            // get the directory containing the file, or this
-            const Path
-            GetDirectory() const;
 
-            // only valid for directory
-            const Path
-            GetParentDirectory() const;
+        bool
+        operator!=(const FilePath& lhs, const FilePath& rhs);
 
-            const Path
-            GetSubDirectory(const std::string& name) const;
-            const Path
-            GetFile(const std::string& name) const;
 
-            bool
-            IsDirectory() const;
-            bool
-            IsFile() const;
+        bool
+        operator<(const DirPath& lhs, const DirPath& rhs);
 
-            const std::string&
-            GetAbsolutePath() const;
 
-            std::string
-            GetDirectoryName() const;
-
-            std::string
-            GetFileName() const;
-
-            bool
-            operator==(const Path& rhs) const;
-
-        private:
-            Path(const std::string& absolute_path);
-            std::string absolute_path_;
-        };
-
+        bool
+        operator<(const FilePath& lhs, const FilePath& rhs);
     }  // namespace vfs
 
 }  // namespace euphoria::core
