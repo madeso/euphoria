@@ -41,8 +41,8 @@ namespace euphoria::core
         }
 
 
-        std::tuple<PathToDirectory, std::string>
-        PathToFile::SplitDirectoriesAndFile() const
+        std::tuple<DirPath, std::string>
+        FilePath::SplitDirectoriesAndFile() const
         {
             const auto slash = path.rfind('/');
             ASSERTX(slash != std::string::npos, path);
@@ -58,26 +58,26 @@ namespace euphoria::core
                 *dir_part.rbegin() == '/' && file_part[0] != '/',
                 path, dir_part, file_part
             );
-            return {PathToDirectory{dir_part}, file_part};
+            return {DirPath{dir_part}, file_part};
         }
 
 
-        PathToDirectory
-        PathToFile::GetDirectory() const
+        DirPath
+        FilePath::GetDirectory() const
         {
             return std::get<0>(SplitDirectoriesAndFile());
         }
 
 
         std::string
-        PathToFile::GetFileWithExtension() const
+        FilePath::GetFileWithExtension() const
         {
             return std::get<1>(SplitDirectoriesAndFile());
         }
 
 
         std::string
-        PathToFile::GetFilenameWithoutExtension() const
+        FilePath::GetFilenameWithoutExtension() const
         {
             const auto with_extension = GetFileWithExtension();
             const auto dot = with_extension.find('.', 1);
@@ -87,7 +87,7 @@ namespace euphoria::core
 
 
         std::string
-        PathToFile::GetExtension() const
+        FilePath::GetExtension() const
         {
             const auto with_extension = GetFileWithExtension();
             const auto dot = with_extension.find('.', 1);
@@ -96,7 +96,7 @@ namespace euphoria::core
         }
 
 
-        PathToFile::PathToFile(const std::string& p)
+        FilePath::FilePath(const std::string& p)
             : path(p)
         {
             ASSERTX(path.size() > 3, path);
@@ -108,22 +108,22 @@ namespace euphoria::core
         // --------------------------------------------------------------------
         
 
-        PathToDirectory
-        PathToDirectory::FromRoot()
+        DirPath
+        DirPath::FromRoot()
         {
-            return PathToDirectory{"~/"};
+            return DirPath{"~/"};
         }
 
 
-        PathToDirectory
-        PathToDirectory::FromRelative()
+        DirPath
+        DirPath::FromRelative()
         {
-            return PathToDirectory{"./"};
+            return DirPath{"./"};
         }
 
 
-        PathToDirectory
-        PathToDirectory::FromDirs(const std::vector<std::string>& dirs)
+        DirPath
+        DirPath::FromDirs(const std::vector<std::string>& dirs)
         {
             ASSERT(!dirs.empty());
             ASSERTX(IsValidFirstDirectory(dirs[0]), dirs[0]);
@@ -132,7 +132,7 @@ namespace euphoria::core
                 ASSERTX(IsValidDirectoryName(dirs[index]), dirs[index]);
             }
 
-            return PathToDirectory
+            return DirPath
             {
                 StringMerger{}
                     .Separator("/")
@@ -142,16 +142,16 @@ namespace euphoria::core
         }
 
 
-        PathToFile
-        PathToDirectory::GetFile(const std::string& filename) const
+        FilePath
+        DirPath::GetFile(const std::string& filename) const
         {
             ASSERTX(IsValidFilename(filename), path, filename);
-            return PathToFile{path + filename};
+            return FilePath{path + filename};
         }
 
 
         bool
-        PathToDirectory::IsRelative() const
+        DirPath::IsRelative() const
         {
             ASSERT(!path.empty());
             const auto first = path[0];
@@ -161,7 +161,7 @@ namespace euphoria::core
 
 
         bool
-        PathToDirectory::ContainsRelative() const
+        DirPath::ContainsRelative() const
         {
             const auto is_relative = [](const std::string& dir) -> bool
             {
@@ -185,21 +185,21 @@ namespace euphoria::core
 
 
         std::vector<std::string>
-        PathToDirectory::SplitDirectories() const
+        DirPath::SplitDirectories() const
         {
             return Split(path, '/');
         }
 
 
-        PathToDirectory
-        PathToDirectory::SingleCdCopy(const std::string& single) const
+        DirPath
+        DirPath::SingleCdCopy(const std::string& single) const
         {
             ASSERTX(IsValidDirectoryName(single), single);
-            return PathToDirectory{path + single + "/"};
+            return DirPath{path + single + "/"};
         }
 
 
-        PathToDirectory::PathToDirectory(const std::string& p)
+        DirPath::DirPath(const std::string& p)
             : path(p)
         {
             ASSERT(!path.empty());
@@ -211,11 +211,8 @@ namespace euphoria::core
         // --------------------------------------------------------------------
 
 
-        std::optional<PathToDirectory>
-        ResolveRelative
-        (
-            const PathToDirectory& base
-        )
+        std::optional<DirPath>
+        ResolveRelative(const DirPath& base)
         {
             ASSERT(!base.IsRelative());
 
@@ -249,27 +246,20 @@ namespace euphoria::core
                 }
             }
 
-            return PathToDirectory::FromDirs(dirs);
+            return DirPath::FromDirs(dirs);
         }
 
 
-        std::optional<PathToDirectory>
-        ResolveRelative
-        (
-            const PathToDirectory& base,
-            const PathToDirectory& root
-        )
+        std::optional<DirPath>
+        ResolveRelative(const DirPath& base, const DirPath& root)
         {
             ASSERT(base.IsRelative());
             return ResolveRelative(Join(root, base));
         }
 
 
-        std::optional<PathToFile>
-        ResolveRelative
-        (
-            const PathToFile& base
-        )
+        std::optional<FilePath>
+        ResolveRelative(const FilePath& base)
         {
             const auto [dir, file] = base.SplitDirectoriesAndFile();
             const auto resolved = ResolveRelative(dir);
@@ -277,12 +267,8 @@ namespace euphoria::core
             return resolved.value().GetFile(file);
         }
 
-        std::optional<PathToFile>
-        ResolveRelative
-        (
-            const PathToFile& base,
-            const PathToDirectory& root
-        )
+        std::optional<FilePath>
+        ResolveRelative(const FilePath& base, const DirPath& root)
         {
             const auto [dir, file] = base.SplitDirectoriesAndFile();
             const auto resolved = ResolveRelative(dir, root);
@@ -291,8 +277,8 @@ namespace euphoria::core
         }
 
 
-        PathToDirectory
-        Join(const PathToDirectory& lhs, const PathToDirectory& rhs)
+        DirPath
+        Join(const DirPath& lhs, const DirPath& rhs)
         {
             ASSERT(rhs.IsRelative());
             const auto dirs = rhs.SplitDirectories();
@@ -307,8 +293,8 @@ namespace euphoria::core
         }
 
 
-        PathToFile
-        Join(const PathToDirectory& lhs, const PathToFile& rhs)
+        FilePath
+        Join(const DirPath& lhs, const FilePath& rhs)
         {
             const auto [dir, file] = rhs.SplitDirectoriesAndFile();
             const auto joined = Join(lhs, dir);

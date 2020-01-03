@@ -30,17 +30,17 @@ namespace euphoria::core
         // a single dot (.) represesents the "current" folder (relative path)
         // twot dots (..) represents the parent folder (relative path)
 
-        struct PathToFile;
-        struct PathToDirectory;
+        struct FilePath;
+        struct DirPath;
 
 
-        struct PathToFile
+        struct FilePath
         {
-            std::tuple<PathToDirectory, std::string>
+            std::tuple<DirPath, std::string>
             SplitDirectoriesAndFile() const;
 
 
-            PathToDirectory
+            DirPath
             GetDirectory() const;
 
 
@@ -57,7 +57,7 @@ namespace euphoria::core
 
 
             explicit
-            PathToFile(const std::string& p);
+            FilePath(const std::string& p);
 
 
             // contains either ./ or ~/ at the start
@@ -66,24 +66,24 @@ namespace euphoria::core
         };
 
 
-        struct PathToDirectory
+        struct DirPath
         {
             [[nodiscard]]
-            static PathToDirectory
+            static DirPath
             FromRoot();
 
 
             [[nodiscard]]
-            static PathToDirectory
+            static DirPath
             FromRelative();
 
 
             [[nodiscard]]
-            static PathToDirectory
+            static DirPath
             FromDirs(const std::vector<std::string>& dirs);
 
 
-            PathToFile
+            FilePath
             GetFile(const std::string& filename) const;
 
 
@@ -101,12 +101,12 @@ namespace euphoria::core
 
 
             [[nodiscard]]
-            PathToDirectory
+            DirPath
             SingleCdCopy(const std::string& single) const;
 
 
             explicit
-            PathToDirectory(const std::string& p);
+            DirPath(const std::string& p);
 
 
             // contains either . or ~ at the start, / at the end
@@ -114,42 +114,28 @@ namespace euphoria::core
         };
 
 
-        std::optional<PathToDirectory>
-        ResolveRelative
-        (
-            const PathToDirectory& base
-        );
+        std::optional<DirPath>
+        ResolveRelative(const DirPath& base);
 
 
-        std::optional<PathToDirectory>
-        ResolveRelative
-        (
-            const PathToDirectory& base,
-            const PathToDirectory& root
-        );
+        std::optional<DirPath>
+        ResolveRelative(const DirPath& base, const DirPath& root);
 
 
-        std::optional<PathToFile>
-        ResolveRelative
-        (
-            const PathToFile& base
-        );
+        std::optional<FilePath>
+        ResolveRelative(const FilePath& base);
 
 
-        std::optional<PathToFile>
-        ResolveRelative
-        (
-            const PathToFile& base,
-            const PathToDirectory& root
-        );
+        std::optional<FilePath>
+        ResolveRelative(const FilePath& base, const DirPath& root);
 
 
-        PathToDirectory
-        Join(const PathToDirectory& lhs, const PathToDirectory& rhs);
+        DirPath
+        Join(const DirPath& lhs, const DirPath& rhs);
 
 
-        PathToFile
-        Join(const PathToDirectory& lhs, const PathToFile& rhs);
+        FilePath
+        Join(const DirPath& lhs, const FilePath& rhs);
 
 
         /** Represents a virtual path.

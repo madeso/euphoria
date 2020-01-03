@@ -10,7 +10,7 @@ TEST_CASE("vfspath-dir-root", "[vfspath]")
 {
     SECTION("rooted")
     {
-        const auto root = vfs::PathToDirectory::FromRoot();
+        const auto root = vfs::DirPath::FromRoot();
         REQUIRE_FALSE(root.IsRelative());
         REQUIRE("~/" == root.path);
     }
@@ -18,7 +18,7 @@ TEST_CASE("vfspath-dir-root", "[vfspath]")
     SECTION("sub")
     {
         const auto folder =
-            vfs::PathToDirectory::FromRoot().SingleCdCopy("dog");
+            vfs::DirPath::FromRoot().SingleCdCopy("dog");
         REQUIRE_FALSE(folder.IsRelative());
         REQUIRE("~/dog/" == folder.path);
     }
@@ -29,7 +29,7 @@ TEST_CASE("vfspath-dir-relative", "[vfspath]")
 {
     SECTION("relative")
     {
-        const auto relative = vfs::PathToDirectory::FromRelative();
+        const auto relative = vfs::DirPath::FromRelative();
         REQUIRE(relative.IsRelative());
         REQUIRE("./" == relative.path);
     }
@@ -37,7 +37,7 @@ TEST_CASE("vfspath-dir-relative", "[vfspath]")
     SECTION("sub")
     {
         const auto folder =
-            vfs::PathToDirectory::FromRelative().SingleCdCopy("dog");
+            vfs::DirPath::FromRelative().SingleCdCopy("dog");
         REQUIRE(folder.IsRelative());
         REQUIRE("./dog/" == folder.path);
     }
@@ -48,7 +48,7 @@ TEST_CASE("vfspath-dir-cd", "[vfspath]")
 {
     SECTION("root")
     {
-        const auto dir = vfs::PathToDirectory::FromRoot();
+        const auto dir = vfs::DirPath::FromRoot();
         CHECK_THAT
         (
             dir.SplitDirectories(),
@@ -58,7 +58,7 @@ TEST_CASE("vfspath-dir-cd", "[vfspath]")
 
     SECTION("single_dir")
     {
-        const auto dir = vfs::PathToDirectory{"~/cat/"};
+        const auto dir = vfs::DirPath{"~/cat/"};
         CHECK_THAT
         (
             dir.SplitDirectories(),
@@ -68,7 +68,7 @@ TEST_CASE("vfspath-dir-cd", "[vfspath]")
 
     SECTION("double_dir")
     {
-        const auto dir = vfs::PathToDirectory{"~/cat/grumpy/"};
+        const auto dir = vfs::DirPath{"~/cat/grumpy/"};
         CHECK_THAT
         (
             dir.SplitDirectories(),
@@ -78,7 +78,7 @@ TEST_CASE("vfspath-dir-cd", "[vfspath]")
 
     SECTION("relative_dir")
     {
-        const auto dir = vfs::PathToDirectory{"./../sub/"};
+        const auto dir = vfs::DirPath{"./../sub/"};
         CHECK_THAT
         (
             dir.SplitDirectories(),
@@ -92,28 +92,28 @@ TEST_CASE("vfspath-dir-relative_test", "[vfspath]")
 {
     SECTION("absolute")
     {
-        const auto dir = vfs::PathToDirectory("~/dog/../cat/");
+        const auto dir = vfs::DirPath("~/dog/../cat/");
         CHECK_FALSE(dir.IsRelative());
         CHECK(dir.ContainsRelative());
     }
 
     SECTION("truly_absolute")
     {
-        const auto dir = vfs::PathToDirectory("~/dog/good/");
+        const auto dir = vfs::DirPath("~/dog/good/");
         CHECK_FALSE(dir.IsRelative());
         CHECK_FALSE(dir.ContainsRelative());
     }
 
     SECTION("relative")
     {
-        const auto dir = vfs::PathToDirectory("./cat/");
+        const auto dir = vfs::DirPath("./cat/");
         CHECK(dir.IsRelative());
         CHECK(dir.ContainsRelative());
     }
 
     SECTION("also_relative")
     {
-        const auto dir = vfs::PathToDirectory("./dog/../cat/");
+        const auto dir = vfs::DirPath("./dog/../cat/");
         CHECK(dir.IsRelative());
         CHECK(dir.ContainsRelative());
     }
@@ -124,13 +124,13 @@ TEST_CASE("vfspath-dir-vector_constructor", "[vfspath]")
 {
     SECTION("rooted")
     {
-        const auto dir = vfs::PathToDirectory::FromDirs({"~", "dog", "good"});
+        const auto dir = vfs::DirPath::FromDirs({"~", "dog", "good"});
         CHECK(dir.path == "~/dog/good/");
     }
 
     SECTION("relative")
     {
-        const auto dir = vfs::PathToDirectory::FromDirs({".", "cat", "grumpy"});
+        const auto dir = vfs::DirPath::FromDirs({".", "cat", "grumpy"});
         CHECK(dir.path == "./cat/grumpy/");
     }
 }
@@ -138,9 +138,9 @@ TEST_CASE("vfspath-dir-vector_constructor", "[vfspath]")
 
 TEST_CASE("vfspath-dir-resolve", "[vfspath]")
 {
-    const auto root = vfs::PathToDirectory::FromRoot();
-    const auto relative = vfs::PathToDirectory::FromRelative();
-    const auto one_back = vfs::PathToDirectory{"./../"};
+    const auto root = vfs::DirPath::FromRoot();
+    const auto relative = vfs::DirPath::FromRelative();
+    const auto one_back = vfs::DirPath{"./../"};
 
     SECTION("absolute_root")
     {
@@ -212,7 +212,7 @@ TEST_CASE("vfspath-dir-resolve", "[vfspath]")
     {
         const auto odir = vfs::ResolveRelative
         (
-            vfs::PathToDirectory{"~/cat/grumpy/../../dog/bad/../good/"}
+            vfs::DirPath{"~/cat/grumpy/../../dog/bad/../good/"}
         );
         REQUIRE(odir.has_value());
         const auto dir = odir.value();
@@ -226,7 +226,7 @@ TEST_CASE("vfspath-file-constructor", "[vfspath]")
 {
     SECTION("relative-file-txt")
     {
-        const auto file = vfs::PathToFile{"./file.txt"};
+        const auto file = vfs::FilePath{"./file.txt"};
         const auto [dir, name] = file.SplitDirectoriesAndFile();
         CHECK(dir.path == "./");
         CHECK(name == "file.txt");
@@ -236,7 +236,7 @@ TEST_CASE("vfspath-file-constructor", "[vfspath]")
 
     SECTION("relative-no-ext")
     {
-        const auto file = vfs::PathToFile{"./cat"};
+        const auto file = vfs::FilePath{"./cat"};
         const auto [dir, name] = file.SplitDirectoriesAndFile();
         CHECK(dir.path == "./");
         CHECK(name == "cat");
@@ -246,7 +246,7 @@ TEST_CASE("vfspath-file-constructor", "[vfspath]")
 
     SECTION("absolute-gitignore")
     {
-        const auto file = vfs::PathToFile{"~/.gitignore"};
+        const auto file = vfs::FilePath{"~/.gitignore"};
         const auto [dir, name] = file.SplitDirectoriesAndFile();
         CHECK(dir.path == "~/");
         CHECK(name == ".gitignore");
@@ -256,7 +256,7 @@ TEST_CASE("vfspath-file-constructor", "[vfspath]")
 
     SECTION("absolute-targz")
     {
-        const auto file = vfs::PathToFile{"~/cats.tar.gz"};
+        const auto file = vfs::FilePath{"~/cats.tar.gz"};
         const auto [dir, name] = file.SplitDirectoriesAndFile();
         CHECK(dir.path == "~/");
         CHECK(name == "cats.tar.gz");
@@ -270,7 +270,7 @@ TEST_CASE("vfspath-file-from-dir", "[vfspath]")
 {
     SECTION("basic")
     {
-        const auto file = vfs::PathToDirectory{"~/dogs/"}.GetFile("good.dog");
+        const auto file = vfs::DirPath{"~/dogs/"}.GetFile("good.dog");
         CHECK(file.path == "~/dogs/good.dog");
     }
 }
@@ -280,8 +280,8 @@ TEST_CASE("vfspath-file-resolve-join", "[vfspath]")
 {
     SECTION("basic")
     {
-        const auto root = vfs::PathToDirectory{"~/dogs/"};
-        const auto relative = vfs::PathToFile{"./good.dog"};
+        const auto root = vfs::DirPath{"~/dogs/"};
+        const auto relative = vfs::FilePath{"./good.dog"};
 
         const auto joined = vfs::Join(root, relative);
         CHECK(joined.path == "~/dogs/good.dog");
@@ -293,8 +293,8 @@ TEST_CASE("vfspath-file-resolve-join", "[vfspath]")
 
     SECTION("back")
     {
-        const auto root = vfs::PathToDirectory{"~/cats/"};
-        const auto relative = vfs::PathToFile{"./../dogs/good.dog"};
+        const auto root = vfs::DirPath{"~/cats/"};
+        const auto relative = vfs::FilePath{"./../dogs/good.dog"};
 
         const auto joined = vfs::Join(root, relative);
         CHECK(joined.path == "~/cats/../dogs/good.dog");
@@ -306,8 +306,8 @@ TEST_CASE("vfspath-file-resolve-join", "[vfspath]")
 
     SECTION("invalid")
     {
-        const auto root = vfs::PathToDirectory{"~/"};
-        const auto relative = vfs::PathToFile{"./../dogs/good.dog"};
+        const auto root = vfs::DirPath{"~/"};
+        const auto relative = vfs::FilePath{"./../dogs/good.dog"};
 
         const auto joined = vfs::Join(root, relative);
         CHECK(joined.path == "~/../dogs/good.dog");
