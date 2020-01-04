@@ -13,6 +13,7 @@ namespace euphoria::core
     {
         LOG_SPECIFY_DEFAULT_LOGGER("filesystem.image-generator")
 
+
         void
         FileSystemImageGenerator::AddRoot(
                 FileSystem*        fs,
@@ -21,6 +22,7 @@ namespace euphoria::core
             auto root = std::make_shared<FileSystemImageGenerator>(base);
             fs->AddReadRoot(root);
         }
+
 
         std::shared_ptr<MemoryChunk>
         FileSystemImageGenerator::ReadFile(const FilePath& path)
@@ -55,17 +57,20 @@ namespace euphoria::core
             return image.Write(ImageWriteFormat::PNG);
         }
 
+
         void
         FileSystemImageGenerator::Describe(std::vector<std::string>* strings)
         {
             strings->emplace_back(Str() << base_ << "<color>");
         }
 
+
         FileSystemImageGenerator::FileSystemImageGenerator(const DirPath& base)
             : base_(base)
         {
             ASSERT(!base.ContainsRelative());
         }
+
 
         FileList
         FileSystemImageGenerator::ListFiles(const DirPath& path)
@@ -78,7 +83,7 @@ namespace euphoria::core
             {
                 if(path == base_.GetParentDirectory())
                 {
-                    ret.Add(base_.GetDirectoryName(), true, false);
+                    ret.Add(base_.GetDirectoryName() + "/", true, false);
                 }
             }
 

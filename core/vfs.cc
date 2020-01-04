@@ -313,7 +313,7 @@ namespace euphoria::core
             {
                 for(const auto& f: found.files)
                 {
-                    r.Add(f, false, false);
+                    r.Add(f, false, true);
                 }
                 for(const auto& d: found.directories)
                 {
@@ -322,7 +322,7 @@ namespace euphoria::core
                     {
                         f += +"/";
                     }
-                    r.Add(f, false, true);
+                    r.Add(f, false, false);
                 }
             }
 

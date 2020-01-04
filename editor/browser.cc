@@ -6,10 +6,14 @@
 #include "core/vfs_path.h"
 #include "core/stringutils.h"
 #include "core/cint.h"
+#include "core/log.h"
 
 #include "window/imgui_ext.h"
+#include "window/imgui_icons.h"
 
 using namespace euphoria::core;
+
+LOG_SPECIFY_DEFAULT_LOGGER("editor.browser")
 
 namespace euphoria::editor
 {
@@ -52,6 +56,7 @@ namespace euphoria::editor
     void
     FileBrowser::SelectFile(const std::string& p)
     {
+        LOG_INFO("Selecting file {0}", p);
         #if 0
         const auto file = vfs::Path::FromFile(p);
         current_folder  = file.GetDirectory().GetAbsolutePath();
@@ -70,12 +75,47 @@ namespace euphoria::editor
     FileBrowser::Refresh()
     {
         files = file_system->ListFiles(current_folder);
-        if(current_folder == core::vfs::DirPath::FromRoot())
+        if(current_folder != core::vfs::DirPath::FromRoot())
         {
-            files.insert(files.begin(), vfs::ListedFile {"./../", true, false});
+            files.insert(files.begin(), vfs::ListedFile {"../", true, false});
         }
         // files.insert(files.begin(), f.begin(), f.end());
         selected_file = -1;
+    }
+
+    std::string
+    DetermineIconString(const core::vfs::ListedFile& f, bool outline = false)
+    {
+        if(f.is_file)
+        {
+            const auto x = vfs::FilePath{"./" + f.name}.GetExtension();
+            if(x == "png")
+            {
+                return outline? ICON_MDI_FILE_IMAGE_OUTLINE : ICON_MDI_FILE_IMAGE;
+            }
+            if(x == "js" || x=="frag" || x=="vert")
+            {
+                return outline? ICON_MDI_FILE_CODE_OUTLINE : ICON_MDI_FILE_CODE;
+            }
+            if(x == "json")
+            {
+                return outline? ICON_MDI_FILE_DOCUMENT_OUTLINE : ICON_MDI_FILE_DOCUMENT;
+            }
+            if(x == "mp4")
+            {
+                return outline? ICON_MDI_FILE_VIDEO_OUTLINE : ICON_MDI_FILE_VIDEO;
+            }
+            if(x == "mp3")
+            {
+                return outline? ICON_MDI_FILE_MUSIC_OUTLINE : ICON_MDI_FILE_MUSIC;
+            }
+            return outline? ICON_MDI_FILE_OUTLINE : ICON_MDI_FILE;
+        }
+        else
+        {
+            return outline? ICON_MDI_FOLDER_OUTLINE : ICON_MDI_FOLDER;
+        }
+        
     }
 
     bool
@@ -118,7 +158,13 @@ namespace euphoria::editor
                 }
 
                 // todo(Gustav): add file/directory icon
-                const auto left_clicked_item = ImGui::Selectable(item.name.c_str(), index == selected_file);
+                const auto icon = DetermineIconString(item);
+                const auto icon_and_name = icon + item.name;
+                const auto left_clicked_item = ImGui::Selectable
+                (
+                    icon_and_name.c_str(),
+                    index == selected_file
+                );
                 const auto user_clicked_right = ImGui::IsMouseClicked(1);
                 const auto mouse_hovering_item = ImGui::IsItemHovered(ImGuiHoveredFlags_AllowWhenBlockedByPopup);
                 const auto right_clicked_item = mouse_hovering_item && user_clicked_right;
