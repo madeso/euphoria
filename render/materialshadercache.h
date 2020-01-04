@@ -3,13 +3,14 @@
 #define EUPHORIA_MATERIALSHADERCACHE_H
 
 #include "core/cache.h"
+#include "core/vfs_path.h"
 #include "core/assert.h"
 #include "render/materialshader.h"
 
 namespace euphoria::render
 {
     struct MaterialShaderCache
-        : public core::Cache<std::string, MaterialShader, MaterialShaderCache>
+        : public core::Cache<core::vfs::FilePath, MaterialShader, MaterialShaderCache>
     {
     public:
         MaterialShaderCache(core::vfs::FileSystem* fs) : fs_(fs)
@@ -18,7 +19,7 @@ namespace euphoria::render
         }
 
         std::shared_ptr<MaterialShader>
-        Create(const std::string& path)
+        Create(const core::vfs::FilePath& path)
         {
             auto ret = std::make_shared<MaterialShader>();
             ret->Load(fs_, path);

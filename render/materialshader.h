@@ -4,6 +4,8 @@
 #include <vector>
 
 #include "core/enum.h"
+#include "core/vfs_path.h"
+
 #include "render/shader.h"
 
 namespace euphoria::render
@@ -13,19 +15,23 @@ namespace euphoria::render
     struct MaterialShaderDefaultTexture
     {
     public:
-        MaterialShaderDefaultTexture(
-                const core::EnumValue& a_name,
-                const std::string&     a_path);
+        MaterialShaderDefaultTexture
+        (
+            const core::EnumValue& a_name,
+            const core::vfs::FilePath& a_path
+        );
 
         core::EnumValue name;
-        std::string     path;
+        core::vfs::FilePath path;
     };
 
     struct MaterialShaderBinding
     {
-        MaterialShaderBinding(
-                ShaderUniform          a_uniform,
-                const core::EnumValue& a_name);
+        MaterialShaderBinding
+        (
+            ShaderUniform a_uniform,
+            const core::EnumValue& a_name
+        );
 
         ShaderUniform   uniform;
         core::EnumValue name;
@@ -39,7 +45,11 @@ namespace euphoria::render
         MaterialShader();
 
         bool
-        Load(core::vfs::FileSystem* file_system, const std::string& path);
+        Load
+        (
+            core::vfs::FileSystem* file_system,
+            const core::vfs::FilePath& path
+        );
 
         void
         UseShader();
@@ -57,11 +67,13 @@ namespace euphoria::render
         SetupLight(const Light& light, const core::vec3f& camera);
 
         void
-        SetColors(
-                const core::Rgb& ambient_data,
-                const core::Rgb& diffuse_data,
-                const core::Rgb& specular_data,
-                float            shininess_data);
+        SetColors
+        (
+            const core::Rgb& ambient_data,
+            const core::Rgb& diffuse_data,
+            const core::Rgb& specular_data,
+            float            shininess_data
+        );
 
         Shader shader;
 

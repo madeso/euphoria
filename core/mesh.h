@@ -3,12 +3,14 @@
 
 #include <vector>
 #include <string>
+#include <optional>
 
 #include "core/vec2.h"
 #include "core/vec3.h"
 #include "core/rgb.h"
 #include "core/enum.h"
 #include "core/aabb.h"
+#include "core/vfs_path.h"
 
 namespace euphoria::core
 {
@@ -74,7 +76,7 @@ namespace euphoria::core
 
         std::string name;
 
-        std::string shader;
+        std::optional<core::vfs::FilePath> shader;
 
         // tints
         Rgb ambient;

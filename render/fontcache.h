@@ -11,6 +11,7 @@ namespace euphoria
         namespace vfs
         {
             struct FileSystem;
+            struct FilePath;
         }
     }  // namespace core
 
@@ -26,7 +27,7 @@ namespace euphoria
             ~FontCache();
 
             std::shared_ptr<Font>
-            GetFont(const std::string& path);
+            GetFont(const core::vfs::FilePath& path);
 
         private:
             struct FontCachePimpl;

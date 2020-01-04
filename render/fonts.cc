@@ -1,25 +1,26 @@
 #include "render/fonts.h"
 
-#include "render/texture.h"
 #include "core/log.h"
 #include "core/proto.h"
 #include "core/image_draw.h"
 #include "core/textparser.h"
 #include "core/utf8.h"
+#include "core/assert.h"
+#include "core/noncopyable.h"
+#include "core/image.h"
+#include "core/vfs_path.h"
+
+#include "render/texture.h"
+#include "render/spriterender.h"
+#include "render/texturecache.h"
 
 #include <vector>
 #include <memory>
 #include <map>
 #include <algorithm>
-#include "core/assert.h"
-#include "core/noncopyable.h"
-#include "core/image.h"
 #include <iostream>
 
 #include "gaf_font.h"
-
-#include "render/spriterender.h"
-#include "render/texturecache.h"
 
 #define STB_RECT_PACK_IMPLEMENTATION
 #include "stb_rect_pack.h"
@@ -39,14 +40,20 @@ namespace euphoria::render
     {}
 
     core::LoadedFont
-    GetCharactersFromSingleImage(
-            core::vfs::FileSystem*   fs,
-            const font::SingleImage& img)
+    GetCharactersFromSingleImage
+    (
+        core::vfs::FileSystem*   fs,
+        const font::SingleImage& img
+    )
     {
         core::LoadedFont font;
 
-        core::ImageLoadResult loaded
-                = core::LoadImage(fs, img.file, core::AlphaLoad::Keep);
+        core::ImageLoadResult loaded = core::LoadImage
+        (
+            fs,
+            core::vfs::FilePath::FromScript(img.file),
+            core::AlphaLoad::Keep
+        );
         if(loaded.error.empty())
         {
             const auto  s = 1 / img.scale;
@@ -66,11 +73,13 @@ namespace euphoria::render
 
 
     std::pair<core::Rectf, core::Rectf>
-    ConstructCharacterRects(
-            const stbrp_rect&  src_rect,
-            const core::LoadedGlyph& src_char,
-            int                image_width,
-            int                image_height)
+    ConstructCharacterRects
+    (
+        const stbrp_rect&  src_rect,
+        const core::LoadedGlyph& src_char,
+        int image_width,
+        int image_height
+    )
     {
         const int vert_left  = src_char.bearing_x;
         const int vert_right = vert_left + src_char.image.GetWidth();
@@ -88,12 +97,34 @@ namespace euphoria::render
                 = uv_bottom + std::max(static_cast<stbrp_coord>(1), src_rect.h);
 
         // todo: add ability to be a quad for tighter fit
-        ASSERTX(vert_top > vert_bottom, vert_top, vert_bottom, src_char.code_point);
-        ASSERTX(uv_top > uv_bottom, uv_top, uv_bottom, src_char.code_point);
-        const auto sprite = core::Rectf::FromLeftRightTopBottom(
-                vert_left, vert_right, vert_top, vert_bottom);
-        const auto texture = core::Rectf::FromLeftRightTopBottom(
-                uv_left / iw, uv_right / iw, uv_top / ih, uv_bottom / ih);
+        ASSERTX
+        (
+            vert_top > vert_bottom,
+            vert_top,
+            vert_bottom,
+            src_char.code_point
+        );
+        ASSERTX
+        (
+            uv_top > uv_bottom,
+            uv_top,
+            uv_bottom,
+            src_char.code_point
+        );
+        const auto sprite = core::Rectf::FromLeftRightTopBottom
+        (
+            vert_left,
+            vert_right,
+            vert_top,
+            vert_bottom
+        );
+        const auto texture = core::Rectf::FromLeftRightTopBottom
+        (
+            uv_left / iw,
+            uv_right / iw,
+            uv_top / ih,
+            uv_bottom / ih
+        );
 
         const float scale = 1 / src_char.size;
         return std::make_pair(sprite.ScaleCopy(scale, scale), texture);
@@ -101,15 +132,20 @@ namespace euphoria::render
 
     ////////////////////////////////////////////////////////////////////////////////
 
-    Font::Font(
-            core::vfs::FileSystem* fs,
-            TextureCache*          cache,
-            const std::string&     font_file)
+    Font::Font
+    (
+        core::vfs::FileSystem* fs,
+        TextureCache* cache,
+        const core::vfs::FilePath& font_file
+    )
     {
         const int texture_width  = 512;
         const int texture_height = 512;
 
-        background = cache->GetTexture("img-plain/white");
+        background = cache->GetTexture
+        (
+            core::vfs::FilePath{"~/img-plain/white"}
+        );
 
         core::LoadedFont fontchars;
         font::Root font_root;

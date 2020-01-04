@@ -3,12 +3,14 @@
 
 #include <memory>
 #include <string>
+#include <optional>
 
 namespace euphoria::core
 {
     namespace vfs
     {
         struct FileSystem;
+        struct FilePath;
     }
 }  // namespace euphoria::core
 
@@ -23,10 +25,10 @@ namespace euphoria::render
         ~TextureCache();
 
         std::shared_ptr<Texture2d>
-        GetTexture(const std::string& path);
+        GetTexture(const core::vfs::FilePath& path);
 
         std::shared_ptr<Texture2d>
-        GetTextureIfNotEmpty(const std::string& path);
+        GetTexture(const std::optional<core::vfs::FilePath>& path);
 
     private:
         struct TextureCachePimpl;

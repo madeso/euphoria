@@ -106,7 +106,7 @@ namespace euphoria::render
     {
         std::shared_ptr<CompiledLines> ret {new CompiledLines {}};
 
-        ret->shader = shader_cache->Get("default_line_shader");
+        ret->shader = shader_cache->Get(core::vfs::FilePath{"~/default_line_shader"});
 
         PointLayout::Bind(&ret->config);
         VertexBuffer::Bind(&ret->data);

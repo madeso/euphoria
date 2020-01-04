@@ -7,7 +7,6 @@
 #include "core/log.h"
 #include "core/stringmerger.h"
 #include "core/vfs.h"
-#include "core/vfs_path.h"
 
 #include "assimp/Importer.hpp"
 #include "assimp/IOSystem.hpp"
@@ -65,7 +64,9 @@ namespace euphoria::core
     {}
 
     Material::Material()
-        : ambient(Color::White)
+        : name("unknown_material")
+        , shader(std::nullopt)
+        , ambient(Color::White)
         , diffuse(Color::White)
         , specular(Color::White)
         , shininess(42.0f)
@@ -198,7 +199,7 @@ namespace euphoria::core
                 material.wrapt = GetTextureWrappingMode(v);
 
                 // todo: improve texture detection?
-                material.shader = "";
+                material.shader = std::nullopt;
                 ret->materials.push_back(material);
             }
         }
@@ -230,18 +231,22 @@ namespace euphoria::core
             {
                 const aiVector3D& vertex = mesh->mVertices[index];
                 const aiVector3D& normal = mesh->mNormals[index];
-                float             u      = 0;
-                float             v      = 0;
+                float u = 0;
+                float v = 0;
                 if(mesh->HasTextureCoords(0))
                 {
                     const aiVector3D uv = mesh->mTextureCoords[0][index];
-                    u                   = uv.x;
-                    v                   = uv.y;
+                    u = uv.x;
+                    v = uv.y;
                 }
-                part->points.push_back(
-                        MeshPoint {vec3f {vertex.x, vertex.y, vertex.z},
-                                   vec3f {normal.x, normal.y, normal.z},
-                                   vec2f {u, v}});
+                part->points.push_back
+                (
+                    MeshPoint
+                    {
+                        vec3f {vertex.x, vertex.y, vertex.z},
+                        vec3f {normal.x, normal.y, normal.z},
+                        vec2f {u, v}}
+                );
             }
         }
 
@@ -263,8 +268,8 @@ namespace euphoria::core
             Mesh ret;
 
             /** @todo add parsing of nodes to the mesh so we could
-    dynamically animate some rotors, wings etc. for example
-     */
+                dynamically animate some rotors, wings etc. for example
+                */
 
             if(scene->HasMeshes())
             {

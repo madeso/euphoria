@@ -10,6 +10,7 @@
 #include "core/vec2.h"
 #include "core/camera.h"
 #include "core/orbitcontroller.h"
+#include "core/vfs_path.h"
 
 #include "render/viewporthandler.h"
 
@@ -90,7 +91,7 @@ namespace euphoria::t3d
 
 
         void
-        AddLibrary(const std::string& path);
+        AddLibrary(const core::vfs::DirPath& path);
 
 
         void

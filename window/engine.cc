@@ -23,7 +23,9 @@ namespace euphoria::window
 {
     LOG_SPECIFY_DEFAULT_LOGGER("window.engine")
 
+
     Engine::Engine() = default;
+
 
     Engine::~Engine()
     {
@@ -35,6 +37,7 @@ namespace euphoria::window
         file_system.reset();
         sdl.reset();
     }
+
 
     bool
     Engine::Setup(const core::argparse::Args& args)
@@ -61,23 +64,36 @@ namespace euphoria::window
 
         file_system.reset(new core::vfs::FileSystem {});
         catalog = core::vfs::FileSystemRootCatalog::AddRoot(file_system.get());
-        core::vfs::FileSystemRootFolder::AddRoot(
-                file_system.get(), current_directory);
-        core::vfs::FileSystemImageGenerator::AddRoot(
-                file_system.get(), "img-plain");
-        core::vfs::AddDefaultShaders(file_system.get(), "shaders");
+        core::vfs::FileSystemRootFolder::AddRoot
+        (
+            file_system.get(),
+            current_directory
+        );
+        core::vfs::FileSystemImageGenerator::AddRoot
+        (
+            file_system.get(),
+            core::vfs::DirPath{"~/img-plain/"}
+        );
+        core::vfs::AddDefaultShaders
+        (
+            file_system.get(),
+            core::vfs::DirPath{"~/shaders/"}
+        );
 
         render::SetupDefaultFiles(catalog);
 
         return true;
     }
 
+
     bool
-    Engine::CreateWindow(
-            const std::string& title,
-            int                width,
-            int                height,
-            bool               blend_hack)
+    Engine::CreateWindow
+    (
+        const std::string& title,
+        int width,
+        int height,
+        bool blend_hack
+    )
     {
         const auto pref_path = GetPrefPath();
 
@@ -117,6 +133,7 @@ namespace euphoria::window
 
         return true;
     }
+
 
     bool
     Engine::HandleResize(SDL_Event e, int* width, int* height)

@@ -47,15 +47,22 @@ namespace euphoria::render
         }
     }  // namespace
 
-    ScalableSprite::ScalableSprite(
-            core::vfs::FileSystem* fs,
-            const std::string&     path,
-            TextureCache*          cache)
+    ScalableSprite::ScalableSprite
+    (
+        core::vfs::FileSystem* fs,
+        const core::vfs::FilePath& path,
+        TextureCache* cache
+    )
         : texture_(cache->GetTexture(path))
     {
         scalingsprite::ScalingSprite sprite;
 
-        core::LoadProtoJson(fs, &sprite, path + ".json");
+        core::LoadProtoJson
+        (
+            fs,
+            &sprite,
+            path.SetExtensionCopy(path.GetExtension()+ ".json")
+        );
 
         max_row_ = CopyData(&rows_, sprite.rows);
         max_col_ = CopyData(&cols_, sprite.cols);
@@ -83,22 +90,30 @@ namespace euphoria::render
     const core::Sizef
     ScalableSprite::GetMinimumSize() const
     {
-        return core::Sizef::FromWidthHeight(
-                GetConstantSize(cols_), GetConstantSize(rows_));
+        return core::Sizef::FromWidthHeight
+        (
+            GetConstantSize(cols_),
+            GetConstantSize(rows_)
+        );
     }
 
 
     void
-    ScalableSprite::Render(
-            SpriteRenderer*    sr,
-            const core::Rectf& rect,
-            const core::Rgba&  tint) const
+    ScalableSprite::Render
+    (
+        SpriteRenderer* sr,
+        const core::Rectf& rect,
+        const core::Rgba& tint
+    ) const
     {
-        const auto size_         = rect.GetSize();
-        const auto pos           = rect.GetBottomLeft();
+        const auto size_ = rect.GetSize();
+        const auto pos = rect.GetBottomLeft();
         const auto position_cols = core::PerformTableLayout(cols_, size_.width);
-        const auto position_rows
-                = core::PerformTableLayout(rows_, size_.height);
+        const auto position_rows = core::PerformTableLayout
+        (
+            rows_,
+            size_.height
+        );
 
         const auto cols_size = cols_.size();
         const auto rows_size = rows_.size();
@@ -142,36 +157,48 @@ namespace euphoria::render
        nr                       nr
 
       */
-                ASSERTX(position_current_row > position_next_row,
-                        position_current_row,
-                        position_next_row);
-                ASSERTX(uv_current_row > uv_next_row,
-                        uv_current_row,
-                        uv_next_row);
-                const auto position_rect = core::Rectf::FromLeftRightTopBottom(
-                        position_current_col,
-                        position_next_col,
-                        position_current_row,
-                        position_next_row);
-                const auto uv_rect = core::Rectf::FromLeftRightTopBottom(
-                        uv_current_col,
-                        uv_next_col,
-                        uv_current_row,
-                        uv_next_row);
+                ASSERTX
+                (
+                    position_current_row > position_next_row,
+                    position_current_row,
+                    position_next_row
+                );
+                ASSERTX
+                (
+                    uv_current_row > uv_next_row,
+                    uv_current_row,
+                    uv_next_row
+                );
+                const auto position_rect = core::Rectf::FromLeftRightTopBottom
+                (
+                    position_current_col,
+                    position_next_col,
+                    position_current_row,
+                    position_next_row
+                );
+                const auto uv_rect = core::Rectf::FromLeftRightTopBottom
+                (
+                    uv_current_col,
+                    uv_next_col,
+                    uv_current_row,
+                    uv_next_row
+                );
 
-                sr->DrawRect(
-                        *texture_.get(),
-                        position_rect.OffsetCopy(pos),
-                        uv_rect,
-                        0.0_rad,
-                        core::scale2f {0, 0},
-                        tint);
+                sr->DrawRect
+                (
+                    *texture_.get(),
+                    position_rect.OffsetCopy(pos),
+                    uv_rect,
+                    0.0_rad,
+                    core::scale2f {0, 0},
+                    tint
+                );
 
                 position_current_row = position_next_row;
-                uv_current_row       = uv_next_row;
+                uv_current_row = uv_next_row;
             }
             position_current_col = position_next_col;
-            uv_current_col       = uv_next_col;
+            uv_current_col = uv_next_col;
         }
     }
 

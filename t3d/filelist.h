@@ -1,6 +1,8 @@
 #ifndef EUPHORIA_T3D_FILELIST_H
 #define EUPHORIA_T3D_FILELIST_H
 
+#include "core/vfs_path.h"
+
 #include <string>
 #include <vector>
 
@@ -18,7 +20,7 @@ namespace euphoria::t3d
         void
         AddDirectory
         (
-            const std::string& path,
+            const core::vfs::DirPath& path,
             core::vfs::FileSystem* file_system
         );
 
@@ -27,12 +29,12 @@ namespace euphoria::t3d
         HasMoreFiles() const;
 
 
-        std::string
+        core::vfs::FilePath
         NextFile();
 
 
         std::vector<std::string> extensions;
-        std::vector<std::string> files;
+        std::vector<core::vfs::FilePath> files;
         std::size_t index = 0;
     };
 }

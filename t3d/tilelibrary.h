@@ -1,11 +1,14 @@
 #ifndef T3D_TILELIBRARY_H
 #define T3D_TILELIBRARY_H
 
+#include "core/aabb.h"
+#include "core/vfs_path.h"
+
+#include "render/compiledmesh.h"
+
 #include <string>
 #include <vector>
 
-#include "core/aabb.h"
-#include "render/compiledmesh.h"
 
 namespace euphoria::core::vfs
 {
@@ -19,7 +22,7 @@ namespace euphoria::t3d
         Tile();
         ~Tile();
 
-        std::string path;
+        core::vfs::FilePath path;
         core::Aabb  aabb;
         std::string name;
 
@@ -41,9 +44,12 @@ namespace euphoria::t3d
 
 
         void
-        AddFile(const std::string&           path,
-                render::MaterialShaderCache* shader_cache,
-                render::TextureCache*        texture_cache);
+        AddFile
+        (
+            const core::vfs::FilePath& path,
+            render::MaterialShaderCache* shader_cache,
+            render::TextureCache* texture_cache
+        );
 
 
         core::vfs::FileSystem* file_system;

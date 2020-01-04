@@ -223,11 +223,13 @@ namespace euphoria::render
     }
 
     std::shared_ptr<CompiledMesh>
-    CompileMesh(
-            const core::Mesh&      mesh,
-            MaterialShaderCache*   shader_cache,
-            TextureCache*          texture_cache,
-            const core::vfs::Path& texture_folder)
+    CompileMesh
+    (
+        const core::Mesh& mesh,
+        MaterialShaderCache* shader_cache,
+        TextureCache* texture_cache,
+        const core::vfs::DirPath& texture_folder
+    )
     {
         std::shared_ptr<CompiledMesh> ret {new CompiledMesh {}};
 
@@ -244,20 +246,21 @@ namespace euphoria::render
             mat.specular  = material_src.specular;
             mat.shininess = material_src.shininess;
 
-            std::string shader_name = material_src.shader;
-            if(shader_name.empty())
-            {
-                // todo(Gustav): determine better shader name
-                // perhaps by setting a few default shaders on a "project" and we try to
-                // match a shader to the object
-                shader_name = "default_shader";
-            }
+            // todo(Gustav): determine a better default shader name
+            // perhaps by setting a few default shaders on a "project" and
+            // we try to match a shader to the object
+            const auto shader_name
+                = material_src.shader.has_value()
+                ? material_src.shader.value()
+                : core::vfs::FilePath("~/default_shader")
+                ;
             mat.shader = shader_cache->Get(shader_name);
             for(const auto& texture_src: material_src.textures)
             {
-                const auto texture_path
-                        = texture_folder.GetFile(texture_src.path)
-                                  .GetAbsolutePath();
+                const auto texture_path = texture_folder.GetFile
+                (
+                    texture_src.path
+                );
                 auto texture = texture_cache->GetTexture(texture_path);
                 mat.SetTexture(texture_src.type, texture);
             }
@@ -280,10 +283,12 @@ namespace euphoria::render
         const auto material_count = ret->materials.size();
 
         // todo(Gustav): move this to a data file, load the mesh dynamically
-        const auto attributes
-                = std::vector<ShaderAttribute> {attributes3d::Vertex(),
-                                                attributes3d::Normal(),
-                                                attributes3d::TexCoord()};
+        const auto attributes = std::vector<ShaderAttribute>
+        {
+            attributes3d::Vertex(),
+            attributes3d::Normal(),
+            attributes3d::TexCoord()
+        };
 
         for(const auto& part_src: mesh.parts)
         {
@@ -293,8 +298,12 @@ namespace euphoria::render
             VertexBuffer::Bind(&part->data);
             IndexBuffer::Bind(&part->tris);
 
-            ConvertPointsToVertexBuffer(
-                    part_src.points, attributes, &part->data);
+            ConvertPointsToVertexBuffer
+            (
+                part_src.points,
+                attributes,
+                &part->data
+            );
             BindAttributes(attributes, &part->config);
 
             ConvertTrisToIndexBuffer(part_src.faces, &part->tris);
@@ -320,13 +329,15 @@ namespace euphoria::render
 
 
     void
-    CompiledMesh::Render(
-            const core::mat4f& model_matrix,
-            const core::mat4f& projection_matrix,
-            const core::mat4f& view_matrix,
-            const core::vec3f& camera,
-            const Light&       light,
-            const std::shared_ptr<MaterialOverride>& overridden_materials)
+    CompiledMesh::Render
+    (
+        const core::mat4f& model_matrix,
+        const core::mat4f& projection_matrix,
+        const core::mat4f& view_matrix,
+        const core::vec3f& camera,
+        const Light& light,
+        const std::shared_ptr<MaterialOverride>& overridden_materials
+    )
     {
         ASSERT
         (

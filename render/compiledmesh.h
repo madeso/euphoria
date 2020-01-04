@@ -12,7 +12,7 @@ namespace euphoria::core
 {
     namespace vfs
     {
-        struct Path;
+        struct DirPath;
     }
 }  // namespace euphoria::core
 
@@ -110,11 +110,13 @@ namespace euphoria::render
 
 
     std::shared_ptr<CompiledMesh>
-    CompileMesh(
-            const core::Mesh&      mesh,
-            MaterialShaderCache*   shader_cache,
-            TextureCache*          texture_cache,
-            const core::vfs::Path& texture_folder);
+    CompileMesh
+    (
+        const core::Mesh& mesh,
+        MaterialShaderCache* shader_cache,
+        TextureCache* texture_cache,
+        const core::vfs::DirPath& texture_folder
+    );
 }  // namespace euphoria::render
 
 #endif  // EUPHORIA_COMPILEDMESH_H

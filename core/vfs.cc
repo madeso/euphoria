@@ -7,8 +7,13 @@
 #include "core/stringmerger.h"
 #include "core/vfs_path.h"
 #include "core/io.h"
+#include "core/log.h"
 
 #include "core/stringutils.h"
+
+
+LOG_SPECIFY_DEFAULT_LOGGER("core.vfs")
+
 
 namespace euphoria::core
 {
@@ -64,8 +69,21 @@ namespace euphoria::core
         }
 
         std::shared_ptr<MemoryChunk>
-        FileSystem::ReadFile(const FilePath& path)
+        FileSystem::ReadFile(const FilePath& a_path)
         {
+            FilePath path = a_path;
+            
+            if(a_path.GetDirectory().ContainsRelative())
+            {
+                const auto resolved_path = ResolveRelative(a_path, DirPath::FromRoot());
+                if(resolved_path.has_value() == false)
+                {
+                    LOG_ERROR("Unable to resolve path to a valid path {0}", a_path);
+                    return MemoryChunk::Null();
+                }
+                path = resolved_path.value();
+            }
+
             for(auto& root: roots_)
             {
                 std::shared_ptr<MemoryChunk> file = root->ReadFile(path);

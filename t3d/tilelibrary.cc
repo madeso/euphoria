@@ -14,7 +14,7 @@ namespace euphoria::t3d
 {
     LOG_SPECIFY_DEFAULT_LOGGER("tile_library")
 
-    Tile::Tile() : aabb(core::Aabb::Empty()) {}
+    Tile::Tile() : aabb(core::Aabb::Empty()), path("~/unknown_tile") {}
 
 
     Tile::~Tile() {}
@@ -59,10 +59,12 @@ namespace euphoria::t3d
 
 
     void
-    TileLibrary::AddFile(
-            const std::string&           path,
-            render::MaterialShaderCache* shader_cache,
-            render::TextureCache*        texture_cache)
+    TileLibrary::AddFile
+    (
+        const core::vfs::FilePath& path,
+        render::MaterialShaderCache* shader_cache,
+        render::TextureCache* texture_cache
+    )
     {
         const auto loaded_mesh = core::meshes::LoadMesh(file_system, path);
         if(!loaded_mesh.error.empty())
@@ -73,14 +75,15 @@ namespace euphoria::t3d
 
         auto tile  = std::make_shared<Tile>();
         tile->path = path;
-        tile->name = core::GetFileNameWithoutExtension(path);
+        tile->name = path.GetFilenameWithoutExtension();
         tile->aabb = loaded_mesh.mesh.CalculateAabb();
         tile->mesh = CompileMesh
         (
             loaded_mesh.mesh,
             shader_cache,
             texture_cache,
-            core::vfs::Path::FromRoot()
+            // todo(Gustav): test with mesh directory iunstead of root?
+            core::vfs::DirPath::FromRoot()
         );
         tiles.push_back(tile);
     }

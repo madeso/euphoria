@@ -73,27 +73,36 @@ namespace euphoria::render
         Texture2d();
 
         void
-        LoadFromPixels(
-                int                      width,
-                int                      height,
-                const unsigned char*     pixel_data,
-                gluint                   internal_format,
-                gluint                   image_format,
-                const Texture2dLoadData& data);
+        LoadFromPixels
+        (
+            int width,
+            int height,
+            const unsigned char* pixel_data,
+            gluint internal_format,
+            gluint image_format,
+            const Texture2dLoadData& data
+        );
+
         void
-        LoadFromImage(
-                const core::Image&       image,
-                core::AlphaLoad          alpha,
-                const Texture2dLoadData& data);
+        LoadFromImage
+        (
+            const core::Image& image,
+            core::AlphaLoad alpha,
+            const Texture2dLoadData& data
+        );
+
         void
-        LoadFromFile(
-                core::vfs::FileSystem*   fs,
-                const std::string&       path,
-                core::AlphaLoad          alpha,
-                const Texture2dLoadData& data);
+        LoadFromFile
+        (
+            core::vfs::FileSystem* fs,
+            const core::vfs::FilePath& path,
+            core::AlphaLoad alpha,
+            const Texture2dLoadData& data
+        );
 
         int
         GetWidth() const;
+        
         int
         GetHeight() const;
 

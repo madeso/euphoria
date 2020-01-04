@@ -36,8 +36,8 @@ namespace euphoria::t3d
     {
         pending_files.extensions = std::vector<std::string>
         {
-            ".obj",
-            ".fbx"
+            "obj",
+            "fbx"
         };
     }
 
@@ -70,8 +70,12 @@ namespace euphoria::t3d
         material_shader_cache = std::make_shared<render::MaterialShaderCache>(engine->file_system.get());
 
         // SET_ENUM_VALUES(TextureType, SetupTextureNames);
-        SET_ENUM_FROM_FILE(
-                engine->file_system.get(), "texture_types.json", core::TextureType);
+        SET_ENUM_FROM_FILE
+        (
+            engine->file_system.get(),
+            core::vfs::FilePath{"~/texture_types.json"},
+            core::TextureType
+        );
 
         texture_cache = std::make_shared<render::TextureCache>(engine->file_system.get());
 
@@ -93,7 +97,7 @@ namespace euphoria::t3d
 
 
     void
-    T3d::AddLibrary(const std::string& path)
+    T3d::AddLibrary(const core::vfs::DirPath& path)
     {
         pending_files.AddDirectory(path, engine->file_system.get());
     }

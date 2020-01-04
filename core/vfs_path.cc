@@ -130,7 +130,7 @@ namespace euphoria::core
             }
             else
             {
-                return FilePath{path.substr(dot) + ext};
+                return FilePath{path.substr(0, dot+1) + ext};
             }
         }
 
@@ -227,7 +227,11 @@ namespace euphoria::core
         DirPath::GetParentDirectory() const
         {
             auto dirs = SplitDirectories();
-            ASSERT(dirs.size() > 2);
+            ASSERTX
+            (
+                !dirs.empty(),
+                StringMerger::Array().Generate(dirs)
+            );
             dirs.pop_back();
             return DirPath::FromDirs(dirs);
         }

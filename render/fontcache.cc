@@ -2,13 +2,14 @@
 
 #include "core/assert.h"
 #include "core/cache.h"
+#include "core/vfs_path.h"
 
 #include "render/fonts.h"
 
 namespace euphoria::render
 {
     struct FontCache::FontCachePimpl
-        : core::Cache<std::string, Font, FontCache::FontCachePimpl>
+        : core::Cache<core::vfs::FilePath, Font, FontCache::FontCachePimpl>
     {
     public:
         explicit FontCachePimpl(core::vfs::FileSystem* fs, TextureCache* cache)
@@ -18,7 +19,7 @@ namespace euphoria::render
         }
 
         std::shared_ptr<Font>
-        Create(const std::string& file)
+        Create(const core::vfs::FilePath& file)
         {
             auto ret = std::make_shared<Font>(fs_, cache_, file);
             return ret;
@@ -37,7 +38,7 @@ namespace euphoria::render
     FontCache::~FontCache() = default;
 
     std::shared_ptr<Font>
-    FontCache::GetFont(const std::string& path)
+    FontCache::GetFont(const core::vfs::FilePath& path)
     {
         return pimp->Get(path);
     }

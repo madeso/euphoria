@@ -10,10 +10,10 @@
 #include "core/rgb.h"
 #include "core/mat4.h"
 #include "core/rect.h"
+#include "core/noncopyable.h"
+#include "core/vfs_path.h"
 
 #include "render/gltypes.h"
-#include "core/noncopyable.h"
-
 #include "render/shaderattribute.h"
 #include "render/shaderuniform.h"
 
@@ -54,13 +54,17 @@ namespace euphoria::render
         // shader attribute =
         void
         PreBind(const ShaderAttribute& attribute);
-        bool
-        Load(core::vfs::FileSystem* fs, const std::string& file_path);
 
         bool
-        Compile(const glchar* vertex_source,
-                const glchar* fragment_source,
-                const glchar* geometry_source = nullptr);
+        Load(core::vfs::FileSystem* fs, const core::vfs::FilePath& file_path);
+
+        bool
+        Compile
+        (
+            const glchar* vertex_source,
+            const glchar* fragment_source,
+            const glchar* geometry_source = nullptr
+        );
 
     public:
         // uniform = shader global
@@ -89,29 +93,31 @@ namespace euphoria::render
         // debug
         static const Shader*
         CurrentlyBound();
+
         const std::vector<ShaderAttribute>&
         GetAttributes() const;
-        const std::string&
+
+        const core::vfs::FilePath&
         GetName() const;
 
     private:
-        // debug
+        bool HasBoundAttribute(const ShaderAttribute& attribute) const;
+        bool HasBoundUniform(const ShaderUniform& uniform) const;
+
         std::vector<ShaderAttribute> bound_attributes_;
-        bool
-                                   HasBoundAttribute(const ShaderAttribute& attribute) const;
         std::vector<ShaderUniform> bound_uniforms_;
-        bool
-                    HasBoundUniform(const ShaderUniform& uniform) const;
-        std::string shader_name_;
+        core::vfs::FilePath shader_name_;
     };
 
     struct Texture2d;
     void
-    BindTextureToShader(
-            Texture2d*           texture,
-            Shader*              shader,
-            const ShaderUniform& attribute,
-            glint                index);
+    BindTextureToShader
+    (
+        Texture2d* texture,
+        Shader* shader,
+        const ShaderUniform& attribute,
+        glint index
+    );
 
 }  // namespace euphoria::render
 

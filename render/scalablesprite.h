@@ -10,6 +10,7 @@ namespace euphoria::core
     namespace vfs
     {
         struct FileSystem;
+        struct FilePath;
     }
     struct Rgba;
 }  // namespace euphoria::core
@@ -25,19 +26,25 @@ namespace euphoria::render
     struct ScalableSprite
     {
     public:
-        ScalableSprite(
-                core::vfs::FileSystem* fs,
-                const std::string&     path,
-                TextureCache*          cache);
+        ScalableSprite
+        (
+            core::vfs::FileSystem* fs,
+            const core::vfs::FilePath& path,
+            TextureCache* cache
+        );
+
         ~ScalableSprite();
 
         const core::Sizef
         GetMinimumSize() const;
 
         void
-        Render(SpriteRenderer*    sr,
-               const core::Rectf& pos,
-               const core::Rgba&  tint) const;
+        Render
+        (
+            SpriteRenderer* sr,
+            const core::Rectf& pos,
+            const core::Rgba& tint
+        ) const;
 
     private:
         std::shared_ptr<Texture2d> texture_;

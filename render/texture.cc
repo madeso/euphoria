@@ -4,6 +4,7 @@
 #include "core/image.h"
 #include "core/assert.h"
 #include "core/log.h"
+#include "core/vfs_path.h"
 
 #include "render/gl.h"
 #include "render/texture.h"
@@ -153,16 +154,18 @@ namespace euphoria::render
             const Texture2dLoadData& data)
     {
         Use(this);
-        glTexImage2D(
-                GL_TEXTURE_2D,
-                0,
-                internal_format,
-                width,
-                height,
-                0,
-                image_format,
-                GL_UNSIGNED_BYTE,
-                pixel_data);
+        glTexImage2D
+        (
+            GL_TEXTURE_2D,
+            0,
+            internal_format,
+            width,
+            height,
+            0,
+            image_format,
+            GL_UNSIGNED_BYTE,
+            pixel_data
+        );
 
         width_  = width;
         height_ = height;
@@ -176,11 +179,13 @@ namespace euphoria::render
     }
 
     void
-    Texture2d::LoadFromFile(
-            core::vfs::FileSystem*   fs,
-            const std::string&       path,
-            core::AlphaLoad          alpha,
-            const Texture2dLoadData& data)
+    Texture2d::LoadFromFile
+    (
+        core::vfs::FileSystem* fs,
+        const core::vfs::FilePath& path,
+        core::AlphaLoad alpha,
+        const Texture2dLoadData& data
+    )
     {
         auto i = core::LoadImage(fs, path, alpha);
         if(!i.image.IsValid())
@@ -192,10 +197,12 @@ namespace euphoria::render
     }
 
     void
-    Texture2d::LoadFromImage(
-            const core::Image&       image,
-            core::AlphaLoad          alpha,
-            const Texture2dLoadData& data)
+    Texture2d::LoadFromImage
+    (
+        const core::Image& image,
+        core::AlphaLoad alpha,
+        const Texture2dLoadData& data
+    )
     {
         GLuint internal_format = GL_RGB;
         GLuint image_format    = GL_RGB;
@@ -205,13 +212,15 @@ namespace euphoria::render
             image_format    = GL_RGBA;
         }
 
-        LoadFromPixels(
-                image.GetWidth(),
-                image.GetHeight(),
-                image.GetPixelData(),
-                internal_format,
-                image_format,
-                data);
+        LoadFromPixels
+        (
+            image.GetWidth(),
+            image.GetHeight(),
+            image.GetPixelData(),
+            internal_format,
+            image_format,
+            data
+        );
     }
 
     int

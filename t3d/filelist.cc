@@ -1,11 +1,10 @@
 #include "t3d/filelist.h"
 
-#include <algorithm>
-
 #include "core/assert.h"
 #include "core/os.h"
 #include "core/vfs.h"
-#include "core/vfs_path.h"
+
+#include <algorithm>
 
 
 namespace euphoria::t3d
@@ -13,15 +12,15 @@ namespace euphoria::t3d
     void
     FileList::AddDirectory
     (
-        const std::string& directory_path,
+        const core::vfs::DirPath& directory,
         core::vfs::FileSystem* file_system
     )
     {
-        const auto dir   = core::vfs::Path::FromDirectory(directory_path);
-        auto listed_files = file_system->ListFiles(dir);
+        auto listed_files = file_system->ListFiles(directory);
         for(const auto& relative_file: listed_files)
         {
-            const auto my_ext = core::GetExtension(relative_file.name);
+            const auto file      = directory.GetFile(relative_file.name);
+            const auto my_ext = file.GetExtension();
             const auto found_ext = std::find
             (
                 extensions.begin(),
@@ -31,9 +30,7 @@ namespace euphoria::t3d
             const auto has_ext = found_ext != extensions.end();
             if(has_ext)
             {
-                const auto file      = dir.GetFile(relative_file.name);
-                const auto file_path = file.GetAbsolutePath();
-                files.emplace_back(file_path);
+                files.emplace_back(file);
             }
         }
     }
@@ -46,7 +43,7 @@ namespace euphoria::t3d
     }
 
 
-    std::string
+    core::vfs::FilePath
     FileList::NextFile()
     {
         ASSERT(!files.empty());
@@ -56,7 +53,7 @@ namespace euphoria::t3d
         index += 1;
         if(index >= files.size())
         {
-            files.resize(0);
+            files.clear();
             index = 0;
         }
 

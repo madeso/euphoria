@@ -20,6 +20,7 @@ namespace euphoria::core
     namespace vfs
     {
         struct FileSystem;
+        struct FilePath;
     }
 }  // namespace euphoria::core
 
@@ -33,10 +34,13 @@ namespace euphoria::render
 
     struct Glyph
     {
-        Glyph(const core::Rectf& sprite,
-              const core::Rectf& texture,
-              unsigned int ch,
-              float              ad);
+        Glyph
+        (
+            const core::Rectf& sprite,
+            const core::Rectf& texture,
+            unsigned int ch,
+            float ad
+        );
 
         core::Rectf sprite_rect;  // relative to 0,0
         core::Rectf texture_rect;  // image texture uvs
@@ -68,11 +72,13 @@ namespace euphoria::render
         core::Rectf      texture_rect;
         bool             hi;
 
-        TextDrawCommand(
-                const Texture2d*   texture,
-                const core::Rectf& sprite_rect,
-                const core::Rectf& texture_rect,
-                bool               hi);
+        TextDrawCommand
+        (
+            const Texture2d*   texture,
+            const core::Rectf& sprite_rect,
+            const core::Rectf& texture_rect,
+            bool hi
+        );
     };
 
     struct TextDrawCommandList
@@ -80,16 +86,22 @@ namespace euphoria::render
         std::vector<TextDrawCommand> commands;
 
         void
-        Add(const Texture2d*   texture,
+        Add
+        (
+            const Texture2d* texture,
             const core::Rectf& sprite_rect,
             const core::Rectf& texture_rect,
-            bool               hi);
+            bool hi
+        );
 
         void
-        Draw(SpriteRenderer*    renderer,
-             const core::vec2f& start_position,
-             const core::Rgb&   base_color,
-             const core::Rgb&   hi_color);
+        Draw
+        (
+            SpriteRenderer* renderer,
+            const core::vec2f& start_position,
+            const core::Rgb& base_color,
+            const core::Rgb& hi_color
+        );
 
         core::Rectf
         GetExtents() const;
@@ -114,15 +126,21 @@ namespace euphoria::render
         SetSize(float new_size);
 
         void
-        Draw(SpriteRenderer*    renderer,
-             const core::vec2f& p,
-             const core::Rgb&   base_hi_color) const;
+        Draw
+        (
+            SpriteRenderer* renderer,
+            const core::vec2f& p,
+            const core::Rgb& base_hi_color
+        ) const;
 
         void
-        Draw(SpriteRenderer*    renderer,
-             const core::vec2f& p,
-             const core::Rgb&   base_color,
-             const core::Rgb&   hi_color) const;
+        Draw
+        (
+            SpriteRenderer* renderer,
+            const core::vec2f& p,
+            const core::Rgb& base_color,
+            const core::Rgb& hi_color
+        ) const;
 
         core::Rectf
         GetExtents() const;
@@ -149,16 +167,21 @@ namespace euphoria::render
     struct Font
     {
     public:
-        Font(core::vfs::FileSystem* fs,
-             TextureCache*          cache,
-             const std::string&     font_file);
+        Font
+        (
+            core::vfs::FileSystem* fs,
+            TextureCache* cache,
+            const core::vfs::FilePath& font_file
+        );
 
         // todo: expose background property and move this away from font
         void
-        DrawBackground(
-                SpriteRenderer*    renderer,
-                float              alpha,
-                const core::Rectf& where) const;
+        DrawBackground
+        (
+            SpriteRenderer*    renderer,
+            float              alpha,
+            const core::Rectf& where
+        ) const;
 
         TextDrawCommandList
         CompileList(const core::ParsedText& text, float size) const;

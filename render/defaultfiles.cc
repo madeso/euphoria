@@ -1,6 +1,7 @@
 #include "defaultfiles.h"
 
 #include "core/vfs.h"
+#include "core/vfs_path.h"
 
 namespace euphoria::render
 {
@@ -8,7 +9,7 @@ namespace euphoria::render
     SetupDefaultFiles(std::shared_ptr<core::vfs::FileSystemRootCatalog> catalog)
     {
         catalog->RegisterFileString(
-                "texture_types.json",
+                core::vfs::FilePath{"~/texture_types.json"},
                 R"json(
                 {
                     "name":
@@ -20,7 +21,7 @@ namespace euphoria::render
             )json");
 
         catalog->RegisterFileString(
-                "default_shader.json",
+                core::vfs::FilePath{"~/default_shader.json"},
                 R"json(
                     {
                         "has_light": true,
@@ -53,7 +54,7 @@ namespace euphoria::render
                     }
                 )json");
         catalog->RegisterFileString(
-                "default_shader.vert",
+                core::vfs::FilePath{"~/default_shader.vert"},
                 R"glsl(
                     #version 330 core
                     in vec3 aPosition;
@@ -78,7 +79,7 @@ namespace euphoria::render
                     }
                 )glsl");
         catalog->RegisterFileString(
-                "default_shader.frag",
+                core::vfs::FilePath{"~/default_shader.frag"},
                 R"glsl(
                     #version 330 core
                     struct Material
@@ -173,7 +174,7 @@ namespace euphoria::render
         ///////////////////////////////////////////////////////////////////////
         // basic_shader
         catalog->RegisterFileString(
-                "basic_shader.json",
+                core::vfs::FilePath{"~/basic_shader.json"},
                 R"json(
                     {
                         "diffuse": "uDiffuse",
@@ -183,7 +184,7 @@ namespace euphoria::render
                     }
                 )json");
         catalog->RegisterFileString(
-                "basic_shader.vert",
+                core::vfs::FilePath{"~/basic_shader.vert"},
                 R"glsl(
                     #version 330 core
                     in vec3 aPosition;
@@ -198,7 +199,7 @@ namespace euphoria::render
                     }
                 )glsl");
         catalog->RegisterFileString(
-                "basic_shader.frag",
+                core::vfs::FilePath{"~/basic_shader.frag"},
                 R"glsl(
                     #version 330 core
                 
@@ -215,7 +216,7 @@ namespace euphoria::render
         ///////////////////////////////////////////////////////////////////////
         // default_line_shader
         catalog->RegisterFileString(
-                "default_line_shader.json",
+                core::vfs::FilePath{"~/default_line_shader.json"},
                 R"json(
                     {
                         "has_light": false,
@@ -224,7 +225,7 @@ namespace euphoria::render
                     }
                 )json");
         catalog->RegisterFileString(
-                "default_line_shader.vert",
+                core::vfs::FilePath{"~/default_line_shader.vert"},
                 R"glsl(
                     #version 330 core
                     in vec3 aPosition;
@@ -243,7 +244,7 @@ namespace euphoria::render
                     }
                 )glsl");
         catalog->RegisterFileString(
-                "default_line_shader.frag",
+                core::vfs::FilePath{"~/default_line_shader.frag"},
                 R"glsl(
                     #version 330 core
                 

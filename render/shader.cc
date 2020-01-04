@@ -357,12 +357,15 @@ namespace euphoria::render
         glUniform4f(attribute.id, val.left, val.right, val.bottom, val.top);
     }
 
-    Shader::Shader() = default;
+    Shader::Shader()
+        : shader_name_("~/not_loaded_shader")
+    {
+    }
 
     namespace
     {
         std::string
-        LoadPath(core::vfs::FileSystem* fs, const std::string& path)
+        LoadPath(core::vfs::FileSystem* fs, const core::vfs::FilePath& path)
         {
             // todo: replace with a template instead of basic string
             std::string content;
@@ -376,12 +379,12 @@ namespace euphoria::render
     }  // namespace
 
     bool
-    Shader::Load(core::vfs::FileSystem* fs, const std::string& file_path)
+    Shader::Load(core::vfs::FileSystem* fs, const core::vfs::FilePath& file_path)
     {
-        shader_name_      = file_path;
-        auto vert         = LoadPath(fs, file_path + ".vert");
-        auto frag         = LoadPath(fs, file_path + ".frag");
-        auto geom         = LoadPath(fs, file_path + ".geom");
+        shader_name_ = file_path;
+        auto vert = LoadPath(fs, file_path.SetExtensionCopy("vert"));
+        auto frag = LoadPath(fs, file_path.SetExtensionCopy("frag"));
+        auto geom = LoadPath(fs, file_path.SetExtensionCopy("geom"));
         bool loaded_files = true;
         if(vert.empty())
         {
@@ -400,10 +403,12 @@ namespace euphoria::render
             return false;
         }
 
-        const bool shader_compiled = Compile(
-                vert.c_str(),
-                frag.c_str(),
-                geom.empty() ? nullptr : geom.c_str());
+        const bool shader_compiled = Compile
+        (
+            vert.c_str(),
+            frag.c_str(),
+            geom.empty() ? nullptr : geom.c_str()
+        );
         if(!shader_compiled)
         {
             LOG_ERROR("Failed to compile shader {0}", file_path);
@@ -417,7 +422,7 @@ namespace euphoria::render
         return bound_attributes_;
     }
 
-    const std::string&
+    const core::vfs::FilePath&
     Shader::GetName() const
     {
         return shader_name_;

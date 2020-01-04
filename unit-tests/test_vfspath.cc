@@ -276,6 +276,43 @@ TEST_CASE("vfspath-file-from-dir", "[vfspath]")
 }
 
 
+TEST_CASE("vfspath-file-change_ext", "[vfspath]")
+{
+    SECTION("sub with ext")
+    {
+        const auto file = vfs::FilePath{"~/dogs/dog.exe"}.SetExtensionCopy
+        (
+            "good"
+        );
+        CHECK(file.path == "~/dogs/dog.good");
+    }
+    SECTION("sub no ext")
+    {
+        const auto file = vfs::FilePath{"~/dogs/dog"}.SetExtensionCopy
+        (
+            "good"
+        );
+        CHECK(file.path == "~/dogs/dog.good");
+    }
+    SECTION("root with ext")
+    {
+        const auto file = vfs::FilePath{"~/dog.exe"}.SetExtensionCopy
+        (
+            "good"
+        );
+        CHECK(file.path == "~/dog.good");
+    }
+    SECTION("root no ext")
+    {
+        const auto file = vfs::FilePath{"~/dog"}.SetExtensionCopy
+        (
+            "good"
+        );
+        CHECK(file.path == "~/dog.good");
+    }
+}
+
+
 TEST_CASE("vfspath-file-resolve-join", "[vfspath]")
 {
     SECTION("basic")
