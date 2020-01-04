@@ -3,15 +3,19 @@
 
 #include <string>
 
+
 namespace euphoria::core::ecs
 {
     struct World;
 }
 
+
 namespace euphoria::core::vfs
 {
     struct FileSystem;
+    struct FilePath;
 }
+
 
 namespace euphoria::duk
 {
@@ -19,20 +23,23 @@ namespace euphoria::duk
     struct Duk;
 }  // namespace euphoria::duk
 
+
 namespace euphoria::engine
 {
     struct DukRegistry;
     struct ObjectCreator;
 
     void
-    LoadWorld(
-            core::vfs::FileSystem* fs,
-            core::ecs::World*      world,
-            DukRegistry*           reg,
-            const std::string&     path,
-            ObjectCreator*         creator,
-            duk::Context*          ctx,
-            duk::Duk*              duk);
+    LoadWorld
+    (
+        core::vfs::FileSystem* fs,
+        core::ecs::World* world,
+        DukRegistry* reg,
+        const core::vfs::FilePath& path,
+        ObjectCreator* creator,
+        duk::Context* ctx,
+        duk::Duk* duk
+    );
 }  // namespace euphoria::engine
 
 #endif  // EUPHORIA_LOADWORLD_H

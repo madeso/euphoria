@@ -3,22 +3,24 @@
 
 #include <vector>
 #include <string>
+#include <optional>
 
 #include "core/vfs.h"
+#include "core/vfs_path.h"
 
 namespace euphoria::editor
 {
     struct FileBrowser
     {
-        std::string                        current_folder;
-        int                                selected_file = -1;
+        core::vfs::DirPath current_folder;
+        int selected_file = -1;
         std::vector<core::vfs::ListedFile> files;
-        std::string                        filter      = "";
-        core::vfs::FileSystem*             file_system = nullptr;
+        std::string filter = "";
+        core::vfs::FileSystem* file_system = nullptr;
 
         explicit FileBrowser(core::vfs::FileSystem* fs);
 
-        std::string
+        std::optional<core::vfs::FilePath>
         GetSelectedFile();
 
         void

@@ -58,9 +58,21 @@ namespace euphoria::core
                 {
                     return FilePath{"./" + p};
                 }
-                
             }
-            
+        }
+
+
+        std::optional<FilePath>
+        FilePath::FromScriptOrEmpty(const std::string& path)
+        {
+            if(path.empty())
+            {
+                return std::nullopt;
+            }
+            else
+            {
+                return FromScript(path);
+            }
         }
 
 
@@ -131,6 +143,23 @@ namespace euphoria::core
             else
             {
                 return FilePath{path.substr(0, dot+1) + ext};
+            }
+        }
+
+
+        FilePath
+        FilePath::ExtendExtensionCopy(const std::string& ext) const
+        {
+            ASSERT(!ext.empty());
+            ASSERTX(ext[0]!='.' && *ext.rbegin()!='.', ext);
+            const auto old_ext = GetExtension();
+            if(old_ext.empty())
+            {
+                return SetExtensionCopy(ext);
+            }
+            else
+            {
+                return SetExtensionCopy(old_ext + "." + ext);
             }
         }
 
@@ -241,7 +270,7 @@ namespace euphoria::core
         DirPath::GetDirectoryName() const
         {
             const auto dirs = SplitDirectories();
-            ASSERT(dirs.size() > 2);
+            ASSERTX(dirs.size() > 1, StringMerger::Array().Generate(dirs));
             return *dirs.rbegin();
         }
 

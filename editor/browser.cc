@@ -31,34 +31,28 @@ namespace euphoria::editor
     }
 
     FileBrowser::FileBrowser(vfs::FileSystem* fs)
-        : current_folder(vfs::Path::FromRoot().GetAbsolutePath())
+        : current_folder(core::vfs::DirPath::FromRoot())
         , file_system(fs)
     {}
 
-    std::string
+    std::optional<core::vfs::FilePath>
     FileBrowser::GetSelectedFile()
     {
         if(selected_file >= 0 && selected_file < Csizet_to_int(files.size()))
         {
             const auto suggested = files[selected_file];
-            if(!EndsWith(suggested.name, '/'))
+            if(suggested.is_file)
             {
-                if(current_folder.empty())
-                {
-                    return suggested.name;
-                }
-                else
-                {
-                    return current_folder + suggested.name;
-                }
+                return current_folder.GetFile(suggested.name);
             }
         }
-        return "";
+        return std::nullopt;
     }
 
     void
     FileBrowser::SelectFile(const std::string& p)
     {
+        #if 0
         const auto file = vfs::Path::FromFile(p);
         current_folder  = file.GetDirectory().GetAbsolutePath();
         Refresh();
@@ -69,17 +63,16 @@ namespace euphoria::editor
                           return n.name == file.GetFileName();
                       });
         }
+        #endif
     }
 
     void
     FileBrowser::Refresh()
     {
-        files = file_system->ListFiles(
-                vfs::Path::FromDirectory(current_folder));
-        if(!current_folder.empty())
+        files = file_system->ListFiles(current_folder);
+        if(current_folder == core::vfs::DirPath::FromRoot())
         {
-            // files.emplace_back();
-            files.insert(files.begin(), vfs::ListedFile {"../", true});
+            files.insert(files.begin(), vfs::ListedFile {"./../", true, false});
         }
         // files.insert(files.begin(), f.begin(), f.end());
         selected_file = -1;
@@ -88,21 +81,21 @@ namespace euphoria::editor
     bool
     FileBrowser::Run()
     {
-        bool selected = false;
-        window::InputText("URL", &current_folder);
+        bool doubleclicked_file = false;
+        window::InputText("URL", &current_folder.path);
         window::InputText("Filter", &filter);
         // ImGui::PushItemWidth(-1);
         ImGui::ListBoxHeader("", ImVec2 {-1, -1});
         int        index = 0;
-        const auto ff
-                = files;  // if files is updated during iteration, bad things
+        // if files is updated during iteration, bad things
         // will probably happen, so we iterate a copy
+        const auto ff = files;
         for(const auto& item: ff)
         {
             const bool custom  = item.is_builtin;
-            bool       display = true;
+            bool display = true;
 
-            if(!EndsWith(item.name, '/'))
+            if(item.is_file)
             {
                 if(!filter.empty())
                 {
@@ -117,18 +110,21 @@ namespace euphoria::editor
             {
                 if(custom)
                 {
-                    ImGui::PushStyleColor(
-                            ImGuiCol_Text, ImColor {0, 0, 255}.Value);
+                    ImGui::PushStyleColor
+                    (
+                        ImGuiCol_Text,
+                        ImColor{0, 0, 255}.Value
+                    );
                 }
-                if(ImGui::Selectable(item.name.c_str(), index == selected_file))
+
+                // todo(Gustav): add file/directory icon
+                const auto left_clicked_item = ImGui::Selectable(item.name.c_str(), index == selected_file);
+                const auto user_clicked_right = ImGui::IsMouseClicked(1);
+                const auto mouse_hovering_item = ImGui::IsItemHovered(ImGuiHoveredFlags_AllowWhenBlockedByPopup);
+                const auto right_clicked_item = mouse_hovering_item && user_clicked_right;
+                
+                if(left_clicked_item || right_clicked_item)
                 {
-                    selected_file = index;
-                }
-                if(ImGui::IsItemHovered(
-                           ImGuiHoveredFlags_AllowWhenBlockedByPopup)
-                   && ImGui::IsMouseClicked(1))
-                {
-                    // also select when right click
                     selected_file = index;
                 }
                 if(custom)
@@ -138,24 +134,24 @@ namespace euphoria::editor
 
                 if(ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0))
                 {
-                    if(EndsWith(item.name, '/'))
+                    if(item.is_file == false)
                     {
                         if(item.name == "../")
                         {
-                            current_folder
-                                    = vfs::Path::FromDirectory(current_folder)
-                                              .GetParentDirectory()
-                                              .GetAbsolutePath();
+                            current_folder = current_folder.GetParentDirectory();
                         }
                         else
                         {
-                            current_folder += item.name;
+                            const auto sub_directory = core::vfs::DirPath{"./" + item.name};
+                            const auto resolved = ResolveRelative(sub_directory, current_folder);
+                            ASSERTX(resolved.has_value(), sub_directory, current_folder);
+                            current_folder = resolved.value();
                         }
                         Refresh();
                     }
                     else
                     {
-                        selected = true;
+                        doubleclicked_file = true;
                     }
                 }
             }
@@ -164,6 +160,6 @@ namespace euphoria::editor
         ImGui::ListBoxFooter();
         // ImGui::PopItemWidth();
 
-        return selected;
+        return doubleclicked_file;
     }
 }  // namespace euphoria::editor

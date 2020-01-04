@@ -17,7 +17,9 @@ namespace euphoria::gui
         , position_displacement_(core::vec2f::Zero())
     {}
 
+
     Button::~Button() {}
+
 
     void
     Button::Step(float dt)
@@ -48,22 +50,30 @@ namespace euphoria::gui
             if(last_state_ != state)
             {
                 last_state_ = state;
-                scale_.Clear().Add(
-                        state->interpolationSize,
-                        state->scale,
-                        state->interpolationSizeTime);
-                image_color_.Clear().Add(
-                        state->interpolationColor,
-                        state->image_color,
-                        state->interpolationColorTime);
-                text_color_.Clear().Add(
-                        state->interpolationColor,
-                        state->text_color,
-                        state->interpolationColorTime);
-                position_displacement_.Clear().Add(
-                        state->interpolationPosition,
-                        core::vec2f(state->dx, state->dy),
-                        state->interpolationPositionTime);
+                scale_.Clear().Add
+                (
+                    state->interpolation_size.type,
+                    state->scale,
+                    state->interpolation_size.time
+                );
+                image_color_.Clear().Add
+                (
+                    state->interpolation_color.type,
+                    state->image_color,
+                    state->interpolation_color.time
+                );
+                text_color_.Clear().Add
+                (
+                    state->interpolation_color.type,
+                    state->text_color,
+                    state->interpolation_color.time
+                );
+                position_displacement_.Clear().Add
+                (
+                    state->interpolation_position.type,
+                    core::vec2f(state->dx, state->dy),
+                    state->interpolation_position.time
+                );
             }
 
             scale_.Update(dt);
@@ -73,6 +83,7 @@ namespace euphoria::gui
             text_.SetSize(skin_->text_size * scale_.GetValue());
         }
     }
+
 
     core::Sizef
     Button::CalculateMinimumSize() const
@@ -96,18 +107,21 @@ namespace euphoria::gui
         return size;
     }
 
+
     void
     Button::Render(render::SpriteRenderer* renderer) const
     {
         if(skin_)
         {
             /*
-      const ButtonState& state = (IsHot()?
-                                  (
-                                      (IsActive()? skin_->button_active_hot :
-      skin_->button_hot)
-                                  )
-                                        : skin_->button_idle);
+            const ButtonState& state =
+                IsHot()?
+                (
+                    IsActive()?
+                    skin_->button_active_hot:
+                    skin_->button_hot
+                ):
+                skin_->button_idle;
       */
             if(sprite_ != nullptr)
             {
@@ -118,10 +132,12 @@ namespace euphoria::gui
                         = rect.GetScaledAroundCenterCopy(scale_.GetValue());
                 ASSERTX(scaled.GetWidth() > 0, scaled.GetWidth());
                 ASSERTX(scaled.GetHeight() > 0, scaled.GetHeight());
-                renderer->DrawNinepatch(
-                        *sprite_.get(),
-                        scaled.OffsetCopy(position_displacement_.GetValue()),
-                        image_color_.GetValue());
+                renderer->DrawNinepatch
+                (
+                    *sprite_.get(),
+                    scaled.OffsetCopy(position_displacement_.GetValue()),
+                    image_color_.GetValue()
+                );
             }
             if(text_.HasText())
             {
@@ -135,11 +151,13 @@ namespace euphoria::gui
         }
     }
 
+
     TextData&
     Button::Text()
     {
         return text_;
     }
+
 
     void
     Button::SetSprite(std::shared_ptr<render::ScalableSprite> sprite)
@@ -147,9 +165,11 @@ namespace euphoria::gui
         sprite_ = sprite;
     }
 
+
     void
     Button::OnSize()
     {}
+
 
     void
     Button::SetSkin(Skin* skin)

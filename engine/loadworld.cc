@@ -3,6 +3,7 @@
 #include "core/proto.h"
 #include "core/log.h"
 #include "core/ecs-systems.h"
+#include "core/vfs_path.h"
 
 #include "engine/components.h"
 #include "engine/dukregistry.h"
@@ -15,14 +16,16 @@ LOG_SPECIFY_DEFAULT_LOGGER("engine.loadworld")
 namespace euphoria::engine
 {
     void
-    LoadWorld(
-            core::vfs::FileSystem* fs,
-            core::ecs::World*      world,
-            DukRegistry*           reg,
-            const std::string&     path,
-            ObjectCreator*         creator,
-            duk::Context*          ctx,
-            duk::Duk*              duk)
+    LoadWorld
+    (
+        core::vfs::FileSystem* fs,
+        core::ecs::World* world,
+        DukRegistry* reg,
+        const core::vfs::FilePath& path,
+        ObjectCreator* creator,
+        duk::Context* ctx,
+        duk::Duk* duk
+    )
     {
         world::World json;
         const auto   err = core::LoadProtoJson(fs, &json, path);

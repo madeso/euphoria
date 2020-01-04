@@ -5,6 +5,7 @@
 
 #include "core/os.h"
 #include "core/vfs.h"
+#include "core/vfs_path.h"
 
 using namespace euphoria::core;
 
@@ -17,7 +18,7 @@ main()
     vfs::FileSystem file_system;
     vfs::FileSystemRootFolder::AddRoot(&file_system, current_directory);
 
-    const auto error = chatbot.LoadFromFile(&file_system, "chatbot.json");
+    const auto error = chatbot.LoadFromFile(&file_system, vfs::FilePath{"~/chatbot.json"});
     if(!error.empty())
     {
         std::cerr << "Failed to load chatbot: " << error << "\n";

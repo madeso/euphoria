@@ -41,7 +41,12 @@ namespace euphoria::core
         {
             static
             FilePath
-            FromScript(const std::string&);
+            FromScript(const std::string& path);
+
+
+            static
+            std::optional<FilePath>
+            FromScriptOrEmpty(const std::string& path);
 
 
             std::tuple<DirPath, std::string>
@@ -66,6 +71,10 @@ namespace euphoria::core
 
             FilePath
             SetExtensionCopy(const std::string& ext) const;
+
+
+            FilePath
+            ExtendExtensionCopy(const std::string& ext) const;
 
 
             explicit

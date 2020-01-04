@@ -2,7 +2,7 @@
 
 #include "core/stdutils.h"
 #include "core/stringmerger.h"
-
+#include "core/vfs_path.h"
 #include "core/log.h"
 #include "core/proto.h"
 
@@ -17,12 +17,17 @@ namespace euphoria::engine
 {
     ////////////////////////////////////////////////////////////////////////////////
 
-    ObjectCreationArgs::ObjectCreationArgs(
-            core::ecs::World* aworld,
-            DukRegistry*      areg,
-            duk::Context*     actx,
-            duk::Duk*         aduk)
-        : world(aworld), reg(areg), ctx(actx), duk(aduk)
+    ObjectCreationArgs::ObjectCreationArgs
+    (
+        core::ecs::World* aworld,
+        DukRegistry*      areg,
+        duk::Context*     actx,
+        duk::Duk*         aduk
+    )
+        : world(aworld)
+        , reg(areg)
+        , ctx(actx)
+        , duk(aduk)
     {}
 
     ////////////////////////////////////////////////////////////////////////////////
@@ -37,7 +42,9 @@ namespace euphoria::engine
             : p(pp), components(components)
         {}
 
-        [[nodiscard]] static std::shared_ptr<PositionComponentCreator>
+        [[nodiscard]]
+        static
+        std::shared_ptr<PositionComponentCreator>
         Create(const game::vec2f& p, Components* components)
         {
             return std::make_shared<PositionComponentCreator>(
@@ -58,17 +65,25 @@ namespace euphoria::engine
     {
     public:
         std::shared_ptr<render::Texture2d> texture;
-        Components*                        components;
+        Components* components;
 
         explicit SpriteComponentCreator(Components* c) : components(c) {}
 
-        [[nodiscard]] static std::shared_ptr<SpriteComponentCreator>
-        Create(const game::Sprite&   sprite,
-               render::TextureCache* cache,
-               Components*           components)
+        [[nodiscard]]
+        static
+        std::shared_ptr<SpriteComponentCreator>
+        Create
+        (
+            const game::Sprite& sprite,
+            render::TextureCache* cache,
+            Components* components
+        )
         {
             auto ptr     = std::make_shared<SpriteComponentCreator>(components);
-            ptr->texture = cache->GetTexture(sprite.path);
+            ptr->texture = cache->GetTexture
+            (
+                core::vfs::FilePath::FromScript(sprite.path)
+            );
             return ptr;
         }
 
@@ -82,16 +97,22 @@ namespace euphoria::engine
         }
     };
 
+
     struct CustomComponentCreator : public ComponentCreator
     {
     public:
         core::ecs::ComponentId comp;
-        CustomArguments        arguments;
+        CustomArguments arguments;
 
-        [[nodiscard]] static std::shared_ptr<CustomComponentCreator>
-        Create(const std::string&            name,
-               core::ecs::ComponentId        id,
-               const std::vector<game::Var>& arguments)
+        [[nodiscard]]
+        static
+        std::shared_ptr<CustomComponentCreator>
+        Create
+        (
+            const std::string&            name,
+            core::ecs::ComponentId        id,
+            const std::vector<game::Var>& arguments
+        )
         {
             auto ptr  = std::make_shared<CustomComponentCreator>();
             ptr->comp = id;
@@ -124,14 +145,18 @@ namespace euphoria::engine
         }
     };
 
+
     ////////////////////////////////////////////////////////////////////////////////
 
+
     std::shared_ptr<ComponentCreator>
-    CreateCreator(
-            const game::Component& comp,
-            DukRegistry*           reg,
-            render::TextureCache*  cache,
-            Components*            components)
+    CreateCreator
+    (
+        const game::Component& comp,
+        DukRegistry*           reg,
+        render::TextureCache*  cache,
+        Components*            components
+    )
     {
         if(comp.position)
         {
@@ -139,12 +164,16 @@ namespace euphoria::engine
         }
         else if(comp.sprite)
         {
-            return SpriteComponentCreator::Create(
-                    *comp.sprite, cache, components);
+            return SpriteComponentCreator::Create
+            (
+                *comp.sprite,
+                cache,
+                components
+            );
         }
         else if(comp.custom)
         {
-            const auto&            s = *comp.custom;
+            const auto& s = *comp.custom;
             core::ecs::ComponentId id;
             if(reg->GetCustomComponentByName(s.name, &id))
             {
@@ -165,13 +194,16 @@ namespace euphoria::engine
         return nullptr;
     }
 
+
     void
-    LoadObjectTemplate(
-            ObjectTemplate*       ot,
-            const game::Template& ct,
-            DukRegistry*          reg,
-            render::TextureCache* cache,
-            Components*           components)
+    LoadObjectTemplate
+    (
+        ObjectTemplate* ot,
+        const game::Template& ct,
+        DukRegistry* reg,
+        render::TextureCache* cache,
+        Components* components
+    )
     {
         for(const auto& comp: ct.components)
         {
@@ -182,6 +214,7 @@ namespace euphoria::engine
             }
         }
     }
+
 
     core::ecs::EntityId
     ObjectTemplate::CreateObject(const ObjectCreationArgs& args)
@@ -198,7 +231,9 @@ namespace euphoria::engine
         return ent;
     }
 
+
     ////////////////////////////////////////////////////////////////////////////////
+
 
     void
     LoadTemplatesButOnlyNames(const game::Game& json, ObjectCreator* temp)
@@ -209,6 +244,7 @@ namespace euphoria::engine
             temp->templates.insert(std::make_pair(t.name, o));
         }
     }
+
 
     void
     LoadTemplates(
@@ -235,6 +271,7 @@ namespace euphoria::engine
             LoadObjectTemplate(o.get(), t, reg, cache, components);
         }
     }
+    
 
     ObjectTemplate*
     ObjectCreator::FindTemplate(const std::string& name)

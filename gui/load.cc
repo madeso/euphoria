@@ -23,6 +23,7 @@ namespace euphoria::gui
 {
     LOG_SPECIFY_DEFAULT_LOGGER("gui.load")
 
+
     std::shared_ptr<Layout>
     GetLayout(const ::gui::Layout& c)
     {
@@ -46,10 +47,12 @@ namespace euphoria::gui
         }
     }
 
+
     struct CmdButton : public Button
     {
     public:
         explicit CmdButton(UiState* state) : Button(state) {}
+
         void
         OnClicked() override
         {
@@ -58,13 +61,17 @@ namespace euphoria::gui
         std::string cmd;
     };
 
+
     void
-    BuildLayoutContainer(
-            UiState*                            state,
-            LayoutContainer*                    root,
-            const ::gui::LayoutContainer&       c,
-            render::TextureCache*               cache,
-            const std::map<std::string, Skin*>& skins);
+    BuildLayoutContainer
+    (
+        UiState*                            state,
+        LayoutContainer*                    root,
+        const ::gui::LayoutContainer&       c,
+        render::TextureCache*               cache,
+        const std::map<std::string, Skin*>& skins
+    );
+    
 
     void
     SetupLayout(LayoutData* data, const ::gui::Widget& src)
@@ -74,6 +81,7 @@ namespace euphoria::gui
         data->SetPreferredWidth(src.preferred_width);
         data->SetPreferredHeight(src.preferred_height);
     }
+
 
     Lrtb
     LrtbFromProt(const ::gui::Lrtb& lrtd)
@@ -86,13 +94,16 @@ namespace euphoria::gui
         return r;
     }
 
+
     std::shared_ptr<Widget>
-    CreateWidget(
-            core::vfs::FileSystem*              fs,
-            UiState*                            state,
-            const ::gui::Widget&                w,
-            render::TextureCache*               cache,
-            const std::map<std::string, Skin*>& skins)
+    CreateWidget
+    (
+        core::vfs::FileSystem* fs,
+        UiState* state,
+        const ::gui::Widget& w,
+        render::TextureCache* cache,
+        const std::map<std::string, Skin*>& skins
+    )
     {
         std::shared_ptr<Widget> ret;
 
@@ -113,11 +124,17 @@ namespace euphoria::gui
             }
             Skin* skin = skin_it->second;
 
-            if(!skin_it->second->button_image.empty())
+            if(!skin_it->second->button_image.has_value())
             {
-                std::shared_ptr<render::ScalableSprite> sp(
-                        new render::ScalableSprite(
-                                fs, skin->button_image, cache));
+                std::shared_ptr<render::ScalableSprite> sp
+                {
+                    new render::ScalableSprite
+                    {
+                        fs,
+                        skin->button_image.value(),
+                        cache
+                    }
+                };
                 b->SetSprite(sp);
             }
             ret.reset(b);
@@ -151,13 +168,15 @@ namespace euphoria::gui
     }
 
     void
-    BuildLayoutContainer(
-            core::vfs::FileSystem*              fs,
-            UiState*                            state,
-            LayoutContainer*                    root,
-            const ::gui::LayoutContainer&       c,
-            render::TextureCache*               cache,
-            const std::map<std::string, Skin*>& skins)
+    BuildLayoutContainer
+    (
+        core::vfs::FileSystem* fs,
+        UiState* state,
+        LayoutContainer* root,
+        const ::gui::LayoutContainer& c,
+        render::TextureCache* cache,
+        const std::map<std::string, Skin*>& skins
+    )
     {
         root->SetLayout(GetLayout(c.layout));
         for(const auto& widget: c.widgets)
@@ -177,7 +196,7 @@ namespace euphoria::gui
     {
         switch(t)
         {
-#define FUN(NAME, FUNC)                                                        \
+#define FUN(NAME, FUNC) \
     case ::gui::InterpolationType::NAME: return core::InterpolationType::NAME;
             // Linear interpolation (no easing)
             FUN(Linear, LinearInterpolation)
@@ -236,46 +255,63 @@ namespace euphoria::gui
         }
     }
 
+
     ButtonState
     LoadButton(const ::gui::ButtonState& src)
     {
         ButtonState ret;
-        // ret.image                 = src.image();
-        ret.scale                 = src.scale;
-        ret.image_color           = Load(src.image_color);
-        ret.text_color            = Load(src.text_color);
-        ret.dx                    = src.dx;
-        ret.dy                    = src.dy;
-        ret.interpolationColor    = Load(src.interpolate_color);
-        ret.interpolationSize     = Load(src.interpolate_size);
-        ret.interpolationPosition = Load(src.interpolate_position);
-
-        ret.interpolationColorTime    = src.interpolate_color_time;
-        ret.interpolationSizeTime     = src.interpolate_size_time;
-        ret.interpolationPositionTime = src.interpolate_position_time;
+        // ret.image = src.image();
+        ret.scale = src.scale;
+        ret.image_color = Load(src.image_color);
+        ret.text_color = Load(src.text_color);
+        ret.dx = src.dx;
+        ret.dy = src.dy;
+        ret.interpolation_color =
+        {
+            Load(src.interpolate_color),
+            src.interpolate_color_time
+        };
+        ret.interpolation_size =
+        {
+            Load(src.interpolate_size),
+            src.interpolate_size_time
+        };
+        ret.interpolation_position =
+        {
+            Load(src.interpolate_position),
+            src.interpolate_position_time
+        };
         return ret;
     }
+
 
     std::shared_ptr<Skin>
     LoadSkin(const ::gui::Skin& src, render::FontCache* font)
     {
         std::shared_ptr<Skin> skin(new Skin());
-        skin->name              = src.name;
-        skin->font              = font->GetFont(src.font);
-        skin->button_image      = src.button_image;
-        skin->text_size         = src.text_size;
-        skin->button_idle       = LoadButton(src.button_idle);
-        skin->button_hot        = LoadButton(src.button_hot);
+        skin->name = src.name;
+        skin->font = font->GetFont(core::vfs::FilePath::FromScript(src.font));
+        skin->button_image = core::vfs::FilePath::FromScriptOrEmpty
+        (
+            src.button_image
+        );
+        skin->text_size = src.text_size;
+        skin->button_idle = LoadButton(src.button_idle);
+        skin->button_hot = LoadButton(src.button_hot);
         skin->button_active_hot = LoadButton(src.button_active_hot);
         return skin;
     }
 
+
     bool
-    Load(Root*                  root,
-         core::vfs::FileSystem* fs,
-         render::FontCache*     font,
-         const std::string&     path,
-         render::TextureCache*  cache)
+    Load
+    (
+        Root*                  root,
+        core::vfs::FileSystem* fs,
+        render::FontCache*     font,
+        const core::vfs::FilePath&     path,
+        render::TextureCache*  cache
+    )
     {
         ::gui::File       f;
         const std::string load_result = core::LoadProtoJson(fs, &f, path);
@@ -285,8 +321,14 @@ namespace euphoria::gui
             return false;
         }
 
-        root->cursor_image = cache->GetTextureIfNotEmpty(f.cursor_image);
-        root->hover_image  = cache->GetTextureIfNotEmpty(f.hover_image);
+        root->cursor_image = cache->GetTexture
+        (
+            core::vfs::FilePath::FromScriptOrEmpty(f.cursor_image)
+        );
+        root->hover_image  = cache->GetTexture
+        (
+            core::vfs::FilePath::FromScriptOrEmpty(f.hover_image)
+        );
 
         std::map<std::string, Skin*> skin_map;
 

@@ -218,7 +218,7 @@ OpenOrFocusStyleEditor(Windows* windows)
 void
 OpenOrFocusTextFile(
         Windows*           windows,
-        const std::string& path,
+        const vfs::FilePath& path,
         vfs::FileSystem*   fs)
 {
     OpenOrFocusWindow(windows, Str {} << "File: " << path, [&]() {
@@ -233,27 +233,30 @@ OpenOrFocusTextFile(
 
 struct ScalingSpriteCache
     : public Cache<
-              std::string,
+              vfs::FilePath,
               scalingsprite::ScalingSprite,
               ScalingSpriteCache>
 {
     std::shared_ptr<scalingsprite::ScalingSprite>
-    Create(const std::string&)
+    Create(const vfs::FilePath&)
     {
         // todo(Gustav): load from filename
-        return std::make_shared<scalingsprite::ScalingSprite>();
+        auto ss = std::make_shared<scalingsprite::ScalingSprite>();
+        return ss;
     }
 };
 
 void
-LoadFile(
-        Scimed*             scimed,
-        TextureCache*       cache,
-        ScalingSpriteCache* scache,
-        const std::string&  path)
+LoadFile
+(
+    Scimed* scimed,
+    TextureCache* cache,
+    ScalingSpriteCache* scache,
+    const vfs::FilePath& path
+)
 {
     scimed->texture = cache->GetTexture(path);
-    scimed->scaling = scache->Get(path + ".json");
+    scimed->scaling = scache->Get(path.ExtendExtensionCopy("json"));
 
     if(scimed->texture)
     {
@@ -272,7 +275,7 @@ LoadFile(
 void
 OpenOrFocusScimed(
         Windows*            windows,
-        const std::string&  file,
+        const vfs::FilePath&  file,
         TextureCache*       tc,
         ScalingSpriteCache* sc)
 {
@@ -287,15 +290,17 @@ OpenOrFocusScimed(
 }
 
 void
-OpenOrFocusScimedEditior(
-        Windows*            windows,
-        const std::string&  path,
-        ScalingSpriteCache* sc)
+OpenOrFocusScimedEditior
+(
+    Windows* windows,
+    const vfs::FilePath&  path,
+    ScalingSpriteCache* sc
+)
 {
-    std::string file = path;
-    if(!EndsWith(file, ".json"))
+    auto file = path;
+    if(!EndsWith(file.path, ".json"))
     {
-        file += ".json";
+        file = file.ExtendExtensionCopy("json");
     }
     OpenOrFocusWindow(
             windows,
@@ -310,26 +315,34 @@ OpenOrFocusScimedEditior(
 
 template <typename T, typename TRun>
 void
-OpenOrFocusOnGenericWindow(
-        Windows*           windows,
-        const std::string& path,
-        vfs::FileSystem*   fs,
-        const std::string& title,
-        TRun               run_function)
+OpenOrFocusOnGenericWindow
+(
+    Windows* windows,
+    const vfs::FilePath& path,
+    vfs::FileSystem* fs,
+    const std::string& title,
+    TRun run_function
+)
 {
-    OpenOrFocusWindow(
+    OpenOrFocusWindow
+    (
             windows,
             Str {} << title << ": " << path,
-            [=]() -> std::shared_ptr<GenericWindow> {
-                auto window = CreateGenericWindow(
-                        T {}, [=](T& t) { run_function(&t); });
+            [=]() -> std::shared_ptr<GenericWindow>
+            {
+                auto window = CreateGenericWindow
+                (
+                        T {},
+                        [=](T& t) { run_function(&t); }
+                );
                 const auto err = LoadProtoJson(fs, &window->data, path);
                 if(!err.empty())
                 {
                     LOG_ERROR("Failed to load: {0}", err);
                 }
                 return window;
-            });
+            }
+        );
 }
 
 struct FileHandler
@@ -341,12 +354,10 @@ struct FileHandler
     virtual ~FileHandler() = default;
 
     virtual bool
-    Matches(const std::string& path)
-            = 0;
+    Matches(const vfs::FilePath& path) = 0;
 
     virtual void
-    Open(Windows* windows, const std::string& path)
-            = 0;
+    Open(Windows* windows, const vfs::FilePath& path) = 0;
 };
 
 template <typename TMatchFunction, typename TOpenFunction>
@@ -354,21 +365,25 @@ struct GenericFileHandler : public FileHandler
 {
     TMatchFunction match_function;
     TOpenFunction  open_function;
-    GenericFileHandler(
-            const std::string& menu,
-            TMatchFunction     match,
-            TOpenFunction      open)
-        : FileHandler(menu), match_function(match), open_function(open)
+    GenericFileHandler
+    (
+        const std::string& menu,
+        TMatchFunction     match,
+        TOpenFunction      open
+    )
+        : FileHandler(menu)
+        , match_function(match)
+        , open_function(open)
     {}
 
     bool
-    Matches(const std::string& path) override
+    Matches(const vfs::FilePath& path) override
     {
         return match_function(path);
     }
 
     void
-    Open(Windows* windows, const std::string& path) override
+    Open(Windows* windows, const vfs::FilePath& path) override
     {
         return open_function(windows, path);
     }
@@ -378,8 +393,12 @@ template <typename TMatchFunction, typename TOpenFunction>
 std::shared_ptr<FileHandler>
 CreateHandler(const std::string& menu, TMatchFunction match, TOpenFunction open)
 {
-    return std::make_shared<GenericFileHandler<TMatchFunction, TOpenFunction>>(
-            menu, match, open);
+    return std::make_shared<GenericFileHandler<TMatchFunction, TOpenFunction>>
+    (
+        menu,
+        match,
+        open
+    );
 }
 
 struct FileHandlerList
@@ -393,7 +412,7 @@ struct FileHandlerList
     }
 
     bool
-    Open(Windows* windows, const std::string& path)
+    Open(Windows* windows, const vfs::FilePath& path)
     {
         for(auto& handler: handlers)
         {
@@ -408,15 +427,21 @@ struct FileHandlerList
     }
 
     void
-    RunImguiSelectable(Windows* windows, const std::string& path)
+    RunImguiSelectable(Windows* windows, const std::optional<vfs::FilePath>& path)
     {
-        // todo: come up with a better name for this function
+        // todo(Gustav): come up with a better name for this function
         for(auto& handler: handlers)
         {
-            if(ImguiSelectableOrDisabled(
-                       !path.empty(), handler->context_menu.c_str()))
+            if
+            (
+                ImguiSelectableOrDisabled
+                (
+                    path.has_value(),
+                    handler->context_menu.c_str()
+                )
+            )
             {
-                handler->Open(windows, path);
+                handler->Open(windows, path.value());
             }
         }
     }
@@ -435,8 +460,15 @@ main(int argc, char* argv[])
     int window_width  = 1280;
     int window_height = 720;
 
-    if(!engine.CreateWindow(
-               "Euphoria Editor", window_width, window_height, true))
+    if(
+        !engine.CreateWindow
+        (
+            "Euphoria Editor",
+            window_width,
+            window_height,
+            true
+        )
+    )
     {
         return -1;
     }
@@ -453,75 +485,121 @@ main(int argc, char* argv[])
     FileBrowser browser {engine.file_system.get()};
     browser.Refresh();
     std::vector<std::shared_ptr<GenericWindow>> windows;
-    StyleData                                   style_data = StyleData {};
-    FileHandlerList                             file_types;
+    StyleData style_data = StyleData {};
+    FileHandlerList file_types;
 
     //////////////////////////////////////////////////////////////////////////////
     // File types
 
-    file_types.Add(CreateHandler(
+    file_types.Add
+    (
+        CreateHandler
+        (
             "Open with Game Data",
-            [](const std::string& file) -> bool {
-                return file == "gamedata.json";
+            [](const vfs::FilePath& file) -> bool
+            {
+                return file.path == "~/gamedata.json";
             },
-            [&](Windows* windows, const std::string& file) {
-                OpenOrFocusOnGenericWindow<game::Game>(
-                        windows,
-                        file,
-                        engine.file_system.get(),
-                        "Game",
-                        [](auto* s) { game::RunImgui(s); });
-            }));
+            [&](Windows* windows, const vfs::FilePath& file)
+            {
+                OpenOrFocusOnGenericWindow<game::Game>
+                (
+                    windows,
+                    file,
+                    engine.file_system.get(),
+                    "Game",
+                    [](auto* s) { game::RunImgui(s); }
+                );
+            }
+        )
+    );
 
-    file_types.Add(CreateHandler(
+    file_types.Add
+    (
+        CreateHandler
+        (
             "Open with World Editor",
-            [](const std::string& file) -> bool {
-                return file == "world.json";
+            [](const vfs::FilePath& file) -> bool
+            {
+                return file.path == "~/world.json";
             },
-            [&](Windows* windows, const std::string& file) {
-                OpenOrFocusOnGenericWindow<world::World>(
-                        windows,
-                        file,
-                        engine.file_system.get(),
-                        "World",
-                        [](auto* s) { world::RunImgui(s); });
-            }));
-    file_types.Add(CreateHandler(
+            [&](Windows* windows, const vfs::FilePath& file)
+            {
+                OpenOrFocusOnGenericWindow<world::World>
+                (
+                    windows,
+                    file,
+                    engine.file_system.get(),
+                    "World",
+                    [](auto* s) { world::RunImgui(s); }
+                );
+            }
+        )
+    );
+    file_types.Add
+    (
+        CreateHandler
+        (
             "Open with Enum Editor",
-            [](const std::string&) -> bool { return false; },
-            [&](Windows* windows, const std::string& file) {
-                OpenOrFocusOnGenericWindow<enumlist::Enumroot>(
-                        windows,
-                        file,
-                        engine.file_system.get(),
-                        "Enums",
-                        [](auto* s) { enumlist::RunImgui(s); });
-            }));
+            [](const vfs::FilePath&) -> bool { return false; },
+            [&](Windows* windows, const vfs::FilePath& file)
+            {
+                OpenOrFocusOnGenericWindow<enumlist::Enumroot>
+                (
+                    windows,
+                    file,
+                    engine.file_system.get(),
+                    "Enums",
+                    [](auto* s) { enumlist::RunImgui(s); }
+                );
+            }
+        )
+    );
 
-    file_types.Add(CreateHandler(
+    file_types.Add
+    (
+        CreateHandler
+        (
             "Open with text editor",
-            [](const std::string& file) -> bool {
-                return EndsWith(file, ".json") || EndsWith(file, ".js");
+            [](const vfs::FilePath& file) -> bool
+            {
+                return EndsWith(file.path, ".json") || EndsWith(file.path, ".js");
             },
-            [&](Windows* windows, const std::string& file) {
+            [&](Windows* windows, const vfs::FilePath& file)
+            {
                 OpenOrFocusTextFile(windows, file, engine.file_system.get());
-            }));
+            }
+        )
+    );
 
-    file_types.Add(CreateHandler(
+    file_types.Add
+    (
+        CreateHandler
+        (
             "Open with scimed editor",
-            [](const std::string& file) -> bool {
-                return EndsWith(file, ".png");
+            [](const vfs::FilePath& file) -> bool
+            {
+                return file.GetExtension() == "png";
             },
-            [&](Windows* windows, const std::string& file) {
+            [&](Windows* windows, const vfs::FilePath& file)
+            {
                 OpenOrFocusScimed(windows, file, &texture_cache, &sprite_cache);
-            }));
+            }
+        )
+    );
 
-    file_types.Add(CreateHandler(
+    file_types.Add
+    (
+        CreateHandler
+        (
             "Open with auto scimed editor",
-            [](const std::string&) -> bool { return false; },
-            [&](Windows* windows, const std::string& file) {
+            [](const vfs::FilePath&) -> bool { return false; },
+            [&](Windows* windows, const vfs::FilePath& file)
+            {
                 OpenOrFocusScimedEditior(windows, file, &sprite_cache);
-            }));
+            }
+        )
+    );
 
     //////////////////////////////////////////////////////////////////////////////
     // main loop
@@ -617,7 +695,10 @@ main(int argc, char* argv[])
             if(browser.Run())
             {
                 const auto file = browser.GetSelectedFile();
-                file_types.Open(&windows, file);
+                if(file.has_value())
+                {
+                    file_types.Open(&windows, file.value());
+                }
             }
             if(ImGui::BeginPopupContextItem("browser popup"))
             {
@@ -643,10 +724,14 @@ main(int argc, char* argv[])
         engine.init->ClearScreen(Color::LightGray);
         engine.imgui->Render();
 
-        RemoveMatching(
-                &windows, [](const std::shared_ptr<GenericWindow>& window) {
-                    return !window->open;
-                });
+        RemoveMatching
+        (
+            &windows,
+            [](const std::shared_ptr<GenericWindow>& window)
+            {
+                return !window->open;
+            }
+        );
 
         SDL_GL_SwapWindow(engine.window->window);
     }

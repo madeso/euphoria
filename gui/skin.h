@@ -3,9 +3,12 @@
 
 #include <string>
 #include <memory>
+#include <optional>
 
 #include "core/rgb.h"
 #include "core/interpolate.h"
+#include "core/vfs_path.h"
+
 
 namespace euphoria::render
 {
@@ -15,42 +18,42 @@ namespace euphoria::render
 
 namespace euphoria::gui
 {
+    struct Interpolation
+    {
+        core::InterpolationType type = core::InterpolationType::Linear;
+        float time = 0.0f;
+    };
+
+
     struct ButtonState
     {
     public:
-        ButtonState();
-        ~ButtonState();
-
         // std::string image;
-        float     scale;
-        core::Rgb image_color;
-        core::Rgb text_color;
-        float     dx;
-        float     dy;
+        float scale = 0;
+        core::Rgb image_color {0.0f};
+        core::Rgb text_color {1.0f};
+        float dx = 0;
+        float dy = 0;
 
-        core::InterpolationType interpolationPosition;
-        float                   interpolationPositionTime;
-
-        core::InterpolationType interpolationColor;
-        float                   interpolationColorTime;
-
-        core::InterpolationType interpolationSize;
-        float                   interpolationSizeTime;
+        Interpolation interpolation_position;
+        Interpolation interpolation_color;
+        Interpolation interpolation_size;
     };
+
 
     struct Skin
     {
     public:
-        Skin();
         ~Skin();
 
         std::string name;
 
         std::shared_ptr<render::Font> font;
 
-        float text_size;
+        float text_size = 30.0f;
 
-        std::string button_image;
+        std::optional<core::vfs::FilePath> button_image;
+
         ButtonState button_idle;
         ButtonState button_hot;
         ButtonState button_active_hot;
