@@ -170,7 +170,9 @@ namespace euphoria::core
         {
             ASSERT(!ext.empty());
             ASSERTX(ext[0]!='.' && *ext.rbegin()!='.', ext);
-            const auto dot = path.find('.', 1);
+            const auto slash = path.rfind('/');
+            ASSERTX(slash != std::string::npos, path, ext);
+            const auto dot = path.find('.', slash);
             if(dot == std::string::npos)
             {
                 return FilePath{path + "." + ext};

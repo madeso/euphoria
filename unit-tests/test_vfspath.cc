@@ -234,6 +234,16 @@ TEST_CASE("vfspath-file-constructor", "[vfspath]")
         CHECK(file.GetExtension() == "txt");
     }
 
+    SECTION("dotdot-file-txt")
+    {
+        const auto file = vfs::FilePath{"./../file.txt"};
+        const auto [dir, name] = file.SplitDirectoriesAndFile();
+        CHECK(dir.path == "./../");
+        CHECK(name == "file.txt");
+        CHECK(file.GetFilenameWithoutExtension() == "file");
+        CHECK(file.GetExtension() == "txt");
+    }
+
     SECTION("relative-no-ext")
     {
         const auto file = vfs::FilePath{"./cat"};
@@ -293,6 +303,14 @@ TEST_CASE("vfspath-file-change_ext", "[vfspath]")
             "good"
         );
         CHECK(file.path == "~/dogs/dog.good");
+    }
+    SECTION("dot dot ext")
+    {
+        const auto file = vfs::FilePath{"./../dog.exe"}.SetExtensionCopy
+        (
+            "good"
+        );
+        CHECK(file.path == "./../dog.good");
     }
     SECTION("root with ext")
     {

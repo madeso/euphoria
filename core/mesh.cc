@@ -437,7 +437,6 @@ namespace euphoria::core
                 if(ext == c.old_ext)
                 {
                     const auto new_path = path->SetExtensionCopy(c.new_ext);
-                    LOG_INFO("Changing extension from {0} to {1}", *path, new_path);
                     *path = new_path;
                     return;
                 }
