@@ -27,6 +27,7 @@
 #include "render/materialshadercache.h"
 #include "render/defaultfiles.h"
 #include "render/actor.h"
+#include "render/viewporthandler.h"
 
 #include "window/imguilibrary.h"
 #include "window/timer.h"
@@ -76,6 +77,9 @@ main(int argc, char** argv)
         return -1;
     }
 
+    ViewportHandler viewport_handler;
+
+    {
     int width  = 1280;
     int height = 720;
 
@@ -83,10 +87,8 @@ main(int argc, char** argv)
     {
         return -1;
     }
-
-    Viewport viewport {
-            Recti::FromWidthHeight(width, height).SetBottomLeftToCopy(0, 0)};
-    viewport.Activate();
+    viewport_handler.SetSize(width, height);
+    }
 
     MaterialShaderCache material_shader_cache {engine.file_system.get()};
 
@@ -358,6 +360,14 @@ main(int argc, char** argv)
             {
                 engine.imgui->ProcessEvents(&e);
             }
+            {
+                int window_width = 800;
+                int window_height = 600;
+                if(engine.HandleResize(e, &window_width, &window_height))
+                {
+                    viewport_handler.SetSize(window_width, window_height);
+                }
+            }
             switch(e.type)
             {
             case SDL_QUIT: running = false; break;
@@ -411,7 +421,7 @@ main(int argc, char** argv)
         camera.rotation = fps.GetRotation();
 
         engine.init->ClearScreen(Color::Black);
-        world.Render(viewport, camera);
+        world.Render(viewport_handler.GetFullViewport(), camera);
 
         if(show_imgui)
         {
