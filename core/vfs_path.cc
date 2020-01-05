@@ -344,8 +344,12 @@ namespace euphoria::core
         std::optional<DirPath>
         ResolveRelative(const DirPath& base, const DirPath& root)
         {
-            ASSERT(base.IsRelative());
-            return ResolveRelative(Join(root, base));
+            ASSERTX(root.IsRelative() == false, root);
+            const auto path
+                = base.IsRelative()
+                ? Join(root, base)
+                : base;
+            return ResolveRelative(path);
         }
 
 

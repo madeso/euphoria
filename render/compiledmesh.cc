@@ -249,18 +249,19 @@ namespace euphoria::render
             // todo(Gustav): determine a better default shader name
             // perhaps by setting a few default shaders on a "project" and
             // we try to match a shader to the object
-            const auto shader_name
-                = material_src.shader.has_value()
-                ? material_src.shader.value()
-                : core::vfs::FilePath("~/default_shader")
-                ;
+            const auto shader_name = material_src.shader.value_or
+            (
+                core::vfs::FilePath("~/default_shader")
+            );
             mat.shader = shader_cache->Get(shader_name);
             for(const auto& texture_src: material_src.textures)
             {
-                const auto texture_path = texture_folder.GetFile
+                const auto texture_path = core::vfs::ResolveRelative
                 (
-                    texture_src.path
+                    core::vfs::FilePath{texture_src.path},
+                    texture_folder
                 );
+                ASSERTX(texture_path.has_value(), texture_src.path, texture_folder);
                 auto texture = texture_cache->GetTexture(texture_path);
                 mat.SetTexture(texture_src.type, texture);
             }

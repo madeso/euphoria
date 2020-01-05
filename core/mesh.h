@@ -20,6 +20,7 @@ namespace euphoria::core
         struct FilePath;
     }
 
+
     enum class WrapMode
     {
         REPEAT,
@@ -27,16 +28,20 @@ namespace euphoria::core
         MIRROR_REPEAT
     };
 
+
     struct MeshPoint
     {
-        MeshPoint(
-                const vec3f& a_vertex,
-                const vec3f& a_normal,
-                const vec2f& a_uv);
+        MeshPoint
+        (
+            const vec3f& a_vertex,
+            const vec3f& a_normal,
+            const vec2f& a_uv
+        );
         vec3f vertex;
         vec3f normal;
         vec2f uv;
     };
+
 
     struct MeshFace
     {
@@ -45,6 +50,7 @@ namespace euphoria::core
         int b;
         int c;
     };
+
 
     struct MeshPart
     {
@@ -58,21 +64,25 @@ namespace euphoria::core
         CalculateAabb() const;
     };
 
+
     struct MaterialTexture
     {
-        MaterialTexture(std::string p, EnumValue t);
-        std::string path;
+        MaterialTexture(const vfs::FilePath& p, EnumValue t);
+        vfs::FilePath path;
         EnumValue   type;
     };
+
 
     struct Material
     {
         Material();
 
         void
-        SetTexture(
-                const std::string& texture_name,
-                const std::string& texture_path);
+        SetTexture
+        (
+            const std::string& texture_name,
+            const vfs::FilePath& texture_path
+        );
 
         std::string name;
 
@@ -85,11 +95,12 @@ namespace euphoria::core
 
         float shininess;
 
-        float                        alpha;
+        float alpha;
         std::vector<MaterialTexture> textures;
-        WrapMode                     wraps;
-        WrapMode                     wrapt;
+        WrapMode wraps;
+        WrapMode wrapt;
     };
+
 
     struct Mesh
     {
@@ -100,11 +111,13 @@ namespace euphoria::core
         CalculateAabb() const;
     };
 
+
     struct MeshLoadResult
     {
         Mesh        mesh;
         std::string error;
     };
+
 
     namespace meshes
     {

@@ -19,18 +19,30 @@
 
 #include "gaf_mesh.h"
 
+
 namespace euphoria::core
 {
     LOG_SPECIFY_DEFAULT_LOGGER("core.mesh")
 
-    MeshPoint::MeshPoint(
-            const vec3f& a_vertex,
-            const vec3f& a_normal,
-            const vec2f& a_uv)
-        : vertex(a_vertex), normal(a_normal), uv(a_uv)
+
+    MeshPoint::MeshPoint
+    (
+        const vec3f& a_vertex,
+        const vec3f& a_normal,
+        const vec2f& a_uv
+    )
+        : vertex(a_vertex)
+        , normal(a_normal)
+        , uv(a_uv)
     {}
 
-    MeshFace::MeshFace(int a_a, int a_b, int a_c) : a(a_a), b(a_b), c(a_c) {}
+
+    MeshFace::MeshFace(int a_a, int a_b, int a_c)
+        : a(a_a)
+        , b(a_b)
+        , c(a_c)
+    {}
+
 
     template <typename K, typename V>
     std::vector<K>
@@ -59,9 +71,12 @@ namespace euphoria::core
         return aabb;
     }
 
-    MaterialTexture::MaterialTexture(std::string p, EnumValue t)
-        : path(std::move(p)), type(t)
+
+    MaterialTexture::MaterialTexture(const vfs::FilePath& p, EnumValue t)
+        : path(p)
+        , type(t)
     {}
+
 
     Material::Material()
         : name("unknown_material")
@@ -75,14 +90,18 @@ namespace euphoria::core
         , wrapt(WrapMode::REPEAT)
     {}
 
+
     void
-    Material::SetTexture(
-            const std::string& texture_name,
-            const std::string& texture_path)
+    Material::SetTexture
+    (
+        const std::string& texture_name,
+        const vfs::FilePath& texture_path
+    )
     {
         DEFINE_ENUM_VALUE(TextureType, texture_type, texture_name);
         textures.emplace_back(texture_path, texture_type);
     }
+
 
     Aabb
     Mesh::CalculateAabb() const
@@ -97,24 +116,31 @@ namespace euphoria::core
         return aabb;
     }
 
+
     namespace  // local
     {
         DEFINE_ENUM_VALUE(TextureType, DiffuseType, "Diffuse");  // NOLINT
     }  // namespace
 
+
     namespace
     {
         const unsigned int AssimpFlags
-                = aiProcess_CalcTangentSpace | aiProcess_Triangulate
-                  | aiProcess_SortByPType | aiProcess_FlipUVs
-                  | aiProcess_GenUVCoords | aiProcess_TransformUVCoords
-                  | aiProcess_OptimizeMeshes
-                  | aiProcess_RemoveRedundantMaterials
-                  | aiProcess_PreTransformVertices
-                  | aiProcess_ImproveCacheLocality | aiProcess_FindDegenerates
-                  | aiProcess_JoinIdenticalVertices
-                  | aiProcess_ValidateDataStructure | aiProcess_GenSmoothNormals
-                  | aiProcess_FindInvalidData;
+                = aiProcess_CalcTangentSpace
+                | aiProcess_Triangulate
+                | aiProcess_SortByPType
+                | aiProcess_FlipUVs
+                | aiProcess_GenUVCoords
+                | aiProcess_TransformUVCoords
+                | aiProcess_OptimizeMeshes
+                | aiProcess_RemoveRedundantMaterials
+                | aiProcess_PreTransformVertices
+                | aiProcess_ImproveCacheLocality
+                | aiProcess_FindDegenerates
+                | aiProcess_JoinIdenticalVertices
+                | aiProcess_ValidateDataStructure
+                | aiProcess_GenSmoothNormals
+                | aiProcess_FindInvalidData;
 
         WrapMode
         GetTextureWrappingMode(const int mode)
@@ -130,11 +156,13 @@ namespace euphoria::core
             }
         }
 
+
         Rgb
         C(const aiColor3D c)
         {
             return Rgb {c.r, c.g, c.b};
         }
+
 
         void
         AddMaterials(Mesh* ret, const aiScene* scene)
@@ -155,8 +183,11 @@ namespace euphoria::core
                 {
                     aiString texture;
                     mat->GetTexture(aiTextureType_DIFFUSE, 0, &texture);
-                    material.textures.emplace_back(
-                            texture.C_Str(), DiffuseType);
+                    material.textures.emplace_back
+                    (
+                        core::vfs::FilePath::FromScript(texture.C_Str()),
+                        DiffuseType
+                    );
                 }
 
                 aiString ai_name;
@@ -204,6 +235,7 @@ namespace euphoria::core
             }
         }
 
+
         void
         AddFaces(MeshPart* part, const aiMesh* mesh)
         {
@@ -223,6 +255,7 @@ namespace euphoria::core
                 });
             }
         }
+
 
         void
         AddPoints(MeshPart* part, const aiMesh* mesh)
@@ -250,6 +283,7 @@ namespace euphoria::core
             }
         }
 
+
         MeshPart
         ConvertMesh(const aiMesh* mesh)
         {
@@ -261,6 +295,7 @@ namespace euphoria::core
 
             return part;
         }
+
 
         Mesh
         ConvertScene(const aiScene* scene, const std::string& file_name)
@@ -295,6 +330,7 @@ namespace euphoria::core
 
             return ret;
         }
+
 
         // http://assimp.sourceforge.net/howtoBasicShapes.html
         Mesh
@@ -346,10 +382,15 @@ namespace euphoria::core
                 auto* other = found->second;
                 for(const auto& src_texture: material.textures)
                 {
-                    other->SetTexture(src_texture.type, src_texture.path);
+                    other->SetTexture
+                    (
+                        src_texture.type,
+                        core::vfs::FilePath::FromScript(src_texture.path)
+                    );
                 }
             }
         }
+
 
         void
         DecorateMeshMaterialsIgnoreAmbient(Mesh* mesh)
@@ -359,6 +400,7 @@ namespace euphoria::core
                 material.ambient = material.diffuse;
             }
         }
+
 
         void
         DecorateMesh
@@ -386,6 +428,7 @@ namespace euphoria::core
             }
         }
     }  // namespace
+
 
     namespace meshes
     {
@@ -442,6 +485,7 @@ namespace euphoria::core
             {
             }
         };
+
         
         struct FilesystemForAssimp : public Assimp::IOSystem
         {
@@ -518,11 +562,13 @@ namespace euphoria::core
             return res;
         }
 
+
         Mesh
         CreateCube(float size)
         {
             return CreateBox(size, size, size);
         }
+
 
         Mesh
         CreateSphere(float size, const std::string& texture)
@@ -532,29 +578,22 @@ namespace euphoria::core
             return LoadFromString(ss.str(), FileFormatNff);
         }
 
+
         Mesh
         CreateBox(float width, float height, float depth)
         {
-            const float        x = width / 2;
-            const float        y = height / 2;
-            const float        z = depth / 2;
+            const float x = width / 2;
+            const float y = height / 2;
+            const float z = depth / 2;
             std::ostringstream ss;
-            ss << "v " << -x << " "
-               << " " << -y << " " << -z << std::endl
-               << "v " << -x << " "
-               << " " << -y << " " << z << std::endl
-               << "v " << -x << " "
-               << " " << y << " " << -z << std::endl
-               << "v " << -x << " "
-               << " " << y << " " << z << std::endl
-               << "v " << x << " "
-               << " " << -y << " " << -z << std::endl
-               << "v " << x << " "
-               << " " << -y << " " << z << std::endl
-               << "v " << x << " "
-               << " " << y << " " << -z << std::endl
-               << "v " << x << " "
-               << " " << y << " " << z << std::endl
+            ss << "v " << -x << " " << " " << -y << " " << -z << std::endl
+               << "v " << -x << " " << " " << -y << " " << z << std::endl
+               << "v " << -x << " " << " " << y << " " << -z << std::endl
+               << "v " << -x << " " << " " << y << " " << z << std::endl
+               << "v " << x << " " << " " << -y << " " << -z << std::endl
+               << "v " << x << " " << " " << -y << " " << z << std::endl
+               << "v " << x << " " << " " << y << " " << -z << std::endl
+               << "v " << x << " " << " " << y << " " << z << std::endl
                << "" << std::endl
                << "vt 0 0" << std::endl
                << "vt 0 1" << std::endl

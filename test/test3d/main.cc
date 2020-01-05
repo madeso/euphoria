@@ -68,10 +68,10 @@ struct CubeAnimation
 // 3d demo
 
 int
-main(int, char**)
+main(int argc, char** argv)
 {
     Engine engine;
-    if(!engine.Setup())
+    if(!engine.Setup(argparse::Args::Extract(argc, argv)))
     {
         return -1;
     }
@@ -91,8 +91,12 @@ main(int, char**)
     MaterialShaderCache material_shader_cache {engine.file_system.get()};
 
     // SET_ENUM_VALUES(TextureType, SetupTextureNames);
-    SET_ENUM_FROM_FILE(
-            engine.file_system.get(), "texture_types.json", TextureType);
+    SET_ENUM_FROM_FILE
+    (
+        engine.file_system.get(),
+        vfs::FilePath{"~/texture_types.json"},
+        TextureType
+    );
 
     Image image;
     image.SetupNoAlphaSupport(256, 256);
@@ -103,21 +107,26 @@ main(int, char**)
     for(int i = 0; i < 20; i += 1)
     {
         const Rgb  color = rgb(palette::Dawnbringer().GetRandomColor(&random));
-        const auto pos   = wi.RandomPoint(&random);
+        const auto pos = wi.RandomPoint(&random);
         const auto outer = random.NextRange(55.0f, 100.0f);
         const auto inner = random.Next(MakeRange(50.0f));
         DrawCircle(&image, color, pos, outer, 10, inner);
     }
     DrawLineAntialiased(&image, Color::Black, wi.TopLeft(), wi.BottomRight());
-    DrawRect(
-            &image,
-            Color::Blue,
-            Recti::FromTopLeftWidthHeight(256, 0, 100, 25));
+    DrawRect
+    (
+        &image,
+        Color::Blue,
+        Recti::FromTopLeftWidthHeight(256, 0, 100, 25)
+    );
     DrawLineAntialiased(&image, Color::Black, wi.BottomLeft(), wi.TopRight());
     // todo: fix text drawing...
     // DrawText(&image, vec2i(0, 0), "Hello world", Color::Black, 2);
-    engine.catalog->RegisterFileData(
-            "image", image.Write(ImageWriteFormat::PNG));
+    engine.catalog->RegisterFileData
+    (
+        vfs::FilePath{"~/image"},
+        image.Write(ImageWriteFormat::PNG)
+    );
 
     TextureCache texture_cache {engine.file_system.get()};
 
@@ -128,45 +137,51 @@ main(int, char**)
     auto world = World {};
 
     auto box_mesh1 = meshes::CreateCube(0.5f);
-    box_mesh1.materials[0].SetTexture("Diffuse", "container2.png");
-    box_mesh1.materials[0].SetTexture("Specular", "container2_specular.png");
-    box_mesh1.materials[0].ambient
-            = Color::White;  // fix ambient color on material
-    box_mesh1.materials[0].specular  = Color::White;
+    box_mesh1.materials[0].SetTexture("Diffuse", vfs::FilePath{"./container2.png"});
+    box_mesh1.materials[0].SetTexture("Specular", vfs::FilePath{"./container2_specular.png"});
+    box_mesh1.materials[0].ambient = Color::White;  // fix ambient color on material
+    box_mesh1.materials[0].specular = Color::White;
     box_mesh1.materials[0].shininess = 120.0f;
-    auto box1                        = CompileMesh(
-            box_mesh1,
-            &material_shader_cache,
-            &texture_cache,
-            vfs::Path::FromRoot());
+    auto box1 = CompileMesh
+    (
+        box_mesh1,
+        &material_shader_cache,
+        &texture_cache,
+        vfs::DirPath::FromRoot()
+    );
 
     auto box_mesh2 = meshes::CreateSphere(0.5f, "image");
-    box_mesh2.materials[0].SetTexture("Specular", "img-plain/white");
-    box_mesh2.materials[0].ambient
-            = Color::White;  // fix ambient color on material
+    box_mesh2.materials[0].SetTexture("Specular", vfs::FilePath{"./img-plain/white"});
+    box_mesh2.materials[0].ambient = Color::White;  // fix ambient color on material
     box_mesh2.materials[0].specular  = Color::White;
     box_mesh2.materials[0].shininess = 10.0f;
-    auto box2                        = CompileMesh(
-            box_mesh2,
-            &material_shader_cache,
-            &texture_cache,
-            vfs::Path::FromRoot());
+    auto box2 = CompileMesh
+    (
+        box_mesh2,
+        &material_shader_cache,
+        &texture_cache,
+        vfs::DirPath::FromRoot()
+    );
 
-    auto debug_texture = texture_cache.GetTexture("image");
+    auto debug_texture = texture_cache.GetTexture(vfs::FilePath{"~/image"});
 
-    auto light_mesh                = meshes::CreateCube(0.2f);
-    light_mesh.materials[0].shader = "basic_shader";
-    auto light                     = CompileMesh(
-            light_mesh,
-            &material_shader_cache,
-            &texture_cache,
-            vfs::Path::FromRoot());
+    auto light_mesh = meshes::CreateCube(0.2f);
+    light_mesh.materials[0].shader = vfs::FilePath{"~/basic_shader"};
+    auto light = CompileMesh
+    (
+        light_mesh,
+        &material_shader_cache,
+        &texture_cache,
+        vfs::DirPath::FromRoot()
+    );
     float light_position = 0.0f;
 
     const float box_extent_value = 4;
-    Aabb        box_extents {
-            vec3f {-box_extent_value, -box_extent_value, -box_extent_value},
-            vec3f {box_extent_value, box_extent_value, box_extent_value}};
+    auto box_extents = Aabb
+    {
+        vec3f{-box_extent_value, -box_extent_value, -box_extent_value},
+        vec3f{box_extent_value, box_extent_value, box_extent_value}
+    };
 
     std::vector<CubeAnimation> animation_handler;
 
@@ -177,17 +192,16 @@ main(int, char**)
 
     for(int i = 0; i < 20; ++i)
     {
-        std::shared_ptr<Actor> actor
-                = std::make_shared<Actor>(random.NextBool() ? box1 : box2);
+        auto actor = std::make_shared<Actor>(random.NextBool() ? box1 : box2);
         world.AddActor(actor);
 
         CubeAnimation anim;
-        anim.actor          = actor;
-        anim.from           = quatf::FromRandom(&random);
-        anim.to             = quatf::FromRandom(&random);
+        anim.actor = actor;
+        anim.from = quatf::FromRandom(&random);
+        anim.to = quatf::FromRandom(&random);
         anim.rotation_speed = random.NextRange(0.5f, 1.0f);
-        anim.move_speed     = random.NextRange(0.5f, 1.0f);
-        anim.timer          = random.NextFloat01();
+        anim.move_speed = random.NextRange(0.5f, 1.0f);
+        anim.timer = random.NextFloat01();
 
 
         // generate a position not too close to the center
@@ -242,8 +256,11 @@ main(int, char**)
 
             ImGui::SetNextWindowPos(ImVec2(650, 20), ImGuiCond_FirstUseEver);
 
-            ImGui::SetNextWindowSize(
-                    ImVec2(200, 100), ImGuiCond_FirstUseEver);
+            ImGui::SetNextWindowSize
+            (
+                ImVec2(200, 100),
+                ImGuiCond_FirstUseEver
+            );
             ImGui::Begin("Light");
             ImGui::Combo
             (
@@ -286,12 +303,13 @@ main(int, char**)
             light_material.shininess = 10;
         }
 
-        light_position
-                = Wrap(MakeRange<float>(0, 1), light_position + delta * 0.1f);
-        const auto light_pos = vec3f::Zero()
-                               + PolarCoord {light_position, light_position * 2}
-                                                 .ToUnitVector()
-                                         * 2.0f;
+        light_position = Wrap
+        (
+            MakeRange<float>(0, 1),
+            light_position + delta * 0.1f
+        );
+        const auto light_pc = PolarCoord{light_position, light_position * 2};
+        const auto light_pos = light_pc.ToUnitVector() * 2.0f;
         light_actor->SetPosition(light_pos);
 
         switch(light_update)
@@ -316,19 +334,20 @@ main(int, char**)
                 {
                     count += 1;
                     anim.timer -= 1.0f;
-                    anim.from           = anim.to;
-                    anim.to             = quatf::FromRandom(&random);
+                    anim.from = anim.to;
+                    anim.to = quatf::FromRandom(&random);
                     anim.rotation_speed = random.NextRange(0.3f, 1.0f);
-                    anim.move_speed     = random.NextRange(0.2f, 3.0f);
+                    anim.move_speed = random.NextRange(0.2f, 3.0f);
                 }
                 ASSERT(count < 2);
                 quatf q = quatf::SlerpShortway(anim.from, anim.timer, anim.to);
                 anim.actor->SetRotation(q);
                 const auto movement = q.In() * anim.move_speed * delta;
-                const auto new_pos  = box_extents.Wrap(
-                        anim.actor->GetPosition() + movement);
-                anim.actor->SetPosition(
-                        new_pos);  // hard to see movement when everything is moving
+                const auto new_pos  = box_extents.Wrap
+                (
+                    anim.actor->GetPosition() + movement
+                );
+                anim.actor->SetPosition(new_pos);  // hard to see movement when everything is moving
             }
         }
 

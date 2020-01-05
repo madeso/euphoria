@@ -49,7 +49,9 @@
 
 #include "gaf_game.h"
 
+
 LOG_SPECIFY_DEFAULT_LOGGER("engine")
+
 
 using namespace euphoria::core;
 using namespace euphoria::core::ecs;
@@ -59,11 +61,12 @@ using namespace euphoria::window;
 using namespace euphoria::engine;
 namespace duk = euphoria::duk;
 
+
 game::Game
 LoadGameData(vfs::FileSystem* fs)
 {
     game::Game game;
-    const auto err = LoadProtoJson(fs, &game, "gamedata.json");
+    const auto err = LoadProtoJson(fs, &game, vfs::FilePath{"~/gamedata.json"});
     if(!err.empty())
     {
         LOG_ERROR("Failed to load gamedata.json: {0}", err);
@@ -71,18 +74,23 @@ LoadGameData(vfs::FileSystem* fs)
     return game;
 }
 
+
 struct RunResult
 {
     bool        ok;
     std::string message;
 
-    [[nodiscard]] static const RunResult
+    [[nodiscard]]
+    static
+    const RunResult
     Ok()
     {
         return RunResult {true, ""};
     }
 
-    [[nodiscard]] static const RunResult
+    [[nodiscard]]
+    static
+    const RunResult
     Error(const std::string& message)
     {
         return RunResult {false, message};
@@ -93,7 +101,7 @@ private:
 };
 
 RunResult
-RunMainScriptFile(duk::Duk* duk, vfs::FileSystem* fs, const std::string& path)
+RunMainScriptFile(duk::Duk* duk, vfs::FileSystem* fs, const vfs::FilePath& path)
 {
     std::string content;
     const bool  loaded = fs->ReadFileToString(path, &content);
@@ -105,7 +113,7 @@ RunMainScriptFile(duk::Duk* duk, vfs::FileSystem* fs, const std::string& path)
         return RunResult::Error(error_message);
     }
     std::string error;
-    const bool  eval = duk->EvalString(content, path, &error, nullptr);
+    const bool  eval = duk->EvalString(content, path.path, &error, nullptr);
     if(!eval)
     {
         const std::string error_message = Str() << "Failed to run " << path
@@ -136,17 +144,26 @@ struct ViewportHandler
     {
         if(shaders_too)
         {
-            const mat4f projection = init->GetOrthoProjection(
-                    vp.virtual_width, vp.virtual_height);
+            const mat4f projection = init->GetOrthoProjection
+            (
+                vp.virtual_width,
+                vp.virtual_height
+            );
             for(auto* shader: shaders)
             {
-                shader->SetUniform(
-                        shader->GetUniform("projection"), projection);
+                shader->SetUniform
+                (
+                    shader->GetUniform("projection"),
+                    projection
+                );
             }
         }
 
-        camera->screen
-                = Rectf::FromWidthHeight(vp.virtual_width, vp.virtual_height);
+        camera->screen = Rectf::FromWidthHeight
+        (
+            vp.virtual_width,
+            vp.virtual_height
+        );
 
         Viewport viewport {vp.screen_rect};
         viewport.Activate();
@@ -159,18 +176,29 @@ GetViewport(const game::Viewport& vp, int window_width, int window_height)
     switch(vp.type)
     {
     case game::ViewportType::FitWithBlackBars:
-        return ViewportDef::FitWithBlackBars(
-                vp.width, vp.height, window_width, window_height);
+        return ViewportDef::FitWithBlackBars
+        (
+            vp.width,
+            vp.height,
+            window_width,
+            window_height
+        );
     case game::ViewportType::ScreenPixel:
         return ViewportDef::ScreenPixel(window_width, window_height);
     case game::ViewportType::Extend:
-        return ViewportDef::Extend(
-                vp.width, vp.height, window_width, window_height);
+        return ViewportDef::Extend
+        (
+            vp.width,
+            vp.height,
+            window_width,
+            window_height
+        );
     default:
         DIE("Unhandled viewport case");
         return ViewportDef::ScreenPixel(window_width, window_height);
     }
 }
+
 
 Rgb
 GetColor(std::shared_ptr<game::Color> c)
@@ -189,7 +217,9 @@ GetColor(std::shared_ptr<game::Color> c)
     return Color::CornflowerBlue;
 }
 
+
 // engine
+
 
 int
 main(int argc, char* argv[])
@@ -200,26 +230,36 @@ main(int argc, char* argv[])
         return -1;
     }
 
-    engine.file_system->SetWrite(std::make_shared<vfs::FileSystemWriteFolder>(
-            GetCurrentDirectory()));
+    engine.file_system->SetWrite
+    (
+        std::make_shared<vfs::FileSystemWriteFolder>(GetCurrentDirectory())
+    );
 
     TextureCache cache {engine.file_system.get()};
 
-    game::Game gamedata    = LoadGameData(engine.file_system.get());
+    game::Game gamedata = LoadGameData(engine.file_system.get());
     const auto clear_color = GetColor(gamedata.clear_color);
 
     int window_width  = 800;
     int window_height = 600;
 
-    if(engine.CreateWindow(gamedata.title, window_width, window_height, true)
-       == false)
+    if
+    (
+        engine.CreateWindow
+        (
+            gamedata.title,
+            window_width,
+            window_height,
+            true
+        ) == false
+    )
     {
         return -1;
     }
 
     // todo: update theese during runtime
     std::string crash_message_string;
-    bool        has_crashed = false;
+    bool has_crashed = false;
 
     Input input;
 
@@ -237,7 +277,7 @@ main(int argc, char* argv[])
 
     Shader shader;
     attributes2d::PrebindShader(&shader);
-    shader.Load(engine.file_system.get(), "shaders/sprite");
+    shader.Load(engine.file_system.get(), vfs::FilePath{"~/shaders/sprite"});
     SpriteRenderer renderer(&shader);
     FontCache      font_cache {engine.file_system.get(), &cache};
 
@@ -257,35 +297,52 @@ main(int argc, char* argv[])
     LoadTemplatesButOnlyNames(gamedata, &templates);
     CameraData camera_data;
 
-    DukIntegration integration {
-            &systems, &world, &duk, &templates, &components, &camera_data};
+    auto integration = DukIntegration
+    {
+        &systems,
+        &world,
+        &duk,
+        &templates,
+        &components,
+        &camera_data
+    };
     const auto error_run_main
-            = RunMainScriptFile(&duk, engine.file_system.get(), "main.js");
+            = RunMainScriptFile(&duk, engine.file_system.get(), vfs::FilePath{"~/main.js"});
     if(!error_run_main.ok)
     {
         has_crashed          = true;
         crash_message_string = error_run_main.message;
     }
-    LoadTemplates(
-            gamedata, &templates, &integration.Registry(), &cache, &components);
+    LoadTemplates
+    (
+        gamedata,
+        &templates,
+        &integration.Registry(),
+        &cache,
+        &components
+    );
 
     Use(&shader);
     shader.SetUniform(shader.GetUniform("image"), 0);
 
-    ViewportHandler viewport_handler {engine.init.get(), &camera_data};
+    auto viewport_handler = ViewportHandler{engine.init.get(), &camera_data};
     viewport_handler.Add(&shader);
 
-    viewport_handler.SetSize(
-            GetViewport(gamedata.viewport, window_width, window_height));
+    viewport_handler.SetSize
+    (
+        GetViewport(gamedata.viewport, window_width, window_height)
+    );
 
-    LoadWorld(
-            engine.file_system.get(),
-            &world,
-            &integration.Registry(),
-            "world.json",
-            &templates,
-            duk.AsContext(),
-            &duk);
+    LoadWorld
+    (
+        engine.file_system.get(),
+        &world,
+        &integration.Registry(),
+        vfs::FilePath{"~/world.json"},
+        &templates,
+        duk.AsContext(),
+        &duk
+    );
 
     Uint64 now  = SDL_GetPerformanceCounter();
     Uint64 last = 0;
@@ -305,10 +362,10 @@ main(int argc, char* argv[])
 
     while(running)
     {
-        last           = now;
-        now            = SDL_GetPerformanceCounter();
+        last = now;
+        now = SDL_GetPerformanceCounter();
         const float dt = (now - last) * 1.0f / SDL_GetPerformanceFrequency();
-        SDL_Event   e;
+        SDL_Event e;
 
         engine.imgui->StartNewFrame();
 
@@ -335,8 +392,15 @@ main(int argc, char* argv[])
             }
             if(engine.HandleResize(e, &window_width, &window_height))
             {
-                viewport_handler.SetSize(GetViewport(
-                        gamedata.viewport, window_width, window_height));
+                viewport_handler.SetSize
+                (
+                    GetViewport
+                    (
+                        gamedata.viewport,
+                        window_width,
+                        window_height
+                    )
+                );
             }
 
             if(has_crashed)
@@ -361,15 +425,15 @@ main(int argc, char* argv[])
                 else if(e.type == SDL_KEYUP || e.type == SDL_KEYDOWN)
                 {
                     const bool down = e.type == SDL_KEYDOWN;
-                    const auto key  = ToKey(e.key.keysym);
+                    const auto key = ToKey(e.key.keysym);
                     input.SetKeyState(key, down ? 1.0f : 0.0f);
                 }
                 else if(e.type == SDL_MOUSEBUTTONDOWN
                         || e.type == SDL_MOUSEBUTTONUP)
                 {
                     const bool down = e.type == SDL_MOUSEBUTTONDOWN;
-                    window_mouse_x  = e.button.x;
-                    window_mouse_y  = e.button.y;
+                    window_mouse_x = e.button.x;
+                    window_mouse_y = e.button.y;
                     if(e.button.button == SDL_BUTTON_LEFT)
                     {
                         mouse_lmb_down = down;
@@ -390,13 +454,17 @@ main(int argc, char* argv[])
         if(gamedata.viewport.type == game::ViewportType::FitWithBlackBars)
         {
             // LOG_INFO("Clearing black" << window_width << " " << window_height);
-            viewport_handler.SetSize(
-                    ViewportDef::ScreenPixel(window_width, window_height),
-                    false);
+            viewport_handler.SetSize
+            (
+                ViewportDef::ScreenPixel(window_width, window_height),
+                false
+            );
             engine.init->ClearScreen(Color::Black);
-            viewport_handler.SetSize(
-                    GetViewport(gamedata.viewport, window_width, window_height),
-                    false);
+            viewport_handler.SetSize
+            (
+                GetViewport(gamedata.viewport, window_width, window_height),
+                false
+            );
         }
 
         if(has_crashed)
