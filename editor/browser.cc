@@ -157,7 +157,6 @@ namespace euphoria::editor
                     );
                 }
 
-                // todo(Gustav): add file/directory icon
                 const auto icon = DetermineIconString(item);
                 const auto icon_and_name = icon + item.name;
                 const auto left_clicked_item = ImGui::Selectable
