@@ -39,11 +39,19 @@ namespace euphoria::core
 
         struct FilePath
         {
+            // apply only minor changes, return null on invalid
             static
-            FilePath
+            std::optional<FilePath>
             FromScript(const std::string& path);
 
 
+            // do everything possible to convert from dirty path to valid path
+            static
+            std::optional<FilePath>
+            FromDirtySource(const std::string& path);
+
+
+            // optional or not, log if error
             static
             std::optional<FilePath>
             FromScriptOrEmpty(const std::string& path);

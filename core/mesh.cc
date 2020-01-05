@@ -183,9 +183,19 @@ namespace euphoria::core
                 {
                     aiString texture;
                     mat->GetTexture(aiTextureType_DIFFUSE, 0, &texture);
+                    auto path = core::vfs::FilePath::FromDirtySource(texture.C_Str());
+                    if(path.has_value() == false)
+                    {
+                        LOG_WARN
+                        (
+                            "invalid diffuse texture for material {0}: {0}",
+                            material_id,
+                            texture.C_Str()
+                        );
+                    }
                     material.textures.emplace_back
                     (
-                        core::vfs::FilePath::FromScript(texture.C_Str()),
+                        path.value_or(core::vfs::FilePath{"~/image-plain/blue"}),
                         DiffuseType
                     );
                 }
@@ -347,8 +357,10 @@ namespace euphoria::core
             return ConvertScene(scene, "<nff_source>");
         }
 
+
         const char* const FileFormatNff = "nff";
         const char* const FileFormatObj = "obj";
+
 
         void
         DecorateMeshMaterials
@@ -382,10 +394,24 @@ namespace euphoria::core
                 auto* other = found->second;
                 for(const auto& src_texture: material.textures)
                 {
+                    auto path = core::vfs::FilePath::FromScript
+                    (
+                        src_texture.path
+                    );
+                    if(path.has_value() == false)
+                    {
+                        LOG_WARN
+                        (
+                            "Invalid path {0} in mesh {1}",
+                            src_texture.path,
+                            json_path
+                        );
+                        continue;
+                    }
                     other->SetTexture
                     (
                         src_texture.type,
-                        core::vfs::FilePath::FromScript(src_texture.path)
+                        path.value()
                     );
                 }
             }
@@ -398,6 +424,23 @@ namespace euphoria::core
             for(auto& material: mesh->materials)
             {
                 material.ambient = material.diffuse;
+            }
+        }
+
+
+        void
+        FixExtension(vfs::FilePath* path, const mesh::Folder& folder)
+        {
+            const auto ext = path->GetExtension();
+            for(auto c: folder.change_extensions)
+            {
+                if(ext == c.old_ext)
+                {
+                    const auto new_path = path->SetExtensionCopy(c.new_ext);
+                    LOG_INFO("Changing extension from {0} to {1}", *path, new_path);
+                    *path = new_path;
+                    return;
+                }
             }
         }
 
@@ -426,6 +469,33 @@ namespace euphoria::core
             {
                 DecorateMeshMaterials(mesh, json_path, json);
             }
+
+            const auto json_dir = json_path.GetDirectory();
+            const auto folder_path = json_dir.GetFile("folder.json");
+            mesh::Folder folder;
+            const auto folder_error = LoadProtoJson(fs, &folder, folder_path);
+            if(!folder_error.empty())
+            {
+                return;
+            }
+            if(folder.texture_override.empty())
+            {
+                return;
+            }
+            auto dir = vfs::DirPath{folder.texture_override};
+            if(dir.IsRelative()) { dir = vfs::Join(json_dir, dir); }
+
+            for(auto& m: mesh->materials)
+            {
+                for(auto& t: m.textures)
+                {
+                    const auto new_file = dir.GetFile(t.path.GetFileWithExtension());
+                    // LOG_INFO("Replacing {0} with {1}", t.path, new_file);
+                    t.path = new_file;
+                    FixExtension(&t.path, folder);
+                }
+            }
+
         }
     }  // namespace
 

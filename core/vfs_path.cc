@@ -41,9 +41,17 @@ namespace euphoria::core
         }
 
 
-        FilePath
+        std::optional<FilePath>
         FilePath::FromScript(const std::string& p)
         {
+            if(p.find('\\') != std::string::npos)
+            {
+                return std::nullopt;
+            }
+            if(p.find(':') != std::string::npos)
+            {
+                return std::nullopt;
+            }
             if(StartsWith(p, "~/") || StartsWith(p, "./"))
             {
                 return FilePath{p};
@@ -59,6 +67,33 @@ namespace euphoria::core
                     return FilePath{"./" + p};
                 }
             }
+        }
+
+
+        std::optional<FilePath>
+        FilePath::FromDirtySource(const std::string& p)
+        {
+            std::string s = Trim(p);
+            if(s.size() < 4)
+            {
+                return std::nullopt;
+            }
+            // slashes
+            s = ReplaceWithCharacter(s, "\\", '/');
+
+            // C:\style paths
+            if(s.substr(1, 2) == ":/")
+            {
+                s = s.substr(1);
+                s[0] = '.';
+            }
+
+            // \\share\style paths
+            if(s.substr(0, 2) == "//")
+            {
+                s[0] = '.';
+            }
+            return FromScript(s);
         }
 
 

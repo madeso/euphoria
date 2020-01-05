@@ -90,11 +90,23 @@ namespace euphoria::render
 
         for(const auto& texture: file.default_textures)
         {
+            const auto texture_path = core::vfs::FilePath::FromScript(texture.path);
+            if(texture_path.has_value() == false)
+            {
+                LOG_WARN
+                (
+                    "Ignored invalid path for {0} in {1}: {2}",
+                    texture.texture,
+                    path,
+                    texture.path
+                );
+                continue;
+            }
             DEFINE_ENUM_VALUE(core::TextureType, texture_name, texture.texture);
             sh->default_textures.emplace_back
             (
                 texture_name,
-                core::vfs::FilePath::FromScript(texture.path)
+                texture_path.value()
             );
         }
 

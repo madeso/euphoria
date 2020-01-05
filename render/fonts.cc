@@ -48,10 +48,18 @@ namespace euphoria::render
     {
         core::LoadedFont font;
 
+        const auto image_file = core::vfs::FilePath::FromScript(img.file);
+
+        if(image_file.has_value() == false)
+        {
+            LOG_WARN("Invalid path {0}", img.file);
+            return font;
+        }
+
         core::ImageLoadResult loaded = core::LoadImage
         (
             fs,
-            core::vfs::FilePath::FromScript(img.file),
+            image_file.value(),
             core::AlphaLoad::Keep
         );
         if(loaded.error.empty())

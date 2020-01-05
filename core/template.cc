@@ -750,9 +750,20 @@ namespace euphoria::core
                 new TemplateNodeScopedList {}
             };
             const auto file_argument = vfs::FilePath::FromScript(lex.value);
+            if(file_argument.has_value() == false)
+            {
+                errors->AddError
+                (
+                    file,
+                    reader->GetLine(),
+                    reader->GetColumn(),
+                    Str() << "Invalid path "
+                        << lex.value
+                );
+            }
             const auto resolved_file = vfs::ResolveRelative
             (
-                file_argument,
+                file_argument.value(),
                 file.GetDirectory()
             );
             if(resolved_file.has_value())
@@ -773,7 +784,7 @@ namespace euphoria::core
                     reader->GetLine(),
                     reader->GetColumn(),
                     Str() << "Unable to open "
-                        << file_argument
+                        << file_argument.value()
                 );
             }
             

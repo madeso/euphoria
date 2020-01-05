@@ -17,3 +17,15 @@ struct Mesh
   Material materials[];
   bool diffuse_and_ambient_are_same = true;
 }
+
+struct Extension
+{
+  string old_ext;
+  string new_ext;
+}
+
+struct Folder
+{
+  string texture_override;
+  Extension change_extensions[];
+}
