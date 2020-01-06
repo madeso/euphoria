@@ -2,6 +2,11 @@ dist: bionic
 sudo: false
 language: cpp
 
+# gcc might not work
+compiler:
+  - clang
+  - gcc
+
 # Handle git submodules yourself
 git:
     submodules: false
@@ -13,11 +18,13 @@ before_install:
 
 # use a more modern gcc, 8 should also work (in theory) but not 7.4 (missing filesystem)
 install:
-  - if [ "$CXX" = "g++" ]; then export CXX="g++-8" CC="gcc-8"; fi
+  - if [ "$CXX" = "g++" ]; then export CXX="g++-9" CC="gcc-9"; fi
 
 
 addons:
   apt:
+    sources:
+      - ubuntu-toolchain-r-test
     update: true
     packages:
       - libsdl2-dev
@@ -25,8 +32,8 @@ addons:
       - protobuf-compiler
       - libassimp-dev
       - libwxgtk3.0-dev
-      - gcc-8
-      - g++-8
+      - gcc-9
+      - g++-9
 
 script:
   - $CXX --version
