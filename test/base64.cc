@@ -24,7 +24,13 @@ RunEncode(const std::string& data)
     auto            catalog = vfs::FileSystemRootCatalog::AddRoot(&file_system);
     vfs::FileSystemRootFolder::AddRoot(&file_system);
 
-    auto memory  = file_system.ReadFile( vfs::FilePath::FromScript(data));
+    auto memory  = file_system.ReadFile
+    (
+        vfs::FilePath::FromScript(data).value_or
+        (
+            vfs::FilePath{"~/invalid_input"}
+        )
+    );
     auto encoded = euphoria::core::base64::Encode(memory);
     std::cout << "Encoded:\n" << encoded << "\n";
     return 0;

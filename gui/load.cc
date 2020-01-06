@@ -290,7 +290,13 @@ namespace euphoria::gui
     {
         std::shared_ptr<Skin> skin(new Skin());
         skin->name = src.name;
-        skin->font = font->GetFont(core::vfs::FilePath::FromScript(src.font));
+        skin->font = font->GetFont
+        (
+            core::vfs::FilePath::FromScript(src.font).value_or
+            (
+                core::vfs::FilePath{"~/invalid_font_file"}
+            )
+        );
         skin->button_image = core::vfs::FilePath::FromScriptOrEmpty
         (
             src.button_image
