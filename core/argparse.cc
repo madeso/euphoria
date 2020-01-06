@@ -10,7 +10,7 @@
 #include <set>
 #include <memory>
 #include <iomanip>
-#include <filesystem>
+// #include <filesystem>
 
 #include "core/assert.h"
 #include "core/stringutils.h"
@@ -567,7 +567,7 @@ namespace euphoria::core
         FileOutput::CreateDirIfMissing() const
         {
             if(single) return;
-            std::filesystem::create_directories(file);
+            // std::filesystem::create_directories(file);
         }
 
         Args
