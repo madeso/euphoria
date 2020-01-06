@@ -445,6 +445,22 @@ namespace euphoria::core
 
 
         void
+        FixFilename(vfs::FilePath* path, const mesh::Folder& folder)
+        {
+            const auto [dir, file] = path->SplitDirectoriesAndFile();
+            for(auto c: folder.change_filenames)
+            {
+                if(file == c.old_file)
+                {
+                    const auto new_path = dir.GetFile(c.new_file);
+                    *path = new_path;
+                    return;
+                }
+            }
+        }
+
+
+        void
         DecorateMesh
         (
             vfs::FileSystem* fs,
@@ -484,6 +500,14 @@ namespace euphoria::core
             auto dir = vfs::DirPath{folder.texture_override};
             if(dir.IsRelative()) { dir = vfs::Join(json_dir, dir); }
 
+            for(auto& p: mesh->parts)
+            {
+                for(auto& v: p.points)
+                {
+                    v.vertex = v.vertex * folder.scale;
+                }
+            }
+
             for(auto& m: mesh->materials)
             {
                 for(auto& t: m.textures)
@@ -492,6 +516,7 @@ namespace euphoria::core
                     // LOG_INFO("Replacing {0} with {1}", t.path, new_file);
                     t.path = new_file;
                     FixExtension(&t.path, folder);
+                    FixFilename(&t.path, folder);
                 }
             }
 

@@ -149,7 +149,8 @@ main(int argc, char** argv)
         box_mesh1,
         &material_shader_cache,
         &texture_cache,
-        vfs::DirPath::FromRoot()
+        vfs::DirPath::FromRoot(),
+        "box1"
     );
 
     auto box_mesh2 = meshes::CreateSphere(0.5f, "image");
@@ -162,7 +163,8 @@ main(int argc, char** argv)
         box_mesh2,
         &material_shader_cache,
         &texture_cache,
-        vfs::DirPath::FromRoot()
+        vfs::DirPath::FromRoot(),
+        "box2"
     );
 
     auto debug_texture = texture_cache.GetTexture(vfs::FilePath{"~/image"});
@@ -174,7 +176,8 @@ main(int argc, char** argv)
         light_mesh,
         &material_shader_cache,
         &texture_cache,
-        vfs::DirPath::FromRoot()
+        vfs::DirPath::FromRoot(),
+        "light"
     );
     float light_position = 0.0f;
 
@@ -234,7 +237,7 @@ main(int argc, char** argv)
   }
   auto dude_mesh =
       CompileMesh(loaded_dude.mesh, &material_shader_cache, &texture_cache,
-                  vfs::Path::FromDirectory("nanosuit"));
+                  vfs::Path::FromDirectory("nanosuit"), "dude");
   auto dude_actor = std::make_shared<Actor>(dude_mesh);
   world.AddActor(dude_actor);
 #endif

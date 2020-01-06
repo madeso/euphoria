@@ -16,6 +16,7 @@
 #include "render/attributebinder.h"
 #include "render/materialshadercache.h"
 #include "render/texturecache.h"
+#include "render/texture.h"
 #include "render/actor.h"
 
 namespace euphoria::render
@@ -228,7 +229,8 @@ namespace euphoria::render
         const core::Mesh& mesh,
         MaterialShaderCache* shader_cache,
         TextureCache* texture_cache,
-        const core::vfs::DirPath& texture_folder
+        const core::vfs::DirPath& texture_folder,
+        const std::string& debug_name
     )
     {
         std::shared_ptr<CompiledMesh> ret {new CompiledMesh {}};
@@ -261,9 +263,29 @@ namespace euphoria::render
                     core::vfs::FilePath{texture_src.path},
                     texture_folder
                 );
-                ASSERTX(texture_path.has_value(), texture_src.path, texture_folder);
-                auto texture = texture_cache->GetTexture(texture_path);
-                mat.SetTexture(texture_src.type, texture);
+                if(texture_path.has_value() == false)
+                {
+                    LOG_WARN
+                    (
+                        "Invalid texture path {0} with root {1}",
+                        texture_src.path,
+                        texture_folder.path
+                    );
+                }
+                else
+                {
+                    auto texture = texture_cache->GetTexture(texture_path);
+                    if(texture->GetWidth() <= 0)
+                    {
+                        LOG_WARN
+                        (
+                            "Failed to load {0} for {1}",
+                            texture_src.path,
+                            debug_name
+                        );
+                    }
+                    mat.SetTexture(texture_src.type, texture);
+                }
             }
 
             mat.LoadDefaultMaterialsFromShader(texture_cache);

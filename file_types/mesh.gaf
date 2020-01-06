@@ -24,8 +24,16 @@ struct Extension
   string new_ext;
 }
 
+struct Filename
+{
+  string old_file;
+  string new_file;
+}
+
 struct Folder
 {
   string texture_override;
   Extension change_extensions[];
+  Filename change_filenames[];
+  float scale = 1.0f;
 }

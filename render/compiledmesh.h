@@ -115,7 +115,8 @@ namespace euphoria::render
         const core::Mesh& mesh,
         MaterialShaderCache* shader_cache,
         TextureCache* texture_cache,
-        const core::vfs::DirPath& texture_folder
+        const core::vfs::DirPath& texture_folder,
+        const std::string& debug_name
     );
 }  // namespace euphoria::render
 

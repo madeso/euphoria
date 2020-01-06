@@ -86,7 +86,8 @@ namespace euphoria::t3d
             shader_cache,
             texture_cache,
             // todo(Gustav): test with mesh directory iunstead of root?
-            core::vfs::DirPath::FromRoot()
+            core::vfs::DirPath::FromRoot(),
+            path.path
         );
         tiles.push_back(tile);
     }
