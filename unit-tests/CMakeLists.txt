@@ -14,4 +14,4 @@ add_executable(tests ${src})
 enable_testing()
 add_test(tests tests)
 
-TARGET_LINK_LIBRARIES(tests ${CMAKE_THREAD_LIBS_INIT} stdc++fs core duk minsynth)
+TARGET_LINK_LIBRARIES(tests ${CMAKE_THREAD_LIBS_INIT} core duk minsynth)
