@@ -5,10 +5,16 @@ language: cpp
 # Handle git submodules yourself
 git:
     submodules: false
+
 # Use sed to replace the SSH URL with the public URL, then initialize submodules
 before_install:
     - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
     - git submodule update --init --recursive
+
+# use a more modern gcc, 8 should also work (in theory) but not 7.4 (missing filesystem)
+install:
+  - if [ "$CXX" = "g++" ]; then export CXX="g++-9" CC="gcc-9"; fi
+
 
 addons:
   apt:
@@ -19,6 +25,8 @@ addons:
       - protobuf-compiler
       - libassimp-dev
       - libwxgtk3.0-dev
+      - gcc-9
+      - g++-9
 
 script:
   - $CXX --version
