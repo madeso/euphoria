@@ -43,7 +43,7 @@
                     __FILE__,                                                  \
                     "",                                                        \
                     {},                                                        \
-                    static_cast<const char* const>(__PRETTY_FUNCTION__));      \
+                    __PRETTY_FUNCTION__);      \
         }                                                                      \
     } while(false)
 
@@ -62,7 +62,7 @@
                     __FILE__,                                                  \
                     #__VA_ARGS__,                                              \
                     {__VA_ARGS__},                                             \
-                    static_cast<const char* const>(__PRETTY_FUNCTION__));      \
+                    __PRETTY_FUNCTION__);      \
         }                                                                      \
     } while(false)
 
@@ -73,7 +73,7 @@
             __FILE__,                                                          \
             "",                                                                \
             {},                                                                \
-            static_cast<const char* const>(__PRETTY_FUNCTION__))
+            __PRETTY_FUNCTION__)
 
 #endif  // _MSC_VER
 
