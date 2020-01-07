@@ -19,6 +19,7 @@ namespace euphoria::t3d
         auto listed_files = file_system->ListFiles(directory);
         for(const auto& relative_file: listed_files)
         {
+            if(relative_file.is_file == false) { continue; }
             const auto file      = directory.GetFile(relative_file.name);
             const auto my_ext = file.GetExtension();
             const auto found_ext = std::find
