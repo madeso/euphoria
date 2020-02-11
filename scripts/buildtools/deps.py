@@ -71,7 +71,7 @@ def install_dependency_freetype(deps: str, root: str, compiler: args.Compiler, p
 def install_dependency_assimp(deps: str, root: str, install: str, generator: str):
     core.print_dashes()
     print('Installing dependency assimp', flush=True)
-    url = "https://github.com/assimp/assimp/archive/v4.0.1.zip"
+    url = "https://github.com/assimp/assimp/archive/v5.0.1.zip"
     zip = os.path.join(deps, 'assimp.zip')
     if not core.dir_exist(root):
         core.verify_dir_exist(root)
@@ -80,7 +80,7 @@ def install_dependency_assimp(deps: str, root: str, install: str, generator: str
         core.download_file(url, zip)
         core.extract_zip(zip, root)
         build = os.path.join(root, 'cmake-build')
-        core.movefiles(os.path.join(root, 'assimp-4.0.1'), root)
+        core.movefiles(os.path.join(root, 'assimp-5.0.1'), root)
         project = cmake.CMake(build_folder=build, source_folder=root, generator=generator)
         project.add_argument('ASSIMP_BUILD_X3D_IMPORTER', '0')
         #  project.make_static_library()
