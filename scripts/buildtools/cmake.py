@@ -40,7 +40,7 @@ class CMake:
         command = ['cmake']
         for arg in self.arguments:
             argument = '-D{}={}'.format(arg.name, arg.value) if arg.type is None else '-D{}:{}={}'.format(arg.name, arg.type, arg.value)
-            print('Setting CMake argument for config', argument)
+            print('Setting CMake argument for config', argument, flush=True)
             command.append(argument)
         command.append(self.source_folder)
         command.append('-G')
@@ -50,7 +50,7 @@ class CMake:
             core.flush()
             subprocess.check_call(command, cwd=self.build_folder)
         else:
-            print('Configuring cmake', command)
+            print('Configuring cmake', command, flush=True)
 
     def build_cmd(self, install: bool):
         cmd = ['cmake', '--build', '.']
@@ -63,7 +63,7 @@ class CMake:
             core.flush()
             subprocess.check_call(cmd, cwd=self.build_folder)
         else:
-            print('Calling build on cmake', self.build_folder)
+            print('Calling build on cmake', self.build_folder, flush=True)
 
     def build(self):
         self.build_cmd(False)

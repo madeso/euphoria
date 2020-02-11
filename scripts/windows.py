@@ -84,11 +84,11 @@ def run(args) -> str:
 def on_cmd_test(args):
     tests = os.path.join(get_build_folder(), 'tests', 'Release', 'tests.exe')
     lines = run([tests, '-r', 'junit'])
-    print('Test result', lines)
+    print('Test result', lines, flush=True)
     url = 'https://ci.appveyor.com/api/testresults/junit/' + os.environ['APPVEYOR_JOB_ID']
-    print('Uploading to appveyour', url)
+    print('Uploading to appveyour', url, flush=True)
     r = requests.post(url, files={'catch.json': lines})
-    print(r.text)
+    print(r.text, flush=True)
 
 
 def add_options(parser):

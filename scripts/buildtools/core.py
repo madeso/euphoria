@@ -60,22 +60,22 @@ def is_platform_64bit() -> bool:
 
 def verify_dir_exist(path: str):
     if os.path.isdir(path):
-        print('Directory exist', path)
+        print('Directory exist', path, flush=True)
     if os.path.isfile(path):
-        print('ERROR: Not a directory, file!!!', path)
+        print('ERROR: Not a directory, file!!!', path, flush=True)
     if not os.path.exists(path):
-        print('Not a directory, creating', path)
+        print('Not a directory, creating', path, flush=True)
         os.makedirs(path)
 
 
 def download_file(url: str, path: str):
     import urllib.request
     if not os.path.isfile(path):
-        print("Downloading ", path)
+        print("Downloading ", path, flush=True)
         with urllib.request.urlopen(url) as response, open(path, 'wb') as out_file:
             shutil.copyfileobj(response, out_file)
     else:
-        print("Already downloaded", path)
+        print("Already downloaded", path, flush=True)
 
 
 def extract_zip(proto_zip, proto_root):
@@ -94,9 +94,9 @@ def print_files_and_folders(root, start: str = ''):
     for f in os.listdir(root):
         path = os.path.join(root, f)
         if os.path.isfile(path):
-            print(start + f)
+            print(start + f, flush=True)
         else:
-            print(start + f + '/')
+            print(start + f + '/', flush=True)
             print_files_and_folders(path, start + '  ')
 
 
@@ -104,17 +104,17 @@ def rename_file(from_path: str, to_path: str):
     if os.path.isfile(from_path):
         os.rename(from_path, to_path)
     else:
-        print('Missing ', from_path)
+        print('Missing ', from_path, flush=True)
 
 
 def print_dashes():
-    print('-----------------------------------------------------------------------------------------------------------')
+    print('-----------------------------------------------------------------------------------------------------------', flush=True)
 
 
 def print_file(path: str):
     if os.path.isfile(path):
         print()
         with open(path, 'r') as fin:
-            print(fin.read())
+            print(fin.read(), flush=True)
     else:
-        print('Could not open file', path)
+        print('Could not open file', path, flush=True)

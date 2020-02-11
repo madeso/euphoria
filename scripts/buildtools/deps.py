@@ -13,13 +13,13 @@ import buildtools.visualstudio as visualstudio
 
 def install_dependency_sdl2(deps, root, build, generator: str):
     core.print_dashes()
-    print('Installing dependency sdl2')
+    print('Installing dependency sdl2', flush=True)
     url = "https://www.libsdl.org/release/SDL2-2.0.8.zip"
     zip = os.path.join(deps, 'sdl2.zip')
     if not core.dir_exist(root):
         core.verify_dir_exist(root)
         core.verify_dir_exist(deps)
-        print('downloading sdl2')
+        print('downloading sdl2', flush=True)
         core.download_file(url, zip)
         core.extract_zip(zip, root)
         core.movefiles(os.path.join(root, 'SDL2-2.0.8'), root)
@@ -33,7 +33,7 @@ def install_dependency_sdl2(deps, root, build, generator: str):
         project.config()
         project.build()
     else:
-        print('SDL2 build exist, not building again...')
+        print('SDL2 build exist, not building again...', flush=True)
 
 
 def setup_freetype_dependencies(root: str, platform: args.Platform):
@@ -47,13 +47,13 @@ def setup_freetype_dependencies(root: str, platform: args.Platform):
 
 def install_dependency_freetype(deps: str, root: str, compiler: args.Compiler, platform: args.Platform):
     core.print_dashes()
-    print('Installing dependency freetype2')
+    print('Installing dependency freetype2', flush=True)
     url = 'http://download.savannah.gnu.org/releases/freetype/ft28.zip'
     zip = os.path.join(deps, 'ft.zip')
     if not core.dir_exist(root):
         core.verify_dir_exist(root)
         core.verify_dir_exist(deps)
-        print('downloading freetype2')
+        print('downloading freetype2', flush=True)
         core.download_file(url, zip)
         core.extract_zip(zip, root)
         core.movefiles(os.path.join(root, 'freetype-2.8'), root)
@@ -65,18 +65,18 @@ def install_dependency_freetype(deps: str, root: str, compiler: args.Compiler, p
         build_folder = os.path.join(root, 'objs', 'vc2010', args.platform_as_string(platform))
         core.rename_file(os.path.join(build_folder, 'freetype28.lib'), os.path.join(build_folder, 'freetype.lib'))
     else:
-        print('Freetype build exist, not building again...')
+        print('Freetype build exist, not building again...', flush=True)
 
 
 def install_dependency_assimp(deps: str, root: str, install: str, generator: str):
     core.print_dashes()
-    print('Installing dependency assimp')
+    print('Installing dependency assimp', flush=True)
     url = "https://github.com/assimp/assimp/archive/v4.0.1.zip"
     zip = os.path.join(deps, 'assimp.zip')
     if not core.dir_exist(root):
         core.verify_dir_exist(root)
         core.verify_dir_exist(deps)
-        print('downloading assimp')
+        print('downloading assimp', flush=True)
         core.download_file(url, zip)
         core.extract_zip(zip, root)
         build = os.path.join(root, 'cmake-build')
@@ -84,14 +84,14 @@ def install_dependency_assimp(deps: str, root: str, install: str, generator: str
         project = cmake.CMake(build_folder=build, source_folder=root, generator=generator)
         project.add_argument('ASSIMP_BUILD_X3D_IMPORTER', '0')
         #  project.make_static_library()
-        print('Installing cmake to', install)
+        print('Installing cmake to', install, flush=True)
         core.flush()
         project.set_install_folder(install)
         core.verify_dir_exist(install)
         project.config()
         project.build()
-        print('Installing assimp')
+        print('Installing assimp', flush=True)
         project.install()
     else:
-        print('Assimp build exist, not building again...')
+        print('Assimp build exist, not building again...', flush=True)
 

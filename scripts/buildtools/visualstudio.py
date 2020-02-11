@@ -19,8 +19,8 @@ def get_vs_root(compiler: args.Compiler):
             val = winreg.QueryValueEx(st, 'InstallDir')
             vs = val[0]
             vs_root = vs
-            print('Got path from registry')
-        print("This is the vs solution path...", vs_root)
+            print('Got path from registry', flush=True)
+        print("This is the vs solution path...", vs_root, flush=True)
         core.flush()
 
     return vs_root
@@ -53,7 +53,7 @@ def list_projects_in_solution(path: str) -> typing.List[str]:
                 subfolder = m.group(1)
                 if not core.is_windows():
                     subfolder = subfolder.replace('\\', '/')
-                print(subfolder)
+                print(subfolder, flush=True)
                 ret.append(os.path.join(dir, subfolder))
     return ret
 
@@ -87,11 +87,11 @@ def change_to_static_link(path: str):
             mdebug = mtdebug.match(line)
             mrelease = mtrelease.match(line)
             if mdebug:
-                print('in {project} changed to static debug'.format(project=path))
+                print('in {project} changed to static debug'.format(project=path), flush=True)
                 lines.append(
                     '{spaces}<RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>'.format(spaces=mdebug.group(1)))
             elif mrelease:
-                print('in {project} changed to static release'.format(project=path))
+                print('in {project} changed to static release'.format(project=path), flush=True)
                 lines.append('{spaces}<RuntimeLibrary>MultiThreaded</RuntimeLibrary>'.format(spaces=mrelease.group(1)))
             else:
                 lines.append(line.rstrip())
@@ -114,7 +114,7 @@ def add_definition_to_solution(sln: str, definition: str):
 
 def make_single_project_64(project_path: str, rep: core.TextReplacer):
     if not os.path.isfile(project_path):
-        print('missing ' + project_path)
+        print('missing ' + project_path, flush=True)
         return
     lines = []
     with open(project_path) as project:
@@ -162,8 +162,8 @@ def convert_sln_to_64(sln: str):
 
 def upgrade_sln(proto_sln: str, compiler: args.Compiler):
     devenv = os.path.join(get_vs_root(compiler), 'devenv.exe')
-    print(devenv)
-    print(proto_sln)
+    print(devenv, flush=True)
+    print(proto_sln, flush=True)
     if core.is_windows():
         core.flush()
         subprocess.check_call([devenv, proto_sln, '/upgrade'])
@@ -183,4 +183,4 @@ def msbuild(sln: str, compiler: args.Compiler, platform: args.Platform, librarie
         core.flush()
         subprocess.check_call(msbuild_cmd)
     else:
-        print(msbuild_cmd)
+        print(msbuild_cmd, flush=True)

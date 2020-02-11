@@ -32,7 +32,7 @@ def get_compiler(args) -> Compiler:
     elif c == 'vs2017':
         return Compiler.VS2017
     else:
-        print('Unknown compiler: ', c)
+        print('Unknown compiler: ', c, flush=True)
         return Compiler.VS2017
 
 
@@ -45,7 +45,7 @@ def get_platform(args) -> Platform:
     elif p == 'x64' or p == 'win64':
         return Platform.X64
     else:
-        print('Unknown platform: ', p)
+        print('Unknown platform: ', p, flush=True)
         return Platform.AUTO
 
 
