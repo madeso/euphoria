@@ -13,8 +13,15 @@ class Argument:
         self.type = type
 
 
+
+class Generator:
+    def __init__(self, generator: str):
+        self.generator = generator
+        self.arch = None
+
+
 class CMake:
-    def __init__(self, build_folder: str, source_folder: str, generator: str):
+    def __init__(self, build_folder: str, source_folder: str, generator: Generator):
         self.generator = generator
         self.build_folder = build_folder
         self.source_folder = source_folder
@@ -44,7 +51,10 @@ class CMake:
             command.append(argument)
         command.append(self.source_folder)
         command.append('-G')
-        command.append(self.generator)
+        command.append(self.generator.generator)
+        if self.generator.arch is not None:
+            command.append('-A')
+            command.append(self.generator.arch)
         core.verify_dir_exist(self.build_folder)
         if core.is_windows():
             core.flush()

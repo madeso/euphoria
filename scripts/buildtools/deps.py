@@ -11,7 +11,7 @@ import buildtools.args as args
 import buildtools.visualstudio as visualstudio
 
 
-def install_dependency_sdl2(deps, root, build, generator: str):
+def install_dependency_sdl2(deps, root, build, generator: cmake.Generator):
     core.print_dashes()
     print('Installing dependency sdl2', flush=True)
     url = "https://www.libsdl.org/release/SDL2-2.0.8.zip"
@@ -68,7 +68,7 @@ def install_dependency_freetype(deps: str, root: str, compiler: args.Compiler, p
         print('Freetype build exist, not building again...', flush=True)
 
 
-def install_dependency_assimp(deps: str, root: str, install: str, generator: str):
+def install_dependency_assimp(deps: str, root: str, install: str, generator: cmake.Generator):
     core.print_dashes()
     print('Installing dependency assimp', flush=True)
     url = "https://github.com/assimp/assimp/archive/v5.0.1.zip"
@@ -78,6 +78,7 @@ def install_dependency_assimp(deps: str, root: str, install: str, generator: str
         core.verify_dir_exist(deps)
         print('downloading assimp', flush=True)
         core.download_file(url, zip)
+        print('extracting assimp', flush=True)
         core.extract_zip(zip, root)
         build = os.path.join(root, 'cmake-build')
         core.movefiles(os.path.join(root, 'assimp-5.0.1'), root)
