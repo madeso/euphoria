@@ -4,6 +4,8 @@
 #include "spdlog/spdlog.h"
 #include "spdlog/fmt/ostr.h"
 
+#include "core/undef_windows.h"
+
 namespace euphoria::core
 {
 
