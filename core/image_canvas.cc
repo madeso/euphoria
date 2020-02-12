@@ -6,6 +6,9 @@
 #include "core/mat2.h"
 #include "core/image_draw.h"
 
+#include "core/stringutils.h"
+#include "core/stringmerger.h"
+
 #include "core/log.h"
 
 LOG_SPECIFY_DEFAULT_LOGGER("core.identicon")
@@ -15,7 +18,7 @@ namespace euphoria::core
     vec2f
     Canvas::C(const vec2f v) const
     {
-        const auto vv = transform * vec3f {v, 0};
+        const auto vv = transform * vec3f {v, 1};
         return vec2f {vv.x, vv.y};
     }
 
@@ -94,6 +97,7 @@ namespace euphoria::core
     Canvas::fill()
     {
         LOG_INFO("fill");
+        LOG_INFO("Path is {}", StringMerger::Array().Generate(VectorToStringVector(path)));
         ASSERT(!building_path);
         FillPoly(image, fillStyle, path);
     }

@@ -85,7 +85,7 @@ namespace euphoria::core
                     }
             );
 
-            return Rectf::FromLeftRightBottomTop(min.x, max.x, max.y, min.y);
+            return Rectf::FromLeftRightBottomTop(min.x, max.x, min.y, max.y);
         }
 
         bool
