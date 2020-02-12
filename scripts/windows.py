@@ -50,27 +50,47 @@ def cmake_project(generator: str):
     return r
 
 
+def run_install(compiler, platform, generator):
+    deps.install_dependency_assimp(get_dependency_folder(), get_assimp_folder(), get_assimp_install_folder(), generator)
+    deps.install_dependency_sdl2(get_dependency_folder(), get_sdl2_folder(), get_sdl2_build_folder(), generator)
+    deps.install_dependency_freetype(get_dependency_folder(), get_freetype2_folder(), compiler, platform)
+
+
+def run_cmake(compiler, platform, generator):
+    deps.setup_freetype_dependencies(get_freetype2_folder(), platform)
+    cmake_project(generator).config()
+
+
 def on_cmd_install(arg):
     compiler = args.get_compiler(arg)
     platform = args.get_platform(arg)
     generator = visualstudio.visual_studio_generator(compiler, platform)
-    deps.install_dependency_assimp(get_dependency_folder(), get_assimp_folder(), get_assimp_install_folder(), generator)
-    deps.install_dependency_sdl2(get_dependency_folder(), get_sdl2_folder(), get_sdl2_build_folder(), generator)
-    deps.install_dependency_freetype(get_dependency_folder(), get_freetype2_folder(), compiler, platform)
+
+    run_install(compiler, platform, generator)
 
 
 def on_cmd_cmake(arg):
     compiler = args.get_compiler(arg)
     platform = args.get_platform(arg)
     generator = visualstudio.visual_studio_generator(compiler, platform)
-    deps.setup_freetype_dependencies(get_freetype2_folder(), platform)
-    cmake_project(generator).config()
+
+    run_cmake(compiler, platform, generator)
+
+
+def on_cmd_dev(arg):
+    compiler = args.get_compiler(arg)
+    platform = args.get_platform(arg)
+    generator = visualstudio.visual_studio_generator(compiler, platform)
+    
+    run_install(compiler, platform, generator)
+    run_cmake(compiler, platform, generator)
 
 
 def on_cmd_build(arg):
     compiler = args.get_compiler(arg)
     platform = args.get_platform(arg)
     generator = visualstudio.visual_studio_generator(compiler, platform)
+    
     cmake_project(generator).build()
 
 
@@ -109,6 +129,11 @@ def main():
     cmmake_parser = subparsers.add_parser('cmake')
     cmmake_parser.set_defaults(func=on_cmd_cmake)
     add_options(cmmake_parser)
+
+    # dev is install + cmake
+    dev_parser = subparsers.add_parser('dev')
+    dev_parser.set_defaults(func=on_cmd_dev)
+    add_options(dev_parser)
 
     build_parser = subparsers.add_parser('build')
     build_parser.set_defaults(func=on_cmd_build)
