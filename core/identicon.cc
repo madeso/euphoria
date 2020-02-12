@@ -11,6 +11,7 @@
 #include "core/mat2.h"
 #include "core/mat3.h"
 #include "core/image_draw.h"
+#include "core/image_canvas.h"
 
 #include "core/log.h"
 
@@ -57,102 +58,6 @@ namespace
     };
     const auto centerPatchTypes = std::vector<int>{0, 4, 8, 15};
 
-    // hacky layer between something that looks like the html 'canvas rendering context 2d' and the euphoria image drawing operations
-    // https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D
-    struct Context
-    {
-        Rgbi fillStyle = Color::Black;
-
-        Image* image;
-
-        mat3f transform = mat3f::Identity();
-
-        bool building_path = false;
-        std::vector<vec2f> path;
-
-        vec2f
-        C(const vec2f v) const
-        {
-            const auto vv = transform * vec3f {v, 0};
-            return vec2f {vv.x, vv.y};
-        }
-
-        Context(Image* i) : image(i)
-        {
-        }
-
-        void
-        fillRect(int x, int y, int w, int h)
-        {
-            ASSERTX(w > 0, w);
-            ASSERTX(h > 0, h);
-            LOG_INFO("fillRect {} {}: {} x {}", x, y, w, h);
-            DrawRect(image, fillStyle, Recti::FromTopLeftWidthHeight(x, y, w, h));
-        }
-
-        void
-        translate(float x, float y)
-        {
-            LOG_INFO("translate {} {}", x, y);
-            const auto m = mat3f::FromTranslation2d(vec2f {x, y});
-            transform = transform * m;
-        }
-
-        void
-        rotate(float r)
-        {
-            LOG_INFO("rotate {}", r);
-            // transform = transform * mat2f::FromRotation(Angle::FromDegrees(r));
-        }
-
-        void
-        beginPath()
-        {
-            // LOG_INFO("beginPath");
-            ASSERT(!building_path);
-            path.resize(0);
-            building_path = true;
-        }
-
-        void
-        closePath()
-        {
-            // LOG_INFO("closePath");
-            ASSERT(building_path);
-            building_path = false;
-        }
-
-        void
-        moveTo(float x, float y)
-        {
-            LOG_INFO("moveTo {} {}", x, y);
-            ASSERT(building_path);
-            ASSERT(path.empty());
-            path.push_back(C(vec2f(x, y)));
-        }
-
-        void
-        lineTo(float dx, float dy)
-        {
-            LOG_INFO("lineTo {} {}", dx, dy);
-            ASSERT(building_path);
-            if(path.empty())
-            {
-                path.push_back(C(vec2f::Zero()));
-            }
-            const auto last = *path.rbegin();
-            path.push_back(C(vec2f(last.x + dx, last.y + dy)));
-        }
-
-        void
-        fill()
-        {
-            LOG_INFO("fill");
-            ASSERT(!building_path);
-            FillPoly(image, fillStyle, path);
-        }
-    };
-
     void render_identicon_patch
     (
         Image* image,
@@ -176,7 +81,7 @@ namespace
 	    auto offset = size / 2.0f;
 	    auto scale = size / 4.0f;
 
-        auto ctx = Context{image};
+      auto ctx = Canvas{image};
 
 	    // paint background
 	    ctx.fillStyle = invert ? foreColor : backColor;
