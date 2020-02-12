@@ -10,14 +10,23 @@ import buildtools.cmake as cmake
 import typing
 
 
+def path_to_vswhere() -> str:
+    vswhere = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'vswhere.exe')
+    # print('vswhere is ', vswhere, flush=True)
+    return vswhere
+
+
+def get_vswhere_version(compiler: args.Compiler) -> str:
+    # todo: determine path based on compiler
+    return '16.0'
+
+
 def get_devenv(compiler: args.Compiler):
     # warn if default value?
-    # todo: determine path based on compiler
     devenv = r'C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\devenv.exe'
     if core.is_windows():
-        vswhere = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'vswhere.exe')
-        print('vswhere is ', vswhere, flush=True)
-        cmd = [vswhere, '-version', '16.0', '-property', 'productPath']
+        vswhere = path_to_vswhere()
+        cmd = [vswhere, '-version', get_vswhere_version(compiler), '-property', 'productPath']
         devenv = subprocess.check_output(cmd).decode("utf-8").strip()
         print('devenv is ', devenv, flush=True)
 
@@ -175,8 +184,21 @@ def upgrade_sln(proto_sln: str, compiler: args.Compiler):
     print('Upgrade done!', flush=True)
 
 
+def find_msbuild(compiler: args.Compiler):
+    # warn if default value?
+    msbuild = 'msbuild'
+    if core.is_windows():
+        vswhere = path_to_vswhere()
+        cmd = [vswhere, '-version', get_vswhere_version(compiler), '-requires', 'Microsoft.Component.MSBuild', '-find', 'MSBuild\\**\\Bin\\MSBuild.exe']
+        msbuild = subprocess.check_output(cmd).decode("utf-8").strip()
+        print('msbuild from vswhere is ', msbuild, flush=True)
+
+    return msbuild
+
+
 def msbuild(sln: str, compiler: args.Compiler, platform: args.Platform, libraries: typing.Optional[typing.List[str]]):
-    msbuild_cmd = ['msbuild']
+    msbuild_cmd = [find_msbuild(compiler)]
+    print('Msbuild is ', msbuild_cmd[0], flush=True)
     if libraries is not None:
         msbuild_cmd.append('/t:' + ';'.join(libraries))
     msbuild_cmd.append('/p:Configuration=Release')
@@ -186,7 +208,6 @@ def msbuild(sln: str, compiler: args.Compiler, platform: args.Platform, librarie
     msbuild_cmd.append('/p:Platform=' + args.platform_as_string(platform))
     msbuild_cmd.append(sln)
     if core.is_windows():
-        core.flush()
         subprocess.check_call(msbuild_cmd)
     else:
         print(msbuild_cmd, flush=True)
