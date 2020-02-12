@@ -7,6 +7,7 @@
 #include "core/vec2.h"
 
 #include <string>
+#include <vector>
 
 namespace euphoria::core
 {
@@ -23,6 +24,9 @@ namespace euphoria::core
 
     void
     DrawSquare(Image* image, const Rgbi& color, int x, int y, int size);
+
+    void
+    FillPoly(Image* image, const Rgbi& color, std::vector<vec2f>& poly);
 
     void
     DrawCircle(

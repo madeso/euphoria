@@ -52,7 +52,7 @@ namespace euphoria::core
 #define VEC3_CONSTRUCTOR(VEC, T)                                               \
     explicit VEC(const T& a) : x(a), y(a), z(a) {}                             \
                                                                                \
-    explicit VEC(const std::tuple<T, T, T>& a) : x(a[0]), y(a[1]), z(a[2]) {}  \
+    explicit VEC(const std::tuple<T, T, T>& a) : x(std::get<0>(a)), y(std::get<1>(a)), z(std::get<2>(a)) {}  \
                                                                                \
     VEC(const T& ax, const T& ay, const T& az) : x(ax), y(ay), z(az) {}        \
                                                                                \

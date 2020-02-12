@@ -8,6 +8,7 @@
 #include "core/rgb_blend.h"
 #include "core/minmax.h"
 #include "core/intersection.h"
+#include "core/minmax.h"
 
 #include "core/log.h"
 
@@ -63,6 +64,89 @@ namespace euphoria::core
                 image,
                 color,
                 Recti::FromTopLeftWidthHeight(y + 1, x, size, size));
+    }
+
+
+    namespace
+    {
+        Rectf
+        BoundingRect(std::vector<vec2f>& poly)
+        {
+            const auto [min, max] = FindMinMax<vec2f>
+            (
+                    poly,
+                    [](const auto& lhs, const auto& rhs)
+                    {
+                        return vec2f {std::min(lhs.x, rhs.x), std::min(lhs.y, rhs.y)};
+                    },
+                    [](const auto& lhs, const auto& rhs)
+                    {
+                        return vec2f {std::max(lhs.x, rhs.x), std::max(lhs.y, rhs.y)};
+                    }
+            );
+
+            return Rectf::FromLeftRightBottomTop(min.x, max.x, max.y, min.y);
+        }
+
+        bool
+        RayIntersectsSegment(const vec2f& u, const vec2f& a, const vec2f& b)
+        {
+            // todo(Gustav): move to math
+            return (a.y > u.y) != (b.y > u.y) && u.x < (b.x - a.x) * (u.y - a.y) / (b.y - a.y) + a.x;
+        }
+
+        bool
+        PointInPoly(const vec2f& p, const std::vector<vec2f>& poly)
+        {
+            // todo(Gustav): make pretty and move to custom struct
+            if(poly.size() < 3)
+            {
+                return false;
+            }
+
+            auto a = poly[0];
+	        auto in = RayIntersectsSegment(p, *poly.rbegin(), a);
+
+	        for(auto i = poly.begin() + 1; i != poly.end(); ++i)
+            {
+                const auto b = *i;
+                if(RayIntersectsSegment(p, a, b))
+                {
+                    in = !in;
+                }
+                a = b;
+            }
+
+            return in;
+        }
+    }
+
+    void
+    FillPoly(Image* image, const Rgbi& color, std::vector<vec2f>& poly)
+    {
+        ASSERT(image);
+        const auto rect  = BoundingRect(poly);
+        const int left   = rect.TopLeft().x;
+        const int right  = rect.TopRight().x;
+        const int top    = rect.TopLeft().y;
+        const int bottom = rect.BottomLeft().y;
+        // ASSERTX(left >= 0, left);
+        // ASSERTX(bottom >= 0, bottom);
+        for(int y = bottom; y < top; ++y)
+        {
+            if(y < 0 || y >= image->GetHeight())
+                continue;
+            for(int x = left; x < right; ++x)
+            {
+                if(x < 0 || x >= image->GetWidth())
+                    continue;
+
+                if(PointInPoly(vec2f(x, y), poly))
+                {
+                    image->SetPixel(x, y, color);
+                }
+            }
+        }
     }
 
     void

@@ -2,13 +2,13 @@
 #define CORE_VEC2_H
 
 #include <cmath>
+#include <tuple>
 
 #include "core/interpolate.h"
 #include "core/angle.h"
 #include "core/typeinfo.h"
 #include "core/numeric.h"
 #include "core/assert.h"
-
 
 namespace euphoria::core
 {
@@ -31,6 +31,8 @@ namespace euphoria::core
 
 #define VEC2_CONSTRUCTOR(VEC, T)                                               \
     VEC(const T& ax, const T& ay) : x(ax), y(ay) {}                            \
+                                                                               \
+    explicit VEC(const std::tuple<T, T>& a) : x(std::get<0>(a)), y(std::get<1>(a)) {} \
                                                                                \
     [[nodiscard]] static VEC Zero()                                            \
     {                                                                          \
@@ -69,7 +71,14 @@ namespace euphoria::core
     Self GetFlippedY() const                                                   \
     {                                                                          \
         return Self(x, -y);                                                    \
+    }                                                                          \
+                                                                               \
+    T                                                                          \
+    GetComponentSum() const                                                    \
+    {                                                                          \
+        return x + y;                                                          \
     }
+
 
 #define VEC2_SELF_ADD_SUBTRACT(VEC)                                            \
     template <typename O>                                                      \
@@ -113,6 +122,8 @@ namespace euphoria::core
         using Unit = unit2<T>;
 
         explicit vec2(const Unit& u) : x(u.x), y(u.y) {}
+
+        vec2() = default;
 
         [[nodiscard]] static Self
         FromTo(const vec2<T>& from, const vec2<T>& to)
@@ -275,6 +286,13 @@ namespace euphoria::core
         vec2<T> r = lhs;
         r /= rhs;
         return r;
+    }
+
+    template <typename T>
+    vec2<T>
+    ComponentMultiply(const vec2<T>& lhs, const vec2<T>& rhs)
+    {
+        return vec2<T>(lhs.x * rhs.x, lhs.y * rhs.y);
     }
 
 

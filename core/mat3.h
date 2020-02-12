@@ -4,6 +4,7 @@
 #include <vector>
 #include <tuple>
 
+#include "core/vec2.h"
 #include "core/vec3.h"
 #include "core/angle.h"
 #include "core/axisangle.h"
@@ -75,6 +76,12 @@ namespace euphoria::core
         FromScale(const scale3<T>& scale)
         {
             return FromMajor(scale);
+        }
+
+        [[nodiscard]] static mat3<T>
+        FromTranslation2d(const vec2<T>& t)
+        {
+            return FromRowMajor(1, 0, t.x, 0, 1, t.y, 0, 0, 1);
         }
 
         [[nodiscard]] static mat3<T>
@@ -316,7 +323,7 @@ namespace euphoria::core
     mat3<T> operator*(const mat3<T>& lhs, const mat3<T> rhs)
     {
 #define OP(r, c)                                                               \
-    ComponentMultiply(lhs.GetRow(r), rhs.GetColumn(c)).GetComponentSum()
+    ComponentMultiply(vec3{lhs.GetRow(r)}, vec3{rhs.GetColumn(c)}).GetComponentSum()
         return mat3<T>::FromRowMajor(
                 OP(0, 0),
                 OP(0, 1),
@@ -333,7 +340,7 @@ namespace euphoria::core
     template <typename T>
     vec3<T> operator*(const mat3<T>& lhs, const vec3<T> rhs)
     {
-#define OP(r) ComponentMultiply(lhs.GetRow(r), rhs).GetComponentSum()
+#define OP(r) ComponentMultiply(vec3{lhs.GetRow(r)}, rhs).GetComponentSum()
         return vec3<T>(OP(0), OP(1), OP(2));
 #undef OP
     }

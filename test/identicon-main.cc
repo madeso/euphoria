@@ -16,7 +16,7 @@ main(int, char*[])
     image.SetupNoAlphaSupport(image_size, image_size);
 
     RenderIdenticon(&image, -2044886870);
-    io::ChunkToFile(image.Write(ImageWriteFormat::PNG), "draw.png");
+    io::ChunkToFile(image.Write(ImageWriteFormat::PNG), "identicon.png");
 
     return 0;
 }
