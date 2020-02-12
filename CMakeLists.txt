@@ -20,31 +20,30 @@ set(BUILD_TYPEINFO_IMPL_CUSTOM_RT FALSE)
 
 message(STATUS "BUILD_TYPEINFO_IMPL: ${BUILD_TYPEINFO_IMPL}")
 if(BUILD_TYPEINFO_IMPL STREQUAL "rtti")
-  set(BUILD_TYPEINFO_IMPL_RTTI TRUE)
+    set(BUILD_TYPEINFO_IMPL_RTTI TRUE)
 elseif(BUILD_TYPEINFO_IMPL STREQUAL "ctti")
-  set(BUILD_TYPEINFO_IMPL_CTTI TRUE)
+    set(BUILD_TYPEINFO_IMPL_CTTI TRUE)
 elseif(BUILD_TYPEINFO_IMPL STREQUAL "custom_hashed")
-  set(BUILD_TYPEINFO_IMPL_CUSTOM_HASHED TRUE)
+    set(BUILD_TYPEINFO_IMPL_CUSTOM_HASHED TRUE)
 elseif(BUILD_TYPEINFO_IMPL STREQUAL "custom_rt")
-  set(BUILD_TYPEINFO_IMPL_CUSTOM_RT TRUE)
+    set(BUILD_TYPEINFO_IMPL_CUSTOM_RT TRUE)
 else()
-  message(STATUS "Invalid build status: ${BUILD_TYPEINFO_IMPL}")
+    message(STATUS "Invalid build status: ${BUILD_TYPEINFO_IMPL}")
 endif()
 
 
 set(Gaf_CUSTOM_ARGUMENTS_FROM_FILE ${CMAKE_CURRENT_SOURCE_DIR}/gaf_options.txt)
 
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH}
-    "${CMAKE_CURRENT_SOURCE_DIR}/cmake-modules")
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake-modules")
 
 if(${BUILD_MIDI_SUPPORT})
-  # todo(Gustav): do not use add_subdirectory since it will import lots of settings and buildstps
-  # import sources directly and add the midi libraries manually instead since rtmidi supports it
-  add_subdirectory(external/rtmidi)
-  set(BUILD_STATIC_LIBS ON)
-  set(RTMIDI_BUILD_STATIC_LIBS "")
-  set(RTMIDI_BUILD_SHARED_LIBS "")
-  include_directories(SYSTEM external/rtmidi)
+    # todo(Gustav): do not use add_subdirectory since it will import lots of settings and buildstps
+    # import sources directly and add the midi libraries manually instead since rtmidi supports it
+    add_subdirectory(external/rtmidi)
+    set(BUILD_STATIC_LIBS ON)
+    set(RTMIDI_BUILD_STATIC_LIBS "")
+    set(RTMIDI_BUILD_SHARED_LIBS "")
+    include_directories(SYSTEM external/rtmidi)
 endif(${BUILD_MIDI_SUPPORT})
 
 find_package(OpenGL REQUIRED)
@@ -56,67 +55,65 @@ find_package(SDL2 REQUIRED)
 
 include(${CMAKE_CURRENT_SOURCE_DIR}/external/gaf/gaf.cmake)
 
-include_directories(SYSTEM
-                    ${CMAKE_CURRENT_SOURCE_DIR}/external/rapidjson/include
-                    )
+include_directories(SYSTEM ${CMAKE_CURRENT_SOURCE_DIR}/external/rapidjson/include)
 
 set(MACOSX_BUNDLE_INFO_PLIST "${CMAKE_CURRENT_SOURCE_DIR}/osx-bundle.plist")
 
 # compiler flags
 if(${MSVC})
-  add_definitions(/D _CRT_SECURE_NO_WARNINGS)
+    add_definitions(/D _CRT_SECURE_NO_WARNINGS)
 
-  add_definitions(/D NOMINMAX)
-  add_definitions(/D STRICT)
-  add_definitions(/D WIN32_LEAN_AND_MEAN)
-  add_definitions(/D VC_EXTRALEAN)
+    add_definitions(/D NOMINMAX)
+    add_definitions(/D STRICT)
+    add_definitions(/D WIN32_LEAN_AND_MEAN)
+    add_definitions(/D VC_EXTRALEAN)
 
-  # character set to Not Set=ASCII/SBCS
-  # http://public.kitware.com/Bug/view.php?id=12189
-  add_definitions(/D _SBCS)
+    # character set to Not Set=ASCII/SBCS
+    # http://public.kitware.com/Bug/view.php?id=12189
+    add_definitions(/D _SBCS)
 endif()
 
 # disable rtti
 
 if(NOT BUILD_TYPEINFO_IMPL_RTTI)
-  if(MSVC)
-    add_compile_options(/GR-)
-  else()
-    add_compile_options(-fno-rtti)
-  endif()
+    if(MSVC)
+        add_compile_options(/GR-)
+    else()
+        add_compile_options(-fno-rtti)
+    endif()
 endif()
 
 # enable all warnings
 if(MSVC)
-  add_compile_options(/W4)
+    add_compile_options(/W4)
 else()
-  add_compile_options(-Wall -Wextra -Wpedantic)
-  add_compile_options(-Wshadow)
-  add_compile_options(-Wnon-virtual-dtor)
-  # add_compile_options(-Wold-style-cast) # todo...
-  add_compile_options(-Wcast-align)
-  add_compile_options(-Wunused)
-  add_compile_options(-Woverloaded-virtual)
-  #add_compile_options(-Wconversion)
-  #add_compile_options(-Wsign-conversion)
-  add_compile_options(-Wformat=2)
-  # add_compile_options(-Wlifetime)
+    add_compile_options(-Wall -Wextra -Wpedantic)
+    add_compile_options(-Wshadow)
+    add_compile_options(-Wnon-virtual-dtor)
+    # add_compile_options(-Wold-style-cast) # todo...
+    add_compile_options(-Wcast-align)
+    add_compile_options(-Wunused)
+    add_compile_options(-Woverloaded-virtual)
+    #add_compile_options(-Wconversion)
+    #add_compile_options(-Wsign-conversion)
+    add_compile_options(-Wformat=2)
+    # add_compile_options(-Wlifetime)
 
-  add_compile_options(-Wno-error=deprecated)
+    add_compile_options(-Wno-error=deprecated)
 endif()
 
 
 # force visual studio and the like to only have debug and release builds
 if(CMAKE_CONFIGURATION_TYPES)
-  set(CMAKE_CONFIGURATION_TYPES Debug Release)
-  set(CMAKE_CONFIGURATION_TYPES "${CMAKE_CONFIGURATION_TYPES}" CACHE STRING "Reset the configurations to what we need" FORCE)
+    set(CMAKE_CONFIGURATION_TYPES Debug Release)
+    set(CMAKE_CONFIGURATION_TYPES "${CMAKE_CONFIGURATION_TYPES}" CACHE STRING "Reset the configurations to what we need" FORCE)
 endif()
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 include_directories(SYSTEM ${CMAKE_CURRENT_BINARY_DIR})
 
 if(BUILD_TYPEINFO_IMPL_CTTI)
-  include_directories(SYSTEM external/ctti/include)
+    include_directories(SYSTEM external/ctti/include)
 endif()
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config_in.h ${CMAKE_CURRENT_BINARY_DIR}/euph_generated_config.h)
