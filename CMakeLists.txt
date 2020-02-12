@@ -64,6 +64,11 @@ set(MACOSX_BUNDLE_INFO_PLIST "${CMAKE_CURRENT_SOURCE_DIR}/osx-bundle.plist")
 if(${MSVC})
   add_definitions(/D _CRT_SECURE_NO_WARNINGS)
 
+  add_definitions(/D NOMINMAX)
+  add_definitions(/D STRICT)
+  add_definitions(/D WIN32_LEAN_AND_MEAN)
+  add_definitions(/D VC_EXTRALEAN)
+
   # character set to Not Set=ASCII/SBCS
   # http://public.kitware.com/Bug/view.php?id=12189
   add_definitions(/D _SBCS)
