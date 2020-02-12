@@ -1,3 +1,2 @@
 #!/bin/sh
-cloc core demo gui render tests base64 chatbot_test demo editor engine scripts tabletool tracery window worldgen CMakeLists.txt
-
+cloc duk engine gui minsynth scripts test window core editor file_types  musikmaskin painter render t3d unit-tests CMakeLists.txt
