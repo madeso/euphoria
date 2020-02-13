@@ -89,8 +89,7 @@ namespace euphoria::core
         {
             path.push_back(C(vec2f::Zero()));
         }
-        const auto last = *path.rbegin();
-        path.push_back(C(vec2f(last.x + dx, last.y + dy)));
+        path.push_back(C(vec2f(dx, dy)));
     }
 
     void
