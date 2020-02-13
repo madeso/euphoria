@@ -139,4 +139,70 @@ add_subdirectory(t3d)
 add_subdirectory(editor)
 add_subdirectory(painter)
 add_subdirectory(musikmaskin)
-add_subdirectory(test)
+
+# here comes all the test files
+
+file(GLOB all_test_src test/*.cc)
+source_group("" FILES ${all_test_src})
+
+# single file applications that could be useful
+
+add_executable(tabletool test/tabletool.cc)
+target_link_libraries(tabletool core)
+
+add_executable(base64 test/base64.cc)
+target_link_libraries(base64 core)
+
+add_executable(markov test/markov.cc)
+target_link_libraries(markov core)
+
+add_executable(tracery test/tracery.cc)
+target_link_libraries(tracery core)
+
+
+
+
+# test applications that serve no purpose other than
+# testing the libraries and perhaps generate some pretty visuals :)
+
+
+add_executable(test-3d WIN32 MACOSX_BUNDLE test/3d.cc)
+target_include_directories(test-3d SYSTEM PRIVATE ${SDL2_INCLUDE_DIR})
+target_link_libraries(test-3d core render window ${SDL2_LIBRARY})
+
+add_executable(test-chatbot test/chatbot.cc)
+target_link_libraries(test-chatbot core)
+
+add_executable(test-coldet test/coldet.cc)
+target_link_libraries(test-coldet core)
+
+add_executable(test-draw-test test/draw-test.cc)
+target_link_libraries(test-draw-test core)
+
+add_executable(test-img test/img.cc)
+target_link_libraries(test-img core)
+
+add_executable(test-poisson-test test/poisson-test.cc)
+target_link_libraries(test-poisson-test core)
+
+add_executable(test-svg-dump test/svg-dump.cc)
+target_link_libraries(test-svg-dump core)
+
+add_executable(test-three-dump test/three-dump.cc)
+target_link_libraries(test-three-dump core)
+
+add_executable(test-identicon test/identicon-main.cc)
+target_link_libraries(test-identicon core)
+
+add_executable(test-canvas test/canvas-main.cc)
+target_link_libraries(test-canvas core)
+
+add_executable(test-tree test/tree.cc)
+target_link_libraries(test-tree core)
+
+add_executable(test-worldgen test/worldgen.cc)
+target_link_libraries(test-worldgen core)
+
+add_executable(test-voronoi test/voronoi.cc)
+target_link_libraries(test-voronoi core)
+
