@@ -21,7 +21,7 @@ namespace euphoria::core
     WholeImage(const Image& image)
     {
         return Recti::FromTopLeftWidthHeight(
-                image.GetHeight(), 0, image.GetWidth(), image.GetHeight());
+                vec2i{0, image.GetHeight()}, image.GetWidth(), image.GetHeight());
     }
 
     void
@@ -63,7 +63,7 @@ namespace euphoria::core
         DrawRect(
                 image,
                 color,
-                Recti::FromTopLeftWidthHeight(y + 1, x, size, size));
+                Recti::FromTopLeftWidthHeight(vec2i {x, y + 1}, size, size));
     }
 
 

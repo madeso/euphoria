@@ -119,7 +119,7 @@ main(int argc, char** argv)
     (
         &image,
         Color::Blue,
-        Recti::FromTopLeftWidthHeight(256, 0, 100, 25)
+        Recti::FromTopLeftWidthHeight(vec2i{0, 256}, 100, 25)
     );
     DrawLineAntialiased(&image, Color::Black, wi.BottomLeft(), wi.TopRight());
     // todo: fix text drawing...

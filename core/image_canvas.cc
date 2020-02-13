@@ -39,7 +39,7 @@ namespace euphoria::core
         DrawRect(
                 image,
                 fillStyle,
-                Recti::FromTopLeftWidthHeight(image->GetHeight() - y, x, w, h));
+                Recti::FromTopLeftWidthHeight(vec2i{x, image->GetHeight() - y}, w, h));
     }
 
     void

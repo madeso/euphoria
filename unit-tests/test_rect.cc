@@ -8,7 +8,7 @@ namespace euco = euphoria::core;
 
 TEST_CASE("rect-constructor_topleftwidthheight", "[rect]")
 {
-    auto r = euco::Rect<int>::FromTopLeftWidthHeight(2, 1, 3, 4);
+    auto r = euco::Rect<int>::FromTopLeftWidthHeight(euco::vec2i{1, 2}, 3, 4);
 
     CHECK(r.left == 1);
     CHECK(r.top == 2);
@@ -190,7 +190,7 @@ TEST_CASE("rect-offset", "[rect]")
 
 TEST_CASE("rect-offset_to", "[rect]")
 {
-    const auto r = euco::Rect<int>::FromTopLeftWidthHeight(10, 12, 5, 10)
+    const auto r = euco::Rect<int>::FromTopLeftWidthHeight(euco::vec2i{12, 10}, 5, 10)
                            .SetTopLeftToCopy(1, 2);
 
     REQUIRE(r.IsValid());
@@ -227,7 +227,7 @@ TEST_CASE("rect-sizes", "[rect]")
 
 TEST_CASE("rect-center", "[rect]")
 {
-    const auto r = euco::Rect<int>::FromTopLeftWidthHeight(3, 2, 6, 10);
+    const auto r = euco::Rect<int>::FromTopLeftWidthHeight(euco::vec2i{2, 3}, 6, 10);
     REQUIRE(r.GetRelativeCenterXFromBottomLeft() == 3);
     REQUIRE(r.GetRelativeCenterYFromBottomLeft() == 5);
 

@@ -103,7 +103,7 @@ namespace euphoria::render
         DrawRect(
                 texture,
                 position,
-                core::Rectf::FromTopLeftWidthHeight(1, 0, 1, 1),
+                core::Rectf::FromTopLeftWidthHeight(core::vec2f{0, 1}, 1, 1),
                 data.rotation,
                 core::scale2f {0.5f, 0.5f},
                 data.tint);

@@ -158,7 +158,7 @@ namespace euphoria::gui
             }
 
             w->SetRect(core::Rectf::FromTopLeftWidthHeight(
-                    y, x, width[d.GetColumn()], height[d.GetRow()]));
+                    core::vec2f{x, y}, width[d.GetColumn()], height[d.GetRow()]));
         }
     }
 
@@ -201,7 +201,7 @@ namespace euphoria::gui
         {
             const auto& s = w->GetPreferredSize();
             w->SetRect(core::Rectf::FromTopLeftWidthHeight(
-                    tl.y, x, s.width, s.height));
+                    core::vec2f{x, tl.y}, s.width, s.height));
             x += s.width + padding_;
         }
     }

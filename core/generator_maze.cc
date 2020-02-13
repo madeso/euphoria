@@ -289,7 +289,7 @@ namespace euphoria::core
                             cell_size);
 
                     const auto xywh = [](int x, int y, int w, int h) {
-                        return Recti::FromTopLeftWidthHeight(y + 1, x, w, h);
+                        return Recti::FromTopLeftWidthHeight(vec2i{x, y + 1}, w, h);
                     };
 
                     const auto cell_value = maze->Value(x, y);

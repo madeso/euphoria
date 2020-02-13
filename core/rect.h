@@ -75,12 +75,12 @@ namespace euphoria::core
         }
 
         [[nodiscard]] static Rect
-        FromTopLeftWidthHeight(T atop, T aleft, T width, T height)
+        FromTopLeftWidthHeight(const vec2<T>& topleft, T width, T height)
         {
             ASSERT(width >= 0);
             ASSERT(height >= 0);
             return FromLeftRightTopBottom(
-                    aleft, aleft + width, atop, atop - height);
+                    topleft.x, topleft.x + width, topleft.y, topleft.y - height);
         }
 
         [[nodiscard]] static Rect
@@ -123,8 +123,7 @@ namespace euphoria::core
             const auto lower_left = other.GetAbsoluteCenterPos()
                                     - GetRelativeCenterPosFromBottomLeft();
             return Rect::FromTopLeftWidthHeight(
-                    lower_left.y + GetHeight(),
-                    lower_left.x,
+                    vec2<T> {lower_left.x, lower_left.y + GetHeight()},
                     GetWidth(),
                     GetHeight());
         }
@@ -367,7 +366,7 @@ namespace euphoria::core
         SetTopLeftToCopy(T newLeft, T newTop) const
         {
             return FromTopLeftWidthHeight(
-                    newTop, newLeft, GetWidth(), GetHeight());
+                    vec2<T>{newLeft, newTop}, GetWidth(), GetHeight());
         }
 
         Rect<T>
@@ -380,7 +379,7 @@ namespace euphoria::core
         SetBottomLeftToCopy(T newLeft, T newBottom) const
         {
             return FromTopLeftWidthHeight(
-                    newBottom + GetHeight(), newLeft, GetWidth(), GetHeight());
+                    vec2<T>{newLeft, newBottom + GetHeight()}, GetWidth(), GetHeight());
         }
 
         Rect<T>
