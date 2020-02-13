@@ -25,5 +25,8 @@ before_build:
 build_script:
   - cmd: '%PYTHON%\python.exe c:\projects\euphoria\scripts\windows.py build %EUPH_COMPILER% auto'
 
+cache:
+  - build\deps -> appveyor.yml, scripts\**.py
+
 test_script:
   - cmd: '%PYTHON%\python.exe c:\projects\euphoria\scripts\windows.py test'
