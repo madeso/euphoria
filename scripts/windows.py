@@ -103,11 +103,13 @@ def run(args) -> str:
 
 def on_cmd_test(args):
     tests = os.path.join(get_build_folder(), 'unit-tests', 'Release', 'tests.exe')
-    lines = run([tests, '-r', 'junit'])
-    print('Test result', lines, flush=True)
+    lines = run([tests, '-r', 'junit']).decode('utf-8')
+    print('Test result:')
+    print(lines)
+    print('', flush=True)
     url = 'https://ci.appveyor.com/api/testresults/junit/' + os.environ['APPVEYOR_JOB_ID']
     print('Uploading to appveyour', url, flush=True)
-    r = requests.post(url, files={'catch.json': lines})
+    r = requests.post(url, data=lines)
     print(r.text, flush=True)
 
 
