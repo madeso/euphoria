@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <title>canvas test</title>
+<style>
+body {
+  background-color: grey;
+}
+canvas {
+    padding: 0;
+    margin: auto;
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+</style>
+  </head>
+  <body>
+    <canvas id="my-house" width="300" height="300"></canvas>
+
+    <script>
+const canvas = document.getElementById('my-house');
+const ctx = canvas.getContext('2d');
+
+ctx.fillStyle = 'white';
+ctx.fillRect(0, 0, 300, 300);
+
+ctx.fillStyle = 'green';
+ctx.fillRect(0, 200, 300, 100);
+
+// Wall
+ctx.fillStyle = 'gray';
+ctx.fillRect(75, 140, 150, 110);
+
+// Door
+ctx.fillStyle = 'black';
+ctx.fillRect(130, 190, 40, 60);
+
+// Roof
+ctx.fillStyle = 'red';
+ctx.moveTo(50, 140);
+ctx.lineTo(150, 60);
+ctx.lineTo(250, 140);
+ctx.closePath();
+ctx.fill();
+    </script>
+  </body>
+</html>
+

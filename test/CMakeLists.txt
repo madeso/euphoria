@@ -37,6 +37,9 @@ target_link_libraries(three-dump core)
 add_executable(identicon identicon-main.cc)
 target_link_libraries(identicon core)
 
+add_executable(canvas canvas-main.cc)
+target_link_libraries(canvas core)
+
 add_executable(tracery tracery.cc)
 target_link_libraries(tracery core)
 
