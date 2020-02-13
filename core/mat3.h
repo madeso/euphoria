@@ -6,6 +6,7 @@
 
 #include "core/vec2.h"
 #include "core/vec3.h"
+#include "core/mat2.h"
 #include "core/angle.h"
 #include "core/axisangle.h"
 
@@ -26,6 +27,16 @@ namespace euphoria::core
         {}
 
     public:
+        explicit mat3(const mat2<T>& mat)
+            : data
+            {
+                mat(0,0), mat(0,1), 0,
+                mat(1,0), mat(1,1), 0,
+                0,        0,        1
+            }
+        {}
+
+
         [[nodiscard]] static mat3<T>
         FromColMajor(
                 T t00,

@@ -102,6 +102,29 @@ namespace euphoria::core
 #undef OP
         }
 
+        const T*
+        GetDataPtr() const
+        {
+            return data;
+        }
+        T*
+        GetDataPtr()
+        {
+            return data;
+        }
+
+        // index operator use () as [] only expects one argument
+        T&
+        operator()(int row, int col)
+        {
+            return data[col * 2 + row];
+        }
+        T
+        operator()(int row, int col) const
+        {
+            return Get(row, col);
+        }
+
         T
         Get(int row, int col) const
         {

@@ -54,7 +54,7 @@ namespace euphoria::core
     Canvas::rotate(float r)
     {
         LOG_INFO("rotate {}", r);
-        // transform = transform * mat2f::FromRotation(Angle::FromDegrees(r));
+        transform = transform * mat3f{mat2f::FromRotation(Angle::FromRadians(r))};
     }
 
     void
