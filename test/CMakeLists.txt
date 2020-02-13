@@ -21,12 +21,10 @@ target_link_libraries(tracery core)
 # test applications that serve no purpose other than
 # testing the libraries and perhaps generate some pretty visuals :)
 
-# set(all_src ${app_src} ${src_glew})
 
 add_executable(test-3d WIN32 MACOSX_BUNDLE 3d.cc)
 target_include_directories(test-3d SYSTEM PRIVATE ${SDL2_INCLUDE_DIR})
 target_link_libraries(test-3d core render window ${SDL2_LIBRARY})
-
 
 add_executable(test-chatbot chatbot.cc)
 target_link_libraries(test-chatbot core)
