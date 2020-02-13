@@ -19,7 +19,7 @@ namespace euphoria::core
     Canvas::C(const vec2f v) const
     {
         const auto vv = transform * vec3f {v, 1};
-        return vec2f {vv.x, vv.y};
+        return vec2f {vv.x, image->GetHeight() - vv.y};
     }
 
     Canvas::Canvas(Image* i)
@@ -36,7 +36,10 @@ namespace euphoria::core
         ASSERTX(w > 0, w);
         ASSERTX(h > 0, h);
         LOG_INFO("fillRect {} {}: {} x {}", x, y, w, h);
-        DrawRect(image, fillStyle, Recti::FromTopLeftWidthHeight(x, y, w, h));
+        DrawRect(
+                image,
+                fillStyle,
+                Recti::FromTopLeftWidthHeight(image->GetHeight() - y, x, w, h));
     }
 
     void
