@@ -16,8 +16,31 @@ if(WIN32)
             ${ASSIMP_ROOT_DIR}/include
     )
 
-    # todo: determine version based on the compiler settings...
-    set(ASSIMP_MSVC_VERSION "vc142")
+    # code block stolen from assimp cmake file
+    if( MSVC70 OR MSVC71 )
+      set(MSVC_PREFIX "vc70")
+    elseif( MSVC80 )
+      set(MSVC_PREFIX "vc80")
+    elseif( MSVC90 )
+      set(MSVC_PREFIX "vc90")
+    elseif( MSVC10 )
+      set(MSVC_PREFIX "vc100")
+    elseif( MSVC11 )
+      set(MSVC_PREFIX "vc110")
+    elseif( MSVC12 )
+      set(MSVC_PREFIX "vc120")
+    elseif( MSVC_VERSION LESS 1910)
+      set(MSVC_PREFIX "vc140")
+    elseif( MSVC_VERSION LESS 1920)
+      set(MSVC_PREFIX "vc141")
+    elseif( MSVC_VERSION LESS 1930)
+      set(MSVC_PREFIX "vc142")
+    else()
+      MESSAGE(WARNING "unknown msvc version ${MSVC_VERSION}")
+      set(MSVC_PREFIX "vc150")
+    endif()
+
+    set(ASSIMP_MSVC_VERSION "${MSVC_PREFIX}")
 
     message(STATUS "CMAKE assimp msvc version ${ASSIMP_MSVC_VERSION}")
     
