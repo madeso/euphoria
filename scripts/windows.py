@@ -102,7 +102,7 @@ def run(args) -> str:
 
 
 def on_cmd_test(args):
-    tests = os.path.join(get_build_folder(), 'tests', 'Release', 'tests.exe')
+    tests = os.path.join(get_build_folder(), 'unit-tests', 'Release', 'tests.exe')
     lines = run([tests, '-r', 'junit'])
     print('Test result', lines, flush=True)
     url = 'https://ci.appveyor.com/api/testresults/junit/' + os.environ['APPVEYOR_JOB_ID']
