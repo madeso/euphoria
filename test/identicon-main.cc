@@ -53,6 +53,7 @@ main(int argc, char* argv[])
         if(number_of_images > 1)
         {
             file_name = Str() << "identicon_" << (i + 1) << ".png";
+            std::cout << "Writing " << file_name << "\n";
         }
 
         io::ChunkToFile(image.Write(ImageWriteFormat::PNG), file_name);
