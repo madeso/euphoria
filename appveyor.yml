@@ -31,3 +31,4 @@ cache:
 
 test_script:
   - cmd: '%PYTHON%\python.exe c:\projects\euphoria\scripts\windows.py test'
+  - ps: c:\projects\euphoria\scripts\upload-test-appveyor.ps1

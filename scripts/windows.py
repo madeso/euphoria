@@ -107,12 +107,11 @@ def on_cmd_test(args):
     print('Test result:')
     # hacky way to remove all log output from the junit output
     lines = '\n'.join(line for line in lines.splitlines() if line[:1]!='[')
-    print(lines)
-    print('', flush=True)
-    url = 'https://ci.appveyor.com/api/testresults/junit/' + os.environ['APPVEYOR_JOB_ID']
-    print('Uploading to appveyour', url, flush=True)
-    r = requests.post(url, data=lines)
-    print(r.text, flush=True)
+    save_path = os.path.join(get_root_folder(), 'build', 'junit-results.xml')
+    print('Saving junit to', save_path, flush=True)
+    with open(save_path, 'w') as f:
+        f.write(lines)
+    print('file written!')
 
 
 def add_options(parser):
