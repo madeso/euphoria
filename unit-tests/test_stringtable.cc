@@ -31,8 +31,8 @@ TEST_CASE("stringtable-generator", "[stringtable]")
                                                return p.last;
                                            })
                                    .ToTable();
-        REQUIRE(table.Width() == 2);
-        REQUIRE(table.Height() == 5);
+        REQUIRE(table.GetWidth() == 2);
+        REQUIRE(table.GetHeight() == 5);
         const auto first = std::vector<std::string> {
                 "First name", "Jerry", "Elaine", "Cosmo", "George"};
         const auto last = std::vector<std::string> {
@@ -58,8 +58,8 @@ TEST_CASE("stringtable-generator", "[stringtable]")
                                            })
                                    .Sort(&Person::last)
                                    .ToTable();
-        REQUIRE(table.Width() == 2);
-        REQUIRE(table.Height() == 5);
+        REQUIRE(table.GetWidth() == 2);
+        REQUIRE(table.GetHeight() == 5);
         const auto first = std::vector<std::string> {
                 "First name", "Elaine", "George", "Cosmo", "Jerry"};
         const auto last = std::vector<std::string> {
@@ -81,8 +81,8 @@ TEST_CASE("stringtable-from_csv_default", "[stringtable]")
     SECTION("not ending with newline")
     {
         const auto table = euco::TableFromCsv("a,b\n1,2");
-        REQUIRE(table.Width() == 2);
-        REQUIRE(table.Height() == 2);
+        REQUIRE(table.GetWidth() == 2);
+        REQUIRE(table.GetHeight() == 2);
         CHECK(euco::CalcColumnAsVector(table, 0) == firstcol);
         CHECK(euco::CalcColumnAsVector(table, 1) == secondcol);
     }
@@ -90,16 +90,16 @@ TEST_CASE("stringtable-from_csv_default", "[stringtable]")
     SECTION("single column")
     {
         const auto table = euco::TableFromCsv("ab\n12");
-        REQUIRE(table.Width() == 1);
-        REQUIRE(table.Height() == 2);
+        REQUIRE(table.GetWidth() == 1);
+        REQUIRE(table.GetHeight() == 2);
         CHECK(euco::CalcColumnAsVector(table, 0) == ab12);
     }
 
     SECTION("ending with newlines")
     {
         const auto table = euco::TableFromCsv("a,b\n\n\n1,2\n\n");
-        REQUIRE(table.Width() == 2);
-        REQUIRE(table.Height() == 2);
+        REQUIRE(table.GetWidth() == 2);
+        REQUIRE(table.GetHeight() == 2);
         CHECK(euco::CalcColumnAsVector(table, 0) == firstcol);
         CHECK(euco::CalcColumnAsVector(table, 1) == secondcol);
     }
@@ -111,8 +111,8 @@ TEST_CASE("stringtable-from_csv_default", "[stringtable]")
 
         const auto table
                 = euco::TableFromCsv("  a  ,  b  \n  1    ,  2  ", options);
-        REQUIRE(table.Width() == 2);
-        REQUIRE(table.Height() == 2);
+        REQUIRE(table.GetWidth() == 2);
+        REQUIRE(table.GetHeight() == 2);
         CHECK(euco::CalcColumnAsVector(table, 0) == firstcol);
         CHECK(euco::CalcColumnAsVector(table, 1) == secondcol);
     }
@@ -120,8 +120,8 @@ TEST_CASE("stringtable-from_csv_default", "[stringtable]")
     SECTION("with spaces (keep)")
     {
         const auto table = euco::TableFromCsv("a, b \n1,2");
-        REQUIRE(table.Width() == 2);
-        REQUIRE(table.Height() == 2);
+        REQUIRE(table.GetWidth() == 2);
+        REQUIRE(table.GetHeight() == 2);
         CHECK(euco::CalcColumnAsVector(table, 0) == firstcol);
         CHECK(euco::CalcColumnAsVector(table, 1) == secondcolspace);
     }
@@ -132,8 +132,8 @@ TEST_CASE("stringtable-from_csv_default", "[stringtable]")
         options.trim = euco::CsvTrim::Trim;
 
         const auto table = euco::TableFromCsv("a,   \" b \"   \n1,2", options);
-        REQUIRE(table.Width() == 2);
-        REQUIRE(table.Height() == 2);
+        REQUIRE(table.GetWidth() == 2);
+        REQUIRE(table.GetHeight() == 2);
         CHECK(euco::CalcColumnAsVector(table, 0) == firstcol);
         CHECK(euco::CalcColumnAsVector(table, 1) == secondcolspace);
     }
@@ -141,8 +141,8 @@ TEST_CASE("stringtable-from_csv_default", "[stringtable]")
     SECTION("strings")
     {
         const auto table = euco::TableFromCsv("\"a b\",b\n1,2");
-        REQUIRE(table.Width() == 2);
-        REQUIRE(table.Height() == 2);
+        REQUIRE(table.GetWidth() == 2);
+        REQUIRE(table.GetHeight() == 2);
         CHECK(euco::CalcColumnAsVector(table, 0) == firstcolstring);
         CHECK(euco::CalcColumnAsVector(table, 1) == secondcol);
     }
@@ -151,8 +151,8 @@ TEST_CASE("stringtable-from_csv_default", "[stringtable]")
     {
         const auto table    = euco::TableFromCsv("\"a b");
         const auto errorcol = std::vector<std::string> {"a b"};
-        REQUIRE(table.Width() == 1);
-        REQUIRE(table.Height() == 1);
+        REQUIRE(table.GetWidth() == 1);
+        REQUIRE(table.GetHeight() == 1);
         CHECK(euco::CalcColumnAsVector(table, 0) == errorcol);
     }
 
@@ -161,8 +161,8 @@ TEST_CASE("stringtable-from_csv_default", "[stringtable]")
         const auto table     = euco::TableFromCsv("err,\"a b");
         const auto errorcol1 = std::vector<std::string> {"err"};
         const auto errorcol2 = std::vector<std::string> {"a b"};
-        REQUIRE(table.Width() == 2);
-        REQUIRE(table.Height() == 1);
+        REQUIRE(table.GetWidth() == 2);
+        REQUIRE(table.GetHeight() == 1);
         CHECK(euco::CalcColumnAsVector(table, 0) == errorcol1);
         CHECK(euco::CalcColumnAsVector(table, 1) == errorcol2);
     }
@@ -171,8 +171,8 @@ TEST_CASE("stringtable-from_csv_default", "[stringtable]")
     {
         const auto table = euco::TableFromCsv("\"a \"\" b\"");
         const auto col   = std::vector<std::string> {"a \" b"};
-        REQUIRE(table.Width() == 1);
-        REQUIRE(table.Height() == 1);
+        REQUIRE(table.GetWidth() == 1);
+        REQUIRE(table.GetHeight() == 1);
         CHECK(euco::CalcColumnAsVector(table, 0) == col);
     }
 }
@@ -190,8 +190,8 @@ TEST_CASE("stringtable-from_csv_not_default", "[stringtable]")
     SECTION("not ending with newline")
     {
         const auto table = euco::TableFromCsv("acb\n1c2", options);
-        REQUIRE(table.Width() == 2);
-        REQUIRE(table.Height() == 2);
+        REQUIRE(table.GetWidth() == 2);
+        REQUIRE(table.GetHeight() == 2);
         CHECK(euco::CalcColumnAsVector(table, 0) == firstcol);
         CHECK(euco::CalcColumnAsVector(table, 1) == secondcol);
     }
@@ -199,8 +199,8 @@ TEST_CASE("stringtable-from_csv_not_default", "[stringtable]")
     SECTION("ending with newlines")
     {
         const auto table = euco::TableFromCsv("acb\n\n\n1c2\n\n", options);
-        REQUIRE(table.Width() == 2);
-        REQUIRE(table.Height() == 2);
+        REQUIRE(table.GetWidth() == 2);
+        REQUIRE(table.GetHeight() == 2);
         CHECK(euco::CalcColumnAsVector(table, 0) == firstcol);
         CHECK(euco::CalcColumnAsVector(table, 1) == secondcol);
     }
@@ -208,8 +208,8 @@ TEST_CASE("stringtable-from_csv_not_default", "[stringtable]")
     SECTION("strings")
     {
         const auto table = euco::TableFromCsv("sa bscb\n1c2", options);
-        REQUIRE(table.Width() == 2);
-        REQUIRE(table.Height() == 2);
+        REQUIRE(table.GetWidth() == 2);
+        REQUIRE(table.GetHeight() == 2);
         CHECK(euco::CalcColumnAsVector(table, 0) == firstcolstring);
         CHECK(euco::CalcColumnAsVector(table, 1) == secondcol);
     }
@@ -218,8 +218,8 @@ TEST_CASE("stringtable-from_csv_not_default", "[stringtable]")
     {
         const auto table    = euco::TableFromCsv("sa b", options);
         const auto errorcol = std::vector<std::string> {"a b"};
-        REQUIRE(table.Width() == 1);
-        REQUIRE(table.Height() == 1);
+        REQUIRE(table.GetWidth() == 1);
+        REQUIRE(table.GetHeight() == 1);
         CHECK(euco::CalcColumnAsVector(table, 0) == errorcol);
     }
 
@@ -228,8 +228,8 @@ TEST_CASE("stringtable-from_csv_not_default", "[stringtable]")
         const auto table     = euco::TableFromCsv("errcsa b", options);
         const auto errorcol1 = std::vector<std::string> {"err"};
         const auto errorcol2 = std::vector<std::string> {"a b"};
-        REQUIRE(table.Width() == 2);
-        REQUIRE(table.Height() == 1);
+        REQUIRE(table.GetWidth() == 2);
+        REQUIRE(table.GetHeight() == 1);
         CHECK(euco::CalcColumnAsVector(table, 0) == errorcol1);
         CHECK(euco::CalcColumnAsVector(table, 1) == errorcol2);
     }
@@ -238,8 +238,8 @@ TEST_CASE("stringtable-from_csv_not_default", "[stringtable]")
     {
         const auto table = euco::TableFromCsv("sa ss bs", options);
         const auto col   = std::vector<std::string> {"a s b"};
-        REQUIRE(table.Width() == 1);
-        REQUIRE(table.Height() == 1);
+        REQUIRE(table.GetWidth() == 1);
+        REQUIRE(table.GetHeight() == 1);
         CHECK(euco::CalcColumnAsVector(table, 0) == col);
     }
 }

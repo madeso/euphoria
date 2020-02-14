@@ -17,8 +17,8 @@ namespace euphoria::core
                    && border_control != BorderControl::RandomEmpty)
                 {
                     const auto is_border = x == 0 || y == 0
-                                           || x == world->Width() - 1
-                                           || y == world->Height() - 1;
+                                           || x == world->GetWidth() - 1
+                                           || y == world->GetHeight() - 1;
                     if(is_border)
                     {
                         return border_control == BorderControl::AlwaysWall;
@@ -102,13 +102,13 @@ namespace euphoria::core
         CellularAutomataDrawer::Draw()
         {
             image.SetupNoAlphaSupport(
-                    world->Width() * scale, world->Height() * scale);
+                    world->GetWidth() * scale, world->GetHeight() * scale);
 
             Clear(&image, space_color);
 
-            for(int x = 0; x < world->Width(); x += 1)
+            for(int x = 0; x < world->GetWidth(); x += 1)
             {
-                for(int y = 0; y < world->Height(); y += 1)
+                for(int y = 0; y < world->GetHeight(); y += 1)
                 {
                     const auto px = x * scale;
                     const auto py = y * scale;

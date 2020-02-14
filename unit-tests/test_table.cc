@@ -8,12 +8,12 @@ namespace euco = euphoria::core;
 TEST_CASE("table-empty", "[table]")
 {
     const auto t1 = euco::Table<int>::FromWidthHeight(0, 0);
-    CHECK(t1.Width() == 0);
-    CHECK(t1.Height() == 0);
+    CHECK(t1.GetWidth() == 0);
+    CHECK(t1.GetHeight() == 0);
 
     const auto t2 = euco::Table<int> {};
-    CHECK(t2.Width() == 0);
-    CHECK(t2.Height() == 0);
+    CHECK(t2.GetWidth() == 0);
+    CHECK(t2.GetHeight() == 0);
 }
 
 TEST_CASE("table-size", "[table]")
@@ -23,11 +23,11 @@ TEST_CASE("table-size", "[table]")
 
     SECTION("test sizes")
     {
-        CHECK(t.Width() == 3);
-        CHECK(same.Width() == 3);
+        CHECK(t.GetWidth() == 3);
+        CHECK(same.GetWidth() == 3);
 
-        CHECK(t.Height() == 2);
-        CHECK(same.Height() == 2);
+        CHECK(t.GetHeight() == 2);
+        CHECK(same.GetHeight() == 2);
     }
 
     SECTION("verify data layout")
@@ -46,8 +46,8 @@ TEST_CASE("table-section_and_rows", "[table]")
 {
     using T = euco::Table<std::string>;
     auto t  = T::FromWidthHeight(3, 2, "");
-    for(T::I y = 0; y < t.Height(); ++y)
-        for(T::I x = 0; x < t.Width(); ++x)
+    for(T::I y = 0; y < t.GetHeight(); ++y)
+        for(T::I x = 0; x < t.GetWidth(); ++x)
         {
             t.Value(x, y, euco::Str() << x << "," << y);
         }
@@ -89,23 +89,23 @@ TEST_CASE("table-test_add", "[table]")
 {
     auto t = euco::Table<int>();
 
-    REQUIRE(0 == t.Width());
-    REQUIRE(0 == t.Height());
+    REQUIRE(0 == t.GetWidth());
+    REQUIRE(0 == t.GetHeight());
 
     SECTION("basic usage")
     {
         t.NewRow(std::vector<int> {1, 2, 3});
 
-        REQUIRE(3 == t.Width());
-        REQUIRE(1 == t.Height());
+        REQUIRE(3 == t.GetWidth());
+        REQUIRE(1 == t.GetHeight());
 
         t.NewRow();
         t.Value(0, 1, 4);
         t.Value(1, 1, 5);
         t.Value(2, 1, 6);
 
-        REQUIRE(3 == t.Width());
-        REQUIRE(2 == t.Height());
+        REQUIRE(3 == t.GetWidth());
+        REQUIRE(2 == t.GetHeight());
 
         t.NewRow(std::vector<int> {7, 8, 9});
 
@@ -130,8 +130,8 @@ TEST_CASE("table-test_add", "[table]")
         {
             t.NewRow(r1d, d);
             t.NewRow(r12, d);
-            REQUIRE(2 == t.Width());
-            REQUIRE(2 == t.Height());
+            REQUIRE(2 == t.GetWidth());
+            REQUIRE(2 == t.GetHeight());
             CHECK(euco::CalcRowAsVector(t, 0) == r10);
             CHECK(euco::CalcRowAsVector(t, 1) == r12);
         }
@@ -140,8 +140,8 @@ TEST_CASE("table-test_add", "[table]")
         {
             t.NewRow(r12, d);
             t.NewRow(r1d, d);
-            REQUIRE(2 == t.Width());
-            REQUIRE(2 == t.Height());
+            REQUIRE(2 == t.GetWidth());
+            REQUIRE(2 == t.GetHeight());
             CHECK(euco::CalcRowAsVector(t, 0) == r12);
             CHECK(euco::CalcRowAsVector(t, 1) == r10);
         }

@@ -30,9 +30,9 @@ std::vector<Difference>
 FindDifferences(const Table<bool>& src, const Table<bool>& dst)
 {
     std::vector<Difference> ret;
-    for(int y = 0; y < src.Height(); y += 1)
+    for(int y = 0; y < src.GetHeight(); y += 1)
     {
-        for(int x = 0; x < src.Width(); x += 1)
+        for(int x = 0; x < src.GetWidth(); x += 1)
         {
             const auto lhs = src.Value(x, y);
             const auto rhs = dst.Value(x, y);

@@ -28,6 +28,7 @@ namespace euphoria::core
     {
         void
         MakeInvalid();
+
         bool
         IsValid() const;
 
@@ -94,8 +95,10 @@ namespace euphoria::core
 
         int
         GetWidth() const;
+
         int
         GetHeight() const;
+
         bool
         HasAlpha() const;
 

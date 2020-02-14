@@ -89,7 +89,7 @@ namespace euphoria::core
         CanVisitWithoutMakingLoop(Maze* maze, const vec2i& np)
         {
             const auto world_size = Recti::FromWidthHeight(
-                    maze->Width() - 1, maze->Height() - 1);
+                    maze->GetWidth() - 1, maze->GetHeight() - 1);
             return world_size.ContainsInclusive(np) && !HasVisited(maze, np);
         }
 
@@ -109,8 +109,8 @@ namespace euphoria::core
         vec2i
         RandomPositionOnMaze(Random* random, Maze* maze)
         {
-            return {random->NextRange(maze->Width()),
-                    random->NextRange(maze->Height())};
+            return {random->NextRange(maze->GetWidth()),
+                    random->NextRange(maze->GetHeight())};
         }
 
 
@@ -132,7 +132,7 @@ namespace euphoria::core
         bool
         RecursiveBacktracker::HasMoreWork() const
         {
-            return visited_cells < maze->Width() * maze->Height();
+            return visited_cells < maze->GetWidth() * maze->GetHeight();
         }
 
 
@@ -269,14 +269,14 @@ namespace euphoria::core
             const auto path_size = cell_size + wall_size;
 
             image.SetupNoAlphaSupport(
-                    wall_size + maze->Width() * path_size,
-                    wall_size + maze->Height() * path_size);
+                    wall_size + maze->GetWidth() * path_size,
+                    wall_size + maze->GetHeight() * path_size);
 
             Clear(&image, wall_color);
 
-            for(int x = 0; x < maze->Width(); x += 1)
+            for(int x = 0; x < maze->GetWidth(); x += 1)
             {
-                for(int y = 0; y < maze->Height(); y += 1)
+                for(int y = 0; y < maze->GetHeight(); y += 1)
                 {
                     const auto px = wall_size + x * path_size;
                     const auto py = wall_size + y * path_size + cell_size - 1;

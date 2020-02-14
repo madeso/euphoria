@@ -186,13 +186,13 @@ namespace euphoria::core
 
         // todo: figure out a better name
         I
-        Width() const
+        GetWidth() const
         {
             return width;
         }
 
         I
-        Height() const
+        GetHeight() const
         {
             return height;
         }
@@ -225,10 +225,10 @@ namespace euphoria::core
     std::vector<T>
     CalcColumnAsVector(const Table<T>& t, typename Table<T>::I x)
     {
-        ASSERTX(x < t.Width(), x, t.Width());
+        ASSERTX(x < t.GetWidth(), x, t.GetWidth());
         std::vector<T> r;
-        r.reserve(t.Height());
-        for(typename Table<T>::I y = 0; y < t.Height(); ++y)
+        r.reserve(t.GetHeight());
+        for(typename Table<T>::I y = 0; y < t.GetHeight(); ++y)
         {
             r.emplace_back(t.Value(x, y));
         }
@@ -239,11 +239,11 @@ namespace euphoria::core
     std::vector<T>
     CalcRowAsVector(const Table<T>& t, typename Table<T>::I y)
     {
-        ASSERTX(y < t.Height(), y, t.Height());
+        ASSERTX(y < t.GetHeight(), y, t.GetHeight());
 
         std::vector<T> r;
-        r.reserve(t.Width());
-        for(typename Table<T>::I x = 0; x < t.Width(); ++x)
+        r.reserve(t.GetWidth());
+        for(typename Table<T>::I x = 0; x < t.GetWidth(); ++x)
         {
             r.emplace_back(t.Value(x, y));
         }

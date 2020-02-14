@@ -80,10 +80,10 @@ namespace euphoria::core
     {
         std::vector<std::string> ret;
 
-        for(int r = 0; r < table.Height(); r += 1)
+        for(int r = 0; r < table.GetHeight(); r += 1)
         {
             std::stringstream ss;
-            for(int c = 0; c < table.Width(); c += 1)
+            for(int c = 0; c < table.GetWidth(); c += 1)
             {
                 ss << table.Value(c, r);
             }

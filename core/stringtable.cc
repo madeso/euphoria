@@ -160,7 +160,7 @@ namespace euphoria::core
     ColumnWidth(const StringTable& t, int c)
     {
         int width = 0;
-        for(StringTable::I y = 0; y < t.Height(); y += 1)
+        for(StringTable::I y = 0; y < t.GetHeight(); y += 1)
         {
             width = std::max<int>(width, WidthOfString(t.Value(c, y)));
         }
@@ -171,7 +171,7 @@ namespace euphoria::core
     RowHeight(const StringTable& t, int r)
     {
         int height = 0;
-        for(StringTable::I x = 0; x < t.Width(); x += 1)
+        for(StringTable::I x = 0; x < t.GetWidth(); x += 1)
         {
             height = std::max<int>(height, HeightOfString(t.Value(x, r)));
         }
@@ -181,7 +181,7 @@ namespace euphoria::core
     std::vector<int>
     ColumnWidths(const StringTable& table, int extra)
     {
-        const auto       number_of_cols = table.Width();
+        const auto       number_of_cols = table.GetWidth();
         std::vector<int> sizes(number_of_cols);
         for(StringTable::I i = 0; i < number_of_cols; ++i)
         {
@@ -195,8 +195,8 @@ namespace euphoria::core
     SplitTableCellsOnNewline(const StringTable& table, StringTable::I row)
     {
         auto ret = StringTable::FromWidthHeight(
-                table.Width(), RowHeight(table, row));
-        for(int c = 0; c < table.Width(); c += 1)
+                table.GetWidth(), RowHeight(table, row));
+        for(int c = 0; c < table.GetWidth(); c += 1)
         {
             const auto rows = Split(table.Value(c, row), '\n');
             for(StringTable::I i = 0; i < StringTable::Ci(rows.size()); i += 1)
@@ -216,8 +216,8 @@ namespace euphoria::core
 
         const auto begin_str      = std::string(begin_str_padding, ' ');
         const auto end_str        = std::string(end_space_padding, ' ');
-        const auto number_of_cols = maintable.Width();
-        const auto number_of_rows = maintable.Height();
+        const auto number_of_cols = maintable.GetWidth();
+        const auto number_of_rows = maintable.GetHeight();
 
         const std::vector<int> sizes = ColumnWidths(maintable, 1);
 
@@ -226,7 +226,7 @@ namespace euphoria::core
         for(StringTable::I mainrow = 0; mainrow < number_of_rows; ++mainrow)
         {
             const auto subtable = SplitTableCellsOnNewline(maintable, mainrow);
-            for(StringTable::I subrow = 0; subrow < subtable.Height(); ++subrow)
+            for(StringTable::I subrow = 0; subrow < subtable.GetHeight(); ++subrow)
             {
                 for(StringTable::I col = 0; col < number_of_cols; ++col)
                 {
@@ -292,13 +292,13 @@ namespace euphoria::core
 
         horizontal_line();
 
-        for(StringTable::I y = 0; y < maintable.Height(); ++y)
+        for(StringTable::I y = 0; y < maintable.GetHeight(); ++y)
         {
             const auto subtable = SplitTableCellsOnNewline(maintable, y);
-            for(StringTable::I suby = 0; suby < subtable.Height(); suby += 1)
+            for(StringTable::I suby = 0; suby < subtable.GetHeight(); suby += 1)
             {
                 out << "|";
-                for(StringTable::I x = 0; x < subtable.Width(); ++x)
+                for(StringTable::I x = 0; x < subtable.GetWidth(); ++x)
                 {
                     const auto cell = subtable.Value(x, suby);
                     some_space(internal_space);
