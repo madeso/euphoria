@@ -106,7 +106,7 @@ def on_cmd_test(args):
     lines = run([tests, '-r', 'junit']).decode('utf-8')
     print('Test result:')
     # hacky way to remove all log output from the junit output
-    lines = [line for line in lines if line[:1]!='[']
+    lines = '\n'.join(line for line in lines.splitlines() if line[:1]!='[')
     print(lines)
     print('', flush=True)
     url = 'https://ci.appveyor.com/api/testresults/junit/' + os.environ['APPVEYOR_JOB_ID']
