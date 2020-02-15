@@ -57,7 +57,7 @@ namespace euphoria::core
         GetNormalized() const;
 
         vec3f from;
-        vec3f   dir;
+        vec3f dir;
     };
 
 }  // namespace euphoria::core
