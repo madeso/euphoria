@@ -159,12 +159,13 @@ target_link_libraries(markov core)
 add_executable(tracery test/tracery.cc)
 target_link_libraries(tracery core)
 
+add_executable(raytracer test/raytracer-main.cc)
+target_link_libraries(raytracer core)
 
 
 
 # test applications that serve no purpose other than
 # testing the libraries and perhaps generate some pretty visuals :)
-
 
 add_executable(test-3d WIN32 MACOSX_BUNDLE test/3d.cc)
 target_include_directories(test-3d SYSTEM PRIVATE ${SDL2_INCLUDE_DIR})
