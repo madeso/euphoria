@@ -13,10 +13,10 @@ namespace euphoria::core
         {
             switch(d)
             {
-            case Dir::South: return vec2i {0, -1};
-            case Dir::North: return vec2i {0, 1};
-            case Dir::West: return vec2i {-1, 0};
-            case Dir::East: return vec2i {1, 0};
+            case Dir::South: return vec2i { 0, -1};
+            case Dir::North: return vec2i { 0,  1};
+            case Dir::West:  return vec2i {-1,  0};
+            case Dir::East:  return vec2i { 1,  0};
             default: return vec2i(0, 0);
             }
         }
@@ -62,7 +62,7 @@ namespace euphoria::core
         void
         Visit(Maze* maze, const vec2i& np)
         {
-            maze->RefValue(np.x, np.y) |= Cell::Visited;
+            (*maze)(np.x, np.y) |= Cell::Visited;
         }
 
 
@@ -71,9 +71,9 @@ namespace euphoria::core
         {
             const auto o  = DirToOffset(dir);
             const auto np = c + o;
-            maze->RefValue(np.x, np.y)
+            (*maze)(np.x, np.y)
                     |= Cell::Visited | DirToCellPath(FlipDirection(dir));
-            maze->RefValue(c.x, c.y) |= DirToCellPath(dir);
+            (*maze)(c.x, c.y) |= DirToCellPath(dir);
             return np;
         }
 
@@ -81,7 +81,7 @@ namespace euphoria::core
         bool
         HasVisited(Maze* maze, const vec2i& np)
         {
-            return (maze->Value(np.x, np.y) & Cell::Visited) != 0;
+            return ((*maze)(np.x, np.y) & Cell::Visited) != 0;
         }
 
 
@@ -124,7 +124,7 @@ namespace euphoria::core
             const auto random_position = RandomPositionOnMaze(random, maze);
 
             stack.push(random_position);
-            maze->Value(random_position.x, random_position.y, Cell::Visited);
+            (*maze)(random_position.x, random_position.y) = Cell::Visited;
             visited_cells = 1;
         }
 
@@ -230,7 +230,7 @@ namespace euphoria::core
         Rgbi
         Drawer::CalculateCellColor(int x, int y) const
         {
-            const auto cell_value = maze->Value(x, y);
+            const auto cell_value = (*maze)(x, y);
 
             if(tracker && tracker->HasMoreWork() && !tracker->stack.empty())
             {
@@ -292,7 +292,7 @@ namespace euphoria::core
                         return Recti::FromTopLeftWidthHeight(vec2i{x, y + 1}, w, h);
                     };
 
-                    const auto cell_value = maze->Value(x, y);
+                    const auto cell_value = (*maze)(x, y);
 
                     if(cell_value & Cell::PathSouth)
                     {

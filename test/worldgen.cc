@@ -34,8 +34,8 @@ FindDifferences(const Table<bool>& src, const Table<bool>& dst)
     {
         for(int x = 0; x < src.GetWidth(); x += 1)
         {
-            const auto lhs = src.Value(x, y);
-            const auto rhs = dst.Value(x, y);
+            const auto lhs = src(x, y);
+            const auto rhs = dst(x, y);
             if(lhs != rhs)
             {
                 ret.push_back({x, y, lhs});
@@ -207,7 +207,7 @@ cell(bool                     debug,
             for(const auto d: diffs)
             {
                 // std::cout << "Setting " << d.x << " " << d.y << " to " << d.new_value << "\n";
-                world_copy.Value(d.x, d.y, d.new_value);
+                world_copy(d.x, d.y) = d.new_value;
                 if((dindex % m) == 0)
                 {
                     drawer.Draw();

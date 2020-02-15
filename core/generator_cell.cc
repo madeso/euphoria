@@ -58,7 +58,7 @@ namespace euphoria::core
                     }
                     else
                     {
-                        if(world.Value(x, y))
+                        if(world(x, y))
                             walls += 1;
                     }
                 }
@@ -80,7 +80,7 @@ namespace euphoria::core
                 {
                     return false;
                 }
-                return current.Value(x, y);
+                return current(x, y);
             });
         }
 
@@ -113,7 +113,7 @@ namespace euphoria::core
                     const auto px = x * scale;
                     const auto py = y * scale;
                     const auto color
-                            = world->Value(x, y) ? wall_color : space_color;
+                            = (*world)(x, y) ? wall_color : space_color;
                     DrawSquare(&image, color, px, py + scale - 1, scale);
                 }
             }

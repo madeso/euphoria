@@ -37,9 +37,9 @@ TEST_CASE("table-size", "[table]")
         CHECK(t.DataIndex(0, 1) == 3);
     }
 
-    CHECK(t.Value(0, 0) == 0);
-    CHECK(t.Value(0, 0) == 0);
-    CHECK(t.Value(0, 0) == 0);
+    CHECK(t(0, 0) == 0);
+    CHECK(t(0, 0) == 0);
+    CHECK(t(0, 0) == 0);
 }
 
 TEST_CASE("table-section_and_rows", "[table]")
@@ -49,18 +49,18 @@ TEST_CASE("table-section_and_rows", "[table]")
     for(T::I y = 0; y < t.GetHeight(); ++y)
         for(T::I x = 0; x < t.GetWidth(); ++x)
         {
-            t.Value(x, y, euco::Str() << x << "," << y);
+            t(x, y) = euco::Str() << x << "," << y;
         }
 
     SECTION("test getter")
     {
-        CHECK(t.Value(0, 0) == "0,0");
-        CHECK(t.Value(1, 0) == "1,0");
-        CHECK(t.Value(2, 0) == "2,0");
+        CHECK(t(0, 0) == "0,0");
+        CHECK(t(1, 0) == "1,0");
+        CHECK(t(2, 0) == "2,0");
 
-        CHECK(t.Value(0, 1) == "0,1");
-        CHECK(t.Value(1, 1) == "1,1");
-        CHECK(t.Value(2, 1) == "2,1");
+        CHECK(t(0, 1) == "0,1");
+        CHECK(t(1, 1) == "1,1");
+        CHECK(t(2, 1) == "2,1");
     }
 
     SECTION("test column getter")
@@ -100,9 +100,9 @@ TEST_CASE("table-test_add", "[table]")
         REQUIRE(1 == t.GetHeight());
 
         t.NewRow();
-        t.Value(0, 1, 4);
-        t.Value(1, 1, 5);
-        t.Value(2, 1, 6);
+        t(0, 1) = 4;
+        t(1, 1) = 5;
+        t(2, 1) = 6;
 
         REQUIRE(3 == t.GetWidth());
         REQUIRE(2 == t.GetHeight());

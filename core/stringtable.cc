@@ -162,7 +162,7 @@ namespace euphoria::core
         int width = 0;
         for(StringTable::I y = 0; y < t.GetHeight(); y += 1)
         {
-            width = std::max<int>(width, WidthOfString(t.Value(c, y)));
+            width = std::max<int>(width, WidthOfString(t(c, y)));
         }
         return width;
     }
@@ -173,7 +173,7 @@ namespace euphoria::core
         int height = 0;
         for(StringTable::I x = 0; x < t.GetWidth(); x += 1)
         {
-            height = std::max<int>(height, HeightOfString(t.Value(x, r)));
+            height = std::max<int>(height, HeightOfString(t(x, r)));
         }
         return height;
     }
@@ -198,10 +198,10 @@ namespace euphoria::core
                 table.GetWidth(), RowHeight(table, row));
         for(int c = 0; c < table.GetWidth(); c += 1)
         {
-            const auto rows = Split(table.Value(c, row), '\n');
+            const auto rows = Split(table(c, row), '\n');
             for(StringTable::I i = 0; i < StringTable::Ci(rows.size()); i += 1)
             {
-                ret.Value(c, i, rows[i]);
+                ret(c, i) = rows[i];
             }
         }
         return ret;
@@ -230,7 +230,7 @@ namespace euphoria::core
             {
                 for(StringTable::I col = 0; col < number_of_cols; ++col)
                 {
-                    const auto cell = begin_str + subtable.Value(col, subrow);
+                    const auto cell = begin_str + subtable(col, subrow);
                     int        line_length = cell.length();
                     out << cell;
 
@@ -300,7 +300,7 @@ namespace euphoria::core
                 out << "|";
                 for(StringTable::I x = 0; x < subtable.GetWidth(); ++x)
                 {
-                    const auto cell = subtable.Value(x, suby);
+                    const auto cell = subtable(x, suby);
                     some_space(internal_space);
                     out << cell;
                     some_space(sizes[x] - cell.length());

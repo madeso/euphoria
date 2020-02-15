@@ -60,7 +60,7 @@ namespace euphoria::core
             {
                 for(I x = 0; x < width; x += 1)
                 {
-                    Value(x, y, f(x, y));
+                    (*this)(x, y) = f(x, y);
                 }
             }
         }
@@ -141,7 +141,7 @@ namespace euphoria::core
             {
                 for(I y = 0; y < height; y += 1)
                 {
-                    t.Value(x, y, this->Value(x, y));
+                    t(x, y) = (*this)(x, y);
                 }
             }
             *this = t;
@@ -152,36 +152,21 @@ namespace euphoria::core
         // todo: insert before/after row/col
         // todo: remove row/col
 
-        void
-        Value(I x, I y, const T& t)
-        {
-            const auto index = DataIndex(x, y);
-            ASSERTX(index < data.size(), index, data.size());
-            data[index] = t;
-        }
 
         T
-        Value(I x, I y) const
+        operator()(I x, I y) const
         {
             const auto index = DataIndex(x, y);
             ASSERTX(index < data.size(), index, data.size());
             return data[index];
         }
 
-        T&
-        RefValue(I x, I y)
+        typename std::vector<T>::reference
+        operator()(I x, I y)
         {
             const auto index = DataIndex(x, y);
             ASSERTX(index < data.size(), index, data.size());
             return data[index];
-        }
-
-        T*
-        PtrValue(I x, I y)
-        {
-            const auto index = DataIndex(x, y);
-            ASSERTX(index < data.size(), index, data.size());
-            return &data[index];
         }
 
         // todo: figure out a better name
@@ -230,7 +215,7 @@ namespace euphoria::core
         r.reserve(t.GetHeight());
         for(typename Table<T>::I y = 0; y < t.GetHeight(); ++y)
         {
-            r.emplace_back(t.Value(x, y));
+            r.emplace_back(t(x, y));
         }
         return r;
     }
@@ -245,7 +230,7 @@ namespace euphoria::core
         r.reserve(t.GetWidth());
         for(typename Table<T>::I x = 0; x < t.GetWidth(); ++x)
         {
-            r.emplace_back(t.Value(x, y));
+            r.emplace_back(t(x, y));
         }
         return r;
     }

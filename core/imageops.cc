@@ -85,7 +85,7 @@ namespace euphoria::core
             std::stringstream ss;
             for(int c = 0; c < table.GetWidth(); c += 1)
             {
-                ss << table.Value(c, r);
+                ss << table(c, r);
             }
             ret.insert(ret.begin(), ss.str());
         }
