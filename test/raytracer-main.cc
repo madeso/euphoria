@@ -10,10 +10,12 @@ using namespace euphoria::core;
 int
 main(int argc, char* argv[])
 {
-    auto image_size = 512;
+    auto image_width = 200;
+    auto image_height = 100;
 
     auto parser = argparse::Parser {"euphoria raytracer"};
-    parser.AddSimple("-size", &image_size).Help("image size");
+    parser.AddSimple("-width", &image_width).Help("image width");
+    parser.AddSimple("-height", &image_height).Help("image height");
 
     if(parser.Parse(argc, argv) != argparse::ParseResult::Ok)
     {
@@ -21,7 +23,7 @@ main(int argc, char* argv[])
     }
 
     Image image;
-    image.SetupNoAlphaSupport(image_size, image_size);
+    image.SetupNoAlphaSupport(image_width, image_height);
 
     Raytrace(&image);
 
