@@ -4,11 +4,21 @@
 #include "core/vec3.h"
 #include "core/ray.h"
 
+#include "core/intersection.h"
+#include "core/sphere.h"
+
 namespace euphoria::core
 {
     Rgb
     GetColor(const UnitRay3f& ray)
     {
+        if
+        (
+            GetIntersection(ray, Sphere{0.5f}, vec3f{0.0f,0.0f,-1.0f}) > 0.0f
+        )
+        {
+            return Color::Red;
+        }
         const auto t = (ray.dir.y+1)/2.0f;
         return RgbTransform::Transform
         (
