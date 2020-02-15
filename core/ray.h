@@ -19,7 +19,7 @@ namespace euphoria::core
         GetPoint(float at) const;
 
         vec3f from;
-        unit3f  dir;
+        unit3f dir;
     };
 
 
