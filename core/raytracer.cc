@@ -10,14 +10,31 @@
 namespace euphoria::core
 {
     Rgb
+    rgb(const unit3f& normal)
+    {
+        return Rgb
+        {
+            (normal.x + 1)/2,
+            (normal.y + 1)/2,
+            (normal.z + 1)/2
+        };
+    }
+
+    Rgb
     GetColor(const UnitRay3f& ray)
     {
-        if
+        const auto sphere_position = vec3f{0.0f,0.0f,-1.0f};
+        const auto hit_sphere = GetIntersection
         (
-            GetIntersection(ray, Sphere{0.5f}, vec3f{0.0f,0.0f,-1.0f}) > 0.0f
-        )
+            ray,
+            Sphere{0.5f},
+            sphere_position
+        );
+        if(hit_sphere > 0.0f)
         {
-            return Color::Red;
+            const auto hit_position = ray.GetPoint(hit_sphere);
+            const auto hit_normal = vec3f::FromTo(sphere_position, hit_position).GetNormalized();
+            return rgb(hit_normal);
         }
         const auto t = (ray.dir.y+1)/2.0f;
         return RgbTransform::Transform
