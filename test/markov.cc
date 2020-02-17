@@ -2,7 +2,7 @@
 #include <iostream>
 #include <fstream>
 
-#include "core/dots.h"
+#include "core/cli_progress_dots.h"
 #include "core/markov.h"
 #include "core/argparse.h"
 #include "core/stringmerger.h"

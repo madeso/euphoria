@@ -1,4 +1,4 @@
-#include "core/dots.h"
+#include "core/cli_progress_dots.h"
 
 #include <iostream>
 
