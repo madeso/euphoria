@@ -1,4 +1,4 @@
-#include "core/commandlineparser.h"
+#include "core/console.h"
 
 #include "catch.hpp"
 

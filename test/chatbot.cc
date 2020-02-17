@@ -1,7 +1,7 @@
 #include <iostream>
 
 #include "core/chatbot.h"
-#include "core/cmdline.h"
+#include "core/console.h"
 
 #include "core/os.h"
 #include "core/vfs.h"
@@ -26,15 +26,15 @@ main()
     }
 
     std::string input;
-    CmdLine     cmdline;
+    Console     cmdline;
     cmdline.Register(
             "debug",
-            [&chatbot](CmdLine::PrintFunction, const CmdLine::Args& args) {
+            [&chatbot](Console::PrintFunction, const Console::Args& args) {
                 std::cout << chatbot.DebugLastResponse(args);
                 std::cout << "\n\n";
             });
     cmdline.Register(
-            "kill", [&chatbot](CmdLine::PrintFunction, const CmdLine::Args&) {
+            "kill", [&chatbot](Console::PrintFunction, const Console::Args&) {
                 chatbot.is_in_conversation = false;
                 std::cout << "Killing chatbot.\n\n";
             });
