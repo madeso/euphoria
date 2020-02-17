@@ -15,6 +15,8 @@
  *
  */
 
+#include "core/noise_simplex.h"
+
 #include <cmath>
 
 namespace euphoria::core

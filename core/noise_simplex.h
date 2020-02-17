@@ -15,8 +15,8 @@
  *
  */
 
-#ifndef CORE_SIMPLE_H
-#define CORE_SIMPLE_H
+#ifndef CORE_NOISE_SIMPLEX_H
+#define CORE_NOISE_SIMPLEX_H
 
 
 namespace euphoria::core
@@ -35,4 +35,4 @@ namespace euphoria::core
 
 }  // namespace euphoria::core
 
-#endif  // CORE_SIMPLE_H
+#endif  // CORE_NOISE_SIMPLEX_H
