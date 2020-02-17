@@ -8,7 +8,7 @@
 
 namespace euphoria::core
 {
-    struct ParsedText;
+    struct UiText;
 
     namespace textparser
     {
@@ -91,11 +91,9 @@ namespace euphoria::core
             OnEnd() override;
 
             static std::string
-            Visit(ParsedText* visitor);
+            Visit(UiText* visitor);
         };
     }  // namespace textparser
-
-    // todo(Gustav): not really a parsed text, more like a gui string or something... rename!
 
     /** Represents displayed text.
      * Format: @image with text and {-begin and }-end markers \ escapes
@@ -105,7 +103,7 @@ namespace euphoria::core
     // sprite/ninepath w/ text representing the bind this could also be useful when
     // displaying all the keybinds. needs to work out how (or if) the joystick
     // id/number also should be displayed.
-    struct ParsedText
+    struct UiText
     {
         void
         Clear();
@@ -128,7 +126,7 @@ namespace euphoria::core
         bool
         CreateParse(const std::string& str);
 
-        [[nodiscard]] static ParsedText
+        [[nodiscard]] static UiText
         FromText(const std::string& str);
 
         void

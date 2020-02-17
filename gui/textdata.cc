@@ -82,7 +82,7 @@ namespace euphoria::gui
             // button assumes this is bottom left
             text_->SetAlignment(render::Align::BOTTOM_LEFT);
 
-            core::ParsedText text;
+            core::UiText text;
             text.CreateParse(string_);
             text_->SetText(text);
             text_->SetSize(size);

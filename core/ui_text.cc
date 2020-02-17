@@ -1,4 +1,4 @@
-#include "core/textparser.h"
+#include "core/ui_text.h"
 
 #include "core/log.h"
 
@@ -73,7 +73,7 @@ namespace euphoria::core
         }
 
         std::string
-        VisitorDebugString::Visit(ParsedText* visitor)
+        VisitorDebugString::Visit(UiText* visitor)
         {
             VisitorDebugString str;
             visitor->Visit(&str);
@@ -84,37 +84,37 @@ namespace euphoria::core
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     void
-    ParsedText::Clear()
+    UiText::Clear()
     {
         nodes.resize(0);
     }
 
     void
-    ParsedText::AddText(const std::string& str)
+    UiText::AddText(const std::string& str)
     {
         nodes.emplace_back(std::make_shared<textparser::TextNode>(str));
     }
 
     void
-    ParsedText::AddImage(const std::string& img)
+    UiText::AddImage(const std::string& img)
     {
         nodes.emplace_back(std::make_shared<textparser::ImageNode>(img));
     }
 
     void
-    ParsedText::AddBegin()
+    UiText::AddBegin()
     {
         nodes.emplace_back(std::make_shared<textparser::BeginEndNode>(true));
     }
 
     void
-    ParsedText::AddEnd()
+    UiText::AddEnd()
     {
         nodes.emplace_back(std::make_shared<textparser::BeginEndNode>(false));
     }
 
     void
-    ParsedText::CreateText(const std::string& str)
+    UiText::CreateText(const std::string& str)
     {
         Clear();
         AddText(str);
@@ -130,7 +130,7 @@ namespace euphoria::core
 
         struct Parser
         {
-            ParsedText* nodes = nullptr;
+            UiText* nodes = nullptr;
 
             State             state  = State::TEXT;
             bool              escape = false;
@@ -223,7 +223,7 @@ namespace euphoria::core
     }  // namespace
 
     bool
-    ParsedText::CreateParse(const std::string& str)
+    UiText::CreateParse(const std::string& str)
     {
         nodes.resize(0);
         Parser parser;
@@ -251,16 +251,16 @@ namespace euphoria::core
         return true;
     }
 
-    ParsedText
-    ParsedText::FromText(const std::string& str)
+    UiText
+    UiText::FromText(const std::string& str)
     {
-        ParsedText text;
+        UiText text;
         text.CreateText(str);
         return text;
     }
 
     void
-    ParsedText::Visit(textparser::Visitor* visitor)
+    UiText::Visit(textparser::Visitor* visitor)
     {
         for(auto& node: nodes)
         {
@@ -269,7 +269,7 @@ namespace euphoria::core
     }
 
     void
-    ParsedText::Visit(textparser::Visitor* visitor) const
+    UiText::Visit(textparser::Visitor* visitor) const
     {
         for(auto& node: nodes)
         {

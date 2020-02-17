@@ -3,7 +3,7 @@
 #include "core/log.h"
 #include "core/proto.h"
 #include "core/image_draw.h"
-#include "core/textparser.h"
+#include "core/ui_text.h"
 #include "core/utf8.h"
 #include "core/assert.h"
 #include "core/noncopyable.h"
@@ -306,7 +306,7 @@ namespace euphoria::render
         }
     }
 
-    struct ParsedTextCompileVisitor : public core::textparser::Visitor
+    struct UiTextCompileVisitor : public core::textparser::Visitor
     {
         const Font& font;
         float              size;
@@ -317,7 +317,7 @@ namespace euphoria::render
         // return value
         TextDrawCommandList* list;
 
-        ParsedTextCompileVisitor(
+        UiTextCompileVisitor(
                 const Font&     f,
                 float                size,
                 TextDrawCommandList* list)
@@ -396,11 +396,11 @@ namespace euphoria::render
     };
 
     TextDrawCommandList
-    Font::CompileList(const core::ParsedText& text, float size) const
+    Font::CompileList(const core::UiText& text, float size) const
     {
         TextDrawCommandList list;
 
-        ParsedTextCompileVisitor vis {*this, size, &list};
+        UiTextCompileVisitor vis {*this, size, &list};
         text.Visit(&vis);
 
         return list;
@@ -429,7 +429,7 @@ namespace euphoria::render
     Text::~Text() = default;
 
     void
-    Text::SetText(const core::ParsedText& str)
+    Text::SetText(const core::UiText& str)
     {
         text_ = str;
         dirty = true;
