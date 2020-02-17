@@ -74,7 +74,6 @@ namespace euphoria::core
     ENUM_VALUE(Color, PurePurple)
     ENUM_VALUE(Color, Pink)
     ENUM_VALUE(Color, PurePink)
-    ENUM_VALUE(Color, Beige)
     ENUM_VALUE(Color, PureBeige)
     ENUM_VALUE(Color, Tan)
     ENUM_VALUE(Color, PureTan)

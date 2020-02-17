@@ -139,12 +139,40 @@ namespace euphoria::core
         Palette
         BuildNamedColors()
         {
-            auto       p  = Palette::Empty("named");
-            const auto cs = EnumValues<Color>();
-            for(auto c: cs)
+            auto p = Palette
             {
-                p.colors.push_back(c);
-            }
+                "named",
+                Color::White,
+                Color::LightGray,
+                Color::Gray,
+                Color::DarkGray,
+                Color::Black,
+                Color::Red,
+                Color::PureRed,
+                Color::Blue,
+                Color::PureBlue,
+                Color::LightBlue,
+                Color::NormalBlue,
+                Color::CornflowerBlue,
+                Color::Green,
+                Color::PureGreen,
+                Color::LightGreen,
+                Color::Yellow,
+                Color::PureYellow,
+                Color::Orange,
+                Color::PureOrange,
+                Color::Brown,
+                Color::PureBrown,
+                Color::Purple,
+                Color::PurePurple,
+                Color::Pink,
+                Color::PurePink,
+                Color::PureBeige,
+                Color::Tan,
+                Color::PureTan,
+                Color::Cyan,
+                Color::PureCyan,
+            };
             return p;
         }
 

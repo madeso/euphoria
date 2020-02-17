@@ -140,7 +140,6 @@ namespace euphoria::core
             name from French, where the word originally meant natural wool that has
             been neither bleached nor dyed, and hence also the color of natural wool.
         */
-        Beige,
         PureBeige,
 
 

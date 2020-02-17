@@ -2,6 +2,7 @@
 #define EUPHORIA_PALETTE_ALL_H
 
 #include <string>
+#include <array>
 
 #include "core/enumtostring.h"
 
@@ -115,6 +116,107 @@ namespace euphoria::core::palette
 
     const Palette&
     GetPalette(PaletteName name);
+
+    constexpr std::array PaletteNames
+    {
+        // standard
+        PaletteName::Dawnbringer,
+        PaletteName::NamedColors,
+
+        // cubehelix
+        PaletteName::Classic,
+        PaletteName::Perceptual_rainbow,
+        PaletteName::Purple,
+        PaletteName::Jim_special,
+        PaletteName::Red,
+        PaletteName::Cubehelix1,
+        PaletteName::Cubehelix2,
+        PaletteName::Cubehelix3,
+
+        // lospec
+        PaletteName::OneBit,
+        PaletteName::TwoBitGrayScale,
+        PaletteName::ThreeBit,
+        PaletteName::ARQ4,
+        PaletteName::CGA,
+        PaletteName::EDG8,
+        PaletteName::EDG16,
+        PaletteName::EDG32,
+        PaletteName::EDG36,
+        PaletteName::EDG64,
+        PaletteName::EN4,
+        PaletteName::Ink,
+        PaletteName::Pico8,
+        PaletteName::Ammo8,
+        PaletteName::NYX8,
+        PaletteName::FifteenPDX,
+        PaletteName::TwentyPDX,
+        PaletteName::Arne16,
+        PaletteName::Night16,
+        PaletteName::AAP16,
+        PaletteName::AAP64,
+        PaletteName::Splendor128,
+        PaletteName::Famicube,
+
+        // matplot
+        PaletteName::Magma,
+        PaletteName::Inferno,
+        PaletteName::Plasma,
+        PaletteName::Viridis,
+
+        // mycarta
+        PaletteName::Cube1,
+        PaletteName::CubeYF,
+        PaletteName::LinearL,
+
+        // tableu
+        PaletteName::Tableau_10,
+        PaletteName::TableauLight_10,
+        PaletteName::TableauMedium_10,
+        PaletteName::Tableau_20,
+        PaletteName::Gray_5,
+        PaletteName::ColorBlind_10,
+        PaletteName::TrafficLight_9,
+        PaletteName::PurpleGray_6,
+        PaletteName::PurpleGray_12,
+        PaletteName::BlueRed_6,
+        PaletteName::BlueRed_12,
+        PaletteName::GreenOrange_6,
+        PaletteName::GreenOrange_12,
+
+
+        // wes
+        PaletteName::Chevalier,
+        PaletteName::Moonrise1,
+        PaletteName::Mendl,
+        PaletteName::Margot1,
+        PaletteName::Cavalcanti,
+        PaletteName::Moonrise2,
+        PaletteName::Margot2,
+        PaletteName::Moonrise3,
+        PaletteName::GrandBudapest1,
+        PaletteName::Moonrise4,
+        PaletteName::Zissou,
+        PaletteName::Royal1,
+        PaletteName::Darjeeling1,
+        PaletteName::FantasticFox1,
+        PaletteName::Margot3,
+        PaletteName::GrandBudapest2,
+        PaletteName::Aquatic1,
+        PaletteName::Darjeeling2,
+        PaletteName::FantasticFox2,
+        PaletteName::GrandBudapest3,
+        PaletteName::Royal2,
+        PaletteName::Moonrise5,
+        PaletteName::GrandBudapest4,
+        PaletteName::Moonrise6,
+        PaletteName::GrandBudapest5,
+        PaletteName::Aquatic2,
+        PaletteName::Royal3,
+        PaletteName::Moonrise7,
+        PaletteName::Aquatic3,
+        PaletteName::Darjeeling3
+    };
 }  // namespace euphoria::core::palette
 
 DECLARE_ENUM_LIST(euphoria::core::palette::PaletteName)

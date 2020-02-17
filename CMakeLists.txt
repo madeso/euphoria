@@ -171,6 +171,9 @@ add_executable(test-3d WIN32 MACOSX_BUNDLE test/3d.cc)
 target_include_directories(test-3d SYSTEM PRIVATE ${SDL2_INCLUDE_DIR})
 target_link_libraries(test-3d core render window ${SDL2_LIBRARY})
 
+add_executable(test-palette test/palette-main.cc)
+target_link_libraries(test-palette core)
+
 add_executable(test-chatbot test/chatbot.cc)
 target_link_libraries(test-chatbot core)
 
