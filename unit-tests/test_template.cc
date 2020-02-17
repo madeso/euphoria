@@ -1,4 +1,4 @@
-#include "core/template.h"
+#include "core/texttemplate.h"
 #include "core/vfs.h"
 #include "core/vfs_path.h"
 

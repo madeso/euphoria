@@ -1,4 +1,4 @@
-#include "core/template.h"
+#include "core/texttemplate.h"
 
 #include "core/textfileparser.h"
 #include "core/assert.h"

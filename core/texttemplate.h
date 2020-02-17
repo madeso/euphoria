@@ -1,5 +1,5 @@
-#ifndef EUPHORIA_TEMPLATE_H
-#define EUPHORIA_TEMPLATE_H
+#ifndef EUPHORIA_TEXT_TEMPLATE_H
+#define EUPHORIA_TEXT_TEMPLATE_H
 
 #include <map>
 #include <string>
@@ -76,4 +76,4 @@ namespace euphoria::core
 
 }  // namespace euphoria::core
 
-#endif  // EUPHORIA_TEMPLATE_H
+#endif  // EUPHORIA_TEXT_TEMPLATE_H
