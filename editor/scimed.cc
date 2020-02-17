@@ -4,7 +4,6 @@
 #include "core/canvaslogic.h"
 #include "core/str.h"
 #include "core/numeric.h"
-#include "core/optionalindex.h"
 
 #include "render/texture.h"
 #include "render/texturecache.h"
@@ -16,6 +15,7 @@
 
 #include <iomanip>
 #include <algorithm>
+#include <optional>
 
 using namespace euphoria::core;
 using namespace euphoria::window;
@@ -34,7 +34,7 @@ namespace euphoria::editor
         return std::abs(a - b) < 5;
     }
 
-    using PositionClassification = OptionalIndex<int>;
+    using PositionClassification = std::optional<int>;
 
     /// Extra calculated data from the corresponding data row (either row or column)
     /// in the ScalingSprite struct. Like the data, this can be viewed as the space
@@ -134,11 +134,11 @@ namespace euphoria::editor
 
         if(within_image)
         {
-            return PositionClassification::FromIndex(FindSpaceIndex(data, y));
+            return FindSpaceIndex(data, y);
         }
         else
         {
-            return PositionClassification::Null();
+            return std::nullopt;
         }
     }
 
@@ -456,14 +456,15 @@ namespace euphoria::editor
         data[split_index + 1] = Sign(data[split_index + 1]) * right_size;
     }
 
+
     void
-    SplitSpaceInTwo(
-            std::vector<int>*             data_ptr,
-            const PositionClassification& optional_space_index,
-            int                           x)
+    SplitSpaceInTwo
+    (
+        std::vector<int>* data_ptr,
+        int index,
+        int x
+    )
     {
-        ASSERT(optional_space_index);
-        const auto index = optional_space_index.GetIndex();
         auto&      data  = *data_ptr;
         const auto size  = CalculateAllSpaces(data)[index];
         const int  mouse = std::min(size.right - 1, std::max(size.left + 1, x));
@@ -476,6 +477,7 @@ namespace euphoria::editor
         const int right_val    = sign * (std::abs(old_value) - left_abs_val);
         data.insert(data.begin() + index + 1, right_val);
     }
+
 
     bool
     Scimed::Run(const CanvasConfig& cc, const ScimedConfig& scc)
@@ -553,20 +555,20 @@ namespace euphoria::editor
 
             if(window::ImguiSelectableOrDisabled
             (
-                space_index_y,
+                space_index_y.has_value(),
                 ICON_MDI_VIEW_SPLIT_HORIZONTAL " New Horizontal divider"
             ))
             {
-                SplitSpaceInTwo(&scaling->rows, space_index_y, mouse_popup.y);
+                SplitSpaceInTwo(&scaling->rows, space_index_y.value(), mouse_popup.y);
             }
 
             if(window::ImguiSelectableOrDisabled
             (
-                space_index_x,
+                space_index_x.has_value(),
                 ICON_MDI_VIEW_SPLIT_VERTICAL " New Vertical divider"
             ))
             {
-                SplitSpaceInTwo(&scaling->cols, space_index_x, mouse_popup.x);
+                SplitSpaceInTwo(&scaling->cols, space_index_x.value(), mouse_popup.x);
             }
             ImGui::EndPopup();
         }
