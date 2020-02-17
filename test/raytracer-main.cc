@@ -25,8 +25,25 @@ main(int argc, char* argv[])
     Image image;
     image.SetupNoAlphaSupport(image_width, image_height);
 
-    Raytrace(&image);
+    raytracer::Scene scene;
+    scene.objects.push_back
+    (
+        raytracer::CreateSphere
+        (
+            Sphere{0.5f},
+            vec3f(0.0f, 0.0f, -1.0f)
+        )
+    );
+    scene.objects.push_back
+    (
+        raytracer::CreateSphere
+        (
+            Sphere{100.0f},
+            vec3f(0.0f, -100.5f, -1.0f)
+        )
+    );
 
+    raytracer::Raytrace(&image, scene);
     io::ChunkToFile(image.Write(ImageWriteFormat::PNG), "raytracer.png");
 
     return 0;

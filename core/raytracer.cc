@@ -1,14 +1,141 @@
 #include "core/raytracer.h"
 
 #include "core/image.h"
-#include "core/vec3.h"
-#include "core/ray.h"
 
 #include "core/intersection.h"
 #include "core/sphere.h"
 
-namespace euphoria::core
+#include <limits>
+
+namespace euphoria::core::raytracer
 {
+    HitResult::HitResult
+    (
+        bool acollided,
+        float aray_distance,
+        const vec3f& aposition,
+        const unit3f& anormal
+    )
+        : collided(acollided)
+        , ray_distance(aray_distance)
+        , position(aposition)
+        , normal(anormal)
+    {
+    }
+
+
+    HitResult
+    NoCollision
+    (
+    )
+    {
+        return HitResult
+        {
+            false,
+            10000.0f,
+            vec3f::Zero(),
+            unit3f::Up()
+        };
+    }
+
+
+    HitResult
+    Collision
+    (
+        float ray_distance,
+        const vec3f& position,
+        const unit3f& normal
+    )
+    {
+        return HitResult
+        {
+            true,
+            ray_distance,
+            position,
+            normal
+        };
+    }
+
+
+
+    struct SphereObject : public Object
+    {
+        Sphere sphere;
+        vec3f position;
+
+        SphereObject(const Sphere& asphere, const vec3f& aposition)
+            : sphere(asphere)
+            , position(aposition)
+        {
+        }
+
+        HitResult
+        Hit(const UnitRay3f& ray, const Range<float>& range) const override
+        {
+            const auto hit_index = GetIntersection
+            (
+                ray,
+                sphere,
+                position
+            );
+            if(IsWithin(range, hit_index))
+            {
+                const auto hit_position = ray.GetPoint(hit_index);
+                const auto hit_normal = vec3f::FromTo(position, hit_position).GetNormalized();
+                return Collision
+                (
+                    hit_index,
+                    hit_position,
+                    hit_normal
+                );
+            }
+            else
+            {
+                return NoCollision();
+            }
+        }
+    };
+
+
+    std::shared_ptr<Object>
+    CreateSphere(const Sphere& sphere, const vec3f& position)
+    {
+        return std::make_shared<SphereObject>
+        (
+            sphere,
+            position
+        );
+    }
+
+
+    HitResult
+    Scene::Hit(const UnitRay3f& ray, const Range<float>& range) const
+    {
+        auto r = NoCollision();
+
+        for(const auto o: objects)
+        {
+            const auto h = o->Hit(ray, range);
+            if(r.collided == false)
+            {
+                r = h;
+            }
+            else
+            {
+                if(h.collided)
+                {
+                    if(h.ray_distance < r.ray_distance)
+                    {
+                        r = h;
+                    }
+                }
+            }
+        }
+
+        return r;
+    }
+
+
     Rgb
     rgb(const unit3f& normal)
     {
@@ -20,21 +147,18 @@ namespace euphoria::core
         };
     }
 
+
     Rgb
-    GetColor(const UnitRay3f& ray)
+    GetColor(const Scene& scene, const UnitRay3f& ray)
     {
-        const auto sphere_position = vec3f{0.0f,0.0f,-1.0f};
-        const auto hit_sphere = GetIntersection
+        const auto h = scene.Hit
         (
             ray,
-            Sphere{0.5f},
-            sphere_position
+            MakeRange(0.0f, std::numeric_limits<float>::max())
         );
-        if(hit_sphere > 0.0f)
+        if(h.collided)
         {
-            const auto hit_position = ray.GetPoint(hit_sphere);
-            const auto hit_normal = vec3f::FromTo(sphere_position, hit_position).GetNormalized();
-            return rgb(hit_normal);
+            return rgb(h.normal);
         }
         const auto t = (ray.dir.y+1)/2.0f;
         return RgbTransform::Transform
@@ -45,8 +169,9 @@ namespace euphoria::core
         );
     }
 
+
     void
-    Raytrace(Image* aimage)
+    Raytrace(Image* aimage, const Scene& scene)
     {
         Image& img = *aimage;
 
@@ -61,7 +186,7 @@ namespace euphoria::core
             const auto u = x / static_cast<float>(img.GetWidth());
             const auto v = y / static_cast<float>(img.GetHeight());
             const auto ray = UnitRay3f::FromTo(origin, lower_left_corner + u*horizontal + v*vertical);
-            const auto color = GetColor(ray);
+            const auto color = GetColor(scene, ray);
             img.SetPixel(x,y, rgbi(color));
         }
     }
