@@ -1,5 +1,5 @@
-#ifndef EUPHORIA_FNV1A_H
-#define EUPHORIA_FNV1A_H
+#ifndef EUPHORIA_HASH_FNV1A_H
+#define EUPHORIA_HASH_FNV1A_H
 
 #include <cstdint>
 
@@ -15,4 +15,4 @@ namespace euphoria::core
 
 }  // namespace euphoria::core
 
-#endif  // EUPHORIA_FNV1A_H
+#endif  // EUPHORIA_HASH_FNV1A_H

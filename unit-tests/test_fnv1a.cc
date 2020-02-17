@@ -1,4 +1,4 @@
-#include "core/fnv1a.h"
+#include "core/hash_fnv1a.h"
 
 #include "catch.hpp"
 
