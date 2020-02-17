@@ -63,6 +63,46 @@ namespace euphoria::core
         return Rgb {r, g, b};
     }
 
+
+    void
+    Rgb::operator+=(const Rgb& rhs)
+    {
+        r += rhs.r;
+        g += rhs.g;
+        b += rhs.b;
+    }
+
+
+    void
+    Rgb::operator/=(float rhs)
+    {
+        r /= rhs;
+        g /= rhs;
+        b /= rhs;
+    }
+
+
+    Rgb
+    operator+(const Rgb& lhs, const Rgb& rhs)
+    {
+        auto r = lhs;
+        r += rhs;
+        return r;
+    }
+
+    Rgb
+    operator/(const Rgb& lhs, float rhs)
+    {
+        auto r = lhs;
+        r /= rhs;
+        return r;
+    }
+
+
+
+
+
+
     float
     dot(const Rgb& lhs, const Rgb& rhs)
     {

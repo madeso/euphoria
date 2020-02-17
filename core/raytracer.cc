@@ -4,6 +4,7 @@
 
 #include "core/intersection.h"
 #include "core/sphere.h"
+#include "core/random.h"
 
 #include <limits>
 
@@ -170,24 +171,41 @@ namespace euphoria::core::raytracer
     }
 
 
+    struct Camera
+    {
+        vec3f lower_left_corner = vec3f{-2.0f, -1.0f, -1.0f};
+        vec3f horizontal = vec3f{4.0f, 0.0f, 0.0f};
+        vec3f vertical = vec3f{0.0f, 2.0f, 0.0f};
+        vec3f origin = vec3f{0.0f, 0.0f, 0.0f};
+
+        UnitRay3f GetRay(float u, float v) const
+        {
+            return UnitRay3f::FromTo(origin, lower_left_corner + u*horizontal + v*vertical);
+        }
+    };
+
     void
     Raytrace(Image* aimage, const Scene& scene)
     {
         Image& img = *aimage;
 
-        const auto lower_left_corner = vec3f{-2.0f, -1.0f, -1.0f};
-        const auto horizontal = vec3f{4.0f, 0.0f, 0.0f};
-        const auto vertical = vec3f{0.0f, 2.0f, 0.0f};
-        const auto origin = vec3f{0.0f, 0.0f, 0.0f};
+        auto random = Random{};
+        const auto camera = Camera{};
+        const int number_of_samples = 100;
 
         for(int y=0; y<img.GetHeight(); y+=1)
         for(int x=0; x<img.GetWidth(); x+=1)
         {
-            const auto u = x / static_cast<float>(img.GetWidth());
-            const auto v = y / static_cast<float>(img.GetHeight());
-            const auto ray = UnitRay3f::FromTo(origin, lower_left_corner + u*horizontal + v*vertical);
-            const auto color = GetColor(scene, ray);
-            img.SetPixel(x,y, rgbi(color));
+            Rgb color = Color::Black;
+            for(int sample = 0; sample < number_of_samples; sample += 1)
+            {
+                const auto u = (x + random.NextFloat01()) / static_cast<float>(img.GetWidth());
+                const auto v = (y + random.NextFloat01()) / static_cast<float>(img.GetHeight());
+                const auto ray = camera.GetRay(u, v);
+                const auto sample_color = GetColor(scene, ray);
+                color += sample_color;
+            }
+            img.SetPixel(x,y, rgbi(color/number_of_samples));
         }
     }
 }

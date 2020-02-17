@@ -60,13 +60,27 @@ namespace euphoria::core
 
         Rgb(Color color);
 
-        [[nodiscard]] static Rgb
+        [[nodiscard]]
+        static Rgb
         FromHex(unsigned int hex);
+
+        void
+        operator+=(const Rgb& rhs);
+
+        void
+        operator/=(float rhs);
 
         float r;
         float g;
         float b;
     };
+
+
+    Rgb
+    operator+(const Rgb& lhs, const Rgb& rhs);
+
+    Rgb
+    operator/(const Rgb& lhs, float rhs);
 
     float
     dot(const Rgb& lhs, const Rgb& rhs);
