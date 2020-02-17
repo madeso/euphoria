@@ -52,7 +52,7 @@ namespace euphoria::core
         };
 
         void
-        Raytrace(Image* image, const Scene& scene);
+        Raytrace(Image* image, const Scene& scene, int number_of_samples);
     }
 
 }

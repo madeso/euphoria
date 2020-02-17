@@ -185,13 +185,12 @@ namespace euphoria::core::raytracer
     };
 
     void
-    Raytrace(Image* aimage, const Scene& scene)
+    Raytrace(Image* aimage, const Scene& scene, int number_of_samples)
     {
         Image& img = *aimage;
 
         auto random = Random{};
         const auto camera = Camera{};
-        const int number_of_samples = 100;
 
         for(int y=0; y<img.GetHeight(); y+=1)
         for(int x=0; x<img.GetWidth(); x+=1)

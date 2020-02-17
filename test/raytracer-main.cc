@@ -12,10 +12,12 @@ main(int argc, char* argv[])
 {
     auto image_width = 200;
     auto image_height = 100;
+    int number_of_samples = 100;
 
     auto parser = argparse::Parser {"euphoria raytracer"};
     parser.AddSimple("-width", &image_width).Help("image width");
     parser.AddSimple("-height", &image_height).Help("image height");
+    parser.AddSimple("-samples", &number_of_samples).Help("number of samples (anitaliasing)");
 
     if(parser.Parse(argc, argv) != argparse::ParseResult::Ok)
     {
@@ -43,7 +45,7 @@ main(int argc, char* argv[])
         )
     );
 
-    raytracer::Raytrace(&image, scene);
+    raytracer::Raytrace(&image, scene, number_of_samples);
     io::ChunkToFile(image.Write(ImageWriteFormat::PNG), "raytracer.png");
 
     return 0;
