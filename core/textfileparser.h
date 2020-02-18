@@ -2,9 +2,37 @@
 #define EUPHORIA_TEXTFILEPARSER_H
 
 #include <string>
+#include <memory>
 
 namespace euphoria::core
 {
+    namespace detail
+    {
+        struct TextFile
+        {
+            virtual ~TextFile() = default;
+
+            virtual bool
+            HasMore() const = 0;
+
+            // return 0 if position is beyond file
+            virtual char
+            Peek(int advance = 1) = 0;
+
+            virtual char
+            Read() = 0;
+        };
+
+        std::shared_ptr<TextFile>
+        FromString(const std::string& str);
+
+        struct Location
+        {
+            int line = -1;
+            int column = -1;
+        };
+    }
+
     bool
     IsIdentStart(const char c);
 
@@ -12,10 +40,15 @@ namespace euphoria::core
      */
     struct TextFileParser
     {
-        TextFileParser(const std::string& str);
+        TextFileParser(std::shared_ptr<detail::TextFile> afile);
 
+        static TextFileParser
+        FromString(const std::string& str);
+
+        
+        // advance = 0 - next char, 1-the one after that, negative values are not allowed
         char
-        PeekChar(unsigned int advance = 0);
+        PeekChar(int advance = 0);
 
         // like PeekChar but returns human readable strings for some chars
         std::string
@@ -28,32 +61,33 @@ namespace euphoria::core
 
         void
         AdvanceChar();
+
         char
         ReadChar();
+
         std::string
         ReadIdent();
+
         std::string
         ReadString();
+
         std::string
         ReadToEndOfLine();
 
         void
         SkipSpaces(bool include_newline);
+
         bool
         HasMore() const;
 
-        unsigned int
+        int
         GetLine();
-        unsigned int
+
+        int
         GetColumn();
 
-    private:
-        std::string  string_;
-        unsigned int length_;
-        unsigned int position_;
-
-        unsigned int line_;
-        unsigned int column_;
+        std::shared_ptr<detail::TextFile> file;
+        detail::Location location = detail::Location{ 1, 1 };
     };
 
 }  // namespace euphoria::core

@@ -291,7 +291,7 @@ namespace euphoria::core::tracery
         }                                                                      \
     } while(false)
 
-        auto               parser = TextFileParser {s};
+        auto               parser = TextFileParser::FromString(s);
         std::ostringstream buffer;
         while(parser.HasMore())
         {

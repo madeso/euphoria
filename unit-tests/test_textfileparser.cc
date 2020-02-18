@@ -6,7 +6,7 @@ namespace euco = euphoria::core;
 
 TEST_CASE("textfileparser-test_basic_ident", "[textfileparser]")
 {
-    euco::TextFileParser test {"Hello"};
+    auto test = euco::TextFileParser::FromString("Hello");
 
     REQUIRE(test.HasMore());
     REQUIRE(test.ReadIdent() == "Hello");
@@ -17,7 +17,7 @@ TEST_CASE("textfileparser-test_basic_ident", "[textfileparser]")
 
 TEST_CASE("textfileparser-test_two_idents", "[textfileparser]")
 {
-    euco::TextFileParser test {"Hello world"};
+    auto test = euco::TextFileParser::FromString("Hello world");
 
     REQUIRE(test.HasMore());
     REQUIRE(test.ReadIdent() == "Hello");
@@ -32,7 +32,7 @@ TEST_CASE("textfileparser-test_two_idents", "[textfileparser]")
 
 TEST_CASE("textfileparser-read_string_fail", "[textfileparser]")
 {
-    euco::TextFileParser test {"Hello"};
+    auto test = euco::TextFileParser::FromString("Hello");
 
     REQUIRE(test.HasMore());
     REQUIRE(test.ReadString() == "");
@@ -42,7 +42,7 @@ TEST_CASE("textfileparser-read_string_fail", "[textfileparser]")
 
 TEST_CASE("textfileparser-read_string", "[textfileparser]")
 {
-    euco::TextFileParser test {"\"Hello\""};
+    auto test = euco::TextFileParser::FromString("\"Hello\"");
 
     REQUIRE(test.HasMore());
     REQUIRE(test.ReadString() == "Hello");
@@ -52,7 +52,7 @@ TEST_CASE("textfileparser-read_string", "[textfileparser]")
 
 TEST_CASE("textfileparser-read_to_eol", "[textfileparser]")
 {
-    euco::TextFileParser test {"hello world\nhello dog"};
+    auto test = euco::TextFileParser::FromString("hello world\nhello dog");
 
     REQUIRE(test.HasMore());
     REQUIRE(test.ReadToEndOfLine() == "hello world");
@@ -63,7 +63,7 @@ TEST_CASE("textfileparser-read_to_eol", "[textfileparser]")
 
 TEST_CASE("textfileparser-peek_char", "[textfileparser]")
 {
-    euco::TextFileParser test {"abc"};
+    auto test = euco::TextFileParser::FromString("abc");
 
     REQUIRE(test.HasMore());
     REQUIRE(test.PeekChar() == 'a');

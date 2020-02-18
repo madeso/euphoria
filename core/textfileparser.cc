@@ -1,11 +1,59 @@
 #include "core/textfileparser.h"
 
+#include "core/numeric.h"
+#include "core/assert.h"
+
 #include <sstream>
 
-#include "core/numeric.h"
 
 namespace euphoria::core
 {
+    namespace detail
+    {
+        struct FileString : public TextFile
+        {
+            std::string text;
+            std::size_t next_position = 0;
+
+            bool
+            HasMore() const override
+            {
+                return next_position < text.size();
+            }
+
+            char
+            Peek(int advance) override
+            {
+                ASSERT(advance >= 0);
+                const auto index = next_position + advance;
+
+                if (index >= text.size()) return 0;
+                else return text[index];
+            }
+
+            char
+            Read() override
+            {
+                if (!HasMore())
+                {
+                    return 0;
+                }
+
+                const auto r = text[next_position];
+                next_position += 1;
+                return r;
+            }
+        };
+
+        std::shared_ptr<TextFile>
+        FromString(const std::string& str)
+        {
+            auto file = std::make_shared<FileString>();
+            file->text = str;
+            return file;
+        }
+    }
+
     namespace  // local
     {
         bool
@@ -23,25 +71,38 @@ namespace euphoria::core
 
             return false;
         }
+
+        std::string
+            CharToString(char c)
+        {
+            std::ostringstream ss;
+            switch (c)
+            {
+            case 0: ss << "<null>"; break;
+            case ' ': ss << "<space>"; break;
+            case '\n': ss << "<newline>"; break;
+            case '\t': ss << "<tab>"; break;
+            default: ss << c; break;
+            }
+            return ss.str();
+        }
     }  // namespace
 
-    TextFileParser::TextFileParser(const std::string& str)
-        : string_(str)
-        , length_(str.length())
-        , position_(0)
-        , line_(1)
-        , column_(1)
-    {}
+    TextFileParser::TextFileParser(std::shared_ptr<detail::TextFile> afile)
+        : file(afile)
+    {
+    }
+
+    TextFileParser
+    TextFileParser::FromString(const std::string& str)
+    {
+        return TextFileParser{ detail::FromString(str) };
+    }
 
     char
-    TextFileParser::PeekChar(unsigned int advance)
+    TextFileParser::PeekChar(int advance)
     {
-        const auto p = position_ + advance;
-        if(p < length_)
-        {
-            return string_[p];
-        }
-        return 0;
+        return file->Peek(advance);
     }
 
 
@@ -49,16 +110,7 @@ namespace euphoria::core
     TextFileParser::PeekString(unsigned int advance)
     {
         const auto         c = PeekChar(advance);
-        std::ostringstream ss;
-        switch(c)
-        {
-        case 0: ss << "<null>"; break;
-        case ' ': ss << "<space>"; break;
-        case '\n': ss << "<newline>"; break;
-        case '\t': ss << "<tab>"; break;
-        default: ss << c; break;
-        }
-        return ss.str();
+        return CharToString(c);
     }
 
     // if peekchar(0) is c then it is read and function returns true,
@@ -81,19 +133,18 @@ namespace euphoria::core
     char
     TextFileParser::ReadChar()
     {
-        const char r = PeekChar();
+        const char r = file->Read();
 
         if(IsNewline(r))
         {
-            column_ = 1;
-            line_ += 1;
+            location.column = 1;
+            location.line += 1;
         }
         else
         {
-            column_ += 1;
+            location.column += 1;
         }
 
-        ++position_;
         return r;
     }
 
@@ -243,19 +294,19 @@ namespace euphoria::core
     bool
     TextFileParser::HasMore() const
     {
-        return position_ < length_;
+        return file->HasMore();
     }
 
-    unsigned int
+    int
     TextFileParser::GetLine()
     {
-        return line_;
+        return location.line;
     }
 
-    unsigned int
+    int
     TextFileParser::GetColumn()
     {
-        return column_;
+        return location.column;
     }
 
 }  // namespace euphoria::core

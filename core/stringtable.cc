@@ -17,7 +17,7 @@ namespace euphoria::core
                       }
                       table->NewRow(row);
                   };
-        auto file = TextFileParser {csv_data};
+        auto file = TextFileParser::FromString(csv_data);
 
         StringTable table;
 

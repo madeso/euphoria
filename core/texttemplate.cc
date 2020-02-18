@@ -367,14 +367,14 @@ namespace euphoria::core
     {
         ASSERT(error);
 
-        TextFileParser   parser(content);
+        auto parser = TextFileParser::FromString(content);
         std::vector<Lex> r;
 
         bool inside = false;
 
         std::ostringstream buffer;
-        unsigned int       buffer_line   = parser.GetLine();
-        unsigned int       buffer_column = parser.GetColumn();
+        unsigned int buffer_line = parser.GetLine();
+        unsigned int buffer_column = parser.GetColumn();
 
         while(parser.HasMore())
         {
