@@ -163,7 +163,7 @@ namespace euphoria::core::raytracer
         const auto h = scene.Hit
         (
             ray,
-            MakeRange(0.0f, std::numeric_limits<float>::max())
+            MakeRange(0.001f, std::numeric_limits<float>::max())
         );
         if(h.collided)
         {
