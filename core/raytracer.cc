@@ -6,6 +6,7 @@
 #include "core/sphere.h"
 #include "core/random.h"
 #include "core/polarcoord.h"
+#include "core/numeric.h"
 
 #include <limits>
 
@@ -194,6 +195,13 @@ namespace euphoria::core::raytracer
         }
     };
 
+
+    Rgb
+    Gamma2CorrectColor(Rgb color)
+    {
+        return {Sqrt(color.r), Sqrt(color.g), Sqrt(color.b)};
+    }
+
     void
     Raytrace(Image* aimage, const Scene& scene, int number_of_samples)
     {
@@ -214,7 +222,9 @@ namespace euphoria::core::raytracer
                 const auto sample_color = GetColor(scene, ray, &random);
                 color += sample_color;
             }
-            img.SetPixel(x,y, rgbi(color/number_of_samples));
+            color = color/number_of_samples;
+            color = Gamma2CorrectColor(color);
+            img.SetPixel(x,y, rgbi(color));
         }
     }
 }
