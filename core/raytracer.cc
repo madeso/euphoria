@@ -5,6 +5,7 @@
 #include "core/intersection.h"
 #include "core/sphere.h"
 #include "core/random.h"
+#include "core/polarcoord.h"
 
 #include <limits>
 
@@ -149,8 +150,14 @@ namespace euphoria::core::raytracer
     }
 
 
+    vec3f RandomInUnitSphere(Random* random)
+    {
+        return RandomUnit3(random) * random->NextFloat01();
+    }
+
+
     Rgb
-    GetColor(const Scene& scene, const UnitRay3f& ray)
+    GetColor(const Scene& scene, const UnitRay3f& ray, Random* random)
     {
         const auto h = scene.Hit
         (
@@ -159,7 +166,10 @@ namespace euphoria::core::raytracer
         );
         if(h.collided)
         {
-            return rgb(h.normal);
+            const auto target = h.position + h.normal + RandomInUnitSphere(random);
+            const auto reflected_ray = UnitRay3f::FromTo(h.position, target);
+            return 0.5f * GetColor(scene, reflected_ray, random);
+            // return rgb(h.normal);
         }
         const auto t = (ray.dir.y+1)/2.0f;
         return RgbTransform::Transform
@@ -201,7 +211,7 @@ namespace euphoria::core::raytracer
                 const auto u = (x + random.NextFloat01()) / static_cast<float>(img.GetWidth());
                 const auto v = (y + random.NextFloat01()) / static_cast<float>(img.GetHeight());
                 const auto ray = camera.GetRay(u, v);
-                const auto sample_color = GetColor(scene, ray);
+                const auto sample_color = GetColor(scene, ray, &random);
                 color += sample_color;
             }
             img.SetPixel(x,y, rgbi(color/number_of_samples));

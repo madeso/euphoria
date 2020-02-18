@@ -99,6 +99,18 @@ namespace euphoria::core
     }
 
 
+    Rgb
+    operator*(const Rgb& lhs, float rhs)
+    {
+        return {lhs.r*rhs, lhs.g*rhs, lhs.b*rhs};
+    }
+
+
+    Rgb
+    operator*(float lhs, const Rgb& rhs)
+    {
+        return {rhs.r*lhs, rhs.g*lhs, rhs.b*lhs};
+    }
 
 
 

@@ -82,6 +82,12 @@ namespace euphoria::core
     Rgb
     operator/(const Rgb& lhs, float rhs);
 
+    Rgb
+    operator*(const Rgb& lhs, float rhs);
+
+    Rgb
+    operator*(float lhs, const Rgb& rhs);
+
     float
     dot(const Rgb& lhs, const Rgb& rhs);
 
