@@ -211,7 +211,7 @@ namespace euphoria::core::raytracer
         auto random = Random{};
         const auto camera = Camera{};
 
-        Dots dots;
+        CliProgressDots progress;
 
         for(int y=0; y<img.GetHeight(); y+=1)
         for(int x=0; x<img.GetWidth(); x+=1)
@@ -228,7 +228,7 @@ namespace euphoria::core::raytracer
             color = color/number_of_samples;
             color = Gamma2CorrectColor(color);
             img.SetPixel(x,y, rgbi(color));
-            dots.Dot(80);
+            progress.Update();
         }
     }
 }

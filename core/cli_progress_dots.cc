@@ -5,24 +5,27 @@
 namespace euphoria::core
 {
     void
-    Dots::Dot(int dots_per_line)
+    CliProgressDots::Update()
     {
-        if(index == 0)
+        const auto now = Now();
+        if(has_printed)
         {
-            std::cout << ".";
-            std::cout.flush();
-            dots_on_line += 1;
-
-            if(dots_on_line >= dots_per_line)
+            if(SecondsBetween(last, now) < 0.2f)
             {
-                std::cout << "\n";
-                dots_on_line = 0;
+                return;
             }
         }
-        index += 1;
-        if(index > 100)
+        std::cout << ".";
+        std::cout.flush();
+        dots_on_line += 1;
+
+        last = now;
+        has_printed = true;
+
+        if(dots_on_line >= dots_per_line)
         {
-            index = 0;
+            std::cout << "\n";
+            dots_on_line = 0;
         }
     }
 }  // namespace euphoria::core

@@ -185,7 +185,7 @@ bool
 ParseSentances(std::ifstream& data, OnSentance on_sentance)
 {
     std::string line;
-    core::Dots  dots;
+    core::CliProgressDots dots;
 
     Parser parser;
     parser.on_sentance = on_sentance;
@@ -194,7 +194,7 @@ ParseSentances(std::ifstream& data, OnSentance on_sentance)
     {
         if(line.empty())
             continue;
-        dots.Dot(100);
+        dots.Update();
 
         for(char c: line)
         {
@@ -286,13 +286,13 @@ MarkovWord(const std::string& file, int memory, int count)
     }
 
     std::string line;
-    core::Dots  dots;
+    core::CliProgressDots  dots;
     while(std::getline(data, line))
     {
         if(line.empty())
             continue;
         m.Add(C(line));
-        dots.Dot(100);
+        dots.Update();
     }
 
     std::cout << "\n";
