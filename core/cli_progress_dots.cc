@@ -10,6 +10,7 @@ namespace euphoria::core
         if(index == 0)
         {
             std::cout << ".";
+            std::cout.flush();
             dots_on_line += 1;
 
             if(dots_on_line >= dots_per_line)
