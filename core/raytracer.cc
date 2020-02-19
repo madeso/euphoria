@@ -7,6 +7,7 @@
 #include "core/random.h"
 #include "core/polarcoord.h"
 #include "core/numeric.h"
+#include "core/cli_progress_dots.h"
 
 #include <limits>
 
@@ -210,6 +211,8 @@ namespace euphoria::core::raytracer
         auto random = Random{};
         const auto camera = Camera{};
 
+        Dots dots;
+
         for(int y=0; y<img.GetHeight(); y+=1)
         for(int x=0; x<img.GetWidth(); x+=1)
         {
@@ -225,6 +228,7 @@ namespace euphoria::core::raytracer
             color = color/number_of_samples;
             color = Gamma2CorrectColor(color);
             img.SetPixel(x,y, rgbi(color));
+            dots.Dot(80);
         }
     }
 }
