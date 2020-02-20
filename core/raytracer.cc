@@ -211,6 +211,7 @@ namespace euphoria::core::raytracer
         auto random = Random{};
         const auto camera = Camera{};
 
+        {
         std::cout << "Rendering ";
         CliProgressBar progress;
 
@@ -233,6 +234,8 @@ namespace euphoria::core::raytracer
             img.SetPixel(x,y, rgbi(color));
             progress.Update( (y*img.GetWidth() + x)/static_cast<float>(number_of_pixels) );
         }
+        }
+        std::cout << "Rendering done :)\n";
     }
 }
 
