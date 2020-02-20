@@ -14,4 +14,4 @@ namespace euphoria::core
     SetConsolePosition(const vec2i& pos);
 }
 
-#endif EUPHORIA_CORE_CLI_POSITION_H
+#endif  // EUPHORIA_CORE_CLI_POSITION_H
