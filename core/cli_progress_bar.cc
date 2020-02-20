@@ -12,6 +12,7 @@ namespace euphoria::core
 {
     CliProgressBar::CliProgressBar()
         : position(GetConsolePosition().value_or(vec2i::Zero()))
+        , last(Now())
     {
     }
 
@@ -21,8 +22,9 @@ namespace euphoria::core
     }
 
     void
-    CliProgressBar::Update(float apercent, bool)
+    CliProgressBar::Update(float apercent, bool force)
     {
+        constexpr float min_interval_seconds = 0.1f;
         constexpr int total_number_of_characters = 30;
         constexpr std::array animation_chars
         {
@@ -39,6 +41,13 @@ namespace euphoria::core
         const auto percent = KeepWithin(R01(), apercent);
 
         const auto number_of_characters = static_cast<int>(percent * total_number_of_characters);
+
+        const auto now = Now();
+        if (!force && SecondsBetween(last, now) < min_interval_seconds)
+        {
+            return;
+        }
+        last = now;
 
         SetConsolePosition(position);
         std::cout << start_char;

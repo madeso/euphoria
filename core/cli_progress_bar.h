@@ -2,6 +2,7 @@
 #define EUPHORIA_CORE_CLI_PROGRESS_BAR_H
 
 #include "core/vec2.h"
+#include "core/timepoint.h"
 
 namespace euphoria::core
 {
@@ -11,6 +12,7 @@ namespace euphoria::core
         ~CliProgressBar();
 
         vec2i position;
+        TimePoint last;
 
         void Update(float percent, bool force=false);
     };
