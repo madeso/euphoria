@@ -7,7 +7,7 @@
 #include "core/random.h"
 #include "core/polarcoord.h"
 #include "core/numeric.h"
-#include "core/cli_progress_dots.h"
+#include "core/cli_progress_bar.h"
 
 #include <limits>
 
@@ -211,7 +211,10 @@ namespace euphoria::core::raytracer
         auto random = Random{};
         const auto camera = Camera{};
 
-        CliProgressDots progress;
+        std::cout << "Rendering ";
+        CliProgressBar progress;
+
+        const int number_of_pixels = img.GetWidth() * img.GetHeight();
 
         for(int y=0; y<img.GetHeight(); y+=1)
         for(int x=0; x<img.GetWidth(); x+=1)
@@ -228,7 +231,7 @@ namespace euphoria::core::raytracer
             color = color/number_of_samples;
             color = Gamma2CorrectColor(color);
             img.SetPixel(x,y, rgbi(color));
-            progress.Update();
+            progress.Update( (y*img.GetWidth() + x)/static_cast<float>(number_of_pixels) );
         }
     }
 }

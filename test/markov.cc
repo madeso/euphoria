@@ -2,7 +2,7 @@
 #include <iostream>
 #include <fstream>
 
-#include "core/cli_progress_dots.h"
+#include "core/cli_progress_bar.h"
 #include "core/markov.h"
 #include "core/argparse.h"
 #include "core/stringmerger.h"
@@ -185,7 +185,7 @@ bool
 ParseSentances(std::ifstream& data, OnSentance on_sentance)
 {
     std::string line;
-    core::CliProgressDots dots;
+    core::CliProgressBarInfinite progress;
 
     Parser parser;
     parser.on_sentance = on_sentance;
@@ -194,7 +194,7 @@ ParseSentances(std::ifstream& data, OnSentance on_sentance)
     {
         if(line.empty())
             continue;
-        dots.Update();
+        progress.Step(100);
 
         for(char c: line)
         {
@@ -253,8 +253,11 @@ MarkovSentance(const std::string& file, int memory, int count)
     }
 
     markov::ChainBuilder<std::string> m {memory};
-    const auto                        parsed
-            = ParseSentances(data, [&](const Sentance& s) { m.Add(s); });
+    const auto parsed = ParseSentances
+    (
+        data,
+        [&](const Sentance& s) { m.Add(s); }
+    );
     if(!parsed)
     {
         std::cerr << "No sentances loaded\n";
@@ -286,13 +289,13 @@ MarkovWord(const std::string& file, int memory, int count)
     }
 
     std::string line;
-    core::CliProgressDots  dots;
+    core::CliProgressBarInfinite  progress;
     while(std::getline(data, line))
     {
         if(line.empty())
             continue;
         m.Add(C(line));
-        dots.Update();
+        progress.Step(100);
     }
 
     std::cout << "\n";
