@@ -29,14 +29,14 @@ bool PrintChar(TextBox* dst, LoadedFont& font, int* sx, int* sy, unsigned int co
     const auto py = *sy + glyph.bearing_y;
 
     // todo: ImageToStringTable might not convert corectly, consider extending :)
-    const auto img = ImageToStringTable(glyph.image, true);
+    const auto img = ImageToStringTable(glyph.image, true, Grayscale::A);
 
     for(auto y=0; y<img.GetHeight(); y+=1)
     for(auto x=0; x<img.GetWidth(); x+=1)
     {
         const auto c = img(x,y);
         if(c == ' ') continue;
-        dst->PutChar(px+x, py+y, c);
+        dst->PutChar(px+x, img.GetHeight()+py-y, c);
     }
 
     *sx = *sx + glyph.advance;
