@@ -15,11 +15,15 @@ namespace euphoria::core
         R,
         G,
         B,
+        A,
         Max,
         Gamma,
         Linear,
         Average
     };
+
+    Rgbai
+    MakeGrayscale(Rgbai color, Grayscale grayscale);
 
     void
     MakeGrayscale(Image* image, Grayscale grayscale);
