@@ -7,6 +7,8 @@
 #include "core/table.h"
 #include "core/rgb.h"
 
+#include "core/imagefilters.h"
+
 // todo(Gustav): Rename module to something like console image or something...
 
 namespace euphoria::core
@@ -30,7 +32,7 @@ namespace euphoria::core
             const std::vector<ImageMapAction>& map, char missing);
 
     Table<char>
-    ImageToStringTable(const Image& img, bool shorter);
+    ImageToStringTable(const Image& img, bool shorter, Grayscale grayscale = Grayscale::R);
 
     std::vector<std::string>
     ToStrings(const Table<char>& t);

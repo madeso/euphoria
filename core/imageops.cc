@@ -57,17 +57,20 @@ namespace euphoria::core
     }
 
     Table<char>
-    ImageToStringTable(const Image& img, bool shorter)
+    ImageToStringTable(const Image& img, bool shorter, Grayscale grayscale)
     {
-        // todo(Gustav): use grayscale function from imagefiler
         auto ret = Table<char>::FromWidthHeight(
                 img.GetWidth(), img.GetHeight(), ' ');
-        ret.SetAll([shorter, &img](int x, int y) {
+        ret.SetAll([shorter, &img, grayscale](int x, int y) {
             // http://paulbourke.net/dataformats/asciiart/
-            const std::string characters
-                    = shorter ? " .:-=+*#%@"
-                              : "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,\"^`'. ";
-            const auto p     = 1.0f - rgb(img.GetPixel(x, y)).r;
+            const std::string characters = shorter
+                ? "@%#*+=-:. "
+                : "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,\"^`'. ";
+            const auto inverted_color = rgb
+            (
+                MakeGrayscale(img.GetPixel(x, y), grayscale)
+            ).r;
+            const auto p = 1.0f - inverted_color;
             const auto index = Floori(p * (characters.size() - 1));
             return characters[index];
         });
