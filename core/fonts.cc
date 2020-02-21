@@ -234,6 +234,7 @@ namespace euphoria::core
             glyph.bearing_x = 0;
             glyph.advance   = glyph.image.GetWidth() + 0;
             glyph.code_point= code_point;
+            glyph.valid = true;
             font.codepoint_to_glyph[code_point] = glyph;
         }
 
