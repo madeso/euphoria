@@ -38,10 +38,10 @@ namespace euphoria::core
     TextBoxStyle Utf8DoubleLineStyle();
     TextBoxStyle AsciiStyle();
 
-/* TextBox: Abstraction for 2-dimensional text strings, with VT100 linedrawing support
+/* TextBox: Abstraction for 2-dimensional text strings with linedrawing support
 Copyright (c) 2017 Joel Yliluoma - http://iki.fi/bisqwit/
-License: MIT
-Requires a C++17 capable compiler and standard library. */
+License: MIT */
+// todo(Gustav): change to allow origin and negative drawing indices
 struct TextBox
 {
     static TextBox Empty();
