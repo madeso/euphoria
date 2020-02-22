@@ -12,6 +12,7 @@
 #include FT_FREETYPE_H
 
 #include "font8x8/font8x8_basic.h"
+#include "font8x13.h"
 
 namespace euphoria::core
 {
@@ -201,7 +202,7 @@ namespace euphoria::core
 
     template<typename Glyphs>
     core::LoadedFont
-    GetCharacterFromBuiltin(const unsigned int start_codepoint, unsigned int end_codepoint, Glyphs glyphs)
+    GetCharacterFromBuiltin8(const unsigned int start_codepoint, unsigned int end_codepoint, Glyphs glyphs)
     {
         ASSERTX(start_codepoint < end_codepoint, start_codepoint, end_codepoint);
         const auto number_of_glyphs = (end_codepoint+1) - start_codepoint;
@@ -241,12 +242,54 @@ namespace euphoria::core
         return font;
     }
 
+
     core::LoadedFont
-    LoadCharactersFromBuiltin()
+    LoadCharactersFromBuiltin13()
+    {
+        core::LoadedFont font;
+        font.line_height = 13;
+
+        for(unsigned int codepoint=32; codepoint < 127; codepoint+=1)
+        {
+            core::LoadedGlyph glyph;
+            glyph.image.SetupWithAlphaSupport(8, 13, 0);
+            
+            const auto glyph_index = codepoint - 32;
+
+            for(int y = 0; y < 13; y += 1)
+            {
+                for(int x = 0; x < 8; x += 1)
+                {
+                    const bool pixel = 0 !=
+                    (
+                        FONT8X13_RASTERS[glyph_index * 13 + y] & (1 << (8-x))
+                    );
+                    if(pixel)
+                    {
+                        DrawSquare(&glyph.image, Color::White, x, y, 1);
+                    }
+                }
+            }
+
+            glyph.size      = glyph.image.GetHeight();
+            glyph.bearing_y = glyph.image.GetHeight() + 0;
+            glyph.bearing_x = 0;
+            glyph.advance   = glyph.image.GetWidth() + 0;
+            glyph.code_point= codepoint;
+            glyph.valid = true;
+            font.codepoint_to_glyph[codepoint] = glyph;
+        }
+
+        return font;
+    }
+
+
+    core::LoadedFont
+    LoadCharactersFromBuiltin8()
     {
         core::LoadedFont font;
         // todo(Gustav): Add more characters
-        font.CombineWith(GetCharacterFromBuiltin(0x0000, 0x007F, font8x8_basic));
+        font.CombineWith(GetCharacterFromBuiltin8(0x0000, 0x007F, font8x8_basic));
         return font;
     }
 

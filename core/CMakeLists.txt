@@ -45,6 +45,7 @@ source_group("AHEasing" FILES ${src_aheasing})
 
 
 include_directories(../external/font8x8/)
+include_directories(../external/font8x13/)
 
 add_library(core STATIC ${src})
 target_link_libraries(core

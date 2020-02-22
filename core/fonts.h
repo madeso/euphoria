@@ -55,7 +55,10 @@ namespace euphoria::core
     };
 
     core::LoadedFont
-    LoadCharactersFromBuiltin();
+    LoadCharactersFromBuiltin8();
+
+    core::LoadedFont
+    LoadCharactersFromBuiltin13();
 
     LoadedFont
     GetCharactersFromFont(

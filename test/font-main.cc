@@ -85,7 +85,9 @@ main(int argc, char* argv[])
         return -1;
     }
 
-    auto font = LoadCharactersFromBuiltin();
+    auto font = use_alternate_builtin
+        ? LoadCharactersFromBuiltin13()
+        : LoadCharactersFromBuiltin8();
 
     auto box = TextBox::Empty();
     const bool printed = PrintString(&box, font, 0, 0, text);
