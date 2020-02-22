@@ -176,9 +176,13 @@ namespace euphoria::render
                 const font::SingleImage& image = *source.image;
                 fontchars.CombineWith(GetCharactersFromSingleImage(fs, image));
             }
-            if(source.builtin)
+            if(source.builtin8)
             {
-                fontchars.CombineWith(core::LoadCharactersFromBuiltin());
+                fontchars.CombineWith(core::LoadCharactersFromBuiltin8());
+            }
+            if(source.builtin13)
+            {
+                fontchars.CombineWith(core::LoadCharactersFromBuiltin13());
             }
             // todo: add more sources, built in image font or images
         }
