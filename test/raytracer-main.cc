@@ -4,6 +4,7 @@
 #include "core/io.h"
 #include "core/raytracer.h"
 #include "core/argparse.h"
+#include "core/timepoint.h"
 
 using namespace euphoria::core;
 
@@ -78,7 +79,11 @@ main(int argc, char* argv[])
         )
     );
 
+    const auto start = Now();
     raytracer::Raytrace(&image, scene, number_of_samples);
+    const auto end = Now();
+    const auto seconds = SecondsBetween(start, end);
+    std::cout << "Rendering took " << seconds << " seconds.\n";
     io::ChunkToFile(image.Write(ImageWriteFormat::PNG), "raytracer.png");
 
     return 0;
