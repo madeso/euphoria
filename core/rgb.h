@@ -70,6 +70,10 @@ namespace euphoria::core
         void
         operator/=(float rhs);
 
+        // memberwise multiplication
+        void
+        operator*=(const Rgb& rhs);
+
         float r;
         float g;
         float b;
@@ -78,6 +82,10 @@ namespace euphoria::core
 
     Rgb
     operator+(const Rgb& lhs, const Rgb& rhs);
+
+    // memberwise multiplication
+    Rgb
+    operator*(const Rgb& lhs, const Rgb& rhs);
 
     Rgb
     operator/(const Rgb& lhs, float rhs);

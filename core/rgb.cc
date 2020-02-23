@@ -74,6 +74,15 @@ namespace euphoria::core
 
 
     void
+    Rgb::operator*=(const Rgb& rhs)
+    {
+        r *= rhs.r;
+        g *= rhs.g;
+        b *= rhs.b;
+    }
+
+
+    void
     Rgb::operator/=(float rhs)
     {
         r /= rhs;
@@ -87,6 +96,14 @@ namespace euphoria::core
     {
         auto r = lhs;
         r += rhs;
+        return r;
+    }
+
+    Rgb
+    operator*(const Rgb& lhs, const Rgb& rhs)
+    {
+        auto r = lhs;
+        r *= rhs;
         return r;
     }
 
