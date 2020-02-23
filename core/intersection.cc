@@ -18,6 +18,7 @@ namespace euphoria::core
             return r;
         }
 
+
         Ray3AabbResult
         Ray3AabbResult_True(float start, float end)
         {
@@ -31,7 +32,11 @@ namespace euphoria::core
 
 
     Ray3AabbResult
-    GetIntersection(const UnitRay3f& r, const Aabb& aabb)
+    GetIntersection
+    (
+        const UnitRay3f& r,
+        const Aabb& aabb
+    )
     {
         // https://www.scratchapixel.com/lessons/3d-basic-rendering/minimal-ray-tracer-rendering-simple-shapes/ray-box-intersection
 
@@ -82,7 +87,11 @@ namespace euphoria::core
 
 
     float
-    GetIntersection(const UnitRay3f& r, const Plane& p)
+    GetIntersection
+    (
+        const UnitRay3f& r,
+        const Plane& p
+    )
     {
         return -(dot(r.from, p.normal) + p.distance)/dot(r.dir, p.normal);
     }
@@ -111,7 +120,11 @@ namespace euphoria::core
 
 
     Ray2Ray2Result
-    GetIntersection(const Ray2f& lhs, const Ray2f& rhs)
+    GetIntersection
+    (
+        const Ray2f& lhs,
+        const Ray2f& rhs
+    )
     {
         // https://stackoverflow.com/a/1968345/180307
         const vec2f p1 = lhs.position;
@@ -155,13 +168,21 @@ namespace euphoria::core
     }
 
     float
-    DistanceBetween(const Plane& plane, const vec3f& p)
+    DistanceBetween
+    (
+        const Plane& plane,
+        const vec3f& p
+    )
     {
         return dot(plane.normal, p) + plane.distance;
     }
 
     vec3f
-    ClosestPoint(const Plane& plane, const vec3f& point)
+    ClosestPoint
+    (
+        const Plane& plane,
+        const vec3f& point
+    )
     {
         const auto distance = dot(plane.normal, point) - plane.distance;
         return point - distance * plane.normal;
@@ -169,7 +190,11 @@ namespace euphoria::core
 
 
     float
-    DistanceBetween(const UnitRay3f& ray, const vec3f& point)
+    DistanceBetween
+    (
+        const UnitRay3f& ray,
+        const vec3f& point
+    )
     {
         const auto newNorm = (point - ray.from).GetNormalized();
 
@@ -178,7 +203,11 @@ namespace euphoria::core
     }
 
     vec3f
-    ClosestPoint(const UnitRay3f& ray, const vec3f& c)
+    ClosestPoint
+    (
+        const UnitRay3f& ray,
+        const vec3f& c
+    )
     {
         const auto ab = ray;
         const auto a = ray.from;
@@ -194,28 +223,49 @@ namespace euphoria::core
 
 
     bool
-    GetIntersection(const Sphere& lhs, const vec3f& lhs_center, const Sphere& rhs, const vec3f& rhs_center)
+    GetIntersection
+    (
+        const Sphere& lhs,
+        const vec3f& lhs_center,
+        const Sphere& rhs,
+        const vec3f& rhs_center
+    )
     {
         return vec3f::FromTo(lhs_center, rhs_center).GetLengthSquared() < Square(lhs.radius + rhs.radius);
     }
 
 
     bool
-    ContainsPoint(const Sphere& sphere, const vec3f& sphere_center, const vec3f& point)
+    ContainsPoint
+    (
+        const Sphere& sphere,
+        const vec3f& sphere_center,
+        const vec3f& point
+    )
     {
         return vec3f::FromTo(sphere_center, point).GetLengthSquared() < Square(sphere.radius);
     }
 
 
     vec3f
-    ClosestPoint(const Sphere& sphere, const vec3f& sphere_center, const vec3f& point)
+    ClosestPoint
+    (
+        const Sphere& sphere,
+        const vec3f& sphere_center,
+        const vec3f& point
+    )
     {
         return UnitRay3f::FromTo(sphere_center, point).GetPoint(sphere.radius);
     }
 
 
     float
-    GetIntersection(const UnitRay3f& ray, const Sphere& sphere, const vec3f& sphere_center)
+    GetIntersection
+    (
+        const UnitRay3f& ray,
+        const Sphere& sphere,
+        const vec3f& sphere_center
+    )
     {
         const auto p0 = ray.from;
         const auto d = ray.dir;
@@ -249,7 +299,11 @@ namespace euphoria::core
 
 
     bool
-    ContainsPoint(const Aabb& aabb, const vec3f& point)
+    ContainsPoint
+    (
+        const Aabb& aabb,
+        const vec3f& point
+    )
     {
         ASSERT(aabb.IsValid());
 
@@ -266,7 +320,11 @@ namespace euphoria::core
 
 
     vec3f
-    ClosestPoint(const Aabb& aabb, const vec3f& point)
+    ClosestPoint
+    (
+        const Aabb& aabb,
+        const vec3f& point
+    )
     {
         ASSERT(aabb.IsValid());
 
@@ -277,7 +335,13 @@ namespace euphoria::core
 
 
     bool
-    IsPointInTriangle(const vec2f& A, const vec2f& B, const vec2f& C, const vec2f& P)
+    IsPointInTriangle
+    (
+        const vec2f& A,
+        const vec2f& B,
+        const vec2f& C,
+        const vec2f& P
+    )
     {
         const auto s1 = C.y - A.y;
         const auto s2 = C.x - A.x;
