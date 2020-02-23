@@ -17,11 +17,13 @@ namespace euphoria::core::raytracer
     (
         float aray_distance,
         const vec3f& aposition,
-        const unit3f& anormal
+        const unit3f& anormal,
+        std::shared_ptr<Material> amaterial
     )
         : ray_distance(aray_distance)
         , position(aposition)
         , normal(anormal)
+        , material(amaterial)
     {
     }
 
@@ -30,10 +32,17 @@ namespace euphoria::core::raytracer
     {
         Sphere sphere;
         vec3f position;
+        std::shared_ptr<Material> material;
 
-        SphereObject(const Sphere& asphere, const vec3f& aposition)
+        SphereObject
+        (
+            const Sphere& asphere,
+            const vec3f& aposition,
+            std::shared_ptr<Material> amaterial
+        )
             : sphere(asphere)
             , position(aposition)
+            , material(amaterial)
         {
         }
 
@@ -54,7 +63,8 @@ namespace euphoria::core::raytracer
                 {
                     hit_index,
                     hit_position,
-                    hit_normal
+                    hit_normal,
+                    material
                 };
             }
             else
@@ -66,12 +76,18 @@ namespace euphoria::core::raytracer
 
 
     std::shared_ptr<Object>
-    CreateSphere(const Sphere& sphere, const vec3f& position)
+    CreateSphere
+    (
+        const Sphere& sphere,
+        const vec3f& position,
+        std::shared_ptr<Material> material
+    )
     {
         return std::make_shared<SphereObject>
         (
             sphere,
-            position
+            position,
+            material
         );
     }
 
@@ -122,8 +138,55 @@ namespace euphoria::core::raytracer
     }
 
 
+    Material::~Material() {}
+
+    struct DiffuseMaterial : public Material
+    {
+        Rgb albedo;
+
+        explicit DiffuseMaterial(const Rgb& aalbedo)
+            : albedo(aalbedo)
+        {
+        }
+
+        std::optional<ScatterResult>
+        Scatter
+        (
+            const UnitRay3f& /*ray*/,
+            const HitResult& hit,
+            Random* random
+        ) override
+        {
+            const auto target = hit.position + hit.normal + RandomInUnitSphere(random);
+            const auto reflected_ray = UnitRay3f::FromTo(hit.position, target);
+
+            return ScatterResult
+            {
+                albedo,
+                reflected_ray
+            };
+        }
+    };
+
+
+    std::shared_ptr<Material>
+    CreateDiffuseMaterial
+    (
+        const Rgb& albedo
+    )
+    {
+        return std::make_shared<DiffuseMaterial>(albedo);
+    }
+
+
     Rgb
-    GetColor(const Scene& scene, const UnitRay3f& ray, Random* random)
+    GetColor
+    (
+        const Scene& scene,
+        const UnitRay3f& ray,
+        Random* random,
+        int depth
+    )
     {
         const auto h = scene.Hit
         (
@@ -132,10 +195,34 @@ namespace euphoria::core::raytracer
         );
         if(h.has_value())
         {
-            const auto target = h->position + h->normal + RandomInUnitSphere(random);
-            const auto reflected_ray = UnitRay3f::FromTo(h->position, target);
-            return 0.5f * GetColor(scene, reflected_ray, random);
-            // return rgb(h.normal);
+            if(depth < 50)
+            {
+                auto scatter = h->material->Scatter
+                (
+                    ray,
+                    h.value(),
+                    random
+                );
+                if(scatter.has_value())
+                {
+                    const auto c = GetColor
+                    (
+                        scene,
+                        scatter->scattered,
+                        random,
+                        depth + 1
+                    );
+                    return scatter->attenuation * c;
+                }
+                else
+                {
+                    return Color::Black;
+                }
+            }
+            else
+            {
+                return Color::Black;
+            }
         }
         const auto t = (ray.dir.y+1)/2.0f;
         return RgbTransform::Transform
@@ -190,7 +277,7 @@ namespace euphoria::core::raytracer
                 const auto u = (x + random.NextFloat01()) / static_cast<float>(img.GetWidth());
                 const auto v = (y + random.NextFloat01()) / static_cast<float>(img.GetHeight());
                 const auto ray = camera.GetRay(u, v);
-                const auto sample_color = GetColor(scene, ray, &random);
+                const auto sample_color = GetColor(scene, ray, &random, 0);
                 color += sample_color;
             }
             color = color/number_of_samples;

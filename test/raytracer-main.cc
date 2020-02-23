@@ -28,12 +28,17 @@ main(int argc, char* argv[])
     image.SetupNoAlphaSupport(image_width, image_height);
 
     raytracer::Scene scene;
+
     scene.objects.push_back
     (
         raytracer::CreateSphere
         (
             Sphere{0.5f},
-            vec3f(0.0f, 0.0f, -1.0f)
+            vec3f(0.0f, 0.0f, -1.0f),
+            raytracer::CreateDiffuseMaterial
+            (
+                Rgb(0.8f, 0.3f, 0.3f)
+            )
         )
     );
     scene.objects.push_back
@@ -41,7 +46,11 @@ main(int argc, char* argv[])
         raytracer::CreateSphere
         (
             Sphere{100.0f},
-            vec3f(0.0f, -100.5f, -1.0f)
+            vec3f(0.0f, -100.5f, -1.0f),
+            raytracer::CreateDiffuseMaterial
+            (
+                Rgb(0.8f, 0.8f, 0.0f)
+            )
         )
     );
 
