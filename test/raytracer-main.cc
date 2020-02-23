@@ -62,7 +62,8 @@ main(int argc, char* argv[])
             vec3f(1.0f, 0.0f, -1.0f),
             raytracer::CreateMetalMaterial
             (
-                Rgb(0.8f, 0.6f, 0.2f)
+                Rgb(0.8f, 0.6f, 0.2f),
+                0.3f
             )
         )
     );
@@ -74,7 +75,8 @@ main(int argc, char* argv[])
             vec3f(-1.0f, 0.0f, -1.0f),
             raytracer::CreateMetalMaterial
             (
-                Rgb(0.8f, 0.8f, 0.8f)
+                Rgb(0.8f, 0.8f, 0.8f),
+                1.0f
             )
         )
     );

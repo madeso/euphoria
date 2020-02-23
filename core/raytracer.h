@@ -87,7 +87,9 @@ namespace euphoria::core
         std::shared_ptr<Material>
         CreateMetalMaterial
         (
-            const Rgb& albedo
+            const Rgb& albedo,
+            // 0-1, 0=clear
+            float fuzz
         );
 
 

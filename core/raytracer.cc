@@ -175,9 +175,15 @@ namespace euphoria::core::raytracer
     struct MetalMaterial : public Material
     {
         Rgb albedo;
+        float fuzz;
 
-        explicit MetalMaterial(const Rgb& aalbedo)
+        explicit MetalMaterial
+        (
+            const Rgb& aalbedo,
+            float afuzz
+        )
             : albedo(aalbedo)
+            , fuzz(KeepWithin(R01(), afuzz))
         {
         }
 
@@ -186,7 +192,7 @@ namespace euphoria::core::raytracer
         (
             const UnitRay3f& ray,
             const HitResult& hit,
-            Random* /*random*/
+            Random* random
         ) override
         {
             const auto reflected = Reflect
@@ -197,7 +203,7 @@ namespace euphoria::core::raytracer
             const auto scattered = UnitRay3f::FromTo
             (
                 hit.position,
-                reflected
+                reflected + fuzz * RandomInUnitSphere(random)
             );
             const auto scatter_dot = dot
             (
@@ -226,17 +232,25 @@ namespace euphoria::core::raytracer
         const Rgb& albedo
     )
     {
-        return std::make_shared<DiffuseMaterial>(albedo);
+        return std::make_shared<DiffuseMaterial>
+        (
+            albedo
+        );
     }
 
 
     std::shared_ptr<Material>
     CreateMetalMaterial
     (
-        const Rgb& albedo
+        const Rgb& albedo,
+        float fuzz
     )
     {
-        return std::make_shared<MetalMaterial>(albedo);
+        return std::make_shared<MetalMaterial>
+        (
+            albedo,
+            fuzz
+        );
     }
 
 
