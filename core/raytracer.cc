@@ -168,6 +168,57 @@ namespace euphoria::core::raytracer
         }
     };
 
+    vec3f Reflect(const vec3f& v, const unit3f& n) {
+        return v - 2*dot(v,n)*n;
+    }
+
+    struct MetalMaterial : public Material
+    {
+        Rgb albedo;
+
+        explicit MetalMaterial(const Rgb& aalbedo)
+            : albedo(aalbedo)
+        {
+        }
+
+        std::optional<ScatterResult>
+        Scatter
+        (
+            const UnitRay3f& ray,
+            const HitResult& hit,
+            Random* /*random*/
+        ) override
+        {
+            const auto reflected = Reflect
+            (
+                ray.dir,
+                hit.normal
+            );
+            const auto scattered = UnitRay3f::FromTo
+            (
+                hit.position,
+                reflected
+            );
+            const auto scatter_dot = dot
+            (
+                scattered.dir,
+                hit.normal
+            );
+            if(scatter_dot > 0)
+            {
+                return ScatterResult
+                {
+                    albedo,
+                    scattered
+                };
+            }
+            else
+            {
+                return std::nullopt;
+            }
+        }
+    };
+
 
     std::shared_ptr<Material>
     CreateDiffuseMaterial
@@ -176,6 +227,16 @@ namespace euphoria::core::raytracer
     )
     {
         return std::make_shared<DiffuseMaterial>(albedo);
+    }
+
+
+    std::shared_ptr<Material>
+    CreateMetalMaterial
+    (
+        const Rgb& albedo
+    )
+    {
+        return std::make_shared<MetalMaterial>(albedo);
     }
 
 

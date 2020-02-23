@@ -53,6 +53,30 @@ main(int argc, char* argv[])
             )
         )
     );
+    scene.objects.push_back
+    (
+        raytracer::CreateSphere
+        (
+            Sphere{0.5f},
+            vec3f(1.0f, 0.0f, -1.0f),
+            raytracer::CreateMetalMaterial
+            (
+                Rgb(0.8f, 0.6f, 0.2f)
+            )
+        )
+    );
+    scene.objects.push_back
+    (
+        raytracer::CreateSphere
+        (
+            Sphere{0.5f},
+            vec3f(-1.0f, 0.0f, -1.0f),
+            raytracer::CreateMetalMaterial
+            (
+                Rgb(0.8f, 0.8f, 0.8f)
+            )
+        )
+    );
 
     raytracer::Raytrace(&image, scene, number_of_samples);
     io::ChunkToFile(image.Write(ImageWriteFormat::PNG), "raytracer.png");

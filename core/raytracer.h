@@ -84,6 +84,13 @@ namespace euphoria::core
         );
 
 
+        std::shared_ptr<Material>
+        CreateMetalMaterial
+        (
+            const Rgb& albedo
+        );
+
+
         struct Scene
         {
             std::vector<std::shared_ptr<Object>> objects;
