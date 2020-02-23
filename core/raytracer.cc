@@ -249,6 +249,17 @@ namespace euphoria::core::raytracer
     }
 
 
+    float
+    FresnelFactor(float cosine, float ref_idx)
+    {
+        const auto r0 = Square
+        (
+            (1-ref_idx) / (1+ref_idx)
+        );
+        return r0 + (1-r0)*pow((1 - cosine), 5);
+    }
+
+
     struct DielectricMaterial : public Material
     {
         Rgb albedo;
@@ -269,10 +280,11 @@ namespace euphoria::core::raytracer
         (
             const UnitRay3f& ray,
             const HitResult& hit,
-            Random* /*random*/
+            Random* random
         ) override
         {
-            const auto dot_result = dot(ray.dir, hit.normal) > 0.0f;
+            const auto dr = dot(ray.dir, hit.normal);
+            const auto dot_result = dr > 0.0f;
 
             const auto outward_normal = dot_result ? -hit.normal : hit.normal;
             const auto ni = dot_result ? refractive_index : 1.0f/refractive_index;
@@ -281,33 +293,38 @@ namespace euphoria::core::raytracer
 
             if(refracted.has_value())
             {
-                return ScatterResult
+                const auto cosine = dot_result
+                    ? refractive_index * dr
+                    : -dr
+                    ;
+                const auto reflection_probability = FresnelFactor(cosine, refractive_index);
+                if( random->NextFloat01() >= reflection_probability )
                 {
-                    albedo,
-                    UnitRay3f::FromTo
-                    (
-                        hit.position,
-                        refracted.value()
-                    )
-                };
+                    return ScatterResult
+                    {
+                        albedo,
+                        UnitRay3f::FromTo
+                        (
+                            hit.position,
+                            refracted.value()
+                        )
+                    };
+                }
             }
-            else
+            const auto reflected = Reflect
+            (
+                ray.dir,
+                hit.normal
+            );
+            return ScatterResult
             {
-                const auto reflected = Reflect
+                albedo,
+                UnitRay3f::FromTo
                 (
-                    ray.dir,
-                    hit.normal
-                );
-                return ScatterResult
-                {
-                    albedo,
-                    UnitRay3f::FromTo
-                    (
-                        hit.position,
-                        reflected
-                    )
-                };
-            }
+                    hit.position,
+                    reflected
+                )
+            };
         }
     };
 
