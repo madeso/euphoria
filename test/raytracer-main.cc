@@ -38,7 +38,7 @@ main(int argc, char* argv[])
             vec3f(0.0f, 0.0f, -1.0f),
             raytracer::CreateDiffuseMaterial
             (
-                Rgb(0.8f, 0.3f, 0.3f)
+                Rgb(0.1f, 0.2f, 0.5f)
             )
         )
     );
@@ -73,10 +73,10 @@ main(int argc, char* argv[])
         (
             Sphere{0.5f},
             vec3f(-1.0f, 0.0f, -1.0f),
-            raytracer::CreateMetalMaterial
+            raytracer::CreateDielectricMaterial
             (
-                Rgb(0.8f, 0.8f, 0.8f),
-                1.0f
+                Rgb(1.0f, 1.0f, 1.0f),
+                1.5f
             )
         )
     );

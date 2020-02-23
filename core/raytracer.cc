@@ -168,9 +168,11 @@ namespace euphoria::core::raytracer
         }
     };
 
+
     vec3f Reflect(const vec3f& v, const unit3f& n) {
         return v - 2*dot(v,n)*n;
     }
+
 
     struct MetalMaterial : public Material
     {
@@ -226,6 +228,90 @@ namespace euphoria::core::raytracer
     };
 
 
+    std::optional<vec3f>
+    Refract
+    (
+        const unit3f& uv,
+        const unit3f& normal,
+        float ni
+    )
+    {
+        const auto dt = dot(uv, normal);
+        const auto discriminant = 1.0f - ni*ni*(1.0f-dt*dt);
+        if (discriminant > 0)
+        {
+            return ni * (uv - normal * dt) - normal * Sqrt(discriminant);
+        }
+        else
+        {
+            return std::nullopt;
+        }
+    }
+
+
+    struct DielectricMaterial : public Material
+    {
+        Rgb albedo;
+        float refractive_index;
+
+        explicit DielectricMaterial
+        (
+            const Rgb& aalbedo,
+            float arefractive_index
+        )
+            : albedo(aalbedo)
+            , refractive_index(arefractive_index)
+        {
+        }
+
+        std::optional<ScatterResult>
+        Scatter
+        (
+            const UnitRay3f& ray,
+            const HitResult& hit,
+            Random* /*random*/
+        ) override
+        {
+            const auto dot_result = dot(ray.dir, hit.normal) > 0.0f;
+
+            const auto outward_normal = dot_result ? -hit.normal : hit.normal;
+            const auto ni = dot_result ? refractive_index : 1.0f/refractive_index;
+
+            const auto refracted = Refract(ray.dir, outward_normal, ni);
+
+            if(refracted.has_value())
+            {
+                return ScatterResult
+                {
+                    albedo,
+                    UnitRay3f::FromTo
+                    (
+                        hit.position,
+                        refracted.value()
+                    )
+                };
+            }
+            else
+            {
+                const auto reflected = Reflect
+                (
+                    ray.dir,
+                    hit.normal
+                );
+                return ScatterResult
+                {
+                    albedo,
+                    UnitRay3f::FromTo
+                    (
+                        hit.position,
+                        reflected
+                    )
+                };
+            }
+        }
+    };
+
+
     std::shared_ptr<Material>
     CreateDiffuseMaterial
     (
@@ -250,6 +336,21 @@ namespace euphoria::core::raytracer
         (
             albedo,
             fuzz
+        );
+    }
+
+
+    std::shared_ptr<Material>
+    CreateDielectricMaterial
+    (
+        const Rgb& albedo,
+        float refractive_index
+    )
+    {
+        return std::make_shared<DielectricMaterial>
+        (
+            albedo,
+            refractive_index
         );
     }
 

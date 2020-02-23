@@ -93,6 +93,14 @@ namespace euphoria::core
         );
 
 
+        std::shared_ptr<Material>
+        CreateDielectricMaterial
+        (
+            const Rgb& albedo,
+            float refractive_index
+        );
+
+
         struct Scene
         {
             std::vector<std::shared_ptr<Object>> objects;
