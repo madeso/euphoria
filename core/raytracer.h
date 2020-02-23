@@ -8,6 +8,7 @@
 
 #include <memory>
 #include <vector>
+#include <optional>
 
 
 namespace euphoria::core
@@ -20,13 +21,11 @@ namespace euphoria::core
         {
             HitResult
             (
-                bool acollided,
                 float aray_distance,
                 const vec3f& aposition,
                 const unit3f& anormal
             );
 
-            bool collided;
             float ray_distance;
             vec3f position;
             unit3f normal;
@@ -36,7 +35,7 @@ namespace euphoria::core
         {
             virtual ~Object() = default;
 
-            virtual HitResult
+            virtual std::optional<HitResult>
             Hit(const UnitRay3f& ray, const Range<float>& range) const = 0;
         };
 
@@ -47,7 +46,7 @@ namespace euphoria::core
         {
             std::vector<std::shared_ptr<Object>> objects;
 
-            HitResult
+            std::optional<HitResult>
             Hit(const UnitRay3f& ray, const Range<float>& range) const;
         };
 

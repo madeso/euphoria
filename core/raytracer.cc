@@ -15,51 +15,15 @@ namespace euphoria::core::raytracer
 {
     HitResult::HitResult
     (
-        bool acollided,
         float aray_distance,
         const vec3f& aposition,
         const unit3f& anormal
     )
-        : collided(acollided)
-        , ray_distance(aray_distance)
+        : ray_distance(aray_distance)
         , position(aposition)
         , normal(anormal)
     {
     }
-
-
-    HitResult
-    NoCollision
-    (
-    )
-    {
-        return HitResult
-        {
-            false,
-            10000.0f,
-            vec3f::Zero(),
-            unit3f::Up()
-        };
-    }
-
-
-    HitResult
-    Collision
-    (
-        float ray_distance,
-        const vec3f& position,
-        const unit3f& normal
-    )
-    {
-        return HitResult
-        {
-            true,
-            ray_distance,
-            position,
-            normal
-        };
-    }
-
 
 
     struct SphereObject : public Object
@@ -73,7 +37,7 @@ namespace euphoria::core::raytracer
         {
         }
 
-        HitResult
+        std::optional<HitResult>
         Hit(const UnitRay3f& ray, const Range<float>& range) const override
         {
             const auto hit_index = GetIntersection
@@ -86,16 +50,16 @@ namespace euphoria::core::raytracer
             {
                 const auto hit_position = ray.GetPoint(hit_index);
                 const auto hit_normal = vec3f::FromTo(position, hit_position).GetNormalized();
-                return Collision
-                (
+                return HitResult
+                {
                     hit_index,
                     hit_position,
                     hit_normal
-                );
+                };
             }
             else
             {
-                return NoCollision();
+                return std::nullopt;
             }
         }
     };
@@ -112,23 +76,23 @@ namespace euphoria::core::raytracer
     }
 
 
-    HitResult
+    std::optional<HitResult>
     Scene::Hit(const UnitRay3f& ray, const Range<float>& range) const
     {
-        auto r = NoCollision();
+        std::optional<HitResult> r = std::nullopt;
 
         for(const auto o: objects)
         {
             const auto h = o->Hit(ray, range);
-            if(r.collided == false)
+            if(r.has_value() == false)
             {
                 r = h;
             }
             else
             {
-                if(h.collided)
+                if(h.has_value())
                 {
-                    if(h.ray_distance < r.ray_distance)
+                    if(h->ray_distance < r->ray_distance)
                     {
                         r = h;
                     }
@@ -166,10 +130,10 @@ namespace euphoria::core::raytracer
             ray,
             MakeRange(0.001f, std::numeric_limits<float>::max())
         );
-        if(h.collided)
+        if(h.has_value())
         {
-            const auto target = h.position + h.normal + RandomInUnitSphere(random);
-            const auto reflected_ray = UnitRay3f::FromTo(h.position, target);
+            const auto target = h->position + h->normal + RandomInUnitSphere(random);
+            const auto reflected_ray = UnitRay3f::FromTo(h->position, target);
             return 0.5f * GetColor(scene, reflected_ray, random);
             // return rgb(h.normal);
         }
