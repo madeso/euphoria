@@ -267,33 +267,16 @@ namespace euphoria::core
         const vec3f& sphere_center
     )
     {
-        const auto p0 = ray.from;
-        const auto d = ray.dir;
-        const auto c = sphere_center;
-        const auto r = sphere.radius;
-        const auto r2 = Square(r);
-
-        const auto e = c - p0;
-        const auto el2 = e.GetLengthSquared();
-        const auto a = dot(e, d);
-        const auto a2 = Square(a);
-        const auto b2 = el2 - a2;
-        const auto f2 = r2 - b2;
-
-        if (f2 < 0.0f)
-        {
-            return -1;
+        const vec3f oc = ray.from - sphere_center;
+        const auto a = dot(ray.dir, ray.dir);
+        const auto b = 2.0f * dot(oc, ray.dir);
+        const auto c = dot(oc, oc) - sphere.radius*sphere.radius;
+        const auto discriminant = b*b - 4*a*c;
+        if (discriminant < 0) {
+            return -1.0f;
         }
-
-        const auto f = Sqrt(f2);
-
-        if (el2 < r2)
-        {
-            return a + f;
-        }
-        else
-        {
-            return a - f;
+        else {
+            return (-b - Sqrt(discriminant) ) / (2.0f*a);
         }
     }
 
