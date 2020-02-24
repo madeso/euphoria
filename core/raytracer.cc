@@ -8,6 +8,7 @@
 #include "core/polarcoord.h"
 #include "core/numeric.h"
 #include "core/cli_progress_bar.h"
+#include "core/angle.h"
 
 #include <limits>
 
@@ -429,10 +430,29 @@ namespace euphoria::core::raytracer
 
     struct Camera
     {
-        vec3f lower_left_corner = vec3f{-2.0f, -1.0f, -1.0f};
-        vec3f horizontal = vec3f{4.0f, 0.0f, 0.0f};
-        vec3f vertical = vec3f{0.0f, 2.0f, 0.0f};
-        vec3f origin = vec3f{0.0f, 0.0f, 0.0f};
+        static Camera Create(const Angle& vfov, float aspect)
+        {
+            const auto half_height = Tan(vfov/2.0f);
+            const auto half_width = aspect * half_height;
+
+            const auto lower_left_corner = vec3f{-half_width, -half_height, -1.0};
+            const auto horizontal = vec3f{2*half_width, 0.0f, 0.0f};
+            const auto vertical = vec3f{0.0f, 2*half_height, 0.0f};
+            const auto origin = vec3f{0.0f, 0.0f, 0.0f};
+            
+            return Camera
+            {
+                lower_left_corner,
+                horizontal,
+                vertical,
+                origin
+            };
+        }
+
+        vec3f lower_left_corner;
+        vec3f horizontal;
+        vec3f vertical;
+        vec3f origin;
 
         UnitRay3f GetRay(float u, float v) const
         {
@@ -453,7 +473,8 @@ namespace euphoria::core::raytracer
         Image& img = *aimage;
 
         auto random = Random{};
-        const auto camera = Camera{};
+        const auto aspect_ratio = img.GetWidth() / static_cast<float>(img.GetHeight());
+        const auto camera = Camera::Create(Angle::FromDegrees(90), aspect_ratio);
 
         {
         std::cout << "Rendering ";
