@@ -102,7 +102,7 @@ def run(args) -> str:
 
 
 def on_cmd_test(args):
-    tests = os.path.join(get_build_folder(), 'unit-tests', 'Release', 'tests.exe')
+    tests = os.path.join(get_build_folder(), 'tests', 'Release', 'tests.exe')
     lines = run([tests, '-r', 'junit']).decode('utf-8')
     print('Test result:')
     # hacky way to remove all log output from the junit output
