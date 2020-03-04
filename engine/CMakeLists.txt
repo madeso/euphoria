@@ -1,9 +1,20 @@
-file(GLOB app_src_glob *.cpp;*.cc;*.h;*.inl)
+set(app_src
+    cameradata.cc cameradata.h
+    components.cc components.h
+    dukintegration.cc dukintegration.h
+    dukmathbindings.cc dukmathbindings.h
+    dukprint.cc dukprint.h
+    dukregistry.cc dukregistry.h
+    input.cc input.h
+    loadworld.cc loadworld.h
+    main.cc
+    objectemplate.cc objectemplate.h
+    systems.cc systems.h
+)
+source_group("" FILES ${app_src})
 
 include_directories(SYSTEM ${SDL2_INCLUDE_DIR})
 
-set(app_src ${app_src_glob})
-source_group("" FILES ${app_src})
 
 set(all_src ${app_src} ${src_glew})
 

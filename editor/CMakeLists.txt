@@ -1,4 +1,10 @@
-file(GLOB app_src *.cc;*.h;*.inl)
+set(app_src
+    browser.cc
+    browser.h
+    main.cc
+    scimed.cc
+    scimed.h
+)
 set(src ${app_src})
 source_group("" FILES ${app_src})
 

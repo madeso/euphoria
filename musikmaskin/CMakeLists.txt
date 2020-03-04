@@ -1,4 +1,4 @@
-file(GLOB app_src *.cc;*.h;*.inl)
+set(app_src main.cc)
 set(src ${app_src})
 source_group("" FILES ${app_src})
 

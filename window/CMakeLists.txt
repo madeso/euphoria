@@ -1,5 +1,21 @@
-file(GLOB app_src *.cc;*.h;*.inl)
-file(GLOB app_only_src *.cc)
+set(app_src
+    NotoSansDisplay-Regular.ttf
+    material_design_icons.ttf
+    canvas.cc canvas.h
+    engine.cc engine.h
+    fakesdlevent.h
+    filesystem.cc filesystem.h
+    imgui_ext.cc imgui_ext.h
+    imgui_extra.cc imgui_extra.h
+    imgui_icons.h
+    imguilibrary.cc imguilibrary.h
+    key.cc key.h
+    sdlglcontext.cc sdlglcontext.h
+    sdllibrary.cc sdllibrary.h
+    sdlwindow.cc sdlwindow.h
+    timer.cc timer.h
+    timgui.h
+)
 set(src ${app_src})
 source_group("" FILES ${app_src})
 
@@ -31,9 +47,12 @@ set(src_imgui
     ${IMGUI_DIR}/examples/imgui_impl_sdl.h
     ${IMGUI_DIR}/examples/imgui_impl_opengl3.cpp
     ${IMGUI_DIR}/examples/imgui_impl_opengl3.h
+    # also include fake imgui for completness
+    fake_imgui/imgui.h
     )
 set(src ${src} ${src_imgui})
 source_group("imgui" FILES ${src_imgui})
+source_group("imgui/fake_imgui" FILES fake_imgui/imgui.h)
 
 # fonts
 add_custom_command(
