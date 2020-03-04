@@ -140,76 +140,76 @@ add_subdirectory(editor)
 add_subdirectory(painter)
 add_subdirectory(musikmaskin)
 
-# here comes all the test files
+# here comes all the sample files
 
-file(GLOB all_test_src test/*.cc)
-source_group("" FILES ${all_test_src})
+file(GLOB all_samples_src samples/*.cc)
+source_group("" FILES ${all_samples_src})
 
 # single file applications that could be useful
 
-add_executable(tabletool test/tabletool.cc)
+add_executable(tabletool samples/tabletool.cc)
 target_link_libraries(tabletool core)
 
-add_executable(base64 test/base64.cc)
+add_executable(base64 samples/base64.cc)
 target_link_libraries(base64 core)
 
-add_executable(markov test/markov.cc)
+add_executable(markov samples/markov.cc)
 target_link_libraries(markov core)
 
-add_executable(tracery test/tracery.cc)
+add_executable(tracery samples/tracery.cc)
 target_link_libraries(tracery core)
 
-add_executable(raytracer test/raytracer-main.cc)
+add_executable(raytracer samples/raytracer-main.cc)
 target_link_libraries(raytracer core)
 
 
 
-# test applications that serve no purpose other than
+# samples applications that serve no purpose other than
 # testing the libraries and perhaps generate some pretty visuals :)
 
-add_executable(test-3d WIN32 MACOSX_BUNDLE test/3d.cc)
-target_include_directories(test-3d SYSTEM PRIVATE ${SDL2_INCLUDE_DIR})
-target_link_libraries(test-3d core render window ${SDL2_LIBRARY})
+add_executable(samples-3d WIN32 MACOSX_BUNDLE samples/3d.cc)
+target_include_directories(samples-3d SYSTEM PRIVATE ${SDL2_INCLUDE_DIR})
+target_link_libraries(samples-3d core render window ${SDL2_LIBRARY})
 
-add_executable(test-font test/font-main.cc)
-target_link_libraries(test-font core)
+add_executable(samples-font samples/font-main.cc)
+target_link_libraries(samples-font core)
 
-add_executable(test-palette test/palette-main.cc)
-target_link_libraries(test-palette core)
+add_executable(samples-palette samples/palette-main.cc)
+target_link_libraries(samples-palette core)
 
-add_executable(test-chatbot test/chatbot.cc)
-target_link_libraries(test-chatbot core)
+add_executable(samples-chatbot samples/chatbot.cc)
+target_link_libraries(samples-chatbot core)
 
-add_executable(test-coldet test/coldet.cc)
-target_link_libraries(test-coldet core)
+add_executable(samples-coldet samples/coldet.cc)
+target_link_libraries(samples-coldet core)
 
-add_executable(test-draw-test test/draw-test.cc)
-target_link_libraries(test-draw-test core)
+add_executable(samples-draw-test samples/draw-test.cc)
+target_link_libraries(samples-draw-test core)
 
-add_executable(test-img test/img.cc)
-target_link_libraries(test-img core)
+add_executable(samples-img samples/img.cc)
+target_link_libraries(samples-img core)
 
-add_executable(test-poisson-test test/poisson-test.cc)
-target_link_libraries(test-poisson-test core)
+add_executable(samples-poisson-test samples/poisson-test.cc)
+target_link_libraries(samples-poisson-test core)
 
-add_executable(test-svg-dump test/svg-dump.cc)
-target_link_libraries(test-svg-dump core)
+add_executable(samples-svg-dump samples/svg-dump.cc)
+target_link_libraries(samples-svg-dump core)
 
-add_executable(test-three-dump test/three-dump.cc)
-target_link_libraries(test-three-dump core)
+add_executable(samples-three-dump samples/three-dump.cc)
+target_link_libraries(samples-three-dump core)
 
-add_executable(test-identicon test/identicon-main.cc)
-target_link_libraries(test-identicon core)
+add_executable(samples-identicon samples/identicon-main.cc)
+target_link_libraries(samples-identicon core)
 
-add_executable(test-canvas test/canvas-main.cc)
-target_link_libraries(test-canvas core)
+add_executable(samples-canvas samples/canvas-main.cc)
+target_link_libraries(samples-canvas core)
 
-add_executable(test-tree test/tree.cc)
-target_link_libraries(test-tree core)
+add_executable(samples-tree samples/tree.cc)
+target_link_libraries(samples-tree core)
 
-add_executable(test-worldgen test/worldgen.cc)
-target_link_libraries(test-worldgen core)
+add_executable(samples-worldgen samples/worldgen.cc)
+target_link_libraries(samples-worldgen core)
 
-add_executable(test-voronoi test/voronoi.cc)
-target_link_libraries(test-voronoi core)
+add_executable(samples-voronoi samples/voronoi.cc)
+target_link_libraries(samples-voronoi core)
 
