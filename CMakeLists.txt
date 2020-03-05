@@ -7,7 +7,6 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-option(BUILD_MIDI_SUPPORT "include midi support" OFF)
 option(BUILD_ENTITY_DEBUG_COMPONENT "when converting components, (debug) assert of bad casts" OFF)
 set(BUILD_TYPEINFO_IMPL "rtti" CACHE STRING "rtti, ctti, custom_hashed, custom_rt")
 
@@ -35,16 +34,6 @@ endif()
 set(Gaf_CUSTOM_ARGUMENTS_FROM_FILE ${CMAKE_CURRENT_SOURCE_DIR}/gaf_options.txt)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake-modules")
-
-if(${BUILD_MIDI_SUPPORT})
-    # todo(Gustav): do not use add_subdirectory since it will import lots of settings and buildstps
-    # import sources directly and add the midi libraries manually instead since rtmidi supports it
-    add_subdirectory(external/rtmidi)
-    set(BUILD_STATIC_LIBS ON)
-    set(RTMIDI_BUILD_STATIC_LIBS "")
-    set(RTMIDI_BUILD_SHARED_LIBS "")
-    include_directories(SYSTEM external/rtmidi)
-endif(${BUILD_MIDI_SUPPORT})
 
 find_package(OpenGL REQUIRED)
 find_package(assimp REQUIRED)

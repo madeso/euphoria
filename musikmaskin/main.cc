@@ -62,9 +62,7 @@
 
 #include "euph_generated_config.h"
 
-#if BUILD_MIDI_SUPPORT == 1
 #include "RtMidi.h"
-#endif
 
 using namespace euphoria::core;
 using namespace euphoria::window;
@@ -213,7 +211,6 @@ struct MidiInputNode : public euphoria::minsynth::MidiInNode
 {
     ToneTaker* tones = nullptr;
 
-#if BUILD_MIDI_SUPPORT == 1
     std::unique_ptr<RtMidiIn> midi;
 
     static void
@@ -229,12 +226,10 @@ struct MidiInputNode : public euphoria::minsynth::MidiInNode
             // self->DebugCallback(deltatime, *message);
         }
     }
-#endif
 
     void
     Setup()
     {
-#if BUILD_MIDI_SUPPORT == 1
         try
         {
             midi.reset(new RtMidiIn());
@@ -258,9 +253,6 @@ struct MidiInputNode : public euphoria::minsynth::MidiInNode
         {
             error.printMessage();
         }
-#else
-        LOG_INFO("midi setup ignored...");
-#endif
     }
 };
 
