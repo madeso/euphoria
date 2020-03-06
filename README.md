@@ -8,13 +8,22 @@ The following table lists how the sources are structured
  
 | Folder          | Description|
 | ---             | --- |
-| `scimed`        | Scalable Image Editor, editor for editing scalable images |
+| `editor`        | the editor for creating games, can be seen as the "unity editor" for euphoria |
+| `t3d`           | the world editor for games, can be seens as "hammer" for euphoria |
+| `painter`       | a minimal image drawer, can be seen as "photoshop light" |
+| `engine`        | the engine that runs the games, can be seen as "love2d" for euphoria |
+| `musikmaskin`   | a minimal music creator (daw) |
+| `samples`       | sample applications that test the libraries |
+| `file_types`    | file definitions(gaf), for sharing between projects |
 | `core`          | contains functionality that doesnt depend on other libraries |
-| `render`        | the library that uses opengl for rendering |
-| `gui`           | a 2d system for rendering gui |
-| `proto`         | protobuf files, for sharing between projects |
-| `demo`          | a 3d demo project |
-| `tests`         | unit tests |
+| `minsynth`      | minimal software synt |
+| `window`        | sdl wrapper |
+| `render`        | a library for rendering 2d and 3d content in real-time |
+| `gui`           | a system for rendering gui with the rendering library|
+| `duk`           | a ducktape wrapper so scriping in the engine can be done |
+| `tests`         | unit tests (for core) |
+| `dist`          | various files that both the samples and the engine uses, intended for "distribution" hence the name |
+| `scripts`       | scripts for automated building |
 | `external`      | external libraries |
 | `cmake_modules` | find scripts for CMake |
 
