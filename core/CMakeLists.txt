@@ -1,7 +1,6 @@
 set(app_src_color
     colorbrewer.cc colorbrewer.h
     colors.cc colors.h
-    identicon.cc identicon.h
     image.cc image.h
     image_canvas.cc image_canvas.h
     image_draw.cc image_draw.h
@@ -60,6 +59,12 @@ set(app_src_pcg
 )
 
 
+set(app_src_hash
+    hash_fnv1a.cc hash_fnv1a.h
+    identicon.cc identicon.h
+)
+
+
 set(app_src
     argparse.cc argparse.h
     assert.cc assert.h
@@ -87,7 +92,6 @@ set(app_src
     fonts.cc fonts.h
     fpscontroller.cc fpscontroller.h
     functional.h
-    hash_fnv1a.cc hash_fnv1a.h
     history.h
     id.cc id.h
     insertionsort.h
@@ -144,6 +148,7 @@ source_group("color" FILES ${app_src_color})
 source_group("math" FILES ${app_src_math})
 source_group("cli" FILES ${app_src_cli})
 source_group("pcg" FILES ${app_src_pcg})
+source_group("hash" FILES ${app_src_hash})
 
 set(src
     ${app_src}
@@ -151,6 +156,7 @@ set(src
     ${app_src_math}
     ${app_src_cli}
     ${app_src_pcg}
+    ${app_src_hash}
 )
 
 
