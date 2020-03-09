@@ -61,6 +61,7 @@ set(app_src_pcg
 
 set(app_src_hash
     hash_fnv1a.cc hash_fnv1a.h
+    hashgen_retro.cc hashgen_retro.h
     identicon.cc identicon.h
 )
 
@@ -116,6 +117,7 @@ set(app_src
     quicksort.h
     radix.h
     random.cc random.h
+    rng.cc rng.h
     range.cc range.h
     raytracer.cc raytracer.h
     sensitivity.cc sensitivity.h

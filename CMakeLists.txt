@@ -160,6 +160,9 @@ add_executable(samples-3d WIN32 MACOSX_BUNDLE samples/3d.cc)
 target_include_directories(samples-3d SYSTEM PRIVATE ${SDL2_INCLUDE_DIR})
 target_link_libraries(samples-3d core render window ${SDL2_LIBRARY})
 
+add_executable(samples-rng samples/rng-main.cc)
+target_link_libraries(samples-rng core)
+
 add_executable(samples-font samples/font-main.cc)
 target_link_libraries(samples-font core)
 
