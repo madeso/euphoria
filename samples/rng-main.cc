@@ -25,10 +25,12 @@ PrintRandomNumbers
 
     auto rng = TGenerator{random->NextInteger()};
     auto container = std::vector<float>{};
+    float sum = 0.0f;
     for(int i=0; i<count; i+=1)
     {
         const auto r = rng.Next();
         container.emplace_back(r);
+        sum += r;
         if( i < small_count )
         {
             std::cout << r << " ";
@@ -38,7 +40,7 @@ PrintRandomNumbers
 
     const auto min = *std::min_element(container.begin(), container.end());
     const auto max = *std::max_element(container.begin(), container.end());
-    std::cout << "min/max: " << min << " " << max << "\n";
+    std::cout << "min/max/avg: " << min << " " << max << " " << (sum/count) << "\n";
     std::cout << "\n";
 }
 
@@ -66,6 +68,9 @@ struct Main
     main()
     {
         Print<wyhash64>("wyhash64");
+        Print<KnuthLcg>("knuth_lcg");
+        Print<xorshift32>("xorshift32");
+        Print<xorshift64>("xorshift64");
     }
 };
 
