@@ -12,13 +12,20 @@ namespace euphoria::core
         void
         CellularAutomata::Setup()
         {
-            world->SetAll([this](int x, int y) {
-                if(border_control != BorderControl::RandomWall
-                   && border_control != BorderControl::RandomEmpty)
+            world->SetAll([this](int x, int y)
+            {
+                if
+                (
+                    border_control != BorderControl::RandomWall &&
+                    border_control != BorderControl::RandomEmpty
+                )
                 {
-                    const auto is_border = x == 0 || y == 0
-                                           || x == world->GetWidth() - 1
-                                           || y == world->GetHeight() - 1;
+                    const auto is_border =
+                        x == 0 ||
+                        y == 0 ||
+                        x == world->GetWidth() - 1 ||
+                        y == world->GetHeight() - 1;
+
                     if(is_border)
                     {
                         return border_control == BorderControl::AlwaysWall;
@@ -28,6 +35,7 @@ namespace euphoria::core
             });
         }
 
+
         bool
         CellularAutomata::HasMoreWork() const
         {
@@ -35,12 +43,14 @@ namespace euphoria::core
         }
 
         int
-        CountWalls(
-                const World& world,
-                bool         outside_is_wall,
-                int          cx,
-                int          cy,
-                int          step = 1)
+        CountWalls
+        (
+            const World& world,
+            bool outside_is_wall,
+            int cx,
+            int cy,
+            int step = 1
+        )
         {
             int walls = 0;
             for(int y = cy - step; y <= cy + step; y += 1)
@@ -58,8 +68,10 @@ namespace euphoria::core
                     }
                     else
                     {
-                        if(world(x, y))
+                        if (world(x, y))
+                        {
                             walls += 1;
+                        }
                     }
                 }
             }
@@ -70,7 +82,9 @@ namespace euphoria::core
         SmoothMap(World* world, bool outside_is_wall)
         {
             const World current = *world;
-            world->SetAll([&current, outside_is_wall](int x, int y) {
+
+            world->SetAll([&current, outside_is_wall](int x, int y)
+            {
                 const auto walls = CountWalls(current, outside_is_wall, x, y);
                 if(walls > 4)
                 {
@@ -87,15 +101,22 @@ namespace euphoria::core
         void
         CellularAutomata::Work()
         {
-            SmoothMap(
-                    world,
-                    border_control == BorderControl::AlwaysWall
-                            || border_control == BorderControl::RandomWall);
+            const auto outside_is_wall =
+                border_control == BorderControl::AlwaysWall ||
+                border_control == BorderControl::RandomWall ;
+            SmoothMap
+            (
+                world,
+                outside_is_wall
+            );
+
             iteration += 1;
         }
 
         CellularAutomataDrawer::CellularAutomataDrawer()
-            : wall_color(Color::Black), space_color(Color::White)
+            : world(nullptr)
+            , wall_color(Color::Black)
+            , space_color(Color::White)
         {}
 
         void
@@ -112,13 +133,12 @@ namespace euphoria::core
                 {
                     const auto px = x * scale;
                     const auto py = y * scale;
-                    const auto color
-                            = (*world)(x, y) ? wall_color : space_color;
+                    const auto color = (*world)(x, y) ? wall_color : space_color;
                     DrawSquare(&image, color, px, py + scale - 1, scale);
                 }
             }
         }
-    }  // namespace generator
+    }
 
     BEGIN_ENUM_LIST(generator::BorderControl)
     ENUM_VALUE(generator::BorderControl, AlwaysWall)

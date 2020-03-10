@@ -41,11 +41,14 @@ namespace euphoria::core::generator
 
         void
         Setup();
+
         bool
         HasMoreWork() const;
+
         void
         Work();
     };
+
 
     struct CellularAutomataDrawer
     {
@@ -63,7 +66,7 @@ namespace euphoria::core::generator
         void
         Draw();
     };
-}  // namespace euphoria::core::generator
+}
 
 DECLARE_ENUM_LIST(euphoria::core::generator::BorderControl)
 
