@@ -43,20 +43,37 @@ PrintRandomNumbers
 }
 
 
+struct Main
+{
+    int count = 100;
+    int small_count = 10;
+    Random random = Random{};
+
+    template<typename TGenerator>
+    void
+    Print(const std::string& name)
+    {
+        PrintRandomNumbers<TGenerator>
+        (
+            name,
+            &random,
+            count,
+            small_count
+        );
+    }
+
+    void
+    main()
+    {
+        Print<wyhash64>("wyhash64");
+    }
+};
+
 int
 main()
 {
-    constexpr auto count = 100;
-    constexpr auto small_count = 10;
-    auto random = Random{};
-
-    PrintRandomNumbers<wyhash64>
-    (
-        "wyhash64",
-        &random,
-        count,
-        small_count
-    );
+    auto m = Main{};
+    m.main();
     return 0;
 }
 
