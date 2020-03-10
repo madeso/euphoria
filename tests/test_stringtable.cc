@@ -1,4 +1,4 @@
-#include "core/stringtable.h"
+#include "core/table_string.h"
 
 #include "catch.hpp"
 

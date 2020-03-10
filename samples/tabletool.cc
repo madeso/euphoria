@@ -1,7 +1,7 @@
 #include <fstream>
 #include <sstream>
 
-#include "core/stringtable.h"
+#include "core/table_string.h"
 #include "core/argparse.h"
 
 using namespace euphoria::core;

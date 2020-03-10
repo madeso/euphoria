@@ -66,6 +66,12 @@ set(app_src_hash
 )
 
 
+set(app_src_table
+    table_string.cc table_string.h
+    table.h
+)
+
+
 set(app_src
     argparse.cc argparse.h
     assert.cc assert.h
@@ -126,9 +132,7 @@ set(app_src
     stdutils.h
     str.cc str.h
     stringmerger.cc stringmerger.h
-    stringtable.cc stringtable.h
     stringutils.cc stringutils.h
-    table.h
     tablelayout.h
     textfileparser.cc textfileparser.h
     texttemplate.cc texttemplate.h
@@ -151,6 +155,7 @@ source_group("math" FILES ${app_src_math})
 source_group("cli" FILES ${app_src_cli})
 source_group("pcg" FILES ${app_src_pcg})
 source_group("hash" FILES ${app_src_hash})
+source_group("table" FILES ${app_src_table})
 
 set(src
     ${app_src}
@@ -159,6 +164,7 @@ set(src
     ${app_src_cli}
     ${app_src_pcg}
     ${app_src_hash}
+    ${app_src_table}
 )
 
 
