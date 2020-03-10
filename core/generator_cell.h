@@ -49,23 +49,14 @@ namespace euphoria::core::generator
         Work();
     };
 
-
-    struct CellularAutomataDrawer
-    {
-        CellularAutomataDrawer();
-
-        World* world;
-
-        Image image;
-
-        int scale = 1;
-
-        Rgbi wall_color;
-        Rgbi space_color;
-
-        void
-        Draw();
-    };
+    Image
+    Draw
+    (
+        const World& world,
+        Rgbi wall_color,
+        Rgbi space_color,
+        int scale = 1
+    );
 }
 
 DECLARE_ENUM_LIST(euphoria::core::generator::BorderControl)

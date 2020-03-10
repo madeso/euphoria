@@ -113,30 +113,33 @@ namespace euphoria::core
             iteration += 1;
         }
 
-        CellularAutomataDrawer::CellularAutomataDrawer()
-            : world(nullptr)
-            , wall_color(Color::Black)
-            , space_color(Color::White)
-        {}
-
-        void
-        CellularAutomataDrawer::Draw()
+        Image
+        Draw
+        (
+            const World& world,
+            Rgbi wall_color,
+            Rgbi space_color,
+            int scale
+        )
         {
+            Image image;
             image.SetupNoAlphaSupport(
-                    world->GetWidth() * scale, world->GetHeight() * scale);
+                    world.GetWidth() * scale, world.GetHeight() * scale);
 
             Clear(&image, space_color);
 
-            for(int x = 0; x < world->GetWidth(); x += 1)
+            for(int x = 0; x < world.GetWidth(); x += 1)
             {
-                for(int y = 0; y < world->GetHeight(); y += 1)
+                for(int y = 0; y < world.GetHeight(); y += 1)
                 {
                     const auto px = x * scale;
                     const auto py = y * scale;
-                    const auto color = (*world)(x, y) ? wall_color : space_color;
+                    const auto color = world(x, y) ? wall_color : space_color;
                     DrawSquare(&image, color, px, py + scale - 1, scale);
                 }
             }
+
+            return image;
         }
     }
 

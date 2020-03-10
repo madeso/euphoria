@@ -105,7 +105,7 @@ maze(MazeAlgorithm      algo,
         gen.reset(g.release());
     }
     break;
-    default: ASSERT(false && "Unhandled");
+    default: DIE("Unhandled");
     }
 
     gen->Setup();
@@ -178,23 +178,19 @@ cell(bool                     debug,
     cell.border_control = bc;
     cell.random_fill    = fill;
 
-    auto drawer  = generator::CellularAutomataDrawer {};
-    drawer.world = &world;
-    drawer.scale = world_scale;
+    auto drawer = [&](const generator::World& world)
+    {
+        return generator::Draw(world, Color::Black, Color::White, world_scale);
+    };
     world.Clear(false);
 
     if(!output.single)
     {
-        drawer.Draw();
-        io::ChunkToFile(
-                drawer.image.Write(ImageWriteFormat::PNG), output.NextFile());
+        auto img = drawer(world);
+        io::ChunkToFile(img.Write(ImageWriteFormat::PNG), output.NextFile());
     }
 
     auto world_copy = world;
-    if(!output.single)
-    {
-        drawer.world = &world_copy;
-    }
     auto shuffle_random = Random {};
     auto draw_multi     = [&]() {
         if(!output.single)
@@ -210,18 +206,23 @@ cell(bool                     debug,
                 world_copy(d.x, d.y) = d.new_value;
                 if((dindex % m) == 0)
                 {
-                    drawer.Draw();
-                    io::ChunkToFile(
-                            drawer.image.Write(ImageWriteFormat::PNG),
-                            output.NextFile());
+                    const auto img = drawer(world_copy);
+                    io::ChunkToFile
+                    (
+                        img.Write(ImageWriteFormat::PNG),
+                        output.NextFile()
+                    );
                 }
                 dindex += 1;
             }
             for(int i = 0; i < 5; i += 1)
             {
-                io::ChunkToFile(
-                        drawer.image.Write(ImageWriteFormat::PNG),
-                        output.NextFile());
+                const auto img = drawer(world_copy);
+                io::ChunkToFile
+                (
+                    img.Write(ImageWriteFormat::PNG),
+                    output.NextFile()
+                );
             }
         }
     };
@@ -238,10 +239,10 @@ cell(bool                     debug,
         draw_multi();
     }
 
-    drawer.Draw();
     if(output.single)
     {
-        io::ChunkToFile(drawer.image.Write(ImageWriteFormat::PNG), output.file);
+        auto img = drawer(world);
+        io::ChunkToFile(img.Write(ImageWriteFormat::PNG), output.file);
     }
     else
     {
