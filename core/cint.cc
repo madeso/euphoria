@@ -9,6 +9,7 @@ namespace euphoria::core
         return static_cast<int>(t);
     }
 
+
     int
     Cunsigned_int_to_int(unsigned int i)
     {
@@ -16,10 +17,21 @@ namespace euphoria::core
         return static_cast<int>(i);
     }
 
+
     unsigned int
     Cint_to_unsigned_int(int i)
     {
         ASSERTX(i >= 0, i);
         return static_cast<unsigned int>(i);
     }
+
+
+    u32
+    Cbit_signed_to_unsigned(s32 i)
+    {
+        union { s32 s; u32 u; } c;
+        c.s = i;
+        return c.u;
+    }
 }  // namespace euphoria::core
+

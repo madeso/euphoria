@@ -8,6 +8,7 @@
 #include "core/rng.h"
 #include "core/numeric.h"
 #include "core/image_draw.h"
+#include "core/cint.h"
 
 
 namespace
@@ -80,7 +81,7 @@ namespace euphoria::core
     void
     RenderRetro(Image* image, int code)
     {
-        RenderRetroImpl<xorshift32>(image, static_cast<uint32_t>(code));
+        RenderRetroImpl<xorshift32>(image, Cbit_signed_to_unsigned(code));
     }
 }
 

@@ -2,6 +2,7 @@
 #define EUPHORIA_CINT_H
 
 #include "core/assert.h"
+#include "core/ints.h"
 
 #include <numeric>
 
@@ -15,6 +16,9 @@ namespace euphoria::core
 
     unsigned int
     Cint_to_unsigned_int(int i);
+
+    u32
+    Cbit_signed_to_unsigned(s32 i);
 }  // namespace euphoria::core
 
 #endif  // EUPHORIA_CINT_H
