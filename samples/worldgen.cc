@@ -26,6 +26,7 @@ struct Difference
     bool new_value;
 };
 
+
 std::vector<Difference>
 FindDifferences(const Table<bool>& src, const Table<bool>& dst)
 {
@@ -44,6 +45,7 @@ FindDifferences(const Table<bool>& src, const Table<bool>& dst)
     }
     return ret;
 }
+
 
 void
 PrintMazeToConsole(const generator::Drawer& drawer)
@@ -72,13 +74,16 @@ enum class MazeAlgorithm
 
 
 void
-maze(MazeAlgorithm      algo,
-     int                world_width,
-     int                world_height,
-     int                cell_size,
-     int                wall_size,
-     const std::string& f,
-     bool               console)
+HandleMazeCommand
+(
+    MazeAlgorithm algo,
+    int world_width,
+    int world_height,
+    int cell_size,
+    int wall_size,
+    const std::string& f,
+    bool console
+)
 {
     auto output = argparse::FileOutput {f};
     auto random = Random {};
@@ -143,23 +148,28 @@ maze(MazeAlgorithm      algo,
     {
         if(output.single)
         {
-            io::ChunkToFile(
-                    drawer.image.Write(ImageWriteFormat::PNG), output.file);
+            io::ChunkToFile
+            (
+                drawer.image.Write(ImageWriteFormat::PNG),
+                output.file
+            );
         }
         else
         {
             for(int i = 0; i < 5; i += 1)
             {
-                io::ChunkToFile(
-                        drawer.image.Write(ImageWriteFormat::PNG),
-                        output.NextFile());
+                io::ChunkToFile
+                (
+                    drawer.image.Write(ImageWriteFormat::PNG),
+                    output.NextFile()
+                );
             }
         }
     }
 }
 
 void
-cell
+HandleCellCommand
 (
     bool debug,
     float fill,
@@ -199,7 +209,8 @@ cell
 
     auto world_copy = world;
     auto shuffle_random = Random {};
-    auto draw_multi     = [&]() {
+    auto draw_multi = [&]()
+    {
         if(!output.single)
         {
             auto diffs = FindDifferences(world, world_copy);
@@ -238,7 +249,6 @@ cell
 
     draw_multi();
 
-
     while(!debug && cell.HasMoreWork())
     {
         // std::cout << "Work #######\n";
@@ -257,31 +267,34 @@ cell
     }
 }
 
+
 int
 main(int argc, char* argv[])
 {
     auto parser = argparse::Parser {"Generate worlds"};
 
-    int         world_width  = 10;
-    int         world_height = 10;
-    std::string output       = "maze.png";
+    int world_width  = 10;
+    int world_height = 10;
+    std::string output  = "maze.png";
 
-    int                      world_scale = 1;
+    int world_scale = 1;
     BorderSetupRule border_control = BorderSetupRule::AlwaysWall;
     float random_fill = 0.5;
-    bool  debug       = false;
+    bool debug = false;
 
-    int  cell_size = 1;
-    int  wall_size = 1;
-    bool console   = false;
+    int cell_size = 1;
+    int wall_size = 1;
+    bool console = false;
 
-    auto add_common = [&](argparse::Parser& parser) {
+    auto add_common = [&](argparse::Parser& parser)
+    {
         parser.AddSimple("--width", &world_width).Help("set the height");
         parser.AddSimple("--height", &world_height).Help("set the width");
         parser.AddSimple("-o, --output", &output).Help("specify output");
     };
 
-    auto add_maze = [&](argparse::Parser& parser) {
+    auto add_maze = [&](argparse::Parser& parser)
+    {
         parser.AddSimple("--cell", &cell_size).Help("set the cell size");
         parser.AddSimple("--wall", &wall_size).Help("set the wall size");
         parser.SetTrue("-c,--console", &console).Help("foce console");
@@ -290,46 +303,61 @@ main(int argc, char* argv[])
     auto add_cell = [&](argparse::Parser& parser) {
         parser.AddSimple("--scale", &world_scale).Help("set the scale");
         parser.AddSimple("--fill", &random_fill).Help("How much to fill");
-        parser.AddEnum("-bc, --border_control", &border_control)
-                .Help("Change how the border is generated");
+        parser.AddEnum("-bc, --border_control", &border_control).Help("Change how the border is generated");
         parser.SetTrue("--debug", &debug);
     };
 
-    auto maze_command = [&](MazeAlgorithm algo) {
-        maze(algo,
-             world_width,
-             world_height,
-             cell_size,
-             wall_size,
-             output,
-             console);
+    auto maze_command = [&](MazeAlgorithm algo)
+    {
+        HandleMazeCommand
+        (
+            algo,
+            world_width,
+            world_height,
+            cell_size,
+            wall_size,
+            output,
+            console
+        );
     };
 
-    auto precursive = parser.AddSubParser(
-            "recursive",
-            "maze generation using recursive backtracker algorithm",
-            [&] { maze_command(MazeAlgorithm::RecursiveBacktracker); });
+    auto precursive = parser.AddSubParser
+    (
+        "recursive",
+        "maze generation using recursive backtracker algorithm",
+        [&]{ maze_command(MazeAlgorithm::RecursiveBacktracker); }
+    );
     add_common(*precursive);
     add_maze(*precursive);
 
-    auto prandom = parser.AddSubParser(
-            "random", "maze generation using random traversal algorithm", [&] {
-                maze_command(MazeAlgorithm::RandomTraversal);
-            });
+    auto prandom = parser.AddSubParser
+    (
+        "random",
+        "maze generation using random traversal algorithm",
+        [&] { maze_command(MazeAlgorithm::RandomTraversal); }
+    );
     add_common(*prandom);
     add_maze(*prandom);
 
-    auto pcell = parser.AddSubParser(
-            "cell", "world generation using cellular automata algorithm", [&] {
-                cell(debug,
-                     random_fill,
-                     world_width,
-                     world_height,
-                     Fourway{ border_control },
-                     Fourway{ OutsideRule::Wall },
-                     output,
-                     world_scale);
-            });
+    auto pcell = parser.AddSubParser
+    (
+        "cell",
+        "world generation using cellular automata algorithm",
+        [&]
+        {
+            HandleCellCommand
+            (
+                debug,
+                random_fill,
+                world_width,
+                world_height,
+                Fourway{ border_control },
+                Fourway{ OutsideRule::Wall },
+                output,
+                world_scale
+            );
+        }
+    );
     add_common(*pcell);
     add_cell(*pcell);
 
@@ -338,7 +366,6 @@ main(int argc, char* argv[])
     {
         return -1;
     }
-
 
     return 0;
 }
