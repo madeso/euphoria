@@ -67,7 +67,6 @@ struct Main
     void
     main()
     {
-        Print<wyhash64>("wyhash64");
         Print<KnuthLcg>("knuth_lcg");
         Print<xorshift32>("xorshift32");
         Print<xorshift64>("xorshift64");

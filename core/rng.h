@@ -1,23 +1,13 @@
 #ifndef EUPHORIA_CORE_RNG_H
 #define EUPHORIA_CORE_RNG_H
 
-#include <cstdint>
 #include <limits>
+
+#include "core/ints.h"
 
 
 namespace euphoria::core
 {
-    struct wyhash64
-    {
-        explicit wyhash64(uint64_t s);
-
-        uint64_t state; 
-
-        float
-        Next();
-    };
-
-
     // https://en.wikipedia.org/wiki/Linear_congruential_generator
     template<typename I, I a, I c, I modulus>
     struct Lcg
@@ -26,6 +16,7 @@ namespace euphoria::core
 
         I state;
 
+        // bug: doesn't seem to return the full 0-1 range
         float
         Next()
         {
@@ -35,7 +26,7 @@ namespace euphoria::core
     };
 
 
-    using KnuthLcg = Lcg<uint64_t, 2^64, 6364136223846793005, 1442695040888963407>;
+    using KnuthLcg = Lcg<u64, 2^64, 6364136223846793005, 1442695040888963407>;
 
 
     // https://en.wikipedia.org/wiki/Xorshift
@@ -67,8 +58,8 @@ namespace euphoria::core
     };
 
 
-    using xorshift32 = XorShift<uint32_t, 13, 17, 5>;
-    using xorshift64 = XorShift<uint64_t, 13, 17, 7>;
+    using xorshift32 = XorShift<u32, 13, 17, 5>;
+    using xorshift64 = XorShift<u64, 13, 17, 7>;
 }
 
 #endif  // EUPHORIA_CORE_RNG_H
