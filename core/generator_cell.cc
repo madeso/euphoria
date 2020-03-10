@@ -5,14 +5,21 @@
 #include "core/colors.h"
 #include "core/image.h"
 
+#include <functional>
+
 namespace euphoria::core
 {
     namespace generator
     {
         void
-        CellularAutomata::Setup()
+        SetWhiteNoise
+        (
+            World* world,
+            BorderControl border_control,
+            std::function<bool ()> rng
+        )
         {
-            world->SetAll([this](int x, int y)
+            world->SetAll([&](int x, int y)
             {
                 if
                 (
@@ -23,14 +30,24 @@ namespace euphoria::core
                     const auto is_border =
                         x == 0 ||
                         y == 0 ||
-                        x == world->GetWidth() - 1 ||
-                        y == world->GetHeight() - 1;
+                        x == world->GetWidth()  - 1 ||
+                        y == world->GetHeight() - 1 ;
 
-                    if(is_border)
+                    if (is_border)
                     {
                         return border_control == BorderControl::AlwaysWall;
                     }
                 }
+                return rng();
+            });
+        }
+
+
+        void
+        CellularAutomata::Setup()
+        {
+            SetWhiteNoise(world, border_control, [&]()
+            {
                 return random->NextFloat01() < random_fill;
             });
         }
@@ -41,6 +58,7 @@ namespace euphoria::core
         {
             return iteration < 5;
         }
+
 
         int
         CountWalls
@@ -57,18 +75,23 @@ namespace euphoria::core
             {
                 for(int x = cx - step; x <= cx + step; x += 1)
                 {
-                    if(x == cx && y == cy)
+                    if (x == cx && y == cy)
+                    {
+                        // self is not a wall
                         continue;
+                    }
+
                     if(!world.Indices().ContainsInclusive(x, y))
                     {
-                        if(outside_is_wall)
+                        // it is inside
+                        if (world(x, y))
                         {
                             walls += 1;
                         }
                     }
                     else
                     {
-                        if (world(x, y))
+                        if (outside_is_wall)
                         {
                             walls += 1;
                         }
@@ -77,6 +100,7 @@ namespace euphoria::core
             }
             return walls;
         }
+
 
         void
         SmoothMap(World* world, bool outside_is_wall)
@@ -98,6 +122,7 @@ namespace euphoria::core
             });
         }
 
+
         void
         CellularAutomata::Work()
         {
@@ -112,6 +137,7 @@ namespace euphoria::core
 
             iteration += 1;
         }
+
 
         Image
         Draw
