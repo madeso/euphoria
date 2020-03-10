@@ -70,6 +70,7 @@ enum class MazeAlgorithm
     RandomTraversal
 };
 
+
 void
 maze(MazeAlgorithm      algo,
      int                world_width,
@@ -158,13 +159,17 @@ maze(MazeAlgorithm      algo,
 }
 
 void
-cell(bool                     debug,
-     float                    fill,
-     int                      world_width,
-     int                      world_height,
-     generator::BorderControl bc,
-     const std::string&       f,
-     int                      world_scale)
+cell
+(
+    bool debug,
+    float fill,
+    int world_width,
+    int world_height,
+    Fourway<BorderSetupRule> bc,
+    Fourway<OutsideRule> outside_rule,
+    const std::string& f,
+    int world_scale
+)
 {
     auto output = argparse::FileOutput {f};
 
@@ -174,13 +179,15 @@ cell(bool                     debug,
     generator::CellularAutomata cell;
     cell.world  = &world;
     cell.random = &random;
+    generator::SetupSimpleRules(&cell);
 
     cell.border_control = bc;
+    cell.outside_rule = outside_rule;
     cell.random_fill    = fill;
 
     auto drawer = [&](const generator::World& world)
     {
-        return generator::Draw(world, Color::Black, Color::White, world_scale);
+        return Draw(world, Color::Black, Color::White, world_scale);
     };
     world.Clear(false);
 
@@ -260,8 +267,7 @@ main(int argc, char* argv[])
     std::string output       = "maze.png";
 
     int                      world_scale = 1;
-    generator::BorderControl border_control
-            = generator::BorderControl::AlwaysWall;
+    BorderSetupRule border_control = BorderSetupRule::AlwaysWall;
     float random_fill = 0.5;
     bool  debug       = false;
 
@@ -319,7 +325,8 @@ main(int argc, char* argv[])
                      random_fill,
                      world_width,
                      world_height,
-                     border_control,
+                     Fourway{ border_control },
+                     Fourway{ OutsideRule::Wall },
                      output,
                      world_scale);
             });

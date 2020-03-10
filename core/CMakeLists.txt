@@ -67,7 +67,9 @@ set(app_src_hash
 
 
 set(app_src_table
+    fourway.cc fourway.h
     table_string.cc table_string.h
+    table_bool.cc table_bool.h
     table.h
 )
 

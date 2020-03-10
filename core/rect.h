@@ -408,6 +408,18 @@ namespace euphoria::core
             return right - left;
         }
 
+        Range<T>
+        GetYRange() const
+        {
+            return Range<T>{bottom, top};
+        }
+
+        Range<T>
+        GetXRange() const
+        {
+            return Range<T>{left, right};
+        }
+
         Size<T>
         GetSize() const
         {

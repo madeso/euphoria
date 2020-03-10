@@ -4,176 +4,109 @@
 #include "core/image_draw.h"
 #include "core/colors.h"
 #include "core/image.h"
+#include "core/table_bool.h"
 
 #include <functional>
+#include <optional>
 
-namespace euphoria::core
+namespace euphoria::core::generator
 {
-    namespace generator
+    Rule::~Rule()
     {
-        void
-        SetWhiteNoise
-        (
-            World* world,
-            BorderControl border_control,
-            std::function<bool ()> rng
-        )
-        {
-            world->SetAll([&](int x, int y)
-            {
-                if
-                (
-                    border_control != BorderControl::RandomWall &&
-                    border_control != BorderControl::RandomEmpty
-                )
-                {
-                    const auto is_border =
-                        x == 0 ||
-                        y == 0 ||
-                        x == world->GetWidth()  - 1 ||
-                        y == world->GetHeight() - 1 ;
-
-                    if (is_border)
-                    {
-                        return border_control == BorderControl::AlwaysWall;
-                    }
-                }
-                return rng();
-            });
-        }
-
-
-        void
-        CellularAutomata::Setup()
-        {
-            SetWhiteNoise(world, border_control, [&]()
-            {
-                return random->NextFloat01() < random_fill;
-            });
-        }
-
-
-        bool
-        CellularAutomata::HasMoreWork() const
-        {
-            return iteration < 5;
-        }
-
-
-        int
-        CountWalls
-        (
-            const World& world,
-            bool outside_is_wall,
-            int cx,
-            int cy,
-            int step = 1
-        )
-        {
-            int walls = 0;
-            for(int y = cy - step; y <= cy + step; y += 1)
-            {
-                for(int x = cx - step; x <= cx + step; x += 1)
-                {
-                    if (x == cx && y == cy)
-                    {
-                        // self is not a wall
-                        continue;
-                    }
-
-                    if(!world.Indices().ContainsInclusive(x, y))
-                    {
-                        // it is inside
-                        if (world(x, y))
-                        {
-                            walls += 1;
-                        }
-                    }
-                    else
-                    {
-                        if (outside_is_wall)
-                        {
-                            walls += 1;
-                        }
-                    }
-                }
-            }
-            return walls;
-        }
-
-
-        void
-        SmoothMap(World* world, bool outside_is_wall)
-        {
-            const World current = *world;
-
-            world->SetAll([&current, outside_is_wall](int x, int y)
-            {
-                const auto walls = CountWalls(current, outside_is_wall, x, y);
-                if(walls > 4)
-                {
-                    return true;
-                }
-                if(walls < 4)
-                {
-                    return false;
-                }
-                return current(x, y);
-            });
-        }
-
-
-        void
-        CellularAutomata::Work()
-        {
-            const auto outside_is_wall =
-                border_control == BorderControl::AlwaysWall ||
-                border_control == BorderControl::RandomWall ;
-            SmoothMap
-            (
-                world,
-                outside_is_wall
-            );
-
-            iteration += 1;
-        }
-
-
-        Image
-        Draw
-        (
-            const World& world,
-            Rgbi wall_color,
-            Rgbi space_color,
-            int scale
-        )
-        {
-            Image image;
-            image.SetupNoAlphaSupport(
-                    world.GetWidth() * scale, world.GetHeight() * scale);
-
-            Clear(&image, space_color);
-
-            for(int x = 0; x < world.GetWidth(); x += 1)
-            {
-                for(int y = 0; y < world.GetHeight(); y += 1)
-                {
-                    const auto px = x * scale;
-                    const auto py = y * scale;
-                    const auto color = world(x, y) ? wall_color : space_color;
-                    DrawSquare(&image, color, px, py + scale - 1, scale);
-                }
-            }
-
-            return image;
-        }
     }
 
-    BEGIN_ENUM_LIST(generator::BorderControl)
-    ENUM_VALUE(generator::BorderControl, AlwaysWall)
-    ENUM_VALUE(generator::BorderControl, AlwaysEmpty)
-    ENUM_VALUE(generator::BorderControl, RandomWall)
-    ENUM_VALUE(generator::BorderControl, RandomEmpty)
-    END_ENUM_LIST()
 
+    SmoothRule::SmoothRule(std::function<std::optional<bool>(const Wallcounter&)> sf)
+        : smooth_function(sf)
+    {
+    }
+
+
+    void
+    SmoothRule::Step(CellularAutomata* self)
+    {
+        SmoothMap
+        (
+            self->world,
+            self->outside_rule,
+            smooth_function
+        );
+    }
+
+
+    CellularAutomata&
+    CellularAutomata::AddRule(int count, std::shared_ptr<Rule> rule)
+    {
+        for (int i = 0; i < count; i += 1)
+        {
+            rules.emplace_back(rule);
+        }
+
+        return *this;
+    }
+
+
+    void
+    CellularAutomata::Setup()
+    {
+        SetWhiteNoise(world, border_control, [&]()
+        {
+            return random->NextFloat01() < random_fill;
+        });
+    }
+
+
+    bool
+    CellularAutomata::HasMoreWork() const
+    {
+        return iteration < rules.size();
+    }
+
+
+    void
+    CellularAutomata::Work()
+    {
+        rules[iteration]->Step(this);
+        iteration += 1;
+    }
+
+    // todo(Gustav): make theese rule buildings part of the cellular automata setup
+    // along with setup step
+
+    void
+    SetupSimpleRules(CellularAutomata* ca)
+    {
+        ca->rules.clear();
+        ca->AddRule(5, std::make_shared<SmoothRule>([](const Wallcounter& wc) -> std::optional<bool>
+        {
+            const auto walls = wc.Count(1);
+            if (walls > 4) return true;
+            if (walls < 4) return false;
+            return std::nullopt;
+        }));
+    }
+
+    void
+    SetupBasicRules(CellularAutomata* ca)
+    {
+        ca->rules.clear();
+        ca->AddRule(5, std::make_shared<SmoothRule>([](const Wallcounter& wc) -> std::optional<bool>
+        {
+            return wc.Count(1) >= 5;
+        }));
+    }
+
+    void
+    SetupNoEmptyAreas(CellularAutomata* ca)
+    {
+        ca->rules.clear();
+        ca->AddRule(4, std::make_shared<SmoothRule>([](const Wallcounter& wc) -> std::optional<bool>
+        {
+            return wc.Count(1) >= 5 || wc.Count(2) <= 2;
+        }));
+        ca->AddRule(3, std::make_shared<SmoothRule>([](const Wallcounter& wc) -> std::optional<bool>
+        {
+            return wc.Count(1) >= 5;
+        }));
+    }
 }  // namespace euphoria::core
