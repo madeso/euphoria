@@ -1,580 +1,292 @@
 #ifndef CORE_ARGPARSE_H
 #define CORE_ARGPARSE_H
 
+// todo(Gustav): optimize headers
+
 #include <vector>
-#include <string>
-#include <memory>
 #include <map>
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <memory>
+#include <optional>
 #include <functional>
+#include <type_traits>
 
-#include "core/str.h"
 #include "core/enumtostring.h"
-#include "core/stringmerger.h"
 
-// todo: mutiple names for subcommands
-// todo: groups
-// todo: examples that are validated during debug builds
-// todo: boolean attributes, [--value | --no-value] style
-// todo: break at 80/120 character width
 
 namespace euphoria::core::argparse
 {
-    struct Parser;
-
-    /////////////////////////////////////////////////////////////////////////////////////////
-    // Enum
-
-    enum class Greedy
-    {
-        Yes,
-        No
-    };
-
     enum class ParseResult
     {
-        // parsing was successfull, use arguments
+        // no error occured
+        Error,
+        // all ok
         Ok,
-
-        // some argumetns failed, please exit
-        Failed,
-
-        // parsing was successfull, but exit was requested, please exit
-        Quit,
+        // all ok, but quit requested
+        Quit
     };
 
-    /////////////////////////////////////////////////////////////////////////////////////////
-    // Util
 
-    struct Name
-    {
-        [[nodiscard]] static bool
-        IsOptional(const std::string& name);
+    int
+    ReturnValue(ParseResult pr);
 
-        [[nodiscard]] static std::string
-        OptionalName(const std::string& name);
 
-        Name();
-        Name(const char* n);
-
-        bool                     is_optional;
-        std::vector<std::string> names;
-
-        [[nodiscard]] static Name
-        Parse(const std::string& n);
-
-        [[nodiscard]] static Name
-        Optional(std::initializer_list<std::string> names);
-
-        [[nodiscard]] static Name
-        Positional(const std::string& names);
-
-    private:
-        Name(bool o, const std::vector<std::string>& n);
-
-#ifdef _DEBUG
-        void
-        AssertValid();
-#endif
-    };
-
-    struct Output
-    {
-        virtual ~Output() {}
-
-        virtual void
-        OnError(const std::string& err)
-                = 0;
-        virtual void
-        OnInfo(const std::string& info)
-                = 0;
-    };
-
-    struct ConsoleOutput : public Output
-    {
-        void
-        OnError(const std::string& err) override;
-        void
-        OnInfo(const std::string& info) override;
-    };
-
-    struct Running
+    struct Arguments
     {
         std::string              name;
         std::vector<std::string> arguments;
-        Output*                  output = nullptr;
-        const Parser*            parser = nullptr;
 
-        size_t next_index = 0;
+        Arguments(const std::string& n, const std::vector<std::string>& a);
+
+        static Arguments
+        Extract(int argc, char* argv[]);
+    };
+
+
+    struct ArgumentReader
+    {
+        Arguments arguments;
+        int next_position;
+
+        explicit ArgumentReader(const Arguments& a);
 
         bool
         HasMore() const;
 
         std::string
-        Read();
+        Peek() const;
 
         std::string
-        Peek(size_t advance = 1) const;
+        Read();
     };
 
-    struct Arg
+
+    struct Printer
     {
-        Name        name;
-        std::string meta_var;
+        virtual ~Printer();
+
+        virtual void
+        PrintError(const std::string& line) = 0;
+
+        virtual void
+        PrintInfo(const std::string& line) = 0;
+    };
+
+
+    struct ConsolePrinter : public Printer
+    {
+        void
+        PrintError(const std::string& line) override;
+
+        void
+        PrintInfo(const std::string& line) override;
+    };
+
+
+    struct Runner
+    {
+        ArgumentReader* arguments;
+        std::shared_ptr<Printer> printer;
+    };
+
+
+    struct Name
+    {
+        std::string name;
+
+        // optional: start with either - or --
+        // positional: doesn't start with -
+
+        Name(const std::string& n);
+
+        Name(const char* n);
+
+        bool
+        IsOptional() const;
+    };
+
+
+    struct Argument
+    {
+        virtual ~Argument();
+
         std::string help;
 
-        bool show_in_long_description = true;
-
-        virtual ~Arg() {}
-
-        virtual ParseResult
-        Parse(const std::string& name, Running* running)
-                = 0;
-
-        virtual std::string
-        ToShortArgumentString()
-                = 0;
-
-        virtual bool
-        CanCallManyTimes()
-                = 0;
-
-        virtual bool
-        TakesArguments()
-                = 0;
+        virtual
+        ParseResult
+        Parse(Runner* reader) = 0;
     };
 
-    struct Extra
+
+    struct ArgumentAndName
     {
-        std::shared_ptr<Arg> arg;
+        Name name;
+        std::shared_ptr<Argument> argument;
 
-        Extra&
-        MetaVar(const std::string& m);
-
-        Extra&
-        Help(const std::string& h);
+        ArgumentAndName(const Name& n, std::shared_ptr<Argument> a);
     };
 
-    template <typename T>
-    ParseResult
-    SimpleParser(
-            T*                 target,
-            const std::string& name,
-            const std::string& value,
-            Output*            output)
+
+    struct ArgumentNoValue : public Argument
     {
-        std::stringstream ss(value);
-        T                 t;
-        ss >> t;
-        if(ss.fail() || !ss.eof())
+        using Callback = std::function<ParseResult (Runner*)>;
+        Callback callback;
+
+        explicit ArgumentNoValue(Callback cb);
+
+        ParseResult
+        Parse(Runner* runner) override;
+    };
+
+
+    struct SingleArgument : public Argument
+    {
+        using Callback = std::function<ParseResult (Runner*, const std::string&)>;
+        Callback callback;
+
+        explicit SingleArgument(Callback cb);
+
+        ParseResult
+        Parse(Runner* runner) override;
+    };
+
+
+    template<typename T>
+    using ParseFunction = std::function<std::optional<T> (std::shared_ptr<Printer> printer, const std::string&)>;
+
+
+    template
+    <
+        typename T,
+        std::enable_if_t<!std::is_enum<T>::value == true, int> = 0
+    >
+    std::optional<T>
+    DefaultParseFunction(std::shared_ptr<Printer> printer, const std::string& value)
+    {
+        auto stream = std::istringstream{value.c_str()};
+        T t;
+        stream >> t;
+        if(stream.fail() || !stream.eof())
         {
-            output->OnError(
-                    Str() << value << " for " << name << " is not accepted.");
-            return ParseResult::Failed;
+            // todo(include argument name here
+            printer->PrintError(value + " is not accepted");
+            return std::nullopt;
         }
         else
         {
-            *target = t;
-            return ParseResult::Ok;
+            return t;
         }
     }
 
-    template <>
-    ParseResult
-    SimpleParser<std::string>(
-            std::string* target,
-            const std::string&,
-            const std::string& value,
-            Output*);
-
-    template <>
-    ParseResult
-    SimpleParser<bool>(
-            bool* target,
-            const std::string&,
-            const std::string& value,
-            Output*);
-
-    template <typename T>
-    struct SimpleArg : public Arg
+    template
+    <
+        typename T,
+        std::enable_if_t<std::is_enum<T>::value == true, int> = 0
+    >
+    std::optional<T>
+    DefaultParseFunction(std::shared_ptr<Printer> printer, const std::string& value)
     {
-        T* target;
-
-        ParseResult
-        Parse(const std::string& cmd_name, Running* running) override
+        auto matches = core::StringToEnum<T>(value);
+        if (matches.single_match)
         {
-            if(running->HasMore())
-            {
-                const auto value = running->Read();
-                // todo: add validator (InRange, etc...)
-                return SimpleParser<T>(
-                        target, cmd_name, value, running->output);
-            }
-            else
-            {
-                running->output->OnError(Str() << cmd_name << " missing value");
-                return ParseResult::Failed;
-            }
+            return matches.values[0];
         }
-
-        bool
-        CanCallManyTimes() override
+        else
         {
-            return false;
+            // todo(include argument name and matches here
+            printer->PrintError(value + " is not accepted");
+            return std::nullopt;
         }
+    }
 
-        std::string
-        ToShortArgumentString() override
-        {
-            return Str() << " " << meta_var;
-        }
-
-        bool
-        TakesArguments() override
-        {
-            return true;
-        }
-    };
-
-    template <typename T>
-    struct EnumArg : public Arg
+    template
+        <
+        typename T,
+        std::enable_if_t<std::is_enum<T>::type, int> = 0
+        >
+        std::optional<T>
+        DefaultParseFunction(std::shared_ptr<Printer> printer, const std::string& value)
     {
-        T* target;
-
-        ParseResult
-        Parse(const std::string& cmd_name, Running* running) override
+        auto stream = std::istringstream{ value.c_str() };
+        T t;
+        stream >> t;
+        if (stream.fail() || !stream.eof())
         {
-            if(running->HasMore())
+            // todo(include argument name here
+            printer->PrintError(value + " is not accepted");
+            return std::nullopt;
+        }
+        else
+        {
+            return t;
+        }
+    }
+
+
+    struct Parser;
+    using SubParserCallback = std::function<void(Parser*)>;
+
+
+    struct Parser
+    {
+        std::vector<ArgumentAndName> positional_argument_list;
+
+        std::map<std::string, std::shared_ptr<Argument>> optional_arguments;
+        std::vector<ArgumentAndName> optional_argument_list;
+
+        Argument&
+        AddArgument(const Name& name, std::shared_ptr<Argument> argument);
+
+        Argument&
+        AddVoidFunction(const Name& name, std::function<void()> void_function);
+
+        template<typename T>
+        Argument&
+        Add(const Name& name, T* target, ParseFunction<T> parse_function = DefaultParseFunction<T>)
+        {
+            auto arg = std::make_shared<SingleArgument>([target, parse_function](Runner* runner, const std::string& value)
             {
-                const auto value = running->Read();
-                const auto match = StringToEnum<T>(value);
-                if(match.single_match)
+                auto parsed = parse_function(runner->printer, value);
+                if(parsed)
                 {
-                    *target = match.values[0];
+                    *target = *parsed;
                     return ParseResult::Ok;
                 }
                 else
                 {
-                    const auto could_be = EnumToString(match.values);
-                    running->output->OnError(
-                            Str()
-                            << value << " is invalid, could be "
-                            << StringMerger::EnglishOr().Generate(could_be));
-                    return ParseResult::Failed;
+                    return ParseResult::Error;
                 }
-            }
-            else
-            {
-                running->output->OnError(Str() << cmd_name << " missing value");
-                return ParseResult::Failed;
-            }
+            });
+            return AddArgument(name, arg);
         }
-
-        std::string
-        ToShortArgumentString() override
-        {
-            return StringMerger()
-                    .Separator(" | ")
-                    .StartAndEnd("{", "}")
-                    .Generate(EnumToString<T>());
-        }
-
-        bool
-        CanCallManyTimes() override
-        {
-            return false;
-        }
-
-        bool
-        TakesArguments() override
-        {
-            return true;
-        }
-    };
-
-    template <typename T>
-    struct FunctionArgument : public Arg
-    {
-        T t;
-
-        FunctionArgument(T tt) : t(tt) {}
-        ParseResult
-        Parse(const std::string&, Running*) override
-        {
-            t();
-            return ParseResult::Ok;
-        }
-
-        std::string
-        ToShortArgumentString() override
-        {
-            return "";
-        }
-
-        bool
-        CanCallManyTimes() override
-        {
-            return true;
-        }
-
-        bool
-        TakesArguments() override
-        {
-            return false;
-        }
-    };
-
-    template <typename T>
-    struct CountArg : public Arg
-    {
-        T* target;
-
-        ParseResult
-        Parse(const std::string&, Running*) override
-        {
-            (*target)++;
-            return ParseResult::Ok;
-        }
-
-        std::string
-        ToShortArgumentString() override
-        {
-            return "";
-        }
-
-        bool
-        CanCallManyTimes() override
-        {
-            return true;
-        }
-
-        bool
-        TakesArguments() override
-        {
-            return false;
-        }
-    };
-
-    template <typename T>
-    struct VectorArg : public Arg
-    {
-        std::vector<T>* target;
-        Greedy          greedy = Greedy::No;
-
-        ParseResult
-        ParseOne(const std::string& cmd_name, Running* running)
-        {
-            if(!running->HasMore())
-            {
-                running->output->OnError(Str() << cmd_name << " missing value");
-                return ParseResult::Failed;
-            }
-            const auto value = running->Read();
-            T          t;
-            const auto r
-                    = SimpleParser<T>(&t, cmd_name, value, running->output);
-            if(r == ParseResult::Ok)
-            {
-                // todo: add validator (InRange, etc...)
-                target->emplace_back(t);
-            }
-            return r;
-        }
-
-        ParseResult
-        Parse(const std::string& cmd_name, Running* running) override
-        {
-            if(greedy == Greedy::Yes)
-            {
-                while(running->HasMore())
-                {
-                    auto r = ParseOne(cmd_name, running);
-                    if(r != ParseResult::Ok)
-                    {
-                        return r;
-                    }
-                }
-
-                return ParseResult::Ok;
-            }
-            else
-            {
-                return ParseOne(cmd_name, running);
-            }
-        }
-
-        std::string
-        ToShortArgumentString() override
-        {
-            if(greedy == Greedy::Yes)
-            {
-                return Str() << " " << meta_var << "+";
-            }
-            else
-            {
-                return Str() << "+ " << meta_var;
-            }
-        }
-
-        bool
-        CanCallManyTimes() override
-        {
-            // if it isn't greedy we should be able to call it many times
-            // if it is greedy we don't need to call it many times
-            return greedy == Greedy::No;
-        }
-
-        bool
-        TakesArguments() override
-        {
-            return true;
-        }
-    };
-
-    struct SubParser
-    {
-        using Callback = std::function<void(void)>;
-        std::shared_ptr<Parser> parser;
-        Callback                callback;
-    };
-
-    using SubParsers = EnumToStringImpl<std::shared_ptr<SubParser>>;
-
-    /////////////////////////////////////////////////////////////////////////////////////////
-
-    struct FileOutput
-    {
-        explicit FileOutput(const std::string& o);
-
-        std::string
-        NextFile(bool print = true);
 
         void
-        CreateDirIfMissing() const;
+        AddSubParser(const std::string& name, SubParserCallback sub);
 
-        std::string file;
-        bool        single;
-        int         index = 0;
+        std::shared_ptr<Argument>
+        FindArgument(const std::string& name);
+
+        ParseResult
+        ParseArgs(Runner* runner);
     };
 
-    /////////////////////////////////////////////////////////////////////////////////////////
-    // Main
 
-    struct Args
+    struct RootParser : public Parser
     {
-        std::string              program_name;
-        std::vector<std::string> args;
-
-        static Args
-        Extract(int argc, char* argv[]);
-    };
-
-    struct Parser
-    {
-        explicit Parser(const std::string& d);
+        RootParser(const std::string& d = "");
 
         void
-        WriteShortHelp(Running* running) const;
-
-        void
-        WriteLongHelp(Running* running) const;
-
-        // todo: add subparser
-        // todo: get inspiration from
-        // https://stackoverflow.com/questions/491595/best-way-to-parse-command-line-arguments-in-c
-        // https://github.com/clap-rs/clap
-        // https://docs.python.org/3/library/argparse.html
-
-        std::string documentation;
-
-        // if null, use standard console output
-        Output* output = nullptr;
-
-        std::map<std::string, std::shared_ptr<Arg>> optional_arguments;
-        std::vector<std::shared_ptr<Arg>>           optional_arguments_list;
-        std::vector<std::shared_ptr<Arg>>           the_positional_arguments;
-        std::shared_ptr<SubParsers>                 subparsers;
-
-        std::vector<std::shared_ptr<Arg>>
-        GetAllPosArgs() const;
-
-        Extra
-        AddArgument(const Name& name, std::shared_ptr<Arg> arg);
-
-        std::shared_ptr<SubParser>
-        AddSubParser(const std::string& name, const std::string& desc);
-
-        std::shared_ptr<Parser>
-        AddSubParser(const std::string& name, SubParser::Callback callback);
-
-        std::shared_ptr<Parser>
-        AddSubParser(
-                const std::string&  name,
-                const std::string&  desc,
-                SubParser::Callback callback);
-
-        template <typename T>
-        Extra
-        AddSimple(const Name& name, T* var)
-        {
-            auto a    = std::make_shared<SimpleArg<T>>();
-            a->target = var;
-            return AddArgument(name, a);
-        }
-
-        template <typename T>
-        Extra
-        AddCount(const Name& name, T* var)
-        {
-            auto a    = std::make_shared<CountArg<T>>();
-            a->target = var;
-            return AddArgument(name, a);
-        }
-
-        // todo: use enable_if to merge call with AddSimple above
-        template <typename T>
-        Extra
-        AddEnum(const Name& name, T* var)
-        {
-            auto a    = std::make_shared<EnumArg<T>>();
-            a->target = var;
-            return AddArgument(name, a);
-        }
-
-        template <typename T>
-        Extra
-        AddSimpleFunction(const Name& name, T callback)
-        {
-            auto a = std::make_shared<FunctionArgument<T>>(callback);
-            return AddArgument(name, a);
-        }
-
-        Extra
-        SetTrue(const Name& name, bool* b);
-
-        Extra
-        SetFalse(const Name& name, bool* b);
-
-        template <typename T>
-        Extra
-        AddVector(const Name& name, std::vector<T>* vec)
-        {
-            auto a    = std::make_shared<VectorArg<T>>();
-            a->target = vec;
-            a->greedy = name.is_optional ? Greedy::No : Greedy::Yes;
-            return AddArgument(name, a);
-        }
+        PrintHelp();
 
         ParseResult
-        Parse(int argc, char* argv[]) const;
+        ParseArgs(const Arguments& args);
 
-        ParseResult
-        Parse(const Args& args) const;
+        std::string description;
 
-        ParseResult
-        Parse(const std::string&              program_name,
-              const std::vector<std::string>& args) const;
+        std::shared_ptr<Printer> printer;
     };
-
-}  // namespace euphoria::core::argparse
+}
 
 #endif  // CORE_ARGPARSE_H
