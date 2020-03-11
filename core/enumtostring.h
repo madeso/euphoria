@@ -13,6 +13,7 @@
 
 #include "magic_enum/magic_enum.hpp"
 
+
 namespace euphoria::core
 {
     template <typename T>
