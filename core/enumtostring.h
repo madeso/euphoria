@@ -29,12 +29,15 @@ namespace euphoria::core
         std::map<T, std::string> enum_to_string;
         std::map<std::string, T> string_to_enum;
 
+        int size = 0;
+
         // todo: replace with initializer list?
         EnumToStringImpl<T>&
         Add(const std::string& name, T t)
         {
             enum_to_string.insert(std::make_pair(t, name));
             string_to_enum.insert(std::make_pair(ToLower(name), t));
+            size += 1;
             return *this;
         }
 

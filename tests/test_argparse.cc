@@ -179,7 +179,7 @@ TEST_CASE("argparse", "[argparse]")
             std::string a_value = "dog";
             parser->Add("-s", &a_value);
 
-            parser->OnComplete([&]
+            return parser->OnComplete([&]
             {
                 a = a_value;
             });
@@ -188,6 +188,7 @@ TEST_CASE("argparse", "[argparse]")
         parser.AddSubParser("b", [&](SubParser*)
         {
             b = "bird";
+            return ParseResult::Ok;
         });
 
         SECTION("empty subparser = error")
@@ -207,7 +208,7 @@ TEST_CASE("argparse", "[argparse]")
                     "a"
                 })
             );
-            CHECK(res == ParseResult::Error);
+            CHECK(res == ParseResult::Ok);
             CHECK(a == "dog");
             CHECK(b == "default");
         }
@@ -221,7 +222,7 @@ TEST_CASE("argparse", "[argparse]")
                     "a", "-s", "cat"
                 })
             );
-            CHECK(res == ParseResult::Error);
+            CHECK(res == ParseResult::Ok);
             CHECK(a == "cat");
             CHECK(b == "default");
         }
@@ -235,7 +236,7 @@ TEST_CASE("argparse", "[argparse]")
                     "b"
                 })
             );
-            CHECK(res == ParseResult::Error);
+            CHECK(res == ParseResult::Ok);
             CHECK(a == "default");
             CHECK(b == "bird");
         }

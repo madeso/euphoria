@@ -228,7 +228,7 @@ namespace euphoria::core::argparse
     struct SubParser;
     using SubParserCallback = std::function
     <
-        void (SubParser*)
+        ParseResult (SubParser*)
     >;
 
 
@@ -238,13 +238,23 @@ namespace euphoria::core::argparse
     >;
 
 
+    struct SubParserContainer
+    {
+        // todo: add description
+        SubParserContainer(SubParserCallback cb);
+
+        SubParserCallback callback;
+    };
+
+
     struct Parser
     {
-
         std::vector<ArgumentAndName> positional_argument_list;
 
         std::map<std::string, std::shared_ptr<Argument>> optional_arguments;
         std::vector<ArgumentAndName> optional_argument_list;
+
+        EnumToStringImpl<std::shared_ptr<SubParserContainer>> subparsers;
 
         std::optional<CompleteFunction> on_complete;
 
@@ -287,6 +297,7 @@ namespace euphoria::core::argparse
         std::shared_ptr<Argument>
         FindArgument(const std::string& name);
 
+        [[nodiscard]]
         ParseResult
         ParseArgs(Runner* runner);
     };
@@ -294,6 +305,13 @@ namespace euphoria::core::argparse
 
     struct SubParser : public Parser
     {
+        Runner* runner;
+
+        explicit SubParser(Runner* r);
+
+        [[nodiscard]]
+        ParseResult
+        OnComplete(CompleteFunction com);
     };
 
 

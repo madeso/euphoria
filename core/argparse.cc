@@ -1,5 +1,8 @@
 #include "core/argparse.h"
 
+#include "core/cint.h"
+
+
 namespace euphoria::core::argparse
 {
     int
@@ -46,7 +49,7 @@ namespace euphoria::core::argparse
     ArgumentReader::HasMore() const
     {
         // todo(Gustav): assert on size
-        return next_position < arguments.arguments.size();
+        return next_position < Csizet_to_int(arguments.arguments.size());
     }
 
 
@@ -106,9 +109,16 @@ namespace euphoria::core::argparse
 
 
     bool
-    Name::IsOptional() const
+    IsOptionalArgument(const std::string& name)
     {
         return name[0] == '-';
+    }
+
+
+    bool
+    Name::IsOptional() const
+    {
+        return IsOptionalArgument(name);
     }
 
 
@@ -160,6 +170,12 @@ namespace euphoria::core::argparse
     }
 
 
+    SubParserContainer::SubParserContainer(SubParserCallback cb)
+        : callback(cb)
+    {
+    }
+
+
     Argument&
     Parser::AddArgument(const Name& name, std::shared_ptr<Argument> argument)
     {
@@ -197,7 +213,8 @@ namespace euphoria::core::argparse
         SubParserCallback sub
     )
     {
-        // todo(Gustav): implement this
+        auto container = std::make_shared<SubParserContainer>(sub);
+        subparsers.Add(name, container);
     }
 
 
@@ -215,7 +232,7 @@ namespace euphoria::core::argparse
 
         auto has_more_positionals = [&]()
         {
-            return positional_index < positional_argument_list.size();
+            return positional_index < Csizet_to_int(positional_argument_list.size());
         };
 
         while (runner->arguments->HasMore())
@@ -233,16 +250,44 @@ namespace euphoria::core::argparse
             else
             {
                 const auto arg = runner->arguments->Read();
-                auto match = FindArgument(arg);
-                if (match == nullptr)
+                if(IsOptionalArgument(arg))
                 {
-                    runner->printer->PrintError("invalid argument: " + arg);
-                    return ParseResult::Error;
+                    auto match = FindArgument(arg);
+                    if (match == nullptr)
+                    {
+                        runner->printer->PrintError("invalid argument: " + arg);
+                        return ParseResult::Error;
+                    }
+                    auto arg_parse_result = match->Parse(runner);
+                    if (arg_parse_result != ParseResult::Ok)
+                    {
+                        return arg_parse_result;
+                    }
                 }
-                auto arg_parse_result = match->Parse(runner);
-                if (arg_parse_result != ParseResult::Ok)
+                else
                 {
-                    return arg_parse_result;
+                    // arg doesn't look like a optional argument
+                    // hence it must be a sub command
+                    // or it's a error
+                    if(subparsers.size == 0)
+                    {
+                        runner->printer->PrintError("no subcomands for " + arg);
+                        return ParseResult::Error;
+                    }
+                    else
+                    {
+                        auto match = subparsers.Match(arg, 3);
+                        if(match.single_match == false)
+                        {
+                            runner->printer->PrintError("too many matches for " + arg);
+                            return ParseResult::Error;
+                        }
+                        else
+                        {
+                            auto sub = SubParser{runner};
+                            return match.values[0]->callback(&sub);
+                        }
+                    }
                 }
             }
         }
@@ -253,12 +298,32 @@ namespace euphoria::core::argparse
             return ParseResult::Error;
         }
 
+        if(subparsers.size != 0)
+        {
+            runner->printer->PrintError("no subparser specified");
+            return ParseResult::Error;
+        }
+
         if(on_complete.has_value())
         {
             on_complete.value()();
         }
 
         return ParseResult::Ok;
+    }
+
+
+    SubParser::SubParser(Runner* r)
+        : runner(r)
+    {
+    }
+
+
+    ParseResult
+    SubParser::OnComplete(CompleteFunction com)
+    {
+        Parser::OnComplete(com);
+        return ParseArgs(runner);
     }
 
 
