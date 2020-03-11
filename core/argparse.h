@@ -225,22 +225,37 @@ namespace euphoria::core::argparse
     }
 
 
-    struct Parser;
-    using SubParserCallback = std::function<void(Parser*)>;
+    struct SubParser;
+    using SubParserCallback = std::function
+    <
+        void (SubParser*)
+    >;
+
+
+    using CompleteFunction = std::function
+    <
+        void ()
+    >;
 
 
     struct Parser
     {
+
         std::vector<ArgumentAndName> positional_argument_list;
 
         std::map<std::string, std::shared_ptr<Argument>> optional_arguments;
         std::vector<ArgumentAndName> optional_argument_list;
+
+        std::optional<CompleteFunction> on_complete;
 
         Argument&
         AddArgument(const Name& name, std::shared_ptr<Argument> argument);
 
         Argument&
         AddVoidFunction(const Name& name, std::function<void()> void_function);
+
+        void
+        OnComplete(CompleteFunction com);
 
         template<typename T>
         Argument&
@@ -263,13 +278,22 @@ namespace euphoria::core::argparse
         }
 
         void
-        AddSubParser(const std::string& name, SubParserCallback sub);
+        AddSubParser
+        (
+            const std::string& name,
+            SubParserCallback sub
+        );
 
         std::shared_ptr<Argument>
         FindArgument(const std::string& name);
 
         ParseResult
         ParseArgs(Runner* runner);
+    };
+
+
+    struct SubParser : public Parser
+    {
     };
 
 

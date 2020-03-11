@@ -184,7 +184,18 @@ namespace euphoria::core::argparse
 
 
     void
-    Parser::AddSubParser(const std::string& name, SubParserCallback sub)
+    Parser::OnComplete(CompleteFunction cf)
+    {
+        on_complete = cf;
+    }
+
+
+    void
+    Parser::AddSubParser
+    (
+        const std::string& name,
+        SubParserCallback sub
+    )
     {
         // todo(Gustav): implement this
     }
@@ -240,6 +251,11 @@ namespace euphoria::core::argparse
         {
             runner->printer->PrintError("positionals left");
             return ParseResult::Error;
+        }
+
+        if(on_complete.has_value())
+        {
+            on_complete.value()();
         }
 
         return ParseResult::Ok;

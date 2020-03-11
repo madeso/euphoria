@@ -36,7 +36,7 @@ namespace
         }
 
         void
-        PrintInfo(const std::string& line)
+        PrintInfo(const std::string& line) override
         {
             messages.emplace_back(false, line);
         }
@@ -174,12 +174,20 @@ TEST_CASE("argparse", "[argparse]")
         std::string a = "default";
         std::string b = "default";
 
-        parser.AddSubParser("a", [&](Parser* parser)
+        parser.AddSubParser("a", [&](SubParser* parser)
         {
-            std::string s = "dog";
-            parser->Add("-s", &s);
+            std::string a_value = "dog";
+            parser->Add("-s", &a_value);
 
-            // todo(Gustav): figure out how to use the arguments?
+            parser->OnComplete([&]
+            {
+                a = a_value;
+            });
+        });
+
+        parser.AddSubParser("b", [&](SubParser*)
+        {
+            b = "bird";
         });
 
         SECTION("empty subparser = error")
@@ -188,6 +196,48 @@ TEST_CASE("argparse", "[argparse]")
             CHECK(res == ParseResult::Error);
             CHECK(a == "default");
             CHECK(b == "default");
+        }
+
+        SECTION("call a")
+        {
+            const auto res = parser.ParseArgs
+            (
+                MakeArguments
+                ({
+                    "a"
+                })
+            );
+            CHECK(res == ParseResult::Error);
+            CHECK(a == "dog");
+            CHECK(b == "default");
+        }
+
+        SECTION("call a with arg")
+        {
+            const auto res = parser.ParseArgs
+            (
+                MakeArguments
+                ({
+                    "a", "-s", "cat"
+                })
+            );
+            CHECK(res == ParseResult::Error);
+            CHECK(a == "cat");
+            CHECK(b == "default");
+        }
+
+        SECTION("call b")
+        {
+            const auto res = parser.ParseArgs
+            (
+                MakeArguments
+                ({
+                    "b"
+                })
+            );
+            CHECK(res == ParseResult::Error);
+            CHECK(a == "default");
+            CHECK(b == "bird");
         }
     }
 }
