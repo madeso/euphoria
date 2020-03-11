@@ -168,6 +168,7 @@ HandleMazeCommand
     }
 }
 
+
 void
 HandleCellCommand
 (
@@ -189,13 +190,15 @@ HandleCellCommand
     generator::CellularAutomata cell;
     cell.world  = &world;
     cell.random = &random;
+
     generator::SetupSimpleRules(&cell);
+    // generator::SetupBasicRules(&cell);
 
     cell.border_control = bc;
     cell.outside_rule = outside_rule;
-    cell.random_fill    = fill;
+    cell.random_fill = fill;
 
-    auto drawer = [&](const generator::World& world)
+    auto draw_world = [&](const generator::World& world)
     {
         return Draw(world, Color::Black, Color::White, world_scale);
     };
@@ -203,67 +206,78 @@ HandleCellCommand
 
     if(!output.single)
     {
-        auto img = drawer(world);
+        auto img = draw_world(world);
         io::ChunkToFile(img.Write(ImageWriteFormat::PNG), output.NextFile());
     }
 
-    auto world_copy = world;
     auto shuffle_random = Random {};
-    auto draw_multi = [&]()
+    auto world_copy = world;
+    auto draw_single_step = [&]()
     {
         if(!output.single)
         {
-            auto diffs = FindDifferences(world, world_copy);
-            KnuthShuffle(&diffs, &shuffle_random);
-            int        dindex = 0;
-            const auto s      = (diffs.size() / 25);
-            const auto m      = s < 2 ? 2 : s;
-            for(const auto d: diffs)
+            if (debug)
             {
-                // std::cout << "Setting " << d.x << " " << d.y << " to " << d.new_value << "\n";
-                world_copy(d.x, d.y) = d.new_value;
-                if((dindex % m) == 0)
-                {
-                    const auto img = drawer(world_copy);
-                    io::ChunkToFile
-                    (
-                        img.Write(ImageWriteFormat::PNG),
-                        output.NextFile()
-                    );
-                }
-                dindex += 1;
-            }
-            for(int i = 0; i < 5; i += 1)
-            {
-                const auto img = drawer(world_copy);
+                const auto img = draw_world(world);
                 io::ChunkToFile
                 (
                     img.Write(ImageWriteFormat::PNG),
                     output.NextFile()
                 );
             }
+            else
+            {
+                auto diffs = FindDifferences(world, world_copy);
+                KnuthShuffle(&diffs, &shuffle_random);
+                int dindex = 0;
+                const auto s = (diffs.size() / 25);
+                const auto m = s < 2 ? 2 : s;
+                for (const auto d : diffs)
+                {
+                    world_copy(d.x, d.y) = d.new_value;
+                    if ((dindex % m) == 0)
+                    {
+                        const auto img = draw_world(world_copy);
+                        io::ChunkToFile
+                        (
+                            img.Write(ImageWriteFormat::PNG),
+                            output.NextFile()
+                        );
+                    }
+                    dindex += 1;
+                }
+
+                for (int i = 0; i < 5; i += 1)
+                {
+                    const auto img = draw_world(world_copy);
+                    io::ChunkToFile
+                    (
+                        img.Write(ImageWriteFormat::PNG),
+                        output.NextFile()
+                    );
+                }
+            }
         }
     };
 
     cell.Setup();
 
-    draw_multi();
+    draw_single_step();
 
-    while(!debug && cell.HasMoreWork())
+    while(cell.HasMoreWork())
     {
-        // std::cout << "Work #######\n";
         cell.Work();
-        draw_multi();
+        draw_single_step();
     }
 
     if(output.single)
     {
-        auto img = drawer(world);
+        auto img = draw_world(world);
         io::ChunkToFile(img.Write(ImageWriteFormat::PNG), output.file);
     }
     else
     {
-        draw_multi();
+        draw_single_step();
     }
 }
 
@@ -275,7 +289,7 @@ main(int argc, char* argv[])
 
     int world_width  = 10;
     int world_height = 10;
-    std::string output  = "maze.png";
+    std::string output = "maze.png";
 
     int world_scale = 1;
     BorderSetupRule border_control = BorderSetupRule::AlwaysWall;

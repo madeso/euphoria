@@ -69,6 +69,9 @@ namespace euphoria::core::generator
         Work();
     };
 
+    // todo(Gustav): Skip basic rules setup and improve argparse
+    // so worldgen sample can be improved
+
     void
     SetupSimpleRules(CellularAutomata* ca);
 

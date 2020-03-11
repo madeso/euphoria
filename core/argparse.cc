@@ -542,7 +542,7 @@ namespace euphoria::core
             return AddSimpleFunction(name, [b]() { *b = false; });
         }
 
-        FileOutput::FileOutput(const std::string& o) : file(o), single(!EndsWith(o, "/"))
+        FileOutput::FileOutput(const std::string& o) : file(o), single(!(EndsWith(o, "/") || EndsWith(o, "\\")))
         {}
 
         std::string
