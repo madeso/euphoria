@@ -119,7 +119,5 @@ namespace euphoria::core::generator
     };
 }  // namespace euphoria::core::generator
 
-DECLARE_ENUM_LIST(euphoria::core::generator::Dir)
-
 
 #endif  // CORE_GENERATOR_MAZE_H

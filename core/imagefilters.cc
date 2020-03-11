@@ -9,16 +9,6 @@
 
 namespace euphoria::core
 {
-    BEGIN_ENUM_LIST(Grayscale)
-    ENUM_VALUE(Grayscale, R)
-    ENUM_VALUE(Grayscale, G)
-    ENUM_VALUE(Grayscale, B)
-    ENUM_VALUE(Grayscale, Max)
-    ENUM_VALUE(Grayscale, Gamma)
-    ENUM_VALUE(Grayscale, Linear)
-    ENUM_VALUE(Grayscale, Average)
-    END_ENUM_LIST()
-
     namespace
     {
         Rgbai

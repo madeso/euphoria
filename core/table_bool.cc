@@ -222,17 +222,4 @@ namespace euphoria::core
 
         return image;
     }
-
-    BEGIN_ENUM_LIST(BorderSetupRule)
-        ENUM_VALUE(BorderSetupRule, AlwaysWall)
-        ENUM_VALUE(BorderSetupRule, AlwaysEmpty)
-        ENUM_VALUE(BorderSetupRule, Random)
-    END_ENUM_LIST()
-
-    BEGIN_ENUM_LIST(OutsideRule)
-        ENUM_VALUE(OutsideRule, Wall)
-        ENUM_VALUE(OutsideRule, Empty)
-        ENUM_VALUE(OutsideRule, Mirror)
-        ENUM_VALUE(OutsideRule, Wrap)
-    END_ENUM_LIST()
 }

@@ -219,7 +219,5 @@ namespace euphoria::core::palette
     };
 }  // namespace euphoria::core::palette
 
-DECLARE_ENUM_LIST(euphoria::core::palette::PaletteName)
-
 
 #endif  // EUPHORIA_PALETTE_ALL_H

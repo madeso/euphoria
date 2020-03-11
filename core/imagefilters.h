@@ -54,6 +54,4 @@ namespace euphoria::core
     // color controls https://developer.nvidia.com/gpugems/GPUGems/gpugems_ch22.html
 }  // namespace euphoria::core
 
-DECLARE_ENUM_LIST(euphoria::core::Grayscale)
-
 #endif  // CORE_IMAGEFILTERS_H

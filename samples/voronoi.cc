@@ -35,23 +35,11 @@ enum class DistanceFunction
 {
     Euclidian, Manhattan, Min, Max
 };
-DECLARE_ENUM_LIST(DistanceFunction)
-BEGIN_ENUM_LIST(DistanceFunction)
-    ENUM_VALUE(DistanceFunction, Euclidian)
-    ENUM_VALUE(DistanceFunction, Manhattan)
-    ENUM_VALUE(DistanceFunction, Min)
-    ENUM_VALUE(DistanceFunction, Max)
-END_ENUM_LIST()
 
 enum class PointGeneration
 {
     Random, Poisson
 };
-DECLARE_ENUM_LIST(PointGeneration)
-BEGIN_ENUM_LIST(PointGeneration)
-    ENUM_VALUE(PointGeneration, Random)
-    ENUM_VALUE(PointGeneration, Poisson)
-END_ENUM_LIST()
 
 vec2f Abs(const vec2f& a)
 {

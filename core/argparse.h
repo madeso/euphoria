@@ -577,6 +577,4 @@ namespace euphoria::core::argparse
 
 }  // namespace euphoria::core::argparse
 
-DECLARE_ENUM_LIST(euphoria::core::argparse::ParseResult)
-
 #endif  // CORE_ARGPARSE_H

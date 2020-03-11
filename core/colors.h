@@ -164,6 +164,4 @@ namespace euphoria::core
     ToColorHex(Color color);
 }  // namespace euphoria::core
 
-DECLARE_ENUM_LIST(euphoria::core::Color)
-
 #endif  // CORE_NAMED_COLORS_H

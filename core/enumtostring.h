@@ -11,10 +11,10 @@
 #include "core/stringutils.h"
 #include "core/editdistance.h"
 
+#include "magic_enum/magic_enum.hpp"
+
 namespace euphoria::core
 {
-    // todo(Gustav): replace with magic enum or some other structure
-
     template <typename T>
     struct MatchedEnum
     {
@@ -112,35 +112,36 @@ namespace euphoria::core
     };
 
     template <typename T>
-    struct GetEnumToString
+    std::string
+    EnumToString(T t)
     {
-        enum
+        return std::string{ magic_enum::enum_name(t) };
+    }
+
+    template<typename T>
+    EnumToStringImpl<T>
+    EnumToStringImplFromEnum()
+    {
+        const auto values = magic_enum::enum_values<T>();
+        
+        EnumToStringImpl<T> r;
+        for (const auto v : values)
         {
-            IsDefined = 0
-        };
+            r.Add(EnumToString(v), v);
+        }
 
-        // using Type = T Type;
-
-        // no implmenentation: only here for template specialization
-        static const EnumToStringImpl<T>&
-        EnumValues();
-    };
+        return r;
+    }
 
 
     template <typename T>
     MatchedEnum<T>
     StringToEnum(const std::string& input, size_t max_size = 5)
     {
-        return GetEnumToString<T>::EnumValues().Match(input, max_size);
+        return EnumToStringImplFromEnum<T>().Match(input, max_size);
     }
 
-    template <typename T>
-    std::string
-    EnumToString(T t)
-    {
-        return GetEnumToString<T>::EnumValues().ToString(t);
-    }
-
+    
     template <typename T>
     std::vector<std::string>
     EnumToString(const std::vector<T>& ts)
@@ -148,61 +149,28 @@ namespace euphoria::core
         std::vector<std::string> ret;
         for(auto t: ts)
         {
-            ret.emplace_back(GetEnumToString<T>::EnumValues().ToString(t));
+            ret.emplace_back(EnumToString<T>(t));
         }
         return ret;
     }
+
 
     template <typename T>
     std::vector<std::string>
     EnumToString()
     {
-        return GetEnumToString<T>::EnumValues().ListNames();
+        return EnumToStringImplFromEnum<T>().ListNames();
     }
 
     template <typename T>
     std::vector<T>
     EnumValues()
     {
-        return GetEnumToString<T>::EnumValues().ListValues();
+        const auto values = magic_enum::enum_values<T>();
+        return values;
     }
-}  // namespace euphoria::core
-
-template <typename T>
-typename std::enable_if_t<
-        euphoria::core::GetEnumToString<T>::IsDefined == 1,
-        std::ostream>&
-operator<<(std::ostream& os, T const& value)
-{
-    os << euphoria::core::EnumToString<T>(value);
-    return os;
 }
 
-#define DECLARE_ENUM_LIST(T)                                                   \
-    template <>                                                                \
-    struct euphoria::core::GetEnumToString<T>                                  \
-    {                                                                          \
-        using Type = T;                                                        \
-        enum                                                                   \
-        {                                                                      \
-            IsDefined = 1                                                      \
-        };                                                                     \
-        static const euphoria::core::EnumToStringImpl<T>&                      \
-        EnumValues();                                                          \
-    };
-
-#define BEGIN_ENUM_LIST(T)                                                     \
-    const euphoria::core::EnumToStringImpl<T>&                                 \
-    euphoria::core::GetEnumToString<T>::EnumValues()                           \
-    {                                                                          \
-        static const auto r = euphoria::core::EnumToStringImpl<T> {}
-#define ENUM_VALUE(T, V) .Add(#V, T::V)
-#define END_ENUM_LIST()                                                        \
-    ;                                                                          \
-    return r;                                                                  \
-    }
-
-// todo: add a foreach macro call?
-// https://codecraft.co/2014/11/25/variadic-macros-tricks/
+using namespace magic_enum::ostream_operators;
 
 #endif  // CORE_ENUM_TO_STRING_H

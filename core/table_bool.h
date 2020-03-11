@@ -92,10 +92,6 @@ namespace euphoria::core
         Rgbi space_color,
         int scale
     );
-
-} 
-
-DECLARE_ENUM_LIST(euphoria::core::BorderSetupRule)
-DECLARE_ENUM_LIST(euphoria::core::OutsideRule)
+}
 
 #endif  // CORE_STRING_TABLE_H

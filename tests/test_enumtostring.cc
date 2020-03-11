@@ -17,13 +17,6 @@ namespace
     };
 }
 
-DECLARE_ENUM_LIST(MyEnum)
-BEGIN_ENUM_LIST(MyEnum)
-ENUM_VALUE(MyEnum, X)
-ENUM_VALUE(MyEnum, Cat)
-ENUM_VALUE(MyEnum, ReallyLongValue)
-END_ENUM_LIST()
-
 TEST_CASE("enum2string", "[enum2string]")
 {
     SECTION("single arg ToString")
