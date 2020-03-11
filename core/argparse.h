@@ -160,7 +160,7 @@ namespace euphoria::core::argparse
     template
     <
         typename T,
-        std::enable_if_t<!std::is_enum<T>::value == true, int> = 0
+        std::enable_if_t<std::is_enum<T>::value == false, int> = 0
     >
     std::optional<T>
     DefaultParseFunction(std::shared_ptr<Printer> printer, const std::string& value)
@@ -198,29 +198,6 @@ namespace euphoria::core::argparse
             // todo(include argument name and matches here
             printer->PrintError(value + " is not accepted");
             return std::nullopt;
-        }
-    }
-
-    template
-        <
-        typename T,
-        std::enable_if_t<std::is_enum<T>::type, int> = 0
-        >
-        std::optional<T>
-        DefaultParseFunction(std::shared_ptr<Printer> printer, const std::string& value)
-    {
-        auto stream = std::istringstream{ value.c_str() };
-        T t;
-        stream >> t;
-        if (stream.fail() || !stream.eof())
-        {
-            // todo(include argument name here
-            printer->PrintError(value + " is not accepted");
-            return std::nullopt;
-        }
-        else
-        {
-            return t;
         }
     }
 
