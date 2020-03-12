@@ -225,9 +225,9 @@ int
 main(int argc, char* argv[])
 {
     Engine engine;
-    if(engine.Setup(argparse::Args::Extract(argc, argv)) == false)
+    if(const auto ret = engine.Setup(argparse::Arguments::Extract(argc, argv)) != 0; ret != 0)
     {
-        return -1;
+        return ret;
     }
 
     engine.file_system->SetWrite

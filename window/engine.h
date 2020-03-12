@@ -36,8 +36,8 @@ namespace euphoria::window
         Engine();
         ~Engine();
 
-        bool
-        Setup(const core::argparse::Args& args = core::argparse::Args {});
+        int
+        Setup(const core::argparse::Arguments& args);
 
         bool
         CreateWindow(

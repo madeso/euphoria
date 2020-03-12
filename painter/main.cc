@@ -58,13 +58,13 @@ using namespace euphoria::render;
 using namespace euphoria::window;
 
 int
-main(int, char**)
+main(int argc, char** argv)
 {
     Engine engine;
 
-    if(engine.Setup() == false)
+    if (const auto r = engine.Setup(argparse::Arguments::Extract(argc, argv)); r != 0)
     {
-        return -1;
+        return r;
     }
 
 

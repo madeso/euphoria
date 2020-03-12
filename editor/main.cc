@@ -448,12 +448,13 @@ struct FileHandlerList
 };
 
 int
-main(int argc, char* argv[])
+main(int argc, char** argv)
 {
     Engine engine;
-    if(engine.Setup(argparse::Args::Extract(argc, argv)) == false)
+
+    if (const auto r = engine.Setup(argparse::Arguments::Extract(argc, argv)); r != 0)
     {
-        return -1;
+        return r;
     }
 
 

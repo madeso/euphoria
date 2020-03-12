@@ -39,8 +39,8 @@ namespace euphoria::window
     }
 
 
-    bool
-    Engine::Setup(const core::argparse::Args& args)
+    int
+    Engine::Setup(const core::argparse::Arguments& args)
     {
         sdl = std::make_unique<SdlLibrary>();
         if(sdl->ok == false)
@@ -52,12 +52,12 @@ namespace euphoria::window
         auto parser = core::argparse::Parser("euphoria engine");
 
         auto current_directory = core::GetCurrentDirectory();
-        parser.AddSimple("-w", &current_directory)
+        parser.Add("-w", &current_directory)
                 .Help("Sets the working direction if it's differnt from the current folder");
         const auto parse_result = parser.Parse(args);
         if(parse_result != core::argparse::ParseResult::Ok)
         {
-            return false;
+            return core::argparse::ReturnValue(parse_result);
         }
 
         LOG_INFO("Current directory: {0}", current_directory);
@@ -82,7 +82,7 @@ namespace euphoria::window
 
         render::SetupDefaultFiles(catalog);
 
-        return true;
+        return 0;
     }
 
 

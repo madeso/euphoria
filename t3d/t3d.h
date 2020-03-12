@@ -27,7 +27,7 @@ namespace euphoria::core
 
 namespace euphoria::core::argparse
 {
-    struct Args;
+    struct Arguments;
 }
 
 namespace euphoria::render
@@ -86,8 +86,8 @@ namespace euphoria::t3d
         ~T3d();
 
 
-        [[nodiscard]] bool
-        Start(const core::argparse::Args& args);
+        [[nodiscard]] int
+        Start(const core::argparse::Arguments& args);
 
 
         void
