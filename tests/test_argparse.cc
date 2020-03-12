@@ -60,7 +60,7 @@ TEST_CASE("argparse", "[argparse]")
     {
         SECTION("empty parser is ok")
         {
-            const auto res = parser.ParseArgs(MakeArguments({}));
+            const auto res = parser.Parse(MakeArguments({}));
             CHECK(res == ParseResult::Ok);
         }
     }
@@ -75,14 +75,14 @@ TEST_CASE("argparse", "[argparse]")
 
         SECTION("empty parser is ok")
         {
-            const auto res = parser.ParseArgs(MakeArguments({}));
+            const auto res = parser.Parse(MakeArguments({}));
             CHECK(res == ParseResult::Ok);
             CHECK(var == "default");
         }
 
         SECTION("function called")
         {
-            const auto res = parser.ParseArgs(MakeArguments({ "-f" }));
+            const auto res = parser.Parse(MakeArguments({ "-f" }));
             CHECK(res == ParseResult::Ok);
             CHECK(var == "called");
         }
@@ -95,14 +95,14 @@ TEST_CASE("argparse", "[argparse]")
 
         SECTION("empty parser is ok")
         {
-            const auto res = parser.ParseArgs(MakeArguments({}));
+            const auto res = parser.Parse(MakeArguments({}));
             CHECK(res == ParseResult::Ok);
             CHECK(value == 0);
         }
 
         SECTION("parse 42")
         {
-            const auto res = parser.ParseArgs(MakeArguments({ "-f", "42" }));
+            const auto res = parser.Parse(MakeArguments({ "-f", "42" }));
             CHECK(res == ParseResult::Ok);
             CHECK(value == 42);
         }
@@ -115,14 +115,14 @@ TEST_CASE("argparse", "[argparse]")
 
         SECTION("empty parser is ok")
         {
-            const auto res = parser.ParseArgs(MakeArguments({}));
+            const auto res = parser.Parse(MakeArguments({}));
             CHECK(res == ParseResult::Ok);
             CHECK(value == "default");
         }
 
         SECTION("parse 42")
         {
-            const auto res = parser.ParseArgs(MakeArguments({ "-f", "dog" }));
+            const auto res = parser.Parse(MakeArguments({ "-f", "dog" }));
             CHECK(res == ParseResult::Ok);
             CHECK(value == "dog");
         }
@@ -136,14 +136,14 @@ TEST_CASE("argparse", "[argparse]")
 
         SECTION("empty parser is ok")
         {
-            const auto res = parser.ParseArgs(MakeArguments({}));
+            const auto res = parser.Parse(MakeArguments({}));
             CHECK(res == ParseResult::Ok);
             CHECK(value == Animal::Dog);
         }
 
         SECTION("parse cat")
         {
-            const auto res = parser.ParseArgs(MakeArguments({ "-f", "cat" }));
+            const auto res = parser.Parse(MakeArguments({ "-f", "cat" }));
             CHECK(res == ParseResult::Ok);
             CHECK(value == Animal::Cat);
         }
@@ -156,14 +156,14 @@ TEST_CASE("argparse", "[argparse]")
 
         SECTION("positional missing = error")
         {
-            const auto res = parser.ParseArgs(MakeArguments({}));
+            const auto res = parser.Parse(MakeArguments({}));
             CHECK(res == ParseResult::Error);
             CHECK(value == "default");
         }
 
         SECTION("parse 42")
         {
-            const auto res = parser.ParseArgs(MakeArguments({ "dog" }));
+            const auto res = parser.Parse(MakeArguments({ "dog" }));
             CHECK(res == ParseResult::Ok);
             CHECK(value == "dog");
         }
@@ -193,7 +193,7 @@ TEST_CASE("argparse", "[argparse]")
 
         SECTION("empty subparser = error")
         {
-            const auto res = parser.ParseArgs(MakeArguments({}));
+            const auto res = parser.Parse(MakeArguments({}));
             CHECK(res == ParseResult::Error);
             CHECK(a == "default");
             CHECK(b == "default");
@@ -201,7 +201,7 @@ TEST_CASE("argparse", "[argparse]")
 
         SECTION("call a")
         {
-            const auto res = parser.ParseArgs
+            const auto res = parser.Parse
             (
                 MakeArguments
                 ({
@@ -215,7 +215,7 @@ TEST_CASE("argparse", "[argparse]")
 
         SECTION("call a with arg")
         {
-            const auto res = parser.ParseArgs
+            const auto res = parser.Parse
             (
                 MakeArguments
                 ({
@@ -229,7 +229,7 @@ TEST_CASE("argparse", "[argparse]")
 
         SECTION("call b")
         {
-            const auto res = parser.ParseArgs
+            const auto res = parser.Parse
             (
                 MakeArguments
                 ({

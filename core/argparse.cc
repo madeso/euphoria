@@ -398,7 +398,7 @@ namespace euphoria::core::argparse
 
 
     ParseResult
-    Parser::ParseArgs(const Arguments& args)
+    Parser::Parse(const Arguments& args)
     {
         auto reader = ArgumentReader{ args };
         auto runner = Runner{ &reader, printer };
@@ -407,10 +407,10 @@ namespace euphoria::core::argparse
 
 
     std::optional<int>
-    Parser::ParseArgs(int argc, char* argv[])
+    Parser::Parse(int argc, char* argv[])
     {
         const auto args = Arguments::Extract(argc, argv);
-        const auto res = ParseArgs(args);
+        const auto res = Parse(args);
         if (res == ParseResult::Ok)
         {
             return std::nullopt;
@@ -426,7 +426,7 @@ namespace euphoria::core::argparse
     ParseFromMain(Parser* parser, int argc, char* argv[])
     {
         const auto args = Arguments::Extract(argc, argv);
-        const auto res = parser->ParseArgs(args);
+        const auto res = parser->Parse(args);
         return ReturnValue(res);
     }
 }

@@ -305,12 +305,12 @@ namespace euphoria::core::argparse
         PrintHelp();
 
         ParseResult
-        ParseArgs(const Arguments& args);
+        Parse(const Arguments& args);
 
         // value = return from main
         // nullopt = continue, parsing was ok
         std::optional<int>
-        ParseArgs(int argc, char* argv[]);
+        Parse(int argc, char* argv[]);
 
         std::string description;
 
