@@ -7,15 +7,13 @@
 
 /*
 
-   argparse issues:
+   argparse issues & todos:
 
    * output looks horrible
 
-   * unhelpful error messages
+   * unhelpful error messages, hint misspelled argument via StringToEnum code
 
-   * positionals eat help argument
-
-   * subcommands are missing help text
+   * positionals eat help argument! -h with positional generates parsing error
 
    * assert invalid setups and arguments
 
@@ -28,6 +26,10 @@
    * Help/Narg chainging functions renaming on return value of Add
 
    * comma parsing of Names (with multiple names)
+
+   * ParseResult should be a struct/handle custom arguments
+
+   * generic OnComplete unit test
 
 */
 
