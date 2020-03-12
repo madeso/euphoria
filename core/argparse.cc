@@ -180,7 +180,7 @@ namespace euphoria::core::argparse
 
 
     Argument&
-    Parser::AddArgument(const Name& name, std::shared_ptr<Argument> argument)
+    ParserBase::AddArgument(const Name& name, std::shared_ptr<Argument> argument)
     {
         if (name.IsOptional())
         {
@@ -196,21 +196,21 @@ namespace euphoria::core::argparse
 
 
     Argument&
-    Parser::AddVoidFunction(const Name& name, std::function<void()> void_function)
+    ParserBase::AddVoidFunction(const Name& name, std::function<void()> void_function)
     {
         return AddArgument(name, std::make_shared<ArgumentNoValue>([void_function](Runner*) {void_function(); return ParseResult::Ok; }));
     }
 
 
     void
-    Parser::OnComplete(CompleteFunction cf)
+    ParserBase::OnComplete(CompleteFunction cf)
     {
         on_complete = cf;
     }
 
 
     void
-    Parser::AddSubParser
+    ParserBase::AddSubParser
     (
         const std::string& name,
         SubParserCallback sub
@@ -222,14 +222,14 @@ namespace euphoria::core::argparse
 
 
     std::shared_ptr<Argument>
-    Parser::FindArgument(const std::string& name)
+    ParserBase::FindArgument(const std::string& name)
     {
         return optional_arguments[name];
     }
 
 
     ParseResult
-    Parser::ParseArgs(Runner* runner)
+    ParserBase::ParseArgs(Runner* runner)
     {
         int positional_index = 0;
 
@@ -325,12 +325,12 @@ namespace euphoria::core::argparse
     ParseResult
     SubParser::OnComplete(CompleteFunction com)
     {
-        Parser::OnComplete(com);
+        ParserBase::OnComplete(com);
         return ParseArgs(runner);
     }
 
 
-    RootParser::RootParser(const std::string& d)
+    Parser::Parser(const std::string& d)
         : description(d)
         , printer(std::make_shared<ConsolePrinter>())
     {
@@ -340,7 +340,7 @@ namespace euphoria::core::argparse
 
 
     void
-    RootParser::PrintHelp()
+    Parser::PrintHelp()
     {
         if (description.empty() == false)
         {
@@ -360,10 +360,10 @@ namespace euphoria::core::argparse
 
 
     ParseResult
-    RootParser::ParseArgs(const Arguments& args)
+    Parser::ParseArgs(const Arguments& args)
     {
         auto reader = ArgumentReader{ args };
         auto runner = Runner{ &reader, printer };
-        return Parser::ParseArgs(&runner);
+        return ParserBase::ParseArgs(&runner);
     }
 }

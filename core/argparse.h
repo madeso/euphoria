@@ -221,7 +221,7 @@ namespace euphoria::core::argparse
     };
 
 
-    struct Parser
+    struct ParserBase
     {
         std::vector<ArgumentAndName> positional_argument_list;
 
@@ -277,7 +277,7 @@ namespace euphoria::core::argparse
     };
 
 
-    struct SubParser : public Parser
+    struct SubParser : public ParserBase
     {
         Runner* runner;
 
@@ -289,9 +289,9 @@ namespace euphoria::core::argparse
     };
 
 
-    struct RootParser : public Parser
+    struct Parser : public ParserBase
     {
-        RootParser(const std::string& d = "");
+        explicit Parser(const std::string& d = "");
 
         void
         PrintHelp();

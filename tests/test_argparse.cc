@@ -51,7 +51,7 @@ namespace
 
 TEST_CASE("argparse", "[argparse]")
 {
-    auto parser = RootParser{};
+    auto parser = Parser{};
     auto output = std::make_shared<TestPrinter>();
     parser.printer = output;
 
