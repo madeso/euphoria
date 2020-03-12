@@ -107,16 +107,20 @@ namespace euphoria::core::argparse
     };
 
 
+    // optional: start with either - or --
+    //    can have many names
+    // positional: doesn't start with -
+    //    can only have a single name
     struct Name
     {
-        std::string name;
-
-        // optional: start with either - or --
-        // positional: doesn't start with -
-
-        Name(const std::string& n);
+        std::vector<std::string> names;
 
         Name(const char* n);
+
+        // return empty string if valid, return error message if not
+        [[nodiscard]]
+        std::string
+        Validate() const;
 
         bool
         IsOptional() const;

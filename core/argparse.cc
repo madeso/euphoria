@@ -1,6 +1,8 @@
 #include "core/argparse.h"
 
 #include "core/cint.h"
+#include "core/stringutils.h"
+#include "core/stringmerger.h"
 
 #include <iostream>
 #include <iomanip>
@@ -22,8 +24,6 @@
 
    * Narg chainging functions renaming on return value of Add
 
-   * comma parsing of Names (with multiple names)
-
    * ParseResult should be a struct/handle custom arguments
 
    * generic OnComplete unit test
@@ -33,8 +33,37 @@
 
 namespace euphoria::core::argparse
 {
+    namespace
+    {
+        bool
+        IsOptionalArgument(const std::string& name)
+        {
+            return name[0] == '-';
+        }
+
+        bool
+        IsValidArgumentName(const std::string& str)
+        {
+            if (str.empty())
+            {
+                return false;
+            }
+
+            constexpr auto VALID_ARGUMENT_NAME_CHARACTERS = "abcdefghijklmnopqrstuwxyz-_";
+            const auto first_invalid_character = ToLower(str).find_first_not_of(VALID_ARGUMENT_NAME_CHARACTERS);
+            if (first_invalid_character != std::string::npos)
+            {
+                return false;
+            }
+
+            return true;
+        }
+    }
+
+
     FileOutput::FileOutput(const std::string& o) : file(o), single(!(EndsWith(o, "/") || EndsWith(o, "\\")))
     {}
+
 
     std::string
     FileOutput::NextFile(bool print)
@@ -156,29 +185,64 @@ namespace euphoria::core::argparse
     }
 
 
-    Name::Name(const std::string& n)
-        : name(n)
+    Name::Name(const char* nn)
+        : names(Split(nn, ','))
     {
+        for (auto& n : names)
+        {
+            n = Trim(n);
+        }
+
+        ASSERTX(Validate().empty(), Validate());
     }
 
 
-    Name::Name(const char* n)
-        : name(n)
+    std::string
+    Name::Validate() const
     {
-    }
+        if (names.empty()) { return "no names found"; }
+        if (IsOptional())
+        {
+            for (const auto& n : names)
+            {
+                if (IsOptionalArgument(n) == false)
+                {
+                    return "arguments are optional but '" + n + "' is not";
+                }
 
+                if (IsValidArgumentName(n) == false)
+                {
+                    return "optional arguments '" + n + "' is not considered valid";
+                }
+            }
+        }
+        else
+        {
+            const auto n = names[0];
+            if (IsValidArgumentName(n) == false)
+            {
+                return "positional arguments '" + n + "' is not considered valid";
+            }
+        }
 
-    bool
-    IsOptionalArgument(const std::string& name)
-    {
-        return name[0] == '-';
+        return "";
     }
 
 
     bool
     Name::IsOptional() const
     {
-        return IsOptionalArgument(name);
+        if (names.empty())
+        {
+            return false;
+        }
+
+        if (names.size() > 1)
+        {
+            return true;
+        }
+
+        return IsOptionalArgument(names[0]);
     }
 
 
@@ -249,7 +313,10 @@ namespace euphoria::core::argparse
     {
         if (name.IsOptional())
         {
-            optional_arguments[name.name] = argument;
+            for (const auto& n : name.names)
+            {
+                optional_arguments[n] = argument;
+            }
             optional_argument_list.emplace_back(name, argument);
         }
         else
@@ -443,11 +510,12 @@ namespace euphoria::core::argparse
         // todo(Gustav): use a string table here, add wordwrap to table
         for (auto& a : positional_argument_list)
         {
-            printer->PrintInfo(a.name.name + " " + a.argument->help);
+            const auto names = StringMerger::Comma().Generate(a.name.names);
+            printer->PrintInfo(names + " " + a.argument->help);
         }
         for (auto& a : optional_argument_list)
         {
-            printer->PrintInfo(a.name.name + " " + a.argument->help);
+            printer->PrintInfo(a.name.names[0] + " " + a.argument->help);
         }
     }
 

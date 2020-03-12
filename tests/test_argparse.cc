@@ -149,6 +149,33 @@ TEST_CASE("argparse", "[argparse]")
         }
     }
 
+    SECTION("multi optional names")
+    {
+        Animal value = Animal::Dog;
+        parser.Add("-a, --animal", &value);
+
+        SECTION("empty parser is ok")
+        {
+            const auto res = parser.Parse(MakeArguments({}));
+            CHECK(res == ParseResult::Ok);
+            CHECK(value == Animal::Dog);
+        }
+
+        SECTION("short name")
+        {
+            const auto res = parser.Parse(MakeArguments({ "-a", "cat" }));
+            CHECK(res == ParseResult::Ok);
+            CHECK(value == Animal::Cat);
+        }
+
+        SECTION("long name")
+        {
+            const auto res = parser.Parse(MakeArguments({ "--animal", "bird" }));
+            CHECK(res == ParseResult::Ok);
+            CHECK(value == Animal::Bird);
+        }
+    }
+
     SECTION("positional string")
     {
         std::string value = "default";
