@@ -16,8 +16,6 @@
 
    * unhelpful error messages, hint misspelled argument via StringToEnum code
 
-   * positionals eat help argument! -h with positional generates parsing error
-
    * assert invalid setups and arguments
 
    * group arguments (?) and subparser (!), python has add_subparsers() function
@@ -457,6 +455,14 @@ namespace euphoria::core::argparse
     }
 
 
+    Argument&
+    Argument::AllowBeforePositionals()
+    {
+        allow_before_positionals = true;
+        return *this;
+    }
+
+
     ArgumentAndName::ArgumentAndName(const Name& n, std::shared_ptr<Argument> a)
         : name(n)
         , argument(a)
@@ -600,13 +606,37 @@ namespace euphoria::core::argparse
         {
             if (has_more_positionals())
             {
-                auto match = positional_argument_list[positional_index];
-                auto arg_parse_result = match.argument->Parse(runner);
-                if (arg_parse_result != ParseResult::Ok)
+                // first, peek at the next commandline argument
+                // and check for optionals that are allowed before positionals
+                if
+                (
+                    const auto arg = FindArgument(runner->arguments->Peek());
+                    arg != nullptr && arg->allow_before_positionals
+                )
                 {
-                    return arg_parse_result;
+                    // we have matched a optional, read and parse it!
+                    runner->arguments->Read();
+                    if
+                    (
+                        auto arg_parse_result = arg->Parse(runner);
+                        arg_parse_result != ParseResult::Ok
+                    )
+                    {
+                        return arg_parse_result;
+                    }
                 }
-                positional_index += 1;
+                else
+                {
+                    // the peeked argument isn't a important optional
+                    // handle positional
+                    auto match = positional_argument_list[positional_index];
+                    auto arg_parse_result = match.argument->Parse(runner);
+                    if (arg_parse_result != ParseResult::Ok)
+                    {
+                        return arg_parse_result;
+                    }
+                    positional_index += 1;
+                }
             }
             else
             {
@@ -692,8 +722,9 @@ namespace euphoria::core::argparse
         : description(d)
         , printer(std::make_shared<ConsolePrinter>())
     {
-        AddArgument("-h", std::make_shared<ArgumentNoValue>([this](Runner*) {PrintHelp(); return ParseResult::Quit; }))
-            .help = "print help";
+        AddArgument("-h, --help", std::make_shared<ArgumentNoValue>([this](Runner*) {PrintHelp(); return ParseResult::Quit; }))
+            .AllowBeforePositionals()
+            .Help("print help");
     }
 
 

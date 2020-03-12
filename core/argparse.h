@@ -132,9 +132,13 @@ namespace euphoria::core::argparse
         virtual ~Argument();
 
         std::string help;
+        bool allow_before_positionals = false;
 
         Argument&
         Help(const std::string& h);
+
+        Argument&
+        AllowBeforePositionals();
 
         virtual
         ParseResult
