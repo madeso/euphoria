@@ -303,6 +303,9 @@ namespace euphoria::core::argparse
 
         std::shared_ptr<Printer> printer;
     };
+
+    int
+    ParseFromMain(Parser* parser, int argc, char* argv[]);
 }
 
 #endif  // CORE_ARGPARSE_H

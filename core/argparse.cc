@@ -366,4 +366,13 @@ namespace euphoria::core::argparse
         auto runner = Runner{ &reader, printer };
         return ParserBase::ParseArgs(&runner);
     }
+
+
+    int
+    ParseFromMain(Parser* parser, int argc, char* argv[])
+    {
+        const auto args = Arguments::Extract(argc, argv);
+        const auto res = parser->ParseArgs(args);
+        return ReturnValue(res);
+    }
 }
