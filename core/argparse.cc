@@ -3,6 +3,7 @@
 #include "core/cint.h"
 
 #include <iostream>
+#include <iomanip>
 
 
 /*
@@ -16,8 +17,6 @@
    * positionals eat help argument! -h with positional generates parsing error
 
    * assert invalid setups and arguments
-
-   * bring back FileOutput struct
 
    * non-greedy sub commands to operate lite ImageMagic "scripting": https://imagemagick.org/script/magick-script.php
 
@@ -34,6 +33,38 @@
 
 namespace euphoria::core::argparse
 {
+    FileOutput::FileOutput(const std::string& o) : file(o), single(!(EndsWith(o, "/") || EndsWith(o, "\\")))
+    {}
+
+    std::string
+    FileOutput::NextFile(bool print)
+    {
+        if(single)
+        {
+            return file;
+        }
+            
+        std::ostringstream ss;
+        index += 1;
+        if(print)
+        {
+            std::cout << "Generating " << index << "...\n";
+        }
+
+        // todo(Gustav): provide option for file extension
+        ss << file << std::setfill('0') << std::setw(5) << index << ".png";
+        return ss.str();
+    }
+
+
+    void
+    FileOutput::CreateDirIfMissing() const
+    {
+        if(single) return;
+        // std::filesystem::create_directories(file);
+    }
+
+
     int
     ReturnValue(ParseResult pr)
     {

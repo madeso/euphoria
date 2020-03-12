@@ -15,6 +15,24 @@
 
 namespace euphoria::core::argparse
 {
+
+    // option where the output can either be a single file or "infinite"
+    struct FileOutput
+    {
+        explicit FileOutput(const std::string& o);
+
+        std::string
+        NextFile(bool print = true);
+
+        void
+        CreateDirIfMissing() const;
+
+        std::string file;
+        bool        single;
+        int         index = 0;
+    };
+
+
     enum class ParseResult
     {
         // no error occured
