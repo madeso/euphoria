@@ -21,9 +21,12 @@ install:
   - if [ "$CXX" = "g++" ]; then export CXX="g++-9" CC="gcc-9"; fi
 
 
+# sources for gcc/++-9
 addons:
   apt:
     update: true
+    sources:
+      - ubuntu-toolchain-r-test
     packages:
       - libsdl2-dev
       - libprotobuf-dev
