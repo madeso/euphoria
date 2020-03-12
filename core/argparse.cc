@@ -35,6 +35,12 @@
 
    * extra validators combinable with | that adds more conditions (files must exists, strings can be empty, numbers must be in range etc)
 
+   * support python @ append arguments from file "arguments"
+
+   * support reading palettes and rgb(a)s from commandline, including common palette files
+
+   * add real-world tests in unit tests, like fake-git and fake-compiler
+
    * if bored, get ideas from https://www.npmjs.com/package/commander
 
 */
