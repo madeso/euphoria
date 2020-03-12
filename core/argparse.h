@@ -111,6 +111,9 @@ namespace euphoria::core::argparse
 
         std::string help;
 
+        Argument&
+        Help(const std::string& h);
+
         virtual
         ParseResult
         Parse(Runner* reader) = 0;

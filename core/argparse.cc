@@ -21,7 +21,7 @@
 
    * non-greedy sub commands to operate lite ImageMagic "scripting": https://imagemagick.org/script/magick-script.php
 
-   * Help/Narg chainging functions renaming on return value of Add
+   * Narg chainging functions renaming on return value of Add
 
    * comma parsing of Names (with multiple names)
 
@@ -153,6 +153,14 @@ namespace euphoria::core::argparse
 
     Argument::~Argument()
     {
+    }
+
+
+    Argument&
+    Argument::Help(const std::string& h)
+    {
+        help = h;
+        return *this;
     }
 
 
