@@ -31,10 +31,10 @@ main(int argc, char* argv[])
     std::string rule = "#origin#";
     int count = 1;
 
-    auto parser = Parser{"tracery command line"};
-    parser.Add("file", &file);
-    parser.Add("--rule", &rule);
-    parser.Add("--count", &count);
+    auto parser = Parser{"Tracery-like terminal interface."};
+    parser.Add("file", &file).Help("the tracery rule file");
+    parser.Add("--rule", &rule).Help("the starting to expand from");
+    parser.Add("--count", &count).Help("how many times to run the rule");
 
     parser.OnComplete([&]
     {

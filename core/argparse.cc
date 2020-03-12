@@ -722,29 +722,111 @@ namespace euphoria::core::argparse
         : description(d)
         , printer(std::make_shared<ConsolePrinter>())
     {
-        AddArgument("-h, --help", std::make_shared<ArgumentNoValue>([this](Runner*) {PrintHelp(); return ParseResult::Quit; }))
-            .AllowBeforePositionals()
-            .Help("print help");
+        AddArgument
+        (
+            "-h, --help",
+            std::make_shared<ArgumentNoValue>
+            (
+                [this](Runner* runner)
+                {
+                    PrintHelp(runner->arguments->arguments);
+                    return ParseResult::Quit;
+                }
+            )
+        )
+        .AllowBeforePositionals()
+        .Help("show this help message and exit")
+        ;
+    }
+
+
+    std::string
+    Parser::GenerateUsageString(const Arguments& args)
+    {
+        auto arg_to_string = [](const ArgumentAndName& aa)
+        {
+            if( aa.name.IsOptional() )
+            {
+                std::ostringstream ss;
+                ss << "[" << aa.name.names[0] << "]";
+                // todo(Gustav): include any attributes
+                return ss.str();
+            }
+            else
+            {
+                return ToUpper(aa.name.names[0]);
+            }
+        };
+        // prog.py [-h] [--sum] N [N ...]
+        auto ret = std::vector<std::string>{args.name};
+
+        for(auto& a: optional_argument_list)
+        {
+            if(a.argument->allow_before_positionals == true)
+            {
+                ret.emplace_back(arg_to_string(a));
+            }
+        }
+
+        for(auto& a: positional_argument_list)
+        {
+            ret.emplace_back(arg_to_string(a));
+        }
+
+        for(auto& a: optional_argument_list)
+        {
+            if(a.argument->allow_before_positionals == false)
+            {
+                ret.emplace_back(arg_to_string(a));
+            }
+        }
+
+        return StringMerger::Space().Generate(ret);
     }
 
 
     void
-    Parser::PrintHelp()
+    Parser::PrintHelp(const Arguments& args)
     {
+        printer->PrintInfo("usage: " + GenerateUsageString(args));
+        printer->PrintInfo("");
+        bool dirty = false;
+        auto print_newline = [&]()
+        {
+            if(dirty)
+            {
+                printer->PrintInfo("");
+                dirty = false;
+            }
+        };
         if (description.empty() == false)
         {
             printer->PrintInfo(description);
+            dirty = true;
         }
+        print_newline();
 
         // todo(Gustav): use a string table here, add wordwrap to table
-        for (auto& a : positional_argument_list)
+        if (positional_argument_list.empty() == false)
         {
-            const auto names = StringMerger::Comma().Generate(a.name.names);
-            printer->PrintInfo(names + " " + a.argument->help);
+            dirty = true;
+            printer->PrintInfo("positional arguments:");
+            for (auto& a : positional_argument_list)
+            {
+                printer->PrintInfo(a.name.names[0] + " " + a.argument->help);
+            }
         }
-        for (auto& a : optional_argument_list)
+        print_newline();
+
+        if(optional_argument_list.empty() == false)
         {
-            printer->PrintInfo(a.name.names[0] + " " + a.argument->help);
+            dirty = true;
+            printer->PrintInfo("positional arguments:");
+            for (auto& a : optional_argument_list)
+            {
+                const auto names = StringMerger::Comma().Generate(a.name.names);
+                printer->PrintInfo(names + " " + a.argument->help);
+            }
         }
     }
 

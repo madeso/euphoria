@@ -346,8 +346,11 @@ namespace euphoria::core::argparse
     {
         explicit Parser(const std::string& d = "");
 
+        std::string
+        GenerateUsageString(const Arguments& args);
+
         void
-        PrintHelp();
+        PrintHelp(const Arguments& args);
 
         ParseResult
         Parse(const Arguments& args);
