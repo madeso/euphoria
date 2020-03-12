@@ -20,7 +20,7 @@
 
    * assert invalid setups and arguments
 
-   * group arguments (?) and subparser, python has add_subparsers() function
+   * group arguments (?) and subparser (!), python has add_subparsers() function
      that create a subparser group and takes name and description/help for that subparser group
 
    * non-greedy sub commands to operate lite ImageMagic "scripting": https://imagemagick.org/script/magick-script.php
@@ -32,6 +32,10 @@
    * generic OnComplete unit test
 
    * instead of .Add("arg").Help("") perhaps change to .Add(Arg{"arg"}.Help("")) so chainging arguments is possible
+
+   * extra validators combinable with | that adds more conditions (files must exists, strings can be empty, numbers must be in range etc)
+
+   * if bored, get ideas from https://www.npmjs.com/package/commander
 
 */
 
