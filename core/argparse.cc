@@ -5,6 +5,23 @@
 #include <iostream>
 
 
+/*
+
+   argparse issues:
+
+   * output looks horrible
+
+   * unhelpful error messages
+
+   * positionals eat help argument
+
+   * subcommands are missing help text
+
+   * assert invalid setups and arguments
+
+*/
+
+
 namespace euphoria::core::argparse
 {
     int
@@ -51,7 +68,6 @@ namespace euphoria::core::argparse
     bool
     ArgumentReader::HasMore() const
     {
-        // todo(Gustav): assert on size
         return next_position < Csizet_to_int(arguments.arguments.size());
     }
 
