@@ -245,7 +245,7 @@ namespace euphoria::core::argparse
                 return false;
             }
 
-            constexpr auto VALID_ARGUMENT_NAME_CHARACTERS = "abcdefghijklmnopqrstuwxyz-_";
+            constexpr auto VALID_ARGUMENT_NAME_CHARACTERS = "abcdefghijklmnopqrstuvwxyz-_";
             const auto first_invalid_character = ToLower(str).find_first_not_of(VALID_ARGUMENT_NAME_CHARACTERS);
             if (first_invalid_character != std::string::npos)
             {
