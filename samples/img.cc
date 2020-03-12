@@ -22,7 +22,8 @@ main(int argc, char* argv[])
 
     Image image;
 
-    auto load_image = [&] {
+    auto load_image = [&]
+    {
         auto ret = LoadImage(io::FileToChunk(input), input, AlphaLoad::Keep);
         if(!ret.error.empty())
         {
@@ -35,105 +36,185 @@ main(int argc, char* argv[])
             return true;
         }
     };
-    auto write_image = [&] {
+    
+    auto write_image = [&]
+    {
         io::ChunkToFile(image.Write(ImageWriteFormat::PNG), output);
     };
 
-    parser.AddSimple("input", &input).Help("The image to apply filters to");
-    parser.AddSimple("-o, --output", &output)
+    // todo(Gustav): change to generate/open - filter - save subparsing instead (with image targets)
+
+    parser.Add("input", &input).Help("The image to apply filters to");
+    parser.Add("-o, --output", &output)
             .Help("Where to write the resulting image");
 
-    parser.AddSubParser("nop", "Don't do anything", [&] {
-        if(!load_image())
+    parser.AddSubParser
+    (
+        "nop", "Don't do anything",
+        [&](argparse::SubParser* sub)
         {
-            return;
+            return sub->OnComplete
+            (
+                [&]
+                {
+                    if(!load_image())
+                    {
+                        return;
+                    }
+                    write_image();
+                }
+            );
+            
         }
-        write_image();
-    });
+    );
 
-    Grayscale grayscale = Grayscale::Average;
-    auto pgrayscale = parser.AddSubParser("grayscale", "Apply grayscale", [&] {
-        if(!load_image())
+    parser.AddSubParser
+    (
+        "grayscale", "Apply grayscale",
+        [&](argparse::SubParser* sub)
         {
-            return;
+            Grayscale grayscale = Grayscale::Average;
+            sub->Add("-g,--grayscale", &grayscale);
+            return sub->OnComplete
+            (
+                [&]
+                {
+                    if(!load_image())
+                    {
+                        return;
+                    }
+                    MakeGrayscale(&image, grayscale);
+                    write_image();
+                }
+            );
+            
         }
-        MakeGrayscale(&image, grayscale);
-        write_image();
-    });
-    pgrayscale->AddEnum("-g,--grayscale", &grayscale);
+    );
 
-    palette::PaletteName palette    = palette::PaletteName::OneBit;
-    bool                 pal_dither = false;
-    auto ppalette = parser.AddSubParser("palswap", "Switch palette", [&] {
-        if(!load_image())
+    parser.AddSubParser
+    (
+        "palswap", "Switch palette",
+        [&](argparse::SubParser* sub)
         {
-            return;
+            palette::PaletteName palette = palette::PaletteName::OneBit;
+            bool pal_dither = false;
+
+            sub->Add("-p, --palette", &palette);
+            sub->SetTrue("-d, --dither", &pal_dither);
+
+            return sub->OnComplete
+            (
+                [&]
+                {
+                    if(!load_image())
+                    {
+                        return;
+                    }
+                    if(pal_dither)
+                    {
+                        MatchPaletteDither(&image, palette::GetPalette(palette));
+                    }
+                    else
+                    {
+                        MatchPalette(&image, palette::GetPalette(palette));
+                    }
+                    write_image();
+                }
+            );
+            
         }
-        if(pal_dither)
+    );
+
+    parser.AddSubParser
+    (
+        "edge", "Edge detection",
+        [&](argparse::SubParser* sub)
         {
-            MatchPaletteDither(&image, palette::GetPalette(palette));
+            float edge_r = 0.5f;
+            sub->Add("-r, --range", &edge_r);
+            return sub->OnComplete
+            (
+                [&]
+                {
+                    if(!load_image())
+                    {
+                        return;
+                    }
+                    EdgeDetection(&image, edge_r);
+                    write_image();
+                }
+            );
         }
-        else
+    );
+
+    parser.AddSubParser
+    (
+        "color", "Detect colors",
+        [&](argparse::SubParser* sub)
         {
-            MatchPalette(&image, palette::GetPalette(palette));
+            float edge_r = 0.5f;
+            auto color_color = Color::Red;
+            sub->Add("-r, --range", &edge_r);
+            sub->Add("-c, --color", &color_color);
+            return sub->OnComplete
+            (
+                [&]
+                {
+                    if(!load_image())
+                    {
+                        return;
+                    }
+                    ColorDetection(&image, color_color, edge_r);
+                    write_image();
+                }
+            );
         }
-        write_image();
-    });
-    ppalette->AddEnum("-p, --palette", &palette);
-    ppalette->SetTrue("-d, --dither", &pal_dither);
+    );
 
-    float edge_r = 0.5f;
-    auto  pedge  = parser.AddSubParser("edge", "Edge detection", [&] {
-        if(!load_image())
+    parser.AddSubParser
+    (
+        "bright", "Change brightness",
+        [&](argparse::SubParser* sub)
         {
-            return;
+            int bright_c = 10;
+            sub->Add("-c, --change", &bright_c);
+            return sub->OnComplete
+            (
+                [&]
+                {
+                    if(!load_image())
+                    {
+                        return;
+                    }
+                    ChangeBrightness(&image, bright_c);
+                    write_image();
+                }
+            );
         }
-        EdgeDetection(&image, edge_r);
-        write_image();
-    });
-    pedge->AddSimple("-r, --range", &edge_r);
+    );
 
-    auto color_color = Color::Red;
-    auto pcolor      = parser.AddSubParser("color", "Detect colors", [&] {
-        if(!load_image())
+    parser.AddSubParser
+    (
+        "contrast", "Change contrast",
+        [&](argparse::SubParser* sub)
         {
-            return;
+            float contrast = 10;
+            sub->Add("-c, --change", &contrast);
+            return sub->OnComplete
+            (
+                [&]
+                {
+                    if (!load_image())
+                    {
+                        return;
+                    }
+                    ChangeContrast(&image, contrast);
+                    write_image();
+                }
+            );
         }
-        ColorDetection(&image, color_color, edge_r);
-        write_image();
-    });
-    pcolor->AddSimple("-r, --range", &edge_r);
-    pcolor->AddEnum("-c, --color", &color_color);
-
-    int  bright_c = 10;
-    auto pbright  = parser.AddSubParser("bright", "Change brightness", [&] {
-        if(!load_image())
-        {
-            return;
-        }
-        ChangeBrightness(&image, bright_c);
-        write_image();
-    });
-    pbright->AddSimple("-c, --change", &bright_c);
-
-    float contrast = 10;
-    auto  pcontr   = parser.AddSubParser("contrast", "Change contrast", [&] {
-        if(!load_image())
-        {
-            return;
-        }
-        ChangeContrast(&image, contrast);
-        write_image();
-    });
-    pcontr->AddSimple("-c, --change", &contrast);
+    );
 
 
-    const auto status = parser.Parse(argc, argv);
-    if(status != argparse::ParseResult::Ok)
-    {
-        return -1;
-    }
-
-
-    return 0;
+    return argparse::ParseFromMain(&parser, argc, argv);
 }
