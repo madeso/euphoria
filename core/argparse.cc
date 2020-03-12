@@ -20,6 +20,9 @@
 
    * assert invalid setups and arguments
 
+   * group arguments (?) and subparser, python has add_subparsers() function
+     that create a subparser group and takes name and description/help for that subparser group
+
    * non-greedy sub commands to operate lite ImageMagic "scripting": https://imagemagick.org/script/magick-script.php
 
    * Narg chainging functions renaming on return value of Add
@@ -27,6 +30,164 @@
    * ParseResult should be a struct/handle custom arguments
 
    * generic OnComplete unit test
+
+*/
+
+/*
+    ---------------------------------------------------------------------------
+
+    Sample output from various systems for inspiration:
+
+    ---------------------------------------------------------------------------
+
+    $ python prog.py -h
+    usage: prog.py [-h] [--sum] N [N ...]
+
+    Process some integers.
+
+    positional arguments:
+     N           an integer for the accumulator
+
+    optional arguments:
+     -h, --help  show this help message and exit
+     --sum       sum the integers (default: find the max)
+
+    ---------------------------------------------------------------------------
+
+    $ python prog.py a b c
+    usage: prog.py [-h] [--sum] N [N ...]
+    prog.py: error: argument N: invalid int value: 'a'
+
+    ---------------------------------------------------------------------------
+
+    usage: PROG [-h] [--foo FOO] [bar [bar ...]]
+
+    positional arguments:
+     bar         BAR! (default: [1, 2, 3])
+
+    optional arguments:
+     -h, --help  show this help message and exit
+     --foo FOO   FOO! (default: 42)
+    
+    ---------------------------------------------------------------------------
+
+    >>> parser = argparse.ArgumentParser(prog='PROG')
+    >>> parser.add_argument('-bacon')
+    >>> parser.add_argument('-badger')
+    >>> parser.parse_args('-bac MMM'.split())
+    Namespace(bacon='MMM', badger=None)
+    >>> parser.parse_args('-bad WOOD'.split())
+    Namespace(bacon=None, badger='WOOD')
+    >>> parser.parse_args('-ba BA'.split())
+    usage: PROG [-h] [-bacon BACON] [-badger BADGER]
+    PROG: error: ambiguous option: -ba could match -badger, -bacon
+
+    ---------------------------------------------------------------------------
+
+    >>> parser.parse_args(['--help'])
+    usage: PROG [-h] [--foo] {a,b} ...
+
+    positional arguments:
+      {a,b}   sub-command help
+        a     a help
+        b     b help
+
+    optional arguments:
+      -h, --help  show this help message and exit
+      --foo   foo help
+
+    >>> parser.parse_args(['a', '--help'])
+    usage: PROG a [-h] bar
+
+    positional arguments:
+      bar     bar help
+
+    optional arguments:
+      -h, --help  show this help message and exit
+
+    >>> parser.parse_args(['b', '--help'])
+    usage: PROG b [-h] [--baz {X,Y,Z}]
+
+    optional arguments:
+      -h, --help     show this help message and exit
+      --baz {X,Y,Z}  baz help
+
+    ---------------------------------------------------------------------------
+
+    $ git -h
+    unknown option: -h
+    usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]
+               [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+               [-p | --paginate | --no-pager] [--no-replace-objects] [--bare]
+               [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+               <command> [<args>]
+
+    ---------------------------------------------------------------------------
+
+    $ git h
+    git: 'h' is not a git command. See 'git --help'.
+
+    The most similar commands are
+            am
+            co
+            gc
+            help
+            lg
+            ls
+            mv
+            p4
+            push
+            rm
+            show
+            up
+
+    ---------------------------------------------------------------------------
+
+    $ git --help
+    usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]
+               [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+               [-p | --paginate | --no-pager] [--no-replace-objects] [--bare]
+               [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+               <command> [<args>]
+
+    These are common Git commands used in various situations:
+
+    start a working area (see also: git help tutorial)
+       clone      Clone a repository into a new directory
+       init       Create an empty Git repository or reinitialize an existing one
+
+    work on the current change (see also: git help everyday)
+       add        Add file contents to the index
+       mv         Move or rename a file, a directory, or a symlink
+       reset      Reset current HEAD to the specified state
+       rm         Remove files from the working tree and from the index
+
+    examine the history and state (see also: git help revisions)
+       bisect     Use binary search to find the commit that introduced a bug
+       grep       Print lines matching a pattern
+       log        Show commit logs
+       show       Show various types of objects
+       status     Show the working tree status
+
+    grow, mark and tweak your common history
+       branch     List, create, or delete branches
+       checkout   Switch branches or restore working tree files
+       commit     Record changes to the repository
+       diff       Show changes between commits, commit and working tree, etc
+       merge      Join two or more development histories together
+       rebase     Reapply commits on top of another base tip
+       tag        Create, list, delete or verify a tag object signed with GPG
+
+    collaborate (see also: git help workflows)
+       fetch      Download objects and refs from another repository
+       pull       Fetch from and integrate with another repository or a local branch
+       push       Update remote refs along with associated objects
+
+    'git help -a' and 'git help -g' list available subcommands and some
+    concept guides. See 'git help <command>' or 'git help <concept>'
+    to read about a specific subcommand or concept.
+
+    ---------------------------------------------------------------------------
 
 */
 
