@@ -17,8 +17,6 @@
 
    * assert invalid setups and arguments
 
-   * simplify simple parsers that doesn't use the OnComplete style
-
    * SetTrue/SetFalse/SetConst arguments
 
    * non-greedy sub commands to operate lite ImageMagic "scripting": https://imagemagick.org/script/magick-script.php
@@ -250,6 +248,17 @@ namespace euphoria::core::argparse
     }
 
 
+    void
+    ParserBase::AddSubParser
+    (
+        const std::string& name,
+        SubParserCallback sub
+    )
+    {
+        AddSubParser(name, "", sub);
+    }
+
+
     std::shared_ptr<Argument>
     ParserBase::FindArgument(const std::string& name)
     {
@@ -394,6 +403,22 @@ namespace euphoria::core::argparse
         auto reader = ArgumentReader{ args };
         auto runner = Runner{ &reader, printer };
         return ParserBase::ParseArgs(&runner);
+    }
+
+
+    std::optional<int>
+    Parser::ParseArgs(int argc, char* argv[])
+    {
+        const auto args = Arguments::Extract(argc, argv);
+        const auto res = ParseArgs(args);
+        if (res == ParseResult::Ok)
+        {
+            return std::nullopt;
+        }
+        else
+        {
+            return ReturnValue(res);
+        }
     }
 
 

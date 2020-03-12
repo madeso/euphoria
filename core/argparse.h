@@ -269,6 +269,13 @@ namespace euphoria::core::argparse
             SubParserCallback sub
         );
 
+        void
+        AddSubParser
+        (
+            const std::string& name,
+            SubParserCallback sub
+        );
+
         std::shared_ptr<Argument>
         FindArgument(const std::string& name);
 
@@ -299,6 +306,11 @@ namespace euphoria::core::argparse
 
         ParseResult
         ParseArgs(const Arguments& args);
+
+        // value = return from main
+        // nullopt = continue, parsing was ok
+        std::optional<int>
+        ParseArgs(int argc, char* argv[]);
 
         std::string description;
 
