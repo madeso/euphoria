@@ -1,19 +1,16 @@
 #ifndef CORE_ARGPARSE_H
 #define CORE_ARGPARSE_H
 
-// todo(Gustav): optimize headers
+#include "core/enumtostring.h"
 
 #include <vector>
 #include <map>
-#include <iostream>
 #include <string>
 #include <sstream>
 #include <memory>
 #include <optional>
 #include <functional>
 #include <type_traits>
-
-#include "core/enumtostring.h"
 
 
 namespace euphoria::core::argparse

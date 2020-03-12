@@ -2,6 +2,8 @@
 
 #include "core/cint.h"
 
+#include <iostream>
+
 
 namespace euphoria::core::argparse
 {
@@ -23,6 +25,7 @@ namespace euphoria::core::argparse
         , arguments(a)
     {
     }
+
 
     Arguments
     Arguments::Extract(int argc, char* argv[])
