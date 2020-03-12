@@ -31,6 +31,8 @@
 
    * generic OnComplete unit test
 
+   * instead of .Add("arg").Help("") perhaps change to .Add(Arg{"arg"}.Help("")) so chainging arguments is possible
+
 */
 
 /*
@@ -186,6 +188,31 @@
     'git help -a' and 'git help -g' list available subcommands and some
     concept guides. See 'git help <command>' or 'git help <concept>'
     to read about a specific subcommand or concept.
+
+    ---------------------------------------------------------------------------
+
+    $ myprog --help
+    My Super Program 1.0
+    Kevin K. <kbknapp@gmail.com>
+    Does awesome things
+
+    ARGS:
+        INPUT    The input file to use
+
+    USAGE:
+        MyApp [FLAGS] [OPTIONS] <INPUT> [SUBCOMMAND]
+
+    FLAGS:
+        -h, --help       Prints help information
+        -v               Sets the level of verbosity
+        -V, --version    Prints version information
+
+    OPTIONS:
+        -c, --config <FILE>    Sets a custom config file
+
+    SUBCOMMANDS:
+        help    Prints this message or the help of the given subcommand(s)
+        test    Controls testing features
 
     ---------------------------------------------------------------------------
 
