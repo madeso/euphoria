@@ -265,6 +265,7 @@ namespace euphoria::core::argparse
         AddSubParser
         (
             const std::string& name,
+            const std::string& desc,
             SubParserCallback sub
         );
 

@@ -19,6 +19,16 @@
 
    * assert invalid setups and arguments
 
+   * simplify simple parsers that doesn't use the OnComplete style
+
+   * SetTrue/SetFalse/SetConst arguments
+
+   * non-greedy sub commands to operate lite ImageMagic "scripting": https://imagemagick.org/script/magick-script.php
+
+   * Help/Narg chainging functions renaming on return value of Add
+
+   * comma parsing of Names (with multiple names)
+
 */
 
 
@@ -229,6 +239,7 @@ namespace euphoria::core::argparse
     ParserBase::AddSubParser
     (
         const std::string& name,
+        const std::string& desc,
         SubParserCallback sub
     )
     {
