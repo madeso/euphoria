@@ -17,7 +17,7 @@
 
    * assert invalid setups and arguments
 
-   * SetTrue/SetFalse/SetConst arguments
+   * bring back FileOutput struct
 
    * non-greedy sub commands to operate lite ImageMagic "scripting": https://imagemagick.org/script/magick-script.php
 
@@ -233,6 +233,22 @@ namespace euphoria::core::argparse
     ParserBase::AddVoidFunction(const Name& name, std::function<void()> void_function)
     {
         return AddArgument(name, std::make_shared<ArgumentNoValue>([void_function](Runner*) {void_function(); return ParseResult::Ok; }));
+    }
+
+
+    Argument&
+    ParserBase::SetTrue(const Name& name, bool* target)
+    {
+        *target = false;
+        return SetConst(name, target, true);
+    }
+
+
+    Argument&
+    ParserBase::SetFalse(const Name& name, bool* target)
+    {
+        *target = true;
+        return SetConst(name, target, false);
     }
 
 

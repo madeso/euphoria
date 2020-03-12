@@ -15,12 +15,12 @@ main(int argc, char* argv[])
 {
     auto image_size = 32;
 
-    auto parser = argparse::Parser {"euphoria raytracer"};
-    parser.AddSimple("-size", &image_size).Help("Minimum image size");
+    auto parser = argparse::Parser {"euphoria palette generator"};
+    parser.Add("-size", &image_size).Help("Minimum image size");
 
-    if(parser.Parse(argc, argv) != argparse::ParseResult::Ok)
+    if(const auto r = parser.Parse(argc, argv))
     {
-        return -1;
+        return *r;
     }
 
     for (auto palette_name : palette::PaletteNames)

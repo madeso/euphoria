@@ -16,13 +16,13 @@ main(int argc, char* argv[])
     int number_of_samples = 100;
 
     auto parser = argparse::Parser {"euphoria raytracer"};
-    parser.AddSimple("-width", &image_width).Help("image width");
-    parser.AddSimple("-height", &image_height).Help("image height");
-    parser.AddSimple("-samples", &number_of_samples).Help("number of samples (anitaliasing)");
+    parser.Add("-width", &image_width).Help("image width");
+    parser.Add("-height", &image_height).Help("image height");
+    parser.Add("-samples", &number_of_samples).Help("number of samples (anitaliasing)");
 
-    if(parser.Parse(argc, argv) != argparse::ParseResult::Ok)
+    if(auto r = parser.Parse(argc, argv))
     {
-        return -1;
+        return *r;
     }
 
     Image image;

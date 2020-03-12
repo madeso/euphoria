@@ -246,6 +246,22 @@ namespace euphoria::core::argparse
 
         template<typename T>
         Argument&
+        SetConst(const Name& name, T* target, T t)
+        {
+            return AddVoidFunction(name, [target, t]()
+            {
+                *target = t;
+            });
+        }
+
+        Argument&
+        SetTrue(const Name& name, bool* target);
+
+        Argument&
+        SetFalse(const Name& name, bool* target);
+
+        template<typename T>
+        Argument&
         Add(const Name& name, T* target, ParseFunction<T> parse_function = DefaultParseFunction<T>)
         {
             auto arg = std::make_shared<SingleArgument>([target, parse_function](Runner* runner, const std::string& value)

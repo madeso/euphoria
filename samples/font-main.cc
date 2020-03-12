@@ -77,12 +77,12 @@ main(int argc, char* argv[])
     std::string text;
 
     auto parser = argparse::Parser {"font test"};
-    parser.AddSimple("text", &text).Help("The text to print");
+    parser.Add("text", &text).Help("The text to print");
     parser.SetTrue("-alt", &use_alternate_builtin).Help("Use another builtin font");
 
-    if(parser.Parse(argc, argv) != argparse::ParseResult::Ok)
+    if(auto r = parser.Parse(argc, argv))
     {
-        return -1;
+        return *r;
     }
 
     auto font = use_alternate_builtin

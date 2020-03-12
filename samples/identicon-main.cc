@@ -21,14 +21,14 @@ main(int argc, char* argv[])
     bool use_identicon = true;
 
     auto parser = argparse::Parser {"identicon test"};
-    parser.AddSimple("-size", &image_size).Help("image size");
-    parser.AddSimple("-count", &number_of_images).Help("The number of images to generate");
+    parser.Add("-size", &image_size).Help("image size");
+    parser.Add("-count", &number_of_images).Help("The number of images to generate");
     parser.SetFalse("-const", &use_random).Help("Use a constant value");
     parser.SetFalse("-retro", &use_identicon).Help("Use retro render instead");
 
-    if(parser.Parse(argc, argv) != argparse::ParseResult::Ok)
+    if(const auto r = parser.Parse(argc, argv))
     {
-        return -1;
+        return *r;
     }
 
     if(use_random==false && number_of_images > 1)

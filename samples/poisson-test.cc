@@ -112,26 +112,40 @@ main(int argc, char* argv[])
 {
     auto parser = argparse::Parser {"Poisson test"};
 
-    int extra_frames = 10;
+    parser.AddSubParser
+    (
+        "svg", "generate svg file",
+        [](argparse::SubParser* sub)
+        {
+            return sub->OnComplete
+            (
+                []
+                {
+                    svg_dump();
+                }
+            );
+        }
+    );
 
-    auto psvg = parser.AddSubParser(
-            "svg", "generate svg file", [&] {
-                svg_dump();
-            });
+    parser.AddSubParser
+    (
+        "png", "generate png file",
+        [](argparse::SubParser* sub)
+        {
+            int extra_frames = 0;
+            sub->Add("--extra-frames", &extra_frames);
 
-    auto ppng = parser.AddSubParser(
-            "png", "generate svg file", [&] {
-                png_dump(extra_frames);
-            });
-    ppng->AddSimple("--extra-frames", &extra_frames);
-
-    const auto status = parser.Parse(argc, argv);
-    if(status != argparse::ParseResult::Ok)
-    {
-        return -1;
-    }
+            return sub->OnComplete
+            (
+                [&]
+                {
+                    png_dump(extra_frames);
+                }
+            );
+        }
+    );
 
 
-    return 0;
+    return argparse::ParseFromMain(&parser, argc, argv);
 }
 

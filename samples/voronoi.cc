@@ -99,17 +99,22 @@ main(int argc, char* argv[])
 
     auto parser = argparse::Parser {"voronoi generator"};
 
-    parser.AddSimple("-nopoints", &number_of_points).Help("number of points (in random)");
-    parser.AddSimple("-radius", &poisson_radius).Help("point radius (in poisson)");
-    parser.AddSimple("-imsize", &size).Help("image size");
-    parser.AddSimple("-output", &output_path).Help("where to save the result");
-    parser.SetTrue("-colorblind", &use_colorblind).Help("Switch to a colorblind palette");
-    parser.AddSimple("-crazy", &crazy_distance).Help("Sort distance acording to abs(value-distance)");
-    parser.AddSimple("-cos", &crazy_distance).Help("Instead of distance, cos(distance)");
-    parser.AddEnum("-distance", &distance_function).Help("How to calculate distance");
-    parser.AddEnum("-gen", &point_generation).Help("How to generate points");
+    // todo(Gustav): change to a subparser
+    parser.Add("--gen", &point_generation).Help("How to generate points");
+    parser.Add("--nopoints", &number_of_points).Help("number of points (in random)");
+    parser.Add("--radius", &poisson_radius).Help("point radius (in poisson)");
 
-    if(parser.Parse(argc, argv) != argparse::ParseResult::Ok) { return -1; }
+    parser.Add("--imsize", &size).Help("image size");
+    parser.Add("--output", &output_path).Help("where to save the result");
+    parser.SetTrue("--colorblind", &use_colorblind).Help("Switch to a colorblind palette");
+    parser.SetTrue("--cos", &cos_distance).Help("Instead of distance, cos(distance)");
+    parser.Add("--crazy", &crazy_distance).Help("Sort distance acording to abs(value-distance)");
+    parser.Add("--distance", &distance_function).Help("How to calculate distance");
+
+    if(const auto r = parser.Parse(argc, argv))
+    {
+        return *r;
+    }
 
     Random rand;
 
