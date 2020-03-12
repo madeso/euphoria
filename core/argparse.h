@@ -134,6 +134,9 @@ namespace euphoria::core::argparse
         std::string help;
         bool allow_before_positionals = false;
 
+        // automatically filled
+        std::string default_value;
+
         Argument&
         Help(const std::string& h);
 
@@ -303,6 +306,9 @@ namespace euphoria::core::argparse
                     return ParseResult::Error;
                 }
             });
+            std::ostringstream ss;
+            ss << *target;
+            arg->default_value = ss.str();
             return AddArgument(name, arg);
         }
 

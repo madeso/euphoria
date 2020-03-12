@@ -757,7 +757,6 @@ namespace euphoria::core::argparse
                 return ToUpper(aa.name.names[0]);
             }
         };
-        // prog.py [-h] [--sum] N [N ...]
         auto ret = std::vector<std::string>{args.name};
 
         for(auto& a: optional_argument_list)
@@ -825,7 +824,12 @@ namespace euphoria::core::argparse
             for (auto& a : optional_argument_list)
             {
                 const auto names = StringMerger::Comma().Generate(a.name.names);
-                printer->PrintInfo(names + " " + a.argument->help);
+                std::ostringstream default_text;
+                if(a.argument->default_value.empty() == false)
+                {
+                    default_text << " (default: " << a.argument->default_value << ")";
+                }
+                printer->PrintInfo(names + " " + a.argument->help + default_text.str());
             }
         }
     }
