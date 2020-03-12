@@ -18,20 +18,23 @@ before_install:
 
 # use a more modern gcc, 8 should also work (in theory) but not 7.4 (missing filesystem)
 install:
-  - if [ "$CXX" = "g++" ]; then export CXX="g++-8" CC="gcc-8"; fi
+  - if [ "$CXX" = "g++" ]; then export CXX="g++-9" CC="gcc-9"; fi
 
 
+# sources for gcc/++-9
 addons:
   apt:
     update: true
+    sources:
+      - ubuntu-toolchain-r-test
     packages:
       - libsdl2-dev
       - libprotobuf-dev
       - protobuf-compiler
       - libassimp-dev
       - libwxgtk3.0-dev
-      - gcc-8
-      - g++-8
+      - gcc-9
+      - g++-9
 
 script:
   - $CXX --version
