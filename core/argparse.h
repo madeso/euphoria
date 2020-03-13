@@ -244,12 +244,60 @@ namespace euphoria::core::argparse
     >;
 
 
+    struct SubParserNames
+    {
+        std::vector<std::string> names;
+
+        SubParserNames(const char* str);
+    };
+    
+
     struct SubParserContainer
     {
-        // todo: add description
-        SubParserContainer(SubParserCallback cb);
-
+        SubParserNames names;
+        std::string help;
         SubParserCallback callback;
+
+        SubParserContainer
+        (
+            const SubParserNames& n,
+            const std::string& h,
+            SubParserCallback cb
+        );
+    };
+
+
+    struct ParserBase;
+
+
+    struct SubParserGroup
+    {
+        std::string title;
+        std::string description;
+        ParserBase* owner;
+        std::vector<std::shared_ptr<SubParserContainer>> parsers;
+
+        SubParserGroup
+        (
+            const std::string& t,
+            const std::string& d,
+            ParserBase* o
+        );
+
+        void
+        Add
+        (
+            const SubParserNames& names,
+            const std::string& desc,
+            SubParserCallback sub
+        );
+
+        void
+        Add
+        (
+            const SubParserNames& names,
+            SubParserCallback sub
+        );
     };
 
 
@@ -261,6 +309,7 @@ namespace euphoria::core::argparse
         std::vector<ArgumentAndName> optional_argument_list;
 
         EnumToStringImpl<std::shared_ptr<SubParserContainer>> subparsers;
+        std::vector<std::shared_ptr<SubParserGroup>> subparser_groups;
 
         std::optional<CompleteFunction> on_complete;
 
@@ -312,20 +361,9 @@ namespace euphoria::core::argparse
             return AddArgument(name, arg);
         }
 
-        void
-        AddSubParser
-        (
-            const std::string& name,
-            const std::string& desc,
-            SubParserCallback sub
-        );
+        std::shared_ptr<SubParserGroup>
+        AddSubParsers(const std::string& name="Commands", const std::string& help="");
 
-        void
-        AddSubParser
-        (
-            const std::string& name,
-            SubParserCallback sub
-        );
 
         std::shared_ptr<Argument>
         FindArgument(const std::string& name);

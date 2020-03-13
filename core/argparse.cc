@@ -18,6 +18,8 @@
 
    * assert invalid setups and arguments
 
+   * passing -h should print help for that subcommand
+
    * group arguments (?) and subparser (!), python has add_subparsers() function
      that create a subparser group and takes name and description/help for that subparser group
 
@@ -506,9 +508,63 @@ namespace euphoria::core::argparse
     }
 
 
-    SubParserContainer::SubParserContainer(SubParserCallback cb)
-        : callback(cb)
+    SubParserNames::SubParserNames(const char* str)
     {
+        names.emplace_back(str);
+    }
+
+
+    SubParserContainer::SubParserContainer
+    (
+        const SubParserNames& n,
+        const std::string& h,
+        SubParserCallback cb
+    )
+        : names(n)
+        , help(h)
+        , callback(cb)
+    {
+    }
+
+
+    SubParserGroup::SubParserGroup
+    (
+        const std::string& t,
+        const std::string& d,
+        ParserBase* o
+    )
+        : title(t)
+        , description(d)
+        , owner(o)
+    {
+    }
+
+
+    void
+    SubParserGroup::Add
+    (
+        const SubParserNames& names,
+        const std::string& desc,
+        SubParserCallback sub
+    )
+    {
+        auto container = std::make_shared<SubParserContainer>(names, desc, sub);
+        parsers.emplace_back(container);
+        for(const auto& name : names.names)
+        {
+            owner->subparsers.Add(name, container);
+        }
+    }
+
+
+    void
+    SubParserGroup::Add
+    (
+        const SubParserNames& names,
+        SubParserCallback sub
+    )
+    {
+        Add(names, "", sub);
     }
 
 
@@ -561,27 +617,12 @@ namespace euphoria::core::argparse
     }
 
 
-    void
-    ParserBase::AddSubParser
-    (
-        const std::string& name,
-        const std::string& desc,
-        SubParserCallback sub
-    )
+    std::shared_ptr<SubParserGroup>
+    ParserBase::AddSubParsers(const std::string& name, const std::string& help)
     {
-        auto container = std::make_shared<SubParserContainer>(sub);
-        subparsers.Add(name, container);
-    }
-
-
-    void
-    ParserBase::AddSubParser
-    (
-        const std::string& name,
-        SubParserCallback sub
-    )
-    {
-        AddSubParser(name, "", sub);
+        auto group = std::make_shared<SubParserGroup>(name, help, this);
+        subparser_groups.emplace_back(group);
+        return group;
     }
 
 

@@ -48,7 +48,9 @@ main(int argc, char* argv[])
     parser.Add("-o, --output", &output)
             .Help("Where to write the resulting image");
 
-    parser.AddSubParser
+    auto subs = parser.AddSubParsers();
+
+    subs->Add
     (
         "nop", "Don't do anything",
         [&](argparse::SubParser* sub)
@@ -68,7 +70,7 @@ main(int argc, char* argv[])
         }
     );
 
-    parser.AddSubParser
+    subs->Add
     (
         "grayscale", "Apply grayscale",
         [&](argparse::SubParser* sub)
@@ -91,7 +93,7 @@ main(int argc, char* argv[])
         }
     );
 
-    parser.AddSubParser
+    subs->Add
     (
         "palswap", "Switch palette",
         [&](argparse::SubParser* sub)
@@ -125,7 +127,7 @@ main(int argc, char* argv[])
         }
     );
 
-    parser.AddSubParser
+    subs->Add
     (
         "edge", "Edge detection",
         [&](argparse::SubParser* sub)
@@ -147,7 +149,7 @@ main(int argc, char* argv[])
         }
     );
 
-    parser.AddSubParser
+    subs->Add
     (
         "color", "Detect colors",
         [&](argparse::SubParser* sub)
@@ -171,7 +173,7 @@ main(int argc, char* argv[])
         }
     );
 
-    parser.AddSubParser
+    subs->Add
     (
         "bright", "Change brightness",
         [&](argparse::SubParser* sub)
@@ -193,7 +195,7 @@ main(int argc, char* argv[])
         }
     );
 
-    parser.AddSubParser
+    subs->Add
     (
         "contrast", "Change contrast",
         [&](argparse::SubParser* sub)
