@@ -3,6 +3,7 @@
 #include "core/cint.h"
 #include "core/stringutils.h"
 #include "core/stringmerger.h"
+#include "core/table.h"
 
 #include <iostream>
 #include <iomanip>
@@ -884,45 +885,91 @@ namespace euphoria::core::argparse
     void
     Parser::PrintHelp(const Arguments& args)
     {
-        printer->PrintInfo("usage: " + GenerateUsageString(args));
+        using StringTable = Table<std::string>;
 
+        // table functions
+
+        const auto add = []
+        (
+            StringTable* table,
+            const std::string& name,
+            const std::string& desc
+        )
+        {
+            const auto values = std::vector<std::string>{name, desc};
+            table->NewRow(values);
+        };
+
+        const auto print = [this](const StringTable& t)
+        {
+            for(int y=0; y<t.GetHeight(); y+=1)
+            {
+                printer->PrintInfo(t(0,y) + " " + t(1, y));
+            }
+        };
+
+        // collect data
+
+        auto positionals = StringTable{};
+        for (auto& a : positional_argument_list)
+        {
+            add(&positionals, a.name.names[0], a.argument->help);
+        }
+
+        auto optionals = StringTable{};
+        for (auto& a : optional_argument_list)
+        {
+            const auto names = StringMerger::Comma().Generate(a.name.names);
+            std::ostringstream default_text;
+            if(a.argument->default_value.empty() == false)
+            {
+                default_text << " (default: " << a.argument->default_value << ")";
+            }
+            add(&optionals, names,  a.argument->help + default_text.str());
+        }
+
+        auto subs = std::vector<StringTable>{};
+        for(auto group: subparser_groups)
+        {
+            auto sub = StringTable{};
+            for(auto parser: group->parsers)
+            {
+                const auto names = StringMerger::Comma().Generate
+                (
+                    parser->names.names
+                );
+                add(&sub, names, parser->help);
+            }
+            subs.emplace_back(sub);
+        }
+
+        // print all tables now
+        printer->PrintInfo("usage: " + GenerateUsageString(args));
         if (description.empty() == false)
         {
             printer->PrintInfo("");
             printer->PrintInfo(description);
         }
 
-        // todo(Gustav): use a string table here, add wordwrap to table
-        if (positional_argument_list.empty() == false)
+        if (positionals.GetHeight() != 0)
         {
             printer->PrintInfo("");
             printer->PrintInfo("positional arguments:");
-            for (auto& a : positional_argument_list)
-            {
-                printer->PrintInfo(a.name.names[0] + " " + a.argument->help);
-            }
+            print(positionals);
         }
 
-        if(optional_argument_list.empty() == false)
+        if(optionals.GetHeight() != 0)
         {
             printer->PrintInfo("");
             printer->PrintInfo("positional arguments:");
-            for (auto& a : optional_argument_list)
-            {
-                const auto names = StringMerger::Comma().Generate(a.name.names);
-                std::ostringstream default_text;
-                if(a.argument->default_value.empty() == false)
-                {
-                    default_text << " (default: " << a.argument->default_value << ")";
-                }
-                printer->PrintInfo(names + " " + a.argument->help + default_text.str());
-            }
+            print(optionals);
         }
 
-        if(subparser_groups.empty() == false)
+        if(subs.size() != 0)
         {
             bool is_first_group = true;
             printer->PrintInfo("");
+            auto sub = subs.begin();
             for(auto group: subparser_groups)
             {
                 if(is_first_group == false)
@@ -935,18 +982,15 @@ namespace euphoria::core::argparse
                 {
                     printer->PrintInfo(group->description);
                 }
-                for(auto parser: group->parsers)
-                {
-                    const auto names = StringMerger::Comma().Generate
-                    (
-                        parser->names.names
-                    );
-                    printer->PrintInfo(names + " " + parser->help);
-                }
+
+                print(*sub);
+                sub +=1 ;
 
                 is_first_group = false;
             }
         }
+
+
     }
 
 
