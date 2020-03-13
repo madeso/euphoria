@@ -15,14 +15,9 @@
 
    argparse issues & todos:
 
-   * output looks horrible
-
    * unhelpful error messages, hint misspelled argument via StringToEnum code
 
-   * assert invalid setups and arguments
-
-   * group arguments (?) and subparser (!), python has add_subparsers() function
-     that create a subparser group and takes name and description/help for that subparser group
+   * assert invalid setups and argument name collisions
 
    * non-greedy sub commands to operate lite ImageMagic "scripting": https://imagemagick.org/script/magick-script.php
 
