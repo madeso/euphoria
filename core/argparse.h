@@ -231,6 +231,32 @@ namespace euphoria::core::argparse
     }
 
 
+    template
+    <
+        typename T,
+        std::enable_if_t<std::is_enum<T>::value == false, int> = 0
+    >
+    std::string
+    DefaultValueToString(const T& t)
+    {
+        std::ostringstream ss;
+        ss << t;
+        return ss.str();
+    }
+
+
+    template
+    <
+        typename T,
+        std::enable_if_t<std::is_enum<T>::value == true, int> = 0
+    >
+    std::string
+    DefaultValueToString(const T& t)
+    {
+        return core::EnumToString(t);
+    }
+
+
     struct SubParser;
     using SubParserCallback = std::function
     <
@@ -355,9 +381,7 @@ namespace euphoria::core::argparse
                     return ParseResult::Error;
                 }
             });
-            std::ostringstream ss;
-            ss << *target;
-            arg->default_value = ss.str();
+            arg->default_value = DefaultValueToString(*target);
             return AddArgument(name, arg);
         }
 
