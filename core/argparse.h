@@ -329,6 +329,8 @@ namespace euphoria::core::argparse
 
     struct ParserBase
     {
+        std::string description;
+
         std::vector<ArgumentAndName> positional_argument_list;
 
         std::map<std::string, std::shared_ptr<Argument>> optional_arguments;
@@ -338,6 +340,14 @@ namespace euphoria::core::argparse
         std::vector<std::shared_ptr<SubParserGroup>> subparser_groups;
 
         std::optional<CompleteFunction> on_complete;
+
+        explicit ParserBase(const std::string& d);
+
+        std::string
+        GenerateUsageString(const Arguments& args);
+
+        void
+        PrintHelp(std::shared_ptr<Printer> printer, const Arguments& args);
 
         Argument&
         AddArgument(const Name& name, std::shared_ptr<Argument> argument);
@@ -402,7 +412,7 @@ namespace euphoria::core::argparse
     {
         Runner* runner;
 
-        explicit SubParser(Runner* r);
+        explicit SubParser(const std::string& d, Runner* r);
 
         [[nodiscard]]
         ParseResult
@@ -414,12 +424,6 @@ namespace euphoria::core::argparse
     {
         explicit Parser(const std::string& d = "");
 
-        std::string
-        GenerateUsageString(const Arguments& args);
-
-        void
-        PrintHelp(const Arguments& args);
-
         ParseResult
         Parse(const Arguments& args);
 
@@ -427,8 +431,6 @@ namespace euphoria::core::argparse
         // nullopt = continue, parsing was ok
         std::optional<int>
         Parse(int argc, char* argv[]);
-
-        std::string description;
 
         std::shared_ptr<Printer> printer;
     };

@@ -21,8 +21,6 @@
 
    * assert invalid setups and arguments
 
-   * passing -h should print help for that subcommand
-
    * group arguments (?) and subparser (!), python has add_subparsers() function
      that create a subparser group and takes name and description/help for that subparser group
 
@@ -622,6 +620,216 @@ namespace euphoria::core::argparse
     }
 
 
+    ParserBase::ParserBase(const std::string& d)
+        : description(d)
+    {
+        AddArgument
+        (
+            "-h, --help",
+            std::make_shared<ArgumentNoValue>
+            (
+                [this](Runner* runner)
+                {
+                    PrintHelp(runner->printer, runner->arguments->arguments);
+                    return ParseResult::Quit;
+                }
+            )
+        )
+        .AllowBeforePositionals()
+        .Help("show this help message and exit")
+        ;
+    }
+
+
+    std::string
+    ParserBase::GenerateUsageString(const Arguments& args)
+    {
+        auto arg_to_string = [](const ArgumentAndName& aa)
+        {
+            if( aa.name.IsOptional() )
+            {
+                std::ostringstream ss;
+                ss << "[" << aa.name.names[0] << "]";
+                // todo(Gustav): include any attributes
+                return ss.str();
+            }
+            else
+            {
+                return ToUpper(aa.name.names[0]);
+            }
+        };
+        // todo(Gustav): subparse name/path is not included
+        auto ret = std::vector<std::string>{args.name};
+
+        for(auto& a: optional_argument_list)
+        {
+            if(a.argument->allow_before_positionals == true)
+            {
+                ret.emplace_back(arg_to_string(a));
+            }
+        }
+
+        for(auto& a: positional_argument_list)
+        {
+            ret.emplace_back(arg_to_string(a));
+        }
+
+        for(auto& a: optional_argument_list)
+        {
+            if(a.argument->allow_before_positionals == false)
+            {
+                ret.emplace_back(arg_to_string(a));
+            }
+        }
+
+        if(subparser_groups.empty() == false)
+        {
+            ret.emplace_back("<command> [<args>]");
+        }
+
+        return StringMerger::Space().Generate(ret);
+    }
+
+
+    void
+    ParserBase::PrintHelp(std::shared_ptr<Printer> printer, const Arguments& args)
+    {
+        using StringTable = Table<std::string>;
+
+        // table functions
+        constexpr int MAX_NAME_LENGTH = 10;
+        int max_name_length = 0;
+
+        const auto add = [&max_name_length, MAX_NAME_LENGTH]
+        (
+            StringTable* table,
+            const std::string& name,
+            const std::string& desc
+        )
+        {
+            const auto values = std::vector<std::string>{name, desc};
+            table->NewRow(values);
+
+            max_name_length = std::min
+            (
+                std::max
+                (
+                    max_name_length,
+                    Csizet_to_int(name.length())
+                ),
+                MAX_NAME_LENGTH
+            );
+        };
+
+        // todo(Gustav): wordwrap the arguments and description/help
+        const auto print = [printer, &max_name_length](const StringTable& t)
+        {
+            for(int y=0; y<t.GetHeight(); y+=1)
+            {
+                constexpr auto indent = " ";
+                constexpr auto space = "  ";
+
+                const auto name = t(0, y);
+                const auto help = t(1, y);
+                const auto name_length = Csizet_to_int(name.length());
+                if(name_length > max_name_length)
+                {
+                    printer->PrintInfo(indent + name);
+                    const auto extra_space = std::string(max_name_length, ' ');
+                    printer->PrintInfo(indent + extra_space + space + help);
+                }
+                else
+                {
+                    const auto extra_space = std::string(max_name_length - name_length, ' ');
+                    printer->PrintInfo(indent + name + extra_space + space + help);
+                }
+            }
+        };
+
+        // collect data
+
+        auto positionals = StringTable{};
+        for (auto& a : positional_argument_list)
+        {
+            add(&positionals, a.name.names[0], a.argument->help);
+        }
+
+        auto optionals = StringTable{};
+        for (auto& a : optional_argument_list)
+        {
+            const auto names = StringMerger::Comma().Generate(a.name.names);
+            std::ostringstream default_text;
+            if(a.argument->default_value.empty() == false)
+            {
+                default_text << " (default: " << a.argument->default_value << ")";
+            }
+            add(&optionals, names,  a.argument->help + default_text.str());
+        }
+
+        auto subs = std::vector<StringTable>{};
+        for(auto group: subparser_groups)
+        {
+            auto sub = StringTable{};
+            for(auto parser: group->parsers)
+            {
+                const auto names = StringMerger::Comma().Generate
+                (
+                    parser->names.names
+                );
+                add(&sub, names, parser->help);
+            }
+            subs.emplace_back(sub);
+        }
+
+        // print all tables now
+        printer->PrintInfo("usage: " + GenerateUsageString(args));
+        if (description.empty() == false)
+        {
+            printer->PrintInfo("");
+            printer->PrintInfo(description);
+        }
+
+        if (positionals.GetHeight() != 0)
+        {
+            printer->PrintInfo("");
+            printer->PrintInfo("positional arguments:");
+            print(positionals);
+        }
+
+        if(optionals.GetHeight() != 0)
+        {
+            printer->PrintInfo("");
+            printer->PrintInfo("positional arguments:");
+            print(optionals);
+        }
+
+        if(subs.size() != 0)
+        {
+            bool is_first_group = true;
+            printer->PrintInfo("");
+            auto sub = subs.begin();
+            for(auto group: subparser_groups)
+            {
+                if(is_first_group == false)
+                {
+                    printer->PrintInfo("");
+                }
+
+                printer->PrintInfo(group->title + ":");
+                if(group->description.empty() == false)
+                {
+                    printer->PrintInfo(group->description);
+                }
+
+                print(*sub);
+                sub +=1 ;
+
+                is_first_group = false;
+            }
+        }
+    }
+
+
     Argument&
     ParserBase::AddArgument(const Name& name, std::shared_ptr<Argument> argument)
     {
@@ -770,8 +978,9 @@ namespace euphoria::core::argparse
                         }
                         else
                         {
-                            auto sub = SubParser{runner};
-                            return match.values[0]->callback(&sub);
+                            auto container = match.values[0];
+                            auto sub = SubParser{container->help, runner};
+                            return container->callback(&sub);
                         }
                     }
                 }
@@ -799,8 +1008,9 @@ namespace euphoria::core::argparse
     }
 
 
-    SubParser::SubParser(Runner* r)
-        : runner(r)
+    SubParser::SubParser(const std::string& d, Runner* r)
+        : ParserBase(d)
+        , runner(r)
     {
     }
 
@@ -814,214 +1024,9 @@ namespace euphoria::core::argparse
 
 
     Parser::Parser(const std::string& d)
-        : description(d)
+        : ParserBase(d)
         , printer(std::make_shared<ConsolePrinter>())
     {
-        AddArgument
-        (
-            "-h, --help",
-            std::make_shared<ArgumentNoValue>
-            (
-                [this](Runner* runner)
-                {
-                    PrintHelp(runner->arguments->arguments);
-                    return ParseResult::Quit;
-                }
-            )
-        )
-        .AllowBeforePositionals()
-        .Help("show this help message and exit")
-        ;
-    }
-
-
-    std::string
-    Parser::GenerateUsageString(const Arguments& args)
-    {
-        auto arg_to_string = [](const ArgumentAndName& aa)
-        {
-            if( aa.name.IsOptional() )
-            {
-                std::ostringstream ss;
-                ss << "[" << aa.name.names[0] << "]";
-                // todo(Gustav): include any attributes
-                return ss.str();
-            }
-            else
-            {
-                return ToUpper(aa.name.names[0]);
-            }
-        };
-        auto ret = std::vector<std::string>{args.name};
-
-        for(auto& a: optional_argument_list)
-        {
-            if(a.argument->allow_before_positionals == true)
-            {
-                ret.emplace_back(arg_to_string(a));
-            }
-        }
-
-        for(auto& a: positional_argument_list)
-        {
-            ret.emplace_back(arg_to_string(a));
-        }
-
-        for(auto& a: optional_argument_list)
-        {
-            if(a.argument->allow_before_positionals == false)
-            {
-                ret.emplace_back(arg_to_string(a));
-            }
-        }
-
-        if(subparser_groups.empty() == false)
-        {
-            ret.emplace_back("<command> [<args>]");
-        }
-
-        return StringMerger::Space().Generate(ret);
-    }
-
-
-    void
-    Parser::PrintHelp(const Arguments& args)
-    {
-        using StringTable = Table<std::string>;
-
-        // table functions
-        constexpr int MAX_NAME_LENGTH = 10;
-        int max_name_length = 0;
-
-        const auto add = [&max_name_length, MAX_NAME_LENGTH]
-        (
-            StringTable* table,
-            const std::string& name,
-            const std::string& desc
-        )
-        {
-            const auto values = std::vector<std::string>{name, desc};
-            table->NewRow(values);
-
-            max_name_length = std::min
-            (
-                std::max
-                (
-                    max_name_length,
-                    Csizet_to_int(name.length())
-                ),
-                MAX_NAME_LENGTH
-            );
-        };
-
-        // todo(Gustav): wordwrap the arguments and description/help
-        const auto print = [this, &max_name_length](const StringTable& t)
-        {
-            for(int y=0; y<t.GetHeight(); y+=1)
-            {
-                constexpr auto indent = " ";
-                constexpr auto space = "  ";
-
-                const auto name = t(0, y);
-                const auto help = t(1, y);
-                const auto name_length = Csizet_to_int(name.length());
-                if(name_length > max_name_length)
-                {
-                    printer->PrintInfo(indent + name);
-                    const auto extra_space = std::string(max_name_length, ' ');
-                    printer->PrintInfo(indent + extra_space + space + help);
-                }
-                else
-                {
-                    const auto extra_space = std::string(max_name_length - name_length, ' ');
-                    printer->PrintInfo(indent + name + extra_space + space + help);
-                }
-            }
-        };
-
-        // collect data
-
-        auto positionals = StringTable{};
-        for (auto& a : positional_argument_list)
-        {
-            add(&positionals, a.name.names[0], a.argument->help);
-        }
-
-        auto optionals = StringTable{};
-        for (auto& a : optional_argument_list)
-        {
-            const auto names = StringMerger::Comma().Generate(a.name.names);
-            std::ostringstream default_text;
-            if(a.argument->default_value.empty() == false)
-            {
-                default_text << " (default: " << a.argument->default_value << ")";
-            }
-            add(&optionals, names,  a.argument->help + default_text.str());
-        }
-
-        auto subs = std::vector<StringTable>{};
-        for(auto group: subparser_groups)
-        {
-            auto sub = StringTable{};
-            for(auto parser: group->parsers)
-            {
-                const auto names = StringMerger::Comma().Generate
-                (
-                    parser->names.names
-                );
-                add(&sub, names, parser->help);
-            }
-            subs.emplace_back(sub);
-        }
-
-        // print all tables now
-        printer->PrintInfo("usage: " + GenerateUsageString(args));
-        if (description.empty() == false)
-        {
-            printer->PrintInfo("");
-            printer->PrintInfo(description);
-        }
-
-        if (positionals.GetHeight() != 0)
-        {
-            printer->PrintInfo("");
-            printer->PrintInfo("positional arguments:");
-            print(positionals);
-        }
-
-        if(optionals.GetHeight() != 0)
-        {
-            printer->PrintInfo("");
-            printer->PrintInfo("positional arguments:");
-            print(optionals);
-        }
-
-        if(subs.size() != 0)
-        {
-            bool is_first_group = true;
-            printer->PrintInfo("");
-            auto sub = subs.begin();
-            for(auto group: subparser_groups)
-            {
-                if(is_first_group == false)
-                {
-                    printer->PrintInfo("");
-                }
-
-                printer->PrintInfo(group->title + ":");
-                if(group->description.empty() == false)
-                {
-                    printer->PrintInfo(group->description);
-                }
-
-                print(*sub);
-                sub +=1 ;
-
-                is_first_group = false;
-            }
-        }
-
-
     }
 
 
