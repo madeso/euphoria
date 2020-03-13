@@ -4,9 +4,11 @@
 #include "core/stringutils.h"
 #include "core/stringmerger.h"
 #include "core/table.h"
+#include "core/cint.h"
 
 #include <iostream>
 #include <iomanip>
+#include <algorithm>
 
 
 /*
@@ -888,8 +890,10 @@ namespace euphoria::core::argparse
         using StringTable = Table<std::string>;
 
         // table functions
+        constexpr int MAX_NAME_LENGTH = 10;
+        int max_name_length = 0;
 
-        const auto add = []
+        const auto add = [&max_name_length, MAX_NAME_LENGTH]
         (
             StringTable* table,
             const std::string& name,
@@ -898,13 +902,40 @@ namespace euphoria::core::argparse
         {
             const auto values = std::vector<std::string>{name, desc};
             table->NewRow(values);
+
+            max_name_length = std::min
+            (
+                std::max
+                (
+                    max_name_length,
+                    Csizet_to_int(name.length())
+                ),
+                MAX_NAME_LENGTH
+            );
         };
 
-        const auto print = [this](const StringTable& t)
+        // todo(Gustav): wordwrap the arguments and description/help
+        const auto print = [this, &max_name_length](const StringTable& t)
         {
             for(int y=0; y<t.GetHeight(); y+=1)
             {
-                printer->PrintInfo(t(0,y) + " " + t(1, y));
+                constexpr auto indent = " ";
+                constexpr auto space = "  ";
+
+                const auto name = t(0, y);
+                const auto help = t(1, y);
+                const auto name_length = Csizet_to_int(name.length());
+                if(name_length > max_name_length)
+                {
+                    printer->PrintInfo(indent + name);
+                    const auto extra_space = std::string(max_name_length, ' ');
+                    printer->PrintInfo(indent + extra_space + space + help);
+                }
+                else
+                {
+                    const auto extra_space = std::string(max_name_length - name_length, ' ');
+                    printer->PrintInfo(indent + name + extra_space + space + help);
+                }
             }
         };
 
