@@ -872,6 +872,11 @@ namespace euphoria::core::argparse
             }
         }
 
+        if(subparser_groups.empty() == false)
+        {
+            ret.emplace_back("<command> [<args>]");
+        }
+
         return StringMerger::Space().Generate(ret);
     }
 
@@ -880,38 +885,27 @@ namespace euphoria::core::argparse
     Parser::PrintHelp(const Arguments& args)
     {
         printer->PrintInfo("usage: " + GenerateUsageString(args));
-        printer->PrintInfo("");
-        bool dirty = false;
-        auto print_newline = [&]()
-        {
-            if(dirty)
-            {
-                printer->PrintInfo("");
-                dirty = false;
-            }
-        };
+
         if (description.empty() == false)
         {
+            printer->PrintInfo("");
             printer->PrintInfo(description);
-            dirty = true;
         }
-        print_newline();
 
         // todo(Gustav): use a string table here, add wordwrap to table
         if (positional_argument_list.empty() == false)
         {
-            dirty = true;
+            printer->PrintInfo("");
             printer->PrintInfo("positional arguments:");
             for (auto& a : positional_argument_list)
             {
                 printer->PrintInfo(a.name.names[0] + " " + a.argument->help);
             }
         }
-        print_newline();
 
         if(optional_argument_list.empty() == false)
         {
-            dirty = true;
+            printer->PrintInfo("");
             printer->PrintInfo("positional arguments:");
             for (auto& a : optional_argument_list)
             {
@@ -922,6 +916,35 @@ namespace euphoria::core::argparse
                     default_text << " (default: " << a.argument->default_value << ")";
                 }
                 printer->PrintInfo(names + " " + a.argument->help + default_text.str());
+            }
+        }
+
+        if(subparser_groups.empty() == false)
+        {
+            bool is_first_group = true;
+            printer->PrintInfo("");
+            for(auto group: subparser_groups)
+            {
+                if(is_first_group == false)
+                {
+                    printer->PrintInfo("");
+                }
+
+                printer->PrintInfo(group->title + ":");
+                if(group->description.empty() == false)
+                {
+                    printer->PrintInfo(group->description);
+                }
+                for(auto parser: group->parsers)
+                {
+                    const auto names = StringMerger::Comma().Generate
+                    (
+                        parser->names.names
+                    );
+                    printer->PrintInfo(names + " " + parser->help);
+                }
+
+                is_first_group = false;
             }
         }
     }
