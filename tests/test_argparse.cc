@@ -201,7 +201,9 @@ TEST_CASE("argparse", "[argparse]")
         std::string a = "default";
         std::string b = "default";
 
-        parser.AddSubParser("a", [&](SubParser* parser)
+        auto sub = parser.AddSubParsers();
+
+        sub->Add("a", [&](SubParser* parser)
         {
             std::string a_value = "dog";
             parser->Add("-s", &a_value);
@@ -212,7 +214,7 @@ TEST_CASE("argparse", "[argparse]")
             });
         });
 
-        parser.AddSubParser("b", [&](SubParser*)
+        sub->Add("b", [&](SubParser*)
         {
             b = "bird";
             return ParseResult::Ok;

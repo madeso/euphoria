@@ -112,7 +112,9 @@ main(int argc, char* argv[])
 {
     auto parser = argparse::Parser {"Poisson test"};
 
-    parser.AddSubParser
+    auto sub = parser.AddSubParsers();
+
+    sub->Add
     (
         "svg", "generate svg file",
         [](argparse::SubParser* sub)
@@ -127,7 +129,7 @@ main(int argc, char* argv[])
         }
     );
 
-    parser.AddSubParser
+    sub->Add
     (
         "png", "generate png file",
         [](argparse::SubParser* sub)

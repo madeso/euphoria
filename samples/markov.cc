@@ -312,7 +312,9 @@ main(int argc, char* argv[])
 {
     core::argparse::Parser parser {"markov tool"};
 
-    parser.AddSubParser
+    auto sub = parser.AddSubParsers();
+
+    sub->Add
     (
         "sentance",
         "parses and generates sentances",
@@ -333,7 +335,7 @@ main(int argc, char* argv[])
         }
     );
 
-    parser.AddSubParser
+    sub->Add
     (
         "word",
         "parses and generates word",

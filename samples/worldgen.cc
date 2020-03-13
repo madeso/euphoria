@@ -320,6 +320,8 @@ int
 main(int argc, char* argv[])
 {
     auto parser = argparse::Parser {"Generate worlds"};
+    
+    auto sub = parser.AddSubParsers();
 
     auto maze_command = [&](MazeAlgorithm algo, const MazeArguments& arg)
     {
@@ -335,7 +337,7 @@ main(int argc, char* argv[])
         );
     };
 
-    parser.AddSubParser
+    sub->Add
     (
         "recursive",
         "maze generation using recursive backtracker algorithm",
@@ -351,7 +353,7 @@ main(int argc, char* argv[])
         }
     );
     
-    parser.AddSubParser
+    sub->Add
     (
         "random",
         "maze generation using random traversal algorithm",
@@ -367,7 +369,7 @@ main(int argc, char* argv[])
         }
     );
 
-    parser.AddSubParser
+    sub->Add
     (
         "cell",
         "world generation using cellular automata algorithm",
