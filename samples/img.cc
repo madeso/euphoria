@@ -15,62 +15,63 @@ using namespace euphoria::core;
 int
 main(int argc, char* argv[])
 {
-    auto parser = argparse::Parser {"Apply filters to images"};
-
-    std::string input;
-    std::string output = "ret.png";
-
     Image image;
 
-    auto load_image = [&]
-    {
-        auto ret = LoadImage(io::FileToChunk(input), input, AlphaLoad::Keep);
-        if(!ret.error.empty())
-        {
-            std::cerr << ret.error << "\n";
-            return false;
-        }
-        else
-        {
-            image = ret.image;
-            return true;
-        }
-    };
-    
-    auto write_image = [&]
-    {
-        io::ChunkToFile(image.Write(ImageWriteFormat::PNG), output);
-    };
+    auto parser = argparse::Parser {"Apply filters to images"};
 
-    // todo(Gustav): change to generate/open - filter - save subparsing instead (with image targets)
+    auto io_subs = parser.AddSubParsers("transfer image to/from disk");
 
-    parser.Add("input", &input).Help("The image to apply filters to");
-    parser.Add("-o, --output", &output)
-            .Help("Where to write the resulting image");
-
-    auto subs = parser.AddSubParsers();
-
-    subs->Add
+    io_subs->Add
     (
-        "nop", "Don't do anything",
+        "open", "Load image from disk",
         [&](argparse::SubParser* sub)
         {
+            std::string input;
+            parser.Add("input", &input).Help("The image to apply filters to");
             return sub->OnComplete
             (
                 [&]
                 {
-                    if(!load_image())
+                    auto ret = LoadImage(io::FileToChunk(input), input, AlphaLoad::Keep);
+                    if(!ret.error.empty())
                     {
-                        return;
+                        std::cerr << ret.error << "\n";
+                        // return false;
                     }
-                    write_image();
+                    else
+                    {
+                        image = ret.image;
+                        // return true;
+                    }
+                }
+            );
+        }
+    );
+
+    io_subs->Add
+    (
+        "save", "Write image to disk",
+        [&](argparse::SubParser* sub)
+        {
+            std::string output = "ret.png";
+            parser.Add("-o, --output", &output).Help
+            (
+                "Where to write the resulting image"
+            );
+            return sub->OnComplete
+            (
+                [&]
+                {
+                    io::ChunkToFile(image.Write(ImageWriteFormat::PNG), output);
                 }
             );
             
         }
     );
 
-    subs->Add
+    auto filters_subs = parser.AddSubParsers("apply filter to current image");
+
+    filters_subs->Add
     (
         "grayscale", "Apply grayscale",
         [&](argparse::SubParser* sub)
@@ -81,19 +82,14 @@ main(int argc, char* argv[])
             (
                 [&]
                 {
-                    if(!load_image())
-                    {
-                        return;
-                    }
                     MakeGrayscale(&image, grayscale);
-                    write_image();
                 }
             );
             
         }
     );
 
-    subs->Add
+    filters_subs->Add
     (
         "palswap", "Switch palette",
         [&](argparse::SubParser* sub)
@@ -108,10 +104,6 @@ main(int argc, char* argv[])
             (
                 [&]
                 {
-                    if(!load_image())
-                    {
-                        return;
-                    }
                     if(pal_dither)
                     {
                         MatchPaletteDither(&image, palette::GetPalette(palette));
@@ -120,14 +112,13 @@ main(int argc, char* argv[])
                     {
                         MatchPalette(&image, palette::GetPalette(palette));
                     }
-                    write_image();
                 }
             );
             
         }
     );
 
-    subs->Add
+    filters_subs->Add
     (
         "edge", "Edge detection",
         [&](argparse::SubParser* sub)
@@ -138,18 +129,13 @@ main(int argc, char* argv[])
             (
                 [&]
                 {
-                    if(!load_image())
-                    {
-                        return;
-                    }
                     EdgeDetection(&image, edge_r);
-                    write_image();
                 }
             );
         }
     );
 
-    subs->Add
+    filters_subs->Add
     (
         "color", "Detect colors",
         [&](argparse::SubParser* sub)
@@ -162,18 +148,13 @@ main(int argc, char* argv[])
             (
                 [&]
                 {
-                    if(!load_image())
-                    {
-                        return;
-                    }
                     ColorDetection(&image, color_color, edge_r);
-                    write_image();
                 }
             );
         }
     );
 
-    subs->Add
+    filters_subs->Add
     (
         "bright", "Change brightness",
         [&](argparse::SubParser* sub)
@@ -184,18 +165,13 @@ main(int argc, char* argv[])
             (
                 [&]
                 {
-                    if(!load_image())
-                    {
-                        return;
-                    }
                     ChangeBrightness(&image, bright_c);
-                    write_image();
                 }
             );
         }
     );
 
-    subs->Add
+    filters_subs->Add
     (
         "contrast", "Change contrast",
         [&](argparse::SubParser* sub)
@@ -206,17 +182,11 @@ main(int argc, char* argv[])
             (
                 [&]
                 {
-                    if (!load_image())
-                    {
-                        return;
-                    }
                     ChangeContrast(&image, contrast);
-                    write_image();
                 }
             );
         }
     );
-
 
     return argparse::ParseFromMain(&parser, argc, argv);
 }
