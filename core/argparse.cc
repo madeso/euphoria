@@ -635,6 +635,10 @@ namespace euphoria::core::argparse
         ;
     }
 
+    
+    ParserBase::~ParserBase()
+    {
+    }
 
     std::string
     ParserBase::GenerateUsageString(const Arguments& args)
@@ -653,8 +657,7 @@ namespace euphoria::core::argparse
                 return ToUpper(aa.name.names[0]);
             }
         };
-        // todo(Gustav): subparse name/path is not included
-        auto ret = std::vector<std::string>{args.name};
+        auto ret = std::vector<std::string>{GetCallingName(args)};
 
         for(auto& a: optional_argument_list)
         {
@@ -974,7 +977,16 @@ namespace euphoria::core::argparse
                         else
                         {
                             auto container = match.values[0];
-                            auto sub = SubParser{container->help, runner};
+                            const auto calling_name = GetCallingName
+                            (
+                                runner->arguments->arguments
+                            );
+                            auto sub = SubParser
+                            {
+                                container->help,
+                                runner,
+                                calling_name + " " + arg
+                            };
                             return container->callback(&sub);
                         }
                     }
@@ -1003,10 +1015,23 @@ namespace euphoria::core::argparse
     }
 
 
-    SubParser::SubParser(const std::string& d, Runner* r)
+    SubParser::SubParser
+    (
+        const std::string& d,
+        Runner* r,
+        const std::string& cn
+    )
         : ParserBase(d)
         , runner(r)
+        , calling_name(cn)
     {
+    }
+
+    
+    std::string
+    SubParser::GetCallingName(const Arguments&)
+    {
+        return calling_name;
     }
 
 
@@ -1047,6 +1072,13 @@ namespace euphoria::core::argparse
         {
             return ReturnValue(res);
         }
+    }
+
+
+    std::string
+    Parser::GetCallingName(const Arguments& args)
+    {
+        return args.name;
     }
 
 

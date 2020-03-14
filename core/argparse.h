@@ -342,9 +342,14 @@ namespace euphoria::core::argparse
         std::optional<CompleteFunction> on_complete;
 
         explicit ParserBase(const std::string& d);
+        virtual ~ParserBase();
 
         std::string
         GenerateUsageString(const Arguments& args);
+
+        virtual
+        std::string
+        GetCallingName(const Arguments& args) = 0;
 
         void
         PrintHelp(std::shared_ptr<Printer> printer, const Arguments& args);
@@ -411,8 +416,12 @@ namespace euphoria::core::argparse
     struct SubParser : public ParserBase
     {
         Runner* runner;
+        std::string calling_name;
 
-        explicit SubParser(const std::string& d, Runner* r);
+        SubParser(const std::string& d, Runner* r, const std::string& cn);
+
+        std::string
+        GetCallingName(const Arguments& args) override;
 
         [[nodiscard]]
         ParseResult
@@ -431,6 +440,9 @@ namespace euphoria::core::argparse
         // nullopt = continue, parsing was ok
         std::optional<int>
         Parse(int argc, char* argv[]);
+
+        std::string
+        GetCallingName(const Arguments& args) override;
 
         std::shared_ptr<Printer> printer;
     };
