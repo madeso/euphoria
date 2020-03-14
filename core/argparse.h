@@ -313,14 +313,12 @@ namespace euphoria::core::argparse
     struct SubParserGroup
     {
         std::string title;
-        std::string description;
         ParserBase* owner;
         std::vector<std::shared_ptr<SubParserContainer>> parsers;
 
         SubParserGroup
         (
             const std::string& t,
-            const std::string& d,
             ParserBase* o
         );
 
@@ -415,7 +413,7 @@ namespace euphoria::core::argparse
         }
 
         std::shared_ptr<SubParserGroup>
-        AddSubParsers(const std::string& name="Commands", const std::string& help="");
+        AddSubParsers(const std::string& name="Commands");
 
 
         std::shared_ptr<Argument>

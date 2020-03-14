@@ -614,11 +614,9 @@ namespace euphoria::core::argparse
     SubParserGroup::SubParserGroup
     (
         const std::string& t,
-        const std::string& d,
         ParserBase* o
     )
         : title(t)
-        , description(d)
         , owner(o)
     {
     }
@@ -851,10 +849,6 @@ namespace euphoria::core::argparse
                 }
 
                 printer->PrintInfo(group->title + ":");
-                if(group->description.empty() == false)
-                {
-                    printer->PrintInfo(group->description);
-                }
 
                 print(*sub);
                 sub +=1 ;
@@ -915,9 +909,9 @@ namespace euphoria::core::argparse
 
 
     std::shared_ptr<SubParserGroup>
-    ParserBase::AddSubParsers(const std::string& name, const std::string& help)
+    ParserBase::AddSubParsers(const std::string& name)
     {
-        auto group = std::make_shared<SubParserGroup>(name, help, this);
+        auto group = std::make_shared<SubParserGroup>(name, this);
         subparser_groups.emplace_back(group);
         return group;
     }
