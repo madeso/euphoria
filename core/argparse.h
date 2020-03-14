@@ -33,19 +33,33 @@ namespace euphoria::core::argparse
     };
 
 
-    enum class ParseResult
+    struct ParseResult
     {
+        enum class Type { Error, Ok, Quit, Custom };
+
+        Type type;
+        int return_value;
+
         // no error occured
-        Error,
+        static const ParseResult Error;
+
         // all ok
-        Ok,
+        static const ParseResult Ok;
+        
         // all ok, but quit requested
-        Quit
+        static const ParseResult Quit;
+
+        constexpr explicit ParseResult(Type t);
+        constexpr explicit ParseResult(int rv);
     };
 
 
-    int
-    ReturnValue(ParseResult pr);
+    bool
+    operator==(const ParseResult& lhs, const ParseResult& rhs);
+
+
+    bool
+    operator!=(const ParseResult& lhs, const ParseResult& rhs);
 
 
     struct Arguments

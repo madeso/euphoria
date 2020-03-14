@@ -23,8 +23,6 @@
 
    * Narg chainging functions renaming on return value of Add
 
-   * ParseResult should be a struct/handle custom arguments
-
    * generic OnComplete unit test
 
    * instead of .Add("arg").Help("") perhaps change to .Add(Arg{"arg"}.Help("")) so chainging arguments is possible
@@ -339,16 +337,55 @@ namespace euphoria::core::argparse
     }
 
 
-    int
-    ReturnValue(ParseResult pr)
+    namespace
     {
-        switch (pr)
+        constexpr
+        int
+        DefaultReturnValue(ParseResult::Type pr)
         {
-        case ParseResult::Ok: return 0;
-        case ParseResult::Error: return -1;
-        case ParseResult::Quit: return 0;
-        default: return -1;
+            switch (pr)
+            {
+            case ParseResult::Type::Ok: return 0;
+            case ParseResult::Type::Error: return -1;
+            case ParseResult::Type::Quit: return 0;
+            default: return -1;
+            }
         }
+    }
+
+
+    const ParseResult ParseResult::Error = ParseResult { Type::Error };
+    const ParseResult ParseResult::Ok = ParseResult { Type::Ok };
+    const ParseResult ParseResult::Quit = ParseResult { Type::Quit };
+
+
+    constexpr
+    ParseResult::ParseResult(Type t)
+        : type(t)
+        , return_value(DefaultReturnValue(t))
+    {
+    }
+
+
+    constexpr
+    ParseResult::ParseResult(int rv)
+        : type(ParseResult::Type::Custom)
+        , return_value(rv)
+    {
+    }
+
+
+    bool
+    operator==(const ParseResult& lhs, const ParseResult& rhs)
+    {
+        return lhs.type == rhs.type && lhs.return_value == rhs.return_value;
+    }
+
+
+    bool
+    operator!=(const ParseResult& lhs, const ParseResult& rhs)
+    {
+        return !(lhs == rhs);
     }
 
 
@@ -1070,7 +1107,7 @@ namespace euphoria::core::argparse
         }
         else
         {
-            return ReturnValue(res);
+            return res.return_value;
         }
     }
 
@@ -1087,6 +1124,6 @@ namespace euphoria::core::argparse
     {
         const auto args = Arguments::Extract(argc, argv);
         const auto res = parser->Parse(args);
-        return ReturnValue(res);
+        return res.return_value;
     }
 }
