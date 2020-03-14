@@ -57,7 +57,7 @@ namespace euphoria::window
         const auto parse_result = parser.Parse(args);
         if(parse_result != core::argparse::ParseResult::Ok)
         {
-            return core::argparse::ReturnValue(parse_result);
+            return parse_result.return_value;
         }
 
         LOG_INFO("Current directory: {0}", current_directory);

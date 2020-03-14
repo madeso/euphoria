@@ -280,7 +280,7 @@ namespace euphoria::core::argparse
 
     using CompleteFunction = std::function
     <
-        void ()
+        ParseResult ()
     >;
 
 

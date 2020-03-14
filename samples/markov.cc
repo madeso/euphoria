@@ -331,6 +331,7 @@ main(int argc, char* argv[])
             return sent->OnComplete([&]
             {
                 MarkovSentance(file, memory, count);
+                return core::argparse::ParseResult::Ok;
             });
         }
     );
@@ -352,6 +353,7 @@ main(int argc, char* argv[])
             return word->OnComplete([&]
             {
                 MarkovWord(file, memory, count);
+                return core::argparse::ParseResult::Ok;
             });
         }
     );

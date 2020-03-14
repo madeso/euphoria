@@ -46,8 +46,7 @@ main(int argc, char* argv[])
         if(load_result == false)
         {
             std::cerr << load_result << "\n";
-            // todo(Gustav): fix error return
-            return;
+            return ParseResult::Error;
         }
 
         for(int i = 0; i < count; ++i)
@@ -56,11 +55,12 @@ main(int argc, char* argv[])
             if(flatten_result == false)
             {
                 std::cerr << flatten_result;
-                // todo(Gustav): fix error return
-                return;
+                return ParseResult::Error;
             }
             std::cout << flatten_result.GetText() << "\n";
         }
+
+        return ParseResult::Ok;
     }
     );
     return ParseFromMain(&parser, argc, argv);

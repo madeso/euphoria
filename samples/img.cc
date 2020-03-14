@@ -36,12 +36,12 @@ main(int argc, char* argv[])
                     if(!ret.error.empty())
                     {
                         std::cerr << ret.error << "\n";
-                        // return false;
+                        return argparse::ParseResult::Error;
                     }
                     else
                     {
                         image = ret.image;
-                        // return true;
+                        return argparse::ParseResult::Ok;
                     }
                 }
             );
@@ -63,6 +63,7 @@ main(int argc, char* argv[])
                 [&]
                 {
                     io::ChunkToFile(image.Write(ImageWriteFormat::PNG), output);
+                    return argparse::ParseResult::Ok;
                 }
             );
             
@@ -83,6 +84,7 @@ main(int argc, char* argv[])
                 [&]
                 {
                     MakeGrayscale(&image, grayscale);
+                    return argparse::ParseResult::Ok;
                 }
             );
             
@@ -112,6 +114,7 @@ main(int argc, char* argv[])
                     {
                         MatchPalette(&image, palette::GetPalette(palette));
                     }
+                    return argparse::ParseResult::Ok;
                 }
             );
             
@@ -130,6 +133,7 @@ main(int argc, char* argv[])
                 [&]
                 {
                     EdgeDetection(&image, edge_r);
+                    return argparse::ParseResult::Ok;
                 }
             );
         }
@@ -149,6 +153,7 @@ main(int argc, char* argv[])
                 [&]
                 {
                     ColorDetection(&image, color_color, edge_r);
+                    return argparse::ParseResult::Ok;
                 }
             );
         }
@@ -166,6 +171,7 @@ main(int argc, char* argv[])
                 [&]
                 {
                     ChangeBrightness(&image, bright_c);
+                    return argparse::ParseResult::Ok;
                 }
             );
         }
@@ -183,6 +189,7 @@ main(int argc, char* argv[])
                 [&]
                 {
                     ChangeContrast(&image, contrast);
+                    return argparse::ParseResult::Ok;
                 }
             );
         }

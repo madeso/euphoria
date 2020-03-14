@@ -348,7 +348,11 @@ main(int argc, char* argv[])
 
             return sub->OnComplete
             (
-                [&] { maze_command(MazeAlgorithm::RecursiveBacktracker, args); }
+                [&]
+                {
+                    maze_command(MazeAlgorithm::RecursiveBacktracker, args);
+                    return argparse::ParseResult::Ok;
+                }
             );
         }
     );
@@ -364,7 +368,11 @@ main(int argc, char* argv[])
 
             return sub->OnComplete
             (
-                [&] { maze_command(MazeAlgorithm::RandomTraversal, args); }
+                [&]
+                {
+                    maze_command(MazeAlgorithm::RandomTraversal, args);
+                    return argparse::ParseResult::Ok;
+                }
             );
         }
     );
@@ -403,6 +411,7 @@ main(int argc, char* argv[])
                         common.output,
                         world_scale
                     );
+                    return argparse::ParseResult::Ok;
                 }
             );
         }

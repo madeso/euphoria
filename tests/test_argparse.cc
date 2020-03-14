@@ -211,6 +211,7 @@ TEST_CASE("argparse", "[argparse]")
             return parser->OnComplete([&]
             {
                 a = a_value;
+                return ParseResult::Ok;
             });
         });
 

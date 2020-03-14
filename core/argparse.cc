@@ -1045,7 +1045,7 @@ namespace euphoria::core::argparse
 
         if(on_complete.has_value())
         {
-            on_complete.value()();
+            return on_complete.value()();
         }
 
         return ParseResult::Ok;

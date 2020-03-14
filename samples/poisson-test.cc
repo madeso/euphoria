@@ -124,6 +124,7 @@ main(int argc, char* argv[])
                 []
                 {
                     svg_dump();
+                    return argparse::ParseResult::Ok;
                 }
             );
         }
@@ -142,6 +143,7 @@ main(int argc, char* argv[])
                 [&]
                 {
                     png_dump(extra_frames);
+                    return argparse::ParseResult::Ok;
                 }
             );
         }
