@@ -418,6 +418,23 @@ namespace euphoria::core::argparse
     }
 
 
+    std::ostream&
+    operator<<(std::ostream& o, const euphoria::core::argparse::Arguments& args)
+    {
+        o << args.name << " ";
+        bool first = true;
+        o << "[";
+        for(const auto& s: args.arguments)
+        {
+            if(first) {first = false;}
+            else { o << ", "; }
+            o << s;
+        }
+        o << "]";
+        return o;
+    }
+
+
     ArgumentReader::ArgumentReader(const Arguments& a)
         : arguments(a)
         , next_position(0)

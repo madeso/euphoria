@@ -78,6 +78,9 @@ namespace euphoria::core::argparse
         Extract(int argc, char* argv[]);
     };
 
+    std::ostream&
+    operator<<(std::ostream& stream, const Arguments& arguments);
+
 
     struct ArgumentReader
     {
