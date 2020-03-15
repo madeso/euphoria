@@ -5,6 +5,7 @@
 #include "core/stringmerger.h"
 #include "core/table.h"
 #include "core/cint.h"
+#include "core/str.h"
 
 #include <iostream>
 #include <iomanip>
@@ -18,8 +19,6 @@
    * unhelpful error messages, hint misspelled argument via StringToEnum code
 
    * assert invalid setups and argument name collisions
-
-   * non-greedy sub commands to operate lite ImageMagic "scripting": https://imagemagick.org/script/magick-script.php
 
    * Narg chainging functions renaming on return value of Add
 
@@ -348,6 +347,7 @@ namespace euphoria::core::argparse
             case ParseResult::Type::Ok: return 0;
             case ParseResult::Type::Error: return -1;
             case ParseResult::Type::Quit: return 0;
+            case ParseResult::Type::ContinueSub: return 0;
             default: return -1;
             }
         }
@@ -357,6 +357,7 @@ namespace euphoria::core::argparse
     const ParseResult ParseResult::Error = ParseResult { Type::Error };
     const ParseResult ParseResult::Ok = ParseResult { Type::Ok };
     const ParseResult ParseResult::Quit = ParseResult { Type::Quit };
+    const ParseResult ParseResult::ContinueSub = ParseResult { Type::ContinueSub };
 
 
     constexpr
@@ -374,6 +375,13 @@ namespace euphoria::core::argparse
     {
     }
 
+
+    std::ostream&
+    operator<<(std::ostream& o, const ParseResult& pr)
+    {
+        o << EnumToString(pr.type) << "(" << pr.return_value << ")";
+        return o;
+    }
 
     bool
     operator==(const ParseResult& lhs, const ParseResult& rhs)
@@ -445,6 +453,14 @@ namespace euphoria::core::argparse
         const auto arg = Peek();
         next_position += 1;
         return arg;
+    }
+
+
+    void
+    ArgumentReader::UndoRead()
+    {
+        ASSERT(next_position > 0);
+        next_position -= 1;
     }
 
 
@@ -692,7 +708,7 @@ namespace euphoria::core::argparse
                 return ToUpper(aa.name.names[0]);
             }
         };
-        auto ret = std::vector<std::string>{GetCallingName(args)};
+        auto ret = std::vector<std::string>{"usage:", GetCallingName(args)};
 
         for(auto& a: optional_argument_list)
         {
@@ -815,7 +831,7 @@ namespace euphoria::core::argparse
         }
 
         // print all tables now
-        printer->PrintInfo("usage: " + GenerateUsageString(args));
+        printer->PrintInfo(GenerateUsageString(args));
         if (description.empty() == false)
         {
             printer->PrintInfo("");
@@ -927,6 +943,17 @@ namespace euphoria::core::argparse
     ParseResult
     ParserBase::ParseArgs(Runner* runner)
     {
+        auto print_error = [&](const std::string& error)
+        {
+            runner->printer->PrintError(error);
+            runner->printer->PrintError
+            (
+                GenerateUsageString
+                (
+                    runner->arguments->arguments
+                )
+            );
+        };
         int positional_index = 0;
 
         auto has_more_positionals = [&]()
@@ -978,7 +1005,7 @@ namespace euphoria::core::argparse
                     auto match = FindArgument(arg);
                     if (match == nullptr)
                     {
-                        runner->printer->PrintError("invalid argument: " + arg);
+                        print_error("invalid argument: " + arg);
                         return ParseResult::Error;
                     }
                     auto arg_parse_result = match->Parse(runner);
@@ -994,7 +1021,25 @@ namespace euphoria::core::argparse
                     // or it's a error
                     if(subparsers.size == 0)
                     {
-                        runner->printer->PrintError("no subcomands for " + arg);
+                        if
+                        (
+                            sub_parser_style != SubParserStyle::Fallback &&
+                            GetRootParser()->sub_parser_style == SubParserStyle::Fallback
+                        )
+                        {
+                            runner->arguments->UndoRead();
+                            if(on_complete.has_value())
+                            {
+                                const auto r = on_complete.value()();
+                                if(r != ParseResult::Ok)
+                                {
+                                    return r;
+                                }
+                            }
+                            return ParseResult::ContinueSub;
+                        }
+
+                        print_error("no subcomands for " + arg);
                         return ParseResult::Error;
                     }
                     else
@@ -1002,7 +1047,15 @@ namespace euphoria::core::argparse
                         auto match = subparsers.Match(arg, 3);
                         if(match.single_match == false)
                         {
-                            runner->printer->PrintError("too many matches for " + arg);
+                            print_error
+                            (
+                                Str() << "invalid command '" << arg << "'"
+                                ", could be " <<
+                                StringMerger::EnglishOr().Generate
+                                (
+                                    match.names
+                                )
+                            );
                             return ParseResult::Error;
                         }
                         else
@@ -1015,10 +1068,23 @@ namespace euphoria::core::argparse
                             auto sub = SubParser
                             {
                                 container->help,
+                                this,
                                 runner,
                                 calling_name + " " + arg
                             };
-                            return container->callback(&sub);
+                            const auto subresult = container->callback(&sub);
+                            if
+                            (
+                                subresult == ParseResult::ContinueSub &&
+                                sub_parser_style == SubParserStyle::Fallback
+                            )
+                            {
+                                // continue here
+                            }
+                            else
+                            {
+                                return subresult;
+                            }
                         }
                     }
                 }
@@ -1027,13 +1093,13 @@ namespace euphoria::core::argparse
 
         if (has_more_positionals())
         {
-            runner->printer->PrintError("positionals left");
+            print_error("positionals left");
             return ParseResult::Error;
         }
 
         if(subparsers.size != 0)
         {
-            runner->printer->PrintError("no subparser specified");
+            print_error("no subparser specified");
             return ParseResult::Error;
         }
 
@@ -1049,13 +1115,22 @@ namespace euphoria::core::argparse
     SubParser::SubParser
     (
         const std::string& d,
+        ParserBase* p,
         Runner* r,
         const std::string& cn
     )
         : ParserBase(d)
+        , parent(p)
         , runner(r)
         , calling_name(cn)
     {
+    }
+
+
+    ParserBase*
+    SubParser::GetRootParser()
+    {
+        return parent;
     }
 
     
@@ -1078,6 +1153,13 @@ namespace euphoria::core::argparse
         : ParserBase(d)
         , printer(std::make_shared<ConsolePrinter>())
     {
+    }
+
+
+    ParserBase*
+    Parser::GetRootParser()
+    {
+        return this;
     }
 
 

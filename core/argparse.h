@@ -35,7 +35,7 @@ namespace euphoria::core::argparse
 
     struct ParseResult
     {
-        enum class Type { Error, Ok, Quit, Custom };
+        enum class Type { Error, Ok, Quit, ContinueSub, Custom };
 
         Type type;
         int return_value;
@@ -49,10 +49,15 @@ namespace euphoria::core::argparse
         // all ok, but quit requested
         static const ParseResult Quit;
 
+        // internal, ok but continue from root
+        static const ParseResult ContinueSub;
+
         constexpr explicit ParseResult(Type t);
         constexpr explicit ParseResult(int rv);
     };
 
+    std::ostream&
+    operator<<(std::ostream& o, const ParseResult& pr);
 
     bool
     operator==(const ParseResult& lhs, const ParseResult& rhs);
@@ -89,6 +94,9 @@ namespace euphoria::core::argparse
 
         std::string
         Read();
+
+        void
+        UndoRead();
     };
 
 
@@ -339,6 +347,13 @@ namespace euphoria::core::argparse
     };
 
 
+    enum class SubParserStyle
+    {
+        Greedy,
+        Fallback
+    };
+
+
     struct ParserBase
     {
         std::string description;
@@ -353,8 +368,16 @@ namespace euphoria::core::argparse
 
         std::optional<CompleteFunction> on_complete;
 
+        SubParserStyle sub_parser_style = SubParserStyle::Greedy;
+
         explicit ParserBase(const std::string& d);
-        virtual ~ParserBase();
+
+        virtual
+        ~ParserBase();
+
+        virtual
+        ParserBase*
+        GetRootParser() = 0;
 
         std::string
         GenerateUsageString(const Arguments& args);
@@ -427,10 +450,20 @@ namespace euphoria::core::argparse
 
     struct SubParser : public ParserBase
     {
+        ParserBase* parent;
         Runner* runner;
         std::string calling_name;
 
-        SubParser(const std::string& d, Runner* r, const std::string& cn);
+        SubParser
+        (
+            const std::string& d,
+            ParserBase* p,
+            Runner* r,
+            const std::string& cn
+        );
+
+        ParserBase*
+        GetRootParser() override;
 
         std::string
         GetCallingName(const Arguments& args) override;
@@ -444,6 +477,9 @@ namespace euphoria::core::argparse
     struct Parser : public ParserBase
     {
         explicit Parser(const std::string& d = "");
+
+        ParserBase*
+        GetRootParser() override;
 
         ParseResult
         Parse(const Arguments& args);

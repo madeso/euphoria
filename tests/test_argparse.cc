@@ -1,6 +1,7 @@
 #include "core/argparse.h"
 
 #include "utils.h"
+#include "core/enumtostring.h"
 
 
 using namespace euphoria::core::argparse;
@@ -25,6 +26,31 @@ namespace
         }
     };
 
+
+    template<typename T>
+    std::ostream&
+    operator<<(std::ostream& o, const std::vector<T>& m)
+    {
+        o << "[";
+        bool first = true;
+        for(const auto& t: m)
+        {
+            if(first) {first = false;}
+            else { o << ", "; }
+            o << t;
+        }
+        o << "]";
+        return o;
+    }
+
+    std::ostream&
+    operator<<(std::ostream& o, const Message& m)
+    {
+        o << (m.error?"ERR":"INF");
+        o << " " << m.text;
+        return o;
+    }
+
     struct TestPrinter : public Printer
     {
         std::vector<Message> messages;
@@ -46,6 +72,15 @@ namespace
     {
         Cat, Dog, Bird
     };
+
+
+    std::ostream&
+    operator<<(std::ostream& o, const Animal& m)
+    {
+        o << euphoria::core::EnumToString(m);
+        return o;
+    }
+    
 }
 
 
@@ -269,6 +304,59 @@ TEST_CASE("argparse", "[argparse]")
             CHECK(res == ParseResult::Ok);
             CHECK(a == "default");
             CHECK(b == "bird");
+        }
+    }
+
+    SECTION("non greedy subparser/script like")
+    {
+        auto sub = parser.AddSubParsers();
+        std::string data;
+        parser.sub_parser_style = SubParserStyle::Fallback;
+        sub->Add("add", [&](SubParser* sub)
+        {
+            std::string what;
+            sub->Add("what", &what);
+            return sub->OnComplete([&]
+            {
+                data += what;
+                return ParseResult::Ok;
+            });
+        });
+        sub->Add("double", [&](SubParser* sub)
+        {
+            return sub->OnComplete([&]
+            {
+                data += data;
+                return ParseResult::Ok;
+            });
+        });
+
+        SECTION("once")
+        {
+            const auto res = parser.Parse
+            (
+                MakeArguments
+                ({
+                    "add", "dog"
+                })
+            );
+            CHECK(res == ParseResult::Ok);
+            CHECK(data == "dog");
+        }
+
+        SECTION("twice")
+        {
+            const auto res = parser.Parse
+            (
+                MakeArguments
+                ({
+                    "add", "cat",
+                    "double"
+                })
+            );
+            INFO(output->messages);
+            CHECK(res == ParseResult::Ok);
+            CHECK(data == "catcat");
         }
     }
 }
