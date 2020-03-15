@@ -19,7 +19,8 @@ namespace euphoria::core
     template <typename T>
     struct MatchedEnum
     {
-        bool           single_match = false;
+        bool single_match = false;
+        std::vector<std::string> names;
         std::vector<T> values;
     };
 
@@ -81,12 +82,14 @@ namespace euphoria::core
             auto found = string_to_enum.find(ToLower(input));
             if(found != string_to_enum.end())
             {
-                return MatchedEnum<T> {true, {found->second}};
+                return MatchedEnum<T> {true, {input}, {found->second}};
             }
             struct Match
             {
-                T             t;
+                std::string name;
+                T t;
                 unsigned long changes;
+
                 bool
                 operator<(const Match& rhs) const
                 {
@@ -96,10 +99,10 @@ namespace euphoria::core
             std::priority_queue<Match> matches;
             for(auto entry: enum_to_string)
             {
-                const auto t       = entry.first;
-                const auto str     = entry.second;
+                const auto t = entry.first;
+                const auto str = entry.second;
                 const auto changes = EditDistance(str, input);
-                matches.push({t, changes});
+                matches.push({str, t, changes});
                 if(matches.size() > max_size)
                 {
                     matches.pop();
@@ -108,6 +111,7 @@ namespace euphoria::core
             auto ret = MatchedEnum<T> {};
             while(!matches.empty())
             {
+                ret.names.insert(ret.names.begin(), matches.top().name);
                 ret.values.insert(ret.values.begin(), matches.top().t);
                 matches.pop();
             }
