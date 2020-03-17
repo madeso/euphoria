@@ -972,7 +972,13 @@ namespace euphoria::core::argparse
             print_error(const std::string& error);
 
             std::optional<ParseResult>
+            TryParseImportantOptional();
+
+            std::optional<ParseResult>
             ParseOnePositional();
+
+            std::optional<ParseResult>
+            ParseSubCommand(const std::string& arg);
 
             std::optional<ParseResult>
             ParseOneOptional();
@@ -1008,23 +1014,17 @@ namespace euphoria::core::argparse
 
 
         std::optional<ParseResult>
-        ArgumentParser::ParseOnePositional()
+        ArgumentParser::TryParseImportantOptional()
         {
             // first, peek at the next commandline argument
             // and check for optionals that are allowed before positionals
-            if
-            (
-                const auto arg = base->FindArgument(runner->arguments->Peek());
-                arg != nullptr && arg->allow_before_positionals
-            )
+            const auto arg = base->FindArgument(runner->arguments->Peek());
+            if(arg != nullptr && arg->allow_before_positionals)
             {
                 // we have matched a optional, read and parse it!
                 runner->arguments->Read();
-                if
-                (
-                    auto arg_parse_result = arg->Parse(runner);
-                    arg_parse_result != ParseResult::Ok
-                )
+                auto arg_parse_result = arg->Parse(runner);
+                if(arg_parse_result != ParseResult::Ok)
                 {
                     return arg_parse_result;
                 }
@@ -1037,18 +1037,96 @@ namespace euphoria::core::argparse
             {
                 // the peeked argument isn't a important optional
                 // handle positional
-                auto match = base->positional_argument_list[positional_index];
-                auto arg_parse_result = match.argument->Parse(runner);
-                if (arg_parse_result != ParseResult::Ok)
-                {
-                    return arg_parse_result;
-                }
-                positional_index += 1;
-
                 return std::nullopt;
             }
         }
 
+        std::optional<ParseResult>
+        ArgumentParser::ParseOnePositional()
+        {
+            auto match = base->positional_argument_list[positional_index];
+            auto arg_parse_result = match.argument->Parse(runner);
+            if (arg_parse_result != ParseResult::Ok)
+            {
+                return arg_parse_result;
+            }
+            positional_index += 1;
+
+            return std::nullopt;
+        }
+
+
+        std::optional<ParseResult>
+        ArgumentParser::ParseSubCommand(const std::string& arg)
+        {
+            if(base->subparsers.size == 0)
+            {
+                if
+                (
+                    // sub_parser_style != SubParserStyle::Fallback &&
+                    base->GetRootParser()->sub_parser_style == SubParserStyle::Fallback
+                )
+                {
+                    runner->arguments->UndoRead();
+                    if(base->on_complete.has_value())
+                    {
+                        const auto r = base->on_complete.value()();
+                        if(r != ParseResult::Ok)
+                        {
+                            return r;
+                        }
+                    }
+                    return ParseResult::ContinueSub;
+                }
+
+                print_error("no subcomands for " + arg);
+                return ParseResult::Error;
+            }
+            else
+            {
+                auto match = base->subparsers.Match(arg, 3);
+                if(match.single_match == false)
+                {
+                    print_error
+                    (
+                        Str() << "invalid command '" << arg << "'"
+                        ", could be " <<
+                        StringMerger::EnglishOr().Generate
+                        (
+                            match.names
+                        )
+                    );
+                    return ParseResult::Error;
+                }
+
+                auto container = match.values[0];
+                const auto calling_name = base->GetCallingName
+                (
+                    runner->arguments->arguments
+                );
+                auto sub = SubParser
+                {
+                    container->help,
+                    base,
+                    runner,
+                    calling_name + " " + arg
+                };
+                const auto subresult = container->callback(&sub);
+                if
+                (
+                    subresult == ParseResult::ContinueSub &&
+                    base->sub_parser_style == SubParserStyle::Fallback
+                )
+                {
+                    // continue here
+                    return std::nullopt;
+                }
+                else
+                {
+                    return subresult;
+                }
+            }
+        }
 
         std::optional<ParseResult>
         ArgumentParser::ParseOneOptional()
@@ -1067,83 +1145,16 @@ namespace euphoria::core::argparse
                 {
                     return arg_parse_result;
                 }
+
+                return std::nullopt;
             }
             else
             {
                 // arg doesn't look like a optional argument
                 // hence it must be a sub command
                 // or it's a error
-                if(base->subparsers.size == 0)
-                {
-                    if
-                    (
-                        // sub_parser_style != SubParserStyle::Fallback &&
-                        base->GetRootParser()->sub_parser_style == SubParserStyle::Fallback
-                    )
-                    {
-                        runner->arguments->UndoRead();
-                        if(base->on_complete.has_value())
-                        {
-                            const auto r = base->on_complete.value()();
-                            if(r != ParseResult::Ok)
-                            {
-                                return r;
-                            }
-                        }
-                        return ParseResult::ContinueSub;
-                    }
-
-                    print_error("no subcomands for " + arg);
-                    return ParseResult::Error;
-                }
-                else
-                {
-                    auto match = base->subparsers.Match(arg, 3);
-                    if(match.single_match == false)
-                    {
-                        print_error
-                        (
-                            Str() << "invalid command '" << arg << "'"
-                            ", could be " <<
-                            StringMerger::EnglishOr().Generate
-                            (
-                                match.names
-                            )
-                        );
-                        return ParseResult::Error;
-                    }
-                    else
-                    {
-                        auto container = match.values[0];
-                        const auto calling_name = base->GetCallingName
-                        (
-                            runner->arguments->arguments
-                        );
-                        auto sub = SubParser
-                        {
-                            container->help,
-                            base,
-                            runner,
-                            calling_name + " " + arg
-                        };
-                        const auto subresult = container->callback(&sub);
-                        if
-                        (
-                            subresult == ParseResult::ContinueSub &&
-                            base->sub_parser_style == SubParserStyle::Fallback
-                        )
-                        {
-                            // continue here
-                        }
-                        else
-                        {
-                            return subresult;
-                        }
-                    }
-                }
+                return ParseSubCommand(arg);
             }
-
-            return std::nullopt;
         }
 
 
@@ -1152,7 +1163,15 @@ namespace euphoria::core::argparse
         {
             if (has_more_positionals())
             {
-                return ParseOnePositional();
+                auto opt = TryParseImportantOptional();
+                if(opt.has_value())
+                {
+                    return opt;
+                }
+                else
+                {
+                    return ParseOnePositional();
+                }
             }
             else
             {
