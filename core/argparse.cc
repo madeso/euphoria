@@ -1061,7 +1061,12 @@ namespace euphoria::core::argparse
             auto match = base->subparsers.Match(arg, 3);
             if(match.single_match == false)
             {
-                if(base->GetParserStyle() == SubParserStyle::Greedy)
+                // todo(Gustav): check if this accepts invalid and calls on_complete() on invalid input
+                if
+                (
+                    base->GetParserStyle() == SubParserStyle::Greedy &&
+                    base->subparsers.size > 0
+                )
                 {
                     print_error
                     (

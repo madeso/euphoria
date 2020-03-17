@@ -14,6 +14,7 @@ namespace
         return Arguments{ "path/to/app", args };
     }
 
+
     struct Message
     {
         bool error;
@@ -43,6 +44,7 @@ namespace
         return o;
     }
 
+
     std::ostream&
     operator<<(std::ostream& o, const Message& m)
     {
@@ -50,6 +52,7 @@ namespace
         o << " " << m.text;
         return o;
     }
+
 
     struct TestPrinter : public Printer
     {
@@ -362,6 +365,71 @@ TEST_CASE("argparse", "[argparse]")
             INFO(output->messages);
             CHECK(res == ParseResult::Ok);
             CHECK(data == "catcat");
+        }
+    }
+
+    SECTION("non root root")
+    {
+        auto sub = parser.AddSubParsers();
+        std::string data;
+        sub->Add("pretty", [&](SubParser* pretty)
+        {
+            pretty->AddSubParsers()->Add("please", [&](SubParser* please)
+            {
+                please->parser_style = SubParserStyle::Fallback;
+                auto sub = please->AddSubParsers();
+                sub->Add("add", [&](SubParser* sub)
+                {
+                    std::string what;
+                    sub->Add("what", &what);
+                    return sub->OnComplete([&]
+                    {
+                        data += what;
+                        return ParseResult::Ok;
+                    });
+                });
+                sub->Add("double", [&](SubParser* sub)
+                {
+                    return sub->OnComplete([&]
+                    {
+                        data += data;
+                        return ParseResult::Ok;
+                    });
+                });
+                return please->OnComplete([]{return ParseResult::Ok;});
+            });
+            return pretty->OnComplete([]{return ParseResult::Ok;});
+        });
+
+        SECTION("once")
+        {
+            const auto res = parser.Parse
+            (
+                MakeArguments
+                ({
+                    "pretty", "please", "add", "dog"
+                })
+            );
+            CHECK(res == ParseResult::Ok);
+            CHECK(data == "dog");
+        }
+
+        SECTION("twice")
+        {
+            const auto arguments = 
+                MakeArguments
+                ({
+                    "pretty", "please", "add", "cat",
+                    "please", "double"
+                });
+            const auto res = parser.Parse
+            (
+                arguments
+            );
+            INFO(output->messages);
+            INFO(arguments);
+            REQUIRE(data == "catcat");
+            CHECK(res == ParseResult::Ok);
         }
     }
 }
