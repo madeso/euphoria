@@ -957,166 +957,233 @@ namespace euphoria::core::argparse
     }
 
 
-    ParseResult
-    ParserBase::ParseArgs(Runner* runner)
+    namespace
     {
-        auto print_error = [&](const std::string& error)
+        struct ArgumentParser
+        {
+            ParserBase* base;
+            Runner* runner;
+            int positional_index = 0;
+
+            bool
+            has_more_positionals();
+
+            void
+            print_error(const std::string& error);
+
+            std::optional<ParseResult>
+            ParseOnePositional();
+
+            std::optional<ParseResult>
+            ParseOneOptional();
+
+            std::optional<ParseResult>
+            ParseOneArg();
+        };
+
+
+        bool
+        ArgumentParser::has_more_positionals()
+        {
+            const auto positionals_size = Csizet_to_int
+            (
+                base->positional_argument_list.size()
+            );
+            return positional_index < positionals_size;
+        }
+
+
+        void
+        ArgumentParser::print_error(const std::string& error)
         {
             runner->printer->PrintError(error);
             runner->printer->PrintError
             (
-                GenerateUsageString
+                base->GenerateUsageString
                 (
                     runner->arguments->arguments
                 )
             );
-        };
-        int positional_index = 0;
+        }
 
-        auto has_more_positionals = [&]()
-        {
-            return positional_index < Csizet_to_int(positional_argument_list.size());
-        };
 
-        while (runner->arguments->HasMore())
+        std::optional<ParseResult>
+        ArgumentParser::ParseOnePositional()
         {
-            if (has_more_positionals())
+            // first, peek at the next commandline argument
+            // and check for optionals that are allowed before positionals
+            if
+            (
+                const auto arg = base->FindArgument(runner->arguments->Peek());
+                arg != nullptr && arg->allow_before_positionals
+            )
             {
-                // first, peek at the next commandline argument
-                // and check for optionals that are allowed before positionals
+                // we have matched a optional, read and parse it!
+                runner->arguments->Read();
                 if
                 (
-                    const auto arg = FindArgument(runner->arguments->Peek());
-                    arg != nullptr && arg->allow_before_positionals
+                    auto arg_parse_result = arg->Parse(runner);
+                    arg_parse_result != ParseResult::Ok
                 )
                 {
-                    // we have matched a optional, read and parse it!
-                    runner->arguments->Read();
-                    if
-                    (
-                        auto arg_parse_result = arg->Parse(runner);
-                        arg_parse_result != ParseResult::Ok
-                    )
-                    {
-                        return arg_parse_result;
-                    }
+                    return arg_parse_result;
                 }
                 else
                 {
-                    // the peeked argument isn't a important optional
-                    // handle positional
-                    auto match = positional_argument_list[positional_index];
-                    auto arg_parse_result = match.argument->Parse(runner);
-                    if (arg_parse_result != ParseResult::Ok)
-                    {
-                        return arg_parse_result;
-                    }
-                    positional_index += 1;
+                    return std::nullopt;
                 }
             }
             else
             {
-                const auto arg = runner->arguments->Read();
-                if(IsOptionalArgument(arg))
+                // the peeked argument isn't a important optional
+                // handle positional
+                auto match = base->positional_argument_list[positional_index];
+                auto arg_parse_result = match.argument->Parse(runner);
+                if (arg_parse_result != ParseResult::Ok)
                 {
-                    auto match = FindArgument(arg);
-                    if (match == nullptr)
+                    return arg_parse_result;
+                }
+                positional_index += 1;
+
+                return std::nullopt;
+            }
+        }
+
+
+        std::optional<ParseResult>
+        ArgumentParser::ParseOneOptional()
+        {
+            const auto arg = runner->arguments->Read();
+            if(IsOptionalArgument(arg))
+            {
+                auto match = base->FindArgument(arg);
+                if (match == nullptr)
+                {
+                    print_error("invalid argument: " + arg);
+                    return ParseResult::Error;
+                }
+                auto arg_parse_result = match->Parse(runner);
+                if (arg_parse_result != ParseResult::Ok)
+                {
+                    return arg_parse_result;
+                }
+            }
+            else
+            {
+                // arg doesn't look like a optional argument
+                // hence it must be a sub command
+                // or it's a error
+                if(base->subparsers.size == 0)
+                {
+                    if
+                    (
+                        // sub_parser_style != SubParserStyle::Fallback &&
+                        base->GetRootParser()->sub_parser_style == SubParserStyle::Fallback
+                    )
                     {
-                        print_error("invalid argument: " + arg);
-                        return ParseResult::Error;
+                        runner->arguments->UndoRead();
+                        if(base->on_complete.has_value())
+                        {
+                            const auto r = base->on_complete.value()();
+                            if(r != ParseResult::Ok)
+                            {
+                                return r;
+                            }
+                        }
+                        return ParseResult::ContinueSub;
                     }
-                    auto arg_parse_result = match->Parse(runner);
-                    if (arg_parse_result != ParseResult::Ok)
-                    {
-                        return arg_parse_result;
-                    }
+
+                    print_error("no subcomands for " + arg);
+                    return ParseResult::Error;
                 }
                 else
                 {
-                    // arg doesn't look like a optional argument
-                    // hence it must be a sub command
-                    // or it's a error
-                    if(subparsers.size == 0)
+                    auto match = base->subparsers.Match(arg, 3);
+                    if(match.single_match == false)
                     {
-                        if
+                        print_error
                         (
-                            sub_parser_style != SubParserStyle::Fallback &&
-                            GetRootParser()->sub_parser_style == SubParserStyle::Fallback
-                        )
-                        {
-                            runner->arguments->UndoRead();
-                            if(on_complete.has_value())
-                            {
-                                const auto r = on_complete.value()();
-                                if(r != ParseResult::Ok)
-                                {
-                                    return r;
-                                }
-                            }
-                            return ParseResult::ContinueSub;
-                        }
-
-                        print_error("no subcomands for " + arg);
+                            Str() << "invalid command '" << arg << "'"
+                            ", could be " <<
+                            StringMerger::EnglishOr().Generate
+                            (
+                                match.names
+                            )
+                        );
                         return ParseResult::Error;
                     }
                     else
                     {
-                        auto match = subparsers.Match(arg, 3);
-                        if(match.single_match == false)
+                        auto container = match.values[0];
+                        const auto calling_name = base->GetCallingName
+                        (
+                            runner->arguments->arguments
+                        );
+                        auto sub = SubParser
                         {
-                            print_error
-                            (
-                                Str() << "invalid command '" << arg << "'"
-                                ", could be " <<
-                                StringMerger::EnglishOr().Generate
-                                (
-                                    match.names
-                                )
-                            );
-                            return ParseResult::Error;
+                            container->help,
+                            base,
+                            runner,
+                            calling_name + " " + arg
+                        };
+                        const auto subresult = container->callback(&sub);
+                        if
+                        (
+                            subresult == ParseResult::ContinueSub &&
+                            base->sub_parser_style == SubParserStyle::Fallback
+                        )
+                        {
+                            // continue here
                         }
                         else
                         {
-                            auto container = match.values[0];
-                            const auto calling_name = GetCallingName
-                            (
-                                runner->arguments->arguments
-                            );
-                            auto sub = SubParser
-                            {
-                                container->help,
-                                this,
-                                runner,
-                                calling_name + " " + arg
-                            };
-                            const auto subresult = container->callback(&sub);
-                            if
-                            (
-                                subresult == ParseResult::ContinueSub &&
-                                sub_parser_style == SubParserStyle::Fallback
-                            )
-                            {
-                                // continue here
-                            }
-                            else
-                            {
-                                return subresult;
-                            }
+                            return subresult;
                         }
                     }
                 }
             }
+
+            return std::nullopt;
         }
 
-        if (has_more_positionals())
+
+        std::optional<ParseResult>
+        ArgumentParser::ParseOneArg()
         {
-            print_error("positionals left");
+            if (has_more_positionals())
+            {
+                return ParseOnePositional();
+            }
+            else
+            {
+                return ParseOneOptional();
+            }
+        }
+    }
+
+    ParseResult
+    ParserBase::ParseArgs(Runner* runner)
+    {
+        auto parser = ArgumentParser{this, runner};
+
+        while (runner->arguments->HasMore())
+        {
+            auto r = parser.ParseOneArg();
+            if(r)
+            {
+                return *r;
+            }
+        }
+
+        if (parser.has_more_positionals())
+        {
+            parser.print_error("positionals left");
             return ParseResult::Error;
         }
 
         if(subparsers.size != 0)
         {
-            print_error("no subparser specified");
+            parser.print_error("no subparser specified");
             return ParseResult::Error;
         }
 
