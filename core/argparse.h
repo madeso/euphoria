@@ -64,14 +64,16 @@ namespace euphoria::core::argparse
     operator!=(const ParseResult& lhs, const ParseResult& rhs);
 
 
+    // container for arguments passed to main
     struct Arguments
     {
-        std::string              name;
+        std::string name;
         std::vector<std::string> arguments;
 
         Arguments(const std::string& n, const std::vector<std::string>& a);
 
-        static Arguments
+        static
+        Arguments
         Extract(int argc, char* argv[]);
     };
 
@@ -79,12 +81,14 @@ namespace euphoria::core::argparse
     operator<<(std::ostream& stream, const Arguments& arguments);
 
 
+    // "file" like api for reading arguments
     struct ArgumentReader
     {
         Arguments arguments;
         int next_position;
 
-        explicit ArgumentReader(const Arguments& a);
+        explicit
+        ArgumentReader(const Arguments& a);
 
         bool
         HasMore() const;
@@ -99,7 +103,7 @@ namespace euphoria::core::argparse
         UndoRead();
     };
 
-
+    // generic output class
     struct Printer
     {
         virtual ~Printer();
@@ -111,7 +115,7 @@ namespace euphoria::core::argparse
         PrintInfo(const std::string& line) = 0;
     };
 
-
+    // console output
     struct ConsolePrinter : public Printer
     {
         void
@@ -121,7 +125,7 @@ namespace euphoria::core::argparse
         PrintInfo(const std::string& line) override;
     };
 
-
+    // shared data between parsing functions
     struct Runner
     {
         ArgumentReader* arguments;
@@ -129,6 +133,7 @@ namespace euphoria::core::argparse
     };
 
 
+    // represents a command line argument
     // optional: start with either - or --
     //    can have many names
     // positional: doesn't start with -
@@ -149,6 +154,7 @@ namespace euphoria::core::argparse
     };
 
 
+    // base class for argument
     struct Argument
     {
         virtual ~Argument();
@@ -170,7 +176,7 @@ namespace euphoria::core::argparse
         Parse(Runner* reader) = 0;
     };
 
-
+    // named tuple class for argument and name
     struct ArgumentAndName
     {
         Name name;
@@ -179,7 +185,8 @@ namespace euphoria::core::argparse
         ArgumentAndName(const Name& n, std::shared_ptr<Argument> a);
     };
 
-
+    // a argument with no value, probably either a --set-true
+    // or a void function like --help
     struct ArgumentNoValue : public Argument
     {
         using Callback = std::function<ParseResult (Runner*)>;
@@ -191,7 +198,7 @@ namespace euphoria::core::argparse
         Parse(Runner* runner) override;
     };
 
-
+    // a single argument, probably either a --count 3 or positional input
     struct SingleArgument : public Argument
     {
         using Callback = std::function<ParseResult (Runner*, const std::string&)>;
@@ -203,11 +210,11 @@ namespace euphoria::core::argparse
         Parse(Runner* runner) override;
     };
 
-
+    // generic parse function
     template<typename T>
     using ParseFunction = std::function<std::optional<T> (std::shared_ptr<Printer> printer, const std::string&)>;
 
-
+    // default parse function for non-enums
     template
     <
         typename T,
@@ -231,6 +238,7 @@ namespace euphoria::core::argparse
         }
     }
 
+    // default parse function for enums
     template
     <
         typename T,
@@ -246,13 +254,13 @@ namespace euphoria::core::argparse
         }
         else
         {
-            // todo(include argument name and matches here
+            // todo(Gustav): include argument name and matches here
             printer->PrintError(value + " is not accepted");
             return std::nullopt;
         }
     }
 
-
+    // default value for non enums
     template
     <
         typename T,
@@ -266,7 +274,7 @@ namespace euphoria::core::argparse
         return ss.str();
     }
 
-
+    // default value for enums
     template
     <
         typename T,
@@ -280,18 +288,19 @@ namespace euphoria::core::argparse
 
 
     struct SubParser;
+
     using SubParserCallback = std::function
     <
         ParseResult (SubParser*)
     >;
-
 
     using CompleteFunction = std::function
     <
         ParseResult ()
     >;
 
-
+    // valid names for a single subparser
+    // example: [checkout, co] or [pull]
     struct SubParserNames
     {
         std::vector<std::string> names;
@@ -299,7 +308,7 @@ namespace euphoria::core::argparse
         SubParserNames(const char* str);
     };
     
-
+    // data about a subparser
     struct SubParserContainer
     {
         SubParserNames names;
@@ -314,10 +323,9 @@ namespace euphoria::core::argparse
         );
     };
 
-
     struct ParserBase;
 
-
+    // subparsers can be grouped and this structs represents that group
     struct SubParserGroup
     {
         std::string title;
@@ -346,16 +354,18 @@ namespace euphoria::core::argparse
         );
     };
 
-
+    // how the subparsing is handled, non-greedy are 
+    // useful for 'scripting' with subparsers
     enum class SubParserStyle
     {
         // parse all arguments
         Greedy,
+
         // if argument is invalid, go back one step and try there
         Fallback
     };
 
-
+    // base for the parser, start with Parser and add one or more subparsers
     struct ParserBase
     {
         std::string description;
@@ -438,7 +448,6 @@ namespace euphoria::core::argparse
         std::shared_ptr<SubParserGroup>
         AddSubParsers(const std::string& name="Commands");
 
-
         std::shared_ptr<Argument>
         FindArgument(const std::string& name);
 
@@ -447,7 +456,8 @@ namespace euphoria::core::argparse
         ParseArgs(Runner* runner);
     };
 
-
+    // subparser, don't create manually but add to a existing parser
+    // AddSubParsers()->Add(...);
     struct SubParser : public ParserBase
     {
         ParserBase* parent;
@@ -474,7 +484,7 @@ namespace euphoria::core::argparse
         OnComplete(CompleteFunction com);
     };
 
-
+    // root parser. start argumentparsing with this one
     struct Parser : public ParserBase
     {
         explicit Parser(const std::string& d = "");
@@ -496,6 +506,7 @@ namespace euphoria::core::argparse
         std::shared_ptr<Printer> printer;
     };
 
+    // helper function for parsing directly from main
     int
     ParseFromMain(Parser* parser, int argc, char* argv[]);
 }
