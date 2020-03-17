@@ -259,6 +259,7 @@ TEST_CASE("argparse", "[argparse]")
         SECTION("empty subparser = error")
         {
             const auto res = parser.Parse(MakeArguments({}));
+            INFO(output->messages);
             CHECK(res == ParseResult::Error);
             CHECK(a == "default");
             CHECK(b == "default");
@@ -273,6 +274,7 @@ TEST_CASE("argparse", "[argparse]")
                     "a"
                 })
             );
+            INFO(output->messages);
             CHECK(res == ParseResult::Ok);
             CHECK(a == "dog");
             CHECK(b == "default");
@@ -287,6 +289,7 @@ TEST_CASE("argparse", "[argparse]")
                     "a", "-s", "cat"
                 })
             );
+            INFO(output->messages);
             CHECK(res == ParseResult::Ok);
             CHECK(a == "cat");
             CHECK(b == "default");
@@ -301,6 +304,7 @@ TEST_CASE("argparse", "[argparse]")
                     "b"
                 })
             );
+            INFO(output->messages);
             CHECK(res == ParseResult::Ok);
             CHECK(a == "default");
             CHECK(b == "bird");
@@ -311,10 +315,10 @@ TEST_CASE("argparse", "[argparse]")
     {
         auto sub = parser.AddSubParsers();
         std::string data;
-        parser.sub_parser_style = SubParserStyle::Fallback;
         sub->Add("add", [&](SubParser* sub)
         {
             std::string what;
+            sub->parser_style = SubParserStyle::Fallback;
             sub->Add("what", &what);
             return sub->OnComplete([&]
             {
@@ -340,6 +344,7 @@ TEST_CASE("argparse", "[argparse]")
                     "add", "dog"
                 })
             );
+            INFO(output->messages);
             CHECK(res == ParseResult::Ok);
             CHECK(data == "dog");
         }

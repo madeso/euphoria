@@ -347,7 +347,6 @@ namespace euphoria::core::argparse
             case ParseResult::Type::Ok: return 0;
             case ParseResult::Type::Error: return -1;
             case ParseResult::Type::Quit: return 0;
-            case ParseResult::Type::ContinueSub: return 0;
             default: return -1;
             }
         }
@@ -357,7 +356,6 @@ namespace euphoria::core::argparse
     const ParseResult ParseResult::Error = ParseResult { Type::Error };
     const ParseResult ParseResult::Ok = ParseResult { Type::Ok };
     const ParseResult ParseResult::Quit = ParseResult { Type::Quit };
-    const ParseResult ParseResult::ContinueSub = ParseResult { Type::ContinueSub };
 
 
     constexpr
@@ -964,6 +962,7 @@ namespace euphoria::core::argparse
             ParserBase* base;
             Runner* runner;
             int positional_index = 0;
+            bool found_subparser = false;
 
             bool
             has_more_positionals();
@@ -1059,33 +1058,10 @@ namespace euphoria::core::argparse
         std::optional<ParseResult>
         ArgumentParser::ParseSubCommand(const std::string& arg)
         {
-            if(base->subparsers.size == 0)
+            auto match = base->subparsers.Match(arg, 3);
+            if(match.single_match == false)
             {
-                if
-                (
-                    // sub_parser_style != SubParserStyle::Fallback &&
-                    base->GetRootParser()->sub_parser_style == SubParserStyle::Fallback
-                )
-                {
-                    runner->arguments->UndoRead();
-                    if(base->on_complete.has_value())
-                    {
-                        const auto r = base->on_complete.value()();
-                        if(r != ParseResult::Ok)
-                        {
-                            return r;
-                        }
-                    }
-                    return ParseResult::ContinueSub;
-                }
-
-                print_error("no subcomands for " + arg);
-                return ParseResult::Error;
-            }
-            else
-            {
-                auto match = base->subparsers.Match(arg, 3);
-                if(match.single_match == false)
+                if(base->GetParserStyle() == SubParserStyle::Greedy)
                 {
                     print_error
                     (
@@ -1098,33 +1074,46 @@ namespace euphoria::core::argparse
                     );
                     return ParseResult::Error;
                 }
-
-                auto container = match.values[0];
-                const auto calling_name = base->GetCallingName
-                (
-                    runner->arguments->arguments
-                );
-                auto sub = SubParser
-                {
-                    container->help,
-                    base,
-                    runner,
-                    calling_name + " " + arg
-                };
-                const auto subresult = container->callback(&sub);
-                if
-                (
-                    subresult == ParseResult::ContinueSub &&
-                    base->sub_parser_style == SubParserStyle::Fallback
-                )
-                {
-                    // continue here
-                    return std::nullopt;
-                }
                 else
                 {
-                    return subresult;
+                    // go back one step
+                    runner->arguments->UndoRead();
+
+                    if(base->on_complete.has_value())
+                    {
+                        return base->on_complete.value()();
+                    }
+
+                    return ParseResult::Ok;
                 }
+            }
+            found_subparser = true;
+
+            auto container = match.values[0];
+            const auto calling_name = base->GetCallingName
+            (
+                runner->arguments->arguments
+            );
+            auto sub = SubParser
+            {
+                container->help,
+                base,
+                runner,
+                calling_name + " " + arg
+            };
+            const auto subresult = container->callback(&sub);
+            if
+            (
+                subresult == ParseResult::Ok &&
+                base->GetParserStyle() == SubParserStyle::Greedy
+            )
+            {
+                // continue here
+                return std::nullopt;
+            }
+            else
+            {
+                return subresult;
             }
         }
 
@@ -1200,7 +1189,9 @@ namespace euphoria::core::argparse
             return ParseResult::Error;
         }
 
-        if(subparsers.size != 0)
+        // not sure if should keep or not
+        // should handle required subparser, but doesn't
+        if(subparsers.size != 0 && parser.found_subparser == false)
         {
             parser.print_error("no subparser specified");
             return ParseResult::Error;
@@ -1230,10 +1221,10 @@ namespace euphoria::core::argparse
     }
 
 
-    ParserBase*
-    SubParser::GetRootParser()
+    SubParserStyle
+    SubParser::GetParserStyle()
     {
-        return parent;
+        return parser_style;
     }
 
     
@@ -1259,10 +1250,10 @@ namespace euphoria::core::argparse
     }
 
 
-    ParserBase*
-    Parser::GetRootParser()
+    SubParserStyle
+    Parser::GetParserStyle()
     {
-        return this;
+        return SubParserStyle::Greedy;
     }
 
 

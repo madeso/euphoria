@@ -35,7 +35,7 @@ namespace euphoria::core::argparse
 
     struct ParseResult
     {
-        enum class Type { Error, Ok, Quit, ContinueSub, Custom };
+        enum class Type { Error, Ok, Quit, Custom };
 
         Type type;
         int return_value;
@@ -48,9 +48,6 @@ namespace euphoria::core::argparse
         
         // all ok, but quit requested
         static const ParseResult Quit;
-
-        // internal, ok but continue from root
-        static const ParseResult ContinueSub;
 
         constexpr explicit ParseResult(Type t);
         constexpr explicit ParseResult(int rv);
@@ -352,7 +349,9 @@ namespace euphoria::core::argparse
 
     enum class SubParserStyle
     {
+        // parse all arguments
         Greedy,
+        // if argument is invalid, go back one step and try there
         Fallback
     };
 
@@ -371,16 +370,14 @@ namespace euphoria::core::argparse
 
         std::optional<CompleteFunction> on_complete;
 
-        SubParserStyle sub_parser_style = SubParserStyle::Greedy;
-
         explicit ParserBase(const std::string& d);
 
         virtual
         ~ParserBase();
 
         virtual
-        ParserBase*
-        GetRootParser() = 0;
+        SubParserStyle
+        GetParserStyle() = 0;
 
         std::string
         GenerateUsageString(const Arguments& args);
@@ -456,6 +453,7 @@ namespace euphoria::core::argparse
         ParserBase* parent;
         Runner* runner;
         std::string calling_name;
+        SubParserStyle parser_style = SubParserStyle::Greedy;
 
         SubParser
         (
@@ -465,8 +463,8 @@ namespace euphoria::core::argparse
             const std::string& cn
         );
 
-        ParserBase*
-        GetRootParser() override;
+        SubParserStyle
+        GetParserStyle() override;
 
         std::string
         GetCallingName(const Arguments& args) override;
@@ -481,8 +479,8 @@ namespace euphoria::core::argparse
     {
         explicit Parser(const std::string& d = "");
 
-        ParserBase*
-        GetRootParser() override;
+        SubParserStyle
+        GetParserStyle() override;
 
         ParseResult
         Parse(const Arguments& args);
