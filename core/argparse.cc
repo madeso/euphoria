@@ -1055,17 +1055,32 @@ namespace euphoria::core::argparse
         }
 
 
+        bool
+        HasParserThatCanHandleSubparserCallback(ParserBase* base)
+        {
+            if(base == nullptr) return false;
+            const auto can_handle_self =
+                base->subparsers.size > 0
+                ;
+            return can_handle_self ||
+                HasParserThatCanHandleSubparserCallback
+                (
+                    base->GetParentOrNull()
+                );
+        }
+
+
         std::optional<ParseResult>
         ArgumentParser::ParseSubCommand(const std::string& arg)
         {
             auto match = base->subparsers.Match(arg, 3);
             if(match.single_match == false)
             {
-                // todo(Gustav): check if this accepts invalid and calls on_complete() on invalid input
+                // todo(Gustav): check if this accepts invalid and
+                // calls on_complete() on invalid input
                 if
                 (
-                    base->GetParserStyle() == SubParserStyle::Greedy &&
-                    base->subparsers.size > 0
+                    HasParserThatCanHandleSubparserCallback(base) == false
                 )
                 {
                     print_error
@@ -1232,6 +1247,13 @@ namespace euphoria::core::argparse
         return parser_style;
     }
 
+
+    ParserBase*
+    SubParser::GetParentOrNull()
+    {
+        return parent;
+    }
+
     
     std::string
     SubParser::GetCallingName(const Arguments&)
@@ -1259,6 +1281,13 @@ namespace euphoria::core::argparse
     Parser::GetParserStyle()
     {
         return SubParserStyle::Greedy;
+    }
+
+
+    ParserBase*
+    Parser::GetParentOrNull()
+    {
+        return nullptr;
     }
 
 

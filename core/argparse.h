@@ -389,6 +389,10 @@ namespace euphoria::core::argparse
         SubParserStyle
         GetParserStyle() = 0;
 
+        virtual
+        ParserBase*
+        GetParentOrNull() = 0;
+
         std::string
         GenerateUsageString(const Arguments& args);
 
@@ -476,6 +480,9 @@ namespace euphoria::core::argparse
         SubParserStyle
         GetParserStyle() override;
 
+        ParserBase*
+        GetParentOrNull() override;
+
         std::string
         GetCallingName(const Arguments& args) override;
 
@@ -491,6 +498,9 @@ namespace euphoria::core::argparse
 
         SubParserStyle
         GetParserStyle() override;
+
+        ParserBase*
+        GetParentOrNull() override;
 
         ParseResult
         Parse(const Arguments& args);
