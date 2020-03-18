@@ -433,3 +433,35 @@ TEST_CASE("argparse", "[argparse]")
         }
     }
 }
+
+
+TEST_CASE("argparse_error", "[argparse]")
+{
+    auto parser = Parser{};
+    auto output = std::make_shared<TestPrinter>();
+    parser.printer = output;
+
+    SECTION("default")
+    {
+        SECTION("one positional")
+        {
+            const auto res = parser.Parse(MakeArguments({"dog"}));
+            CHECK(res == ParseResult::Error);
+        }
+        SECTION("many positionals")
+        {
+            const auto res = parser.Parse(MakeArguments({"cat", "dog"}));
+            CHECK(res == ParseResult::Error);
+        }
+        SECTION("positional 1 dash")
+        {
+            const auto res = parser.Parse(MakeArguments({"-o"}));
+            CHECK(res == ParseResult::Error);
+        }
+        SECTION("positional 2 dashes")
+        {
+            const auto res = parser.Parse(MakeArguments({"--make-cool"}));
+            CHECK(res == ParseResult::Error);
+        }
+    }
+}
