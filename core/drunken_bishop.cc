@@ -2,6 +2,8 @@
 
 #include "core/assert.h"
 
+#include <algorithm>
+
 
 namespace euphoria::core
 {
