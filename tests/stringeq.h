@@ -4,10 +4,10 @@
 #include <vector>
 #include <string>
 
+#include "tests/falsestring.h"
+
 namespace euphoria::tests
 {
-    struct FalseString;
-
     /*
     
     Usage:
@@ -24,28 +24,6 @@ namespace euphoria::tests
 
     FalseString
     StringEq(const std::string& lhs, const std::string& rhs);
-
-
-    //
-    // Implementation details:
-    // 
-
-    struct FalseString
-    {
-        static FalseString
-        False(const std::string& text);
-
-        static FalseString
-        True();
-
-        operator bool() const;
-    
-        std::string str;
-    };
-
-    std::ostream&
-    operator<<(std::ostream& s, const FalseString& f);
-
 }  // namespace euphoria::tests
 
 #endif  // EUPHORIA_TESTS_STRINGEQ_H

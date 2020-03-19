@@ -6,6 +6,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <bitset>
 
 
 using namespace euphoria::core;
@@ -64,12 +65,30 @@ struct Main
         );
     }
 
+    template<int bits, typename TFunc>
+    void
+    PrintInts(const std::string& name, int total_ints, TFunc f)
+    {
+        std::cout << name << ":\n";
+        for(int i=0; i<total_ints; i+=1)
+        {
+            const auto t = f(&random);
+            const auto bs = std::bitset<bits>(t);
+            std::cout << bs << "\n";
+        }
+        std::cout << "\n";
+    }
+
     void
     main()
     {
         Print<KnuthLcg>("knuth_lcg");
         Print<xorshift32>("xorshift32");
         Print<xorshift64>("xorshift64");
+
+        const int int_count = 10;
+        PrintInts<32>("u32", int_count, [](Random* r) { return r->NextInteger();});
+        PrintInts<64>("u64", int_count, [](Random* r) { return r->NextInteger64();});
     }
 };
 

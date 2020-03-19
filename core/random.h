@@ -27,6 +27,9 @@ namespace euphoria::core
         u32
         NextInteger();
 
+        u64
+        NextInteger64();
+
         float
         NextFloat01();
 

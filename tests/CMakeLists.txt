@@ -1,9 +1,14 @@
-set(app_src
+set(test_base
     approx.cc approx.h
     approx_equal.cc approx_equal.h
+    stringeq.cc stringeq.h
+    falsestring.cc falsestring.h
+    utils.h
+    vectortostring.h
     main.cc
-    stringeq.cc
-    stringeq.h
+)
+
+set(app_src
     test_angle.cc
     test_argparse.cc
     test_axisangle.cc
@@ -13,6 +18,7 @@ set(app_src
     test_chatbot.cc
     test_commandlineparser.cc
     test_duk.cc
+    test_drunken_bishop.cc
     test_editdistance.cc
     test_enumtostring.cc
     test_findstring.cc
@@ -50,21 +56,16 @@ set(app_src
     test_vfs.cc
     test_vfspath.cc
     test_viewport.cc
-    utils.h
 )
-set(src ${app_src})
-source_group("" FILES ${app_src})
 
-# set(src ${src} ${GMOCK_SOURCES})
-# source_group("gmock" FILES ${GMOCK_SOURCES})
-# include_directories(${GMOCK_INCLUDE_DIRS})
-# add_definitions(-DGTEST_USE_OWN_TR1_TUPLE=1)
+
+set(src ${app_src} ${test_base})
+
+source_group("tests" FILES ${app_src})
+source_group("base" FILES ${test_base})
 
 include_directories(SYSTEM ../external/catch/)
 
 add_executable(tests ${src})
-
-enable_testing()
-add_test(tests tests)
 
 TARGET_LINK_LIBRARIES(tests ${CMAKE_THREAD_LIBS_INIT} core duk minsynth)

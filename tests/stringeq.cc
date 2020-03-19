@@ -6,6 +6,7 @@
 #include "core/editdistance.h"
 #include "core/assert.h"
 #include "core/stringutils.h"
+#include "tests/vectortostring.h"
 
 #include "catch.hpp"
 
@@ -15,68 +16,10 @@ namespace
     {
         return ::Catch::Detail::stringify(str);
     }
-
-    std::string VectorToString(const std::vector<std::string>& v, bool one_line)
-    {
-        std::ostringstream ss;
-        bool first = true;
-
-        std::string newline = one_line ? "" : "\n";
-
-        ss << newline << "{" << newline;
-        for(const auto s: v)
-        {
-            if(first) first = false;
-            else ss << ", " << newline;
-            if(one_line == false) ss << "  ";
-            ss << EscapeString(s);
-        }
-        if(!v.empty()) ss << newline;
-        ss << "}" << newline;
-
-        return ss.str();
-    }
-
-    std::string VectorToString(const std::vector<std::string>& v)
-    {
-        const auto oneline = VectorToString(v, true);
-        if( oneline.size() <15)  return oneline;
-        else return VectorToString(v, false);
-    }
 }
 
 namespace euphoria::tests
 {
-    FalseString FalseString::False(const std::string& text)
-    {
-        return {text};
-    }
-
-    FalseString
-    FalseString::True()
-    {
-        return {""};
-    }
-
-    FalseString::operator bool() const
-    {
-        return str.empty();
-    }
-
-    std::ostream&
-    operator<<(std::ostream& s, const FalseString& f)
-    {
-        if(f)
-        {
-            s << "<ok>";
-        }
-        else
-        {
-            s << f.str;
-        }
-        return s;
-    }
-
     FalseString
     StringEq(const std::string& lhs, const std::string& rhs)
     {
@@ -116,7 +59,7 @@ namespace euphoria::tests
                << lhs.size()
                << " vs "
                << rhs.size();
-            ss << VectorToString(lhs) << " " << VectorToString(rhs);
+            ss << VectorToString(lhs, EscapeString) << " " << VectorToString(rhs, EscapeString);
             size_equal = FalseString::False(ss.str());
         }
 
@@ -134,7 +77,7 @@ namespace euphoria::tests
                 }
                 else
                 {
-                    ss << VectorToString(lhs) << "vs" << VectorToString(rhs);
+                    ss << VectorToString(lhs, EscapeString) << "vs" << VectorToString(rhs, EscapeString);
                     ss << "First invalid";
                 }
 
