@@ -6,8 +6,10 @@
 #include "core/imageops.h"
 #include "core/palette.h"
 #include "core/palette_tableu.h"
+#include "core/palette_all.h"
 #include "core/image.h"
 #include "core/image_draw.h"
+#include "core/str.h"
 
 #include "core/io.h"
 
@@ -84,7 +86,11 @@ main(int argc, char* argv[])
 
     int width = 17;
     int height = 9;
+
+    int count = 1;
+    int scale = 10;
     bool big = false; // 256 or 128 bit
+    auto pal = palette::PaletteName::Cubehelix1;
 
     auto add_common = [&](argparse::Parser& parser)
     {
@@ -99,18 +105,28 @@ main(int argc, char* argv[])
         [&]
         {
             auto random = Random{};
-            const auto table = GenerateDrunkenBishopTable(&random, width, height, big);
-            const auto image = GenerateImage
-            (
-                table,
-                10,
-                palette::Tableau_10()
-            );
-            const std::string file_name = "bishop.png";
-            io::ChunkToFile(image.Write(ImageWriteFormat::PNG), file_name);
+            for(int c=0; c<count; c+=1)
+            {
+                const auto table = GenerateDrunkenBishopTable(&random, width, height, big);
+                const auto image = GenerateImage
+                (
+                    table,
+                    scale,
+                    palette::GetPalette(pal)
+                );
+                const std::string file_name = count == 1
+                    ? std::string("bishop.png")
+                    : (Str() << "bishop_" << (c+1) << ".png")
+                    ;
+                io::ChunkToFile(image.Write(ImageWriteFormat::PNG), file_name);
+            }
         }
     );
     add_common(*pimg);
+    pimg->AddEnum("--pal", &pal).Help("Set the palette");
+    pimg->SetTrue("--256", &big).Help("Upgrade from 128 to 256 bit hash");
+    pimg->AddSimple("--count", &count).Help("The number of images");
+    pimg->AddSimple("--scale", &scale).Help("The scale of the image");
 
     auto precursive = parser.AddSubParser
     (
