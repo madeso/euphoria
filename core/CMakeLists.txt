@@ -56,6 +56,7 @@ set(app_src_pcg
     markov.cc markov.h
     noise_simplex.cc noise_simplex.h
     tracery.cc tracery.h
+    drunken_bishop.cc drunken_bishop.h
 )
 
 
