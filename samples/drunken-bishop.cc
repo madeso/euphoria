@@ -35,7 +35,7 @@ main(int argc, char* argv[])
         [&]
         {
             auto random = Random{};
-            const auto hash = random.NextInteger();
+            const auto hash = random.NextInteger64();
             const auto table = DrunkenBishop(hash, width, height);
             const auto str = Collapse(table, GetSshCharacters());
             std::cout << str << "\n";

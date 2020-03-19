@@ -68,6 +68,15 @@ better numbers than Mersenne. How can you go wrong? :)
         return state[index];
     }
 
+    u64
+    Random::NextInteger64()
+    {
+        u64 a = NextInteger();
+        u64 b = NextInteger();
+        a = a << 32;
+        return a | b;
+    }
+
     float
     Random::NextFloat01()
     {
