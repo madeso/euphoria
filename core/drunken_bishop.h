@@ -19,7 +19,10 @@ namespace euphoria::core
 
     // split to 2-bit ints
     std::vector<int>
-    ToCodes(u8 byte);
+    ToCodes(u8 byte, bool msb_first);
+
+    std::vector<int>
+    ToCodes(const std::vector<u8>& bytes, bool msb_first);
 
     Table<int>
     DrunkenBishop
@@ -27,6 +30,7 @@ namespace euphoria::core
         u32 hash,
         int width,
         int height,
+        bool msb_first = true,
         int startx = -1,
         int starty = -1
     );
@@ -37,6 +41,7 @@ namespace euphoria::core
         u64 hash,
         int width,
         int height,
+        bool msb_first = true,
         int startx = -1,
         int starty = -1
     );
@@ -55,7 +60,7 @@ namespace euphoria::core
     std::vector<std::string>
     GetSshCharacters();
 
-    std::string
+    std::vector<std::string>
     Collapse
     (
         const Table<int>& table,

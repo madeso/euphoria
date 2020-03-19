@@ -34,29 +34,28 @@ namespace euphoria::core
 
 
     std::vector<int>
-    ToCodes(u8 byte)
+    ToCodes(u8 byte, bool msb_first)
     {
         auto codes = std::vector<int>{};
         for(int s=0; s<8; s+=2)
         {
-            codes.emplace_back
-            (
-                (byte >> (6-s)) & 3
-            );
+            const auto b = msb_first
+                ? (byte >> (6-s)) & 3
+                : (byte >> s) & 3
+                ;
+            codes.emplace_back(b);
         }
         return codes;
     }
 
 
-    template<typename T>
     std::vector<int>
-    ToCodesFromHash(T hash)
+    ToCodes(const std::vector<u8>& bytes, bool msb_first)
     {
-        const auto bytes = ToBytes(hash);
         auto codes = std::vector<int>{};
         for(auto byte: bytes)
         {
-            const auto cc = ToCodes(byte);
+            const auto cc = ToCodes(byte, msb_first);
             for(auto c: cc)
             {
                 codes.emplace_back(c);
@@ -72,13 +71,14 @@ namespace euphoria::core
         u32 hash,
         int width,
         int height,
+        bool msb_first,
         int startx,
         int starty
     )
     {
         return DrunkenBishop
         (
-            ToCodesFromHash(hash),
+            ToCodes(ToBytes(hash), msb_first),
             width,
             height,
             startx,
@@ -93,13 +93,14 @@ namespace euphoria::core
         u64 hash,
         int width,
         int height,
+        bool msb_first,
         int startx,
         int starty
     )
     {
         return DrunkenBishop
         (
-            ToCodesFromHash(hash),
+            ToCodes(ToBytes(hash), msb_first),
             width,
             height,
             startx,
@@ -124,33 +125,14 @@ namespace euphoria::core
 
         for(auto code: codes)
         {
-            // vertical
-            switch(code)
-            {
-            case 0: case 1: // up
-                y += 1;
-                break;
-            case 2: case 3: // down
-                y -= 1;
-                break;
-            default:
-                DIE("invalid case");
-            }
-            // horizontal
-            switch(code)
-            {
-            case 0: case 2: // left
-                x -= 1;
-                break;
-            case 1: case 3: // right
-                x += 1;
-                break;
-            default:
-                DIE("invalid case");
-            }
+            constexpr int vertical_mask = 0b10;
+            constexpr int horizontal_mask = 0b01;
 
-            x = KeepWithin(table.Indices().GetXRange(), x);
-            y = KeepWithin(table.Indices().GetYRange(), y);
+            const auto dy = (vertical_mask & code) ? 1 : -1;
+            const auto dx = (horizontal_mask & code) ? 1 : -1;
+
+            x = KeepWithin(table.Indices().GetXRange(), x + dx);
+            y = KeepWithin(table.Indices().GetYRange(), y + dy);
 
             table(x, y) += 1;
         }
@@ -171,17 +153,18 @@ namespace euphoria::core
     }
 
 
-    std::string
+    std::vector<std::string>
     Collapse
     (
         const Table<int>& table,
         const std::vector<std::string> characters
     )
     {
-        std::string r = "";
+        auto rr = std::vector<std::string>{};
 
         for(int y=0; y<table.GetHeight(); y+=1)
         {
+            std::string r = "";
             for(int x=0; x<table.GetWidth(); x+=1)
             {
                 const auto v =
@@ -196,10 +179,10 @@ namespace euphoria::core
                 );
                 r += characters[v];
             }
-            r += "\n";
+            rr.emplace_back(r);
         }
 
-        return r;
+        return rr;
     }
 
     // todo: add image collapse with palette

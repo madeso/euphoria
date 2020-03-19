@@ -6,6 +6,7 @@
 #include "tests/utils.h"
 #include "tests/falsestring.h"
 #include "tests/vectorequals.h"
+#include "tests/stringeq.h"
 
 
 using namespace euphoria::core;
@@ -89,16 +90,53 @@ BinIntEquals
 
 TEST_CASE("drunken bishop 0", "[drunken-bishop]")
 {
-    CHECK(HexIntEquals(ToBytes(0), {0x00, 0x00, 0x00, 0x00}));
-    CHECK(HexIntEquals(ToBytes(1), {0x00, 0x00, 0x00, 0x01}));
-    CHECK(HexIntEquals(ToBytes(42), {0x00, 0x00, 0x00, 0x2A}));
-    CHECK(HexIntEquals(ToBytes(1337), {0x00, 0x00, 0x05, 0x39}));
+    CHECK(HexIntEquals(ToBytes(static_cast<u32>(0)), {0x00, 0x00, 0x00, 0x00}));
+    CHECK(HexIntEquals(ToBytes(static_cast<u32>(1)), {0x00, 0x00, 0x00, 0x01}));
+    CHECK(HexIntEquals(ToBytes(static_cast<u32>(42)), {0x00, 0x00, 0x00, 0x2A}));
+    CHECK(HexIntEquals(ToBytes(static_cast<u32>(1337)), {0x00, 0x00, 0x05, 0x39}));
     CHECK(HexIntEquals(ToBytes(std::numeric_limits<u32>::max()), {0xFF, 0xFF, 0xFF, 0xFF}));
 
-    CHECK(BinIntEquals(ToCodes(0x00), {0b00, 0b00, 0b00, 0b00}));
-    CHECK(BinIntEquals(ToCodes(0x01), {0b00, 0b00, 0b00, 0b01}));
-    CHECK(BinIntEquals(ToCodes(0xFF), {0b11, 0b11, 0b11, 0b11}));
-    CHECK(BinIntEquals(ToCodes(0x29), {0b00, 0b10, 0b10, 0b01}));
-    CHECK(BinIntEquals(ToCodes(0x4D), {0b01, 0b00, 0b11, 0b01}));
+    CHECK(BinIntEquals(ToCodes(0x00, true), {0b00, 0b00, 0b00, 0b00}));
+    CHECK(BinIntEquals(ToCodes(0x01, true), {0b00, 0b00, 0b00, 0b01}));
+    CHECK(BinIntEquals(ToCodes(0xFF, true), {0b11, 0b11, 0b11, 0b11}));
+    CHECK(BinIntEquals(ToCodes(0x29, true), {0b00, 0b10, 0b10, 0b01}));
+    CHECK(BinIntEquals(ToCodes(0x4D, true), {0b01, 0b00, 0b11, 0b01}));
+}
+
+TEST_CASE("drunken bishop strings", "[drunken-bishop]")
+{
+    auto test = []
+    (
+        const std::vector<u8>& bytes,
+        const std::vector<std::string> correct_result
+    )
+    {
+        const int width = 17;
+        const int height = 9;
+
+        const auto codes = ToCodes(bytes, false);
+        const auto table = DrunkenBishop(codes, width, height);
+        const auto res = Collapse(table, GetSshCharacters());
+
+        return StringEq(res, correct_result);
+    };
+
+    // tests comes from https://github.com/calmh/randomart/blob/master/randomart_test.go
+    CHECK(test({
+        0x9b, 0x4c, 0x7b, 0xce,
+        0x7a, 0xbd, 0x0a, 0x13,
+        0x61, 0xfb, 0x17, 0xc2,
+        0x06, 0x12, 0x0c, 0xed,
+    },{
+        "    .+.          ",
+        "      o.         ",
+        "     .. +        ",
+        "      .o =       ",
+        "        + + .    ",
+        "       o B . .   ",
+        "        B o..    ",
+        "         *...    ",
+        "        .o+...   ",
+    }));
 }
 
