@@ -4,14 +4,37 @@
 #include <vector>
 
 #include "core/table.h"
+#include "core/ints.h"
 
 
 namespace euphoria::core
 {
+    // split hash to a msb->lsb array
+    std::vector<u8>
+    ToBytes(u32 hash);
+
+    // split hash to a msb->lsb array
+    std::vector<u8>
+    ToBytes(u64 hash);
+
+    // split to 2-bit ints
+    std::vector<int>
+    ToCodes(u8 byte);
+
     Table<int>
     DrunkenBishop
     (
-        int hash,
+        u32 hash,
+        int width,
+        int height,
+        int startx = -1,
+        int starty = -1
+    );
+
+    Table<int>
+    DrunkenBishop
+    (
+        u64 hash,
         int width,
         int height,
         int startx = -1,

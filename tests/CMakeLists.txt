@@ -18,6 +18,7 @@ set(app_src
     test_chatbot.cc
     test_commandlineparser.cc
     test_duk.cc
+    test_drunken_bishop.cc
     test_editdistance.cc
     test_enumtostring.cc
     test_findstring.cc
