@@ -103,6 +103,9 @@ TEST_CASE("drunken bishop 0", "[drunken-bishop]")
     CHECK(BinIntEquals(ToCodes(0x4D, true), {0b01, 0b00, 0b11, 0b01}));
 }
 
+
+// examples comes from https://github.com/calmh/randomart/blob/master/randomart_test.go
+// I only removed the S(tart) and E(nd) characters that I think should belong to a debug rendering of drunken bishop
 TEST_CASE("drunken bishop strings", "[drunken-bishop]")
 {
     auto test = []
@@ -121,7 +124,6 @@ TEST_CASE("drunken bishop strings", "[drunken-bishop]")
         return StringEq(res, correct_result);
     };
 
-    // tests comes from https://github.com/calmh/randomart/blob/master/randomart_test.go
     CHECK(test({
         0x9b, 0x4c, 0x7b, 0xce,
         0x7a, 0xbd, 0x0a, 0x13,
@@ -137,6 +139,61 @@ TEST_CASE("drunken bishop strings", "[drunken-bishop]")
         "        B o..    ",
         "         *...    ",
         "        .o+...   ",
+    }));
+
+    CHECK(test({
+        0x30, 0xaa, 0x88, 0x72,
+        0x7d, 0xc8, 0x30, 0xd0,
+        0x2b, 0x99, 0xc7, 0x8f,
+        0xd1, 0x86, 0x59, 0xfc,
+    },{
+        "                 ",
+        " . .             ",
+        ". . o o          ",
+        " = * o o         ",
+        "+ X + .          ",
+        ".+ @ .           ",
+        "+ + = .          ",
+        "..   .           ",
+        "                 ",
+    }));
+
+    CHECK(test({
+        0x30, 0xaa, 0x88, 0x72,
+        0x7d, 0xc8, 0x30, 0xd0,
+        0x2b, 0x99, 0xc7, 0x8f,
+        0xd1, 0x86, 0x59, 0xfc,
+    },{
+        "                 ",
+        " . .             ",
+        ". . o o          ",
+        " = * o o         ",
+        "+ X + .          ",
+        ".+ @ .           ",
+        "+ + = .          ",
+        "..   .           ",
+        "                 ",
+    }));
+
+    CHECK(test({
+        0xa1, 0x37, 0xe4, 0xd4,
+        0xdf, 0xd2, 0xa0, 0x96,
+        0x1b, 0xc6, 0xf5, 0x9f,
+        0xf5, 0x34, 0x05, 0x80,
+        0xa7, 0xbd, 0x8f, 0x58,
+        0x3d, 0x55, 0x92, 0xff,
+        0x76, 0x1e, 0x4f, 0x6e,
+        0x30, 0xbb, 0x9f, 0x75,
+    },{
+        "           ..... ",
+        "         .. . o..",
+        "        + .+o  oo",
+        "       = o.=.=  +",
+        "      . + B oo+o+",
+        "       . + oo.=+X",
+        "          .o o @O",
+        "          . . o O",
+        "              .=.",
     }));
 }
 
