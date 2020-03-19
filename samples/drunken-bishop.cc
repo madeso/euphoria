@@ -21,6 +21,7 @@ main(int argc, char* argv[])
 
     int width = 17;
     int height = 9;
+    bool big = false; // 256 or 128 bit
 
     auto add_common = [&](argparse::Parser& parser)
     {
@@ -35,10 +36,22 @@ main(int argc, char* argv[])
         [&]
         {
             auto random = Random{};
-            const auto hash = random.NextInteger64();
+            auto hash = std::vector<int>{};
+            const int times = big ? 8 : 4;
+            for(int i=0; i<times; i+=1)
+            {
+                const auto codes = ToCodes(ToBytes(random.NextInteger()), true);
+                for(auto c : codes)
+                {
+                    hash.emplace_back(c);
+                }
+            }
             const auto table = DrunkenBishop(hash, width, height);
-            const auto str = Collapse(table, GetSshCharacters());
-            std::cout << str << "\n";
+            const auto strs = Collapse(table, GetSshCharacters());
+            for(const auto str: strs)
+            {
+                std::cout << str << "\n";
+            }
         }
     );
     add_common(*precursive);
