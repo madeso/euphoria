@@ -20,11 +20,27 @@
 using namespace euphoria::core;
 
 
+struct Common
+{
+    int width = 17;
+    int height = 9;
+    bool big = false; // 256 or 128 bit
+
+    void
+    Add(argparse::ParserBase* sub)
+    {
+        sub->Add("--width", &width).Help("set the height");
+        sub->Add("--height", &height).Help("set the width");
+        sub->SetTrue("--256", &big).Help("Upgrade from 128 to 256 bit hash");
+    }
+};
+
+
 Table<int>
-GenerateDrunkenBishopTable(Random* random, int width, int height, bool big)
+GenerateDrunkenBishopTable(Random* random, const Common& common)
 {
     auto hash = std::vector<int>{};
-    const int times = big ? 8 : 4;
+    const int times = common.big ? 8 : 4;
     for(int i=0; i<times; i+=1)
     {
         const auto codes = ToCodes(ToBytes(random->NextInteger()), true);
@@ -33,7 +49,7 @@ GenerateDrunkenBishopTable(Random* random, int width, int height, bool big)
             hash.emplace_back(c);
         }
     }
-    return DrunkenBishop(hash, width, height);
+    return DrunkenBishop(hash, common.width, common.height);
 }
 
 
@@ -84,72 +100,66 @@ main(int argc, char* argv[])
 {
     auto parser = argparse::Parser {"Drunken bishops"};
 
-    int width = 17;
-    int height = 9;
+    auto subs = parser.AddSubParsers();
 
-    int count = 1;
-    int scale = 10;
-    bool big = false; // 256 or 128 bit
-    auto pal = palette::PaletteName::Cubehelix1;
-
-    auto add_common = [&](argparse::Parser& parser)
-    {
-        parser.AddSimple("--width", &width).Help("set the height");
-        parser.AddSimple("--height", &height).Help("set the width");
-    };
-
-    auto pimg = parser.AddSubParser
+    subs->Add
     (
-        "img",
-        "drunken bishop with img style",
-        [&]
+        "img", "drunken bishop with img style",
+        [](argparse::SubParser* sub)
         {
-            auto random = Random{};
-            for(int c=0; c<count; c+=1)
-            {
-                const auto table = GenerateDrunkenBishopTable(&random, width, height, big);
-                const auto image = GenerateImage
-                (
-                    table,
-                    scale,
-                    palette::GetPalette(pal)
-                );
-                const std::string file_name = count == 1
-                    ? std::string("bishop.png")
-                    : (Str() << "bishop_" << (c+1) << ".png")
-                    ;
-                io::ChunkToFile(image.Write(ImageWriteFormat::PNG), file_name);
-            }
+            auto common = Common{};
+            int count = 1;
+            int scale = 10;
+            auto pal = palette::PaletteName::Cubehelix1;
+
+            common.Add(sub);
+            sub->Add("--pal", &pal).Help("Set the palette");
+            sub->Add("--count", &count).Help("The number of images");
+            sub->Add("--scale", &scale).Help("The scale of the image");
+            return sub->OnComplete([&]{
+                auto random = Random{};
+                for(int c=0; c<count; c+=1)
+                {
+                    const auto table = GenerateDrunkenBishopTable(&random, common);
+                    const auto image = GenerateImage
+                    (
+                        table,
+                        scale,
+                        palette::GetPalette(pal)
+                    );
+                    const std::string file_name = count == 1
+                        ? std::string("bishop.png")
+                        : (Str() << "bishop_" << (c+1) << ".png")
+                        ;
+                    io::ChunkToFile(image.Write(ImageWriteFormat::PNG), file_name);
+                }
+
+                return argparse::ParseResult::Ok;
+            });
         }
     );
-    add_common(*pimg);
-    pimg->AddEnum("--pal", &pal).Help("Set the palette");
-    pimg->SetTrue("--256", &big).Help("Upgrade from 128 to 256 bit hash");
-    pimg->AddSimple("--count", &count).Help("The number of images");
-    pimg->AddSimple("--scale", &scale).Help("The scale of the image");
 
-    auto precursive = parser.AddSubParser
+    subs->Add
     (
         "text",
         "drunken bishop with ssh like output",
-        [&]
+        [](argparse::SubParser* sub)
         {
-            auto random = Random{};
-            const auto table = GenerateDrunkenBishopTable(&random, width, height, big);
-            const auto strs = Collapse(table, GetSshCharacters());
-            for(const auto str: strs)
-            {
-                std::cout << str << "\n";
-            }
+            auto common = Common{};
+            common.Add(sub);
+            return sub->OnComplete([&]{
+                auto random = Random{};
+                const auto table = GenerateDrunkenBishopTable(&random, common);
+                const auto strs = Collapse(table, GetSshCharacters());
+                for(const auto str: strs)
+                {
+                    std::cout << str << "\n";
+                }
+
+                return argparse::ParseResult::Ok;
+            });
         }
     );
-    add_common(*precursive);
 
-    const auto status = parser.Parse(argc, argv);
-    if(status != argparse::ParseResult::Ok)
-    {
-        return -1;
-    }
-
-    return 0;
+    return ParseFromMain(&parser, argc, argv);
 }
