@@ -16,6 +16,8 @@ TEST_CASE("test wordwrap", "[wordwrap]")
     CHECK(StringEq(WordWrap("123456789", measure), {"123456789"}));
     CHECK(StringEq(WordWrap("dog 123456789", measure), {"dog", "123456789"}));
     CHECK(StringEq(WordWrap("123456789 dog", measure), {"123456789", "dog"}));
+
+    // AAA sample from https://en.wikipedia.org/wiki/Line_wrap_and_word_wrap#Minimum_raggedness
     CHECK(StringEq(WordWrap("AAA BB CC DDDDD", measure), {
         "AAA BB",
         "CC",
