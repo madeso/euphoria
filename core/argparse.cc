@@ -6,6 +6,8 @@
 #include "core/table.h"
 #include "core/cint.h"
 #include "core/str.h"
+#include "core/wordwrap.h"
+#include "core/functional.h"
 
 #include <iostream>
 #include <iomanip>
@@ -779,6 +781,7 @@ namespace euphoria::core::argparse
 
         // table functions
         constexpr int MAX_NAME_LENGTH = 10;
+        constexpr int MAX_HELP_LENGTH = 80;
         int max_name_length = 0;
 
         const auto add = [&max_name_length, MAX_NAME_LENGTH]
@@ -808,8 +811,19 @@ namespace euphoria::core::argparse
         };
 
         // todo(Gustav): wordwrap the arguments and description/help
-        const auto print = [printer, &max_name_length](const StringTable& t)
+        const auto print = [printer, &max_name_length](const StringTable& table)
         {
+            auto t = StringTable{};
+            for(int y=0; y<table.GetHeight(); y+=1)
+            {
+                const auto names = WordWrap(table(0, y), [max_name_length](const std::string& s) { return s.size() <= max_name_length; });
+                const auto helps = WordWrap(table(1, y), [](const std::string& s) { return s.size() <= MAX_HELP_LENGTH; });
+                const auto rows = ZipLongest(names, helps);
+                for(auto [name,help]: rows)
+                {
+                    t.NewRow({name, help});
+                }
+            }
             for(int y=0; y<t.GetHeight(); y+=1)
             {
                 constexpr auto indent = " ";
@@ -817,6 +831,7 @@ namespace euphoria::core::argparse
 
                 const auto name = t(0, y);
                 const auto help = t(1, y);
+
                 const auto name_length = Csizet_to_int(name.length());
                 if(name_length > max_name_length)
                 {
