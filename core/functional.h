@@ -19,10 +19,32 @@ namespace euphoria::core
     Zip(const std::vector<A>& as, const std::vector<B>& bs)
     {
         std::vector<std::pair<A, B>> ret;
-        const auto                   s = std::min(as.size(), bs.size());
+        const auto s = std::min(as.size(), bs.size());
         for(size_t i = 0; i < s; i += 1)
         {
             ret.emplace_back(std::make_pair<A, B>(as[i], bs[i]));
+        }
+        return ret;
+    }
+
+
+    template <typename A, typename B>
+    std::vector<std::pair<A, B>>
+    ZipLongest
+    (
+        const std::vector<A>& as,
+        const std::vector<B>& bs,
+        A da = A(),
+        B db = B()
+    )
+    {
+        std::vector<std::pair<A, B>> ret;
+        const auto s = std::max(as.size(), bs.size());
+        for(size_t i = 0; i < s; i += 1)
+        {
+            const A a = i < as.size() ? as[i] : da;
+            const B b = i < bs.size() ? bs[i] : db;
+            ret.emplace_back(a, b);
         }
         return ret;
     }
