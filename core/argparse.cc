@@ -22,6 +22,8 @@
 
    * Narg chainging functions renaming on return value of Add
 
+   * help should optionall expect a argument name to print detailed help
+
    * generic OnComplete unit test
 
    * instead of .Add("arg").Help("") perhaps change to .Add(Arg{"arg"}.Help("")) so chainging arguments is possible
