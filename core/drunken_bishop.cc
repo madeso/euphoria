@@ -121,7 +121,7 @@ namespace euphoria::core
         int starty
     )
     {
-        auto table = Table<int>::FromWidthHeight(width, height);
+        auto table = Table<int>::FromWidthHeight(width, height, 0);
         auto x = startx != -1? startx : width/2;
         auto y = starty != -1? starty : height/2;
 
