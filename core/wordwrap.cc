@@ -15,8 +15,6 @@ namespace euphoria::core
 
         auto ret = std::vector<std::string>{};
 
-        int watchdog = 20;
-
         I start = 0;
         I last = 0;
 
@@ -34,9 +32,6 @@ namespace euphoria::core
 
         while(true)
         {
-            watchdog -= 1;
-            if(watchdog < 0) { ret.emplace_back("watchdog"); return ret; }
-
             if(last == std::string::npos)
             {
                 return ret;
