@@ -150,6 +150,7 @@ set(app_src
     vfs_imagegenerator.cc vfs_imagegenerator.h
     vfs_path.cc vfs_path.h
     viewport.cc viewport.h
+    wordwrap.cc wordwrap.h
 )
 
 source_group("" FILES ${app_src})

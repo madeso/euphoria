@@ -56,6 +56,7 @@ set(app_src
     test_vfs.cc
     test_vfspath.cc
     test_viewport.cc
+    test_wordwrap.cc
 )
 
 
