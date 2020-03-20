@@ -594,6 +594,13 @@ namespace euphoria::core::argparse
     {
     }
 
+    std::optional<std::string>
+    ArgumentNoValue::GetSecondLine()
+    {
+        return std::nullopt;
+    }
+
+
 
     ParseResult
     ArgumentNoValue::Parse(Runner* runner)
@@ -602,9 +609,17 @@ namespace euphoria::core::argparse
     }
 
 
-    SingleArgument::SingleArgument(Callback cb)
+    SingleArgument::SingleArgument(Callback cb, Describe d)
         : callback(cb)
+        , describe(d)
     {
+    }
+
+
+    std::optional<std::string>
+    SingleArgument::GetSecondLine()
+    {
+        return describe();
     }
 
 
@@ -770,11 +785,16 @@ namespace euphoria::core::argparse
         (
             StringTable* table,
             const std::string& name,
-            const std::string& desc
+            const std::string& desc,
+            const std::optional<std::string>& second_line
         )
         {
             const auto values = std::vector<std::string>{name, desc};
             table->NewRow(values);
+            if(second_line)
+            {
+                table->NewRow({"", *second_line});
+            }
 
             max_name_length = std::min
             (
@@ -817,7 +837,13 @@ namespace euphoria::core::argparse
         auto positionals = StringTable{};
         for (auto& a : positional_argument_list)
         {
-            add(&positionals, a.name.names[0], a.argument->help);
+            add
+            (
+                &positionals,
+                a.name.names[0],
+                a.argument->help,
+                a.argument->GetSecondLine()
+            );
         }
 
         auto optionals = StringTable{};
@@ -829,7 +855,13 @@ namespace euphoria::core::argparse
             {
                 default_text << " (default: " << a.argument->default_value << ")";
             }
-            add(&optionals, names,  a.argument->help + default_text.str());
+            add
+            (
+                &optionals,
+                names,
+                a.argument->help + default_text.str(),
+                a.argument->GetSecondLine()
+            );
         }
 
         auto subs = std::vector<StringTable>{};
@@ -842,7 +874,7 @@ namespace euphoria::core::argparse
                 (
                     parser->names.names
                 );
-                add(&sub, names, parser->help);
+                add(&sub, names, parser->help, std::nullopt);
             }
             subs.emplace_back(sub);
         }

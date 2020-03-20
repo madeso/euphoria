@@ -1,8 +1,6 @@
 #ifndef CORE_ARGPARSE_H
 #define CORE_ARGPARSE_H
 
-#include "core/enumtostring.h"
-
 #include <vector>
 #include <map>
 #include <string>
@@ -11,6 +9,9 @@
 #include <optional>
 #include <functional>
 #include <type_traits>
+
+#include "core/enumtostring.h"
+#include "core/stringmerger.h"
 
 
 namespace euphoria::core::argparse
@@ -172,6 +173,10 @@ namespace euphoria::core::argparse
         AllowBeforePositionals();
 
         virtual
+        std::optional<std::string>
+        GetSecondLine() = 0;
+
+        virtual
         ParseResult
         Parse(Runner* reader) = 0;
     };
@@ -194,6 +199,9 @@ namespace euphoria::core::argparse
 
         explicit ArgumentNoValue(Callback cb);
 
+        std::optional<std::string>
+        GetSecondLine() override;
+
         ParseResult
         Parse(Runner* runner) override;
     };
@@ -202,9 +210,14 @@ namespace euphoria::core::argparse
     struct SingleArgument : public Argument
     {
         using Callback = std::function<ParseResult (Runner*, const std::string&)>;
+        using Describe = std::function<std::optional<std::string> ()>;
         Callback callback;
+        Describe describe;
 
-        explicit SingleArgument(Callback cb);
+        SingleArgument(Callback cb, Describe d);
+
+        std::optional<std::string>
+        GetSecondLine() override;
 
         ParseResult
         Parse(Runner* runner) override;
@@ -258,6 +271,36 @@ namespace euphoria::core::argparse
             printer->PrintError(value + " is not accepted");
             return std::nullopt;
         }
+    }
+
+    // default describe function for non-enums
+    template
+    <
+        typename T,
+        std::enable_if_t<std::is_enum<T>::value == false, int> = 0
+    >
+    std::optional<std::string>
+    DefaultDescribe()
+    {
+        return std::nullopt;
+    }
+
+    // default describe function for enums
+    template
+    <
+        typename T,
+        std::enable_if_t<std::is_enum<T>::value == true, int> = 0
+    >
+    std::optional<std::string>
+    DefaultDescribe()
+    {
+        const std::string r = Str() << "Possible values are " <<
+            StringMerger::EnglishOr().Generate
+            (
+                EnumToString<T>()
+            );
+
+        return r;
     }
 
     // default value for non enums
@@ -430,9 +473,19 @@ namespace euphoria::core::argparse
 
         template<typename T>
         Argument&
-        Add(const Name& name, T* target, ParseFunction<T> parse_function = DefaultParseFunction<T>)
+        Add
+        (
+            const Name& name,
+            T* target,
+            ParseFunction<T> parse_function = DefaultParseFunction<T>
+        )
         {
-            auto arg = std::make_shared<SingleArgument>([target, parse_function](Runner* runner, const std::string& value)
+            auto arg = std::make_shared<SingleArgument>(
+            [target, parse_function]
+            (
+                Runner* runner,
+                const std::string& value
+            )
             {
                 auto parsed = parse_function(runner->printer, value);
                 if(parsed)
@@ -444,6 +497,9 @@ namespace euphoria::core::argparse
                 {
                     return ParseResult::Error;
                 }
+            }, [](){
+                const std::optional<std::string> str = DefaultDescribe<T>();
+                return str;
             });
             arg->default_value = DefaultValueToString(*target);
             return AddArgument(name, arg);
