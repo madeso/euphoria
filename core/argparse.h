@@ -16,6 +16,7 @@
 
 namespace euphoria::core::argparse
 {
+    struct ParserBase;
 
     // option where the output can either be a single file or "infinite"
     struct FileOutput
@@ -133,6 +134,14 @@ namespace euphoria::core::argparse
         std::shared_ptr<Printer> printer;
     };
 
+    void
+    PrintParseError
+    (
+        Runner* runner,
+        ParserBase* base,
+        const std::string& error
+    );
+
 
     // represents a command line argument
     // optional: start with either - or --
@@ -186,7 +195,12 @@ namespace euphoria::core::argparse
 
         virtual
         ParseResult
-        Parse(Runner* reader) = 0;
+        ParseArguments
+        (
+            Runner* runner,
+            const std::string& name,
+            ParserBase* caller
+        ) = 0;
     };
 
     // named tuple class for argument and name
@@ -214,13 +228,27 @@ namespace euphoria::core::argparse
         GetSecondLine() override;
 
         ParseResult
-        Parse(Runner* runner) override;
+        ParseArguments
+        (
+            Runner* runner,
+            const std::string& name,
+            ParserBase* caller
+        ) override;
     };
 
     // a single argument, probably either a --count 3 or positional input
     struct SingleArgument : public Argument
     {
-        using Callback = std::function<ParseResult (Runner*, const std::string&)>;
+        using Callback = std::function
+        <
+            ParseResult
+            (
+                Runner* runner,
+                const std::string& name,
+                ParserBase* caller,
+                const std::string& value
+            )
+        >;
         using Describe = std::function<std::optional<std::string> ()>;
         Callback callback;
         Describe describe;
@@ -234,12 +262,26 @@ namespace euphoria::core::argparse
         GetSecondLine() override;
 
         ParseResult
-        Parse(Runner* runner) override;
+        ParseArguments
+        (
+            Runner* runner,
+            const std::string& name,
+            ParserBase* caller
+        ) override;
     };
 
     // generic parse function
     template<typename T>
-    using ParseFunction = std::function<std::optional<T> (std::shared_ptr<Printer> printer, const std::string&)>;
+    using ParseFunction = std::function
+    <
+        std::optional<T>
+        (
+            Runner* runner,
+            ParserBase* base,
+            const std::string& argument_name,
+            const std::string& value
+        )
+    >;
 
     // default parse function for non-enums
     template
@@ -248,7 +290,13 @@ namespace euphoria::core::argparse
         std::enable_if_t<std::is_enum<T>::value == false, int> = 0
     >
     std::optional<T>
-    DefaultParseFunction(std::shared_ptr<Printer> printer, const std::string& value)
+    DefaultParseFunction
+    (
+        Runner* runner,
+        ParserBase* base,
+        const std::string& argument_name,
+        const std::string& value
+    )
     {
         auto stream = std::istringstream{value.c_str()};
         T t;
@@ -256,7 +304,12 @@ namespace euphoria::core::argparse
         if(stream.fail() || !stream.eof())
         {
             // todo(include argument name here
-            printer->PrintError(value + " is not accepted");
+            PrintParseError
+            (
+                runner,
+                base,
+                Str() << value << " is not accepted for " << argument_name
+            );
             return std::nullopt;
         }
         else
@@ -272,7 +325,13 @@ namespace euphoria::core::argparse
         std::enable_if_t<std::is_enum<T>::value == true, int> = 0
     >
     std::optional<T>
-    DefaultParseFunction(std::shared_ptr<Printer> printer, const std::string& value)
+    DefaultParseFunction
+    (
+        Runner* runner,
+        ParserBase* base,
+        const std::string& argument_name,
+        const std::string& value
+    )
     {
         auto matches = core::StringToEnum<T>(value);
         if (matches.single_match)
@@ -281,8 +340,17 @@ namespace euphoria::core::argparse
         }
         else
         {
-            // todo(Gustav): include argument name and matches here
-            printer->PrintError(value + " is not accepted");
+            PrintParseError
+            (
+                runner,
+                base,
+                Str() << value << " is not accepted for " <<
+                argument_name << ", could be" <<
+                StringMerger::EnglishOr().Generate
+                (
+                    matches.names
+                )
+            );
             return std::nullopt;
         }
     }
@@ -379,8 +447,6 @@ namespace euphoria::core::argparse
             SubParserCallback cb
         );
     };
-
-    struct ParserBase;
 
     // subparsers can be grouped and this structs represents that group
     struct SubParserGroup
@@ -498,10 +564,18 @@ namespace euphoria::core::argparse
             [target, parse_function]
             (
                 Runner* runner,
+                const std::string& argument_name,
+                ParserBase* caller,
                 const std::string& value
             )
             {
-                auto parsed = parse_function(runner->printer, value);
+                auto parsed = parse_function
+                (
+                    runner,
+                    caller,
+                    argument_name,
+                    value
+                );
                 if(parsed)
                 {
                     *target = *parsed;

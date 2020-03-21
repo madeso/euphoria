@@ -502,6 +502,28 @@ namespace euphoria::core::argparse
     }
 
 
+    void
+    PrintParseError
+    (
+        Runner* runner,
+        ParserBase* base,
+        const std::string& error
+    )
+    {
+        runner->printer->PrintInfo
+        (
+            base->GenerateUsageString
+            (
+                runner->arguments->arguments
+            )
+        );
+        runner->printer->PrintError
+        (
+            error
+        );
+    }
+
+
     Name::Name(const char* nn)
         : names(Split(nn, ','))
     {
@@ -621,7 +643,12 @@ namespace euphoria::core::argparse
 
 
     ParseResult
-    ArgumentNoValue::Parse(Runner* runner)
+    ArgumentNoValue::ParseArguments
+    (
+        Runner* runner,
+        const std::string&,
+        ParserBase*
+    )
     {
         return callback(runner);
     }
@@ -649,17 +676,33 @@ namespace euphoria::core::argparse
 
 
     ParseResult
-    SingleArgument::Parse(Runner* runner)
+    SingleArgument::ParseArguments
+    (
+        Runner* runner,
+        const std::string& name,
+        ParserBase* caller
+    )
     {
         if (runner->arguments->HasMore())
         {
-            auto res = callback(runner, runner->arguments->Read());
+            auto res = callback
+            (
+                runner,
+                name,
+                caller,
+                runner->arguments->Read()
+            );
             return res;
         }
         else
         {
-            // todo(Gustav): improve eof error message by including argument name
-            runner->printer->PrintError("missing argument");
+            PrintParseError
+            (
+                runner,
+                caller,
+                Str() << "argument " << name <<
+                " is missing a value"
+            );
             return ParseResult::Error;
         }
     }
@@ -1092,14 +1135,7 @@ namespace euphoria::core::argparse
         void
         ArgumentParser::print_error(const std::string& error)
         {
-            runner->printer->PrintError(error);
-            runner->printer->PrintError
-            (
-                base->GenerateUsageString
-                (
-                    runner->arguments->arguments
-                )
-            );
+            PrintParseError(runner, base, error);
         }
 
 
@@ -1112,8 +1148,13 @@ namespace euphoria::core::argparse
             if(arg != nullptr && arg->allow_before_positionals)
             {
                 // we have matched a optional, read and parse it!
-                runner->arguments->Read();
-                auto arg_parse_result = arg->Parse(runner);
+                const auto matched_name = runner->arguments->Read();
+                auto arg_parse_result = arg->ParseArguments
+                (
+                    runner,
+                    matched_name,
+                    base
+                );
                 if(arg_parse_result != ParseResult::Ok)
                 {
                     return arg_parse_result;
@@ -1135,7 +1176,12 @@ namespace euphoria::core::argparse
         ArgumentParser::ParseOnePositional()
         {
             auto match = base->positional_argument_list[positional_index];
-            auto arg_parse_result = match.argument->Parse(runner);
+            auto arg_parse_result = match.argument->ParseArguments
+            (
+                runner,
+                match.name.names[0],
+                base
+            );
             if (arg_parse_result != ParseResult::Ok)
             {
                 return arg_parse_result;
@@ -1240,7 +1286,12 @@ namespace euphoria::core::argparse
                     print_error("invalid argument: " + arg);
                     return ParseResult::Error;
                 }
-                auto arg_parse_result = match->Parse(runner);
+                auto arg_parse_result = match->ParseArguments
+                (
+                    runner,
+                    arg,
+                    base
+                );
                 if (arg_parse_result != ParseResult::Ok)
                 {
                     return arg_parse_result;
