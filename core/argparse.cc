@@ -22,15 +22,15 @@
 
    * assert invalid setups and argument name collisions
 
-   * Narg chainging functions renaming on return value of Add
-
-   * help should optionall expect a argument name to print detailed help
+   * help should optional expect a argument name to print detailed help
 
    * generic OnComplete unit test
 
    * instead of .Add("arg").Help("") perhaps change to .Add(Arg{"arg"}.Help("")) so chainging arguments is possible
 
    * extra validators combinable with | that adds more conditions (files must exists, strings can be empty, numbers must be in range etc)
+
+   * vector input
 
    * support python @ append arguments from file "arguments"
 
@@ -569,6 +569,14 @@ namespace euphoria::core::argparse
 
 
     Argument&
+    Argument::Nargs(const std::string& na)
+    {
+        nargs = na;
+        return *this;
+    }
+
+
+    Argument&
     Argument::Help(const std::string& h)
     {
         help = h;
@@ -596,6 +604,14 @@ namespace euphoria::core::argparse
     {
     }
 
+
+    bool
+    ArgumentNoValue::HaveNargs()
+    {
+        return false;
+    }
+
+
     std::optional<std::string>
     ArgumentNoValue::GetSecondLine()
     {
@@ -615,6 +631,13 @@ namespace euphoria::core::argparse
         : callback(cb)
         , describe(d)
     {
+    }
+
+
+    bool
+    SingleArgument::HaveNargs()
+    {
+        return true;
     }
 
 
@@ -733,7 +756,12 @@ namespace euphoria::core::argparse
             if( aa.name.IsOptional() )
             {
                 std::ostringstream ss;
-                ss << "[" << aa.name.names[0] << "]";
+                ss << "[" << aa.name.names[0];
+                if(aa.argument->HaveNargs())
+                {
+                    ss << " " << aa.argument->nargs;
+                }
+                ss << "]";
                 // todo(Gustav): include any attributes
                 return ss.str();
             }
@@ -780,7 +808,7 @@ namespace euphoria::core::argparse
         using StringTable = Table<std::string>;
 
         // table functions
-        constexpr int MAX_NAME_LENGTH = 10;
+        constexpr int MAX_NAME_LENGTH = 20;
         constexpr int MAX_HELP_LENGTH = 80;
         int max_name_length = 0;
 
@@ -810,7 +838,6 @@ namespace euphoria::core::argparse
             );
         };
 
-        // todo(Gustav): wordwrap the arguments and description/help
         const auto print = [printer, &max_name_length](const StringTable& table)
         {
             auto t = StringTable{};
@@ -865,15 +892,20 @@ namespace euphoria::core::argparse
         for (auto& a : optional_argument_list)
         {
             const auto names = StringMerger::Comma().Generate(a.name.names);
+            const auto names_with_narg = a.argument->HaveNargs() == false
+                ? names
+                : Str() << names << " " << a.argument->nargs
+                ;
             std::ostringstream default_text;
             if(a.argument->default_value.empty() == false)
             {
                 default_text << " (default: " << a.argument->default_value << ")";
             }
+
             add
             (
                 &optionals,
-                names,
+                names_with_narg,
                 a.argument->help + default_text.str(),
                 a.argument->GetSecondLine()
             );
@@ -939,9 +971,18 @@ namespace euphoria::core::argparse
     }
 
 
+    std::string
+    CreateDefaultNarg(const Name& name)
+    {
+        const auto n = TrimLeft(name.names[0], "-");
+        return ToUpper(n);
+    }
+
+
     Argument&
     ParserBase::AddArgument(const Name& name, std::shared_ptr<Argument> argument)
     {
+        argument->nargs = CreateDefaultNarg(name);
         if (name.IsOptional())
         {
             for (const auto& n : name.names)
@@ -952,6 +993,7 @@ namespace euphoria::core::argparse
         }
         else
         {
+            ASSERT(argument->HaveNargs());
             positional_argument_list.emplace_back(name, argument);
         }
         return *argument;

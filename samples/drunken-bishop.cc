@@ -29,8 +29,8 @@ struct Common
     void
     Add(argparse::ParserBase* sub)
     {
-        sub->Add("--width", &width).Help("set the height");
-        sub->Add("--height", &height).Help("set the width");
+        sub->Add("--width", &width).Nargs("W").Help("set the height");
+        sub->Add("--height", &height).Nargs("H").Help("set the width");
         sub->SetTrue("--256", &big).Help("Upgrade from 128 to 256 bit hash");
     }
 };

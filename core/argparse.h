@@ -161,10 +161,14 @@ namespace euphoria::core::argparse
         virtual ~Argument();
 
         std::string help;
+        std::string nargs;
         bool allow_before_positionals = false;
 
         // automatically filled
         std::string default_value;
+
+        Argument&
+        Nargs(const std::string& na);
 
         Argument&
         Help(const std::string& h);
@@ -175,6 +179,10 @@ namespace euphoria::core::argparse
         virtual
         std::optional<std::string>
         GetSecondLine() = 0;
+
+        virtual
+        bool
+        HaveNargs() = 0;
 
         virtual
         ParseResult
@@ -199,6 +207,9 @@ namespace euphoria::core::argparse
 
         explicit ArgumentNoValue(Callback cb);
 
+        bool
+        HaveNargs() override;
+
         std::optional<std::string>
         GetSecondLine() override;
 
@@ -215,6 +226,9 @@ namespace euphoria::core::argparse
         Describe describe;
 
         SingleArgument(Callback cb, Describe d);
+
+        bool
+        HaveNargs() override;
 
         std::optional<std::string>
         GetSecondLine() override;
