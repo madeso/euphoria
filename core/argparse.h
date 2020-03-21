@@ -345,7 +345,7 @@ namespace euphoria::core::argparse
                 runner,
                 base,
                 Str() << value << " is not accepted for " <<
-                argument_name << ", could be" <<
+                argument_name << ", could be " <<
                 StringMerger::EnglishOr().Generate
                 (
                     matches.names
