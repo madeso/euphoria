@@ -886,8 +886,22 @@ namespace euphoria::core::argparse
             auto t = StringTable{};
             for(int y=0; y<table.GetHeight(); y+=1)
             {
-                const auto names = WordWrap(table(0, y), [max_name_length](const std::string& s) { return s.size() <= max_name_length; });
-                const auto helps = WordWrap(table(1, y), [](const std::string& s) { return s.size() <= MAX_HELP_LENGTH; });
+                const auto names = WordWrap
+                (
+                    table(0, y),
+                    [max_name_length](const std::string& s)
+                    {
+                        return Csizet_to_int(s.size()) <= max_name_length;
+                    }
+                );
+                const auto helps = WordWrap
+                (
+                    table(1, y),
+                    [](const std::string& s)
+                    {
+                        return s.size() <= MAX_HELP_LENGTH;
+                    }
+                );
                 const auto rows = ZipLongest(names, helps);
                 for(auto [name,help]: rows)
                 {
