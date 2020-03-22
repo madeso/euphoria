@@ -32,7 +32,13 @@ main(int argc, char* argv[])
             (
                 [&]
                 {
-                    auto ret = LoadImage(io::FileToChunk(input), input, AlphaLoad::Keep);
+                    auto file = io::FileToChunk(input);
+                    if(file == nullptr)
+                    {
+                        std::cerr << "Failed to open image file: '" << input << "'\n";
+                        return argparse::ParseResult::Error;
+                    }
+                    auto ret = LoadImage(file, input, AlphaLoad::Keep);
                     if(!ret.error.empty())
                     {
                         std::cerr << ret.error << "\n";
