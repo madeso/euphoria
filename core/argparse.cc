@@ -844,6 +844,13 @@ namespace euphoria::core::argparse
         return StringMerger::Space().Generate(ret);
     }
 
+    namespace
+    {
+        // msvc and clang disagrees on whetering capturing
+        // constexpr in lambas is necessary or not
+        constexpr int MAX_NAME_LENGTH = 20;
+        constexpr int MAX_HELP_LENGTH = 80;
+    }
 
     void
     ParserBase::PrintHelp(std::shared_ptr<Printer> printer, const Arguments& args)
@@ -851,11 +858,9 @@ namespace euphoria::core::argparse
         using StringTable = Table<std::string>;
 
         // table functions
-        constexpr int MAX_NAME_LENGTH = 20;
-        constexpr int MAX_HELP_LENGTH = 80;
         int max_name_length = 0;
 
-        const auto add = [&max_name_length, MAX_NAME_LENGTH]
+        const auto add = [&max_name_length]
         (
             StringTable* table,
             const std::string& name,
