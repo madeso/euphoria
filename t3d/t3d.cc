@@ -697,7 +697,8 @@ namespace euphoria::t3d
     T3d::Frame()
     {
         show_imgui = !immersive_mode;
-        const float delta      = timer->Update();
+        //  const float delta =
+            timer->Update();
 
         world->Step();
         editor->tools.PerformTools();
