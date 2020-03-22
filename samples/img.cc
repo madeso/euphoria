@@ -27,7 +27,7 @@ main(int argc, char* argv[])
         [&](argparse::SubParser* sub)
         {
             std::string input;
-            parser.Add("input", &input).Help("The image to apply filters to");
+            sub->Add("input", &input).Help("The image to apply filters to");
             return sub->OnComplete
             (
                 [&]
@@ -60,7 +60,7 @@ main(int argc, char* argv[])
         [&](argparse::SubParser* sub)
         {
             std::string output = "ret.png";
-            parser.Add("-o, --output", &output).Help
+            sub->Add("-o, --output", &output).Help
             (
                 "Where to write the resulting image"
             );
