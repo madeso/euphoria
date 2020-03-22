@@ -453,15 +453,95 @@ TEST_CASE("argparse_error", "[argparse]")
             const auto res = parser.Parse(MakeArguments({"cat", "dog"}));
             CHECK(res == ParseResult::Error);
         }
-        SECTION("positional 1 dash")
+        SECTION("optional 1 dash")
         {
             const auto res = parser.Parse(MakeArguments({"-o"}));
             CHECK(res == ParseResult::Error);
         }
-        SECTION("positional 2 dashes")
+        SECTION("optional 2 dashes")
         {
             const auto res = parser.Parse(MakeArguments({"--make-cool"}));
             CHECK(res == ParseResult::Error);
+        }
+    }
+
+    SECTION("sub parser greedy")
+    {
+        auto sub = parser.AddSubParsers();
+        bool completed = false;
+        sub->Add("a", [&](SubParser* parser)
+        {
+            parser->parser_style = SubParserStyle::Greedy;
+            return parser->OnComplete([&]
+            {
+                completed = true;
+                return ParseResult::Ok;
+            });
+        });
+
+        SECTION("one positional")
+        {
+            const auto res = parser.Parse(MakeArguments({"a", "dog"}));
+            CHECK(res == ParseResult::Error);
+            CHECK_FALSE(completed);
+        }
+        SECTION("many positionals")
+        {
+            const auto res = parser.Parse(MakeArguments({"a", "cat", "dog"}));
+            CHECK(res == ParseResult::Error);
+            CHECK_FALSE(completed);
+        }
+        SECTION("optional 1 dash")
+        {
+            const auto res = parser.Parse(MakeArguments({"a", "-o"}));
+            CHECK(res == ParseResult::Error);
+            CHECK_FALSE(completed);
+        }
+        SECTION("optional 2 dashes")
+        {
+            const auto res = parser.Parse(MakeArguments({"a", "--make-cool"}));
+            CHECK(res == ParseResult::Error);
+            CHECK_FALSE(completed);
+        }
+    }
+
+    SECTION("sub parser fallback")
+    {
+        auto sub = parser.AddSubParsers();
+        bool completed = false;
+        sub->Add("a", [&](SubParser* parser)
+        {
+            parser->parser_style = SubParserStyle::Fallback;
+            return parser->OnComplete([&]
+            {
+                completed = true;
+                return ParseResult::Ok;
+            });
+        });
+
+        SECTION("one positional")
+        {
+            const auto res = parser.Parse(MakeArguments({"a", "dog"}));
+            CHECK(res == ParseResult::Error);
+            CHECK(completed);
+        }
+        SECTION("many positionals")
+        {
+            const auto res = parser.Parse(MakeArguments({"a", "cat", "dog"}));
+            CHECK(res == ParseResult::Error);
+            CHECK(completed);
+        }
+        SECTION("optional 1 dash")
+        {
+            const auto res = parser.Parse(MakeArguments({"a", "-o"}));
+            CHECK(res == ParseResult::Error);
+            CHECK_FALSE(completed);
+        }
+        SECTION("optional 2 dashes")
+        {
+            const auto res = parser.Parse(MakeArguments({"a", "--make-cool"}));
+            CHECK(res == ParseResult::Error);
+            CHECK_FALSE(completed);
         }
     }
 }
