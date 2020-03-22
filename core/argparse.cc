@@ -1044,6 +1044,12 @@ namespace euphoria::core::argparse
     Argument&
     ParserBase::AddArgument(const Name& name, std::shared_ptr<Argument> argument)
     {
+        ASSERT
+        (
+            parser_state == ParserState::Adding &&
+            "It looks like you are adding argument during parsing... "
+            "are you using the wrong parser in a OnComplete?"
+        );
         argument->nargs = CreateDefaultNarg(name);
         if (name.IsOptional())
         {
@@ -1095,6 +1101,7 @@ namespace euphoria::core::argparse
     std::shared_ptr<SubParserGroup>
     ParserBase::AddSubParsers(const std::string& name)
     {
+        ASSERT(parser_state == ParserState::Adding);
         auto group = std::make_shared<SubParserGroup>(name, this);
         subparser_groups.emplace_back(group);
         return group;
@@ -1353,6 +1360,7 @@ namespace euphoria::core::argparse
     ParseResult
     ParserBase::ParseArgs(Runner* runner)
     {
+        parser_state = ParserState::Parsing;
         auto parser = ArgumentParser{this, runner};
 
         while (runner->arguments->HasMore())

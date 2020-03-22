@@ -18,6 +18,12 @@ namespace euphoria::core::argparse
 {
     struct ParserBase;
 
+    // enum to catch adding arguments during parsing in a callback
+    enum class ParserState
+    {
+        Adding, Parsing
+    };
+
     // option where the output can either be a single file or "infinite"
     struct FileOutput
     {
@@ -502,6 +508,7 @@ namespace euphoria::core::argparse
         std::vector<std::shared_ptr<SubParserGroup>> subparser_groups;
 
         std::optional<CompleteFunction> on_complete;
+        ParserState parser_state = ParserState::Adding;
 
         explicit ParserBase(const std::string& d);
 
