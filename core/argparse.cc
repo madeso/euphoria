@@ -1006,7 +1006,7 @@ namespace euphoria::core::argparse
         if(optionals.GetHeight() != 0)
         {
             printer->PrintInfo("");
-            printer->PrintInfo("positional arguments:");
+            printer->PrintInfo("optional arguments:");
             print(optionals);
         }
 
