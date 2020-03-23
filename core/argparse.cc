@@ -1217,19 +1217,28 @@ namespace euphoria::core::argparse
             return std::nullopt;
         }
 
-
-        bool
-        HasParserThatCanHandleSubparserCallback(ParserBase* base)
+        SubParserStyle
+        GetParserStyle(ParserBase* base, bool from_self=true)
         {
-            if(base == nullptr) return false;
-            const auto can_handle_self =
-                base->subparsers.size > 0
-                ;
-            return can_handle_self ||
-                HasParserThatCanHandleSubparserCallback
-                (
-                    base->GetParentOrNull()
-                );
+            if(base == nullptr)
+            {
+                return SubParserStyle::Greedy;
+            }
+
+            ParserBase* parent = base->GetParentOrNull();
+            if(from_self && parent==nullptr)
+            {
+                return SubParserStyle::Greedy;
+            }
+
+            if(base->parser_style == SubParserStyle::Inherit)
+            {
+                return GetParserStyle(parent, false);
+            }
+            else
+            {
+                return base->parser_style;
+            }
         }
 
 
@@ -1241,9 +1250,10 @@ namespace euphoria::core::argparse
             {
                 // todo(Gustav): check if this accepts invalid and
                 // calls on_complete() on invalid input
+                const auto style = GetParserStyle(base);
                 if
                 (
-                    HasParserThatCanHandleSubparserCallback(base) == false
+                    style == SubParserStyle::Greedy
                 )
                 {
                     print_error
@@ -1288,7 +1298,7 @@ namespace euphoria::core::argparse
             if
             (
                 subresult == ParseResult::Ok &&
-                base->GetParserStyle() == SubParserStyle::Greedy
+                GetParserStyle(base) == SubParserStyle::Greedy
             )
             {
                 // continue here
@@ -1410,13 +1420,6 @@ namespace euphoria::core::argparse
     }
 
 
-    SubParserStyle
-    SubParser::GetParserStyle()
-    {
-        return parser_style;
-    }
-
-
     ParserBase*
     SubParser::GetParentOrNull()
     {
@@ -1443,13 +1446,6 @@ namespace euphoria::core::argparse
         : ParserBase(d)
         , printer(std::make_shared<ConsolePrinter>())
     {
-    }
-
-
-    SubParserStyle
-    Parser::GetParserStyle()
-    {
-        return SubParserStyle::Greedy;
     }
 
 

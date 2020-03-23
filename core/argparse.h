@@ -491,7 +491,10 @@ namespace euphoria::core::argparse
         Greedy,
 
         // if argument is invalid, go back one step and try there
-        Fallback
+        Fallback,
+
+        // inherit from parent
+        Inherit
     };
 
     // base for the parser, start with Parser and add one or more subparsers
@@ -509,15 +512,12 @@ namespace euphoria::core::argparse
 
         std::optional<CompleteFunction> on_complete;
         ParserState parser_state = ParserState::Adding;
+        SubParserStyle parser_style = SubParserStyle::Inherit;
 
         explicit ParserBase(const std::string& d);
 
         virtual
         ~ParserBase();
-
-        virtual
-        SubParserStyle
-        GetParserStyle() = 0;
 
         virtual
         ParserBase*
@@ -618,7 +618,6 @@ namespace euphoria::core::argparse
         ParserBase* parent;
         Runner* runner;
         std::string calling_name;
-        SubParserStyle parser_style = SubParserStyle::Greedy;
 
         SubParser
         (
@@ -627,9 +626,6 @@ namespace euphoria::core::argparse
             Runner* r,
             const std::string& cn
         );
-
-        SubParserStyle
-        GetParserStyle() override;
 
         ParserBase*
         GetParentOrNull() override;
@@ -646,9 +642,6 @@ namespace euphoria::core::argparse
     struct Parser : public ParserBase
     {
         explicit Parser(const std::string& d = "");
-
-        SubParserStyle
-        GetParserStyle() override;
 
         ParserBase*
         GetParentOrNull() override;
