@@ -317,11 +317,11 @@ TEST_CASE("argparse", "[argparse]")
     SECTION("non greedy subparser/script like")
     {
         auto sub = parser.AddSubParsers();
+        parser.parser_style = SubParserStyle::Fallback;
         std::string data;
         sub->Add("add", [&](SubParser* sub)
         {
             std::string what;
-            sub->parser_style = SubParserStyle::Fallback;
             sub->Add("what", &what);
             return sub->OnComplete([&]
             {
@@ -469,9 +469,9 @@ TEST_CASE("argparse_error", "[argparse]")
     {
         auto sub = parser.AddSubParsers();
         bool completed = false;
+        parser.parser_style = SubParserStyle::Greedy;
         sub->Add("a", [&](SubParser* parser)
         {
-            parser->parser_style = SubParserStyle::Greedy;
             return parser->OnComplete([&]
             {
                 completed = true;
@@ -509,9 +509,9 @@ TEST_CASE("argparse_error", "[argparse]")
     {
         auto sub = parser.AddSubParsers();
         bool completed = false;
+        parser.parser_style = SubParserStyle::Fallback;
         sub->Add("a", [&](SubParser* parser)
         {
-            parser->parser_style = SubParserStyle::Fallback;
             return parser->OnComplete([&]
             {
                 completed = true;
