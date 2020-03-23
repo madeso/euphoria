@@ -18,6 +18,7 @@ main(int argc, char* argv[])
     Image image;
 
     auto parser = argparse::Parser {"Apply filters to images"};
+    parser.parser_style = argparse::SubParserStyle::Fallback;
 
     auto io_subs = parser.AddSubParsers("transfer image to/from disk");
 
