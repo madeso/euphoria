@@ -16,3 +16,6 @@ dist/scimed-debug
 # doxygenerated files
 generated-docs/
 
+# generated now
+.clang-tidy
+
