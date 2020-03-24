@@ -16,6 +16,13 @@ readability-*
 -readability-named-parameter
 -readability-inconsistent-declaration-parameter-name
 
+# really? 1.0F ??? no shouting floats thank you
+-readability-uppercase-literal-suffix
+
+# this kinda make sense, but math-code sometimes use magic numbers (2*pi radians for example)
+# and naming 2 here is hard, and doesn't really improve readability so we ignore it for now
+-readability-magic-numbers
+
 # some modernize
 modernize-loop-convert
 modernize-use-using
