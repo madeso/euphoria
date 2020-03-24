@@ -1,4 +1,43 @@
-Checks: "-*,readability-*,-readability-else-after-return,-readability-simplify-boolean-expr,-readability-implicit-bool-cast,-readability-named-parameter,-readability-inconsistent-declaration-parameter-name,modernize-loop-convert,modernize-use-using,performance-for-range-copy,performance-unnecessary-copy-initialization,google-*,-google-runtime-int,-google-readability-namespace-comments"
+
+# this file is used by make-clang-tidy.py file
+# to generate .clang-tidy since the checks attribute gets quite long
+# and clang-tidy doesn't provide a good (any) system to handle it
+# so the following is just commented checks attribute
+
+# start clean by removing all options
+# this should hopefully give some errors if we try to run with different
+# clang-formats so if someone is missing a checker we notice (fingers crossed)
+-*
+
+readability-*
+-readability-else-after-return
+-readability-simplify-boolean-expr
+-readability-implicit-bool-cast
+-readability-named-parameter
+-readability-inconsistent-declaration-parameter-name
+
+# really? 1.0F ??? no shouting floats thank you
+-readability-uppercase-literal-suffix
+
+# this kinda make sense, but math-code sometimes use magic numbers (2*pi radians for example)
+# and naming 2 here is hard, and doesn't really improve readability so we ignore it for now
+-readability-magic-numbers
+
+# some modernize
+modernize-loop-convert
+modernize-use-using
+performance-for-range-copy
+performance-unnecessary-copy-initialization
+
+# google are a sensible default
+google-*
+-google-runtime-int
+-google-readability-namespace-comments
+
+# the checks attribute ends here...
+# just regular (yaml) .clang-tidy settings from now on
+
+END_CHECKS
 CheckOptions:
   - key:             readability-identifier-naming.ClassCase
     value:           CamelCase
@@ -32,3 +71,4 @@ CheckOptions:
     value:           UPPER_CASE
   - key:             readability-identifier-naming.MacroDefinitionCase
     value:           UPPER_CASE
+
