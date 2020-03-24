@@ -335,7 +335,7 @@ namespace euphoria::core::argparse
     void
     FileOutput::CreateDirIfMissing() const
     {
-        if(single) return;
+        if(single) { return; }
         // std::filesystem::create_directories(file);
     }
 
@@ -915,8 +915,8 @@ namespace euphoria::core::argparse
             }
             for(int y=0; y<t.GetHeight(); y+=1)
             {
-                constexpr auto indent = " ";
-                constexpr auto space = "  ";
+                constexpr auto INDENT = " ";
+                constexpr auto SPACE = "  ";
 
                 const auto name = t(0, y);
                 const auto help = t(1, y);
@@ -924,14 +924,14 @@ namespace euphoria::core::argparse
                 const auto name_length = Csizet_to_int(name.length());
                 if(name_length > max_name_length)
                 {
-                    printer->PrintInfo(indent + name);
+                    printer->PrintInfo(INDENT + name);
                     const auto extra_space = std::string(max_name_length, ' ');
-                    printer->PrintInfo(indent + extra_space + space + help);
+                    printer->PrintInfo(INDENT + extra_space + SPACE + help);
                 }
                 else
                 {
                     const auto extra_space = std::string(max_name_length - name_length, ' ');
-                    printer->PrintInfo(indent + name + extra_space + space + help);
+                    printer->PrintInfo(INDENT + name + extra_space + SPACE + help);
                 }
             }
         };
@@ -974,10 +974,10 @@ namespace euphoria::core::argparse
         }
 
         auto subs = std::vector<StringTable>{};
-        for(auto group: subparser_groups)
+        for(const auto& group: subparser_groups)
         {
             auto sub = StringTable{};
-            for(auto parser: group->parsers)
+            for(const auto& parser: group->parsers)
             {
                 const auto names = StringMerger::Comma().Generate
                 (
@@ -1010,12 +1010,12 @@ namespace euphoria::core::argparse
             print(optionals);
         }
 
-        if(subs.size() != 0)
+        if(!subs.empty())
         {
             bool is_first_group = true;
             printer->PrintInfo("");
             auto sub = subs.begin();
-            for(auto group: subparser_groups)
+            for(const auto& group: subparser_groups)
             {
                 if(is_first_group == false)
                 {
@@ -1125,10 +1125,10 @@ namespace euphoria::core::argparse
             bool found_subparser = false;
 
             bool
-            has_more_positionals();
+            HasMorePositionals();
 
             void
-            print_error(const std::string& error);
+            PrintError(const std::string& error);
 
             std::optional<ParseResult>
             TryParseImportantOptional();
@@ -1148,7 +1148,7 @@ namespace euphoria::core::argparse
 
 
         bool
-        ArgumentParser::has_more_positionals()
+        ArgumentParser::HasMorePositionals()
         {
             const auto positionals_size = Csizet_to_int
             (
@@ -1159,7 +1159,7 @@ namespace euphoria::core::argparse
 
 
         void
-        ArgumentParser::print_error(const std::string& error)
+        ArgumentParser::PrintError(const std::string& error)
         {
             PrintParseError(runner, base, error);
         }
@@ -1256,7 +1256,7 @@ namespace euphoria::core::argparse
                     style == SubParserStyle::Greedy
                 )
                 {
-                    print_error
+                    PrintError
                     (
                         Str() << "invalid command '" << arg << "'"
                         ", could be " <<
@@ -1319,7 +1319,7 @@ namespace euphoria::core::argparse
                 auto match = base->FindArgument(arg);
                 if (match == nullptr)
                 {
-                    print_error("invalid argument: " + arg);
+                    PrintError("invalid argument: " + arg);
                     return ParseResult::Error;
                 }
                 auto arg_parse_result = match->ParseArguments
@@ -1348,7 +1348,7 @@ namespace euphoria::core::argparse
         std::optional<ParseResult>
         ArgumentParser::ParseOneArg()
         {
-            if (has_more_positionals())
+            if (HasMorePositionals())
             {
                 auto opt = TryParseImportantOptional();
                 if(opt.has_value())
@@ -1382,9 +1382,9 @@ namespace euphoria::core::argparse
             }
         }
 
-        if (parser.has_more_positionals())
+        if (parser.HasMorePositionals())
         {
-            parser.print_error("positionals left");
+            parser.PrintError("positionals left");
             return ParseResult::Error;
         }
 
@@ -1392,7 +1392,7 @@ namespace euphoria::core::argparse
         // should handle required subparser, but doesn't
         if(subparsers.size != 0 && parser.found_subparser == false)
         {
-            parser.print_error("no subparser specified");
+            parser.PrintError("no subparser specified");
             return ParseResult::Error;
         }
 

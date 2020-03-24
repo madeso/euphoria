@@ -304,7 +304,7 @@ namespace euphoria::core::argparse
         const std::string& value
     )
     {
-        auto stream = std::istringstream{value.c_str()};
+        auto stream = std::istringstream{value};
         T t;
         stream >> t;
         if(stream.fail() || !stream.eof())
