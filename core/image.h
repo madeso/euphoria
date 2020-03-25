@@ -32,6 +32,8 @@ namespace euphoria::core
         bool
         IsValid() const;
 
+        // todo(Gustav): Add create function that will create empty image and run setup
+
         // if default value is negative, default value is ignored, otherwise its the
         // default value for both R, G, B, and A.
         void
@@ -92,6 +94,9 @@ namespace euphoria::core
                     SetPixel(x, y, f(x, y));
                 }
         }
+
+        // todo(Gustav): provide a indices function like the table
+        // to return all valid xy positions
 
         int
         GetWidth() const;

@@ -408,6 +408,9 @@ namespace euphoria::core
             return right - left;
         }
 
+        // todo(Gustav): provide a KeepWithin, IsWithin/ WrapWithin functions
+        // like range provide for positions
+
         Range<T>
         GetYRange() const
         {
