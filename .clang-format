@@ -1,32 +1,32 @@
 BasedOnStyle: Google
 
-Standard: Cpp11                           # in 10 change to cpp17
+# in 10 change to cpp17
+Standard: Cpp11
 Language: Cpp
 
 AccessModifierOffset: -4
 AlignAfterOpenBracket: AlwaysBreak
-AlignConsecutiveAssignments:  true  # not sure
-AlignConsecutiveDeclarations: true  # not sure
-# AlignConsecutiveMacros: true                  # in 10, uncomment
+AlignConsecutiveAssignments:  false
+AlignConsecutiveDeclarations: false
 AlignEscapedNewlines: Right
-AlignOperands: true                 # I think...
-AlignTrailingComments: false        # I think...
-# AllowAllArgumentsOnNextLine                   # no effect?
-# AllowAllConstructorInitializersOnNextLine     # no effect?
+AlignOperands: false
+AlignTrailingComments: false
+AllowAllArgumentsOnNextLine: false
+AllowAllConstructorInitializersOnNextLine: false
 AllowAllParametersOfDeclarationOnNextLine: false
-AllowShortBlocksOnASingleLine: false            # in 10, change to empty?
+AllowShortBlocksOnASingleLine: true
 AllowShortCaseLabelsOnASingleLine: true
 AllowShortFunctionsOnASingleLine: Empty
-AllowShortIfStatementsOnASingleLine: false      # in 10, change to never?
+AllowShortIfStatementsOnASingleLine: WithoutElse
+
 # AllowShortLambdasOnASingleLine: Inline        # in 10, uncomment
+
 AllowShortLoopsOnASingleLine: false
-# AlwaysBreakAfterDefinitionReturnType # deprecated
 AlwaysBreakAfterReturnType: All
 AlwaysBreakBeforeMultilineStrings: true
 AlwaysBreakTemplateDeclarations: Yes
 BinPackArguments: false
 BinPackParameters: false
-# todo go through everything.....
 BraceWrapping:
   AfterClass: true
   AfterControlStatement: true
@@ -43,61 +43,71 @@ BraceWrapping:
   SplitEmptyFunction: false
   SplitEmptyRecord: false
   SplitEmptyNamespace: false
-BreakBeforeBinaryOperators: All
+BreakBeforeBinaryOperators: None
+
+# custom = Configure each individual brace in BraceWrapping.
 BreakBeforeBraces: Custom
+
 BreakBeforeTernaryOperators: true
 BreakConstructorInitializers: BeforeComma
 BreakInheritanceList: BeforeComma
 BreakStringLiterals: false
-ColumnLimit: 80                   # switch to 120?
+ColumnLimit: 80
 # CommentPragmas
 CompactNamespaces: false
-ConstructorInitializerAllOnOneLineOrOnePerLine: true  # was false? why?
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
 ConstructorInitializerIndentWidth: 4
 ContinuationIndentWidth: 8
 Cpp11BracedListStyle: true
 DerivePointerAlignment: false
 DisableFormat: false
-FixNamespaceComments: true
-# ForEachMacros
+
+# might want true, but I don't like syntax comments
+FixNamespaceComments: false
+
 IncludeBlocks: Preserve
 # IncludeCategories:       # later
 # IncludeIsMainRegex
 IndentCaseLabels: false
-#  IndentGotoLabels: false           # in 10, uncomment...
-# PPDirectiveIndentStyle: AfterHash  # in 10, uncomment
 IndentWidth: 4
 IndentWrappedFunctionNames: false
 KeepEmptyLinesAtTheStartOfBlocks: false
 # MacroBlockBegin
 # MacroBlockEnd
 MaxEmptyLinesToKeep: 2
+
+
+# or inner to avoid unesssary indenting
 NamespaceIndentation: All
-# NamespaceMacros
+
 # penalty variables here, not sure how to use them...
+
 PointerAlignment: Left
-# RawStringFormats            # look into this for formatting glsl code
+
+# look into this for formatting glsl code
+# RawStringFormats
+
 ReflowComments: false
 SortIncludes: false           # temporary, need to look into better sorting first
 SortUsingDeclarations: true
 SpaceAfterCStyleCast: false
-# SpaceAfterLogicalNot: false        # in 10, uncomment
 SpaceAfterTemplateKeyword: true
 SpaceBeforeAssignmentOperators: true
-SpaceBeforeCpp11BracedList: true
+SpaceBeforeCpp11BracedList: false
 SpaceBeforeCtorInitializerColon: true
 SpaceBeforeInheritanceColon: true
-SpaceBeforeParens: Never    # or ControlStatements?
+SpaceBeforeParens: Never
 SpaceBeforeRangeBasedForLoopColon: false
 # SpaceInEmptyBlock: false          # in 10, uncomment
 SpaceInEmptyParentheses: false
-SpacesBeforeTrailingComments: 2   # or?
+SpacesBeforeTrailingComments: 2
 SpacesInAngles: false
 SpacesInCStyleCastParentheses: false
-# SpacesInContainerLiterals: false    #objc or js
+SpacesInContainerLiterals: false
 SpacesInParentheses: false
 SpacesInSquareBrackets: false
 # StatementMacros
 TabWidth: 8
 # TypenameMacros
 UseTab: Never
+
