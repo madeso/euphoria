@@ -76,12 +76,18 @@ namespace euphoria::core
     CliProgressBarInfinite::Step(int each)
     {
         index += 1;
-        if(index < each) { return; }
+        if(index < each)
+        {
+            return;
+        }
 
         index -= each;
 
         percent += 0.01f;
-        if(percent > 1) { percent -= 1; }
+        if(percent > 1)
+        {
+            percent -= 1;
+        }
 
         progress.Update(percent);
     }
