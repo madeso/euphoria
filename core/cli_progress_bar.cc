@@ -40,7 +40,10 @@ namespace euphoria::core
 
         const auto percent = KeepWithin(R01(), apercent);
 
-        const auto number_of_characters = static_cast<int>(percent * total_number_of_characters);
+        const auto number_of_characters = static_cast<int>
+        (
+            percent * total_number_of_characters
+        );
 
         const auto now = Now();
         if (!force && SecondsBetween(last, now) < min_interval_seconds)
@@ -55,7 +58,12 @@ namespace euphoria::core
         {
             std::cout << filled_char;
         }
-        for (int i = number_of_characters; i < total_number_of_characters; i += 1)
+        for
+        (
+            int i = number_of_characters;
+            i < total_number_of_characters;
+            i += 1
+        )
         {
             std::cout << empty_char;
         }
@@ -68,17 +76,13 @@ namespace euphoria::core
     CliProgressBarInfinite::Step(int each)
     {
         index += 1;
-        if (index < each)
-        {
-            return;
-        }
+        if(index < each) { return; }
+
         index -= each;
 
         percent += 0.01f;
-        if (percent > 1)
-        {
-            percent -= 1;
-        }
+        if(percent > 1) { percent -= 1; }
+
         progress.Update(percent);
     }
 }  // namespace euphoria::core
