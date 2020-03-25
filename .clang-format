@@ -1,5 +1,10 @@
 BasedOnStyle: Google
 
+# issues:
+# constant single-character arrays are not binpacked and get one character per line
+# more than one template argument are not split on to multiple lines
+
+
 # in 10 change to cpp17
 Standard: Cpp11
 Language: Cpp
@@ -14,17 +19,19 @@ AlignTrailingComments: false
 AllowAllArgumentsOnNextLine: false
 AllowAllConstructorInitializersOnNextLine: false
 AllowAllParametersOfDeclarationOnNextLine: false
-AllowShortBlocksOnASingleLine: true
+AllowShortBlocksOnASingleLine: false
 AllowShortCaseLabelsOnASingleLine: true
-AllowShortFunctionsOnASingleLine: Empty
+AllowShortFunctionsOnASingleLine: false
 AllowShortIfStatementsOnASingleLine: WithoutElse
-
-# AllowShortLambdasOnASingleLine: Inline        # in 10, uncomment
+AllowShortLambdasOnASingleLine: Inline
 
 AllowShortLoopsOnASingleLine: false
 AlwaysBreakAfterReturnType: All
 AlwaysBreakBeforeMultilineStrings: true
 AlwaysBreakTemplateDeclarations: Yes
+
+# issue: much indent, doesn't "reflow" ( and { to start of line
+# there should be a binpack for "for" and "if(auto var; var)" statements too
 BinPackArguments: false
 BinPackParameters: false
 BraceWrapping:
@@ -40,14 +47,15 @@ BraceWrapping:
   BeforeCatch: true
   BeforeElse: true
   IndentBraces: false
-  SplitEmptyFunction: false
-  SplitEmptyRecord: false
-  SplitEmptyNamespace: false
+  SplitEmptyFunction: true
+  SplitEmptyRecord: true
+  SplitEmptyNamespace: true
 BreakBeforeBinaryOperators: None
 
 # custom = Configure each individual brace in BraceWrapping.
 BreakBeforeBraces: Custom
 
+# issue: always break "complex" ternary operations
 BreakBeforeTernaryOperators: true
 BreakConstructorInitializers: BeforeComma
 BreakInheritanceList: BeforeComma
@@ -66,8 +74,9 @@ DisableFormat: false
 FixNamespaceComments: false
 
 IncludeBlocks: Preserve
-# IncludeCategories:       # later
+# IncludeCategories: # later
 # IncludeIsMainRegex
+SortIncludes: false # temporary, need to look into better sorting first
 IndentCaseLabels: false
 IndentWidth: 4
 IndentWrappedFunctionNames: false
@@ -88,7 +97,7 @@ PointerAlignment: Left
 # RawStringFormats
 
 ReflowComments: false
-SortIncludes: false           # temporary, need to look into better sorting first
+# SortIncludes: defined up with IncludeCategories
 SortUsingDeclarations: true
 SpaceAfterCStyleCast: false
 SpaceAfterTemplateKeyword: true
@@ -96,7 +105,9 @@ SpaceBeforeAssignmentOperators: true
 SpaceBeforeCpp11BracedList: false
 SpaceBeforeCtorInitializerColon: true
 SpaceBeforeInheritanceColon: true
-SpaceBeforeParens: Never
+
+SpaceBeforeParens: ControlStatements
+
 SpaceBeforeRangeBasedForLoopColon: false
 # SpaceInEmptyBlock: false          # in 10, uncomment
 SpaceInEmptyParentheses: false
