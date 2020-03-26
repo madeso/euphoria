@@ -111,7 +111,16 @@ def handle_tidy(args):
         for f in files:
             print(os.path.basename(f), flush=True)
             if args.nop is False:
-                subprocess.call(['clang-tidy', '-p', project_root, f])
+                t = subprocess.check_output(['clang-tidy', '-p', project_root, f], text=True, encoding='utf8', stderr=subprocess.STDOUT)
+                for l in t.split('\n'):
+                    if 'warnings generated' in l:
+                        pass
+                    elif '-header-filter' in l:
+                        pass
+                    elif 'Suppressed' in l and 'non-user code' in l:
+                        pass
+                    else:
+                        print(l)
         print()
 
 
