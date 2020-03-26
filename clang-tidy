@@ -9,6 +9,14 @@
 # clang-formats so if someone is missing a checker we notice (fingers crossed)
 -*
 
+bugprone-*
+
+cppcoreguidelines-*
+-cppcoreguidelines-pro-bounds-array-to-pointer-decay
+
+misc-*
+-misc-non-private-member-variables-in-classes
+
 readability-*
 -readability-else-after-return
 -readability-simplify-boolean-expr
@@ -22,6 +30,7 @@ readability-*
 # this kinda make sense, but math-code sometimes use magic numbers (2*pi radians for example)
 # and naming 2 here is hard, and doesn't really improve readability so we ignore it for now
 -readability-magic-numbers
+-cppcoreguidelines-avoid-magic-numbers
 
 # some modernize
 modernize-loop-convert
