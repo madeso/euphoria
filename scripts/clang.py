@@ -44,7 +44,7 @@ def handle_format(args):
         files = sourcefiles(project)
         for f in files:
             print(os.path.basename(f))
-            subprocess.call(['clang-format', '-i', f])
+            # subprocess.call(['clang-format', '-i', f])
         print()
 
 
