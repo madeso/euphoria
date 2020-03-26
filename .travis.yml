@@ -44,3 +44,4 @@ script:
   - cmake ..
   - make VERBOSE=1
   - ./tests/tests
+  - ./scripts/clang.py tidy
