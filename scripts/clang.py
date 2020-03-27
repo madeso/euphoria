@@ -4,6 +4,7 @@ import argparse
 import os
 import subprocess
 import re
+import collections
 
 
 def sourcefiles(root, relative):
@@ -105,13 +106,19 @@ def handle_tidy(args):
 
     make_tidy(root)
 
+    total_warnings = 0
+    total_top = collections.Counter()
+
     for project in find_projects(root):
         print_header(project)
+        project_warnings = 0
+        project_top = collections.Counter()
         files = sourcefiles(root, project)
         for f in files:
             print(os.path.basename(f), flush=True)
             if args.nop is False:
                 t = subprocess.check_output(['clang-tidy', '-p', project_root, f], text=True, encoding='utf8', stderr=subprocess.STDOUT)
+                file_warnings = 0
                 for l in t.split('\n'):
                     if 'warnings generated' in l:
                         pass
@@ -120,8 +127,26 @@ def handle_tidy(args):
                     elif 'Suppressed' in l and 'non-user code' in l:
                         pass
                     else:
+                        if 'warning: ' in l:
+                            total_warnings += 1
+                            file_warnings += 1
+                            project_warnings += 1
+                            total_top[f] += 1
+                            project_top[f] += 1
                         print(l)
+                print('{} warnings.'.format(file_warnings))
+                print()
+
+        print('{} warnings in {}.'.format(project_warnings, project))
+        for file, count in project_top.most_common(3):
+            print('{} at {}'.format(file, count))
         print()
+        print()
+
+    print_header('TIDY REPORT')
+    print('{} warnings in total.'.format(total_warnings))
+    for file, count in total_top.most_common(3):
+        print('{} at {}'.format(file, count))
 
 
 ##############################################################################
