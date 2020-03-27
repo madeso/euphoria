@@ -20,6 +20,8 @@ HEADER_START = 3
 
 CMAKE_ADD_SUBDIRECTORY_REGEX = re.compile(r'add_subdirectory\(([^)]+)')
 
+CLANG_TIDY_WARNING_CLASS = re.compile(r'\[(\w+(-\w+)+)\]')
+
 
 def list_source_files(root, relative):
     """
@@ -111,13 +113,56 @@ def make_clang_tidy(root):
         print_clang_tidy_source(root, clang_tidy_file)
 
 
-def run_clang_tidy(project_root, source_file):
+def call_clang_tidy(project_root, source_file):
     """
     runs clang-tidy and returns all the text output
     """
     command = ['clang-tidy', '-p', project_root, source_file]
     return subprocess.check_output(command, universal_newlines=True,
                                    encoding='utf8', stderr=subprocess.STDOUT)
+
+
+def total(counter):
+    """
+    returns the total number of items in a counter
+    """
+    return sum(counter.values())
+
+
+def run_clang_tidy(source_file, project_root):
+    """
+    runs the clang-tidy process, printing status to terminal
+    """
+    output = call_clang_tidy(project_root, source_file)
+    warnings = collections.Counter()
+    classes = collections.Counter()
+    for line in output.split('\n'):
+        if 'warnings generated' in line:
+            pass
+        elif '-header-filter' in line:
+            pass
+        elif 'Suppressed' in line and 'non-user code' in line:
+            pass
+        else:
+            if 'warning: ' in line:
+                warnings[source_file] += 1
+                tidy_class = CLANG_TIDY_WARNING_CLASS.search(line)
+                if tidy_class is not None:
+                    classes[tidy_class.group(1)] += 1
+            print(line)
+    # print('{} warnings.'.format(total(warnings)))
+    print_warning_counter(classes, 'classes')
+    print()
+    return warnings, classes
+
+
+def print_warning_counter(project_counter, project):
+    """
+    print warning counter to the console
+    """
+    print('{} warnings in {}.'.format(total(project_counter), project))
+    for file, count in project_counter.most_common(3):
+        print('{} at {}'.format(file, count))
 
 
 ##############################################################################
@@ -161,47 +206,28 @@ def handle_tidy(args):
 
     make_clang_tidy(root)
 
-    total_warnings = 0
-    total_top = collections.Counter()
+    total_counter = collections.Counter()
+    total_classes = collections.Counter()
 
     for project in find_projects(root):
         print_header(project)
-        project_warnings = 0
-        project_top = collections.Counter()
+        project_counter = collections.Counter()
         source_files = list_source_files(root, project)
         for source_file in source_files:
             print(os.path.basename(source_file), flush=True)
             if args.nop is False:
-                output = run_clang_tidy(project_root, source_file)
-                file_warnings = 0
-                for line in output.split('\n'):
-                    if 'warnings generated' in line:
-                        pass
-                    elif '-header-filter' in line:
-                        pass
-                    elif 'Suppressed' in line and 'non-user code' in line:
-                        pass
-                    else:
-                        if 'warning: ' in line:
-                            total_warnings += 1
-                            file_warnings += 1
-                            project_warnings += 1
-                            total_top[source_file] += 1
-                            project_top[source_file] += 1
-                        print(line)
-                print('{} warnings.'.format(file_warnings))
-                print()
+                warnings, classes = run_clang_tidy(source_file, project_root)
+                project_counter.update(warnings)
+                total_classes.update(classes)
 
-        print('{} warnings in {}.'.format(project_warnings, project))
-        for file, count in project_top.most_common(3):
-            print('{} at {}'.format(file, count))
+        print_warning_counter(project_counter, project)
+        total_counter.update(project_counter)
         print()
         print()
 
     print_header('TIDY REPORT')
-    print('{} warnings in total.'.format(total_warnings))
-    for file, count in total_top.most_common(3):
-        print('{} at {}'.format(file, count))
+    print_warning_counter(total_counter, 'total')
+    print_warning_counter(total_classes, 'classes')
 
 
 ##############################################################################
