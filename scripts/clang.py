@@ -151,7 +151,7 @@ def run_clang_tidy(source_file, project_root):
                     classes[tidy_class.group(1)] += 1
             print(line)
     # print('{} warnings.'.format(total(warnings)))
-    print_warning_counter(classes, 'classes')
+    print_warning_counter(classes, source_file)
     print()
     return warnings, classes
 
