@@ -117,7 +117,7 @@ def handle_tidy(args):
         for f in files:
             print(os.path.basename(f), flush=True)
             if args.nop is False:
-                t = subprocess.check_output(['clang-tidy', '-p', project_root, f], text=True, encoding='utf8', stderr=subprocess.STDOUT)
+                t = subprocess.check_output(['clang-tidy', '-p', project_root, f], universal_newlines=True, encoding='utf8', stderr=subprocess.STDOUT)
                 file_warnings = 0
                 for l in t.split('\n'):
                     if 'warnings generated' in l:
