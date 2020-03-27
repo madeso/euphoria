@@ -161,7 +161,7 @@ def print_warning_counter(project_counter, project):
     print warning counter to the console
     """
     print('{} warnings in {}.'.format(total(project_counter), project))
-    for file, count in project_counter.most_common(3):
+    for file, count in project_counter.most_common(10):
         print('{} at {}'.format(file, count))
 
 
@@ -227,6 +227,7 @@ def handle_tidy(args):
 
     print_header('TIDY REPORT')
     print_warning_counter(total_counter, 'total')
+    print()
     print_warning_counter(total_classes, 'classes')
 
 
