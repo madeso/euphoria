@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""expose cmake utilities"""
 
 import subprocess
 import typing
@@ -6,47 +7,58 @@ import typing
 import buildtools.core as core
 
 
-class Argument:
-    def __init__(self, name: str, value: str, type: typing.Optional[str]):
-        self.name = name
-        self.value = value
-        self.type = type
+class Argument:  # pylint: disable=too-few-public-methods
+    """a cmake argument"""
+
+    def __init__(self, a_name: str, a_value: str, a_type: typing.Optional[str]):
+        self.name = a_name
+        self.value = a_value
+        self.type = a_type
+
+    def format_cmake_argument(self) -> str:
+        """format for commandline"""
+        if self.type is None:
+            return '-D{}={}'.format(self.name, self.value)
+
+        return '-D{}:{}={}'.format(self.name, self.type, self.value)
 
 
-
-class Generator:
-    def __init__(self, generator: str):
+class Generator:  # pylint: disable=too-few-public-methods
+    """cmake generator"""
+    def __init__(self, generator: str, arch: typing.Optional[str] = None):
         self.generator = generator
-        self.arch = None
+        self.arch = arch
 
 
 class CMake:
+    """utility to call cmake commands on a project"""
     def __init__(self, build_folder: str, source_folder: str, generator: Generator):
         self.generator = generator
         self.build_folder = build_folder
         self.source_folder = source_folder
         self.arguments = []
 
-    def add_argument_with_type(self, name: str, value: str, type: str) -> 'CMake':
-        self.arguments.append(Argument(name, value, type))
-        return self
+    def add_argument_with_type(self, a_name: str, a_value: str, a_type: str):
+        """add argument with a explicit type set"""
+        self.arguments.append(Argument(a_name, a_value, a_type))
 
-    def add_argument(self, name: str, value: str) -> 'CMake':
-        self.arguments.append( Argument(name, value, None) )
-        return self
+    def add_argument(self, name: str, value: str):
+        """add argument"""
+        self.arguments.append(Argument(name, value, None))
 
-    def set_install_folder(self, folder: str) -> 'CMake':
+    def set_install_folder(self, folder: str):
+        """set the install folder"""
         self.add_argument_with_type('CMAKE_INSTALL_PREFIX', folder, 'PATH')
-        return self
 
-    def make_static_library(self) -> 'CMake':
+    def make_static_library(self):
+        """set cmake to make static (not shared) library"""
         self.add_argument('BUILD_SHARED_LIBS', '0')
-        return self
 
     def config(self):
+        """run cmake configure step"""
         command = ['cmake']
         for arg in self.arguments:
-            argument = '-D{}={}'.format(arg.name, arg.value) if arg.type is None else '-D{}:{}={}'.format(arg.name, arg.type, arg.value)
+            argument = arg.format_cmake_argument()
             print('Setting CMake argument for config', argument, flush=True)
             command.append(argument)
         command.append(self.source_folder)
@@ -63,6 +75,7 @@ class CMake:
             print('Configuring cmake', command, flush=True)
 
     def build_cmd(self, install: bool):
+        """run cmake build step"""
         cmd = ['cmake', '--build', '.']
         if install:
             cmd.append('--target')
@@ -76,8 +89,9 @@ class CMake:
             print('Calling build on cmake', self.build_folder, flush=True)
 
     def build(self):
-        self.build_cmd(False)
+        """build cmake project"""
+        self.build_cmd(install=False)
 
     def install(self):
-        self.build_cmd(True)
-
+        """install cmake project"""
+        self.build_cmd(install=True)
