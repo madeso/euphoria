@@ -11,6 +11,11 @@
 
 bugprone-*
 
+modernize-*
+-modernize-use-trailing-return-type
+
+performance-
+
 cppcoreguidelines-*
 -cppcoreguidelines-pro-bounds-array-to-pointer-decay
 
@@ -32,11 +37,6 @@ readability-*
 -readability-magic-numbers
 -cppcoreguidelines-avoid-magic-numbers
 
-# some modernize
-modernize-loop-convert
-modernize-use-using
-performance-for-range-copy
-performance-unnecessary-copy-initialization
 
 # google are a sensible default
 google-*
