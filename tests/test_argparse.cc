@@ -2,8 +2,9 @@
 
 #include "utils.h"
 #include "core/enumtostring.h"
+#include "core/fourway.h"
 
-
+using namespace euphoria::core;
 using namespace euphoria::core::argparse;
 
 namespace
@@ -462,6 +463,23 @@ TEST_CASE("argparse_error", "[argparse]")
         {
             const auto res = parser.Parse(MakeArguments({"--make-cool"}));
             CHECK(res == ParseResult::Error);
+        }
+    }
+
+    SECTION("fourway test")
+    {
+        auto ff = Fourway<int>{0};
+        parser.Add("f", &ff);
+
+        SECTION("one value")
+        {
+            const auto res = parser.Parse(MakeArguments({"4"}));
+            INFO(output->messages);
+            CHECK(res == ParseResult::Ok);
+            CHECK(ff.left == 4);
+            CHECK(ff.right == 4);
+            CHECK(ff.up == 4);
+            CHECK(ff.down == 4);
         }
     }
 

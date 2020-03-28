@@ -12,6 +12,7 @@
 
 #include "core/enumtostring.h"
 #include "core/stringmerger.h"
+#include "core/custom_parser.h"
 
 
 namespace euphoria::core::argparse
@@ -289,11 +290,48 @@ namespace euphoria::core::argparse
         )
     >;
 
+    // todo(Gustav): make so that the custom argparser can call default parser
+    // todo(Gustav): make so that the custoom argparser or has on enable_if construct?
+
+    template
+    <
+        typename T,
+        std::enable_if_t<CustomArgparser<T>::value != 0, int> = 0
+    >
+    std::optional<T>
+    DefaultParseFunction
+    (
+        Runner* runner,
+        ParserBase* base,
+        const std::string& argument_name,
+        const std::string& value
+    )
+    {
+        auto stream = std::istringstream{value};
+        auto r = CustomArgparser_Parse<T>(argument_name, value);
+        if(r)
+        {
+            return r.Value();
+        }
+        else
+        {
+            const auto error = r.Error().empty() ? r.Error() : (": " + r.Error());
+            PrintParseError
+            (
+                runner,
+                base,
+                Str() << value << " is not accepted for " << argument_name << error
+            );
+            return std::nullopt;
+        }
+    }
+
     // default parse function for non-enums
     template
     <
         typename T,
-        std::enable_if_t<std::is_enum<T>::value == false, int> = 0
+        std::enable_if_t<std::is_enum<T>::value == false, int> = 0,
+        std::enable_if_t<CustomArgparser<T>::value == 0, int> = 0
     >
     std::optional<T>
     DefaultParseFunction
@@ -391,11 +429,24 @@ namespace euphoria::core::argparse
         return r;
     }
 
+    template
+    <
+        typename T,
+        std::enable_if_t<CustomArgparser<T>::value != 0, int> = 0
+    >
+    std::string
+    DefaultValueToString(const T& t)
+    {
+        return CustomArgparser_ToString(t);
+    }
+
+
     // default value for non enums
     template
     <
         typename T,
-        std::enable_if_t<std::is_enum<T>::value == false, int> = 0
+        std::enable_if_t<std::is_enum<T>::value == false, int> = 0,
+        std::enable_if_t<CustomArgparser<T>::value == 0, int> = 0
     >
     std::string
     DefaultValueToString(const T& t)
