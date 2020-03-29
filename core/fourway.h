@@ -8,6 +8,7 @@
 
 #include "core/custom_parser.h"
 #include "core/stringutils.h"
+#include "core/argparse.h"
 
 
 namespace euphoria::core
@@ -131,16 +132,14 @@ namespace euphoria::core
             using R = Result<Fourway<T>>;
             auto parse = [](const std::string& v) -> std::optional<T>
             {
-                std::istringstream ss{v};
-                T t;
-                ss >> t;
-                if(ss.fail() || !ss.eof())
+                const auto r = argparse::DefaultParseFunction<T>(v);
+                if(r)
                 {
-                    return std::nullopt;
+                    return *r;
                 }
                 else
                 {
-                    return t;
+                    return std::nullopt;
                 }
             };
             const auto values = Split(value, SPLIT);

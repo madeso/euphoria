@@ -74,7 +74,7 @@ namespace
 
     enum class Animal
     {
-        Cat, Dog, Bird
+        Cat, Dog, Bird, None
     };
 
 
@@ -466,7 +466,7 @@ TEST_CASE("argparse_error", "[argparse]")
         }
     }
 
-    SECTION("fourway test")
+    SECTION("fourway test int")
     {
         using FF = Fourway<int>;
         auto ff = FF{0};
@@ -492,6 +492,28 @@ TEST_CASE("argparse_error", "[argparse]")
             INFO(output->messages);
             CHECK(res == ParseResult::Ok);
             CHECK(ff == FF::FromLrud(4, 2, 1, 3));
+        }
+    }
+
+    SECTION("fourway test enum")
+    {
+        using FF = Fourway<Animal>;
+        auto ff = FF{Animal::None};
+        parser.Add("f", &ff);
+
+        SECTION("one value")
+        {
+            const auto res = parser.Parse(MakeArguments({"cat"}));
+            INFO(output->messages);
+            CHECK(res == ParseResult::Ok);
+            CHECK(ff == FF{Animal::Cat});
+        }
+        SECTION("two values")
+        {
+            const auto res = parser.Parse(MakeArguments({"cat/none"}));
+            INFO(output->messages);
+            CHECK(res == ParseResult::Ok);
+            CHECK(ff == FF::FromLrud(Animal::None, Animal::Cat));
         }
     }
 
