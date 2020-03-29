@@ -13,6 +13,7 @@
 #include "core/enumtostring.h"
 #include "core/stringmerger.h"
 #include "core/custom_parser.h"
+#include "core/result.h"
 
 
 namespace euphoria::core::argparse
@@ -281,11 +282,8 @@ namespace euphoria::core::argparse
     template<typename T>
     using ParseFunction = std::function
     <
-        std::optional<T>
+        Result<T>
         (
-            Runner* runner,
-            ParserBase* base,
-            const std::string& argument_name,
             const std::string& value
         )
     >;
@@ -297,32 +295,14 @@ namespace euphoria::core::argparse
         typename T,
         std::enable_if_t<CustomArgparser<T>::value != 0, int> = 0
     >
-    std::optional<T>
+    Result<T>
     DefaultParseFunction
     (
-        Runner* runner,
-        ParserBase* base,
-        const std::string& argument_name,
         const std::string& value
     )
     {
-        auto stream = std::istringstream{value};
         auto r = CustomArgparser_Parse<T>(value);
-        if(r)
-        {
-            return r.Value();
-        }
-        else
-        {
-            const auto error = r.Error().empty() ? r.Error() : (": " + r.Error());
-            PrintParseError
-            (
-                runner,
-                base,
-                Str() << value << " is not accepted for " << argument_name << error
-            );
-            return std::nullopt;
-        }
+        return r;
     }
 
     // default parse function for non-enums
@@ -335,12 +315,9 @@ namespace euphoria::core::argparse
             CustomArgparser<T>::value == 0
         , int> = 0
     >
-    std::optional<T>
+    Result<T>
     DefaultParseFunction
     (
-        Runner* runner,
-        ParserBase* base,
-        const std::string& argument_name,
         const std::string& value
     )
     {
@@ -349,18 +326,11 @@ namespace euphoria::core::argparse
         stream >> t;
         if(stream.fail() || !stream.eof())
         {
-            // todo(include argument name here
-            PrintParseError
-            (
-                runner,
-                base,
-                Str() << value << " is not accepted for " << argument_name
-            );
-            return std::nullopt;
+            return Result<T>::False();
         }
         else
         {
-            return t;
+            return Result<T>::True(t);
         }
     }
 
@@ -374,34 +344,25 @@ namespace euphoria::core::argparse
             CustomArgparser<T>::value == 0
         , int> = 0
     >
-    std::optional<T>
+    Result<T>
     DefaultParseFunction
     (
-        Runner* runner,
-        ParserBase* base,
-        const std::string& argument_name,
         const std::string& value
     )
     {
         auto matches = core::StringToEnum<T>(value);
         if (matches.single_match)
         {
-            return matches.values[0];
+            return Result<T>::True(matches.values[0]);
         }
         else
         {
-            PrintParseError
-            (
-                runner,
-                base,
-                Str() << value << " is not accepted for " <<
-                argument_name << ", could be " <<
+            return Result<T>::False(Str() << "could be " <<
                 StringMerger::EnglishOr().Generate
                 (
                     matches.names
                 )
             );
-            return std::nullopt;
         }
     }
 
@@ -640,13 +601,7 @@ namespace euphoria::core::argparse
                 const std::string& value
             )
             {
-                auto parsed = parse_function
-                (
-                    runner,
-                    caller,
-                    argument_name,
-                    value
-                );
+                auto parsed = parse_function(value);
                 if(parsed)
                 {
                     *target = *parsed;
@@ -654,6 +609,15 @@ namespace euphoria::core::argparse
                 }
                 else
                 {
+                    const std::string base = Str() <<
+                        value << " is not accepted for " << argument_name;
+                    const auto error = parsed.Error();
+                    const std::string message = error.empty()
+                        ? base
+                        : (Str() << base << ": " << error)
+                        ;
+                    PrintParseError(runner, caller, message);
+
                     return ParseResult::Error;
                 }
             }, [](){

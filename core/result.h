@@ -16,6 +16,14 @@ namespace euphoria::core
             return value.has_value();
         }
 
+
+        [[nodiscard]]
+        const T&
+        operator *() const
+        {
+            return *value;
+        }
+
         [[nodiscard]]
         const T&
         Value() const
@@ -41,7 +49,7 @@ namespace euphoria::core
         [[nodiscard]]
         static
         Self
-        False(const std::string& error)
+        False(const std::string& error = "")
         {
             return Self{std::nullopt, error};
         }
