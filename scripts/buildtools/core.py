@@ -1,64 +1,56 @@
 #!/usr/bin/python3
+"""core functions and classes"""
 import os
 import sys
 import zipfile
 import shutil
+import platform
+import urllib.request
 
 
 class TextReplacer:
+    """multi replace calls on a single text"""
     def __init__(self):
-        self.res = []
+        self.replacements = []
 
-    def add(self, reg, rep):
-        self.res.append((reg, rep))
+    def add(self, old: str, new: str):
+        """add a replacement command"""
+        self.replacements.append((old, new))
         return self
 
-    def replace(self, text):
-        for r in self.res:
-            reg = r[0]
-            rep = r[1]
-            text = text.replace(reg, rep)
+    def replace(self, text: str):
+        """perform all replacement"""
+        for replacement in self.replacements:
+            old = replacement[0]
+            new = replacement[1]
+            text = text.replace(old, new)
         return text
 
 
 def flush():
+    """flushes stdout"""
     sys.stdout.flush()
 
 
 def is_windows() -> bool:
-    import platform
+    """is the script runnning on a windows system?"""
     return platform.system() == 'Windows'
 
 
 def dir_exist(path: str) -> bool:
+    """does the directory exist"""
     return os.path.isdir(path)
 
 
-def globals():
-    vs_root = r'C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE'
-    flush()
-
-    root = os.getcwd()
-    install_dist = os.path.join(root, 'install-dist')
-    install = os.path.join(root, 'install')
-    wx_root = os.path.join(install_dist, 'wx')
-    proto_root = os.path.join(install_dist, 'proto')
-    proto_root_root = os.path.join(proto_root, 'protobuf-2.6.1')
-    build = os.path.join(root, 'build')
-
-
-def appveyor_msbuild():
-    return r'/logger:%programfiles%\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll'
-
-
 def is_platform_64bit() -> bool:
+    """check if the script is running on 64bit or not"""
     if os.environ.get('PLATFORM', 'unknown') == 'x86':
         return False
-    else:
-        return True
+    return True
 
 
 def verify_dir_exist(path: str):
+    """make sure directory exists"""
     if os.path.isdir(path):
         print('Directory exist', path, flush=True)
     if os.path.isfile(path):
@@ -69,7 +61,7 @@ def verify_dir_exist(path: str):
 
 
 def download_file(url: str, path: str):
-    import urllib.request
+    """download file if not already downloaded"""
     if not os.path.isfile(path):
         print("Downloading ", path, flush=True)
         with urllib.request.urlopen(url) as response, open(path, 'wb') as out_file:
@@ -78,12 +70,14 @@ def download_file(url: str, path: str):
         print("Already downloaded", path, flush=True)
 
 
-def extract_zip(proto_zip, proto_root):
-    with zipfile.ZipFile(proto_zip, 'r') as z:
-        z.extractall(proto_root)
+def extract_zip(zip_file, target_folder):
+    """extract a zip file to folder"""
+    with zipfile.ZipFile(zip_file, 'r') as handle:
+        handle.extractall(target_folder)
 
 
-def movefiles(from_directory, to_directory):
+def move_files(from_directory, to_directory):
+    """moves all file from one directory to another"""
     for fidir in os.listdir(from_directory):
         to_entry = os.path.join(to_directory, fidir)
         from_entry = os.path.join(from_directory, fidir)
@@ -91,16 +85,18 @@ def movefiles(from_directory, to_directory):
 
 
 def print_files_and_folders(root, start: str = ''):
-    for f in os.listdir(root):
-        path = os.path.join(root, f)
+    """print files and folder recursivly"""
+    for file in os.listdir(root):
+        path = os.path.join(root, file)
         if os.path.isfile(path):
-            print(start + f, flush=True)
+            print(start + file, flush=True)
         else:
-            print(start + f + '/', flush=True)
+            print(start + file + '/', flush=True)
             print_files_and_folders(path, start + '  ')
 
 
 def rename_file(from_path: str, to_path: str):
+    """renames a file"""
     if os.path.isfile(from_path):
         os.rename(from_path, to_path)
     else:
@@ -108,10 +104,12 @@ def rename_file(from_path: str, to_path: str):
 
 
 def print_dashes():
-    print('-----------------------------------------------------------------------------------------------------------', flush=True)
+    """print dashes"""
+    print('-' * 100, flush=True)
 
 
 def print_file(path: str):
+    """print file"""
     if os.path.isfile(path):
         print()
         with open(path, 'r') as fin:

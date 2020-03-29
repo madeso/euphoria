@@ -1,126 +1,135 @@
 #!/usr/bin/env python3
+"""build script for windows for euphoria"""
 
 import os
-import requests
 import subprocess
-import buildtools.deps as deps
-import buildtools.cmake as cmake
-import buildtools.args as args
-import buildtools.visualstudio as visualstudio
+import argparse
+import buildtools.deps as btdeps
+import buildtools.cmake as btcmake
+import buildtools.args as btargs
+import buildtools.visualstudio as btstudio
 
 
-def get_root_folder():
-    return os.getcwd()
+###############################################################################
 
 
-def get_build_folder():
-    return os.path.join(get_root_folder(), 'build', 'euph')
+ROOT_FOLDER = os.getcwd()
+BUILD_FOLDER = os.path.join(ROOT_FOLDER, 'build', 'euph')
+DEPENDENCY_FOLDER = os.path.join(ROOT_FOLDER, 'build', 'deps')
+SDL2_FOLDER = os.path.join(DEPENDENCY_FOLDER, 'sdl2')
+SDL2_BUILD_FOLDER = os.path.join(SDL2_FOLDER, 'cmake-build')
+FREETYPE2_FOLDER = os.path.join(DEPENDENCY_FOLDER, 'freetype')
+ASSIMP_FOLDER = os.path.join(DEPENDENCY_FOLDER, 'assimp')
+ASSIMP_INSTALL_FOLDER = os.path.join(ASSIMP_FOLDER, 'cmake-install')
 
 
-def get_dependency_folder():
-    return os.path.join(get_root_folder(), 'build', 'deps')
+###############################################################################
 
 
-def get_sdl2_folder():
-    return os.path.join(get_dependency_folder(), 'sdl2')
-
-
-def get_freetype2_folder():
-    return os.path.join(get_dependency_folder(), 'freetype')
-
-
-def get_assimp_folder():
-    return os.path.join(get_dependency_folder(), 'assimp')
-
-def get_assimp_install_folder():
-    return os.path.join(get_assimp_folder(), 'cmake-install')
-
-
-def get_sdl2_build_folder():
-    return os.path.join(get_sdl2_folder(), 'cmake-build')
-
-
-def cmake_project(generator: str):
-    r = cmake.CMake(build_folder=get_build_folder(), source_folder=get_root_folder(), generator=generator) \
-        .add_argument('SDL2_HINT_ROOT', get_sdl2_folder())\
-        .add_argument('SDL2_HINT_BUILD', get_sdl2_build_folder())\
-        .add_argument('ASSIMP_ROOT_DIR', get_assimp_install_folder())
+def generate_cmake_project(generator):
+    """generate the euphoira project"""
+    project = btcmake.CMake(BUILD_FOLDER, ROOT_FOLDER, generator)
+    project.add_argument('SDL2_HINT_ROOT', SDL2_FOLDER)
+    project.add_argument('SDL2_HINT_BUILD', SDL2_BUILD_FOLDER)
+    project.add_argument('ASSIMP_ROOT_DIR', ASSIMP_INSTALL_FOLDER)
     if 'PYTHON' in os.environ:
-        r.add_argument('PYTHON_EXECUTABLE:FILEPATH', os.environ['PYTHON']+'\\python.exe')
-    return r
+        python_exe = os.environ['PYTHON']+'\\python.exe'
+        project.add_argument('PYTHON_EXECUTABLE:FILEPATH', python_exe)
+    return project
 
 
 def run_install(compiler, platform, generator):
-    deps.install_dependency_assimp(get_dependency_folder(), get_assimp_folder(), get_assimp_install_folder(), generator)
-    deps.install_dependency_sdl2(get_dependency_folder(), get_sdl2_folder(), get_sdl2_build_folder(), generator)
-    deps.install_dependency_freetype(get_dependency_folder(), get_freetype2_folder(), compiler, platform)
+    """install euphoria dependencies"""
+    btdeps.install_dependency_assimp(DEPENDENCY_FOLDER, ASSIMP_FOLDER,
+                                     ASSIMP_INSTALL_FOLDER, generator)
+    btdeps.install_dependency_sdl2(DEPENDENCY_FOLDER, SDL2_FOLDER,
+                                   SDL2_BUILD_FOLDER, generator)
+    btdeps.install_dependency_freetype(DEPENDENCY_FOLDER, FREETYPE2_FOLDER,
+                                       compiler, platform)
 
 
-def run_cmake(compiler, platform, generator):
-    deps.setup_freetype_dependencies(get_freetype2_folder(), platform)
-    cmake_project(generator).config()
+def run_cmake(platform, generator):
+    """configure the euphoria cmake project"""
+    btdeps.setup_freetype_dependencies(FREETYPE2_FOLDER, platform)
+    generate_cmake_project(generator).config()
+
+
+def run(args) -> str:
+    """run a terminal and return the output or error"""
+    try:
+        return subprocess.check_output(args)
+    except subprocess.CalledProcessError as error:
+        return error.output
+
+
+###############################################################################
 
 
 def on_cmd_install(arg):
-    compiler = args.get_compiler(arg)
-    platform = args.get_platform(arg)
-    generator = visualstudio.visual_studio_generator(compiler, platform)
+    """callback for install command"""
+    compiler = btargs.get_compiler(arg)
+    platform = btargs.get_platform(arg)
+    generator = btstudio.visual_studio_generator(compiler, platform)
 
     run_install(compiler, platform, generator)
 
 
 def on_cmd_cmake(arg):
-    compiler = args.get_compiler(arg)
-    platform = args.get_platform(arg)
-    generator = visualstudio.visual_studio_generator(compiler, platform)
+    """callback for cmake command"""
+    compiler = btargs.get_compiler(arg)
+    platform = btargs.get_platform(arg)
+    generator = btstudio.visual_studio_generator(compiler, platform)
 
-    run_cmake(compiler, platform, generator)
+    run_cmake(platform, generator)
 
 
 def on_cmd_dev(arg):
-    compiler = args.get_compiler(arg)
-    platform = args.get_platform(arg)
-    generator = visualstudio.visual_studio_generator(compiler, platform)
-    
+    """callback for dev command"""
+    compiler = btargs.get_compiler(arg)
+    platform = btargs.get_platform(arg)
+    generator = btstudio.visual_studio_generator(compiler, platform)
+
     run_install(compiler, platform, generator)
-    run_cmake(compiler, platform, generator)
+    run_cmake(platform, generator)
 
 
 def on_cmd_build(arg):
-    compiler = args.get_compiler(arg)
-    platform = args.get_platform(arg)
-    generator = visualstudio.visual_studio_generator(compiler, platform)
-    
-    cmake_project(generator).build()
+    """callback for build cmd"""
+    compiler = btargs.get_compiler(arg)
+    platform = btargs.get_platform(arg)
+    generator = btstudio.visual_studio_generator(compiler, platform)
+
+    generate_cmake_project(generator).build()
 
 
-def run(args) -> str:
-    try:
-        return subprocess.check_output(args)
-    except subprocess.CalledProcessError as e:
-        return e.output
-
-
-def on_cmd_test(args):
-    tests = os.path.join(get_build_folder(), 'tests', 'Release', 'tests.exe')
+def on_cmd_test(_):
+    """callback for test cmd"""
+    tests = os.path.join(BUILD_FOLDER, 'tests', 'Release', 'tests.exe')
     lines = run([tests, '-r', 'junit']).decode('utf-8')
     print('Test result:')
     # hacky way to remove all log output from the junit output
-    lines = '\n'.join(line for line in lines.splitlines() if line[:1]!='[')
-    save_path = os.path.join(get_root_folder(), 'build', 'junit-results.xml')
+    lines = '\n'.join(line for line in lines.splitlines() if line[:1] != '[')
+    save_path = os.path.join(ROOT_FOLDER, 'build', 'junit-results.xml')
     print('Saving junit to', save_path, flush=True)
-    with open(save_path, 'w') as f:
-        f.write(lines)
-    print('file written!')
+    with open(save_path, 'w') as junit_file:
+        junit_file.write(lines)
+    print('junit file written!')
+
+
+###############################################################################
 
 
 def add_options(parser):
-    args.add_compiler(parser)
-    args.add_platform(parser)
+    """add compiler and platform options"""
+    btargs.add_compiler(parser)
+    btargs.add_platform(parser)
+
+
+###############################################################################
 
 
 def main():
-    import argparse
+    """entry point for script"""
     parser = argparse.ArgumentParser(description='Does the windows build')
     parser.set_defaults(func=None)
     subparsers = parser.add_subparsers()

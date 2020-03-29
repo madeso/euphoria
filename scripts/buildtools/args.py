@@ -1,84 +1,102 @@
 #!/usr/bin/python3
+"""provides compiler and plaform enum and argparse related functions"""
 
 import buildtools.core as core
 
-import argparse
 from enum import Enum
 
 
 class Compiler(Enum):
+    """list of compilers"""
     VS2015 = 1
     VS2017 = 2
     VS2019 = 3
 
 
 class Platform(Enum):
+    """list of platforms"""
     AUTO = 0
     WIN32 = 1
     X64 = 2
 
 
 def add_compiler(parser):
+    """add compiler argument to argparse parser"""
     parser.add_argument('compiler', help='The compiler to use.')
 
 
 def add_platform(parser):
+    """add platform argument to argparse parser"""
     parser.add_argument('platform', help='The platform to build for.')
 
 
 def get_compiler(args) -> Compiler:
-    c = args.compiler
-    if c == 'vs2015':
+    """get the compiler from the argparse arguments"""
+    compiler_name = args.compiler
+
+    if compiler_name == 'vs2015':
         return Compiler.VS2015
-    elif c == 'vs2017':
+
+    if compiler_name == 'vs2017':
         return Compiler.VS2017
-    elif c == 'vs2019':
+
+    if compiler_name == 'vs2019':
         return Compiler.VS2019
-    else:
-        print('Unknown compiler: ', c, flush=True)
-        return Compiler.VS2019
+
+    print('Unknown compiler: ', compiler_name, flush=True)
+    return Compiler.VS2019
 
 
 def get_platform(args) -> Platform:
-    p = args.platform
-    if p == 'auto':
+    """get the platform from the argparse arguments"""
+    platform = args.platform
+    if platform == 'auto':
         return Platform.AUTO
-    elif p == 'win32':
+
+    if platform == 'win32':
         return Platform.WIN32
-    elif p == 'x64' or p == 'win64':
+
+    if platform in ['x64', 'win64']:
         return Platform.X64
-    else:
-        print('Unknown platform: ', p, flush=True)
-        return Platform.AUTO
+
+    print('Unknown platform: ', platform, flush=True)
+    return Platform.AUTO
 
 
 #####################################################
 
 
-def get_msbuild_toolset(c: Compiler) -> str:
-    if c == Compiler.VS2015:
+def get_msbuild_toolset(compiler: Compiler) -> str:
+    """get the msbuild tooselt name from the compiler"""
+    if compiler == Compiler.VS2015:
         return 'v140'
-    if c == Compiler.VS2017:
+
+    if compiler == Compiler.VS2017:
         return 'v141'
-    if c == Compiler.VS2019:
+
+    if compiler == Compiler.VS2019:
         return 'v142'
+
     return 'invalid_compiler'
 
 
-def is_64bit(p: Platform) -> bool:
-    if p == Platform.WIN32:
+def is_64bit(platform: Platform) -> bool:
+    """get if the platform is 64 bit or not"""
+    if platform == Platform.WIN32:
         return False
-    elif p == Platform.X64:
+
+    if platform == Platform.X64:
         return True
-    else:
-        if core.is_platform_64bit():
-            return True
-        else:
-            return False
+
+    if core.is_platform_64bit():
+        return True
+
+    return False
 
 
-def platform_as_string(p: Platform):
-    if is_64bit(p):
+def platform_as_string(platform: Platform):
+    """returns either a 64 or a 32 bit string identification"""
+    if is_64bit(platform):
         return 'x64'
-    else:
-        return 'win32'
+
+    return 'win32'

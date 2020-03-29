@@ -50,6 +50,11 @@ namespace euphoria::core
         unsigned int
         GetIndexClosest(const Rgbi& c) const;
 
+        // todo(Gustav): provide a function that takes a (void) lambda
+        // returing a index, and we return a (safe) color from that index
+        // with this construct we can simplyfy switch() statements
+        // that needs to determine a color
+
         // rainbow functions based on the r documentation https://rdrr.io/r/grDevices/palettes.html
 
         [[nodiscard]] static Palette

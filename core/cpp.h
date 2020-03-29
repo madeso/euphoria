@@ -6,6 +6,10 @@
 
 namespace euphoria::core
 {
+    // todo(Gustav): provide a construct to take a iterator and return
+    // iterator + index, but perhaps this header is not the best place to
+    // have such construct...
+
     template <typename T>
     void
     NotUsed(T const&)
