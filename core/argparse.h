@@ -307,7 +307,7 @@ namespace euphoria::core::argparse
     )
     {
         auto stream = std::istringstream{value};
-        auto r = CustomArgparser_Parse<T>(argument_name, value);
+        auto r = CustomArgparser_Parse<T>(value);
         if(r)
         {
             return r.Value();

@@ -14,7 +14,7 @@ namespace euphoria::core
         enum { value = 0 };
 
         // std::string ToString(const T&)
-        // Result<T> Parse(const std::string& name, const std::string& value)
+        // Result<T> Parse(const std::string& value)
     };
 
     template<typename T>
@@ -26,9 +26,9 @@ namespace euphoria::core
 
     template<typename T>
     Result<T>
-    CustomArgparser_Parse(const std::string& name, const std::string& value)
+    CustomArgparser_Parse(const std::string& value)
     {
-        return CustomArgparser<T>::Parse(name, value);
+        return CustomArgparser<T>::Parse(value);
     }
 }
 

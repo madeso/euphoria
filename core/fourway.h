@@ -75,7 +75,7 @@ namespace euphoria::core
 
         static
         Result<Fourway<T>>
-        Parse(const std::string&, const std::string& value)
+        Parse(const std::string& value)
         {
             using R = Result<Fourway<T>>;
             auto parse = [](const std::string& v) -> std::optional<T>
