@@ -130,17 +130,9 @@ namespace euphoria::core
         Parse(const std::string& value)
         {
             using R = Result<Fourway<T>>;
-            auto parse = [](const std::string& v) -> std::optional<T>
+            auto parse = [](const std::string& v)
             {
-                const auto r = argparse::DefaultParseFunction<T>(v);
-                if(r)
-                {
-                    return *r;
-                }
-                else
-                {
-                    return std::nullopt;
-                }
+                return argparse::DefaultParseFunction<T>(v);
             };
             const auto values = Split(value, SPLIT);
             switch(values.size())
@@ -148,30 +140,40 @@ namespace euphoria::core
                 case 1:
                 {
                     const auto val = parse(values[0]);
-                    if(!val) { return R::False("invalid value"); }
+
+                    if(!val) { return R::False(val.Error()); }
+
                     return R::True(Fourway<T>{*val});
                 }
                 case 2:
                 {
-                    const auto vert = parse(values[0]);
-                    const auto hor = parse(values[1]);
+                    const auto vvert = values[0];
+                    const auto vhor = values[1];
 
-                    if(!hor) { return R::False("invalid hor"); }
-                    if(!vert) { return R::False("invalid vert"); }
+                    const auto vert = parse(vvert);
+                    const auto hor = parse(vhor);
+
+                    if(!hor) { return R::False(Str() << "invalid hor(" << vhor << "): " << hor.Error()); }
+                    if(!vert) { return R::False(Str() << "invalid vert(" << vvert << "): " << vert.Error()); }
 
                     return R::True(Fourway<T>::FromLrud(*hor, *vert));
                 }
                 case 4:
                 {
-                    const auto up = parse(values[0]);
-                    const auto right = parse(values[1]);
-                    const auto down = parse(values[2]);
-                    const auto left = parse(values[3]);
+                    const auto vup = values[0];
+                    const auto vright = values[1];
+                    const auto vdown = values[2];
+                    const auto vleft = values[3];
 
-                    if(!left) { return R::False("invalid left"); }
-                    if(!right) { return R::False("invalid right"); }
-                    if(!up) { return R::False("invalid up"); }
-                    if(!down) { return R::False("invalid down"); }
+                    const auto up = parse(vup);
+                    const auto right = parse(vright);
+                    const auto down = parse(vdown);
+                    const auto left = parse(vleft);
+
+                    if(!left) { return R::False(Str() << "invalid left(" << vleft << "): " << left.Error()); }
+                    if(!right) { return R::False(Str() << "invalid right(" << vright << "): " << right.Error()); }
+                    if(!up) { return R::False(Str() << "invalid up(" << vup << "): " << up.Error()); }
+                    if(!down) { return R::False(Str() << "invalid down(" << vdown << "): " << down.Error()); }
 
                     return R::True(Fourway<T>::FromLrud
                     (
