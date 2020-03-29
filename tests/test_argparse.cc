@@ -1,18 +1,22 @@
 #include "core/argparse.h"
 
-#include "utils.h"
 #include "core/enumtostring.h"
 #include "core/fourway.h"
+#include "tests/utils.h"
+#include "tests/stringeq.h"
+#include "tests/vectorequals.h"
 
 using namespace euphoria::core;
 using namespace euphoria::core::argparse;
+
+using namespace euphoria::tests;
 
 namespace
 {
     Arguments
     MakeArguments(const std::vector<std::string>& args)
     {
-        return Arguments{ "path/to/app", args };
+        return Arguments{ "app", args };
     }
 
 
@@ -27,6 +31,20 @@ namespace
         {
         }
     };
+
+
+    Message
+    Inf(const std::string& text)
+    {
+        return {false, text};
+    }
+
+
+    Message
+    Err(const std::string& text)
+    {
+        return {true, text};
+    }
 
 
     template<typename T>
@@ -72,6 +90,40 @@ namespace
         }
     };
 
+
+    FalseString
+    Check
+    (
+        const std::vector<Message>& lhs,
+        const std::vector<Message>& rhs
+    )
+    {
+        return euphoria::tests::VectorEquals
+        (
+            lhs,
+            rhs,
+            [](const Message& m) -> std::string
+            {
+                return Str() << m;
+            },
+            [](const Message& lhs, const Message& rhs) -> FalseString
+            {
+                const auto str = StringEq(lhs.text, rhs.text);
+                if(str == false) { return str; }
+                if(lhs.error == rhs.error) { return FalseString::True(); }
+                return FalseString::False
+                (
+                    Str() << "error diff: "
+                    << lhs.error << " vs "
+                    << rhs.error
+                );
+            }
+        );
+    }
+
+
+
+
     enum class Animal
     {
         Cat, Dog, Bird, None
@@ -84,7 +136,6 @@ namespace
         o << euphoria::core::EnumToString(m);
         return o;
     }
-    
 }
 
 
@@ -225,6 +276,11 @@ TEST_CASE("argparse", "[argparse]")
             const auto res = parser.Parse(MakeArguments({}));
             CHECK(res == ParseResult::Error);
             CHECK(value == "default");
+            CHECK(Check(output->messages,
+            {
+                Inf("usage: app [-h] F"),
+                Err("Positional F was not specified.")
+            }));
         }
 
         SECTION("parse 42")

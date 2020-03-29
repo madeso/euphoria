@@ -1125,7 +1125,10 @@ namespace euphoria::core::argparse
             bool found_subparser = false;
 
             bool
-            HasMorePositionals();
+            HasMorePositionals() const;
+
+            std::vector<std::string>
+            PositionalsLeft() const;
 
             void
             PrintError(const std::string& error);
@@ -1148,13 +1151,35 @@ namespace euphoria::core::argparse
 
 
         bool
-        ArgumentParser::HasMorePositionals()
+        ArgumentParser::HasMorePositionals() const
         {
             const auto positionals_size = Csizet_to_int
             (
                 base->positional_argument_list.size()
             );
             return positional_index < positionals_size;
+        }
+
+
+        std::vector<std::string>
+        ArgumentParser::PositionalsLeft() const
+        {
+            if(HasMorePositionals() == false) { return {}; }
+
+            std::vector<std::string> positionals;
+
+            const auto& list = base->positional_argument_list;
+            for
+            (
+                auto pos = list.begin()+positional_index;
+                pos != list.end();
+                pos += 1
+            )
+            {
+                positionals.emplace_back(ToUpper(pos->name.names[0]));
+            }
+
+            return positionals;
         }
 
 
@@ -1384,7 +1409,19 @@ namespace euphoria::core::argparse
 
         if (parser.HasMorePositionals())
         {
-            parser.PrintError("positionals left");
+            const auto missing = parser.PositionalsLeft();
+            const auto text = StringMerger::EnglishAnd().Generate(missing);
+            parser.PrintError
+            (
+                missing.size() == 1 ?
+                (
+                    Str() << "Positional " << text << " was not specified."
+                )
+                :
+                (
+                    Str() << "Positionals " << text << " were not specified."
+                )
+            );
             return ParseResult::Error;
         }
 

@@ -13,15 +13,19 @@ namespace euphoria::tests
 {
     template
     <
-        typename T
+        typename T,
+        // std::function<std::string (const T&)> 
+        typename TToString,
+        // std::function<FalseString (const T&, const T&)> 
+        typename TCompare
     >
     FalseString
     VectorEquals
     (
         const std::vector<T>& lhs,
         const std::vector<T>& rhs,
-        std::function<std::string (const T&)> ToString,
-        std::function<FalseString (const T&, const T&)> Compare
+        TToString ToString,
+        TCompare Compare
     )
     {
         auto size_equal = FalseString::True();
