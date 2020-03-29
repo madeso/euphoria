@@ -291,7 +291,6 @@ namespace euphoria::core::argparse
     >;
 
     // todo(Gustav): make so that the custom argparser can call default parser
-    // todo(Gustav): make so that the custoom argparser or has on enable_if construct?
 
     template
     <
@@ -330,8 +329,11 @@ namespace euphoria::core::argparse
     template
     <
         typename T,
-        std::enable_if_t<std::is_enum<T>::value == false, int> = 0,
-        std::enable_if_t<CustomArgparser<T>::value == 0, int> = 0
+        std::enable_if_t
+        <
+            std::is_enum<T>::value == false &&
+            CustomArgparser<T>::value == 0
+        , int> = 0
     >
     std::optional<T>
     DefaultParseFunction
@@ -366,7 +368,11 @@ namespace euphoria::core::argparse
     template
     <
         typename T,
-        std::enable_if_t<std::is_enum<T>::value == true, int> = 0
+        std::enable_if_t
+        <
+            std::is_enum<T>::value == true &&
+            CustomArgparser<T>::value == 0
+        , int> = 0
     >
     std::optional<T>
     DefaultParseFunction
@@ -445,8 +451,11 @@ namespace euphoria::core::argparse
     template
     <
         typename T,
-        std::enable_if_t<std::is_enum<T>::value == false, int> = 0,
-        std::enable_if_t<CustomArgparser<T>::value == 0, int> = 0
+        std::enable_if_t
+        <
+            std::is_enum<T>::value == false &&
+            CustomArgparser<T>::value == 0
+        , int> = 0
     >
     std::string
     DefaultValueToString(const T& t)
@@ -460,7 +469,11 @@ namespace euphoria::core::argparse
     template
     <
         typename T,
-        std::enable_if_t<std::is_enum<T>::value == true, int> = 0
+        std::enable_if_t
+        <
+            std::is_enum<T>::value == true &&
+            CustomArgparser<T>::value == 0
+        , int> = 0
     >
     std::string
     DefaultValueToString(const T& t)
