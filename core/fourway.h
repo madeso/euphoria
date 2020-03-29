@@ -12,9 +12,14 @@
 
 namespace euphoria::core
 {
+    /**
+      Generic version of a CSS like padding type.
+    */
     template<typename T>
     struct Fourway
     {
+        using Self = Fourway<T>;
+
         T left;
         T right;
         T up;
@@ -28,18 +33,25 @@ namespace euphoria::core
         {
         }
 
-        Fourway
-        (
-            const T& horizontal,
-            const T& vertical
-        )
-            : left(horizontal)
-            , right(horizontal)
-            , up(vertical)
-            , down(vertical)
+        /** Create a new fourway from left-righ and up-down.
+          */
+        static
+        Self
+        FromLrud(const T& lr, const T& ud)
         {
+            return {lr, lr, ud, ud};
         }
 
+        /** Create a new fourway from left right up and down.
+          */
+        static
+        Self
+        FromLrud(const T& l, const T& r, const T& u, const T& d)
+        {
+            return {l, r, u, d};
+        }
+
+    private:
         Fourway
         (
             const T& l,
@@ -54,8 +66,47 @@ namespace euphoria::core
         {
         }
     };
+    
+
+    template<typename T>
+    bool
+    operator==(const Fourway<T>& lhs, const Fourway<T>& rhs)
+    {
+        return
+            lhs.left == rhs.left &&
+            lhs.right == rhs.right &&
+            lhs.up == rhs.up &&
+            lhs.down == rhs.down
+            ;
+    }
 
 
+    template<typename T>
+    bool
+    operator!=(const Fourway<T>& lhs, const Fourway<T>& rhs)
+    {
+        return !(lhs == rhs);
+    }
+
+
+    template<typename T>
+    std::ostream&
+    operator<<(std::ostream& s, const Fourway<T>& fw)
+    {
+        s << "("
+          << fw.up << " "
+          << fw.right << " "
+          << fw.down << " "
+          << fw.left
+          << ")"
+        ;
+        return s;
+    }
+
+
+    /** Parses a fourway according to the CSS spec.
+      Either all, ver/hor or up/right/down/left
+    */
     template<typename T>
     struct CustomArgparser
     <Fourway<T>>
@@ -103,11 +154,13 @@ namespace euphoria::core
                 }
                 case 2:
                 {
-                    const auto hor = parse(values[1]);
                     const auto vert = parse(values[0]);
+                    const auto hor = parse(values[1]);
+
                     if(!hor) { return R::False("invalid hor"); }
                     if(!vert) { return R::False("invalid vert"); }
-                    return R::True(Fourway<T>{*hor, *vert});
+
+                    return R::True(Fourway<T>::FromLrud(*hor, *vert));
                 }
                 case 4:
                 {
@@ -115,11 +168,19 @@ namespace euphoria::core
                     const auto right = parse(values[1]);
                     const auto down = parse(values[2]);
                     const auto left = parse(values[2]);
+
                     if(!left) { return R::False("invalid left"); }
                     if(!right) { return R::False("invalid right"); }
                     if(!up) { return R::False("invalid up"); }
                     if(!down) { return R::False("invalid down"); }
-                    return R::True(Fourway<T>{*left, *right, *up, *down});
+
+                    return R::True(Fourway<T>::FromLrud
+                    (
+                        *left,
+                        *right,
+                        *up,
+                        *down
+                    ));
                 }
                 default:
                 {

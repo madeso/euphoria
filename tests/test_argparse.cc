@@ -468,7 +468,8 @@ TEST_CASE("argparse_error", "[argparse]")
 
     SECTION("fourway test")
     {
-        auto ff = Fourway<int>{0};
+        using FF = Fourway<int>;
+        auto ff = FF{0};
         parser.Add("f", &ff);
 
         SECTION("one value")
@@ -476,10 +477,7 @@ TEST_CASE("argparse_error", "[argparse]")
             const auto res = parser.Parse(MakeArguments({"4"}));
             INFO(output->messages);
             CHECK(res == ParseResult::Ok);
-            CHECK(ff.left == 4);
-            CHECK(ff.right == 4);
-            CHECK(ff.up == 4);
-            CHECK(ff.down == 4);
+            CHECK(ff == FF{4});
         }
     }
 
