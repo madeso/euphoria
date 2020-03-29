@@ -479,6 +479,20 @@ TEST_CASE("argparse_error", "[argparse]")
             CHECK(res == ParseResult::Ok);
             CHECK(ff == FF{4});
         }
+        SECTION("two values")
+        {
+            const auto res = parser.Parse(MakeArguments({"4/2"}));
+            INFO(output->messages);
+            CHECK(res == ParseResult::Ok);
+            CHECK(ff == FF::FromLrud(2, 4));
+        }
+        SECTION("all values")
+        {
+            const auto res = parser.Parse(MakeArguments({"1/2/3/4"}));
+            INFO(output->messages);
+            CHECK(res == ParseResult::Ok);
+            CHECK(ff == FF::FromLrud(4, 2, 1, 3));
+        }
     }
 
     SECTION("sub parser greedy")

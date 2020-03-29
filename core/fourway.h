@@ -167,7 +167,7 @@ namespace euphoria::core
                     const auto up = parse(values[0]);
                     const auto right = parse(values[1]);
                     const auto down = parse(values[2]);
-                    const auto left = parse(values[2]);
+                    const auto left = parse(values[3]);
 
                     if(!left) { return R::False("invalid left"); }
                     if(!right) { return R::False("invalid right"); }
