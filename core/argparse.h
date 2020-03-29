@@ -288,8 +288,6 @@ namespace euphoria::core::argparse
         )
     >;
 
-    // todo(Gustav): make so that the custom argparser can call default parser
-
     template
     <
         typename T,
