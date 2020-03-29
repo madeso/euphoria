@@ -103,28 +103,30 @@ main(int argc, char* argv[])
         "palswap", "Switch palette",
         [&](argparse::SubParser* sub)
         {
-            palette::PaletteName palette = palette::PaletteName::OneBit;
-            bool pal_dither = false;
+            auto palette_name = palette::PaletteName::OneBit;
+            auto dither = false;
 
-            sub->Add("-p, --palette", &palette);
-            sub->SetTrue("-d, --dither", &pal_dither);
+            sub->Add("-p, --palette", &palette_name);
+            sub->SetTrue("-d, --dither", &dither);
 
             return sub->OnComplete
             (
                 [&]
                 {
-                    if(pal_dither)
+                    const auto& palette = palette::GetPalette(palette_name);
+
+                    if(dither)
                     {
-                        MatchPaletteDither(&image, palette::GetPalette(palette));
+                        MatchPaletteDither(&image, palette);
                     }
                     else
                     {
-                        MatchPalette(&image, palette::GetPalette(palette));
+                        MatchPalette(&image, palette);
                     }
+
                     return argparse::ParseResult::Ok;
                 }
             );
-            
         }
     );
 
