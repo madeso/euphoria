@@ -23,9 +23,9 @@ set(app_src_math
     angle.cc angle.h
     axisangle.cc axisangle.h
     lines.cc lines.h
-    mat2.h
-    mat3.h
-    mat4.h
+    mat2.cc mat2.h
+    mat3.cc mat3.h
+    mat4.cc mat4.h
     plane.cc plane.h
     poisson.cc poisson.h
     polarcoord.cc polarcoord.h

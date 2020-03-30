@@ -22,12 +22,24 @@ namespace euphoria::core
 
         mat3() {}
 
-        mat3(T t00, T t01, T t02, T t10, T t11, T t12, T t20, T t21, T t22)
-            : data {t00, t01, t02, t10, t11, t12, t20, t21, t22}
-        {}
+        mat3
+        (
+            T t00, T t01, T t02,
+            T t10, T t11, T t12,
+            T t20, T t21, T t22
+        )
+            : data
+            {
+                t00, t01, t02,
+                t10, t11, t12,
+                t20, t21, t22
+            }
+        {
+        }
 
     public:
-        explicit mat3(const mat2<T>& mat)
+        explicit
+        mat3(const mat2<T>& mat)
             : data
             {
                 mat(0,0), mat(0,1), 0,
@@ -37,88 +49,124 @@ namespace euphoria::core
         {}
 
 
-        [[nodiscard]] static mat3<T>
-        FromColMajor(
-                T t00,
-                T t01,
-                T t02,
-                T t10,
-                T t11,
-                T t12,
-                T t20,
-                T t21,
-                T t22)
+        [[nodiscard]]
+        static
+        mat3<T>
+        FromColMajor
+        (
+            T t00, T t01, T t02,
+            T t10, T t11, T t12,
+            T t20, T t21, T t22
+        )
         {
-            return mat3<T>(t00, t01, t02, t10, t11, t12, t20, t21, t22);
+            return mat3<T>
+            (
+                t00, t01, t02,
+                t10, t11, t12,
+                t20, t21, t22
+            );
         }
 
-        [[nodiscard]] static mat3<T>
-        FromRowMajor(
-                T t00,
-                T t10,
-                T t20,
-                T t01,
-                T t11,
-                T t21,
-                T t02,
-                T t12,
-                T t22)
+        [[nodiscard]]
+        static
+        mat3<T>
+        FromRowMajor
+        (
+            T t00, T t10, T t20,
+            T t01, T t11, T t21,
+            T t02, T t12, T t22
+        )
         {
-            return mat3<T>(t00, t01, t02, t10, t11, t12, t20, t21, t22);
+            return mat3<T>
+            (
+                t00, t01, t02,
+                t10, t11, t12,
+                t20, t21, t22
+            );
         }
 
-        [[nodiscard]] static mat3<T>
+        [[nodiscard]]
+        static
+        mat3<T>
         FromMajor(const scale3<T>& major)
         {
             const T zero = 0;
-            return FromRowMajor(
-                    major.x,
-                    zero,
-                    zero,
-                    zero,
-                    major.y,
-                    zero,
-                    zero,
-                    zero,
-                    major.z);
+            return FromRowMajor
+            (
+                major.x, zero, zero,
+                zero, major.y, zero,
+                zero, zero, major.z
+            );
         }
 
-        [[nodiscard]] static mat3<T>
+        [[nodiscard]]
+        static
+        mat3<T>
         FromScale(const scale3<T>& scale)
         {
             return FromMajor(scale);
         }
 
-        [[nodiscard]] static mat3<T>
+        [[nodiscard]]
+        static
+        mat3<T>
         FromTranslation2d(const vec2<T>& t)
         {
-            return FromRowMajor(1, 0, t.x, 0, 1, t.y, 0, 0, 1);
+            return FromRowMajor
+            (
+                1, 0, t.x,
+                0, 1, t.y,
+                0, 0, 1
+            );
         }
 
-        [[nodiscard]] static mat3<T>
+        [[nodiscard]]
+        static
+        mat3<T>
         FromScalar(T scalar)
         {
             const T z = 0;
-            return FromRowMajor(scalar, z, z, z, scalar, z, z, z, scalar);
+            return FromRowMajor
+            (
+                scalar, z, z,
+                z, scalar, z,
+                z, z, scalar
+            );
         }
 
-        [[nodiscard]] static mat3<T>
+        [[nodiscard]]
+        static
+        mat3<T>
         FromRotX(const Angle& a)
         {
             const auto c = Cos(a);
             const auto s = Sin(a);
-            return FromRowMajor(1, 0, 0, 0, c, -s, 0, s, c);
+            return FromRowMajor
+            (
+                1, 0, 0,
+                0, c, -s,
+                0, s, c
+            );
         }
 
-        [[nodiscard]] static mat3<T>
+        [[nodiscard]]
+        static
+        mat3<T>
         FromRotY(const Angle& a)
         {
             const auto c = Cos(a);
             const auto s = Sin(a);
-            return FromRowMajor(c, 0, s, 0, 1, 0, -s, 0, c);
+            return FromRowMajor
+            (
+                c, 0, s,
+                0, 1, 0,
+                -s, 0, c
+            );
         }
 
-        [[nodiscard]] static mat3<T>
+        [[nodiscard]]
+        static
+        mat3<T>
         FromRotZ(const Angle& a)
         {
             const auto c = Cos(a);
@@ -126,33 +174,37 @@ namespace euphoria::core
             return FromRowMajor(c, -s, 0, s, c, 0, 0, 0, 1);
         }
 
-        [[nodiscard]] static mat3<T>
+        [[nodiscard]]
+        static
+        mat3<T>
         FromAxisAngle(const AxisAngle aa)
         {
             const T rcos = Cos(aa.angle);
             const T rsin = Sin(aa.angle);
-            mat3<T> matrix;
-#define u aa.axis.x
-#define v aa.axis.y
-#define w aa.axis.z
-            return mat3<T>::FromColMajor(
-                    rcos + u * u * (1 - rcos),
-                    w * rsin + v * u * (1 - rcos),
-                    -v * rsin + w * u * (1 - rcos),
 
-                    -w * rsin + u * v * (1 - rcos),
-                    rcos + v * v * (1 - rcos),
-                    u * rsin + w * v * (1 - rcos),
+            const auto u = aa.axis.x;
+            const auto v = aa.axis.y;
+            const auto w = aa.axis.z;
 
-                    v * rsin + u * w * (1 - rcos),
-                    -u * rsin + v * w * (1 - rcos),
-                    rcos + w * w * (1 - rcos));
-#undef u
-#undef v
-#undef w
+            return mat3<T>::FromColMajor
+            (
+                rcos + u * u * (1 - rcos),
+                w * rsin + v * u * (1 - rcos),
+                -v * rsin + w * u * (1 - rcos),
+
+                -w * rsin + u * v * (1 - rcos),
+                rcos + v * v * (1 - rcos),
+                u * rsin + w * v * (1 - rcos),
+
+                v * rsin + u * w * (1 - rcos),
+                -u * rsin + v * w * (1 - rcos),
+                rcos + w * w * (1 - rcos)
+            );
         }
 
-        [[nodiscard]] static mat3<T>
+        [[nodiscard]]
+        static
+        mat3<T>
         Identity()
         {
             return FromScalar(1);
@@ -193,33 +245,21 @@ namespace euphoria::core
         GetTransposed() const
         {
             const mat3<T>& self = *this;
-            return FromColMajor(
-                    self(0, 0),
-                    self(0, 1),
-                    self(0, 2),
-                    self(1, 0),
-                    self(1, 1),
-                    self(1, 2),
-                    self(2, 0),
-                    self(2, 1),
-                    self(2, 2));
+            return FromColMajor
+            (
+                self(0, 0), self(0, 1), self(0, 2),
+                self(1, 0), self(1, 1), self(1, 2),
+                self(2, 0), self(2, 1), self(2, 2)
+            );
         }
 
         void
         operator+=(const mat3<T> rhs)
         {
 #define OP(i) data[i] += rhs.data[i]
-            OP(0);
-            OP(1);
-            OP(2);
-
-            OP(3);
-            OP(4);
-            OP(5);
-
-            OP(6);
-            OP(7);
-            OP(8);
+            OP(0); OP(1); OP(2);
+            OP(3); OP(4); OP(5);
+            OP(6); OP(7); OP(8);
 #undef OP
         }
 
@@ -227,17 +267,9 @@ namespace euphoria::core
         operator-=(const mat3<T> rhs)
         {
 #define OP(i) data[i] -= rhs.data[i]
-            OP(0);
-            OP(1);
-            OP(2);
-
-            OP(3);
-            OP(4);
-            OP(5);
-
-            OP(6);
-            OP(7);
-            OP(8);
+            OP(0); OP(1); OP(2);
+            OP(3); OP(4); OP(5);
+            OP(6); OP(7); OP(8);
 #undef OP
         }
 
@@ -258,6 +290,7 @@ namespace euphoria::core
         {
             return data;
         }
+
         T*
         GetDataPtr()
         {
@@ -270,6 +303,7 @@ namespace euphoria::core
         {
             return data[col * 3 + row];
         }
+
         T
         operator()(int row, int col) const
         {
@@ -299,17 +333,22 @@ namespace euphoria::core
     bool
     operator==(const mat3<T>& lhs, const mat3<T>& rhs)
     {
-        return lhs.GetColumn(0) == rhs.GetColumn(0)
-               && lhs.GetColumn(1) == rhs.GetColumn(1)
-               && lhs.GetColumn(2) == rhs.GetColumn(2);
+        return
+            lhs.GetColumn(0) == rhs.GetColumn(0) &&
+            lhs.GetColumn(1) == rhs.GetColumn(1) &&
+            lhs.GetColumn(2) == rhs.GetColumn(2)
+            ;
     }
 
     template <typename T>
     std::ostream&
     operator<<(std::ostream& stream, const mat3<T>& m)
     {
-        return stream << "(" << m.GetRow(0) << ", " << m.GetRow(1) << ", "
-                      << m.GetRow(2) << ")";
+        return stream
+            << "("
+            << m.GetRow(0) << ", " << m.GetRow(1) << ", " << m.GetRow(2)
+            << ")"
+            ;
     }
 
     template <typename T>
@@ -335,16 +374,12 @@ namespace euphoria::core
     {
 #define OP(r, c)                                                               \
     ComponentMultiply(vec3{lhs.GetRow(r)}, vec3{rhs.GetColumn(c)}).GetComponentSum()
-        return mat3<T>::FromRowMajor(
-                OP(0, 0),
-                OP(0, 1),
-                OP(0, 2),
-                OP(1, 0),
-                OP(1, 1),
-                OP(1, 2),
-                OP(2, 0),
-                OP(2, 1),
-                OP(2, 2));
+        return mat3<T>::FromRowMajor
+        (
+            OP(0, 0), OP(0, 1), OP(0, 2),
+            OP(1, 0), OP(1, 1), OP(1, 2),
+            OP(2, 0), OP(2, 1), OP(2, 2)
+        );
 #undef OP
     }
 
