@@ -1,7 +1,8 @@
+# Minsynth
 "Min synth" is a small software synth intended for integration into other projects.
 The name is swedish and means "my synth", but it could also mean "minimal (or minimum) synth" (works in english too).
 
-** Current features **
+## Current features
 
  * A few basic oscilator 
  * envelopes
@@ -9,7 +10,7 @@ The name is swedish and means "my synth", but it could also mean "minimal (or mi
  * polyphonic output
  
 
-** Planned features **
+## Planned features
 
  * integer based
  * load instruments/configurations from file
