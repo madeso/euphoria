@@ -45,20 +45,19 @@ namespace euphoria::core
     float
     Lerp(float f, float scale, float t);
 
-    /** Performs a single interpolating step to transform a old value to a new
-        value.
-        Larger smoothing values result in a smoother but less resposive path
+    /** Performs a single interpolating step to transform a old value to a new value.
+    Larger smoothing values result in a smoother but less resposive path.
 
-        Example:
-        @code mousex = Curve( ( MousePos.X - OldMousePos.X ) * Sensitivity(), mousex, 6
-        ); @endcode
+    Example:
+    @code mousex = Curve( ( MousePos.X - OldMousePos.X ) * Sensitivity(), mousex, 6
+    ); @endcode
 
-        @param target is the target value
-        @param current is the current value
-        @param smoothing is the smoothing value > 0, the lower, the less smooth
+    @param new_value is the target value
+    @param old_value is the current value
+    @param smoothing_value is the smoothing value > 0, the lower, the less smooth
 
-        @returns The smoothed result.
-        */
+    @returns The smoothed result.
+    */
     float
     Curve(float new_value, float old_value, float smoothing_value);
 
@@ -92,7 +91,7 @@ namespace euphoria::core
     bool
     IsWithinInclusivei(int min, int c, int max);
 
-    /** rounds a value to the nearest nice value.
+    /** Rounds a value to the nearest nice value.
         If the granularity is 1 the function rounds to the closest integer, at .5 the
         closest half integer, at 2 even integers etc...
         @param num the number to round
