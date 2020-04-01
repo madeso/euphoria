@@ -421,6 +421,7 @@ table.memberdecls
 {
     width: 950px;
     margin: 0 auto;
+    padding-bottom: 60px;
 }
 
 .tabs,
@@ -489,10 +490,16 @@ div.fragment
     line-height: 100%;
 }
 
+
+code,
 div.fragment .line
 {
     font-family: Consolas, "Liberation Mono", Courier, monospace;
     font-size: 10pt;
+}
+
+div.fragment .line
+{
     background-color: #fdf6e3;
     color: #657b83;
     line-height: 100%;
@@ -515,3 +522,61 @@ div.fragment span.lineno a
 { font-weight: bolder; }
 
 div.line a { padding: 0 1px }
+
+.navpath
+{
+    display: inline;
+}
+
+.navelem
+{
+    display: inline;
+    padding: 6px;
+    margin: 0;
+    line-height: 0;
+    background-color: #03dac6;
+}
+
+.navelem:last-child
+{
+    background-color: #018786;
+}
+
+.navelem:before {
+   content: " > ";
+}
+
+.navpath ul
+{
+    padding: 0px;
+}
+
+.summary
+{
+    padding: 6px 0;
+    font-size: 0.8em;
+}
+
+.headertitle
+{
+    font-size: 2em;
+}
+
+.arrow
+{
+    font-size: 0.8em;
+    padding: 3px;
+}
+
+.icon
+{
+    font-size: 0.8em;
+    padding: 3px;
+    font-weight: bold;
+}
+
+hr.footer
+{
+    display: none;
+}
+
