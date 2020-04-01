@@ -5,6 +5,22 @@ body, table, div, p, dl
     line-height: 140%;
 }
 
+a
+{
+    color: blue;
+    text-decoration: none;
+}
+
+a:visited
+{
+    color: red;
+}
+
+a:hover
+{
+    text-decoration: underline;
+}
+
 .ttc
 {
     position: absolute;
@@ -361,6 +377,14 @@ table.memberdecls
     border-spacing: 0;
 }
 
+.inherit_header td
+{
+    border-bottom: 1px solid black;
+}
+
+.inherit_header td,
+.memTemplItemLeft,
+.memTemplParams,
 .memItemLeft,
 .mdescLeft
 {
@@ -374,12 +398,19 @@ table.memberdecls
     border-top: 1px solid black;
 }
 
+.inherit_header td,
+.memTemplItemRight,
+.memTemplParams,
 .memItemRight,
 .mdescRight
 {
     border-right: 1px solid black;
 }
 
+.memTemplParams,
+.inherit_header td,
+.memTemplItemLeft,
+.memTemplItemRight,
 .memItemLeft,
 .memItemRight,
 .mdescLeft,
@@ -390,7 +421,43 @@ table.memberdecls
     padding: 6px 8px;
 }
 
+a.el
+{
+}
+
+.params .paramname
+{
+    font-weight: bold;
+    padding-right: 8px;
+    text-align: right;
+}
+
+.params dt,
+.section dt,
+.return dt
+{
+    font-weight: bold;
+    font-style: italic;
+}
+
+.memdoc .definition
+{
+    font-size: 0.9em;
+}
+
+.memTemplParams
+{
+    font-style: italic;
+    font-weight: lighter;
+}
+
+.memTemplItemLeft,
 .memItemLeft
+{
+    white-space: nowrap;
+}
+
+.directory td.entry
 {
     white-space: nowrap;
 }
@@ -537,6 +604,11 @@ div.line a { padding: 0 1px }
     background-color: #03dac6;
 }
 
+.navelem a
+{
+    color: black;
+}
+
 .navelem:last-child
 {
     background-color: #018786;
@@ -579,4 +651,28 @@ hr.footer
 {
     display: none;
 }
+
+.dyncontent
+{
+    margin: 12px 0;
+}
+
+hr
+{
+    margin: 12px 10px;
+    height: 1px;
+    border: none;
+}
+
+.textblock
+{
+    margin: 12px 10px;
+}
+
+.PageDoc
+{
+    padding: 20px;
+    max-width: 40em;
+}
+
 
