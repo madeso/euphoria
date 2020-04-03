@@ -323,6 +323,11 @@ TEST_CASE("argparse", "[argparse]")
             CHECK(res == ParseResult::Error);
             CHECK(a == "default");
             CHECK(b == "default");
+            CHECK(Check(output->messages,
+            {
+                Inf("usage: app [-h] <command> [<args>]"),
+                Err("no subparser specified")
+            }));
         }
 
         SECTION("call a")
@@ -504,21 +509,41 @@ TEST_CASE("argparse_error", "[argparse]")
         {
             const auto res = parser.Parse(MakeArguments({"dog"}));
             CHECK(res == ParseResult::Error);
+            CHECK(Check(output->messages,
+            {
+                Inf("usage: app [-h]"),
+                Err("'dog' unexpected.")
+            }));
         }
         SECTION("many positionals")
         {
             const auto res = parser.Parse(MakeArguments({"cat", "dog"}));
             CHECK(res == ParseResult::Error);
+            CHECK(Check(output->messages,
+            {
+                Inf("usage: app [-h]"),
+                Err("'cat' unexpected")
+            }));
         }
         SECTION("optional 1 dash")
         {
             const auto res = parser.Parse(MakeArguments({"-o"}));
             CHECK(res == ParseResult::Error);
+            CHECK(Check(output->messages,
+            {
+                Inf("usage: app [-h]"),
+                Err("invalid argument: -o")
+            }));
         }
         SECTION("optional 2 dashes")
         {
             const auto res = parser.Parse(MakeArguments({"--make-cool"}));
             CHECK(res == ParseResult::Error);
+            CHECK(Check(output->messages,
+            {
+                Inf("usage: app [-h]"),
+                Err("invalid argument: --make-cool")
+            }));
         }
     }
 
@@ -592,24 +617,44 @@ TEST_CASE("argparse_error", "[argparse]")
             const auto res = parser.Parse(MakeArguments({"a", "dog"}));
             CHECK(res == ParseResult::Error);
             CHECK_FALSE(completed);
+            CHECK(Check(output->messages,
+            {
+                Inf("usage: app a [-h]"),
+                Err("'dog' was unexpected")
+            }));
         }
         SECTION("many positionals")
         {
             const auto res = parser.Parse(MakeArguments({"a", "cat", "dog"}));
             CHECK(res == ParseResult::Error);
             CHECK_FALSE(completed);
+            CHECK(Check(output->messages,
+            {
+                Inf("usage: app a [-h]"),
+                Err("'cat' was unexpected")
+            }));
         }
         SECTION("optional 1 dash")
         {
             const auto res = parser.Parse(MakeArguments({"a", "-o"}));
             CHECK(res == ParseResult::Error);
             CHECK_FALSE(completed);
+            CHECK(Check(output->messages,
+            {
+                Inf("usage: app a [-h]"),
+                Err("invalid argument: -o")
+            }));
         }
         SECTION("optional 2 dashes")
         {
             const auto res = parser.Parse(MakeArguments({"a", "--make-cool"}));
             CHECK(res == ParseResult::Error);
             CHECK_FALSE(completed);
+            CHECK(Check(output->messages,
+            {
+                Inf("usage: app a [-h]"),
+                Err("invalid argument: --make-cool")
+            }));
         }
     }
 
@@ -632,24 +677,45 @@ TEST_CASE("argparse_error", "[argparse]")
             const auto res = parser.Parse(MakeArguments({"a", "dog"}));
             CHECK(res == ParseResult::Error);
             CHECK(completed);
+            CHECK(Check(output->messages,
+            {
+                Inf("usage: app a [-h] <command> [<args>]"),
+                Err("Invalid command 'dog', did you mean 'a'")
+            }));
         }
         SECTION("many positionals")
         {
             const auto res = parser.Parse(MakeArguments({"a", "cat", "dog"}));
             CHECK(res == ParseResult::Error);
             CHECK(completed);
+            CHECK(Check(output->messages,
+            {
+                Inf("usage: app a [-h] <command> [<args>]"),
+                Err("Invalid command 'cat', did you mean 'a'")
+            }));
         }
         SECTION("optional 1 dash")
         {
             const auto res = parser.Parse(MakeArguments({"a", "-o"}));
             CHECK(res == ParseResult::Error);
             CHECK_FALSE(completed);
+            CHECK(Check(output->messages,
+            {
+                Inf("usage: app a [-h]"),
+                Err("invalid argument: -o")
+            }));
         }
         SECTION("optional 2 dashes")
         {
             const auto res = parser.Parse(MakeArguments({"a", "--make-cool"}));
             CHECK(res == ParseResult::Error);
             CHECK_FALSE(completed);
+            CHECK(Check(output->messages,
+            {
+                Inf("usage: app a [-h]"),
+                Err("invalid argument: --make-cool")
+            }));
         }
     }
 }
+
