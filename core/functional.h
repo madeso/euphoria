@@ -63,6 +63,8 @@ namespace euphoria::core
         }
         return r;
     }
+
+
     template <typename T, typename K, typename V, typename C>
     std::vector<T>
     Map(const std::map<K, V>& fs, C convert)
