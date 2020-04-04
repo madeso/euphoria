@@ -13,7 +13,12 @@ namespace euphoria::tests
         typename TConverter
     >
     std::string
-    VectorToString(const std::vector<T>& v, bool one_line, TConverter converter)
+    VectorToString
+    (
+        const std::vector<T>& v,
+        bool one_line,
+        TConverter converter
+    )
     {
         std::ostringstream ss;
         bool first = true;
@@ -21,12 +26,14 @@ namespace euphoria::tests
         std::string newline = one_line ? "" : "\n";
 
         ss << newline << "{" << newline;
+        int index = 0;
         for(const auto s: v)
         {
             if(first) first = false;
             else ss << ", " << newline;
-            if(one_line == false) ss << "  ";
-            ss << converter(s);
+            if(one_line == false) { ss << "  " << index << ": "; }
+            ss << '\'' << converter(s) << '\'';
+            index += 1;
         }
         if(!v.empty()) ss << newline;
         ss << "}" << newline;
