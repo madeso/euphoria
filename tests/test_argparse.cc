@@ -972,7 +972,7 @@ TEST_CASE("argparse_error", "[argparse]")
             CHECK(completed);
             CHECK(Check(output->messages,
             {
-                Inf("usage: app a [-h] <command> [<args>]"),
+                Inf("usage: app [-h] <command> [<args>]"),
                 Err("Invalid command 'dog', did you mean 'a'?")
             }));
         }
@@ -983,7 +983,7 @@ TEST_CASE("argparse_error", "[argparse]")
             CHECK(completed);
             CHECK(Check(output->messages,
             {
-                Inf("usage: app a [-h] <command> [<args>]"),
+                Inf("usage: app [-h] <command> [<args>]"),
                 Err("Invalid command 'cat', did you mean 'a'?")
             }));
         }
