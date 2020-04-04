@@ -1281,15 +1281,37 @@ namespace euphoria::core::argparse
                     style == SubParserStyle::Greedy
                 )
                 {
-                    PrintError
-                    (
-                        Str() << "invalid command '" << arg << "'"
-                        ", could be " <<
+                    const std::string invalid_command = Str()
+                        << "Invalid command '" << arg << "'";
+                    const auto quoted_names =
+                        Map<std::string>(match.names, [](const std::string& s)
+                        {
+                            return static_cast<std::string>
+                            (
+                                Str() << '\'' << s << '\''
+                            );
+                        });
+                    const std::string names =
                         StringMerger::EnglishOr().Generate
                         (
-                            match.names
-                        )
-                    );
+                            quoted_names
+                        );
+                    if(match.names.size() > 1)
+                    {
+                        PrintError
+                        (
+                            Str() << invalid_command <<
+                            ", could be " << names
+                        );
+                    }
+                    else
+                    {
+                        PrintError
+                        (
+                            Str() << invalid_command <<
+                            ", did you mean " << names << '?'
+                        );
+                    }
                     return ParseResult::Error;
                 }
                 else
