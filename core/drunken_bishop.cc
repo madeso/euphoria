@@ -7,6 +7,11 @@
 
 namespace euphoria::core
 {
+    // drunken bishop algorithm inspired by
+    // https://blog.benjojo.co.uk/post/ssh-randomart-how-does-it-work-art
+    // todo(Gustav): possible incorperate http://www.ece.cmu.edu/~adrian/projects/validation/validation.pdf
+
+
     template<typename T, int total_bytes>
     std::vector<u8>
     ToBytesGeneric(T hash)
