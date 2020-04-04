@@ -11,6 +11,7 @@ using namespace euphoria::core::argparse;
 
 using namespace euphoria::tests;
 
+
 namespace
 {
     Arguments
@@ -153,6 +154,41 @@ TEST_CASE("argparse", "[argparse]")
             const auto res = parser.Parse(MakeArguments({}));
             CHECK(res == ParseResult::Ok);
         }
+
+        SECTION("print help")
+        {
+            const auto res = parser.Parse(MakeArguments({ "-h" }));
+            CHECK(res == ParseResult::Quit);
+            CHECK(Check(output->messages,
+            {
+                Inf("usage: app [-h]"),
+                Inf(""),
+                Inf("optional arguments:"),
+                Inf("  -h, --help show this helpt message and exit")
+            }));
+        }
+
+        SECTION("positional error")
+        {
+            const auto res = parser.Parse(MakeArguments({ "dog" }));
+            CHECK(res == ParseResult::Error);
+            CHECK(Check(output->messages,
+            {
+                Inf("usage: app [-h]"),
+                Err("'dog' was unexpected")
+            }));
+        }
+
+        SECTION("optional error")
+        {
+            const auto res = parser.Parse(MakeArguments({ "--cat" }));
+            CHECK(res == ParseResult::Error);
+            CHECK(Check(output->messages,
+            {
+                Inf("usage: app [-h]"),
+                Err("unknown argument '--cat', did you mean '--help'")
+            }));
+        }
     }
 
     SECTION("void function")
@@ -176,6 +212,32 @@ TEST_CASE("argparse", "[argparse]")
             CHECK(res == ParseResult::Ok);
             CHECK(var == "called");
         }
+
+        SECTION("print help")
+        {
+            const auto res = parser.Parse(MakeArguments({ "-h" }));
+            CHECK(res == ParseResult::Quit);
+            CHECK(Check(output->messages,
+            {
+                Inf("usage: app [-h] [-f]"),
+                Inf(""),
+                Inf("optional arguments:"),
+                Inf("  -h, --help show this helpt message and exit"),
+                Inf("  -f")
+            }));
+        }
+
+        SECTION("call function but die anyway")
+        {
+            const auto res = parser.Parse(MakeArguments({ "-f", "dog" }));
+            CHECK(res == ParseResult::Error);
+            CHECK(var == "called");
+            CHECK(Check(output->messages,
+            {
+                Inf("usage: app [-h] [-f]"),
+                Err("'dog' was unexpected")
+            }));
+        }
     }
 
     SECTION("optional int")
@@ -196,6 +258,42 @@ TEST_CASE("argparse", "[argparse]")
             CHECK(res == ParseResult::Ok);
             CHECK(value == 42);
         }
+
+        SECTION("print help")
+        {
+            const auto res = parser.Parse(MakeArguments({ "-h" }));
+            CHECK(res == ParseResult::Quit);
+            CHECK(Check(output->messages,
+            {
+                Inf("usage: app [-h] [-f F]"),
+                Inf(""),
+                Inf("optional arguments:"),
+                Inf("  -h, --help show this helpt message and exit"),
+                Inf("  -f [f]  (default: 0)")
+            }));
+        }
+
+        SECTION("missing value")
+        {
+            const auto res = parser.Parse(MakeArguments({ "-f" }));
+            CHECK(res == ParseResult::Error);
+            CHECK(Check(output->messages,
+            {
+                Inf("usage: app [-h] [-f F]"),
+                Err("no value specified for '-f'")
+            }));
+        }
+
+        SECTION("string is not a int")
+        {
+            const auto res = parser.Parse(MakeArguments({ "-f", "dog" }));
+            CHECK(res == ParseResult::Error);
+            CHECK(Check(output->messages,
+            {
+                Inf("usage: app [-h] [-f F]"),
+                Err("'dog' is not valid value for '-f'")
+            }));
+        }
     }
 
     SECTION("optional string")
@@ -210,11 +308,36 @@ TEST_CASE("argparse", "[argparse]")
             CHECK(value == "default");
         }
 
-        SECTION("parse 42")
+        SECTION("parse dog")
         {
             const auto res = parser.Parse(MakeArguments({ "-f", "dog" }));
             CHECK(res == ParseResult::Ok);
             CHECK(value == "dog");
+        }
+
+        SECTION("print help")
+        {
+            const auto res = parser.Parse(MakeArguments({ "-h" }));
+            CHECK(res == ParseResult::Quit);
+            CHECK(Check(output->messages,
+            {
+                Inf("usage: app [-h] [-f F]"),
+                Inf(""),
+                Inf("optional arguments:"),
+                Inf("  -h, --help show this helpt message and exit"),
+                Inf("  -f [f]  (default: default)")
+            }));
+        }
+
+        SECTION("missing value")
+        {
+            const auto res = parser.Parse(MakeArguments({ "-f" }));
+            CHECK(res == ParseResult::Error);
+            CHECK(Check(output->messages,
+            {
+                Inf("usage: app [-h] [-f F]"),
+                Err("no value specified for '-f'")
+            }));
         }
     }
 
@@ -236,6 +359,43 @@ TEST_CASE("argparse", "[argparse]")
             const auto res = parser.Parse(MakeArguments({ "-f", "cat" }));
             CHECK(res == ParseResult::Ok);
             CHECK(value == Animal::Cat);
+        }
+
+        SECTION("print help")
+        {
+            const auto res = parser.Parse(MakeArguments({ "-h" }));
+            CHECK(res == ParseResult::Quit);
+            CHECK(Check(output->messages,
+            {
+                Inf("usage: app [-h] [-f F]"),
+                Inf(""),
+                Inf("optional arguments:"),
+                Inf("  -h, --help show this helpt message and exit"),
+                Inf("  -f [F] (default: Dog)"),
+                Inf("  Can be either 'Cat'. 'Dog', 'Bird' or 'None'.")
+            }));
+        }
+
+        SECTION("parse missing")
+        {
+            const auto res = parser.Parse(MakeArguments({ "-f" }));
+            CHECK(res == ParseResult::Error);
+            CHECK(Check(output->messages,
+            {
+                Inf("usage: app [-h] [-f F]"),
+                Err("missing value for '-f'")
+            }));
+        }
+
+        SECTION("parse mouse")
+        {
+            const auto res = parser.Parse(MakeArguments({ "-f", "mouse" }));
+            CHECK(res == ParseResult::Error);
+            CHECK(Check(output->messages,
+            {
+                Inf("usage: app [-h] [-f F]"),
+                Err("'mouse' is not a valid -f, could be 'None', 'Dog', 'Bird' or 'Cat'")
+            }));
         }
     }
 
@@ -264,12 +424,50 @@ TEST_CASE("argparse", "[argparse]")
             CHECK(res == ParseResult::Ok);
             CHECK(value == Animal::Bird);
         }
+
+        SECTION("print help")
+        {
+            const auto res = parser.Parse(MakeArguments({ "-h" }));
+            CHECK(res == ParseResult::Quit);
+            CHECK(Check(output->messages,
+            {
+                Inf("usage: app [-h] [-a A]"),
+                Inf(""),
+                Inf("optional arguments:"),
+                Inf("  -h, --help show this helpt message and exit"),
+                Inf("  -a, --animal"),
+                Inf("  can be either 'Cat', 'Dog', 'Bird' or 'None'")
+            }));
+        }
+
+        SECTION("--animal cookie error")
+        {
+            const auto res = parser.Parse(MakeArguments({ "--animal", "cookie" }));
+            CHECK(res == ParseResult::Error);
+            CHECK(Check(output->messages,
+            {
+                Inf("usage: app [-h] [-a A]"),
+                Err("'cookie' is not valid for '--animal', did you mean 'None', 'Dog', 'Bird' or 'Cat'")
+            }));
+        }
+        SECTION("-a cake error")
+        {
+            const auto res = parser.Parse(MakeArguments({ "-a", "cookie" }));
+            CHECK(res == ParseResult::Error);
+            CHECK(Check(output->messages,
+            {
+                Inf("usage: app [-h] [-a A]"),
+                Err("'cookie' is not accepted for '-a', did you mean 'None', 'Dog', 'Bird' or 'Cat'")
+            }));
+        }
     }
 
     SECTION("positional string")
     {
         std::string value = "default";
         parser.Add("f", &value);
+
+        // todo(Gustav): add int parse error test
 
         SECTION("positional missing = error")
         {
@@ -374,6 +572,44 @@ TEST_CASE("argparse", "[argparse]")
             CHECK(a == "default");
             CHECK(b == "bird");
         }
+
+        SECTION("subcommand help")
+        {
+            const auto res = parser.Parse(MakeArguments({ "-h" }));
+            CHECK(res == ParseResult::Quit);
+            CHECK(Check(output->messages,
+            {
+                Inf("usage: app [-h] <command> [<args>]"),
+                Inf(""),
+                Inf("optional arguments:"),
+                Inf("  -h, --help show this helpt message and exit"),
+                Inf(""),
+                Inf("commands:"),
+                Inf("  a"),
+                Inf("  b"),
+            }));
+        }
+
+        SECTION("bad subcommand")
+        {
+            const auto res = parser.Parse(MakeArguments({ "cat" }));
+            CHECK(res == ParseResult::Error);
+            CHECK(Check(output->messages,
+            {
+                Inf("usage: app [-h] <command> [<args>]"),
+                Err("Invalid command 'cat', could be 'a' or 'b'")
+            }));
+        }
+        SECTION("invalid optional for root")
+        {
+            const auto res = parser.Parse(MakeArguments({ "-f", "dog" }));
+            CHECK(res == ParseResult::Error);
+            CHECK(Check(output->messages,
+            {
+                Inf("usage: app [-h] <command> [<args>]"),
+                Err("Unknown argument '-f'")
+            }));
+        }
     }
 
     SECTION("non greedy subparser/script like")
@@ -427,6 +663,35 @@ TEST_CASE("argparse", "[argparse]")
             INFO(output->messages);
             CHECK(res == ParseResult::Ok);
             CHECK(data == "catcat");
+        }
+
+        SECTION("print help")
+        {
+            const auto res = parser.Parse(MakeArguments({ "-h" }));
+            CHECK(res == ParseResult::Quit);
+            CHECK(Check(output->messages,
+            {
+                Inf("usage: app [-h] <command> [<args>]"),
+                Inf(""),
+                Inf("optional arguments:"),
+                Inf("  -h, --help show this helpt message and exit"),
+                Inf(""),
+                Inf("commands:"),
+                Inf("  add"),
+                Inf("  double"),
+            }));
+        }
+
+        SECTION("add and error")
+        {
+            const auto res = parser.Parse(MakeArguments({ "add", "dog", "dog" }));
+            CHECK(res == ParseResult::Error);
+            CHECK(data == "dog");
+            CHECK(Check(output->messages,
+            {
+                Inf("usage: app [-h] <command> [<args>]"),
+                Err("Invalid command 'dog', did you mean 'add' or 'double'?")
+            }));
         }
     }
 
@@ -492,6 +757,34 @@ TEST_CASE("argparse", "[argparse]")
             INFO(arguments);
             REQUIRE(data == "catcat");
             CHECK(res == ParseResult::Ok);
+        }
+
+        SECTION("print help")
+        {
+            const auto res = parser.Parse(MakeArguments({ "-h" }));
+            CHECK(res == ParseResult::Quit);
+            CHECK(Check(output->messages,
+            {
+                Inf("usage: app [-h] <command> [<args>]"),
+                Inf(""),
+                Inf("optional arguments:"),
+                Inf("  -h, --help show this helpt message and exit"),
+                Inf(""),
+                Inf("commands:"),
+                Inf("  pretty"),
+            }));
+        }
+
+        SECTION("error but no add")
+        {
+            const auto res = parser.Parse(MakeArguments({ "pretty", "dog" }));
+            CHECK(res == ParseResult::Error);
+            REQUIRE(data == "");
+            CHECK(Check(output->messages,
+            {
+                Inf("usage: app [-h] <command> [<args>]"),
+                Err("Invalid command 'dog', did you mean 'please'?")
+            }));
         }
     }
 }
@@ -680,7 +973,7 @@ TEST_CASE("argparse_error", "[argparse]")
             CHECK(Check(output->messages,
             {
                 Inf("usage: app a [-h] <command> [<args>]"),
-                Err("Invalid command 'dog', did you mean 'a'")
+                Err("Invalid command 'dog', did you mean 'a'?")
             }));
         }
         SECTION("many positionals")
@@ -691,7 +984,7 @@ TEST_CASE("argparse_error", "[argparse]")
             CHECK(Check(output->messages,
             {
                 Inf("usage: app a [-h] <command> [<args>]"),
-                Err("Invalid command 'cat', did you mean 'a'")
+                Err("Invalid command 'cat', did you mean 'a'?")
             }));
         }
         SECTION("optional 1 dash")
