@@ -915,7 +915,7 @@ namespace euphoria::core::argparse
             }
             for(int y=0; y<t.GetHeight(); y+=1)
             {
-                constexpr auto INDENT = " ";
+                constexpr auto INDENT = "  ";
                 constexpr auto SPACE = "  ";
 
                 const auto name = t(0, y);
