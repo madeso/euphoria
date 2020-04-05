@@ -782,7 +782,7 @@ TEST_CASE("argparse", "[argparse]")
             REQUIRE(data == "");
             CHECK(Check(output->messages,
             {
-                Inf("usage: app [-h] <command> [<args>]"),
+                Inf("usage: app pretty [-h] <command> [<args>]"),
                 Err("Invalid command 'dog', did you mean 'please'?")
             }));
         }
@@ -805,7 +805,7 @@ TEST_CASE("argparse_error", "[argparse]")
             CHECK(Check(output->messages,
             {
                 Inf("usage: app [-h]"),
-                Err("'dog' unexpected.")
+                Err("'dog' was unexpected")
             }));
         }
         SECTION("many positionals")
@@ -815,7 +815,7 @@ TEST_CASE("argparse_error", "[argparse]")
             CHECK(Check(output->messages,
             {
                 Inf("usage: app [-h]"),
-                Err("'cat' unexpected")
+                Err("'cat' was unexpected")
             }));
         }
         SECTION("optional 1 dash")
