@@ -825,7 +825,7 @@ TEST_CASE("argparse_error", "[argparse]")
             CHECK(Check(output->messages,
             {
                 Inf("usage: app [-h]"),
-                Err("invalid argument: -o")
+                Err("unknown argument: -o")
             }));
         }
         SECTION("optional 2 dashes")
@@ -835,7 +835,7 @@ TEST_CASE("argparse_error", "[argparse]")
             CHECK(Check(output->messages,
             {
                 Inf("usage: app [-h]"),
-                Err("invalid argument: --make-cool")
+                Err("unknown argument: --make-cool")
             }));
         }
     }
@@ -935,7 +935,7 @@ TEST_CASE("argparse_error", "[argparse]")
             CHECK(Check(output->messages,
             {
                 Inf("usage: app a [-h]"),
-                Err("invalid argument: -o")
+                Err("unknown argument: -o")
             }));
         }
         SECTION("optional 2 dashes")
@@ -946,7 +946,7 @@ TEST_CASE("argparse_error", "[argparse]")
             CHECK(Check(output->messages,
             {
                 Inf("usage: app a [-h]"),
-                Err("invalid argument: --make-cool")
+                Err("unknown argument: --make-cool")
             }));
         }
     }
@@ -995,7 +995,7 @@ TEST_CASE("argparse_error", "[argparse]")
             CHECK(Check(output->messages,
             {
                 Inf("usage: app a [-h]"),
-                Err("invalid argument: -o")
+                Err("unknown argument: -o")
             }));
         }
         SECTION("optional 2 dashes")
@@ -1006,7 +1006,7 @@ TEST_CASE("argparse_error", "[argparse]")
             CHECK(Check(output->messages,
             {
                 Inf("usage: app a [-h]"),
-                Err("invalid argument: --make-cool")
+                Err("unknown argument: --make-cool")
             }));
         }
     }

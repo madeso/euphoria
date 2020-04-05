@@ -1364,7 +1364,10 @@ namespace euphoria::core::argparse
                 auto match = base->FindArgument(arg);
                 if (match == nullptr)
                 {
-                    PrintError("invalid argument: " + arg);
+                    // todo(Gustav): if we have already detected it, 
+                    // change the text to 'invalid argument' but in this case
+                    // it's actually a unknown argument, not a 'invalid' one
+                    PrintError(Str() << "unknown argument: '" << arg << '\'');
                     return ParseResult::Error;
                 }
                 auto arg_parse_result = match->ParseArguments
