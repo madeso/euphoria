@@ -197,7 +197,7 @@ TEST_CASE("argparse", "[argparse]")
         parser.AddVoidFunction("-f", [&]
         {
             var = "called";
-        });
+        }).Help("call function");
 
         SECTION("empty parser is ok")
         {
@@ -223,7 +223,7 @@ TEST_CASE("argparse", "[argparse]")
                 Inf(""),
                 Inf("optional arguments:"),
                 Inf("  -h, --help  show this help message and exit"),
-                Inf("  -f")
+                Inf("  -f          call function")
             }));
         }
 
@@ -243,7 +243,7 @@ TEST_CASE("argparse", "[argparse]")
     SECTION("optional int")
     {
         int value = 0;
-        parser.Add("-f", &value);
+        parser.Add("-f", &value).Help("a int");
 
         SECTION("empty parser is ok")
         {
@@ -269,7 +269,7 @@ TEST_CASE("argparse", "[argparse]")
                 Inf(""),
                 Inf("optional arguments:"),
                 Inf("  -h, --help  show this help message and exit"),
-                Inf("  -f [f]  (default: 0)")
+                Inf("  -f F        a int (default: 0)")
             }));
         }
 
@@ -280,7 +280,7 @@ TEST_CASE("argparse", "[argparse]")
             CHECK(Check(output->messages,
             {
                 Inf("usage: app [-h] [-f F]"),
-                Err("no value specified for '-f'")
+                Err("missing value for '-f'")
             }));
         }
 
@@ -291,7 +291,7 @@ TEST_CASE("argparse", "[argparse]")
             CHECK(Check(output->messages,
             {
                 Inf("usage: app [-h] [-f F]"),
-                Err("'dog' is not valid value for '-f'")
+                Err("'dog' is not accepted for '-f'")
             }));
         }
     }
@@ -299,7 +299,7 @@ TEST_CASE("argparse", "[argparse]")
     SECTION("optional string")
     {
         std::string value = "default";
-        parser.Add("-f", &value);
+        parser.Add("-f", &value).Help("some string");
 
         SECTION("empty parser is ok")
         {
@@ -325,7 +325,7 @@ TEST_CASE("argparse", "[argparse]")
                 Inf(""),
                 Inf("optional arguments:"),
                 Inf("  -h, --help  show this help message and exit"),
-                Inf("  -f [f]  (default: default)")
+                Inf("  -f F        some string (default: default)")
             }));
         }
 
@@ -336,7 +336,7 @@ TEST_CASE("argparse", "[argparse]")
             CHECK(Check(output->messages,
             {
                 Inf("usage: app [-h] [-f F]"),
-                Err("no value specified for '-f'")
+                Err("missing value for '-f'")
             }));
         }
     }
@@ -345,7 +345,7 @@ TEST_CASE("argparse", "[argparse]")
     SECTION("optional enum")
     {
         Animal value = Animal::Dog;
-        parser.Add("-f", &value);
+        parser.Add("-f", &value).Help("some animal");
 
         SECTION("empty parser is ok")
         {
@@ -371,8 +371,8 @@ TEST_CASE("argparse", "[argparse]")
                 Inf(""),
                 Inf("optional arguments:"),
                 Inf("  -h, --help  show this help message and exit"),
-                Inf("  -f [F] (default: Dog)"),
-                Inf("  Can be either 'Cat'. 'Dog', 'Bird' or 'None'.")
+                Inf("  -f F        some animal (default: Dog)"),
+                Inf("              can be either 'Cat', 'Dog', 'Bird' or 'None'")
             }));
         }
 
@@ -394,7 +394,7 @@ TEST_CASE("argparse", "[argparse]")
             CHECK(Check(output->messages,
             {
                 Inf("usage: app [-h] [-f F]"),
-                Err("'mouse' is not a valid -f, did you mean 'None', 'Dog', 'Bird' or 'Cat'?")
+                Err("'mouse' is not accepted for '-f', did you mean 'None', 'Dog', 'Bird' or 'Cat'?")
             }));
         }
     }
@@ -402,7 +402,7 @@ TEST_CASE("argparse", "[argparse]")
     SECTION("multi optional names")
     {
         Animal value = Animal::Dog;
-        parser.Add("-a, --animal", &value);
+        parser.Add("-a, --animal", &value).Help("set the animal");
 
         SECTION("empty parser is ok")
         {
@@ -434,9 +434,9 @@ TEST_CASE("argparse", "[argparse]")
                 Inf("usage: app [-h] [-a A]"),
                 Inf(""),
                 Inf("optional arguments:"),
-                Inf("  -h, --help  show this help message and exit"),
-                Inf("  -a, --animal"),
-                Inf("  can be either 'Cat', 'Dog', 'Bird' or 'None'")
+                Inf("  -h, --help      show this help message and exit"),
+                Inf("  -a, --animal A  set the animal (default: Dog)"),
+                Inf("                  can be either 'Cat', 'Dog', 'Bird' or 'None'")
             }));
         }
 
@@ -447,7 +447,7 @@ TEST_CASE("argparse", "[argparse]")
             CHECK(Check(output->messages,
             {
                 Inf("usage: app [-h] [-a A]"),
-                Err("'cookie' is not valid for '--animal', did you mean 'None', 'Dog', 'Bird' or 'Cat'")
+                Err("'cookie' is not accepted for '--animal', did you mean 'None', 'Dog', 'Bird' or 'Cat'?")
             }));
         }
         SECTION("-a cake error")
@@ -457,7 +457,7 @@ TEST_CASE("argparse", "[argparse]")
             CHECK(Check(output->messages,
             {
                 Inf("usage: app [-h] [-a A]"),
-                Err("'cookie' is not accepted for '-a', did you mean 'None', 'Dog', 'Bird' or 'Cat'")
+                Err("'cookie' is not accepted for '-a', did you mean 'None', 'Dog', 'Bird' or 'Cat'?")
             }));
         }
     }
