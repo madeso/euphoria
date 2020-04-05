@@ -496,7 +496,7 @@ TEST_CASE("argparse", "[argparse]")
 
         auto sub = parser.AddSubParsers();
 
-        sub->Add("a", [&](SubParser* parser)
+        sub->Add("a", "do awesome stuff", [&](SubParser* parser)
         {
             std::string a_value = "dog";
             parser->Add("-s", &a_value);
@@ -508,7 +508,7 @@ TEST_CASE("argparse", "[argparse]")
             });
         });
 
-        sub->Add("b", [&](SubParser*)
+        sub->Add("b", "do boring stuff", [&](SubParser*)
         {
             b = "bird";
             return ParseResult::Ok;
@@ -585,8 +585,8 @@ TEST_CASE("argparse", "[argparse]")
                 Inf("  -h, --help  show this help message and exit"),
                 Inf(""),
                 Inf("commands:"),
-                Inf("  a"),
-                Inf("  b"),
+                Inf("  a           do awesome stuff"),
+                Inf("  b           do boring stuff"),
             }));
         }
 
