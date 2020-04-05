@@ -1125,7 +1125,15 @@ namespace euphoria::core::argparse
     std::shared_ptr<Argument>
     ParserBase::FindArgument(const std::string& name)
     {
-        return optional_arguments[name];
+        const auto found = optional_arguments.find(name);
+        if(found == optional_arguments.end())
+        {
+            return nullptr;
+        }
+        else
+        {
+            return found->second;
+        }
     }
 
 
@@ -1366,10 +1374,43 @@ namespace euphoria::core::argparse
                 auto match = base->FindArgument(arg);
                 if (match == nullptr)
                 {
+                    const auto closest_match =
+                        std::min_element
+                        (
+                            base->optional_arguments.begin(),
+                            base->optional_arguments.end(),
+                            [&]
+                            (
+                                const auto& lhs,
+                                const auto& rhs
+                            )
+                            {
+                                // return true if lhs < rhs
+                                return EditDistance(arg, lhs.first) <
+                                       EditDistance(arg, rhs.first) ;
+                            }
+                        );
+
                     // todo(Gustav): if we have already detected it, 
                     // change the text to 'invalid argument' but in this case
                     // it's actually a unknown argument, not a 'invalid' one
-                    PrintError(Str() << "unknown argument: '" << arg << '\'');
+                    if(closest_match == base->optional_arguments.end())
+                    {
+                        PrintError
+                        (
+                            Str() << "unknown argument: '" << arg << '\''
+                        );
+                    }
+                    else
+                    {
+                        const auto closest_match_name = closest_match->first;
+                        PrintError
+                        (
+                            Str() << "unknown argument: '" << arg <<
+                            "', did you mean " << closest_match_name << '?'
+                        );
+                    }
+
                     return ParseResult::Error;
                 }
                 auto arg_parse_result = match->ParseArguments
