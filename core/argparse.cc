@@ -715,8 +715,7 @@ namespace euphoria::core::argparse
             (
                 runner,
                 caller,
-                Str() << "argument " << name <<
-                " is missing a value"
+                Str() << "missing value for '" << name << '\''
             );
             return ParseResult::Error;
         }

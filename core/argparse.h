@@ -386,8 +386,8 @@ namespace euphoria::core::argparse
     std::optional<std::string>
     DefaultDescribe()
     {
-        const std::string r = Str() << "Possible values are " <<
-            StringMerger::EnglishOr().Generate
+        const std::string r = Str() << "can be either " <<
+            QuoteAndCombineEnglishOr
             (
                 EnumToString<T>()
             );
@@ -609,12 +609,12 @@ namespace euphoria::core::argparse
                 else
                 {
                     const std::string base = Str()
-                        << '\'' << value << "' is not accepted for "
-                        << argument_name;
+                        << '\'' << value << "' is not accepted for '"
+                        << argument_name << '\'';
                     const auto error = parsed.Error();
                     const std::string message = error.empty()
                         ? base
-                        : (Str() << base << ": " << error)
+                        : (Str() << base << ", " << error)
                         ;
                     PrintParseError(runner, caller, message);
 
