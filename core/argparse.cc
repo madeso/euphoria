@@ -1123,7 +1123,7 @@ namespace euphoria::core::argparse
 
 
     std::shared_ptr<Argument>
-    ParserBase::FindArgument(const std::string& name)
+    ParserBase::FindArgument(const std::string& name) const
     {
         const auto found = optional_arguments.find(name);
         if(found == optional_arguments.end())

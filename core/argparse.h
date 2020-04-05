@@ -632,7 +632,7 @@ namespace euphoria::core::argparse
         AddSubParsers(const std::string& name="commands");
 
         std::shared_ptr<Argument>
-        FindArgument(const std::string& name);
+        FindArgument(const std::string& name) const;
 
         [[nodiscard]]
         ParseResult
