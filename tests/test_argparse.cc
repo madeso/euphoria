@@ -617,7 +617,7 @@ TEST_CASE("argparse", "[argparse]")
         auto sub = parser.AddSubParsers();
         parser.parser_style = SubParserStyle::Fallback;
         std::string data;
-        sub->Add("add", [&](SubParser* sub)
+        sub->Add("add", "add something", [&](SubParser* sub)
         {
             std::string what;
             sub->Add("what", &what);
@@ -627,7 +627,7 @@ TEST_CASE("argparse", "[argparse]")
                 return ParseResult::Ok;
             });
         });
-        sub->Add("double", [&](SubParser* sub)
+        sub->Add("double", "double the content", [&](SubParser* sub)
         {
             return sub->OnComplete([&]
             {
@@ -677,8 +677,8 @@ TEST_CASE("argparse", "[argparse]")
                 Inf("  -h, --help  show this help message and exit"),
                 Inf(""),
                 Inf("commands:"),
-                Inf("  add"),
-                Inf("  double"),
+                Inf("  add         add something"),
+                Inf("  double      double the content"),
             }));
         }
 
@@ -699,7 +699,7 @@ TEST_CASE("argparse", "[argparse]")
     {
         auto sub = parser.AddSubParsers();
         std::string data;
-        sub->Add("pretty", [&](SubParser* pretty)
+        sub->Add("pretty", "be kind", [&](SubParser* pretty)
         {
             pretty->AddSubParsers()->Add("please", [&](SubParser* please)
             {
@@ -771,7 +771,7 @@ TEST_CASE("argparse", "[argparse]")
                 Inf("  -h, --help  show this help message and exit"),
                 Inf(""),
                 Inf("commands:"),
-                Inf("  pretty"),
+                Inf("  pretty      be kind"),
             }));
         }
 
