@@ -627,7 +627,7 @@ namespace euphoria::core::argparse
         }
 
         std::shared_ptr<SubParserGroup>
-        AddSubParsers(const std::string& name="Commands");
+        AddSubParsers(const std::string& name="commands");
 
         std::shared_ptr<Argument>
         FindArgument(const std::string& name);
