@@ -1275,11 +1275,7 @@ namespace euphoria::core::argparse
             {
                 // todo(Gustav): check if this accepts invalid and
                 // calls on_complete() on invalid input
-                const auto style = GetParserStyle(base);
-                if
-                (
-                    style == SubParserStyle::Greedy
-                )
+                if(GetParserStyle(base) == SubParserStyle::Greedy)
                 {
                     const std::string invalid_command = Str()
                         << "Invalid command '" << arg << "'";
