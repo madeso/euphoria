@@ -186,7 +186,7 @@ TEST_CASE("argparse", "[argparse]")
             CHECK(Check(output->messages,
             {
                 Inf("usage: app [-h]"),
-                Err("unknown argument: '--cat', did you mean '--help'")
+                Err("unknown argument: '--cat', did you mean '--help'?")
             }));
         }
     }
@@ -607,7 +607,7 @@ TEST_CASE("argparse", "[argparse]")
             CHECK(Check(output->messages,
             {
                 Inf("usage: app [-h] <command> [<args>]"),
-                Err("unknown argument: '-f'")
+                Err("unknown argument: '-f', did you mean '-h'?")
             }));
         }
     }
@@ -825,7 +825,7 @@ TEST_CASE("argparse_error", "[argparse]")
             CHECK(Check(output->messages,
             {
                 Inf("usage: app [-h]"),
-                Err("unknown argument: '-o'")
+                Err("unknown argument: '-o', did you mean '-h'?")
             }));
         }
         SECTION("optional 2 dashes")
@@ -835,7 +835,7 @@ TEST_CASE("argparse_error", "[argparse]")
             CHECK(Check(output->messages,
             {
                 Inf("usage: app [-h]"),
-                Err("unknown argument: '--make-cool'")
+                Err("unknown argument: '--make-cool', did you mean '--help'?")
             }));
         }
     }
@@ -935,7 +935,7 @@ TEST_CASE("argparse_error", "[argparse]")
             CHECK(Check(output->messages,
             {
                 Inf("usage: app a [-h]"),
-                Err("unknown argument: '-o'")
+                Err("unknown argument: '-o', did you mean '-h'?")
             }));
         }
         SECTION("optional 2 dashes")
@@ -946,7 +946,7 @@ TEST_CASE("argparse_error", "[argparse]")
             CHECK(Check(output->messages,
             {
                 Inf("usage: app a [-h]"),
-                Err("unknown argument: '--make-cool'")
+                Err("unknown argument: '--make-cool', did you mean '--help'?")
             }));
         }
     }
@@ -995,7 +995,7 @@ TEST_CASE("argparse_error", "[argparse]")
             CHECK(Check(output->messages,
             {
                 Inf("usage: app a [-h]"),
-                Err("unknown argument: '-o'")
+                Err("unknown argument: '-o', did you mean '-h'?")
             }));
         }
         SECTION("optional 2 dashes")
@@ -1006,7 +1006,7 @@ TEST_CASE("argparse_error", "[argparse]")
             CHECK(Check(output->messages,
             {
                 Inf("usage: app a [-h]"),
-                Err("unknown argument: '--make-cool'")
+                Err("unknown argument: '--make-cool', did you mean '--help'?")
             }));
         }
     }
