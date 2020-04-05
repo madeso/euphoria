@@ -96,7 +96,7 @@ namespace euphoria::core
     }  // namespace textparser
 
     /** Represents displayed text.
-     * Format: @image with text and {-begin and }-end markers \ escapes
+     * Format: @code @image with text and {-begin and }-end markers \ escapes @endcode
      */
     // todo: add ability to specify button/keys so that we can use:
     // use "[jump] to jump" and said [jump] would look up the keybind and display a

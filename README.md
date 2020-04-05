@@ -30,7 +30,7 @@ The following table lists how the source is structured:
 | `external`      | external libraries |
 | `cmake_modules` | find scripts for CMake |
 
-# Coordinate system
+## Coordinate system
 
 Euphoria works accordiing to the following coordinate system
 

@@ -18,60 +18,103 @@ namespace euphoria::core
 
         mat2() {}
 
-        mat2(T t00, T t01, T t10, T t11)
-            : data {t00, t01, t10, t11}
-        {}
+        mat2
+        (
+            T t00, T t01,
+            T t10, T t11
+        )
+            : data
+            {
+                t00, t01,
+                t10, t11
+            }
+        {
+        }
 
     public:
 
-        [[nodiscard]] static mat2<T>
-        FromColMajor(
-                T t00,
-                T t01,
-                T t10,
-                T t11)
+        [[nodiscard]]
+        static
+        mat2<T>
+        FromColMajor
+        (
+            T t00, T t01,
+            T t10, T t11
+        )
         {
             return mat2<T>(t00, t01, t10, t11);
         }
 
-        [[nodiscard]] static mat2<T>
-        FromRowMajor(
-                T t00,
-                T t10,
-                T t01,
-                T t11)
+        [[nodiscard]]
+        static
+        mat2<T>
+        FromRowMajor
+        (
+            T t00, T t10,
+            T t01, T t11
+        )
         {
-            return mat2<T>(t00, t01, t10, t11);
+            return mat2<T>
+            (
+                t00, t01,
+                t10, t11
+            );
         }
 
-        [[nodiscard]] static mat2<T>
+        [[nodiscard]]
+        static
+        mat2<T>
         FromScalar(T scalar)
         {
             const T z = 0;
-            return FromRowMajor(scalar, z, z, scalar);
+            return FromRowMajor
+            (
+                scalar, z,
+                z, scalar
+            );
         }
 
-        [[nodiscard]] static mat2<T>
+        [[nodiscard]]
+        static
+        mat2<T>
         FromStretchX(T k)
         {
-            return FromRowMajor(k, 0, 0, 1);
+            return FromRowMajor
+            (
+                k, 0,
+                0, 1
+            );
         }
 
-        [[nodiscard]] static mat2<T>
+        [[nodiscard]]
+        static
+        mat2<T>
         FromStretchY(T k)
         {
-            return FromRowMajor(1, 0, 0, k);
+            return FromRowMajor
+            (
+                1, 0,
+                0, k
+            );
         }
 
-        [[nodiscard]] static mat2<T>
+        [[nodiscard]]
+        static
+        mat2<T>
         FromRotation(const Angle& a)
         {
             const auto s = Sin(a);
             const auto c = Cos(a);
-            return FromRowMajor(c, s, -s, c);
+            return FromRowMajor
+            (
+                c, s,
+                -s, c
+            );
         }
 
-        [[nodiscard]] static mat2<T>
+        [[nodiscard]]
+        static
+        mat2<T>
         Identity()
         {
             return FromScalar(1);
@@ -82,11 +125,8 @@ namespace euphoria::core
         operator+=(const mat2<T> rhs)
         {
 #define OP(i) data[i] += rhs.data[i]
-            OP(0);
-            OP(1);
-
-            OP(2);
-            OP(3);
+            OP(0); OP(1);
+            OP(2); OP(3);
 #undef OP
         }
 
@@ -94,11 +134,8 @@ namespace euphoria::core
         operator-=(const mat2<T> rhs)
         {
 #define OP(i) data[i] -= rhs.data[i]
-            OP(0);
-            OP(1);
-
-            OP(2);
-            OP(3);
+            OP(0); OP(1);
+            OP(2); OP(3);
 #undef OP
         }
 
@@ -107,6 +144,7 @@ namespace euphoria::core
         {
             return data;
         }
+
         T*
         GetDataPtr()
         {
@@ -119,6 +157,7 @@ namespace euphoria::core
         {
             return data[col * 2 + row];
         }
+
         T
         operator()(int row, int col) const
         {
@@ -144,21 +183,27 @@ namespace euphoria::core
         }
     };
 
+
     template <typename T>
     bool
     operator==(const mat2<T>& lhs, const mat2<T>& rhs)
     {
-        return lhs.GetColumn(0) == rhs.GetColumn(0)
-               && lhs.GetColumn(1) == rhs.GetColumn(1)
-               && lhs.GetColumn(2) == rhs.GetColumn(2);
+        return
+            lhs.GetColumn(0) == rhs.GetColumn(0) &&
+            lhs.GetColumn(1) == rhs.GetColumn(1) &&
+            lhs.GetColumn(2) == rhs.GetColumn(2)
+            ;
     }
 
     template <typename T>
     std::ostream&
     operator<<(std::ostream& stream, const mat2<T>& m)
     {
-        return stream << "(" << m.GetRow(0) << ", " << m.GetRow(1) << ", "
-                      << m.GetRow(2) << ")";
+        return stream
+            << "("
+            << m.GetRow(0) << ", " << m.GetRow(1)
+            << ")"
+            ;
     }
 
     template <typename T>
@@ -182,13 +227,13 @@ namespace euphoria::core
     template <typename T>
     mat2<T> operator*(const mat2<T>& lhs, const mat2<T> rhs)
     {
-#define OP(r, c)                                                               \
+#define OP(r, c) \
     ComponentMultiply(vec2<T>(lhs.GetRow(r)), vec2<T>(rhs.GetColumn(c))).GetComponentSum()
-        return mat2<T>::FromRowMajor(
-                OP(0, 0),
-                OP(0, 1),
-                OP(1, 0),
-                OP(1, 1));
+        return mat2<T>::FromRowMajor
+        (
+            OP(0, 0), OP(0, 1),
+            OP(1, 0), OP(1, 1)
+        );
 #undef OP
     }
 

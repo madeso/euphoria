@@ -1,0 +1,678 @@
+body, table, div, p, dl
+{
+	font-family: Roboto, Arial, sans-serif;
+    font-family: Ubuntu,sans-serif;
+    line-height: 140%;
+}
+
+a
+{
+    color: blue;
+    text-decoration: none;
+}
+
+a:visited
+{
+    color: red;
+}
+
+a:hover
+{
+    text-decoration: underline;
+}
+
+.ttc
+{
+    position: absolute;
+    display: none;
+}
+
+#powerTip
+{
+cursor: default;
+white-space: nowrap;
+background-color: white;
+border: 1px solid gray;
+border-radius: 4px 4px 4px 4px;
+box-shadow: 1px 1px 7px gray;
+display: none;
+font-size: smaller;
+max-width: 80%;
+opacity: 1.0;
+padding: 1ex 1em 1em;
+position: absolute;
+z-index: 2147483647;
+}
+
+#powerTip div.ttdoc {
+    color: grey;
+    font-style: italic;
+}
+
+#powerTip div.ttname a {
+    font-weight: bold;
+}
+
+#powerTip div.ttname {
+    font-weight: bold;
+}
+
+#powerTip div.ttdeci {
+    color: #006318;
+}
+
+#powerTip div {
+    margin: 0px;
+    padding: 0px;
+    font: 12px/16px Roboto,sans-serif;
+}
+
+#powerTip:before, #powerTip:after {
+    content: "";
+    position: absolute;
+    margin: 0px;
+}
+
+#powerTip.n:after,  #powerTip.n:before,
+#powerTip.s:after,  #powerTip.s:before,
+#powerTip.w:after,  #powerTip.w:before,
+#powerTip.e:after,  #powerTip.e:before,
+#powerTip.ne:after, #powerTip.ne:before,
+#powerTip.se:after, #powerTip.se:before,
+#powerTip.nw:after, #powerTip.nw:before,
+#powerTip.sw:after, #powerTip.sw:before {
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+}
+
+#powerTip.n:after,  #powerTip.s:after,
+#powerTip.w:after,  #powerTip.e:after,
+#powerTip.nw:after, #powerTip.ne:after,
+#powerTip.sw:after, #powerTip.se:after {
+    border-color: rgba(255, 255, 255, 0);
+}
+
+#powerTip.n:before,  #powerTip.s:before,
+#powerTip.w:before,  #powerTip.e:before,
+#powerTip.nw:before, #powerTip.ne:before,
+#powerTip.sw:before, #powerTip.se:before {
+    border-color: rgba(128, 128, 128, 0);
+}
+
+#powerTip.n:after,  #powerTip.n:before,
+#powerTip.ne:after, #powerTip.ne:before,
+#powerTip.nw:after, #powerTip.nw:before {
+    top: 100%;
+}
+
+#powerTip.n:after, #powerTip.ne:after, #powerTip.nw:after {
+    border-top-color: #ffffff;
+    border-width: 10px;
+    margin: 0px -10px;
+}
+#powerTip.n:before {
+    border-top-color: #808080;
+    border-width: 11px;
+    margin: 0px -11px;
+}
+#powerTip.n:after, #powerTip.n:before {
+    left: 50%;
+}
+
+#powerTip.nw:after, #powerTip.nw:before {
+    right: 14px;
+}
+
+#powerTip.ne:after, #powerTip.ne:before {
+    left: 14px;
+}
+
+#powerTip.s:after,  #powerTip.s:before,
+#powerTip.se:after, #powerTip.se:before,
+#powerTip.sw:after, #powerTip.sw:before {
+    bottom: 100%;
+}
+
+#powerTip.s:after, #powerTip.se:after, #powerTip.sw:after {
+    border-bottom-color: #ffffff;
+    border-width: 10px;
+    margin: 0px -10px;
+}
+
+#powerTip.s:before, #powerTip.se:before, #powerTip.sw:before {
+    border-bottom-color: #808080;
+    border-width: 11px;
+    margin: 0px -11px;
+}
+
+#powerTip.s:after, #powerTip.s:before {
+    left: 50%;
+}
+
+#powerTip.sw:after, #powerTip.sw:before {
+    right: 14px;
+}
+
+#powerTip.se:after, #powerTip.se:before {
+    left: 14px;
+}
+
+#powerTip.e:after, #powerTip.e:before {
+    left: 100%;
+}
+#powerTip.e:after {
+    border-left-color: #ffffff;
+    border-width: 10px;
+    top: 50%;
+    margin-top: -10px;
+}
+#powerTip.e:before {
+    border-left-color: #808080;
+    border-width: 11px;
+    top: 50%;
+    margin-top: -11px;
+}
+
+#powerTip.w:after, #powerTip.w:before {
+    right: 100%;
+}
+#powerTip.w:after {
+    border-right-color: #ffffff;
+    border-width: 10px;
+    top: 50%;
+    margin-top: -10px;
+}
+#powerTip.w:before {
+    border-right-color: #808080;
+    border-width: 11px;
+    top: 50%;
+    margin-top: -11px;
+}
+.arrow {
+    cursor: pointer;
+}
+#powerTip div.ttdoc {
+    color: grey;
+    font-style: italic;
+}
+
+#powerTip div.ttname a {
+    font-weight: bold;
+}
+
+#powerTip div.ttname {
+    font-weight: bold;
+}
+
+#powerTip div.ttdeci {
+    color: #006318;
+}
+
+#powerTip div {
+    margin: 0px;
+    padding: 0px;
+    font: 12px/16px Roboto,sans-serif;
+}
+
+#powerTip:before, #powerTip:after {
+    content: "";
+    position: absolute;
+    margin: 0px;
+}
+
+#powerTip.n:after,  #powerTip.n:before,
+#powerTip.s:after,  #powerTip.s:before,
+#powerTip.w:after,  #powerTip.w:before,
+#powerTip.e:after,  #powerTip.e:before,
+#powerTip.ne:after, #powerTip.ne:before,
+#powerTip.se:after, #powerTip.se:before,
+#powerTip.nw:after, #powerTip.nw:before,
+#powerTip.sw:after, #powerTip.sw:before {
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+}
+
+#powerTip.n:after,  #powerTip.s:after,
+#powerTip.w:after,  #powerTip.e:after,
+#powerTip.nw:after, #powerTip.ne:after,
+#powerTip.sw:after, #powerTip.se:after {
+    border-color: rgba(255, 255, 255, 0);
+}
+
+#powerTip.n:before,  #powerTip.s:before,
+#powerTip.w:before,  #powerTip.e:before,
+#powerTip.nw:before, #powerTip.ne:before,
+#powerTip.sw:before, #powerTip.se:before {
+    border-color: rgba(128, 128, 128, 0);
+}
+
+#powerTip.n:after,  #powerTip.n:before,
+#powerTip.ne:after, #powerTip.ne:before,
+#powerTip.nw:after, #powerTip.nw:before {
+    top: 100%;
+}
+
+#powerTip.n:after, #powerTip.ne:after, #powerTip.nw:after {
+    border-top-color: #ffffff;
+    border-width: 10px;
+    margin: 0px -10px;
+}
+#powerTip.n:before {
+    border-top-color: #808080;
+    border-width: 11px;
+    margin: 0px -11px;
+}
+#powerTip.n:after, #powerTip.n:before {
+    left: 50%;
+}
+
+#powerTip.nw:after, #powerTip.nw:before {
+    right: 14px;
+}
+
+#powerTip.ne:after, #powerTip.ne:before {
+    left: 14px;
+}
+
+#powerTip.s:after,  #powerTip.s:before,
+#powerTip.se:after, #powerTip.se:before,
+#powerTip.sw:after, #powerTip.sw:before {
+    bottom: 100%;
+}
+
+#powerTip.s:after, #powerTip.se:after, #powerTip.sw:after {
+    border-bottom-color: #ffffff;
+    border-width: 10px;
+    margin: 0px -10px;
+}
+
+#powerTip.s:before, #powerTip.se:before, #powerTip.sw:before {
+    border-bottom-color: #808080;
+    border-width: 11px;
+    margin: 0px -11px;
+}
+
+#powerTip.s:after, #powerTip.s:before {
+    left: 50%;
+}
+
+#powerTip.sw:after, #powerTip.sw:before {
+    right: 14px;
+}
+
+#powerTip.se:after, #powerTip.se:before {
+    left: 14px;
+}
+
+#powerTip.e:after, #powerTip.e:before {
+    left: 100%;
+}
+#powerTip.e:after {
+    border-left-color: #ffffff;
+    border-width: 10px;
+    top: 50%;
+    margin-top: -10px;
+}
+#powerTip.e:before {
+    border-left-color: #808080;
+    border-width: 11px;
+    top: 50%;
+    margin-top: -11px;
+}
+
+#powerTip.w:after, #powerTip.w:before {
+    right: 100%;
+}
+#powerTip.w:after {
+    border-right-color: #ffffff;
+    border-width: 10px;
+    top: 50%;
+    margin-top: -10px;
+}
+#powerTip.w:before {
+    border-right-color: #808080;
+    border-width: 11px;
+    top: 50%;
+    margin-top: -11px;
+}
+.arrow {
+    cursor: pointer;
+}
+
+div.contents h2
+{
+    margin-top: 1.5em;
+    padding-bottom: .4em;
+}
+
+div.contents a
+{
+    /* the 1px gives borders around the functions */
+    padding: 1px;
+}
+
+#projectname
+{
+    font-size: 2em;
+}
+
+.memSeparator
+{
+    line-height: 0px;
+    height: 0px;
+    padding: 0;
+    margin: 0;
+    border-bottom: 1px solid #018786;
+}
+
+table.memberdecls
+{
+    padding: 0;
+    border-spacing: 0;
+}
+
+.inherit_header td
+{
+    border-bottom: 1px solid black;
+}
+
+.inherit_header td,
+.memTemplItemLeft,
+.memTemplParams,
+.memItemLeft,
+.mdescLeft
+{
+    border-left: 1px solid black;
+}
+
+
+.memberdecls tr:nth-child(2) .memItemLeft,
+.memberdecls tr:nth-child(2) .memItemRight
+{
+    border-top: 1px solid black;
+}
+
+.inherit_header td,
+.memTemplItemRight,
+.memTemplParams,
+.memItemRight,
+.mdescRight
+{
+    border-right: 1px solid black;
+}
+
+.memTemplParams,
+.inherit_header td,
+.memTemplItemLeft,
+.memTemplItemRight,
+.memItemLeft,
+.memItemRight,
+.mdescLeft,
+.mdescRight
+{
+    background-color: #03dac6;
+    margin: 0px 0;
+    padding: 6px 8px;
+}
+
+a.el
+{
+}
+
+.params .paramname
+{
+    font-weight: bold;
+    padding-right: 8px;
+    text-align: right;
+}
+
+.params dt,
+.section dt,
+.return dt
+{
+    font-weight: bold;
+    font-style: italic;
+}
+
+.memdoc .definition
+{
+    font-size: 0.9em;
+}
+
+.memTemplParams
+{
+    font-style: italic;
+    font-weight: lighter;
+}
+
+.memTemplItemLeft,
+.memItemLeft
+{
+    white-space: nowrap;
+}
+
+.directory td.entry
+{
+    white-space: nowrap;
+}
+
+/* fill out the entire table width without breaking the types */
+.memItemRight { width: 100%; }
+.memtitle { display: none; }
+
+.memproto
+{
+    border-top: 1px solid #000;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+    background-color: #03dac6;
+    padding: 6px 0px;
+
+    -webkit-border-top-right-radius: 4px;
+    -webkit-border-top-left-radius: 4px;
+}
+
+.memdoc
+{
+    border: 1px solid #000;
+    padding: 10px;
+}
+
+#content
+{
+    width: 950px;
+    margin: 0 auto;
+    padding-bottom: 60px;
+}
+
+.tabs,
+.tabs2,
+.tabs3
+{
+    background: #03dac6;
+    width: 100%;
+    z-index: 101;
+    border: 1px;
+}
+
+.tabs2
+{
+}
+
+.tabs3
+{
+}
+
+.tablist
+{
+    margin: 0;
+    padding: 0;
+    display: table;
+}
+
+.tablist li
+{
+    float: left;
+    display: table-cell;
+    background: none;
+    line-height: 36px;
+    list-style: none;
+}
+
+.tablist a
+{
+    display: block;
+    padding: 0 20px;
+
+    color: #000;
+    
+    text-decoration: none;
+}
+
+.tabs3 .tablist a
+{
+    padding: 0 10px;
+}
+
+.tablist a:hover,
+.tablist li.current a
+{
+    background: #018786;
+    color: #000;
+}
+
+div.line
+{
+    white-space: pre-wrap;
+}
+
+div.fragment
+{
+    line-height: 100%;
+}
+
+
+code,
+div.fragment .line
+{
+    font-family: Consolas, "Liberation Mono", Courier, monospace;
+    font-size: 10pt;
+}
+
+div.fragment .line
+{
+    background-color: #fdf6e3;
+    color: #657b83;
+    line-height: 100%;
+}
+
+span.keywordflow,
+span.keywordtype,
+span.keyword { color:  #586e75; font-weight: bold; }
+
+span.stringliteral { color: #cb4b16; }
+
+span.comment { color: #93a1a1; }
+
+span.lineno,
+div.fragment span.lineno a
+{ background-color: #eee8d5; padding: 0; }
+
+
+div.fragment span.lineno a
+{ font-weight: bolder; }
+
+div.line a { padding: 0 1px }
+
+.navpath
+{
+    display: inline;
+}
+
+.navelem
+{
+    display: inline;
+    padding: 6px;
+    margin: 0;
+    line-height: 0;
+    background-color: #03dac6;
+}
+
+.navelem a
+{
+    color: black;
+}
+
+.navelem:last-child
+{
+    background-color: #018786;
+}
+
+.navelem:before {
+   content: " > ";
+}
+
+.navpath ul
+{
+    padding: 0px;
+}
+
+.summary
+{
+    padding: 6px 0;
+    font-size: 0.8em;
+}
+
+.headertitle
+{
+    font-size: 2em;
+}
+
+.arrow
+{
+    font-size: 0.8em;
+    padding: 3px;
+}
+
+.icon
+{
+    font-size: 0.8em;
+    padding: 3px;
+    font-weight: bold;
+}
+
+hr.footer
+{
+    display: none;
+}
+
+.dyncontent
+{
+    margin: 12px 0;
+}
+
+hr
+{
+    margin: 12px 10px;
+    height: 1px;
+    border: none;
+}
+
+.textblock
+{
+    margin: 12px 10px;
+}
+
+.PageDoc
+{
+    padding: 20px;
+    max-width: 40em;
+}
+
+
