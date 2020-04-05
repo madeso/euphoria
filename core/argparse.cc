@@ -1277,6 +1277,15 @@ namespace euphoria::core::argparse
                 // calls on_complete() on invalid input
                 if(GetParserStyle(base) == SubParserStyle::Greedy)
                 {
+                    if(match.names.empty())
+                    {
+                        PrintError
+                        (
+                            Str() << '\'' << arg << "' was unexpected"
+                        );
+                        return ParseResult::Error;
+                    }
+
                     const std::string invalid_command = Str()
                         << "Invalid command '" << arg << "'";
                     const auto quoted_names =
@@ -1292,22 +1301,15 @@ namespace euphoria::core::argparse
                         (
                             quoted_names
                         );
-                    if(match.names.size() > 1)
-                    {
-                        PrintError
-                        (
-                            Str() << invalid_command <<
-                            ", could be " << names
-                        );
-                    }
-                    else
-                    {
-                        PrintError
-                        (
-                            Str() << invalid_command <<
-                            ", did you mean " << names << '?'
-                        );
-                    }
+
+                    // todo(Gustav): switch between 'did you mean' and
+                    // 'could be either' depending on how big the
+                    // edit distance is?
+                    PrintError
+                    (
+                        Str() << invalid_command <<
+                        ", did you mean " << names << '?'
+                    );
                     return ParseResult::Error;
                 }
                 else
