@@ -394,7 +394,7 @@ TEST_CASE("argparse", "[argparse]")
             CHECK(Check(output->messages,
             {
                 Inf("usage: app [-h] [-f F]"),
-                Err("'mouse' is not a valid -f, could be 'None', 'Dog', 'Bird' or 'Cat'")
+                Err("'mouse' is not a valid -f, did you mean 'None', 'Dog', 'Bird' or 'Cat'?")
             }));
         }
     }
@@ -597,7 +597,7 @@ TEST_CASE("argparse", "[argparse]")
             CHECK(Check(output->messages,
             {
                 Inf("usage: app [-h] <command> [<args>]"),
-                Err("Invalid command 'cat', could be 'a' or 'b'")
+                Err("Invalid command 'cat', did you mean 'a' or 'b'?")
             }));
         }
         SECTION("invalid optional for root")
