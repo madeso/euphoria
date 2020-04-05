@@ -1407,7 +1407,7 @@ namespace euphoria::core::argparse
                         PrintError
                         (
                             Str() << "unknown argument: '" << arg <<
-                            "', did you mean " << closest_match_name << '?'
+                            "', did you mean '" << closest_match_name << "'?"
                         );
                     }
 
