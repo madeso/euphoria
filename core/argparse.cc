@@ -306,6 +306,21 @@ namespace euphoria::core::argparse
         }
     }
 
+    const std::string
+    QuoteAndCombineEnglishOr(const std::vector<std::string>& matches)
+    {
+        const auto quoted_names =
+            Map<std::string>(matches, [](const std::string& s)
+            {
+                return static_cast<std::string>
+                (
+                    Str() << '\'' << s << '\''
+                );
+            });
+
+        return StringMerger::EnglishOr().Generate(quoted_names);
+    }
+
 
     FileOutput::FileOutput(const std::string& o) : file(o), single(!(EndsWith(o, "/") || EndsWith(o, "\\")))
     {}
@@ -1288,19 +1303,7 @@ namespace euphoria::core::argparse
 
                     const std::string invalid_command = Str()
                         << "Invalid command '" << arg << "'";
-                    const auto quoted_names =
-                        Map<std::string>(match.names, [](const std::string& s)
-                        {
-                            return static_cast<std::string>
-                            (
-                                Str() << '\'' << s << '\''
-                            );
-                        });
-                    const std::string names =
-                        StringMerger::EnglishOr().Generate
-                        (
-                            quoted_names
-                        );
+                    const auto names = QuoteAndCombineEnglishOr(match.names);
 
                     // todo(Gustav): switch between 'did you mean' and
                     // 'could be either' depending on how big the

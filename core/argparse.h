@@ -20,6 +20,9 @@ namespace euphoria::core::argparse
 {
     struct ParserBase;
 
+    const std::string
+    QuoteAndCombineEnglishOr(const std::vector<std::string>& matches);
+
     // enum to catch adding arguments during parsing in a callback
     enum class ParserState
     {
@@ -355,11 +358,9 @@ namespace euphoria::core::argparse
         }
         else
         {
-            return Result<T>::False(Str() << "could be " <<
-                StringMerger::EnglishOr().Generate
-                (
-                    matches.names
-                )
+            return Result<T>::False(Str() << "did you mean " <<
+                QuoteAndCombineEnglishOr(matches.names)
+                << '?'
             );
         }
     }
@@ -607,8 +608,9 @@ namespace euphoria::core::argparse
                 }
                 else
                 {
-                    const std::string base = Str() <<
-                        value << " is not accepted for " << argument_name;
+                    const std::string base = Str()
+                        << '\'' << value << "' is not accepted for "
+                        << argument_name;
                     const auto error = parsed.Error();
                     const std::string message = error.empty()
                         ? base
