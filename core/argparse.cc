@@ -18,6 +18,8 @@
 
    argparse issues & todos:
 
+   * less 'passive agressive' --help suggestion. only suggest -h when it's the "first" argument
+
    * assert invalid setups and argument name collisions
 
    * help should optional expect a argument name to print detailed help
