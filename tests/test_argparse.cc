@@ -164,7 +164,7 @@ TEST_CASE("argparse", "[argparse]")
                 Inf("usage: app [-h]"),
                 Inf(""),
                 Inf("optional arguments:"),
-                Inf("  -h, --help show this helpt message and exit")
+                Inf("  -h, --help  show this help message and exit")
             }));
         }
 
@@ -222,7 +222,7 @@ TEST_CASE("argparse", "[argparse]")
                 Inf("usage: app [-h] [-f]"),
                 Inf(""),
                 Inf("optional arguments:"),
-                Inf("  -h, --help show this helpt message and exit"),
+                Inf("  -h, --help  show this help message and exit"),
                 Inf("  -f")
             }));
         }
@@ -268,7 +268,7 @@ TEST_CASE("argparse", "[argparse]")
                 Inf("usage: app [-h] [-f F]"),
                 Inf(""),
                 Inf("optional arguments:"),
-                Inf("  -h, --help show this helpt message and exit"),
+                Inf("  -h, --help  show this help message and exit"),
                 Inf("  -f [f]  (default: 0)")
             }));
         }
@@ -324,7 +324,7 @@ TEST_CASE("argparse", "[argparse]")
                 Inf("usage: app [-h] [-f F]"),
                 Inf(""),
                 Inf("optional arguments:"),
-                Inf("  -h, --help show this helpt message and exit"),
+                Inf("  -h, --help  show this help message and exit"),
                 Inf("  -f [f]  (default: default)")
             }));
         }
@@ -370,7 +370,7 @@ TEST_CASE("argparse", "[argparse]")
                 Inf("usage: app [-h] [-f F]"),
                 Inf(""),
                 Inf("optional arguments:"),
-                Inf("  -h, --help show this helpt message and exit"),
+                Inf("  -h, --help  show this help message and exit"),
                 Inf("  -f [F] (default: Dog)"),
                 Inf("  Can be either 'Cat'. 'Dog', 'Bird' or 'None'.")
             }));
@@ -434,7 +434,7 @@ TEST_CASE("argparse", "[argparse]")
                 Inf("usage: app [-h] [-a A]"),
                 Inf(""),
                 Inf("optional arguments:"),
-                Inf("  -h, --help show this helpt message and exit"),
+                Inf("  -h, --help  show this help message and exit"),
                 Inf("  -a, --animal"),
                 Inf("  can be either 'Cat', 'Dog', 'Bird' or 'None'")
             }));
@@ -582,7 +582,7 @@ TEST_CASE("argparse", "[argparse]")
                 Inf("usage: app [-h] <command> [<args>]"),
                 Inf(""),
                 Inf("optional arguments:"),
-                Inf("  -h, --help show this helpt message and exit"),
+                Inf("  -h, --help  show this help message and exit"),
                 Inf(""),
                 Inf("commands:"),
                 Inf("  a"),
@@ -674,7 +674,7 @@ TEST_CASE("argparse", "[argparse]")
                 Inf("usage: app [-h] <command> [<args>]"),
                 Inf(""),
                 Inf("optional arguments:"),
-                Inf("  -h, --help show this helpt message and exit"),
+                Inf("  -h, --help  show this help message and exit"),
                 Inf(""),
                 Inf("commands:"),
                 Inf("  add"),
@@ -768,7 +768,7 @@ TEST_CASE("argparse", "[argparse]")
                 Inf("usage: app [-h] <command> [<args>]"),
                 Inf(""),
                 Inf("optional arguments:"),
-                Inf("  -h, --help show this helpt message and exit"),
+                Inf("  -h, --help  show this help message and exit"),
                 Inf(""),
                 Inf("commands:"),
                 Inf("  pretty"),
