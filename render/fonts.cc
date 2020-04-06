@@ -22,7 +22,6 @@
 
 #include "gaf_font.h"
 
-#define STB_RECT_PACK_IMPLEMENTATION
 #include "stb_rect_pack.h"
 
 using namespace euphoria::convert;
@@ -189,6 +188,8 @@ namespace euphoria::render
 
         // the half margin between glyphs in the final texture
         const int half_margin = 1;
+
+        // todo(Gustav): use core/pack.h instead
 
         // pack char textures to a single texture
         const int               num_rects = fontchars.codepoint_to_glyph.size();
