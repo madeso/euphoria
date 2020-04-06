@@ -137,6 +137,9 @@ source_group("" FILES ${all_samples_src})
 
 # single file applications that could be useful
 
+add_executable(collage samples/collage.cc)
+target_link_libraries(collage core)
+
 add_executable(tabletool samples/tabletool.cc)
 target_link_libraries(tabletool core)
 
