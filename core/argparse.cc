@@ -30,8 +30,6 @@
 
    * extra validators combinable with | that adds more conditions (files must exists, strings can be empty, numbers must be in range etc)
 
-   * vector input
-
    * support python @ append arguments from file "arguments"
 
    * support reading palettes and rgb(a)s from commandline, including common palette files
@@ -432,6 +430,54 @@ namespace euphoria::core::argparse
     )
     {
         return callback(runner);
+    }
+
+
+    MultiArgument::MultiArgument(Callback cb, Describe d)
+        : callback(cb)
+        , describe(d)
+    {
+    }
+
+
+    bool
+    MultiArgument::HaveNargs()
+    {
+        return true;
+    }
+
+
+    std::optional<std::string>
+    MultiArgument::GetSecondLine()
+    {
+        return describe();
+    }
+
+
+    ParseResult
+    MultiArgument::ParseArguments
+    (
+        Runner* runner,
+        const std::string& name,
+        ParserBase* caller
+    )
+    {
+        // eat all arguments!
+        while (runner->arguments->HasMore())
+        {
+            auto res = callback
+            (
+                runner,
+                name,
+                caller,
+                runner->arguments->Read()
+            );
+            if(res != ParseResult::Ok)
+            {
+                return res;
+            }
+        }
+        return ParseResult::Ok;
     }
 
 

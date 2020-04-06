@@ -281,6 +281,40 @@ namespace euphoria::core::argparse
         ) override;
     };
 
+    // a single argument, probably either a --count 3 or positional input
+    struct MultiArgument : public Argument
+    {
+        using Callback = std::function
+        <
+            ParseResult
+            (
+                Runner* runner,
+                const std::string& name,
+                ParserBase* caller,
+                const std::string& value
+            )
+        >;
+        using Describe = std::function<std::optional<std::string> ()>;
+        Callback callback;
+        Describe describe;
+
+        MultiArgument(Callback cb, Describe d);
+
+        bool
+        HaveNargs() override;
+
+        std::optional<std::string>
+        GetSecondLine() override;
+
+        ParseResult
+        ParseArguments
+        (
+            Runner* runner,
+            const std::string& name,
+            ParserBase* caller
+        ) override;
+    };
+
     // generic parse function
     template<typename T>
     using ParseFunction = std::function
@@ -625,6 +659,59 @@ namespace euphoria::core::argparse
                 return str;
             });
             arg->default_value = DefaultValueToString(*target);
+            return AddArgument(name, arg);
+        }
+
+        // add greedy argument, currently also accepts zero
+        // todo(Gustav): add option for non-greedy and error if empty
+        template<typename T>
+        Argument&
+        AddVector
+        (
+            const Name& name,
+            std::vector<T>* target,
+            ParseFunction<T> parse_function = DefaultParseFunction<T>
+        )
+        {
+            auto arg = std::make_shared<MultiArgument>(
+            [target, parse_function]
+            (
+                Runner* runner,
+                const std::string& argument_name,
+                ParserBase* caller,
+                const std::string& value
+            )
+            {
+                auto parsed = parse_function(value);
+                if(parsed)
+                {
+                    target->emplace_back(*parsed);
+                    return ParseResult::Ok;
+                }
+                else
+                {
+                    const std::string base = Str()
+                        << '\'' << value << "' is not accepted for '"
+                        << argument_name << '\'';
+                    const auto error = parsed.Error();
+                    const std::string message = error.empty()
+                        ? base
+                        : (Str() << base << ", " << error)
+                        ;
+                    PrintParseError(runner, caller, message);
+
+                    return ParseResult::Error;
+                }
+            }, [](){
+                const std::optional<std::string> str = DefaultDescribe<T>();
+                return str;
+            });
+            std::vector<std::string> values;
+            for(const auto& t: *target)
+            {
+                values.emplace_back(DefaultValueToString(t));
+            }
+            arg->default_value = StringMerger::Array().Generate(values);
             return AddArgument(name, arg);
         }
 
