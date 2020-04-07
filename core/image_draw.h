@@ -67,9 +67,21 @@ namespace euphoria::core
             const Rgbi&        color,
             const LoadedFont& font);
 
-    void
-    PasteImage(Image* image, const vec2i& position, const Image& source_image);
+    enum class Clip
+    {
+        DontClip,
+        Clip
+    };
 
+    void
+    PasteImage
+    (
+        Image* dest_image,
+        const vec2i& position,
+        const Image& source_image,
+        // if true, pixels outside the dest_image is discarded
+        Clip clip = Clip::DontClip
+    );
 
     void
     DrawArrow

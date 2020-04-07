@@ -408,8 +408,8 @@ namespace euphoria::core
             return right - left;
         }
 
-        // todo(Gustav): provide a KeepWithin, IsWithin/ WrapWithin functions
-        // like range provide for positions
+        // todo(Gustav): provide a KeepWithin, WrapWithin functions
+        // like IsWithin below
 
         Range<T>
         GetYRange() const
@@ -478,6 +478,15 @@ namespace euphoria::core
         const auto x = From01(MakeRange(r.left, r.right), from.x);
         const auto y = From01(MakeRange(r.bottom, r.top), from.y);
         return vec2<R> {x, y};
+    }
+
+    template<typename T>
+    bool
+    IsWithin(const Rect<T>& r, const vec2<T>& p)
+    {
+        return
+            IsWithin(r.GetXRange(), p.x) &&
+            IsWithin(r.GetYRange(), p.y) ;
     }
 
     template <typename S, typename T>

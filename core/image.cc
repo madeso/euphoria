@@ -152,6 +152,18 @@ namespace euphoria::core
         return width_ > 0 && height_ > 0;
     }
 
+
+    Recti
+    Image::GetIndices() const
+    {
+        return Recti::FromWidthHeight
+        (
+            GetWidth() -1,
+            GetHeight() -1
+        );
+    }
+
+
     int
     Image::GetWidth() const
     {

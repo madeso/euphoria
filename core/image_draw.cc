@@ -491,18 +491,35 @@ namespace euphoria::core
     }
 
     void
-    PasteImage(Image* image, const vec2i& position, const Image& source_image)
+    PasteImage
+    (
+        Image* dest_image,
+        const vec2i& position,
+        const Image& source_image,
+        Clip clip
+    )
     {
-        ASSERT(image);
+        ASSERT(dest_image);
 
         for(int y = 0; y < source_image.GetHeight(); ++y)
         {
             for(int x = 0; x < source_image.GetWidth(); ++x)
             {
-                image->SetPixel(
-                        position.x + x,
-                        position.y + y,
-                        source_image.GetPixel(x, y));
+                const auto dest_x = position.x + x;
+                const auto dest_y = position.y + y;
+                if
+                (
+                    clip == Clip::Clip &&
+                    IsWithin(dest_image->GetIndices(), vec2i(dest_x, dest_y)) == false
+                )
+                {
+                    // nop
+                }
+                else
+                {
+                    const auto color = source_image.GetPixel(x, y);
+                    dest_image->SetPixel(dest_x, dest_y, color);
+                }
             }
         }
     }

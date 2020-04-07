@@ -7,6 +7,7 @@
 
 #include "core/rgb.h"
 #include "core/memorychunk.h"
+#include "core/rect.h"
 
 namespace euphoria::core::vfs
 {
@@ -95,8 +96,8 @@ namespace euphoria::core
                 }
         }
 
-        // todo(Gustav): provide a indices function like the table
-        // to return all valid xy positions
+        Recti
+        GetIndices() const;
 
         int
         GetWidth() const;
