@@ -231,6 +231,11 @@ main(int argc, char* argv[])
             auto image_size = Sizei::FromWidthHeight(1014, 1024);
             auto background_color = Color::Gray;
 
+            // bug: padding is incresed on image
+            // if the output isn't packed tight the image is 'padding'
+            // larger than requested
+            // todo(Gustav): fix bug
+
             std::string output_file = "collage.png";
             int padding = 5;
             bool pack_image = true;
