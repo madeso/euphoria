@@ -57,7 +57,7 @@ namespace euphoria::core
             }
             ret[i] = Recti::FromTopLeftWidthHeight
             (
-                core::vec2i{rect.x, container.height - rect.y},
+                core::vec2i{rect.x, container.height - rect.y - 1},
                 rect.w,
                 rect.h
             );
