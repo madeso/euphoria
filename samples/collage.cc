@@ -22,8 +22,8 @@ main(int argc, char* argv[])
     auto image_size = Sizei::FromWidthHeight(1014, 1024);
     int padding = 5;
     auto background_color = Color::Gray;
+    bool pack_image = true;
 
-    // todo: input more than one file
     std::vector<std::string> files;
 
     auto parser = argparse::Parser {"collage tool"};
@@ -66,11 +66,44 @@ main(int argc, char* argv[])
         const auto packed = Pack(image_size, image_sizes);
         bool all_packed = true; // updated when drawing
 
+        // reduce image size
+        auto size = image_size;
+        int dx = 0;
+        int dy = 0;
+        if(pack_image)
+        {
+            std::optional<Recti> bb = std::nullopt;
+            for(const auto& rect: packed)
+            {
+                if(rect.has_value())
+                {
+                    if(bb.has_value())
+                    {
+                        bb->Include(*rect);
+                    }
+                    else
+                    {
+                        bb = *rect;
+                    }
+                }
+            }
+            if(bb.has_value())
+            {
+                size = bb->GetSize();
+                dx = -bb->left;
+                dy = -bb->bottom;
+            }
+        }
+
         // draw new image
         // todo(Gustav): add option to pack make image smaller than requested
         // to reduce wasted space and tighly pack the images
         auto composed_image = Image{};
-        composed_image.SetupWithAlphaSupport(image_size.width, image_size.height);
+        composed_image.SetupWithAlphaSupport
+        (
+            size.width + padding,
+            size.height + padding
+        );
         Clear(&composed_image, background_color);
         i = 0;
         for(const auto& rect: packed)
@@ -85,7 +118,13 @@ main(int argc, char* argv[])
             }
 
             // std::cout << rect->BottomLeft() << "\n";
-            PasteImage(&composed_image, rect->BottomLeft(), images[index].image);
+            PasteImage
+            (
+                &composed_image,
+                rect->BottomLeft() + vec2i{dx, dy} + vec2i{padding, padding},
+                images[index].image,
+                PixelsOutside::Discard
+            );
         }
 
         if(all_packed == false)
