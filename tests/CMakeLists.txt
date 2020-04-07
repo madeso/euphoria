@@ -31,6 +31,7 @@ set(app_src
     test_minsynth.cc
     test_multisort.cc
     test_numeric.cc
+    test_pack.cc
     test_quat.cc
     test_quicksort.cc
     test_radix.cc

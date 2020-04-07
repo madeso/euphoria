@@ -489,6 +489,17 @@ namespace euphoria::core
             IsWithin(r.GetYRange(), p.y) ;
     }
 
+    template <typename T>
+    bool
+    operator==(const Rect<T>& lhs, const Rect<T>& rhs)
+    {
+        return
+            lhs.left == rhs.left &&
+            lhs.right == rhs.right &&
+            lhs.top == rhs.top &&
+            lhs.bottom == rhs.bottom ;
+    }
+
     template <typename S, typename T>
     S&
     operator<<(S& s, const Rect<T>& r)
