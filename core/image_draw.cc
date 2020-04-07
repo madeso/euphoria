@@ -496,7 +496,7 @@ namespace euphoria::core
         Image* dest_image,
         const vec2i& position,
         const Image& source_image,
-        Clip clip
+        PixelsOutside clip
     )
     {
         ASSERT(dest_image);
@@ -509,7 +509,7 @@ namespace euphoria::core
                 const auto dest_y = position.y + y;
                 if
                 (
-                    clip == Clip::Clip &&
+                    clip == PixelsOutside::Discard &&
                     IsWithin(dest_image->GetIndices(), vec2i(dest_x, dest_y)) == false
                 )
                 {

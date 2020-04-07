@@ -67,20 +67,23 @@ namespace euphoria::core
             const Rgbi&        color,
             const LoadedFont& font);
 
-    enum class Clip
+    enum class PixelsOutside
     {
-        DontClip,
-        Clip
+        Assert,
+        Discard
     };
 
     void
     PasteImage
     (
+        // destination: paste to this image
         Image* dest_image,
+        // bottom left
         const vec2i& position,
+        // source: paste from this image
         const Image& source_image,
-        // if true, pixels outside the dest_image is discarded
-        Clip clip = Clip::DontClip
+        // how to handle pixels that fall outside
+        PixelsOutside clip = PixelsOutside::Assert
     );
 
     void
