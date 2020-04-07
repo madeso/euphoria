@@ -216,56 +216,64 @@ HandlePack
 int
 main(int argc, char* argv[])
 {
-    // todo(Gustav): expose as commandline arguments
-    std::string output_file = "collage.png";
-    auto image_size = Sizei::FromWidthHeight(1014, 1024);
-    int padding = 5;
-    auto background_color = Color::Gray;
-    bool pack_image = true;
-
-    std::vector<std::string> files;
-
-    auto parser = argparse::Parser {"collage tool"};
-
-    parser
-        .Add("--padding", &padding)
-        .AllowBeforePositionals()
-        .Nargs("P").Help("set the space (in pixels) between images")
-        ;
-    parser
-        .Add("-o, --output", &output_file)
-        .AllowBeforePositionals()
-        .Nargs("FILE")
-        .Help("change where to save the output")
-        ;
-    parser
-        .SetFalse("--no-pack", &pack_image)
-        .AllowBeforePositionals()
-        .Help("don't pack the resulting image and keep the whitespace")
-        ;
-    parser
-        .AddVector("files", &files)
-        .Nargs("F")
-        .Help("the files to pack")
-        ;
-
-    parser.OnComplete([&]
+    auto parser = argparse::Parser
     {
-        const auto was_packed = HandlePack
-        (
-            output_file,
-            image_size,
-            padding,
-            background_color,
-            pack_image,
-            files
-        );
+        "pack smaller images into a bigger one"
+    };
+    auto subs = parser.AddSubParsers();
 
-        return was_packed
-            ? argparse::ParseResult::Ok
-            : argparse::ParseResult::Error
-            ;
-    });
+    subs->Add
+    (
+        "pack", "pack images according to the stb rect-pack algorithm",
+        [](argparse::SubParser* sub)
+        {
+            // todo(Gustav): expose as commandline arguments
+            auto image_size = Sizei::FromWidthHeight(1014, 1024);
+            auto background_color = Color::Gray;
+
+            std::string output_file = "collage.png";
+            int padding = 5;
+            bool pack_image = true;
+            std::vector<std::string> files;
+
+            sub->Add("--padding", &padding)
+                .AllowBeforePositionals()
+                .Nargs("P").Help("set the space (in pixels) between images")
+                ;
+            sub->Add("-o, --output", &output_file)
+                .AllowBeforePositionals()
+                .Nargs("FILE")
+                .Help("change where to save the output")
+                ;
+            sub->SetFalse("--no-pack", &pack_image)
+                .AllowBeforePositionals()
+                .Help("don't pack the resulting image and keep the whitespace")
+                ;
+            sub->AddVector("files", &files)
+                .Nargs("F")
+                .Help("the files to pack")
+                ;
+
+            return sub->OnComplete([&]
+            {
+                const auto was_packed = HandlePack
+                (
+                    output_file,
+                    image_size,
+                    padding,
+                    background_color,
+                    pack_image,
+                    files
+                );
+
+                return was_packed
+                    ? argparse::ParseResult::Ok
+                    : argparse::ParseResult::Error
+                    ;
+            });
+        }
+    );
+
 
     return ParseFromMain(&parser, argc, argv);
 }
