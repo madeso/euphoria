@@ -20,8 +20,12 @@ namespace euphoria::core
     Recti
     WholeImage(const Image& image)
     {
-        return Recti::FromTopLeftWidthHeight(
-                vec2i{0, image.GetHeight()}, image.GetWidth(), image.GetHeight());
+        return Recti::FromTopLeftWidthHeight
+        (
+            vec2i{0, image.GetHeight()},
+            image.GetWidth(),
+            image.GetHeight()
+        );
     }
 
     void
@@ -35,9 +39,9 @@ namespace euphoria::core
     DrawRect(Image* image, const Rgbi& color, const Recti& rect)
     {
         ASSERT(image);
-        const int left   = rect.TopLeft().x;
-        const int right  = rect.TopRight().x;
-        const int top    = rect.TopLeft().y;
+        const int left = rect.TopLeft().x;
+        const int right = rect.TopRight().x;
+        const int top = rect.TopLeft().y;
         const int bottom = rect.BottomLeft().y;
         // ASSERTX(left >= 0, left);
         // ASSERTX(bottom >= 0, bottom);
@@ -60,10 +64,12 @@ namespace euphoria::core
     {
         ASSERT(image);
         // is the +1 right?
-        DrawRect(
-                image,
-                color,
-                Recti::FromTopLeftWidthHeight(vec2i {x, y + 1}, size, size));
+        DrawRect
+        (
+            image,
+            color,
+            Recti::FromTopLeftWidthHeight(vec2i{x, y + 1}, size, size)
+        );
     }
 
 
@@ -74,15 +80,23 @@ namespace euphoria::core
         {
             const auto [min, max] = FindMinMax<vec2f>
             (
-                    poly,
-                    [](const auto& lhs, const auto& rhs)
+                poly,
+                [](const auto& lhs, const auto& rhs)
+                {
+                    return vec2f
                     {
-                        return vec2f {std::min(lhs.x, rhs.x), std::min(lhs.y, rhs.y)};
-                    },
-                    [](const auto& lhs, const auto& rhs)
+                        std::min(lhs.x, rhs.x),
+                        std::min(lhs.y, rhs.y)
+                    };
+                },
+                [](const auto& lhs, const auto& rhs)
+                {
+                    return vec2f
                     {
-                        return vec2f {std::max(lhs.x, rhs.x), std::max(lhs.y, rhs.y)};
-                    }
+                        std::max(lhs.x, rhs.x),
+                        std::max(lhs.y, rhs.y)
+                    };
+                }
             );
 
             return Rectf::FromLeftRightBottomTop(min.x, max.x, min.y, max.y);
@@ -92,7 +106,10 @@ namespace euphoria::core
         RayIntersectsSegment(const vec2f& u, const vec2f& a, const vec2f& b)
         {
             // todo(Gustav): move to math
-            return (a.y > u.y) != (b.y > u.y) && u.x < (b.x - a.x) * (u.y - a.y) / (b.y - a.y) + a.x;
+            return
+                (a.y > u.y) != (b.y > u.y) && 
+                u.x < (b.x - a.x) * (u.y - a.y) / (b.y - a.y) + a.x
+                ;
         }
 
         bool
@@ -125,21 +142,21 @@ namespace euphoria::core
     FillPoly(Image* image, const Rgbi& color, std::vector<vec2f>& poly)
     {
         ASSERT(image);
-        const auto rect  = BoundingRect(poly);
-        const int left   = rect.TopLeft().x;
-        const int right  = rect.TopRight().x;
-        const int top    = rect.TopLeft().y;
+
+        const auto rect = BoundingRect(poly);
+        const int left = rect.TopLeft().x;
+        const int right = rect.TopRight().x;
+        const int top = rect.TopLeft().y;
         const int bottom = rect.BottomLeft().y;
+
         // ASSERTX(left >= 0, left);
         // ASSERTX(bottom >= 0, bottom);
         for(int y = bottom; y < top; ++y)
         {
-            if(y < 0 || y >= image->GetHeight())
-                continue;
+            if(y < 0 || y >= image->GetHeight()) { continue; }
             for(int x = left; x < right; ++x)
             {
-                if(x < 0 || x >= image->GetWidth())
-                    continue;
+                if(x < 0 || x >= image->GetWidth()) { continue; }
 
                 if(PointInPoly(vec2f(x, y), poly))
                 {
@@ -150,21 +167,29 @@ namespace euphoria::core
     }
 
     void
-    DrawCircle(
-            Image*       image,
-            const Rgb&   color,
-            const vec2i& center,
-            float        radius,
-            float        softness,
-            float        inner)
+    DrawCircle
+    (
+        Image* image,
+        const Rgb& color,
+        const vec2i& center,
+        float radius,
+        float softness,
+        float inner
+    )
     {
         ASSERT(image);
         const int left = Max(0, Floori(center.x - radius - softness));
-        const int right
-                = Min(image->GetWidth(), Ceili(center.x + radius + softness));
+        const int right = Min
+        (
+            image->GetWidth(),
+            Ceili(center.x + radius + softness)
+        );
         const int top = Max(0, Floori(center.y - radius - softness));
-        const int bottom
-                = Min(image->GetHeight(), Ceili(center.y + radius + softness));
+        const int bottom = Min
+        (
+            image->GetHeight(),
+            Ceili(center.y + radius + softness)
+        );
 
         // color modes
         // nothing INNER-SOFTNESS fade INNER full RADIUS fade RADIUS+SOFTNESS nothing
@@ -174,12 +199,12 @@ namespace euphoria::core
             for(int x = left; x < right; ++x)
             {
                 // todo: use length squared!
-                const float sq = vec2f::FromTo(
-                                         vec2f {static_cast<float>(x),
-                                                static_cast<float>(y)},
-                                         center.StaticCast<float>())
-                                         .GetLength();
-                bool  blend        = false;
+                const float sq = vec2f::FromTo
+                (
+                    vec2f{static_cast<float>(x), static_cast<float>(y)},
+                    center.StaticCast<float>()
+                ).GetLength();
+                bool blend = false;
                 float blend_factor = 1.0f;
 
                 const auto a = MakeRange(inner - softness, inner);
@@ -188,12 +213,12 @@ namespace euphoria::core
                 if(IsWithin(a, sq))
                 {
                     blend_factor = To01(a, sq);
-                    blend        = true;
+                    blend = true;
                 }
                 else if(IsWithin(b, sq))
                 {
                     blend_factor = 1.0f - To01(b, sq);
-                    blend        = true;
+                    blend = true;
                 }
                 else if(IsWithin(MakeRange(inner, radius), sq))
                 {
@@ -205,25 +230,33 @@ namespace euphoria::core
                     continue;
                 }
 
-                const Rgb paint_color = blend ? RgbTransform::Transform(
-                                                rgb(image->GetPixel(x, y)),
-                                                blend_factor,
-                                                color)
-                                              : color;
+                const Rgb paint_color = blend 
+                    ? RgbTransform::Transform
+                    (
+                        rgb(image->GetPixel(x, y)),
+                        blend_factor,
+                        color
+                    )
+                    : color
+                    ;
 
-                image->SetPixel(x, y, Rgbi {paint_color});
+                image->SetPixel(x, y, Rgbi{paint_color});
             }
         }
     }
 
     void
-    DrawLineFast(
-            Image*       image,
-            const Rgbi&  color,
-            const vec2i& from,
-            const vec2i& to)
+    DrawLineFast
+    (
+        Image* image,
+        const Rgbi& color,
+        const vec2i& from,
+        const vec2i& to
+    )
     {
         ASSERT(image);
+
+        // reference:
         // https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm
 
         auto plot = [&](int x, int y)
@@ -233,52 +266,54 @@ namespace euphoria::core
 
         auto plot_line_low = [&](int x0, int y0, int x1, int y1)
         {
-          auto dx = x1 - x0;
-          auto dy = y1 - y0;
-          auto yi = 1;
-          if(dy < 0)
-          {
-            yi = -1;
-            dy = -dy;
-          }
-          auto D = 2*dy - dx;
-          auto y = y0;
+            auto dx = x1 - x0;
+            auto dy = y1 - y0;
+            auto yi = 1;
 
-          for(int x=x0; x<x1; x+=1)
-          {
-            plot(x,y);
-            if(D > 0)
+            if(dy < 0)
             {
-               y = y + yi;
-               D = D - 2*dx;
+                yi = -1;
+                dy = -dy;
             }
-            D = D + 2*dy;
-          }
+
+            auto D = 2*dy - dx;
+            auto y = y0;
+
+            for(int x=x0; x<x1; x+=1)
+            {
+                plot(x,y);
+                if(D > 0)
+                {
+                    y = y + yi;
+                    D = D - 2*dx;
+                }
+                D = D + 2*dy;
+            }
         };
 
         auto plot_line_high = [&](int x0, int y0, int x1, int y1)
         {
-          int dx = x1 - x0;
-          int dy = y1 - y0;
-          int xi = 1;
-          if(dx < 0)
-          {
-            xi = -1;
-            dx = -dx;
-          }
-          int D = 2*dx - dy;
-          int x = x0;
-
-          for(int y=y0; y<y1; y+=1)
-          {
-            plot(x,y);
-            if(D > 0)
+            int dx = x1 - x0;
+            int dy = y1 - y0;
+            int xi = 1;
+            if(dx < 0)
             {
-               x = x + xi;
-               D = D - 2*dy;
+                xi = -1;
+                dx = -dx;
             }
-            D = D + 2*dx;
-          }
+            int D = 2*dx - dy;
+            int x = x0;
+
+            for(int y=y0; y<y1; y+=1)
+            {
+                plot(x,y);
+                if(D > 0)
+                {
+                    x = x + xi;
+                    D = D - 2*dy;
+                }
+                D = D + 2*dx;
+            }
         };
 
         const auto x0 = from.x;
@@ -297,25 +332,39 @@ namespace euphoria::core
         }
     }
 
-    void
-    DrawLineAntialiased(
-            Image*       image,
-            const Rgb&   color,
-            const vec2i& from,
-            const vec2i& to)
-    {
-        ASSERT(image);
-        return DrawLineAntialiased(
-                image, color, from.StaticCast<float>(), to.StaticCast<float>());
-    }
 
     void
-    DrawLineAntialiased(
-            Image*       image,
-            const Rgb&   color,
-            const vec2f& from,
-            const vec2f& to)
+    DrawLineAntialiased
+    (
+        Image* image,
+        const Rgb& color,
+        const vec2i& from,
+        const vec2i& to
+    )
     {
+        ASSERT(image);
+        return DrawLineAntialiased
+        (
+             image,
+             color,
+             from.StaticCast<float>(),
+             to.StaticCast<float>()
+        );
+    }
+
+
+    void
+    DrawLineAntialiased
+    (
+        Image* image,
+        const Rgb& color,
+        const vec2f& from,
+        const vec2f& to
+    )
+    {
+        // reference: 
+        // https://en.wikipedia.org/wiki/Xiaolin_Wu%27s_line_algorithm
+
         auto ipart = [&](float x) { return Floori(x); };
         auto round = [&](float x) { return ipart(x + 0.5); };
         auto fpart = [&](float x) { return x - floor(x); };
@@ -328,14 +377,18 @@ namespace euphoria::core
             const bool valid_y = IsWithinInclusivei(0, y, image->GetHeight() - 1);
             if(valid_x && valid_y)
             {
-                const Rgb paint_color = RgbTransform::Transform(
-                        rgb(image->GetPixel(x, y)), c, color);
-                image->SetPixel(x, y, Rgbi {paint_color});
+                const Rgb paint_color = RgbTransform::Transform
+                (
+                    rgb(image->GetPixel(x, y)),
+                    c,
+                    color
+                );
+                image->SetPixel(x, y, Rgbi{paint_color});
             }
         };
 
         ASSERT(image);
-        // https://en.wikipedia.org/wiki/Xiaolin_Wu%27s_line_algorithm
+
         float x0 = from.x;
         float y0 = from.y;
         float x1 = to.x;
@@ -388,6 +441,7 @@ namespace euphoria::core
         xgap = fpart(x1 + 0.5);
         auto xpxl2 = xend; //this will be used in the main loop
         auto ypxl2 = ipart(yend);
+
         if(steep)
         {
             plot(ypxl2  , xpxl2, rfpart(yend) * xgap);
@@ -418,21 +472,11 @@ namespace euphoria::core
                 intery = intery + gradient;
             }
         }
-
-        
     }
 
     Rgba Tint(const Rgba& c, const Rgb& tint)
     {
-        return
-            {
-                {
-                    c.r * tint.r,
-                    c.g * tint.g,
-                    c.b * tint.b
-                },
-                c.a
-            };
+        return {{c.r * tint.r, c.g * tint.g, c.b * tint.b}, c.a};
     }
 
     Rgbai Tint(const Rgbai& c, const Rgbi& tint)
@@ -441,7 +485,13 @@ namespace euphoria::core
     }
 
     void
-    SimpleImageBlend(Image* dst, const vec2i& p, const Image& src, const Rgbi& tint)
+    SimpleImageBlend
+    (
+        Image* dst,
+        const vec2i& p,
+        const Image& src,
+        const Rgbi& tint
+    )
     {
         for(int y=0; y<src.GetHeight(); y+=1)
         for(int x=0; x<src.GetWidth();  x+=1)
@@ -459,12 +509,14 @@ namespace euphoria::core
     }
 
     void
-    DrawText(
-            Image*             image,
-            const vec2i&       start_pos,
-            const std::string& text,
-            const Rgbi&        color,
-            const LoadedFont& font)
+    DrawText
+    (
+        Image* image,
+        const vec2i& start_pos,
+        const std::string& text,
+        const Rgbi& color,
+        const LoadedFont& font
+    )
     {
         ASSERT(image);
 
@@ -524,6 +576,7 @@ namespace euphoria::core
         }
     }
 
+
     void
     FillTriangle
     (
@@ -538,9 +591,13 @@ namespace euphoria::core
         (
             {a, b, c},
             [](const vec2f& lhs, const vec2f& rhs) -> vec2f
-                { return {std::min(lhs.x, rhs.x), std::min(lhs.y, rhs.y)}; },
+            {
+                return {std::min(lhs.x, rhs.x), std::min(lhs.y, rhs.y)};
+            },
             [](const vec2f& lhs, const vec2f& rhs) -> vec2f
-                { return {std::max(lhs.x, rhs.x), std::max(lhs.y, rhs.y)}; }
+            {
+                return {std::max(lhs.x, rhs.x), std::max(lhs.y, rhs.y)};
+            }
         );
 
         const auto min = minf.StaticCast<int>();
@@ -550,11 +607,23 @@ namespace euphoria::core
         {
             for(int x=min.x; x<=max.x; x+=1)
             {
-                const bool valid_x = IsWithinInclusivei(0, x, image->GetWidth() - 1);
-                const bool valid_y = IsWithinInclusivei(0, y, image->GetHeight() - 1);
+                const bool valid_x = IsWithinInclusivei
+                (
+                    0, x, image->GetWidth() - 1
+                );
+                const bool valid_y = IsWithinInclusivei
+                (
+                    0, y, image->GetHeight() - 1
+                );
                 if(valid_x && valid_y)
                 {
-                    const auto inside_triangle = IsPointInTriangle(a, b, c, vec2f{static_cast<float>(x), static_cast<float>(y)});
+                    const auto inside_triangle = IsPointInTriangle
+                    (
+                        a,
+                        b,
+                        c,
+                        vec2f{static_cast<float>(x), static_cast<float>(y)}
+                    );
                     if(inside_triangle)
                     {
                         image->SetPixel(x, y, color);
@@ -589,29 +658,35 @@ namespace euphoria::core
         const auto secondaryLength = (3 * size)/Sin(angleB);
 
         auto angleC = Angle::FromDegrees(90) - arrowAngle - angleB;
-        const auto arrowPointLeft = vec2f
-        {
-            from.x > to.x
+        const auto arrow_point_left_x = from.x > to.x
             ? from.x - (Sin(angleC) * secondaryLength)
             : (Sin(angleC) * secondaryLength) + from.x
-            ,
-            from.y > to.y
+            ;
+        const auto arrow_point_left_y = from.y > to.y
             ? from.y - (Cos(angleC) * secondaryLength)
             : (Cos(angleC) * secondaryLength) + from.y
+            ;
+        const auto arrowPointLeft = vec2f
+        {
+            arrow_point_left_x,
+            arrow_point_left_y
         };
 
         //move to the right point
         angleC = arrowAngle - angleB;
 
-        const auto arrowPointRight = vec2f
-        {
-            from.x > to.x
+        const auto arrow_point_right_x = from.x > to.x
             ? from.x - (Cos(angleC) * secondaryLength)
             : (Cos(angleC) * secondaryLength) + from.x
-            ,
-            from.y > to.y
+            ;
+        const auto arrow_point_right_y = from.y > to.y
             ? from.y - (Sin(angleC) * secondaryLength)
             : (Sin(angleC) * secondaryLength) + from.y
+            ;
+        const auto arrowPointRight = vec2f
+        {
+            arrow_point_right_x,
+            arrow_point_right_y
         };
 
         // line
@@ -627,3 +702,4 @@ namespace euphoria::core
 
 
 }  // namespace euphoria::core
+

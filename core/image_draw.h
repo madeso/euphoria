@@ -29,43 +29,53 @@ namespace euphoria::core
     FillPoly(Image* image, const Rgbi& color, std::vector<vec2f>& poly);
 
     void
-    DrawCircle(
-            Image*       image,
-            const Rgb&   color,
-            const vec2i& center,
-            float        radius,
-            float        softness = 0.0f,
-            float        inner    = -1.0f);
+    DrawCircle
+    (
+        Image* image,
+        const Rgb& color,
+        const vec2i& center,
+        float radius,
+        float softness = 0.0f,
+        float inner = -1.0f
+    );
 
     void
-    DrawLineFast(
-            Image*       image,
-            const Rgbi&  color,
-            const vec2i& from,
-            const vec2i& to);
+    DrawLineFast
+    (
+        Image* image,
+        const Rgbi& color,
+        const vec2i& from,
+        const vec2i& to
+    );
 
     void
-    DrawLineAntialiased(
-            Image*       image,
-            const Rgb&   color,
-            const vec2f& from,
-            const vec2f& to);
+    DrawLineAntialiased
+    (
+        Image* image,
+        const Rgb& color,
+        const vec2f& from,
+        const vec2f& to
+    );
 
     void
-    DrawLineAntialiased(
-            Image*       image,
-            const Rgb&   color,
-            const vec2i& from,
-            const vec2i& to);
+    DrawLineAntialiased
+    (
+        Image* image,
+        const Rgb& color,
+        const vec2i& from,
+        const vec2i& to
+    );
 
     // position is lower left of text
     void
-    DrawText(
-            Image*             image,
-            const vec2i&       start_pos,
-            const std::string& text,
-            const Rgbi&        color,
-            const LoadedFont& font);
+    DrawText
+    (
+        Image* image,
+        const vec2i& start_pos,
+        const std::string& text,
+        const Rgbi& color,
+        const LoadedFont& font
+    );
 
     enum class PixelsOutside
     {
