@@ -174,6 +174,44 @@ TEST_CASE("image draw", "[img]")
         CHECK_FALSE(img.GetPixel(5, 5) == colora);
         REQUIRE(img.GetPixel(0, 0) == colora);
     }
+
+    SECTION("paste big with clip")
+    {
+        euco::Image big;
+        big.SetupNoAlphaSupport(width * 3, height * 3);
+        euco::Clear(&big, color);
+
+        CHECK_FALSE(img.GetPixel(5, 5) == colora);
+        CHECK_FALSE(img.GetPixel(0, 0) == colora);
+        CHECK_FALSE(img.GetPixel(0, height-1) == colora);
+        CHECK_FALSE(img.GetPixel(width-1, 0) == colora);
+        CHECK_FALSE(img.GetPixel(width-1, height-1) == colora);
+
+        PasteImage(&img, euco::vec2i(-width, -height), big, euco::PixelsOutside::Discard);
+
+        CHECK(img.GetPixel(5, 5) == colora);
+        CHECK(img.GetPixel(0, 0) == colora);
+        CHECK(img.GetPixel(0, height-1) == colora);
+        CHECK(img.GetPixel(width-1, 0) == colora);
+        CHECK(img.GetPixel(width-1, height-1) == colora);
+    }
+
+    SECTION("paste small")
+    {
+        euco::Image small;
+        small.SetupNoAlphaSupport(2, 2);
+        euco::Clear(&small, color);
+
+        PasteImage(&img, euco::vec2i(5, 5), small);
+        CHECK(img.GetPixel(5, 5) == colora);
+        CHECK(img.GetPixel(6, 5) == colora);
+        CHECK(img.GetPixel(5, 6) == colora);
+        CHECK(img.GetPixel(6, 6) == colora);
+
+        CHECK_FALSE(img.GetPixel(4, 5) == colora);
+        CHECK_FALSE(img.GetPixel(5, 4) == colora);
+        CHECK_FALSE(img.GetPixel(4, 4) == colora);
+    }
 }
 
 
