@@ -6,7 +6,6 @@
 #include <optional>
 
 #include "core/argparse.h"
-
 #include "core/io.h"
 #include "core/image.h"
 #include "core/image_draw.h"
@@ -54,6 +53,7 @@ LoadImages(const std::vector<std::string>& files, int padding)
             images[index].image.GetHeight() + padding
         );
     }
+
     return {{images, image_sizes}};
 }
 
@@ -227,8 +227,28 @@ main(int argc, char* argv[])
 
     auto parser = argparse::Parser {"collage tool"};
 
-    parser.Add("-o, --output", &output_file);
-    parser.AddVector("files", &files).Nargs("F");
+    parser
+        .Add("--padding", &padding)
+        .AllowBeforePositionals()
+        .Nargs("P").Help("set the space (in pixels) between images")
+        ;
+    parser
+        .Add("-o, --output", &output_file)
+        .AllowBeforePositionals()
+        .Nargs("FILE")
+        .Help("change where to save the output")
+        ;
+    parser
+        .SetFalse("--no-pack", &pack_image)
+        .AllowBeforePositionals()
+        .Help("don't pack the resulting image and keep the whitespace")
+        ;
+    parser
+        .AddVector("files", &files)
+        .Nargs("F")
+        .Help("the files to pack")
+        ;
+
     parser.OnComplete([&]
     {
         const auto was_packed = HandlePack
