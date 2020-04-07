@@ -359,15 +359,18 @@ namespace euphoria::core
             has_alpha = channels == 2 || channels == 4;
         }
 
-        LOG_INFO
-        (
-            "Image: {0} {1}x{2} alpha {3} channels {4}",
-            path,
-            image_width,
-            image_height,
-            has_alpha,
-            channels
-        );
+        if(false)
+        {
+            LOG_INFO
+            (
+                "Image: {0} {1}x{2} alpha {3} channels {4}",
+                path,
+                image_width,
+                image_height,
+                has_alpha,
+                channels
+            );
+        }
 
         ImageLoadResult result;
         if(has_alpha)
