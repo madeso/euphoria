@@ -134,7 +134,8 @@ Sizei
 PackTight
 (
     const Sizei& default_size,
-    std::vector<PackedImage>* images
+    std::vector<PackedImage>* images,
+    int padding
 )
 {
     std::optional<Recti> bb = std::nullopt;
@@ -157,13 +158,12 @@ PackTight
     const auto dx = -bb->left;
     const auto dy = -bb->bottom;
 
-    // todo: resize
     for(auto& img: *images)
     {
         img.rect.Offset(dx, dy);
     }
 
-    return size;
+    return Sizei::FromWidthHeight(size.width + padding, size.height+padding);
 }
 
 
@@ -172,15 +172,14 @@ DrawImage
 (
     const std::vector<PackedImage>& images,
     const Sizei& size,
-    int padding,
     const Rgbi& background_color
 )
 {
     auto composed_image = Image{};
     composed_image.SetupWithAlphaSupport
     (
-        size.width + padding,
-        size.height + padding
+        size.width,
+        size.height
     );
     Clear(&composed_image, background_color);
 
@@ -189,7 +188,7 @@ DrawImage
         PasteImage
         (
             &composed_image,
-            image.rect.BottomLeft() + vec2i{padding, padding},
+            image.rect.BottomLeft(),
             image.image,
             PixelsOutside::Discard
         );
@@ -203,13 +202,26 @@ bool
 HandlePack
 (
     const std::string& output_file,
-    const Sizei& image_size,
+    const Sizei& requested_size,
     int padding,
     Rgbi background_color,
     bool pack_image,
     const std::vector<std::string>& files
 )
 {
+    if( requested_size.width < padding ||
+        requested_size.height < padding)
+    {
+        std::cerr << "padding too large\n";
+        return false;
+    }
+
+    const auto image_size = Sizei::FromWidthHeight
+    (
+        requested_size.width - padding,
+        requested_size.height - padding
+    );
+
     // load images
     const auto images = LoadImages(files);
     if(images.empty())
@@ -227,18 +239,23 @@ HandlePack
 
     // optionally reduce image size
     const auto size = pack_image
-        ? PackTight(image_size, &packed)
-        : image_size
+        ? PackTight(requested_size, &packed, padding)
+        : requested_size
         ;
 
+    // border-theory:
+    // reuqested_size is decreased with padding
+    // the tighlty packed size is increased with padding
+    // the packed image-sizes is increased with padding
+    // and finally all the images are offseted by padding
+    // all to keep padding-sized border between the images
+    for(auto& img: packed)
+    {
+        img.rect.Offset(padding, padding);
+    }
+
     // draw new image
-    auto composed_image = DrawImage
-    (
-        packed,
-        size,
-        padding,
-        background_color
-    );
+    auto composed_image = DrawImage(packed, size, background_color);
 
     // save image to out
     auto saved_chunk = composed_image.Write(ImageWriteFormat::PNG);
