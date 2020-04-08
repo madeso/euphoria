@@ -79,6 +79,7 @@ set(app_src_table
 set(app_src
     result.cc result.h
     custom_parser.cc custom_parser.h
+    default_parse.cc default_parse.h
     argparse.cc argparse.h
     assert.cc assert.h
     base64.cc base64.h
