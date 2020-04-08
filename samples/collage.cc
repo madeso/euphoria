@@ -15,108 +15,165 @@
 using namespace euphoria::core;
 
 
-std::optional
-<
-    std::pair
-    <
-        std::vector<ImageLoadResult>,
-        std::vector<Sizei>
-    >
->
-LoadImages(const std::vector<std::string>& files, int padding)
+struct ImageAndFile
 {
-    auto images = std::vector<ImageLoadResult>(files.size());
-    auto image_sizes = std::vector<Sizei>(files.size());
+    ImageAndFile() {}
 
-    int i = 0;
+    ImageAndFile(const std::string& f, const Image& i)
+        : file(f)
+        , image(i)
+    {}
+
+    std::string file;
+    Image image;
+};
+
+
+std::vector<Sizei> CollectSizes
+(
+    const std::vector<ImageAndFile>& images,
+    int padding
+)
+{
+    auto sizes = std::vector<Sizei>{};
+
+    for(const auto& img: images)
+    {
+        sizes.emplace_back(Sizei::FromWidthHeight
+        (
+            img.image.GetWidth() + padding,
+            img.image.GetHeight() + padding
+        ));
+    }
+
+    return sizes;
+}
+
+
+std::vector<ImageAndFile>
+LoadImages(const std::vector<std::string>& files)
+{
+    auto images = std::vector<ImageAndFile>{};
+
     for(const auto& f: files)
     {
-        const auto index = i; i += 1;
-
         auto chunk = io::FileToChunk(f);
         if(chunk == nullptr)
         {
             std::cerr << "failed to read " << f << "\n";
-            return std::nullopt;
+            return {};
         }
-        images[index] = LoadImage(chunk, f, AlphaLoad::Keep);
-        if(images[index].error.empty() == false)
+        auto loaded_image = LoadImage(chunk, f, AlphaLoad::Keep);
+        if(loaded_image.error.empty() == false)
         {
             std::cerr << "failed to read image " <<
-                images[index].error << "\n";
-            return std::nullopt;
+                loaded_image.error << "\n";
+            return {};
         }
 
-        image_sizes[index] = Sizei::FromWidthHeight
-        (
-            images[index].image.GetWidth() + padding,
-            images[index].image.GetHeight() + padding
-        );
+        images.emplace_back(f, loaded_image.image);
     }
 
-    return {{images, image_sizes}};
+    return images;
 }
 
 
-std::optional<Recti>
-PackTight(const std::vector<std::optional<Recti>>& packed)
+
+struct PackedImage
 {
-    std::optional<Recti> bb = std::nullopt;
+    PackedImage()
+        : rect(Recti::FromWidthHeight(0,0))
+    {}
 
-    for(const auto& rect: packed)
-    {
-        if(rect.has_value())
-        {
-            if(bb.has_value())
-            {
-                bb->Include(*rect);
-            }
-            else
-            {
-                bb = *rect;
-            }
-        }
-    }
+    PackedImage(const std::string& f, const Image& i, const Recti& p)
+        : file(f)
+        , image(i)
+        , rect(p)
+    {}
 
-    return bb;
-}
+    std::string file;
+    Image image;
+    Recti rect;
+};
 
 
-int
-CountAndReportFailedPacks
+std::vector<PackedImage>
+PackImage
 (
-    const std::vector<std::optional<Recti>>& packed,
-    const std::vector<std::string>& files
+    const Sizei& image_size,
+    const std::vector<ImageAndFile>& images,
+    int padding
 )
 {
-    int failed_pack_count = 0;
+    const auto image_sizes = CollectSizes(images, padding);
+    const auto packed = Pack(image_size, image_sizes);
+
+    auto ret = std::vector<PackedImage>{};
 
     int i = 0;
     for(const auto& rect: packed)
     {
-        const auto index = i; i += 1;
+        const auto& src = images[i];
+        i += 1;
 
         if(rect.has_value() == false)
         {
-            std::cerr << "failed to pack " << files[index] << "\n";
-            failed_pack_count += 1;
+            std::cerr << "failed to pack " << src.file << "\n";
+        }
+        else
+        {
+            ret.emplace_back(src.file, src.image, *rect);
         }
     }
 
-    return failed_pack_count;
+    return ret;
+}
+
+
+Sizei
+PackTight
+(
+    const Sizei& default_size,
+    std::vector<PackedImage>* images
+)
+{
+    std::optional<Recti> bb = std::nullopt;
+
+    for(const auto& img: *images)
+    {
+        const auto& rect = img.rect;
+        if(bb.has_value())
+        { bb->Include(rect); }
+        else
+        { bb = rect; }
+    }
+
+    if(!bb)
+    {
+        return default_size;
+    }
+
+    const auto size = bb->GetSize();
+    const auto dx = -bb->left;
+    const auto dy = -bb->bottom;
+
+    // todo: resize
+    for(auto& img: *images)
+    {
+        img.rect.Offset(dx, dy);
+    }
+
+    return size;
 }
 
 
 Image
 DrawImage
 (
-    const std::vector<ImageLoadResult>& images,
-    const std::vector<std::optional<Recti>>& packed,
+    const std::vector<PackedImage>& images,
     const Sizei& size,
     int padding,
-    const Rgbi& background_color,
-    int dx,
-    int dy
+    const Rgbi& background_color
 )
 {
     auto composed_image = Image{};
@@ -127,25 +184,20 @@ DrawImage
     );
     Clear(&composed_image, background_color);
 
-    int i = 0;
-    for(const auto& rect: packed)
+    for(const auto& image: images)
     {
-        const auto index = i; i += 1;
-
-        if(rect.has_value() == false) { continue; }
-
-        // std::cout << rect->BottomLeft() << "\n";
         PasteImage
         (
             &composed_image,
-            rect->BottomLeft() + vec2i{dx, dy} + vec2i{padding, padding},
-            images[index].image,
+            image.rect.BottomLeft() + vec2i{padding, padding},
+            image.image,
             PixelsOutside::Discard
         );
     }
 
     return composed_image;
 }
+
 
 bool
 HandlePack
@@ -159,51 +211,33 @@ HandlePack
 )
 {
     // load images
-    const auto loaded_images = LoadImages(files, padding);
-    if(loaded_images.has_value() == false)
+    const auto images = LoadImages(files);
+    if(images.empty())
     {
         return false;
     }
-    const auto& [images, image_sizes] = *loaded_images;
 
     // pack images
-    const auto packed = Pack(image_size, image_sizes);
-    const int failed_pack_count = CountAndReportFailedPacks(packed, files);
+    auto packed = PackImage(image_size, images, padding);
 
-    if(failed_pack_count > 0)
+    if(packed.empty())
     {
-        // return argparse::ParseResult::Error;
+        return false;
     }
 
-
-    // reduce image size
-    const auto
-    [
-        size,
-        dx,
-        dy
-    ] = [&]() -> std::tuple<Sizei, int, int>
-    {
-        if(pack_image)
-        {
-            if(const auto bb = PackTight(packed); bb.has_value())
-            {
-                return {bb->GetSize(), -bb->left, -bb->bottom};
-            }
-        }
-        return {image_size, 0, 0};
-    }();
+    // optionally reduce image size
+    const auto size = pack_image
+        ? PackTight(image_size, &packed)
+        : image_size
+        ;
 
     // draw new image
     auto composed_image = DrawImage
     (
-        images,
         packed,
         size,
         padding,
-        background_color,
-        dx,
-        dy
+        background_color
     );
 
     // save image to out
@@ -212,6 +246,7 @@ HandlePack
 
     return true;
 }
+
 
 int
 main(int argc, char* argv[])
@@ -243,7 +278,8 @@ main(int argc, char* argv[])
 
             sub->Add("--padding", &padding)
                 .AllowBeforePositionals()
-                .Nargs("P").Help("set the space (in pixels) between images")
+                .Nargs("P")
+                .Help("set the space (in pixels) between images")
                 ;
             sub->Add("-o, --output", &output_file)
                 .AllowBeforePositionals()
@@ -278,7 +314,6 @@ main(int argc, char* argv[])
             });
         }
     );
-
 
     return ParseFromMain(&parser, argc, argv);
 }
