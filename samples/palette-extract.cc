@@ -71,6 +71,42 @@ struct ExtractedColor
 };
 
 
+int
+Find(std::vector<ExtractedColor>* psource, const Rgbi& color, float length)
+{
+    auto& source = *psource;
+
+    for(int i=0; i<source.size(); i+=1)
+    {
+        if((rgb(source[i].color) - rgb(color)).GetLength()*255 < length)
+        {
+            return i;
+        }
+    }
+
+    source.emplace_back(color, 0);
+    return source.size() - 1;
+}
+
+std::vector<ExtractedColor>
+ExtractColors(const std::vector<ImageAndFile>& images, float range)
+{
+    auto ret = std::vector<ExtractedColor>{};
+
+    for(const auto& img: images)
+    {
+        for(int y=0; y<img.image.GetHeight(); y+=1)
+        for(int x=0; x<img.image.GetWidth(); x+=1)
+        {
+            const auto index = Find(&ret, rgbi(img.image.GetPixel(x,y)), range);
+            ret[index].count += 1;
+        }
+    }
+
+    return ret;
+}
+
+
 std::vector<ExtractedColor>
 ExtractColors(const std::vector<ImageAndFile>& images)
 {
@@ -87,7 +123,6 @@ ExtractColors(const std::vector<ImageAndFile>& images)
         }
     }
 
-
     auto ret = std::vector<ExtractedColor>{};
     for(const auto c: colors)
     {
@@ -102,6 +137,7 @@ bool
 HandleImage
 (
     const std::vector<std::string>& files,
+    float range,
     int image_size,
     const std::string& file
 )
@@ -114,7 +150,7 @@ HandleImage
     }
 
     // extract colors
-    auto colors = ExtractColors(images);
+    auto colors = ExtractColors(images, range);
 
     if(colors.empty())
     {
@@ -148,7 +184,8 @@ HandleImage
 bool
 HandlePrint
 (
-    const std::vector<std::string>& files
+    const std::vector<std::string>& files,
+    float range
 )
 {
     // load images
@@ -159,7 +196,7 @@ HandlePrint
     }
 
     // extract colors
-    auto colors = ExtractColors(images);
+    auto colors = ExtractColors(images, range);
 
     if(colors.empty())
     {
@@ -172,6 +209,7 @@ HandlePrint
         std::cout << c.color << " with " << +c.count << "\n";
     }
 
+    std::cout << "Found #colors: " << colors.size() << "\n";
     return true;
 }
 
@@ -191,7 +229,13 @@ main(int argc, char* argv[])
         [](argparse::SubParser* sub)
         {
             std::vector<std::string> files;
+            float range = 5;
 
+            sub->Add("--range", &range)
+                .AllowBeforePositionals()
+                .Nargs("R")
+                .Help("change the pixel range")
+                ;
             sub->AddVector("files", &files)
                 .Nargs("F")
                 .Help("the files to analyze")
@@ -201,7 +245,7 @@ main(int argc, char* argv[])
             {
                 const auto was_extracted = HandlePrint
                 (
-                    files
+                    files, range
                 );
 
                 return was_extracted
@@ -221,7 +265,13 @@ main(int argc, char* argv[])
             int image_size = 5;
             std::string file = "pal.png";
             std::vector<std::string> files;
+            float range = 5;
 
+            sub->Add("--range", &range)
+                .AllowBeforePositionals()
+                .Nargs("R")
+                .Help("change the pixel range")
+                ;
             sub->Add("--size", &image_size)
                 .AllowBeforePositionals()
                 .Nargs("S")
@@ -242,6 +292,7 @@ main(int argc, char* argv[])
                 const auto was_extracted = HandleImage
                 (
                     files,
+                    range,
                     image_size,
                     file
                 );
