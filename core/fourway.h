@@ -36,6 +36,7 @@ namespace euphoria::core
 
         /** Create a new fourway from left-righ and up-down.
           */
+        [[nodiscard]]
         static
         Self
         FromLrud(const T& lr, const T& ud)
@@ -45,6 +46,7 @@ namespace euphoria::core
 
         /** Create a new fourway from left right up and down.
           */
+        [[nodiscard]]
         static
         Self
         FromLrud(const T& l, const T& r, const T& u, const T& d)
