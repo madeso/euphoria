@@ -280,14 +280,19 @@ main(int argc, char* argv[])
         [](argparse::SubParser* sub)
         {
             // todo(Gustav): expose as commandline arguments
-            auto image_size = Sizei::FromWidthHeight(1014, 1024);
             auto background_color = Color::Gray;
 
+            auto image_size = Sizei::FromWidthHeight(1014, 1024);
             std::string output_file = "collage.png";
             int padding = 5;
             bool pack_image = true;
             std::vector<std::string> files;
 
+            sub->Add("--size", &image_size)
+                .AllowBeforePositionals()
+                .Nargs("S")
+                .Help("Set the image size")
+                ;
             sub->Add("--padding", &padding)
                 .AllowBeforePositionals()
                 .Nargs("P")

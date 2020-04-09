@@ -3,6 +3,9 @@
 
 #include "core/vec2.h"
 #include "core/numeric.h"
+#include "core/stringutils.h"
+#include "core/default_parse.h"
+
 
 namespace euphoria::core
 {
@@ -14,21 +17,31 @@ namespace euphoria::core
         T width;
         T height;
 
-        Size() : width(-1), height(-1) {}
+        Size()
+            : width(-1)
+            , height(-1)
+        {
+        }
 
-        [[nodiscard]] static Self
+        [[nodiscard]]
+        static
+        Self
         FromWidthHeight(T w, T h)
         {
             return Self(w, h);
         }
 
-        [[nodiscard]] static Self
+        [[nodiscard]]
+        static
+        Self
         FromHeightWidth(T h, T w)
         {
             return Self(w, h);
         }
 
-        [[nodiscard]] static Self
+        [[nodiscard]]
+        static
+        Self
         FromSquare(T s)
         {
             return Self(s, s);
@@ -69,8 +82,69 @@ namespace euphoria::core
             const T y = (height - o.height) / 2;
             return vec2<T>(x, y);
         }
+
     private:
         Size(T w, T h) : width(w), height(h) {}
+    };
+
+
+    template<typename T>
+    struct CustomArgparser
+    <Size<T>>
+    {
+        enum { value = 1 };
+
+        static
+        std::string
+        ToString(const Size<T>& s)
+        {
+            std::ostringstream ss;
+            ss << s.width << "x" << s.height;
+            return ss.str();
+        }
+
+        static
+        Result<Size<T>>
+        Parse(const std::string& value)
+        {
+            using R = Result<Size<T>>;
+            const auto values = Split(value, 'x');
+            const auto xes = values.size();
+            if(xes != 2)
+            {
+                if(xes < 2)
+                {
+                    return R::False
+                    (
+                        Str{} << value << " contains less than one x"
+                    );
+                }
+                else
+                {
+                    return R::False
+                    (
+                        Str{}
+                            << value << " contains more than one x: "
+                            << (xes-1)
+                    );
+                }
+            }
+
+            auto parse_hs = [&](int index)
+            {
+                return argparse::DefaultParseFunction<T>
+                (
+                    Trim(values[index])
+                );
+            };
+            const auto lhs = parse_hs(0);
+            const auto rhs = parse_hs(1);
+
+            if(!lhs) { return R::False(lhs.Error()); }
+            if(!rhs) { return R::False(rhs.Error()); }
+
+            return R::True(Size<T>::FromWidthHeight(*lhs, *rhs));
+        }
     };
 
     template <typename T>
