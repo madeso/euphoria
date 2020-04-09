@@ -137,6 +137,9 @@ source_group("" FILES ${all_samples_src})
 
 # single file applications that could be useful
 
+add_executable(palextract samples/palette-extract.cc)
+target_link_libraries(palextract core)
+
 add_executable(collage samples/collage.cc)
 target_link_libraries(collage core)
 
