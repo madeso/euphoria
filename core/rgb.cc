@@ -77,12 +77,33 @@ namespace euphoria::core
     }
 
 
+    float
+    Rgb::GetLength() const
+    {
+        return Sqrt(GetLengthSquared());
+    }
+
+    float
+    Rgb::GetLengthSquared() const
+    {
+        return Square(r) + Square(g) + Square(b);
+    }
+
     void
     Rgb::operator+=(const Rgb& rhs)
     {
         r += rhs.r;
         g += rhs.g;
         b += rhs.b;
+    }
+
+
+    void
+    Rgb::operator-=(const Rgb& rhs)
+    {
+        r -= rhs.r;
+        g -= rhs.g;
+        b -= rhs.b;
     }
 
 
@@ -109,6 +130,14 @@ namespace euphoria::core
     {
         auto r = lhs;
         r += rhs;
+        return r;
+    }
+
+    Rgb
+    operator-(const Rgb& lhs, const Rgb& rhs)
+    {
+        auto r = lhs;
+        r -= rhs;
         return r;
     }
 

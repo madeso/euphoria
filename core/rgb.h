@@ -69,8 +69,17 @@ namespace euphoria::core
         static Rgb
         FromHex(unsigned int hex);
 
+        float
+        GetLength() const;
+
+        float
+        GetLengthSquared() const;
+
         void
         operator+=(const Rgb& rhs);
+
+        void
+        operator-=(const Rgb& rhs);
 
         void
         operator/=(float rhs);
@@ -87,6 +96,9 @@ namespace euphoria::core
 
     Rgb
     operator+(const Rgb& lhs, const Rgb& rhs);
+
+    Rgb
+    operator-(const Rgb& lhs, const Rgb& rhs);
 
     // memberwise multiplication
     Rgb
