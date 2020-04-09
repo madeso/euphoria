@@ -89,8 +89,7 @@ namespace euphoria::core
 
 
     template<typename T>
-    struct CustomArgparser
-    <Size<T>>
+    struct CustomArgparser<Size<T>>
     {
         enum { value = 1 };
 

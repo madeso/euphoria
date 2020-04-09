@@ -1,10 +1,14 @@
 #include "core/rgb.h"
+
+#include <iostream>
+#include <map>
+
 #include "core/interpolate.h"
 #include "core/numeric.h"
 #include "core/stringutils.h"
 #include "core/range.h"
-#include <iostream>
-#include <map>
+#include "core/stringmerger.h"
+
 
 namespace euphoria::core
 {
@@ -205,8 +209,7 @@ namespace euphoria::core
     std::ostream&
     operator<<(std::ostream& stream, const Rgbi& v)
     {
-        return stream << "(" << IV(v.r) << ", " << IV(v.g) << ", " << IV(v.b)
-                      << ")";
+        return stream << "#" << std::hex << IV(v.r) << IV(v.g) << IV(v.b);
     }
 
 
@@ -514,6 +517,93 @@ namespace euphoria::core
         const float g = (t - rgb.g) * p + rgb.g;
         const float b = (t - rgb.b) * p + rgb.b;
         return Rgb {r, g, b};
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////
+
+    namespace
+    {
+        // parses a #fff or a #ffffff string as a color
+        Result<Rgbi>
+        ParseHashHexRgbi(const std::string& value)
+        {
+            using R = Result<Rgbi>;
+
+            auto parse_rgb_hex = [&](int size) -> R
+            {
+                auto parse_hex = [&](int index, int len) ->
+                    std::pair<std::optional<std::uint8_t>, std::string>
+                {
+                    const auto s = value.substr(1+index*len, len);
+                    auto ss = std::istringstream(s);
+                    int hex;
+                    ss >> std::hex >> hex;
+                    if(ss.eof() && ss.fail()==false)
+                    { return {static_cast<std::uint8_t>(hex), s}; }
+                    else return {std::nullopt, s};
+                };
+
+                const auto [r, r_value] = parse_hex(0, size);
+                const auto [g, g_value] = parse_hex(1, size);
+                const auto [b, b_value] = parse_hex(2, size);
+                if(r && r && b)
+                {
+                    return R::True({*r, *g, *b});
+                }
+                else
+                {
+                    auto invalids = std::vector<std::string>{};
+                    if(!r) { invalids.emplace_back(Str{} << "red(" << r_value << ")"); }
+                    if(!g) { invalids.emplace_back(Str{} << "green(" << g_value << ")"); }
+                    if(!b) { invalids.emplace_back(Str{} << "blue(" << b_value << ")"); }
+                    return R::False
+                    (
+                        Str() << "#color contains invalid hex for " <<
+                        StringMerger::EnglishAnd().Generate(invalids)
+                    );
+                }
+            };
+
+            const auto size = value.length();
+            switch(size)
+            {
+            case 4: return parse_rgb_hex(1);
+            case 7: return parse_rgb_hex(2);
+            default: return R::False
+                (
+                    Str() << "a hexadecimal color needs to be either #abc "
+                    "or #aabbcc. current count: " << (size-1)
+                );
+            }
+        }
+    }
+
+    [[nodiscard]]
+    Result<Rgbi>
+    rgbi(const std::string& original_value)
+    {
+        using R = Result<Rgbi>;
+        const auto value = Trim(original_value);
+
+        if(value.empty()) { return R::False("empty string is not a color");}
+
+        if(value[0] == '#')
+        {
+            return ParseHashHexRgbi(value);
+        }
+        else
+        {
+            const auto match = StringToEnum<Color>(value);
+            if(match.single_match) { return R::True(rgbi(match.values[0])); }
+            return R::False
+            (
+                Str() << "bad name. Hex values require a #, but it could also be either " <<
+                StringMerger::EnglishOr().Generate
+                (
+                    match.names
+                )
+            );
+        }
     }
 
     ////////////////////////////////////////////////////////////////////////////////

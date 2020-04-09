@@ -280,9 +280,9 @@ main(int argc, char* argv[])
         [](argparse::SubParser* sub)
         {
             // todo(Gustav): expose as commandline arguments
-            auto background_color = Color::Gray;
 
-            auto image_size = Sizei::FromWidthHeight(1014, 1024);
+            auto image_size = Sizei::FromWidthHeight(1024, 1024);
+            Rgbi background_color = Color::Gray;
             std::string output_file = "collage.png";
             int padding = 5;
             bool pack_image = true;
@@ -291,12 +291,17 @@ main(int argc, char* argv[])
             sub->Add("--size", &image_size)
                 .AllowBeforePositionals()
                 .Nargs("S")
-                .Help("Set the image size")
+                .Help("change the image size")
+                ;
+            sub->Add("--bg", &background_color)
+                .AllowBeforePositionals()
+                .Nargs("C")
+                .Help("change the background color")
                 ;
             sub->Add("--padding", &padding)
                 .AllowBeforePositionals()
                 .Nargs("P")
-                .Help("set the space (in pixels) between images")
+                .Help("change the space (in pixels) between images")
                 ;
             sub->Add("-o, --output", &output_file)
                 .AllowBeforePositionals()
