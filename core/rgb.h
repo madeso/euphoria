@@ -32,6 +32,9 @@ namespace euphoria::core
         [[nodiscard]] static Rgbi
         FromHex(unsigned int hex);
 
+        int
+        ToHex() const;
+
         std::uint8_t r;
         std::uint8_t g;
         std::uint8_t b;

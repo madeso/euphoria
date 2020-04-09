@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <map>
+#include <iomanip>
 
 #include "core/interpolate.h"
 #include "core/numeric.h"
@@ -28,6 +29,7 @@ namespace euphoria::core
         , b(colorutil::ToUnsignedChar(rgb.b))
     {}
 
+
     Rgbi
     Rgbi::FromHex(unsigned int hex)
     {
@@ -36,6 +38,13 @@ namespace euphoria::core
                 colorutil::GetBlue(hex)};
     }
 
+
+    int
+    Rgbi::ToHex() const
+    {
+        auto value = [](int i, int steps) -> int { return i << (8 * steps); };
+        return value(r, 2) | value(g, 1) | value(b, 0);
+    }
 
     ////////////////////////////////////////////////////////////////////////////////
 
@@ -209,7 +218,14 @@ namespace euphoria::core
     std::ostream&
     operator<<(std::ostream& stream, const Rgbi& v)
     {
-        return stream << "#" << std::hex << IV(v.r) << IV(v.g) << IV(v.b);
+        const auto flags = std::ios_base::fmtflags {stream.flags()};
+        stream << "#" << std::hex
+            << std::setfill('0') << std::setw(2)
+            << +v.r
+            << +v.g
+            << +v.b;
+        stream.flags(flags);
+        return stream;
     }
 
 
