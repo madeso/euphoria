@@ -198,6 +198,94 @@ DrawImage
 }
 
 
+std::pair<std::vector<PackedImage>, Sizei>
+GridLayout(const std::vector<ImageAndFile>& images, int padding)
+{
+    const auto images_per_row = Ceil(Sqrt(images.size()));
+
+    auto ret = std::vector<PackedImage>{};
+
+    int x = padding;
+    int y = padding;
+    int current_height = 0;
+    int column = 0;
+    int max_x = 0;
+
+    auto new_row = [&]
+    {
+        max_x = Max(max_x, x);
+        column = 0;
+        x = padding;
+        y += current_height + padding;
+        current_height = 0;
+    };
+
+    for(const auto& src: images)
+    {
+        const auto width = src.image.GetWidth();
+        const auto height = src.image.GetHeight();
+
+        ret.emplace_back
+        (
+            src.file,
+            src.image,
+            Recti::FromBottomLeftWidthHeight
+            (
+                vec2i(x, y),
+                width,
+                height
+            )
+        );
+
+        x += width + padding;
+        current_height = Max(current_height, height);
+        column += 1;
+
+        if(column >= images_per_row)
+        {
+            new_row();
+        }
+    }
+
+    if(column != 0)
+    {
+        new_row();
+    }
+
+    return {ret, Sizei::FromWidthHeight(max_x, y)};
+}
+
+
+bool
+HandleGrid
+(
+    const std::string& output_file,
+    int padding,
+    Rgbi background_color,
+    const std::vector<std::string>& files
+)
+{
+    // load images
+    const auto images = LoadImages(files);
+    if(images.empty())
+    {
+        return false;
+    }
+
+    // layout images in grid and calculate image size from grid
+    const auto [image_grid, size] = GridLayout(images, padding);
+
+    // draw new image
+    auto composed_image = DrawImage(image_grid, size, background_color);
+
+    // save image to out
+    auto saved_chunk = composed_image.Write(ImageWriteFormat::PNG);
+    io::ChunkToFile(saved_chunk, output_file);
+
+    return true;
+}
+
+
 bool
 HandlePack
 (
@@ -276,11 +364,57 @@ main(int argc, char* argv[])
 
     subs->Add
     (
+        "grid", "lay put images in a grid",
+        [](argparse::SubParser* sub)
+        {
+            Rgbi background_color = Color::Gray;
+            std::string output_file = "collage.png";
+            int padding = 5;
+            std::vector<std::string> files;
+
+            sub->Add("--bg", &background_color)
+                .AllowBeforePositionals()
+                .Nargs("C")
+                .Help("change the background color")
+                ;
+            sub->Add("--padding", &padding)
+                .AllowBeforePositionals()
+                .Nargs("P")
+                .Help("change the space (in pixels) between images")
+                ;
+            sub->Add("-o, --output", &output_file)
+                .AllowBeforePositionals()
+                .Nargs("FILE")
+                .Help("change where to save the output")
+                ;
+            sub->AddVector("files", &files)
+                .Nargs("F")
+                .Help("the files to pack")
+                ;
+
+            return sub->OnComplete([&]
+            {
+                const auto was_packed = HandleGrid
+                (
+                    output_file,
+                    padding,
+                    background_color,
+                    files
+                );
+
+                return was_packed
+                    ? argparse::ParseResult::Ok
+                    : argparse::ParseResult::Error
+                    ;
+            });
+        }
+    );
+
+    subs->Add
+    (
         "pack", "pack images according to the stb rect-pack algorithm",
         [](argparse::SubParser* sub)
         {
-            // todo(Gustav): expose as commandline arguments
-
             auto image_size = Sizei::FromWidthHeight(1024, 1024);
             Rgbi background_color = Color::Gray;
             std::string output_file = "collage.png";
