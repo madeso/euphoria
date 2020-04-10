@@ -74,6 +74,19 @@ namespace euphoria::core
                     left, left + width, bottom, bottom + height);
         }
 
+        [[nodiscard]]
+        static
+        Rect
+        FromBottomLeftWidthHeight(const vec2<T>& bl, T width, T height)
+        {
+            ASSERT(width >= 0);
+            ASSERT(height >= 0);
+            return FromLeftRightTopBottom
+            (
+                bl.x, bl.x + width, bl.y + height, bl.y
+            );
+        }
+
         [[nodiscard]] static Rect
         FromTopLeftWidthHeight(const vec2<T>& topleft, T width, T height)
         {
