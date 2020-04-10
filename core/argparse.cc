@@ -1025,14 +1025,7 @@ namespace euphoria::core::argparse
                     matched_name,
                     base
                 );
-                if(arg_parse_result != ParseResult::Ok)
-                {
-                    return arg_parse_result;
-                }
-                else
-                {
-                    return std::nullopt;
-                }
+                return arg_parse_result;
             }
             else
             {
@@ -1238,18 +1231,31 @@ namespace euphoria::core::argparse
         {
             if (HasMorePositionals())
             {
+                // null from tryparse = the parsed optional wasnt important
+                // null from this = abort this parsing and return to parent
                 auto opt = TryParseImportantOptional();
                 if(opt.has_value())
                 {
-                    return opt;
+                    if(*opt == ParseResult::Ok)
+                    {
+                        // ok... continue parsing
+                        return std::nullopt;
+                    }
+                    else
+                    {
+                        // error... abort!
+                        return opt;
+                    }
                 }
                 else
                 {
+                    // not important optional... parse a positional
                     return ParseOnePositional();
                 }
             }
             else
             {
+                // no more positionals... then it can ob ly be optionals
                 return ParseOneOptional();
             }
         }
