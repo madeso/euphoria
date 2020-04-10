@@ -202,7 +202,12 @@ DrawImage
 
 
 std::pair<std::vector<PackedImage>, Sizei>
-GridLayout(const std::vector<ImageAndFile>& images, int padding)
+GridLayout
+(
+    const std::vector<ImageAndFile>& images,
+    int padding,
+    bool top_to_bottom
+)
 {
     const auto images_per_row = Ceil(Sqrt(images.size()));
 
@@ -250,7 +255,21 @@ GridLayout(const std::vector<ImageAndFile>& images, int padding)
         new_row();
     }
 
-    return {ret, Sizei::FromWidthHeight(max_x, y)};
+    const auto image_width = max_x;
+    const auto image_height = y;
+
+    // we lay out left->right, bottom->top since that is easer
+    // but top->bottom is ieasier to read, so we provide a option
+    // to switch to that, and we do that by inverting it at the end
+    if(top_to_bottom)
+    {
+        for(auto& r: ret)
+        {
+            r.position.y = image_height - (r.position.y + r.image.GetHeight());
+        }
+    }
+
+    return {ret, Sizei::FromWidthHeight(image_width, image_height)};
 }
 
 
@@ -260,7 +279,8 @@ HandleGrid
     const std::string& output_file,
     int padding,
     Rgbi background_color,
-    const std::vector<std::string>& files
+    const std::vector<std::string>& files,
+    bool top_to_bottom
 )
 {
     // load images
@@ -271,7 +291,7 @@ HandleGrid
     }
 
     // layout images in grid and calculate image size from grid
-    const auto [image_grid, size] = GridLayout(images, padding);
+    const auto [image_grid, size] = GridLayout(images, padding, top_to_bottom);
 
     // draw new image
     auto composed_image = DrawImage(image_grid, size, background_color);
@@ -368,6 +388,7 @@ main(int argc, char* argv[])
             Rgbi background_color = Color::Gray;
             std::string output_file = "collage.png";
             int padding = 5;
+            bool top_to_bottom = true;
             std::vector<std::string> files;
 
             sub->Add("--bg", &background_color)
@@ -389,7 +410,10 @@ main(int argc, char* argv[])
                 .Nargs("F")
                 .Help("the files to pack")
                 ;
-
+            sub->SetFalse("--invert", &top_to_bottom)
+                .AllowBeforePositionals()
+                .Help("switch from top-to-bottom to bottom-to-top layout")
+                ;
             return sub->OnComplete([&]
             {
                 const auto was_packed = HandleGrid
@@ -397,7 +421,8 @@ main(int argc, char* argv[])
                     output_file,
                     padding,
                     background_color,
-                    files
+                    files,
+                    top_to_bottom
                 );
 
                 return was_packed
