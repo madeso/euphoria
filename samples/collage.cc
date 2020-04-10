@@ -82,18 +82,18 @@ LoadImages(const std::vector<std::string>& files)
 struct PackedImage
 {
     PackedImage()
-        : rect(Recti::FromWidthHeight(0,0))
+        : position{0,0}
     {}
 
-    PackedImage(const std::string& f, const Image& i, const Recti& p)
+    PackedImage(const std::string& f, const Image& i, const vec2i& p)
         : file(f)
         , image(i)
-        , rect(p)
+        , position(p)
     {}
 
     std::string file;
     Image image;
-    Recti rect;
+    vec2i position;
 };
 
 
@@ -122,7 +122,7 @@ PackImage
         }
         else
         {
-            ret.emplace_back(src.file, src.image, *rect);
+            ret.emplace_back(src.file, src.image, rect->BottomLeft());
         }
     }
 
@@ -142,17 +142,20 @@ PackTight
 
     for(const auto& img: *images)
     {
-        const auto& rect = img.rect;
+        const auto image_width = img.image.GetWidth();
+        const auto image_height = img.image.GetHeight();
+        const auto& rect = Recti::FromBottomLeftWidthHeight
+        (
+            vec2i(img.position.x, img.position.y),
+            image_width + padding,
+            image_height + padding
+        );
         if(bb.has_value())
         { bb->Include(rect); }
         else
         { bb = rect; }
     }
-
-    if(!bb)
-    {
-        return default_size;
-    }
+    if(!bb) { return default_size; }
 
     const auto size = bb->GetSize();
     const auto dx = -bb->left;
@@ -160,7 +163,7 @@ PackTight
 
     for(auto& img: *images)
     {
-        img.rect.Offset(dx, dy);
+        img.position += vec2i(dx, dy);
     }
 
     return Sizei::FromWidthHeight(size.width + padding, size.height+padding);
@@ -188,7 +191,7 @@ DrawImage
         PasteImage
         (
             &composed_image,
-            image.rect.BottomLeft(),
+            image.position,
             image.image,
             PixelsOutside::Discard
         );
@@ -229,12 +232,7 @@ GridLayout(const std::vector<ImageAndFile>& images, int padding)
         (
             src.file,
             src.image,
-            Recti::FromBottomLeftWidthHeight
-            (
-                vec2i(x, y),
-                width,
-                height
-            )
+            vec2i(x, y)
         );
 
         x += width + padding;
@@ -339,7 +337,7 @@ HandlePack
     // all to keep padding-sized border between the images
     for(auto& img: packed)
     {
-        img.rect.Offset(padding, padding);
+        img.position += vec2i(padding, padding);
     }
 
     // draw new image
