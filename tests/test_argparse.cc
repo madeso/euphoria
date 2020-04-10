@@ -95,6 +95,28 @@ namespace
     FalseString
     Check
     (
+        const std::vector<std::string>& lhs,
+        const std::vector<std::string>& rhs
+    )
+    {
+        return euphoria::tests::VectorEquals
+        (
+            lhs,
+            rhs,
+            [](const std::string& m) -> std::string
+            {
+                return m;
+            },
+            [](const std::string& lhs, const std::string& rhs) -> FalseString
+            {
+                return StringEq(lhs, rhs);
+            }
+        );
+    }
+
+    FalseString
+    Check
+    (
         const std::vector<Message>& lhs,
         const std::vector<Message>& rhs
     )
@@ -486,6 +508,77 @@ TEST_CASE("argparse", "[argparse]")
             const auto res = parser.Parse(MakeArguments({ "dog" }));
             CHECK(res == ParseResult::Ok);
             CHECK(value == "dog");
+        }
+    }
+
+    SECTION("greedy")
+    {
+        int a = 42;
+        int b = 42;
+        std::vector<std::string> files;
+
+        parser.Add("-a, --alpha", &a).AllowBeforePositionals().Help("set a");
+        parser.Add("-b, --beta", &b).AllowBeforePositionals().Help("set b");
+        parser.AddVector("files", &files).Help("the files");
+
+        SECTION("parse single")
+        {
+            const auto res = parser.Parse(MakeArguments({ "dog" }));
+            CHECK(res == ParseResult::Ok);
+            CHECK(a == 42);
+            CHECK(b == 42);
+            CHECK(Check(files,
+            {
+                "dog"
+            }));
+        }
+
+        SECTION("parse many")
+        {
+            const auto res = parser.Parse(MakeArguments({ "dog", "cat"}));
+            CHECK(res == ParseResult::Ok);
+            CHECK(a == 42);
+            CHECK(b == 42);
+            CHECK(Check(files,
+            {
+                "dog", "cat"
+            }));
+        }
+
+        SECTION("set single short argument")
+        {
+            const auto res = parser.Parse(MakeArguments({ "-a", "5", "dog" }));
+            CHECK(res == ParseResult::Ok);
+            CHECK(a == 5);
+            CHECK(b == 42);
+            CHECK(Check(files,
+            {
+                "dog"
+            }));
+        }
+
+        SECTION("set single long argument")
+        {
+            const auto res = parser.Parse(MakeArguments({ "--alpha", "7", "dog" }));
+            CHECK(res == ParseResult::Ok);
+            CHECK(a == 7);
+            CHECK(b == 42);
+            CHECK(Check(files,
+            {
+                "dog"
+            }));
+        }
+
+        SECTION("set many argument")
+        {
+            const auto res = parser.Parse(MakeArguments({ "-a", "5", "-b", "3", "dog" }));
+            CHECK(res == ParseResult::Ok);
+            CHECK(a == 5);
+            CHECK(b == 3);
+            CHECK(Check(files,
+            {
+                "dog"
+            }));
         }
     }
 
