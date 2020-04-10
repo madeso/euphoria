@@ -10,6 +10,7 @@
 #include "core/image.h"
 #include "core/image_draw.h"
 #include "core/pack.h"
+#include "core/stringutils.h"
 
 
 using namespace euphoria::core;
@@ -279,10 +280,26 @@ HandleGrid
     const std::string& output_file,
     int padding,
     Rgbi background_color,
-    const std::vector<std::string>& files,
-    bool top_to_bottom
+    const std::vector<std::string>& src_files,
+    bool top_to_bottom,
+    bool sort_files
 )
 {
+    auto files = src_files;
+
+    if(sort_files)
+    {
+        std::sort
+        (
+            files.begin(),
+            files.end(),
+            [](const std::string& lhs, const std::string& rhs)
+            {
+                return StringCompare(lhs, rhs) < 0;
+            }
+        );
+    }
+
     // load images
     const auto images = LoadImages(files);
     if(images.empty())
@@ -390,6 +407,7 @@ main(int argc, char* argv[])
             int padding = 5;
             bool top_to_bottom = true;
             std::vector<std::string> files;
+            bool sort_files = false;
 
             sub->Add("--bg", &background_color)
                 .AllowBeforePositionals()
@@ -414,6 +432,10 @@ main(int argc, char* argv[])
                 .AllowBeforePositionals()
                 .Help("switch from top-to-bottom to bottom-to-top layout")
                 ;
+            sub->SetTrue("--sort", &sort_files)
+                .AllowBeforePositionals()
+                .Help("sort image files before laying them out in the grid")
+                ;
             return sub->OnComplete([&]
             {
                 const auto was_packed = HandleGrid
@@ -422,7 +444,8 @@ main(int argc, char* argv[])
                     padding,
                     background_color,
                     files,
-                    top_to_bottom
+                    top_to_bottom,
+                    sort_files
                 );
 
                 return was_packed
