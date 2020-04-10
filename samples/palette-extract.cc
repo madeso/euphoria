@@ -40,13 +40,13 @@ LoadImages(const std::vector<std::string>& files)
         auto chunk = io::FileToChunk(f);
         if(chunk == nullptr)
         {
-            std::cerr << "failed to read " << f << "\n";
+            std::cerr << "failed to read image file " << f << "\n";
             return {};
         }
         auto loaded_image = LoadImage(chunk, f, AlphaLoad::Keep);
         if(loaded_image.error.empty() == false)
         {
-            std::cerr << "failed to read image " <<
+            std::cerr << "failed to read image data " <<
                 loaded_image.error << "\n";
             return {};
         }
