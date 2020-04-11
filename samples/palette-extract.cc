@@ -344,6 +344,16 @@ HandlePrint
     // extract colors
     auto colors = MedianCut(ExtractAllColors(images), depth);
 
+    std::sort
+    (
+        colors.begin(),
+        colors.end(),
+        [](const Rgbi& lhs, const Rgbi& rhs) -> bool
+        {
+            return rgb(lhs).CalcLuminance() < rgb(rhs).CalcLuminance();
+        }
+    );
+
     if(colors.empty())
     {
         return false;
