@@ -21,6 +21,12 @@ namespace euphoria::core
             ASSERTX(lower_bound <= upper_bound, upper_bound, lower_bound);
         }
 
+        T
+        GetRange() const
+        {
+            return upper_bound - lower_bound;
+        }
+
         T lower_bound;
         T upper_bound;
     };

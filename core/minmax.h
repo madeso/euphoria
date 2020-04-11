@@ -4,9 +4,40 @@
 #include <tuple>
 
 #include "core/assert.h"
+#include "core/range.h"
 
 namespace euphoria::core
 {
+    template
+    <
+        typename T,
+        typename TContainer,
+        typename TExtract
+    >
+    Range<T>
+    FindMinMaxRange
+    (
+        const TContainer& ts,
+        TExtract extract
+    )
+    {
+        ASSERT(!ts.empty());
+        auto it = ts.begin();
+        T min_value = extract(*it);
+        T max_value = extract(*it);
+
+        it += 1;
+
+        for(; it!=ts.end(); it+=1)
+        {
+            min_value = std::min(min_value, extract(*it));
+            max_value = std::max(max_value, extract(*it));
+        }
+
+        return {min_value, max_value};
+    }
+
+
     template
     <
         typename T,
@@ -17,7 +48,7 @@ namespace euphoria::core
     std::tuple<T, T>
     FindMinMax
     (
-        const TContainer ts,
+        const TContainer& ts,
         TMinFunction min_function,
         TMaxFunction max_function
     )

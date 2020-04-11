@@ -11,6 +11,7 @@
 #include "core/image.h"
 #include "core/cint.h"
 #include "core/image_draw.h"
+#include "core/minmax.h"
 
 
 using namespace euphoria::core;
@@ -69,6 +70,100 @@ struct ExtractedColor
     Rgbi color;
     int count;
 };
+
+enum class SortRange
+{
+    R, G, B
+};
+
+
+SortRange
+FindGreatestSortRange(const std::vector<ExtractedColor>& colors)
+{
+    using Tu = std::tuple<SortRange, float>;
+
+    // todo(Gustav): this iterates 3 times through the color array, make it 1
+    auto make = [&]
+    (SortRange r, std::function<float (const Rgbi& c)> conv) -> Tu
+    {
+        return std::make_tuple
+        (
+            r,
+            FindMinMaxRange<float>
+            (
+                colors,
+                [&](const ExtractedColor& c) { return conv(c.color); }
+            ).GetRange()
+        );
+    };
+    auto ranges = std::vector<Tu>
+    {
+        make(SortRange::R, [](const Rgbi& c) -> float { return rgb(c).r; }),
+        make(SortRange::G, [](const Rgbi& c) -> float { return rgb(c).g; }),
+        make(SortRange::B, [](const Rgbi& c) -> float { return rgb(c).b; })
+    };
+    std::sort(ranges.begin(), ranges.end(), [](const Tu& lhs, const Tu& rhs)
+    {
+        return std::get<1>(lhs) > std::get<1>(rhs);
+    });
+    return std::get<0>(ranges[0]);
+}
+
+
+void
+Sort(SortRange sort_range, std::vector<ExtractedColor>* colors)
+{
+    auto sort = [&](std::function<float (const Rgbi& c)> conv)
+    {
+        std::sort(colors->begin(), colors->end(), [&]
+        (
+            const ExtractedColor& lhs, const ExtractedColor& rhs)
+            {
+                return conv(lhs.color) < conv(rhs.color);
+            }
+        );
+    };
+
+    switch(sort_range)
+    {
+    case SortRange::R: sort([](const Rgbi& c) -> float { return c.r; }); break;
+    case SortRange::G: sort([](const Rgbi& c) -> float { return c.g; }); break;
+    case SortRange::B: sort([](const Rgbi& c) -> float { return c.b; }); break;
+    }
+}
+
+
+std::vector<Rgbi>
+MedianCut(const std::vector<ExtractedColor>& src, int depth)
+{
+    ASSERT(src.empty() == false);
+
+    if(depth <= 0 || src.size() < 2)
+    {
+        auto sum = Rgb{0,0,0};
+        int total = 0;
+        for(const auto& c: src)
+        {
+            sum += rgb(c.color);
+            total += c.count;
+        }
+
+        return {rgbi(sum / total)};
+    }
+
+    const auto range = FindGreatestSortRange(src);
+
+    using V = std::vector<ExtractedColor>;
+    V vec = src;
+    Sort(range, &vec);
+
+    const auto median = vec.begin()+vec.size() / 2;
+    auto ret = MedianCut(V(vec.begin(), median), depth -1);
+    const auto rhs = MedianCut(V(median, vec.end()), depth-1);
+    ret.insert(ret.end(), rhs.begin(), rhs.end());
+
+    return ret;
+}
 
 
 int
@@ -137,7 +232,7 @@ bool
 HandleImage
 (
     const std::vector<std::string>& files,
-    float range,
+    int depth,
     int image_size,
     const std::string& file
 )
@@ -150,7 +245,7 @@ HandleImage
     }
 
     // extract colors
-    auto colors = ExtractColors(images, range);
+    auto colors = MedianCut(ExtractColors(images), depth);
 
     if(colors.empty())
     {
@@ -169,7 +264,7 @@ HandleImage
         DrawSquare
         (
             &image,
-            colors[i].color,
+            colors[i],
             image_size * i,
             image_size - 1,
             image_size
@@ -185,7 +280,7 @@ bool
 HandlePrint
 (
     const std::vector<std::string>& files,
-    float range
+    int depth
 )
 {
     // load images
@@ -196,7 +291,7 @@ HandlePrint
     }
 
     // extract colors
-    auto colors = ExtractColors(images, range);
+    auto colors = MedianCut(ExtractColors(images), depth);
 
     if(colors.empty())
     {
@@ -206,7 +301,7 @@ HandlePrint
     // print colors
     for(auto c: colors)
     {
-        std::cout << c.color << " with " << +c.count << "\n";
+        std::cout << c << "\n";
     }
 
     std::cout << "Found #colors: " << colors.size() << "\n";
@@ -229,12 +324,12 @@ main(int argc, char* argv[])
         [](argparse::SubParser* sub)
         {
             std::vector<std::string> files;
-            float range = 5;
+            int depth = 3;
 
-            sub->Add("--range", &range)
+            sub->Add("--depth", &depth)
                 .AllowBeforePositionals()
                 .Nargs("R")
-                .Help("change the pixel range")
+                .Help("change the palette depth")
                 ;
             sub->AddVector("files", &files)
                 .Nargs("F")
@@ -245,7 +340,7 @@ main(int argc, char* argv[])
             {
                 const auto was_extracted = HandlePrint
                 (
-                    files, range
+                    files, depth
                 );
 
                 return was_extracted
@@ -265,12 +360,12 @@ main(int argc, char* argv[])
             int image_size = 5;
             std::string file = "pal.png";
             std::vector<std::string> files;
-            float range = 5;
+            int depth = 3;
 
-            sub->Add("--range", &range)
+            sub->Add("--depth", &depth)
                 .AllowBeforePositionals()
                 .Nargs("R")
-                .Help("change the pixel range")
+                .Help("change the palette depth")
                 ;
             sub->Add("--size", &image_size)
                 .AllowBeforePositionals()
@@ -292,7 +387,7 @@ main(int argc, char* argv[])
                 const auto was_extracted = HandleImage
                 (
                     files,
-                    range,
+                    depth,
                     image_size,
                     file
                 );
