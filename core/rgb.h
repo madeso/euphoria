@@ -75,6 +75,9 @@ namespace euphoria::core
         float
         GetLengthSquared() const;
 
+        float
+        CalcLuminance() const;
+
         void
         operator+=(const Rgb& rhs);
 

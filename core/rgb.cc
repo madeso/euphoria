@@ -89,6 +89,13 @@ namespace euphoria::core
         return Square(r) + Square(g) + Square(b);
     }
 
+
+    float
+    Rgb::CalcLuminance() const
+    {
+        return 0.2126f*r + 0.7152f*b + 0.0722f*b;
+    }
+
     void
     Rgb::operator+=(const Rgb& rhs)
     {
