@@ -77,24 +77,30 @@ enum class SortRange
 };
 
 
-SortRange
-FindGreatestSortRange(const std::vector<ExtractedColor>& colors)
+float
+GetValue(SortRange range, const Rgbi& c)
 {
-    using Tu = std::tuple<SortRange, float>;
+    switch(range)
+    {
+        case SortRange::R: return rgb(c).r;
+        case SortRange::G: return rgb(c).g;
+        case SortRange::B: return rgb(c).b;
+        default: return 0;
+    }
+}
+
+
+std::tuple<SortRange, Range<float>>
+FindGreatestSortRange(const std::vector<Rgbi>& colors)
+{
+    using Tu = std::tuple<SortRange, Range<float>>;
 
     // todo(Gustav): this iterates 3 times through the color array, make it 1
+    // todo(Gustav): remove the std::function and use GetValue(SortRange)
     auto make = [&]
     (SortRange r, std::function<float (const Rgbi& c)> conv) -> Tu
     {
-        return std::make_tuple
-        (
-            r,
-            FindMinMaxRange<float>
-            (
-                colors,
-                [&](const ExtractedColor& c) { return conv(c.color); }
-            ).GetRange()
-        );
+        return std::make_tuple(r, FindMinMaxRange<float>(colors, conv));
     };
     auto ranges = std::vector<Tu>
     {
@@ -104,22 +110,22 @@ FindGreatestSortRange(const std::vector<ExtractedColor>& colors)
     };
     std::sort(ranges.begin(), ranges.end(), [](const Tu& lhs, const Tu& rhs)
     {
-        return std::get<1>(lhs) > std::get<1>(rhs);
+        return std::get<1>(lhs).GetRange() > std::get<1>(rhs).GetRange();
     });
-    return std::get<0>(ranges[0]);
+    return ranges[0];
 }
 
 
 void
-Sort(SortRange sort_range, std::vector<ExtractedColor>* colors)
+Sort(SortRange sort_range, std::vector<Rgbi>* colors)
 {
     auto sort = [&](std::function<float (const Rgbi& c)> conv)
     {
         std::sort(colors->begin(), colors->end(), [&]
         (
-            const ExtractedColor& lhs, const ExtractedColor& rhs)
+            const Rgbi& lhs, const Rgbi& rhs)
             {
-                return conv(lhs.color) < conv(rhs.color);
+                return conv(lhs) < conv(rhs);
             }
         );
     };
@@ -133,33 +139,60 @@ Sort(SortRange sort_range, std::vector<ExtractedColor>* colors)
 }
 
 
-std::vector<Rgbi>
-MedianCut(const std::vector<ExtractedColor>& src, int depth)
+size_t
+FindMedianIndex(SortRange sort, const std::vector<Rgbi>& colors, Range<float> range)
 {
-    ASSERT(src.empty() == false);
+    const auto median = range.GetRange()/2 + range.lower_bound;
+    // todo(Gustav): make non-linear
+    for(size_t index = 0; index<colors.size()-1; index+=1)
+    {
+        if(GetValue(sort, colors[index+1]) >= median)
+        {
+            return index;
+        }
+    }
+    DIE("shouldn't happen...");
+    return 0;
+}
+
+
+std::vector<Rgbi>
+MedianCut(const std::vector<Rgbi>& src, int depth)
+{
+    if(src.empty())
+    {
+        return {};
+    }
 
     if(depth <= 0 || src.size() < 2)
     {
         auto sum = Rgb{0,0,0};
-        int total = 0;
+        float total = 0;
         for(const auto& c: src)
         {
-            sum += rgb(c.color);
-            total += c.count;
+            sum += rgb(c);
+            total += 1;
         }
 
-        return {rgbi(sum / total)};
+        const auto r = rgbi(sum / total);
+
+        return {r};
     }
 
-    const auto range = FindGreatestSortRange(src);
+    const auto [range, rrange] = FindGreatestSortRange(src);
 
-    using V = std::vector<ExtractedColor>;
+    using V = std::vector<Rgbi>;
     V vec = src;
     Sort(range, &vec);
 
-    const auto median = vec.begin()+vec.size() / 2;
-    auto ret = MedianCut(V(vec.begin(), median), depth -1);
-    const auto rhs = MedianCut(V(median, vec.end()), depth-1);
+    // const auto median_index = vec.size() / 2;
+    const auto median_index = FindMedianIndex(range, vec, rrange);
+    const auto median = vec.begin()+median_index;
+    const auto left = V(vec.begin(), median);
+    const auto right = V(median, vec.end());
+
+    auto ret = MedianCut(left, depth -1);
+    const auto rhs = MedianCut(right, depth-1);
     ret.insert(ret.end(), rhs.begin(), rhs.end());
 
     return ret;
@@ -228,6 +261,24 @@ ExtractColors(const std::vector<ImageAndFile>& images)
 
 
 
+std::vector<Rgbi>
+ExtractAllColors(const std::vector<ImageAndFile>& images)
+{
+    auto ret = std::vector<Rgbi>{};
+    for(const auto& img: images)
+    {
+        for(int y=0; y<img.image.GetHeight(); y+=1)
+        for(int x=0; x<img.image.GetWidth(); x+=1)
+        {
+            const auto color = rgbi(img.image.GetPixel(x, y));
+            ret.emplace_back(color);
+        }
+    }
+
+    return ret;
+}
+
+
 bool
 HandleImage
 (
@@ -245,7 +296,7 @@ HandleImage
     }
 
     // extract colors
-    auto colors = MedianCut(ExtractColors(images), depth);
+    auto colors = MedianCut(ExtractAllColors(images), depth);
 
     if(colors.empty())
     {
@@ -291,7 +342,7 @@ HandlePrint
     }
 
     // extract colors
-    auto colors = MedianCut(ExtractColors(images), depth);
+    auto colors = MedianCut(ExtractAllColors(images), depth);
 
     if(colors.empty())
     {
