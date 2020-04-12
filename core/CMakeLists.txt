@@ -140,6 +140,7 @@ set(app_src
     str.cc str.h
     stringmerger.cc stringmerger.h
     stringutils.cc stringutils.h
+    subvec.cc subvec.h
     tablelayout.h
     textfileparser.cc textfileparser.h
     texttemplate.cc texttemplate.h

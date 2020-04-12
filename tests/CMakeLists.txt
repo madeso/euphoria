@@ -42,6 +42,7 @@ set(app_src
     test_stringmerger.cc
     test_stringtable.cc
     test_stringutils.cc
+    test_subvec.cc
     test_table.cc
     test_tablelayout.cc
     test_template.cc
