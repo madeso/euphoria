@@ -98,17 +98,26 @@ FindGreatestSortRange(SubVec<Rgbi> colors)
     using Tu = std::tuple<SortRange, Range<float>>;
 
     // todo(Gustav): this iterates 3 times through the color array, make it 1
-    // todo(Gustav): remove the std::function and use GetValue(SortRange)
-    auto make = [&]
-    (SortRange r, std::function<float (const Rgbi& c)> conv) -> Tu
+    auto make = [&](SortRange r) -> Tu
     {
-        return std::make_tuple(r, FindMinMaxRange<float>(colors, conv));
+        return std::make_tuple
+        (
+            r,
+            FindMinMaxRange<float>
+            (
+                colors,
+                [r](const Rgbi& c) -> float
+                {
+                    return GetValue(r, c);
+                }
+            )
+        );
     };
     auto ranges = std::vector<Tu>
     {
-        make(SortRange::R, [](const Rgbi& c) -> float { return rgb(c).r; }),
-        make(SortRange::G, [](const Rgbi& c) -> float { return rgb(c).g; }),
-        make(SortRange::B, [](const Rgbi& c) -> float { return rgb(c).b; })
+        make(SortRange::R),
+        make(SortRange::G),
+        make(SortRange::B)
     };
     std::sort(ranges.begin(), ranges.end(), [](const Tu& lhs, const Tu& rhs)
     {
