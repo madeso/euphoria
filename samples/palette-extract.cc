@@ -266,6 +266,7 @@ ExtractAllColors(const std::vector<ImageAndFile>& images)
     auto ret = std::vector<Rgbi>{};
     for(const auto& img: images)
     {
+        ret.reserve(ret.size() + img.image.GetHeight() * img.image.GetWidth());
         for(int y=0; y<img.image.GetHeight(); y+=1)
         for(int x=0; x<img.image.GetWidth(); x+=1)
         {
