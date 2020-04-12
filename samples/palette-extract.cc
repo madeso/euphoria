@@ -13,6 +13,7 @@
 #include "core/image_draw.h"
 #include "core/minmax.h"
 #include "core/timepoint.h"
+#include "core/subvec.h"
 
 
 using namespace euphoria::core;
@@ -92,7 +93,7 @@ GetValue(SortRange range, const Rgbi& c)
 
 
 std::tuple<SortRange, Range<float>>
-FindGreatestSortRange(const std::vector<Rgbi>& colors)
+FindGreatestSortRange(SubVec<Rgbi> colors)
 {
     using Tu = std::tuple<SortRange, Range<float>>;
 
@@ -118,11 +119,11 @@ FindGreatestSortRange(const std::vector<Rgbi>& colors)
 
 
 void
-Sort(SortRange sort_range, std::vector<Rgbi>* colors)
+Sort(SortRange sort_range, SubVec<Rgbi> colors)
 {
     auto sort = [&](std::function<float (const Rgbi& c)> conv)
     {
-        std::sort(colors->begin(), colors->end(), [&]
+        std::sort(colors.begin(), colors.end(), [&]
         (
             const Rgbi& lhs, const Rgbi& rhs)
             {
@@ -141,7 +142,7 @@ Sort(SortRange sort_range, std::vector<Rgbi>* colors)
 
 
 size_t
-FindMedianIndex(SortRange sort, const std::vector<Rgbi>& colors, Range<float> range)
+FindMedianIndex(SortRange sort, SubVec<Rgbi> colors, Range<float> range)
 {
     const auto median = range.GetRange()/2 + range.lower_bound;
     // todo(Gustav): make non-linear
@@ -158,7 +159,7 @@ FindMedianIndex(SortRange sort, const std::vector<Rgbi>& colors, Range<float> ra
 
 
 std::vector<Rgbi>
-MedianCut(const std::vector<Rgbi>& src, int depth)
+MedianCut(SubVec<Rgbi> src, int depth)
 {
     if(src.empty())
     {
@@ -182,15 +183,12 @@ MedianCut(const std::vector<Rgbi>& src, int depth)
 
     const auto [range, rrange] = FindGreatestSortRange(src);
 
-    using V = std::vector<Rgbi>;
-    V vec = src;
-    Sort(range, &vec);
+    Sort(range, src);
 
-    // const auto median_index = vec.size() / 2;
-    const auto median_index = FindMedianIndex(range, vec, rrange);
-    const auto median = vec.begin()+median_index;
-    const auto left = V(vec.begin(), median);
-    const auto right = V(median, vec.end());
+    // const auto median_index = src.size() / 2;
+    const auto median = FindMedianIndex(range, src, rrange);
+    const auto left = src.Sub(0, median);
+    const auto right = src.Sub(median, src.size());
 
     auto ret = MedianCut(left, depth -1);
     const auto rhs = MedianCut(right, depth-1);
@@ -299,7 +297,8 @@ HandleImage
     const auto start = Now();
 
     // extract colors
-    auto colors = MedianCut(ExtractAllColors(images), depth);
+    auto all_colors = ExtractAllColors(images);
+    auto colors = MedianCut(SubVec{&all_colors}, depth);
 
     const auto end = Now();
 
@@ -350,7 +349,8 @@ HandlePrint
     }
 
     // extract colors
-    auto colors = MedianCut(ExtractAllColors(images), depth);
+    auto all_colors = ExtractAllColors(images);
+    auto colors = MedianCut(SubVec{&all_colors}, depth);
 
     std::sort
     (
