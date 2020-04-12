@@ -29,13 +29,13 @@ namespace euphoria::core
         size_t iend;
 
         it
-        begin()
+        begin() const
         {
             return source->begin() + ibegin;
         }
 
         it
-        end()
+        end() const
         {
             return source->begin() + iend;
         }
@@ -44,6 +44,24 @@ namespace euphoria::core
         size() const
         {
             return iend - ibegin;
+        }
+
+        bool
+        empty() const
+        {
+            return ibegin >= iend;
+        }
+
+        T&
+        operator[](int index)
+        {
+            return (*source)[ibegin+index];
+        }
+
+        const T&
+        operator[](int index) const
+        {
+            return (*source)[ibegin+index];
         }
 
         SubVec<T>
