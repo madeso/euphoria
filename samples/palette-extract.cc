@@ -97,27 +97,32 @@ FindGreatestSortRange(SubVec<Rgbi> colors)
 {
     using Tu = std::tuple<SortRange, Range<float>>;
 
-    // todo(Gustav): this iterates 3 times through the color array, make it 1
-    auto make = [&](SortRange r) -> Tu
-    {
-        return std::make_tuple
-        (
-            r,
-            FindMinMaxRange<float>
-            (
-                colors,
-                [r](const Rgbi& c) -> float
-                {
-                    return GetValue(r, c);
-                }
-            )
-        );
-    };
+    const auto [min_values, max_values] = FindMinMaxRanges<3, float>
+    (
+        colors,
+        [](const Rgbi& c) -> std::array<float, 3>
+        {
+            return
+            {
+                GetValue(SortRange::R, c),
+                GetValue(SortRange::G, c),
+                GetValue(SortRange::B, c)
+            };
+        }
+    );
+    // init-capture due to a bug in clang/gcc/standard
+    // https://www.reddit.com/r/cpp/comments/68vhir/whats_the_rationale_for_this_reference_to_local/
+    auto make = [&, miv = std::move(min_values), mav = std::move(max_values)]
+        (SortRange r, size_t i) -> Tu
+        {
+            return std::make_tuple(r, Range{miv[i], mav[i]});
+        }
+        ;
     auto ranges = std::vector<Tu>
     {
-        make(SortRange::R),
-        make(SortRange::G),
-        make(SortRange::B)
+        make(SortRange::R, 0),
+        make(SortRange::G, 1),
+        make(SortRange::B, 2)
     };
     std::sort(ranges.begin(), ranges.end(), [](const Tu& lhs, const Tu& rhs)
     {
