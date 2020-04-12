@@ -12,6 +12,7 @@
 #include "core/cint.h"
 #include "core/image_draw.h"
 #include "core/minmax.h"
+#include "core/timepoint.h"
 
 
 using namespace euphoria::core;
@@ -295,8 +296,15 @@ HandleImage
         return false;
     }
 
+    const auto start = Now();
+
     // extract colors
     auto colors = MedianCut(ExtractAllColors(images), depth);
+
+    const auto end = Now();
+
+    const auto seconds = SecondsBetween(start, end);
+    std::cout << "Palette extraction took " << seconds << " seconds.\n";
 
     if(colors.empty())
     {
