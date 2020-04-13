@@ -173,7 +173,7 @@ FindMedianIndex(SortRange sort, SubVec<Rgbi> colors, Range<float> range)
 
 
 std::vector<Rgbi>
-MedianCut(SubVec<Rgbi> src, int depth)
+MedianCut(SubVec<Rgbi> src, int depth, bool split_middle)
 {
     if(src.empty())
     {
@@ -199,13 +199,15 @@ MedianCut(SubVec<Rgbi> src, int depth)
 
     Sort(range, src);
 
-    // const auto median_index = src.size() / 2;
-    const auto median = FindMedianIndex(range, src, rrange);
+    const auto median = split_middle
+        ? src.size() / 2
+        : FindMedianIndex(range, src, rrange)
+        ;
     const auto left = src.Sub(0, median);
     const auto right = src.Sub(median, src.size());
 
-    auto ret = MedianCut(left, depth -1);
-    const auto rhs = MedianCut(right, depth-1);
+    auto ret = MedianCut(left, depth - 1, split_middle);
+    const auto rhs = MedianCut(right, depth - 1, split_middle);
     ret.insert(ret.end(), rhs.begin(), rhs.end());
 
     return ret;
@@ -298,6 +300,7 @@ HandleImage
 (
     const std::vector<std::string>& files,
     int depth,
+    bool middle_split,
     int image_size,
     const std::string& file
 )
@@ -313,7 +316,7 @@ HandleImage
 
     // extract colors
     auto all_colors = ExtractAllColors(images);
-    auto colors = MedianCut(SubVec{&all_colors}, depth);
+    auto colors = MedianCut(SubVec{&all_colors}, depth, middle_split);
 
     const auto end = Now();
 
@@ -353,7 +356,8 @@ bool
 HandlePrint
 (
     const std::vector<std::string>& files,
-    int depth
+    int depth,
+    bool middle_split
 )
 {
     // load images
@@ -365,7 +369,7 @@ HandlePrint
 
     // extract colors
     auto all_colors = ExtractAllColors(images);
-    auto colors = MedianCut(SubVec{&all_colors}, depth);
+    auto colors = MedianCut(SubVec{&all_colors}, depth, middle_split);
 
     std::sort
     (
@@ -409,11 +413,16 @@ main(int argc, char* argv[])
         {
             std::vector<std::string> files;
             int depth = 3;
+            bool middle_split = false;
 
             sub->Add("--depth", &depth)
                 .AllowBeforePositionals()
                 .Nargs("R")
                 .Help("change the palette depth")
+                ;
+            sub->SetTrue("--middle", &middle_split)
+                .AllowBeforePositionals()
+                .Help("split at middle array insteaf of median")
                 ;
             sub->AddVector("files", &files)
                 .Nargs("F")
@@ -424,7 +433,7 @@ main(int argc, char* argv[])
             {
                 const auto was_extracted = HandlePrint
                 (
-                    files, depth
+                    files, depth, middle_split
                 );
 
                 return was_extracted
@@ -445,11 +454,16 @@ main(int argc, char* argv[])
             std::string file = "pal.png";
             std::vector<std::string> files;
             int depth = 3;
+            bool middle_split = false;
 
             sub->Add("--depth", &depth)
                 .AllowBeforePositionals()
                 .Nargs("R")
                 .Help("change the palette depth")
+                ;
+            sub->SetTrue("--middle", &middle_split)
+                .AllowBeforePositionals()
+                .Help("split at middle array insteaf of median")
                 ;
             sub->Add("--size", &image_size)
                 .AllowBeforePositionals()
@@ -472,6 +486,7 @@ main(int argc, char* argv[])
                 (
                     files,
                     depth,
+                    middle_split,
                     image_size,
                     file
                 );
