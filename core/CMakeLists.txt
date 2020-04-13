@@ -7,6 +7,7 @@ set(app_src_color
     imagefilters.cc imagefilters.h
     imageops.cc imageops.h
     palette.cc palette.h
+    palette_extract.cc palette_extract.h
     palette_all.cc palette_all.h
     palette_cubehelix.cc palette_cubehelix.h
     palette_lospec.cc palette_lospec.h
