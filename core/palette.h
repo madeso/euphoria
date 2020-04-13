@@ -19,14 +19,18 @@ namespace euphoria::core
 
         template <typename... R>
         Palette(const std::string& n, const Rgbi& c0, const R&... c)
-            : name(n), colors {c0, c...}
-        {}
+            : name(n)
+            , colors {c0, c...}
+        {
+        }
 
         /** Create a empty palette with a name.
          * @param name the name of the palette
          * @returns a empty palette
          */
-        [[nodiscard]] static Palette
+        [[nodiscard]]
+        static
+        Palette
         Empty(const std::string& name);
 
         /** Get a random color.
@@ -57,19 +61,27 @@ namespace euphoria::core
 
         // rainbow functions based on the r documentation https://rdrr.io/r/grDevices/palettes.html
 
-        [[nodiscard]] static Palette
+        [[nodiscard]]
+        static
+        Palette
         Rainbow(int count, float saturation = 0.5f, float lightness = 0.5f);
 
-        [[nodiscard]] static Palette
-        Rainbow(int          count,
-                const Angle& from,
-                const Angle& to,
-                float        saturation,
-                float        lightness);
+        [[nodiscard]]
+        static
+        Palette
+        Rainbow
+        (
+            int count,
+            const Angle& from,
+            const Angle& to,
+            float saturation,
+            float lightness
+        );
 
     private:
         explicit Palette(const std::string& n);
     };
+
 
     namespace palette
     {
@@ -79,8 +91,8 @@ namespace euphoria::core
 
         const Palette&
         NamedColors();
-    }  // namespace palette
+    }
 
-}  // namespace euphoria::core
+}
 
 #endif  // EUPHORIA_PALETTE_H
