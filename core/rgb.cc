@@ -256,10 +256,9 @@ namespace euphoria::core
     {
         const auto flags = std::ios_base::fmtflags {stream.flags()};
         stream << "#" << std::hex
-            << std::setfill('0') << std::setw(2)
-            << +v.r
-            << +v.g
-            << +v.b;
+            << std::setfill('0') << std::setw(2) << +v.r
+            << std::setfill('0') << std::setw(2) << +v.g
+            << std::setfill('0') << std::setw(2) << +v.b;
         stream.flags(flags);
         return stream;
     }
