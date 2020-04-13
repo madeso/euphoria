@@ -1,16 +1,17 @@
 #include "core/argparse.h"
 
-#include "core/image.h"
-#include "core/imagefilters.h"
-#include "core/palette_all.h"
-
-#include "core/io.h"
-
 #include <iostream>
 #include <sstream>
 #include <iomanip>
 
+#include "core/image.h"
+#include "core/imagefilters.h"
+#include "core/palette_all.h"
+#include "core/io.h"
+
+
 using namespace euphoria::core;
+
 
 int
 main(int argc, char* argv[])
@@ -36,7 +37,10 @@ main(int argc, char* argv[])
                     auto file = io::FileToChunk(input);
                     if(file == nullptr)
                     {
-                        std::cerr << "Failed to open image file: '" << input << "'\n";
+                        std::cerr
+                            << "Failed to open image file: '"
+                            << input << "'\n"
+                            ;
                         return argparse::ParseResult::Error;
                     }
                     auto ret = LoadImage(file, input, AlphaLoad::Keep);
@@ -69,7 +73,11 @@ main(int argc, char* argv[])
             (
                 [&]
                 {
-                    io::ChunkToFile(image.Write(ImageWriteFormat::PNG), output);
+                    io::ChunkToFile
+                    (
+                        image.Write(ImageWriteFormat::PNG),
+                        output
+                    );
                     return argparse::ParseResult::Ok;
                 }
             );
@@ -206,3 +214,4 @@ main(int argc, char* argv[])
 
     return argparse::ParseFromMain(&parser, argc, argv);
 }
+
