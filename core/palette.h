@@ -24,6 +24,8 @@ namespace euphoria::core
         {
         }
 
+        Palette(const std::string& n, const std::vector<Rgbi>& c);
+
         /** Create a empty palette with a name.
          * @param name the name of the palette
          * @returns a empty palette

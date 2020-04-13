@@ -22,6 +22,13 @@ namespace euphoria::core
     }
 
 
+    Palette::Palette(const std::string& n, const std::vector<Rgbi>& c)
+        : name(n)
+        , colors(c)
+    {
+    }
+
+
     Palette
     Palette::Empty(const std::string& name)
     {
