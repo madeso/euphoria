@@ -1,28 +1,28 @@
 #include "core/argparse.h"
 
-#include "core/generator_maze.h"
-#include "core/generator_cell.h"
-
-#include "core/random.h"
-#include "core/imageops.h"
-
-#include "core/stringutils.h"
-#include "core/io.h"
-#include "core/knuthshuffle.h"
-
 #include <iostream>
 #include <sstream>
 #include <iomanip>
 
+#include "core/generator_maze.h"
+#include "core/generator_cell.h"
+#include "core/random.h"
+#include "core/imageops.h"
+#include "core/stringutils.h"
+#include "core/io.h"
+#include "core/knuthshuffle.h"
+
 // later when doing floodfill
 // #include "core/colorbrewer.h"
 
+
 using namespace euphoria::core;
+
 
 struct Difference
 {
-    int  x;
-    int  y;
+    int x;
+    int y;
     bool new_value;
 };
 
@@ -50,15 +50,19 @@ FindDifferences(const Table<bool>& src, const Table<bool>& dst)
 void
 PrintMazeToConsole(const generator::Drawer& drawer)
 {
-    const auto table = ImageToStringTable(
-            drawer.image,
-            {{'#', drawer.wall_color},
-             {'/', drawer.cell_color},
-             {' ', drawer.wall_color},
-             {' ', drawer.cell_visited_color},
-             {'O', drawer.unit_color}});
-    const auto strings = ToStrings(table);
+    const auto table = ImageToStringTable
+    (
+        drawer.image,
+        {
+            {'#', drawer.wall_color},
+            {'/', drawer.cell_color},
+            {' ', drawer.wall_color},
+            {' ', drawer.cell_visited_color},
+            {'O', drawer.unit_color}
+        }
+    );
 
+    const auto strings = ToStrings(table);
     for(const auto& s: strings)
     {
         std::cout << s << "\n";
@@ -86,8 +90,8 @@ HandleMazeCommand
 )
 {
     auto output = argparse::FileOutput {f};
-    auto random = Random {};
-    auto maze   = generator::Maze::FromWidthHeight(world_width, world_height);
+    auto random = Random{};
+    auto maze = generator::Maze::FromWidthHeight(world_width, world_height);
 
     auto drawer = generator::Drawer {};
 
@@ -95,38 +99,44 @@ HandleMazeCommand
 
     switch(algo)
     {
-    case MazeAlgorithm::RecursiveBacktracker: {
-        auto g         = std::make_unique<generator::RecursiveBacktracker>();
-        g->maze        = &maze;
-        g->random      = &random;
-        drawer.tracker = g.get();
-        gen.reset(g.release());
-    }
-    break;
-    case MazeAlgorithm::RandomTraversal: {
-        auto g           = std::make_unique<generator::RandomTraversal>();
-        g->maze          = &maze;
-        g->random        = &random;
-        drawer.traversal = g.get();
-        gen.reset(g.release());
-    }
-    break;
-    default: DIE("Unhandled");
+    case MazeAlgorithm::RecursiveBacktracker:
+        {
+            auto g = std::make_unique<generator::RecursiveBacktracker>();
+            g->maze = &maze;
+            g->random = &random;
+            drawer.tracker = g.get();
+            gen.reset(g.release());
+        }
+        break;
+    case MazeAlgorithm::RandomTraversal:
+        {
+            auto g = std::make_unique<generator::RandomTraversal>();
+            g->maze = &maze;
+            g->random = &random;
+            drawer.traversal = g.get();
+            gen.reset(g.release());
+        }
+        break;
+    default:
+        DIE("Unhandled");
     }
 
     gen->Setup();
 
-    drawer.maze      = &maze;
+    drawer.maze = &maze;
     drawer.cell_size = cell_size;
     drawer.wall_size = wall_size;
 
-    auto draw_frame = [&]() {
+    auto draw_frame = [&]()
+    {
         if(!output.single)
         {
             drawer.Draw();
-            io::ChunkToFile(
-                    drawer.image.Write(ImageWriteFormat::PNG),
-                    output.NextFile());
+            io::ChunkToFile
+            (
+                drawer.image.Write(ImageWriteFormat::PNG),
+                output.NextFile()
+            );
         }
     };
 
@@ -185,10 +195,10 @@ HandleCellCommand
     auto output = argparse::FileOutput {f};
 
     auto random = Random {};
-    auto world  = generator::World::FromWidthHeight(world_width, world_height);
+    auto world = generator::World::FromWidthHeight(world_width, world_height);
 
     generator::CellularAutomata cell;
-    cell.world  = &world;
+    cell.world = &world;
     cell.random = &random;
 
     generator::SetupSimpleRules(&cell);
@@ -319,7 +329,7 @@ struct MazeArguments : public CommonArguments
 int
 main(int argc, char* argv[])
 {
-    auto parser = argparse::Parser {"Generate worlds"};
+    auto parser = argparse::Parser{"Generate worlds"};
     
     auto sub = parser.AddSubParsers();
 
@@ -393,7 +403,9 @@ main(int argc, char* argv[])
 
             sub->Add("--scale", &world_scale).Help("set the scale");
             sub->Add("--fill", &random_fill).Help("How much to fill");
-            sub->Add("-bc, --border_control", &border_control).Help("Change how the border is generated");
+            sub->Add("-bc, --border_control", &border_control)
+                .Help("Change how the border is generated")
+                ;
             sub->SetTrue("--debug", &debug);
 
             return sub->OnComplete
@@ -419,3 +431,4 @@ main(int argc, char* argv[])
 
     return argparse::ParseFromMain(&parser, argc, argv);
 }
+
