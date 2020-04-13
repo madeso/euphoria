@@ -8,6 +8,8 @@
 #include "core/imagefilters.h"
 #include "core/palette_all.h"
 #include "core/io.h"
+#include "core/palette.h"
+#include "core/palette_extract.h"
 
 
 using namespace euphoria::core;
@@ -103,6 +105,48 @@ main(int argc, char* argv[])
                 }
             );
             
+        }
+    );
+
+    filters_subs->Add
+    (
+        "creduce", "Reduce the colors by calculating a new palette and swapping to it",
+        [&](argparse::SubParser* sub)
+        {
+            auto dither = false;
+            int depth = 3;
+            bool middle_split = false;
+
+            sub->Add("--depth", &depth)
+                .Nargs("R")
+                .Help("change the palette depth")
+                ;
+            sub->SetTrue("--middle", &middle_split)
+                .Help("split at middle array insteaf of median")
+                ;
+            sub->SetTrue("-d, --dither", &dither)
+                .Help("Dither the colors instead of replacing");
+                ;
+
+            return sub->OnComplete
+            (
+                [&]
+                {
+                    auto colors = MedianCut(image, depth, middle_split);
+                    const auto& palette = Palette{"", colors};
+
+                    if(dither)
+                    {
+                        MatchPaletteDither(&image, palette);
+                    }
+                    else
+                    {
+                        MatchPalette(&image, palette);
+                    }
+
+                    return argparse::ParseResult::Ok;
+                }
+            );
         }
     );
 
