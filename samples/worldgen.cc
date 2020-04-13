@@ -292,24 +292,11 @@ HandleCellCommand
 }
 
 
-struct CommonArguments
+struct MazeArguments
 {
-    int world_width = 10;
-    int world_height = 10;
+    Sizei size = Sizei::FromWidthHeight(10, 10);
     std::string output = "maze.png";
 
-    void
-    Add(argparse::ParserBase* base)
-    {
-        base->Add("--width", &world_width).Help("set the height");
-        base->Add("--height", &world_height).Help("set the width");
-        base->Add("-o, --output", &output).Help("specify output");
-    }
-};
-
-
-struct MazeArguments : public CommonArguments
-{
     int cell_size = 1;
     int wall_size = 1;
     bool console = false;
@@ -317,7 +304,8 @@ struct MazeArguments : public CommonArguments
     void
     Add(argparse::ParserBase* base)
     {
-        CommonArguments::Add(base);
+        base->Add("--size", &size).Help("set the size");
+        base->Add("-o, --output", &output).Help("specify output");
 
         base->Add("--cell", &cell_size).Help("set the cell size");
         base->Add("--wall", &wall_size).Help("set the wall size");
@@ -330,22 +318,7 @@ int
 main(int argc, char* argv[])
 {
     auto parser = argparse::Parser{"Generate worlds"};
-    
     auto sub = parser.AddSubParsers();
-
-    auto maze_command = [&](MazeAlgorithm algo, const MazeArguments& arg)
-    {
-        HandleMazeCommand
-        (
-            algo,
-            arg.world_width,
-            arg.world_height,
-            arg.cell_size,
-            arg.wall_size,
-            arg.output,
-            arg.console
-        );
-    };
 
     sub->Add
     (
@@ -360,7 +333,16 @@ main(int argc, char* argv[])
             (
                 [&]
                 {
-                    maze_command(MazeAlgorithm::RecursiveBacktracker, args);
+                    HandleMazeCommand
+                    (
+                        MazeAlgorithm::RecursiveBacktracker,
+                        args.size.width,
+                        args.size.height,
+                        args.cell_size,
+                        args.wall_size,
+                        args.output,
+                        args.console
+                    );
                     return argparse::ParseResult::Ok;
                 }
             );
@@ -380,7 +362,16 @@ main(int argc, char* argv[])
             (
                 [&]
                 {
-                    maze_command(MazeAlgorithm::RandomTraversal, args);
+                    HandleMazeCommand
+                    (
+                        MazeAlgorithm::RandomTraversal,
+                        args.size.width,
+                        args.size.height,
+                        args.cell_size,
+                        args.wall_size,
+                        args.output,
+                        args.console
+                    );
                     return argparse::ParseResult::Ok;
                 }
             );
@@ -393,17 +384,18 @@ main(int argc, char* argv[])
         "world generation using cellular automata algorithm",
         [&](argparse::SubParser* sub)
         {
-            int world_scale = 1;
+            int world_scale = 5;
             BorderSetupRule border_control = BorderSetupRule::AlwaysWall;
             float random_fill = 0.5;
             bool debug = false;
-            auto common = CommonArguments{};
+            Sizei size = Sizei::FromWidthHeight(100, 70);
+            std::string output = "cell.png";
             
-            common.Add(sub);
-
+            sub->Add("--size", &size).Help("set the size");
+            sub->Add("-o, --output", &output).Help("specify output");
             sub->Add("--scale", &world_scale).Help("set the scale");
             sub->Add("--fill", &random_fill).Help("How much to fill");
-            sub->Add("-bc, --border_control", &border_control)
+            sub->Add("-bc", &border_control)
                 .Help("Change how the border is generated")
                 ;
             sub->SetTrue("--debug", &debug);
@@ -416,11 +408,11 @@ main(int argc, char* argv[])
                     (
                         debug,
                         random_fill,
-                        common.world_width,
-                        common.world_height,
+                        size.width,
+                        size.height,
                         Fourway{ border_control },
                         Fourway{ OutsideRule::Wall },
-                        common.output,
+                        output,
                         world_scale
                     );
                     return argparse::ParseResult::Ok;
