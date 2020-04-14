@@ -123,7 +123,12 @@ namespace euphoria::core
         ToString(const Fourway<T>& fw)
         {
             std::ostringstream ss;
-            ss << fw.up << SPLIT << fw.right << SPLIT << fw.down << SPLIT << fw.left;
+            ss
+                << argparse::DefaultValueToString(fw.up) << SPLIT
+                << argparse::DefaultValueToString(fw.right) << SPLIT
+                << argparse::DefaultValueToString(fw.down) << SPLIT
+                << argparse::DefaultValueToString(fw.left)
+                ;
             return ss.str();
         }
 
