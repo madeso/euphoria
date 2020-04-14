@@ -3,6 +3,7 @@
 #include <iostream>
 #include <sstream>
 #include <iomanip>
+#include <algorithm>
 
 #include "core/generator_maze.h"
 #include "core/generator_cell.h"
@@ -205,22 +206,22 @@ struct Cellwriter
     }
 
     Image
-    draw_world(const generator::World& w)
+    GenerateWorldImage(const generator::World& w)
     {
         return Draw(w, Color::Black, Color::White, world_scale);
-    };
+    }
 
     void
     FirstState()
     {
         if(!output.single)
         {
-            auto img = draw_world(*world);
+            auto img = GenerateWorldImage(*world);
             io::ChunkToFile(img.Write(ImageWriteFormat::PNG), output.NextFile());
         }
 
         world_copy = *world;
-        draw_single_step();
+        DrawStep();
     }
 
     void
@@ -228,98 +229,71 @@ struct Cellwriter
     {
         if(output.single)
         {
-            auto img = draw_world(*world);
+            auto img = GenerateWorldImage(*world);
             io::ChunkToFile(img.Write(ImageWriteFormat::PNG), output.file);
         }
         else
         {
-            draw_single_step();
+            DrawStep();
         }
     }
 
-    void draw_single_step()
+    void
+    DrawStep()
     {
-        if(!output.single)
+        if(output.single) { return; }
+        if (debug)
         {
-            if (debug)
+            const auto img = GenerateWorldImage(*world);
+            io::ChunkToFile
+            (
+                img.Write(ImageWriteFormat::PNG),
+                output.NextFile()
+            );
+        }
+        else
+        {
+            ShuffleDraw();
+        }
+    }
+
+    void
+    ShuffleDraw()
+    {
+        auto diffs = FindDifferences(*world, world_copy);
+        KnuthShuffle(&diffs, &shuffle_random);
+        const auto diffs_per_write = std::max<decltype(diffs.size())>
+        (
+            2,
+            diffs.size() / 25
+        );
+        int write_index = 0;
+        for (const auto d : diffs)
+        {
+            world_copy(d.x, d.y) = d.new_value;
+            if ((write_index % diffs_per_write) == 0)
             {
-                const auto img = draw_world(*world);
+                const auto img = GenerateWorldImage(world_copy);
                 io::ChunkToFile
                 (
                     img.Write(ImageWriteFormat::PNG),
                     output.NextFile()
                 );
             }
-            else
-            {
-                auto diffs = FindDifferences(*world, world_copy);
-                KnuthShuffle(&diffs, &shuffle_random);
-                int dindex = 0;
-                const auto s = (diffs.size() / 25);
-                const auto m = s < 2 ? 2 : s;
-                for (const auto d : diffs)
-                {
-                    world_copy(d.x, d.y) = d.new_value;
-                    if ((dindex % m) == 0)
-                    {
-                        const auto img = draw_world(world_copy);
-                        io::ChunkToFile
-                        (
-                            img.Write(ImageWriteFormat::PNG),
-                            output.NextFile()
-                        );
-                    }
-                    dindex += 1;
-                }
+            write_index += 1;
+        }
 
-                for (int i = 0; i < 5; i += 1)
-                {
-                    const auto img = draw_world(world_copy);
-                    io::ChunkToFile
-                    (
-                        img.Write(ImageWriteFormat::PNG),
-                        output.NextFile()
-                    );
-                }
-            }
+        for (int i = 0; i < 5; i += 1)
+        {
+            const auto img = GenerateWorldImage(world_copy);
+            io::ChunkToFile
+            (
+                img.Write(ImageWriteFormat::PNG),
+                output.NextFile()
+            );
         }
     }
 };
-
-
-void
-HandleCellCommand
-(
-    bool debug,
-    float fill,
-    int world_width,
-    int world_height,
-    Fourway<BorderSetupRule> bc,
-    Fourway<OutsideRule> outside_rule,
-    const std::string& f,
-    int world_scale
-)
-{
-    auto random = Random {};
-
-    auto world = generator::World::FromWidthHeight(world_width, world_height);
-    world.Clear(false);
-
-    auto cell = generator::CellularAutomata{&world, outside_rule};
-    generator::AddRandomFill(&cell, &random, fill, bc);
-    generator::AddSimpleRules(&cell, 5, 4);
-
-    auto writer = Cellwriter{debug, f, &world, world_scale};
-    writer.FirstState();
-
-    while(cell.HasMoreWork())
-    {
-        cell.Work();
-        writer.draw_single_step();
-    }
-
-    writer.Done();
-}
 
 
 struct MazeArguments
@@ -434,17 +408,26 @@ main(int argc, char* argv[])
             (
                 [&]
                 {
-                    HandleCellCommand
-                    (
-                        debug,
-                        random_fill,
-                        size.width,
-                        size.height,
-                        Fourway{ border_control },
-                        Fourway{ OutsideRule::Wall },
-                        output,
-                        world_scale
-                    );
+                    auto random = Random {};
+
+                    auto world = generator::World::FromWidthHeight(size.width, size.height);
+                    world.Clear(false);
+
+                    auto cell = generator::CellularAutomata{&world, Fourway{OutsideRule::Wall}};
+                    generator::AddRandomFill(&cell, &random, random_fill, Fourway{border_control});
+                    generator::AddSimpleRules(&cell, 5, 4);
+
+                    auto writer = Cellwriter{debug, output, &world, world_scale};
+                    writer.FirstState();
+
+                    while(cell.HasMoreWork())
+                    {
+                        cell.Work();
+                        writer.DrawStep();
+                    }
+
+                    writer.Done();
+
                     return argparse::ParseResult::Ok;
                 }
             );
