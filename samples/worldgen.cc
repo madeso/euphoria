@@ -389,7 +389,7 @@ main(int argc, char* argv[])
         [&](argparse::SubParser* sub)
         {
             int world_scale = 5;
-            BorderSetupRule border_control = BorderSetupRule::AlwaysWall;
+            Fourway<BorderSetupRule> border_control = Fourway{BorderSetupRule::AlwaysWall};
             float random_fill = 0.5;
             bool debug = false;
             Sizei size = Sizei::FromWidthHeight(100, 70);
@@ -414,7 +414,7 @@ main(int argc, char* argv[])
                     world.Clear(false);
 
                     auto cell = generator::CellularAutomata{&world, Fourway{OutsideRule::Wall}};
-                    generator::AddRandomFill(&cell, &random, random_fill, Fourway{border_control});
+                    generator::AddRandomFill(&cell, &random, random_fill, border_control);
                     generator::AddSimpleRules(&cell, 5, 4);
 
                     auto writer = Cellwriter{debug, output, &world, world_scale};
