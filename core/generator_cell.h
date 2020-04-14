@@ -23,20 +23,37 @@ namespace euphoria::core::generator
     struct Rule
     {
         virtual ~Rule();
-
         virtual void Step(CellularAutomata* self) = 0;
     };
 
 
     struct SmoothRule : public Rule
     {
-        std::function<std::optional<bool>(const Wallcounter&)> smooth_function;
+        using SmoothFunction = std::function
+        <
+            std::optional<bool>
+            (
+                const Wallcounter&
+            )
+        >;
 
-        explicit SmoothRule(std::function<std::optional<bool>(const Wallcounter&)> sf);
+        SmoothFunction smooth_function;
+
+        explicit SmoothRule(SmoothFunction sf);
 
         void Step(CellularAutomata* self) override;
     };
 
+
+    struct RandomFillRule : public Rule
+    {
+        Random* random;
+        float random_fill;
+        Fourway<BorderSetupRule> border_control;
+
+        RandomFillRule(Random* r, float rf, Fourway<BorderSetupRule> bc);
+        void Step(CellularAutomata* self) override;
+    };
 
     // struct VerticalBlankRule : public Rule
     // {
@@ -45,22 +62,15 @@ namespace euphoria::core::generator
 
     struct CellularAutomata
     {
-        World*  world  = nullptr;
-
-        Random* random = nullptr;
-        float random_fill = 0.5;
-        Fourway<BorderSetupRule> border_control = Fourway<BorderSetupRule>{ BorderSetupRule::AlwaysWall };
-
-        Fourway<OutsideRule> outside_rule = Fourway<OutsideRule>{ OutsideRule::Empty };
+        World* world;
+        Fourway<OutsideRule> outside_rule;
+        int iteration;
         std::vector<std::shared_ptr<Rule>> rules;
+
+        CellularAutomata(World* w, const Fourway<OutsideRule>& fw);
 
         CellularAutomata&
         AddRule(int count, std::shared_ptr<Rule> rule);
-
-        int iteration = 0;
-
-        void
-        Setup();
 
         bool
         HasMoreWork() const;
@@ -73,13 +83,19 @@ namespace euphoria::core::generator
     // so worldgen sample can be improved
 
     void
-    SetupSimpleRules(CellularAutomata* ca);
+    AddRandomFill
+    (
+        CellularAutomata* cell,
+        Random* random,
+        float random_fill = 0.5,
+        Fourway<BorderSetupRule> border_control = Fourway<BorderSetupRule>
+        {
+            BorderSetupRule::AlwaysWall
+        }
+    );
 
     void
-    SetupBasicRules(CellularAutomata* ca);
-
-    void
-    SetupNoEmptyAreas(CellularAutomata* ca);
+    AddSimpleRules(CellularAutomata* ca, int times, int count);
 }
 
 #endif  // CORE_GENERATOR_CELL_H

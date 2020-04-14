@@ -197,16 +197,11 @@ HandleCellCommand
     auto random = Random {};
     auto world = generator::World::FromWidthHeight(world_width, world_height);
 
-    generator::CellularAutomata cell;
-    cell.world = &world;
-    cell.random = &random;
+    auto cell = generator::CellularAutomata{&world, outside_rule};
 
-    generator::SetupSimpleRules(&cell);
+    generator::AddRandomFill(&cell, &random, fill, bc);
+    generator::AddSimpleRules(&cell, 5, 4);
     // generator::SetupBasicRules(&cell);
-
-    cell.border_control = bc;
-    cell.outside_rule = outside_rule;
-    cell.random_fill = fill;
 
     auto draw_world = [&](const generator::World& world)
     {
@@ -269,8 +264,6 @@ HandleCellCommand
             }
         }
     };
-
-    cell.Setup();
 
     draw_single_step();
 

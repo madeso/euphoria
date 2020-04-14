@@ -16,7 +16,7 @@ namespace euphoria::core::generator
     }
 
 
-    SmoothRule::SmoothRule(std::function<std::optional<bool>(const Wallcounter&)> sf)
+    SmoothRule::SmoothRule(SmoothRule::SmoothFunction sf)
         : smooth_function(sf)
     {
     }
@@ -34,6 +34,39 @@ namespace euphoria::core::generator
     }
 
 
+    RandomFillRule::RandomFillRule
+    (
+        Random* r,
+        float rf,
+        Fourway<BorderSetupRule> bc
+    )
+        : random(r)
+        , random_fill(rf)
+        , border_control(bc)
+    {
+    }
+
+    void
+    RandomFillRule::Step(CellularAutomata* self)
+    {
+        SetWhiteNoise(self->world, border_control, [this]()
+        {
+            return random->NextFloat01() < random_fill;
+        });
+    }
+
+    CellularAutomata::CellularAutomata
+    (
+        World* w,
+        const Fourway<OutsideRule>& fw
+    )
+        : world(w)
+        , outside_rule(fw)
+        , iteration(0)
+    {
+    }
+
+
     CellularAutomata&
     CellularAutomata::AddRule(int count, std::shared_ptr<Rule> rule)
     {
@@ -43,16 +76,6 @@ namespace euphoria::core::generator
         }
 
         return *this;
-    }
-
-
-    void
-    CellularAutomata::Setup()
-    {
-        SetWhiteNoise(world, border_control, [&]()
-        {
-            return random->NextFloat01() < random_fill;
-        });
     }
 
 
@@ -72,19 +95,48 @@ namespace euphoria::core::generator
 
     // todo(Gustav): make theese rule buildings part of the cellular automata setup
     // along with setup step
+    void
+    AddRandomFill
+    (
+        CellularAutomata* cell,
+        Random* random,
+        float random_fill,
+        Fourway<BorderSetupRule> border_control
+    )
+    {
+        cell->AddRule
+        (
+            1,
+            std::make_shared<RandomFillRule>
+            (
+                random,
+                random_fill,
+                border_control
+            )
+        );
+    }
+
 
     void
-    SetupSimpleRules(CellularAutomata* ca)
+    AddSimpleRules(CellularAutomata* ca, int times, int count)
     {
-        ca->rules.clear();
-        ca->AddRule(5, std::make_shared<SmoothRule>([](const Wallcounter& wc) -> std::optional<bool>
-        {
-            const auto walls = wc.Count(1);
-            if (walls > 4) return true;
-            if (walls < 4) return false;
-            return std::nullopt;
-        }));
+        ca->AddRule
+        (
+            times,
+            std::make_shared<SmoothRule>
+            (
+                [count] (const Wallcounter& wc) -> std::optional<bool>
+                {
+                    const auto walls = wc.Count(1);
+                    if (walls > count) { return true; }
+                    if (walls < count) { return false; } 
+                    return std::nullopt;
+                }
+            )
+        );
     }
+
+    // todo(Gustav): expose theese as Add functions instead of Setup functions
 
     void
     SetupBasicRules(CellularAutomata* ca)
