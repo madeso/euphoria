@@ -55,41 +55,42 @@ namespace euphoria::core::generator
         });
     }
 
+
+    void
+    Rules::AddRule(int count, std::shared_ptr<Rule> rule)
+    {
+        for (int i = 0; i < count; i += 1)
+        {
+            rules.emplace_back(rule);
+        }
+    }
+
+
     CellularAutomata::CellularAutomata
     (
+        Rules* r,
         World* w,
         const Fourway<OutsideRule>& fw
     )
-        : world(w)
+        : rules(r)
+        , world(w)
         , outside_rule(fw)
         , iteration(0)
     {
     }
 
 
-    CellularAutomata&
-    CellularAutomata::AddRule(int count, std::shared_ptr<Rule> rule)
-    {
-        for (int i = 0; i < count; i += 1)
-        {
-            rules.emplace_back(rule);
-        }
-
-        return *this;
-    }
-
-
     bool
     CellularAutomata::HasMoreWork() const
     {
-        return iteration < rules.size();
+        return iteration < rules->rules.size();
     }
 
 
     void
     CellularAutomata::Work()
     {
-        rules[iteration]->Step(this);
+        rules->rules[iteration]->Step(this);
         iteration += 1;
     }
 
@@ -98,7 +99,7 @@ namespace euphoria::core::generator
     void
     AddRandomFill
     (
-        CellularAutomata* cell,
+        Rules* cell,
         Random* random,
         float random_fill,
         Fourway<BorderSetupRule> border_control
@@ -118,7 +119,7 @@ namespace euphoria::core::generator
 
 
     void
-    AddSimpleRules(CellularAutomata* ca, int times, int count)
+    AddSimpleRules(Rules* ca, int times, int count)
     {
         ca->AddRule
         (
@@ -139,7 +140,7 @@ namespace euphoria::core::generator
     // todo(Gustav): expose theese as Add functions instead of Setup functions
 
     void
-    SetupBasicRules(CellularAutomata* ca)
+    SetupBasicRules(Rules* ca)
     {
         ca->rules.clear();
         ca->AddRule(5, std::make_shared<SmoothRule>([](const Wallcounter& wc) -> std::optional<bool>
@@ -149,7 +150,7 @@ namespace euphoria::core::generator
     }
 
     void
-    SetupNoEmptyAreas(CellularAutomata* ca)
+    SetupNoEmptyAreas(Rules* ca)
     {
         ca->rules.clear();
         ca->AddRule(4, std::make_shared<SmoothRule>([](const Wallcounter& wc) -> std::optional<bool>

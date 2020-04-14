@@ -60,17 +60,22 @@ namespace euphoria::core::generator
     //     void Step(CellularAutomata* self) override;
     // };
 
+    struct Rules
+    {
+        std::vector<std::shared_ptr<Rule>> rules;
+
+        void
+        AddRule(int count, std::shared_ptr<Rule> rule);
+    };
+
     struct CellularAutomata
     {
+        Rules* rules;
         World* world;
         Fourway<OutsideRule> outside_rule;
         int iteration;
-        std::vector<std::shared_ptr<Rule>> rules;
 
-        CellularAutomata(World* w, const Fourway<OutsideRule>& fw);
-
-        CellularAutomata&
-        AddRule(int count, std::shared_ptr<Rule> rule);
+        CellularAutomata(Rules* r, World* w, const Fourway<OutsideRule>& fw);
 
         bool
         HasMoreWork() const;
@@ -85,7 +90,7 @@ namespace euphoria::core::generator
     void
     AddRandomFill
     (
-        CellularAutomata* cell,
+        Rules* cell,
         Random* random,
         float random_fill = 0.5,
         Fourway<BorderSetupRule> border_control = Fourway<BorderSetupRule>
@@ -95,7 +100,7 @@ namespace euphoria::core::generator
     );
 
     void
-    AddSimpleRules(CellularAutomata* ca, int times, int count);
+    AddSimpleRules(Rules* ca, int times, int count);
 }
 
 #endif  // CORE_GENERATOR_CELL_H

@@ -413,9 +413,11 @@ main(int argc, char* argv[])
                     auto world = generator::World::FromWidthHeight(size.width, size.height);
                     world.Clear(false);
 
-                    auto cell = generator::CellularAutomata{&world, Fourway{OutsideRule::Wall}};
-                    generator::AddRandomFill(&cell, &random, random_fill, border_control);
-                    generator::AddSimpleRules(&cell, 5, 4);
+                    auto rules = generator::Rules{};
+                    generator::AddRandomFill(&rules, &random, random_fill, border_control);
+                    generator::AddSimpleRules(&rules, 5, 4);
+
+                    auto cell = generator::CellularAutomata{&rules, &world, Fourway{OutsideRule::Wall}};
 
                     auto writer = Cellwriter{debug, output, &world, world_scale};
                     writer.FirstState();
