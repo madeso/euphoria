@@ -179,51 +179,71 @@ HandleMazeCommand
 }
 
 
-void
-HandleCellCommand
-(
-    bool debug,
-    float fill,
-    int world_width,
-    int world_height,
-    Fourway<BorderSetupRule> bc,
-    Fourway<OutsideRule> outside_rule,
-    const std::string& f,
-    int world_scale
-)
+
+struct Cellwriter
 {
-    auto output = argparse::FileOutput {f};
+    bool debug;
+    argparse::FileOutput output;
+    generator::World* world;
+    int world_scale;
 
-    auto random = Random {};
-    auto world = generator::World::FromWidthHeight(world_width, world_height);
+    Random shuffle_random;
+    generator::World world_copy;
 
-    auto cell = generator::CellularAutomata{&world, outside_rule};
-
-    generator::AddRandomFill(&cell, &random, fill, bc);
-    generator::AddSimpleRules(&cell, 5, 4);
-    // generator::SetupBasicRules(&cell);
-
-    auto draw_world = [&](const generator::World& world)
+    explicit Cellwriter
+    (
+        bool d,
+        const std::string& f,
+        generator::World* w,
+        int ws
+    )
+        : debug(d)
+        , output{f}
+        , world(w)
+        , world_scale(ws)
     {
-        return Draw(world, Color::Black, Color::White, world_scale);
-    };
-    world.Clear(false);
-
-    if(!output.single)
-    {
-        auto img = draw_world(world);
-        io::ChunkToFile(img.Write(ImageWriteFormat::PNG), output.NextFile());
     }
 
-    auto shuffle_random = Random {};
-    auto world_copy = world;
-    auto draw_single_step = [&]()
+    Image
+    draw_world(const generator::World& w)
+    {
+        return Draw(w, Color::Black, Color::White, world_scale);
+    };
+
+    void
+    FirstState()
+    {
+        if(!output.single)
+        {
+            auto img = draw_world(*world);
+            io::ChunkToFile(img.Write(ImageWriteFormat::PNG), output.NextFile());
+        }
+
+        world_copy = *world;
+        draw_single_step();
+    }
+
+    void
+    Done()
+    {
+        if(output.single)
+        {
+            auto img = draw_world(*world);
+            io::ChunkToFile(img.Write(ImageWriteFormat::PNG), output.file);
+        }
+        else
+        {
+            draw_single_step();
+        }
+    }
+
+    void draw_single_step()
     {
         if(!output.single)
         {
             if (debug)
             {
-                const auto img = draw_world(world);
+                const auto img = draw_world(*world);
                 io::ChunkToFile
                 (
                     img.Write(ImageWriteFormat::PNG),
@@ -232,7 +252,7 @@ HandleCellCommand
             }
             else
             {
-                auto diffs = FindDifferences(world, world_copy);
+                auto diffs = FindDifferences(*world, world_copy);
                 KnuthShuffle(&diffs, &shuffle_random);
                 int dindex = 0;
                 const auto s = (diffs.size() / 25);
@@ -263,25 +283,42 @@ HandleCellCommand
                 }
             }
         }
-    };
+    }
+};
 
-    draw_single_step();
+
+void
+HandleCellCommand
+(
+    bool debug,
+    float fill,
+    int world_width,
+    int world_height,
+    Fourway<BorderSetupRule> bc,
+    Fourway<OutsideRule> outside_rule,
+    const std::string& f,
+    int world_scale
+)
+{
+    auto random = Random {};
+
+    auto world = generator::World::FromWidthHeight(world_width, world_height);
+    world.Clear(false);
+
+    auto cell = generator::CellularAutomata{&world, outside_rule};
+    generator::AddRandomFill(&cell, &random, fill, bc);
+    generator::AddSimpleRules(&cell, 5, 4);
+
+    auto writer = Cellwriter{debug, f, &world, world_scale};
+    writer.FirstState();
 
     while(cell.HasMoreWork())
     {
         cell.Work();
-        draw_single_step();
+        writer.draw_single_step();
     }
 
-    if(output.single)
-    {
-        auto img = draw_world(world);
-        io::ChunkToFile(img.Write(ImageWriteFormat::PNG), output.file);
-    }
-    else
-    {
-        draw_single_step();
-    }
+    writer.Done();
 }
 
 
