@@ -389,33 +389,59 @@ main(int argc, char* argv[])
         [&](argparse::SubParser* sub)
         {
             int world_scale = 5;
-            Fourway<BorderSetupRule> border_control = Fourway{BorderSetupRule::AlwaysWall};
-            float random_fill = 0.5;
             bool debug = false;
             Sizei size = Sizei::FromWidthHeight(100, 70);
             std::string output = "cell.png";
+            auto random = Random {};
+            auto rules = generator::Rules{};
             
             sub->Add("--size", &size).Help("set the size");
             sub->Add("-o, --output", &output).Help("specify output");
             sub->Add("--scale", &world_scale).Help("set the scale");
-            sub->Add("--fill", &random_fill).Help("How much to fill");
-            sub->Add("-bc", &border_control)
-                .Help("Change how the border is generated")
-                ;
             sub->SetTrue("--debug", &debug);
+
+            auto commands = sub->AddSubParsers("commands");
+
+            commands->Add("random", "random fill", [&](argparse::SubParser* cmd)
+            {
+                cmd->parser_style = argparse::SubParserStyle::Fallback;
+                Fourway<BorderSetupRule> border_control = Fourway{BorderSetupRule::AlwaysWall};
+                float random_fill = 0.5;
+                cmd->Add("--fill", &random_fill).Help("How much to fill");
+                cmd->Add("-bc", &border_control)
+                    .Help("Change how the border is generated")
+                    ;
+                return cmd->OnComplete([&]{
+                    generator::AddRandomFill(&rules, &random, random_fill, border_control);
+                    return argparse::ParseResult::Ok;
+                });
+            });
+            commands->Add("smooth", "smooth map", [&](argparse::SubParser* cmd)
+            {
+                cmd->parser_style = argparse::SubParserStyle::Fallback;
+                int times = 5;
+                int count = 4;
+                cmd->Add("--times", &times).Help("How many to run");
+                cmd->Add("--count", &count).Help("neighbour count");
+                return cmd->OnComplete([&]{
+                    generator::AddSimpleRules(&rules, times, count);
+                    return argparse::ParseResult::Ok;
+                });
+            });
 
             return sub->OnComplete
             (
                 [&]
                 {
-                    auto random = Random {};
 
                     auto world = generator::World::FromWidthHeight(size.width, size.height);
                     world.Clear(false);
 
-                    auto rules = generator::Rules{};
-                    generator::AddRandomFill(&rules, &random, random_fill, border_control);
-                    generator::AddSimpleRules(&rules, 5, 4);
+                    if(rules.rules.empty())
+                    {
+                        std::cerr << "no rules specified";
+                        return argparse::ParseResult::Ok;
+                    }
 
                     auto cell = generator::CellularAutomata{&rules, &world, Fourway{OutsideRule::Wall}};
 
