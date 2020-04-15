@@ -416,6 +416,32 @@ main(int argc, char* argv[])
                     return argparse::ParseResult::Ok;
                 });
             });
+            commands->Add("combo", "smooth map with combo rule", [&](argparse::SubParser* cmd)
+            {
+                cmd->parser_style = argparse::SubParserStyle::Fallback;
+                int times = 4;
+                int count = 5;
+                int small = 2;
+                cmd->Add("--times", &times).Help("How many to run");
+                cmd->Add("--count", &count).Help("neighbour count");
+                cmd->Add("--small", &small).Help("small rule");
+                return cmd->OnComplete([&]{
+                    generator::AddComboRules(&rules, times, count, small);
+                    return argparse::ParseResult::Ok;
+                });
+            });
+            commands->Add("spiky", "smooth map with spikes", [&](argparse::SubParser* cmd)
+            {
+                cmd->parser_style = argparse::SubParserStyle::Fallback;
+                int times = 5;
+                int count = 4;
+                cmd->Add("--times", &times).Help("How many to run");
+                cmd->Add("--count", &count).Help("neighbour count");
+                return cmd->OnComplete([&]{
+                    generator::AddSpikyRules(&rules, times, count);
+                    return argparse::ParseResult::Ok;
+                });
+            });
             commands->Add("smooth", "smooth map", [&](argparse::SubParser* cmd)
             {
                 cmd->parser_style = argparse::SubParserStyle::Fallback;

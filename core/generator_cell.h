@@ -101,6 +101,12 @@ namespace euphoria::core::generator
 
     void
     AddSimpleRules(Rules* ca, int times, int count);
+
+    void
+    AddSpikyRules(Rules* ca, int times, int count);
+
+    void
+    AddComboRules(Rules* ca, int times, int count, int big_count);
 }
 
 #endif  // CORE_GENERATOR_CELL_H

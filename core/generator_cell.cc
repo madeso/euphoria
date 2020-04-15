@@ -94,8 +94,7 @@ namespace euphoria::core::generator
         iteration += 1;
     }
 
-    // todo(Gustav): make theese rule buildings part of the cellular automata setup
-    // along with setup step
+
     void
     AddRandomFill
     (
@@ -137,29 +136,38 @@ namespace euphoria::core::generator
         );
     }
 
-    // todo(Gustav): expose theese as Add functions instead of Setup functions
 
     void
-    SetupBasicRules(Rules* ca)
+    AddSpikyRules(Rules* ca, int times, int count)
     {
-        ca->rules.clear();
-        ca->AddRule(5, std::make_shared<SmoothRule>([](const Wallcounter& wc) -> std::optional<bool>
-        {
-            return wc.Count(1) >= 5;
-        }));
+        ca->AddRule
+        (
+            times,
+            std::make_shared<SmoothRule>
+            (
+                [count] (const Wallcounter& wc) -> std::optional<bool>
+                {
+                    return wc.Count(1) >= count;
+                }
+            )
+        );
     }
 
+
     void
-    SetupNoEmptyAreas(Rules* ca)
+    AddComboRules(Rules* ca, int times, int count, int big_count)
     {
-        ca->rules.clear();
-        ca->AddRule(4, std::make_shared<SmoothRule>([](const Wallcounter& wc) -> std::optional<bool>
-        {
-            return wc.Count(1) >= 5 || wc.Count(2) <= 2;
-        }));
-        ca->AddRule(3, std::make_shared<SmoothRule>([](const Wallcounter& wc) -> std::optional<bool>
-        {
-            return wc.Count(1) >= 5;
-        }));
+        // also produces spikes
+        ca->AddRule
+        (
+            times,
+            std::make_shared<SmoothRule>
+            (
+                [count, big_count](const Wallcounter& wc) -> std::optional<bool>
+                {
+                    return wc.Count(1) >= count || wc.Count(2) <= big_count;
+                }
+            )
+        );
     }
 }  // namespace euphoria::core
