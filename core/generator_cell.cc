@@ -157,7 +157,6 @@ namespace euphoria::core::generator
     void
     AddComboRules(Rules* ca, int times, int count, int big_count)
     {
-        // also produces spikes
         ca->AddRule
         (
             times,
@@ -165,7 +164,11 @@ namespace euphoria::core::generator
             (
                 [count, big_count](const Wallcounter& wc) -> std::optional<bool>
                 {
-                    return wc.Count(1) >= count || wc.Count(2) <= big_count;
+                    const auto walls = wc.Count(1);
+                    if (walls > count) { return true; }
+                    if(wc.Count(2) <= big_count) { return true; }
+                    if (walls < count) { return false; }
+                    return std::nullopt;
                 }
             )
         );
