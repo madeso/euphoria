@@ -456,6 +456,18 @@ main(int argc, char* argv[])
                     return argparse::ParseResult::Ok;
                 });
             });
+            commands->Add("hblank", "add horizontal block", [&](argparse::SubParser* cmd)
+            {
+                cmd->parser_style = argparse::SubParserStyle::Fallback;
+                int y = 6;
+                int height = 3;
+                cmd->Add("-y", &y).Help("the y where to place it");
+                cmd->Add("--height", &height).Help("the height of the block");
+                return cmd->OnComplete([&]{
+                    generator::AddHorizontalBlankRule(&rules, y, height);
+                    return argparse::ParseResult::Ok;
+                });
+            });
             commands->Add("smooth", "smooth map", [&](argparse::SubParser* cmd)
             {
                 cmd->parser_style = argparse::SubParserStyle::Fallback;

@@ -73,6 +73,9 @@ namespace euphoria::core::generator
     AddSimpleRules(Rules* ca, int times, int count);
 
     void
+    AddHorizontalBlankRule(Rules* ca, int y, int height);
+
+    void
     AddSpikyRules(Rules* ca, int times, int count);
 
     void

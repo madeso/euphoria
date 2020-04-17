@@ -74,10 +74,37 @@ namespace euphoria::core::generator
         }
     };
 
-    // struct VerticalBlankRule : public Rule
-    // {
-    //     void Step(CellularAutomata* self) override;
-    // };
+    struct HorizontalBlankRule : public Rule
+    {
+        int center;
+        int height;
+
+        HorizontalBlankRule(int c, int h)
+            : center(c)
+            , height(h)
+        {
+        }
+
+        void
+        Step(CellularAutomata* self) override
+        {
+            const BoolTable current = *self->world;
+
+            self->world->SetAll
+            (
+                [&current, this] (int x, int y)
+                {
+                    if(y >= center && y < center + height)
+                    {
+                        // todo(Gustav): this doesn't respect the outside rule
+                        // but should it...?
+                        return false;
+                    }
+                    return current(x, y);
+                }
+            );
+        }
+    };
 
 
     void
@@ -177,6 +204,13 @@ namespace euphoria::core::generator
                 }
             )
         );
+    }
+
+
+    void
+    AddHorizontalBlankRule(Rules* ca, int y, int height)
+    {
+        ca->AddRule(1, std::make_shared<HorizontalBlankRule>(y, height));
     }
 
 
