@@ -27,39 +27,6 @@ namespace euphoria::core::generator
     };
 
 
-    struct SmoothRule : public Rule
-    {
-        using SmoothFunction = std::function
-        <
-            std::optional<bool>
-            (
-                const Wallcounter&
-            )
-        >;
-
-        SmoothFunction smooth_function;
-
-        explicit SmoothRule(SmoothFunction sf);
-
-        void Step(CellularAutomata* self) override;
-    };
-
-
-    struct RandomFillRule : public Rule
-    {
-        Random* random;
-        float random_fill;
-        Fourway<BorderSetupRule> border_control;
-
-        RandomFillRule(Random* r, float rf, Fourway<BorderSetupRule> bc);
-        void Step(CellularAutomata* self) override;
-    };
-
-    // struct VerticalBlankRule : public Rule
-    // {
-    //     void Step(CellularAutomata* self) override;
-    // };
-
     struct Rules
     {
         std::vector<std::shared_ptr<Rule>> rules;

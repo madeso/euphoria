@@ -16,44 +16,68 @@ namespace euphoria::core::generator
     }
 
 
-    SmoothRule::SmoothRule(SmoothRule::SmoothFunction sf)
-        : smooth_function(sf)
+    struct SmoothRule : public Rule
     {
-    }
+        using SmoothFunction = std::function
+        <
+            std::optional<bool>
+            (
+                const Wallcounter&
+            )
+        >;
 
+        SmoothFunction smooth_function;
 
-    void
-    SmoothRule::Step(CellularAutomata* self)
-    {
-        SmoothMap
-        (
-            self->world,
-            self->outside_rule,
-            smooth_function
-        );
-    }
-
-
-    RandomFillRule::RandomFillRule
-    (
-        Random* r,
-        float rf,
-        Fourway<BorderSetupRule> bc
-    )
-        : random(r)
-        , random_fill(rf)
-        , border_control(bc)
-    {
-    }
-
-    void
-    RandomFillRule::Step(CellularAutomata* self)
-    {
-        SetWhiteNoise(self->world, border_control, [this]()
+        explicit SmoothRule(SmoothRule::SmoothFunction sf)
+            : smooth_function(sf)
         {
-            return random->NextFloat01() < random_fill;
-        });
-    }
+        }
+
+        void
+        Step(CellularAutomata* self) override
+        {
+            SmoothMap
+            (
+                self->world,
+                self->outside_rule,
+                smooth_function
+            );
+        }
+    };
+
+
+    struct RandomFillRule : public Rule
+    {
+        Random* random;
+        float random_fill;
+        Fourway<BorderSetupRule> border_control;
+
+        RandomFillRule
+        (
+            Random* r,
+            float rf,
+            Fourway<BorderSetupRule> bc
+        )
+            : random(r)
+            , random_fill(rf)
+            , border_control(bc)
+        {
+        }
+
+        void
+        Step(CellularAutomata* self) override
+        {
+            SetWhiteNoise(self->world, border_control, [this]()
+            {
+                return random->NextFloat01() < random_fill;
+            });
+        }
+    };
+
+    // struct VerticalBlankRule : public Rule
+    // {
+    //     void Step(CellularAutomata* self) override;
+    // };
 
 
     void
