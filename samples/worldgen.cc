@@ -442,6 +442,20 @@ main(int argc, char* argv[])
                     return argparse::ParseResult::Ok;
                 });
             });
+            commands->Add("clear", "clear smaller items", [&](argparse::SubParser* cmd)
+            {
+                cmd->parser_style = argparse::SubParserStyle::Fallback;
+                int times = 2;
+                int count = 2;
+                int range = 1;
+                cmd->Add("--times", &times).Help("How many to run");
+                cmd->Add("--count", &count).Help("neighbour count");
+                cmd->Add("--range", &range).Help("the neighbour range");
+                return cmd->OnComplete([&]{
+                    generator::AddClearRules(&rules, times, count, range);
+                    return argparse::ParseResult::Ok;
+                });
+            });
             commands->Add("smooth", "smooth map", [&](argparse::SubParser* cmd)
             {
                 cmd->parser_style = argparse::SubParserStyle::Fallback;

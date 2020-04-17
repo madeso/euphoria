@@ -118,6 +118,25 @@ namespace euphoria::core::generator
 
 
     void
+    AddClearRules(Rules* ca, int times, int count, int range)
+    {
+        ca->AddRule
+        (
+            times,
+            std::make_shared<SmoothRule>
+            (
+                [count, range] (const Wallcounter& wc) -> std::optional<bool>
+                {
+                    const auto walls = wc.Count(range);
+                    if (walls < count) { return false; }
+                    return std::nullopt;
+                }
+            )
+        );
+    }
+
+
+    void
     AddSimpleRules(Rules* ca, int times, int count)
     {
         ca->AddRule

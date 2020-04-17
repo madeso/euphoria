@@ -100,6 +100,9 @@ namespace euphoria::core::generator
     );
 
     void
+    AddClearRules(Rules* ca, int times, int count, int range);
+
+    void
     AddSimpleRules(Rules* ca, int times, int count);
 
     void
