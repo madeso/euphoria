@@ -41,6 +41,8 @@ namespace euphoria::core
         Wall, Empty, Mirror, Wrap
     };
 
+    /* Count walls according to Moore neighborhood 'box' rule.
+    */
     int
     CountWalls
     (
@@ -48,7 +50,8 @@ namespace euphoria::core
         Fourway<OutsideRule> outside_rule,
         int cx,
         int cy,
-        int step
+        int step,
+        bool include_self
     );
 
 
@@ -68,7 +71,10 @@ namespace euphoria::core
         );
 
         int
-        Count(int step) const;
+        CountIncludingSelf(int step) const;
+
+        int
+        CountExcludingSelf(int step) const;
     };
 
 

@@ -178,7 +178,7 @@ namespace euphoria::core::generator
             (
                 [count, range] (const Wallcounter& wc) -> std::optional<bool>
                 {
-                    const auto walls = wc.Count(range);
+                    const auto walls = wc.CountExcludingSelf(range);
                     if (walls < count) { return false; }
                     return std::nullopt;
                 }
@@ -197,7 +197,7 @@ namespace euphoria::core::generator
             (
                 [count] (const Wallcounter& wc) -> std::optional<bool>
                 {
-                    const auto walls = wc.Count(1);
+                    const auto walls = wc.CountExcludingSelf(1);
                     if (walls > count) { return true; }
                     if (walls < count) { return false; } 
                     return std::nullopt;
@@ -224,7 +224,7 @@ namespace euphoria::core::generator
             (
                 [count] (const Wallcounter& wc) -> std::optional<bool>
                 {
-                    return wc.Count(1) >= count;
+                    return wc.CountExcludingSelf(1) >= count;
                 }
             )
         );
@@ -241,9 +241,9 @@ namespace euphoria::core::generator
             (
                 [count, big_count](const Wallcounter& wc) -> std::optional<bool>
                 {
-                    const auto walls = wc.Count(1);
+                    const auto walls = wc.CountExcludingSelf(1);
                     if (walls > count) { return true; }
-                    if(wc.Count(2) <= big_count) { return true; }
+                    if(wc.CountExcludingSelf(2) <= big_count) { return true; }
                     if (walls < count) { return false; }
                     return std::nullopt;
                 }

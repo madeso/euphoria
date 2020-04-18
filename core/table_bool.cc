@@ -45,7 +45,8 @@ namespace euphoria::core
         Fourway<OutsideRule> outside_rule,
         int cx,
         int cy,
-        int step
+        int step,
+        bool include_self
     )
     {
         int walls = 0;
@@ -53,7 +54,7 @@ namespace euphoria::core
         {
             for (int x = cx - step; x <= cx + step; x += 1)
             {
-                if (x == cx && y == cy)
+                if (include_self==false && x == cx && y == cy)
                 {
                     // self is not a wall
                     continue;
@@ -168,10 +169,18 @@ namespace euphoria::core
     {
     }
 
+
     int
-    Wallcounter::Count(int step) const
+    Wallcounter::CountIncludingSelf(int step) const
     {
-        return CountWalls(world, outside_rule, cx, cy, step);
+        return CountWalls(world, outside_rule, cx, cy, step, true);
+    }
+
+
+    int
+    Wallcounter::CountExcludingSelf(int step) const
+    {
+        return CountWalls(world, outside_rule, cx, cy, step, false);
     }
 
 
