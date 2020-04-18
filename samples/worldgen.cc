@@ -318,6 +318,8 @@ struct MazeArguments
 };
 
 
+constexpr NeighborhoodAlgorithm DEFAULT_ALGORITHM = NeighborhoodAlgorithm::Box;
+
 int
 main(int argc, char* argv[])
 {
@@ -422,11 +424,15 @@ main(int argc, char* argv[])
                 int times = 4;
                 int count = 5;
                 int small = 2;
+                auto algorithm = DEFAULT_ALGORITHM;
+                bool include_self = false;
+                cmd->Add("--algorithm", &algorithm).Help("The algorithm to use");
+                cmd->SetTrue("-i", &include_self).Help("also include the current cell when calculating the amount of nodes");
                 cmd->Add("--times", &times).Help("How many to run");
                 cmd->Add("--count", &count).Help("neighbour count");
                 cmd->Add("--small", &small).Help("small rule");
                 return cmd->OnComplete([&]{
-                    generator::AddComboRules(&rules, times, count, small);
+                    generator::AddComboRules(&rules, times, count, small, include_self, algorithm);
                     return argparse::ParseResult::Ok;
                 });
             });
@@ -435,10 +441,14 @@ main(int argc, char* argv[])
                 cmd->parser_style = argparse::SubParserStyle::Fallback;
                 int times = 5;
                 int count = 4;
+                auto algorithm = DEFAULT_ALGORITHM;
+                bool include_self = false;
+                cmd->Add("--algorithm", &algorithm).Help("The algorithm to use");
+                cmd->SetTrue("-i", &include_self).Help("also include the current cell when calculating the amount of nodes");
                 cmd->Add("--times", &times).Help("How many to run");
                 cmd->Add("--count", &count).Help("neighbour count");
                 return cmd->OnComplete([&]{
-                    generator::AddSpikyRules(&rules, times, count);
+                    generator::AddSpikyRules(&rules, times, count, include_self, algorithm);
                     return argparse::ParseResult::Ok;
                 });
             });
@@ -448,11 +458,15 @@ main(int argc, char* argv[])
                 int times = 2;
                 int count = 2;
                 int range = 1;
+                auto algorithm = DEFAULT_ALGORITHM;
+                bool include_self = false;
+                cmd->Add("--algorithm", &algorithm).Help("The algorithm to use");
+                cmd->SetTrue("-i", &include_self).Help("also include the current cell when calculating the amount of nodes");
                 cmd->Add("--times", &times).Help("How many to run");
                 cmd->Add("--count", &count).Help("neighbour count");
                 cmd->Add("--range", &range).Help("the neighbour range");
                 return cmd->OnComplete([&]{
-                    generator::AddClearRules(&rules, times, count, range);
+                    generator::AddClearRules(&rules, times, count, range, include_self, algorithm);
                     return argparse::ParseResult::Ok;
                 });
             });
@@ -473,10 +487,14 @@ main(int argc, char* argv[])
                 cmd->parser_style = argparse::SubParserStyle::Fallback;
                 int times = 5;
                 int count = 4;
+                auto algorithm = DEFAULT_ALGORITHM;
+                bool include_self = false;
+                cmd->Add("--algorithm", &algorithm).Help("The algorithm to use");
+                cmd->SetTrue("-i", &include_self).Help("also include the current cell when calculating the amount of nodes");
                 cmd->Add("--times", &times).Help("How many to run");
                 cmd->Add("--count", &count).Help("neighbour count");
                 return cmd->OnComplete([&]{
-                    generator::AddSimpleRules(&rules, times, count);
+                    generator::AddSimpleRules(&rules, times, count, include_self, algorithm);
                     return argparse::ParseResult::Ok;
                 });
             });

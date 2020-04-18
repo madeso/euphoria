@@ -169,16 +169,16 @@ namespace euphoria::core::generator
 
 
     void
-    AddClearRules(Rules* ca, int times, int count, int range)
+    AddClearRules(Rules* ca, int times, int count, int range, bool include_self, NeighborhoodAlgorithm algorithm)
     {
         ca->AddRule
         (
             times,
             std::make_shared<SmoothRule>
             (
-                [count, range] (const Wallcounter& wc) -> std::optional<bool>
+                [count, range, include_self, algorithm] (const Wallcounter& wc) -> std::optional<bool>
                 {
-                    const auto walls = wc.CountExcludingSelf(range);
+                    const auto walls = wc.Count(range, include_self, algorithm);
                     if (walls < count) { return false; }
                     return std::nullopt;
                 }
@@ -188,16 +188,16 @@ namespace euphoria::core::generator
 
 
     void
-    AddSimpleRules(Rules* ca, int times, int count)
+    AddSimpleRules(Rules* ca, int times, int count, bool include_self, NeighborhoodAlgorithm algorithm)
     {
         ca->AddRule
         (
             times,
             std::make_shared<SmoothRule>
             (
-                [count] (const Wallcounter& wc) -> std::optional<bool>
+                [count, include_self, algorithm] (const Wallcounter& wc) -> std::optional<bool>
                 {
-                    const auto walls = wc.CountExcludingSelf(1);
+                    const auto walls = wc.Count(1, include_self, algorithm);
                     if (walls > count) { return true; }
                     if (walls < count) { return false; } 
                     return std::nullopt;
@@ -215,16 +215,16 @@ namespace euphoria::core::generator
 
 
     void
-    AddSpikyRules(Rules* ca, int times, int count)
+    AddSpikyRules(Rules* ca, int times, int count, bool include_self, NeighborhoodAlgorithm algorithm)
     {
         ca->AddRule
         (
             times,
             std::make_shared<SmoothRule>
             (
-                [count] (const Wallcounter& wc) -> std::optional<bool>
+                [count, include_self, algorithm] (const Wallcounter& wc) -> std::optional<bool>
                 {
-                    return wc.CountExcludingSelf(1) >= count;
+                    return wc.Count(1, include_self, algorithm) >= count;
                 }
             )
         );
@@ -232,18 +232,18 @@ namespace euphoria::core::generator
 
 
     void
-    AddComboRules(Rules* ca, int times, int count, int big_count)
+    AddComboRules(Rules* ca, int times, int count, int big_count, bool include_self, NeighborhoodAlgorithm algorithm)
     {
         ca->AddRule
         (
             times,
             std::make_shared<SmoothRule>
             (
-                [count, big_count](const Wallcounter& wc) -> std::optional<bool>
+                [count, big_count, include_self, algorithm](const Wallcounter& wc) -> std::optional<bool>
                 {
-                    const auto walls = wc.CountExcludingSelf(1);
+                    const auto walls = wc.Count(1, include_self, algorithm);
                     if (walls > count) { return true; }
-                    if(wc.CountExcludingSelf(2) <= big_count) { return true; }
+                    if(wc.Count(2, include_self, algorithm) <= big_count) { return true; }
                     if (walls < count) { return false; }
                     return std::nullopt;
                 }

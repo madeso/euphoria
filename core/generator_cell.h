@@ -67,19 +67,54 @@ namespace euphoria::core::generator
     );
 
     void
-    AddClearRules(Rules* ca, int times, int count, int range);
+    AddClearRules
+    (
+        Rules* ca,
+        int times,
+        int count,
+        int range,
+        bool include_self,
+        NeighborhoodAlgorithm algorithm
+    );
 
     void
-    AddSimpleRules(Rules* ca, int times, int count);
+    AddSimpleRules
+    (
+        Rules* ca,
+        int times,
+        int count,
+        bool include_self,
+        NeighborhoodAlgorithm algorithm
+    );
 
     void
-    AddHorizontalBlankRule(Rules* ca, int y, int height);
+    AddHorizontalBlankRule
+    (
+        Rules* ca,
+        int y,
+        int height
+    );
 
     void
-    AddSpikyRules(Rules* ca, int times, int count);
+    AddSpikyRules
+    (
+        Rules* ca,
+        int times,
+        int count,
+        bool include_self,
+        NeighborhoodAlgorithm algorithm
+    );
 
     void
-    AddComboRules(Rules* ca, int times, int count, int big_count);
+    AddComboRules
+    (
+        Rules* ca,
+        int times,
+        int count,
+        int big_count,
+        bool include_self,
+        NeighborhoodAlgorithm algorithm
+    );
 }
 
 #endif  // CORE_GENERATOR_CELL_H

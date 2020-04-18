@@ -54,7 +54,7 @@ namespace euphoria::core
         {
             if (include_self==false && x == cx && y == cy)
             {
-                // self is not a wall
+                // do not include self when counting walls
                 return 0;
             }
 
@@ -141,7 +141,7 @@ namespace euphoria::core
 
 
     int
-    CountWalls
+    CountWallsManhattan
     (
         const BoolTable& world,
         Fourway<OutsideRule> outside_rule,
@@ -152,6 +152,83 @@ namespace euphoria::core
     )
     {
         int walls = 0;
+
+        for (int y = cy - step; y <= cy + step; y += 1)
+        {
+            for (int x = cx - step; x <= cx + step; x += 1)
+            {
+                const auto manhattan_distance = Abs(x-cx) + Abs(y-cy);
+                if(manhattan_distance > step) { continue; }
+
+                walls += CountSingleWall
+                (
+                    world,
+                    outside_rule,
+                    x,
+                    y,
+                    cx,
+                    cy,
+                    include_self
+                );
+            }
+        }
+
+        return walls;
+    }
+
+
+    int
+    CountWallsPlus
+    (
+        const BoolTable& world,
+        Fourway<OutsideRule> outside_rule,
+        int cx,
+        int cy,
+        int step,
+        bool include_self
+    )
+    {
+        int walls = 0;
+
+        auto calc_walls = [&](int x, int y)
+        {
+            walls += CountSingleWall
+            (
+                world,
+                outside_rule,
+                x,
+                y,
+                cx,
+                cy,
+                include_self
+            );
+        };
+        for (int y = cy - step; y <= cy + step; y += 1)
+        {
+            calc_walls(cx, y);
+        }
+        for (int x = cx - step; x <= cx + step; x += 1)
+        {
+            calc_walls(x, cy);
+        }
+
+        return walls;
+    }
+
+
+    int
+    CountWallsBox
+    (
+        const BoolTable& world,
+        Fourway<OutsideRule> outside_rule,
+        int cx,
+        int cy,
+        int step,
+        bool include_self
+    )
+    {
+        int walls = 0;
+
         for (int y = cy - step; y <= cy + step; y += 1)
         {
             for (int x = cx - step; x <= cx + step; x += 1)
@@ -168,6 +245,7 @@ namespace euphoria::core
                 );
             }
         }
+
         return walls;
     }
 
@@ -187,17 +265,59 @@ namespace euphoria::core
     }
 
 
-    int
-    Wallcounter::CountIncludingSelf(int step) const
+    namespace
     {
-        return CountWalls(world, outside_rule, cx, cy, step, true);
+        int
+        CountWalls
+        (
+            NeighborhoodAlgorithm algorithm,
+            const BoolTable& world,
+            Fourway<OutsideRule> outside_rule,
+            int cx,
+            int cy,
+            int step,
+            bool include_self
+        )
+        {
+            switch(algorithm)
+            {
+                case NeighborhoodAlgorithm::Manhattan:
+                    return CountWallsManhattan
+                        (world, outside_rule, cx, cy, step, include_self);
+                case NeighborhoodAlgorithm::Plus:
+                    return CountWallsPlus
+                        (world, outside_rule, cx, cy, step, include_self);
+                case NeighborhoodAlgorithm::Box:
+                    return CountWallsBox
+                        (world, outside_rule, cx, cy, step, include_self);
+
+                default:
+                    DIE("Unhandled algorithm"); 
+                    return 0;
+            }
+        }
     }
 
 
+
     int
-    Wallcounter::CountExcludingSelf(int step) const
+    Wallcounter::Count
+    (
+        int step,
+        bool include_self,
+        NeighborhoodAlgorithm algorithm
+    ) const
     {
-        return CountWalls(world, outside_rule, cx, cy, step, false);
+        return CountWalls
+        (
+            algorithm,
+            world,
+            outside_rule,
+            cx,
+            cy,
+            step,
+            include_self
+        );
     }
 
 

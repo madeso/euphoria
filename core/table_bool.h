@@ -41,10 +41,10 @@ namespace euphoria::core
         Wall, Empty, Mirror, Wrap
     };
 
-    /* Count walls according to Moore neighborhood 'box' rule.
+    /* Count walls according to von Neumann neighborhood 'manhattan distance' rule.
     */
     int
-    CountWalls
+    CountWallsManhattan
     (
         const BoolTable& world,
         Fourway<OutsideRule> outside_rule,
@@ -53,6 +53,46 @@ namespace euphoria::core
         int step,
         bool include_self
     );
+
+
+    /* Count walls according to extended von Neumann neighborhood 'plus' rule.
+    */
+    int
+    CountWallsPlus
+    (
+        const BoolTable& world,
+        Fourway<OutsideRule> outside_rule,
+        int cx,
+        int cy,
+        int step,
+        bool include_self
+    );
+
+
+    /* Count walls according to Moore neighborhood 'box' rule.
+    */
+    int
+    CountWallsBox
+    (
+        const BoolTable& world,
+        Fourway<OutsideRule> outside_rule,
+        int cx,
+        int cy,
+        int step,
+        bool include_self
+    );
+
+    enum class NeighborhoodAlgorithm
+    {
+        // von Neumann
+        Manhattan,
+
+        // extended vonNeumann
+        Plus,
+
+        // Moore
+        Box
+    };
 
 
     struct Wallcounter
@@ -71,10 +111,7 @@ namespace euphoria::core
         );
 
         int
-        CountIncludingSelf(int step) const;
-
-        int
-        CountExcludingSelf(int step) const;
+        Count(int step, bool include_self, NeighborhoodAlgorithm algorithm) const;
     };
 
 
