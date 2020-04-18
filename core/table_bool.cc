@@ -38,6 +38,108 @@ namespace euphoria::core
     }
 
 
+    namespace
+    {
+        int
+        CountSingleWall
+        (
+            const BoolTable& world,
+            Fourway<OutsideRule> outside_rule,
+            int x,
+            int y,
+            int cx,
+            int cy,
+            bool include_self
+        )
+        {
+            if (include_self==false && x == cx && y == cy)
+            {
+                // self is not a wall
+                return 0;
+            }
+
+            auto contains = [&world](int x, int y)
+            {
+                return world.Indices().ContainsInclusive(x, y);
+            };
+
+            if (contains(x, y))
+            {
+                // it is inside
+                if (world(x, y))
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+
+            // todo(Gustav): the x/y is too much copy/paste... fix!
+            auto nx = x;
+            if (!contains(x, 0))
+            {
+                // x is outside
+                const auto xrule = x < 0 ? outside_rule.left : outside_rule.right;
+                switch (xrule)
+                {
+                case OutsideRule::Wall:
+                    return 1;
+                case OutsideRule::Empty:
+                    return 0;
+                case OutsideRule::Mirror:
+                    // todo(Gustav): implement this!
+                    nx = KeepWithin(world.Indices().GetXRange(), x);
+                    DIE("Implement this");
+                    break;
+                case OutsideRule::Wrap:
+                    nx = Wrap(world.Indices().GetXRange(), x);
+                    break;
+                default:
+                    DIE("Unhandled case");
+                    break;
+                }
+            }
+
+            auto ny = y;
+            if (!contains(0, y))
+            {
+                // y is outside
+                const auto yrule = y < 0 ? outside_rule.up : outside_rule.down;
+                switch (yrule)
+                {
+                case OutsideRule::Wall:
+                    return 1;
+                case OutsideRule::Empty:
+                    // pass
+                    return 0;
+                case OutsideRule::Mirror:
+                    // todo(Gustav): implement this!
+                    ny = KeepWithin(world.Indices().GetYRange(), y);
+                    DIE("Implement this");
+                    break;
+                case OutsideRule::Wrap:
+                    ny = Wrap(world.Indices().GetYRange(), y);
+                    break;
+                default:
+                    DIE("Unhandled case");
+                    break;
+                }
+            }
+
+            if (world(nx, ny))
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+    }
+
+
     int
     CountWalls
     (
@@ -54,101 +156,16 @@ namespace euphoria::core
         {
             for (int x = cx - step; x <= cx + step; x += 1)
             {
-                if (include_self==false && x == cx && y == cy)
-                {
-                    // self is not a wall
-                    continue;
-                }
-
-                auto contains = [&world](int x, int y)
-                {
-                    return world.Indices().ContainsInclusive(x, y);
-                };
-
-                if (contains(x, y))
-                {
-                    // it is inside
-                    if (world(x, y))
-                    {
-                        walls += 1;
-                    }
-                }
-                else
-                {
-                    // todo(Gustav): make this cleaner
-                    bool x_count_handled = false;
-                    auto nx = x;
-
-                    if (!contains(x, 0))
-                    {
-                        // x is outside
-                        const auto xrule = x < 0 ? outside_rule.left : outside_rule.right;
-                        switch (xrule)
-                        {
-                        case OutsideRule::Wall:
-                            walls += 1;
-                            x_count_handled = true;
-                            break;
-                        case OutsideRule::Empty:
-                            // pass
-                            x_count_handled = true;
-                            break;
-                        case OutsideRule::Mirror:
-                            // todo: implement this!
-                            nx = KeepWithin(world.Indices().GetXRange(), x);
-                            break;
-                        case OutsideRule::Wrap:
-                            nx = Wrap(world.Indices().GetXRange(), x);
-                            break;
-                        default:
-                            DIE("Unhandled case");
-                            break;
-                        }
-                    }
-
-                    if (x_count_handled == false)
-                    {
-                        bool y_count_handled = false;
-                        auto ny = y;
-
-                        if (!contains(0, y))
-                        {
-                            // y is outside
-                            const auto yrule = y < 0 ? outside_rule.up : outside_rule.down;
-                            switch (yrule)
-                            {
-                            case OutsideRule::Wall:
-                                walls += 1;
-                                y_count_handled = true;
-                                break;
-                            case OutsideRule::Empty:
-                                // pass
-                                y_count_handled = true;
-                                break;
-                            case OutsideRule::Mirror:
-                                // todo: implement this!
-                                ny = KeepWithin(world.Indices().GetYRange(), y);
-                                y_count_handled = false;
-                                break;
-                            case OutsideRule::Wrap:
-                                ny = Wrap(world.Indices().GetYRange(), y);
-                                y_count_handled = false;
-                                break;
-                            default:
-                                DIE("Unhandled case");
-                                break;
-                            }
-                        }
-
-                        if (y_count_handled == false)
-                        {
-                            if (world(nx, ny))
-                            {
-                                walls += 1;
-                            }
-                        }
-                    }
-                }
+                walls += CountSingleWall
+                (
+                    world,
+                    outside_rule,
+                    x,
+                    y,
+                    cx,
+                    cy,
+                    include_self
+                );
             }
         }
         return walls;
