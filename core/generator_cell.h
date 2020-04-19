@@ -51,8 +51,7 @@ namespace euphoria::core::generator
         Work();
     };
 
-    // todo(Gustav): Skip basic rules setup and improve argparse
-    // so worldgen sample can be improved
+    // todo(Gustav): rename and document rules to make it clearer what they do
 
     void
     AddRandomFill
