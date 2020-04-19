@@ -510,6 +510,18 @@ main(int argc, char* argv[])
                     return argparse::ParseResult::Ok;
                 });
             });
+            commands->Add("only", "only keep a few holes", [&](argparse::SubParser* cmd)
+            {
+                cmd->parser_style = argparse::SubParserStyle::Fallback;
+                int keep = 1;
+                bool allow_diagonals = true;
+                cmd->Add("--keep", &keep).Help("the number of holes to keep");
+                cmd->SetFalse("-d", &allow_diagonals).Help("include diagonals when flood filling");
+                return cmd->OnComplete([&]{
+                    generator::AddFillAllHolesRule(&rules, allow_diagonals, keep);
+                    return argparse::ParseResult::Ok;
+                });
+            });
 
             return sub->OnComplete
             (

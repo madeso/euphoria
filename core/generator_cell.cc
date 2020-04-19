@@ -105,6 +105,47 @@ namespace euphoria::core::generator
     };
 
 
+    struct FillAllHoles : public Rule
+    {
+        bool allow_diagonals;
+        int holes_to_keep;
+
+        FillAllHoles(bool ad, int htk)
+            : allow_diagonals(ad)
+            , holes_to_keep(htk)
+        {
+        }
+
+        void
+        Step(CellularAutomata* self) override
+        {
+            BoolTable& world = *self->world;
+            auto regions = FindEmptyRegions(world, allow_diagonals);
+            using V = std::vector<vec2i>;
+            std::sort
+            (
+                regions.begin(),
+                regions.end(),
+                [](const V& lhs, const V& rhs)
+                {
+                    return lhs.size() < rhs.size();
+                }
+            );
+            for(int h=0; h<holes_to_keep && regions.empty() == false; h+=1)
+            {
+                regions.pop_back();
+            }
+            for(const auto& re: regions)
+            {
+                for(const auto& p: re)
+                {
+                    world(p.x, p.y) = true;
+                }
+            }
+        }
+    };
+
+
     struct HorizontalBlankRule : public Rule
     {
         int center;
@@ -290,6 +331,17 @@ namespace euphoria::core::generator
         (
             1,
             std::make_shared<FillSmallHolesRule>(allow_diagonals, min_count)
+        );
+    }
+
+
+    void
+    AddFillAllHolesRule(Rules* rules, bool allow_diagonals, int holes_to_keep)
+    {
+        rules->AddRule
+        (
+            1,
+            std::make_shared<FillAllHoles>(allow_diagonals, holes_to_keep)
         );
     }
 }  // namespace euphoria::core
