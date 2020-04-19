@@ -51,8 +51,9 @@ namespace euphoria::core::generator
         Work();
     };
 
-    // todo(Gustav): rename and document rules to make it clearer what they do
+    // todo(Gustav): rename rules to make it clearer what they do
 
+    /// fills the world with random data
     void
     AddRandomFill
     (
@@ -65,6 +66,7 @@ namespace euphoria::core::generator
         }
     );
 
+    /// 'clears' cells with less than 'count' neighbours, good for removing 'blobs'
     void
     AddClearRules
     (
@@ -76,6 +78,7 @@ namespace euphoria::core::generator
         NeighborhoodAlgorithm algorithm
     );
 
+    /// simple smoothing, less than count neighbours are removed, more -> solid
     void
     AddSimpleRules
     (
@@ -86,6 +89,7 @@ namespace euphoria::core::generator
         NeighborhoodAlgorithm algorithm
     );
 
+    /// blanks out cells at 'y' and 'height' down
     void
     AddHorizontalBlankRule
     (
@@ -94,6 +98,7 @@ namespace euphoria::core::generator
         int height
     );
 
+    /// simple smoothing, but always set the cell, seems to provide spikes
     void
     AddSpikyRules
     (
@@ -104,6 +109,7 @@ namespace euphoria::core::generator
         NeighborhoodAlgorithm algorithm
     );
 
+    /// smooth but 'big_count' is applied for R(2)
     void
     AddComboRules
     (
@@ -115,9 +121,11 @@ namespace euphoria::core::generator
         NeighborhoodAlgorithm algorithm
     );
 
+    /// fills all open areas that are less than 'min_count'
     void
     AddFillSmallHolesRule(Rules* rules, bool allow_diagonals, int min_count);
 
+    /// fills all open areas, but keeps 'holes_to_keep'
     void
     AddFillAllHolesRule(Rules* rules, bool allow_diagonals, int holes_to_keep);
 }
