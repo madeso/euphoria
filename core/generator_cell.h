@@ -115,6 +115,10 @@ namespace euphoria::core::generator
         bool include_self,
         NeighborhoodAlgorithm algorithm
     );
+
+
+    void
+    AddFillSmallHolesRule(Rules* rules, bool allow_diagonals, int min_count);
 }
 
 #endif  // CORE_GENERATOR_CELL_H

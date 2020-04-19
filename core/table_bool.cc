@@ -340,6 +340,109 @@ namespace euphoria::core
     }
 
 
+    std::vector<vec2i>
+    FindEmptyBlocks(const BoolTable& world)
+    {
+        auto ret = std::vector<vec2i>{};
+
+        for (int y = 0; y < world.GetHeight(); y += 1)
+        for (int x = 0; x < world.GetWidth(); x += 1)
+        {
+            if(world(x,y) == false)
+            {
+                ret.emplace_back(x, y);
+            }
+        }
+
+        return ret;
+    }
+
+    std::vector<vec2i>
+    FindFloodFillItems
+    (
+        const BoolTable& world,
+        const vec2i& start,
+        bool allow_diagonals
+    )
+    {
+        auto visited = BoolTable::FromWidthHeight
+        (
+            world.GetWidth(),
+            world.GetHeight(),
+            false
+        );
+        auto stack = std::vector<vec2i>{};
+        auto ret = std::vector<vec2i>{};
+
+        auto add_to_stack = [&](const vec2i& p)
+        {
+            if(p.x < 0) { return; }
+            if(p.x >= world.GetWidth()) { return; }
+            if(p.y < 0) { return; }
+            if(p.y >= world.GetHeight()) { return; }
+            if(visited(p.x, p.y) == true) return;
+            visited(p.x, p.y) = true;
+            // todo(Gustav): if ret contains p, return
+
+            stack.emplace_back(p);
+        };
+
+        add_to_stack(start);
+        while(stack.empty() == false)
+        {
+            const auto p = *stack.rbegin();
+            stack.pop_back();
+            if(world(p.x, p.y) == true) { continue; }
+
+            // todo(Gustav): don't add if already in list
+            ret.emplace_back(p);
+
+            add_to_stack({p.x + 1, p.y});
+            add_to_stack({p.x - 1, p.y});
+            add_to_stack({p.x, p.y + 1});
+            add_to_stack({p.x, p.y - 1});
+
+            if(allow_diagonals)
+            {
+                add_to_stack({p.x + 1, p.y + 1});
+                add_to_stack({p.x + 1, p.y - 1});
+                add_to_stack({p.x - 1, p.y + 1});
+                add_to_stack({p.x - 1, p.y - 1});
+            }
+        }
+
+        return ret;
+    }
+
+    std::vector<std::vector<vec2i>>
+    FindEmptyRegions(const BoolTable& world, bool allow_diagonals)
+    {
+        auto ret = std::vector<std::vector<vec2i>>{};
+
+        auto visited = BoolTable::FromWidthHeight
+        (
+            world.GetWidth(),
+            world.GetHeight(),
+            false
+        );
+
+        const auto blocks = FindEmptyBlocks(world);
+        for(const auto block: blocks)
+        {
+            if(visited(block.x, block.y) == true) { continue; }
+
+            const auto island = FindFloodFillItems(world, block, allow_diagonals);
+            ret.emplace_back(island);
+            for(const auto& island_block: island)
+            {
+                visited(island_block.x, island_block.y) = true;
+            }
+        }
+
+        return ret;
+    }
+
+
     Image
     Draw
     (

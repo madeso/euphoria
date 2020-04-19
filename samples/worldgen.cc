@@ -498,6 +498,18 @@ main(int argc, char* argv[])
                     return argparse::ParseResult::Ok;
                 });
             });
+            commands->Add("fill", "fill small holes", [&](argparse::SubParser* cmd)
+            {
+                cmd->parser_style = argparse::SubParserStyle::Fallback;
+                int size = 3;
+                bool allow_diagonals = true;
+                cmd->Add("--size", &size).Help("holes smaller than this are filled");
+                cmd->SetFalse("-d", &allow_diagonals).Help("include diagonals when flood filling");
+                return cmd->OnComplete([&]{
+                    generator::AddFillSmallHolesRule(&rules, allow_diagonals, size);
+                    return argparse::ParseResult::Ok;
+                });
+            });
 
             return sub->OnComplete
             (

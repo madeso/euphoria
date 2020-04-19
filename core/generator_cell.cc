@@ -74,6 +74,37 @@ namespace euphoria::core::generator
         }
     };
 
+
+    struct FillSmallHolesRule : public Rule
+    {
+        bool allow_diagonals;
+        int min_count;
+
+        FillSmallHolesRule(bool ad, int mc)
+            : allow_diagonals(ad)
+            , min_count(mc)
+        {
+        }
+
+        void
+        Step(CellularAutomata* self) override
+        {
+            BoolTable& world = *self->world;
+            const auto regions = FindEmptyRegions(world, allow_diagonals);
+            for(const auto& re: regions)
+            {
+                if( re.size() < min_count)
+                {
+                    for(const auto& p: re)
+                    {
+                        world(p.x, p.y) = true;
+                    }
+                }
+            }
+        }
+    };
+
+
     struct HorizontalBlankRule : public Rule
     {
         int center;
@@ -248,6 +279,17 @@ namespace euphoria::core::generator
                     return std::nullopt;
                 }
             )
+        );
+    }
+
+
+    void
+    AddFillSmallHolesRule(Rules* rules, bool allow_diagonals, int min_count)
+    {
+        rules->AddRule
+        (
+            1,
+            std::make_shared<FillSmallHolesRule>(allow_diagonals, min_count)
         );
     }
 }  // namespace euphoria::core

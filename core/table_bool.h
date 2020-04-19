@@ -124,6 +124,24 @@ namespace euphoria::core
         std::function<std::optional<bool>(const Wallcounter&)> smooth_function
     );
 
+
+    ///////////////////////////////////////////////////////////////////////////
+    // FloodFill
+
+    std::vector<vec2i>
+    FindEmptyBlocks(const BoolTable& world);
+
+    std::vector<vec2i>
+    FindFloodFillItems
+    (
+        const BoolTable& world,
+        const vec2i& start,
+        bool allow_diagonals
+    );
+
+    std::vector<std::vector<vec2i>>
+    FindEmptyRegions(const BoolTable& world, bool allow_diagonals);
+
     ///////////////////////////////////////////////////////////////////////////
     // Rendering
 
