@@ -1,0 +1,124 @@
+BasedOnStyle: Google
+
+# issues:
+# constant single-character arrays are not binpacked and get one character per line
+# more than one template argument are not split on to multiple lines
+
+
+# in 10 change to cpp17
+Standard: Cpp11
+Language: Cpp
+
+AccessModifierOffset: -4
+AlignAfterOpenBracket: AlwaysBreak
+AlignConsecutiveAssignments:  false
+AlignConsecutiveDeclarations: false
+AlignEscapedNewlines: Right
+AlignOperands: false
+AlignTrailingComments: false
+AllowAllArgumentsOnNextLine: false
+AllowAllConstructorInitializersOnNextLine: false
+AllowAllParametersOfDeclarationOnNextLine: false
+AllowShortBlocksOnASingleLine: false
+AllowShortCaseLabelsOnASingleLine: true
+AllowShortFunctionsOnASingleLine: false
+AllowShortIfStatementsOnASingleLine: WithoutElse
+AllowShortLambdasOnASingleLine: Inline
+
+AllowShortLoopsOnASingleLine: false
+AlwaysBreakAfterReturnType: All
+AlwaysBreakBeforeMultilineStrings: true
+AlwaysBreakTemplateDeclarations: Yes
+
+# issue: much indent, doesn't "reflow" ( and { to start of line
+# there should be a binpack for "for" and "if(auto var; var)" statements too
+BinPackArguments: false
+BinPackParameters: false
+BraceWrapping:
+  AfterClass: true
+  AfterControlStatement: true
+  AfterEnum: true
+  AfterFunction: true
+  AfterNamespace: true
+  AfterObjCDeclaration: true
+  AfterStruct: true
+  AfterUnion: true
+  AfterExternBlock: true
+  BeforeCatch: true
+  BeforeElse: true
+  IndentBraces: false
+  SplitEmptyFunction: true
+  SplitEmptyRecord: true
+  SplitEmptyNamespace: true
+BreakBeforeBinaryOperators: None
+
+# custom = Configure each individual brace in BraceWrapping.
+BreakBeforeBraces: Custom
+
+# issue: always break "complex" ternary operations
+BreakBeforeTernaryOperators: true
+BreakConstructorInitializers: BeforeComma
+BreakInheritanceList: BeforeComma
+BreakStringLiterals: false
+ColumnLimit: 80
+# CommentPragmas
+CompactNamespaces: false
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
+ConstructorInitializerIndentWidth: 4
+ContinuationIndentWidth: 8
+Cpp11BracedListStyle: true
+DerivePointerAlignment: false
+DisableFormat: false
+
+# might want true, but I don't like syntax comments
+FixNamespaceComments: false
+
+IncludeBlocks: Preserve
+# IncludeCategories: # later
+# IncludeIsMainRegex
+SortIncludes: false # temporary, need to look into better sorting first
+IndentCaseLabels: false
+IndentWidth: 4
+IndentWrappedFunctionNames: false
+KeepEmptyLinesAtTheStartOfBlocks: false
+# MacroBlockBegin
+# MacroBlockEnd
+MaxEmptyLinesToKeep: 2
+
+
+# or inner to avoid unesssary indenting
+NamespaceIndentation: All
+
+# penalty variables here, not sure how to use them...
+
+PointerAlignment: Left
+
+# look into this for formatting glsl code
+# RawStringFormats
+
+ReflowComments: false
+# SortIncludes: defined up with IncludeCategories
+SortUsingDeclarations: true
+SpaceAfterCStyleCast: false
+SpaceAfterTemplateKeyword: true
+SpaceBeforeAssignmentOperators: true
+SpaceBeforeCpp11BracedList: false
+SpaceBeforeCtorInitializerColon: true
+SpaceBeforeInheritanceColon: true
+
+SpaceBeforeParens: ControlStatements
+
+SpaceBeforeRangeBasedForLoopColon: false
+# SpaceInEmptyBlock: false          # in 10, uncomment
+SpaceInEmptyParentheses: false
+SpacesBeforeTrailingComments: 2
+SpacesInAngles: false
+SpacesInCStyleCastParentheses: false
+SpacesInContainerLiterals: false
+SpacesInParentheses: false
+SpacesInSquareBrackets: false
+# StatementMacros
+TabWidth: 8
+# TypenameMacros
+UseTab: Never
+
