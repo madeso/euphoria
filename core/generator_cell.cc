@@ -18,13 +18,7 @@ namespace euphoria::core::generator
 
     struct SmoothRule : public Rule
     {
-        using SmoothFunction = std::function
-        <
-            std::optional<bool>
-            (
-                const Wallcounter&
-            )
-        >;
+        using SmoothFunction = ChangeFunction;
 
         SmoothFunction smooth_function;
 
@@ -248,13 +242,29 @@ namespace euphoria::core::generator
             times,
             std::make_shared<SmoothRule>
             (
-                [count, range, include_self, algorithm] (const Wallcounter& wc) -> std::optional<bool>
+                [count, range, include_self, algorithm] (bool, const Wallcounter& wc) -> std::optional<bool>
                 {
                     const auto walls = wc.Count(range, include_self, algorithm);
                     if (walls < count) { return false; }
                     return std::nullopt;
                 }
             )
+        );
+    }
+
+
+    void
+    AddComplexRules
+    (
+        Rules* ca,
+        int times,
+        ChangeFunction change
+    )
+    {
+        ca->AddRule
+        (
+            times,
+            std::make_shared<SmoothRule>(change)
         );
     }
 
@@ -267,7 +277,7 @@ namespace euphoria::core::generator
             times,
             std::make_shared<SmoothRule>
             (
-                [count, include_self, algorithm] (const Wallcounter& wc) -> std::optional<bool>
+                [count, include_self, algorithm] (bool, const Wallcounter& wc) -> std::optional<bool>
                 {
                     const auto walls = wc.Count(1, include_self, algorithm);
                     if (walls > count) { return true; }
@@ -294,7 +304,7 @@ namespace euphoria::core::generator
             times,
             std::make_shared<SmoothRule>
             (
-                [count, include_self, algorithm] (const Wallcounter& wc) -> std::optional<bool>
+                [count, include_self, algorithm] (bool, const Wallcounter& wc) -> std::optional<bool>
                 {
                     return wc.Count(1, include_self, algorithm) >= count;
                 }
@@ -311,7 +321,7 @@ namespace euphoria::core::generator
             times,
             std::make_shared<SmoothRule>
             (
-                [count, big_count, include_self, algorithm](const Wallcounter& wc) -> std::optional<bool>
+                [count, big_count, include_self, algorithm](bool, const Wallcounter& wc) -> std::optional<bool>
                 {
                     const auto walls = wc.Count(1, include_self, algorithm);
                     if (walls > count) { return true; }

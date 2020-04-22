@@ -326,16 +326,17 @@ namespace euphoria::core
     (
         BoolTable* world,
         Fourway<OutsideRule> outside_rule,
-        std::function<std::optional<bool>(const Wallcounter&)> smooth_function
+        std::function<std::optional<bool>(bool, const Wallcounter&)> smooth_function
     )
     {
         const BoolTable current = *world;
 
         world->SetAll([&current, outside_rule, smooth_function](int x, int y)
         {
-            const auto walls = Wallcounter{ current, outside_rule, x, y };
-            const auto smoothed_wall = smooth_function(walls);
-            return smoothed_wall.value_or(current(x, y));
+            const auto value = current(x, y);
+            const auto walls = Wallcounter{current, outside_rule, x, y};
+            const auto smoothed_wall = smooth_function(value, walls);
+            return smoothed_wall.value_or(value);
         });
     }
 

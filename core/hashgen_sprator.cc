@@ -10,6 +10,7 @@
 #include "core/image_draw.h"
 #include "core/cint.h"
 #include "core/table_bool.h"
+#include "core/generator_cell.h"
 
 
 namespace
@@ -44,6 +45,40 @@ namespace
                 &table,
                 Fourway<BorderSetupRule>{BorderSetupRule::Random},
                 [&]() -> bool { return generator.Next() < 0.5f; }
+            );
+            // mirror on x
+            for(int y=0; y<height; y+=1)
+            for(int x=0; x<half_width; x+=1)
+            {
+                table(x,y) = table(width-(x+1),y);
+            }
+        }
+
+        {
+            generator::Rules rules;
+            generator::AddComplexRules
+            (
+                &rules,
+                3,
+                [](bool current, const Wallcounter& wc) -> std::optional<bool>
+                {
+                    const auto c = wc.Count
+                    (
+                        1,
+                        false,
+                        NeighborhoodAlgorithm::Box
+                    );
+                    if(current)
+                    {
+                        if(c == 2 || c == 3 ) { return true; }
+                        else { return false; }
+                    } 
+                    else
+                    {
+                        if(c <= 1) { return true; }
+                        else { return false; }
+                    }
+                }
             );
         }
 

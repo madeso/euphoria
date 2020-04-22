@@ -51,6 +51,12 @@ namespace euphoria::core::generator
         Work();
     };
 
+    using ChangeFunction = std::function
+    <
+        std::optional<bool>
+        (bool, const Wallcounter&)
+    >;
+
     // todo(Gustav): rename rules to make it clearer what they do
 
     /// fills the world with random data
@@ -76,6 +82,14 @@ namespace euphoria::core::generator
         int range,
         bool include_self,
         NeighborhoodAlgorithm algorithm
+    );
+
+    void
+    AddComplexRules
+    (
+        Rules* ca,
+        int times,
+        ChangeFunction change
     );
 
     /// simple smoothing, less than count neighbours are removed, more -> solid

@@ -121,7 +121,7 @@ namespace euphoria::core
         BoolTable* world,
         Fourway<OutsideRule> outside_rule,
         // return if occupied or not, or nullopt to keep old value
-        std::function<std::optional<bool>(const Wallcounter&)> smooth_function
+        std::function<std::optional<bool>(bool, const Wallcounter&)> smooth_function
     );
 
 
