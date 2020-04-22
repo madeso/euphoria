@@ -31,27 +31,20 @@ namespace
         int height = 8
     )
     {
-        const auto width = half_width * 2;
         // todo(Gustav): figure out color (randomly?)
         const auto foreground_color = Color::White;
         const auto background_color = Color::Black;
 
-        auto table = BoolTable::FromWidthHeight(width, height);
+        auto half_side = BoolTable::FromWidthHeight(half_width, height);
 
         {
             auto generator = TGenerator{code};
             SetWhiteNoise
             (
-                &table,
+                &half_side,
                 Fourway<BorderSetupRule>{BorderSetupRule::Random},
                 [&]() -> bool { return generator.Next() < 0.5f; }
             );
-            // mirror on x
-            for(int y=0; y<height; y+=1)
-            for(int x=0; x<half_width; x+=1)
-            {
-                table(x,y) = table(width-(x+1),y);
-            }
         }
 
         {
@@ -66,7 +59,7 @@ namespace
                     (
                         1,
                         false,
-                        NeighborhoodAlgorithm::Box
+                        NeighborhoodAlgorithm::Plus
                     );
                     if(current)
                     {
@@ -80,10 +73,27 @@ namespace
                     }
                 }
             );
+
+            auto cell = generator::CellularAutomata(&rules, &half_side, Fourway<OutsideRule>{OutsideRule::Empty});
+            while(cell.HasMoreWork())
+            {
+                cell.Work();
+            }
+        }
+
+        // flip
+        const auto width = half_width * 2;
+        auto res = BoolTable::FromWidthHeight(width, height);
+
+        // copy from small table to big table
+        for(int y=0; y<height; y+=1)
+        for(int x=0; x<half_width; x+=1)
+        {
+            res(x,y) = half_side(x, y);
+            res(width-(x+1),y) = half_side(x,y);
         }
 
         Clear(image, background_color);
-
         auto sf = [](int is, int ts) -> int
         {
             const auto fis = static_cast<float>(is);
@@ -95,10 +105,10 @@ namespace
 
         auto scale = std::min
         (
-            sf(image->GetWidth(), table.GetWidth()),
-            sf(image->GetHeight(), table.GetHeight())
+            sf(image->GetWidth(), res.GetWidth()),
+            sf(image->GetHeight(), res.GetHeight())
         );
-        auto img = Draw(table, foreground_color, background_color, scale);
+        auto img = Draw(res, foreground_color, background_color, scale);
         PasteImage(image, vec2i{0, 0}, img);
     }
 }
