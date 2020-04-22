@@ -26,7 +26,7 @@ namespace euphoria::core
     };
 
 
-    using KnuthLcg = Lcg<u64, 2^64, 6364136223846793005, 1442695040888963407>;
+    // using KnuthLcg = Lcg<u64, 2^64, 6364136223846793005, 1442695040888963407>;
 
 
     // https://en.wikipedia.org/wiki/Xorshift
@@ -53,7 +53,8 @@ namespace euphoria::core
         Next()
         {
             const auto r = Nexti();
-            return static_cast<float>(r)/std::numeric_limits<I>::max();
+            const auto max = static_cast<float>(std::numeric_limits<I>::max());
+            return static_cast<float>(r) / max;
         }
     };
 
