@@ -5,11 +5,18 @@
 #include "core/io.h"
 #include "core/identicon.h"
 #include "core/hashgen_retro.h"
+#include "core/hashgen_sprator.h"
 #include "core/argparse.h"
 #include "core/random.h"
 #include "core/str.h"
 
 using namespace euphoria::core;
+
+
+enum class HashType
+{
+    Identicon, Retro, Sprator
+};
 
 
 int
@@ -18,13 +25,13 @@ main(int argc, char* argv[])
     auto image_size = 512;
     auto number_of_images = 10;
     bool use_random = true;
-    bool use_identicon = true;
+    HashType type = HashType::Identicon;
 
     auto parser = argparse::Parser {"identicon test"};
     parser.Add("-size", &image_size).Help("image size");
     parser.Add("-count", &number_of_images).Help("The number of images to generate");
     parser.SetFalse("-const", &use_random).Help("Use a constant value");
-    parser.SetFalse("-retro", &use_identicon).Help("Use retro render instead");
+    parser.Add("-t", &type).Help("Set the type to use");
 
     if(const auto r = parser.Parse(argc, argv))
     {
@@ -50,13 +57,20 @@ main(int argc, char* argv[])
             code = random.NextInteger();
         }
 
-        if(use_identicon)
+        switch(type)
         {
+        case HashType::Identicon:
             RenderIdenticon(&image, code);
-        }
-        else
-        {
+            break;
+        case HashType::Retro:
             RenderRetro(&image, code);
+            break;
+        case HashType::Sprator:
+            RenderSprator(&image, code);
+            break;
+        default:
+            DIE("Unhandled type");
+            break;
         }
 
         std::string file_name = "identicon.png";

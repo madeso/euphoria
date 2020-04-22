@@ -65,6 +65,7 @@ set(app_src_pcg
 set(app_src_hash
     hash_fnv1a.cc hash_fnv1a.h
     hashgen_retro.cc hashgen_retro.h
+    hashgen_sprator.cc hashgen_sprator.h
     identicon.cc identicon.h
 )
 
