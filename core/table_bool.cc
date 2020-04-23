@@ -444,30 +444,56 @@ namespace euphoria::core
     }
 
 
+
+    BorderSettings::BorderSettings(const Rgbi& c)
+        : color(c)
+    {
+    }
+
+
     Image
     Draw
     (
         const BoolTable& world,
         Rgbi wall_color,
         Rgbi space_color,
-        int scale
+        int scale,
+        std::optional<BorderSettings> border
     )
     {
         Image image;
-        image.SetupNoAlphaSupport(
-            world.GetWidth() * scale, world.GetHeight() * scale);
+        image.SetupNoAlphaSupport
+        (
+            world.GetWidth() * scale,
+            world.GetHeight() * scale
+        );
+
+        auto get_space_color = [&](int x, int y) -> Rgbi
+        {
+            if(border.has_value() == false) { return space_color; }
+
+            const auto rule = Fourway<OutsideRule>{OutsideRule::Empty};
+            const auto algorithm = NeighborhoodAlgorithm::Plus;
+
+            const auto wc = Wallcounter{world, rule, x, y};
+            const auto walls = wc.Count(1, false, algorithm);
+
+            if(walls>0) { return border->color; }
+            else { return space_color; }
+        };
 
         Clear(&image, space_color);
 
+        for (int y = 0; y < world.GetHeight(); y += 1)
         for (int x = 0; x < world.GetWidth(); x += 1)
         {
-            for (int y = 0; y < world.GetHeight(); y += 1)
-            {
-                const auto px = x * scale;
-                const auto py = y * scale;
-                const auto color = world(x, y) ? wall_color : space_color;
-                DrawSquare(&image, color, px, py + scale - 1, scale);
-            }
+            const auto px = x * scale;
+            const auto py = y * scale;
+            const auto color = world(x, y)
+                ? wall_color
+                : get_space_color(x, y)
+                ;
+            DrawSquare(&image, color, px, py + scale - 1, scale);
         }
 
         return image;

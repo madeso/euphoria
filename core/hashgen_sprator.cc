@@ -34,6 +34,7 @@ namespace
         // todo(Gustav): figure out color (randomly?)
         const auto foreground_color = Color::White;
         const auto background_color = Color::Black;
+        const auto border_color = Color::Blue;
 
         auto half_side = BoolTable::FromWidthHeight(half_width, height);
 
@@ -83,14 +84,14 @@ namespace
 
         // flip
         const auto width = half_width * 2;
-        auto res = BoolTable::FromWidthHeight(width, height);
+        auto res = BoolTable::FromWidthHeight(width+2, height+2, false);
 
         // copy from small table to big table
         for(int y=0; y<height; y+=1)
         for(int x=0; x<half_width; x+=1)
         {
-            res(x,y) = half_side(x, y);
-            res(width-(x+1),y) = half_side(x,y);
+            res(x+1,y+1) = half_side(x, y);
+            res(width-(x+1)+1,y+1) = half_side(x,y);
         }
 
         Clear(image, background_color);
@@ -108,7 +109,8 @@ namespace
             sf(image->GetWidth(), res.GetWidth()),
             sf(image->GetHeight(), res.GetHeight())
         );
-        auto img = Draw(res, foreground_color, background_color, scale);
+        const auto border = BorderSettings{border_color};
+        auto img = Draw(res, foreground_color, background_color, scale, border);
         PasteImage(image, vec2i{0, 0}, img);
     }
 }
