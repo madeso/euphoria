@@ -208,7 +208,7 @@ struct Cellwriter
     Image
     GenerateWorldImage(const generator::World& w)
     {
-        return Draw(w, Color::Black, Color::White, world_scale);
+        return Draw(w, Color::Black, Color::White, world_scale, std::nullopt);
     }
 
     void
