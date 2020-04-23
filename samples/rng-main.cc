@@ -82,7 +82,7 @@ struct Main
     void
     main()
     {
-        Print<KnuthLcg>("knuth_lcg");
+        // Print<KnuthLcg>("knuth_lcg");
         Print<xorshift32>("xorshift32");
         Print<xorshift64>("xorshift64");
 
