@@ -17,6 +17,15 @@ namespace
 {
     using namespace euphoria::core;
 
+    Rgbi
+    BorderColor(Rgbi base)
+    {
+        auto h = hsl(rgb(base));
+        h.h -= Angle::FromDegrees(15);
+        h.l *= 0.4;
+        return rgbi(rgb(h));
+    }
+
     template
     <
         typename TGenerator,
@@ -34,7 +43,7 @@ namespace
         // todo(Gustav): figure out color (randomly?)
         const auto foreground_color = Color::White;
         const auto background_color = Color::Black;
-        const auto border_color = Color::Blue;
+        const auto border_color = BorderColor(foreground_color);
 
         auto half_side = BoolTable::FromWidthHeight(half_width, height);
 
