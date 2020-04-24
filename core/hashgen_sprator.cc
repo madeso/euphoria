@@ -104,19 +104,18 @@ namespace
         }
 
         Clear(image, background_color);
-        auto sf = [](int is, int ts) -> int
+        auto calculate_scale = [](int image_scale, int table_scale) -> int
         {
-            const auto fis = static_cast<float>(is);
-            const auto fts = static_cast<float>(ts);
-            const auto sf = fis / fts;
-            const auto si = std::max(1, static_cast<int>(sf));
-            return si;
+            const auto image_scale_float = static_cast<float>(image_scale);
+            const auto table_scale_float = static_cast<float>(table_scale);
+            const auto scale_factor = image_scale_float / table_scale_float;
+            return std::max(1, Floori(scale_factor));
         };
 
         auto scale = std::min
         (
-            sf(image->GetWidth(), res.GetWidth()),
-            sf(image->GetHeight(), res.GetHeight())
+            calculate_scale(image->GetWidth(), res.GetWidth()),
+            calculate_scale(image->GetHeight(), res.GetHeight())
         );
         const auto border = BorderSettings{border_color};
         auto img = Draw(res, foreground_color, background_color, scale, border);
