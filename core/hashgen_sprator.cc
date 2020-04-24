@@ -44,9 +44,11 @@ namespace
         const auto foreground_color = Color::White;
         const auto background_color = Color::Black;
         const auto border_color = BorderColor(foreground_color);
+        const int number_of_steps = 1;
 
         auto half_side = BoolTable::FromWidthHeight(half_width, height);
 
+        // randomize world
         {
             auto generator = TGenerator{code};
             SetWhiteNoise
@@ -57,12 +59,13 @@ namespace
             );
         }
 
+        // apply sprator algorithm
         {
             generator::Rules rules;
             generator::AddComplexRules
             (
                 &rules,
-                3,
+                number_of_steps,
                 [](bool current, const Wallcounter& wc) -> std::optional<bool>
                 {
                     const auto c = wc.Count
@@ -84,25 +87,28 @@ namespace
                 }
             );
 
-            auto cell = generator::CellularAutomata(&rules, &half_side, Fourway<OutsideRule>{OutsideRule::Empty});
-            while(cell.HasMoreWork())
-            {
-                cell.Work();
-            }
+            auto cell = generator::CellularAutomata
+            (
+                &rules,
+                &half_side,
+                Fourway<OutsideRule>{OutsideRule::Empty}
+            );
+
+            while(cell.HasMoreWork()) { cell.Work(); }
         }
 
-        // flip
+        // flip and copy from small table to big table
         const auto width = half_width * 2;
-        auto res = BoolTable::FromWidthHeight(width+2, height+2, false);
+        auto result_table = BoolTable::FromWidthHeight(width+2, height+2, false);
 
-        // copy from small table to big table
         for(int y=0; y<height; y+=1)
         for(int x=0; x<half_width; x+=1)
         {
-            res(x+1,y+1) = half_side(x, y);
-            res(width-(x+1)+1,y+1) = half_side(x,y);
+            result_table(x+1,y+1) = half_side(x, y);
+            result_table(width-(x+1)+1,y+1) = half_side(x,y);
         }
 
+        // draw image with border
         Clear(image, background_color);
         auto calculate_scale = [](int image_scale, int table_scale) -> int
         {
@@ -114,11 +120,18 @@ namespace
 
         auto scale = std::min
         (
-            calculate_scale(image->GetWidth(), res.GetWidth()),
-            calculate_scale(image->GetHeight(), res.GetHeight())
+            calculate_scale(image->GetWidth(), result_table.GetWidth()),
+            calculate_scale(image->GetHeight(), result_table.GetHeight())
         );
         const auto border = BorderSettings{border_color};
-        auto img = Draw(res, foreground_color, background_color, scale, border);
+        auto img = Draw
+        (
+            result_table,
+            foreground_color,
+            background_color,
+            scale,
+            border
+        );
         PasteImage(image, vec2i{0, 0}, img);
     }
 }
