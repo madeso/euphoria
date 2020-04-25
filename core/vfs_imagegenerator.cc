@@ -53,7 +53,7 @@ namespace euphoria::core
 
             Image image;
             image.SetupNoAlphaSupport(128, 128);
-            Clear(&image, color);
+            Clear(&image, {color});
             return image.Write(ImageWriteFormat::PNG);
         }
 

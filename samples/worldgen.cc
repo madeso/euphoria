@@ -206,9 +206,16 @@ struct Cellwriter
     }
 
     Image
-    GenerateWorldImage(const generator::World& w)
+    GenerateWorldImage(const generator::World& world)
     {
-        return Draw(w, Color::Black, Color::White, world_scale, std::nullopt);
+        return Draw
+        (
+            world,
+            {Color::Black},
+            {Color::White},
+            world_scale,
+            std::nullopt
+        );
     }
 
     void

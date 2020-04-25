@@ -42,7 +42,7 @@ namespace
             DrawRect
             (
                 image,
-                foreground_color,
+                {foreground_color},
                 Recti::FromTopLeftWidthHeight
                 (
                     top_left,
@@ -51,7 +51,7 @@ namespace
             );
         };
 
-        Clear(image, background_color);
+        Clear(image, {background_color});
 
         auto generator = TGenerator{code};
 

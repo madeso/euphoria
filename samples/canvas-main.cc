@@ -14,7 +14,7 @@ main(int, char*[])
     constexpr auto image_size = 300;
     Image image;
     image.SetupNoAlphaSupport(image_size, image_size);
-    Clear(&image, Color::Yellow);
+    Clear(&image, {Color::Yellow});
 
     auto ctx = Canvas{&image};
 

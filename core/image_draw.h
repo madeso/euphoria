@@ -17,16 +17,16 @@ namespace euphoria::core
     WholeImage(const Image& image);
 
     void
-    Clear(Image* image, const Rgbi& color);
+    Clear(Image* image, const Rgbai& color);
 
     void
-    DrawRect(Image* image, const Rgbi& color, const Recti& rect);
+    DrawRect(Image* image, const Rgbai& color, const Recti& rect);
 
     void
-    DrawSquare(Image* image, const Rgbi& color, int x, int y, int size);
+    DrawSquare(Image* image, const Rgbai& color, int x, int y, int size);
 
     void
-    FillPoly(Image* image, const Rgbi& color, std::vector<vec2f>& poly);
+    FillPoly(Image* image, const Rgbai& color, std::vector<vec2f>& poly);
 
     void
     DrawCircle
@@ -43,7 +43,7 @@ namespace euphoria::core
     DrawLineFast
     (
         Image* image,
-        const Rgbi& color,
+        const Rgbai& color,
         const vec2i& from,
         const vec2i& to
     );
@@ -73,7 +73,7 @@ namespace euphoria::core
         Image* image,
         const vec2i& start_pos,
         const std::string& text,
-        const Rgbi& color,
+        const Rgbai& color,
         const LoadedFont& font
     );
 
@@ -102,7 +102,7 @@ namespace euphoria::core
         Image* image,
         const vec2f& from,
         const vec2f& to,
-        const Rgbi& color,
+        const Rgbai& color,
         int size
     );
 

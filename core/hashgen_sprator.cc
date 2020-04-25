@@ -18,13 +18,13 @@ namespace
     using namespace euphoria::core;
 
 
-    Rgbi
-    CalculateBorderColor(Rgbi base)
+    Rgbai
+    CalculateBorderColor(Rgbai base)
     {
         auto h = hsl(rgb(base));
         h.h -= Angle::FromDegrees(15);
         h.l *= 0.4;
-        return rgbi(rgb(h));
+        return {rgbi(rgb(h)), base.a};
     }
 
 
@@ -125,9 +125,9 @@ namespace
     (
         Image* image,
         const BoolTable& result_table,
-        const Rgbi& background_color,
-        const Rgbi& foreground_color,
-        const Rgbi& border_color
+        const Rgbai& background_color,
+        const Rgbai& foreground_color,
+        const Rgbai& border_color
     )
     {
         Clear(image, background_color);
@@ -174,9 +174,9 @@ namespace
     )
     {
         // todo(Gustav): figure out color (randomly?)
-        const auto foreground_color = Color::White;
-        const auto background_color = Color::Black;
-        const auto border_color = CalculateBorderColor(foreground_color);
+        const Rgbai foreground_color = {Color::White};
+        const Rgbai background_color = {Color::Black};
+        const Rgbai border_color = CalculateBorderColor(foreground_color);
         const int number_of_steps = 3;
 
         auto half_side = BoolTable::FromWidthHeight(half_width, height);

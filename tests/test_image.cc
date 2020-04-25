@@ -221,13 +221,13 @@ TEST_CASE("image text")
     {
         euco::Image image;
         image.SetupNoAlphaSupport(width, height);
-        euco::DrawRect(&image, euco::Color::White, euco::WholeImage(image));
+        euco::DrawRect(&image, {euco::Color::White}, euco::WholeImage(image));
         euco::DrawText
         (
             &image,
             euco::vec2i(0,height-8),
             text,
-            euco::Color::Black,
+            {euco::Color::Black},
             euco::LoadCharactersFromBuiltin8()
         );
         const auto table = euco::ImageToStringTableExact

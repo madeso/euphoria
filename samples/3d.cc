@@ -103,7 +103,7 @@ main(int argc, char** argv)
     Image image;
     image.SetupNoAlphaSupport(256, 256);
     const auto wi = WholeImage(image);
-    Clear(&image, Color::Red);
+    Clear(&image, {Color::Red});
     Random random {42};
 
     for(int i = 0; i < 20; i += 1)
@@ -118,7 +118,7 @@ main(int argc, char** argv)
     DrawRect
     (
         &image,
-        Color::Blue,
+        {Color::Blue},
         Recti::FromTopLeftWidthHeight(vec2i{0, 256}, 100, 25)
     );
     DrawLineAntialiased(&image, Color::Black, wi.BottomLeft(), wi.TopRight());

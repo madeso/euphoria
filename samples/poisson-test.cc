@@ -61,7 +61,7 @@ png_dump(int extra_images)
         // auto svg = Dumper{};
         // svg.canvas_color = Color::Black;
 
-        Clear(&image, Color::Black);
+        Clear(&image, {Color::Black});
         for
         (
             int i=0;
@@ -98,7 +98,7 @@ png_dump(int extra_images)
                 &image,
                 from * world_to_image,
                 to * world_to_image,
-                Color::PureRed,
+                {Color::PureRed},
                 2
             );
         }

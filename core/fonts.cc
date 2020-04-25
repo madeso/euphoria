@@ -225,7 +225,7 @@ namespace euphoria::core
                     if(pixel)
                     {
                         // glyph.image.SetPixel(x, y, Color::White);
-                        DrawSquare(&glyph.image, Color::White, x, y, 1);
+                        DrawSquare(&glyph.image, {Color::White}, x, y, 1);
                     }
                 }
             }
@@ -266,7 +266,7 @@ namespace euphoria::core
                     );
                     if(pixel)
                     {
-                        DrawSquare(&glyph.image, Color::White, x, y, 1);
+                        DrawSquare(&glyph.image, {Color::White}, x, y, 1);
                     }
                 }
             }

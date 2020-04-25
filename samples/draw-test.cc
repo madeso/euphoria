@@ -18,7 +18,7 @@ main(int, char*[])
     for(auto& image : images)
     {
         image.SetupNoAlphaSupport(width, height);
-        Clear(&image, Color::White);
+        Clear(&image, {Color::White});
     }
 
     const auto center = vec2i(width/2, height/2);
@@ -44,8 +44,8 @@ main(int, char*[])
         DrawLineAntialiased(&(images[0]), color, from, to);
         DrawLineAntialiased(&(images[1]), color, to, from);
 
-        DrawLineFast(&(images[2]), color, from, to);
-        DrawLineFast(&(images[3]), color, to, from);
+        DrawLineFast(&(images[2]), {color}, from, to);
+        DrawLineFast(&(images[3]), {color}, to, from);
     };
 
     draw(Color::PureBlue, center, center + vec2i{center.x, offset});

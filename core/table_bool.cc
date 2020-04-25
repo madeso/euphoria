@@ -445,7 +445,7 @@ namespace euphoria::core
 
 
 
-    BorderSettings::BorderSettings(const Rgbi& c)
+    BorderSettings::BorderSettings(const Rgbai& c)
         : color(c)
     {
     }
@@ -455,8 +455,8 @@ namespace euphoria::core
     Draw
     (
         const BoolTable& world,
-        Rgbi wall_color,
-        Rgbi space_color,
+        Rgbai wall_color,
+        Rgbai space_color,
         int scale,
         std::optional<BorderSettings> border
     )
@@ -468,7 +468,7 @@ namespace euphoria::core
             world.GetHeight() * scale
         );
 
-        auto get_space_color = [&](int x, int y) -> Rgbi
+        auto get_space_color = [&](int x, int y) -> Rgbai
         {
             if(border.has_value() == false) { return space_color; }
 
