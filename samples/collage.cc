@@ -13,6 +13,9 @@
 #include "core/stringutils.h"
 
 
+// todo(Gustav): move all logic to collage.cc/collage.h
+
+
 using namespace euphoria::core;
 
 

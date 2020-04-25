@@ -28,6 +28,7 @@ set(app_src_math
     mat3.cc mat3.h
     mat4.cc mat4.h
     pack.cc pack.h
+    collage.cc collage.h
     plane.cc plane.h
     poisson.cc poisson.h
     polarcoord.cc polarcoord.h
