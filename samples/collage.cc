@@ -21,23 +21,9 @@
 using namespace euphoria::core;
 
 
-struct ImageAndFile
-{
-    ImageAndFile() {}
-
-    ImageAndFile(const std::string& f, const Image& i)
-        : file(f)
-        , image(i)
-    {}
-
-    std::string file;
-    Image image;
-};
-
-
 std::vector<Sizei> CollectSizes
 (
-    const std::vector<ImageAndFile>& images,
+    const std::vector<Image>& images,
     int padding
 )
 {
@@ -47,8 +33,8 @@ std::vector<Sizei> CollectSizes
     {
         sizes.emplace_back(Sizei::FromWidthHeight
         (
-            img.image.GetWidth() + padding,
-            img.image.GetHeight() + padding
+            img.GetWidth() + padding,
+            img.GetHeight() + padding
         ));
     }
 
@@ -56,10 +42,10 @@ std::vector<Sizei> CollectSizes
 }
 
 
-std::vector<ImageAndFile>
+std::vector<Image>
 LoadImages(const std::vector<std::string>& files)
 {
-    auto images = std::vector<ImageAndFile>{};
+    auto images = std::vector<Image>{};
 
     for(const auto& f: files)
     {
@@ -77,7 +63,7 @@ LoadImages(const std::vector<std::string>& files)
             return {};
         }
 
-        images.emplace_back(f, loaded_image.image);
+        images.emplace_back(loaded_image.image);
     }
 
     return images;
@@ -89,7 +75,8 @@ std::vector<vec2i>
 PackImage
 (
     const Sizei& image_size,
-    const std::vector<ImageAndFile>& images,
+    const std::vector<Image>& images,
+    const std::vector<std::string>& files,
     int padding
 )
 {
@@ -101,12 +88,12 @@ PackImage
     int i = 0;
     for(const auto& rect: packed)
     {
-        const auto& src = images[i];
+        const auto& file = files[i];
         i += 1;
 
         if(rect.has_value() == false)
         {
-            std::cerr << "failed to pack " << src.file << "\n";
+            std::cerr << "failed to pack " << file << "\n";
         }
         else
         {
@@ -123,7 +110,7 @@ PackTight
 (
     const Sizei& default_size,
     std::vector<vec2i>* positions,
-    const std::vector<ImageAndFile>& images,
+    const std::vector<Image>& images,
     int padding
 )
 {
@@ -131,8 +118,8 @@ PackTight
 
     for(const auto& [position, img]: ranges::views::zip(*positions, images))
     {
-        const auto image_width = img.image.GetWidth();
-        const auto image_height = img.image.GetHeight();
+        const auto image_width = img.GetWidth();
+        const auto image_height = img.GetHeight();
         const auto& rect = Recti::FromBottomLeftWidthHeight
         (
             vec2i(position.x, position.y),
@@ -163,7 +150,7 @@ Image
 DrawImage
 (
     const std::vector<vec2i>& positions,
-    const std::vector<ImageAndFile>& images,
+    const std::vector<Image>& images,
     const Sizei& size,
     const Rgbi& background_color
 )
@@ -182,7 +169,7 @@ DrawImage
         (
             &composed_image,
             position,
-            image.image,
+            image,
             PixelsOutside::Discard
         );
     }
@@ -194,7 +181,7 @@ DrawImage
 std::pair<std::vector<vec2i>, Sizei>
 GridLayout
 (
-    const std::vector<ImageAndFile>& images,
+    const std::vector<Image>& images,
     int padding,
     bool top_to_bottom
 )
@@ -220,8 +207,8 @@ GridLayout
 
     for(const auto& src: images)
     {
-        const auto width = src.image.GetWidth();
-        const auto height = src.image.GetHeight();
+        const auto width = src.GetWidth();
+        const auto height = src.GetHeight();
 
         ret.emplace_back
         (
@@ -341,7 +328,7 @@ HandlePack
     }
 
     // pack images
-    auto packed = PackImage(image_size, images, padding);
+    auto packed = PackImage(image_size, images, files, padding);
 
     if(packed.empty())
     {
