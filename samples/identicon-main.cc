@@ -47,7 +47,7 @@ main(int argc, char* argv[])
     Random random;
 
     Image image;
-    image.SetupNoAlphaSupport(image_size, image_size);
+    image.SetupWithAlphaSupport(image_size, image_size);
 
     for(int i = 0; i < number_of_images; i += 1)
     {

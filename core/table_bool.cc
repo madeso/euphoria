@@ -461,12 +461,24 @@ namespace euphoria::core
         std::optional<BorderSettings> border
     )
     {
+        const bool has_alpha =
+            wall_color.a < 255 ||
+            space_color.a < 255 ||
+            (border.has_value() ? border->color.a < 255 : false)
+            ;
+
+        const auto image_width = world.GetWidth() * scale;
+        const auto image_height = world.GetHeight() * scale;
+
         Image image;
-        image.SetupNoAlphaSupport
-        (
-            world.GetWidth() * scale,
-            world.GetHeight() * scale
-        );
+        if(has_alpha)
+        {
+            image.SetupWithAlphaSupport(image_width, image_height);
+        }
+        else
+        {
+            image.SetupNoAlphaSupport(image_width, image_height);
+        }
 
         auto get_space_color = [&](int x, int y) -> Rgbai
         {

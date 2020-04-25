@@ -175,7 +175,7 @@ namespace
     {
         // todo(Gustav): figure out color (randomly?)
         const Rgbai foreground_color = {Color::White};
-        const Rgbai background_color = {Color::Black};
+        const Rgbai background_color = {Color::Black, 0};
         const Rgbai border_color = CalculateBorderColor(foreground_color);
         const int number_of_steps = 3;
 
