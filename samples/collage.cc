@@ -5,6 +5,8 @@
 #include <utility>
 #include <optional>
 
+#include <range/v3/all.hpp>
+
 #include "core/argparse.h"
 #include "core/io.h"
 #include "core/image.h"
@@ -83,25 +85,7 @@ LoadImages(const std::vector<std::string>& files)
 
 
 
-struct PackedImage
-{
-    PackedImage()
-        : position{0,0}
-    {}
-
-    PackedImage(const std::string& f, const Image& i, const vec2i& p)
-        : file(f)
-        , image(i)
-        , position(p)
-    {}
-
-    std::string file;
-    Image image;
-    vec2i position;
-};
-
-
-std::vector<PackedImage>
+std::vector<vec2i>
 PackImage
 (
     const Sizei& image_size,
@@ -112,7 +96,7 @@ PackImage
     const auto image_sizes = CollectSizes(images, padding);
     const auto packed = Pack(image_size, image_sizes);
 
-    auto ret = std::vector<PackedImage>{};
+    auto ret = std::vector<vec2i>{};
 
     int i = 0;
     for(const auto& rect: packed)
@@ -126,7 +110,7 @@ PackImage
         }
         else
         {
-            ret.emplace_back(src.file, src.image, rect->BottomLeft());
+            ret.emplace_back(rect->BottomLeft());
         }
     }
 
@@ -138,19 +122,20 @@ Sizei
 PackTight
 (
     const Sizei& default_size,
-    std::vector<PackedImage>* images,
+    std::vector<vec2i>* positions,
+    const std::vector<ImageAndFile>& images,
     int padding
 )
 {
     std::optional<Recti> bb = std::nullopt;
 
-    for(const auto& img: *images)
+    for(const auto& [position, img]: ranges::views::zip(*positions, images))
     {
         const auto image_width = img.image.GetWidth();
         const auto image_height = img.image.GetHeight();
         const auto& rect = Recti::FromBottomLeftWidthHeight
         (
-            vec2i(img.position.x, img.position.y),
+            vec2i(position.x, position.y),
             image_width + padding,
             image_height + padding
         );
@@ -165,9 +150,9 @@ PackTight
     const auto dx = -bb->left;
     const auto dy = -bb->bottom;
 
-    for(auto& img: *images)
+    for(auto& position: *positions)
     {
-        img.position += vec2i(dx, dy);
+        position += vec2i(dx, dy);
     }
 
     return Sizei::FromWidthHeight(size.width + padding, size.height+padding);
@@ -177,7 +162,8 @@ PackTight
 Image
 DrawImage
 (
-    const std::vector<PackedImage>& images,
+    const std::vector<vec2i>& positions,
+    const std::vector<ImageAndFile>& images,
     const Sizei& size,
     const Rgbi& background_color
 )
@@ -190,12 +176,12 @@ DrawImage
     );
     Clear(&composed_image, background_color);
 
-    for(const auto& image: images)
+    for(const auto& [position, image]: ranges::views::zip(positions, images))
     {
         PasteImage
         (
             &composed_image,
-            image.position,
+            position,
             image.image,
             PixelsOutside::Discard
         );
@@ -205,7 +191,7 @@ DrawImage
 }
 
 
-std::pair<std::vector<PackedImage>, Sizei>
+std::pair<std::vector<vec2i>, Sizei>
 GridLayout
 (
     const std::vector<ImageAndFile>& images,
@@ -215,7 +201,7 @@ GridLayout
 {
     const auto images_per_row = Ceil(Sqrt(images.size()));
 
-    auto ret = std::vector<PackedImage>{};
+    auto ret = std::vector<vec2i>{};
 
     int x = padding;
     int y = padding;
@@ -239,9 +225,7 @@ GridLayout
 
         ret.emplace_back
         (
-            src.file,
-            src.image,
-            vec2i(x, y)
+            x, y
         );
 
         x += width + padding;
@@ -267,10 +251,11 @@ GridLayout
     // to switch to that, and we do that by inverting it at the end
     if(top_to_bottom)
     {
-        for(auto& r: ret)
-        {
-            r.position.y = image_height - (r.position.y + r.image.GetHeight());
-        }
+        // todo(Gustav): fix iterator loop
+        // for(auto& [r, src]: ranges::views::zip(ret, images))
+        // {
+            // r.y = image_height - (r.y + src.image.GetHeight());
+        // }
     }
 
     return {ret, Sizei::FromWidthHeight(image_width, image_height)};
@@ -314,7 +299,7 @@ HandleGrid
     const auto [image_grid, size] = GridLayout(images, padding, top_to_bottom);
 
     // draw new image
-    auto composed_image = DrawImage(image_grid, size, background_color);
+    auto composed_image = DrawImage(image_grid, images, size, background_color);
 
     // save image to out
     auto saved_chunk = composed_image.Write(ImageWriteFormat::PNG);
@@ -365,7 +350,7 @@ HandlePack
 
     // optionally reduce image size
     const auto size = pack_image
-        ? PackTight(requested_size, &packed, padding)
+        ? PackTight(requested_size, &packed, images, padding)
         : requested_size
         ;
 
@@ -375,13 +360,13 @@ HandlePack
     // the packed image-sizes is increased with padding
     // and finally all the images are offseted by padding
     // all to keep padding-sized border between the images
-    for(auto& img: packed)
+    for(auto& position: packed)
     {
-        img.position += vec2i(padding, padding);
+        position += vec2i(padding, padding);
     }
 
     // draw new image
-    auto composed_image = DrawImage(packed, size, background_color);
+    auto composed_image = DrawImage(packed, images, size, background_color);
 
     // save image to out
     auto saved_chunk = composed_image.Write(ImageWriteFormat::PNG);
