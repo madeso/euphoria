@@ -548,30 +548,31 @@ namespace euphoria::core
         Image* dest_image,
         const vec2i& position,
         const Image& source_image,
+        BlendMode blend_mode,
         PixelsOutside clip
     )
     {
         ASSERT(dest_image);
 
         for(int y = 0; y < source_image.GetHeight(); ++y)
+        for(int x = 0; x < source_image.GetWidth(); ++x)
         {
-            for(int x = 0; x < source_image.GetWidth(); ++x)
+            const auto dest_x = position.x + x;
+            const auto dest_y = position.y + y;
+            if
+            (
+                clip == PixelsOutside::Discard &&
+                IsWithin(dest_image->GetIndices(), vec2i(dest_x, dest_y)) == false
+            )
             {
-                const auto dest_x = position.x + x;
-                const auto dest_y = position.y + y;
-                if
-                (
-                    clip == PixelsOutside::Discard &&
-                    IsWithin(dest_image->GetIndices(), vec2i(dest_x, dest_y)) == false
-                )
-                {
-                    // nop
-                }
-                else
-                {
-                    const auto color = source_image.GetPixel(x, y);
-                    dest_image->SetPixel(dest_x, dest_y, color);
-                }
+                // nop
+            }
+            else
+            {
+                const auto top = source_image.GetPixel(x, y);
+                const auto bottom = dest_image->GetPixel(dest_x, dest_y);
+                const auto color = Blend(top, bottom, blend_mode);
+                dest_image->SetPixel(dest_x, dest_y, color);
             }
         }
     }

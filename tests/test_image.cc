@@ -187,7 +187,7 @@ TEST_CASE("image draw", "[img]")
         CHECK_FALSE(img.GetPixel(width-1, 0) == colora);
         CHECK_FALSE(img.GetPixel(width-1, height-1) == colora);
 
-        PasteImage(&img, euco::vec2i(-width, -height), big, euco::PixelsOutside::Discard);
+        PasteImage(&img, euco::vec2i(-width, -height), big, euco::BlendMode::Normal, euco::PixelsOutside::Discard);
 
         CHECK(img.GetPixel(5, 5) == colora);
         CHECK(img.GetPixel(0, 0) == colora);

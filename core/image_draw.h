@@ -5,6 +5,7 @@
 #include "core/rgb.h"
 #include "core/rect.h"
 #include "core/vec2.h"
+#include "core/rgb_blend.h"
 
 #include <string>
 #include <vector>
@@ -92,6 +93,8 @@ namespace euphoria::core
         const vec2i& position,
         // source: paste from this image
         const Image& source_image,
+        // how to blend
+        BlendMode blend = BlendMode::Normal,
         // how to handle pixels that fall outside
         PixelsOutside clip = PixelsOutside::Assert
     );
