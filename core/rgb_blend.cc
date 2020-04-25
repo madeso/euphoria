@@ -13,21 +13,27 @@ namespace euphoria::core
         // todo(Gustav): replace uint8 with float
         using uint8 = std::uint8_t;
 
-        uint8 min(uint8 lhs, uint8 rhs)
+
+        uint8
+        min(uint8 lhs, uint8 rhs)
         {
             return (lhs < rhs) ? lhs : rhs;
         }
 
-        uint8 max(uint8 lhs, uint8 rhs)
+
+        uint8
+        max(uint8 lhs, uint8 rhs)
         {
             return (lhs > rhs) ? lhs : rhs;
         }
 
-        uint8 abs(uint8 lhs)
-        {
 
+        uint8
+        abs(uint8 lhs)
+        {
             return lhs;
         }
+
 
         uint8 ChannelBlend_Normal        (uint8 top, uint8       ) { return ((uint8)(top))                                                                                       ; }
         uint8 ChannelBlend_Lighten       (uint8 top, uint8 bottom) { return ((uint8)((bottom > top) ? bottom:top))                                                                           ; }
@@ -56,39 +62,72 @@ namespace euphoria::core
         uint8 ChannelBlend_Phoenix       (uint8 top, uint8 bottom) { return ((uint8)(min(top,bottom) - max(top,bottom) + 255))                                                               ; }
 
 
-        uint8 ChannelBlend_Alpha(uint8 top,uint8 bottom,float O)     { return ((uint8)(O * top + (1 - O) * bottom)); }
+        // 1 = top
+        // 0 = bottom
+        uint8
+        ChannelBlend_Alpha(uint8 top, uint8 bottom, float factor)
+        {
+            return ((uint8)(factor * top + (1 - factor) * bottom));
+        }
+
 
         template<typename TF>
-        uint8 ChannelBlend_AlphaF(uint8 top,uint8 bottom,float O, TF F)  { return (ChannelBlend_Alpha(F(top,bottom),bottom,O)); }
+        uint8
+        ChannelBlend_AlphaF(uint8 top, uint8 bottom, float factor, TF F)
+        {
+            return (ChannelBlend_Alpha(F(top,bottom), bottom, factor));
+        }
 
-        template<typename F>
-        Rgbi Blend(const Rgbi& top, const Rgbi& bottom, F f)
+
+        template<typename TBlendFunction>
+        Rgbi
+        Blend(const Rgbi& top, const Rgbi& bottom, TBlendFunction blend_function)
         {
             return
             {
-                f(top.r, bottom.r),
-                f(top.g, bottom.g),
-                f(top.b, bottom.b),
+                blend_function(top.r, bottom.r),
+                blend_function(top.g, bottom.g),
+                blend_function(top.b, bottom.b),
             };
         }
 
-        template<typename F>
-        Rgb Blend(const Rgb& top, const Rgb& bottom, F f)
+
+        template<typename TBlendFunction>
+        Rgb
+        Blend(const Rgb& top, const Rgb& bottom, TBlendFunction blend_function)
         {
-            return rgb(Blend(rgbi(top), rgbi(bottom), f));
+            return rgb(Blend(rgbi(top), rgbi(bottom), blend_function));
         }
 
+
         template<typename T>
-        T AlphaBlend(T lhs, T rhs, float a)
+        T
+        AlphaBlend(T lhs, T rhs, float a)
         {
             return static_cast<T>(lhs * (1-a) + rhs * a);
         }
 
-        template<typename F>
-        Rgbai Blend(const Rgbai& top, const Rgbai& bottom, F f)
+
+        template<typename TBlendFunction>
+        Rgbai
+        Blend
+        (
+            const Rgbai& top,
+            const Rgbai& bottom,
+            TBlendFunction blend_function
+        )
         {
             const auto factor = top.a/255.0f;
-            const auto ff = [&](uint8 a_top,uint8 a_bottom){ return ChannelBlend_AlphaF(a_top, a_bottom, factor, f); };
+            const auto ff = [&](uint8 a_top, uint8 a_bottom)
+            {
+                return ChannelBlend_AlphaF
+                (
+                    a_top,
+                    a_bottom,
+                    factor,
+                    blend_function
+                );
+            };
             return
             {
                 {
@@ -100,11 +139,14 @@ namespace euphoria::core
             };
         }
 
-        template<typename F>
-        Rgba Blend(const Rgba& top, const Rgba& bottom, F f)
+
+        template<typename TBlendFunction>
+        Rgba
+        Blend(const Rgba& top, const Rgba& bottom, TBlendFunction blend_function)
         {
-            return rgba(Blend(rgbai(top), rgbai(bottom), f));
+            return rgba(Blend(rgbai(top), rgbai(bottom), blend_function));
         }
+
 
         template<typename C>
         C
@@ -142,44 +184,8 @@ namespace euphoria::core
                     return top;
             }
         }
-
-        template<typename C>
-        C
-        ColorBlend(BlendMode mode, const C& top, const C& bottom, float alpha)
-        {
-            switch(mode)
-            {
-                case BlendMode::Normal     : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_Normal     );});
-                case BlendMode::Lighten    : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_Lighten    );});
-                case BlendMode::Darken     : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_Darken     );});
-                case BlendMode::Multiply   : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_Multiply   );});
-                case BlendMode::Average    : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_Average    );});
-                case BlendMode::Add        : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_Add        );});
-                case BlendMode::Subtract   : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_Subtract   );});
-                case BlendMode::Difference : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_Difference );});
-                case BlendMode::Negation   : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_Negation   );});
-                case BlendMode::Screen     : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_Screen     );});
-                case BlendMode::Exclusion  : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_Exclusion  );});
-                case BlendMode::Overlay    : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_Overlay    );});
-                case BlendMode::SoftLight  : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_SoftLight  );});
-                case BlendMode::HardLight  : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_HardLight  );});
-                case BlendMode::ColorDodge : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_ColorDodge );});
-                case BlendMode::ColorBurn  : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_ColorBurn  );});
-                case BlendMode::LinearDodge: return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_LinearDodge);});
-                case BlendMode::LinearBurn : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_LinearBurn );});
-                case BlendMode::LinearLight: return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_LinearLight);});
-                case BlendMode::VividLight : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_VividLight );});
-                case BlendMode::PinLight   : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_PinLight   );});
-                case BlendMode::HardMix    : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_HardMix    );});
-                case BlendMode::Reflect    : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_Reflect    );});
-                case BlendMode::Glow       : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_Glow       );});
-                case BlendMode::Phoenix    : return    Blend(top, bottom, [alpha](uint8 top, uint8 bottom){return ChannelBlend_AlphaF(top, bottom, alpha, ChannelBlend_Phoenix    );});
-                default:
-                    DIE("unhandled alpha blend case");
-                    return top;
-            }
-        }
     }
+
 
     Rgb   Blend(const Rgb&   top, const Rgb&   bottom, const BlendMode mode) { return ColorBlend(mode, top, bottom); }
     Rgba  Blend(const Rgba&  top, const Rgba&  bottom, const BlendMode mode) { return ColorBlend(mode, top, bottom); }
