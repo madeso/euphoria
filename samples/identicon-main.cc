@@ -9,6 +9,7 @@
 #include "core/argparse.h"
 #include "core/random.h"
 #include "core/str.h"
+#include "core/collage.h"
 
 using namespace euphoria::core;
 
@@ -25,12 +26,14 @@ main(int argc, char* argv[])
     auto image_size = 512;
     auto number_of_images = 10;
     bool use_random = true;
+    bool collage = false;
     HashType type = HashType::Identicon;
 
     auto parser = argparse::Parser {"identicon test"};
-    parser.Add("-size", &image_size).Help("image size");
-    parser.Add("-count", &number_of_images).Help("The number of images to generate");
-    parser.SetFalse("-const", &use_random).Help("Use a constant value");
+    parser.Add("--size", &image_size).Help("image size");
+    parser.Add("--count", &number_of_images).Help("The number of images to generate");
+    parser.SetFalse("--const", &use_random).Help("Use a constant value");
+    parser.SetTrue("--collage", &collage).Help("output to a single collage istead of several images");
     parser.Add("-t", &type).Help("Set the type to use");
 
     if(const auto r = parser.Parse(argc, argv))
@@ -46,6 +49,7 @@ main(int argc, char* argv[])
 
     Random random;
 
+    auto images = std::vector<Image>{};
     Image image;
     image.SetupWithAlphaSupport(image_size, image_size);
 
@@ -75,13 +79,30 @@ main(int argc, char* argv[])
 
         std::string file_name = "identicon.png";
 
-        if(number_of_images > 1)
+        if(collage)
         {
-            file_name = Str() << "identicon_" << (i + 1) << ".png";
-            std::cout << "Writing " << file_name << "\n";
+            images.emplace_back(image);
+            std::cout << "Generated collage image\n";
         }
+        else
+        {
+            if(number_of_images > 1)
+            {
+                file_name = Str() << "identicon_" << (i + 1) << ".png";
+                std::cout << "Writing " << file_name << "\n";
+            }
 
-        io::ChunkToFile(image.Write(ImageWriteFormat::PNG), file_name);
+            io::ChunkToFile(image.Write(ImageWriteFormat::PNG), file_name);
+        }
+    }
+
+    if(collage)
+    {
+        std::cout << "writing collage...\n";
+        int padding = 20;
+        auto collage_image = GridLayout(images, padding, Color::Gray, true);
+        std::string file_name = "identicon.png";
+        io::ChunkToFile(collage_image.Write(ImageWriteFormat::PNG), file_name);
     }
 
     return 0;
