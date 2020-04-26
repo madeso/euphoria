@@ -259,11 +259,16 @@ namespace euphoria::core
         // to switch to that, and we do that by inverting it at the end
         if(top_to_bottom)
         {
-            // todo(Gustav): fix iterator loop
-            // for(auto& [r, src]: ranges::views::zip(ret, images))
-            // {
-                // r.y = image_height - (r.y + src.image.GetHeight());
-            // }
+            const auto into_pointer = [](vec2i& v) -> vec2i* { return &v; };
+            using namespace ranges::views;
+            for
+            (
+                const auto& [position, img]:
+                    zip(ret|transform(into_pointer), images)
+            )
+            {
+                position->y = image_height - (position->y + img.GetHeight());
+            }
         }
 
         return {ret, Sizei::FromWidthHeight(image_width, image_height)};
