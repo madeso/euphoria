@@ -6,6 +6,7 @@
 
 #include "core/rgb.h"
 
+// based on https://github.com/yurkth/sprator/
 
 namespace euphoria::core
 {
