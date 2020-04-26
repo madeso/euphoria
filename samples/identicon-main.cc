@@ -137,11 +137,46 @@ void RunMain
 }
 
 
+void RunSpratorCollage
+(
+    int image_size,
+    int number_of_images,
+    int frames
+)
+{
+    Random random;
+
+    auto images = std::vector<Image>{};
+    Image image;
+    image.SetupWithAlphaSupport(image_size, image_size);
+
+    auto codes = std::vector<int>{};
+    for(int i = 0; i < number_of_images; i += 1)
+    {
+        const int code = random.NextInteger();
+        codes.emplace_back(code);
+    }
+
+    for(int i = 0; i < number_of_images; i += 1)
+    {
+        RenderSprator(&image, codes[i], PALETTE.GetSafeIndex(i));
+
+        images.emplace_back(image);
+        std::cout << "Generated collage image\n";
+    }
+
+    std::cout << "writing collage...\n";
+    int padding = 20;
+    auto collage_image = GridLayout(images, padding, Color::Gray, true);
+    std::string file_name = "identicon.png";
+    io::ChunkToFile(collage_image.Write(ImageWriteFormat::PNG), file_name);
+}
+
+
 int
 main(int argc, char* argv[])
 {
     auto parser = argparse::Parser {"identicon test"};
-
     auto subs = parser.AddSubParsers();
 
     subs->Add
@@ -184,6 +219,34 @@ main(int argc, char* argv[])
                         arguments.use_random,
                         arguments.type,
                         true
+                    );
+                    return argparse::ParseResult::Ok;
+                }
+            );
+        }
+    );
+    subs->Add
+    (
+        "sprator", "write sprator collage",
+        [](argparse::SubParser* sub)
+        {
+            int image_size = 100;
+            int number_of_images = 9;
+            int frames = 3;
+
+            sub->Add("--size", &image_size).Help("Image size");
+            sub->Add("--images", &number_of_images).Help("the number of sprators");
+            sub->Add("--frames", &frames).Help("the number of anim frames");
+
+            return sub->OnComplete
+            (
+                [&]
+                {
+                    RunSpratorCollage
+                    (
+                        image_size,
+                        number_of_images,
+                        frames
                     );
                     return argparse::ParseResult::Ok;
                 }
