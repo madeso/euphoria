@@ -38,6 +38,30 @@ struct CommonArguments
 };
 
 
+const auto PALETTE = Palette
+{
+    "",
+    Color::Red,
+    Color::White,
+    Color::Blue,
+
+    Color::LightGreen,
+    Color::Yellow,
+    Color::LightBlue,
+
+    Color::Pink,
+    Color::Orange,
+    Color::Tan,
+
+    Color::Brown,
+    Color::Green,
+    Color::Purple,
+    Color::CornflowerBlue,
+    Color::Cyan
+};
+
+
+
 void RunMain
 (
     int image_size,
@@ -54,28 +78,6 @@ void RunMain
     }
 
     Random random;
-
-    const auto pal = Palette
-    {
-        "",
-        Color::Red,
-        Color::White,
-        Color::Blue,
-
-        Color::LightGreen,
-        Color::Yellow,
-        Color::LightBlue,
-
-        Color::Pink,
-        Color::Orange,
-        Color::Tan,
-
-        Color::Brown,
-        Color::Green,
-        Color::Purple,
-        Color::CornflowerBlue,
-        Color::Cyan
-    };
 
     auto images = std::vector<Image>{};
     Image image;
@@ -98,7 +100,7 @@ void RunMain
             RenderRetro(&image, code);
             break;
         case HashType::Sprator:
-            RenderSprator(&image, code, pal.GetSafeIndex(i));
+            RenderSprator(&image, code, PALETTE.GetSafeIndex(i));
             break;
         default:
             DIE("Unhandled type");
