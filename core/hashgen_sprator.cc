@@ -199,6 +199,76 @@ namespace
         // draw image with border
         DrawImageWithBorder(image, result_table, background_color, foreground_color, border_color);
     }
+
+
+    template
+    <
+        typename TGenerator,
+        typename I
+    >
+    void
+    RenderSpratorImpl
+    (
+        std::vector<Image>* images,
+        I code,
+        const Rgbai& foreground_color,
+        const std::optional<Rgbai> border_color_arg,
+        const Rgbai& background_color
+    )
+    {
+        constexpr int half_width = 4;
+        constexpr int height = 8;
+        const int number_of_steps = 3;
+        // todo(Gustav): figure out color (randomly?)
+        const Rgbai border_color = border_color_arg.value_or
+        (
+            CalculateBorderColor(foreground_color)
+        );
+
+        auto half_side = BoolTable::FromWidthHeight(half_width, height);
+
+        auto generator = TGenerator{code};
+
+        // randomize world
+        RandomizeWorld<TGenerator>(&half_side, &generator);
+
+        // apply sprator algorithm
+        ApplySpratorAlgorithm(&half_side, number_of_steps);
+
+        bool first = true;
+
+        auto orig_half_side = half_side;
+
+        for(auto& image: *images)
+        {
+            if(first) { first = false; }
+            else
+            {
+                half_side = orig_half_side;
+
+                // animate...
+                auto hit = BoolTable::FromWidthHeight(half_side.GetWidth(), half_side.GetHeight(), false);
+                for(int i=0; i<2; i+=1)
+                {
+                    int x = 0;
+                    int y = 0;
+                    do
+                    {
+                        x = Floori(generator.Next() * half_side.GetWidth());
+                        y = Floori(generator.Next() * half_side.GetHeight());
+                    } while(hit(x, y));
+                    hit(x, y) = true;
+                    half_side(x, y) = !half_side(x, y);
+                }
+            }
+
+            // flip and copy from small table to big table
+            const auto result_table = Mirror(half_side);
+
+            // draw image with border
+            DrawImageWithBorder(&image, result_table, background_color, foreground_color, border_color);
+        }
+    }
 }
 
 
@@ -217,6 +287,27 @@ namespace euphoria::core
         RenderSpratorImpl<xorshift32>
         (
             image,
+            Cbit_signed_to_unsigned(code),
+            foreground_color,
+            border_color_arg,
+            background_color
+        );
+    }
+
+
+    void
+    RenderSprator
+    (
+        std::vector<Image>* images,
+        int code,
+        const Rgbai& foreground_color,
+        const std::optional<Rgbai> border_color_arg,
+        const Rgbai& background_color
+    )
+    {
+        RenderSpratorImpl<xorshift32>
+        (
+            images,
             Cbit_signed_to_unsigned(code),
             foreground_color,
             border_color_arg,

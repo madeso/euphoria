@@ -145,31 +145,43 @@ void RunSpratorCollage
 )
 {
     Random random;
+    auto sprites = std::vector<std::vector<Image>>{};
 
-    auto images = std::vector<Image>{};
-    Image image;
-    image.SetupWithAlphaSupport(image_size, image_size);
-
-    auto codes = std::vector<int>{};
-    for(int i = 0; i < number_of_images; i += 1)
+    for(int image_index = 0; image_index < number_of_images; image_index += 1)
     {
+        auto image_frames = std::vector<Image>{};
+        for(int frame_index = 0; frame_index < frames; frame_index +=1)
+        {
+            Image image;
+            image.SetupWithAlphaSupport(image_size, image_size);
+            image_frames.emplace_back(image);
+        }
+
         const int code = random.NextInteger();
-        codes.emplace_back(code);
-    }
+        RenderSprator(&image_frames, code, PALETTE.GetSafeIndex(image_index));
 
-    for(int i = 0; i < number_of_images; i += 1)
-    {
-        RenderSprator(&image, codes[i], PALETTE.GetSafeIndex(i));
-
-        images.emplace_back(image);
+        sprites.emplace_back(image_frames);
         std::cout << "Generated collage image\n";
     }
 
-    std::cout << "writing collage...\n";
-    int padding = 20;
-    auto collage_image = GridLayout(images, padding, Color::Gray, true);
-    std::string file_name = "identicon.png";
-    io::ChunkToFile(collage_image.Write(ImageWriteFormat::PNG), file_name);
+    for(int frame_index = 0; frame_index < frames; frame_index +=1)
+    {
+        auto images = std::vector<Image>{};
+        for(int image_index = 0; image_index < number_of_images; image_index += 1)
+        {
+            images.emplace_back(sprites[image_index][frame_index]);
+        }
+
+        std::cout << "writing collage...\n";
+        int padding = 20;
+        auto collage_image = GridLayout(images, padding, Color::Gray, true);
+        std::string file_name = "identicon.png";
+        if(frames > 1)
+        {
+            file_name = Str() << "identicon_" << frame_index << ".png";
+        }
+        io::ChunkToFile(collage_image.Write(ImageWriteFormat::PNG), file_name);
+    }
 }
 
 
