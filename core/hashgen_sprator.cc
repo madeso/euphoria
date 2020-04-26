@@ -169,15 +169,19 @@ namespace
     (
         Image* image,
         I code,
-        int half_width = 4,
-        int height = 8
+        const Rgbai& foreground_color,
+        const std::optional<Rgbai> border_color_arg,
+        const Rgbai& background_color
     )
     {
-        // todo(Gustav): figure out color (randomly?)
-        const Rgbai foreground_color = {Color::White};
-        const Rgbai background_color = {Color::Black, 0};
-        const Rgbai border_color = CalculateBorderColor(foreground_color);
+        constexpr int half_width = 4;
+        constexpr int height = 8;
         const int number_of_steps = 3;
+        // todo(Gustav): figure out color (randomly?)
+        const Rgbai border_color = border_color_arg.value_or
+        (
+            CalculateBorderColor(foreground_color)
+        );
 
         auto half_side = BoolTable::FromWidthHeight(half_width, height);
 
@@ -201,9 +205,23 @@ namespace
 namespace euphoria::core
 {
     void
-    RenderSprator(Image* image, int code)
+    RenderSprator
+    (
+        Image* image,
+        int code,
+        const Rgbai& foreground_color,
+        const std::optional<Rgbai> border_color_arg,
+        const Rgbai& background_color
+    )
     {
-        RenderSpratorImpl<xorshift32>(image, Cbit_signed_to_unsigned(code));
+        RenderSpratorImpl<xorshift32>
+        (
+            image,
+            Cbit_signed_to_unsigned(code),
+            foreground_color,
+            border_color_arg,
+            background_color
+        );
     }
 }
 
