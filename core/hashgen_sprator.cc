@@ -233,7 +233,7 @@ namespace
         RandomizeWorld<TGenerator>(&half_side, &generator);
 
         // apply sprator algorithm
-        ApplySpratorAlgorithm(&half_side, number_of_steps);
+        ApplySpratorAlgorithm(&half_side, number_of_steps - 1);
 
         bool first = true;
 
@@ -261,6 +261,9 @@ namespace
                     half_side(x, y) = !half_side(x, y);
                 }
             }
+
+
+            ApplySpratorAlgorithm(&half_side, 1);
 
             // flip and copy from small table to big table
             const auto result_table = Mirror(half_side);
