@@ -10,6 +10,7 @@
 #include "core/random.h"
 #include "core/str.h"
 #include "core/collage.h"
+#include "core/palette.h"
 
 using namespace euphoria::core;
 
@@ -49,6 +50,28 @@ main(int argc, char* argv[])
 
     Random random;
 
+    const auto pal = Palette
+    {
+        "",
+        Color::Red,
+        Color::White,
+        Color::Blue,
+
+        Color::LightGreen,
+        Color::Yellow,
+        Color::LightBlue,
+
+        Color::Pink,
+        Color::Orange,
+        Color::Tan,
+
+        Color::Brown,
+        Color::Green,
+        Color::Purple,
+        Color::CornflowerBlue,
+        Color::Cyan
+    };
+
     auto images = std::vector<Image>{};
     Image image;
     image.SetupWithAlphaSupport(image_size, image_size);
@@ -70,7 +93,7 @@ main(int argc, char* argv[])
             RenderRetro(&image, code);
             break;
         case HashType::Sprator:
-            RenderSprator(&image, code);
+            RenderSprator(&image, code, pal.GetSafeIndex(i));
             break;
         default:
             DIE("Unhandled type");
