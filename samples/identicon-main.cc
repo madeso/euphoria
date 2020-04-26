@@ -164,8 +164,12 @@ void RunSpratorCollage
         std::cout << "Generated collage image\n";
     }
 
-    for(int frame_index = 0; frame_index < frames; frame_index +=1)
+    const auto c = Max(frames-2, 0);
+    const auto write_frames = c + c*2 + 1;
+    for(int image_index = 0; image_index < write_frames; image_index +=1)
     {
+        const auto frame_index = (image_index % 2 == 0) ? 0 : (image_index+1) / 2;
+
         auto images = std::vector<Image>{};
         for(int image_index = 0; image_index < number_of_images; image_index += 1)
         {
@@ -178,7 +182,7 @@ void RunSpratorCollage
         std::string file_name = "identicon.png";
         if(frames > 1)
         {
-            file_name = Str() << "identicon_" << frame_index << ".png";
+            file_name = Str() << "identicon_" << image_index << ".png";
         }
         io::ChunkToFile(collage_image.Write(ImageWriteFormat::PNG), file_name);
     }
