@@ -21,27 +21,32 @@ enum class HashType
 };
 
 
-int
-main(int argc, char* argv[])
+struct CommonArguments
 {
-    auto image_size = 512;
-    auto number_of_images = 10;
+    int image_size = 512;
+    int number_of_images = 10;
     bool use_random = true;
-    bool collage = false;
     HashType type = HashType::Identicon;
 
-    auto parser = argparse::Parser {"identicon test"};
-    parser.Add("--size", &image_size).Help("image size");
-    parser.Add("--count", &number_of_images).Help("The number of images to generate");
-    parser.SetFalse("--const", &use_random).Help("Use a constant value");
-    parser.SetTrue("--collage", &collage).Help("output to a single collage istead of several images");
-    parser.Add("-t", &type).Help("Set the type to use");
-
-    if(const auto r = parser.Parse(argc, argv))
+    explicit CommonArguments(argparse::ParserBase* base)
     {
-        return *r;
+        base->Add("--size", &image_size).Help("image size");
+        base->Add("--count", &number_of_images).Help("The number of images to generate");
+        base->SetFalse("--const", &use_random).Help("Use a constant value");
+        base->Add("-t", &type).Help("Set the type to use");
     }
+};
 
+
+void RunMain
+(
+    int image_size,
+    int number_of_images,
+    bool use_random,
+    HashType type,
+    bool collage
+)
+{
     if(use_random==false && number_of_images > 1)
     {
         std::cout << "Since random isn't requested: setting the number of images to 1...\n";
@@ -127,7 +132,63 @@ main(int argc, char* argv[])
         std::string file_name = "identicon.png";
         io::ChunkToFile(collage_image.Write(ImageWriteFormat::PNG), file_name);
     }
+}
 
-    return 0;
+
+int
+main(int argc, char* argv[])
+{
+    auto parser = argparse::Parser {"identicon test"};
+
+    auto subs = parser.AddSubParsers();
+
+    subs->Add
+    (
+        "singles", "write many images",
+        [](argparse::SubParser* sub)
+        {
+            auto arguments = CommonArguments{sub};
+            return sub->OnComplete
+            (
+                [&]
+                {
+                    RunMain
+                    (
+                        arguments.image_size,
+                        arguments.number_of_images,
+                        arguments.use_random,
+                        arguments.type,
+                        false
+                    );
+                    return argparse::ParseResult::Ok;
+                }
+            );
+        }
+    );
+    subs->Add
+    (
+        "collage", "write collage",
+        [](argparse::SubParser* sub)
+        {
+            auto arguments = CommonArguments{sub};
+            return sub->OnComplete
+            (
+                [&]
+                {
+                    RunMain
+                    (
+                        arguments.image_size,
+                        arguments.number_of_images,
+                        arguments.use_random,
+                        arguments.type,
+                        true
+                    );
+                    return argparse::ParseResult::Ok;
+                }
+            );
+        }
+    );
+
+    return argparse::ParseFromMain(&parser, argc, argv);
 }
 
