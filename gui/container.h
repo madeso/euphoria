@@ -34,6 +34,6 @@ namespace euphoria::gui
     protected:
         std::vector<std::shared_ptr<Widget>> widgets_;
     };
-}  // namespace euphoria::gui
+}
 
 #endif  // GUI_CONTAINER_H

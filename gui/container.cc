@@ -36,4 +36,5 @@ namespace euphoria::gui
             w->Render(renderer);
         }
     }
-}  // namespace euphoria::gui
+}
+

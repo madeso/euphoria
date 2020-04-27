@@ -52,16 +52,17 @@ namespace euphoria::gui
         SetSkin(Skin* skin);
 
     private:
-        ButtonState*                            last_state_;
+        ButtonState* last_state_;
         std::shared_ptr<render::ScalableSprite> sprite_;
-        TextData                                text_;
-        Skin*                                   skin_;
+        TextData text_;
+        Skin* skin_;
 
-        core::Interpolate<float, core::FloatTransform>   scale_;
+        core::Interpolate<float, core::FloatTransform> scale_;
         core::Interpolate<core::Rgb, core::RgbTransform> image_color_;
         core::Interpolate<core::Rgb, core::RgbTransform> text_color_;
         core::Interpolate<core::vec2f, core::Vec2fTransform>
                 position_displacement_;
     };
-}  // namespace euphoria::gui
+}
+
 #endif  // GUI_BUTTON_H

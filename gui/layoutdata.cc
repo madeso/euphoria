@@ -57,4 +57,5 @@ namespace euphoria::gui
         preferred_height_ = h;
         return *this;
     }
-}  // namespace euphoria::gui
+}
+

@@ -27,4 +27,5 @@ namespace euphoria::gui
     {
         container.Render(renderer);
     }
-}  // namespace euphoria::gui
+}
+

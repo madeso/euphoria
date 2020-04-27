@@ -5,3 +5,4 @@ namespace euphoria::gui
 {
     Skin::~Skin() {}
 }  // namespace euphoria::gui
+

@@ -30,10 +30,12 @@ namespace euphoria::gui
         if(c.table)
         {
             LOG_INFO("Creating a table layout");
-            return CreateTableLayout(
-                    c.table->expanded_rows,
-                    c.table->expanded_cols,
-                    c.table->padding);
+            return CreateTableLayout
+            (
+                c.table->expanded_rows,
+                c.table->expanded_cols,
+                c.table->padding
+            );
         }
         else if(c.single_row)
         {
@@ -50,14 +52,17 @@ namespace euphoria::gui
 
     struct CmdButton : public Button
     {
-    public:
-        explicit CmdButton(UiState* state) : Button(state) {}
+        explicit CmdButton(UiState* state)
+            : Button(state)
+        {
+        }
 
         void
         OnClicked() override
         {
             LOG_INFO("Executing cmd: {0}", cmd);
         }
+
         std::string cmd;
     };
 
@@ -65,10 +70,11 @@ namespace euphoria::gui
     void
     BuildLayoutContainer
     (
-        UiState*                            state,
-        LayoutContainer*                    root,
-        const ::gui::LayoutContainer&       c,
-        render::TextureCache*               cache,
+        core::vfs::FileSystem* fs,
+        UiState* state,
+        LayoutContainer* root,
+        const ::gui::LayoutContainer& c,
+        render::TextureCache* cache,
         const std::map<std::string, Skin*>& skins
     );
     
@@ -87,9 +93,9 @@ namespace euphoria::gui
     LrtbFromProt(const ::gui::Lrtb& lrtd)
     {
         Lrtb r;
-        r.left   = lrtd.left;
-        r.right  = lrtd.right;
-        r.top    = lrtd.top;
+        r.left = lrtd.left;
+        r.right = lrtd.right;
+        r.top = lrtd.top;
         r.bottom = lrtd.bottom;
         return r;
     }
@@ -113,7 +119,7 @@ namespace euphoria::gui
             auto* b = new CmdButton(state);
 
             const std::string skin_name = w.button->skin;
-            const auto        skin_it   = skins.find(skin_name);
+            const auto skin_it = skins.find(skin_name);
             if(skin_it != skins.end())
             {
                 b->SetSkin(skin_it->second);
@@ -147,8 +153,15 @@ namespace euphoria::gui
             LOG_INFO("Creating a panel widget");
             PanelWidget* l = new PanelWidget(state);
             ret.reset(l);
-            BuildLayoutContainer(
-                    state, &l->container, w.panel->container, cache, skins);
+            BuildLayoutContainer
+            (
+                fs,
+                state,
+                &l->container,
+                w.panel->container,
+                cache,
+                skins
+            );
         }
         else
         {
@@ -158,9 +171,9 @@ namespace euphoria::gui
         ASSERT(ret);
 
         // load basic widget data
-        ret->name    = w.name;
+        ret->name = w.name;
         ret->padding = LrtbFromProt(w.padding);
-        ret->margin  = LrtbFromProt(w.margin);
+        ret->margin = LrtbFromProt(w.margin);
 
         SetupLayout(&ret->layout, w);
 
@@ -312,14 +325,14 @@ namespace euphoria::gui
     bool
     Load
     (
-        Root*                  root,
+        Root* root,
         core::vfs::FileSystem* fs,
-        render::FontCache*     font,
-        const core::vfs::FilePath&     path,
-        render::TextureCache*  cache
+        render::FontCache* font,
+        const core::vfs::FilePath& path,
+        render::TextureCache* cache
     )
     {
-        ::gui::File       f;
+        ::gui::File f;
         const std::string load_result = core::LoadProtoJson(fs, &f, path);
         if(false == load_result.empty())
         {
@@ -331,7 +344,7 @@ namespace euphoria::gui
         (
             core::vfs::FilePath::FromScriptOrEmpty(f.cursor_image)
         );
-        root->hover_image  = cache->GetTexture
+        root->hover_image = cache->GetTexture
         (
             core::vfs::FilePath::FromScriptOrEmpty(f.hover_image)
         );
@@ -345,9 +358,17 @@ namespace euphoria::gui
             root->skins_.push_back(skin_ptr);
         }
 
-        BuildLayoutContainer(
-                &root->state_, &root->container_, f.root, cache, skin_map);
+        BuildLayoutContainer
+        (
+            fs,
+            &root->state_,
+            &root->container_,
+            f.root,
+            cache,
+            skin_map
+        );
 
         return root->container_.HasWidgets();
     }
-}  // namespace euphoria::gui
+}
+

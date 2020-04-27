@@ -55,11 +55,11 @@ namespace euphoria::gui
     core::Sizef
     Widget::GetPreferredSize() const
     {
-        const auto min            = this->CalculateMinimumSize();
-        const auto padding_width  = padding.left + padding.right;
+        const auto min = this->CalculateMinimumSize();
+        const auto padding_width = padding.left + padding.right;
         const auto padding_height = padding.top + padding.bottom;
-        const auto margin_width   = margin.left + margin.right;
-        const auto margin_height  = margin.top + margin.bottom;
+        const auto margin_width = margin.left + margin.right;
+        const auto margin_height = margin.top + margin.bottom;
         return core::Sizef::FromWidthHeight(
                 core::Max(
                         min.width + padding_width + margin_width,
@@ -80,4 +80,5 @@ namespace euphoria::gui
     {
         return state_;
     }
-}  // namespace euphoria::gui
+}
+

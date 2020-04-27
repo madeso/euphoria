@@ -25,7 +25,7 @@ namespace euphoria::gui
         virtual void
         DoLayout(
                 std::vector<std::shared_ptr<Widget>>* widgets,
-                const core::Rectf&                    area) const = 0;
+                const core::Rectf& area) const = 0;
     };
 
     struct TableLayout : public Layout
@@ -34,7 +34,7 @@ namespace euphoria::gui
         TableLayout(
                 const std::vector<bool> expandable_rows,
                 const std::vector<bool> expandable_cols,
-                float                   combined_padding);
+                float combined_padding);
 
         virtual core::Sizef
         CalculateMinimumArea(const std::vector<std::shared_ptr<Widget>>&
@@ -43,11 +43,11 @@ namespace euphoria::gui
         virtual void
         DoLayout(
                 std::vector<std::shared_ptr<Widget>>* widgets,
-                const core::Rectf&                    area) const override;
+                const core::Rectf& area) const override;
 
         std::vector<bool> expandable_rows_;
         std::vector<bool> expandable_cols_;
-        float             combined_padding_;
+        float combined_padding_;
     };
 
     struct SingleRowLayout : public Layout
@@ -62,11 +62,11 @@ namespace euphoria::gui
         virtual void
         DoLayout(
                 std::vector<std::shared_ptr<Widget>>* widgets,
-                const core::Rectf&                    area) const override;
+                const core::Rectf& area) const override;
 
     private:
         float padding_;
     };
-}  // namespace euphoria::gui
+}
 
 #endif  // GUI_LAYOUT_H

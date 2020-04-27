@@ -34,11 +34,11 @@ namespace euphoria::gui
         SetPreferredHeight(float h);
 
     private:
-        int   column_;
-        int   row_;
+        int column_;
+        int row_;
         float preferred_width_;
         float preferred_height_;
     };
-}  // namespace euphoria::gui
+}
 
 #endif  // GUI_LAYOUTDATA_H

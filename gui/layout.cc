@@ -22,7 +22,7 @@ namespace euphoria::gui
     TableLayout::TableLayout(
             const std::vector<bool> expandable_rows,
             const std::vector<bool> expandable_cols,
-            float                   combined_padding)
+            float combined_padding)
         : expandable_rows_(expandable_rows)
         , expandable_cols_(expandable_cols)
         , combined_padding_(combined_padding)
@@ -36,7 +36,7 @@ namespace euphoria::gui
         {
             *t = core::Max(*t, value);
         }
-    }  // namespace
+    }
 
     core::Sizef
     TableLayout::CalculateMinimumArea(
@@ -66,7 +66,7 @@ namespace euphoria::gui
     void
     TableLayout::DoLayout(
             std::vector<std::shared_ptr<Widget>>* widgets,
-            const core::Rectf&                    area) const
+            const core::Rectf& area) const
     {
         LOG_INFO("Doing table layout in {0}", area);
         // todo: include padding
@@ -101,7 +101,7 @@ namespace euphoria::gui
 
         LOG_INFO("Width {0} height: {1}", total_width, total_height);
 
-        const float leftover_width  = area.GetWidth() - total_width;
+        const float leftover_width = area.GetWidth() - total_width;
         const float leftover_height = area.GetHeight() - total_height;
 
         const long expandable_rows_count = std::count(
@@ -135,10 +135,10 @@ namespace euphoria::gui
 
         for(const auto& w: *widgets)
         {
-            const LayoutData& d       = w->layout;
-            const auto        topleft = area.TopLeft();
-            float             x       = topleft.x;
-            float             y       = topleft.y;
+            const LayoutData& d = w->layout;
+            const auto topleft = area.TopLeft();
+            float x = topleft.x;
+            float y = topleft.y;
 
             LOG_INFO
             (
@@ -168,9 +168,9 @@ namespace euphoria::gui
     SingleRowLayout::CalculateMinimumArea(
             const std::vector<std::shared_ptr<Widget>>& widgets) const
     {
-        float width  = 0;
+        float width = 0;
         float height = 0;
-        bool  first  = false;
+        bool first = false;
 
         for(const auto& w: widgets)
         {
@@ -192,11 +192,11 @@ namespace euphoria::gui
     void
     SingleRowLayout::DoLayout(
             std::vector<std::shared_ptr<Widget>>* widgets,
-            const core::Rectf&                    area) const
+            const core::Rectf& area) const
     {
         LOG_INFO("Doing single row layout in {0}", area);
         const auto tl = area.TopLeft();
-        float      x  = tl.x;
+        float x = tl.x;
         for(const auto& w: *widgets)
         {
             const auto& s = w->GetPreferredSize();
@@ -205,4 +205,5 @@ namespace euphoria::gui
             x += s.width + padding_;
         }
     }
-}  // namespace euphoria::gui
+}
+

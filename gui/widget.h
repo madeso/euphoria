@@ -30,8 +30,8 @@ namespace euphoria::gui
     {
     public:
         std::string name;
-        Lrtb        margin;
-        Lrtb        padding;
+        Lrtb margin;
+        Lrtb padding;
 
         explicit Widget(UiState* state);
         virtual ~Widget();
@@ -80,6 +80,6 @@ namespace euphoria::gui
     private:
         core::Rectf rect_;
     };
-}  // namespace euphoria::gui
+}
 
 #endif  // GUI_WIDGET_H

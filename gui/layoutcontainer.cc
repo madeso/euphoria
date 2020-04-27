@@ -7,7 +7,7 @@ namespace euphoria::gui
     CreateTableLayout(
             const std::vector<bool> expandable_rows,
             const std::vector<bool> expandable_cols,
-            float                   combined_padding)
+            float combined_padding)
     {
         std::shared_ptr<Layout> ret {new TableLayout(
                 expandable_rows, expandable_cols, combined_padding)};
@@ -50,4 +50,5 @@ namespace euphoria::gui
         ASSERT(layout_);
         return layout_->CalculateMinimumArea(widgets_);
     }
-}  // namespace euphoria::gui
+}
+

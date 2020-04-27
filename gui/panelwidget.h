@@ -25,6 +25,6 @@ namespace euphoria::gui
 
         LayoutContainer container;
     };
-}  // namespace euphoria::gui
+}
 
 #endif  // GUI_PANELWIDGET_H

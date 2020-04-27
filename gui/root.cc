@@ -7,31 +7,44 @@
 
 namespace euphoria::gui
 {
-    Root::Root(const core::Sizef& size) : size_(size) {}
+    Root::Root(const core::Sizef& size)
+        : size_(size)
+    {
+    }
 
-    Root::~Root() {}
+
+    Root::~Root()
+    {
+    }
+
 
     bool
-    Root::Load(
-            core::vfs::FileSystem* fs,
-            render::FontCache*     font,
-            const std::string&     path,
-            render::TextureCache*  cache)
+    Root::Load
+    (
+        core::vfs::FileSystem* fs,
+        render::FontCache* font,
+        const core::vfs::FilePath& path,
+        render::TextureCache* cache
+    )
     {
         const bool result = euphoria::gui::Load(this, fs, font, path, cache);
+
         if(result)
         {
             container_.DoLayout(core::Rectf::FromWidthHeight(size_));
         }
+
         return result;
     }
+
 
     void
     Root::SetInputMouse(const core::vec2f& pos, bool down)
     {
-        state_.mouse      = pos;
+        state_.mouse = pos;
         state_.mouse_down = down;
     }
+
 
     void
     Root::Step(float dt)
@@ -40,6 +53,7 @@ namespace euphoria::gui
         container_.Step(dt);
         state_.End();
     }
+
 
     void
     Root::Render(render::SpriteRenderer* sp) const
@@ -50,13 +64,17 @@ namespace euphoria::gui
 
         if(image)
         {
-            sp->DrawSprite(
-                    *image,
-                    core::Rectf::FromPositionAnchorWidthAndHeight(
-                            state_.mouse,
-                            core::scale2f {0, 1},
-                            image->GetWidth(),
-                            image->GetHeight()));
+            sp->DrawSprite
+            (
+                *image,
+                core::Rectf::FromPositionAnchorWidthAndHeight
+                (
+                    state_.mouse,
+                    core::scale2f{0, 1},
+                    image->GetWidth(),
+                    image->GetHeight()
+                )
+            );
         }
     }
-}  // namespace euphoria::gui
+}

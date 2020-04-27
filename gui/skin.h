@@ -58,6 +58,6 @@ namespace euphoria::gui
         ButtonState button_hot;
         ButtonState button_active_hot;
     };
-}  // namespace euphoria::gui
+}
 
 #endif  // GUI_SKIN_H

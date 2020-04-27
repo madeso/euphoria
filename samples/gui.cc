@@ -50,6 +50,7 @@ LOG_SPECIFY_DEFAULT_LOGGER("samples-gui")
 
 
 using namespace euphoria::core;
+using namespace euphoria::gui;
 using namespace euphoria::render;
 using namespace euphoria::window;
 using namespace euphoria::engine;
@@ -99,6 +100,20 @@ main(int argc, char* argv[])
     shader.Load(engine.file_system.get(), vfs::FilePath{"~/shaders/sprite"});
     SpriteRenderer renderer(&shader);
     FontCache      font_cache {engine.file_system.get(), &cache};
+
+    auto root = Root{Sizef::FromWidthHeight(640, 480)};
+    const auto gui_loaded = root.Load
+    (
+        engine.file_system.get(),
+        &font_cache,
+        vfs::FilePath{"~/test.gui"},
+        &cache
+    );
+
+    if(gui_loaded == false)
+    {
+        return -1;
+    }
 
     Use(&shader);
     shader.SetUniform(shader.GetUniform("image"), 0);

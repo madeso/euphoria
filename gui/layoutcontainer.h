@@ -17,7 +17,7 @@ namespace euphoria::gui
     CreateTableLayout(
             const std::vector<bool> expandable_rows,
             const std::vector<bool> expandable_cols,
-            float                   combined_padding);
+            float combined_padding);
 
     std::shared_ptr<Layout>
     CreateSingleRowLayout(float padding);
@@ -42,6 +42,6 @@ namespace euphoria::gui
     private:
         std::shared_ptr<Layout> layout_;
     };
-}  // namespace euphoria::gui
+}
 
 #endif  // GUI_LAYOUTCONTAINER_H

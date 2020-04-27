@@ -9,7 +9,7 @@ namespace euphoria::render
 {
     struct Font;
     struct Text;
-}  // namespace euphoria::render
+}
 
 namespace euphoria::gui
 {
@@ -45,13 +45,14 @@ namespace euphoria::gui
 
     private:
         void
-                                      UpdateText();
+        UpdateText();
+
         std::shared_ptr<render::Font> font_;
-        std::string                   string_;
-        float                         size;
+        std::string string_;
+        float size;
 
         std::shared_ptr<render::Text> text_;
     };
-}  // namespace euphoria::gui
+}
 
 #endif  // GUI_TEXTDATA_H

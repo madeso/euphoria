@@ -22,7 +22,7 @@ namespace euphoria::gui
     {
         if(IsMouseDown() == false)
         {
-            active     = nullptr;
+            active = nullptr;
             has_active = false;
         }
         else
@@ -45,7 +45,7 @@ namespace euphoria::gui
     {
         if(has_active == false && active == nullptr)
         {
-            active     = w;
+            active = w;
             has_active = true;
         }
     }
@@ -55,4 +55,5 @@ namespace euphoria::gui
     {
         return mouse_down;
     }
-}  // namespace euphoria::gui
+}
+

@@ -13,24 +13,27 @@ namespace euphoria::gui
         UiState();
 
         core::vec2f mouse;
-        bool        mouse_down;
+        bool mouse_down;
 
         Widget* hot;
         Widget* active;
-        bool    has_active;
+        bool has_active;
 
         void
         Begin();
+
         void
         End();
 
         void
         SetHot(Widget* w);
+
         void
         SetActive(Widget* w);
+
         bool
         IsMouseDown() const;
     };
-}  // namespace euphoria::gui
+}
 
 #endif  // GUI_UISTATE_H

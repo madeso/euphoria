@@ -88,4 +88,5 @@ namespace euphoria::gui
             text_->SetSize(size);
         }
     }
-}  // namespace euphoria::gui
+}
+
