@@ -8,7 +8,6 @@
 
 #include "gui/layoutdata.h"
 
-
 namespace euphoria::render
 {
     struct SpriteRenderer;
@@ -28,22 +27,24 @@ namespace euphoria::gui
 
     struct Widget
     {
-    public:
         std::string name;
         Lrtb margin;
         Lrtb padding;
 
         explicit Widget(UiState* state);
-        virtual ~Widget();
+
+        virtual
+        ~Widget();
 
         bool
         IsActive() const;
+
         bool
         IsHot() const;
 
         virtual void
-        Step(float dt)
-                = 0;
+        Step(float dt) = 0;
+
         virtual void
         OnSize();
 
@@ -65,9 +66,11 @@ namespace euphoria::gui
         virtual void
         Render(render::SpriteRenderer* renderer) const = 0;
 
+    // todo(Gustav): public/private/public/private nonsense?
     protected:
         const UiState&
         GetState() const;
+
         UiState*
         GetStatePtr();
 
@@ -83,3 +86,4 @@ namespace euphoria::gui
 }
 
 #endif  // GUI_WIDGET_H
+

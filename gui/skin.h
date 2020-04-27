@@ -9,12 +9,10 @@
 #include "core/interpolate.h"
 #include "core/vfs_path.h"
 
-
 namespace euphoria::render
 {
     struct Font;
 }
-
 
 namespace euphoria::gui
 {
@@ -24,10 +22,8 @@ namespace euphoria::gui
         float time = 0.0f;
     };
 
-
     struct ButtonState
     {
-    public:
         // std::string image;
         float scale = 0;
         core::Rgb image_color {0.0f};
@@ -43,7 +39,6 @@ namespace euphoria::gui
 
     struct Skin
     {
-    public:
         ~Skin();
 
         std::string name;

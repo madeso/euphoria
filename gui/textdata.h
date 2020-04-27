@@ -4,7 +4,6 @@
 #include <memory>
 #include <string>
 
-
 namespace euphoria::render
 {
     struct Font;
@@ -15,8 +14,8 @@ namespace euphoria::gui
 {
     struct TextData
     {
-    public:
         TextData();
+
         ~TextData();
 
         void
@@ -56,3 +55,4 @@ namespace euphoria::gui
 }
 
 #endif  // GUI_TEXTDATA_H
+

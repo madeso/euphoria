@@ -1,11 +1,19 @@
 #include "gui/container.h"
+
 #include "gui/widget.h"
+
 
 namespace euphoria::gui
 {
-    Container::Container() {}
+    Container::Container()
+    {
+    }
 
-    Container::~Container() {}
+
+    Container::~Container()
+    {
+    }
+
 
     bool
     Container::HasWidgets() const
@@ -13,11 +21,13 @@ namespace euphoria::gui
         return !widgets_.empty();
     }
 
+
     void
     Container::Add(std::shared_ptr<Widget> widget)
     {
         widgets_.push_back(widget);
     }
+
 
     void
     Container::Step(float dt)
@@ -27,6 +37,7 @@ namespace euphoria::gui
             w->Step(dt);
         }
     }
+
 
     void
     Container::Render(render::SpriteRenderer* renderer) const

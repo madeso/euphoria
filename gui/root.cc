@@ -5,6 +5,7 @@
 #include "gui/load.h"
 #include "gui/skin.h"
 
+
 namespace euphoria::gui
 {
     Root::Root(const core::Sizef& size)
@@ -78,3 +79,4 @@ namespace euphoria::gui
         }
     }
 }
+

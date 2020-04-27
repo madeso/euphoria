@@ -8,7 +8,6 @@ namespace euphoria::gui
 {
     struct PanelWidget : public Widget
     {
-    public:
         PanelWidget(UiState* state);
 
         void
@@ -28,3 +27,4 @@ namespace euphoria::gui
 }
 
 #endif  // GUI_PANELWIDGET_H
+

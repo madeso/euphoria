@@ -36,3 +36,4 @@ namespace euphoria::gui
 }
 
 #endif  // GUI_LOAD_H
+

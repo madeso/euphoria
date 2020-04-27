@@ -30,8 +30,8 @@ namespace euphoria::gui
 
     struct Root
     {
-    public:
         Root(const core::Sizef& size);
+
         ~Root();
 
         bool
@@ -62,3 +62,4 @@ namespace euphoria::gui
 }
 
 #endif  // GUI_ROOT_H
+

@@ -22,13 +22,12 @@ namespace euphoria::gui
 
     struct Button : public Widget
     {
-    public:
         Button(UiState* state);
+
         ~Button();
 
         virtual void
-        OnClicked()
-                = 0;
+        OnClicked() = 0;
 
         void
         Step(float dt) override;
@@ -60,9 +59,9 @@ namespace euphoria::gui
         core::Interpolate<float, core::FloatTransform> scale_;
         core::Interpolate<core::Rgb, core::RgbTransform> image_color_;
         core::Interpolate<core::Rgb, core::RgbTransform> text_color_;
-        core::Interpolate<core::vec2f, core::Vec2fTransform>
-                position_displacement_;
+        core::Interpolate<core::vec2f, core::Vec2fTransform> position_displacement_;
     };
 }
 
 #endif  // GUI_BUTTON_H
+

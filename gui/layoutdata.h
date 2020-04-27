@@ -7,7 +7,10 @@ namespace euphoria::gui
     {
     public:
         LayoutData();
+
         ~LayoutData();
+
+        // todo(Gustav): cleanup this horrible get/set structure
 
         int
         GetColumn() const;

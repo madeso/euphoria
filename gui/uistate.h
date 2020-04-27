@@ -37,3 +37,4 @@ namespace euphoria::gui
 }
 
 #endif  // GUI_UISTATE_H
+

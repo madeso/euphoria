@@ -7,9 +7,16 @@
 
 namespace euphoria::gui
 {
-    TextData::TextData() : font_(nullptr) {}
+    TextData::TextData()
+        : font_(nullptr)
+    {
+    }
 
-    TextData::~TextData() {}
+
+    TextData::~TextData()
+    {
+    }
+
 
     void
     TextData::SetFont(std::shared_ptr<render::Font> font)
@@ -19,12 +26,14 @@ namespace euphoria::gui
         UpdateText();
     }
 
+
     const render::Font&
     TextData::GetFont() const
     {
         ASSERT(font_);
         return *font_;
     }
+
 
     void
     TextData::SetString(const std::string& str)
@@ -33,17 +42,20 @@ namespace euphoria::gui
         UpdateText();
     }
 
+
     const std::string&
     TextData::GetString() const
     {
         return string_;
     }
 
+
     bool
     TextData::HasText() const
     {
         return text_ != nullptr;
     }
+
 
     const render::Text&
     TextData::GetText() const
@@ -52,12 +64,14 @@ namespace euphoria::gui
         return *text_;
     }
 
+
     render::Text&
     TextData::GetText()
     {
         ASSERT(text_);
         return *text_;
     }
+
 
     void
     TextData::SetSize(float new_size)
@@ -68,6 +82,7 @@ namespace euphoria::gui
             GetText().SetSize(new_size);
         }
     }
+
 
     void
     TextData::UpdateText()

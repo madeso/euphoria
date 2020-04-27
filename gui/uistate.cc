@@ -9,13 +9,16 @@ namespace euphoria::gui
         , hot(nullptr)
         , active(nullptr)
         , has_active(false)
-    {}
+    {
+    }
+
 
     void
     UiState::Begin()
     {
         hot = nullptr;
     }
+
 
     void
     UiState::End()
@@ -34,11 +37,13 @@ namespace euphoria::gui
         }
     }
 
+
     void
     UiState::SetHot(Widget* w)
     {
         hot = w;
     }
+
 
     void
     UiState::SetActive(Widget* w)
@@ -49,6 +54,7 @@ namespace euphoria::gui
             has_active = true;
         }
     }
+
 
     bool
     UiState::IsMouseDown() const

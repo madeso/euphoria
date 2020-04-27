@@ -33,8 +33,8 @@ namespace euphoria::gui
             }
         }
 
-        const bool is_clicked
-                = GetState().IsMouseDown() == false && IsHot() && IsActive();
+        const bool mouse_down = GetState().IsMouseDown();
+        const bool is_clicked = mouse_down == false && IsHot() && IsActive();
         if(is_clicked)
         {
             OnClicked();
@@ -42,11 +42,13 @@ namespace euphoria::gui
 
         if(skin_)
         {
-            ButtonState* state
-                    = (IsHot()
-                               ? ((IsActive() ? &skin_->button_active_hot
-                                              : &skin_->button_hot))
-                               : &skin_->button_idle);
+            auto* cold_state = &skin_->button_idle;
+            auto* hot_state = IsActive()
+                ? &skin_->button_active_hot
+                : &skin_->button_hot
+                ;
+            auto* state = IsHot() ? hot_state : cold_state;
+
             if(last_state_ != state)
             {
                 last_state_ = state;
@@ -98,10 +100,14 @@ namespace euphoria::gui
 
         if(text_.HasText())
         {
-            const auto e = text_.GetText().GetExtents();
-            auto ms = core::Sizef::FromWidthHeight(e.GetWidth(), e.GetHeight());
-            size.width = (size.width + ms.width);
-            size.height = (size.height + ms.height);
+            const auto extents = text_.GetText().GetExtents();
+            const auto ms = core::Sizef::FromWidthHeight
+            (
+                extents.GetWidth(),
+                extents.GetHeight()
+            );
+            size.width = size.width + ms.width;
+            size.height = size.height + ms.height;
         }
 
         return size;
@@ -113,23 +119,15 @@ namespace euphoria::gui
     {
         if(skin_)
         {
-            /*
-            const ButtonState& state =
-                IsHot()?
-                (
-                    IsActive()?
-                    skin_->button_active_hot:
-                    skin_->button_hot
-                ):
-                skin_->button_idle;
-      */
             if(sprite_ != nullptr)
             {
                 const auto rect = GetBackgroundRect();
 
                 ASSERTX(scale_.GetValue() > 0, scale_.GetValue());
-                const auto scaled
-                        = rect.GetScaledAroundCenterCopy(scale_.GetValue());
+                const auto scaled = rect.GetScaledAroundCenterCopy
+                (
+                    scale_.GetValue()
+                );
                 ASSERTX(scaled.GetWidth() > 0, scaled.GetWidth());
                 ASSERTX(scaled.GetHeight() > 0, scaled.GetHeight());
                 renderer->DrawNinepatch
@@ -139,13 +137,15 @@ namespace euphoria::gui
                     image_color_.GetValue()
                 );
             }
+
             if(text_.HasText())
             {
                 const auto ex = text_.GetText().GetExtents();
                 // todo: render text at client rect center
-                const auto p
-                        = ex.CenterInsideOther(GetClientRect()).GetBottomLeft()
-                          + position_displacement_.GetValue();
+
+                const auto base = ex.CenterInsideOther(GetClientRect());
+                const auto base_pos = base.GetBottomLeft();
+                const auto p = base_pos + position_displacement_.GetValue();
                 text_.GetText().Draw(renderer, p, text_color_.GetValue());
             }
         }
@@ -168,7 +168,8 @@ namespace euphoria::gui
 
     void
     Button::OnSize()
-    {}
+    {
+    }
 
 
     void
@@ -181,3 +182,4 @@ namespace euphoria::gui
         }
     }
 }
+

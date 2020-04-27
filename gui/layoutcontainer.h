@@ -14,22 +14,26 @@ namespace euphoria::gui
     struct Layout;
 
     std::shared_ptr<Layout>
-    CreateTableLayout(
-            const std::vector<bool> expandable_rows,
-            const std::vector<bool> expandable_cols,
-            float combined_padding);
+    CreateTableLayout
+    (
+        const std::vector<bool> expandable_rows,
+        const std::vector<bool> expandable_cols,
+        float combined_padding
+    );
 
     std::shared_ptr<Layout>
     CreateSingleRowLayout(float padding);
 
     struct LayoutContainer : public Container
     {
-    public:
         LayoutContainer();
+
         virtual ~LayoutContainer();
 
+        // todo(Gustav): remove
         void
         SetLayout(std::shared_ptr<Layout> layout);
+
         std::shared_ptr<Layout>
         GetLayout();
 
@@ -39,9 +43,9 @@ namespace euphoria::gui
         core::Sizef
         CalculateMinimumArea() const;
 
-    private:
         std::shared_ptr<Layout> layout_;
     };
 }
 
 #endif  // GUI_LAYOUTCONTAINER_H
+
