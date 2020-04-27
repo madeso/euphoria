@@ -124,7 +124,7 @@ namespace euphoria::gui
 
             if(skin_it == skins.end())
             {
-                LOG_ERROR("Failed to find skin {0}", skin_name);
+                LOG_ERROR("Failed to find skin '{0}'", skin_name);
             }
             else
             {
