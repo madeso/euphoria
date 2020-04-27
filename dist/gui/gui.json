@@ -65,7 +65,9 @@
                 "row": 1,
                 "panel": {
                     "container": {
-                        "layout": {},
+                        "layout": { "single_row": {
+                            "padding": 0
+                        }},
                         "widgets": [
                             {
                                 "preferred_with": 0,
