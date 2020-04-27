@@ -316,6 +316,8 @@ namespace euphoria::core
             fontchars.codepoint_to_glyph[code_point] = cc;
         }
 
+        if(f.face == nullptr) { return fontchars; }
+
         fontchars.line_height = f.face->size->metrics.height;
 
         const FT_Long use_kerning = FT_HAS_KERNING(f.face);
