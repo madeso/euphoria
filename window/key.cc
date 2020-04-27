@@ -246,7 +246,8 @@ namespace euphoria::window
         case SDLK_EJECT: return core::Key::EJECT;
         case SDLK_SLEEP: return core::Key::SLEEP;
         default:
-            ASSERT(0 && key.sym && "Invalid keyboard button");
+            // todo(Gustav): die should have a x version too
+            ASSERTX(false && "Invalid keyboard button", key.sym);
             return core::Key::INVALID;
         }
     }
@@ -262,7 +263,7 @@ namespace euphoria::window
         case SDL_BUTTON_X1: return core::MouseButton::X1;
         case SDL_BUTTON_X2: return core::MouseButton::X2;
         default:
-            ASSERT(0 && mb.button && "Invalid mouse button");
+            ASSERTX(false && "Invalid mouse button", mb.button);
             return core::MouseButton::INVALID;
         }
     }

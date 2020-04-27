@@ -353,7 +353,7 @@ namespace euphoria::core
 #undef FUN
 
             case InterpolationType::INVALID:
-            default: ASSERT(false && "Unhandled case");
+            default: DIE("Unhandled case");
             }
             // ignore invalid interpolation type
             return *this;

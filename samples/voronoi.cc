@@ -79,6 +79,7 @@ float GetDistance(DistanceFunction f, const vec2f& lhs, const vec2f& rhs)
         case DistanceFunction::Max: return max_distance(lhs, rhs);
     }
     DIE("Unhandled distancfe function");
+    return 0.0f;
 };
 
 
