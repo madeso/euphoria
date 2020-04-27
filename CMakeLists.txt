@@ -171,6 +171,10 @@ add_executable(samples-3d WIN32 MACOSX_BUNDLE samples/3d.cc)
 target_include_directories(samples-3d SYSTEM PRIVATE ${SDL2_INCLUDE_DIR})
 target_link_libraries(samples-3d core render window ${SDL2_LIBRARY})
 
+add_executable(samples-gui WIN32 MACOSX_BUNDLE samples/gui.cc)
+target_include_directories(samples-gui SYSTEM PRIVATE ${SDL2_INCLUDE_DIR})
+target_link_libraries(samples-gui core gui render window ${SDL2_LIBRARY})
+
 add_executable(samples-drunken-bishop samples/drunken-bishop.cc)
 target_link_libraries(samples-drunken-bishop core)
 
