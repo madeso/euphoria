@@ -106,7 +106,7 @@ main(int argc, char* argv[])
     (
         engine.file_system.get(),
         &font_cache,
-        vfs::FilePath{"~/test.gui"},
+        vfs::FilePath{"~/gui.json"},
         &cache
     );
 

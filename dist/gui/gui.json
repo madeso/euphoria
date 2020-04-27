@@ -1,0 +1,101 @@
+{
+    "cursor_image": "gui/cursor_pointer3D.png",
+    "hover_image": "gui/cursor_hand.png",
+    "skins": [
+        {
+            "name": "hej",
+            "font": "guifont.json",
+            "button_image": "gui/glassPanel_projection.png",
+            "text_size": 30,
+            "button_idle": {
+                "scale": 1.0,
+                "image_color": { "r": 1.0, "g": 1.0, "b": 1.0 },
+                "text_color": { "r": 1.0, "g": 1.0, "b": 1.0 },
+                "dx": 0, "dy": 0,
+                "interpolate_position": "QuadOut",
+                "interpolate_position_time": 0,
+                "interpolate_size": "QuadOut",
+                "interpolate_size_time": 0.2,
+                "interpolate_color": "QuadOut",
+                "interpolate_color_time": 0
+            },
+            "button_hot": {
+                "scale": 1.1,
+                "interpolate_size": "QuadOut",
+                "interpolate_size_time": 0.2,
+
+                "image_color": { "r": 1.0, "g": 1.0, "b": 1.0 },
+                "text_color": { "r": 1.0, "g": 1.0, "b": 1.0 },
+                "dx": 0, "dy": 0,
+                "interpolate_position": "QuadOut",
+                "interpolate_position_time": 0,
+                "interpolate_color": "QuadOut",
+                "interpolate_color_time": 0
+            },
+            "button_active_hot": {
+                "scale": 0.9,
+                "interpolate_size": "QuadOut",
+                "interpolate_size_time": 0.2,
+
+                "image_color": { "r": 1.0, "g": 1.0, "b": 1.0 },
+                "text_color": { "r": 1.0, "g": 1.0, "b": 1.0 },
+                "dx": 0, "dy": 0,
+                "interpolate_position": "QuadOut",
+                "interpolate_position_time": 0,
+                "interpolate_color": "QuadOut",
+                "interpolate_color_time": 0
+            }
+        }
+    ],
+    "root": {
+        "layout": {
+            "table": {
+                "expanded_cols": [ true, false, true ],
+                "expanded_rows": [ true, false, true ],
+                "padding": 0
+            }
+        },
+        "widgets": [
+            {
+                "name": "root panel",
+                "preferred_width": 0, "preferred_height": 0,
+                "margin": {"left": 0, "right": 0, "top": 0, "bottom": 0},
+                "padding": {"left": 0, "right": 0, "top": 0, "bottom": 0},
+                "column": 1,
+                "row": 1,
+                "panel": {
+                    "container": {
+                        "layout": {},
+                        "widgets": [
+                            {
+                                "preferred_with": 0,
+                                "name": "hello btn",
+                                "column": 0, "row": 0,
+                                "preferred_width": 0, "preferred_height": 0,
+                                "margin": { "left": 10, "right": 10, "top": 3, "bottom": 3 },
+                                "padding": { "left": 3, "right": 3, "top": 3, "bottom": 3 },
+                                "button": {
+                                    "text": "@cross",
+                                    "skin": "",
+                                    "command": "said hello"
+                                }
+                            },
+                            {
+                                "name": "world btn",
+                                "column": 0, "row": 0,
+                                "preferred_width": 0, "preferred_height": 0,
+                                "margin": { "left": 10, "right": 10, "top": 3, "bottom": 3 },
+                                "padding": { "left": 3, "right": 3, "top": 3, "bottom": 3 },
+                                "button": {
+                                    "text": "@check  save or something",
+                                    "skin": "",
+                                    "command": "said world"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}
