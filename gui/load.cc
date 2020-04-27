@@ -120,33 +120,40 @@ namespace euphoria::gui
 
             const std::string skin_name = w.button->skin;
             const auto skin_it = skins.find(skin_name);
-            if(skin_it != skins.end())
-            {
-                b->SetSkin(skin_it->second);
-            }
-            else
+            Skin* skin = nullptr;
+
+            if(skin_it == skins.end())
             {
                 LOG_ERROR("Failed to find skin {0}", skin_name);
             }
-            Skin* skin = skin_it->second;
-
-            if(!skin_it->second->button_image.has_value())
+            else
             {
-                std::shared_ptr<render::ScalableSprite> sp
+                b->SetSkin(skin_it->second);
+            
+                skin = skin_it->second;
+
+                if(!skin_it->second->button_image.has_value())
                 {
-                    new render::ScalableSprite
+                    std::shared_ptr<render::ScalableSprite> sp
                     {
-                        fs,
-                        skin->button_image.value(),
-                        cache
-                    }
-                };
-                b->SetSprite(sp);
+                        new render::ScalableSprite
+                        {
+                            fs,
+                            skin->button_image.value(),
+                            cache
+                        }
+                    };
+                    b->SetSprite(sp);
+                }
             }
             ret.reset(b);
             b->cmd = w.button->command;
             b->Text().SetString(w.button->text);
-            b->Text().SetFont(skin->font);
+            
+            if(skin)
+            {
+                b->Text().SetFont(skin->font);
+            }
         }
         else if(w.panel)
         {
