@@ -61,6 +61,9 @@ if(${MSVC})
     # character set to Not Set=ASCII/SBCS
     # http://public.kitware.com/Bug/view.php?id=12189
     add_definitions(/D _SBCS)
+
+    # range-v3 requires this
+    add_compile_options(/permissive-)
 endif()
 
 # disable rtti
