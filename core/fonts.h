@@ -6,6 +6,7 @@
 
 #include "core/image.h"
 
+
 namespace euphoria::core
 {
     // This represents a loaded glyph not yet placed on a texture image
@@ -26,13 +27,13 @@ namespace euphoria::core
         // ------------------------------> advance (x to next glyph)
         //
 
-        bool        valid {false};
-        unsigned int code_point {0};
-        int         bearing_x {0};
-        int         bearing_y {0};
-        int         advance {0};
+        bool valid = false;
+        unsigned int code_point = 0;
+        int bearing_x = 0;
+        int bearing_y = 0;
+        int advance = 0;
         core::Image image;
-        float       size;
+        float size = 0.0f;
     };
 
     typedef std::map<std::pair<unsigned int, unsigned int>, float> KerningMap;
@@ -42,7 +43,7 @@ namespace euphoria::core
     struct LoadedFont
     {
         std::map<unsigned int, LoadedGlyph> codepoint_to_glyph;
-        KerningMap               kerning;
+        KerningMap kerning;
         std::map<std::string, unsigned int> private_use_aliases;
         unsigned int next_private_use = 0xE000;
         int line_height = -1;
@@ -61,10 +62,12 @@ namespace euphoria::core
     LoadCharactersFromBuiltin13();
 
     LoadedFont
-    GetCharactersFromFont(
-            const std::string& font_file,
-            unsigned int       font_size,
-            const std::string& chars);
+    GetCharactersFromFont
+    (
+        const std::string& font_file,
+        unsigned int font_size,
+        const std::string& chars
+    );
 }
 
 #endif // EUPHORIA_CORE_FONTS_H

@@ -15,6 +15,7 @@
 
 #include "render/texture.h"
 
+
 namespace euphoria::core
 {
     namespace vfs
@@ -65,6 +66,7 @@ namespace euphoria::render
         BOTTOM_RIGHT
     };
 
+
     struct TextDrawCommand
     {
         const Texture2d* texture;
@@ -80,6 +82,7 @@ namespace euphoria::render
             bool hi
         );
     };
+
 
     struct TextDrawCommandList
     {
@@ -106,6 +109,7 @@ namespace euphoria::render
         core::Rectf
         GetExtents() const;
     };
+
 
     struct Text
     {
@@ -162,7 +166,9 @@ namespace euphoria::render
         mutable TextDrawCommandList commands;
     };
 
+
     struct UiTextCompileVisitor;
+
 
     struct Font
     {
@@ -174,7 +180,7 @@ namespace euphoria::render
             const core::vfs::FilePath& font_file
         );
 
-        // todo: expose background property and move this away from font
+        // todo(Gustav): expose background property and move this away from font
         void
         DrawBackground
         (
@@ -196,7 +202,7 @@ namespace euphoria::render
         core::KerningMap                 kerning_;
         std::map<std::string, unsigned int> private_use_aliases;
     };
-
-}  // namespace euphoria::render
+}
 
 #endif  // SPACETYPER_FONTS_H
+
