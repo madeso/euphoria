@@ -20,6 +20,17 @@ namespace euphoria::core
 
     namespace
     {
+
+        std::string_view ErrorToString(FT_Error err)
+        {
+            #undef __FTERRORS_H__
+            #define FT_ERRORDEF( e, v, s )  case e: return s;
+            #define FT_ERROR_START_LIST     switch (err) {
+            #define FT_ERROR_END_LIST       }
+            #include FT_ERRORS_H
+            return "[unknown error]";
+        }
+
         void
         Error(FT_Error err)
         {
@@ -27,7 +38,7 @@ namespace euphoria::core
             {
                 return;
             }
-            LOG_ERROR("FONT Error: {0}", err);
+            LOG_ERROR("FONT Error: {1} ({0})", err, ErrorToString(err));
         }
 
         void
@@ -37,7 +48,7 @@ namespace euphoria::core
             {
                 return;
             }
-            LOG_ERROR("FONT Error: {0}", err);
+            LOG_ERROR("FONT Error: {1} ({0})", err, ErrorToString(err));
         }
     }  // namespace
 
@@ -86,11 +97,10 @@ namespace euphoria::core
         LoadedGlyph
         LoadGlyph(unsigned int code_point)
         {
-            const FT_Error error
-                    = FT_Load_Char(face, code_point, FT_LOAD_RENDER);
+            const auto error = FT_Load_Char(face, code_point, FT_LOAD_RENDER);
             if(error != 0)
             {
-                LOG_ERROR("Failed to get char");
+                LOG_ERROR("Failed to get char {0}", code_point);
                 return LoadedGlyph();
             }
 
