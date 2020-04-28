@@ -381,7 +381,7 @@ namespace euphoria::core
         void
         AddInterpolation(EasingFunction type, const Type& target, float time)
         {
-            ASSERT(time > 0.0f);
+            ASSERTX(time >= 0.0f, time);
 
             if(data_.empty())
             {
