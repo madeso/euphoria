@@ -31,14 +31,17 @@ namespace euphoria::core
         }
 
 
-        void
+        [[nodiscard]]
+        bool
         Error(FT_Error err)
         {
             if(err == 0)
             {
-                return;
+                return false;
             }
+
             LOG_ERROR("FONT Error: {1} ({0})", err, ErrorToString(err));
+            return true;
         }
 
 
@@ -54,24 +57,48 @@ namespace euphoria::core
     }
 
 
-    struct FreetypeLibrary : Noncopyable
+    struct FreetypeLibrary
     {
         NONCOPYABLE_CONSTRUCTOR(FreetypeLibrary);
         NONCOPYABLE_ASSIGNMENT(FreetypeLibrary);
-        NONCOPYABLE_MOVE_CONSTRUCTOR(FreetypeLibrary);
-        NONCOPYABLE_MOVE_ASSIGNMENT(FreetypeLibrary);
 
-        FT_Library library = nullptr;
+        FreetypeLibrary(FreetypeLibrary&& other) : library(other.library) {other.library = nullptr;};
+        FreetypeLibrary&
+        operator=(FreetypeLibrary&& other) {library = other.library; other.library = nullptr; return *this;};
+
+        FT_Library library;
 
 
-        FreetypeLibrary()
+        explicit
+        FreetypeLibrary(FT_Library lib)
+            : library(lib)
         {
-            Error(FT_Init_FreeType(&library));
+        }
+
+
+        [[nodiscard]]
+        static
+        std::optional<FreetypeLibrary>
+        Create()
+        {
+            FT_Library library = nullptr;
+            if(Error(FT_Init_FreeType(&library)))
+            {
+                return std::nullopt;
+            }
+            else
+            {
+                return std::move(FreetypeLibrary{library});
+            }
         }
 
 
         ~FreetypeLibrary()
         {
+            if(library == nullptr )
+            {
+                return;
+            }
             ErrorNoThrow(FT_Done_FreeType(library));
         }
     };
@@ -84,21 +111,51 @@ namespace euphoria::core
 
         NONCOPYABLE_CONSTRUCTOR(FreetypeFace);
         NONCOPYABLE_ASSIGNMENT(FreetypeFace);
-        NONCOPYABLE_MOVE_CONSTRUCTOR(FreetypeFace);
-        NONCOPYABLE_MOVE_ASSIGNMENT(FreetypeFace);
+
+        FreetypeFace(FreetypeFace&&) = default;
+        FreetypeFace&
+        operator=(FreetypeFace&&) = default;
 
 
-        FreetypeFace
+        FreetypeFace(FT_Face f, unsigned int s)
+            : face(f)
+            , size(s)
+        {
+        }
+
+
+        [[nodiscard]]
+        static
+        std::optional<FreetypeFace>
+        Create
         (
             FreetypeLibrary* lib,
             const std::string& path,
             unsigned int size
         )
-            : face(nullptr), size(size)
         {
+            FT_Face face = nullptr;
+
             int face_index = 0;
-            Error(FT_New_Face(lib->library, path.c_str(), face_index, &face));
-            Error(FT_Set_Pixel_Sizes(face, 0, size));
+            if
+            (
+                Error
+                (
+                    FT_New_Face(lib->library, path.c_str(), face_index, &face)
+                )
+            )
+            {
+                LOG_ERROR("Failed to load font '{0}'", path);
+                return std::nullopt;
+            }
+
+            if(Error(FT_Set_Pixel_Sizes(face, 0, size)))
+            {
+                FT_Done_Face(face);
+                return std::nullopt;
+            }
+
+            return std::move(FreetypeFace{face, size});
         }
 
 
@@ -339,8 +396,13 @@ namespace euphoria::core
         const std::string& chars
     )
     {
-        FreetypeLibrary lib;
-        FreetypeFace f(&lib, font_file, font_size);
+        auto created_lib = FreetypeLibrary::Create();
+        if(created_lib.has_value() == false) { return LoadedFont{}; }
+        auto lib = std::move(*created_lib);
+
+        auto loaded_face = FreetypeFace::Create(&lib, font_file, font_size);
+        if(loaded_face.has_value() == false) { return LoadedFont{}; }
+        auto f = std::move(*loaded_face);
 
         std::vector<unsigned int> code_points;
         Utf8ToCodepoints
