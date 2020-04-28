@@ -2,17 +2,21 @@
 
 #include <set>
 
-#include "core/log.h"
-#include "core/assert.h"
-#include "core/noncopyable.h"
-#include "core/image_draw.h"
-#include "core/utf8.h"
-
 #include "ft2build.h"
 #include FT_FREETYPE_H
 
 #include "font8x8/font8x8_basic.h"
 #include "font8x13.h"
+
+#include "core/log.h"
+#include "core/assert.h"
+#include "core/noncopyable.h"
+#include "core/image_draw.h"
+#include "core/utf8.h"
+#include "core/vfs.h"
+#include "core/memorychunk.h"
+#include "core/vfs_path.h"
+
 
 namespace euphoria::core
 {
@@ -88,7 +92,7 @@ namespace euphoria::core
             }
             else
             {
-                return std::move(FreetypeLibrary{library});
+                return FreetypeLibrary{library};
             }
         }
 
@@ -112,9 +116,21 @@ namespace euphoria::core
         NONCOPYABLE_CONSTRUCTOR(FreetypeFace);
         NONCOPYABLE_ASSIGNMENT(FreetypeFace);
 
-        FreetypeFace(FreetypeFace&&) = default;
+        FreetypeFace(FreetypeFace&& other)
+            : face(other.face)
+            , size(other.size)
+        {
+            other.face = nullptr;
+        }
+
         FreetypeFace&
-        operator=(FreetypeFace&&) = default;
+        operator=(FreetypeFace&& other)
+        {
+            face = other.face;
+            size = other.size;
+            other.face = nullptr;
+            return *this;
+        }
 
 
         FreetypeFace(FT_Face f, unsigned int s)
@@ -130,22 +146,32 @@ namespace euphoria::core
         Create
         (
             FreetypeLibrary* lib,
-            const std::string& path,
+            vfs::FileSystem* file_system,
+            const vfs::FilePath& font_file,
             unsigned int size
         )
         {
             FT_Face face = nullptr;
+
+            auto memory = file_system->ReadFile(font_file);
 
             int face_index = 0;
             if
             (
                 Error
                 (
-                    FT_New_Face(lib->library, path.c_str(), face_index, &face)
+                    FT_New_Memory_Face
+                    (
+                        lib->library,
+                        reinterpret_cast<FT_Byte*>(memory->GetData()),
+                        memory->GetSize(),
+                        face_index,
+                        &face
+                    )
                 )
             )
             {
-                LOG_ERROR("Failed to load font '{0}'", path);
+                LOG_ERROR("Failed to load font '{0}'", font_file);
                 return std::nullopt;
             }
 
@@ -155,7 +181,7 @@ namespace euphoria::core
                 return std::nullopt;
             }
 
-            return std::move(FreetypeFace{face, size});
+            return FreetypeFace{face, size};
         }
 
 
@@ -222,6 +248,7 @@ namespace euphoria::core
 
         ~FreetypeFace()
         {
+            if(face == nullptr) { return; }
             FT_Done_Face(face);
         }
     };
@@ -391,7 +418,8 @@ namespace euphoria::core
     LoadedFont
     GetCharactersFromFont
     (
-        const std::string& font_file,
+        vfs::FileSystem* file_system,
+        const vfs::FilePath& font_file,
         unsigned int font_size,
         const std::string& chars
     )
@@ -400,7 +428,13 @@ namespace euphoria::core
         if(created_lib.has_value() == false) { return LoadedFont{}; }
         auto lib = std::move(*created_lib);
 
-        auto loaded_face = FreetypeFace::Create(&lib, font_file, font_size);
+        auto loaded_face = FreetypeFace::Create
+        (
+            &lib,
+            file_system,
+            font_file,
+            font_size
+        );
         if(loaded_face.has_value() == false) { return LoadedFont{}; }
         auto f = std::move(*loaded_face);
 
@@ -423,6 +457,7 @@ namespace euphoria::core
         }
 
         if(f.face == nullptr) { return fontchars; }
+        if(f.face->size == nullptr) { return fontchars; }
 
         fontchars.line_height = f.face->size->metrics.height;
 

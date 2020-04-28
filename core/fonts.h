@@ -7,6 +7,13 @@
 #include "core/image.h"
 
 
+namespace euphoria::core::vfs
+{
+    struct FileSystem;
+    struct FilePath;
+}
+
+
 namespace euphoria::core
 {
     // This represents a loaded glyph not yet placed on a texture image
@@ -64,7 +71,8 @@ namespace euphoria::core
     LoadedFont
     GetCharactersFromFont
     (
-        const std::string& font_file,
+        vfs::FileSystem* file_system,
+        const vfs::FilePath& font_file,
         unsigned int font_size,
         const std::string& chars
     );

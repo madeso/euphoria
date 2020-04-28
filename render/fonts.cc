@@ -165,11 +165,20 @@ namespace euphoria::render
             if(source.font)
             {
                 const font::FontFile& font = *source.font;
+
+                const auto p = core::vfs::FilePath::FromScript(font.file);
+                if(p.has_value() == false)
+                {
+                    LOG_ERROR("Invalid path {0}", font.file);
+                    return;
+                }
+
                 fontchars.CombineWith
                 (
                     core::GetCharactersFromFont
                     (
-                        font.file,
+                        fs,
+                        *p,
                         font_root.size,
                         font.characters
                     )
