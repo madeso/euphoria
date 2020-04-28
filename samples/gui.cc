@@ -182,8 +182,16 @@ main(int argc, char* argv[])
             }
         }
 
-        engine.init->ClearScreen(clear_color);
+        root.SetInputMouse
+        (
+            vec2f{window_mouse_x, window_mouse_y},
+            mouse_lmb_down
+        );
 
+        root.Step(dt);
+
+        engine.init->ClearScreen(clear_color);
+        root.Render(&renderer);
         SDL_GL_SwapWindow(engine.window->window);
     }
 
