@@ -30,10 +30,12 @@ namespace euphoria::gui
 
     struct Root
     {
-        Root(const core::Sizef& size);
+        explicit
+        Root(const core::Sizef& s);
 
         ~Root();
 
+        [[nodiscard]]
         bool
         Load
         (
@@ -52,10 +54,10 @@ namespace euphoria::gui
         void
         Render(render::SpriteRenderer* sp) const;
 
-        std::vector<std::shared_ptr<Skin>> skins_;
-        core::Sizef size_;
-        UiState state_;
-        LayoutContainer container_;
+        std::vector<std::shared_ptr<Skin>> skins;
+        core::Sizef size;
+        UiState state;
+        LayoutContainer container;
         std::shared_ptr<render::Texture2d> cursor_image;
         std::shared_ptr<render::Texture2d> hover_image;
     };

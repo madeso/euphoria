@@ -362,20 +362,20 @@ namespace euphoria::gui
         {
             std::shared_ptr<Skin> skin_ptr = LoadSkin(skin, font);
             skin_map.insert(std::make_pair(skin.name, skin_ptr.get()));
-            root->skins_.push_back(skin_ptr);
+            root->skins.push_back(skin_ptr);
         }
 
         BuildLayoutContainer
         (
             fs,
-            &root->state_,
-            &root->container_,
+            &root->state,
+            &root->container,
             f.root,
             cache,
             skin_map
         );
 
-        return root->container_.HasWidgets();
+        return root->container.HasWidgets();
     }
 }
 
