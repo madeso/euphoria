@@ -65,19 +65,5 @@ namespace euphoria::core
         AddTriangle(ci, bi, ai);
         AddTriangle(ci, di, bi);
     }
-
-
-    const std::vector<float>&
-    BufferBuilder2d::GetVertexData() const
-    {
-        return data;
-    }
-
-
-    const std::vector<unsigned int>&
-    BufferBuilder2d::GetTriangleIndices() const
-    {
-        return tris;
-    }
 }
 

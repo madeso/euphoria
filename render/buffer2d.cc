@@ -8,15 +8,15 @@
 namespace euphoria::render
 {
     Buffer2d::Buffer2d(const core::BufferBuilder2d& bb)
-        : index_count_(bb.GetTriangleIndices().size())
+        : index_count_(bb.tris.size())
     {
         PointLayout::Bind(&vao_);
         VertexBuffer::Bind(&vbo_);
 
-        vbo_.SetData(bb.GetVertexData());
+        vbo_.SetData(bb.data);
 
         IndexBuffer::Bind(&ebo_);
-        ebo_.SetData(bb.GetTriangleIndices());
+        ebo_.SetData(bb.tris);
 
         vao_.BindData(attributes2d::Vertex(), sizeof(float) * 4, 0);
 
@@ -29,10 +29,11 @@ namespace euphoria::render
     void
     Buffer2d::Draw() const
     {
-        DIE("Hrm... using triangles doesn't look right here. Investigate!");
+        // DIE("Hrm... using triangles doesn't look right here. Investigate!");
         PointLayout::Bind(&vao_);
         ebo_.Draw(RenderMode::Triangles, index_count_);
         PointLayout::Bind(nullptr);
     }
 
 }  // namespace euphoria::render
+

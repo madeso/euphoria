@@ -32,14 +32,6 @@ namespace euphoria::core
         void
         AddQuad(const Point& a, const Point& b, const Point& c, const Point& d);
 
-        // todo(Gustav): remove this
-        const std::vector<float>&
-        GetVertexData() const;
-
-        // todo(Gustav): remove this
-        const std::vector<unsigned int>&
-        GetTriangleIndices() const;
-
         std::vector<float>        data;
         std::vector<unsigned int> tris;
     };
