@@ -7,14 +7,14 @@ namespace euphoria::core
 {
     Point::Point(float x, float y, float u, float v)
         : pos(x, y)
-        , vert(u, v)
+        , uv(u, v)
     {
     }
 
 
-    Point::Point(const vec2f& apos, const vec2f& avert)
-        : pos(apos)
-        , vert(avert)
+    Point::Point(const vec2f& p, const vec2f& u)
+        : pos(p)
+        , uv(u)
     {
     }
 
@@ -27,8 +27,8 @@ namespace euphoria::core
     {
         data.push_back(p.pos.x);
         data.push_back(p.pos.y);
-        data.push_back(p.vert.x);
-        data.push_back(p.vert.y);
+        data.push_back(p.uv.x);
+        data.push_back(p.uv.y);
     }
 
 

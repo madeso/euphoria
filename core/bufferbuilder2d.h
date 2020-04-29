@@ -9,12 +9,10 @@ namespace euphoria::core
     struct Point
     {
         Point(float x, float y, float u, float v);
-        Point(const vec2f& apos, const vec2f& avert);
+        Point(const vec2f& p, const vec2f& u);
 
         const vec2f pos;
-
-        // todo(Gustav): rename to uv
-        const vec2f vert;
+        const vec2f uv;
     };
 
     struct BufferBuilder2d
