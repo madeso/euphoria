@@ -132,7 +132,7 @@ namespace euphoria::gui
             
                 skin = skin_it->second;
 
-                if(!skin_it->second->button_image.has_value())
+                if(skin_it->second->button_image.has_value())
                 {
                     std::shared_ptr<render::ScalableSprite> sp
                     {
