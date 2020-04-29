@@ -24,11 +24,14 @@ namespace euphoria::core
         void
         AddVertex(const Point& p);
 
-        // todo(Gustav): cw or ccw? add assert!
+        // ccw
         void
         AddTriangle(unsigned int a, unsigned int b, unsigned int c);
 
-        // todo(Gustav): confusing arguments, add ascii diagram!
+        // bottom->top, left->right
+        //  c --- d
+        //  |     |
+        //  a --- b
         void
         AddQuad(const Point& a, const Point& b, const Point& c, const Point& d);
 

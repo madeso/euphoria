@@ -1,5 +1,8 @@
 #include "core/bufferbuilder2d.h"
 
+#include "core/vec3.h"
+
+
 namespace euphoria::core
 {
     Point::Point(float x, float y, float u, float v)
@@ -29,6 +32,30 @@ namespace euphoria::core
     }
 
 
+    namespace
+    {
+        bool
+        IsCcw
+        (
+            const std::vector<float>& data,
+            unsigned int a,
+            unsigned int b,
+            unsigned int c
+        )
+        {
+            const auto va = vec3f{data[a*4], data[a*4+1], 0};
+            const auto vb = vec3f{data[b*4], data[b*4+1], 0};
+            const auto vc = vec3f{data[c*4], data[c*4+1], 0};
+            const auto cr = cross
+            (
+                vec3f::FromTo(va, vb),
+                vec3f::FromTo(va, vc)
+            );
+            return cr.z < 0;
+        }
+    }
+
+
     void
     BufferBuilder2d::AddTriangle
     (
@@ -37,6 +64,14 @@ namespace euphoria::core
         unsigned int c
     )
     {
+        ASSERTX
+        (
+            a < (data.size() / 4) &&
+            b < (data.size() / 4) &&
+            c < (data.size() / 4),
+            a, b, c, data.size()/4
+        );
+        ASSERTX(IsCcw(data, a, b, c), a, b, c);
         tris.push_back(a);
         tris.push_back(b);
         tris.push_back(c);

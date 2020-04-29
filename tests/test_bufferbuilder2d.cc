@@ -86,22 +86,44 @@ TEST_CASE("bufferbuilder2d-add-points", "[bufferbuilder2d]")
 TEST_CASE("bufferbuilder2d-triangles", "[bufferbuilder2d]")
 {
     auto bb = BufferBuilder2d{};
-    bb.AddTriangle(11, 21, 13);
-    bb.AddTriangle(42, 66, 99);
-    CHECK(VectorEquals(bb.tris, {11, 21, 13, 42, 66, 99}));
-    CHECK(bb.data.size() == 0);
+    bb.AddVertex({0.0f, 0.0f, 0.0f, 0.0f});
+    bb.AddVertex({0.0f, 1.0f, 0.0f, 0.0f});
+    bb.AddVertex({1.0f, 0.0f, 0.0f, 0.0f});
+    CHECK(bb.data.size() == 12);
+    SECTION("ok - ccw")
+    {
+        bb.AddTriangle(0, 1, 2);
+        CHECK(VectorEquals(bb.tris, {0, 1, 2}));
+    }
+    SECTION("bad - cw")
+    {
+        CHECK_THROWS(bb.AddTriangle(0, 2, 1));
+    }
 }
 
 TEST_CASE("bufferbuilder2d-quad", "[bufferbuilder2d]")
 {
     auto bb = BufferBuilder2d{};
-    // todo(Gustav): add proper quad here
-    bb.AddQuad
-    (
-        Point{0.0f, 0.0f, 0.0f, 0.0f},
-        Point{0.0f, 0.0f, 0.0f, 0.0f},
-        Point{0.0f, 0.0f, 0.0f, 0.0f},
-        Point{0.0f, 0.0f, 0.0f, 0.0f}
-    );
+    const auto z = Point{0.0f, 0.0f, 0.0f, 0.0f};
+    const auto x = Point{1.0f, 0.0f, 0.0f, 0.0f};
+    const auto y = Point{0.0f, 1.0f, 0.0f, 0.0f};
+    const auto xy = Point{1.0f, 1.0f, 0.0f, 0.0f};
+    SECTION("bad - cw")
+    {
+        CHECK_THROWS(bb.AddQuad(z, y, xy, x));
+    }
+    SECTION("bad - ccw")
+    {
+        CHECK_THROWS(bb.AddQuad(z, x, xy, y));
+    }
+    SECTION("ok bottom-top, left-right")
+    {
+        bb.AddQuad(z, x, y, xy);
+        // todo(Gustav): add checks
+    }
+    SECTION("bad - top->bottom, left->right")
+    {
+        CHECK_THROWS(bb.AddQuad(y, xy, z, x));
+    }
 }
 
