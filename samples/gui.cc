@@ -101,7 +101,7 @@ main(int argc, char* argv[])
     SpriteRenderer renderer(&shader);
     FontCache      font_cache {engine.file_system.get(), &cache};
 
-    auto root = Root{Sizef::FromWidthHeight(640, 480)};
+    auto root = Root{Sizef::FromWidthHeight(window_width, window_height)};
     const auto gui_loaded = root.Load
     (
         engine.file_system.get(),
@@ -149,6 +149,7 @@ main(int argc, char* argv[])
             if(engine.HandleResize(e, &window_width, &window_height))
             {
                 viewport_handler.SetSize(window_width, window_height);
+                root.Resize(Sizef::FromWidthHeight(window_width, window_height));
             }
 
             if(e.type == SDL_MOUSEMOTION)

@@ -57,6 +57,14 @@ namespace euphoria::gui
 
 
     void
+    Root::Resize(const core::Sizef& new_size)
+    {
+        size = new_size;
+        container.DoLayout(core::Rectf::FromWidthHeight(size));
+    }
+
+
+    void
     Root::Render(render::SpriteRenderer* sp) const
     {
         container.Render(sp);

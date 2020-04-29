@@ -52,6 +52,9 @@ namespace euphoria::gui
         Step(float dt);
 
         void
+        Resize(const core::Sizef& new_size);
+
+        void
         Render(render::SpriteRenderer* sp) const;
 
         std::vector<std::shared_ptr<Skin>> skins;
