@@ -33,7 +33,7 @@ namespace euphoria::core
             const Point& c,
             const Point& d)
     {
-        const unsigned int ai = data.size() / 4;
+        const unsigned int ai = data.size();
         const unsigned int bi = ai + 1;
         const unsigned int ci = ai + 2;
         const unsigned int di = ai + 3;
