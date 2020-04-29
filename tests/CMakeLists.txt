@@ -14,6 +14,7 @@ set(app_src
     test_axisangle.cc
     test_base64.cc
     test_bitfield.cc
+    test_bufferbuilder2d.cc
     test_camera.cc
     test_chatbot.cc
     test_commandlineparser.cc
