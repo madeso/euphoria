@@ -10,6 +10,7 @@
 
 using namespace euphoria::convert;
 
+
 namespace euphoria::render
 {
     //////////////////////////////////////////////////////////////////////////
@@ -18,7 +19,9 @@ namespace euphoria::render
         : rotation(0.0_rad)
         , scale(core::scale2f(1, 1))
         , tint(core::Rgba(core::Color::White))
-    {}
+    {
+    }
+
 
     DrawData&
     DrawData::Rotation(const core::Angle& r)
@@ -27,12 +30,14 @@ namespace euphoria::render
         return *this;
     }
 
+
     DrawData&
     DrawData::Scale(const core::scale2f& s)
     {
         scale = s;
         return *this;
     }
+
 
     DrawData&
     DrawData::Tint(const core::Rgba& t)
@@ -41,7 +46,9 @@ namespace euphoria::render
         return *this;
     }
 
+
     //////////////////////////////////////////////////////////////////////////
+
 
     SpriteRenderer::SpriteRenderer(Shader* shader)
         : shader_(shader)
@@ -53,37 +60,55 @@ namespace euphoria::render
         InitRenderData();
     }
 
+
     SpriteRenderer::~SpriteRenderer()
     {
         buffer_.reset();
     }
 
+
     void
-    SpriteRenderer::DrawRect(
-            const Texture2d&     texture,
-            const core::Rectf&   sprite_area,
-            const core::Rectf&   texture_region,
-            const core::Angle&   rotation_angle,
-            const core::scale2f& rotation_anchor,
-            const core::Rgba&    tint_color)
+    SpriteRenderer::DrawRect
+    (
+        const Texture2d& texture,
+        const core::Rectf& sprite_area,
+        const core::Rectf& texture_region,
+        const core::Angle& rotation_angle,
+        const core::scale2f& rotation_anchor,
+        const core::Rgba& tint_color
+    )
     {
         Use(shader_);
-        core::vec3f rotation_anchor_displacement {
-                -rotation_anchor.x * sprite_area.GetWidth(),
-                (rotation_anchor.y - 1) * sprite_area.GetHeight(),
-                0.0f};
-        const core::mat4f model
-                = core::mat4f::Identity()
-                          .Translate(
-                                  core::vec3f(sprite_area.BottomLeft(), 0.0f))
-                          .Translate(-rotation_anchor_displacement)
-                          .Rotate(core::AxisAngle::RightHandAround(
-                                  core::unit3f::ZAxis(),
-                                  rotation_angle))  // rotate around center
-                          .Translate(rotation_anchor_displacement)
-                          .Scale(core::scale3f {sprite_area.GetWidth(),
-                                                sprite_area.GetHeight(),
-                                                1.0f});
+
+        core::vec3f rotation_anchor_displacement
+        {
+            -rotation_anchor.x * sprite_area.GetWidth(),
+            (rotation_anchor.y - 1) * sprite_area.GetHeight(),
+            0.0f
+        };
+
+        const core::mat4f model = core::mat4f::Identity()
+            .Translate(core::vec3f(sprite_area.BottomLeft(), 0.0f))
+            .Translate(-rotation_anchor_displacement)
+            // rotate around center
+            .Rotate
+            (
+                core::AxisAngle::RightHandAround
+                (
+                    core::unit3f::ZAxis(), 
+                    rotation_angle
+                )
+            )
+            .Translate(rotation_anchor_displacement)
+            .Scale
+            (
+                core::scale3f
+                {
+                    sprite_area.GetWidth(),
+                    sprite_area.GetHeight(),
+                    1.0f
+                }
+            );
 
         shader_->SetUniform(model_, model);
         shader_->SetUniform(color_, tint_color);
@@ -94,29 +119,38 @@ namespace euphoria::render
         buffer_->Draw();
     }
 
-    void
-    SpriteRenderer::DrawSprite(
-            const Texture2d&   texture,
-            const core::Rectf& position,
-            const DrawData&    data)
-    {
-        DrawRect(
-                texture,
-                position,
-                core::Rectf::FromTopLeftWidthHeight(core::vec2f{0, 1}, 1, 1),
-                data.rotation,
-                core::scale2f {0.5f, 0.5f},
-                data.tint);
-    }
 
     void
-    SpriteRenderer::DrawNinepatch(
-            const ScalableSprite& ninepatch,
-            const core::Rectf&    rect,
-            const core::Rgba&     tint)
+    SpriteRenderer::DrawSprite
+    (
+        const Texture2d& texture,
+        const core::Rectf& position,
+        const DrawData& data
+    )
+    {
+        DrawRect
+        (
+            texture,
+            position,
+            core::Rectf::FromTopLeftWidthHeight(core::vec2f{0, 1}, 1, 1),
+            data.rotation,
+            core::scale2f {0.5f, 0.5f},
+            data.tint
+        );
+    }
+
+
+    void
+    SpriteRenderer::DrawNinepatch
+    (
+        const ScalableSprite& ninepatch,
+        const core::Rectf& rect,
+        const core::Rgba& tint
+    )
     {
         ninepatch.Render(this, rect, tint);
     }
+
 
     void
     SpriteRenderer::InitRenderData()
@@ -132,5 +166,5 @@ namespace euphoria::render
 
         buffer_ = std::make_unique<Buffer2d>(data);
     }
+}
 
-}  // namespace euphoria::render
