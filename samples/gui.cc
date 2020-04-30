@@ -56,6 +56,52 @@ using namespace euphoria::window;
 using namespace euphoria::engine;
 
 
+// todo(Gustav): move to window/imgui_ext
+bool
+ImWidget(const char* title, Sizef* s)
+{
+    return ImGui::DragFloat2(title, &s->width);
+}
+
+bool
+ImWidget(const char* title, vec2f* v)
+{
+    return ImGui::DragFloat2(title, &v->x);
+}
+
+bool
+ImWidget(const char* title, bool b)
+{
+    bool bb = b;
+    ImGui::Checkbox(title, &bb);
+    return false;
+}
+
+bool
+ImWidget(const char* title, bool* b)
+{
+    return ImGui::Checkbox(title, b);
+}
+
+
+bool
+ImWidget(UiState* state)
+{
+    ImWidget("mouse", &state->mouse);
+    ImWidget("down", &state->mouse_down);
+    ImWidget("hot", state->hot != nullptr);
+    ImWidget("active", state->active != nullptr);
+    ImWidget("has active", &state->has_active);
+    return false;
+}
+
+void
+DebugUi(Root* root)
+{
+    ImWidget("size", &root->size);
+    ImWidget(&root->state);
+}
+
 int
 main(int argc, char* argv[])
 {
@@ -124,6 +170,7 @@ main(int argc, char* argv[])
     // SDL_StartTextInput();
 
     bool running = true;
+    constexpr bool show_imgui = true;
 
     int window_mouse_x = 0;
     int window_mouse_y = 0;
@@ -139,11 +186,26 @@ main(int argc, char* argv[])
         const float dt = (now - last) * 1.0f / SDL_GetPerformanceFrequency();
         SDL_Event e;
 
+        // imgui
+        if(show_imgui)
+        {
+            engine.imgui->StartNewFrame();
+
+            ImGui::Begin("Gui");
+            DebugUi(&root);
+            ImGui::End();
+        }
+
         while(SDL_PollEvent(&e) != 0)
         {
             if(e.type == SDL_QUIT)
             {
                 running = false;
+            }
+
+            if(show_imgui)
+            {
+                engine.imgui->ProcessEvents(&e);
             }
 
             if(engine.HandleResize(e, &window_width, &window_height))
@@ -193,6 +255,10 @@ main(int argc, char* argv[])
 
         engine.init->ClearScreen(clear_color);
         root.Render(&renderer);
+        if(show_imgui)
+        {
+            engine.imgui->Render();
+        }
         SDL_GL_SwapWindow(engine.window->window);
     }
 
