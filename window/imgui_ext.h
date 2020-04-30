@@ -10,7 +10,7 @@ namespace euphoria::core
 {
     struct Angle;
     struct Rgb;
-}  // namespace euphoria::core
+}
 
 namespace euphoria::render
 {
@@ -25,18 +25,14 @@ namespace euphoria::window
     bool
     InputText(const char* label, std::string* str);
 
-
     void
     HelpMarker(const char* desc);
-
 
     void
     HelpText(const char* desc);
 
-
     void
     ImguiLabel(const std::string& str);
-
 
     bool
     ImguiAngleSlider
@@ -47,14 +43,11 @@ namespace euphoria::window
         const core::Angle& maxdeg
     );
 
-
     void
     ImguiImage(render::Texture2d* texture);
 
-
     void
     ImGuiColorEdit3(const char* const name, core::Rgb* rgb);
-
 
     enum class ImguiCorner
     {
@@ -65,7 +58,6 @@ namespace euphoria::window
         Center      = 4
     };
 
-
     bool
     BeginFixedOverlay
     (
@@ -75,14 +67,11 @@ namespace euphoria::window
         float distance_y = -1.0f
     );
 
-
     ImVec2
     C(const core::vec2f& v);
 
-
     core::vec2f
     C(const ImVec2& v);
-
 
     struct ImguiDisabled
     {
@@ -90,9 +79,8 @@ namespace euphoria::window
         ~ImguiDisabled();
     };
 
-
     bool
     ImguiSelectableOrDisabled(bool enabled, const char* label);
-}  // namespace euphoria::window
+}
 
 #endif  // EUPHORIA_IMGUI_H
