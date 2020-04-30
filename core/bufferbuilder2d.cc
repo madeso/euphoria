@@ -1,5 +1,7 @@
 #include "core/bufferbuilder2d.h"
 
+#include <fstream>
+
 #include "core/vec3.h"
 
 
@@ -99,6 +101,35 @@ namespace euphoria::core
 
         AddTriangle(ci, bi, ai);
         AddTriangle(ci, di, bi);
+    }
+
+
+    void
+    BufferBuilder2d::Dump(const std::string& filename) const
+    {
+        std::ofstream f(filename.c_str());
+
+        for(size_t i=0; i<data.size(); i+=4)
+        {
+            f << "v " << data[i+0] << " " << data[i+1] << "\n";
+        }
+
+        for(size_t i=0; i<data.size(); i+=4)
+        {
+            f << "vt " << data[i+2] << " " << data[i+3] << "\n";
+        }
+
+        for(size_t i=0; i<tris.size(); i+=3)
+        {
+            const auto a = tris[i+0];
+            const auto b = tris[i+1];
+            const auto c = tris[i+2];
+            f << "f "
+                << a << "/" << a << " "
+                << b << "/" << b << " "
+                << c << "/" << c << " "
+                << "\n";
+        }
     }
 }
 

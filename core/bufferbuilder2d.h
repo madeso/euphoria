@@ -1,8 +1,11 @@
 #ifndef RENDER_BUFFERBUILDER2D_H
 #define RENDER_BUFFERBUILDER2D_H
 
+#include <string>
 #include <vector>
+
 #include "core/vec2.h"
+
 
 namespace euphoria::core
 {
@@ -33,9 +36,13 @@ namespace euphoria::core
         void
         AddQuad(const Point& a, const Point& b, const Point& c, const Point& d);
 
-        std::vector<float>        data;
+        void
+        Dump(const std::string& filename) const;
+
+        std::vector<float> data;
         std::vector<unsigned int> tris;
     };
-}  // namespace euphoria::core
+}
 
 #endif  // RENDER_BUFFERBUILDER2D_H
+
