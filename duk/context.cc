@@ -224,4 +224,5 @@ namespace euphoria::duk
 
         return 1;
     }
-}  // namespace euphoria::duk
+}
+
