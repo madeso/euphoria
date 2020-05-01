@@ -23,6 +23,7 @@
 #include "render/viewporthandler.h"
 
 #include "gui/root.h"
+#include "gui/widget.h"
 
 #include "window/key.h"
 #include "window/imguilibrary.h"
@@ -44,7 +45,7 @@
 #include "engine/cameradata.h"
 
 #include "imgui/imgui.h"
-
+#include "imgui/imgui_internal.h"
 
 LOG_SPECIFY_DEFAULT_LOGGER("samples-gui")
 
@@ -85,6 +86,53 @@ ImWidget(const char* title, bool* b)
 
 
 bool
+ImWidget(const char* title, euphoria::gui::Lrtb* p)
+{
+    auto same_line = []()
+    {
+        ImGui::SameLine(0, ImGui::GetStyle().ItemInnerSpacing.x);
+    };
+    ImGui::PushID(title);
+
+    ImGui::BeginGroup();
+    ImGui::PushMultiItemsWidths(4, ImGui::CalcItemWidth());
+
+    bool changed = ImGui::InputFloat("L", &p->left);
+    ImGui::PopItemWidth();
+
+    same_line();
+
+    changed |= ImGui::InputFloat("R", &p->right);
+    ImGui::PopItemWidth();
+
+    same_line();
+
+    changed |= ImGui::InputFloat("T", &p->top);
+    ImGui::PopItemWidth();
+
+    same_line();
+
+    changed |= ImGui::InputFloat("B", &p->bottom);
+    ImGui::PopItemWidth();
+
+    same_line();
+
+    ImGui::Text("%s", title);
+
+    ImGui::EndGroup();
+    ImGui::PopID();
+    return changed;
+}
+
+bool
+ImWidget(const char* title, Rectf* r)
+{
+    return ImGui::InputFloat4(title, &r->left);
+}
+
+
+
+bool
 ImWidget(UiState* state)
 {
     ImWidget("mouse", &state->mouse);
@@ -95,11 +143,41 @@ ImWidget(UiState* state)
     return false;
 }
 
+bool
+ImWidget(Widget* w)
+{
+    ImWidget("margin", &w->margin);
+    ImWidget("padding", &w->padding);
+    ImWidget("rect", &w->rect_);
+
+    return false;
+}
+
+bool
+ImWidget(LayoutContainer* container)
+{
+    for(int i=0; i<container->widgets_.size(); i+= 1)
+    {
+        auto widget = container->widgets_[i];
+        if(ImGui::TreeNode(widget->name.c_str()))
+        {
+            ImGui::PushID(i);
+            ImWidget(widget.get());
+            ImGui::PopID();
+
+            ImGui::TreePop();
+        }
+    }
+
+    return false;
+}
+
 void
 DebugUi(Root* root)
 {
     ImWidget("size", &root->size);
     ImWidget(&root->state);
+    ImWidget(&root->container);
 }
 
 int

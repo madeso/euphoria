@@ -79,8 +79,6 @@ namespace euphoria::gui
 
     public:
         LayoutData layout;
-
-    private:
         core::Rectf rect_;
     };
 }
