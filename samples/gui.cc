@@ -88,34 +88,31 @@ ImWidget(const char* title, bool* b)
 bool
 ImWidget(const char* title, euphoria::gui::Lrtb* p)
 {
-    auto same_line = []()
-    {
-        ImGui::SameLine(0, ImGui::GetStyle().ItemInnerSpacing.x);
-    };
+    const auto spacing = ImGui::GetStyle().ItemInnerSpacing.x;
     ImGui::PushID(title);
 
     ImGui::BeginGroup();
     ImGui::PushMultiItemsWidths(4, ImGui::CalcItemWidth());
 
-    bool changed = ImGui::InputFloat("L", &p->left);
+    bool changed = ImGui::DragFloat("L", &p->left);
     ImGui::PopItemWidth();
 
-    same_line();
+    ImGui::SameLine(0, spacing);
 
-    changed |= ImGui::InputFloat("R", &p->right);
+    changed |= ImGui::DragFloat("R", &p->right);
     ImGui::PopItemWidth();
 
-    same_line();
+    ImGui::SameLine(0, spacing);
 
-    changed |= ImGui::InputFloat("T", &p->top);
+    changed |= ImGui::DragFloat("T", &p->top);
     ImGui::PopItemWidth();
 
-    same_line();
+    ImGui::SameLine(0, spacing);
 
-    changed |= ImGui::InputFloat("B", &p->bottom);
+    changed |= ImGui::DragFloat("B", &p->bottom);
     ImGui::PopItemWidth();
 
-    same_line();
+    ImGui::SameLine(0, spacing);
 
     ImGui::Text("%s", title);
 
@@ -127,7 +124,37 @@ ImWidget(const char* title, euphoria::gui::Lrtb* p)
 bool
 ImWidget(const char* title, Rectf* r)
 {
-    return ImGui::InputFloat4(title, &r->left);
+    const auto spacing = ImGui::GetStyle().ItemInnerSpacing.x;
+    ImGui::PushID(title);
+
+    ImGui::BeginGroup();
+    ImGui::PushMultiItemsWidths(4, ImGui::CalcItemWidth());
+
+    bool changed = ImGui::DragFloat("L", &r->left);
+    ImGui::PopItemWidth();
+
+    ImGui::SameLine(0, spacing);
+
+    changed |= ImGui::DragFloat("R", &r->right);
+    ImGui::PopItemWidth();
+
+    ImGui::SameLine(0, spacing);
+
+    changed |= ImGui::DragFloat("T", &r->top);
+    ImGui::PopItemWidth();
+
+    ImGui::SameLine(0, spacing);
+
+    changed |= ImGui::DragFloat("B", &r->bottom);
+    ImGui::PopItemWidth();
+
+    ImGui::SameLine(0, spacing);
+
+    ImGui::Text("%s", title);
+
+    ImGui::EndGroup();
+    ImGui::PopID();
+    return changed;
 }
 
 
@@ -322,12 +349,18 @@ main(int argc, char* argv[])
                 // const std::string& input = e.text.text;
             }
         }
-
-        root.SetInputMouse
-        (
-            vec2f{window_mouse_x, window_mouse_y},
-            mouse_lmb_down
-        );
+        
+        if(show_imgui && ImGui::GetIO().WantCaptureMouse)
+        {
+        }
+        else
+        {
+            root.SetInputMouse
+            (
+                vec2f{window_mouse_x, window_mouse_y},
+                mouse_lmb_down
+            );
+        }
 
         root.Step(dt);
 
