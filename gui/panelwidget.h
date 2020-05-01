@@ -3,6 +3,7 @@
 
 #include "gui/widget.h"
 #include "gui/layoutcontainer.h"
+#include "gui/visitor.h"
 
 namespace euphoria::gui
 {
@@ -12,6 +13,9 @@ namespace euphoria::gui
 
         void
         Render(render::SpriteRenderer* renderer) const override;
+
+        void
+        Visit(Visitor* visitor) override;
 
         void
         OnSize() override;

@@ -24,6 +24,9 @@
 
 #include "gui/root.h"
 #include "gui/widget.h"
+#include "gui/visitor.h"
+#include "gui/button.h"
+#include "gui/panelwidget.h"
 
 #include "window/key.h"
 #include "window/imguilibrary.h"
@@ -55,6 +58,7 @@ using namespace euphoria::gui;
 using namespace euphoria::render;
 using namespace euphoria::window;
 using namespace euphoria::engine;
+
 
 
 // todo(Gustav): move to window/imgui_ext
@@ -171,11 +175,42 @@ ImWidget(UiState* state)
 }
 
 bool
+ImWidget(LayoutContainer* container);
+
+struct Vis : public Visitor
+{
+    void
+    Visit(Button* w) override
+    {
+        if(ImGui::Button("Click"))
+        {
+            w->OnClicked();
+        }
+    }
+
+    void
+    Visit(PanelWidget* w) override
+    {
+        ImWidget(&w->container);
+    }
+};
+
+
+bool
 ImWidget(Widget* w)
 {
+    InputText("name", &w->name);
     ImWidget("margin", &w->margin);
     ImWidget("padding", &w->padding);
     ImWidget("rect", &w->rect_);
+
+    if(ImGui::Button("Size"))
+    {
+        w->OnSize();
+    }
+
+    auto vis = Vis{};
+    w->Visit(&vis);
 
     return false;
 }
@@ -357,7 +392,7 @@ main(int argc, char* argv[])
         {
             root.SetInputMouse
             (
-                vec2f{window_mouse_x, window_mouse_y},
+                vec2f{window_mouse_x, window_height - window_mouse_y},
                 mouse_lmb_down
             );
         }

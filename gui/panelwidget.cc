@@ -1,5 +1,8 @@
 #include "gui/panelwidget.h"
 
+#include "gui/visitor.h"
+
+
 namespace euphoria::gui
 {
     PanelWidget::PanelWidget(UiState* state)
@@ -33,6 +36,12 @@ namespace euphoria::gui
     PanelWidget::Render(render::SpriteRenderer* renderer) const
     {
         container.Render(renderer);
+    }
+
+    void
+    PanelWidget::Visit(Visitor* visitor)
+    {
+        visitor->Visit(this);
     }
 }
 

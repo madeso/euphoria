@@ -16,6 +16,8 @@ namespace euphoria::render
 namespace euphoria::gui
 {
     struct UiState;
+    struct Visitor;
+
 
     struct Lrtb
     {
@@ -25,13 +27,15 @@ namespace euphoria::gui
         float bottom;
     };
 
+
     struct Widget
     {
         std::string name;
         Lrtb margin;
         Lrtb padding;
 
-        explicit Widget(UiState* state);
+        explicit
+        Widget(UiState* state);
 
         virtual
         ~Widget();
@@ -65,6 +69,10 @@ namespace euphoria::gui
 
         virtual void
         Render(render::SpriteRenderer* renderer) const = 0;
+
+        virtual
+        void
+        Visit(Visitor* visitor) = 0;
 
     // todo(Gustav): public/private/public/private nonsense?
     protected:

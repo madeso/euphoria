@@ -38,6 +38,9 @@ namespace euphoria::gui
         void
         Render(render::SpriteRenderer* renderer) const override;
 
+        void
+        Visit(Visitor* visitor) override;
+
         TextData&
         Text();
 

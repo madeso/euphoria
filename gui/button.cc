@@ -4,6 +4,9 @@
 #include "render/scalablesprite.h"
 #include "render/spriterender.h"
 #include "render/fonts.h"
+
+#include "gui/visitor.h"
+
 #include "skin.h"
 
 namespace euphoria::gui
@@ -15,10 +18,13 @@ namespace euphoria::gui
         , image_color_(core::Rgb(1.0f))
         , text_color_(core::Rgb(1.0f))
         , position_displacement_(core::vec2f::Zero())
-    {}
+    {
+    }
 
 
-    Button::~Button() {}
+    Button::~Button()
+    {
+    }
 
 
     void
@@ -149,6 +155,13 @@ namespace euphoria::gui
                 text_.GetText().Draw(renderer, p, text_color_.GetValue());
             }
         }
+    }
+
+
+    void
+    Button::Visit(Visitor* visitor)
+    {
+        visitor->Visit(this);
     }
 
 

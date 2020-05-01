@@ -10,6 +10,7 @@ set(app_src
     skin.cc skin.h
     textdata.cc textdata.h
     uistate.cc uistate.h
+    visitor.cc visitor.h
     widget.cc widget.h
 )
 set(src ${app_src})
