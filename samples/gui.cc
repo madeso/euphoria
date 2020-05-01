@@ -27,6 +27,7 @@
 #include "gui/visitor.h"
 #include "gui/button.h"
 #include "gui/panelwidget.h"
+#include "gui/skin.h"
 
 #include "window/key.h"
 #include "window/imguilibrary.h"
@@ -162,6 +163,15 @@ ImWidget(const char* title, Rectf* r)
 }
 
 
+void
+ImWidget(const char* title, euphoria::render::Texture2d* tex)
+{
+    if(tex == nullptr) { return; }
+
+    ImGui::Text("%s", title);
+    ImguiImage(tex);
+}
+
 
 bool
 ImWidget(UiState* state)
@@ -235,11 +245,42 @@ ImWidget(LayoutContainer* container)
 }
 
 void
+ImWidget(const char* title, euphoria::render::Font* font)
+{
+    if(ImGui::TreeNode(title) == false) {return;}
+
+    ImWidget("texture", font->texture_.get());
+    ImWidget("background", font->background.get());
+
+    ImGui::TreePop();
+}
+
+void
+ImWidget(Skin* skin)
+{
+    if(ImGui::TreeNode(skin->name.c_str()) == false) { return; }
+
+    InputText("name", &skin->name);
+    ImWidget("font", skin->font.get());
+    ImGui::DragFloat("text size", &skin->text_size);
+
+    ImGui::TreePop();
+}
+
+
+void
 DebugUi(Root* root)
 {
+    for(auto& skin: root->skins)
+    {
+        ImWidget(skin.get());
+    }
     ImWidget("size", &root->size);
     ImWidget(&root->state);
     ImWidget(&root->container);
+
+    ImWidget("cursor", root->cursor_image.get());
+    ImWidget("hover", root->hover_image.get());
 }
 
 int

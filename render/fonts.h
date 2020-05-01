@@ -194,7 +194,6 @@ namespace euphoria::render
 
         float line_height=1;
 
-    private:
         friend UiTextCompileVisitor;
         std::unique_ptr<Texture2d> texture_;
         std::shared_ptr<Texture2d> background;
