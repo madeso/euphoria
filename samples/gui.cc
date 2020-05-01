@@ -252,12 +252,34 @@ ImWidget(LayoutContainer* container)
 }
 
 void
+ImWidgetGlyph(unsigned int id, euphoria::render::Glyph* gl)
+{
+    const std::string s = Str() << "glyph " << id;
+    if(ImGui::TreeNode(s.c_str()) == false) { return; }
+
+    ImGui::PushID(id);
+
+    ImWidget("sprite", &gl->sprite_rect);
+    ImWidget("texture", &gl->texture_rect);
+    ImGui::DragFloat("advance", &gl->advance);
+
+    ImGui::PopID();
+
+    ImGui::TreePop();
+}
+
+void
 ImWidget(const char* title, euphoria::render::Font* font)
 {
     if(ImGui::TreeNode(title) == false) {return;}
 
     ImWidget("texture", font->texture_.get());
     ImWidget("background", font->background.get());
+
+    for(auto& g: font->chars_)
+    {
+        ImWidgetGlyph(g.first, g.second.get());
+    }
 
     ImGui::TreePop();
 }
