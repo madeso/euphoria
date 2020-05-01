@@ -333,16 +333,24 @@ main(int argc, char* argv[])
         GetViewport(gamedata.viewport, window_width, window_height)
     );
 
-    LoadWorld
-    (
-        engine.file_system.get(),
-        &world,
-        &integration.Registry(),
-        vfs::FilePath{"~/world.json"},
-        &templates,
-        duk.AsContext(),
-        &duk
-    );
+    try
+    {
+        LoadWorld
+        (
+            engine.file_system.get(),
+            &world,
+            &integration.Registry(),
+            vfs::FilePath{"~/world.json"},
+            &templates,
+            duk.AsContext(),
+            &duk
+        );
+    }
+    catch(const std::exception& ex)
+    {
+        has_crashed          = true;
+        crash_message_string = ex.what();
+    }
 
     Uint64 now  = SDL_GetPerformanceCounter();
     Uint64 last = 0;
