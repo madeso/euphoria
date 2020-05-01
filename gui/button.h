@@ -53,7 +53,6 @@ namespace euphoria::gui
         void
         SetSkin(Skin* skin);
 
-    private:
         ButtonState* last_state_;
         std::shared_ptr<render::ScalableSprite> sprite_;
         TextData text_;

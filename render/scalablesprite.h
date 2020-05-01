@@ -13,7 +13,7 @@ namespace euphoria::core
         struct FilePath;
     }
     struct Rgba;
-}  // namespace euphoria::core
+}
 
 namespace euphoria::render
 {
@@ -46,7 +46,6 @@ namespace euphoria::render
             const core::Rgba& tint
         ) const;
 
-    private:
         std::shared_ptr<Texture2d> texture_;
 
         std::vector<float> cols_;

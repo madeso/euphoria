@@ -172,6 +172,12 @@ ImWidget(const char* title, euphoria::render::Texture2d* tex)
     ImguiImage(tex);
 }
 
+void
+ImWidget(euphoria::render::ScalableSprite* sprite)
+{
+    ImWidget("texture", sprite->texture_.get());
+}
+
 
 bool
 ImWidget(UiState* state)
@@ -192,6 +198,7 @@ struct Vis : public Visitor
     void
     Visit(Button* w) override
     {
+        ImWidget(w->sprite_.get());
         if(ImGui::Button("Click"))
         {
             w->OnClicked();
