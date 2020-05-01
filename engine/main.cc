@@ -261,6 +261,13 @@ main(int argc, char* argv[])
     std::string crash_message_string;
     bool has_crashed = false;
 
+    auto crash_on_exception = [&](const std::exception& ex)
+    {
+        has_crashed = true;
+        crash_message_string = ex.what();
+        LOG_ERROR("{0}", crash_message_string);
+    };
+
     Input input;
 
     for(const auto& bind: gamedata.binds)
@@ -348,8 +355,7 @@ main(int argc, char* argv[])
     }
     catch(const std::exception& ex)
     {
-        has_crashed          = true;
-        crash_message_string = ex.what();
+        crash_on_exception(ex);
     }
 
     Uint64 now  = SDL_GetPerformanceCounter();
@@ -385,8 +391,7 @@ main(int argc, char* argv[])
             }
             catch(const std::exception& ex)
             {
-                has_crashed          = true;
-                crash_message_string = ex.what();
+                crash_on_exception(ex);
             }
         }
 
