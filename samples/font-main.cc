@@ -6,6 +6,7 @@
 #include "core/imageops.h"
 #include "core/utf8.h"
 #include "core/io.h"
+#include "core/log.h"
 
 using namespace euphoria::core;
 
@@ -33,8 +34,16 @@ bool PrintChar
         return false;
     }
 
-    const auto px = *sx + glyph.bearing_x;
-    const auto py = *sy + glyph.bearing_y;
+    const auto ppx = *sx + glyph.bearing_x;
+    const auto ppy = *sy + glyph.bearing_y;
+
+    const auto px = std::max(ppx, 0);
+    const auto py = std::max(ppy, 0);
+
+    if (ppx < 0 || ppy < 0)
+    {
+        LOG_INFO("warning: xy out of bounds {0} {1}", ppx, ppy);
+    }
 
     // todo: ImageToStringTable might not convert corectly,
     // consider extending :)
