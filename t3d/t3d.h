@@ -53,7 +53,7 @@ namespace euphoria::t3d
     struct T3d
     {
         std::shared_ptr<window::Engine> engine;
-        render::ViewportHandler viewport_handler;
+        std::shared_ptr<render::ViewportHandler> viewport_handler;
         std::shared_ptr<render::MaterialShaderCache> material_shader_cache;
         std::shared_ptr<render::TextureCache> texture_cache;
         std::shared_ptr<TileLibrary> tile_library;

@@ -477,10 +477,6 @@ main(int argc, char** argv)
     TextureCache       texture_cache {engine.file_system.get()};
     ScalingSpriteCache sprite_cache;
 
-    ViewportHandler viewport_handler;
-    viewport_handler.SetSize(window_width, window_height);
-
-
     bool running = true;
 
     FileBrowser browser {engine.file_system.get()};
@@ -601,6 +597,13 @@ main(int argc, char** argv)
             }
         )
     );
+
+    auto viewport_handler = ViewportHandler
+    {
+        engine.init.get(),
+        nullptr
+    };
+    viewport_handler.SetSize(window_width, window_height);
 
     //////////////////////////////////////////////////////////////////////////////
     // main loop

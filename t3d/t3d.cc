@@ -65,8 +65,6 @@ namespace euphoria::t3d
             return -2;
         }
 
-        viewport_handler.SetSize(width, height);
-
         material_shader_cache = std::make_shared<render::MaterialShaderCache>(engine->file_system.get());
 
         // SET_ENUM_VALUES(TextureType, SetupTextureNames);
@@ -91,6 +89,13 @@ namespace euphoria::t3d
         UpdateGrid();
 
         engine->window->EnableCharEvent(!immersive_mode);
+
+        viewport_handler = std::make_shared<render::ViewportHandler>
+        (
+            engine->init.get(),
+            nullptr
+        );
+        viewport_handler->SetSize(width, height);
 
         return 0;
     }
@@ -182,7 +187,7 @@ namespace euphoria::t3d
         int window_height = 0;
         if(engine->HandleResize(e, &window_width, &window_height))
         {
-            viewport_handler.SetSize(window_width, window_height);
+            viewport_handler->SetSize(window_width, window_height);
         }
         if(show_imgui)
         {
@@ -202,7 +207,7 @@ namespace euphoria::t3d
             const auto mouse_position = core::vec2i
             (
                 e.motion.x,
-                viewport_handler.height - e.motion.y
+                viewport_handler->window_height - e.motion.y
             );
             const auto mouse_movement = core::vec2i
             (
@@ -686,7 +691,7 @@ namespace euphoria::t3d
     void
     T3d::Render()
     {
-        auto viewport = viewport_handler.GetFullViewport();
+        auto viewport = viewport_handler->GetFullViewport();
         editor->camera = camera.Compile(viewport.GetAspectRatio());
         editor->viewport = viewport;
         world->Render(viewport, camera);
