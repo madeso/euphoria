@@ -42,7 +42,6 @@ namespace euphoria::gui
         void
         SetSize(float size);
 
-    private:
         void
         UpdateText();
 

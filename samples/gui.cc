@@ -69,6 +69,12 @@ ImWidget(const char* title, Sizef* s)
     return ImGui::DragFloat2(title, &s->width);
 }
 
+void
+ImWidget(const char* title, std::string* str)
+{
+    InputText(title, str);
+}
+
 bool
 ImWidget(const char* title, vec2f* v)
 {
@@ -190,6 +196,13 @@ ImWidget(UiState* state)
     return false;
 }
 
+void
+ImWidget(TextData* data)
+{
+    ImWidget("string", &data->string_);
+    ImGui::DragFloat("size", &data->size);
+}
+
 bool
 ImWidget(LayoutContainer* container);
 
@@ -203,6 +216,7 @@ struct Vis : public Visitor
         {
             w->OnClicked();
         }
+        ImWidget(&w->text_);
     }
 
     void
