@@ -401,10 +401,12 @@ namespace euphoria::render
         {
             // todo(Gustav): handle invalud font alias
             auto found = font.private_use_aliases.find(image);
-            if(found != font.private_use_aliases.end())
+            if(found == font.private_use_aliases.end())
             {
-                AddCharIndex( found->second );
+                LOG_ERROR("Unable to find image {0}", image);
+                return;
             }
+            AddCharIndex(found->second );
         }
 
 
