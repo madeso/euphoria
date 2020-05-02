@@ -416,7 +416,7 @@ namespace euphoria::render
                 );
                 return;
             }
-            AddCharIndex(found->second );
+            AddCharIndex(found->second);
         }
 
 
