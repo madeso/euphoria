@@ -4,6 +4,7 @@
 #include <vector>
 
 #include "core/rect.h"
+#include "render/viewport.h"
 
 
 namespace euphoria::render
@@ -42,8 +43,8 @@ namespace euphoria::render
         void
         ClearBlack();
 
-        // Viewport
-        // GetFullViewport();
+        Viewport
+        GetFullViewport();
     };
 }
 

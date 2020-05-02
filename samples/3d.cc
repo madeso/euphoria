@@ -77,17 +77,12 @@ main(int argc, char** argv)
         return r;
     }
 
-    ViewportHandler viewport_handler;
-
-    {
-    int width  = 1280;
-    int height = 720;
+    constexpr int width  = 1280;
+    constexpr int height = 720;
 
     if(!engine.CreateWindow("Euphoria 3d demo", width, height, false))
     {
         return -1;
-    }
-    viewport_handler.SetSize(width, height);
     }
 
     MaterialShaderCache material_shader_cache {engine.file_system.get()};
@@ -247,6 +242,13 @@ main(int argc, char** argv)
 
     FpsController fps;
     fps.position = vec3f(0, 0, 3);
+
+    auto viewport_handler = ViewportHandler
+    {
+        engine.init.get(),
+        nullptr
+    };
+    viewport_handler.SetSize(width, height);
 
     bool paused = true;
 
@@ -424,6 +426,8 @@ main(int argc, char** argv)
         camera.rotation = fps.GetRotation();
 
         engine.init->ClearScreen(Color::Black);
+        // todo(Gustav): GetFullViewport or somthing different?
+        // how does this handle the black bars...?
         world.Render(viewport_handler.GetFullViewport(), camera);
 
         if(show_imgui)

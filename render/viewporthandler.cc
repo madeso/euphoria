@@ -138,12 +138,19 @@ namespace euphoria::render
 
 
 
-    // Viewport
-    // ViewportHandler::GetFullViewport()
-    // {
-        // Viewport viewport {core::Recti::FromWidthHeight(width, height)
-                                // .SetBottomLeftToCopy(0, 0)};
-        // return viewport;
-    // }
+    Viewport
+    ViewportHandler::GetFullViewport()
+    {
+        const auto viewport = Viewport
+        {
+            core::Recti::FromWidthHeight(window_width, window_height)
+                .SetBottomLeftToCopy
+                (
+                    0,
+                    0
+                )
+        };
+        return viewport;
+    }
 }
 
