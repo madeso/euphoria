@@ -128,6 +128,8 @@ namespace euphoria::core
             IMAGE
         };
 
+
+        // todo(Gustav): this parser looks shitty... improve?
         struct Parser
         {
             UiText* nodes = nullptr;
