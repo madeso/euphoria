@@ -462,7 +462,7 @@ main(int argc, char* argv[])
         {
             root.SetInputMouse
             (
-                vec2f{window_mouse_x, window_height - window_mouse_y},
+                vec2f{static_cast<float>(window_mouse_x), static_cast<float>(window_height - window_mouse_y)},
                 mouse_lmb_down
             );
         }

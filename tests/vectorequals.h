@@ -4,6 +4,7 @@
 #include <vector>
 #include <sstream>
 #include <functional>
+#include <algorithm>
 
 #include "tests/falsestring.h"
 #include "tests/vectortostring.h"
