@@ -9,6 +9,8 @@
 #include "core/noncopyable.h"
 #include "core/image.h"
 #include "core/vfs_path.h"
+#include "core/functional.h"
+#include "core/stringmerger.h"
 
 #include "render/texture.h"
 #include "render/spriterender.h"
@@ -403,7 +405,13 @@ namespace euphoria::render
             auto found = font.private_use_aliases.find(image);
             if(found == font.private_use_aliases.end())
             {
-                LOG_ERROR("Unable to find image {0}", image);
+                LOG_ERROR
+                (
+                    "Unable to find image {0}, could be {1}",
+                    image,
+                    core::StringMerger::EnglishOr()
+                        .Generate(core::Keys(font.private_use_aliases))
+                );
                 return;
             }
             AddCharIndex(found->second );

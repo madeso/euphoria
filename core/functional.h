@@ -154,6 +154,17 @@ namespace euphoria::core
         return r;
     }
 
-}  // namespace euphoria::core
+    template<typename K, typename V>
+    std::vector<K>
+    Keys(const std::map<K, V>& m)
+    {
+        auto v = std::vector<K>{};
+        for(const auto& p: m)
+        {
+            v.emplace_back(p.first);
+        }
+        return v;
+    }
+}
 
 #endif
