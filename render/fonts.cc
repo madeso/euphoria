@@ -189,7 +189,8 @@ namespace euphoria::render
             if(source.image)
             {
                 const font::SingleImage& image = *source.image;
-                fontchars.CombineWith(GetCharactersFromSingleImage(fs, image));
+                const auto image_font = GetCharactersFromSingleImage(fs, image);
+                fontchars.CombineWith(image_font);
             }
             if(source.builtin8)
             {
@@ -276,6 +277,7 @@ namespace euphoria::render
         // fs->WriteFile("charmap.png", image.Write(ImageWriteFormat::PNG));
 
         // load pixels into texture
+        private_use_aliases = fontchars.private_use_aliases;
         kerning_ = fontchars.kerning;
         chars_ = map;
         Texture2dLoadData load_data;
