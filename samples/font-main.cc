@@ -5,11 +5,19 @@
 #include "core/textbox.h"
 #include "core/imageops.h"
 #include "core/utf8.h"
+#include "core/io.h"
 
 using namespace euphoria::core;
 
 
-bool PrintChar(TextBox* dst, LoadedFont& font, int* sx, int* sy, unsigned int codepoint)
+bool PrintChar
+(
+    TextBox* dst,
+    LoadedFont& font,
+    int* sx,
+    int* sy,
+    unsigned int codepoint
+)
 {
     const auto glyph_index = font.codepoint_to_glyph.find(codepoint);
     if(glyph_index == font.codepoint_to_glyph.end())
@@ -28,7 +36,8 @@ bool PrintChar(TextBox* dst, LoadedFont& font, int* sx, int* sy, unsigned int co
     const auto px = *sx + glyph.bearing_x;
     const auto py = *sy + glyph.bearing_y;
 
-    // todo: ImageToStringTable might not convert corectly, consider extending :)
+    // todo: ImageToStringTable might not convert corectly,
+    // consider extending :)
     const auto img = ImageToStringTable(glyph.image, true, Grayscale::A);
 
     for(auto y=0; y<img.GetHeight(); y+=1)
@@ -45,7 +54,14 @@ bool PrintChar(TextBox* dst, LoadedFont& font, int* sx, int* sy, unsigned int co
 }
 
 
-bool PrintString(TextBox* dst, LoadedFont& font, int sx, int sy, const std::string& str)
+bool PrintString
+(
+    TextBox* dst,
+    LoadedFont& font,
+    int sx,
+    int sy,
+    const std::string& str
+)
 {
     int x = sx;
     int y = sy;
@@ -70,24 +86,70 @@ bool PrintString(TextBox* dst, LoadedFont& font, int sx, int sy, const std::stri
 }
 
 
+enum class FontName
+{
+    Builtin8, Builtin13, FontFile
+};
+
+
+euphoria::core::LoadedFont
+GetFont
+(
+    FontName font_name,
+    const std::string& font_file,
+    int font_size,
+    const std::string& chars
+)
+{
+    if(font_name == FontName::FontFile && font_file.empty())
+    {
+        std::cerr << "warning: Font file requested, but no file specified!";
+        return LoadCharactersFromBuiltin8();
+    }
+
+    // todo(gustav): check file name
+    if(font_file.empty() == false)
+    {
+        auto file = io::FileToChunk(font_file);
+        if(file == nullptr)
+        {
+            std::cerr << "Failed to open file: '" << font_file << "'\n";
+        }
+        else
+        {
+            return GetCharactersFromFont(file, font_size, chars);
+        }
+    }
+
+    return font_name == FontName::Builtin13
+        ? LoadCharactersFromBuiltin13()
+        : LoadCharactersFromBuiltin8()
+        ;
+}
+
+
 int
 main(int argc, char* argv[])
 {
-    bool use_alternate_builtin = false;
+    auto font_name = FontName::Builtin8;
+    std::string font_file = "";
+    int size = 10;
+    std::string chars = "ABCDEFGHIJKLMNOPQRSTUWXYZ!@#$%^&*()_+abcdefghijklmnopqrstuwxyz0123456789-=<>,./\\[]{};:";
     std::string text;
 
     auto parser = argparse::Parser {"font test"};
     parser.Add("text", &text).Help("The text to print");
-    parser.SetTrue("-alt", &use_alternate_builtin).Help("Use another builtin font");
+    parser.Add("--font", &font_name).Help("The font to use");
+    parser.Add("--file", &font_file).Help("If not empty, use this font file");
+    parser.Add("--size", &size).Help("the font file size");
+    parser.Add("--chars", &chars).Help("The font file chars");
 
     if(auto r = parser.Parse(argc, argv))
     {
         return *r;
     }
 
-    auto font = use_alternate_builtin
-        ? LoadCharactersFromBuiltin13()
-        : LoadCharactersFromBuiltin8();
+    auto font = GetFont(font_name, font_file, size, chars);
 
     auto box = TextBox::Empty();
     const bool printed = PrintString(&box, font, 0, 0, text);

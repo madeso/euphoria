@@ -146,14 +146,11 @@ namespace euphoria::core
         Create
         (
             FreetypeLibrary* lib,
-            vfs::FileSystem* file_system,
-            const vfs::FilePath& font_file,
+            std::shared_ptr<MemoryChunk> memory,
             unsigned int size
         )
         {
             FT_Face face = nullptr;
-
-            auto memory = file_system->ReadFile(font_file);
 
             int face_index = 0;
             if
@@ -171,7 +168,7 @@ namespace euphoria::core
                 )
             )
             {
-                LOG_ERROR("Failed to load font '{0}'", font_file);
+                LOG_ERROR("Failed to load font");
                 return std::nullopt;
             }
 
@@ -424,6 +421,31 @@ namespace euphoria::core
         const std::string& chars
     )
     {
+        auto file_memory = file_system->ReadFile(font_file);
+
+        if(file_memory == nullptr)
+        {
+            LOG_ERROR("Unable to open {0}", font_file);
+            return LoadedFont{}; 
+        }
+
+        return GetCharactersFromFont
+        (
+            file_memory,
+            font_size,
+            chars
+        );
+    }
+
+
+    LoadedFont
+    GetCharactersFromFont
+    (
+        std::shared_ptr<MemoryChunk> file_memory,
+        unsigned int font_size,
+        const std::string& chars
+    )
+    {
         auto created_lib = FreetypeLibrary::Create();
         if(created_lib.has_value() == false) { return LoadedFont{}; }
         auto lib = std::move(*created_lib);
@@ -431,8 +453,7 @@ namespace euphoria::core
         auto loaded_face = FreetypeFace::Create
         (
             &lib,
-            file_system,
-            font_file,
+            file_memory,
             font_size
         );
         if(loaded_face.has_value() == false) { return LoadedFont{}; }
@@ -451,12 +472,17 @@ namespace euphoria::core
             LoadedGlyph cc = f.LoadGlyph(code_point);
             if(!cc.valid)
             {
+                LOG_INFO("Invalid codepoint {0}", code_point);
                 continue;
             }
             fontchars.codepoint_to_glyph[code_point] = cc;
         }
 
-        if(f.face == nullptr) { return fontchars; }
+        if(f.face == nullptr)
+        {
+            LOG_ERROR("Missing font face!");
+            return fontchars;
+        }
         if(f.face->size == nullptr) { return fontchars; }
 
         fontchars.line_height = f.face->size->metrics.height;
@@ -465,9 +491,8 @@ namespace euphoria::core
 
         LOG_INFO
         (
-            "Loaded {0} characters from {0}",
-            fontchars.codepoint_to_glyph.size(),
-            font_file
+            "Loaded {0} characters",
+            fontchars.codepoint_to_glyph.size()
         );
         LOG_INFO("kerning: {0}", static_cast<int>(use_kerning));
 

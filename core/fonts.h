@@ -68,11 +68,21 @@ namespace euphoria::core
     core::LoadedFont
     LoadCharactersFromBuiltin13();
 
+
     LoadedFont
     GetCharactersFromFont
     (
         vfs::FileSystem* file_system,
         const vfs::FilePath& font_file,
+        unsigned int font_size,
+        const std::string& chars
+    );
+
+
+    LoadedFont
+    GetCharactersFromFont
+    (
+        std::shared_ptr<MemoryChunk> file_memory,
         unsigned int font_size,
         const std::string& chars
     );
