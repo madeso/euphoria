@@ -1,6 +1,7 @@
 #include "gui/textdata.h"
 
 #include "core/assert.h"
+#include "core/log.h"
 
 #include "render/fonts.h"
 
@@ -98,7 +99,10 @@ namespace euphoria::gui
             text_->SetAlignment(render::Align::BOTTOM_LEFT);
 
             core::UiText text;
-            text.CreateParse(string_);
+            if(false == text.CreateParse(string_))
+            {
+                LOG_ERROR("Failed to parse {0}", string_);
+            }
             text_->SetText(text);
             text_->SetSize(size);
         }
