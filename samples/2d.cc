@@ -8,7 +8,7 @@
 #include "core/vfs_imagegenerator.h"
 #include "core/vfs_defaultshaders.h"
 #include "core/proto.h"
-#include "core/viewport.h"
+#include "core/viewportdef.h"
 #include "core/image_draw.h"
 
 #include "render/debuggl.h"
@@ -72,8 +72,6 @@ main(int argc, char* argv[])
 
     const auto clear_color = Color::LightGray;
 
-    ViewportHandler viewport_handler;
-
     int window_width  = 800;
     int window_height = 600;
 
@@ -91,7 +89,6 @@ main(int argc, char* argv[])
         return -1;
     }
 
-    viewport_handler.SetSize(window_width, window_height);
 
     Shader shader;
     attributes2d::PrebindShader(&shader);
@@ -101,6 +98,14 @@ main(int argc, char* argv[])
 
     Use(&shader);
     shader.SetUniform(shader.GetUniform("image"), 0);
+
+    auto viewport_handler = ViewportHandler
+    {
+        engine.init.get(),
+        nullptr
+    };
+    viewport_handler.Add(&shader);
+    viewport_handler.SetSize(window_width, window_height);
 
     Uint64 now  = SDL_GetPerformanceCounter();
     Uint64 last = 0;

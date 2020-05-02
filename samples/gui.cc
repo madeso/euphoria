@@ -8,7 +8,7 @@
 #include "core/vfs_imagegenerator.h"
 #include "core/vfs_defaultshaders.h"
 #include "core/proto.h"
-#include "core/viewport.h"
+#include "core/viewportdef.h"
 
 #include "render/debuggl.h"
 #include "render/fonts.h"
@@ -330,8 +330,6 @@ main(int argc, char* argv[])
 
     const auto clear_color = Color::Blue;
 
-    ViewportHandler viewport_handler;
-
     int window_width  = 800;
     int window_height = 600;
 
@@ -349,13 +347,15 @@ main(int argc, char* argv[])
         return -1;
     }
 
-    viewport_handler.SetSize(window_width, window_height);
 
     Shader shader;
     attributes2d::PrebindShader(&shader);
     shader.Load(engine.file_system.get(), vfs::FilePath{"~/shaders/sprite"});
     SpriteRenderer renderer(&shader);
     FontCache      font_cache {engine.file_system.get(), &cache};
+
+    Use(&shader);
+    shader.SetUniform(shader.GetUniform("image"), 0);
 
     auto root = Root{Sizef::FromWidthHeight(window_width, window_height)};
     const auto gui_loaded = root.Load
@@ -371,8 +371,13 @@ main(int argc, char* argv[])
         return -1;
     }
 
-    Use(&shader);
-    shader.SetUniform(shader.GetUniform("image"), 0);
+    auto viewport_handler = ViewportHandler
+    {
+        engine.init.get(),
+        nullptr
+    };
+    viewport_handler.Add(&shader);
+    viewport_handler.SetSize(window_width, window_height);
 
     Uint64 now  = SDL_GetPerformanceCounter();
     Uint64 last = 0;

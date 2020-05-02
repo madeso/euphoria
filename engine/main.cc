@@ -21,6 +21,7 @@
 #include "render/shaderattribute2d.h"
 #include "render/texturecache.h"
 #include "render/viewport.h"
+#include "render/viewporthandler.h"
 #include "render/shader.h"
 #include "render/spriterender.h"
 
@@ -125,77 +126,21 @@ RunMainScriptFile(duk::Duk* duk, vfs::FileSystem* fs, const vfs::FilePath& path)
     return RunResult::Ok();
 }
 
-struct ViewportHandler
+
+ViewportType
+C(game::ViewportType type)
 {
-    Init*                init;
-    std::vector<Shader*> shaders;
-    CameraData*          camera = nullptr;
-
-    ViewportHandler(Init* i, CameraData* cam) : init(i), camera(cam) {}
-
-    void
-    Add(Shader* shader)
-    {
-        shaders.emplace_back(shader);
-    }
-
-    void
-    SetSize(const ViewportDef& vp, bool shaders_too = true)
-    {
-        if(shaders_too)
-        {
-            const mat4f projection = init->GetOrthoProjection
-            (
-                vp.virtual_width,
-                vp.virtual_height
-            );
-            for(auto* shader: shaders)
-            {
-                shader->SetUniform
-                (
-                    shader->GetUniform("projection"),
-                    projection
-                );
-            }
-        }
-
-        camera->screen = Rectf::FromWidthHeight
-        (
-            vp.virtual_width,
-            vp.virtual_height
-        );
-
-        Viewport viewport {vp.screen_rect};
-        viewport.Activate();
-    }
-};
-
-ViewportDef
-GetViewport(const game::Viewport& vp, int window_width, int window_height)
-{
-    switch(vp.type)
+    switch(type)
     {
     case game::ViewportType::FitWithBlackBars:
-        return ViewportDef::FitWithBlackBars
-        (
-            vp.width,
-            vp.height,
-            window_width,
-            window_height
-        );
+        return ViewportType::FitWithBlackBars;
     case game::ViewportType::ScreenPixel:
-        return ViewportDef::ScreenPixel(window_width, window_height);
+        return ViewportType::ScreenPixel;
     case game::ViewportType::Extend:
-        return ViewportDef::Extend
-        (
-            vp.width,
-            vp.height,
-            window_width,
-            window_height
-        );
+        return ViewportType::Extend;
     default:
         DIE("Unhandled viewport case");
-        return ViewportDef::ScreenPixel(window_width, window_height);
+        return ViewportType::ScreenPixel;
     }
 }
 
@@ -332,13 +277,17 @@ main(int argc, char* argv[])
     Use(&shader);
     shader.SetUniform(shader.GetUniform("image"), 0);
 
-    auto viewport_handler = ViewportHandler{engine.init.get(), &camera_data};
+    auto viewport_handler = ViewportHandler
+    {
+        engine.init.get(),
+        &camera_data.screen
+    };
     viewport_handler.Add(&shader);
+    viewport_handler.type = C(gamedata.viewport.type);
+    viewport_handler.virtual_width = gamedata.viewport.width;
+    viewport_handler.virtual_height = gamedata.viewport.height;
 
-    viewport_handler.SetSize
-    (
-        GetViewport(gamedata.viewport, window_width, window_height)
-    );
+    viewport_handler.SetSize(window_width, window_height);
 
     try
     {
@@ -405,15 +354,7 @@ main(int argc, char* argv[])
             }
             if(engine.HandleResize(e, &window_width, &window_height))
             {
-                viewport_handler.SetSize
-                (
-                    GetViewport
-                    (
-                        gamedata.viewport,
-                        window_width,
-                        window_height
-                    )
-                );
+                viewport_handler.SetSize(window_width, window_height);
             }
 
             if(has_crashed)
@@ -464,21 +405,7 @@ main(int argc, char* argv[])
             integration.BindKeys(&duk, input);
         }
 
-        if(gamedata.viewport.type == game::ViewportType::FitWithBlackBars)
-        {
-            // LOG_INFO("Clearing black" << window_width << " " << window_height);
-            viewport_handler.SetSize
-            (
-                ViewportDef::ScreenPixel(window_width, window_height),
-                false
-            );
-            engine.init->ClearScreen(Color::Black);
-            viewport_handler.SetSize
-            (
-                GetViewport(gamedata.viewport, window_width, window_height),
-                false
-            );
-        }
+        viewport_handler.ClearBlack();
 
         if(has_crashed)
         {
