@@ -9,6 +9,7 @@
 #include "core/vfs_defaultshaders.h"
 #include "core/proto.h"
 #include "core/viewport.h"
+#include "core/image_draw.h"
 
 #include "render/debuggl.h"
 #include "render/fonts.h"
@@ -114,7 +115,31 @@ main(int argc, char* argv[])
     SDL_GetMouseState(&window_mouse_x, &window_mouse_y);
     bool mouse_lmb_down = false;
 
+    {
+        Image image;
+        image.SetupNoAlphaSupport(256, 256);
+        constexpr float h = 256.0f/2;
+        constexpr float m = 256.0f;
+        constexpr int s = 5;
+
+        Clear(&image, {Color::White});
+        DrawArrow(&image, vec2f{h, 0}, vec2f{h, m}, {Color::Blue}, s);
+        DrawArrow(&image, vec2f{0, h}, vec2f{m, h}, {Color::Red}, s);
+
+        engine.catalog->RegisterFileData
+        (
+            vfs::FilePath{"~/image"},
+            image.Write(ImageWriteFormat::PNG)
+        );
+    }
+    auto arrows = cache.GetTexture(vfs::FilePath{"~/image"});
+
     engine.init->Use2d();
+
+    float sprite_width = 10;
+    float sprite_height = 10;
+    float sprite_x = 10;
+    float sprite_y = 10;
 
     while(running)
     {
@@ -129,6 +154,10 @@ main(int argc, char* argv[])
             engine.imgui->StartNewFrame();
 
             ImGui::Begin("2d");
+            ImGui::DragFloat("width", &sprite_width);
+            ImGui::DragFloat("height", &sprite_height);
+            ImGui::DragFloat("x", &sprite_x);
+            ImGui::DragFloat("y", &sprite_y);
             ImGui::End();
         }
 
@@ -181,6 +210,12 @@ main(int argc, char* argv[])
         }
         
         engine.init->ClearScreen(clear_color);
+        renderer.DrawSprite
+        (
+            *arrows,
+            Rectf::FromWidthHeight(sprite_width, sprite_height)
+                .OffsetCopy(sprite_x, sprite_y)
+        );
         if(show_imgui)
         {
             engine.imgui->Render();
