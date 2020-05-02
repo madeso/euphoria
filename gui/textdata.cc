@@ -103,6 +103,7 @@ namespace euphoria::gui
             {
                 LOG_ERROR("Failed to parse {0}", string_);
             }
+            LOG_INFO("Loaded {0}", core::textparser::VisitorDebugString::Visit(&text));
             text_->SetText(text);
             text_->SetSize(size);
         }
