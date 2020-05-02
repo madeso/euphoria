@@ -9,7 +9,7 @@
 #include "core/vfs_imagegenerator.h"
 #include "core/vfs_defaultshaders.h"
 #include "core/proto.h"
-#include "core/viewport.h"
+#include "core/viewportdef.h"
 
 #include "duk/duk.h"
 

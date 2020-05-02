@@ -157,7 +157,7 @@ set(app_src
     vfs_defaultshaders.cc vfs_defaultshaders.h
     vfs_imagegenerator.cc vfs_imagegenerator.h
     vfs_path.cc vfs_path.h
-    viewport.cc viewport.h
+    viewportdef.cc viewportdef.h
     wordwrap.cc wordwrap.h
 )
 
