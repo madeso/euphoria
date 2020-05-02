@@ -58,7 +58,7 @@ set(app_src
     test_vec4.cc
     test_vfs.cc
     test_vfspath.cc
-    test_viewport.cc
+    test_viewportdef.cc
     test_wordwrap.cc
 )
 
