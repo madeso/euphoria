@@ -210,11 +210,21 @@ main(int argc, char* argv[])
         }
         
         engine.init->ClearScreen(clear_color);
+        const auto r = Rectf::FromPositionAnchorWidthAndHeight
+        (
+            vec2f{sprite_x, sprite_y},
+            scale2f{0.5f, 0.5f},
+            arrows->GetWidth(),
+            arrows->GetHeight()
+        );
+        const auto sr = 
+            Rectf::FromWidthHeight(sprite_width, sprite_height)
+                .OffsetCopy(sprite_x, sprite_y)
+            ;
         renderer.DrawSprite
         (
             *arrows,
-            Rectf::FromWidthHeight(sprite_width, sprite_height)
-                .OffsetCopy(sprite_x, sprite_y)
+            r
         );
         if(show_imgui)
         {
