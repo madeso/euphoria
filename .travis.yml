@@ -7,10 +7,22 @@ matrix:
     include:
         - os: linux
           dist: bionic
+          compiler: gcc
           env:
               - CONF=release
         - os: linux
           dist: bionic
+          compiler: gcc
+          env:
+              - CONF=debug
+        - os: linux
+          dist: bionic
+          compiler: clang
+          env:
+              - CONF=release
+        - os: linux
+          dist: bionic
+          compiler: clang
           env:
               - CONF=debug
               - GCOV_FLAGS='--coverage'
