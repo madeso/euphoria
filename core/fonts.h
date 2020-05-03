@@ -43,7 +43,9 @@ namespace euphoria::core
         float size = 0.0f;
     };
 
+
     typedef std::map<std::pair<unsigned int, unsigned int>, float> KerningMap;
+
 
     // represent a loaded font (or a part), but it not yet been converted
     // into a renderable data and texture.
@@ -62,8 +64,10 @@ namespace euphoria::core
         CombineWith(const LoadedFont& fc);
     };
 
+
     core::LoadedFont
     LoadCharactersFromBuiltin8();
+
 
     core::LoadedFont
     LoadCharactersFromBuiltin13();
