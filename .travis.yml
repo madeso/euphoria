@@ -58,6 +58,8 @@ script:
   - cmake -DCMAKE_BUILD_TYPE=$CONF -DEXTRA_FLAGS="$GCOV_FLAGS" ..
   - cmake --build .
   - ./tests/tests
-  - ./tests/tests
-  - cd ..
-  - ./scripts/clang.py tidy
+
+# temporarily disabled
+#  - cd ..
+#  - ./scripts/clang.py tidy
+
