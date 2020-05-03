@@ -18,6 +18,9 @@ matrix:
               - GCOV_FLAGS='--coverage'
           after_success:
               - pip install --user cpp-coveralls
+              - $CXX --version
+              - gcov --v
+              - ls /usr/bin/
               - coveralls -h
               - coveralls -r .. --gcov-options '\-lp' -i core
         - os: linux
@@ -60,6 +63,7 @@ addons:
       - libwxgtk3.0-dev
       - gcc-9
       - g++-9
+      - lcov
 
 script:
   - $CXX --version
