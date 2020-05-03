@@ -59,7 +59,7 @@ def run(args) -> str:
     try:
         return subprocess.check_output(args, stderr=subprocess.STDOUT).decode('utf-8')
     except subprocess.CalledProcessError as error:
-        print('Failed to run {} error: {}'.format(args, error.output))
+        print('Failed to run {} {} {} {}'.format(error.cmd, error.returncode, error.stdout, error.stderr))
         return ''
 
 
