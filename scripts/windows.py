@@ -55,12 +55,12 @@ def run_cmake(platform, generator):
 
 
 def run(args) -> str:
-    """run a terminal and return the output or print error"""
+    """run a terminal and return the output or error"""
     try:
-        return subprocess.check_output(args, stderr=subprocess.STDOUT).decode('utf-8')
+        return subprocess.check_output(args, stderr=subprocess.STDOUT)
     except subprocess.CalledProcessError as error:
-        print('Failed to run {} {} {} {}'.format(error.cmd, error.returncode, error.stdout, error.stderr))
-        return ''
+        print('Failed to run {} {}'.format(error.cmd, error.returncode))
+        return error.stdout
 
 
 ###############################################################################
@@ -107,18 +107,12 @@ def on_cmd_test(_):
     """callback for test cmd"""
     tests = os.path.join(BUILD_FOLDER, 'tests', 'Release', 'tests.exe')
     print('Running tests {}'.format(tests))
-    lines = run([tests, '-r', 'junit'])
-    print('Test result:')
-    for l in lines.splitlines():
-        print(l)
-    print('######################################')
+    lines = run([tests, '-r', 'junit']).decode('utf-8')
+    print('Test result: {}'.format(len(lines.splitlines())))
     # hacky way to remove all log output from the junit output
     lines = '\n'.join(line for line in lines.splitlines() if line[:1] != '[')
     save_path = os.path.join(ROOT_FOLDER, 'build', 'junit-results.xml')
-    for l in lines:
-        print(l)
-    print('######################################')
-    print('Saving junit to', save_path, flush=True)
+    print('Saving {} lines of junit to {}'.format(len(lines), save_path), flush=True)
     with open(save_path, 'w') as junit_file:
         junit_file.write(lines)
     print('junit file written!')
