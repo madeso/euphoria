@@ -1,5 +1,9 @@
 # Euphoria
 
+[![Build Status](https://travis-ci.org/madeso/euphoria.svg?branch=master)](https://travis-ci.org/madeso/euphoria)
+[![Build status](https://ci.appveyor.com/api/projects/status/vmq6ojb3xx01pwhk/branch/master?svg=true)](https://ci.appveyor.com/project/madeso/euphoria/branch/master)
+[![Coverage Status](https://coveralls.io/repos/github/madeso/euphoria/badge.svg?branch=master)](https://coveralls.io/github/madeso/euphoria?branch=master)
+
 Euphoria is a data-driven "game engine". It's in quotes because
 
 1. the term "engine" is really vague.
