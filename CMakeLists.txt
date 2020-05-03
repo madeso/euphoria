@@ -9,6 +9,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 option(BUILD_ENTITY_DEBUG_COMPONENT "when converting components, (debug) assert of bad casts" OFF)
 set(BUILD_TYPEINFO_IMPL "rtti" CACHE STRING "rtti, ctti, custom_hashed, custom_rt")
+set(EXTRA_FLAGS "" CACHE STRING "extra flags to both compile and link")
 
 set(OpenGL_GL_PREFERENCE "GLVND")
 
@@ -29,6 +30,10 @@ elseif(BUILD_TYPEINFO_IMPL STREQUAL "custom_rt")
 else()
     message(STATUS "Invalid build status: ${BUILD_TYPEINFO_IMPL}")
 endif()
+
+
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${EXTRA_FLAGS}")
+SET(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${EXTRA_FLAGS}")
 
 
 set(Gaf_CUSTOM_ARGUMENTS_FROM_FILE ${CMAKE_CURRENT_SOURCE_DIR}/gaf_options.txt)

@@ -1,11 +1,24 @@
-dist: bionic
-sudo: false
 language: cpp
+sudo: false
 
-# gcc might not work
-compiler:
-  - clang
-  - gcc
+compiler: clang
+
+matrix:
+    include:
+        - os: linux
+          dist: bionic
+          env:
+              - CONF=release
+        - os: linux
+          dist: bionic
+          env:
+              - CONF=debug
+              - GCOV_FLAGS='--coverage'
+          after_success:
+              - pip install --user cpp-coveralls
+              - coveralls -h
+              - coveralls -r .. --gcov-options '\-lp' -i core
+
 
 # Handle git submodules yourself
 git:
@@ -42,7 +55,8 @@ script:
   - mkdir build
   - cd build
   - cmake ..
-  - make VERBOSE=1
+  - cmake -DCMAKE_BUILD_TYPE=$CONF -DEXTRA_FLAGS="$GCOV_FLAGS" ..
+  - cmake --build .
   - ./tests/tests
   - ./tests/tests
   - cd ..
