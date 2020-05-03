@@ -117,6 +117,12 @@ namespace euphoria::core
             ShouldThrow() = true;
         }
 
+        bool
+        IsThrowing()
+        {
+            return ShouldThrow();
+        }
+
         void
         OnAssert(
                 const char* const                  expression,

@@ -36,7 +36,7 @@
         }                                                                      \
         else                                                                   \
         {                                                                      \
-            BREAK_IN_DEBUG();                                                  \
+            if(::euphoria::core::assertlib::IsThrowing() == false) { BREAK_IN_DEBUG(); }                                                  \
             ::euphoria::core::assertlib::OnAssert(                             \
                     #x,                                                        \
                     __LINE__,                                                  \
@@ -55,7 +55,7 @@
         }                                                                      \
         else                                                                   \
         {                                                                      \
-            BREAK_IN_DEBUG();                                                  \
+            if(::euphoria::core::assertlib::IsThrowing() == false) { BREAK_IN_DEBUG(); }                                                  \
             ::euphoria::core::assertlib::OnAssert(                             \
                     #x,                                                        \
                     __LINE__,                                                  \
@@ -97,6 +97,10 @@ namespace euphoria::core
 
         void
         StartThrowing();
+
+        bool
+        IsThrowing();
+
         void
         OnAssert(
                 const char* const                  expression,
