@@ -55,11 +55,12 @@ def run_cmake(platform, generator):
 
 
 def run(args) -> str:
-    """run a terminal and return the output or error"""
+    """run a terminal and return the output or print error"""
     try:
-        return subprocess.check_output(args)
+        return subprocess.check_output(args, stderr=subprocess.STDOUT).decode('utf-8')
     except subprocess.CalledProcessError as error:
-        return error.output
+        print('Failed to run {} error: {}'.format(args, error.output))
+        return ''
 
 
 ###############################################################################
@@ -105,7 +106,8 @@ def on_cmd_build(arg):
 def on_cmd_test(_):
     """callback for test cmd"""
     tests = os.path.join(BUILD_FOLDER, 'tests', 'Release', 'tests.exe')
-    lines = run([tests, '-r', 'junit']).decode('utf-8')
+    print('Running tests {}'.format(tests))
+    lines = run([tests, '-r', 'junit'])
     print('Test result:')
     for l in lines.splitlines():
         print(l)
