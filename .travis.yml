@@ -19,10 +19,9 @@ matrix:
           after_success:
               - pip install --user cpp-coveralls
               - $CXX --version
-              - gcov --v
-              - ls /usr/bin/
+              - /usr/bin/gcov-9 --v
               - coveralls -h
-              - coveralls -r .. --gcov-options '\-lp' -i core
+              - coveralls -r .. --gcov /usr/bin/gcov-9 --gcov-options '\-lp' -i core
         - os: linux
           dist: bionic
           compiler: clang
