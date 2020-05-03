@@ -107,9 +107,15 @@ def on_cmd_test(_):
     tests = os.path.join(BUILD_FOLDER, 'tests', 'Release', 'tests.exe')
     lines = run([tests, '-r', 'junit']).decode('utf-8')
     print('Test result:')
+    for l in lines.splitlines():
+        print(l)
+    print('######################################')
     # hacky way to remove all log output from the junit output
     lines = '\n'.join(line for line in lines.splitlines() if line[:1] != '[')
     save_path = os.path.join(ROOT_FOLDER, 'build', 'junit-results.xml')
+    for l in lines:
+        print(l)
+    print('######################################')
     print('Saving junit to', save_path, flush=True)
     with open(save_path, 'w') as junit_file:
         junit_file.write(lines)
