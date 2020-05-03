@@ -15,6 +15,11 @@ matrix:
           compiler: gcc
           env:
               - CONF=debug
+              - GCOV_FLAGS='--coverage'
+          after_success:
+              - pip install --user cpp-coveralls
+              - coveralls -h
+              - coveralls -r .. --gcov-options '\-lp' -i core
         - os: linux
           dist: bionic
           compiler: clang
@@ -25,11 +30,6 @@ matrix:
           compiler: clang
           env:
               - CONF=debug
-              - GCOV_FLAGS='--coverage'
-          after_success:
-              - pip install --user cpp-coveralls
-              - coveralls -h
-              - coveralls -r .. --gcov-options '\-lp' -i core
 
 
 # Handle git submodules yourself
