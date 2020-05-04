@@ -3,7 +3,7 @@
 #include "core/assert.h"
 #include "core/log.h"
 
-#include "render/fonts.h"
+#include "render/font.h"
 
 
 namespace euphoria::gui

@@ -8,7 +8,7 @@ set(app_src
     debuggl.cc debuggl.h
     defaultfiles.cc defaultfiles.h
     fontcache.cc fontcache.h
-    fonts.cc fonts.h
+    font.cc font.h
     gl.h
     gltypes.h
     id.cc id.h

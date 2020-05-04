@@ -106,7 +106,6 @@ set(app_src
     enum.cc enum.h
     enumtostring.h
     findstring.cc findstring.h
-    fonts.cc fonts.h
     fpscontroller.cc fpscontroller.h
     functional.h
     history.h
@@ -118,6 +117,7 @@ set(app_src
     io.cc io.h
     key.cc key.h
     knuthshuffle.h
+    loadedfont.cc loadedfont.h
     log.cc log.h
     memorychunk.cc memorychunk.h
     mesh.cc mesh.h

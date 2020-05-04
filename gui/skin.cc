@@ -1,5 +1,5 @@
 #include "gui/skin.h"
-#include "render/fonts.h"
+#include "render/font.h"
 
 
 namespace euphoria::gui

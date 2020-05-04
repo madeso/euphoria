@@ -11,7 +11,7 @@
 #include "core/viewportdef.h"
 
 #include "render/debuggl.h"
-#include "render/fonts.h"
+#include "render/font.h"
 #include "render/init.h"
 #include "render/fontcache.h"
 #include "render/scalablesprite.h"

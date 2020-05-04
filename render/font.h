@@ -5,7 +5,7 @@
 #include <map>
 #include <memory>
 
-#include "core/fonts.h"
+#include "core/loadedfont.h"
 #include "core/vec2.h"
 #include "core/vec3.h"
 #include "core/rgb.h"

@@ -9,7 +9,7 @@
 
 #include "approx_equal.h"
 #include "stringeq.h"
-#include "core/fonts.h"
+#include "core/loadedfont.h"
 
 #include "catch.hpp"
 

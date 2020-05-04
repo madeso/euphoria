@@ -4,7 +4,7 @@
 #include "core/cache.h"
 #include "core/vfs_path.h"
 
-#include "render/fonts.h"
+#include "render/font.h"
 
 namespace euphoria::render
 {

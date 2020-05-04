@@ -1,4 +1,4 @@
-#include "core/fonts.h"
+#include "core/loadedfont.h"
 
 #include "approx_equal.h"
 #include "stringeq.h"

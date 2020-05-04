@@ -1,7 +1,7 @@
 #include <array>
 
 #include "core/argparse.h"
-#include "core/fonts.h"
+#include "core/loadedfont.h"
 #include "core/textbox.h"
 #include "core/imageops.h"
 #include "core/utf8.h"

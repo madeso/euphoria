@@ -3,7 +3,7 @@
 #include "core/numeric.h"
 #include "core/assert.h"
 #include "core/range.h"
-#include "core/fonts.h"
+#include "core/loadedfont.h"
 #include "core/utf8.h"
 #include "core/rgb_blend.h"
 #include "core/minmax.h"

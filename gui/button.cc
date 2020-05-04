@@ -3,7 +3,7 @@
 
 #include "render/scalablesprite.h"
 #include "render/spriterender.h"
-#include "render/fonts.h"
+#include "render/font.h"
 
 #include "gui/visitor.h"
 

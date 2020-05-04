@@ -23,12 +23,12 @@ set(app_src
     test_editdistance.cc
     test_enumtostring.cc
     test_findstring.cc
-    test_font.cc
     test_fnv1a.cc
     test_image.cc
     test_image.png
     test_insertionsort.cc
     test_interpolate.cc
+    test_loadedfont.cc
     test_mat4.cc
     test_minsynth.cc
     test_multisort.cc
