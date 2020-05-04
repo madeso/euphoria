@@ -90,6 +90,18 @@ namespace euphoria::core
         unsigned int font_size,
         const std::string& chars
     );
+
+    LoadedFont
+    GetCharactersFromSingleImage
+    (
+        vfs::FileSystem* fs,
+        const vfs::FilePath& image_file,
+        const std::string& image_alias,
+        float image_scale,
+        float image_bearing_x,
+        float image_bearing_y,
+        float image_advance
+    );
 }
 
 #endif // EUPHORIA_CORE_FONTS_H

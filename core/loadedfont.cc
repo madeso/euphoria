@@ -537,5 +537,43 @@ namespace euphoria::core
 
         return fontchars;
     }
+
+
+    LoadedFont
+    GetCharactersFromSingleImage
+    (
+        vfs::FileSystem* fs,
+        const vfs::FilePath& image_file,
+        const std::string& image_alias,
+        float image_scale,
+        float image_bearing_x,
+        float image_bearing_y,
+        float image_advance
+    )
+    {
+        core::LoadedFont font;
+
+        core::ImageLoadResult loaded = core::LoadImage
+        (
+            fs,
+            image_file,
+            core::AlphaLoad::Keep
+        );
+        if(loaded.error.empty())
+        {
+            const auto s = 1 / image_scale;
+            core::LoadedGlyph glyph;
+            glyph.size = s * loaded.image.GetHeight();
+            glyph.bearing_y = s * loaded.image.GetHeight() + image_bearing_y;
+            glyph.bearing_x = image_bearing_x;
+            glyph.advance = s * loaded.image.GetWidth() + image_advance;
+            glyph.code_point= font.NewPrivateUse(image_alias);
+            // todo: add ability to clip image
+            glyph.image = loaded.image;
+            font.codepoint_to_glyph[glyph.code_point] = glyph;
+        }
+
+        return font;
+    }
 }
 

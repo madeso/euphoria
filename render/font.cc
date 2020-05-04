@@ -57,37 +57,24 @@ namespace euphoria::render
         const font::SingleImage& img
     )
     {
-        core::LoadedFont font;
-
         const auto image_file = core::vfs::FilePath::FromScript(img.file);
 
         if(image_file.has_value() == false)
         {
             LOG_WARN("Invalid path {0}", img.file);
-            return font;
+            return core::LoadedFont{};
         }
 
-        core::ImageLoadResult loaded = core::LoadImage
+        return core::GetCharactersFromSingleImage
         (
             fs,
             image_file.value(),
-            core::AlphaLoad::Keep
+            img.alias,
+            img.scale,
+            img.bearing_x,
+            img.bearing_y,
+            img.advance
         );
-        if(loaded.error.empty())
-        {
-            const auto s = 1 / img.scale;
-            core::LoadedGlyph glyph;
-            glyph.size = s * loaded.image.GetHeight();
-            glyph.bearing_y = s * loaded.image.GetHeight() + img.bearing_y;
-            glyph.bearing_x = img.bearing_x;
-            glyph.advance = s * loaded.image.GetWidth() + img.advance;
-            glyph.code_point= font.NewPrivateUse(img.alias);
-            // todo: add ability to clip image
-            glyph.image = loaded.image;
-            font.codepoint_to_glyph[glyph.code_point] = glyph;
-        }
-
-        return font;
     }
 
 
