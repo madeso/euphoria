@@ -39,7 +39,7 @@ namespace euphoria::core
         int bearing_x = 0;
         int bearing_y = 0;
         int advance = 0;
-        core::Image image;
+        Image image;
         float size = 0.0f;
     };
 
@@ -65,11 +65,11 @@ namespace euphoria::core
     };
 
 
-    core::LoadedFont
+    LoadedFont
     LoadCharactersFromBuiltin8();
 
 
-    core::LoadedFont
+    LoadedFont
     LoadCharactersFromBuiltin13();
 
 

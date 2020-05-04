@@ -310,7 +310,7 @@ namespace euphoria::core
 
 
     template<typename Glyphs>
-    core::LoadedFont
+    LoadedFont
     GetCharacterFromBuiltin8
     (
         const unsigned int start_codepoint,
@@ -320,7 +320,7 @@ namespace euphoria::core
     {
         ASSERTX(start_codepoint < end_codepoint, start_codepoint, end_codepoint);
         const auto number_of_glyphs = (end_codepoint+1) - start_codepoint;
-        core::LoadedFont font;
+        LoadedFont font;
         font.line_height = 8;
 
         for
@@ -331,7 +331,7 @@ namespace euphoria::core
         )
         {
             const auto code_point = glyph_index + start_codepoint;
-            core::LoadedGlyph glyph;
+            LoadedGlyph glyph;
             glyph.image.SetupWithAlphaSupport(8, 8, 0);
 
             for(int y = 0; y < 8; y += 1)
@@ -360,15 +360,15 @@ namespace euphoria::core
     }
 
 
-    core::LoadedFont
+    LoadedFont
     LoadCharactersFromBuiltin13()
     {
-        core::LoadedFont font;
+        LoadedFont font;
         font.line_height = 13;
 
         for(unsigned int codepoint=32; codepoint < 127; codepoint+=1)
         {
-            core::LoadedGlyph glyph;
+            LoadedGlyph glyph;
             glyph.image.SetupWithAlphaSupport(8, 13, 0);
             
             const auto glyph_index = codepoint - 32;
@@ -399,10 +399,10 @@ namespace euphoria::core
     }
 
 
-    core::LoadedFont
+    LoadedFont
     LoadCharactersFromBuiltin8()
     {
-        core::LoadedFont font;
+        LoadedFont font;
         // todo(Gustav): Add more characters
         font.CombineWith
         (
@@ -551,18 +551,18 @@ namespace euphoria::core
         float image_advance
     )
     {
-        core::LoadedFont font;
+        LoadedFont font;
 
-        core::ImageLoadResult loaded = core::LoadImage
+        ImageLoadResult loaded = LoadImage
         (
             fs,
             image_file,
-            core::AlphaLoad::Keep
+            AlphaLoad::Keep
         );
         if(loaded.error.empty())
         {
             const auto s = 1 / image_scale;
-            core::LoadedGlyph glyph;
+            LoadedGlyph glyph;
             glyph.size = s * loaded.image.GetHeight();
             glyph.bearing_y = s * loaded.image.GetHeight() + image_bearing_y;
             glyph.bearing_x = image_bearing_x;
