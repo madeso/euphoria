@@ -14,7 +14,6 @@ TEST_CASE("fonts-", "[fonts]")
 {
     auto font = LoadedFont{};
 
-
     SECTION("private use")
     {
         const auto acp = font.NewPrivateUse("a");
