@@ -102,6 +102,17 @@ namespace euphoria::core
         float image_bearing_y,
         float image_advance
     );
+
+    LoadedFont
+    GetCharactersFromSingleImage
+    (
+        const Image& image,
+        const std::string& image_alias,
+        float image_scale,
+        float image_bearing_x,
+        float image_bearing_y,
+        float image_advance
+    );
 }
 
 #endif // EUPHORIA_CORE_FONTS_H

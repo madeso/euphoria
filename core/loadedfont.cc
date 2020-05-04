@@ -551,29 +551,57 @@ namespace euphoria::core
         float image_advance
     )
     {
-        LoadedFont font;
-
-        ImageLoadResult loaded = LoadImage
+        const auto loaded = LoadImage
         (
             fs,
             image_file,
             AlphaLoad::Keep
         );
-        if(loaded.error.empty())
+
+        if(loaded.error.empty() == false)
         {
-            const auto s = 1 / image_scale;
-            LoadedGlyph glyph;
-            glyph.size = s * loaded.image.GetHeight();
-            glyph.bearing_y = s * loaded.image.GetHeight() + image_bearing_y;
-            glyph.bearing_x = image_bearing_x;
-            glyph.advance = s * loaded.image.GetWidth() + image_advance;
-            glyph.code_point= font.NewPrivateUse(image_alias);
-            // todo: add ability to clip image
-            glyph.image = loaded.image;
-            font.codepoint_to_glyph[glyph.code_point] = glyph;
+            LOG_ERROR("Failed to load font image {}", image_file);
+            return LoadedFont{};
         }
+
+        return GetCharactersFromSingleImage
+        (
+            loaded.image,
+            image_alias,
+            image_scale,
+            image_bearing_x,
+            image_bearing_y,
+            image_advance
+        );
+    }
+
+
+    LoadedFont
+    GetCharactersFromSingleImage
+    (
+        const Image& image,
+        const std::string& image_alias,
+        float image_scale,
+        float image_bearing_x,
+        float image_bearing_y,
+        float image_advance
+    )
+    {
+        LoadedFont font;
+
+        const auto s = 1 / image_scale;
+        LoadedGlyph glyph;
+        glyph.size = s * image.GetHeight();
+        glyph.bearing_y = s * image.GetHeight() + image_bearing_y;
+        glyph.bearing_x = image_bearing_x;
+        glyph.advance = s * image.GetWidth() + image_advance;
+        glyph.code_point= font.NewPrivateUse(image_alias);
+        // todo(Gustav): add ability to clip image
+        glyph.image = image;
+        font.codepoint_to_glyph[glyph.code_point] = glyph;
 
         return font;
     }
+
 }
 
