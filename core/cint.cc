@@ -1,5 +1,7 @@
 #include "core/cint.h"
 
+#include <limits>
+
 namespace euphoria::core
 {
     int
