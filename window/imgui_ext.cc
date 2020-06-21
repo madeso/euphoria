@@ -91,6 +91,24 @@ namespace euphoria::window
 
 
     bool
+    ToggleButton(const char* const label, bool down, const ImVec2& size)
+    {
+        if (down)
+        {
+            const auto c = ImGui::GetStyle().Colors[ImGuiCol_ButtonActive];
+            ImGui::PushStyleColor(ImGuiCol_Button, c);
+            const auto r = ImGui::Button(label, size);
+            ImGui::PopStyleColor(1);
+
+            return r;
+        }
+        else
+        {
+            return ImGui::Button(label, size);
+        }
+    }
+
+    bool
     ImGuiColorEdit(const char* const name, core::Rgb* c)
     {
         return ImGui::ColorEdit3(name, &c->r);

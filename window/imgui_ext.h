@@ -45,6 +45,9 @@ namespace euphoria::window
         const core::Angle& maxdeg
     );
 
+    bool
+    ToggleButton(const char* const label, bool down, const ImVec2& size);
+
     void
     ImguiImage(render::Texture2d* texture);
 

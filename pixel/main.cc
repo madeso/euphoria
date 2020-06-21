@@ -36,6 +36,7 @@
 #include "window/timer.h"
 #include "window/imgui_ext.h"
 #include "window/imgui_extra.h"
+#include "window/imgui_icons.h"
 #include "window/sdllibrary.h"
 #include "window/sdlwindow.h"
 #include "window/sdlglcontext.h"
@@ -91,6 +92,12 @@ bool IsOver(const ImVec2& min, const ImVec2& max, const ImVec2& mouse)
 }
 
 
+enum class Tool
+{
+    Pen, Fill
+};
+
+
 int
 main(int argc, char** argv)
 {
@@ -122,6 +129,7 @@ main(int argc, char** argv)
     Canvas canvas;
     Image image;
     Random random;
+    Tool tool = Tool::Pen;
     auto palette = palette::EDG64();
     auto foreground = 0;
     auto background = 1;
@@ -166,7 +174,42 @@ main(int argc, char** argv)
                 ImGui::EndMenu();
             }
         }
+        const auto menu_height = ImGui::GetCurrentWindow()->MenuBarHeight();
         ImGui::EndMainMenuBar();
+
+        const auto toolbar_height = 30;
+        const auto toolbar_button_size = ImVec2(0, 20);
+
+        ImGui::SetNextWindowPos(ImVec2(0, 0 + menu_height), ImGuiCond_Always);
+        ImGui::SetNextWindowSize(ImVec2(ImGui::GetIO().DisplaySize.x, toolbar_height), ImGuiCond_Always);
+        const auto toolbar_flags = 0
+            | ImGuiWindowFlags_NoTitleBar
+            | ImGuiWindowFlags_NoResize
+            | ImGuiWindowFlags_NoMove
+            | ImGuiWindowFlags_NoScrollbar
+            | ImGuiWindowFlags_NoSavedSettings
+		    ;
+        ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0);
+        ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0);
+        const auto show_toolbar = ImGui::Begin("TOOLBAR", NULL, toolbar_flags);
+        ImGui::PopStyleVar(2);
+        if(show_toolbar)
+        {
+            auto toolbar_button = [&tool, toolbar_button_size](const char* label, Tool t)
+            {
+                if(ToggleButton(label, tool == t, toolbar_button_size))
+                {
+                    tool = t;
+                }
+            };
+            toolbar_button(ICON_MDI_FORMAT_COLOR_HIGHLIGHT, Tool::Pen);
+            HelpText("Pen");
+            
+            ImGui::SameLine();
+            toolbar_button(ICON_MDI_FORMAT_COLOR_FILL, Tool::Fill);
+            HelpText("Fill");
+        }
+        ImGui::End();
 
         if(ImGui::Begin("Palette"))
         {
