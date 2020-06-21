@@ -162,7 +162,7 @@ main(int argc, char** argv)
                 if(index == id)
                 {
                     // capture current drag item...
-                    if(ImGui::IsMouseDragging())
+                    if(ImGui::IsMouseDragging(ImGuiMouseButton_Left))
                     {
                         const auto d = ImGui::GetMouseDragDelta();
                         ImGui::ResetMouseDragDelta();
