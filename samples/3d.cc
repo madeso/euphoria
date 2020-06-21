@@ -275,9 +275,9 @@ main(int argc, char** argv)
                 reinterpret_cast<int*>(&world.light.type),
                 "Directional\0Point\0Spot\0\0"
             );
-            ImGuiColorEdit3("Ambient", &world.light.ambient);
-            ImGuiColorEdit3("Diffuse", &world.light.diffuse);
-            ImGuiColorEdit3("Specular", &world.light.specular);
+            ImGuiColorEdit("Ambient", &world.light.ambient);
+            ImGuiColorEdit("Diffuse", &world.light.diffuse);
+            ImGuiColorEdit("Specular", &world.light.specular);
             ImGui::Combo
             (
                 "Update",

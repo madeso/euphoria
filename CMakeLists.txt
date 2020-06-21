@@ -131,6 +131,7 @@ add_subdirectory(engine)
 add_subdirectory(t3d)
 add_subdirectory(editor)
 add_subdirectory(painter)
+add_subdirectory(pixel)
 add_subdirectory(musikmaskin)
 
 # here comes all the sample files

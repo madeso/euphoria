@@ -483,9 +483,9 @@ namespace euphoria::t3d
             reinterpret_cast<int*>(&world->light.type),
             "Directional\0Point\0Spot\0\0"
         );
-        window::ImGuiColorEdit3("Ambient", &world->light.ambient);
-        window::ImGuiColorEdit3("Diffuse", &world->light.diffuse);
-        window::ImGuiColorEdit3("Specular", &world->light.specular);
+        window::ImGuiColorEdit("Ambient", &world->light.ambient);
+        window::ImGuiColorEdit("Diffuse", &world->light.diffuse);
+        window::ImGuiColorEdit("Specular", &world->light.specular);
     }
 
 

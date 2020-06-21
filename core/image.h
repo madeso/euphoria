@@ -68,10 +68,21 @@ namespace euphoria::core
         Filter(Func f)
         {
             for(int y = 0; y < GetHeight(); y += 1)
-                for(int x = 0; x < GetWidth(); x += 1)
-                {
-                    SetPixel(x, y, f(GetPixel(x, y)));
-                }
+            for(int x = 0; x < GetWidth(); x += 1)
+            {
+                SetPixel(x, y, f(GetPixel(x, y)));
+            }
+        }
+
+        template <typename Func>
+        void
+        ForAllTopBottom(Func f)
+        {
+            for(int y = GetHeight(); y > 0; y -= 1)
+            for(int x = 0; x < GetWidth(); x += 1)
+            {
+                f(x, y - 1, GetPixel(x, y - 1));
+            }
         }
 
         template <typename Func>
@@ -79,10 +90,10 @@ namespace euphoria::core
         SetAllTopBottom(Func f)
         {
             for(int y = GetHeight(); y > 0; y -= 1)
-                for(int x = 0; x < GetWidth(); x += 1)
-                {
-                    SetPixel(x, y - 1, f(x, y - 1));
-                }
+            for(int x = 0; x < GetWidth(); x += 1)
+            {
+                SetPixel(x, y - 1, f(x, y - 1));
+            }
         }
 
         template <typename Func>
@@ -90,10 +101,10 @@ namespace euphoria::core
         SetAllBottomTop(Func f)
         {
             for(int y = 0; y < GetHeight(); y += 1)
-                for(int x = 0; x < GetWidth(); x += 1)
-                {
-                    SetPixel(x, y, f(x, y));
-                }
+            for(int x = 0; x < GetWidth(); x += 1)
+            {
+                SetPixel(x, y, f(x, y));
+            }
         }
 
         Recti

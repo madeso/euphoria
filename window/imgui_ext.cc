@@ -3,6 +3,7 @@
 
 #include "core/angle.h"
 #include "core/assert.h"
+#include "core/rgb.h"
 
 #include "imgui/imgui.h"
 
@@ -89,10 +90,28 @@ namespace euphoria::window
     }
 
 
-    void
-    ImGuiColorEdit3(const char* const name, core::Rgb* rgb)
+    bool
+    ImGuiColorEdit(const char* const name, core::Rgb* c)
     {
-        ImGui::ColorEdit3(name, &rgb->r);
+        return ImGui::ColorEdit3(name, &c->r);
+    }
+
+    bool
+    ImGuiColorEdit(const char* const name, core::Rgba* c)
+    {
+        return ImGui::ColorEdit4(name, &c->r);
+    }
+
+    bool
+    ImGuiColorEdit(const char* const name, core::Rgbai* c)
+    {
+        auto cc = rgba(*c);
+        const auto changed = ImGui::ColorEdit4(name, &cc.r);
+        if(changed)
+        {
+            *c = rgbai(cc);
+        }
+        return changed;
     }
 
 
