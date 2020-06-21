@@ -66,6 +66,14 @@ C(const Rgbai& c)
 }
 
 
+bool IsOver(const ImVec2& min, const ImVec2& max, const ImVec2& mouse)
+{
+    const auto over_min = min.x <= mouse.x && min.y <= mouse.y;
+    const auto over_max = max.x >= mouse.x && max.y >= mouse.y;
+    return over_min && over_max;
+}
+
+
 int
 main(int argc, char** argv)
 {
@@ -156,8 +164,12 @@ main(int argc, char** argv)
                 const auto p = ImGui::GetCursorScreenPos();
                 const auto size = ImGui::GetContentRegionAvail();
 
+                const auto hovering = ImGui::IsAnyItemHovered();
+                const auto left_clicked = ImGui::IsMouseClicked(0);
+                const auto right_clicked = ImGui::IsMouseClicked(1);
+
                 ImDrawList* draw_list = ImGui::GetWindowDrawList();
-                for(int i=0; i<palette.colors.size(); i+=1)
+                for(int palette_index=0; palette_index<palette.colors.size(); palette_index+=1)
                 {
                     if(x + tile_size > size.x)
                     {
@@ -167,9 +179,26 @@ main(int argc, char** argv)
 
                     const auto min = p + ImVec2(x, y);
                     const auto max = min + ImVec2(tile_size, tile_size);
+                    const auto mouse = ImGui::GetMousePos();
 
-                    draw_list->AddRectFilled(min, max, C(palette.colors[i]));
+                    draw_list->AddRectFilled(min, max, C(palette.colors[palette_index]));
                     x += tile_size + spacing;
+
+                    if(!hovering && (left_clicked || right_clicked))
+                    {
+                        if(IsOver(min, max, mouse))
+                        {
+                            if(left_clicked)
+                            {
+                                foreground = palette_index;
+                            }
+                            else
+                            {
+                                background = palette_index;
+                            }
+                            
+                        }
+                    }
                 }
                 imgui::CanvasEnd();
             }
@@ -183,11 +212,7 @@ main(int argc, char** argv)
             {
                 const auto hovering = ImGui::IsAnyItemHovered();
                 const auto left_down = ImGui::IsMouseDown(0);
-                const auto right_clicked = ImGui::IsMouseClicked(1);
-                if(!hovering && right_clicked)
-                {
-                    ImGui::OpenPopup("context_menu");
-                }
+                const auto right_down = ImGui::IsMouseDown(1);
 
                 canvas.Begin(cc);
                 canvas.ShowGrid(cc);
@@ -209,21 +234,18 @@ main(int argc, char** argv)
                         {
                             image.SetPixel(x, y, palette.colors[foreground]);
                         }
+
+                        // hovering over pixel
+                        if(!hovering && right_down)
+                        {
+                            image.SetPixel(x, y, palette.colors[background]);
+                        }
                     }
                     draw_list->AddRectFilled(ps, pss, C(c));
                 });
 
                 canvas.ShowRuler(cc);
                 canvas.End(cc);
-
-                if(ImGui::BeginPopup("context_menu"))
-                {
-                    // const auto p = canvas.ScreenToWorld(ImGui::GetMousePosOnOpeningCurrentPopup());
-                    if(ImGui::MenuItem("Add"))
-                    {
-                    }
-                    ImGui::EndPopup();
-                }
             }
         }
         ImGui::End();
