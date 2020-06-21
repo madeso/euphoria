@@ -153,11 +153,12 @@ main(int argc, char** argv)
 
         if(ImGui::Begin("palette"))
         {
+
             const auto tile_size = 20;
             const auto spacing = 3;
-
-            auto x = 0.0f;
-            auto y = 0.0f;
+            const auto big_spacing = 10;
+            const auto big_offset = 0.20f;
+            const auto max_pal_size = tile_size * 5;
 
             if(imgui::CanvasBegin(ImVec4(0.3, 0.3, 0.3, 1.0f), "palette"))
             {
@@ -167,8 +168,13 @@ main(int argc, char** argv)
                 const auto hovering = ImGui::IsAnyItemHovered();
                 const auto left_clicked = ImGui::IsMouseClicked(0);
                 const auto right_clicked = ImGui::IsMouseClicked(1);
+                const auto mouse = ImGui::GetMousePos();
 
                 ImDrawList* draw_list = ImGui::GetWindowDrawList();
+
+                auto x = 0.0f;
+                auto y = 0.0f;
+
                 for(int palette_index=0; palette_index<palette.colors.size(); palette_index+=1)
                 {
                     if(x + tile_size > size.x)
@@ -179,7 +185,6 @@ main(int argc, char** argv)
 
                     const auto min = p + ImVec2(x, y);
                     const auto max = min + ImVec2(tile_size, tile_size);
-                    const auto mouse = ImGui::GetMousePos();
 
                     draw_list->AddRectFilled(min, max, C(palette.colors[palette_index]));
                     x += tile_size + spacing;
@@ -200,6 +205,26 @@ main(int argc, char** argv)
                         }
                     }
                 }
+
+                y += tile_size;
+
+                const auto big_size = std::min(size.x, size.y - y) - big_spacing * 2;
+
+                if(big_size > 0)
+                {
+                    const auto bsf = std::min<float>(max_pal_size, big_size / (1+big_offset));
+                    const auto bs = ImVec2(bsf, bsf);
+                    const auto foreground_pos = ImVec2
+                    (
+                        size.x/2 - (bsf * (1+big_offset))/2,
+                        y+big_spacing
+                    );
+
+                    const auto background_pos = foreground_pos + bs * big_offset;
+                    draw_list->AddRectFilled(p + background_pos, p + background_pos + bs, C(palette.GetSafeIndex(background)));
+                    draw_list->AddRectFilled(p + foreground_pos, p + foreground_pos + bs, C(palette.GetSafeIndex(foreground)));
+                }
+
                 imgui::CanvasEnd();
             }
         }
