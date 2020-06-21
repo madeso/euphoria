@@ -59,6 +59,23 @@ using namespace euphoria::render;
 using namespace euphoria::window;
 
 
+/*
+PixLE todo
+different paint tools: brush, fill
+brushes / sizes
+brush preview/hover
+transparency
+tool: eraser
+layers
+undo/redo
+save/load via terminal
+fast draw
+aa lines
+tile x/y mode
+clone/pattern brush
+*/
+
+
 ImU32
 C(const Rgbai& c)
 {
@@ -88,7 +105,7 @@ main(int argc, char** argv)
     int window_width  = 1280;
     int window_height = 720;
 
-    if(!engine.CreateWindow("Painter", window_width, window_height, true))
+    if(!engine.CreateWindow("PixLE", window_width, window_height, true))
     {
         return -1;
     }
@@ -151,7 +168,7 @@ main(int argc, char** argv)
         }
         ImGui::EndMainMenuBar();
 
-        if(ImGui::Begin("palette"))
+        if(ImGui::Begin("Palette"))
         {
 
             const auto tile_size = 20;
@@ -231,7 +248,7 @@ main(int argc, char** argv)
         ImGui::End();
 
         ImGui::SetNextWindowSize(ImVec2 {300, 300}, ImGuiCond_FirstUseEver);
-        if(ImGui::Begin("pixel"))
+        if(ImGui::Begin("Image"))
         {
             if(image.IsValid())
             {
