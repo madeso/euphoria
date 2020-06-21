@@ -62,6 +62,8 @@ using namespace euphoria::window;
 
 /*
 PixLE todo
+
+General:
 different paint tools: brush, fill
 brushes / sizes
 brush preview/hover
@@ -72,8 +74,17 @@ undo/redo
 save/load via terminal
 fast draw
 aa lines
-tile x/y mode
 clone/pattern brush
+line/rectangle/circle tools
+
+Tileset mode:
+tile x/y mode
+draw om example tileset mode
+functions to autocopy part of images
+
+Sprite mode:
+Sprite animations
+
 */
 
 
