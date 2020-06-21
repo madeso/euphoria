@@ -35,6 +35,7 @@
 #include "window/imguilibrary.h"
 #include "window/timer.h"
 #include "window/imgui_ext.h"
+#include "window/imgui_extra.h"
 #include "window/sdllibrary.h"
 #include "window/sdlwindow.h"
 #include "window/sdlglcontext.h"
@@ -56,6 +57,13 @@
 using namespace euphoria::core;
 using namespace euphoria::render;
 using namespace euphoria::window;
+
+
+ImU32
+C(const Rgbai& c)
+{
+    return IM_COL32(c.r, c.g, c.b, c.a);
+}
 
 
 int
@@ -89,12 +97,14 @@ main(int argc, char** argv)
     Canvas canvas;
     Image image;
     Random random;
-    auto foreground = Rgbai{Color::White};
+    auto palette = palette::EDG64();
+    auto foreground = 0;
+    auto background = 1;
 
     image.SetupNoAlphaSupport(64, 64);
     image.SetAllTopBottom([&](int x, int y)
     {
-        return palette::EDG64().GetRandomColor(&random);
+        return Rgbai{palette.colors[background]};
     });
 
     while(running)
@@ -133,6 +143,39 @@ main(int argc, char** argv)
         }
         ImGui::EndMainMenuBar();
 
+        if(ImGui::Begin("palette"))
+        {
+            const auto tile_size = 20;
+            const auto spacing = 3;
+
+            auto x = 0.0f;
+            auto y = 0.0f;
+
+            if(imgui::CanvasBegin(ImVec4(0.3, 0.3, 0.3, 1.0f), "palette"))
+            {
+                const auto p = ImGui::GetCursorScreenPos();
+                const auto size = ImGui::GetContentRegionAvail();
+
+                ImDrawList* draw_list = ImGui::GetWindowDrawList();
+                for(int i=0; i<palette.colors.size(); i+=1)
+                {
+                    if(x + tile_size > size.x)
+                    {
+                        x = 0;
+                        y += tile_size + spacing;
+                    }
+
+                    const auto min = p + ImVec2(x, y);
+                    const auto max = min + ImVec2(tile_size, tile_size);
+
+                    draw_list->AddRectFilled(min, max, C(palette.colors[i]));
+                    x += tile_size + spacing;
+                }
+                imgui::CanvasEnd();
+            }
+        }
+        ImGui::End();
+
         ImGui::SetNextWindowSize(ImVec2 {300, 300}, ImGuiCond_FirstUseEver);
         if(ImGui::Begin("pixel"))
         {
@@ -164,10 +207,10 @@ main(int argc, char** argv)
                         // hovering over pixel
                         if(!hovering && left_down)
                         {
-                            image.SetPixel(x, y, foreground);
+                            image.SetPixel(x, y, palette.colors[foreground]);
                         }
                     }
-                    draw_list->AddRectFilled(ps, pss, IM_COL32(c.r, c.g, c.b, c.a));
+                    draw_list->AddRectFilled(ps, pss, C(c));
                 });
 
                 canvas.ShowRuler(cc);
@@ -179,7 +222,6 @@ main(int argc, char** argv)
                     if(ImGui::MenuItem("Add"))
                     {
                     }
-                    ImGuiColorEdit("foreground", &foreground);
                     ImGui::EndPopup();
                 }
             }
