@@ -11,6 +11,9 @@
 #include "window/imgui_ext.h"
 #include "window/imgui_icons.h"
 
+#include <optional>
+
+
 using namespace euphoria::core;
 
 LOG_SPECIFY_DEFAULT_LOGGER("editor.browser")
@@ -121,15 +124,20 @@ namespace euphoria::editor
     bool
     FileBrowser::Run()
     {
-        bool doubleclicked_file = false;
         window::InputText("URL", &current_folder.path);
         window::InputText("Filter", &filter);
-        // ImGui::PushItemWidth(-1);
-        ImGui::ListBoxHeader("", ImVec2 {-1, -1});
-        int        index = 0;
+        if(ImGui::ListBoxHeader("", ImVec2 {-1, -1}) == false)
+        {
+            return false;
+        }
+
+        int index = 0;
+        bool doubleclicked_file = false;
+        
         // if files is updated during iteration, bad things
         // will probably happen, so we iterate a copy
         const auto ff = files;
+        
         for(const auto& item: ff)
         {
             const bool custom  = item.is_builtin;
