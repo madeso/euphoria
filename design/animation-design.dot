@@ -1,0 +1,28 @@
+digraph animation {
+    // splines="FALSE";
+    
+    Actor -> ActorDef [label="definition"];
+    Actor -> vec3f [label="position"];
+
+    ActorDef -> Vao [label="mesh"];
+    ActorDef -> BoneDef [label="std::vector bones"];
+
+    // BoneDef -> vec3f [label="position"];
+    // BoneDef -> quat [label="rotation"];
+    BoneDef -> BoneDef [label="int parent"];
+
+    Actor -> CompiledPose [label="std::vector pose"];
+
+    Animation -> Pose [label="std::vector poses"];
+
+    Pose -> CompiledPose [label="Compile()"];
+
+    /* Poses can be interpolated */
+
+    // Pose -> vec3f [label="std::vector positions"];
+    // Pose -> quat [label="std::vector rotations"];
+    Pose -> TimeFrame [label="std::vector times"];
+
+    /* CompoledPose are created from Pose and are rendered */
+    // CompiledPose -> mat4f [label="std::vector transforms"];
+}
