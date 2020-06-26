@@ -4,6 +4,7 @@
 #include "core/palette_lospec.h"
 #include "core/palette.h"
 #include "core/image.h"
+#include "core/cint.h"
 
 #include "render/init.h"
 
@@ -116,7 +117,7 @@ main(int argc, char** argv)
     auto background = 1;
 
     image.SetupNoAlphaSupport(64, 64);
-    image.SetAllTopBottom([&](int x, int y)
+    image.SetAllTopBottom([&](int, int)
     {
         return Rgbai{palette.colors[background]};
     });
@@ -216,7 +217,7 @@ main(int argc, char** argv)
                 auto x = 0.0f;
                 auto y = 0.0f;
 
-                for(int palette_index=0; palette_index<palette.colors.size(); palette_index+=1)
+                for(int palette_index=0; palette_index<Csizet_to_int(palette.colors.size()); palette_index+=1)
                 {
                     if(x + tile_size > size.x)
                     {
