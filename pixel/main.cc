@@ -1,53 +1,24 @@
-#include "core/mat4.h"
 #include "core/random.h"
-#include "core/mat4.h"
-#include "core/axisangle.h"
-#include "core/aabb.h"
-#include "core/texturetypes.h"
-#include "core/vfs.h"
-#include "core/vfs_imagegenerator.h"
-#include "core/vfs_path.h"
-#include "core/os.h"
-#include "core/range.h"
-#include "core/camera.h"
-#include "core/stringutils.h"
-#include "core/stdutils.h"
-#include "core/proto.h"
-#include "core/log.h"
 #include "core/rgb.h"
 #include "core/colors.h"
 #include "core/palette_lospec.h"
 #include "core/palette.h"
+#include "core/image.h"
 
 #include "render/init.h"
-#include "render/debuggl.h"
-#include "render/materialshader.h"
-#include "render/compiledmesh.h"
-#include "render/texturecache.h"
-#include "render/shaderattribute3d.h"
-#include "render/texture.h"
-#include "render/world.h"
-#include "render/viewport.h"
-#include "render/materialshadercache.h"
-#include "render/defaultfiles.h"
 
 
 #include "window/imguilibrary.h"
-#include "window/timer.h"
 #include "window/imgui_ext.h"
 #include "window/imgui_extra.h"
 #include "window/imgui_icons.h"
-#include "window/sdllibrary.h"
 #include "window/sdlwindow.h"
-#include "window/sdlglcontext.h"
-#include "window/filesystem.h"
 #include "window/engine.h"
 #include "window/canvas.h"
 
 #include "imgui/imgui.h"
 #include "SDL.h"
-#include <iostream>
-#include <memory>
+
 
 
 #define IMGUI_DEFINE_MATH_OPERATORS
@@ -56,7 +27,6 @@
 
 
 using namespace euphoria::core;
-using namespace euphoria::render;
 using namespace euphoria::window;
 
 
