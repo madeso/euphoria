@@ -40,6 +40,7 @@ namespace euphoria::core
         std::uint8_t b;
     };
 
+
     //////////////////////////////////////////////////////////////////////////
     // Rgb with alpha - int based
 
@@ -219,7 +220,16 @@ namespace euphoria::core
     // Default compare
 
     bool
+    operator==(const Rgbi& lhs, const Rgbi& rhs);
+    
+    bool
+    operator!=(const Rgbi& lhs, const Rgbi& rhs);
+
+    bool
     operator==(const Rgbai& lhs, const Rgbai& rhs);
+
+    bool
+    operator!=(const Rgbai& lhs, const Rgbai& rhs);
 
     //////////////////////////////////////////////////////////////////////////
     // Convert functions (rgb)

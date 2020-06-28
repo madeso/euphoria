@@ -46,11 +46,14 @@ namespace euphoria::core
         return value(r, 2) | value(g, 1) | value(b, 0);
     }
 
+
     ////////////////////////////////////////////////////////////////////////////////
+
 
     Rgbai::Rgbai(const Rgbi& rgb, std::uint8_t alpha)
         : r(rgb.r), g(rgb.g), b(rgb.b), a(alpha)
     {}
+
 
     Rgbai::Rgbai(const Rgba& rgba)
         : r(colorutil::ToUnsignedChar(rgba.r))
@@ -59,7 +62,9 @@ namespace euphoria::core
         , a(colorutil::ToUnsignedChar(rgba.a))
     {}
 
+
     ////////////////////////////////////////////////////////////////////////////////
+
 
     Rgb::Rgb(float red, float green, float blue) : r(red), g(green), b(blue) {}
 
@@ -299,10 +304,30 @@ namespace euphoria::core
     // Default compare
 
     bool
+    operator==(const Rgbi& lhs, const Rgbi& rhs)
+    {
+        return lhs.r == rhs.r && lhs.g == rhs.g && lhs.b == rhs.b;
+    }
+
+
+    bool
+    operator!=(const Rgbi& lhs, const Rgbi& rhs)
+    {
+        return !(lhs == rhs);
+    }
+
+
+    bool
     operator==(const Rgbai& lhs, const Rgbai& rhs)
     {
-        return lhs.r == rhs.r && lhs.g == rhs.g && lhs.b == rhs.b
-               && lhs.a == rhs.a;
+        return lhs.r == rhs.r && lhs.g == rhs.g && lhs.b == rhs.b && lhs.a == rhs.a;
+    }
+
+
+    bool
+    operator!=(const Rgbai& lhs, const Rgbai& rhs)
+    {
+        return !(lhs == rhs);
     }
 
     ////////////////////////////////////////////////////////////////////////////////
