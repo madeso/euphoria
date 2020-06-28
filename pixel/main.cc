@@ -35,7 +35,6 @@ using namespace euphoria::window;
 PixLE todo
 
 General:
-different paint tools: brush, fill
 brushes / sizes
 brush preview/hover
 transparency
@@ -78,6 +77,21 @@ enum class Tool
 {
     Pen, Fill
 };
+
+
+void
+FloodFill(Image* image, int x, int y, const Rgbai& target_color, const Rgbai& replacement_color)
+{
+    if(IsWithin(image->GetIndices(), vec2i(x, y)) == false) { return; }
+    if(target_color == replacement_color) { return; }
+    if(image->GetPixel(x, y) != target_color) { return; }
+    image->SetPixel(x, y, replacement_color);
+
+    FloodFill(image, x-1, y, target_color, replacement_color);
+    FloodFill(image, x+1, y, target_color, replacement_color);
+    FloodFill(image, x, y-1, target_color, replacement_color);
+    FloodFill(image, x, y+1, target_color, replacement_color);
+}
 
 
 int
@@ -281,6 +295,9 @@ main(int argc, char** argv)
                 const auto left_down = ImGui::IsMouseDown(0);
                 const auto right_down = ImGui::IsMouseDown(1);
 
+                const auto left_clicked = ImGui::IsMouseClicked(0);
+                const auto right_clicked = ImGui::IsMouseClicked(1);
+
                 canvas.Begin(cc);
                 canvas.ShowGrid(cc);
 
@@ -296,17 +313,29 @@ main(int argc, char** argv)
                     const auto m = ImGui::GetMousePos();
                     if(ps.x <= m.x && ps.y <= m.y && pss.x >= m.x && pss.y >= m.y)
                     {
-                        // hovering over pixel
-                        if(!hovering && left_down)
+                        switch(tool)
                         {
-                            image.SetPixel(x, y, palette.colors[foreground]);
-                        }
+                        case Tool::Pen:
+                            // hovering over pixel
+                            if(!hovering && left_down)
+                            {
+                                image.SetPixel(x, y, palette.colors[foreground]);
+                            }
 
-                        // hovering over pixel
-                        if(!hovering && right_down)
-                        {
-                            image.SetPixel(x, y, palette.colors[background]);
+                            // hovering over pixel
+                            if(!hovering && right_down)
+                            {
+                                image.SetPixel(x, y, palette.colors[background]);
+                            }
+                            break;
+                        case Tool::Fill:
+                            if(!hovering && (left_clicked || right_clicked))
+                            {
+                                const auto color = palette.colors[left_clicked ? foreground : background];
+                                FloodFill(&image, x, y, c, color);
+                            }
                         }
+                        
                     }
                     draw_list->AddRectFilled(ps, pss, C(c));
                 });
