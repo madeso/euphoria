@@ -10,6 +10,13 @@
 #include <set>
 #include <algorithm>
 
+/*
+   Tone names:
+   1  2  3  4  5  6  7
+   C  D  E  F  G  A  B
+   Do Re Mi Fa So La Si
+*/
+
 namespace euphoria::minsynth
 {
     // todo: get a better number here
