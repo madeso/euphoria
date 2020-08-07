@@ -201,7 +201,7 @@ namespace euphoria::render
         std::map<int, unsigned int> id_to_codepoint;
         {
             int index = 0;
-            for(const auto [codepoint, glyph]: fontchars.codepoint_to_glyph)
+            for(const auto& [codepoint, glyph]: fontchars.codepoint_to_glyph)
             {
                 stbrp_rect& r = packed_rects[index];
                 r.id = index;

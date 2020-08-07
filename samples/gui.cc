@@ -2,6 +2,7 @@
 
 #include "core/log.h"
 #include "core/str.h"
+#include "core/cint.h"
 #include "core/interpolate.h"
 #include "core/os.h"
 #include "core/ecs-systems.h"
@@ -249,7 +250,7 @@ ImWidget(Widget* w)
 bool
 ImWidget(LayoutContainer* container)
 {
-    for(int i=0; i<container->widgets_.size(); i+= 1)
+    for(int i=0; i<Csizet_to_int(container->widgets_.size()); i+= 1)
     {
         auto widget = container->widgets_[i];
         if(ImGui::TreeNode(widget->name.c_str()))

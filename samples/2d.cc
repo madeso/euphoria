@@ -150,7 +150,7 @@ main(int argc, char* argv[])
     {
         last = now;
         now = SDL_GetPerformanceCounter();
-        const float dt = (now - last) * 1.0f / SDL_GetPerformanceFrequency();
+        //const float dt = (now - last) * 1.0f / SDL_GetPerformanceFrequency();
         SDL_Event e;
 
         // imgui
@@ -222,10 +222,12 @@ main(int argc, char* argv[])
             arrows->GetWidth(),
             arrows->GetHeight()
         );
-        const auto sr = 
+        /*
+        const auto sr =
             Rectf::FromWidthHeight(sprite_width, sprite_height)
                 .OffsetCopy(sprite_x, sprite_y)
             ;
+        */
         renderer.DrawSprite
         (
             *arrows,

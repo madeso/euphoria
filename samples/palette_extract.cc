@@ -78,7 +78,7 @@ Find(std::vector<ExtractedColor>* psource, const Rgbi& color, float length)
 {
     auto& source = *psource;
 
-    for(int i=0; i<source.size(); i+=1)
+    for(int i=0; i<Csizet_to_int(source.size()); i+=1)
     {
         if((rgb(source[i].color) - rgb(color)).GetLength()*255 < length)
         {

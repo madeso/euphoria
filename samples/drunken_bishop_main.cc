@@ -151,7 +151,7 @@ main(int argc, char* argv[])
                 auto random = Random{};
                 const auto table = GenerateDrunkenBishopTable(&random, common);
                 const auto strs = Collapse(table, GetSshCharacters());
-                for(const auto str: strs)
+                for(const auto& str: strs)
                 {
                     std::cout << str << "\n";
                 }

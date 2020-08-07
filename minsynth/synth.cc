@@ -628,7 +628,7 @@ namespace euphoria::minsynth
         case OscilatorType::Noise:
             // todo: use the improved c++ random library
             // todo: and also add perlin noise?
-            return 2 * (static_cast<float>(rand()) / RAND_MAX) - 1;
+            return 2 * (static_cast<float>(rand()) / static_cast<float>(RAND_MAX)) - 1;
         default: return 0;
         }
     }
