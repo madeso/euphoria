@@ -141,7 +141,7 @@ source_group("" FILES ${all_samples_src})
 
 # single file applications that could be useful
 
-add_executable(palextract samples/palette-extract.cc)
+add_executable(palextract samples/palette_extract.cc)
 target_link_libraries(palextract core)
 
 add_executable(collage samples/collage.cc)
@@ -159,7 +159,7 @@ target_link_libraries(markov core)
 add_executable(tracery samples/tracery.cc)
 target_link_libraries(tracery core)
 
-add_executable(raytracer samples/raytracer-main.cc)
+add_executable(raytracer samples/raytracer_main.cc)
 target_link_libraries(raytracer core)
 
 
@@ -179,16 +179,16 @@ add_executable(samples-gui WIN32 MACOSX_BUNDLE samples/gui.cc)
 target_include_directories(samples-gui SYSTEM PRIVATE ${SDL2_INCLUDE_DIR})
 target_link_libraries(samples-gui core gui render window ${SDL2_LIBRARY})
 
-add_executable(samples-drunken-bishop samples/drunken-bishop.cc)
+add_executable(samples-drunken-bishop samples/drunken_bishop_main.cc)
 target_link_libraries(samples-drunken-bishop core)
 
-add_executable(samples-rng samples/rng-main.cc)
+add_executable(samples-rng samples/rng_main.cc)
 target_link_libraries(samples-rng core)
 
-add_executable(samples-font samples/font-main.cc)
+add_executable(samples-font samples/font_main.cc)
 target_link_libraries(samples-font core)
 
-add_executable(samples-palette samples/palette-main.cc)
+add_executable(samples-palette samples/palette_main.cc)
 target_link_libraries(samples-palette core)
 
 add_executable(samples-chatbot samples/chatbot.cc)
@@ -197,25 +197,25 @@ target_link_libraries(samples-chatbot core)
 add_executable(samples-coldet samples/coldet.cc)
 target_link_libraries(samples-coldet core)
 
-add_executable(samples-draw-test samples/draw-test.cc)
+add_executable(samples-draw-test samples/draw_test.cc)
 target_link_libraries(samples-draw-test core)
 
 add_executable(samples-img samples/img.cc)
 target_link_libraries(samples-img core)
 
-add_executable(samples-poisson-test samples/poisson-test.cc)
+add_executable(samples-poisson-test samples/poisson_test.cc)
 target_link_libraries(samples-poisson-test core)
 
-add_executable(samples-svg-dump samples/svg-dump.cc)
+add_executable(samples-svg-dump samples/svg_dump.cc)
 target_link_libraries(samples-svg-dump core)
 
-add_executable(samples-three-dump samples/three-dump.cc)
+add_executable(samples-three-dump samples/three_dump.cc)
 target_link_libraries(samples-three-dump core)
 
-add_executable(samples-identicon samples/identicon-main.cc)
+add_executable(samples-identicon samples/identicon_main.cc)
 target_link_libraries(samples-identicon core)
 
-add_executable(samples-canvas samples/canvas-main.cc)
+add_executable(samples-canvas samples/canvas_main.cc)
 target_link_libraries(samples-canvas core)
 
 add_executable(samples-tree samples/tree.cc)
