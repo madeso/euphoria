@@ -277,7 +277,7 @@ namespace euphoria::core
             };
             const auto dirs = SplitDirectories();
 
-            for(const auto d: dirs)
+            for(const auto& d: dirs)
             {
                 if(is_relative(d))
                 {

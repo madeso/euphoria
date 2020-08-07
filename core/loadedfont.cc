@@ -266,7 +266,7 @@ namespace euphoria::core
     LoadedFont::CombineWith(const LoadedFont& fc)
     {
         std::map<unsigned int, unsigned int> pus;
-        for(const auto [alias, id]: fc.private_use_aliases)
+        for(const auto& [alias, id]: fc.private_use_aliases)
         {
             pus[id] = NewPrivateUse(alias);
         }

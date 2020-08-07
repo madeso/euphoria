@@ -80,8 +80,7 @@ better numbers than Mersenne. How can you go wrong? :)
     float
     Random::NextFloat01()
     {
-        return static_cast<float>(NextInteger())
-               / std::numeric_limits<u32>::max();
+        return static_cast<float>(NextInteger()) / static_cast<float>(std::numeric_limits<u32>::max());
     }
 
     float

@@ -98,7 +98,7 @@ namespace euphoria::core::raytracer
     {
         std::optional<HitResult> r = std::nullopt;
 
-        for(const auto o: objects)
+        for(const auto& o: objects)
         {
             const auto h = o->Hit(ray, range);
             if(r.has_value() == false)

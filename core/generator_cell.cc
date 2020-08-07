@@ -4,6 +4,7 @@
 #include "core/image_draw.h"
 #include "core/colors.h"
 #include "core/image.h"
+#include "core/cint.h"
 #include "core/table_bool.h"
 
 #include <functional>
@@ -87,7 +88,7 @@ namespace euphoria::core::generator
             const auto regions = FindEmptyRegions(world, allow_diagonals);
             for(const auto& re: regions)
             {
-                if( re.size() < min_count)
+                if( Csizet_to_int(re.size()) < min_count)
                 {
                     for(const auto& p: re)
                     {
@@ -200,7 +201,7 @@ namespace euphoria::core::generator
     bool
     CellularAutomata::HasMoreWork() const
     {
-        return iteration < rules->rules.size();
+        return iteration < Csizet_to_int(rules->rules.size());
     }
 
 

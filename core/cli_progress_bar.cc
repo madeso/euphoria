@@ -26,13 +26,13 @@ namespace euphoria::core
     {
         constexpr float min_interval_seconds = 0.1f;
         constexpr int total_number_of_characters = 30;
-        constexpr std::array animation_chars
+        /*constexpr std::array animation_chars
         {
             std::string_view{"|"},
             std::string_view{"/"},
             std::string_view{"-"},
             std::string_view{"\\"}
-        };
+        };*/
         constexpr std::string_view filled_char = "#";
         constexpr std::string_view empty_char = "-";
         constexpr std::string_view start_char = "[";
