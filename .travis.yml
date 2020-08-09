@@ -72,7 +72,7 @@ script:
   - cmake ..
   - cmake -DCMAKE_BUILD_TYPE=$CONF -DEXTRA_FLAGS="$GCOV_FLAGS" ..
   - cmake --build .
-  - ./tests/tests
+  - ./src/tests/tests
 
 # temporarily disabled
 #  - cd ..
