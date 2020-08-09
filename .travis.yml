@@ -21,7 +21,7 @@ matrix:
               - $CXX --version
               - /usr/bin/gcov-9 --v
               - coveralls -h
-              - coveralls -r .. --gcov /usr/bin/gcov-9 --gcov-options '\-lp' -i core
+              - coveralls -r .. --gcov /usr/bin/gcov-9 --gcov-options '\-lp' -i src/core
         - os: linux
           dist: bionic
           compiler: clang
