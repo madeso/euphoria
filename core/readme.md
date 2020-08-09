@@ -1,4 +1,5 @@
-This folder contains the "engine" part that doesn't use any libraries that can't
+# About the core library
+The core library contains the "engine" part that doesn't use any libraries that can't
 be "unittested". OpenGL is out of question, but certain parts of a protobuf
 library might not be (printing to string for example).
 
@@ -8,6 +9,8 @@ Current things to add:
 * frustrum
 * sphere, aabb
 
+
+# Warning about points and vector classes
 Note to self: If wanting to add points to the vector classes, considering that a point class doesn't have a good representation of various coordinate spaces,
 doesn't handle hiearchical systems well and apoint is really a offset from some origo.
 
