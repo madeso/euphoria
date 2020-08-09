@@ -3,7 +3,7 @@ set(src ${app_src})
 source_group("" FILES ${app_src})
 
 # wip proper rtmidi integration
-set(RTMIDI_ROOT ../external/rtmidi)
+set(RTMIDI_ROOT ../../external/rtmidi)
 include_directories(SYSTEM ${RTMIDI_ROOT})
 set(rtmidi_src
     ${RTMIDI_ROOT}/RtMidi.cpp

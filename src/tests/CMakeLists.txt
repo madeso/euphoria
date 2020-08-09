@@ -69,7 +69,7 @@ set(src ${app_src} ${test_base})
 source_group("tests" FILES ${app_src})
 source_group("base" FILES ${test_base})
 
-include_directories(SYSTEM ../external/catch/)
+include_directories(SYSTEM ../../external/catch/)
 
 add_executable(tests ${src})
 

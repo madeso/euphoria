@@ -184,7 +184,7 @@ include_directories(SYSTEM ${assimp_INCLUDE_DIRS})
 
 
 # todo: move image loading to a io library instead
-include_directories(SYSTEM ../external/stb)
+include_directories(SYSTEM ../../external/stb)
 
 
 # freetype
@@ -193,9 +193,9 @@ include_directories(${FREETYPE_INCLUDE_DIRS})
 
 
 # release date 2017-09-23 version duktape-2.2.0.tar.xz
-include_directories(SYSTEM ../external/duktape)
-set(src ${src} ../external/duktape/duktape/duktape.c)
-source_group("duktape" FILES ../external/duktape/duktape/duktape.c)
+include_directories(SYSTEM ../../external/duktape)
+set(src ${src} ../../external/duktape/duktape/duktape.c)
+source_group("duktape" FILES ../../external/duktape/duktape/duktape.c)
 
 
 
@@ -211,17 +211,17 @@ source_group("generated" FILES ${PROTO_SRCS} ${PROTO_HDRS})
 
 
 
-include_directories(../external/aheasing)
+include_directories(../../external/aheasing)
 set(src_aheasing
-    ../external/aheasing/aheasing/easing.c
-    ../external/aheasing/aheasing/easing.h
+    ../../external/aheasing/aheasing/easing.c
+    ../../external/aheasing/aheasing/easing.h
 )
 set(src ${src} ${src_aheasing})
 source_group("AHEasing" FILES ${src_aheasing})
 
 
-include_directories(../external/font8x8/)
-include_directories(../external/font8x13/)
+include_directories(../../external/font8x8/)
+include_directories(../../external/font8x13/)
 
 add_library(core STATIC ${src})
 target_link_libraries(core

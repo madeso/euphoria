@@ -20,17 +20,17 @@ set(src ${app_src})
 source_group("" FILES ${app_src})
 
 # glad
-include_directories(SYSTEM ../external/glad/include)
+include_directories(SYSTEM ../../external/glad/include)
 #set(src_glad ../external/glad/src/glad.c ../external/glad/include/glad/glad.h)
 #set(src ${src} ${src_glad})
 #source_group("glad" FILES ${src_glad})
 
 # imgui
-include_directories(SYSTEM ../external/imgui/imgui/examples)
+include_directories(SYSTEM ../../external/imgui/imgui/examples)
 include_directories(SYSTEM fake_imgui)
 add_definitions(-DIMGUI_IMPL_OPENGL_LOADER_GLAD)
 # imgui
-set(IMGUI_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../external/imgui/imgui/")
+set(IMGUI_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../external/imgui/imgui/")
 set(src_imgui
     ${IMGUI_DIR}/imgui.cpp
     ${IMGUI_DIR}/imgui.h
@@ -77,7 +77,7 @@ source_group("fonts" FILES ${CMAKE_CURRENT_BINARY_DIR}/font_noto_sans_display.h)
 
 include_directories(SYSTEM ${CMAKE_CURRENT_BINARY_DIR})
 
-include_directories(SYSTEM ../external/IconFontCppHeaders/)
+include_directories(SYSTEM ../../external/IconFontCppHeaders/)
 
 include_directories(SYSTEM ${SDL2_INCLUDE_DIR})
 

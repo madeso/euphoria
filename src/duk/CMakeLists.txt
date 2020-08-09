@@ -6,8 +6,8 @@ set(src ${app_src})
 
 
 # release date 2017-09-23 version duktape-2.2.0.tar.xz
-include_directories(SYSTEM ../external/duktape)
-set(src ${src} ../external/duktape/duktape/duktape.c)
+include_directories(SYSTEM ../../external/duktape)
+set(src ${src} ../../external/duktape/duktape/duktape.c)
 
 
 

@@ -36,9 +36,9 @@ SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${EXTRA_FLAGS}")
 SET(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${EXTRA_FLAGS}")
 
 
-set(Gaf_CUSTOM_ARGUMENTS_FROM_FILE ${CMAKE_CURRENT_SOURCE_DIR}/gaf_options.txt)
+set(Gaf_CUSTOM_ARGUMENTS_FROM_FILE ${CMAKE_CURRENT_SOURCE_DIR}/src/gaf_options.txt)
 
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake-modules")
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/src/cmake-modules")
 
 find_package(OpenGL REQUIRED)
 find_package(assimp REQUIRED)
@@ -52,7 +52,7 @@ include(${CMAKE_CURRENT_SOURCE_DIR}/external/gaf/gaf.cmake)
 include_directories(SYSTEM ${CMAKE_CURRENT_SOURCE_DIR}/external/range-v3/include)
 include_directories(SYSTEM ${CMAKE_CURRENT_SOURCE_DIR}/external/rapidjson/include)
 
-set(MACOSX_BUNDLE_INFO_PLIST "${CMAKE_CURRENT_SOURCE_DIR}/osx-bundle.plist")
+set(MACOSX_BUNDLE_INFO_PLIST "${CMAKE_CURRENT_SOURCE_DIR}/src/osx-bundle.plist")
 
 # compiler flags
 if(${MSVC})
@@ -101,14 +101,14 @@ else()
 endif()
 
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
 include_directories(SYSTEM ${CMAKE_CURRENT_BINARY_DIR})
 
 if(BUILD_TYPEINFO_IMPL_CTTI)
     include_directories(SYSTEM external/ctti/include)
 endif()
 
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config_in.h ${CMAKE_CURRENT_BINARY_DIR}/euph_generated_config.h)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/src/config_in.h ${CMAKE_CURRENT_BINARY_DIR}/euph_generated_config.h)
 include_directories(SYSTEM ${CMAKE_CURRENT_BINARY_DIR})
 
 
@@ -120,46 +120,46 @@ include_directories(SYSTEM external/IconFontCppHeaders/)
 include_directories(SYSTEM external/spdlog/include/)
 include_directories(SYSTEM external/magic_enum/include/)
 
-add_subdirectory(core)
-add_subdirectory(minsynth)
-add_subdirectory(render)
-add_subdirectory(window)
-add_subdirectory(gui)
-add_subdirectory(duk)
-add_subdirectory(tests)
-add_subdirectory(engine)
-add_subdirectory(t3d)
-add_subdirectory(editor)
-add_subdirectory(painter)
-add_subdirectory(pixel)
-add_subdirectory(musikmaskin)
+add_subdirectory(src/core)
+add_subdirectory(src/minsynth)
+add_subdirectory(src/render)
+add_subdirectory(src/window)
+add_subdirectory(src/gui)
+add_subdirectory(src/duk)
+add_subdirectory(src/tests)
+add_subdirectory(src/engine)
+add_subdirectory(src/t3d)
+add_subdirectory(src/editor)
+add_subdirectory(src/painter)
+add_subdirectory(src/pixel)
+add_subdirectory(src/musikmaskin)
 
 # here comes all the sample files
 
-file(GLOB all_samples_src samples/*.cc)
+file(GLOB all_samples_src src/samples/*.cc)
 source_group("" FILES ${all_samples_src})
 
 # single file applications that could be useful
 
-add_executable(palextract samples/palette_extract.cc)
+add_executable(palextract src/samples/palette_extract.cc)
 target_link_libraries(palextract core)
 
-add_executable(collage samples/collage.cc)
+add_executable(collage src/samples/collage.cc)
 target_link_libraries(collage core)
 
-add_executable(tabletool samples/tabletool.cc)
+add_executable(tabletool src/samples/tabletool.cc)
 target_link_libraries(tabletool core)
 
-add_executable(base64 samples/base64.cc)
+add_executable(base64 src/samples/base64.cc)
 target_link_libraries(base64 core)
 
-add_executable(markov samples/markov.cc)
+add_executable(markov src/samples/markov.cc)
 target_link_libraries(markov core)
 
-add_executable(tracery samples/tracery.cc)
+add_executable(tracery src/samples/tracery.cc)
 target_link_libraries(tracery core)
 
-add_executable(raytracer samples/raytracer_main.cc)
+add_executable(raytracer src/samples/raytracer_main.cc)
 target_link_libraries(raytracer core)
 
 
@@ -167,63 +167,63 @@ target_link_libraries(raytracer core)
 # samples applications that serve no purpose other than
 # testing the libraries and perhaps generate some pretty visuals :)
 
-add_executable(samples-3d WIN32 MACOSX_BUNDLE samples/3d.cc)
+add_executable(samples-3d WIN32 MACOSX_BUNDLE src/samples/3d.cc)
 target_include_directories(samples-3d SYSTEM PRIVATE ${SDL2_INCLUDE_DIR})
 target_link_libraries(samples-3d core render window ${SDL2_LIBRARY})
 
-add_executable(samples-2d WIN32 MACOSX_BUNDLE samples/2d.cc)
+add_executable(samples-2d WIN32 MACOSX_BUNDLE src/samples/2d.cc)
 target_include_directories(samples-2d SYSTEM PRIVATE ${SDL2_INCLUDE_DIR})
 target_link_libraries(samples-2d core gui render window ${SDL2_LIBRARY})
 
-add_executable(samples-gui WIN32 MACOSX_BUNDLE samples/gui.cc)
+add_executable(samples-gui WIN32 MACOSX_BUNDLE src/samples/gui.cc)
 target_include_directories(samples-gui SYSTEM PRIVATE ${SDL2_INCLUDE_DIR})
 target_link_libraries(samples-gui core gui render window ${SDL2_LIBRARY})
 
-add_executable(samples-drunken-bishop samples/drunken_bishop_main.cc)
+add_executable(samples-drunken-bishop src/samples/drunken_bishop_main.cc)
 target_link_libraries(samples-drunken-bishop core)
 
-add_executable(samples-rng samples/rng_main.cc)
+add_executable(samples-rng src/samples/rng_main.cc)
 target_link_libraries(samples-rng core)
 
-add_executable(samples-font samples/font_main.cc)
+add_executable(samples-font src/samples/font_main.cc)
 target_link_libraries(samples-font core)
 
-add_executable(samples-palette samples/palette_main.cc)
+add_executable(samples-palette src/samples/palette_main.cc)
 target_link_libraries(samples-palette core)
 
-add_executable(samples-chatbot samples/chatbot.cc)
+add_executable(samples-chatbot src/samples/chatbot.cc)
 target_link_libraries(samples-chatbot core)
 
-add_executable(samples-coldet samples/coldet.cc)
+add_executable(samples-coldet src/samples/coldet.cc)
 target_link_libraries(samples-coldet core)
 
-add_executable(samples-draw-test samples/draw_test.cc)
+add_executable(samples-draw-test src/samples/draw_test.cc)
 target_link_libraries(samples-draw-test core)
 
-add_executable(samples-img samples/img.cc)
+add_executable(samples-img src/samples/img.cc)
 target_link_libraries(samples-img core)
 
-add_executable(samples-poisson-test samples/poisson_test.cc)
+add_executable(samples-poisson-test src/samples/poisson_test.cc)
 target_link_libraries(samples-poisson-test core)
 
-add_executable(samples-svg-dump samples/svg_dump.cc)
+add_executable(samples-svg-dump src/samples/svg_dump.cc)
 target_link_libraries(samples-svg-dump core)
 
-add_executable(samples-three-dump samples/three_dump.cc)
+add_executable(samples-three-dump src/samples/three_dump.cc)
 target_link_libraries(samples-three-dump core)
 
-add_executable(samples-identicon samples/identicon_main.cc)
+add_executable(samples-identicon src/samples/identicon_main.cc)
 target_link_libraries(samples-identicon core)
 
-add_executable(samples-canvas samples/canvas_main.cc)
+add_executable(samples-canvas src/samples/canvas_main.cc)
 target_link_libraries(samples-canvas core)
 
-add_executable(samples-tree samples/tree.cc)
+add_executable(samples-tree src/samples/tree.cc)
 target_link_libraries(samples-tree core)
 
-add_executable(samples-worldgen samples/worldgen.cc)
+add_executable(samples-worldgen src/samples/worldgen.cc)
 target_link_libraries(samples-worldgen core)
 
-add_executable(samples-voronoi samples/voronoi.cc)
+add_executable(samples-voronoi src/samples/voronoi.cc)
 target_link_libraries(samples-voronoi core)
 

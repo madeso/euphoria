@@ -36,11 +36,11 @@ set(app_src
 set(src ${app_src})
 source_group("" FILES ${app_src})
 
-include_directories(SYSTEM ../external/stb)
+include_directories(SYSTEM ../../external/stb)
 
 # glad
-include_directories(SYSTEM ../external/glad/include)
-set(src_glad ../external/glad/src/glad.c ../external/glad/include/glad/glad.h)
+include_directories(SYSTEM ../../external/glad/include)
+set(src_glad ../../external/glad/src/glad.c ../../external/glad/include/glad/glad.h)
 set(src ${src} ${src_glad})
 source_group("glad" FILES ${src_glad})
 
