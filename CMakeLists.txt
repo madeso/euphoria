@@ -153,7 +153,7 @@ target_link_libraries(tabletool core)
 add_executable(base64 src/samples/base64.cc)
 target_link_libraries(base64 core)
 
-add_executable(markov src/samples/markov.cc)
+add_executable(markov src/samples/markov_main.cc)
 target_link_libraries(markov core)
 
 add_executable(tracery src/samples/tracery.cc)
