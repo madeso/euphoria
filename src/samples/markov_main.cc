@@ -218,7 +218,7 @@ SentanceToString(const Sentance& s)
     std::ostringstream ss;
     bool               first = true;
 
-    for(const auto w: s)
+    for(const auto& w: s)
     {
         if(first)
         {
