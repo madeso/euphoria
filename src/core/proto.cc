@@ -32,6 +32,12 @@ namespace euphoria::core
                          << fs->GetRootsAsString();
         }
 
+        return ParseJsonSource(source, doc);
+    }
+
+    std::string
+    ParseJsonSource(const std::string& source, rapidjson::Document* doc)
+    {
         // todo(Gustav): look up insitu parsing
         // todo(Gustav): look upo json/sjson parsing options
 

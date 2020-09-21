@@ -13,10 +13,15 @@ namespace euphoria::core
     }
 
     std::string
-    LoadProtoJson_Internal(
-            vfs::FileSystem*     fs,
-            rapidjson::Document* doc,
-            const vfs::FilePath&   file_name);
+    LoadProtoJson_Internal
+    (
+        vfs::FileSystem* fs,
+        rapidjson::Document* doc,
+        const vfs::FilePath& file_name
+    );
+
+    std::string
+    ParseJsonSource(const std::string& source, rapidjson::Document* doc);
 
     // return error message or empty
     template <typename T>

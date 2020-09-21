@@ -11,12 +11,11 @@
 
 // json parsing
 #include "rapidjson/document.h"
-#include "rapidjson/error/error.h"
-#include "rapidjson/error/en.h"
 
 #include "core/assert.h"
 #include "core/textfileparser.h"
 #include "core/str.h"
+#include "core/proto.h"
 
 namespace euphoria::core::tracery
 {
@@ -608,12 +607,10 @@ namespace euphoria::core::tracery
     Grammar::LoadFromString(const std::string& data)
     {
         rapidjson::Document doc;
-        doc.Parse(data.c_str());
-        const rapidjson::ParseResult ok = doc;
-        if(!ok)
+        const auto parse_error = ParseJsonSource(data, &doc);
+        if(parse_error.empty() == false)
         {
-            return Result(Result::JSON_PARSE)
-                   << rapidjson::GetParseError_En(ok.Code());
+            return Result(Result::JSON_PARSE) << parse_error;
         }
 
         for(rapidjson::Value::ConstMemberIterator itr = doc.MemberBegin();
