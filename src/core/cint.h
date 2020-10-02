@@ -1,10 +1,10 @@
 #ifndef EUPHORIA_CINT_H
 #define EUPHORIA_CINT_H
 
-#include "core/assert.h"
 #include "core/ints.h"
 
-#include <numeric>
+#include <cstddef>
+
 
 namespace euphoria::core
 {

@@ -1,6 +1,9 @@
 #ifndef SPACETYPER_INTERPOLATE_H
 #define SPACETYPER_INTERPOLATE_H
 
+// todo(Gustav): this seems way to complicated... why is there a deque here?
+// I think we could just remove it and use a 'is tweening or not' logic
+
 #include "core/assert.h"
 #include <deque>
 

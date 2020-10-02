@@ -2,6 +2,9 @@
 
 #include <limits>
 
+#include "core/assert.h"
+
+
 namespace euphoria::core
 {
     int
