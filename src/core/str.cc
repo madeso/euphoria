@@ -1,5 +1,4 @@
 #include "str.h"
-#include <cassert>
 #include <string>
 
 namespace euphoria::core
@@ -16,3 +15,4 @@ namespace euphoria::core
     }
 
 }  // namespace euphoria::core
+
