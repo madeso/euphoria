@@ -20,3 +20,6 @@ generated-docs/
 # generated now
 .clang-tidy
 
+# temporary until we can work on musikmaskin
+dist/musikmaskin
+
