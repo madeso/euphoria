@@ -52,14 +52,11 @@ install:
 addons:
   apt:
     update: true
-    sources:
-      - ubuntu-toolchain-r-test
     packages:
       - libsdl2-dev
       - libprotobuf-dev
       - protobuf-compiler
       - libassimp-dev
-      - libwxgtk3.0-dev
       - gcc-9
       - g++-9
       - lcov
