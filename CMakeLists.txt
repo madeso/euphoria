@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.1.0)
+cmake_minimum_required(VERSION 3.6.0)
 set_property(GLOBAL PROPERTY USE_FOLDERS OFF)
 project(euphoria)
 
