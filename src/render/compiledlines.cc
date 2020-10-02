@@ -1,5 +1,7 @@
 #include "render/compiledlines.h"
 
+#include <numeric>
+
 #include "core/lines.h"
 #include "core/cint.h"
 

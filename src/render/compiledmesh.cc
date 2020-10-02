@@ -2,6 +2,7 @@
 
 #include <set>
 #include <utility>
+#include <numeric>
 
 #include "core/cint.h"
 #include "core/rgb.h"
