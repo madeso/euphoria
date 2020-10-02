@@ -48,23 +48,17 @@ install:
   - if [ "$CXX" = "g++" ]; then export CXX="g++-9" CC="gcc-9"; fi
 
 
-# sources for gcc/++-9
 addons:
   apt:
     update: true
     packages:
       - libsdl2-dev
-      - libprotobuf-dev
-      - protobuf-compiler
       - libassimp-dev
-      - gcc-9
-      - g++-9
       - lcov
 
 script:
   - $CXX --version
   - python3 --version
-  - cmake --version
   - mkdir build
   - cd build
   - cmake ..
