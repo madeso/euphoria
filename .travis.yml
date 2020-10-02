@@ -6,12 +6,12 @@ compiler: clang
 matrix:
     include:
         - os: linux
-          dist: bionic
+          dist: focal
           compiler: gcc
           env:
               - CONF=release
         - os: linux
-          dist: bionic
+          dist: focal
           compiler: gcc
           env:
               - CONF=debug
@@ -23,12 +23,12 @@ matrix:
               - coveralls -h
               - coveralls -r .. --gcov /usr/bin/gcov-9 --gcov-options '\-lp' -i src/core
         - os: linux
-          dist: bionic
+          dist: focal
           compiler: clang
           env:
               - CONF=release
         - os: linux
-          dist: bionic
+          dist: focal
           compiler: clang
           env:
               - CONF=debug
@@ -67,6 +67,7 @@ addons:
 script:
   - $CXX --version
   - python3 --version
+  - cmake --version
   - mkdir build
   - cd build
   - cmake ..
