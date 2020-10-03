@@ -19,7 +19,6 @@ GAF_GENERATE_CPP(SPRITE_PROTO_SRCS SPRITE_PROTO_HDRS
     ../file_types/world.gaf
     ../file_types/enum.gaf
 )
-message(STATUS "Sources are ${SPRITE_PROTO_SRCS} ${SPRITE_PROTO_HDRS}")
 set(src ${src} ${SPRITE_PROTO_SRCS} ${SPRITE_PROTO_HDRS})
 
 
