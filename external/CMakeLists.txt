@@ -48,6 +48,12 @@ target_include_directories(glad
     PUBLIC glad/include
 )
 
+add_library(icon_font_cpp_headers INTERFACE)
+target_include_directories(icon_font_cpp_headers
+    INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/IconFontCppHeaders
+)
+
+
 ################################################################
 # more complex libraries
 
@@ -62,4 +68,36 @@ target_link_libraries(assimp INTERFACE ${assimp_LIBRARIES})
 
 add_library(opengl INTERFACE)
 target_link_libraries(opengl INTERFACE ${OPENGL_LIBRARIES} ${CMAKE_DL_LIBS})
+
+add_library(sdl2 INTERFACE)
+target_include_directories(sdl2 INTERFACE ${SDL2_INCLUDE_DIR})
+target_link_libraries(sdl2 INTERFACE ${SDL2_LIBRARY})
+
+add_library(imgui STATIC
+    imgui/imgui/imgui.cpp
+    imgui/imgui/imgui.h
+    imgui/imgui/imgui_demo.cpp
+    imgui/imgui/imgui_draw.cpp
+    imgui/imgui/imgui_widgets.cpp
+    imgui/imgui/imgui_internal.h
+    imgui/imgui/imconfig.h
+    # todo: look into how different stb libs work together
+    imgui/imgui/imstb_rectpack.h
+    imgui/imgui/imstb_textedit.h
+    imgui/imgui/imstb_truetype.h
+    imgui/imgui/examples/imgui_impl_sdl.cpp
+    imgui/imgui/examples/imgui_impl_sdl.h
+    imgui/imgui/examples/imgui_impl_opengl3.cpp
+    imgui/imgui/examples/imgui_impl_opengl3.h
+)
+target_include_directories(imgui
+    PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}/imgui/imgui/examples
+    ${CMAKE_CURRENT_SOURCE_DIR}/imgui/
+    # we want this to be private but we currently include the sdl loader
+    # and it include imgui the 'imgui way'
+    ${CMAKE_CURRENT_SOURCE_DIR}/imgui/fake/
+)
+target_compile_definitions(imgui PRIVATE -DIMGUI_IMPL_OPENGL_LOADER_GLAD)
+target_link_libraries(imgui PUBLIC sdl2 glad)
 
