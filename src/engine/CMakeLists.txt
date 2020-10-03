@@ -17,6 +17,7 @@ set(src ${app_src})
 add_executable(engine WIN32 MACOSX_BUNDLE ${src})
 
 target_link_libraries(engine
+    PRIVATE
     core
     render
     window

@@ -39,9 +39,11 @@ source_group("" FILES ${app_src})
 add_library(render STATIC ${src})
 
 target_link_libraries(render
+    PRIVATE
     core
     glad
     opengl
     file_types
+    stb_rect_pack
 )
 

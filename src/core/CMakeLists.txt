@@ -176,6 +176,7 @@ set(src
 
 add_library(core STATIC ${src})
 target_link_libraries(core
+    PRIVATE
     stb_image stb_image_write stb_rect_pack
     font8x8 font8x13 aheasing duktape file_types
     assimp freetype
