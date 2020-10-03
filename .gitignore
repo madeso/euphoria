@@ -20,6 +20,9 @@ generated-docs/
 # generated now
 .clang-tidy
 
+# ignoring junk folder
+junk/
+
 # temporary until we can work on musikmaskin
 dist/musikmaskin
 
