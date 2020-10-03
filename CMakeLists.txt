@@ -171,16 +171,13 @@ target_link_libraries(raytracer core)
 # testing the libraries and perhaps generate some pretty visuals :)
 
 add_executable(samples-3d WIN32 MACOSX_BUNDLE src/samples/3d.cc)
-target_include_directories(samples-3d SYSTEM PRIVATE ${SDL2_INCLUDE_DIR})
-target_link_libraries(samples-3d core render window ${SDL2_LIBRARY})
+target_link_libraries(samples-3d core render window sdl2)
 
 add_executable(samples-2d WIN32 MACOSX_BUNDLE src/samples/2d.cc)
-target_include_directories(samples-2d SYSTEM PRIVATE ${SDL2_INCLUDE_DIR})
-target_link_libraries(samples-2d core gui render window ${SDL2_LIBRARY})
+target_link_libraries(samples-2d core gui render window sdl2)
 
 add_executable(samples-gui WIN32 MACOSX_BUNDLE src/samples/gui.cc)
-target_include_directories(samples-gui SYSTEM PRIVATE ${SDL2_INCLUDE_DIR})
-target_link_libraries(samples-gui core gui render window ${SDL2_LIBRARY})
+target_link_libraries(samples-gui core gui render window sdl2)
 
 add_executable(samples-drunken-bishop src/samples/drunken_bishop_main.cc)
 target_link_libraries(samples-drunken-bishop core)
