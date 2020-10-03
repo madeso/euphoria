@@ -7,7 +7,6 @@ GAF_GENERATE_CPP(PROTO_SRCS PROTO_HDRS
     materialshader.gaf
     font.gaf
     gui.gaf
-
     world.gaf
     game.gaf
 )
