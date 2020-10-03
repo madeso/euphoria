@@ -47,6 +47,7 @@ add_library(glad STATIC
 target_include_directories(glad
     PUBLIC glad/include
 )
+target_link_libraries(glad PUBLIC ${CMAKE_DL_LIBS})
 
 add_library(icon_font_cpp_headers INTERFACE)
 target_include_directories(icon_font_cpp_headers
