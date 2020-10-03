@@ -8,23 +8,28 @@ set(app_src
 set(src ${app_src})
 source_group("" FILES ${app_src})
 
+# file_types is only plain gaf
+# when gaf suppors several outputs, link with a file_types_imgui library instead
 include_directories(SYSTEM ${CMAKE_CURRENT_BINARY_DIR})
 SET(Gaf_CUSTOM_PREFIX gaf_)
 SET(Gaf_INCLUDE_IMGUI Yes)
 GAF_GENERATE_CPP(SPRITE_PROTO_SRCS SPRITE_PROTO_HDRS
-                 ../file_types/scalingsprite.gaf
-                 ../file_types/game.gaf
-                 ../file_types/world.gaf
-                 ../file_types/enum.gaf
-                 )
+    ../file_types/scalingsprite.gaf
+    ../file_types/game.gaf
+    ../file_types/world.gaf
+    ../file_types/enum.gaf
+)
+message(STATUS "Sources are ${SPRITE_PROTO_SRCS} ${SPRITE_PROTO_HDRS}")
 set(src ${src} ${SPRITE_PROTO_SRCS} ${SPRITE_PROTO_HDRS})
 
-include_directories(SYSTEM ${SDL2_INCLUDE_DIR})
 
 add_executable(editor WIN32 MACOSX_BUNDLE ${src})
 target_link_libraries(editor
-                      core
-                      render
-                      window
-                      ${SDL2_LIBRARY}
-                      )
+    PRIVATE
+    core
+    render
+    window
+    sdl2
+    imgui
+)
+
