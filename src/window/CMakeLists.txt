@@ -47,6 +47,8 @@ include_directories(SYSTEM ${CMAKE_CURRENT_BINARY_DIR})
 add_library(window STATIC ${src})
 
 target_link_libraries(window
+    PUBLIC
+    icon_font_cpp_headers 
     PRIVATE
     core
     render

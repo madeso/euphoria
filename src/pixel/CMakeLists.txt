@@ -7,6 +7,7 @@ target_link_libraries(pixel
     core
     render
     window
+    imgui
     sdl2
 )
 

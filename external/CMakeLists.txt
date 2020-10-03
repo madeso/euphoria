@@ -59,6 +59,15 @@ target_include_directories(catch
 )
 target_link_libraries(catch INTERFACE ${CMAKE_THREAD_LIBS_INIT})
 
+add_library(spdlog INTERFACE)
+target_include_directories(spdlog
+    INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/spdlog/include
+)
+
+add_library(magic_enum INTERFACE)
+target_include_directories(magic_enum
+    INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/magic_enum/include
+)
 
 ################################################################
 # more complex libraries
@@ -68,13 +77,16 @@ add_library(freetype INTERFACE)
 target_include_directories(freetype INTERFACE ${FREETYPE_INCLUDE_DIRS})
 target_link_libraries(freetype INTERFACE ${FREETYPE_LIBRARIES})
 
+find_package(assimp REQUIRED)
 add_library(assimp INTERFACE)
 target_include_directories(assimp INTERFACE ${assimp_INCLUDE_DIRS})
 target_link_libraries(assimp INTERFACE ${assimp_LIBRARIES})
 
+find_package(OpenGL REQUIRED)
 add_library(opengl INTERFACE)
 target_link_libraries(opengl INTERFACE ${OPENGL_LIBRARIES} ${CMAKE_DL_LIBS})
 
+find_package(SDL2 REQUIRED)
 add_library(sdl2 INTERFACE)
 target_include_directories(sdl2 INTERFACE ${SDL2_INCLUDE_DIR})
 target_link_libraries(sdl2 INTERFACE ${SDL2_LIBRARY})

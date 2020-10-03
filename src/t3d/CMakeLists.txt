@@ -18,5 +18,6 @@ target_link_libraries(t3d
     core
     render
     window
+    imgui
     sdl2
 )

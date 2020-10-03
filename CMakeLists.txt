@@ -36,17 +36,9 @@ SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${EXTRA_FLAGS}")
 SET(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${EXTRA_FLAGS}")
 
 
-set(Gaf_CUSTOM_ARGUMENTS_FROM_FILE ${CMAKE_CURRENT_SOURCE_DIR}/src/gaf_options.txt)
-
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/src/cmake-modules")
 
-find_package(OpenGL REQUIRED)
-find_package(assimp REQUIRED)
-# message(STATUS "Assimp includes at ${assimp_INCLUDE_DIRS}")
-# message(STATUS "Assimp libraries at ${assimp_LIBRARIES}")
-find_package(SDL2 REQUIRED)
-# message(STATUS "sdl2 include directory ${SDL2_INCLUDE_DIR}")
-
+set(Gaf_CUSTOM_ARGUMENTS_FROM_FILE ${CMAKE_CURRENT_SOURCE_DIR}/src/gaf_options.txt)
 include(${CMAKE_CURRENT_SOURCE_DIR}/external/gaf/gaf.cmake)
 
 add_subdirectory(external)
@@ -104,7 +96,6 @@ endif()
 
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
-include_directories(SYSTEM ${CMAKE_CURRENT_BINARY_DIR})
 
 if(BUILD_TYPEINFO_IMPL_CTTI)
     include_directories(SYSTEM external/ctti/include)
@@ -117,10 +108,6 @@ include_directories(SYSTEM ${CMAKE_CURRENT_BINARY_DIR})
 add_definitions(-DIMGUI_USER_CONFIG="imgui_euphoria_config.h")
 add_executable(binary_to_compressed_c external/imgui/imgui/misc/fonts/binary_to_compressed_c.cpp)
 
-include_directories(SYSTEM external/imgui/)
-include_directories(SYSTEM external/IconFontCppHeaders/)
-include_directories(SYSTEM external/spdlog/include/)
-include_directories(SYSTEM external/magic_enum/include/)
 
 add_subdirectory(src/file_types)
 add_subdirectory(src/core)
@@ -171,13 +158,13 @@ target_link_libraries(raytracer core)
 # testing the libraries and perhaps generate some pretty visuals :)
 
 add_executable(samples-3d WIN32 MACOSX_BUNDLE src/samples/3d.cc)
-target_link_libraries(samples-3d core render window sdl2)
+target_link_libraries(samples-3d core render window imgui sdl2)
 
 add_executable(samples-2d WIN32 MACOSX_BUNDLE src/samples/2d.cc)
-target_link_libraries(samples-2d core gui render window sdl2)
+target_link_libraries(samples-2d core gui render window imgui sdl2)
 
 add_executable(samples-gui WIN32 MACOSX_BUNDLE src/samples/gui.cc)
-target_link_libraries(samples-gui core gui render window sdl2)
+target_link_libraries(samples-gui core gui render window imgui sdl2)
 
 add_executable(samples-drunken-bishop src/samples/drunken_bishop_main.cc)
 target_link_libraries(samples-drunken-bishop core)

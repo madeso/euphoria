@@ -19,6 +19,7 @@ target_link_libraries(musikmaskin
     minsynth
     render
     window
+    imgui
     sdl2
 )
 

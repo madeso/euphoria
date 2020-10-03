@@ -22,6 +22,7 @@ target_link_libraries(engine
     render
     window
     duk
+    imgui
     sdl2
     file_types
 )

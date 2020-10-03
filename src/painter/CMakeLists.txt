@@ -7,6 +7,7 @@ target_link_libraries(painter
     core
     render
     window
+    imgui
     sdl2
 )
 
