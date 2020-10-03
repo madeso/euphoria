@@ -6,6 +6,7 @@ GAF_GENERATE_CPP(PROTO_SRCS PROTO_HDRS
     scalingsprite.gaf
     materialshader.gaf
     font.gaf
+    gui.gaf
 )
 add_library(file_types STATIC
     ${PROTO_SRCS} ${PROTO_HDRS}
