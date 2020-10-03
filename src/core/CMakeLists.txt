@@ -17,7 +17,6 @@ set(app_src_color
     palette_wes.cc palette_wes.h
 )
 
-
 set(app_src_math
     bezierpath.cc bezierpath.h
     aabb.cc aabb.h
@@ -42,7 +41,6 @@ set(app_src_math
     vec4.h
 )
 
-
 set(app_src_cli
     cli_position.cc cli_position.h
     cli_progress_bar.cc cli_progress_bar.h
@@ -51,7 +49,6 @@ set(app_src_cli
     ctree.cc ctree.h
     textbox.cc textbox.h
 )
-
 
 set(app_src_pcg
     generator_cell.cc generator_cell.h
@@ -62,7 +59,6 @@ set(app_src_pcg
     drunken_bishop.cc drunken_bishop.h
 )
 
-
 set(app_src_hash
     hash_fnv1a.cc hash_fnv1a.h
     hashgen_retro.cc hashgen_retro.h
@@ -70,14 +66,12 @@ set(app_src_hash
     identicon.cc identicon.h
 )
 
-
 set(app_src_table
     fourway.cc fourway.h
     table_string.cc table_string.h
     table_bool.cc table_bool.h
     table.h
 )
-
 
 set(app_src
     result.cc result.h
@@ -180,16 +174,6 @@ set(src
 )
 
 
-
-
-# todo(Gustav): remove duktape
-# release date 2017-09-23 version duktape-2.2.0.tar.xz
-include_directories(SYSTEM ../../external/duktape)
-set(src ${src} ../../external/duktape/duktape/duktape.c)
-source_group("duktape" FILES ../../external/duktape/duktape/duktape.c)
-
-
-
 include_directories(SYSTEM ${CMAKE_CURRENT_BINARY_DIR})
 SET(Gaf_CUSTOM_PREFIX gaf_)
 GAF_GENERATE_CPP(PROTO_SRCS PROTO_HDRS
@@ -201,21 +185,10 @@ set(src ${src} ${PROTO_SRCS} ${PROTO_HDRS})
 source_group("generated" FILES ${PROTO_SRCS} ${PROTO_HDRS})
 
 
-
-include_directories(../../external/aheasing)
-set(src_aheasing
-    ../../external/aheasing/aheasing/easing.c
-    ../../external/aheasing/aheasing/easing.h
-)
-set(src ${src} ${src_aheasing})
-source_group("AHEasing" FILES ${src_aheasing})
-
-
 add_library(core STATIC ${src})
 target_link_libraries(core
     stb_image stb_image_write stb_rect_pack
-    font8x8 font8x13
-    # todo(Gustav): move image loading to a io library instead
+    font8x8 font8x13 aheasing duktape
     assimp freetype
 )
 

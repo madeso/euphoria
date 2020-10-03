@@ -22,6 +22,23 @@ target_include_directories(font8x8 INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/font8x8
 add_library(font8x13 INTERFACE)
 target_include_directories(font8x13 INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/font8x13)
 
+add_library(aheasing STATIC
+    aheasing/aheasing/easing.c
+    aheasing/aheasing/easing.h
+)
+target_include_directories(aheasing
+    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/aheasing
+)
+
+# todo(Gustav): replace duktape with either lua or custom scriping engine fel
+# release date 2017-09-23 version duktape-2.2.0.tar.xz
+add_library(duktape STATIC
+    duktape/duktape/duktape.c
+)
+target_include_directories(duktape
+    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/duktape
+)
+
 
 ################################################################
 # more complex libraries
