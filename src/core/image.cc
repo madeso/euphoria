@@ -2,15 +2,11 @@
 
 #include <iostream>
 
-#include "core/assert.h"
-#include "core/numeric.h"
-
-#define STB_IMAGE_IMPLEMENTATION
-#define STBI_FAILURE_USERMSG
-#define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "stb_image.h"
 #include "stb_image_write.h"
 
+#include "core/assert.h"
+#include "core/numeric.h"
 #include "core/log.h"
 #include "core/decompress.h"
 #include "core/vfs.h"

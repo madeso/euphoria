@@ -180,18 +180,9 @@ set(src
 )
 
 
-include_directories(SYSTEM ${assimp_INCLUDE_DIRS})
 
 
-# todo: move image loading to a io library instead
-include_directories(SYSTEM ../../external/stb)
-
-
-# freetype
-find_package(Freetype REQUIRED)
-include_directories(${FREETYPE_INCLUDE_DIRS})
-
-
+# todo(Gustav): remove duktape
 # release date 2017-09-23 version duktape-2.2.0.tar.xz
 include_directories(SYSTEM ../../external/duktape)
 set(src ${src} ../../external/duktape/duktape/duktape.c)
@@ -220,12 +211,11 @@ set(src ${src} ${src_aheasing})
 source_group("AHEasing" FILES ${src_aheasing})
 
 
-include_directories(../../external/font8x8/)
-include_directories(../../external/font8x13/)
-
 add_library(core STATIC ${src})
 target_link_libraries(core
-    ${assimp_LIBRARIES}
-    ${FREETYPE_LIBRARIES}
+    stb_image stb_image_write stb_rect_pack
+    font8x8 font8x13
+    # todo(Gustav): move image loading to a io library instead
+    assimp freetype
 )
 

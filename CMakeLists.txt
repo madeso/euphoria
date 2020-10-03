@@ -49,6 +49,8 @@ find_package(SDL2 REQUIRED)
 
 include(${CMAKE_CURRENT_SOURCE_DIR}/external/gaf/gaf.cmake)
 
+add_subdirectory(external)
+
 include_directories(SYSTEM ${CMAKE_CURRENT_SOURCE_DIR}/external/range-v3/include)
 include_directories(SYSTEM ${CMAKE_CURRENT_SOURCE_DIR}/external/rapidjson/include)
 

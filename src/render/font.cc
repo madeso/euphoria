@@ -1,5 +1,13 @@
 #include "render/font.h"
 
+#include <vector>
+#include <memory>
+#include <map>
+#include <algorithm>
+#include <iostream>
+
+#include "stb_rect_pack.h"
+
 #include "core/log.h"
 #include "core/proto.h"
 #include "core/image_draw.h"
@@ -16,15 +24,7 @@
 #include "render/spriterender.h"
 #include "render/texturecache.h"
 
-#include <vector>
-#include <memory>
-#include <map>
-#include <algorithm>
-#include <iostream>
-
 #include "gaf_font.h"
-
-#include "stb_rect_pack.h"
 
 
 using namespace euphoria::convert;
