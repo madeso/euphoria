@@ -40,6 +40,14 @@ target_include_directories(duktape
 )
 
 
+add_library(glad STATIC
+    glad/src/glad.c
+    glad/include/glad/glad.h
+)
+target_include_directories(glad
+    PUBLIC glad/include
+)
+
 ################################################################
 # more complex libraries
 
@@ -51,4 +59,7 @@ target_link_libraries(freetype INTERFACE ${FREETYPE_LIBRARIES})
 add_library(assimp INTERFACE)
 target_include_directories(assimp INTERFACE ${assimp_INCLUDE_DIRS})
 target_link_libraries(assimp INTERFACE ${assimp_LIBRARIES})
+
+add_library(opengl INTERFACE)
+target_link_libraries(opengl INTERFACE ${OPENGL_LIBRARIES} ${CMAKE_DL_LIBS})
 

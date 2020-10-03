@@ -8,3 +8,4 @@ add_library(minsynth STATIC ${src})
 target_link_libraries(minsynth
     core
 )
+

@@ -174,21 +174,10 @@ set(src
 )
 
 
-include_directories(SYSTEM ${CMAKE_CURRENT_BINARY_DIR})
-SET(Gaf_CUSTOM_PREFIX gaf_)
-GAF_GENERATE_CPP(PROTO_SRCS PROTO_HDRS
-    ../file_types/enum.gaf
-    ../file_types/mesh.gaf
-    ../file_types/chatbot.gaf
-)
-set(src ${src} ${PROTO_SRCS} ${PROTO_HDRS})
-source_group("generated" FILES ${PROTO_SRCS} ${PROTO_HDRS})
-
-
 add_library(core STATIC ${src})
 target_link_libraries(core
     stb_image stb_image_write stb_rect_pack
-    font8x8 font8x13 aheasing duktape
+    font8x8 font8x13 aheasing duktape file_types
     assimp freetype
 )
 

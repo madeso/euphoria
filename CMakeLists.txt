@@ -122,6 +122,7 @@ include_directories(SYSTEM external/IconFontCppHeaders/)
 include_directories(SYSTEM external/spdlog/include/)
 include_directories(SYSTEM external/magic_enum/include/)
 
+add_subdirectory(src/file_types)
 add_subdirectory(src/core)
 add_subdirectory(src/minsynth)
 add_subdirectory(src/render)
