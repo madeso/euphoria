@@ -53,6 +53,12 @@ target_include_directories(icon_font_cpp_headers
     INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/IconFontCppHeaders
 )
 
+add_library(catch INTERFACE)
+target_include_directories(catch
+    INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/catch
+)
+target_link_libraries(catch INTERFACE ${CMAKE_THREAD_LIBS_INIT})
+
 
 ################################################################
 # more complex libraries

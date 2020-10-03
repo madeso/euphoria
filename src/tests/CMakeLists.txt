@@ -63,14 +63,15 @@ set(app_src
     test_wordwrap.cc
 )
 
-
-set(src ${app_src} ${test_base})
-
 source_group("tests" FILES ${app_src})
 source_group("base" FILES ${test_base})
 
-include_directories(SYSTEM ../../external/catch/)
+add_executable(tests
+    ${app_src} ${test_base}
+)
 
-add_executable(tests ${src})
+TARGET_LINK_LIBRARIES(tests
+    core duk minsynth
+    catch
+)
 
-TARGET_LINK_LIBRARIES(tests ${CMAKE_THREAD_LIBS_INIT} core duk minsynth)
