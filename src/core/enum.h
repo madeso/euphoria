@@ -15,7 +15,8 @@ namespace euphoria::core
 
     struct EnumValue;
 
-    // todo: as a compile option, use a hash instead of the string enum
+    // todo(Gustav): as a compile option, use a hash instead of the string enum
+    // todo(Gustav): rename to something like DynEnum to not be confused with regular enums
 
     /** Represents a dynamically loaded "enum type".
      * Declare globally grab specific enums before or after load, and load adds new,
