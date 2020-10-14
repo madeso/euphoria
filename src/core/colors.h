@@ -159,9 +159,7 @@ namespace euphoria::core
 
         MAX_VALUE
     };
-
-    unsigned int
-    ToColorHex(Color color);
-}  // namespace euphoria::core
+}
 
 #endif  // CORE_NAMED_COLORS_H
+

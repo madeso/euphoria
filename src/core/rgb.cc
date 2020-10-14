@@ -13,64 +13,11 @@
 
 namespace euphoria::core
 {
-    ////////////////////////////////////////////////////////////////////////////////
-
-    Rgbi::Rgbi(std::uint8_t red, std::uint8_t green, std::uint8_t blue)
-        : r(red), g(green), b(blue)
-    {}
-
-    Rgbi::Rgbi(std::uint8_t gray) : r(gray), g(gray), b(gray) {}
-
-    Rgbi::Rgbi(Color color) : Rgbi(Rgbi::FromHex(ToColorHex(color))) {}
-
-    Rgbi::Rgbi(const Rgb& rgb)
-        : r(colorutil::ToUnsignedChar(rgb.r))
-        , g(colorutil::ToUnsignedChar(rgb.g))
-        , b(colorutil::ToUnsignedChar(rgb.b))
-    {}
-
-
-    Rgbi
-    Rgbi::FromHex(unsigned int hex)
-    {
-        return {colorutil::GetRed(hex),
-                colorutil::GetGreen(hex),
-                colorutil::GetBlue(hex)};
-    }
-
-
-    int
-    Rgbi::ToHex() const
-    {
-        auto value = [](int i, int steps) -> int { return i << (8 * steps); };
-        return value(r, 2) | value(g, 1) | value(b, 0);
-    }
-
-
-    ////////////////////////////////////////////////////////////////////////////////
-
-
-    Rgbai::Rgbai(const Rgbi& rgb, std::uint8_t alpha)
-        : r(rgb.r), g(rgb.g), b(rgb.b), a(alpha)
-    {}
-
-
-    Rgbai::Rgbai(const Rgba& rgba)
-        : r(colorutil::ToUnsignedChar(rgba.r))
-        , g(colorutil::ToUnsignedChar(rgba.g))
-        , b(colorutil::ToUnsignedChar(rgba.b))
-        , a(colorutil::ToUnsignedChar(rgba.a))
-    {}
-
-
-    ////////////////////////////////////////////////////////////////////////////////
-
-
     Rgb::Rgb(float red, float green, float blue) : r(red), g(green), b(blue) {}
 
     Rgb::Rgb(float gray) : r(gray), g(gray), b(gray) {}
 
-    Rgb::Rgb(Color color) : Rgb(Rgb::FromHex(ToColorHex(color))) {}
+    Rgb::Rgb(Color color) : Rgb(Rgb::FromHex(colorutil::ToColorHex(color))) {}
 
     Rgb
     Rgb::FromHex(unsigned int hex)
@@ -686,43 +633,6 @@ namespace euphoria::core
 
     namespace colorutil
     {
-        std::uint8_t
-        GetComponent(unsigned int i, int steps)
-        {
-            const int value = ((i >> 8 * steps) & 0xff);
-            ASSERTX(IsWithinInclusivei(0, value, 255), value);
-            return static_cast<std::uint8_t>(value);
-        }
-
-        std::uint8_t
-        GetRed(unsigned int rgb)
-        {
-            return GetComponent(rgb, 2);
-        }
-
-        std::uint8_t
-        GetGreen(unsigned int rgb)
-        {
-            return GetComponent(rgb, 1);
-        }
-
-        std::uint8_t
-        GetBlue(unsigned int rgb)
-        {
-            return GetComponent(rgb, 0);
-        }
-
-        float
-        ToFloat(std::uint8_t c)
-        {
-            return c / 255.0f;
-        }
-
-        std::uint8_t
-        ToUnsignedChar(float f)
-        {
-            return static_cast<std::uint8_t>(f * 255.0f);
-        }
 
         unsigned int
         FromStringToHex(const std::string& str)
