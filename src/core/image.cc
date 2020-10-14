@@ -15,18 +15,17 @@
 
 namespace euphoria::core
 {
-    LOG_SPECIFY_DEFAULT_LOGGER("core.image")
-
     void
     Image::MakeInvalid()
     {
         components.resize(0);
-        width_     = 0;
-        height_    = 0;
+        width_ = 0;
+        height_ = 0;
         has_alpha_ = false;
 
         ASSERT(!IsValid());
     }
+
 
     int
     Image::GetPixelByteSize() const
@@ -34,36 +33,44 @@ namespace euphoria::core
         return has_alpha_ ? 4 : 3;
     }
 
+
     void
-    Image::SetupWithAlphaSupport(
-            int image_width,
-            int image_height,
-            int default_value)
+    Image::SetupWithAlphaSupport
+    (
+        int image_width,
+        int image_height,
+        int default_value
+    )
     {
         Setup(image_width, image_height, true, default_value);
     }
 
+
     void
-    Image::SetupNoAlphaSupport(
-            int image_width,
-            int image_height,
-            int default_value)
+    Image::SetupNoAlphaSupport
+    (
+        int image_width,
+        int image_height,
+        int default_value
+    )
     {
         Setup(image_width, image_height, false, default_value);
     }
 
     void
-    Image::Setup(
-            int  image_width,
-            int  image_height,
-            bool alpha,
-            int  default_value)
+    Image::Setup
+    (
+        int image_width,
+        int image_height,
+        bool alpha,
+        int default_value
+    )
     {
         ASSERTX(image_width > 0, image_width);
         ASSERTX(image_height > 0, image_height);
 
-        width_     = image_width;
-        height_    = image_height;
+        width_ = image_width;
+        height_ = image_height;
         has_alpha_ = alpha;
 
         components.resize(0);  // clear all pixels
@@ -81,6 +88,7 @@ namespace euphoria::core
         ASSERT(IsValid());
     }
 
+
     int
     Image::GetPixelIndex(int x, int y) const
     {
@@ -90,25 +98,29 @@ namespace euphoria::core
         return (y * width_ + x) * GetPixelByteSize();
     }
 
+
     void
     Image::SetPixel(int x, int y, const Rgbai& color)
     {
         SetPixel(x, y, color.r, color.g, color.b, color.a);
     }
 
+
     void
-    Image::SetPixel(
-            int           x,
-            int           y,
-            unsigned char r,
-            unsigned char g,
-            unsigned char b,
-            unsigned char a)
+    Image::SetPixel
+    (
+        int x,
+        int y,
+        unsigned char r,
+        unsigned char g,
+        unsigned char b,
+        unsigned char a
+    )
     {
         ASSERTX(IsWithinInclusivei(0, x, GetWidth() - 1), x, GetWidth() - 1);
         ASSERTX(IsWithinInclusivei(0, y, GetHeight() - 1), y, GetHeight() - 1);
 
-        const auto base_index      = GetPixelIndex(x, y);
+        const auto base_index = GetPixelIndex(x, y);
         components[base_index + 0] = r;
         components[base_index + 1] = g;
         components[base_index + 2] = b;
@@ -119,6 +131,7 @@ namespace euphoria::core
         }
     }
 
+
     Rgbai
     Image::GetPixel(int x, int y) const
     {
@@ -127,9 +140,9 @@ namespace euphoria::core
 
         const auto base_index = GetPixelIndex(x, y);
 
-        const auto red   = components[base_index + 0];
+        const auto red = components[base_index + 0];
         const auto green = components[base_index + 1];
-        const auto blue  = components[base_index + 2];
+        const auto blue = components[base_index + 2];
 
         if(has_alpha_)
         {
@@ -141,6 +154,7 @@ namespace euphoria::core
             return Rgbi {red, green, blue};
         }
     }
+
 
     bool
     Image::IsValid() const
@@ -154,8 +168,8 @@ namespace euphoria::core
     {
         return Recti::FromWidthHeight
         (
-            GetWidth() -1,
-            GetHeight() -1
+            GetWidth() - 1,
+            GetHeight() - 1
         );
     }
 
@@ -184,7 +198,7 @@ namespace euphoria::core
         return &components[0];
     }
 
-    namespace  // local
+    namespace // local
     {
         void
         DetermineImageSize(void* context, void* /*unused*/, int size)
@@ -201,18 +215,20 @@ namespace euphoria::core
             auto* file = static_cast<MemoryChunkFile*>(context);
             file->Write(data, size);
         }
-    }  // namespace
+    }
 
     int
-    WriteImageData(
-            stbi_write_func* func,
-            void*            context,
-            int              w,
-            int              h,
-            int              comp,
-            const void*      data,
-            ImageWriteFormat format,
-            int              jpeg_quality)
+    WriteImageData
+    (
+        stbi_write_func* func,
+        void* context,
+        int w,
+        int h,
+        int comp,
+        const void* data,
+        ImageWriteFormat format,
+        int jpeg_quality
+    )
     {
         switch(format)
         {
@@ -223,8 +239,10 @@ namespace euphoria::core
         case ImageWriteFormat::TGA:
             return stbi_write_tga_to_func(func, context, w, h, comp, data);
         case ImageWriteFormat::JPEG:
-            return stbi_write_jpg_to_func(
-                    func, context, w, h, comp, data, jpeg_quality);
+            return stbi_write_jpg_to_func
+            (
+                func, context, w, h, comp, data, jpeg_quality
+            );
         default: DIE("Unhandled case"); return 0;
         }
     }
@@ -234,8 +252,7 @@ namespace euphoria::core
     {
         const int number_of_components = has_alpha_ ? 4 : 3;
 
-        std::vector<unsigned char> pixels(
-                width_ * height_ * number_of_components, 0);
+        std::vector<unsigned char> pixels(width_ * height_ * number_of_components, 0);
         for(int y = 0; y < height_; y += 1)
         {
             const int iy = height_ - (y + 1);
@@ -243,29 +260,27 @@ namespace euphoria::core
             ASSERTX(IsWithinInclusivei(0, iy, height_ - 1), iy, y, height_);
             for(int x = 0; x < width_; x += 1)
             {
-                const int target_index
-                        = (x + width_ * y) * number_of_components;
-                const int source_index
-                        = (x + width_ * iy) * number_of_components;
-                for(int component = 0; component < number_of_components;
-                    component += 1)
+                const int target_index = (x + width_ * y) * number_of_components;
+                const int source_index = (x + width_ * iy) * number_of_components;
+                for(int component = 0; component < number_of_components; component += 1)
                 {
-                    pixels[target_index + component]
-                            = components[source_index + component];
+                    pixels[target_index + component] = components[source_index + component];
                 }
             }
         }
 
-        int size        = 0;
-        int size_result = WriteImageData(
-                DetermineImageSize,
-                &size,
-                GetWidth(),
-                GetHeight(),
-                number_of_components,
-                &pixels[0],
-                format,
-                jpeg_quality);
+        int size = 0;
+        int size_result = WriteImageData
+        (
+            DetermineImageSize,
+            &size,
+            GetWidth(),
+            GetHeight(),
+            number_of_components,
+            &pixels[0],
+            format,
+            jpeg_quality
+        );
         if(size_result == 0)
         {
             return MemoryChunk::Null();
@@ -273,15 +288,17 @@ namespace euphoria::core
 
         ASSERT(size > 0);
         MemoryChunkFile file {MemoryChunk::Alloc(size)};
-        int             write_result = WriteImageData(
-                WriteToMemoryChunkFile,
-                &file,
-                GetWidth(),
-                GetHeight(),
-                number_of_components,
-                &pixels[0],
-                format,
-                jpeg_quality);
+        int write_result = WriteImageData
+        (
+            WriteToMemoryChunkFile,
+            &file,
+            GetWidth(),
+            GetHeight(),
+            number_of_components,
+            &pixels[0],
+            format,
+            jpeg_quality
+        );
         if(write_result == 0)
         {
             return MemoryChunk::Null();
@@ -290,26 +307,28 @@ namespace euphoria::core
         return file.data;
     }
 
+
     namespace
     {
         unsigned char
-        Select(int           ch,
-               unsigned char a,
-               unsigned char b,
-               unsigned char c,
-               unsigned char d)
+        Select
+        (
+            int ch,
+            unsigned char a,
+            unsigned char b,
+            unsigned char c,
+            unsigned char d
+        )
         {
             switch(ch)
             {
-            case 1:  // grey
-                return a;
-            case 2:  // grey, alpha
-                return b;
-            case 3:  // red, green, blue
-                return c;
-            case 4:  // red, green, blue, alpha
-                return d;
-            default: DIE("unhandled Select channel"); return 0;
+            case 1: return a;  // grey
+            case 2: return b;  // grey, alpha
+            case 3: return c;  // red, green, blue
+            case 4: return d;  // red, green, blue, alpha
+            default:
+                DIE("unhandled Select channel");
+                return 0;
             }
         }
     }  // namespace
@@ -331,26 +350,28 @@ namespace euphoria::core
     }
 
     ImageLoadResult
-    LoadImage(
-            std::shared_ptr<MemoryChunk> file_memory,
-            const std::string&           path,
-            AlphaLoad                    alpha)
+    LoadImage
+    (
+        std::shared_ptr<MemoryChunk> file_memory,
+        const std::string& path,
+        AlphaLoad alpha
+    )
     {
-        int channels     = 0;
-        int image_width  = 0;
+        int channels = 0;
+        int image_width = 0;
         int image_height = 0;
 
-        // signed to unsigned cast is probably ok since both are considered to be
-        // a chuck of memory
+        // signed to unsigned cast is probably ok since both are considered to be a chunk of memory
         // https://stackoverflow.com/questions/310451/should-i-use-static-cast-or-reinterpret-cast-when-casting-a-void-to-whatever
-        unsigned char* data = stbi_load_from_memory(
-                reinterpret_cast<unsigned char*>(
-                        file_memory->GetData()),  // NOLINT
-                file_memory->GetSize(),
-                &image_width,
-                &image_height,
-                &channels,
-                0);
+        unsigned char* data = stbi_load_from_memory
+        (
+            reinterpret_cast<unsigned char*>(file_memory->GetData()),  // NOLINT
+            file_memory->GetSize(),
+            &image_width,
+            &image_height,
+            &channels,
+            0
+        );
 
         if(data == nullptr)
         {
@@ -398,17 +419,13 @@ namespace euphoria::core
 
                 // get component values
                 const unsigned char zero = 0;
-                const unsigned char c1
-                        = data[src_index + 0];  // NOLINT no garbage value
-                const unsigned char c2
-                        = (channels <= 1) ? zero : data[src_index + 1];
-                const unsigned char c3
-                        = (channels <= 2) ? zero : data[src_index + 2];
-                const unsigned char c4
-                        = (channels <= 3) ? zero : data[src_index + 3];
+                const unsigned char c1 = data[src_index + 0];  // NOLINT no garbage value
+                const unsigned char c2 = (channels <= 1) ? zero : data[src_index + 1];
+                const unsigned char c3 = (channels <= 2) ? zero : data[src_index + 2];
+                const unsigned char c4 = (channels <= 3) ? zero : data[src_index + 3];
 
                 // Gray, Gray+alpha, RGB, RGB+alpha:     gr   gra  rgb  rgba
-                const unsigned char r = c1;  //           c1   c1   c1    c1
+                const unsigned char r = c1;  //          c1   c1   c1    c1
                 const unsigned char g = Select(channels, c1, c1, c2, c2);
                 const unsigned char b = Select(channels, c1, c1, c3, c3);
                 const unsigned char a = Select(channels, 255, c2, 255, c4);
@@ -422,18 +439,23 @@ namespace euphoria::core
     }
 
     ImageLoadResult
-    LoadImage(
-            void* compressed_data,
-            int compressed_size,
-            const std::string&           path,
-            AlphaLoad                    alpha)
+    LoadImage
+    (
+        void* compressed_data,
+        int compressed_size,
+        const std::string& path,
+        AlphaLoad alpha
+    )
     {
         Decompress dec;
         const unsigned int decompressed_size = Decompress::stb_decompress_length((const unsigned char*)compressed_data);
         auto decompressed = MemoryChunk::Alloc(decompressed_size);
-        const auto len = dec.stb_decompress(reinterpret_cast<unsigned char*>(decompressed->GetData()),
+        const auto len = dec.stb_decompress
+        (
+            reinterpret_cast<unsigned char*>(decompressed->GetData()),
             reinterpret_cast<const unsigned char*>(compressed_data),
-            static_cast<unsigned int>(compressed_size));
+            static_cast<unsigned int>(compressed_size)
+        );
         if(len == 0)
         {
             ImageLoadResult result;
@@ -444,5 +466,5 @@ namespace euphoria::core
 
         return LoadImage(decompressed, path, alpha);
     }
+}
 
-}  // namespace euphoria::core
