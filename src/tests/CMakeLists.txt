@@ -18,6 +18,7 @@ set(app_src
     test_camera.cc
     test_chatbot.cc
     test_commandlineparser.cc
+    test_date.cc
     test_duk.cc
     test_drunken_bishop.cc
     test_editdistance.cc

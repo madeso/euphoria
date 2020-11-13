@@ -92,6 +92,7 @@ set(app_src
     cpp.h
     crc32.cc crc32.h
     decompress.cc decompress.h
+    datetime.cc datetime.h
     dump.cc dump.h
     ecs-id.h
     ecs-systems.cc ecs-systems.h
