@@ -36,9 +36,11 @@ namespace euphoria::core
         std::string
         Demangle(const char* const symbol)
         {
-            const std::unique_ptr<char, decltype(&std::free)> demangled(
-                    abi::__cxa_demangle(symbol, nullptr, nullptr, nullptr),
-                    &std::free);
+            const std::unique_ptr<char, decltype(&std::free)> demangled
+            (
+                abi::__cxa_demangle(symbol, nullptr, nullptr, nullptr),
+                &std::free
+            );
             if(demangled)
             {
                 return demangled.get();
@@ -51,14 +53,17 @@ namespace euphoria::core
         RunBacktrace(int skip)
         {
             // todo replace hardcoded limit?
-            void*     addresses[256];
-            const int n = ::backtrace(
-                    static_cast<void**>(addresses),
-                    std::extent<decltype(addresses)>::value);
-            const std::unique_ptr<char*, decltype(&std::free)> symbols(
-                    ::backtrace_symbols(
-                            static_cast<void* const*>(addresses), n),
-                    &std::free);
+            void* addresses[256];
+            const int n = ::backtrace
+            (
+                static_cast<void**>(addresses),
+                std::extent<decltype(addresses)>::value
+            );
+            const std::unique_ptr<char*, decltype(&std::free)> symbols
+            (
+                ::backtrace_symbols(static_cast<void* const*>(addresses), n),
+                &std::free
+            );
 
             std::vector<std::string> ret;
             for(int i = skip; i < n; ++i)
@@ -124,13 +129,15 @@ namespace euphoria::core
         }
 
         void
-        OnAssert(
-                const char* const                  expression,
-                int                                line,
-                const char* const                  file,
-                const char* const                  argstr,
-                const std::vector<AssertValueArg>& arguments,
-                const char* const                  function)
+        OnAssert
+        (
+            const char* const                  expression,
+            int                                line,
+            const char* const                  file,
+            const char* const                  argstr,
+            const std::vector<AssertValueArg>& arguments,
+            const char* const                  function
+        )
         {
             std::ostringstream ss;
             ss << "Assertion failed: " << expression << "\n"

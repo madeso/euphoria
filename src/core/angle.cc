@@ -18,38 +18,44 @@ namespace euphoria::core
     void
     Angle::Wrap()
     {
-        mRad = ::euphoria::core::Wrap(MakeRange(Pi() * 2.0f), mRad);
+        radians = ::euphoria::core::Wrap(MakeRange(Pi() * 2.0f), radians);
     }
+
 
     void
     Angle::operator+=(const Angle& rhs)
     {
-        mRad += rhs.mRad;
+        radians += rhs.radians;
     }
+
 
     void
     Angle::operator-=(const Angle& rhs)
     {
-        mRad -= rhs.mRad;
+        radians -= rhs.radians;
     }
+
 
     void
     Angle::operator*=(float rhs)
     {
-        mRad *= rhs;
+        radians *= rhs;
     }
+
 
     void
     Angle::operator/=(float rhs)
     {
-        mRad /= rhs;
+        radians /= rhs;
     }
+
 
     Angle
     Angle::operator-() const
     {
-        return Angle::FromRadians(-mRad);
+        return Angle::FromRadians(-radians);
     }
+
 
     float
     Sin(const Angle& ang)
@@ -57,11 +63,13 @@ namespace euphoria::core
         return std::sin(ang.InRadians());
     }
 
+
     float
     Cos(const Angle& ang)
     {
         return std::cos(ang.InRadians());
     }
+
 
     float
     Tan(const Angle& ang)
@@ -69,45 +77,38 @@ namespace euphoria::core
         return std::tan(ang.InRadians());
     }
 
+
     Angle
     Asin(float v)
     {
-        ASSERT(
-      v <= 1 &&
-      "v must be smaller than 1, use Limmit or Max on the value to not "
-      "trigger this Assert");
-        ASSERT(
-      v >= -1 &&
-      "v must be greater than -1, use Limmit or Min on the value to not "
-      "trigger this Assert");
+        ASSERT(v <= 1 && "v must be smaller than 1");
+        ASSERT(v >= -1 && "v must be greater than -1");
         return Angle::FromRadians(std::asin(v));
     }
+
 
     Angle
     Acos(float v)
     {
-        ASSERT(
-      v <= 1 &&
-      "v must be smaller than 1, use Limmit or Max on the value to not "
-      "trigger this Assert");
-        ASSERT(
-      v >= -1 &&
-      "v must be greater than -1, use Limmit or Min on the value to not "
-      "trigger this Assert");
+        ASSERT(v <= 1 && "v must be smaller than 1");
+        ASSERT(v >= -1 && "v must be greater than -1");
         return Angle::FromRadians(std::acos(v));
     }
+    
 
     Angle
     Atan(float v)
     {
         return Angle::FromRadians(std::atan(v));
     }
+    
 
     Angle
     Atan2(float y, float x)
     {
         return Angle::FromRadians(std::atan2(y, x));
     }
+
 
     Angle
     Angle::GetWrapped() const
@@ -117,6 +118,7 @@ namespace euphoria::core
         return temp;
     }
 
+
     Angle
     operator+(const Angle& lhs, const Angle& rhs)
     {
@@ -124,6 +126,7 @@ namespace euphoria::core
         temp += rhs;
         return temp;
     }
+
 
     Angle
     operator-(const Angle& lhs, const Angle& rhs)
@@ -133,6 +136,7 @@ namespace euphoria::core
         return temp;
     }
 
+
     Angle
     operator/(const Angle& lhs, float rhs)
     {
@@ -140,6 +144,7 @@ namespace euphoria::core
         temp /= rhs;
         return temp;
     }
+
 
     Angle operator*(const Angle& lhs, float rhs)
     {
@@ -152,6 +157,7 @@ namespace euphoria::core
     {
         return lhs * rhs;
     }
+
 
     std::ostream&
     operator<<(std::ostream& stream, const Angle& a)
@@ -193,5 +199,4 @@ namespace euphoria::core
     {
         return Angle::FromRadians(Lerp(from.InRadians(), v, to.InRadians()));
     }
-
-}  // namespace euphoria::core
+}

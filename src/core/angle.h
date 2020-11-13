@@ -14,28 +14,28 @@ namespace euphoria::core
         [[nodiscard]] constexpr float
         InDegrees() const
         {
-            return RadianToDegrees(mRad);
+            return RadianToDegrees(radians);
         }
 
 
         [[nodiscard]] constexpr float
         InRadians() const
         {
-            return mRad;
+            return radians;
         }
 
 
         [[nodiscard]] constexpr static Angle
-        FromDegrees(float deg)
+        FromDegrees(float degrees)
         {
-            return Angle(DegreesToRadian(deg));
+            return Angle(DegreesToRadian(degrees));
         }
 
 
         [[nodiscard]] constexpr static Angle
-        FromRadians(float rad)
+        FromRadians(float radians)
         {
-            return Angle(rad);
+            return Angle(radians);
         }
 
 
@@ -114,20 +114,20 @@ namespace euphoria::core
 
     private:
         [[nodiscard]] static constexpr float
-        RadianToDegrees(float rad)
+        RadianToDegrees(float radians)
         {
-            return (180.0f / Pi()) * rad;
+            return (180.0f / Pi()) * radians;
         }
 
         [[nodiscard]] static constexpr float
-        DegreesToRadian(float deg)
+        DegreesToRadian(float degrees)
         {
-            return Pi() / 180.0f * deg;
+            return Pi() / 180.0f * degrees;
         }
 
-        constexpr explicit Angle(float rad) : mRad(rad) {}
+        constexpr explicit Angle(float r) : radians(r) {}
 
-        float mRad;
+        float radians;
     };
 
 
@@ -204,7 +204,8 @@ namespace euphoria::core
         static Angle
         Transform(const Angle& from, float v, const Angle& to);
     };
-}  // namespace euphoria::core
+}
+
 
 namespace euphoria::convert
 {
@@ -218,6 +219,6 @@ namespace euphoria::convert
     {
         return core::Angle::FromRadians(static_cast<float>(r));
     }
-}  // namespace euphoria::convert
+}
 
 #endif  // CORE_ANGLE_H

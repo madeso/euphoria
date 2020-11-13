@@ -72,6 +72,6 @@ namespace euphoria::core
         return s;
     }
 
-}  // namespace euphoria::core
+}
 
 #endif  // EUPHORIA_AABB_H

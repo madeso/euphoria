@@ -86,6 +86,7 @@ namespace euphoria::core
         struct AssertValueArg
         {
             std::string value;
+            
             template <typename T>
             AssertValueArg(const T& t)
             {
@@ -102,17 +103,18 @@ namespace euphoria::core
         IsThrowing();
 
         void
-        OnAssert(
-                const char* const                  expression,
-                int                                line,
-                const char* const                  file,
-                const char* const                  argstr,
-                const std::vector<AssertValueArg>& arguments,
-                const char* const                  function);
-    }  // namespace assertlib
+        OnAssert
+        (
+            const char* const                  expression,
+            int                                line,
+            const char* const                  file,
+            const char* const                  argstr,
+            const std::vector<AssertValueArg>& arguments,
+            const char* const                  function
+        );
+    }
 
-}  // namespace euphoria::core
+}
 #endif  // IMPLEMENT_ASSERT_LIB
-
 
 #endif  // CORE_ASSERT_H

@@ -137,5 +137,4 @@ namespace euphoria::core
 
         return vec3f {x, y, z};
     }
-
-}  // namespace euphoria::core
+}
