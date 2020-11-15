@@ -1,4 +1,7 @@
-set(app_src
+###############################################################################
+# t3d project
+
+set(src
     src/t3d/editor.cc src/t3d/editor.h
     src/t3d/filelist.cc src/t3d/filelist.h
     src/t3d/grid.cc src/t3d/grid.h
@@ -10,8 +13,7 @@ set(app_src
     src/t3d/tool_placemeshonplane.cc src/t3d/tool_placemeshonplane.h
     src/t3d/toolstack.cc src/t3d/toolstack.h
 )
-set(src ${app_src})
-source_group("" FILES ${app_src})
+source_group("" FILES ${src})
 
 add_executable(t3d WIN32 MACOSX_BUNDLE ${src})
 target_include_directories(t3d

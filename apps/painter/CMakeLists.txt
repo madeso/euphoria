@@ -1,8 +1,10 @@
-set(app_src
+###############################################################################
+# duk project
+
+set(src
     src/painter/main.cc
 )
-set(src ${app_src})
-source_group("" FILES ${app_src})
+source_group("" FILES ${src})
 
 add_executable(painter WIN32 MACOSX_BUNDLE ${src})
 target_include_directories(painter

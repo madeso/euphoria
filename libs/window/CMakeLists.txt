@@ -1,3 +1,6 @@
+###############################################################################
+# window project
+
 set(app_src
     data/NotoSansDisplay-Regular.ttf
     data/material_design_icons.ttf
@@ -20,7 +23,7 @@ set(src ${app_src})
 source_group("" FILES ${app_src})
 
 
-# fonts
+# embed fonts
 add_custom_command(
   OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/font_material_design_icons.h"
   COMMAND  binary_to_compressed_c

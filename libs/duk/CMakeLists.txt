@@ -1,9 +1,9 @@
 ###############################################################################
 # duk project
 
-set(app_src
-    src/duk/config.h src/duk/types.h
-
+set(src
+    src/duk/config.h
+    src/duk/types.h
     src/duk/bind.cc src/duk/bind.h
     src/duk/bindclass.cc src/duk/bindclass.h
     src/duk/bindobject.cc src/duk/bindobject.h
@@ -21,8 +21,7 @@ set(app_src
     src/duk/storedreference.cc src/duk/storedreference.h
     src/duk/util.cc src/duk/util.h
 )
-source_group("" FILES ${app_src})
-set(src ${app_src})
+source_group("" FILES ${src})
 
 add_library(duk STATIC ${src})
 target_include_directories(duk

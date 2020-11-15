@@ -1,12 +1,14 @@
-set(app_src
+###############################################################################
+# editor project
+
+set(src
     src/editor/browser.cc
     src/editor/browser.h
     src/editor/main.cc
     src/editor/scimed.cc
     src/editor/scimed.h
 )
-set(src ${app_src})
-source_group("" FILES ${app_src})
+source_group("" FILES ${src})
 
 # file_types is only plain gaf
 # when gaf suppors several outputs, link with a file_types_imgui library instead

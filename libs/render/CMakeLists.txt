@@ -1,3 +1,6 @@
+###############################################################################
+# render project
+
 set(app_src
     src/render/actor.cc src/render/actor.h
     src/render/attributebinder.cc src/render/attributebinder.h
@@ -50,6 +53,10 @@ target_link_libraries(render
     stb_rect_pack
 )
 
+
+###############################################################################
+# example projects
+
 file(GLOB all_examples_src examples/*.cc)
 source_group("" FILES ${all_examples_src})
 
@@ -58,4 +65,3 @@ target_link_libraries(examples-3d core render window imgui sdl2)
 
 add_executable(examples-2d WIN32 MACOSX_BUNDLE examples/2d.cc)
 target_link_libraries(examples-2d core render window imgui sdl2)
-

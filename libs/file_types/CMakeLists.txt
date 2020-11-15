@@ -1,3 +1,6 @@
+###############################################################################
+# file_types project
+
 SET(Gaf_CUSTOM_PREFIX gaf_)
 GAF_GENERATE_CPP(PROTO_SRCS PROTO_HDRS
     src/file_types/enum.gaf

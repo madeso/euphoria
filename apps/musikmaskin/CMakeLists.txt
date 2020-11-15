@@ -1,8 +1,10 @@
-set(app_src
+###############################################################################
+# musikmaskin project
+
+set(src
     src/musikmaskin/main.cc
 )
-set(src ${app_src})
-source_group("" FILES ${app_src})
+source_group("" FILES ${src})
 
 # todo(Gustav): bring back rtmidi as a cmake build but properly this time
 set(RTMIDI_ROOT ../../external/rtmidi)

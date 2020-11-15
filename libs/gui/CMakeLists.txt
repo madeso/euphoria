@@ -1,4 +1,7 @@
-set(app_src
+###############################################################################
+# gui project
+
+set(src
     src/gui/button.cc src/gui/button.h
     src/gui/container.cc src/gui/container.h
     src/gui/layout.cc src/gui/layout.h
@@ -13,8 +16,7 @@ set(app_src
     src/gui/visitor.cc src/gui/visitor.h
     src/gui/widget.cc src/gui/widget.h
 )
-set(src ${app_src})
-source_group("" FILES ${app_src})
+source_group("" FILES ${src})
 
 add_library(gui STATIC ${src})
 target_include_directories(gui
@@ -26,6 +28,10 @@ target_link_libraries(gui
     render
     file_types
 )
+
+
+###############################################################################
+# example project
 
 file(GLOB all_examples_src examples/*.cc)
 source_group("" FILES ${all_examples_src})

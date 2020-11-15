@@ -6,4 +6,3 @@ add_subdirectory(minsynth)
 add_subdirectory(render)
 add_subdirectory(tests)
 add_subdirectory(window)
-

@@ -1,4 +1,7 @@
-set(app_src
+###############################################################################
+# engine project
+
+set(src
     src/engine/cameradata.cc src/engine/cameradata.h
     src/engine/components.cc src/engine/components.h
     src/engine/dukintegration.cc src/engine/dukintegration.h
@@ -11,8 +14,7 @@ set(app_src
     src/engine/systems.cc src/engine/systems.h
     src/engine/main.cc
 )
-source_group("" FILES ${app_src})
-set(src ${app_src})
+source_group("" FILES ${src})
 
 add_executable(engine WIN32 MACOSX_BUNDLE ${src})
 target_include_directories(engine
