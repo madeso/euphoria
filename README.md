@@ -1,4 +1,4 @@
-# Euphoria
+![euphoria logo](data/branding/euphoria-logo-1280.png)
 
 [![Build Status](https://travis-ci.org/madeso/euphoria.svg?branch=master)](https://travis-ci.org/madeso/euphoria)
 [![Build status](https://ci.appveyor.com/api/projects/status/vmq6ojb3xx01pwhk/branch/master?svg=true)](https://ci.appveyor.com/project/madeso/euphoria/branch/master)
