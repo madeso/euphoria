@@ -13,7 +13,7 @@ build
 *.swp
 
 # doxygenerated files
-generated-docs/
+docs/generated/html/
 
 # generated now
 .clang-tidy
