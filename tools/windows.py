@@ -105,7 +105,8 @@ def on_cmd_build(arg):
 
 def on_cmd_test(_):
     """callback for test cmd"""
-    tests = os.path.join(BUILD_FOLDER, 'src', 'tests', 'Release', 'tests.exe')
+    # todo(Gustav): figure out how to run all tests
+    tests = os.path.join(BUILD_FOLDER, 'libs', 'core', 'Release', 'core_test.exe')
     print('Running tests {}'.format(tests))
     lines = run([tests, '-r', 'junit']).decode('utf-8')
     print('Test result: {}'.format(len(lines.splitlines())))

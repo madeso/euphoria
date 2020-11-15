@@ -64,7 +64,10 @@ script:
   - cmake ..
   - cmake -DCMAKE_BUILD_TYPE=$CONF -DEXTRA_FLAGS="$GCOV_FLAGS" ..
   - cmake --build .
-  - ./src/tests/tests
+  - ./libs/tests/tests_test
+  - ./libs/core/core_test
+  - ./libs/minsynth/minsynth_test
+  - ./libs/duk/duk_test
 
 # temporarily disabled
 #  - cd ..
