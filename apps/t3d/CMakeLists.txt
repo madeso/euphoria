@@ -1,0 +1,28 @@
+set(app_src
+    src/t3d/editor.cc src/t3d/editor.h
+    src/t3d/filelist.cc src/t3d/filelist.h
+    src/t3d/grid.cc src/t3d/grid.h
+    src/t3d/main.cc
+    src/t3d/t3d.cc src/t3d/t3d.h
+    src/t3d/tilelibrary.cc src/t3d/tilelibrary.h
+    src/t3d/tool.cc src/t3d/tool.h
+    src/t3d/tool_notool.cc src/t3d/tool_notool.h
+    src/t3d/tool_placemeshonplane.cc src/t3d/tool_placemeshonplane.h
+    src/t3d/toolstack.cc src/t3d/toolstack.h
+)
+set(src ${app_src})
+source_group("" FILES ${app_src})
+
+add_executable(t3d WIN32 MACOSX_BUNDLE ${src})
+target_include_directories(t3d
+    PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}/src
+)
+target_link_libraries(t3d
+    core
+    render
+    window
+    imgui
+    sdl2
+)
+

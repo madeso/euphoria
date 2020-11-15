@@ -6,8 +6,6 @@ cmake-build-debug
 build
 .vscode
 
-dist/scimed-debug
-
 # vi undo files
 *.un~
 
@@ -22,7 +20,4 @@ generated-docs/
 
 # ignoring junk folder
 junk/
-
-# temporary until we can work on musikmaskin
-dist/musikmaskin
 

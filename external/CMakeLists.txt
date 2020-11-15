@@ -118,5 +118,5 @@ target_include_directories(imgui
     ${CMAKE_CURRENT_SOURCE_DIR}/imgui/fake/
 )
 target_compile_definitions(imgui PRIVATE -DIMGUI_IMPL_OPENGL_LOADER_GLAD)
-target_link_libraries(imgui PUBLIC sdl2 glad)
+target_link_libraries(imgui PUBLIC core sdl2 glad) # need core for assert override
 

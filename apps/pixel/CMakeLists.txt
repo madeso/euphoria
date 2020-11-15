@@ -1,0 +1,19 @@
+set(app_src
+    src/pixel/main.cc
+)
+set(src ${app_src})
+source_group("" FILES ${app_src})
+
+add_executable(pixel WIN32 MACOSX_BUNDLE ${src})
+target_include_directories(pixel
+    PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}/src
+)
+target_link_libraries(pixel
+    core
+    render
+    window
+    imgui
+    sdl2
+)
+

@@ -1,0 +1,7 @@
+add_subdirectory(editor)
+add_subdirectory(engine)
+add_subdirectory(musikmaskin)
+add_subdirectory(painter)
+add_subdirectory(pixel)
+add_subdirectory(t3d)
+

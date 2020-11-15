@@ -7,6 +7,8 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/tools/cmake-modules")
+
 option(BUILD_ENTITY_DEBUG_COMPONENT "when converting components, (debug) assert of bad casts" OFF)
 set(BUILD_TYPEINFO_IMPL "rtti" CACHE STRING "rtti, ctti, custom_hashed, custom_rt")
 set(EXTRA_FLAGS "" CACHE STRING "extra flags to both compile and link")
@@ -35,18 +37,14 @@ endif()
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${EXTRA_FLAGS}")
 SET(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${EXTRA_FLAGS}")
 
-
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/src/cmake-modules")
-
-set(Gaf_CUSTOM_ARGUMENTS_FROM_FILE ${CMAKE_CURRENT_SOURCE_DIR}/src/gaf_options.txt)
+set(MACOSX_BUNDLE_INFO_PLIST "${CMAKE_CURRENT_SOURCE_DIR}/tools/osx-bundle.plist")
+set(Gaf_CUSTOM_ARGUMENTS_FROM_FILE ${CMAKE_CURRENT_SOURCE_DIR}/tools/gaf_options.txt)
 include(${CMAKE_CURRENT_SOURCE_DIR}/external/gaf/gaf.cmake)
 
-add_subdirectory(external)
+
 
 include_directories(SYSTEM ${CMAKE_CURRENT_SOURCE_DIR}/external/range-v3/include)
 include_directories(SYSTEM ${CMAKE_CURRENT_SOURCE_DIR}/external/rapidjson/include)
-
-set(MACOSX_BUNDLE_INFO_PLIST "${CMAKE_CURRENT_SOURCE_DIR}/src/osx-bundle.plist")
 
 # compiler flags
 if(${MSVC})
@@ -66,7 +64,6 @@ if(${MSVC})
 endif()
 
 # disable rtti
-
 if(NOT BUILD_TYPEINFO_IMPL_RTTI)
     if(MSVC)
         add_compile_options(/GR-)
@@ -94,123 +91,20 @@ else()
     add_compile_options(-Wno-error=deprecated)
 endif()
 
-
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
-
 if(BUILD_TYPEINFO_IMPL_CTTI)
     include_directories(SYSTEM external/ctti/include)
 endif()
 
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/src/config_in.h ${CMAKE_CURRENT_BINARY_DIR}/euph_generated_config.h)
+# todo(Gustav): move to "file" specific config files and not a single global one
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/tools/config_in.h ${CMAKE_CURRENT_BINARY_DIR}/euph_generated_config.h)
 include_directories(SYSTEM ${CMAKE_CURRENT_BINARY_DIR})
-
 
 add_definitions(-DIMGUI_USER_CONFIG="imgui_euphoria_config.h")
 add_executable(binary_to_compressed_c external/imgui/imgui/misc/fonts/binary_to_compressed_c.cpp)
 
+set(file_types_folder ${CMAKE_CURRENT_SOURCE_DIR}/libs/file_types/src/file_types)
 
-add_subdirectory(src/file_types)
-add_subdirectory(src/core)
-add_subdirectory(src/minsynth)
-add_subdirectory(src/render)
-add_subdirectory(src/window)
-add_subdirectory(src/gui)
-add_subdirectory(src/duk)
-add_subdirectory(src/tests)
-add_subdirectory(src/engine)
-add_subdirectory(src/t3d)
-add_subdirectory(src/editor)
-add_subdirectory(src/painter)
-add_subdirectory(src/pixel)
-add_subdirectory(src/musikmaskin)
-
-# here comes all the sample files
-
-file(GLOB all_samples_src src/samples/*.cc)
-source_group("" FILES ${all_samples_src})
-
-# single file applications that could be useful
-
-add_executable(palextract src/samples/palette_extract.cc)
-target_link_libraries(palextract core)
-
-add_executable(collage src/samples/collage.cc)
-target_link_libraries(collage core)
-
-add_executable(tabletool src/samples/tabletool.cc)
-target_link_libraries(tabletool core)
-
-add_executable(base64 src/samples/base64.cc)
-target_link_libraries(base64 core)
-
-add_executable(markov src/samples/markov_main.cc)
-target_link_libraries(markov core)
-
-add_executable(tracery src/samples/tracery.cc)
-target_link_libraries(tracery core)
-
-add_executable(raytracer src/samples/raytracer_main.cc)
-target_link_libraries(raytracer core)
-
-
-
-# samples applications that serve no purpose other than
-# testing the libraries and perhaps generate some pretty visuals :)
-
-add_executable(samples-3d WIN32 MACOSX_BUNDLE src/samples/3d.cc)
-target_link_libraries(samples-3d core render window imgui sdl2)
-
-add_executable(samples-2d WIN32 MACOSX_BUNDLE src/samples/2d.cc)
-target_link_libraries(samples-2d core gui render window imgui sdl2)
-
-add_executable(samples-gui WIN32 MACOSX_BUNDLE src/samples/gui.cc)
-target_link_libraries(samples-gui core gui render window imgui sdl2)
-
-add_executable(samples-drunken-bishop src/samples/drunken_bishop_main.cc)
-target_link_libraries(samples-drunken-bishop core)
-
-add_executable(samples-rng src/samples/rng_main.cc)
-target_link_libraries(samples-rng core)
-
-add_executable(samples-font src/samples/font_main.cc)
-target_link_libraries(samples-font core)
-
-add_executable(samples-palette src/samples/palette_main.cc)
-target_link_libraries(samples-palette core)
-
-add_executable(samples-chatbot src/samples/chatbot.cc)
-target_link_libraries(samples-chatbot core)
-
-add_executable(samples-coldet src/samples/coldet.cc)
-target_link_libraries(samples-coldet core)
-
-add_executable(samples-draw-test src/samples/draw_test.cc)
-target_link_libraries(samples-draw-test core)
-
-add_executable(samples-img src/samples/img.cc)
-target_link_libraries(samples-img core)
-
-add_executable(samples-poisson-test src/samples/poisson_test.cc)
-target_link_libraries(samples-poisson-test core)
-
-add_executable(samples-svg-dump src/samples/svg_dump.cc)
-target_link_libraries(samples-svg-dump core)
-
-add_executable(samples-three-dump src/samples/three_dump.cc)
-target_link_libraries(samples-three-dump core)
-
-add_executable(samples-identicon src/samples/identicon_main.cc)
-target_link_libraries(samples-identicon core)
-
-add_executable(samples-canvas src/samples/canvas_main.cc)
-target_link_libraries(samples-canvas core)
-
-add_executable(samples-tree src/samples/tree.cc)
-target_link_libraries(samples-tree core)
-
-add_executable(samples-worldgen src/samples/worldgen.cc)
-target_link_libraries(samples-worldgen core)
-
-add_executable(samples-voronoi src/samples/voronoi.cc)
-target_link_libraries(samples-voronoi core)
+add_subdirectory(external)
+add_subdirectory(libs)
+add_subdirectory(apps)
 
