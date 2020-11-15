@@ -11,5 +11,5 @@ Euphoria is a data-driven "game engine". It's in quotes because
 
 Euphoria is under heavy development, not ready for prime time, and the final product will be focused on live programming/automatic refresh between computer and target devices (that include computers) with a feature set that lies between love2d (do whatever you like) and fps game creator(restrictive but quick prototyping).
 
-The folder structure should follow the [https://github.com/vector-of-bool/pitchfork](pitchfork layout).
+The folder structure should follow the [pitchfork layout](https://github.com/vector-of-bool/pitchfork).
 

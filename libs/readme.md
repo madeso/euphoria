@@ -1,4 +1,4 @@
-# Libraries
+# Euphoria libraries
 
 ### core
 contains core functionality like math and other things that doesn't require external libraries that can't be embedded
