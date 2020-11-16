@@ -26,7 +26,7 @@ target_link_libraries(tests
 # test project
 
 set(test_src
-    src/tests/tests.test.cc
+    src/tests/stringeq.test.cc
 )
 set(test_main_src test/main.cc)
 source_group("" FILES ${test_src})
