@@ -16,6 +16,12 @@ target_include_directories(stb_rect_pack
     PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/stb
 )
 
+add_library(range INTERFACE)
+target_include_directories(range INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/range-v3/include)
+
+add_library(rapidjson INTERFACE)
+target_include_directories(rapidjson INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/rapidjson/include)
+
 add_library(font8x8 INTERFACE)
 target_include_directories(font8x8 INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/font8x8)
 

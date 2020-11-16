@@ -19,4 +19,8 @@ add_library(file_types STATIC
 target_include_directories(file_types
     PUBLIC ${CMAKE_CURRENT_BINARY_DIR}
 )
+target_link_libraries(file_types
+    PRIVATE
+    rapidjson
+)
 

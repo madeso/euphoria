@@ -187,9 +187,10 @@ target_link_libraries(core
     PUBLIC
     magic_enum
     spdlog
+    rapidjson
     PRIVATE
     stb_image stb_image_write stb_rect_pack
-    font8x8 font8x13 aheasing duktape file_types
+    font8x8 font8x13 aheasing duktape file_types range
     assimp freetype
 )
 
