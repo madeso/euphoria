@@ -119,6 +119,7 @@ set(app_src
     src/core/mesh.cc src/core/mesh.h
     src/core/minmax.h
     src/core/multisort.h
+    src/core/nlp_sentance.cc src/core/nlp_sentance.h
     src/core/noncopyable.h
     src/core/numeric.cc src/core/numeric.h
     src/core/orbitcontroller.cc src/core/orbitcontroller.h
@@ -219,6 +220,7 @@ set(test_src
     src/core/loadedfont.test.cc
     src/core/mat4.test.cc
     src/core/multisort.test.cc
+    src/core/nlp_sentance.test.cc
     src/core/numeric.test.cc
     src/core/pack.test.cc
     src/core/quat.test.cc

@@ -378,12 +378,12 @@ namespace euphoria::core
     }
 
 
-    char
+    bool
     IsNumber(char b)
     {
         if(b >= '0' && b <= '9')
-            return 1;
-        return 0;
+            return true;
+        return false;
     }
 
     int

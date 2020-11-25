@@ -18,6 +18,10 @@ namespace euphoria::core
     */
 
 
+   bool
+   IsNumber(char b);
+
+
     /** Space characters.
     @returns the space characters.
     */
