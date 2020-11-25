@@ -70,40 +70,40 @@ namespace
         const Rgbi& foreColor,
         const Rgbi& backColor
     ) {
-	    patch %= patchTypes.size();
-	    turn %= 4;
-	    if (patch == 15)
+        patch %= patchTypes.size();
+        turn %= 4;
+        if (patch == 15)
         {
-		    invert = !invert;
+            invert = !invert;
         }
 
-	    auto vertices = patchTypes[patch];
-	    auto offset = size / 2.0f;
-	    auto scale = size / 4.0f;
+        auto vertices = patchTypes[patch];
+        auto offset = size / 2.0f;
+        auto scale = size / 4.0f;
 
       auto ctx = Canvas{image};
 
-	    // paint background
-	    ctx.fillStyle = invert ? foreColor : backColor;
-	    ctx.fillRect(x, y, size, size);
+        // paint background
+        ctx.fillStyle = invert ? foreColor : backColor;
+        ctx.fillRect(x, y, size, size);
 
-	    // build patch path
-	    ctx.translate(x + offset, y + offset);
-	    ctx.rotate(turn * Pi() / 2);
-	    ctx.beginPath();
-	    ctx.moveTo((vertices[0] % 5 * scale - offset), (Floori(vertices[0] / 5.0f) * scale - offset));
-	    for (std::size_t i = 1; i < vertices.size(); i++)
+        // build patch path
+        ctx.translate(x + offset, y + offset);
+        ctx.rotate(turn * Pi() / 2);
+        ctx.beginPath();
+        ctx.moveTo((vertices[0] % 5 * scale - offset), (Floori(vertices[0] / 5.0f) * scale - offset));
+        for (std::size_t i = 1; i < vertices.size(); i++)
         {
-		    ctx.lineTo((vertices[i] % 5 * scale - offset), (Floori(vertices[i] / 5.0f) * scale - offset));
+            ctx.lineTo((vertices[i] % 5 * scale - offset), (Floori(vertices[i] / 5.0f) * scale - offset));
         }
-	    ctx.closePath();
-	
-	    // offset and rotate coordinate space by patch position (x, y) and
-	    // 'turn' before rendering patch shape
+        ctx.closePath();
+    
+        // offset and rotate coordinate space by patch position (x, y) and
+        // 'turn' before rendering patch shape
 
-	    // render rotated patch using fore color (back color if inverted)
-	    ctx.fillStyle = invert ? backColor : foreColor;
-	    ctx.fill();
+        // render rotated patch using fore color (back color if inverted)
+        ctx.fillStyle = invert ? backColor : foreColor;
+        ctx.fill();
     }
 }
 
@@ -113,34 +113,34 @@ namespace euphoria::core
     {
         ASSERT(image);
         ASSERT(image->GetWidth() == image->GetHeight());
-	    auto patchSize = image->GetHeight() / 3;
-	    auto middleType = centerPatchTypes[code & 3];
-	    auto middleInvert = ((code >> 2) & 1) != 0;
-	    auto cornerType = (code >> 3) & 15;
-	    auto cornerInvert = ((code >> 7) & 1) != 0;
-	    auto cornerTurn = (code >> 8) & 3;
-	    auto sideType = (code >> 10) & 15;
-	    auto sideInvert = ((code >> 14) & 1) != 0;
-	    auto sideTurn = (code >> 15) & 3;
-	    auto blue = (code >> 16) & 31;
-	    auto green = (code >> 21) & 31;
-	    auto red = (code >> 27) & 31;
+        auto patchSize = image->GetHeight() / 3;
+        auto middleType = centerPatchTypes[code & 3];
+        auto middleInvert = ((code >> 2) & 1) != 0;
+        auto cornerType = (code >> 3) & 15;
+        auto cornerInvert = ((code >> 7) & 1) != 0;
+        auto cornerTurn = (code >> 8) & 3;
+        auto sideType = (code >> 10) & 15;
+        auto sideInvert = ((code >> 14) & 1) != 0;
+        auto sideTurn = (code >> 15) & 3;
+        auto blue = (code >> 16) & 31;
+        auto green = (code >> 21) & 31;
+        auto red = (code >> 27) & 31;
 
         const auto C = [](int i) { return static_cast<uint8_t>(KeepWithin(Range<int>{0, 255}, i)); };
-	    auto foreColor = Rgbi(C(red << 3), C(green << 3), C(blue << 3));
-	    auto backColor = Rgbi(255, 255, 255);
-	
-	    // middle patch
-	    render_identicon_patch(image, patchSize, patchSize, patchSize, middleType, 0, middleInvert, foreColor, backColor);
-	    // side patchs, starting from top and moving clock-wise
-	    render_identicon_patch(image, patchSize, 0, patchSize, sideType, sideTurn++, sideInvert, foreColor, backColor);
-	    render_identicon_patch(image, patchSize * 2, patchSize, patchSize, sideType, sideTurn++, sideInvert, foreColor, backColor);
-	    render_identicon_patch(image, patchSize, patchSize * 2, patchSize, sideType, sideTurn++, sideInvert, foreColor, backColor);
-	    render_identicon_patch(image, 0, patchSize, patchSize, sideType, sideTurn++, sideInvert, foreColor, backColor);
-	    // corner patchs, starting from top left and moving clock-wise
-	    render_identicon_patch(image, 0, 0, patchSize, cornerType, cornerTurn++, cornerInvert, foreColor, backColor);
-	    render_identicon_patch(image, patchSize * 2, 0, patchSize, cornerType, cornerTurn++, cornerInvert, foreColor, backColor);
-	    render_identicon_patch(image, patchSize * 2, patchSize * 2, patchSize, cornerType, cornerTurn++, cornerInvert, foreColor, backColor);
-	    render_identicon_patch(image, 0, patchSize * 2, patchSize, cornerType, cornerTurn++, cornerInvert, foreColor, backColor);
+        auto foreColor = Rgbi(C(red << 3), C(green << 3), C(blue << 3));
+        auto backColor = Rgbi(255, 255, 255);
+    
+        // middle patch
+        render_identicon_patch(image, patchSize, patchSize, patchSize, middleType, 0, middleInvert, foreColor, backColor);
+        // side patchs, starting from top and moving clock-wise
+        render_identicon_patch(image, patchSize, 0, patchSize, sideType, sideTurn++, sideInvert, foreColor, backColor);
+        render_identicon_patch(image, patchSize * 2, patchSize, patchSize, sideType, sideTurn++, sideInvert, foreColor, backColor);
+        render_identicon_patch(image, patchSize, patchSize * 2, patchSize, sideType, sideTurn++, sideInvert, foreColor, backColor);
+        render_identicon_patch(image, 0, patchSize, patchSize, sideType, sideTurn++, sideInvert, foreColor, backColor);
+        // corner patchs, starting from top left and moving clock-wise
+        render_identicon_patch(image, 0, 0, patchSize, cornerType, cornerTurn++, cornerInvert, foreColor, backColor);
+        render_identicon_patch(image, patchSize * 2, 0, patchSize, cornerType, cornerTurn++, cornerInvert, foreColor, backColor);
+        render_identicon_patch(image, patchSize * 2, patchSize * 2, patchSize, cornerType, cornerTurn++, cornerInvert, foreColor, backColor);
+        render_identicon_patch(image, 0, patchSize * 2, patchSize, cornerType, cornerTurn++, cornerInvert, foreColor, backColor);
     }
 }

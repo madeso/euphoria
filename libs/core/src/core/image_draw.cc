@@ -122,9 +122,9 @@ namespace euphoria::core
             }
 
             auto a = poly[0];
-	        auto in = RayIntersectsSegment(p, *poly.rbegin(), a);
+            auto in = RayIntersectsSegment(p, *poly.rbegin(), a);
 
-	        for(auto i = poly.begin() + 1; i != poly.end(); ++i)
+            for(auto i = poly.begin() + 1; i != poly.end(); ++i)
             {
                 const auto b = *i;
                 if(RayIntersectsSegment(p, a, b))

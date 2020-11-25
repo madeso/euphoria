@@ -129,10 +129,10 @@ TEST_CASE("tracery-all", "[tracery]")
     {
         const auto loaded = g.LoadFromString(R"(
       {
-        "dog": "dog",
+          "dog": "dog",
           "name": ["dog"]
-        ,	"story": ["#hero# is good"]
-        ,	"origin": ["#[hero:#name#]story#"]
+        , "story": ["#hero# is good"]
+        , "origin": ["#[hero:#name#]story#"]
       }
     )");
         REQUIRE(loaded);

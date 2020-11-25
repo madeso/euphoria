@@ -186,7 +186,7 @@ main(int argc, char** argv)
             | ImGuiWindowFlags_NoMove
             | ImGuiWindowFlags_NoScrollbar
             | ImGuiWindowFlags_NoSavedSettings
-		    ;
+            ;
         ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0);
         ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0);
         const auto show_toolbar = ImGui::Begin("TOOLBAR", NULL, toolbar_flags);
