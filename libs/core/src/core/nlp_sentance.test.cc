@@ -35,6 +35,15 @@ TEST_CASE("nlp-sentance", "[nlp]")
         REQUIRE(StringEq(list[0], {"Hello", "world"}));
     }
 
+    SECTION("advanced parse")
+    {
+        const auto [result, list] = Parse("Dog is good? Lists are super-long vectors.");
+        REQUIRE(result);
+        REQUIRE(list.size() == 2);
+        REQUIRE(StringEq(list[0], {"Dog", "is", "good", "?"}));
+        REQUIRE(StringEq(list[1], {"Lists", "are", "super-long", "vectors", "."}));
+    }
+
     SECTION("to string")
     {
         REQUIRE(StringEq("Hello world, I am dog.", SentanceToString({"Hello", "world", ",", "I", "am", "dog", "."})));
