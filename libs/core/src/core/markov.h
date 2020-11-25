@@ -15,7 +15,7 @@ namespace euphoria::core::markov
     struct Some
     {
         std::deque<T> value;
-        size_t        max;
+        size_t max;
         explicit Some(size_t m) : max(m) {}
         void
         Add(T t)
@@ -54,7 +54,7 @@ namespace euphoria::core::markov
     template <typename T>
     struct ProbabilityBuilder
     {
-        int              total = 0;
+        int total = 0;
         std::map<T, int> data;
 
         void
@@ -89,13 +89,13 @@ namespace euphoria::core::markov
     struct Chain
     {
         std::map<std::deque<T>, Probability<std::shared_ptr<T>>> next;
-        size_t                                                   order;
+        size_t order;
 
         std::vector<T>
         Generate(core::Random* rnd) const
         {
             std::vector<T> r;
-            Some<T>        memory {order};
+            Some<T> memory {order};
             while(true)
             {
                 auto found = next.find(memory.value);
@@ -116,7 +116,7 @@ namespace euphoria::core::markov
     struct ChainBuilder
     {
         std::map<std::deque<T>, ProbabilityBuilder<std::shared_ptr<T>>> next;
-        size_t                                                          order;
+        size_t order;
 
         ChainBuilder(int o) : order(o) {}
 
@@ -149,6 +149,6 @@ namespace euphoria::core::markov
         }
     };
 
-}  // namespace euphoria::core::markov
+} // namespace euphoria::core::markov
 
 #endif  // CORE_MARKOV_H

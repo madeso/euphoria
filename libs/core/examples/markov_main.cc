@@ -6,8 +6,10 @@
 #include "core/argparse.h"
 #include "core/stringmerger.h"
 
-namespace core   = euphoria::core;
+
+namespace core = euphoria::core;
 namespace markov = euphoria::core::markov;
+
 
 std::vector<char>
 C(const std::string& str)
@@ -15,17 +17,21 @@ C(const std::string& str)
     return std::vector<char> {str.begin(), str.end()};
 }
 
+
 std::string
 C(const std::vector<char>& v)
 {
     return std::string {v.begin(), v.end()};
 }
 
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
 using Sentance = std::vector<std::string>;
+
 
 bool
 IsCharLower(char c)
@@ -33,17 +39,20 @@ IsCharLower(char c)
     return 'a' <= c && c <= 'z';
 }
 
+
 bool
 IsCharUpper(char c)
 {
     return 'A' <= c && c <= 'Z';
 }
 
+
 bool
 IsNumber(char c)
 {
     return '0' <= c && c <= '9';
 }
+
 
 bool
 IsWordChar(char c)
@@ -53,6 +62,7 @@ IsWordChar(char c)
     return IsCharUpper(c) || IsCharLower(c) || IsNumber(c) || c == '\''
            || c == '-';
 }
+
 
 bool
 IsWhitespace(char c)
@@ -67,6 +77,7 @@ IsWhitespace(char c)
     }
 }
 
+
 bool
 IsEndOfSentance(char c)
 {
@@ -80,6 +91,7 @@ IsEndOfSentance(char c)
     }
 }
 
+
 bool
 IsCommaLike(char c)
 {
@@ -87,7 +99,9 @@ IsCommaLike(char c)
     return SPECIAL_WORDS.find(c) != std::string::npos;
 }
 
+
 using OnSentance = std::function<void(const Sentance&)>;
+
 
 int
 CharCode(char c)
@@ -95,15 +109,16 @@ CharCode(char c)
     return static_cast<int>(static_cast<unsigned char>(c));
 }
 
+
 struct Parser
 {
-    bool        ok = true;
+    bool ok = true;
     std::string buffer;
-    Sentance    words;
-    OnSentance  on_sentance;
+    Sentance words;
+    OnSentance on_sentance;
 
     int line = 1;
-    int ch   = 0;
+    int ch = 0;
 
     void
     AddWord()
@@ -180,6 +195,7 @@ struct Parser
     }
 };
 
+
 bool
 ParseSentances(std::ifstream& data, OnSentance on_sentance)
 {
@@ -209,11 +225,12 @@ ParseSentances(std::ifstream& data, OnSentance on_sentance)
     return parser.ok;
 }
 
+
 std::string
 SentanceToString(const Sentance& s)
 {
     std::ostringstream ss;
-    bool               first = true;
+    bool first = true;
 
     for(const auto& w: s)
     {
@@ -237,6 +254,7 @@ SentanceToString(const Sentance& s)
 
     return ss.str();
 }
+
 
 void
 MarkovSentance(const std::string& file, int memory, int count)
@@ -262,7 +280,7 @@ MarkovSentance(const std::string& file, int memory, int count)
     }
 
     core::Random rnd;
-    auto         b = m.Build();
+    auto b = m.Build();
 
     for(int i = 0; i < count; i += 1)
     {
@@ -271,10 +289,11 @@ MarkovSentance(const std::string& file, int memory, int count)
     }
 }
 
+
 void
 MarkovWord(const std::string& file, int memory, int count)
 {
-    core::Random               rnd;
+    core::Random rnd;
     markov::ChainBuilder<char> m {memory};
 
     std::ifstream data;
@@ -301,6 +320,7 @@ MarkovWord(const std::string& file, int memory, int count)
         std::cout << C(b.Generate(&rnd)) << "\n";
     }
 }
+
 
 int
 main(int argc, char* argv[])
