@@ -45,8 +45,6 @@ set(app_src_math
 )
 
 set(app_src_cli
-    src/core/cli_position.cc src/core/cli_position.h
-    src/core/cli_progress_bar.cc src/core/cli_progress_bar.h
     src/core/cli_progress_dots.cc src/core/cli_progress_dots.h
     src/core/cp437.cc src/core/cp437.h
     src/core/ctree.cc src/core/ctree.h
