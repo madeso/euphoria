@@ -43,9 +43,7 @@ namespace euphoria::core
     @returns the trimmed string.
     */
     std::string
-    TrimRight(
-            const std::string& string_to_trim,
-            const std::string& trim_characters = kSpaceCharacters);
+    TrimRight(const std::string& string_to_trim, const std::string& trim_characters = kSpaceCharacters);
 
 
     /** Remove characters from the left, stops at invalid character.
@@ -54,9 +52,7 @@ namespace euphoria::core
     @returns the trimmed string.
     */
     std::string
-    TrimLeft(
-            const std::string& string_to_trim,
-            const std::string& trim_characters = kSpaceCharacters);
+    TrimLeft(const std::string& string_to_trim, const std::string& trim_characters = kSpaceCharacters);
 
 
     /** Remove characters from both the start and the end.
@@ -65,8 +61,7 @@ namespace euphoria::core
     @returns the trimmed string.
     */
     std::string
-    Trim(const std::string& string_to_trim,
-         const std::string& trim_characters = kSpaceCharacters);
+    Trim(const std::string& string_to_trim, const std::string& trim_characters = kSpaceCharacters);
 
 
     /** Tests if a string starts with another string.
@@ -123,10 +118,7 @@ namespace euphoria::core
     @param to_replace the string to replace it.
     */
     void
-    StringReplace(
-            std::string*       string,
-            const std::string& to_find,
-            const std::string& to_replace);
+    StringReplace(std::string* string, const std::string& to_find, const std::string& to_replace);
 
 
     /** Replace all occurrences in a string.
@@ -136,17 +128,11 @@ namespace euphoria::core
     @returns the modified string.
     */
     const std::string
-    StringReplace(
-            const std::string& string,
-            const std::string& to_find,
-            const std::string& to_replace);
+    StringReplace(const std::string& string, const std::string& to_find, const std::string& to_replace);
 
 
     std::string
-    ReplaceWithCharacter(
-            const std::string& string,
-            const std::string& to_find,
-            const char         to_replace);
+    ReplaceWithCharacter(const std::string& string, const std::string& to_find, const char to_replace);
 
 
     /** Copy a string to a character buffer, adding null terminator at the end.
@@ -156,9 +142,7 @@ namespace euphoria::core
     terminator)
     */
     void
-    Copy(char*                         dst,
-         const std::string&            src,
-         const std::string::size_type& count);
+    Copy(char* dst, const std::string& src, const std::string::size_type& count);
 
     std::string
     RemoveFromEnd(const std::string& str, const std::string& end);
@@ -245,6 +229,6 @@ namespace euphoria::core
     StringCompare(const std::string& lhs, const std::string& rhs);
     /** @} */
 
-}  // namespace euphoria::core
+} // namespace euphoria::core
 
-#endif  // EUPHORIA_STRINGUTILS_H_
+#endif // EUPHORIA_STRINGUTILS_H_
