@@ -29,6 +29,14 @@ LastStrings(const std::string& str, char sep)
 
 
 std::string
+FirstChars(const std::string& str, std::size_t count)
+{
+    if(str.length() < count) { return str; }
+    else { return str.substr(0, count); }
+}
+
+
+std::string
 StripLastString(const std::string& str, char sep)
 {
     auto result = str.find(sep);

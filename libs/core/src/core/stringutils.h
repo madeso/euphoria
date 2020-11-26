@@ -37,6 +37,10 @@ namespace euphoria::core
     LastStrings(const std::string& str, char sep);
 
 
+    std::string
+    FirstChars(const std::string& str, std::size_t count);
+
+
     /** Remove characters from the right, stops at a invalid character.
     @param string_to_trim the string to remove characters from.
     @param trim_characters the characters to remove.

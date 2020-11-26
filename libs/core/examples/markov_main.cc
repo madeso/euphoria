@@ -7,6 +7,7 @@
 #include "core/argparse.h"
 #include "core/stringmerger.h"
 #include "core/stringutils.h"
+#include "core/editdistance.h"
 #include "core/nlp_sentance.h"
 #include "core/nlp_line.h"
 
@@ -100,8 +101,69 @@ MarkovWord(const std::string& file, int memory, int count)
 }
 
 
+struct Similar
+{
+    virtual ~Similar() = default;
+    virtual void Add(const std::string& line) = 0;
+    virtual bool IsSame(const std::string& generated) const = 0;
+};
+
+
+struct SimilarSet : public Similar
+{
+    std::set<std::string> existing_lines;
+
+    void Add(const std::string& line) override
+    {
+        existing_lines.emplace(line);
+    }
+
+    bool IsSame(const std::string& generated) const override
+    {
+        return existing_lines.find(generated) != existing_lines.end();
+    }
+
+    static std::unique_ptr<Similar> Create()
+    {
+         return std::make_unique<SimilarSet>();
+    }
+};
+
+
+struct SimilarEditDistance : public Similar
+{
+    std::vector<std::string> existing_lines;
+
+    void Add(const std::string& line) override
+    {
+        existing_lines.emplace_back(line);
+    }
+
+    bool IsSame(const std::string& generated) const override
+    {
+        const auto count = generated.size();
+
+        for(const auto& line: existing_lines)
+        {
+            const auto shortened = core::FirstChars(line, count);
+            const int edits = core::FastEditDistance(shortened, generated);
+            if(edits < 3)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    static std::unique_ptr<Similar> Create()
+    {
+         return std::make_unique<SimilarEditDistance>();
+    }
+};
+
+
 void
-MarkovLine(const std::string& file, int memory, int count, bool also_existing)
+MarkovLine(const std::string& file, int memory, int count, bool also_existing, bool simple)
 {
     core::Random rnd;
     markov::ChainBuilder<std::string> m {memory};
@@ -114,7 +176,7 @@ MarkovLine(const std::string& file, int memory, int count, bool also_existing)
         return;
     }
 
-    std::set<std::string> existing_lines;
+    std::unique_ptr<Similar> existing_lines = simple ? SimilarSet::Create() : SimilarEditDistance::Create();
 
     {
         std::string line;
@@ -126,7 +188,7 @@ MarkovLine(const std::string& file, int memory, int count, bool also_existing)
 
             if(!also_existing)
             {
-                existing_lines.emplace(core::ToLower(line));
+                existing_lines->Add(core::ToLower(line));
             }
             m.Add(*p);
         }
@@ -140,7 +202,7 @@ MarkovLine(const std::string& file, int memory, int count, bool also_existing)
     for(int i = 0; i < count+skipped; i += 1)
     {
         const auto generated = core::LineToString(b.Generate(&rnd));
-        if(!also_existing && existing_lines.find(core::ToLower(generated)) != existing_lines.end())
+        if(!also_existing && existing_lines->IsSame(core::ToLower(generated)))
         {
             skipped += 1;
 
@@ -223,15 +285,17 @@ main(int argc, char* argv[])
             int memory = 2;
             int count = 25;
             bool existing = false;
+            bool simple = false;
 
             line_parser->Add("file", &file);
             line_parser->Add("--memory", &memory);
             line_parser->Add("--count", &count);
             line_parser->Add("--existing", &existing);
+            line_parser->Add("--simple", &simple);
 
             return line_parser->OnComplete([&]
             {
-                MarkovLine(file, memory, count, existing);
+                MarkovLine(file, memory, count, existing, simple);
                 return core::argparse::ParseResult::Ok;
             });
         }
