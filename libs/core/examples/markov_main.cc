@@ -1,11 +1,14 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <set>
 
 #include "core/markov.h"
 #include "core/argparse.h"
 #include "core/stringmerger.h"
+#include "core/stringutils.h"
 #include "core/nlp_sentance.h"
+#include "core/nlp_line.h"
 
 namespace core = euphoria::core;
 namespace markov = euphoria::core::markov;
@@ -97,6 +100,68 @@ MarkovWord(const std::string& file, int memory, int count)
 }
 
 
+void
+MarkovLine(const std::string& file, int memory, int count, bool also_existing)
+{
+    core::Random rnd;
+    markov::ChainBuilder<std::string> m {memory};
+
+    std::ifstream data;
+    data.open(file);
+    if(!data)
+    {
+        std::cerr << "Failed to open input\n";
+        return;
+    }
+
+    std::set<std::string> existing_lines;
+
+    {
+        std::string line;
+        while(std::getline(data, line))
+        {
+            if(line.empty()) { continue; }
+            const auto p = core::ParseLine(line);
+            if(!p) { continue; }
+
+            if(!also_existing)
+            {
+                existing_lines.emplace(core::ToLower(line));
+            }
+            m.Add(*p);
+        }
+    }
+
+    std::cout << "\n";
+    auto b = m.Build();
+
+    int skipped = 0;
+
+    for(int i = 0; i < count+skipped; i += 1)
+    {
+        const auto generated = core::LineToString(b.Generate(&rnd));
+        if(!also_existing && existing_lines.find(core::ToLower(generated)) != existing_lines.end())
+        {
+            skipped += 1;
+
+            if(skipped >= 5000)
+            {
+                break;
+            }
+        }
+        else
+        {
+            std::cout << generated << "\n";
+        }
+    }
+
+    if(!also_existing)
+    {
+        std::cout << "Items skipped: " << skipped << "\n";
+    }
+}
+
+
 int
 main(int argc, char* argv[])
 {
@@ -143,6 +208,30 @@ main(int argc, char* argv[])
             return word->OnComplete([&]
             {
                 MarkovWord(file, memory, count);
+                return core::argparse::ParseResult::Ok;
+            });
+        }
+    );
+    
+    sub->Add
+    (
+        "line",
+        "parses and generates lines",
+        [&](core::argparse::SubParser* line_parser)
+        {
+            std::string file;
+            int memory = 2;
+            int count = 25;
+            bool existing = false;
+
+            line_parser->Add("file", &file);
+            line_parser->Add("--memory", &memory);
+            line_parser->Add("--count", &count);
+            line_parser->Add("--existing", &existing);
+
+            return line_parser->OnComplete([&]
+            {
+                MarkovLine(file, memory, count, existing);
                 return core::argparse::ParseResult::Ok;
             });
         }
