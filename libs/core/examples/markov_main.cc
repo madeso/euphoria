@@ -105,7 +105,7 @@ struct Similar
 {
     virtual ~Similar() = default;
     virtual void Add(const std::string& line) = 0;
-    virtual bool IsSame(const std::string& generated) const = 0;
+    virtual bool IsSame(const std::string& generated) = 0;
 };
 
 
@@ -118,7 +118,7 @@ struct SimilarSet : public Similar
         existing_lines.emplace(line);
     }
 
-    bool IsSame(const std::string& generated) const override
+    bool IsSame(const std::string& generated) override
     {
         return existing_lines.find(generated) != existing_lines.end();
     }
@@ -133,22 +133,29 @@ struct SimilarSet : public Similar
 struct SimilarEditDistance : public Similar
 {
     std::vector<std::string> existing_lines;
+    std::set<std::string> rejected;
 
     void Add(const std::string& line) override
     {
         existing_lines.emplace_back(line);
+        rejected.emplace(line);
     }
 
-    bool IsSame(const std::string& generated) const override
+    bool IsSame(const std::string& generated) override
     {
-        const auto count = generated.size();
+        if(rejected.find(generated) != rejected.end())
+        {
+            return true;
+        }
 
+        const auto count = generated.size();
         for(const auto& line: existing_lines)
         {
             const auto shortened = core::FirstChars(line, count);
             const int edits = core::FastEditDistance(shortened, generated);
             if(edits < 3)
             {
+                rejected.emplace(generated);
                 return true;
             }
         }
