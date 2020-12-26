@@ -153,7 +153,7 @@ struct SimilarEditDistance : public Similar
         {
             const auto shortened = core::FirstChars(line, count);
             const int edits = core::FastEditDistance(shortened, generated);
-            if(edits < 3)
+            if(edits < 10)
             {
                 rejected.emplace(generated);
                 return true;
@@ -221,6 +221,11 @@ MarkovLine(const std::string& file, int memory, int count, bool also_existing, b
         else
         {
             std::cout << generated << "\n";
+
+            if(!also_existing)
+            {
+                existing_lines->Add(generated);
+            }
         }
     }
 
