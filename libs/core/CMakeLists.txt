@@ -90,6 +90,7 @@ set(app_src
     src/core/cint.cc src/core/cint.h
     src/core/closestpoint.h
     src/core/console.cc src/core/console.h
+    src/core/cypher.cc src/core/cypher.h
     src/core/cpp.h
     src/core/crc32.cc src/core/crc32.h
     src/core/decompress.cc src/core/decompress.h
@@ -207,6 +208,7 @@ set(test_src
     src/core/bufferbuilder2d.test.cc
     src/core/camera.test.cc
     src/core/chatbot.test.cc
+    src/core/cypher.test.cc
     src/core/commandlineparser.test.cc
     src/core/date.test.cc
     src/core/drunken_bishop.test.cc
@@ -287,6 +289,9 @@ target_link_libraries(tracery core)
 
 add_executable(raytracer examples/raytracer_main.cc)
 target_link_libraries(raytracer core)
+
+add_executable(cypher examples/cypher_main.cc)
+target_link_libraries(cypher core)
 
 
 # examples applications that serve no purpose other than

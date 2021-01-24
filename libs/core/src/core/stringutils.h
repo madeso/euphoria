@@ -86,6 +86,13 @@ namespace euphoria::core
     EndsWith(const std::string& string_to_test, const std::string& end);
 
 
+    char
+    ToLowerChar(char b);
+
+    char
+    ToUpperChar(char b);
+
+
     /** Generate a string containing only lower characters.
     @param str the string to lower.
     @returns the lowered string.

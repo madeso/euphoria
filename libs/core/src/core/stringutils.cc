@@ -99,23 +99,20 @@ EndsWith(const std::string& string_to_test, const std::string& end)
 }
 
 
-namespace
+char
+ToLowerChar(char b)
 {
-    char
-    ToLowerChar(char b)
-    {
-        if(b >= 'A' && b <= 'Z')
-            return b - 'A' + 'a';
-        return b;
-    }
+    if(b >= 'A' && b <= 'Z')
+        return b - 'A' + 'a';
+    return b;
+}
 
-    char
-    ToUpperChar(char b)
-    {
-        if(b >= 'a' && b <= 'z')
-            return b + ('A' - 'a');
-        return b;
-    }
+char
+ToUpperChar(char b)
+{
+    if(b >= 'a' && b <= 'z')
+        return b + ('A' - 'a');
+    return b;
 }
 
 
@@ -209,7 +206,7 @@ CharToString(char c, CharToStringStyle style)
     case 30: ss << "<record separator>"; break;
     case 31: ss << "<unit separator>"; break;
     case 127: ss << "<DEL>"; break;
-    
+
     case ' ':
         ss << "<space>";
         break;
