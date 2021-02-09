@@ -16,6 +16,7 @@ The name is swedish and means "my synth", but it could also mean "minimal (or mi
  * load instruments/configurations from file
  * simple effects like reverb, delay and bitcrusher
    inspiration: https://github.com/ElectroSmash/pedal-pi
+ * look into borrowing/copying features supported by https://github.com/mbitsnbites/soundbox
  * play samples, perhaps as a instrument
  * soundfonts
  * possible nyquist plugins

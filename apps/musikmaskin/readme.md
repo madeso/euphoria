@@ -10,8 +10,9 @@ The name is swedish for "music machine".
 
  * configurable midi input
  * piano roll, with ability to only display notes in a certain scale [like](https://www.youtube.com/watch?v=fZeZ75gM9p4) [bosca ceoil](https://github.com/TerryCavanagh/boscaceoil/) and "chord notes"
- * basic tracker/table like note placing functionality
  * place pattern in a gui like fl studio/dance ejay, should be many shortcuts so there is less drag and drop though
+ * import songs from https://github.com/mbitsnbites/soundbox
+ * basic tracker/table like note placing functionality
  * node based genereator/effect connection [like](http://jeskola.net/buzz/) [buzz](https://www.youtube.com/watch?v=77zg3fJyaH0)
  * custom piano roll like [hydrogen](https://www.youtube.com/watch?v=EwR1KbX6MZg) with simple pattern generator like fl studio
  * replace minsynth with something more battle tested like https://github.com/FluidSynth/fluidsynth
