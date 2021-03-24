@@ -43,6 +43,24 @@ google-*
 -google-runtime-int
 -google-readability-namespace-comments
 
+# seems sensible but as far as I can tell it fails to detect good recursions (unless it's not supposed to)
+-misc-no-recursion
+
+# perhaps look into removing pointer arithmetic in the future, but not now
+-cppcoreguidelines-pro-bounds-pointer-arithmetic
+
+# might make sense but is pretty ugly
+-modernize-pass-by-value
+
+#################################################################################
+## Temporarily disables tobe removed later
+# temporarily: mostly in test files where it's kinda ok
+-google-build-using-namespace
+-modernize-raw-string-literal
+
+-readability-identifier-naming
+
+#################################################################################
 # the checks attribute ends here...
 # just regular (yaml) .clang-tidy settings from now on
 
