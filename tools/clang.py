@@ -11,6 +11,8 @@ import re
 import collections
 import sys
 import json
+import typing
+from timeit import default_timer as timer
 
 
 HEADER_SIZE = 80
@@ -20,6 +22,24 @@ HEADER_START = 3
 CMAKE_ADD_SUBDIRECTORY_REGEX = re.compile(r'add_subdirectory\(([^)]+)')
 
 CLANG_TIDY_WARNING_CLASS = re.compile(r'\[(\w+(-\w+)+)\]')
+
+
+def file_exist(file: str) -> bool:
+    return os.path.isfile(file)
+
+
+def get_file_data(file_name, missing_file):
+    if file_exist(file_name):
+        with open(file_name, 'r') as f:
+            return json.loads(f.read())
+    else:
+        return missing_file
+
+
+def set_file_data(file_name, data):
+    with open(file_name, 'w') as f:
+        print(json.dumps(data, sort_keys=True, indent=4), file=f)
+
 
 
 def print_header(project_name, header_character='-'):
@@ -65,17 +85,21 @@ def extract_data_from_compile_commands(root, build_folder):
         else:
             cat, f = os.path.split(rel)
             if cat in ret:
-                ret[cat].append(f)
+                ret[cat].append(file)
             else:
-                ret[cat] = [f]
+                ret[cat] = [file]
     return ret
+
+
+def clang_tidy_root(root):
+    return os.path.join(root, 'clang-tidy')
 
 
 def clang_tidy_lines(root):
     """
     return a iterator over the the "compiled" .clang-tidy lines
     """
-    with open(os.path.join(root, 'clang-tidy'), 'r') as clang_tidy_file:
+    with open(clang_tidy_root(root), 'r') as clang_tidy_file:
         write = False
         checks = []
         for line in clang_tidy_file:
@@ -111,13 +135,77 @@ def make_clang_tidy(root):
         print_clang_tidy_source(root, clang_tidy_file)
 
 
-def call_clang_tidy(project_build_folder, source_file):
+def path_to_output_store(build_folder):
+    return os.path.join(build_folder, 'clang-tidy-store.json')
+
+
+def get_store(build_folder):
+    return get_file_data(path_to_output_store(build_folder), {})
+
+
+def get_last_modification(input_files: typing.List[str]):
+    sourcemod = 0
+    for path in input_files:
+        sourcemod = max(sourcemod, os.path.getmtime(path))
+    return sourcemod
+
+
+def is_all_up_to_date(input_files: typing.List[str], output) -> bool:
+    sourcemod = get_last_modification(input_files)
+
+    destmod = 0
+    if output is not None:
+        destmod = max(destmod, output)
+
+    return sourcemod <= destmod
+
+
+def get_existing_output(root, project_build_folder, source_file):
+    store = get_store(project_build_folder)
+    root_file = clang_tidy_root(root)
+    if source_file in store:
+        stored = store[source_file]
+        if is_all_up_to_date([root_file, source_file], stored['time']):
+            return stored['output']
+
+    return None
+
+
+def set_existing_output(root, project_build_folder, source_file, existing_output):
+    store = get_store(project_build_folder)
+    root_file = clang_tidy_root(root)
+    data = {}
+    data['time'] = get_last_modification([root_file, source_file])
+    data['output'] = existing_output
+    store[source_file] = data
+    set_file_data(path_to_output_store(project_build_folder), store)
+
+
+
+
+def call_clang_tidy(root, project_build_folder, source_file):
     """
     runs clang-tidy and returns all the text output
     """
+    existing_output = get_existing_output(root, project_build_folder, source_file)
+    if existing_output is not None:
+        return existing_output
     command = ['clang-tidy', '-p', project_build_folder, source_file]
-    return subprocess.check_output(command, universal_newlines=True,
-                                   encoding='utf8', stderr=subprocess.STDOUT)
+
+    try:
+        start = timer()
+        output = subprocess.check_output(command, universal_newlines=True,
+                                    encoding='utf8', stderr=subprocess.STDOUT)
+        end = timer()
+        took = end - start
+        set_existing_output(root, project_build_folder, source_file, output)
+        print(' '*3, took)
+        return output
+    except subprocess.CalledProcessError as err:
+        print(err.returncode)
+        if err.output is not None:
+            print(err.output)
+        sys.exit(err.returncode)
 
 
 def total(counter):
@@ -127,11 +215,11 @@ def total(counter):
     return sum(counter.values())
 
 
-def run_clang_tidy(source_file, project_build_folder):
+def run_clang_tidy(root, source_file, project_build_folder):
     """
     runs the clang-tidy process, printing status to terminal
     """
-    output = call_clang_tidy(project_build_folder, source_file)
+    output = call_clang_tidy(root, project_build_folder, source_file)
     warnings = collections.Counter()
     classes = collections.Counter()
     for line in output.split('\n'):
@@ -223,7 +311,7 @@ def handle_tidy(args):
         for source_file in source_files:
             print(os.path.basename(source_file), flush=True)
             if args.nop is False:
-                warnings, classes = run_clang_tidy(source_file, project_build_folder)
+                warnings, classes = run_clang_tidy(root, source_file, project_build_folder)
                 project_counter.update(warnings)
                 total_classes.update(classes)
 
