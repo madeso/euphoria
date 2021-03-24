@@ -12,6 +12,7 @@ import collections
 import sys
 import json
 import typing
+import statistics
 from timeit import default_timer as timer
 
 
@@ -159,6 +160,10 @@ def is_all_up_to_date(input_files: typing.List[str], output) -> bool:
 
     return sourcemod <= destmod
 
+def get(dictionary, key):
+    if key in dictionary:
+        return dictionary[key]
+    return None
 
 def get_existing_output(root, project_build_folder, source_file):
     store = get_store(project_build_folder)
@@ -166,17 +171,18 @@ def get_existing_output(root, project_build_folder, source_file):
     if source_file in store:
         stored = store[source_file]
         if is_all_up_to_date([root_file, source_file], stored['time']):
-            return stored['output']
+            return stored['output'], get(stored, 'time_took') or 0.0
 
-    return None
+    return None, 0.0
 
 
-def set_existing_output(root, project_build_folder, source_file, existing_output):
+def set_existing_output(root, project_build_folder, source_file, existing_output, time):
     store = get_store(project_build_folder)
     root_file = clang_tidy_root(root)
     data = {}
     data['time'] = get_last_modification([root_file, source_file])
     data['output'] = existing_output
+    data['time_took'] = time
     store[source_file] = data
     set_file_data(path_to_output_store(project_build_folder), store)
 
@@ -187,9 +193,9 @@ def call_clang_tidy(root, project_build_folder, source_file):
     """
     runs clang-tidy and returns all the text output
     """
-    existing_output = get_existing_output(root, project_build_folder, source_file)
+    existing_output, took = get_existing_output(root, project_build_folder, source_file)
     if existing_output is not None:
-        return existing_output
+        return existing_output, took
     command = ['clang-tidy', '-p', project_build_folder, source_file]
 
     try:
@@ -198,9 +204,8 @@ def call_clang_tidy(root, project_build_folder, source_file):
                                     encoding='utf8', stderr=subprocess.STDOUT)
         end = timer()
         took = end - start
-        set_existing_output(root, project_build_folder, source_file, output)
-        print(' '*3, took)
-        return output
+        set_existing_output(root, project_build_folder, source_file, output, took)
+        return output, took
     except subprocess.CalledProcessError as err:
         print(err.returncode)
         if err.output is not None:
@@ -215,13 +220,31 @@ def total(counter):
     return sum(counter.values())
 
 
-def run_clang_tidy(root, source_file, project_build_folder):
+class FileStatistics:
+    def __init__(self):
+        self.data = {}
+
+    def add(self, file, time):
+        self.data[file] = time
+
+    def print_data(self):
+        average_value = statistics.mean(self.data.values())
+        min_name = min(self.data, key=lambda key: self.data[key])
+        max_name = max(self.data, key=lambda key: self.data[key])
+        print(f'average: {average_value:.2f}s')
+        print(f'max: {self.data[max_name]:.2f}s for {os.path.basename(max_name)}')
+        print(f'min: {self.data[min_name]:.2f}s for {os.path.basename(min_name)}')
+
+
+def run_clang_tidy(root, source_file, project_build_folder, stats):
     """
     runs the clang-tidy process, printing status to terminal
     """
-    output = call_clang_tidy(root, project_build_folder, source_file)
+    output, time_taken = call_clang_tidy(root, project_build_folder, source_file)
     warnings = collections.Counter()
     classes = collections.Counter()
+    print(f'took {time_taken:.2f}s')
+    stats.add(source_file, time_taken)
     for line in output.split('\n'):
         if 'warnings generated' in line:
             pass
@@ -303,20 +326,26 @@ def handle_tidy(args):
     total_classes = collections.Counter()
 
     data = extract_data_from_compile_commands(root, project_build_folder)
+    stats = FileStatistics()
 
-    for project, source_files in data.items():
-        print_header(project)
-        project_counter = collections.Counter()
-        # source_files = list_source_files(root, project)
-        for source_file in source_files:
-            print(os.path.basename(source_file), flush=True)
-            if args.nop is False:
-                warnings, classes = run_clang_tidy(root, source_file, project_build_folder)
-                project_counter.update(warnings)
-                total_classes.update(classes)
 
-        print_warning_counter(project_counter, project)
-        total_counter.update(project_counter)
+    try:
+        for project, source_files in data.items():
+            print_header(project)
+            project_counter = collections.Counter()
+            # source_files = list_source_files(root, project)
+            for source_file in source_files:
+                print(os.path.basename(source_file), flush=True)
+                if args.nop is False:
+                    warnings, classes = run_clang_tidy(root, source_file, project_build_folder, stats)
+                    project_counter.update(warnings)
+                    total_classes.update(classes)
+
+            print_warning_counter(project_counter, project)
+            total_counter.update(project_counter)
+            print()
+            print()
+    except KeyboardInterrupt:
         print()
         print()
 
@@ -324,6 +353,8 @@ def handle_tidy(args):
     print_warning_counter(total_counter, 'total')
     print()
     print_warning_counter(total_classes, 'classes')
+    print()
+    stats.print_data()
 
 
 ##############################################################################
