@@ -19,6 +19,7 @@ from timeit import default_timer as timer
 HEADER_SIZE = 65
 HEADER_SPACING = 1
 HEADER_START = 3
+SOURCE_FILES = ['.cc', '.h']
 
 CLANG_TIDY_WARNING_CLASS = re.compile(r'\[(\w+(-\w+)+)\]')
 
@@ -67,14 +68,6 @@ def find_build_root(root):
     return None
 
 
-def extract_files_from_compile_commands(build_folder):
-    path_to_compile_commands = os.path.join(build_folder, 'compile_commands.json')
-    with open(path_to_compile_commands, 'r') as handle:
-        compile_commands = json.load(handle)
-        for command in compile_commands:
-            yield command['file']
-
-
 def list_files_in_folder(path, extensions):
     for root, directories, files in os.walk(path):
         for file in files:
@@ -100,9 +93,8 @@ def sort_and_map_files(root, files):
     return ret
 
 
-def extract_data_from_compile_commands(root, build_folder):
-    return sort_and_map_files(root, extract_files_from_compile_commands(build_folder))
-
+def extract_data_from_root(root):
+    return sort_and_map_files(root, list_files_in_folder(root, SOURCE_FILES))
 
 def clang_tidy_root(root):
     return os.path.join(root, 'clang-tidy')
@@ -299,9 +291,7 @@ def handle_list(args):
         print('unable to find build folder')
         return
     
-    files = list_files_in_folder(root, ['.cc', '.h'])
-    if not args.new:
-        files = extract_files_from_compile_commands(project_build_folder)
+    files = list_files_in_folder(root, SOURCE_FILES)
 
     if args.sort:
         sorted = sort_and_map_files(root, files)
@@ -326,7 +316,7 @@ def handle_format(args):
         print('unable to find build folder')
         return
 
-    data = extract_data_from_compile_commands(root, project_build_folder)
+    data = extract_data_from_root(root)
 
     for project, source_files in data.items():
         print_header(project)
@@ -363,7 +353,7 @@ def handle_tidy(args):
     total_counter = collections.Counter()
     total_classes = collections.Counter()
 
-    data = extract_data_from_compile_commands(root, project_build_folder)
+    data = extract_data_from_root(root)
     stats = FileStatistics()
 
 
