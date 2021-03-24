@@ -242,14 +242,15 @@ class FileStatistics:
             print(f'{len(self.data)} files')
 
 
-def run_clang_tidy(root, source_file, project_build_folder, stats):
+def run_clang_tidy(root, source_file, project_build_folder, stats, short):
     """
     runs the clang-tidy process, printing status to terminal
     """
     output, time_taken = call_clang_tidy(root, project_build_folder, source_file)
     warnings = collections.Counter()
     classes = collections.Counter()
-    print(f'took {time_taken:.2f}s')
+    if not short:
+        print(f'took {time_taken:.2f}s')
     stats.add(source_file, time_taken)
     for line in output.split('\n'):
         if 'warnings generated' in line:
@@ -266,8 +267,9 @@ def run_clang_tidy(root, source_file, project_build_folder, stats):
                     classes[tidy_class.group(1)] += 1
             print(line)
     # print('{} warnings.'.format(total(warnings)))
-    print_warning_counter(classes, source_file)
-    print()
+    if not short:
+        print_warning_counter(classes, source_file)
+        print()
     return warnings, classes
 
 
@@ -363,33 +365,44 @@ def handle_tidy(args):
             project_counter = collections.Counter()
             # source_files = list_source_files(root, project)
             for source_file in source_files:
+                def print_name():
+                    print(os.path.basename(source_file), flush=True)
                 if args.filter is not None:
                     if args.filter not in source_file:
                         continue
                 if first_file:
-                    print_header(project)
+                    if not args.short:
+                        print_header(project)
                     first_file = False
-                print(os.path.basename(source_file), flush=True)
                 if args.nop is False:
-                    warnings, classes = run_clang_tidy(root, source_file, project_build_folder, stats)
+                    if not args.short:
+                        print_name()
+                    warnings, classes = run_clang_tidy(root, source_file, project_build_folder, stats, args.short)
+                    if args.short and len(warnings) > 0:
+                        print_name()
+                        break
                     project_counter.update(warnings)
+                    total_counter.update(warnings)
                     total_classes.update(classes)
+                else:
+                    print_name()
 
-            if not first_file:
+            if not first_file and not args.short:
                 print_warning_counter(project_counter, project)
-                total_counter.update(project_counter)
                 print()
                 print()
     except KeyboardInterrupt:
-        print()
+        if not args.short:
+            print()
         print()
 
-    print_header('TIDY REPORT')
-    print_warning_counter(total_counter, 'total')
-    print()
-    print_warning_counter(total_classes, 'classes')
-    print()
-    stats.print_data()
+    if not args.short:
+        print_header('TIDY REPORT')
+        print_warning_counter(total_counter, 'total')
+        print()
+        print_warning_counter(total_classes, 'classes')
+        print()
+        stats.print_data()
 
 
 ##############################################################################
@@ -410,6 +423,7 @@ def main():
     sub = sub_parsers.add_parser('tidy', help='do clang tidy on files')
     sub.add_argument('--nop', action='store_true', help="don't do anything")
     sub.add_argument('filter', default=None, nargs='?')
+    sub.add_argument('--short', action='store_true', help="use shorter and stop after one file")
     sub.set_defaults(func=handle_tidy)
 
     sub = sub_parsers.add_parser('format', help='do clang format on files')
