@@ -10,9 +10,8 @@ import subprocess
 import re
 import collections
 import sys
+import json
 
-
-SOURCE_EXTENSIONS = ['.cc', '.h', '.cpp']
 
 HEADER_SIZE = 80
 HEADER_SPACING = 1
@@ -21,30 +20,6 @@ HEADER_START = 3
 CMAKE_ADD_SUBDIRECTORY_REGEX = re.compile(r'add_subdirectory\(([^)]+)')
 
 CLANG_TIDY_WARNING_CLASS = re.compile(r'\[(\w+(-\w+)+)\]')
-
-
-def list_source_files(root, relative):
-    """
-    get all source files in root/relative
-    """
-    folder = os.path.join(root, relative)
-    ret = [os.path.join(folder, f) for f in os.listdir(folder)
-           if os.path.splitext(f.lower())[1] in SOURCE_EXTENSIONS]
-    ret.sort()
-    return ret
-
-
-def find_projects(root):
-    """
-    Open the cmake root file in root and find all projects it references
-    """
-    with open(os.path.join(root, 'CMakeLists.txt'), 'r') as file:
-        directories = CMAKE_ADD_SUBDIRECTORY_REGEX.findall(file.read())
-        for directory in directories:
-            if directory.startswith('external'):
-                pass
-            else:
-                yield directory
 
 
 def print_header(project_name, header_character='-'):
@@ -71,6 +46,29 @@ def find_build_root(root):
             return build
 
     return None
+
+
+def extract_files_from_compile_commands(build_folder):
+    path_to_compile_commands = os.path.join(build_folder, 'compile_commands.json')
+    with open(path_to_compile_commands, 'r') as handle:
+        compile_commands = json.load(handle)
+        for command in compile_commands:
+            yield command['file']
+
+
+def extract_data_from_compile_commands(root, build_folder):
+    ret = {}
+    for file in extract_files_from_compile_commands(build_folder):
+        rel = os.path.relpath(file, root)
+        if 'external' in rel:
+            pass
+        else:
+            cat, f = os.path.split(rel)
+            if cat in ret:
+                ret[cat].append(f)
+            else:
+                ret[cat] = [f]
+    return ret
 
 
 def clang_tidy_lines(root):
@@ -113,11 +111,11 @@ def make_clang_tidy(root):
         print_clang_tidy_source(root, clang_tidy_file)
 
 
-def call_clang_tidy(project_root, source_file):
+def call_clang_tidy(project_build_folder, source_file):
     """
     runs clang-tidy and returns all the text output
     """
-    command = ['clang-tidy', '-p', project_root, source_file]
+    command = ['clang-tidy', '-p', project_build_folder, source_file]
     return subprocess.check_output(command, universal_newlines=True,
                                    encoding='utf8', stderr=subprocess.STDOUT)
 
@@ -129,11 +127,11 @@ def total(counter):
     return sum(counter.values())
 
 
-def run_clang_tidy(source_file, project_root):
+def run_clang_tidy(source_file, project_build_folder):
     """
     runs the clang-tidy process, printing status to terminal
     """
-    output = call_clang_tidy(project_root, source_file)
+    output = call_clang_tidy(project_build_folder, source_file)
     warnings = collections.Counter()
     classes = collections.Counter()
     for line in output.split('\n'):
@@ -173,9 +171,16 @@ def handle_format(args):
     callback function called when running clang.py format
     """
     root = os.getcwd()
-    for project in find_projects(root):
+
+    project_build_folder = find_build_root(root)
+    if project_build_folder is None:
+        print('unable to find build folder')
+        return
+
+    data = extract_data_from_compile_commands(root, project_build_folder)
+
+    for project, source_files in data.items():
         print_header(project)
-        source_files = list_source_files(root, project)
         for source_file in source_files:
             print(os.path.basename(source_file), flush=True)
             if args.nop is False:
@@ -199,8 +204,8 @@ def handle_tidy(args):
     callback function called when running clang.py tidy
     """
     root = os.getcwd()
-    project_root = find_build_root(root)
-    if project_root is None:
+    project_build_folder = find_build_root(root)
+    if project_build_folder is None:
         print('unable to find build folder')
         return
 
@@ -209,14 +214,16 @@ def handle_tidy(args):
     total_counter = collections.Counter()
     total_classes = collections.Counter()
 
-    for project in find_projects(root):
+    data = extract_data_from_compile_commands(root, project_build_folder)
+
+    for project, source_files in data.items():
         print_header(project)
         project_counter = collections.Counter()
-        source_files = list_source_files(root, project)
+        # source_files = list_source_files(root, project)
         for source_file in source_files:
             print(os.path.basename(source_file), flush=True)
             if args.nop is False:
-                warnings, classes = run_clang_tidy(source_file, project_root)
+                warnings, classes = run_clang_tidy(source_file, project_build_folder)
                 project_counter.update(warnings)
                 total_classes.update(classes)
 
