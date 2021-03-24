@@ -16,7 +16,7 @@ import statistics
 from timeit import default_timer as timer
 
 
-HEADER_SIZE = 80
+HEADER_SIZE = 65
 HEADER_SPACING = 1
 HEADER_START = 3
 
@@ -228,13 +228,14 @@ class FileStatistics:
         self.data[file] = time
 
     def print_data(self):
-        average_value = statistics.mean(self.data.values())
-        min_name = min(self.data, key=lambda key: self.data[key])
-        max_name = max(self.data, key=lambda key: self.data[key])
-        print(f'average: {average_value:.2f}s')
-        print(f'max: {self.data[max_name]:.2f}s for {max_name}')
-        print(f'min: {self.data[min_name]:.2f}s for {min_name}')
-        print(f'{len(self.data)} files')
+        if len(self.data) != 0:
+            average_value = statistics.mean(self.data.values())
+            min_name = min(self.data, key=lambda key: self.data[key])
+            max_name = max(self.data, key=lambda key: self.data[key])
+            print(f'average: {average_value:.2f}s')
+            print(f'max: {self.data[max_name]:.2f}s for {max_name}')
+            print(f'min: {self.data[min_name]:.2f}s for {min_name}')
+            print(f'{len(self.data)} files')
 
 
 def run_clang_tidy(root, source_file, project_build_folder, stats):
@@ -332,20 +333,27 @@ def handle_tidy(args):
 
     try:
         for project, source_files in data.items():
-            print_header(project)
+            first_file = True
             project_counter = collections.Counter()
             # source_files = list_source_files(root, project)
             for source_file in source_files:
+                if args.filter is not None:
+                    if args.filter not in source_file:
+                        continue
+                if first_file:
+                    print_header(project)
+                    first_file = False
                 print(os.path.basename(source_file), flush=True)
                 if args.nop is False:
                     warnings, classes = run_clang_tidy(root, source_file, project_build_folder, stats)
                     project_counter.update(warnings)
                     total_classes.update(classes)
 
-            print_warning_counter(project_counter, project)
-            total_counter.update(project_counter)
-            print()
-            print()
+            if not first_file:
+                print_warning_counter(project_counter, project)
+                total_counter.update(project_counter)
+                print()
+                print()
     except KeyboardInterrupt:
         print()
         print()
@@ -375,6 +383,7 @@ def main():
 
     sub = sub_parsers.add_parser('tidy', help='do clang tidy on files')
     sub.add_argument('--nop', action='store_true', help="don't do anything")
+    sub.add_argument('filter', default=None, nargs='?')
     sub.set_defaults(func=handle_tidy)
 
     sub = sub_parsers.add_parser('format', help='do clang format on files')
