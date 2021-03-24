@@ -232,8 +232,8 @@ class FileStatistics:
         min_name = min(self.data, key=lambda key: self.data[key])
         max_name = max(self.data, key=lambda key: self.data[key])
         print(f'average: {average_value:.2f}s')
-        print(f'max: {self.data[max_name]:.2f}s for {os.path.basename(max_name)}')
-        print(f'min: {self.data[min_name]:.2f}s for {os.path.basename(min_name)}')
+        print(f'max: {self.data[max_name]:.2f}s for {max_name}')
+        print(f'min: {self.data[min_name]:.2f}s for {min_name}')
         print(f'{len(self.data)} files')
 
 
