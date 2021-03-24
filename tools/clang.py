@@ -234,6 +234,7 @@ class FileStatistics:
         print(f'average: {average_value:.2f}s')
         print(f'max: {self.data[max_name]:.2f}s for {os.path.basename(max_name)}')
         print(f'min: {self.data[min_name]:.2f}s for {os.path.basename(min_name)}')
+        print(f'{len(self.data)} files')
 
 
 def run_clang_tidy(root, source_file, project_build_folder, stats):
