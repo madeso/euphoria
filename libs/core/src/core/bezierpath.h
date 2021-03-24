@@ -14,7 +14,7 @@ namespace euphoria::core
 
     // suggested new names:
     // bezier path - a bezier path that can either be open or closed, has anchor points, control points
-    // vertex path - a path with points with straight linear interpolated lines, can either be open or closed
+    // vertex path (or poly line) - a path with points with straight linear interpolated lines, can either be open or closed
     // both paths can either be concave or convex
     //
     // can use a tesselator function to create triangulated/convex polygons from closed paths with closed paths as holes:
