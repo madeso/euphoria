@@ -20,8 +20,6 @@ HEADER_SIZE = 65
 HEADER_SPACING = 1
 HEADER_START = 3
 
-CMAKE_ADD_SUBDIRECTORY_REGEX = re.compile(r'add_subdirectory\(([^)]+)')
-
 CLANG_TIDY_WARNING_CLASS = re.compile(r'\[(\w+(-\w+)+)\]')
 
 
@@ -77,11 +75,21 @@ def extract_files_from_compile_commands(build_folder):
             yield command['file']
 
 
-def extract_data_from_compile_commands(root, build_folder):
+def list_files_in_folder(path, extensions):
+    for root, directories, files in os.walk(path):
+        for file in files:
+            ext = os.path.splitext(file)[1]
+            if extensions is None or ext in extensions:
+                yield os.path.join(root, file)
+
+
+def sort_and_map_files(root, files):
     ret = {}
-    for file in extract_files_from_compile_commands(build_folder):
+    for file in files:
         rel = os.path.relpath(file, root)
-        if 'external' in rel:
+        # ignore external folder
+        # ignore build folder
+        if rel.startswith('external') or rel.startswith('build'):
             pass
         else:
             cat, f = os.path.split(rel)
@@ -90,6 +98,10 @@ def extract_data_from_compile_commands(root, build_folder):
             else:
                 ret[cat] = [file]
     return ret
+
+
+def extract_data_from_compile_commands(root, build_folder):
+    return sort_and_map_files(root, extract_files_from_compile_commands(build_folder))
 
 
 def clang_tidy_root(root):
@@ -279,6 +291,30 @@ def print_warning_counter(project_counter, project):
 ##############################################################################
 ##############################################################################
 
+def handle_list(args):
+    root = os.getcwd()
+
+    project_build_folder = find_build_root(root)
+    if project_build_folder is None:
+        print('unable to find build folder')
+        return
+    
+    files = list_files_in_folder(root, ['.cc', '.h'])
+    if not args.new:
+        files = extract_files_from_compile_commands(project_build_folder)
+
+    if args.sort:
+        sorted = sort_and_map_files(root, files)
+        for project, source_files in sorted.items():
+            print_header(project)
+            for source_file in source_files:
+                print(source_file)
+            print()
+    else:
+        for file in files:
+            print(file)
+
+
 def handle_format(args):
     """
     callback function called when running clang.py format
@@ -389,6 +425,11 @@ def main():
     sub = sub_parsers.add_parser('format', help='do clang format on files')
     sub.add_argument('--nop', action='store_true', help="don't do anything")
     sub.set_defaults(func=handle_format)
+
+    sub = sub_parsers.add_parser('ls', help='list files')
+    sub.add_argument('--new', action='store_true', help="use new lister")
+    sub.add_argument('--sort', action='store_true', help="sort listing")
+    sub.set_defaults(func=handle_list)
 
     args = parser.parse_args()
     if args.command_name is not None:
