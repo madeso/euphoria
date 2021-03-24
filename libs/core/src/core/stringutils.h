@@ -143,7 +143,7 @@ namespace euphoria::core
 
 
     std::string
-    ReplaceWithCharacter(const std::string& string, const std::string& to_find, const char to_replace);
+    ReplaceWithCharacter(const std::string& string, const std::string& to_find, char to_replace);
 
 
     /** Copy a string to a character buffer, adding null terminator at the end.

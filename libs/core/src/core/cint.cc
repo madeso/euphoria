@@ -16,6 +16,13 @@ namespace euphoria::core
 
 
     int
+    Cfloat_to_int(float f)
+    {
+        return static_cast<int>(f);
+    }
+
+
+    int
     Cunsigned_int_to_int(unsigned int i)
     {
         ASSERTX(i <= static_cast<unsigned int>(std::numeric_limits<int>::max()), i);

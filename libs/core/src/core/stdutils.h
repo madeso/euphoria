@@ -48,7 +48,7 @@ namespace euphoria::core
     SwapBackAndEraseObject(T what, std::vector<T>* from)
     {
         ASSERT(from);
-        typedef std::vector<T> Vec;
+        using Vec = std::vector<T>;
         typename Vec::iterator result
                 = std::find(from->begin(), from->end(), what);
         if(result == from->end())

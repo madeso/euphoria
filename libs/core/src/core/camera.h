@@ -15,12 +15,15 @@ namespace euphoria::core
     public:
         CompiledCamera(const mat4f& view_, const mat4f& projection_);
 
+        [[nodiscard]]
         vec3f
         WorldToClip(const vec3f& in_world) const;
 
+        [[nodiscard]]
         vec3f
         ClipToWorld(const vec3f& in_clip) const;
 
+        [[nodiscard]]
         Ray3f
         ClipToWorldRay(const vec2f& p) const;
 
@@ -35,6 +38,7 @@ namespace euphoria::core
     {
         Camera();
 
+        [[nodiscard]]
         CompiledCamera
         Compile(float aspect) const;
 

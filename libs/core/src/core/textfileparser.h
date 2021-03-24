@@ -10,15 +10,27 @@ namespace euphoria::core
     {
         struct TextFile
         {
+            TextFile() = default;
             virtual ~TextFile() = default;
 
+            TextFile(const TextFile&) = delete;
+            TextFile(TextFile&&) = delete;
+            void operator=(const TextFile&) = delete;
+            void operator=(TextFile&&) = delete;
+
+            [[nodiscard]]
             virtual bool
             HasMore() const = 0;
 
             // return 0 if position is beyond file
+            [[nodiscard]]
             virtual char
-            Peek(int advance = 1) = 0;
+            Peek(int advance) = 0;
 
+            char
+            Peek(/* advance = 1 */);
+
+            [[nodiscard]]
             virtual char
             Read() = 0;
         };
@@ -34,13 +46,13 @@ namespace euphoria::core
     }
 
     bool
-    IsIdentStart(const char c);
+    IsIdentStart(char c);
 
     /** Parses a text file in memory.
      */
     struct TextFileParser
     {
-        TextFileParser(std::shared_ptr<detail::TextFile> afile);
+        explicit TextFileParser(std::shared_ptr<detail::TextFile> afile);
 
         static TextFileParser
         FromString(const std::string& str);
@@ -52,7 +64,7 @@ namespace euphoria::core
 
         // like PeekChar but returns human readable strings for some chars
         std::string
-        PeekString(unsigned int advance = 0);
+        PeekString(int advance = 0);
 
         // if peekchar(0) is c then it is read and function returns true,
         // otherwise false
@@ -77,14 +89,17 @@ namespace euphoria::core
         void
         SkipSpaces(bool include_newline);
 
+        [[nodiscard]]
         bool
         HasMore() const;
 
+        [[nodiscard]]
         int
-        GetLine();
+        GetLine() const;
 
+        [[nodiscard]]
         int
-        GetColumn();
+        GetColumn() const;
 
         std::shared_ptr<detail::TextFile> file;
         detail::Location location = detail::Location{ 1, 1 };

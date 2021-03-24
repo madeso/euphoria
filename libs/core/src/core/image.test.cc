@@ -45,7 +45,7 @@ TEST_CASE("image-load", "[img]")
         vfs::FilePath{"~/white"},
         euco::AlphaLoad::Remove
     );
-    REQUIRE(loaded.error == "");
+    REQUIRE(loaded.error.empty());
     REQUIRE_FALSE(loaded.image.HasAlpha());
 
     REQUIRE(loaded.image.GetHeight() == 2);

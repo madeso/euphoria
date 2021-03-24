@@ -12,6 +12,9 @@ namespace euphoria::core
     Csizet_to_int(size_t t);
 
     int
+    Cfloat_to_int(float f);
+
+    int
     Cunsigned_int_to_int(unsigned int i);
 
     unsigned int

@@ -68,7 +68,9 @@ namespace euphoria::core
     DefaultQuickSortFunction(const T& lhs, const T& rhs)
     {
         if(lhs == rhs)
+        {
             return 0;
+        }
         return lhs < rhs ? -1 : 1;
     }
 

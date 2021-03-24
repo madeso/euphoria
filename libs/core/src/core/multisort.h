@@ -21,10 +21,15 @@ namespace euphoria::core
     template <typename T>
     struct Sortable
     {
-        virtual ~Sortable() {}
-        virtual int
-        Sort(const T& lhs, const T& rhs)
-                = 0;
+        Sortable() = default;
+        virtual ~Sortable() = default;
+
+        Sortable(const Sortable<T>&) = delete;
+        Sortable(Sortable<T>&&) = delete;
+        void operator=(const Sortable<T>&) = delete;
+        void operator=(Sortable<T>&&) = delete;
+
+        virtual int Sort(const T& lhs, const T& rhs) = 0;
     };
 
     template <typename T>
@@ -54,7 +59,9 @@ namespace euphoria::core
     DefaultSortFunc(T lhs, T rhs)
     {
         if(lhs == rhs)
+        {
             return 0;
+        }
         return lhs < rhs ? 1 : -1;
     }
 
@@ -63,7 +70,7 @@ namespace euphoria::core
     struct SortBuilder
     {
         SortableList<T> sort_order;
-        bool            stable_sort = false;
+        bool stable_sort = false;
 
         template <typename SortFunc, typename Value>
         Self&
@@ -110,15 +117,21 @@ namespace euphoria::core
             {
                 const auto result = so->Sort(data[lhs], data[rhs]);
                 if(result != 0)
+                {
                     return -result;
+                }
             }
             return 0;
         };
         // is a stable sort is requested, use insertion sort, otherwise use the faster quick sort
         if(builder.stable_sort)
+        {
             InsertionSort(&r, sort_function);
+        }
         else
+        {
             QuickSort(&r, sort_function);
+        }
         return r;
     }
 

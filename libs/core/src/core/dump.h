@@ -66,10 +66,10 @@ namespace euphoria::core::dump2d
     // todo(Gustav): replace with std::variant
     struct Item
     {
-        Item(const Poly& p);
-        Item(const Text& p);
-        Item(const Group& g);
-        Item(const Circle& c);
+        explicit Item(const Poly& p);
+        explicit Item(const Text& p);
+        explicit Item(const Group& g);
+        explicit Item(const Circle& c);
 
         std::shared_ptr<Poly>  poly;
         std::shared_ptr<Text>  text;
@@ -109,7 +109,7 @@ namespace euphoria::core::dump2d
         Dumper& operator<<(const Item& item);
 
         // calculate total area size and offset so that x+offset will never be lower than 0
-        std::pair<vec2f,vec2f> CalculateSizeAndOffset() const;
+        [[nodiscard]] std::pair<vec2f,vec2f> CalculateSizeAndOffset() const;
 
         void Write(const std::string& path, int width=1280, int height=1024, int space = 6) const;
     };
@@ -119,8 +119,13 @@ namespace euphoria::core::dump3d
 {
     struct Dumper
     {
-        Dumper(const std::string& path);
+        explicit Dumper(const std::string& path);
         ~Dumper();
+
+        Dumper(const Dumper&) = delete;
+        Dumper(Dumper&&) = delete;
+        void operator=(const Dumper&) = delete;
+        void operator=(Dumper&&) = delete;
 
         void AddSphere(const vec3f& p, float radius, const Rgbi& color);
         void AddLines(const std::vector<vec3f>& lines, const Rgbi& color);

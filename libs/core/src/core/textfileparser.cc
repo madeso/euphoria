@@ -10,11 +10,18 @@ namespace euphoria::core
 {
     namespace detail
     {
+        char
+        TextFile::Peek()
+        {
+            return Peek(1);
+        }
+
         struct FileString : public TextFile
         {
             std::string text;
             std::size_t next_position = 0;
 
+            [[nodiscard]]
             bool
             HasMore() const override
             {
@@ -27,8 +34,14 @@ namespace euphoria::core
                 ASSERT(advance >= 0);
                 const auto index = next_position + advance;
 
-                if (index >= text.size()) return 0;
-                else return text[index];
+                if (index >= text.size())
+                {
+                    return 0;
+                }
+                else
+                {
+                    return text[index];
+                }
             }
 
             char
@@ -107,9 +120,9 @@ namespace euphoria::core
 
 
     std::string
-    TextFileParser::PeekString(unsigned int advance)
+    TextFileParser::PeekString(int advance)
     {
-        const auto         c = PeekChar(advance);
+        const auto c = PeekChar(advance);
         return CharToString(c);
     }
 
@@ -181,7 +194,7 @@ namespace euphoria::core
     }  // namespace
 
     bool
-    IsIdentStart(const char c)
+    IsIdentStart(char c)
     {
         return IsIdentChar(c, true);
     }
@@ -298,13 +311,13 @@ namespace euphoria::core
     }
 
     int
-    TextFileParser::GetLine()
+    TextFileParser::GetLine() const
     {
         return location.line;
     }
 
     int
-    TextFileParser::GetColumn()
+    TextFileParser::GetColumn() const
     {
         return location.column;
     }
