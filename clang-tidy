@@ -37,6 +37,9 @@ readability-*
 -readability-magic-numbers
 -cppcoreguidelines-avoid-magic-numbers
 
+# sure... but sometimes we need c-arrays
+-cppcoreguidelines-avoid-c-arrays
+-modernize-avoid-c-arrays
 
 # google are a sensible default
 google-*
@@ -52,13 +55,25 @@ google-*
 # might make sense but is pretty ugly
 -modernize-pass-by-value
 
+# sensible, but sometimes implcit is what we want
+-google-explicit-constructor
+
+# somewhat sane but fails totally for tests... and in general, length != complexity
+-google-readability-function-size
+-readability-function-size
+
+# in assert backtrace logic, string manipulation is cosidered vararg?
+-cppcoreguidelines-pro-type-vararg
+
 #################################################################################
-## Temporarily disables tobe removed later
+## Temporarily disables to be removed later
 # temporarily: mostly in test files where it's kinda ok
 -google-build-using-namespace
 -modernize-raw-string-literal
 
 -readability-identifier-naming
+
+-cppcoreguidelines-macro-usage
 
 #################################################################################
 # the checks attribute ends here...
