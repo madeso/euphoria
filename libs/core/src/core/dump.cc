@@ -81,7 +81,7 @@ namespace euphoria::core::dump2d
     const Group* AsGroup(const Item* item) { return item->group? item->group.get() : nullptr; }
     const Circle* AsCircle(const Item* item) { return item->circle? item->circle.get() : nullptr; }
 
-    Group& Group::operator<<(const Item& item)
+    Group& Group::Add(const Item& item)
     {
         items.emplace_back(item);
         return *this;
@@ -273,7 +273,7 @@ namespace euphoria::core::dump2d
         return *this;
     }
 
-    Dumper& Dumper::operator<<(const Item& item)
+    Dumper& Dumper::Add(const Item& item)
     {
         items.emplace_back(item);
         return *this;
@@ -321,7 +321,7 @@ namespace euphoria::core::dump2d
         writer.px = px;
         writer.py = py;
         writer.scale = scale;
-            
+
         writer.file << "<html style=\"height: 100%\">\n";
         writer.file << "<body style=\"background-color:" << ToHtml(Color::DarkGray) << "; height: 100%\">\n";
 
@@ -458,7 +458,7 @@ namespace euphoria::core::dump3d
       var add_geom = function(geom, c)
       {
           var material = new THREE.MeshPhongMaterial( {
-              color: c, 
+              color: c,
               // shading: THREE.FlatShading,
               polygonOffset: true,
               polygonOffsetFactor: 1,
@@ -527,7 +527,7 @@ namespace euphoria::core::dump3d
         file << s << "add_geom(new THREE.SphereGeometry(" << radius << "), " << ToHex(color) << ")\n"
              << s << "  .position.set("<<p.x<<", "<<p.y<<", "<<p.z<<");\n";
     }
-    
+
 
     void
     Dumper::AddLines(const std::vector<vec3f>& points, const Rgbi& color)

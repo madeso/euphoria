@@ -81,14 +81,24 @@ namespace euphoria::core::dump2d
     const Group* AsGroup(const Item* item);
     const Circle* AsCircle(const Item* item);
 
-    struct Group
+    template<typename TBase>
+    struct AddWrapper
+    {
+        template<typename TItem>
+        TBase& operator<<(const TItem& item)
+        {
+            return static_cast<TBase*>(this)->Add(Item{item});
+        }
+    };
+
+    struct Group : public AddWrapper<Group>
     {
         std::vector<Item> items;
 
-        Group& operator<<(const Item& item);
+        Group& Add(const Item& item);
     };
 
-    struct Dumper
+    struct Dumper : AddWrapper<Dumper>
     {
         Rgbi canvas_color = Color::White;
         std::vector<Item> items;
@@ -106,7 +116,7 @@ namespace euphoria::core::dump2d
 
         Dumper& DrawPoints(int size=3);
 
-        Dumper& operator<<(const Item& item);
+        Dumper& Add(const Item& item);
 
         // calculate total area size and offset so that x+offset will never be lower than 0
         [[nodiscard]] std::pair<vec2f,vec2f> CalculateSizeAndOffset() const;
