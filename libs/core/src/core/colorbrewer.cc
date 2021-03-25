@@ -7,7 +7,7 @@
 /*
  * This product includes color specifications and designs developed by Cynthia
  * Brewer (http://colorbrewer.org/).
- 
+
  https://groups.google.com/forum/?fromgroups=#!topic/d3-js/iyXFgJR1JY0
  */
 
@@ -20,69 +20,46 @@ namespace euphoria::core
         {
             return Rgbi {r, g, b};
         }
-    }  // namespace
+    }
 
     namespace colorbrewer
     {
         const std::vector<ColorBrewer>&
         All()
         {
-            static const std::vector<ColorBrewer> all = {/*** Diverging ***/
-                                                         Spectral(),
-                                                         RdYlGn(),
-                                                         RdBu(),
-                                                         PiYG(),
-                                                         PRGn(),
-                                                         RdYlBu(),
-                                                         BrBG(),
-                                                         RdGy(),
-                                                         PuOr(),
+            static const std::vector<ColorBrewer> all =
+            {
+                /*** Diverging ***/
+                Spectral(), RdYlGn(), RdBu(), PiYG(), PRGn(), RdYlBu(),
+                BrBG(), RdGy(), PuOr(),
 
-                                                         /*** Qualitative ***/
-                                                         Set2(),
-                                                         Accent(),
-                                                         Set1(),
-                                                         Set3(),
-                                                         Dark2(),
-                                                         Paired(),
-                                                         Pastel2(),
-                                                         Pastel1(),
+                /*** Qualitative ***/
+                Set2(), Accent(), Set1(), Set3(), Dark2(), Paired(),
+                Pastel2(), Pastel1(),
 
-                                                         /*** Sequential ***/
-                                                         OrRd(),
-                                                         PuBu(),
-                                                         BuPu(),
-                                                         Oranges(),
-                                                         BuGn(),
-                                                         YlOrBr(),
-                                                         YlGn(),
-                                                         Reds(),
-                                                         RdPu(),
-                                                         Greens(),
-                                                         YlGnBu(),
-                                                         Purples(),
-                                                         GnBu(),
-                                                         Greys(),
-                                                         YlOrRd(),
-                                                         PuRd(),
-                                                         Blues(),
-                                                         PuBuGn()};
+                /*** Sequential ***/
+                OrRd(), PuBu(), BuPu(), Oranges(), BuGn(), YlOrBr(), YlGn(),
+                Reds(), RdPu(), Greens(), YlGnBu(), Purples(), GnBu(), Greys(),
+                YlOrRd(), PuRd(), Blues(), PuBuGn()
+            };
             return all;
         }
 
-        const std::vector<SinglePalette>
+        std::vector<SinglePalette>
         Find(Type* type, int* size)
         {
             // todo: implement better search
             std::vector<SinglePalette> r;
             for(const auto& br: All())
             {
-                if(type)
+                if(type != nullptr)
                 {
                     if(br.type != *type)
+                    {
                         continue;
+                    }
                 }
-                if(size)
+                if(size != nullptr)
                 {
                     auto found = br.palettes.find(*size);
                     if(found != br.palettes.end())

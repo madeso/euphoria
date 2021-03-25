@@ -70,8 +70,8 @@ namespace
 TEST_CASE("bufferbuilder2d-default-is-empty", "[bufferbuilder2d]")
 {
     auto bb = BufferBuilder2d{};
-    CHECK(bb.data.size() == 0);
-    CHECK(bb.tris.size() == 0);
+    CHECK(bb.data.empty());
+    CHECK(bb.tris.empty());
 }
 
 TEST_CASE("bufferbuilder2d-add-points", "[bufferbuilder2d]")
@@ -80,7 +80,7 @@ TEST_CASE("bufferbuilder2d-add-points", "[bufferbuilder2d]")
     bb.AddVertex({0.0f, 1.0f, 2.0f, 3.0f});
     bb.AddVertex({55.0f, 20.0f, 0.0f, -2.0f});
     CHECK(VectorEquals(bb.data, {0.0f, 1.0f, 2.0f, 3.0f, 55.0f, 20.0f, 0.0f, -2.0f}));
-    CHECK(bb.tris.size() == 0);
+    CHECK(bb.tris.empty());
 }
 
 TEST_CASE("bufferbuilder2d-triangles", "[bufferbuilder2d]")

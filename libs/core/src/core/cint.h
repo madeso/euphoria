@@ -20,8 +20,11 @@ namespace euphoria::core
     unsigned int
     Cint_to_unsigned_int(int i);
 
+    size_t
+    Cint_to_sizet(int i);
+
     u32
     Cbit_signed_to_unsigned(s32 i);
-}  // namespace euphoria::core
+}
 
 #endif  // EUPHORIA_CINT_H

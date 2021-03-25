@@ -55,13 +55,13 @@ namespace euphoria::core
             explicit Input
             (
                 const std::string& input,
-                Location           where = IN_MIDDLE
+                Location where = IN_MIDDLE
             );
 
             explicit Input
             (
                 const std::vector<std::string>& input,
-                Location                        where = IN_MIDDLE
+                Location where = IN_MIDDLE
             );
         };
 
@@ -132,7 +132,7 @@ namespace euphoria::core
             AddResponse
             (
                 const std::string& input,
-                Input::Location    where = Input::AT_START
+                Input::Location where = Input::AT_START
             );
         };
 
@@ -144,7 +144,7 @@ namespace euphoria::core
             Transposer&
             Add(const std::string& from, const std::string& to);
 
-            std::string
+            [[nodiscard]] std::string
             Transpose(const std::string& input) const;
         };
 
@@ -163,7 +163,7 @@ namespace euphoria::core
             void
             Add(const std::string& topic);
 
-            bool
+            [[nodiscard]] bool
             Has(const std::string& topic) const;
 
             std::map<std::string, std::shared_ptr<int>> topics;
@@ -175,7 +175,7 @@ namespace euphoria::core
             struct TopicEntry
             {
                 std::string topic;
-                int         time;
+                int time;
             };
 
             struct LogEntry
@@ -190,7 +190,7 @@ namespace euphoria::core
             std::vector<TopicEntry> topics;
             std::vector<LogEntry> logs;
         };
-    }  // namespace chatbot
+    }
 
 
     struct ChatBot
@@ -198,40 +198,40 @@ namespace euphoria::core
     public:
         ChatBot();
 
-        std::string
+        [[nodiscard]] std::string
         LoadFromFile(vfs::FileSystem* fs, const vfs::FilePath& path);
 
-        std::string
+        [[nodiscard]] std::string
         GetResponse(const std::string& input);
 
-        chatbot::ConversationStatus
+        [[nodiscard]] chatbot::ConversationStatus
         GetComplexResponse(const std::string& input);
 
-        bool
+        [[nodiscard]] bool
         IsInConversation() const;
 
-        std::string
+        [[nodiscard]] std::string
         GetSignOnMessage();
 
-        std::string
+        [[nodiscard]] std::string
         DebugLastResponse
         (
             const std::vector<std::string>& search = std::vector<std::string>{}
         ) const;
 
-        bool                                     is_in_conversation;
-        int                                      last_event;
-        unsigned long                            max_responses;
-        std::vector<std::string>                 last_input;
-        Random                                   random;
-        chatbot::Transposer                      transposer;
-        chatbot::Database                        database;
-        chatbot::ConversationTopics              current_topics;
-        std::deque<std::string>                  last_responses;
+        bool is_in_conversation;
+        int last_event;
+        unsigned long max_responses;
+        std::vector<std::string> last_input;
+        Random random;
+        chatbot::Transposer transposer;
+        chatbot::Database database;
+        chatbot::ConversationTopics current_topics;
+        std::deque<std::string> last_responses;
         std::vector<chatbot::ConversationStatus> history;
-        std::vector<std::string>                 missing_input;
+        std::vector<std::string> missing_input;
     };
 
-}  // namespace euphoria::core
+}
 
-#endif  // CORE_CHATBOT_H
+#endif

@@ -8,7 +8,8 @@ TEST_CASE("commandline", "[commandline]")
 {
     SECTION("empty cmd")
     {
-        CHECK(std::vector<std::string> {} == euco::ParseCommandLine(""));
+        const auto empty = std::vector<std::string>{};
+        CHECK(empty == euco::ParseCommandLine(""));
     }
 
     SECTION("single cmd")

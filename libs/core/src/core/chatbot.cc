@@ -303,7 +303,7 @@ namespace euphoria::core
         BasicResponse
         AddResponse(std::vector<std::string>* input)
         {
-            BasicResponse b;
+            auto b = BasicResponse{};
             b.responses = input;
             return b;
         }

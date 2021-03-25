@@ -14,9 +14,9 @@ namespace euphoria::core
      */
     struct Console
     {
-        typedef std::vector<std::string>                        Args;
-        typedef std::function<void(const std::string&)>         PrintFunction;
-        typedef std::function<void(PrintFunction, const Args&)> Callback;
+        using Args = std::vector<std::string>;
+        using PrintFunction = std::function<void(const std::string&)>;
+        using Callback = std::function<void(PrintFunction, const Args&)>;
 
         Console();
 

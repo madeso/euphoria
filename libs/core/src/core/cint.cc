@@ -38,10 +38,18 @@ namespace euphoria::core
     }
 
 
+    size_t
+    Cint_to_sizet(int i)
+    {
+        ASSERTX(i >= 0, i);
+        return static_cast<size_t>(i);
+    }
+
+
     u32
     Cbit_signed_to_unsigned(s32 i)
     {
-        union { s32 s; u32 u; } c;
+        union { s32 s; u32 u; } c = {};
         c.s = i;
         return c.u;
     }

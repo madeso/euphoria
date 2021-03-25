@@ -14,7 +14,7 @@ main()
 {
     ChatBot chatbot;
 
-    const auto      current_directory = GetCurrentDirectory();
+    const auto current_directory = GetCurrentDirectory();
     vfs::FileSystem file_system;
     vfs::FileSystemRootFolder::AddRoot(&file_system, current_directory);
 
@@ -26,7 +26,7 @@ main()
     }
 
     std::string input;
-    Console     cmdline;
+    Console cmdline;
     cmdline.Register(
             "debug",
             [&chatbot](Console::PrintFunction, const Console::Args& args) {

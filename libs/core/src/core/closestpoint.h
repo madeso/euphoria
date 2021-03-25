@@ -31,7 +31,7 @@ namespace euphoria::core
             points.emplace_back(std::make_tuple(v, data));
         }
 
-        const Data
+        [[nodiscard]] Data
         FindClosest(const Vec& v)
         {
             ASSERT(!points.empty());

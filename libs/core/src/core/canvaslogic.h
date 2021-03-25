@@ -21,10 +21,10 @@ namespace euphoria::core
         void
         Zoom(const vec2f& mouse, float zoom);
 
-        vec2f
+        [[nodiscard]] vec2f
         ScreenToWorld(const vec2f& p) const;
 
-        vec2f
+        [[nodiscard]] vec2f
         WorldToScreen(const vec2f& p) const;
     };
 }  // namespace euphoria::core

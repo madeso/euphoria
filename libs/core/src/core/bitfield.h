@@ -13,7 +13,7 @@ namespace euphoria::core
         : value(static_cast<T>(0))
         {}
 
-        bool
+        [[nodiscard]] bool
         HasAnyValues() const
         {
             return value != static_cast<T>(0);
@@ -44,7 +44,7 @@ namespace euphoria::core
             value = static_cast<T>(0);
         }
 
-        bool
+        [[nodiscard]] bool
         Get(T bit) const
         {
             const I i = static_cast<I>(value) & static_cast<I>(bit);

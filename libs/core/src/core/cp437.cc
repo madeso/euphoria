@@ -8,7 +8,7 @@
 
 namespace
 {
-    constexpr std::array<std::string_view, 256> CODE_PAGE = 
+    constexpr std::array<std::string_view, 256> CODE_PAGE =
     {
   //        _0        _1       _2      _3     _4     _5      _6      _7     _8     _9     _A    _B      _C     _D     _E      _F
 /*0_*/   u8"NULL", u8"☺", u8"☻",  u8"♥", u8"♦", u8"♣", u8"♠", u8"•", u8"◘", u8"○", u8"◙", u8"♂", u8"♀", u8"♪", u8"♫", u8"☼",
@@ -45,9 +45,9 @@ namespace euphoria::core
         while(true)
         {
             const auto c = random->NextRange(256);
-            if(c == 0x00) continue; // not NULL
-            if(c == 0x20) continue; // neither Space
-            if(c == 0xFF) continue; // neither NBSP
+            if(c == 0x00) { continue; } // not NULL
+            if(c == 0x20) { continue; } // neither Space
+            if(c == 0xFF) { continue; } // neither NBSP
             return GetCp437(c);
         }
     }

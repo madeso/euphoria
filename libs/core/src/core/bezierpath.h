@@ -55,9 +55,9 @@ namespace euphoria::core
         MovePoint(int i, const vec2f& delta);
 
         // segment functions
-        size_t
+        [[nodiscard]] size_t
         GetNumberOfSegments() const;
-        BezierSeg2
+        [[nodiscard]] BezierSeg2
         GetPointsInSegment(size_t i) const;
 
         void
@@ -71,7 +71,7 @@ namespace euphoria::core
         ToggleAutoSetControlPoints();
 
         // private stuff
-        size_t
+        [[nodiscard]] size_t
         LoopIndex(int i) const;
         void
         AutoSetAffectedControlPoints(int updated_anchor_index);
