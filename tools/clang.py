@@ -76,6 +76,13 @@ def list_files_in_folder(path, extensions):
                 yield os.path.join(root, file)
 
 
+def is_file_ignored(path):
+    with open(path, 'r') as file_handle:
+        for line in file_handle:
+            return line.startswith('// clang-tidy: ignore')
+    return False
+
+
 def sort_and_map_files(root, files):
     ret = {}
     for file in files:
@@ -84,7 +91,7 @@ def sort_and_map_files(root, files):
         # ignore build folder
         if rel.startswith('external') or rel.startswith('build'):
             pass
-        else:
+        elif not is_file_ignored(file):
             cat, f = os.path.split(rel)
             if cat in ret:
                 ret[cat].append(file)
@@ -164,10 +171,12 @@ def is_all_up_to_date(input_files: typing.List[str], output) -> bool:
 
     return sourcemod <= destmod
 
+
 def get(dictionary, key):
     if key in dictionary:
         return dictionary[key]
     return None
+
 
 def get_existing_output(root, project_build_folder, source_file):
     store = get_store(project_build_folder)
@@ -292,7 +301,7 @@ def handle_list(args):
     if project_build_folder is None:
         print('unable to find build folder')
         return
-    
+
     files = list_files_in_folder(root, SOURCE_FILES)
 
     if args.sort:

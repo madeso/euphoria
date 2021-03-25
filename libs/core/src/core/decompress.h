@@ -1,3 +1,5 @@
+// clang-tidy: ignore
+
 #ifndef EUPHORIA_CORE_DECOMPRESS_H
 #define EUPHORIA_CORE_DECOMPRESS_H
 

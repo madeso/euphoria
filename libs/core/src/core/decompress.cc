@@ -1,3 +1,4 @@
+// clang-tidy: ignore
 #include "core/decompress.h"
 
 #include <cstring>
