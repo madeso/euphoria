@@ -10,7 +10,7 @@ namespace euphoria::core
         ASSERT(ax.IsValid());
     }
 
-    const AxisAngle
+    AxisAngle
     AxisAngle::RightHandAround(const unit3f& axis, const Angle& angle)
     {
         ASSERT(axis.IsValid());

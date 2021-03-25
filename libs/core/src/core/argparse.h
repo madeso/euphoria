@@ -54,7 +54,7 @@ namespace euphoria::core::argparse
 
         // all ok
         static const ParseResult Ok;
-        
+
         // all ok, but quit requested
         static const ParseResult Quit;
 
@@ -99,13 +99,13 @@ namespace euphoria::core::argparse
         explicit
         ArgumentReader(const Arguments& a);
 
-        bool
+        [[nodiscard]] bool
         HasMore() const;
 
-        std::string
+        [[nodiscard]] [[nodiscard]] std::string
         Peek() const;
 
-        std::string
+        [[nodiscard]] std::string
         Read();
 
         void
@@ -115,7 +115,13 @@ namespace euphoria::core::argparse
     // generic output class
     struct Printer
     {
-        virtual ~Printer();
+        Printer() = default;
+        virtual ~Printer() = default;
+
+        Printer(const Printer&) = delete;
+        Printer(Printer&&) = delete;
+        void operator=(const Printer&) = delete;
+        void operator=(Printer&&) = delete;
 
         virtual void
         PrintError(const std::string& line) = 0;
@@ -166,7 +172,7 @@ namespace euphoria::core::argparse
         std::string
         Validate() const;
 
-        bool
+        [[nodiscard]] bool
         IsOptional() const;
     };
 
@@ -174,7 +180,13 @@ namespace euphoria::core::argparse
     // base class for argument
     struct Argument
     {
-        virtual ~Argument();
+        Argument() = default;
+        virtual ~Argument() = default;
+
+        Argument(const Argument&) = delete;
+        Argument(Argument&&) = delete;
+        void operator=(const Argument&) = delete;
+        void operator=(Argument&&) = delete;
 
         std::string help;
         std::string nargs;
@@ -340,7 +352,7 @@ namespace euphoria::core::argparse
 
         SubParserNames(const char* str);
     };
-    
+
     // data about a subparser
     struct SubParserContainer
     {
@@ -385,7 +397,7 @@ namespace euphoria::core::argparse
         );
     };
 
-    // how the subparsing is handled, non-greedy are 
+    // how the subparsing is handled, non-greedy are
     // useful for 'scripting' with subparsers
     enum class SubParserStyle
     {
@@ -417,9 +429,12 @@ namespace euphoria::core::argparse
         SubParserStyle parser_style = SubParserStyle::Inherit;
 
         explicit ParserBase(const std::string& d);
+        virtual ~ParserBase() = default;
 
-        virtual
-        ~ParserBase();
+        ParserBase(const ParserBase&) = delete;
+        ParserBase(ParserBase&&) = delete;
+        void operator=(const ParserBase&) = delete;
+        void operator=(ParserBase&&) = delete;
 
         virtual
         ParserBase*
@@ -562,7 +577,7 @@ namespace euphoria::core::argparse
         std::shared_ptr<SubParserGroup>
         AddSubParsers(const std::string& name="commands");
 
-        std::shared_ptr<Argument>
+        [[nodiscard]] std::shared_ptr<Argument>
         FindArgument(const std::string& name) const;
 
         [[nodiscard]]

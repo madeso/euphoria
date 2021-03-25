@@ -81,11 +81,11 @@ namespace euphoria::core
         }
 
 
-        [[nodiscard]] const static Angle
+        [[nodiscard]] static Angle
         Random(::euphoria::core::Random* random);
 
 
-        Angle
+        [[nodiscard]] Angle
         GetWrapped() const;
 
 

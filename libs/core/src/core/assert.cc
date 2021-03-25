@@ -25,7 +25,7 @@ namespace euphoria::core
         {
             return {};
         }
-    }  // namespace
+    }
 
 #else
     namespace
@@ -71,7 +71,7 @@ namespace euphoria::core
                 // we parse the symbols retrieved from backtrace_symbols() to
                 // extract the "real" symbols that represent the mangled names.
                 char* const symbol = symbols.get()[i];
-                char*       end    = symbol;
+                char* end = symbol;
                 while(*end != 0)
                 {
                     ++end;
@@ -104,7 +104,7 @@ namespace euphoria::core
 
             return ret;
         }
-    }  // namespace
+    }
 #endif
 
     namespace assertlib
@@ -131,12 +131,12 @@ namespace euphoria::core
         void
         OnAssert
         (
-            const char* const                  expression,
-            int                                line,
-            const char* const                  file,
-            const char* const                  argstr,
+            const char* const expression,
+            int line,
+            const char* const file,
+            const char* const argstr,
             const std::vector<AssertValueArg>& arguments,
-            const char* const                  function
+            const char* function
         )
         {
             std::ostringstream ss;
@@ -176,8 +176,8 @@ namespace euphoria::core
 
             exit(-1);
         }
-    }  // namespace assertlib
+    }
 
-}  // namespace euphoria::core
+}
 
-#endif  // IMPLEMENT_ASSERT_LIB
+#endif

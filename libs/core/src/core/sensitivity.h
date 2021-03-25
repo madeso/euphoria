@@ -7,8 +7,8 @@ namespace euphoria::core
     {
         explicit Sensitivity(float v=1.0f, bool i=false);
 
-        bool IsValid() const;
-        float GetValueWithSign() const;
+        [[nodiscard]] bool IsValid() const;
+        [[nodiscard]] float GetValueWithSign() const;
 
         float value;
         bool inverted;

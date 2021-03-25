@@ -5,16 +5,13 @@
 
 #include <string>
 
-namespace euphoria::core
+namespace euphoria::core::base64
 {
-    namespace base64
-    {
-        std::string
-        Encode(std::shared_ptr<MemoryChunk> memory);
+    std::string
+    Encode(std::shared_ptr<MemoryChunk> memory);
 
-        std::shared_ptr<MemoryChunk>
-        Decode(const std::string& input);
-    }  // namespace base64
-}  // namespace euphoria::core
+    std::shared_ptr<MemoryChunk>
+    Decode(const std::string& input);
+}
 
 #endif  // EUPHORIA_BASE64_H

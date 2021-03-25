@@ -21,10 +21,11 @@ namespace euphoria::core
     template <typename T>
     struct vec2;
 
+
     // a 2d unit (vector)
     template <typename T>
     struct unit2;
-    
+
 
     ////////////////////////////////////////////////////////////////////////////////
 
@@ -40,10 +41,14 @@ namespace euphoria::core
         }
 
         [[nodiscard]] static vec2 Zero() { return {0, 0}; }
-        typedef vec2<T> Self;
+
+        using Self = vec2<T>;
+
         T x;
         T y;
+
         T* GetDataPtr() { return &x; }
+
         const T* GetDataPtr() const { return &x; }
 
         template <typename F>
@@ -137,10 +142,13 @@ namespace euphoria::core
     template <typename T>
     struct unit2
     {
-        typedef unit2<T> Self;
+        using Self = unit2<T>;
+
         T x;
         T y;
+
         T* GetDataPtr() { return &x; }
+
         const T* GetDataPtr() const { return &x; }
 
         template <typename F>
@@ -169,7 +177,7 @@ namespace euphoria::core
             return vec2<T>(x, y);
         }
 
-        bool
+        [[nodiscard]] bool
         IsValid() const
         {
             return IsEqual(GetLengthSquared(), 1);
@@ -204,10 +212,14 @@ namespace euphoria::core
         }
 
         [[nodiscard]] static scale2 Zero() { return {0, 0}; }
-        typedef scale2<T> Self;
+
+        using Self = scale2<T>;
+
         T x;
         T y;
+
         T* GetDataPtr() { return &x; }
+
         const T* GetDataPtr() const { return &x; }
 
         template <typename F>
@@ -364,15 +376,14 @@ namespace euphoria::core
     ////////////////////////////////////////////////////////////////////////////////
     /// Typedefs
 
-    typedef vec2<float>          vec2f;
-    typedef scale2<float>        scale2f;
-    typedef unit2<float>         unit2f;
-    typedef Vec2Transform<float> Vec2fTransform;
-
-    typedef vec2<int>          vec2i;
-    typedef scale2<int>        scale2i;
-    typedef unit2<int>         unit2i;
-    typedef Vec2Transform<int> Vec2iTransform;
+    using vec2f = vec2<float>;
+    using scale2f = scale2<float>;
+    using unit2f = unit2<float>;
+    using Vec2fTransform = Vec2Transform<float>;
+    using vec2i = vec2<int>;
+    using scale2i = scale2<int>;
+    using unit2i = unit2<int>;
+    using Vec2iTransform = Vec2Transform<int>;
 
     // util functions
     unit2f RandomUnit(Random* random);

@@ -12,7 +12,7 @@ namespace euphoria::core
         Aabb(const vec3f& amin, const vec3f& amax);
 
 
-        vec3f
+        [[nodiscard]] vec3f
         Wrap(const vec3f& vec) const;
 
 
@@ -28,15 +28,15 @@ namespace euphoria::core
         Empty();
 
 
-        vec3f
+        [[nodiscard]] vec3f
         GetSize() const;
 
 
-        bool
+        [[nodiscard]] bool
         IsValid() const;
 
 
-        vec3f
+        [[nodiscard]] vec3f
         GetOffset() const;
 
 
@@ -44,20 +44,20 @@ namespace euphoria::core
         Offset(const vec3f& vec);
 
 
-        Aabb
+        [[nodiscard]] Aabb
         OffsetCopy(const vec3f& vec) const;
 
 
-        const vec3f&
+        [[nodiscard]] const vec3f&
         GetMin() const;
 
 
-        const vec3f&
+        [[nodiscard]] const vec3f&
         GetMax() const;
 
 
-        vec3f
-        RandomPoint(Random* random);
+        [[nodiscard]] vec3f
+        RandomPoint(Random* random) const;
 
 
         vec3f min;

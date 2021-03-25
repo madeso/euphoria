@@ -129,7 +129,7 @@ namespace euphoria::core
 
 
     vec3f
-    Aabb::RandomPoint(Random* random)
+    Aabb::RandomPoint(Random* random) const
     {
         const auto x = random->Next(MakeRange(GetMin().x, GetMax().x));
         const auto y = random->Next(MakeRange(GetMin().y, GetMax().y));

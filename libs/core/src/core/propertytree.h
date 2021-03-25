@@ -24,6 +24,11 @@ namespace euphoria::core
 
         virtual ~Value() = default;
 
+        Value(const Value&) = delete;
+        Value(Value&&) = delete;
+        void operator=(const Value&) = delete;
+        void operator=(Value&&) = delete;
+
         const ValueType type;
     };
 

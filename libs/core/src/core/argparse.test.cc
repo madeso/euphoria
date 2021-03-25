@@ -836,7 +836,7 @@ TEST_CASE("argparse", "[argparse]")
 
         SECTION("twice")
         {
-            const auto arguments = 
+            const auto arguments =
                 MakeArguments
                 ({
                     "pretty", "please", "add", "cat",
@@ -872,7 +872,7 @@ TEST_CASE("argparse", "[argparse]")
         {
             const auto res = parser.Parse(MakeArguments({ "pretty", "dog" }));
             CHECK(res == ParseResult::Error);
-            REQUIRE(data == "");
+            REQUIRE(data.empty());
             CHECK(Check(output->messages,
             {
                 Inf("usage: app pretty [-h] <command> [<args>]"),

@@ -8,7 +8,7 @@
 
 namespace euphoria::core
 {
-    const Angle
+    Angle
     Angle::Random(::euphoria::core::Random* random)
     {
         return FromPercentOf360(random->NextFloat01());
@@ -94,14 +94,14 @@ namespace euphoria::core
         ASSERT(v >= -1 && "v must be greater than -1");
         return Angle::FromRadians(std::acos(v));
     }
-    
+
 
     Angle
     Atan(float v)
     {
         return Angle::FromRadians(std::atan(v));
     }
-    
+
 
     Angle
     Atan2(float y, float x)

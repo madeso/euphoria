@@ -82,7 +82,7 @@ namespace euphoria::core::argparse
         {
             return file;
         }
-            
+
         std::ostringstream ss;
         index += 1;
         if(print)
@@ -174,7 +174,7 @@ namespace euphoria::core::argparse
     Arguments::Extract(int argc, char* argv[])
     {
         auto ret = Arguments{argv[0] , {}};
-        
+
         for (int i = 1; i < argc; i += 1)
         {
             ret.arguments.emplace_back(argv[i]);
@@ -247,9 +247,9 @@ namespace euphoria::core::argparse
     }
 
 
-    Printer::~Printer()
-    {
-    }
+
+
+
 
 
     void
@@ -349,9 +349,8 @@ namespace euphoria::core::argparse
     }
 
 
-    Argument::~Argument()
-    {
-    }
+
+
 
 
     Argument&
@@ -597,10 +596,10 @@ namespace euphoria::core::argparse
         ;
     }
 
-    
-    ParserBase::~ParserBase()
-    {
-    }
+
+
+
+
 
     std::string
     ParserBase::GenerateUsageString(const Arguments& args)
@@ -938,22 +937,22 @@ namespace euphoria::core::argparse
     {
         struct ArgumentParser
         {
-            ParserBase* base;
-            Runner* runner;
+            ParserBase* base = nullptr;
+            Runner* runner = nullptr;
             int positional_index = 0;
             bool found_subparser = false;
 
-            bool
+            [[nodiscard]] bool
             HasMorePositionals() const;
 
-            std::vector<std::string>
+            [[nodiscard]] std::vector<std::string>
             PositionalsLeft() const;
 
             void
-            PrintError(const std::string& error);
+            PrintError(const std::string& error) const;
 
-            std::optional<ParseResult>
-            TryParseImportantOptional();
+            [[nodiscard]] std::optional<ParseResult>
+            TryParseImportantOptional() const;
 
             std::optional<ParseResult>
             ParseOnePositional();
@@ -1003,14 +1002,14 @@ namespace euphoria::core::argparse
 
 
         void
-        ArgumentParser::PrintError(const std::string& error)
+        ArgumentParser::PrintError(const std::string& error) const
         {
             PrintParseError(runner, base, error);
         }
 
 
         std::optional<ParseResult>
-        ArgumentParser::TryParseImportantOptional()
+        ArgumentParser::TryParseImportantOptional() const
         {
             // first, peek at the next commandline argument
             // and check for optionals that are allowed before positionals
@@ -1181,7 +1180,7 @@ namespace euphoria::core::argparse
                             }
                         );
 
-                    // todo(Gustav): if we have already detected it, 
+                    // todo(Gustav): if we have already detected it,
                     // change the text to 'invalid argument' but in this case
                     // it's actually a unknown argument, not a 'invalid' one
                     if(closest_match == base->optional_arguments.end())
@@ -1332,7 +1331,7 @@ namespace euphoria::core::argparse
         return parent;
     }
 
-    
+
     std::string
     SubParser::GetCallingName(const Arguments&)
     {

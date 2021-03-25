@@ -79,41 +79,37 @@
 
 #ifdef IMPLEMENT_ASSERT_LIB
 
-namespace euphoria::core
+namespace euphoria::core::assertlib
 {
-    namespace assertlib
+    struct AssertValueArg
     {
-        struct AssertValueArg
+        std::string value;
+
+        template <typename T>
+        AssertValueArg(const T& t)
         {
-            std::string value;
-            
-            template <typename T>
-            AssertValueArg(const T& t)
-            {
-                std::ostringstream ss;
-                ss << t;
-                value = ss.str();
-            }
-        };
+            std::ostringstream ss;
+            ss << t;
+            value = ss.str();
+        }
+    };
 
-        void
-        StartThrowing();
+    void
+    StartThrowing();
 
-        bool
-        IsThrowing();
+    bool
+    IsThrowing();
 
-        void
-        OnAssert
-        (
-            const char* const                  expression,
-            int                                line,
-            const char* const                  file,
-            const char* const                  argstr,
-            const std::vector<AssertValueArg>& arguments,
-            const char* const                  function
-        );
-    }
-
+    void
+    OnAssert
+    (
+        const char* expression,
+        int line,
+        const char* file,
+        const char* argstr,
+        const std::vector<AssertValueArg>& arguments,
+        const char* function
+    );
 }
 #endif  // IMPLEMENT_ASSERT_LIB
 

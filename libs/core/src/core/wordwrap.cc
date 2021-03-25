@@ -60,7 +60,10 @@ namespace euphoria::core
                     start = p+1;
                     last = p;
                 }
-                else start = p;
+                else
+                {
+                    start = p;
+                }
             }
         }
 
