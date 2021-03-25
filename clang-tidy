@@ -19,6 +19,9 @@ performance-
 cppcoreguidelines-*
 -cppcoreguidelines-pro-bounds-array-to-pointer-decay
 
+# ignore all gsl related settings, that is just ugly, fix the language instead!
+-cppcoreguidelines-pro-bounds-constant-array-index
+
 misc-*
 -misc-non-private-member-variables-in-classes
 
@@ -74,6 +77,9 @@ google-*
 -readability-identifier-naming
 
 -cppcoreguidelines-macro-usage
+
+# unions are sometimes exactly what we want... right?
+-cppcoreguidelines-pro-type-union-access
 
 #################################################################################
 # the checks attribute ends here...
