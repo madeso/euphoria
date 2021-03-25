@@ -24,100 +24,57 @@ namespace euphoria::core
     // a 2d unit (vector)
     template <typename T>
     struct unit2;
-
-
-    ////////////////////////////////////////////////////////////////////////////////
-    /// Shared implementations
-
-#define VEC2_CONSTRUCTOR(VEC, T)                                               \
-    VEC(const T& ax, const T& ay) : x(ax), y(ay) {}                            \
-                                                                               \
-    explicit VEC(const std::tuple<T, T>& a) : x(std::get<0>(a)), y(std::get<1>(a)) {} \
-                                                                               \
-    [[nodiscard]] static VEC Zero()                                            \
-    {                                                                          \
-        return {0, 0};                                                         \
-    }
-
-
-#define VEC2_COMMON_MEMBERS(VEC, T)                                            \
-    typedef VEC<T> Self;                                                       \
-    T              x;                                                          \
-    T              y;                                                          \
-                                                                               \
-    T* GetDataPtr()                                                            \
-    {                                                                          \
-        return &x;                                                             \
-    }                                                                          \
-                                                                               \
-    const T* GetDataPtr() const                                                \
-    {                                                                          \
-        return &x;                                                             \
-    }                                                                          \
-                                                                               \
-    template <typename F>                                                      \
-    VEC<F> StaticCast() const                                                  \
-    {                                                                          \
-        return VEC<F>(static_cast<F>(x), static_cast<F>(y));                   \
-    }                                                                          \
-                                                                               \
-    Self GetRotated(const Angle& a) const                                      \
-    {                                                                          \
-        const T nx = x * Cos(a) - y * Sin(a);                                  \
-        const T ny = x * Sin(a) + y * Cos(a);                                  \
-        return Self(nx, ny);                                                   \
-    }                                                                          \
-                                                                               \
-    Self GetFlippedY() const                                                   \
-    {                                                                          \
-        return Self(x, -y);                                                    \
-    }                                                                          \
-                                                                               \
-    T                                                                          \
-    GetComponentSum() const                                                    \
-    {                                                                          \
-        return x + y;                                                          \
-    }
-
-
-#define VEC2_SELF_ADD_SUBTRACT(VEC)                                            \
-    template <typename O>                                                      \
-    void operator+=(const VEC<O>& rhs)                                         \
-    {                                                                          \
-        x = x + rhs.x;                                                         \
-        y = y + rhs.y;                                                         \
-    }                                                                          \
-                                                                               \
-    template <typename O>                                                      \
-    void operator-=(const VEC<O>& rhs)                                         \
-    {                                                                          \
-        x = x - rhs.x;                                                         \
-        y = y - rhs.y;                                                         \
-    }
-
-#define VEC2_INVERT_SELF()                                                     \
-    Self operator-() const                                                     \
-    {                                                                          \
-        return Self(-x, -y);                                                   \
-    }
-
-#define VEC2_LENGTH_SQUARED(T)                                                 \
-    T GetLengthSquared() const                                                 \
-    {                                                                          \
-        return x * x + y * y;                                                  \
-    }
-
+    
 
     ////////////////////////////////////////////////////////////////////////////////
 
     template <typename T>
     struct vec2
     {
-        VEC2_CONSTRUCTOR(vec2, T)
-        VEC2_COMMON_MEMBERS(vec2, T)
-        VEC2_SELF_ADD_SUBTRACT(vec2)
-        VEC2_INVERT_SELF()
-        VEC2_LENGTH_SQUARED(T)
+        vec2(const T& ax, const T& ay) : x(ax), y(ay)
+        {
+        }
+
+        explicit vec2(const std::tuple<T, T>& a) : x(std::get<0>(a)), y(std::get<1>(a))
+        {
+        }
+
+        [[nodiscard]] static vec2 Zero() { return {0, 0}; }
+        typedef vec2<T> Self;
+        T x;
+        T y;
+        T* GetDataPtr() { return &x; }
+        const T* GetDataPtr() const { return &x; }
+
+        template <typename F>
+        vec2<F> StaticCast() const { return vec2<F>(static_cast<F>(x), static_cast<F>(y)); }
+
+        Self GetRotated(const Angle& a) const
+        {
+            const T nx = x * Cos(a) - y * Sin(a);
+            const T ny = x * Sin(a) + y * Cos(a);
+            return Self(nx, ny);
+        }
+
+        Self GetFlippedY() const { return Self(x, -y); }
+        T GetComponentSum() const { return x + y; }
+
+        template <typename O>
+        void operator+=(const vec2<O>& rhs)
+        {
+            x = x + rhs.x;
+            y = y + rhs.y;
+        }
+
+        template <typename O>
+        void operator-=(const vec2<O>& rhs)
+        {
+            x = x - rhs.x;
+            y = y - rhs.y;
+        }
+
+        Self operator-() const { return Self(-x, -y); }
+        T GetLengthSquared() const { return x * x + y * y; }
 
         using Unit = unit2<T>;
 
@@ -180,9 +137,26 @@ namespace euphoria::core
     template <typename T>
     struct unit2
     {
-        VEC2_COMMON_MEMBERS(unit2, T)
-        VEC2_INVERT_SELF()
-        VEC2_LENGTH_SQUARED(T)
+        typedef unit2<T> Self;
+        T x;
+        T y;
+        T* GetDataPtr() { return &x; }
+        const T* GetDataPtr() const { return &x; }
+
+        template <typename F>
+        unit2<F> StaticCast() const { return unit2<F>(static_cast<F>(x), static_cast<F>(y)); }
+
+        Self GetRotated(const Angle& a) const
+        {
+            const T nx = x * Cos(a) - y * Sin(a);
+            const T ny = x * Sin(a) + y * Cos(a);
+            return Self(nx, ny);
+        }
+
+        Self GetFlippedY() const { return Self(x, -y); }
+        T GetComponentSum() const { return x + y; }
+        Self operator-() const { return Self(-x, -y); }
+        T GetLengthSquared() const { return x * x + y * y; }
 
         operator vec2<T>() const
         {
@@ -221,9 +195,34 @@ namespace euphoria::core
     template <typename T>
     struct scale2
     {
-        VEC2_CONSTRUCTOR(scale2, T)
-        VEC2_COMMON_MEMBERS(scale2, T)
-        VEC2_INVERT_SELF()
+        scale2(const T& ax, const T& ay) : x(ax), y(ay)
+        {
+        }
+
+        explicit scale2(const std::tuple<T, T>& a) : x(std::get<0>(a)), y(std::get<1>(a))
+        {
+        }
+
+        [[nodiscard]] static scale2 Zero() { return {0, 0}; }
+        typedef scale2<T> Self;
+        T x;
+        T y;
+        T* GetDataPtr() { return &x; }
+        const T* GetDataPtr() const { return &x; }
+
+        template <typename F>
+        scale2<F> StaticCast() const { return scale2<F>(static_cast<F>(x), static_cast<F>(y)); }
+
+        Self GetRotated(const Angle& a) const
+        {
+            const T nx = x * Cos(a) - y * Sin(a);
+            const T ny = x * Sin(a) + y * Cos(a);
+            return Self(nx, ny);
+        }
+
+        Self GetFlippedY() const { return Self(x, -y); }
+        T GetComponentSum() const { return x + y; }
+        Self operator-() const { return Self(-x, -y); }
     };
 
     ////////////////////////////////////////////////////////////////////////////////
