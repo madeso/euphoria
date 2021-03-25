@@ -83,8 +83,17 @@ def is_file_ignored(path):
     return False
 
 
-def sort_and_map_files(root, files):
+def multisort(xs, specs):
+    for key, reverse in reversed(specs):
+        xs.sort(key=key, reverse=reverse)
+    return xs
+
+
+def sort_and_map_files(root, iterator_files):
     ret = {}
+    get_filename = lambda x: os.path.splitext(x)[0]
+    get_ext = lambda x: os.path.splitext(x)[1]
+    files = multisort(list(iterator_files), ((get_filename, False), (get_ext, True)))
     for file in files:
         rel = os.path.relpath(file, root)
         # ignore external folder
