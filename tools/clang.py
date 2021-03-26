@@ -270,6 +270,7 @@ def run_clang_tidy(root, source_file, project_build_folder, stats, short):
     if not short:
         print(f'took {time_taken:.2f}s')
     stats.add(source_file, time_taken)
+    print_empty = False
     for line in output.split('\n'):
         if 'warnings generated' in line:
             pass
@@ -283,7 +284,13 @@ def run_clang_tidy(root, source_file, project_build_folder, stats, short):
                 tidy_class = CLANG_TIDY_WARNING_CLASS.search(line)
                 if tidy_class is not None:
                     classes[tidy_class.group(1)] += 1
-            print(line)
+            if line.strip() == '':
+                if print_empty:
+                    print()
+                    print_empty = False
+            else:
+                print_empty = True
+                print(line)
     # print('{} warnings.'.format(total(warnings)))
     if not short:
         print_warning_counter(classes, source_file)
