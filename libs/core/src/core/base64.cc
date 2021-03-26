@@ -74,12 +74,12 @@ namespace euphoria::core::base64
             for(int i = 0; i < Csizet_to_int(input.size()); i += 4)
             {
                 // This could be made faster (but more complicated) by precomputing these index locations.
-                const auto b = std::array<unsigned long, 4>
+                const auto b = std::array<size_t, 4>
                 {
-                    CODES.find(input[i]),
-                    CODES.find(input[i + 1]),
-                    CODES.find(input[i + 2]),
-                    CODES.find(input[i + 3])
+                    CODES.find(input[Cint_to_sizet(i)]),
+                    CODES.find(input[Cint_to_sizet(i + 1)]),
+                    CODES.find(input[Cint_to_sizet(i + 2)]),
+                    CODES.find(input[Cint_to_sizet(i + 3)])
                 };
                 decoded[j++] = static_cast<char>((b[0] << 2) | (b[1] >> 4));
                 if(b[2] < 64)
