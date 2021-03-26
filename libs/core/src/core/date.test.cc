@@ -4,8 +4,6 @@
 
 using namespace euphoria::core;
 
-#define EXPECT_EQ(lhs, rhs) REQUIRE(lhs == rhs)
-
 
 TEST_CASE("datetime", "[datetime]")
 {
@@ -13,14 +11,14 @@ TEST_CASE("datetime", "[datetime]")
     SECTION("TestBasic")
     {
         StructTmWrapper dt(2001, Month::JANUARY, 1, 11, 12, 13);
-        EXPECT_EQ(dt.DebugString(), "2001-01-01 11:12:13");
+        REQUIRE(dt.DebugString() == "2001-01-01 11:12:13");
     }
 
     SECTION("TestLocalTime")
     {
         StructTmWrapper dt(2001, Month::DECEMBER, 1, 11, 12, 13);
         auto r = TimetWrapper::FromLocalTime(dt);
-        EXPECT_EQ(dt.DebugString(), r.ToLocalTime().DebugString());
+        REQUIRE(dt.DebugString() == r.ToLocalTime().DebugString());
     }
 
 
@@ -28,7 +26,7 @@ TEST_CASE("datetime", "[datetime]")
     {
         StructTmWrapper dt(2001, Month::DECEMBER, 1, 11, 12, 13);
         auto r = TimetWrapper::FromLocalTime(dt);
-        EXPECT_EQ(dt.DebugString(), Int64ToDateTime(DateTimeToInt64(r)).ToLocalTime().DebugString());
+        REQUIRE(dt.DebugString() == Int64ToDateTime(DateTimeToInt64(r)).ToLocalTime().DebugString());
     }
 
     //////////////////////////////////////////////////////////////////////////
@@ -36,19 +34,19 @@ TEST_CASE("datetime", "[datetime]")
     SECTION("TestConstructorGmt")
     {
         const auto dt = DateTime::FromDate(2010, Month::FEBRUARY, 2, TimeZone::GMT);
-        EXPECT_EQ(2010, dt.year());
-        EXPECT_EQ(Month::FEBRUARY, dt.month());
-        EXPECT_EQ(2, dt.day_of_moth());
-        EXPECT_EQ(12, dt.hour());
+        REQUIRE(2010 == dt.year());
+        REQUIRE(Month::FEBRUARY == dt.month());
+        REQUIRE(2 == dt.day_of_moth());
+        REQUIRE(12 == dt.hour());
     }
 
     SECTION("TestConstructorLocal")
     {
         const auto dt = DateTime::FromDate(2010, Month::FEBRUARY, 2, TimeZone::LOCAL);
-        EXPECT_EQ(2010, dt.year());
-        EXPECT_EQ(Month::FEBRUARY, dt.month());
-        EXPECT_EQ(2, dt.day_of_moth());
-        EXPECT_EQ(12, dt.hour());
+        REQUIRE(2010 == dt.year());
+        REQUIRE(Month::FEBRUARY == dt.month());
+        REQUIRE(2 == dt.day_of_moth());
+        REQUIRE(12 == dt.hour());
     }
 
     SECTION("TestChangeMembers")
@@ -60,12 +58,12 @@ TEST_CASE("datetime", "[datetime]")
         dt.set_hour(8);
         dt.set_minutes(33);
         dt.set_seconds(42);
-        EXPECT_EQ(2012, dt.year());
-        EXPECT_EQ(Month::JUNE, dt.month());
-        EXPECT_EQ(10, dt.day_of_moth());
-        EXPECT_EQ(8, dt.hour());
-        EXPECT_EQ(33, dt.minutes());
-        EXPECT_EQ(42, dt.seconds());
+        REQUIRE(2012 == dt.year());
+        REQUIRE(Month::JUNE == dt.month());
+        REQUIRE(10 == dt.day_of_moth());
+        REQUIRE(8 == dt.hour());
+        REQUIRE(33 == dt.minutes());
+        REQUIRE(42 == dt.seconds());
     }
 
 }
