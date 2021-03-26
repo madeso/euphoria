@@ -24,27 +24,27 @@ TEST_CASE("quat-testVecOp", "[quat]")
 TEST_CASE("quat-testLocalAxis", "[quat]")
 {
     euco::quatf q = euco::quatf::Identity();
-    EXPECT_PRED_FORMAT2(euco::unit3f::Right(), q.Right());
-    EXPECT_PRED_FORMAT2(euco::unit3f::Up(), q.Up());
-    EXPECT_PRED_FORMAT2(euco::unit3f::In(), q.In());
+    REQUIRE(q.Right() == approx(euco::unit3f::Right()));
+    REQUIRE(q.Up() == approx(euco::unit3f::Up()));
+    REQUIRE(q.In() == approx(euco::unit3f::In()));
 
     q = euco::quatf::FromAxisAngle(euco::AxisAngle::RightHandAround(
             euco::unit3f::Up(), euco::Angle::FromDegrees(90)));
-    EXPECT_PRED_FORMAT2(euco::unit3f::In(), q.Right());
-    EXPECT_PRED_FORMAT2(euco::unit3f::Up(), q.Up());
-    EXPECT_PRED_FORMAT2(euco::unit3f::Left(), q.In());
+    REQUIRE(q.Right() == approx(euco::unit3f::In()));
+    REQUIRE(q.Up() == approx(euco::unit3f::Up()));
+    REQUIRE(q.In() == approx(euco::unit3f::Left()));
 
     q = euco::quatf::FromAxisAngle(euco::AxisAngle::RightHandAround(
             euco::unit3f::Right(), euco::Angle::FromDegrees(90)));
-    EXPECT_PRED_FORMAT2(euco::unit3f::Right(), q.Right());
-    EXPECT_PRED_FORMAT2(euco::unit3f::Out(), q.Up());
-    EXPECT_PRED_FORMAT2(euco::unit3f::Up(), q.In());
+    REQUIRE(q.Right() == approx(euco::unit3f::Right()));
+    REQUIRE(q.Up() == approx(euco::unit3f::Out()));
+    REQUIRE(q.In() == approx(euco::unit3f::Up()));
 
     q = euco::quatf::FromAxisAngle(euco::AxisAngle::RightHandAround(
             euco::unit3f::In(), euco::Angle::FromDegrees(90)));
-    EXPECT_PRED_FORMAT2(euco::unit3f::Down(), q.Right());
-    EXPECT_PRED_FORMAT2(euco::unit3f::Right(), q.Up());
-    EXPECT_PRED_FORMAT2(euco::unit3f::In(), q.In());
+    REQUIRE(q.Right() == approx(euco::unit3f::Down()));
+    REQUIRE(q.Up() == approx(euco::unit3f::Right()));
+    REQUIRE(q.In() == approx(euco::unit3f::In()));
 }
 
 
@@ -218,5 +218,5 @@ TEST_CASE("quat-checkQuatConjugate", "[quat]")
                                                  euco::unit3f::Up(),
                                                  euco::Angle::FromDegrees(-90)))
                       .GetConjugate();
-    EXPECT_PRED_FORMAT2(a, b);
+    REQUIRE(b == approx(a));
 }
