@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <utility>
+#include <map>
 
 
 namespace euphoria::core

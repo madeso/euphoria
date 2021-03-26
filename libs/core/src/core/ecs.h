@@ -42,8 +42,15 @@ namespace euphoria::core::ecs
     {
 #if BUILD_ENTITY_DEBUG_COMPONENT == 1
         Component(TypeName n, TypeId i);
+#else
+        Component() = default;
 #endif
         virtual ~Component() = default;
+
+        Component(const Component&) = delete;
+        Component(Component&&) = delete;
+        void operator=(const Component&) = delete;
+        void operator=(Component&&) = delete;
 
 #if BUILD_ENTITY_DEBUG_COMPONENT == 1
         const TypeName type_name;
@@ -55,11 +62,16 @@ namespace euphoria::core::ecs
 
     struct RegistryEntityCallback
     {
+        RegistryEntityCallback() = default;
         virtual ~RegistryEntityCallback() = default;
 
+        RegistryEntityCallback(const RegistryEntityCallback&) = delete;
+        RegistryEntityCallback(RegistryEntityCallback&&) = delete;
+        void operator=(const RegistryEntityCallback&) = delete;
+        void operator=(RegistryEntityCallback&&) = delete;
+
         virtual void
-        OnCreated(EntityId ent)
-                = 0;
+        OnCreated(EntityId ent) = 0;
     };
 
     template <typename Func>
@@ -91,6 +103,11 @@ namespace euphoria::core::ecs
         Registry();
         ~Registry();
 
+        Registry(const Registry&) = delete;
+        Registry(Registry&&) = delete;
+        void operator=(const Registry&) = delete;
+        void operator=(Registry&&) = delete;
+
         EntityId
         Create();
 
@@ -100,7 +117,7 @@ namespace euphoria::core::ecs
         void
         AddCallback(std::shared_ptr<RegistryEntityCallback> callback);
 
-        bool
+        [[nodiscard]] bool
         IsAlive(EntityId id) const;
 
         void
@@ -132,7 +149,7 @@ namespace euphoria::core::ecs
         GetComponentOrNull(EntityId entity, ComponentId component)
         {
             auto c = GetComponent(entity, component);
-            if(c.get() == nullptr)
+            if(c == nullptr)
             {
                 return nullptr;
             }

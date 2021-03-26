@@ -22,7 +22,14 @@ namespace euphoria::core::generator
 
     struct Rule
     {
-        virtual ~Rule();
+        Rule() = default;
+        virtual ~Rule() = default;
+
+        Rule(const Rule&) = delete;
+        Rule(Rule&&) = delete;
+        void operator=(const Rule&) = delete;
+        void operator=(Rule&&) = delete;
+
         virtual void Step(CellularAutomata* self) = 0;
     };
 
@@ -44,7 +51,7 @@ namespace euphoria::core::generator
 
         CellularAutomata(Rules* r, World* w, const Fourway<OutsideRule>& fw);
 
-        bool
+        [[nodiscard]] bool
         HasMoreWork() const;
 
         void

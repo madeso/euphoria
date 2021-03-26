@@ -12,8 +12,6 @@ namespace euphoria::core
     unsigned long
     EditDistance(const std::string& source, const std::string& target)
     {
-        // Step 1
-
         const unsigned long n = source.length();
         const unsigned long m = target.length();
         if(n == 0)
@@ -25,21 +23,14 @@ namespace euphoria::core
             return n;
         }
 
-        // Good form to declare a TYPEDEF
-
         using Tmatrix = std::vector<std::vector<unsigned long>>;
 
         Tmatrix matrix(n + 1);
-
-        // Size the vectors in the 2.nd dimension. Unfortunately C++ doesn't
-        // allow for allocation on declaration of 2.nd dimension of vec of vec
 
         for(unsigned long i = 0; i <= n; i++)
         {
             matrix[i].resize(m + 1);
         }
-
-        // Step 2
 
         for(unsigned long i = 0; i <= n; i++)
         {
@@ -51,43 +42,20 @@ namespace euphoria::core
             matrix[0][j] = j;
         }
 
-        // Step 3
-
         for(unsigned long i = 1; i <= n; i++)
         {
             const char s_i = source[i - 1];
-
-            // Step 4
 
             for(unsigned long j = 1; j <= m; j++)
             {
                 const char t_j = target[j - 1];
 
-                // Step 5
-
-                int cost;
-                if(s_i == t_j)
-                {
-                    cost = 0;
-                }
-                else
-                {
-                    cost = 1;
-                }
-
-                // Step 6
+                const int cost = (s_i == t_j) ? 0 : 1;
 
                 const unsigned long above = matrix[i - 1][j];
                 const unsigned long left  = matrix[i][j - 1];
                 const unsigned long diag  = matrix[i - 1][j - 1];
-                unsigned long       cell
-                        = std::min(above + 1, std::min(left + 1, diag + cost));
-
-                // Step 6A: Cover transposition, in addition to deletion,
-                // insertion and substitution. This step is taken from:
-                // Berghel, Hal ; Roach, David : "An Extension of Ukkonen's
-                // Enhanced Dynamic Programming ASM Algorithm"
-                // (http://www.acm.org/~hlb/publications/asm/asm.html)
+                unsigned long cell = std::min(above + 1, std::min(left + 1, diag + cost));
 
                 if(i > 2 && j > 2)
                 {
@@ -109,8 +77,6 @@ namespace euphoria::core
                 matrix[i][j] = cell;
             }
         }
-
-        // Step 7
 
         return matrix[n][m];
     }

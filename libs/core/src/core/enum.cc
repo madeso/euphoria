@@ -59,7 +59,7 @@ namespace euphoria::core
     EnumValue
     EnumType::ToEnum(const std::string& name)
     {
-        NameToValue::const_iterator r = nameToValue_.find(name);
+        auto r = nameToValue_.find(name);
         if(r != nameToValue_.end())
         {
             return EnumValue(this, r->second);
@@ -111,7 +111,7 @@ namespace euphoria::core
     EnumType::AddEnum(const std::string& name)
     {
         ASSERT(isAdding_);
-        NameToValue::const_iterator r = nameToValue_.find(name);
+        auto r = nameToValue_.find(name);
         if(r != nameToValue_.end())
         {
             return;

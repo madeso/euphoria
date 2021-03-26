@@ -48,7 +48,7 @@ namespace
                 {
                     if(c == 2 || c == 3 ) { return true; }
                     else { return false; }
-                } 
+                }
                 else
                 {
                     if(c <= 1) { return true; }
@@ -87,12 +87,14 @@ namespace
         );
 
         for(int y=0; y<height; y+=1)
-        for(int x=0; x<half_width; x+=1)
         {
-            const auto src = half_side(x, y);
-            const auto x_mirror = width - (x + 1);
-            result_table(x + offset, y + offset) = src;
-            result_table(x_mirror + offset, y + offset) = src;
+            for(int x=0; x<half_width; x+=1)
+            {
+                const auto src = half_side(x, y);
+                const auto x_mirror = width - (x + 1);
+                result_table(x + offset, y + offset) = src;
+                result_table(x_mirror + offset, y + offset) = src;
+            }
         }
 
         return result_table;
@@ -283,7 +285,7 @@ namespace euphoria::core
         Image* image,
         int code,
         const Rgbai& foreground_color,
-        const std::optional<Rgbai> border_color_arg,
+        std::optional<Rgbai> border_color_arg,
         const Rgbai& background_color
     )
     {
@@ -304,7 +306,7 @@ namespace euphoria::core
         std::vector<Image>* images,
         int code,
         const Rgbai& foreground_color,
-        const std::optional<Rgbai> border_color_arg,
+        std::optional<Rgbai> border_color_arg,
         const Rgbai& background_color
     )
     {

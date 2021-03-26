@@ -8,9 +8,9 @@ namespace
 {
     bool TerminalSupportUtf8()
     {
-        const auto clang = std::getenv("LANG");
-        
-        if(clang)
+        const auto* clang = std::getenv("LANG");
+
+        if(clang != nullptr)
         {
             const auto lang = std::string(clang);
             const auto lower = euphoria::core::ToLower(lang);

@@ -107,12 +107,12 @@ namespace euphoria::core::dump2d
         int point_size = -1;
         bool point_text = false;
 
-        double gridx =-1;
-        double gridy =-1;
+        float gridx =-1;
+        float gridy =-1;
 
         Dumper& AddAxis();
 
-        Dumper& Grid(double xy);
+        Dumper& Grid(float xy);
 
         Dumper& DrawPoints(int size=3);
 

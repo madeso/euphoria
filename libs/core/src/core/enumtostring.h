@@ -42,7 +42,7 @@ namespace euphoria::core
             return *this;
         }
 
-        std::string
+        [[nodiscard]] std::string
         ToString(T t) const
         {
             auto found = enum_to_string.find(t);
@@ -54,7 +54,7 @@ namespace euphoria::core
             return "???";
         }
 
-        std::vector<std::string>
+        [[nodiscard]] std::vector<std::string>
         ListNames() const
         {
             std::vector<std::string> ret;
@@ -65,7 +65,7 @@ namespace euphoria::core
             return ret;
         }
 
-        std::vector<T>
+        [[nodiscard]] std::vector<T>
         ListValues() const
         {
             std::vector<T> ret;
@@ -76,7 +76,7 @@ namespace euphoria::core
             return ret;
         }
 
-        MatchedEnum<T>
+        [[nodiscard]] MatchedEnum<T>
         Match(const std::string& input, size_t max_size) const
         {
             auto found = string_to_enum.find(ToLower(input));
@@ -88,7 +88,7 @@ namespace euphoria::core
             {
                 std::string name;
                 T t;
-                unsigned long changes;
+                unsigned long changes = 0;
 
                 bool
                 operator<(const Match& rhs) const
@@ -120,18 +120,18 @@ namespace euphoria::core
     };
 
     template <typename T>
-    std::string
+    [[nodiscard]] std::string
     EnumToString(T t)
     {
         return std::string{ magic_enum::enum_name(t) };
     }
 
     template<typename T>
-    EnumToStringImpl<T>
+    [[nodiscard]] EnumToStringImpl<T>
     EnumToStringImplFromEnum()
     {
         const auto values = magic_enum::enum_values<T>();
-        
+
         EnumToStringImpl<T> r;
         for (const auto v : values)
         {
@@ -149,9 +149,9 @@ namespace euphoria::core
         return EnumToStringImplFromEnum<T>().Match(input, max_size);
     }
 
-    
+
     template <typename T>
-    std::vector<std::string>
+    [[nodiscard]] std::vector<std::string>
     EnumToString(const std::vector<T>& ts)
     {
         std::vector<std::string> ret;
@@ -164,14 +164,14 @@ namespace euphoria::core
 
 
     template <typename T>
-    std::vector<std::string>
+    [[nodiscard]] std::vector<std::string>
     EnumToString()
     {
         return EnumToStringImplFromEnum<T>().ListNames();
     }
 
     template <typename T>
-    std::vector<T>
+    [[nodiscard]] std::vector<T>
     EnumValues()
     {
         const auto values = magic_enum::enum_values<T>();
@@ -179,6 +179,6 @@ namespace euphoria::core
     }
 }
 
-using namespace magic_enum::ostream_operators;
+using namespace magic_enum::ostream_operators; // NOLINT
 
 #endif  // CORE_ENUM_TO_STRING_H

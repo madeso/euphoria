@@ -19,8 +19,6 @@ namespace euphoria::render
 
 namespace euphoria::core::ecs
 {
-    typedef Registry EntReg;
-
     struct Systems;
 
     // only a base class container
@@ -29,9 +27,13 @@ namespace euphoria::core::ecs
         explicit ComponentSystem(const std::string& the_name);
         virtual ~ComponentSystem() = default;
 
+        ComponentSystem(const ComponentSystem&) = delete;
+        ComponentSystem(ComponentSystem&&) = delete;
+        void operator=(const ComponentSystem&) = delete;
+        void operator=(ComponentSystem&&) = delete;
+
         virtual void
-        RegisterCallbacks(Systems* systems)
-                = 0;
+        RegisterCallbacks(Systems* systems) = 0;
 
         // for debug purposes
         const std::string name;
@@ -50,15 +52,27 @@ namespace euphoria::core::ecs
 
     struct ComponentSystemUpdate
     {
+        ComponentSystemUpdate() = default;
         virtual ~ComponentSystemUpdate() = default;
 
+        ComponentSystemUpdate(const ComponentSystemUpdate&) = delete;
+        ComponentSystemUpdate(ComponentSystemUpdate&&) = delete;
+        void operator=(const ComponentSystemUpdate&) = delete;
+        void operator=(ComponentSystemUpdate&&) = delete;
+
         virtual void
-        Update(EntReg* reg, float dt) const = 0;
+        Update(Registry* reg, float dt) const = 0;
     };
 
     struct ComponentSystemInit
     {
+        ComponentSystemInit() = default;
         virtual ~ComponentSystemInit() = default;
+
+        ComponentSystemInit(const ComponentSystemInit&) = delete;
+        ComponentSystemInit(ComponentSystemInit&&) = delete;
+        void operator=(const ComponentSystemInit&) = delete;
+        void operator=(ComponentSystemInit&&) = delete;
 
         virtual void
         OnAdd(EntityId entity) const = 0;
@@ -66,10 +80,16 @@ namespace euphoria::core::ecs
 
     struct ComponentSystemSpriteDraw
     {
+        ComponentSystemSpriteDraw() = default;
         virtual ~ComponentSystemSpriteDraw() = default;
 
+        ComponentSystemSpriteDraw(const ComponentSystemSpriteDraw&) = delete;
+        ComponentSystemSpriteDraw(ComponentSystemSpriteDraw&&) = delete;
+        void operator=(const ComponentSystemSpriteDraw&) = delete;
+        void operator=(ComponentSystemSpriteDraw&&) = delete;
+
         virtual void
-        Draw(EntReg* reg, render::SpriteRenderer* renderer) const = 0;
+        Draw(Registry* reg, render::SpriteRenderer* renderer) const = 0;
     };
 
     template <typename TSystem>
@@ -81,15 +101,13 @@ namespace euphoria::core::ecs
             systems.emplace_back(system);
         }
 
-    protected:
         std::vector<TSystem*> systems;
     };
 
-    struct ComponentSystemUpdateStore
-        : public SystemStore<ComponentSystemUpdate>
+    struct ComponentSystemUpdateStore : public SystemStore<ComponentSystemUpdate>
     {
         void
-        Update(EntReg* reg, float dt) const;
+        Update(Registry* reg, float dt) const;
     };
 
     struct ComponentSystemInitStore : public SystemStore<ComponentSystemInit>
@@ -98,11 +116,10 @@ namespace euphoria::core::ecs
         OnAdd(EntityId ent) const;
     };
 
-    struct ComponentSystemSpriteDrawStore
-        : public SystemStore<ComponentSystemSpriteDraw>
+    struct ComponentSystemSpriteDrawStore : public SystemStore<ComponentSystemSpriteDraw>
     {
         void
-        Draw(EntReg* reg, render::SpriteRenderer* renderer) const;
+        Draw(Registry* reg, render::SpriteRenderer* renderer) const;
     };
 
     struct Systems
@@ -121,7 +138,7 @@ namespace euphoria::core::ecs
 
     struct World
     {
-        EntReg   reg;
+        Registry   reg;
         Systems* systems;
 
         explicit World(Systems* sys);

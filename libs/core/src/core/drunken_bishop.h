@@ -64,7 +64,7 @@ namespace euphoria::core
     Collapse
     (
         const Table<int>& table,
-        const std::vector<std::string> characters
+        const std::vector<std::string>& characters
     );
 
     // todo: add image collapse with palette

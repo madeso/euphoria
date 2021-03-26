@@ -21,7 +21,7 @@ namespace euphoria::engine
         {}
 
         void
-        Draw(core::ecs::EntReg*      reg,
+        Draw(core::ecs::Registry*      reg,
              render::SpriteRenderer* renderer) const override
         {
             const auto items = reg->View(std::vector<core::ecs::ComponentId> {

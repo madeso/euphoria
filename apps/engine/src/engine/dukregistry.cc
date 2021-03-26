@@ -13,7 +13,7 @@ namespace euphoria::engine
 
     COMPONENT_CONSTRUCTOR_IMPLEMENTATION(ScriptComponent)
 
-    DukRegistry::DukRegistry(core::ecs::EntReg* r, Components* c)
+    DukRegistry::DukRegistry(core::ecs::Registry* r, Components* c)
         : reg(r), components(c)
     {}
 
@@ -61,7 +61,7 @@ namespace euphoria::engine
     ScriptComponent*
     GetScriptComponent(
             const DukRegistry::ScriptComponentMap& scriptComponents,
-            core::ecs::EntReg*                     reg,
+            core::ecs::Registry*                     reg,
             core::ecs::EntityId                    ent,
             core::ecs::ComponentId                 comp)
     {

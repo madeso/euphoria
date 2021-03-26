@@ -22,14 +22,14 @@ namespace euphoria::core
             d.push_back(t);
         }
 
-        const T*
+        [[nodiscard]] const T*
         data() const
         {
             ASSERT(!d.empty());
             return &d[0];
         }
 
-        int
+        [[nodiscard]] int
         size() const
         {
             return d.size();
@@ -38,6 +38,6 @@ namespace euphoria::core
         std::vector<T> d;
         std::size_t    max;
     };
-}  // namespace euphoria::core
+}
 
 #endif  // EUPHORIA_CORE_HISTORY_H

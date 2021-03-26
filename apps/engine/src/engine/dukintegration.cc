@@ -44,7 +44,7 @@ namespace euphoria::engine
 
 
         void
-        Update(core::ecs::EntReg*, float dt) const override
+        Update(core::ecs::Registry*, float dt) const override
         {
             ASSERT(duk);
             func.VoidCall(duk->AsContext(), dt);
@@ -63,7 +63,7 @@ namespace euphoria::engine
         : public core::ecs::ComponentSystem
         , public core::ecs::ComponentSystemInit
     {
-        core::ecs::EntReg* reg;
+        core::ecs::Registry* reg;
         std::vector<core::ecs::ComponentId> types;
         duk::FunctionReference func;
         duk::Duk* duk;
@@ -72,7 +72,7 @@ namespace euphoria::engine
         DukInitSystem
         (
             const std::string& name,
-            core::ecs::EntReg* r,
+            core::ecs::Registry* r,
             const std::vector<core::ecs::ComponentId>& t,
             duk::FunctionReference f,
             duk::Duk* d
@@ -147,7 +147,7 @@ namespace euphoria::engine
         AddInit
         (
             const std::string& name,
-            core::ecs::EntReg* reg,
+            core::ecs::Registry* reg,
             const std::vector<core::ecs::ComponentId>& types,
             duk::FunctionReference func
         )
@@ -273,7 +273,7 @@ namespace euphoria::engine
                     "Find",
                     MakeBind<std::string>
                     (
-                        [&](Context* ctx, const std::string& name) -> int 
+                        [&](Context* ctx, const std::string& name) -> int
                         {
                             return ctx->ReturnFreeObject(
                                     creator->FindTemplate(name));
@@ -320,7 +320,7 @@ namespace euphoria::engine
                     "GetRect",
                     MakeBind<>
                     (
-                        [&](Context* ctx) -> int 
+                        [&](Context* ctx) -> int
                         {
                             return ctx->ReturnFreeObject(&camera->screen);
                         }
@@ -520,7 +520,7 @@ namespace euphoria::engine
                     "GetPosition2",
                     MakeBind<core::ecs::ComponentId>
                     (
-                        [&](Context* ctx, core::ecs::ComponentId ent) -> int 
+                        [&](Context* ctx, core::ecs::ComponentId ent) -> int
                         {
                             return ctx->ReturnFreeObject
                             (
@@ -581,7 +581,7 @@ namespace euphoria::engine
                     "GetPos",
                     MakeBind<CPosition2>
                     (
-                        [](Context* ctx, CPosition2& p) -> int 
+                        [](Context* ctx, CPosition2& p) -> int
                         {
                             return ctx->ReturnObject
                             (

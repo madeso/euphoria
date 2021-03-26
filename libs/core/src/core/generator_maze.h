@@ -47,11 +47,20 @@ namespace euphoria::core::generator
 
     struct Algorithm
     {
-        virtual ~Algorithm() {}
+        Algorithm() = default;
+        virtual ~Algorithm() = default;
+
+        Algorithm(const Algorithm&) = delete;
+        Algorithm(Algorithm&&) = delete;
+        void operator=(const Algorithm&) = delete;
+        void operator=(Algorithm&&) = delete;
+
         virtual void
         Setup() = 0;
-        virtual bool
+
+        [[nodiscard]] virtual bool
         HasMoreWork() const = 0;
+
         virtual void
         Work() = 0;
     };
@@ -66,7 +75,8 @@ namespace euphoria::core::generator
 
         void
         Setup() override;
-        bool
+
+        [[nodiscard]] bool
         HasMoreWork() const override;
         void
         Work() override;
@@ -86,8 +96,10 @@ namespace euphoria::core::generator
 
         void
         Setup() override;
-        bool
+
+        [[nodiscard]] bool
         HasMoreWork() const override;
+
         void
         Work() override;
     };
@@ -108,12 +120,13 @@ namespace euphoria::core::generator
         Rgbi unit_color;
         Rgbi corridor_color;
 
-        Rgbi
+        [[nodiscard]] Rgbi
         CalculateCellColor(int x, int y) const;
 
         Image image;
 
         Drawer();
+
         void
         Draw();
     };

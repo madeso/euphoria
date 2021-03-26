@@ -135,8 +135,8 @@ namespace euphoria::core
             constexpr int vertical_mask = 0b10;
             constexpr int horizontal_mask = 0b01;
 
-            const auto dy = (vertical_mask & code) ? 1 : -1;
-            const auto dx = (horizontal_mask & code) ? 1 : -1;
+            const auto dy = (vertical_mask & code) != 0 ? 1 : -1;
+            const auto dx = (horizontal_mask & code) != 0 ? 1 : -1;
 
             x = KeepWithin(table.Indices().GetXRange(), x + dx);
             y = KeepWithin(table.Indices().GetYRange(), y + dy);
@@ -164,14 +164,14 @@ namespace euphoria::core
     Collapse
     (
         const Table<int>& table,
-        const std::vector<std::string> characters
+        const std::vector<std::string>& characters
     )
     {
         auto rr = std::vector<std::string>{};
 
         for(int y=0; y<table.GetHeight(); y+=1)
         {
-            std::string r = "";
+            std::string r;
             for(int x=0; x<table.GetWidth(); x+=1)
             {
                 const auto v =

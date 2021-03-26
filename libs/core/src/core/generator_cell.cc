@@ -12,11 +12,6 @@
 
 namespace euphoria::core::generator
 {
-    Rule::~Rule()
-    {
-    }
-
-
     struct SmoothRule : public Rule
     {
         using SmoothFunction = ChangeFunction;
@@ -282,7 +277,7 @@ namespace euphoria::core::generator
                 {
                     const auto walls = wc.Count(1, include_self, algorithm);
                     if (walls > count) { return true; }
-                    if (walls < count) { return false; } 
+                    if (walls < count) { return false; }
                     return std::nullopt;
                 }
             )

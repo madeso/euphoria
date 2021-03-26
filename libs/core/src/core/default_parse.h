@@ -11,7 +11,7 @@
 
 namespace euphoria::core::argparse
 {
-    const std::string
+    std::string
     QuoteAndCombineEnglishOr(const std::vector<std::string>& matches);
 
 
@@ -36,9 +36,9 @@ namespace euphoria::core::argparse
         typename T,
         std::enable_if_t
         <
-            std::is_enum<T>::value == false &&
-            CustomArgparser<T>::value == 0
-        , int> = 0
+            std::is_enum<T>::value == false && CustomArgparser<T>::value == 0,
+            int
+        > = 0
     >
     Result<T>
     DefaultParseFunction
@@ -65,9 +65,9 @@ namespace euphoria::core::argparse
         typename T,
         std::enable_if_t
         <
-            std::is_enum<T>::value == true &&
-            CustomArgparser<T>::value == 0
-        , int> = 0
+            std::is_enum<T>::value == true && CustomArgparser<T>::value == 0,
+            int
+        > = 0
     >
     Result<T>
     DefaultParseFunction
@@ -137,9 +137,9 @@ namespace euphoria::core::argparse
         typename T,
         std::enable_if_t
         <
-            std::is_enum<T>::value == false &&
-            CustomArgparser<T>::value == 0
-        , int> = 0
+            std::is_enum<T>::value == false && CustomArgparser<T>::value == 0,
+            int
+        > = 0
     >
     std::string
     DefaultValueToString(const T& t)
@@ -155,9 +155,9 @@ namespace euphoria::core::argparse
         typename T,
         std::enable_if_t
         <
-            std::is_enum<T>::value == true &&
-            CustomArgparser<T>::value == 0
-        , int> = 0
+            std::is_enum<T>::value == true && CustomArgparser<T>::value == 0,
+            int
+        > = 0
     >
     std::string
     DefaultValueToString(const T& t)

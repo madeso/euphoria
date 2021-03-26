@@ -66,7 +66,7 @@ namespace
         int size,
         int patch,
         int turn,
-        int invert,
+        bool invert,
         const Rgbi& foreColor,
         const Rgbi& backColor
     ) {
@@ -78,26 +78,34 @@ namespace
         }
 
         auto vertices = patchTypes[patch];
-        auto offset = size / 2.0f;
-        auto scale = size / 4.0f;
+        auto offset = static_cast<float>(size) / 2.0f;
+        auto scale = static_cast<float>(size) / 4.0f;
 
-      auto ctx = Canvas{image};
+        auto ctx = Canvas{image};
 
         // paint background
         ctx.fillStyle = invert ? foreColor : backColor;
         ctx.fillRect(x, y, size, size);
 
         // build patch path
-        ctx.translate(x + offset, y + offset);
-        ctx.rotate(turn * Pi() / 2);
+        ctx.translate(static_cast<float>(x) + offset, static_cast<float>(y) + offset);
+        ctx.rotate(static_cast<float>(turn) * Pi() / 2);
         ctx.beginPath();
-        ctx.moveTo((vertices[0] % 5 * scale - offset), (Floori(vertices[0] / 5.0f) * scale - offset));
+        ctx.moveTo
+        (
+            static_cast<float>(vertices[0] % 5) * scale - offset,
+            std::floor(static_cast<float>(vertices[0]) / 5.0f) * scale - offset
+        );
         for (std::size_t i = 1; i < vertices.size(); i++)
         {
-            ctx.lineTo((vertices[i] % 5 * scale - offset), (Floori(vertices[i] / 5.0f) * scale - offset));
+            ctx.lineTo
+            (
+                static_cast<float>(vertices[i] % 5) * scale - offset,
+                std::floor(static_cast<float>(vertices[i]) / 5.0f) * scale - offset
+            );
         }
         ctx.closePath();
-    
+
         // offset and rotate coordinate space by patch position (x, y) and
         // 'turn' before rendering patch shape
 
@@ -129,7 +137,7 @@ namespace euphoria::core
         const auto C = [](int i) { return static_cast<uint8_t>(KeepWithin(Range<int>{0, 255}, i)); };
         auto foreColor = Rgbi(C(red << 3), C(green << 3), C(blue << 3));
         auto backColor = Rgbi(255, 255, 255);
-    
+
         // middle patch
         render_identicon_patch(image, patchSize, patchSize, patchSize, middleType, 0, middleInvert, foreColor, backColor);
         // side patchs, starting from top and moving clock-wise

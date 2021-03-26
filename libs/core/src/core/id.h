@@ -9,11 +9,11 @@ namespace euphoria::core
 
     struct IdGenerator
     {
-        typedef int ID;
+        using ID = int;
 
         IdGenerator();
 
-        ID
+        [[nodiscard]] ID
         Generate();
 
         void
@@ -32,18 +32,23 @@ namespace euphoria::core
     public:
         explicit Id(IdGenerator* generator);
 
+        Id(const Id&) = delete;
+        Id(Id&&) = delete;
+        void operator=(const Id&) = delete;
+        void operator=(Id&&) = delete;
+
         [[nodiscard]] static const Id&
         Invalid();
 
         ~Id();
 
-        bool
+        [[nodiscard]] bool
         IsValid() const;
 
         void
         Generate(IdGenerator* generator);
 
-        IdGenerator::ID
+        [[nodiscard]] IdGenerator::ID
         GetValue() const;
 
     private:

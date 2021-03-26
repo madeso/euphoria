@@ -29,18 +29,23 @@ namespace euphoria::core
         EnumType(std::string name);
         ~EnumType();
 
-        std::string
+        EnumType(const EnumType&) = delete;
+        EnumType(EnumType&&) = delete;
+        void operator=(const EnumType&) = delete;
+        void operator=(EnumType&&) = delete;
+
+        [[nodiscard]] std::string
         ToString(size_t v) const;
 
-        EnumValue
+        [[nodiscard]] EnumValue
         ToEnum(const std::string& name);
 
         void
         AddEnums(const std::vector<std::string>& names);
 
     private:
-        typedef std::map<size_t, std::string> ValueToName;
-        typedef std::map<std::string, size_t> NameToValue;
+        using ValueToName = std::map<size_t, std::string>;
+        using NameToValue = std::map<std::string, size_t>;
 
         void
         AddEnum(const std::string& name);
@@ -60,10 +65,10 @@ namespace euphoria::core
 
         // todo: add EnumType to the parameter to verify against stored member
         // so
-        std::string
+        [[nodiscard]] std::string
         ToString() const;
 
-        size_t
+        [[nodiscard]] size_t
         ToValue() const;
 
         bool
@@ -93,7 +98,7 @@ namespace euphoria::core
         vfs::FileSystem* fs,
         const vfs::FilePath& path
     );
-    
+
 
 #define DECLARE_ENUM_TYPE(NAME) EnumType& NAME##_EnumType();
 #define IMPLEMENT_ENUM_TYPE(NAME)                                              \

@@ -78,8 +78,8 @@ namespace euphoria::core::ecs
             components.erase(entity);
         }
 
-        std::vector<EntityId>
-        View()
+        [[nodiscard]] std::vector<EntityId>
+        View() const
         {
             const auto keys = Keys(components);
             ASSERT(Sorted(keys) == keys);
@@ -138,7 +138,7 @@ namespace euphoria::core::ecs
             alive.emplace_back(id);
         }
 
-        bool
+        [[nodiscard]] bool
         IsAlive(EntityId id) const
         {
             return std::find(alive.begin(), alive.end(), id) != alive.end();
@@ -266,7 +266,7 @@ namespace euphoria::core::ecs
 
     Registry::Registry() : impl(new RegistryImpl {}) {}
 
-    Registry::~Registry() {}
+    Registry::~Registry() = default;
 
     EntityId
     Registry::Create()

@@ -2,7 +2,7 @@
 #define EUPHORIA_CPP_H
 
 #include <string>
-
+#include <vector>
 
 namespace euphoria::core
 {
@@ -32,25 +32,25 @@ namespace euphoria::core
     template <typename T>
     struct ArrayToPointerDecay
     {
-        typedef T Type;
+        using Type = T;
     };
 
     template <typename T, std::size_t N>
     struct ArrayToPointerDecay<T[N]>
     {
-        typedef const T* Type;
+        using Type = const T*;
     };
 
     template <typename T>
     struct CharPointerToString
     {
-        typedef T Type;
+        using Type = T;
     };
 
     template <std::size_t N>
     struct CharPointerToString<char[N]>
     {
-        typedef std::string Type;
+        using Type = std::string;
     };
 
     template <typename T>

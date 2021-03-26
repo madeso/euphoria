@@ -56,15 +56,17 @@ namespace
         auto generator = TGenerator{code};
 
         for(int y=0; y<size; y+=1)
-        for(int x=0; x<half_size; x+=1)
         {
-            const auto filled = generator.Next() < 0.5f;
-            if(filled)
+            for(int x=0; x<half_size; x+=1)
             {
-                draw_rect(vec2i{x*dx, (y+1)*dy});
-                if(x != half_size-1)
+                const auto filled = generator.Next() < 0.5f;
+                if(filled)
                 {
-                    draw_rect(vec2i{image->GetWidth() - ((x+1)*dx + 2), (y+1)*dy});
+                    draw_rect(vec2i{x*dx, (y+1)*dy});
+                    if(x != half_size-1)
+                    {
+                        draw_rect(vec2i{image->GetWidth() - ((x+1)*dx + 2), (y+1)*dy});
+                    }
                 }
             }
         }

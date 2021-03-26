@@ -1,5 +1,7 @@
 #include "core/findstring.h"
 
+#include <algorithm>
+
 namespace euphoria::core
 {
     bool
@@ -11,44 +13,44 @@ namespace euphoria::core
     bool
     Find(const std::string& target, const std::vector<std::string>& searches)
     {
-        for(const auto& search: searches)
-        {
-            if(!Find(target, search))
+        return std::all_of
+        (
+            searches.begin(),
+            searches.end(),
+            [&target](const auto& search)
             {
-                return false;
+                return Find(target, search);
             }
-        }
-
-        return true;
+        );
     }
 
     bool
     Find(const std::vector<std::string>& targets, const std::string& search)
     {
-        for(const auto& target: targets)
-        {
-            if(Find(target, search))
+        return std::any_of
+        (
+            targets.begin(),
+            targets.end(),
+            [&search](const auto& target)
             {
-                return true;
+                return Find(target, search);
             }
-        }
-
-        return false;
+        );
     }
 
     bool
     Find(const std::vector<std::string>& targets,
          const std::vector<std::string>& searches)
     {
-        for(const auto& target: targets)
-        {
-            if(Find(target, searches))
+        return std::any_of
+        (
+            targets.begin(),
+            targets.end(),
+            [&searches](const auto& target)
             {
-                return true;
+                return Find(target, searches);
             }
-        }
-
-        return false;
+        );
     }
 
-}  // namespace euphoria::core
+}

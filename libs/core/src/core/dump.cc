@@ -93,10 +93,10 @@ namespace euphoria::core::dump2d
         {
             std::ofstream file;
 
-            std::function<double (double)> px;
-            std::function<double (double)> py;
+            std::function<float (float)> px;
+            std::function<float (float)> py;
 
-            double scale = 1;
+            float scale = 1.0f;
 
             explicit Writer(const std::string& path)
                 : file(path.c_str()) {}
@@ -124,92 +124,92 @@ namespace euphoria::core::dump2d
             }
         };
 
-        void WritePoly(Writer& writer, const Poly* poly)
+        void WritePoly(Writer* writer, const Poly* poly)
         {
-            writer.file << "<polyline points=\"";
+            writer->file << "<polyline points=\"";
             {
                 bool first = true;
 
                 auto write_point = [&writer](const vec2f& p)
                 {
-                    writer.file << writer.px(p.x) << ","
-                                << writer.py(p.y);
+                    writer->file << writer->px(p.x) << ","
+                                << writer->py(p.y);
                 };
 
                 for(const auto p: poly->points)
                 {
                     if(first) {first = false;}
-                    else {writer.file << " ";}
+                    else {writer->file << " ";}
 
                     write_point(p);
                 }
 
                 if(poly->is_closed && !poly->points.empty())
                 {
-                    writer.file << " ";
+                    writer->file << " ";
                     write_point(poly->points[0]);
                 }
             }
 
-            writer.file << "\" style=\"fill:";
-            writer.file << ToHtmlOrNone(poly->fill_color);
-            writer.file << ";stroke:";
-            writer.file << ToHtml(poly->stroke_color);
-            writer.file << ";stroke-width:1\"";
+            writer->file << "\" style=\"fill:";
+            writer->file << ToHtmlOrNone(poly->fill_color);
+            writer->file << ";stroke:";
+            writer->file << ToHtml(poly->stroke_color);
+            writer->file << ";stroke-width:1\"";
             if(!poly->stroke.empty())
             {
-                writer.file << " stroke-dasharray=\"";
+                writer->file << " stroke-dasharray=\"";
                 {bool first = true;
                 for(const auto d: poly->stroke)
                 {
-                    if(first) first = false;
-                    else writer.file << ",";
-                    writer.file << d;
+                    if(first) { first = false; }
+                    else { writer->file << ","; }
+                    writer->file << d;
                 }}
-                writer.file << "\"";
+                writer->file << "\"";
             }
-            writer.file << "/>\n";
+            writer->file << "/>\n";
         }
 
-        void WriteText(Writer& writer, const Text* text)
+        void WriteText(Writer* writer, const Text* text)
         {
-            writer.file << "<text x=\"" << writer.px(text->point.x)
-                            << "\" y=\""<< writer.py(text->point.y) << "\" fill=\"" << ToHtml(text->color) << "\">" << text->text << "</text>\n";
+            writer->file << "<text x=\"" << writer->px(text->point.x)
+                            << "\" y=\""<< writer->py(text->point.y) << "\" fill=\"" << ToHtml(text->color) << "\">" << text->text << "</text>\n";
         }
 
-        void WriteCircle(Writer& writer, const Circle* circle)
+        void WriteCircle(Writer* writer, const Circle* circle)
         {
-            writer.file
-                << "<circle cx=\"" << writer.px(circle->point.x) << "\" cy=\""<< writer.py(circle->point.y)
-                << "\" r=\"" << circle->radius*writer.scale << "\" stroke=\"" << ToHtmlOrNone(circle->line_color)
+            writer->file
+                << "<circle cx=\"" << writer->px(circle->point.x) << "\" cy=\""<< writer->py(circle->point.y)
+                << "\" r=\"" << circle->radius*writer->scale << "\" stroke=\"" << ToHtmlOrNone(circle->line_color)
                 << "\" fill=\"" << ToHtmlOrNone(circle->fill_color) << "\""
                 << "/>\n";
         }
 
-        void WriteItem(Writer& writer, const Item& item)
+        void WriteItem(Writer* writer, const Item& item)
         {
-            auto poly = AsPoly(&item);
-            auto text = AsText(&item);
-            auto group = AsGroup(&item);
-            auto circle = AsCircle(&item);
-            if(poly)
+            const auto* poly = AsPoly(&item);
+            const auto* text = AsText(&item);
+            const auto* group = AsGroup(&item);
+            const auto* circle = AsCircle(&item);
+            if(poly != nullptr)
             {
                 WritePoly(writer, poly);
             }
-            else if(text)
+            else if(text != nullptr)
             {
                 WriteText(writer, text);
             }
-            else if(group)
+            else if(group != nullptr)
             {
-                writer.file << "<g>\n";
+                writer->file << "<g>\n";
                 for(const auto& i: group->items)
                 {
                     WriteItem(writer, i);
                 }
-                writer.file << "</g>\n";
+                writer->file << "</g>\n";
             }
-            else if(circle)
+            else if(circle != nullptr)
             {
                 WriteCircle(writer, circle);
             }
@@ -219,28 +219,29 @@ namespace euphoria::core::dump2d
             }
         }
 
-        void FindMinMax(MinMax& mm, const Item& item)
+        void FindMinMax(MinMax* mm, const Item& item)
         {
-            auto poly = AsPoly(&item);
-            auto text = AsText(&item);
-            auto group = AsGroup(&item);
-            auto circle = AsCircle(&item);
-            if(poly)
+            const auto* poly = AsPoly(&item);
+            const auto* text = AsText(&item);
+            const auto* group = AsGroup(&item);
+            const auto* circle = AsCircle(&item);
+
+            if(poly != nullptr)
             {
                 for(const auto& point: poly->points)
                 {
-                    mm << point;
+                    *mm << point;
                 }
             }
-            else if(text)
+            else if(text != nullptr)
             {
-                mm << text->point;
+                *mm << text->point;
             }
-            else if(circle)
+            else if(circle != nullptr)
             {
-                mm.Include(circle->point, circle->radius);
+                mm->Include(circle->point, circle->radius);
             }
-            else if(group)
+            else if(group != nullptr)
             {
                 for(const auto& i: group->items)
                 {
@@ -260,7 +261,7 @@ namespace euphoria::core::dump2d
         return *this;
     }
 
-    Dumper& Dumper::Grid(double xy)
+    Dumper& Dumper::Grid(float xy)
     {
         gridx = xy;
         gridy = xy;
@@ -286,7 +287,7 @@ namespace euphoria::core::dump2d
 
         for(const auto& item: items)
         {
-            detail::FindMinMax(minmax, item);
+            detail::FindMinMax(&minmax, item);
         }
 
         const auto& min = minmax.min;
@@ -311,11 +312,11 @@ namespace euphoria::core::dump2d
         const auto r = CalculateSizeAndOffset();
         const auto size = r.first;
         const auto offset = r.second;
-        const auto scale = std::min((width-space*2) / size.x, (height-space*2) / size.y);
+        const auto scale = std::min(static_cast<float>(width-space*2) / size.x, static_cast<float>(height-space*2) / size.y);
         const auto dx = offset.x * scale;
         const auto dy = offset.y * scale;
-        const auto px = [=](auto x) { return space + dx + x * scale; };
-        const auto py = [=](auto y) { return height - (space + dy + y * scale); };
+        const auto px = [=](float x) -> float { return static_cast<float>(space) + dx + x * scale; };
+        const auto py = [=](float y) -> float { return static_cast<float>(height) - (static_cast<float>(space) + dy + y * scale); };
 
         detail::Writer writer(path);
         writer.px = px;
@@ -334,7 +335,7 @@ namespace euphoria::core::dump2d
 
         for(const auto& item: items)
         {
-            detail::WriteItem(writer, item);
+            detail::WriteItem(&writer, item);
         }
 
         if(point_size > 0)
@@ -343,8 +344,8 @@ namespace euphoria::core::dump2d
 
             for(const auto& item: items)
             {
-                auto poly = AsPoly(&item);
-                if(poly)
+                const auto* poly = AsPoly(&item);
+                if(poly != nullptr)
                 {
                     int index = 0;
                     for(const auto p: poly->points)
@@ -366,8 +367,8 @@ namespace euphoria::core::dump2d
 
             for(const auto& item: items)
             {
-                auto poly = AsPoly(&item);
-                if(poly)
+                const auto* poly = AsPoly(&item);
+                if(poly != nullptr)
                 {
                     int index = 0;
                     for(const auto p: poly->points)
@@ -381,21 +382,21 @@ namespace euphoria::core::dump2d
             }
         }
 
-        auto vline = [&](double x, const Rgbi& c) { writer.file << "<line x1=\"" << px(x) << "\" y1=\"0\""           " x2=\""<< px(x) <<"\" y2=\"" << height << "\" style=\"stroke:"<< ToHtml(c) <<";stroke-width:1\" />\n"; };
-        auto hline = [&](double y, const Rgbi& c) { writer.file << "<line x1=\"0\""            " y1=\""<< py(y) << "\" x2=\""<< width <<"\" y2=\"" << py(y)  << "\" style=\"stroke:"<< ToHtml(c) <<";stroke-width:1\" />\n"; };
+        auto vline = [&](float x, const Rgbi& c) { writer.file << "<line x1=\"" << px(x) << "\" y1=\"0\""           " x2=\""<< px(x) <<"\" y2=\"" << height << "\" style=\"stroke:"<< ToHtml(c) <<";stroke-width:1\" />\n"; };
+        auto hline = [&](float y, const Rgbi& c) { writer.file << "<line x1=\"0\""            " y1=\""<< py(y) << "\" x2=\""<< width <<"\" y2=\"" << py(y)  << "\" style=\"stroke:"<< ToHtml(c) <<";stroke-width:1\" />\n"; };
 
         const auto grid_color = Color::LightGray;
 
         if(gridx > 0 )
         {
-            for(auto x =  gridx; px(x) < width; x += gridx) { vline(x, grid_color); }
-            for(auto x = -gridx; px(x) > 0;     x -= gridx) { vline(x, grid_color); }
+            for(auto x =  gridx; px(x) < static_cast<float>(width); x += gridx) { vline(x, grid_color); }
+            for(auto x = -gridx; px(x) > 0;                         x -= gridx) { vline(x, grid_color); }
         }
 
         if(gridy > 0 )
         {
-            for(auto y =  gridy; px(y) < height; y += gridy) { hline(y, grid_color); }
-            for(auto y = -gridy; px(y) > 0;      y -= gridy) { hline(y, grid_color); }
+            for(auto y =  gridy; px(y) < static_cast<float>(height); y += gridy) { hline(y, grid_color); }
+            for(auto y = -gridy; px(y) > 0;                          y -= gridy) { hline(y, grid_color); }
         }
 
         if(add_axis)

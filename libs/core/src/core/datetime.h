@@ -29,8 +29,8 @@ public:
 
     static double Difference(const TimetWrapper& start, const TimetWrapper& end);
 
-    StructTmWrapper ToLocalTime() const;
-    StructTmWrapper ToGmt() const;
+    [[nodiscard]] StructTmWrapper ToLocalTime() const;
+    [[nodiscard]] StructTmWrapper ToGmt() const;
 private:
     time_t time_;
 };
@@ -44,7 +44,7 @@ struct StructTmWrapper
 protected:
     friend struct TimetWrapper;
     explicit StructTmWrapper(struct tm time);
-    struct tm time() const;
+    [[nodiscard]] struct tm time() const;
 
 public:
     StructTmWrapper(int year, Month month, int day);
@@ -58,17 +58,17 @@ public:
     void set_year(int year);
     void set_dst(DstInfo dst);
 
-    int seconds() const;
-    int minutes() const;
-    int hour() const;
-    int day_of_moth() const;
-    Month month() const;
-    int year() const;
-    DstInfo dst() const;
+    [[nodiscard]] int seconds() const;
+    [[nodiscard]] int minutes() const;
+    [[nodiscard]] int hour() const;
+    [[nodiscard]] int day_of_moth() const;
+    [[nodiscard]] Month month() const;
+    [[nodiscard]] int year() const;
+    [[nodiscard]] DstInfo dst() const;
 
     // format: http://www.cplusplus.com/reference/ctime/strftime/
-    std::string ToString(const std::string& format) const;
-    std::string DebugString() const;
+    [[nodiscard]] std::string ToString(const std::string& format) const;
+    [[nodiscard]] std::string DebugString() const;
 
 private:
     struct tm time_;
@@ -93,11 +93,9 @@ public:
     static DateTime FromDateTime(int year, Month month, int day, int hour, int minute, int second, TimeZone timezone = TimeZone::LOCAL);
     static DateTime CurrentTime(TimeZone timezone = TimeZone::LOCAL);
 
-public:
-    std::string ToString(const std::string& format) const;
-    std::string DebugString() const;
+    [[nodiscard]] std::string ToString(const std::string& format) const;
+    [[nodiscard]] std::string DebugString() const;
 
-public:
     void set_seconds(int seconds);
     void set_minutes(int minutes);
     void set_hour(int hour);
@@ -106,28 +104,25 @@ public:
     void set_year(int year);
     void set_dst(DstInfo dst);
 
-    int seconds() const;
-    int minutes() const;
-    int hour() const;
-    int day_of_moth() const;
-    Month month() const;
-    int year() const;
-    DstInfo dst() const;
+    [[nodiscard]] int seconds() const;
+    [[nodiscard]] int minutes() const;
+    [[nodiscard]] int hour() const;
+    [[nodiscard]] int day_of_moth() const;
+    [[nodiscard]] Month month() const;
+    [[nodiscard]] int year() const;
+    [[nodiscard]] DstInfo dst() const;
 
-public:
-    TimeZone timezone() const;
-    TimetWrapper time() const;
+    [[nodiscard]] TimeZone timezone() const;
+    [[nodiscard]] TimetWrapper time() const;
 
 private:
     DateTime();
     DateTime(TimeZone timezone, const StructTmWrapper& time);
     DateTime(TimeZone timezone, const TimetWrapper& time);
 
-private:
-    StructTmWrapper AsStruct() const;
+    [[nodiscard]] StructTmWrapper AsStruct() const;
     void UpdateTime(const StructTmWrapper& s);
 
-private:
     TimeZone timezone_;
     TimetWrapper time_;
 };

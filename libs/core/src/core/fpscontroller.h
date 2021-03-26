@@ -8,7 +8,6 @@
 
 namespace euphoria::core
 {
-    /// todo(Gustav): move to core?
     struct FpsController
     {
         FpsController();
@@ -35,10 +34,9 @@ namespace euphoria::core
         void
         Update(float delta);
 
-        quatf
+        [[nodiscard]] quatf
         GetRotation() const;
 
-    private:
         Angle rotation_;
         Angle look_;
 
@@ -55,6 +53,6 @@ namespace euphoria::core
         float sensitivity = 0.10f;
     };
 
-}  // namespace euphoria::core
+}
 
 #endif  // EUPHORIA_FPSCONTROLLER_H

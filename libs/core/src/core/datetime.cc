@@ -55,7 +55,7 @@ TimetWrapper::FromGmt(const StructTmWrapper& dt)
 TimetWrapper
 TimetWrapper::CurrentTime()
 {
-    return TimetWrapper(time(NULL));
+    return TimetWrapper(time(nullptr));
 }
 
 
@@ -97,6 +97,7 @@ StructTmWrapper::time() const
 
 
 StructTmWrapper::StructTmWrapper(int year, Month month, int day)
+    : time_()
 {
     std::memset(&time_, 0, sizeof(struct tm));
     set_year(year);
@@ -109,6 +110,7 @@ StructTmWrapper::StructTmWrapper(int year, Month month, int day)
 
 
 StructTmWrapper::StructTmWrapper(int year, Month month, int day, int hour, int minute, int second, bool dst)
+    : time_()
 {
     memset(&time_, 0, sizeof(struct tm));
     set_year(year);
@@ -250,9 +252,9 @@ StructTmWrapper::ToString(const std::string& format) const
     {
         const size_t string_length = base_size * i;
         ret.resize(string_length);
-        
+
         const auto characters_written = strftime(&ret[0], string_length, format.c_str(), &time_);
-        
+
         if (characters_written != 0)
         {
             return &ret[0];
@@ -299,9 +301,9 @@ uint64_t DateTimeToInt64(const TimetWrapper& dt)
 TimetWrapper Int64ToDateTime(uint64_t i)
 {
     const uint64_t minutes = (i - (i % 60)) / 60;
-    const int actual_seconds = i % 60;
+    const int actual_seconds = static_cast<int>(i % 60);
     const uint64_t hours = (minutes - (minutes % 60)) / 60;
-    const int acutal_minutes = minutes % 60;
+    const int acutal_minutes = static_cast<int>(minutes % 60);
 
     return TimetWrapper::FromGmt
     (

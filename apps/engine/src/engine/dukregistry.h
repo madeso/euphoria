@@ -22,7 +22,7 @@ namespace euphoria::engine
     struct DukRegistry
     {
     public:
-        DukRegistry(core::ecs::EntReg* r, Components* components);
+        DukRegistry(core::ecs::Registry* r, Components* components);
 
         core::ecs::ComponentId
         CreateNewId(const std::string& name, const duk::FunctionReference& fv);
@@ -63,7 +63,7 @@ namespace euphoria::engine
         using ScriptComponentMap
                 = std::map<core::ecs::ComponentId, duk::FunctionReference>;
 
-        core::ecs::EntReg* reg;
+        core::ecs::Registry* reg;
         Components*        components;
         ScriptComponentMap scriptComponents;
     };
