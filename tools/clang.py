@@ -211,7 +211,7 @@ def set_existing_output(root, project_build_folder, source_file, existing_output
 
 
 
-def call_clang_tidy(root, project_build_folder, source_file):
+def call_clang_tidy(root, project_build_folder, source_file, name_printer):
     """
     runs clang-tidy and returns all the text output
     """
@@ -219,6 +219,8 @@ def call_clang_tidy(root, project_build_folder, source_file):
     if existing_output is not None:
         return existing_output, took
     command = ['clang-tidy', '-p', project_build_folder, source_file]
+
+    name_printer.print_name()
 
     try:
         start = timer()
@@ -260,11 +262,11 @@ class FileStatistics:
             print(f'{len(self.data)} files')
 
 
-def run_clang_tidy(root, source_file, project_build_folder, stats, short):
+def run_clang_tidy(root, source_file, project_build_folder, stats, short, name_printer):
     """
     runs the clang-tidy process, printing status to terminal
     """
-    output, time_taken = call_clang_tidy(root, project_build_folder, source_file)
+    output, time_taken = call_clang_tidy(root, project_build_folder, source_file, name_printer)
     warnings = collections.Counter()
     classes = collections.Counter()
     if not short:
@@ -365,6 +367,17 @@ def handle_make_tidy(args):
         make_clang_tidy(root)
 
 
+class NamePrinter:
+    def __init__(self, name):
+        self.name = name
+        self.printed = False
+
+    def print_name(self):
+        if not self.printed:
+            print(self.name, flush=True)
+            self.printed = False
+
+
 def handle_tidy(args):
     """
     callback function called when running clang.py tidy
@@ -390,27 +403,25 @@ def handle_tidy(args):
             project_counter = collections.Counter()
             # source_files = list_source_files(root, project)
             for source_file in source_files:
-                def print_name():
-                    print(os.path.basename(source_file), flush=True)
                 if args.filter is not None:
                     if args.filter not in source_file:
                         continue
+                print_name = NamePrinter(os.path.relpath(source_file, root))
                 if first_file:
                     if not args.short:
                         print_header(project)
                     first_file = False
                 if args.nop is False:
                     if not args.short:
-                        print_name()
-                    warnings, classes = run_clang_tidy(root, source_file, project_build_folder, stats, args.short)
+                        print_name.print_name()
+                    warnings, classes = run_clang_tidy(root, source_file, project_build_folder, stats, args.short, print_name)
                     if args.short and len(warnings) > 0:
-                        print_name()
                         break
                     project_counter.update(warnings)
                     total_counter.update(warnings)
                     total_classes.update(classes)
                 else:
-                    print_name()
+                    print_name.print_name()
 
             if not first_file and not args.short:
                 print_warning_counter(project_counter, project)
