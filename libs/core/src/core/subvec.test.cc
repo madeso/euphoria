@@ -59,7 +59,7 @@ TEST_CASE("subec", "[subvec]")
         auto sub = SubVec{&vec};
 
         CHECK(vec.empty());
-        CHECK(sub.size() == 0);
+        CHECK(sub.size() == 0); // NOLINT
         CHECK(Check(vec, {}));
     }
 

@@ -11,7 +11,7 @@ TEST_CASE("textfileparser-test_basic_ident", "[textfileparser]")
     REQUIRE(test.HasMore());
     REQUIRE(test.ReadIdent() == "Hello");
     REQUIRE_FALSE(test.HasMore());
-    REQUIRE(test.ReadIdent() == "");
+    REQUIRE(test.ReadIdent().empty());
     REQUIRE_FALSE(test.HasMore());
 }
 
@@ -22,11 +22,11 @@ TEST_CASE("textfileparser-test_two_idents", "[textfileparser]")
     REQUIRE(test.HasMore());
     REQUIRE(test.ReadIdent() == "Hello");
     REQUIRE(test.HasMore());
-    REQUIRE(test.ReadIdent() == "");
+    REQUIRE(test.ReadIdent().empty());
     test.SkipSpaces(true);
     REQUIRE(test.ReadIdent() == "world");
     REQUIRE_FALSE(test.HasMore());
-    REQUIRE(test.ReadIdent() == "");
+    REQUIRE(test.ReadIdent().empty());
     REQUIRE_FALSE(test.HasMore());
 }
 
@@ -35,7 +35,7 @@ TEST_CASE("textfileparser-read_string_fail", "[textfileparser]")
     auto test = euco::TextFileParser::FromString("Hello");
 
     REQUIRE(test.HasMore());
-    REQUIRE(test.ReadString() == "");
+    REQUIRE(test.ReadString().empty());
     REQUIRE(test.HasMore());
     REQUIRE(test.ReadIdent() == "Hello");
 }
@@ -47,7 +47,7 @@ TEST_CASE("textfileparser-read_string", "[textfileparser]")
     REQUIRE(test.HasMore());
     REQUIRE(test.ReadString() == "Hello");
     REQUIRE_FALSE(test.HasMore());
-    REQUIRE(test.ReadString() == "");
+    REQUIRE(test.ReadString().empty());
 }
 
 TEST_CASE("textfileparser-read_to_eol", "[textfileparser]")

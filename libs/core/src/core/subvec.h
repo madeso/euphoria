@@ -40,13 +40,13 @@ namespace euphoria::core
             return source->begin() + iend;
         }
 
-        size_t
+        [[nodiscard]] size_t
         size() const
         {
             return iend - ibegin;
         }
 
-        bool
+        [[nodiscard]] bool
         empty() const
         {
             return ibegin >= iend;

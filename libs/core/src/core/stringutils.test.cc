@@ -23,7 +23,7 @@ TEST_CASE("stringutils-laststrings", "[stringutils]")
     {
         const auto r = euco::LastStrings("hello_world", '.');
         CHECK(r.first == "hello_world");
-        CHECK(r.second == "");
+        CHECK(r.second.empty());
     }
 }
 
@@ -69,7 +69,7 @@ TEST_CASE("stringutils-findfirstindexmismatch", "[stringutils]")
 TEST_CASE("stringutils-striplast", "[stringutils]")
 {
     CHECK("hello" == euco::StripLastString("hello.world", '.'));
-    CHECK("" == euco::StripLastString("hello_world", '.'));
+    CHECK(euco::StripLastString("hello_world", '.').empty());
 }
 
 

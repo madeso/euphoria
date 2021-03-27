@@ -195,7 +195,7 @@ TEST_CASE("duk-eval", "[duk]")
                                 value = s;
                                 return ctx->ReturnVoid();
                             }));
-            REQUIRE(value == "");
+            REQUIRE(value.empty());
             REQUIRE(duk.EvalString("test(\"dog\");", "", &error, &out));
             REQUIRE(value == "dog");
         }
@@ -594,7 +594,7 @@ TEST_CASE("duk-eval", "[duk]")
         }));
         REQUIRE(value == 12);
         REQUIRE_FALSE(duk.eval_string("test(\"\", 2);", "", &error, &out));
-        // REQUIRE(error == "");
+        // REQUIRE(error.empty());
       }
 
       SECTION("invalid arguments to test(int)")
@@ -606,7 +606,7 @@ TEST_CASE("duk-eval", "[duk]")
         }));
         REQUIRE(value == 12);
         REQUIRE_FALSE(duk.eval_string("test(\"\");", "", &error, &out));
-        REQUIRE(error == "");
+        REQUIRE(error.empty());
       }
     }
 #endif

@@ -253,7 +253,7 @@ TEST_CASE("vfspath-file-constructor", "[vfspath]")
         CHECK(dir.path == "./");
         CHECK(name == "cat");
         CHECK(file.GetFilenameWithoutExtension() == "cat");
-        CHECK(file.GetExtension() == "");
+        CHECK(file.GetExtension().empty());
     }
 
     SECTION("absolute-gitignore")
@@ -263,7 +263,7 @@ TEST_CASE("vfspath-file-constructor", "[vfspath]")
         CHECK(dir.path == "~/");
         CHECK(name == ".gitignore");
         CHECK(file.GetFilenameWithoutExtension() == ".gitignore");
-        CHECK(file.GetExtension() == "");
+        CHECK(file.GetExtension().empty());
     }
 
     SECTION("absolute-targz")
