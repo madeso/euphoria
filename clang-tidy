@@ -71,6 +71,10 @@ google-*
 # makes sense but sometimes it doesn't
 -bugprone-macro-parentheses
 
+# warning: do not use static_cast to downcast from a base to a derived class; use dynamic_cast instead
+# makes sense but dynamic cast is ugly
+-cppcoreguidelines-pro-type-static-cast-downcast
+
 #################################################################################
 ## Temporarily disables to be removed later
 # temporarily: mostly in test files where it's kinda ok
