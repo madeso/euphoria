@@ -21,8 +21,7 @@ namespace euphoria::core
         ss << start;
 
         const auto count = strings.size();
-        for(std::vector<std::string>::size_type index = 0; index < count;
-            ++index)
+        for(std::vector<std::string>::size_type index = 0; index < count; ++index)
         {
             ss << before_each << strings[index];
 
@@ -36,7 +35,7 @@ namespace euphoria::core
             }
 
             if(count != index + 1)
-            {  // if this item isn't the last one in the list
+            { // if this item isn't the last one in the list
                 if(count == index + 2)
                 {
                     ss << final_separator;
@@ -53,48 +52,46 @@ namespace euphoria::core
         return ss.str();
     }
 
-    const StringMerger
+    StringMerger
     StringMerger::EnglishAnd()
     {
         return StringMerger().Separator(", ", " and ").Empty("<none>");
     }
 
-    const StringMerger
+    StringMerger
     StringMerger::EnglishOr()
     {
         return StringMerger().Separator(", ", " or ").Empty("<none>");
     }
 
-    const StringMerger
+    StringMerger
     StringMerger::Array()
     {
         return StringMerger().Separator(", ").StartAndEnd("[", "]");
     }
 
-    const StringMerger
+    StringMerger
     StringMerger::FunctionCall()
     {
         return StringMerger().Separator(", ").StartAndEnd("(", ")");
     }
 
-    const StringMerger
+    StringMerger
     StringMerger::Space()
     {
         return StringMerger().Separator(" ");
     }
 
-    const StringMerger
+    StringMerger
     StringMerger::Comma()
     {
         return StringMerger().Separator(", ");
     }
 
     StringMerger&
-    StringMerger::Separator(
-            const std::string& the_separator,
-            const std::string& the_final_separator)
+    StringMerger::Separator(const std::string& the_separator, const std::string& the_final_separator)
     {
-        this->separator       = the_separator;
+        this->separator = the_separator;
         this->final_separator = the_final_separator;
         return *this;
     }
@@ -102,7 +99,7 @@ namespace euphoria::core
     StringMerger&
     StringMerger::Separator(const std::string& the_separator)
     {
-        this->separator       = the_separator;
+        this->separator = the_separator;
         this->final_separator = the_separator;
         return *this;
     }
@@ -115,12 +112,10 @@ namespace euphoria::core
     }
 
     StringMerger&
-    StringMerger::StartAndEnd(
-            const std::string& the_start,
-            const std::string& the_end)
+    StringMerger::StartAndEnd(const std::string& the_start, const std::string& the_end)
     {
         this->start = the_start;
-        this->end   = the_end;
+        this->end = the_end;
         return *this;
     }
 
@@ -128,7 +123,7 @@ namespace euphoria::core
     StringMerger::StartAndEnd(const std::string& start_and_end)
     {
         this->start = start_and_end;
-        this->end   = start_and_end;
+        this->end = start_and_end;
         return *this;
     }
 
@@ -142,19 +137,17 @@ namespace euphoria::core
     StringMerger&
     StringMerger::AfterEach(const std::string& after_each_and_final)
     {
-        this->after_each       = after_each_and_final;
+        this->after_each = after_each_and_final;
         this->final_after_each = after_each_and_final;
         return *this;
     }
 
     StringMerger&
-    StringMerger::AfterEach(
-            const std::string& the_after_each,
-            const std::string& the_final_after_each)
+    StringMerger::AfterEach(const std::string& the_after_each, const std::string& the_final_after_each)
     {
-        this->after_each       = the_after_each;
+        this->after_each = the_after_each;
         this->final_after_each = the_final_after_each;
         return *this;
     }
 
-}  // namespace euphoria::core
+}

@@ -14,9 +14,9 @@ namespace euphoria::core
         Diff(const Rgbi& lhs, const Rgbi& rhs)
         {
             return
-                Square(lhs.r - rhs.r) +
-                Square(lhs.g - rhs.g) +
-                Square(lhs.b - rhs.b)
+                Square(static_cast<float>(lhs.r - rhs.r)) +
+                Square(static_cast<float>(lhs.g - rhs.g)) +
+                Square(static_cast<float>(lhs.b - rhs.b))
                 ;
         }
     }
@@ -88,7 +88,7 @@ namespace euphoria::core
             Angle::FromRadians(0),
             Angle::FromPercentOf360
             (
-                Max(1.0f, (count - 1) / static_cast<float>(count))
+                Max(1.0f, static_cast<float>(count - 1) / static_cast<float>(count))
             ),
             saturation,
             lightness
@@ -112,7 +112,7 @@ namespace euphoria::core
 
         for(int i = 0; i < count; i += 1)
         {
-            float d = i / static_cast<float>(count - 1);
+            float d = static_cast<float>(i) / static_cast<float>(count - 1);
             const auto rgbf = rgb
             (
                 Hsl

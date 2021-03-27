@@ -6,6 +6,7 @@
 #include "core/minmax.h"
 #include "core/subvec.h"
 #include "core/image.h"
+#include "core/cint.h"
 
 
 namespace
@@ -20,10 +21,12 @@ namespace
         ret.reserve(ret.size() + image.GetHeight() * image.GetWidth());
 
         for(int y=0; y<image.GetHeight(); y+=1)
-        for(int x=0; x<image.GetWidth(); x+=1)
         {
-            const auto color = rgbi(image.GetPixel(x, y));
-            ret.emplace_back(color);
+            for(int x=0; x<image.GetWidth(); x+=1)
+            {
+                const auto color = rgbi(image.GetPixel(x, y));
+                ret.emplace_back(color);
+            }
         }
 
         return ret;
@@ -120,7 +123,7 @@ namespace
         // todo(Gustav): make non-linear
         for(size_t index = 0; index<colors.size()-1; index+=1)
         {
-            if(GetValue(sort, colors[index+1]) >= median)
+            if(GetValue(sort, colors[Csizet_to_int(index+1)]) >= median)
             {
                 return index;
             }

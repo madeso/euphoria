@@ -6,19 +6,17 @@
 
 #include "core/memorychunk.h"
 
-namespace euphoria::core
+namespace euphoria::core::io
 {
-    namespace io
-    {
-        void
-        ChunkToFile(
-                std::shared_ptr<MemoryChunk> chunk,
-                const std::string&           full_path);
+    void
+    ChunkToFile
+    (
+        std::shared_ptr<MemoryChunk> chunk,
+        const std::string& full_path
+    );
 
-        std::shared_ptr<MemoryChunk>
-        FileToChunk(const std::string& full_path);
-    }  // namespace io
-
-}  // namespace euphoria::core
+    std::shared_ptr<MemoryChunk>
+    FileToChunk(const std::string& full_path);
+}
 
 #endif  // CORE_IO_H

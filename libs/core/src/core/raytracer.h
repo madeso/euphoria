@@ -6,6 +6,7 @@
 #include "core/range.h"
 #include "core/sphere.h"
 #include "core/rgb.h"
+#include "core/noncopyable.h"
 
 #include <memory>
 #include <vector>
@@ -30,9 +31,12 @@ namespace euphoria::core
 
         struct Material
         {
-            virtual ~Material();
+            Material() = default;
+            virtual ~Material() = default;
 
-            virtual std::optional<ScatterResult>
+            NONCOPYABLE(Material);
+
+            [[nodiscard]] virtual std::optional<ScatterResult>
             Scatter
             (
                 const UnitRay3f& ray,
@@ -61,9 +65,12 @@ namespace euphoria::core
 
         struct Object
         {
+            Object() = default;
             virtual ~Object() = default;
 
-            virtual std::optional<HitResult>
+            NONCOPYABLE(Object);
+
+            [[nodiscard]] virtual std::optional<HitResult>
             Hit(const UnitRay3f& ray, const Range<float>& range) const = 0;
         };
 
@@ -105,7 +112,7 @@ namespace euphoria::core
         {
             std::vector<std::shared_ptr<Object>> objects;
 
-            std::optional<HitResult>
+            [[nodiscard]] std::optional<HitResult>
             Hit(const UnitRay3f& ray, const Range<float>& range) const;
         };
 

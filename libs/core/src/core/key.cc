@@ -29,7 +29,7 @@ namespace euphoria::core
                 return *this;
             }
 
-            std::string
+            [[nodiscard]] std::string
             FromKey(T key) const
             {
                 auto r = keytostr.find(key);
@@ -43,10 +43,10 @@ namespace euphoria::core
                 }
             }
 
-            T
+            [[nodiscard]] T
             FromString(const std::string& keyname) const
             {
-                if(keyname == "")
+                if(keyname.empty())
                 {
                     return unbound_;
                 }

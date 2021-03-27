@@ -12,7 +12,7 @@ namespace euphoria::core
         Ray3AabbResult
         Ray3AabbResult_False()
         {
-            Ray3AabbResult r;
+            auto r = Ray3AabbResult{};
             r.intersected = false;
             r.start = r.end = -1.0f;
             return r;
@@ -22,7 +22,7 @@ namespace euphoria::core
         Ray3AabbResult
         Ray3AabbResult_True(float start, float end)
         {
-            Ray3AabbResult r;
+            auto r = Ray3AabbResult{};
             r.intersected = true;
             r.start       = start;
             r.end         = end;
@@ -45,7 +45,12 @@ namespace euphoria::core
 
         // todo: move to ray class?
         const vec3f r_invdir = 1.0f / static_cast<vec3f>(r.dir);
-        const int r_sign[3]  = {r_invdir.x < 0, r_invdir.y < 0, r_invdir.z < 0};
+        const int r_sign[3] =
+        {
+            r_invdir.x < 0 ? 1 : 0,
+            r_invdir.y < 0 ? 1 : 0,
+            r_invdir.z < 0 ? 1 : 0
+        };
 
         float       tmin  = (bounds[r_sign[0]].x - r.from.x) * r_invdir.x;
         float       tmax  = (bounds[1 - r_sign[0]].x - r.from.x) * r_invdir.x;

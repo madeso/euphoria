@@ -16,10 +16,10 @@ LOG_SPECIFY_DEFAULT_LOGGER("core.identicon")
 namespace euphoria::core
 {
     vec2f
-    Canvas::C(const vec2f v) const
+    Canvas::C(const vec2f& v) const
     {
         const auto vv = transform * vec3f {v, 1};
-        return vec2f {vv.x, image->GetHeight() - vv.y};
+        return vec2f {vv.x, static_cast<float>(image->GetHeight()) - vv.y};
     }
 
     Canvas::Canvas(Image* i)
@@ -31,7 +31,7 @@ namespace euphoria::core
     }
 
     void
-    Canvas::fillRect(int x, int y, int w, int h)
+    Canvas::fillRect(int x, int y, int w, int h) const
     {
         ASSERTX(w > 0, w);
         ASSERTX(h > 0, h);
@@ -89,7 +89,7 @@ namespace euphoria::core
     }
 
     void
-    Canvas::fill()
+    Canvas::fill() const
     {
         ASSERT(!building_path);
         FillPoly(image, fillStyle, path);

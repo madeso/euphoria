@@ -108,7 +108,9 @@ struct Parser
     Feed(char c)
     {
         if(CharCode(c) >= 187)
+        {
             return;
+        }
 
         if(c == '\n')
         {
@@ -149,7 +151,6 @@ struct Parser
         }
 
         UnknownCharacter(c);
-        return;
     }
 
     void
@@ -176,7 +177,9 @@ ParseSentances(std::istream& data, OnSentance on_sentance)
     while(std::getline(data, line))
     {
         if(line.empty())
+        {
             continue;
+        }
 
         for(char c: line)
         {

@@ -128,10 +128,8 @@ namespace euphoria::core
     T
     DefaultIfCloseToZero(T value, T def, T epsilon)
     {
-        if(Abs(value) < epsilon)
-            return def;
-        else
-            return value;
+        if(Abs(value) < epsilon) { return def; }
+        else { return value; }
     }
 
     /// returns true for a index each Nth loop. pass zero to always return false

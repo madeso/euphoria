@@ -103,16 +103,26 @@ char
 ToLowerChar(char b)
 {
     if(b >= 'A' && b <= 'Z')
-        return b - 'A' + 'a';
-    return b;
+    {
+        return static_cast<char>((static_cast<int>(b) - 'A') + 'a');
+    }
+    else
+    {
+        return b;
+    }
 }
 
 char
 ToUpperChar(char b)
 {
     if(b >= 'a' && b <= 'z')
-        return b + ('A' - 'a');
-    return b;
+    {
+        return static_cast<char>(b + ('A' - 'a'));
+    }
+    else
+    {
+        return b;
+    }
 }
 
 
@@ -263,7 +273,7 @@ StringReplace(std::string* string, const std::string& to_find, const std::string
 }
 
 
-const std::string
+std::string
 StringReplace(const std::string& string, const std::string& to_find, const std::string& to_replace)
 {
     std::string temp = string;
@@ -373,7 +383,7 @@ Split(const std::string& s, char delim)
 }
 
 
-const std::string&
+std::string
 OpString(bool b, const std::string& str)
 {
     if(b)
@@ -382,8 +392,7 @@ OpString(bool b, const std::string& str)
     }
     else
     {
-        static const std::string Empty = "";
-        return Empty;
+        return "";
     }
 }
 
@@ -391,15 +400,15 @@ OpString(bool b, const std::string& str)
 bool
 IsNumber(char b)
 {
-    if(b >= '0' && b <= '9')
-        return true;
-    return false;
+    return b >= '0' && b <= '9';
 }
 
 
 int
-ParseNumber(const char*& a)
+ParseNumber(const char** aa)
 {
+    const char*& a = *aa;
+
     int result = *a - '0';
     ++a;
 
@@ -418,33 +427,18 @@ ParseNumber(const char*& a)
 int
 StringCompare(const std::string& lhs, const std::string& rhs)
 {
-    const auto* a = lhs.c_str();
-    const auto* b = rhs.c_str();
+    const char* a = lhs.c_str();
+    const char* b = rhs.c_str();
 
     if(a == b)    { return  0; }
-    if(a == NULL) { return -1; }
-    if(b == NULL) { return  1; }
+    if(a == nullptr) { return -1; }
+    if(b == nullptr) { return  1; }
 
-    while(*a && *b)
+    while(*a != 0 && *b != 0)
     {
-        int a0, b0;  // will contain either a number or a letter
-
-        if(IsNumber(*a))
-        {
-            a0 = ParseNumber(a) + 256;
-        }
-        else
-        {
-            a0 = ToLowerChar(*a);
-        }
-        if(IsNumber(*b))
-        {
-            b0 = ParseNumber(b) + 256;
-        }
-        else
-        {
-            b0 = ToLowerChar(*b);
-        }
+        // will contain either a number or a letter
+        const int a0 = IsNumber(*a) ? ParseNumber(&a) + 256 : ToLowerChar(*a);
+        const int b0 = IsNumber(*b) ? ParseNumber(&b) + 256 : ToLowerChar(*b);
 
         if(a0 < b0) { return -1; }
         if(a0 > b0) { return  1; }
@@ -453,8 +447,8 @@ StringCompare(const std::string& lhs, const std::string& rhs)
         ++b;
     }
 
-    if(*a) { return  1; }
-    if(*b) { return -1; }
+    if(*a != 0) { return  1; }
+    if(*b != 0) { return -1; }
 
     return 0;
 }

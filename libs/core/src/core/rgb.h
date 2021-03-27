@@ -39,7 +39,7 @@ namespace euphoria::core
         [[nodiscard]] constexpr static Rgbi
         FromHex(unsigned int hex);
 
-        constexpr int
+        [[nodiscard]] constexpr int
         ToHex() const;
 
         std::uint8_t r;
@@ -80,13 +80,13 @@ namespace euphoria::core
         static Rgb
         FromHex(unsigned int hex);
 
-        float
+        [[nodiscard]] float
         GetLength() const;
 
-        float
+        [[nodiscard]] float
         GetLengthSquared() const;
 
-        float
+        [[nodiscard]] float
         CalcLuminance() const;
 
         void
@@ -231,7 +231,7 @@ namespace euphoria::core
 
     bool
     operator==(const Rgbi& lhs, const Rgbi& rhs);
-    
+
     bool
     operator!=(const Rgbi& lhs, const Rgbi& rhs);
 
@@ -327,10 +327,11 @@ namespace euphoria::core
         // internal function, exposed for unit tests
         constexpr
         std::uint8_t
-        GetComponent(unsigned int i, int steps)
+        GetComponent(unsigned int i, unsigned int steps)
         {
-            const int value = ((i >> 8 * steps) & 0xff);
-            return static_cast<std::uint8_t>(value);
+            const auto bit_steps = 8 * steps;
+            const auto value = ((i >> bit_steps) & 0xff);
+            return value;
         }
 
         constexpr
@@ -358,7 +359,7 @@ namespace euphoria::core
         float
         ToFloat(std::uint8_t c)
         {
-            return c / 255.0f;
+            return static_cast<float>(c) / 255.0f;
         }
 
         constexpr

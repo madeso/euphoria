@@ -37,11 +37,11 @@ TEST_CASE("stringmerger", "[stringmerger]")
         CHECK(euco::StringMerger::FunctionCall().Generate(ty) == "(t, y)");
         CHECK(euco::StringMerger::FunctionCall().Generate(abc) == "(a, b, c)");
 
-        CHECK(euco::StringMerger::Space().Generate(empty) == "");
+        CHECK(euco::StringMerger::Space().Generate(empty).empty());
         CHECK(euco::StringMerger::Space().Generate(ty) == "t y");
         CHECK(euco::StringMerger::Space().Generate(abc) == "a b c");
 
-        CHECK(euco::StringMerger::Comma().Generate(empty) == "");
+        CHECK(euco::StringMerger::Comma().Generate(empty).empty());
         CHECK(euco::StringMerger::Comma().Generate(ty) == "t, y");
         CHECK(euco::StringMerger::Comma().Generate(abc) == "a, b, c");
     }
@@ -51,7 +51,7 @@ TEST_CASE("stringmerger", "[stringmerger]")
         SECTION("empty constructor")
         {
             const auto m = euco::StringMerger {};
-            CHECK(m.Generate(empty) == "");
+            CHECK(m.Generate(empty).empty());
             CHECK(m.Generate(ty) == "ty");
             CHECK(m.Generate(abc) == "abc");
         }
@@ -75,7 +75,7 @@ TEST_CASE("stringmerger", "[stringmerger]")
         SECTION("set sep")
         {
             const auto m = euco::StringMerger {}.Separator("X");
-            CHECK(m.Generate(empty) == "");
+            CHECK(m.Generate(empty).empty());
             CHECK(m.Generate(ty) == "tXy");
             CHECK(m.Generate(abc) == "aXbXc");
         }
@@ -83,7 +83,7 @@ TEST_CASE("stringmerger", "[stringmerger]")
         SECTION("set sep and final")
         {
             const auto m = euco::StringMerger {}.Separator("X", "Y");
-            CHECK(m.Generate(empty) == "");
+            CHECK(m.Generate(empty).empty());
             CHECK(m.Generate(ty) == "tYy");
             CHECK(m.Generate(abc) == "aXbYc");
         }
@@ -99,7 +99,7 @@ TEST_CASE("stringmerger", "[stringmerger]")
         SECTION("before each")
         {
             const auto m = euco::StringMerger {}.BeforeEach("X");
-            CHECK(m.Generate(empty) == "");
+            CHECK(m.Generate(empty).empty());
             CHECK(m.Generate(dog) == "Xdog");
             CHECK(m.Generate(ty) == "XtXy");
             CHECK(m.Generate(abc) == "XaXbXc");
@@ -108,7 +108,7 @@ TEST_CASE("stringmerger", "[stringmerger]")
         SECTION("after each")
         {
             const auto m = euco::StringMerger {}.AfterEach("X");
-            CHECK(m.Generate(empty) == "");
+            CHECK(m.Generate(empty).empty());
             CHECK(m.Generate(dog) == "dogX");
             CHECK(m.Generate(ty) == "tXyX");
             CHECK(m.Generate(abc) == "aXbXcX");
@@ -117,7 +117,7 @@ TEST_CASE("stringmerger", "[stringmerger]")
         SECTION("after each and final")
         {
             const auto m = euco::StringMerger {}.AfterEach("X", "Y");
-            CHECK(m.Generate(empty) == "");
+            CHECK(m.Generate(empty).empty());
             CHECK(m.Generate(dog) == "dogY");
             CHECK(m.Generate(ty) == "tXyY");
             CHECK(m.Generate(abc) == "aXbXcY");

@@ -126,12 +126,13 @@ namespace euphoria::core
     template <typename Type, typename Transform>
     struct Interpolate
     {
-        typedef Interpolate<Type, Transform> This;
+        using This = Interpolate<Type, Transform>;
+
         explicit Interpolate(Type v)
             : value_(v), from_(v), position_in_current_interpolation_(0.0f)
         {}
 
-        bool
+        [[nodiscard]] bool
         HasSteps() const
         {
             return !data_.empty();
@@ -142,11 +143,13 @@ namespace euphoria::core
         {
             return from_;
         }
+
         const Type&
         GetValue() const
         {
             return value_;
         }
+
         This&
         SetValue(const Type& t)
         {
@@ -154,26 +157,30 @@ namespace euphoria::core
             Clear();
             return *this;
         }
+
         operator const Type&() const
         {
             return GetValue();
         }
-        void
+
+        Interpolate&
         operator=(const Type& rhs)
         {
             SetValue(rhs);
+            return *this;
         }
 
         bool
         UpdateValueFromInterpolationPosition()
         {
             if(data_.empty())
+            {
                 return false;
+            }
             const InterpolationData<Type>& d = data_.front();
             if(d.type != nullptr)
             {
-                const float interpolated
-                        = d.type(position_in_current_interpolation_);
+                const float interpolated = d.type(position_in_current_interpolation_);
                 value_ = Transform::Transform(from_, interpolated, d.target);
             }
             return true;
@@ -364,12 +371,12 @@ namespace euphoria::core
 
 
     private:
-        typedef float (*EasingFunction)(float);
+        using EasingFunction = float (*)(float);
 
         template <typename TType>
         struct InterpolationData
         {
-            InterpolationData(const TType& t) : target(t) {}
+            InterpolationData(const TType& t) : type(nullptr), target(t), time(0.0f) {}
 
             EasingFunction type;  // how to interpolate
             TType          target;  // target value
@@ -398,8 +405,7 @@ namespace euphoria::core
         }
     };
 
-    typedef Interpolate<float, FloatTransform> FloatInterpolate;
-
-}  // namespace euphoria::core
+    using FloatInterpolate = Interpolate<float, FloatTransform>;
+}
 
 #endif  // SPACETYPER_INTERPOLATE_H

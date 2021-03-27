@@ -30,12 +30,12 @@ better numbers than Mersenne. How can you go wrong? :)
         // idea from http://www.eternallyconfuzzled.com/arts/jsw_art_rand.aspx
         time_t now = time(nullptr);
 
-        auto* p    = reinterpret_cast<unsigned char*>(&now);  // NOLINT
-        u32   seed = 0;
+        auto* p = reinterpret_cast<unsigned char*>(&now); // NOLINT
+        u32 seed = 0;
 
         for(size_t i = 0; i < sizeof(time_t); i++)
         {
-            seed = seed * (std::numeric_limits<unsigned char>().max() + 2U)
+            seed = seed * (std::numeric_limits<unsigned char>::max() + 2U)
                    + p[i];
         }
 
@@ -54,17 +54,16 @@ better numbers than Mersenne. How can you go wrong? :)
     u32
     Random::NextInteger()
     {
-        u32 a, b, c, d;
-        a = state[index];
-        c = state[(index + 13) & 15];
-        b = a ^ c ^ (a << 16) ^ (c << 15);
+        u32 a = state[index];
+        u32 c = state[(index + 13) & 15];
+        u32 b = a ^ c ^ (a << 16) ^ (c << 15);
         c = state[(index + 9) & 15];
         c ^= (c >> 11);
         a = state[index] = b ^ c;
-        d                = a ^ ((a << 5) & 0xDA442D24UL);
-        index            = (index + 15) & 15;
-        a                = state[index];
-        state[index]     = a ^ b ^ d ^ (a << 2) ^ (b << 18) ^ (c << 28);
+        u32 d = a ^ ((a << 5) & 0xDA442D24UL);
+        index = (index + 15) & 15;
+        a = state[index];
+        state[index] = a ^ b ^ d ^ (a << 2) ^ (b << 18) ^ (c << 28);
         return state[index];
     }
 
@@ -90,12 +89,12 @@ better numbers than Mersenne. How can you go wrong? :)
         // https://www.alanzucconi.com/2015/09/16/how-to-sample-from-a-gaussian-distribution/
         float v1 = 0;
         float v2 = 0;
-        float s  = 0;
+        float s = 0;
         do
         {
             v1 = Next(R11());
             v2 = Next(R11());
-            s  = v1 * v1 + v2 * v2;
+            s = v1 * v1 + v2 * v2;
         } while(s >= 1.0f || IsZero(s));
 
         s = Sqrt((-2.0f * Log(s)) / s);
@@ -136,7 +135,7 @@ better numbers than Mersenne. How can you go wrong? :)
     Random::PointOnUnitCircle_CenterFocused()
     {
         const auto angle = Angle::FromPercentOf360(NextFloat01());
-        const auto dist  = NextFloat01() * 0.5f;
+        const auto dist = NextFloat01() * 0.5f;
 
         return vec2f {dist * Cos(angle) + 0.5f, dist * Sin(angle) + 0.5f};
     }
@@ -146,9 +145,8 @@ better numbers than Mersenne. How can you go wrong? :)
     {
         // http://xdpixel.com/random-points-in-a-circle/
         const auto angle = Angle::FromPercentOf360(NextFloat01());
-        const auto dist  = Sqrt(NextFloat01()) * 0.5f;
+        const auto dist = Sqrt(NextFloat01()) * 0.5f;
 
         return vec2f {dist * Cos(angle) + 0.5f, dist * Sin(angle) + 0.5f};
     }
-
-}  // namespace euphoria::core
+}

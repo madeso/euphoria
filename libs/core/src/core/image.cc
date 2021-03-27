@@ -8,6 +8,7 @@
 #include "core/assert.h"
 #include "core/numeric.h"
 #include "core/log.h"
+#include "core/cint.h"
 #include "core/decompress.h"
 #include "core/vfs.h"
 #include "core/vfs_path.h"
@@ -447,13 +448,13 @@ namespace euphoria::core
         AlphaLoad alpha
     )
     {
-        Decompress dec;
-        const unsigned int decompressed_size = Decompress::stb_decompress_length((const unsigned char*)compressed_data);
-        auto decompressed = MemoryChunk::Alloc(decompressed_size);
+        auto dec = Decompress{};
+        const unsigned int decompressed_size = Decompress::stb_decompress_length(static_cast<const unsigned char*>(compressed_data));
+        auto decompressed = MemoryChunk::Alloc(Cunsigned_int_to_int(decompressed_size));
         const auto len = dec.stb_decompress
         (
-            reinterpret_cast<unsigned char*>(decompressed->GetData()),
-            reinterpret_cast<const unsigned char*>(compressed_data),
+            reinterpret_cast<unsigned char*>(decompressed->GetData()), // NOLINT
+            reinterpret_cast<const unsigned char*>(compressed_data), // NOLINT
             static_cast<unsigned int>(compressed_size)
         );
         if(len == 0)

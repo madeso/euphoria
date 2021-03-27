@@ -28,18 +28,18 @@ namespace euphoria::core
         std::vector<int> active;
         std::vector<vec2f> samples;
 
-        bool
+        [[nodiscard]] bool
         IsDone() const;
 
         std::optional<std::tuple<vec2f, vec2f>>
         Step();
 
-        vec2f random_point();
-        vec2i point_to_index(const vec2f& p);
+        [[nodiscard]] vec2f random_point() const;
+        [[nodiscard]] vec2i point_to_index(const vec2f& p) const;
 
         bool
         can_place_at(const vec2f& sample, const vec2i& sample_index);
-        
+
         std::tuple<bool, vec2f>
         try_place(int active_index);
     };

@@ -1,10 +1,9 @@
-#ifndef EUPHORIA_STRINGMERGER_H
-#define EUPHORIA_STRINGMERGER_H
-
+#pragma once
 
 #include <string>
 #include <vector>
 #include <map>
+
 
 namespace euphoria::core
 {
@@ -13,29 +12,29 @@ namespace euphoria::core
         ////////////////////////////////////////////
         // public api
 
-        std::string
+        [[nodiscard]] std::string
         Generate(const std::vector<std::string>& strings) const;
 
 
         ////////////////////////////////////////////
         // Named constructors
 
-        static const StringMerger
+        static StringMerger
         EnglishAnd();
 
-        static const StringMerger
+        static StringMerger
         EnglishOr();
 
-        static const StringMerger
+        static StringMerger
         Array();
 
-        static const StringMerger
+        static StringMerger
         FunctionCall();
 
-        static const StringMerger
+        static StringMerger
         Space();
 
-        static const StringMerger
+        static StringMerger
         Comma();
 
 
@@ -43,9 +42,7 @@ namespace euphoria::core
         // constructor functions
 
         StringMerger&
-        Separator(
-                const std::string& separator,
-                const std::string& final_separator);
+        Separator(const std::string& separator, const std::string& final_separator);
 
         StringMerger&
         Separator(const std::string& separator);
@@ -66,9 +63,7 @@ namespace euphoria::core
         AfterEach(const std::string& same);
 
         StringMerger&
-        AfterEach(
-                const std::string& after_each,
-                const std::string& final_after_each);
+        AfterEach(const std::string& after_each, const std::string& final_after_each);
 
 
         ////////////////////////////////////////////
@@ -84,5 +79,3 @@ namespace euphoria::core
     };
 
 }  // namespace euphoria::core
-
-#endif  // EUPHORIA_STRINGMERGER_H

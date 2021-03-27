@@ -66,7 +66,7 @@ struct Builder
     Builder&
     operator()(int i, const std::string& n)
     {
-        data.push_back(Dummy {i, n});
+        data.emplace_back(i, n);
         return *this;
     }
 

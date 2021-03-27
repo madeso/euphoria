@@ -1,7 +1,10 @@
 #include "core/memorychunk.h"
-#include "core/assert.h"
+
 #include <cstring>  // for memcpy
 #include <utility>
+
+#include "core/assert.h"
+#include "core/cint.h"
 
 namespace euphoria::core
 {
@@ -62,8 +65,10 @@ namespace euphoria::core
     std::shared_ptr<MemoryChunk>
     MemoryChunkFromText(const std::string& content)
     {
-        std::shared_ptr<MemoryChunk> file
-                = MemoryChunk::Alloc(content.length() + 1);
+        std::shared_ptr<MemoryChunk> file = MemoryChunk::Alloc
+        (
+            Csizet_to_int(content.length() + 1)
+        );
         CopyToMemory(file.get(), &content[0]);
         return file;
     }

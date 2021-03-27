@@ -307,22 +307,18 @@ namespace euphoria::core
         // based on https://gist.github.com/mjackson/5311256
         if(hsl.s == 0)
         {
-            return Rgb {hsl.l};  // achromatic
+            return Rgb {hsl.l}; // achromatic
         }
         else
         {
             auto hue2rgb = [](float p, float q, float t) {
-                if(t < 0.0f)
-                    t += 1.0f;
-                if(t > 1.0f)
-                    t -= 1.0f;
-                if(t < 1.0f / 6.0f)
-                    return p + (q - p) * 6.0f * t;
-                if(t < 1.0f / 2.0f)
-                    return q;
-                if(t < 2.0f / 3.0f)
-                    return p + (q - p) * (2.0f / 3.0f - t) * 6.0f;
-                return p;
+                if(t < 0.0f) { t += 1.0f; }
+                if(t > 1.0f) { t -= 1.0f; }
+
+                if(t < 1.0f / 6.0f) { return p + (q - p) * 6.0f * t; }
+                else if(t < 1.0f / 2.0f) { return q; }
+                else if(t < 2.0f / 3.0f) { return p + (q - p) * (2.0f / 3.0f - t) * 6.0f; }
+                else { return p; }
             };
 
             const auto q = hsl.l < 0.5f ? hsl.l * (1.0f + hsl.s)
@@ -344,8 +340,8 @@ namespace euphoria::core
         // based on https://gist.github.com/mjackson/5311256
         const auto max = Max(c.r, Max(c.g, c.b));
         const auto min = Min(c.r, Min(c.g, c.b));
-        const auto l   = (max + min) / 2;
-        // var        h, s;
+        const auto l = (max + min) / 2;
+        // var h, s;
 
         enum class Biggest
         {
@@ -375,7 +371,7 @@ namespace euphoria::core
 
         if(cl == Biggest::Same)
         {
-            return {Angle::FromRadians(0), 0, l};  // achromatic
+            return {Angle::FromRadians(0), 0, l}; // achromatic
         }
         else
         {
@@ -385,7 +381,7 @@ namespace euphoria::core
             float h = 0;
             switch(cl)
             {
-            case Biggest::Red: h = (c.g - c.b) / d + (c.g < c.b ? 6 : 0); break;
+            case Biggest::Red: h = (c.g - c.b) / d + (c.g < c.b ? 6.0f : 0.0f); break;
             case Biggest::Green: h = (c.b - c.r) / d + 2; break;
             case Biggest::Blue: h = (c.r - c.g) / d + 4; break;
             default: h = 0; break;
@@ -401,17 +397,23 @@ namespace euphoria::core
     Rgbi
     rgbi(const Rgb& rgb)
     {
-        return {colorutil::ToUnsignedChar(rgb.r),
-                colorutil::ToUnsignedChar(rgb.g),
-                colorutil::ToUnsignedChar(rgb.b)};
+        return
+        {
+            colorutil::ToUnsignedChar(rgb.r),
+            colorutil::ToUnsignedChar(rgb.g),
+            colorutil::ToUnsignedChar(rgb.b)
+        };
     }
 
     Rgbi
     rgbi(const Rgba& rgb)
     {
-        return {colorutil::ToUnsignedChar(rgb.r),
-                colorutil::ToUnsignedChar(rgb.g),
-                colorutil::ToUnsignedChar(rgb.b)};
+        return
+        {
+            colorutil::ToUnsignedChar(rgb.r),
+            colorutil::ToUnsignedChar(rgb.g),
+            colorutil::ToUnsignedChar(rgb.b)
+        };
     }
 
     Rgbi
@@ -454,9 +456,12 @@ namespace euphoria::core
     Rgb
     RgbTransform::Transform(const Rgb& from, float v, const Rgb& to)
     {
-        return {FloatTransform::Transform(from.r, v, to.r),
-                FloatTransform::Transform(from.g, v, to.g),
-                FloatTransform::Transform(from.b, v, to.b)};
+        return
+        {
+            FloatTransform::Transform(from.r, v, to.r),
+            FloatTransform::Transform(from.g, v, to.g),
+            FloatTransform::Transform(from.b, v, to.b)
+        };
     }
 
     ////////////////////////////////////////////////////////////////////////////////
@@ -559,11 +564,11 @@ namespace euphoria::core
                 {
                     const auto s = value.substr(1+index*len, len);
                     auto ss = std::istringstream(s);
-                    int hex;
+                    int hex = 0;
                     ss >> std::hex >> hex;
                     if(ss.eof() && ss.fail()==false)
                     { return {static_cast<std::uint8_t>(hex), s}; }
-                    else return {std::nullopt, s};
+                    else { return {std::nullopt, s}; };
                 };
 
                 const auto [r, r_value] = parse_hex(0, size);
@@ -645,13 +650,15 @@ namespace euphoria::core
                 s = Str() << s[0] << s[0] << s[1] << s[1] << s[2] << s[2];
             }
             if(s.length() != 6)
+            {
                 return 0;
+            }
             std::istringstream ss {s};
-            unsigned int       hex = 0;
+            unsigned int hex = 0;
             ss >> std::hex >> hex;
             ASSERTX(!ss.fail(), s, str, hex);
             return hex;
         }
-    }  // namespace colorutil
+    }
 
-}  // namespace euphoria::core
+}

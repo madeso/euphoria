@@ -27,7 +27,7 @@ namespace euphoria::core
     DrawSquare(Image* image, const Rgbai& color, int x, int y, int size);
 
     void
-    FillPoly(Image* image, const Rgbai& color, std::vector<vec2f>& poly);
+    FillPoly(Image* image, const Rgbai& color, const std::vector<vec2f>& poly);
 
     void
     DrawCircle
@@ -106,7 +106,7 @@ namespace euphoria::core
         const vec2f& from,
         const vec2f& to,
         const Rgbai& color,
-        int size
+        float size
     );
 
 }  // namespace euphoria::core

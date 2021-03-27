@@ -12,24 +12,24 @@ namespace euphoria::core
         OrbitController();
 
 
-        quatf
+        [[nodiscard]] quatf
         GetRotation() const;
 
 
-        vec3f
-        GetCameraPosition();
+        [[nodiscard]] vec3f
+        GetCameraPosition() const;
 
 
         void
-        Pan(const float dx, const float dy);
+        Pan(float dx, float dy);
 
 
         void
-        Rotate(const float dx, const float dy);
+        Rotate(float dx, float dy);
 
 
         void
-        Zoom(const float z);
+        Zoom(float z);
 
 
         vec3f center;

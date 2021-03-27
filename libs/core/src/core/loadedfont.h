@@ -44,7 +44,7 @@ namespace euphoria::core
     };
 
 
-    typedef std::map<std::pair<unsigned int, unsigned int>, float> KerningMap;
+    using KerningMap = std::map<std::pair<unsigned int, unsigned int>, float>;
 
 
     // represent a loaded font (or a part), but it not yet been converted

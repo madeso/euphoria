@@ -6,12 +6,19 @@
 #define NONCOPYABLE_MOVE_CONSTRUCTOR(CLASS) CLASS(CLASS&& other) = delete
 #define NONCOPYABLE_MOVE_ASSIGNMENT(CLASS) void operator=(CLASS&&) = delete
 
+#define NONCOPYABLE(CLASS) \
+    NONCOPYABLE_CONSTRUCTOR(CLASS); \
+    NONCOPYABLE_ASSIGNMENT(CLASS); \
+    NONCOPYABLE_MOVE_CONSTRUCTOR(CLASS); \
+    NONCOPYABLE_MOVE_ASSIGNMENT(CLASS)
+
 
 namespace euphoria::core
 {
     struct Noncopyable
     {
-        Noncopyable() {}
+        Noncopyable() = default;
+        ~Noncopyable() = default;
 
         NONCOPYABLE_CONSTRUCTOR(Noncopyable);
         NONCOPYABLE_ASSIGNMENT(Noncopyable);

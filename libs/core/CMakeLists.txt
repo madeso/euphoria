@@ -55,7 +55,6 @@ set(app_src_pcg
     src/core/generator_cell.cc src/core/generator_cell.h
     src/core/generator_maze.cc src/core/generator_maze.h
     src/core/markov.cc src/core/markov.h
-    src/core/noise_simplex.cc src/core/noise_simplex.h
     src/core/tracery.cc src/core/tracery.h
     src/core/drunken_bishop.cc src/core/drunken_bishop.h
 )

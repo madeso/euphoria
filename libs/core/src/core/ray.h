@@ -15,7 +15,7 @@ namespace euphoria::core
         [[nodiscard]] static UnitRay3f
         FromDirection(const unit3f& dir);
 
-        vec3f
+        [[nodiscard]] vec3f
         GetPoint(float at) const;
 
         vec3f from;
@@ -33,7 +33,7 @@ namespace euphoria::core
         [[nodiscard]] static Ray2f
         FromDirection(const vec2f& direction, const vec2f& pos = vec2f::Zero());
 
-        vec2f
+        [[nodiscard]] vec2f
         GetPosition(float d) const;
 
         vec2f position;
@@ -50,10 +50,10 @@ namespace euphoria::core
         [[nodiscard]] static Ray3f
         FromDirection(const vec3f& dir);
 
-        vec3f
+        [[nodiscard]] vec3f
         GetPoint(float at) const;
 
-        UnitRay3f
+        [[nodiscard]] UnitRay3f
         GetNormalized() const;
 
         vec3f from;

@@ -47,13 +47,13 @@ namespace euphoria::core
          * @param i the index
          * @returns the color
         */
-        const Rgbi&
+        [[nodiscard]] const Rgbi&
         GetSafeIndex(unsigned int i) const;
 
-        const Rgbi&
+        [[nodiscard]] const Rgbi&
         GetClosestColor(const Rgbi& c) const;
 
-        unsigned int
+        [[nodiscard]] unsigned int
         GetIndexClosest(const Rgbi& c) const;
 
         // todo(Gustav): provide a function that takes a (void) lambda

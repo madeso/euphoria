@@ -138,7 +138,7 @@ namespace euphoria::core
     @param to_replace the string to replace it.
     @returns the modified string.
     */
-    const std::string
+    std::string
     StringReplace(const std::string& string, const std::string& to_find, const std::string& to_replace);
 
 
@@ -231,7 +231,7 @@ namespace euphoria::core
     Split(const std::string& string, char delim);
 
 
-    const std::string&
+    std::string
     OpString(bool b, const std::string& str);
 
 

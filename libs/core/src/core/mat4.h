@@ -17,9 +17,7 @@ namespace euphoria::core
     private:
         T data[16];  // col-major
 
-        mat4()
-        {
-        }
+        mat4() = default;
 
         mat4
         (
@@ -304,8 +302,7 @@ namespace euphoria::core
             // from the glu source?
             // https://stackoverflow.com/questions/1148309/inverting-a-4x4-matrix
 
-            float inv[16], det;
-            int   i;
+            float inv[16];
 
             float* m = data;
 
@@ -405,22 +402,20 @@ namespace euphoria::core
                 m[8] * m[1] * m[6] - m[8] * m[2] * m[5]
                 ;
 
-            det =
+            const auto inv_det =
                 m[0] * inv[0] + m[1] * inv[4] + m[2] * inv[8] +
                 m[3] * inv[12];
 
-            if(det == 0)
+            if(inv_det == 0)
             {
                 return false;
             }
 
-            det = 1.0f / det;
+            const auto det = 1.0f / inv_det;
 
-            float* invOut = data;
-
-            for(i = 0; i < 16; i++)
+            for(int i = 0; i < 16; i++)
             {
-                invOut[i] = inv[i] * det;
+                data[i] = inv[i] * det;
             }
 
             return true;
@@ -601,8 +596,10 @@ namespace euphoria::core
     template <typename T>
     mat4<T> operator*(const mat4<T>& lhs, const mat4<T> rhs)
     {
-#define OP(r, c)                                                               \
-    ComponentMultiply(lhs.GetRow(r), rhs.GetColumn(c)).GetComponentSum()
+        const auto OP = [&lhs, &rhs](int r, int c) -> T
+        {
+            return ComponentMultiply(lhs.GetRow(r), rhs.GetColumn(c)).GetComponentSum();
+        };
         return mat4<T>::FromRowMajor
         (
             OP(0, 0), OP(0, 1), OP(0, 2), OP(0, 3),
@@ -610,19 +607,21 @@ namespace euphoria::core
             OP(2, 0), OP(2, 1), OP(2, 2), OP(2, 3),
             OP(3, 0), OP(3, 1), OP(3, 2), OP(3, 3)
         );
-#undef OP
     }
 
     template <typename T>
     vec4<T> operator*(const mat4<T>& lhs, const vec4<T> rhs)
     {
-#define OP(r) ComponentMultiply(lhs.GetRow(r), rhs).GetComponentSum()
+        const auto OP = [&lhs, &rhs](int r) -> T
+        {
+            return ComponentMultiply(lhs.GetRow(r), rhs).GetComponentSum();
+        };
+
         return vec4<T>(OP(0), OP(1), OP(2), OP(3));
-#undef OP
     }
 
-    typedef mat4<float> mat4f;
-    typedef mat4<int>   mat4i;
+    using mat4f = mat4<float>;
+    using mat4i = mat4<int>;
 
 }  // namespace euphoria::core
 

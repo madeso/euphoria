@@ -13,7 +13,7 @@
 #include "core/log.h"
 
 #include <utility>
-
+#include <cmath>
 
 namespace euphoria::core
 {
@@ -48,11 +48,15 @@ namespace euphoria::core
         for(int y = bottom; y < top; ++y)
         {
             if(y < 0 || y >= image->GetHeight())
+            {
                 continue;
+            }
             for(int x = left; x < right; ++x)
             {
                 if(x < 0 || x >= image->GetWidth())
+                {
                     continue;
+                }
                 image->SetPixel(x, y, color);
             }
         }
@@ -63,11 +67,11 @@ namespace euphoria::core
     DrawSquare(Image* image, const Rgbai& color, int x, int y, int size)
     {
         ASSERT(image);
-        // is the +1 right?
         DrawRect
         (
             image,
             color,
+            // is the +1 right?
             Recti::FromTopLeftWidthHeight(vec2i{x, y + 1}, size, size)
         );
     }
@@ -76,7 +80,7 @@ namespace euphoria::core
     namespace
     {
         Rectf
-        BoundingRect(std::vector<vec2f>& poly)
+        BoundingRect(const std::vector<vec2f>& poly)
         {
             const auto [min, max] = FindMinMax<vec2f>
             (
@@ -107,7 +111,7 @@ namespace euphoria::core
         {
             // todo(Gustav): move to math
             return
-                (a.y > u.y) != (b.y > u.y) && 
+                (a.y > u.y) != (b.y > u.y) &&
                 u.x < (b.x - a.x) * (u.y - a.y) / (b.y - a.y) + a.x
                 ;
         }
@@ -139,7 +143,7 @@ namespace euphoria::core
     }
 
     void
-    FillPoly(Image* image, const Rgbai& color, std::vector<vec2f>& poly)
+    FillPoly(Image* image, const Rgbai& color, const std::vector<vec2f>& poly)
     {
         ASSERT(image);
 
@@ -230,7 +234,7 @@ namespace euphoria::core
                     continue;
                 }
 
-                const Rgb paint_color = blend 
+                const Rgb paint_color = blend
                     ? RgbTransform::Transform
                     (
                         rgb(image->GetPixel(x, y)),
@@ -362,13 +366,13 @@ namespace euphoria::core
         const vec2f& to
     )
     {
-        // reference: 
+        // reference:
         // https://en.wikipedia.org/wiki/Xiaolin_Wu%27s_line_algorithm
 
-        auto ipart = [&](float x) { return Floori(x); };
-        auto round = [&](float x) { return ipart(x + 0.5); };
-        auto fpart = [&](float x) { return x - floor(x); };
-        auto rfpart = [&](float x) { return 1 - fpart(x); };
+        auto ipart = [&](float x) -> int { return Floori(x); };
+        auto round = [&](float x) -> int { return ipart(x + 0.5f); };
+        auto fpart = [&](float x) -> float { return x - std::floor(x); };
+        auto rfpart = [&](float x) -> float { return 1.0f - fpart(x); };
 
         auto plot = [&](int x, int y, float c)
         {
@@ -397,7 +401,7 @@ namespace euphoria::core
         using std::swap;
 
         auto steep = Abs(y1 - y0) > Abs(x1 - x0);
-    
+
         if(steep)
         {
             swap(x0, y0);
@@ -408,19 +412,19 @@ namespace euphoria::core
             swap(x0, x1);
             swap(y0, y1);
         }
-    
-        auto dx = x1 - x0;
-        auto dy = y1 - y0;
-        auto gradient = dy / dx;
-        if(dx == 0.0)
+
+        float dx = x1 - x0;
+        float dy = y1 - y0;
+        float gradient = dy / dx;
+        if(dx == 0.0f)
         {
-            gradient = 1.0;
+            gradient = 1.0f;
         }
 
         // handle first endpoint
         auto xend = round(x0);
         auto yend = y0 + gradient * (xend - x0);
-        auto xgap = rfpart(x0 + 0.5);
+        auto xgap = rfpart(x0 + 0.5f);
         auto xpxl1 = xend; // this will be used in the main loop
         auto ypxl1 = ipart(yend);
         if(steep)
@@ -434,11 +438,11 @@ namespace euphoria::core
             plot(xpxl1, ypxl1+1,  fpart(yend) * xgap);
         }
         auto intery = yend + gradient; // first y-intersection for the main loop
-    
+
         // handle second endpoint
         xend = round(x1);
         yend = y1 + gradient * (xend - x1);
-        xgap = fpart(x1 + 0.5);
+        xgap = fpart(x1 + 0.5f);
         auto xpxl2 = xend; //this will be used in the main loop
         auto ypxl2 = ipart(yend);
 
@@ -452,7 +456,7 @@ namespace euphoria::core
             plot(xpxl2, ypxl2,  rfpart(yend) * xgap);
             plot(xpxl2, ypxl2+1, fpart(yend) * xgap);
         }
-    
+
         // main loop
         if(steep)
         {
@@ -494,17 +498,19 @@ namespace euphoria::core
     )
     {
         for(int y=0; y<src.GetHeight(); y+=1)
-        for(int x=0; x<src.GetWidth();  x+=1)
         {
-            const auto dx = p.x + x;
-            const auto dy = p.y + y;
-            if(dx >= dst->GetWidth()) continue;
-            if(dy >= dst->GetHeight()) continue;
-            const auto dst_color = dst->GetPixel(dx, dy);
-            const auto src_color = src.GetPixel(x, y);
-            const auto tinted_color = Tint(src_color, tint);
-            const auto result_color = Blend(tinted_color, dst_color);
-            dst->SetPixel(dx, dy, result_color);
+            for(int x=0; x<src.GetWidth();  x+=1)
+            {
+                const auto dx = p.x + x;
+                const auto dy = p.y + y;
+                if(dx >= dst->GetWidth()) { continue; }
+                if(dy >= dst->GetHeight()) { continue; }
+                const auto dst_color = dst->GetPixel(dx, dy);
+                const auto src_color = src.GetPixel(x, y);
+                const auto tinted_color = Tint(src_color, tint);
+                const auto result_color = Blend(tinted_color, dst_color);
+                dst->SetPixel(dx, dy, result_color);
+            }
         }
     }
 
@@ -555,24 +561,26 @@ namespace euphoria::core
         ASSERT(dest_image);
 
         for(int y = 0; y < source_image.GetHeight(); ++y)
-        for(int x = 0; x < source_image.GetWidth(); ++x)
         {
-            const auto dest_x = position.x + x;
-            const auto dest_y = position.y + y;
-            if
-            (
-                clip == PixelsOutside::Discard &&
-                IsWithin(dest_image->GetIndices(), vec2i(dest_x, dest_y)) == false
-            )
+            for(int x = 0; x < source_image.GetWidth(); ++x)
             {
-                // nop
-            }
-            else
-            {
-                const auto top = source_image.GetPixel(x, y);
-                const auto bottom = dest_image->GetPixel(dest_x, dest_y);
-                const auto color = Blend(top, bottom, blend_mode);
-                dest_image->SetPixel(dest_x, dest_y, color);
+                const auto dest_x = position.x + x;
+                const auto dest_y = position.y + y;
+                if
+                (
+                    clip == PixelsOutside::Discard &&
+                    IsWithin(dest_image->GetIndices(), vec2i(dest_x, dest_y)) == false
+                )
+                {
+                    // nop
+                }
+                else
+                {
+                    const auto top = source_image.GetPixel(x, y);
+                    const auto bottom = dest_image->GetPixel(dest_x, dest_y);
+                    const auto color = Blend(top, bottom, blend_mode);
+                    dest_image->SetPixel(dest_x, dest_y, color);
+                }
             }
         }
     }
@@ -642,7 +650,7 @@ namespace euphoria::core
         const vec2f& from,
         const vec2f& to,
         const Rgbai& color,
-        int size
+        float size
     )
     {
         // based on code from https://www.codeproject.com/Questions/125049/Draw-an-arrow-with-big-cap

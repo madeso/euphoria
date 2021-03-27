@@ -11,7 +11,7 @@ namespace euphoria::core
     template <typename T>
     struct ShuffleBag
     {
-        unsigned long
+        [[nodiscard]] unsigned long
         GetSize() const
         {
             return data_.size();
@@ -29,12 +29,14 @@ namespace euphoria::core
             ASSERT(amount > 0);
 
             for(int i = 0; i < amount; i++)
+            {
                 data_.push_back(item);
+            }
 
             cursor_ = GetSize() - 1;
         }
 
-        const T&
+        [[nodiscard]] const T&
         Next(Random* random)
         {
             ASSERT(random);
@@ -46,8 +48,7 @@ namespace euphoria::core
                 return data_[0];
             }
 
-            const auto next_position
-                    = random->NextRange(static_cast<int>(cursor_));
+            const auto next_position = random->NextRange(static_cast<int>(cursor_));
 
             std::swap(data_[next_position], data_[cursor_]);
             cursor_ -= 1;

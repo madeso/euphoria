@@ -31,14 +31,14 @@ namespace euphoria::core
         HardMix,
         Reflect,
         Glow,
-        Phoenix    
+        Phoenix
     };
 
     // place top onto bottom
-    Rgb   Blend(const Rgb&   top, const Rgb&   bottom, const BlendMode mode = BlendMode::Normal);
-    Rgba  Blend(const Rgba&  top, const Rgba&  bottom, const BlendMode mode = BlendMode::Normal);
-    Rgbi  Blend(const Rgbi&  top, const Rgbi&  bottom, const BlendMode mode = BlendMode::Normal);
-    Rgbai Blend(const Rgbai& top, const Rgbai& bottom, const BlendMode mode = BlendMode::Normal);
+    Rgb   Blend(const Rgb&   top, const Rgb&   bottom, BlendMode mode = BlendMode::Normal);
+    Rgba  Blend(const Rgba&  top, const Rgba&  bottom, BlendMode mode = BlendMode::Normal);
+    Rgbi  Blend(const Rgbi&  top, const Rgbi&  bottom, BlendMode mode = BlendMode::Normal);
+    Rgbai Blend(const Rgbai& top, const Rgbai& bottom, BlendMode mode = BlendMode::Normal);
 
     // Rgb   Blend(const Rgb&   a, const Rgb&   b, float alpha, const BlendMode mode = BlendMode::Normal);
     // Rgba  Blend(const Rgba&  a, const Rgba&  b, float alpha, const BlendMode mode = BlendMode::Normal);

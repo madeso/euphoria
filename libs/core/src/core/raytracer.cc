@@ -10,6 +10,7 @@
 #include "core/angle.h"
 
 #include <limits>
+#include <cmath>
 
 namespace euphoria::core::raytracer
 {
@@ -46,7 +47,7 @@ namespace euphoria::core::raytracer
         {
         }
 
-        std::optional<HitResult>
+        [[nodiscard]] std::optional<HitResult>
         Hit(const UnitRay3f& ray, const Range<float>& range) const override
         {
             const auto hit_index = GetIntersection
@@ -137,8 +138,6 @@ namespace euphoria::core::raytracer
         return RandomUnit3(random) * random->NextFloat01();
     }
 
-
-    Material::~Material() {}
 
     struct DiffuseMaterial : public Material
     {
@@ -252,11 +251,11 @@ namespace euphoria::core::raytracer
     float
     FresnelFactor(float cosine, float ref_idx)
     {
-        const auto r0 = Square
+        const float r0 = Square
         (
             (1-ref_idx) / (1+ref_idx)
         );
-        return r0 + (1-r0)*pow((1 - cosine), 5);
+        return r0 + (1-r0)*std::pow((1.0f - cosine), 5.0f);
     }
 
 
@@ -438,7 +437,7 @@ namespace euphoria::core::raytracer
             const auto horizontal = vec3f{2*half_width, 0.0f, 0.0f};
             const auto vertical = vec3f{0.0f, 2*half_height, 0.0f};
             const auto origin = vec3f{0.0f, 0.0f, 0.0f};
-            
+
             return Camera
             {
                 lower_left_corner,
@@ -453,7 +452,8 @@ namespace euphoria::core::raytracer
         vec3f vertical;
         vec3f origin;
 
-        UnitRay3f GetRay(float u, float v) const
+        [[nodiscard]] UnitRay3f
+        GetRay(float u, float v) const
         {
             return UnitRay3f::FromTo(origin, lower_left_corner + u*horizontal + v*vertical);
         }
@@ -472,27 +472,29 @@ namespace euphoria::core::raytracer
         Image& img = *aimage;
 
         auto random = Random{};
-        const auto aspect_ratio = img.GetWidth() / static_cast<float>(img.GetHeight());
+        const auto aspect_ratio = static_cast<float>(img.GetWidth()) / static_cast<float>(img.GetHeight());
         const auto camera = Camera::Create(Angle::FromDegrees(90), aspect_ratio);
 
         std::cout << "Rendering ";
         for(int y=0; y<img.GetHeight(); y+=1)
-        for(int x=0; x<img.GetWidth(); x+=1)
         {
-            Rgb color = Color::Black;
-            for(int sample = 0; sample < number_of_samples; sample += 1)
+            for(int x=0; x<img.GetWidth(); x+=1)
             {
-                const auto u = (x + random.NextFloat01()) / static_cast<float>(img.GetWidth());
-                const auto v = (y + random.NextFloat01()) / static_cast<float>(img.GetHeight());
-                const auto ray = camera.GetRay(u, v);
-                const auto sample_color = GetColor(scene, ray, &random, 0);
-                color += sample_color;
+                Rgb color = Color::Black;
+                for(int sample = 0; sample < number_of_samples; sample += 1)
+                {
+                    const auto u = (static_cast<float>(x) + random.NextFloat01()) / static_cast<float>(img.GetWidth());
+                    const auto v = (static_cast<float>(y) + random.NextFloat01()) / static_cast<float>(img.GetHeight());
+                    const auto ray = camera.GetRay(u, v);
+                    const auto sample_color = GetColor(scene, ray, &random, 0);
+                    color += sample_color;
+                }
+                color = color/static_cast<float>(number_of_samples);
+                color = Gamma2CorrectColor(color);
+                img.SetPixel(x,y, rgbi(color));
             }
-            color = color/number_of_samples;
-            color = Gamma2CorrectColor(color);
-            img.SetPixel(x,y, rgbi(color));
         }
-        
+
         std::cout << "Rendering done :)\n";
     }
 }

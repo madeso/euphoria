@@ -71,7 +71,7 @@ namespace euphoria::core
                 MakeGrayscale(img.GetPixel(x, y), grayscale)
             ).r;
             const auto p = 1.0f - inverted_color;
-            const auto index = Floori(p * (characters.size() - 1));
+            const auto index = Floori(p * static_cast<float>(characters.size() - 1) );
             return characters[index];
         });
 

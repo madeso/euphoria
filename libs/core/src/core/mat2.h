@@ -16,7 +16,7 @@ namespace euphoria::core
 
         T data[4];
 
-        mat2() {}
+        mat2() = default;
 
         mat2
         (
@@ -245,8 +245,8 @@ namespace euphoria::core
 #undef OP
     }
 
-    typedef mat2<float> mat2f;
-    typedef mat2<int>   mat2i;
+    using mat2f = mat2<float>;
+    using mat2i = mat2<int>;
 }
 
 #endif // EUPHORIA_CORE_MAT2_H

@@ -60,8 +60,7 @@ namespace euphoria::core
         static bool
         KeepLooping(Int max_value, int exp)
         {
-            if(exp == 0)
-                return true;
+            if(exp == 0) { return true; }
             // -1 because we need to be sure we have passed the max value
             // todo: use some smart bit technique to set F up to exp
             return max_value >= (1 << ((exp - 1) * 4));

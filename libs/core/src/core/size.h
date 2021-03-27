@@ -1,5 +1,4 @@
-#ifndef CORE_SIZE_H
-#define CORE_SIZE_H
+#pragma once
 
 #include "core/vec2.h"
 #include "core/numeric.h"
@@ -12,7 +11,7 @@ namespace euphoria::core
     template <typename T>
     struct Size
     {
-        typedef Size<T> Self;
+        using Self = Size<T>;
 
         T width;
         T height;
@@ -213,8 +212,6 @@ namespace euphoria::core
         return s;
     }
 
-    typedef Size<int>   Sizei;
-    typedef Size<float> Sizef;
-}  // namespace euphoria::core
-
-#endif  // CORE_SIZE_H
+    using Sizei = Size<int>;
+    using Sizef = Size<float>;
+}

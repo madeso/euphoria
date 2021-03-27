@@ -315,14 +315,14 @@ namespace euphoria::core
         }
 
         // Returns true if the rectangle is empty (left >= right or top <= bottom)
-        bool
+        [[nodiscard]] bool
         IsEmpty() const
         {
             return left >= right || top <= bottom;
         }
 
-        // doe this represent a rectangle? A 0 width/height is also considered valid
-        bool
+        // does this represent a rectangle? A 0 width/height is also considered valid
+        [[nodiscard]] bool
         IsValid() const
         {
             return GetWidth() >= 0 && GetHeight() >= 0;
@@ -442,31 +442,31 @@ namespace euphoria::core
             return Size<T>::FromWidthHeight(GetWidth(), GetHeight());
         }
 
-        const vec2<T>
+        [[nodiscard]] vec2<T>
         TopLeft() const
         {
             return vec2<T>(left, top);
         }
 
-        const vec2<T>
+        [[nodiscard]] vec2<T>
         TopRight() const
         {
             return vec2<T>(right, top);
         }
 
-        const vec2<T>
+        [[nodiscard]] vec2<T>
         BottomLeft() const
         {
             return vec2<T>(left, bottom);
         }
 
-        const vec2<T>
+        [[nodiscard]] vec2<T>
         BottomRight() const
         {
             return vec2<T>(right, bottom);
         }
 
-        vec2<T>
+        [[nodiscard]] vec2<T>
         RandomPoint(Random* random) const
         {
             const T x = random->NextRange(GetWidth());
@@ -476,7 +476,7 @@ namespace euphoria::core
     };
 
     template <typename T, typename R>
-    const vec2<R>
+    [[nodiscard]] vec2<R>
     To01(const Rect<T>& r, const vec2<R>& from)
     {
         const auto x = To01(MakeRange(r.left, r.right), from.x);
@@ -485,7 +485,7 @@ namespace euphoria::core
     }
 
     template <typename T, typename R>
-    const vec2<R>
+    [[nodiscard]] vec2<R>
     From01(const Rect<T>& r, const vec2<R>& from)
     {
         const auto x = From01(MakeRange(r.left, r.right), from.x);
@@ -522,8 +522,8 @@ namespace euphoria::core
         return s;
     }
 
-    typedef Rect<int>   Recti;
-    typedef Rect<float> Rectf;
+    using Recti = Rect<int>;
+    using Rectf = Rect<float>;
 
 }  // namespace euphoria::core
 

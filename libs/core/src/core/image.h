@@ -31,7 +31,7 @@ namespace euphoria::core
         void
         MakeInvalid();
 
-        bool
+        [[nodiscard]] bool
         IsValid() const;
 
         // todo(Gustav): Add create function that will create empty image and run setup
@@ -68,7 +68,7 @@ namespace euphoria::core
             unsigned char a
         );
 
-        Rgbai
+        [[nodiscard]] Rgbai
         GetPixel(int x, int y) const;
 
         template <typename Func>
@@ -76,9 +76,11 @@ namespace euphoria::core
         Filter(Func f)
         {
             for(int y = 0; y < GetHeight(); y += 1)
-            for(int x = 0; x < GetWidth(); x += 1)
             {
-                SetPixel(x, y, f(GetPixel(x, y)));
+                for(int x = 0; x < GetWidth(); x += 1)
+                {
+                    SetPixel(x, y, f(GetPixel(x, y)));
+                }
             }
         }
 
@@ -87,9 +89,11 @@ namespace euphoria::core
         ForAllTopBottom(Func f)
         {
             for(int y = GetHeight(); y > 0; y -= 1)
-            for(int x = 0; x < GetWidth(); x += 1)
             {
-                f(x, y - 1, GetPixel(x, y - 1));
+                for(int x = 0; x < GetWidth(); x += 1)
+                {
+                    f(x, y - 1, GetPixel(x, y - 1));
+                }
             }
         }
 
@@ -98,9 +102,11 @@ namespace euphoria::core
         SetAllTopBottom(Func f)
         {
             for(int y = GetHeight(); y > 0; y -= 1)
-            for(int x = 0; x < GetWidth(); x += 1)
             {
-                SetPixel(x, y - 1, f(x, y - 1));
+                for(int x = 0; x < GetWidth(); x += 1)
+                {
+                    SetPixel(x, y - 1, f(x, y - 1));
+                }
             }
         }
 
@@ -109,38 +115,40 @@ namespace euphoria::core
         SetAllBottomTop(Func f)
         {
             for(int y = 0; y < GetHeight(); y += 1)
-            for(int x = 0; x < GetWidth(); x += 1)
             {
-                SetPixel(x, y, f(x, y));
+                for(int x = 0; x < GetWidth(); x += 1)
+                {
+                    SetPixel(x, y, f(x, y));
+                }
             }
         }
 
-        Recti
+        [[nodiscard]] Recti
         GetIndices() const;
 
-        int
+        [[nodiscard]] int
         GetWidth() const;
 
-        int
+        [[nodiscard]] int
         GetHeight() const;
 
-        bool
+        [[nodiscard]] bool
         HasAlpha() const;
 
-        const unsigned char*
+        [[nodiscard]] const unsigned char*
         GetPixelData() const;
 
-        std::shared_ptr<MemoryChunk>
+        [[nodiscard]] std::shared_ptr<MemoryChunk>
         Write(ImageWriteFormat format, int jpeg_quality = 100) const;
 
     private:
         void
         Setup(int image_width, int image_height, bool alpha, int default_value);
 
-        int
+        [[nodiscard]] int
         GetPixelByteSize() const;
 
-        int
+        [[nodiscard]] int
         GetPixelIndex(int x, int y) const;
 
         // todo(Gustav): replace with a array instead of a vector

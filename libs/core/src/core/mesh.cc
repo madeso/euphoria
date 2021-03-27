@@ -1,12 +1,7 @@
 #include "core/mesh.h"
 
-#include "core/cint.h"
-#include "core/str.h"
-#include "core/texturetypes.h"
-#include "core/proto.h"
-#include "core/log.h"
-#include "core/stringmerger.h"
-#include "core/vfs.h"
+#include <sstream>
+#include <utility>
 
 #include "assimp/Importer.hpp"
 #include "assimp/IOSystem.hpp"
@@ -14,8 +9,13 @@
 #include "assimp/scene.h"
 #include "assimp/postprocess.h"
 
-#include <sstream>
-#include <utility>
+#include "core/cint.h"
+#include "core/str.h"
+#include "core/texturetypes.h"
+#include "core/proto.h"
+#include "core/log.h"
+#include "core/stringmerger.h"
+#include "core/vfs.h"
 
 #include "gaf_mesh.h"
 
@@ -252,17 +252,17 @@ namespace euphoria::core
             for(unsigned int face_id = 0; face_id < mesh->mNumFaces; ++face_id)
             {
                 const aiFace& face = mesh->mFaces[face_id];
-                if(face.mNumIndices<3) continue;
-                ASSERTX(face.mNumIndices == 3, face.mNumIndices); 
-                const auto faceIndex0 = face.mIndices[0];
-                const auto faceIndex1 = face.mIndices[1];
-                const auto faceIndex2 = face.mIndices[2];
-                part->faces.push_back(MeshFace
+                if(face.mNumIndices<3)
                 {
-                    Cunsigned_int_to_int(faceIndex0),
-                    Cunsigned_int_to_int(faceIndex1),
-                    Cunsigned_int_to_int(faceIndex2)
-                });
+                    continue;
+                }
+                ASSERTX(face.mNumIndices == 3, face.mNumIndices);
+                part->faces.emplace_back
+                (
+                    Cunsigned_int_to_int(face.mIndices[0]),
+                    Cunsigned_int_to_int(face.mIndices[1]),
+                    Cunsigned_int_to_int(face.mIndices[2])
+                );
             }
         }
 
@@ -328,7 +328,10 @@ namespace euphoria::core
                     if(part.faces.empty())
                     {
                         const auto& name = mesh->mName;
-                        const char* const the_name = name.C_Str() ? name.C_Str() : "<no_name>";
+                        const char* const the_name = name.C_Str() != nullptr
+                            ? name.C_Str()
+                            : "<no_name>"
+                            ;
                         LOG_WARN("No faces in part {0} for {1}", the_name, file_name);
                     }
                     else
@@ -549,12 +552,12 @@ namespace euphoria::core
                 return objects_read;
             }
 
-            virtual size_t Write(const void* , size_t , size_t ) override
+            size_t Write(const void* , size_t , size_t ) override
             {
                 return 0;
             }
 
-            virtual aiReturn Seek(size_t pOffset, aiOrigin pOrigin) override
+            aiReturn Seek(size_t pOffset, aiOrigin pOrigin) override
             {
                 switch(pOrigin)
                 {
@@ -565,35 +568,35 @@ namespace euphoria::core
                 }
             }
 
-            virtual size_t Tell() const override
+            [[nodiscard]] size_t Tell() const override
             {
                 return index;
             }
 
-            virtual size_t FileSize() const override
+            [[nodiscard]] size_t FileSize() const override
             {
                 return content->GetSize();
             }
 
-            virtual void Flush() override
+            void Flush() override
             {
             }
         };
 
-        
+
         struct FilesystemForAssimp : public Assimp::IOSystem
         {
             vfs::FileSystem* file_system;
 
             FilesystemForAssimp(vfs::FileSystem* fs) : file_system(fs) {}
 
-            bool Exists( const char* pFile) const override
+            bool Exists(const char* pFile) const override
             {
                 auto content = file_system->ReadFile(vfs::FilePath{pFile});
                 return content != nullptr;
             }
 
-            char getOsSeparator() const override
+            [[nodiscard]] char getOsSeparator() const override
             {
                 return '/';
             }
@@ -608,14 +611,14 @@ namespace euphoria::core
                 {
                     return nullptr;
                 }
-                auto* data = new FileForAssimp();
+                auto* data = new FileForAssimp(); // NOLINT
                 data->content = content;
                 return data;
             }
-            
+
             void Close(Assimp::IOStream* pFile) override
             {
-                delete pFile;
+                delete pFile; // NOLINT
             }
 
             bool DeleteFile( const std::string& ) override
@@ -629,7 +632,7 @@ namespace euphoria::core
         LoadMesh(vfs::FileSystem* fs, const vfs::FilePath& path)
         {
             Assimp::Importer importer;
-            importer.SetIOHandler(new FilesystemForAssimp{fs});
+            importer.SetIOHandler(new FilesystemForAssimp{fs}); // NOLINT
 
             MeshLoadResult   res;
 

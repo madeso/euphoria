@@ -24,13 +24,13 @@ namespace euphoria::core
         bool building_path;
         std::vector<vec2f> path;
 
-        vec2f
-        C(const vec2f v) const;
+        [[nodiscard]] vec2f
+        C(const vec2f& v) const;
 
         Canvas(Image* i);
 
         void
-        fillRect(int x, int y, int w, int h);
+        fillRect(int x, int y, int w, int h) const;
 
         void
         translate(float x, float y);
@@ -51,7 +51,7 @@ namespace euphoria::core
         lineTo(float dx, float dy);
 
         void
-        fill();
+        fill() const;
     };
 }
 

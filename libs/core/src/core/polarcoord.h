@@ -13,7 +13,7 @@ namespace euphoria::core
     {
         PolarCoord(float azimuthal01, float polar01);
 
-        unit3f
+        [[nodiscard]] unit3f
         ToUnitVector() const;
 
         [[nodiscard]] static PolarCoord

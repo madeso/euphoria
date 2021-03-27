@@ -56,11 +56,11 @@ namespace euphoria::core
     {
         MeshPart();
 
-        unsigned int           material;
+        unsigned int material;
         std::vector<MeshPoint> points;
         std::vector<MeshFace>  faces;
 
-        Aabb
+        [[nodiscard]] Aabb
         CalculateAabb() const;
     };
 
@@ -69,7 +69,7 @@ namespace euphoria::core
     {
         MaterialTexture(const vfs::FilePath& p, EnumValue t);
         vfs::FilePath path;
-        EnumValue   type;
+        EnumValue type;
     };
 
 
@@ -107,14 +107,14 @@ namespace euphoria::core
         std::vector<Material> materials;
         std::vector<MeshPart> parts;
 
-        Aabb
+        [[nodiscard]] Aabb
         CalculateAabb() const;
     };
 
 
     struct MeshLoadResult
     {
-        Mesh        mesh;
+        Mesh mesh;
         std::string error;
     };
 
@@ -129,7 +129,7 @@ namespace euphoria::core
 
         Mesh
         CreateSphere(float size, const std::string& texture);
-        
+
         Mesh
         CreateBox(float width, float height, float depth);
     }  // namespace meshes

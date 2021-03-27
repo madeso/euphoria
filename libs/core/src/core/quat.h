@@ -1,5 +1,4 @@
-#ifndef CORE_QUAT_H
-#define CORE_QUAT_H
+#pragma once
 
 #include "core/vec3.h"
 #include "core/numeric.h"
@@ -13,10 +12,10 @@ namespace euphoria::core
     template <typename T>
     struct quat
     {
-        using Q     = quat<T>;
-        using Vec   = vec3<T>;
+        using Q = quat<T>;
+        using Vec = vec3<T>;
         using Point = vec3<T>;
-        using Unit  = unit3<T>;
+        using Unit = unit3<T>;
 
         T w;
         T x;
@@ -38,7 +37,7 @@ namespace euphoria::core
         {
             const T sin_a = Sin(aa.angle / 2);
             const T cos_a = Cos(aa.angle / 2);
-            Q       r(cos_a, aa.axis * sin_a);
+            Q r(cos_a, aa.axis * sin_a);
             r.Normalize();
             return r;
         }
@@ -47,7 +46,7 @@ namespace euphoria::core
         [[nodiscard]] static Q
         FromRandom(Random* random)
         {
-            const auto axis  = RandomUnit3(random);
+            const auto axis = RandomUnit3(random);
             const auto angle = Angle::Random(random);
 
             return Q::FromAxisAngle(AxisAngle::RightHandAround(axis, angle));
@@ -61,12 +60,12 @@ namespace euphoria::core
         }
 
 
-        AxisAngle
+        [[nodiscard]] AxisAngle
         ToAxisAngle() const
         {
-            const T    cos_a = w;
+            const T cos_a = w;
             const auto angle = Acos(cos_a) * 2;
-            const T    sin_a = DefaultIfCloseToZero<T>(
+            const T sin_a = DefaultIfCloseToZero<T>(
                     Sqrt(1.0f - cos_a * cos_a), 1, 0.0005f);
             // todo: do we need to normalize here?
             return AxisAngle::RightHandAround(
@@ -93,8 +92,8 @@ namespace euphoria::core
         [[nodiscard]] static Q
         LookInDirection(const Unit& dir, const Unit& up)
         {
-            const Vec in        = Unit::In();
-            float     dot_value = dot(in, dir);
+            const Vec in = Unit::In();
+            float dot_value = dot(in, dir);
 
             if(Abs(dot_value - (-1.0f)) < 0.000001f)
             {
@@ -106,7 +105,7 @@ namespace euphoria::core
             }
 
             const auto rotAngle = Acos(dot_value);
-            const auto rotAxis  = cross(in, dir).GetNormalized();
+            const auto rotAxis = cross(in, dir).GetNormalized();
             return Q::FromAxisAngle(
                     AxisAngle::RightHandAround(rotAxis, rotAngle));
         }
@@ -138,12 +137,9 @@ namespace euphoria::core
         GetIdentity() const
         {
             const T l2 = GetLengthSquared();
-            if(IsEqual(l2, 0))
-                return Identity();
-            else if(IsEqual(l2, 1))
-                return GetConjugate();
-            else
-                return quat(w / Sqrt(l2), -vec());
+            if(IsEqual(l2, 0)) { return Identity(); }
+            else if(IsEqual(l2, 1)) { return GetConjugate(); }
+            else { return quat(w / Sqrt(l2), -vec()); }
         }
 
 
@@ -243,7 +239,7 @@ namespace euphoria::core
         {
             // http://gamedev.stackexchange.com/questions/28395/rotating-vector3-by-a-quaternion
             const Q pure(0, v);
-            const Q a   = *this * pure;
+            const Q a = *this * pure;
             const Q ret = a * GetConjugate();
             return ret.vec().GetNormalized();
         }
@@ -270,7 +266,7 @@ namespace euphoria::core
                 return qa;
             }
             // Calculate temporary values.
-            const T halfTheta    = acos(cosHalfTheta);
+            const T halfTheta = acos(cosHalfTheta);
             const T sinHalfTheta = sqrt(1.0 - cosHalfTheta * cosHalfTheta);
             if(Abs(sinHalfTheta) < 0.001)
             {
@@ -439,8 +435,7 @@ namespace euphoria::core
     }
 
 
-    typedef quat<float> quatf;
-    typedef quat<int>   quati;
-}  // namespace euphoria::core
+    using quatf = quat<float>;
+    using quati = quat<int>;
+}
 
-#endif  // CORE_QUAT_H

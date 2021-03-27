@@ -50,12 +50,12 @@ namespace euphoria::core
 
 
     vec2f
-    PoissonWorker::random_point()
+    PoissonWorker::random_point() const
     { return area.RandomPoint(random); }
 
 
     vec2i
-    PoissonWorker::point_to_index(const vec2f& p)
+    PoissonWorker::point_to_index(const vec2f& p) const
     { return vec2i{ Floori(p.x/w), Floori(p.y/w) }; };
 
 
@@ -68,9 +68,9 @@ namespace euphoria::core
             for(int dx=-range; dx<=range; dx+=1)
             {
                 const auto neighbour_pos = potential_sample_pos + vec2i{dx, dy};
-                if(!grid.IsInside(neighbour_pos.x, neighbour_pos.y)) continue;
+                if(!grid.IsInside(neighbour_pos.x, neighbour_pos.y)) { continue; }
                 const auto neighbour_sample_index = grid(neighbour_pos.x, neighbour_pos.y);
-                if(neighbour_sample_index == -1) continue;
+                if(neighbour_sample_index == -1) { continue; }
                 const auto d2 = vec2f::FromTo(samples[neighbour_sample_index], potential_sample).GetLengthSquared();
                 if(d2 <= Square(r))
                 {
@@ -136,7 +136,7 @@ namespace euphoria::core
         }
 
         const auto active_index = random->NextRange(active.size());
-        
+
         const auto [placed, sample] = try_place(active_index);
         if(placed)
         {

@@ -20,7 +20,7 @@ namespace euphoria::core
 
         T data[9];  // col-major
 
-        mat3() {}
+        mat3() = default;
 
         mat3
         (
@@ -391,8 +391,8 @@ namespace euphoria::core
 #undef OP
     }
 
-    typedef mat3<float> mat3f;
-    typedef mat3<int>   mat3i;
+    using mat3f = mat3<float>;
+    using mat3i = mat3<int>;
 
 }  // namespace euphoria::core
 

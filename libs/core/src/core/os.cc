@@ -93,9 +93,9 @@ namespace euphoria::core
     DirectoryList
     ListDirectory(const std::string& path)
     {
-        DIR*           dir;
-        struct dirent* ent;
-        dir = opendir(path.c_str());
+        struct dirent* ent = nullptr;
+
+        DIR* dir = opendir(path.c_str());
         if(dir != nullptr)
         {
             DirectoryList ret;
@@ -133,6 +133,7 @@ namespace euphoria::core
     }
 #endif
 
+    // todo(Gustav): move to stringutils
     bool
     EndsWith(const std::string& str, char c)
     {

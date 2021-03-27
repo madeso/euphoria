@@ -21,7 +21,7 @@ namespace euphoria::core
             ASSERTX(lower_bound <= upper_bound, upper_bound, lower_bound);
         }
 
-        T
+        [[nodiscard]] T
         GetRange() const
         {
             return upper_bound - lower_bound;

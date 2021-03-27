@@ -231,11 +231,17 @@ namespace euphoria::core
             const auto a = 128.0f + 128.0f * tc;
             const auto b = 128.0f - 128.0f * tc;
             if(i < a && b < i)
+            {
                 return static_cast<int>((i - 128) / tc + 128);
+            }
             else if(i > a)
+            {
                 return 255;
+            }
             else
+            {
                 return 0;
+            }
         });
     }
 
