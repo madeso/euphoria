@@ -12,9 +12,9 @@ namespace
     bool
     TerminalSupportUtf8()
     {
-        const auto clang = std::getenv("LANG");
-        
-        if(clang)
+        const char* clang = std::getenv("LANG");
+
+        if(clang != nullptr)
         {
             const auto lang = std::string(clang);
             const auto lower = euphoria::core::ToLower(lang);
@@ -29,14 +29,14 @@ namespace
     bool
     HasChar(char c)
     {
-        return c & euphoria::core::BIT_NO_LINE;
+        return (c & euphoria::core::BIT_NO_LINE) != 0;
     }
 
 
     bool
     IsEmpty(char c)
     {
-        return c ==' ' || !c;
+        return c ==' ' || c == 0;
     }
 }
 
@@ -102,11 +102,11 @@ namespace euphoria::core
         {
             switch(c)
             {
-            case BIT_LEFT:                                 return u8"─";
-            case BIT_RIGHT:                                return u8"─";
+            case BIT_LEFT:
+            case BIT_RIGHT:
             case BIT_LEFT | BIT_RIGHT:                     return u8"─";
-            case BIT_UP:                                   return u8"│";
-            case BIT_DOWN:                                 return u8"│";
+            case BIT_UP:
+            case BIT_DOWN:
             case BIT_UP | BIT_DOWN:                        return u8"│";
             case BIT_LEFT| BIT_UP:                         return u8"┘";
             case BIT_LEFT | BIT_DOWN:                      return u8"┐";
@@ -131,11 +131,11 @@ namespace euphoria::core
         {
             switch(c)
             {
-            case BIT_LEFT:                                 return u8"─";
-            case BIT_RIGHT:                                return u8"─";
+            case BIT_LEFT:
+            case BIT_RIGHT:
             case BIT_LEFT | BIT_RIGHT:                     return u8"─";
-            case BIT_UP:                                   return u8"│";
-            case BIT_DOWN:                                 return u8"│";
+            case BIT_UP:
+            case BIT_DOWN:
             case BIT_UP | BIT_DOWN:                        return u8"│";
             case BIT_LEFT| BIT_UP:                         return u8"╯";
             case BIT_LEFT | BIT_DOWN:                      return u8"╮";
@@ -160,11 +160,11 @@ namespace euphoria::core
         {
             switch(c)
             {
-            case BIT_LEFT:                                 return u8"═";
-            case BIT_RIGHT:                                return u8"═";
+            case BIT_LEFT:
+            case BIT_RIGHT:
             case BIT_LEFT | BIT_RIGHT:                     return u8"═";
-            case BIT_UP:                                   return u8"║";
-            case BIT_DOWN:                                 return u8"║";
+            case BIT_UP:
+            case BIT_DOWN:
             case BIT_UP | BIT_DOWN:                        return u8"║";
             case BIT_LEFT| BIT_UP:                         return u8"╝";
             case BIT_LEFT | BIT_DOWN:                      return u8"╗";
@@ -189,11 +189,11 @@ namespace euphoria::core
         {
             switch(c)
             {
-            case BIT_LEFT:                                 return "-";
-            case BIT_RIGHT:                                return "-";
+            case BIT_LEFT:
+            case BIT_RIGHT:
             case BIT_LEFT | BIT_RIGHT:                     return "-";
-            case BIT_UP:                                   return "|";
-            case BIT_DOWN:                                 return "|";
+            case BIT_UP:
+            case BIT_DOWN:
             case BIT_UP | BIT_DOWN:                        return "|";
             case BIT_LEFT| BIT_UP:                         return "'";
             case BIT_LEFT | BIT_DOWN:                      return ".";
@@ -212,8 +212,7 @@ namespace euphoria::core
     }
 
 
-    TextBox::TextBox()
-    {}
+    TextBox::TextBox() = default;
 
 
     TextBox
@@ -292,7 +291,7 @@ namespace euphoria::core
 
             const auto size_minus_1 = line.empty() ? 0 : line.size()-1;
             ExtendTo(x_start+size_minus_1, y);
-            
+
             for(std::size_t line_index = 0; line_index < line.size(); line_index+=1)
             {
                 const auto x = x_start + line_index;
@@ -333,7 +332,7 @@ namespace euphoria::core
         self.PutBox(x, y, b);
         return self;
     }
-    
+
 
     void
     TextBox::Trim()
@@ -414,7 +413,7 @@ namespace euphoria::core
             });
         }
     }
-    
+
 
     void
     TextBox::PutVertLine
@@ -453,7 +452,7 @@ namespace euphoria::core
     TextBox::horiz_append_position(std::size_t y, const TextBox& b) const
     {
         const std::size_t my_width = Width();
-        
+
         std::size_t reduce = my_width;
         for(std::size_t p=0; p<b.Height(); p+=1)
         {
@@ -472,13 +471,13 @@ namespace euphoria::core
     ) const
     {
         const std::size_t my_height = Height();
-        
+
         std::size_t reduce = my_height;
         for(std::size_t p=0; p<b.Width(); p+=1)
         {
             reduce = std::min(reduce, FindBottomPadding(x+p) + b.FindTopPadding(p));
         }
-        
+
         return my_height - reduce;
     }
 
@@ -546,7 +545,7 @@ namespace euphoria::core
     TextBox::FindLeftPadding(std::size_t y) const
     {
         const std::size_t max = Width();
-        
+
         if(y >= data.size())
         {
             return max;
@@ -568,7 +567,7 @@ namespace euphoria::core
     TextBox::FindRightPadding(std::size_t y) const
     {
         const std::size_t max = Width();
-        
+
         if(y >= data.size())
         {
             return max;
@@ -598,7 +597,7 @@ namespace euphoria::core
 
         std::size_t result = 0;
         std::size_t position = max;
-        
+
         while
         (
             position != 0 &&
@@ -619,7 +618,7 @@ namespace euphoria::core
     {
         const std::size_t max = data.size();
         std::size_t result = 0;
-        
+
         while
         (
             result < max &&
@@ -636,7 +635,7 @@ namespace euphoria::core
     void
     TextBox::SubCreateTreeGraph
     (
-        TextBox& result,
+        TextBox* result,
         size_t maxwidth,
         const std::vector<TextBox>& boxes,
         bool consider_oneliner,
@@ -648,7 +647,7 @@ namespace euphoria::core
     {
         constexpr std::size_t min_y = 1;
 
-        const auto totalwidth = boxes.empty() ? 0 : 
+        const auto totalwidth = boxes.empty() ? 0 :
             std::accumulate
             (
                 boxes.begin(),
@@ -668,7 +667,7 @@ namespace euphoria::core
         {
             const TextBox& current_box = *box_iterator;
             const std::size_t usemargin = (simple || oneliner) ? (margin/2) : margin;
-            const auto first_valid_x = result.horiz_append_position(y, current_box);
+            const auto first_valid_x = result->horiz_append_position(y, current_box);
             std::size_t x = first_valid_x != 0 ? first_valid_x + usemargin
                 :(
                     oneliner
@@ -714,7 +713,7 @@ namespace euphoria::core
                     );
                     y = std::max
                     (
-                        result.vert_append_position(x, combined),
+                        result->vert_append_position(x, combined),
                         std::size_t(1)
                     );
                     if(!oneliner)
@@ -727,7 +726,7 @@ namespace euphoria::core
             {
                 y = std::max
                 (
-                    result.vert_append_position(x, current_box),
+                    result->vert_append_position(x, current_box),
                     std::size_t(1)
                 );
             }
@@ -741,7 +740,7 @@ namespace euphoria::core
                     (
                         std::string(1+x, '-')
                     );
-                    if(result.horiz_append_position(y-1, connector) > x)
+                    if(result->horiz_append_position(y-1, connector) > x)
                     {
                         y+=1;
                     }
@@ -751,7 +750,7 @@ namespace euphoria::core
                     }
                     y = std::max
                     (
-                        result.vert_append_position(x, current_box),
+                        result->vert_append_position(x, current_box),
                         y
                     );
                 }
@@ -769,7 +768,7 @@ namespace euphoria::core
             {
                 if(x > label.size())
                 {
-                    result.PutHoriLine
+                    result->PutHoriLine
                     (
                         label.size(),
                         0,
@@ -785,7 +784,7 @@ namespace euphoria::core
                 unsigned cy = y > min_y ? y-min_y : 0;
                 if(x > label.size())
                 {
-                    result.PutHoriLine
+                    result->PutHoriLine
                     (
                         label.size(),
                         0,
@@ -794,25 +793,25 @@ namespace euphoria::core
                         false
                     );
                 }
-                result.PutVertLine(cx, cy, min_y,      false,true);
+                result->PutVertLine(cx, cy, min_y,      false,true);
             }
             else if(horizontal)
             {
                 unsigned cx = x;
                 unsigned cy = y-1;
-                result.PutVertLine(0,  1,  1 + (cy-1), true,false);
-                result.PutHoriLine(0,  cy, 1 + (cx-0), false,false);
-                result.PutVertLine(cx, cy, 1,          false,true);
+                result->PutVertLine(0,  1,  1 + (cy-1), true,false);
+                result->PutHoriLine(0,  cy, 1 + (cx-0), false,false);
+                result->PutVertLine(cx, cy, 1,          false,true);
             }
             else
             {
                 unsigned cx = x-1;
                 unsigned cy = y;
-                result.PutVertLine(0,1,  1 + (cy-1), true,false);
-                result.PutHoriLine(0,cy, 1 + (cx-0), false,true);
+                result->PutVertLine(0,1,  1 + (cy-1), true,false);
+                result->PutHoriLine(0,cy, 1 + (cx-0), false,true);
             }
 
-            result.PutBox(x, y, current_box);
+            result->PutBox(x, y, current_box);
         }
     }
 }

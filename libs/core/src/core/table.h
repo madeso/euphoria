@@ -21,7 +21,7 @@ namespace euphoria::core
             return Csizet_to_int(t);
         }
 
-        Table() : width(0), height(0) {}
+        Table() = default;
 
         [[nodiscard]] static Table
         FromWidthHeight(I width, I height, T d = T())
@@ -65,13 +65,13 @@ namespace euphoria::core
             }
         }
 
-        const Recti
+        [[nodiscard]] Recti
         Indices() const
         {
             return Recti::FromWidthHeight(width - 1, height - 1);
         }
 
-        bool
+        [[nodiscard]] bool
         IsInside(I x, I y) const
         {
             return Indices().ContainsInclusive(x, y);
@@ -88,7 +88,9 @@ namespace euphoria::core
         {
             // do nothing on empty rows
             if(row.empty())
+            {
                 return;
+            }
 
             if(width == 0)
             {
@@ -170,27 +172,27 @@ namespace euphoria::core
         }
 
         // todo: figure out a better name
-        I
+        [[nodiscard]] I
         GetWidth() const
         {
             return width;
         }
 
-        I
+        [[nodiscard]] I
         GetHeight() const
         {
             return height;
         }
 
-        size_t
+        [[nodiscard]] size_t
         DataIndex(I x, I y) const
         {
-            ASSERTX(IsWithinInclusivei(0, x, width - 1)
-                            && IsWithinInclusivei(0, y, height - 1),
-                    x,
-                    width,
-                    y,
-                    height);
+            ASSERTX
+            (
+                IsWithinInclusivei(0, x, width - 1) && IsWithinInclusivei(0, y, height - 1),
+                x, width,
+                y, height
+            );
             return y * width + x;
         }
 
@@ -202,8 +204,8 @@ namespace euphoria::core
 
         // table is stored in in place like [row, row, ...row]
         std::vector<T> data;
-        I              width;
-        I              height;
+        I width = 0;
+        I height = 0;
     };
 
     template <typename T>

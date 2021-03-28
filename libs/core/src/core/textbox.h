@@ -27,7 +27,7 @@ namespace euphoria::core
         static TextBoxStyle
         Create(std::function<std::string(char)> connections_func);
 
-        std::string
+        [[nodiscard]] std::string
         GetString(char s) const;
 
     private:
@@ -52,7 +52,9 @@ namespace euphoria::core
 
     /* TextBox: Abstraction for 2-dimensional text strings with linedrawing support
     Copyright (c) 2017 Joel Yliluoma - http://iki.fi/bisqwit/
-    License: MIT */
+    License: MIT
+    https://gist.github.com/bisqwit/458048c60d271ab2536665cb81595c6b
+    */
     // todo(Gustav): change to allow origin and negative drawing indices
     struct TextBox
     {
@@ -95,7 +97,7 @@ namespace euphoria::core
         void
         PutBox(std::size_t x, std::size_t y, const TextBox& b);
 
-        TextBox
+        [[nodiscard]] TextBox
         PutBoxCopy(std::size_t x, std::size_t y, const TextBox& b) const;
 
         /** Draw a horizontal line.
@@ -128,7 +130,7 @@ namespace euphoria::core
         ///////////////////////////////////////////////////////////////////////////
         // General operations
 
-        std::vector<std::string>
+        [[nodiscard]] std::vector<std::string>
         ToString(const TextBoxStyle& style = TerminalStyle()) const;
 
         /* Delete trailing blank from the bottom and right edges */
@@ -140,14 +142,14 @@ namespace euphoria::core
         // Status
 
         /* Calculate the current dimensions of the string */
-        std::size_t
+        [[nodiscard]] std::size_t
         Height() const;
 
-        std::size_t
+        [[nodiscard]] std::size_t
         Width() const;
 
         // width x height
-        std::pair<std::size_t, std::size_t>
+        [[nodiscard]] std::pair<std::size_t, std::size_t>
         Size() const;
 
         ///////////////////////////////////////////////////////////////////////////
@@ -175,7 +177,7 @@ namespace euphoria::core
         *                     If the result is true, create_tree_graph() will always render
         *                     the first child alone on a separate line, but the rest of them
         *                     may get rendered horizontally.
-        * 
+        *
         * @param margin  the spacing between children
         * @param firstx  the first child offset
         *
@@ -267,7 +269,7 @@ namespace euphoria::core
                 }
                 SubCreateTreeGraph
                 (
-                    result,
+                    &result,
                     maxwidth,
                     boxes,
                     oneliner_test(e),
@@ -280,7 +282,7 @@ namespace euphoria::core
             result.Trim();
             return result;
         }
-    
+
 
         ///////////////////////////////////////////////////////////////////////////
         // private functions
@@ -292,32 +294,32 @@ namespace euphoria::core
         without colliding with existing content in this box. Guaranteed to be <= width().
         Find leftmost position where box b can be appended into *this without overlap
         */
-        std::size_t
+        [[nodiscard]] std::size_t
         horiz_append_position(std::size_t y, const TextBox& b) const;
 
         /** Calculate the earliest Y coordinate where the given box could be placed without colliding with existing content in this box. Guaranteed to be <= height().
         * Find topmost position where box b can be appended into *this without overlap
         */
-        std::size_t
+        [[nodiscard]] std::size_t
         vert_append_position(std::size_t x, const TextBox& b) const;
 
-        std::size_t
+        [[nodiscard]] std::size_t
         FindLeftPadding(std::size_t y) const;
 
-        std::size_t
+        [[nodiscard]] std::size_t
         FindRightPadding(std::size_t y) const;
 
-        std::size_t
+        [[nodiscard]] std::size_t
         FindTopPadding(std::size_t x) const;
 
-        std::size_t
+        [[nodiscard]] std::size_t
         FindBottomPadding(std::size_t x) const;
 
     private:
         static void
         SubCreateTreeGraph
         (
-            TextBox& result,
+            TextBox* result,
             size_t maxwidth,
             const std::vector<TextBox>& boxes,
             bool oneliner_test,

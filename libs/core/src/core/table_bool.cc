@@ -2,6 +2,7 @@
 
 #include "core/image_draw.h"
 #include "core/assert.h"
+#include <cmath>
 
 namespace euphoria::core
 {
@@ -157,7 +158,7 @@ namespace euphoria::core
         {
             for (int x = cx - step; x <= cx + step; x += 1)
             {
-                const auto manhattan_distance = Abs(x-cx) + Abs(y-cy);
+                const auto manhattan_distance = std::abs(x-cx) + std::abs(y-cy);
                 if(manhattan_distance > step) { continue; }
 
                 walls += CountSingleWall
@@ -292,7 +293,7 @@ namespace euphoria::core
                         (world, outside_rule, cx, cy, step, include_self);
 
                 default:
-                    DIE("Unhandled algorithm"); 
+                    DIE("Unhandled algorithm");
                     return 0;
             }
         }
@@ -347,11 +348,13 @@ namespace euphoria::core
         auto ret = std::vector<vec2i>{};
 
         for (int y = 0; y < world.GetHeight(); y += 1)
-        for (int x = 0; x < world.GetWidth(); x += 1)
         {
-            if(world(x,y) == false)
+            for (int x = 0; x < world.GetWidth(); x += 1)
             {
-                ret.emplace_back(x, y);
+                if(world(x,y) == false)
+                {
+                    ret.emplace_back(x, y);
+                }
             }
         }
 
@@ -381,7 +384,7 @@ namespace euphoria::core
             if(p.x >= world.GetWidth()) { return; }
             if(p.y < 0) { return; }
             if(p.y >= world.GetHeight()) { return; }
-            if(visited(p.x, p.y) == true) return;
+            if(visited(p.x, p.y) == true) { return; }
             visited(p.x, p.y) = true;
             // todo(Gustav): if ret contains p, return
 
@@ -497,15 +500,17 @@ namespace euphoria::core
         Clear(&image, space_color);
 
         for (int y = 0; y < world.GetHeight(); y += 1)
-        for (int x = 0; x < world.GetWidth(); x += 1)
         {
-            const auto px = x * scale;
-            const auto py = y * scale;
-            const auto color = world(x, y)
-                ? wall_color
-                : get_space_color(x, y)
-                ;
-            DrawSquare(&image, color, px, py + scale - 1, scale);
+            for (int x = 0; x < world.GetWidth(); x += 1)
+            {
+                const auto px = x * scale;
+                const auto py = y * scale;
+                const auto color = world(x, y)
+                    ? wall_color
+                    : get_space_color(x, y)
+                    ;
+                DrawSquare(&image, color, px, py + scale - 1, scale);
+            }
         }
 
         return image;

@@ -1,5 +1,4 @@
-#ifndef CORE_STRING_TABLE_H
-#define CORE_STRING_TABLE_H
+#pragma once
 
 #include <vector>
 #include <string>
@@ -22,13 +21,13 @@ namespace euphoria::core
     {
         using Converter = std::function<std::string(const T&)>;
 
-        const std::vector<T>&    data;
-        std::vector<Converter>   column_converter;
+        const std::vector<T>& data;
+        std::vector<Converter> column_converter;
         std::vector<std::string> column_titles;
 
         explicit TableGenerator(const std::vector<T>& d) : data(d) {}
 
-        StringTable
+        [[nodiscard]] StringTable
         ToTable() const
         {
             StringTable ret;
@@ -39,7 +38,7 @@ namespace euphoria::core
             const auto indices = GetSortedIndices(data, *this);
             for(const auto index: indices)
             {
-                const auto&              d = data[index];
+                const auto& d = data[index];
                 std::vector<std::string> row_strings;
                 row_strings.reserve(s);
                 for(size_t i = 0; i < s; ++i)
@@ -69,14 +68,14 @@ namespace euphoria::core
 
     struct CsvParserOptions
     {
-        char    delim = ',';
-        char    str   = '\"';
-        CsvTrim trim  = CsvTrim::DontTrim;
+        char delim = ',';
+        char str = '\"';
+        CsvTrim trim = CsvTrim::DontTrim;
     };
 
     StringTable
     TableFromCsv(
-            const std::string&      data,
+            const std::string& data,
             const CsvParserOptions& options = CsvParserOptions());
 
 
@@ -104,6 +103,4 @@ namespace euphoria::core
     void
     PrintTableGrid(std::ostream& out, const StringTable& table);
 
-}  // namespace euphoria::core
-
-#endif  // CORE_STRING_TABLE_H
+}

@@ -1,8 +1,9 @@
 #include "core/table_string.h"
 
+#include <algorithm>
+
 #include "core/stringutils.h"
 
-#include <algorithm>
 
 namespace euphoria::core
 {
@@ -303,7 +304,7 @@ namespace euphoria::core
                     const auto cell = subtable(x, suby);
                     some_space(internal_space);
                     out << cell;
-                    some_space(sizes[x] - cell.length());
+                    some_space(sizes[x] - Csizet_to_int(cell.length()));
                     some_space(internal_space);
                     out << '|';
                 }

@@ -110,7 +110,7 @@ namespace euphoria::core
             int y
         );
 
-        int
+        [[nodiscard]] int
         Count(int step, bool include_self, NeighborhoodAlgorithm algorithm) const;
     };
 
