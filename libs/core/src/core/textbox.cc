@@ -311,8 +311,8 @@ namespace euphoria::core
                         if( HasChar(target) )
                         {
                             target = 0;
-                            target |= source_texel;
                         }
+                        target |= source_texel;
                     }
                 }
             }
