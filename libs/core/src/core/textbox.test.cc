@@ -321,13 +321,13 @@ TEST_CASE("tb_line on line")
     SECTION("hor on vert")
     {
         const auto r = vert.PutBoxCopy(0, 0, hor);
-        CHECK(StringEq(r.ToString(AsciiStyle()), {"|"}));
+        CHECK(StringEq(r.ToString(AsciiStyle()), {"+"}));
     }
 
     SECTION("vert on hor")
     {
         const auto r = hor.PutBoxCopy(0, 0, vert);
-        CHECK(StringEq(r.ToString(AsciiStyle()), {"-"}));
+        CHECK(StringEq(r.ToString(AsciiStyle()), {"+"}));
     }
 }
 
