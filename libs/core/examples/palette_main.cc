@@ -3,6 +3,7 @@
 #include "core/image.h"
 #include "core/image_draw.h"
 #include "core/io.h"
+#include "core/cint.h"
 #include "core/argparse.h"
 #include "core/palette_all.h"
 #include "core/palette.h"
@@ -31,7 +32,7 @@ main(int argc, char* argv[])
         const auto pal = palette::GetPalette(palette_name);
 
         Image image;
-        image.SetupNoAlphaSupport(image_size * pal.colors.size(), image_size);
+        image.SetupNoAlphaSupport(image_size * Csizet_to_int(pal.colors.size()), image_size);
 
         for
         (

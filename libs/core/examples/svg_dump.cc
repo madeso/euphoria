@@ -17,7 +17,7 @@ using namespace euphoria::core::dump2d;
 Poly
 MakeStar(const vec2f& origo, float radius, const Angle& rotation, int number_of_points=5, float inner_scale=0.5f)
 {
-    auto angle_step = Angle::OneTurn() / (number_of_points*2.0f);
+    auto angle_step = Angle::OneTurn() / (static_cast<float>(number_of_points)*2.0f);
 
     auto poly = Poly{};
 
@@ -28,7 +28,7 @@ MakeStar(const vec2f& origo, float radius, const Angle& rotation, int number_of_
         auto point_rotation = rotation + angle_step * static_cast<float>(i);
         const auto x = (r * Sin(point_rotation)) + origo.x;
         const auto y = (r * Cos(point_rotation)) + origo.y;
-        poly.points.push_back({x, y});
+        poly.points.emplace_back(x, y);
     }
 
     return poly;

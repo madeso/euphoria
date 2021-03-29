@@ -20,7 +20,7 @@ using namespace euphoria::core;
 
 struct ImageAndFile
 {
-    ImageAndFile() {}
+    ImageAndFile() = default;
 
     ImageAndFile(const std::string& f, const Image& i)
         : file(f)
@@ -87,7 +87,7 @@ Find(std::vector<ExtractedColor>* psource, const Rgbi& color, float length)
     }
 
     source.emplace_back(color, 0);
-    return source.size() - 1;
+    return Csizet_to_int(source.size()) - 1;
 }
 
 std::vector<ExtractedColor>
@@ -98,10 +98,12 @@ ExtractColors(const std::vector<ImageAndFile>& images, float range)
     for(const auto& img: images)
     {
         for(int y=0; y<img.image.GetHeight(); y+=1)
-        for(int x=0; x<img.image.GetWidth(); x+=1)
         {
-            const auto index = Find(&ret, rgbi(img.image.GetPixel(x,y)), range);
-            ret[index].count += 1;
+            for(int x=0; x<img.image.GetWidth(); x+=1)
+            {
+                const auto index = Find(&ret, rgbi(img.image.GetPixel(x,y)), range);
+                ret[index].count += 1;
+            }
         }
     }
 
@@ -116,12 +118,14 @@ ExtractColors(const std::vector<ImageAndFile>& images)
     for(const auto& img: images)
     {
         for(int y=0; y<img.image.GetHeight(); y+=1)
-        for(int x=0; x<img.image.GetWidth(); x+=1)
         {
-            const auto color = rgbi(img.image.GetPixel(x, y));
-            const auto hex = color.ToHex();
-            auto val = std::get<0>(colors.try_emplace(hex, 0));
-            val->second += 1;
+            for(int x=0; x<img.image.GetWidth(); x+=1)
+            {
+                const auto color = rgbi(img.image.GetPixel(x, y));
+                const auto hex = color.ToHex();
+                auto val = std::get<0>(colors.try_emplace(hex, 0));
+                val->second += 1;
+            }
         }
     }
 
@@ -168,7 +172,7 @@ HandleImage
     }
 
     Image image;
-    image.SetupNoAlphaSupport(image_size * colors.size(), image_size);
+    image.SetupNoAlphaSupport(image_size * Csizet_to_int(colors.size()), image_size);
     for
     (
         int i = 0;

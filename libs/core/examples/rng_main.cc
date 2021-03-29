@@ -41,7 +41,7 @@ PrintRandomNumbers
 
     const auto min = *std::min_element(container.begin(), container.end());
     const auto max = *std::max_element(container.begin(), container.end());
-    std::cout << "min/max/avg: " << min << " " << max << " " << (sum/count) << "\n";
+    std::cout << "min/max/avg: " << min << " " << max << " " << (sum/static_cast<float>(count)) << "\n";
     std::cout << "\n";
 }
 

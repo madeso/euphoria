@@ -273,7 +273,7 @@ namespace euphoria::core
     void
     UiText::Visit(textparser::Visitor* visitor) const
     {
-        for(auto& node: nodes)
+        for(const auto& node: nodes)
         {
             node->Visit(visitor);
         }

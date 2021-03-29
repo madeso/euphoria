@@ -2,8 +2,10 @@
 #include <iostream>
 #include <fstream>
 #include <set>
+#include <algorithm>
 
 #include "core/markov.h"
+#include "core/noncopyable.h"
 #include "core/argparse.h"
 #include "core/stringmerger.h"
 #include "core/stringutils.h"
@@ -86,8 +88,7 @@ MarkovWord(const std::string& file, int memory, int count)
     std::string line;
     while(std::getline(data, line))
     {
-        if(line.empty())
-            continue;
+        if(line.empty()) { continue; }
         m.Add(C(line));
     }
 
@@ -103,7 +104,11 @@ MarkovWord(const std::string& file, int memory, int count)
 
 struct Similar
 {
+    Similar() = default;
     virtual ~Similar() = default;
+
+    NONCOPYABLE(Similar);
+
     virtual void Add(const std::string& line) = 0;
     virtual bool IsSame(const std::string& generated) = 0;
 };
@@ -149,17 +154,21 @@ struct SimilarEditDistance : public Similar
         }
 
         const auto count = generated.size();
-        for(const auto& line: existing_lines)
-        {
-            const auto shortened = core::FirstChars(line, count);
-            const int edits = core::FastEditDistance(shortened, generated);
-            if(edits < 10)
+        return std::any_of
+        (
+            existing_lines.begin(), existing_lines.end(),
+            [&](const auto& line)
             {
-                rejected.emplace(generated);
-                return true;
+                const auto shortened = core::FirstChars(line, count);
+                const int edits = core::FastEditDistance(shortened, generated);
+                if(edits < 10)
+                {
+                    rejected.emplace(generated);
+                    return true;
+                }
+                return false;
             }
-        }
-        return false;
+        );
     }
 
     static std::unique_ptr<Similar> Create()
@@ -286,7 +295,7 @@ main(int argc, char* argv[])
             });
         }
     );
-    
+
     sub->Add
     (
         "line",
@@ -312,7 +321,7 @@ main(int argc, char* argv[])
             });
         }
     );
-    
+
 
     return core::argparse::ParseFromMain(&parser, argc, argv);
 }

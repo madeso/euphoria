@@ -20,8 +20,8 @@ namespace std
         bool first = true;
         for(auto st: v)
         {
-            if(first) first = false;
-            else s << ", ";
+            if(first) { first = false; }
+            else { s << ", "; }
             s << '"' << st << '"';
 
             if constexpr (PRINT_HEX)
@@ -30,8 +30,8 @@ namespace std
                 bool f = true;
                 for(auto c: st)
                 {
-                    if(f) f=false;
-                    else s << " ";
+                    if(f) { f=false; }
+                    else { s << " "; }
                     s << static_cast<int>(c);
                 }
                 s << ")";
@@ -504,7 +504,7 @@ TEST_CASE("tb_tolkien")
     CHECK(StringEq(TextBox::CreateTreeGraph(tolkien_tree, 130,
                 [](const T& e) { return e.name; },
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
-                [](const T& e) { return e.children.size() >= 1; },
+                [](const T& e) { return !e.children.empty(); },
                 [](const T&  ) { return true; }).ToString(AsciiStyle()),
                 {
   "Tolkien characters",

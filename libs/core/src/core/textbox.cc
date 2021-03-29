@@ -199,10 +199,10 @@ namespace euphoria::core
             case BIT_LEFT | BIT_DOWN:                      return ".";
             case BIT_RIGHT | BIT_UP:                       return "`";
             case BIT_RIGHT | BIT_DOWN:                     return ",";
-            case BIT_LEFT | BIT_RIGHT | BIT_UP:            return "+";
-            case BIT_LEFT | BIT_RIGHT | BIT_DOWN:          return "+";
-            case BIT_LEFT | BIT_UP | BIT_DOWN:             return "+";
-            case BIT_RIGHT | BIT_UP | BIT_DOWN:            return "+";
+            case BIT_LEFT | BIT_RIGHT | BIT_UP:
+            case BIT_LEFT | BIT_RIGHT | BIT_DOWN:
+            case BIT_LEFT | BIT_UP | BIT_DOWN:
+            case BIT_RIGHT | BIT_UP | BIT_DOWN:
             case BIT_LEFT | BIT_RIGHT | BIT_UP | BIT_DOWN: return "+";
             default:
                 DIE("Invalid combination");
@@ -312,7 +312,7 @@ namespace euphoria::core
                         {
                             target = 0;
                         }
-                        target |= source_texel;
+                        target = static_cast<char>(target | source_texel);
                     }
                 }
             }
@@ -521,7 +521,7 @@ namespace euphoria::core
             const std::string& s = data[y];
             for(std::size_t x = 0; x < s.size(); x+=1)
             {
-                unsigned char c = s[x];
+                char c = s[x];
                 if(c > 0 && c < 16)
                 {
                     const auto str = style.GetString(c);

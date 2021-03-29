@@ -55,7 +55,7 @@ namespace plane
         for(const auto& p: points)
         {
             const auto dist = DistanceBetween(plane, p);
-            if(Abs(dist) < 0.01f) continue;
+            if(Abs(dist) < 0.01f) { continue; }
 
             const auto pp = ClosestPoint(plane, p);
             d.AddArrow(Ray3f::FromTo(p, pp), Color::Black);
@@ -80,7 +80,7 @@ namespace ray
         vec3f(-7, -10, -4),
         vec3f(-4.5f, -3.0f, -1.5f)
     };
-    
+
     void
     point_on_ray()
     {
@@ -107,7 +107,8 @@ namespace ray
         for(const auto p: points)
         {
             const auto dist = DistanceBetween(ray.GetNormalized(), p);
-            if(dist < 0.001f) continue;
+            if(dist < 0.001f) { continue; }
+
             const auto pp = ClosestPoint(ray.GetNormalized(), p);
             d.AddArrow(Ray3f::FromTo(p, pp), Color::Red);
         }
@@ -121,7 +122,7 @@ ray_sphere()
     const auto test = []
     (
         float rayX, float rayY, float rayZ,
-        float normX, float normY, float normZ, 
+        float normX, float normY, float normZ,
         float sphereX, float sphereY, float sphereZ,
         float rad,
         bool res
@@ -132,7 +133,7 @@ ray_sphere()
         const auto sphere = Sphere{rad};
         const auto sphere_center = vec3f(sphereX, sphereY, sphereZ);
         const auto collision = GetIntersection(ray.GetNormalized(), sphere, sphere_center);
-        const auto collided = collision >= 0.0f; 
+        const auto collided = collision >= 0.0f;
         if(collided != res)
         {
             std::cout
@@ -149,7 +150,7 @@ ray_sphere()
             std::cout << ".\n";
         }
     };
-    
+
     test(-2, 1, 0, 2, 0, 0, 2, 0, 0, 2, true);
     test(-2, 0, 0, 2, 0, 0, 2, 2, 0, 2, true);
     test(-2, 0, 0, 2, 0, 0, 0, 0, 0, 2, true);

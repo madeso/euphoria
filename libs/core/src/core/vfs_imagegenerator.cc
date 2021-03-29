@@ -7,98 +7,94 @@
 #include "core/log.h"
 #include "core/vfs_path.h"
 
-namespace euphoria::core
+namespace euphoria::core::vfs
 {
-    namespace vfs
+    LOG_SPECIFY_DEFAULT_LOGGER("filesystem.image-generator")
+
+
+    void
+    FileSystemImageGenerator::AddRoot(
+            FileSystem*        fs,
+            const DirPath& base)
     {
-        LOG_SPECIFY_DEFAULT_LOGGER("filesystem.image-generator")
+        auto root = std::make_shared<FileSystemImageGenerator>(base);
+        fs->AddReadRoot(root);
+    }
 
 
-        void
-        FileSystemImageGenerator::AddRoot(
-                FileSystem*        fs,
-                const DirPath& base)
+    std::shared_ptr<MemoryChunk>
+    FileSystemImageGenerator::ReadFile(const FilePath& path)
+    {
+        const auto [dir, command] = path.SplitDirectoriesAndFile();
+        if(dir != base_)
         {
-            auto root = std::make_shared<FileSystemImageGenerator>(base);
-            fs->AddReadRoot(root);
+            return MemoryChunk::Null();
         }
 
+        const auto color_name = ToLower(command);
 
-        std::shared_ptr<MemoryChunk>
-        FileSystemImageGenerator::ReadFile(const FilePath& path)
+        const auto found_color = StringToEnum<Color>(color_name);
+
+        if(!found_color.single_match)
         {
-            const auto [dir, command] = path.SplitDirectoriesAndFile();
-            if(dir != base_)
+            LOG_WARN
+            (
+                "Invalid color name: {0} for path {1} closest matches are {2}",
+                color_name,
+                path,
+                StringMerger::EnglishOr().Generate(EnumToString(found_color.values))
+            );
+            return MemoryChunk::Null();
+        }
+
+        const auto color = found_color.values[0];
+
+        Image image;
+        image.SetupNoAlphaSupport(128, 128);
+        Clear(&image, {color});
+        return image.Write(ImageWriteFormat::PNG);
+    }
+
+
+    void
+    FileSystemImageGenerator::Describe(std::vector<std::string>* strings)
+    {
+        strings->emplace_back(Str() << base_ << "<color>");
+    }
+
+
+    FileSystemImageGenerator::FileSystemImageGenerator(const DirPath& base)
+        : base_(base)
+    {
+        ASSERT(!base.ContainsRelative());
+    }
+
+
+    FileList
+    FileSystemImageGenerator::ListFiles(const DirPath& path)
+    {
+        ASSERT(!path.ContainsRelative());
+
+        FileList ret;
+
+        if(base_ != DirPath::FromRoot())
+        {
+            if(path == base_.GetParentDirectory())
             {
-                return MemoryChunk::Null();
+                ret.Add(base_.GetDirectoryName() + "/", true, false);
             }
-
-            const auto color_name = ToLower(command);
-
-            const auto found_color = StringToEnum<Color>(color_name);
-
-            if(!found_color.single_match)
-            {
-                LOG_WARN
-                (
-                    "Invalid color name: {0} for path {1} closest matches are {2}",
-                    color_name,
-                    path,
-                    StringMerger::EnglishOr().Generate(EnumToString(found_color.values))
-                );
-                return MemoryChunk::Null();
-            }
-
-            const auto color = found_color.values[0];
-
-            Image image;
-            image.SetupNoAlphaSupport(128, 128);
-            Clear(&image, {color});
-            return image.Write(ImageWriteFormat::PNG);
         }
 
-
-        void
-        FileSystemImageGenerator::Describe(std::vector<std::string>* strings)
+        if(path == base_)
         {
-            strings->emplace_back(Str() << base_ << "<color>");
-        }
-
-
-        FileSystemImageGenerator::FileSystemImageGenerator(const DirPath& base)
-            : base_(base)
-        {
-            ASSERT(!base.ContainsRelative());
-        }
-
-
-        FileList
-        FileSystemImageGenerator::ListFiles(const DirPath& path)
-        {
-            ASSERT(!path.ContainsRelative());
-
-            FileList ret;
-
-            if(base_ != DirPath::FromRoot())
+            const auto names = EnumToString<Color>();
+            for(const auto& n: names)
             {
-                if(path == base_.GetParentDirectory())
-                {
-                    ret.Add(base_.GetDirectoryName() + "/", true, false);
-                }
+                ret.Add(n, true, true);
             }
-
-            if(path == base_)
-            {
-                const auto names = EnumToString<Color>();
-                for(const auto& n: names)
-                {
-                    ret.Add(n, true, true);
-                }
-            }
-
-            return ret;
         }
 
-    }  // namespace vfs
+        return ret;
+    }
 
-}  // namespace euphoria::core
+}

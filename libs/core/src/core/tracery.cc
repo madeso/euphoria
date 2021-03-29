@@ -5,8 +5,7 @@
 
 #include <sstream>
 
-// todo(Gustav): replace with core random!
-// for random
+// todo(Gustav): replace with core random! for random
 #include <random>
 #include <chrono>
 
@@ -17,6 +16,7 @@
 #include "core/textfileparser.h"
 #include "core/str.h"
 #include "core/proto.h"
+#include "core/stringutils.h"
 
 namespace euphoria::core::tracery
 {
@@ -48,12 +48,12 @@ namespace euphoria::core::tracery
     // ----------------------------------------------------------------
     // Private
 
-    typedef std::default_random_engine Generator;
+    using Generator = std::default_random_engine;
 
     struct GeneratorArgument
     {
-        Generator*                         generator;
-        Grammar*                           grammar;
+        Generator* generator = nullptr;
+        Grammar* grammar = nullptr;
         std::map<std::string, std::string> overridden_rules;
     };
 
@@ -106,7 +106,7 @@ namespace euphoria::core::tracery
 
     // ----------------------------------------------------------------
 
-    Node::~Node() {}
+    Node::~Node() = default;
 
     // ----------------------------------------------------------------
 
@@ -126,7 +126,7 @@ namespace euphoria::core::tracery
 
     struct CallSymbolNode : public Node
     {
-        CallSymbolNode() {}
+        CallSymbolNode() = default;
 
         struct ActionRule
         {
@@ -134,14 +134,16 @@ namespace euphoria::core::tracery
             std::string symbol;
         };
 
-        std::string              symbol;
+        std::string symbol;
         std::vector<std::string> modifiers;
-        std::vector<ActionRule>  action_rules;
+        std::vector<ActionRule> action_rules;
 
         void
-        AddActionRule(
-                const std::string& action_key,
-                const std::string& action_symbol)
+        AddActionRule
+        (
+            const std::string& action_key,
+            const std::string& action_symbol
+        )
         {
             action_rules.push_back(ActionRule {action_key, action_symbol});
         }
@@ -153,8 +155,7 @@ namespace euphoria::core::tracery
 
             for(const auto& r: action_rules)
             {
-                const Result result
-                        = arg.grammar->GetStringFromSymbol(r.symbol, &arg);
+                const Result result = arg.grammar->GetStringFromSymbol(r.symbol, &arg);
                 if(result == false)
                 {
                     return result;
@@ -244,7 +245,7 @@ namespace euphoria::core::tracery
 
     // ----------------------------------------------------------------
 
-    Rule::Rule() {}
+    Rule::Rule() = default;
 
     Result
     ParseError(TextFileParser* parser)
@@ -291,7 +292,7 @@ namespace euphoria::core::tracery
         }                                                                      \
     } while(false)
 
-        auto               parser = TextFileParser::FromString(s);
+        auto parser = TextFileParser::FromString(s);
         std::ostringstream buffer;
         while(parser.HasMore())
         {
@@ -336,7 +337,7 @@ namespace euphoria::core::tracery
                 const auto symbol_name = ReadTraceryIdent(&parser);
                 EMPTY_STRING(symbol_name, "Empty symbol name");
                 n->symbol = symbol_name;
-                bool run  = true;
+                bool run = true;
                 while(run && parser.HasMore())
                 {
                     switch(parser.PeekChar())
@@ -391,8 +392,7 @@ namespace euphoria::core::tracery
         for(std::shared_ptr<Node> s: syntax)
         {
             const Result r = s->Flatten(gen);
-            if(r == false)
-                return r;
+            if(r == false) { return r; }
             ret += r.GetText();
         }
         return Result(Result::NO_ERROR) << ret;
@@ -412,7 +412,7 @@ namespace euphoria::core::tracery
     Result
     Symbol::AddRule(const std::string& rule)
     {
-        Rule   syntax;
+        Rule syntax;
         Result r = syntax.Compile(rule);
         if(r)
         {
@@ -436,7 +436,7 @@ namespace euphoria::core::tracery
     // ----------------------------------------------------------------
     // Modifier
 
-    Modifier::~Modifier() {}
+    Modifier::~Modifier() = default;
 
 
     // ----------------------------------------------------------------
@@ -448,40 +448,38 @@ namespace euphoria::core::tracery
         bool
         isVowel(char c)
         {
-            char c2 = tolower(c);
-            return (c2 == 'a') || (c2 == 'e') || (c2 == 'i') || (c2 == 'o')
-                   || (c2 == 'u');
+            char c2 = ToLowerChar(c);
+            return (c2 == 'a') || (c2 == 'e') || (c2 == 'i') || (c2 == 'o') || (c2 == 'u');
         }
 
-        char
+        bool
         isAlphaNum(char c)
         {
-            return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')
-                   || (c >= '0' && c <= '9');
+            return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9');
         }
 
 
         std::string
         capitalizeAll(const std::string& s)
         {
-            std::string s2      = "";
-            bool        capNext = true;
-            for(unsigned int i = 0; i < s.length(); i++)
+            std::string s2;
+            bool capNext = true;
+            for(char c: s)
             {
-                if(!isAlphaNum(s[i]))
+                if(!isAlphaNum(c))
                 {
                     capNext = true;
-                    s2 += s[i];
+                    s2 += c;
                 }
                 else
                 {
                     if(!capNext)
                     {
-                        s2 += s[i];
+                        s2 += c;
                     }
                     else
                     {
-                        s2 += toupper(s[i]);
+                        s2 += ToUpperChar(c);
                         capNext = false;
                     }
                 }
@@ -492,9 +490,9 @@ namespace euphoria::core::tracery
         std::string
         capitalize(const std::string& s)
         {
-            char        c  = toupper(s[0]);
-            std::string a  = std::string(1, c);
-            std::string b  = s.substr(1);
+            char c = ToUpperChar(s[0]);
+            std::string a = std::string(1, c);
+            std::string b = s.substr(1);
             std::string cr = a + b;
             return cr;
         }
@@ -504,12 +502,14 @@ namespace euphoria::core::tracery
         {
             if(s.length() > 0)
             {
-                if(tolower(s[0]) == 'u')
+                if(ToLowerChar(s[0]) == 'u')
                 {
                     if(s.length() > 2)
                     {
-                        if(tolower(s[2]) == 'i')
+                        if(ToLowerChar(s[2]) == 'i')
+                        {
                             return "a " + s;
+                        }
                     }
                 }
 
@@ -527,14 +527,19 @@ namespace euphoria::core::tracery
         {
             switch(s[s.length() - 1])
             {
-            case 's': return s + "es"; break;
-            case 'h': return s + "es"; break;
-            case 'x': return s + "es"; break;
+            case 's':
+            case 'h':
+            case 'x':
+                return s + "es"; break;
             case 'y':
                 if(!isVowel(s[s.length() - 2]))
+                {
                     return s.substr(0, s.length() - 1) + "ies";
+                }
                 else
+                {
                     return s + "s";
+                }
                 break;
             default: return s + "s";
             }
@@ -545,15 +550,18 @@ namespace euphoria::core::tracery
         {
             switch(s[s.length() - 1])
             {
-            case 's': return s + "ed";
             case 'e': return s + "d";
-            case 'h': return s + "ed";
-            case 'x': return s + "ed";
+            case 's': case 'h': case 'x':
+                return s + "ed";
             case 'y':
                 if(!isVowel(s[s.length() - 2]))
+                {
                     return s.substr(0, s.length() - 1) + "ied";
+                }
                 else
+                {
                     return s + "d";
+                }
                 break;
             default: return s + "ed";
             }
@@ -566,7 +574,7 @@ namespace euphoria::core::tracery
             Func func;
             FuncModifier(Func f) : func(f) {}
 
-            virtual Result
+            Result
             ApplyModifier(const std::string& input) override
             {
                 std::string r = func(input);
@@ -575,28 +583,28 @@ namespace euphoria::core::tracery
         };
 
         template <typename T>
-        Modifier*
+        std::shared_ptr<Modifier>
         NewModifier(T func)
         {
-            return new FuncModifier<T>(func);
+            return std::shared_ptr<Modifier>{new FuncModifier<T>(func)};
         }
 
 
         void
         Register(Grammar* g)
         {
-            g->RegisterModifier("capitalizeAll", NewModifier(capitalizeAll))
-                    .RegisterModifier("capitalize", NewModifier(capitalize))
-                    .RegisterModifier("a", NewModifier(a))
-                    .RegisterModifier("s", NewModifier(s))
-                    .RegisterModifier("ed", NewModifier(ed));
+            g->RegisterModifier("capitalizeAll", NewModifier(capitalizeAll));
+            g->RegisterModifier("capitalize", NewModifier(capitalize));
+            g->RegisterModifier("a", NewModifier(a));
+            g->RegisterModifier("s", NewModifier(s));
+            g->RegisterModifier("ed", NewModifier(ed));
         }
-    }  // namespace english
+    }
 
     // ----------------------------------------------------------------
     // Grammar
 
-    Grammar::Grammar() {}
+    Grammar::Grammar() = default;
 
     void
     Grammar::RegisterEnglish()
@@ -619,8 +627,8 @@ namespace euphoria::core::tracery
             ++itr)
         {
             const std::string ruleName = itr->name.GetString();
-            Symbol            rule {ruleName};
-            Result            r = FromJson(&rule, itr->value);
+            Symbol rule {ruleName};
+            Result r = FromJson(&rule, itr->value);
             if(r == false)
             {
                 return r;
@@ -652,9 +660,8 @@ namespace euphoria::core::tracery
     }
 
     Grammar&
-    Grammar::RegisterModifier(const std::string& name, Modifier* m)
+    Grammar::RegisterModifier(const std::string& name, std::shared_ptr<Modifier> mod)
     {
-        std::shared_ptr<Modifier> mod(m);
         modifiers.insert(std::make_pair(name, mod));
         return *this;
     }
@@ -678,11 +685,10 @@ namespace euphoria::core::tracery
         Generator gen;
         gen.seed(seed);
         GeneratorArgument generator;
-        generator.grammar   = this;
+        generator.grammar = this;
         generator.generator = &gen;
         Rule syntax;
         syntax.Compile(rule);
         return syntax.Flatten(&generator);
     }
-
-}  // namespace euphoria::core::tracery
+}

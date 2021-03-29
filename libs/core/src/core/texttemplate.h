@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_TEXT_TEMPLATE_H
-#define EUPHORIA_TEXT_TEMPLATE_H
+#pragma once
 
 #include <map>
 #include <string>
@@ -7,6 +6,8 @@
 #include <memory>
 #include <vector>
 #include <optional>
+
+#include "core/noncopyable.h"
 
 namespace euphoria::core::vfs
 {
@@ -20,10 +21,10 @@ namespace euphoria::core
     {
         Defines();
 
-        bool
+        [[nodiscard]] bool
         IsDefined(const std::string& name) const;
 
-        std::string
+        [[nodiscard]] std::string
         GetValue(const std::string& name) const;
 
         void
@@ -39,7 +40,7 @@ namespace euphoria::core
     {
         TemplateErrorList();
 
-        bool
+        [[nodiscard]] bool
         HasErrors() const;
 
         void
@@ -51,7 +52,7 @@ namespace euphoria::core
             const std::string& error
         );
 
-        std::string
+        [[nodiscard]] std::string
         GetCombinedErrors() const;
 
         std::vector<std::string> errors;
@@ -65,15 +66,14 @@ namespace euphoria::core
         Template(vfs::FileSystem* fs, const vfs::FilePath& path);
         ~Template();
 
+        NONCOPYABLE(Template);
+
         std::string
         Evaluate(const Defines& defines);
 
         TemplateErrorList errors;
 
-    private:
         std::shared_ptr<TemplateNodeList> nodes;
     };
 
-}  // namespace euphoria::core
-
-#endif  // EUPHORIA_TEXT_TEMPLATE_H
+}

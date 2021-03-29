@@ -1,10 +1,11 @@
-#ifndef CORE_TRACERY_H
-#define CORE_TRACERY_H
+#pragma once
 
 #include <vector>
 #include <string>
 #include <memory>
 #include <map>
+
+#include "core/noncopyable.h"
 
 namespace euphoria::core::tracery
 {
@@ -22,7 +23,7 @@ namespace euphoria::core::tracery
             GENERAL_RULE_PARSE_ERROR
         };
 
-        Type                     type;
+        Type type;
         std::vector<std::string> text;
 
         Result(Type t);
@@ -33,7 +34,7 @@ namespace euphoria::core::tracery
         operator bool() const;
 
 
-        std::string
+        [[nodiscard]] std::string
         GetText() const;
     };
 
@@ -45,21 +46,25 @@ namespace euphoria::core::tracery
 
     struct Node
     {
+        Node() = default;
         virtual ~Node();
 
+        NONCOPYABLE(Node);
+
         virtual Result
-        Flatten(GeneratorArgument* generator)
-                = 0;
+        Flatten(GeneratorArgument* generator) = 0;
     };
 
 
     struct Modifier
     {
+        Modifier() = default;
         virtual ~Modifier();
 
+        NONCOPYABLE(Modifier);
+
         virtual Result
-        ApplyModifier(const std::string& input)
-                = 0;
+        ApplyModifier(const std::string& input) = 0;
     };
 
     struct Rule
@@ -82,7 +87,7 @@ namespace euphoria::core::tracery
     {
         explicit Symbol(const std::string& k);
 
-        std::string       key;
+        std::string key;
         std::vector<Rule> ruleset;
 
         Result
@@ -108,7 +113,7 @@ namespace euphoria::core::tracery
                 GeneratorArgument* generator);
 
         Grammar&
-        RegisterModifier(const std::string& name, Modifier* m);
+        RegisterModifier(const std::string& name, std::shared_ptr<Modifier> m);
 
         Result
         ApplyModifier(const std::string& name, const std::string& data);
@@ -116,10 +121,8 @@ namespace euphoria::core::tracery
         Result
         Flatten(const std::string& rule);
 
-        std::map<std::string, Symbol>                    rules;
+        std::map<std::string, Symbol> rules;
         std::map<std::string, std::shared_ptr<Modifier>> modifiers;
     };
 
-}  // namespace euphoria::core::tracery
-
-#endif  // CORE_TRACERY_H
+}

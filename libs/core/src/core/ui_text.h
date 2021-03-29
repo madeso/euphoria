@@ -6,6 +6,8 @@
 #include <vector>
 #include <sstream>
 
+#include "core/noncopyable.h"
+
 namespace euphoria::core
 {
     struct UiText;
@@ -16,7 +18,10 @@ namespace euphoria::core
 
         struct Node
         {
+            Node() = default;
             virtual ~Node() = default;
+
+            NONCOPYABLE(Node);
 
             virtual void
             Visit(Visitor* visitor) const = 0;
@@ -56,19 +61,19 @@ namespace euphoria::core
 
         struct Visitor
         {
+            Visitor() = default;
             virtual ~Visitor() = default;
 
-            virtual void
-            OnText(const std::string& text)
-                    = 0;
+            NONCOPYABLE(Visitor);
 
             virtual void
-            OnImage(const std::string& image)
-                    = 0;
+            OnText(const std::string& text) = 0;
 
             virtual void
-            OnBegin()
-                    = 0;
+            OnImage(const std::string& image) = 0;
+
+            virtual void
+            OnBegin() = 0;
 
             virtual void
             OnEnd() = 0;

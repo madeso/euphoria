@@ -1,18 +1,10 @@
-#ifndef CORE_FILESYSTEMDEFAULTSHADERS_H
-#define CORE_FILESYSTEMDEFAULTSHADERS_H
-
+#pragma once
 
 #include "core/vfs.h"
 
-namespace euphoria::core
+
+namespace euphoria::core::vfs
 {
-    namespace vfs
-    {
-        void
-        AddDefaultShaders(FileSystem* fs, const DirPath& base);
-
-    }  // namespace vfs
-
-}  // namespace euphoria::core
-
-#endif  // CORE_FILESYSTEMDEFAULTSHADERS_H
+    void
+    AddDefaultShaders(FileSystem* fs, const DirPath& base);
+}

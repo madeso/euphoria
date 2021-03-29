@@ -16,7 +16,7 @@ namespace euphoria::core
         // here lies the definitions of a virtual path
         // can either be a file or a directory
         // (prefer directory to folder, since it can autocomplete from 1 char)
-        // 
+        //
         // a path is case sensitive
         // a path should be lowercase, but this is not required
         // a path should only contain ascii characters but this is not required
@@ -57,31 +57,31 @@ namespace euphoria::core
             FromScriptOrEmpty(const std::string& path);
 
 
-            std::tuple<DirPath, std::string>
+            [[nodiscard]] std::tuple<DirPath, std::string>
             SplitDirectoriesAndFile() const;
 
 
-            DirPath
+            [[nodiscard]] DirPath
             GetDirectory() const;
 
 
-            std::string
+            [[nodiscard]] std::string
             GetFileWithExtension() const;
 
 
-            std::string
+            [[nodiscard]] std::string
             GetFilenameWithoutExtension() const;
 
 
-            std::string
+            [[nodiscard]] std::string
             GetExtension() const;
 
 
-            FilePath
+            [[nodiscard]] FilePath
             SetExtensionCopy(const std::string& ext) const;
 
 
-            FilePath
+            [[nodiscard]] FilePath
             ExtendExtensionCopy(const std::string& ext) const;
 
 
@@ -127,23 +127,23 @@ namespace euphoria::core
             FromDirs(const std::vector<std::string>& dirs);
 
 
-            FilePath
+            [[nodiscard]] FilePath
             GetFile(const std::string& filename) const;
 
 
-            bool
+            [[nodiscard]] bool
             IsRelative() const;
 
 
-            bool
+            [[nodiscard]] bool
             ContainsRelative() const;
 
 
-            DirPath
+            [[nodiscard]] DirPath
             GetParentDirectory() const;
 
 
-            std::string
+            [[nodiscard]] std::string
             GetDirectoryName() const;
 
 

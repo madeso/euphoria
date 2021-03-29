@@ -106,7 +106,7 @@ HandleMazeCommand
             g->maze = &maze;
             g->random = &random;
             drawer.tracker = g.get();
-            gen.reset(g.release());
+            gen = std::move(g);
         }
         break;
     case MazeAlgorithm::RandomTraversal:
@@ -115,7 +115,7 @@ HandleMazeCommand
             g->maze = &maze;
             g->random = &random;
             drawer.traversal = g.get();
-            gen.reset(g.release());
+            gen = std::move(g);
         }
         break;
     default:
@@ -205,8 +205,8 @@ struct Cellwriter
     {
     }
 
-    Image
-    GenerateWorldImage(const generator::World& world_or_copy)
+    [[nodiscard]] Image
+    GenerateWorldImage(const generator::World& world_or_copy) const
     {
         return Draw
         (
@@ -361,7 +361,7 @@ main(int argc, char* argv[])
             );
         }
     );
-    
+
     sub->Add
     (
         "random",
@@ -403,7 +403,7 @@ main(int argc, char* argv[])
             std::string output = "cell.png";
             auto random = Random {};
             auto rules = generator::Rules{};
-            
+
             sub->Add("--size", &size).Help("set the size");
             sub->Add("-o, --output", &output).Help("specify output");
             sub->Add("--scale", &world_scale).Help("set the scale");

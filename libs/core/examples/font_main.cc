@@ -14,9 +14,9 @@ using namespace euphoria::core;
 bool PrintChar
 (
     TextBox* dst,
-    LoadedFont& font,
+    const LoadedFont& font,
     int* sx,
-    int* sy,
+    int sy,
     unsigned int codepoint
 )
 {
@@ -35,7 +35,7 @@ bool PrintChar
     }
 
     const auto ppx = *sx + glyph.bearing_x;
-    const auto ppy = *sy + glyph.bearing_y;
+    const auto ppy = sy + glyph.bearing_y;
 
     const auto px = std::max(ppx, 0);
     const auto py = std::max(ppy, 0);
@@ -50,11 +50,13 @@ bool PrintChar
     const auto img = ImageToStringTable(glyph.image, true, Grayscale::A);
 
     for(auto y=0; y<img.GetHeight(); y+=1)
-    for(auto x=0; x<img.GetWidth(); x+=1)
     {
-        const auto c = img(x,y);
-        if(c == ' ') continue;
-        dst->PutChar(px+x, img.GetHeight()+py-y, c);
+        for(auto x=0; x<img.GetWidth(); x+=1)
+        {
+            const auto c = img(x,y);
+            if(c == ' ') { continue; }
+            dst->PutChar(px+x, img.GetHeight()+py-y, c);
+        }
     }
 
     *sx = *sx + glyph.advance;
@@ -66,7 +68,7 @@ bool PrintChar
 bool PrintString
 (
     TextBox* dst,
-    LoadedFont& font,
+    const LoadedFont& font,
     int sx,
     int sy,
     const std::string& str
@@ -78,7 +80,7 @@ bool PrintString
 
     const auto r = Utf8ToCodepoints(str, [&](int codepoint)
     {
-        status = PrintChar(dst, font, &x, &y, codepoint) && status;
+        status = PrintChar(dst, font, &x, y, codepoint) && status;
     });
 
     if(r == false)
@@ -141,7 +143,7 @@ int
 main(int argc, char* argv[])
 {
     auto font_name = FontName::Builtin8;
-    std::string font_file = "";
+    std::string font_file;
     int size = 10;
     std::string chars = "ABCDEFGHIJKLMNOPQRSTUWXYZ!@#$%^&*()_+abcdefghijklmnopqrstuwxyz0123456789-=<>,./\\[]{};:";
     std::string text;

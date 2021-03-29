@@ -89,8 +89,8 @@ namespace euphoria::core
                 lhs.x * rhs.x, lhs.y * rhs.y, lhs.z * rhs.z, lhs.w * rhs.w);
     }
 
-    typedef vec4<float> vec4f;
-    typedef vec4<int>   vec4i;
+    using vec4f = vec4<float>;
+    using vec4i = vec4<int>;
 
 }  // namespace euphoria::core
 

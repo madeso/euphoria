@@ -13,15 +13,16 @@
 using namespace euphoria::core;
 using namespace euphoria::core::dump3d;
 
-void AddSpiral(Dumper& dump, int resolution, float number_of_spins, float height, float size, const Rgbi& color)
+void AddSpiral(Dumper* dump, int number_of_steps, float number_of_spins, float height, float size, const Rgbi& color)
 {
     std::vector<vec3f> points;
-    for(int i=0; i<resolution; i+=1)
+    for(int step_index=0; step_index<number_of_steps; step_index+=1)
     {
-        const auto angle = Angle::FromPercentOf360(i*number_of_spins / resolution);
-        points.emplace_back(Sin(angle)*size, i*height/resolution, Cos(angle)*size);
+        const auto step = static_cast<float>(step_index) / static_cast<float>(number_of_steps);
+        const auto angle = Angle::FromPercentOf360(step * number_of_spins);
+        points.emplace_back(Sin(angle)*size, step*height, Cos(angle)*size);
     }
-    dump.AddLines(points, color);
+    dump->AddLines(points, color);
 }
 
 int
@@ -40,7 +41,7 @@ main(int, char*[])
         dump.AddSphere(area.RandomPoint(&rand), 1.0f, pal.Next(&rand));
     }
 
-    AddSpiral(dump, 100, 4, 5, 2.5, pal.Next(&rand));
+    AddSpiral(&dump, 100, 4, 5, 2.5f, pal.Next(&rand));
 
     dump.AddPlane(Plane::FromNormalAndPoint(unit3f::Right(), vec3f(1, 2, 3)), pal.Next(&rand));
 

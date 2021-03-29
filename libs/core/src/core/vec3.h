@@ -20,7 +20,6 @@ namespace euphoria::core
     template <typename T>
     struct unit3;
 
-
     template <typename T>
     struct scale3;
 
@@ -29,13 +28,17 @@ namespace euphoria::core
     template <typename T>
     struct scale3
     {
-        typedef scale3<T> Self;
+        using Self = scale3<T>;
+
         T x;
         T y;
         T z;
+
         T* GetDataPtr() { return &x; }
-        const T* GetDataPtr() const { return &x; }
-        T GetComponentSum() const { return x + y + z; }
+
+        [[nodiscard]] const T* GetDataPtr() const { return &x; }
+
+        [[nodiscard]] T GetComponentSum() const { return x + y + z; }
 
         explicit scale3(const T& a) : x(a), y(a), z(a)
         {
@@ -59,13 +62,17 @@ namespace euphoria::core
     template <typename T>
     struct vec3
     {
-        typedef vec3<T> Self;
+        using Self = vec3<T>;
+
         T x;
         T y;
         T z;
+
         T* GetDataPtr() { return &x; }
-        const T* GetDataPtr() const { return &x; }
-        T GetComponentSum() const { return x + y + z; }
+
+        [[nodiscard]] const T* GetDataPtr() const { return &x; }
+
+        [[nodiscard]] T GetComponentSum() const { return x + y + z; }
 
         explicit vec3(const T& a) : x(a), y(a), z(a)
         {
@@ -102,10 +109,10 @@ namespace euphoria::core
         }
 
         Self operator-() const { return Self(-this->x, -this->y, -this->z); }
-        T GetLengthSquared() const { return x * x + y * y + z * z; }
-        
 
-        typedef unit3<T> Unit;
+        T GetLengthSquared() const { return x * x + y * y + z * z; }
+
+        using Unit = unit3<T>;
 
         static Self
         FromTo(const vec3<T>& from, const vec3<T>& to)
@@ -135,7 +142,7 @@ namespace euphoria::core
             z *= rhs;
         }
 
-        T
+        [[nodiscard]] T
         GetLength() const
         {
             return sqrt(GetLengthSquared());
@@ -156,7 +163,7 @@ namespace euphoria::core
         }
 
 
-        Unit
+        [[nodiscard]] Unit
         GetNormalized() const
         {
             Self r = *this;
@@ -175,7 +182,7 @@ namespace euphoria::core
 
         Self operator-() const { return Self(-this->x, -this->y, -this->z); }
 
-        bool
+        [[nodiscard]] bool
         IsValid() const
         {
             return IsEqual(this->GetLengthSquared(), 1);
@@ -395,13 +402,13 @@ namespace euphoria::core
     /// Typedefs
 
 
-    typedef vec3<float>   vec3f;
-    typedef unit3<float>  unit3f;
-    typedef scale3<float> scale3f;
+    using vec3f = vec3<float>;
+    using unit3f = unit3<float>;
+    using scale3f = scale3<float>;
 
-    typedef vec3<int>   vec3i;
-    typedef unit3<int>  unit3i;
-    typedef scale3<int> scale3i;
+    using vec3i = vec3<int>;
+    using unit3i = unit3<int>;
+    using scale3i = scale3<int>;
 }
 
 #endif  // CORE_VEC3_H

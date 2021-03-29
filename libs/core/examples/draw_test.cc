@@ -12,8 +12,8 @@ main(int, char*[])
 {
     std::array<Image, 4> images;
 
-    constexpr auto width = 200;
-    constexpr auto height = 200;
+    constexpr int width = 200;
+    constexpr int height = 200;
 
     for(auto& image : images)
     {
@@ -25,7 +25,7 @@ main(int, char*[])
 
     for(auto& image : images)
     {
-        DrawCircle(&image, Color::Red, center, width/2);
+        DrawCircle(&image, Color::Red, center, static_cast<float>(width)/2.0f);
     }
 
     constexpr int offset = 20;

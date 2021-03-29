@@ -53,8 +53,8 @@ main(int, char**)
 
     for(auto t: trees)
     {
-        if(first) first = false;
-        else std::cout << "\n-----------------------------------------\n\n";
+        if(first) { first = false; }
+        else { std::cout << "\n-----------------------------------------\n\n"; }
 
         PrintHierarchy(t, [](const T& t) {return t.name; }, [](const T& t) {return t.children; }, [](const std::string& s) {std::cout << s << "\n"; });
 
@@ -68,7 +68,7 @@ main(int, char**)
                     return e.name;
                 },
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
-                [](const T& e) { return e.children.size() >= 1; }, // whether simplified horizontal layout can be used
+                [](const T& e) { return !e.children.empty(); }, // whether simplified horizontal layout can be used
                 [](const T&  ) { return true; }));
             auto strings = result.ToString();
             for(auto s: strings)

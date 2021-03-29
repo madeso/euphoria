@@ -107,7 +107,7 @@ namespace euphoria::core
     struct TemplateNode
     {
     public:
-        TemplateNode()          = default;
+        TemplateNode() = default;
         virtual ~TemplateNode() = default;
 
         NONCOPYABLE_CONSTRUCTOR(TemplateNode);
@@ -118,9 +118,9 @@ namespace euphoria::core
         virtual void
         Eval
         (
-            Defines*            defines,
+            Defines* defines,
             std::ostringstream* out,
-            TemplateErrorList*  error
+            TemplateErrorList* error
         ) = 0;
     };
 
@@ -156,9 +156,9 @@ namespace euphoria::core
         TemplateNodeList() = default;
 
         void
-        Eval(Defines*            defines,
+        Eval(Defines* defines,
              std::ostringstream* out,
-             TemplateErrorList*  error) override
+             TemplateErrorList* error) override
         {
             for(const auto& node: nodes_)
             {
@@ -186,9 +186,9 @@ namespace euphoria::core
         TemplateNodeScopedList() = default;
 
         void
-        Eval(Defines*            defines,
+        Eval(Defines* defines,
              std::ostringstream* out,
-             TemplateErrorList*  error) override
+             TemplateErrorList* error) override
         {
             ASSERT(defines);
             Defines my_defines = *defines;
@@ -208,9 +208,9 @@ namespace euphoria::core
         {}
 
         void
-        Eval(Defines*            defines,
+        Eval(Defines* defines,
              std::ostringstream* out,
-             TemplateErrorList*  error) override
+             TemplateErrorList* error) override
         {
             ASSERT(defines);
             if(defines->IsDefined(name_))
@@ -220,7 +220,7 @@ namespace euphoria::core
         }
 
     private:
-        std::string                   name_;
+        std::string name_;
         std::shared_ptr<TemplateNode> node_;
     };
 
@@ -234,9 +234,9 @@ namespace euphoria::core
         explicit TemplateNodeEval(std::string name) : name_(std::move(name)) {}
 
         void
-        Eval(Defines*            defines,
+        Eval(Defines* defines,
              std::ostringstream* out,
-             TemplateErrorList*  error) override
+             TemplateErrorList* error) override
         {
             ASSERT(out);
             ASSERT(defines);
@@ -270,7 +270,7 @@ namespace euphoria::core
         {}
 
         void
-        Eval(Defines*            defines,
+        Eval(Defines* defines,
              std::ostringstream* out,
              TemplateErrorList* /*error*/) override
         {
@@ -339,21 +339,21 @@ namespace euphoria::core
     struct Lex
     {
     public:
-        Lex(LexType t, unsigned int l, unsigned int c, std::string v = "")
+        Lex(LexType t, int l, int c, std::string v = "")
             : type(t), value(std::move(v)), line(l), column(c)
         {}
 
-        std::string
+        [[nodiscard]] std::string
         ToString() const
         {
             return Str() << LexTypeToString(type) << "(" << FirstChars(value)
                          << ")";
         }
 
-        LexType      type;
-        std::string  value;
-        unsigned int line;
-        unsigned int column;
+        LexType type;
+        std::string value;
+        int line;
+        int column;
     };
 
 
@@ -373,8 +373,8 @@ namespace euphoria::core
         bool inside = false;
 
         std::ostringstream buffer;
-        unsigned int buffer_line = parser.GetLine();
-        unsigned int buffer_column = parser.GetColumn();
+        int buffer_line = parser.GetLine();
+        int buffer_column = parser.GetColumn();
 
         while(parser.HasMore())
         {
@@ -383,9 +383,9 @@ namespace euphoria::core
                 parser.SkipSpaces(true);
                 if(IsIdentStart(parser.PeekChar()))
                 {
-                    const unsigned int line   = parser.GetLine();
-                    const unsigned int column = parser.GetColumn();
-                    const std::string  ident  = parser.ReadIdent();
+                    const int line = parser.GetLine();
+                    const int column = parser.GetColumn();
+                    const std::string ident = parser.ReadIdent();
                     if(ident == "ifdef")
                     {
                         r.emplace_back(LexType::IfDef, line, column);
@@ -413,16 +413,16 @@ namespace euphoria::core
                 }
                 else if(parser.PeekChar() == '@')
                 {
-                    const unsigned int line   = parser.GetLine();
-                    const unsigned int column = parser.GetColumn();
+                    const int line = parser.GetLine();
+                    const int column = parser.GetColumn();
                     parser.AdvanceChar();
                     r.emplace_back(LexType::Eval, line, column);
                 }
                 else if(parser.PeekChar() == '\"')
                 {
-                    const unsigned int line   = parser.GetLine();
-                    const unsigned int column = parser.GetColumn();
-                    const std::string& str    = parser.ReadString();
+                    const int line = parser.GetLine();
+                    const int column = parser.GetColumn();
+                    const std::string& str = parser.ReadString();
                     r.emplace_back(LexType::String, line, column, str);
                 }
                 else if(parser.PeekChar(0) == '}' && parser.PeekChar(1) == '}')
@@ -431,7 +431,7 @@ namespace euphoria::core
                     parser.AdvanceChar();
                     inside = false;
                     buffer.str("");
-                    buffer_line   = parser.GetLine();
+                    buffer_line = parser.GetLine();
                     buffer_column = parser.GetColumn();
                 }
                 else
@@ -450,7 +450,7 @@ namespace euphoria::core
                     if(!b.empty())
                     {
                         buffer.str("");
-                        buffer_line   = parser.GetLine();
+                        buffer_line = parser.GetLine();
                         buffer_column = parser.GetColumn();
                         r.emplace_back(
                                 LexType::Text, buffer_line, buffer_column, b);
@@ -497,13 +497,13 @@ namespace euphoria::core
             : lex_(input), pos_(0), size_(input.size())
         {}
 
-        bool
+        [[nodiscard]] bool
         HasMore() const
         {
             return pos_ < size_;
         }
 
-        const Lex&
+        [[nodiscard]] const Lex&
         Peek() const
         {
             if(HasMore())
@@ -528,13 +528,13 @@ namespace euphoria::core
             return lex;
         }
 
-        unsigned int
+        [[nodiscard]] int
         GetLine() const
         {
             return Peek().line;
         }
 
-        unsigned int
+        [[nodiscard]] int
         GetColumn() const
         {
             return Peek().column;
@@ -542,8 +542,8 @@ namespace euphoria::core
 
     private:
         std::vector<Lex> lex_;
-        unsigned int     pos_;
-        unsigned int     size_;
+        unsigned int pos_;
+        unsigned int size_;
     };
 
 
@@ -620,7 +620,7 @@ namespace euphoria::core
     std::shared_ptr<TemplateNodeEval>
     ReadEval
     (
-        LexReader*         reader,
+        LexReader* reader,
         TemplateErrorList* errors,
         const vfs::FilePath& file,
         vfs::FileSystem* /*unused*/
@@ -631,19 +631,18 @@ namespace euphoria::core
 
         if(lex.type == LexType::Ident)
         {
-            std::shared_ptr<TemplateNodeEval> ret {
-                    new TemplateNodeEval {lex.value}};
+            std::shared_ptr<TemplateNodeEval> ret{new TemplateNodeEval{lex.value}};
             return ret;
         }
 
-        errors->AddError(
-                file,
-                reader->GetLine(),
-                reader->GetColumn(),
-                Str() << "Reading EVAL, expected IDENT but found "
-                      << lex.ToString());
-        std::shared_ptr<TemplateNodeEval> ret {
-                new TemplateNodeEval {"parse_error"}};
+        errors->AddError
+        (
+            file,
+            reader->GetLine(),
+            reader->GetColumn(),
+            Str() << "Reading EVAL, expected IDENT but found " << lex.ToString()
+        );
+        std::shared_ptr<TemplateNodeEval> ret{new TemplateNodeEval{"parse_error"}};
         return ret;
     }
 
@@ -651,7 +650,7 @@ namespace euphoria::core
     std::shared_ptr<TemplateNodeSet>
     ReadSet
     (
-        LexReader*         reader,
+        LexReader* reader,
         TemplateErrorList* errors,
         const vfs::FilePath& file,
         vfs::FileSystem* /*unused*/
@@ -662,14 +661,14 @@ namespace euphoria::core
 
         if(name.type != LexType::Ident)
         {
-            errors->AddError(
-                    file,
-                    reader->GetLine(),
-                    reader->GetColumn(),
-                    Str() << "Reading SET, expected IDENT but found "
-                          << name.ToString());
-            std::shared_ptr<TemplateNodeSet> ret {
-                    new TemplateNodeSet {"parse_error", "parse_error"}};
+            errors->AddError
+            (
+                file,
+                reader->GetLine(),
+                reader->GetColumn(),
+                Str() << "Reading SET, expected IDENT but found " << name.ToString()
+            );
+            std::shared_ptr<TemplateNodeSet> ret{new TemplateNodeSet{"parse_error", "parse_error"}};
             return ret;
         }
 
@@ -682,11 +681,9 @@ namespace euphoria::core
                 file,
                 reader->GetLine(),
                 reader->GetColumn(),
-                Str() << "Reading SET, expected STRING but found "
-                        << val.ToString()
+                Str() << "Reading SET, expected STRING but found " << val.ToString()
             );
-            std::shared_ptr<TemplateNodeSet> ret {
-                    new TemplateNodeSet {name.value, "parse_error"}};
+            std::shared_ptr<TemplateNodeSet> ret{new TemplateNodeSet{name.value, "parse_error"}};
             return ret;
         }
 
@@ -699,10 +696,10 @@ namespace euphoria::core
     std::shared_ptr<TemplateNodeIfdef>
     ReadIfdef
     (
-        LexReader*         reader,
+        LexReader* reader,
         TemplateErrorList* errors,
         const vfs::FilePath& file,
-        vfs::FileSystem*   fs
+        vfs::FileSystem* fs
     )
     {
         ASSERT(reader);
@@ -710,19 +707,18 @@ namespace euphoria::core
 
         if(lex.type == LexType::Ident)
         {
-            std::shared_ptr<TemplateNodeList> children {
-                    new TemplateNodeList {}};
+            std::shared_ptr<TemplateNodeList> children{new TemplateNodeList{}};
             ReadTemplateList(&children, reader, errors, file, true, fs);
-            std::shared_ptr<TemplateNodeIfdef> ret {
-                    new TemplateNodeIfdef {lex.value, children}};
+            std::shared_ptr<TemplateNodeIfdef> ret{new TemplateNodeIfdef {lex.value, children}};
             return ret;
         }
-        errors->AddError(
-                file,
-                reader->GetLine(),
-                reader->GetColumn(),
-                Str() << "Reading IFDEF, expected IDENT but found "
-                      << lex.ToString());
+        errors->AddError
+        (
+            file,
+            reader->GetLine(),
+            reader->GetColumn(),
+            Str() << "Reading IFDEF, expected IDENT but found " << lex.ToString()
+        );
         std::shared_ptr<TemplateNodeString> dummy {
                 new TemplateNodeString {"parse_error"}};
         std::shared_ptr<TemplateNodeIfdef> ret {
@@ -734,10 +730,10 @@ namespace euphoria::core
     std::shared_ptr<TemplateNodeList>
     ReadInclude
     (
-        LexReader*         reader,
+        LexReader* reader,
         TemplateErrorList* errors,
         const vfs::FilePath& file,
-        vfs::FileSystem*   fs
+        vfs::FileSystem* fs
     )
     {
         ASSERT(reader);
@@ -783,19 +779,19 @@ namespace euphoria::core
                     file,
                     reader->GetLine(),
                     reader->GetColumn(),
-                    Str() << "Unable to open "
-                        << file_argument.value()
+                    Str() << "Unable to open " << file_argument.value()
                 );
             }
-            
+
             return ret;
         }
-        errors->AddError(
-                file,
-                reader->GetLine(),
-                reader->GetColumn(),
-                Str() << "Reading INCLUDE, expected STRING but found "
-                      << lex.ToString());
+        errors->AddError
+        (
+            file,
+            reader->GetLine(),
+            reader->GetColumn(),
+            Str() << "Reading INCLUDE, expected STRING but found " << lex.ToString()
+        );
         std::shared_ptr<TemplateNodeList> ret {new TemplateNodeList {}};
         return ret;
     }
@@ -816,8 +812,7 @@ namespace euphoria::core
         std::shared_ptr<TemplateNodeList>& list = *nodes;
 
         ASSERT(reader);
-        while(!errors->HasErrors() && reader->HasMore()
-              && (!expect_end || reader->Peek().type != LexType::End))
+        while(!errors->HasErrors() && reader->HasMore() && (!expect_end || reader->Peek().type != LexType::End))
         {
             switch(reader->Peek().type)
             {
@@ -841,12 +836,13 @@ namespace euphoria::core
                 list->Add(ReadInclude(reader, errors, file, fs));
                 break;
             default:
-                errors->AddError(
-                        file,
-                        reader->GetLine(),
-                        reader->GetColumn(),
-                        Str() << "Reading LIST " << expect_end << ", Found "
-                              << reader->Peek().ToString());
+                errors->AddError
+                (
+                    file,
+                    reader->GetLine(),
+                    reader->GetColumn(),
+                    Str() << "Reading LIST " << expect_end << ", Found " << reader->Peek().ToString()
+                );
                 return;
             }
         }
@@ -858,15 +854,16 @@ namespace euphoria::core
 
         if(expect_end)
         {
-            Lex end = reader->Read();  // skip end
+            Lex end = reader->Read(); // skip end
             if(end.type != LexType::End)
             {
-                errors->AddError(
-                        file,
-                        reader->GetLine(),
-                        reader->GetColumn(),
-                        Str() << "Reading LIST, expected END but found "
-                              << end.ToString());
+                errors->AddError
+                (
+                    file,
+                    reader->GetLine(),
+                    reader->GetColumn(),
+                    Str() << "Reading LIST, expected END but found " << end.ToString()
+                );
             }
         }
     }
@@ -878,7 +875,7 @@ namespace euphoria::core
     Template::Template(const std::string& text) : nodes(new TemplateNodeList {})
     {
         const auto file = vfs::FilePath{"~/from_string"};
-        LexReader         reader(Lexer(text, &errors, file));
+        LexReader reader(Lexer(text, &errors, file));
         ReadTemplateList(&nodes, &reader, &errors, file, false, nullptr);
     }
 
@@ -912,5 +909,4 @@ namespace euphoria::core
 
         return ss.str();
     }
-
-}  // namespace euphoria::core
+}

@@ -1,8 +1,9 @@
-#ifndef EUPHORIA_CORE_UTF8_H
-#define EUPHORIA_CORE_UTF8_H
+#pragma once
 
 #include <cstddef>
 #include <vector>
+
+#include "core/assert.h"
 
 namespace euphoria::core
 {
@@ -13,11 +14,11 @@ namespace euphoria::core
         using Int = unsigned int;
         auto ToByte = [](char c)->std::byte { return static_cast<std::byte>(c); };
 
-        constexpr std::byte mask0 = std::byte{0b10000000}; constexpr std::byte bit0 = std::byte{0b00000000};
-        constexpr std::byte mask1 = std::byte{0b11000000}; constexpr std::byte bit1 = std::byte{0b10000000};
-        constexpr std::byte mask2 = std::byte{0b11100000}; constexpr std::byte bit2 = std::byte{0b11000000};
-        constexpr std::byte mask3 = std::byte{0b11110000}; constexpr std::byte bit3 = std::byte{0b11100000};
-        constexpr std::byte mask4 = std::byte{0b11111000}; constexpr std::byte bit4 = std::byte{0b11110000};
+        constexpr auto mask0 = std::byte{0b10000000}; constexpr auto bit0 = std::byte{0b00000000};
+        constexpr auto mask1 = std::byte{0b11000000}; constexpr auto bit1 = std::byte{0b10000000};
+        constexpr auto mask2 = std::byte{0b11100000}; constexpr auto bit2 = std::byte{0b11000000};
+        constexpr auto mask3 = std::byte{0b11110000}; constexpr auto bit3 = std::byte{0b11100000};
+        constexpr auto mask4 = std::byte{0b11111000}; constexpr auto bit4 = std::byte{0b11110000};
 
         unsigned int bits  = 0;
         std::vector<std::byte> buffer;
@@ -53,7 +54,7 @@ namespace euphoria::core
                     }
                     else
                     {
-                        // implementation error?
+                        DIE("Implementation error?");
                         return false;
                     }
                 }
@@ -106,5 +107,3 @@ namespace euphoria::core
         return bits == 0;
     }
 }
-
-#endif  // EUPHORIA_CORE_UTF8_H
