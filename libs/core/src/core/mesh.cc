@@ -20,6 +20,8 @@
 #include "gaf_mesh.h"
 
 
+#define OPTIONAL_OVERRIDE
+
 namespace euphoria::core
 {
     LOG_SPECIFY_DEFAULT_LOGGER("core.mesh")
@@ -621,7 +623,7 @@ namespace euphoria::core
                 delete pFile; // NOLINT
             }
 
-            bool DeleteFile( const std::string& ) override
+            bool DeleteFile( const std::string& ) OPTIONAL_OVERRIDE
             {
                 return false;
             }
