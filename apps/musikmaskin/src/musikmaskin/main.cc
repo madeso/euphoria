@@ -14,6 +14,7 @@
 #include "core/stdutils.h"
 #include "core/proto.h"
 #include "core/log.h"
+#include "core/noncopyable.h"
 
 #include "render/init.h"
 #include "render/debuggl.h"
@@ -70,16 +71,17 @@ using namespace euphoria::minsynth;
 
 LOG_SPECIFY_DEFAULT_LOGGER("musikmaskin")
 
-class AppBase
+struct AppBase
 {
-public:
-    AppBase() : ok(true)
+    AppBase()
     {
-        SetupWindow("musik maskin");
+        AppBase::SetupWindow("musik maskin");
         SetupAudioCallbacks();
     }
 
-    void
+    NONCOPYABLE(AppBase);
+
+    static void
     SetupWindow(const std::string&)
     {
         // Setup style
@@ -92,10 +94,10 @@ public:
     {
         SDL_AudioSpec spec;
         SDL_memset(&spec, 0, sizeof(spec));
-        spec.freq     = sample_frequency;
-        spec.format   = AUDIO_S16SYS;
+        spec.freq = sample_frequency;
+        spec.format = AUDIO_S16SYS;
         spec.channels = 1;
-        spec.samples  = 1024;
+        spec.samples = 1024;
         spec.callback = SDLAudioCallback;
         spec.userdata = this;
 
@@ -107,8 +109,8 @@ public:
 
         audio_opened = true;
 
-        int i, count = SDL_GetNumAudioDevices(0);
-        for(i = 0; i < count; ++i)
+        const int count = SDL_GetNumAudioDevices(0);
+        for(int i = 0; i < count; ++i)
         {
             LOG_INFO
             (
@@ -120,7 +122,7 @@ public:
     }
 
     void
-    Start()
+    Start() const
     {
         if(ok)
         {
@@ -140,8 +142,7 @@ public:
     Draw() = 0;
 
     virtual float
-    SynthSample(float time)
-            = 0;
+    SynthSample(float time) = 0;
 
     void
     OnRender()
@@ -152,17 +153,15 @@ public:
     void
     AudioCallback(Uint8* stream, int bytes)
     {
-        const int len    = bytes / 2;
-        auto*     output = reinterpret_cast<Sint16*>(stream);
+        const int len = bytes / 2;
+        auto* output = reinterpret_cast<Sint16*>(stream); // NOLINT
 
         const Sint16 max_amplitude = 32767;
 
         for(int i = 0; i < len; i += 1)
         {
-            const float sample_time
-                    = audio_callback_time
-                      + (i + samples_consumed)
-                                / static_cast<float>(sample_frequency);
+            const float sample_offset = static_cast<float>(i + samples_consumed)/static_cast<float>(sample_frequency);
+            const float sample_time = audio_callback_time + sample_offset;
             auto sample = SynthSample(sample_time);
             if(sample > 1)
             {
@@ -172,7 +171,7 @@ public:
             {
                 sample = -1;
             }
-            output[i]       = static_cast<Sint16>(max_amplitude * sample);
+            output[i] = static_cast<Sint16>(max_amplitude * sample);
             max_sample_time = sample_time;
         }
 
@@ -187,23 +186,19 @@ public:
     static void
     SDLAudioCallback(void* userdata, Uint8* stream, int len)
     {
-        auto* app = (AppBase*)userdata;
+        auto* app = static_cast<AppBase*>(userdata);
         app->AudioCallback(stream, len);
     }
 
-public:
-    bool ok;
+    bool ok = true;
+    SDL_Window* window = nullptr;
+    SDL_GLContext gl_context = nullptr;
 
-protected:
     bool audio_opened = false;
-    float max_sample_time     = 0;
-    int   sample_frequency    = 44100;
+    float max_sample_time = 0;
+    int sample_frequency = 44100;
     float audio_callback_time = 0;
-    int   samples_consumed    = 0;
-
-public:
-    SDL_Window*   window;
-    SDL_GLContext gl_context;
+    int samples_consumed = 0;
 };
 
 
@@ -214,15 +209,17 @@ struct MidiInputNode : public euphoria::minsynth::MidiInNode
     std::unique_ptr<RtMidiIn> midi;
 
     static void
-    StaticCallback(
-            double                      deltatime,
-            std::vector<unsigned char>* message,
-            void*                       user_data)
+    StaticCallback
+    (
+        double deltatime,
+        std::vector<unsigned char>* message,
+        void* user_data
+    )
     {
         auto* self = static_cast<MidiInNode*>(user_data);
-        if(message)
+        if(message != nullptr)
         {
-            self->Callback(deltatime, *message);
+            self->Callback(static_cast<float>(deltatime), *message);
             // self->DebugCallback(deltatime, *message);
         }
     }
@@ -232,7 +229,7 @@ struct MidiInputNode : public euphoria::minsynth::MidiInNode
     {
         try
         {
-            midi.reset(new RtMidiIn());
+            midi = std::make_unique<RtMidiIn>();
             midi->setCallback(&StaticCallback, this);
 
             if(open_virtual_port)
@@ -260,17 +257,17 @@ struct MidiInputNode : public euphoria::minsynth::MidiInNode
 void
 DrawKeys(
         const std::vector<PianoKey>& piano,
-        const KeyboardLayout&        layout,
-        float                        start_x,
-        float                        start_y,
-        float                        width,
-        float                        height,
-        float                        spacing)
+        const KeyboardLayout& layout,
+        float start_x,
+        float start_y,
+        float width,
+        float height,
+        float spacing)
 {
-    ImGuiStyle& style     = ImGui::GetStyle();
+    ImGuiStyle& style = ImGui::GetStyle();
     ImDrawList* draw_list = ImGui::GetWindowDrawList();
 
-    float y        = start_y;
+    float y = start_y;
     float x_offset = 0;
     for(const auto& row: layout)
     {
@@ -315,14 +312,14 @@ DrawKeys(
 class App : public AppBase
 {
 public:
-    MidiInputNode                midi;
-    KeyboardInputNode            piano;
-    SingleToneNode               single_tone;
-    ArpegiatorNode               arp;
+    MidiInputNode midi;
+    KeyboardInputNode piano;
+    SingleToneNode single_tone;
+    ArpegiatorNode arp;
     ToneToFrequencyConverterNode ttf;
-    OscilatorNode                oscilator;
-    ScalerEffect                 scaler;
-    VolumeNode                   master;
+    OscilatorNode oscilator;
+    ScalerEffect scaler;
+    VolumeNode master;
 
     std::vector<Node*> nodes;
 
@@ -332,13 +329,13 @@ public:
     {
         SetupQwertyTwoOctaveLayout(&piano.keys, 4, -2);
 
-        midi.tones           = &ttf;
-        piano.tones          = &ttf;
-        arp.NextNode         = &ttf;
+        midi.tones = &ttf;
+        piano.tones = &ttf;
+        arp.NextNode = &ttf;
         single_tone.NextNode = &ttf;
-        ttf.next             = &oscilator;
-        scaler.in            = &oscilator;
-        master.in            = &scaler;
+        ttf.next = &oscilator;
+        scaler.in = &oscilator;
+        master.in = &scaler;
 
         midi.Setup();
 
@@ -384,7 +381,7 @@ public:
         {
             if(imgui::CanvasBegin(ImVec4(0, 0, 0, 0.5f), "canvas_piano"))
             {
-                const auto      p       = ImGui::GetCursorScreenPos();
+                const auto p = ImGui::GetCursorScreenPos();
                 constexpr float keysize = 30;
                 DrawKeys(
                         piano.keys,
@@ -403,7 +400,7 @@ public:
         if(ImGui::Begin("Main"))
         {
             static History<float> time_history(100);
-            static float          max_diff = 0;
+            static float max_diff = 0;
             ImGui::Text(
                     "Tones: %d, %d alive and %d dead",
                     oscilator.GetTotalTones(),
@@ -469,9 +466,9 @@ public:
 
             {
                 ImGui::BeginChild("audio devices", ImVec2(0, 0), true);
-                int i, count = SDL_GetNumAudioDevices(0);
+                int count = SDL_GetNumAudioDevices(0);
 
-                for(i = 0; i < count; ++i)
+                for(int i = 0; i < count; ++i)
                 {
                     ImGui::Text("%s", SDL_GetAudioDeviceName(i, 0));
                 }
@@ -514,7 +511,7 @@ main(int argc, char** argv)
         return r;
     }
 
-    int window_width  = 1280;
+    int window_width = 1280;
     int window_height = 720;
 
     if(!engine.CreateWindow("Musikmaskin", window_width, window_height, true))
@@ -530,13 +527,13 @@ main(int argc, char** argv)
     //////////////////////////////////////////////////////////////////////////////
     // main loop
 
-    float  time         = 0;
+    float time = 0;
     Uint64 current_time = SDL_GetPerformanceCounter();
-    Uint64 last_time    = 0;
+    Uint64 last_time = 0;
 
     while(running)
     {
-        last_time    = current_time;
+        last_time = current_time;
         current_time = SDL_GetPerformanceCounter();
 
         const auto dt

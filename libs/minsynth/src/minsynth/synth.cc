@@ -4,6 +4,7 @@
 #include "core/assert.h"
 #include "core/numeric.h"
 #include "core/cint.h"
+#include "core/angle.h"
 
 #include <sstream>
 #include <cmath>
@@ -139,7 +140,7 @@ namespace euphoria::minsynth
             }
         }
 
-        constexpr float
+        [[nodiscard]] constexpr float
         GetFrequency(int halfstep, float octave_base_frequency) const
         {
             float freq = octave_base_frequency;
@@ -190,12 +191,13 @@ namespace euphoria::minsynth
 
     void
     Node::Update(float /*dt*/, float /*current_time*/)
-    {}
+    {
+    }
 
     void
-    ToneSender::SendTone(int tone, bool down, float time)
+    ToneSender::SendTone(int tone, bool down, float time) const
     {
-        if(NextNode)
+        if(NextNode != nullptr)
         {
             NextNode->OnTone(tone, down, time);
         }
@@ -221,10 +223,10 @@ namespace euphoria::minsynth
     }
 
     float
-    ToneToFrequencyConverterNode::CalculateFrequency(int semitone)
+    ToneToFrequencyConverterNode::CalculateFrequency(int semitone) const
     {
         const float base_freq = TuningToBaseFrequency(tuning);
-        const int   tone      = semitone - 9;  // hrm.... why?
+        const int tone = semitone - 9; // hrm.... why?
 
         const float freq = ToneToFrequency(tone, base_freq);
 
@@ -240,7 +242,7 @@ namespace euphoria::minsynth
             ss << name << octave;
             return ss.str();
         }
-    }  // namespace
+    } // namespace
 
     PianoKey::PianoKey(int st, core::Key kc, const std::string& n, int octave)
         : semitone(st)
@@ -258,9 +260,11 @@ namespace euphoria::minsynth
     }
 
     void
-    MidiInNode::DebugCallback(
-            double                            dt,
-            const std::vector<unsigned char>& bytes)
+    MidiInNode::DebugCallback
+    (
+        double dt,
+        const std::vector<unsigned char>& bytes
+    )
     {
         using byte = unsigned char;
 
@@ -269,7 +273,7 @@ namespace euphoria::minsynth
 
         for(auto b: bytes)
         {
-            const auto is_status = IsStatusMessage(b);
+            const auto is_status = MidiInNode::IsStatusMessage(b);
             if(is_status)
             {
                 const byte channel = (b >> 0) & channel_mask;
@@ -294,7 +298,7 @@ namespace euphoria::minsynth
     }
 
     void
-    MidiInNode::Callback(double dt, const std::vector<unsigned char>& bytes)
+    MidiInNode::Callback(float dt, const std::vector<unsigned char>& bytes)
     {
         using byte = unsigned char;
 
@@ -303,7 +307,7 @@ namespace euphoria::minsynth
             return;
         }
 
-        if(!IsStatusMessage(bytes[0]))
+        if(!MidiInNode::IsStatusMessage(bytes[0]))
         {
             LOG_ERROR("todo: need to handle data message without status.");
             return;
@@ -313,7 +317,7 @@ namespace euphoria::minsynth
 
         const byte message_mask = 0x7;
         // const byte channel_mask = 0xF;
-        // const byte channel      = (bytes[0] >> 0) & channel_mask;
+        // const byte channel = (bytes[0] >> 0) & channel_mask;
         const byte message = (bytes[0] >> 4) & message_mask;
 
         const auto event = static_cast<MidiEvent>(message);
@@ -324,20 +328,20 @@ namespace euphoria::minsynth
             const bool on = event == MidiEvent::NoteOn;
             if(bytes_size == 3)
             {
-                const auto note     = bytes[1];
+                const auto note = bytes[1];
                 const auto velocity = bytes[2];
 
-                if(IsStatusMessage(note) || IsStatusMessage(velocity))
+                if(MidiInNode::IsStatusMessage(note) || MidiInNode::IsStatusMessage(velocity))
                 {
                     LOG_ERROR("Unexpected midi command in note on/off data.");
                     return;
                 }
 
                 // c3 == midi #60
-                if(tones)
+                if(tones != nullptr)
                 {
                     const int tone = note;
-                    float     time = dt;
+                    float time = dt;
                     tones->OnTone(tone - 60, on, time + last_time);
                     LOG_INFO("Time: {0}", time + last_time);
                     last_time += time;
@@ -357,12 +361,14 @@ namespace euphoria::minsynth
 
 
     void
-    KeyboardInputNode::OnChord(
-            int   base,
-            bool  was_pressed,
-            float time,
-            int   first,
-            int   second)
+    KeyboardInputNode::OnChord
+    (
+        int base,
+        bool was_pressed,
+        float time,
+        int first,
+        int second
+    ) const
     {
         tones->OnTone(base, was_pressed, time);
         tones->OnTone(base + first, was_pressed, time);
@@ -370,11 +376,13 @@ namespace euphoria::minsynth
     }
 
     void
-    KeyboardInputNode::OnChord(
-            int              base,
-            bool             was_pressed,
-            float            time,
-            std::vector<int> integer_notation)
+    KeyboardInputNode::OnChord
+    (
+        int base,
+        bool was_pressed,
+        float time,
+        const std::vector<int>& integer_notation
+    ) const
     {
         for(auto i: integer_notation)
         {
@@ -399,7 +407,7 @@ namespace euphoria::minsynth
                     key.octave_shift = octave_shift;
                 }
                 const auto octave_shift_semitones = key.octave_shift ? 24 : 0;
-                const int  tone = key.semitone + octave_shift_semitones;
+                const int tone = key.semitone + octave_shift_semitones;
 
                 const auto minor3rd = 3;
                 const auto major3rd = 4;
@@ -485,9 +493,9 @@ namespace euphoria::minsynth
     int
     SingleToneNode::GetCurrentTone() const
     {
-        bool  has_tone = false;
-        int   tone     = 0;
-        float time     = 0;
+        bool has_tone = false;
+        int tone = 0;
+        float time = 0;
         for(const auto k: down_tones)
         {
             if(has_tone)
@@ -501,8 +509,8 @@ namespace euphoria::minsynth
             else
             {
                 has_tone = true;
-                time     = k.second;
-                tone     = k.first;
+                time = k.second;
+                tone = k.first;
             }
         }
 
@@ -527,7 +535,7 @@ namespace euphoria::minsynth
                 if(mode == ArpMode::Random || mode == ArpMode::RandomNoRepeat)
                 {
                     const int last_index = index;
-                    index                = rand() % size;
+                    index = rand() % size;
                     if(mode == ArpMode::RandomNoRepeat && tones.size() > 1)
                     {
                         while(index == last_index)
@@ -600,15 +608,17 @@ namespace euphoria::minsynth
                 if(tt.size() > 2)
                 {
                     tt.erase(tt.begin());
-                    std::set<int>::iterator it = tt.end();
+                    auto it = tt.end();
                     --it;
                     tt.erase(it);
                     tones.insert(tones.begin(), tt.rbegin(), tt.rend());
                 }
                 break;
-            default: tones.insert(tones.begin(), tt.begin(), tt.end()); break;
+            default:
+                tones.insert(tones.begin(), tt.begin(), tt.end());
+                break;
             }
-            index = index % tones.size();
+            index = index % core::Csizet_to_int(tones.size());
         }
     }
 
@@ -616,15 +626,14 @@ namespace euphoria::minsynth
     float
     RunOscilator(float frequency, float time, OscilatorType osc)
     {
-        const float sine = sin(frequency * 2.0f * pi * time);
+        const float sine = core::Sin( core::Angle::FromPercentOf360(frequency) * time);
         switch(osc)
         {
         case OscilatorType::Sine: return sine;
-        case OscilatorType::Square: return sine > 0 ? 1 : -1;
-        case OscilatorType::Triangle: return asin(sine) * (2 / pi);
+        case OscilatorType::Square: return sine > 0.0f ? 1.0f : -1.0f;
+        case OscilatorType::Triangle: return core::Asin(sine).InRadians() * (2.0f / pi);
         case OscilatorType::Sawtooth:
-            return (2 / pi)
-                   * (frequency * pi * fmodf(time, 1 / frequency) - pi / 2);
+            return (2 / pi) * (frequency * pi * fmodf(time, 1 / frequency) - pi / 2);
         case OscilatorType::Noise:
             // todo: use the improved c++ random library
             // todo: and also add perlin noise?
@@ -642,32 +651,38 @@ namespace euphoria::minsynth
 
 
     float
-    Envelope::GetLive(float wave, float start_time, float current_time)
+    Envelope::GetLive(float wave, float start_time, float current_time) const
     {
-        if(current_time < start_time)
-            return 0;
-        if(current_time > (start_time + time_to_start))
-            return wave;
-        return wave
-               * to01(start_time, current_time, start_time + time_to_start);
+        if(current_time < start_time) { return 0; }
+        else if(current_time > (start_time + time_to_start)) { return wave; }
+        else
+        {
+            return wave * to01(start_time, current_time, start_time + time_to_start);
+        }
     }
 
     float
-    Envelope::GetDead(float wave, float end_time, float current_time)
+    Envelope::GetDead(float wave, float end_time, float current_time) const
     {
         if(current_time < end_time)
+        {
             return wave;
-        if(current_time > (end_time + time_to_end))
+        }
+        else if(current_time > (end_time + time_to_end))
+        {
             return 0;
-        return wave
-               * (1 - to01(end_time, current_time, end_time + time_to_end));
+        }
+        else
+        {
+            return wave * (1 - to01(end_time, current_time, end_time + time_to_end));
+        }
     }
 
 
     int
     OscilatorNode::GetTotalTones() const
     {
-        return live.size() + dead.size();
+        return core::Csizet_to_int(live.size() + dead.size());
     }
 
     int
@@ -716,31 +731,36 @@ namespace euphoria::minsynth
         float value = 0;
 
         const int maxtones = 10;
-        int       tone;
 
-        tone = 0;
-
+        int tone = 0;
         for(const auto& li: live)
         {
             if(tone++ > maxtones)
+            {
                 break;
+            }
             const auto& f = li.second;
-            value += envelope.GetLive(
-                    RunOscilator(f.frequency, time, oscilator),
-                    f.time_start,
-                    time);
+            value += envelope.GetLive
+            (
+                RunOscilator(f.frequency, time, oscilator),
+                f.time_start,
+                time
+            );
         }
 
         tone = 0;
         for(const auto& d: dead)
         {
             if(tone++ > maxtones)
+            {
                 break;
-            value += d.scale
-                     * envelope.GetDead(
-                             RunOscilator(d.frequency, time, oscilator),
-                             d.time_end,
-                             time);
+            }
+            value += d.scale * envelope.GetDead
+            (
+                RunOscilator(d.frequency, time, oscilator),
+                d.time_end,
+                time
+            );
         }
 
         return value;
@@ -758,14 +778,16 @@ namespace euphoria::minsynth
                 to->push_back(t);
             }
         }
-    }  // namespace
+    } // namespace
 
 
     float
     Effect::GetOutput(float time)
     {
         if(in == nullptr)
+        {
             return 0;
+        }
 
         return OnWave(in->GetOutput(time));
     }
@@ -781,7 +803,7 @@ namespace euphoria::minsynth
     float
     ScalerEffect::OnWave(float wave)
     {
-        float      w        = fabs(wave);
+        float w = core::Abs(wave);
         const auto negative = wave < 0;
         for(int i = 0; i < times; i += 1)
         {
@@ -792,37 +814,39 @@ namespace euphoria::minsynth
 
 
     std::vector<PianoKey>
-    OneOctaveOfPianoKeys(
-            int       octave,
-            int       semitone_offset,
-            core::Key c,
-            core::Key d,
-            core::Key e,
-            core::Key f,
-            core::Key g,
-            core::Key a,
-            core::Key b,
-            core::Key c_sharp,
-            core::Key d_sharp,
-            core::Key f_sharp,
-            core::Key g_sharp,
-            core::Key a_sharp)
+    OneOctaveOfPianoKeys
+    (
+        int octave,
+        int semitone_offset,
+        core::Key c,
+        core::Key d,
+        core::Key e,
+        core::Key f,
+        core::Key g,
+        core::Key a,
+        core::Key b,
+        core::Key c_sharp,
+        core::Key d_sharp,
+        core::Key f_sharp,
+        core::Key g_sharp,
+        core::Key a_sharp
+    )
     {
-        return {
-                PianoKey(semitone_offset + 0, c, "C", octave),
-                PianoKey(semitone_offset + 1, c_sharp, "C#", octave),
-                PianoKey(semitone_offset + 2, d, "D", octave),
-                PianoKey(semitone_offset + 3, d_sharp, "D#", octave),
-                PianoKey(semitone_offset + 4, e, "E", octave),
+        return
+        {
+            PianoKey(semitone_offset + 0, c, "C", octave),
+            PianoKey(semitone_offset + 1, c_sharp, "C#", octave),
+            PianoKey(semitone_offset + 2, d, "D", octave),
+            PianoKey(semitone_offset + 3, d_sharp, "D#", octave),
+            PianoKey(semitone_offset + 4, e, "E", octave),
 
-                PianoKey(semitone_offset + 5, f, "F", octave),
-                PianoKey(semitone_offset + 6, f_sharp, "F#", octave),
-                PianoKey(semitone_offset + 7, g, "G", octave),
-                PianoKey(semitone_offset + 8, g_sharp, "G#", octave),
-                PianoKey(semitone_offset + 9, a, "A", octave),
-                PianoKey(semitone_offset + 10, a_sharp, "A#", octave),
-                PianoKey(semitone_offset + 11, b, "B", octave),
-
+            PianoKey(semitone_offset + 5, f, "F", octave),
+            PianoKey(semitone_offset + 6, f_sharp, "F#", octave),
+            PianoKey(semitone_offset + 7, g, "G", octave),
+            PianoKey(semitone_offset + 8, g_sharp, "G#", octave),
+            PianoKey(semitone_offset + 9, a, "A", octave),
+            PianoKey(semitone_offset + 10, a_sharp, "A#", octave),
+            PianoKey(semitone_offset + 11, b, "B", octave),
         };
     }
 
@@ -832,20 +856,12 @@ namespace euphoria::minsynth
     {
         using K = euphoria::core::Key;
 
-        static const KeyboardLayout k = {
-                {K::NUM_1,
-                 K::NUM_2,
-                 K::NUM_3,
-                 K::NUM_4,
-                 K::NUM_5,
-                 K::NUM_6,
-                 K::NUM_7,
-                 K::NUM_8,
-                 K::NUM_9,
-                 K::NUM_0},
-                {K::Q, K::W, K::E, K::R, K::T, K::Y, K::U, K::I, K::O, K::P},
-                {K::A, K::S, K::D, K::F, K::G, K::H, K::J, K::K, K::L},
-                {K::Z, K::X, K::C, K::V, K::B, K::N, K::M},
+        static const KeyboardLayout k =
+        {
+            {K::NUM_1, K::NUM_2, K::NUM_3, K::NUM_4, K::NUM_5, K::NUM_6, K::NUM_7, K::NUM_8, K::NUM_9, K::NUM_0},
+            {K::Q, K::W, K::E, K::R, K::T, K::Y, K::U, K::I, K::O, K::P},
+            {K::A, K::S, K::D, K::F, K::G, K::H, K::J, K::K, K::L},
+            {K::Z, K::X, K::C, K::V, K::B, K::N, K::M},
         };
 
         return k;
@@ -853,71 +869,89 @@ namespace euphoria::minsynth
 
 
     void
-    SetupOneOctaveLayout(
-            std::vector<PianoKey>* keys,
-            int                    base_octave,
-            int                    octave,
-            const KeyboardLayout&  k,
-            int                    start_row,
-            int                    start_col)
+    SetupOneOctaveLayout
+    (
+        std::vector<PianoKey>* keys,
+        int base_octave,
+        int octave,
+        const KeyboardLayout& k,
+        int start_row,
+        int start_col
+    )
     {
-        const auto K = [&](int x, int y) -> core::Key {
+        const auto K = [&](int x, int y) -> core::Key
+        {
             const auto wy = start_row - y + 1;
             if(wy < 0 || wy > core::Csizet_to_int(k.size()))
+            {
                 return core::Key::UNBOUND;
-            const auto& r  = k[wy];
-            const auto  wx = start_col + x;
+            }
+            const auto& r = k[wy];
+            const auto wx = start_col + x;
             if(wx < 0 || wx > core::Csizet_to_int(r.size()))
+            {
                 return core::Key::UNBOUND;
+            }
             return r[wx];
         };
         const auto W = K;
         const auto B = K;
 
-        Insert(keys,
-               OneOctaveOfPianoKeys(
-                       base_octave + octave,
-                       octave * 12,
-                       // first 3 white
-                       W(0, 0),
-                       W(1, 0),
-                       W(2, 0),
-                       // second 4
-                       W(3, 0),
-                       W(4, 0),
-                       W(5, 0),
-                       W(6, 0),
-                       // first 2 black
-                       B(1, 1),
-                       B(2, 1),
-                       // second 3
-                       B(4, 1),
-                       B(5, 1),
-                       B(6, 1)));
+        Insert
+        (
+            keys,
+            OneOctaveOfPianoKeys
+            (
+                base_octave + octave,
+                octave * 12,
+                // first 3 white
+                W(0, 0),
+                W(1, 0),
+                W(2, 0),
+                // second 4
+                W(3, 0),
+                W(4, 0),
+                W(5, 0),
+                W(6, 0),
+                // first 2 black
+                B(1, 1),
+                B(2, 1),
+                // second 3
+                B(4, 1),
+                B(5, 1),
+                B(6, 1)
+            )
+        );
     }
 
 
     void
-    SetupQwertyTwoOctaveLayout(
-            std::vector<PianoKey>* keys,
-            int                    base_octave,
-            int                    octave_offset)
+    SetupQwertyTwoOctaveLayout
+    (
+        std::vector<PianoKey>* keys,
+        int base_octave,
+        int octave_offset
+    )
     {
-        SetupOneOctaveLayout(
-                keys,
-                base_octave,
-                0 + octave_offset,
-                KeyboardLayoutQwerty(),
-                0,
-                3);
-        SetupOneOctaveLayout(
-                keys,
-                base_octave,
-                1 + octave_offset,
-                KeyboardLayoutQwerty(),
-                2,
-                0);
+        SetupOneOctaveLayout
+        (
+            keys,
+            base_octave,
+            0 + octave_offset,
+            KeyboardLayoutQwerty(),
+            0,
+            3
+        );
+        SetupOneOctaveLayout
+        (
+            keys,
+            base_octave,
+            1 + octave_offset,
+            KeyboardLayoutQwerty(),
+            2,
+            0
+        );
     }
 
 
-}  // namespace euphoria::minsynth
+}
