@@ -1,23 +1,26 @@
-#ifndef RENDER_ID_H
-#define RENDER_ID_H
+#pragma once
 
 #include "core/noncopyable.h"
+
 #include "render/gltypes.h"
+
 
 namespace euphoria::render
 {
-    struct Id : core::Noncopyable
+    struct Id
     {
     public:
         Id();
-        ~Id();
+        ~Id() = default;
 
-        gluint
+        NONCOPYABLE(Id);
+
+        // todo(Gustav): remove and make id public or remove class altogether
+        [[nodiscard]] gluint
         GetId() const;
 
     protected:
-        gluint id_;
+        // nolint regarding protected visibility
+        gluint id_; // NOLINT
     };
-}  // namespace euphoria::render
-
-#endif  // RENDER_ID_H
+}

@@ -1,21 +1,17 @@
-#ifndef RENDER_SHADERATTRIBUTE2D_H
-#define RENDER_SHADERATTRIBUTE2D_H
+#pragma once
 
 #include "render/shaderattribute.h"
 
 namespace euphoria::render
 {
     struct Shader;
+}
 
-    namespace attributes2d
-    {
-        const ShaderAttribute&
-        Vertex();
+namespace euphoria::render::attributes2d
+{
+    const ShaderAttribute&
+    Vertex();
 
-        void
-        PrebindShader(Shader* shader);
-    }  // namespace attributes2d
-
-}  // namespace euphoria::render
-
-#endif  // RENDER_SHADERATTRIBUTE2D_H
+    void
+    PrebindShader(Shader* shader);
+}

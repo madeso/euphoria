@@ -2,23 +2,24 @@
 
 #include "core/assert.h"
 #include "core/bufferbuilder2d.h"
+#include "core/cint.h"
 
 #include "render/shaderattribute2d.h"
 
 namespace euphoria::render
 {
     Buffer2d::Buffer2d(const core::BufferBuilder2d& bb)
-        : index_count_(bb.tris.size())
+        : index_count(core::Csizet_to_int(bb.tris.size()))
     {
-        PointLayout::Bind(&vao_);
-        VertexBuffer::Bind(&vbo_);
+        PointLayout::Bind(&vao);
+        VertexBuffer::Bind(&vbo);
 
-        vbo_.SetData(bb.data);
+        vbo.SetData(bb.data);
 
-        IndexBuffer::Bind(&ebo_);
-        ebo_.SetData(bb.tris);
+        IndexBuffer::Bind(&ebo);
+        ebo.SetData(bb.tris);
 
-        vao_.BindData(attributes2d::Vertex(), sizeof(float) * 4, 0);
+        vao.BindData(attributes2d::Vertex(), sizeof(float) * 4, 0);
 
         PointLayout::Bind(nullptr);
 
@@ -26,14 +27,13 @@ namespace euphoria::render
         VertexBuffer::Bind(nullptr);
     }
 
+
     void
     Buffer2d::Draw() const
     {
-        // DIE("Hrm... using triangles doesn't look right here. Investigate!");
-        PointLayout::Bind(&vao_);
-        ebo_.Draw(RenderMode::Triangles, index_count_);
+        PointLayout::Bind(&vao);
+        ebo.Draw(RenderMode::Triangles, index_count);
         PointLayout::Bind(nullptr);
     }
 
-}  // namespace euphoria::render
-
+}

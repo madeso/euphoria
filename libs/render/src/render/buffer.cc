@@ -9,29 +9,26 @@
 
 namespace euphoria::render
 {
-    LOG_SPECIFY_DEFAULT_LOGGER("render.buffer")
-
     VertexBuffer::VertexBuffer()
     {
         glGenBuffers(1, &id_);
     }
+
 
     VertexBuffer::~VertexBuffer()
     {
         glDeleteBuffers(1, &id_);
     }
 
+
     void
     VertexBuffer::SetData(const std::vector<float>& data)
     {
         ASSERT(GetBound() == this);
         // use GL_DYNAMIC_DRAW or GL_STREAM_DRAW instead?
-        glBufferData(
-                GL_ARRAY_BUFFER,
-                sizeof(float) * data.size(),
-                &data[0],
-                GL_STATIC_DRAW);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(float) * data.size(), &data[0], GL_STATIC_DRAW);
     }
+
 
     void
     VertexBuffer::Bind(const VertexBuffer* vbo)
@@ -41,6 +38,7 @@ namespace euphoria::render
         GetBound() = vbo;
     }
 
+
     const VertexBuffer*&
     VertexBuffer::GetBound()
     {
@@ -48,17 +46,21 @@ namespace euphoria::render
         return Vbo;
     }
 
+
     ////////////////////////////////////////////////////////////////////////////////
+
 
     PointLayout::PointLayout()
     {
         glGenVertexArrays(1, &id_);
     }
 
+
     PointLayout::~PointLayout()
     {
         glDeleteVertexArrays(1, &id_);
     }
+
 
     namespace
     {
@@ -76,29 +78,30 @@ namespace euphoria::render
             default: LOG_ERROR("Unhandled shader type"); return GL_FLOAT;
             }
         }
-    }  // namespace
+    }
+
 
     void
-    PointLayout::BindData(
-            const ShaderAttribute& attribute,
-            int                    stride,
-            int                    offset)
+    PointLayout::BindData(const ShaderAttribute& attribute, int stride, int offset)
     {
         ASSERT(GetBound() == this);
         ASSERT(VertexBuffer::GetBound() != nullptr);
         // reinterpret_cast is probably ok since the void* is an offset
         // and not a actual pointer
-        glVertexAttribPointer(
-                attribute.id,
-                attribute.GetElementCount(),
-                GetOpenGLType(attribute.type),
-                attribute.normalize ? GL_TRUE : GL_FALSE,
-                stride,
-                reinterpret_cast<GLvoid*>(offset));  // NOLINT
+        glVertexAttribPointer
+        (
+            attribute.id,
+            attribute.GetElementCount(),
+            GetOpenGLType(attribute.type),
+            attribute.normalize ? GL_TRUE : GL_FALSE,
+            stride,
+            reinterpret_cast<GLvoid*>(offset) // NOLINT
+        );
         glEnableVertexAttribArray(attribute.id);
 
         attributes.push_back(attribute);
     }
+
 
     void
     PointLayout::Bind(const PointLayout* vao)
@@ -108,6 +111,7 @@ namespace euphoria::render
         GetBound() = vao;
     }
 
+
     const PointLayout*&
     PointLayout::GetBound()
     {
@@ -115,27 +119,35 @@ namespace euphoria::render
         return Vao;
     }
 
+
     ////////////////////////////////////////////////////////////////////////////////
+
 
     IndexBuffer::IndexBuffer()
     {
         glGenBuffers(1, &id_);
     }
+
+
     IndexBuffer::~IndexBuffer()
     {
         glDeleteBuffers(1, &id_);
     }
 
+
     void
     IndexBuffer::SetData(const std::vector<unsigned int>& indices)
     {
         ASSERT(GetBound() == this);
-        glBufferData(
-                GL_ELEMENT_ARRAY_BUFFER,
-                indices.size() * sizeof(unsigned int),
-                &indices[0],
-                GL_STATIC_DRAW);
+        glBufferData
+        (
+            GL_ELEMENT_ARRAY_BUFFER,
+            indices.size() * sizeof(unsigned int),
+            &indices[0],
+            GL_STATIC_DRAW
+        );
     }
+
 
     void
     IndexBuffer::Draw(RenderMode mode, int count) const
@@ -143,16 +155,18 @@ namespace euphoria::render
         ASSERT(PointLayout::GetBound() != nullptr);
         ASSERT(Shader::CurrentlyBound() != nullptr);
 
-        const PointLayout* vao    = PointLayout::GetBound();
-        const Shader*      shader = Shader::CurrentlyBound();
+        const PointLayout* vao = PointLayout::GetBound();
+        const Shader* shader = Shader::CurrentlyBound();
+
         ASSERT(vao);
         ASSERT(shader);
+
+        ASSERT(GetBound() == this);
 
         const auto& a = shader->GetAttributes();
         for(const auto& attribute: vao->attributes)
         {
-            const bool found_in_shader
-                    = std::find(a.begin(), a.end(), attribute) != a.end();
+            const bool found_in_shader = std::find(a.begin(), a.end(), attribute) != a.end();
             if(!found_in_shader)
             {
                 LOG_ERROR
@@ -189,5 +203,4 @@ namespace euphoria::render
         static const IndexBuffer* Ebo = nullptr;
         return Ebo;
     }
-
-}  // namespace euphoria::render
+}

@@ -4,26 +4,26 @@
 
 #include "render/shader.h"
 
-namespace euphoria::render
+namespace euphoria::render::attributes2d
 {
-    namespace attributes2d
+    const ShaderAttribute&
+    Vertex()
     {
-        const ShaderAttribute&
-        Vertex()
+        static const auto attribute = ShaderAttribute
         {
-            static ShaderAttribute Attribute {1,
-                                              ShaderAttributeType::FLOAT4,
-                                              "vertex",
-                                              ShaderAttributeSource::Unknown};
-            return Attribute;
-        }
+            1,
+            ShaderAttributeType::FLOAT4,
+            "vertex",
+            ShaderAttributeSource::Unknown
+        };
+        return attribute;
+    }
 
-        void
-        PrebindShader(Shader* shader)
-        {
-            ASSERT(shader);
-            shader->PreBind(Vertex());
-        }
-    }  // namespace attributes2d
 
-}  // namespace euphoria::render
+    void
+    PrebindShader(Shader* shader)
+    {
+        ASSERT(shader);
+        shader->PreBind(Vertex());
+    }
+}

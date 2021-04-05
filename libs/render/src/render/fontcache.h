@@ -1,39 +1,34 @@
-#ifndef RENDER_FONTCACHE_H
-#define RENDER_FONTCACHE_H
+#pragma once
 
 #include <memory>
 #include <string>
 
-namespace euphoria
+#include "core/noncopyable.h"
+
+
+namespace euphoria::core::vfs
 {
-    namespace core
+    struct FileSystem;
+    struct FilePath;
+}
+
+
+namespace euphoria::render
+{
+    struct Font;
+    struct TextureCache;
+
+    struct FontCache
     {
-        namespace vfs
-        {
-            struct FileSystem;
-            struct FilePath;
-        }
-    }  // namespace core
+        FontCache(core::vfs::FileSystem* fs, TextureCache* cache);
+        ~FontCache();
 
-    namespace render
-    {
-        struct Font;
-        struct TextureCache;
+        NONCOPYABLE(FontCache);
 
-        struct FontCache
-        {
-        public:
-            FontCache(core::vfs::FileSystem* fs, TextureCache* cache);
-            ~FontCache();
+        [[nodiscard]] std::shared_ptr<Font>
+        GetFont(const core::vfs::FilePath& path) const;
 
-            std::shared_ptr<Font>
-            GetFont(const core::vfs::FilePath& path);
-
-        private:
-            struct FontCachePimpl;
-            std::unique_ptr<FontCachePimpl> pimp;
-        };
-    }  // namespace render
-}  // namespace euphoria
-
-#endif  // RENDER_FONTCACHE_H
+        struct FontCachePimpl;
+        std::unique_ptr<FontCachePimpl> pimp;
+    };
+}

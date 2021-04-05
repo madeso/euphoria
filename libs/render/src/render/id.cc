@@ -4,13 +4,14 @@
 
 namespace euphoria::render
 {
-    Id::Id() : id_(0) {}
-
-    Id::~Id() = default;
+    Id::Id()
+        : id_(0)
+    {
+    }
 
     gluint
     Id::GetId() const
     {
         return id_;
     }
-}  // namespace euphoria::render
+}

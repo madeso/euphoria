@@ -1,13 +1,13 @@
-#ifndef RENDER_INIT_H
-#define RENDER_INIT_H
+#pragma once
 
 #include "core/rect.h"
 #include "core/mat4.h"
 #include "core/rgb.h"
+#include "core/noncopyable.h"
 
 namespace euphoria::render
 {
-    typedef void* (*LoaderFunction)(const char* name);
+    using LoaderFunction = void* (*)(const char* name);
 
     // todo: come up with a better name
     struct Init
@@ -19,25 +19,23 @@ namespace euphoria::render
             EnableHack
         };
 
-        explicit Init(
-                LoaderFunction loader,
-                BlendHack      blend_hack = BlendHack::NoHack);
+        explicit Init(LoaderFunction loader, BlendHack blend_hack = BlendHack::NoHack);
         ~Init();
 
-        core::mat4f
-        GetOrthoProjection(float width, float height);
+        NONCOPYABLE(Init);
 
-        // todo: move to some better place
-        void
-        Use2d();
+        [[nodiscard]] core::mat4f
+        GetOrthoProjection(float width, float height) const;
 
-        // todo: move to some place better
+        // todo(Gustav): move to some better place
         void
-        ClearScreen(const core::Rgb& color);
+        Use2d() const;
+
+        // todo(Gustav): move to some place better
+        void
+        ClearScreen(const core::Rgb& color) const;
 
         bool ok;
     };
 
-}  // namespace euphoria::render
-
-#endif  // RENDER_INIT_H
+}

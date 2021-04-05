@@ -1,7 +1,8 @@
-#ifndef RENDER_BUFFER_H
-#define RENDER_BUFFER_H
+#pragma once
 
 #include <vector>
+
+#include "core/noncopyable.h"
 
 #include "render/id.h"
 #include "render/shaderattribute.h"
@@ -17,6 +18,8 @@ namespace euphoria::render
         VertexBuffer();
         ~VertexBuffer();
 
+        NONCOPYABLE(VertexBuffer);
+
         void
         SetData(const std::vector<float>& data);
 
@@ -27,6 +30,7 @@ namespace euphoria::render
         GetBound();
     };
 
+
     /** Stores what the data in the VertexBuffer is and how it is laid out/used
      * Represents a OpenGL Vertex Array Object (VAO).
      */
@@ -35,6 +39,8 @@ namespace euphoria::render
     public:
         PointLayout();
         ~PointLayout();
+
+        NONCOPYABLE(PointLayout);
 
         void
         BindData(const ShaderAttribute& attribute, int stride, int offset);
@@ -49,8 +55,10 @@ namespace euphoria::render
         std::vector<ShaderAttribute> attributes;
     };
 
+
     enum class RenderMode
     {Lines, Triangles};
+
 
     /** Reuses points.
      * Represents a OpenGL Element Buffer Object (EBO).
@@ -60,6 +68,8 @@ namespace euphoria::render
     public:
         IndexBuffer();
         ~IndexBuffer();
+
+        NONCOPYABLE(IndexBuffer);
 
         void
         SetData(const std::vector<unsigned int>& indices);
@@ -77,4 +87,3 @@ namespace euphoria::render
 
 }  // namespace euphoria::render
 
-#endif  // RENDER_BUFFER_H

@@ -1,40 +1,37 @@
-#ifndef EUPHORIA_SHADERATTRIBUTE3D_H
-#define EUPHORIA_SHADERATTRIBUTE3D_H
+#pragma once
 
 #include "render/shaderattribute.h"
+
 
 namespace euphoria::render
 {
     struct Shader;
+}
 
-    // todo(Gustav): Refactor into a pipeline/layout structure
-    /*
-    Currently attributes are hardcoded into a special layout.
-    It would be preferable if the layout is written in script
-    and the actual values are dynamically created in script.
-     */
-
-    namespace attributes3d
-    {
-        const ShaderAttribute&
-        Vertex();
-
-
-        const ShaderAttribute&
-        Normal();
+// todo(Gustav): Refactor into a pipeline/layout structure
+/*
+Currently attributes are hardcoded into a special layout.
+It would be preferable if the layout is written in script
+and the actual values are dynamically created in script.
+*/
+namespace euphoria::render::attributes3d
+{
+    const ShaderAttribute&
+    Vertex();
 
 
-        const ShaderAttribute&
-        TexCoord();
+    const ShaderAttribute&
+    Normal();
 
 
-        const ShaderAttribute&
-        Color();
+    const ShaderAttribute&
+    TexCoord();
 
 
-        void
-        PrebindShader(Shader* shader);
-    }  // namespace attributes3d
-}  // namespace euphoria::render
+    const ShaderAttribute&
+    Color();
 
-#endif  // EUPHORIA_SHADERATTRIBUTE3D_H
+
+    void
+    PrebindShader(Shader* shader);
+}

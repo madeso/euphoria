@@ -37,4 +37,4 @@ namespace euphoria::render
         , cutoff_angle_inner(core::Angle::FromDegrees(13.37f))
     {}
 
-}  // namespace euphoria::render
+}

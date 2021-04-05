@@ -1,5 +1,4 @@
-#ifndef RENDER_BUFFER_2D_H
-#define RENDER_BUFFER_2D_H
+#pragma once
 
 #include "render/buffer.h"
 
@@ -19,12 +18,10 @@ namespace euphoria::render
         Draw() const;
 
     private:
-        unsigned int index_count_;
-        VertexBuffer vbo_;
-        PointLayout  vao_;
-        IndexBuffer  ebo_;
+        int index_count;
+        VertexBuffer vbo;
+        PointLayout  vao;
+        IndexBuffer  ebo;
     };
 
-}  // namespace euphoria::render
-
-#endif  // RENDER_BUFFER_2D_H
+}

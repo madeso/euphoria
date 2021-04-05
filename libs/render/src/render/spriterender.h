@@ -1,5 +1,4 @@
-#ifndef SPRITE_RENDERER_H
-#define SPRITE_RENDERER_H
+#pragma once
 
 #include <memory>
 
@@ -7,6 +6,7 @@
 #include "core/rgb.h"
 #include "core/angle.h"
 #include "core/rect.h"
+#include "core/noncopyable.h"
 
 #include "render/shaderuniform.h"
 #include "render/shader.h"
@@ -40,6 +40,8 @@ namespace euphoria::render
     {
         SpriteRenderer(Shader* shader);
         ~SpriteRenderer();
+
+        NONCOPYABLE(SpriteRenderer);
 
         void
         DrawRect
@@ -82,6 +84,3 @@ namespace euphoria::render
     };
 
 }
-
-#endif
-

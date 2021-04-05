@@ -1,7 +1,9 @@
-#ifndef EUPHORIA_ID_H
-#define EUPHORIA_ID_H
+#pragma once
 
 #include <vector>
+
+#include "core/noncopyable.h"
+
 
 namespace euphoria::core
 {
@@ -32,10 +34,7 @@ namespace euphoria::core
     public:
         explicit Id(IdGenerator* generator);
 
-        Id(const Id&) = delete;
-        Id(Id&&) = delete;
-        void operator=(const Id&) = delete;
-        void operator=(Id&&) = delete;
+        NONCOPYABLE(Id);
 
         [[nodiscard]] static const Id&
         Invalid();
@@ -56,6 +55,4 @@ namespace euphoria::core
         IdGenerator*    generator_;
     };
 
-}  // namespace euphoria::core
-
-#endif  // EUPHORIA_ID_H
+}

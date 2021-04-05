@@ -6,7 +6,6 @@ namespace euphoria::render
 {
     Actor::Actor(const std::shared_ptr<CompiledMesh>& mesh)
         : mesh_(mesh)
-        , overriden_materials()
     {
         ASSERT(mesh);
     }

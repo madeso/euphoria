@@ -1,5 +1,4 @@
-#ifndef RENDER_SHADERATTRIBUTE_H
-#define RENDER_SHADERATTRIBUTE_H
+#pragma once
 
 #include <string>
 
@@ -26,17 +25,25 @@ namespace euphoria::render
         Color
     };
 
-    /** Respresents a shder attribute like vertex, normal or uv coord.
+    /** Respresents a shader attribute like vertex, normal or uv coord.
      */
     struct ShaderAttribute
     {
-    public:
-        ShaderAttribute(
-                glint                 a_id,
-                ShaderAttributeType   a_type,
-                std::string           a_name,
-                ShaderAttributeSource a_source,
-                bool                  a_normalize = false);
+        // todo(Gustav): can this be maded constexpr?
+        ShaderAttribute
+        (
+            glint a_id,
+            ShaderAttributeType a_type,
+            std::string a_name,
+            ShaderAttributeSource a_source,
+            bool a_normalize = false
+        );
+
+        [[nodiscard]] int
+        GetElementCount() const;
+
+        [[nodiscard]] int
+        GetByteSize() const;
 
         /// the id of the attribute
         glint id;
@@ -52,17 +59,8 @@ namespace euphoria::render
 
         // true if the attribute is normalized
         bool normalize;
-
-        int
-        GetElementCount() const;
-
-        int
-        GetByteSize() const;
     };
 
     bool
     operator==(const ShaderAttribute& lhs, const ShaderAttribute& rhs);
-
-}  // namespace euphoria::render
-
-#endif  // RENDER_SHADERATTRIBUTE_H
+}

@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_COMPILEDMESH_H
-#define EUPHORIA_COMPILEDMESH_H
+#pragma once
 
 #include <memory>
 #include <map>
@@ -8,13 +7,11 @@
 #include "core/mat4.h"
 #include "render/buffer.h"
 
-namespace euphoria::core
+
+namespace euphoria::core::vfs
 {
-    namespace vfs
-    {
-        struct DirPath;
-    }
-}  // namespace euphoria::core
+    struct DirPath;
+}
 
 
 namespace euphoria::render
@@ -30,14 +27,13 @@ namespace euphoria::render
     // one part of the mesh, single material
     struct CompiledMeshPart
     {
-        // todo(Gustav): move vertex buffer and point layout to the
-        //   compile mesh instead
+        // todo(Gustav): move vertex buffer and point layout to the compile mesh instead
         VertexBuffer data;
 
         // todo(Gustav): rename config to something better... like layout?
         PointLayout config;
-        IndexBuffer  tris;
-        int          tri_count;
+        IndexBuffer tris;
+        int tri_count;
         unsigned int material;
     };
 
@@ -50,7 +46,7 @@ namespace euphoria::render
         void
         SetTexture
         (
-            const core::EnumValue&     name,
+            const core::EnumValue& name,
             std::shared_ptr<Texture2d> texture
         );
 
@@ -62,7 +58,7 @@ namespace euphoria::render
             const core::mat4f& projection_matrix,
             const core::mat4f& view_matrix,
             const core::vec3f& camera,
-            const Light&       light
+            const Light& light
         ) const;
 
 
@@ -75,15 +71,15 @@ namespace euphoria::render
         /** Asks the shader if all the textures are set,
          * and if more than necessary are set.
          */
-        bool
+        [[nodiscard]] bool
         Validate() const;
 
 
-        core::Rgb                                             ambient;
-        core::Rgb                                             diffuse;
-        core::Rgb                                             specular;
-        float                                                 shininess;
-        std::shared_ptr<MaterialShader>                       shader;
+        core::Rgb ambient;
+        core::Rgb diffuse;
+        core::Rgb specular;
+        float shininess;
+        std::shared_ptr<MaterialShader> shader;
         std::map<core::EnumValue, std::shared_ptr<Texture2d>> textures;
     };
 
@@ -93,7 +89,7 @@ namespace euphoria::render
     struct CompiledMesh
     {
         std::vector<std::shared_ptr<CompiledMeshPart>> parts;
-        std::vector<CompiledMeshMaterial>              materials;
+        std::vector<CompiledMeshMaterial> materials;
 
 
         void
@@ -103,7 +99,7 @@ namespace euphoria::render
             const core::mat4f& projection_matrix,
             const core::mat4f& view_matrix,
             const core::vec3f& camera,
-            const Light&       light,
+            const Light& light,
             const std::shared_ptr<MaterialOverride>& overridden_materials
         );
     };
@@ -118,6 +114,4 @@ namespace euphoria::render
         const core::vfs::DirPath& texture_folder,
         const std::string& debug_name
     );
-}  // namespace euphoria::render
-
-#endif  // EUPHORIA_COMPILEDMESH_H
+}

@@ -1,9 +1,11 @@
-#ifndef RENDER_SHADERUNIFORM_H
-#define RENDER_SHADERUNIFORM_H
+#pragma once
 
 #include <string>
 
+#include "core/noncopyable.h"
+
 #include "render/gltypes.h"
+
 
 namespace euphoria::render
 {
@@ -12,25 +14,28 @@ namespace euphoria::render
     struct ShaderUniform
     {
     public:
-        ShaderUniform(const ShaderUniform&) = default;
         ShaderUniform(std::string aname, glint aid, Shader* ashader);
+
+        ~ShaderUniform() = default;
+        ShaderUniform(const ShaderUniform&) = default;
+        ShaderUniform(ShaderUniform&&) = default;
+        ShaderUniform& operator=(const ShaderUniform&) = default;
+        ShaderUniform& operator=(ShaderUniform&&) = default;
 
         [[nodiscard]] static const ShaderUniform&
         Null();
 
-        bool
+        [[nodiscard]] bool
         IsNull() const;
 
         std::string name;
-        glint       id;
-        Shader*     shader;
+        glint id;
+        Shader* shader;
 
     private:
-        ShaderUniform();  // creates a null shader
+        ShaderUniform(); // creates a null shader
     };
 
     bool
     operator==(const ShaderUniform& lhs, const ShaderUniform& rhs);
-}  // namespace euphoria::render
-
-#endif  // RENDER_SHADERUNIFORM_H
+}

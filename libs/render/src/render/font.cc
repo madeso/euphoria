@@ -92,9 +92,6 @@ namespace euphoria::render
         const int vert_top = src_char.bearing_y;
         const int vert_bottom = vert_top - std::max(1, src_char.image.GetHeight());
 
-        const float iw = image_width;
-        const float ih = image_height;
-
         const stbrp_coord uv_left = src_rect.x;
         const stbrp_coord uv_right = uv_left + src_rect.w;
         const stbrp_coord uv_bottom = src_rect.y;
@@ -103,22 +100,26 @@ namespace euphoria::render
         // todo: add ability to be a quad for tighter fit
         ASSERTX(vert_top > vert_bottom, vert_top, vert_bottom, src_char.code_point);
         ASSERTX(uv_top > uv_bottom, uv_top, uv_bottom, src_char.code_point);
+
+        const auto iw = static_cast<float>(image_width);
+        const auto ih = static_cast<float>(image_height);
+
         const auto sprite = core::Rectf::FromLeftRightTopBottom
         (
-            vert_left,
-            vert_right,
-            vert_top,
-            vert_bottom
+            static_cast<float>(vert_left),
+            static_cast<float>(vert_right),
+            static_cast<float>(vert_top),
+            static_cast<float>(vert_bottom)
         );
         const auto texture = core::Rectf::FromLeftRightTopBottom
         (
-            uv_left / iw,
-            uv_right / iw,
-            uv_top / ih,
-            uv_bottom / ih
+            static_cast<float>(uv_left) / iw,
+            static_cast<float>(uv_right) / iw,
+            static_cast<float>(uv_top) / ih,
+            static_cast<float>(uv_bottom) / ih
         );
 
-        const float scale = 1 / src_char.size;
+        const float scale = 1.0f / src_char.size;
         return std::make_pair(sprite.ScaleCopy(scale, scale), texture);
     }
 
@@ -254,7 +255,7 @@ namespace euphoria::render
                     sprite_and_texture_rects.first,
                     sprite_and_texture_rects.second,
                     src_char.code_point,
-                    src_char.advance / src_char.size
+                    static_cast<float>(src_char.advance) / src_char.size
                 )
             );
             map.insert(CharDataMap::value_type(dest->code_point, dest));
@@ -274,7 +275,7 @@ namespace euphoria::render
             image,
             core::AlphaLoad::Keep, Texture2dLoadData()
         );
-        line_height = fontchars.line_height;
+        line_height = static_cast<float>(fontchars.line_height);
     }
 
 
@@ -455,8 +456,8 @@ namespace euphoria::render
                         code_point
                     )
                 );
-                const int the_kerning = kerning == font.kerning_.end()
-                    ? 0
+                const float the_kerning = kerning == font.kerning_.end()
+                    ? 0.0f
                     : kerning->second
                     ;
                 position.x += (ch->advance + the_kerning) * size;

@@ -1,5 +1,4 @@
-#ifndef SPACETYPER_FONTS_H
-#define SPACETYPER_FONTS_H
+#pragma once
 
 #include <string>
 #include <map>
@@ -16,14 +15,11 @@
 #include "render/texture.h"
 
 
-namespace euphoria::core
+namespace euphoria::core::vfs
 {
-    namespace vfs
-    {
-        struct FileSystem;
-        struct FilePath;
-    }
-}  // namespace euphoria::core
+    struct FileSystem;
+    struct FilePath;
+}
 
 
 namespace euphoria::render
@@ -31,7 +27,7 @@ namespace euphoria::render
     struct SpriteRenderer;
     struct TextureCache;
 
-    // todo: seperate rendering and the rest and move to core
+    // todo(Gustav): seperate rendering and the rest and move to core
 
     struct Glyph
     {
@@ -43,13 +39,13 @@ namespace euphoria::render
             float ad
         );
 
-        core::Rectf sprite_rect;  // relative to 0,0
-        core::Rectf texture_rect;  // image texture uvs
-        unsigned int code_point;  // the character or string id
-        float       advance;
+        core::Rectf sprite_rect; // relative to 0,0
+        core::Rectf texture_rect; // image texture uvs
+        unsigned int code_point; // the character or string id
+        float advance;
     };
 
-    typedef std::map<unsigned int, std::shared_ptr<Glyph>> CharDataMap;
+    using CharDataMap = std::map<unsigned int, std::shared_ptr<Glyph>>;
 
     struct Font;
 
@@ -70,13 +66,13 @@ namespace euphoria::render
     struct TextDrawCommand
     {
         const Texture2d* texture;
-        core::Rectf      sprite_rect;
-        core::Rectf      texture_rect;
-        bool             hi;
+        core::Rectf sprite_rect;
+        core::Rectf texture_rect;
+        bool hi;
 
         TextDrawCommand
         (
-            const Texture2d*   texture,
+            const Texture2d* texture,
             const core::Rectf& sprite_rect,
             const core::Rectf& texture_rect,
             bool hi
@@ -106,7 +102,7 @@ namespace euphoria::render
             const core::Rgb& hi_color
         );
 
-        core::Rectf
+        [[nodiscard]] core::Rectf
         GetExtents() const;
     };
 
@@ -116,6 +112,8 @@ namespace euphoria::render
     public:
         explicit Text(Font* font);
         ~Text();
+
+        NONCOPYABLE(Text);
 
         void
         SetText(const core::UiText& text);
@@ -153,16 +151,16 @@ namespace euphoria::render
         Compile() const;
 
     private:
-        const Font*      font_;
-        float            size_;
+        const Font* font_;
+        float size_;
         core::UiText text_;
-        Align            alignment_;
+        Align alignment_;
 
-        bool  use_background_;
+        bool use_background_;
         float background_alpha_;
 
         // updated in Compile function
-        mutable bool                dirty;
+        mutable bool dirty;
         mutable TextDrawCommandList commands;
     };
 
@@ -184,12 +182,12 @@ namespace euphoria::render
         void
         DrawBackground
         (
-            SpriteRenderer*    renderer,
-            float              alpha,
+            SpriteRenderer* renderer,
+            float alpha,
             const core::Rectf& where
         ) const;
 
-        TextDrawCommandList
+        [[nodiscard]] TextDrawCommandList
         CompileList(const core::UiText& text, float size) const;
 
         float line_height=1;
@@ -197,11 +195,8 @@ namespace euphoria::render
         friend UiTextCompileVisitor;
         std::unique_ptr<Texture2d> texture_;
         std::shared_ptr<Texture2d> background;
-        CharDataMap                chars_;
-        core::KerningMap                 kerning_;
+        CharDataMap chars_;
+        core::KerningMap kerning_;
         std::map<std::string, unsigned int> private_use_aliases;
     };
 }
-
-#endif  // SPACETYPER_FONTS_H
-

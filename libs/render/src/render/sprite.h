@@ -1,5 +1,4 @@
-#ifndef SPACETYPER_SPRITE_H
-#define SPACETYPER_SPRITE_H
+#pragma once
 
 #include <vector>
 #include <map>
@@ -16,23 +15,24 @@ namespace euphoria::render
 
     struct Sprite
     {
-    public:
-        // todo: remove getters and setters
+        // todo(Gustav): remove getters and setters
         explicit Sprite(
                 std::shared_ptr<Texture2d> texture,
-                const core::vec2f&         position = core::vec2f::Zero());
+                const core::vec2f& position = core::vec2f::Zero());
 
-        std::shared_ptr<Texture2d>
-        GetTexture();
+        [[nodiscard]] std::shared_ptr<Texture2d>
+        GetTexture() const;
 
-        const core::vec2f&
+        [[nodiscard]] const core::vec2f&
         GetPosition() const;
+
         void
         SetPosition(const core::vec2f& p);
 
-        float
+        [[nodiscard]] float
         GetHeight() const;
-        float
+
+        [[nodiscard]] float
         GetWidth() const;
 
         void
@@ -41,18 +41,14 @@ namespace euphoria::render
         void
         Render(SpriteRenderer* render);
 
-    private:
         std::shared_ptr<Texture2d> texture_;
-        core::vec2f                position_;
-
-    public:
+        core::vec2f position_;
         core::Angle rotation;
-
-    private:
         core::scale2f scale_;
-        core::Rgb     color_;
-        float         alpha_;
+        core::Rgb color_;
+        float alpha_;
     };
+
 
     struct Layer
     {
@@ -69,12 +65,10 @@ namespace euphoria::render
         Render();
 
     private:
-        SpriteRenderer*                                          render_;
-        typedef std::vector<Sprite*>                             SpriteList;
-        typedef std::map<std::shared_ptr<Texture2d>, SpriteList> SpriteMap;
-        SpriteMap                                                sprites_;
+        using SpriteList = std::vector<Sprite*>;
+        using SpriteMap = std::map<std::shared_ptr<Texture2d>, SpriteList>;
+
+        SpriteRenderer* render_;
+        SpriteMap sprites_;
     };
-
-}  // namespace euphoria::render
-
-#endif  // SPACETYPER_SPRITE_H
+}

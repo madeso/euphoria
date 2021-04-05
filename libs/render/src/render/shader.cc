@@ -1,21 +1,75 @@
 #include "render/shader.h"
 
-#include "core/assert.h"
-#include "core/log.h"
-#include "core/stringutils.h"
-
 #include <iostream>
 #include <vector>
 #include <fstream>
 #include <algorithm>
 #include <sstream>
 
+#include "core/assert.h"
+#include "core/log.h"
+#include "core/stringutils.h"
+#include "core/vfs.h"
+
 #include "render/gl.h"
 #include "render/texture.h"
 
-#include "core/vfs.h"
+namespace
+{
+    const euphoria::render::Shader*&
+    GetCurrentShader()
+    {
+        static const euphoria::render::Shader* current_shader = nullptr;
+        return current_shader;
+    }
 
-LOG_SPECIFY_DEFAULT_LOGGER("render.shader")
+    bool
+    WasCompilationSuccessful(GLuint object)
+    {
+        int r = GL_TRUE;
+        glGetShaderiv(object, GL_COMPILE_STATUS, &r);
+        return r == GL_TRUE;
+    }
+
+    bool
+    WasLinkingSuccessful(GLuint object)
+    {
+        int r = GL_TRUE;
+        glGetProgramiv(object, GL_LINK_STATUS, &r);
+        return r == GL_TRUE;
+    }
+
+    std::string
+    GetShaderLog(GLuint shader)
+    {
+        int length = 0;
+        glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &length);
+        if(length <= 0)
+        {
+            return "";
+        }
+        const int max_length = length + 1;
+        std::vector<char> str(max_length, 0);
+        glGetShaderInfoLog(shader, max_length, &length, &str[0]);
+        return &str[0];
+    }
+
+    std::string
+    GetProgramLog(GLuint shader)
+    {
+        int length = 0;
+        glGetProgramiv(shader, GL_INFO_LOG_LENGTH, &length);
+        if(length <= 0)
+        {
+            return "";
+        }
+        const int max_length = length + 1;
+        std::vector<char> str(max_length, 0);
+        glGetProgramInfoLog(shader, max_length, &length, &str[0]);
+        return &str[0];
+    }
+}
+
 
 namespace euphoria::render
 {
@@ -31,16 +85,6 @@ namespace euphoria::render
     {
         return id_;
     }
-
-    namespace
-    {
-        const Shader*&
-        GetCurrentShader()
-        {
-            static const Shader* CurrentShader = nullptr;
-            return CurrentShader;
-        }
-    }  // namespace
 
     bool
     ShaderId::IsCurrentlyBound() const
@@ -68,56 +112,6 @@ namespace euphoria::render
         return GetCurrentShader();
     }
 
-    ////////////////////////////////////////////////////////////////////////////////
-
-    namespace
-    {
-        bool
-        WasCompilationSuccessful(GLuint object)
-        {
-            int r = GL_TRUE;
-            glGetShaderiv(object, GL_COMPILE_STATUS, &r);
-            return r == GL_TRUE;
-        }
-
-        bool
-        WasLinkingSuccessful(GLuint object)
-        {
-            int r = GL_TRUE;
-            glGetProgramiv(object, GL_LINK_STATUS, &r);
-            return r == GL_TRUE;
-        }
-
-        std::string
-        GetShaderLog(GLuint shader)
-        {
-            int length = 0;
-            glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &length);
-            if(length <= 0)
-            {
-                return "";
-            }
-            const int         max_length = length + 1;
-            std::vector<char> str(max_length, 0);
-            glGetShaderInfoLog(shader, max_length, &length, &str[0]);
-            return &str[0];
-        }
-
-        std::string
-        GetProgramLog(GLuint shader)
-        {
-            int length = 0;
-            glGetProgramiv(shader, GL_INFO_LOG_LENGTH, &length);
-            if(length <= 0)
-            {
-                return "";
-            }
-            const int         max_length = length + 1;
-            std::vector<char> str(max_length, 0);
-            glGetProgramInfoLog(shader, max_length, &length, &str[0]);
-            return &str[0];
-        }
-    }  // namespace
 
     void
     ReportError(const std::string& log, const std::string& type)
@@ -171,23 +165,22 @@ namespace euphoria::render
     }
 
     bool
-    Shader::Compile(
-            const GLchar* vertex_source,
-            const GLchar* fragment_source,
-            const GLchar* geometry_source)
+    Shader::Compile
+    (
+        const GLchar* vertex_source,
+        const GLchar* fragment_source,
+        const GLchar* geometry_source
+    )
     {
         bool ret = true;
 
-        GLuint vertex_shader_id
-                = CompileShader(GL_VERTEX_SHADER, vertex_source, "VERTEX");
-        GLuint fragment_shader_id = CompileShader(
-                GL_FRAGMENT_SHADER, fragment_source, "FRAGMENT");
+        GLuint vertex_shader_id = CompileShader(GL_VERTEX_SHADER, vertex_source, "VERTEX");
+        GLuint fragment_shader_id = CompileShader(GL_FRAGMENT_SHADER, fragment_source, "FRAGMENT");
 
         GLuint geometry_shader_id = 0;
         if(geometry_source != nullptr)
         {
-            geometry_shader_id = CompileShader(
-                    GL_GEOMETRY_SHADER, geometry_source, "GEOMETRY");
+            geometry_shader_id = CompileShader(GL_GEOMETRY_SHADER, geometry_source, "GEOMETRY");
         }
 
         glAttachShader(GetId(), vertex_shader_id);
@@ -213,16 +206,18 @@ namespace euphoria::render
 
         for(const auto& attribute: bound_attributes_)
         {
-            int actual_attribute_id
-                    = glGetAttribLocation(GetId(), attribute.name.c_str());
+            const int actual_attribute_id = glGetAttribLocation(GetId(), attribute.name.c_str());
+
             if(actual_attribute_id == attribute.id)
             {
                 continue;
             }
+
             if(actual_attribute_id == -1)
             {
                 continue;
             }
+
             LOG_ERROR
             (
                 "{0} was bound to {1} but was requested at {2}",
@@ -239,7 +234,7 @@ namespace euphoria::render
     ShaderUniform
     Shader::GetUniform(const std::string& name)
     {
-        int           uniform_id = glGetUniformLocation(GetId(), name.c_str());
+        int uniform_id = glGetUniformLocation(GetId(), name.c_str());
         ShaderUniform uniform(name, uniform_id, this);
         bound_uniforms_.push_back(uniform);
 
@@ -362,10 +357,12 @@ namespace euphoria::render
     {
     }
 
-    namespace
+    bool
+    Shader::Load(core::vfs::FileSystem* fs, const core::vfs::FilePath& file_path)
     {
-        std::string
-        LoadPath(core::vfs::FileSystem* fs, const core::vfs::FilePath& path)
+        shader_name_ = file_path;
+
+        const auto LoadPath = [](core::vfs::FileSystem* fs, const core::vfs::FilePath& path) -> std::string
         {
             // todo: replace with a template instead of basic string
             std::string content;
@@ -375,17 +372,14 @@ namespace euphoria::render
             }
 
             return content;
-        }
-    }  // namespace
+        };
 
-    bool
-    Shader::Load(core::vfs::FileSystem* fs, const core::vfs::FilePath& file_path)
-    {
-        shader_name_ = file_path;
         auto vert = LoadPath(fs, file_path.SetExtensionCopy("vert"));
         auto frag = LoadPath(fs, file_path.SetExtensionCopy("frag"));
         auto geom = LoadPath(fs, file_path.SetExtensionCopy("geom"));
+
         bool loaded_files = true;
+
         if(vert.empty())
         {
             LOG_ERROR("Failed to load vert shader {0}", file_path);
@@ -431,33 +425,36 @@ namespace euphoria::render
     bool
     Shader::HasBoundAttribute(const ShaderAttribute& attribute) const
     {
-        return std::find(
-                       bound_attributes_.begin(),
-                       bound_attributes_.end(),
-                       attribute)
-               != bound_attributes_.end();
+        const auto found = std::find
+        (
+            bound_attributes_.begin(),
+            bound_attributes_.end(),
+            attribute
+        );
+        return found != bound_attributes_.end();
     }
 
     bool
     Shader::HasBoundUniform(const ShaderUniform& uniform) const
     {
-        return std::find(
-                       bound_uniforms_.begin(), bound_uniforms_.end(), uniform)
-               != bound_uniforms_.end();
+        const auto found = std::find(bound_uniforms_.begin(), bound_uniforms_.end(), uniform);
+        return found != bound_uniforms_.end();
     }
 
     void
-    BindTextureToShader(
-            Texture2d*           texture,
-            Shader*              shader,
-            const ShaderUniform& attribute,
-            glint                index)
+    BindTextureToShader
+    (
+        Texture2d* texture,
+        Shader* shader,
+        const ShaderUniform& attribute,
+        glint index
+    )
     {
-        ASSERT(index < 16);  // at most 16 texture units
+        ASSERT(index < 16); // at most 16 texture units
         GLenum gl_id = GL_TEXTURE0 + index;
         glActiveTexture(gl_id);
         Use(texture);
         shader->SetUniform(attribute, index);
     }
 
-}  // namespace euphoria::render
+}

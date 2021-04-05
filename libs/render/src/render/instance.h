@@ -1,9 +1,10 @@
-#ifndef EUPHORIA_RENDER_INSTANCE_H
-#define EUPHORIA_RENDER_INSTANCE_H
+#pragma once
 
 #include "core/mat4.h"
 #include "core/vec3.h"
 #include "core/quat.h"
+#include "core/noncopyable.h"
+
 
 namespace euphoria::render
 {
@@ -12,36 +13,27 @@ namespace euphoria::render
     struct Instance
     {
         Instance();
-
-
         virtual ~Instance() = default;
 
-
-        // todo(Gustav): make poisition and rotation public and skip
-        // getters and setters or provide a position/rotation dirty flag
-        // that the world can clear when it has repositioned the instance
-        // in the current layout.
+        NONCOPYABLE(Instance);
 
 
-        const core::vec3f&
-        GetPosition();
+        // todo(Gustav): remove geters and setters
 
+        [[nodiscard]] const core::vec3f&
+        GetPosition() const;
 
-        const core::quatf&
-        GetRotation();
-
+        [[nodiscard]] const core::quatf&
+        GetRotation() const;
 
         void
         SetPosition(const core::vec3f& position);
 
-
         void
         SetRotation(const core::quatf& rotation);
 
-
-        core::mat4f
+        [[nodiscard]] core::mat4f
         GetModelMatrix() const;
-
 
         virtual void
         Render
@@ -49,17 +41,12 @@ namespace euphoria::render
             const core::mat4f& projection_matrix,
             const core::mat4f& view_matrix,
             const core::vec3f& camera,
-            const Light&       light
+            const Light& light
         ) = 0;
-
 
         bool remove_this = false;
 
-
-    private:
-        core::vec3f                   position;
-        core::quatf                   rotation;
+        core::vec3f position;
+        core::quatf rotation;
     };
 }
-
-#endif  // EUPHORIA_RENDER_INSTANCE_H

@@ -1,12 +1,9 @@
-#ifndef RENDER_GLTYPES_H
-#define RENDER_GLTYPES_H
+#pragma once
 
 namespace euphoria::render
 {
-    typedef float        glfloat;
-    typedef unsigned int gluint;
-    typedef int          glint;
-    typedef char         glchar;
-}  // namespace euphoria::render
-
-#endif  // RENDER_GLTYPES_H
+    using glfloat = float;
+    using gluint = unsigned int;
+    using glint = int;
+    using glchar = char;
+}

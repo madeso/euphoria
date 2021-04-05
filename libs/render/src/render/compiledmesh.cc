@@ -31,13 +31,16 @@ namespace euphoria::render
         , diffuse(core::Color::White)
         , specular(core::Color::White)
         , shininess(135.0f)
-    {}
+    {
+    }
 
 
     void
-    CompiledMeshMaterial::SetTexture(
-            const core::EnumValue&     name,
-            std::shared_ptr<Texture2d> texture)
+    CompiledMeshMaterial::SetTexture
+    (
+        const core::EnumValue& name,
+        std::shared_ptr<Texture2d> texture
+    )
     {
         if(textures.find(name) != textures.end())
         {
@@ -48,12 +51,14 @@ namespace euphoria::render
 
 
     void
-    CompiledMeshMaterial::Apply(
-            const core::mat4f& model_matrix,
-            const core::mat4f& projection_matrix,
-            const core::mat4f& view_matrix,
-            const core::vec3f& camera,
-            const Light&       light) const
+    CompiledMeshMaterial::Apply
+    (
+        const core::mat4f& model_matrix,
+        const core::mat4f& projection_matrix,
+        const core::mat4f& view_matrix,
+        const core::vec3f& camera,
+        const Light& light
+    ) const
     {
         shader->UseShader();
 
@@ -150,37 +155,40 @@ namespace euphoria::render
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    namespace  // local
+    namespace // local
     {
-        DEFINE_ENUM_VALUE(core::TextureType, DiffuseType, "Diffuse");  // NOLINT
-    }  // namespace
+        DEFINE_ENUM_VALUE(core::TextureType, DiffuseType, "Diffuse"); // NOLINT
+    } // namespace
 
 
     void
-    ConvertPointsToVertexBuffer(
-            const std::vector<core::MeshPoint>& points,
-            const std::vector<ShaderAttribute>& attributes,
-            VertexBuffer*                       vb)
+    ConvertPointsToVertexBuffer
+    (
+        const std::vector<core::MeshPoint>& points,
+        const std::vector<ShaderAttribute>& attributes,
+        VertexBuffer* vb
+    )
     {
-        constexpr auto add_float2
-                = [](std::vector<float>* dst, const core::vec2f& src) {
-                      dst->emplace_back(src.x);
-                      dst->emplace_back(src.y);
-                  };
-        constexpr auto add_float3
-                = [](std::vector<float>* dst, const core::vec3f& src) {
-                      dst->emplace_back(src.x);
-                      dst->emplace_back(src.y);
-                      dst->emplace_back(src.z);
-                  };
+        constexpr auto add_float2 = [](std::vector<float>* dst, const core::vec2f& src)
+        {
+            dst->emplace_back(src.x);
+            dst->emplace_back(src.y);
+        };
+        constexpr auto add_float3 = [](std::vector<float>* dst, const core::vec3f& src)
+        {
+            dst->emplace_back(src.x);
+            dst->emplace_back(src.y);
+            dst->emplace_back(src.z);
+        };
         std::vector<float> data;
-        const auto         total_attributes = std::accumulate(
-                attributes.begin(),
-                attributes.end(),
-                0,
-                [](int count, const ShaderAttribute& att) -> int {
-                    return count + att.GetElementCount();
-                });
+        const auto total_attributes = std::accumulate
+        (
+            attributes.begin(), attributes.end(), 0,
+            [](int count, const ShaderAttribute& att) -> int
+            {
+                return count + att.GetElementCount();
+            }
+        );
         data.reserve(total_attributes * points.size());
         for(const auto& point: points)
         {
@@ -209,9 +217,7 @@ namespace euphoria::render
 
 
     void
-    ConvertTrisToIndexBuffer(
-            const std::vector<core::MeshFace>& faces,
-            IndexBuffer*                       b)
+    ConvertTrisToIndexBuffer(const std::vector<core::MeshFace>& faces, IndexBuffer* b)
     {
         std::vector<unsigned int> data;
         data.reserve(faces.size() * 3);
@@ -244,9 +250,9 @@ namespace euphoria::render
         {
             material_index += 1;
             CompiledMeshMaterial mat;
-            mat.ambient   = material_src.ambient;
-            mat.diffuse   = material_src.diffuse;
-            mat.specular  = material_src.specular;
+            mat.ambient = material_src.ambient;
+            mat.diffuse = material_src.diffuse;
+            mat.specular = material_src.specular;
             mat.shininess = material_src.shininess;
 
             // todo(Gustav): determine a better default shader name
@@ -393,4 +399,4 @@ namespace euphoria::render
         }
     }
 
-}  // namespace euphoria::render
+}

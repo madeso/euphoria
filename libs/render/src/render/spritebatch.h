@@ -1,12 +1,13 @@
-#ifndef RENDER_SPRITEBATCH_H
-#define RENDER_SPRITEBATCH_H
+#pragma once
 
 #include <vector>
+
 #include "core/rect.h"
 #include "core/size.h"
 #include "core/vec2.h"
 #include "core/angle.h"
 #include "core/rgb.h"
+#include "core/noncopyable.h"
 
 namespace euphoria::render
 {
@@ -17,28 +18,34 @@ namespace euphoria::render
         SpriteBatch();
         ~SpriteBatch();
 
+        NONCOPYABLE(SpriteBatch);
+
         void
         Begin();
+
         void
-        Quad(const core::vec2f&   pos,
-             const core::Sizef&   quad,
-             const core::Rectf&   uv,
-             const core::scale2f& center,
-             const core::Angle&   rotation,
-             const core::Rgba&    color);
+        Quad
+        (
+            const core::vec2f& pos,
+            const core::Sizef& quad,
+            const core::Rectf& uv,
+            const core::scale2f& center,
+            const core::Angle& rotation,
+            const core::Rgba& color
+        );
+
         void
         End();
+
         void
         Flush();
 
     private:
-        bool               inside_;
-        unsigned int       count_;
-        unsigned int       rendercalls_;
+        bool inside_;
+        int count_;
+        int rendercalls_;
         std::vector<float> data_;
-        std::vector<int>   index_;
+        std::vector<int> index_;
     };
 
-}  // namespace euphoria::render
-
-#endif  // RENDER_SPRITEBATCH_H
+}

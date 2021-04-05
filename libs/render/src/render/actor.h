@@ -17,10 +17,9 @@ namespace euphoria::render
     {
         std::vector<CompiledMeshMaterial> materials;
     };
-    
+
     struct Actor : public Instance
     {
-    public:
         Actor(const std::shared_ptr<CompiledMesh>& mesh);
 
         void
@@ -35,7 +34,7 @@ namespace euphoria::render
 
         std::shared_ptr<MaterialOverride>
         CreateOverride();
-        
+
 
         std::shared_ptr<CompiledMesh> mesh_;
         std::shared_ptr<MaterialOverride> overriden_materials;

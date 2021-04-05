@@ -9,14 +9,14 @@ namespace euphoria::render
 
 
     const core::vec3f&
-    Instance::GetPosition()
+    Instance::GetPosition() const
     {
         return position;
     }
 
 
     const core::quatf&
-    Instance::GetRotation()
+    Instance::GetRotation() const
     {
         return rotation;
     }

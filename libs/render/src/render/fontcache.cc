@@ -6,12 +6,12 @@
 
 #include "render/font.h"
 
+
 namespace euphoria::render
 {
     struct FontCache::FontCachePimpl
         : core::Cache<core::vfs::FilePath, Font, FontCache::FontCachePimpl>
     {
-    public:
         explicit FontCachePimpl(core::vfs::FileSystem* fs, TextureCache* cache)
             : fs_(fs), cache_(cache)
         {
@@ -25,7 +25,6 @@ namespace euphoria::render
             return ret;
         }
 
-    private:
         core::vfs::FileSystem* fs_;
         TextureCache*          cache_;
     };
@@ -38,9 +37,8 @@ namespace euphoria::render
     FontCache::~FontCache() = default;
 
     std::shared_ptr<Font>
-    FontCache::GetFont(const core::vfs::FilePath& path)
+    FontCache::GetFont(const core::vfs::FilePath& path) const
     {
         return pimp->Get(path);
     }
-
-}  // namespace euphoria::render
+}

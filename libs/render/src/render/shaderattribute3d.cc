@@ -4,65 +4,72 @@
 
 #include "render/shader.h"
 
-namespace euphoria::render
+
+namespace euphoria::render::attributes3d
 {
-    namespace attributes3d
+    const ShaderAttribute&
+    Vertex()
     {
-        const ShaderAttribute&
-        Vertex()
+        static const auto attribute = ShaderAttribute
         {
-            static ShaderAttribute Attribute {1,
-                                              ShaderAttributeType::FLOAT3,
-                                              "aPosition",
-                                              ShaderAttributeSource::Vertex};
-            return Attribute;
-        }
+            1,
+            ShaderAttributeType::FLOAT3,
+            "aPosition",
+            ShaderAttributeSource::Vertex
+        };
+        return attribute;
+    }
 
 
-        const ShaderAttribute&
-        Normal()
+    const ShaderAttribute&
+    Normal()
+    {
+        static const auto attribute = ShaderAttribute
         {
-            static ShaderAttribute Attribute {2,
-                                              ShaderAttributeType::FLOAT3,
-                                              "aNormal",
-                                              ShaderAttributeSource::Normal};
-            return Attribute;
-        }
+            2,
+            ShaderAttributeType::FLOAT3,
+            "aNormal",
+            ShaderAttributeSource::Normal
+        };
+        return attribute;
+    }
 
 
-        const ShaderAttribute&
-        TexCoord()
+    const ShaderAttribute&
+    TexCoord()
+    {
+        static const auto attribute = ShaderAttribute
         {
-            static ShaderAttribute Attribute {3,
-                                              ShaderAttributeType::FLOAT2,
-                                              "aTexCoord",
-                                              ShaderAttributeSource::Uv};
-            return Attribute;
-        }
+            3,
+            ShaderAttributeType::FLOAT2,
+            "aTexCoord",
+            ShaderAttributeSource::Uv
+        };
+        return attribute;
+    }
 
 
-        const ShaderAttribute&
-        Color()
+    const ShaderAttribute&
+    Color()
+    {
+        static const auto attribute = ShaderAttribute
         {
-            static ShaderAttribute Attribute
-            {
-                4,
-                ShaderAttributeType::FLOAT3,
-                "aColor",
-                ShaderAttributeSource::Color
-            };
-            return Attribute;
-        }
+            4,
+            ShaderAttributeType::FLOAT3,
+            "aColor",
+            ShaderAttributeSource::Color
+        };
+        return attribute;
+    }
 
 
-        void
-        PrebindShader(Shader* shader)
-        {
-            ASSERT(shader);
-            shader->PreBind(Vertex());
-            shader->PreBind(Normal());
-            shader->PreBind(TexCoord());
-            shader->PreBind(Color());
-        }
-    }  // namespace attributes3d
-}  // namespace euphoria::render
+    void
+    PrebindShader(Shader* shader)
+    {
+        ASSERT(shader);
+        shader->PreBind(Vertex());
+        shader->PreBind(Normal());
+        shader->PreBind(TexCoord());
+        shader->PreBind(Color());
+    }
+}
