@@ -38,7 +38,7 @@ namespace euphoria::core::generator
 
     using Maze = Table<int>;
 
-    // todo: implement more generators
+    // todo(Gustav): implement more generators
     // https://bost.ocks.org/mike/algorithms/#maze-generation
     // https://gamedev.stackexchange.com/questions/75632/procedural-generation-of-tile-based-2d-world
     // https://unity3d.com/learn/tutorials/s/procedural-cave-generation-tutorial

@@ -17,7 +17,7 @@
 
 #ifdef RELEASE
 
-// todo: implement assert for windows...
+// todo(Gustav): implement assert for windows...
 
 #define ASSERT(x)
 #define ASSERTX(x, ...)
@@ -27,7 +27,7 @@
 
 #define IMPLEMENT_ASSERT_LIB
 
-// todo: stb libraries and rapidjson aren't using our assert
+// todo(Gustav): stb libraries and rapidjson aren't using our assert
 #define ASSERT(x)                                                              \
     do                                                                         \
     {                                                                          \

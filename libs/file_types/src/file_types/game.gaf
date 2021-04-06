@@ -70,7 +70,7 @@ struct KeyBind
 
 struct Color
 {
-  // todo: change to a rgb property
+  // todo(Gustav): change to a rgb property
   string? hex;
 }
 

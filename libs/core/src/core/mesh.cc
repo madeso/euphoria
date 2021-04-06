@@ -241,7 +241,7 @@ namespace euphoria::core
                 material.wraps = GetTextureWrappingMode(u);
                 material.wrapt = GetTextureWrappingMode(v);
 
-                // todo: improve texture detection?
+                // todo(Gustav): improve texture detection?
                 material.shader = std::nullopt;
                 ret->materials.push_back(material);
             }

@@ -18,7 +18,7 @@ namespace euphoria::duk
     public:
         explicit ClassBinder(core::TypeId i);
 
-        // todo: add constructor
+        // todo(Gustav): add constructor
 
         ClassBinder&
         SetConstructor(const std::shared_ptr<Function>& bind);

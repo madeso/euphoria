@@ -81,7 +81,7 @@ namespace euphoria::core
 
 #elif BUILD_TYPEINFO_IMPL_CUSTOM_HASHED == 1                                   \
         || BUILD_TYPEINFO_IMPL_CUSTOM_RT == 1
-// todo: please implement this
+// todo(Gustav): please implement this
 
 #include <string>
 #include <cstdint>

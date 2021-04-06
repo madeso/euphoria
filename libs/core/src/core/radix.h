@@ -62,7 +62,7 @@ namespace euphoria::core
         {
             if(exp == 0) { return true; }
             // -1 because we need to be sure we have passed the max value
-            // todo: use some smart bit technique to set F up to exp
+            // todo(Gustav): use some smart bit technique to set F up to exp
             return max_value >= (1 << ((exp - 1) * 4));
         }
 
@@ -111,7 +111,7 @@ namespace euphoria::core
         // or something else since that requires our object to be default
         // constructable
         // so we copy the array instead
-        // todo: look into swapping the input array instead?
+        // todo(Gustav): look into swapping the input array instead?
         std::vector<T> ret = arr;
 
         for(int i = size - 1; i >= 0; i--)

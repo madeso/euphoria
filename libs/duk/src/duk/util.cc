@@ -187,7 +187,7 @@ namespace euphoria::duk
         // stolen from duk documentation: http://duktape.org/api.html#duk_pcall
         if(duk_is_error(ctx, -1))
         {
-            // todo: add better error check
+            // todo(Gustav): add better error check
             /* Accessing .stack might cause an error to be thrown, so wrap this
        * access in a duk_safe_call() if it matters.
        */

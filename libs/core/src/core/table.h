@@ -134,7 +134,7 @@ namespace euphoria::core
         void
         ExpandWidth(I new_width, T d = T())
         {
-            // todo: only insert the columns we need
+            // todo(Gustav): only insert the columns we need
             ASSERT(width != 0);
             ASSERTX(width < new_width, width, new_width);
 
@@ -151,8 +151,8 @@ namespace euphoria::core
 
         // NewCol function??? probably less useful than insert functions
 
-        // todo: insert before/after row/col
-        // todo: remove row/col
+        // todo(Gustav): insert before/after row/col
+        // todo(Gustav): remove row/col
 
 
         T
@@ -171,7 +171,7 @@ namespace euphoria::core
             return data[index];
         }
 
-        // todo: figure out a better name
+        // todo(Gustav): figure out a better name
         [[nodiscard]] I
         GetWidth() const
         {

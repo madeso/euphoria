@@ -94,4 +94,4 @@ TEST_CASE("vfs-test_catalog_with_null", "[vfs]")
     }
 }
 
-// todo: add test with overriding files from different roots
+// todo(Gustav): add test with overriding files from different roots

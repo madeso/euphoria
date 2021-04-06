@@ -202,7 +202,7 @@ namespace euphoria::core
         {
             for(int x = left; x < right; ++x)
             {
-                // todo: use length squared!
+                // todo(Gustav): use length squared!
                 const float sq = vec2f::FromTo
                 (
                     vec2f{static_cast<float>(x), static_cast<float>(y)},

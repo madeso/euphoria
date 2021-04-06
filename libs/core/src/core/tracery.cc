@@ -97,7 +97,7 @@ namespace euphoria::core::tracery
         auto r = ParseJson(rule, value);
         if(r == false)
         {
-            // todo: add json error information
+            // todo(Gustav): add json error information
             r << "for symbol " << rule->key;
         }
 
@@ -653,7 +653,7 @@ namespace euphoria::core::tracery
         const auto found = rules.find(rule);
         if(found == rules.end())
         {
-            // todo: handle errors better
+            // todo(Gustav): handle errors better
             return Result(Result::MISSING_RULE) << rule;
         }
         return found->second.Flatten(generator);

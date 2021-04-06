@@ -45,7 +45,7 @@ bool PrintChar
         LOG_INFO("warning: xy out of bounds {0} {1}", ppx, ppy);
     }
 
-    // todo: ImageToStringTable might not convert corectly,
+    // todo(Gustav): ImageToStringTable might not convert corectly,
     // consider extending :)
     const auto img = ImageToStringTable(glyph.image, true, Grayscale::A);
 

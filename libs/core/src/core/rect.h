@@ -10,7 +10,7 @@
 // Bottom, Left of screen is (0,0)
 // X-axis is positive right, Y-axis is positive up
 
-// todo: look into better names/easier discoverability for functions
+// todo(Gustav): look into better names/easier discoverability for functions
 
 namespace euphoria::core
 {
@@ -67,7 +67,7 @@ namespace euphoria::core
                 float            width,
                 float            height)
         {
-            // todo: change anchor type to some anchor type instead
+            // todo(Gustav): change anchor type to some anchor type instead
             const T left   = pos.x - width * anchor.x;
             const T bottom = pos.y - height * anchor.y;
             return FromLeftRightBottomTop(
@@ -407,7 +407,7 @@ namespace euphoria::core
             left = right = top = bottom = 0;
         }
 
-        // todo: add union and intersection functions
+        // todo(Gustav): add union and intersection functions
 
         T
         GetHeight() const

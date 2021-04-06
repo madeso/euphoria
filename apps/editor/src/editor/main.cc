@@ -180,7 +180,7 @@ struct StyleEditorWindow : GenericWindow
 
 struct TextEditorWindow : GenericWindow
 {
-    // todo: look into using a more complex text editor?
+    // todo(Gustav): look into using a more complex text editor?
     // https://github.com/BalazsJako/ImGuiColorTextEdit
     std::vector<char> buffer;
 

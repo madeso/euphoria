@@ -350,7 +350,7 @@ namespace euphoria::core
         }
     };
 
-    // todo: add one lerp and one slerp unit transform?
+    // todo(Gustav): add one lerp and one slerp unit transform?
 
 
     ////////////////////////////////////////////////////////////////////////////////

@@ -52,7 +52,7 @@ namespace euphoria::core
 
         if(doc->HasParseError())
         {
-            // todo: add file and parse error to error
+            // todo(Gustav): add file and parse error to error
             return Str {} << "JSON parse error(" << stream.GetLine() << ":"
                           << stream.GetColumn() << "): "
                           << rapidjson::GetParseError_En(doc->GetParseError());

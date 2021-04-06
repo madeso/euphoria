@@ -14,7 +14,7 @@ namespace euphoria::duk
 {
     struct Context;
 
-    // todo: rename to DukFunc
+    // todo(Gustav): rename to DukFunc
     struct FunctionReference
     {
     public:
@@ -23,7 +23,7 @@ namespace euphoria::duk
         bool
         IsValid() const;
 
-        // todo: remove this and make the function ref counted instead
+        // todo(Gustav): remove this and make the function ref counted instead
         void
         StoreReference(Context* ctx);
 
@@ -126,7 +126,7 @@ namespace euphoria::duk
 
         DoneFunction(context);
 
-        // todo: handle invalid return type
+        // todo(Gustav): handle invalid return type
         DIE("Invalid return type");
 
         return core::Default<TReturn>();

@@ -126,7 +126,7 @@ TEST_CASE("image transparent", "[img]")
 }
 
 
-// todo: add paint test
+// todo(Gustav): add paint test
 TEST_CASE("image draw", "[img]")
 {
     euco::Image img;

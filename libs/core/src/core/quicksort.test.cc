@@ -121,4 +121,4 @@ TEST_CASE("quicksort-custom_sort", "[quicksort]")
 }
 
 
-// todo: add more tests
+// todo(Gustav): add more tests

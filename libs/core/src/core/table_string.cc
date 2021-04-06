@@ -56,7 +56,7 @@ namespace euphoria::core
                 {
                     if(added)
                     {
-                        // todo: generate error if string contains stuff other than whitespace
+                        // todo(Gustav): generate error if string contains stuff other than whitespace
                         ss.str("");
                     }
                     inside_string   = true;
@@ -97,7 +97,7 @@ namespace euphoria::core
                     if(was_from_string)
                     {
                         // skip
-                        // todo: error on non whitespace?
+                        // todo(Gustav): error on non whitespace?
                     }
                     else
                     {
@@ -125,7 +125,7 @@ namespace euphoria::core
     int
     WidthOfString(const std::string& t)
     {
-        // todo: bugfix longstring\nshort will return length of short, not longstring
+        // todo(Gustav): bugfix longstring\nshort will return length of short, not longstring
         int w = 0;
 
         for(auto c: t)
@@ -211,7 +211,7 @@ namespace euphoria::core
     void
     PrintTableSimple(std::ostream& out, const StringTable& maintable)
     {
-        // todo: cleanup this function...
+        // todo(Gustav): cleanup this function...
         const auto begin_str_padding = 1;
         const auto end_space_padding = 3;
 

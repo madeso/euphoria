@@ -25,7 +25,7 @@ namespace euphoria::core
     constexpr T
     Default()
     {
-        // todo: fix this
+        // todo(Gustav): fix this
         return DefaultValue<T> {}.value;
     }
 

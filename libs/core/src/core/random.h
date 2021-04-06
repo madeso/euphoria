@@ -15,7 +15,7 @@ namespace euphoria::core
     */
     struct Random
     {
-        // todo: make simpler
+        // todo(Gustav): make simpler
         // possible suggestion, rename to RandomGenerator and have a global
         // Random function with overloads in all files instead of here.
         // seperate random namespace where global random functions can live?

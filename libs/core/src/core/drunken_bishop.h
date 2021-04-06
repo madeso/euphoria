@@ -67,7 +67,7 @@ namespace euphoria::core
         const std::vector<std::string>& characters
     );
 
-    // todo: add image collapse with palette
+    // todo(Gustav): add image collapse with palette
 }
 
 #endif  // EUPHORIA_CORE_DRUNKEN_BISHOP_H

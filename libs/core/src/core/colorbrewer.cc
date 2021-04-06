@@ -48,7 +48,7 @@ namespace euphoria::core
         std::vector<SinglePalette>
         Find(Type* type, int* size)
         {
-            // todo: implement better search
+            // todo(Gustav): implement better search
             std::vector<SinglePalette> r;
             for(const auto& br: All())
             {

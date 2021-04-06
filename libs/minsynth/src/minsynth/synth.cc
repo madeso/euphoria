@@ -20,7 +20,7 @@
 
 namespace euphoria::minsynth
 {
-    // todo: get a better number here
+    // todo(Gustav): get a better number here
     constexpr float pi = core::Pi();
 
 
@@ -635,8 +635,8 @@ namespace euphoria::minsynth
         case OscilatorType::Sawtooth:
             return (2 / pi) * (frequency * pi * fmodf(time, 1 / frequency) - pi / 2);
         case OscilatorType::Noise:
-            // todo: use the improved c++ random library
-            // todo: and also add perlin noise?
+            // todo(Gustav): use the improved c++ random library
+            // todo(Gustav): and also add perlin noise?
             return 2 * (static_cast<float>(rand()) / static_cast<float>(RAND_MAX)) - 1;
         default: return 0;
         }

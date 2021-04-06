@@ -75,7 +75,7 @@ private:
 };
 
 // unix date time format, 64 bit
-// todo: test 2038 problem
+// todo(Gustav): test 2038 problem
 uint64_t DateTimeToInt64(const TimetWrapper& dt);
 TimetWrapper Int64ToDateTime(uint64_t i);
 

@@ -32,7 +32,7 @@ Types = {
   })
 };
 
-// todo: create some on init callback, to spawn the stars
+// todo(Gustav): create some on init callback, to spawn the stars
 // or enter level callback
 // or init callback on entity that is directly destroyed, or keep spawning points
 // move sprite anchor to config
@@ -62,7 +62,7 @@ Systems.AddUpdate("star movement", function(dt) {
 });
 
 
-// todo: new update function
+// todo(Gustav): new update function
 // Systems.OnUpdate("move up", [Types.Pos2, Types.MoveUp], function(dt, entities) { });
 
 time = 0;

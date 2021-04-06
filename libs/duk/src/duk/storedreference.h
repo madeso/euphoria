@@ -1,7 +1,7 @@
 #ifndef EUPHORIA_DUK_STOREDREFERENCE_H
 #define EUPHORIA_DUK_STOREDREFERENCE_H
 
-// todo: remove this include
+// todo(Gustav): remove this include
 #include "duk/referencestorage.h"
 
 namespace euphoria::duk

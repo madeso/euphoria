@@ -63,7 +63,7 @@ namespace euphoria::core
     {
         EnumValue(EnumType* t, size_t v);
 
-        // todo: add EnumType to the parameter to verify against stored member
+        // todo(Gustav): add EnumType to the parameter to verify against stored member
         // so
         [[nodiscard]] std::string
         ToString() const;
@@ -81,7 +81,7 @@ namespace euphoria::core
         operator<(const EnumValue& other) const;
 
     private:
-        // todo: only have type_ in debug/test builds
+        // todo(Gustav): only have type_ in debug/test builds
         EnumType* type_;
         size_t    value_;
     };
@@ -116,7 +116,7 @@ namespace euphoria::core
 
 
 // std::string constructor may throw
-// todo: provide compile time option to use hashes instead
+// todo(Gustav): provide compile time option to use hashes instead
 // http://aras-p.info/blog/2016/08/09/More-Hash-Function-Tests/
 #define DEFINE_ENUM_VALUE(TYPE, NAME, STRING)                                  \
     const ::euphoria::core::EnumValue NAME = TYPE##_EnumType().ToEnum(STRING)

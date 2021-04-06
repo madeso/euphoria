@@ -35,7 +35,7 @@ namespace euphoria::core::vfs
         Add(const std::string& n, bool b, bool f);
     };
 
-    // todo: use path class
+    // todo(Gustav): use path class
 
     struct FileSystemReadRoot
     {
@@ -101,14 +101,14 @@ namespace euphoria::core::vfs
         std::string
         GetRootsAsString();
 
-        // todo: need to support paging too
+        // todo(Gustav): need to support paging too
         bool
         ReadFileToString(const FilePath& path, std::string* source);
 
-        // todo: support different roots such as real file system, zip/container file
+        // todo(Gustav): support different roots such as real file system, zip/container file
         // etc
-        // todo: support encryption
-        // todo: support listing/enumerating files
+        // todo(Gustav): support encryption
+        // todo(Gustav): support listing/enumerating files
 
     private:
         std::vector<std::shared_ptr<FileSystemReadRoot>> roots_;

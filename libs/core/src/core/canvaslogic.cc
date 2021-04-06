@@ -12,7 +12,7 @@ namespace euphoria::core
     void
     CanvasLogic::Zoom(const vec2f& mouse, float zoom)
     {
-        // todo: change to use ScreenToWorld
+        // todo(Gustav): change to use ScreenToWorld
         const auto focus = (mouse - scroll) / scale;
 
         const float scale_factor = 1 + 0.01f * Abs(zoom);
@@ -29,7 +29,7 @@ namespace euphoria::core
 
         scale = KeepWithin(scale_range, scale);
 
-        // todo: change to use WorldToScreen
+        // todo(Gustav): change to use WorldToScreen
         const auto new_focus = scroll + focus * scale;
         scroll               = scroll + vec2f::FromTo(new_focus, mouse);
     }

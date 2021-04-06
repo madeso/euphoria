@@ -39,7 +39,7 @@ namespace euphoria::core
 
         struct BrewerPalette
         {
-            // todo: move Properies here
+            // todo(Gustav): move Properies here
             Palette palette;
         };
 

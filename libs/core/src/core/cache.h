@@ -7,7 +7,7 @@
 
 namespace euphoria::core
 {
-    // todo: support hotloading
+    // todo(Gustav): support hotloading
 
     template <typename Key, typename Data, typename Loader>
     struct Cache

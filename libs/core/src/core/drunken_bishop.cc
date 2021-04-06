@@ -192,6 +192,6 @@ namespace euphoria::core
         return rr;
     }
 
-    // todo: add image collapse with palette
+    // todo(Gustav): add image collapse with palette
 }
 

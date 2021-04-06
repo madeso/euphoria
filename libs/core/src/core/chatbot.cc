@@ -549,7 +549,7 @@ namespace euphoria::core
             const std::string& input
         )
         {
-            // todo: we dont need a string vector for this, right?
+            // todo(Gustav): we dont need a string vector for this, right?
             const auto index = SelectBasicResponseIndex
                 <chatbot::SingleResponse>
             (
@@ -562,7 +562,7 @@ namespace euphoria::core
             );
             const auto suggested = responses[index];
 
-            // todo: add this to memory when this response is returned, not suggested
+            // todo(Gustav): add this to memory when this response is returned, not suggested
             for(const auto& topic: suggested.topics_mentioned)
             {
                 chatbot->current_topics.Add(topic);
@@ -668,7 +668,7 @@ namespace euphoria::core
 
             for(const auto& keyword: resp.inputs)
             {
-                // todo: look into levenshtein distance
+                // todo(Gustav): look into levenshtein distance
                 const bool longer_keyword = keyword.words.size() > match_length;
                 const bool same_size_but_better
                         =  keyword.words.size() == match_length
@@ -745,7 +745,7 @@ namespace euphoria::core
 
                         if(resp.ends_conversation)
                         {
-                            // todo: move to end when we have accepted this response as final
+                            // todo(Gustav): move to end when we have accepted this response as final
                             log.emplace_back("ending conversation");
                             is_in_conversation = false;
                         }

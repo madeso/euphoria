@@ -92,7 +92,7 @@ namespace imgui
             direct.x = direct.x / directl;
             direct.y = direct.y / directl;
 
-            // todo: flip y based on x
+            // todo(Gustav): flip y based on x
             const auto acos        = acosf(direct.x);
             const auto ang         = direct.y > 0 ? pi2 - acos : acos;
             float      input_angle = -ang;

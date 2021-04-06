@@ -200,7 +200,7 @@ main(int argc, char* argv[])
         return -1;
     }
 
-    // todo: update theese during runtime
+    // todo(Gustav): update theese during runtime
     std::string crash_message_string;
     bool has_crashed = false;
 
@@ -407,7 +407,7 @@ main(int argc, char* argv[])
 
         if(has_crashed)
         {
-            // todo: fix crash rendering, perhaps by using a debug gui or imgui
+            // todo(Gustav): fix crash rendering, perhaps by using a debug gui or imgui
             // nothing much is required just a better overflow detection
             // when rendering the error, perhaps making the error more visible
             // though clicking around and debugging might be useful...

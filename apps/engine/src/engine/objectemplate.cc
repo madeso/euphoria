@@ -184,7 +184,7 @@ namespace euphoria::engine
                 LOG_ERROR
                 (
                     "No custom component named {0} was added.",
-                    s.name 
+                    s.name
                 );
                 return nullptr;
             }
@@ -225,7 +225,7 @@ namespace euphoria::engine
             c->CreateComponent(args, ent);
         }
 
-        // todo: run init function here
+        // todo(Gustav): run init function here
         args.world->reg.PostCreate(ent);
 
         return ent;
@@ -271,7 +271,7 @@ namespace euphoria::engine
             LoadObjectTemplate(o.get(), t, reg, cache, components);
         }
     }
-    
+
 
     ObjectTemplate*
     ObjectCreator::FindTemplate(const std::string& name)

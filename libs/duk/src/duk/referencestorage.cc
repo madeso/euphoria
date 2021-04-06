@@ -40,7 +40,7 @@ namespace euphoria::duk
     void
     ReferenceStorage::SetReference(void* p, ReferenceStorage::Index index)
     {
-        // todo: store references in some sub object instead of directly at root?
+        // todo(Gustav): store references in some sub object instead of directly at root?
         duk_push_heap_stash(ctx);  // heap
         if(p != nullptr)
         {

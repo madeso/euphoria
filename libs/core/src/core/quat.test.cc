@@ -96,7 +96,7 @@ TEST_CASE("quat-testLook", "[quat]")
             euco::quatf::LookInDirection(
                     euco::vec3f(-5, 0, 0).GetNormalized(), euco::unit3f::Up()));
 
-    // todo: add more test where up != Up()
+    // todo(Gustav): add more test where up != Up()
 }
 
 

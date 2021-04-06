@@ -52,7 +52,7 @@ namespace euphoria::engine
     void
     Input::SetKeyState(core::Key key, float state)
     {
-        // todo: move state to another class, and fix this loop
+        // todo(Gustav): move state to another class, and fix this loop
         for(const auto& bind: binds)
         {
             if(bind->key == key)
@@ -69,7 +69,7 @@ namespace euphoria::engine
         {
             container.SetFree(duk->AsContext(), bind->name, bind.get());
         }
-// todo: figure out how to best do this? class bind? need to work with TS
+// todo(Gustav): figure out how to best do this? class bind? need to work with TS
 #if 0
     dukglue_push(duk->ctx, container);
 
@@ -95,12 +95,12 @@ namespace euphoria::engine
       {
         DIE("Failed to set key");
       }
-      // todo: handle error
+      // todo(Gustav): handle error
     }
 
     duk_pop(duk->ctx);
 
-    // todo: validate duk stack
+    // todo(Gustav): validate duk stack
 #endif
     }
 

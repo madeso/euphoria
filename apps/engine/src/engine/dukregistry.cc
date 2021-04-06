@@ -111,7 +111,7 @@ namespace euphoria::engine
 
         auto val = res->second.Call<duk::ObjectReference>(ctx, arguments);
         ASSERT(val.IsValid());
-        // todo: need to increase refcount on val here like functions, right?
+        // todo(Gustav): need to increase refcount on val here like functions, right?
         return val;
     }
 

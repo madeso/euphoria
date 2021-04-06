@@ -18,7 +18,7 @@ namespace euphoria::window
         SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
         SDL_GL_SetAttribute(SDL_GL_BUFFER_SIZE, 0);
         // for 2d we have keept this at 0
-        // todo: fix 2d rendering to we can keep this at != 0
+        // todo(Gustav): fix 2d rendering to we can keep this at != 0
         SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 8);
         SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 0);
         SDL_GL_SetAttribute(SDL_GL_ACCUM_RED_SIZE, 0);

@@ -12,7 +12,7 @@ namespace euphoria::core
     // Common polymorphic higher order functions
     //
 
-    // todo: add tests
+    // todo(Gustav): add tests
 
     // combine 2 list into a list of pair
     template <typename A, typename B>

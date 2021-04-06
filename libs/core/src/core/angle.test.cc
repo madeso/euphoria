@@ -4,7 +4,7 @@
 #include "catch.hpp"
 #include "tests/approx.h"
 
-// todo: don't use horrible define to use out custom Approx
+// todo(Gustav): don't use horrible define to use out custom Approx
 #define Approx ::euphoria::tests::custom::Approx<float>
 
 using namespace euphoria::convert;

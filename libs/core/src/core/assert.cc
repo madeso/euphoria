@@ -17,7 +17,7 @@
 namespace euphoria::core
 {
 #ifdef _MSC_VER
-    // todo: implement backtrace for windows?
+    // todo(Gustav): implement backtrace for windows?
     namespace
     {
         std::vector<std::string>

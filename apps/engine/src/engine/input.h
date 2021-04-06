@@ -25,10 +25,10 @@ namespace euphoria::engine
 
         BoundVar(const std::string& n, const core::Key& k);
 
-        // todo: figure out how to bind keys to this property
-        // todo: figure out how to handle just pressed
-        // todo: figure out how to handle player characters
-        // todo: figure out how to handle inputs other than keyboard
+        // todo(Gustav): figure out how to bind keys to this property
+        // todo(Gustav): figure out how to handle just pressed
+        // todo(Gustav): figure out how to handle player characters
+        // todo(Gustav): figure out how to handle inputs other than keyboard
     };
 
     struct Input

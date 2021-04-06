@@ -158,7 +158,7 @@ namespace euphoria::core::ecs
         {
             for(const auto id: destroyed_entities)
             {
-                // todo: postpone!
+                // todo(Gustav): postpone!
                 if(SwapBackAndEraseObject(id, &alive))
                 {
                     for(const auto& entry: components)
@@ -252,7 +252,7 @@ namespace euphoria::core::ecs
         void
         AddAdded()
         {
-            // todo: implement
+            // todo(Gustav): implement
         }
 
         void

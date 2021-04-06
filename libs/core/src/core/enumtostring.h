@@ -32,7 +32,7 @@ namespace euphoria::core
 
         int size = 0;
 
-        // todo: replace with initializer list?
+        // todo(Gustav): replace with initializer list?
         EnumToStringImpl<T>&
         Add(const std::string& name, T t)
         {

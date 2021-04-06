@@ -243,7 +243,7 @@ namespace euphoria::core
 
             if(error != nullptr && !defines->IsDefined(name_))
             {
-                // todo: add file, line and column
+                // todo(Gustav): add file, line and column
                 error->AddError
                 (
                     std::nullopt,

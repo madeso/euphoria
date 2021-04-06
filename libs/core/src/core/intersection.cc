@@ -40,10 +40,10 @@ namespace euphoria::core
     {
         // https://www.scratchapixel.com/lessons/3d-basic-rendering/minimal-ray-tracer-rendering-simple-shapes/ray-box-intersection
 
-        // todo: refactor aabb class?
+        // todo(Gustav): refactor aabb class?
         const vec3f bounds[] {aabb.min, aabb.max};
 
-        // todo: move to ray class?
+        // todo(Gustav): move to ray class?
         const vec3f r_invdir = 1.0f / static_cast<vec3f>(r.dir);
         const int r_sign[3] =
         {
@@ -153,7 +153,7 @@ namespace euphoria::core
 
         const float den = (-s2_x * s1_y + s1_x * s2_y);
 
-        // todo: implement a check for zero for float
+        // todo(Gustav): implement a check for zero for float
         if(Abs(den) < 0.00001f)
         {
             return Ray2Ray2Result_Parallel();

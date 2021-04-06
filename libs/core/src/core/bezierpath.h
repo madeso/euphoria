@@ -6,8 +6,8 @@
 
 namespace euphoria::core
 {
-    // todo: a poly is a closed path, so rename to path
-    // todo: add more features
+    // todo(Gustav): a poly is a closed path, so rename to path
+    // todo(Gustav): add more features
     // sebastian lague: bezier support https://github.com/SebLague/Path-Creator
     // paper.js, smooth and simpify(path fitter) path functions: https://github.com/paperjs/paper.js/blob/develop/src/path/PathFitter.js https://github.com/paperjs/paper.js/blob/develop/src/path/PathItem.js#L466
     // path fitter original code: https://github.com/erich666/GraphicsGems/blob/master/gems/FitCurves.c
@@ -37,7 +37,7 @@ namespace euphoria::core
         std::vector<vec2f> points;
         bool               is_closed_ = false;
 
-        // todo: move out to a controller?
+        // todo(Gustav): move out to a controller?
         bool autoset_ = false;
 
         BezierPath2(const vec2f& center);

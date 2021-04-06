@@ -37,7 +37,7 @@ namespace euphoria::core
             return vec3<T>(x, y, z);
         }
 
-        // todo: replace this and actually call the assert version always
+        // todo(Gustav): replace this and actually call the assert version always
         vec3<T>
         ToVec3() const
         {

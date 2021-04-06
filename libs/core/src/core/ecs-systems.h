@@ -13,7 +13,7 @@ namespace euphoria::render
 {
     // its horrible to reference in another module,
     // but for now we only need a pointer to pass around
-    // todo: fix this by merging in more of the renderer into core?
+    // todo(Gustav): fix this by merging in more of the renderer into core?
     struct SpriteRenderer;
 }  // namespace euphoria::render
 

@@ -24,7 +24,7 @@ namespace euphoria::duk
 
         explicit GenericFunction(Callback c) : callback(c)
         {
-            // todo: make sure non-required are only defined at the end
+            // todo(Gustav): make sure non-required are only defined at the end
         }
 
         template <std::size_t... I>
@@ -41,7 +41,7 @@ namespace euphoria::duk
                        core::MakeRange(argument_count, max_argument_count),
                        passed_argument_count))
             {
-                // todo: smaller error message when both max and min are the same
+                // todo(Gustav): smaller error message when both max and min are the same
                 return core::Str {} << "expected " << argument_count << " to "
                                     << max_argument_count
                                     << " argument(s) but got "

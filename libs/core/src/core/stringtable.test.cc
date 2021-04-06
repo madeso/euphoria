@@ -39,7 +39,7 @@ TEST_CASE("stringtable-generator", "[stringtable]")
                 "Last name", "Seinfeld", "Benes", "Kramer", "Costanza"};
         CHECK(euco::CalcColumnAsVector(table, 0) == first);
         CHECK(euco::CalcColumnAsVector(table, 1) == last);
-        // todo: add print tests
+        // todo(Gustav): add print tests
         // PrintTableSimple(std::cout, table);
     }
 

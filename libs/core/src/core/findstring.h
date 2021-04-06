@@ -7,7 +7,7 @@
 namespace euphoria::core
 {
     // find part of a string in another
-    // todo: replace with a regex instead?
+    // todo(Gustav): replace with a regex instead?
     bool
     Find(const std::string& target, const std::string& search);
 

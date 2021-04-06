@@ -166,7 +166,7 @@ main(int argc, char** argv)
                     {
                         const auto d = ImGui::GetMouseDragDelta();
                         ImGui::ResetMouseDragDelta();
-                        // todo: handle scale/zoom
+                        // todo(Gustav): handle scale/zoom
                         return std::make_pair(
                                 true, vec2f(d.x, d.y) / canvas.view.scale);
                     }

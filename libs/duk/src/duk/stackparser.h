@@ -112,7 +112,7 @@ namespace euphoria::duk
         {
             if(ctx->IsNumber(index))
             {
-                // todo: validate if is within T range
+                // todo(Gustav): validate if is within T range
                 return "";
             }
             else

@@ -11,7 +11,7 @@ namespace euphoria::core
     // src: https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
     // add one that respects the current item so it won't be the first one https://gamedev.stackexchange.com/a/29747/90313
 
-    // todo: add tests some how...?
+    // todo(Gustav): add tests some how...?
 
     template <typename T>
     void

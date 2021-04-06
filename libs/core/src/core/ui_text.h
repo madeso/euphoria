@@ -27,7 +27,7 @@ namespace euphoria::core
             Visit(Visitor* visitor) const = 0;
         };
 
-        // todo: move nodes to private
+        // todo(Gustav): move nodes to private
 
         struct TextNode : public Node
         {
@@ -103,7 +103,7 @@ namespace euphoria::core
     /** Represents displayed text.
      * Format: @code @image with text and {-begin and }-end markers \ escapes @endcode
      */
-    // todo: add ability to specify button/keys so that we can use:
+    // todo(Gustav): add ability to specify button/keys so that we can use:
     // use "[jump] to jump" and said [jump] would look up the keybind and display a
     // sprite/ninepath w/ text representing the bind this could also be useful when
     // displaying all the keybinds. needs to work out how (or if) the joystick
