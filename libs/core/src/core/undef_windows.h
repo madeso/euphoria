@@ -1,4 +1,4 @@
-// 
+//
 // undefine macros defined by the windows api
 //
 
@@ -54,6 +54,14 @@
 
 #ifdef far
 #undef far
+#endif
+
+#ifdef min
+#undef min
+#endif
+
+#ifdef max
+#undef max
 #endif
 
 
