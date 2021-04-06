@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_RENDER_VIEWPORTHANDLER_H
-#define EUPHORIA_RENDER_VIEWPORTHANDLER_H
+#pragma once
 
 #include <vector>
 
@@ -27,8 +26,8 @@ namespace euphoria::render
         int window_height = 0;
 
         // only used if type != pixel
-        int virtual_width = 800;
-        int virtual_height = 600;
+        float virtual_width = 800.0f;
+        float virtual_height = 600.0f;
 
         core::Rectf* virtual_screen;
 
@@ -43,11 +42,7 @@ namespace euphoria::render
         void
         ClearBlack();
 
-        Viewport
-        GetFullViewport();
+        [[nodiscard]] Viewport
+        GetFullViewport() const;
     };
 }
-
-
-#endif  // EUPHORIA_RENDER_VIEWPORTHANDLER_H
-

@@ -42,12 +42,14 @@ namespace euphoria::render
     }
 
     void
-    World::Render(
-            const core::Camera&         camera,
-            const core::CompiledCamera& compiled)
+    World::Render
+    (
+        const core::Camera& camera,
+        const core::CompiledCamera& compiled
+    )
     {
         const auto projection_matrix = compiled.projection;
-        const auto view_matrix       = compiled.view;
+        const auto view_matrix = compiled.view;
 
         for(const auto& actor: actors_)
         {
@@ -56,7 +58,7 @@ namespace euphoria::render
                 continue;
             }
 
-            // todo: instead of direct rendering, move to a material sorting/render
+            // todo(Gustav): instead of direct rendering, move to a material sorting/render
             // command system
             // general design: http://realtimecollisiondetection.net/blog/?p=86
             // distance from camera:
@@ -65,9 +67,8 @@ namespace euphoria::render
             // http://aras-p.info/blog/2014/01/16/rough-sorting-by-depth/
             // useful?
             // https://gamedev.stackexchange.com/questions/45626/how-to-organize-rendering
-            actor->Render(
-                    projection_matrix, view_matrix, camera.position, light);
+            actor->Render(projection_matrix, view_matrix, camera.position, light);
         }
     }
 
-}  // namespace euphoria::render
+}

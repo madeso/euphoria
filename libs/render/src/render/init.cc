@@ -19,7 +19,7 @@ namespace euphoria::render
             ok = false;
         }
 
-        // todo: replace cout with log system
+        // todo(Gustav): replace cout with log system
         LOG_INFO("Vendor:         {0}", glGetString(GL_VENDOR));
         LOG_INFO("Renderer:       {0}", glGetString(GL_RENDERER));
         LOG_INFO("Version OpenGL: {0}", glGetString(GL_VERSION));
@@ -29,7 +29,7 @@ namespace euphoria::render
         glGetIntegerv(GL_MAX_VERTEX_ATTRIBS, &attribute_count);
         LOG_INFO("Max shader attribute count: {0}", attribute_count);
 
-        // todo: move this to a better place
+        // todo(Gustav): move this to a better place
         glEnable(GL_DEPTH_TEST);
         glEnable(GL_STENCIL_TEST);
         glEnable(GL_SCISSOR_TEST);  // need scissor test for the viewport clearing
@@ -38,7 +38,7 @@ namespace euphoria::render
         {
             LOG_INFO("Enabled blend hack");
             // need to be enabled for shitty 2d rendering to work
-            // todo: fix a proper blending/backface culling render stack
+            // todo(Gustav): fix a proper blending/backface culling render stack
             glDisable(GL_CULL_FACE);
             // glEnable(GL_CULL_FACE);
             glEnable(GL_BLEND);

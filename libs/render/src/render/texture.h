@@ -1,5 +1,4 @@
-#ifndef TEXTURE_H
-#define TEXTURE_H
+#pragma once
 
 #include "core/image.h"
 #include "render/gltypes.h"
@@ -30,7 +29,7 @@ namespace euphoria::render
     {
         NEAREST,
         LINEAR
-        // todo: add mipmap
+        // todo(Gustav): add mipmap
     };
 
     struct Texture2dLoadData
@@ -39,25 +38,30 @@ namespace euphoria::render
 
         Texture2dLoadData&
         SetWrap(TextureWrap v);
+
         Texture2dLoadData&
         SetFilterMag(FilterMagnification v);
+
         Texture2dLoadData&
         SetFilterMin(FilterMinification v);
 
-        TextureWrap         wrap;
-        FilterMinification  min;
+        TextureWrap wrap;
+        FilterMinification min;
         FilterMagnification mag;
     };
 
-    struct TextureId : core::Noncopyable
+    struct TextureId
     {
     public:
         TextureId();
         ~TextureId();
 
-        bool
+        NONCOPYABLE(TextureId);
+
+        [[nodiscard]] bool
         IsCurrentlyBound() const;
-        gluint
+
+        [[nodiscard]] gluint
         GetId() const;
 
     private:
@@ -71,6 +75,9 @@ namespace euphoria::render
     {
     public:
         Texture2d();
+        ~Texture2d() = default;
+
+        NONCOPYABLE(Texture2d);
 
         void
         LoadFromPixels
@@ -100,16 +107,14 @@ namespace euphoria::render
             const Texture2dLoadData& data
         );
 
-        int
+        [[nodiscard]] int
         GetWidth() const;
-        
-        int
+
+        [[nodiscard]] int
         GetHeight() const;
 
     private:
         int width_, height_;
     };
 
-}  // namespace euphoria::render
-
-#endif
+}

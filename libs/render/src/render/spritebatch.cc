@@ -123,7 +123,7 @@ namespace euphoria::render
         {
             return;
         }
-        // todo: build vbo & render vbo
+        // todo(Gustav): build vbo & render vbo
         // remove all items
         count_ = 0;
         data_.resize(0);

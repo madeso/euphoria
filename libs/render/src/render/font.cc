@@ -97,7 +97,7 @@ namespace euphoria::render
         const stbrp_coord uv_bottom = src_rect.y;
         const stbrp_coord uv_top = uv_bottom + std::max(static_cast<stbrp_coord>(1), src_rect.h);
 
-        // todo: add ability to be a quad for tighter fit
+        // todo(Gustav): add ability to be a quad for tighter fit
         ASSERTX(vert_top > vert_bottom, vert_top, vert_bottom, src_char.code_point);
         ASSERTX(uv_top > uv_bottom, uv_top, uv_bottom, src_char.code_point);
 
@@ -188,7 +188,7 @@ namespace euphoria::render
             {
                 fontchars.CombineWith(core::LoadCharactersFromBuiltin13());
             }
-            // todo: add more sources, built in image font or images
+            // todo(Gustav): add more sources, built in image font or images
         }
 
         // the half margin between glyphs in the final texture
@@ -357,7 +357,7 @@ namespace euphoria::render
         const Font& font;
         float size;
         bool apply_highlight;
-        core::vec2f position; // todo: rename to offset
+        core::vec2f position; // todo(Gustav): rename to offset
         unsigned int last_char_index = 0;
 
         // return value
@@ -542,7 +542,7 @@ namespace euphoria::render
     core::vec2f
     GetOffset(Align alignment, const core::Rectf& extent)
     {
-        // todo: test this more
+        // todo(Gustav): test this more
         const auto middle = -(extent.left + extent.right) / 2;
         const auto right = -extent.right;
         const auto top = extent.top;

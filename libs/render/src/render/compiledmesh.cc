@@ -77,12 +77,12 @@ namespace euphoria::render
             auto texture = textures.find(binding.name);
             if(texture == textures.end())
             {
-                // todo: this is a error and should have been caught by the Validate,
+                // todo(Gustav): this is a error and should have been caught by the Validate,
                 // abort?
                 continue;
             }
 
-            // todo: refactor to material shader
+            // todo(Gustav): refactor to material shader
             BindTextureToShader(
                     texture->second.get(),
                     &shader->shader,
@@ -242,7 +242,7 @@ namespace euphoria::render
     {
         std::shared_ptr<CompiledMesh> ret {new CompiledMesh {}};
 
-        // todo: add default material if there are 0 materials
+        // todo(Gustav): add default material if there are 0 materials
 
         int material_index = 0;
 

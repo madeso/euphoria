@@ -117,7 +117,7 @@ main(int argc, char** argv)
         Recti::FromTopLeftWidthHeight(vec2i{0, 256}, 100, 25)
     );
     DrawLineAntialiased(&image, Color::Black, wi.BottomLeft(), wi.TopRight());
-    // todo: fix text drawing...
+    // todo(Gustav): fix text drawing...
     // DrawText(&image, vec2i(0, 0), "Hello world", Color::Black, 2);
     engine.catalog->RegisterFileData
     (

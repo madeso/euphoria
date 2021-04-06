@@ -1,10 +1,92 @@
 #include "render/viewporthandler.h"
 
 #include "core/viewportdef.h"
+#include "core/cint.h"
 
 #include "render/viewport.h"
 #include "render/init.h"
 #include "render/shader.h"
+
+
+namespace
+{
+    namespace core = euphoria::core;
+
+    core::ViewportDef
+    CreateDefinition(const euphoria::render::ViewportHandler& handler)
+    {
+        switch(handler.type)
+        {
+        case euphoria::render::ViewportType::FitWithBlackBars:
+            return core::ViewportDef::FitWithBlackBars
+            (
+                handler.virtual_width,
+                handler.virtual_height,
+                handler.window_width,
+                handler.window_height
+            );
+        case euphoria::render::ViewportType::ScreenPixel:
+            return core::ViewportDef::ScreenPixel
+            (
+                handler.window_width,
+                handler.window_height
+            );
+        case euphoria::render::ViewportType::Extend:
+            return core::ViewportDef::Extend
+            (
+                handler.virtual_width,
+                handler.virtual_height,
+                handler.window_width,
+                handler.window_height
+            );
+        default:
+            DIE("Unhandled viewport case");
+            return core::ViewportDef::ScreenPixel
+            (
+                handler.window_width,
+                handler.window_height
+            );
+        }
+    }
+
+
+    void Apply
+    (
+        euphoria::render::ViewportHandler* handler,
+        const core::ViewportDef& vp,
+        bool shaders_too
+    )
+    {
+        if(shaders_too)
+        {
+            const auto projection = handler->init->GetOrthoProjection
+            (
+                vp.virtual_width,
+                vp.virtual_height
+            );
+            for(auto* shader: handler->shaders)
+            {
+                shader->SetUniform
+                (
+                    shader->GetUniform("projection"),
+                    projection
+                );
+            }
+        }
+
+        if(handler->virtual_screen != nullptr)
+        {
+            *handler->virtual_screen = core::Rectf::FromWidthHeight
+            (
+                vp.virtual_width,
+                vp.virtual_height
+            );
+        }
+
+        auto viewport = euphoria::render::Viewport{vp.screen_rect};
+        viewport.Activate();
+    }
+}
 
 
 namespace euphoria::render
@@ -13,85 +95,6 @@ namespace euphoria::render
         : init(i)
         , virtual_screen(s)
     {
-    }
-
-
-    namespace
-    {
-        core::ViewportDef
-        CreateDefinition(const ViewportHandler& handler)
-        {
-            switch(handler.type)
-            {
-            case ViewportType::FitWithBlackBars:
-                return core::ViewportDef::FitWithBlackBars
-                (
-                    handler.virtual_width,
-                    handler.virtual_height,
-                    handler.window_width,
-                    handler.window_height
-                );
-            case ViewportType::ScreenPixel:
-                return core::ViewportDef::ScreenPixel
-                (
-                    handler.window_width,
-                    handler.window_height
-                );
-            case ViewportType::Extend:
-                return core::ViewportDef::Extend
-                (
-                    handler.virtual_width,
-                    handler.virtual_height,
-                    handler.window_width,
-                    handler.window_height
-                );
-            default:
-                DIE("Unhandled viewport case");
-                return core::ViewportDef::ScreenPixel
-                (
-                    handler.window_width,
-                    handler.window_height
-                );
-            }
-        }
-
-
-        void Apply
-        (
-            ViewportHandler* handler,
-            const core::ViewportDef& vp,
-            bool shaders_too
-        )
-        {
-            if(shaders_too)
-            {
-                const auto projection = handler->init->GetOrthoProjection
-                (
-                    vp.virtual_width,
-                    vp.virtual_height
-                );
-                for(auto* shader: handler->shaders)
-                {
-                    shader->SetUniform
-                    (
-                        shader->GetUniform("projection"),
-                        projection
-                    );
-                }
-            }
-
-            if(handler->virtual_screen != nullptr)
-            {
-                *handler->virtual_screen = core::Rectf::FromWidthHeight
-                (
-                    vp.virtual_width,
-                    vp.virtual_height
-                );
-            }
-
-            auto viewport = Viewport{vp.screen_rect};
-            viewport.Activate();
-        }
     }
 
 
@@ -139,7 +142,7 @@ namespace euphoria::render
 
 
     Viewport
-    ViewportHandler::GetFullViewport()
+    ViewportHandler::GetFullViewport() const
     {
         const auto viewport = Viewport
         {

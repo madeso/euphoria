@@ -364,7 +364,7 @@ namespace euphoria::render
 
         const auto LoadPath = [](core::vfs::FileSystem* fs, const core::vfs::FilePath& path) -> std::string
         {
-            // todo: replace with a template instead of basic string
+            // todo(Gustav): replace with a template instead of basic string
             std::string content;
             if(!fs->ReadFileToString(path, &content))
             {

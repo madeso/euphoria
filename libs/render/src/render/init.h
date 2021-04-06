@@ -9,7 +9,7 @@ namespace euphoria::render
 {
     using LoaderFunction = void* (*)(const char* name);
 
-    // todo: come up with a better name
+    // todo(Gustav): come up with a better name
     struct Init
     {
     public:

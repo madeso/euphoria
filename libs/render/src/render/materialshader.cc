@@ -110,7 +110,7 @@ namespace euphoria::render
             );
         }
 
-        // todo: get the shader names from a trusted source
+        // todo(Gustav): get the shader names from a trusted source
         sh->projection = sh->shader.GetUniform("uProjection");
         sh->view       = sh->shader.GetUniform("uView");
         sh->model      = sh->shader.GetUniform("uModel");
@@ -183,7 +183,7 @@ namespace euphoria::render
                 path,
                 error
             );
-            // todo: set default shader names
+            // todo(Gustav): set default shader names
         }
 
         PostBuild(this, file, path);

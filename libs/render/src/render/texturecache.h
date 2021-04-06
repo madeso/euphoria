@@ -1,18 +1,16 @@
-#ifndef SPACETYPER_TEXTURECACHE_H
-#define SPACETYPER_TEXTURECACHE_H
+#pragma once
 
 #include <memory>
 #include <string>
 #include <optional>
 
-namespace euphoria::core
+#include "core/noncopyable.h"
+
+namespace euphoria::core::vfs
 {
-    namespace vfs
-    {
-        struct FileSystem;
-        struct FilePath;
-    }
-}  // namespace euphoria::core
+    struct FileSystem;
+    struct FilePath;
+}
 
 namespace euphoria::render
 {
@@ -20,21 +18,18 @@ namespace euphoria::render
 
     struct TextureCache
     {
-    public:
         explicit TextureCache(core::vfs::FileSystem* fs);
         ~TextureCache();
 
-        std::shared_ptr<Texture2d>
-        GetTexture(const core::vfs::FilePath& path);
+        NONCOPYABLE(TextureCache);
 
-        std::shared_ptr<Texture2d>
-        GetTexture(const std::optional<core::vfs::FilePath>& path);
+        [[nodiscard]] std::shared_ptr<Texture2d>
+        GetTexture(const core::vfs::FilePath& path) const;
 
-    private:
+        [[nodiscard]] std::shared_ptr<Texture2d>
+        GetTexture(const std::optional<core::vfs::FilePath>& path) const;
+
         struct TextureCachePimpl;
         std::unique_ptr<TextureCachePimpl> pimp_;
     };
-
-}  // namespace euphoria::render
-
-#endif  // SPACETYPER_TEXTURECACHE_H
+}
