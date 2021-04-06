@@ -22,6 +22,13 @@ namespace euphoria::core
     }
 
 
+    float
+    Cint_to_float(int i)
+    {
+        return static_cast<float>(i);
+    }
+
+
     int
     Cunsigned_int_to_int(unsigned int i)
     {

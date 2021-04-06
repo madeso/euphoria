@@ -14,6 +14,9 @@ namespace euphoria::core
     int
     Cfloat_to_int(float f);
 
+    float
+    Cint_to_float(int i);
+
     int
     Cunsigned_int_to_int(unsigned int i);
 
