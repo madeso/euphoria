@@ -2,15 +2,6 @@
 
 namespace euphoria::gui
 {
-    LayoutData::LayoutData()
-    {
-    }
-
-
-    LayoutData::~LayoutData()
-    {
-    }
-
     int
     LayoutData::GetColumn() const
     {

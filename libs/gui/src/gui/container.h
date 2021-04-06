@@ -1,8 +1,10 @@
-#ifndef GUI_CONTAINER_H
-#define GUI_CONTAINER_H
+#pragma once
 
 #include <memory>
 #include <vector>
+
+#include "core/noncopyable.h"
+
 
 namespace euphoria::render
 {
@@ -12,13 +14,19 @@ namespace euphoria::render
 namespace euphoria::gui
 {
     struct Widget;
+}
 
+
+namespace euphoria::gui
+{
     struct Container
     {
         Container();
         ~Container();
 
-        bool
+        NONCOPYABLE(Container);
+
+        [[nodiscard]] bool
         HasWidgets() const;
 
         void
@@ -33,6 +41,4 @@ namespace euphoria::gui
         std::vector<std::shared_ptr<Widget>> widgets_;
     };
 }
-
-#endif  // GUI_CONTAINER_H
 

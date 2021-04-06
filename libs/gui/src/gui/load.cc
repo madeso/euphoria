@@ -1,8 +1,5 @@
 #include "gui/load.h"
 
-#include <iostream>
-#include <map>
-
 #include "core/proto.h"
 #include "core/log.h"
 
@@ -18,6 +15,9 @@
 #include "gui/root.h"
 
 #include "gaf_gui.h"
+
+#include <iostream>
+#include <map>
 
 namespace euphoria::gui
 {
@@ -77,7 +77,7 @@ namespace euphoria::gui
         render::TextureCache* cache,
         const std::map<std::string, Skin*>& skins
     );
-    
+
 
     void
     SetupLayout(LayoutData* data, const ::gui::Widget& src)
@@ -116,7 +116,7 @@ namespace euphoria::gui
         if(w.button)
         {
             LOG_INFO("Creating a button widget");
-            auto* b = new CmdButton(state);
+            auto b = std::make_shared<CmdButton>(state);
 
             const std::string skin_name = w.button->skin;
             const auto skin_it = skins.find(skin_name);
@@ -129,7 +129,7 @@ namespace euphoria::gui
             else
             {
                 b->SetSkin(skin_it->second);
-            
+
                 skin = skin_it->second;
 
                 if(skin_it->second->button_image.has_value())
@@ -146,11 +146,11 @@ namespace euphoria::gui
                     b->SetSprite(sp);
                 }
             }
-            ret.reset(b);
+            ret = b;
             b->cmd = w.button->command;
             b->Text().SetString(w.button->text);
-            
-            if(skin)
+
+            if(skin != nullptr)
             {
                 b->Text().SetFont(skin->font);
             }
@@ -158,8 +158,8 @@ namespace euphoria::gui
         else if(w.panel)
         {
             LOG_INFO("Creating a panel widget");
-            PanelWidget* l = new PanelWidget(state);
-            ret.reset(l);
+            auto l = std::make_shared<PanelWidget>(state);
+            ret = l;
             BuildLayoutContainer
             (
                 fs,

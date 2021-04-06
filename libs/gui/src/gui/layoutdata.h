@@ -1,47 +1,40 @@
-#ifndef GUI_LAYOUTDATA_H
-#define GUI_LAYOUTDATA_H
+#pragma once
 
 namespace euphoria::gui
 {
     struct LayoutData
     {
-    public:
-        LayoutData();
-
-        ~LayoutData();
+        LayoutData() = default;
 
         // todo(Gustav): cleanup this horrible get/set structure
 
-        int
+        [[nodiscard]] int
         GetColumn() const;
 
         LayoutData&
         SetColumn(int c);
 
-        int
+        [[nodiscard]] int
         GetRow() const;
 
         LayoutData&
         SetRow(int r);
 
-        float
+        [[nodiscard]] float
         GetPreferredWidth() const;
 
         LayoutData&
         SetPreferredWidth(float w);
 
-        float
+        [[nodiscard]] float
         GetPreferredHeight() const;
 
         LayoutData&
         SetPreferredHeight(float h);
 
-    private:
         int column_;
         int row_;
         float preferred_width_;
         float preferred_height_;
     };
 }
-
-#endif  // GUI_LAYOUTDATA_H

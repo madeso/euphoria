@@ -7,18 +7,13 @@
 
 namespace euphoria::gui
 {
-    LOG_SPECIFY_DEFAULT_LOGGER("gui.widget")
-
-
     Widget::Widget(UiState* state)
         : state_(state)
     {
     }
 
 
-    Widget::~Widget()
-    {
-    }
+    Widget::~Widget() = default;
 
 
     bool
@@ -104,7 +99,7 @@ namespace euphoria::gui
 
 
     UiState*
-    Widget::GetStatePtr()
+    Widget::GetStatePtr() const
     {
         return state_;
     }

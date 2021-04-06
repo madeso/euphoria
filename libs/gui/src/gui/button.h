@@ -1,14 +1,16 @@
-#ifndef GUI_BUTTON_H
-#define GUI_BUTTON_H
+#pragma once
 
 #include "core/rect.h"
 #include "core/rgb.h"
 #include "core/vec2.h"
 #include "core/interpolate.h"
+#include "core/noncopyable.h"
+
 #include "gui/widget.h"
 #include "gui/textdata.h"
 
 #include <memory>
+
 
 namespace euphoria::render
 {
@@ -19,12 +21,16 @@ namespace euphoria::gui
 {
     struct Skin;
     struct ButtonState;
+}
 
+namespace euphoria::gui
+{
     struct Button : public Widget
     {
         Button(UiState* state);
+        ~Button() override;
 
-        ~Button();
+        NONCOPYABLE(Button);
 
         virtual void
         OnClicked() = 0;
@@ -32,7 +38,7 @@ namespace euphoria::gui
         void
         Step(float dt) override;
 
-        core::Sizef
+        [[nodiscard]] core::Sizef
         CalculateMinimumSize() const override;
 
         void
@@ -64,6 +70,3 @@ namespace euphoria::gui
         core::Interpolate<core::vec2f, core::Vec2fTransform> position_displacement_;
     };
 }
-
-#endif  // GUI_BUTTON_H
-

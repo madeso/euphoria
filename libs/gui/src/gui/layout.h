@@ -1,16 +1,21 @@
-#ifndef GUI_LAYOUT_H
-#define GUI_LAYOUT_H
+#pragma once
 
 #include "core/rect.h"
 #include "core/size.h"
+#include "core/noncopyable.h"
 
 #include <vector>
 #include <memory>
 
+
 namespace euphoria::gui
 {
     struct Widget;
+}
 
+
+namespace euphoria::gui
+{
     struct Layout
     {
         Layout();
@@ -18,8 +23,9 @@ namespace euphoria::gui
         virtual
         ~Layout();
 
-        virtual
-        core::Sizef
+        NONCOPYABLE(Layout);
+
+        [[nodiscard]] virtual core::Sizef
         CalculateMinimumArea
         (
             const std::vector<std::shared_ptr<Widget>>& widgets
@@ -38,19 +44,21 @@ namespace euphoria::gui
     {
         TableLayout
         (
-            const std::vector<bool> expandable_rows,
-            const std::vector<bool> expandable_cols,
+            const std::vector<bool>& expandable_rows,
+            const std::vector<bool>& expandable_cols,
             float combined_padding
         );
 
-        virtual
-        core::Sizef
+        ~TableLayout() override = default;
+
+        NONCOPYABLE(TableLayout);
+
+        [[nodiscard]] core::Sizef
         CalculateMinimumArea
         (
             const std::vector<std::shared_ptr<Widget>>& widgets
         ) const override;
 
-        virtual
         void
         DoLayout
         (
@@ -67,14 +75,16 @@ namespace euphoria::gui
     {
         SingleRowLayout(float padding);
 
-        virtual
-        core::Sizef
+        ~SingleRowLayout() override = default;
+
+        NONCOPYABLE(SingleRowLayout);
+
+        [[nodiscard]] core::Sizef
         CalculateMinimumArea
         (
             const std::vector<std::shared_ptr<Widget>>& widgets
         ) const override;
 
-        virtual
         void
         DoLayout
         (
@@ -82,10 +92,6 @@ namespace euphoria::gui
             const core::Rectf& area
         ) const override;
 
-    private:
         float padding_;
     };
 }
-
-#endif  // GUI_LAYOUT_H
-

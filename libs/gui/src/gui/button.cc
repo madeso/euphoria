@@ -6,14 +6,15 @@
 #include "render/font.h"
 
 #include "gui/visitor.h"
+#include "gui/skin.h"
 
-#include "skin.h"
 
 namespace euphoria::gui
 {
     Button::Button(UiState* state)
         : Widget(state)
         , last_state_(nullptr)
+        , skin_(nullptr)
         , scale_(1.0f)
         , image_color_(core::Rgb(1.0f))
         , text_color_(core::Rgb(1.0f))
@@ -22,9 +23,7 @@ namespace euphoria::gui
     }
 
 
-    Button::~Button()
-    {
-    }
+    Button::~Button() = default;
 
 
     void
@@ -46,7 +45,7 @@ namespace euphoria::gui
             OnClicked();
         }
 
-        if(skin_)
+        if(skin_ != nullptr)
         {
             auto* cold_state = &skin_->button_idle;
             auto* hot_state = IsActive()
@@ -123,7 +122,7 @@ namespace euphoria::gui
     void
     Button::Render(render::SpriteRenderer* renderer) const
     {
-        if(skin_)
+        if(skin_ != nullptr)
         {
             if(sprite_ != nullptr)
             {
@@ -138,7 +137,7 @@ namespace euphoria::gui
                 ASSERTX(scaled.GetHeight() > 0, scaled.GetHeight());
                 renderer->DrawNinepatch
                 (
-                    *sprite_.get(),
+                    *sprite_,
                     scaled.OffsetCopy(position_displacement_.GetValue()),
                     image_color_.GetValue()
                 );
@@ -147,7 +146,7 @@ namespace euphoria::gui
             if(text_.HasText())
             {
                 const auto ex = text_.GetText().GetExtents();
-                // todo: render text at client rect center
+                // todo(Gustav): render text at client rect center
 
                 const auto base = ex.CenterInsideOther(GetClientRect());
                 const auto base_pos = base.GetBottomLeft();
@@ -189,7 +188,7 @@ namespace euphoria::gui
     Button::SetSkin(Skin* skin)
     {
         skin_ = skin;
-        if(skin_)
+        if(skin_ != nullptr)
         {
             text_.SetSize(skin_->text_size);
         }

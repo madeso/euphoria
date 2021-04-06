@@ -5,14 +5,10 @@
 
 namespace euphoria::gui
 {
-    Container::Container()
-    {
-    }
+    Container::Container() = default;
 
 
-    Container::~Container()
-    {
-    }
+    Container::~Container() = default;
 
 
     bool
@@ -48,4 +44,3 @@ namespace euphoria::gui
         }
     }
 }
-

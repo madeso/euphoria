@@ -4,6 +4,7 @@
 #include "core/log.h"
 #include "core/stringmerger.h"
 #include "core/stringutils.h"
+#include "core/cint.h"
 
 #include "gui/widget.h"
 
@@ -13,23 +14,16 @@
 
 namespace euphoria::gui
 {
-    LOG_SPECIFY_DEFAULT_LOGGER("gui.layout")
+    Layout::Layout() = default;
 
 
-    Layout::Layout()
-    {
-    }
-
-
-    Layout::~Layout()
-    {
-    }
+    Layout::~Layout() = default;
 
 
     TableLayout::TableLayout
     (
-            const std::vector<bool> expandable_rows,
-            const std::vector<bool> expandable_cols,
+            const std::vector<bool>& expandable_rows,
+            const std::vector<bool>& expandable_cols,
             float combined_padding
     )
         : expandable_rows_(expandable_rows)
@@ -56,9 +50,9 @@ namespace euphoria::gui
         const std::vector<std::shared_ptr<Widget>>& widgets
     ) const
     {
-        // todo: include padding
-        std::vector<float> width(expandable_cols_.size(), 0);
-        std::vector<float> height(expandable_rows_.size(), 0);
+        // todo(Gustav): include padding
+        std::vector<float> width(expandable_cols_.size(), 0.0f);
+        std::vector<float> height(expandable_rows_.size(), 0.0f);
 
         for(const auto& w: widgets)
         {
@@ -70,8 +64,8 @@ namespace euphoria::gui
 
         const auto s = core::Sizef::FromWidthHeight
         (
-            std::accumulate(width.begin(), width.end(), 0),
-            std::accumulate(height.begin(), height.end(), 0)
+            std::accumulate(width.begin(), width.end(), 0.0f),
+            std::accumulate(height.begin(), height.end(), 0.0f)
         );
 
         LOG_INFO("Calculate minumum area {0}", s);
@@ -101,9 +95,9 @@ namespace euphoria::gui
     {
         LOG_INFO("Doing table layout in {0}", area);
 
-        // todo: include padding
-        std::vector<float> width(expandable_cols_.size(), 0);
-        std::vector<float> height(expandable_rows_.size(), 0);
+        // todo(Gustav): include padding
+        std::vector<float> width(expandable_cols_.size(), 0.0f);
+        std::vector<float> height(expandable_rows_.size(), 0.0f);
 
         for(const auto& w: *widgets)
         {
@@ -116,32 +110,26 @@ namespace euphoria::gui
         LOG_INFO("Table widths: {0}", DebugVector(width));
         LOG_INFO("Table heights: {0}", DebugVector(height));
 
-        const float total_width = std::accumulate
-        (
-            width.begin(), width.end(), 0
-        );
-        const float total_height = std::accumulate
-        (
-            height.begin(), height.end(), 0
-        );
+        const float total_width = std::accumulate(width.begin(), width.end(), 0.0f);
+        const float total_height = std::accumulate(height.begin(), height.end(), 0.0f);
 
         LOG_INFO("Width {0} height: {1}", total_width, total_height);
 
         const float leftover_width = area.GetWidth() - total_width;
         const float leftover_height = area.GetHeight() - total_height;
 
-        const long expandable_rows_count = std::count
+        const int expandable_rows_count = core::Csizet_to_int
         (
-            expandable_rows_.begin(), expandable_rows_.end(), true
+            std::count(expandable_rows_.begin(), expandable_rows_.end(), true)
         );
-        const long expandable_cols_count = std::count
+        const int expandable_cols_count = core::Csizet_to_int
         (
-            expandable_cols_.begin(), expandable_cols_.end(), true
+            std::count(expandable_cols_.begin(), expandable_cols_.end(), true)
         );
 
         if(expandable_rows_count != 0)
         {
-            const float extra = leftover_height / expandable_rows_count;
+            const float extra = leftover_height / core::Cint_to_float(expandable_rows_count);
             for(unsigned int i = 0; i < expandable_rows_.size(); ++i)
             {
                 if(expandable_rows_[i])
@@ -153,7 +141,7 @@ namespace euphoria::gui
 
         if(expandable_cols_count != 0)
         {
-            const float extra = leftover_width / expandable_cols_count;
+            const float extra = leftover_width / core::Cint_to_float(expandable_cols_count);
             for(unsigned int i = 0; i < expandable_cols_.size(); ++i)
             {
                 if(expandable_cols_[i])

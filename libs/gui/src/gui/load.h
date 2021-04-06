@@ -1,17 +1,13 @@
-#ifndef GUI_LOAD_H
-#define GUI_LOAD_H
+#pragma once
 
 #include <string>
 #include <vector>
 #include <memory>
 
-namespace euphoria::core
+namespace euphoria::core::vfs
 {
-    namespace vfs
-    {
-        struct FileSystem;
-        struct FilePath;
-    }
+    struct FileSystem;
+    struct FilePath;
 }
 
 namespace euphoria::render
@@ -23,7 +19,11 @@ namespace euphoria::render
 namespace euphoria::gui
 {
     struct Root;
+}
 
+
+namespace euphoria::gui
+{
     bool
     Load
     (
@@ -34,6 +34,3 @@ namespace euphoria::gui
         render::TextureCache* cache
     );
 }
-
-#endif  // GUI_LOAD_H
-

@@ -1,13 +1,15 @@
 #include "gui/layoutcontainer.h"
+
 #include "gui/layout.h"
+
 
 namespace euphoria::gui
 {
     std::shared_ptr<Layout>
     CreateTableLayout
     (
-        const std::vector<bool> expandable_rows,
-        const std::vector<bool> expandable_cols,
+        const std::vector<bool>& expandable_rows,
+        const std::vector<bool>& expandable_cols,
         float combined_padding
     )
     {
@@ -32,14 +34,10 @@ namespace euphoria::gui
     }
 
 
-    LayoutContainer::LayoutContainer()
-    {
-    }
+    LayoutContainer::LayoutContainer() = default;
 
 
-    LayoutContainer::~LayoutContainer()
-    {
-    }
+    LayoutContainer::~LayoutContainer() = default;
 
 
     void
@@ -50,7 +48,7 @@ namespace euphoria::gui
 
 
     std::shared_ptr<Layout>
-    LayoutContainer::GetLayout()
+    LayoutContainer::GetLayout() const
     {
         return layout_;
     }
@@ -71,4 +69,3 @@ namespace euphoria::gui
         return layout_->CalculateMinimumArea(widgets_);
     }
 }
-

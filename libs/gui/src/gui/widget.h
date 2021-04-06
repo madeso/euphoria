@@ -1,12 +1,13 @@
-#ifndef GUI_WIDGET_H
-#define GUI_WIDGET_H
+#pragma once
 
 #include <string>
 
 #include "core/rect.h"
 #include "core/size.h"
+#include "core/noncopyable.h"
 
 #include "gui/layoutdata.h"
+
 
 namespace euphoria::render
 {
@@ -17,14 +18,16 @@ namespace euphoria::gui
 {
     struct UiState;
     struct Visitor;
+}
 
-
+namespace euphoria::gui
+{
     struct Lrtb
     {
-        float left;
-        float right;
-        float top;
-        float bottom;
+        float left = 0.0f;
+        float right = 0.0f;
+        float top = 0.0f;
+        float bottom = 0.0f;
     };
 
 
@@ -40,56 +43,55 @@ namespace euphoria::gui
         virtual
         ~Widget();
 
-        bool
+        NONCOPYABLE(Widget);
+
+        [[nodiscard]] bool
         IsActive() const;
 
-        bool
+        [[nodiscard]] bool
         IsHot() const;
 
-        virtual void
+        virtual
+        void
         Step(float dt) = 0;
 
-        virtual void
+        virtual
+        void
         OnSize();
 
-        core::Rectf
+        [[nodiscard]] core::Rectf
         GetClientRect() const;
 
-        core::Rectf
+        [[nodiscard]] core::Rectf
         GetBackgroundRect() const;
 
         void
         SetRect(const core::Rectf& r);
 
-        core::Sizef
+        [[nodiscard]] core::Sizef
         GetPreferredSize() const;
 
-        virtual core::Sizef
+        [[nodiscard]] virtual
+        core::Sizef
         CalculateMinimumSize() const = 0;
 
-        virtual void
+        virtual
+        void
         Render(render::SpriteRenderer* renderer) const = 0;
 
         virtual
         void
         Visit(Visitor* visitor) = 0;
 
-    // todo(Gustav): public/private/public/private nonsense?
-    protected:
-        const UiState&
+        [[nodiscard]] const UiState&
         GetState() const;
 
-        UiState*
-        GetStatePtr();
+        [[nodiscard]] UiState*
+        GetStatePtr() const;
 
-    private:
         UiState* state_;
 
-    public:
         LayoutData layout;
         core::Rectf rect_;
     };
 }
-
-#endif  // GUI_WIDGET_H
-
