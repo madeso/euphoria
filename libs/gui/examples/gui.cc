@@ -255,7 +255,7 @@ ImWidget(LayoutContainer* container)
 }
 
 void
-ImWidgetGlyph(unsigned int id, euphoria::render::Glyph* gl)
+ImWidgetGlyph(int id, euphoria::render::Glyph* gl)
 {
     const std::string s = Str() << "glyph " << id;
     if(ImGui::TreeNode(s.c_str()) == false) { return; }
