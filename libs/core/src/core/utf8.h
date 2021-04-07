@@ -11,7 +11,7 @@ namespace euphoria::core
     bool Utf8ToCodepoints(const String& string, OnCodepoint on_codepoint)
     {
         // reference: https://en.wikipedia.org/wiki/UTF-8
-        using Int = unsigned int;
+        using Int = int;
         auto ToByte = [](char c)->std::byte { return static_cast<std::byte>(c); };
 
         constexpr auto mask0 = std::byte{0b10000000}; constexpr auto bit0 = std::byte{0b00000000};
@@ -72,20 +72,23 @@ namespace euphoria::core
                     switch(bits)
                     {
                     case 2:
-                        on_codepoint(
+                        on_codepoint
+                        (
                             ( std::to_integer<Int>(buffer[0]&~mask2) << 6) |
                             ( std::to_integer<Int>(buffer[1]&~mask1) << 0)
                         );
                         break;
                     case 3:
-                        on_codepoint(
+                        on_codepoint
+                        (
                             ( std::to_integer<Int>(buffer[0]&~mask3) << 12) |
                             ( std::to_integer<Int>(buffer[1]&~mask1) << 6 ) |
                             ( std::to_integer<Int>(buffer[2]&~mask1) << 0 )
                         );
                         break;
                     case 4:
-                        on_codepoint(
+                        on_codepoint
+                        (
                             ( std::to_integer<Int>(buffer[0]&~mask4) << 18) |
                             ( std::to_integer<Int>(buffer[1]&~mask1) << 12) |
                             ( std::to_integer<Int>(buffer[2]&~mask1) << 6 ) |

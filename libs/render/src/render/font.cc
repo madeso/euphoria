@@ -39,7 +39,7 @@ namespace euphoria::render
     (
         const core::Rectf& sprite,
         const core::Rectf& texture,
-        unsigned int ch,
+        int ch,
         float ad
     )
         : sprite_rect(sprite)
@@ -134,6 +134,7 @@ namespace euphoria::render
         const core::vfs::FilePath& font_file
     )
     {
+        // todo(Gustav): too long, break up
         const int texture_width = 512;
         const int texture_height = 512;
 
@@ -199,7 +200,7 @@ namespace euphoria::render
         // pack char textures to a single texture
         const int num_rects = fontchars.codepoint_to_glyph.size();
         std::vector<stbrp_rect> packed_rects(num_rects);
-        std::map<int, unsigned int> id_to_codepoint;
+        std::map<int, int> id_to_codepoint;
         {
             int index = 0;
             for(const auto& [codepoint, glyph]: fontchars.codepoint_to_glyph)
@@ -358,7 +359,7 @@ namespace euphoria::render
         float size;
         bool apply_highlight;
         core::vec2f position; // todo(Gustav): rename to offset
-        unsigned int last_char_index = 0;
+        int last_char_index = 0;
 
         // return value
         TextDrawCommandList* list;
@@ -381,7 +382,7 @@ namespace euphoria::render
         void
         OnText(const std::string& text) override
         {
-            core::Utf8ToCodepoints(text, [this](unsigned int cp)
+            core::Utf8ToCodepoints(text, [this](int cp)
             {
                 AddCharIndex(cp);
             });
@@ -423,7 +424,7 @@ namespace euphoria::render
 
 
         void
-        AddCharIndex(unsigned int code_point)
+        AddCharIndex(int code_point)
         {
             if(code_point == '\n')
             {

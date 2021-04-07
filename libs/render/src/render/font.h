@@ -35,17 +35,17 @@ namespace euphoria::render
         (
             const core::Rectf& sprite,
             const core::Rectf& texture,
-            unsigned int ch,
+            int ch,
             float ad
         );
 
         core::Rectf sprite_rect; // relative to 0,0
         core::Rectf texture_rect; // image texture uvs
-        unsigned int code_point; // the character or string id
+        int code_point; // the character or string id
         float advance;
     };
 
-    using CharDataMap = std::map<unsigned int, std::shared_ptr<Glyph>>;
+    using CharDataMap = std::map<int, std::shared_ptr<Glyph>>;
 
     struct Font;
 
@@ -197,6 +197,6 @@ namespace euphoria::render
         std::shared_ptr<Texture2d> background;
         CharDataMap chars_;
         core::KerningMap kerning_;
-        std::map<std::string, unsigned int> private_use_aliases;
+        std::map<std::string, int> private_use_aliases;
     };
 }

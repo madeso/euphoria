@@ -134,7 +134,7 @@ namespace euphoria::core
         }
 
 
-        FreetypeFace(FT_Face f, unsigned int s)
+        FreetypeFace(FT_Face f, int s)
             : face(f)
             , size(static_cast<float>(s))
         {
@@ -148,7 +148,7 @@ namespace euphoria::core
         (
             FreetypeLibrary* lib,
             std::shared_ptr<MemoryChunk> memory,
-            unsigned int size
+            int size
         )
         {
             FT_Face face = nullptr;
@@ -184,7 +184,7 @@ namespace euphoria::core
 
 
         [[nodiscard]] LoadedGlyph
-        LoadGlyph(unsigned int code_point) const
+        LoadGlyph(int code_point) const
         {
             const auto error = FT_Load_Char(face, code_point, FT_LOAD_RENDER);
             if(error != 0)
@@ -252,7 +252,7 @@ namespace euphoria::core
     };
 
 
-    unsigned int
+    int
     LoadedFont::NewPrivateUse(const std::string& alias)
     {
         // detect existing private use alias!
@@ -266,7 +266,7 @@ namespace euphoria::core
     void
     LoadedFont::CombineWith(const LoadedFont& fc)
     {
-        std::map<unsigned int, unsigned int> pus;
+        std::map<int, int> pus;
         for(const auto& [alias, id]: fc.private_use_aliases)
         {
             pus[id] = NewPrivateUse(alias);
@@ -314,8 +314,8 @@ namespace euphoria::core
     LoadedFont
     GetCharacterFromBuiltin8
     (
-        const unsigned int start_codepoint,
-        unsigned int end_codepoint,
+        const int start_codepoint,
+        int end_codepoint,
         Glyphs glyphs
     )
     {
@@ -326,7 +326,7 @@ namespace euphoria::core
 
         for
         (
-            unsigned int glyph_index=0;
+            int glyph_index=0;
             glyph_index < number_of_glyphs;
             glyph_index+=1
         )
@@ -369,7 +369,7 @@ namespace euphoria::core
         LoadedFont font;
         font.line_height = 13;
 
-        for(unsigned int codepoint=32; codepoint < 127; codepoint+=1)
+        for(int codepoint=32; codepoint < 127; codepoint+=1)
         {
             LoadedGlyph glyph;
             glyph.image.SetupWithAlphaSupport(8, 13, 0);
@@ -422,7 +422,7 @@ namespace euphoria::core
     (
         vfs::FileSystem* file_system,
         const vfs::FilePath& font_file,
-        unsigned int font_size,
+        int font_size,
         const std::string& chars
     )
     {
@@ -447,7 +447,7 @@ namespace euphoria::core
     GetCharactersFromFont
     (
         std::shared_ptr<MemoryChunk> file_memory,
-        unsigned int font_size,
+        int font_size,
         const std::string& chars
     )
     {
@@ -464,11 +464,11 @@ namespace euphoria::core
         if(loaded_face.has_value() == false) { return LoadedFont{}; }
         auto f = std::move(*loaded_face);
 
-        std::vector<unsigned int> code_points;
+        std::vector<int> code_points;
         Utf8ToCodepoints
         (
             chars,
-            [&](unsigned int cp){code_points.emplace_back(cp);}
+            [&](int cp){code_points.emplace_back(cp);}
         );
 
         LoadedFont fontchars {};

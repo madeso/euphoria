@@ -35,7 +35,7 @@ namespace euphoria::core
         //
 
         bool valid = false;
-        unsigned int code_point = 0;
+        int code_point = 0;
         int bearing_x = 0;
         int bearing_y = 0;
         int advance = 0;
@@ -44,20 +44,20 @@ namespace euphoria::core
     };
 
 
-    using KerningMap = std::map<std::pair<unsigned int, unsigned int>, float>;
+    using KerningMap = std::map<std::pair<int, int>, float>;
 
 
     // represent a loaded font (or a part), but it not yet been converted
     // into a renderable data and texture.
     struct LoadedFont
     {
-        std::map<unsigned int, LoadedGlyph> codepoint_to_glyph;
+        std::map<int, LoadedGlyph> codepoint_to_glyph;
         KerningMap kerning;
-        std::map<std::string, unsigned int> private_use_aliases;
-        unsigned int next_private_use = 0xE000;
+        std::map<std::string, int> private_use_aliases;
+        int next_private_use = 0xE000;
         int line_height = -1;
 
-        unsigned int
+        int
         NewPrivateUse(const std::string& alias);
 
         void
@@ -78,7 +78,7 @@ namespace euphoria::core
     (
         vfs::FileSystem* file_system,
         const vfs::FilePath& font_file,
-        unsigned int font_size,
+        int font_size,
         const std::string& chars
     );
 
@@ -87,7 +87,7 @@ namespace euphoria::core
     GetCharactersFromFont
     (
         std::shared_ptr<MemoryChunk> file_memory,
-        unsigned int font_size,
+        int font_size,
         const std::string& chars
     );
 
