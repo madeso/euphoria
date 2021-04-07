@@ -1,15 +1,20 @@
-#ifndef GUI_PANELWIDGET_H
-#define GUI_PANELWIDGET_H
+#pragma once
+
+#include "core/noncopyable.h"
 
 #include "gui/widget.h"
 #include "gui/layoutcontainer.h"
 #include "gui/visitor.h"
+
 
 namespace euphoria::gui
 {
     struct PanelWidget : public Widget
     {
         PanelWidget(UiState* state);
+        ~PanelWidget() override = default;
+
+        NONCOPYABLE(PanelWidget);
 
         void
         Render(render::SpriteRenderer* renderer) const override;
@@ -20,7 +25,7 @@ namespace euphoria::gui
         void
         OnSize() override;
 
-        core::Sizef
+        [[nodiscard]] core::Sizef
         CalculateMinimumSize() const override;
 
         void
@@ -29,6 +34,3 @@ namespace euphoria::gui
         LayoutContainer container;
     };
 }
-
-#endif  // GUI_PANELWIDGET_H
-

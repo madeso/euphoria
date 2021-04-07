@@ -1,17 +1,22 @@
-#ifndef EUPHORIA_GUI_VISITOR_H
-#define EUPHORIA_GUI_VISITOR_H
+#pragma once
+
+#include "core/noncopyable.h"
 
 
 namespace euphoria::gui
 {
     struct Button;
     struct PanelWidget;
+}
 
 
+namespace euphoria::gui
+{
     struct Visitor
     {
-        virtual 
-        ~Visitor() = default;
+        Visitor() = default;
+        virtual ~Visitor() = default;
+        NONCOPYABLE(Visitor);
 
         virtual
         void
@@ -22,7 +27,4 @@ namespace euphoria::gui
         Visit(PanelWidget* button) = 0;
     };
 }
-
-
-#endif  // EUPHORIA_GUI_VISITOR_H
 

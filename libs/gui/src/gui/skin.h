@@ -1,13 +1,14 @@
-#ifndef GUI_SKIN_H
-#define GUI_SKIN_H
+#pragma once
+
+#include "core/rgb.h"
+#include "core/interpolate.h"
+#include "core/vfs_path.h"
+#include "core/noncopyable.h"
 
 #include <string>
 #include <memory>
 #include <optional>
 
-#include "core/rgb.h"
-#include "core/interpolate.h"
-#include "core/vfs_path.h"
 
 namespace euphoria::render
 {
@@ -39,7 +40,10 @@ namespace euphoria::gui
 
     struct Skin
     {
+        Skin() = default;
         ~Skin();
+
+        NONCOPYABLE(Skin);
 
         std::string name;
 
@@ -54,5 +58,3 @@ namespace euphoria::gui
         ButtonState button_active_hot;
     };
 }
-
-#endif  // GUI_SKIN_H

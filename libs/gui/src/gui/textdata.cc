@@ -10,13 +10,12 @@ namespace euphoria::gui
 {
     TextData::TextData()
         : font_(nullptr)
+        , size(-1.0f)
     {
     }
 
 
-    TextData::~TextData()
-    {
-    }
+    TextData::~TextData() = default;
 
 
     void
@@ -90,7 +89,7 @@ namespace euphoria::gui
     {
         if(text_ == nullptr && font_ != nullptr)
         {
-            text_.reset(new render::Text {font_.get()});
+            text_ = std::make_shared<render::Text>(font_.get());
         }
 
         if(text_ != nullptr)

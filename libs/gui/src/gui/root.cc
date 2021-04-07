@@ -1,5 +1,7 @@
 #include "gui/root.h"
 
+#include "core/cint.h"
+
 #include "render/spriterender.h"
 
 #include "gui/load.h"
@@ -14,9 +16,7 @@ namespace euphoria::gui
     }
 
 
-    Root::~Root()
-    {
-    }
+    Root::~Root() = default;
 
 
     bool
@@ -80,11 +80,10 @@ namespace euphoria::gui
                 (
                     state.mouse,
                     core::scale2f{0, 1},
-                    image->GetWidth(),
-                    image->GetHeight()
+                    core::Cint_to_float(image->GetWidth()),
+                    core::Cint_to_float(image->GetHeight())
                 )
             );
         }
     }
 }
-

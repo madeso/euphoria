@@ -3,16 +3,6 @@
 
 namespace euphoria::gui
 {
-    UiState::UiState()
-        : mouse(0, 0)
-        , mouse_down(false)
-        , hot(nullptr)
-        , active(nullptr)
-        , has_active(false)
-    {
-    }
-
-
     void
     UiState::Begin()
     {

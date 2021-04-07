@@ -1,14 +1,15 @@
 #ifndef GUI_ROOT_H
 #define GUI_ROOT_H
 
-#include <string>
-#include <vector>
-#include <memory>
-
 #include "core/vec2.h"
+#include "core/noncopyable.h"
 
 #include "gui/uistate.h"
 #include "gui/layoutcontainer.h"
+
+#include <string>
+#include <vector>
+#include <memory>
 
 
 namespace euphoria::core::vfs
@@ -27,16 +28,20 @@ namespace euphoria::render
 namespace euphoria::gui
 {
     struct Skin;
+}
+
+
+namespace euphoria::gui
+{
 
     struct Root
     {
-        explicit
-        Root(const core::Sizef& s);
-
+        explicit Root(const core::Sizef& s);
         ~Root();
 
-        [[nodiscard]]
-        bool
+        NONCOPYABLE(Root);
+
+        [[nodiscard]] bool
         Load
         (
             core::vfs::FileSystem* fs,
