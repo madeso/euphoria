@@ -116,8 +116,9 @@ namespace euphoria::engine
         }
         else
         {
+            const auto name = reg->GetComponentName(comp);
             sol::error err = val;
-            const auto message = fmt::format("Failed to call create for component '{0}': {1}", comp, err.what());
+            const auto message = fmt::format("Failed to call create for component {0}({1}): {2}", name, comp, err.what());
             LOG_ERROR("{0}", message);
             if(!ctx->has_error)
             {

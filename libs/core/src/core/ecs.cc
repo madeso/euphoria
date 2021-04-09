@@ -186,6 +186,20 @@ namespace euphoria::core::ecs
             return ret;
         }
 
+        std::string
+        GetComponentName(ComponentId id) const
+        {
+            auto found = components.find(id);
+            if(found == components.end())
+            {
+                return "<unknown>";
+            }
+            else
+            {
+                return (found->second)->name;
+            }
+        }
+
         std::shared_ptr<Component>
         GetComponent(EntityId entity, ComponentId id)
         {
@@ -303,6 +317,12 @@ namespace euphoria::core::ecs
     Registry::NewComponentType(const std::string& name)
     {
         return impl->NewComponentType(name);
+    }
+
+    std::string
+    Registry::GetComponentName(ComponentId id) const
+    {
+        return impl->GetComponentName(id);
     }
 
     bool

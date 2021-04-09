@@ -127,6 +127,9 @@ namespace euphoria::core::ecs
         ComponentId
         NewComponentType(const std::string& name);
 
+        std::string
+        GetComponentName(ComponentId id) const;
+
         // todo(Gustav): make it return a std::optional instead
         bool
         GetCustomComponentByName(const std::string& name, ComponentId* id);
