@@ -111,12 +111,14 @@ RunMainScriptFile(Sol* duk, vfs::FileSystem* fs, const vfs::FilePath& path)
         LOG_ERROR("{0}", error_message);
         return RunResult::Error(error_message);
     }
-    const auto eval = duk->lua.script(
-      content,
-      [](lua_State*, sol::protected_function_result pfr) { return pfr; });
-  if(!eval.valid())
-  {
-    const sol::error  err           = eval;
+    const auto eval = duk->lua.script
+    (
+        content,
+        [](lua_State*, sol::protected_function_result pfr) { return pfr; }
+    );
+    if(!eval.valid())
+    {
+        const sol::error err = eval;
         const std::string error_message = Str() << "Failed to run " << path
                                                 << ": " << err.what();
         LOG_ERROR("{0}", error_message);

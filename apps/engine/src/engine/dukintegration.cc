@@ -19,38 +19,60 @@ LOG_SPECIFY_DEFAULT_LOGGER("engine.duk.integration")
 namespace euphoria::engine
 {
 
-template<typename T>
-std::vector<T> GetVector(const sol::table& table)
-{
-  std::vector<T> r;
-  r.reserve(table.size());
-  for(unsigned int i=0; i<table.size(); i+=1)
-  {
-    r.emplace_back(table[i+1]);
-  }
-  return r;
-}
+    template<typename T>
+    std::vector<T> GetVector(const sol::table& table)
+    {
+        std::vector<T> r;
+        r.reserve(table.size());
+        for(unsigned int i=0; i<table.size(); i+=1)
+        {
+            r.emplace_back(table[i+1]);
+        }
+        return r;
+    }
+
+
+    void ReportFirstError(const sol::protected_function_result& val, Sol* ctx,const std::string& action, const std::string& where)
+    {
+        if (val.valid())
+        {
+            return;
+        }
+
+        const sol::error err = val;
+        const auto message = fmt::format("Failed to {0} in {1}: {2}", action, where, err.what());
+        LOG_ERROR("{0}", message);
+        if (!ctx->has_error)
+        {
+            ctx->has_error = true;
+            ctx->error = message;
+        }
+    }
 
 
     struct DukUpdateSystem
         : public core::ecs::ComponentSystem
         , public core::ecs::ComponentSystemUpdate
-{
-  using UpdateFunction = std::function<void(float)>;
+    {
+        // using UpdateFunction = std::function<void(float)>;
+        using UpdateFunction = sol::protected_function;
 
-  UpdateFunction func;
+        Sol* duk;
+        UpdateFunction func;
 
-  DukUpdateSystem(const std::string& name, UpdateFunction f)
+        DukUpdateSystem(const std::string& name, Sol* d, UpdateFunction f)
             : ComponentSystem(name)
+            , duk(d)
             , func(f)
         {
-    ASSERT(func);
+            ASSERT(func);
         }
 
         void
         Update(core::ecs::Registry*, float dt) const override
         {
-    func(dt);
+            auto result = func(dt);
+            ReportFirstError(result, duk, "update", name);
         }
 
         void
@@ -65,21 +87,26 @@ std::vector<T> GetVector(const sol::table& table)
         : public core::ecs::ComponentSystem
         , public core::ecs::ComponentSystemInit
     {
-    	using InitFunction = std::function<void(core::ecs::EntityId)>;
+    	// using InitFunction = std::function<void(core::ecs::EntityId)>;
+    	using InitFunction = sol::protected_function;
     	
         core::ecs::Registry* reg;
+        Sol* duk;
         std::vector<core::ecs::ComponentId> types;
-  InitFunction             func;
+        InitFunction func;
 
 
         DukInitSystem
         (
             const std::string& name,
+            Sol* d,
             core::ecs::Registry* r,
             const std::vector<core::ecs::ComponentId>& t,
-      InitFunction                    f)
+            InitFunction f
+        )
             : ComponentSystem(name)
             , reg(r)
+            , duk(d)
             , types(t)
             , func(f)
         {
@@ -101,7 +128,8 @@ std::vector<T> GetVector(const sol::table& table)
                     return;
                 }
             }
-    func(entity);
+            auto result = func(entity);
+            ReportFirstError(result, duk, "init", name);
         }
 
         void
@@ -115,29 +143,30 @@ std::vector<T> GetVector(const sol::table& table)
     struct DukSystems
     {
         core::ecs::Systems* systems;
+        Sol* duk;
 
-
-        explicit DukSystems(core::ecs::Systems* s)
+        explicit DukSystems(core::ecs::Systems* s, Sol* d)
             : systems(s)
+            , duk(d)
         {
         }
 
         void
         AddUpdate(const std::string& name, DukUpdateSystem::UpdateFunction func)
         {
-            systems->AddAndRegister(std::make_shared<DukUpdateSystem>(name, func));
+            systems->AddAndRegister(std::make_shared<DukUpdateSystem>(name, duk, func));
         }
 
         void
-        AddInit(
+        AddInit
+        (
             const std::string& name,
             core::ecs::Registry* reg,
             const std::vector<core::ecs::ComponentId>& types,
-            DukInitSystem::InitFunction     func
+            DukInitSystem::InitFunction func
         )
         {
-            systems->AddAndRegister(
-        std::make_shared<DukInitSystem>(name, reg, types, func));
+            systems->AddAndRegister(std::make_shared<DukInitSystem>(name, duk, reg, types, func));
         }
     };
 
@@ -152,7 +181,7 @@ std::vector<T> GetVector(const sol::table& table)
             Components* components,
             CameraData*    cam
         )
-            : systems(sys)
+            : systems(sys, duk)
             , registry(&world->reg, components)
             , input(duk->lua["Input"].get_or_create<sol::table>())
             , world(world)
