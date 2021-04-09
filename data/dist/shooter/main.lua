@@ -24,12 +24,6 @@ end
 
 StarRandom = Math.NewRandom()
 
-if StarRandom ~= nil then
-  print("has random")
-else
-  print("no random")
-end
-
 Types = {
   Pos2= Registry.GetPosition2Id(),
   Sprite= Registry.GetSpriteId(),
@@ -62,17 +56,20 @@ end)
 
 Systems.AddUpdate("star movement", function(dt) 
     local ents = Registry.Entities({Types.Sprite, Types.Star})
-    ents.forEach(function(entity) 
+    for _, entity in pairs(ents) do
         local star = Registry.Get(entity, Types.Star)
         local vec = Registry.GetPosition2vec(entity)
         if vec ~= null then
             vec.y = vec.y - dt * star.speed;
-            if vec.y < 0 then
-              vec.x = StarRandom:NextRangeFloat(Camera.GetRect().GetWidth())
-              vec.y = vec.y + Camera.GetRect().GetHeight()
+            local vy = vec.y
+            -- print("Moving star to ", vy)
+            if vy < 0.0 then
+              vec.x = StarRandom:NextRangeFloat(Camera.GetRect():GetWidth())
+              vec.y = vec.y + Camera.GetRect():GetHeight()
+              print("Reseting star to ", vec.x, " ", vec.y)
             end
           end
-    end)
+    end
   end)
 
 
@@ -92,46 +89,46 @@ end)
 
 Systems.AddUpdate("move up", function(dt) 
   local ents = Registry.Entities({Types.Pos2, Types.MoveUp})
-  ents.forEach(function(entity) 
+  for _, entity in pairs(ents) do
     local vec = Registry.GetPosition2vec(entity)
     if vec ~= null then
       local speed = 250
       vec.y = vec.y + dt * speed
     end
-  end)
+  end
 end)
 
 Systems.AddUpdate("time out", function(dt) 
   local ents = Registry.Entities({Types.TimeOut});
-  ents.forEach(function(entity) 
+  for _, entity in pairs(ents) do
     local data = Registry.Get(entity, Types.TimeOut)
     data.time = data.time - dt
     if data.time < 0 then
       print("Timeout")
       Registry.DestroyEntity(entity)
     end
-  end)
+  end
 end)
 
 Systems.AddUpdate("destroy outside", function (dt) 
   local ents = Registry.Entities({Types.Sprite, Types.Pos2, Types.DestroyOutside})
-  ents.forEach(function (entity) 
+  for _, entity in pairs(ents) do
     local sp = Registry.GetSprite(entity)
     local p = Registry.GetPosition2(entity)
     if sp ~= null then
       local cam = Camera.GetRect()
       local r = sp.GetRect(p)
-      if not cam.Contains(r) then
+      if not cam:Contains(r) then
         Registry.DestroyEntity(entity)
       end
     end
-  end)
+  end
 end)
 
 shotTemplate = Templates.Find("shot")
-Systems.AddUpdate("player", function(dt) 
+Systems.AddUpdate("player", function(dt)
   ents = Registry.Entities({Types.Pos2, Types.Player})
-  ents.forEach(function(entity) 
+  for _, entity in pairs(ents) do
     local vec = Registry.GetPosition2vec(entity)
     if vec ~= null then
       local speed = 150
@@ -143,7 +140,7 @@ Systems.AddUpdate("player", function(dt)
         if not shotTemplate then
           print("no shot")
         else
-          local shot = shotTemplate.Create()
+          local shot = shotTemplate:Create()
           local v = Registry.GetPosition2vec(shot)
           if v ~= null then
             v.x = vec.x
@@ -154,6 +151,6 @@ Systems.AddUpdate("player", function(dt)
       vec.y = vec.y + dt * speed * vertical
       vec.x = vec.x + dt * speed * horizontal
     end
-  end)
+  end
 end)
 
