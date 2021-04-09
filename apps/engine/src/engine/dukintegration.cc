@@ -329,8 +329,11 @@ namespace euphoria::engine
             {
                 return r.NextRange(f);
             };
-            // "NextBool", &Random::NextBool,
-            // "NextPoint", &Random::NextPoint
+            random_type["NextBool"] = &core::Random::NextBool;
+            random_type["NextPoint2"] = [](core::Random& r, core::Rectf& rect) -> core::vec2f
+            {
+                return rect.RandomPoint(&r);
+            };
         }
 
         DukSystems systems;
