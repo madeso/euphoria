@@ -311,17 +311,24 @@ namespace euphoria::engine
                 }
             );
 
-            /*
-            duk->lua.new_usertype<Rectf>(
-                "Rectf",
-                sol::no_constructor,
-                "Contains",
-                &Rectf::ContainsExclusive,
-                "GetHeight",
-                &Rectf::GetHeight,
-                "GetWidth",
-                &Rectf::GetWidth);
-            */
+            auto rect_type = duk->lua.new_usertype<core::Rectf>("Rectf", sol::no_constructor);
+            rect_type["Contains"] = sol::overload
+            (
+                [](const core::Rectf& r, const core::Rectf& rr) -> bool
+                {
+                    return r.ContainsExclusive(rr);
+                },
+                [](const core::Rectf& r, const core::vec2f& p) -> bool
+                {
+                    return r.ContainsExclusive(p);
+                },
+                [](const core::Rectf& r, float x, float y) -> bool
+                {
+                    return r.ContainsExclusive(x, y);
+                }
+            );
+            rect_type["GetHeight"] = &core::Rectf::GetHeight;
+            rect_type["GetWidth"] = &core::Rectf::GetWidth;
 
             auto random_type = duk->lua.new_usertype<core::Random>("Random");
             random_type["NextFloat01"] = &core::Random::NextFloat01;
