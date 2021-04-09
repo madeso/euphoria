@@ -1,0 +1,57 @@
+{
+	"origin": ["#starts# #attributes.a# #places#.\n#thefloor# #decayed# #floorobject.s#.\n#openquestion#", "#starts# #attributes.a# #places#.\n#thefloor# #weird# #floorobject.s#.\n#openquestion#", "#starts# #attributes.a# #places#.\n#thewall# #weird# #wallobject.s#.\n#openquestion#", "#starts# #attributes.a# #places#.\n#theobject# #magical.a# #theobjects#.\n#openquestion#", "#starts# #attributes.a# #places#.\n#thenote# '#notetext#'"],
+
+	"starts": ["You see","You're in","You're inside","You're trapped in","You discover","You explore", "Your home is", "You are teleported to", "You hide in", "You live in"],
+	
+	"attributes": ["beautiful", "hidden", "burning", "mystical", "ancient", "colorful", "tiny", "small", "magical", "overgrown", "destroyed", "lost", "dark","wet", "cold", "forgotten", "foggy", "misty", "#tiny2a#"],
+	"tiny2a": ["tiny", "cute", "small", "pretty", "rainbow", "glowing", "colorful"],
+	"ecosystem": ["rivulet", "lake", "swamp", "forest", "meadow", "river", "pond", "hill", "cave", "clearing"],
+	"foresttreasure": ["acorn", "pinecone", "little rock", "snail shell", "leaf", "mud clump", "wild berry", "flower", "colorful rock", "pebble"],
+	"adventure_time_quote": ["Sucking at something is the first step to being sorta good at something", "I know who I am and I’ll know what I want if and when it comes along", "People make mistakes. It’s a part of growing up, and you never really stop growing ", "Even if we like each other, we’re still going to hurt each other", "The answer was too simple and I was too smart to see it"],
+"wiki_animal": ["aardvark", "albatross", "alligator", "alpaca", "ant", "anteater", "antelope", "ape", "armadillo", "baboon", "badger", "barracuda", "bat", "bear", "beaver", "bee", "bison", "boar", "buffalo", "butterfly", "camel", "caribou", "cassowary", "cat", "caterpillar", "cattlenote", "chamois", "cheetah", "chicken", "chimpanzee", "chinchilla", "chough", "coati", "cobra", "cockroach", "cod", "cormorant", "coyote", "crab", "crane", "crocodile", "crow", "curlew", "deer", "dinosaur", "dog", "dogfish", "dolphin", "donkey", "dotterel", "dove", "dragonfly", "duck", "dugong", "dunlin", "eagle", "echidna", "eel", "eland", "elephant", "elephant seal", "elk", "emu", "falcon", "ferret", "finch", "fish", "flamingo", "fly", "fox", "frog", "gaur", "gazelle", "gerbil", "giant panda", "giraffe", "gnat", "gnu", "goat", "goldfinch", "goosander", "goose", "gorilla", "goshawk", "grasshopper", "grouse", "guanaco", "guinea fowl", "guinea pig", "gull", "hamster", "hare", "hawk", "hedgehog", "heron", "herring", "hippie", "hornet", "horse", "hummingbird", "hyena", "ibex", "ibis", "jackal", "jaguar", "jay", "jellyfish", "kangaroo", "kinkajou", "koala", "komodo dragon", "kouprey", "kudu", "lapwing", "lark", "lemur", "leopard", "lion", "llama", "lobster", "locust", "loris", "louse", "lyrebird", "magpie", "mallard", "mammoth", "manatee", "mandrill", "mink", "mole", "mongoose", "monkey", "moose", "mouse", "mosquito", "narwhal", "newt", "nightingale", "octopus", "okapi", "opossum", "ostrich", "otter", "owl", "oyster", "panther", "parrot", "panda", "partridge", "peafowl", "pelican", "penguin", "pheasant", "pig", "pigeon", "polar bear", "pony", "porcupine", "porpoise", "prairie dog", "quail", "quelea", "quetzal", "rabbit", "raccoon", "ram", "rat", "raven", "red deer", "red panda", "reindeer", "rhinoceros", "rook", "salamander", "salmon", "sand dollar", "sandpiper", "sardine", "sea lion", "sea urchin", "seahorse", "seal", "shark", "sheep", "shrew", "skunk", "sloth", "snail", "snake", "spider", "squirrel", "starling", "stegosaurus", "swan", "tapir", "tarsier", "termite", "tiger", "toad", "turkey", "turtle", "vicuña", "wallaby", "walrus", "wasp", "water buffalo", "weasel", "whale", "wolf", "wolverine", "wombat", "wren", "yak", "zebra"],
+
+"tr_act": ["look at", "think about", "love", "found", "want", "create", "help", "make", "share"],
+	"tr_adj": ["little", "nice", "pretty", "fun", "tiny", "cool", "great", "cute", "beautiful", "inspiring", "happy", "real", "small", "special"],
+	"tr_noun": ["games", "art", "forests", "stuff", "bots", "illustrations", "things", "nature", "photos", "animations", "characters", "colors", "trees", "videos", "worlds", "adventures", "planets"],
+
+	"places": ["manor","castle","attic","cellar","tower","apartment","room","building","house","office","cave","mine", "temple", "cavern", "ruin", "greenhouse", "monastery", "cabin", "chapel", "library", "church", "cave system", "underground city", "lighthouse", "ship", "underground tunnel", "abbey", "cottage", "underground garden", "battleship", "temple", "dome", "tower", "arena", "arch", "ring", "spire", "citadel", "pyramid", "ziggurat", "church", "pit", "artificial mountain", "grove", "minaret", "palace", "cathedral", "labyrinth", "tomb", "crypt", "statue", "monument", "vault", "throne", "theater", "amphitheater", "colossus", "market hall", "lodge", "longhouse", "library", "tree", "artificial lake", "cistern", "university"],
+	
+	
+	"thefloor":["The floor is filled with", "The floor is covered in", "The ground is covered in"],
+	"decayed":["damaged", "decaying", "lost", "broken", "destroyed", "shattered", "overgrown", "mossy", "ancient", "old"],
+	"floorobject":["doll", "crystal", "glass", "skull", "clock", "chain", "book", "toy", "instrument", "lamp", "machine", "bottle", "shoe", "painting", "statue", "paint brush", "mannequin", "cage", "coffin", "weapon", "television", "telephone", "lightbulb", "#foresttreasure#"],
+	
+	"thewall":["The walls are filled with", "On the walls are", "The walls are covered in", "The ceiling is covered in", "On the ceiling are"],
+	"weird":["weird", "crazy", "crude", "mysterious", "odd", "strange", "eerie", "abnormal", "unnatural", "occult", "cryptic", "miraculous", "glowing", "overgrown", "ancient"],
+	"wallobject":["painting", "drawing", "note", "writing", "diagram", "schematic", "wallpaper", "mirror", "symbol", "plant", "pattern", "crystal", "fresco", "mosaic"],
+	
+	"theobject":["You see", "In the distance you see", "Oh look, this seems to be", "Hm, this looks like"],
+	"magical":["#weird#", "#decayed#", "magical", "glowing", "floating", "seemingly weightless", "#tiny2a#"],
+	"theobjects":["painting", "drawing", "note", "writing", "plant", "tree", "leaf", "crystal", "clock", "fairy", "book", "firefly", "acorn", "flower", "mirror", "light", "skull",  "fish", "tophat", "#floorobject#", "document", "#wiki_animal#", "portal to #ecosystem.a#"],
+	
+	"thenote":["You find a #writing#, it reads:\n", "You find a #writing# and decide to read it:\n"],
+	"writing":["writing", "note", "piece of paper", "diary entry"],
+	"notetext":["Life does not have to be perfect to be beautiful", "I love the forest", "Add value to peoples lifes", "Nature is magical", "Make art with people you love", "Respect the art you make", "What matters in your life?", "Nature brings peace to my restless mind", "I believe in you!", "Hope is a waking dream", "If you dream it, you can do it.", "Everything you can imagine is real", "The journey is my home", "My mind is blank D:", "Earth laughs in flowers", "Art is freedom", "Don't be afraid of silence", "Beware of the monsters in your head", "Life is art", "You're the sun of your life. Rise.", "You are always welcome here", "Trust your instincts", "Truth. Patience. Empathy. Value them", "The silence awaits your song", "You are an animal.", "I was waiting for you.","Make it true.","Words are no match for imagination.","The forest calls for you.", "Listen to the rain.", "There are secrets in the bark of every tree.", "You're here now. Rest.", "There's food under the door mat.", "brb travelling the world", "Travel on foot.", "Take a breath between every sentence.", "Mirrors don't reflect minds.", "Found this note. You can keep it.", "Don't be afraid to ask for help.", "Thank you for listening.", "Cherish my memory", "I'm watching the trees getting old", "From my ashes a tree will rise", "Spend time with people you love", "Learn to laugh at yourself", "A life, that lasts", "I'll remember your kindness and love", "#adventure_time_quote#", "#tr_act# #tr_adj# #tr_noun#", "Keep up the good work! <3", "Remember me", "You choke yourself with your own hands", "today I found a portal to another world"],
+
+	
+	
+	"openquestion":["Who lives here?", "What is this place?", "Who may have lived here?", "How did this all get here?", "Why is this all here?", "Why was this place lost?"],
+
+
+
+	"maybeanswer":["Yeah, maybe.", "Looks like it!", "Hm, yeah. Seems like it."],
+	"someoneanswer":["That someone was you!", "I think it was you!", "Looks like it was you! ;)", "Well, it wasn't me, so ..."],
+	"howanswer":["I don't know, you are the traveler.", "Hm, maybe ask again later.", "Don't worry about it. Sometimes it''s ok not to understand things."],
+	"sorryanswer":["HOW DARE YOU!", "move along", "Aww man, I hate this job."],
+	"greatanswer":["Yup, it's pretty nice.", "It's lovely, isn't it?", "I couldn't agree more."]
+}
+
+
+
+
+
+
+
+
+
+

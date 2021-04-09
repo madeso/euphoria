@@ -1,0 +1,11 @@
+{
+    "autoskip_seconds": 0.001,
+    "date_format": "%Y-%m-%d",
+    "file_idle_time": -1,
+    "hide": [
+        "filenames"
+    ],
+    "max_file_lag": 0.02,
+    "seconds_per_day": 0.1,
+    "user_images": "use_gravatar"
+}

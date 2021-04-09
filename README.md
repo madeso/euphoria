@@ -1,26 +1,15 @@
-# Euphoria
+![euphoria logo](data/branding/euphoria-logo-1280.png)
 
-The earlier increment of euphoria can be found at my [spacehustler](https://github.com/madeso/spacehustler) project. The plan was to make a generic engine, but despite good intentions, that project barely lasted a full game.
+[![Build Status](https://travis-ci.org/madeso/euphoria.svg?branch=master)](https://travis-ci.org/madeso/euphoria)
+[![Build status](https://ci.appveyor.com/api/projects/status/vmq6ojb3xx01pwhk/branch/master?svg=true)](https://ci.appveyor.com/project/madeso/euphoria/branch/master)
+[![Coverage Status](https://coveralls.io/repos/github/madeso/euphoria/badge.svg?branch=master)](https://coveralls.io/github/madeso/euphoria?branch=master)
 
-So I forked my new, not finished but playable, 2d game to this repo instead to become the 'new' euphoria.
+Euphoria is a data-driven "game engine". It's in quotes because
 
-The following table lists how the sources are structured
- 
-| Folder          | Description|
-| ---             | --- |
-| `scimed`        | Scalable Image Editor, editor for editing scalable images |
-| `core`          | contains functionality that doesnt depend on other libraries |
-| `render`        | the library that uses opengl for rendering |
-| `gui`           | a 2d system for rendering gui |
-| `proto`         | protobuf files, for sharing between projects |
-| `demo`          | a 3d demo project |
-| `tests`         | unit tests |
-| `external`      | external libraries |
-| `cmake_modules` | find scripts for CMake |
+1. the term "engine" is really vague.
+2. it also contains other things that aren't related to game engine at all (like csv import and a non-realtime ray tracer)
 
-# Coordinate system
+Euphoria is under heavy development, not ready for prime time, and the final product will be focused on live programming/automatic refresh between computer and target devices (that include computers) with a feature set that lies between love2d (do whatever you like) and fps game creator(restrictive but quick prototyping).
 
-* 0,0 is lower left
-* x-axis is positive right
-* y-axis is positive up
+The folder structure should follow the [pitchfork layout](https://github.com/vector-of-bool/pitchfork).
 

@@ -1,0 +1,130 @@
+{
+
+	"origin":"#origin2#",
+
+
+	"origin2": ["#preface##defs##bg##mountains##clouds##ending#"],
+
+
+	"preface":"{svg <svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" height=\"#baseh#\" width=\"#basew#\">",
+	"defs":"<defs>#basegradient##gradients00-99##groups-def##blurs#</defs>",
+	"bg":"<rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"\\##bg_color#\" opacity=\"1\" /><rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#basegradient)\" opacity=\".#baseopacity#\" />",
+	"basegradient":[ "<linearGradient id=\"basegradient\" #gradpoints#>#gradients#</linearGradient>","<radialGradient gradientTransform=\"scale(0.#4-9# 1)\" id=\"basegradient\" #radialgradpoints#>#gradients#</radialGradient>"],
+
+
+	"blurs":"<filter id=\"blur1\"><feGaussianBlur in=\"SourceGraphic\" stdDeviation=\"#1-3##digit#\" />  </filter>",
+
+	"gradients00-99":"<linearGradient id=\"gradient00\" #gradpoints#>#gradients#</linearGradient><linearGradient id=\"gradient01\" #gradpoints#>#gradients#</linearGradient><linearGradient id=\"gradient02\" #gradpoints#>#gradients#</linearGradient><linearGradient id=\"gradient03\" #gradpoints#>#gradients#</linearGradient><linearGradient id=\"gradient04\" #gradpoints#>#gradients#</linearGradient><linearGradient id=\"gradient05\" #gradpoints#>#gradients#</linearGradient><linearGradient id=\"gradient06\" #gradpoints#>#gradients#</linearGradient><linearGradient id=\"gradient07\" #gradpoints#>#gradients#</linearGradient><linearGradient id=\"gradient10\" #gradpoints#>#gradients_light#</linearGradient><linearGradient id=\"gradient11\" #gradpoints#>#gradients_light#</linearGradient><linearGradient id=\"gradient12\" #gradpoints#>#gradients_light#</linearGradient>",
+
+	"groups-def":"[group1:#group-path1#][group2:#group-path2#][group3:#group-path3#][group4:#group-path4#][group5:#group-path5#][group6:#group-path6#]<mask id=\"overlay1\">#group1#</mask><mask id=\"overlay2\">#group1##group2#</mask><mask id=\"overlay3\">#group1##group2##group3#</mask><mask id=\"overlay4\">#group1##group2##group3##group4#</mask><mask id=\"overlay5\">#group1##group2##group3##group4##group5#</mask><mask id=\"overlay6\">#group1##group2##group3##group4##group5##group6#</mask>",
+
+	"ending":"</svg>}",
+	"mountains":["<rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient02)\" mask=\"url(\\#overlay1)\" opacity=\"#opacity#\" /><rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient03)\" mask=\"url(\\#overlay2)\" opacity=\"#opacity#\" /><rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient04)\" mask=\"url(\\#overlay3)\" opacity=\"#opacity#\" /><rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient05)\" mask=\"url(\\#overlay4)\" opacity=\"#opacity#\" /><rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient06)\" mask=\"url(\\#overlay5)\" opacity=\"#opacity#\" /><rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient07)\" mask=\"url(\\#overlay6)\" opacity=\"#opacity#\" />", "<rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient02)\" mask=\"url(\\#overlay1)\" opacity=\"#opacity#\" /><rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient03)\" mask=\"url(\\#overlay2)\" opacity=\"#opacity#\" /><rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient04)\" mask=\"url(\\#overlay3)\" opacity=\"#opacity#\" /><rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient05)\" mask=\"url(\\#overlay4)\" opacity=\"#opacity#\" /><rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient06)\" mask=\"url(\\#overlay5)\" opacity=\"#opacity#\" /><rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient07)\" mask=\"url(\\#overlay6)\" opacity=\"#opacity#\" />", "<rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient02)\" mask=\"url(\\#overlay1)\" opacity=\"#opacity#\" /><rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient03)\" mask=\"url(\\#overlay2)\" opacity=\"#opacity#\" /><rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient04)\" mask=\"url(\\#overlay3)\" opacity=\"#opacity#\" /><rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient05)\" mask=\"url(\\#overlay4)\" opacity=\"#opacity#\" /><rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient06)\" mask=\"url(\\#overlay5)\" opacity=\"#opacity#\" /><rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient07)\" mask=\"url(\\#overlay6)\" opacity=\"#opacity#\" />", "<rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient02)\" mask=\"url(\\#overlay1)\" opacity=\"#opacity#\" /><rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient03)\" mask=\"url(\\#overlay2)\" opacity=\"#opacity#\" /><rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient04)\" mask=\"url(\\#overlay3)\" opacity=\"#opacity#\" /><rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient05)\" mask=\"url(\\#overlay4)\" opacity=\"#opacity#\" /><rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient06)\" mask=\"url(\\#overlay5)\" opacity=\"#opacity#\" /><rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient07)\" mask=\"url(\\#overlay6)\" opacity=\"#opacity#\" />", "<rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient02)\" mask=\"url(\\#overlay1)\" opacity=\"#opacity#\" /><rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient03)\" mask=\"url(\\#overlay2)\" opacity=\"#opacity#\" /><rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient04)\" mask=\"url(\\#overlay3)\" opacity=\"#opacity#\" /><rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient05)\" mask=\"url(\\#overlay4)\" opacity=\"#opacity#\" /><rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient06)\" mask=\"url(\\#overlay5)\" opacity=\"#opacity#\" /><rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient07)\" mask=\"url(\\#overlay6)\" opacity=\"#opacity#\" />", 
+"<rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient02)\" mask=\"url(\\#overlay1)\" opacity=\"#opacity#\" /><rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient03)\" mask=\"url(\\#overlay2)\" opacity=\"#opacity#\" /><rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient04)\" mask=\"url(\\#overlay3)\" opacity=\"#opacity#\" /><rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient05)\" mask=\"url(\\#overlay4)\" opacity=\"#opacity#\" /><rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient06)\" mask=\"url(\\#overlay5)\" opacity=\"#opacity#\" /><rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient07)\" mask=\"url(\\#overlay6)\" opacity=\"#opacity#\" />", 
+"<rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient02)\" mask=\"url(\\#overlay1)\" opacity=\"#opacity#\" /><rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient03)\" mask=\"url(\\#overlay2)\" opacity=\"#opacity#\" /><rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient04)\" mask=\"url(\\#overlay3)\" opacity=\"#opacity#\" /><rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient05)\" mask=\"url(\\#overlay4)\" opacity=\"#opacity#\" /><rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient06)\" mask=\"url(\\#overlay5)\" opacity=\"#opacity#\" /><rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient07)\" mask=\"url(\\#overlay6)\" opacity=\"#opacity#\" />", 
+"<rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient02)\" mask=\"url(\\#overlay1)\" opacity=\"#opacity#\" /><rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient03)\" mask=\"url(\\#overlay2)\" opacity=\"#opacity#\" /><rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient04)\" mask=\"url(\\#overlay3)\" opacity=\"#opacity#\" /><rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient05)\" mask=\"url(\\#overlay4)\" opacity=\"#opacity#\" /><rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient06)\" mask=\"url(\\#overlay5)\" opacity=\"#opacity#\" />",
+"<rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient02)\" mask=\"url(\\#overlay1)\" opacity=\"#opacity#\" /><rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient03)\" mask=\"url(\\#overlay2)\" opacity=\"#opacity#\" /><rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient04)\" mask=\"url(\\#overlay3)\" opacity=\"#opacity#\" /><rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient05)\" mask=\"url(\\#overlay4)\" opacity=\"#opacity#\" />",
+"<rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient02)\" mask=\"url(\\#overlay1)\" opacity=\"#opacity#\" /><rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient03)\" mask=\"url(\\#overlay2)\" opacity=\"#opacity#\" /><rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient07)\" mask=\"url(\\#overlay6)\" opacity=\"#opacity#\" />",
+"<rect x=\"0\" y=\"0\" width=\"#basew#\" height=\"#baseh#\" fill=\"url(\\#gradient02)\" mask=\"url(\\#overlay3)\" opacity=\"#opacity#\" />"
+],
+	"clouds":["","","","","","#group-path-top#", "#group-path-top#", "#group-path-top#", "#group-path-top#", "#group-path-top##group-path-top#", "#group-path-top##group-path-top##group-path-top##group-path-top#", "#group-path-top##group-path-top##group-path-top##group-path-top##group-path-top##group-path-top##group-path-top#", "#group-path-top##group-path-top##group-path-top##group-path-top##group-path-top##group-path-top##group-path-top##group-path-top##group-path-top##group-path-top##group-path-top##group-path-top##group-path-top##group-path-top##group-path-top##group-path-top##group-path-top##group-path-top##group-path-top##group-path-top##group-path-top#"],
+
+	"group-path-top":["<path d=\"M #basew+200# -100 L -100 -100 L -100 #1-3##digit##digit# #curvepoints_cloud#  M #basew+200# -100 Z\"  fill=\"url(\\##usually10#)\" filter=\"url(\\#blur1)\" opacity=\".1\"></path>",
+						"<path d=\"M -100 -100 L #basew+200# -100 L #basew+200# #1-3##digit##digit# #curvepoints_cloud_r# M -100 -100 Z\"  fill=\"url(\\##usually10#)\" filter=\"url(\\#blur1)\"  opacity=\".1\"></path>"],
+
+	"usually10":["gradient10","gradient10","gradient10","gradient10","gradient11","gradient12"],
+
+	"group-path6":["<path d=\"M #basew# #baseh# L 0 #basew# L 0 2#digit##digit# #curvepoints#  M #basew# #baseh# Z\"  fill=\"white\"></path>",
+					"<path d=\"M 0 #baseh# L #basew# #baseh# L #basew# 2#digit##digit# #curvepoints_r#  M 0 #baseh# Z\"   fill=\"white\"></path>"],
+	"group-path5":["<path d=\"M #basew# #baseh# L 0 #basew# L 0  3#0-5##digit# #curvepoints#  M #basew# #baseh# Z\" fill=\"white\"></path>",
+					"<path d=\"M 0 #baseh# L #basew# #baseh# L #basew# 3#0-5##digit# #curvepoints_r#  M 0 #baseh# Z\"  fill=\"white\"></path>"],
+	"group-path4":["<path d=\"M #basew# #baseh# L 0 #basew# L 0 3#4-9##digit# #curvepoints#  M #basew# #baseh# Z\"  fill=\"white\"></path>",
+					"<path d=\"M 0 #baseh# L #basew# #baseh# L #basew# 3#4-9##digit# #curvepoints_r#  M 0 #baseh# Z\" fill=\"white\"></path>"],
+	"group-path3":["<path d=\"M #basew# #baseh# L 0 #basew# L 0 4#0-5##digit# #curvepoints#  M #basew# #baseh# Z\" fill=\"white\"></path>",
+					"<path d=\"M 0 #baseh# L #basew# #baseh# L #basew# 4#0-5##digit# #curvepoints_r#  M 0 #baseh# Z\"  fill=\"white\"></path>"],
+	"group-path2":["<path d=\"M #basew# #baseh# L 0 #basew# L 0 4#4-9##digit# #curvepoints#  M #basew# #baseh# Z\"  fill=\"white\"></path>",
+					"<path d=\"M 0 #baseh# L #basew# #baseh# L #basew# 4#4-9##digit# #curvepoints_r#  M 0 #baseh# Z\"  fill=\"white\"></path>"],
+	"group-path1":["<path d=\"M #basew# #baseh# L 0 #basew# L 0 5#0-5##digit# #curvepoints#  M #basew# #baseh# Z\" fill=\"white\"></path>",
+					"<path d=\"M 0 #baseh# L #basew# #baseh# L #basew# 5#0-5##digit# #curvepoints_r#  M 0 #baseh# Z\"  fill=\"white\"></path>"],
+
+	"curvepoints":["#curvepoint# #curvepoint# #curvepoint# #curvepoint# #curvepoint# #curvepoint# #curvepoint# #curvepoint# #curvepoint# #curvepoint# #curvepoint# #curvepoint# #curvepoint# #curvepoint# #curvepoint# #curvepoint# #curvepoint# #curvepoint# #curvepoint# #curvepoint# #curvepoint# #curvepoint# #curvepoint# #curvepoint# #curvepoint# #curvepoint# #curvepoint# #curvepoint# #curvepoint# #curvepoint# #curvepoint# #curvepoint# #curvepoint# #curvepoint# #curvepoint# #curvepoint# #curvepoint# #curvepoint#"],
+	"curvepoints_r":["#curvepoint_r# #curvepoint_r# #curvepoint_r# #curvepoint_r# #curvepoint_r# #curvepoint_r# #curvepoint_r# #curvepoint_r# #curvepoint_r# #curvepoint_r# #curvepoint_r# #curvepoint_r# #curvepoint_r# #curvepoint_r# #curvepoint_r# #curvepoint_r# #curvepoint_r# #curvepoint_r# #curvepoint_r# #curvepoint_r# #curvepoint_r# #curvepoint_r# #curvepoint_r# #curvepoint_r# #curvepoint_r# #curvepoint_r# #curvepoint_r# #curvepoint_r# #curvepoint_r# #curvepoint_r# #curvepoint_r# #curvepoint_r# #curvepoint_r# #curvepoint_r# #curvepoint_r# #curvepoint_r# #curvepoint_r# #curvepoint_r# #curvepoint_r# #curvepoint_r# #curvepoint_r# #curvepoint_r# #curvepoint_r#"],
+	"curvepoints_cloud":["[tx:#tx_cloud#]q #qx1_cloud# #qy1_cloud# #qx_init_cloud# #qy_init_cloud# #curvepoint_cloud# #curvepoint_cloud# #curvepoint_cloud# #curvepoint_cloud# #curvepoint_cloud# #curvepoint_cloud# #curvepoint_cloud# #curvepoint_cloud# #curvepoint_cloud# #curvepoint_cloud# #curvepoint_cloud# #curvepoint_cloud# #curvepoint_cloud# #curvepoint_cloud# #curvepoint_cloud# #curvepoint_cloud# #curvepoint_cloud# #curvepoint_cloud# #curvepoint_cloud# #curvepoint_cloud# #curvepoint_cloud# #curvepoint_cloud# #curvepoint_cloud# #curvepoint_cloud# #curvepoint_cloud# #curvepoint_cloud# #curvepoint_cloud# #curvepoint_cloud# #curvepoint_cloud# #curvepoint_cloud# #curvepoint_cloud# #curvepoint_cloud# #curvepoint_cloud# #curvepoint_cloud# #curvepoint_cloud# #curvepoint_cloud# #curvepoint_cloud# #curvepoint_cloud#"],
+	"curvepoints_cloud_r":["[tx:#tx_cloud#]q -#qx1_cloud# #qy1_cloud# -#qx_init_cloud# #qy_init_cloud# #curvepoint_cloud_r# #curvepoint_cloud_r# #curvepoint_cloud_r# #curvepoint_cloud_r# #curvepoint_cloud_r# #curvepoint_cloud_r# #curvepoint_cloud_r# #curvepoint_cloud_r# #curvepoint_cloud_r# #curvepoint_cloud_r# #curvepoint_cloud_r# #curvepoint_cloud_r# #curvepoint_cloud_r# #curvepoint_cloud_r# #curvepoint_cloud_r# #curvepoint_cloud_r# #curvepoint_cloud_r# #curvepoint_cloud_r# #curvepoint_cloud_r# #curvepoint_cloud_r# #curvepoint_cloud_r# #curvepoint_cloud_r# #curvepoint_cloud_r# #curvepoint_cloud_r# #curvepoint_cloud_r# #curvepoint_cloud_r# #curvepoint_cloud_r# #curvepoint_cloud_r# #curvepoint_cloud_r# #curvepoint_cloud_r# #curvepoint_cloud_r# #curvepoint_cloud_r# #curvepoint_cloud_r# #curvepoint_cloud_r# #curvepoint_cloud_r# #curvepoint_cloud_r# #curvepoint_cloud_r# #curvepoint_cloud_r#"],
+
+	"curvepoint":"q #dist_half# #h_rel_half# #dist# #h_rel#",
+	"curvepoint_r":"q -#dist_half# #h_rel_half# -#dist# #h_rel#",
+
+
+	"curvepoint_cloud":"t #tx# #ty_cloud#",
+	"curvepoint_cloud_r":"t -#tx# #ty_cloud#",
+
+	"dist":["2#digit#","2#digit#","4#digit#","3#digit#","5#digit#","6#digit#","7#digit#","8#digit#"],
+	"dist_half":["#digit#","#digit#","#0-5#"],
+	"h_rel":["-2#digit#", "1#digit#", "-1#digit#","#digit#", "-#digit#","2#digit#"],
+	"h_rel_half":["-#digit#", "#0-5#", "-#0-5#","#digit#"],
+	"h" : ["2#digit##digit#","2#digit##digit#","3#digit##digit#","1#digit##digit#"],
+
+
+	"qx1_cloud":["#0-5#"],
+	"qy1_cloud":["-#0-5#", "#0-5#"],
+	"qx_init_cloud":["2#digit#","3#digit#","4#digit#"],
+	"qy_init_cloud":["-2#digit#","-3#digit#","-4#digit#", "2#digit#","3#digit#","4#digit#"],
+	"tx_cloud":["1#4-9##digit#","2#digit##digit#","3#digit##digit#"],
+	"ty_cloud":["-#digit#","#digit#"],
+
+
+	"gradients_light":[
+		"#gradient_start_light##gradient_end_light#"],
+
+	"gradients":[
+		"#gradient_start##gradient_end#",
+		"#gradient_start##gradient_end#",
+		"#gradient_start##gradient_end#",
+		"#gradient_start##gradient_end#",
+		"#gradient_start##gradient_end#",
+		"#gradient_start##gradient_end#",
+		"#gradient_start##gradient_end#",
+		"#gradient_start##gradient_end#",
+		"#gradient_start##gradient_end#",
+		"#gradient_start##gradient_end#",
+		"#gradient_start##gradient_end#",
+		"#gradient_start##gradient_end#",
+		"#gradient_start##gradient_end#",
+		"#gradient_start##gradient_end#",
+		"#gradient_start##gradient_end#",
+		"#gradient_start##gradient_end#"
+	],
+
+	"gradient_start_light":"<stop class=\"stop_start\" offset=\"0%\" stop-color=\"#color_light#\"/>",
+	"gradient_end_light":"<stop class=\"stop_end\" offset=\"100%\" stop-color=\"#color_light#\"/>",
+
+	"gradient_start":"<stop class=\"stop_start\" offset=\"0%\" stop-color=\"#color#\"/>",
+	"gradient_end":"<stop class=\"stop_end\" offset=\"100%\" stop-color=\"#color#\"/>",
+	"gradient_middle":["<stop class=\"stop3\" offset=\"50%\" stop-color=\"#color#\"/>","<stop class=\"stop3\" offset=\"50%\" stop-color=\"#color#\"/>","<stop class=\"stop3\" offset=\"50%\" stop-color=\"#color#\"/>","<stop class=\"stop3\" offset=\"#before50#%\" stop-color=\"#color#\"/>","<stop class=\"stop3\" offset=\"#after50#%\" stop-color=\"#color#\"/>"],
+	"gradient_beforemiddle":"<stop class=\"stop3\" offset=\"#before50#%\" stop-color=\"#color#\"/>",
+	"gradient_aftermiddle":"<stop class=\"stop3\" offset=\"#after50#%\" stop-color=\"#color#\"/>",
+
+	"before50":["1#digit#","2#digit#","3#digit#","3#digit#","3#digit#","4#digit#"],
+	"after50":["8#digit#","7#digit#","6#digit#","6#digit#","6#digit#","5#digit#"],
+	"gradpoints":["x1=\"0\" x2=\"1\" y1=\"#gradpoint#\" y2=\"#gradpoint#\"", "y1=\"0\" y2=\"1\" x1=\"#gradpoint#\" x2=\"#gradpoint#\""],
+	"radialgradpoints":["cx=\"0\" cy=\"#gradpoint#\" r=\"1.#digit#\"", "cy=\"0\" cx=\"#gradpoint#\" r=\"1.#digit#\""],
+	"color":["\\##hexdigit##hexdigit##hexdigit##hexdigit##hexdigit##hexdigit#"],
+	"color_light":["\\##highhex##hexdigit##highhex##hexdigit##highhex##hexdigit#"],
+	"gradpoint":["0.#digit##digit#"],
+	
+	"bg_color":["000000", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "[rep:#hexdigit##hexdigit#]#rep##rep##rep#"],
+
+	"digit":["0","1","2","3","4","5","6","7","8","9"],
+	"0-2":["0","1","2"],
+	"1-3":["3","1","2"],
+	"0-5":["0","1","2","3","4","5"],
+	"4-9":["4","5","6","7","8","9"],
+	"hexdigit":["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"],
+	"highhex":["a","b","c","d","e","f"],
+	"baseopacity":["0#digit#", "0#digit#", "0#digit#", "1#digit#","1#digit#","1#digit#","2#digit#","2#digit#","2#digit#","3#digit#","7#digit#","9#digit#"],
+	"opacity":[".0#digit#", ".0#digit#", ".0#digit#", ".1#digit#",".1#digit#",".1#digit#",".2#digit#",".2#digit#"],
+	"basew":"1024",
+	"basew+200":"1224",
+	"baseh":"512" 
+}

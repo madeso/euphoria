@@ -1,0 +1,68 @@
+/* transformed from custom xml from https://www.flipcode.com/archives/Generating_Names_Phonetically.shtml */
+{
+    /* Phonemes: Consonants */
+    "Affricate": [ "ch", "dg", "j" ],
+    "Alveolar": [ "d", "l", "n", "r", "s", "t", "z" ],
+    "Bilabial": [ "b", "m", "p" ],
+    "BilabialStop": [ "b", "p" ],
+    "Complex": [ "sch", "thr" ],
+    "Consonant": [ "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "r", "s", "t", "v", "z" ],
+    "DoubleConsonant": [ "bb", "dd", "ff", "ll", "mm", "nn", "rr", "ss", "ss", "tt" ],
+    "DoubleGlide": [ "wy" ],
+    "EndingNasal": [ "g", "ng", "r" ],
+    "Fricative": [ "ch", "f", "ph", "s", "sh", "th", "v", "z" ],
+    "Glide": [ "w", "y" ],
+    "Glottal": [ "h" ],
+    "Liquid": [ "l", "r" ],
+    "MidConsonant": [ "ct", "dr", "dw", "ft", "mk", "nd", "ndr", "nf", "nj", "nk", "ns", "nt", "ny", "pr", "ps", "rd", "rg", "rk", "rm", "rn", "rz", "sl", "st", "stl", "wl" ],
+    "Nasal": [ "m", "n" ],
+    "Palatal": [ "ch", "dg", "s", "j", "sh", "y" ],
+    "OrcBegin": [ "gn", "gr", "hr", "k'z", "x", "z", "zr" ],
+    "OrcBegin2": [ "gn", "gr", "hr", "k", "m", "n", "x", "z", "zh" ],
+    "OrcMiddle": [ "gh", "gl", "gzh", "rg", "rgh", "rgl", "rl", "rmg", "rng", "zg" ],
+    "Stop": [ "b", "d", "g", "k", "p", "t" ],
+    "Velar": [ "g", "k", "ng", "w" ],
+
+    /* Phonemes: Vowels */
+    "Dipthong": [ "ay", "ea", "ee", "ei", "oa", "oe", "ou", "ow", "oy", "y" ],
+    "Vowel": [ "a", "e", "i", "o", "u" ],
+    "DoubleVowel": [ "ae", "au", "ea", "ey", "ie", "io", "oe", "oi", "oo", "ou", "ue", "ui", "ya", "yo" ],
+
+    /* Phonemes: Miscellaneous */
+    "Separator": [ "'", "-", " " ],
+
+    /* name templates here */
+
+    /* 3+ letters:  V MC V [E.g., Erdi] */
+    "erdi": ["#Vowel.capitalize##MidConsonant##Vowel#"],
+
+    /* 3+ letters:  V MC DoubleVowel [E.g., Erdoo] */
+    "erdoo": ["#Vowel.capitalize##MidConsonant##DoubleVowel#"],
+
+    /* 3+ letters:  Fricative DoubleVowel Nasal [E.g., Sean] */
+    "sean": ["#Fricative.capitalize##DoubleVowel##Nasal#"],
+
+    /* 3+ letters:  Fricative DoubleVowel Consonant [E.g., Seaz] */
+    "seaz": ["#Fricative.capitalize##DoubleVowel##Consonant#"],
+
+    /* 5 letters:  CVCVC [E.g., Seton] */
+    "seton": ["#Consonant.capitalize##Vowel##Consonant##Vowel##Consonant#"],
+
+    /* 3 letters:  VCV [E.g., Eti] */
+    "eti": ["#Vowel.capitalize##Consonant##Vowel#"],
+
+    /* 3+ letters:  V DC V [E.g., Etti] */
+    "etti": ["#Vowel.capitalize##DoubleConsonant##Vowel#"],
+
+    /* 5+ letters:  Nasal V Fricative V EndingGuttural [E.g., Masher] */
+    "masher": ["#Nasal.capitalize##Vowel##Fricative##Vowel##EndingNasal#"],
+
+    /* 5+ letters:  Fricative V DoubleGlide V EndingNasal [E.g., Sawyer] */
+    "sawyer": ["#Fricative.capitalize##Vowel##DoubleGlide##Vowel##EndingNasal#"],
+
+    /* 8+ letters:  [E.g., Gruph'Norgle] */
+    "orcish": ["#OrcBegin.capitalize##Vowel##Fricative##Separator##OrcBegin2.capitalize##Vowel##OrcMiddle##Vowel#"],
+
+    /* sample */
+    "origin": ["#erdi#", "#erdoo#", "#sean#", "#seaz#", "#seton#", "#eti#", "#etti#", "#masher#", "#sawyer#"]
+}

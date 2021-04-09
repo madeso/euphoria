@@ -1,42 +1,75 @@
-dist: trusty
-sudo: false
 language: cpp
+sudo: false
+
+compiler: clang
+
+matrix:
+    include:
+        - os: linux
+          dist: focal
+          compiler: gcc
+          env:
+              - CONF=release
+        - os: linux
+          dist: focal
+          compiler: gcc
+          env:
+              - CONF=debug
+              - GCOV_FLAGS='--coverage'
+          after_success:
+              - pip install --user cpp-coveralls
+              - $CXX --version
+              - /usr/bin/gcov-9 --v
+              - coveralls -h
+              - coveralls -r .. --gcov /usr/bin/gcov-9 --gcov-options '\-lp' -i libs
+        - os: linux
+          dist: focal
+          compiler: clang
+          env:
+              - CONF=release
+        - os: linux
+          dist: focal
+          compiler: clang
+          env:
+              - CONF=debug
+
 
 # Handle git submodules yourself
 git:
     submodules: false
+
 # Use sed to replace the SSH URL with the public URL, then initialize submodules
 before_install:
     - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
     - git submodule update --init --recursive
 
+# use a more modern gcc, 8 should also work (in theory) but not 7.4 (missing filesystem)
+install:
+  - if [ "$CXX" = "g++" ]; then export CXX="g++-9" CC="gcc-9"; fi
+
+
 addons:
   apt:
     update: true
-    sources:
-      - ubuntu-toolchain-r-test
-      - deadsnakes
     packages:
-      - g++-5
       - libsdl2-dev
-      - libprotobuf-dev
-      - protobuf-compiler
       - libassimp-dev
-      - libwxgtk3.0-dev
-      - python3.5
-
-# https://github.com/travis-ci/travis-ci/issues/3668#issuecomment-279276549
-install:
-   - mkdir -p latest-symlinks
-   - ln -s /usr/bin/python3.5 latest-symlinks/python3
-   - export PATH=$PWD/latest-symlinks:$PATH
+      - lcov
 
 script:
   - $CXX --version
   - python3 --version
   - mkdir build
   - cd build
-  - CXX=/usr/bin/g++-5 CC=/usr/bin/gcc-5 cmake ..
-  - make VERBOSE=1
-  - cd tests
-  - ./tests
+  - cmake ..
+  - cmake -DCMAKE_BUILD_TYPE=$CONF -DEXTRA_FLAGS="$GCOV_FLAGS" ..
+  - cmake --build .
+  - ./libs/tests/tests_test
+  - ./libs/core/core_test
+  - ./libs/minsynth/minsynth_test
+  - ./libs/duk/duk_test
+
+# temporarily disabled
+#  - cd ..
+#  - ./scripts/clang.py tidy
+

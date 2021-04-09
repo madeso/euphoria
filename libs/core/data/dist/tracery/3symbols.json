@@ -1,0 +1,7 @@
+{
+  "sentence": ["#name# the #color# #animal# was ... something."]
+,	"name": ["Arjun","Yuuma","Darcy","Mia","Chiaki","Izzi","Azra","Lina"]
+,	"color": ["orange","blue","white","black","grey","purple","indigo","turquoise"]
+,	"animal": ["unicorn","raven","sparrow","scorpion","coyote","eagle","owl","lizard","zebra","duck","kitten"]
+
+}

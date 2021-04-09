@@ -14,3 +14,12 @@
 [submodule "external/ctti"]
 	path = external/ctti
 	url = https://github.com/Manu343726/ctti.git
+[submodule "external/rtmidi"]
+	path = external/rtmidi
+	url = https://github.com/thestk/rtmidi.git
+[submodule "external/stb"]
+	path = external/stb
+	url = git@github.com:nothings/stb.git
+[submodule "external/range-v3"]
+	path = external/range-v3
+	url = git@github.com:ericniebler/range-v3.git

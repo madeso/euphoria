@@ -1,9 +1,0 @@
-#ifndef EUPHORIA_TEXTURETYPES_H
-#define EUPHORIA_TEXTURETYPES_H
-
-#include "core/enum.h"
-
-DECLARE_ENUM_TYPE(TextureType)
-
-
-#endif  // EUPHORIA_TEXTURETYPES_H

@@ -1,0 +1,129 @@
+
+# this file is used by make-clang-tidy.py file
+# to generate .clang-tidy since the checks attribute gets quite long
+# and clang-tidy doesn't provide a good (any) system to handle it
+# so the following is just commented checks attribute
+
+# start clean by removing all options
+# this should hopefully give some errors if we try to run with different
+# clang-formats so if someone is missing a checker we notice (fingers crossed)
+-*
+
+bugprone-*
+
+modernize-*
+-modernize-use-trailing-return-type
+
+performance-
+
+cppcoreguidelines-*
+-cppcoreguidelines-pro-bounds-array-to-pointer-decay
+
+# ignore all gsl related settings, that is just ugly, fix the language instead!
+-cppcoreguidelines-pro-bounds-constant-array-index
+
+misc-*
+-misc-non-private-member-variables-in-classes
+
+readability-*
+-readability-else-after-return
+-readability-simplify-boolean-expr
+-readability-implicit-bool-cast
+-readability-named-parameter
+-readability-inconsistent-declaration-parameter-name
+
+# really? 1.0F ??? no shouting floats thank you
+-readability-uppercase-literal-suffix
+
+# this kinda make sense, but math-code sometimes use magic numbers (2*pi radians for example)
+# and naming 2 here is hard, and doesn't really improve readability so we ignore it for now
+-readability-magic-numbers
+-cppcoreguidelines-avoid-magic-numbers
+
+# sure... but sometimes we need c-arrays
+-cppcoreguidelines-avoid-c-arrays
+-modernize-avoid-c-arrays
+
+# google are a sensible default
+google-*
+-google-runtime-int
+-google-readability-namespace-comments
+
+# seems sensible but as far as I can tell it fails to detect good recursions (unless it's not supposed to)
+-misc-no-recursion
+
+# perhaps look into removing pointer arithmetic in the future, but not now
+-cppcoreguidelines-pro-bounds-pointer-arithmetic
+
+# might make sense but is pretty ugly
+-modernize-pass-by-value
+
+# sensible, but sometimes implcit is what we want
+-google-explicit-constructor
+
+# somewhat sane but fails totally for tests... and in general, length != complexity
+-google-readability-function-size
+-readability-function-size
+
+# in assert backtrace logic, string manipulation is cosidered vararg?
+-cppcoreguidelines-pro-type-vararg
+
+# makes sense but sometimes it doesn't
+-bugprone-macro-parentheses
+
+# warning: do not use static_cast to downcast from a base to a derived class; use dynamic_cast instead
+# makes sense but dynamic cast is ugly
+-cppcoreguidelines-pro-type-static-cast-downcast
+
+#################################################################################
+## Temporarily disables to be removed later
+# temporarily: mostly in test files where it's kinda ok
+-google-build-using-namespace
+-modernize-raw-string-literal
+
+-readability-identifier-naming
+
+-cppcoreguidelines-macro-usage
+
+# unions are sometimes exactly what we want... right?
+-cppcoreguidelines-pro-type-union-access
+
+#################################################################################
+# the checks attribute ends here...
+# just regular (yaml) .clang-tidy settings from now on
+
+END_CHECKS
+CheckOptions:
+  - key:             readability-identifier-naming.ClassCase
+    value:           CamelCase
+  - key:             readability-identifier-naming.ClassMethodCase
+    value:           CamelCase
+  - key:             readability-identifier-naming.ConstantParameterCase
+    value:           lower_case
+  - key:             readability-identifier-naming.EnumCase
+    value:           CamelCase
+  - key:             readability-identifier-naming.EnumConstantCase
+    value:           CamelCase
+  - key:             readability-identifier-naming.FunctionCase
+    value:           CamelCase
+  - key:             readability-identifier-naming.LocalVariableCase
+    value:           lower_case
+  - key:             readability-identifier-naming.GlobalVariableCase
+    value:           'CamelCase'
+  - key:             readability-identifier-naming.PrivateMemberCase
+    value:           lower_case
+  - key:             readability-identifier-naming.NamespaceCase
+    value:           lower_case
+  - key:             readability-identifier-naming.ParameterCasePrefix
+    value:           'the_'
+  - key:             readability-identifier-naming.ParameterCase
+    value:           lower_case
+  - key:             readability-identifier-naming.GlobalConstantCase
+    value:           CamelCase
+  - key:             readability-identifier-naming.StaticVariableCase
+    value:           'CamelCase'
+  - key:             readability-identifier-naming.ConstexprVariableCase
+    value:           UPPER_CASE
+  - key:             readability-identifier-naming.MacroDefinitionCase
+    value:           UPPER_CASE
+

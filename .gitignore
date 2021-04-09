@@ -1,46 +1,23 @@
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
-
-.idea
-
-#unignore samples files
-!samples/*
-!samples/*/*
-
 .DS_Store
+__pycache__/*
 
 # clion build folder
 cmake-build-debug
 build
-
-dist/scimed-debug
+.vscode
 
 # vi undo files
 *.un~
+
+# vi swap file
+*.swp
+
+# doxygenerated files
+docs/generated/html/
+
+# generated now
+.clang-tidy
+
+# ignoring junk folder
+junk/
+
