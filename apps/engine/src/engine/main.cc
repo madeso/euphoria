@@ -223,17 +223,6 @@ main(int argc, char* argv[])
         return -1;
     }
 
-    // todo(Gustav): update theese during runtime
-    std::string crash_message_string;
-    bool has_crashed = false;
-
-    auto crash_on_exception = [&](const std::exception& ex)
-    {
-        has_crashed = true;
-        crash_message_string = ex.what();
-        LOG_ERROR("{0}", crash_message_string);
-    };
-
     Input input;
 
     for(const auto& bind: gamedata.binds)
@@ -257,9 +246,21 @@ main(int argc, char* argv[])
     // Sprite player(cache.GetTexture("player.png"));
     // objects.Add(&player);
 
-  Sol duk;
-  duk.lua.set_exception_handler(&my_exception_handler);
-  duk.lua.open_libraries(sol::lib::base, sol::lib::package);
+    Sol duk;
+
+    // todo(Gustav): replace with duk reference
+    std::string& crash_message_string = duk.error;
+    bool& has_crashed = duk.has_error;
+
+    auto crash_on_exception = [&](const std::exception& ex)
+    {
+        has_crashed = true;
+        crash_message_string = ex.what();
+        LOG_ERROR("{0}", crash_message_string);
+    };
+
+    duk.lua.set_exception_handler(&my_exception_handler);
+    duk.lua.open_libraries(sol::lib::base, sol::lib::package);
     AddPrint(&duk);
     BindMath(&duk);
     Input::Bind(&duk);

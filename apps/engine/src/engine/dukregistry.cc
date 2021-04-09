@@ -109,21 +109,20 @@ namespace euphoria::engine
         }
 
         auto val = res->second(arguments);
-        LOG_INFO("Called create");
         if(val.valid())
         {
             sol::table ret = val;
-            LOG_INFO("Returning table");
             return ret;
         }
         else
         {
             sol::error err = val;
-            LOG_ERROR("Failed to call create for {0}: {1}", comp, err.what());
+            const auto message = fmt::format("Failed to call create for component '{0}': {1}", comp, err.what());
+            LOG_ERROR("{0}", message);
             if(!ctx->has_error)
             {
                 ctx->has_error = true;
-                ctx->error = err.what();
+                ctx->error = message;
             }
             return sol::table{ctx->lua, sol::create};
         }
