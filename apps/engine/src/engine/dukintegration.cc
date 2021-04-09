@@ -238,10 +238,17 @@ std::vector<T> GetVector(const sol::table& table)
             {
                 return registry.components->sprite;
             };
-            registry_table["New"] = [&](const std::string& name, sol::function setup)
-            {
-                return registry.CreateNewId(name, setup);
-            };
+            registry_table["New"] = sol::overload
+            (
+                [&](const std::string& name, sol::function setup)
+                {
+                    return registry.CreateNewId(name, setup);
+                },
+                [&](const std::string& name)
+                {
+                    return registry.CreateNewId(name);
+                }
+            );
             registry_table["Get"] = [&](core::ecs::EntityId ent, core::ecs::ComponentId comp)
             {
                 return registry.GetProperty(ent, comp);

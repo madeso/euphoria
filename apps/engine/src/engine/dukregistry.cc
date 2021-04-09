@@ -32,6 +32,14 @@ namespace euphoria::engine
         return id;
     }
 
+    core::ecs::ComponentId
+        DukRegistry::CreateNewId(
+            const std::string& name)
+    {
+        const auto id = reg->NewComponentType(name);
+        return id;
+    }
+
     bool
     DukRegistry::GetCustomComponentByName(
             const std::string&      name,
@@ -70,7 +78,7 @@ namespace euphoria::engine
             core::ecs::EntityId                    ent,
             core::ecs::ComponentId                 comp)
     {
-        ASSERT(scriptComponents.find(comp) != scriptComponents.end());
+        // ASSERT(scriptComponents.find(comp) != scriptComponents.end());
 
         auto c = reg->GetComponent(ent, comp);
         if(c == nullptr)
@@ -101,10 +109,13 @@ namespace euphoria::engine
             Sol*          ctx,
             const CustomArguments& arguments)
     {
+        const auto name = reg->GetComponentName(comp);
+
         auto res = scriptComponents.find(comp);
-        ASSERT(res != scriptComponents.end());
         if(res == scriptComponents.end())
         {
+            // no custom function, use use a empty table...?
+            // or perhaps use null?
             return sol::table{ctx->lua, sol::create};
         }
 
@@ -116,7 +127,6 @@ namespace euphoria::engine
         }
         else
         {
-            const auto name = reg->GetComponentName(comp);
             sol::error err = val;
             const auto message = fmt::format("Failed to call create for component {0}({1}): {2}", name, comp, err.what());
             LOG_ERROR("{0}", message);

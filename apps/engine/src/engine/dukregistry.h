@@ -30,6 +30,9 @@ namespace euphoria::engine
         core::ecs::ComponentId
         CreateNewId(const std::string& name, const CreationCallback& fv);
 
+        core::ecs::ComponentId
+        CreateNewId(const std::string& name);
+
         bool
         GetCustomComponentByName(const std::string& name, core::ecs::ComponentId* id);
 
