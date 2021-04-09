@@ -31,9 +31,11 @@ namespace euphoria::render
     void
     Buffer2d::Draw() const
     {
+        IndexBuffer::Bind(&ebo);
         PointLayout::Bind(&vao);
         ebo.Draw(RenderMode::Triangles, index_count);
         PointLayout::Bind(nullptr);
+        IndexBuffer::Bind(nullptr);
     }
 
 }
