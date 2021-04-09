@@ -61,12 +61,9 @@ Systems.AddUpdate("star movement", function(dt)
         local vec = Registry.GetPosition2vec(entity)
         if vec ~= null then
             vec.y = vec.y - dt * star.speed;
-            local vy = vec.y
-            -- print("Moving star to ", vy)
-            if vy < 0.0 then
+            if vec.y < 0 then
                 vec.x = StarRandom:NextRangeFloat(Camera.GetRect():GetWidth())
                 vec.y = vec.y + Camera.GetRect():GetHeight()
-                print("Reseting star to ", vec.x, " ", vec.y)
             end
         end
     end
@@ -117,7 +114,7 @@ Systems.AddUpdate("destroy outside", function (dt)
         local p = Registry.GetPosition2(entity)
         if sp ~= null then
             local cam = Camera.GetRect()
-            local r = sp.GetRect(p)
+            local r = sp:GetRect(p)
             if not cam:Contains(r) then
                 Registry.DestroyEntity(entity)
             end
