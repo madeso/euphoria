@@ -190,7 +190,7 @@ target_link_libraries(core
     rapidjson
     PRIVATE
     stb_image stb_image_write stb_rect_pack
-    font8x8 font8x13 aheasing duktape file_types range
+    font8x8 font8x13 aheasing file_types range
     assimp freetype
 )
 

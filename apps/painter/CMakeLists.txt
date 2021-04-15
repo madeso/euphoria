@@ -1,5 +1,5 @@
 ###############################################################################
-# duk project
+# painter project
 
 set(src
     src/painter/main.cc

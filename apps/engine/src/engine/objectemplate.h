@@ -19,12 +19,6 @@ namespace euphoria::core::ecs
     struct World;
 }
 
-namespace euphoria::duk
-{
-    struct Context;
-    struct Duk;
-}  // namespace euphoria::duk
-
 // struct FileSystem; // ?
 
 namespace euphoria::render

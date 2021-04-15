@@ -36,16 +36,6 @@ target_include_directories(aheasing
     PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/aheasing
 )
 
-# todo(Gustav): replace duktape with either lua or custom scriping engine fel
-# release date 2017-09-23 version duktape-2.2.0.tar.xz
-add_library(duktape STATIC
-    duktape/duktape/duktape.c
-)
-target_include_directories(duktape
-    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/duktape
-)
-
-
 add_library(glad STATIC
     glad/src/glad.c
     glad/include/glad/glad.h

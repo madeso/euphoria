@@ -3,9 +3,6 @@
 ### core
 contains core functionality like math and other things that doesn't require external libraries that can't be embedded
 
-### duk
-a ducktape wrapper so scriping in the engine can be done
-
 ### file_types
 file definitions(gaf), for sharing between projects
 

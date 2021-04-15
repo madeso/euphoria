@@ -54,11 +54,9 @@ LOG_SPECIFY_DEFAULT_LOGGER("engine")
 
 using namespace euphoria::core;
 using namespace euphoria::core::ecs;
-using namespace euphoria::duk;
 using namespace euphoria::render;
 using namespace euphoria::window;
 using namespace euphoria::engine;
-namespace duk = euphoria::duk;
 
 
 game::Game
@@ -182,7 +180,7 @@ int my_exception_handler(lua_State* L, sol::optional<const std::exception&> mayb
 		std::cout << std::endl;
 	}
 
-	// you must push 1 element onto the stack to be 
+	// you must push 1 element onto the stack to be
 	// transported through as the error object in Lua
 	// note that Lua -- and 99.5% of all Lua users and libraries -- expects a string
 	// so we push a single string (in our case, the description of the error)
