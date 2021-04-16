@@ -238,6 +238,7 @@ namespace euphoria::editor
         return ButtonAt(canvas, p, s.c_str(), id);
     }
 
+
     bool
     DrawVerticalCenteredText(const Canvas& canvas, int top_p, int bottom_p, int x_p, const std::string& s, int id)
     {
@@ -293,6 +294,7 @@ namespace euphoria::editor
             index += 1;
         }
     }
+
 
     void
     DrawSizer
@@ -379,8 +381,9 @@ namespace euphoria::editor
         return ret;
     }
 
+
     LineHoverData
-    DrawSplits( scalingsprite::ScalingSprite* sprite, Canvas* canvas, const ScimedConfig& scc)
+    DrawSplits(scalingsprite::ScalingSprite* sprite, Canvas* canvas, const ScimedConfig& scc)
     {
         const auto mouse = ImGui::GetMousePos();
         LineHoverData ret;
@@ -399,17 +402,24 @@ namespace euphoria::editor
                 return p.x;
             }
         );
-        ret.horizontal_index = DrawSingleAxisSplits(
-                sprite->rows,
-                mouse,
-                canvas,
-                [&](int position) {
-                    canvas->HorizontalLine(position, scc.split_color);
-                },
-                [](const ImVec2& p) -> float { return p.y; });
+        ret.horizontal_index = DrawSingleAxisSplits
+        (
+            sprite->rows,
+            mouse,
+            canvas,
+            [&](int position)
+            {
+                canvas->HorizontalLine(position, scc.split_color);
+            },
+            [](const ImVec2& p) -> float
+            {
+                return p.y;
+            }
+        );
 
         return ret;
     }
+
 
     void
     SetMouseCursorFromHover(const LineHoverData& hover)
@@ -455,22 +465,19 @@ namespace euphoria::editor
 
 
     void
-    SplitSpaceInTwo
-    (
-        std::vector<int>* data_ptr,
-        int index,
-        int x
-    )
+    SplitSpaceInTwo(std::vector<int>* data_ptr, int index, int x)
     {
         auto& data = *data_ptr;
         const auto size = CalculateAllSpaces(data)[index];
         const int mouse = std::min(size.right - 1, std::max(size.left + 1, x));
         ASSERT(mouse > size.left);
+
         const int left_abs_val = mouse - size.left;
         const int old_value = data[index];
         const int sign = Sign(old_value);
         const int left_val = left_abs_val * sign;
         data[index] = left_val;
+
         const int right_val = sign * (std::abs(old_value) - left_abs_val);
         data.insert(data.begin() + index + 1, right_val);
     }
@@ -483,8 +490,6 @@ namespace euphoria::editor
         canvas.ShowGrid(cc);
         ImDrawList* draw_list = ImGui::GetWindowDrawList();
 
-        // const auto mouse = ImGui::GetMousePos();
-
         if(!texture)
         {
             canvas.ShowRuler(cc);
@@ -495,9 +500,10 @@ namespace euphoria::editor
         // draw texture
         auto tex_id = reinterpret_cast<ImTextureID>(texture->GetId());
         const auto pos = canvas.WorldToScreen(ImVec2 {0, 0});
-        const auto size = canvas.WorldToScreen(
-                ImVec2 {static_cast<float>(texture->GetWidth()),
-                        static_cast<float>(texture->GetHeight())});
+        const auto size = canvas.WorldToScreen
+        (
+            ImVec2{static_cast<float>(texture->GetWidth()), static_cast<float>(texture->GetHeight())}
+        );
         draw_list->AddImage(tex_id, pos, size);
 
         const auto current_hover = DrawSplits(scaling.get(), &canvas, scc);
@@ -511,8 +517,7 @@ namespace euphoria::editor
             hover = current_hover;
         }
 
-        const bool is_tracking
-                = hover.horizontal_index != -1 || hover.vertical_index != -1;
+        const bool is_tracking = hover.horizontal_index != -1 || hover.vertical_index != -1;
 
         if(is_tracking)
         {
@@ -545,25 +550,18 @@ namespace euphoria::editor
 
         if(ImGui::BeginPopup("asd"))
         {
-            const auto space_index_y = FindSpaceIndexOrNull(
-                    scaling->rows, mouse_popup.y, texture->GetHeight());
-            const auto space_index_x = FindSpaceIndexOrNull(
-                    scaling->cols, mouse_popup.x, texture->GetWidth());
+            const auto space_index_y = FindSpaceIndexOrNull(scaling->rows, mouse_popup.y, texture->GetHeight());
+            const auto space_index_x = FindSpaceIndexOrNull(scaling->cols, mouse_popup.x, texture->GetWidth());
 
-            if(window::ImguiSelectableOrDisabled
-            (
-                space_index_y.has_value(),
-                ICON_MDI_VIEW_SPLIT_HORIZONTAL " New Horizontal divider"
-            ))
+            constexpr auto label_x = ICON_MDI_VIEW_SPLIT_HORIZONTAL " New Horizontal divider";
+            constexpr auto label_y = ICON_MDI_VIEW_SPLIT_VERTICAL " New Vertical divider";
+
+            if (window::ImguiSelectableOrDisabled(space_index_y.has_value(), label_x))
             {
                 SplitSpaceInTwo(&scaling->rows, space_index_y.value(), mouse_popup.y);
             }
 
-            if(window::ImguiSelectableOrDisabled
-            (
-                space_index_x.has_value(),
-                ICON_MDI_VIEW_SPLIT_VERTICAL " New Vertical divider"
-            ))
+            if(window::ImguiSelectableOrDisabled(space_index_x.has_value(), label_y))
             {
                 SplitSpaceInTwo(&scaling->cols, space_index_x.value(), mouse_popup.x);
             }
