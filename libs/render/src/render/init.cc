@@ -19,7 +19,6 @@ namespace euphoria::render
             ok = false;
         }
 
-        // todo(Gustav): replace cout with log system
         LOG_INFO("Vendor:         {0}", glGetString(GL_VENDOR));
         LOG_INFO("Renderer:       {0}", glGetString(GL_RENDERER));
         LOG_INFO("Version OpenGL: {0}", glGetString(GL_VERSION));
