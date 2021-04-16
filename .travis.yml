@@ -67,7 +67,6 @@ script:
   - ./libs/tests/tests_test
   - ./libs/core/core_test
   - ./libs/minsynth/minsynth_test
-  - ./libs/duk/duk_test
 
 # temporarily disabled
 #  - cd ..
