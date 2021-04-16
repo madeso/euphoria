@@ -11,8 +11,6 @@
 #include "window/imgui_ext.h"
 #include "window/imgui_icons.h"
 
-// #include "window/canvas.h"
-
 #include <iomanip>
 #include <algorithm>
 #include <optional>
@@ -42,8 +40,12 @@ namespace euphoria::editor
     struct SpaceData
     {
         SpaceData(int aleft, int aright, int i)
-            : left(aleft), right(aright), index(i)
-        {}
+            : left(aleft)
+            , right(aright)
+            , index(i)
+        {
+        }
+
         int left;
         int right;
         int index;
@@ -55,8 +57,12 @@ namespace euphoria::editor
     struct SplitData
     {
         SplitData(int p, int mi, int ma)
-            : position(p), min_value(mi), max_value(ma)
-        {}
+            : position(p)
+            , min_value(mi)
+            , max_value(ma)
+        {
+        }
+
         // defines the position of the split
         int position;
 
@@ -64,6 +70,7 @@ namespace euphoria::editor
         int min_value;
         int max_value;
     };
+
 
     std::string
     PixelsOrPercentageString(int data_value, int total_percentage)
@@ -78,6 +85,7 @@ namespace euphoria::editor
             return Str {} << std::setprecision(3) << p << "%";
         }
     }
+
 
     int
     GetTotalPercentage(const std::vector<int>& data)
@@ -98,23 +106,27 @@ namespace euphoria::editor
     CalculateAllSpaces(const std::vector<int>& data)
     {
         std::vector<SpaceData> ret;
-        int                    x = 0;
+        int x = 0;
+
         for(unsigned int index = 0; index < data.size(); ++index)
         {
             const int value = data[index];
-            const int step  = abs(value);
+            const int step = abs(value);
             ret.emplace_back(x, x + step, index);
             x += step;
         }
+
         return ret;
     }
+
 
     int
     FindSpaceIndex(const std::vector<int>& data_ptr, int x)
     {
-        const auto data  = CalculateAllSpaces(data_ptr);
-        int        last  = 0;
-        int        index = 0;
+        const auto data = CalculateAllSpaces(data_ptr);
+        int last = 0;
+        int index = 0;
+
         for(const auto& d: data)
         {
             last = index;
@@ -124,8 +136,10 @@ namespace euphoria::editor
             }
             index += 1;
         }
+
         return last;
     }
+
 
     PositionClassification
     FindSpaceIndexOrNull(const std::vector<int>& data, int y, int image_size)
@@ -142,13 +156,15 @@ namespace euphoria::editor
         }
     }
 
+
     std::vector<SplitData>
     CalculateAllSplits(const std::vector<int>& data)
     {
         std::vector<SplitData> ret;
-        bool                   has_data = false;
-        int                    x        = 0;
-        int                    last_x   = 0;
+        bool has_data = false;
+        int x = 0;
+        int last_x = 0;
+
         for(const auto i: data)
         {
             int dx = std::abs(i);
@@ -163,6 +179,7 @@ namespace euphoria::editor
             last_x = x;
             x += dx;
         }
+
         return ret;
     }
 
@@ -171,12 +188,11 @@ namespace euphoria::editor
     DrawLine(const Canvas& canvas, int x, int y, int tx, int ty, ImU32 color)
     {
         ImDrawList* draw_list = ImGui::GetWindowDrawList();
-        const auto  from      = canvas.WorldToScreen(
-                ImVec2 {static_cast<float>(x), static_cast<float>(y)});
-        const auto to = canvas.WorldToScreen(
-                ImVec2 {static_cast<float>(tx), static_cast<float>(ty)});
+        const auto from = canvas.WorldToScreen(ImVec2{static_cast<float>(x), static_cast<float>(y)});
+        const auto to = canvas.WorldToScreen(ImVec2{static_cast<float>(tx), static_cast<float>(ty)});
         draw_list->AddLine(from, to, color);
     }
+
 
     void
     DrawAnchorDown(const Canvas& canvas, int x, int y, int size, ImU32 color)
@@ -184,17 +200,19 @@ namespace euphoria::editor
         DrawLine(canvas, x, y, x, y + size, color);
     }
 
+
     void
     DrawAnchorLeft(const Canvas& canvas, int x, int y, int size, ImU32 color)
     {
         DrawLine(canvas, x, y, x + size, y, color);
     }
 
+
     bool
     ButtonAt(const Canvas& canvas, const ImVec2& p, const char* label, int id)
     {
         const auto backup = ImGui::GetCursorPos();
-        ImVec2     pp     = p;
+        ImVec2 pp = p;
         pp.x -= canvas.position.x;
         pp.y -= canvas.position.y;
         ImGui::SetCursorPos(pp);
@@ -205,14 +223,9 @@ namespace euphoria::editor
         return clicked;
     }
 
+
     bool
-    DrawHorizontalCenteredText(
-            const Canvas&      canvas,
-            int                left_p,
-            int                right_p,
-            int                y_p,
-            const std::string& s,
-            int                id)
+    DrawHorizontalCenteredText(const Canvas& canvas, int left_p, int right_p, int y_p, const std::string& s, int id)
     {
         const auto size = ImGui::CalcTextSize(s.c_str());
         const auto left = canvas.WorldToScreen(
@@ -220,25 +233,17 @@ namespace euphoria::editor
         const auto right = canvas.WorldToScreen(
                 ImVec2 {static_cast<float>(right_p), static_cast<float>(y_p)});
         const auto y = left.y;
-        auto       x = left.x + (right.x - left.x) / 2 - size.x / 2;
+        auto x = left.x + (right.x - left.x) / 2 - size.x / 2;
         const auto p = ImVec2 {x, y - size.y};
         return ButtonAt(canvas, p, s.c_str(), id);
     }
 
     bool
-    DrawVerticalCenteredText(
-            const Canvas&      canvas,
-            int                top_p,
-            int                bottom_p,
-            int                x_p,
-            const std::string& s,
-            int                id)
+    DrawVerticalCenteredText(const Canvas& canvas, int top_p, int bottom_p, int x_p, const std::string& s, int id)
     {
         const auto size = ImGui::CalcTextSize(s.c_str());
-        const auto top  = canvas.WorldToScreen(
-                ImVec2 {static_cast<float>(x_p), static_cast<float>(top_p)});
-        const auto bottom = canvas.WorldToScreen(
-                ImVec2 {static_cast<float>(x_p), static_cast<float>(bottom_p)});
+        const auto top = canvas.WorldToScreen(ImVec2{static_cast<float>(x_p), static_cast<float>(top_p)});
+        const auto bottom = canvas.WorldToScreen(ImVec2{static_cast<float>(x_p), static_cast<float>(bottom_p)});
         const auto x = bottom.x;
         const auto y = top.y + (bottom.y - top.y) / 2 - size.y / 2;
         const auto p = ImVec2 {x - size.x, y};
@@ -246,35 +251,41 @@ namespace euphoria::editor
     }
 
 
-    template <
-            typename TAnchorFunction,
-            typename TLineFunction,
-            typename TButtonFunction>
+    template
+    <
+        typename TAnchorFunction,
+        typename TLineFunction,
+        typename TButtonFunction
+    >
     void
-    DrawSizerCommon(
-            const ScimedConfig& sc,
-            std::vector<int>*   data_ptr,
-            int                 end,
-            TAnchorFunction     anchor_function,
-            TLineFunction       line_function,
-            TButtonFunction     button_function)
+    DrawSizerCommon
+    (
+        const ScimedConfig& sc,
+        std::vector<int>* data_ptr,
+        int end,
+        TAnchorFunction anchor_function,
+        TLineFunction line_function,
+        TButtonFunction button_function
+    )
     {
-        auto&      data   = *data_ptr;
+        auto& data = *data_ptr;
         const auto spaces = CalculateAllSpaces(data);
         anchor_function(0, -sc.sizer_distance, sc.anchor_size);
         line_function(end, -sc.sizer_distance);
         anchor_function(end, -sc.sizer_distance, sc.anchor_size);
 
         const int total_percentage = GetTotalPercentage(data);
-
         int index = 0;
+
         for(const auto& t: spaces)
         {
-            const bool clicked = button_function(
-                    t.left,
-                    t.right,
-                    -sc.sizer_text_distance,
-                    PixelsOrPercentageString(data[index], total_percentage));
+            const bool clicked = button_function
+            (
+                t.left,
+                t.right,
+                -sc.sizer_text_distance,
+                PixelsOrPercentageString(data[index], total_percentage)
+            );
             if(clicked)
             {
                 data[index] = -data[index];
@@ -284,85 +295,67 @@ namespace euphoria::editor
     }
 
     void
-    DrawSizer(
-            std::shared_ptr<render::Texture2d> image,
-            const Scimed&                      sc,
-            const ScimedConfig&                scc,
-            scalingsprite::ScalingSprite*      sprite)
+    DrawSizer
+    (
+        std::shared_ptr<render::Texture2d> image,
+        const Scimed& sc,
+        const ScimedConfig& scc,
+        scalingsprite::ScalingSprite* sprite
+    )
     {
         int sized_id = 0;
-        DrawSizerCommon(
-                scc,
-                &sprite->cols,
-                image->GetWidth(),
-                [&sc, &scc](int position, int distance, int size) {
-                    DrawAnchorDown(
-                            sc.canvas,
-                            position,
-                            distance,
-                            size,
-                            scc.sizer_color);
-                },
-                [&sc, &scc](int end, int distance) {
-                    DrawLine(
-                            sc.canvas,
-                            0,
-                            distance,
-                            end,
-                            distance,
-                            scc.sizer_color);
-                },
-                [&sc, &sized_id](
-                        int                left,
-                        int                right,
-                        int                distance,
-                        const std::string& text) -> bool {
-                    sized_id += 1;
-                    return DrawHorizontalCenteredText(
-                            sc.canvas, left, right, distance, text, sized_id);
-                });
+        DrawSizerCommon
+        (
+            scc,
+            &sprite->cols,
+            image->GetWidth(),
+            [&sc, &scc](int position, int distance, int size)
+            {
+                DrawAnchorDown(sc.canvas, position, distance, size, scc.sizer_color);
+            },
+            [&sc, &scc](int end, int distance)
+            {
+                DrawLine(sc.canvas, 0, distance, end, distance, scc.sizer_color);
+            },
+            [&sc, &sized_id]( int left, int right, int distance, const std::string& text) -> bool
+            {
+                sized_id += 1;
+                return DrawHorizontalCenteredText(sc.canvas, left, right, distance, text, sized_id);
+            }
+        );
 
-        DrawSizerCommon(
-                scc,
-                &sprite->rows,
-                image->GetHeight(),
-                [&sc, &scc](int position, int distance, int size) {
-                    DrawAnchorLeft(
-                            sc.canvas,
-                            distance,
-                            position,
-                            size,
-                            scc.sizer_color);
-                },
-                [&sc, &scc](int end, int distance) {
-                    DrawLine(
-                            sc.canvas,
-                            distance,
-                            0,
-                            distance,
-                            end,
-                            scc.sizer_color);
-                },
-                [&sc, &sized_id](
-                        int                left,
-                        int                right,
-                        int                distance,
-                        const std::string& text) -> bool {
-                    sized_id += 1;
-                    return DrawVerticalCenteredText(
-                            sc.canvas, left, right, distance, text, sized_id);
-                });
+        DrawSizerCommon
+        (
+            scc,
+            &sprite->rows,
+            image->GetHeight(),
+            [&sc, &scc](int position, int distance, int size)
+            {
+                DrawAnchorLeft(sc.canvas, distance, position, size, scc.sizer_color);
+            },
+            [&sc, &scc](int end, int distance)
+            {
+                DrawLine(sc.canvas, distance, 0, distance, end, scc.sizer_color);
+            },
+            [&sc, &sized_id](int left, int right, int distance, const std::string& text) -> bool
+            {
+                sized_id += 1;
+                return DrawVerticalCenteredText(sc.canvas, left, right, distance, text, sized_id);
+            }
+        );
     }
 
 
     template <typename TLineFunction, typename TCoordFunction>
     int
-    DrawSingleAxisSplits(
-            const std::vector<int>& data,
-            const ImVec2&           mouse,
-            Canvas*                 canvas,
-            TLineFunction           line_function,
-            TCoordFunction          coord_function)
+    DrawSingleAxisSplits
+    (
+        const std::vector<int>& data,
+        const ImVec2& mouse,
+        Canvas* canvas,
+        TLineFunction line_function,
+        TCoordFunction coord_function
+    )
     {
         const auto splits = CalculateAllSplits(data);
 
@@ -372,9 +365,10 @@ namespace euphoria::editor
         for(auto s: splits)
         {
             line_function(s.position);
-            const auto p = canvas->WorldToScreen(
-                    ImVec2 {static_cast<float>(s.position),
-                            static_cast<float>(s.position)});
+            const auto p = canvas->WorldToScreen
+            (
+                ImVec2 {static_cast<float>(s.position), static_cast<float>(s.position)}
+            );
             if(IsCloseTo(coord_function(mouse), coord_function(p)))
             {
                 ret = i;
@@ -386,22 +380,25 @@ namespace euphoria::editor
     }
 
     LineHoverData
-    DrawSplits(
-            scalingsprite::ScalingSprite* sprite,
-            Canvas*                       canvas,
-            const ScimedConfig&           scc)
+    DrawSplits( scalingsprite::ScalingSprite* sprite, Canvas* canvas, const ScimedConfig& scc)
     {
-        const auto    mouse = ImGui::GetMousePos();
+        const auto mouse = ImGui::GetMousePos();
         LineHoverData ret;
 
-        ret.vertical_index = DrawSingleAxisSplits(
-                sprite->cols,
-                mouse,
-                canvas,
-                [&](int position) {
-                    canvas->VerticalLine(position, scc.split_color);
-                },
-                [](const ImVec2& p) -> float { return p.x; });
+        ret.vertical_index = DrawSingleAxisSplits
+        (
+            sprite->cols,
+            mouse,
+            canvas,
+            [&](int position)
+            {
+                canvas->VerticalLine(position, scc.split_color);
+            },
+            [](const ImVec2& p) -> float
+            {
+                return p.x;
+            }
+        );
         ret.horizontal_index = DrawSingleAxisSplits(
                 sprite->rows,
                 mouse,
@@ -443,16 +440,16 @@ namespace euphoria::editor
             return;
         }
 
-        const auto split      = CalculateAllSplits(*data_ptr)[split_index];
-        const auto position   = static_cast<int>(world_position);
-        const auto max        = std::max(split.min_value + 1, position);
-        const int  line_x     = std::min(split.max_value - 1, max);
-        const int  left_size  = line_x - split.min_value;
-        const int  right_size = split.max_value - line_x;
+        const auto split = CalculateAllSplits(*data_ptr)[split_index];
+        const auto position = static_cast<int>(world_position);
+        const auto max = std::max(split.min_value + 1, position);
+        const int line_x = std::min(split.max_value - 1, max);
+        const int left_size = line_x - split.min_value;
+        const int right_size = split.max_value - line_x;
 
         // move split to new position
-        auto& data            = *data_ptr;
-        data[split_index]     = Sign(data[split_index]) * left_size;
+        auto& data = *data_ptr;
+        data[split_index] = Sign(data[split_index]) * left_size;
         data[split_index + 1] = Sign(data[split_index + 1]) * right_size;
     }
 
@@ -465,16 +462,16 @@ namespace euphoria::editor
         int x
     )
     {
-        auto&      data  = *data_ptr;
-        const auto size  = CalculateAllSpaces(data)[index];
-        const int  mouse = std::min(size.right - 1, std::max(size.left + 1, x));
+        auto& data = *data_ptr;
+        const auto size = CalculateAllSpaces(data)[index];
+        const int mouse = std::min(size.right - 1, std::max(size.left + 1, x));
         ASSERT(mouse > size.left);
         const int left_abs_val = mouse - size.left;
-        const int old_value    = data[index];
-        const int sign         = Sign(old_value);
-        const int left_val     = left_abs_val * sign;
-        data[index]            = left_val;
-        const int right_val    = sign * (std::abs(old_value) - left_abs_val);
+        const int old_value = data[index];
+        const int sign = Sign(old_value);
+        const int left_val = left_abs_val * sign;
+        data[index] = left_val;
+        const int right_val = sign * (std::abs(old_value) - left_abs_val);
         data.insert(data.begin() + index + 1, right_val);
     }
 
@@ -496,9 +493,9 @@ namespace euphoria::editor
         }
 
         // draw texture
-        auto       tex_id = reinterpret_cast<ImTextureID>(texture->GetId());
-        const auto pos    = canvas.WorldToScreen(ImVec2 {0, 0});
-        const auto size   = canvas.WorldToScreen(
+        auto tex_id = reinterpret_cast<ImTextureID>(texture->GetId());
+        const auto pos = canvas.WorldToScreen(ImVec2 {0, 0});
+        const auto size = canvas.WorldToScreen(
                 ImVec2 {static_cast<float>(texture->GetWidth()),
                         static_cast<float>(texture->GetHeight())});
         draw_list->AddImage(tex_id, pos, size);
@@ -543,7 +540,7 @@ namespace euphoria::editor
         {
             ImGui::OpenPopup("asd");
             const auto w = canvas.ScreenToWorld(ImGui::GetMousePos());
-            mouse_popup  = vec2i {static_cast<int>(w.x), static_cast<int>(w.y)};
+            mouse_popup = vec2i {static_cast<int>(w.x), static_cast<int>(w.y)};
         }
 
         if(ImGui::BeginPopup("asd"))
@@ -575,4 +572,4 @@ namespace euphoria::editor
 
         return false;
     }
-}  // namespace euphoria::editor
+}
