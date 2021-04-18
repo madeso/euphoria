@@ -6,6 +6,12 @@
 #include "core/vec2.h"
 #include "core/vec3.h"
 
+// imgui combo
+#include "imgui/imgui.h"
+#include <vector>
+#include <algorithm>
+#include <utility>
+
 namespace euphoria::core
 {
     struct Angle;
@@ -53,7 +59,7 @@ namespace euphoria::window
 
     bool
     ImGuiColorEdit(const char* const name, core::Rgb* rgb);
-    
+
     bool
     ImGuiColorEdit(const char* const name, core::Rgba* rgb);
 
@@ -92,6 +98,42 @@ namespace euphoria::window
 
     bool
     ImguiSelectableOrDisabled(bool enabled, const char* label);
+
+
+    template<typename T>
+    bool ImguiCombo
+    (
+        const char* label,
+        T* data,
+        std::vector<std::pair<const char*, T>> values
+    )
+    {
+        const auto found = std::find_if(values.begin(), values.end(),
+            [data](const std::pair<const char*, T>& p)
+            {
+                return p.second == *data;
+            }
+        );
+
+        const char* preview_value = found != values.end() ? found->first : "";
+
+        bool was_changed = false;
+
+        if(ImGui::BeginCombo(label, preview_value))
+        {
+            for(const auto& v: values)
+            {
+                if(ImGui::Selectable(v.first, v.second == *data))
+                {
+                    *data = v.second;
+                    was_changed = true;
+                }
+            }
+            ImGui::EndCombo();
+        }
+
+        return was_changed;
+    }
 }
 
 #endif  // EUPHORIA_IMGUI_H

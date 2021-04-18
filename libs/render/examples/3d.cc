@@ -51,19 +51,17 @@ using namespace euphoria::window;
 struct CubeAnimation
 {
     CubeAnimation()
-        : timer(0)
-        , from(quatf::Identity())
+        : from(quatf::Identity())
         , to(quatf::Identity())
-        , rotation_speed(1.0f)
-        , move_speed(1.0f)
-    {}
+    {
+    }
 
     std::shared_ptr<Actor> actor;
-    float                  timer;
-    quatf                  from;
-    quatf                  to;
-    float                  rotation_speed;
-    float                  move_speed;
+    float timer = 0.0f;
+    quatf from;
+    quatf to;
+    float rotation_speed = 1.0f;
+    float move_speed = 1.0f;
 };
 
 // 3d demo
@@ -269,11 +267,15 @@ main(int argc, char** argv)
                 ImGuiCond_FirstUseEver
             );
             ImGui::Begin("Light");
-            ImGui::Combo
+            ImguiCombo
             (
                 "Type",
-                reinterpret_cast<int*>(&world.light.type),
-                "Directional\0Point\0Spot\0\0"
+                &world.light.type,
+                {
+                    {"Directional", Light::Type::Directional},
+                    {"Point", Light::Type::Point},
+                    {"Spot", Light::Type::Spot}
+                }
             );
             ImGuiColorEdit("Ambient", &world.light.ambient);
             ImGuiColorEdit("Diffuse", &world.light.diffuse);

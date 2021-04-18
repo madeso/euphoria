@@ -34,7 +34,8 @@ namespace euphoria::render
         enum class Type : int
         {
             Directional,
-            Point
+            Point,
+            Spot
         };
 
         Type type;
