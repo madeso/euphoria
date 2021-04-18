@@ -319,7 +319,7 @@ int
 main(int argc, char* argv[])
 {
     Engine engine;
-    if(const auto ret = engine.Setup(argparse::Arguments::Extract(argc, argv)) != 0; ret != 0)
+    if(const auto ret = engine.Setup(argparse::Arguments::Extract(argc, argv)); ret != 0)
     {
         return ret;
     }
@@ -401,7 +401,7 @@ main(int argc, char* argv[])
     {
         last = now;
         now = SDL_GetPerformanceCounter();
-        const float dt = (now - last) * 1.0f / SDL_GetPerformanceFrequency();
+        const float dt = static_cast<float>(now - last) / static_cast<float>(SDL_GetPerformanceFrequency());
         SDL_Event e;
 
         // imgui
