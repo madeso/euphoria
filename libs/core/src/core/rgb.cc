@@ -410,7 +410,7 @@ namespace euphoria::core
     ////////////////////////////////////////////////////////////////////////////////
 
     rgb
-    RgbTransform::Transform(const rgb& from, float v, const rgb& to)
+    rgb_transform::Transform(const rgb& from, float v, const rgb& to)
     {
         return
         {

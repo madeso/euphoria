@@ -145,12 +145,12 @@ namespace euphoria::core
         float l;  // 0-1
 
         // todo(Gustav): why are these angles and not a Hsl?
-        static constexpr Angle Red = Angle::FromPercentOf360(0.0f);
-        static constexpr Angle Yellow = Angle::FromPercentOf360(1 / 6.0f);
-        static constexpr Angle Green = Angle::FromPercentOf360(2 / 6.0f);
-        static constexpr Angle Cyan = Angle::FromPercentOf360(3 / 6.0f);
-        static constexpr Angle Blue = Angle::FromPercentOf360(4 / 6.0f);
-        static constexpr Angle Magenta = Angle::FromPercentOf360(5 / 6.0f);
+        static constexpr Angle red = Angle::FromPercentOf360(0.0f);
+        static constexpr Angle yellow = Angle::FromPercentOf360(1 / 6.0f);
+        static constexpr Angle green = Angle::FromPercentOf360(2 / 6.0f);
+        static constexpr Angle cyan = Angle::FromPercentOf360(3 / 6.0f);
+        static constexpr Angle blue = Angle::FromPercentOf360(4 / 6.0f);
+        static constexpr Angle magenta = Angle::FromPercentOf360(5 / 6.0f);
     };
 
     enum class is_absolute
@@ -271,7 +271,7 @@ namespace euphoria::core
     //////////////////////////////////////////////////////////////////////////
     // Transforms
 
-    struct RgbTransform
+    struct rgb_transform
     {
         static rgb
         Transform(const rgb& from, float v, const rgb& to);
@@ -285,7 +285,7 @@ namespace euphoria::core
     crgbi(const std::string& value);
 
     template<>
-    struct CustomArgparser<rgbi>
+    struct custom_argparser<rgbi>
     {
         enum { value = 1 };
 

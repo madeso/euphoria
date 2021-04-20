@@ -18,10 +18,10 @@ namespace euphoria::core::argparse
     template
     <
         typename T,
-        std::enable_if_t<CustomArgparser<T>::value != 0, int> = 0
+        std::enable_if_t<custom_argparser<T>::value != 0, int> = 0
     >
     Result<T>
-    DefaultParseFunction
+    default_parse_function
     (
         const std::string& value
     )
@@ -36,12 +36,12 @@ namespace euphoria::core::argparse
         typename T,
         std::enable_if_t
         <
-            std::is_enum<T>::value == false && CustomArgparser<T>::value == 0,
+            std::is_enum<T>::value == false && custom_argparser<T>::value == 0,
             int
         > = 0
     >
     Result<T>
-    DefaultParseFunction
+    default_parse_function
     (
         const std::string& value
     )
@@ -65,12 +65,12 @@ namespace euphoria::core::argparse
         typename T,
         std::enable_if_t
         <
-            std::is_enum<T>::value == true && CustomArgparser<T>::value == 0,
+            std::is_enum<T>::value == true && custom_argparser<T>::value == 0,
             int
         > = 0
     >
     Result<T>
-    DefaultParseFunction
+    default_parse_function
     (
         const std::string& value
     )
@@ -122,7 +122,7 @@ namespace euphoria::core::argparse
     template
     <
         typename T,
-        std::enable_if_t<CustomArgparser<T>::value != 0, int> = 0
+        std::enable_if_t<custom_argparser<T>::value != 0, int> = 0
     >
     std::string
     DefaultValueToString(const T& t)
@@ -137,7 +137,7 @@ namespace euphoria::core::argparse
         typename T,
         std::enable_if_t
         <
-            std::is_enum<T>::value == false && CustomArgparser<T>::value == 0,
+            std::is_enum<T>::value == false && custom_argparser<T>::value == 0,
             int
         > = 0
     >
@@ -155,7 +155,7 @@ namespace euphoria::core::argparse
         typename T,
         std::enable_if_t
         <
-            std::is_enum<T>::value == true && CustomArgparser<T>::value == 0,
+            std::is_enum<T>::value == true && custom_argparser<T>::value == 0,
             int
         > = 0
     >

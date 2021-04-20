@@ -235,7 +235,7 @@ namespace euphoria::core
                 }
 
                 const rgb paint_color = blend
-                    ? RgbTransform::Transform
+                    ? rgb_transform::Transform
                     (
                         crgb(image->GetPixel(x, y)),
                         blend_factor,
@@ -381,7 +381,7 @@ namespace euphoria::core
             const bool valid_y = IsWithinInclusivei(0, y, image->GetHeight() - 1);
             if(valid_x && valid_y)
             {
-                const rgb paint_color = RgbTransform::Transform
+                const rgb paint_color = rgb_transform::Transform
                 (
                     crgb(image->GetPixel(x, y)),
                     c,

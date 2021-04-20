@@ -503,7 +503,7 @@ namespace euphoria::core::argparse
         (
             const name& name,
             T* target,
-            parse_function<T> parse_function = DefaultParseFunction<T>
+            parse_function<T> parse_function = default_parse_function<T>
         )
         {
             auto arg = std::make_shared<single_argument>(
@@ -551,7 +551,7 @@ namespace euphoria::core::argparse
         (
             const name& name,
             std::vector<T>* target,
-            parse_function<T> parse_function = DefaultParseFunction<T>
+            parse_function<T> parse_function = default_parse_function<T>
         )
         {
             auto arg = std::make_shared<multi_argument>(

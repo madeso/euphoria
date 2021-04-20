@@ -111,7 +111,7 @@ namespace euphoria::core
       Either all, ver/hor or up/right/down/left
     */
     template<typename T>
-    struct CustomArgparser
+    struct custom_argparser
     <Fourway<T>>
     {
         enum { value = 1 };
@@ -139,7 +139,7 @@ namespace euphoria::core
             using R = Result<Fourway<T>>;
             auto parse = [](const std::string& v)
             {
-                return argparse::DefaultParseFunction<T>(v);
+                return argparse::default_parse_function<T>(v);
             };
             const auto values = Split(value, SPLIT);
             switch(values.size())

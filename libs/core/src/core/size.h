@@ -88,7 +88,7 @@ namespace euphoria::core
 
 
     template<typename T>
-    struct CustomArgparser<Size<T>>
+    struct custom_argparser<Size<T>>
     {
         enum { value = 1 };
 
@@ -130,7 +130,7 @@ namespace euphoria::core
 
             auto parse_hs = [&](int index)
             {
-                return argparse::DefaultParseFunction<T>
+                return argparse::default_parse_function<T>
                 (
                     Trim(values[index])
                 );
