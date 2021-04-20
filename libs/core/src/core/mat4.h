@@ -40,7 +40,7 @@ namespace euphoria::core
         [[nodiscard]]
         static
         mat4<T>
-        FromColMajor
+        from_col_major
         (
             T t00, T t01, T t02, T t03,
             T t10, T t11, T t12, T t13,
@@ -60,7 +60,7 @@ namespace euphoria::core
         [[nodiscard]]
         static
         mat4<T>
-        FromRowMajor
+        from_row_major
         (
             T t00, T t10, T t20, T t30,
             T t01, T t11, T t21, T t31,
@@ -80,10 +80,10 @@ namespace euphoria::core
         [[nodiscard]]
         static
         mat4<T>
-        FromMajor(const vec4<T>& major)
+        from_major(const vec4<T>& major)
         {
             const T zero = 0;
-            return FromRowMajor
+            return from_row_major
             (
                 major.x, zero, zero, zero,
                 zero, major.y, zero, zero,
@@ -95,19 +95,19 @@ namespace euphoria::core
         [[nodiscard]]
         static
         mat4<T>
-        FromScale(const scale3<T>& scale)
+        from_scale(const scale3<T>& scale)
         {
-            return FromMajor(vec4<T>(scale));
+            return from_major(vec4<T>(scale));
         }
 
         [[nodiscard]]
         static
         mat4<T>
-        FromTranslation(const vec3<T>& v)
+        from_translation(const vec3<T>& v)
         {
             const T one = 1;
             const T z   = 0;
-            return FromRowMajor
+            return from_row_major
             (
                 one, z, z, v.x,
                 z, one, z, v.y,
@@ -117,40 +117,40 @@ namespace euphoria::core
         }
 
         vec4<T>
-        GetTransform(const vec4<T>& p) const
+        get_transform(const vec4<T>& p) const
         {
             return *this * vec4<T>(p);
         }
 
         vec3<T>
-        GetTransform(const vec3<T>& p, T w) const
+        get_transform(const vec3<T>& p, T w) const
         {
-            return GetTransform(vec4<T>(p, w)).ToVec3(w);
+            return get_transform(vec4<T>(p, w)).ToVec3(w);
         }
 
         vec3<T>
-        GetTransformPoint(const vec3<T>& p) const
+        get_transform_point(const vec3<T>& p) const
         {
-            return GetTransform(p, 1);
+            return get_transform(p, 1);
         }
 
         vec3<T>
-        GetTransformVec(const vec3<T>& p) const
+        get_transform_vec(const vec3<T>& p) const
         {
-            return GetTransform(p, 0);
+            return get_transform(p, 0);
         }
 
         vec3<T>
-        GetTranslation() const
+        get_translation() const
         {
-            return vec3<T>(Get(0, 3), Get(1, 3), Get(2, 3));
+            return vec3<T>(get(0, 3), get(1, 3), get(2, 3));
         }
 
         [[nodiscard]] static mat4<T>
-        FromScalar(T scalar)
+        from_scalar(T scalar)
         {
             const T z = 0;
-            return FromRowMajor
+            return from_row_major
             (
                 scalar, z, z, z,
                 z, scalar, z, z,
@@ -162,11 +162,11 @@ namespace euphoria::core
         [[nodiscard]]
         static
         mat4<T>
-        FromRotX(const angle& a)
+        from_rot_x(const angle& a)
         {
             const auto c = cos(a);
             const auto s = sin(a);
-            return FromRowMajor
+            return from_row_major
             (
                 1, 0, 0, 0,
                 0, c, -s, 0,
@@ -178,27 +178,16 @@ namespace euphoria::core
         [[nodiscard]]
         static
         mat4<T>
-        FromRotY(const angle& a)
-        {
-            const auto c = cos(a);
-            const auto s = sin(a);
-            return FromRowMajor
-            (
-                c, 0, s, 0,
-                0, 1, 0, 0,
-                -s, 0, c, 0,
-                0, 0, 0, 1
-            );
-        }
+        from_rot_y(const angle& a);
 
         [[nodiscard]]
         static
         mat4<T>
-        FromRotZ(const angle& a)
+        from_rot_z(const angle& a)
         {
             const auto c = cos(a);
             const auto s = sin(a);
-            return FromRowMajor
+            return from_row_major
             (
                 c, -s, 0, 0,
                 s, c, 0, 0,
@@ -210,7 +199,7 @@ namespace euphoria::core
         [[nodiscard]]
         static
         mat4<T>
-        FromAxisAngle(const axis_angle aa)
+        from_axis_angle(const axis_angle aa)
         {
             const T rcos = cos(aa.angle);
             const T rsin = sin(aa.angle);
@@ -219,7 +208,7 @@ namespace euphoria::core
             const auto v = aa.axis.y;
             const auto w = aa.axis.z;
 
-            return mat4<T>::FromColMajor
+            return mat4<T>::from_col_major
             (
                 rcos + u * u * (1 - rcos),
                 w * rsin + v * u * (1 - rcos),
@@ -246,48 +235,48 @@ namespace euphoria::core
         [[nodiscard]]
         static
         mat4<T>
-        Identity()
+        identity()
         {
-            return FromScalar(1);
+            return from_scalar(1);
         }
 
         vec4<T>
-        GetMajor() const
+        get_major() const
         {
             const mat4<T>& self = *this;
             return vec4<T>(self(0, 0), self(1, 1), self(2, 2), self(3, 3));
         }
 
         vec3<T>
-        GetAxis(int col) const
+        get_axis(int col) const
         {
-            return GetColumn(col).ToVec3();
+            return get_column(col).ToVec3();
         }
 
         vec3<T>
-        GetXAxis() const
+        get_x_axis() const
         {
-            return GetAxis(0);
+            return get_axis(0);
         }
 
         vec3<T>
-        GetYAxis() const
+        get_y_axis() const
         {
-            return GetAxis(1);
+            return get_axis(1);
         }
 
         vec3<T>
-        GetZAxis() const
+        get_z_axis() const
         {
-            return GetAxis(2);
+            return get_axis(2);
         }
 
         mat4<T>
-        GetTransposed() const
+        get_transposed() const
         {
             // https://www.j3d.org/matrix_faq/matrfaq_latest.html
             const mat4<T>& self = *this;
-            return FromColMajor
+            return from_col_major
             (
                 self(0, 0), self(0, 1), self(0, 2), self(0, 3),
                 self(1, 0), self(1, 1), self(1, 2), self(1, 3),
@@ -297,7 +286,7 @@ namespace euphoria::core
         }
 
         bool
-        Invert()
+        invert()
         {
             // from the glu source?
             // https://stackoverflow.com/questions/1148309/inverting-a-4x4-matrix
@@ -422,7 +411,7 @@ namespace euphoria::core
         }
 
         mat3<T>
-        GetMat3() const
+        get_mat3() const
         {
             const mat4<T>& m = *this;
             return mat3<T>::from_row_major
@@ -458,10 +447,10 @@ namespace euphoria::core
         [[nodiscard]]
         static
         mat4<T>
-        Ortho(T l, T r, T b, T t, T n, T f)
+        create_ortho(T l, T r, T b, T t, T n, T f)
         {
             // http://www.songho.ca/opengl/gl_projectionmatrix.html
-            return FromRowMajor
+            return from_row_major
             (
                 2 / (r - l), 0, 0, -(r + l) / (r - l),
                 0, 2 / (t - b), 0, -(t + b) / (t - b),
@@ -473,12 +462,12 @@ namespace euphoria::core
         [[nodiscard]]
         static
         mat4<T>
-        Perspective(const angle& fov, T a, T near, T far)
+        create_perspective(const angle& fov, T a, T near, T far)
         {
             const T t  = 1 / tan(fov / 2);
             const T zm = far - near;
             const T zp = far + near;
-            return FromRowMajor
+            return from_row_major
             (
                 t / a, 0, 0, 0,
                 0, t, 0, 0,
@@ -488,31 +477,31 @@ namespace euphoria::core
         }
 
         mat4<T>
-        Translate(const vec3<T>& t) const
+        translate(const vec3<T>& t) const
         {
-            return *this * FromTranslation(t);
+            return *this * from_translation(t);
         }
 
         mat4<T>
-        Rotate(const axis_angle& aa) const
+        rotate(const axis_angle& aa) const
         {
-            return *this * FromAxisAngle(aa);
+            return *this * from_axis_angle(aa);
         }
 
         mat4<T>
-        Scale(const scale3<T>& scale) const
+        scale(const scale3<T>& scale) const
         {
-            return *this * FromScale(scale);
+            return *this * from_scale(scale);
         }
 
         const T*
-        GetDataPtr() const
+        get_data_ptr() const
         {
             return data;
         }
 
         T*
-        GetDataPtr()
+        get_data_ptr()
         {
             return data;
         }
@@ -531,19 +520,19 @@ namespace euphoria::core
         }
 
         T
-        Get(int row, int col) const
+        get(int row, int col) const
         {
             return data[col * 4 + row];
         }
 
         vec4<T>
-        GetColumn(int c) const
+        get_column(int c) const
         {
             return vec4<T>(&data[c * 4]);
         }
 
         vec4<T>
-        GetRow(int r) const
+        get_row(int r) const
         {
             const mat4<T>& self = *this;
             return vec4<T>(self(r, 0), self(r, 1), self(r, 2), self(r, 3));
@@ -551,14 +540,28 @@ namespace euphoria::core
     };
 
     template <typename T>
+    mat4<T> mat4<T>::from_rot_y(const angle& a)
+    {
+        const auto c = cos(a);
+        const auto s = sin(a);
+        return from_row_major
+        (
+            c, 0, s, 0,
+            0, 1, 0, 0,
+            -s, 0, c, 0,
+            0, 0, 0, 1
+        );
+    }
+
+    template <typename T>
     bool
     operator==(const mat4<T>& lhs, const mat4<T>& rhs)
     {
         return
-            lhs.GetColumn(0) == rhs.GetColumn(0) &&
-            lhs.GetColumn(1) == rhs.GetColumn(1) &&
-            lhs.GetColumn(2) == rhs.GetColumn(2) &&
-            lhs.GetColumn(3) == rhs.GetColumn(3)
+            lhs.get_column(0) == rhs.get_column(0) &&
+            lhs.get_column(1) == rhs.get_column(1) &&
+            lhs.get_column(2) == rhs.get_column(2) &&
+            lhs.get_column(3) == rhs.get_column(3)
             ;
     }
 
@@ -568,10 +571,10 @@ namespace euphoria::core
     {
         return stream
             << "("
-            << m.GetRow(0) << ", "
-            << m.GetRow(1) << ", "
-            << m.GetRow(2) << ", "
-            << m.GetRow(3)
+            << m.get_row(0) << ", "
+            << m.get_row(1) << ", "
+            << m.get_row(2) << ", "
+            << m.get_row(3)
             << ")";
     }
 
@@ -598,9 +601,9 @@ namespace euphoria::core
     {
         const auto OP = [&lhs, &rhs](int r, int c) -> T
         {
-            return ComponentMultiply(lhs.GetRow(r), rhs.GetColumn(c)).GetComponentSum();
+            return ComponentMultiply(lhs.get_row(r), rhs.get_column(c)).GetComponentSum();
         };
-        return mat4<T>::FromRowMajor
+        return mat4<T>::from_row_major
         (
             OP(0, 0), OP(0, 1), OP(0, 2), OP(0, 3),
             OP(1, 0), OP(1, 1), OP(1, 2), OP(1, 3),
@@ -614,7 +617,7 @@ namespace euphoria::core
     {
         const auto OP = [&lhs, &rhs](int r) -> T
         {
-            return ComponentMultiply(lhs.GetRow(r), rhs).GetComponentSum();
+            return ComponentMultiply(lhs.get_row(r), rhs).GetComponentSum();
         };
 
         return vec4<T>(OP(0), OP(1), OP(2), OP(3));

@@ -10,48 +10,48 @@ using namespace euphoria::tests;
 
 TEST_CASE("mat4-colmajor", "[mat]")
 {
-    const auto m = euco::mat4i::FromColMajor(
+    const auto m = euco::mat4i::from_col_major(
             0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
-    REQUIRE(euco::vec4i(0, 1, 2, 3) == m.GetColumn(0));
-    REQUIRE(euco::vec4i(4, 5, 6, 7) == m.GetColumn(1));
-    REQUIRE(euco::vec4i(8, 9, 10, 11) == m.GetColumn(2));
-    REQUIRE(euco::vec4i(12, 13, 14, 15) == m.GetColumn(3));
+    REQUIRE(euco::vec4i(0, 1, 2, 3) == m.get_column(0));
+    REQUIRE(euco::vec4i(4, 5, 6, 7) == m.get_column(1));
+    REQUIRE(euco::vec4i(8, 9, 10, 11) == m.get_column(2));
+    REQUIRE(euco::vec4i(12, 13, 14, 15) == m.get_column(3));
 }
 
 TEST_CASE("mat4-rowmajor", "[mat]")
 {
-    const auto m = euco::mat4i::FromRowMajor(
+    const auto m = euco::mat4i::from_row_major(
             0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
-    REQUIRE(euco::vec4i(0, 4, 8, 12) == m.GetColumn(0));
-    REQUIRE(euco::vec4i(1, 5, 9, 13) == m.GetColumn(1));
-    REQUIRE(euco::vec4i(2, 6, 10, 14) == m.GetColumn(2));
-    REQUIRE(euco::vec4i(3, 7, 11, 15) == m.GetColumn(3));
+    REQUIRE(euco::vec4i(0, 4, 8, 12) == m.get_column(0));
+    REQUIRE(euco::vec4i(1, 5, 9, 13) == m.get_column(1));
+    REQUIRE(euco::vec4i(2, 6, 10, 14) == m.get_column(2));
+    REQUIRE(euco::vec4i(3, 7, 11, 15) == m.get_column(3));
 }
 
 TEST_CASE("mat4-rowmajor_row", "[mat]")
 {
-    const auto m = euco::mat4i::FromRowMajor(
+    const auto m = euco::mat4i::from_row_major(
             0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
-    REQUIRE(euco::vec4i(0, 1, 2, 3) == m.GetRow(0));
-    REQUIRE(euco::vec4i(4, 5, 6, 7) == m.GetRow(1));
-    REQUIRE(euco::vec4i(8, 9, 10, 11) == m.GetRow(2));
-    REQUIRE(euco::vec4i(12, 13, 14, 15) == m.GetRow(3));
+    REQUIRE(euco::vec4i(0, 1, 2, 3) == m.get_row(0));
+    REQUIRE(euco::vec4i(4, 5, 6, 7) == m.get_row(1));
+    REQUIRE(euco::vec4i(8, 9, 10, 11) == m.get_row(2));
+    REQUIRE(euco::vec4i(12, 13, 14, 15) == m.get_row(3));
 }
 
 TEST_CASE("mat4-identity", "[mat]")
 {
-    const auto m = euco::mat4i::FromRowMajor(
+    const auto m = euco::mat4i::from_row_major(
             1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    const auto i = euco::mat4i::Identity();
-    REQUIRE(i.GetColumn(0) == m.GetColumn(0));
-    REQUIRE(i.GetColumn(1) == m.GetColumn(1));
-    REQUIRE(i.GetColumn(2) == m.GetColumn(2));
-    REQUIRE(i.GetColumn(3) == m.GetColumn(3));
+    const auto i = euco::mat4i::identity();
+    REQUIRE(i.get_column(0) == m.get_column(0));
+    REQUIRE(i.get_column(1) == m.get_column(1));
+    REQUIRE(i.get_column(2) == m.get_column(2));
+    REQUIRE(i.get_column(3) == m.get_column(3));
 }
 
 TEST_CASE("mat4-index", "[mat]")
 {
-    const auto m = euco::mat4i::FromRowMajor(
+    const auto m = euco::mat4i::from_row_major(
             0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
     REQUIRE(3 == m(0, 3));
     REQUIRE(15 == m(3, 3));
@@ -59,36 +59,36 @@ TEST_CASE("mat4-index", "[mat]")
 
 TEST_CASE("mat4-major", "[mat]")
 {
-    const auto m = euco::mat4i::FromRowMajor(
+    const auto m = euco::mat4i::from_row_major(
                            0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15)
-                           .GetMajor();
+                           .get_major();
     REQUIRE(euco::vec4i(0, 5, 10, 15) == m);
 }
 
 
 TEST_CASE("mat4-transposed", "[mat]")
 {
-    const auto m = euco::mat4i::FromRowMajor(
+    const auto m = euco::mat4i::from_row_major(
                            0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15)
-                           .GetTransposed();
+                           .get_transposed();
     REQUIRE(m
-            == euco::mat4i::FromColMajor(
+            == euco::mat4i::from_col_major(
                     0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15));
 }
 
 TEST_CASE("mat4-axis", "[mat]")
 {
-    const auto m = euco::mat4i::Identity();
-    REQUIRE(euco::vec3i(1, 0, 0) == static_cast<euco::vec3i>(m.GetXAxis()));
-    REQUIRE(euco::vec3i(0, 1, 0) == m.GetYAxis());
-    REQUIRE(euco::vec3i(0, 0, 1) == m.GetZAxis());
+    const auto m = euco::mat4i::identity();
+    REQUIRE(euco::vec3i(1, 0, 0) == static_cast<euco::vec3i>(m.get_x_axis()));
+    REQUIRE(euco::vec3i(0, 1, 0) == m.get_y_axis());
+    REQUIRE(euco::vec3i(0, 0, 1) == m.get_z_axis());
 }
 
 TEST_CASE("mat4-multiply", "[mat]")
 {
-    const auto m = euco::mat4i::FromRowMajor(
+    const auto m = euco::mat4i::from_row_major(
                            0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15)
-                   * euco::mat4i::FromRowMajor(
+                   * euco::mat4i::from_row_major(
                            16,
                            17,
                            18,
@@ -109,7 +109,7 @@ TEST_CASE("mat4-multiply", "[mat]")
     // http://www.wolframalpha.com/widgets/view.jsp?id=cc71c2e95a80c217564d530fd8297b0e
     // simplify({{0,1,2,3},{4,5,6,7},{8,9,10,11},{12,13,14,15}}.{{16,17,18,19},{20,21,22,23},{24,25,26,27},{28,29,30,31}})
     REQUIRE(m
-            == euco::mat4i::FromRowMajor(
+            == euco::mat4i::from_row_major(
                     152,
                     158,
                     164,
@@ -130,9 +130,9 @@ TEST_CASE("mat4-multiply", "[mat]")
 
 TEST_CASE("mat4-add", "[mat]")
 {
-    const auto m = euco::mat4i::FromRowMajor(
+    const auto m = euco::mat4i::from_row_major(
                            0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15)
-                   + euco::mat4i::FromRowMajor(
+                   + euco::mat4i::from_row_major(
                            16,
                            17,
                            18,
@@ -150,7 +150,7 @@ TEST_CASE("mat4-add", "[mat]")
                            30,
                            31);
     REQUIRE(m
-            == euco::mat4i::FromRowMajor(
+            == euco::mat4i::from_row_major(
                     16,
                     18,
                     20,
@@ -172,7 +172,7 @@ TEST_CASE("mat4-add", "[mat]")
 TEST_CASE("mat4-sub", "[mat]")
 {
     const auto m
-            = euco::mat4i::FromRowMajor(
+            = euco::mat4i::from_row_major(
                       16,
                       17,
                       18,
@@ -189,10 +189,10 @@ TEST_CASE("mat4-sub", "[mat]")
                       29,
                       30,
                       31)
-              - euco::mat4i::FromRowMajor(
+              - euco::mat4i::from_row_major(
                       0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
     REQUIRE(m
-            == euco::mat4i::FromRowMajor(
+            == euco::mat4i::from_row_major(
                     16,
                     16,
                     16,
@@ -214,9 +214,9 @@ TEST_CASE("mat4-sub", "[mat]")
 
 TEST_CASE("mat4-mat3", "[mat]")
 {
-    const auto m4 = euco::mat4i::FromColMajor(
+    const auto m4 = euco::mat4i::from_col_major(
             0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
-    const auto m3 = m4.GetMat3();
+    const auto m3 = m4.get_mat3();
     REQUIRE(std::make_tuple(0, 1, 2) == m3.get_column(0));
     REQUIRE(std::make_tuple(4, 5, 6) == m3.get_column(1));
     REQUIRE(std::make_tuple(8, 9, 10) == m3.get_column(2));
@@ -225,7 +225,7 @@ TEST_CASE("mat4-mat3", "[mat]")
 
 TEST_CASE("mat4-inverse", "[mat]")
 {
-    const auto Mat0 = euco::mat4f::FromColMajor(
+    const auto Mat0 = euco::mat4f::from_col_major(
             0.6f,
             0.2f,
             0.3f,
@@ -244,8 +244,8 @@ TEST_CASE("mat4-inverse", "[mat]")
             0.6f);
 
     auto Inv0 = Mat0;  // glm::inverse(Mat0);
-    REQUIRE(Inv0.Invert());
-    REQUIRE(Inv0.Invert());
+    REQUIRE(Inv0.invert());
+    REQUIRE(Inv0.invert());
 
     // EXPECT_EQ(Mat0, Inv0);
 }
@@ -256,31 +256,31 @@ TEST_CASE("mat4-inverse", "[mat]")
 TEST_CASE("mat4-TestTransformation", "[mat]")
 {
     REQUIRE(euco::vec3i(1, 2, 3)
-            == euco::mat4i::FromTranslation(euco::vec3i(1, 2, 3))
-                       .GetTranslation());
+            == euco::mat4i::from_translation(euco::vec3i(1, 2, 3))
+                       .get_translation());
 }
 
 
 TEST_CASE("mat4-TestRight", "[mat]")
 {
-    REQUIRE(euco::unit3i::XAxis() == euco::mat4i::Identity().GetXAxis());
+    REQUIRE(euco::unit3i::XAxis() == euco::mat4i::identity().get_x_axis());
 }
 
 
 TEST_CASE("mat4-TestUp", "[mat]")
 {
-    REQUIRE(euco::unit3i::YAxis() == euco::mat4i::Identity().GetYAxis());
+    REQUIRE(euco::unit3i::YAxis() == euco::mat4i::identity().get_y_axis());
 }
 
 
 TEST_CASE("mat4-TestIn", "[mat]")
 {
-    REQUIRE(euco::unit3i::ZAxis() == euco::mat4i::Identity().GetZAxis());
+    REQUIRE(euco::unit3i::ZAxis() == euco::mat4i::identity().get_z_axis());
 }
 
 TEST_CASE("mat4-test", "[mat]")
 {
-    const euco::mat4f start = euco::mat4f::Identity();
+    const euco::mat4f start = euco::mat4f::identity();
     euco::axis_angle   aa    = euco::axis_angle::right_hand_around(
             euco::unit3f::Up(), euco::angle::from_degrees(-90));
     const euco::vec3f toTransform(0, 0, -5);
@@ -288,7 +288,7 @@ TEST_CASE("mat4-test", "[mat]")
 
     SECTION("TestRotationAxisAngle")
     {
-        const auto r = start.Rotate(aa).GetTransformPoint(toTransform);
+        const auto r = start.rotate(aa).get_transform_point(toTransform);
         REQUIRE(r == approx(result));
     }
 }
@@ -296,42 +296,42 @@ TEST_CASE("mat4-test", "[mat]")
 
 TEST_CASE("mat4-TestCombined_RT", "[mat]")
 {
-    const auto r = euco::mat4f::Identity()
-                           .Rotate(euco::axis_angle::right_hand_around(
+    const auto r = euco::mat4f::identity()
+                           .rotate(euco::axis_angle::right_hand_around(
                                    euco::unit3f::Up(),
                                    euco::angle::from_degrees(-90)))
-                           .Translate(euco::vec3f(0, 0, -5))
-                           .GetTransformPoint(euco::vec3f(0, 0, 0));
+                           .translate(euco::vec3f(0, 0, -5))
+                           .get_transform_point(euco::vec3f(0, 0, 0));
     REQUIRE(r == approx(euco::vec3f(5, 0, 0)));
 }
 
 TEST_CASE("mat4-TestCombined2_RT", "[mat]")
 {
     const auto r
-            = euco::mat4f::Identity()
-                      .Rotate(euco::axis_angle::right_hand_around(
+            = euco::mat4f::identity()
+                      .rotate(euco::axis_angle::right_hand_around(
                               euco::unit3f::Up(), euco::angle::from_degrees(90)))
-                      .Translate(euco::vec3f(0, 0, -5))
-                      .GetTransformPoint(euco::vec3f(0, 0, 0));
+                      .translate(euco::vec3f(0, 0, -5))
+                      .get_transform_point(euco::vec3f(0, 0, 0));
     REQUIRE(r == approx(euco::vec3f(-5, 0, 0)));
 }
 
 TEST_CASE("mat4-TestCombined_TR", "[mat]")
 {
-    const auto r = euco::mat4f::Identity()
-                           .Translate(euco::vec3f(0, 0, 5))
-                           .Rotate(euco::axis_angle::right_hand_around(
+    const auto r = euco::mat4f::identity()
+                           .translate(euco::vec3f(0, 0, 5))
+                           .rotate(euco::axis_angle::right_hand_around(
                                    euco::unit3f::Up(),
                                    euco::angle::from_degrees(-90)))
-                           .GetTransformPoint(euco::vec3f(0, 0, 0));
+                           .get_transform_point(euco::vec3f(0, 0, 0));
     REQUIRE(r == approx(euco::vec3f(0, 0, 5)));
 }
 
 TEST_CASE("mat4-TestTranslation", "[mat]")
 {
-    const auto r = euco::mat4i::Identity()
-                           .Translate(euco::vec3i(1, 2, 3))
-                           .GetTransformPoint(euco::vec3i(7, 8, 9));
+    const auto r = euco::mat4i::identity()
+                           .translate(euco::vec3i(1, 2, 3))
+                           .get_transform_point(euco::vec3i(7, 8, 9));
     REQUIRE(r == euco::vec3i(8, 10, 12));
 }
 
@@ -339,19 +339,19 @@ TEST_CASE("mat4-TestTranslation", "[mat]")
 TEST_CASE("mat4-TestIentityTransform", "[mat]")
 {
     const auto r
-            = euco::mat4i::Identity().GetTransformPoint(euco::vec3i(1, 2, 3));
+            = euco::mat4i::identity().get_transform_point(euco::vec3i(1, 2, 3));
     REQUIRE(r == euco::vec3i(1, 2, 3));
 }
 
 TEST_CASE("mat4-TestIentityMultiply", "[mat]")
 {
-    REQUIRE(euco::mat4i::Identity() * euco::mat4i::Identity()
-            == euco::mat4i::Identity());
+    REQUIRE(euco::mat4i::identity() * euco::mat4i::identity()
+            == euco::mat4i::identity());
 }
 
 TEST_CASE("mat4-TestVec4Multiply", "[mat]")
 {
-    const auto m = euco::mat4i::FromRowMajor(
+    const auto m = euco::mat4i::from_row_major(
                            0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15)
                    * euco::vec4i(16, 17, 18, 19);
     // simplify({{0,1,2,3},{4,5,6,7},{8,9,10,11},{12,13,14,15}}.{16,17,18,19})

@@ -20,7 +20,7 @@ namespace euphoria::t3d
         : grid(agrid)
         , world(aworld)
         , tile_library(atile_library)
-        , camera(core::mat4f::Identity(), core::mat4f::Identity())
+        , camera(core::mat4f::identity(), core::mat4f::identity())
         , viewport(core::Recti::FromWidthHeight(10, 10))
         , mouse(core::vec2i {0, 0})
     {}

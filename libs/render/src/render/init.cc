@@ -53,7 +53,7 @@ namespace euphoria::render
     Init::GetOrthoProjection(float width, float height) const
     {
         ASSERT(ok);
-        return core::mat4f::Ortho(0.0f, width, 0.0f, height, -1.0f, 1.0f);
+        return core::mat4f::create_ortho(0.0f, width, 0.0f, height, -1.0f, 1.0f);
     }
 
 

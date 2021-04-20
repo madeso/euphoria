@@ -39,6 +39,6 @@ namespace euphoria::render
     core::mat4f
     Instance::GetModelMatrix() const
     {
-        return core::mat4f::FromTranslation(position) * rotation.ToMat4();
+        return core::mat4f::from_translation(position) * rotation.ToMat4();
     }
 }

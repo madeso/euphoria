@@ -56,7 +56,7 @@ namespace euphoria::core
         mat4<T>
         ToMat4() const
         {
-            return mat4<T>::FromAxisAngle(ToAxisAngle());
+            return mat4<T>::from_axis_angle(ToAxisAngle());
         }
 
 

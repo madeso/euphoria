@@ -10,7 +10,7 @@ namespace euphoria::core
         , combined(view_ * projection_)
         , combined_inverted(projection_ * view_)
     {
-        const bool was_inverted = combined_inverted.Invert();
+        const bool was_inverted = combined_inverted.invert();
         ASSERT(was_inverted);
     }
 
@@ -53,7 +53,7 @@ namespace euphoria::core
         mat4f
         CalculateProjectionMatrix(const Camera& camera, float aspect)
         {
-            const mat4f projection_matrix = mat4f::Perspective(
+            const mat4f projection_matrix = mat4f::create_perspective(
                     angle::from_degrees(camera.fov),
                     aspect,
                     camera.near,
@@ -65,7 +65,7 @@ namespace euphoria::core
         CalculateViewMatrix(const Camera& camera)
         {
             return camera.rotation.GetConjugate().ToMat4()
-                   * mat4f::FromTranslation(
+                   * mat4f::from_translation(
                            -static_cast<vec3f>(camera.position));
         }
     }  // namespace

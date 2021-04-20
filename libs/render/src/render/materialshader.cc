@@ -216,10 +216,10 @@ namespace euphoria::render
         if(hasLight)
         {
             core::mat4f normal   = model_data;
-            const bool  inverted = normal.Invert();
+            const bool  inverted = normal.invert();
             ASSERT(inverted);
-            normal = normal.GetTransposed();
-            shader.SetUniform(normalMatrix, normal.GetMat3());
+            normal = normal.get_transposed();
+            shader.SetUniform(normalMatrix, normal.get_mat3());
         }
     }
 
