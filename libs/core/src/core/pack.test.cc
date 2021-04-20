@@ -12,7 +12,7 @@ TEST_CASE("pack-sane", "[pack]")
     const auto size = Sizei::FromWidthHeight(10, 20);
     const auto item = Sizei::FromWidthHeight(10, 20);
 
-    const auto ret = Pack(size, {item});
+    const auto ret = pack(size, {item});
     REQUIRE(ret.size() == 1);
     REQUIRE(ret[0].has_value());
 
@@ -25,7 +25,7 @@ TEST_CASE("pack-with-too-much", "[pack]")
     const auto size = Sizei::FromWidthHeight(20, 40);
     const auto item = Sizei::FromWidthHeight(10, 20);
 
-    const auto ret = Pack(size, {item});
+    const auto ret = pack(size, {item});
     REQUIRE(ret.size() == 1);
     REQUIRE(ret[0].has_value());
 

@@ -118,7 +118,7 @@ namespace euphoria::core
     )
     {
         const auto image_sizes = collect_sizes(images, padding);
-        const auto packed = Pack(image_size, image_sizes);
+        const auto packed = pack(image_size, image_sizes);
 
         auto ret = std::vector<vec2i>{};
 

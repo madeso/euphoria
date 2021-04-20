@@ -6,7 +6,7 @@
 namespace euphoria::core
 {
     std::vector<std::optional<Recti>>
-    Pack
+    pack
     (
         const Sizei& container,
         const std::vector<Sizei>& to_pack
