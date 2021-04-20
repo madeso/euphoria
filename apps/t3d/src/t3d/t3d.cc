@@ -111,16 +111,16 @@ namespace euphoria::t3d
     void
     T3d::AddSingleGridLine
     (
-        core::Lines& def,
+        core::lines& def,
         float size,
         float x,
         const core::rgb& color
     )
     {
-        def.AddLine(core::vec3f {x, 0, -size},  core::vec3f {x, 0, size}, color);
-        def.AddLine(core::vec3f {-size, 0, x},  core::vec3f {size, 0, x}, color);
-        def.AddLine(core::vec3f {-x, 0, -size}, core::vec3f {-x, 0, size}, color);
-        def.AddLine(core::vec3f {-size, 0, -x}, core::vec3f {size, 0, -x}, color);
+        def.add_line(core::vec3f {x, 0, -size},  core::vec3f {x, 0, size}, color);
+        def.add_line(core::vec3f {-size, 0, x},  core::vec3f {size, 0, x}, color);
+        def.add_line(core::vec3f {-x, 0, -size}, core::vec3f {-x, 0, size}, color);
+        def.add_line(core::vec3f {-size, 0, -x}, core::vec3f {size, 0, -x}, color);
     }
 
 
@@ -149,11 +149,11 @@ namespace euphoria::t3d
         const auto size = core::Abs(grid_data.size * grid_data.small_step);
         const auto normal = grid_data.normal;
 
-        auto def = core::Lines {};
+        auto def = core::lines {};
 
         if(normal > 0)
         {
-            def.AddLine(core::vec3f {0, 0, 0}, core::vec3f {0, normal, 0}, y_color);
+            def.add_line(core::vec3f {0, 0, 0}, core::vec3f {0, normal, 0}, y_color);
         }
 
         for(int index = 0; index < grid_data.size; index += 1)
@@ -171,8 +171,8 @@ namespace euphoria::t3d
             AddSingleGridLine(def, size, x, color);
         }
 
-        def.AddLine(core::vec3f {-size, 0, 0}, core::vec3f {size, 0, 0}, x_color);
-        def.AddLine(core::vec3f {0, 0, -size}, core::vec3f {0, 0, size}, z_color);
+        def.add_line(core::vec3f {-size, 0, 0}, core::vec3f {size, 0, 0}, x_color);
+        def.add_line(core::vec3f {0, 0, -size}, core::vec3f {0, 0, size}, z_color);
 
         auto compiled = Compile(material_shader_cache.get(), def);
         grid     = std::make_shared<render::PositionedLines>(compiled);

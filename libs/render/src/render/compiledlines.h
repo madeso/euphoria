@@ -10,7 +10,7 @@
 
 namespace euphoria::core
 {
-    struct Lines;
+    struct lines;
 }
 
 namespace euphoria::render
@@ -38,7 +38,7 @@ namespace euphoria::render
     
 
     std::shared_ptr<CompiledLines>
-    Compile(MaterialShaderCache* shader_cache, const core::Lines& lines);
+    Compile(MaterialShaderCache* shader_cache, const core::lines& lines);
 }
 
 #endif  // EUPHORIA_RENDER_COMPILEDLINES_H

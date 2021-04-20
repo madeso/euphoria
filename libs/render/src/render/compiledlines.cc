@@ -14,7 +14,7 @@ namespace euphoria::render
 {
     void
     ConvertLinesToIndexBuffer(
-            const std::vector<core::Line>& lines,
+            const std::vector<core::line>& lines,
             IndexBuffer* buffer)
     {
         std::vector<unsigned int> data;
@@ -31,7 +31,7 @@ namespace euphoria::render
 
     void
     ConvertPointsToVertexBuffer(
-            const std::vector<core::LinePoint>& points,
+            const std::vector<core::line_point>& points,
             const std::vector<ShaderAttribute>& attributes,
             VertexBuffer*                       vb)
     {
@@ -104,7 +104,7 @@ namespace euphoria::render
     
 
     std::shared_ptr<CompiledLines>
-    Compile(MaterialShaderCache* shader_cache, const core::Lines& lines)
+    Compile(MaterialShaderCache* shader_cache, const core::lines& lines)
     {
         std::shared_ptr<CompiledLines> ret {new CompiledLines {}};
 
@@ -122,8 +122,8 @@ namespace euphoria::render
                 lines.points, attributes, &ret->data);
         BindAttributes(attributes, &ret->config);
 
-        ConvertLinesToIndexBuffer(lines.lines, &ret->lines);
-        ret->line_count = core::Csizet_to_int(lines.lines.size());
+        ConvertLinesToIndexBuffer(lines.indices, &ret->lines);
+        ret->line_count = core::Csizet_to_int(lines.indices.size());
 
         IndexBuffer::Bind(nullptr);
         VertexBuffer::Bind(nullptr);

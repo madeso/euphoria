@@ -22,7 +22,7 @@
 
 namespace euphoria::core
 {
-    struct Lines;
+    struct lines;
 }
 
 namespace euphoria::core::argparse
@@ -97,7 +97,7 @@ namespace euphoria::t3d
         void
         AddSingleGridLine
         (
-            core::Lines& def,
+            core::lines& def,
             float size,
             float x,
             const core::rgb& color

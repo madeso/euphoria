@@ -9,22 +9,22 @@
 
 namespace euphoria::core
 {
-    struct LinePoint
+    struct line_point
     {
-        LinePoint(const vec3f& p, const rgb& c);
+        line_point(const vec3f& p, const rgb& c);
 
         vec3f point;
         rgb color;
     };
 
-    using Line = std::tuple<int, int>;
+    using line = std::tuple<int, int>;
 
-    struct Lines
+    struct lines
     {
-        std::vector<LinePoint> points;
-        std::vector<Line> lines;
+        std::vector<line_point> points;
+        std::vector<line> indices;
 
-        void AddLine(const vec3f& from, const vec3f& to, const rgb& c);
+        void add_line(const vec3f& from, const vec3f& to, const rgb& c);
     };
 }
 
