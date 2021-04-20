@@ -123,7 +123,7 @@ main(int argc, char* argv[])
         engine.catalog->RegisterFileData
         (
             vfs::FilePath{"~/image"},
-            image.write(ImageWriteFormat::PNG)
+            image.write(image_write_format::png)
         );
     }
     auto arrows = cache.GetTexture(vfs::FilePath{"~/image"});
@@ -208,8 +208,8 @@ main(int argc, char* argv[])
         (
             vec2f{sprite_x, sprite_y},
             scale2f{0.5f, 0.5f},
-            static_cast<float>(arrows->get_width()),
-            static_cast<float>(arrows->get_height())
+            static_cast<float>(arrows->width),
+            static_cast<float>(arrows->height)
         );
         /*
         const auto sr =

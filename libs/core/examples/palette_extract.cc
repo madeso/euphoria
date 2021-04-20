@@ -97,9 +97,9 @@ ExtractColors(const std::vector<ImageAndFile>& images, float range)
 
     for(const auto& img: images)
     {
-        for(int y=0; y<img.image.get_height(); y+=1)
+        for(int y=0; y<img.image.height; y+=1)
         {
-            for(int x=0; x<img.image.get_width(); x+=1)
+            for(int x=0; x<img.image.width; x+=1)
             {
                 const auto index = Find(&ret, crgbi(img.image.get_pixel(x,y)), range);
                 ret[index].count += 1;
@@ -117,9 +117,9 @@ ExtractColors(const std::vector<ImageAndFile>& images)
     std::map<int, int> colors;
     for(const auto& img: images)
     {
-        for(int y=0; y<img.image.get_height(); y+=1)
+        for(int y=0; y<img.image.height; y+=1)
         {
-            for(int x=0; x<img.image.get_width(); x+=1)
+            for(int x=0; x<img.image.width; x+=1)
             {
                 const auto color = crgbi(img.image.get_pixel(x, y));
                 const auto hex = color.to_hex();
@@ -190,7 +190,7 @@ HandleImage
         );
     }
 
-    io::ChunkToFile(image.write(ImageWriteFormat::PNG), file);
+    io::ChunkToFile(image.write(image_write_format::png), file);
     return true;
 }
 

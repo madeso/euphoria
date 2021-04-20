@@ -162,7 +162,7 @@ main(int argc, char* argv[])
     });
 
 
-    io::ChunkToFile(image.write(ImageWriteFormat::PNG), output_path);
+    io::ChunkToFile(image.write(image_write_format::png), output_path);
 
     return 0;
 }

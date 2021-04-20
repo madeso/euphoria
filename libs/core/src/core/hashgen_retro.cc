@@ -34,8 +34,8 @@ namespace
         const auto foreground_color = Color::White;
         const auto background_color = Color::Black;
 
-        const auto dx = image->get_width() / (size - 1);
-        const auto dy = image->get_height() / size;
+        const auto dx = image->width / (size - 1);
+        const auto dy = image->height / size;
 
         auto draw_rect = [&](const vec2i& top_left)
         {
@@ -65,7 +65,7 @@ namespace
                     draw_rect(vec2i{x*dx, (y+1)*dy});
                     if(x != half_size-1)
                     {
-                        draw_rect(vec2i{image->get_width() - ((x+1)*dx + 2), (y+1)*dy});
+                        draw_rect(vec2i{image->width - ((x+1)*dx + 2), (y+1)*dy});
                     }
                 }
             }

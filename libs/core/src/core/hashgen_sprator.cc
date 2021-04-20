@@ -114,8 +114,8 @@ namespace
 
         const auto scale = std::min
         (
-            calculate_scale(image.get_width(), table.GetWidth()),
-            calculate_scale(image.get_height(), table.GetHeight())
+            calculate_scale(image.width, table.GetWidth()),
+            calculate_scale(image.height, table.GetHeight())
         );
 
         return scale;

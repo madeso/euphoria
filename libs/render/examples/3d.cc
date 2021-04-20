@@ -120,7 +120,7 @@ main(int argc, char** argv)
     engine.catalog->RegisterFileData
     (
         vfs::FilePath{"~/image"},
-        image.write(ImageWriteFormat::PNG)
+        image.write(image_write_format::png)
     );
 
     TextureCache texture_cache {engine.file_system.get()};

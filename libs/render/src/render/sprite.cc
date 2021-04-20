@@ -25,14 +25,14 @@ namespace euphoria::render
     float
     sprite::get_height() const
     {
-        return static_cast<float>(texture->get_height()) * scale.y;
+        return static_cast<float>(texture->height) * scale.y;
     }
 
 
     float
     sprite::get_width() const
     {
-        return static_cast<float>(texture->get_width()) * scale.x;
+        return static_cast<float>(texture->width) * scale.x;
     }
 
 
@@ -46,8 +46,8 @@ namespace euphoria::render
             (
                 position,
                 core::scale2f {0, 0},
-                static_cast<float>(texture->get_width()),
-                static_cast<float>(texture->get_height())
+                static_cast<float>(texture->width),
+                static_cast<float>(texture->height)
             ),
             DrawData{}
                 .Rotation(rotation)

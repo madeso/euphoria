@@ -90,7 +90,7 @@ HandleGrid
     );
 
     // save image to out
-    auto saved_chunk = composed_image.write(ImageWriteFormat::PNG);
+    auto saved_chunk = composed_image.write(image_write_format::png);
     io::ChunkToFile(saved_chunk, output_file);
 
     return true;
@@ -148,7 +148,7 @@ HandlePack
     auto composed_image = *packed;
 
     // save image to out
-    auto saved_chunk = composed_image.write(ImageWriteFormat::PNG);
+    auto saved_chunk = composed_image.write(image_write_format::png);
     io::ChunkToFile(saved_chunk, output_file);
 
     return true;

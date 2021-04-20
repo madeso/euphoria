@@ -102,7 +102,7 @@ png_dump(int extra_images)
                 2
             );
         }
-        io::ChunkToFile(result.write(ImageWriteFormat::PNG), frames.get_next_file());
+        io::ChunkToFile(result.write(image_write_format::png), frames.get_next_file());
         // svg.Write("poisson.html", 800, 600);
     };
 

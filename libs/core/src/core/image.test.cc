@@ -46,10 +46,10 @@ TEST_CASE("image-load", "[img]")
         euco::alpha_load::Remove
     );
     REQUIRE(loaded.error.empty());
-    REQUIRE_FALSE(loaded.image.has_alpha());
+    REQUIRE_FALSE(loaded.image.has_alpha);
 
-    REQUIRE(loaded.image.get_height() == 2);
-    REQUIRE(loaded.image.get_width() == 2);
+    REQUIRE(loaded.image.height == 2);
+    REQUIRE(loaded.image.width == 2);
 
     // upper left
     SECTION("load-white")

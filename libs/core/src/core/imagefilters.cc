@@ -78,13 +78,13 @@ namespace euphoria::core
     NewImageFrom(const image& image_source, C callback)
     {
         image ret;
-        if(image_source.has_alpha())
+        if(image_source.has_alpha)
         {
-            ret.setup_with_alpha_support(image_source.get_width(), image_source.get_height(), -1);
+            ret.setup_with_alpha_support(image_source.width, image_source.height, -1);
         }
         else
         {
-            ret.setup_no_alpha_support(image_source.get_width(), image_source.get_height(), -1);
+            ret.setup_no_alpha_support(image_source.width, image_source.height, -1);
         }
         ret.set_all_top_bottom(callback);
         return ret;
@@ -99,7 +99,7 @@ namespace euphoria::core
             float g = 0;
             float b = 0;
         };
-        auto errors = Table<Error>::FromWidthHeight(image->get_width(), image->get_height());
+        auto errors = Table<Error>::FromWidthHeight(image->width, image->height);
         const auto errors_range = errors.Indices();
 
         *image = NewImageFrom(*image, [&](int x, int y)
@@ -170,7 +170,7 @@ namespace euphoria::core
         *image = NewImageFrom(*image, [&](int x, int y) {
             const auto pixel = Cvec3(image->get_pixel(x, y));
             const auto top
-                    = y == image->get_height() - 1
+                    = y == image->height - 1
                               ? false
                               : (pixel - Cvec3(image->get_pixel(x, y + 1)))
                                                 .GetLength()

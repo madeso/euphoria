@@ -52,7 +52,7 @@ namespace euphoria::core::vfs
         image image;
         image.setup_no_alpha_support(128, 128);
         Clear(&image, {color});
-        return image.write(ImageWriteFormat::PNG);
+        return image.write(image_write_format::png);
     }
 
 

@@ -17,7 +17,7 @@ namespace euphoria::core
         }
 
         auto ret = Table<char>::FromWidthHeight(
-                img.get_width(), img.get_height(), ' ');
+                img.width, img.height, ' ');
         ret.SetAll([&pal, &map, &img](int x, int y) {
             const auto p     = img.get_pixel(x, y);
             const auto index = pal.GetIndexClosest(rgbi {p.r, p.g, p.b});
@@ -45,7 +45,7 @@ namespace euphoria::core
             return missing;
         };
         auto ret = Table<char>::FromWidthHeight(
-                img.get_width(), img.get_height(), ' ');
+                img.width, img.height, ' ');
         ret.SetAll([&](int x, int y) {
             const auto p = img.get_pixel(x, y);
             const auto c = rgbi {p.r, p.g, p.b};
@@ -60,7 +60,7 @@ namespace euphoria::core
     ImageToStringTable(const image& img, bool shorter, Grayscale grayscale)
     {
         auto ret = Table<char>::FromWidthHeight(
-                img.get_width(), img.get_height(), ' ');
+                img.width, img.height, ' ');
         ret.SetAll([shorter, &img, grayscale](int x, int y) {
             // http://paulbourke.net/dataformats/asciiart/
             const std::string characters = shorter

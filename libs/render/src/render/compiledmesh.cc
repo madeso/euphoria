@@ -282,7 +282,7 @@ namespace euphoria::render
                 else
                 {
                     auto texture = texture_cache->GetTexture(texture_path);
-                    if(texture->get_width() <= 0)
+                    if(texture->width <= 0)
                     {
                         LOG_WARN
                         (

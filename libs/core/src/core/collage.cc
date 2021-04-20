@@ -23,8 +23,8 @@ namespace euphoria::core
         {
             sizes.emplace_back(Sizei::FromWidthHeight
             (
-                img.get_width() + padding,
-                img.get_height() + padding
+                img.width + padding,
+                img.height + padding
             ));
         }
 
@@ -78,8 +78,8 @@ namespace euphoria::core
 
         for(const auto& [position, img]: ranges::views::zip(*positions, images))
         {
-            const auto image_width = img.get_width();
-            const auto image_height = img.get_height();
+            const auto image_width = img.width;
+            const auto image_height = img.height;
             const auto& rect = Recti::FromBottomLeftWidthHeight
             (
                 vec2i(position.x, position.y),
@@ -229,8 +229,8 @@ namespace euphoria::core
 
         for(const auto& src: images)
         {
-            const auto width = src.get_width();
-            const auto height = src.get_height();
+            const auto width = src.width;
+            const auto height = src.height;
 
             ret.emplace_back
             (
@@ -268,7 +268,7 @@ namespace euphoria::core
                     zip(ret|transform(into_pointer), images)
             )
             {
-                position->y = image_height - (position->y + img.get_height());
+                position->y = image_height - (position->y + img.height);
             }
         }
 

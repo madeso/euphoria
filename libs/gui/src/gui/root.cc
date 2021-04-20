@@ -80,8 +80,8 @@ namespace euphoria::gui
                 (
                     state.mouse,
                     core::scale2f{0, 1},
-                    core::Cint_to_float(image->get_width()),
-                    core::Cint_to_float(image->get_height())
+                    core::Cint_to_float(image->width),
+                    core::Cint_to_float(image->height)
                 )
             );
         }

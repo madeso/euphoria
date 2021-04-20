@@ -122,7 +122,7 @@ void RunMain
                 std::cout << "Writing " << file_name << "\n";
             }
 
-            io::ChunkToFile(image.write(ImageWriteFormat::PNG), file_name);
+            io::ChunkToFile(image.write(image_write_format::png), file_name);
         }
     }
 
@@ -132,7 +132,7 @@ void RunMain
         int padding = 20;
         auto collage_image = grid_layout(images, padding, Color::Gray, true);
         std::string file_name = "identicon.png";
-        io::ChunkToFile(collage_image.write(ImageWriteFormat::PNG), file_name);
+        io::ChunkToFile(collage_image.write(image_write_format::png), file_name);
     }
 }
 
@@ -184,7 +184,7 @@ void RunSpratorCollage
         {
             file_name = Str() << "identicon_" << anim_index << ".png";
         }
-        io::ChunkToFile(collage_image.write(ImageWriteFormat::PNG), file_name);
+        io::ChunkToFile(collage_image.write(image_write_format::png), file_name);
     }
 }
 

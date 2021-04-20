@@ -62,7 +62,7 @@ main(int, char*[])
         PasteImage(&composite, p, images[i]);
     }
 
-    io::ChunkToFile(composite.write(ImageWriteFormat::PNG), "draw.png");
+    io::ChunkToFile(composite.write(image_write_format::png), "draw.png");
 
     return 0;
 }

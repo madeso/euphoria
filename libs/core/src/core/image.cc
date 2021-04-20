@@ -20,9 +20,9 @@ namespace euphoria::core
     image::make_invalid()
     {
         components.resize(0);
-        width_ = 0;
-        height_ = 0;
-        has_alpha_ = false;
+        width = 0;
+        height = 0;
+        has_alpha = false;
 
         ASSERT(!is_valid());
     }
@@ -31,7 +31,7 @@ namespace euphoria::core
     int
     image::get_pixel_byte_size() const
     {
-        return has_alpha_ ? 4 : 3;
+        return has_alpha ? 4 : 3;
     }
 
 
@@ -70,12 +70,12 @@ namespace euphoria::core
         ASSERTX(image_width > 0, image_width);
         ASSERTX(image_height > 0, image_height);
 
-        width_ = image_width;
-        height_ = image_height;
-        has_alpha_ = alpha;
+        width = image_width;
+        height = image_height;
+        has_alpha = alpha;
 
         components.resize(0);  // clear all pixels
-        const unsigned int size = width_ * height_ * get_pixel_byte_size();
+        const unsigned int size = width * height * get_pixel_byte_size();
         if(default_value < 0)
         {
             components.resize(size);
@@ -93,10 +93,10 @@ namespace euphoria::core
     int
     image::get_pixel_index(int x, int y) const
     {
-        ASSERT(x >= 0 && x < width_);
-        ASSERT(y >= 0 && y < height_);
+        ASSERT(x >= 0 && x < width);
+        ASSERT(y >= 0 && y < height);
 
-        return (y * width_ + x) * get_pixel_byte_size();
+        return (y * width + x) * get_pixel_byte_size();
     }
 
 
@@ -118,15 +118,15 @@ namespace euphoria::core
         unsigned char a
     )
     {
-        ASSERTX(IsWithinInclusivei(0, x, get_width() - 1), x, get_width() - 1);
-        ASSERTX(IsWithinInclusivei(0, y, get_height() - 1), y, get_height() - 1);
+        ASSERTX(IsWithinInclusivei(0, x, width - 1), x, width - 1);
+        ASSERTX(IsWithinInclusivei(0, y, height - 1), y, height - 1);
 
         const auto base_index = get_pixel_index(x, y);
         components[base_index + 0] = r;
         components[base_index + 1] = g;
         components[base_index + 2] = b;
 
-        if(has_alpha_)
+        if(has_alpha)
         {
             components[base_index + 3] = a;
         }
@@ -136,8 +136,8 @@ namespace euphoria::core
     rgbai
     image::get_pixel(int x, int y) const
     {
-        ASSERTX(IsWithinInclusivei(0, x, get_width() - 1), x, get_width());
-        ASSERTX(IsWithinInclusivei(0, y, get_height() - 1), y, get_height());
+        ASSERTX(IsWithinInclusivei(0, x, width - 1), x, width);
+        ASSERTX(IsWithinInclusivei(0, y, height - 1), y, height);
 
         const auto base_index = get_pixel_index(x, y);
 
@@ -145,7 +145,7 @@ namespace euphoria::core
         const auto green = components[base_index + 1];
         const auto blue = components[base_index + 2];
 
-        if(has_alpha_)
+        if(has_alpha)
         {
             const auto alpha = components[base_index + 3];
             return rgbai {rgbi {red, green, blue}, alpha};
@@ -160,7 +160,7 @@ namespace euphoria::core
     bool
     image::is_valid() const
     {
-        return width_ > 0 && height_ > 0;
+        return width > 0 && height > 0;
     }
 
 
@@ -169,28 +169,9 @@ namespace euphoria::core
     {
         return Recti::FromWidthHeight
         (
-            get_width() - 1,
-            get_height() - 1
+            width - 1,
+            height - 1
         );
-    }
-
-
-    int
-    image::get_width() const
-    {
-        return width_;
-    }
-
-    int
-    image::get_height() const
-    {
-        return height_;
-    }
-
-    bool
-    image::has_alpha() const
-    {
-        return has_alpha_;
     }
 
     const unsigned char*
@@ -227,19 +208,19 @@ namespace euphoria::core
         int h,
         int comp,
         const void* data,
-        ImageWriteFormat format,
+        image_write_format format,
         int jpeg_quality
     )
     {
         switch(format)
         {
-        case ImageWriteFormat::PNG:
+        case image_write_format::png:
             return stbi_write_png_to_func(func, context, w, h, comp, data, 0);
-        case ImageWriteFormat::BMP:
+        case image_write_format::bmp:
             return stbi_write_bmp_to_func(func, context, w, h, comp, data);
-        case ImageWriteFormat::TGA:
+        case image_write_format::tga:
             return stbi_write_tga_to_func(func, context, w, h, comp, data);
-        case ImageWriteFormat::JPEG:
+        case image_write_format::jpeg:
             return stbi_write_jpg_to_func
             (
                 func, context, w, h, comp, data, jpeg_quality
@@ -249,20 +230,20 @@ namespace euphoria::core
     }
 
     std::shared_ptr<MemoryChunk>
-    image::write(ImageWriteFormat format, int jpeg_quality) const
+    image::write(image_write_format format, int jpeg_quality) const
     {
-        const int number_of_components = has_alpha_ ? 4 : 3;
+        const int number_of_components = has_alpha ? 4 : 3;
 
-        std::vector<unsigned char> pixels(width_ * height_ * number_of_components, 0);
-        for(int y = 0; y < height_; y += 1)
+        std::vector<unsigned char> pixels(width * height * number_of_components, 0);
+        for(int y = 0; y < height; y += 1)
         {
-            const int iy = height_ - (y + 1);
+            const int iy = height - (y + 1);
 
-            ASSERTX(IsWithinInclusivei(0, iy, height_ - 1), iy, y, height_);
-            for(int x = 0; x < width_; x += 1)
+            ASSERTX(IsWithinInclusivei(0, iy, height - 1), iy, y, height);
+            for(int x = 0; x < width; x += 1)
             {
-                const int target_index = (x + width_ * y) * number_of_components;
-                const int source_index = (x + width_ * iy) * number_of_components;
+                const int target_index = (x + width * y) * number_of_components;
+                const int source_index = (x + width * iy) * number_of_components;
                 for(int component = 0; component < number_of_components; component += 1)
                 {
                     pixels[target_index + component] = components[source_index + component];
@@ -275,8 +256,8 @@ namespace euphoria::core
         (
             DetermineImageSize,
             &size,
-            get_width(),
-            get_height(),
+            width,
+            height,
             number_of_components,
             &pixels[0],
             format,
@@ -293,8 +274,8 @@ namespace euphoria::core
         (
             WriteToMemoryChunkFile,
             &file,
-            get_width(),
-            get_height(),
+            width,
+            height,
             number_of_components,
             &pixels[0],
             format,

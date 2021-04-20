@@ -27,7 +27,7 @@ namespace euphoria::engine
         return core::Rectf::FromPositionAnchorWidthAndHeight(
                 position,
                 core::scale2f {0.5f, 0.5f},
-                texture.get_width(),
-                texture.get_height());
+                texture.width,
+                texture.height);
     }
 }  // namespace euphoria::engine

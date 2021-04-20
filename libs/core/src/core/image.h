@@ -17,12 +17,12 @@ namespace euphoria::core::vfs
 
 namespace euphoria::core
 {
-    enum class ImageWriteFormat
+    enum class image_write_format
     {
-        PNG,
-        BMP,
-        TGA,
-        JPEG
+        png,
+        bmp,
+        tga,
+        jpeg
     };
 
 
@@ -75,9 +75,9 @@ namespace euphoria::core
         void
         filter(Func f)
         {
-            for(int y = 0; y < get_height(); y += 1)
+            for(int y = 0; y < height; y += 1)
             {
-                for(int x = 0; x < get_width(); x += 1)
+                for(int x = 0; x < width; x += 1)
                 {
                     set_pixel(x, y, f(get_pixel(x, y)));
                 }
@@ -88,9 +88,9 @@ namespace euphoria::core
         void
         for_all_top_bottom(Func f)
         {
-            for(int y = get_height(); y > 0; y -= 1)
+            for(int y = height; y > 0; y -= 1)
             {
-                for(int x = 0; x < get_width(); x += 1)
+                for(int x = 0; x < width; x += 1)
                 {
                     f(x, y - 1, get_pixel(x, y - 1));
                 }
@@ -101,9 +101,9 @@ namespace euphoria::core
         void
         set_all_top_bottom(Func f)
         {
-            for(int y = get_height(); y > 0; y -= 1)
+            for(int y = height; y > 0; y -= 1)
             {
-                for(int x = 0; x < get_width(); x += 1)
+                for(int x = 0; x < width; x += 1)
                 {
                     set_pixel(x, y - 1, f(x, y - 1));
                 }
@@ -114,9 +114,9 @@ namespace euphoria::core
         void
         set_all_bottom_top(Func f)
         {
-            for(int y = 0; y < get_height(); y += 1)
+            for(int y = 0; y < height; y += 1)
             {
-                for(int x = 0; x < get_width(); x += 1)
+                for(int x = 0; x < width; x += 1)
                 {
                     set_pixel(x, y, f(x, y));
                 }
@@ -126,22 +126,12 @@ namespace euphoria::core
         [[nodiscard]] Recti
         get_indices() const;
 
-        [[nodiscard]] int
-        get_width() const;
-
-        [[nodiscard]] int
-        get_height() const;
-
-        [[nodiscard]] bool
-        has_alpha() const;
-
         [[nodiscard]] const unsigned char*
         get_pixel_data() const;
 
         [[nodiscard]] std::shared_ptr<MemoryChunk>
-        write(ImageWriteFormat format, int jpeg_quality = 100) const;
-
-    private:
+        write(image_write_format format, int jpeg_quality = 100) const;
+        
         void
         setup(int image_width, int image_height, bool alpha, int default_value);
 
@@ -153,9 +143,9 @@ namespace euphoria::core
 
         // todo(Gustav): replace with a array instead of a vector
         std::vector<unsigned char> components;
-        int width_;
-        int height_;
-        bool has_alpha_;
+        int width = 0;
+        int height= 0;
+        bool has_alpha = false;
     };
 
 

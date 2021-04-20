@@ -88,9 +88,9 @@ namespace euphoria::render
     )
     {
         const int vert_left = src_char.bearing_x;
-        const int vert_right = vert_left + src_char.image.get_width();
+        const int vert_right = vert_left + src_char.image.width;
         const int vert_top = src_char.bearing_y;
-        const int vert_bottom = vert_top - std::max(1, src_char.image.get_height());
+        const int vert_bottom = vert_top - std::max(1, src_char.image.height);
 
         const stbrp_coord uv_left = src_rect.x;
         const stbrp_coord uv_right = uv_left + src_rect.w;
@@ -207,8 +207,8 @@ namespace euphoria::render
             {
                 stbrp_rect& r = packed_rects[index];
                 r.id = index;
-                r.w = glyph.image.get_width() + half_margin * 2;
-                r.h = glyph.image.get_height() + half_margin * 2;
+                r.w = glyph.image.width + half_margin * 2;
+                r.h = glyph.image.height + half_margin * 2;
                 id_to_codepoint[index] = codepoint;
                 index +=1;
             }

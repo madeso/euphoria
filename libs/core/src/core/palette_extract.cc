@@ -18,11 +18,11 @@ namespace
     ExtractAllColors(const image& image)
     {
         auto ret = std::vector<rgbi>{};
-        ret.reserve(ret.size() + image.get_height() * image.get_width());
+        ret.reserve(ret.size() + image.height * image.width);
 
-        for(int y=0; y<image.get_height(); y+=1)
+        for(int y=0; y<image.height; y+=1)
         {
-            for(int x=0; x<image.get_width(); x+=1)
+            for(int x=0; x<image.width; x+=1)
             {
                 const auto color = crgbi(image.get_pixel(x, y));
                 ret.emplace_back(color);

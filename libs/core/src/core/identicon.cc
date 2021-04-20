@@ -120,8 +120,8 @@ namespace euphoria::core
     void RenderIdenticon(image* image, int code)
     {
         ASSERT(image);
-        ASSERT(image->get_width() == image->get_height());
-        auto patchSize = image->get_height() / 3;
+        ASSERT(image->width == image->height);
+        auto patchSize = image->height / 3;
         auto middleType = centerPatchTypes[code & 3];
         auto middleInvert = ((code >> 2) & 1) != 0;
         auto cornerType = (code >> 3) & 15;

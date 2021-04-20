@@ -53,7 +53,7 @@ main(int argc, char* argv[])
 
         const std::string file = Str{} << "palette_" << pal.name << ".png";
 
-        io::ChunkToFile(image.write(ImageWriteFormat::PNG), file);
+        io::ChunkToFile(image.write(image_write_format::png), file);
     }
 
     return 0;

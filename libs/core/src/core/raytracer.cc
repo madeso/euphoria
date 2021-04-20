@@ -472,19 +472,19 @@ namespace euphoria::core::raytracer
         image& img = *aimage;
 
         auto random = Random{};
-        const auto aspect_ratio = static_cast<float>(img.get_width()) / static_cast<float>(img.get_height());
+        const auto aspect_ratio = static_cast<float>(img.width) / static_cast<float>(img.height);
         const auto camera = Camera::Create(angle::from_degrees(90), aspect_ratio);
 
         std::cout << "Rendering ";
-        for(int y=0; y<img.get_height(); y+=1)
+        for(int y=0; y<img.height; y+=1)
         {
-            for(int x=0; x<img.get_width(); x+=1)
+            for(int x=0; x<img.width; x+=1)
             {
                 rgb color = Color::Black;
                 for(int sample = 0; sample < number_of_samples; sample += 1)
                 {
-                    const auto u = (static_cast<float>(x) + random.NextFloat01()) / static_cast<float>(img.get_width());
-                    const auto v = (static_cast<float>(y) + random.NextFloat01()) / static_cast<float>(img.get_height());
+                    const auto u = (static_cast<float>(x) + random.NextFloat01()) / static_cast<float>(img.width);
+                    const auto v = (static_cast<float>(y) + random.NextFloat01()) / static_cast<float>(img.height);
                     const auto ray = camera.GetRay(u, v);
                     const auto sample_color = GetColor(scene, ray, &random, 0);
                     color += sample_color;

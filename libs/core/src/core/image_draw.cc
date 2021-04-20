@@ -22,9 +22,9 @@ namespace euphoria::core
     {
         return Recti::FromTopLeftWidthHeight
         (
-            vec2i{0, image.get_height()},
-            image.get_width(),
-            image.get_height()
+            vec2i{0, image.height},
+            image.width,
+            image.height
         );
     }
 
@@ -47,13 +47,13 @@ namespace euphoria::core
         // ASSERTX(bottom >= 0, bottom);
         for(int y = bottom; y < top; ++y)
         {
-            if(y < 0 || y >= image->get_height())
+            if(y < 0 || y >= image->height)
             {
                 continue;
             }
             for(int x = left; x < right; ++x)
             {
-                if(x < 0 || x >= image->get_width())
+                if(x < 0 || x >= image->width)
                 {
                     continue;
                 }
@@ -157,10 +157,10 @@ namespace euphoria::core
         // ASSERTX(bottom >= 0, bottom);
         for(int y = bottom; y < top; ++y)
         {
-            if(y < 0 || y >= image->get_height()) { continue; }
+            if(y < 0 || y >= image->height) { continue; }
             for(int x = left; x < right; ++x)
             {
-                if(x < 0 || x >= image->get_width()) { continue; }
+                if(x < 0 || x >= image->width) { continue; }
 
                 if(PointInPoly(vec2f(x, y), poly))
                 {
@@ -185,13 +185,13 @@ namespace euphoria::core
         const int left = Max(0, Floori(center.x - radius - softness));
         const int right = Min
         (
-            image->get_width(),
+            image->width,
             Ceili(center.x + radius + softness)
         );
         const int top = Max(0, Floori(center.y - radius - softness));
         const int bottom = Min
         (
-            image->get_height(),
+            image->height,
             Ceili(center.y + radius + softness)
         );
 
@@ -377,8 +377,8 @@ namespace euphoria::core
         auto plot = [&](int x, int y, float c)
         {
             // plot the pixel at (x, y) with brightness c (where 0 ≤ c ≤ 1)
-            const bool valid_x = IsWithinInclusivei(0, x, image->get_width() - 1);
-            const bool valid_y = IsWithinInclusivei(0, y, image->get_height() - 1);
+            const bool valid_x = IsWithinInclusivei(0, x, image->width - 1);
+            const bool valid_y = IsWithinInclusivei(0, y, image->height - 1);
             if(valid_x && valid_y)
             {
                 const rgb paint_color = rgb_transform::Transform
@@ -497,14 +497,14 @@ namespace euphoria::core
         const rgbai& tint
     )
     {
-        for(int y=0; y<src.get_height(); y+=1)
+        for(int y=0; y<src.height; y+=1)
         {
-            for(int x=0; x<src.get_width();  x+=1)
+            for(int x=0; x<src.width;  x+=1)
             {
                 const auto dx = p.x + x;
                 const auto dy = p.y + y;
-                if(dx >= dst->get_width()) { continue; }
-                if(dy >= dst->get_height()) { continue; }
+                if(dx >= dst->width) { continue; }
+                if(dy >= dst->height) { continue; }
                 const auto dst_color = dst->get_pixel(dx, dy);
                 const auto src_color = src.get_pixel(x, y);
                 const auto tinted_color = Tint(src_color, tint);
@@ -560,9 +560,9 @@ namespace euphoria::core
     {
         ASSERT(dest_image);
 
-        for(int y = 0; y < source_image.get_height(); ++y)
+        for(int y = 0; y < source_image.height; ++y)
         {
-            for(int x = 0; x < source_image.get_width(); ++x)
+            for(int x = 0; x < source_image.width; ++x)
             {
                 const auto dest_x = position.x + x;
                 const auto dest_y = position.y + y;
@@ -618,11 +618,11 @@ namespace euphoria::core
             {
                 const bool valid_x = IsWithinInclusivei
                 (
-                    0, x, image->get_width() - 1
+                    0, x, image->width - 1
                 );
                 const bool valid_y = IsWithinInclusivei
                 (
-                    0, y, image->get_height() - 1
+                    0, y, image->height - 1
                 );
                 if(valid_x && valid_y)
                 {

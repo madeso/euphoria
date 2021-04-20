@@ -77,7 +77,7 @@ main(int argc, char* argv[])
                 {
                     io::ChunkToFile
                     (
-                        image.write(ImageWriteFormat::PNG),
+                        image.write(image_write_format::png),
                         output
                     );
                     return argparse::ok;

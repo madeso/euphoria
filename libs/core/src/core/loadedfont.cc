@@ -218,12 +218,12 @@ namespace euphoria::core
                 );
                 auto* buffer = slot->bitmap.buffer;
 
-                for(int y = 0; y < ch.image.get_height(); y += 1)
+                for(int y = 0; y < ch.image.height; y += 1)
                 {
-                    for(int x = 0; x < ch.image.get_width(); x += 1)
+                    for(int x = 0; x < ch.image.width; x += 1)
                     {
                         const int target_y = upside_down
-                            ? ch.image.get_height() - (y + 1)
+                            ? ch.image.height - (y + 1)
                             : y
                             ;
 
@@ -234,7 +234,7 @@ namespace euphoria::core
                             255,
                             255,
                             255,
-                            buffer[ch.image.get_width() * y + x]
+                            buffer[ch.image.width * y + x]
                         );
                     }
                 }
@@ -350,10 +350,10 @@ namespace euphoria::core
                 }
             }
 
-            glyph.size = static_cast<float>(glyph.image.get_height());
-            glyph.bearing_y = glyph.image.get_height() + 0;
+            glyph.size = static_cast<float>(glyph.image.height);
+            glyph.bearing_y = glyph.image.height + 0;
             glyph.bearing_x = 0;
-            glyph.advance = glyph.image.get_width() + 0;
+            glyph.advance = glyph.image.width + 0;
             glyph.code_point= code_point;
             glyph.valid = true;
             font.codepoint_to_glyph[code_point] = glyph;
@@ -391,10 +391,10 @@ namespace euphoria::core
                 }
             }
 
-            glyph.size = static_cast<float>(glyph.image.get_height());
-            glyph.bearing_y = glyph.image.get_height() + 0;
+            glyph.size = static_cast<float>(glyph.image.height);
+            glyph.bearing_y = glyph.image.height + 0;
             glyph.bearing_x = 0;
-            glyph.advance = glyph.image.get_width() + 0;
+            glyph.advance = glyph.image.width + 0;
             glyph.code_point= codepoint;
             glyph.valid = true;
             font.codepoint_to_glyph[codepoint] = glyph;
@@ -598,10 +598,10 @@ namespace euphoria::core
 
         const auto s = 1 / image_scale;
         LoadedGlyph glyph;
-        glyph.size = s * static_cast<float>(image.get_height());
-        glyph.bearing_y = Cfloat_to_int(s * static_cast<float>(image.get_height()) + image_bearing_y);
+        glyph.size = s * static_cast<float>(image.height);
+        glyph.bearing_y = Cfloat_to_int(s * static_cast<float>(image.height) + image_bearing_y);
         glyph.bearing_x = Cfloat_to_int(image_bearing_x);
-        glyph.advance = Cfloat_to_int(s * static_cast<float>(image.get_width()) + image_advance);
+        glyph.advance = Cfloat_to_int(s * static_cast<float>(image.width) + image_advance);
         glyph.code_point= font.NewPrivateUse(image_alias);
         // todo(Gustav): add ability to clip image
         glyph.image = image;

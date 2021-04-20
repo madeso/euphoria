@@ -140,8 +140,8 @@ namespace euphoria::render
 
 
     texture2d::texture2d()
-        : width_(0)
-        , height_(0)
+        : width(0)
+        , height(0)
     {
     }
 
@@ -171,8 +171,8 @@ namespace euphoria::render
             pixel_data
         );
 
-        width_ = width;
-        height_ = height;
+        width = width;
+        height = height;
 
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, C(data.wrap));
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, C(data.wrap));
@@ -212,7 +212,7 @@ namespace euphoria::render
     {
         GLuint internal_format = GL_RGB;
         GLuint image_format = GL_RGB;
-        if(image.has_alpha() && alpha == core::alpha_load::Keep)
+        if(image.has_alpha && alpha == core::alpha_load::Keep)
         {
             internal_format = GL_RGBA;
             image_format = GL_RGBA;
@@ -220,26 +220,12 @@ namespace euphoria::render
 
         load_from_pixels
         (
-            image.get_width(),
-            image.get_height(),
+            image.width,
+            image.height,
             image.get_pixel_data(),
             internal_format,
             image_format,
             data
         );
-    }
-
-
-    int
-    texture2d::get_width() const
-    {
-        return width_;
-    }
-
-
-    int
-    texture2d::get_height() const
-    {
-        return height_;
     }
 }

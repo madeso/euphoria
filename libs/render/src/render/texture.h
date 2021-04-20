@@ -107,14 +107,8 @@ namespace euphoria::render
             const texture2d_load_data& data
         );
 
-        [[nodiscard]] int
-        get_width() const;
-
-        [[nodiscard]] int
-        get_height() const;
-
-    private:
-        int width_, height_;
+        int width;
+        int height;
     };
 
 }

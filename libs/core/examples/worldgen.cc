@@ -135,7 +135,7 @@ HandleMazeCommand
             drawer.Draw();
             io::ChunkToFile
             (
-                drawer.image.write(ImageWriteFormat::PNG),
+                drawer.image.write(image_write_format::png),
                 output.get_next_file()
             );
         }
@@ -161,7 +161,7 @@ HandleMazeCommand
         {
             io::ChunkToFile
             (
-                drawer.image.write(ImageWriteFormat::PNG),
+                drawer.image.write(image_write_format::png),
                 output.file
             );
         }
@@ -171,7 +171,7 @@ HandleMazeCommand
             {
                 io::ChunkToFile
                 (
-                    drawer.image.write(ImageWriteFormat::PNG),
+                    drawer.image.write(image_write_format::png),
                     output.get_next_file()
                 );
             }
@@ -224,7 +224,7 @@ struct Cellwriter
         if(!output.single)
         {
             auto img = GenerateWorldImage(*world);
-            io::ChunkToFile(img.write(ImageWriteFormat::PNG), output.get_next_file());
+            io::ChunkToFile(img.write(image_write_format::png), output.get_next_file());
         }
 
         world_copy = *world;
@@ -237,7 +237,7 @@ struct Cellwriter
         if(output.single)
         {
             auto img = GenerateWorldImage(*world);
-            io::ChunkToFile(img.write(ImageWriteFormat::PNG), output.file);
+            io::ChunkToFile(img.write(image_write_format::png), output.file);
         }
         else
         {
@@ -254,7 +254,7 @@ struct Cellwriter
             const auto img = GenerateWorldImage(*world);
             io::ChunkToFile
             (
-                img.write(ImageWriteFormat::PNG),
+                img.write(image_write_format::png),
                 output.get_next_file()
             );
         }
@@ -283,7 +283,7 @@ struct Cellwriter
                 const auto img = GenerateWorldImage(world_copy);
                 io::ChunkToFile
                 (
-                    img.write(ImageWriteFormat::PNG),
+                    img.write(image_write_format::png),
                     output.get_next_file()
                 );
             }
@@ -295,7 +295,7 @@ struct Cellwriter
             const auto img = GenerateWorldImage(world_copy);
             io::ChunkToFile
             (
-                img.write(ImageWriteFormat::PNG),
+                img.write(image_write_format::png),
                 output.get_next_file()
             );
         }

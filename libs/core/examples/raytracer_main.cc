@@ -86,7 +86,7 @@ main(int argc, char* argv[])
     const auto end = Now();
     const auto seconds = SecondsBetween(start, end);
     std::cout << "Rendering took " << seconds << " seconds.\n";
-    io::ChunkToFile(image.write(ImageWriteFormat::PNG), "raytracer.png");
+    io::ChunkToFile(image.write(image_write_format::png), "raytracer.png");
 
     return 0;
 }
