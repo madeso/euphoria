@@ -36,7 +36,7 @@ namespace euphoria::core
         [[nodiscard]]
         static
         mat2<T>
-        FromColMajor
+        from_col_major
         (
             T t00, T t01,
             T t10, T t11
@@ -48,7 +48,7 @@ namespace euphoria::core
         [[nodiscard]]
         static
         mat2<T>
-        FromRowMajor
+        from_row_major
         (
             T t00, T t10,
             T t01, T t11
@@ -64,10 +64,10 @@ namespace euphoria::core
         [[nodiscard]]
         static
         mat2<T>
-        FromScalar(T scalar)
+        from_scalar(T scalar)
         {
             const T z = 0;
-            return FromRowMajor
+            return from_row_major
             (
                 scalar, z,
                 z, scalar
@@ -77,9 +77,9 @@ namespace euphoria::core
         [[nodiscard]]
         static
         mat2<T>
-        FromStretchX(T k)
+        from_stretch_x(T k)
         {
-            return FromRowMajor
+            return from_row_major
             (
                 k, 0,
                 0, 1
@@ -89,9 +89,9 @@ namespace euphoria::core
         [[nodiscard]]
         static
         mat2<T>
-        FromStretchY(T k)
+        from_stretch_y(T k)
         {
-            return FromRowMajor
+            return from_row_major
             (
                 1, 0,
                 0, k
@@ -101,11 +101,11 @@ namespace euphoria::core
         [[nodiscard]]
         static
         mat2<T>
-        FromRotation(const angle& a)
+        from_rotation(const angle& a)
         {
             const auto s = sin(a);
             const auto c = cos(a);
-            return FromRowMajor
+            return from_row_major
             (
                 c, s,
                 -s, c
@@ -115,9 +115,9 @@ namespace euphoria::core
         [[nodiscard]]
         static
         mat2<T>
-        Identity()
+        identity()
         {
-            return FromScalar(1);
+            return from_scalar(1);
         }
 
 
@@ -140,13 +140,13 @@ namespace euphoria::core
         }
 
         const T*
-        GetDataPtr() const
+        get_data_ptr() const
         {
             return data;
         }
 
         T*
-        GetDataPtr()
+        get_data_ptr()
         {
             return data;
         }
@@ -161,25 +161,25 @@ namespace euphoria::core
         T
         operator()(int row, int col) const
         {
-            return Get(row, col);
+            return get(row, col);
         }
 
         T
-        Get(int row, int col) const
+        get(int row, int col) const
         {
             return data[col * 2 + row];
         }
 
         tuple2
-        GetColumn(int c) const
+        get_column(int c) const
         {
-            return tuple2(Get(0, c), Get(1, c));
+            return tuple2(get(0, c), get(1, c));
         }
 
         tuple2
-        GetRow(int r) const
+        get_row(int r) const
         {
-            return tuple2(Get(r, 0), Get(r, 1));
+            return tuple2(get(r, 0), get(r, 1));
         }
     };
 
