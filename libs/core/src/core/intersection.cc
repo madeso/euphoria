@@ -95,7 +95,7 @@ namespace euphoria::core
     GetIntersection
     (
         const UnitRay3f& r,
-        const Plane& p
+        const plane& p
     )
     {
         return -(dot(r.from, p.normal) + p.distance)/dot(r.dir, p.normal);
@@ -175,7 +175,7 @@ namespace euphoria::core
     float
     DistanceBetween
     (
-        const Plane& plane,
+        const plane& plane,
         const vec3f& p
     )
     {
@@ -185,7 +185,7 @@ namespace euphoria::core
     vec3f
     ClosestPoint
     (
-        const Plane& plane,
+        const plane& plane,
         const vec3f& point
     )
     {

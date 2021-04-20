@@ -563,7 +563,7 @@ namespace euphoria::core::dump3d
 
 
     void
-    Dumper::AddPlane(const Plane& plane, const rgbi& color)
+    Dumper::AddPlane(const plane& plane, const rgbi& color)
     {
         constexpr auto size = 5;
         file

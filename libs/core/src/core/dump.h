@@ -14,7 +14,7 @@
 
 namespace euphoria::core
 {
-    struct Plane;
+    struct plane;
     struct Ray3f;
 }
 
@@ -139,7 +139,7 @@ namespace euphoria::core::dump3d
 
         void AddSphere(const vec3f& p, float radius, const rgbi& color);
         void AddLines(const std::vector<vec3f>& lines, const rgbi& color);
-        void AddPlane(const Plane& plane, const rgbi& color);
+        void AddPlane(const plane& plane, const rgbi& color);
         void AddArrow(const Ray3f& ray, const rgbi& color);
 
         void AddAxis();

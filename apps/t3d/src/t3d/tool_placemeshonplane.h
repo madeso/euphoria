@@ -21,7 +21,7 @@ namespace euphoria::t3d
     struct PlaceMeshOnPlane : public Tool
     {
         std::shared_ptr<PlacedMesh> actor;
-        core::Plane plane;
+        core::plane plane;
 
 
         PlaceMeshOnPlane(std::shared_ptr<PlacedMesh> aactor);
