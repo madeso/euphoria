@@ -16,7 +16,9 @@ build
 docs/generated/html/
 
 # generated now
-.clang-tidy
+# but also great to keep around to use it without avoid generating it
+# the commited file should match the generated file
+# .clang-tidy
 
 # ignoring junk folder
 junk/
