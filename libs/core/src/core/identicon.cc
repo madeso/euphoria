@@ -81,36 +81,36 @@ namespace
         auto offset = static_cast<float>(size) / 2.0f;
         auto scale = static_cast<float>(size) / 4.0f;
 
-        auto ctx = Canvas{image};
+        auto ctx = canvas{image};
 
         // paint background
-        ctx.fillStyle = invert ? foreColor : backColor;
-        ctx.fillRect(x, y, size, size);
+        ctx.fill_style = invert ? foreColor : backColor;
+        ctx.fill_rect(x, y, size, size);
 
         // build patch path
         ctx.translate(static_cast<float>(x) + offset, static_cast<float>(y) + offset);
         ctx.rotate(static_cast<float>(turn) * Pi() / 2);
-        ctx.beginPath();
-        ctx.moveTo
+        ctx.begin_path();
+        ctx.move_to
         (
             static_cast<float>(vertices[0] % 5) * scale - offset,
             std::floor(static_cast<float>(vertices[0]) / 5.0f) * scale - offset
         );
         for (std::size_t i = 1; i < vertices.size(); i++)
         {
-            ctx.lineTo
+            ctx.line_to
             (
                 static_cast<float>(vertices[i] % 5) * scale - offset,
                 std::floor(static_cast<float>(vertices[i]) / 5.0f) * scale - offset
             );
         }
-        ctx.closePath();
+        ctx.close_path();
 
         // offset and rotate coordinate space by patch position (x, y) and
         // 'turn' before rendering patch shape
 
         // render rotated patch using fore color (back color if inverted)
-        ctx.fillStyle = invert ? backColor : foreColor;
+        ctx.fill_style = invert ? backColor : foreColor;
         ctx.fill();
     }
 }

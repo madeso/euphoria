@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_CORE_IMAGE_CANVAS_H
-#define EUPHORIA_CORE_IMAGE_CANVAS_H
+#pragma once
 
 #include <vector>
 
@@ -13,11 +12,11 @@ namespace euphoria::core
 
     // hacky layer between something that looks like the html 'canvas rendering context 2d' and the euphoria image drawing operations
     // https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D
-    struct Canvas
+    struct canvas
     {
-        rgbi fillStyle;
+        rgbi fill_style;
 
-        Image* image;
+        Image* target_image;
 
         mat3f transform;
 
@@ -27,10 +26,10 @@ namespace euphoria::core
         [[nodiscard]] vec2f
         C(const vec2f& v) const;
 
-        Canvas(Image* i);
+        canvas(Image* i);
 
         void
-        fillRect(int x, int y, int w, int h) const;
+        fill_rect(int x, int y, int w, int h) const;
 
         void
         translate(float x, float y);
@@ -39,21 +38,19 @@ namespace euphoria::core
         rotate(float r);
 
         void
-        beginPath();
+        begin_path();
 
         void
-        closePath();
+        close_path();
 
         void
-        moveTo(float x, float y);
+        move_to(float x, float y);
 
         void
-        lineTo(float dx, float dy);
+        line_to(float dx, float dy);
 
         void
         fill() const;
     };
 }
-
-#endif  // EUPHORIA_CORE_IMAGE_CANVAS_H
 

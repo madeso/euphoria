@@ -16,46 +16,46 @@ LOG_SPECIFY_DEFAULT_LOGGER("core.identicon")
 namespace euphoria::core
 {
     vec2f
-    Canvas::C(const vec2f& v) const
+    canvas::C(const vec2f& v) const
     {
         const auto vv = transform * vec3f {v, 1};
-        return vec2f {vv.x, static_cast<float>(image->GetHeight()) - vv.y};
+        return vec2f {vv.x, static_cast<float>(target_image->GetHeight()) - vv.y};
     }
 
-    Canvas::Canvas(Image* i)
-        : fillStyle(Color::Black)
-        , image(i)
+    canvas::canvas(Image* i)
+        : fill_style(Color::Black)
+        , target_image(i)
         , transform(mat3f::Identity())
         , building_path(false)
     {
     }
 
     void
-    Canvas::fillRect(int x, int y, int w, int h) const
+    canvas::fill_rect(int x, int y, int w, int h) const
     {
         ASSERTX(w > 0, w);
         ASSERTX(h > 0, h);
         DrawRect(
-                image,
-                fillStyle,
-                Recti::FromTopLeftWidthHeight(vec2i{x, image->GetHeight() - y}, w, h));
+                target_image,
+                fill_style,
+                Recti::FromTopLeftWidthHeight(vec2i{x, target_image->GetHeight() - y}, w, h));
     }
 
     void
-    Canvas::translate(float x, float y)
+    canvas::translate(float x, float y)
     {
         const auto m = mat3f::FromTranslation2d(vec2f {x, y});
         transform = transform * m;
     }
 
     void
-    Canvas::rotate(float r)
+    canvas::rotate(float r)
     {
         transform = transform * mat3f{mat2f::from_rotation(angle::from_radians(r))};
     }
 
     void
-    Canvas::beginPath()
+    canvas::begin_path()
     {
         ASSERT(!building_path);
         path.resize(0);
@@ -63,14 +63,14 @@ namespace euphoria::core
     }
 
     void
-    Canvas::closePath()
+    canvas::close_path()
     {
         ASSERT(building_path);
         building_path = false;
     }
 
     void
-    Canvas::moveTo(float x, float y)
+    canvas::move_to(float x, float y)
     {
         ASSERT(building_path);
         ASSERT(path.empty());
@@ -78,7 +78,7 @@ namespace euphoria::core
     }
 
     void
-    Canvas::lineTo(float dx, float dy)
+    canvas::line_to(float dx, float dy)
     {
         ASSERT(building_path);
         if(path.empty())
@@ -89,10 +89,10 @@ namespace euphoria::core
     }
 
     void
-    Canvas::fill() const
+    canvas::fill() const
     {
         ASSERT(!building_path);
-        FillPoly(image, fillStyle, path);
+        FillPoly(target_image, fill_style, path);
     }
 }
 

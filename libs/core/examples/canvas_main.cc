@@ -16,30 +16,30 @@ main(int, char*[])
     image.SetupNoAlphaSupport(image_size, image_size);
     Clear(&image, {Color::Yellow});
 
-    auto ctx = Canvas{&image};
+    auto ctx = canvas{&image};
 
-    ctx.fillStyle = Color::White;
-    ctx.fillRect(0, 0, 300, 300);
+    ctx.fill_style = Color::White;
+    ctx.fill_rect(0, 0, 300, 300);
 
     // grass
-    ctx.fillStyle = Color::Green;
-    ctx.fillRect(0, 200, 300, 100);
+    ctx.fill_style = Color::Green;
+    ctx.fill_rect(0, 200, 300, 100);
 
     // Wall
-    ctx.fillStyle = Color::Gray;
-    ctx.fillRect(75, 140, 150, 110);
+    ctx.fill_style = Color::Gray;
+    ctx.fill_rect(75, 140, 150, 110);
 
     // Door
-    ctx.fillStyle = Color::Black;
-    ctx.fillRect(130, 190, 40, 60);
+    ctx.fill_style = Color::Black;
+    ctx.fill_rect(130, 190, 40, 60);
 
     // Roof
-    ctx.fillStyle = Color::Red;
-    ctx.beginPath();
-    ctx.moveTo(50, 140);
-    ctx.lineTo(150, 60);
-    ctx.lineTo(250, 140);
-    ctx.closePath();
+    ctx.fill_style = Color::Red;
+    ctx.begin_path();
+    ctx.move_to(50, 140);
+    ctx.line_to(150, 60);
+    ctx.line_to(250, 140);
+    ctx.close_path();
     ctx.fill();
 
     io::ChunkToFile(image.Write(ImageWriteFormat::PNG), "house.png");
