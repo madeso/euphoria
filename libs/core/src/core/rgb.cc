@@ -198,7 +198,7 @@ namespace euphoria::core
     std::ostream&
     operator<<(std::ostream& stream, const hsl& v)
     {
-        return stream << "(" << v.h.InDegrees() << "°, " << v.s * 100 << "%, "
+        return stream << "(" << v.h.in_degrees() << "°, " << v.s * 100 << "%, "
                       << v.l * 100 << "%)";
     }
 
@@ -327,7 +327,7 @@ namespace euphoria::core
 
         if(cl == Biggest::Same)
         {
-            return {Angle::FromRadians(0), 0, l}; // achromatic
+            return {angle::from_radians(0), 0, l}; // achromatic
         }
         else
         {
@@ -344,7 +344,7 @@ namespace euphoria::core
             }
 
             h /= 6;
-            return {Angle::FromPercentOf360(h), s, l};
+            return {angle::from_percent_of_360(h), s, l};
         }
     }
 

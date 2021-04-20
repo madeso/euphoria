@@ -8,9 +8,9 @@ namespace euphoria::core
 {
     unit2f RandomUnit(Random* random)
     {
-        const auto angle = Angle::Random(random);
-        const auto x = Cos(angle);
-        const auto y = Sin(angle);
+        const auto angle = angle::Random(random);
+        const auto x = cos(angle);
+        const auto y = sin(angle);
         return unit2f{x, y};
     }
 }

@@ -9,6 +9,7 @@ namespace euphoria::core
     struct Image;
     struct rgb;
     struct Palette;
+    struct angle;
 
     enum class Grayscale
     {
@@ -44,9 +45,9 @@ namespace euphoria::core
     ChangeBrightness(Image* image, int change);
 
     void
-    ChangeContrast(Image* image, float contrast);
+    ChangeContrast(Image* image, const angle& contrast);
 
-    // todo:
+    // todo(Gustav):
     // https://www.processing.org/tutorials/pixels/
     // https://www.codeproject.com/Articles/996192/Some-Cool-Image-Effects
     // https://www.gamedev.net/articles/programming/graphics/an-introduction-to-digital-image-processing-r2007/

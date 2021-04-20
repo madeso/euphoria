@@ -428,9 +428,9 @@ namespace euphoria::core::raytracer
 
     struct Camera
     {
-        static Camera Create(const Angle& vfov, float aspect)
+        static Camera Create(const angle& vfov, float aspect)
         {
-            const auto half_height = Tan(vfov/2.0f);
+            const auto half_height = tan(vfov/2.0f);
             const auto half_width = aspect * half_height;
 
             const auto lower_left_corner = vec3f{-half_width, -half_height, -1.0};
@@ -473,7 +473,7 @@ namespace euphoria::core::raytracer
 
         auto random = Random{};
         const auto aspect_ratio = static_cast<float>(img.GetWidth()) / static_cast<float>(img.GetHeight());
-        const auto camera = Camera::Create(Angle::FromDegrees(90), aspect_ratio);
+        const auto camera = Camera::Create(angle::from_degrees(90), aspect_ratio);
 
         std::cout << "Rendering ";
         for(int y=0; y<img.GetHeight(); y+=1)

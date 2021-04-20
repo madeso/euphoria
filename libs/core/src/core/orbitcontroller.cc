@@ -6,8 +6,8 @@ namespace euphoria::core
 {
     OrbitController::OrbitController()
         : center(vec3f::Zero())
-        , horizontal_rotation(Angle::FromDegrees(45.0f))
-        , vertical_rotation(Angle::FromDegrees(45.0f))
+        , horizontal_rotation(angle::from_degrees(45.0f))
+        , vertical_rotation(angle::from_degrees(45.0f))
     {}
 
 
@@ -52,18 +52,18 @@ namespace euphoria::core
     void
     OrbitController::Rotate(float dx, float dy)
     {
-        horizontal_rotation += Angle::FromDegrees
+        horizontal_rotation += angle::from_degrees
         (
             -dx * rotate_dx.GetValueWithSign()
         );
-        horizontal_rotation.Wrap();
+        horizontal_rotation.wrap();
 
-        vertical_rotation += Angle::FromDegrees
+        vertical_rotation += angle::from_degrees
         (
             -dy * rotate_dy.GetValueWithSign()
         );
 
-        const auto r = MakeRange(-Angle::Quarter(), Angle::Quarter());
+        const auto r = MakeRange(-angle::Quarter(), angle::Quarter());
         vertical_rotation = KeepWithin(r, vertical_rotation);
     }
 

@@ -19,8 +19,8 @@ void AddSpiral(Dumper* dump, int number_of_steps, float number_of_spins, float h
     for(int step_index=0; step_index<number_of_steps; step_index+=1)
     {
         const auto step = static_cast<float>(step_index) / static_cast<float>(number_of_steps);
-        const auto angle = Angle::FromPercentOf360(step * number_of_spins);
-        points.emplace_back(Sin(angle)*size, step*height, Cos(angle)*size);
+        const auto angle = angle::from_percent_of_360(step * number_of_spins);
+        points.emplace_back(sin(angle)*size, step*height, cos(angle)*size);
     }
     dump->AddLines(points, color);
 }

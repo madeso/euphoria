@@ -54,7 +54,7 @@ namespace euphoria::core
         CalculateProjectionMatrix(const Camera& camera, float aspect)
         {
             const mat4f projection_matrix = mat4f::Perspective(
-                    Angle::FromDegrees(camera.fov),
+                    angle::from_degrees(camera.fov),
                     aspect,
                     camera.near,
                     camera.far);

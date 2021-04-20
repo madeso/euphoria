@@ -15,9 +15,9 @@ using namespace euphoria::core;
 using namespace euphoria::core::dump2d;
 
 Poly
-MakeStar(const vec2f& origo, float radius, const Angle& rotation, int number_of_points=5, float inner_scale=0.5f)
+MakeStar(const vec2f& origo, float radius, const angle& rotation, int number_of_points=5, float inner_scale=0.5f)
 {
-    auto angle_step = Angle::OneTurn() / (static_cast<float>(number_of_points)*2.0f);
+    auto angle_step = angle::OneTurn() / (static_cast<float>(number_of_points)*2.0f);
 
     auto poly = Poly{};
 
@@ -26,8 +26,8 @@ MakeStar(const vec2f& origo, float radius, const Angle& rotation, int number_of_
         const auto is_even = i % 2 == 0;
         auto r =  is_even ? radius*inner_scale : radius;
         auto point_rotation = rotation + angle_step * static_cast<float>(i);
-        const auto x = (r * Sin(point_rotation)) + origo.x;
-        const auto y = (r * Cos(point_rotation)) + origo.y;
+        const auto x = (r * sin(point_rotation)) + origo.x;
+        const auto y = (r * cos(point_rotation)) + origo.y;
         poly.points.emplace_back(x, y);
     }
 
@@ -50,7 +50,7 @@ main(int, char*[])
         const auto p = rand.Next(Range{4, 10});
         const auto inner = rand.Next(Range{0.3f, 0.75f});
         const auto fill = pal.Next(&rand);
-        const auto rotation = Angle::FromPercentOf360(rand.NextFloat01());
+        const auto rotation = angle::from_percent_of_360(rand.NextFloat01());
         svg << MakeStar(center, radius, rotation, p, inner).Close().Fill(fill)
             // << Text(center, Str{} << p << " / " << std::setprecision( 2 ) << inner)
             ;

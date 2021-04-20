@@ -137,10 +137,10 @@ namespace euphoria::core
         [[nodiscard]]
         static
         mat3<T>
-        FromRotX(const Angle& a)
+        FromRotX(const angle& a)
         {
-            const auto c = Cos(a);
-            const auto s = Sin(a);
+            const auto c = cos(a);
+            const auto s = sin(a);
             return FromRowMajor
             (
                 1, 0, 0,
@@ -152,10 +152,10 @@ namespace euphoria::core
         [[nodiscard]]
         static
         mat3<T>
-        FromRotY(const Angle& a)
+        FromRotY(const angle& a)
         {
-            const auto c = Cos(a);
-            const auto s = Sin(a);
+            const auto c = cos(a);
+            const auto s = sin(a);
             return FromRowMajor
             (
                 c, 0, s,
@@ -167,10 +167,10 @@ namespace euphoria::core
         [[nodiscard]]
         static
         mat3<T>
-        FromRotZ(const Angle& a)
+        FromRotZ(const angle& a)
         {
-            const auto c = Cos(a);
-            const auto s = Sin(a);
+            const auto c = cos(a);
+            const auto s = sin(a);
             return FromRowMajor(c, -s, 0, s, c, 0, 0, 0, 1);
         }
 
@@ -179,8 +179,8 @@ namespace euphoria::core
         mat3<T>
         FromAxisAngle(const AxisAngle aa)
         {
-            const T rcos = Cos(aa.angle);
-            const T rsin = Sin(aa.angle);
+            const T rcos = cos(aa.angle);
+            const T rsin = sin(aa.angle);
 
             const auto u = aa.axis.x;
             const auto v = aa.axis.y;

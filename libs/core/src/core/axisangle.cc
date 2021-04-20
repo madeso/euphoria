@@ -4,17 +4,17 @@
 
 namespace euphoria::core
 {
-    AxisAngle::AxisAngle(const unit3f& ax, const Angle& ang)
+    AxisAngle::AxisAngle(const unit3f& ax, const core::angle& ang)
         : axis(ax), angle(ang)
     {
         ASSERT(ax.IsValid());
     }
 
     AxisAngle
-    AxisAngle::RightHandAround(const unit3f& axis, const Angle& angle)
+    AxisAngle::RightHandAround(const unit3f& axis, const core::angle& angle)
     {
         ASSERT(axis.IsValid());
-        return AxisAngle(axis, Angle::FromRadians(angle.InRadians()));
+        return AxisAngle(axis, angle::from_radians(angle.in_radians()));
     }
 
     std::ostream&

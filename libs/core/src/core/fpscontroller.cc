@@ -11,8 +11,8 @@ namespace euphoria::core
     void
     FpsController::Look(float x, float y)
     {
-        rotation_ += Angle::FromDegrees(-x * sensitivity);
-        look_ += Angle::FromDegrees(-y * sensitivity);
+        rotation_ += angle::from_degrees(-x * sensitivity);
+        look_ += angle::from_degrees(-y * sensitivity);
     }
 
     void

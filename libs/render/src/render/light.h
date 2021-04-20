@@ -44,8 +44,8 @@ namespace euphoria::render
         core::rgb ambient;
         core::rgb diffuse;
         core::rgb specular;
-        core::Angle cutoff_angle_outer;
-        core::Angle cutoff_angle_inner;
+        core::angle cutoff_angle_outer;
+        core::angle cutoff_angle_inner;
 
         LightAttenuation attenuation;
     };

@@ -8,8 +8,8 @@
 namespace euphoria::core
 {
     PolarCoord::PolarCoord(float azimuthal01, float polar01)
-        : azimuthal(Angle::FromPercentOf360(azimuthal01))
-        , polar(Angle::FromPercentOf180(polar01))
+        : azimuthal(angle::from_percent_of_360(azimuthal01))
+        , polar(angle::from_percent_of_180(polar01))
     {
         ASSERT(IsWithin(R01(), azimuthal01));
         ASSERT(IsWithin(Range<float> {0, 2}, polar01));
@@ -18,10 +18,10 @@ namespace euphoria::core
     unit3f
     PolarCoord::ToUnitVector() const
     {
-        const float cos_a = Cos(azimuthal);
-        const float sin_p = Sin(polar);
-        const float sin_a = Sin(azimuthal);
-        const float cos_p = Cos(polar);
+        const float cos_a = cos(azimuthal);
+        const float sin_p = sin(polar);
+        const float sin_a = sin(azimuthal);
+        const float cos_p = cos(polar);
 
         const float x = cos_a * sin_p;
         const float y = sin_a * sin_p;

@@ -85,8 +85,8 @@ namespace euphoria::core
         return Rainbow
         (
             count,
-            Angle::FromRadians(0),
-            Angle::FromPercentOf360
+            angle::from_radians(0),
+            angle::from_percent_of_360
             (
                 Max(1.0f, static_cast<float>(count - 1) / static_cast<float>(count))
             ),
@@ -100,8 +100,8 @@ namespace euphoria::core
     Palette::Rainbow
     (
         int count,
-        const Angle& from,
-        const Angle& to,
+        const angle& from,
+        const angle& to,
         float saturation,
         float lightness
     )
@@ -117,7 +117,7 @@ namespace euphoria::core
             (
                 hsl
                 {
-                    AngleTransform::Transform(from, d, to),
+                    angle_transform::transform(from, d, to),
                     saturation,
                     lightness
                 }

@@ -239,12 +239,12 @@ namespace euphoria::render
         shader.SetUniform
         (
             lightCutoffAngleOuter,
-            Cos(light.cutoff_angle_outer)
+            cos(light.cutoff_angle_outer)
         );
         shader.SetUniform
         (
             lightCutoffAngleInner,
-            Cos(light.cutoff_angle_inner)
+            cos(light.cutoff_angle_inner)
         );
 
         const auto att = light.attenuation;

@@ -65,25 +65,25 @@ namespace euphoria::window
     ImguiAngleSlider
     (
         const char* const name,
-        core::Angle* angle,
-        const core::Angle& mindeg,
-        const core::Angle& maxdeg
+        core::angle* angle,
+        const core::angle& mindeg,
+        const core::angle& maxdeg
     )
     {
         ASSERT(angle);
 
-        float degrees = angle->InDegrees();
+        float degrees = angle->in_degrees();
         const auto value_was_changed = ImGui::SliderFloat
         (
             name,
             &degrees,
-            mindeg.InDegrees(),
-            maxdeg.InDegrees()
+            mindeg.in_degrees(),
+            maxdeg.in_degrees()
         );
 
         if(value_was_changed)
         {
-            *angle = core::Angle::FromDegrees(degrees);
+            *angle = core::angle::from_degrees(degrees);
         }
 
         return value_was_changed;

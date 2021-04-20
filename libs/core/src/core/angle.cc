@@ -8,195 +8,195 @@
 
 namespace euphoria::core
 {
-    Angle
-    Angle::Random(::euphoria::core::Random* random)
+    angle
+    angle::Random(::euphoria::core::Random* random)
     {
-        return FromPercentOf360(random->NextFloat01());
+        return from_percent_of_360(random->NextFloat01());
     }
 
 
     void
-    Angle::Wrap()
+    angle::wrap()
     {
         radians = ::euphoria::core::Wrap(MakeRange(Pi() * 2.0f), radians);
     }
 
 
     void
-    Angle::operator+=(const Angle& rhs)
+    angle::operator+=(const angle& rhs)
     {
         radians += rhs.radians;
     }
 
 
     void
-    Angle::operator-=(const Angle& rhs)
+    angle::operator-=(const angle& rhs)
     {
         radians -= rhs.radians;
     }
 
 
     void
-    Angle::operator*=(float rhs)
+    angle::operator*=(float rhs)
     {
         radians *= rhs;
     }
 
 
     void
-    Angle::operator/=(float rhs)
+    angle::operator/=(float rhs)
     {
         radians /= rhs;
     }
 
 
-    Angle
-    Angle::operator-() const
+    angle
+    angle::operator-() const
     {
-        return Angle::FromRadians(-radians);
+        return angle::from_radians(-radians);
     }
 
 
     float
-    Sin(const Angle& ang)
+    sin(const angle& ang)
     {
-        return std::sin(ang.InRadians());
+        return std::sin(ang.in_radians());
     }
 
 
     float
-    Cos(const Angle& ang)
+    cos(const angle& ang)
     {
-        return std::cos(ang.InRadians());
+        return std::cos(ang.in_radians());
     }
 
 
     float
-    Tan(const Angle& ang)
+    tan(const angle& ang)
     {
-        return std::tan(ang.InRadians());
+        return std::tan(ang.in_radians());
     }
 
 
-    Angle
-    Asin(float v)
+    angle
+    asin(float v)
     {
         ASSERT(v <= 1 && "v must be smaller than 1");
         ASSERT(v >= -1 && "v must be greater than -1");
-        return Angle::FromRadians(std::asin(v));
+        return angle::from_radians(std::asin(v));
     }
 
 
-    Angle
-    Acos(float v)
+    angle
+    acos(float v)
     {
         ASSERT(v <= 1 && "v must be smaller than 1");
         ASSERT(v >= -1 && "v must be greater than -1");
-        return Angle::FromRadians(std::acos(v));
+        return angle::from_radians(std::acos(v));
     }
 
 
-    Angle
-    Atan(float v)
+    angle
+    atan(float v)
     {
-        return Angle::FromRadians(std::atan(v));
+        return angle::from_radians(std::atan(v));
     }
 
 
-    Angle
-    Atan2(float y, float x)
+    angle
+    atan2(float y, float x)
     {
-        return Angle::FromRadians(std::atan2(y, x));
+        return angle::from_radians(std::atan2(y, x));
     }
 
 
-    Angle
-    Angle::GetWrapped() const
+    angle
+    angle::get_wrapped() const
     {
-        Angle temp = *this;
-        temp.Wrap();
+        angle temp = *this;
+        temp.wrap();
         return temp;
     }
 
 
-    Angle
-    operator+(const Angle& lhs, const Angle& rhs)
+    angle
+    operator+(const angle& lhs, const angle& rhs)
     {
-        Angle temp(lhs);
+        angle temp(lhs);
         temp += rhs;
         return temp;
     }
 
 
-    Angle
-    operator-(const Angle& lhs, const Angle& rhs)
+    angle
+    operator-(const angle& lhs, const angle& rhs)
     {
-        Angle temp(lhs);
+        angle temp(lhs);
         temp -= rhs;
         return temp;
     }
 
 
-    Angle
-    operator/(const Angle& lhs, float rhs)
+    angle
+    operator/(const angle& lhs, float rhs)
     {
-        Angle temp(lhs);
+        angle temp(lhs);
         temp /= rhs;
         return temp;
     }
 
 
-    Angle operator*(const Angle& lhs, float rhs)
+    angle operator*(const angle& lhs, float rhs)
     {
-        Angle temp(lhs);
+        angle temp(lhs);
         temp *= rhs;
         return temp;
     }
 
-    Angle operator*(float rhs, const Angle& lhs)
+    angle operator*(float rhs, const angle& lhs)
     {
         return lhs * rhs;
     }
 
 
     std::ostream&
-    operator<<(std::ostream& stream, const Angle& a)
+    operator<<(std::ostream& stream, const angle& a)
     {
-        return stream << a.InDegrees() << " deg";
+        return stream << a.in_degrees() << " deg";
     }
 
 
     bool
-    operator<(const Angle& lhs, const Angle& rhs)
+    operator<(const angle& lhs, const angle& rhs)
     {
-        return lhs.InRadians() < rhs.InRadians();
+        return lhs.in_radians() < rhs.in_radians();
     }
 
 
     bool
-    operator<=(const Angle& lhs, const Angle& rhs)
+    operator<=(const angle& lhs, const angle& rhs)
     {
-        return lhs.InRadians() <= rhs.InRadians();
+        return lhs.in_radians() <= rhs.in_radians();
     }
 
 
     bool
-    operator>(const Angle& lhs, const Angle& rhs)
+    operator>(const angle& lhs, const angle& rhs)
     {
-        return lhs.InRadians() > rhs.InRadians();
+        return lhs.in_radians() > rhs.in_radians();
     }
 
 
     bool
-    operator>=(const Angle& lhs, const Angle& rhs)
+    operator>=(const angle& lhs, const angle& rhs)
     {
-        return lhs.InRadians() >= rhs.InRadians();
+        return lhs.in_radians() >= rhs.in_radians();
     }
 
 
-    Angle
-    AngleTransform::Transform(const Angle& from, float v, const Angle& to)
+    angle
+    angle_transform::transform(const angle& from, float v, const angle& to)
     {
-        return Angle::FromRadians(Lerp(from.InRadians(), v, to.InRadians()));
+        return angle::from_radians(Lerp(from.in_radians(), v, to.in_radians()));
     }
 }

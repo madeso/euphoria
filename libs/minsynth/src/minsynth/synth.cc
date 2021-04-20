@@ -626,12 +626,12 @@ namespace euphoria::minsynth
     float
     RunOscilator(float frequency, float time, OscilatorType osc)
     {
-        const float sine = core::Sin( core::Angle::FromPercentOf360(frequency) * time);
+        const float sine = core::sin( core::angle::from_percent_of_360(frequency) * time);
         switch(osc)
         {
         case OscilatorType::Sine: return sine;
         case OscilatorType::Square: return sine > 0.0f ? 1.0f : -1.0f;
-        case OscilatorType::Triangle: return core::Asin(sine).InRadians() * (2.0f / pi);
+        case OscilatorType::Triangle: return core::asin(sine).in_radians() * (2.0f / pi);
         case OscilatorType::Sawtooth:
             return (2 / pi) * (frequency * pi * fmodf(time, 1 / frequency) - pi / 2);
         case OscilatorType::Noise:

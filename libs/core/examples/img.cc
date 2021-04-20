@@ -249,7 +249,7 @@ main(int argc, char* argv[])
             (
                 [&]
                 {
-                    ChangeContrast(&image, contrast);
+                    ChangeContrast(&image, angle::from_degrees(contrast).get_wrapped());
                     return argparse::ok;
                 }
             );

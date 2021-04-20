@@ -74,8 +74,8 @@ namespace euphoria::core
         Rainbow
         (
             int count,
-            const Angle& from,
-            const Angle& to,
+            const angle& from,
+            const angle& to,
             float saturation,
             float lightness
         );

@@ -54,10 +54,10 @@ namespace euphoria::core
         template <typename F>
         vec2<F> StaticCast() const { return vec2<F>(static_cast<F>(x), static_cast<F>(y)); }
 
-        Self GetRotated(const Angle& a) const
+        Self GetRotated(const angle& a) const
         {
-            const T nx = x * Cos(a) - y * Sin(a);
-            const T ny = x * Sin(a) + y * Cos(a);
+            const T nx = x * cos(a) - y * sin(a);
+            const T ny = x * sin(a) + y * cos(a);
             return Self(nx, ny);
         }
 
@@ -154,10 +154,10 @@ namespace euphoria::core
         template <typename F>
         unit2<F> StaticCast() const { return unit2<F>(static_cast<F>(x), static_cast<F>(y)); }
 
-        Self GetRotated(const Angle& a) const
+        Self GetRotated(const angle& a) const
         {
-            const T nx = x * Cos(a) - y * Sin(a);
-            const T ny = x * Sin(a) + y * Cos(a);
+            const T nx = x * cos(a) - y * sin(a);
+            const T ny = x * sin(a) + y * cos(a);
             return Self(nx, ny);
         }
 
@@ -225,10 +225,10 @@ namespace euphoria::core
         template <typename F>
         scale2<F> StaticCast() const { return scale2<F>(static_cast<F>(x), static_cast<F>(y)); }
 
-        Self GetRotated(const Angle& a) const
+        Self GetRotated(const angle& a) const
         {
-            const T nx = x * Cos(a) - y * Sin(a);
-            const T ny = x * Sin(a) + y * Cos(a);
+            const T nx = x * cos(a) - y * sin(a);
+            const T ny = x * sin(a) + y * cos(a);
             return Self(nx, ny);
         }
 

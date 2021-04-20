@@ -40,7 +40,7 @@ namespace euphoria::tests
             core::hsl const&  rhs,
             const ApproxData& data)
     {
-        return approximately_equal(lhs.h.InDegrees(), rhs.h.InDegrees(), data)
+        return approximately_equal(lhs.h.in_degrees(), rhs.h.in_degrees(), data)
                && approximately_equal(lhs.s * 100, rhs.s * 100, data)
                && approximately_equal(lhs.l * 100, rhs.l * 100, data);
     }
@@ -87,8 +87,8 @@ namespace euphoria::tests
             const ApproxData&      data)
     {
         if(approximately_equal(
-                   lhs.angle.InDegrees(), rhs.angle.InDegrees(), data)
-           && approximately_equal(lhs.angle.InDegrees(), 0.0f, data))
+                   lhs.angle.in_degrees(), rhs.angle.in_degrees(), data)
+           && approximately_equal(lhs.angle.in_degrees(), 0.0f, data))
         {
             return true;  // zero rotation is always equal zero
         }
@@ -96,12 +96,12 @@ namespace euphoria::tests
         const bool a
                 = (approximately_equal(rhs.axis, lhs.axis, data)
                    && approximately_equal(
-                           rhs.angle.InDegrees(), lhs.angle.InDegrees(), data));
+                           rhs.angle.in_degrees(), lhs.angle.in_degrees(), data));
         const bool inv
                 = (approximately_equal(rhs.axis, -lhs.axis, data)
                    && approximately_equal(
-                           rhs.angle.InDegrees(),
-                           -lhs.angle.InDegrees(),
+                           rhs.angle.in_degrees(),
+                           -lhs.angle.in_degrees(),
                            data));
         return a || inv;
     }

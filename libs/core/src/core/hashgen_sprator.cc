@@ -22,7 +22,7 @@ namespace
     CalculateBorderColor(rgbai base)
     {
         auto h = chsl(crgb(base));
-        h.h -= Angle::FromDegrees(15);
+        h.h -= angle::from_degrees(15);
         h.l *= 0.4;
         return {crgbi(crgb(h)), base.a};
     }

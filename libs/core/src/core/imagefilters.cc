@@ -5,7 +5,6 @@
 #include "core/table.h"
 #include "core/vec3.h"
 
-#include <cmath>
 
 namespace euphoria::core
 {
@@ -224,7 +223,7 @@ namespace euphoria::core
     }
 
     void
-    ChangeContrast(Image* image, float contrast)
+    ChangeContrast(Image* image, const angle& contrast)
     {
         const auto tc = tan(contrast);
         LutTransform(image, [&](int i) {

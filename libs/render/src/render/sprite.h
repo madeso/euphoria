@@ -30,7 +30,7 @@ namespace euphoria::render
 
         std::shared_ptr<texture2d> texture;
         core::vec2f position;
-        core::Angle rotation;
+        core::angle rotation;
         core::scale2f scale = core::scale2f(1, 1);
         core::rgb color = core::rgb(1.0f);
         float alpha = 1.0f;

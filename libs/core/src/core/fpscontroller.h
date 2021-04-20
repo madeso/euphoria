@@ -37,8 +37,8 @@ namespace euphoria::core
         [[nodiscard]] quatf
         GetRotation() const;
 
-        Angle rotation_;
-        Angle look_;
+        angle rotation_;
+        angle look_;
 
         bool left_down_     = false;
         bool right_down_    = false;

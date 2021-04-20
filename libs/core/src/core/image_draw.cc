@@ -662,18 +662,18 @@ namespace euphoria::core
         const auto arrowLength = Sqrt(Square(Abs(from.x - to.x)) +
                                 Square(Abs(from.y - to.y)));
 
-        const auto arrowAngle = Atan2(Abs(from.y - to.y),Abs(from.x - to.x));
-        const auto angleB = Atan2((3 * size), (arrowLength - (3 * size)));
-        const auto secondaryLength = (3 * size)/Sin(angleB);
+        const auto arrowAngle = atan2(Abs(from.y - to.y),Abs(from.x - to.x));
+        const auto angleB = atan2((3 * size), (arrowLength - (3 * size)));
+        const auto secondaryLength = (3 * size)/sin(angleB);
 
-        auto angleC = Angle::FromDegrees(90) - arrowAngle - angleB;
+        auto angleC = angle::from_degrees(90) - arrowAngle - angleB;
         const auto arrow_point_left_x = from.x > to.x
-            ? from.x - (Sin(angleC) * secondaryLength)
-            : (Sin(angleC) * secondaryLength) + from.x
+            ? from.x - (sin(angleC) * secondaryLength)
+            : (sin(angleC) * secondaryLength) + from.x
             ;
         const auto arrow_point_left_y = from.y > to.y
-            ? from.y - (Cos(angleC) * secondaryLength)
-            : (Cos(angleC) * secondaryLength) + from.y
+            ? from.y - (cos(angleC) * secondaryLength)
+            : (cos(angleC) * secondaryLength) + from.y
             ;
         const auto arrowPointLeft = vec2f
         {
@@ -685,12 +685,12 @@ namespace euphoria::core
         angleC = arrowAngle - angleB;
 
         const auto arrow_point_right_x = from.x > to.x
-            ? from.x - (Cos(angleC) * secondaryLength)
-            : (Cos(angleC) * secondaryLength) + from.x
+            ? from.x - (cos(angleC) * secondaryLength)
+            : (cos(angleC) * secondaryLength) + from.x
             ;
         const auto arrow_point_right_y = from.y > to.y
-            ? from.y - (Sin(angleC) * secondaryLength)
-            : (Sin(angleC) * secondaryLength) + from.y
+            ? from.y - (sin(angleC) * secondaryLength)
+            : (sin(angleC) * secondaryLength) + from.y
             ;
         const auto arrowPointRight = vec2f
         {

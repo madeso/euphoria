@@ -34,8 +34,8 @@ namespace euphoria::core
 
         vec3f center;
 
-        Angle horizontal_rotation;
-        Angle vertical_rotation;
+        angle horizontal_rotation;
+        angle vertical_rotation;
 
         float distance = 10.0f;
 

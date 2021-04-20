@@ -24,7 +24,7 @@ namespace euphoria::render
 
 
     DrawData&
-    DrawData::Rotation(const core::Angle& r)
+    DrawData::Rotation(const core::angle& r)
     {
         rotation = r;
         return *this;
@@ -73,7 +73,7 @@ namespace euphoria::render
         const texture2d& texture,
         const core::Rectf& sprite_area,
         const core::Rectf& texture_region,
-        const core::Angle& rotation_angle,
+        const core::angle& rotation_angle,
         const core::scale2f& rotation_anchor,
         const core::rgba& tint_color
     )

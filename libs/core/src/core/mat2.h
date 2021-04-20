@@ -101,10 +101,10 @@ namespace euphoria::core
         [[nodiscard]]
         static
         mat2<T>
-        FromRotation(const Angle& a)
+        FromRotation(const angle& a)
         {
-            const auto s = Sin(a);
-            const auto c = Cos(a);
+            const auto s = sin(a);
+            const auto c = cos(a);
             return FromRowMajor
             (
                 c, s,

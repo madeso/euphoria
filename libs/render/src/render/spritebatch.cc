@@ -37,7 +37,7 @@ namespace euphoria::render
         const core::Sizef& quad,
         const core::Rectf& uv,
         const core::scale2f& center,
-        const core::Angle& rotation,
+        const core::angle& rotation,
         const core::rgba& color
     )
     {
@@ -51,7 +51,7 @@ namespace euphoria::render
         // add vertices
         const float w = quad.width;
         const float h = quad.height;
-        const float sy = -Sin(rotation);
+        const float sy = -sin(rotation);
         const float left = pos.x + (-center.x * w) * sy;
         const float right = pos.x + (-center.x * w + w) * sy;
         const float top = pos.y + (-center.y * h) * sy;

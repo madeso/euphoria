@@ -162,10 +162,10 @@ namespace euphoria::core
         [[nodiscard]]
         static
         mat4<T>
-        FromRotX(const Angle& a)
+        FromRotX(const angle& a)
         {
-            const auto c = Cos(a);
-            const auto s = Sin(a);
+            const auto c = cos(a);
+            const auto s = sin(a);
             return FromRowMajor
             (
                 1, 0, 0, 0,
@@ -178,10 +178,10 @@ namespace euphoria::core
         [[nodiscard]]
         static
         mat4<T>
-        FromRotY(const Angle& a)
+        FromRotY(const angle& a)
         {
-            const auto c = Cos(a);
-            const auto s = Sin(a);
+            const auto c = cos(a);
+            const auto s = sin(a);
             return FromRowMajor
             (
                 c, 0, s, 0,
@@ -194,10 +194,10 @@ namespace euphoria::core
         [[nodiscard]]
         static
         mat4<T>
-        FromRotZ(const Angle& a)
+        FromRotZ(const angle& a)
         {
-            const auto c = Cos(a);
-            const auto s = Sin(a);
+            const auto c = cos(a);
+            const auto s = sin(a);
             return FromRowMajor
             (
                 c, -s, 0, 0,
@@ -212,8 +212,8 @@ namespace euphoria::core
         mat4<T>
         FromAxisAngle(const AxisAngle aa)
         {
-            const T rcos = Cos(aa.angle);
-            const T rsin = Sin(aa.angle);
+            const T rcos = cos(aa.angle);
+            const T rsin = sin(aa.angle);
 
             const auto u = aa.axis.x;
             const auto v = aa.axis.y;
@@ -473,9 +473,9 @@ namespace euphoria::core
         [[nodiscard]]
         static
         mat4<T>
-        Perspective(const Angle& fov, T a, T near, T far)
+        Perspective(const angle& fov, T a, T near, T far)
         {
-            const T t  = 1 / Tan(fov / 2);
+            const T t  = 1 / tan(fov / 2);
             const T zm = far - near;
             const T zp = far + near;
             return FromRowMajor

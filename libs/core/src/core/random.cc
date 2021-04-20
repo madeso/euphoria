@@ -134,19 +134,19 @@ better numbers than Mersenne. How can you go wrong? :)
     vec2f
     Random::PointOnUnitCircle_CenterFocused()
     {
-        const auto angle = Angle::FromPercentOf360(NextFloat01());
+        const auto angle = angle::from_percent_of_360(NextFloat01());
         const auto dist = NextFloat01() * 0.5f;
 
-        return vec2f {dist * Cos(angle) + 0.5f, dist * Sin(angle) + 0.5f};
+        return vec2f {dist * cos(angle) + 0.5f, dist * sin(angle) + 0.5f};
     }
 
     vec2f
     Random::PointOnUnitCircle_Uniform()
     {
         // http://xdpixel.com/random-points-in-a-circle/
-        const auto angle = Angle::FromPercentOf360(NextFloat01());
+        const auto angle = angle::from_percent_of_360(NextFloat01());
         const auto dist = Sqrt(NextFloat01()) * 0.5f;
 
-        return vec2f {dist * Cos(angle) + 0.5f, dist * Sin(angle) + 0.5f};
+        return vec2f {dist * cos(angle) + 0.5f, dist * sin(angle) + 0.5f};
     }
 }

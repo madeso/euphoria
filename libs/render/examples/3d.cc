@@ -291,15 +291,15 @@ main(int argc, char** argv)
             (
                 "Cutoff Angle Inner",
                 &world.light.cutoff_angle_inner,
-                Angle::Zero(),
-                Angle::Quarter()/2
+                angle::Zero(),
+                angle::Quarter()/2
             );
             ImguiAngleSlider
             (
                 "Cutoff Angle Outer",
                 &world.light.cutoff_angle_outer,
-                Angle::Zero(),
-                Angle::Quarter()
+                angle::Zero(),
+                angle::Quarter()
             );
 
             ImguiImage(debug_texture.get());

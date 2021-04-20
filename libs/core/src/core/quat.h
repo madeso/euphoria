@@ -35,8 +35,8 @@ namespace euphoria::core
         [[nodiscard]] static Q
         FromAxisAngle(const AxisAngle& aa)
         {
-            const T sin_a = Sin(aa.angle / 2);
-            const T cos_a = Cos(aa.angle / 2);
+            const T sin_a = sin(aa.angle / 2);
+            const T cos_a = cos(aa.angle / 2);
             Q r(cos_a, aa.axis * sin_a);
             r.Normalize();
             return r;
@@ -47,7 +47,7 @@ namespace euphoria::core
         FromRandom(Random* random)
         {
             const auto axis = RandomUnit3(random);
-            const auto angle = Angle::Random(random);
+            const auto angle = angle::Random(random);
 
             return Q::FromAxisAngle(AxisAngle::RightHandAround(axis, angle));
         }
@@ -64,7 +64,7 @@ namespace euphoria::core
         ToAxisAngle() const
         {
             const T cos_a = w;
-            const auto angle = Acos(cos_a) * 2;
+            const auto angle = acos(cos_a) * 2;
             const T sin_a = DefaultIfCloseToZero<T>(
                     Sqrt(1.0f - cos_a * cos_a), 1, 0.0005f);
             // todo(Gustav): do we need to normalize here?
@@ -104,7 +104,7 @@ namespace euphoria::core
                 return Identity();
             }
 
-            const auto rotAngle = Acos(dot_value);
+            const auto rotAngle = acos(dot_value);
             const auto rotAxis = cross(in, dir).GetNormalized();
             return Q::FromAxisAngle(
                     AxisAngle::RightHandAround(rotAxis, rotAngle));
@@ -253,34 +253,38 @@ namespace euphoria::core
 
 
         [[nodiscard]] static Q
-        Slerp(const Q& qa, const T t, const Q& qb)
+        Slerp(const Q& qa, const float t, const Q& qb)
         {
             // from:
             // http://www.euclideanspace.com/maths/algebra/realNormedAlgebra/quaternions/slerp/
             // Calculate angle between them.
-            const T cosHalfTheta
-                    = qa.w * qb.w + qa.x * qb.x + qa.y * qb.y + qa.z * qb.z;
+            const float cosHalfTheta = qa.w * qb.w + qa.x * qb.x + qa.y * qb.y + qa.z * qb.z;
             // if qa=qb or qa=-qb then theta = 0 and we can return qa
             if(Abs(cosHalfTheta) >= 1.0)
             {
                 return qa;
             }
             // Calculate temporary values.
-            const T halfTheta = acos(cosHalfTheta);
-            const T sinHalfTheta = sqrt(1.0 - cosHalfTheta * cosHalfTheta);
-            if(Abs(sinHalfTheta) < 0.001)
+            const auto halfTheta = acos(cosHalfTheta);
+            const auto sinHalfTheta = sqrt(1.0f - cosHalfTheta * cosHalfTheta);
+            if(Abs(sinHalfTheta) < 0.001f)
             {
                 // if theta = 180 degrees then result is not fully defined
                 // we could rotate around any axis normal to qa or qb
                 const Q qt = qa + qb;
-                return Q {static_cast<T>(qt.w * 0.5),
-                          Vec {static_cast<T>(qt.x * 0.5),
-                               static_cast<T>(qt.y * 0.5),
-                               static_cast<T>(qt.z * 0.5)}};
-                // return (qa + qb) * 0.5;
+                return Q
+                {
+                    qt.w * 0.5f,
+                    Vec
+                    {
+                        qt.x * 0.5f,
+                        qt.y * 0.5f,
+                        qt.z * 0.5f
+                    }
+                };
             }
-            const T ratioA = sin((1 - t) * halfTheta) / sinHalfTheta;
-            const T ratioB = sin(t * halfTheta) / sinHalfTheta;
+            const float ratioA = sin((1 - t) * halfTheta) / sinHalfTheta;
+            const float ratioB = sin(t * halfTheta) / sinHalfTheta;
             return qa * ratioA + qb * ratioB;
         }
 
