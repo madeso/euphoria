@@ -109,25 +109,25 @@ namespace euphoria::window
     }
 
     bool
-    ImGuiColorEdit(const char* const name, core::Rgb* c)
+    ImGuiColorEdit(const char* const name, core::rgb* c)
     {
         return ImGui::ColorEdit3(name, &c->r);
     }
 
     bool
-    ImGuiColorEdit(const char* const name, core::Rgba* c)
+    ImGuiColorEdit(const char* const name, core::rgba* c)
     {
         return ImGui::ColorEdit4(name, &c->r);
     }
 
     bool
-    ImGuiColorEdit(const char* const name, core::Rgbai* c)
+    ImGuiColorEdit(const char* const name, core::rgbai* c)
     {
-        auto cc = rgba(*c);
+        auto cc = crgba(*c);
         const auto changed = ImGui::ColorEdit4(name, &cc.r);
         if(changed)
         {
-            *c = rgbai(cc);
+            *c = crgbai(cc);
         }
         return changed;
     }

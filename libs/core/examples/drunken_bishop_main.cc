@@ -59,7 +59,7 @@ GenerateImage(const Table<int>& table, int scale, const Palette& pal)
     Image image;
     image.SetupNoAlphaSupport(scale * table.GetWidth(), scale * table.GetHeight());
 
-    auto draw_rect = [&](const Rgbi& color, const vec2i& top_left)
+    auto draw_rect = [&](const rgbi& color, const vec2i& top_left)
     {
         DrawRect
         (

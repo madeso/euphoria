@@ -80,10 +80,10 @@ namespace euphoria::render
         SetUniform(const ShaderUniform& attribute, float val);
 
         void
-        SetUniform(const ShaderUniform& attribute, const core::Rgb& val);
+        SetUniform(const ShaderUniform& attribute, const core::rgb& val);
 
         void
-        SetUniform(const ShaderUniform& attribute, const core::Rgba& val);
+        SetUniform(const ShaderUniform& attribute, const core::rgba& val);
 
         void
         SetUniform(const ShaderUniform& attribute, const core::vec3f& val);

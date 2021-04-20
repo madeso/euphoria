@@ -11,7 +11,7 @@
 
 namespace euphoria::core::dump2d
 {
-    std::string ToHtml(const Rgbi& c)
+    std::string ToHtml(const rgbi& c)
     {
         std::ostringstream s;
         s << "rgb("
@@ -21,7 +21,7 @@ namespace euphoria::core::dump2d
         return s.str();
     }
 
-    std::string ToHtmlOrNone(const std::optional<Rgbi>& c)
+    std::string ToHtmlOrNone(const std::optional<rgbi>& c)
     {
         if(!c)
         {
@@ -47,7 +47,7 @@ namespace euphoria::core::dump2d
         return *this;
     }
 
-    Poly& Poly::Fill(const Rgbi& a_fill_color)
+    Poly& Poly::Fill(const rgbi& a_fill_color)
     {
         fill_color = a_fill_color;
         return *this;
@@ -59,16 +59,16 @@ namespace euphoria::core::dump2d
         return *this;
     }
 
-    Text::Text(const vec2f& p, const std::string& t, const Rgbi& c)
+    Text::Text(const vec2f& p, const std::string& t, const rgbi& c)
         : point(p), text(t), color(c) {}
 
     Circle&
-    Circle::Line(const Rgbi& lc)
+    Circle::Line(const rgbi& lc)
     {
         line_color = lc;
         return *this;
     }
-    Circle::Circle(const vec2f& p, float r, std::optional<Rgbi> c)
+    Circle::Circle(const vec2f& p, float r, std::optional<rgbi> c)
         : point(p), radius(r), fill_color(c) {}
 
     Item::Item(const Poly& p)  : poly(std::make_shared<Poly>(p)) {}
@@ -382,8 +382,8 @@ namespace euphoria::core::dump2d
             }
         }
 
-        auto vline = [&](float x, const Rgbi& c) { writer.file << "<line x1=\"" << px(x) << "\" y1=\"0\""           " x2=\""<< px(x) <<"\" y2=\"" << height << "\" style=\"stroke:"<< ToHtml(c) <<";stroke-width:1\" />\n"; };
-        auto hline = [&](float y, const Rgbi& c) { writer.file << "<line x1=\"0\""            " y1=\""<< py(y) << "\" x2=\""<< width <<"\" y2=\"" << py(y)  << "\" style=\"stroke:"<< ToHtml(c) <<";stroke-width:1\" />\n"; };
+        auto vline = [&](float x, const rgbi& c) { writer.file << "<line x1=\"" << px(x) << "\" y1=\"0\""           " x2=\""<< px(x) <<"\" y2=\"" << height << "\" style=\"stroke:"<< ToHtml(c) <<";stroke-width:1\" />\n"; };
+        auto hline = [&](float y, const rgbi& c) { writer.file << "<line x1=\"0\""            " y1=\""<< py(y) << "\" x2=\""<< width <<"\" y2=\"" << py(y)  << "\" style=\"stroke:"<< ToHtml(c) <<";stroke-width:1\" />\n"; };
 
         const auto grid_color = Color::LightGray;
 
@@ -510,7 +510,7 @@ namespace euphoria::core::dump3d
     }
 
 
-    std::string ToHex(const Rgbi& c)
+    std::string ToHex(const rgbi& c)
     {
         std::stringstream ss;
         ss << "0x" << std::hex
@@ -523,7 +523,7 @@ namespace euphoria::core::dump3d
 
 
     void
-    Dumper::AddSphere(const vec3f& p, float radius, const Rgbi& color)
+    Dumper::AddSphere(const vec3f& p, float radius, const rgbi& color)
     {
         file << s << "add_geom(new THREE.SphereGeometry(" << radius << "), " << ToHex(color) << ")\n"
              << s << "  .position.set("<<p.x<<", "<<p.y<<", "<<p.z<<");\n";
@@ -531,7 +531,7 @@ namespace euphoria::core::dump3d
 
 
     void
-    Dumper::AddLines(const std::vector<vec3f>& points, const Rgbi& color)
+    Dumper::AddLines(const std::vector<vec3f>& points, const rgbi& color)
     {
         file
         << s << "(function() {\n"
@@ -563,7 +563,7 @@ namespace euphoria::core::dump3d
 
 
     void
-    Dumper::AddPlane(const Plane& plane, const Rgbi& color)
+    Dumper::AddPlane(const Plane& plane, const rgbi& color)
     {
         constexpr auto size = 5;
         file
@@ -575,7 +575,7 @@ namespace euphoria::core::dump3d
 
 
     void
-    Dumper::AddArrow(const Ray3f& ray, const Rgbi& color)
+    Dumper::AddArrow(const Ray3f& ray, const rgbi& color)
     {
         file
         << s << "scene.add(new THREE.ArrowHelper("

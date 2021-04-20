@@ -5,10 +5,10 @@ namespace euphoria::core
 {
     namespace
     {
-        Rgbi
+        rgbi
         C(unsigned int hex)
         {
-            return Rgbi::FromHex(hex);
+            return rgbi::from_hex(hex);
         }
     }  // namespace
 

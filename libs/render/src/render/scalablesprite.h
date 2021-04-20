@@ -15,7 +15,7 @@ namespace euphoria::core::vfs
 
 namespace euphoria::core
 {
-    struct Rgba;
+    struct rgba;
 }
 
 namespace euphoria::render
@@ -42,7 +42,7 @@ namespace euphoria::render
         GetMinimumSize() const;
 
         void
-        Render(SpriteRenderer* sr, const core::Rectf& pos, const core::Rgba& tint ) const;
+        Render(SpriteRenderer* sr, const core::Rectf& pos, const core::rgba& tint ) const;
 
         std::shared_ptr<texture2d> texture_;
 

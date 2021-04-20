@@ -101,7 +101,7 @@ namespace euphoria::core
 
 
     void
-    Image::SetPixel(int x, int y, const Rgbai& color)
+    Image::SetPixel(int x, int y, const rgbai& color)
     {
         SetPixel(x, y, color.r, color.g, color.b, color.a);
     }
@@ -133,7 +133,7 @@ namespace euphoria::core
     }
 
 
-    Rgbai
+    rgbai
     Image::GetPixel(int x, int y) const
     {
         ASSERTX(IsWithinInclusivei(0, x, GetWidth() - 1), x, GetWidth());
@@ -148,11 +148,11 @@ namespace euphoria::core
         if(has_alpha_)
         {
             const auto alpha = components[base_index + 3];
-            return Rgbai {Rgbi {red, green, blue}, alpha};
+            return rgbai {rgbi {red, green, blue}, alpha};
         }
         else
         {
-            return Rgbi {red, green, blue};
+            return rgbi {red, green, blue};
         }
     }
 

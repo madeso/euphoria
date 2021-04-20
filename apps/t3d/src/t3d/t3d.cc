@@ -114,7 +114,7 @@ namespace euphoria::t3d
         core::Lines& def,
         float size,
         float x,
-        const core::Rgb& color
+        const core::rgb& color
     )
     {
         def.AddLine(core::vec3f {x, 0, -size},  core::vec3f {x, 0, size}, color);

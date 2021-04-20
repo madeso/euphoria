@@ -18,7 +18,7 @@ namespace euphoria::render
     DrawData::DrawData()
         : rotation(0.0_rad)
         , scale(core::scale2f(1, 1))
-        , tint(core::Rgba(core::Color::White))
+        , tint(core::rgba(core::Color::White))
     {
     }
 
@@ -40,7 +40,7 @@ namespace euphoria::render
 
 
     DrawData&
-    DrawData::Tint(const core::Rgba& t)
+    DrawData::Tint(const core::rgba& t)
     {
         tint = t;
         return *this;
@@ -75,7 +75,7 @@ namespace euphoria::render
         const core::Rectf& texture_region,
         const core::Angle& rotation_angle,
         const core::scale2f& rotation_anchor,
-        const core::Rgba& tint_color
+        const core::rgba& tint_color
     )
     {
         Use(shader_);
@@ -145,7 +145,7 @@ namespace euphoria::render
     (
         const ScalableSprite& ninepatch,
         const core::Rectf& rect,
-        const core::Rgba& tint
+        const core::rgba& tint
     )
     {
         ninepatch.Render(this, rect, tint);

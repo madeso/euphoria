@@ -11,7 +11,7 @@ namespace euphoria::core
     namespace
     {
         float
-        Diff(const Rgbi& lhs, const Rgbi& rhs)
+        Diff(const rgbi& lhs, const rgbi& rhs)
         {
             return
                 Square(static_cast<float>(lhs.r - rhs.r)) +
@@ -22,7 +22,7 @@ namespace euphoria::core
     }
 
 
-    Palette::Palette(const std::string& n, const std::vector<Rgbi>& c)
+    Palette::Palette(const std::string& n, const std::vector<rgbi>& c)
         : name(n)
         , colors(c)
     {
@@ -36,29 +36,29 @@ namespace euphoria::core
     }
 
 
-    const Rgbi&
+    const rgbi&
     Palette::GetRandomColor(Random* r) const
     {
         return r->Next(colors);
     }
 
 
-    const Rgbi&
+    const rgbi&
     Palette::GetSafeIndex(unsigned int i) const
     {
         return colors[i % colors.size()];
     }
 
 
-    const Rgbi&
-    Palette::GetClosestColor(const Rgbi& c) const
+    const rgbi&
+    Palette::GetClosestColor(const rgbi& c) const
     {
         return colors[GetIndexClosest(c)];
     }
 
 
     unsigned int
-    Palette::GetIndexClosest(const Rgbi& c) const
+    Palette::GetIndexClosest(const rgbi& c) const
     {
         ASSERT(!colors.empty());
         auto diff_best = Diff(c, colors[0]);
@@ -113,16 +113,16 @@ namespace euphoria::core
         for(int i = 0; i < count; i += 1)
         {
             float d = static_cast<float>(i) / static_cast<float>(count - 1);
-            const auto rgbf = rgb
+            const auto rgbf = crgb
             (
-                Hsl
+                hsl
                 {
                     AngleTransform::Transform(from, d, to),
                     saturation,
                     lightness
                 }
             );
-            pal.colors.push_back(rgbi(rgbf));
+            pal.colors.push_back(crgbi(rgbf));
         }
 
         return pal;
@@ -139,10 +139,10 @@ namespace euphoria::core
 
     namespace
     {
-        Rgbi
+        rgbi
         C(unsigned int hex)
         {
-            return Rgbi::FromHex(hex);
+            return rgbi::from_hex(hex);
         }
     }
 

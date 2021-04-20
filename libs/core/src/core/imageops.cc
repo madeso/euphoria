@@ -20,7 +20,7 @@ namespace euphoria::core
                 img.GetWidth(), img.GetHeight(), ' ');
         ret.SetAll([&pal, &map, &img](int x, int y) {
             const auto p     = img.GetPixel(x, y);
-            const auto index = pal.GetIndexClosest(Rgbi {p.r, p.g, p.b});
+            const auto index = pal.GetIndexClosest(rgbi {p.r, p.g, p.b});
             return map[index].to;
         });
 
@@ -32,7 +32,7 @@ namespace euphoria::core
             const Image&                       img,
             const std::vector<ImageMapAction>& map, char missing)
     {
-        auto find_match = [&](const Rgbi& c) -> char
+        auto find_match = [&](const rgbi& c) -> char
         {
             for(const auto& m: map)
             {
@@ -48,7 +48,7 @@ namespace euphoria::core
                 img.GetWidth(), img.GetHeight(), ' ');
         ret.SetAll([&](int x, int y) {
             const auto p = img.GetPixel(x, y);
-            const auto c = Rgbi {p.r, p.g, p.b};
+            const auto c = rgbi {p.r, p.g, p.b};
             const auto r = find_match(c);
             return r;
         });
@@ -66,7 +66,7 @@ namespace euphoria::core
             const std::string characters = shorter
                 ? "@%#*+=-:. "
                 : "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,\"^`'. ";
-            const auto inverted_color = rgb
+            const auto inverted_color = crgb
             (
                 MakeGrayscale(img.GetPixel(x, y), grayscale)
             ).r;

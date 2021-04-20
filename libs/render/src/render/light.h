@@ -41,9 +41,9 @@ namespace euphoria::render
         Type type;
         core::vec3f position;
         core::unit3f direction;
-        core::Rgb ambient;
-        core::Rgb diffuse;
-        core::Rgb specular;
+        core::rgb ambient;
+        core::rgb diffuse;
+        core::rgb specular;
         core::Angle cutoff_angle_outer;
         core::Angle cutoff_angle_inner;
 

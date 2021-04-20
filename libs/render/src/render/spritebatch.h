@@ -31,7 +31,7 @@ namespace euphoria::render
             const core::Rectf& uv,
             const core::scale2f& center,
             const core::Angle& rotation,
-            const core::Rgba& color
+            const core::rgba& color
         );
 
         void

@@ -145,7 +145,7 @@ C(game::ViewportType type)
 }
 
 
-Rgb
+rgb
 GetColor(std::shared_ptr<game::Color> c)
 {
     if(c == nullptr)
@@ -155,7 +155,7 @@ GetColor(std::shared_ptr<game::Color> c)
 
     if(c->hex != nullptr)
     {
-        return Rgb::FromHex(colorutil::FromStringToHex(*c->hex));
+        return rgb::from_hex(colorutil::from_string_to_hex(*c->hex));
     }
 
     LOG_ERROR("Unable to parse color");

@@ -121,10 +121,10 @@ namespace euphoria::core::raytracer
     }
 
 
-    Rgb
-    rgb(const unit3f& normal)
+    rgb
+    crgb(const unit3f& normal)
     {
-        return Rgb
+        return rgb
         {
             (normal.x + 1)/2,
             (normal.y + 1)/2,
@@ -141,9 +141,9 @@ namespace euphoria::core::raytracer
 
     struct DiffuseMaterial : public Material
     {
-        Rgb albedo;
+        rgb albedo;
 
-        explicit DiffuseMaterial(const Rgb& aalbedo)
+        explicit DiffuseMaterial(const rgb& aalbedo)
             : albedo(aalbedo)
         {
         }
@@ -175,12 +175,12 @@ namespace euphoria::core::raytracer
 
     struct MetalMaterial : public Material
     {
-        Rgb albedo;
+        rgb albedo;
         float fuzz;
 
         explicit MetalMaterial
         (
-            const Rgb& aalbedo,
+            const rgb& aalbedo,
             float afuzz
         )
             : albedo(aalbedo)
@@ -261,12 +261,12 @@ namespace euphoria::core::raytracer
 
     struct DielectricMaterial : public Material
     {
-        Rgb albedo;
+        rgb albedo;
         float refractive_index;
 
         explicit DielectricMaterial
         (
-            const Rgb& aalbedo,
+            const rgb& aalbedo,
             float arefractive_index
         )
             : albedo(aalbedo)
@@ -331,7 +331,7 @@ namespace euphoria::core::raytracer
     std::shared_ptr<Material>
     CreateDiffuseMaterial
     (
-        const Rgb& albedo
+        const rgb& albedo
     )
     {
         return std::make_shared<DiffuseMaterial>
@@ -344,7 +344,7 @@ namespace euphoria::core::raytracer
     std::shared_ptr<Material>
     CreateMetalMaterial
     (
-        const Rgb& albedo,
+        const rgb& albedo,
         float fuzz
     )
     {
@@ -359,7 +359,7 @@ namespace euphoria::core::raytracer
     std::shared_ptr<Material>
     CreateDielectricMaterial
     (
-        const Rgb& albedo,
+        const rgb& albedo,
         float refractive_index
     )
     {
@@ -371,7 +371,7 @@ namespace euphoria::core::raytracer
     }
 
 
-    Rgb
+    rgb
     GetColor
     (
         const Scene& scene,
@@ -419,9 +419,9 @@ namespace euphoria::core::raytracer
         const auto t = (ray.dir.y+1)/2.0f;
         return RgbTransform::Transform
         (
-            Rgb(1.0f, 1.0f, 1.0f),
+            rgb(1.0f, 1.0f, 1.0f),
             t,
-            Rgb(0.5f, 0.7f, 1.0f)
+            rgb(0.5f, 0.7f, 1.0f)
         );
     }
 
@@ -460,8 +460,8 @@ namespace euphoria::core::raytracer
     };
 
 
-    Rgb
-    Gamma2CorrectColor(Rgb color)
+    rgb
+    Gamma2CorrectColor(rgb color)
     {
         return {Sqrt(color.r), Sqrt(color.g), Sqrt(color.b)};
     }
@@ -480,7 +480,7 @@ namespace euphoria::core::raytracer
         {
             for(int x=0; x<img.GetWidth(); x+=1)
             {
-                Rgb color = Color::Black;
+                rgb color = Color::Black;
                 for(int sample = 0; sample < number_of_samples; sample += 1)
                 {
                     const auto u = (static_cast<float>(x) + random.NextFloat01()) / static_cast<float>(img.GetWidth());
@@ -491,7 +491,7 @@ namespace euphoria::core::raytracer
                 }
                 color = color/static_cast<float>(number_of_samples);
                 color = Gamma2CorrectColor(color);
-                img.SetPixel(x,y, rgbi(color));
+                img.SetPixel(x,y, crgbi(color));
             }
         }
 

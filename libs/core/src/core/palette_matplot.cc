@@ -23,7 +23,7 @@ namespace euphoria::core
 {
     namespace
     {
-        Rgbi
+        rgbi
         C(unsigned char r, unsigned char g, unsigned char b)
         {
             return {r, g, b};

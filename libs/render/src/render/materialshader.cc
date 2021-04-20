@@ -258,9 +258,9 @@ namespace euphoria::render
 
     void
     MaterialShader::SetColors(
-            const core::Rgb& ambient_data,
-            const core::Rgb& diffuse_data,
-            const core::Rgb& specular_data,
+            const core::rgb& ambient_data,
+            const core::rgb& diffuse_data,
+            const core::rgb& specular_data,
             float            shininess_data)
     {
         if(!ambient.IsNull())
@@ -277,7 +277,7 @@ namespace euphoria::render
         {
             const auto the_specular = shininess_data > 0
                                               ? specular_data
-                                              : core::Rgb {core::Color::Black};
+                                              : core::rgb {core::Color::Black};
             shader.SetUniform(specular, the_specular);
         }
 

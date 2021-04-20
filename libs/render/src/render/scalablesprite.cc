@@ -100,7 +100,7 @@ namespace euphoria::render
 
 
     void
-    ScalableSprite::Render(SpriteRenderer* sr, const core::Rectf& rect, const core::Rgba& tint
+    ScalableSprite::Render(SpriteRenderer* sr, const core::Rectf& rect, const core::rgba& tint
     ) const
     {
         const auto size_ = rect.GetSize();

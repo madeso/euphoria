@@ -288,8 +288,8 @@ namespace euphoria::core
 
 
         template<typename TBlendFunction>
-        Rgbi
-        Blend(const Rgbi& top, const Rgbi& bottom, TBlendFunction blend_function)
+        rgbi
+        Blend(const rgbi& top, const rgbi& bottom, TBlendFunction blend_function)
         {
             return
             {
@@ -301,10 +301,10 @@ namespace euphoria::core
 
 
         template<typename TBlendFunction>
-        Rgb
-        Blend(const Rgb& top, const Rgb& bottom, TBlendFunction blend_function)
+        rgb
+        Blend(const rgb& top, const rgb& bottom, TBlendFunction blend_function)
         {
-            return rgb(Blend(rgbi(top), rgbi(bottom), blend_function));
+            return crgb(Blend(crgbi(top), crgbi(bottom), blend_function));
         }
 
 
@@ -317,11 +317,11 @@ namespace euphoria::core
 
 
         template<typename TBlendFunction>
-        Rgbai
+        rgbai
         Blend
         (
-            const Rgbai& top,
-            const Rgbai& bottom,
+            const rgbai& top,
+            const rgbai& bottom,
             TBlendFunction blend_function
         )
         {
@@ -349,10 +349,10 @@ namespace euphoria::core
 
 
         template<typename TBlendFunction>
-        Rgba
-        Blend(const Rgba& top, const Rgba& bottom, TBlendFunction blend_function)
+        rgba
+        Blend(const rgba& top, const rgba& bottom, TBlendFunction blend_function)
         {
-            return rgba(Blend(rgbai(top), rgbai(bottom), blend_function));
+            return crgba(Blend(crgbai(top), crgbai(bottom), blend_function));
         }
 
 
@@ -395,8 +395,8 @@ namespace euphoria::core
     }
 
 
-    Rgb   Blend(const Rgb&   top, const Rgb&   bottom, BlendMode mode) { return ColorBlend(mode, top, bottom); }
-    Rgba  Blend(const Rgba&  top, const Rgba&  bottom, BlendMode mode) { return ColorBlend(mode, top, bottom); }
-    Rgbi  Blend(const Rgbi&  top, const Rgbi&  bottom, BlendMode mode) { return ColorBlend(mode, top, bottom); }
-    Rgbai Blend(const Rgbai& top, const Rgbai& bottom, BlendMode mode) { return ColorBlend(mode, top, bottom); }
+    rgb   Blend(const rgb&   top, const rgb&   bottom, BlendMode mode) { return ColorBlend(mode, top, bottom); }
+    rgba  Blend(const rgba&  top, const rgba&  bottom, BlendMode mode) { return ColorBlend(mode, top, bottom); }
+    rgbi  Blend(const rgbi&  top, const rgbi&  bottom, BlendMode mode) { return ColorBlend(mode, top, bottom); }
+    rgbai Blend(const rgbai& top, const rgbai& bottom, BlendMode mode) { return ColorBlend(mode, top, bottom); }
 }

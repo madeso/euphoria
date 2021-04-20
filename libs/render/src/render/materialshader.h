@@ -69,9 +69,9 @@ namespace euphoria::render
         void
         SetColors
         (
-            const core::Rgb& ambient_data,
-            const core::Rgb& diffuse_data,
-            const core::Rgb& specular_data,
+            const core::rgb& ambient_data,
+            const core::rgb& diffuse_data,
+            const core::rgb& specular_data,
             float            shininess_data
         );
 

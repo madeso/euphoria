@@ -18,7 +18,7 @@ namespace euphoria::core
     struct ImageMapAction
     {
         char to;
-        Rgbi from_color;
+        rgbi from_color;
     };
 
     Table<char>

@@ -52,7 +52,7 @@ namespace euphoria::render
             DrawData{}
                 .Rotation(rotation)
                 .Scale(scale)
-                .Tint(core::Rgba(color, alpha))
+                .Tint(core::rgba(color, alpha))
         );
     }
 

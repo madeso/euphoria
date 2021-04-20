@@ -18,22 +18,22 @@ namespace euphoria::core
     WholeImage(const Image& image);
 
     void
-    Clear(Image* image, const Rgbai& color);
+    Clear(Image* image, const rgbai& color);
 
     void
-    DrawRect(Image* image, const Rgbai& color, const Recti& rect);
+    DrawRect(Image* image, const rgbai& color, const Recti& rect);
 
     void
-    DrawSquare(Image* image, const Rgbai& color, int x, int y, int size);
+    DrawSquare(Image* image, const rgbai& color, int x, int y, int size);
 
     void
-    FillPoly(Image* image, const Rgbai& color, const std::vector<vec2f>& poly);
+    FillPoly(Image* image, const rgbai& color, const std::vector<vec2f>& poly);
 
     void
     DrawCircle
     (
         Image* image,
-        const Rgb& color,
+        const rgb& color,
         const vec2i& center,
         float radius,
         float softness = 0.0f,
@@ -44,7 +44,7 @@ namespace euphoria::core
     DrawLineFast
     (
         Image* image,
-        const Rgbai& color,
+        const rgbai& color,
         const vec2i& from,
         const vec2i& to
     );
@@ -53,7 +53,7 @@ namespace euphoria::core
     DrawLineAntialiased
     (
         Image* image,
-        const Rgb& color,
+        const rgb& color,
         const vec2f& from,
         const vec2f& to
     );
@@ -62,7 +62,7 @@ namespace euphoria::core
     DrawLineAntialiased
     (
         Image* image,
-        const Rgb& color,
+        const rgb& color,
         const vec2i& from,
         const vec2i& to
     );
@@ -74,7 +74,7 @@ namespace euphoria::core
         Image* image,
         const vec2i& start_pos,
         const std::string& text,
-        const Rgbai& color,
+        const rgbai& color,
         const LoadedFont& font
     );
 
@@ -105,7 +105,7 @@ namespace euphoria::core
         Image* image,
         const vec2f& from,
         const vec2f& to,
-        const Rgbai& color,
+        const rgbai& color,
         float size
     );
 

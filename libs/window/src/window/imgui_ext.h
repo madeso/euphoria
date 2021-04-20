@@ -15,9 +15,9 @@
 namespace euphoria::core
 {
     struct Angle;
-    struct Rgb;
-    struct Rgba;
-    struct Rgbai;
+    struct rgb;
+    struct rgba;
+    struct rgbai;
 }
 
 namespace euphoria::render
@@ -58,13 +58,13 @@ namespace euphoria::window
     ImguiImage(render::texture2d* texture);
 
     bool
-    ImGuiColorEdit(const char* const name, core::Rgb* rgb);
+    ImGuiColorEdit(const char* const name, core::rgb* rgb);
 
     bool
-    ImGuiColorEdit(const char* const name, core::Rgba* rgb);
+    ImGuiColorEdit(const char* const name, core::rgba* rgb);
 
     bool
-    ImGuiColorEdit(const char* const name, core::Rgbai* rgb);
+    ImGuiColorEdit(const char* const name, core::rgbai* rgb);
 
     enum class ImguiCorner
     {

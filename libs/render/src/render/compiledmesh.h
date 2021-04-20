@@ -75,9 +75,9 @@ namespace euphoria::render
         Validate() const;
 
 
-        core::Rgb ambient;
-        core::Rgb diffuse;
-        core::Rgb specular;
+        core::rgb ambient;
+        core::rgb diffuse;
+        core::rgb specular;
         float shininess;
         std::shared_ptr<MaterialShader> shader;
         std::map<core::EnumValue, std::shared_ptr<texture2d>> textures;

@@ -89,9 +89,9 @@ namespace euphoria::core
         std::optional<core::vfs::FilePath> shader;
 
         // tints
-        Rgb ambient;
-        Rgb diffuse;
-        Rgb specular;
+        rgb ambient;
+        rgb diffuse;
+        rgb specular;
 
         float shininess;
 

@@ -225,7 +225,7 @@ namespace euphoria::core::generator
         , corridor_color(Color::White)
     {}
 
-    Rgbi
+    rgbi
     Drawer::CalculateCellColor(int x, int y) const
     {
         const auto cell_value = (*maze)(x, y);

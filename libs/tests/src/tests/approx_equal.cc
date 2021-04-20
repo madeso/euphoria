@@ -24,8 +24,8 @@ namespace euphoria::tests
     template <>
     bool
     approximately_equal(
-            core::Rgb const&  lhs,
-            core::Rgb const&  rhs,
+            core::rgb const&  lhs,
+            core::rgb const&  rhs,
             const ApproxData& data)
     {
         return approximately_equal(lhs.r, rhs.r, data)
@@ -36,8 +36,8 @@ namespace euphoria::tests
     template <>
     bool
     approximately_equal(
-            core::Hsl const&  lhs,
-            core::Hsl const&  rhs,
+            core::hsl const&  lhs,
+            core::hsl const&  rhs,
             const ApproxData& data)
     {
         return approximately_equal(lhs.h.InDegrees(), rhs.h.InDegrees(), data)
@@ -58,8 +58,8 @@ namespace euphoria::tests
     template <>
     bool
     approximately_equal(
-            core::Rgba const& lhs,
-            core::Rgba const& rhs,
+            core::rgba const& lhs,
+            core::rgba const& rhs,
             const ApproxData& data)
     {
         return approximately_equal(lhs.r, rhs.r, data)

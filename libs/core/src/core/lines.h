@@ -11,10 +11,10 @@ namespace euphoria::core
 {
     struct LinePoint
     {
-        LinePoint(const vec3f& p, const Rgb& c);
+        LinePoint(const vec3f& p, const rgb& c);
 
         vec3f point;
-        Rgb color;
+        rgb color;
     };
 
     using Line = std::tuple<int, int>;
@@ -24,7 +24,7 @@ namespace euphoria::core
         std::vector<LinePoint> points;
         std::vector<Line> lines;
 
-        void AddLine(const vec3f& from, const vec3f& to, const Rgb& c);
+        void AddLine(const vec3f& from, const vec3f& to, const rgb& c);
     };
 }
 

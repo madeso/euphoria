@@ -38,7 +38,7 @@ namespace euphoria::core
         const std::vector<vec2i>& positions,
         const std::vector<Image>& images,
         const Sizei& size,
-        const Rgbi& background_color
+        const rgbi& background_color
     )
     {
         auto composed_image = Image{};
@@ -149,7 +149,7 @@ namespace euphoria::core
         const std::vector<std::string>& files,
         const Sizei& requested_size,
         int padding,
-        Rgbi background_color,
+        rgbi background_color,
         bool pack_image
     )
     {
@@ -281,7 +281,7 @@ namespace euphoria::core
     (
         const std::vector<Image>& images,
         int padding,
-        Rgbi background_color,
+        rgbi background_color,
         bool top_to_bottom
     )
     {

@@ -52,7 +52,7 @@ HandleGrid
 (
     const std::string& output_file,
     int padding,
-    Rgbi background_color,
+    rgbi background_color,
     const std::vector<std::string>& src_files,
     bool top_to_bottom,
     bool sort_files
@@ -103,7 +103,7 @@ HandlePack
     const std::string& output_file,
     const Sizei& requested_size,
     int padding,
-    Rgbi background_color,
+    rgbi background_color,
     bool pack_image,
     const std::vector<std::string>& files
 )
@@ -169,7 +169,7 @@ main(int argc, char* argv[])
         "grid", "lay put images in a grid",
         [](argparse::sub_parser* sub)
         {
-            Rgbi background_color = Color::Gray;
+            rgbi background_color = Color::Gray;
             std::string output_file = "collage.png";
             int padding = 5;
             bool top_to_bottom = true;
@@ -229,7 +229,7 @@ main(int argc, char* argv[])
         [](argparse::sub_parser* sub)
         {
             auto image_size = Sizei::FromWidthHeight(1024, 1024);
-            Rgbi background_color = Color::Gray;
+            rgbi background_color = Color::Gray;
             std::string output_file = "collage.png";
             int padding = 5;
             bool pack_image = true;

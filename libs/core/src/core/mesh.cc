@@ -159,10 +159,10 @@ namespace euphoria::core
         }
 
 
-        Rgb
+        rgb
         C(const aiColor3D c)
         {
-            return Rgb {c.r, c.g, c.b};
+            return rgb {c.r, c.g, c.b};
         }
 
 

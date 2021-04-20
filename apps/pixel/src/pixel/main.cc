@@ -61,7 +61,7 @@ Sprite animations
 
 
 ImU32
-C(const Rgbai& c)
+C(const rgbai& c)
 {
     return IM_COL32(c.r, c.g, c.b, c.a);
 }
@@ -82,7 +82,7 @@ enum class Tool
 
 
 void
-FloodFill(Image* image, int x, int y, const Rgbai& target_color, const Rgbai& replacement_color)
+FloodFill(Image* image, int x, int y, const rgbai& target_color, const rgbai& replacement_color)
 {
     if(IsWithin(image->GetIndices(), vec2i(x, y)) == false) { return; }
     if(target_color == replacement_color) { return; }
@@ -135,7 +135,7 @@ main(int argc, char** argv)
     image.SetupNoAlphaSupport(64, 64);
     image.SetAllTopBottom([&](int, int)
     {
-        return Rgbai{palette.colors[background]};
+        return rgbai{palette.colors[background]};
     });
 
     while(running)
@@ -305,7 +305,7 @@ main(int argc, char** argv)
 
                 // draw image
                 ImDrawList* draw_list = ImGui::GetWindowDrawList();
-                image.ForAllTopBottom([&](int x, int y, const Rgbai& c)
+                image.ForAllTopBottom([&](int x, int y, const rgbai& c)
                 {
                     const auto pixel_size = 5;
                     const auto p = ImVec2(x * pixel_size, y*pixel_size);

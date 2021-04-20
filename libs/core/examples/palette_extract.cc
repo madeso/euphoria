@@ -62,25 +62,25 @@ LoadImages(const std::vector<std::string>& files)
 
 struct ExtractedColor
 {
-    ExtractedColor(const Rgbi& r, int c)
+    ExtractedColor(const rgbi& r, int c)
         : color(r)
         , count(c)
     {
     }
 
-    Rgbi color;
+    rgbi color;
     int count;
 };
 
 
 int
-Find(std::vector<ExtractedColor>* psource, const Rgbi& color, float length)
+Find(std::vector<ExtractedColor>* psource, const rgbi& color, float length)
 {
     auto& source = *psource;
 
     for(int i=0; i<Csizet_to_int(source.size()); i+=1)
     {
-        if((rgb(source[i].color) - rgb(color)).GetLength()*255 < length)
+        if((crgb(source[i].color) - crgb(color)).get_length()*255 < length)
         {
             return i;
         }
@@ -101,7 +101,7 @@ ExtractColors(const std::vector<ImageAndFile>& images, float range)
         {
             for(int x=0; x<img.image.GetWidth(); x+=1)
             {
-                const auto index = Find(&ret, rgbi(img.image.GetPixel(x,y)), range);
+                const auto index = Find(&ret, crgbi(img.image.GetPixel(x,y)), range);
                 ret[index].count += 1;
             }
         }
@@ -121,8 +121,8 @@ ExtractColors(const std::vector<ImageAndFile>& images)
         {
             for(int x=0; x<img.image.GetWidth(); x+=1)
             {
-                const auto color = rgbi(img.image.GetPixel(x, y));
-                const auto hex = color.ToHex();
+                const auto color = crgbi(img.image.GetPixel(x, y));
+                const auto hex = color.to_hex();
                 auto val = std::get<0>(colors.try_emplace(hex, 0));
                 val->second += 1;
             }
@@ -132,7 +132,7 @@ ExtractColors(const std::vector<ImageAndFile>& images)
     auto ret = std::vector<ExtractedColor>{};
     for(const auto c: colors)
     {
-        ret.emplace_back(Rgbi::FromHex(c.first), c.second);
+        ret.emplace_back(rgbi::from_hex(c.first), c.second);
     }
     return ret;
 }
@@ -218,9 +218,9 @@ HandlePrint
     (
         colors.begin(),
         colors.end(),
-        [](const Rgbi& lhs, const Rgbi& rhs) -> bool
+        [](const rgbi& lhs, const rgbi& rhs) -> bool
         {
-            return rgb(lhs).CalcLuminance() < rgb(rhs).CalcLuminance();
+            return crgb(lhs).calc_luminance() < crgb(rhs).calc_luminance();
         }
     );
 

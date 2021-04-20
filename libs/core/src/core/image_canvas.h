@@ -15,7 +15,7 @@ namespace euphoria::core
     // https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D
     struct Canvas
     {
-        Rgbi fillStyle;
+        rgbi fillStyle;
 
         Image* image;
 

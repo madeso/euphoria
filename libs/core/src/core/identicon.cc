@@ -67,8 +67,8 @@ namespace
         int patch,
         int turn,
         bool invert,
-        const Rgbi& foreColor,
-        const Rgbi& backColor
+        const rgbi& foreColor,
+        const rgbi& backColor
     ) {
         patch %= patchTypes.size();
         turn %= 4;
@@ -135,8 +135,8 @@ namespace euphoria::core
         auto red = (code >> 27) & 31;
 
         const auto C = [](int i) { return static_cast<uint8_t>(KeepWithin(Range<int>{0, 255}, i)); };
-        auto foreColor = Rgbi(C(red << 3), C(green << 3), C(blue << 3));
-        auto backColor = Rgbi(255, 255, 255);
+        auto foreColor = rgbi(C(red << 3), C(green << 3), C(blue << 3));
+        auto backColor = rgbi(255, 255, 255);
 
         // middle patch
         render_identicon_patch(image, patchSize, patchSize, patchSize, middleType, 0, middleInvert, foreColor, backColor);

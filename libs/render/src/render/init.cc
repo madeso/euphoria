@@ -66,7 +66,7 @@ namespace euphoria::render
 
 
     void
-    Init::ClearScreen(const core::Rgb& color) const
+    Init::ClearScreen(const core::rgb& color) const
     {
         ASSERT(ok);
         glClearColor(color.r, color.g, color.b, 1.0f);

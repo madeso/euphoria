@@ -147,17 +147,17 @@ namespace euphoria::core
 
     struct BorderSettings
     {
-        explicit BorderSettings(const Rgbai& c);
+        explicit BorderSettings(const rgbai& c);
 
-        Rgbai color;
+        rgbai color;
     };
 
     Image
     Draw
     (
         const BoolTable& world,
-        Rgbai wall_color,
-        Rgbai space_color,
+        rgbai wall_color,
+        rgbai space_color,
         int scale,
         // if nullopt, no border
         std::optional<BorderSettings> border

@@ -18,13 +18,13 @@ namespace
     using namespace euphoria::core;
 
 
-    Rgbai
-    CalculateBorderColor(Rgbai base)
+    rgbai
+    CalculateBorderColor(rgbai base)
     {
-        auto h = hsl(rgb(base));
+        auto h = chsl(crgb(base));
         h.h -= Angle::FromDegrees(15);
         h.l *= 0.4;
-        return {rgbi(rgb(h)), base.a};
+        return {crgbi(crgb(h)), base.a};
     }
 
 
@@ -127,9 +127,9 @@ namespace
     (
         Image* image,
         const BoolTable& result_table,
-        const Rgbai& background_color,
-        const Rgbai& foreground_color,
-        const Rgbai& border_color
+        const rgbai& background_color,
+        const rgbai& foreground_color,
+        const rgbai& border_color
     )
     {
         Clear(image, background_color);
@@ -171,16 +171,16 @@ namespace
     (
         Image* image,
         I code,
-        const Rgbai& foreground_color,
-        const std::optional<Rgbai> border_color_arg,
-        const Rgbai& background_color
+        const rgbai& foreground_color,
+        const std::optional<rgbai> border_color_arg,
+        const rgbai& background_color
     )
     {
         constexpr int half_width = 4;
         constexpr int height = 8;
         const int number_of_steps = 3;
         // todo(Gustav): figure out color (randomly?)
-        const Rgbai border_color = border_color_arg.value_or
+        const rgbai border_color = border_color_arg.value_or
         (
             CalculateBorderColor(foreground_color)
         );
@@ -213,16 +213,16 @@ namespace
     (
         std::vector<Image>* images,
         I code,
-        const Rgbai& foreground_color,
-        const std::optional<Rgbai> border_color_arg,
-        const Rgbai& background_color
+        const rgbai& foreground_color,
+        const std::optional<rgbai> border_color_arg,
+        const rgbai& background_color
     )
     {
         constexpr int half_width = 4;
         constexpr int height = 8;
         const int number_of_steps = 3;
         // todo(Gustav): figure out color (randomly?)
-        const Rgbai border_color = border_color_arg.value_or
+        const rgbai border_color = border_color_arg.value_or
         (
             CalculateBorderColor(foreground_color)
         );
@@ -284,9 +284,9 @@ namespace euphoria::core
     (
         Image* image,
         int code,
-        const Rgbai& foreground_color,
-        std::optional<Rgbai> border_color_arg,
-        const Rgbai& background_color
+        const rgbai& foreground_color,
+        std::optional<rgbai> border_color_arg,
+        const rgbai& background_color
     )
     {
         RenderSpratorImpl<xorshift32>
@@ -305,9 +305,9 @@ namespace euphoria::core
     (
         std::vector<Image>* images,
         int code,
-        const Rgbai& foreground_color,
-        std::optional<Rgbai> border_color_arg,
-        const Rgbai& background_color
+        const rgbai& foreground_color,
+        std::optional<rgbai> border_color_arg,
+        const rgbai& background_color
     )
     {
         RenderSpratorImpl<xorshift32>

@@ -29,14 +29,14 @@ namespace euphoria::core
     }
 
     void
-    Clear(Image* image, const Rgbai& color)
+    Clear(Image* image, const rgbai& color)
     {
         ASSERT(image);
         return DrawRect(image, color, WholeImage(*image));
     }
 
     void
-    DrawRect(Image* image, const Rgbai& color, const Recti& rect)
+    DrawRect(Image* image, const rgbai& color, const Recti& rect)
     {
         ASSERT(image);
         const int left = rect.TopLeft().x;
@@ -64,7 +64,7 @@ namespace euphoria::core
 
 
     void
-    DrawSquare(Image* image, const Rgbai& color, int x, int y, int size)
+    DrawSquare(Image* image, const rgbai& color, int x, int y, int size)
     {
         ASSERT(image);
         DrawRect
@@ -143,7 +143,7 @@ namespace euphoria::core
     }
 
     void
-    FillPoly(Image* image, const Rgbai& color, const std::vector<vec2f>& poly)
+    FillPoly(Image* image, const rgbai& color, const std::vector<vec2f>& poly)
     {
         ASSERT(image);
 
@@ -174,7 +174,7 @@ namespace euphoria::core
     DrawCircle
     (
         Image* image,
-        const Rgb& color,
+        const rgb& color,
         const vec2i& center,
         float radius,
         float softness,
@@ -234,17 +234,17 @@ namespace euphoria::core
                     continue;
                 }
 
-                const Rgb paint_color = blend
+                const rgb paint_color = blend
                     ? RgbTransform::Transform
                     (
-                        rgb(image->GetPixel(x, y)),
+                        crgb(image->GetPixel(x, y)),
                         blend_factor,
                         color
                     )
                     : color
                     ;
 
-                image->SetPixel(x, y, Rgbai{paint_color});
+                image->SetPixel(x, y, rgbai{paint_color});
             }
         }
     }
@@ -253,7 +253,7 @@ namespace euphoria::core
     DrawLineFast
     (
         Image* image,
-        const Rgbai& color,
+        const rgbai& color,
         const vec2i& from,
         const vec2i& to
     )
@@ -341,7 +341,7 @@ namespace euphoria::core
     DrawLineAntialiased
     (
         Image* image,
-        const Rgb& color,
+        const rgb& color,
         const vec2i& from,
         const vec2i& to
     )
@@ -361,7 +361,7 @@ namespace euphoria::core
     DrawLineAntialiased
     (
         Image* image,
-        const Rgb& color,
+        const rgb& color,
         const vec2f& from,
         const vec2f& to
     )
@@ -381,13 +381,13 @@ namespace euphoria::core
             const bool valid_y = IsWithinInclusivei(0, y, image->GetHeight() - 1);
             if(valid_x && valid_y)
             {
-                const Rgb paint_color = RgbTransform::Transform
+                const rgb paint_color = RgbTransform::Transform
                 (
-                    rgb(image->GetPixel(x, y)),
+                    crgb(image->GetPixel(x, y)),
                     c,
                     color
                 );
-                image->SetPixel(x, y, Rgbai{paint_color});
+                image->SetPixel(x, y, rgbai{paint_color});
             }
         };
 
@@ -478,14 +478,14 @@ namespace euphoria::core
         }
     }
 
-    Rgba Tint(const Rgba& c, const Rgb& tint)
+    rgba Tint(const rgba& c, const rgb& tint)
     {
         return {{c.r * tint.r, c.g * tint.g, c.b * tint.b}, c.a};
     }
 
-    Rgbai Tint(const Rgbai& c, const Rgbai& tint)
+    rgbai Tint(const rgbai& c, const rgbai& tint)
     {
-        return rgbai(Tint(rgba(c), rgb(tint)));
+        return crgbai(Tint(crgba(c), crgb(tint)));
     }
 
     void
@@ -494,7 +494,7 @@ namespace euphoria::core
         Image* dst,
         const vec2i& p,
         const Image& src,
-        const Rgbai& tint
+        const rgbai& tint
     )
     {
         for(int y=0; y<src.GetHeight(); y+=1)
@@ -520,7 +520,7 @@ namespace euphoria::core
         Image* image,
         const vec2i& start_pos,
         const std::string& text,
-        const Rgbai& color,
+        const rgbai& color,
         const LoadedFont& font
     )
     {
@@ -593,7 +593,7 @@ namespace euphoria::core
         const vec2f& a,
         const vec2f& b,
         const vec2f& c,
-        const Rgbai& color
+        const rgbai& color
     )
     {
         const auto [minf, maxf] = FindMinMax<vec2f, std::vector<vec2f> >
@@ -649,7 +649,7 @@ namespace euphoria::core
         Image* image,
         const vec2f& from,
         const vec2f& to,
-        const Rgbai& color,
+        const rgbai& color,
         float size
     )
     {
@@ -699,7 +699,7 @@ namespace euphoria::core
         };
 
         // line
-        DrawLineAntialiased(image, rgb(color), from, to);
+        DrawLineAntialiased(image, crgb(color), from, to);
 
         // wings
         // DrawLineAntialiased(image, rgb(color), arrowPoint, arrowPointLeft);

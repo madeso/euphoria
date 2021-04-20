@@ -7,7 +7,7 @@
 namespace euphoria::core
 {
     struct Image;
-    struct Rgb;
+    struct rgb;
     struct Palette;
 
     enum class Grayscale
@@ -22,8 +22,8 @@ namespace euphoria::core
         Average
     };
 
-    Rgbai
-    MakeGrayscale(Rgbai color, Grayscale grayscale);
+    rgbai
+    MakeGrayscale(rgbai color, Grayscale grayscale);
 
     void
     MakeGrayscale(Image* image, Grayscale grayscale);
@@ -38,7 +38,7 @@ namespace euphoria::core
     EdgeDetection(Image* image, float r);
 
     void
-    ColorDetection(Image* image, Rgb color, float r);
+    ColorDetection(Image* image, rgb color, float r);
 
     void
     ChangeBrightness(Image* image, int change);
