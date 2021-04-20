@@ -39,11 +39,11 @@ png_dump(int extra_images)
     const auto image_size = 512;
     const float world_size = 100;
     const auto radius = 5.0f;
-    auto frames = argparse::FileOutput("poisson-frames/");
+    auto frames = argparse::file_output("poisson-frames/");
 
     auto image = Image{};
     image.SetupNoAlphaSupport(image_size, image_size);
-    frames.CreateDirIfMissing();
+    frames.create_dir_if_missing();
 
     auto worker = PoissonWorker
     {
@@ -102,7 +102,7 @@ png_dump(int extra_images)
                 2
             );
         }
-        io::ChunkToFile(image.Write(ImageWriteFormat::PNG), frames.NextFile());
+        io::ChunkToFile(image.Write(ImageWriteFormat::PNG), frames.get_next_file());
         // svg.Write("poisson.html", 800, 600);
     };
 
@@ -139,45 +139,45 @@ png_dump(int extra_images)
 int
 main(int argc, char* argv[])
 {
-    auto parser = argparse::Parser {"Poisson test"};
+    auto parser = argparse::parser {"Poisson test"};
 
-    auto sub = parser.AddSubParsers();
+    auto sub = parser.add_sub_parsers();
 
-    sub->Add
+    sub->add
     (
         "svg", "generate svg file",
-        [](argparse::SubParser* sub)
+        [](argparse::sub_parser* sub)
         {
-            return sub->OnComplete
+            return sub->on_complete
             (
                 []
                 {
                     svg_dump();
-                    return argparse::ParseResult::Ok;
+                    return argparse::ok;
                 }
             );
         }
     );
 
-    sub->Add
+    sub->add
     (
         "png", "generate png file",
-        [](argparse::SubParser* sub)
+        [](argparse::sub_parser* sub)
         {
             int extra_frames = 0;
-            sub->Add("--extra-frames", &extra_frames);
+            sub->add("--extra-frames", &extra_frames);
 
-            return sub->OnComplete
+            return sub->on_complete
             (
                 [&]
                 {
                     png_dump(extra_frames);
-                    return argparse::ParseResult::Ok;
+                    return argparse::ok;
                 }
             );
         }
     );
 
-    return argparse::ParseFromMain(&parser, argc, argv);
+    return argparse::parse_from_main(&parser, argc, argv);
 }
 

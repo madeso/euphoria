@@ -49,27 +49,27 @@ void RunRot13(const std::string& input)
 int
 main(int argc, char* argv[])
 {
-    core::argparse::Parser parser {"Cypher tool"};
+    core::argparse::parser parser {"Cypher tool"};
 
-    auto sub = parser.AddSubParsers();
+    auto sub = parser.add_sub_parsers();
 
-    sub->Add
+    sub->add
     (
         "rot13",
         "runs rot13 on input",
-        [&](core::argparse::SubParser* sent)
+        [&](core::argparse::sub_parser* sent)
         {
             std::string input;
 
-            sent->Add("input", &input);
+            sent->add("input", &input);
 
-            return sent->OnComplete([&]
+            return sent->on_complete([&]
             {
                 RunRot13(input);
-                return core::argparse::ParseResult::Ok;
+                return core::argparse::ok;
             });
         }
     );
 
-    return core::argparse::ParseFromMain(&parser, argc, argv);
+    return core::argparse::parse_from_main(&parser, argc, argv);
 }

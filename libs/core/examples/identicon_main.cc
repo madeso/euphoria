@@ -28,12 +28,12 @@ struct CommonArguments
     bool use_random = true;
     HashType type = HashType::Identicon;
 
-    explicit CommonArguments(argparse::ParserBase* base)
+    explicit CommonArguments(argparse::parser_base* base)
     {
-        base->Add("--size", &image_size).Help("image size");
-        base->Add("--count", &number_of_images).Help("The number of images to generate");
-        base->SetFalse("--const", &use_random).Help("Use a constant value");
-        base->Add("-t", &type).Help("Set the type to use");
+        base->add("--size", &image_size).set_help("image size");
+        base->add("--count", &number_of_images).set_help("The number of images to generate");
+        base->set_false("--const", &use_random).set_help("Use a constant value");
+        base->add("-t", &type).set_help("Set the type to use");
     }
 };
 
@@ -192,16 +192,16 @@ void RunSpratorCollage
 int
 main(int argc, char* argv[])
 {
-    auto parser = argparse::Parser {"identicon test"};
-    auto subs = parser.AddSubParsers();
+    auto parser = argparse::parser {"identicon test"};
+    auto subs = parser.add_sub_parsers();
 
-    subs->Add
+    subs->add
     (
         "singles", "write many images",
-        [](argparse::SubParser* sub)
+        [](argparse::sub_parser* sub)
         {
             auto arguments = CommonArguments{sub};
-            return sub->OnComplete
+            return sub->on_complete
             (
                 [&]
                 {
@@ -213,18 +213,18 @@ main(int argc, char* argv[])
                         arguments.type,
                         false
                     );
-                    return argparse::ParseResult::Ok;
+                    return argparse::ok;
                 }
             );
         }
     );
-    subs->Add
+    subs->add
     (
         "collage", "write collage",
-        [](argparse::SubParser* sub)
+        [](argparse::sub_parser* sub)
         {
             auto arguments = CommonArguments{sub};
-            return sub->OnComplete
+            return sub->on_complete
             (
                 [&]
                 {
@@ -236,25 +236,25 @@ main(int argc, char* argv[])
                         arguments.type,
                         true
                     );
-                    return argparse::ParseResult::Ok;
+                    return argparse::ok;
                 }
             );
         }
     );
-    subs->Add
+    subs->add
     (
         "sprator", "write sprator collage",
-        [](argparse::SubParser* sub)
+        [](argparse::sub_parser* sub)
         {
             int image_size = 100;
             int number_of_images = 9;
             int frames = 3;
 
-            sub->Add("--size", &image_size).Help("Image size");
-            sub->Add("--images", &number_of_images).Help("the number of sprators");
-            sub->Add("--frames", &frames).Help("the number of anim frames");
+            sub->add("--size", &image_size).set_help("Image size");
+            sub->add("--images", &number_of_images).set_help("the number of sprators");
+            sub->add("--frames", &frames).set_help("the number of anim frames");
 
-            return sub->OnComplete
+            return sub->on_complete
             (
                 [&]
                 {
@@ -264,12 +264,12 @@ main(int argc, char* argv[])
                         number_of_images,
                         frames
                     );
-                    return argparse::ParseResult::Ok;
+                    return argparse::ok;
                 }
             );
         }
     );
 
-    return argparse::ParseFromMain(&parser, argc, argv);
+    return argparse::parse_from_main(&parser, argc, argv);
 }
 

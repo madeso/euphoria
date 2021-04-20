@@ -70,7 +70,7 @@ int
 main(int argc, char** argv)
 {
     Engine engine;
-    if(const auto r = engine.Setup(argparse::Arguments::Extract(argc, argv)); r != 0)
+    if(const auto r = engine.Setup(argparse::name_and_arguments::extract(argc, argv)); r != 0)
     {
         return r;
     }

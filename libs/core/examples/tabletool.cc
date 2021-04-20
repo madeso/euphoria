@@ -29,14 +29,14 @@ main(int argc, char* argv[])
     CsvTrim trim = CsvTrim::Trim;
 
     {
-        auto parser = argparse::Parser {"csvtool"};
+        auto parser = argparse::parser {"csvtool"};
 
-        parser.Add("-format", &format).Help("The CSV format used");
-        parser.SetConst("-simple", &type, Type::Simple);
-        parser.SetConst("-grid", &type, Type::Grid);
-        parser.SetConst("-notrim", &trim, CsvTrim::DontTrim);
-        parser.Add("CSV-file", &file);
-        if(const auto r = parser.Parse(argc, argv))
+        parser.add("-format", &format).set_help("The CSV format used");
+        parser.set_const("-simple", &type, Type::Simple);
+        parser.set_const("-grid", &type, Type::Grid);
+        parser.set_const("-notrim", &trim, CsvTrim::DontTrim);
+        parser.add("CSV-file", &file);
+        if(const auto r = parser.parse(argc, argv))
         {
             return *r;
         }

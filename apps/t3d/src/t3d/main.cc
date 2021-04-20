@@ -13,7 +13,7 @@ main(int argc, char** argv)
 {
     euphoria::t3d::T3d t3d;
 
-    const auto args = euphoria::core::argparse::Arguments::Extract(argc, argv);
+    const auto args = euphoria::core::argparse::name_and_arguments::extract(argc, argv);
 
     if(const auto r = t3d.Start(args); r != 0)
     {

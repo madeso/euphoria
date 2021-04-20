@@ -98,21 +98,21 @@ main(int argc, char* argv[])
     auto crazy_distance = 0.0f;
     std::string output_path = "voronoi.png";
 
-    auto parser = argparse::Parser {"voronoi generator"};
+    auto parser = argparse::parser {"voronoi generator"};
 
     // todo(Gustav): change to a subparser
-    parser.Add("--gen", &point_generation).Help("How to generate points");
-    parser.Add("--nopoints", &number_of_points).Help("number of points (in random)");
-    parser.Add("--radius", &poisson_radius).Help("point radius (in poisson)");
+    parser.add("--gen", &point_generation).set_help("How to generate points");
+    parser.add("--nopoints", &number_of_points).set_help("number of points (in random)");
+    parser.add("--radius", &poisson_radius).set_help("point radius (in poisson)");
 
-    parser.Add("--imsize", &size).Help("image size");
-    parser.Add("--output", &output_path).Help("where to save the result");
-    parser.SetTrue("--colorblind", &use_colorblind).Help("Switch to a colorblind palette");
-    parser.SetTrue("--cos", &cos_distance).Help("Instead of distance, cos(distance)");
-    parser.Add("--crazy", &crazy_distance).Help("Sort distance acording to abs(value-distance)");
-    parser.Add("--distance", &distance_function).Help("How to calculate distance");
+    parser.add("--imsize", &size).set_help("image size");
+    parser.add("--output", &output_path).set_help("where to save the result");
+    parser.set_true("--colorblind", &use_colorblind).set_help("Switch to a colorblind palette");
+    parser.set_true("--cos", &cos_distance).set_help("Instead of distance, cos(distance)");
+    parser.add("--crazy", &crazy_distance).set_help("Sort distance acording to abs(value-distance)");
+    parser.add("--distance", &distance_function).set_help("How to calculate distance");
 
-    if(const auto r = parser.Parse(argc, argv))
+    if(const auto r = parser.parse(argc, argv))
     {
         return *r;
     }

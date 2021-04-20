@@ -90,7 +90,7 @@ HandleMazeCommand
     bool console
 )
 {
-    auto output = argparse::FileOutput {f};
+    auto output = argparse::file_output {f};
     auto random = Random{};
     auto maze = generator::Maze::FromWidthHeight(world_width, world_height);
 
@@ -136,7 +136,7 @@ HandleMazeCommand
             io::ChunkToFile
             (
                 drawer.image.Write(ImageWriteFormat::PNG),
-                output.NextFile()
+                output.get_next_file()
             );
         }
     };
@@ -172,7 +172,7 @@ HandleMazeCommand
                 io::ChunkToFile
                 (
                     drawer.image.Write(ImageWriteFormat::PNG),
-                    output.NextFile()
+                    output.get_next_file()
                 );
             }
         }
@@ -184,7 +184,7 @@ HandleMazeCommand
 struct Cellwriter
 {
     bool debug;
-    argparse::FileOutput output;
+    argparse::file_output output;
     generator::World* world;
     int world_scale;
 
@@ -224,7 +224,7 @@ struct Cellwriter
         if(!output.single)
         {
             auto img = GenerateWorldImage(*world);
-            io::ChunkToFile(img.Write(ImageWriteFormat::PNG), output.NextFile());
+            io::ChunkToFile(img.Write(ImageWriteFormat::PNG), output.get_next_file());
         }
 
         world_copy = *world;
@@ -255,7 +255,7 @@ struct Cellwriter
             io::ChunkToFile
             (
                 img.Write(ImageWriteFormat::PNG),
-                output.NextFile()
+                output.get_next_file()
             );
         }
         else
@@ -284,7 +284,7 @@ struct Cellwriter
                 io::ChunkToFile
                 (
                     img.Write(ImageWriteFormat::PNG),
-                    output.NextFile()
+                    output.get_next_file()
                 );
             }
             write_index += 1;
@@ -296,7 +296,7 @@ struct Cellwriter
             io::ChunkToFile
             (
                 img.Write(ImageWriteFormat::PNG),
-                output.NextFile()
+                output.get_next_file()
             );
         }
     }
@@ -313,14 +313,14 @@ struct MazeArguments
     bool console = false;
 
     void
-    Add(argparse::ParserBase* base)
+    Add(argparse::parser_base* base)
     {
-        base->Add("--size", &size).Help("set the size");
-        base->Add("-o, --output", &output).Help("specify output");
+        base->add("--size", &size).set_help("set the size");
+        base->add("-o, --output", &output).set_help("specify output");
 
-        base->Add("--cell", &cell_size).Help("set the cell size");
-        base->Add("--wall", &wall_size).Help("set the wall size");
-        base->SetTrue("-c,--console", &console).Help("foce console");
+        base->add("--cell", &cell_size).set_help("set the cell size");
+        base->add("--wall", &wall_size).set_help("set the wall size");
+        base->set_true("-c,--console", &console).set_help("foce console");
     }
 };
 
@@ -330,19 +330,19 @@ constexpr NeighborhoodAlgorithm DEFAULT_ALGORITHM = NeighborhoodAlgorithm::Box;
 int
 main(int argc, char* argv[])
 {
-    auto parser = argparse::Parser{"Generate worlds"};
-    auto sub = parser.AddSubParsers();
+    auto parser = argparse::parser{"Generate worlds"};
+    auto sub = parser.add_sub_parsers();
 
-    sub->Add
+    sub->add
     (
         "recursive",
         "maze generation using recursive backtracker algorithm",
-        [&](argparse::SubParser* sub)
+        [&](argparse::sub_parser* sub)
         {
             auto args = MazeArguments{};
             args.Add(sub);
 
-            return sub->OnComplete
+            return sub->on_complete
             (
                 [&]
                 {
@@ -356,22 +356,22 @@ main(int argc, char* argv[])
                         args.output,
                         args.console
                     );
-                    return argparse::ParseResult::Ok;
+                    return argparse::ok;
                 }
             );
         }
     );
 
-    sub->Add
+    sub->add
     (
         "random",
         "maze generation using random traversal algorithm",
-        [&](argparse::SubParser* sub)
+        [&](argparse::sub_parser* sub)
         {
             auto args = MazeArguments{};
             args.Add(sub);
 
-            return sub->OnComplete
+            return sub->on_complete
             (
                 [&]
                 {
@@ -385,17 +385,17 @@ main(int argc, char* argv[])
                         args.output,
                         args.console
                     );
-                    return argparse::ParseResult::Ok;
+                    return argparse::ok;
                 }
             );
         }
     );
 
-    sub->Add
+    sub->add
     (
         "cell",
         "world generation using cellular automata algorithm",
-        [&](argparse::SubParser* sub)
+        [&](argparse::sub_parser* sub)
         {
             int world_scale = 5;
             bool debug = false;
@@ -404,133 +404,133 @@ main(int argc, char* argv[])
             auto random = Random {};
             auto rules = generator::Rules{};
 
-            sub->Add("--size", &size).Help("set the size");
-            sub->Add("-o, --output", &output).Help("specify output");
-            sub->Add("--scale", &world_scale).Help("set the scale");
-            sub->SetTrue("--debug", &debug);
+            sub->add("--size", &size).set_help("set the size");
+            sub->add("-o, --output", &output).set_help("specify output");
+            sub->add("--scale", &world_scale).set_help("set the scale");
+            sub->set_true("--debug", &debug);
 
-            auto commands = sub->AddSubParsers("commands");
+            auto commands = sub->add_sub_parsers("commands");
 
-            commands->Add("random", "random fill", [&](argparse::SubParser* cmd)
+            commands->add("random", "random fill", [&](argparse::sub_parser* cmd)
             {
-                cmd->parser_style = argparse::SubParserStyle::Fallback;
+                cmd->parser_style = argparse::sub_parser_style::fallback;
                 Fourway<BorderSetupRule> border_control = Fourway{BorderSetupRule::AlwaysWall};
                 float random_fill = 0.5;
-                cmd->Add("--fill", &random_fill).Help("How much to fill");
-                cmd->Add("-bc", &border_control)
-                    .Help("Change how the border is generated")
+                cmd->add("--fill", &random_fill).set_help("How much to fill");
+                cmd->add("-bc", &border_control)
+                    .set_help("Change how the border is generated")
                     ;
-                return cmd->OnComplete([&]{
+                return cmd->on_complete([&]{
                     generator::AddRandomFill(&rules, &random, random_fill, border_control);
-                    return argparse::ParseResult::Ok;
+                    return argparse::ok;
                 });
             });
-            commands->Add("combo", "smooth map with combo rule", [&](argparse::SubParser* cmd)
+            commands->add("combo", "smooth map with combo rule", [&](argparse::sub_parser* cmd)
             {
-                cmd->parser_style = argparse::SubParserStyle::Fallback;
+                cmd->parser_style = argparse::sub_parser_style::fallback;
                 int times = 4;
                 int count = 5;
                 int small = 2;
                 auto algorithm = DEFAULT_ALGORITHM;
                 bool include_self = false;
-                cmd->Add("--algorithm", &algorithm).Help("The algorithm to use");
-                cmd->SetTrue("-i", &include_self).Help("also include the current cell when calculating the amount of nodes");
-                cmd->Add("--times", &times).Help("How many to run");
-                cmd->Add("--count", &count).Help("neighbour count");
-                cmd->Add("--small", &small).Help("small rule");
-                return cmd->OnComplete([&]{
+                cmd->add("--algorithm", &algorithm).set_help("The algorithm to use");
+                cmd->set_true("-i", &include_self).set_help("also include the current cell when calculating the amount of nodes");
+                cmd->add("--times", &times).set_help("How many to run");
+                cmd->add("--count", &count).set_help("neighbour count");
+                cmd->add("--small", &small).set_help("small rule");
+                return cmd->on_complete([&]{
                     generator::AddComboRules(&rules, times, count, small, include_self, algorithm);
-                    return argparse::ParseResult::Ok;
+                    return argparse::ok;
                 });
             });
-            commands->Add("spiky", "smooth map with spikes", [&](argparse::SubParser* cmd)
+            commands->add("spiky", "smooth map with spikes", [&](argparse::sub_parser* cmd)
             {
-                cmd->parser_style = argparse::SubParserStyle::Fallback;
+                cmd->parser_style = argparse::sub_parser_style::fallback;
                 int times = 5;
                 int count = 4;
                 auto algorithm = DEFAULT_ALGORITHM;
                 bool include_self = false;
-                cmd->Add("--algorithm", &algorithm).Help("The algorithm to use");
-                cmd->SetTrue("-i", &include_self).Help("also include the current cell when calculating the amount of nodes");
-                cmd->Add("--times", &times).Help("How many to run");
-                cmd->Add("--count", &count).Help("neighbour count");
-                return cmd->OnComplete([&]{
+                cmd->add("--algorithm", &algorithm).set_help("The algorithm to use");
+                cmd->set_true("-i", &include_self).set_help("also include the current cell when calculating the amount of nodes");
+                cmd->add("--times", &times).set_help("How many to run");
+                cmd->add("--count", &count).set_help("neighbour count");
+                return cmd->on_complete([&]{
                     generator::AddSpikyRules(&rules, times, count, include_self, algorithm);
-                    return argparse::ParseResult::Ok;
+                    return argparse::ok;
                 });
             });
-            commands->Add("clear", "clear smaller items", [&](argparse::SubParser* cmd)
+            commands->add("clear", "clear smaller items", [&](argparse::sub_parser* cmd)
             {
-                cmd->parser_style = argparse::SubParserStyle::Fallback;
+                cmd->parser_style = argparse::sub_parser_style::fallback;
                 int times = 2;
                 int count = 2;
                 int range = 1;
                 auto algorithm = DEFAULT_ALGORITHM;
                 bool include_self = false;
-                cmd->Add("--algorithm", &algorithm).Help("The algorithm to use");
-                cmd->SetTrue("-i", &include_self).Help("also include the current cell when calculating the amount of nodes");
-                cmd->Add("--times", &times).Help("How many to run");
-                cmd->Add("--count", &count).Help("neighbour count");
-                cmd->Add("--range", &range).Help("the neighbour range");
-                return cmd->OnComplete([&]{
+                cmd->add("--algorithm", &algorithm).set_help("The algorithm to use");
+                cmd->set_true("-i", &include_self).set_help("also include the current cell when calculating the amount of nodes");
+                cmd->add("--times", &times).set_help("How many to run");
+                cmd->add("--count", &count).set_help("neighbour count");
+                cmd->add("--range", &range).set_help("the neighbour range");
+                return cmd->on_complete([&]{
                     generator::AddClearRules(&rules, times, count, range, include_self, algorithm);
-                    return argparse::ParseResult::Ok;
+                    return argparse::ok;
                 });
             });
-            commands->Add("hblank", "add horizontal block", [&](argparse::SubParser* cmd)
+            commands->add("hblank", "add horizontal block", [&](argparse::sub_parser* cmd)
             {
-                cmd->parser_style = argparse::SubParserStyle::Fallback;
+                cmd->parser_style = argparse::sub_parser_style::fallback;
                 int y = 6;
                 int height = 3;
-                cmd->Add("-y", &y).Help("the y where to place it");
-                cmd->Add("--height", &height).Help("the height of the block");
-                return cmd->OnComplete([&]{
+                cmd->add("-y", &y).set_help("the y where to place it");
+                cmd->add("--height", &height).set_help("the height of the block");
+                return cmd->on_complete([&]{
                     generator::AddHorizontalBlankRule(&rules, y, height);
-                    return argparse::ParseResult::Ok;
+                    return argparse::ok;
                 });
             });
-            commands->Add("smooth", "smooth map", [&](argparse::SubParser* cmd)
+            commands->add("smooth", "smooth map", [&](argparse::sub_parser* cmd)
             {
-                cmd->parser_style = argparse::SubParserStyle::Fallback;
+                cmd->parser_style = argparse::sub_parser_style::fallback;
                 int times = 5;
                 int count = 4;
                 auto algorithm = DEFAULT_ALGORITHM;
                 bool include_self = false;
-                cmd->Add("--algorithm", &algorithm).Help("The algorithm to use");
-                cmd->SetTrue("-i", &include_self).Help("also include the current cell when calculating the amount of nodes");
-                cmd->Add("--times", &times).Help("How many to run");
-                cmd->Add("--count", &count).Help("neighbour count");
-                return cmd->OnComplete([&]{
+                cmd->add("--algorithm", &algorithm).set_help("The algorithm to use");
+                cmd->set_true("-i", &include_self).set_help("also include the current cell when calculating the amount of nodes");
+                cmd->add("--times", &times).set_help("How many to run");
+                cmd->add("--count", &count).set_help("neighbour count");
+                return cmd->on_complete([&]{
                     generator::AddSimpleRules(&rules, times, count, include_self, algorithm);
-                    return argparse::ParseResult::Ok;
+                    return argparse::ok;
                 });
             });
-            commands->Add("fill", "fill small holes", [&](argparse::SubParser* cmd)
+            commands->add("fill", "fill small holes", [&](argparse::sub_parser* cmd)
             {
-                cmd->parser_style = argparse::SubParserStyle::Fallback;
+                cmd->parser_style = argparse::sub_parser_style::fallback;
                 int size = 3;
                 bool allow_diagonals = true;
-                cmd->Add("--size", &size).Help("holes smaller than this are filled");
-                cmd->SetFalse("-d", &allow_diagonals).Help("include diagonals when flood filling");
-                return cmd->OnComplete([&]{
+                cmd->add("--size", &size).set_help("holes smaller than this are filled");
+                cmd->set_false("-d", &allow_diagonals).set_help("include diagonals when flood filling");
+                return cmd->on_complete([&]{
                     generator::AddFillSmallHolesRule(&rules, allow_diagonals, size);
-                    return argparse::ParseResult::Ok;
+                    return argparse::ok;
                 });
             });
-            commands->Add("only", "only keep a few holes", [&](argparse::SubParser* cmd)
+            commands->add("only", "only keep a few holes", [&](argparse::sub_parser* cmd)
             {
-                cmd->parser_style = argparse::SubParserStyle::Fallback;
+                cmd->parser_style = argparse::sub_parser_style::fallback;
                 int keep = 1;
                 bool allow_diagonals = true;
-                cmd->Add("--keep", &keep).Help("the number of holes to keep");
-                cmd->SetFalse("-d", &allow_diagonals).Help("include diagonals when flood filling");
-                return cmd->OnComplete([&]{
+                cmd->add("--keep", &keep).set_help("the number of holes to keep");
+                cmd->set_false("-d", &allow_diagonals).set_help("include diagonals when flood filling");
+                return cmd->on_complete([&]{
                     generator::AddFillAllHolesRule(&rules, allow_diagonals, keep);
-                    return argparse::ParseResult::Ok;
+                    return argparse::ok;
                 });
             });
 
-            return sub->OnComplete
+            return sub->on_complete
             (
                 [&]
                 {
@@ -541,7 +541,7 @@ main(int argc, char* argv[])
                     if(rules.rules.empty())
                     {
                         std::cerr << "no rules specified";
-                        return argparse::ParseResult::Ok;
+                        return argparse::ok;
                     }
 
                     auto cell = generator::CellularAutomata{&rules, &world, Fourway{OutsideRule::Wall}};
@@ -557,12 +557,12 @@ main(int argc, char* argv[])
 
                     writer.Done();
 
-                    return argparse::ParseResult::Ok;
+                    return argparse::ok;
                 }
             );
         }
     );
 
-    return argparse::ParseFromMain(&parser, argc, argv);
+    return argparse::parse_from_main(&parser, argc, argv);
 }
 

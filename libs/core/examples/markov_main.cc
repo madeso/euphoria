@@ -248,59 +248,59 @@ MarkovLine(const std::string& file, int memory, int count, bool also_existing, b
 int
 main(int argc, char* argv[])
 {
-    core::argparse::Parser parser {"markov tool"};
+    core::argparse::parser parser {"markov tool"};
 
-    auto sub = parser.AddSubParsers();
+    auto sub = parser.add_sub_parsers();
 
-    sub->Add
+    sub->add
     (
         "sentance",
         "parses and generates sentances",
-        [&](core::argparse::SubParser* sent)
+        [&](core::argparse::sub_parser* sent)
         {
             std::string file;
             int memory = 4;
             int count = 25;
 
-            sent->Add("file", &file);
-            sent->Add("--memory", &memory);
-            sent->Add("--count", &count);
+            sent->add("file", &file);
+            sent->add("--memory", &memory);
+            sent->add("--count", &count);
 
-            return sent->OnComplete([&]
+            return sent->on_complete([&]
             {
                 MarkovSentance(file, memory, count);
-                return core::argparse::ParseResult::Ok;
+                return core::argparse::ok;
             });
         }
     );
 
-    sub->Add
+    sub->add
     (
         "word",
         "parses and generates word",
-        [&](core::argparse::SubParser* word)
+        [&](core::argparse::sub_parser* word)
         {
             std::string file;
             int memory = 4;
             int count = 25;
 
-            word->Add("file", &file);
-            word->Add("--memory", &memory);
-            word->Add("--count", &count);
+            word->add("file", &file);
+            word->add("--memory", &memory);
+            word->add("--count", &count);
 
-            return word->OnComplete([&]
+            return word->on_complete([&]
             {
                 MarkovWord(file, memory, count);
-                return core::argparse::ParseResult::Ok;
+                return core::argparse::ok;
             });
         }
     );
 
-    sub->Add
+    sub->add
     (
         "line",
         "parses and generates lines",
-        [&](core::argparse::SubParser* line_parser)
+        [&](core::argparse::sub_parser* line_parser)
         {
             std::string file;
             int memory = 2;
@@ -308,20 +308,20 @@ main(int argc, char* argv[])
             bool existing = false;
             bool simple = false;
 
-            line_parser->Add("file", &file);
-            line_parser->Add("--memory", &memory);
-            line_parser->Add("--count", &count);
-            line_parser->Add("--existing", &existing);
-            line_parser->Add("--simple", &simple);
+            line_parser->add("file", &file);
+            line_parser->add("--memory", &memory);
+            line_parser->add("--count", &count);
+            line_parser->add("--existing", &existing);
+            line_parser->add("--simple", &simple);
 
-            return line_parser->OnComplete([&]
+            return line_parser->on_complete([&]
             {
                 MarkovLine(file, memory, count, existing, simple);
-                return core::argparse::ParseResult::Ok;
+                return core::argparse::ok;
             });
         }
     );
 
 
-    return core::argparse::ParseFromMain(&parser, argc, argv);
+    return core::argparse::parse_from_main(&parser, argc, argv);
 }

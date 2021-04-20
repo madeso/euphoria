@@ -17,24 +17,24 @@
 
 namespace euphoria::core::argparse
 {
-    struct ParserBase;
+    struct parser_base;
 
     // enum to catch adding arguments during parsing in a callback
     enum class ParserState
     {
-        Adding, Parsing
+        adding, parsing
     };
 
     // option where the output can either be a single file or "infinite"
-    struct FileOutput
+    struct file_output
     {
-        explicit FileOutput(const std::string& o);
+        explicit file_output(const std::string& o);
 
         std::string
-        NextFile(bool print = true);
+        get_next_file(bool print = true);
 
         void
-        CreateDirIfMissing() const;
+        create_dir_if_missing() const;
 
         std::string file;
         bool        single;
@@ -42,117 +42,138 @@ namespace euphoria::core::argparse
     };
 
 
-    struct ParseResult
+    struct parse_result
     {
-        enum class Type { Error, Ok, Quit, Custom };
+        enum class type { error, ok, quit, custom };
 
-        Type type;
+        type internal_type;
         int return_value;
 
-        // no error occured
-        static const ParseResult Error;
+        static constexpr int
+        default_return_value(type pr)
+        {
+            switch (pr)
+            {
+            case type::ok: return 0;
+            case type::error: return -1;
+            case type::quit: return 0;
+            default: return -1;
+            }
+        }
 
-        // all ok
-        static const ParseResult Ok;
+        constexpr explicit parse_result(type t)
+            : internal_type(t)
+            , return_value(default_return_value(t))
+        {
+        }
 
-        // all ok, but quit requested
-        static const ParseResult Quit;
-
-        constexpr explicit ParseResult(Type t);
-        constexpr explicit ParseResult(int rv);
+        constexpr explicit parse_result(int rv)
+            : internal_type(parse_result::type::custom)
+            , return_value(rv)
+        {
+        }    
     };
 
+    // no error occurred
+    constexpr parse_result error = parse_result{ parse_result::type::error };
+
+    // all ok
+    constexpr parse_result ok = parse_result{ parse_result::type::ok };
+
+    // all ok, but quit requested
+    constexpr parse_result quit = parse_result{ parse_result::type::quit };
+
     std::ostream&
-    operator<<(std::ostream& o, const ParseResult& pr);
+    operator<<(std::ostream& o, const parse_result& pr);
 
     bool
-    operator==(const ParseResult& lhs, const ParseResult& rhs);
+    operator==(const parse_result& lhs, const parse_result& rhs);
 
 
     bool
-    operator!=(const ParseResult& lhs, const ParseResult& rhs);
+    operator!=(const parse_result& lhs, const parse_result& rhs);
 
 
     // container for arguments passed to main
-    struct Arguments
+    struct name_and_arguments
     {
         std::string name;
         std::vector<std::string> arguments;
 
-        Arguments(const std::string& n, const std::vector<std::string>& a);
+        name_and_arguments(const std::string& n, const std::vector<std::string>& a);
 
         static
-        Arguments
-        Extract(int argc, char* argv[]);
+        name_and_arguments
+        extract(int argc, char* argv[]);
     };
 
     std::ostream&
-    operator<<(std::ostream& stream, const Arguments& arguments);
+    operator<<(std::ostream& stream, const name_and_arguments& arguments);
 
 
     // "file" like api for reading arguments
-    struct ArgumentReader
+    struct argument_reader
     {
-        Arguments arguments;
+        name_and_arguments arguments;
         int next_position;
 
         explicit
-        ArgumentReader(const Arguments& a);
+        argument_reader(const name_and_arguments& a);
 
         [[nodiscard]] bool
-        HasMore() const;
+        has_more() const;
 
         [[nodiscard]] [[nodiscard]] std::string
-        Peek() const;
+        peek() const;
 
         [[nodiscard]] std::string
-        Read();
+        read();
 
         void
-        UndoRead();
+        undo_read();
     };
 
     // generic output class
-    struct Printer
+    struct printer
     {
-        Printer() = default;
-        virtual ~Printer() = default;
+        printer() = default;
+        virtual ~printer() = default;
 
-        Printer(const Printer&) = delete;
-        Printer(Printer&&) = delete;
-        void operator=(const Printer&) = delete;
-        void operator=(Printer&&) = delete;
-
-        virtual void
-        PrintError(const std::string& line) = 0;
+        printer(const printer&) = delete;
+        printer(printer&&) = delete;
+        void operator=(const printer&) = delete;
+        void operator=(printer&&) = delete;
 
         virtual void
-        PrintInfo(const std::string& line) = 0;
+        print_error(const std::string& line) = 0;
+
+        virtual void
+        print_info(const std::string& line) = 0;
     };
 
     // console output
-    struct ConsolePrinter : public Printer
+    struct console_printer : public printer
     {
         void
-        PrintError(const std::string& line) override;
+        print_error(const std::string& line) override;
 
         void
-        PrintInfo(const std::string& line) override;
+        print_info(const std::string& line) override;
     };
 
     // shared data between parsing functions
-    struct Runner
+    struct runner
     {
-        ArgumentReader* arguments;
-        std::shared_ptr<Printer> printer;
+        argument_reader* arguments;
+        std::shared_ptr<printer> printer;
     };
 
     void
-    PrintParseError
+    print_parse_error
     (
-        Runner* runner,
-        ParserBase* base,
-        const std::string& error
+        runner* runner,
+        parser_base* base,
+        const std::string& error_message
     );
 
 
@@ -161,32 +182,32 @@ namespace euphoria::core::argparse
     //    can have many names
     // positional: doesn't start with -
     //    can only have a single name
-    struct Name
+    struct name
     {
         std::vector<std::string> names;
 
-        Name(const char* n);
+        name(const char* n);
 
         // return empty string if valid, return error message if not
         [[nodiscard]]
         std::string
-        Validate() const;
+        validate() const;
 
         [[nodiscard]] bool
-        IsOptional() const;
+        is_optional() const;
     };
 
 
     // base class for argument
-    struct Argument
+    struct argument
     {
-        Argument() = default;
-        virtual ~Argument() = default;
+        argument() = default;
+        virtual ~argument() = default;
 
-        Argument(const Argument&) = delete;
-        Argument(Argument&&) = delete;
-        void operator=(const Argument&) = delete;
-        void operator=(Argument&&) = delete;
+        argument(const argument&) = delete;
+        argument(argument&&) = delete;
+        void operator=(const argument&) = delete;
+        void operator=(argument&&) = delete;
 
         std::string help;
         std::string nargs;
@@ -195,301 +216,302 @@ namespace euphoria::core::argparse
         // automatically filled
         std::string default_value;
 
-        Argument&
-        Nargs(const std::string& na);
+        argument&
+        set_nargs(const std::string& na);
 
-        Argument&
-        Help(const std::string& h);
+        argument&
+        set_help(const std::string& h);
 
-        Argument&
-        AllowBeforePositionals();
+        argument&
+        set_allow_before_positionals();
 
         virtual
         std::optional<std::string>
-        GetSecondLine() = 0;
+        get_second_line() = 0;
 
         virtual
         bool
-        HaveNargs() = 0;
+        have_nargs() = 0;
 
         virtual
-        ParseResult
-        ParseArguments
+        parse_result
+        parse_arguments
         (
-            Runner* runner,
+            runner* runner,
             const std::string& name,
-            ParserBase* caller
+            parser_base* caller
         ) = 0;
     };
 
     // named tuple class for argument and name
-    struct ArgumentAndName
+    struct argument_and_name
     {
-        Name name;
-        std::shared_ptr<Argument> argument;
+        argparse::name name;
+        std::shared_ptr<argparse::argument> argument;
 
-        ArgumentAndName(const Name& n, std::shared_ptr<Argument> a);
+        argument_and_name(const argparse::name& n, std::shared_ptr<argparse::argument> a);
     };
 
     // a argument with no value, probably either a --set-true
     // or a void function like --help
-    struct ArgumentNoValue : public Argument
+    struct argument_no_value : public argument
     {
-        using Callback = std::function<ParseResult (Runner*)>;
-        Callback callback;
+        using callback = std::function<parse_result (runner*)>;
+        callback callback_function;
 
-        explicit ArgumentNoValue(Callback cb);
+        explicit argument_no_value(callback cb);
 
         bool
-        HaveNargs() override;
+        have_nargs() override;
 
         std::optional<std::string>
-        GetSecondLine() override;
+        get_second_line() override;
 
-        ParseResult
-        ParseArguments
+        parse_result
+        parse_arguments
         (
-            Runner* runner,
+            runner* runner,
             const std::string& name,
-            ParserBase* caller
+            parser_base* caller
         ) override;
     };
 
     // a single argument, probably either a --count 3 or positional input
-    struct SingleArgument : public Argument
+    struct single_argument : public argument
     {
-        using Callback = std::function
+        using callback = std::function
         <
-            ParseResult
+            parse_result
             (
-                Runner* runner,
+                runner* runner,
                 const std::string& name,
-                ParserBase* caller,
+                parser_base* caller,
                 const std::string& value
             )
         >;
-        using Describe = std::function<std::optional<std::string> ()>;
-        Callback callback;
-        Describe describe;
+        using describe = std::function<std::optional<std::string> ()>;
 
-        SingleArgument(Callback cb, Describe d);
+        callback callback_function;
+        describe describe_function;
+
+        single_argument(callback cb, describe d);
 
         bool
-        HaveNargs() override;
+        have_nargs() override;
 
         std::optional<std::string>
-        GetSecondLine() override;
+        get_second_line() override;
 
-        ParseResult
-        ParseArguments
+        parse_result
+        parse_arguments
         (
-            Runner* runner,
+            runner* runner,
             const std::string& name,
-            ParserBase* caller
+            parser_base* caller
         ) override;
     };
 
     // a single argument, probably either a --count 3 or positional input
-    struct MultiArgument : public Argument
+    struct multi_argument : public argument
     {
-        using Callback = std::function
+        using callback = std::function
         <
-            ParseResult
+            parse_result
             (
-                Runner* runner,
+                runner* runner,
                 const std::string& name,
-                ParserBase* caller,
+                parser_base* caller,
                 const std::string& value
             )
         >;
-        using Describe = std::function<std::optional<std::string> ()>;
-        Callback callback;
-        Describe describe;
+        using describe = std::function<std::optional<std::string> ()>;
+        callback callback_function;
+        describe describe_function;
 
-        MultiArgument(Callback cb, Describe d);
+        multi_argument(callback cb, describe d);
 
         bool
-        HaveNargs() override;
+        have_nargs() override;
 
         std::optional<std::string>
-        GetSecondLine() override;
+        get_second_line() override;
 
-        ParseResult
-        ParseArguments
+        parse_result
+        parse_arguments
         (
-            Runner* runner,
+            runner* runner,
             const std::string& name,
-            ParserBase* caller
+            parser_base* caller
         ) override;
     };
 
     // generic parse function
     template<typename T>
-    using ParseFunction = std::function
+    using parse_function = std::function
     <
         Result<T>
         (
             const std::string& value
         )
     >;
-    struct SubParser;
+    struct sub_parser;
 
-    using SubParserCallback = std::function
+    using sub_parser_callback = std::function
     <
-        ParseResult (SubParser*)
+        parse_result (sub_parser*)
     >;
 
-    using CompleteFunction = std::function
+    using complete_function = std::function
     <
-        ParseResult ()
+        parse_result ()
     >;
 
     // valid names for a single subparser
     // example: [checkout, co] or [pull]
-    struct SubParserNames
+    struct sub_parser_names
     {
         std::vector<std::string> names;
 
-        SubParserNames(const char* str);
+        sub_parser_names(const char* str);
     };
 
     // data about a subparser
-    struct SubParserContainer
+    struct sub_parser_container
     {
-        SubParserNames names;
+        sub_parser_names names;
         std::string help;
-        SubParserCallback callback;
+        sub_parser_callback callback;
 
-        SubParserContainer
+        sub_parser_container
         (
-            const SubParserNames& n,
+            const sub_parser_names& n,
             const std::string& h,
-            SubParserCallback cb
+            sub_parser_callback cb
         );
     };
 
     // subparsers can be grouped and this structs represents that group
-    struct SubParserGroup
+    struct sub_parser_group
     {
         std::string title;
-        ParserBase* owner;
-        std::vector<std::shared_ptr<SubParserContainer>> parsers;
+        parser_base* owner;
+        std::vector<std::shared_ptr<sub_parser_container>> parsers;
 
-        SubParserGroup
+        sub_parser_group
         (
             const std::string& t,
-            ParserBase* o
+            parser_base* o
         );
 
         void
-        Add
+        add
         (
-            const SubParserNames& names,
+            const sub_parser_names& names,
             const std::string& desc,
-            SubParserCallback sub
+            sub_parser_callback sub
         );
 
         void
-        Add
+        add
         (
-            const SubParserNames& names,
-            SubParserCallback sub
+            const sub_parser_names& names,
+            sub_parser_callback sub
         );
     };
 
     // how the subparsing is handled, non-greedy are
     // useful for 'scripting' with subparsers
-    enum class SubParserStyle
+    enum class sub_parser_style
     {
         // parse all arguments
-        Greedy,
+        greedy,
 
         // if argument is invalid, go back one step and try there
-        Fallback,
+        fallback,
 
         // inherit from parent
-        Inherit
+        inherit
     };
 
     // base for the parser, start with Parser and add one or more subparsers
-    struct ParserBase
+    struct parser_base
     {
         std::string description;
 
-        std::vector<ArgumentAndName> positional_argument_list;
+        std::vector<argument_and_name> positional_argument_list;
 
-        std::map<std::string, std::shared_ptr<Argument>> optional_arguments;
-        std::vector<ArgumentAndName> optional_argument_list;
+        std::map<std::string, std::shared_ptr<argument>> optional_arguments;
+        std::vector<argument_and_name> optional_argument_list;
 
-        EnumToStringImpl<std::shared_ptr<SubParserContainer>> subparsers;
-        std::vector<std::shared_ptr<SubParserGroup>> subparser_groups;
+        EnumToStringImpl<std::shared_ptr<sub_parser_container>> subparsers;
+        std::vector<std::shared_ptr<sub_parser_group>> subparser_groups;
 
-        std::optional<CompleteFunction> on_complete;
-        ParserState parser_state = ParserState::Adding;
-        SubParserStyle parser_style = SubParserStyle::Inherit;
+        std::optional<complete_function> on_complete_function;
+        ParserState parser_state = ParserState::adding;
+        sub_parser_style parser_style = sub_parser_style::inherit;
 
-        explicit ParserBase(const std::string& d);
-        virtual ~ParserBase() = default;
+        explicit parser_base(const std::string& d);
+        virtual ~parser_base() = default;
 
-        ParserBase(const ParserBase&) = delete;
-        ParserBase(ParserBase&&) = delete;
-        void operator=(const ParserBase&) = delete;
-        void operator=(ParserBase&&) = delete;
-
-        virtual
-        ParserBase*
-        GetParentOrNull() = 0;
-
-        std::string
-        GenerateUsageString(const Arguments& args);
+        parser_base(const parser_base&) = delete;
+        parser_base(parser_base&&) = delete;
+        void operator=(const parser_base&) = delete;
+        void operator=(parser_base&&) = delete;
 
         virtual
+        parser_base*
+        get_parent_or_null() = 0;
+
         std::string
-        GetCallingName(const Arguments& args) = 0;
+        generate_usage_string(const name_and_arguments& args);
+
+        virtual
+        std::string
+        get_calling_name(const name_and_arguments& args) = 0;
 
         void
-        PrintHelp(std::shared_ptr<Printer> printer, const Arguments& args);
+        print_help(std::shared_ptr<printer> printer, const name_and_arguments& args);
 
-        Argument&
-        AddArgument(const Name& name, std::shared_ptr<Argument> argument);
+        argument&
+        add_argument(const name& name, std::shared_ptr<argument> argument);
 
-        Argument&
-        AddVoidFunction(const Name& name, std::function<void()> void_function);
+        argument&
+        add_void_function(const name& name, std::function<void()> void_function);
 
         void
-        OnComplete(CompleteFunction com);
+        on_complete(complete_function com);
 
         template<typename T>
-        Argument&
-        SetConst(const Name& name, T* target, T t)
+        argument&
+        set_const(const name& name, T* target, T t)
         {
-            return AddVoidFunction(name, [target, t]()
+            return add_void_function(name, [target, t]()
             {
                 *target = t;
             });
         }
 
-        Argument&
-        SetTrue(const Name& name, bool* target);
+        argument&
+        set_true(const name& name, bool* target);
 
-        Argument&
-        SetFalse(const Name& name, bool* target);
+        argument&
+        set_false(const name& name, bool* target);
 
         template<typename T>
-        Argument&
-        Add
+        argument&
+        add
         (
-            const Name& name,
+            const name& name,
             T* target,
-            ParseFunction<T> parse_function = DefaultParseFunction<T>
+            parse_function<T> parse_function = DefaultParseFunction<T>
         )
         {
-            auto arg = std::make_shared<SingleArgument>(
+            auto arg = std::make_shared<single_argument>(
             [target, parse_function]
             (
-                Runner* runner,
+                runner* runner,
                 const std::string& argument_name,
-                ParserBase* caller,
+                parser_base* caller,
                 const std::string& value
             )
             {
@@ -497,7 +519,7 @@ namespace euphoria::core::argparse
                 if(parsed)
                 {
                     *target = *parsed;
-                    return ParseResult::Ok;
+                    return argparse::ok;
                 }
                 else
                 {
@@ -509,35 +531,35 @@ namespace euphoria::core::argparse
                         ? base
                         : (Str() << base << ", " << error)
                         ;
-                    PrintParseError(runner, caller, message);
+                    print_parse_error(runner, caller, message);
 
-                    return ParseResult::Error;
+                    return argparse::error;
                 }
             }, [](){
                 const std::optional<std::string> str = DefaultDescribe<T>();
                 return str;
             });
             arg->default_value = DefaultValueToString(*target);
-            return AddArgument(name, arg);
+            return add_argument(name, arg);
         }
 
         // add greedy argument, currently also accepts zero
         // todo(Gustav): add option for non-greedy and error if empty
         template<typename T>
-        Argument&
-        AddVector
+        argument&
+        add_vector
         (
-            const Name& name,
+            const name& name,
             std::vector<T>* target,
-            ParseFunction<T> parse_function = DefaultParseFunction<T>
+            parse_function<T> parse_function = DefaultParseFunction<T>
         )
         {
-            auto arg = std::make_shared<MultiArgument>(
+            auto arg = std::make_shared<multi_argument>(
             [target, parse_function]
             (
-                Runner* runner,
+                runner* runner,
                 const std::string& argument_name,
-                ParserBase* caller,
+                parser_base* caller,
                 const std::string& value
             )
             {
@@ -545,7 +567,7 @@ namespace euphoria::core::argparse
                 if(parsed)
                 {
                     target->emplace_back(*parsed);
-                    return ParseResult::Ok;
+                    return argparse::ok;
                 }
                 else
                 {
@@ -557,9 +579,9 @@ namespace euphoria::core::argparse
                         ? base
                         : (Str() << base << ", " << error)
                         ;
-                    PrintParseError(runner, caller, message);
+                    print_parse_error(runner, caller, message);
 
-                    return ParseResult::Error;
+                    return argparse::error;
                 }
             }, [](){
                 const std::optional<std::string> str = DefaultDescribe<T>();
@@ -571,72 +593,72 @@ namespace euphoria::core::argparse
                 values.emplace_back(DefaultValueToString(t));
             }
             arg->default_value = StringMerger::Array().Generate(values);
-            return AddArgument(name, arg);
+            return add_argument(name, arg);
         }
 
-        std::shared_ptr<SubParserGroup>
-        AddSubParsers(const std::string& name="commands");
+        std::shared_ptr<sub_parser_group>
+        add_sub_parsers(const std::string& name="commands");
 
-        [[nodiscard]] std::shared_ptr<Argument>
-        FindArgument(const std::string& name) const;
+        [[nodiscard]] std::shared_ptr<argument>
+        find_argument(const std::string& name) const;
 
         [[nodiscard]]
-        ParseResult
-        ParseArgs(Runner* runner);
+        parse_result
+        parse_args(runner* runner);
     };
 
     // subparser, don't create manually but add to a existing parser
     // AddSubParsers()->Add(...);
-    struct SubParser : public ParserBase
+    struct sub_parser : public parser_base
     {
-        ParserBase* parent;
-        Runner* runner;
+        parser_base* parent;
+        runner* runner;
         std::string calling_name;
 
-        SubParser
+        sub_parser
         (
             const std::string& d,
-            ParserBase* p,
-            Runner* r,
+            parser_base* p,
+            argparse::runner* r,
             const std::string& cn
         );
 
-        ParserBase*
-        GetParentOrNull() override;
+        parser_base*
+        get_parent_or_null() override;
 
         std::string
-        GetCallingName(const Arguments& args) override;
+        get_calling_name(const name_and_arguments& args) override;
 
         [[nodiscard]]
-        ParseResult
-        OnComplete(CompleteFunction com);
+        parse_result
+        on_complete(complete_function com);
     };
 
     // root parser. start argumentparsing with this one
-    struct Parser : public ParserBase
+    struct parser : public parser_base
     {
-        explicit Parser(const std::string& d = "");
+        explicit parser(const std::string& d = "");
 
-        ParserBase*
-        GetParentOrNull() override;
+        parser_base*
+        get_parent_or_null() override;
 
-        ParseResult
-        Parse(const Arguments& args);
+        parse_result
+        parse(const name_and_arguments& args);
 
         // value = return from main
         // nullopt = continue, parsing was ok
         std::optional<int>
-        Parse(int argc, char* argv[]);
+        parse(int argc, char* argv[]);
 
         std::string
-        GetCallingName(const Arguments& args) override;
+        get_calling_name(const name_and_arguments& args) override;
 
-        std::shared_ptr<Printer> printer;
+        std::shared_ptr<printer> printer;
     };
 
     // helper function for parsing directly from main
     int
-    ParseFromMain(Parser* parser, int argc, char* argv[]);
+    parse_from_main(parser* parser, int argc, char* argv[]);
 }
 
 #endif  // CORE_ARGPARSE_H

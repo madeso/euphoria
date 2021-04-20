@@ -319,7 +319,7 @@ int
 main(int argc, char* argv[])
 {
     Engine engine;
-    if(const auto ret = engine.Setup(argparse::Arguments::Extract(argc, argv)); ret != 0)
+    if(const auto ret = engine.Setup(argparse::name_and_arguments::extract(argc, argv)); ret != 0)
     {
         return ret;
     }

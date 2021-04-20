@@ -27,11 +27,11 @@ struct Common
     bool big = false; // 256 or 128 bit
 
     void
-    Add(argparse::ParserBase* sub)
+    Add(argparse::parser_base* sub)
     {
-        sub->Add("--width", &width).Nargs("W").Help("set the height");
-        sub->Add("--height", &height).Nargs("H").Help("set the width");
-        sub->SetTrue("--256", &big).Help("Upgrade from 128 to 256 bit hash");
+        sub->add("--width", &width).set_nargs("W").set_help("set the height");
+        sub->add("--height", &height).set_nargs("H").set_help("set the width");
+        sub->set_true("--256", &big).set_help("Upgrade from 128 to 256 bit hash");
     }
 };
 
@@ -98,14 +98,14 @@ GenerateImage(const Table<int>& table, int scale, const Palette& pal)
 int
 main(int argc, char* argv[])
 {
-    auto parser = argparse::Parser {"Drunken bishops"};
+    auto parser = argparse::parser {"Drunken bishops"};
 
-    auto subs = parser.AddSubParsers();
+    auto subs = parser.add_sub_parsers();
 
-    subs->Add
+    subs->add
     (
         "img", "drunken bishop with img style",
-        [](argparse::SubParser* sub)
+        [](argparse::sub_parser* sub)
         {
             auto common = Common{};
             int count = 1;
@@ -113,10 +113,10 @@ main(int argc, char* argv[])
             auto pal = palette::PaletteName::Cubehelix1;
 
             common.Add(sub);
-            sub->Add("--pal", &pal).Help("Set the palette");
-            sub->Add("--count", &count).Help("The number of images");
-            sub->Add("--scale", &scale).Help("The scale of the image");
-            return sub->OnComplete([&]{
+            sub->add("--pal", &pal).set_help("Set the palette");
+            sub->add("--count", &count).set_help("The number of images");
+            sub->add("--scale", &scale).set_help("The scale of the image");
+            return sub->on_complete([&]{
                 auto random = Random{};
                 for(int c=0; c<count; c+=1)
                 {
@@ -134,20 +134,20 @@ main(int argc, char* argv[])
                     io::ChunkToFile(image.Write(ImageWriteFormat::PNG), file_name);
                 }
 
-                return argparse::ParseResult::Ok;
+                return argparse::ok;
             });
         }
     );
 
-    subs->Add
+    subs->add
     (
         "text",
         "drunken bishop with ssh like output",
-        [](argparse::SubParser* sub)
+        [](argparse::sub_parser* sub)
         {
             auto common = Common{};
             common.Add(sub);
-            return sub->OnComplete([&]{
+            return sub->on_complete([&]{
                 auto random = Random{};
                 const auto table = GenerateDrunkenBishopTable(&random, common);
                 const auto strs = Collapse(table, GetSshCharacters());
@@ -156,10 +156,10 @@ main(int argc, char* argv[])
                     std::cout << str << "\n";
                 }
 
-                return argparse::ParseResult::Ok;
+                return argparse::ok;
             });
         }
     );
 
-    return ParseFromMain(&parser, argc, argv);
+    return parse_from_main(&parser, argc, argv);
 }

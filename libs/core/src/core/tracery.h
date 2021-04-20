@@ -7,122 +7,126 @@
 
 #include "core/noncopyable.h"
 
+
+namespace euphoria::core
+{
+    struct Random;
+}
+
+
 namespace euphoria::core::tracery
 {
-    struct Result
+    struct result
     {
-        enum Type
+        enum error
         {
-            UNABLE_TO_OPEN_FILE,
-            NO_ERROR,
-            JSON_PARSE,
-            MISSING_RULE,
-            RULE_EOF,
-            INVALID_JSON,
-            INVALID_MODIFIER,
-            GENERAL_RULE_PARSE_ERROR
+            unable_to_open_file,
+            no_error,
+            json_parse,
+            missing_rule,
+            rule_eof,
+            invalid_json,
+            invalid_modifier,
+            general_rule_parse_error
         };
 
-        Type type;
+        error error_type;
         std::vector<std::string> text;
 
-        Result(Type t);
+        result(error t);
 
-        Result&
+        result&
         operator<<(const std::string& t);
 
         operator bool() const;
 
-
         [[nodiscard]] std::string
-        GetText() const;
+        get_text() const;
     };
 
     std::ostream&
-    operator<<(std::ostream& o, const Result& r);
+    operator<<(std::ostream& o, const result& r);
 
-    struct GeneratorArgument;
+    struct generator_argument;
 
 
-    struct Node
+    struct node
     {
-        Node() = default;
-        virtual ~Node();
+        node() = default;
+        virtual ~node();
 
-        NONCOPYABLE(Node);
+        NONCOPYABLE(node);
 
-        virtual Result
-        Flatten(GeneratorArgument* generator) = 0;
+        virtual result
+        flatten(generator_argument* generator) const = 0;
     };
 
 
-    struct Modifier
+    struct modifier
     {
-        Modifier() = default;
-        virtual ~Modifier();
+        modifier() = default;
+        virtual ~modifier();
 
-        NONCOPYABLE(Modifier);
+        NONCOPYABLE(modifier);
 
-        virtual Result
-        ApplyModifier(const std::string& input) = 0;
+        virtual result
+        apply_modifier(const std::string& input) = 0;
     };
 
-    struct Rule
+    struct rule
     {
-        Rule();
+        rule();
 
-        Result
-        Compile(const std::string& s);
+        result
+        compile(const std::string& s);
 
-        Result
-        Flatten(GeneratorArgument* gen);
+        result
+        flatten(generator_argument* gen) const;
 
         void
-        Add(std::shared_ptr<Node> p);
+        add(std::shared_ptr<node> p);
 
-        std::vector<std::shared_ptr<Node>> syntax;
+        std::vector<std::shared_ptr<node>> syntax;
     };
 
-    struct Symbol
+    struct symbol
     {
-        explicit Symbol(const std::string& k);
+        explicit symbol(const std::string& k);
 
         std::string key;
-        std::vector<Rule> ruleset;
+        std::vector<rule> ruleset;
 
-        Result
-        AddRule(const std::string& rule);
+        result
+        add_rule(const std::string& rule);
 
-        Result
-        Flatten(GeneratorArgument* gen);
+        result
+        flatten(generator_argument* gen) const;
     };
 
-    struct Grammar
+    struct grammar
     {
-        Grammar();
+        grammar();
 
         void
-        RegisterEnglish();
+        register_english();
 
-        Result
-        LoadFromString(const std::string& data);
+        result
+        load_from_string(const std::string& data);
 
-        Result
-        GetStringFromSymbol(
-                const std::string& rule,
-                GeneratorArgument* generator);
+        result
+        get_string_from_symbol(const std::string& rule, generator_argument* generator) const;
 
-        Grammar&
-        RegisterModifier(const std::string& name, std::shared_ptr<Modifier> m);
+        grammar&
+        register_modifier(const std::string& name, std::shared_ptr<modifier> m);
 
-        Result
-        ApplyModifier(const std::string& name, const std::string& data);
+        result
+        apply_modifier(const std::string& name, const std::string& data) const;
 
-        Result
-        Flatten(const std::string& rule);
+        result
+        flatten(core::Random* random, const std::string& rule) const;
 
-        std::map<std::string, Symbol> rules;
-        std::map<std::string, std::shared_ptr<Modifier>> modifiers;
+        std::map<std::string, symbol> rules;
+        std::map<std::string, std::shared_ptr<modifier>> modifiers;
     };
 
 }

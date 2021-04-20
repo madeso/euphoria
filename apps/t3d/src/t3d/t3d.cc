@@ -48,7 +48,7 @@ namespace euphoria::t3d
 
 
     [[nodiscard]] int
-    T3d::Start(const core::argparse::Arguments& args)
+    T3d::Start(const core::argparse::name_and_arguments& args)
     {
         engine = std::make_shared<window::Engine>();
 

@@ -5,9 +5,7 @@
 
 #include <sstream>
 
-// todo(Gustav): replace with core random! for random
-#include <random>
-#include <chrono>
+#include "core/random.h"
 
 // json parsing
 #include "rapidjson/document.h"
@@ -48,21 +46,19 @@ namespace euphoria::core::tracery
     // ----------------------------------------------------------------
     // Private
 
-    using Generator = std::default_random_engine;
-
-    struct GeneratorArgument
+    struct generator_argument
     {
-        Generator* generator = nullptr;
-        Grammar* grammar = nullptr;
+        core::Random* generator = nullptr;
+        const grammar* grammar = nullptr;
         std::map<std::string, std::string> overridden_rules;
     };
 
-    Result
-    ParseJson(Symbol* rule, const rapidjson::Value& value)
+    result
+    parse_json(symbol* rule, const rapidjson::Value& value)
     {
         if(value.IsString())
         {
-            return rule->AddRule(value.GetString());
+            return rule->add_rule(value.GetString());
         }
         else if(value.IsArray())
         {
@@ -70,7 +66,7 @@ namespace euphoria::core::tracery
             {
                 if(v.IsString())
                 {
-                    Result r = rule->AddRule(v.GetString());
+                    result r = rule->add_rule(v.GetString());
                     if(r == false)
                     {
                         return r;
@@ -78,23 +74,23 @@ namespace euphoria::core::tracery
                 }
                 else
                 {
-                    return Result(Result::INVALID_JSON);
+                    return result(result::invalid_json);
                 }
             }
 
-            return Result(Result::NO_ERROR);
+            return result(result::no_error);
         }
         else
         {
-            return Result(Result::INVALID_JSON);
+            return result(result::invalid_json);
         }
     }
 
 
-    Result
-    FromJson(Symbol* rule, const rapidjson::Value& value)
+    result
+    from_json(symbol* rule, const rapidjson::Value& value)
     {
-        auto r = ParseJson(rule, value);
+        auto r = parse_json(rule, value);
         if(r == false)
         {
             // todo(Gustav): add json error information
@@ -106,29 +102,29 @@ namespace euphoria::core::tracery
 
     // ----------------------------------------------------------------
 
-    Node::~Node() = default;
+    node::~node() = default;
 
     // ----------------------------------------------------------------
 
-    struct LiteralStringNode : public Node
+    struct literal_string_node : public node
     {
-        LiteralStringNode(const std::string& t) : text(t) {}
+        literal_string_node(const std::string& t) : text(t) {}
         std::string text;
 
-        Result
-        Flatten(GeneratorArgument*) override
+        result
+        flatten(generator_argument*) const override
         {
-            return Result(Result::NO_ERROR) << text;
+            return result(result::no_error) << text;
         }
     };
 
     // ----------------------------------------------------------------
 
-    struct CallSymbolNode : public Node
+    struct call_symbol_node : public node
     {
-        CallSymbolNode() = default;
+        call_symbol_node() = default;
 
-        struct ActionRule
+        struct action_rule
         {
             std::string key;
             std::string symbol;
@@ -136,52 +132,52 @@ namespace euphoria::core::tracery
 
         std::string symbol;
         std::vector<std::string> modifiers;
-        std::vector<ActionRule> action_rules;
+        std::vector<action_rule> action_rules;
 
         void
-        AddActionRule
+        add_action_rule
         (
             const std::string& action_key,
             const std::string& action_symbol
         )
         {
-            action_rules.push_back(ActionRule {action_key, action_symbol});
+            action_rules.push_back(action_rule {action_key, action_symbol});
         }
 
-        Result
-        Flatten(GeneratorArgument* generator) override
+        result
+        flatten(generator_argument* generator) const override
         {
-            GeneratorArgument arg = *generator;
+            generator_argument arg = *generator;
 
             for(const auto& r: action_rules)
             {
-                const Result result = arg.grammar->GetStringFromSymbol(r.symbol, &arg);
+                const auto result = arg.grammar->get_string_from_symbol(r.symbol, &arg);
                 if(result == false)
                 {
                     return result;
                 }
-                arg.overridden_rules[r.key] = result.GetText();
+                arg.overridden_rules[r.key] = result.get_text();
             }
 
-            Result result = arg.grammar->GetStringFromSymbol(symbol, &arg);
-            if(result == false)
+            auto symbol_result = arg.grammar->get_string_from_symbol(symbol, &arg);
+            if(symbol_result == false)
             {
-                return result;
+                return symbol_result;
             }
 
-            std::string ret = result.GetText();
+            auto ret = symbol_result.get_text();
 
-            for(const std::string& f: modifiers)
+            for(const auto& f: modifiers)
             {
-                Result r = generator->grammar->ApplyModifier(f, ret);
+                auto r = generator->grammar->apply_modifier(f, ret);
                 if(r == false)
                 {
                     return r;
                 }
-                ret = r.GetText();
+                ret = r.get_text();
             }
 
-            return Result(Result::NO_ERROR) << ret;
+            return result{ result::no_error } << ret;
         }
     };
 
@@ -189,22 +185,22 @@ namespace euphoria::core::tracery
     // ----------------------------------------------------------------
     // Result
 
-    Result::Result(Type t) : type(t) {}
+    result::result(error t) : error_type(t) {}
 
-    Result&
-    Result::operator<<(const std::string& t)
+    result&
+    result::operator<<(const std::string& t)
     {
         text.push_back(t);
         return *this;
     }
 
-    Result::operator bool() const
+    result::operator bool() const
     {
-        return type == NO_ERROR;
+        return error_type == no_error;
     }
 
     std::string
-    Result::GetText() const
+    result::get_text() const
     {
         std::ostringstream ss;
         for(const auto& s: text)
@@ -215,27 +211,27 @@ namespace euphoria::core::tracery
     }
 
     std::ostream&
-    operator<<(std::ostream& o, const Result& r)
+    operator<<(std::ostream& o, const result& r)
     {
-        switch(r.type)
+        switch(r.error_type)
         {
-        case Result::NO_ERROR: o << "No error detected"; break;
-        case Result::UNABLE_TO_OPEN_FILE:
-            o << "Unable to open file: " << r.GetText();
+        case result::no_error: o << "No error detected"; break;
+        case result::unable_to_open_file:
+            o << "Unable to open file: " << r.get_text();
             break;
-        case Result::JSON_PARSE:
-            o << "JSON parse error: " << r.GetText();
+        case result::json_parse:
+            o << "JSON parse error: " << r.get_text();
             break;
-        case Result::MISSING_RULE:
-            o << "Rule not found in grammar: " << r.GetText();
+        case result::missing_rule:
+            o << "Rule not found in grammar: " << r.get_text();
             break;
-        case Result::RULE_EOF: o << "EOF in rule: " << r.GetText(); break;
-        case Result::INVALID_JSON: o << "Invalid json state."; break;
-        case Result::INVALID_MODIFIER:
-            o << "Invalid modifier: " << r.GetText();
+        case result::rule_eof: o << "EOF in rule: " << r.get_text(); break;
+        case result::invalid_json: o << "Invalid json state."; break;
+        case result::invalid_modifier:
+            o << "Invalid modifier: " << r.get_text();
             break;
-        case Result::GENERAL_RULE_PARSE_ERROR:
-            o << "Rule parse error: " << r.GetText();
+        case result::general_rule_parse_error:
+            o << "Rule parse error: " << r.get_text();
             break;
         default: o << "Unhandled error"; break;
         }
@@ -245,17 +241,17 @@ namespace euphoria::core::tracery
 
     // ----------------------------------------------------------------
 
-    Rule::Rule() = default;
+    rule::rule() = default;
 
-    Result
-    ParseError(TextFileParser* parser)
+    result
+    parse_error(TextFileParser* parser)
     {
-        return Result(Result::GENERAL_RULE_PARSE_ERROR)
+        return result(result::general_rule_parse_error)
                << parser->PeekString() << " detected but ";
     }
 
     std::string
-    ReadTraceryIdent(TextFileParser* parser)
+    read_tracery_ident(TextFileParser* parser)
     {
         const std::string valid
                 = "abcdefghijklmnopqrstuvwxyz"
@@ -271,15 +267,15 @@ namespace euphoria::core::tracery
         return ss.str();
     }
 
-    Result
-    Rule::Compile(const std::string& s)
+    result
+    rule::compile(const std::string& s)
     {
 #define EMPTY_STRING(str, err)                                                 \
     do                                                                         \
     {                                                                          \
         if(str.empty())                                                        \
         {                                                                      \
-            return ParseError(&parser) << err;                                 \
+            return parse_error(&parser) << err;                                \
         }                                                                      \
     } while(false)
 
@@ -288,7 +284,7 @@ namespace euphoria::core::tracery
     {                                                                          \
         if(false == parser.ExpectChar(chr))                                    \
         {                                                                      \
-            return ParseError(&parser) << err;                                 \
+            return parse_error(&parser) << err;                                \
         }                                                                      \
     } while(false)
 
@@ -309,32 +305,32 @@ namespace euphoria::core::tracery
                 buffer.str("");
                 if(text.empty() == false)
                 {
-                    Add(std::make_shared<LiteralStringNode>(text));
+                    add(std::make_shared<literal_string_node>(text));
                 }
-                auto n = std::make_shared<CallSymbolNode>();
+                auto n = std::make_shared<call_symbol_node>();
                 while(parser.PeekChar() == '[')
                 {
                     parser.ReadChar();
-                    const auto key_name = ReadTraceryIdent(&parser);
+                    const auto key_name = read_tracery_ident(&parser);
                     EMPTY_STRING(key_name, "got empty key");
 
                     EXPECT_CHAR(':', "expected : after key name");
                     if(parser.PeekChar() == '#')
                     {
                         parser.ReadChar();
-                        const auto symbol_name = ReadTraceryIdent(&parser);
+                        const auto symbol_name = read_tracery_ident(&parser);
                         EMPTY_STRING(symbol_name, "got empty symbol name");
                         EXPECT_CHAR('#', "expected # to end symbol name");
-                        n->AddActionRule(key_name, symbol_name);
+                        n->add_action_rule(key_name, symbol_name);
                     }
                     else
                     {
-                        const auto command = ReadTraceryIdent(&parser);
+                        const auto command = read_tracery_ident(&parser);
                         EMPTY_STRING(command, "got empty command");
                     }
                     EXPECT_CHAR(']', "expected ]");
                 }
-                const auto symbol_name = ReadTraceryIdent(&parser);
+                const auto symbol_name = read_tracery_ident(&parser);
                 EMPTY_STRING(symbol_name, "Empty symbol name");
                 n->symbol = symbol_name;
                 bool run = true;
@@ -344,7 +340,7 @@ namespace euphoria::core::tracery
                     {
                     case '.': {
                         parser.ReadChar();
-                        const auto mod = ReadTraceryIdent(&parser);
+                        const auto mod = read_tracery_ident(&parser);
                         n->modifiers.push_back(mod);
                     }
                     break;
@@ -356,16 +352,16 @@ namespace euphoria::core::tracery
 
                     default: {
                         const auto c = parser.ReadChar();
-                        return Result(Result::GENERAL_RULE_PARSE_ERROR)
+                        return result(result::general_rule_parse_error)
                                << "Unknown character inside ##: "
                                << (Str() << c);
                     }
                     }
                 }
-                Add(n);
+                add(n);
                 if(run)
                 {
-                    return Result(Result::RULE_EOF);
+                    return result(result::rule_eof);
                 }
             }
             break;
@@ -377,29 +373,29 @@ namespace euphoria::core::tracery
         const auto text = buffer.str();
         if(text.empty() == false)
         {
-            Add(std::make_shared<LiteralStringNode>(text));
+            add(std::make_shared<literal_string_node>(text));
         }
 
-        return Result(Result::NO_ERROR);
+        return result(result::no_error);
 #undef EXPECT_CHAR
 #undef EMPTY_STRING
     }
 
-    Result
-    Rule::Flatten(GeneratorArgument* gen)
+    result
+    rule::flatten(generator_argument* gen) const
     {
         std::string ret;
-        for(std::shared_ptr<Node> s: syntax)
+        for(std::shared_ptr<node> s: syntax)
         {
-            const Result r = s->Flatten(gen);
+            const result r = s->flatten(gen);
             if(r == false) { return r; }
-            ret += r.GetText();
+            ret += r.get_text();
         }
-        return Result(Result::NO_ERROR) << ret;
+        return result(result::no_error) << ret;
     }
 
     void
-    Rule::Add(std::shared_ptr<Node> p)
+    rule::add(std::shared_ptr<node> p)
     {
         syntax.push_back(p);
     }
@@ -407,13 +403,13 @@ namespace euphoria::core::tracery
 
     // ----------------------------------------------------------------
     // Symbol
-    Symbol::Symbol(const std::string& k) : key(k) {}
+    symbol::symbol(const std::string& k) : key(k) {}
 
-    Result
-    Symbol::AddRule(const std::string& rule)
+    result
+    symbol::add_rule(const std::string& rule_code)
     {
-        Rule syntax;
-        Result r = syntax.Compile(rule);
+        auto syntax = rule{};
+        result r = syntax.compile(rule_code);
         if(r)
         {
             ruleset.push_back(syntax);
@@ -421,22 +417,20 @@ namespace euphoria::core::tracery
         return r;
     }
 
-    Result
-    Symbol::Flatten(GeneratorArgument* gen)
+    result
+    symbol::flatten(generator_argument* gen) const
     {
         ASSERT(gen);
         ASSERTX(ruleset.empty() == false, key);
-        std::uniform_int_distribution<size_t> distribution(
-                0, ruleset.size() - 1);
-        size_t index = distribution(*gen->generator);
-        return ruleset[index].Flatten(gen);
+
+        return gen->generator->Next(ruleset).flatten(gen);
     }
 
 
     // ----------------------------------------------------------------
     // Modifier
 
-    Modifier::~Modifier() = default;
+    modifier::~modifier() = default;
 
 
     // ----------------------------------------------------------------
@@ -446,27 +440,27 @@ namespace euphoria::core::tracery
     namespace english
     {
         bool
-        isVowel(char c)
+        is_vowel(char c)
         {
             char c2 = ToLowerChar(c);
             return (c2 == 'a') || (c2 == 'e') || (c2 == 'i') || (c2 == 'o') || (c2 == 'u');
         }
 
         bool
-        isAlphaNum(char c)
+        is_alpha_num(char c)
         {
             return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9');
         }
 
 
         std::string
-        capitalizeAll(const std::string& s)
+        capitalize_all(const std::string& s)
         {
             std::string s2;
             bool capNext = true;
             for(char c: s)
             {
-                if(!isAlphaNum(c))
+                if(!is_alpha_num(c))
                 {
                     capNext = true;
                     s2 += c;
@@ -513,7 +507,7 @@ namespace euphoria::core::tracery
                     }
                 }
 
-                if(isVowel(s[0]))
+                if(is_vowel(s[0]))
                 {
                     return "an " + s;
                 }
@@ -530,9 +524,9 @@ namespace euphoria::core::tracery
             case 's':
             case 'h':
             case 'x':
-                return s + "es"; break;
+                return s + "es";
             case 'y':
-                if(!isVowel(s[s.length() - 2]))
+                if(!is_vowel(s[s.length() - 2]))
                 {
                     return s.substr(0, s.length() - 1) + "ies";
                 }
@@ -540,7 +534,6 @@ namespace euphoria::core::tracery
                 {
                     return s + "s";
                 }
-                break;
             default: return s + "s";
             }
         }
@@ -554,7 +547,7 @@ namespace euphoria::core::tracery
             case 's': case 'h': case 'x':
                 return s + "ed";
             case 'y':
-                if(!isVowel(s[s.length() - 2]))
+                if(!is_vowel(s[s.length() - 2]))
                 {
                     return s.substr(0, s.length() - 1) + "ied";
                 }
@@ -562,64 +555,63 @@ namespace euphoria::core::tracery
                 {
                     return s + "d";
                 }
-                break;
             default: return s + "ed";
             }
         }
 
 
         template <typename Func>
-        struct FuncModifier : public Modifier
+        struct func_modifier : public modifier
         {
             Func func;
-            FuncModifier(Func f) : func(f) {}
+            func_modifier(Func f) : func(f) {}
 
-            Result
-            ApplyModifier(const std::string& input) override
+            result
+            apply_modifier(const std::string& input) override
             {
                 std::string r = func(input);
-                return Result(Result::NO_ERROR) << r;
+                return result(result::no_error) << r;
             }
         };
 
         template <typename T>
-        std::shared_ptr<Modifier>
-        NewModifier(T func)
+        std::shared_ptr<modifier>
+        new_modifier(T func)
         {
-            return std::shared_ptr<Modifier>{new FuncModifier<T>(func)};
+            return std::shared_ptr<modifier>{new func_modifier<T>(func)};
         }
 
 
         void
-        Register(Grammar* g)
+        register_on_grammar(grammar* g)
         {
-            g->RegisterModifier("capitalizeAll", NewModifier(capitalizeAll));
-            g->RegisterModifier("capitalize", NewModifier(capitalize));
-            g->RegisterModifier("a", NewModifier(a));
-            g->RegisterModifier("s", NewModifier(s));
-            g->RegisterModifier("ed", NewModifier(ed));
+            g->register_modifier("capitalizeAll", new_modifier(capitalize_all));
+            g->register_modifier("capitalize", new_modifier(capitalize));
+            g->register_modifier("a", new_modifier(a));
+            g->register_modifier("s", new_modifier(s));
+            g->register_modifier("ed", new_modifier(ed));
         }
     }
 
     // ----------------------------------------------------------------
     // Grammar
 
-    Grammar::Grammar() = default;
+    grammar::grammar() = default;
 
     void
-    Grammar::RegisterEnglish()
+    grammar::register_english()
     {
-        english::Register(this);
+        english::register_on_grammar(this);
     }
 
-    Result
-    Grammar::LoadFromString(const std::string& data)
+    result
+    grammar::load_from_string(const std::string& data)
     {
         rapidjson::Document doc;
         const auto parse_error = ParseJsonSource(data, &doc);
         if(parse_error.empty() == false)
         {
-            return Result(Result::JSON_PARSE) << parse_error;
+            return result(result::json_parse) << parse_error;
         }
 
         for(rapidjson::Value::ConstMemberIterator itr = doc.MemberBegin();
@@ -627,8 +619,8 @@ namespace euphoria::core::tracery
             ++itr)
         {
             const std::string ruleName = itr->name.GetString();
-            Symbol rule {ruleName};
-            Result r = FromJson(&rule, itr->value);
+            symbol rule {ruleName};
+            result r = from_json(&rule, itr->value);
             if(r == false)
             {
                 return r;
@@ -636,59 +628,53 @@ namespace euphoria::core::tracery
             rules.insert(std::make_pair(ruleName, rule));
         }
 
-        return Result(Result::NO_ERROR);
+        return result(result::no_error);
     }
 
-    Result
-    Grammar::GetStringFromSymbol(
-            const std::string& rule,
-            GeneratorArgument* generator)
+    result
+    grammar::get_string_from_symbol(const std::string& rule, generator_argument* generator) const
     {
         const auto has_overridden = generator->overridden_rules.find(rule);
         if(has_overridden != generator->overridden_rules.end())
         {
-            return Result(Result::NO_ERROR) << has_overridden->second;
+            return result(result::no_error) << has_overridden->second;
         }
 
-        const auto found = rules.find(rule);
+        const auto& found = rules.find(rule);
         if(found == rules.end())
         {
             // todo(Gustav): handle errors better
-            return Result(Result::MISSING_RULE) << rule;
+            return result(result::missing_rule) << rule;
         }
-        return found->second.Flatten(generator);
+        return found->second.flatten(generator);
     }
 
-    Grammar&
-    Grammar::RegisterModifier(const std::string& name, std::shared_ptr<Modifier> mod)
+    grammar&
+    grammar::register_modifier(const std::string& name, std::shared_ptr<modifier> mod)
     {
         modifiers.insert(std::make_pair(name, mod));
         return *this;
     }
 
-    Result
-    Grammar::ApplyModifier(const std::string& name, const std::string& data)
+    result
+    grammar::apply_modifier(const std::string& name, const std::string& data) const
     {
         auto r = modifiers.find(name);
         if(r == modifiers.end())
         {
-            return Result(Result::INVALID_MODIFIER) << name;
+            return result(result::invalid_modifier) << name;
         }
-        return r->second->ApplyModifier(data);
+        return r->second->apply_modifier(data);
     }
 
-    Result
-    Grammar::Flatten(const std::string& rule)
+    result
+    grammar::flatten(core::Random* random, const std::string& rule_code) const
     {
-        const auto seed
-                = std::chrono::system_clock::now().time_since_epoch().count();
-        Generator gen;
-        gen.seed(seed);
-        GeneratorArgument generator;
+        generator_argument generator;
         generator.grammar = this;
-        generator.generator = &gen;
-        Rule syntax;
-        syntax.Compile(rule);
-        return syntax.Flatten(&generator);
+        generator.generator = random;
+        rule syntax;
+        syntax.compile(rule_code);
+        return syntax.flatten(&generator);
     }
 }

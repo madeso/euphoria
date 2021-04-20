@@ -148,14 +148,14 @@ main(int argc, char* argv[])
     std::string chars = "ABCDEFGHIJKLMNOPQRSTUWXYZ!@#$%^&*()_+abcdefghijklmnopqrstuwxyz0123456789-=<>,./\\[]{};:";
     std::string text;
 
-    auto parser = argparse::Parser {"font test"};
-    parser.Add("text", &text).Help("The text to print");
-    parser.Add("--font", &font_name).Help("The font to use");
-    parser.Add("--file", &font_file).Help("If not empty, use this font file");
-    parser.Add("--size", &size).Help("the font file size");
-    parser.Add("--chars", &chars).Help("The font file chars");
+    auto parser = argparse::parser {"font test"};
+    parser.add("text", &text).set_help("The text to print");
+    parser.add("--font", &font_name).set_help("The font to use");
+    parser.add("--file", &font_file).set_help("If not empty, use this font file");
+    parser.add("--size", &size).set_help("the font file size");
+    parser.add("--chars", &chars).set_help("The font file chars");
 
-    if(auto r = parser.Parse(argc, argv))
+    if(auto r = parser.parse(argc, argv))
     {
         return *r;
     }

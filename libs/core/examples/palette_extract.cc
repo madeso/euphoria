@@ -243,36 +243,36 @@ HandlePrint
 int
 main(int argc, char* argv[])
 {
-    auto parser = argparse::Parser
+    auto parser = argparse::parser
     {
         "extract colors from images"
     };
-    auto subs = parser.AddSubParsers();
+    auto subs = parser.add_sub_parsers();
 
-    subs->Add
+    subs->add
     (
         "print", "print all colors found in images",
-        [](argparse::SubParser* sub)
+        [](argparse::sub_parser* sub)
         {
             std::vector<std::string> files;
             int depth = 3;
             bool middle_split = false;
 
-            sub->Add("--depth", &depth)
-                .AllowBeforePositionals()
-                .Nargs("R")
-                .Help("change the palette depth")
+            sub->add("--depth", &depth)
+                .set_allow_before_positionals()
+                .set_nargs("R")
+                .set_help("change the palette depth")
                 ;
-            sub->SetTrue("--middle", &middle_split)
-                .AllowBeforePositionals()
-                .Help("split at middle array insteaf of median")
+            sub->set_true("--middle", &middle_split)
+                .set_allow_before_positionals()
+                .set_help("split at middle array insteaf of median")
                 ;
-            sub->AddVector("files", &files)
-                .Nargs("F")
-                .Help("the files to analyze")
+            sub->add_vector("files", &files)
+                .set_nargs("F")
+                .set_help("the files to analyze")
                 ;
 
-            return sub->OnComplete([&]
+            return sub->on_complete([&]
             {
                 const auto was_extracted = HandlePrint
                 (
@@ -280,18 +280,18 @@ main(int argc, char* argv[])
                 );
 
                 return was_extracted
-                    ? argparse::ParseResult::Ok
-                    : argparse::ParseResult::Error
+                    ? argparse::ok
+                    : argparse::error
                     ;
             });
         }
     );
 
 
-    subs->Add
+    subs->add
     (
         "image", "write all colors found in images to a palette image",
-        [](argparse::SubParser* sub)
+        [](argparse::sub_parser* sub)
         {
             int image_size = 5;
             std::string file = "pal.png";
@@ -299,31 +299,31 @@ main(int argc, char* argv[])
             int depth = 3;
             bool middle_split = false;
 
-            sub->Add("--depth", &depth)
-                .AllowBeforePositionals()
-                .Nargs("R")
-                .Help("change the palette depth")
+            sub->add("--depth", &depth)
+                .set_allow_before_positionals()
+                .set_nargs("R")
+                .set_help("change the palette depth")
                 ;
-            sub->SetTrue("--middle", &middle_split)
-                .AllowBeforePositionals()
-                .Help("split at middle array insteaf of median")
+            sub->set_true("--middle", &middle_split)
+                .set_allow_before_positionals()
+                .set_help("split at middle array insteaf of median")
                 ;
-            sub->Add("--size", &image_size)
-                .AllowBeforePositionals()
-                .Nargs("S")
-                .Help("change the image size")
+            sub->add("--size", &image_size)
+                .set_allow_before_positionals()
+                .set_nargs("S")
+                .set_help("change the image size")
                 ;
-            sub->Add("-o, --output", &file)
-                .AllowBeforePositionals()
-                .Nargs("FILE")
-                .Help("change where to save the output")
+            sub->add("-o, --output", &file)
+                .set_allow_before_positionals()
+                .set_nargs("FILE")
+                .set_help("change where to save the output")
                 ;
-            sub->AddVector("files", &files)
-                .Nargs("F")
-                .Help("the files to analyze")
+            sub->add_vector("files", &files)
+                .set_nargs("F")
+                .set_help("the files to analyze")
                 ;
 
-            return sub->OnComplete([&]
+            return sub->on_complete([&]
             {
                 const auto was_extracted = HandleImage
                 (
@@ -335,13 +335,13 @@ main(int argc, char* argv[])
                 );
 
                 return was_extracted
-                    ? argparse::ParseResult::Ok
-                    : argparse::ParseResult::Error
+                    ? argparse::ok
+                    : argparse::error
                     ;
             });
         }
     );
 
 
-    return ParseFromMain(&parser, argc, argv);
+    return parse_from_main(&parser, argc, argv);
 }

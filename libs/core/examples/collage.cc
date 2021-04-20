@@ -158,16 +158,16 @@ HandlePack
 int
 main(int argc, char* argv[])
 {
-    auto parser = argparse::Parser
+    auto parser = argparse::parser
     {
         "pack smaller images into a bigger one"
     };
-    auto subs = parser.AddSubParsers();
+    auto subs = parser.add_sub_parsers();
 
-    subs->Add
+    subs->add
     (
         "grid", "lay put images in a grid",
-        [](argparse::SubParser* sub)
+        [](argparse::sub_parser* sub)
         {
             Rgbi background_color = Color::Gray;
             std::string output_file = "collage.png";
@@ -176,34 +176,34 @@ main(int argc, char* argv[])
             std::vector<std::string> files;
             bool sort_files = false;
 
-            sub->Add("--bg", &background_color)
-                .AllowBeforePositionals()
-                .Nargs("C")
-                .Help("change the background color")
+            sub->add("--bg", &background_color)
+                .set_allow_before_positionals()
+                .set_nargs("C")
+                .set_help("change the background color")
                 ;
-            sub->Add("--padding", &padding)
-                .AllowBeforePositionals()
-                .Nargs("P")
-                .Help("change the space (in pixels) between images")
+            sub->add("--padding", &padding)
+                .set_allow_before_positionals()
+                .set_nargs("P")
+                .set_help("change the space (in pixels) between images")
                 ;
-            sub->Add("-o, --output", &output_file)
-                .AllowBeforePositionals()
-                .Nargs("FILE")
-                .Help("change where to save the output")
+            sub->add("-o, --output", &output_file)
+                .set_allow_before_positionals()
+                .set_nargs("FILE")
+                .set_help("change where to save the output")
                 ;
-            sub->AddVector("files", &files)
-                .Nargs("F")
-                .Help("the files to pack")
+            sub->add_vector("files", &files)
+                .set_nargs("F")
+                .set_help("the files to pack")
                 ;
-            sub->SetFalse("--invert", &top_to_bottom)
-                .AllowBeforePositionals()
-                .Help("switch from top-to-bottom to bottom-to-top layout")
+            sub->set_false("--invert", &top_to_bottom)
+                .set_allow_before_positionals()
+                .set_help("switch from top-to-bottom to bottom-to-top layout")
                 ;
-            sub->SetTrue("--sort", &sort_files)
-                .AllowBeforePositionals()
-                .Help("sort image files before laying them out in the grid")
+            sub->set_true("--sort", &sort_files)
+                .set_allow_before_positionals()
+                .set_help("sort image files before laying them out in the grid")
                 ;
-            return sub->OnComplete([&]
+            return sub->on_complete([&]
             {
                 const auto was_packed = HandleGrid
                 (
@@ -216,17 +216,17 @@ main(int argc, char* argv[])
                 );
 
                 return was_packed
-                    ? argparse::ParseResult::Ok
-                    : argparse::ParseResult::Error
+                    ? argparse::ok
+                    : argparse::error
                     ;
             });
         }
     );
 
-    subs->Add
+    subs->add
     (
         "pack", "pack images according to the stb rect-pack algorithm",
-        [](argparse::SubParser* sub)
+        [](argparse::sub_parser* sub)
         {
             auto image_size = Sizei::FromWidthHeight(1024, 1024);
             Rgbi background_color = Color::Gray;
@@ -235,36 +235,36 @@ main(int argc, char* argv[])
             bool pack_image = true;
             std::vector<std::string> files;
 
-            sub->Add("--size", &image_size)
-                .AllowBeforePositionals()
-                .Nargs("S")
-                .Help("change the image size")
+            sub->add("--size", &image_size)
+                .set_allow_before_positionals()
+                .set_nargs("S")
+                .set_help("change the image size")
                 ;
-            sub->Add("--bg", &background_color)
-                .AllowBeforePositionals()
-                .Nargs("C")
-                .Help("change the background color")
+            sub->add("--bg", &background_color)
+                .set_allow_before_positionals()
+                .set_nargs("C")
+                .set_help("change the background color")
                 ;
-            sub->Add("--padding", &padding)
-                .AllowBeforePositionals()
-                .Nargs("P")
-                .Help("change the space (in pixels) between images")
+            sub->add("--padding", &padding)
+                .set_allow_before_positionals()
+                .set_nargs("P")
+                .set_help("change the space (in pixels) between images")
                 ;
-            sub->Add("-o, --output", &output_file)
-                .AllowBeforePositionals()
-                .Nargs("FILE")
-                .Help("change where to save the output")
+            sub->add("-o, --output", &output_file)
+                .set_allow_before_positionals()
+                .set_nargs("FILE")
+                .set_help("change where to save the output")
                 ;
-            sub->SetFalse("--no-pack", &pack_image)
-                .AllowBeforePositionals()
-                .Help("don't pack the resulting image and keep the whitespace")
+            sub->set_false("--no-pack", &pack_image)
+                .set_allow_before_positionals()
+                .set_help("don't pack the resulting image and keep the whitespace")
                 ;
-            sub->AddVector("files", &files)
-                .Nargs("F")
-                .Help("the files to pack")
+            sub->add_vector("files", &files)
+                .set_nargs("F")
+                .set_help("the files to pack")
                 ;
 
-            return sub->OnComplete([&]
+            return sub->on_complete([&]
             {
                 const auto was_packed = HandlePack
                 (
@@ -277,12 +277,12 @@ main(int argc, char* argv[])
                 );
 
                 return was_packed
-                    ? argparse::ParseResult::Ok
-                    : argparse::ParseResult::Error
+                    ? argparse::ok
+                    : argparse::error
                     ;
             });
         }
     );
 
-    return ParseFromMain(&parser, argc, argv);
+    return parse_from_main(&parser, argc, argv);
 }

@@ -71,12 +71,12 @@ namespace euphoria::core::argparse
     }
 
 
-    FileOutput::FileOutput(const std::string& o) : file(o), single(!(EndsWith(o, "/") || EndsWith(o, "\\")))
+    file_output::file_output(const std::string& o) : file(o), single(!(EndsWith(o, "/") || EndsWith(o, "\\")))
     {}
 
 
     std::string
-    FileOutput::NextFile(bool print)
+    file_output::get_next_file(bool print)
     {
         if(single)
         {
@@ -97,83 +97,45 @@ namespace euphoria::core::argparse
 
 
     void
-    FileOutput::CreateDirIfMissing() const
+    file_output::create_dir_if_missing() const
     {
         if(single) { return; }
         // std::filesystem::create_directories(file);
     }
 
 
-    namespace
-    {
-        constexpr
-        int
-        DefaultReturnValue(ParseResult::Type pr)
-        {
-            switch (pr)
-            {
-            case ParseResult::Type::Ok: return 0;
-            case ParseResult::Type::Error: return -1;
-            case ParseResult::Type::Quit: return 0;
-            default: return -1;
-            }
-        }
-    }
-
-
-    const ParseResult ParseResult::Error = ParseResult { Type::Error };
-    const ParseResult ParseResult::Ok = ParseResult { Type::Ok };
-    const ParseResult ParseResult::Quit = ParseResult { Type::Quit };
-
-
-    constexpr
-    ParseResult::ParseResult(Type t)
-        : type(t)
-        , return_value(DefaultReturnValue(t))
-    {
-    }
-
-
-    constexpr
-    ParseResult::ParseResult(int rv)
-        : type(ParseResult::Type::Custom)
-        , return_value(rv)
-    {
-    }
-
-
     std::ostream&
-    operator<<(std::ostream& o, const ParseResult& pr)
+    operator<<(std::ostream& o, const parse_result& pr)
     {
-        o << EnumToString(pr.type) << "(" << pr.return_value << ")";
+        o << EnumToString(pr.internal_type) << "(" << pr.return_value << ")";
         return o;
     }
 
     bool
-    operator==(const ParseResult& lhs, const ParseResult& rhs)
+    operator==(const parse_result& lhs, const parse_result& rhs)
     {
-        return lhs.type == rhs.type && lhs.return_value == rhs.return_value;
+        return lhs.internal_type == rhs.internal_type && lhs.return_value == rhs.return_value;
     }
 
 
     bool
-    operator!=(const ParseResult& lhs, const ParseResult& rhs)
+    operator!=(const parse_result& lhs, const parse_result& rhs)
     {
         return !(lhs == rhs);
     }
 
 
-    Arguments::Arguments(const std::string& n, const std::vector<std::string>& a)
+    name_and_arguments::name_and_arguments(const std::string& n, const std::vector<std::string>& a)
         : name(n)
         , arguments(a)
     {
     }
 
 
-    Arguments
-    Arguments::Extract(int argc, char* argv[])
+    name_and_arguments
+    name_and_arguments::extract(int argc, char* argv[])
     {
-        auto ret = Arguments{argv[0] , {}};
+        auto ret = name_and_arguments{argv[0] , {}};
 
         for (int i = 1; i < argc; i += 1)
         {
@@ -185,7 +147,7 @@ namespace euphoria::core::argparse
 
 
     std::ostream&
-    operator<<(std::ostream& o, const euphoria::core::argparse::Arguments& args)
+    operator<<(std::ostream& o, const euphoria::core::argparse::name_and_arguments& args)
     {
         o << args.name << " ";
         bool first = true;
@@ -201,7 +163,7 @@ namespace euphoria::core::argparse
     }
 
 
-    ArgumentReader::ArgumentReader(const Arguments& a)
+    argument_reader::argument_reader(const name_and_arguments& a)
         : arguments(a)
         , next_position(0)
     {
@@ -209,16 +171,16 @@ namespace euphoria::core::argparse
 
 
     bool
-    ArgumentReader::HasMore() const
+    argument_reader::has_more() const
     {
         return next_position < Csizet_to_int(arguments.arguments.size());
     }
 
 
     std::string
-    ArgumentReader::Peek() const
+    argument_reader::peek() const
     {
-        if (HasMore())
+        if (has_more())
         {
             const auto arg = arguments.arguments[next_position];
             return arg;
@@ -231,16 +193,16 @@ namespace euphoria::core::argparse
 
 
     std::string
-    ArgumentReader::Read()
+    argument_reader::read()
     {
-        const auto arg = Peek();
+        const auto arg = peek();
         next_position += 1;
         return arg;
     }
 
 
     void
-    ArgumentReader::UndoRead()
+    argument_reader::undo_read()
     {
         ASSERT(next_position > 0);
         next_position -= 1;
@@ -253,42 +215,42 @@ namespace euphoria::core::argparse
 
 
     void
-    ConsolePrinter::PrintError(const std::string& line)
+    console_printer::print_error(const std::string& line)
     {
         std::cerr << line << "\n";
     }
 
 
     void
-    ConsolePrinter::PrintInfo(const std::string& line)
+    console_printer::print_info(const std::string& line)
     {
         std::cout << line << "\n";
     }
 
 
     void
-    PrintParseError
+    print_parse_error
     (
-        Runner* runner,
-        ParserBase* base,
-        const std::string& error
+        runner* runner,
+        parser_base* base,
+        const std::string& error_message
     )
     {
-        runner->printer->PrintInfo
+        runner->printer->print_info
         (
-            base->GenerateUsageString
+            base->generate_usage_string
             (
                 runner->arguments->arguments
             )
         );
-        runner->printer->PrintError
+        runner->printer->print_error
         (
-            error
+            error_message
         );
     }
 
 
-    Name::Name(const char* nn)
+    name::name(const char* nn)
         : names(Split(nn, ','))
     {
         for (auto& n : names)
@@ -296,15 +258,15 @@ namespace euphoria::core::argparse
             n = Trim(n);
         }
 
-        ASSERTX(Validate().empty(), Validate());
+        ASSERTX(validate().empty(), validate());
     }
 
 
     std::string
-    Name::Validate() const
+    name::validate() const
     {
         if (names.empty()) { return "no names found"; }
-        if (IsOptional())
+        if (is_optional())
         {
             for (const auto& n : names)
             {
@@ -333,7 +295,7 @@ namespace euphoria::core::argparse
 
 
     bool
-    Name::IsOptional() const
+    name::is_optional() const
     {
         if (names.empty())
         {
@@ -353,182 +315,182 @@ namespace euphoria::core::argparse
 
 
 
-    Argument&
-    Argument::Nargs(const std::string& na)
+    argument&
+    argument::set_nargs(const std::string& na)
     {
         nargs = na;
         return *this;
     }
 
 
-    Argument&
-    Argument::Help(const std::string& h)
+    argument&
+    argument::set_help(const std::string& h)
     {
         help = h;
         return *this;
     }
 
 
-    Argument&
-    Argument::AllowBeforePositionals()
+    argument&
+    argument::set_allow_before_positionals()
     {
         allow_before_positionals = true;
         return *this;
     }
 
 
-    ArgumentAndName::ArgumentAndName(const Name& n, std::shared_ptr<Argument> a)
+    argument_and_name::argument_and_name(const argparse::name& n, std::shared_ptr<argparse::argument> a)
         : name(n)
         , argument(a)
     {
     }
 
 
-    ArgumentNoValue::ArgumentNoValue(Callback cb)
-        : callback(cb)
+    argument_no_value::argument_no_value(callback cb)
+        : callback_function(cb)
     {
     }
 
 
     bool
-    ArgumentNoValue::HaveNargs()
+    argument_no_value::have_nargs()
     {
         return false;
     }
 
 
     std::optional<std::string>
-    ArgumentNoValue::GetSecondLine()
+    argument_no_value::get_second_line()
     {
         return std::nullopt;
     }
 
 
 
-    ParseResult
-    ArgumentNoValue::ParseArguments
+    parse_result
+    argument_no_value::parse_arguments
     (
-        Runner* runner,
+        runner* runner,
         const std::string&,
-        ParserBase*
+        parser_base*
     )
     {
-        return callback(runner);
+        return callback_function(runner);
     }
 
 
-    MultiArgument::MultiArgument(Callback cb, Describe d)
-        : callback(cb)
-        , describe(d)
+    multi_argument::multi_argument(callback cb, describe d)
+        : callback_function(cb)
+        , describe_function(d)
     {
     }
 
 
     bool
-    MultiArgument::HaveNargs()
+    multi_argument::have_nargs()
     {
         return true;
     }
 
 
     std::optional<std::string>
-    MultiArgument::GetSecondLine()
+    multi_argument::get_second_line()
     {
-        return describe();
+        return describe_function();
     }
 
 
-    ParseResult
-    MultiArgument::ParseArguments
+    parse_result
+    multi_argument::parse_arguments
     (
-        Runner* runner,
+        runner* runner,
         const std::string& name,
-        ParserBase* caller
+        parser_base* caller
     )
     {
         // eat all arguments!
-        while (runner->arguments->HasMore())
+        while (runner->arguments->has_more())
         {
-            auto res = callback
+            auto res = callback_function
             (
                 runner,
                 name,
                 caller,
-                runner->arguments->Read()
+                runner->arguments->read()
             );
-            if(res != ParseResult::Ok)
+            if(res != argparse::ok)
             {
                 return res;
             }
         }
-        return ParseResult::Ok;
+        return argparse::ok;
     }
 
 
-    SingleArgument::SingleArgument(Callback cb, Describe d)
-        : callback(cb)
-        , describe(d)
+    single_argument::single_argument(callback cb, describe d)
+        : callback_function(cb)
+        , describe_function(d)
     {
     }
 
 
     bool
-    SingleArgument::HaveNargs()
+    single_argument::have_nargs()
     {
         return true;
     }
 
 
     std::optional<std::string>
-    SingleArgument::GetSecondLine()
+    single_argument::get_second_line()
     {
-        return describe();
+        return describe_function();
     }
 
 
-    ParseResult
-    SingleArgument::ParseArguments
+    parse_result
+    single_argument::parse_arguments
     (
-        Runner* runner,
+        runner* runner,
         const std::string& name,
-        ParserBase* caller
+        parser_base* caller
     )
     {
-        if (runner->arguments->HasMore())
+        if (runner->arguments->has_more())
         {
-            auto res = callback
+            auto res = callback_function
             (
                 runner,
                 name,
                 caller,
-                runner->arguments->Read()
+                runner->arguments->read()
             );
             return res;
         }
         else
         {
-            PrintParseError
+            print_parse_error
             (
                 runner,
                 caller,
                 Str() << "missing value for '" << name << '\''
             );
-            return ParseResult::Error;
+            return argparse::error;
         }
     }
 
 
-    SubParserNames::SubParserNames(const char* str)
+    sub_parser_names::sub_parser_names(const char* str)
     {
         names.emplace_back(str);
     }
 
 
-    SubParserContainer::SubParserContainer
+    sub_parser_container::sub_parser_container
     (
-        const SubParserNames& n,
+        const sub_parser_names& n,
         const std::string& h,
-        SubParserCallback cb
+        sub_parser_callback cb
     )
         : names(n)
         , help(h)
@@ -537,10 +499,10 @@ namespace euphoria::core::argparse
     }
 
 
-    SubParserGroup::SubParserGroup
+    sub_parser_group::sub_parser_group
     (
         const std::string& t,
-        ParserBase* o
+        parser_base* o
     )
         : title(t)
         , owner(o)
@@ -549,14 +511,14 @@ namespace euphoria::core::argparse
 
 
     void
-    SubParserGroup::Add
+    sub_parser_group::add
     (
-        const SubParserNames& names,
+        const sub_parser_names& names,
         const std::string& desc,
-        SubParserCallback sub
+        sub_parser_callback sub
     )
     {
-        auto container = std::make_shared<SubParserContainer>(names, desc, sub);
+        auto container = std::make_shared<sub_parser_container>(names, desc, sub);
         parsers.emplace_back(container);
         for(const auto& name : names.names)
         {
@@ -566,33 +528,33 @@ namespace euphoria::core::argparse
 
 
     void
-    SubParserGroup::Add
+    sub_parser_group::add
     (
-        const SubParserNames& names,
-        SubParserCallback sub
+        const sub_parser_names& names,
+        sub_parser_callback sub
     )
     {
-        Add(names, "", sub);
+        add(names, "", sub);
     }
 
 
-    ParserBase::ParserBase(const std::string& d)
+    parser_base::parser_base(const std::string& d)
         : description(d)
     {
-        AddArgument
+        add_argument
         (
             "-h, --help",
-            std::make_shared<ArgumentNoValue>
+            std::make_shared<argument_no_value>
             (
-                [this](Runner* runner)
+                [this](runner* runner)
                 {
-                    PrintHelp(runner->printer, runner->arguments->arguments);
-                    return ParseResult::Quit;
+                    print_help(runner->printer, runner->arguments->arguments);
+                    return argparse::quit;
                 }
             )
         )
-        .AllowBeforePositionals()
-        .Help("show this help message and exit")
+        .set_allow_before_positionals()
+        .set_help("show this help message and exit")
         ;
     }
 
@@ -602,15 +564,15 @@ namespace euphoria::core::argparse
 
 
     std::string
-    ParserBase::GenerateUsageString(const Arguments& args)
+    parser_base::generate_usage_string(const name_and_arguments& args)
     {
-        auto arg_to_string = [](const ArgumentAndName& aa)
+        auto arg_to_string = [](const argument_and_name& aa)
         {
-            if( aa.name.IsOptional() )
+            if( aa.name.is_optional() )
             {
                 std::ostringstream ss;
                 ss << "[" << aa.name.names[0];
-                if(aa.argument->HaveNargs())
+                if(aa.argument->have_nargs())
                 {
                     ss << " " << aa.argument->nargs;
                 }
@@ -623,7 +585,7 @@ namespace euphoria::core::argparse
                 return ToUpper(aa.name.names[0]);
             }
         };
-        auto ret = std::vector<std::string>{"usage:", GetCallingName(args)};
+        auto ret = std::vector<std::string>{"usage:", get_calling_name(args)};
 
         for(auto& a: optional_argument_list)
         {
@@ -663,7 +625,7 @@ namespace euphoria::core::argparse
     }
 
     void
-    ParserBase::PrintHelp(std::shared_ptr<Printer> printer, const Arguments& args)
+    parser_base::print_help(std::shared_ptr<printer> printer, const name_and_arguments& args)
     {
         using StringTable = Table<std::string>;
 
@@ -734,14 +696,14 @@ namespace euphoria::core::argparse
                 const auto name_length = Csizet_to_int(name.length());
                 if(name_length > max_name_length)
                 {
-                    printer->PrintInfo(INDENT + name);
+                    printer->print_info(INDENT + name);
                     const auto extra_space = std::string(max_name_length, ' ');
-                    printer->PrintInfo(INDENT + extra_space + SPACE + help);
+                    printer->print_info(INDENT + extra_space + SPACE + help);
                 }
                 else
                 {
                     const auto extra_space = std::string(max_name_length - name_length, ' ');
-                    printer->PrintInfo(INDENT + name + extra_space + SPACE + help);
+                    printer->print_info(INDENT + name + extra_space + SPACE + help);
                 }
             }
         };
@@ -756,7 +718,7 @@ namespace euphoria::core::argparse
                 &positionals,
                 a.name.names[0],
                 a.argument->help,
-                a.argument->GetSecondLine()
+                a.argument->get_second_line()
             );
         }
 
@@ -764,7 +726,7 @@ namespace euphoria::core::argparse
         for (auto& a : optional_argument_list)
         {
             const auto names = StringMerger::Comma().Generate(a.name.names);
-            const auto names_with_narg = a.argument->HaveNargs() == false
+            const auto names_with_narg = a.argument->have_nargs() == false
                 ? names
                 : Str() << names << " " << a.argument->nargs
                 ;
@@ -779,7 +741,7 @@ namespace euphoria::core::argparse
                 &optionals,
                 names_with_narg,
                 a.argument->help + default_text.str(),
-                a.argument->GetSecondLine()
+                a.argument->get_second_line()
             );
         }
 
@@ -799,40 +761,40 @@ namespace euphoria::core::argparse
         }
 
         // print all tables now
-        printer->PrintInfo(GenerateUsageString(args));
+        printer->print_info(generate_usage_string(args));
         if (description.empty() == false)
         {
-            printer->PrintInfo("");
-            printer->PrintInfo(description);
+            printer->print_info("");
+            printer->print_info(description);
         }
 
         if (positionals.GetHeight() != 0)
         {
-            printer->PrintInfo("");
-            printer->PrintInfo("positional arguments:");
+            printer->print_info("");
+            printer->print_info("positional arguments:");
             print(positionals);
         }
 
         if(optionals.GetHeight() != 0)
         {
-            printer->PrintInfo("");
-            printer->PrintInfo("optional arguments:");
+            printer->print_info("");
+            printer->print_info("optional arguments:");
             print(optionals);
         }
 
         if(!subs.empty())
         {
             bool is_first_group = true;
-            printer->PrintInfo("");
+            printer->print_info("");
             auto sub = subs.begin();
             for(const auto& group: subparser_groups)
             {
                 if(is_first_group == false)
                 {
-                    printer->PrintInfo("");
+                    printer->print_info("");
                 }
 
-                printer->PrintInfo(group->title + ":");
+                printer->print_info(group->title + ":");
 
                 print(*sub);
                 sub +=1 ;
@@ -844,24 +806,24 @@ namespace euphoria::core::argparse
 
 
     std::string
-    CreateDefaultNarg(const Name& name)
+    CreateDefaultNarg(const name& name)
     {
         const auto n = TrimLeft(name.names[0], "-");
         return ToUpper(n);
     }
 
 
-    Argument&
-    ParserBase::AddArgument(const Name& name, std::shared_ptr<Argument> argument)
+    argument&
+    parser_base::add_argument(const name& name, std::shared_ptr<argument> argument)
     {
         ASSERT
         (
-            parser_state == ParserState::Adding &&
+            parser_state == ParserState::adding &&
             "It looks like you are adding argument during parsing... "
             "are you using the wrong parser in a OnComplete?"
         );
         argument->nargs = CreateDefaultNarg(name);
-        if (name.IsOptional())
+        if (name.is_optional())
         {
             for (const auto& n : name.names)
             {
@@ -871,55 +833,55 @@ namespace euphoria::core::argparse
         }
         else
         {
-            ASSERT(argument->HaveNargs());
+            ASSERT(argument->have_nargs());
             positional_argument_list.emplace_back(name, argument);
         }
         return *argument;
     }
 
 
-    Argument&
-    ParserBase::AddVoidFunction(const Name& name, std::function<void()> void_function)
+    argument&
+    parser_base::add_void_function(const name& name, std::function<void()> void_function)
     {
-        return AddArgument(name, std::make_shared<ArgumentNoValue>([void_function](Runner*) {void_function(); return ParseResult::Ok; }));
+        return add_argument(name, std::make_shared<argument_no_value>([void_function](runner*) {void_function(); return argparse::ok; }));
     }
 
 
-    Argument&
-    ParserBase::SetTrue(const Name& name, bool* target)
+    argument&
+    parser_base::set_true(const name& name, bool* target)
     {
         *target = false;
-        return SetConst(name, target, true);
+        return set_const(name, target, true);
     }
 
 
-    Argument&
-    ParserBase::SetFalse(const Name& name, bool* target)
+    argument&
+    parser_base::set_false(const name& name, bool* target)
     {
         *target = true;
-        return SetConst(name, target, false);
+        return set_const(name, target, false);
     }
 
 
     void
-    ParserBase::OnComplete(CompleteFunction cf)
+    parser_base::on_complete(complete_function cf)
     {
-        on_complete = cf;
+        on_complete_function = cf;
     }
 
 
-    std::shared_ptr<SubParserGroup>
-    ParserBase::AddSubParsers(const std::string& name)
+    std::shared_ptr<sub_parser_group>
+    parser_base::add_sub_parsers(const std::string& name)
     {
-        ASSERT(parser_state == ParserState::Adding);
-        auto group = std::make_shared<SubParserGroup>(name, this);
+        ASSERT(parser_state == ParserState::adding);
+        auto group = std::make_shared<sub_parser_group>(name, this);
         subparser_groups.emplace_back(group);
         return group;
     }
 
 
-    std::shared_ptr<Argument>
-    ParserBase::FindArgument(const std::string& name) const
+    std::shared_ptr<argument>
+    parser_base::find_argument(const std::string& name) const
     {
         const auto found = optional_arguments.find(name);
         if(found == optional_arguments.end())
@@ -937,8 +899,8 @@ namespace euphoria::core::argparse
     {
         struct ArgumentParser
         {
-            ParserBase* base = nullptr;
-            Runner* runner = nullptr;
+            parser_base* base = nullptr;
+            runner* runner = nullptr;
             int positional_index = 0;
             bool found_subparser = false;
 
@@ -949,21 +911,21 @@ namespace euphoria::core::argparse
             PositionalsLeft() const;
 
             void
-            PrintError(const std::string& error) const;
+            PrintError(const std::string& error_message) const;
 
-            [[nodiscard]] std::optional<ParseResult>
+            [[nodiscard]] std::optional<parse_result>
             TryParseImportantOptional() const;
 
-            std::optional<ParseResult>
+            std::optional<parse_result>
             ParseOnePositional();
 
-            std::optional<ParseResult>
+            std::optional<parse_result>
             ParseSubCommand(const std::string& arg);
 
-            std::optional<ParseResult>
+            std::optional<parse_result>
             ParseOneOptional();
 
-            std::optional<ParseResult>
+            std::optional<parse_result>
             ParseOneArg();
         };
 
@@ -1002,23 +964,23 @@ namespace euphoria::core::argparse
 
 
         void
-        ArgumentParser::PrintError(const std::string& error) const
+        ArgumentParser::PrintError(const std::string& error_message) const
         {
-            PrintParseError(runner, base, error);
+            print_parse_error(runner, base, error_message);
         }
 
 
-        std::optional<ParseResult>
+        std::optional<parse_result>
         ArgumentParser::TryParseImportantOptional() const
         {
             // first, peek at the next commandline argument
             // and check for optionals that are allowed before positionals
-            const auto arg = base->FindArgument(runner->arguments->Peek());
+            const auto arg = base->find_argument(runner->arguments->peek());
             if(arg != nullptr && arg->allow_before_positionals)
             {
                 // we have matched a optional, read and parse it!
-                const auto matched_name = runner->arguments->Read();
-                auto arg_parse_result = arg->ParseArguments
+                const auto matched_name = runner->arguments->read();
+                auto arg_parse_result = arg->parse_arguments
                 (
                     runner,
                     matched_name,
@@ -1034,17 +996,17 @@ namespace euphoria::core::argparse
             }
         }
 
-        std::optional<ParseResult>
+        std::optional<parse_result>
         ArgumentParser::ParseOnePositional()
         {
             auto match = base->positional_argument_list[positional_index];
-            auto arg_parse_result = match.argument->ParseArguments
+            auto arg_parse_result = match.argument->parse_arguments
             (
                 runner,
                 match.name.names[0],
                 base
             );
-            if (arg_parse_result != ParseResult::Ok)
+            if (arg_parse_result != argparse::ok)
             {
                 return arg_parse_result;
             }
@@ -1053,21 +1015,21 @@ namespace euphoria::core::argparse
             return std::nullopt;
         }
 
-        SubParserStyle
-        GetParserStyle(ParserBase* base, bool from_self=true)
+        sub_parser_style
+        GetParserStyle(parser_base* base, bool from_self=true)
         {
             if(base == nullptr)
             {
-                return SubParserStyle::Greedy;
+                return sub_parser_style::greedy;
             }
 
-            ParserBase* parent = base->GetParentOrNull();
+            parser_base* parent = base->get_parent_or_null();
             if(from_self && parent==nullptr)
             {
-                return SubParserStyle::Greedy;
+                return sub_parser_style::greedy;
             }
 
-            if(base->parser_style == SubParserStyle::Inherit)
+            if(base->parser_style == sub_parser_style::inherit)
             {
                 return GetParserStyle(parent, false);
             }
@@ -1078,7 +1040,7 @@ namespace euphoria::core::argparse
         }
 
 
-        std::optional<ParseResult>
+        std::optional<parse_result>
         ArgumentParser::ParseSubCommand(const std::string& arg)
         {
             auto match = base->subparsers.Match(arg, 3);
@@ -1086,7 +1048,7 @@ namespace euphoria::core::argparse
             {
                 // todo(Gustav): check if this accepts invalid and
                 // calls on_complete() on invalid input
-                if(GetParserStyle(base) == SubParserStyle::Greedy)
+                if(GetParserStyle(base) == sub_parser_style::greedy)
                 {
                     if(match.names.empty())
                     {
@@ -1094,7 +1056,7 @@ namespace euphoria::core::argparse
                         (
                             Str() << '\'' << arg << "' was unexpected"
                         );
-                        return ParseResult::Error;
+                        return argparse::error;
                     }
 
                     const std::string invalid_command = Str()
@@ -1109,29 +1071,29 @@ namespace euphoria::core::argparse
                         Str() << invalid_command <<
                         ", did you mean " << names << '?'
                     );
-                    return ParseResult::Error;
+                    return argparse::error;
                 }
                 else
                 {
                     // go back one step
-                    runner->arguments->UndoRead();
+                    runner->arguments->undo_read();
 
-                    if(base->on_complete.has_value())
+                    if(base->on_complete_function.has_value())
                     {
-                        return base->on_complete.value()();
+                        return base->on_complete_function.value()();
                     }
 
-                    return ParseResult::Ok;
+                    return argparse::ok;
                 }
             }
             found_subparser = true;
 
             auto container = match.values[0];
-            const auto calling_name = base->GetCallingName
+            const auto calling_name = base->get_calling_name
             (
                 runner->arguments->arguments
             );
-            auto sub = SubParser
+            auto sub = sub_parser
             {
                 container->help,
                 base,
@@ -1141,8 +1103,8 @@ namespace euphoria::core::argparse
             const auto subresult = container->callback(&sub);
             if
             (
-                subresult == ParseResult::Ok &&
-                GetParserStyle(base) == SubParserStyle::Greedy
+                subresult == argparse::ok &&
+                GetParserStyle(base) == sub_parser_style::greedy
             )
             {
                 // continue here
@@ -1154,13 +1116,13 @@ namespace euphoria::core::argparse
             }
         }
 
-        std::optional<ParseResult>
+        std::optional<parse_result>
         ArgumentParser::ParseOneOptional()
         {
-            const auto arg = runner->arguments->Read();
+            const auto arg = runner->arguments->read();
             if(IsOptionalArgument(arg))
             {
-                auto match = base->FindArgument(arg);
+                auto match = base->find_argument(arg);
                 if (match == nullptr)
                 {
                     const auto closest_match =
@@ -1200,15 +1162,15 @@ namespace euphoria::core::argparse
                         );
                     }
 
-                    return ParseResult::Error;
+                    return argparse::error;
                 }
-                auto arg_parse_result = match->ParseArguments
+                auto arg_parse_result = match->parse_arguments
                 (
                     runner,
                     arg,
                     base
                 );
-                if (arg_parse_result != ParseResult::Ok)
+                if (arg_parse_result != argparse::ok)
                 {
                     return arg_parse_result;
                 }
@@ -1225,7 +1187,7 @@ namespace euphoria::core::argparse
         }
 
 
-        std::optional<ParseResult>
+        std::optional<parse_result>
         ArgumentParser::ParseOneArg()
         {
             if (HasMorePositionals())
@@ -1235,7 +1197,7 @@ namespace euphoria::core::argparse
                 auto opt = TryParseImportantOptional();
                 if(opt.has_value())
                 {
-                    if(*opt == ParseResult::Ok)
+                    if(*opt == argparse::ok)
                     {
                         // ok... continue parsing
                         return std::nullopt;
@@ -1260,13 +1222,13 @@ namespace euphoria::core::argparse
         }
     }
 
-    ParseResult
-    ParserBase::ParseArgs(Runner* runner)
+    parse_result
+    parser_base::parse_args(runner* runner)
     {
-        parser_state = ParserState::Parsing;
+        parser_state = ParserState::parsing;
         auto parser = ArgumentParser{this, runner};
 
-        while (runner->arguments->HasMore())
+        while (runner->arguments->has_more())
         {
             auto r = parser.ParseOneArg();
             if(r)
@@ -1290,7 +1252,7 @@ namespace euphoria::core::argparse
                     Str() << "Positionals " << text << " were not specified."
                 )
             );
-            return ParseResult::Error;
+            return argparse::error;
         }
 
         // not sure if should keep or not
@@ -1298,26 +1260,26 @@ namespace euphoria::core::argparse
         if(subparsers.size != 0 && parser.found_subparser == false)
         {
             parser.PrintError("no subparser specified");
-            return ParseResult::Error;
+            return argparse::error;
         }
 
-        if(on_complete.has_value())
+        if(on_complete_function.has_value())
         {
-            return on_complete.value()();
+            return on_complete_function.value()();
         }
 
-        return ParseResult::Ok;
+        return argparse::ok;
     }
 
 
-    SubParser::SubParser
+    sub_parser::sub_parser
     (
         const std::string& d,
-        ParserBase* p,
-        Runner* r,
+        parser_base* p,
+        argparse::runner* r,
         const std::string& cn
     )
-        : ParserBase(d)
+        : parser_base(d)
         , parent(p)
         , runner(r)
         , calling_name(cn)
@@ -1325,57 +1287,57 @@ namespace euphoria::core::argparse
     }
 
 
-    ParserBase*
-    SubParser::GetParentOrNull()
+    parser_base*
+    sub_parser::get_parent_or_null()
     {
         return parent;
     }
 
 
     std::string
-    SubParser::GetCallingName(const Arguments&)
+    sub_parser::get_calling_name(const name_and_arguments&)
     {
         return calling_name;
     }
 
 
-    ParseResult
-    SubParser::OnComplete(CompleteFunction com)
+    parse_result
+    sub_parser::on_complete(complete_function com)
     {
-        ParserBase::OnComplete(com);
-        return ParseArgs(runner);
+        parser_base::on_complete(com);
+        return parse_args(runner);
     }
 
 
-    Parser::Parser(const std::string& d)
-        : ParserBase(d)
-        , printer(std::make_shared<ConsolePrinter>())
+    parser::parser(const std::string& d)
+        : parser_base(d)
+        , printer(std::make_shared<console_printer>())
     {
     }
 
 
-    ParserBase*
-    Parser::GetParentOrNull()
+    parser_base*
+    parser::get_parent_or_null()
     {
         return nullptr;
     }
 
 
-    ParseResult
-    Parser::Parse(const Arguments& args)
+    parse_result
+    parser::parse(const name_and_arguments& args)
     {
-        auto reader = ArgumentReader{ args };
-        auto runner = Runner{ &reader, printer };
-        return ParserBase::ParseArgs(&runner);
+        auto reader = argument_reader{ args };
+        auto runner = argparse::runner{ &reader, printer };
+        return parser_base::parse_args(&runner);
     }
 
 
     std::optional<int>
-    Parser::Parse(int argc, char* argv[])
+    parser::parse(int argc, char* argv[])
     {
-        const auto args = Arguments::Extract(argc, argv);
-        const auto res = Parse(args);
-        if (res == ParseResult::Ok)
+        const auto args = name_and_arguments::extract(argc, argv);
+        const auto res = parse(args);
+        if (res == argparse::ok)
         {
             return std::nullopt;
         }
@@ -1387,17 +1349,17 @@ namespace euphoria::core::argparse
 
 
     std::string
-    Parser::GetCallingName(const Arguments& args)
+    parser::get_calling_name(const name_and_arguments& args)
     {
         return args.name;
     }
 
 
     int
-    ParseFromMain(Parser* parser, int argc, char* argv[])
+    parse_from_main(parser* parser, int argc, char* argv[])
     {
-        const auto args = Arguments::Extract(argc, argv);
-        const auto res = parser->Parse(args);
+        const auto args = name_and_arguments::extract(argc, argv);
+        const auto res = parser->parse(args);
         return res.return_value;
     }
 }

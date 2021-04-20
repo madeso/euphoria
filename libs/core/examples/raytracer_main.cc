@@ -15,12 +15,12 @@ main(int argc, char* argv[])
     auto image_height = 100;
     int number_of_samples = 100;
 
-    auto parser = argparse::Parser {"euphoria raytracer"};
-    parser.Add("-width", &image_width).Help("image width");
-    parser.Add("-height", &image_height).Help("image height");
-    parser.Add("-samples", &number_of_samples).Help("number of samples (anitaliasing)");
+    auto parser = argparse::parser {"euphoria raytracer"};
+    parser.add("-width", &image_width).set_help("image width");
+    parser.add("-height", &image_height).set_help("image height");
+    parser.add("-samples", &number_of_samples).set_help("number of samples (anitaliasing)");
 
-    if(auto r = parser.Parse(argc, argv))
+    if(auto r = parser.parse(argc, argv))
     {
         return *r;
     }

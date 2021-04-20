@@ -1,25 +1,29 @@
 #include "core/tracery.h"
 
 #include "core/argparse.h"
+#include "core/random.h"
 
 #include <iostream>
 #include <fstream>
 
 
 namespace tracery = euphoria::core::tracery;
+namespace argparse = euphoria::core::argparse;
 
-tracery::Result
-LoadFromFile(tracery::Grammar* grammar, const std::string& file)
+tracery::result
+load_from_file(tracery::grammar* grammar, const std::string& file)
 {
     std::ifstream t(file);
     if(t.good() == false)
     {
-        return tracery::Result(tracery::Result::UNABLE_TO_OPEN_FILE) << file;
+        return tracery::result(tracery::result::unable_to_open_file) << file;
     }
-    std::string data(
-            (std::istreambuf_iterator<char>(t)),
-            std::istreambuf_iterator<char>());
-    return grammar->LoadFromString(data);
+    const auto data = std::string
+    (
+        std::istreambuf_iterator<char>(t),
+        std::istreambuf_iterator<char>()
+    );
+    return grammar->load_from_string(data);
 }
 
 int
@@ -31,37 +35,38 @@ main(int argc, char* argv[])
     std::string rule = "#origin#";
     int count = 1;
 
-    auto parser = Parser{"Tracery-like terminal interface."};
-    parser.Add("file", &file).Help("the tracery rule file");
-    parser.Add("--rule", &rule).Help("the starting to expand from");
-    parser.Add("--count", &count).Help("how many times to run the rule");
+    auto parser = euphoria::core::argparse::parser{"Tracery-like terminal interface."};
+    parser.add("file", &file).set_help("the tracery rule file");
+    parser.add("--rule", &rule).set_help("the starting to expand from");
+    parser.add("--count", &count).set_help("how many times to run the rule");
 
-    parser.OnComplete([&]
+    parser.on_complete([&]
     {
-        tracery::Grammar grammar;
+        tracery::grammar grammar;
+        auto random = euphoria::core::Random{};
 
-        grammar.RegisterEnglish();
+        grammar.register_english();
 
-        const auto load_result = LoadFromFile(&grammar, file);
+        const auto load_result = load_from_file(&grammar, file);
         if(load_result == false)
         {
             std::cerr << load_result << "\n";
-            return ParseResult::Error;
+            return argparse::error;
         }
 
         for(int i = 0; i < count; ++i)
         {
-            const auto flatten_result = grammar.Flatten(rule);
+            const auto flatten_result = grammar.flatten(&random, rule);
             if(flatten_result == false)
             {
                 std::cerr << flatten_result;
-                return ParseResult::Error;
+                return argparse::error;
             }
-            std::cout << flatten_result.GetText() << "\n";
+            std::cout << flatten_result.get_text() << "\n";
         }
 
-        return ParseResult::Ok;
+        return argparse::ok;
     }
     );
-    return ParseFromMain(&parser, argc, argv);
+    return parse_from_main(&parser, argc, argv);
 }

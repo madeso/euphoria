@@ -19,10 +19,10 @@ main(int argc, char* argv[])
 {
     auto image_size = 32;
 
-    auto parser = argparse::Parser {"euphoria palette generator"};
-    parser.Add("-size", &image_size).Help("Minimum image size");
+    auto parser = argparse::parser {"euphoria palette generator"};
+    parser.add("-size", &image_size).set_help("Minimum image size");
 
-    if(const auto r = parser.Parse(argc, argv))
+    if(const auto r = parser.parse(argc, argv))
     {
         return *r;
     }
