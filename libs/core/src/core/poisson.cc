@@ -18,7 +18,7 @@ namespace euphoria::core
             a.bottom < p.y - r;
     }
 
-    PoissonWorker::PoissonWorker(const Rectf& aarea, Random* arandom, float ar, float bs, int ak)
+    poisson_worker::poisson_worker(const Rectf& aarea, Random* arandom, float ar, float bs, int ak)
         : area(aarea)
         , random(arandom)
         , r(ar)
@@ -50,17 +50,17 @@ namespace euphoria::core
 
 
     vec2f
-    PoissonWorker::random_point() const
+    poisson_worker::random_point() const
     { return area.RandomPoint(random); }
 
 
     vec2i
-    PoissonWorker::point_to_index(const vec2f& p) const
+    poisson_worker::point_to_index(const vec2f& p) const
     { return vec2i{ Floori(p.x/w), Floori(p.y/w) }; };
 
 
     bool
-    PoissonWorker::can_place_at(const vec2f& potential_sample, const vec2i& potential_sample_pos)
+    poisson_worker::can_place_at(const vec2f& potential_sample, const vec2i& potential_sample_pos)
     {
         const int range = 3;
         for(int dy=-range; dy<=range; dy+=1)
@@ -84,7 +84,7 @@ namespace euphoria::core
 
 
     std::tuple<bool, vec2f>
-    PoissonWorker::try_place(int active_index)
+    poisson_worker::try_place(int active_index)
     {
         const auto base_sample = samples[active[active_index]];
 
@@ -121,14 +121,14 @@ namespace euphoria::core
 
 
     bool
-    PoissonWorker::IsDone() const
+    poisson_worker::is_done() const
     {
         return active.empty();
     }
 
 
     std::optional<std::tuple<vec2f, vec2f>>
-    PoissonWorker::Step()
+    poisson_worker::step()
     {
         if(active.empty())
         {
@@ -153,12 +153,12 @@ namespace euphoria::core
 
 
     std::vector<vec2f>
-    PoissonSample(const Rectf& area, Random* random, float r, float bs, int k)
+    poisson_sample(const Rectf& area, Random* random, float r, float bs, int k)
     {
-        auto worker = PoissonWorker{area, random, r, bs, k};
-        while(!worker.IsDone())
+        auto worker = poisson_worker{area, random, r, bs, k};
+        while(!worker.is_done())
         {
-            worker.Step();
+            worker.step();
         }
         return worker.samples;
     }

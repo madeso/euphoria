@@ -18,7 +18,7 @@ svg_dump()
     const auto area = Rectf::FromWidthHeight(100, 100);
     const auto radius = 5.0f;
 
-    const auto points = PoissonSample(area, &random, radius*2, radius);
+    const auto points = poisson_sample(area, &random, radius*2, radius);
 
     auto svg = Dumper{};
 
@@ -45,7 +45,7 @@ png_dump(int extra_images)
     result.setup_no_alpha_support(image_size, image_size);
     frames.create_dir_if_missing();
 
-    auto worker = PoissonWorker
+    auto worker = poisson_worker
     {
         Rectf::FromWidthHeight(world_size, world_size),
         &random,
@@ -114,9 +114,9 @@ png_dump(int extra_images)
         }
     }
 
-    while(!worker.IsDone())
+    while(!worker.is_done())
     {
-        auto r = worker.Step();
+        auto r = worker.step();
 
         if(!frames.single)
         {

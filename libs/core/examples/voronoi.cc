@@ -123,7 +123,7 @@ main(int argc, char* argv[])
     const auto random_points =
         point_generation == PointGeneration::Random
         ? GenerateRandomPoints(number_of_points, area, &rand)
-        : PoissonSample(area, &rand, poisson_radius*2, poisson_radius);
+        : poisson_sample(area, &rand, poisson_radius*2, poisson_radius);
 
     auto pal = use_colorblind
         ? palettes::ColorBlind_10()

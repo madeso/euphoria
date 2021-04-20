@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_CORE_POISSON_H
-#define EUPHORIA_CORE_POISSON_H
+#pragma once
 
 #include <vector>
 #include <tuple>
@@ -13,9 +12,9 @@ namespace euphoria::core
 {
     struct Random;
 
-    struct PoissonWorker
+    struct poisson_worker
     {
-        PoissonWorker(const Rectf& area, Random* random, float r, float bs, int k);
+        poisson_worker(const Rectf& area, Random* random, float r, float bs, int k);
 
         Rectf area;
         Random* random;
@@ -29,23 +28,22 @@ namespace euphoria::core
         std::vector<vec2f> samples;
 
         [[nodiscard]] bool
-        IsDone() const;
+        is_done() const;
 
         std::optional<std::tuple<vec2f, vec2f>>
-        Step();
+        step();
 
         [[nodiscard]] vec2f random_point() const;
         [[nodiscard]] vec2i point_to_index(const vec2f& p) const;
 
         bool
-        can_place_at(const vec2f& sample, const vec2i& sample_index);
+        can_place_at(const vec2f& potential_sample, const vec2i& potential_sample_pos);
 
         std::tuple<bool, vec2f>
         try_place(int active_index);
     };
 
     // r = minimum distance
-    std::vector<vec2f> PoissonSample(const Rectf& area, Random* random, float r, float bs=-1.0f, int k=30);
+    std::vector<vec2f> poisson_sample(const Rectf& area, Random* random, float r, float bs=-1.0f, int k=30);
 }
 
-#endif  // EUPHORIA_CORE_POISSON_H
