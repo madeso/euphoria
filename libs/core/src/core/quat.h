@@ -46,7 +46,7 @@ namespace euphoria::core
         [[nodiscard]] static Q
         FromRandom(Random* random)
         {
-            const auto axis = RandomUnit3(random);
+            const auto axis = create_random_unit3(random);
             const auto angle = angle::Random(random);
 
             return Q::FromAxisAngle(axis_angle::right_hand_around(axis, angle));

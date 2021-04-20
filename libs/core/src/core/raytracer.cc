@@ -135,7 +135,7 @@ namespace euphoria::core::raytracer
 
     vec3f RandomInUnitSphere(Random* random)
     {
-        return RandomUnit3(random) * random->NextFloat01();
+        return create_random_unit3(random) * random->NextFloat01();
     }
 
 

@@ -317,8 +317,8 @@ main(int argc, char** argv)
             MakeRange<float>(0, 1),
             light_position + delta * 0.1f
         );
-        const auto light_pc = PolarCoord{light_position, light_position * 2};
-        const auto light_pos = light_pc.ToUnitVector() * 2.0f;
+        const auto light_pc = polar_coord{light_position, light_position * 2};
+        const auto light_pos = light_pc.to_unit_vector() * 2.0f;
         light_actor->SetPosition(light_pos);
 
         switch(light_update)

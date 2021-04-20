@@ -9,22 +9,22 @@ namespace euphoria::core
     struct Random;
 
     // source: http://mathworld.wolfram.com/SphericalCoordinates.html
-    struct PolarCoord
+    struct polar_coord
     {
-        PolarCoord(float azimuthal01, float polar01);
+        polar_coord(float azimuthal01, float polar01);
 
         [[nodiscard]] unit3f
-        ToUnitVector() const;
+        to_unit_vector() const;
 
-        [[nodiscard]] static PolarCoord
-        Random(::euphoria::core::Random* random);
+        [[nodiscard]] static polar_coord
+        create_random(::euphoria::core::Random* random);
 
         angle azimuthal;  // longitude, 0-2pi
         angle polar;  // zenith, colatitude, 0-pi
     };
 
     unit3f
-    RandomUnit3(Random* random);
+    create_random_unit3(Random* random);
 
 }  // namespace euphoria::core
 
