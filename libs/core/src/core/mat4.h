@@ -425,7 +425,7 @@ namespace euphoria::core
         GetMat3() const
         {
             const mat4<T>& m = *this;
-            return mat3<T>::FromRowMajor
+            return mat3<T>::from_row_major
             (
                 m(0, 0), m(0, 1), m(0, 2),
                 m(1, 0), m(1, 1), m(1, 2),

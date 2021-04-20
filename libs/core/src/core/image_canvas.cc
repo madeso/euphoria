@@ -25,7 +25,7 @@ namespace euphoria::core
     canvas::canvas(image* i)
         : fill_style(Color::Black)
         , target_image(i)
-        , transform(mat3f::Identity())
+        , transform(mat3f::identity())
         , building_path(false)
     {
     }
@@ -44,7 +44,7 @@ namespace euphoria::core
     void
     canvas::translate(float x, float y)
     {
-        const auto m = mat3f::FromTranslation2d(vec2f {x, y});
+        const auto m = mat3f::from_translation2d(vec2f {x, y});
         transform = transform * m;
     }
 

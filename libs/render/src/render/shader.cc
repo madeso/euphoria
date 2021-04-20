@@ -325,7 +325,7 @@ namespace euphoria::render
         {
             return;
         }
-        glUniformMatrix3fv(attribute.id, 1, GL_FALSE, val.GetDataPtr());
+        glUniformMatrix3fv(attribute.id, 1, GL_FALSE, val.get_data_ptr());
     }
 
     void

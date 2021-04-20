@@ -217,9 +217,9 @@ TEST_CASE("mat4-mat3", "[mat]")
     const auto m4 = euco::mat4i::FromColMajor(
             0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
     const auto m3 = m4.GetMat3();
-    REQUIRE(std::make_tuple(0, 1, 2) == m3.GetColumn(0));
-    REQUIRE(std::make_tuple(4, 5, 6) == m3.GetColumn(1));
-    REQUIRE(std::make_tuple(8, 9, 10) == m3.GetColumn(2));
+    REQUIRE(std::make_tuple(0, 1, 2) == m3.get_column(0));
+    REQUIRE(std::make_tuple(4, 5, 6) == m3.get_column(1));
+    REQUIRE(std::make_tuple(8, 9, 10) == m3.get_column(2));
 }
 
 
