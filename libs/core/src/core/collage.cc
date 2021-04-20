@@ -11,7 +11,7 @@
 
 namespace euphoria::core
 {
-    std::vector<Sizei> CollectSizes
+    std::vector<Sizei> collect_sizes
     (
         const std::vector<Image>& images,
         int padding
@@ -33,7 +33,7 @@ namespace euphoria::core
 
 
     Image
-    DrawImage
+    draw_image
     (
         const std::vector<vec2i>& positions,
         const std::vector<Image>& images,
@@ -66,7 +66,7 @@ namespace euphoria::core
 
 
     Sizei
-    PackTight
+    pack_tight
     (
         const Sizei& default_size,
         std::vector<vec2i>* positions,
@@ -109,7 +109,7 @@ namespace euphoria::core
 
 
     std::vector<vec2i>
-    PackImage
+    pack_image
     (
         const Sizei& image_size,
         const std::vector<Image>& images,
@@ -117,7 +117,7 @@ namespace euphoria::core
         int padding
     )
     {
-        const auto image_sizes = CollectSizes(images, padding);
+        const auto image_sizes = collect_sizes(images, padding);
         const auto packed = Pack(image_size, image_sizes);
 
         auto ret = std::vector<vec2i>{};
@@ -143,14 +143,14 @@ namespace euphoria::core
 
 
     std::optional<Image>
-    PackImage
+    pack_image
     (
         const std::vector<Image>& images,
         const std::vector<std::string>& files,
         const Sizei& requested_size,
         int padding,
         rgbi background_color,
-        bool pack_image
+        bool should_pack_image
     )
     {
         if( requested_size.width < padding ||
@@ -166,7 +166,7 @@ namespace euphoria::core
         );
 
         // pack images
-        auto packed = PackImage(image_size, images, files, padding);
+        auto packed = pack_image(image_size, images, files, padding);
 
         if(packed.empty())
         {
@@ -174,8 +174,8 @@ namespace euphoria::core
         }
 
         // optionally reduce image size
-        const auto size = pack_image
-            ? PackTight(requested_size, &packed, images, padding)
+        const auto size = should_pack_image
+            ? pack_tight(requested_size, &packed, images, padding)
             : requested_size
             ;
 
@@ -191,7 +191,7 @@ namespace euphoria::core
         }
 
         // draw new image
-        auto composed_image = DrawImage(packed, images, size, background_color);
+        auto composed_image = draw_image(packed, images, size, background_color);
 
         return composed_image;
     }
@@ -201,7 +201,7 @@ namespace euphoria::core
 
 
     std::pair<std::vector<vec2i>, Sizei>
-    GridLayout
+    grid_layout
     (
         const std::vector<Image>& images,
         int padding,
@@ -277,7 +277,7 @@ namespace euphoria::core
 
 
     Image
-    GridLayout
+    grid_layout
     (
         const std::vector<Image>& images,
         int padding,
@@ -286,10 +286,10 @@ namespace euphoria::core
     )
     {
         // layout images in grid and calculate image size from grid
-        const auto [image_grid, size] = GridLayout(images, padding, top_to_bottom);
+        const auto [image_grid, size] = grid_layout(images, padding, top_to_bottom);
 
         // draw new image
-        auto composed_image = DrawImage(image_grid, images, size, background_color);
+        auto composed_image = draw_image(image_grid, images, size, background_color);
 
         return composed_image;
     }

@@ -13,14 +13,14 @@ namespace euphoria::core
     struct Image;
     struct rgbi;
 
-    std::vector<Sizei> CollectSizes
+    std::vector<Sizei> collect_sizes
     (
         const std::vector<Image>& images,
         int padding
     );
 
     Image
-    DrawImage
+    draw_image
     (
         const std::vector<vec2i>& positions,
         const std::vector<Image>& images,
@@ -29,7 +29,7 @@ namespace euphoria::core
     );
 
     Sizei
-    PackTight
+    pack_tight
     (
         const Sizei& default_size,
         std::vector<vec2i>* positions,
@@ -41,7 +41,7 @@ namespace euphoria::core
     ////////////////////////////////////////////////
 
     std::vector<vec2i>
-    PackImage
+    pack_image
     (
         const Sizei& image_size,
         const std::vector<Image>& images,
@@ -51,7 +51,7 @@ namespace euphoria::core
 
 
     std::optional<Image>
-    PackImage
+    pack_image
     (
         const std::vector<Image>& images,
         const std::vector<std::string>& files,
@@ -66,7 +66,7 @@ namespace euphoria::core
 
 
     std::pair<std::vector<vec2i>, Sizei>
-    GridLayout
+    grid_layout
     (
         const std::vector<Image>& images,
         int padding,
@@ -74,7 +74,7 @@ namespace euphoria::core
     );
 
     Image
-    GridLayout
+    grid_layout
     (
         const std::vector<Image>& images,
         int padding,

@@ -130,7 +130,7 @@ void RunMain
     {
         std::cout << "writing collage...\n";
         int padding = 20;
-        auto collage_image = GridLayout(images, padding, Color::Gray, true);
+        auto collage_image = grid_layout(images, padding, Color::Gray, true);
         std::string file_name = "identicon.png";
         io::ChunkToFile(collage_image.Write(ImageWriteFormat::PNG), file_name);
     }
@@ -178,7 +178,7 @@ void RunSpratorCollage
 
         std::cout << "writing collage...\n";
         int padding = 20;
-        auto collage_image = GridLayout(images, padding, Color::Gray, true);
+        auto collage_image = grid_layout(images, padding, Color::Gray, true);
         std::string file_name = "identicon.png";
         if(frames > 1)
         {

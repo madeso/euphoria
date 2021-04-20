@@ -81,7 +81,7 @@ HandleGrid
     }
 
     // draw new image
-    auto composed_image = GridLayout
+    auto composed_image = grid_layout
     (
         images,
         padding,
@@ -104,7 +104,7 @@ HandlePack
     const Sizei& requested_size,
     int padding,
     rgbi background_color,
-    bool pack_image,
+    bool should_pack_image,
     const std::vector<std::string>& files
 )
 {
@@ -129,14 +129,14 @@ HandlePack
     }
 
     // pack images
-    auto packed = PackImage
+    auto packed = pack_image
     (
         images,
         files,
         image_size,
         padding,
         background_color,
-        pack_image
+        should_pack_image
     );
 
     if(packed.has_value() == false)
