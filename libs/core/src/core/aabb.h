@@ -7,57 +7,49 @@ namespace euphoria::core
 {
     struct Random;
 
-    struct Aabb
+    struct aabb
     {
-        Aabb(const vec3f& amin, const vec3f& amax);
+        aabb(const vec3f& amin, const vec3f& amax);
 
 
         [[nodiscard]] vec3f
-        Wrap(const vec3f& vec) const;
+        wrap(const vec3f& vec) const;
 
 
         void
-        Extend(const vec3f& vec);
+        extend(const vec3f& vec);
 
 
         void
-        Extend(const Aabb& aabb);
+        extend(const aabb& aabb);
 
 
-        [[nodiscard]] static Aabb
+        [[nodiscard]] static aabb
         Empty();
 
 
         [[nodiscard]] vec3f
-        GetSize() const;
+        get_size() const;
 
 
         [[nodiscard]] bool
-        IsValid() const;
+        is_valid() const;
 
 
         [[nodiscard]] vec3f
-        GetOffset() const;
+        get_offset() const;
 
 
         void
-        Offset(const vec3f& vec);
+        offset(const vec3f& vec);
 
 
-        [[nodiscard]] Aabb
-        OffsetCopy(const vec3f& vec) const;
-
-
-        [[nodiscard]] const vec3f&
-        GetMin() const;
-
-
-        [[nodiscard]] const vec3f&
-        GetMax() const;
+        [[nodiscard]] aabb
+        offset_copy(const vec3f& vec) const;
 
 
         [[nodiscard]] vec3f
-        RandomPoint(Random* random) const;
+        get_random_point(Random* random) const;
 
 
         vec3f min;
@@ -66,9 +58,9 @@ namespace euphoria::core
 
     template <typename Stream>
     Stream&
-    operator<<(Stream& s, const Aabb& a)
+    operator<<(Stream& s, const aabb& a)
     {
-        s << "{" << a.GetMin() << ", " << a.GetMax() << "}";
+        s << "{" << a.min << ", " << a.max << "}";
         return s;
     }
 

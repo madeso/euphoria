@@ -10,7 +10,7 @@ namespace euphoria::core
     struct Ray2f;
     struct Ray3f;
     struct UnitRay3f;
-    struct Aabb;
+    struct aabb;
     struct Sphere;
     struct Plane;
 
@@ -26,7 +26,7 @@ namespace euphoria::core
     // ray - aabb
 
     Ray3AabbResult
-    GetIntersection(const UnitRay3f& r, const Aabb& aabb);
+    GetIntersection(const UnitRay3f& r, const aabb& aabb);
 
 
     float
@@ -89,10 +89,10 @@ namespace euphoria::core
     // aabb - point
 
     bool
-    ContainsPoint(const Aabb& aabb, const vec3f& point);
+    ContainsPoint(const aabb& aabb, const vec3f& point);
 
     vec3f
-    ClosestPoint(const Aabb& aabb, const vec3f& point);
+    ClosestPoint(const aabb& aabb, const vec3f& point);
 
 
     // --------------------------------

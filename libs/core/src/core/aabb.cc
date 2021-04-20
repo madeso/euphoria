@@ -7,32 +7,16 @@
 
 namespace euphoria::core
 {
-    Aabb::Aabb(const vec3f& amin, const vec3f& amax) : min(amin), max(amax)
+    aabb::aabb(const vec3f& amin, const vec3f& amax) : min(amin), max(amax)
     {
-        ASSERT(IsValid());
-    }
-
-
-    const vec3f&
-    Aabb::GetMin() const
-    {
-        ASSERT(IsValid());
-        return min;
-    }
-
-
-    const vec3f&
-    Aabb::GetMax() const
-    {
-        ASSERT(IsValid());
-        return max;
+        ASSERT(is_valid());
     }
 
 
     vec3f
-    Aabb::Wrap(const vec3f& vec) const
+    aabb::wrap(const vec3f& vec) const
     {
-        ASSERT(IsValid());
+        ASSERT(is_valid());
 #define COMP(C)                                                                \
     const auto C = ::euphoria::core::Wrap(MakeRange(min.C, max.C), vec.C)
         COMP(x);
@@ -62,40 +46,40 @@ namespace euphoria::core
 
 
     void
-    Aabb::Extend(const vec3f& vec)
+    aabb::extend(const vec3f& vec)
     {
-        ASSERT(IsValid());
+        ASSERT(is_valid());
         min = Min(min, vec);
         max = Max(max, vec);
     }
 
 
     void
-    Aabb::Extend(const Aabb& aabb)
+    aabb::extend(const aabb& aabb)
     {
-        ASSERT(IsValid());
+        ASSERT(is_valid());
         min = Min(min, aabb.min);
         max = Max(max, aabb.max);
     }
 
 
-    Aabb
-    Aabb::Empty()
+    aabb
+    aabb::Empty()
     {
-        return Aabb {vec3f::Zero(), vec3f::Zero()};
+        return aabb {vec3f::Zero(), vec3f::Zero()};
     }
 
 
     vec3f
-    Aabb::GetSize() const
+    aabb::get_size() const
     {
-        ASSERT(IsValid());
+        ASSERT(is_valid());
         return vec3f::FromTo(min, max);
     }
 
 
     bool
-    Aabb::IsValid() const
+    aabb::is_valid() const
     {
 #define M(var) min.var <= max.var
         return M(x) && M(y) && M(z);
@@ -104,36 +88,36 @@ namespace euphoria::core
 
 
     vec3f
-    Aabb::GetOffset() const
+    aabb::get_offset() const
     {
-        ASSERT(IsValid());
+        ASSERT(is_valid());
         return min;
     }
 
 
     void
-    Aabb::Offset(const vec3f& vec)
+    aabb::offset(const vec3f& vec)
     {
         min += vec;
         max += vec;
     }
 
 
-    Aabb
-    Aabb::OffsetCopy(const vec3f& vec) const
+    aabb
+    aabb::offset_copy(const vec3f& vec) const
     {
         auto self = *this;
-        self.Offset(vec);
+        self.offset(vec);
         return self;
     }
 
 
     vec3f
-    Aabb::RandomPoint(Random* random) const
+    aabb::get_random_point(Random* random) const
     {
-        const auto x = random->Next(MakeRange(GetMin().x, GetMax().x));
-        const auto y = random->Next(MakeRange(GetMin().y, GetMax().y));
-        const auto z = random->Next(MakeRange(GetMin().z, GetMax().z));
+        const auto x = random->Next(MakeRange(min.x, max.x));
+        const auto y = random->Next(MakeRange(min.y, max.y));
+        const auto z = random->Next(MakeRange(min.z, max.z));
 
         return vec3f {x, y, z};
     }

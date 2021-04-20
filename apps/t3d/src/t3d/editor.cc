@@ -58,7 +58,7 @@ namespace euphoria::t3d
 
         for(auto a: actors)
         {
-            const auto collision = core::GetIntersection(ray, a->tile->aabb.OffsetCopy(a->actor->GetPosition()));
+            const auto collision = core::GetIntersection(ray, a->tile->aabb.offset_copy(a->actor->GetPosition()));
             
             if(collision.intersected)
             {

@@ -16,7 +16,7 @@ namespace euphoria::t3d
 
     Tile::Tile()
         : path("~/unknown_tile")
-        , aabb(core::Aabb::Empty())
+        , aabb(core::aabb::Empty())
     {}
 
 
@@ -46,7 +46,7 @@ namespace euphoria::t3d
         {
             std::string display = core::Str {}
                 << tile->name << ": "
-                << tile->aabb.GetSize();
+                << tile->aabb.get_size();
             if(ImGui::Selectable(
                         display.c_str(),
                         (*selected_tile)->mesh == tile->mesh))

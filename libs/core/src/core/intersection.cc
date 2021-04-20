@@ -35,7 +35,7 @@ namespace euphoria::core
     GetIntersection
     (
         const UnitRay3f& r,
-        const Aabb& aabb
+        const aabb& aabb
     )
     {
         // https://www.scratchapixel.com/lessons/3d-basic-rendering/minimal-ray-tracer-rendering-simple-shapes/ray-box-intersection
@@ -289,11 +289,11 @@ namespace euphoria::core
     bool
     ContainsPoint
     (
-        const Aabb& aabb,
+        const aabb& aabb,
         const vec3f& point
     )
     {
-        ASSERT(aabb.IsValid());
+        ASSERT(aabb.is_valid());
 
         return
             // greater than min
@@ -310,11 +310,11 @@ namespace euphoria::core
     vec3f
     ClosestPoint
     (
-        const Aabb& aabb,
+        const aabb& aabb,
         const vec3f& point
     )
     {
-        ASSERT(aabb.IsValid());
+        ASSERT(aabb.is_valid());
 
         #define VEC(N) (point.N > aabb.max.N ? aabb.max.N : (point.N < aabb.min.N ? aabb.min.N : point.N))
         return {VEC(x), VEC(y), VEC(z)};

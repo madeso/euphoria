@@ -60,14 +60,14 @@ namespace euphoria::core
 
     MeshPart::MeshPart() : material(0) {}
 
-    Aabb
+    aabb
     MeshPart::CalculateAabb() const
     {
-        Aabb aabb = Aabb::Empty();
+        aabb aabb = aabb::Empty();
 
         for(const auto& p: points)
         {
-            aabb.Extend(p.vertex);
+            aabb.extend(p.vertex);
         }
 
         return aabb;
@@ -105,14 +105,14 @@ namespace euphoria::core
     }
 
 
-    Aabb
+    aabb
     Mesh::CalculateAabb() const
     {
-        Aabb aabb = Aabb::Empty();
+        aabb aabb = aabb::Empty();
 
         for(const auto& part: parts)
         {
-            aabb.Extend(part.CalculateAabb());
+            aabb.extend(part.CalculateAabb());
         }
 
         return aabb;

@@ -175,7 +175,7 @@ main(int argc, char** argv)
     float light_position = 0.0f;
 
     const float box_extent_value = 4;
-    auto box_extents = Aabb
+    auto box_extents = aabb
     {
         vec3f{-box_extent_value, -box_extent_value, -box_extent_value},
         vec3f{box_extent_value, box_extent_value, box_extent_value}
@@ -206,7 +206,7 @@ main(int argc, char** argv)
         vec3f position = vec3f::Zero();
         do
         {
-            position = box_extents.RandomPoint(&random);
+            position = box_extents.get_random_point(&random);
         } while(position.GetLength() < 1.4f);
 
         actor->SetPosition(position);
@@ -352,7 +352,7 @@ main(int argc, char** argv)
                 quatf q = quatf::SlerpShortway(anim.from, anim.timer, anim.to);
                 anim.actor->SetRotation(q);
                 const auto movement = q.In() * anim.move_speed * delta;
-                const auto new_pos  = box_extents.Wrap
+                const auto new_pos  = box_extents.wrap
                 (
                     anim.actor->GetPosition() + movement
                 );

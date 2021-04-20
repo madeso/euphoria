@@ -33,12 +33,12 @@ main(int, char*[])
     auto pal = CreateShuffleBag(palette::ColorBlind_10().colors, 2);
 
     const auto size = 15.0f;
-    auto area = Aabb{vec3f{-size, -size, -size}, vec3f{size, size, size}};
+    auto area = aabb{vec3f{-size, -size, -size}, vec3f{size, size, size}};
     auto dump = Dumper{"three.html"};
 
     for(int i=0; i<30; i+=1)
     {
-        dump.AddSphere(area.RandomPoint(&rand), 1.0f, pal.Next(&rand));
+        dump.AddSphere(area.get_random_point(&rand), 1.0f, pal.Next(&rand));
     }
 
     AddSpiral(&dump, 100, 4, 5, 2.5f, pal.Next(&rand));

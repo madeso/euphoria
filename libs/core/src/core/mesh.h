@@ -60,7 +60,7 @@ namespace euphoria::core
         std::vector<MeshPoint> points;
         std::vector<MeshFace>  faces;
 
-        [[nodiscard]] Aabb
+        [[nodiscard]] aabb
         CalculateAabb() const;
     };
 
@@ -107,7 +107,7 @@ namespace euphoria::core
         std::vector<Material> materials;
         std::vector<MeshPart> parts;
 
-        [[nodiscard]] Aabb
+        [[nodiscard]] aabb
         CalculateAabb() const;
     };
 
