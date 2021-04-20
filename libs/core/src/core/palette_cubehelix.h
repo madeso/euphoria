@@ -4,32 +4,32 @@
 
 namespace euphoria::core
 {
-    struct Palette;
+    struct palette;
 
-    namespace palette
+    namespace palettes
     {
-        const Palette&
+        const palette&
         Classic();
 
-        const Palette&
+        const palette&
         Perceptual_rainbow();
 
-        const Palette&
+        const palette&
         Purple();
 
-        const Palette&
+        const palette&
         Jim_special();
 
-        const Palette&
+        const palette&
         Red();
 
-        const Palette&
+        const palette&
         Cubehelix1();
 
-        const Palette&
+        const palette&
         Cubehelix2();
 
-        const Palette&
+        const palette&
         Cubehelix3();
     }  // namespace palette
 

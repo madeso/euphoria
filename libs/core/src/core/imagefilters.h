@@ -8,7 +8,7 @@ namespace euphoria::core
 {
     struct image;
     struct rgb;
-    struct Palette;
+    struct palette;
     struct angle;
 
     enum class Grayscale
@@ -30,10 +30,10 @@ namespace euphoria::core
     MakeGrayscale(image* image, Grayscale grayscale);
 
     void
-    MatchPalette(image* image, const Palette& palette);
+    MatchPalette(image* image, const palette& palette);
 
     void
-    MatchPaletteDither(image* image, const Palette& palette);
+    MatchPaletteDither(image* image, const palette& palette);
 
     void
     EdgeDetection(image* image, float r);

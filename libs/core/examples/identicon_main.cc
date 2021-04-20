@@ -38,7 +38,7 @@ struct CommonArguments
 };
 
 
-const auto PALETTE = Palette
+const auto PALETTE = palette
 {
     "",
     Color::Red,
@@ -100,7 +100,7 @@ void RunMain
             RenderRetro(&image, code);
             break;
         case HashType::Sprator:
-            RenderSprator(&image, code, PALETTE.GetSafeIndex(i));
+            RenderSprator(&image, code, PALETTE.get_safe_index(i));
             break;
         default:
             DIE("Unhandled type");
@@ -158,7 +158,7 @@ void RunSpratorCollage
         }
 
         const int code = random.NextInteger();
-        RenderSprator(&image_frames, code, PALETTE.GetSafeIndex(image_index));
+        RenderSprator(&image_frames, code, PALETTE.get_safe_index(image_index));
 
         sprites.emplace_back(image_frames);
         std::cout << "Generated collage image\n";

@@ -9,16 +9,16 @@
 #include "core/palette_wes.h"
 
 
-namespace euphoria::core::palette
+namespace euphoria::core::palettes
 {
-    const Palette&
+    const palette&
     GetPalette(PaletteName name)
     {
         switch(name)
         {
         // standard
-        case PaletteName::Dawnbringer: return Dawnbringer();
-        case PaletteName::NamedColors: return NamedColors();
+        case PaletteName::Dawnbringer: return dawnbringer();
+        case PaletteName::NamedColors: return named_colors();
         // cubehelix
         case PaletteName::Classic: return Classic();
         case PaletteName::Perceptual_rainbow: return Perceptual_rainbow();

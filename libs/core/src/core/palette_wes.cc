@@ -15,13 +15,13 @@ namespace euphoria::core
         }
     }  // namespace
 
-    namespace palette
+    namespace palettes
     {
         // http://wesandersonpalettes.tumblr.com/post/79263620764/hotel-chevalier
-        const Palette&
+        const palette&
         Chevalier()
         {
-            static const auto p = Palette {"Chevalier",
+            static const auto p = palette {"Chevalier",
                                            C(53, 82, 67),
                                            C(254, 202, 73),
                                            C(201, 213, 213),
@@ -30,10 +30,10 @@ namespace euphoria::core
         }
 
         // http://wesandersonpalettes.tumblr.com/post/79263667140/sam-i-love-you-but-you-dont-know-what-youre
-        const Palette&
+        const palette&
         Moonrise1()
         {
-            static const auto p = Palette {"Moonrise1",
+            static const auto p = palette {"Moonrise1",
                                            C(114, 202, 221),
                                            C(240, 165, 176),
                                            C(140, 133, 54),
@@ -43,10 +43,10 @@ namespace euphoria::core
         }
 
         // http://wesandersonpalettes.tumblr.com/post/79348206200/mendls-heaven
-        const Palette&
+        const palette&
         Mendl()
         {
-            static const auto p = Palette {"Mendl",
+            static const auto p = palette {"Mendl",
                                            C(222, 141, 185),
                                            C(184, 192, 246),
                                            C(207, 147, 135),
@@ -55,10 +55,10 @@ namespace euphoria::core
         }
 
         // http://wesandersonpalettes.tumblr.com/post/79348364517/margot-takes-a-bath
-        const Palette&
+        const palette&
         Margot1()
         {
-            static const auto p = Palette {"Margot1",
+            static const auto p = palette {"Margot1",
                                            C(137, 119, 18),
                                            C(243, 194, 164),
                                            C(246, 159, 151),
@@ -68,10 +68,10 @@ namespace euphoria::core
         }
 
         // http://wesandersonpalettes.tumblr.com/post/79348553036/castello-cavalcanti-how-can-i-help
-        const Palette&
+        const palette&
         Cavalcanti()
         {
-            static const auto p = Palette {"Cavalcanti",
+            static const auto p = palette {"Cavalcanti",
                                            C(209, 170, 0),
                                            C(8, 50, 19),
                                            C(146, 148, 96),
@@ -81,10 +81,10 @@ namespace euphoria::core
         }
 
         // http://wesandersonpalettes.tumblr.com/post/79641731527/sam-why-do-you-always-use-binoculars-suzy-it
-        const Palette&
+        const palette&
         Moonrise2()
         {
-            static const auto p = Palette {"Moonrise2",
+            static const auto p = palette {"Moonrise2",
                                            C(102, 124, 116),
                                            C(181, 106, 39),
                                            C(194, 186, 124),
@@ -93,10 +93,10 @@ namespace euphoria::core
         }
 
         // http://wesandersonpalettes.tumblr.com/post/79641785036/margot-takes-a-break
-        const Palette&
+        const palette&
         Margot2()
         {
-            static const auto p = Palette {"Margot2",
+            static const auto p = palette {"Margot2",
                                            C(118, 139, 147),
                                            C(188, 36, 15),
                                            C(249, 236, 197),
@@ -105,10 +105,10 @@ namespace euphoria::core
         }
 
         // http://wesandersonpalettes.tumblr.com/post/79783357790/suzy-ive-always-wanted-to-be-an-orphan-most-of
-        const Palette&
+        const palette&
         Moonrise3()
         {
-            static const auto p = Palette {"Moonrise3",
+            static const auto p = palette {"Moonrise3",
                                            C(242, 218, 82),
                                            C(197, 157, 0),
                                            C(203, 203, 201),
@@ -117,10 +117,10 @@ namespace euphoria::core
         }
 
         // http://wesandersonpalettes.tumblr.com/post/79784389334/the-grand-budapest-hotel
-        const Palette&
+        const palette&
         GrandBudapest1()
         {
-            static const auto p = Palette {"GrandBudapest1",
+            static const auto p = palette {"GrandBudapest1",
                                            C(238, 174, 101),
                                            C(251, 79, 85),
                                            C(72, 19, 19),
@@ -129,10 +129,10 @@ namespace euphoria::core
         }
 
         // http://wesandersonpalettes.tumblr.com/post/79956897654/coming-soon
-        const Palette&
+        const palette&
         Moonrise4()
         {
-            static const auto p = Palette {"Moonrise4",
+            static const auto p = palette {"Moonrise4",
                                            C(123, 135, 97),
                                            C(193, 166, 46),
                                            C(79, 143, 107),
@@ -142,10 +142,10 @@ namespace euphoria::core
         }
 
         // http://wesandersonpalettes.tumblr.com/post/79956949771/steve-zissou-dont-point-that-gun-at-him-hes-an
-        const Palette&
+        const palette&
         Zissou()
         {
-            static const auto p = Palette {"Zissou",
+            static const auto p = palette {"Zissou",
                                            C(0, 153, 230),
                                            C(18, 37, 90),
                                            C(242, 56, 20),
@@ -155,10 +155,10 @@ namespace euphoria::core
         }
 
         // http://wesandersonpalettes.tumblr.com/post/79957796915/royal-o-reilly-tenenbaum-1932-2001
-        const Palette&
+        const palette&
         Royal1()
         {
-            static const auto p = Palette {"Royal1",
+            static const auto p = palette {"Royal1",
                                            C(121, 164, 58),
                                            C(242, 214, 175),
                                            C(94, 72, 41),
@@ -167,10 +167,10 @@ namespace euphoria::core
         }
 
         // http://wesandersonpalettes.tumblr.com/post/80149649946/jack-i-wonder-if-the-three-of-us-wouldve-been
-        const Palette&
+        const palette&
         Darjeeling1()
         {
-            static const auto p = Palette {"Darjeeling1",
+            static const auto p = palette {"Darjeeling1",
                                            C(158, 151, 151),
                                            C(194, 142, 0),
                                            C(131, 102, 89),
@@ -179,10 +179,10 @@ namespace euphoria::core
         }
 
         // http://wesandersonpalettes.tumblr.com/post/80149872170/mrs-fox-you-know-you-really-are-fantastic-mr
-        const Palette&
+        const palette&
         FantasticFox1()
         {
-            static const auto p = Palette {"FantasticFox1",
+            static const auto p = palette {"FantasticFox1",
                                            C(249, 219, 32),
                                            C(147, 75, 78),
                                            C(66, 23, 13),
@@ -192,10 +192,10 @@ namespace euphoria::core
         }
 
         // http://wesandersonpalettes.tumblr.com/post/109473707895/etheline-raleigh-says-youve-been-spending-six
-        const Palette&
+        const palette&
         Margot3()
         {
-            static const auto p = Palette {"Margot3",
+            static const auto p = palette {"Margot3",
                                            C(135, 162, 164),
                                            C(202, 160, 101),
                                            C(214, 202, 191),
@@ -204,10 +204,10 @@ namespace euphoria::core
         }
 
         // http://wesandersonpalettes.tumblr.com/post/109473911685/m-gustave-you-see-there-are-still-faint
-        const Palette&
+        const palette&
         GrandBudapest2()
         {
-            static const auto p = Palette {"GrandBudapest2",
+            static const auto p = palette {"GrandBudapest2",
                                            C(255, 166, 142),
                                            C(251, 204, 183),
                                            C(140, 17, 8),
@@ -216,10 +216,10 @@ namespace euphoria::core
         }
 
         // http://wesandersonpalettes.tumblr.com/post/109568074320/steve-zissou-the-deeper-you-go-the-weirder-life
-        const Palette&
+        const palette&
         Aquatic1()
         {
-            static const auto p = Palette {"Aquatic1",
+            static const auto p = palette {"Aquatic1",
                                            C(52, 36, 25),
                                            C(28, 64, 39),
                                            C(241, 201, 14),
@@ -229,10 +229,10 @@ namespace euphoria::core
         }
 
         // http://wesandersonpalettes.tumblr.com/post/109980167015/peter-fuck-the-itinerary
-        const Palette&
+        const palette&
         Darjeeling2()
         {
-            static const auto p = Palette {"Darjeeling2",
+            static const auto p = palette {"Darjeeling2",
                                            C(213, 227, 216),
                                            C(97, 138, 152),
                                            C(249, 218, 149),
@@ -242,10 +242,10 @@ namespace euphoria::core
         }
 
         // http://wesandersonpalettes.tumblr.com/post/110716093015/ash-should-we-dance
-        const Palette&
+        const palette&
         FantasticFox2()
         {
-            static const auto p = Palette {"FantasticFox2",
+            static const auto p = palette {"FantasticFox2",
                                            C(228, 191, 68),
                                            C(198, 87, 66),
                                            C(154, 208, 187),
@@ -255,10 +255,10 @@ namespace euphoria::core
         }
 
         // http://wesandersonpalettes.tumblr.com/post/112305028860/m-gustave-mendls-is-the-best
-        const Palette&
+        const palette&
         GrandBudapest3()
         {
-            static const auto p = Palette {"GrandBudapest3",
+            static const auto p = palette {"GrandBudapest3",
                                            C(255, 220, 182),
                                            C(37, 56, 69),
                                            C(231, 173, 157),
@@ -269,10 +269,10 @@ namespace euphoria::core
         }
 
         // http://wesandersonpalettes.tumblr.com/post/115124780615/royal-anybody-interested-in-grabbing-a-couple-of
-        const Palette&
+        const palette&
         Royal2()
         {
-            static const auto p = Palette {"Royal2",
+            static const auto p = palette {"Royal2",
                                            C(194, 171, 186),
                                            C(140, 59, 73),
                                            C(182, 172, 166),
@@ -282,10 +282,10 @@ namespace euphoria::core
         }
 
         // http://wesandersonpalettes.tumblr.com/post/116909186645/walt-bishop-our-daughters-been-abducted-by-one
-        const Palette&
+        const palette&
         Moonrise5()
         {
-            static const auto p = Palette {"Moonrise5",
+            static const auto p = palette {"Moonrise5",
                                            C(223, 140, 144),
                                            C(216, 210, 142),
                                            C(245, 190, 37),
@@ -296,10 +296,10 @@ namespace euphoria::core
         }
 
         // http://wesandersonpalettes.tumblr.com/post/117849683385/concierge-and-how-long-will-you-be-staying-with
-        const Palette&
+        const palette&
         GrandBudapest4()
         {
-            static const auto p = Palette {"GrandBudapest4",
+            static const auto p = palette {"GrandBudapest4",
                                            C(186, 110, 0),
                                            C(80, 32, 86),
                                            C(255, 246, 187),
@@ -309,10 +309,10 @@ namespace euphoria::core
         }
 
         // http://wesandersonpalettes.tumblr.com/post/118877161325/sam-im-not-that-strong-of-a-swimmer-so-i-wear-a
-        const Palette&
+        const palette&
         Moonrise6()
         {
-            static const auto p = Palette {"Moonrise6",
+            static const auto p = palette {"Moonrise6",
                                            C(191, 81, 61),
                                            C(201, 162, 150),
                                            C(197, 193, 136),
@@ -322,10 +322,10 @@ namespace euphoria::core
         }
 
         // http://wesandersonpalettes.tumblr.com/post/122169507295/m-gustave-its-quite-a-thing-winning-the-loyalty
-        const Palette&
+        const palette&
         GrandBudapest5()
         {
-            static const auto p = Palette {"GrandBudapest5",
+            static const auto p = palette {"GrandBudapest5",
                                            C(225, 146, 131),
                                            C(140, 27, 76),
                                            C(209, 147, 54),
@@ -335,10 +335,10 @@ namespace euphoria::core
         }
 
         // http://wesandersonpalettes.tumblr.com/post/125170837755/steve-zissou-please-dont-make-fun-of-me-i-just
-        const Palette&
+        const palette&
         Aquatic2()
         {
-            static const auto p = Palette {"Aquatic2",
+            static const auto p = palette {"Aquatic2",
                                            C(139, 156, 184),
                                            C(233, 229, 65),
                                            C(88, 159, 194),
@@ -348,10 +348,10 @@ namespace euphoria::core
         }
 
         // http://wesandersonpalettes.tumblr.com/post/129921576355/royal-ive-always-been-considered-an-asshole-for
-        const Palette&
+        const palette&
         Royal3()
         {
-            static const auto p = Palette {"Royal3",
+            static const auto p = palette {"Royal3",
                                            C(252, 87, 108),
                                            C(237, 126, 83),
                                            C(226, 153, 139),
@@ -361,10 +361,10 @@ namespace euphoria::core
         }
 
         // http://wesandersonpalettes.tumblr.com/post/137096576550/social-services-access-denied
-        const Palette&
+        const palette&
         Moonrise7()
         {
-            static const auto p = Palette {"Moonrise7",
+            static const auto p = palette {"Moonrise7",
                                            C(35, 35, 85),
                                            C(97, 104, 96),
                                            C(167, 91, 68),
@@ -374,10 +374,10 @@ namespace euphoria::core
         }
 
         // http://wesandersonpalettes.tumblr.com/post/139482629630/ah-weve-never-made-great-husbands-have-we-of
-        const Palette&
+        const palette&
         Aquatic3()
         {
-            static const auto p = Palette {"Aquatic3",
+            static const auto p = palette {"Aquatic3",
                                            C(214, 161, 66),
                                            C(194, 128, 114),
                                            C(200, 183, 161),
@@ -387,10 +387,10 @@ namespace euphoria::core
         }
 
         // http://wesandersonpalettes.tumblr.com/post/143938510215/the-chief-steward-welcome-aboard
-        const Palette&
+        const palette&
         Darjeeling3()
         {
-            static const auto p = Palette {"Darjeeling3",
+            static const auto p = palette {"Darjeeling3",
                                            C(168, 171, 80),
                                            C(255, 232, 61),
                                            C(169, 211, 210),

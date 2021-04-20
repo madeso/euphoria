@@ -54,7 +54,7 @@ GenerateDrunkenBishopTable(Random* random, const Common& common)
 
 
 image
-GenerateImage(const Table<int>& table, int scale, const Palette& pal)
+GenerateImage(const Table<int>& table, int scale, const palette& pal)
 {
     image image;
     image.setup_no_alpha_support(scale * table.GetWidth(), scale * table.GetHeight());
@@ -110,7 +110,7 @@ main(int argc, char* argv[])
             auto common = Common{};
             int count = 1;
             int scale = 10;
-            auto pal = palette::PaletteName::Cubehelix1;
+            auto pal = palettes::PaletteName::Cubehelix1;
 
             common.Add(sub);
             sub->add("--pal", &pal).set_help("Set the palette");
@@ -125,7 +125,7 @@ main(int argc, char* argv[])
                     (
                         table,
                         scale,
-                        palette::GetPalette(pal)
+                        palettes::GetPalette(pal)
                     );
                     const std::string file_name = count == 1
                         ? std::string("bishop.png")

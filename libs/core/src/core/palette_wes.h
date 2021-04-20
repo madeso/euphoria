@@ -3,71 +3,71 @@
 
 namespace euphoria::core
 {
-    struct Palette;
+    struct palette;
 
     // Color palettes derived from http://wesandersonpalettes.tumblr.com/.
 
-    namespace palette
+    namespace palettes
     {
-        const Palette&
+        const palette&
         Chevalier();
-        const Palette&
+        const palette&
         Moonrise1();
-        const Palette&
+        const palette&
         Mendl();
-        const Palette&
+        const palette&
         Margot1();
-        const Palette&
+        const palette&
         Cavalcanti();
-        const Palette&
+        const palette&
         Moonrise2();
-        const Palette&
+        const palette&
         Margot2();
-        const Palette&
+        const palette&
         Moonrise3();
-        const Palette&
+        const palette&
         GrandBudapest1();
-        const Palette&
+        const palette&
         Moonrise4();
-        const Palette&
+        const palette&
         Zissou();
-        const Palette&
+        const palette&
         Royal1();
-        const Palette&
+        const palette&
         Darjeeling1();
-        const Palette&
+        const palette&
         FantasticFox1();
-        const Palette&
+        const palette&
         Margot3();
-        const Palette&
+        const palette&
         GrandBudapest2();
-        const Palette&
+        const palette&
         Aquatic1();
-        const Palette&
+        const palette&
         Darjeeling2();
-        const Palette&
+        const palette&
         FantasticFox2();
-        const Palette&
+        const palette&
         GrandBudapest3();
-        const Palette&
+        const palette&
         Royal2();
-        const Palette&
+        const palette&
         Moonrise5();
-        const Palette&
+        const palette&
         GrandBudapest4();
-        const Palette&
+        const palette&
         Moonrise6();
-        const Palette&
+        const palette&
         GrandBudapest5();
-        const Palette&
+        const palette&
         Aquatic2();
-        const Palette&
+        const palette&
         Royal3();
-        const Palette&
+        const palette&
         Moonrise7();
-        const Palette&
+        const palette&
         Aquatic3();
-        const Palette&
+        const palette&
         Darjeeling3();
     }  // namespace palette
 

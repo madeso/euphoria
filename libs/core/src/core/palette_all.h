@@ -8,10 +8,10 @@
 
 namespace euphoria::core
 {
-    struct Palette;
+    struct palette;
 }
 
-namespace euphoria::core::palette
+namespace euphoria::core::palettes
 {
     enum class PaletteName
     {
@@ -114,7 +114,7 @@ namespace euphoria::core::palette
         Darjeeling3
     };
 
-    const Palette&
+    const palette&
     GetPalette(PaletteName name);
 
     constexpr std::array PaletteNames

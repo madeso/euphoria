@@ -3,19 +3,19 @@
 
 namespace euphoria::core
 {
-    struct Palette;
+    struct palette;
 
     // https://bids.github.io/colormap/
 
-    namespace palette
+    namespace palettes
     {
-        const Palette&
+        const palette&
         Magma();
-        const Palette&
+        const palette&
         Inferno();
-        const Palette&
+        const palette&
         Plasma();
-        const Palette&
+        const palette&
         Viridis();
     }  // namespace palette
 

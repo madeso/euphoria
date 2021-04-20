@@ -13,12 +13,12 @@ namespace euphoria::core
         }
     }  // namespace
 
-    namespace palette
+    namespace palettes
     {
-        const Palette&
+        const palette&
         Cube1()
         {
-            static const auto p = Palette {
+            static const auto p = palette {
                     "Cube1",          C(120, 0, 133),   C(121, 0, 136),
                     C(122, 0, 139),   C(123, 1, 142),   C(124, 1, 145),
                     C(125, 2, 148),   C(126, 2, 151),   C(127, 3, 153),
@@ -108,10 +108,10 @@ namespace euphoria::core
             return p;
         }
 
-        const Palette&
+        const palette&
         CubeYF()
         {
-            static const auto p = Palette {
+            static const auto p = palette {
                     "CybeYF",         C(123, 2, 144),   C(123, 3, 146),
                     C(124, 4, 149),   C(125, 5, 151),   C(126, 6, 153),
                     C(127, 7, 156),   C(128, 8, 158),   C(129, 9, 160),
@@ -203,10 +203,10 @@ namespace euphoria::core
         }
 
 
-        const Palette&
+        const palette&
         LinearL()
         {
-            static const auto p = Palette {
+            static const auto p = palette {
                     "LinearL",        C(4, 4, 4),       C(10, 3, 8),
                     C(13, 4, 11),     C(16, 5, 14),     C(18, 5, 16),
                     C(21, 6, 18),     C(22, 7, 19),     C(24, 8, 21),

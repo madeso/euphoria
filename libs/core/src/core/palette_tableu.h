@@ -3,35 +3,35 @@
 
 namespace euphoria::core
 {
-    struct Palette;
+    struct palette;
 
-    namespace palette
+    namespace palettes
     {
-        const Palette&
+        const palette&
         Tableau_10();
-        const Palette&
+        const palette&
         TableauLight_10();
-        const Palette&
+        const palette&
         TableauMedium_10();
-        const Palette&
+        const palette&
         Tableau_20();
-        const Palette&
+        const palette&
         Gray_5();
-        const Palette&
+        const palette&
         ColorBlind_10();
-        const Palette&
+        const palette&
         TrafficLight_9();
-        const Palette&
+        const palette&
         PurpleGray_6();
-        const Palette&
+        const palette&
         PurpleGray_12();
-        const Palette&
+        const palette&
         BlueRed_6();
-        const Palette&
+        const palette&
         BlueRed_12();
-        const Palette&
+        const palette&
         GreenOrange_6();
-        const Palette&
+        const palette&
         GreenOrange_12();
     }  // namespace palette
 

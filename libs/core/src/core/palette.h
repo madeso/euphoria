@@ -9,7 +9,7 @@ namespace euphoria::core
 {
     struct Random;
 
-    struct Palette
+    struct palette
     {
         /** the name of the palette */
         std::string name;
@@ -18,13 +18,13 @@ namespace euphoria::core
         std::vector<rgbi> colors;
 
         template <typename... R>
-        Palette(const std::string& n, const rgbi& c0, const R&... c)
+        palette(const std::string& n, const rgbi& c0, const R&... c)
             : name(n)
             , colors {c0, c...}
         {
         }
 
-        Palette(const std::string& n, const std::vector<rgbi>& c);
+        palette(const std::string& n, const std::vector<rgbi>& c);
 
         /** Create a empty palette with a name.
          * @param name the name of the palette
@@ -32,15 +32,15 @@ namespace euphoria::core
          */
         [[nodiscard]]
         static
-        Palette
-        Empty(const std::string& name);
+        palette
+        create_empty(const std::string& name);
 
         /** Get a random color.
          * @param r the random generator to use
          * @returns a random color
          */
         const rgbi&
-        GetRandomColor(Random* r) const;
+        get_random_color(Random* r) const;
 
         /** Get a color based on the index.
          * The index is modulated based on the palette size, ensuring a valid color.
@@ -48,13 +48,13 @@ namespace euphoria::core
          * @returns the color
         */
         [[nodiscard]] const rgbi&
-        GetSafeIndex(unsigned int i) const;
+        get_safe_index(unsigned int i) const;
 
         [[nodiscard]] const rgbi&
-        GetClosestColor(const rgbi& c) const;
+        get_closest_color(const rgbi& c) const;
 
         [[nodiscard]] unsigned int
-        GetIndexClosest(const rgbi& c) const;
+        get_index_closest(const rgbi& c) const;
 
         // todo(Gustav): provide a function that takes a (void) lambda
         // returing a index, and we return a (safe) color from that index
@@ -65,13 +65,13 @@ namespace euphoria::core
 
         [[nodiscard]]
         static
-        Palette
-        Rainbow(int count, float saturation = 0.5f, float lightness = 0.5f);
+        palette
+        create_rainbow(int count, float saturation = 0.5f, float lightness = 0.5f);
 
         [[nodiscard]]
         static
-        Palette
-        Rainbow
+        palette
+        create_rainbow
         (
             int count,
             const angle& from,
@@ -81,18 +81,18 @@ namespace euphoria::core
         );
 
     private:
-        explicit Palette(const std::string& n);
+        explicit palette(const std::string& n);
     };
 
 
-    namespace palette
+    namespace palettes
     {
         // http://pixeljoint.com/forum/forum_posts.asp?TID=12795
-        const Palette&
-        Dawnbringer();
+        const palette&
+        dawnbringer();
 
-        const Palette&
-        NamedColors();
+        const palette&
+        named_colors();
     }
 
 }

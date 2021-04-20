@@ -133,15 +133,15 @@ main(int argc, char* argv[])
                 [&]
                 {
                     auto colors = MedianCut(image, depth, middle_split);
-                    const auto& palette = Palette{"", colors};
+                    const auto& pal = palette{"", colors};
 
                     if(dither)
                     {
-                        MatchPaletteDither(&image, palette);
+                        MatchPaletteDither(&image, pal);
                     }
                     else
                     {
-                        MatchPalette(&image, palette);
+                        MatchPalette(&image, pal);
                     }
 
                     return argparse::ok;
@@ -155,7 +155,7 @@ main(int argc, char* argv[])
         "palswap", "Switch palette",
         [&](argparse::sub_parser* sub)
         {
-            auto palette_name = palette::PaletteName::OneBit;
+            auto palette_name = palettes::PaletteName::OneBit;
             auto dither = false;
 
             sub->add("-p, --palette", &palette_name);
@@ -165,7 +165,7 @@ main(int argc, char* argv[])
             (
                 [&]
                 {
-                    const auto& palette = palette::GetPalette(palette_name);
+                    const auto& palette = palettes::GetPalette(palette_name);
 
                     if(dither)
                     {

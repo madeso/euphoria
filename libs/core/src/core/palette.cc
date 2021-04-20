@@ -22,43 +22,43 @@ namespace euphoria::core
     }
 
 
-    Palette::Palette(const std::string& n, const std::vector<rgbi>& c)
+    palette::palette(const std::string& n, const std::vector<rgbi>& c)
         : name(n)
         , colors(c)
     {
     }
 
 
-    Palette
-    Palette::Empty(const std::string& name)
+    palette
+    palette::create_empty(const std::string& name)
     {
-        return Palette{name};
+        return palette{name};
     }
 
 
     const rgbi&
-    Palette::GetRandomColor(Random* r) const
+    palette::get_random_color(Random* r) const
     {
         return r->Next(colors);
     }
 
 
     const rgbi&
-    Palette::GetSafeIndex(unsigned int i) const
+    palette::get_safe_index(unsigned int i) const
     {
         return colors[i % colors.size()];
     }
 
 
     const rgbi&
-    Palette::GetClosestColor(const rgbi& c) const
+    palette::get_closest_color(const rgbi& c) const
     {
-        return colors[GetIndexClosest(c)];
+        return colors[get_index_closest(c)];
     }
 
 
     unsigned int
-    Palette::GetIndexClosest(const rgbi& c) const
+    palette::get_index_closest(const rgbi& c) const
     {
         ASSERT(!colors.empty());
         auto diff_best = Diff(c, colors[0]);
@@ -79,10 +79,10 @@ namespace euphoria::core
     }
 
 
-    Palette
-    Palette::Rainbow(int count, float saturation, float lightness)
+    palette
+    palette::create_rainbow(int count, float saturation, float lightness)
     {
-        return Rainbow
+        return create_rainbow
         (
             count,
             angle::from_radians(0),
@@ -96,8 +96,8 @@ namespace euphoria::core
     }
 
 
-    Palette
-    Palette::Rainbow
+    palette
+    palette::create_rainbow
     (
         int count,
         const angle& from,
@@ -108,7 +108,7 @@ namespace euphoria::core
     {
         ASSERT(count > 1);
 
-        auto pal = Palette::Empty("Rainbow");
+        auto pal = palette::create_empty("Rainbow");
 
         for(int i = 0; i < count; i += 1)
         {
@@ -129,7 +129,7 @@ namespace euphoria::core
     }
 
 
-    Palette::Palette(const std::string& n)
+    palette::palette(const std::string& n)
         : name(n)
     {
     }
@@ -147,12 +147,12 @@ namespace euphoria::core
     }
 
 
-    namespace palette
+    namespace palettes
     {
-        const Palette&
-        Dawnbringer()
+        const palette&
+        dawnbringer()
         {
-            static const auto p = Palette
+            static const auto p = palette
             {
                 "dawnbringer",
                 C(0x140C1C),
@@ -176,10 +176,10 @@ namespace euphoria::core
         }
 
 
-        Palette
+        palette
         BuildNamedColors()
         {
-            auto p = Palette
+            auto p = palette
             {
                 "named",
                 Color::White,
@@ -217,8 +217,8 @@ namespace euphoria::core
         }
 
 
-        const Palette&
-        NamedColors()
+        const palette&
+        named_colors()
         {
             static const auto p = BuildNamedColors();
             return p;

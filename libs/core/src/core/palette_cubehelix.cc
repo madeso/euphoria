@@ -40,14 +40,14 @@ namespace euphoria::core
         }
     }  // namespace
 
-    namespace palette
+    namespace palettes
     {
-        const Palette&
+        const palette&
         Classic()
         {
             // dict(start=0.5, rotation=-1.5, gamma=1.0, sat=1.2,
             //      min_light=0., max_light=1., n=16)
-            static const auto p = Palette {"Classic",
+            static const auto p = palette {"Classic",
                                            C(0, 0, 0),
                                            C(22, 10, 34),
                                            C(24, 32, 68),
@@ -67,7 +67,7 @@ namespace euphoria::core
             return p;
         }
 
-        const Palette&
+        const palette&
         Perceptual_rainbow()
         {
             // Similar to Matteo Niccoli's Perceptual Rainbow:
@@ -75,7 +75,7 @@ namespace euphoria::core
             // https://github.com/jradavenport/cubehelix
             // dict(start_hue=240., end_hue=-300., min_sat=1., max_sat=2.5,
             //      min_light=0.3, max_light=0.8, gamma=.9, n=16)
-            static const auto p = Palette {"Perceptual_rainbow",
+            static const auto p = palette {"Perceptual_rainbow",
                                            C(135, 59, 97),
                                            C(143, 64, 127),
                                            C(143, 72, 157),
@@ -95,11 +95,11 @@ namespace euphoria::core
             return p;
         }
 
-        const Palette&
+        const palette&
         Purple()
         {
             // dict(start=0., rotation=0.0, n=16)
-            static const auto p = Palette {"Purple",
+            static const auto p = palette {"Purple",
                                            C(0, 0, 0),
                                            C(15, 14, 35),
                                            C(31, 28, 68),
@@ -119,12 +119,12 @@ namespace euphoria::core
             return p;
         }
 
-        const Palette&
+        const palette&
         Jim_special()
         {
             // http://www.ifweassume.com/2014/04/cubehelix-colormap-for-python.html
             // dict(start=0.3, rotation=-0.5, n=16)
-            static const auto p = Palette {"Jim_special",
+            static const auto p = palette {"Jim_special",
                                            C(0, 0, 0),
                                            C(22, 10, 34),
                                            C(37, 25, 68),
@@ -144,12 +144,12 @@ namespace euphoria::core
             return p;
         }
 
-        const Palette&
+        const palette&
         Red()
         {
             // http://www.ifweassume.com/2014/04/cubehelix-colormap-for-python.html
             // dict(start=0., rotation=0.5, n=16)
-            static const auto p = Palette {"Red",
+            static const auto p = palette {"Red",
                                            C(0, 0, 0),
                                            C(19, 12, 35),
                                            C(44, 22, 65),
@@ -169,12 +169,12 @@ namespace euphoria::core
             return p;
         }
 
-        const Palette&
+        const palette&
         Cubehelix1()
         {
             // http://nbviewer.ipython.org/gist/anonymous/a4fa0adb08f9e9ea4f94
             // dict(gamma=1.0, start=1.5, rotation=-1.0, sat=1.5, n=16)
-            static const auto p = Palette {"Cubehelix1",
+            static const auto p = palette {"Cubehelix1",
                                            C(0, 0, 0),
                                            C(27, 15, 0),
                                            C(65, 23, 4),
@@ -194,12 +194,12 @@ namespace euphoria::core
             return p;
         }
 
-        const Palette&
+        const palette&
         Cubehelix2()
         {
             // http://nbviewer.ipython.org/gist/anonymous/a4fa0adb08f9e9ea4f94
             // dict(gamma=1.0, start=2.0, rotation=1.0, sat=1.5, n=16)
-            static const auto p = Palette {"Cubehelix2",
+            static const auto p = palette {"Cubehelix2",
                                            C(0, 0, 0),
                                            C(0, 28, 14),
                                            C(0, 51, 47),
@@ -219,12 +219,12 @@ namespace euphoria::core
             return p;
         }
 
-        const Palette&
+        const palette&
         Cubehelix3()
         {
             // http://nbviewer.ipython.org/gist/anonymous/a4fa0adb08f9e9ea4f94
             // dict(gamma=1.0, start=2.0, rotation=1.0, sat=3, n=16)
-            static const auto p = Palette {"Cubehelix3",
+            static const auto p = palette {"Cubehelix3",
                                            C(0, 0, 0),
                                            C(0, 39, 12),
                                            C(0, 68, 60),

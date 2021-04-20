@@ -101,7 +101,7 @@ main(int argc, char** argv)
 
     for(int i = 0; i < 20; i += 1)
     {
-        const rgb  color = crgb(palette::Dawnbringer().GetRandomColor(&random));
+        const rgb  color = crgb(palettes::dawnbringer().get_random_color(&random));
         const auto pos = wi.RandomPoint(&random);
         const auto outer = random.NextRange(55.0f, 100.0f);
         const auto inner = random.Next(MakeRange(50.0f));

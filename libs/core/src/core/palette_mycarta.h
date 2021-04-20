@@ -3,7 +3,7 @@
 
 namespace euphoria::core
 {
-    struct Palette;
+    struct palette;
 
     /*
 I created three color palettes for structure maps (seismic horizons, elevation maps, etcetera) and seismic attributes. 
@@ -11,15 +11,15 @@ I created three color palettes for structure maps (seismic horizons, elevation m
 https://mycarta.wordpress.com/color-palettes/
 */
 
-    namespace palette
+    namespace palettes
     {
-        const Palette&
+        const palette&
         Cube1();
 
-        const Palette&
+        const palette&
         CubeYF();
 
-        const Palette&
+        const palette&
         LinearL();
     }  // namespace palette
 

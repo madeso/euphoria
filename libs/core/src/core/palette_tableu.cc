@@ -21,13 +21,13 @@ See also:
 http://kb.tableausoftware.com/articles/knowledgebase/creating-custom-color-palettes
 http://tableaufriction.blogspot.ro/2012/11/finally-you-can-use-tableau-data-colors.html
 */
-    namespace palette
+    namespace palettes
     {
-        const Palette&
+        const palette&
         Tableau_10()
         {
             // Tableau 10
-            static const auto p = Palette {"Tableau_10",
+            static const auto p = palette {"Tableau_10",
                                            C(31, 119, 180),
                                            C(255, 127, 14),
                                            C(44, 160, 44),
@@ -42,11 +42,11 @@ http://tableaufriction.blogspot.ro/2012/11/finally-you-can-use-tableau-data-colo
         }
 
 
-        const Palette&
+        const palette&
         TableauLight_10()
         {
             // Tableau 10 Light
-            static const auto p = Palette {"TableauLight_10",
+            static const auto p = palette {"TableauLight_10",
                                            C(174, 199, 232),
                                            C(255, 187, 120),
                                            C(152, 223, 138),
@@ -61,11 +61,11 @@ http://tableaufriction.blogspot.ro/2012/11/finally-you-can-use-tableau-data-colo
         }
 
 
-        const Palette&
+        const palette&
         TableauMedium_10()
         {
             // Tableau 10 Medium
-            static const auto p = Palette {"TableauMedium_10",
+            static const auto p = palette {"TableauMedium_10",
                                            C(114, 158, 206),
                                            C(255, 158, 74),
                                            C(103, 191, 92),
@@ -80,11 +80,11 @@ http://tableaufriction.blogspot.ro/2012/11/finally-you-can-use-tableau-data-colo
         }
 
 
-        const Palette&
+        const palette&
         Tableau_20()
         {
             // Tableau 20
-            static const auto p = Palette {
+            static const auto p = palette {
                     "Tableau_20",     C(31, 119, 180),  C(174, 199, 232),
                     C(255, 127, 14),  C(255, 187, 120), C(44, 160, 44),
                     C(152, 223, 138), C(214, 39, 40),   C(255, 152, 150),
@@ -96,11 +96,11 @@ http://tableaufriction.blogspot.ro/2012/11/finally-you-can-use-tableau-data-colo
         }
 
 
-        const Palette&
+        const palette&
         Gray_5()
         {
             // Gray 5
-            static const auto p = Palette {"Gray_5",
+            static const auto p = palette {"Gray_5",
                                            C(96, 99, 106),
                                            C(165, 172, 175),
                                            C(65, 68, 81),
@@ -110,11 +110,11 @@ http://tableaufriction.blogspot.ro/2012/11/finally-you-can-use-tableau-data-colo
         }
 
 
-        const Palette&
+        const palette&
         ColorBlind_10()
         {
             // Color Blind 10
-            static const auto p = Palette {"ColorBlind_10",
+            static const auto p = palette {"ColorBlind_10",
                                            C(0, 107, 164),
                                            C(255, 128, 14),
                                            C(171, 171, 171),
@@ -129,11 +129,11 @@ http://tableaufriction.blogspot.ro/2012/11/finally-you-can-use-tableau-data-colo
         }
 
 
-        const Palette&
+        const palette&
         TrafficLight_9()
         {
             // Traffic Light 9
-            static const auto p = Palette {"TrafficLight_9",
+            static const auto p = palette {"TrafficLight_9",
                                            C(177, 3, 24),
                                            C(219, 161, 58),
                                            C(48, 147, 67),
@@ -147,11 +147,11 @@ http://tableaufriction.blogspot.ro/2012/11/finally-you-can-use-tableau-data-colo
         }
 
 
-        const Palette&
+        const palette&
         PurpleGray_6()
         {
             // Purple-Gray 6
-            static const auto p = Palette {"PurpleGray_6",
+            static const auto p = palette {"PurpleGray_6",
                                            C(123, 102, 210),
                                            C(220, 95, 189),
                                            C(148, 145, 123),
@@ -162,11 +162,11 @@ http://tableaufriction.blogspot.ro/2012/11/finally-you-can-use-tableau-data-colo
         }
 
 
-        const Palette&
+        const palette&
         PurpleGray_12()
         {
             // Purple-Gray 12
-            static const auto p = Palette {"PurpleGray_12",
+            static const auto p = palette {"PurpleGray_12",
                                            C(123, 102, 210),
                                            C(166, 153, 232),
                                            C(220, 95, 189),
@@ -183,11 +183,11 @@ http://tableaufriction.blogspot.ro/2012/11/finally-you-can-use-tableau-data-colo
         }
 
 
-        const Palette&
+        const palette&
         BlueRed_6()
         {
             // Blue-Red 6
-            static const auto p = Palette {"BlueRed_6",
+            static const auto p = palette {"BlueRed_6",
                                            C(44, 105, 176),
                                            C(240, 39, 32),
                                            C(172, 97, 60),
@@ -198,11 +198,11 @@ http://tableaufriction.blogspot.ro/2012/11/finally-you-can-use-tableau-data-colo
         }
 
 
-        const Palette&
+        const palette&
         BlueRed_12()
         {
             // Blue-Red 12
-            static const auto p = Palette {"BlueRed_12",
+            static const auto p = palette {"BlueRed_12",
                                            C(44, 105, 176),
                                            C(181, 200, 226),
                                            C(240, 39, 32),
@@ -219,11 +219,11 @@ http://tableaufriction.blogspot.ro/2012/11/finally-you-can-use-tableau-data-colo
         }
 
 
-        const Palette&
+        const palette&
         GreenOrange_6()
         {
             // Green-Orange 6
-            static const auto p = Palette {"GreenOrange_6",
+            static const auto p = palette {"GreenOrange_6",
                                            C(50, 162, 81),
                                            C(255, 127, 15),
                                            C(60, 183, 204),
@@ -234,11 +234,11 @@ http://tableaufriction.blogspot.ro/2012/11/finally-you-can-use-tableau-data-colo
         }
 
 
-        const Palette&
+        const palette&
         GreenOrange_12()
         {
             // Green-Orange 12
-            static const auto p = Palette {"GreenOrange_12",
+            static const auto p = palette {"GreenOrange_12",
                                            C(50, 162, 81),
                                            C(172, 217, 141),
                                            C(255, 127, 15),

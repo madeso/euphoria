@@ -126,8 +126,8 @@ main(int argc, char* argv[])
         : PoissonSample(area, &rand, poisson_radius*2, poisson_radius);
 
     auto pal = use_colorblind
-        ? palette::ColorBlind_10()
-        : Palette::Rainbow(random_points.size());
+        ? palettes::ColorBlind_10()
+        : palette::create_rainbow(random_points.size());
     image image;
     image.setup_no_alpha_support(size, size);
 
@@ -158,7 +158,7 @@ main(int argc, char* argv[])
 
     image.set_all_bottom_top([&](int x, int y) {
         const auto index = points.FindClosest(vec2f{i2f(x), i2f(y)});
-        return pal.GetSafeIndex(index);
+        return pal.get_safe_index(index);
     });
 
 

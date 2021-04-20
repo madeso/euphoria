@@ -10,7 +10,7 @@ namespace euphoria::core
     Table<char>
     ImageToStringTable(const image& img, const std::vector<ImageMapAction>& map)
     {
-        auto pal = Palette::Empty("");
+        auto pal = palette::create_empty("");
         for(const auto m: map)
         {
             pal.colors.push_back(m.from_color);
@@ -20,7 +20,7 @@ namespace euphoria::core
                 img.width, img.height, ' ');
         ret.SetAll([&pal, &map, &img](int x, int y) {
             const auto p     = img.get_pixel(x, y);
-            const auto index = pal.GetIndexClosest(rgbi {p.r, p.g, p.b});
+            const auto index = pal.get_index_closest(rgbi {p.r, p.g, p.b});
             return map[index].to;
         });
 

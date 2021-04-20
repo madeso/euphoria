@@ -128,7 +128,7 @@ main(int argc, char** argv)
     image image;
     Random random;
     Tool tool = Tool::Pen;
-    auto palette = palette::EDG64();
+    auto palette = palettes::EDG64();
     auto foreground = 0;
     auto background = 1;
 
@@ -279,8 +279,8 @@ main(int argc, char** argv)
                     );
 
                     const auto background_pos = foreground_pos + bs * big_offset;
-                    draw_list->AddRectFilled(p + background_pos, p + background_pos + bs, C(palette.GetSafeIndex(background)));
-                    draw_list->AddRectFilled(p + foreground_pos, p + foreground_pos + bs, C(palette.GetSafeIndex(foreground)));
+                    draw_list->AddRectFilled(p + background_pos, p + background_pos + bs, C(palette.get_safe_index(background)));
+                    draw_list->AddRectFilled(p + foreground_pos, p + foreground_pos + bs, C(palette.get_safe_index(foreground)));
                 }
 
                 imgui::CanvasEnd();

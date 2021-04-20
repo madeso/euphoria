@@ -30,12 +30,12 @@ namespace euphoria::core
         }
     }  // namespace
 
-    namespace palette
+    namespace palettes
     {
-        const Palette&
+        const palette&
         Magma()
         {
-            static const auto p = Palette {
+            static const auto p = palette {
                     "Magma",          C(0, 0, 4),       C(1, 0, 5),
                     C(1, 1, 6),       C(1, 1, 8),       C(2, 1, 9),
                     C(2, 2, 11),      C(2, 2, 13),      C(3, 3, 15),
@@ -124,10 +124,10 @@ namespace euphoria::core
                     C(252, 251, 189), C(252, 253, 191)};
             return p;
         }
-        const Palette&
+        const palette&
         Inferno()
         {
-            static const auto p = Palette {
+            static const auto p = palette {
                     "Inferno",        C(0, 0, 4),       C(1, 0, 5),
                     C(1, 1, 6),       C(1, 1, 8),       C(2, 1, 10),
                     C(2, 2, 12),      C(2, 2, 14),      C(3, 2, 16),
@@ -216,10 +216,10 @@ namespace euphoria::core
                     C(250, 253, 161), C(252, 255, 164)};
             return p;
         }
-        const Palette&
+        const palette&
         Plasma()
         {
-            static const auto p = Palette {
+            static const auto p = palette {
                     "Plasma",        C(13, 8, 135),   C(16, 7, 136),
                     C(19, 7, 137),   C(22, 7, 138),   C(25, 6, 140),
                     C(27, 6, 141),   C(29, 6, 142),   C(32, 6, 143),
@@ -308,10 +308,10 @@ namespace euphoria::core
                     C(240, 247, 36), C(240, 249, 33)};
             return p;
         }
-        const Palette&
+        const palette&
         Viridis()
         {
-            static const auto p = Palette {
+            static const auto p = palette {
                     "Viridis",       C(68, 1, 84),    C(68, 2, 86),
                     C(69, 4, 87),    C(69, 5, 89),    C(70, 7, 90),
                     C(70, 8, 92),    C(70, 10, 93),   C(70, 11, 94),

@@ -27,9 +27,9 @@ main(int argc, char* argv[])
         return *r;
     }
 
-    for (auto palette_name : palette::PaletteNames)
+    for (auto palette_name : palettes::PaletteNames)
     {
-        const auto pal = palette::GetPalette(palette_name);
+        const auto pal = palettes::GetPalette(palette_name);
 
         image image;
         image.setup_no_alpha_support(image_size * Csizet_to_int(pal.colors.size()), image_size);

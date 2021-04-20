@@ -12,12 +12,12 @@ namespace euphoria::core
         }
     }  // namespace
 
-    namespace palette
+    namespace palettes
     {
-        const Palette&
+        const palette&
         OneBit()
         {
-            static const auto p = Palette {
+            static const auto p = palette {
                     "OneBit",
                     C(0x000000),
                     C(0xFFFFFF),
@@ -25,10 +25,10 @@ namespace euphoria::core
             return p;
         }
 
-        const Palette&
+        const palette&
         TwoBitGrayScale()
         {
-            static const auto p = Palette {
+            static const auto p = palette {
                     "TwoBitGrayScale",
                     C(0x000000),
                     C(0x676767),
@@ -38,10 +38,10 @@ namespace euphoria::core
             return p;
         }
 
-        const Palette&
+        const palette&
         ThreeBit()
         {
-            static const auto p = Palette {
+            static const auto p = palette {
                     "ThreeBit",
                     C(0x000000),
                     C(0xFF0000),
@@ -55,10 +55,10 @@ namespace euphoria::core
             return p;
         }
 
-        const Palette&
+        const palette&
         ARQ4()
         {
-            static const auto p = Palette {
+            static const auto p = palette {
                     "ARQ4",
                     C(0xFFFFFF),
                     C(0x6772A9),
@@ -68,10 +68,10 @@ namespace euphoria::core
             return p;
         }
 
-        const Palette&
+        const palette&
         CGA()
         {
-            static const auto p = Palette {
+            static const auto p = palette {
                     "CGA",
                     C(0x000000),
                     C(0x555555),
@@ -93,10 +93,10 @@ namespace euphoria::core
             return p;
         }
 
-        const Palette&
+        const palette&
         EDG8()
         {
-            static const auto p = Palette {
+            static const auto p = palette {
                     "EDG8",
                     C(0xFDFDF8),
                     C(0xD32734),
@@ -110,10 +110,10 @@ namespace euphoria::core
             return p;
         }
 
-        const Palette&
+        const palette&
         EDG16()
         {
-            static const auto p = Palette {
+            static const auto p = palette {
                     "EDG16",
                     C(0xE4A672),
                     C(0xB86F50),
@@ -135,10 +135,10 @@ namespace euphoria::core
             return p;
         }
 
-        const Palette&
+        const palette&
         EDG32()
         {
-            static const auto p = Palette {
+            static const auto p = palette {
                     "EDG32",     C(0xBE4A2F), C(0xD77643), C(0xEAD4AA),
                     C(0xE4A672), C(0xB86F50), C(0x733E39), C(0x3E2731),
                     C(0xA22633), C(0xE43B44), C(0xF77622), C(0xFEAE34),
@@ -152,10 +152,10 @@ namespace euphoria::core
             return p;
         }
 
-        const Palette&
+        const palette&
         EDG36()
         {
-            static const auto p = Palette {
+            static const auto p = palette {
                     "EDG36",     C(0xDBE0E7), C(0xA3ACBE), C(0x67708B),
                     C(0x4E5371), C(0x393A56), C(0x26243A), C(0x141020),
                     C(0x7BCF5C), C(0x509B4B), C(0x2E6A42), C(0x1A453B),
@@ -170,10 +170,10 @@ namespace euphoria::core
             return p;
         }
 
-        const Palette&
+        const palette&
         EDG64()
         {
-            static const auto p = Palette {
+            static const auto p = palette {
                     "EDG64",     C(0xFF0040), C(0x131313), C(0x1B1B1B),
                     C(0x272727), C(0x3D3D3D), C(0x5D5D5D), C(0x858585),
                     C(0xB4B4B4), C(0xFFFFFF), C(0xC7CFDD), C(0x92A1B9),
@@ -195,10 +195,10 @@ namespace euphoria::core
             return p;
         }
 
-        const Palette&
+        const palette&
         EN4()
         {
-            static const auto p = Palette {
+            static const auto p = palette {
                     "EN4",
                     C(0xFBF7F3),
                     C(0xE5B083),
@@ -208,10 +208,10 @@ namespace euphoria::core
             return p;
         }
 
-        const Palette&
+        const palette&
         Ink()
         {
-            static const auto p = Palette {
+            static const auto p = palette {
                     "Ink",
                     C(0x1F1F29),
                     C(0x413A42),
@@ -222,10 +222,10 @@ namespace euphoria::core
             return p;
         }
 
-        const Palette&
+        const palette&
         Pico8()
         {
-            static const auto p = Palette {
+            static const auto p = palette {
                     "Pico8",
                     C(0x000000),
                     C(0x5F574F),
@@ -247,10 +247,10 @@ namespace euphoria::core
             return p;
         }
 
-        const Palette&
+        const palette&
         Ammo8()
         {
-            static const auto p = Palette {
+            static const auto p = palette {
                     "Ammo8",
                     C(0x040C06),
                     C(0x112318),
@@ -264,10 +264,10 @@ namespace euphoria::core
             return p;
         }
 
-        const Palette&
+        const palette&
         NYX8()
         {
-            static const auto p = Palette {
+            static const auto p = palette {
                     "NYX8",
                     C(0x08141E),
                     C(0x0F2A3F),
@@ -281,10 +281,10 @@ namespace euphoria::core
             return p;
         }
 
-        const Palette&
+        const palette&
         FifteenPDX()
         {
-            static const auto p = Palette {
+            static const auto p = palette {
                     "FifteenPDX",
                     C(0x6E3232),
                     C(0xBB5735),
@@ -305,10 +305,10 @@ namespace euphoria::core
             return p;
         }
 
-        const Palette&
+        const palette&
         TwentyPDX()
         {
-            static const auto p = Palette {
+            static const auto p = palette {
                     "TwentyPDX", C(0x170D20), C(0x474757), C(0x787876),
                     C(0xB1B9A6), C(0xEBFFDA), C(0x68293E), C(0xA94400),
                     C(0xD97E00), C(0xEBD000), C(0x523C14), C(0x816031),
@@ -319,10 +319,10 @@ namespace euphoria::core
             return p;
         }
 
-        const Palette&
+        const palette&
         Arne16()
         {
-            static const auto p = Palette {
+            static const auto p = palette {
                     "Arne16",
                     C(0x000000),
                     C(0x493C2B),
@@ -344,10 +344,10 @@ namespace euphoria::core
             return p;
         }
 
-        const Palette&
+        const palette&
         Night16()
         {
-            static const auto p = Palette {
+            static const auto p = palette {
                     "Night16",
                     C(0x0F0F1E),
                     C(0xFFF8BC),
@@ -369,10 +369,10 @@ namespace euphoria::core
             return p;
         }
 
-        const Palette&
+        const palette&
         AAP16()
         {
-            static const auto p = Palette {
+            static const auto p = palette {
                     "AAP16",
                     C(0x070708),
                     C(0x332222),
@@ -394,10 +394,10 @@ namespace euphoria::core
             return p;
         }
 
-        const Palette&
+        const palette&
         AAP64()
         {
-            static const auto p = Palette {
+            static const auto p = palette {
                     "AAP64",     C(0x060608), C(0x141013), C(0x3B1725),
                     C(0x73172D), C(0xB4202A), C(0xDF3E23), C(0xFA6A0A),
                     C(0xF9A31B), C(0xFFD541), C(0xFFFC40), C(0xD6F264),
@@ -419,10 +419,10 @@ namespace euphoria::core
             return p;
         }
 
-        const Palette&
+        const palette&
         Splendor128()
         {
-            static const auto p = Palette {
+            static const auto p = palette {
                     "Splendor128", C(0x050403), C(0x0E0C0C), C(0x2D1B1E),
                     C(0x612721),   C(0xB9451D), C(0xF1641F), C(0xFCA570),
                     C(0xFFE0B7),   C(0xFFFFFF), C(0xFFF089), C(0xF8C53A),
@@ -460,10 +460,10 @@ namespace euphoria::core
             return p;
         }
 
-        const Palette&
+        const palette&
         Famicube()
         {
-            static const auto p = Palette {
+            static const auto p = palette {
                     "Famicube",  C(0x000000), C(0x00177D), C(0x024ACA),
                     C(0x0084FF), C(0x5BA8FF), C(0x98DCFF), C(0x9BA0EF),
                     C(0x6264DC), C(0x3D34A5), C(0x211640), C(0x5A1991),

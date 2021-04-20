@@ -63,11 +63,11 @@ namespace euphoria::core
     }
 
     void
-    MatchPalette(image* image, const Palette& palette)
+    MatchPalette(image* image, const palette& palette)
     {
         image->filter([&palette](const rgbai& c) {
             const auto cc = crgbi(c);
-            const auto nc = palette.GetClosestColor(cc);
+            const auto nc = palette.get_closest_color(cc);
 
             return rgbai(nc, c.a);
         });
@@ -91,7 +91,7 @@ namespace euphoria::core
     }
 
     void
-    MatchPaletteDither(image* image, const Palette& palette)
+    MatchPaletteDither(image* image, const palette& palette)
     {
         struct Error
         {
@@ -111,7 +111,7 @@ namespace euphoria::core
             new_color.g += pixel_error.g;
             new_color.b += pixel_error.b;
             new_color                = clamp(new_color);
-            const auto palette_color = palette.GetClosestColor(crgbi(new_color));
+            const auto palette_color = palette.get_closest_color(crgbi(new_color));
 
             const auto pcf = crgb(palette_color);
             const auto error = Error
