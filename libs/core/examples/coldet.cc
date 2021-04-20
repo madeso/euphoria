@@ -37,7 +37,7 @@ struct plane_demo
         auto d = Dumper{ "coldet-distance-to-plane.html" };
 
         d.AddPlane(plane, Color::White);
-        d.AddArrow(Ray3f(vec3f::Zero(), plane.normal), Color::Green);
+        d.AddArrow(ray3f(vec3f::Zero(), plane.normal), Color::Green);
         for (const auto& p : points)
         {
             const auto dist = DistanceBetween(plane, p);
@@ -51,21 +51,21 @@ struct plane_demo
         auto d = Dumper{ "coldet-point-to-plane.html" };
 
         d.AddPlane(plane, Color::White);
-        d.AddArrow(Ray3f(vec3f::Zero(), plane.normal), Color::Green);
+        d.AddArrow(ray3f(vec3f::Zero(), plane.normal), Color::Green);
         for (const auto& p : points)
         {
             const auto dist = DistanceBetween(plane, p);
             if (Abs(dist) < 0.01f) { continue; }
 
             const auto pp = ClosestPoint(plane, p);
-            d.AddArrow(Ray3f::FromTo(p, pp), Color::Black);
+            d.AddArrow(ray3f::from_to(p, pp), Color::Black);
         }
     }
 };
 
 struct ray_demo
 {
-    const Ray3f ray = {vec3f(-3, -2, -1), vec3f(3, 2, 1)};
+    const ray3f ray = {vec3f(-3, -2, -1), vec3f(3, 2, 1)};
     const std::vector<vec3f> points =
     {
         vec3f(-3, -2, -1),
@@ -91,7 +91,7 @@ struct ray_demo
 
         for (const auto p : points)
         {
-            const auto dist = DistanceBetween(ray.GetNormalized(), p);
+            const auto dist = DistanceBetween(ray.get_normalized(), p);
             d.AddSphere(p, 0.1f, dist < 0.001f ? Color::White : Color::Black);
         }
     }
@@ -106,11 +106,11 @@ struct ray_demo
 
         for (const auto p : points)
         {
-            const auto dist = DistanceBetween(ray.GetNormalized(), p);
+            const auto dist = DistanceBetween(ray.get_normalized(), p);
             if (dist < 0.001f) { continue; }
 
-            const auto pp = ClosestPoint(ray.GetNormalized(), p);
-            d.AddArrow(Ray3f::FromTo(p, pp), Color::Red);
+            const auto pp = ClosestPoint(ray.get_normalized(), p);
+            d.AddArrow(ray3f::from_to(p, pp), Color::Red);
         }
     }
 
@@ -129,10 +129,10 @@ ray_sphere()
     )
     {
         // todo(Gustav): add scene support to dumper...
-        const auto ray = Ray3f(vec3f(rayX, rayY, rayZ), vec3f(normX, normY, normZ).GetNormalized());
+        const auto ray = ray3f(vec3f(rayX, rayY, rayZ), vec3f(normX, normY, normZ).GetNormalized());
         const auto sphere = Sphere{rad};
         const auto sphere_center = vec3f(sphereX, sphereY, sphereZ);
-        const auto collision = GetIntersection(ray.GetNormalized(), sphere, sphere_center);
+        const auto collision = GetIntersection(ray.get_normalized(), sphere, sphere_center);
         const auto collided = collision >= 0.0f;
         if(collided != res)
         {

@@ -52,7 +52,7 @@ namespace euphoria::t3d
 
 
     std::vector<std::shared_ptr<PlacedMesh>>
-    Editor::Raycast(const core::UnitRay3f& ray)
+    Editor::Raycast(const core::unit_ray3f& ray)
     {
         std::vector<std::shared_ptr<PlacedMesh>> r;
 

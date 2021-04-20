@@ -45,7 +45,7 @@ main(int, char*[])
 
     dump.AddPlane(plane::from_normal_and_point(unit3f::Right(), vec3f(1, 2, 3)), pal.Next(&rand));
 
-    dump.AddArrow(Ray3f::FromTo(vec3f{3, 2, 1}, vec3f{0,0,0}), pal.Next(&rand));
+    dump.AddArrow(ray3f::from_to(vec3f{3, 2, 1}, vec3f{0,0,0}), pal.Next(&rand));
 
     dump.AddAxis();
     dump.AddGrid();

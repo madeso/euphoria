@@ -1,65 +1,62 @@
-#ifndef CORE_RAY_H
-#define CORE_RAY_H
+#pragma once
 
 #include "core/vec3.h"
 
 namespace euphoria::core
 {
-    struct UnitRay3f
+    struct unit_ray3f
     {
-        UnitRay3f(const vec3f& from, const unit3f& dir);
+        unit_ray3f(const vec3f& from, const unit3f& dir);
 
-        [[nodiscard]] static UnitRay3f
-        FromTo(const vec3f& from, const vec3f& to);
+        [[nodiscard]] static unit_ray3f
+        from_to(const vec3f& from, const vec3f& to);
 
-        [[nodiscard]] static UnitRay3f
-        FromDirection(const unit3f& dir);
+        [[nodiscard]] static unit_ray3f
+        from_direction(const unit3f& dir);
 
         [[nodiscard]] vec3f
-        GetPoint(float at) const;
+        get_point(float at) const;
 
         vec3f from;
         unit3f dir;
     };
 
 
-    struct Ray2f
+    struct ray2f
     {
-        Ray2f(const vec2f& p, const vec2f& d);
+        ray2f(const vec2f& p, const vec2f& d);
 
-        [[nodiscard]] static Ray2f
-        FromTo(const vec2f& from, const vec2f& to);
+        [[nodiscard]] static ray2f
+        from_to(const vec2f& from, const vec2f& to);
 
-        [[nodiscard]] static Ray2f
-        FromDirection(const vec2f& direction, const vec2f& pos = vec2f::Zero());
+        [[nodiscard]] static ray2f
+        from_direction(const vec2f& direction, const vec2f& pos = vec2f::Zero());
 
         [[nodiscard]] vec2f
-        GetPosition(float d) const;
+        get_position(float d) const;
 
         vec2f position;
         vec2f direction;
     };
 
-    struct Ray3f
+    struct ray3f
     {
-        Ray3f(const vec3f& from, const vec3f& dir);
+        ray3f(const vec3f& from, const vec3f& dir);
 
-        [[nodiscard]] static Ray3f
-        FromTo(const vec3f& from, const vec3f& to);
+        [[nodiscard]] static ray3f
+        from_to(const vec3f& from, const vec3f& to);
 
-        [[nodiscard]] static Ray3f
-        FromDirection(const vec3f& dir);
+        [[nodiscard]] static ray3f
+        from_direction(const vec3f& dir);
 
         [[nodiscard]] vec3f
-        GetPoint(float at) const;
+        get_point(float at) const;
 
-        [[nodiscard]] UnitRay3f
-        GetNormalized() const;
+        [[nodiscard]] unit_ray3f
+        get_normalized() const;
 
         vec3f from;
         vec3f dir;
     };
 
-}  // namespace euphoria::core
-
-#endif  // CORE_RAY_H
+}

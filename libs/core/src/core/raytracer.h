@@ -25,7 +25,7 @@ namespace euphoria::core
         struct ScatterResult
         {
             rgb attenuation;
-            UnitRay3f scattered;
+            unit_ray3f scattered;
         };
 
 
@@ -39,7 +39,7 @@ namespace euphoria::core
             [[nodiscard]] virtual std::optional<ScatterResult>
             Scatter
             (
-                const UnitRay3f& ray,
+                const unit_ray3f& ray,
                 const HitResult& hit,
                 Random* random
             ) = 0;
@@ -71,7 +71,7 @@ namespace euphoria::core
             NONCOPYABLE(Object);
 
             [[nodiscard]] virtual std::optional<HitResult>
-            Hit(const UnitRay3f& ray, const Range<float>& range) const = 0;
+            Hit(const unit_ray3f& ray, const Range<float>& range) const = 0;
         };
 
 
@@ -113,7 +113,7 @@ namespace euphoria::core
             std::vector<std::shared_ptr<Object>> objects;
 
             [[nodiscard]] std::optional<HitResult>
-            Hit(const UnitRay3f& ray, const Range<float>& range) const;
+            Hit(const unit_ray3f& ray, const Range<float>& range) const;
         };
 
 

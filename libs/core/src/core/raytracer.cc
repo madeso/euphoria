@@ -48,7 +48,7 @@ namespace euphoria::core::raytracer
         }
 
         [[nodiscard]] std::optional<HitResult>
-        Hit(const UnitRay3f& ray, const Range<float>& range) const override
+        Hit(const unit_ray3f& ray, const Range<float>& range) const override
         {
             const auto hit_index = GetIntersection
             (
@@ -58,7 +58,7 @@ namespace euphoria::core::raytracer
             );
             if(IsWithin(range, hit_index))
             {
-                const auto hit_position = ray.GetPoint(hit_index);
+                const auto hit_position = ray.get_point(hit_index);
                 const auto hit_normal = vec3f::FromTo(position, hit_position).GetNormalized();
                 return HitResult
                 {
@@ -94,7 +94,7 @@ namespace euphoria::core::raytracer
 
 
     std::optional<HitResult>
-    Scene::Hit(const UnitRay3f& ray, const Range<float>& range) const
+    Scene::Hit(const unit_ray3f& ray, const Range<float>& range) const
     {
         std::optional<HitResult> r = std::nullopt;
 
@@ -151,13 +151,13 @@ namespace euphoria::core::raytracer
         std::optional<ScatterResult>
         Scatter
         (
-            const UnitRay3f& /*ray*/,
+            const unit_ray3f& /*ray*/,
             const HitResult& hit,
             Random* random
         ) override
         {
             const auto target = hit.position + hit.normal + RandomInUnitSphere(random);
-            const auto reflected_ray = UnitRay3f::FromTo(hit.position, target);
+            const auto reflected_ray = unit_ray3f::from_to(hit.position, target);
 
             return ScatterResult
             {
@@ -191,7 +191,7 @@ namespace euphoria::core::raytracer
         std::optional<ScatterResult>
         Scatter
         (
-            const UnitRay3f& ray,
+            const unit_ray3f& ray,
             const HitResult& hit,
             Random* random
         ) override
@@ -201,7 +201,7 @@ namespace euphoria::core::raytracer
                 ray.dir,
                 hit.normal
             );
-            const auto scattered = UnitRay3f::FromTo
+            const auto scattered = unit_ray3f::from_to
             (
                 hit.position,
                 reflected + fuzz * RandomInUnitSphere(random)
@@ -277,7 +277,7 @@ namespace euphoria::core::raytracer
         std::optional<ScatterResult>
         Scatter
         (
-            const UnitRay3f& ray,
+            const unit_ray3f& ray,
             const HitResult& hit,
             Random* random
         ) override
@@ -302,7 +302,7 @@ namespace euphoria::core::raytracer
                     return ScatterResult
                     {
                         albedo,
-                        UnitRay3f::FromTo
+                        unit_ray3f::from_to
                         (
                             hit.position,
                             refracted.value()
@@ -318,7 +318,7 @@ namespace euphoria::core::raytracer
             return ScatterResult
             {
                 albedo,
-                UnitRay3f::FromTo
+                unit_ray3f::from_to
                 (
                     hit.position,
                     reflected
@@ -375,7 +375,7 @@ namespace euphoria::core::raytracer
     GetColor
     (
         const Scene& scene,
-        const UnitRay3f& ray,
+        const unit_ray3f& ray,
         Random* random,
         int depth
     )
@@ -452,10 +452,10 @@ namespace euphoria::core::raytracer
         vec3f vertical;
         vec3f origin;
 
-        [[nodiscard]] UnitRay3f
+        [[nodiscard]] unit_ray3f
         GetRay(float u, float v) const
         {
-            return UnitRay3f::FromTo(origin, lower_left_corner + u*horizontal + v*vertical);
+            return unit_ray3f::from_to(origin, lower_left_corner + u*horizontal + v*vertical);
         }
     };
 

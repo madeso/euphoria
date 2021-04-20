@@ -24,7 +24,7 @@ namespace euphoria::core
         ClipToWorld(const vec3f& in_clip) const;
 
         [[nodiscard]]
-        Ray3f
+        ray3f
         ClipToWorldRay(const vec2f& p) const;
 
         mat4f view;

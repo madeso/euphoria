@@ -7,9 +7,9 @@
 namespace euphoria::core
 {
     // defined elsewhere
-    struct Ray2f;
-    struct Ray3f;
-    struct UnitRay3f;
+    struct ray2f;
+    struct ray3f;
+    struct unit_ray3f;
     struct aabb;
     struct Sphere;
     struct plane;
@@ -26,18 +26,18 @@ namespace euphoria::core
     // ray - aabb
 
     Ray3AabbResult
-    GetIntersection(const UnitRay3f& r, const aabb& aabb);
+    GetIntersection(const unit_ray3f& r, const aabb& aabb);
 
 
     float
-    GetIntersection(const UnitRay3f& r, const plane& p);
+    GetIntersection(const unit_ray3f& r, const plane& p);
 
 
     // --------------------------------
     // ray - ray
 
     Ray2Ray2Result
-    GetIntersection(const Ray2f& lhs, const Ray2f& rhs);
+    GetIntersection(const ray2f& lhs, const ray2f& rhs);
 
 
     // --------------------------------
@@ -54,10 +54,10 @@ namespace euphoria::core
     // ray - point
 
     float
-    DistanceBetween(const UnitRay3f& ray, const vec3f& p);
+    DistanceBetween(const unit_ray3f& ray, const vec3f& p);
 
     vec3f
-    ClosestPoint(const UnitRay3f& ray, const vec3f& p);
+    ClosestPoint(const unit_ray3f& ray, const vec3f& p);
 
 
     // --------------------------------
@@ -82,7 +82,7 @@ namespace euphoria::core
 
     // returns distance along the ray where intersection occured or -1 if nothing occured
     float
-    GetIntersection(const UnitRay3f& r, const Sphere& sphere, const vec3f& sphere_center);
+    GetIntersection(const unit_ray3f& r, const Sphere& sphere, const vec3f& sphere_center);
 
 
     // --------------------------------

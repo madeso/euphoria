@@ -28,7 +28,7 @@ namespace euphoria::t3d
         auto ray = editor->camera
                         .ClipToWorldRay(
                                 editor->viewport.ToClipCoord(editor->mouse))
-                        .GetNormalized();
+                        .get_normalized();
         
         editor->SetAllSelected(false);
         auto hits = editor->Raycast(ray);

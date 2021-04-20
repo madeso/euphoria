@@ -12,7 +12,7 @@
 
 namespace euphoria::core
 {
-    struct UnitRay3f;
+    struct unit_ray3f;
 }
 
 
@@ -69,7 +69,7 @@ namespace euphoria::t3d
 
 
         std::vector<std::shared_ptr<PlacedMesh>>
-        Raycast(const core::UnitRay3f& ray);
+        Raycast(const core::unit_ray3f& ray);
 
 
         // current tool callbacks

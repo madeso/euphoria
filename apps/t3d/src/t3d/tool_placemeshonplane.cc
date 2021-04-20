@@ -39,7 +39,7 @@ namespace euphoria::t3d
         auto ray = editor->camera
                         .ClipToWorldRay(
                                 editor->viewport.ToClipCoord(editor->mouse))
-                        .GetNormalized();
+                        .get_normalized();
 
         const auto t = core::GetIntersection(ray, plane);
 
@@ -50,7 +50,7 @@ namespace euphoria::t3d
             return;
         }
         // do intersection with plane...
-        auto p = ray.GetPoint(t);
+        auto p = ray.get_point(t);
 
         if(editor->grid->snap_enabled)
         {

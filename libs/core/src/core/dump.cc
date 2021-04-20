@@ -575,7 +575,7 @@ namespace euphoria::core::dump3d
 
 
     void
-    Dumper::AddArrow(const Ray3f& ray, const rgbi& color)
+    Dumper::AddArrow(const ray3f& ray, const rgbi& color)
     {
         file
         << s << "scene.add(new THREE.ArrowHelper("

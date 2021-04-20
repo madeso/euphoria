@@ -32,12 +32,12 @@ namespace euphoria::core
         return vec3f {v.x, v.y, v.z} / v.w;
     }
 
-    Ray3f
+    ray3f
     CompiledCamera::ClipToWorldRay(const vec2f& p) const
     {
         const auto from = ClipToWorld(vec3f {p, -1.0f});
         const auto to   = ClipToWorld(vec3f {p, 1.0f});
-        return Ray3f::FromTo(from, to);
+        return ray3f::from_to(from, to);
     }
 
     Camera::Camera()

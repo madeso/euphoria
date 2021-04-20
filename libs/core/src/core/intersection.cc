@@ -34,7 +34,7 @@ namespace euphoria::core
     Ray3AabbResult
     GetIntersection
     (
-        const UnitRay3f& r,
+        const unit_ray3f& r,
         const aabb& aabb
     )
     {
@@ -94,7 +94,7 @@ namespace euphoria::core
     float
     GetIntersection
     (
-        const UnitRay3f& r,
+        const unit_ray3f& r,
         const plane& p
     )
     {
@@ -127,8 +127,8 @@ namespace euphoria::core
     Ray2Ray2Result
     GetIntersection
     (
-        const Ray2f& lhs,
-        const Ray2f& rhs
+        const ray2f& lhs,
+        const ray2f& rhs
     )
     {
         // https://stackoverflow.com/a/1968345/180307
@@ -197,7 +197,7 @@ namespace euphoria::core
     float
     DistanceBetween
     (
-        const UnitRay3f& ray,
+        const unit_ray3f& ray,
         const vec3f& point
     )
     {
@@ -210,7 +210,7 @@ namespace euphoria::core
     vec3f
     ClosestPoint
     (
-        const UnitRay3f& ray,
+        const unit_ray3f& ray,
         const vec3f& c
     )
     {
@@ -222,7 +222,7 @@ namespace euphoria::core
 
         t = Max(t, 0.0f);
 
-        const auto d = ray.GetPoint(t);
+        const auto d = ray.get_point(t);
         return d;
     }
 
@@ -260,14 +260,14 @@ namespace euphoria::core
         const vec3f& point
     )
     {
-        return UnitRay3f::FromTo(sphere_center, point).GetPoint(sphere.radius);
+        return unit_ray3f::from_to(sphere_center, point).get_point(sphere.radius);
     }
 
 
     float
     GetIntersection
     (
-        const UnitRay3f& ray,
+        const unit_ray3f& ray,
         const Sphere& sphere,
         const vec3f& sphere_center
     )
