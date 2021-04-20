@@ -13,7 +13,7 @@ namespace euphoria::core
 {
     std::vector<Sizei> collect_sizes
     (
-        const std::vector<Image>& images,
+        const std::vector<image>& images,
         int padding
     )
     {
@@ -23,8 +23,8 @@ namespace euphoria::core
         {
             sizes.emplace_back(Sizei::FromWidthHeight
             (
-                img.GetWidth() + padding,
-                img.GetHeight() + padding
+                img.get_width() + padding,
+                img.get_height() + padding
             ));
         }
 
@@ -32,17 +32,17 @@ namespace euphoria::core
     }
 
 
-    Image
+    image
     draw_image
     (
         const std::vector<vec2i>& positions,
-        const std::vector<Image>& images,
+        const std::vector<image>& images,
         const Sizei& size,
         const rgbi& background_color
     )
     {
-        auto composed_image = Image{};
-        composed_image.SetupWithAlphaSupport
+        auto composed_image = image{};
+        composed_image.setup_with_alpha_support
         (
             size.width,
             size.height
@@ -70,7 +70,7 @@ namespace euphoria::core
     (
         const Sizei& default_size,
         std::vector<vec2i>* positions,
-        const std::vector<Image>& images,
+        const std::vector<image>& images,
         int padding
     )
     {
@@ -78,8 +78,8 @@ namespace euphoria::core
 
         for(const auto& [position, img]: ranges::views::zip(*positions, images))
         {
-            const auto image_width = img.GetWidth();
-            const auto image_height = img.GetHeight();
+            const auto image_width = img.get_width();
+            const auto image_height = img.get_height();
             const auto& rect = Recti::FromBottomLeftWidthHeight
             (
                 vec2i(position.x, position.y),
@@ -112,7 +112,7 @@ namespace euphoria::core
     pack_image
     (
         const Sizei& image_size,
-        const std::vector<Image>& images,
+        const std::vector<image>& images,
         const std::vector<std::string>& files,
         int padding
     )
@@ -142,10 +142,10 @@ namespace euphoria::core
     }
 
 
-    std::optional<Image>
+    std::optional<image>
     pack_image
     (
-        const std::vector<Image>& images,
+        const std::vector<image>& images,
         const std::vector<std::string>& files,
         const Sizei& requested_size,
         int padding,
@@ -203,7 +203,7 @@ namespace euphoria::core
     std::pair<std::vector<vec2i>, Sizei>
     grid_layout
     (
-        const std::vector<Image>& images,
+        const std::vector<image>& images,
         int padding,
         bool top_to_bottom
     )
@@ -229,8 +229,8 @@ namespace euphoria::core
 
         for(const auto& src: images)
         {
-            const auto width = src.GetWidth();
-            const auto height = src.GetHeight();
+            const auto width = src.get_width();
+            const auto height = src.get_height();
 
             ret.emplace_back
             (
@@ -268,7 +268,7 @@ namespace euphoria::core
                     zip(ret|transform(into_pointer), images)
             )
             {
-                position->y = image_height - (position->y + img.GetHeight());
+                position->y = image_height - (position->y + img.get_height());
             }
         }
 
@@ -276,10 +276,10 @@ namespace euphoria::core
     }
 
 
-    Image
+    image
     grid_layout
     (
-        const std::vector<Image>& images,
+        const std::vector<image>& images,
         int padding,
         rgbi background_color,
         bool top_to_bottom

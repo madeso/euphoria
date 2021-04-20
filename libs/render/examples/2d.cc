@@ -110,8 +110,8 @@ main(int argc, char* argv[])
     bool mouse_lmb_down = false;
 
     {
-        Image image;
-        image.SetupNoAlphaSupport(256, 256);
+        image image;
+        image.setup_no_alpha_support(256, 256);
         constexpr float h = 256.0f/2;
         constexpr float m = 256.0f;
         constexpr int s = 5;
@@ -123,7 +123,7 @@ main(int argc, char* argv[])
         engine.catalog->RegisterFileData
         (
             vfs::FilePath{"~/image"},
-            image.Write(ImageWriteFormat::PNG)
+            image.write(ImageWriteFormat::PNG)
         );
     }
     auto arrows = cache.GetTexture(vfs::FilePath{"~/image"});

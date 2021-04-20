@@ -10,14 +10,14 @@ using namespace euphoria::core;
 int
 main(int, char*[])
 {
-    std::array<Image, 4> images;
+    std::array<image, 4> images;
 
     constexpr int width = 200;
     constexpr int height = 200;
 
     for(auto& image : images)
     {
-        image.SetupNoAlphaSupport(width, height);
+        image.setup_no_alpha_support(width, height);
         Clear(&image, {Color::White});
     }
 
@@ -54,15 +54,15 @@ main(int, char*[])
     draw(Color::PurePink, center, center + vec2i{offset, center.y});
     draw(Color::PureBrown, center, center - vec2i{offset, center.y});
 
-    Image composite;
-    composite.SetupNoAlphaSupport(width * 2, height * 2);
+    image composite;
+    composite.setup_no_alpha_support(width * 2, height * 2);
     for(int i=0; i<4; i+=1)
     {
         const auto p = vec2i{i%2 * width, i/2 * height};
         PasteImage(&composite, p, images[i]);
     }
 
-    io::ChunkToFile(composite.Write(ImageWriteFormat::PNG), "draw.png");
+    io::ChunkToFile(composite.write(ImageWriteFormat::PNG), "draw.png");
 
     return 0;
 }

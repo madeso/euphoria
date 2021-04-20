@@ -79,9 +79,9 @@ void RunMain
 
     Random random;
 
-    auto images = std::vector<Image>{};
-    Image image;
-    image.SetupWithAlphaSupport(image_size, image_size);
+    auto images = std::vector<image>{};
+    image image;
+    image.setup_with_alpha_support(image_size, image_size);
 
     for(int i = 0; i < number_of_images; i += 1)
     {
@@ -122,7 +122,7 @@ void RunMain
                 std::cout << "Writing " << file_name << "\n";
             }
 
-            io::ChunkToFile(image.Write(ImageWriteFormat::PNG), file_name);
+            io::ChunkToFile(image.write(ImageWriteFormat::PNG), file_name);
         }
     }
 
@@ -132,7 +132,7 @@ void RunMain
         int padding = 20;
         auto collage_image = grid_layout(images, padding, Color::Gray, true);
         std::string file_name = "identicon.png";
-        io::ChunkToFile(collage_image.Write(ImageWriteFormat::PNG), file_name);
+        io::ChunkToFile(collage_image.write(ImageWriteFormat::PNG), file_name);
     }
 }
 
@@ -145,15 +145,15 @@ void RunSpratorCollage
 )
 {
     Random random;
-    auto sprites = std::vector<std::vector<Image>>{};
+    auto sprites = std::vector<std::vector<image>>{};
 
     for(int image_index = 0; image_index < number_of_images; image_index += 1)
     {
-        auto image_frames = std::vector<Image>{};
+        auto image_frames = std::vector<image>{};
         for(int frame_index = 0; frame_index < frames; frame_index +=1)
         {
-            Image image;
-            image.SetupWithAlphaSupport(image_size, image_size);
+            image image;
+            image.setup_with_alpha_support(image_size, image_size);
             image_frames.emplace_back(image);
         }
 
@@ -170,7 +170,7 @@ void RunSpratorCollage
     {
         const auto frame_index = (anim_index % 2 == 0) ? 0 : (anim_index+1) / 2;
 
-        auto images = std::vector<Image>{};
+        auto images = std::vector<image>{};
         for(int image_index = 0; image_index < number_of_images; image_index += 1)
         {
             images.emplace_back(sprites[image_index][frame_index]);
@@ -184,7 +184,7 @@ void RunSpratorCollage
         {
             file_name = Str() << "identicon_" << anim_index << ".png";
         }
-        io::ChunkToFile(collage_image.Write(ImageWriteFormat::PNG), file_name);
+        io::ChunkToFile(collage_image.write(ImageWriteFormat::PNG), file_name);
     }
 }
 

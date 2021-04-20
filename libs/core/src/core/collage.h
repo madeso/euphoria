@@ -10,20 +10,20 @@
 
 namespace euphoria::core
 {
-    struct Image;
+    struct image;
     struct rgbi;
 
     std::vector<Sizei> collect_sizes
     (
-        const std::vector<Image>& images,
+        const std::vector<image>& images,
         int padding
     );
 
-    Image
+    image
     draw_image
     (
         const std::vector<vec2i>& positions,
-        const std::vector<Image>& images,
+        const std::vector<image>& images,
         const Sizei& size,
         const rgbi& background_color
     );
@@ -33,7 +33,7 @@ namespace euphoria::core
     (
         const Sizei& default_size,
         std::vector<vec2i>* positions,
-        const std::vector<Image>& images,
+        const std::vector<image>& images,
         int padding
     );
 
@@ -44,16 +44,16 @@ namespace euphoria::core
     pack_image
     (
         const Sizei& image_size,
-        const std::vector<Image>& images,
+        const std::vector<image>& images,
         const std::vector<std::string>& files,
         int padding
     );
 
 
-    std::optional<Image>
+    std::optional<image>
     pack_image
     (
-        const std::vector<Image>& images,
+        const std::vector<image>& images,
         const std::vector<std::string>& files,
         const Sizei& requested_size,
         int padding,
@@ -68,15 +68,15 @@ namespace euphoria::core
     std::pair<std::vector<vec2i>, Sizei>
     grid_layout
     (
-        const std::vector<Image>& images,
+        const std::vector<image>& images,
         int padding,
         bool top_to_bottom
     );
 
-    Image
+    image
     grid_layout
     (
-        const std::vector<Image>& images,
+        const std::vector<image>& images,
         int padding,
         rgbi background_color,
         bool top_to_bottom

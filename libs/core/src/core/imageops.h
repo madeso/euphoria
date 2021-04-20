@@ -13,7 +13,7 @@
 
 namespace euphoria::core
 {
-    struct Image;
+    struct image;
 
     struct ImageMapAction
     {
@@ -23,16 +23,16 @@ namespace euphoria::core
 
     Table<char>
     ImageToStringTable(
-            const Image&                       img,
+            const image&                       img,
             const std::vector<ImageMapAction>& map);
 
     Table<char>
     ImageToStringTableExact(
-            const Image&                       img,
+            const image&                       img,
             const std::vector<ImageMapAction>& map, char missing);
 
     Table<char>
-    ImageToStringTable(const Image& img, bool shorter, Grayscale grayscale = Grayscale::R);
+    ImageToStringTable(const image& img, bool shorter, Grayscale grayscale = Grayscale::R);
 
     std::vector<std::string>
     ToStrings(const Table<char>& t);

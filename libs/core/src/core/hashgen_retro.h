@@ -3,9 +3,9 @@
 
 namespace euphoria::core
 {
-    struct Image;
+    struct image;
 
-    void RenderRetro(Image* image, int code);
+    void RenderRetro(image* image, int code);
 }
 
 #endif // EUPHORIA_CORE_HASHGEN_RETRO_H

@@ -93,8 +93,8 @@ main(int argc, char** argv)
         TextureType
     );
 
-    Image image;
-    image.SetupNoAlphaSupport(256, 256);
+    image image;
+    image.setup_no_alpha_support(256, 256);
     const auto wi = WholeImage(image);
     Clear(&image, {Color::Red});
     Random random {42};
@@ -120,7 +120,7 @@ main(int argc, char** argv)
     engine.catalog->RegisterFileData
     (
         vfs::FilePath{"~/image"},
-        image.Write(ImageWriteFormat::PNG)
+        image.write(ImageWriteFormat::PNG)
     );
 
     TextureCache texture_cache {engine.file_system.get()};

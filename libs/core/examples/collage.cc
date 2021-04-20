@@ -18,10 +18,10 @@
 using namespace euphoria::core;
 
 
-std::vector<Image>
+std::vector<image>
 LoadImages(const std::vector<std::string>& files)
 {
-    auto images = std::vector<Image>{};
+    auto images = std::vector<image>{};
 
     for(const auto& f: files)
     {
@@ -31,7 +31,7 @@ LoadImages(const std::vector<std::string>& files)
             std::cerr << "failed to read " << f << "\n";
             return {};
         }
-        auto loaded_image = LoadImage(chunk, f, AlphaLoad::Keep);
+        auto loaded_image = load_image(chunk, f, alpha_load::Keep);
         if(loaded_image.error.empty() == false)
         {
             std::cerr << "failed to read image " <<
@@ -90,7 +90,7 @@ HandleGrid
     );
 
     // save image to out
-    auto saved_chunk = composed_image.Write(ImageWriteFormat::PNG);
+    auto saved_chunk = composed_image.write(ImageWriteFormat::PNG);
     io::ChunkToFile(saved_chunk, output_file);
 
     return true;
@@ -148,7 +148,7 @@ HandlePack
     auto composed_image = *packed;
 
     // save image to out
-    auto saved_chunk = composed_image.Write(ImageWriteFormat::PNG);
+    auto saved_chunk = composed_image.write(ImageWriteFormat::PNG);
     io::ChunkToFile(saved_chunk, output_file);
 
     return true;

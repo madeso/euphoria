@@ -60,7 +60,7 @@ namespace
 
     void render_identicon_patch
     (
-        Image* image,
+        image* image,
         int x,
         int y,
         int size,
@@ -117,11 +117,11 @@ namespace
 
 namespace euphoria::core
 {
-    void RenderIdenticon(Image* image, int code)
+    void RenderIdenticon(image* image, int code)
     {
         ASSERT(image);
-        ASSERT(image->GetWidth() == image->GetHeight());
-        auto patchSize = image->GetHeight() / 3;
+        ASSERT(image->get_width() == image->get_height());
+        auto patchSize = image->get_height() / 3;
         auto middleType = centerPatchTypes[code & 3];
         auto middleInvert = ((code >> 2) & 1) != 0;
         auto cornerType = (code >> 3) & 15;

@@ -49,10 +49,10 @@ namespace euphoria::core::vfs
 
         const auto color = found_color.values[0];
 
-        Image image;
-        image.SetupNoAlphaSupport(128, 128);
+        image image;
+        image.setup_no_alpha_support(128, 128);
         Clear(&image, {color});
-        return image.Write(ImageWriteFormat::PNG);
+        return image.write(ImageWriteFormat::PNG);
     }
 
 

@@ -31,8 +31,8 @@ main(int argc, char* argv[])
     {
         const auto pal = palette::GetPalette(palette_name);
 
-        Image image;
-        image.SetupNoAlphaSupport(image_size * Csizet_to_int(pal.colors.size()), image_size);
+        image image;
+        image.setup_no_alpha_support(image_size * Csizet_to_int(pal.colors.size()), image_size);
 
         for
         (
@@ -53,7 +53,7 @@ main(int argc, char* argv[])
 
         const std::string file = Str{} << "palette_" << pal.name << ".png";
 
-        io::ChunkToFile(image.Write(ImageWriteFormat::PNG), file);
+        io::ChunkToFile(image.write(ImageWriteFormat::PNG), file);
     }
 
     return 0;

@@ -266,7 +266,7 @@ namespace euphoria::core::generator
     {
         const auto path_size = cell_size + wall_size;
 
-        image.SetupNoAlphaSupport(
+        image.setup_no_alpha_support(
                 wall_size + maze->GetWidth() * path_size,
                 wall_size + maze->GetHeight() * path_size);
 

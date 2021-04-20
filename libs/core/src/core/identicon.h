@@ -4,9 +4,9 @@
 // converted to c++ from https://github.com/donpark/identicon/blob/master/identicon-canvas/identicon_canvas.js
 namespace euphoria::core
 {
-    struct Image;
+    struct image;
 
-    void RenderIdenticon(Image* image, int code);
+    void RenderIdenticon(image* image, int code);
 }
 
 #endif // EUPHORIA_CORE_IDENTICON_H

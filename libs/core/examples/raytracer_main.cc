@@ -25,8 +25,8 @@ main(int argc, char* argv[])
         return *r;
     }
 
-    Image image;
-    image.SetupNoAlphaSupport(image_width, image_height);
+    image image;
+    image.setup_no_alpha_support(image_width, image_height);
 
     raytracer::Scene scene;
 
@@ -86,7 +86,7 @@ main(int argc, char* argv[])
     const auto end = Now();
     const auto seconds = SecondsBetween(start, end);
     std::cout << "Rendering took " << seconds << " seconds.\n";
-    io::ChunkToFile(image.Write(ImageWriteFormat::PNG), "raytracer.png");
+    io::ChunkToFile(image.write(ImageWriteFormat::PNG), "raytracer.png");
 
     return 0;
 }

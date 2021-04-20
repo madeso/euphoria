@@ -26,20 +26,20 @@ namespace euphoria::core
     };
 
 
-    struct Image
+    struct image
     {
         void
-        MakeInvalid();
+        make_invalid();
 
         [[nodiscard]] bool
-        IsValid() const;
+        is_valid() const;
 
         // todo(Gustav): Add create function that will create empty image and run setup
 
         // if default value is negative, default value is ignored, otherwise its the
         // default value for both R, G, B, and A.
         void
-        SetupWithAlphaSupport
+        setup_with_alpha_support
         (
             int image_width,
             int image_height,
@@ -47,7 +47,7 @@ namespace euphoria::core
         );
 
         void
-        SetupNoAlphaSupport
+        setup_no_alpha_support
         (
             int image_width,
             int image_height,
@@ -55,10 +55,10 @@ namespace euphoria::core
         );
 
         void
-        SetPixel(int x, int y, const rgbai& color);
+        set_pixel(int x, int y, const rgbai& color);
 
         void
-        SetPixel
+        set_pixel
         (
             int x,
             int y,
@@ -69,87 +69,87 @@ namespace euphoria::core
         );
 
         [[nodiscard]] rgbai
-        GetPixel(int x, int y) const;
+        get_pixel(int x, int y) const;
 
         template <typename Func>
         void
-        Filter(Func f)
+        filter(Func f)
         {
-            for(int y = 0; y < GetHeight(); y += 1)
+            for(int y = 0; y < get_height(); y += 1)
             {
-                for(int x = 0; x < GetWidth(); x += 1)
+                for(int x = 0; x < get_width(); x += 1)
                 {
-                    SetPixel(x, y, f(GetPixel(x, y)));
+                    set_pixel(x, y, f(get_pixel(x, y)));
                 }
             }
         }
 
         template <typename Func>
         void
-        ForAllTopBottom(Func f)
+        for_all_top_bottom(Func f)
         {
-            for(int y = GetHeight(); y > 0; y -= 1)
+            for(int y = get_height(); y > 0; y -= 1)
             {
-                for(int x = 0; x < GetWidth(); x += 1)
+                for(int x = 0; x < get_width(); x += 1)
                 {
-                    f(x, y - 1, GetPixel(x, y - 1));
+                    f(x, y - 1, get_pixel(x, y - 1));
                 }
             }
         }
 
         template <typename Func>
         void
-        SetAllTopBottom(Func f)
+        set_all_top_bottom(Func f)
         {
-            for(int y = GetHeight(); y > 0; y -= 1)
+            for(int y = get_height(); y > 0; y -= 1)
             {
-                for(int x = 0; x < GetWidth(); x += 1)
+                for(int x = 0; x < get_width(); x += 1)
                 {
-                    SetPixel(x, y - 1, f(x, y - 1));
+                    set_pixel(x, y - 1, f(x, y - 1));
                 }
             }
         }
 
         template <typename Func>
         void
-        SetAllBottomTop(Func f)
+        set_all_bottom_top(Func f)
         {
-            for(int y = 0; y < GetHeight(); y += 1)
+            for(int y = 0; y < get_height(); y += 1)
             {
-                for(int x = 0; x < GetWidth(); x += 1)
+                for(int x = 0; x < get_width(); x += 1)
                 {
-                    SetPixel(x, y, f(x, y));
+                    set_pixel(x, y, f(x, y));
                 }
             }
         }
 
         [[nodiscard]] Recti
-        GetIndices() const;
+        get_indices() const;
 
         [[nodiscard]] int
-        GetWidth() const;
+        get_width() const;
 
         [[nodiscard]] int
-        GetHeight() const;
+        get_height() const;
 
         [[nodiscard]] bool
-        HasAlpha() const;
+        has_alpha() const;
 
         [[nodiscard]] const unsigned char*
-        GetPixelData() const;
+        get_pixel_data() const;
 
         [[nodiscard]] std::shared_ptr<MemoryChunk>
-        Write(ImageWriteFormat format, int jpeg_quality = 100) const;
+        write(ImageWriteFormat format, int jpeg_quality = 100) const;
 
     private:
         void
-        Setup(int image_width, int image_height, bool alpha, int default_value);
+        setup(int image_width, int image_height, bool alpha, int default_value);
 
         [[nodiscard]] int
-        GetPixelByteSize() const;
+        get_pixel_byte_size() const;
 
         [[nodiscard]] int
-        GetPixelIndex(int x, int y) const;
+        get_pixel_index(int x, int y) const;
 
         // todo(Gustav): replace with a array instead of a vector
         std::vector<unsigned char> components;
@@ -159,14 +159,14 @@ namespace euphoria::core
     };
 
 
-    struct ImageLoadResult
+    struct image_load_result
     {
-        Image image;
+        image image;
         std::string error;
     };
 
 
-    enum class AlphaLoad
+    enum class alpha_load
     {
         Remove,
         Keep
@@ -174,26 +174,26 @@ namespace euphoria::core
 
 
     // todo(Gustav): move image loading to a io library instead
-    ImageLoadResult
-    LoadImage(vfs::FileSystem* fs, const vfs::FilePath& path, AlphaLoad alpha);
+    image_load_result
+    load_image(vfs::FileSystem* fs, const vfs::FilePath& path, alpha_load alpha);
 
 
-    ImageLoadResult
-    LoadImage
+    image_load_result
+    load_image
     (
         std::shared_ptr<MemoryChunk> memory,
         const std::string& path,
-        AlphaLoad alpha
+        alpha_load alpha
     );
 
 
-    ImageLoadResult
-    LoadImage
+    image_load_result
+    load_image
     (
         void* compressed_data,
         int compressed_size,
         const std::string& path,
-        AlphaLoad alpha
+        alpha_load alpha
     );
 }
 

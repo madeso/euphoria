@@ -10,12 +10,12 @@
 
 namespace euphoria::core
 {
-    struct Image;
+    struct image;
 
     void
     RenderSprator
     (
-        Image* image,
+        image* image,
         int code,
         const rgbai& foreground_color = {Color::White},
         std::optional<rgbai> border_color_arg = std::nullopt,
@@ -25,7 +25,7 @@ namespace euphoria::core
     void
     RenderSprator
     (
-        std::vector<Image>* images,
+        std::vector<image>* images,
         int code,
         const rgbai& foreground_color = {Color::White},
         std::optional<rgbai> border_color_arg = std::nullopt,

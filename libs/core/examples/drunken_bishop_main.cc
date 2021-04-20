@@ -53,11 +53,11 @@ GenerateDrunkenBishopTable(Random* random, const Common& common)
 }
 
 
-Image
+image
 GenerateImage(const Table<int>& table, int scale, const Palette& pal)
 {
-    Image image;
-    image.SetupNoAlphaSupport(scale * table.GetWidth(), scale * table.GetHeight());
+    image image;
+    image.setup_no_alpha_support(scale * table.GetWidth(), scale * table.GetHeight());
 
     auto draw_rect = [&](const rgbi& color, const vec2i& top_left)
     {
@@ -131,7 +131,7 @@ main(int argc, char* argv[])
                         ? std::string("bishop.png")
                         : (Str() << "bishop_" << (c+1) << ".png")
                         ;
-                    io::ChunkToFile(image.Write(ImageWriteFormat::PNG), file_name);
+                    io::ChunkToFile(image.write(ImageWriteFormat::PNG), file_name);
                 }
 
                 return argparse::ok;

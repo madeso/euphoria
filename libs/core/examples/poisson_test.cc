@@ -41,8 +41,8 @@ png_dump(int extra_images)
     const auto radius = 5.0f;
     auto frames = argparse::file_output("poisson-frames/");
 
-    auto image = Image{};
-    image.SetupNoAlphaSupport(image_size, image_size);
+    auto result = image{};
+    result.setup_no_alpha_support(image_size, image_size);
     frames.create_dir_if_missing();
 
     auto worker = PoissonWorker
@@ -61,7 +61,7 @@ png_dump(int extra_images)
         // auto svg = Dumper{};
         // svg.canvas_color = Color::Black;
 
-        Clear(&image, {Color::Black});
+        Clear(&result, {Color::Black});
         for
         (
             int i=0;
@@ -79,7 +79,7 @@ png_dump(int extra_images)
             const auto cp = worker.samples[i]*world_to_image;
             const auto circle_position = (cp).StaticCast<int>();
             const auto circle_radius = radius * world_to_image;
-            DrawCircle(&image, circle_color, circle_position, circle_radius);
+            DrawCircle(&result, circle_color, circle_position, circle_radius);
             // svg << Circle(circle_position.StaticCast<float>(),
             // circle_radius, circle_color);
         }
@@ -95,14 +95,14 @@ png_dump(int extra_images)
             // (from*world_to_image).StaticCast<int>(), 10);
             DrawArrow
             (
-                &image,
+                &result,
                 from * world_to_image,
                 to * world_to_image,
                 {Color::PureRed},
                 2
             );
         }
-        io::ChunkToFile(image.Write(ImageWriteFormat::PNG), frames.get_next_file());
+        io::ChunkToFile(result.write(ImageWriteFormat::PNG), frames.get_next_file());
         // svg.Write("poisson.html", 800, 600);
     };
 

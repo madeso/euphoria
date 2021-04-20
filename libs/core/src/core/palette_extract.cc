@@ -15,16 +15,16 @@ namespace
 
 
     std::vector<rgbi>
-    ExtractAllColors(const Image& image)
+    ExtractAllColors(const image& image)
     {
         auto ret = std::vector<rgbi>{};
-        ret.reserve(ret.size() + image.GetHeight() * image.GetWidth());
+        ret.reserve(ret.size() + image.get_height() * image.get_width());
 
-        for(int y=0; y<image.GetHeight(); y+=1)
+        for(int y=0; y<image.get_height(); y+=1)
         {
-            for(int x=0; x<image.GetWidth(); x+=1)
+            for(int x=0; x<image.get_width(); x+=1)
             {
-                const auto color = crgbi(image.GetPixel(x, y));
+                const auto color = crgbi(image.get_pixel(x, y));
                 ret.emplace_back(color);
             }
         }
@@ -180,7 +180,7 @@ namespace
 namespace euphoria::core
 {
     std::vector<rgbi>
-    MedianCut(const Image& image, int depth, bool middle_split)
+    MedianCut(const image& image, int depth, bool middle_split)
     {
         auto all_colors = ExtractAllColors(image);
         auto colors = ::MedianCut(SubVec{&all_colors}, depth, middle_split);

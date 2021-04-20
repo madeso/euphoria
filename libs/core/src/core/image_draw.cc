@@ -18,25 +18,25 @@
 namespace euphoria::core
 {
     Recti
-    WholeImage(const Image& image)
+    WholeImage(const image& image)
     {
         return Recti::FromTopLeftWidthHeight
         (
-            vec2i{0, image.GetHeight()},
-            image.GetWidth(),
-            image.GetHeight()
+            vec2i{0, image.get_height()},
+            image.get_width(),
+            image.get_height()
         );
     }
 
     void
-    Clear(Image* image, const rgbai& color)
+    Clear(image* image, const rgbai& color)
     {
         ASSERT(image);
         return DrawRect(image, color, WholeImage(*image));
     }
 
     void
-    DrawRect(Image* image, const rgbai& color, const Recti& rect)
+    DrawRect(image* image, const rgbai& color, const Recti& rect)
     {
         ASSERT(image);
         const int left = rect.TopLeft().x;
@@ -47,24 +47,24 @@ namespace euphoria::core
         // ASSERTX(bottom >= 0, bottom);
         for(int y = bottom; y < top; ++y)
         {
-            if(y < 0 || y >= image->GetHeight())
+            if(y < 0 || y >= image->get_height())
             {
                 continue;
             }
             for(int x = left; x < right; ++x)
             {
-                if(x < 0 || x >= image->GetWidth())
+                if(x < 0 || x >= image->get_width())
                 {
                     continue;
                 }
-                image->SetPixel(x, y, color);
+                image->set_pixel(x, y, color);
             }
         }
     }
 
 
     void
-    DrawSquare(Image* image, const rgbai& color, int x, int y, int size)
+    DrawSquare(image* image, const rgbai& color, int x, int y, int size)
     {
         ASSERT(image);
         DrawRect
@@ -143,7 +143,7 @@ namespace euphoria::core
     }
 
     void
-    FillPoly(Image* image, const rgbai& color, const std::vector<vec2f>& poly)
+    FillPoly(image* image, const rgbai& color, const std::vector<vec2f>& poly)
     {
         ASSERT(image);
 
@@ -157,14 +157,14 @@ namespace euphoria::core
         // ASSERTX(bottom >= 0, bottom);
         for(int y = bottom; y < top; ++y)
         {
-            if(y < 0 || y >= image->GetHeight()) { continue; }
+            if(y < 0 || y >= image->get_height()) { continue; }
             for(int x = left; x < right; ++x)
             {
-                if(x < 0 || x >= image->GetWidth()) { continue; }
+                if(x < 0 || x >= image->get_width()) { continue; }
 
                 if(PointInPoly(vec2f(x, y), poly))
                 {
-                    image->SetPixel(x, y, color);
+                    image->set_pixel(x, y, color);
                 }
             }
         }
@@ -173,7 +173,7 @@ namespace euphoria::core
     void
     DrawCircle
     (
-        Image* image,
+        image* image,
         const rgb& color,
         const vec2i& center,
         float radius,
@@ -185,13 +185,13 @@ namespace euphoria::core
         const int left = Max(0, Floori(center.x - radius - softness));
         const int right = Min
         (
-            image->GetWidth(),
+            image->get_width(),
             Ceili(center.x + radius + softness)
         );
         const int top = Max(0, Floori(center.y - radius - softness));
         const int bottom = Min
         (
-            image->GetHeight(),
+            image->get_height(),
             Ceili(center.y + radius + softness)
         );
 
@@ -237,14 +237,14 @@ namespace euphoria::core
                 const rgb paint_color = blend
                     ? rgb_transform::Transform
                     (
-                        crgb(image->GetPixel(x, y)),
+                        crgb(image->get_pixel(x, y)),
                         blend_factor,
                         color
                     )
                     : color
                     ;
 
-                image->SetPixel(x, y, rgbai{paint_color});
+                image->set_pixel(x, y, rgbai{paint_color});
             }
         }
     }
@@ -252,7 +252,7 @@ namespace euphoria::core
     void
     DrawLineFast
     (
-        Image* image,
+        image* image,
         const rgbai& color,
         const vec2i& from,
         const vec2i& to
@@ -265,7 +265,7 @@ namespace euphoria::core
 
         auto plot = [&](int x, int y)
         {
-            image->SetPixel(x, y, color);
+            image->set_pixel(x, y, color);
         };
 
         auto plot_line_low = [&](int x0, int y0, int x1, int y1)
@@ -340,7 +340,7 @@ namespace euphoria::core
     void
     DrawLineAntialiased
     (
-        Image* image,
+        image* image,
         const rgb& color,
         const vec2i& from,
         const vec2i& to
@@ -360,7 +360,7 @@ namespace euphoria::core
     void
     DrawLineAntialiased
     (
-        Image* image,
+        image* image,
         const rgb& color,
         const vec2f& from,
         const vec2f& to
@@ -377,17 +377,17 @@ namespace euphoria::core
         auto plot = [&](int x, int y, float c)
         {
             // plot the pixel at (x, y) with brightness c (where 0 ≤ c ≤ 1)
-            const bool valid_x = IsWithinInclusivei(0, x, image->GetWidth() - 1);
-            const bool valid_y = IsWithinInclusivei(0, y, image->GetHeight() - 1);
+            const bool valid_x = IsWithinInclusivei(0, x, image->get_width() - 1);
+            const bool valid_y = IsWithinInclusivei(0, y, image->get_height() - 1);
             if(valid_x && valid_y)
             {
                 const rgb paint_color = rgb_transform::Transform
                 (
-                    crgb(image->GetPixel(x, y)),
+                    crgb(image->get_pixel(x, y)),
                     c,
                     color
                 );
-                image->SetPixel(x, y, rgbai{paint_color});
+                image->set_pixel(x, y, rgbai{paint_color});
             }
         };
 
@@ -491,25 +491,25 @@ namespace euphoria::core
     void
     SimpleImageBlend
     (
-        Image* dst,
+        image* dst,
         const vec2i& p,
-        const Image& src,
+        const image& src,
         const rgbai& tint
     )
     {
-        for(int y=0; y<src.GetHeight(); y+=1)
+        for(int y=0; y<src.get_height(); y+=1)
         {
-            for(int x=0; x<src.GetWidth();  x+=1)
+            for(int x=0; x<src.get_width();  x+=1)
             {
                 const auto dx = p.x + x;
                 const auto dy = p.y + y;
-                if(dx >= dst->GetWidth()) { continue; }
-                if(dy >= dst->GetHeight()) { continue; }
-                const auto dst_color = dst->GetPixel(dx, dy);
-                const auto src_color = src.GetPixel(x, y);
+                if(dx >= dst->get_width()) { continue; }
+                if(dy >= dst->get_height()) { continue; }
+                const auto dst_color = dst->get_pixel(dx, dy);
+                const auto src_color = src.get_pixel(x, y);
                 const auto tinted_color = Tint(src_color, tint);
                 const auto result_color = Blend(tinted_color, dst_color);
-                dst->SetPixel(dx, dy, result_color);
+                dst->set_pixel(dx, dy, result_color);
             }
         }
     }
@@ -517,7 +517,7 @@ namespace euphoria::core
     void
     DrawText
     (
-        Image* image,
+        image* image,
         const vec2i& start_pos,
         const std::string& text,
         const rgbai& color,
@@ -551,35 +551,35 @@ namespace euphoria::core
     void
     PasteImage
     (
-        Image* dest_image,
+        image* dest_image,
         const vec2i& position,
-        const Image& source_image,
+        const image& source_image,
         BlendMode blend_mode,
         PixelsOutside clip
     )
     {
         ASSERT(dest_image);
 
-        for(int y = 0; y < source_image.GetHeight(); ++y)
+        for(int y = 0; y < source_image.get_height(); ++y)
         {
-            for(int x = 0; x < source_image.GetWidth(); ++x)
+            for(int x = 0; x < source_image.get_width(); ++x)
             {
                 const auto dest_x = position.x + x;
                 const auto dest_y = position.y + y;
                 if
                 (
                     clip == PixelsOutside::Discard &&
-                    IsWithin(dest_image->GetIndices(), vec2i(dest_x, dest_y)) == false
+                    IsWithin(dest_image->get_indices(), vec2i(dest_x, dest_y)) == false
                 )
                 {
                     // nop
                 }
                 else
                 {
-                    const auto top = source_image.GetPixel(x, y);
-                    const auto bottom = dest_image->GetPixel(dest_x, dest_y);
+                    const auto top = source_image.get_pixel(x, y);
+                    const auto bottom = dest_image->get_pixel(dest_x, dest_y);
                     const auto color = Blend(top, bottom, blend_mode);
-                    dest_image->SetPixel(dest_x, dest_y, color);
+                    dest_image->set_pixel(dest_x, dest_y, color);
                 }
             }
         }
@@ -589,7 +589,7 @@ namespace euphoria::core
     void
     FillTriangle
     (
-        Image* image,
+        image* image,
         const vec2f& a,
         const vec2f& b,
         const vec2f& c,
@@ -618,11 +618,11 @@ namespace euphoria::core
             {
                 const bool valid_x = IsWithinInclusivei
                 (
-                    0, x, image->GetWidth() - 1
+                    0, x, image->get_width() - 1
                 );
                 const bool valid_y = IsWithinInclusivei
                 (
-                    0, y, image->GetHeight() - 1
+                    0, y, image->get_height() - 1
                 );
                 if(valid_x && valid_y)
                 {
@@ -635,7 +635,7 @@ namespace euphoria::core
                     );
                     if(inside_triangle)
                     {
-                        image->SetPixel(x, y, color);
+                        image->set_pixel(x, y, color);
                     }
                 }
             }
@@ -646,7 +646,7 @@ namespace euphoria::core
     void
     DrawArrow
     (
-        Image* image,
+        image* image,
         const vec2f& from,
         const vec2f& to,
         const rgbai& color,

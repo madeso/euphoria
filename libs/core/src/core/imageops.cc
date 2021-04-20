@@ -8,7 +8,7 @@
 namespace euphoria::core
 {
     Table<char>
-    ImageToStringTable(const Image& img, const std::vector<ImageMapAction>& map)
+    ImageToStringTable(const image& img, const std::vector<ImageMapAction>& map)
     {
         auto pal = Palette::Empty("");
         for(const auto m: map)
@@ -17,9 +17,9 @@ namespace euphoria::core
         }
 
         auto ret = Table<char>::FromWidthHeight(
-                img.GetWidth(), img.GetHeight(), ' ');
+                img.get_width(), img.get_height(), ' ');
         ret.SetAll([&pal, &map, &img](int x, int y) {
-            const auto p     = img.GetPixel(x, y);
+            const auto p     = img.get_pixel(x, y);
             const auto index = pal.GetIndexClosest(rgbi {p.r, p.g, p.b});
             return map[index].to;
         });
@@ -29,7 +29,7 @@ namespace euphoria::core
 
     Table<char>
     ImageToStringTableExact(
-            const Image&                       img,
+            const image&                       img,
             const std::vector<ImageMapAction>& map, char missing)
     {
         auto find_match = [&](const rgbi& c) -> char
@@ -45,9 +45,9 @@ namespace euphoria::core
             return missing;
         };
         auto ret = Table<char>::FromWidthHeight(
-                img.GetWidth(), img.GetHeight(), ' ');
+                img.get_width(), img.get_height(), ' ');
         ret.SetAll([&](int x, int y) {
-            const auto p = img.GetPixel(x, y);
+            const auto p = img.get_pixel(x, y);
             const auto c = rgbi {p.r, p.g, p.b};
             const auto r = find_match(c);
             return r;
@@ -57,10 +57,10 @@ namespace euphoria::core
     }
 
     Table<char>
-    ImageToStringTable(const Image& img, bool shorter, Grayscale grayscale)
+    ImageToStringTable(const image& img, bool shorter, Grayscale grayscale)
     {
         auto ret = Table<char>::FromWidthHeight(
-                img.GetWidth(), img.GetHeight(), ' ');
+                img.get_width(), img.get_height(), ' ');
         ret.SetAll([shorter, &img, grayscale](int x, int y) {
             // http://paulbourke.net/dataformats/asciiart/
             const std::string characters = shorter
@@ -68,7 +68,7 @@ namespace euphoria::core
                 : "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,\"^`'. ";
             const auto inverted_color = crgb
             (
-                MakeGrayscale(img.GetPixel(x, y), grayscale)
+                MakeGrayscale(img.get_pixel(x, y), grayscale)
             ).r;
             const auto p = 1.0f - inverted_color;
             const auto index = Floori(p * static_cast<float>(characters.size() - 1) );

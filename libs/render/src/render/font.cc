@@ -88,9 +88,9 @@ namespace euphoria::render
     )
     {
         const int vert_left = src_char.bearing_x;
-        const int vert_right = vert_left + src_char.image.GetWidth();
+        const int vert_right = vert_left + src_char.image.get_width();
         const int vert_top = src_char.bearing_y;
-        const int vert_bottom = vert_top - std::max(1, src_char.image.GetHeight());
+        const int vert_bottom = vert_top - std::max(1, src_char.image.get_height());
 
         const stbrp_coord uv_left = src_rect.x;
         const stbrp_coord uv_right = uv_left + src_rect.w;
@@ -207,8 +207,8 @@ namespace euphoria::render
             {
                 stbrp_rect& r = packed_rects[index];
                 r.id = index;
-                r.w = glyph.image.GetWidth() + half_margin * 2;
-                r.h = glyph.image.GetHeight() + half_margin * 2;
+                r.w = glyph.image.get_width() + half_margin * 2;
+                r.h = glyph.image.get_height() + half_margin * 2;
                 id_to_codepoint[index] = codepoint;
                 index +=1;
             }
@@ -220,8 +220,8 @@ namespace euphoria::render
         stbrp_pack_rects(&context, &packed_rects[0], num_rects);
 
         CharDataMap map;
-        core::Image image;
-        image.SetupWithAlphaSupport(texture_width, texture_height);
+        core::image image;
+        image.setup_with_alpha_support(texture_width, texture_height);
         for(int i = 0; i < num_rects; ++i)
         {
             const stbrp_rect& src_rect = packed_rects[i];
@@ -274,7 +274,7 @@ namespace euphoria::render
         texture_->load_from_image
         (
             image,
-            core::AlphaLoad::Keep, texture2d_load_data()
+            core::alpha_load::Keep, texture2d_load_data()
         );
         line_height = static_cast<float>(fontchars.line_height);
     }

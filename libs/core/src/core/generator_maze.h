@@ -123,7 +123,7 @@ namespace euphoria::core::generator
         [[nodiscard]] rgbi
         CalculateCellColor(int x, int y) const;
 
-        Image image;
+        image image;
 
         Drawer();
 

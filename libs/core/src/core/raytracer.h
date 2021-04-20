@@ -15,7 +15,7 @@
 
 namespace euphoria::core
 {
-    struct Image;
+    struct image;
 
     namespace raytracer
     {
@@ -118,7 +118,7 @@ namespace euphoria::core
 
 
         void
-        Raytrace(Image* image, const Scene& scene, int number_of_samples);
+        Raytrace(image* image, const Scene& scene, int number_of_samples);
     }
 
 }

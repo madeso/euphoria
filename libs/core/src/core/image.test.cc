@@ -39,22 +39,22 @@ TEST_CASE("image-load", "[img]")
         euco::base64::Decode(TEST_IMAGE)
     );
 
-    auto loaded = euco::LoadImage
+    auto loaded = euco::load_image
     (
         &fs,
         vfs::FilePath{"~/white"},
-        euco::AlphaLoad::Remove
+        euco::alpha_load::Remove
     );
     REQUIRE(loaded.error.empty());
-    REQUIRE_FALSE(loaded.image.HasAlpha());
+    REQUIRE_FALSE(loaded.image.has_alpha());
 
-    REQUIRE(loaded.image.GetHeight() == 2);
-    REQUIRE(loaded.image.GetWidth() == 2);
+    REQUIRE(loaded.image.get_height() == 2);
+    REQUIRE(loaded.image.get_width() == 2);
 
     // upper left
     SECTION("load-white")
     {
-        const auto pixel = loaded.image.GetPixel(0, 1);
+        const auto pixel = loaded.image.get_pixel(0, 1);
         const auto white = euco::rgbai {euco::rgbi {255, 255, 255}, 255};
         REQUIRE(pixel == white);
     }
@@ -62,7 +62,7 @@ TEST_CASE("image-load", "[img]")
     // upper right
     SECTION("load-red")
     {
-        const auto pixel = loaded.image.GetPixel(1, 1);
+        const auto pixel = loaded.image.get_pixel(1, 1);
         const auto red = euco::rgbai {euco::rgbi {255, 0, 0}, 255};
         REQUIRE(pixel == red);
     }
@@ -70,7 +70,7 @@ TEST_CASE("image-load", "[img]")
     // lower left
     SECTION("load-green")
     {
-        const auto pixel = loaded.image.GetPixel(0, 0);
+        const auto pixel = loaded.image.get_pixel(0, 0);
         const auto green = euco::rgbai {euco::rgbi {0, 255, 0}, 255};
         REQUIRE(pixel == green);
     }
@@ -78,7 +78,7 @@ TEST_CASE("image-load", "[img]")
     // lower right
     SECTION("load-blue")
     {
-        const auto pixel = loaded.image.GetPixel(1, 0);
+        const auto pixel = loaded.image.get_pixel(1, 0);
         const auto blue  = euco::rgbai {euco::rgbi {0, 0, 255}, 255};
         REQUIRE(pixel == blue);
     }
@@ -86,42 +86,42 @@ TEST_CASE("image-load", "[img]")
 
 TEST_CASE("image solid", "[img]")
 {
-    euco::Image img;
-    img.SetupNoAlphaSupport(3, 3);
+    euco::image img;
+    img.setup_no_alpha_support(3, 3);
 
     SECTION("default-is-black")
     {
-        REQUIRE(img.GetPixel(0, 0) == euco::rgbai(euco::rgbi{0, 0, 0}, 255));
-        REQUIRE(img.GetPixel(1, 0) == euco::rgbai(euco::rgbi{0, 0, 0}, 255));
+        REQUIRE(img.get_pixel(0, 0) == euco::rgbai(euco::rgbi{0, 0, 0}, 255));
+        REQUIRE(img.get_pixel(1, 0) == euco::rgbai(euco::rgbi{0, 0, 0}, 255));
     }
 
     SECTION("can set and get color")
     {
-        REQUIRE(img.GetPixel(0, 0) == euco::rgbai(euco::rgbi{0, 0, 0}, 255));
+        REQUIRE(img.get_pixel(0, 0) == euco::rgbai(euco::rgbi{0, 0, 0}, 255));
         euco::rgbai color {euco::rgbi {255, 255, 255}, 255};
-        img.SetPixel(0, 0, color);
-        REQUIRE(img.GetPixel(0, 0) == color);
+        img.set_pixel(0, 0, color);
+        REQUIRE(img.get_pixel(0, 0) == color);
     }
 }
 
 
 TEST_CASE("image transparent", "[img]")
 {
-    euco::Image img;
-    img.SetupWithAlphaSupport(4, 4);
+    euco::image img;
+    img.setup_with_alpha_support(4, 4);
 
     SECTION("default-is-black")
     {
-        REQUIRE(img.GetPixel(0, 0) == euco::rgbai(euco::rgbi{0, 0, 0}, 0));
-        REQUIRE(img.GetPixel(1, 1) == euco::rgbai(euco::rgbi{0, 0, 0}, 0));
+        REQUIRE(img.get_pixel(0, 0) == euco::rgbai(euco::rgbi{0, 0, 0}, 0));
+        REQUIRE(img.get_pixel(1, 1) == euco::rgbai(euco::rgbi{0, 0, 0}, 0));
     }
 
     SECTION("can set and get color")
     {
-        REQUIRE(img.GetPixel(0, 0) == euco::rgbai(euco::rgbi{0, 0, 0}, 0));
+        REQUIRE(img.get_pixel(0, 0) == euco::rgbai(euco::rgbi{0, 0, 0}, 0));
         euco::rgbai color {euco::rgbi {255, 255, 255}, 255};
-        img.SetPixel(0, 0, color);
-        REQUIRE(img.GetPixel(0, 0) == color);
+        img.set_pixel(0, 0, color);
+        REQUIRE(img.get_pixel(0, 0) == color);
     }
 }
 
@@ -129,10 +129,10 @@ TEST_CASE("image transparent", "[img]")
 // todo(Gustav): add paint test
 TEST_CASE("image draw", "[img]")
 {
-    euco::Image img;
+    euco::image img;
     const int   width  = 10;
     const int   height = 12;
-    img.SetupNoAlphaSupport(width, height);
+    img.setup_no_alpha_support(width, height);
 
     SECTION("draw size is image size")
     {
@@ -148,69 +148,69 @@ TEST_CASE("image draw", "[img]")
 
     SECTION("fill")
     {
-        CHECK_FALSE(img.GetPixel(0, 0) == colora);
-        CHECK_FALSE(img.GetPixel(3, 3) == colora);
-        CHECK_FALSE(img.GetPixel(width - 1, height - 1) == colora);
+        CHECK_FALSE(img.get_pixel(0, 0) == colora);
+        CHECK_FALSE(img.get_pixel(3, 3) == colora);
+        CHECK_FALSE(img.get_pixel(width - 1, height - 1) == colora);
 
         euco::DrawRect(&img, color, euco::WholeImage(img));
-        REQUIRE(img.GetPixel(0, 0) == colora);
-        REQUIRE(img.GetPixel(3, 3) == colora);
-        REQUIRE(img.GetPixel(width - 1, height - 1) == colora);
+        REQUIRE(img.get_pixel(0, 0) == colora);
+        REQUIRE(img.get_pixel(3, 3) == colora);
+        REQUIRE(img.get_pixel(width - 1, height - 1) == colora);
     }
 
     SECTION("circle")
     {
-        CHECK_FALSE(img.GetPixel(5, 5) == colora);
+        CHECK_FALSE(img.get_pixel(5, 5) == colora);
         euco::DrawCircle(&img, crgb(color), euco::vec2i {5, 5}, 4);
-        CHECK_FALSE(img.GetPixel(0, 0) == colora);
-        REQUIRE(img.GetPixel(5, 5) == colora);
+        CHECK_FALSE(img.get_pixel(0, 0) == colora);
+        REQUIRE(img.get_pixel(5, 5) == colora);
     }
 
     SECTION("circle with hole")
     {
-        CHECK_FALSE(img.GetPixel(0, 0) == colora);
-        CHECK_FALSE(img.GetPixel(5, 5) == colora);
+        CHECK_FALSE(img.get_pixel(0, 0) == colora);
+        CHECK_FALSE(img.get_pixel(5, 5) == colora);
         euco::DrawCircle(&img, crgb(color), euco::vec2i {5, 5}, 20, 0, 3);
-        CHECK_FALSE(img.GetPixel(5, 5) == colora);
-        REQUIRE(img.GetPixel(0, 0) == colora);
+        CHECK_FALSE(img.get_pixel(5, 5) == colora);
+        REQUIRE(img.get_pixel(0, 0) == colora);
     }
 
     SECTION("paste big with clip")
     {
-        euco::Image big;
-        big.SetupNoAlphaSupport(width * 3, height * 3);
+        euco::image big;
+        big.setup_no_alpha_support(width * 3, height * 3);
         euco::Clear(&big, color);
 
-        CHECK_FALSE(img.GetPixel(5, 5) == colora);
-        CHECK_FALSE(img.GetPixel(0, 0) == colora);
-        CHECK_FALSE(img.GetPixel(0, height-1) == colora);
-        CHECK_FALSE(img.GetPixel(width-1, 0) == colora);
-        CHECK_FALSE(img.GetPixel(width-1, height-1) == colora);
+        CHECK_FALSE(img.get_pixel(5, 5) == colora);
+        CHECK_FALSE(img.get_pixel(0, 0) == colora);
+        CHECK_FALSE(img.get_pixel(0, height-1) == colora);
+        CHECK_FALSE(img.get_pixel(width-1, 0) == colora);
+        CHECK_FALSE(img.get_pixel(width-1, height-1) == colora);
 
         PasteImage(&img, euco::vec2i(-width, -height), big, euco::BlendMode::Normal, euco::PixelsOutside::Discard);
 
-        CHECK(img.GetPixel(5, 5) == colora);
-        CHECK(img.GetPixel(0, 0) == colora);
-        CHECK(img.GetPixel(0, height-1) == colora);
-        CHECK(img.GetPixel(width-1, 0) == colora);
-        CHECK(img.GetPixel(width-1, height-1) == colora);
+        CHECK(img.get_pixel(5, 5) == colora);
+        CHECK(img.get_pixel(0, 0) == colora);
+        CHECK(img.get_pixel(0, height-1) == colora);
+        CHECK(img.get_pixel(width-1, 0) == colora);
+        CHECK(img.get_pixel(width-1, height-1) == colora);
     }
 
     SECTION("paste small")
     {
-        euco::Image small;
-        small.SetupNoAlphaSupport(2, 2);
+        euco::image small;
+        small.setup_no_alpha_support(2, 2);
         euco::Clear(&small, color);
 
         PasteImage(&img, euco::vec2i(5, 5), small);
-        CHECK(img.GetPixel(5, 5) == colora);
-        CHECK(img.GetPixel(6, 5) == colora);
-        CHECK(img.GetPixel(5, 6) == colora);
-        CHECK(img.GetPixel(6, 6) == colora);
+        CHECK(img.get_pixel(5, 5) == colora);
+        CHECK(img.get_pixel(6, 5) == colora);
+        CHECK(img.get_pixel(5, 6) == colora);
+        CHECK(img.get_pixel(6, 6) == colora);
 
-        CHECK_FALSE(img.GetPixel(4, 5) == colora);
-        CHECK_FALSE(img.GetPixel(5, 4) == colora);
-        CHECK_FALSE(img.GetPixel(4, 4) == colora);
+        CHECK_FALSE(img.get_pixel(4, 5) == colora);
+        CHECK_FALSE(img.get_pixel(5, 4) == colora);
+        CHECK_FALSE(img.get_pixel(4, 4) == colora);
     }
 }
 
@@ -219,8 +219,8 @@ TEST_CASE("image text")
 {
     auto draw_text = [](const std::string& text, int width, int height) -> std::vector<std::string>
     {
-        euco::Image image;
-        image.SetupNoAlphaSupport(width, height);
+        euco::image image;
+        image.setup_no_alpha_support(width, height);
         euco::DrawRect(&image, {euco::Color::White}, euco::WholeImage(image));
         euco::DrawText
         (

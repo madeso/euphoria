@@ -128,8 +128,8 @@ main(int argc, char* argv[])
     auto pal = use_colorblind
         ? palette::ColorBlind_10()
         : Palette::Rainbow(random_points.size());
-    Image image;
-    image.SetupNoAlphaSupport(size, size);
+    image image;
+    image.setup_no_alpha_support(size, size);
 
     auto points = ClosestPoint<vec2f, int, std::function<float (const vec2f&, const vec2f&)>, float>
         {
@@ -156,13 +156,13 @@ main(int argc, char* argv[])
         }
     }
 
-    image.SetAllBottomTop([&](int x, int y) {
+    image.set_all_bottom_top([&](int x, int y) {
         const auto index = points.FindClosest(vec2f{i2f(x), i2f(y)});
         return pal.GetSafeIndex(index);
     });
 
 
-    io::ChunkToFile(image.Write(ImageWriteFormat::PNG), output_path);
+    io::ChunkToFile(image.write(ImageWriteFormat::PNG), output_path);
 
     return 0;
 }

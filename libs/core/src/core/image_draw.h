@@ -15,24 +15,24 @@ namespace euphoria::core
     struct LoadedFont;
 
     Recti
-    WholeImage(const Image& image);
+    WholeImage(const image& image);
 
     void
-    Clear(Image* image, const rgbai& color);
+    Clear(image* image, const rgbai& color);
 
     void
-    DrawRect(Image* image, const rgbai& color, const Recti& rect);
+    DrawRect(image* image, const rgbai& color, const Recti& rect);
 
     void
-    DrawSquare(Image* image, const rgbai& color, int x, int y, int size);
+    DrawSquare(image* image, const rgbai& color, int x, int y, int size);
 
     void
-    FillPoly(Image* image, const rgbai& color, const std::vector<vec2f>& poly);
+    FillPoly(image* image, const rgbai& color, const std::vector<vec2f>& poly);
 
     void
     DrawCircle
     (
-        Image* image,
+        image* image,
         const rgb& color,
         const vec2i& center,
         float radius,
@@ -43,7 +43,7 @@ namespace euphoria::core
     void
     DrawLineFast
     (
-        Image* image,
+        image* image,
         const rgbai& color,
         const vec2i& from,
         const vec2i& to
@@ -52,7 +52,7 @@ namespace euphoria::core
     void
     DrawLineAntialiased
     (
-        Image* image,
+        image* image,
         const rgb& color,
         const vec2f& from,
         const vec2f& to
@@ -61,7 +61,7 @@ namespace euphoria::core
     void
     DrawLineAntialiased
     (
-        Image* image,
+        image* image,
         const rgb& color,
         const vec2i& from,
         const vec2i& to
@@ -71,7 +71,7 @@ namespace euphoria::core
     void
     DrawText
     (
-        Image* image,
+        image* image,
         const vec2i& start_pos,
         const std::string& text,
         const rgbai& color,
@@ -88,11 +88,11 @@ namespace euphoria::core
     PasteImage
     (
         // destination: paste to this image
-        Image* dest_image,
+        image* dest_image,
         // bottom left
         const vec2i& position,
         // source: paste from this image
-        const Image& source_image,
+        const image& source_image,
         // how to blend
         BlendMode blend = BlendMode::Normal,
         // how to handle pixels that fall outside
@@ -102,7 +102,7 @@ namespace euphoria::core
     void
     DrawArrow
     (
-        Image* image,
+        image* image,
         const vec2f& from,
         const vec2f& to,
         const rgbai& color,

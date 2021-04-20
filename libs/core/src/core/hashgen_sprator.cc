@@ -102,7 +102,7 @@ namespace
 
 
     int
-    CalculateScale(const Image& image, const BoolTable& table)
+    CalculateScale(const image& image, const BoolTable& table)
     {
         auto calculate_scale = [](int image_scale, int table_scale) -> int
         {
@@ -114,8 +114,8 @@ namespace
 
         const auto scale = std::min
         (
-            calculate_scale(image.GetWidth(), table.GetWidth()),
-            calculate_scale(image.GetHeight(), table.GetHeight())
+            calculate_scale(image.get_width(), table.GetWidth()),
+            calculate_scale(image.get_height(), table.GetHeight())
         );
 
         return scale;
@@ -125,7 +125,7 @@ namespace
     void
     DrawImageWithBorder
     (
-        Image* image,
+        image* image,
         const BoolTable& result_table,
         const rgbai& background_color,
         const rgbai& foreground_color,
@@ -169,7 +169,7 @@ namespace
     void
     RenderSpratorImpl
     (
-        Image* image,
+        image* image,
         I code,
         const rgbai& foreground_color,
         const std::optional<rgbai> border_color_arg,
@@ -211,7 +211,7 @@ namespace
     void
     RenderSpratorImpl
     (
-        std::vector<Image>* images,
+        std::vector<image>* images,
         I code,
         const rgbai& foreground_color,
         const std::optional<rgbai> border_color_arg,
@@ -282,7 +282,7 @@ namespace euphoria::core
     void
     RenderSprator
     (
-        Image* image,
+        image* image,
         int code,
         const rgbai& foreground_color,
         std::optional<rgbai> border_color_arg,
@@ -303,7 +303,7 @@ namespace euphoria::core
     void
     RenderSprator
     (
-        std::vector<Image>* images,
+        std::vector<image>* images,
         int code,
         const rgbai& foreground_color,
         std::optional<rgbai> border_color_arg,

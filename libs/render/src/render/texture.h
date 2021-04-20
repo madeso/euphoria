@@ -7,7 +7,7 @@
 
 namespace euphoria::core
 {
-    struct Image;
+    struct image;
 }
 
 namespace euphoria::render
@@ -93,8 +93,8 @@ namespace euphoria::render
         void
         load_from_image
         (
-            const core::Image& image,
-            core::AlphaLoad alpha,
+            const core::image& image,
+            core::alpha_load alpha,
             const texture2d_load_data& data
         );
 
@@ -103,7 +103,7 @@ namespace euphoria::render
         (
             core::vfs::FileSystem* fs,
             const core::vfs::FilePath& path,
-            core::AlphaLoad alpha,
+            core::alpha_load alpha,
             const texture2d_load_data& data
         );
 

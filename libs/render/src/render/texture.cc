@@ -188,12 +188,12 @@ namespace euphoria::render
     (
         core::vfs::FileSystem* fs,
         const core::vfs::FilePath& path,
-        core::AlphaLoad alpha,
+        core::alpha_load alpha,
         const texture2d_load_data& data
     )
     {
-        const auto loaded = core::LoadImage(fs, path, alpha);
-        if(!loaded.image.IsValid())
+        const auto loaded = core::load_image(fs, path, alpha);
+        if(!loaded.image.is_valid())
         {
             LOG_ERROR("Failed to load image {0}: {1}", path, loaded.error);
             return;
@@ -205,14 +205,14 @@ namespace euphoria::render
     void
     texture2d::load_from_image
     (
-        const core::Image& image,
-        core::AlphaLoad alpha,
+        const core::image& image,
+        core::alpha_load alpha,
         const texture2d_load_data& data
     )
     {
         GLuint internal_format = GL_RGB;
         GLuint image_format = GL_RGB;
-        if(image.HasAlpha() && alpha == core::AlphaLoad::Keep)
+        if(image.has_alpha() && alpha == core::alpha_load::Keep)
         {
             internal_format = GL_RGBA;
             image_format = GL_RGBA;
@@ -220,9 +220,9 @@ namespace euphoria::render
 
         load_from_pixels
         (
-            image.GetWidth(),
-            image.GetHeight(),
-            image.GetPixelData(),
+            image.get_width(),
+            image.get_height(),
+            image.get_pixel_data(),
             internal_format,
             image_format,
             data

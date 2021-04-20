@@ -454,7 +454,7 @@ namespace euphoria::core
     }
 
 
-    Image
+    image
     Draw
     (
         const BoolTable& world,
@@ -473,14 +473,14 @@ namespace euphoria::core
         const auto image_width = world.GetWidth() * scale;
         const auto image_height = world.GetHeight() * scale;
 
-        Image image;
+        image image;
         if(has_alpha)
         {
-            image.SetupWithAlphaSupport(image_width, image_height);
+            image.setup_with_alpha_support(image_width, image_height);
         }
         else
         {
-            image.SetupNoAlphaSupport(image_width, image_height);
+            image.setup_no_alpha_support(image_width, image_height);
         }
 
         auto get_space_color = [&](int x, int y) -> rgbai

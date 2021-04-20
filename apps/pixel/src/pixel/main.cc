@@ -82,12 +82,12 @@ enum class Tool
 
 
 void
-FloodFill(Image* image, int x, int y, const rgbai& target_color, const rgbai& replacement_color)
+FloodFill(image* image, int x, int y, const rgbai& target_color, const rgbai& replacement_color)
 {
-    if(IsWithin(image->GetIndices(), vec2i(x, y)) == false) { return; }
+    if(IsWithin(image->get_indices(), vec2i(x, y)) == false) { return; }
     if(target_color == replacement_color) { return; }
-    if(image->GetPixel(x, y) != target_color) { return; }
-    image->SetPixel(x, y, replacement_color);
+    if(image->get_pixel(x, y) != target_color) { return; }
+    image->set_pixel(x, y, replacement_color);
 
     FloodFill(image, x-1, y, target_color, replacement_color);
     FloodFill(image, x+1, y, target_color, replacement_color);
@@ -125,15 +125,15 @@ main(int argc, char** argv)
     // main loop
     CanvasConfig cc;
     Canvas canvas;
-    Image image;
+    image image;
     Random random;
     Tool tool = Tool::Pen;
     auto palette = palette::EDG64();
     auto foreground = 0;
     auto background = 1;
 
-    image.SetupNoAlphaSupport(64, 64);
-    image.SetAllTopBottom([&](int, int)
+    image.setup_no_alpha_support(64, 64);
+    image.set_all_top_bottom([&](int, int)
     {
         return rgbai{palette.colors[background]};
     });
@@ -291,7 +291,7 @@ main(int argc, char** argv)
         ImGui::SetNextWindowSize(ImVec2 {300, 300}, ImGuiCond_FirstUseEver);
         if(ImGui::Begin("Image"))
         {
-            if(image.IsValid())
+            if(image.is_valid())
             {
                 const auto hovering = ImGui::IsAnyItemHovered();
                 const auto left_down = ImGui::IsMouseDown(0);
@@ -305,7 +305,7 @@ main(int argc, char** argv)
 
                 // draw image
                 ImDrawList* draw_list = ImGui::GetWindowDrawList();
-                image.ForAllTopBottom([&](int x, int y, const rgbai& c)
+                image.for_all_top_bottom([&](int x, int y, const rgbai& c)
                 {
                     const auto pixel_size = 5;
                     const auto p = ImVec2(x * pixel_size, y*pixel_size);
@@ -321,13 +321,13 @@ main(int argc, char** argv)
                             // hovering over pixel
                             if(!hovering && left_down)
                             {
-                                image.SetPixel(x, y, palette.colors[foreground]);
+                                image.set_pixel(x, y, palette.colors[foreground]);
                             }
 
                             // hovering over pixel
                             if(!hovering && right_down)
                             {
-                                image.SetPixel(x, y, palette.colors[background]);
+                                image.set_pixel(x, y, palette.colors[background]);
                             }
                             break;
                         case Tool::Fill:

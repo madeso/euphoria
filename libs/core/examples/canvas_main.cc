@@ -12,8 +12,8 @@ int
 main(int, char*[])
 {
     constexpr auto image_size = 300;
-    Image image;
-    image.SetupNoAlphaSupport(image_size, image_size);
+    image image;
+    image.setup_no_alpha_support(image_size, image_size);
     Clear(&image, {Color::Yellow});
 
     auto ctx = canvas{&image};
@@ -42,7 +42,7 @@ main(int, char*[])
     ctx.close_path();
     ctx.fill();
 
-    io::ChunkToFile(image.Write(ImageWriteFormat::PNG), "house.png");
+    io::ChunkToFile(image.write(ImageWriteFormat::PNG), "house.png");
     return 0;
 }
 

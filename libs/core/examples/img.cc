@@ -18,7 +18,7 @@ using namespace euphoria::core;
 int
 main(int argc, char* argv[])
 {
-    Image image;
+    image image;
 
     auto parser = argparse::parser {"Apply filters to images"};
     parser.parser_style = argparse::sub_parser_style::fallback;
@@ -45,7 +45,7 @@ main(int argc, char* argv[])
                             ;
                         return argparse::error;
                     }
-                    auto ret = LoadImage(file, input, AlphaLoad::Keep);
+                    auto ret = load_image(file, input, alpha_load::Keep);
                     if(!ret.error.empty())
                     {
                         std::cerr << ret.error << "\n";
@@ -77,7 +77,7 @@ main(int argc, char* argv[])
                 {
                     io::ChunkToFile
                     (
-                        image.Write(ImageWriteFormat::PNG),
+                        image.write(ImageWriteFormat::PNG),
                         output
                     );
                     return argparse::ok;

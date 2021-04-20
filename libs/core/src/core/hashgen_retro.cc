@@ -23,7 +23,7 @@ namespace
     void
     RenderRetroImpl
     (
-        Image* image,
+        image* image,
         I code,
         int half_size = 3
     )
@@ -34,8 +34,8 @@ namespace
         const auto foreground_color = Color::White;
         const auto background_color = Color::Black;
 
-        const auto dx = image->GetWidth() / (size - 1);
-        const auto dy = image->GetHeight() / size;
+        const auto dx = image->get_width() / (size - 1);
+        const auto dy = image->get_height() / size;
 
         auto draw_rect = [&](const vec2i& top_left)
         {
@@ -65,7 +65,7 @@ namespace
                     draw_rect(vec2i{x*dx, (y+1)*dy});
                     if(x != half_size-1)
                     {
-                        draw_rect(vec2i{image->GetWidth() - ((x+1)*dx + 2), (y+1)*dy});
+                        draw_rect(vec2i{image->get_width() - ((x+1)*dx + 2), (y+1)*dy});
                     }
                 }
             }
@@ -77,7 +77,7 @@ namespace
 namespace euphoria::core
 {
     void
-    RenderRetro(Image* image, int code)
+    RenderRetro(image* image, int code)
     {
         RenderRetroImpl<xorshift32>(image, Cbit_signed_to_unsigned(code));
     }

@@ -39,7 +39,7 @@ namespace euphoria::core
         int bearing_x = 0;
         int bearing_y = 0;
         int advance = 0;
-        Image image;
+        image image;
         float size = 0.0f;
     };
 
@@ -106,7 +106,7 @@ namespace euphoria::core
     LoadedFont
     GetCharactersFromSingleImage
     (
-        const Image& image,
+        const image& image,
         const std::string& image_alias,
         float image_scale,
         float image_bearing_x,

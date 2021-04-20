@@ -19,10 +19,10 @@ namespace euphoria::core
     canvas::C(const vec2f& v) const
     {
         const auto vv = transform * vec3f {v, 1};
-        return vec2f {vv.x, static_cast<float>(target_image->GetHeight()) - vv.y};
+        return vec2f {vv.x, static_cast<float>(target_image->get_height()) - vv.y};
     }
 
-    canvas::canvas(Image* i)
+    canvas::canvas(image* i)
         : fill_style(Color::Black)
         , target_image(i)
         , transform(mat3f::Identity())
@@ -38,7 +38,7 @@ namespace euphoria::core
         DrawRect(
                 target_image,
                 fill_style,
-                Recti::FromTopLeftWidthHeight(vec2i{x, target_image->GetHeight() - y}, w, h));
+                Recti::FromTopLeftWidthHeight(vec2i{x, target_image->get_height() - y}, w, h));
     }
 
     void

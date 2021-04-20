@@ -8,10 +8,10 @@
 
 namespace euphoria::core
 {
-    struct Image;
+    struct image;
 
     std::vector<rgbi>
-    MedianCut(const Image& image, int depth, bool middle_split);
+    MedianCut(const image& image, int depth, bool middle_split);
 }
 
 #endif  // EUPHORIA_CORE_PALETTE_EXTRACT_H

@@ -22,13 +22,13 @@ struct ImageAndFile
 {
     ImageAndFile() = default;
 
-    ImageAndFile(const std::string& f, const Image& i)
+    ImageAndFile(const std::string& f, const image& i)
         : file(f)
         , image(i)
     {}
 
     std::string file;
-    Image image;
+    image image;
 };
 
 
@@ -45,7 +45,7 @@ LoadImages(const std::vector<std::string>& files)
             std::cerr << "failed to read image file " << f << "\n";
             return {};
         }
-        auto loaded_image = LoadImage(chunk, f, AlphaLoad::Keep);
+        auto loaded_image = load_image(chunk, f, alpha_load::Keep);
         if(loaded_image.error.empty() == false)
         {
             std::cerr << "failed to read image data " <<
@@ -97,11 +97,11 @@ ExtractColors(const std::vector<ImageAndFile>& images, float range)
 
     for(const auto& img: images)
     {
-        for(int y=0; y<img.image.GetHeight(); y+=1)
+        for(int y=0; y<img.image.get_height(); y+=1)
         {
-            for(int x=0; x<img.image.GetWidth(); x+=1)
+            for(int x=0; x<img.image.get_width(); x+=1)
             {
-                const auto index = Find(&ret, crgbi(img.image.GetPixel(x,y)), range);
+                const auto index = Find(&ret, crgbi(img.image.get_pixel(x,y)), range);
                 ret[index].count += 1;
             }
         }
@@ -117,11 +117,11 @@ ExtractColors(const std::vector<ImageAndFile>& images)
     std::map<int, int> colors;
     for(const auto& img: images)
     {
-        for(int y=0; y<img.image.GetHeight(); y+=1)
+        for(int y=0; y<img.image.get_height(); y+=1)
         {
-            for(int x=0; x<img.image.GetWidth(); x+=1)
+            for(int x=0; x<img.image.get_width(); x+=1)
             {
-                const auto color = crgbi(img.image.GetPixel(x, y));
+                const auto color = crgbi(img.image.get_pixel(x, y));
                 const auto hex = color.to_hex();
                 auto val = std::get<0>(colors.try_emplace(hex, 0));
                 val->second += 1;
@@ -171,8 +171,8 @@ HandleImage
         return false;
     }
 
-    Image image;
-    image.SetupNoAlphaSupport(image_size * Csizet_to_int(colors.size()), image_size);
+    image image;
+    image.setup_no_alpha_support(image_size * Csizet_to_int(colors.size()), image_size);
     for
     (
         int i = 0;
@@ -190,7 +190,7 @@ HandleImage
         );
     }
 
-    io::ChunkToFile(image.Write(ImageWriteFormat::PNG), file);
+    io::ChunkToFile(image.write(ImageWriteFormat::PNG), file);
     return true;
 }
 

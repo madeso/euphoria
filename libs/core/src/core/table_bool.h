@@ -152,7 +152,7 @@ namespace euphoria::core
         rgbai color;
     };
 
-    Image
+    image
     Draw
     (
         const BoolTable& world,
