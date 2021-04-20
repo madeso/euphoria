@@ -177,7 +177,7 @@ namespace euphoria::core
         [[nodiscard]]
         static
         mat3<T>
-        FromAxisAngle(const AxisAngle aa)
+        FromAxisAngle(const axis_angle aa)
         {
             const T rcos = cos(aa.angle);
             const T rsin = sin(aa.angle);
@@ -274,7 +274,7 @@ namespace euphoria::core
         }
 
         mat3<T>
-        Rotate(const AxisAngle& aa) const
+        Rotate(const axis_angle& aa) const
         {
             return *this * FromAxisAngle(aa);
         }

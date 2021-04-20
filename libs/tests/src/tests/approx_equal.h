@@ -63,8 +63,8 @@ namespace euphoria::tests
     template <>
     bool
     approximately_equal(
-            core::AxisAngle const& lhs,
-            core::AxisAngle const& rhs,
+            core::axis_angle const& lhs,
+            core::axis_angle const& rhs,
             const ApproxData&      data);
 
 }  // namespace euphoria::tests

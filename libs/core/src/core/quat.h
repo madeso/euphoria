@@ -33,7 +33,7 @@ namespace euphoria::core
 
 
         [[nodiscard]] static Q
-        FromAxisAngle(const AxisAngle& aa)
+        FromAxisAngle(const axis_angle& aa)
         {
             const T sin_a = sin(aa.angle / 2);
             const T cos_a = cos(aa.angle / 2);
@@ -49,7 +49,7 @@ namespace euphoria::core
             const auto axis = RandomUnit3(random);
             const auto angle = angle::Random(random);
 
-            return Q::FromAxisAngle(AxisAngle::RightHandAround(axis, angle));
+            return Q::FromAxisAngle(axis_angle::right_hand_around(axis, angle));
         }
 
 
@@ -60,7 +60,7 @@ namespace euphoria::core
         }
 
 
-        [[nodiscard]] AxisAngle
+        [[nodiscard]] axis_angle
         ToAxisAngle() const
         {
             const T cos_a = w;
@@ -68,7 +68,7 @@ namespace euphoria::core
             const T sin_a = DefaultIfCloseToZero<T>(
                     Sqrt(1.0f - cos_a * cos_a), 1, 0.0005f);
             // todo(Gustav): do we need to normalize here?
-            return AxisAngle::RightHandAround(
+            return axis_angle::right_hand_around(
                     (vec() / sin_a).GetNormalized(), angle);
         }
 
@@ -107,7 +107,7 @@ namespace euphoria::core
             const auto rotAngle = acos(dot_value);
             const auto rotAxis = cross(in, dir).GetNormalized();
             return Q::FromAxisAngle(
-                    AxisAngle::RightHandAround(rotAxis, rotAngle));
+                    axis_angle::right_hand_around(rotAxis, rotAngle));
         }
 
 

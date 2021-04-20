@@ -281,7 +281,7 @@ TEST_CASE("mat4-TestIn", "[mat]")
 TEST_CASE("mat4-test", "[mat]")
 {
     const euco::mat4f start = euco::mat4f::Identity();
-    euco::AxisAngle   aa    = euco::AxisAngle::RightHandAround(
+    euco::axis_angle   aa    = euco::axis_angle::right_hand_around(
             euco::unit3f::Up(), euco::angle::from_degrees(-90));
     const euco::vec3f toTransform(0, 0, -5);
     const euco::vec3f result(5, 0, 0);
@@ -297,7 +297,7 @@ TEST_CASE("mat4-test", "[mat]")
 TEST_CASE("mat4-TestCombined_RT", "[mat]")
 {
     const auto r = euco::mat4f::Identity()
-                           .Rotate(euco::AxisAngle::RightHandAround(
+                           .Rotate(euco::axis_angle::right_hand_around(
                                    euco::unit3f::Up(),
                                    euco::angle::from_degrees(-90)))
                            .Translate(euco::vec3f(0, 0, -5))
@@ -309,7 +309,7 @@ TEST_CASE("mat4-TestCombined2_RT", "[mat]")
 {
     const auto r
             = euco::mat4f::Identity()
-                      .Rotate(euco::AxisAngle::RightHandAround(
+                      .Rotate(euco::axis_angle::right_hand_around(
                               euco::unit3f::Up(), euco::angle::from_degrees(90)))
                       .Translate(euco::vec3f(0, 0, -5))
                       .GetTransformPoint(euco::vec3f(0, 0, 0));
@@ -320,7 +320,7 @@ TEST_CASE("mat4-TestCombined_TR", "[mat]")
 {
     const auto r = euco::mat4f::Identity()
                            .Translate(euco::vec3f(0, 0, 5))
-                           .Rotate(euco::AxisAngle::RightHandAround(
+                           .Rotate(euco::axis_angle::right_hand_around(
                                    euco::unit3f::Up(),
                                    euco::angle::from_degrees(-90)))
                            .GetTransformPoint(euco::vec3f(0, 0, 0));

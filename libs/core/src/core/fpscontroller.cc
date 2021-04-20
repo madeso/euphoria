@@ -120,9 +120,9 @@ namespace euphoria::core
     FpsController::GetRotation() const
     {
         const auto rotation = quatf::FromAxisAngle(
-                AxisAngle::RightHandAround(unit3f::YAxis(), rotation_));
+                axis_angle::right_hand_around(unit3f::YAxis(), rotation_));
         const auto look = quatf::FromAxisAngle(
-                AxisAngle::RightHandAround(unit3f::XAxis(), look_));
+                axis_angle::right_hand_around(unit3f::XAxis(), look_));
         return rotation * look;
     }
 

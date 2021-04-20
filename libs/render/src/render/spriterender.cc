@@ -93,7 +93,7 @@ namespace euphoria::render
             // rotate around center
             .Rotate
             (
-                core::AxisAngle::RightHandAround
+                core::axis_angle::right_hand_around
                 (
                     core::unit3f::ZAxis(), 
                     rotation_angle

@@ -8,10 +8,10 @@
 
 namespace euphoria::core
 {
-    struct AxisAngle
+    struct axis_angle
     {
-        [[nodiscard]] static AxisAngle
-        RightHandAround(const unit3f& axis, const core::angle& angle);
+        [[nodiscard]] static axis_angle
+        right_hand_around(const unit3f& axis, const core::angle& angle);
 
         /** a unit-vector.
          */
@@ -22,11 +22,11 @@ namespace euphoria::core
         angle angle;
 
     private:
-        AxisAngle(const unit3f& ax, const core::angle& ang);
+        axis_angle(const unit3f& ax, const core::angle& ang);
     };
 
     std::ostream&
-    operator<<(std::ostream& stream, const AxisAngle& aa);
+    operator<<(std::ostream& stream, const axis_angle& aa);
 
 }  // namespace euphoria::core
 
