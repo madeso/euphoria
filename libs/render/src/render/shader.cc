@@ -444,7 +444,7 @@ namespace euphoria::render
     void
     BindTextureToShader
     (
-        Texture2d* texture,
+        texture2d* texture,
         Shader* shader,
         const ShaderUniform& attribute,
         glint index

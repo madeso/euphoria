@@ -39,7 +39,7 @@ namespace euphoria::render
     CompiledMeshMaterial::SetTexture
     (
         const core::EnumValue& name,
-        std::shared_ptr<Texture2d> texture
+        std::shared_ptr<texture2d> texture
     )
     {
         if(textures.find(name) != textures.end())
@@ -282,7 +282,7 @@ namespace euphoria::render
                 else
                 {
                     auto texture = texture_cache->GetTexture(texture_path);
-                    if(texture->GetWidth() <= 0)
+                    if(texture->get_width() <= 0)
                     {
                         LOG_WARN
                         (

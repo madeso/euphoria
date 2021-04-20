@@ -269,12 +269,12 @@ namespace euphoria::render
         private_use_aliases = fontchars.private_use_aliases;
         kerning_ = fontchars.kerning;
         chars_ = map;
-        Texture2dLoadData load_data;
-        texture_ = std::make_unique<Texture2d>();
-        texture_->LoadFromImage
+        texture2d_load_data load_data;
+        texture_ = std::make_unique<texture2d>();
+        texture_->load_from_image
         (
             image,
-            core::AlphaLoad::Keep, Texture2dLoadData()
+            core::AlphaLoad::Keep, texture2d_load_data()
         );
         line_height = static_cast<float>(fontchars.line_height);
     }
@@ -302,7 +302,7 @@ namespace euphoria::render
 
     TextDrawCommand::TextDrawCommand
     (
-        const Texture2d* texture,
+        const texture2d* texture,
         const core::Rectf& sprite_rect,
         const core::Rectf& texture_rect,
         bool hi
@@ -318,7 +318,7 @@ namespace euphoria::render
     void
     TextDrawCommandList::Add
     (
-        const Texture2d* texture,
+        const texture2d* texture,
         const core::Rectf& sprite_rect,
         const core::Rectf& texture_rect,
         bool hi

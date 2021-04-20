@@ -20,7 +20,7 @@ namespace euphoria::core::vfs
 
 namespace euphoria::render
 {
-    struct Texture2d;
+    struct texture2d;
     struct FontCache;
     struct TextureCache;
 }
@@ -66,8 +66,8 @@ namespace euphoria::gui
         core::Sizef size;
         UiState state;
         LayoutContainer container;
-        std::shared_ptr<render::Texture2d> cursor_image;
-        std::shared_ptr<render::Texture2d> hover_image;
+        std::shared_ptr<render::texture2d> cursor_image;
+        std::shared_ptr<render::texture2d> hover_image;
     };
 }
 

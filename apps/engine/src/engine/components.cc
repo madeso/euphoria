@@ -22,12 +22,12 @@ namespace euphoria::engine
     COMPONENT_CONSTRUCTOR_IMPLEMENTATION(CSprite)
 
     core::Rectf
-    GetSpriteRect(const core::vec2f& position, const render::Texture2d& texture)
+    GetSpriteRect(const core::vec2f& position, const render::texture2d& texture)
     {
         return core::Rectf::FromPositionAnchorWidthAndHeight(
                 position,
                 core::scale2f {0.5f, 0.5f},
-                texture.GetWidth(),
-                texture.GetHeight());
+                texture.get_width(),
+                texture.get_height());
     }
 }  // namespace euphoria::engine

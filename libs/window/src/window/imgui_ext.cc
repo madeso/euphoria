@@ -134,11 +134,11 @@ namespace euphoria::window
 
 
     void
-    ImguiImage(render::Texture2d* texture)
+    ImguiImage(render::texture2d* texture)
     {
-        auto        tex_w  = static_cast<float>(texture->GetWidth());
-        auto        tex_h  = static_cast<float>(texture->GetHeight());
-        ImTextureID tex_id = reinterpret_cast<ImTextureID>(texture->GetId());
+        auto        tex_w  = static_cast<float>(texture->get_width());
+        auto        tex_h  = static_cast<float>(texture->get_height());
+        ImTextureID tex_id = reinterpret_cast<ImTextureID>(texture->get_id());
 
         ImVec2 tex_screen_pos = ImGui::GetCursorScreenPos();
         ImGui::Text("%.0fx%.0f", tex_w, tex_h);

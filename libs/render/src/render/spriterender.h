@@ -46,7 +46,7 @@ namespace euphoria::render
         void
         DrawRect
         (
-            const Texture2d& texture,
+            const texture2d& texture,
             const core::Rectf& sprite_area,
             const core::Rectf& texture_region,
             const core::Angle& rotation_angle,
@@ -58,7 +58,7 @@ namespace euphoria::render
         void
         DrawSprite
         (
-            const Texture2d& texture,
+            const texture2d& texture,
             const core::Rectf& position,
             const DrawData& data = DrawData {}
         );

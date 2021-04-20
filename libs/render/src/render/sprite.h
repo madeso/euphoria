@@ -10,65 +10,50 @@
 
 namespace euphoria::render
 {
-    struct Texture2d;
+    struct texture2d;
     struct SpriteRenderer;
 
-    struct Sprite
+    struct sprite
     {
-        // todo(Gustav): remove getters and setters
-        explicit Sprite(
-                std::shared_ptr<Texture2d> texture,
+        explicit sprite(
+                std::shared_ptr<texture2d> texture,
                 const core::vec2f& position = core::vec2f::Zero());
 
-        [[nodiscard]] std::shared_ptr<Texture2d>
-        GetTexture() const;
-
-        [[nodiscard]] const core::vec2f&
-        GetPosition() const;
-
-        void
-        SetPosition(const core::vec2f& p);
+        [[nodiscard]] float
+        get_height() const;
 
         [[nodiscard]] float
-        GetHeight() const;
-
-        [[nodiscard]] float
-        GetWidth() const;
+        get_width() const;
 
         void
-        SetAlpha(float a);
+        render(SpriteRenderer* render) const;
 
-        void
-        Render(SpriteRenderer* render);
-
-        std::shared_ptr<Texture2d> texture_;
-        core::vec2f position_;
+        std::shared_ptr<texture2d> texture;
+        core::vec2f position;
         core::Angle rotation;
-        core::scale2f scale_;
-        core::Rgb color_;
-        float alpha_;
+        core::scale2f scale = core::scale2f(1, 1);
+        core::Rgb color = core::Rgb(1.0f);
+        float alpha = 1.0f;
     };
 
 
-    struct Layer
+    struct layer
     {
-    public:
-        explicit Layer(SpriteRenderer* render);
+        explicit layer(SpriteRenderer* render);
 
         void
-        Add(Sprite* sprite);
+        add(sprite* sprite);
 
         void
-        Remove(Sprite* sprite);
+        remove(sprite* sprite);
 
         void
-        Render();
+        render();
 
-    private:
-        using SpriteList = std::vector<Sprite*>;
-        using SpriteMap = std::map<std::shared_ptr<Texture2d>, SpriteList>;
+        using sprite_list = std::vector<sprite*>;
+        using sprite_map = std::map<std::shared_ptr<texture2d>, sprite_list>;
 
-        SpriteRenderer* render_;
-        SpriteMap sprites_;
+        SpriteRenderer* renderer;
+        sprite_map texture_to_sprites;
     };
 }

@@ -10,101 +10,70 @@ using namespace euphoria::convert;
 
 namespace euphoria::render
 {
-    Sprite::Sprite
+    sprite::sprite
     (
-        std::shared_ptr<Texture2d> texture,
+        std::shared_ptr<texture2d> texture,
         const core::vec2f& position
     )
-        : texture_(texture)
-        , position_(position)
+        : texture(texture)
+        , position(position)
         , rotation(0.0_rad)
-        , scale_(core::scale2f(1, 1))
-        , color_(core::Rgb(1.0f))
-        , alpha_(1.0f)
     {
-    }
-
-
-    std::shared_ptr<Texture2d>
-    Sprite::GetTexture() const
-    {
-        return texture_;
-    }
-
-
-    const core::vec2f&
-    Sprite::GetPosition() const
-    {
-        return position_;
-    }
-
-
-    void
-    Sprite::SetPosition(const core::vec2f& p)
-    {
-        position_ = p;
     }
 
 
     float
-    Sprite::GetHeight() const
+    sprite::get_height() const
     {
-        return static_cast<float>(texture_->GetHeight()) * scale_.y;
+        return static_cast<float>(texture->get_height()) * scale.y;
     }
 
 
     float
-    Sprite::GetWidth() const
+    sprite::get_width() const
     {
-        return static_cast<float>(texture_->GetWidth()) * scale_.x;
+        return static_cast<float>(texture->get_width()) * scale.x;
     }
 
 
     void
-    Sprite::SetAlpha(float a)
-    {
-        alpha_ = a;
-    }
-
-
-    void
-    Sprite::Render(SpriteRenderer* render)
+    sprite::render(SpriteRenderer* render) const
     {
         render->DrawSprite
         (
-            *texture_,
+            *texture,
             core::Rectf::FromPositionAnchorWidthAndHeight
             (
-                position_,
+                position,
                 core::scale2f {0, 0},
-                static_cast<float>(texture_->GetWidth()),
-                static_cast<float>(texture_->GetHeight())
+                static_cast<float>(texture->get_width()),
+                static_cast<float>(texture->get_height())
             ),
             DrawData{}
                 .Rotation(rotation)
-                .Scale(scale_)
-                .Tint(core::Rgba(color_, alpha_))
+                .Scale(scale)
+                .Tint(core::Rgba(color, alpha))
         );
     }
 
 
-    Layer::Layer(SpriteRenderer* render)
-        : render_(render)
+    layer::layer(SpriteRenderer* render)
+        : renderer(render)
     {
     }
 
 
     void
-    Layer::Add(Sprite* sprite)
+    layer::add(sprite* sprite)
     {
-        sprites_[sprite->GetTexture()].push_back(sprite);
+        texture_to_sprites[sprite->texture].push_back(sprite);
     }
 
 
     void
-    Layer::Remove(Sprite* sprite)
+    layer::remove(sprite* sprite)
     {
-        SpriteList& sprites = sprites_[sprite->GetTexture()];
+        sprite_list& sprites = texture_to_sprites[sprite->texture];
         sprites.erase
         (
             std::remove(sprites.begin(), sprites.end(), sprite),
@@ -114,13 +83,13 @@ namespace euphoria::render
 
 
     void
-    Layer::Render()
+    layer::render()
     {
-        for(auto& list: sprites_)
+        for(auto& list: texture_to_sprites)
         {
             for(auto& sp: list.second)
             {
-                sp->Render(render_);
+                sp->render(renderer);
             }
         }
     }

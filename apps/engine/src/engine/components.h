@@ -21,7 +21,7 @@ namespace euphoria::engine
     {
         COMPONENT_CONSTRUCTOR_DEFINITION(CSprite)
 
-        std::shared_ptr<render::Texture2d> texture;
+        std::shared_ptr<render::texture2d> texture;
     };
 
     struct Components
@@ -35,7 +35,7 @@ namespace euphoria::engine
     core::Rectf
     GetSpriteRect(
             const core::vec2f&       position,
-            const render::Texture2d& texture);
+            const render::texture2d& texture);
 }  // namespace euphoria::engine
 
 TYPEID_SETUP_TYPE(euphoria::engine::CPosition2);

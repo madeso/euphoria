@@ -262,12 +262,12 @@ LoadFile
     {
         if(scimed->scaling->rows.empty())
         {
-            scimed->scaling->rows.emplace_back(scimed->texture->GetHeight());
+            scimed->scaling->rows.emplace_back(scimed->texture->get_height());
         }
 
         if(scimed->scaling->cols.empty())
         {
-            scimed->scaling->cols.emplace_back(scimed->texture->GetWidth());
+            scimed->scaling->cols.emplace_back(scimed->texture->get_width());
         }
     }
 }

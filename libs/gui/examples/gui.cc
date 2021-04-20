@@ -159,7 +159,7 @@ ImWidget(const char* title, Rectf* r)
 
 
 void
-ImWidget(const char* title, euphoria::render::Texture2d* tex)
+ImWidget(const char* title, euphoria::render::texture2d* tex)
 {
     if(tex == nullptr) { return; }
 

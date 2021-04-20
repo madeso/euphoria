@@ -208,8 +208,8 @@ main(int argc, char* argv[])
         (
             vec2f{sprite_x, sprite_y},
             scale2f{0.5f, 0.5f},
-            static_cast<float>(arrows->GetWidth()),
-            static_cast<float>(arrows->GetHeight())
+            static_cast<float>(arrows->get_width()),
+            static_cast<float>(arrows->get_height())
         );
         /*
         const auto sr =

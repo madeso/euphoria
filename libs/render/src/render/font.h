@@ -65,14 +65,14 @@ namespace euphoria::render
 
     struct TextDrawCommand
     {
-        const Texture2d* texture;
+        const texture2d* texture;
         core::Rectf sprite_rect;
         core::Rectf texture_rect;
         bool hi;
 
         TextDrawCommand
         (
-            const Texture2d* texture,
+            const texture2d* texture,
             const core::Rectf& sprite_rect,
             const core::Rectf& texture_rect,
             bool hi
@@ -87,7 +87,7 @@ namespace euphoria::render
         void
         Add
         (
-            const Texture2d* texture,
+            const texture2d* texture,
             const core::Rectf& sprite_rect,
             const core::Rectf& texture_rect,
             bool hi
@@ -193,8 +193,8 @@ namespace euphoria::render
         float line_height=1;
 
         friend UiTextCompileVisitor;
-        std::unique_ptr<Texture2d> texture_;
-        std::shared_ptr<Texture2d> background;
+        std::unique_ptr<texture2d> texture_;
+        std::shared_ptr<texture2d> background;
         CharDataMap chars_;
         core::KerningMap kerning_;
         std::map<std::string, int> private_use_aliases;

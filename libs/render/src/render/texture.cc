@@ -15,13 +15,13 @@
 namespace // local
 {
     euphoria::render::gluint
-    C(euphoria::render::TextureWrap v)
+    C(euphoria::render::texture_wrap v)
     {
         switch(v)
         {
-        case euphoria::render::TextureWrap::REPEAT: return GL_REPEAT;
-        case euphoria::render::TextureWrap::MIRRORED_REPEAT: return GL_MIRRORED_REPEAT;
-        case euphoria::render::TextureWrap::CLAMP_TO_EDGE: return GL_CLAMP_TO_EDGE;
+        case euphoria::render::texture_wrap::repeat: return GL_REPEAT;
+        case euphoria::render::texture_wrap::mirrored_repeat: return GL_MIRRORED_REPEAT;
+        case euphoria::render::texture_wrap::clamp_to_edge: return GL_CLAMP_TO_EDGE;
         }
 
         DIE("Unhandled texture wrap value");
@@ -30,12 +30,12 @@ namespace // local
 
 
     euphoria::render::gluint
-    C(euphoria::render::FilterMagnification v)
+    C(euphoria::render::filter_magnification v)
     {
         switch(v)
         {
-        case euphoria::render::FilterMagnification::NEAREST: return GL_NEAREST;
-        case euphoria::render::FilterMagnification::LINEAR: return GL_LINEAR;
+        case euphoria::render::filter_magnification::nearest: return GL_NEAREST;
+        case euphoria::render::filter_magnification::linear: return GL_LINEAR;
         }
 
 
@@ -45,12 +45,12 @@ namespace // local
 
 
     euphoria::render::gluint
-    C(euphoria::render::FilterMinification v)
+    C(euphoria::render::filter_minification v)
     {
         switch(v)
         {
-        case euphoria::render::FilterMinification::NEAREST: return GL_NEAREST;
-        case euphoria::render::FilterMinification::LINEAR: return GL_LINEAR;
+        case euphoria::render::filter_minification::nearest: return GL_NEAREST;
+        case euphoria::render::filter_minification::linear: return GL_LINEAR;
         }
 
         DIE("Unhandled filter minification value");
@@ -58,11 +58,11 @@ namespace // local
     }
 
 
-    const euphoria::render::TextureId*&
-    GetCurrentShader()
+    const euphoria::render::texture_id*&
+    get_bound_texture()
     {
-        static const euphoria::render::TextureId* current_shader = nullptr;
-        return current_shader;
+        static const euphoria::render::texture_id* bound_texture = nullptr;
+        return bound_texture;
     }
 }
 
@@ -70,76 +70,76 @@ namespace // local
 
 namespace euphoria::render
 {
-    Texture2dLoadData::Texture2dLoadData()
-        : wrap(TextureWrap::REPEAT)
-        , min(FilterMinification::LINEAR)
-        , mag(FilterMagnification::LINEAR)
+    texture2d_load_data::texture2d_load_data()
+        : wrap(texture_wrap::repeat)
+        , minification(filter_minification::linear)
+        , magnification(filter_magnification::linear)
     {
     }
 
 
-    Texture2dLoadData&
-    Texture2dLoadData::SetWrap(TextureWrap v)
+    texture2d_load_data&
+    texture2d_load_data::set_wrap(texture_wrap v)
     {
         wrap = v;
         return *this;
     }
 
 
-    Texture2dLoadData&
-    Texture2dLoadData::SetFilterMag(FilterMagnification v)
+    texture2d_load_data&
+    texture2d_load_data::set_filter_magnification(filter_magnification v)
     {
-        mag = v;
+        magnification = v;
         return *this;
     }
 
 
-    Texture2dLoadData&
-    Texture2dLoadData::SetFilterMin(FilterMinification v)
+    texture2d_load_data&
+    texture2d_load_data::set_filter_minification(filter_minification v)
     {
-        min = v;
+        minification = v;
         return *this;
     }
 
 
-    TextureId::TextureId() : id_(0)
+    texture_id::texture_id() : id_(0)
     {
         glGenTextures(1, &id_);
     }
 
 
-    TextureId::~TextureId()
+    texture_id::~texture_id()
     {
         glDeleteTextures(1, &id_);
     }
 
 
     GLuint
-    TextureId::GetId() const
+    texture_id::get_id() const
     {
         return id_;
     }
 
 
     bool
-    TextureId::IsCurrentlyBound() const
+    texture_id::is_currently_bound() const
     {
-        return this == GetCurrentShader();
+        return this == get_bound_texture();
     }
 
 
     void
-    Use(const TextureId* texture)
+    Use(const texture_id* texture)
     {
         if(texture != nullptr)
         {
-            glBindTexture(GL_TEXTURE_2D, texture->GetId());
+            glBindTexture(GL_TEXTURE_2D, texture->get_id());
         }
-        GetCurrentShader() = texture;
+        get_bound_texture() = texture;
     }
 
 
-    Texture2d::Texture2d()
+    texture2d::texture2d()
         : width_(0)
         , height_(0)
     {
@@ -147,14 +147,14 @@ namespace euphoria::render
 
 
     void
-    Texture2d::LoadFromPixels
+    texture2d::load_from_pixels
     (
         int width,
         int height,
         const unsigned char* pixel_data,
         GLuint internal_format,
         GLuint image_format,
-        const Texture2dLoadData& data
+        const texture2d_load_data& data
     )
     {
         Use(this);
@@ -176,38 +176,38 @@ namespace euphoria::render
 
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, C(data.wrap));
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, C(data.wrap));
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, C(data.min));
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, C(data.mag));
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, C(data.minification));
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, C(data.magnification));
 
         glBindTexture(GL_TEXTURE_2D, 0);
     }
 
 
     void
-    Texture2d::LoadFromFile
+    texture2d::load_from_file
     (
         core::vfs::FileSystem* fs,
         const core::vfs::FilePath& path,
         core::AlphaLoad alpha,
-        const Texture2dLoadData& data
+        const texture2d_load_data& data
     )
     {
-        auto i = core::LoadImage(fs, path, alpha);
-        if(!i.image.IsValid())
+        const auto loaded = core::LoadImage(fs, path, alpha);
+        if(!loaded.image.IsValid())
         {
-            LOG_ERROR("Failed to load image {0}: {1}", path, i.error);
+            LOG_ERROR("Failed to load image {0}: {1}", path, loaded.error);
             return;
         }
-        LoadFromImage(i.image, alpha, data);
+        load_from_image(loaded.image, alpha, data);
     }
 
 
     void
-    Texture2d::LoadFromImage
+    texture2d::load_from_image
     (
         const core::Image& image,
         core::AlphaLoad alpha,
-        const Texture2dLoadData& data
+        const texture2d_load_data& data
     )
     {
         GLuint internal_format = GL_RGB;
@@ -218,7 +218,7 @@ namespace euphoria::render
             image_format = GL_RGBA;
         }
 
-        LoadFromPixels
+        load_from_pixels
         (
             image.GetWidth(),
             image.GetHeight(),
@@ -231,14 +231,14 @@ namespace euphoria::render
 
 
     int
-    Texture2d::GetWidth() const
+    texture2d::get_width() const
     {
         return width_;
     }
 
 
     int
-    Texture2d::GetHeight() const
+    texture2d::get_height() const
     {
         return height_;
     }

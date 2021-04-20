@@ -14,7 +14,7 @@ namespace euphoria::core::vfs
 
 namespace euphoria::render
 {
-    struct Texture2d;
+    struct texture2d;
 
     struct TextureCache
     {
@@ -23,10 +23,10 @@ namespace euphoria::render
 
         NONCOPYABLE(TextureCache);
 
-        [[nodiscard]] std::shared_ptr<Texture2d>
+        [[nodiscard]] std::shared_ptr<texture2d>
         GetTexture(const core::vfs::FilePath& path) const;
 
-        [[nodiscard]] std::shared_ptr<Texture2d>
+        [[nodiscard]] std::shared_ptr<texture2d>
         GetTexture(const std::optional<core::vfs::FilePath>& path) const;
 
         struct TextureCachePimpl;

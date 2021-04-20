@@ -25,7 +25,7 @@ namespace euphoria::core::vfs
 
 namespace euphoria::render
 {
-    struct Texture2d;
+    struct texture2d;
 
 
     struct ShaderId
@@ -128,7 +128,7 @@ namespace euphoria::render
     void
     BindTextureToShader
     (
-        Texture2d* texture,
+        texture2d* texture,
         Shader* shader,
         const ShaderUniform& attribute,
         glint index

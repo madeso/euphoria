@@ -299,7 +299,7 @@ namespace euphoria::editor
     void
     DrawSizer
     (
-        std::shared_ptr<render::Texture2d> image,
+        std::shared_ptr<render::texture2d> image,
         const Scimed& sc,
         const ScimedConfig& scc,
         scalingsprite::ScalingSprite* sprite
@@ -310,7 +310,7 @@ namespace euphoria::editor
         (
             scc,
             &sprite->cols,
-            image->GetWidth(),
+            image->get_width(),
             [&sc, &scc](int position, int distance, int size)
             {
                 DrawAnchorDown(sc.canvas, position, distance, size, scc.sizer_color);
@@ -330,7 +330,7 @@ namespace euphoria::editor
         (
             scc,
             &sprite->rows,
-            image->GetHeight(),
+            image->get_height(),
             [&sc, &scc](int position, int distance, int size)
             {
                 DrawAnchorLeft(sc.canvas, distance, position, size, scc.sizer_color);
@@ -498,11 +498,11 @@ namespace euphoria::editor
         }
 
         // draw texture
-        auto tex_id = reinterpret_cast<ImTextureID>(texture->GetId());
+        auto tex_id = reinterpret_cast<ImTextureID>(texture->get_id());
         const auto pos = canvas.WorldToScreen(ImVec2 {0, 0});
         const auto size = canvas.WorldToScreen
         (
-            ImVec2{static_cast<float>(texture->GetWidth()), static_cast<float>(texture->GetHeight())}
+            ImVec2{static_cast<float>(texture->get_width()), static_cast<float>(texture->get_height())}
         );
         draw_list->AddImage(tex_id, pos, size);
 
@@ -550,8 +550,8 @@ namespace euphoria::editor
 
         if(ImGui::BeginPopup("asd"))
         {
-            const auto space_index_y = FindSpaceIndexOrNull(scaling->rows, mouse_popup.y, texture->GetHeight());
-            const auto space_index_x = FindSpaceIndexOrNull(scaling->cols, mouse_popup.x, texture->GetWidth());
+            const auto space_index_y = FindSpaceIndexOrNull(scaling->rows, mouse_popup.y, texture->get_height());
+            const auto space_index_x = FindSpaceIndexOrNull(scaling->cols, mouse_popup.x, texture->get_width());
 
             constexpr auto label_x = ICON_MDI_VIEW_SPLIT_HORIZONTAL " New Horizontal divider";
             constexpr auto label_y = ICON_MDI_VIEW_SPLIT_VERTICAL " New Vertical divider";

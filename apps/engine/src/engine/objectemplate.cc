@@ -64,7 +64,7 @@ namespace euphoria::engine
     struct SpriteComponentCreator : public ComponentCreator
     {
     public:
-        std::shared_ptr<render::Texture2d> texture;
+        std::shared_ptr<render::texture2d> texture;
         Components* components;
 
         explicit SpriteComponentCreator(Components* c) : components(c) {}

@@ -21,8 +21,8 @@ namespace euphoria::core
 namespace euphoria::render
 {
     struct Buffer2d;
-    struct Texture2d;
-    struct TextureId;
+    struct texture2d;
+    struct texture_id;
     struct TextureCache;
     struct SpriteRenderer;
 
@@ -44,7 +44,7 @@ namespace euphoria::render
         void
         Render(SpriteRenderer* sr, const core::Rectf& pos, const core::Rgba& tint ) const;
 
-        std::shared_ptr<Texture2d> texture_;
+        std::shared_ptr<texture2d> texture_;
 
         std::vector<float> cols_;
         std::vector<float> rows_;

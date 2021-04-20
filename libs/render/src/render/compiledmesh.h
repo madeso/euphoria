@@ -16,7 +16,7 @@ namespace euphoria::core::vfs
 
 namespace euphoria::render
 {
-    struct Texture2d;
+    struct texture2d;
     struct MaterialShader;
     struct Light;
     struct MaterialOverride;
@@ -47,7 +47,7 @@ namespace euphoria::render
         SetTexture
         (
             const core::EnumValue& name,
-            std::shared_ptr<Texture2d> texture
+            std::shared_ptr<texture2d> texture
         );
 
 
@@ -80,7 +80,7 @@ namespace euphoria::render
         core::Rgb specular;
         float shininess;
         std::shared_ptr<MaterialShader> shader;
-        std::map<core::EnumValue, std::shared_ptr<Texture2d>> textures;
+        std::map<core::EnumValue, std::shared_ptr<texture2d>> textures;
     };
 
 

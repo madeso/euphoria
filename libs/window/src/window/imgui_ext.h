@@ -22,7 +22,7 @@ namespace euphoria::core
 
 namespace euphoria::render
 {
-    struct Texture2d;
+    struct texture2d;
 }
 
 struct ImVec2;
@@ -55,7 +55,7 @@ namespace euphoria::window
     ToggleButton(const char* const label, bool down, const ImVec2& size);
 
     void
-    ImguiImage(render::Texture2d* texture);
+    ImguiImage(render::texture2d* texture);
 
     bool
     ImGuiColorEdit(const char* const name, core::Rgb* rgb);

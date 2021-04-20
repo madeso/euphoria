@@ -12,106 +12,106 @@ namespace euphoria::core
 
 namespace euphoria::render
 {
-    enum class TextureWrap
+    enum class texture_wrap
     {
-        REPEAT,
-        MIRRORED_REPEAT,
-        CLAMP_TO_EDGE
+        repeat,
+        mirrored_repeat,
+        clamp_to_edge
     };
 
-    enum class FilterMagnification
+    enum class filter_magnification
     {
-        NEAREST,
-        LINEAR
+        nearest,
+        linear
     };
 
-    enum class FilterMinification
+    enum class filter_minification
     {
-        NEAREST,
-        LINEAR
+        nearest,
+        linear
         // todo(Gustav): add mipmap
     };
 
-    struct Texture2dLoadData
+    struct texture2d_load_data
     {
-        Texture2dLoadData();
+        texture2d_load_data();
 
-        Texture2dLoadData&
-        SetWrap(TextureWrap v);
+        texture2d_load_data&
+        set_wrap(texture_wrap v);
 
-        Texture2dLoadData&
-        SetFilterMag(FilterMagnification v);
+        texture2d_load_data&
+        set_filter_magnification(filter_magnification v);
 
-        Texture2dLoadData&
-        SetFilterMin(FilterMinification v);
+        texture2d_load_data&
+        set_filter_minification(filter_minification v);
 
-        TextureWrap wrap;
-        FilterMinification min;
-        FilterMagnification mag;
+        texture_wrap wrap;
+        filter_minification minification;
+        filter_magnification magnification;
     };
 
-    struct TextureId
+    struct texture_id
     {
     public:
-        TextureId();
-        ~TextureId();
+        texture_id();
+        ~texture_id();
 
-        NONCOPYABLE(TextureId);
+        NONCOPYABLE(texture_id);
 
         [[nodiscard]] bool
-        IsCurrentlyBound() const;
+        is_currently_bound() const;
 
         [[nodiscard]] gluint
-        GetId() const;
+        get_id() const;
 
     private:
         gluint id_;
     };
 
     void
-    Use(const TextureId* texture);
+    Use(const texture_id* texture);
 
-    struct Texture2d : public TextureId
+    struct texture2d : public texture_id
     {
     public:
-        Texture2d();
-        ~Texture2d() = default;
+        texture2d();
+        ~texture2d() = default;
 
-        NONCOPYABLE(Texture2d);
+        NONCOPYABLE(texture2d);
 
         void
-        LoadFromPixels
+        load_from_pixels
         (
             int width,
             int height,
             const unsigned char* pixel_data,
             gluint internal_format,
             gluint image_format,
-            const Texture2dLoadData& data
+            const texture2d_load_data& data
         );
 
         void
-        LoadFromImage
+        load_from_image
         (
             const core::Image& image,
             core::AlphaLoad alpha,
-            const Texture2dLoadData& data
+            const texture2d_load_data& data
         );
 
         void
-        LoadFromFile
+        load_from_file
         (
             core::vfs::FileSystem* fs,
             const core::vfs::FilePath& path,
             core::AlphaLoad alpha,
-            const Texture2dLoadData& data
+            const texture2d_load_data& data
         );
 
         [[nodiscard]] int
-        GetWidth() const;
+        get_width() const;
 
         [[nodiscard]] int
-        GetHeight() const;
+        get_height() const;
 
     private:
         int width_, height_;
