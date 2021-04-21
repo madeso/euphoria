@@ -78,7 +78,7 @@ namespace euphoria::core
         void
         mod_char(std::size_t x, std::size_t y, F&& func)
         {
-            ExtendTo(x,y);
+            extend_to(x,y);
             func(data[y][x]);
         }
 
@@ -267,7 +267,7 @@ namespace euphoria::core
                         )
                     );
                 }
-                SubCreateTreeGraph
+                sub_create_tree_graph
                 (
                     &result,
                     maxwidth,
@@ -288,36 +288,36 @@ namespace euphoria::core
         // private functions
 
         void
-        ExtendTo(std::size_t x, std::size_t y);
+        extend_to(std::size_t x, std::size_t y);
 
         /** Calculate the earliest X coordinate where the given box could be placed.
         without colliding with existing content in this box. Guaranteed to be <= width().
         Find leftmost position where box b can be appended into *this without overlap
         */
         [[nodiscard]] std::size_t
-        horiz_append_position(std::size_t y, const text_box& b) const;
+        get_horizontal_append_position(std::size_t y, const text_box& b) const;
 
         /** Calculate the earliest Y coordinate where the given box could be placed without colliding with existing content in this box. Guaranteed to be <= height().
         * Find topmost position where box b can be appended into *this without overlap
         */
         [[nodiscard]] std::size_t
-        vert_append_position(std::size_t x, const text_box& b) const;
+        get_vertical_append_position(std::size_t x, const text_box& b) const;
 
         [[nodiscard]] std::size_t
-        FindLeftPadding(std::size_t y) const;
+        find_left_padding(std::size_t y) const;
 
         [[nodiscard]] std::size_t
-        FindRightPadding(std::size_t y) const;
+        find_right_padding(std::size_t y) const;
 
         [[nodiscard]] std::size_t
-        FindTopPadding(std::size_t x) const;
+        find_top_padding(std::size_t x) const;
 
         [[nodiscard]] std::size_t
-        FindBottomPadding(std::size_t x) const;
+        find_bottom_padding(std::size_t x) const;
 
     private:
         static void
-        SubCreateTreeGraph
+        sub_create_tree_graph
         (
             text_box* result,
             size_t maxwidth,

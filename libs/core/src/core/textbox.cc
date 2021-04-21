@@ -234,13 +234,13 @@ namespace euphoria::core
     void
     text_box::put_char(std::size_t x, std::size_t y, char c)
     {
-        ExtendTo(x,y);
+        extend_to(x,y);
         data[y][x] = c;
     }
 
 
     void
-    text_box::ExtendTo(std::size_t x, std::size_t y)
+    text_box::extend_to(std::size_t x, std::size_t y)
     {
         if(y >= data.size())
         {
@@ -290,7 +290,7 @@ namespace euphoria::core
             const auto y = y_start + p;
 
             const auto size_minus_1 = line.empty() ? 0 : line.size()-1;
-            ExtendTo(x_start+size_minus_1, y);
+            extend_to(x_start+size_minus_1, y);
 
             for(std::size_t line_index = 0; line_index < line.size(); line_index+=1)
             {
@@ -449,14 +449,14 @@ namespace euphoria::core
 
 
     std::size_t
-    text_box::horiz_append_position(std::size_t y, const text_box& b) const
+    text_box::get_horizontal_append_position(std::size_t y, const text_box& b) const
     {
         const std::size_t my_width = get_width();
 
         std::size_t reduce = my_width;
         for(std::size_t p=0; p<b.get_height(); p+=1)
         {
-            reduce = std::min(reduce, FindRightPadding(y+p) + b.FindLeftPadding(p));
+            reduce = std::min(reduce, find_right_padding(y+p) + b.find_left_padding(p));
         }
 
         return my_width - reduce;
@@ -464,7 +464,7 @@ namespace euphoria::core
 
 
     std::size_t
-    text_box::vert_append_position
+    text_box::get_vertical_append_position
     (
         std::size_t x,
         const text_box& b
@@ -475,7 +475,7 @@ namespace euphoria::core
         std::size_t reduce = my_height;
         for(std::size_t p=0; p<b.get_width(); p+=1)
         {
-            reduce = std::min(reduce, FindBottomPadding(x+p) + b.FindTopPadding(p));
+            reduce = std::min(reduce, find_bottom_padding(x+p) + b.find_top_padding(p));
         }
 
         return my_height - reduce;
@@ -542,7 +542,7 @@ namespace euphoria::core
 
 
     std::size_t
-    text_box::FindLeftPadding(std::size_t y) const
+    text_box::find_left_padding(std::size_t y) const
     {
         const std::size_t max = get_width();
 
@@ -564,7 +564,7 @@ namespace euphoria::core
 
 
     std::size_t
-    text_box::FindRightPadding(std::size_t y) const
+    text_box::find_right_padding(std::size_t y) const
     {
         const std::size_t max = get_width();
 
@@ -591,7 +591,7 @@ namespace euphoria::core
 
 
     std::size_t
-    text_box::FindBottomPadding(std::size_t x) const
+    text_box::find_bottom_padding(std::size_t x) const
     {
         const std::size_t max = data.size();
 
@@ -614,7 +614,7 @@ namespace euphoria::core
 
 
     std::size_t
-    text_box::FindTopPadding(std::size_t x) const
+    text_box::find_top_padding(std::size_t x) const
     {
         const std::size_t max = data.size();
         std::size_t result = 0;
@@ -633,7 +633,7 @@ namespace euphoria::core
 
 
     void
-    text_box::SubCreateTreeGraph
+    text_box::sub_create_tree_graph
     (
         text_box* result,
         size_t maxwidth,
@@ -667,7 +667,7 @@ namespace euphoria::core
         {
             const text_box& current_box = *box_iterator;
             const std::size_t usemargin = (simple || oneliner) ? (margin/2) : margin;
-            const auto first_valid_x = result->horiz_append_position(y, current_box);
+            const auto first_valid_x = result->get_horizontal_append_position(y, current_box);
             std::size_t x = first_valid_x != 0 ? first_valid_x + usemargin
                 :(
                     oneliner
@@ -696,7 +696,7 @@ namespace euphoria::core
             {
                 const auto& next_box = *std::next(box_iterator);
                 std::size_t combined_width =
-                    current_box.horiz_append_position(0, next_box) +
+                    current_box.get_horizontal_append_position(0, next_box) +
                     margin +
                     next_box.get_width()
                 ;
@@ -707,13 +707,13 @@ namespace euphoria::core
                     horizontal = true;
                     const text_box combined = current_box.put_box_copy
                     (
-                        current_box.horiz_append_position(0, next_box) + margin,
+                        current_box.get_horizontal_append_position(0, next_box) + margin,
                         0,
                         next_box
                     );
                     y = std::max
                     (
-                        result->vert_append_position(x, combined),
+                        result->get_vertical_append_position(x, combined),
                         std::size_t(1)
                     );
                     if(!oneliner)
@@ -726,7 +726,7 @@ namespace euphoria::core
             {
                 y = std::max
                 (
-                    result->vert_append_position(x, current_box),
+                    result->get_vertical_append_position(x, current_box),
                     std::size_t(1)
                 );
             }
@@ -740,7 +740,7 @@ namespace euphoria::core
                     (
                         std::string(1+x, '-')
                     );
-                    if(result->horiz_append_position(y-1, connector) > x)
+                    if(result->get_horizontal_append_position(y-1, connector) > x)
                     {
                         y+=1;
                     }
@@ -750,7 +750,7 @@ namespace euphoria::core
                     }
                     y = std::max
                     (
-                        result->vert_append_position(x, current_box),
+                        result->get_vertical_append_position(x, current_box),
                         y
                     );
                 }

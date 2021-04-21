@@ -353,65 +353,65 @@ TEST_CASE("tb_box")
 
     SECTION("empty")
     {
-        CHECK(empty.horiz_append_position(0, empty) == 0);
-        CHECK(empty.vert_append_position(0, empty) == 0);
+        CHECK(empty.get_horizontal_append_position(0, empty) == 0);
+        CHECK(empty.get_vertical_append_position(0, empty) == 0);
 
-        CHECK(empty.horiz_append_position(0, x) == 0);
-        CHECK(empty.vert_append_position(0, x) == 0);
+        CHECK(empty.get_horizontal_append_position(0, x) == 0);
+        CHECK(empty.get_vertical_append_position(0, x) == 0);
 
-        CHECK(empty.horiz_append_position(0, abc) == 0);
-        CHECK(empty.vert_append_position(0, abc) == 0);
+        CHECK(empty.get_horizontal_append_position(0, abc) == 0);
+        CHECK(empty.get_vertical_append_position(0, abc) == 0);
 
-        CHECK(empty.horiz_append_position(1, empty) == 0);
-        CHECK(empty.vert_append_position(1, empty) == 0);
+        CHECK(empty.get_horizontal_append_position(1, empty) == 0);
+        CHECK(empty.get_vertical_append_position(1, empty) == 0);
 
-        CHECK(empty.horiz_append_position(1, x) == 0);
-        CHECK(empty.vert_append_position(1, x) == 0);
+        CHECK(empty.get_horizontal_append_position(1, x) == 0);
+        CHECK(empty.get_vertical_append_position(1, x) == 0);
 
-        CHECK(empty.horiz_append_position(1, abc) == 0);
-        CHECK(empty.vert_append_position(1, abc) == 0);
+        CHECK(empty.get_horizontal_append_position(1, abc) == 0);
+        CHECK(empty.get_vertical_append_position(1, abc) == 0);
     }
 
     SECTION("x")
     {
-        CHECK(x.horiz_append_position(0, empty) == 0);
-        CHECK(x.vert_append_position(0, empty) == 0);
+        CHECK(x.get_horizontal_append_position(0, empty) == 0);
+        CHECK(x.get_vertical_append_position(0, empty) == 0);
 
-        CHECK(x.horiz_append_position(0, x) == 1);
-        CHECK(x.vert_append_position(0, x) == 1);
+        CHECK(x.get_horizontal_append_position(0, x) == 1);
+        CHECK(x.get_vertical_append_position(0, x) == 1);
 
-        CHECK(x.horiz_append_position(0, abc) == 0);
-        CHECK(x.vert_append_position(0, abc) == 2);
+        CHECK(x.get_horizontal_append_position(0, abc) == 0);
+        CHECK(x.get_vertical_append_position(0, abc) == 2);
 
-        CHECK(x.horiz_append_position(1, empty) == 0);
-        CHECK(x.vert_append_position(1, empty) == 0);
+        CHECK(x.get_horizontal_append_position(1, empty) == 0);
+        CHECK(x.get_vertical_append_position(1, empty) == 0);
 
-        CHECK(x.horiz_append_position(1, x) == 0);
-        CHECK(x.vert_append_position(1, x) == 0);
+        CHECK(x.get_horizontal_append_position(1, x) == 0);
+        CHECK(x.get_vertical_append_position(1, x) == 0);
 
-        CHECK(x.horiz_append_position(1, abc) == 2);
-        CHECK(x.vert_append_position(1, abc) == 2);
+        CHECK(x.get_horizontal_append_position(1, abc) == 2);
+        CHECK(x.get_vertical_append_position(1, abc) == 2);
     }
 
     SECTION("abc")
     {
-        CHECK(abc.horiz_append_position(0, empty) == 0);
-        CHECK(abc.vert_append_position(0, empty) == 0);
+        CHECK(abc.get_horizontal_append_position(0, empty) == 0);
+        CHECK(abc.get_vertical_append_position(0, empty) == 0);
 
-        CHECK(abc.horiz_append_position(0, x) == 0);
-        CHECK(abc.vert_append_position(0, x) == 0);
+        CHECK(abc.get_horizontal_append_position(0, x) == 0);
+        CHECK(abc.get_vertical_append_position(0, x) == 0);
 
-        CHECK(abc.horiz_append_position(0, abc) == 3);
-        CHECK(abc.vert_append_position(0, abc) == 1);
+        CHECK(abc.get_horizontal_append_position(0, abc) == 3);
+        CHECK(abc.get_vertical_append_position(0, abc) == 1);
 
-        CHECK(abc.horiz_append_position(1, empty) == 0);
-        CHECK(abc.vert_append_position(1, empty) == 0);
+        CHECK(abc.get_horizontal_append_position(1, empty) == 0);
+        CHECK(abc.get_vertical_append_position(1, empty) == 0);
 
-        CHECK(abc.horiz_append_position(1, x) == 0);
-        CHECK(abc.vert_append_position(1, x) == 0);
+        CHECK(abc.get_horizontal_append_position(1, x) == 0);
+        CHECK(abc.get_vertical_append_position(1, x) == 0);
 
-        CHECK(abc.horiz_append_position(1, abc) == 0);
-        CHECK(abc.vert_append_position(1, abc) == 1);
+        CHECK(abc.get_horizontal_append_position(1, abc) == 0);
+        CHECK(abc.get_vertical_append_position(1, abc) == 1);
     }
 }
 
