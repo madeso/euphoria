@@ -71,7 +71,7 @@ namespace euphoria::core::argparse
             : internal_type(parse_result::type::custom)
             , return_value(rv)
         {
-        }    
+        }
     };
 
     // no error occurred
@@ -165,7 +165,7 @@ namespace euphoria::core::argparse
     struct runner
     {
         argument_reader* arguments;
-        std::shared_ptr<printer> printer;
+        std::shared_ptr<argparse::printer> printer;
     };
 
     void
@@ -612,7 +612,7 @@ namespace euphoria::core::argparse
     struct sub_parser : public parser_base
     {
         parser_base* parent;
-        runner* runner;
+        argparse::runner* runner;
         std::string calling_name;
 
         sub_parser
@@ -653,7 +653,7 @@ namespace euphoria::core::argparse
         std::string
         get_calling_name(const name_and_arguments& args) override;
 
-        std::shared_ptr<printer> printer;
+        std::shared_ptr<argparse::printer> printer;
     };
 
     // helper function for parsing directly from main

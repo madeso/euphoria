@@ -131,7 +131,7 @@ namespace euphoria::core
 
         [[nodiscard]] std::shared_ptr<MemoryChunk>
         write(image_write_format format, int jpeg_quality = 100) const;
-        
+
         void
         setup(int image_width, int image_height, bool alpha, int default_value);
 
@@ -151,7 +151,7 @@ namespace euphoria::core
 
     struct image_load_result
     {
-        image image;
+        core::image image;
         std::string error;
     };
 

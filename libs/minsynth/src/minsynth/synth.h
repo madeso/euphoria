@@ -87,7 +87,7 @@ namespace euphoria::minsynth
         constexpr float baroque_a4 = 415.0f;
         constexpr float chorton_a4 = 466.0f; // 460-470
         constexpr float classical_a4 = 430.0f; // 460-470
-    }; // namespace base_frequencies
+    }
 
     std::string
     ToString(Tuning t);

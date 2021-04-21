@@ -49,7 +49,7 @@ namespace euphoria::core::tracery
     struct generator_argument
     {
         core::Random* generator = nullptr;
-        const grammar* grammar = nullptr;
+        const tracery::grammar* grammar = nullptr;
         std::map<std::string, std::string> overridden_rules;
     };
 

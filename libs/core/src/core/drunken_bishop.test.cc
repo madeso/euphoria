@@ -20,7 +20,7 @@ BinIntToString(u8 t)
     std::bitset<2> x(t);
     ss << x;
     return ss.str();
-};
+}
 
 
 template<typename T>
@@ -30,7 +30,7 @@ HexIntToString(const T& t)
     std::ostringstream ss;
     ss << std::hex << static_cast<int>(t);
     return ss.str();
-};
+}
 
 
 template<typename T, typename F>
@@ -47,7 +47,7 @@ CompareInts(const T& lhs, const T& rhs, F to_string)
         ss << to_string(lhs) << " != " << to_string(rhs);
         return FalseString::False(ss.str());
     }
-};
+}
 
 
 template<typename T>

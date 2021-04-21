@@ -900,7 +900,7 @@ namespace euphoria::core::argparse
         struct ArgumentParser
         {
             parser_base* base = nullptr;
-            runner* runner = nullptr;
+            argparse::runner* runner = nullptr;
             int positional_index = 0;
             bool found_subparser = false;
 

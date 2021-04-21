@@ -28,7 +28,7 @@ struct ImageAndFile
     {}
 
     std::string file;
-    image image;
+    ::image image;
 };
 
 

@@ -39,7 +39,7 @@ namespace euphoria::core
         int bearing_x = 0;
         int bearing_y = 0;
         int advance = 0;
-        image image;
+        core::image image;
         float size = 0.0f;
     };
 

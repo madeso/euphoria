@@ -40,7 +40,7 @@ namespace euphoria::core
         struct BrewerPalette
         {
             // todo(Gustav): move Properies here
-            palette palette;
+            core::palette palette;
         };
 
         using Map = std::map<int, BrewerPalette>;

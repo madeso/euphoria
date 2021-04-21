@@ -19,7 +19,7 @@ namespace euphoria::core
 
         /** rotation according to right-hand rule.
          */
-        angle angle;
+        core::angle angle;
 
     private:
         axis_angle(const unit3f& ax, const core::angle& ang);
