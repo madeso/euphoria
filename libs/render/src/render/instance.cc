@@ -3,8 +3,8 @@
 namespace euphoria::render
 {
     Instance::Instance()
-        : position(core::vec3f::Zero())
-        , rotation(core::quatf::Identity())
+        : position(core::vec3f::zero())
+        , rotation(core::quatf::identity())
     {}
 
 
@@ -39,6 +39,6 @@ namespace euphoria::render
     core::mat4f
     Instance::GetModelMatrix() const
     {
-        return core::mat4f::from_translation(position) * rotation.ToMat4();
+        return core::mat4f::from_translation(position) * rotation.to_mat4();
     }
 }

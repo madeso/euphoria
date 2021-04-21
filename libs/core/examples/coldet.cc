@@ -37,7 +37,7 @@ struct plane_demo
         auto d = Dumper{ "coldet-distance-to-plane.html" };
 
         d.AddPlane(plane, Color::White);
-        d.AddArrow(ray3f(vec3f::Zero(), plane.normal), Color::Green);
+        d.AddArrow(ray3f(vec3f::zero(), plane.normal), Color::Green);
         for (const auto& p : points)
         {
             const auto dist = DistanceBetween(plane, p);
@@ -51,7 +51,7 @@ struct plane_demo
         auto d = Dumper{ "coldet-point-to-plane.html" };
 
         d.AddPlane(plane, Color::White);
-        d.AddArrow(ray3f(vec3f::Zero(), plane.normal), Color::Green);
+        d.AddArrow(ray3f(vec3f::zero(), plane.normal), Color::Green);
         for (const auto& p : points)
         {
             const auto dist = DistanceBetween(plane, p);
@@ -129,8 +129,8 @@ ray_sphere()
     )
     {
         // todo(Gustav): add scene support to dumper...
-        const auto ray = ray3f(vec3f(rayX, rayY, rayZ), vec3f(normX, normY, normZ).GetNormalized());
-        const auto sphere = Sphere{rad};
+        const auto ray = ray3f(vec3f(rayX, rayY, rayZ), vec3f(normX, normY, normZ).get_normalized());
+        const auto sphere = ::sphere{rad};
         const auto sphere_center = vec3f(sphereX, sphereY, sphereZ);
         const auto collision = GetIntersection(ray.get_normalized(), sphere, sphere_center);
         const auto collided = collision >= 0.0f;

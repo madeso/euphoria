@@ -18,6 +18,6 @@ namespace euphoria::core
     plane
     plane::from_points(const vec3f& p0, const vec3f& p1, const vec3f& p2)
     {
-        return from_normal_and_point(cross(p1-p0, p2-p0).GetNormalized(), p0);
+        return from_normal_and_point(cross(p1-p0, p2-p0).get_normalized(), p0);
     }
 }

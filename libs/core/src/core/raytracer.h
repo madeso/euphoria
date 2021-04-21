@@ -78,7 +78,7 @@ namespace euphoria::core
         std::shared_ptr<Object>
         CreateSphere
         (
-            const Sphere& sphere,
+            const sphere& sphere,
             const vec3f& position,
             std::shared_ptr<Material> material
         );

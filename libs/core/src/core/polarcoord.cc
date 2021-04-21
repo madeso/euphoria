@@ -27,7 +27,7 @@ namespace euphoria::core
         const float y = sin_a * sin_p;
         const float z = cos_p;
 
-        return unit3f::ToUnit(x, y, z);
+        return unit3f::to_unit(x, y, z);
     }
 
     polar_coord

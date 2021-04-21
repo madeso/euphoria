@@ -43,7 +43,7 @@ main(int, char*[])
 
     AddSpiral(&dump, 100, 4, 5, 2.5f, pal.Next(&rand));
 
-    dump.AddPlane(plane::from_normal_and_point(unit3f::Right(), vec3f(1, 2, 3)), pal.Next(&rand));
+    dump.AddPlane(plane::from_normal_and_point(unit3f::right(), vec3f(1, 2, 3)), pal.Next(&rand));
 
     dump.AddArrow(ray3f::from_to(vec3f{3, 2, 1}, vec3f{0,0,0}), pal.Next(&rand));
 

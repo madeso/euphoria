@@ -577,7 +577,7 @@ namespace euphoria::t3d
             -core::angle::Quarter(),
             core::angle::Quarter()
         );
-        ImGui::InputFloat3("Position", orbit.center.GetDataPtr());
+        ImGui::InputFloat3("Position", orbit.center.get_data_ptr());
         ImGui::Spacing();
         ImGui::InputFloat("Distance", &orbit.distance);
         auto sens = [](const char* label, core::Sensitivity* s)

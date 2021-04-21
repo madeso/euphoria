@@ -11,7 +11,7 @@ namespace euphoria::core
     struct ray3f;
     struct unit_ray3f;
     struct aabb;
-    struct Sphere;
+    struct sphere;
     struct plane;
 
     // defined later
@@ -64,17 +64,17 @@ namespace euphoria::core
     // sphere - sphere
 
     bool
-    GetIntersection(const Sphere& lhs, const vec3f& lhs_center, const Sphere& rhs, const vec3f& rhs_center);
+    GetIntersection(const sphere& lhs, const vec3f& lhs_center, const sphere& rhs, const vec3f& rhs_center);
 
 
     // --------------------------------
     // sphere - point
 
     bool
-    ContainsPoint(const Sphere& sphere, const vec3f& sphere_center, const vec3f& point);
+    ContainsPoint(const sphere& sphere, const vec3f& sphere_center, const vec3f& point);
 
     vec3f
-    ClosestPoint(const Sphere& sphere, const vec3f& sphere_center, const vec3f& point);
+    ClosestPoint(const sphere& sphere, const vec3f& sphere_center, const vec3f& point);
 
 
     // --------------------------------
@@ -82,7 +82,7 @@ namespace euphoria::core
 
     // returns distance along the ray where intersection occured or -1 if nothing occured
     float
-    GetIntersection(const unit_ray3f& r, const Sphere& sphere, const vec3f& sphere_center);
+    GetIntersection(const unit_ray3f& r, const sphere& sphere, const vec3f& sphere_center);
 
 
     // --------------------------------

@@ -5,7 +5,7 @@
 namespace euphoria::core
 {
     OrbitController::OrbitController()
-        : center(vec3f::Zero())
+        : center(vec3f::zero())
         , horizontal_rotation(angle::from_degrees(45.0f))
         , vertical_rotation(angle::from_degrees(45.0f))
     {}
@@ -15,20 +15,20 @@ namespace euphoria::core
     OrbitController::GetRotation() const
     {
         const auto hor =
-            quatf::FromAxisAngle
+            quatf::from_axis_angle
             (
                 axis_angle::right_hand_around
                 (
-                    unit3f::Up(),
+                    unit3f::up(),
                     -horizontal_rotation
                 )
             );
         const auto vert =
-            quatf::FromAxisAngle
+            quatf::from_axis_angle
             (
                 axis_angle::right_hand_around
                 (
-                    unit3f::Right(),
+                    unit3f::right(),
                     -vertical_rotation
                 )
             );
@@ -39,7 +39,7 @@ namespace euphoria::core
     void
     OrbitController::Pan(float dx, float dy)
     {
-        const auto movement = GetRotation().RightUpIn(vec3f
+        const auto movement = GetRotation().create_from_right_up_in(vec3f
         {
             dx * pan_dx.GetValueWithSign(),
             -dy * pan_dy.GetValueWithSign(),
@@ -77,6 +77,6 @@ namespace euphoria::core
     vec3f
     OrbitController::GetCameraPosition() const
     {
-        return center - GetRotation().In() * distance;
+        return center - GetRotation().in() * distance;
     }
 }

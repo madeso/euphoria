@@ -1,4 +1,4 @@
-﻿#include "core/ctree.h"
+#include "core/ctree.h"
 
 #include <cstdlib>
 
@@ -25,9 +25,9 @@ namespace
 namespace euphoria::core
 {
 
-TreeStyle SlashStyle()
+tree_style slash_style()
 {
-    auto r = TreeStyle{};
+    auto r = tree_style{};
     r.t_cross = "|-";
     r.l = "\\-";
     r.down = "| ";
@@ -37,9 +37,9 @@ TreeStyle SlashStyle()
     return r;
 }
 
-TreeStyle Utf8TreeStyle()
+tree_style utf8_tree_style()
 {
-    auto r = TreeStyle{};
+    auto r = tree_style{};
     r.t_cross = u8"├╴";
     r.l = u8"└╴";
     r.down = u8"│ ";
@@ -49,9 +49,9 @@ TreeStyle Utf8TreeStyle()
     return r;
 }
 
-TreeStyle CrossStyle()
+tree_style cross_style()
 {
-    auto r = TreeStyle{};
+    auto r = tree_style{};
     r.t_cross = "+- ";
     r.l = "+- ";
     r.down = "|  ";
@@ -61,15 +61,15 @@ TreeStyle CrossStyle()
     return r;
 }
 
-TreeStyle DetermineStyle()
+tree_style determine_style()
 {
     if(TerminalSupportUtf8())
     {
-        return Utf8TreeStyle();
+        return utf8_tree_style();
     }
     else
     {
-        return CrossStyle();
+        return cross_style();
     }
 }
 

@@ -86,7 +86,7 @@ main(int argc, char** argv)
     // main loop
     CanvasConfig cc;
     Canvas       canvas;
-    BezierPath2  path(vec2f(0, 0));
+    bezier_path2  path(vec2f(0, 0));
     int          index = -1;
 
     while(running)
@@ -152,7 +152,7 @@ main(int argc, char** argv)
                 const auto  sp        = canvas.WorldToScreen(p);
                 const auto  me        = ImGui::GetMousePos();
                 const auto  hover
-                        = vec2f::FromTo(C(me), C(sp)).GetLengthSquared()
+                        = vec2f::from_to(C(me), C(sp)).get_length_squared()
                           < size * size;
                 if(index == -1 && hover && ImGui::IsMouseDown(0))
                 {
@@ -188,7 +188,7 @@ main(int argc, char** argv)
                 point_index += 1)
             {
                 const bool is_anchor_point
-                        = BezierPath2::IsAnchorPoint(point_index);
+                        = bezier_path2::is_anchor_point(point_index);
                 if(path.autoset_ && !is_anchor_point)
                 {
                     continue;
@@ -207,15 +207,15 @@ main(int argc, char** argv)
                     }
                     else
                     {
-                        path.MovePoint(point_index, r.second);
+                        path.move_point(point_index, r.second);
                     }
                 }
             }
             // draw bezier and link lines
-            const auto tseg = path.GetNumberOfSegments();
+            const auto tseg = path.get_number_of_segments();
             for(size_t seg = 0; seg < tseg; seg += 1)
             {
-                auto  s  = path.GetPointsInSegment(seg);
+                auto  s  = path.get_points_in_segment(seg);
                 auto* dl = ImGui::GetWindowDrawList();
                 dl->AddBezierCurve(
                         canvas.WorldToScreen(C(s.a0)),
@@ -245,17 +245,17 @@ main(int argc, char** argv)
                         ImGui::GetMousePosOnOpeningCurrentPopup());
                 if(ImGui::MenuItem("Add"))
                 {
-                    path.AddPoint(C(p));
+                    path.add_point(C(p));
                 }
                 auto ic = path.is_closed_;
                 if(ImGui::Checkbox("Is closed", &ic))
                 {
-                    path.ToggleClosed();
+                    path.toggle_closed();
                 }
                 auto as = path.autoset_;
                 if(ImGui::Checkbox("Autoset control points", &as))
                 {
-                    path.ToggleAutoSetControlPoints();
+                    path.toggle_auto_set_control_points();
                 }
                 ImGui::EndPopup();
             }

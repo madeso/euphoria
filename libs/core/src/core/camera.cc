@@ -41,8 +41,8 @@ namespace euphoria::core
     }
 
     Camera::Camera()
-        : position(vec3f::Zero())
-        , rotation(quatf::Identity())
+        : position(vec3f::zero())
+        , rotation(quatf::identity())
         , fov(45.0f)
         , near(0.1f)
         , far(100.0f)
@@ -64,7 +64,7 @@ namespace euphoria::core
         mat4f
         CalculateViewMatrix(const Camera& camera)
         {
-            return camera.rotation.GetConjugate().ToMat4()
+            return camera.rotation.get_conjugate().to_mat4()
                    * mat4f::from_translation(
                            -static_cast<vec3f>(camera.position));
         }

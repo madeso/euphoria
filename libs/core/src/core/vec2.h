@@ -1,5 +1,4 @@
-#ifndef CORE_VEC2_H
-#define CORE_VEC2_H
+#pragma once
 
 #include <cmath>
 #include <tuple>
@@ -40,29 +39,30 @@ namespace euphoria::core
         {
         }
 
-        [[nodiscard]] static vec2 Zero() { return {0, 0}; }
+        [[nodiscard]] static vec2 zero() { return {0, 0}; }
 
-        using Self = vec2<T>;
+        using self = vec2<T>;
+        using unit = unit2<T>;
 
         T x;
         T y;
 
-        T* GetDataPtr() { return &x; }
+        T* get_data_ptr() { return &x; }
 
-        const T* GetDataPtr() const { return &x; }
+        const T* get_data_ptr() const { return &x; }
 
         template <typename F>
         vec2<F> StaticCast() const { return vec2<F>(static_cast<F>(x), static_cast<F>(y)); }
 
-        Self GetRotated(const angle& a) const
+        self get_rotated(const angle& a) const
         {
             const T nx = x * cos(a) - y * sin(a);
             const T ny = x * sin(a) + y * cos(a);
-            return Self(nx, ny);
+            return self(nx, ny);
         }
 
-        Self GetFlippedY() const { return Self(x, -y); }
-        T GetComponentSum() const { return x + y; }
+        self get_flipped_y() const { return self(x, -y); }
+        T get_component_sum() const { return x + y; }
 
         template <typename O>
         void operator+=(const vec2<O>& rhs)
@@ -78,19 +78,18 @@ namespace euphoria::core
             y = y - rhs.y;
         }
 
-        Self operator-() const { return Self(-x, -y); }
-        T GetLengthSquared() const { return x * x + y * y; }
+        self operator-() const { return self(-x, -y); }
+        T get_length_squared() const { return x * x + y * y; }
+        
 
-        using Unit = unit2<T>;
-
-        explicit vec2(const Unit& u) : x(u.x), y(u.y) {}
+        explicit vec2(const unit& u) : x(u.x), y(u.y) {}
 
         vec2() = default;
 
-        [[nodiscard]] static Self
-        FromTo(const vec2<T>& from, const vec2<T>& to)
+        [[nodiscard]] static self
+        from_to(const vec2<T>& from, const vec2<T>& to)
         {
-            return Self {to.x - from.x, to.y - from.y};
+            return self {to.x - from.x, to.y - from.y};
         }
 
         void
@@ -108,31 +107,31 @@ namespace euphoria::core
         }
 
         T
-        GetLength() const
+        get_length() const
         {
-            return sqrt(GetLengthSquared());
+            return sqrt(get_length_squared());
         }
 
         T
-        Normalize()
+        normalize()
         {
-            const auto l = GetLength();
+            const auto l = get_length();
             *this /= l;
             return l;
         }
 
-        std::pair<T, Unit>
-        GetNormalizedVec() const
+        std::pair<T, unit>
+        get_normalized_and_length() const
         {
-            Self       r = *this;
-            const auto l = r.Normalize();
-            return std::make_pair(l, Unit {r});
+            self       r = *this;
+            const auto l = r.normalize();
+            return std::make_pair(l, unit {r});
         }
 
-        Unit
-        GetNormalized() const
+        unit
+        get_normalized() const
         {
-            return GetNormalizedVec().second;
+            return get_normalized_and_length().second;
         }
     };
 
@@ -142,29 +141,29 @@ namespace euphoria::core
     template <typename T>
     struct unit2
     {
-        using Self = unit2<T>;
+        using self = unit2<T>;
 
         T x;
         T y;
 
-        T* GetDataPtr() { return &x; }
+        T* get_data_ptr() { return &x; }
 
-        const T* GetDataPtr() const { return &x; }
+        const T* get_data_ptr() const { return &x; }
 
         template <typename F>
         unit2<F> StaticCast() const { return unit2<F>(static_cast<F>(x), static_cast<F>(y)); }
 
-        Self GetRotated(const angle& a) const
+        self get_rotated(const angle& a) const
         {
             const T nx = x * cos(a) - y * sin(a);
             const T ny = x * sin(a) + y * cos(a);
-            return Self(nx, ny);
+            return self(nx, ny);
         }
 
-        Self GetFlippedY() const { return Self(x, -y); }
-        T GetComponentSum() const { return x + y; }
-        Self operator-() const { return Self(-x, -y); }
-        T GetLengthSquared() const { return x * x + y * y; }
+        self get_flipped_y() const { return self(x, -y); }
+        T get_component_sum() const { return x + y; }
+        self operator-() const { return self(-x, -y); }
+        T get_length_squared() const { return x * x + y * y; }
 
         operator vec2<T>() const
         {
@@ -178,20 +177,20 @@ namespace euphoria::core
         }
 
         [[nodiscard]] bool
-        IsValid() const
+        is_valid() const
         {
-            return IsEqual(GetLengthSquared(), 1);
+            return IsEqual(get_length_squared(), 1);
         }
 
         explicit unit2(T ax, T ay) : x(ax), y(ay)
         {
-            ASSERT(IsValid());
+            ASSERT(is_valid());
         }
 
     private:
         explicit unit2(const vec2<T>& v) : x(v.x), y(v.y)
         {
-            ASSERT(IsValid());
+            ASSERT(is_valid());
         }
 
         friend struct vec2<T>;
@@ -218,22 +217,22 @@ namespace euphoria::core
         T x;
         T y;
 
-        T* GetDataPtr() { return &x; }
+        T* get_data_ptr() { return &x; }
 
-        const T* GetDataPtr() const { return &x; }
+        const T* get_data_ptr() const { return &x; }
 
         template <typename F>
         scale2<F> StaticCast() const { return scale2<F>(static_cast<F>(x), static_cast<F>(y)); }
 
-        Self GetRotated(const angle& a) const
+        Self get_rotated(const angle& a) const
         {
             const T nx = x * cos(a) - y * sin(a);
             const T ny = x * sin(a) + y * cos(a);
             return Self(nx, ny);
         }
 
-        Self GetFlippedY() const { return Self(x, -y); }
-        T GetComponentSum() const { return x + y; }
+        Self get_flipped_y() const { return Self(x, -y); }
+        T get_component_sum() const { return x + y; }
         Self operator-() const { return Self(-x, -y); }
     };
 
@@ -301,7 +300,7 @@ namespace euphoria::core
 
     template <typename T>
     vec2<T>
-    ComponentMultiply(const vec2<T>& lhs, const vec2<T>& rhs)
+    component_multiply(const vec2<T>& lhs, const vec2<T>& rhs)
     {
         return vec2<T>(lhs.x * rhs.x, lhs.y * rhs.y);
     }
@@ -386,7 +385,7 @@ namespace euphoria::core
     using Vec2iTransform = Vec2Transform<int>;
 
     // util functions
-    unit2f RandomUnit(Random* random);
+    unit2f create_random_unit(Random* random);
 
 }  // namespace euphoria::core
 
@@ -396,4 +395,3 @@ namespace euphoria::core
 
 TYPEID_SETUP_TYPE(euphoria::core::vec2f);
 
-#endif  // CORE_VEC2_H

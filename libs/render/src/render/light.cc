@@ -28,8 +28,8 @@ namespace euphoria::render
 
     Light::Light()
         : type(Type::Directional)
-        , position(core::vec3f::Zero())
-        , direction(core::vec3f {-0.2f, -1.0f, -0.3f}.GetNormalized())
+        , position(core::vec3f::zero())
+        , direction(core::vec3f {-0.2f, -1.0f, -0.3f}.get_normalized())
         , ambient(0.3f)
         , diffuse(core::Color::White)
         , specular(core::Color::White)

@@ -4,7 +4,7 @@
 
 namespace euphoria::core
 {
-    struct Sphere
+    struct sphere
     {
         float radius;
     };

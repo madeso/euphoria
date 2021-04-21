@@ -56,7 +56,7 @@ namespace euphoria::core
                 &composed_image,
                 position,
                 image,
-                BlendMode::Normal,
+                blend_mode::normal,
                 PixelsOutside::Discard
             );
         }

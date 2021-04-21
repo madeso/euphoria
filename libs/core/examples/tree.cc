@@ -56,13 +56,13 @@ main(int, char**)
         if(first) { first = false; }
         else { std::cout << "\n-----------------------------------------\n\n"; }
 
-        PrintHierarchy(t, [](const T& t) {return t.name; }, [](const T& t) {return t.children; }, [](const std::string& s) {std::cout << s << "\n"; });
+        print_hierarchy(t, [](const T& t) {return t.name; }, [](const T& t) {return t.children; }, [](const std::string& s) {std::cout << s << "\n"; });
 
         std::cout << "\n-----------------------------------------\n\n";
 
         {
-            auto result = TextBox::Empty();
-            result.PutBox(2,0, TextBox::CreateTreeGraph(t, 132-2,
+            auto result = text_box::create_empty();
+            result.put_box(2,0, text_box::create_tree_graph(t, 132-2,
                 [](const T& e)
                 {
                     return e.name;
@@ -70,7 +70,7 @@ main(int, char**)
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
                 [](const T& e) { return !e.children.empty(); }, // whether simplified horizontal layout can be used
                 [](const T&  ) { return true; }));
-            auto strings = result.ToString();
+            auto strings = result.to_string();
             for(auto s: strings)
             {
                 std::cout << s << "\n";

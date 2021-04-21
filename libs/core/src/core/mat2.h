@@ -228,7 +228,7 @@ namespace euphoria::core
     mat2<T> operator*(const mat2<T>& lhs, const mat2<T> rhs)
     {
 #define OP(r, c) \
-    ComponentMultiply(vec2<T>(lhs.GetRow(r)), vec2<T>(rhs.GetColumn(c))).GetComponentSum()
+    component_multiply(vec2<T>(lhs.GetRow(r)), vec2<T>(rhs.GetColumn(c))).get_component_sum()
         return mat2<T>::FromRowMajor
         (
             OP(0, 0), OP(0, 1),
@@ -240,7 +240,7 @@ namespace euphoria::core
     template <typename T>
     vec2<T> operator*(const mat2<T>& lhs, const vec2<T> rhs)
     {
-#define OP(r) ComponentMultiply(vec2<T>(lhs.GetRow(r)), rhs).GetComponentSum()
+#define OP(r) component_multiply(vec2<T>(lhs.GetRow(r)), rhs).get_component_sum()
         return vec2<T>(OP(0), OP(1));
 #undef OP
     }

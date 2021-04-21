@@ -15,7 +15,7 @@ namespace euphoria::t3d
 {
     PlaceMeshOnPlane::PlaceMeshOnPlane(std::shared_ptr<PlacedMesh> aactor)
         : actor(aactor)
-        , plane(core::plane::from_normal_and_point(core::unit3f::Up(), core::vec3f::Zero()))
+        , plane(core::plane::from_normal_and_point(core::unit3f::up(), core::vec3f::zero()))
     {}
 
 

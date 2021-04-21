@@ -5,7 +5,7 @@ namespace euphoria::core
     using namespace euphoria::convert;
 
     FpsController::FpsController()
-        : rotation_(0.0_rad), look_(0.0_rad), position(vec3f::Zero())
+        : rotation_(0.0_rad), look_(0.0_rad), position(vec3f::zero())
     {}
 
     void
@@ -107,10 +107,10 @@ namespace euphoria::core
 
         const auto input
                 = GetRotation()
-                          .RightUpIn(vec3f {static_cast<float>(right),
+                          .create_from_right_up_in(vec3f {static_cast<float>(right),
                                             static_cast<float>(up),
                                             static_cast<float>(forward)})
-                          .GetNormalized();
+                          .get_normalized();
         const auto movement = input * speed * delta;
 
         position += movement;
@@ -119,10 +119,10 @@ namespace euphoria::core
     quatf
     FpsController::GetRotation() const
     {
-        const auto rotation = quatf::FromAxisAngle(
-                axis_angle::right_hand_around(unit3f::YAxis(), rotation_));
-        const auto look = quatf::FromAxisAngle(
-                axis_angle::right_hand_around(unit3f::XAxis(), look_));
+        const auto rotation = quatf::from_axis_angle(
+                axis_angle::right_hand_around(unit3f::y_axis(), rotation_));
+        const auto look = quatf::from_axis_angle(
+                axis_angle::right_hand_around(unit3f::x_axis(), look_));
         return rotation * look;
     }
 

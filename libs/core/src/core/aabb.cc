@@ -66,7 +66,7 @@ namespace euphoria::core
     aabb
     aabb::Empty()
     {
-        return aabb {vec3f::Zero(), vec3f::Zero()};
+        return aabb {vec3f::zero(), vec3f::zero()};
     }
 
 
@@ -74,7 +74,7 @@ namespace euphoria::core
     aabb::get_size() const
     {
         ASSERT(is_valid());
-        return vec3f::FromTo(min, max);
+        return vec3f::from_to(min, max);
     }
 
 

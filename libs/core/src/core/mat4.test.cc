@@ -263,26 +263,26 @@ TEST_CASE("mat4-TestTransformation", "[mat]")
 
 TEST_CASE("mat4-TestRight", "[mat]")
 {
-    REQUIRE(euco::unit3i::XAxis() == euco::mat4i::identity().get_x_axis());
+    REQUIRE(euco::unit3i::x_axis() == euco::mat4i::identity().get_x_axis());
 }
 
 
 TEST_CASE("mat4-TestUp", "[mat]")
 {
-    REQUIRE(euco::unit3i::YAxis() == euco::mat4i::identity().get_y_axis());
+    REQUIRE(euco::unit3i::y_axis() == euco::mat4i::identity().get_y_axis());
 }
 
 
 TEST_CASE("mat4-TestIn", "[mat]")
 {
-    REQUIRE(euco::unit3i::ZAxis() == euco::mat4i::identity().get_z_axis());
+    REQUIRE(euco::unit3i::z_axis() == euco::mat4i::identity().get_z_axis());
 }
 
 TEST_CASE("mat4-test", "[mat]")
 {
     const euco::mat4f start = euco::mat4f::identity();
     euco::axis_angle   aa    = euco::axis_angle::right_hand_around(
-            euco::unit3f::Up(), euco::angle::from_degrees(-90));
+            euco::unit3f::up(), euco::angle::from_degrees(-90));
     const euco::vec3f toTransform(0, 0, -5);
     const euco::vec3f result(5, 0, 0);
 
@@ -298,7 +298,7 @@ TEST_CASE("mat4-TestCombined_RT", "[mat]")
 {
     const auto r = euco::mat4f::identity()
                            .rotate(euco::axis_angle::right_hand_around(
-                                   euco::unit3f::Up(),
+                                   euco::unit3f::up(),
                                    euco::angle::from_degrees(-90)))
                            .translate(euco::vec3f(0, 0, -5))
                            .get_transform_point(euco::vec3f(0, 0, 0));
@@ -310,7 +310,7 @@ TEST_CASE("mat4-TestCombined2_RT", "[mat]")
     const auto r
             = euco::mat4f::identity()
                       .rotate(euco::axis_angle::right_hand_around(
-                              euco::unit3f::Up(), euco::angle::from_degrees(90)))
+                              euco::unit3f::up(), euco::angle::from_degrees(90)))
                       .translate(euco::vec3f(0, 0, -5))
                       .get_transform_point(euco::vec3f(0, 0, 0));
     REQUIRE(r == approx(euco::vec3f(-5, 0, 0)));
@@ -321,7 +321,7 @@ TEST_CASE("mat4-TestCombined_TR", "[mat]")
     const auto r = euco::mat4f::identity()
                            .translate(euco::vec3f(0, 0, 5))
                            .rotate(euco::axis_angle::right_hand_around(
-                                   euco::unit3f::Up(),
+                                   euco::unit3f::up(),
                                    euco::angle::from_degrees(-90)))
                            .get_transform_point(euco::vec3f(0, 0, 0));
     REQUIRE(r == approx(euco::vec3f(0, 0, 5)));

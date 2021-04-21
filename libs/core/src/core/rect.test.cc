@@ -239,7 +239,7 @@ TEST_CASE("rect-from-anchor", "[rect]")
 {
     const int         height = 3;
     const int         width  = 4;
-    const euco::vec2i origo  = euco::vec2i::Zero();
+    const euco::vec2i origo  = euco::vec2i::zero();
 
     SECTION("lower left at origo")
     {
@@ -268,7 +268,7 @@ TEST_CASE("rect-from-anchor-center", "[rect]")
 {
     const float       half_height = 3;
     const float       half_width  = 4;
-    const euco::vec2f origo       = euco::vec2f::Zero();
+    const euco::vec2f origo       = euco::vec2f::zero();
 
     SECTION("lower left at origo")
     {

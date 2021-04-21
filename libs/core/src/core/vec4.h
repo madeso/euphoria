@@ -31,7 +31,7 @@ namespace euphoria::core
         vec4(const scale3<T>& a) : x(a.x), y(a.y), z(a.z), w(1) {}
 
         vec3<T>
-        ToVec3(T ww) const
+        to_vec3(T ww) const
         {
             ASSERTX(IsEqual(w, ww), w, ww);
             return vec3<T>(x, y, z);
@@ -39,7 +39,7 @@ namespace euphoria::core
 
         // todo(Gustav): replace this and actually call the assert version always
         vec3<T>
-        ToVec3() const
+        to_vec3() const
         {
             return vec3<T>(x, y, z);
         }
@@ -47,19 +47,19 @@ namespace euphoria::core
         explicit vec4(const T* a) : x(a[0]), y(a[1]), z(a[2]), w(a[3]) {}
 
         T*
-        GetDataPtr()
+        get_data_ptr()
         {
             return &x;
         }
 
         const T*
-        GetDataPtr() const
+        get_data_ptr() const
         {
             return &x;
         }
 
         T
-        GetComponentSum() const
+        get_component_sum() const
         {
             return x + y + z + w;
         }
@@ -83,7 +83,7 @@ namespace euphoria::core
 
     template <typename T>
     vec4<T>
-    ComponentMultiply(const vec4<T>& lhs, const vec4<T>& rhs)
+    component_multiply(const vec4<T>& lhs, const vec4<T>& rhs)
     {
         return vec4<T>(
                 lhs.x * rhs.x, lhs.y * rhs.y, lhs.z * rhs.z, lhs.w * rhs.w);

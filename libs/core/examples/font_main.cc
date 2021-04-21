@@ -13,7 +13,7 @@ using namespace euphoria::core;
 
 bool PrintChar
 (
-    TextBox* dst,
+    text_box* dst,
     const LoadedFont& font,
     int* sx,
     int sy,
@@ -55,7 +55,7 @@ bool PrintChar
         {
             const auto c = img(x,y);
             if(c == ' ') { continue; }
-            dst->PutChar(px+x, img.GetHeight()+py-y, c);
+            dst->put_char(px+x, img.GetHeight()+py-y, c);
         }
     }
 
@@ -67,7 +67,7 @@ bool PrintChar
 
 bool PrintString
 (
-    TextBox* dst,
+    text_box* dst,
     const LoadedFont& font,
     int sx,
     int sy,
@@ -162,10 +162,10 @@ main(int argc, char* argv[])
 
     auto font = GetFont(font_name, font_file, size, chars);
 
-    auto box = TextBox::Empty();
+    auto box = text_box::create_empty();
     const bool printed = PrintString(&box, font, 0, 0, text);
     // print textbox
-    const auto strings = box.ToString();
+    const auto strings = box.to_string();
     for(const auto& s: strings)
     {
         std::cout << s << "\n";

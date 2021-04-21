@@ -10,7 +10,7 @@ namespace euphoria::core
 {
     // LOG_SPECIFY_DEFAULT_LOGGER("painter")
 
-    BezierPath2::BezierPath2(const vec2f& center)
+    bezier_path2::bezier_path2(const vec2f& center)
     {
         const auto left = vec2f(-1, 0);
         const auto right = vec2f(1, 0);
@@ -24,14 +24,14 @@ namespace euphoria::core
     }
 
     void
-    BezierPath2::AddPoint(const vec2f& p)
+    bezier_path2::add_point(const vec2f& p)
     {
         const auto p2 = points[points.size() - 2]; // control point
         const auto p3 = points[points.size() - 1]; // anchor point
 
-        const auto p4 = p3 + vec2f::FromTo(p2, p3);
+        const auto p4 = p3 + vec2f::from_to(p2, p3);
         const auto p6 = p;
-        const auto p5 = p4 + vec2f::FromTo(p4, p6);
+        const auto p5 = p4 + vec2f::from_to(p4, p6);
 
         points.push_back(p4);
         points.push_back(p5);
@@ -39,27 +39,27 @@ namespace euphoria::core
 
         if(autoset_)
         {
-            AutoSetAffectedControlPoints(Csizet_to_int(points.size()) - 1);
+            auto_set_affected_control_points(Csizet_to_int(points.size()) - 1);
         }
     }
 
     bool
-    BezierPath2::IsAnchorPoint(size_t i)
+    bezier_path2::is_anchor_point(size_t i)
     {
         return i % 3 == 0;
     }
 
     bool
-    BezierPath2::IsControlPoint(size_t i)
+    bezier_path2::is_control_point(size_t i)
     {
-        return !IsAnchorPoint(i);
+        return !is_anchor_point(i);
     }
 
 
     void
-    BezierPath2::MovePoint(int i, const vec2f& delta)
+    bezier_path2::move_point(int i, const vec2f& delta)
     {
-        if(autoset_ && IsControlPoint(i))
+        if(autoset_ && is_control_point(i))
         {
             // that point is on autoset
             return;
@@ -70,61 +70,61 @@ namespace euphoria::core
 
         if(autoset_)
         {
-            AutoSetAffectedControlPoints(i);
+            auto_set_affected_control_points(i);
             return;
         }
 
-        if(IsAnchorPoint(i))
+        if(is_anchor_point(i))
         {
             // anchor point, move control points too
             if(is_closed_ || IsWithin(r, i + 1))
             {
-                points[LoopIndex(i + 1)] += delta;
+                points[loop_index(i + 1)] += delta;
             }
             if(is_closed_ || IsWithin(r, i - 1))
             {
-                points[LoopIndex(i - 1)] += delta;
+                points[loop_index(i - 1)] += delta;
             }
         }
         else
         {
             // point is control point, move the opposite point
             const int corresponding_control_index
-                    = IsAnchorPoint(i + 1) ? i + 2 : i - 2;
-            const int anchor_index = IsAnchorPoint(i + 1) ? i + 1 : i - 1;
+                    = is_anchor_point(i + 1) ? i + 2 : i - 2;
+            const int anchor_index = is_anchor_point(i + 1) ? i + 1 : i - 1;
             if(is_closed_ || IsWithin(r, corresponding_control_index))
             {
-                const auto cci = LoopIndex(corresponding_control_index);
-                const auto ai = LoopIndex(anchor_index);
+                const auto cci = loop_index(corresponding_control_index);
+                const auto ai = loop_index(anchor_index);
                 const auto distance
-                        = vec2f::FromTo(points[cci], points[ai]).GetLength();
+                        = vec2f::from_to(points[cci], points[ai]).get_length();
                 const auto direction
-                        = vec2f::FromTo(points[i], points[ai]).GetNormalized();
+                        = vec2f::from_to(points[i], points[ai]).get_normalized();
                 points[cci] = points[ai] + distance * direction;
             }
         }
     }
 
-    BezierSeg2
-    BezierPath2::GetPointsInSegment(size_t i) const
+    bezier_seg2
+    bezier_path2::get_points_in_segment(size_t i) const
     {
         const auto b = i * 3;
         return {
                 points[b + 0], // anchor
                 points[b + 1], // ^ control
-                points[Cint_to_sizet(LoopIndex(Csizet_to_int(b) + 3))], // anchor
+                points[Cint_to_sizet(loop_index(Csizet_to_int(b) + 3))], // anchor
                 points[b + 2] // ^ control
         };
     }
 
     size_t
-    BezierPath2::GetNumberOfSegments() const
+    bezier_path2::get_number_of_segments() const
     {
         return points.size() / 3;
     }
 
     void
-    BezierPath2::SetClosed(bool is_closed)
+    bezier_path2::set_closed(bool is_closed)
     {
         if(is_closed_ == is_closed)
         {
@@ -136,15 +136,15 @@ namespace euphoria::core
         if(is_closed)
         {
             // anchor control anchor (again)
-            const auto p1 = points[points.size() - 1] + vec2f::FromTo(points[points.size() - 2], points[points.size() - 1]);
-            const auto p2 = points[0] + vec2f::FromTo(points[1], points[0]);
+            const auto p1 = points[points.size() - 1] + vec2f::from_to(points[points.size() - 2], points[points.size() - 1]);
+            const auto p2 = points[0] + vec2f::from_to(points[1], points[0]);
             points.push_back(p1);
             points.push_back(p2);
 
             if(autoset_)
             {
-                AutoSetAnchorControlPoints(0);
-                AutoSetAnchorControlPoints(Cint_to_sizet(Csizet_to_int(points.size()) - 3));
+                auto_set_anchor_control_points(0);
+                auto_set_anchor_control_points(Cint_to_sizet(Csizet_to_int(points.size()) - 3));
             }
         }
         else
@@ -154,20 +154,20 @@ namespace euphoria::core
 
             if(autoset_)
             {
-                AutoSetStartAndEndControlPoints();
+                auto_set_start_and_end_control_points();
             }
         }
     }
 
     void
-    BezierPath2::ToggleClosed()
+    bezier_path2::toggle_closed()
     {
-        SetClosed(!is_closed_);
+        set_closed(!is_closed_);
     }
 
 
     void
-    BezierPath2::SetAutoSetControlPoints(bool is_autoset)
+    bezier_path2::set_auto_set_control_points(bool is_autoset)
     {
         if(is_autoset == autoset_)
         {
@@ -178,26 +178,26 @@ namespace euphoria::core
 
         if(autoset_)
         {
-            AutoSetAllControlPoints();
+            auto_set_all_control_points();
         }
     }
 
     void
-    BezierPath2::ToggleAutoSetControlPoints()
+    bezier_path2::toggle_auto_set_control_points()
     {
-        SetAutoSetControlPoints(!autoset_);
+        set_auto_set_control_points(!autoset_);
     }
 
 
     size_t
-    BezierPath2::LoopIndex(int i) const
+    bezier_path2::loop_index(int i) const
     {
         const auto s = points.size();
         return (s + i) % s;
     }
 
     void
-    BezierPath2::AutoSetAffectedControlPoints(int updated_anchor_index)
+    bezier_path2::auto_set_affected_control_points(int updated_anchor_index)
     {
         const auto r = MakeRange(points);
         for(int i = updated_anchor_index - 3; i <= updated_anchor_index + 3;
@@ -205,26 +205,26 @@ namespace euphoria::core
         {
             if(is_closed_ || IsWithin(r, i))
             {
-                AutoSetAnchorControlPoints(LoopIndex(i));
+                auto_set_anchor_control_points(loop_index(i));
             }
         }
 
         // might be affected...
-        AutoSetStartAndEndControlPoints();
+        auto_set_start_and_end_control_points();
     }
 
     void
-    BezierPath2::AutoSetAllControlPoints()
+    bezier_path2::auto_set_all_control_points()
     {
         for(int i = 0; i < Csizet_to_int(points.size()); i += 3)
         {
-            AutoSetAnchorControlPoints(i);
+            auto_set_anchor_control_points(i);
         }
-        AutoSetStartAndEndControlPoints();
+        auto_set_start_and_end_control_points();
     }
 
     void
-    BezierPath2::AutoSetStartAndEndControlPoints()
+    bezier_path2::auto_set_start_and_end_control_points()
     {
         if(is_closed_)
         {
@@ -239,11 +239,11 @@ namespace euphoria::core
     }
 
     void
-    BezierPath2::AutoSetAnchorControlPoints(int anchor_index)
+    bezier_path2::auto_set_anchor_control_points(int anchor_index)
     {
         const auto r = MakeRange(points);
         const auto anchor_pos = points[anchor_index];
-        auto dir = vec2f::Zero();
+        auto dir = vec2f::zero();
         auto distances = std::array<float, 2> {0, 0};
 
         auto f = [&](int scale, int dist_index)
@@ -251,14 +251,14 @@ namespace euphoria::core
             const auto index = anchor_index - 3 * scale;
             if(is_closed_ || IsWithin(r, index))
             {
-                auto offset = (vec2f::FromTo(anchor_pos, points[LoopIndex(index)])).GetNormalizedVec();
+                auto offset = (vec2f::from_to(anchor_pos, points[loop_index(index)])).get_normalized_and_length();
                 dir += offset.second.vec() * scale;
                 distances[Cint_to_sizet(dist_index)] = offset.first * static_cast<float>(scale);
             }
         };
         f(1, 0);
         f(-1, 1);
-        dir.Normalize();
+        dir.normalize();
 
         for(int i = 0; i < 2; i += 1)
         {
@@ -266,7 +266,7 @@ namespace euphoria::core
                     = anchor_index + std::array<int, 2> {-1, 1}[i];
             if(is_closed_ || IsWithin(r, control_index))
             {
-                points[LoopIndex(control_index)]
+                points[loop_index(control_index)]
                         = anchor_pos + dir * distances[i] * 0.5f;
             }
         }

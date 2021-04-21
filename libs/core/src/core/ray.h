@@ -30,7 +30,7 @@ namespace euphoria::core
         from_to(const vec2f& from, const vec2f& to);
 
         [[nodiscard]] static ray2f
-        from_direction(const vec2f& direction, const vec2f& pos = vec2f::Zero());
+        from_direction(const vec2f& direction, const vec2f& pos = vec2f::zero());
 
         [[nodiscard]] vec2f
         get_position(float d) const;

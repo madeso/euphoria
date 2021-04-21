@@ -94,7 +94,7 @@ namespace euphoria::core
         // source: paste from this image
         const image& source_image,
         // how to blend
-        BlendMode blend = BlendMode::Normal,
+        blend_mode blend = blend_mode::normal,
         // how to handle pixels that fall outside
         PixelsOutside clip = PixelsOutside::Assert
     );

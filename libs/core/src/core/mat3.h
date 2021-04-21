@@ -373,7 +373,7 @@ namespace euphoria::core
     mat3<T> operator*(const mat3<T>& lhs, const mat3<T> rhs)
     {
 #define OP(r, c)                                                               \
-    ComponentMultiply(vec3{lhs.get_row(r)}, vec3{rhs.get_column(c)}).GetComponentSum()
+    component_multiply(vec3{lhs.get_row(r)}, vec3{rhs.get_column(c)}).get_component_sum()
         return mat3<T>::from_row_major
         (
             OP(0, 0), OP(0, 1), OP(0, 2),
@@ -386,7 +386,7 @@ namespace euphoria::core
     template <typename T>
     vec3<T> operator*(const mat3<T>& lhs, const vec3<T> rhs)
     {
-#define OP(r) ComponentMultiply(vec3{lhs.get_row(r)}, rhs).GetComponentSum()
+#define OP(r) component_multiply(vec3{lhs.get_row(r)}, rhs).get_component_sum()
         return vec3<T>(OP(0), OP(1), OP(2));
 #undef OP
     }

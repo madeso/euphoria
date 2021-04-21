@@ -58,30 +58,30 @@ namespace
 
 TEST_CASE("tb_print")
 {
-    auto box = TextBox::Empty();
+    auto box = text_box::create_empty();
 
     SECTION("empty")
     {
-        CHECK(box.Size() == S(0,0));
-        CHECK(StringEq(box.ToString(AsciiStyle()), {}));
+        CHECK(box.get_size() == S(0,0));
+        CHECK(StringEq(box.to_string(ascii_style()), {}));
     }
 
     SECTION("putchar")
     {
         SECTION("0")
         {
-            box.PutChar(0, 0, 'x');
+            box.put_char(0, 0, 'x');
 
-            CHECK(box.Size() == S(1,1));
-            CHECK(StringEq(box.ToString(AsciiStyle()), {"x"}));
+            CHECK(box.get_size() == S(1,1));
+            CHECK(StringEq(box.to_string(ascii_style()), {"x"}));
         }
 
         SECTION("offset")
         {
-            box.PutChar(2, 1, 'x');
+            box.put_char(2, 1, 'x');
 
-            CHECK(box.Size() == S(3,2));
-            CHECK(StringEq(box.ToString(AsciiStyle()), {"", "  x"}));
+            CHECK(box.get_size() == S(3,2));
+            CHECK(StringEq(box.to_string(ascii_style()), {"", "  x"}));
         }
     }
 
@@ -89,18 +89,18 @@ TEST_CASE("tb_print")
     {
         SECTION("0")
         {
-            box.ModChar(0, 0, [](char& c){c = 'd';});
+            box.mod_char(0, 0, [](char& c){c = 'd';});
 
-            CHECK(box.Size() == S(1,1));
-            CHECK(StringEq(box.ToString(AsciiStyle()), {"d"}));
+            CHECK(box.get_size() == S(1,1));
+            CHECK(StringEq(box.to_string(ascii_style()), {"d"}));
         }
 
         SECTION("offset")
         {
-            box.ModChar(2, 1, [](char& c){c = 'd';});
+            box.mod_char(2, 1, [](char& c){c = 'd';});
 
-            CHECK(box.Size() == S(3,2));
-            CHECK(StringEq(box.ToString(AsciiStyle()), {"", "  d"}));
+            CHECK(box.get_size() == S(3,2));
+            CHECK(StringEq(box.to_string(ascii_style()), {"", "  d"}));
         }
     }
 
@@ -108,27 +108,27 @@ TEST_CASE("tb_print")
     {
         SECTION("0")
         {
-            box.PutString(0, 0, "dog");
+            box.put_string(0, 0, "dog");
 
-            CHECK(box.Size() == S(3,1));
-            CHECK(StringEq(box.ToString(AsciiStyle()), {"dog"}));
+            CHECK(box.get_size() == S(3,1));
+            CHECK(StringEq(box.to_string(ascii_style()), {"dog"}));
         }
 
         SECTION("offset")
         {
-            box.PutString(1, 1, "dog");
+            box.put_string(1, 1, "dog");
 
-            CHECK(box.Size() == S(4,2));
-            CHECK(StringEq(box.ToString(AsciiStyle()), {"", " dog"}));
+            CHECK(box.get_size() == S(4,2));
+            CHECK(StringEq(box.to_string(ascii_style()), {"", " dog"}));
         }
 
         SECTION("collision")
         {
-            box.PutString(0, 0, "doggo");
-            box.PutString(1, 0, "dog");
+            box.put_string(0, 0, "doggo");
+            box.put_string(1, 0, "dog");
 
-            CHECK(box.Size() == S(5,1));
-            CHECK(StringEq(box.ToString(AsciiStyle()), {"ddogo"}));
+            CHECK(box.get_size() == S(5,1));
+            CHECK(StringEq(box.to_string(ascii_style()), {"ddogo"}));
         }
     }
 
@@ -138,35 +138,35 @@ TEST_CASE("tb_print")
     {
         SECTION("empty")
         {
-            box.Trim();
+            box.trim();
 
-            CHECK(box.Size() == S(0,0));
-            CHECK(StringEq(box.ToString(AsciiStyle()), {}));
+            CHECK(box.get_size() == S(0,0));
+            CHECK(StringEq(box.to_string(ascii_style()), {}));
         }
 
         SECTION("no change")
         {
-            box = TextBox::FromStrings({"", "  a"});
-            box.Trim();
+            box = text_box::create_from_strings({"", "  a"});
+            box.trim();
 
-            CHECK(box.Size() == S(3,2));
-            CHECK(StringEq(box.ToString(AsciiStyle()), {"", "  a"}));
+            CHECK(box.get_size() == S(3,2));
+            CHECK(StringEq(box.to_string(ascii_style()), {"", "  a"}));
         }
 
         SECTION("change")
         {
-            box = TextBox::FromStrings({"    ", "  a ", ""});
-            box.Trim();
+            box = text_box::create_from_strings({"    ", "  a ", ""});
+            box.trim();
 
-            CHECK(box.Size() == S(3,2));
-            CHECK(StringEq(box.ToString(AsciiStyle()), {"", "  a"}));
+            CHECK(box.get_size() == S(3,2));
+            CHECK(StringEq(box.to_string(ascii_style()), {"", "  a"}));
         }
     }
 }
 
 TEST_CASE("tb_arrows")
 {
-    const auto abc_style = TextBoxStyle::Create([](char c) {
+    const auto abc_style = text_box_style::create([](char c) {
         switch(c) {
         case BIT_LEFT:                                 return u8"a";
         case BIT_RIGHT:                                return u8"b";
@@ -189,16 +189,16 @@ TEST_CASE("tb_arrows")
         }
     });
 
-    auto box = TextBox::Empty();
+    auto box = text_box::create_empty();
 
     SECTION("all combos")
     {
         for(int i=1; i<16; i+=1)
         {
-            box.PutChar((i % 4), (i/4), static_cast<char>(i));
+            box.put_char((i % 4), (i/4), static_cast<char>(i));
         }
 
-        CHECK(StringEq(box.ToString(AsciiStyle()),
+        CHECK(StringEq(box.to_string(ascii_style()),
         {
             " |||",
             "-'.+",
@@ -206,7 +206,7 @@ TEST_CASE("tb_arrows")
             "-+++"
         }));
 
-        CHECK(StringEq(box.ToString(abc_style),
+        CHECK(StringEq(box.to_string(abc_style),
         {
             " def",
             "aghm",
@@ -219,115 +219,115 @@ TEST_CASE("tb_arrows")
     {
         SECTION("h1")
         {
-            box.PutHoriLine(0, 0, 3, false, false);
+            box.put_horizontal_line(0, 0, 3, false, false);
 
-            CHECK(box.Size() == S(3,1));
-            CHECK(StringEq(box.ToString(abc_style), {"bca"}));
+            CHECK(box.get_size() == S(3,1));
+            CHECK(StringEq(box.to_string(abc_style), {"bca"}));
         }
 
         SECTION("h2")
         {
-            box.PutHoriLine(0, 0, 3, false, true);
+            box.put_horizontal_line(0, 0, 3, false, true);
 
-            CHECK(box.Size() == S(3,1));
-            CHECK(StringEq(box.ToString(abc_style), {"bcc"}));
+            CHECK(box.get_size() == S(3,1));
+            CHECK(StringEq(box.to_string(abc_style), {"bcc"}));
         }
 
         SECTION("h3")
         {
-            box.PutHoriLine(0, 0, 3, true, false);
+            box.put_horizontal_line(0, 0, 3, true, false);
 
-            CHECK(box.Size() == S(3,1));
-            CHECK(StringEq(box.ToString(abc_style), {"cca"}));
+            CHECK(box.get_size() == S(3,1));
+            CHECK(StringEq(box.to_string(abc_style), {"cca"}));
         }
 
         SECTION("h4")
         {
-            box.PutHoriLine(0, 0, 3, true, true);
+            box.put_horizontal_line(0, 0, 3, true, true);
 
-            CHECK(box.Size() == S(3,1));
-            CHECK(StringEq(box.ToString(abc_style), {"ccc"}));
+            CHECK(box.get_size() == S(3,1));
+            CHECK(StringEq(box.to_string(abc_style), {"ccc"}));
         }
 
         SECTION("v1")
         {
-            box.PutVertLine(0, 0, 3, false, false);
+            box.put_vertical_line(0, 0, 3, false, false);
 
-            CHECK(box.Size() == S(1,3));
-            CHECK(StringEq(box.ToString(abc_style), {"e", "f", "d"}));
+            CHECK(box.get_size() == S(1,3));
+            CHECK(StringEq(box.to_string(abc_style), {"e", "f", "d"}));
         }
 
         SECTION("v2")
         {
-            box.PutVertLine(0, 0, 3, false, true);
+            box.put_vertical_line(0, 0, 3, false, true);
 
-            CHECK(box.Size() == S(1,3));
-            CHECK(StringEq(box.ToString(abc_style), {"e", "f", "f"}));
+            CHECK(box.get_size() == S(1,3));
+            CHECK(StringEq(box.to_string(abc_style), {"e", "f", "f"}));
         }
 
         SECTION("v3")
         {
-            box.PutVertLine(0, 0, 3, true, false);
+            box.put_vertical_line(0, 0, 3, true, false);
 
-            CHECK(box.Size() == S(1,3));
-            CHECK(StringEq(box.ToString(abc_style), {"f", "f", "d"}));
+            CHECK(box.get_size() == S(1,3));
+            CHECK(StringEq(box.to_string(abc_style), {"f", "f", "d"}));
         }
 
         SECTION("v4")
         {
-            box.PutVertLine(0, 0, 3, true, true);
+            box.put_vertical_line(0, 0, 3, true, true);
 
-            CHECK(box.Size() == S(1,3));
-            CHECK(StringEq(box.ToString(abc_style), {"f", "f", "f"}));
+            CHECK(box.get_size() == S(1,3));
+            CHECK(StringEq(box.to_string(abc_style), {"f", "f", "f"}));
         }
     }
 }
 
 TEST_CASE("tb_line on text")
 {
-    auto text = TextBox::Empty();
-    text.PutString(1, 0, "d g");
-    CHECK(StringEq(text.ToString(AsciiStyle()), {" d g"}));
+    auto text = text_box::create_empty();
+    text.put_string(1, 0, "d g");
+    CHECK(StringEq(text.to_string(ascii_style()), {" d g"}));
 
-    auto line = TextBox::Empty();
-    line.PutHoriLine(0, 0, 5, true, true);
-    CHECK(StringEq(line.ToString(AsciiStyle()), {"-----"}));
+    auto line = text_box::create_empty();
+    line.put_horizontal_line(0, 0, 5, true, true);
+    CHECK(StringEq(line.to_string(ascii_style()), {"-----"}));
 
     /// hrm... this is a weird behaviour...
 
     SECTION("text on line")
     {
-        const auto r = text.PutBoxCopy(0, 0, line);
-        CHECK(StringEq(r.ToString(AsciiStyle()), {"-----"}));
+        const auto r = text.put_box_copy(0, 0, line);
+        CHECK(StringEq(r.to_string(ascii_style()), {"-----"}));
     }
 
     SECTION("line on text")
     {
-        const auto r = line.PutBoxCopy(0, 0, text);
-        CHECK(StringEq(r.ToString(AsciiStyle()), {"-d-g-"}));
+        const auto r = line.put_box_copy(0, 0, text);
+        CHECK(StringEq(r.to_string(ascii_style()), {"-d-g-"}));
     }
 }
 
 TEST_CASE("tb_line on line")
 {
-    auto hor = TextBox::Empty();
-    hor.PutHoriLine(0, 0, 1, true, true);
-    CHECK(StringEq(hor.ToString(AsciiStyle()), {"-"}));
+    auto hor = text_box::create_empty();
+    hor.put_horizontal_line(0, 0, 1, true, true);
+    CHECK(StringEq(hor.to_string(ascii_style()), {"-"}));
 
-    auto vert = TextBox::Empty();
-    vert.PutVertLine(0, 0, 1, true, true);
-    CHECK(StringEq(vert.ToString(AsciiStyle()), {"|"}));
+    auto vert = text_box::create_empty();
+    vert.put_vertical_line(0, 0, 1, true, true);
+    CHECK(StringEq(vert.to_string(ascii_style()), {"|"}));
 
     SECTION("hor on vert")
     {
-        const auto r = vert.PutBoxCopy(0, 0, hor);
-        CHECK(StringEq(r.ToString(AsciiStyle()), {"+"}));
+        const auto r = vert.put_box_copy(0, 0, hor);
+        CHECK(StringEq(r.to_string(ascii_style()), {"+"}));
     }
 
     SECTION("vert on hor")
     {
-        const auto r = hor.PutBoxCopy(0, 0, vert);
-        CHECK(StringEq(r.ToString(AsciiStyle()), {"+"}));
+        const auto r = hor.put_box_copy(0, 0, vert);
+        CHECK(StringEq(r.to_string(ascii_style()), {"+"}));
     }
 }
 
@@ -337,18 +337,18 @@ TEST_CASE("tb_box")
     const std::vector<std::string> x_data = {"   ", " x ", "   "};
     const std::vector<std::string> abc_data = {"abc"};
 
-    const auto empty = TextBox::Empty();
-    const auto x = TextBox::FromStrings(x_data);
-    const auto abc = TextBox::FromStrings(abc_data);
+    const auto empty = text_box::create_empty();
+    const auto x = text_box::create_from_strings(x_data);
+    const auto abc = text_box::create_from_strings(abc_data);
 
     SECTION("putbox")
     {
-        CHECK(StringEq(empty.PutBoxCopy(0, 0, empty).ToString(AsciiStyle()), {}));
-        CHECK(StringEq(empty.PutBoxCopy(0, 0, x).ToString(AsciiStyle()), x_data));
-        CHECK(StringEq(empty.PutBoxCopy(0, 0, abc).ToString(AsciiStyle()), abc_data));
-        CHECK(StringEq(empty.PutBoxCopy(1, 1, empty).ToString(AsciiStyle()), {}));
-        CHECK(StringEq(empty.PutBoxCopy(1, 1, x).ToString(AsciiStyle()), {"", "    ", "  x ", "    "}));
-        CHECK(StringEq(empty.PutBoxCopy(1, 1, empty).ToString(AsciiStyle()), {}));
+        CHECK(StringEq(empty.put_box_copy(0, 0, empty).to_string(ascii_style()), {}));
+        CHECK(StringEq(empty.put_box_copy(0, 0, x).to_string(ascii_style()), x_data));
+        CHECK(StringEq(empty.put_box_copy(0, 0, abc).to_string(ascii_style()), abc_data));
+        CHECK(StringEq(empty.put_box_copy(1, 1, empty).to_string(ascii_style()), {}));
+        CHECK(StringEq(empty.put_box_copy(1, 1, x).to_string(ascii_style()), {"", "    ", "  x ", "    "}));
+        CHECK(StringEq(empty.put_box_copy(1, 1, empty).to_string(ascii_style()), {}));
     }
 
     SECTION("empty")
@@ -443,33 +443,33 @@ TEST_CASE("tb_create_tree_graph")
             "  1    2    3"
         };
 
-    CHECK(StringEq(TextBox::CreateTreeGraph(simple_tree, 130,
+    CHECK(StringEq(text_box::create_tree_graph(simple_tree, 130,
                 [](const T& e) { return e.name; },
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
                 [](const T&  ) { return false; },
-                [](const T&  ) { return false; }).ToString(AsciiStyle()),
+                [](const T&  ) { return false; }).to_string(ascii_style()),
                 simple_three_row));
 
-    CHECK(StringEq(TextBox::CreateTreeGraph(simple_tree, 130,
+    CHECK(StringEq(text_box::create_tree_graph(simple_tree, 130,
                 [](const T& e) { return e.name; },
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
                 [](const T&  ) { return false; },
-                [](const T&  ) { return true; }).ToString(AsciiStyle()),
+                [](const T&  ) { return true; }).to_string(ascii_style()),
                 simple_three_row));
 
 
-    CHECK(StringEq(TextBox::CreateTreeGraph(simple_tree, 130,
+    CHECK(StringEq(text_box::create_tree_graph(simple_tree, 130,
                 [](const T& e) { return e.name; },
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
                 [](const T&  ) { return true; },
-                [](const T&  ) { return false; }).ToString(AsciiStyle()),
+                [](const T&  ) { return false; }).to_string(ascii_style()),
                 simple_two_row));
 
-    CHECK(StringEq(TextBox::CreateTreeGraph(simple_tree, 130,
+    CHECK(StringEq(text_box::create_tree_graph(simple_tree, 130,
                 [](const T& e) { return e.name; },
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
                 [](const T&  ) { return true; },
-                [](const T&  ) { return true; }).ToString(AsciiStyle()),
+                [](const T&  ) { return true; }).to_string(ascii_style()),
                 simple_two_row));
 }
 
@@ -501,11 +501,11 @@ TEST_CASE("tb_tolkien")
                 T{"Sauruman"}
             }}
         }};
-    CHECK(StringEq(TextBox::CreateTreeGraph(tolkien_tree, 130,
+    CHECK(StringEq(text_box::create_tree_graph(tolkien_tree, 130,
                 [](const T& e) { return e.name; },
                 [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
                 [](const T& e) { return !e.children.empty(); },
-                [](const T&  ) { return true; }).ToString(AsciiStyle()),
+                [](const T&  ) { return true; }).to_string(ascii_style()),
                 {
   "Tolkien characters",
   "`-+----------------------------------------------------------------------------------.",

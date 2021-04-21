@@ -12,56 +12,56 @@ namespace euphoria::core
     template <typename T>
     struct quat
     {
-        using Q = quat<T>;
-        using Vec = vec3<T>;
-        using Point = vec3<T>;
-        using Unit = unit3<T>;
+        using self = quat<T>;
+        using vec = vec3<T>;
+        using point = vec3<T>;
+        using unit = unit3<T>;
 
         T w;
         T x;
         T y;
         T z;
 
-        Vec
-        vec() const
+        vec
+        get_vec_part() const
         {
-            return Vec(x, y, z);
+            return vec(x, y, z);
         }
 
 
-        quat(T w, const Vec& v) : w(w), x(v.x), y(v.y), z(v.z) {}
+        quat(T w, const vec& v) : w(w), x(v.x), y(v.y), z(v.z) {}
 
 
-        [[nodiscard]] static Q
-        FromAxisAngle(const axis_angle& aa)
+        [[nodiscard]] static self
+        from_axis_angle(const axis_angle& aa)
         {
             const T sin_a = sin(aa.angle / 2);
             const T cos_a = cos(aa.angle / 2);
-            Q r(cos_a, aa.axis * sin_a);
-            r.Normalize();
+            self r(cos_a, aa.axis * sin_a);
+            r.normalize();
             return r;
         }
 
 
-        [[nodiscard]] static Q
-        FromRandom(Random* random)
+        [[nodiscard]] static self
+        from_random(Random* random)
         {
             const auto axis = create_random_unit3(random);
             const auto angle = angle::Random(random);
 
-            return Q::FromAxisAngle(axis_angle::right_hand_around(axis, angle));
+            return self::from_axis_angle(axis_angle::right_hand_around(axis, angle));
         }
 
 
-        mat4<T>
-        ToMat4() const
+        [[nodiscard]] mat4<T>
+        to_mat4() const
         {
-            return mat4<T>::from_axis_angle(ToAxisAngle());
+            return mat4<T>::from_axis_angle(to_axis_angle());
         }
 
 
         [[nodiscard]] axis_angle
-        ToAxisAngle() const
+        to_axis_angle() const
         {
             const T cos_a = w;
             const auto angle = acos(cos_a) * 2;
@@ -69,101 +69,83 @@ namespace euphoria::core
                     Sqrt(1.0f - cos_a * cos_a), 1, 0.0005f);
             // todo(Gustav): do we need to normalize here?
             return axis_angle::right_hand_around(
-                    (vec() / sin_a).GetNormalized(), angle);
+                    (get_vec_part() / sin_a).get_normalized(), angle);
         }
 
 
         // static Q FromAngles(T x, T y, T z);
 
-        [[nodiscard]] static Q
-        Identity()
+        [[nodiscard]] static self
+        identity()
         {
-            return Q(1, Vec(0, 0, 0));
+            return self(1, vec(0, 0, 0));
         }
 
 
-        [[nodiscard]] static Q
-        LookAt(const Point& from, const Point& to, const typename Vec::Unit up)
+        [[nodiscard]] static self
+        look_at(const point& from, const point& to, const typename vec::unit up)
         {
-            return LookInDirection(Vec::FromTo(from, to).GetNormalized(), up);
+            return look_in_direction(vec::from_to(from, to).get_normalized(), up);
         }
 
 
-        [[nodiscard]] static Q
-        LookInDirection(const Unit& dir, const Unit& up)
-        {
-            const Vec in = Unit::In();
-            float dot_value = dot(in, dir);
-
-            if(Abs(dot_value - (-1.0f)) < 0.000001f)
-            {
-                return Q(3.1415926535897932f, up);
-            }
-            if(Abs(dot_value - (1.0f)) < 0.000001f)
-            {
-                return Identity();
-            }
-
-            const auto rotAngle = acos(dot_value);
-            const auto rotAxis = cross(in, dir).GetNormalized();
-            return Q::FromAxisAngle(
-                    axis_angle::right_hand_around(rotAxis, rotAngle));
-        }
+        [[nodiscard]] static self
+        look_in_direction(const unit& dir, const unit& up);
 
 
-        Q
-        Rotate(const Q& q) const
+        self
+        rotate(const self& q) const
         {
             return q * *this;
         }
 
 
-        Q
-        GetConjugate() const
+        self
+        get_conjugate() const
         {
-            return quat(w, -vec());
+            return quat(w, -get_vec_part());
         }
 
 
         // the inverse represent the same rotation
-        Q
-        GetInverse() const
+        self
+        get_inverse() const
         {
-            return quat(-w, -vec());
+            return quat(-w, -get_vec_part());
         }
 
 
-        Q
-        GetIdentity() const
+        self
+        get_identity() const
         {
-            const T l2 = GetLengthSquared();
-            if(IsEqual(l2, 0)) { return Identity(); }
-            else if(IsEqual(l2, 1)) { return GetConjugate(); }
-            else { return quat(w / Sqrt(l2), -vec()); }
-        }
-
-
-        T
-        GetLength() const
-        {
-            return Sqrt(GetLengthSquared());
+            const T l2 = get_length_squared();
+            if(IsEqual(l2, 0)) { return identity(); }
+            else if(IsEqual(l2, 1)) { return get_conjugate(); }
+            else { return quat(w / Sqrt(l2), -get_vec_part()); }
         }
 
 
         T
-        GetLengthSquared() const
+        get_length() const
+        {
+            return Sqrt(get_length_squared());
+        }
+
+
+        T
+        get_length_squared() const
         {
             return x * x + y * y + z * z + w * w;
         }
 
 
         void
-        Normalize()
+        normalize()
         {
-            const T l = GetLength();
+            const T l = get_length();
             if(IsZero(l))
             {
-                *this = Identity();
+                *this = identity();
             }
             else
             {
@@ -175,85 +157,85 @@ namespace euphoria::core
         }
 
 
-        Q
-        GetNormalized() const
+        self
+        get_normalized() const
         {
-            Q r = *this;
-            r.Normalize();
+            self r = *this;
+            r.normalize();
             return r;
         }
 
 
-        Unit
-        In() const
+        unit
+        in() const
         {
-            return RotateAroundOrigo(-Unit::ZAxis());
+            return rotate_around_origo(-unit::z_axis());
         }
 
 
-        Unit
-        Out() const
+        unit
+        out() const
         {
-            return RotateAroundOrigo(Unit::ZAxis());
+            return rotate_around_origo(unit::z_axis());
         }
 
 
-        Unit
-        Right() const
+        unit
+        right() const
         {
-            return RotateAroundOrigo(Unit::XAxis());
+            return rotate_around_origo(unit::x_axis());
         }
 
 
-        Unit
-        Left() const
+        unit
+        left() const
         {
-            return RotateAroundOrigo(-Unit::XAxis());
+            return rotate_around_origo(-unit::x_axis());
         }
 
 
-        Unit
-        Up() const
+        unit
+        up() const
         {
-            return RotateAroundOrigo(Unit::YAxis());
+            return rotate_around_origo(unit::y_axis());
         }
 
 
-        Unit
-        Down() const
+        unit
+        down() const
         {
-            return RotateAroundOrigo(-Unit::YAxis());
+            return rotate_around_origo(-unit::y_axis());
         }
 
 
         // In*Z + Right*X + Up*Y
-        Vec
-        RightUpIn(const Vec v) const
+        vec
+        create_from_right_up_in(const vec v) const
         {
-            return In() * v.z + Right() * v.x + Up() * v.y;
+            return in() * v.z + right() * v.x + up() * v.y;
         }
 
 
-        Unit
-        RotateAroundOrigo(const Unit& v) const
+        unit
+        rotate_around_origo(const unit& v) const
         {
             // http://gamedev.stackexchange.com/questions/28395/rotating-vector3-by-a-quaternion
-            const Q pure(0, v);
-            const Q a = *this * pure;
-            const Q ret = a * GetConjugate();
-            return ret.vec().GetNormalized();
+            const self pure(0, v);
+            const self a = *this * pure;
+            const self ret = a * get_conjugate();
+            return ret.get_vec_part().get_normalized();
         }
 
 
-        [[nodiscard]] static Q
-        Lerp(const Q& f, const T scale, const Q& t)
+        [[nodiscard]] static self
+        lerp(const self& f, const T scale, const self& t)
         {
             return f * (1 - scale) + t * scale;
         }
 
 
-        [[nodiscard]] static Q
-        Slerp(const Q& qa, const float t, const Q& qb)
+        [[nodiscard]] static self
+        slerp(const self& qa, const float t, const self& qb)
         {
             // from:
             // http://www.euclideanspace.com/maths/algebra/realNormedAlgebra/quaternions/slerp/
@@ -271,11 +253,11 @@ namespace euphoria::core
             {
                 // if theta = 180 degrees then result is not fully defined
                 // we could rotate around any axis normal to qa or qb
-                const Q qt = qa + qb;
-                return Q
+                const self qt = qa + qb;
+                return self
                 {
                     qt.w * 0.5f,
-                    Vec
+                    vec
                     {
                         qt.x * 0.5f,
                         qt.y * 0.5f,
@@ -289,22 +271,22 @@ namespace euphoria::core
         }
 
 
-        [[nodiscard]] static Q
-        SlerpShortway(const Q& f, const T scale, const Q& t)
+        [[nodiscard]] static self
+        slerp_shortway(const self& f, const T scale, const self& t)
         {
             if(dot(f, t) < 0)
             {
-                return Slerp(f.GetInverse(), scale, t);
+                return slerp(f.get_inverse(), scale, t);
             }
             else
             {
-                return Slerp(f, scale, t);
+                return slerp(f, scale, t);
             }
         }
 
 
         void
-        operator+=(const Q& rhs)
+        operator+=(const self& rhs)
         {
             x += rhs.x;
             y += rhs.y;
@@ -314,7 +296,7 @@ namespace euphoria::core
 
 
         void
-        operator-=(const Q& rhs)
+        operator-=(const self& rhs)
         {
             x -= rhs.x;
             y -= rhs.y;
@@ -334,7 +316,7 @@ namespace euphoria::core
 
 
         void
-        operator*=(const Q& rhs)
+        operator*=(const self& rhs)
         {
 #define VAR(a, b) const T a##1##b##2 = a * rhs.b
             VAR(w, w);
@@ -364,6 +346,27 @@ namespace euphoria::core
             z = w1z2 + z1w2 + x1y2 - y1x2;
         }
     };
+
+    template <typename T>
+    typename quat<T>::self quat<T>::look_in_direction(const unit& dir, const unit& up)
+    {
+        const vec in = unit::in();
+        float dot_value = dot(in, dir);
+
+        if (Abs(dot_value - (-1.0f)) < 0.000001f)
+        {
+            return self(3.1415926535897932f, up);
+        }
+        if (Abs(dot_value - (1.0f)) < 0.000001f)
+        {
+            return identity();
+        }
+
+        const auto rotAngle = acos(dot_value);
+        const auto rotAxis = cross(in, dir).get_normalized();
+        return self::from_axis_angle(
+            axis_angle::right_hand_around(rotAxis, rotAngle));
+    }
 
 
     template <typename T>

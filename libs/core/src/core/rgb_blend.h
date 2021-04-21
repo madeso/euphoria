@@ -5,40 +5,40 @@
 
 namespace euphoria::core
 {
-    enum class BlendMode
+    enum class blend_mode
     {
-        Normal,
-        Lighten,
-        Darken,
-        Multiply,
-        Average,
-        Add,
-        Subtract,
-        Difference,
-        Negation,
-        Screen,
-        Exclusion,
-        Overlay,
-        SoftLight,
-        HardLight,
-        ColorDodge,
-        ColorBurn,
-        LinearDodge,
-        LinearBurn,
-        LinearLight,
-        VividLight,
-        PinLight,
-        HardMix,
-        Reflect,
-        Glow,
-        Phoenix
+        normal,
+        lighten,
+        darken,
+        multiply,
+        average,
+        add,
+        subtract,
+        difference,
+        negation,
+        screen,
+        exclusion,
+        overlay,
+        soft_light,
+        hard_light,
+        color_dodge,
+        color_burn,
+        linear_dodge,
+        linear_burn,
+        linear_light,
+        vivid_light,
+        pin_light,
+        hard_mix,
+        reflect,
+        glow,
+        phoenix
     };
 
     // place top onto bottom
-    rgb   Blend(const rgb&   top, const rgb&   bottom, BlendMode mode = BlendMode::Normal);
-    rgba  Blend(const rgba&  top, const rgba&  bottom, BlendMode mode = BlendMode::Normal);
-    rgbi  Blend(const rgbi&  top, const rgbi&  bottom, BlendMode mode = BlendMode::Normal);
-    rgbai Blend(const rgbai& top, const rgbai& bottom, BlendMode mode = BlendMode::Normal);
+    rgb   blend(const rgb&   top, const rgb&   bottom, blend_mode mode = blend_mode::normal);
+    rgba  blend(const rgba&  top, const rgba&  bottom, blend_mode mode = blend_mode::normal);
+    rgbi  blend(const rgbi&  top, const rgbi&  bottom, blend_mode mode = blend_mode::normal);
+    rgbai blend(const rgbai& top, const rgbai& bottom, blend_mode mode = blend_mode::normal);
 
     // Rgb   Blend(const Rgb&   a, const Rgb&   b, float alpha, const BlendMode mode = BlendMode::Normal);
     // Rgba  Blend(const Rgba&  a, const Rgba&  b, float alpha, const BlendMode mode = BlendMode::Normal);

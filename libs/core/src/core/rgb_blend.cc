@@ -283,13 +283,13 @@ namespace euphoria::core
         uint8
         ChannelBlend_AlphaF(uint8 top, uint8 bottom, float factor, TF F)
         {
-            return (ChannelBlend_Alpha(F(top,bottom), bottom, factor));
+            return ChannelBlend_Alpha(F(top,bottom), bottom, factor);
         }
 
 
         template<typename TBlendFunction>
         rgbi
-        Blend(const rgbi& top, const rgbi& bottom, TBlendFunction blend_function)
+        blend(const rgbi& top, const rgbi& bottom, TBlendFunction blend_function)
         {
             return
             {
@@ -302,15 +302,15 @@ namespace euphoria::core
 
         template<typename TBlendFunction>
         rgb
-        Blend(const rgb& top, const rgb& bottom, TBlendFunction blend_function)
+        blend(const rgb& top, const rgb& bottom, TBlendFunction blend_function)
         {
-            return crgb(Blend(crgbi(top), crgbi(bottom), blend_function));
+            return crgb(blend(crgbi(top), crgbi(bottom), blend_function));
         }
 
 
         template<typename T>
         T
-        AlphaBlend(T lhs, T rhs, float a)
+        alpha_blend(T lhs, T rhs, float a)
         {
             return static_cast<T>(lhs * (1-a) + rhs * a);
         }
@@ -318,7 +318,7 @@ namespace euphoria::core
 
         template<typename TBlendFunction>
         rgbai
-        Blend
+        blend
         (
             const rgbai& top,
             const rgbai& bottom,
@@ -343,50 +343,50 @@ namespace euphoria::core
                     ff(top.g, bottom.g),
                     ff(top.b, bottom.b)
                 },
-                AlphaBlend(top.a, bottom.a, 1-factor)
+                alpha_blend(top.a, bottom.a, 1-factor)
             };
         }
 
 
         template<typename TBlendFunction>
         rgba
-        Blend(const rgba& top, const rgba& bottom, TBlendFunction blend_function)
+        blend(const rgba& top, const rgba& bottom, TBlendFunction blend_function)
         {
-            return crgba(Blend(crgbai(top), crgbai(bottom), blend_function));
+            return crgba(blend(crgbai(top), crgbai(bottom), blend_function));
         }
 
 
         template<typename C>
         C
-        ColorBlend(BlendMode mode, const C& top, const C& bottom)
+        color_blend(blend_mode mode, const C& top, const C& bottom)
         {
             switch(mode)
             {
-                case BlendMode::Normal     : return Blend(top, bottom, ChannelBlend_Normal     );
-                case BlendMode::Lighten    : return Blend(top, bottom, ChannelBlend_Lighten    );
-                case BlendMode::Darken     : return Blend(top, bottom, ChannelBlend_Darken     );
-                case BlendMode::Multiply   : return Blend(top, bottom, ChannelBlend_Multiply   );
-                case BlendMode::Average    : return Blend(top, bottom, ChannelBlend_Average    );
-                case BlendMode::Add        : return Blend(top, bottom, ChannelBlend_Add        );
-                case BlendMode::Subtract   : return Blend(top, bottom, ChannelBlend_Subtract   );
-                case BlendMode::Difference : return Blend(top, bottom, ChannelBlend_Difference );
-                case BlendMode::Negation   : return Blend(top, bottom, ChannelBlend_Negation   );
-                case BlendMode::Screen     : return Blend(top, bottom, ChannelBlend_Screen     );
-                case BlendMode::Exclusion  : return Blend(top, bottom, ChannelBlend_Exclusion  );
-                case BlendMode::Overlay    : return Blend(top, bottom, ChannelBlend_Overlay    );
-                case BlendMode::SoftLight  : return Blend(top, bottom, ChannelBlend_SoftLight  );
-                case BlendMode::HardLight  : return Blend(top, bottom, ChannelBlend_HardLight  );
-                case BlendMode::ColorDodge : return Blend(top, bottom, ChannelBlend_ColorDodge );
-                case BlendMode::ColorBurn  : return Blend(top, bottom, ChannelBlend_ColorBurn  );
-                case BlendMode::LinearDodge: return Blend(top, bottom, ChannelBlend_LinearDodge);
-                case BlendMode::LinearBurn : return Blend(top, bottom, ChannelBlend_LinearBurn );
-                case BlendMode::LinearLight: return Blend(top, bottom, ChannelBlend_LinearLight);
-                case BlendMode::VividLight : return Blend(top, bottom, ChannelBlend_VividLight );
-                case BlendMode::PinLight   : return Blend(top, bottom, ChannelBlend_PinLight   );
-                case BlendMode::HardMix    : return Blend(top, bottom, ChannelBlend_HardMix    );
-                case BlendMode::Reflect    : return Blend(top, bottom, ChannelBlend_Reflect    );
-                case BlendMode::Glow       : return Blend(top, bottom, ChannelBlend_Glow       );
-                case BlendMode::Phoenix    : return Blend(top, bottom, ChannelBlend_Phoenix    );
+                case blend_mode::normal      : return blend(top, bottom, ChannelBlend_Normal     );
+                case blend_mode::lighten     : return blend(top, bottom, ChannelBlend_Lighten    );
+                case blend_mode::darken      : return blend(top, bottom, ChannelBlend_Darken     );
+                case blend_mode::multiply    : return blend(top, bottom, ChannelBlend_Multiply   );
+                case blend_mode::average     : return blend(top, bottom, ChannelBlend_Average    );
+                case blend_mode::add         : return blend(top, bottom, ChannelBlend_Add        );
+                case blend_mode::subtract    : return blend(top, bottom, ChannelBlend_Subtract   );
+                case blend_mode::difference  : return blend(top, bottom, ChannelBlend_Difference );
+                case blend_mode::negation    : return blend(top, bottom, ChannelBlend_Negation   );
+                case blend_mode::screen      : return blend(top, bottom, ChannelBlend_Screen     );
+                case blend_mode::exclusion   : return blend(top, bottom, ChannelBlend_Exclusion  );
+                case blend_mode::overlay     : return blend(top, bottom, ChannelBlend_Overlay    );
+                case blend_mode::soft_light  : return blend(top, bottom, ChannelBlend_SoftLight  );
+                case blend_mode::hard_light  : return blend(top, bottom, ChannelBlend_HardLight  );
+                case blend_mode::color_dodge : return blend(top, bottom, ChannelBlend_ColorDodge );
+                case blend_mode::color_burn  : return blend(top, bottom, ChannelBlend_ColorBurn  );
+                case blend_mode::linear_dodge: return blend(top, bottom, ChannelBlend_LinearDodge);
+                case blend_mode::linear_burn : return blend(top, bottom, ChannelBlend_LinearBurn );
+                case blend_mode::linear_light: return blend(top, bottom, ChannelBlend_LinearLight);
+                case blend_mode::vivid_light : return blend(top, bottom, ChannelBlend_VividLight );
+                case blend_mode::pin_light   : return blend(top, bottom, ChannelBlend_PinLight   );
+                case blend_mode::hard_mix    : return blend(top, bottom, ChannelBlend_HardMix    );
+                case blend_mode::reflect     : return blend(top, bottom, ChannelBlend_Reflect    );
+                case blend_mode::glow        : return blend(top, bottom, ChannelBlend_Glow       );
+                case blend_mode::phoenix     : return blend(top, bottom, ChannelBlend_Phoenix    );
                 default:
                     DIE("unhandled blend case");
                     return top;
@@ -395,8 +395,8 @@ namespace euphoria::core
     }
 
 
-    rgb   Blend(const rgb&   top, const rgb&   bottom, BlendMode mode) { return ColorBlend(mode, top, bottom); }
-    rgba  Blend(const rgba&  top, const rgba&  bottom, BlendMode mode) { return ColorBlend(mode, top, bottom); }
-    rgbi  Blend(const rgbi&  top, const rgbi&  bottom, BlendMode mode) { return ColorBlend(mode, top, bottom); }
-    rgbai Blend(const rgbai& top, const rgbai& bottom, BlendMode mode) { return ColorBlend(mode, top, bottom); }
+    rgb   blend(const rgb&   top, const rgb&   bottom, blend_mode mode) { return color_blend(mode, top, bottom); }
+    rgba  blend(const rgba&  top, const rgba&  bottom, blend_mode mode) { return color_blend(mode, top, bottom); }
+    rgbi  blend(const rgbi&  top, const rgbi&  bottom, blend_mode mode) { return color_blend(mode, top, bottom); }
+    rgbai blend(const rgbai& top, const rgbai& bottom, blend_mode mode) { return color_blend(mode, top, bottom); }
 }

@@ -28,17 +28,17 @@ namespace euphoria::core
     template <typename T>
     struct scale3
     {
-        using Self = scale3<T>;
+        using self = scale3<T>;
 
         T x;
         T y;
         T z;
 
-        T* GetDataPtr() { return &x; }
+        T* get_data_ptr() { return &x; }
 
-        [[nodiscard]] const T* GetDataPtr() const { return &x; }
+        [[nodiscard]] const T* get_data_ptr() const { return &x; }
 
-        [[nodiscard]] T GetComponentSum() const { return x + y + z; }
+        [[nodiscard]] T get_component_sum() const { return x + y + z; }
 
         explicit scale3(const T& a) : x(a), y(a), z(a)
         {
@@ -62,17 +62,17 @@ namespace euphoria::core
     template <typename T>
     struct vec3
     {
-        using Self = vec3<T>;
+        using self = vec3<T>;
 
         T x;
         T y;
         T z;
 
-        T* GetDataPtr() { return &x; }
+        T* get_data_ptr() { return &x; }
 
-        [[nodiscard]] const T* GetDataPtr() const { return &x; }
+        [[nodiscard]] const T* get_data_ptr() const { return &x; }
 
-        [[nodiscard]] T GetComponentSum() const { return x + y + z; }
+        [[nodiscard]] T get_component_sum() const { return x + y + z; }
 
         explicit vec3(const T& a) : x(a), y(a), z(a)
         {
@@ -108,22 +108,22 @@ namespace euphoria::core
             z -= rhs.z;
         }
 
-        Self operator-() const { return Self(-this->x, -this->y, -this->z); }
+        self operator-() const { return self(-this->x, -this->y, -this->z); }
 
-        T GetLengthSquared() const { return x * x + y * y + z * z; }
+        T get_length_squared() const { return x * x + y * y + z * z; }
 
-        using Unit = unit3<T>;
+        using unit = unit3<T>;
 
-        static Self
-        FromTo(const vec3<T>& from, const vec3<T>& to)
+        static self
+        from_to(const vec3<T>& from, const vec3<T>& to)
         {
-            return Self {to.x - from.x, to.y - from.y, to.z - from.z};
+            return self {to.x - from.x, to.y - from.y, to.z - from.z};
         }
 
-        static Self
-        Zero()
+        static self
+        zero()
         {
-            return Self {0, 0, 0};
+            return self {0, 0, 0};
         }
 
         void
@@ -143,18 +143,18 @@ namespace euphoria::core
         }
 
         [[nodiscard]] T
-        GetLength() const
+        get_length() const
         {
-            return sqrt(GetLengthSquared());
+            return sqrt(get_length_squared());
         }
 
         void
-        Normalize()
+        normalize()
         {
-            const T l2 = GetLengthSquared();
+            const T l2 = get_length_squared();
             if(IsEqual(l2, 0))
             {
-                *this = Unit::Up();
+                *this = unit::up();
             }
             else
             {
@@ -163,12 +163,12 @@ namespace euphoria::core
         }
 
 
-        [[nodiscard]] Unit
-        GetNormalized() const
+        [[nodiscard]] unit
+        get_normalized() const
         {
-            Self r = *this;
-            r.Normalize();
-            return Unit::ToUnit(r);
+            self r = *this;
+            r.normalize();
+            return unit::to_unit(r);
         }
     };
 
@@ -178,86 +178,86 @@ namespace euphoria::core
     template <typename T>
     struct unit3 : public vec3<T>
     {
-        using Self = unit3<T>;
+        using self = unit3<T>;
 
-        Self operator-() const { return Self(-this->x, -this->y, -this->z); }
+        self operator-() const { return self(-this->x, -this->y, -this->z); }
 
         [[nodiscard]] bool
-        IsValid() const
+        is_valid() const
         {
-            return IsEqual(this->GetLengthSquared(), 1);
+            return IsEqual(this->get_length_squared(), 1);
         }
 
-        static Self
-        XAxis()
+        static self
+        x_axis()
         {
-            return Self {1, 0, 0};
+            return self {1, 0, 0};
         }
 
-        static Self
-        YAxis()
+        static self
+        y_axis()
         {
-            return Self {0, 1, 0};
+            return self {0, 1, 0};
         }
 
-        static Self
-        ZAxis()
+        static self
+        z_axis()
         {
-            return Self(0, 0, 1);
+            return self(0, 0, 1);
         }
 
-        static Self
-        Up()
+        static self
+        up()
         {
-            return YAxis();
+            return y_axis();
         }
 
-        static Self
-        Down()
+        static self
+        down()
         {
-            return -YAxis();
+            return -y_axis();
         }
 
-        static Self
-        Right()
+        static self
+        right()
         {
-            return XAxis();
+            return x_axis();
         }
 
-        static Self
-        Left()
+        static self
+        left()
         {
-            return -XAxis();
+            return -x_axis();
         }
 
-        static Self
-        In()
+        static self
+        in()
         {
-            return -ZAxis();
+            return -z_axis();
         }
 
-        static Self
-        Out()
+        static self
+        out()
         {
-            return ZAxis();
+            return z_axis();
         }
 
-        static Self
-        ToUnit(T x, T y, T z)
+        static self
+        to_unit(T x, T y, T z)
         {
-            return Self {x, y, z};
+            return self {x, y, z};
         }
 
-        static Self
-        ToUnit(const vec3<T>& v)
+        static self
+        to_unit(const vec3<T>& v)
         {
-            return Self {v.x, v.y, v.z};
+            return self {v.x, v.y, v.z};
         }
 
     private:
         explicit unit3(T a, T b, T c) : vec3<T>(a, b, c)
         {
-            ASSERT(IsValid());
+            ASSERT(is_valid());
         }
     };
 
@@ -318,7 +318,7 @@ namespace euphoria::core
 
     template <typename T>
     vec3<T>
-    ComponentMultiply(const vec3<T>& lhs, const vec3<T>& rhs)
+    component_multiply(const vec3<T>& lhs, const vec3<T>& rhs)
     {
         return vec3<T>(lhs.x * rhs.x, lhs.y * rhs.y, lhs.z * rhs.z);
     }

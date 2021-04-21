@@ -71,7 +71,7 @@ namespace euphoria::core
                 if(!grid.IsInside(neighbour_pos.x, neighbour_pos.y)) { continue; }
                 const auto neighbour_sample_index = grid(neighbour_pos.x, neighbour_pos.y);
                 if(neighbour_sample_index == -1) { continue; }
-                const auto d2 = vec2f::FromTo(samples[neighbour_sample_index], potential_sample).GetLengthSquared();
+                const auto d2 = vec2f::from_to(samples[neighbour_sample_index], potential_sample).get_length_squared();
                 if(d2 <= Square(r))
                 {
                     return false;
@@ -90,7 +90,7 @@ namespace euphoria::core
 
         for(int try_index = 0; try_index<k; try_index +=1)
         {
-            const auto unit = RandomUnit(random);
+            const auto unit = create_random_unit(random);
             const auto random_range = random->NextRange(r, 2*r);
             const auto sample = base_sample + unit * random_range;
             const auto sample_pos = point_to_index(sample);
@@ -116,7 +116,7 @@ namespace euphoria::core
             }
         }
 
-        return {false, vec2f::Zero()};
+        return {false, vec2f::zero()};
     }
 
 

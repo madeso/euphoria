@@ -173,12 +173,12 @@ namespace euphoria::core
                     = y == image->height - 1
                               ? false
                               : (pixel - Cvec3(image->get_pixel(x, y + 1)))
-                                                .GetLength()
+                                                .get_length()
                                         >= r;
             const auto left
                     = x == 0 ? false
                              : (pixel - Cvec3(image->get_pixel(x - 1, y)))
-                                               .GetLength()
+                                               .get_length()
                                        >= r;
             const bool edge = top || left;
             const auto c    = edge ? Color::White : Color::Black;
@@ -192,7 +192,7 @@ namespace euphoria::core
     {
         const auto basis = Cvec3(color);
         image->filter([&](const rgbai pixel) {
-            const auto check = (Cvec3(pixel) - basis).GetLength() <= r;
+            const auto check = (Cvec3(pixel) - basis).get_length() <= r;
             const auto c     = check ? Color::White : Color::Black;
             return rgbai(c, 255);
         });

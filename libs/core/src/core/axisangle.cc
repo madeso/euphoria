@@ -7,13 +7,13 @@ namespace euphoria::core
     axis_angle::axis_angle(const unit3f& ax, const core::angle& ang)
         : axis(ax), angle(ang)
     {
-        ASSERT(ax.IsValid());
+        ASSERT(ax.is_valid());
     }
 
     axis_angle
     axis_angle::right_hand_around(const unit3f& axis, const core::angle& angle)
     {
-        ASSERT(axis.IsValid());
+        ASSERT(axis.is_valid());
         return axis_angle(axis, angle::from_radians(angle.in_radians()));
     }
 

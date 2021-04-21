@@ -1,11 +1,11 @@
-﻿#ifndef EUPHORIA_CORE_CTREE_H
+#ifndef EUPHORIA_CORE_CTREE_H
 #define EUPHORIA_CORE_CTREE_H
 
 #include <string>
 
 namespace euphoria::core
 {
-    struct TreeStyle
+    struct tree_style
     {
         std::string_view t_cross;
         std::string_view l;
@@ -17,20 +17,20 @@ namespace euphoria::core
     };
 
 
-    TreeStyle
-    SlashStyle();
+    tree_style
+    slash_style();
     
 
-    TreeStyle
-    CrossStyle();
+    tree_style
+    cross_style();
     
 
-    TreeStyle
-    Utf8TreeStyle();
+    tree_style
+    utf8_tree_style();
 
 
-    TreeStyle
-    DetermineStyle();
+    tree_style
+    determine_style();
 
 
     template
@@ -41,52 +41,52 @@ namespace euphoria::core
         typename PrintFunction
     >
     void
-    PrintHierarchy
+    print_hierarchy
     (
         T item,
-        LabelFunction label,
-        FindChildrenFunction findChildren,
-        PrintFunction print,
-        const TreeStyle& style = DetermineStyle(),
+        LabelFunction label_function,
+        FindChildrenFunction find_children_function,
+        PrintFunction print_function,
+        const tree_style& style = determine_style(),
         const std::string& a_indent = "",
         int index = 0,
         bool last = true
     )
     {
-        const auto kids = findChildren(item);
-        const auto labl = label(item);
-        const auto root = style.root_special && index  == 0;
+        const auto children = find_children_function(item);
+        const auto label = label_function(item);
+        const auto is_root = style.root_special && index  == 0;
 
         std::string indent = a_indent;
 
-        if (root)
+        if (is_root)
         {
-            print(labl);
+            print_function(label);
         }
         else
         {
-            print(indent + std::string{ last ? style.l : style.t_cross } +labl);
+            print_function(indent + std::string{ last ? style.l : style.t_cross } +label);
 
-            if ( style.include_space && last && kids.empty())
+            if ( style.include_space && last && children.empty())
             {
-                print(indent);
+                print_function(indent);
             }
 
             indent += (last ? style.space : style.down);
         }
 
-        for (auto it = kids.begin(); it != kids.end(); ++it)
+        for (auto it = children.begin(); it != children.end(); ++it)
         {
-            PrintHierarchy<T, LabelFunction, FindChildrenFunction, PrintFunction>
+            print_hierarchy<T, LabelFunction, FindChildrenFunction, PrintFunction>
             (
                 *it,
-                label,
-                findChildren,
-                print,
+                label_function,
+                find_children_function,
+                print_function,
                 style,
                 indent,
                 index + 1,
-                it + 1 == kids.end()
+                it + 1 == children.end()
             );
         }
     }

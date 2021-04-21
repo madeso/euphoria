@@ -104,8 +104,8 @@ namespace euphoria::core::dump2d
 
         struct MinMax
         {
-            vec2f min = vec2f::Zero();
-            vec2f max = vec2f::Zero();
+            vec2f min = vec2f::zero();
+            vec2f max = vec2f::zero();
 
             MinMax& Include(const vec2f& point, float extra=0)
             {
@@ -579,9 +579,9 @@ namespace euphoria::core::dump3d
     {
         file
         << s << "scene.add(new THREE.ArrowHelper("
-        << ToThree(ray.dir.GetNormalized()) << ", "
+        << ToThree(ray.dir.get_normalized()) << ", "
         << ToThree(ray.from) << ", "
-        << ray.dir.GetLength() << ", "
+        << ray.dir.get_length() << ", "
         << ToHex(color) << ") );\n";
     }
 

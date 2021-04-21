@@ -7,7 +7,7 @@ namespace euphoria::core
 {
     /** Prints dots on the commandline for long running processes.
      */
-    struct CliProgressDots
+    struct cli_progress_dots
     {
         TimePoint last;
         int dots_on_line = 0;
@@ -15,7 +15,7 @@ namespace euphoria::core
         bool has_printed = false;
 
         void
-        Update();
+        update();
     };
 }  // namespace euphoria::core
 

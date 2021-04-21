@@ -83,7 +83,7 @@ namespace euphoria::core
         ASSERT(building_path);
         if(path.empty())
         {
-            path.push_back(C(vec2f::Zero()));
+            path.push_back(C(vec2f::zero()));
         }
         path.push_back(C(vec2f(dx, dy)));
     }

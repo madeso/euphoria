@@ -67,19 +67,19 @@ TEST_CASE("vec2-div_assign", "[vec2]")
 
 TEST_CASE("vec2-length_squared", "[vec2]")
 {
-    const auto v = euco::vec2i(1, 2).GetLengthSquared();
+    const auto v = euco::vec2i(1, 2).get_length_squared();
     REQUIRE(v == 5);
 }
 
 TEST_CASE("vec2-length", "[vec2]")
 {
-    const auto v = euco::vec2i(0, 3).GetLength();
+    const auto v = euco::vec2i(0, 3).get_length();
     REQUIRE(v == 3);
 }
 
 TEST_CASE("vec2-get_normalized", "[vec2]")
 {
-    const auto v = euco::vec2i(0, 3).GetNormalized();
+    const auto v = euco::vec2i(0, 3).get_normalized();
     REQUIRE(v.x == 0);
     REQUIRE(v.y == 1);
 }
@@ -87,7 +87,7 @@ TEST_CASE("vec2-get_normalized", "[vec2]")
 TEST_CASE("vec2-normalize-value", "[vec2]")
 {
     auto v = euco::vec2i(0, 3);
-    v.Normalize();
+    v.normalize();
     REQUIRE(v.x == 0);
     REQUIRE(v.y == 1);
 }

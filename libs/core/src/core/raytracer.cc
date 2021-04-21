@@ -31,13 +31,13 @@ namespace euphoria::core::raytracer
 
     struct SphereObject : public Object
     {
-        Sphere sphere;
+        core::sphere sphere;
         vec3f position;
         std::shared_ptr<Material> material;
 
         SphereObject
         (
-            const Sphere& asphere,
+            const core::sphere& asphere,
             const vec3f& aposition,
             std::shared_ptr<Material> amaterial
         )
@@ -59,7 +59,7 @@ namespace euphoria::core::raytracer
             if(IsWithin(range, hit_index))
             {
                 const auto hit_position = ray.get_point(hit_index);
-                const auto hit_normal = vec3f::FromTo(position, hit_position).GetNormalized();
+                const auto hit_normal = vec3f::from_to(position, hit_position).get_normalized();
                 return HitResult
                 {
                     hit_index,
@@ -79,7 +79,7 @@ namespace euphoria::core::raytracer
     std::shared_ptr<Object>
     CreateSphere
     (
-        const Sphere& sphere,
+        const sphere& sphere,
         const vec3f& position,
         std::shared_ptr<Material> material
     )

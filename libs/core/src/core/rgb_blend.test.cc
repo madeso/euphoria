@@ -11,31 +11,31 @@ TEST_CASE("rgb_blend")
 {
     SECTION("same")
     {
-        CHECK(Blend(R{Color::Red}, R{Color::Red}) == R{Color::Red});
+        CHECK(blend(R{Color::Red}, R{Color::Red}) == R{Color::Red});
     }
 
     SECTION("different")
     {
-        CHECK(Blend(R{Color::Green}, R{Color::Red}) == R{Color::Green});
+        CHECK(blend(R{Color::Green}, R{Color::Red}) == R{Color::Green});
     }
 
     SECTION("0 on 1")
     {
-        CHECK(Blend(A{Color::Green, 0}, A{Color::Red, 255}) == A{Color::Red, 255});
+        CHECK(blend(A{Color::Green, 0}, A{Color::Red, 255}) == A{Color::Red, 255});
     }
 
     SECTION("1 on 0")
     {
-        CHECK(Blend(A{Color::Green, 255}, A{Color::Red,   0}) == A{Color::Green, 255});
+        CHECK(blend(A{Color::Green, 255}, A{Color::Red,   0}) == A{Color::Green, 255});
     }
 
     SECTION("1 on 1 same")
     {
-        CHECK(Blend(A{Color::Red, 255}, A{Color::Red, 255}) == A{Color::Red, 255});
+        CHECK(blend(A{Color::Red, 255}, A{Color::Red, 255}) == A{Color::Red, 255});
     }
 
     SECTION("1 on 1 different")
     {
-        CHECK(Blend(A{Color::Green, 255}, A{Color::Red, 255}) == A{Color::Green, 255});
+        CHECK(blend(A{Color::Green, 255}, A{Color::Red, 255}) == A{Color::Green, 255});
     }
 }

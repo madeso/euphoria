@@ -95,7 +95,7 @@ namespace euphoria::render
             (
                 core::axis_angle::right_hand_around
                 (
-                    core::unit3f::ZAxis(), 
+                    core::unit3f::z_axis(), 
                     rotation_angle
                 )
             )

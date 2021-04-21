@@ -48,7 +48,7 @@ vec2f Abs(const vec2f& a)
 
 float euclidian_distance(const vec2f& lhs, const vec2f& rhs)
 {
-    return (lhs-rhs).GetLengthSquared();
+    return (lhs-rhs).get_length_squared();
 }
 
 float manhattan_distance(const vec2f& lhs, const vec2f& rhs)

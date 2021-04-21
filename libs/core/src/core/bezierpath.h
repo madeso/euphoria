@@ -24,7 +24,7 @@ namespace euphoria::core
 
     // check if point in poly: http://geomalgorithms.com/a03-_inclusion.html
 
-    struct BezierSeg2
+    struct bezier_seg2
     {
         vec2f a0;
         vec2f c0;
@@ -32,7 +32,7 @@ namespace euphoria::core
         vec2f c1;
     };
 
-    struct BezierPath2
+    struct bezier_path2
     {
         std::vector<vec2f> points;
         bool               is_closed_ = false;
@@ -40,51 +40,51 @@ namespace euphoria::core
         // todo(Gustav): move out to a controller?
         bool autoset_ = false;
 
-        BezierPath2(const vec2f& center);
+        bezier_path2(const vec2f& center);
 
         [[nodiscard]] static bool
-        IsAnchorPoint(size_t i);
+        is_anchor_point(size_t i);
 
         [[nodiscard]] static bool
-        IsControlPoint(size_t i);
+        is_control_point(size_t i);
 
         // point functions
         void
-        AddPoint(const vec2f& p);
+        add_point(const vec2f& p);
         void
-        MovePoint(int i, const vec2f& delta);
+        move_point(int i, const vec2f& delta);
 
         // segment functions
         [[nodiscard]] size_t
-        GetNumberOfSegments() const;
-        [[nodiscard]] BezierSeg2
-        GetPointsInSegment(size_t i) const;
+        get_number_of_segments() const;
+        [[nodiscard]] bezier_seg2
+        get_points_in_segment(size_t i) const;
 
         void
-        SetClosed(bool is_closed);
+        set_closed(bool is_closed);
         void
-        ToggleClosed();
+        toggle_closed();
 
         void
-        SetAutoSetControlPoints(bool is_autoset);
+        set_auto_set_control_points(bool is_autoset);
         void
-        ToggleAutoSetControlPoints();
+        toggle_auto_set_control_points();
 
         // private stuff
         [[nodiscard]] size_t
-        LoopIndex(int i) const;
+        loop_index(int i) const;
         void
-        AutoSetAffectedControlPoints(int updated_anchor_index);
+        auto_set_affected_control_points(int updated_anchor_index);
         void
-        AutoSetAllControlPoints();
+        auto_set_all_control_points();
         void
-        AutoSetStartAndEndControlPoints();
+        auto_set_start_and_end_control_points();
         void
-        AutoSetAnchorControlPoints(int anchor_index);
+        auto_set_anchor_control_points(int anchor_index);
     };
 
     // todo(Gustav): merge with svg::Poly
-    struct VertexPath2
+    struct vertex_path2
     {
         std::vector<vec2f> points;
         bool               is_closed = false;

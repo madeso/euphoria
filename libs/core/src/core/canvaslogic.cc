@@ -31,7 +31,7 @@ namespace euphoria::core
 
         // todo(Gustav): change to use WorldToScreen
         const auto new_focus = scroll + focus * scale;
-        scroll               = scroll + vec2f::FromTo(new_focus, mouse);
+        scroll               = scroll + vec2f::from_to(new_focus, mouse);
     }
 
     vec2f

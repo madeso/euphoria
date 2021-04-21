@@ -34,7 +34,7 @@ main(int argc, char* argv[])
     (
         raytracer::CreateSphere
         (
-            Sphere{0.5f},
+            sphere{0.5f},
             vec3f(0.0f, 0.0f, -1.0f),
             raytracer::CreateDiffuseMaterial
             (
@@ -46,7 +46,7 @@ main(int argc, char* argv[])
     (
         raytracer::CreateSphere
         (
-            Sphere{100.0f},
+            sphere{100.0f},
             vec3f(0.0f, -100.5f, -1.0f),
             raytracer::CreateDiffuseMaterial
             (
@@ -58,7 +58,7 @@ main(int argc, char* argv[])
     (
         raytracer::CreateSphere
         (
-            Sphere{0.5f},
+            sphere{0.5f},
             vec3f(1.0f, 0.0f, -1.0f),
             raytracer::CreateMetalMaterial
             (
@@ -71,7 +71,7 @@ main(int argc, char* argv[])
     (
         raytracer::CreateSphere
         (
-            Sphere{0.5f},
+            sphere{0.5f},
             vec3f(-1.0f, 0.0f, -1.0f),
             raytracer::CreateDielectricMaterial
             (

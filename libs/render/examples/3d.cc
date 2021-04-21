@@ -51,8 +51,8 @@ using namespace euphoria::window;
 struct CubeAnimation
 {
     CubeAnimation()
-        : from(quatf::Identity())
-        , to(quatf::Identity())
+        : from(quatf::identity())
+        , to(quatf::identity())
     {
     }
 
@@ -195,19 +195,19 @@ main(int argc, char** argv)
 
         CubeAnimation anim;
         anim.actor = actor;
-        anim.from = quatf::FromRandom(&random);
-        anim.to = quatf::FromRandom(&random);
+        anim.from = quatf::from_random(&random);
+        anim.to = quatf::from_random(&random);
         anim.rotation_speed = random.NextRange(0.5f, 1.0f);
         anim.move_speed = random.NextRange(0.5f, 1.0f);
         anim.timer = random.NextFloat01();
 
 
         // generate a position not too close to the center
-        vec3f position = vec3f::Zero();
+        vec3f position = vec3f::zero();
         do
         {
             position = box_extents.get_random_point(&random);
-        } while(position.GetLength() < 1.4f);
+        } while(position.get_length() < 1.4f);
 
         actor->SetPosition(position);
         actor->SetRotation(anim.from);
@@ -236,7 +236,7 @@ main(int argc, char** argv)
 #endif
 
     Camera camera;
-    camera.position = vec3f::Zero();
+    camera.position = vec3f::zero();
 
     FpsController fps;
     fps.position = vec3f(0, 0, 3);
@@ -328,7 +328,7 @@ main(int argc, char** argv)
             break;
         case 2:
             world.light.position = fps.position;
-            world.light.direction = fps.GetRotation().In().GetNormalized();
+            world.light.direction = fps.GetRotation().in().get_normalized();
             break;
         }
 
@@ -344,14 +344,14 @@ main(int argc, char** argv)
                     count += 1;
                     anim.timer -= 1.0f;
                     anim.from = anim.to;
-                    anim.to = quatf::FromRandom(&random);
+                    anim.to = quatf::from_random(&random);
                     anim.rotation_speed = random.NextRange(0.3f, 1.0f);
                     anim.move_speed = random.NextRange(0.2f, 3.0f);
                 }
                 ASSERT(count < 2);
-                quatf q = quatf::SlerpShortway(anim.from, anim.timer, anim.to);
+                quatf q = quatf::slerp_shortway(anim.from, anim.timer, anim.to);
                 anim.actor->SetRotation(q);
-                const auto movement = q.In() * anim.move_speed * delta;
+                const auto movement = q.in() * anim.move_speed * delta;
                 const auto new_pos  = box_extents.wrap
                 (
                     anim.actor->GetPosition() + movement

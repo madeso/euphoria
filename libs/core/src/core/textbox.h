@@ -18,37 +18,37 @@ namespace euphoria::core
     constexpr unsigned char BIT_RIGHT   = 1 << 3;
     constexpr unsigned char BIT_NO_LINE = ~(BIT_UP | BIT_DOWN | BIT_LEFT | BIT_RIGHT);
 
-    struct TextBoxStyle
+    struct text_box_style
     {
     private:
-        TextBoxStyle();
+        text_box_style();
 
     public:
-        static TextBoxStyle
-        Create(std::function<std::string(char)> connections_func);
+        static text_box_style
+        create(std::function<std::string(char)> connections_func);
 
-        [[nodiscard]] std::string
-        GetString(char s) const;
+        [[nodiscard]] auto
+        get_string(char s) const -> std::string;
 
     private:
         std::vector<std::string> connections;
     };
 
 
-    TextBoxStyle
-    TerminalStyle();
+    text_box_style
+    terminal_style();
 
-    TextBoxStyle
-    Utf8StraightStyle();
+    text_box_style
+    utf8_straight_style();
 
-    TextBoxStyle
-    Utf8RoundedStyle();
+    text_box_style
+    utf8_rounded_style();
 
-    TextBoxStyle
-    Utf8DoubleLineStyle();
+    text_box_style
+    utf_8double_line_style();
 
-    TextBoxStyle
-    AsciiStyle();
+    text_box_style
+    ascii_style();
 
     /* TextBox: Abstraction for 2-dimensional text strings with linedrawing support
     Copyright (c) 2017 Joel Yliluoma - http://iki.fi/bisqwit/
@@ -56,13 +56,13 @@ namespace euphoria::core
     https://gist.github.com/bisqwit/458048c60d271ab2536665cb81595c6b
     */
     // todo(Gustav): change to allow origin and negative drawing indices
-    struct TextBox
+    struct text_box
     {
-        static TextBox
-        Empty();
+        static text_box
+        create_empty();
 
-        static TextBox
-        FromStrings(const std::vector<std::string>& str);
+        static text_box
+        create_from_strings(const std::vector<std::string>& str);
 
 
         ///////////////////////////////////////////////////////////////////////////
@@ -71,12 +71,12 @@ namespace euphoria::core
         /** Place a single character in the given coordinate.
         Notice that behavior is undefined if the character is in 00-1F range. */
         void
-        PutChar(std::size_t x, std::size_t y, char c);
+        put_char(std::size_t x, std::size_t y, char c);
 
         /** Modify a character using a callback */
         template<typename F>
         void
-        ModChar(std::size_t x, std::size_t y, F&& func)
+        mod_char(std::size_t x, std::size_t y, F&& func)
         {
             ExtendTo(x,y);
             func(data[y][x]);
@@ -87,24 +87,24 @@ namespace euphoria::core
         or if the string includes multibyte characters.
         */
         void
-        PutString(std::size_t x, std::size_t y, const std::string& s);
+        put_string(std::size_t x, std::size_t y, const std::string& s);
 
-        static TextBox
-        FromString(const std::string& s, std::size_t x=0, std::size_t y=0);
+        static text_box
+        from_string(const std::string& s, std::size_t x=0, std::size_t y=0);
 
 
         /* Put a 2D string starting at the given coordinate */
         void
-        PutBox(std::size_t x, std::size_t y, const TextBox& b);
+        put_box(std::size_t x, std::size_t y, const text_box& b);
 
-        [[nodiscard]] TextBox
-        PutBoxCopy(std::size_t x, std::size_t y, const TextBox& b) const;
+        [[nodiscard]] text_box
+        put_box_copy(std::size_t x, std::size_t y, const text_box& b) const;
 
         /** Draw a horizontal line.
         If bef=true, the line starts from the left edge of the first character cell, otherwise it starts from its center.
         If aft=true, the line ends in the right edge of the last character cell, otherwise it ends in its center */
         void
-        PutHoriLine
+        put_horizontal_line
         (
             std::size_t x,
             std::size_t y,
@@ -117,7 +117,7 @@ namespace euphoria::core
         If bef=true, the line starts from the top edge of the first character cell, otherwise it starts from its center.
         If aft=true, the line ends in the bottom edge of the last character cell, otherwise it ends in its center */
         void
-        PutVertLine
+        put_vertical_line
         (
             std::size_t x,
             std::size_t y,
@@ -131,11 +131,11 @@ namespace euphoria::core
         // General operations
 
         [[nodiscard]] std::vector<std::string>
-        ToString(const TextBoxStyle& style = TerminalStyle()) const;
+        to_string(const text_box_style& style = terminal_style()) const;
 
         /* Delete trailing blank from the bottom and right edges */
         void
-        Trim();
+        trim();
 
 
         ///////////////////////////////////////////////////////////////////////////
@@ -143,14 +143,14 @@ namespace euphoria::core
 
         /* Calculate the current dimensions of the string */
         [[nodiscard]] std::size_t
-        Height() const;
+        get_height() const;
 
         [[nodiscard]] std::size_t
-        Width() const;
+        get_width() const;
 
         // width x height
         [[nodiscard]] std::pair<std::size_t, std::size_t>
-        Size() const;
+        get_size() const;
 
         ///////////////////////////////////////////////////////////////////////////
         // Tree graph
@@ -228,8 +228,8 @@ namespace euphoria::core
             typename OneLinerFunc,
             typename SimpleTestFunc
         >
-        static TextBox
-        CreateTreeGraph
+        static text_box
+        create_tree_graph
         (
             const T& e,
             std::size_t maxwidth,
@@ -244,17 +244,17 @@ namespace euphoria::core
             ASSERTX(maxwidth >=16, maxwidth);
 
             const auto label = to_string(e);
-            auto result = TextBox::FromString(label);
+            auto result = text_box::from_string(label);
 
             if(auto [begin, end] = count_children(e); begin != end)
             {
-                std::vector<TextBox> boxes;
+                std::vector<text_box> boxes;
                 boxes.reserve(std::distance(begin, end));
                 for(auto i = begin; i != end; ++i)
                 {
                     boxes.emplace_back
                     (
-                        CreateTreeGraph
+                        create_tree_graph
                         (
                             *i,
                             std::max<std::size_t>(maxwidth - 2, 16),
@@ -279,7 +279,7 @@ namespace euphoria::core
                     firstx
                 );
             }
-            result.Trim();
+            result.trim();
             return result;
         }
 
@@ -295,13 +295,13 @@ namespace euphoria::core
         Find leftmost position where box b can be appended into *this without overlap
         */
         [[nodiscard]] std::size_t
-        horiz_append_position(std::size_t y, const TextBox& b) const;
+        horiz_append_position(std::size_t y, const text_box& b) const;
 
         /** Calculate the earliest Y coordinate where the given box could be placed without colliding with existing content in this box. Guaranteed to be <= height().
         * Find topmost position where box b can be appended into *this without overlap
         */
         [[nodiscard]] std::size_t
-        vert_append_position(std::size_t x, const TextBox& b) const;
+        vert_append_position(std::size_t x, const text_box& b) const;
 
         [[nodiscard]] std::size_t
         FindLeftPadding(std::size_t y) const;
@@ -319,9 +319,9 @@ namespace euphoria::core
         static void
         SubCreateTreeGraph
         (
-            TextBox* result,
+            text_box* result,
             size_t maxwidth,
-            const std::vector<TextBox>& boxes,
+            const std::vector<text_box>& boxes,
             bool oneliner_test,
             bool simple_test,
             const std::string& label,
@@ -330,7 +330,7 @@ namespace euphoria::core
         );
 
         std::vector<std::string> data;
-        TextBox();
+        text_box();
     };
 }
 

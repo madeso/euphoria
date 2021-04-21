@@ -203,11 +203,11 @@ namespace euphoria::core
             for(int x = left; x < right; ++x)
             {
                 // todo(Gustav): use length squared!
-                const float sq = vec2f::FromTo
+                const float sq = vec2f::from_to
                 (
                     vec2f{static_cast<float>(x), static_cast<float>(y)},
                     center.StaticCast<float>()
-                ).GetLength();
+                ).get_length();
                 bool blend = false;
                 float blend_factor = 1.0f;
 
@@ -508,7 +508,7 @@ namespace euphoria::core
                 const auto dst_color = dst->get_pixel(dx, dy);
                 const auto src_color = src.get_pixel(x, y);
                 const auto tinted_color = Tint(src_color, tint);
-                const auto result_color = Blend(tinted_color, dst_color);
+                const auto result_color = blend(tinted_color, dst_color);
                 dst->set_pixel(dx, dy, result_color);
             }
         }
@@ -554,7 +554,7 @@ namespace euphoria::core
         image* dest_image,
         const vec2i& position,
         const image& source_image,
-        BlendMode blend_mode,
+        blend_mode blend_mode,
         PixelsOutside clip
     )
     {
@@ -578,7 +578,7 @@ namespace euphoria::core
                 {
                     const auto top = source_image.get_pixel(x, y);
                     const auto bottom = dest_image->get_pixel(dest_x, dest_y);
-                    const auto color = Blend(top, bottom, blend_mode);
+                    const auto color = blend(top, bottom, blend_mode);
                     dest_image->set_pixel(dest_x, dest_y, color);
                 }
             }

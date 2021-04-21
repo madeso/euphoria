@@ -5,7 +5,7 @@
 namespace euphoria::core
 {
     void
-    CliProgressDots::Update()
+    cli_progress_dots::update()
     {
         const auto now = Now();
         if(has_printed)

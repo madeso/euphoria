@@ -107,13 +107,13 @@ namespace euphoria::core
         Ray2Ray2Result
         Ray2Ray2Result_Parallel()
         {
-            return {false, true, vec2f::Zero(), -1.0f, -1.0f};
+            return {false, true, vec2f::zero(), -1.0f, -1.0f};
         }
 
         Ray2Ray2Result
         Ray2Ray2Result_NoCollision()
         {
-            return {false, false, vec2f::Zero(), -1.0f, -1.0f};
+            return {false, false, vec2f::zero(), -1.0f, -1.0f};
         }
 
         Ray2Ray2Result
@@ -201,7 +201,7 @@ namespace euphoria::core
         const vec3f& point
     )
     {
-        const auto newNorm = (point - ray.from).GetNormalized();
+        const auto newNorm = (point - ray.from).get_normalized();
 
         const auto d = dot(newNorm, ray.dir);
         return Abs(1.0f - d);
@@ -230,32 +230,32 @@ namespace euphoria::core
     bool
     GetIntersection
     (
-        const Sphere& lhs,
+        const sphere& lhs,
         const vec3f& lhs_center,
-        const Sphere& rhs,
+        const sphere& rhs,
         const vec3f& rhs_center
     )
     {
-        return vec3f::FromTo(lhs_center, rhs_center).GetLengthSquared() < Square(lhs.radius + rhs.radius);
+        return vec3f::from_to(lhs_center, rhs_center).get_length_squared() < Square(lhs.radius + rhs.radius);
     }
 
 
     bool
     ContainsPoint
     (
-        const Sphere& sphere,
+        const sphere& sphere,
         const vec3f& sphere_center,
         const vec3f& point
     )
     {
-        return vec3f::FromTo(sphere_center, point).GetLengthSquared() < Square(sphere.radius);
+        return vec3f::from_to(sphere_center, point).get_length_squared() < Square(sphere.radius);
     }
 
 
     vec3f
     ClosestPoint
     (
-        const Sphere& sphere,
+        const sphere& sphere,
         const vec3f& sphere_center,
         const vec3f& point
     )
@@ -268,7 +268,7 @@ namespace euphoria::core
     GetIntersection
     (
         const unit_ray3f& ray,
-        const Sphere& sphere,
+        const sphere& sphere,
         const vec3f& sphere_center
     )
     {

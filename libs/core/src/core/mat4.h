@@ -125,7 +125,7 @@ namespace euphoria::core
         vec3<T>
         get_transform(const vec3<T>& p, T w) const
         {
-            return get_transform(vec4<T>(p, w)).ToVec3(w);
+            return get_transform(vec4<T>(p, w)).to_vec3(w);
         }
 
         vec3<T>
@@ -250,7 +250,7 @@ namespace euphoria::core
         vec3<T>
         get_axis(int col) const
         {
-            return get_column(col).ToVec3();
+            return get_column(col).to_vec3();
         }
 
         vec3<T>
@@ -601,7 +601,7 @@ namespace euphoria::core
     {
         const auto OP = [&lhs, &rhs](int r, int c) -> T
         {
-            return ComponentMultiply(lhs.get_row(r), rhs.get_column(c)).GetComponentSum();
+            return component_multiply(lhs.get_row(r), rhs.get_column(c)).get_component_sum();
         };
         return mat4<T>::from_row_major
         (
@@ -617,7 +617,7 @@ namespace euphoria::core
     {
         const auto OP = [&lhs, &rhs](int r) -> T
         {
-            return ComponentMultiply(lhs.get_row(r), rhs).GetComponentSum();
+            return component_multiply(lhs.get_row(r), rhs).get_component_sum();
         };
 
         return vec4<T>(OP(0), OP(1), OP(2), OP(3));

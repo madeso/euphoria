@@ -33,14 +33,14 @@ namespace
 namespace euphoria::core
 {
     std::string_view
-    GetCp437(int c)
+    get_cp437(int c)
     {
         ASSERTX(IsWithinInclusivei(0, c, 255), c);
         return CODE_PAGE[c];
     }
 
     std::string_view
-    GetRandomCp437InUtf8(Random* random)
+    get_random_cp437_in_utf8(Random* random)
     {
         while(true)
         {
@@ -48,7 +48,7 @@ namespace euphoria::core
             if(c == 0x00) { continue; } // not NULL
             if(c == 0x20) { continue; } // neither Space
             if(c == 0xFF) { continue; } // neither NBSP
-            return GetCp437(c);
+            return get_cp437(c);
         }
     }
 }

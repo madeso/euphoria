@@ -6,9 +6,9 @@ namespace euco = euphoria::core;
 
 TEST_CASE("axis_test", "[vec3]")
 {
-    REQUIRE(euco::vec3i(1, 0, 0) == euco::unit3i::XAxis());
-    REQUIRE(euco::vec3i(0, 1, 0) == euco::unit3i::YAxis());
-    REQUIRE(euco::vec3i(0, 0, 1) == euco::unit3i::ZAxis());
+    REQUIRE(euco::vec3i(1, 0, 0) == euco::unit3i::x_axis());
+    REQUIRE(euco::vec3i(0, 1, 0) == euco::unit3i::y_axis());
+    REQUIRE(euco::vec3i(0, 0, 1) == euco::unit3i::z_axis());
 }
 
 TEST_CASE("vec3-constructor_same", "[vec3]")
@@ -43,9 +43,9 @@ TEST_CASE("vec3-equal", "[vec3]")
 
 TEST_CASE("vec3-axis_test", "[vec3]")
 {
-    REQUIRE(euco::unit3i::XAxis() == euco::vec3i(1, 0, 0));
-    REQUIRE(euco::unit3i::YAxis() == euco::vec3i(0, 1, 0));
-    REQUIRE(euco::unit3i::ZAxis() == euco::vec3i(0, 0, 1));
+    REQUIRE(euco::unit3i::x_axis() == euco::vec3i(1, 0, 0));
+    REQUIRE(euco::unit3i::y_axis() == euco::vec3i(0, 1, 0));
+    REQUIRE(euco::unit3i::z_axis() == euco::vec3i(0, 0, 1));
 }
 
 TEST_CASE("vec3-neg_test", "[vec3]")
@@ -57,10 +57,10 @@ TEST_CASE("vec3-neg_test", "[vec3]")
 
 TEST_CASE("vec3-from_to", "[vec3]")
 {
-    REQUIRE(euco::vec3i::FromTo(euco::vec3i(0, 0, 0), euco::vec3i(0, 0, 0))
+    REQUIRE(euco::vec3i::from_to(euco::vec3i(0, 0, 0), euco::vec3i(0, 0, 0))
             == euco::vec3i(0, 0, 0));
-    REQUIRE(euco::vec3i::FromTo(euco::vec3i(0, 0, 0), euco::vec3i(1, 0, 0))
+    REQUIRE(euco::vec3i::from_to(euco::vec3i(0, 0, 0), euco::vec3i(1, 0, 0))
             == euco::vec3i(1, 0, 0));
-    REQUIRE(euco::vec3i::FromTo(euco::vec3i(0, -5, 0), euco::vec3i(0, 25, 0))
+    REQUIRE(euco::vec3i::from_to(euco::vec3i(0, -5, 0), euco::vec3i(0, 25, 0))
             == euco::vec3i(0, 30, 0));
 }

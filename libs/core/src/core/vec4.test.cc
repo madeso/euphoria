@@ -52,7 +52,7 @@ TEST_CASE("vec4-constructor_array", "[vec4]")
 
 TEST_CASE("vec4-cast_vec3", "[vec4]")
 {
-    const auto v = euco::vec4i(1, 2, 3, 0).ToVec3();
+    const auto v = euco::vec4i(1, 2, 3, 0).to_vec3();
     REQUIRE(v.x == 1);
     REQUIRE(v.y == 2);
     REQUIRE(v.z == 3);
@@ -61,12 +61,12 @@ TEST_CASE("vec4-cast_vec3", "[vec4]")
 TEST_CASE("vec4-componentsum", "[vec4]")
 {
     const auto v = euco::vec4i(1, 2, 3, 4);
-    REQUIRE(v.GetComponentSum() == 10);
+    REQUIRE(v.get_component_sum() == 10);
 }
 
 TEST_CASE("vec4-component_multipl", "[vec4]")
 {
-    const auto v = euco::ComponentMultiply(
+    const auto v = euco::component_multiply(
             euco::vec4i(1, 2, 3, 4), euco::vec4i(4, 3, 2, 1));
     REQUIRE(v == euco::vec4i(4, 6, 6, 4));
 }

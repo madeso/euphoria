@@ -17,7 +17,7 @@ namespace euphoria::render
     {
         explicit sprite(
                 std::shared_ptr<texture2d> texture,
-                const core::vec2f& position = core::vec2f::Zero());
+                const core::vec2f& position = core::vec2f::zero());
 
         [[nodiscard]] float
         get_height() const;
