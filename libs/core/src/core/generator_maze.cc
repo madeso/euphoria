@@ -7,94 +7,94 @@
 namespace euphoria::core::generator
 {
     vec2i
-    DirToOffset(const Dir d)
+    dir_to_offset(const dir d)
     {
         switch(d)
         {
-        case Dir::South: return vec2i { 0, -1};
-        case Dir::North: return vec2i { 0,  1};
-        case Dir::West:  return vec2i {-1,  0};
-        case Dir::East:  return vec2i { 1,  0};
+        case dir::south: return vec2i { 0, -1};
+        case dir::north: return vec2i { 0,  1};
+        case dir::west:  return vec2i {-1,  0};
+        case dir::east:  return vec2i { 1,  0};
         default: return vec2i(0, 0);
         }
     }
 
 
-    const std::vector<Dir>&
-    AllDirs()
+    const std::vector<dir>&
+    all_dirs()
     {
-        const static auto dirs = std::vector<Dir> {
-                Dir::North, Dir::South, Dir::East, Dir::West};
+        const static auto dirs = std::vector<dir> {
+                dir::north, dir::south, dir::east, dir::west};
         return dirs;
     }
 
 
-    Dir
-    FlipDirection(const Dir d)
+    dir
+    flip_direction(const dir d)
     {
         switch(d)
         {
-        case Dir::North: return Dir::South;
-        case Dir::South: return Dir::North;
-        case Dir::East: return Dir::West;
-        case Dir::West: return Dir::East;
-        default: return Dir::North;
+        case dir::north: return dir::south;
+        case dir::south: return dir::north;
+        case dir::east: return dir::west;
+        case dir::west: return dir::east;
+        default: return dir::north;
         }
     }
 
 
-    Cell::Type
-    DirToCellPath(const Dir d)
+    cell::type
+    dir_to_cell_path(const dir d)
     {
         switch(d)
         {
-        case Dir::North: return Cell::PathNorth;
-        case Dir::South: return Cell::PathSouth;
-        case Dir::East: return Cell::PathEast;
-        case Dir::West: return Cell::PathWest;
-        default: return Cell::PathNorth;
+        case dir::north: return cell::path_north;
+        case dir::south: return cell::path_south;
+        case dir::east: return cell::path_east;
+        case dir::west: return cell::path_west;
+        default: return cell::path_north;
         }
     }
 
 
     void
-    Visit(Maze* maze, const vec2i& np)
+    visit(maze* maze, const vec2i& np)
     {
-        (*maze)(np.x, np.y) |= Cell::Visited;
+        (*maze)(np.x, np.y) |= cell::visited;
     }
 
 
     vec2i
-    AddStepToMaze(Maze* maze, const vec2i& c, Dir dir)
+    add_step_to_maze(maze* maze, const vec2i& c, dir dir)
     {
-        const auto o  = DirToOffset(dir);
+        const auto o  = dir_to_offset(dir);
         const auto np = c + o;
         (*maze)(np.x, np.y)
-                |= Cell::Visited | DirToCellPath(FlipDirection(dir));
-        (*maze)(c.x, c.y) |= DirToCellPath(dir);
+                |= cell::visited | dir_to_cell_path(flip_direction(dir));
+        (*maze)(c.x, c.y) |= dir_to_cell_path(dir);
         return np;
     }
 
 
     bool
-    HasVisited(Maze* maze, const vec2i& np)
+    has_visited(maze* maze, const vec2i& np)
     {
-        return ((*maze)(np.x, np.y) & Cell::Visited) != 0;
+        return ((*maze)(np.x, np.y) & cell::visited) != 0;
     }
 
 
     bool
-    CanVisitWithoutMakingLoop(Maze* maze, const vec2i& np)
+    can_visit_without_making_loop(maze* maze, const vec2i& np)
     {
         const auto world_size = Recti::FromWidthHeight(
-                maze->GetWidth() - 1, maze->GetHeight() - 1);
-        return world_size.ContainsInclusive(np) && !HasVisited(maze, np);
+                maze->get_width() - 1, maze->get_height() - 1);
+        return world_size.ContainsInclusive(np) && !has_visited(maze, np);
     }
 
 
     template <typename T>
     T
-    PopRandom(std::vector<T>* vec, Random* r)
+    pop_random(std::vector<T>* vec, Random* r)
     {
         ASSERT(!vec->empty());
         const auto i = r->NextRange(vec->size());
@@ -105,46 +105,46 @@ namespace euphoria::core::generator
 
 
     vec2i
-    RandomPositionOnMaze(Random* random, Maze* maze)
+    random_position_on_maze(Random* random, maze* maze)
     {
-        return {random->NextRange(maze->GetWidth()),
-                random->NextRange(maze->GetHeight())};
+        return {random->NextRange(maze->get_width()),
+                random->NextRange(maze->get_height())};
     }
 
 
     //////////////////////////////////////////////////////////////////////////////////////////
 
     void
-    RecursiveBacktracker::Setup()
+    recursive_backtracker::setup()
     {
-        maze->Clear(Cell::None);
+        maze->clear(cell::none);
 
-        const auto random_position = RandomPositionOnMaze(random, maze);
+        const auto random_position = random_position_on_maze(random, maze);
 
         stack.push(random_position);
-        (*maze)(random_position.x, random_position.y) = Cell::Visited;
+        (*maze)(random_position.x, random_position.y) = cell::visited;
         visited_cells = 1;
     }
 
 
     bool
-    RecursiveBacktracker::HasMoreWork() const
+    recursive_backtracker::has_more_work() const
     {
-        return visited_cells < maze->GetWidth() * maze->GetHeight();
+        return visited_cells < maze->get_width() * maze->get_height();
     }
 
 
     void
-    RecursiveBacktracker::Work()
+    recursive_backtracker::work()
     {
         const auto c = stack.top();
 
-        std::vector<Dir> neighbours;
+        std::vector<dir> neighbours;
 
-        for(auto d: AllDirs())
+        for(auto d: all_dirs())
         {
-            const auto np = c + DirToOffset(d);
-            if(CanVisitWithoutMakingLoop(maze, np))
+            const auto np = c + dir_to_offset(d);
+            if(can_visit_without_making_loop(maze, np))
             {
                 neighbours.push_back(d);
             }
@@ -156,8 +156,8 @@ namespace euphoria::core::generator
         }
         else
         {
-            const Dir dir = random->Next(neighbours);
-            auto      np  = AddStepToMaze(maze, c, dir);
+            const dir dir = random->Next(neighbours);
+            auto      np  = add_step_to_maze(maze, c, dir);
             stack.push(np);
             visited_cells += 1;
         }
@@ -167,15 +167,15 @@ namespace euphoria::core::generator
     //////////////////////////////////////////////////////////////////////////////////////////
 
     void
-    AddToFrontier(
-            Maze*                                maze,
-            std::vector<RandomTraversal::Entry>* frontier,
+    add_to_frontier(
+            maze*                                maze,
+            std::vector<random_traversal::entry>* frontier,
             const vec2i&                         p)
     {
-        Visit(maze, p);
-        for(auto d: AllDirs())
+        visit(maze, p);
+        for(auto d: all_dirs())
         {
-            if(CanVisitWithoutMakingLoop(maze, p + DirToOffset(d)))
+            if(can_visit_without_making_loop(maze, p + dir_to_offset(d)))
             {
                 frontier->push_back({p, d});
             }
@@ -184,40 +184,40 @@ namespace euphoria::core::generator
 
 
     void
-    RandomTraversal::Setup()
+    random_traversal::setup()
     {
-        maze->Clear(Cell::None);
+        maze->clear(cell::none);
 
-        AddToFrontier(maze, &frontier, RandomPositionOnMaze(random, maze));
+        add_to_frontier(maze, &frontier, random_position_on_maze(random, maze));
     }
 
 
     bool
-    RandomTraversal::HasMoreWork() const
+    random_traversal::has_more_work() const
     {
         return !frontier.empty();
     }
 
 
     void
-    RandomTraversal::Work()
+    random_traversal::work()
     {
-        auto       f  = PopRandom(&frontier, random);
-        const auto np = f.position + DirToOffset(f.direction);
+        auto       f  = pop_random(&frontier, random);
+        const auto np = f.position + dir_to_offset(f.direction);
 
-        if(!CanVisitWithoutMakingLoop(maze, np))
+        if(!can_visit_without_making_loop(maze, np))
         {
             return;
         }
-        AddStepToMaze(maze, f.position, f.direction);
+        add_step_to_maze(maze, f.position, f.direction);
 
-        AddToFrontier(maze, &frontier, np);
+        add_to_frontier(maze, &frontier, np);
     }
 
 
     //////////////////////////////////////////////////////////////////////////////////////////
 
-    Drawer::Drawer()
+    drawer::drawer()
         : wall_color(color::black)
         , cell_color(color::light_gray)
         , cell_visited_color(color::white)
@@ -226,11 +226,11 @@ namespace euphoria::core::generator
     {}
 
     rgbi
-    Drawer::CalculateCellColor(int x, int y) const
+    drawer::calculate_cell_color(int x, int y) const
     {
         const auto cell_value = (*maze)(x, y);
 
-        if(tracker != nullptr && tracker->HasMoreWork() && !tracker->stack.empty())
+        if(tracker != nullptr && tracker->has_more_work() && !tracker->stack.empty())
         {
             const auto t = tracker->stack.top();
             if(x == t.x && y == t.y)
@@ -243,7 +243,7 @@ namespace euphoria::core::generator
         {
             for(auto e: traversal->frontier)
             {
-                auto p = e.position + DirToOffset(e.direction);
+                auto p = e.position + dir_to_offset(e.direction);
                 if(p.x == x && p.y == y)
                 {
                     return unit_color;
@@ -251,7 +251,7 @@ namespace euphoria::core::generator
             }
         }
 
-        if((cell_value & Cell::Visited) != 0)
+        if((cell_value & cell::visited) != 0)
         {
             return cell_visited_color;
         }
@@ -262,26 +262,26 @@ namespace euphoria::core::generator
     }
 
     void
-    Drawer::Draw()
+    drawer::draw()
     {
         const auto path_size = cell_size + wall_size;
 
         image.setup_no_alpha_support(
-                wall_size + maze->GetWidth() * path_size,
-                wall_size + maze->GetHeight() * path_size);
+                wall_size + maze->get_width() * path_size,
+                wall_size + maze->get_height() * path_size);
 
         clear(&image, wall_color);
 
-        for(int x = 0; x < maze->GetWidth(); x += 1)
+        for(int x = 0; x < maze->get_width(); x += 1)
         {
-            for(int y = 0; y < maze->GetHeight(); y += 1)
+            for(int y = 0; y < maze->get_height(); y += 1)
             {
                 const auto px = wall_size + x * path_size;
                 const auto py = wall_size + y * path_size + cell_size - 1;
 
                 draw_square(
                         &image,
-                        CalculateCellColor(x, y),
+                        calculate_cell_color(x, y),
                         px,
                         py,
                         cell_size);
@@ -292,14 +292,14 @@ namespace euphoria::core::generator
 
                 const auto cell_value = (*maze)(x, y);
 
-                if((cell_value & Cell::PathSouth) != 0)
+                if((cell_value & cell::path_south) != 0)
                 {
                     draw_rect(
                             &image,
                             corridor_color,
                             xywh(px, py - cell_size, cell_size, wall_size));
                 }
-                if((cell_value & Cell::PathEast) != 0)
+                if((cell_value & cell::path_east) != 0)
                 {
                     draw_rect(
                             &image,

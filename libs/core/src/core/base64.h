@@ -8,10 +8,10 @@
 namespace euphoria::core::base64
 {
     std::string
-    Encode(std::shared_ptr<MemoryChunk> memory);
+    encode(std::shared_ptr<MemoryChunk> memory);
 
     std::shared_ptr<MemoryChunk>
-    Decode(const std::string& input);
+    decode(const std::string& input);
 }
 
 #endif  // EUPHORIA_BASE64_H

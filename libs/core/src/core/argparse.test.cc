@@ -935,7 +935,7 @@ TEST_CASE("argparse_error", "[argparse]")
 
     SECTION("fourway test int")
     {
-        using FF = Fourway<int>;
+        using FF = fourway<int>;
         auto ff = FF{0};
         parser.add("f", &ff);
 
@@ -951,20 +951,20 @@ TEST_CASE("argparse_error", "[argparse]")
             const auto res = parser.parse(MakeArguments({"4/2"}));
             INFO(output->messages);
             CHECK(res == argparse::ok);
-            CHECK(ff == FF::FromLrud(2, 4));
+            CHECK(ff == FF::from_lrud(2, 4));
         }
         SECTION("all values")
         {
             const auto res = parser.parse(MakeArguments({"1/2/3/4"}));
             INFO(output->messages);
             CHECK(res == argparse::ok);
-            CHECK(ff == FF::FromLrud(4, 2, 1, 3));
+            CHECK(ff == FF::from_lrud(4, 2, 1, 3));
         }
     }
 
     SECTION("fourway test enum")
     {
-        using FF = Fourway<Animal>;
+        using FF = fourway<Animal>;
         auto ff = FF{Animal::None};
         parser.add("f", &ff);
 
@@ -980,7 +980,7 @@ TEST_CASE("argparse_error", "[argparse]")
             const auto res = parser.parse(MakeArguments({"cat/none"}));
             INFO(output->messages);
             CHECK(res == argparse::ok);
-            CHECK(ff == FF::FromLrud(Animal::None, Animal::Cat));
+            CHECK(ff == FF::from_lrud(Animal::None, Animal::Cat));
         }
     }
 

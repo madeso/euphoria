@@ -9,7 +9,7 @@
 #include "core/vfs_path.h"
 #include "core/os.h"
 #include "core/range.h"
-#include "core/camera.h"
+#include "core/camera3.h"
 #include "core/stringutils.h"
 #include "core/stdutils.h"
 #include "core/proto.h"

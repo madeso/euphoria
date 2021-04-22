@@ -4,7 +4,7 @@
 
 namespace euphoria::core
 {
-    struct BufferBuilder2d;
+    struct buffer_builder2d;
 }
 
 namespace euphoria::render
@@ -12,7 +12,7 @@ namespace euphoria::render
     struct Buffer2d
     {
     public:
-        Buffer2d(const core::BufferBuilder2d& bb);
+        Buffer2d(const core::buffer_builder2d& bb);
 
         void
         Draw() const;

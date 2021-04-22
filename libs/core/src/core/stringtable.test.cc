@@ -19,53 +19,53 @@ TEST_CASE("stringtable-generator", "[stringtable]")
 
     SECTION("first and last names")
     {
-        const auto table = euco::TableGenerator<Person>(persons)
-                                   .AddColumn(
+        const auto table = euco::table_generator<Person>(persons)
+                                   .add_column(
                                            "First name",
                                            [](const Person& p) -> std::string {
                                                return p.first;
                                            })
-                                   .AddColumn(
+                                   .add_column(
                                            "Last name",
                                            [](const Person& p) -> std::string {
                                                return p.last;
                                            })
-                                   .ToTable();
-        REQUIRE(table.GetWidth() == 2);
-        REQUIRE(table.GetHeight() == 5);
+                                   .to_table();
+        REQUIRE(table.get_width() == 2);
+        REQUIRE(table.get_height() == 5);
         const auto first = std::vector<std::string> {
                 "First name", "Jerry", "Elaine", "Cosmo", "George"};
         const auto last = std::vector<std::string> {
                 "Last name", "Seinfeld", "Benes", "Kramer", "Costanza"};
-        CHECK(euco::CalcColumnAsVector(table, 0) == first);
-        CHECK(euco::CalcColumnAsVector(table, 1) == last);
+        CHECK(euco::calc_column_as_vector(table, 0) == first);
+        CHECK(euco::calc_column_as_vector(table, 1) == last);
         // todo(Gustav): add print tests
         // PrintTableSimple(std::cout, table);
     }
 
     SECTION("sort on last name")
     {
-        const auto table = euco::TableGenerator<Person>(persons)
-                                   .AddColumn(
+        const auto table = euco::table_generator<Person>(persons)
+                                   .add_column(
                                            "First name",
                                            [](const Person& p) -> std::string {
                                                return p.first;
                                            })
-                                   .AddColumn(
+                                   .add_column(
                                            "Last name",
                                            [](const Person& p) -> std::string {
                                                return p.last;
                                            })
                                    .Sort(&Person::last)
-                                   .ToTable();
-        REQUIRE(table.GetWidth() == 2);
-        REQUIRE(table.GetHeight() == 5);
+                                   .to_table();
+        REQUIRE(table.get_width() == 2);
+        REQUIRE(table.get_height() == 5);
         const auto first = std::vector<std::string> {
                 "First name", "Elaine", "George", "Cosmo", "Jerry"};
         const auto last = std::vector<std::string> {
                 "Last name", "Benes", "Costanza", "Kramer", "Seinfeld"};
-        CHECK(euco::CalcColumnAsVector(table, 0) == first);
-        CHECK(euco::CalcColumnAsVector(table, 1) == last);
+        CHECK(euco::calc_column_as_vector(table, 0) == first);
+        CHECK(euco::calc_column_as_vector(table, 1) == last);
         // PrintTableGrid(std::cout, table);
     }
 }
@@ -80,100 +80,100 @@ TEST_CASE("stringtable-from_csv_default", "[stringtable]")
 
     SECTION("not ending with newline")
     {
-        const auto table = euco::TableFromCsv("a,b\n1,2");
-        REQUIRE(table.GetWidth() == 2);
-        REQUIRE(table.GetHeight() == 2);
-        CHECK(euco::CalcColumnAsVector(table, 0) == firstcol);
-        CHECK(euco::CalcColumnAsVector(table, 1) == secondcol);
+        const auto table = euco::table_from_csv("a,b\n1,2");
+        REQUIRE(table.get_width() == 2);
+        REQUIRE(table.get_height() == 2);
+        CHECK(euco::calc_column_as_vector(table, 0) == firstcol);
+        CHECK(euco::calc_column_as_vector(table, 1) == secondcol);
     }
 
     SECTION("single column")
     {
-        const auto table = euco::TableFromCsv("ab\n12");
-        REQUIRE(table.GetWidth() == 1);
-        REQUIRE(table.GetHeight() == 2);
-        CHECK(euco::CalcColumnAsVector(table, 0) == ab12);
+        const auto table = euco::table_from_csv("ab\n12");
+        REQUIRE(table.get_width() == 1);
+        REQUIRE(table.get_height() == 2);
+        CHECK(euco::calc_column_as_vector(table, 0) == ab12);
     }
 
     SECTION("ending with newlines")
     {
-        const auto table = euco::TableFromCsv("a,b\n\n\n1,2\n\n");
-        REQUIRE(table.GetWidth() == 2);
-        REQUIRE(table.GetHeight() == 2);
-        CHECK(euco::CalcColumnAsVector(table, 0) == firstcol);
-        CHECK(euco::CalcColumnAsVector(table, 1) == secondcol);
+        const auto table = euco::table_from_csv("a,b\n\n\n1,2\n\n");
+        REQUIRE(table.get_width() == 2);
+        REQUIRE(table.get_height() == 2);
+        CHECK(euco::calc_column_as_vector(table, 0) == firstcol);
+        CHECK(euco::calc_column_as_vector(table, 1) == secondcol);
     }
 
     SECTION("with spaces (trim)")
     {
-        euco::CsvParserOptions options;
-        options.trim = euco::CsvTrim::Trim;
+        euco::csv_parser_options options;
+        options.trim = euco::csv_trim::trim;
 
         const auto table
-                = euco::TableFromCsv("  a  ,  b  \n  1    ,  2  ", options);
-        REQUIRE(table.GetWidth() == 2);
-        REQUIRE(table.GetHeight() == 2);
-        CHECK(euco::CalcColumnAsVector(table, 0) == firstcol);
-        CHECK(euco::CalcColumnAsVector(table, 1) == secondcol);
+                = euco::table_from_csv("  a  ,  b  \n  1    ,  2  ", options);
+        REQUIRE(table.get_width() == 2);
+        REQUIRE(table.get_height() == 2);
+        CHECK(euco::calc_column_as_vector(table, 0) == firstcol);
+        CHECK(euco::calc_column_as_vector(table, 1) == secondcol);
     }
 
     SECTION("with spaces (keep)")
     {
-        const auto table = euco::TableFromCsv("a, b \n1,2");
-        REQUIRE(table.GetWidth() == 2);
-        REQUIRE(table.GetHeight() == 2);
-        CHECK(euco::CalcColumnAsVector(table, 0) == firstcol);
-        CHECK(euco::CalcColumnAsVector(table, 1) == secondcolspace);
+        const auto table = euco::table_from_csv("a, b \n1,2");
+        REQUIRE(table.get_width() == 2);
+        REQUIRE(table.get_height() == 2);
+        CHECK(euco::calc_column_as_vector(table, 0) == firstcol);
+        CHECK(euco::calc_column_as_vector(table, 1) == secondcolspace);
     }
 
     SECTION("with spaces (string)")
     {
-        euco::CsvParserOptions options;
-        options.trim = euco::CsvTrim::Trim;
+        euco::csv_parser_options options;
+        options.trim = euco::csv_trim::trim;
 
-        const auto table = euco::TableFromCsv("a,   \" b \"   \n1,2", options);
-        REQUIRE(table.GetWidth() == 2);
-        REQUIRE(table.GetHeight() == 2);
-        CHECK(euco::CalcColumnAsVector(table, 0) == firstcol);
-        CHECK(euco::CalcColumnAsVector(table, 1) == secondcolspace);
+        const auto table = euco::table_from_csv("a,   \" b \"   \n1,2", options);
+        REQUIRE(table.get_width() == 2);
+        REQUIRE(table.get_height() == 2);
+        CHECK(euco::calc_column_as_vector(table, 0) == firstcol);
+        CHECK(euco::calc_column_as_vector(table, 1) == secondcolspace);
     }
 
     SECTION("strings")
     {
-        const auto table = euco::TableFromCsv("\"a b\",b\n1,2");
-        REQUIRE(table.GetWidth() == 2);
-        REQUIRE(table.GetHeight() == 2);
-        CHECK(euco::CalcColumnAsVector(table, 0) == firstcolstring);
-        CHECK(euco::CalcColumnAsVector(table, 1) == secondcol);
+        const auto table = euco::table_from_csv("\"a b\",b\n1,2");
+        REQUIRE(table.get_width() == 2);
+        REQUIRE(table.get_height() == 2);
+        CHECK(euco::calc_column_as_vector(table, 0) == firstcolstring);
+        CHECK(euco::calc_column_as_vector(table, 1) == secondcol);
     }
 
     SECTION("not ending strings single col")
     {
-        const auto table    = euco::TableFromCsv("\"a b");
+        const auto table    = euco::table_from_csv("\"a b");
         const auto errorcol = std::vector<std::string> {"a b"};
-        REQUIRE(table.GetWidth() == 1);
-        REQUIRE(table.GetHeight() == 1);
-        CHECK(euco::CalcColumnAsVector(table, 0) == errorcol);
+        REQUIRE(table.get_width() == 1);
+        REQUIRE(table.get_height() == 1);
+        CHECK(euco::calc_column_as_vector(table, 0) == errorcol);
     }
 
     SECTION("not ending strings 2 cols")
     {
-        const auto table     = euco::TableFromCsv("err,\"a b");
+        const auto table     = euco::table_from_csv("err,\"a b");
         const auto errorcol1 = std::vector<std::string> {"err"};
         const auto errorcol2 = std::vector<std::string> {"a b"};
-        REQUIRE(table.GetWidth() == 2);
-        REQUIRE(table.GetHeight() == 1);
-        CHECK(euco::CalcColumnAsVector(table, 0) == errorcol1);
-        CHECK(euco::CalcColumnAsVector(table, 1) == errorcol2);
+        REQUIRE(table.get_width() == 2);
+        REQUIRE(table.get_height() == 1);
+        CHECK(euco::calc_column_as_vector(table, 0) == errorcol1);
+        CHECK(euco::calc_column_as_vector(table, 1) == errorcol2);
     }
 
     SECTION("string with quote")
     {
-        const auto table = euco::TableFromCsv("\"a \"\" b\"");
+        const auto table = euco::table_from_csv("\"a \"\" b\"");
         const auto col   = std::vector<std::string> {"a \" b"};
-        REQUIRE(table.GetWidth() == 1);
-        REQUIRE(table.GetHeight() == 1);
-        CHECK(euco::CalcColumnAsVector(table, 0) == col);
+        REQUIRE(table.get_width() == 1);
+        REQUIRE(table.get_height() == 1);
+        CHECK(euco::calc_column_as_vector(table, 0) == col);
     }
 }
 
@@ -183,63 +183,63 @@ TEST_CASE("stringtable-from_csv_not_default", "[stringtable]")
     const auto firstcolstring = std::vector<std::string> {"a b", "1"};
     const auto secondcol      = std::vector<std::string> {"b", "2"};
 
-    euco::CsvParserOptions options;
+    euco::csv_parser_options options;
     options.delim = 'c';
     options.str   = 's';
 
     SECTION("not ending with newline")
     {
-        const auto table = euco::TableFromCsv("acb\n1c2", options);
-        REQUIRE(table.GetWidth() == 2);
-        REQUIRE(table.GetHeight() == 2);
-        CHECK(euco::CalcColumnAsVector(table, 0) == firstcol);
-        CHECK(euco::CalcColumnAsVector(table, 1) == secondcol);
+        const auto table = euco::table_from_csv("acb\n1c2", options);
+        REQUIRE(table.get_width() == 2);
+        REQUIRE(table.get_height() == 2);
+        CHECK(euco::calc_column_as_vector(table, 0) == firstcol);
+        CHECK(euco::calc_column_as_vector(table, 1) == secondcol);
     }
 
     SECTION("ending with newlines")
     {
-        const auto table = euco::TableFromCsv("acb\n\n\n1c2\n\n", options);
-        REQUIRE(table.GetWidth() == 2);
-        REQUIRE(table.GetHeight() == 2);
-        CHECK(euco::CalcColumnAsVector(table, 0) == firstcol);
-        CHECK(euco::CalcColumnAsVector(table, 1) == secondcol);
+        const auto table = euco::table_from_csv("acb\n\n\n1c2\n\n", options);
+        REQUIRE(table.get_width() == 2);
+        REQUIRE(table.get_height() == 2);
+        CHECK(euco::calc_column_as_vector(table, 0) == firstcol);
+        CHECK(euco::calc_column_as_vector(table, 1) == secondcol);
     }
 
     SECTION("strings")
     {
-        const auto table = euco::TableFromCsv("sa bscb\n1c2", options);
-        REQUIRE(table.GetWidth() == 2);
-        REQUIRE(table.GetHeight() == 2);
-        CHECK(euco::CalcColumnAsVector(table, 0) == firstcolstring);
-        CHECK(euco::CalcColumnAsVector(table, 1) == secondcol);
+        const auto table = euco::table_from_csv("sa bscb\n1c2", options);
+        REQUIRE(table.get_width() == 2);
+        REQUIRE(table.get_height() == 2);
+        CHECK(euco::calc_column_as_vector(table, 0) == firstcolstring);
+        CHECK(euco::calc_column_as_vector(table, 1) == secondcol);
     }
 
     SECTION("not ending strings single col")
     {
-        const auto table    = euco::TableFromCsv("sa b", options);
+        const auto table    = euco::table_from_csv("sa b", options);
         const auto errorcol = std::vector<std::string> {"a b"};
-        REQUIRE(table.GetWidth() == 1);
-        REQUIRE(table.GetHeight() == 1);
-        CHECK(euco::CalcColumnAsVector(table, 0) == errorcol);
+        REQUIRE(table.get_width() == 1);
+        REQUIRE(table.get_height() == 1);
+        CHECK(euco::calc_column_as_vector(table, 0) == errorcol);
     }
 
     SECTION("not ending strings 2 cols")
     {
-        const auto table     = euco::TableFromCsv("errcsa b", options);
+        const auto table     = euco::table_from_csv("errcsa b", options);
         const auto errorcol1 = std::vector<std::string> {"err"};
         const auto errorcol2 = std::vector<std::string> {"a b"};
-        REQUIRE(table.GetWidth() == 2);
-        REQUIRE(table.GetHeight() == 1);
-        CHECK(euco::CalcColumnAsVector(table, 0) == errorcol1);
-        CHECK(euco::CalcColumnAsVector(table, 1) == errorcol2);
+        REQUIRE(table.get_width() == 2);
+        REQUIRE(table.get_height() == 1);
+        CHECK(euco::calc_column_as_vector(table, 0) == errorcol1);
+        CHECK(euco::calc_column_as_vector(table, 1) == errorcol2);
     }
 
     SECTION("string with quote")
     {
-        const auto table = euco::TableFromCsv("sa ss bs", options);
+        const auto table = euco::table_from_csv("sa ss bs", options);
         const auto col   = std::vector<std::string> {"a s b"};
-        REQUIRE(table.GetWidth() == 1);
-        REQUIRE(table.GetHeight() == 1);
-        CHECK(euco::CalcColumnAsVector(table, 0) == col);
+        REQUIRE(table.get_width() == 1);
+        REQUIRE(table.get_height() == 1);
+        CHECK(euco::calc_column_as_vector(table, 0) == col);
     }
 }

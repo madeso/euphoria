@@ -17,7 +17,7 @@ namespace euphoria::core::base64
     }
 
     std::string
-    Encode(std::shared_ptr<MemoryChunk> memory)
+    encode(std::shared_ptr<MemoryChunk> memory)
     {
         MemoryChunk& in = *memory;
         std::ostringstream out;
@@ -56,7 +56,7 @@ namespace euphoria::core::base64
     }
 
     std::shared_ptr<MemoryChunk>
-    Decode(const std::string& input)
+    decode(const std::string& input)
     {
         if(input.length() % 4 == 0)
         {

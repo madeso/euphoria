@@ -1,7 +1,7 @@
 #include "render/world.h"
 
 #include "core/assert.h"
-#include "core/camera.h"
+#include "core/camera3.h"
 
 #include "render/materialshader.h"
 #include "render/viewport.h"
@@ -18,9 +18,9 @@ namespace euphoria::render
     }
 
     void
-    World::Render(const Viewport& viewport, const core::Camera& camera)
+    World::Render(const Viewport& viewport, const core::camera3& camera)
     {
-        Render(camera, camera.Compile(viewport.GetAspectRatio()));
+        Render(camera, camera.compile(viewport.GetAspectRatio()));
     }
 
     void
@@ -44,8 +44,8 @@ namespace euphoria::render
     void
     World::Render
     (
-        const core::Camera& camera,
-        const core::CompiledCamera& compiled
+        const core::camera3& camera,
+        const core::compiled_camera3& compiled
     )
     {
         const auto projection_matrix = compiled.projection;

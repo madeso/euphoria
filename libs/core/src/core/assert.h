@@ -36,8 +36,8 @@
         }                                                                      \
         else                                                                   \
         {                                                                      \
-            if(::euphoria::core::assertlib::IsThrowing() == false) { BREAK_IN_DEBUG(); }                                                  \
-            ::euphoria::core::assertlib::OnAssert(                             \
+            if(::euphoria::core::assertlib::is_throwing() == false) { BREAK_IN_DEBUG(); }                                                  \
+            ::euphoria::core::assertlib::on_assert(                             \
                     #x,                                                        \
                     __LINE__,                                                  \
                     __FILE__,                                                  \
@@ -55,8 +55,8 @@
         }                                                                      \
         else                                                                   \
         {                                                                      \
-            if(::euphoria::core::assertlib::IsThrowing() == false) { BREAK_IN_DEBUG(); }                                                  \
-            ::euphoria::core::assertlib::OnAssert(                             \
+            if(::euphoria::core::assertlib::is_throwing() == false) { BREAK_IN_DEBUG(); }                                                  \
+            ::euphoria::core::assertlib::on_assert(                             \
                     #x,                                                        \
                     __LINE__,                                                  \
                     __FILE__,                                                  \
@@ -67,7 +67,7 @@
     } while(false)
 
 #define DIE(message)                                                           \
-    ::euphoria::core::assertlib::OnAssert(                                     \
+    ::euphoria::core::assertlib::on_assert(                                     \
             message,                                                           \
             __LINE__,                                                          \
             __FILE__,                                                          \
@@ -95,13 +95,13 @@ namespace euphoria::core::assertlib
     };
 
     void
-    StartThrowing();
+    start_throwing();
 
     bool
-    IsThrowing();
+    is_throwing();
 
     void
-    OnAssert
+    on_assert
     (
         const char* expression,
         int line,

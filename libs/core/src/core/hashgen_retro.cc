@@ -21,7 +21,7 @@ namespace
         typename I
     >
     void
-    RenderRetroImpl
+    render_retro_impl
     (
         image* image,
         I code,
@@ -77,9 +77,9 @@ namespace
 namespace euphoria::core
 {
     void
-    RenderRetro(image* image, int code)
+    render_retro(image* image, int code)
     {
-        RenderRetroImpl<xorshift32>(image, Cbit_signed_to_unsigned(code));
+        render_retro_impl<xorshift32>(image, Cbit_signed_to_unsigned(code));
     }
 }
 

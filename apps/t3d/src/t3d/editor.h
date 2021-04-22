@@ -3,7 +3,7 @@
 
 #include "core/key.h"
 #include "core/vec2.h"
-#include "core/camera.h"
+#include "core/camera3.h"
 
 #include "render/viewport.h"
 
@@ -44,7 +44,7 @@ namespace euphoria::t3d
         Grid* grid;
         render::World*         world;
         TileLibrary*   tile_library;
-        core::CompiledCamera camera;
+        core::compiled_camera3 camera;
         render::Viewport       viewport;
 
         core::vec2i mouse;

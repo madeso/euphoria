@@ -10,7 +10,7 @@
 #include "core/vfs_path.h"
 #include "core/os.h"
 #include "core/range.h"
-#include "core/camera.h"
+#include "core/camera3.h"
 #include "core/stringutils.h"
 #include "core/stdutils.h"
 #include "core/proto.h"
@@ -232,7 +232,7 @@ OpenOrFocusTextFile(
 }
 
 struct ScalingSpriteCache
-    : public Cache<
+    : public cache<
               vfs::FilePath,
               scalingsprite::ScalingSprite,
               ScalingSpriteCache>
@@ -256,7 +256,7 @@ LoadFile
 )
 {
     scimed->texture = cache->GetTexture(path);
-    scimed->scaling = scache->Get(path.ExtendExtensionCopy("json"));
+    scimed->scaling = scache->get(path.ExtendExtensionCopy("json"));
 
     if(scimed->texture)
     {
@@ -306,7 +306,7 @@ OpenOrFocusScimedEditior
             windows,
             Str {} << "Scimed editor: " << file,
             [&]() -> std::shared_ptr<GenericWindow> {
-                auto sprite = sc->Get(file);
+                auto sprite = sc->get(file);
                 return CreateGenericWindow(sprite, [](auto sprite) {
                     scalingsprite::RunImgui(sprite.get());
                 });

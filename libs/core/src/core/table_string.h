@@ -14,24 +14,24 @@
 
 namespace euphoria::core
 {
-    using StringTable = Table<std::string>;
+    using string_table = table<std::string>;
 
     template <typename T>
-    struct TableGenerator : public SortBuilder<T, TableGenerator<T>>
+    struct table_generator : public SortBuilder<T, table_generator<T>>
     {
-        using Converter = std::function<std::string(const T&)>;
+        using converter = std::function<std::string(const T&)>;
 
         const std::vector<T>& data;
-        std::vector<Converter> column_converter;
+        std::vector<converter> column_converter;
         std::vector<std::string> column_titles;
 
-        explicit TableGenerator(const std::vector<T>& d) : data(d) {}
+        explicit table_generator(const std::vector<T>& d) : data(d) {}
 
-        [[nodiscard]] StringTable
-        ToTable() const
+        [[nodiscard]] string_table
+        to_table() const
         {
-            StringTable ret;
-            ret.NewRow(column_titles);
+            string_table ret;
+            ret.new_row(column_titles);
 
             const auto s = column_titles.size();
 
@@ -45,14 +45,14 @@ namespace euphoria::core
                 {
                     row_strings.emplace_back(column_converter[i](d));
                 }
-                ret.NewRow(row_strings);
+                ret.new_row(row_strings);
             }
 
             return ret;
         }
 
-        TableGenerator<T>&
-        AddColumn(const std::string& title, Converter converter)
+        table_generator<T>&
+        add_column(const std::string& title, converter converter)
         {
             column_titles.emplace_back(title);
             column_converter.emplace_back(converter);
@@ -60,23 +60,23 @@ namespace euphoria::core
         }
     };
 
-    enum class CsvTrim
+    enum class csv_trim
     {
-        Trim,
-        DontTrim
+        trim,
+        dont_trim
     };
 
-    struct CsvParserOptions
+    struct csv_parser_options
     {
         char delim = ',';
         char str = '\"';
-        CsvTrim trim = CsvTrim::DontTrim;
+        csv_trim trim = csv_trim::dont_trim;
     };
 
-    StringTable
-    TableFromCsv(
+    string_table
+    table_from_csv(
             const std::string& data,
-            const CsvParserOptions& options = CsvParserOptions());
+            const csv_parser_options& options = csv_parser_options());
 
 
     /*
@@ -88,7 +88,7 @@ namespace euphoria::core
         George         Costanza
         */
     void
-    PrintTableSimple(std::ostream& out, const StringTable& table);
+    print_table_simple(std::ostream& out, const string_table& table);
 
     /*
         +------------+-----------+
@@ -101,6 +101,6 @@ namespace euphoria::core
         +------------+-----------+
         */
     void
-    PrintTableGrid(std::ostream& out, const StringTable& table);
+    print_table_grid(std::ostream& out, const string_table& table);
 
 }

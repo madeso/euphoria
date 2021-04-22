@@ -13,142 +13,142 @@ namespace euphoria::core
 
 namespace euphoria::core::generator
 {
-    using World = BoolTable;
+    using world = bool_table;
 
     // make generation better
     // http://www.roguebasin.com/index.php?title=Cellular_Automata_Method_for_Generating_Random_Cave-Like_Levels
 
-    struct CellularAutomata;
+    struct cellular_automata;
 
-    struct Rule
+    struct rule
     {
-        Rule() = default;
-        virtual ~Rule() = default;
+        rule() = default;
+        virtual ~rule() = default;
 
-        Rule(const Rule&) = delete;
-        Rule(Rule&&) = delete;
-        void operator=(const Rule&) = delete;
-        void operator=(Rule&&) = delete;
+        rule(const rule&) = delete;
+        rule(rule&&) = delete;
+        void operator=(const rule&) = delete;
+        void operator=(rule&&) = delete;
 
-        virtual void Step(CellularAutomata* self) = 0;
+        virtual void step(cellular_automata* self) = 0;
     };
 
 
-    struct Rules
+    struct rules
     {
-        std::vector<std::shared_ptr<Rule>> rules;
+        std::vector<std::shared_ptr<rule>> rules;
 
         void
-        AddRule(int count, std::shared_ptr<Rule> rule);
+        add_rule(int count, std::shared_ptr<rule> rule);
     };
 
-    struct CellularAutomata
+    struct cellular_automata
     {
-        Rules* rules;
-        World* world;
-        Fourway<OutsideRule> outside_rule;
+        generator::rules* rules;
+        generator::world* world;
+        fourway<core::outside_rule> outside_rule;
         int iteration;
 
-        CellularAutomata(Rules* r, World* w, const Fourway<OutsideRule>& fw);
+        cellular_automata(generator::rules* r, generator::world* w, const fourway<core::outside_rule>& fw);
 
         [[nodiscard]] bool
-        HasMoreWork() const;
+        has_more_work() const;
 
         void
-        Work();
+        work();
     };
 
-    using ChangeFunction = std::function
+    using change_function = std::function
     <
         std::optional<bool>
-        (bool, const Wallcounter&)
+        (bool, const wallcounter&)
     >;
 
     // todo(Gustav): rename rules to make it clearer what they do
 
     /// fills the world with random data
     void
-    AddRandomFill
+    add_random_fill
     (
-        Rules* cell,
+        rules* cell,
         Random* random,
         float random_fill = 0.5,
-        Fourway<BorderSetupRule> border_control = Fourway<BorderSetupRule>
+        fourway<border_setup_rule> border_control = fourway<border_setup_rule>
         {
-            BorderSetupRule::AlwaysWall
+            border_setup_rule::always_wall
         }
     );
 
     /// 'clears' cells with less than 'count' neighbours, good for removing 'blobs'
     void
-    AddClearRules
+    add_clear_rules
     (
-        Rules* ca,
+        rules* ca,
         int times,
         int count,
         int range,
         bool include_self,
-        NeighborhoodAlgorithm algorithm
+        neighborhood_algorithm algorithm
     );
 
     void
-    AddComplexRules
+    add_complex_rules
     (
-        Rules* ca,
+        rules* ca,
         int times,
-        ChangeFunction change
+        change_function change
     );
 
     /// simple smoothing, less than count neighbours are removed, more -> solid
     void
-    AddSimpleRules
+    add_simple_rules
     (
-        Rules* ca,
+        rules* ca,
         int times,
         int count,
         bool include_self,
-        NeighborhoodAlgorithm algorithm
+        neighborhood_algorithm algorithm
     );
 
     /// blanks out cells at 'y' and 'height' down
     void
-    AddHorizontalBlankRule
+    add_horizontal_blank_rule
     (
-        Rules* ca,
+        rules* ca,
         int y,
         int height
     );
 
     /// simple smoothing, but always set the cell, seems to provide spikes
     void
-    AddSpikyRules
+    add_spiky_rules
     (
-        Rules* ca,
+        rules* ca,
         int times,
         int count,
         bool include_self,
-        NeighborhoodAlgorithm algorithm
+        neighborhood_algorithm algorithm
     );
 
     /// smooth but 'big_count' is applied for R(2)
     void
-    AddComboRules
+    add_combo_rules
     (
-        Rules* ca,
+        rules* ca,
         int times,
         int count,
         int big_count,
         bool include_self,
-        NeighborhoodAlgorithm algorithm
+        neighborhood_algorithm algorithm
     );
 
     /// fills all open areas that are less than 'min_count'
     void
-    AddFillSmallHolesRule(Rules* rules, bool allow_diagonals, int min_count);
+    add_fill_small_holes_rule(rules* rules, bool allow_diagonals, int min_count);
 
     /// fills all open areas, but keeps 'holes_to_keep'
     void
-    AddFillAllHolesRule(Rules* rules, bool allow_diagonals, int holes_to_keep);
+    add_fill_all_holes_rule(rules* rules, bool allow_diagonals, int holes_to_keep);
 }
 
 #endif  // CORE_GENERATOR_CELL_H

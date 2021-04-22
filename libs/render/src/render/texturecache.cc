@@ -9,7 +9,7 @@
 namespace euphoria::render
 {
     struct TextureCache::TextureCachePimpl
-        : core::Cache<core::vfs::FilePath, texture2d, TextureCache::TextureCachePimpl>
+        : core::cache<core::vfs::FilePath, texture2d, TextureCache::TextureCachePimpl>
     {
         explicit TextureCachePimpl(core::vfs::FileSystem* fs) : fs_(fs)
         {
@@ -46,7 +46,7 @@ namespace euphoria::render
     std::shared_ptr<texture2d>
     TextureCache::GetTexture(const core::vfs::FilePath& path) const
     {
-        return pimp_->Get(path);
+        return pimp_->get(path);
     }
 
 

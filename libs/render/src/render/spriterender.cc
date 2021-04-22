@@ -155,14 +155,14 @@ namespace euphoria::render
     void
     SpriteRenderer::InitRenderData()
     {
-        core::BufferBuilder2d data;
+        core::buffer_builder2d data;
 
-        core::Point b(1.0f, 0.0f, 1.0f, 0.0f);
-        core::Point a(0.0f, 1.0f, 0.0f, 1.0f);
-        core::Point c(0.0f, 0.0f, 0.0f, 0.0f);
-        core::Point d(1.0f, 1.0f, 1.0f, 1.0f);
+        core::point b(1.0f, 0.0f, 1.0f, 0.0f);
+        core::point a(0.0f, 1.0f, 0.0f, 1.0f);
+        core::point c(0.0f, 0.0f, 0.0f, 0.0f);
+        core::point d(1.0f, 1.0f, 1.0f, 1.0f);
 
-        data.AddQuad(c, b, a, d);
+        data.add_quad(c, b, a, d);
 
         buffer_ = std::make_unique<Buffer2d>(data);
     }

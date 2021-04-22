@@ -7,7 +7,7 @@
 
 namespace euphoria::core
 {
-    Table<char>
+    table<char>
     image_to_string_table(const image& img, const std::vector<image_map_action>& map)
     {
         auto pal = palette::create_empty("");
@@ -16,9 +16,9 @@ namespace euphoria::core
             pal.colors.push_back(m.from_color);
         }
 
-        auto ret = Table<char>::FromWidthHeight(
+        auto ret = table<char>::from_width_height(
                 img.width, img.height, ' ');
-        ret.SetAll([&pal, &map, &img](int x, int y) {
+        ret.set_all([&pal, &map, &img](int x, int y) {
             const auto p     = img.get_pixel(x, y);
             const auto index = pal.get_index_closest(rgbi {p.r, p.g, p.b});
             return map[index].to;
@@ -27,7 +27,7 @@ namespace euphoria::core
         return ret;
     }
 
-    Table<char>
+    table<char>
     image_to_string_table_exact(
             const image&                       img,
             const std::vector<image_map_action>& map, char missing)
@@ -44,9 +44,9 @@ namespace euphoria::core
 
             return missing;
         };
-        auto ret = Table<char>::FromWidthHeight(
+        auto ret = table<char>::from_width_height(
                 img.width, img.height, ' ');
-        ret.SetAll([&](int x, int y) {
+        ret.set_all([&](int x, int y) {
             const auto p = img.get_pixel(x, y);
             const auto c = rgbi {p.r, p.g, p.b};
             const auto r = find_match(c);
@@ -56,12 +56,12 @@ namespace euphoria::core
         return ret;
     }
 
-    Table<char>
+    table<char>
     image_to_string_table(const image& img, bool shorter, grayscale grayscale)
     {
-        auto ret = Table<char>::FromWidthHeight(
+        auto ret = table<char>::from_width_height(
                 img.width, img.height, ' ');
-        ret.SetAll([shorter, &img, grayscale](int x, int y) {
+        ret.set_all([shorter, &img, grayscale](int x, int y) {
             // http://paulbourke.net/dataformats/asciiart/
             const std::string characters = shorter
                 ? "@%#*+=-:. "
@@ -79,14 +79,14 @@ namespace euphoria::core
     }
 
     std::vector<std::string>
-    to_strings(const Table<char>& table)
+    to_strings(const table<char>& table)
     {
         std::vector<std::string> ret;
 
-        for(int r = 0; r < table.GetHeight(); r += 1)
+        for(int r = 0; r < table.get_height(); r += 1)
         {
             std::stringstream ss;
-            for(int c = 0; c < table.GetWidth(); c += 1)
+            for(int c = 0; c < table.get_width(); c += 1)
             {
                 ss << table(c, r);
             }

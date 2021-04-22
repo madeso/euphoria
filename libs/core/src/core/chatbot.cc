@@ -14,336 +14,333 @@
 #include "gaf_chatbot.h"
 
 
-namespace euphoria::core
+namespace euphoria::core::detail
 {
-    LOG_SPECIFY_DEFAULT_LOGGER("core.chatbot")
-
-    namespace chatbot
+    std::vector<std::string>
+    clean_input(const std::string& input)
     {
-        std::vector<std::string>
-        CleanInput(const std::string& input)
-        {
-            const std::string punctuation = "?!.;,";
+        const std::string punctuation = "?!.;,";
 
-            return Split
+        return Split
+        (
+            ToLower
             (
-                ToLower
+                RemoveConsecutive
                 (
-                    RemoveConsecutive
-                    (
-                        Trim(ReplaceWithCharacter(input, punctuation, ' ')),
-                        kSpaceCharacters
-                    )
-                ),
-                ' '
-            );
-        }
-
-        long
-        IndexOfMatchedInput(
-                const std::vector<std::string>& input,
-                const Input&                    keywords)
-        {
-            const auto& search      = keywords.words;
-            const auto  search_size = search.size();
-            const auto  input_size  = input.size();
-            if(search_size > input_size)
-            {
-                return -1;
-            }
-
-            if(keywords.location == Input::ALONE && search_size != input_size)
-            {
-                return -1;
-            }
-
-            const auto start_index
-                = keywords.location == Input::AT_END
-                ? input_size - search_size
-                : decltype(input_size) {0};
-            const auto end_index
-                = keywords.location == Input::AT_START
-                ? search_size - 1
-                : input_size - search_size;
-
-            for
-            (
-                auto input_index = start_index;
-                input_index <= end_index;
-                input_index += 1
-            )
-            {
-                bool is_match = true;
-                for
-                (
-                    auto search_index = decltype(search_size) {0};
-                    search_index < search_size;
-                    search_index += 1
+                    Trim(ReplaceWithCharacter(input, punctuation, ' ')),
+                    kSpaceCharacters
                 )
-                {
-                    const auto& input_data = input[input_index + search_index];
-                    const auto& search_data = search[search_index];
-                    if(input_data != search_data)
-                    {
-                        is_match = false;
-                        break;
-                    }
-                }
+            ),
+            ' '
+        );
+    }
 
-                if(is_match)
-                {
-                    return input_index;
-                }
-            }
-
+    long
+    index_of_matched_input(
+            const std::vector<std::string>& input,
+            const detail::input&                    keywords)
+    {
+        const auto& search      = keywords.words;
+        const auto  search_size = search.size();
+        const auto  input_size  = input.size();
+        if(search_size > input_size)
+        {
             return -1;
         }
 
-        std::vector<std::string>
-        RemoveFrom(const std::vector<std::string>& source, const Input& input)
+        if(keywords.location == input::alone && search_size != input_size)
         {
-            const auto index = IndexOfMatchedInput(source, input);
-
-            if(index == -1)
-            {
-                return source;
-            }
-
-            std::vector<std::string> ret;
-            for(long i = 0; i < index; i += 1)
-            {
-                ret.emplace_back(source[i]);
-            }
-            for
-            (
-                unsigned long i = index + input.words.size();
-                i < source.size();
-                i += 1
-            )
-            {
-                ret.emplace_back(source[i]);
-            }
-            return ret;
+            return -1;
         }
 
+        const auto start_index
+            = keywords.location == input::at_end
+            ? input_size - search_size
+            : decltype(input_size) {0};
+        const auto end_index
+            = keywords.location == input::at_start
+            ? search_size - 1
+            : input_size - search_size;
 
-        Input::Input(const std::string& input, Location where)
-            : words(CleanInput(input)), location(where)
-        {}
-
-
-        Input::Input(const std::vector<std::string>& input, Location where)
-            : words(input), location(where)
-        {}
-
-
-        SingleResponse::SingleResponse(const std::string& say)
-            : to_say(say)
-        {}
-
-
-        ResponseBuilder&
-        ResponseBuilder::Input(const std::string& in, Input::Location where)
-        {
-            this->response->inputs.emplace_back(in, where);
-            return *this;
-        }
-
-
-        ResponseBuilder&
-        ResponseBuilder::operator()(const std::string& say)
-        {
-            this->response->responses.emplace_back(say);
-            return *this;
-        }
-
-
-        ResponseBuilder&
-        ResponseBuilder::operator()
+        for
         (
-            const std::string& say,
-            const std::string& topic
+            auto input_index = start_index;
+            input_index <= end_index;
+            input_index += 1
         )
         {
-            SingleResponse resp {say};
-            resp.topics_mentioned.push_back(topic);
-            this->response->responses.emplace_back(resp);
-            return *this;
-        }
-
-
-        ResponseBuilder&
-        ResponseBuilder::Topic(const std::string& topic)
-        {
-            this->response->topics_required.push_back(topic);
-            return *this;
-        }
-
-
-        ResponseBuilder&
-        ResponseBuilder::EndConversation()
-        {
-            this->response->ends_conversation = true;
-            return *this;
-        }
-
-
-        Database::Database()
-            : event_id(0)
-        {}
-
-
-        Response&
-        Database::CreateResponse()
-        {
-            responses.emplace_back();
-            Response& response = *responses.rbegin();
-            response.event_id  = event_id;
-            event_id += 1;
-            return response;
-        }
-
-
-        ResponseBuilder
-        Database::AddResponse(const std::string& input, Input::Location where)
-        {
-            ResponseBuilder r {&CreateResponse()};
-            r.Input(input, where);
-            return r;
-        }
-
-
-        Transposer&
-        Transposer::Add(const std::string& from, const std::string& to)
-        {
-            store.emplace_back(std::make_pair(ToLower(from), ToLower(to)));
-            return *this;
-        }
-
-
-        std::string
-        Transposer::Transpose(const std::string& input) const
-        {
-            // todo change to a map
-            for(const auto& s: store)
+            bool is_match = true;
+            for
+            (
+                auto search_index = decltype(search_size) {0};
+                search_index < search_size;
+                search_index += 1
+            )
             {
-                if(s.first == input)
+                const auto& input_data = input[input_index + search_index];
+                const auto& search_data = search[search_index];
+                if(input_data != search_data)
                 {
-                    return s.second;
+                    is_match = false;
+                    break;
                 }
             }
-            return input;
-        }
 
-
-        void
-        ConversationTopics::DecreaseAndRemove()
-        {
-            Decrease();
-            Remove();
-        }
-
-
-        void
-        ConversationTopics::Decrease()
-        {
-            for(auto& topic: topics)
+            if(is_match)
             {
-                *topic.second -= 1;
+                return input_index;
             }
         }
 
+        return -1;
+    }
 
-        void
-        ConversationTopics::Remove()
-        {
-            for(auto it = topics.begin(); it != topics.end();)
-            {
-                if(*it->second < 0)
-                {
-                    it = topics.erase(it);
-                }
-                else
-                {
-                    ++it;
-                }
-            }
-        }
-
-
-        void
-        ConversationTopics::Add(const std::string& topic)
-        {
-            topics[topic] = std::make_shared<int>(1);
-        }
-
-
-        bool
-        ConversationTopics::Has(const std::string& topic) const
-        {
-            return topics.find(topic) != topics.end();
-        }
-
-
-        struct BasicResponse
-        {
-            std::vector<std::string>* responses;
-
-            BasicResponse() = default;
-
-            BasicResponse&
-            operator()(const std::string& response)
-            {
-                responses->push_back(response);
-                return *this;
-            }
-        };
-
-
-        BasicResponse
-        AddResponse(std::vector<std::string>* input)
-        {
-            auto b = BasicResponse{};
-            b.responses = input;
-            return b;
-        }
-
-
-        std::vector<ConversationStatus::TopicEntry>
-        CollectTopics(const ConversationTopics& current_topics)
-        {
-            std::vector<ConversationStatus::TopicEntry> ret;
-            for(const auto& t: current_topics.topics)
-            {
-                ConversationStatus::TopicEntry entry;
-                entry.topic = t.first;
-                entry.time  = *t.second;
-                ret.emplace_back(entry);
-            }
-            return ret;
-        }
-    }  // namespace chatbot
-
-
-    namespace
+    std::vector<std::string>
+    remove_from(const std::vector<std::string>& source, const input& input)
     {
-        chatbot::Input::Location
-        C(chat::Location loc)
+        const auto index = index_of_matched_input(source, input);
+
+        if(index == -1)
         {
-            switch(loc)
-            {
-            case chat::Location::IN_MIDDLE: return chatbot::Input::IN_MIDDLE;
-            case chat::Location::AT_START: return chatbot::Input::AT_START;
-            case chat::Location::AT_END: return chatbot::Input::AT_END;
-            case chat::Location::ALONE: return chatbot::Input::ALONE;
-            default: DIE("Unhandled case"); return chatbot::Input::LOWEST;
-            }
+            return source;
         }
-    }  // namespace
+
+        std::vector<std::string> ret;
+        for(long i = 0; i < index; i += 1)
+        {
+            ret.emplace_back(source[i]);
+        }
+        for
+        (
+            unsigned long i = index + input.words.size();
+            i < source.size();
+            i += 1
+        )
+        {
+            ret.emplace_back(source[i]);
+        }
+        return ret;
+    }
+
+
+    input::input(const std::string& input, location_type where)
+        : words(clean_input(input)), location(where)
+    {}
+
+
+    input::input(const std::vector<std::string>& input, location_type where)
+        : words(input), location(where)
+    {}
+
+
+    single_response::single_response(const std::string& say)
+        : to_say(say)
+    {}
+
+
+    response_builder&
+    response_builder::input(const std::string& in, input::location_type where)
+    {
+        this->response->inputs.emplace_back(in, where);
+        return *this;
+    }
+
+
+    response_builder&
+    response_builder::operator()(const std::string& say)
+    {
+        this->response->responses.emplace_back(say);
+        return *this;
+    }
+
+
+    response_builder&
+    response_builder::operator()
+    (
+        const std::string& say,
+        const std::string& topic
+    )
+    {
+        single_response resp {say};
+        resp.topics_mentioned.push_back(topic);
+        this->response->responses.emplace_back(resp);
+        return *this;
+    }
+
+
+    response_builder&
+    response_builder::Topic(const std::string& topic)
+    {
+        this->response->topics_required.push_back(topic);
+        return *this;
+    }
+
+
+    response_builder&
+    response_builder::EndConversation()
+    {
+        this->response->ends_conversation = true;
+        return *this;
+    }
+
+
+    database::database()
+        : event_id(0)
+    {}
+
+
+    response&
+    database::create_response()
+    {
+        responses.emplace_back();
+        response& response = *responses.rbegin();
+        response.event_id  = event_id;
+        event_id += 1;
+        return response;
+    }
+
+
+    response_builder
+    database::add_response(const std::string& input, input::location_type where)
+    {
+        response_builder r {&create_response()};
+        r.input(input, where);
+        return r;
+    }
+
+
+    transposer&
+    transposer::add(const std::string& from, const std::string& to)
+    {
+        store.emplace_back(std::make_pair(ToLower(from), ToLower(to)));
+        return *this;
+    }
 
 
     std::string
-    ChatBot::LoadFromFile(vfs::FileSystem* fs, const vfs::FilePath& path)
+    transposer::transpose(const std::string& input) const
+    {
+        // todo change to a map
+        for(const auto& s: store)
+        {
+            if(s.first == input)
+            {
+                return s.second;
+            }
+        }
+        return input;
+    }
+
+
+    void
+    conversation_topics::decrease_and_remove()
+    {
+        decrease();
+        remove();
+    }
+
+
+    void
+    conversation_topics::decrease()
+    {
+        for(auto& topic: topics)
+        {
+            *topic.second -= 1;
+        }
+    }
+
+
+    void
+    conversation_topics::remove()
+    {
+        for(auto it = topics.begin(); it != topics.end();)
+        {
+            if(*it->second < 0)
+            {
+                it = topics.erase(it);
+            }
+            else
+            {
+                ++it;
+            }
+        }
+    }
+
+
+    void
+    conversation_topics::add(const std::string& topic)
+    {
+        topics[topic] = std::make_shared<int>(1);
+    }
+
+
+    bool
+    conversation_topics::has(const std::string& topic) const
+    {
+        return topics.find(topic) != topics.end();
+    }
+
+
+    struct basic_response
+    {
+        std::vector<std::string>* responses;
+
+        basic_response() = default;
+
+        basic_response&
+        operator()(const std::string& response)
+        {
+            responses->push_back(response);
+            return *this;
+        }
+    };
+
+
+    basic_response
+    add_response(std::vector<std::string>* input)
+    {
+        auto b = basic_response{};
+        b.responses = input;
+        return b;
+    }
+
+
+    std::vector<conversation_status::topic_entry>
+    collect_topics(const conversation_topics& current_topics)
+    {
+        std::vector<conversation_status::topic_entry> ret;
+        for(const auto& t: current_topics.topics)
+        {
+            conversation_status::topic_entry entry;
+            entry.topic = t.first;
+            entry.time  = *t.second;
+            ret.emplace_back(entry);
+        }
+        return ret;
+    }
+}
+
+
+namespace euphoria::core
+{
+    namespace
+    {
+        detail::input::location_type
+            C(chat::Location loc)
+        {
+            switch (loc)
+            {
+            case chat::Location::IN_MIDDLE: return detail::input::in_middle;
+            case chat::Location::AT_START: return detail::input::at_start;
+            case chat::Location::AT_END: return detail::input::at_end;
+            case chat::Location::ALONE: return detail::input::alone;
+            default: DIE("Unhandled case"); return detail::input::lowest;
+            }
+        }
+    }
+
+    std::string
+    chatbot::load_from_file(vfs::FileSystem* fs, const vfs::FilePath& path)
     {
         chat::Root root;
 
@@ -355,7 +352,7 @@ namespace euphoria::core
 
         max_responses = root.max_responses;
 
-        database                  = chatbot::Database {};
+        database                  = detail::database {};
         database.signon           = root.signon;
         database.empty            = root.empty;
         database.no_response      = root.no_response;
@@ -363,15 +360,15 @@ namespace euphoria::core
         database.similar_input    = root.similar_input;
         database.empty_repetition = root.empty_repetition;
 
-        transposer = chatbot::Transposer {};
+        transposer = detail::transposer {};
         for(const auto& t: root.transposes)
         {
-            transposer.Add(t.from, t.to);
+            transposer.add(t.from, t.to);
         }
 
         for(const auto& r: root.responses)
         {
-            chatbot::Response& response = database.CreateResponse();
+            detail::response& response = database.create_response();
             response.ends_conversation  = r.ends_conversation;
             for(const auto& topic: r.topics_required)
             {
@@ -396,29 +393,29 @@ namespace euphoria::core
     }
 
 
-    ChatBot::ChatBot()
+    chatbot::chatbot()
         : is_in_conversation(true)
         , last_event(-1)
         , max_responses(5)
-        , last_input(chatbot::CleanInput("abc"))
+        , last_input(detail::clean_input("abc"))
     {}
 
 
     std::string
-    ChatBot::GetResponse(const std::string& dirty_input)
+    chatbot::get_response(const std::string& dirty_input)
     {
-        const auto r = GetComplexResponse(dirty_input);
+        const auto r = get_complex_response(dirty_input);
         history.push_back(r);
         return r.response;
     }
 
 
-    namespace chatbot
+    namespace detail
     {
         std::vector<std::string>
         Transpose
         (
-            const Transposer& transposer,
+            const transposer& transposer,
             const std::vector<std::string>& input
         )
         {
@@ -426,7 +423,7 @@ namespace euphoria::core
             r.reserve(input.size());
             for(const std::string& in: input)
             {
-                r.push_back(transposer.Transpose(in));
+                r.push_back(transposer.transpose(in));
             }
             return r;
         }
@@ -436,8 +433,8 @@ namespace euphoria::core
         TransposeKeywords
         (
             const std::string& selected_response,
-            const Transposer& transposer,
-            const Input& keywords,
+            const transposer& transposer,
+            const input& keywords,
             const std::string& input
         )
         {
@@ -450,7 +447,7 @@ namespace euphoria::core
             // todo remove keywords from input
             const std::string cleaned_input = StringMerger::Space().Generate
             (
-                Transpose(transposer, RemoveFrom(CleanInput(input), keywords))
+                Transpose(transposer, remove_from(clean_input(input), keywords))
             );
             const std::string transposed_response = StringReplace
             (
@@ -466,7 +463,7 @@ namespace euphoria::core
         unsigned long
         SelectBasicResponseIndex
         (
-            ChatBot* chatbot,
+            chatbot* chatbot,
             const std::vector<T>& responses,
             std::function<std::string(const T& t)> callback
         )
@@ -518,7 +515,7 @@ namespace euphoria::core
         std::string
         SelectBasicResponse
         (
-            ChatBot* chatbot,
+            chatbot* chatbot,
             const std::vector<std::string>& responses,
             const char* const name
         )
@@ -543,19 +540,19 @@ namespace euphoria::core
         std::string
         SelectResponse
         (
-            ChatBot* chatbot,
-            const std::vector<chatbot::SingleResponse>& responses,
-            const chatbot::Input& keywords,
+            chatbot* chatbot,
+            const std::vector<detail::single_response>& responses,
+            const detail::input& keywords,
             const std::string& input
         )
         {
             // todo(Gustav): we dont need a string vector for this, right?
             const auto index = SelectBasicResponseIndex
-                <chatbot::SingleResponse>
+                <detail::single_response>
             (
                 chatbot,
                 responses,
-                [](const chatbot::SingleResponse& r)
+                [](const detail::single_response& r)
                 {
                     return r.to_say;
                 }
@@ -565,7 +562,7 @@ namespace euphoria::core
             // todo(Gustav): add this to memory when this response is returned, not suggested
             for(const auto& topic: suggested.topics_mentioned)
             {
-                chatbot->current_topics.Add(topic);
+                chatbot->current_topics.add(topic);
             }
             return TransposeKeywords
             (
@@ -577,21 +574,21 @@ namespace euphoria::core
         }
     }  // namespace chatbot
 
-    chatbot::ConversationStatus
-    ChatBot::GetComplexResponse(const std::string& dirty_input)
+    detail::conversation_status
+    chatbot::get_complex_response(const std::string& dirty_input)
     {
-        chatbot::ConversationStatus ret;
+        detail::conversation_status ret;
         ret.input  = dirty_input;
-        ret.topics = chatbot::CollectTopics(current_topics);
+        ret.topics = detail::collect_topics(current_topics);
 
-        const std::vector<std::string> input = chatbot::CleanInput(dirty_input);
+        const std::vector<std::string> input = detail::clean_input(dirty_input);
 
         if(input.empty())
         {
             if(last_input.empty())
             {
                 ret.section  = "empty repetition";
-                ret.response = chatbot::SelectBasicResponse
+                ret.response = detail::SelectBasicResponse
                 (
                     this,
                     database.empty_repetition,
@@ -599,7 +596,7 @@ namespace euphoria::core
                 );
                 return ret;
             }
-            ret.response = chatbot::SelectBasicResponse
+            ret.response = detail::SelectBasicResponse
             (
                 this,
                 database.empty,
@@ -613,7 +610,7 @@ namespace euphoria::core
         if(input == last_input)
         {
             ret.section  = "same input";
-            ret.response = chatbot::SelectBasicResponse
+            ret.response = detail::SelectBasicResponse
             (
                 this,
                 database.same_input,
@@ -623,10 +620,10 @@ namespace euphoria::core
         }
         last_input = input;
 
-        current_topics.DecreaseAndRemove();
+        current_topics.decrease_and_remove();
 
         unsigned long match_length   = 0;
-        chatbot::Input::Location match_location = chatbot::Input::LOWEST;
+        detail::input::location_type match_location = detail::input::lowest;
         std::string response;
 
         for(const auto& resp: database.responses)
@@ -635,7 +632,7 @@ namespace euphoria::core
             ret.logs.rbegin()->titles = VectorToStringVector
             (
                 resp.inputs,
-                [](const chatbot::Input& input)
+                [](const detail::input& input)
                 {
                     return StringMerger::Space().Generate(input.words);
                 }
@@ -648,7 +645,7 @@ namespace euphoria::core
                 bool valid_response = true;
                 for(const auto& topic: resp.topics_required)
                 {
-                    if(!current_topics.Has(topic))
+                    if(!current_topics.has(topic))
                     {
                         log.emplace_back
                         (
@@ -702,7 +699,7 @@ namespace euphoria::core
                 }
                 if(should_check_keyword)
                 {
-                    const auto matched_index = chatbot::IndexOfMatchedInput
+                    const auto matched_index = detail::index_of_matched_input
                     (
                         input,
                         keyword
@@ -724,7 +721,7 @@ namespace euphoria::core
                         if(last_event == resp.event_id)
                         {
                             log.emplace_back("Same event as last time");
-                            response = chatbot::SelectBasicResponse
+                            response = detail::SelectBasicResponse
                             (
                                 this,
                                 database.similar_input,
@@ -760,7 +757,7 @@ namespace euphoria::core
         {
             ret.section = "empty response";
             missing_input.emplace_back(dirty_input);
-            ret.response = chatbot::SelectBasicResponse
+            ret.response = detail::SelectBasicResponse
             (
                 this,
                 database.no_response,
@@ -777,13 +774,13 @@ namespace euphoria::core
     }
 
     std::string
-    ChatBot::GetSignOnMessage()
+    chatbot::get_sign_on_message()
     {
-        return chatbot::SelectBasicResponse(this, database.signon, "signon");
+        return detail::SelectBasicResponse(this, database.signon, "signon");
     }
 
     std::string
-    ChatBot::DebugLastResponse(const std::vector<std::string>& search) const
+    chatbot::debug_last_response(const std::vector<std::string>& search) const
     {
         const auto searches = ToLower(search);
         if(history.empty())
@@ -838,10 +835,4 @@ namespace euphoria::core
 
         return ss.str();
     }
-
-    bool
-    ChatBot::IsInConversation() const
-    {
-        return is_in_conversation;
-    }
-}  // namespace euphoria::core
+}

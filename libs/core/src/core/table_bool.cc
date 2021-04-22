@@ -7,25 +7,25 @@
 namespace euphoria::core
 {
     void
-    SetWhiteNoise
+    set_white_noise
     (
-        BoolTable* world,
-        Fourway<BorderSetupRule> border_control,
+        bool_table* world,
+        fourway<border_setup_rule> border_control,
         std::function<bool()> rng
     )
     {
-        world->SetAll([&](int x, int y)
+        world->set_all([&](int x, int y)
         {
             const auto is_on_left_border = x == 0;
-            const auto is_on_right_border = x == world->GetWidth() - 1;
+            const auto is_on_right_border = x == world->get_width() - 1;
             const auto is_on_up_border = y == 0;
-            const auto is_on_down_border = y == world->GetHeight() - 1;
+            const auto is_on_down_border = y == world->get_height() - 1;
 
 #define CHECK_BORDER(b, p) \
             do \
             { \
-                if( b && border_control.p != BorderSetupRule::Random ) \
-                { return border_control.p == BorderSetupRule::AlwaysWall; } \
+                if( b && border_control.p != border_setup_rule::random) \
+                { return border_control.p == border_setup_rule::always_wall; } \
             } while(false)
 
             CHECK_BORDER(is_on_left_border, left);
@@ -44,8 +44,8 @@ namespace euphoria::core
         int
         CountSingleWall
         (
-            const BoolTable& world,
-            Fourway<OutsideRule> outside_rule,
+            const bool_table& world,
+            fourway<outside_rule> outside_rule,
             int x,
             int y,
             int cx,
@@ -61,7 +61,7 @@ namespace euphoria::core
 
             auto contains = [&world](int x, int y)
             {
-                return world.Indices().ContainsInclusive(x, y);
+                return world.get_indices().ContainsInclusive(x, y);
             };
 
             if (contains(x, y))
@@ -85,17 +85,17 @@ namespace euphoria::core
                 const auto xrule = x < 0 ? outside_rule.left : outside_rule.right;
                 switch (xrule)
                 {
-                case OutsideRule::Wall:
+                case outside_rule::wall:
                     return 1;
-                case OutsideRule::Empty:
+                case outside_rule::empty:
                     return 0;
-                case OutsideRule::Mirror:
+                case outside_rule::mirror:
                     // todo(Gustav): implement this!
-                    nx = KeepWithin(world.Indices().GetXRange(), x);
+                    nx = KeepWithin(world.get_indices().GetXRange(), x);
                     DIE("Implement this");
                     break;
-                case OutsideRule::Wrap:
-                    nx = Wrap(world.Indices().GetXRange(), x);
+                case outside_rule::wrap:
+                    nx = Wrap(world.get_indices().GetXRange(), x);
                     break;
                 default:
                     DIE("Unhandled case");
@@ -110,18 +110,18 @@ namespace euphoria::core
                 const auto yrule = y < 0 ? outside_rule.up : outside_rule.down;
                 switch (yrule)
                 {
-                case OutsideRule::Wall:
+                case outside_rule::wall:
                     return 1;
-                case OutsideRule::Empty:
+                case outside_rule::empty:
                     // pass
                     return 0;
-                case OutsideRule::Mirror:
+                case outside_rule::mirror:
                     // todo(Gustav): implement this!
-                    ny = KeepWithin(world.Indices().GetYRange(), y);
+                    ny = KeepWithin(world.get_indices().GetYRange(), y);
                     DIE("Implement this");
                     break;
-                case OutsideRule::Wrap:
-                    ny = Wrap(world.Indices().GetYRange(), y);
+                case outside_rule::wrap:
+                    ny = Wrap(world.get_indices().GetYRange(), y);
                     break;
                 default:
                     DIE("Unhandled case");
@@ -142,10 +142,10 @@ namespace euphoria::core
 
 
     int
-    CountWallsManhattan
+    count_walls_manhattan
     (
-        const BoolTable& world,
-        Fourway<OutsideRule> outside_rule,
+        const bool_table& world,
+        fourway<outside_rule> outside_rule,
         int cx,
         int cy,
         int step,
@@ -179,10 +179,10 @@ namespace euphoria::core
 
 
     int
-    CountWallsPlus
+    count_walls_plus
     (
-        const BoolTable& world,
-        Fourway<OutsideRule> outside_rule,
+        const bool_table& world,
+        fourway<outside_rule> outside_rule,
         int cx,
         int cy,
         int step,
@@ -218,10 +218,10 @@ namespace euphoria::core
 
 
     int
-    CountWallsBox
+    count_walls_box
     (
-        const BoolTable& world,
-        Fourway<OutsideRule> outside_rule,
+        const bool_table& world,
+        fourway<outside_rule> outside_rule,
         int cx,
         int cy,
         int step,
@@ -251,10 +251,10 @@ namespace euphoria::core
     }
 
 
-    Wallcounter::Wallcounter
+    wallcounter::wallcounter
     (
-        const BoolTable& w,
-        Fourway<OutsideRule> r,
+        const bool_table& w,
+        fourway<core::outside_rule> r,
         int x,
         int y
     )
@@ -269,11 +269,11 @@ namespace euphoria::core
     namespace
     {
         int
-        CountWalls
+        count_walls
         (
-            NeighborhoodAlgorithm algorithm,
-            const BoolTable& world,
-            Fourway<OutsideRule> outside_rule,
+            neighborhood_algorithm algorithm,
+            const bool_table& world,
+            fourway<outside_rule> outside_rule,
             int cx,
             int cy,
             int step,
@@ -282,14 +282,14 @@ namespace euphoria::core
         {
             switch(algorithm)
             {
-                case NeighborhoodAlgorithm::Manhattan:
-                    return CountWallsManhattan
+                case neighborhood_algorithm::manhattan:
+                    return count_walls_manhattan
                         (world, outside_rule, cx, cy, step, include_self);
-                case NeighborhoodAlgorithm::Plus:
-                    return CountWallsPlus
+                case neighborhood_algorithm::plus:
+                    return count_walls_plus
                         (world, outside_rule, cx, cy, step, include_self);
-                case NeighborhoodAlgorithm::Box:
-                    return CountWallsBox
+                case neighborhood_algorithm::box:
+                    return count_walls_box
                         (world, outside_rule, cx, cy, step, include_self);
 
                 default:
@@ -302,14 +302,14 @@ namespace euphoria::core
 
 
     int
-    Wallcounter::Count
+    wallcounter::count
     (
         int step,
         bool include_self,
-        NeighborhoodAlgorithm algorithm
+        neighborhood_algorithm algorithm
     ) const
     {
-        return CountWalls
+        return count_walls
         (
             algorithm,
             world,
@@ -323,19 +323,19 @@ namespace euphoria::core
 
 
     void
-    SmoothMap
+    smooth_map
     (
-        BoolTable* world,
-        Fourway<OutsideRule> outside_rule,
-        std::function<std::optional<bool>(bool, const Wallcounter&)> smooth_function
+        bool_table* world,
+        fourway<outside_rule> outside_rule,
+        std::function<std::optional<bool>(bool, const wallcounter&)> smooth_function
     )
     {
-        const BoolTable current = *world;
+        const bool_table current = *world;
 
-        world->SetAll([&current, outside_rule, smooth_function](int x, int y)
+        world->set_all([&current, outside_rule, smooth_function](int x, int y)
         {
             const auto value = current(x, y);
-            const auto walls = Wallcounter{current, outside_rule, x, y};
+            const auto walls = wallcounter{current, outside_rule, x, y};
             const auto smoothed_wall = smooth_function(value, walls);
             return smoothed_wall.value_or(value);
         });
@@ -343,13 +343,13 @@ namespace euphoria::core
 
 
     std::vector<vec2i>
-    FindEmptyBlocks(const BoolTable& world)
+    find_empty_blocks(const bool_table& world)
     {
         auto ret = std::vector<vec2i>{};
 
-        for (int y = 0; y < world.GetHeight(); y += 1)
+        for (int y = 0; y < world.get_height(); y += 1)
         {
-            for (int x = 0; x < world.GetWidth(); x += 1)
+            for (int x = 0; x < world.get_width(); x += 1)
             {
                 if(world(x,y) == false)
                 {
@@ -362,17 +362,17 @@ namespace euphoria::core
     }
 
     std::vector<vec2i>
-    FindFloodFillItems
+    find_flood_fill_items
     (
-        const BoolTable& world,
+        const bool_table& world,
         const vec2i& start,
         bool allow_diagonals
     )
     {
-        auto visited = BoolTable::FromWidthHeight
+        auto visited = bool_table::from_width_height
         (
-            world.GetWidth(),
-            world.GetHeight(),
+            world.get_width(),
+            world.get_height(),
             false
         );
         auto stack = std::vector<vec2i>{};
@@ -381,9 +381,9 @@ namespace euphoria::core
         auto add_to_stack = [&](const vec2i& p)
         {
             if(p.x < 0) { return; }
-            if(p.x >= world.GetWidth()) { return; }
+            if(p.x >= world.get_width()) { return; }
             if(p.y < 0) { return; }
-            if(p.y >= world.GetHeight()) { return; }
+            if(p.y >= world.get_height()) { return; }
             if(visited(p.x, p.y) == true) { return; }
             visited(p.x, p.y) = true;
             // todo(Gustav): if ret contains p, return
@@ -419,23 +419,23 @@ namespace euphoria::core
     }
 
     std::vector<std::vector<vec2i>>
-    FindEmptyRegions(const BoolTable& world, bool allow_diagonals)
+    find_empty_regions(const bool_table& world, bool allow_diagonals)
     {
         auto ret = std::vector<std::vector<vec2i>>{};
 
-        auto visited = BoolTable::FromWidthHeight
+        auto visited = bool_table::from_width_height
         (
-            world.GetWidth(),
-            world.GetHeight(),
+            world.get_width(),
+            world.get_height(),
             false
         );
 
-        const auto blocks = FindEmptyBlocks(world);
+        const auto blocks = find_empty_blocks(world);
         for(const auto block: blocks)
         {
             if(visited(block.x, block.y) == true) { continue; }
 
-            const auto island = FindFloodFillItems(world, block, allow_diagonals);
+            const auto island = find_flood_fill_items(world, block, allow_diagonals);
             ret.emplace_back(island);
             for(const auto& island_block: island)
             {
@@ -448,20 +448,20 @@ namespace euphoria::core
 
 
 
-    BorderSettings::BorderSettings(const rgbai& c)
+    border_settings::border_settings(const rgbai& c)
         : color(c)
     {
     }
 
 
     image
-    Draw
+    draw
     (
-        const BoolTable& world,
+        const bool_table& world,
         rgbai wall_color,
         rgbai space_color,
         int scale,
-        std::optional<BorderSettings> border
+        std::optional<border_settings> border
     )
     {
         const bool has_alpha =
@@ -470,8 +470,8 @@ namespace euphoria::core
             (border.has_value() ? border->color.a < 255 : false)
             ;
 
-        const auto image_width = world.GetWidth() * scale;
-        const auto image_height = world.GetHeight() * scale;
+        const auto image_width = world.get_width() * scale;
+        const auto image_height = world.get_height() * scale;
 
         image image;
         if(has_alpha)
@@ -487,11 +487,11 @@ namespace euphoria::core
         {
             if(border.has_value() == false) { return space_color; }
 
-            const auto rule = Fourway<OutsideRule>{OutsideRule::Empty};
-            const auto algorithm = NeighborhoodAlgorithm::Plus;
+            const auto rule = fourway<outside_rule>{outside_rule::empty};
+            const auto algorithm = neighborhood_algorithm::plus;
 
-            const auto wc = Wallcounter{world, rule, x, y};
-            const auto walls = wc.Count(1, false, algorithm);
+            const auto wc = wallcounter{world, rule, x, y};
+            const auto walls = wc.count(1, false, algorithm);
 
             if(walls>0) { return border->color; }
             else { return space_color; }
@@ -499,9 +499,9 @@ namespace euphoria::core
 
         clear(&image, space_color);
 
-        for (int y = 0; y < world.GetHeight(); y += 1)
+        for (int y = 0; y < world.get_height(); y += 1)
         {
-            for (int x = 0; x < world.GetWidth(); x += 1)
+            for (int x = 0; x < world.get_width(); x += 1)
             {
                 const auto px = x * scale;
                 const auto py = y * scale;

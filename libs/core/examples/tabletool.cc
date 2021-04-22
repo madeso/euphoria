@@ -26,7 +26,7 @@ main(int argc, char* argv[])
     std::string file;
     std::string format = ",\"";
     Type type = Type::Simple;
-    CsvTrim trim = CsvTrim::Trim;
+    csv_trim trim = csv_trim::trim;
 
     {
         auto parser = argparse::parser {"csvtool"};
@@ -34,7 +34,7 @@ main(int argc, char* argv[])
         parser.add("-format", &format).set_help("The CSV format used");
         parser.set_const("-simple", &type, Type::Simple);
         parser.set_const("-grid", &type, Type::Grid);
-        parser.set_const("-notrim", &trim, CsvTrim::DontTrim);
+        parser.set_const("-notrim", &trim, csv_trim::dont_trim);
         parser.add("CSV-file", &file);
         if(const auto r = parser.parse(argc, argv))
         {
@@ -43,7 +43,7 @@ main(int argc, char* argv[])
     }
 
     
-    Table<std::string> table;
+    table<std::string> table;
     {
         std::ifstream stream {file};
         if(!stream)
@@ -51,17 +51,17 @@ main(int argc, char* argv[])
             std::cerr << "Failed to load " << file << "\n";
             return -1;
         }
-        CsvParserOptions options;
+        csv_parser_options options;
         options.delim = format[0];
         options.str = format[1];
         options.trim = trim;
-        table = TableFromCsv(StreamToString(stream), options);
+        table = table_from_csv(StreamToString(stream), options);
     }
 
     switch(type)
     {
-    case Type::Simple: PrintTableSimple(std::cout, table); break;
-    case Type::Grid: PrintTableGrid(std::cout, table); break;
+    case Type::Simple: print_table_simple(std::cout, table); break;
+    case Type::Grid: print_table_grid(std::cout, table); break;
     }
 
     return 0;

@@ -8,7 +8,7 @@
 #include "core/rgb.h"
 #include "core/key.h"
 #include "core/vec2.h"
-#include "core/camera.h"
+#include "core/camera3.h"
 #include "core/orbitcontroller.h"
 #include "core/vfs_path.h"
 
@@ -58,7 +58,7 @@ namespace euphoria::t3d
         std::shared_ptr<render::TextureCache> texture_cache;
         std::shared_ptr<TileLibrary> tile_library;
         std::shared_ptr<render::World> world;
-        core::Camera camera;
+        core::camera3 camera;
         std::shared_ptr<Editor> editor;
         bool running = true;
         std::shared_ptr<window::SdlTimer> timer;

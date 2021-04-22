@@ -11,21 +11,21 @@ namespace euphoria::core
 {
     // split hash to a msb->lsb array
     std::vector<u8>
-    ToBytes(u32 hash);
+    to_bytes(u32 hash);
 
     // split hash to a msb->lsb array
     std::vector<u8>
-    ToBytes(u64 hash);
+    to_bytes(u64 hash);
 
     // split to 2-bit ints
     std::vector<int>
-    ToCodes(u8 byte, bool msb_first);
+    to_codes(u8 byte, bool msb_first);
 
     std::vector<int>
-    ToCodes(const std::vector<u8>& bytes, bool msb_first);
+    to_codes(const std::vector<u8>& bytes, bool msb_first);
 
-    Table<int>
-    DrunkenBishop
+    table<int>
+    drunken_bishop
     (
         u32 hash,
         int width,
@@ -35,8 +35,8 @@ namespace euphoria::core
         int starty = -1
     );
 
-    Table<int>
-    DrunkenBishop
+    table<int>
+    drunken_bishop
     (
         u64 hash,
         int width,
@@ -46,8 +46,8 @@ namespace euphoria::core
         int starty = -1
     );
 
-    Table<int>
-    DrunkenBishop
+    table<int>
+    drunken_bishop
     (
         const std::vector<int>& codes,
         int width,
@@ -58,12 +58,12 @@ namespace euphoria::core
 
 
     std::vector<std::string>
-    GetSshCharacters();
+    get_ssh_characters();
 
     std::vector<std::string>
-    Collapse
+    collapse
     (
-        const Table<int>& table,
+        const table<int>& table,
         const std::vector<std::string>& characters
     );
 

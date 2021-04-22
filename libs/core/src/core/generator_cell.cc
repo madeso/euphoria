@@ -12,21 +12,21 @@
 
 namespace euphoria::core::generator
 {
-    struct SmoothRule : public Rule
+    struct smooth_rule final : public rule
     {
-        using SmoothFunction = ChangeFunction;
+        using SmoothFunction = change_function;
 
         SmoothFunction smooth_function;
 
-        explicit SmoothRule(SmoothRule::SmoothFunction sf)
+        explicit smooth_rule(smooth_rule::SmoothFunction sf)
             : smooth_function(sf)
         {
         }
 
         void
-        Step(CellularAutomata* self) override
+        step(cellular_automata* self) override
         {
-            SmoothMap
+            smooth_map
             (
                 self->world,
                 self->outside_rule,
@@ -36,17 +36,17 @@ namespace euphoria::core::generator
     };
 
 
-    struct RandomFillRule : public Rule
+    struct random_fill_rule : public rule
     {
         Random* random;
         float random_fill;
-        Fourway<BorderSetupRule> border_control;
+        fourway<border_setup_rule> border_control;
 
-        RandomFillRule
+        random_fill_rule
         (
             Random* r,
             float rf,
-            Fourway<BorderSetupRule> bc
+            fourway<border_setup_rule> bc
         )
             : random(r)
             , random_fill(rf)
@@ -55,9 +55,9 @@ namespace euphoria::core::generator
         }
 
         void
-        Step(CellularAutomata* self) override
+        step(cellular_automata* self) override
         {
-            SetWhiteNoise(self->world, border_control, [this]()
+            set_white_noise(self->world, border_control, [this]()
             {
                 return random->NextFloat01() < random_fill;
             });
@@ -65,22 +65,22 @@ namespace euphoria::core::generator
     };
 
 
-    struct FillSmallHolesRule : public Rule
+    struct fill_small_holes_rule : public rule
     {
         bool allow_diagonals;
         int min_count;
 
-        FillSmallHolesRule(bool ad, int mc)
+        fill_small_holes_rule(bool ad, int mc)
             : allow_diagonals(ad)
             , min_count(mc)
         {
         }
 
         void
-        Step(CellularAutomata* self) override
+        step(cellular_automata* self) override
         {
-            BoolTable& world = *self->world;
-            const auto regions = FindEmptyRegions(world, allow_diagonals);
+            bool_table& world = *self->world;
+            const auto regions = find_empty_regions(world, allow_diagonals);
             for(const auto& re: regions)
             {
                 if( Csizet_to_int(re.size()) < min_count)
@@ -95,22 +95,22 @@ namespace euphoria::core::generator
     };
 
 
-    struct FillAllHoles : public Rule
+    struct fill_all_holes : public rule
     {
         bool allow_diagonals;
         int holes_to_keep;
 
-        FillAllHoles(bool ad, int htk)
+        fill_all_holes(bool ad, int htk)
             : allow_diagonals(ad)
             , holes_to_keep(htk)
         {
         }
 
         void
-        Step(CellularAutomata* self) override
+        step(cellular_automata* self) override
         {
-            BoolTable& world = *self->world;
-            auto regions = FindEmptyRegions(world, allow_diagonals);
+            bool_table& world = *self->world;
+            auto regions = find_empty_regions(world, allow_diagonals);
             using V = std::vector<vec2i>;
             std::sort
             (
@@ -136,23 +136,23 @@ namespace euphoria::core::generator
     };
 
 
-    struct HorizontalBlankRule : public Rule
+    struct horizontal_blank_rule : public rule
     {
         int center;
         int height;
 
-        HorizontalBlankRule(int c, int h)
+        horizontal_blank_rule(int c, int h)
             : center(c)
             , height(h)
         {
         }
 
         void
-        Step(CellularAutomata* self) override
+        step(cellular_automata* self) override
         {
-            const BoolTable current = *self->world;
+            const bool_table current = *self->world;
 
-            self->world->SetAll
+            self->world->set_all
             (
                 [&current, this] (int x, int y)
                 {
@@ -170,7 +170,7 @@ namespace euphoria::core::generator
 
 
     void
-    Rules::AddRule(int count, std::shared_ptr<Rule> rule)
+    rules::add_rule(int count, std::shared_ptr<rule> rule)
     {
         for (int i = 0; i < count; i += 1)
         {
@@ -179,11 +179,11 @@ namespace euphoria::core::generator
     }
 
 
-    CellularAutomata::CellularAutomata
+    cellular_automata::cellular_automata
     (
-        Rules* r,
-        World* w,
-        const Fourway<OutsideRule>& fw
+        generator::rules* r,
+        generator::world* w,
+        const fourway<core::outside_rule>& fw
     )
         : rules(r)
         , world(w)
@@ -194,33 +194,33 @@ namespace euphoria::core::generator
 
 
     bool
-    CellularAutomata::HasMoreWork() const
+    cellular_automata::has_more_work() const
     {
         return iteration < Csizet_to_int(rules->rules.size());
     }
 
 
     void
-    CellularAutomata::Work()
+    cellular_automata::work()
     {
-        rules->rules[iteration]->Step(this);
+        rules->rules[iteration]->step(this);
         iteration += 1;
     }
 
 
     void
-    AddRandomFill
+    add_random_fill
     (
-        Rules* cell,
+        rules* cell,
         Random* random,
         float random_fill,
-        Fourway<BorderSetupRule> border_control
+        fourway<border_setup_rule> border_control
     )
     {
-        cell->AddRule
+        cell->add_rule
         (
             1,
-            std::make_shared<RandomFillRule>
+            std::make_shared<random_fill_rule>
             (
                 random,
                 random_fill,
@@ -231,16 +231,16 @@ namespace euphoria::core::generator
 
 
     void
-    AddClearRules(Rules* ca, int times, int count, int range, bool include_self, NeighborhoodAlgorithm algorithm)
+    add_clear_rules(rules* ca, int times, int count, int range, bool include_self, neighborhood_algorithm algorithm)
     {
-        ca->AddRule
+        ca->add_rule
         (
             times,
-            std::make_shared<SmoothRule>
+            std::make_shared<smooth_rule>
             (
-                [count, range, include_self, algorithm] (bool, const Wallcounter& wc) -> std::optional<bool>
+                [count, range, include_self, algorithm] (bool, const wallcounter& wc) -> std::optional<bool>
                 {
-                    const auto walls = wc.Count(range, include_self, algorithm);
+                    const auto walls = wc.count(range, include_self, algorithm);
                     if (walls < count) { return false; }
                     return std::nullopt;
                 }
@@ -250,32 +250,32 @@ namespace euphoria::core::generator
 
 
     void
-    AddComplexRules
+    add_complex_rules
     (
-        Rules* ca,
+        rules* ca,
         int times,
-        ChangeFunction change
+        change_function change
     )
     {
-        ca->AddRule
+        ca->add_rule
         (
             times,
-            std::make_shared<SmoothRule>(change)
+            std::make_shared<smooth_rule>(change)
         );
     }
 
 
     void
-    AddSimpleRules(Rules* ca, int times, int count, bool include_self, NeighborhoodAlgorithm algorithm)
+    add_simple_rules(rules* ca, int times, int count, bool include_self, neighborhood_algorithm algorithm)
     {
-        ca->AddRule
+        ca->add_rule
         (
             times,
-            std::make_shared<SmoothRule>
+            std::make_shared<smooth_rule>
             (
-                [count, include_self, algorithm] (bool, const Wallcounter& wc) -> std::optional<bool>
+                [count, include_self, algorithm] (bool, const wallcounter& wc) -> std::optional<bool>
                 {
-                    const auto walls = wc.Count(1, include_self, algorithm);
+                    const auto walls = wc.count(1, include_self, algorithm);
                     if (walls > count) { return true; }
                     if (walls < count) { return false; }
                     return std::nullopt;
@@ -286,23 +286,23 @@ namespace euphoria::core::generator
 
 
     void
-    AddHorizontalBlankRule(Rules* ca, int y, int height)
+    add_horizontal_blank_rule(rules* ca, int y, int height)
     {
-        ca->AddRule(1, std::make_shared<HorizontalBlankRule>(y, height));
+        ca->add_rule(1, std::make_shared<horizontal_blank_rule>(y, height));
     }
 
 
     void
-    AddSpikyRules(Rules* ca, int times, int count, bool include_self, NeighborhoodAlgorithm algorithm)
+    add_spiky_rules(rules* ca, int times, int count, bool include_self, neighborhood_algorithm algorithm)
     {
-        ca->AddRule
+        ca->add_rule
         (
             times,
-            std::make_shared<SmoothRule>
+            std::make_shared<smooth_rule>
             (
-                [count, include_self, algorithm] (bool, const Wallcounter& wc) -> std::optional<bool>
+                [count, include_self, algorithm] (bool, const wallcounter& wc) -> std::optional<bool>
                 {
-                    return wc.Count(1, include_self, algorithm) >= count;
+                    return wc.count(1, include_self, algorithm) >= count;
                 }
             )
         );
@@ -310,18 +310,18 @@ namespace euphoria::core::generator
 
 
     void
-    AddComboRules(Rules* ca, int times, int count, int big_count, bool include_self, NeighborhoodAlgorithm algorithm)
+    add_combo_rules(rules* ca, int times, int count, int big_count, bool include_self, neighborhood_algorithm algorithm)
     {
-        ca->AddRule
+        ca->add_rule
         (
             times,
-            std::make_shared<SmoothRule>
+            std::make_shared<smooth_rule>
             (
-                [count, big_count, include_self, algorithm](bool, const Wallcounter& wc) -> std::optional<bool>
+                [count, big_count, include_self, algorithm](bool, const wallcounter& wc) -> std::optional<bool>
                 {
-                    const auto walls = wc.Count(1, include_self, algorithm);
+                    const auto walls = wc.count(1, include_self, algorithm);
                     if (walls > count) { return true; }
-                    if(wc.Count(2, include_self, algorithm) <= big_count) { return true; }
+                    if(wc.count(2, include_self, algorithm) <= big_count) { return true; }
                     if (walls < count) { return false; }
                     return std::nullopt;
                 }
@@ -331,23 +331,23 @@ namespace euphoria::core::generator
 
 
     void
-    AddFillSmallHolesRule(Rules* rules, bool allow_diagonals, int min_count)
+    add_fill_small_holes_rule(rules* rules, bool allow_diagonals, int min_count)
     {
-        rules->AddRule
+        rules->add_rule
         (
             1,
-            std::make_shared<FillSmallHolesRule>(allow_diagonals, min_count)
+            std::make_shared<fill_small_holes_rule>(allow_diagonals, min_count)
         );
     }
 
 
     void
-    AddFillAllHolesRule(Rules* rules, bool allow_diagonals, int holes_to_keep)
+    add_fill_all_holes_rule(rules* rules, bool allow_diagonals, int holes_to_keep)
     {
-        rules->AddRule
+        rules->add_rule
         (
             1,
-            std::make_shared<FillAllHoles>(allow_diagonals, holes_to_keep)
+            std::make_shared<fill_all_holes>(allow_diagonals, holes_to_keep)
         );
     }
-}  // namespace euphoria::core
+}

@@ -6,7 +6,7 @@ namespace euphoria::core
 {
     struct image;
 
-    void RenderIdenticon(image* image, int code);
+    void render_identicon(image* image, int code);
 }
 
 #endif // EUPHORIA_CORE_IDENTICON_H

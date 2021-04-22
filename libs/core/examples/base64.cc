@@ -31,7 +31,7 @@ RunEncode(const std::string& data)
             vfs::FilePath{"~/invalid_input"}
         )
     );
-    auto encoded = euphoria::core::base64::Encode(memory);
+    auto encoded = euphoria::core::base64::encode(memory);
     std::cout << "Encoded:\n" << encoded << "\n";
     return 0;
 }

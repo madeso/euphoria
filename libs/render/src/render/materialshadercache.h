@@ -10,7 +10,7 @@
 namespace euphoria::render
 {
     struct MaterialShaderCache
-        : public core::Cache<core::vfs::FilePath, MaterialShader, MaterialShaderCache>
+        : public core::cache<core::vfs::FilePath, MaterialShader, MaterialShaderCache>
     {
     public:
         MaterialShaderCache(core::vfs::FileSystem* fs) : fs_(fs)

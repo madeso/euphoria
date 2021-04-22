@@ -36,7 +36,7 @@ TEST_CASE("image-load", "[img]")
     catalog->RegisterFileData
     (
         vfs::FilePath{"~/white"},
-        euco::base64::Decode(TEST_IMAGE)
+        euco::base64::decode(TEST_IMAGE)
     );
 
     auto loaded = euco::load_image

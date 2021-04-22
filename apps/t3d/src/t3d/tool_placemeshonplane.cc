@@ -37,7 +37,7 @@ namespace euphoria::t3d
     PlaceMeshOnPlane::Step(Editor* editor)
     {
         auto ray = editor->camera
-                        .ClipToWorldRay(
+                        .clip_to_world_ray(
                                 editor->viewport.ToClipCoord(editor->mouse))
                         .get_normalized();
 

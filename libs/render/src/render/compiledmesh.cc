@@ -262,7 +262,7 @@ namespace euphoria::render
             (
                 core::vfs::FilePath("~/default_shader")
             );
-            mat.shader = shader_cache->Get(shader_name);
+            mat.shader = shader_cache->get(shader_name);
             for(const auto& texture_src: material_src.textures)
             {
                 const auto texture_path = core::vfs::ResolveRelative

@@ -116,7 +116,7 @@ namespace euphoria::window
         if(ImGui::IsWindowHovered() && !ImGui::IsAnyItemActive()
            && ImGui::IsMouseDragging(2, 0.0f))
         {
-            canvas->view.Pan(C(ImGui::GetIO().MouseDelta));
+            canvas->view.pan(C(ImGui::GetIO().MouseDelta));
         }
     }
 
@@ -127,7 +127,7 @@ namespace euphoria::window
         {
             const auto mouse = ImGui::GetIO().MousePos - canvas->position;
             const auto zoom  = ImGui::GetIO().MouseWheel;
-            canvas->view.Zoom(C(mouse), zoom * cc.zoom_speed);
+            canvas->view.zoom(C(mouse), zoom * cc.zoom_speed);
         }
     }
 
@@ -146,7 +146,7 @@ namespace euphoria::window
     ImVec2
     Canvas::WorldToScreen(const ImVec2& v) const
     {
-        return C(view.WorldToScreen(C(v))) + position;
+        return C(view.world_to_screen(C(v))) + position;
     }
 
     ImVec2
@@ -158,7 +158,7 @@ namespace euphoria::window
     ImVec2
     Canvas::ScreenToWorld(const ImVec2& v) const
     {
-        return C(view.ScreenToWorld(C(v - position)));
+        return C(view.screen_to_world(C(v - position)));
     }
 
     ImVec2

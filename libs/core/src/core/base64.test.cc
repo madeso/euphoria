@@ -9,13 +9,13 @@ TEST_CASE("base64-encode", "[base64]")
 {
     auto chunk = euco::MemoryChunk::Alloc(3);
     euco::MemoryChunkFile {chunk}.Write(static_cast<const void*>("Man"), 3);
-    const auto encoded = euco::base64::Encode(chunk);
+    const auto encoded = euco::base64::encode(chunk);
     REQUIRE(encoded == "TWFu");
 }
 
 TEST_CASE("base64-decode", "[base64]")
 {
-    auto        chunk   = euco::base64::Decode("TWFu");
+    auto        chunk   = euco::base64::decode("TWFu");
     char        m       = *(chunk->GetData() + 0);
     char        a       = *(chunk->GetData() + 1);
     char        n       = *(chunk->GetData() + 2);

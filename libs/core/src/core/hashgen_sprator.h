@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_CORE_HASHGEN_SPRATOR_H
-#define EUPHORIA_CORE_HASHGEN_SPRATOR_H
+#pragma once
 
 #include <optional>
 #include <vector>
@@ -13,7 +12,7 @@ namespace euphoria::core
     struct image;
 
     void
-    RenderSprator
+    render_sprator
     (
         image* image,
         int code,
@@ -23,7 +22,7 @@ namespace euphoria::core
     );
 
     void
-    RenderSprator
+    render_sprator
     (
         std::vector<image>* images,
         int code,
@@ -32,7 +31,3 @@ namespace euphoria::core
         const rgbai& background_color = {color::black, 0}
     );
 }
-
-
-#endif  // EUPHORIA_CORE_HASHGEN_SPRATOR_H
-

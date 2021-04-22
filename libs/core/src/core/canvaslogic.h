@@ -1,12 +1,11 @@
-#ifndef EUPHORIA_CANVASLOGIC_H
-#define EUPHORIA_CANVASLOGIC_H
+#pragma once
 
 #include "core/vec2.h"
 #include "core/range.h"
 
 namespace euphoria::core
 {
-    struct CanvasLogic
+    struct canvas_logic
     {
         // canvas view
         vec2f scroll = vec2f {0, 0};
@@ -16,17 +15,15 @@ namespace euphoria::core
         Range<float> scale_range = MakeRange(0.1f, 15.0f);
 
         void
-        Pan(const vec2f& p);
+        pan(const vec2f& p);
 
         void
-        Zoom(const vec2f& mouse, float zoom);
+        zoom(const vec2f& mouse, float zoom);
 
         [[nodiscard]] vec2f
-        ScreenToWorld(const vec2f& p) const;
+        screen_to_world(const vec2f& p) const;
 
         [[nodiscard]] vec2f
-        WorldToScreen(const vec2f& p) const;
+        world_to_screen(const vec2f& p) const;
     };
-}  // namespace euphoria::core
-
-#endif  // EUPHORIA_CANVASLOGIC_H
+}

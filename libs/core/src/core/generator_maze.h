@@ -1,5 +1,4 @@
-#ifndef CORE_GENERATOR_MAZE_H
-#define CORE_GENERATOR_MAZE_H
+#pragma once
 
 #include "core/table.h"
 #include "core/vec2.h"
@@ -15,28 +14,28 @@ namespace euphoria::core
 
 namespace euphoria::core::generator
 {
-    namespace Cell
+    namespace cell
     {
-        enum Type
+        enum type
         {
-            None      = 0,
-            PathNorth = 1 << 0,
-            PathSouth = 1 << 1,
-            PathEast  = 1 << 2,
-            PathWest  = 1 << 3,
-            Visited   = 1 << 4
+            none      = 0,
+            path_north = 1 << 0,
+            path_south = 1 << 1,
+            path_east  = 1 << 2,
+            path_west  = 1 << 3,
+            visited   = 1 << 4
         };
     }
 
-    enum class Dir
+    enum class dir
     {
-        North,
-        South,
-        East,
-        West
+        north,
+        south,
+        east,
+        west
     };
 
-    using Maze = Table<int>;
+    using maze = table<int>;
 
     // todo(Gustav): implement more generators
     // https://bost.ocks.org/mike/algorithms/#maze-generation
@@ -45,74 +44,75 @@ namespace euphoria::core::generator
     // https://gamedev.stackexchange.com/questions/153734/generate-cave-like-terrain-in-2d
     // http://www.gamasutra.com/blogs/HermanTulleken/20161005/282629/Algorithms_for_making_more_interesting_mazes.php
 
-    struct Algorithm
+    struct algorithm
     {
-        Algorithm() = default;
-        virtual ~Algorithm() = default;
+        algorithm() = default;
+        virtual ~algorithm() = default;
 
-        Algorithm(const Algorithm&) = delete;
-        Algorithm(Algorithm&&) = delete;
-        void operator=(const Algorithm&) = delete;
-        void operator=(Algorithm&&) = delete;
+        algorithm(const algorithm&) = delete;
+        algorithm(algorithm&&) = delete;
+        void operator=(const algorithm&) = delete;
+        void operator=(algorithm&&) = delete;
 
         virtual void
-        Setup() = 0;
+        setup() = 0;
 
         [[nodiscard]] virtual bool
-        HasMoreWork() const = 0;
+        has_more_work() const = 0;
 
         virtual void
-        Work() = 0;
+        work() = 0;
     };
 
-    struct RecursiveBacktracker : public Algorithm
+    struct recursive_backtracker : public algorithm
     {
-        Maze*   maze   = nullptr;
+        maze*   maze   = nullptr;
         Random* random = nullptr;
 
         std::stack<vec2i> stack;
         int               visited_cells = 0;
 
         void
-        Setup() override;
+        setup() override;
 
         [[nodiscard]] bool
-        HasMoreWork() const override;
+        has_more_work() const override;
+
         void
-        Work() override;
+        work() override;
     };
 
-    struct RandomTraversal : public Algorithm
+    struct random_traversal : public algorithm
     {
-        Maze*   maze   = nullptr;
+        generator::maze*   maze   = nullptr;
         Random* random = nullptr;
 
-        struct Entry
+        struct entry
         {
             vec2i position;
-            Dir   direction;
+            dir   direction;
         };
-        std::vector<Entry> frontier;
+        std::vector<entry> frontier;
 
         void
-        Setup() override;
+        setup() override;
 
         [[nodiscard]] bool
-        HasMoreWork() const override;
+        has_more_work() const override;
 
         void
-        Work() override;
+        work() override;
     };
 
-    struct Drawer
+    struct drawer
     {
-        Maze* maze = nullptr;
+        maze* maze = nullptr;
 
         int cell_size = 3;
         int wall_size = 1;
 
-        RecursiveBacktracker* tracker   = nullptr;
-        RandomTraversal*      traversal = nullptr;
+        recursive_backtracker* tracker   = nullptr;
+        random_traversal*      traversal = nullptr;
 
         rgbi wall_color;
         rgbi cell_color;
@@ -121,16 +121,13 @@ namespace euphoria::core::generator
         rgbi corridor_color;
 
         [[nodiscard]] rgbi
-        CalculateCellColor(int x, int y) const;
+        calculate_cell_color(int x, int y) const;
 
         core::image image;
 
-        Drawer();
+        drawer();
 
         void
-        Draw();
+        draw();
     };
-}  // namespace euphoria::core::generator
-
-
-#endif  // CORE_GENERATOR_MAZE_H
+}

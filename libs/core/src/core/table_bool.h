@@ -1,5 +1,4 @@
-#ifndef CORE_STRING_TABLE_H
-#define CORE_STRING_TABLE_H
+#pragma once
 
 #include "core/table.h"
 
@@ -13,41 +12,41 @@
 
 namespace euphoria::core
 {
-    using BoolTable = Table<bool>;
+    using bool_table = table<bool>;
 
     ///////////////////////////////////////////////////////////////////////////// ========================================================================
     // Setup
 
-    enum class BorderSetupRule
+    enum class border_setup_rule
     {
-        AlwaysWall,
-        AlwaysEmpty,
-        Random,
+        always_wall,
+        always_empty,
+        random,
     };
 
     void
-    SetWhiteNoise
+    set_white_noise
     (
-        BoolTable* world,
-        Fourway<BorderSetupRule> border_control,
+        bool_table* world,
+        fourway<border_setup_rule> border_control,
         std::function<bool()> rng
     );
 
     ///////////////////////////////////////////////////////////////////////////
     // Smooth step
 
-    enum class OutsideRule
+    enum class outside_rule
     {
-        Wall, Empty, Mirror, Wrap
+        wall, empty, mirror, wrap
     };
 
     /* Count walls according to von Neumann neighborhood 'manhattan distance' rule.
     */
     int
-    CountWallsManhattan
+    count_walls_manhattan
     (
-        const BoolTable& world,
-        Fourway<OutsideRule> outside_rule,
+        const bool_table& world,
+        fourway<outside_rule> outside_rule,
         int cx,
         int cy,
         int step,
@@ -58,10 +57,10 @@ namespace euphoria::core
     /* Count walls according to extended von Neumann neighborhood 'plus' rule.
     */
     int
-    CountWallsPlus
+    count_walls_plus
     (
-        const BoolTable& world,
-        Fourway<OutsideRule> outside_rule,
+        const bool_table& world,
+        fourway<outside_rule> outside_rule,
         int cx,
         int cy,
         int step,
@@ -72,56 +71,56 @@ namespace euphoria::core
     /* Count walls according to Moore neighborhood 'box' rule.
     */
     int
-    CountWallsBox
+    count_walls_box
     (
-        const BoolTable& world,
-        Fourway<OutsideRule> outside_rule,
+        const bool_table& world,
+        fourway<outside_rule> outside_rule,
         int cx,
         int cy,
         int step,
         bool include_self
     );
 
-    enum class NeighborhoodAlgorithm
+    enum class neighborhood_algorithm
     {
         // von Neumann
-        Manhattan,
+        manhattan,
 
         // extended vonNeumann
-        Plus,
+        plus,
 
         // Moore
-        Box
+        box
     };
 
 
-    struct Wallcounter
+    struct wallcounter
     {
-        const BoolTable& world;
-        Fourway<OutsideRule> outside_rule;
+        const bool_table& world;
+        fourway<core::outside_rule> outside_rule;
         int cx;
         int cy;
 
-        Wallcounter
+        wallcounter
         (
-            const BoolTable& w,
-            Fourway<OutsideRule> r,
+            const bool_table& w,
+            fourway<core::outside_rule> r,
             int x,
             int y
         );
 
         [[nodiscard]] int
-        Count(int step, bool include_self, NeighborhoodAlgorithm algorithm) const;
+        count(int step, bool include_self, neighborhood_algorithm algorithm) const;
     };
 
 
     void
-    SmoothMap
+    smooth_map
     (
-        BoolTable* world,
-        Fourway<OutsideRule> outside_rule,
+        bool_table* world,
+        fourway<outside_rule> outside_rule,
         // return if occupied or not, or nullopt to keep old value
-        std::function<std::optional<bool>(bool, const Wallcounter&)> smooth_function
+        std::function<std::optional<bool>(bool, const wallcounter&)> smooth_function
     );
 
 
@@ -129,39 +128,37 @@ namespace euphoria::core
     // FloodFill
 
     std::vector<vec2i>
-    FindEmptyBlocks(const BoolTable& world);
+    find_empty_blocks(const bool_table& world);
 
     std::vector<vec2i>
-    FindFloodFillItems
+    find_flood_fill_items
     (
-        const BoolTable& world,
+        const bool_table& world,
         const vec2i& start,
         bool allow_diagonals
     );
 
     std::vector<std::vector<vec2i>>
-    FindEmptyRegions(const BoolTable& world, bool allow_diagonals);
+    find_empty_regions(const bool_table& world, bool allow_diagonals);
 
     ///////////////////////////////////////////////////////////////////////////
     // Rendering
 
-    struct BorderSettings
+    struct border_settings
     {
-        explicit BorderSettings(const rgbai& c);
+        explicit border_settings(const rgbai& c);
 
         rgbai color;
     };
 
     image
-    Draw
+    draw
     (
-        const BoolTable& world,
+        const bool_table& world,
         rgbai wall_color,
         rgbai space_color,
         int scale,
         // if nullopt, no border
-        std::optional<BorderSettings> border
+        std::optional<border_settings> border
     );
 }
-
-#endif  // CORE_STRING_TABLE_H

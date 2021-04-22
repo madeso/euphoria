@@ -82,7 +82,7 @@ set(app_src
     src/core/bitfield.h
     src/core/bufferbuilder2d.cc src/core/bufferbuilder2d.h
     src/core/cache.h
-    src/core/camera.cc src/core/camera.h
+    src/core/camera3.cc src/core/camera3.h
     src/core/canvaslogic.cc src/core/canvaslogic.h
     src/core/chatbot.cc src/core/chatbot.h
     src/core/cint.cc src/core/cint.h

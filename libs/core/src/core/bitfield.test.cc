@@ -16,59 +16,59 @@ namespace
 
 TEST_CASE("bitfield-basic", "[bitfield]")
 {
-    Bitfield<B> b;
+    bitfield<B> b;
 
     SECTION("Empty")
     {
-        CHECK_FALSE(b.HasAnyValues());
-        CHECK_FALSE(b.Get(B::A));
-        CHECK_FALSE(b.Get(B::B));
-        CHECK_FALSE(b.Get(B::C));
+        CHECK_FALSE(b.has_any_values());
+        CHECK_FALSE(b.get(B::A));
+        CHECK_FALSE(b.get(B::B));
+        CHECK_FALSE(b.get(B::C));
     }
 
     SECTION("Set false")
     {
-        b.Set(B::A, false);
-        b.Set(B::B, false);
-        b.Set(B::C, false);
+        b.set(B::A, false);
+        b.set(B::B, false);
+        b.set(B::C, false);
 
-        CHECK_FALSE(b.HasAnyValues());
+        CHECK_FALSE(b.has_any_values());
 
-        CHECK_FALSE(b.Get(B::A));
-        CHECK_FALSE(b.Get(B::B));
-        CHECK_FALSE(b.Get(B::C));
+        CHECK_FALSE(b.get(B::A));
+        CHECK_FALSE(b.get(B::B));
+        CHECK_FALSE(b.get(B::C));
     }
 
     SECTION("Some")
     {
-        b.Set(B::A, true);
+        b.set(B::A, true);
 
-        CHECK(b.HasAnyValues());
-        CHECK(b.Get(B::A));
-        CHECK_FALSE(b.Get(B::B));
-        CHECK_FALSE(b.Get(B::C));
+        CHECK(b.has_any_values());
+        CHECK(b.get(B::A));
+        CHECK_FALSE(b.get(B::B));
+        CHECK_FALSE(b.get(B::C));
     }
 
     SECTION("Toggle")
     {
-        b.Toggle(B::C);
-        CHECK_FALSE(b.Get(B::A));
-        CHECK_FALSE(b.Get(B::B));
-        CHECK(b.Get(B::C));
+        b.toggle(B::C);
+        CHECK_FALSE(b.get(B::A));
+        CHECK_FALSE(b.get(B::B));
+        CHECK(b.get(B::C));
     }
 
     SECTION("All")
     {
-        b.Set(B::A, true);
-        b.Set(B::B, true);
-        b.Set(B::C, true);
-        CHECK(b.Get(B::A));
-        CHECK(b.Get(B::B));
-        CHECK(b.Get(B::C));
+        b.set(B::A, true);
+        b.set(B::B, true);
+        b.set(B::C, true);
+        CHECK(b.get(B::A));
+        CHECK(b.get(B::B));
+        CHECK(b.get(B::C));
 
-        b.Clear();
-        CHECK_FALSE(b.Get(B::A));
-        CHECK_FALSE(b.Get(B::B));
-        CHECK_FALSE(b.Get(B::C));
+        b.clear();
+        CHECK_FALSE(b.get(B::A));
+        CHECK_FALSE(b.get(B::B));
+        CHECK_FALSE(b.get(B::C));
     }
 }

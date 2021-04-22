@@ -117,19 +117,19 @@ namespace euphoria::core
         }
 
         void
-        StartThrowing()
+        start_throwing()
         {
             ShouldThrow() = true;
         }
 
         bool
-        IsThrowing()
+        is_throwing()
         {
             return ShouldThrow();
         }
 
         void
-        OnAssert
+        on_assert
         (
             const char* const expression,
             int line,

@@ -11,7 +11,7 @@
 #include "core/vfs_path.h"
 #include "core/os.h"
 #include "core/range.h"
-#include "core/camera.h"
+#include "core/camera3.h"
 #include "core/palette.h"
 #include "core/fpscontroller.h"
 
@@ -235,7 +235,7 @@ main(int argc, char** argv)
   world.AddActor(dude_actor);
 #endif
 
-    Camera camera;
+    camera3 camera;
     camera.position = vec3f::zero();
 
     FpsController fps;

@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_CORE_CLOSESTPOINT_H
-#define EUPHORIA_CORE_CLOSESTPOINT_H
+#pragma once
 
 #include <vector>
 #include <tuple>
@@ -16,23 +15,23 @@ namespace euphoria::core
         typename DistanceFunctionType,
         typename DistanceType
     >
-    struct ClosestPoint
+    struct closest_point
     {
         DistanceFunctionType distance_function;
         std::vector<std::tuple<Vec, Data>> points;
 
-        ClosestPoint(DistanceFunctionType a_distance_function)
+        closest_point(DistanceFunctionType a_distance_function)
             : distance_function(a_distance_function)
         {}
 
         void
-        Add(const Vec& v, const Data& data)
+        add(const Vec& v, const Data& data)
         {
             points.emplace_back(std::make_tuple(v, data));
         }
 
         [[nodiscard]] Data
-        FindClosest(const Vec& v)
+        find_closest(const Vec& v)
         {
             ASSERT(!points.empty());
             bool first = true;
@@ -54,4 +53,3 @@ namespace euphoria::core
     };
 }
 
-#endif  // EUPHORIA_CORE_CLOSESTPOINT_H

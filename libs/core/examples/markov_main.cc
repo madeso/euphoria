@@ -48,11 +48,11 @@ MarkovSentance(const std::string& file, int memory, int count)
         return;
     }
 
-    markov::ChainBuilder<std::string> m {memory};
+    markov::chain_builder<std::string> m {memory};
     const auto parsed = core::ParseSentances
     (
         data,
-        [&](const core::Sentance& s) { m.Add(s); }
+        [&](const core::Sentance& s) { m.add(s); }
     );
     if(!parsed)
     {
@@ -61,11 +61,11 @@ MarkovSentance(const std::string& file, int memory, int count)
     }
 
     core::Random rnd;
-    auto b = m.Build();
+    auto b = m.build();
 
     for(int i = 0; i < count; i += 1)
     {
-        auto s = b.Generate(&rnd);
+        auto s = b.generate(&rnd);
         std::cout << core::SentanceToString(s) << "\n\n";
     }
 }
@@ -75,7 +75,7 @@ void
 MarkovWord(const std::string& file, int memory, int count)
 {
     core::Random rnd;
-    markov::ChainBuilder<char> m {memory};
+    markov::chain_builder<char> m {memory};
 
     std::ifstream data;
     data.open(file);
@@ -89,15 +89,15 @@ MarkovWord(const std::string& file, int memory, int count)
     while(std::getline(data, line))
     {
         if(line.empty()) { continue; }
-        m.Add(C(line));
+        m.add(C(line));
     }
 
     std::cout << "\n";
-    auto b = m.Build();
+    auto b = m.build();
 
     for(int i = 0; i < count; i += 1)
     {
-        std::cout << C(b.Generate(&rnd)) << "\n";
+        std::cout << C(b.generate(&rnd)) << "\n";
     }
 }
 
@@ -182,7 +182,7 @@ void
 MarkovLine(const std::string& file, int memory, int count, bool also_existing, bool simple)
 {
     core::Random rnd;
-    markov::ChainBuilder<std::string> m {memory};
+    markov::chain_builder<std::string> m {memory};
 
     std::ifstream data;
     data.open(file);
@@ -206,18 +206,18 @@ MarkovLine(const std::string& file, int memory, int count, bool also_existing, b
             {
                 existing_lines->Add(core::ToLower(line));
             }
-            m.Add(*p);
+            m.add(*p);
         }
     }
 
     std::cout << "\n";
-    auto b = m.Build();
+    auto b = m.build();
 
     int skipped = 0;
 
     for(int i = 0; i < count+skipped; i += 1)
     {
-        const auto generated = core::LineToString(b.Generate(&rnd));
+        const auto generated = core::LineToString(b.generate(&rnd));
         if(!also_existing && existing_lines->IsSame(core::ToLower(generated)))
         {
             skipped += 1;

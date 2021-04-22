@@ -36,28 +36,28 @@ struct Common
 };
 
 
-Table<int>
+table<int>
 GenerateDrunkenBishopTable(Random* random, const Common& common)
 {
     auto hash = std::vector<int>{};
     const int times = common.big ? 8 : 4;
     for(int i=0; i<times; i+=1)
     {
-        const auto codes = ToCodes(ToBytes(random->NextInteger()), true);
+        const auto codes = to_codes(to_bytes(random->NextInteger()), true);
         for(auto c : codes)
         {
             hash.emplace_back(c);
         }
     }
-    return DrunkenBishop(hash, common.width, common.height);
+    return drunken_bishop(hash, common.width, common.height);
 }
 
 
 image
-GenerateImage(const Table<int>& table, int scale, const palette& pal)
+GenerateImage(const table<int>& table, int scale, const palette& pal)
 {
     image image;
-    image.setup_no_alpha_support(scale * table.GetWidth(), scale * table.GetHeight());
+    image.setup_no_alpha_support(scale * table.get_width(), scale * table.get_height());
 
     auto rect = [&](const rgbi& color, const vec2i& top_left)
     {
@@ -73,9 +73,9 @@ GenerateImage(const Table<int>& table, int scale, const palette& pal)
         );
     };
 
-    for(int y=0; y<table.GetHeight(); y+=1)
+    for(int y=0; y<table.get_height(); y+=1)
     {
-        for(int x=0; x<table.GetWidth(); x+=1)
+        for(int x=0; x<table.get_width(); x+=1)
         {
             const auto v =
             std::max
@@ -150,7 +150,7 @@ main(int argc, char* argv[])
             return sub->on_complete([&]{
                 auto random = Random{};
                 const auto table = GenerateDrunkenBishopTable(&random, common);
-                const auto strs = Collapse(table, GetSshCharacters());
+                const auto strs = collapse(table, get_ssh_characters());
                 for(const auto& str: strs)
                 {
                     std::cout << str << "\n";

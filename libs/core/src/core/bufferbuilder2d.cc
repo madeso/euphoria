@@ -7,25 +7,25 @@
 
 namespace euphoria::core
 {
-    Point::Point(float x, float y, float u, float v)
+    point::point(float x, float y, float u, float v)
         : pos(x, y)
         , uv(u, v)
     {
     }
 
 
-    Point::Point(const vec2f& p, const vec2f& u)
+    point::point(const vec2f& p, const vec2f& u)
         : pos(p)
         , uv(u)
     {
     }
 
 
-    BufferBuilder2d::BufferBuilder2d() = default;
+    buffer_builder2d::buffer_builder2d() = default;
 
 
     void
-    BufferBuilder2d::AddVertex(const Point& p)
+    buffer_builder2d::add_vertex(const point& p)
     {
         data.push_back(p.pos.x);
         data.push_back(p.pos.y);
@@ -59,7 +59,7 @@ namespace euphoria::core
 
 
     void
-    BufferBuilder2d::AddTriangle
+    buffer_builder2d::add_triangle
     (
         unsigned int a,
         unsigned int b,
@@ -81,12 +81,12 @@ namespace euphoria::core
 
 
     void
-    BufferBuilder2d::AddQuad
+    buffer_builder2d::add_quad
     (
-        const Point& a,
-        const Point& b,
-        const Point& c,
-        const Point& d
+        const point& a,
+        const point& b,
+        const point& c,
+        const point& d
     )
     {
         const unsigned int ai = data.size();
@@ -94,18 +94,18 @@ namespace euphoria::core
         const unsigned int ci = ai + 2;
         const unsigned int di = ai + 3;
 
-        AddVertex(a);
-        AddVertex(b);
-        AddVertex(c);
-        AddVertex(d);
+        add_vertex(a);
+        add_vertex(b);
+        add_vertex(c);
+        add_vertex(d);
 
-        AddTriangle(ci, bi, ai);
-        AddTriangle(ci, di, bi);
+        add_triangle(ci, bi, ai);
+        add_triangle(ci, di, bi);
     }
 
 
     void
-    BufferBuilder2d::Dump(const std::string& filename) const
+    buffer_builder2d::dump(const std::string& filename) const
     {
         std::ofstream f(filename.c_str());
 

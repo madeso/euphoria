@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_CORE_BITFIELD_H
-#define EUPHORIA_CORE_BITFIELD_H
+#pragma once
 
 #include <type_traits>
 
@@ -7,20 +6,20 @@ namespace euphoria::core
 {
 
     template<typename T, typename I = std::underlying_type_t<T>>
-    struct Bitfield
+    struct bitfield
     {
-        Bitfield()
+        bitfield()
         : value(static_cast<T>(0))
         {}
 
         [[nodiscard]] bool
-        HasAnyValues() const
+        has_any_values() const
         {
             return value != static_cast<T>(0);
         }
 
         void
-        Set(T bit, bool new_value)
+        set(T bit, bool new_value)
         {
             if(new_value)
             {
@@ -33,19 +32,19 @@ namespace euphoria::core
         }
 
         void
-        Toggle(T bit)
+        toggle(T bit)
         {
             value = static_cast<T>(static_cast<I>(value) ^ static_cast<I>(bit));
         }
 
         void
-        Clear()
+        clear()
         {
             value = static_cast<T>(0);
         }
 
         [[nodiscard]] bool
-        Get(T bit) const
+        get(T bit) const
         {
             const I i = static_cast<I>(value) & static_cast<I>(bit);
             return bit == static_cast<T>(i);
@@ -55,5 +54,3 @@ namespace euphoria::core
     };
 
 }
-
-#endif  // EUPHORIA_CORE_BITFIELD_H

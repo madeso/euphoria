@@ -23,7 +23,7 @@ namespace euphoria::core
         int k;
 
         float w;
-        Table<int> grid;
+        table<int> grid;
         std::vector<int> active;
         std::vector<vec2f> samples;
 

@@ -10,7 +10,7 @@
 namespace euphoria::render
 {
     struct FontCache::FontCachePimpl
-        : core::Cache<core::vfs::FilePath, Font, FontCache::FontCachePimpl>
+        : core::cache<core::vfs::FilePath, Font, FontCache::FontCachePimpl>
     {
         explicit FontCachePimpl(core::vfs::FileSystem* fs, TextureCache* cache)
             : fs_(fs), cache_(cache)
@@ -39,6 +39,6 @@ namespace euphoria::render
     std::shared_ptr<Font>
     FontCache::GetFont(const core::vfs::FilePath& path) const
     {
-        return pimp->Get(path);
+        return pimp->get(path);
     }
 }

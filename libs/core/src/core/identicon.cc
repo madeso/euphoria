@@ -117,7 +117,7 @@ namespace
 
 namespace euphoria::core
 {
-    void RenderIdenticon(image* image, int code)
+    void render_identicon(image* image, int code)
     {
         ASSERT(image);
         ASSERT(image->width == image->height);

@@ -692,7 +692,7 @@ namespace euphoria::t3d
     T3d::Render()
     {
         auto viewport = viewport_handler->GetFullViewport();
-        editor->camera = camera.Compile(viewport.GetAspectRatio());
+        editor->camera = camera.compile(viewport.GetAspectRatio());
         editor->viewport = viewport;
         world->Render(viewport, camera);
     }

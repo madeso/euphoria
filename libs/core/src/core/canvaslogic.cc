@@ -4,13 +4,13 @@
 namespace euphoria::core
 {
     void
-    CanvasLogic::Pan(const vec2f& p)
+    canvas_logic::pan(const vec2f& p)
     {
         scroll += p;
     }
 
     void
-    CanvasLogic::Zoom(const vec2f& mouse, float zoom)
+    canvas_logic::zoom(const vec2f& mouse, float zoom)
     {
         // todo(Gustav): change to use ScreenToWorld
         const auto focus = (mouse - scroll) / scale;
@@ -35,13 +35,13 @@ namespace euphoria::core
     }
 
     vec2f
-    CanvasLogic::WorldToScreen(const vec2f& p) const
+    canvas_logic::world_to_screen(const vec2f& p) const
     {
         return scroll + p * scale;
     }
 
     vec2f
-    CanvasLogic::ScreenToWorld(const vec2f& p) const
+    canvas_logic::screen_to_world(const vec2f& p) const
     {
         return (p - scroll) / scale;
     }

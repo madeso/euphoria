@@ -17,16 +17,16 @@ namespace euphoria::core
       Generic version of a CSS like padding type.
     */
     template<typename T>
-    struct Fourway
+    struct fourway
     {
-        using Self = Fourway<T>;
+        using self = fourway<T>;
 
         T left;
         T right;
         T up;
         T down;
 
-        explicit Fourway(const T& t)
+        explicit fourway(const T& t)
             : left(t)
             , right(t)
             , up(t)
@@ -38,8 +38,8 @@ namespace euphoria::core
           */
         [[nodiscard]]
         static
-        Self
-        FromLrud(const T& lr, const T& ud)
+        self
+        from_lrud(const T& lr, const T& ud)
         {
             return {lr, lr, ud, ud};
         }
@@ -48,14 +48,14 @@ namespace euphoria::core
           */
         [[nodiscard]]
         static
-        Self
-        FromLrud(const T& l, const T& r, const T& u, const T& d)
+        self
+        from_lrud(const T& l, const T& r, const T& u, const T& d)
         {
             return {l, r, u, d};
         }
 
     private:
-        Fourway
+        fourway
         (
             const T& l,
             const T& r,
@@ -73,7 +73,7 @@ namespace euphoria::core
 
     template<typename T>
     bool
-    operator==(const Fourway<T>& lhs, const Fourway<T>& rhs)
+    operator==(const fourway<T>& lhs, const fourway<T>& rhs)
     {
         return
             lhs.left == rhs.left &&
@@ -86,7 +86,7 @@ namespace euphoria::core
 
     template<typename T>
     bool
-    operator!=(const Fourway<T>& lhs, const Fourway<T>& rhs)
+    operator!=(const fourway<T>& lhs, const fourway<T>& rhs)
     {
         return !(lhs == rhs);
     }
@@ -94,7 +94,7 @@ namespace euphoria::core
 
     template<typename T>
     std::ostream&
-    operator<<(std::ostream& s, const Fourway<T>& fw)
+    operator<<(std::ostream& s, const fourway<T>& fw)
     {
         s << "("
           << fw.up << " "
@@ -112,7 +112,7 @@ namespace euphoria::core
     */
     template<typename T>
     struct custom_argparser
-    <Fourway<T>>
+    <fourway<T>>
     {
         enum { value = 1 };
 
@@ -120,7 +120,7 @@ namespace euphoria::core
 
         static
         std::string
-        ToString(const Fourway<T>& fw)
+        ToString(const fourway<T>& fw)
         {
             std::ostringstream ss;
             ss
@@ -133,10 +133,10 @@ namespace euphoria::core
         }
 
         static
-        Result<Fourway<T>>
+        Result<fourway<T>>
         Parse(const std::string& value)
         {
-            using R = Result<Fourway<T>>;
+            using R = Result<fourway<T>>;
             auto parse = [](const std::string& v)
             {
                 return argparse::default_parse_function<T>(v);
@@ -150,7 +150,7 @@ namespace euphoria::core
 
                     if(!val) { return R::False(val.Error()); }
 
-                    return R::True(Fourway<T>{*val});
+                    return R::True(fourway<T>{*val});
                 }
                 case 2:
                 {
@@ -163,7 +163,7 @@ namespace euphoria::core
                     if(!hor) { return R::False(Str() << "invalid hor(" << vhor << "): " << hor.Error()); }
                     if(!vert) { return R::False(Str() << "invalid vert(" << vvert << "): " << vert.Error()); }
 
-                    return R::True(Fourway<T>::FromLrud(*hor, *vert));
+                    return R::True(fourway<T>::from_lrud(*hor, *vert));
                 }
                 case 4:
                 {
@@ -182,7 +182,7 @@ namespace euphoria::core
                     if(!up) { return R::False(Str() << "invalid up(" << vup << "): " << up.Error()); }
                     if(!down) { return R::False(Str() << "invalid down(" << vdown << "): " << down.Error()); }
 
-                    return R::True(Fourway<T>::FromLrud
+                    return R::True(fourway<T>::from_lrud
                     (
                         *left,
                         *right,

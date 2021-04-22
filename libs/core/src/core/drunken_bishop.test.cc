@@ -90,17 +90,17 @@ BinIntEquals
 
 TEST_CASE("drunken bishop 0", "[drunken-bishop]")
 {
-    CHECK(HexIntEquals(ToBytes(static_cast<u32>(0)), {0x00, 0x00, 0x00, 0x00}));
-    CHECK(HexIntEquals(ToBytes(static_cast<u32>(1)), {0x00, 0x00, 0x00, 0x01}));
-    CHECK(HexIntEquals(ToBytes(static_cast<u32>(42)), {0x00, 0x00, 0x00, 0x2A}));
-    CHECK(HexIntEquals(ToBytes(static_cast<u32>(1337)), {0x00, 0x00, 0x05, 0x39}));
-    CHECK(HexIntEquals(ToBytes(std::numeric_limits<u32>::max()), {0xFF, 0xFF, 0xFF, 0xFF}));
+    CHECK(HexIntEquals(to_bytes(static_cast<u32>(0)), {0x00, 0x00, 0x00, 0x00}));
+    CHECK(HexIntEquals(to_bytes(static_cast<u32>(1)), {0x00, 0x00, 0x00, 0x01}));
+    CHECK(HexIntEquals(to_bytes(static_cast<u32>(42)), {0x00, 0x00, 0x00, 0x2A}));
+    CHECK(HexIntEquals(to_bytes(static_cast<u32>(1337)), {0x00, 0x00, 0x05, 0x39}));
+    CHECK(HexIntEquals(to_bytes(std::numeric_limits<u32>::max()), {0xFF, 0xFF, 0xFF, 0xFF}));
 
-    CHECK(BinIntEquals(ToCodes(0x00, true), {0b00, 0b00, 0b00, 0b00}));
-    CHECK(BinIntEquals(ToCodes(0x01, true), {0b00, 0b00, 0b00, 0b01}));
-    CHECK(BinIntEquals(ToCodes(0xFF, true), {0b11, 0b11, 0b11, 0b11}));
-    CHECK(BinIntEquals(ToCodes(0x29, true), {0b00, 0b10, 0b10, 0b01}));
-    CHECK(BinIntEquals(ToCodes(0x4D, true), {0b01, 0b00, 0b11, 0b01}));
+    CHECK(BinIntEquals(to_codes(0x00, true), {0b00, 0b00, 0b00, 0b00}));
+    CHECK(BinIntEquals(to_codes(0x01, true), {0b00, 0b00, 0b00, 0b01}));
+    CHECK(BinIntEquals(to_codes(0xFF, true), {0b11, 0b11, 0b11, 0b11}));
+    CHECK(BinIntEquals(to_codes(0x29, true), {0b00, 0b10, 0b10, 0b01}));
+    CHECK(BinIntEquals(to_codes(0x4D, true), {0b01, 0b00, 0b11, 0b01}));
 }
 
 
@@ -117,9 +117,9 @@ TEST_CASE("drunken bishop strings", "[drunken-bishop]")
         const int width = 17;
         const int height = 9;
 
-        const auto codes = ToCodes(bytes, false);
-        const auto table = DrunkenBishop(codes, width, height);
-        const auto res = Collapse(table, GetSshCharacters());
+        const auto codes = to_codes(bytes, false);
+        const auto table = drunken_bishop(codes, width, height);
+        const auto res = collapse(table, get_ssh_characters());
 
         return StringEq(res, correct_result);
     };

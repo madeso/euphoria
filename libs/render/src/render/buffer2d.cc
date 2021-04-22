@@ -8,7 +8,7 @@
 
 namespace euphoria::render
 {
-    Buffer2d::Buffer2d(const core::BufferBuilder2d& bb)
+    Buffer2d::Buffer2d(const core::buffer_builder2d& bb)
         : index_count(core::Csizet_to_int(bb.tris.size()))
     {
         PointLayout::Bind(&vao);

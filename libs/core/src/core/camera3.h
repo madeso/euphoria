@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_CAMERA_H
-#define EUPHORIA_CAMERA_H
+#pragma once
 
 #include "core/mat4.h"
 #include "core/vec2.h"
@@ -10,22 +9,22 @@
 
 namespace euphoria::core
 {
-    struct CompiledCamera
+    struct compiled_camera3
     {
     public:
-        CompiledCamera(const mat4f& view_, const mat4f& projection_);
+        compiled_camera3(const mat4f& view_, const mat4f& projection_);
 
         [[nodiscard]]
         vec3f
-        WorldToClip(const vec3f& in_world) const;
+        world_to_clip(const vec3f& in_world) const;
 
         [[nodiscard]]
         vec3f
-        ClipToWorld(const vec3f& in_clip) const;
+        clip_to_world(const vec3f& in_clip) const;
 
         [[nodiscard]]
         ray3f
-        ClipToWorldRay(const vec2f& p) const;
+        clip_to_world_ray(const vec2f& p) const;
 
         mat4f view;
         mat4f projection;
@@ -34,13 +33,13 @@ namespace euphoria::core
     };
 
 
-    struct Camera
+    struct camera3
     {
-        Camera();
+        camera3();
 
         [[nodiscard]]
-        CompiledCamera
-        Compile(float aspect) const;
+        compiled_camera3
+        compile(float aspect) const;
 
         vec3f position;
         quatf rotation;
@@ -48,6 +47,4 @@ namespace euphoria::core
         float near;
         float far;
     };
-}  // namespace euphoria::core
-
-#endif  // EUPHORIA_CAMERA_H
+}

@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_CACHE_H
-#define EUPHORIA_CACHE_H
+#pragma once
 
 #include <map>
 #include <memory>
@@ -10,13 +9,13 @@ namespace euphoria::core
     // todo(Gustav): support hotloading
 
     template <typename Key, typename Data, typename Loader>
-    struct Cache
+    struct cache
     {
         std::shared_ptr<Data>
-        Get(const Key& key)
+        get(const Key& key)
         {
-            auto found = cache.find(key);
-            if(found != cache.end())
+            auto found = store.find(key);
+            if(found != store.end())
             {
                 auto cached = found->second.lock();
                 if(cached)
@@ -25,19 +24,16 @@ namespace euphoria::core
                 }
                 else
                 {
-                    cache.erase(found);
+                    store.erase(found);
                 }
             }
 
             std::shared_ptr<Data> data
                     = static_cast<Loader*>(this)->Create(key);
-            cache.insert(std::pair<Key, std::weak_ptr<Data>>(key, data));
+            store.insert(std::pair<Key, std::weak_ptr<Data>>(key, data));
             return data;
         }
 
-    private:
-        std::map<Key, std::weak_ptr<Data>> cache;
+        std::map<Key, std::weak_ptr<Data>> store;
     };
-}  // namespace euphoria::core
-
-#endif  // EUPHORIA_CACHE_H
+}

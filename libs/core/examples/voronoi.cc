@@ -131,7 +131,7 @@ main(int argc, char* argv[])
     image image;
     image.setup_no_alpha_support(size, size);
 
-    auto points = ClosestPoint<vec2f, int, std::function<float (const vec2f&, const vec2f&)>, float>
+    auto points = closest_point<vec2f, int, std::function<float (const vec2f&, const vec2f&)>, float>
         {
             [&](const vec2f& lhs, const vec2f& rhs)
             {
@@ -151,13 +151,13 @@ main(int argc, char* argv[])
         int index = 0;
         for(auto p: random_points)
         {
-            points.Add(p, index);
+            points.add(p, index);
             index += 1;
         }
     }
 
     image.set_all_bottom_top([&](int x, int y) {
-        const auto index = points.FindClosest(vec2f{i2f(x), i2f(y)});
+        const auto index = points.find_closest(vec2f{i2f(x), i2f(y)});
         return pal.get_safe_index(index);
     });
 

@@ -17,101 +17,101 @@ namespace euphoria::core
         struct FilePath;
     }
 
-    namespace chatbot
+    namespace detail
     {
-        struct Input;
+        struct input;
 
 
         std::vector<std::string>
-        CleanInput(const std::string& input);
+        clean_input(const std::string& input);
 
 
         // return -1 if no matches are found
         long
-        IndexOfMatchedInput
+        index_of_matched_input
         (
             const std::vector<std::string>& input,
-            const Input& keywords
+            const detail::input& keywords
         );
 
 
         // removes 1 match if match is found
         std::vector<std::string>
-        RemoveFrom(const std::vector<std::string>& source, const Input& input);
+        remove_from(const std::vector<std::string>& source, const input& input);
 
 
-        struct Input
+        struct input
         {
             std::vector<std::string> words;
-            enum Location
+            enum location_type
             {
-                LOWEST,
-                IN_MIDDLE,
-                AT_START,
-                AT_END,
-                ALONE
+                lowest,
+                in_middle,
+                at_start,
+                at_end,
+                alone
             } location;
 
-            explicit Input
+            explicit input
             (
                 const std::string& input,
-                Location where = IN_MIDDLE
+                location_type where = in_middle
             );
 
-            explicit Input
+            explicit input
             (
                 const std::vector<std::string>& input,
-                Location where = IN_MIDDLE
+                location_type where = in_middle
             );
         };
 
 
-        struct SingleResponse
+        struct single_response
         {
-            explicit SingleResponse(const std::string& say);
+            explicit single_response(const std::string& say);
 
             std::string to_say;
             std::vector<std::string> topics_mentioned;
         };
 
 
-        struct Response
+        struct response
         {
             int event_id = 0;
-            std::vector<Input> inputs;
+            std::vector<input> inputs;
             bool ends_conversation = false;
-            std::vector<SingleResponse> responses;
+            std::vector<single_response> responses;
             std::vector<std::string> topics_required;
         };
 
 
-        struct ResponseBuilder
+        struct response_builder
         {
-            Response* response;
-            explicit ResponseBuilder(Response* r) : response(r) {}
+            response* response;
+            explicit response_builder(detail::response* r) : response(r) {}
 
-            ResponseBuilder&
-            Input
+            response_builder&
+            input
             (
                 const std::string& in,
-                Input::Location where = Input::AT_START
+                input::location_type where = input::at_start
             );
 
-            ResponseBuilder&
+            response_builder&
             operator()(const std::string& response);
 
-            ResponseBuilder&
+            response_builder&
             operator()(const std::string& response, const std::string& topic);
 
-            ResponseBuilder&
+            response_builder&
             Topic(const std::string& topic);
 
-            ResponseBuilder&
+            response_builder&
             EndConversation();
         };
 
 
-        struct Database
+        struct database
         {
             std::vector<std::string> signon;
             std::vector<std::string> empty;
@@ -120,65 +120,66 @@ namespace euphoria::core
             std::vector<std::string> similar_input;
             std::vector<std::string> empty_repetition;
 
-            std::vector<Response> responses;
+            std::vector<response> responses;
 
             int event_id;
-            Database();
 
-            Response&
-            CreateResponse();
+            database();
 
-            ResponseBuilder
-            AddResponse
+            response&
+            create_response();
+
+            response_builder
+            add_response
             (
                 const std::string& input,
-                Input::Location where = Input::AT_START
+                input::location_type where = input::at_start
             );
         };
 
 
-        struct Transposer
+        struct transposer
         {
             std::vector<std::pair<std::string, std::string>> store;
 
-            Transposer&
-            Add(const std::string& from, const std::string& to);
+            transposer&
+            add(const std::string& from, const std::string& to);
 
             [[nodiscard]] std::string
-            Transpose(const std::string& input) const;
+            transpose(const std::string& input) const;
         };
 
 
-        struct ConversationTopics
+        struct conversation_topics
         {
             void
-            DecreaseAndRemove();
+            decrease_and_remove();
 
             void
-            Decrease();
+            decrease();
 
             void
-            Remove();
+            remove();
 
             void
-            Add(const std::string& topic);
+            add(const std::string& topic);
 
             [[nodiscard]] bool
-            Has(const std::string& topic) const;
+            has(const std::string& topic) const;
 
             std::map<std::string, std::shared_ptr<int>> topics;
         };
 
 
-        struct ConversationStatus
+        struct conversation_status
         {
-            struct TopicEntry
+            struct topic_entry
             {
                 std::string topic;
                 int time;
             };
 
-            struct LogEntry
+            struct log_entry
             {
                 std::vector<std::string> titles;
                 std::vector<std::string> lines;
@@ -187,34 +188,30 @@ namespace euphoria::core
             std::string input;
             std::string response;
             std::string section;
-            std::vector<TopicEntry> topics;
-            std::vector<LogEntry> logs;
+            std::vector<topic_entry> topics;
+            std::vector<log_entry> logs;
         };
     }
 
 
-    struct ChatBot
+    struct chatbot
     {
-    public:
-        ChatBot();
+        chatbot();
 
         [[nodiscard]] std::string
-        LoadFromFile(vfs::FileSystem* fs, const vfs::FilePath& path);
+        load_from_file(vfs::FileSystem* fs, const vfs::FilePath& path);
 
         [[nodiscard]] std::string
-        GetResponse(const std::string& input);
+        get_response(const std::string& input);
 
-        [[nodiscard]] chatbot::ConversationStatus
-        GetComplexResponse(const std::string& input);
-
-        [[nodiscard]] bool
-        IsInConversation() const;
+        [[nodiscard]] detail::conversation_status
+        get_complex_response(const std::string& input);
 
         [[nodiscard]] std::string
-        GetSignOnMessage();
+        get_sign_on_message();
 
         [[nodiscard]] std::string
-        DebugLastResponse
+        debug_last_response
         (
             const std::vector<std::string>& search = std::vector<std::string>{}
         ) const;
@@ -224,11 +221,11 @@ namespace euphoria::core
         unsigned long max_responses;
         std::vector<std::string> last_input;
         Random random;
-        chatbot::Transposer transposer;
-        chatbot::Database database;
-        chatbot::ConversationTopics current_topics;
+        detail::transposer transposer;
+        detail::database database;
+        detail::conversation_topics current_topics;
         std::deque<std::string> last_responses;
-        std::vector<chatbot::ConversationStatus> history;
+        std::vector<detail::conversation_status> history;
         std::vector<std::string> missing_input;
     };
 

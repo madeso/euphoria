@@ -94,13 +94,13 @@ void RunMain
         switch(type)
         {
         case HashType::Identicon:
-            RenderIdenticon(&image, code);
+            render_identicon(&image, code);
             break;
         case HashType::Retro:
-            RenderRetro(&image, code);
+            render_retro(&image, code);
             break;
         case HashType::Sprator:
-            RenderSprator(&image, code, PALETTE.get_safe_index(i));
+            render_sprator(&image, code, PALETTE.get_safe_index(i));
             break;
         default:
             DIE("Unhandled type");
@@ -158,7 +158,7 @@ void RunSpratorCollage
         }
 
         const int code = random.NextInteger();
-        RenderSprator(&image_frames, code, PALETTE.get_safe_index(image_index));
+        render_sprator(&image_frames, code, PALETTE.get_safe_index(image_index));
 
         sprites.emplace_back(image_frames);
         std::cout << "Generated collage image\n";

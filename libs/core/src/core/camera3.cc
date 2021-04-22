@@ -1,10 +1,10 @@
-#include "core/camera.h"
+#include "core/camera3.h"
 
 #include "core/assert.h"
 
 namespace euphoria::core
 {
-    CompiledCamera::CompiledCamera(const mat4f& view_, const mat4f& projection_)
+    compiled_camera3::compiled_camera3(const mat4f& view_, const mat4f& projection_)
         : view(view_)
         , projection(projection_)
         , combined(view_ * projection_)
@@ -15,7 +15,7 @@ namespace euphoria::core
     }
 
     vec3f
-    CompiledCamera::WorldToClip(const vec3f& in_world) const
+    compiled_camera3::world_to_clip(const vec3f& in_world) const
     {
         const vec4f v = combined * vec4f {in_world, 1};
 
@@ -24,7 +24,7 @@ namespace euphoria::core
     }
 
     vec3f
-    CompiledCamera::ClipToWorld(const vec3f& in_clip) const
+    compiled_camera3::clip_to_world(const vec3f& in_clip) const
     {
         const vec4f v = combined_inverted * vec4f {in_clip, 1};
 
@@ -33,14 +33,14 @@ namespace euphoria::core
     }
 
     ray3f
-    CompiledCamera::ClipToWorldRay(const vec2f& p) const
+    compiled_camera3::clip_to_world_ray(const vec2f& p) const
     {
-        const auto from = ClipToWorld(vec3f {p, -1.0f});
-        const auto to   = ClipToWorld(vec3f {p, 1.0f});
+        const auto from = clip_to_world(vec3f {p, -1.0f});
+        const auto to   = clip_to_world(vec3f {p, 1.0f});
         return ray3f::from_to(from, to);
     }
 
-    Camera::Camera()
+    camera3::camera3()
         : position(vec3f::zero())
         , rotation(quatf::identity())
         , fov(45.0f)
@@ -51,7 +51,7 @@ namespace euphoria::core
     namespace
     {
         mat4f
-        CalculateProjectionMatrix(const Camera& camera, float aspect)
+        CalculateProjectionMatrix(const camera3& camera, float aspect)
         {
             const mat4f projection_matrix = mat4f::create_perspective(
                     angle::from_degrees(camera.fov),
@@ -62,7 +62,7 @@ namespace euphoria::core
         }
 
         mat4f
-        CalculateViewMatrix(const Camera& camera)
+        CalculateViewMatrix(const camera3& camera)
         {
             return camera.rotation.get_conjugate().to_mat4()
                    * mat4f::from_translation(
@@ -70,10 +70,10 @@ namespace euphoria::core
         }
     }  // namespace
 
-    CompiledCamera
-    Camera::Compile(float aspect) const
+    compiled_camera3
+    camera3::compile(float aspect) const
     {
-        return CompiledCamera {CalculateViewMatrix(*this),
+        return compiled_camera3 {CalculateViewMatrix(*this),
                                CalculateProjectionMatrix(*this, aspect)};
     }
 

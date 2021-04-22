@@ -19,7 +19,7 @@ namespace
 
 
     rgbai
-    CalculateBorderColor(rgbai base)
+    calculate_border_color(rgbai base)
     {
         auto h = chsl(crgb(base));
         h.h -= angle::from_degrees(15);
@@ -29,20 +29,20 @@ namespace
 
 
     void
-    ApplySpratorAlgorithm(BoolTable* half_side, int number_of_steps)
+    apply_sprator_algorithm(bool_table* half_side, int number_of_steps)
     {
-        generator::Rules rules;
-        generator::AddComplexRules
+        generator::rules rules;
+        generator::add_complex_rules
         (
             &rules,
             number_of_steps,
-            [](bool current, const Wallcounter& wc) -> std::optional<bool>
+            [](bool current, const wallcounter& wc) -> std::optional<bool>
             {
-                const auto c = wc.Count
+                const auto c = wc.count
                 (
                     1,
                     false,
-                    NeighborhoodAlgorithm::Plus
+                    neighborhood_algorithm::plus
                 );
                 if(current)
                 {
@@ -57,29 +57,29 @@ namespace
             }
         );
 
-        auto cell = generator::CellularAutomata
+        auto cell = generator::cellular_automata
         (
             &rules,
             half_side,
-            Fourway<OutsideRule>{OutsideRule::Empty}
+            fourway<outside_rule>{outside_rule::empty}
         );
 
-        while(cell.HasMoreWork()) { cell.Work(); }
+        while(cell.has_more_work()) { cell.work(); }
     }
 
 
-    BoolTable
-    Mirror(const BoolTable& half_side)
+    bool_table
+    mirror(const bool_table& half_side)
     {
-        const auto height = half_side.GetHeight();
-        const auto half_width = half_side.GetWidth();
+        const auto height = half_side.get_height();
+        const auto half_width = half_side.get_width();
         const auto width = half_width * 2;
 
         // offset everything by 1 to get a nice border
         constexpr auto offset = 1;
         constexpr auto extra_size = 2;
 
-        auto result_table = BoolTable::FromWidthHeight
+        auto result_table = bool_table::from_width_height
         (
             width + extra_size,
             height + extra_size,
@@ -102,7 +102,7 @@ namespace
 
 
     int
-    CalculateScale(const image& image, const BoolTable& table)
+    calculate_scale(const image& image, const bool_table& table)
     {
         auto calculate_scale = [](int image_scale, int table_scale) -> int
         {
@@ -114,8 +114,8 @@ namespace
 
         const auto scale = std::min
         (
-            calculate_scale(image.width, table.GetWidth()),
-            calculate_scale(image.height, table.GetHeight())
+            calculate_scale(image.width, table.get_width()),
+            calculate_scale(image.height, table.get_height())
         );
 
         return scale;
@@ -123,23 +123,23 @@ namespace
 
 
     void
-    DrawImageWithBorder
+    draw_image_with_border
     (
         image* image,
-        const BoolTable& result_table,
+        const bool_table& result_table,
         const rgbai& background_color,
         const rgbai& foreground_color,
         const rgbai& border_color
     )
     {
         clear(image, background_color);
-        auto img = Draw
+        auto img = draw
         (
             result_table,
             foreground_color,
             background_color,
-            CalculateScale(*image, result_table),
-            BorderSettings{border_color}
+            calculate_scale(*image, result_table),
+            border_settings{border_color}
         );
         paste_image(image, vec2i{0, 0}, img);
     }
@@ -150,12 +150,12 @@ namespace
         typename TGenerator
     >
     void
-    RandomizeWorld(BoolTable* half_side, TGenerator* generator)
+    randomize_world(bool_table* half_side, TGenerator* generator)
     {
-        SetWhiteNoise
+        set_white_noise
         (
             half_side,
-            Fourway<BorderSetupRule>{BorderSetupRule::Random},
+            fourway<border_setup_rule>{border_setup_rule::random},
             [&]() -> bool { return generator->Next() < 0.5f; }
         );
     }
@@ -167,7 +167,7 @@ namespace
         typename I
     >
     void
-    RenderSpratorImpl
+    render_sprator_impl
     (
         image* image,
         I code,
@@ -182,24 +182,24 @@ namespace
         // todo(Gustav): figure out color (randomly?)
         const rgbai border_color = border_color_arg.value_or
         (
-            CalculateBorderColor(foreground_color)
+            calculate_border_color(foreground_color)
         );
 
-        auto half_side = BoolTable::FromWidthHeight(half_width, height);
+        auto half_side = bool_table::from_width_height(half_width, height);
 
         auto generator = TGenerator{code};
 
         // randomize world
-        RandomizeWorld<TGenerator>(&half_side, &generator);
+        randomize_world<TGenerator>(&half_side, &generator);
 
         // apply sprator algorithm
-        ApplySpratorAlgorithm(&half_side, number_of_steps);
+        apply_sprator_algorithm(&half_side, number_of_steps);
 
         // flip and copy from small table to big table
-        const auto result_table = Mirror(half_side);
+        const auto result_table = mirror(half_side);
 
         // draw image with border
-        DrawImageWithBorder(image, result_table, background_color, foreground_color, border_color);
+        draw_image_with_border(image, result_table, background_color, foreground_color, border_color);
     }
 
 
@@ -209,7 +209,7 @@ namespace
         typename I
     >
     void
-    RenderSpratorImpl
+    render_sprator_impl
     (
         std::vector<image>* images,
         I code,
@@ -224,18 +224,18 @@ namespace
         // todo(Gustav): figure out color (randomly?)
         const rgbai border_color = border_color_arg.value_or
         (
-            CalculateBorderColor(foreground_color)
+            calculate_border_color(foreground_color)
         );
 
-        auto half_side = BoolTable::FromWidthHeight(half_width, height);
+        auto half_side = bool_table::from_width_height(half_width, height);
 
         auto generator = TGenerator{code};
 
         // randomize world
-        RandomizeWorld<TGenerator>(&half_side, &generator);
+        randomize_world<TGenerator>(&half_side, &generator);
 
         // apply sprator algorithm
-        ApplySpratorAlgorithm(&half_side, number_of_steps - 1);
+        apply_sprator_algorithm(&half_side, number_of_steps - 1);
 
         bool first = true;
 
@@ -249,15 +249,15 @@ namespace
                 half_side = orig_half_side;
 
                 // animate...
-                auto hit = BoolTable::FromWidthHeight(half_side.GetWidth(), half_side.GetHeight(), false);
+                auto hit = bool_table::from_width_height(half_side.get_width(), half_side.get_height(), false);
                 for(int i=0; i<2; i+=1)
                 {
                     int x = 0;
                     int y = 0;
                     do
                     {
-                        x = Floori(generator.Next() * half_side.GetWidth());
-                        y = Floori(generator.Next() * half_side.GetHeight());
+                        x = Floori(generator.Next() * half_side.get_width());
+                        y = Floori(generator.Next() * half_side.get_height());
                     } while(hit(x, y));
                     hit(x, y) = true;
                     half_side(x, y) = !half_side(x, y);
@@ -265,13 +265,13 @@ namespace
             }
 
 
-            ApplySpratorAlgorithm(&half_side, 1);
+            apply_sprator_algorithm(&half_side, 1);
 
             // flip and copy from small table to big table
-            const auto result_table = Mirror(half_side);
+            const auto result_table = mirror(half_side);
 
             // draw image with border
-            DrawImageWithBorder(&image, result_table, background_color, foreground_color, border_color);
+            draw_image_with_border(&image, result_table, background_color, foreground_color, border_color);
         }
     }
 }
@@ -280,7 +280,7 @@ namespace
 namespace euphoria::core
 {
     void
-    RenderSprator
+    render_sprator
     (
         image* image,
         int code,
@@ -289,7 +289,7 @@ namespace euphoria::core
         const rgbai& background_color
     )
     {
-        RenderSpratorImpl<xorshift32>
+        render_sprator_impl<xorshift32>
         (
             image,
             Cbit_signed_to_unsigned(code),
@@ -301,7 +301,7 @@ namespace euphoria::core
 
 
     void
-    RenderSprator
+    render_sprator
     (
         std::vector<image>* images,
         int code,
@@ -310,7 +310,7 @@ namespace euphoria::core
         const rgbai& background_color
     )
     {
-        RenderSpratorImpl<xorshift32>
+        render_sprator_impl<xorshift32>
         (
             images,
             Cbit_signed_to_unsigned(code),

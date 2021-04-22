@@ -99,8 +99,8 @@ namespace euphoria::core
             float g = 0;
             float b = 0;
         };
-        auto errors = Table<Error>::FromWidthHeight(image->width, image->height);
-        const auto errors_range = errors.Indices();
+        auto errors = table<Error>::from_width_height(image->width, image->height);
+        const auto errors_range = errors.get_indices();
 
         *image = NewImageFrom(*image, [&](int x, int y)
         {

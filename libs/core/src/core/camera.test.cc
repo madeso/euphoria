@@ -1,4 +1,4 @@
-#include "core/camera.h"
+#include "core/camera3.h"
 
 #include "catch.hpp"
 #include "tests/approx.h"
@@ -9,13 +9,13 @@ using namespace euphoria::tests;
 
 TEST_CASE("camera-clip2world", "[camera]")
 {
-    euco::Camera camera;
+    euco::camera3 camera;
 
     const std::vector<float> aspects {1.0f, 2.0f, 0.5f};
 
     for(float aspect: aspects)
     {
-        const auto cc = camera.Compile(aspect);
+        const auto cc = camera.compile(aspect);
         CAPTURE(aspect);
 
         const std::vector<float> values {0.0f, 1.0f, 2.0f, -1.0f};
@@ -27,8 +27,8 @@ TEST_CASE("camera-clip2world", "[camera]")
                 for(float z: values)
                 {
                     const auto start = euco::vec3f {x, y, z};
-                    const auto world = cc.ClipToWorld(start);
-                    const auto clip  = cc.WorldToClip(world);
+                    const auto world = cc.clip_to_world(start);
+                    const auto clip  = cc.world_to_clip(world);
                     REQUIRE(approx(start) == clip);
                 }
             }

@@ -29,12 +29,12 @@ struct Difference
 
 
 std::vector<Difference>
-FindDifferences(const Table<bool>& src, const Table<bool>& dst)
+FindDifferences(const table<bool>& src, const table<bool>& dst)
 {
     std::vector<Difference> ret;
-    for(int y = 0; y < src.GetHeight(); y += 1)
+    for(int y = 0; y < src.get_height(); y += 1)
     {
-        for(int x = 0; x < src.GetWidth(); x += 1)
+        for(int x = 0; x < src.get_width(); x += 1)
         {
             const auto lhs = src(x, y);
             const auto rhs = dst(x, y);
@@ -49,7 +49,7 @@ FindDifferences(const Table<bool>& src, const Table<bool>& dst)
 
 
 void
-PrintMazeToConsole(const generator::Drawer& drawer)
+PrintMazeToConsole(const generator::drawer& drawer)
 {
     const auto table = image_to_string_table
     (
@@ -92,17 +92,17 @@ HandleMazeCommand
 {
     auto output = argparse::file_output {f};
     auto random = Random{};
-    auto maze = generator::Maze::FromWidthHeight(world_width, world_height);
+    auto maze = generator::maze::from_width_height(world_width, world_height);
 
-    auto drawer = generator::Drawer {};
+    auto drawer = generator::drawer {};
 
-    std::unique_ptr<generator::Algorithm> gen;
+    std::unique_ptr<generator::algorithm> gen;
 
     switch(algo)
     {
     case MazeAlgorithm::RecursiveBacktracker:
         {
-            auto g = std::make_unique<generator::RecursiveBacktracker>();
+            auto g = std::make_unique<generator::recursive_backtracker>();
             g->maze = &maze;
             g->random = &random;
             drawer.tracker = g.get();
@@ -111,7 +111,7 @@ HandleMazeCommand
         break;
     case MazeAlgorithm::RandomTraversal:
         {
-            auto g = std::make_unique<generator::RandomTraversal>();
+            auto g = std::make_unique<generator::random_traversal>();
             g->maze = &maze;
             g->random = &random;
             drawer.traversal = g.get();
@@ -122,7 +122,7 @@ HandleMazeCommand
         DIE("Unhandled");
     }
 
-    gen->Setup();
+    gen->setup();
 
     drawer.maze = &maze;
     drawer.cell_size = cell_size;
@@ -132,7 +132,7 @@ HandleMazeCommand
     {
         if(!output.single)
         {
-            drawer.Draw();
+            drawer.draw();
             io::ChunkToFile
             (
                 drawer.image.write(image_write_format::png),
@@ -143,13 +143,13 @@ HandleMazeCommand
 
     draw_frame();
 
-    while(gen->HasMoreWork())
+    while(gen->has_more_work())
     {
-        gen->Work();
+        gen->work();
         draw_frame();
     }
 
-    drawer.Draw();
+    drawer.draw();
 
     if(console)
     {
@@ -185,17 +185,17 @@ struct Cellwriter
 {
     bool debug;
     argparse::file_output output;
-    generator::World* world;
+    generator::world* world;
     int world_scale;
 
     Random shuffle_random;
-    generator::World world_copy;
+    generator::world world_copy;
 
     explicit Cellwriter
     (
         bool d,
         const std::string& f,
-        generator::World* w,
+        generator::world* w,
         int ws
     )
         : debug(d)
@@ -206,9 +206,9 @@ struct Cellwriter
     }
 
     [[nodiscard]] image
-    GenerateWorldImage(const generator::World& world_or_copy) const
+    GenerateWorldImage(const generator::world& world_or_copy) const
     {
-        return Draw
+        return draw
         (
             world_or_copy,
             {color::black},
@@ -325,7 +325,7 @@ struct MazeArguments
 };
 
 
-constexpr NeighborhoodAlgorithm DEFAULT_ALGORITHM = NeighborhoodAlgorithm::Box;
+constexpr neighborhood_algorithm DEFAULT_ALGORITHM = neighborhood_algorithm::box;
 
 int
 main(int argc, char* argv[])
@@ -402,7 +402,7 @@ main(int argc, char* argv[])
             Sizei size = Sizei::FromWidthHeight(100, 70);
             std::string output = "cell.png";
             auto random = Random {};
-            auto rules = generator::Rules{};
+            auto rules = generator::rules{};
 
             sub->add("--size", &size).set_help("set the size");
             sub->add("-o, --output", &output).set_help("specify output");
@@ -414,14 +414,14 @@ main(int argc, char* argv[])
             commands->add("random", "random fill", [&](argparse::sub_parser* cmd)
             {
                 cmd->parser_style = argparse::sub_parser_style::fallback;
-                Fourway<BorderSetupRule> border_control = Fourway{BorderSetupRule::AlwaysWall};
+                fourway<border_setup_rule> border_control = fourway{border_setup_rule::always_wall};
                 float random_fill = 0.5;
                 cmd->add("--fill", &random_fill).set_help("How much to fill");
                 cmd->add("-bc", &border_control)
                     .set_help("Change how the border is generated")
                     ;
                 return cmd->on_complete([&]{
-                    generator::AddRandomFill(&rules, &random, random_fill, border_control);
+                    generator::add_random_fill(&rules, &random, random_fill, border_control);
                     return argparse::ok;
                 });
             });
@@ -439,7 +439,7 @@ main(int argc, char* argv[])
                 cmd->add("--count", &count).set_help("neighbour count");
                 cmd->add("--small", &small).set_help("small rule");
                 return cmd->on_complete([&]{
-                    generator::AddComboRules(&rules, times, count, small, include_self, algorithm);
+                    generator::add_combo_rules(&rules, times, count, small, include_self, algorithm);
                     return argparse::ok;
                 });
             });
@@ -455,7 +455,7 @@ main(int argc, char* argv[])
                 cmd->add("--times", &times).set_help("How many to run");
                 cmd->add("--count", &count).set_help("neighbour count");
                 return cmd->on_complete([&]{
-                    generator::AddSpikyRules(&rules, times, count, include_self, algorithm);
+                    generator::add_spiky_rules(&rules, times, count, include_self, algorithm);
                     return argparse::ok;
                 });
             });
@@ -473,7 +473,7 @@ main(int argc, char* argv[])
                 cmd->add("--count", &count).set_help("neighbour count");
                 cmd->add("--range", &range).set_help("the neighbour range");
                 return cmd->on_complete([&]{
-                    generator::AddClearRules(&rules, times, count, range, include_self, algorithm);
+                    generator::add_clear_rules(&rules, times, count, range, include_self, algorithm);
                     return argparse::ok;
                 });
             });
@@ -485,7 +485,7 @@ main(int argc, char* argv[])
                 cmd->add("-y", &y).set_help("the y where to place it");
                 cmd->add("--height", &height).set_help("the height of the block");
                 return cmd->on_complete([&]{
-                    generator::AddHorizontalBlankRule(&rules, y, height);
+                    generator::add_horizontal_blank_rule(&rules, y, height);
                     return argparse::ok;
                 });
             });
@@ -501,7 +501,7 @@ main(int argc, char* argv[])
                 cmd->add("--times", &times).set_help("How many to run");
                 cmd->add("--count", &count).set_help("neighbour count");
                 return cmd->on_complete([&]{
-                    generator::AddSimpleRules(&rules, times, count, include_self, algorithm);
+                    generator::add_simple_rules(&rules, times, count, include_self, algorithm);
                     return argparse::ok;
                 });
             });
@@ -513,7 +513,7 @@ main(int argc, char* argv[])
                 cmd->add("--size", &size).set_help("holes smaller than this are filled");
                 cmd->set_false("-d", &allow_diagonals).set_help("include diagonals when flood filling");
                 return cmd->on_complete([&]{
-                    generator::AddFillSmallHolesRule(&rules, allow_diagonals, size);
+                    generator::add_fill_small_holes_rule(&rules, allow_diagonals, size);
                     return argparse::ok;
                 });
             });
@@ -525,7 +525,7 @@ main(int argc, char* argv[])
                 cmd->add("--keep", &keep).set_help("the number of holes to keep");
                 cmd->set_false("-d", &allow_diagonals).set_help("include diagonals when flood filling");
                 return cmd->on_complete([&]{
-                    generator::AddFillAllHolesRule(&rules, allow_diagonals, keep);
+                    generator::add_fill_all_holes_rule(&rules, allow_diagonals, keep);
                     return argparse::ok;
                 });
             });
@@ -535,8 +535,8 @@ main(int argc, char* argv[])
                 [&]
                 {
 
-                    auto world = generator::World::FromWidthHeight(size.width, size.height);
-                    world.Clear(false);
+                    auto world = generator::world::from_width_height(size.width, size.height);
+                    world.clear(false);
 
                     if(rules.rules.empty())
                     {
@@ -544,14 +544,14 @@ main(int argc, char* argv[])
                         return argparse::ok;
                     }
 
-                    auto cell = generator::CellularAutomata{&rules, &world, Fourway{OutsideRule::Wall}};
+                    auto cell = generator::cellular_automata{&rules, &world, fourway{outside_rule::wall}};
 
                     auto writer = Cellwriter{debug, output, &world, world_scale};
                     writer.FirstState();
 
-                    while(cell.HasMoreWork())
+                    while(cell.has_more_work())
                     {
-                        cell.Work();
+                        cell.work();
                         writer.DrawStep();
                     }
 

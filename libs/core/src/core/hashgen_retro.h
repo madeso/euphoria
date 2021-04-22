@@ -1,11 +1,8 @@
-#ifndef EUPHORIA_CORE_HASHGEN_RETRO_H
-#define EUPHORIA_CORE_HASHGEN_RETRO_H
+#pragma once
 
 namespace euphoria::core
 {
     struct image;
 
-    void RenderRetro(image* image, int code);
+    void render_retro(image* image, int code);
 }
-
-#endif // EUPHORIA_CORE_HASHGEN_RETRO_H

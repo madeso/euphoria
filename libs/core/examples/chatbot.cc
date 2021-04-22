@@ -12,13 +12,13 @@ using namespace euphoria::core;
 int
 main()
 {
-    ChatBot chatbot;
+    chatbot chatbot;
 
     const auto current_directory = GetCurrentDirectory();
     vfs::FileSystem file_system;
     vfs::FileSystemRootFolder::AddRoot(&file_system, current_directory);
 
-    const auto error = chatbot.LoadFromFile(&file_system, vfs::FilePath{"~/chatbot.json"});
+    const auto error = chatbot.load_from_file(&file_system, vfs::FilePath{"~/chatbot.json"});
     if(!error.empty())
     {
         std::cerr << "Failed to load chatbot: " << error << "\n";
@@ -30,7 +30,7 @@ main()
     cmdline.Register(
             "debug",
             [&chatbot](Console::PrintFunction, const Console::Args& args) {
-                std::cout << chatbot.DebugLastResponse(args);
+                std::cout << chatbot.debug_last_response(args);
                 std::cout << "\n\n";
             });
     cmdline.Register(
@@ -39,7 +39,7 @@ main()
                 std::cout << "Killing chatbot.\n\n";
             });
 
-    std::cout << chatbot.GetSignOnMessage() << "\n";
+    std::cout << chatbot.get_sign_on_message() << "\n";
 
     bool first = true;
     do
@@ -55,13 +55,13 @@ main()
             }
             else
             {
-                const std::string response = chatbot.GetResponse(input);
+                const std::string response = chatbot.get_response(input);
                 std::cout << response << "\n";
             }
         }
         std::cout << "> ";
         first = false;
-    } while(chatbot.IsInConversation() && std::getline(std::cin, input));
+    } while(chatbot.is_in_conversation && std::getline(std::cin, input));
 
     return 0;
 }

@@ -69,61 +69,61 @@ namespace
 
 TEST_CASE("bufferbuilder2d-default-is-empty", "[bufferbuilder2d]")
 {
-    auto bb = BufferBuilder2d{};
+    auto bb = buffer_builder2d{};
     CHECK(bb.data.empty());
     CHECK(bb.tris.empty());
 }
 
 TEST_CASE("bufferbuilder2d-add-points", "[bufferbuilder2d]")
 {
-    auto bb = BufferBuilder2d{};
-    bb.AddVertex({0.0f, 1.0f, 2.0f, 3.0f});
-    bb.AddVertex({55.0f, 20.0f, 0.0f, -2.0f});
+    auto bb = buffer_builder2d{};
+    bb.add_vertex({0.0f, 1.0f, 2.0f, 3.0f});
+    bb.add_vertex({55.0f, 20.0f, 0.0f, -2.0f});
     CHECK(VectorEquals(bb.data, {0.0f, 1.0f, 2.0f, 3.0f, 55.0f, 20.0f, 0.0f, -2.0f}));
     CHECK(bb.tris.empty());
 }
 
 TEST_CASE("bufferbuilder2d-triangles", "[bufferbuilder2d]")
 {
-    auto bb = BufferBuilder2d{};
-    bb.AddVertex({0.0f, 0.0f, 0.0f, 0.0f});
-    bb.AddVertex({0.0f, 1.0f, 0.0f, 0.0f});
-    bb.AddVertex({1.0f, 0.0f, 0.0f, 0.0f});
+    auto bb = buffer_builder2d{};
+    bb.add_vertex({0.0f, 0.0f, 0.0f, 0.0f});
+    bb.add_vertex({0.0f, 1.0f, 0.0f, 0.0f});
+    bb.add_vertex({1.0f, 0.0f, 0.0f, 0.0f});
     CHECK(bb.data.size() == 12);
     SECTION("ok - ccw")
     {
-        bb.AddTriangle(0, 1, 2);
+        bb.add_triangle(0, 1, 2);
         CHECK(VectorEquals(bb.tris, {0, 1, 2}));
     }
     SECTION("bad - cw")
     {
-        CHECK_THROWS(bb.AddTriangle(0, 2, 1));
+        CHECK_THROWS(bb.add_triangle(0, 2, 1));
     }
 }
 
 TEST_CASE("bufferbuilder2d-quad", "[bufferbuilder2d]")
 {
-    auto bb = BufferBuilder2d{};
-    const auto z = Point{0.0f, 0.0f, 0.0f, 0.0f};
-    const auto x = Point{1.0f, 0.0f, 0.0f, 0.0f};
-    const auto y = Point{0.0f, 1.0f, 0.0f, 0.0f};
-    const auto xy = Point{1.0f, 1.0f, 0.0f, 0.0f};
+    auto bb = buffer_builder2d{};
+    const auto z = point{0.0f, 0.0f, 0.0f, 0.0f};
+    const auto x = point{1.0f, 0.0f, 0.0f, 0.0f};
+    const auto y = point{0.0f, 1.0f, 0.0f, 0.0f};
+    const auto xy = point{1.0f, 1.0f, 0.0f, 0.0f};
     SECTION("bad - cw")
     {
-        CHECK_THROWS(bb.AddQuad(z, y, xy, x));
+        CHECK_THROWS(bb.add_quad(z, y, xy, x));
     }
     SECTION("bad - ccw")
     {
-        CHECK_THROWS(bb.AddQuad(z, x, xy, y));
+        CHECK_THROWS(bb.add_quad(z, x, xy, y));
     }
     SECTION("ok bottom-top, left-right")
     {
-        bb.AddQuad(z, x, y, xy);
+        bb.add_quad(z, x, y, xy);
         // todo(Gustav): add checks
     }
     SECTION("bad - top->bottom, left->right")
     {
-        CHECK_THROWS(bb.AddQuad(y, xy, z, x));
+        CHECK_THROWS(bb.add_quad(y, xy, z, x));
     }
 }
 

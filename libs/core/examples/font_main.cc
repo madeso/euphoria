@@ -49,13 +49,13 @@ bool PrintChar
     // consider extending :)
     const auto img = image_to_string_table(glyph.image, true, grayscale::a);
 
-    for(auto y=0; y<img.GetHeight(); y+=1)
+    for(auto y=0; y<img.get_height(); y+=1)
     {
-        for(auto x=0; x<img.GetWidth(); x+=1)
+        for(auto x=0; x<img.get_width(); x+=1)
         {
             const auto c = img(x,y);
             if(c == ' ') { continue; }
-            dst->put_char(px+x, img.GetHeight()+py-y, c);
+            dst->put_char(px+x, img.get_height()+py-y, c);
         }
     }
 

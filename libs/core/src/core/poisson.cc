@@ -25,7 +25,7 @@ namespace euphoria::core
         , bounds_check(bs)
         , k(ak)
         , w(r / Sqrt(2))
-        , grid(Table<int>::FromWidthHeight(Floori(area.GetWidth()/w), Floori(area.GetHeight()/w), -1))
+        , grid(table<int>::from_width_height(Floori(area.GetWidth()/w), Floori(area.GetHeight()/w), -1))
     {
         auto p = random_point();
         if(bounds_check > 0)
@@ -68,7 +68,7 @@ namespace euphoria::core
             for(int dx=-range; dx<=range; dx+=1)
             {
                 const auto neighbour_pos = potential_sample_pos + vec2i{dx, dy};
-                if(!grid.IsInside(neighbour_pos.x, neighbour_pos.y)) { continue; }
+                if(!grid.is_inside(neighbour_pos.x, neighbour_pos.y)) { continue; }
                 const auto neighbour_sample_index = grid(neighbour_pos.x, neighbour_pos.y);
                 if(neighbour_sample_index == -1) { continue; }
                 const auto d2 = vec2f::from_to(samples[neighbour_sample_index], potential_sample).get_length_squared();
@@ -95,7 +95,7 @@ namespace euphoria::core
             const auto sample = base_sample + unit * random_range;
             const auto sample_pos = point_to_index(sample);
 
-            if(!grid.IsInside(sample_pos.x, sample_pos.y)) { try_index -=1; continue;}
+            if(!grid.is_inside(sample_pos.x, sample_pos.y)) { try_index -=1; continue;}
 
             if(bounds_check > 0)
             {

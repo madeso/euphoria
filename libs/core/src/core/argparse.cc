@@ -627,7 +627,7 @@ namespace euphoria::core::argparse
     void
     parser_base::print_help(std::shared_ptr<printer> printer, const name_and_arguments& args)
     {
-        using StringTable = Table<std::string>;
+        using StringTable = table<std::string>;
 
         // table functions
         int max_name_length = 0;
@@ -641,10 +641,10 @@ namespace euphoria::core::argparse
         )
         {
             const auto values = std::vector<std::string>{name, desc};
-            table->NewRow(values);
+            table->new_row(values);
             if(second_line)
             {
-                table->NewRow({"", *second_line});
+                table->new_row({"", *second_line});
             }
 
             max_name_length = std::min
@@ -661,7 +661,7 @@ namespace euphoria::core::argparse
         const auto print = [printer, &max_name_length](const StringTable& table)
         {
             auto t = StringTable{};
-            for(int y=0; y<table.GetHeight(); y+=1)
+            for(int y=0; y<table.get_height(); y+=1)
             {
                 const auto names = WordWrap
                 (
@@ -682,10 +682,10 @@ namespace euphoria::core::argparse
                 const auto rows = ZipLongest(names, helps);
                 for(auto [name,help]: rows)
                 {
-                    t.NewRow({name, help});
+                    t.new_row({name, help});
                 }
             }
-            for(int y=0; y<t.GetHeight(); y+=1)
+            for(int y=0; y<t.get_height(); y+=1)
             {
                 constexpr auto INDENT = "  ";
                 constexpr auto SPACE = "  ";
@@ -768,14 +768,14 @@ namespace euphoria::core::argparse
             printer->print_info(description);
         }
 
-        if (positionals.GetHeight() != 0)
+        if (positionals.get_height() != 0)
         {
             printer->print_info("");
             printer->print_info("positional arguments:");
             print(positionals);
         }
 
-        if(optionals.GetHeight() != 0)
+        if(optionals.get_height() != 0)
         {
             printer->print_info("");
             printer->print_info("optional arguments:");

@@ -20,21 +20,21 @@ namespace euphoria::core
     };
 
     // todo(Gustav): add dithering support
-    Table<char>
+    table<char>
     image_to_string_table(
             const image&                       img,
             const std::vector<image_map_action>& map);
 
-    Table<char>
+    table<char>
     image_to_string_table_exact(
             const image&                       img,
             const std::vector<image_map_action>& map, char missing);
 
-    Table<char>
+    table<char>
     image_to_string_table(const image& img, bool shorter, grayscale grayscale = grayscale::r);
 
     std::vector<std::string>
-    to_strings(const Table<char>& t);
+    to_strings(const table<char>& t);
 
     // todo(Gustav): add function to print image using colored unicode blocks
 }

@@ -26,7 +26,7 @@ namespace euphoria::t3d
         if(down) { return; }
         if(button != core::MouseButton::LEFT) { return; }
         auto ray = editor->camera
-                        .ClipToWorldRay(
+                        .clip_to_world_ray(
                                 editor->viewport.ToClipCoord(editor->mouse))
                         .get_normalized();
         

@@ -14,7 +14,7 @@ namespace euphoria::core
 
     template<typename T, int total_bytes>
     std::vector<u8>
-    ToBytesGeneric(T hash)
+    to_bytes_generic(T hash)
     {
         auto bytes = std::vector<u8>{};
         for(int byte_index=0; byte_index<total_bytes; byte_index +=1)
@@ -27,21 +27,21 @@ namespace euphoria::core
 
 
     std::vector<u8>
-    ToBytes(u32 hash)
+    to_bytes(u32 hash)
     {
-        return ToBytesGeneric<u32, 4>(hash);
+        return to_bytes_generic<u32, 4>(hash);
     }
 
 
     std::vector<u8>
-    ToBytes(u64 hash)
+    to_bytes(u64 hash)
     {
-        return ToBytesGeneric<u32, 8>(hash);
+        return to_bytes_generic<u32, 8>(hash);
     }
 
 
     std::vector<int>
-    ToCodes(u8 byte, bool msb_first)
+    to_codes(u8 byte, bool msb_first)
     {
         auto codes = std::vector<int>{};
         for(int s=0; s<8; s+=2)
@@ -57,12 +57,12 @@ namespace euphoria::core
 
 
     std::vector<int>
-    ToCodes(const std::vector<u8>& bytes, bool msb_first)
+    to_codes(const std::vector<u8>& bytes, bool msb_first)
     {
         auto codes = std::vector<int>{};
         for(auto byte: bytes)
         {
-            const auto cc = ToCodes(byte, msb_first);
+            const auto cc = to_codes(byte, msb_first);
             for(auto c: cc)
             {
                 codes.emplace_back(c);
@@ -72,8 +72,8 @@ namespace euphoria::core
     }
 
 
-    Table<int>
-    DrunkenBishop
+    table<int>
+    drunken_bishop
     (
         u32 hash,
         int width,
@@ -83,9 +83,9 @@ namespace euphoria::core
         int starty
     )
     {
-        return DrunkenBishop
+        return drunken_bishop
         (
-            ToCodes(ToBytes(hash), msb_first),
+            to_codes(to_bytes(hash), msb_first),
             width,
             height,
             startx,
@@ -94,8 +94,8 @@ namespace euphoria::core
     }
 
 
-    Table<int>
-    DrunkenBishop
+    table<int>
+    drunken_bishop
     (
         u64 hash,
         int width,
@@ -105,9 +105,9 @@ namespace euphoria::core
         int starty
     )
     {
-        return DrunkenBishop
+        return drunken_bishop
         (
-            ToCodes(ToBytes(hash), msb_first),
+            to_codes(to_bytes(hash), msb_first),
             width,
             height,
             startx,
@@ -116,8 +116,8 @@ namespace euphoria::core
     }
 
 
-    Table<int>
-    DrunkenBishop
+    table<int>
+    drunken_bishop
     (
         const std::vector<int>& codes,
         int width,
@@ -126,7 +126,7 @@ namespace euphoria::core
         int starty
     )
     {
-        auto table = Table<int>::FromWidthHeight(width, height, 0);
+        auto table = core::table<int>::from_width_height(width, height, 0);
         auto x = startx != -1? startx : width/2;
         auto y = starty != -1? starty : height/2;
 
@@ -138,8 +138,8 @@ namespace euphoria::core
             const auto dy = (vertical_mask & code) != 0 ? 1 : -1;
             const auto dx = (horizontal_mask & code) != 0 ? 1 : -1;
 
-            x = KeepWithin(table.Indices().GetXRange(), x + dx);
-            y = KeepWithin(table.Indices().GetYRange(), y + dy);
+            x = KeepWithin(table.get_indices().GetXRange(), x + dx);
+            y = KeepWithin(table.get_indices().GetYRange(), y + dy);
 
             table(x, y) += 1;
         }
@@ -149,7 +149,7 @@ namespace euphoria::core
 
 
     std::vector<std::string>
-    GetSshCharacters()
+    get_ssh_characters()
     {
         return
         {
@@ -161,18 +161,18 @@ namespace euphoria::core
 
 
     std::vector<std::string>
-    Collapse
+    collapse
     (
-        const Table<int>& table,
+        const table<int>& table,
         const std::vector<std::string>& characters
     )
     {
         auto rr = std::vector<std::string>{};
 
-        for(int y=0; y<table.GetHeight(); y+=1)
+        for(int y=0; y<table.get_height(); y+=1)
         {
             std::string r;
-            for(int x=0; x<table.GetWidth(); x+=1)
+            for(int x=0; x<table.get_width(); x+=1)
             {
                 const auto v =
                 std::max
