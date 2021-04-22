@@ -36,12 +36,12 @@ struct plane_demo
     {
         auto d = Dumper{ "coldet-distance-to-plane.html" };
 
-        d.AddPlane(plane, Color::White);
-        d.AddArrow(ray3f(vec3f::zero(), plane.normal), Color::Green);
+        d.AddPlane(plane, color::white);
+        d.AddArrow(ray3f(vec3f::zero(), plane.normal), color::green);
         for (const auto& p : points)
         {
             const auto dist = DistanceBetween(plane, p);
-            d.AddSphere(p, 0.1f, Abs(dist) < 0.01f ? Color::Yellow : (dist < 0 ? Color::Black : Color::White));
+            d.AddSphere(p, 0.1f, Abs(dist) < 0.01f ? color::yellow : (dist < 0 ? color::black : color::white));
         }
     }
 
@@ -50,15 +50,15 @@ struct plane_demo
     {
         auto d = Dumper{ "coldet-point-to-plane.html" };
 
-        d.AddPlane(plane, Color::White);
-        d.AddArrow(ray3f(vec3f::zero(), plane.normal), Color::Green);
+        d.AddPlane(plane, color::white);
+        d.AddArrow(ray3f(vec3f::zero(), plane.normal), color::green);
         for (const auto& p : points)
         {
             const auto dist = DistanceBetween(plane, p);
             if (Abs(dist) < 0.01f) { continue; }
 
             const auto pp = ClosestPoint(plane, p);
-            d.AddArrow(ray3f::from_to(p, pp), Color::Black);
+            d.AddArrow(ray3f::from_to(p, pp), color::black);
         }
     }
 };
@@ -87,12 +87,12 @@ struct ray_demo
         auto d = Dumper{ "coldet-point-on-ray.html" };
 
         d.AddGrid();
-        d.AddArrow(ray, Color::Black);
+        d.AddArrow(ray, color::black);
 
         for (const auto p : points)
         {
             const auto dist = DistanceBetween(ray.get_normalized(), p);
-            d.AddSphere(p, 0.1f, dist < 0.001f ? Color::White : Color::Black);
+            d.AddSphere(p, 0.1f, dist < 0.001f ? color::white : color::black);
         }
     }
 
@@ -102,7 +102,7 @@ struct ray_demo
         auto d = Dumper{ "coldet-closest-point-on-ray.html" };
 
         d.AddGrid();
-        d.AddArrow(ray, Color::Black);
+        d.AddArrow(ray, color::black);
 
         for (const auto p : points)
         {
@@ -110,7 +110,7 @@ struct ray_demo
             if (dist < 0.001f) { continue; }
 
             const auto pp = ClosestPoint(ray.get_normalized(), p);
-            d.AddArrow(ray3f::from_to(p, pp), Color::Red);
+            d.AddArrow(ray3f::from_to(p, pp), color::red);
         }
     }
 

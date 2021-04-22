@@ -8,7 +8,7 @@
 #include "core/generator_maze.h"
 #include "core/generator_cell.h"
 #include "core/random.h"
-#include "core/imageops.h"
+#include "core/image_to_text.h"
 #include "core/stringutils.h"
 #include "core/io.h"
 #include "core/knuthshuffle.h"
@@ -51,7 +51,7 @@ FindDifferences(const Table<bool>& src, const Table<bool>& dst)
 void
 PrintMazeToConsole(const generator::Drawer& drawer)
 {
-    const auto table = ImageToStringTable
+    const auto table = image_to_string_table
     (
         drawer.image,
         {
@@ -63,7 +63,7 @@ PrintMazeToConsole(const generator::Drawer& drawer)
         }
     );
 
-    const auto strings = ToStrings(table);
+    const auto strings = to_strings(table);
     for(const auto& s: strings)
     {
         std::cout << s << "\n";
@@ -211,8 +211,8 @@ struct Cellwriter
         return Draw
         (
             world_or_copy,
-            {Color::Black},
-            {Color::White},
+            {color::black},
+            {color::white},
             world_scale,
             std::nullopt
         );

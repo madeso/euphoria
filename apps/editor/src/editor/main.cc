@@ -725,7 +725,7 @@ main(int argc, char** argv)
 
         // ImGui::ShowMetricsWindow();
 
-        engine.init->ClearScreen(Color::LightGray);
+        engine.init->ClearScreen(color::light_gray);
         engine.imgui->Render();
 
         RemoveMatching

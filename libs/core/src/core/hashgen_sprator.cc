@@ -132,7 +132,7 @@ namespace
         const rgbai& border_color
     )
     {
-        Clear(image, background_color);
+        clear(image, background_color);
         auto img = Draw
         (
             result_table,
@@ -141,7 +141,7 @@ namespace
             CalculateScale(*image, result_table),
             BorderSettings{border_color}
         );
-        PasteImage(image, vec2i{0, 0}, img);
+        paste_image(image, vec2i{0, 0}, img);
     }
 
 

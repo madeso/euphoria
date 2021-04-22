@@ -18,14 +18,14 @@ main(int, char*[])
     for(auto& image : images)
     {
         image.setup_no_alpha_support(width, height);
-        Clear(&image, {Color::White});
+        clear(&image, {color::white});
     }
 
     const auto center = vec2i(width/2, height/2);
 
     for(auto& image : images)
     {
-        DrawCircle(&image, Color::Red, center, static_cast<float>(width)/2.0f);
+        draw_circle(&image, color::red, center, static_cast<float>(width)/2.0f);
     }
 
     constexpr int offset = 20;
@@ -36,30 +36,30 @@ main(int, char*[])
 
     auto draw = [&]
         (
-            const Color color,
+            const color color,
             const vec2i& from,
             const vec2i& to
         )
     {
-        DrawLineAntialiased(&(images[0]), color, from, to);
-        DrawLineAntialiased(&(images[1]), color, to, from);
+        draw_line_antialiased(&(images[0]), color, from, to);
+        draw_line_antialiased(&(images[1]), color, to, from);
 
-        DrawLineFast(&(images[2]), {color}, from, to);
-        DrawLineFast(&(images[3]), {color}, to, from);
+        draw_line_fast(&(images[2]), {color}, from, to);
+        draw_line_fast(&(images[3]), {color}, to, from);
     };
 
-    draw(Color::PureBlue, center, center + vec2i{center.x, offset});
-    draw(Color::PureYellow, center, center - vec2i{center.x, offset});
+    draw(color::pure_blue, center, center + vec2i{center.x, offset});
+    draw(color::pure_yellow, center, center - vec2i{center.x, offset});
 
-    draw(Color::PurePink, center, center + vec2i{offset, center.y});
-    draw(Color::PureBrown, center, center - vec2i{offset, center.y});
+    draw(color::pure_pink, center, center + vec2i{offset, center.y});
+    draw(color::pure_brown, center, center - vec2i{offset, center.y});
 
     image composite;
     composite.setup_no_alpha_support(width * 2, height * 2);
     for(int i=0; i<4; i+=1)
     {
         const auto p = vec2i{i%2 * width, i/2 * height};
-        PasteImage(&composite, p, images[i]);
+        paste_image(&composite, p, images[i]);
     }
 
     io::ChunkToFile(composite.write(image_write_format::png), "draw.png");

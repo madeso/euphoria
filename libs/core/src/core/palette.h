@@ -11,6 +11,8 @@ namespace euphoria::core
 
     struct palette
     {
+        // todo(Gustav): what is name used for? can we remove it and use a tostring on the palette_all enum?
+        // also does this represent a display name or a lookup name? both?
         /** the name of the palette */
         std::string name;
 

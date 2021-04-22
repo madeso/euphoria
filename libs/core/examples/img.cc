@@ -94,13 +94,13 @@ main(int argc, char* argv[])
         "grayscale", "Apply grayscale",
         [&](argparse::sub_parser* sub)
         {
-            Grayscale grayscale = Grayscale::Average;
+            grayscale grayscale = grayscale::average;
             sub->add("-g,--grayscale", &grayscale);
             return sub->on_complete
             (
                 [&]
                 {
-                    MakeGrayscale(&image, grayscale);
+                    make_grayscale(&image, grayscale);
                     return argparse::ok;
                 }
             );
@@ -132,16 +132,16 @@ main(int argc, char* argv[])
             (
                 [&]
                 {
-                    auto colors = MedianCut(image, depth, middle_split);
+                    auto colors = median_cut(image, depth, middle_split);
                     const auto& pal = palette{"", colors};
 
                     if(dither)
                     {
-                        MatchPaletteDither(&image, pal);
+                        match_palette_dither(&image, pal);
                     }
                     else
                     {
-                        MatchPalette(&image, pal);
+                        match_palette(&image, pal);
                     }
 
                     return argparse::ok;
@@ -155,7 +155,7 @@ main(int argc, char* argv[])
         "palswap", "Switch palette",
         [&](argparse::sub_parser* sub)
         {
-            auto palette_name = palettes::PaletteName::OneBit;
+            auto palette_name = palettes::name::one_bit;
             auto dither = false;
 
             sub->add("-p, --palette", &palette_name);
@@ -165,15 +165,15 @@ main(int argc, char* argv[])
             (
                 [&]
                 {
-                    const auto& palette = palettes::GetPalette(palette_name);
+                    const auto& palette = palettes::get_palette(palette_name);
 
                     if(dither)
                     {
-                        MatchPaletteDither(&image, palette);
+                        match_palette_dither(&image, palette);
                     }
                     else
                     {
-                        MatchPalette(&image, palette);
+                        match_palette(&image, palette);
                     }
 
                     return argparse::ok;
@@ -193,7 +193,7 @@ main(int argc, char* argv[])
             (
                 [&]
                 {
-                    EdgeDetection(&image, edge_r);
+                    edge_detection(&image, edge_r);
                     return argparse::ok;
                 }
             );
@@ -206,14 +206,14 @@ main(int argc, char* argv[])
         [&](argparse::sub_parser* sub)
         {
             float edge_r = 0.5f;
-            auto color_color = Color::Red;
+            auto color_color = color::red;
             sub->add("-r, --range", &edge_r);
             sub->add("-c, --color", &color_color);
             return sub->on_complete
             (
                 [&]
                 {
-                    ColorDetection(&image, color_color, edge_r);
+                    color_detection(&image, color_color, edge_r);
                     return argparse::ok;
                 }
             );
@@ -231,7 +231,7 @@ main(int argc, char* argv[])
             (
                 [&]
                 {
-                    ChangeBrightness(&image, bright_c);
+                    change_brightness(&image, bright_c);
                     return argparse::ok;
                 }
             );
@@ -249,7 +249,7 @@ main(int argc, char* argv[])
             (
                 [&]
                 {
-                    ChangeContrast(&image, angle::from_degrees(contrast).get_wrapped());
+                    change_contrast(&image, angle::from_degrees(contrast).get_wrapped());
                     return argparse::ok;
                 }
             );

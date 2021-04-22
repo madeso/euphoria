@@ -18,7 +18,7 @@
 namespace euphoria::core
 {
     Recti
-    WholeImage(const image& image)
+    whole_image(const image& image)
     {
         return Recti::FromTopLeftWidthHeight
         (
@@ -29,14 +29,14 @@ namespace euphoria::core
     }
 
     void
-    Clear(image* image, const rgbai& color)
+    clear(image* image, const rgbai& color)
     {
         ASSERT(image);
-        return DrawRect(image, color, WholeImage(*image));
+        return draw_rect(image, color, whole_image(*image));
     }
 
     void
-    DrawRect(image* image, const rgbai& color, const Recti& rect)
+    draw_rect(image* image, const rgbai& color, const Recti& rect)
     {
         ASSERT(image);
         const int left = rect.TopLeft().x;
@@ -64,10 +64,10 @@ namespace euphoria::core
 
 
     void
-    DrawSquare(image* image, const rgbai& color, int x, int y, int size)
+    draw_square(image* image, const rgbai& color, int x, int y, int size)
     {
         ASSERT(image);
-        DrawRect
+        draw_rect
         (
             image,
             color,
@@ -143,7 +143,7 @@ namespace euphoria::core
     }
 
     void
-    FillPoly(image* image, const rgbai& color, const std::vector<vec2f>& poly)
+    fill_poly(image* image, const rgbai& color, const std::vector<vec2f>& poly)
     {
         ASSERT(image);
 
@@ -171,7 +171,7 @@ namespace euphoria::core
     }
 
     void
-    DrawCircle
+    draw_circle
     (
         image* image,
         const rgb& color,
@@ -250,7 +250,7 @@ namespace euphoria::core
     }
 
     void
-    DrawLineFast
+    draw_line_fast
     (
         image* image,
         const rgbai& color,
@@ -338,7 +338,7 @@ namespace euphoria::core
 
 
     void
-    DrawLineAntialiased
+    draw_line_antialiased
     (
         image* image,
         const rgb& color,
@@ -347,7 +347,7 @@ namespace euphoria::core
     )
     {
         ASSERT(image);
-        return DrawLineAntialiased
+        return draw_line_antialiased
         (
              image,
              color,
@@ -358,7 +358,7 @@ namespace euphoria::core
 
 
     void
-    DrawLineAntialiased
+    draw_line_antialiased
     (
         image* image,
         const rgb& color,
@@ -515,7 +515,7 @@ namespace euphoria::core
     }
 
     void
-    DrawText
+    draw_text
     (
         image* image,
         const vec2i& start_pos,
@@ -549,13 +549,13 @@ namespace euphoria::core
     }
 
     void
-    PasteImage
+    paste_image
     (
         image* dest_image,
         const vec2i& position,
         const image& source_image,
         blend_mode blend_mode,
-        PixelsOutside clip
+        pixels_outside clip
     )
     {
         ASSERT(dest_image);
@@ -568,7 +568,7 @@ namespace euphoria::core
                 const auto dest_y = position.y + y;
                 if
                 (
-                    clip == PixelsOutside::Discard &&
+                    clip == pixels_outside::Discard &&
                     IsWithin(dest_image->get_indices(), vec2i(dest_x, dest_y)) == false
                 )
                 {
@@ -644,7 +644,7 @@ namespace euphoria::core
 
 
     void
-    DrawArrow
+    draw_arrow
     (
         image* image,
         const vec2f& from,
@@ -699,7 +699,7 @@ namespace euphoria::core
         };
 
         // line
-        DrawLineAntialiased(image, crgb(color), from, to);
+        draw_line_antialiased(image, crgb(color), from, to);
 
         // wings
         // DrawLineAntialiased(image, rgb(color), arrowPoint, arrowPointLeft);

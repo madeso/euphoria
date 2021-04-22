@@ -39,7 +39,7 @@ main(int, char*[])
 {
     Random rand;
 
-    auto pal = CreateShuffleBag(palettes::ColorBlind_10().colors, 2);
+    auto pal = CreateShuffleBag(palettes::color_blind_10().colors, 2);
 
     auto svg = Dumper{};
 

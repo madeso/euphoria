@@ -1,28 +1,25 @@
-#ifndef EUPHORIA_PALETTE_MYCARTA_H
-#define EUPHORIA_PALETTE_MYCARTA_H
+#pragma once
 
 namespace euphoria::core
 {
     struct palette;
+}
+
+namespace euphoria::core::palettes
+{
 
     /*
-I created three color palettes for structure maps (seismic horizons, elevation maps, etcetera) and seismic attributes. 
+    I created three color palettes for structure maps (seismic horizons, elevation maps, etcetera) and seismic attributes. 
 
-https://mycarta.wordpress.com/color-palettes/
-*/
+    https://mycarta.wordpress.com/color-palettes/
+    */
 
-    namespace palettes
-    {
-        const palette&
-        Cube1();
+    const palette&
+    cube_1();
 
-        const palette&
-        CubeYF();
+    const palette&
+    cube_yf();
 
-        const palette&
-        LinearL();
-    }  // namespace palette
-
-}  // namespace euphoria::core
-
-#endif  // EUPHORIA_PALETTE_MYCARTA_H
+    const palette&
+    linear_l();
+}

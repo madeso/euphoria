@@ -33,7 +33,7 @@ namespace euphoria::core::vfs
 
         const auto color_name = ToLower(command);
 
-        const auto found_color = StringToEnum<Color>(color_name);
+        const auto found_color = StringToEnum<color>(color_name);
 
         if(!found_color.single_match)
         {
@@ -51,7 +51,7 @@ namespace euphoria::core::vfs
 
         image image;
         image.setup_no_alpha_support(128, 128);
-        Clear(&image, {color});
+        clear(&image, {color});
         return image.write(image_write_format::png);
     }
 
@@ -87,7 +87,7 @@ namespace euphoria::core::vfs
 
         if(path == base_)
         {
-            const auto names = EnumToString<Color>();
+            const auto names = EnumToString<color>();
             for(const auto& n: names)
             {
                 ret.Add(n, true, true);

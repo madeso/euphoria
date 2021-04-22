@@ -218,11 +218,11 @@ namespace euphoria::core::generator
     //////////////////////////////////////////////////////////////////////////////////////////
 
     Drawer::Drawer()
-        : wall_color(Color::Black)
-        , cell_color(Color::LightGray)
-        , cell_visited_color(Color::White)
-        , unit_color(Color::Red)
-        , corridor_color(Color::White)
+        : wall_color(color::black)
+        , cell_color(color::light_gray)
+        , cell_visited_color(color::white)
+        , unit_color(color::red)
+        , corridor_color(color::white)
     {}
 
     rgbi
@@ -270,7 +270,7 @@ namespace euphoria::core::generator
                 wall_size + maze->GetWidth() * path_size,
                 wall_size + maze->GetHeight() * path_size);
 
-        Clear(&image, wall_color);
+        clear(&image, wall_color);
 
         for(int x = 0; x < maze->GetWidth(); x += 1)
         {
@@ -279,7 +279,7 @@ namespace euphoria::core::generator
                 const auto px = wall_size + x * path_size;
                 const auto py = wall_size + y * path_size + cell_size - 1;
 
-                DrawSquare(
+                draw_square(
                         &image,
                         CalculateCellColor(x, y),
                         px,
@@ -294,14 +294,14 @@ namespace euphoria::core::generator
 
                 if((cell_value & Cell::PathSouth) != 0)
                 {
-                    DrawRect(
+                    draw_rect(
                             &image,
                             corridor_color,
                             xywh(px, py - cell_size, cell_size, wall_size));
                 }
                 if((cell_value & Cell::PathEast) != 0)
                 {
-                    DrawRect(
+                    draw_rect(
                             &image,
                             corridor_color,
                             xywh(px + cell_size, py, wall_size, cell_size));

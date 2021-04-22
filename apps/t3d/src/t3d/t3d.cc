@@ -128,11 +128,11 @@ namespace euphoria::t3d
     T3d::UpdateGrid()
     {
         constexpr auto smallest_step = 0.01f;
-        constexpr auto small_color = core::Color::Gray;
-        constexpr auto big_color   = core::Color::Black;
-        constexpr auto x_color     = core::Color::PureBlue;
-        constexpr auto z_color     = core::Color::PureRed;
-        constexpr auto y_color     = core::Color::PureYellow;
+        constexpr auto small_color = core::color::gray;
+        constexpr auto big_color   = core::color::black;
+        constexpr auto x_color     = core::color::pure_blue;
+        constexpr auto z_color     = core::color::pure_red;
+        constexpr auto y_color     = core::color::pure_yellow;
 
         if(grid)
         {
@@ -727,7 +727,7 @@ namespace euphoria::t3d
         camera.position = orbit.GetCameraPosition();
         camera.rotation = orbit.GetRotation();
 
-        engine->init->ClearScreen(core::Color::LightGray);
+        engine->init->ClearScreen(core::color::light_gray);
 
         Render();
 

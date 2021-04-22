@@ -497,7 +497,7 @@ namespace euphoria::core
             else { return space_color; }
         };
 
-        Clear(&image, space_color);
+        clear(&image, space_color);
 
         for (int y = 0; y < world.GetHeight(); y += 1)
         {
@@ -509,7 +509,7 @@ namespace euphoria::core
                     ? wall_color
                     : get_space_color(x, y)
                     ;
-                DrawSquare(&image, color, px, py + scale - 1, scale);
+                draw_square(&image, color, px, py + scale - 1, scale);
             }
         }
 

@@ -1,8 +1,7 @@
-#ifndef CORE_IMAGEFILTERS_H
-#define CORE_IMAGEFILTERS_H
+#pragma once
 
 #include "core/rgb.h"
-#include "core/enumtostring.h"
+
 
 namespace euphoria::core
 {
@@ -11,41 +10,41 @@ namespace euphoria::core
     struct palette;
     struct angle;
 
-    enum class Grayscale
+    enum class grayscale
     {
-        R,
-        G,
-        B,
-        A,
-        Max,
-        Gamma,
-        Linear,
-        Average
+        r,
+        g,
+        b,
+        a,
+        max,
+        gamma,
+        linear,
+        average
     };
 
     rgbai
-    MakeGrayscale(rgbai color, Grayscale grayscale);
+    make_grayscale(rgbai color, grayscale grayscale);
 
     void
-    MakeGrayscale(image* image, Grayscale grayscale);
+    make_grayscale(image* image, grayscale grayscale);
 
     void
-    MatchPalette(image* image, const palette& palette);
+    match_palette(image* image, const palette& palette);
 
     void
-    MatchPaletteDither(image* image, const palette& palette);
+    match_palette_dither(image* image, const palette& palette);
 
     void
-    EdgeDetection(image* image, float r);
+    edge_detection(image* image, float r);
 
     void
-    ColorDetection(image* image, rgb color, float r);
+    color_detection(image* image, rgb color, float r);
 
     void
-    ChangeBrightness(image* image, int change);
+    change_brightness(image* image, int change);
 
     void
-    ChangeContrast(image* image, const angle& contrast);
+    change_contrast(image* image, const angle& contrast);
 
     // todo(Gustav):
     // https://www.processing.org/tutorials/pixels/
@@ -53,6 +52,4 @@ namespace euphoria::core
     // https://www.gamedev.net/articles/programming/graphics/an-introduction-to-digital-image-processing-r2007/
     // https://github.com/jamieowen/glsl-blend
     // color controls https://developer.nvidia.com/gpugems/GPUGems/gpugems_ch22.html
-}  // namespace euphoria::core
-
-#endif  // CORE_IMAGEFILTERS_H
+}

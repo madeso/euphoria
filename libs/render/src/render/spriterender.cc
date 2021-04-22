@@ -18,7 +18,7 @@ namespace euphoria::render
     DrawData::DrawData()
         : rotation(0.0_rad)
         , scale(core::scale2f(1, 1))
-        , tint(core::rgba(core::Color::White))
+        , tint(core::rgba(core::color::white))
     {
     }
 

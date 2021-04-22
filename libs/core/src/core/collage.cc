@@ -47,17 +47,17 @@ namespace euphoria::core
             size.width,
             size.height
         );
-        Clear(&composed_image, background_color);
+        clear(&composed_image, background_color);
 
         for(const auto& [position, image]: ranges::views::zip(positions, images))
         {
-            PasteImage
+            paste_image
             (
                 &composed_image,
                 position,
                 image,
                 blend_mode::normal,
-                PixelsOutside::Discard
+                pixels_outside::Discard
             );
         }
 

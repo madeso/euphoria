@@ -129,7 +129,7 @@ namespace euphoria::render
             false
         );
 
-        init->ClearScreen(core::Color::Black);
+        init->ClearScreen(core::color::black);
 
         Apply
         (

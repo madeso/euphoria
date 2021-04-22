@@ -59,7 +59,7 @@ main(int argc, char* argv[])
 
     TextureCache cache {engine.file_system.get()};
 
-    const auto clear_color = Color::LightGray;
+    const auto clear_color = color::light_gray;
 
     int window_width  = 800;
     int window_height = 600;
@@ -116,9 +116,9 @@ main(int argc, char* argv[])
         constexpr float m = 256.0f;
         constexpr int s = 5;
 
-        Clear(&image, {Color::White});
-        DrawArrow(&image, vec2f{h, 0}, vec2f{h, m}, {Color::Blue}, s);
-        DrawArrow(&image, vec2f{0, h}, vec2f{m, h}, {Color::Red}, s);
+        clear(&image, {color::white});
+        draw_arrow(&image, vec2f{h, 0}, vec2f{h, m}, {color::blue}, s);
+        draw_arrow(&image, vec2f{0, h}, vec2f{m, h}, {color::red}, s);
 
         engine.catalog->RegisterFileData
         (

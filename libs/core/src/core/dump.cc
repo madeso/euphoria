@@ -324,7 +324,7 @@ namespace euphoria::core::dump2d
         writer.scale = scale;
 
         writer.file << "<html style=\"height: 100%\">\n";
-        writer.file << "<body style=\"background-color:" << ToHtml(Color::DarkGray) << "; height: 100%\">\n";
+        writer.file << "<body style=\"background-color:" << ToHtml(color::dark_gray) << "; height: 100%\">\n";
 
         writer.file << "<div style=\"display: grid; grid-template-columns: 1fr auto 1fr; grid-template-rows: 1fr auto 1fr; width:100%; height:100%\">\n";
         writer.file << "<div style=\"grid-row-start: 2; grid-column-start: 2;\">\n";
@@ -340,7 +340,7 @@ namespace euphoria::core::dump2d
 
         if(point_size > 0)
         {
-            const auto c = Color::Black;
+            const auto c = color::black;
 
             for(const auto& item: items)
             {
@@ -363,7 +363,7 @@ namespace euphoria::core::dump2d
 
         if(point_text)
         {
-            const auto c = Color::Black;
+            const auto c = color::black;
 
             for(const auto& item: items)
             {
@@ -385,7 +385,7 @@ namespace euphoria::core::dump2d
         auto vline = [&](float x, const rgbi& c) { writer.file << "<line x1=\"" << px(x) << "\" y1=\"0\""           " x2=\""<< px(x) <<"\" y2=\"" << height << "\" style=\"stroke:"<< ToHtml(c) <<";stroke-width:1\" />\n"; };
         auto hline = [&](float y, const rgbi& c) { writer.file << "<line x1=\"0\""            " y1=\""<< py(y) << "\" x2=\""<< width <<"\" y2=\"" << py(y)  << "\" style=\"stroke:"<< ToHtml(c) <<";stroke-width:1\" />\n"; };
 
-        const auto grid_color = Color::LightGray;
+        const auto grid_color = color::light_gray;
 
         if(gridx > 0 )
         {
@@ -401,7 +401,7 @@ namespace euphoria::core::dump2d
 
         if(add_axis)
         {
-            const auto axis_color = Color::Black;
+            const auto axis_color = color::black;
             hline(0, axis_color);
             vline(0, axis_color);
         }

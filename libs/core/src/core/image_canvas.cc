@@ -23,7 +23,7 @@ namespace euphoria::core
     }
 
     canvas::canvas(image* i)
-        : fill_style(Color::Black)
+        : fill_style(color::black)
         , target_image(i)
         , transform(mat3f::identity())
         , building_path(false)
@@ -35,7 +35,7 @@ namespace euphoria::core
     {
         ASSERTX(w > 0, w);
         ASSERTX(h > 0, h);
-        DrawRect(
+        draw_rect(
                 target_image,
                 fill_style,
                 Recti::FromTopLeftWidthHeight(vec2i{x, target_image->height - y}, w, h));
@@ -92,7 +92,7 @@ namespace euphoria::core
     canvas::fill() const
     {
         ASSERT(!building_path);
-        FillPoly(target_image, fill_style, path);
+        fill_poly(target_image, fill_style, path);
     }
 }
 

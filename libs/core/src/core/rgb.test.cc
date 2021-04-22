@@ -85,13 +85,13 @@ TEST_CASE("rgb_colors", "[rgb]")
 
 TEST_CASE("rgb_convert", "[rgb]")
 {
-    const euco::rgbi blue = euco::Color::Blue;
+    const euco::rgbi blue = euco::color::blue;
     REQUIRE(blue == euco::crgbi(euco::crgb(blue)));
 }
 
 TEST_CASE("rgb-hsl_convert", "[rgb]")
 {
-    const euco::rgb blue = euco::Color::Blue;
+    const euco::rgb blue = euco::color::blue;
     REQUIRE(blue == approx(euco::crgb(euco::chsl(blue))));
 }
 

@@ -27,7 +27,7 @@ namespace euphoria::core::dump2d
 
     struct Poly
     {
-        rgbi stroke_color = Color::Black;
+        rgbi stroke_color = color::black;
         std::optional<rgbi> fill_color;
         bool is_closed = false;
         std::vector<int> stroke;
@@ -46,7 +46,7 @@ namespace euphoria::core::dump2d
         std::string text;
         rgbi color;
 
-        Text(const vec2f& p, const std::string& t, const rgbi& c = Color::Black);
+        Text(const vec2f& p, const std::string& t, const rgbi& c = color::black);
     };
 
     struct Circle
@@ -100,7 +100,7 @@ namespace euphoria::core::dump2d
 
     struct Dumper : AddWrapper<Dumper>
     {
-        rgbi canvas_color = Color::White;
+        rgbi canvas_color = color::white;
         std::vector<Item> items;
 
         bool add_axis = false;

@@ -408,12 +408,12 @@ namespace euphoria::core::raytracer
                 }
                 else
                 {
-                    return Color::Black;
+                    return color::black;
                 }
             }
             else
             {
-                return Color::Black;
+                return color::black;
             }
         }
         const auto t = (ray.dir.y+1)/2.0f;
@@ -480,7 +480,7 @@ namespace euphoria::core::raytracer
         {
             for(int x=0; x<img.width; x+=1)
             {
-                rgb color = Color::Black;
+                rgb color = color::black;
                 for(int sample = 0; sample < number_of_samples; sample += 1)
                 {
                     const auto u = (static_cast<float>(x) + random.NextFloat01()) / static_cast<float>(img.width);

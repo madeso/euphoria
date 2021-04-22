@@ -16,7 +16,7 @@ namespace euphoria::core
     namespace palettes
     {
         const palette&
-        Cube1()
+        cube_1()
         {
             static const auto p = palette {
                     "Cube1",          C(120, 0, 133),   C(121, 0, 136),
@@ -109,7 +109,7 @@ namespace euphoria::core
         }
 
         const palette&
-        CubeYF()
+        cube_yf()
         {
             static const auto p = palette {
                     "CybeYF",         C(123, 2, 144),   C(123, 3, 146),
@@ -204,7 +204,7 @@ namespace euphoria::core
 
 
         const palette&
-        LinearL()
+        linear_l()
         {
             static const auto p = palette {
                     "LinearL",        C(4, 4, 4),       C(10, 3, 8),

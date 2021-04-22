@@ -3,7 +3,7 @@
 #include "core/argparse.h"
 #include "core/loadedfont.h"
 #include "core/textbox.h"
-#include "core/imageops.h"
+#include "core/image_to_text.h"
 #include "core/utf8.h"
 #include "core/io.h"
 #include "core/log.h"
@@ -47,7 +47,7 @@ bool PrintChar
 
     // todo(Gustav): ImageToStringTable might not convert corectly,
     // consider extending :)
-    const auto img = ImageToStringTable(glyph.image, true, Grayscale::A);
+    const auto img = image_to_string_table(glyph.image, true, grayscale::a);
 
     for(auto y=0; y<img.GetHeight(); y+=1)
     {

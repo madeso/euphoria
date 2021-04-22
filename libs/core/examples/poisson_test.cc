@@ -24,7 +24,7 @@ svg_dump()
 
     for(auto p: points)
     {
-        svg << Circle{p, radius}.Line(Color::Black);
+        svg << Circle{p, radius}.Line(color::black);
     }
     svg.AddAxis();
     svg.Write("poisson.html", 800, 600);
@@ -61,7 +61,7 @@ png_dump(int extra_images)
         // auto svg = Dumper{};
         // svg.canvas_color = Color::Black;
 
-        Clear(&result, {Color::Black});
+        clear(&result, {color::black});
         for
         (
             int i=0;
@@ -75,11 +75,11 @@ png_dump(int extra_images)
                 worker.active.end(),
                 i
             ) != worker.active.end();
-            const auto circle_color = is_active ? Color::Blue : Color::White;
+            const auto circle_color = is_active ? color::blue : color::white;
             const auto cp = worker.samples[i]*world_to_image;
             const auto circle_position = (cp).StaticCast<int>();
             const auto circle_radius = radius * world_to_image;
-            DrawCircle(&result, circle_color, circle_position, circle_radius);
+            draw_circle(&result, circle_color, circle_position, circle_radius);
             // svg << Circle(circle_position.StaticCast<float>(),
             // circle_radius, circle_color);
         }
@@ -93,12 +93,12 @@ png_dump(int extra_images)
             // (to*world_to_image).StaticCast<int>(), 10);
             // DrawCircle(&image, Color::PureYellow,
             // (from*world_to_image).StaticCast<int>(), 10);
-            DrawArrow
+            draw_arrow
             (
                 &result,
                 from * world_to_image,
                 to * world_to_image,
-                {Color::PureRed},
+                {color::pure_red},
                 2
             );
         }

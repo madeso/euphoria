@@ -17,9 +17,9 @@ namespace euphoria::core
     (
         image* image,
         int code,
-        const rgbai& foreground_color = {Color::White},
+        const rgbai& foreground_color = {color::white},
         std::optional<rgbai> border_color_arg = std::nullopt,
-        const rgbai& background_color = {Color::Black, 0}
+        const rgbai& background_color = {color::black, 0}
     );
 
     void
@@ -27,9 +27,9 @@ namespace euphoria::core
     (
         std::vector<image>* images,
         int code,
-        const rgbai& foreground_color = {Color::White},
+        const rgbai& foreground_color = {color::white},
         std::optional<rgbai> border_color_arg = std::nullopt,
-        const rgbai& background_color = {Color::Black, 0}
+        const rgbai& background_color = {color::black, 0}
     );
 }
 

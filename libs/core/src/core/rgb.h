@@ -31,7 +31,7 @@ namespace euphoria::core
         rgbi(std::uint8_t gray);
 
         constexpr
-        rgbi(Color color);
+        rgbi(color color);
 
         constexpr explicit
         rgbi(const rgb& rgb);
@@ -74,7 +74,7 @@ namespace euphoria::core
         rgb(float red, float green, float blue);
         explicit rgb(float gray);
 
-        rgb(Color color);
+        rgb(color color);
 
         [[nodiscard]]
         static rgb
@@ -366,40 +366,40 @@ namespace euphoria::core
 
         constexpr
         unsigned int
-        to_color_hex(Color color)
+        to_color_hex(color color)
         {
             switch(color)
             {
-            case Color::White: return to_color_hex(255, 255, 255);
-            case Color::LightGray: return to_color_hex(160, 160, 160);
-            case Color::Gray: return to_color_hex(127, 127, 127);
-            case Color::DarkGray: return to_color_hex(87, 87, 87);
-            case Color::Black: return to_color_hex(0, 0, 0);
-            case Color::Red: return to_color_hex(173, 35, 35);
-            case Color::PureRed: return to_color_hex(255, 0, 0);
-            case Color::Blue: return to_color_hex(42, 75, 215);
-            case Color::PureBlue: return to_color_hex(0, 0, 255);
-            case Color::LightBlue: return to_color_hex(157, 175, 255);
-            case Color::NormalBlue: return to_color_hex(127, 127, 255);
-            case Color::CornflowerBlue: return to_color_hex(100, 149, 237);
-            case Color::Green: return to_color_hex(29, 105, 20);
-            case Color::PureGreen: return to_color_hex(0, 255, 0);
-            case Color::LightGreen: return to_color_hex(129, 197, 122);
-            case Color::Yellow: return to_color_hex(255, 238, 51);
-            case Color::PureYellow: return to_color_hex(255, 255, 0);
-            case Color::Orange: return to_color_hex(255, 146, 51);
-            case Color::PureOrange: return to_color_hex(255, 127, 0);
-            case Color::Brown: return to_color_hex(129, 74, 25);
-            case Color::PureBrown: return to_color_hex(250, 75, 0);
-            case Color::Purple: return to_color_hex(129, 38, 192);
-            case Color::PurePurple: return to_color_hex(128, 0, 128);
-            case Color::Pink: return to_color_hex(255, 205, 243);
-            case Color::PurePink: return to_color_hex(255, 192, 203);
-            case Color::PureBeige: return to_color_hex(245, 245, 220);
-            case Color::Tan: return to_color_hex(233, 222, 187);
-            case Color::PureTan: return to_color_hex(210, 180, 140);
-            case Color::Cyan: return to_color_hex(41, 208, 208);
-            case Color::PureCyan: return to_color_hex(0, 255, 255);
+            case color::white: return to_color_hex(255, 255, 255);
+            case color::light_gray: return to_color_hex(160, 160, 160);
+            case color::gray: return to_color_hex(127, 127, 127);
+            case color::dark_gray: return to_color_hex(87, 87, 87);
+            case color::black: return to_color_hex(0, 0, 0);
+            case color::red: return to_color_hex(173, 35, 35);
+            case color::pure_red: return to_color_hex(255, 0, 0);
+            case color::blue: return to_color_hex(42, 75, 215);
+            case color::pure_blue: return to_color_hex(0, 0, 255);
+            case color::light_blue: return to_color_hex(157, 175, 255);
+            case color::normal_blue: return to_color_hex(127, 127, 255);
+            case color::cornflower_blue: return to_color_hex(100, 149, 237);
+            case color::green: return to_color_hex(29, 105, 20);
+            case color::pure_green: return to_color_hex(0, 255, 0);
+            case color::light_green: return to_color_hex(129, 197, 122);
+            case color::yellow: return to_color_hex(255, 238, 51);
+            case color::pure_yellow: return to_color_hex(255, 255, 0);
+            case color::orange: return to_color_hex(255, 146, 51);
+            case color::pure_orange: return to_color_hex(255, 127, 0);
+            case color::brown: return to_color_hex(129, 74, 25);
+            case color::pure_brown: return to_color_hex(250, 75, 0);
+            case color::purple: return to_color_hex(129, 38, 192);
+            case color::pure_purple: return to_color_hex(128, 0, 128);
+            case color::pink: return to_color_hex(255, 205, 243);
+            case color::pure_pink: return to_color_hex(255, 192, 203);
+            case color::pure_beige: return to_color_hex(245, 245, 220);
+            case color::tan: return to_color_hex(233, 222, 187);
+            case color::pure_tan: return to_color_hex(210, 180, 140);
+            case color::cyan: return to_color_hex(41, 208, 208);
+            case color::pure_cyan: return to_color_hex(0, 255, 255);
 
             default: return to_color_hex(0, 0, 0);
             }
@@ -429,7 +429,7 @@ namespace euphoria::core
 
 
     constexpr
-    rgbi::rgbi(Color color)
+    rgbi::rgbi(color color)
         : rgbi(rgbi::from_hex(colorutil::to_color_hex(color)))
     {
     }

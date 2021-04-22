@@ -231,7 +231,7 @@ namespace euphoria::render
                 continue;
             }
             const auto& src_char = fontchars.codepoint_to_glyph[id_to_codepoint[src_rect.id]];
-            core::PasteImage
+            core::paste_image
             (
                 &image,
                 core::vec2i
@@ -295,7 +295,7 @@ namespace euphoria::render
             core::Rectf::FromWidthHeight(1, 1),
             0.0_rad,
             core::scale2f {0, 0},
-            core::rgba{core::Color::Black, alpha}
+            core::rgba{core::color::black, alpha}
         );
     }
 

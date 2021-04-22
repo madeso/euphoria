@@ -180,7 +180,7 @@ namespace
 namespace euphoria::core
 {
     std::vector<rgbi>
-    MedianCut(const image& image, int depth, bool middle_split)
+    median_cut(const image& image, int depth, bool middle_split)
     {
         auto all_colors = ExtractAllColors(image);
         auto colors = ::MedianCut(SubVec{&all_colors}, depth, middle_split);

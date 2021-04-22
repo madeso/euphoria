@@ -1,38 +1,35 @@
-#ifndef EUPHORIA_PALETTE_CUBEHELIX_H
-#define EUPHORIA_PALETTE_CUBEHELIX_H
+#pragma once
 
 
 namespace euphoria::core
 {
     struct palette;
+}
 
-    namespace palettes
-    {
-        const palette&
-        Classic();
 
-        const palette&
-        Perceptual_rainbow();
+namespace euphoria::core::palettes
+{
+    const palette&
+    classic();
 
-        const palette&
-        Purple();
+    const palette&
+    perceptual_rainbow();
 
-        const palette&
-        Jim_special();
+    const palette&
+    purple();
 
-        const palette&
-        Red();
+    const palette&
+    jim_special();
 
-        const palette&
-        Cubehelix1();
+    const palette&
+    red();
 
-        const palette&
-        Cubehelix2();
+    const palette&
+    cubehelix_1();
 
-        const palette&
-        Cubehelix3();
-    }  // namespace palette
+    const palette&
+    cubehelix_2();
 
-}  // namespace euphoria::core
-
-#endif  // EUPHORIA_PALETTE_CUBEHELIX_H
+    const palette&
+    cubehelix_3();
+}

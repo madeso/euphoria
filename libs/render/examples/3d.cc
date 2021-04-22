@@ -95,8 +95,8 @@ main(int argc, char** argv)
 
     image image;
     image.setup_no_alpha_support(256, 256);
-    const auto wi = WholeImage(image);
-    Clear(&image, {Color::Red});
+    const auto wi = whole_image(image);
+    clear(&image, {color::red});
     Random random {42};
 
     for(int i = 0; i < 20; i += 1)
@@ -105,16 +105,16 @@ main(int argc, char** argv)
         const auto pos = wi.RandomPoint(&random);
         const auto outer = random.NextRange(55.0f, 100.0f);
         const auto inner = random.Next(MakeRange(50.0f));
-        DrawCircle(&image, color, pos, outer, 10, inner);
+        draw_circle(&image, color, pos, outer, 10, inner);
     }
-    DrawLineAntialiased(&image, Color::Black, wi.TopLeft(), wi.BottomRight());
-    DrawRect
+    draw_line_antialiased(&image, color::black, wi.TopLeft(), wi.BottomRight());
+    draw_rect
     (
         &image,
-        {Color::Blue},
+        {color::blue},
         Recti::FromTopLeftWidthHeight(vec2i{0, 256}, 100, 25)
     );
-    DrawLineAntialiased(&image, Color::Black, wi.BottomLeft(), wi.TopRight());
+    draw_line_antialiased(&image, color::black, wi.BottomLeft(), wi.TopRight());
     // todo(Gustav): fix text drawing...
     // DrawText(&image, vec2i(0, 0), "Hello world", Color::Black, 2);
     engine.catalog->RegisterFileData
@@ -134,8 +134,8 @@ main(int argc, char** argv)
     auto box_mesh1 = meshes::CreateCube(0.5f);
     box_mesh1.materials[0].SetTexture("Diffuse", vfs::FilePath{"./container2.png"});
     box_mesh1.materials[0].SetTexture("Specular", vfs::FilePath{"./container2_specular.png"});
-    box_mesh1.materials[0].ambient = Color::White;  // fix ambient color on material
-    box_mesh1.materials[0].specular = Color::White;
+    box_mesh1.materials[0].ambient = color::white;  // fix ambient color on material
+    box_mesh1.materials[0].specular = color::white;
     box_mesh1.materials[0].shininess = 120.0f;
     auto box1 = CompileMesh
     (
@@ -148,8 +148,8 @@ main(int argc, char** argv)
 
     auto box_mesh2 = meshes::CreateSphere(0.5f, "image");
     box_mesh2.materials[0].SetTexture("Specular", vfs::FilePath{"./img-plain/white"});
-    box_mesh2.materials[0].ambient = Color::White;  // fix ambient color on material
-    box_mesh2.materials[0].specular  = Color::White;
+    box_mesh2.materials[0].ambient = color::white;  // fix ambient color on material
+    box_mesh2.materials[0].specular  = color::white;
     box_mesh2.materials[0].shininess = 10.0f;
     auto box2 = CompileMesh
     (
@@ -427,7 +427,7 @@ main(int argc, char** argv)
         camera.position = fps.position;
         camera.rotation = fps.GetRotation();
 
-        engine.init->ClearScreen(Color::Black);
+        engine.init->ClearScreen(color::black);
         // todo(Gustav): GetFullViewport or somthing different?
         // how does this handle the black bars...?
         world.Render(viewport_handler.GetFullViewport(), camera);

@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_CORE_PALETTE_EXTRACT_H
-#define EUPHORIA_CORE_PALETTE_EXTRACT_H
+#pragma once
 
 #include <vector>
 
@@ -11,8 +10,6 @@ namespace euphoria::core
     struct image;
 
     std::vector<rgbi>
-    MedianCut(const image& image, int depth, bool middle_split);
+    median_cut(const image& image, int depth, bool middle_split);
 }
-
-#endif  // EUPHORIA_CORE_PALETTE_EXTRACT_H
 

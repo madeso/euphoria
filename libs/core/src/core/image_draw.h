@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_DRAW_H
-#define EUPHORIA_DRAW_H
+#pragma once
 
 #include "core/image.h"
 #include "core/rgb.h"
@@ -14,23 +13,24 @@ namespace euphoria::core
 {
     struct LoadedFont;
 
+    // get a rect encompassing the whole image
     Recti
-    WholeImage(const image& image);
+    whole_image(const image& image);
 
     void
-    Clear(image* image, const rgbai& color);
+    clear(image* image, const rgbai& color);
 
     void
-    DrawRect(image* image, const rgbai& color, const Recti& rect);
+    draw_rect(image* image, const rgbai& color, const Recti& rect);
 
     void
-    DrawSquare(image* image, const rgbai& color, int x, int y, int size);
+    draw_square(image* image, const rgbai& color, int x, int y, int size);
 
     void
-    FillPoly(image* image, const rgbai& color, const std::vector<vec2f>& poly);
+    fill_poly(image* image, const rgbai& color, const std::vector<vec2f>& poly);
 
     void
-    DrawCircle
+    draw_circle
     (
         image* image,
         const rgb& color,
@@ -41,7 +41,7 @@ namespace euphoria::core
     );
 
     void
-    DrawLineFast
+    draw_line_fast
     (
         image* image,
         const rgbai& color,
@@ -50,7 +50,7 @@ namespace euphoria::core
     );
 
     void
-    DrawLineAntialiased
+    draw_line_antialiased
     (
         image* image,
         const rgb& color,
@@ -59,7 +59,7 @@ namespace euphoria::core
     );
 
     void
-    DrawLineAntialiased
+    draw_line_antialiased
     (
         image* image,
         const rgb& color,
@@ -69,7 +69,7 @@ namespace euphoria::core
 
     // position is lower left of text
     void
-    DrawText
+    draw_text
     (
         image* image,
         const vec2i& start_pos,
@@ -78,14 +78,14 @@ namespace euphoria::core
         const LoadedFont& font
     );
 
-    enum class PixelsOutside
+    enum class pixels_outside
     {
         Assert,
         Discard
     };
 
     void
-    PasteImage
+    paste_image
     (
         // destination: paste to this image
         image* dest_image,
@@ -96,11 +96,11 @@ namespace euphoria::core
         // how to blend
         blend_mode blend = blend_mode::normal,
         // how to handle pixels that fall outside
-        PixelsOutside clip = PixelsOutside::Assert
+        pixels_outside clip = pixels_outside::Assert
     );
 
     void
-    DrawArrow
+    draw_arrow
     (
         image* image,
         const vec2f& from,
@@ -109,6 +109,4 @@ namespace euphoria::core
         float size
     );
 
-}  // namespace euphoria::core
-
-#endif  // EUPHORIA_DRAW_H
+}

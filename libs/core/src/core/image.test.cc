@@ -5,7 +5,7 @@
 #include "core/base64.h"
 #include "core/rgb.h"
 #include "core/image_draw.h"
-#include "core/imageops.h"
+#include "core/image_to_text.h"
 #include "core/loadedfont.h"
 
 #include "tests/approx_equal.h"
@@ -136,7 +136,7 @@ TEST_CASE("image draw", "[img]")
 
     SECTION("draw size is image size")
     {
-        const auto size = euco::WholeImage(img);
+        const auto size = euco::whole_image(img);
         CHECK(size.bottom == 0);
         CHECK(size.left == 0);
         CHECK(size.GetWidth() == width);
@@ -152,7 +152,7 @@ TEST_CASE("image draw", "[img]")
         CHECK_FALSE(img.get_pixel(3, 3) == colora);
         CHECK_FALSE(img.get_pixel(width - 1, height - 1) == colora);
 
-        euco::DrawRect(&img, color, euco::WholeImage(img));
+        euco::draw_rect(&img, color, euco::whole_image(img));
         REQUIRE(img.get_pixel(0, 0) == colora);
         REQUIRE(img.get_pixel(3, 3) == colora);
         REQUIRE(img.get_pixel(width - 1, height - 1) == colora);
@@ -161,7 +161,7 @@ TEST_CASE("image draw", "[img]")
     SECTION("circle")
     {
         CHECK_FALSE(img.get_pixel(5, 5) == colora);
-        euco::DrawCircle(&img, crgb(color), euco::vec2i {5, 5}, 4);
+        euco::draw_circle(&img, crgb(color), euco::vec2i {5, 5}, 4);
         CHECK_FALSE(img.get_pixel(0, 0) == colora);
         REQUIRE(img.get_pixel(5, 5) == colora);
     }
@@ -170,7 +170,7 @@ TEST_CASE("image draw", "[img]")
     {
         CHECK_FALSE(img.get_pixel(0, 0) == colora);
         CHECK_FALSE(img.get_pixel(5, 5) == colora);
-        euco::DrawCircle(&img, crgb(color), euco::vec2i {5, 5}, 20, 0, 3);
+        euco::draw_circle(&img, crgb(color), euco::vec2i {5, 5}, 20, 0, 3);
         CHECK_FALSE(img.get_pixel(5, 5) == colora);
         REQUIRE(img.get_pixel(0, 0) == colora);
     }
@@ -179,7 +179,7 @@ TEST_CASE("image draw", "[img]")
     {
         euco::image big;
         big.setup_no_alpha_support(width * 3, height * 3);
-        euco::Clear(&big, color);
+        euco::clear(&big, color);
 
         CHECK_FALSE(img.get_pixel(5, 5) == colora);
         CHECK_FALSE(img.get_pixel(0, 0) == colora);
@@ -187,7 +187,7 @@ TEST_CASE("image draw", "[img]")
         CHECK_FALSE(img.get_pixel(width-1, 0) == colora);
         CHECK_FALSE(img.get_pixel(width-1, height-1) == colora);
 
-        PasteImage(&img, euco::vec2i(-width, -height), big, euco::blend_mode::normal, euco::PixelsOutside::Discard);
+        paste_image(&img, euco::vec2i(-width, -height), big, euco::blend_mode::normal, euco::pixels_outside::Discard);
 
         CHECK(img.get_pixel(5, 5) == colora);
         CHECK(img.get_pixel(0, 0) == colora);
@@ -200,9 +200,9 @@ TEST_CASE("image draw", "[img]")
     {
         euco::image small;
         small.setup_no_alpha_support(2, 2);
-        euco::Clear(&small, color);
+        euco::clear(&small, color);
 
-        PasteImage(&img, euco::vec2i(5, 5), small);
+        paste_image(&img, euco::vec2i(5, 5), small);
         CHECK(img.get_pixel(5, 5) == colora);
         CHECK(img.get_pixel(6, 5) == colora);
         CHECK(img.get_pixel(5, 6) == colora);
@@ -221,25 +221,25 @@ TEST_CASE("image text")
     {
         euco::image image;
         image.setup_no_alpha_support(width, height);
-        euco::DrawRect(&image, {euco::Color::White}, euco::WholeImage(image));
-        euco::DrawText
+        euco::draw_rect(&image, {euco::color::white}, euco::whole_image(image));
+        euco::draw_text
         (
             &image,
             euco::vec2i(0,height-8),
             text,
-            {euco::Color::Black},
+            {euco::color::black},
             euco::LoadCharactersFromBuiltin8()
         );
-        const auto table = euco::ImageToStringTableExact
+        const auto table = euco::image_to_string_table_exact
         (
             image,
             {
-                {'#', euco::Color::Black},
-                {' ', euco::Color::White}
+                {'#', euco::color::black},
+                {' ', euco::color::white}
             },
             '?'
         );
-        const auto strings = euco::ToStrings(table);
+        const auto strings = euco::to_strings(table);
         return strings;
     };
 

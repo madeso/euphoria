@@ -596,7 +596,7 @@ main(int argc, char** argv)
         app.OnRender();
         // ImGui::End();
 
-        engine.init->ClearScreen(Color::LightGray);
+        engine.init->ClearScreen(color::light_gray);
         engine.imgui->Render();
 
         SDL_GL_SwapWindow(engine.window->window);

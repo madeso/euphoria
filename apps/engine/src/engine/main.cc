@@ -150,7 +150,7 @@ GetColor(std::shared_ptr<game::Color> c)
 {
     if(c == nullptr)
     {
-        return Color::Gray;
+        return color::gray;
     }
 
     if(c->hex != nullptr)
@@ -159,7 +159,7 @@ GetColor(std::shared_ptr<game::Color> c)
     }
 
     LOG_ERROR("Unable to parse color");
-    return Color::CornflowerBlue;
+    return color::cornflower_blue;
 }
 
 
@@ -436,7 +436,7 @@ main(int argc, char* argv[])
             // nothing much is required just a better overflow detection
             // when rendering the error, perhaps making the error more visible
             // though clicking around and debugging might be useful...
-            engine.init->ClearScreen(Color::CornflowerBlue);
+            engine.init->ClearScreen(color::cornflower_blue);
 
             if(BeginFixedOverlay(ImguiCorner::Center, "Crashed"))
             {

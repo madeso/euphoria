@@ -43,7 +43,7 @@ namespace euphoria::core
     namespace palettes
     {
         const palette&
-        Classic()
+        classic()
         {
             // dict(start=0.5, rotation=-1.5, gamma=1.0, sat=1.2,
             //      min_light=0., max_light=1., n=16)
@@ -68,7 +68,7 @@ namespace euphoria::core
         }
 
         const palette&
-        Perceptual_rainbow()
+        perceptual_rainbow()
         {
             // Similar to Matteo Niccoli's Perceptual Rainbow:
             // http://mycarta.wordpress.com/2013/02/21/perceptual-rainbow-palette-the-method/
@@ -96,7 +96,7 @@ namespace euphoria::core
         }
 
         const palette&
-        Purple()
+        purple()
         {
             // dict(start=0., rotation=0.0, n=16)
             static const auto p = palette {"Purple",
@@ -120,7 +120,7 @@ namespace euphoria::core
         }
 
         const palette&
-        Jim_special()
+        jim_special()
         {
             // http://www.ifweassume.com/2014/04/cubehelix-colormap-for-python.html
             // dict(start=0.3, rotation=-0.5, n=16)
@@ -145,7 +145,7 @@ namespace euphoria::core
         }
 
         const palette&
-        Red()
+        red()
         {
             // http://www.ifweassume.com/2014/04/cubehelix-colormap-for-python.html
             // dict(start=0., rotation=0.5, n=16)
@@ -170,7 +170,7 @@ namespace euphoria::core
         }
 
         const palette&
-        Cubehelix1()
+        cubehelix_1()
         {
             // http://nbviewer.ipython.org/gist/anonymous/a4fa0adb08f9e9ea4f94
             // dict(gamma=1.0, start=1.5, rotation=-1.0, sat=1.5, n=16)
@@ -195,7 +195,7 @@ namespace euphoria::core
         }
 
         const palette&
-        Cubehelix2()
+        cubehelix_2()
         {
             // http://nbviewer.ipython.org/gist/anonymous/a4fa0adb08f9e9ea4f94
             // dict(gamma=1.0, start=2.0, rotation=1.0, sat=1.5, n=16)
@@ -220,7 +220,7 @@ namespace euphoria::core
         }
 
         const palette&
-        Cubehelix3()
+        cubehelix_3()
         {
             // http://nbviewer.ipython.org/gist/anonymous/a4fa0adb08f9e9ea4f94
             // dict(gamma=1.0, start=2.0, rotation=1.0, sat=3, n=16)

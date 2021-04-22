@@ -1,4 +1,4 @@
-#include "core/imageops.h"
+#include "core/image_to_text.h"
 
 #include <iostream>
 
@@ -8,7 +8,7 @@
 namespace euphoria::core
 {
     Table<char>
-    ImageToStringTable(const image& img, const std::vector<ImageMapAction>& map)
+    image_to_string_table(const image& img, const std::vector<image_map_action>& map)
     {
         auto pal = palette::create_empty("");
         for(const auto m: map)
@@ -28,9 +28,9 @@ namespace euphoria::core
     }
 
     Table<char>
-    ImageToStringTableExact(
+    image_to_string_table_exact(
             const image&                       img,
-            const std::vector<ImageMapAction>& map, char missing)
+            const std::vector<image_map_action>& map, char missing)
     {
         auto find_match = [&](const rgbi& c) -> char
         {
@@ -57,7 +57,7 @@ namespace euphoria::core
     }
 
     Table<char>
-    ImageToStringTable(const image& img, bool shorter, Grayscale grayscale)
+    image_to_string_table(const image& img, bool shorter, grayscale grayscale)
     {
         auto ret = Table<char>::FromWidthHeight(
                 img.width, img.height, ' ');
@@ -68,7 +68,7 @@ namespace euphoria::core
                 : "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,\"^`'. ";
             const auto inverted_color = crgb
             (
-                MakeGrayscale(img.get_pixel(x, y), grayscale)
+                make_grayscale(img.get_pixel(x, y), grayscale)
             ).r;
             const auto p = 1.0f - inverted_color;
             const auto index = Floori(p * static_cast<float>(characters.size() - 1) );
@@ -79,7 +79,7 @@ namespace euphoria::core
     }
 
     std::vector<std::string>
-    ToStrings(const Table<char>& table)
+    to_strings(const Table<char>& table)
     {
         std::vector<std::string> ret;
 

@@ -27,9 +27,9 @@ namespace euphoria::render
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     CompiledMeshMaterial::CompiledMeshMaterial()
-        : ambient(core::Color::White)
-        , diffuse(core::Color::White)
-        , specular(core::Color::White)
+        : ambient(core::color::white)
+        , diffuse(core::color::white)
+        , specular(core::color::white)
         , shininess(135.0f)
     {
     }

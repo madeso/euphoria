@@ -29,7 +29,7 @@ main(int argc, char* argv[])
 
     for (auto palette_name : palettes::PaletteNames)
     {
-        const auto pal = palettes::GetPalette(palette_name);
+        const auto pal = palettes::get_palette(palette_name);
 
         image image;
         image.setup_no_alpha_support(image_size * Csizet_to_int(pal.colors.size()), image_size);
@@ -41,7 +41,7 @@ main(int argc, char* argv[])
             i += 1
         )
         {
-            DrawSquare
+            draw_square
             (
                 &image,
                 pal.colors[i],

@@ -17,7 +17,7 @@ namespace euphoria::core
 
     rgb::rgb(float gray) : r(gray), g(gray), b(gray) {}
 
-    rgb::rgb(Color color) : rgb(rgb::from_hex(colorutil::to_color_hex(color))) {}
+    rgb::rgb(color color) : rgb(rgb::from_hex(colorutil::to_color_hex(color))) {}
 
     rgb
     rgb::from_hex(unsigned int hex)
@@ -577,7 +577,7 @@ namespace euphoria::core
         }
         else
         {
-            const auto match = StringToEnum<Color>(value);
+            const auto match = StringToEnum<color>(value);
             if(match.single_match) { return R::True(crgbi(match.values[0])); }
             return R::False
             (

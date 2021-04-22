@@ -169,7 +169,7 @@ main(int argc, char* argv[])
         "grid", "lay put images in a grid",
         [](argparse::sub_parser* sub)
         {
-            rgbi background_color = Color::Gray;
+            rgbi background_color = color::gray;
             std::string output_file = "collage.png";
             int padding = 5;
             bool top_to_bottom = true;
@@ -229,7 +229,7 @@ main(int argc, char* argv[])
         [](argparse::sub_parser* sub)
         {
             auto image_size = Sizei::FromWidthHeight(1024, 1024);
-            rgbi background_color = Color::Gray;
+            rgbi background_color = color::gray;
             std::string output_file = "collage.png";
             int padding = 5;
             bool pack_image = true;

@@ -1,24 +1,24 @@
-#ifndef EUPHORIA_PALETTE_MATPLOT_H
-#define EUPHORIA_PALETTE_MATPLOT_H
+#pragma once
 
 namespace euphoria::core
 {
     struct palette;
+}
 
+    
+namespace euphoria::core::palettes
+{
     // https://bids.github.io/colormap/
 
-    namespace palettes
-    {
-        const palette&
-        Magma();
-        const palette&
-        Inferno();
-        const palette&
-        Plasma();
-        const palette&
-        Viridis();
-    }  // namespace palette
+    const palette&
+    magma();
 
-}  // namespace euphoria::core
+    const palette&
+    inferno();
 
-#endif  // EUPHORIA_PALETTE_MATPLOT_H
+    const palette&
+    plasma();
+
+    const palette&
+    viridis();
+}

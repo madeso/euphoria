@@ -33,7 +33,7 @@ namespace euphoria::core
     namespace palettes
     {
         const palette&
-        Magma()
+        magma()
         {
             static const auto p = palette {
                     "Magma",          C(0, 0, 4),       C(1, 0, 5),
@@ -125,7 +125,7 @@ namespace euphoria::core
             return p;
         }
         const palette&
-        Inferno()
+        inferno()
         {
             static const auto p = palette {
                     "Inferno",        C(0, 0, 4),       C(1, 0, 5),
@@ -217,7 +217,7 @@ namespace euphoria::core
             return p;
         }
         const palette&
-        Plasma()
+        plasma()
         {
             static const auto p = palette {
                     "Plasma",        C(13, 8, 135),   C(16, 7, 136),
@@ -309,7 +309,7 @@ namespace euphoria::core
             return p;
         }
         const palette&
-        Viridis()
+        viridis()
         {
             static const auto p = palette {
                     "Viridis",       C(68, 1, 84),    C(68, 2, 86),

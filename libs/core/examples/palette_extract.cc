@@ -159,7 +159,7 @@ HandleImage
     const auto start = Now();
 
     // extract colors
-    auto colors = MedianCut(images[0].image, depth, middle_split);
+    auto colors = median_cut(images[0].image, depth, middle_split);
 
     const auto end = Now();
 
@@ -180,7 +180,7 @@ HandleImage
         i += 1
     )
     {
-        DrawSquare
+        draw_square
         (
             &image,
             colors[i],
@@ -212,7 +212,7 @@ HandlePrint
     }
 
     // extract colors
-    auto colors = MedianCut(images[0].image, depth, middle_split);
+    auto colors = median_cut(images[0].image, depth, middle_split);
 
     std::sort
     (

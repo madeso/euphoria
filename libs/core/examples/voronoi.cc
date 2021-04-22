@@ -126,7 +126,7 @@ main(int argc, char* argv[])
         : poisson_sample(area, &rand, poisson_radius*2, poisson_radius);
 
     auto pal = use_colorblind
-        ? palettes::ColorBlind_10()
+        ? palettes::color_blind_10()
         : palette::create_rainbow(random_points.size());
     image image;
     image.setup_no_alpha_support(size, size);

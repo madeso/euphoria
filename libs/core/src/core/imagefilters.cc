@@ -21,26 +21,26 @@ namespace euphoria::core
     //
     // https://twitter.com/FreyaHolmer/status/1116502994684530688
     rgbai
-    MakeGrayscale(rgbai c, Grayscale grayscale)
+    make_grayscale(rgbai c, grayscale grayscale)
     {
         switch(grayscale)
         {
-        case Grayscale::R: return Gray(c.r, c.a);
-        case Grayscale::G: return Gray(c.g, c.a);
-        case Grayscale::B: return Gray(c.b, c.a);
-        case Grayscale::A: return Gray(c.a, c.a);
-        case Grayscale::Max: return Gray(Max(c.r, Max(c.g, c.b)), c.a);
-        case Grayscale::Gamma:
+        case grayscale::r: return Gray(c.r, c.a);
+        case grayscale::g: return Gray(c.g, c.a);
+        case grayscale::b: return Gray(c.b, c.a);
+        case grayscale::a: return Gray(c.a, c.a);
+        case grayscale::max: return Gray(Max(c.r, Max(c.g, c.b)), c.a);
+        case grayscale::gamma:
             {
                 const auto d = dot(crgb(c), rgb(0.22f, 0.707f, 0.071f));
                 return rgbai(crgbi(rgb(d)), c.a);
             }
-        case Grayscale::Linear:
+        case grayscale::linear:
             {
                 const auto d = dot(crgb(c), rgb(0.0397f, 0.4580f, 0.0061f));
                 return rgbai(crgbi(rgb(d)), c.a);
             }
-        case Grayscale::Average:
+        case grayscale::average:
             {
                 const auto cc = crgb(c);
                 const auto g  = (cc.r + cc.g + cc.b) / 3;
@@ -54,16 +54,16 @@ namespace euphoria::core
 
 
     void
-    MakeGrayscale(image* image, Grayscale grayscale)
+    make_grayscale(image* image, grayscale grayscale)
     {
         image->filter([grayscale](const rgbai& c)
         {
-            return MakeGrayscale(c, grayscale);
+            return make_grayscale(c, grayscale);
         });
     }
 
     void
-    MatchPalette(image* image, const palette& palette)
+    match_palette(image* image, const palette& palette)
     {
         image->filter([&palette](const rgbai& c) {
             const auto cc = crgbi(c);
@@ -91,7 +91,7 @@ namespace euphoria::core
     }
 
     void
-    MatchPaletteDither(image* image, const palette& palette)
+    match_palette_dither(image* image, const palette& palette)
     {
         struct Error
         {
@@ -165,7 +165,7 @@ namespace euphoria::core
     }
 
     void
-    EdgeDetection(image* image, float r)
+    edge_detection(image* image, float r)
     {
         *image = NewImageFrom(*image, [&](int x, int y) {
             const auto pixel = Cvec3(image->get_pixel(x, y));
@@ -181,19 +181,19 @@ namespace euphoria::core
                                                .get_length()
                                        >= r;
             const bool edge = top || left;
-            const auto c    = edge ? Color::White : Color::Black;
+            const auto c    = edge ? color::white : color::black;
             return rgbai(c, 255);
         });
     }
 
 
     void
-    ColorDetection(image* image, rgb color, float r)
+    color_detection(image* image, rgb color, float r)
     {
         const auto basis = Cvec3(color);
         image->filter([&](const rgbai pixel) {
             const auto check = (Cvec3(pixel) - basis).get_length() <= r;
-            const auto c     = check ? Color::White : Color::Black;
+            const auto c     = check ? color::white : color::black;
             return rgbai(c, 255);
         });
     }
@@ -215,7 +215,7 @@ namespace euphoria::core
     }
 
     void
-    ChangeBrightness(image* image, int change)
+    change_brightness(image* image, int change)
     {
         LutTransform(image, [&](int i) {
             return KeepWithin(MakeRange(0, 255), i + change);
@@ -223,7 +223,7 @@ namespace euphoria::core
     }
 
     void
-    ChangeContrast(image* image, const angle& contrast)
+    change_contrast(image* image, const angle& contrast)
     {
         const auto tc = tan(contrast);
         LutTransform(image, [&](int i) {

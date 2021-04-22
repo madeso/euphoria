@@ -3,7 +3,7 @@
 #include "core/drunken_bishop.h"
 
 #include "core/random.h"
-#include "core/imageops.h"
+#include "core/image_to_text.h"
 #include "core/palette.h"
 #include "core/palette_tableu.h"
 #include "core/palette_all.h"
@@ -59,9 +59,9 @@ GenerateImage(const Table<int>& table, int scale, const palette& pal)
     image image;
     image.setup_no_alpha_support(scale * table.GetWidth(), scale * table.GetHeight());
 
-    auto draw_rect = [&](const rgbi& color, const vec2i& top_left)
+    auto rect = [&](const rgbi& color, const vec2i& top_left)
     {
-        DrawRect
+        draw_rect
         (
             &image,
             color,
@@ -87,7 +87,7 @@ GenerateImage(const Table<int>& table, int scale, const palette& pal)
                     Csizet_to_int(pal.colors.size())
                 )
             );
-            draw_rect(pal.colors[v], vec2i{x*scale, (y+1)*scale});
+            rect(pal.colors[v], vec2i{x*scale, (y+1)*scale});
         }
     }
 
@@ -110,7 +110,7 @@ main(int argc, char* argv[])
             auto common = Common{};
             int count = 1;
             int scale = 10;
-            auto pal = palettes::PaletteName::Cubehelix1;
+            auto pal = palettes::name::cubehelix_1;
 
             common.Add(sub);
             sub->add("--pal", &pal).set_help("Set the palette");
@@ -125,7 +125,7 @@ main(int argc, char* argv[])
                     (
                         table,
                         scale,
-                        palettes::GetPalette(pal)
+                        palettes::get_palette(pal)
                     );
                     const std::string file_name = count == 1
                         ? std::string("bishop.png")

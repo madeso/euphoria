@@ -41,23 +41,23 @@ struct CommonArguments
 const auto PALETTE = palette
 {
     "",
-    Color::Red,
-    Color::White,
-    Color::Blue,
+    color::red,
+    color::white,
+    color::blue,
 
-    Color::LightGreen,
-    Color::Yellow,
-    Color::LightBlue,
+    color::light_green,
+    color::yellow,
+    color::light_blue,
 
-    Color::Pink,
-    Color::Orange,
-    Color::Tan,
+    color::pink,
+    color::orange,
+    color::tan,
 
-    Color::Brown,
-    Color::Green,
-    Color::Purple,
-    Color::CornflowerBlue,
-    Color::Cyan
+    color::brown,
+    color::green,
+    color::purple,
+    color::cornflower_blue,
+    color::cyan
 };
 
 
@@ -130,7 +130,7 @@ void RunMain
     {
         std::cout << "writing collage...\n";
         int padding = 20;
-        auto collage_image = grid_layout(images, padding, Color::Gray, true);
+        auto collage_image = grid_layout(images, padding, color::gray, true);
         std::string file_name = "identicon.png";
         io::ChunkToFile(collage_image.write(image_write_format::png), file_name);
     }
@@ -178,7 +178,7 @@ void RunSpratorCollage
 
         std::cout << "writing collage...\n";
         int padding = 20;
-        auto collage_image = grid_layout(images, padding, Color::Gray, true);
+        auto collage_image = grid_layout(images, padding, color::gray, true);
         std::string file_name = "identicon.png";
         if(frames > 1)
         {

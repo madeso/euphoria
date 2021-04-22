@@ -31,15 +31,15 @@ namespace
         const auto size = half_size * 2;
 
         // todo(Gustav): figure out color (randomly?)
-        const auto foreground_color = Color::White;
-        const auto background_color = Color::Black;
+        const auto foreground_color = color::white;
+        const auto background_color = color::black;
 
         const auto dx = image->width / (size - 1);
         const auto dy = image->height / size;
 
-        auto draw_rect = [&](const vec2i& top_left)
+        auto rect = [&](const vec2i& top_left)
         {
-            DrawRect
+            draw_rect
             (
                 image,
                 {foreground_color},
@@ -51,7 +51,7 @@ namespace
             );
         };
 
-        Clear(image, {background_color});
+        clear(image, {background_color});
 
         auto generator = TGenerator{code};
 
@@ -62,10 +62,10 @@ namespace
                 const auto filled = generator.Next() < 0.5f;
                 if(filled)
                 {
-                    draw_rect(vec2i{x*dx, (y+1)*dy});
+                    rect(vec2i{x*dx, (y+1)*dy});
                     if(x != half_size-1)
                     {
-                        draw_rect(vec2i{image->width - ((x+1)*dx + 2), (y+1)*dy});
+                        rect(vec2i{image->width - ((x+1)*dx + 2), (y+1)*dy});
                     }
                 }
             }

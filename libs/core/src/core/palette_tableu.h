@@ -1,40 +1,48 @@
-#ifndef EUPHORIA_PALETTE_TABLEU_H
-#define EUPHORIA_PALETTE_TABLEU_H
+#pragma once
 
 namespace euphoria::core
 {
     struct palette;
+}
 
-    namespace palettes
-    {
-        const palette&
-        Tableau_10();
-        const palette&
-        TableauLight_10();
-        const palette&
-        TableauMedium_10();
-        const palette&
-        Tableau_20();
-        const palette&
-        Gray_5();
-        const palette&
-        ColorBlind_10();
-        const palette&
-        TrafficLight_9();
-        const palette&
-        PurpleGray_6();
-        const palette&
-        PurpleGray_12();
-        const palette&
-        BlueRed_6();
-        const palette&
-        BlueRed_12();
-        const palette&
-        GreenOrange_6();
-        const palette&
-        GreenOrange_12();
-    }  // namespace palette
+namespace euphoria::core::palettes
+{
+    const palette&
+    tableau_10();
 
-}  // namespace euphoria::core
+    const palette&
+    TableauLight_10();
 
-#endif  // EUPHORIA_PALETTE_TABLEU_H
+    const palette&
+    tableau_medium_10();
+
+    const palette&
+    tableau_20();
+
+    const palette&
+    gray_5();
+
+    const palette&
+    color_blind_10();
+
+    const palette&
+    traffic_light_9();
+
+    const palette&
+    purple_gray_6();
+
+    const palette&
+    purple_gray_12();
+
+    const palette&
+    blue_red_6();
+
+    const palette&
+    blue_red_12();
+
+    const palette&
+    green_orange_6();
+
+    const palette&
+    green_orange_12();
+}

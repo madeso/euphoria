@@ -8,7 +8,7 @@ set(app_src_color
     src/core/image_canvas.cc src/core/image_canvas.h
     src/core/image_draw.cc src/core/image_draw.h
     src/core/imagefilters.cc src/core/imagefilters.h
-    src/core/imageops.cc src/core/imageops.h
+    src/core/image_to_text.cc src/core/image_to_text.h
     src/core/palette.cc src/core/palette.h
     src/core/palette_extract.cc src/core/palette_extract.h
     src/core/palette_all.cc src/core/palette_all.h
@@ -17,7 +17,6 @@ set(app_src_color
     src/core/palette_matplot.cc src/core/palette_matplot.h
     src/core/palette_mycarta.cc src/core/palette_mycarta.h
     src/core/palette_tableu.cc src/core/palette_tableu.h
-    src/core/palette_wes.cc src/core/palette_wes.h
 )
 
 set(app_src_math

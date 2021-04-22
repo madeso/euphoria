@@ -277,7 +277,7 @@ namespace euphoria::render
         {
             const auto the_specular = shininess_data > 0
                                               ? specular_data
-                                              : core::rgb {core::Color::Black};
+                                              : core::rgb {core::color::black};
             shader.SetUniform(specular, the_specular);
         }
 

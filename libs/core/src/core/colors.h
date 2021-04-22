@@ -1,7 +1,4 @@
-#ifndef CORE_NAMED_COLORS_H
-#define CORE_NAMED_COLORS_H
-
-#include "core/enumtostring.h"
+#pragma once
 
 
 namespace euphoria::core
@@ -11,7 +8,7 @@ namespace euphoria::core
     // short descriptons/attributes from https://www.creativebloq.com/web-design/12-colours-and-emotions-they-evoke-61515112
     // longer description from wikipedia
 
-    enum class Color
+    enum class color
     {
         // Clean, virtuous, healthy
         /*
@@ -20,7 +17,7 @@ namespace euphoria::core
             and scatter all the visible wavelengths of light. White on television and
             computer screens is created by a mixture of red, blue and green light.
         */
-        White,
+        white,
 
         // Neutral, formal, gloomy
         /*
@@ -29,9 +26,9 @@ namespace euphoria::core
             "without color," because it can be composed of black and white. It is the
             color of a cloud-covered sky, of ash and of lead.
         */
-        LightGray,
-        Gray,
-        DarkGray,
+        light_gray,
+        gray,
+        dark_gray,
 
         // Powerful, sophisticated, edgy
         /*
@@ -40,7 +37,7 @@ namespace euphoria::core
             hue, like white and gray. It is often used symbolically or figuratively to
             represent darkness, while white represents light.
         */
-        Black,
+        black,
 
         // Passionate, aggressive, important
         /*
@@ -49,8 +46,8 @@ namespace euphoria::core
             625–740 nanometres. It is a primary color in the RGB color model and the
             CMYK color model, and is the complementary color of cyan.
         */
-        Red,
-        PureRed,
+        red,
+        pure_red,
 
         // Serene, trustworthy, inviting
         /*
@@ -60,10 +57,10 @@ namespace euphoria::core
             perceives blue when observing light with a dominant wavelength between
             approximately 450 and 495 nanometres.
         */
-        Blue,
-        PureBlue,
-        LightBlue,
-        NormalBlue,
+        blue,
+        pure_blue,
+        light_blue,
+        normal_blue,
 
         /*
             Cornflower blue is a shade of medium-to-light blue containing relatively
@@ -71,16 +68,16 @@ namespace euphoria::core
             Dutch painter Johannes Vermeer. The most valuable blue sapphires are
             called cornflower blue, having a medium-dark violet-blue tone.
         */
-        CornflowerBlue,
+        cornflower_blue,
 
         // Natural, stable, prosperous
         /*
             Green is the color between blue and yellow on the visible spectrum. It is
             evoked by light which has a dominant wavelength of roughly 495–570 nm.
         */
-        Green,
-        PureGreen,
-        LightGreen,
+        green,
+        pure_green,
+        light_green,
 
         // Happy, friendly, warning
         /*
@@ -89,8 +86,8 @@ namespace euphoria::core
             It is a primary color in subtractive color systems, used in painting or
             color printing. 
         */
-        Yellow,
-        PureYellow,
+        yellow,
+        pure_yellow,
 
         // Playful, energetic, cheap
         /*
@@ -100,8 +97,8 @@ namespace euphoria::core
             traditional colour theory, it is a secondary colour of pigments, created by
             mixing yellow and red.
         */
-        Orange,
-        PureOrange,
+        orange,
+        pure_orange,
 
         // Earthy, sturdy, rustic
         /*
@@ -111,8 +108,8 @@ namespace euphoria::core
             television screens and computer monitors, brown is made by combining
             red and green, in specific proportions. 
         */
-        Brown,
-        PureBrown,
+        brown,
+        pure_brown,
 
         // Luxurious, mysterious, romantic
         /*
@@ -122,16 +119,16 @@ namespace euphoria::core
             red and blue. The complementary color of purple in the RYB color model
             is yellow. 
         */
-        Purple,
-        PurePurple,
+        purple,
+        pure_purple,
 
         // Feminine, young, innocent
         /*
             Pink is a pale red color that is named after a flower of the same name. It
             was first used as a color name in the late 17th century.
         */
-        Pink,
-        PurePink,
+        pink,
+        pure_pink,
 
         // Accentuates surrounding colours
         /*
@@ -140,26 +137,23 @@ namespace euphoria::core
             name from French, where the word originally meant natural wool that has
             been neither bleached nor dyed, and hence also the color of natural wool.
         */
-        PureBeige,
+        pure_beige,
 
 
         /*
             Tan is a pale tone of brown. The name is derived from tannum (oak bark)
             used in the tanning of leather.
         */
-        Tan,
-        PureTan,
+        tan,
+        pure_tan,
 
         /*
             Cyan is a greenish-blue color. It is evoked by light with a predominant wavelength
             of between 490–520 nm, between the wavelengths of green and blue. 
         */
-        Cyan,
-        PureCyan,
+        cyan,
+        pure_cyan,
 
         MAX_VALUE
     };
 }
-
-#endif  // CORE_NAMED_COLORS_H
-

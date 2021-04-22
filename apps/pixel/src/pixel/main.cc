@@ -128,7 +128,7 @@ main(int argc, char** argv)
     image image;
     Random random;
     Tool tool = Tool::Pen;
-    auto palette = palettes::EDG64();
+    auto palette = palettes::endesga_64();
     auto foreground = 0;
     auto background = 1;
 
@@ -350,7 +350,7 @@ main(int argc, char** argv)
 
         // ImGui::ShowMetricsWindow();
 
-        engine.init->ClearScreen(Color::LightGray);
+        engine.init->ClearScreen(color::light_gray);
         engine.imgui->Render();
 
         SDL_GL_SwapWindow(engine.window->window);

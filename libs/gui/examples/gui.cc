@@ -331,7 +331,7 @@ main(int argc, char* argv[])
 
     TextureCache cache {engine.file_system.get()};
 
-    const auto clear_color = Color::Blue;
+    const auto clear_color = color::blue;
 
     int window_width  = 800;
     int window_height = 600;
