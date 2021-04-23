@@ -14,12 +14,12 @@
 using namespace euphoria::core;
 using namespace euphoria::core::dump2d;
 
-Poly
+poly
 MakeStar(const vec2f& origo, float radius, const angle& rotation, int number_of_points=5, float inner_scale=0.5f)
 {
     auto angle_step = angle::OneTurn() / (static_cast<float>(number_of_points)*2.0f);
 
-    auto poly = Poly{};
+    auto poly = ::poly{};
 
     for(auto i=0; i<(number_of_points*2); i+=1)
     {
@@ -41,7 +41,7 @@ main(int, char*[])
 
     auto pal = CreateShuffleBag(palettes::color_blind_10().colors, 2);
 
-    auto svg = Dumper{};
+    auto svg = dumper{};
 
     for(int i=0; i<30; i+=1)
     {
@@ -51,11 +51,11 @@ main(int, char*[])
         const auto inner = rand.Next(Range{0.3f, 0.75f});
         const auto fill = pal.Next(&rand);
         const auto rotation = angle::from_percent_of_360(rand.NextFloat01());
-        svg << MakeStar(center, radius, rotation, p, inner).Close().Fill(fill)
+        svg << MakeStar(center, radius, rotation, p, inner).close().fill(fill)
             // << Text(center, Str{} << p << " / " << std::setprecision( 2 ) << inner)
             ;
     }
-    svg.AddAxis();
-    svg.Write("stars.html");
+    svg.add_axis();
+    svg.write("stars.html");
 }
 

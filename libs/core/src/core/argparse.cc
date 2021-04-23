@@ -1061,7 +1061,7 @@ namespace euphoria::core::argparse
 
                     const std::string invalid_command = Str()
                         << "Invalid command '" << arg << "'";
-                    const auto names = QuoteAndCombineEnglishOr(match.names);
+                    const auto names = quote_and_combine_english_or(match.names);
 
                     // todo(Gustav): switch between 'did you mean' and
                     // 'could be either' depending on how big the

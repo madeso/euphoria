@@ -41,47 +41,47 @@ namespace euphoria::core::dump2d
         }
     }
 
-    Poly& Poly::Stroke(const std::vector<int>& new_stroke)
+    poly& poly::set_stroke(const std::vector<int>& new_stroke)
     {
         stroke = new_stroke;
         return *this;
     }
 
-    Poly& Poly::Fill(const rgbi& a_fill_color)
+    poly& poly::fill(const rgbi& a_fill_color)
     {
         fill_color = a_fill_color;
         return *this;
     }
 
-    Poly& Poly::Close()
+    poly& poly::close()
     {
         is_closed = true;
         return *this;
     }
 
-    Text::Text(const vec2f& p, const std::string& t, const rgbi& c)
-        : point(p), text(t), color(c) {}
+    text::text(const vec2f& p, const std::string& t, const rgbi& c)
+        : point(p), label(t), color(c) {}
 
-    Circle&
-    Circle::Line(const rgbi& lc)
+    circle&
+    circle::set_line_color(const rgbi& lc)
     {
         line_color = lc;
         return *this;
     }
-    Circle::Circle(const vec2f& p, float r, std::optional<rgbi> c)
-        : point(p), radius(r), fill_color(c) {}
+    circle::circle(const vec2f& p, float r, std::optional<rgbi> fill)
+        : point(p), radius(r), fill_color(fill) {}
 
-    Item::Item(const Poly& p)  : poly(std::make_shared<Poly>(p)) {}
-    Item::Item(const Text& p)  : text(std::make_shared<Text>(p)) {}
-    Item::Item(const Group& g) : group(std::make_shared<Group>(g)) {}
-    Item::Item(const Circle& c) : circle(std::make_shared<Circle>(c)) {}
+    item::item(const dump2d::poly& p)  : poly(std::make_shared<dump2d::poly>(p)) {}
+    item::item(const dump2d::text& p)  : text(std::make_shared<dump2d::text>(p)) {}
+    item::item(const dump2d::group& g) : group(std::make_shared<dump2d::group>(g)) {}
+    item::item(const dump2d::circle& c) : circle(std::make_shared<dump2d::circle>(c)) {}
 
-    const Poly*  AsPoly(const Item* item)  { return item->poly?  item->poly.get()  : nullptr; }
-    const Text*  AsText(const Item* item)  { return item->text?  item->text.get()  : nullptr; }
-    const Group* AsGroup(const Item* item) { return item->group? item->group.get() : nullptr; }
-    const Circle* AsCircle(const Item* item) { return item->circle? item->circle.get() : nullptr; }
+    const poly*  as_poly(const item* item)  { return item->poly?  item->poly.get()  : nullptr; }
+    const text*  as_text(const item* item)  { return item->text?  item->text.get()  : nullptr; }
+    const group* as_group(const item* item) { return item->group? item->group.get() : nullptr; }
+    const circle* as_circle(const item* item) { return item->circle? item->circle.get() : nullptr; }
 
-    Group& Group::Add(const Item& item)
+    group& group::add(const item& item)
     {
         items.emplace_back(item);
         return *this;
@@ -89,7 +89,7 @@ namespace euphoria::core::dump2d
 
     namespace detail
     {
-        struct Writer
+        struct writer
         {
             std::ofstream file;
 
@@ -98,16 +98,16 @@ namespace euphoria::core::dump2d
 
             float scale = 1.0f;
 
-            explicit Writer(const std::string& path)
+            explicit writer(const std::string& path)
                 : file(path.c_str()) {}
         };
 
-        struct MinMax
+        struct min_max
         {
             vec2f min = vec2f::zero();
             vec2f max = vec2f::zero();
 
-            MinMax& Include(const vec2f& point, float extra=0)
+            min_max& include(const vec2f& point, float extra=0)
             {
                 min.x = std::min(min.x, point.x - extra);
                 min.y = std::min(min.y, point.y - extra);
@@ -118,13 +118,13 @@ namespace euphoria::core::dump2d
                 return *this;
             }
 
-            MinMax& operator<<(const vec2f& point)
+            min_max& operator<<(const vec2f& point)
             {
-                return Include(point);
+                return include(point);
             }
         };
 
-        void WritePoly(Writer* writer, const Poly* poly)
+        void write_poly(writer* writer, const poly* poly)
         {
             writer->file << "<polyline points=\"";
             {
@@ -171,13 +171,13 @@ namespace euphoria::core::dump2d
             writer->file << "/>\n";
         }
 
-        void WriteText(Writer* writer, const Text* text)
+        void write_text(writer* writer, const text* text)
         {
             writer->file << "<text x=\"" << writer->px(text->point.x)
-                            << "\" y=\""<< writer->py(text->point.y) << "\" fill=\"" << ToHtml(text->color) << "\">" << text->text << "</text>\n";
+                            << "\" y=\""<< writer->py(text->point.y) << "\" fill=\"" << ToHtml(text->color) << "\">" << text->label << "</text>\n";
         }
 
-        void WriteCircle(Writer* writer, const Circle* circle)
+        void write_circle(writer* writer, const circle* circle)
         {
             writer->file
                 << "<circle cx=\"" << writer->px(circle->point.x) << "\" cy=\""<< writer->py(circle->point.y)
@@ -186,32 +186,32 @@ namespace euphoria::core::dump2d
                 << "/>\n";
         }
 
-        void WriteItem(Writer* writer, const Item& item)
+        void write_item(writer* writer, const item& item)
         {
-            const auto* poly = AsPoly(&item);
-            const auto* text = AsText(&item);
-            const auto* group = AsGroup(&item);
-            const auto* circle = AsCircle(&item);
+            const auto* poly = as_poly(&item);
+            const auto* text = as_text(&item);
+            const auto* group = as_group(&item);
+            const auto* circle = as_circle(&item);
             if(poly != nullptr)
             {
-                WritePoly(writer, poly);
+                write_poly(writer, poly);
             }
             else if(text != nullptr)
             {
-                WriteText(writer, text);
+                write_text(writer, text);
             }
             else if(group != nullptr)
             {
                 writer->file << "<g>\n";
                 for(const auto& i: group->items)
                 {
-                    WriteItem(writer, i);
+                    write_item(writer, i);
                 }
                 writer->file << "</g>\n";
             }
             else if(circle != nullptr)
             {
-                WriteCircle(writer, circle);
+                write_circle(writer, circle);
             }
             else
             {
@@ -219,12 +219,12 @@ namespace euphoria::core::dump2d
             }
         }
 
-        void FindMinMax(MinMax* mm, const Item& item)
+        void find_min_max(min_max* mm, const item& item)
         {
-            const auto* poly = AsPoly(&item);
-            const auto* text = AsText(&item);
-            const auto* group = AsGroup(&item);
-            const auto* circle = AsCircle(&item);
+            const auto* poly = as_poly(&item);
+            const auto* text = as_text(&item);
+            const auto* group = as_group(&item);
+            const auto* circle = as_circle(&item);
 
             if(poly != nullptr)
             {
@@ -239,13 +239,13 @@ namespace euphoria::core::dump2d
             }
             else if(circle != nullptr)
             {
-                mm->Include(circle->point, circle->radius);
+                mm->include(circle->point, circle->radius);
             }
             else if(group != nullptr)
             {
                 for(const auto& i: group->items)
                 {
-                    FindMinMax(mm, i);
+                    find_min_max(mm, i);
                 }
             }
             else
@@ -255,39 +255,39 @@ namespace euphoria::core::dump2d
         }
     }
 
-    Dumper& Dumper::AddAxis()
+    dumper& dumper::add_axis()
     {
-        add_axis = true;
+        add_axis_when_writing = true;
         return *this;
     }
 
-    Dumper& Dumper::Grid(float xy)
+    dumper& dumper::add_grid(float xy)
     {
         gridx = xy;
         gridy = xy;
         return *this;
     }
 
-    Dumper& Dumper::DrawPoints(int size)
+    dumper& dumper::enable_points_rendering(int size)
     {
         point_size = size;
         return *this;
     }
 
-    Dumper& Dumper::Add(const Item& item)
+    dumper& dumper::add(const item& item)
     {
         items.emplace_back(item);
         return *this;
     }
 
     // calculate total area size and offset so that x+offset will never be lower than 0
-    std::pair<vec2f,vec2f> Dumper::CalculateSizeAndOffset() const
+    std::pair<vec2f,vec2f> dumper::calculate_size_and_offset() const
     {
-        detail::MinMax minmax;
+        detail::min_max minmax;
 
         for(const auto& item: items)
         {
-            detail::FindMinMax(&minmax, item);
+            detail::find_min_max(&minmax, item);
         }
 
         const auto& min = minmax.min;
@@ -299,7 +299,7 @@ namespace euphoria::core::dump2d
         return {size, offset};
     }
 
-    void Dumper::Write(const std::string& path, int width, int height, int space) const
+    void dumper::write(const std::string& path, int width, int height, int space) const
     {
         // reference: https://www.w3schools.com/graphics/svg_path.asp
         // todo(Gustav): improve api
@@ -309,7 +309,7 @@ namespace euphoria::core::dump2d
         // todo(Gustav): attach string->string properties
         // todo(Gustav): option to replace string with polylines so we can measure and layout text
 
-        const auto r = CalculateSizeAndOffset();
+        const auto r = calculate_size_and_offset();
         const auto size = r.first;
         const auto offset = r.second;
         const auto scale = std::min(static_cast<float>(width-space*2) / size.x, static_cast<float>(height-space*2) / size.y);
@@ -318,7 +318,7 @@ namespace euphoria::core::dump2d
         const auto px = [=](float x) -> float { return static_cast<float>(space) + dx + x * scale; };
         const auto py = [=](float y) -> float { return static_cast<float>(height) - (static_cast<float>(space) + dy + y * scale); };
 
-        detail::Writer writer(path);
+        detail::writer writer(path);
         writer.px = px;
         writer.py = py;
         writer.scale = scale;
@@ -335,7 +335,7 @@ namespace euphoria::core::dump2d
 
         for(const auto& item: items)
         {
-            detail::WriteItem(&writer, item);
+            detail::write_item(&writer, item);
         }
 
         if(point_size > 0)
@@ -344,7 +344,7 @@ namespace euphoria::core::dump2d
 
             for(const auto& item: items)
             {
-                const auto* poly = AsPoly(&item);
+                const auto* poly = as_poly(&item);
                 if(poly != nullptr)
                 {
                     int index = 0;
@@ -367,7 +367,7 @@ namespace euphoria::core::dump2d
 
             for(const auto& item: items)
             {
-                const auto* poly = AsPoly(&item);
+                const auto* poly = as_poly(&item);
                 if(poly != nullptr)
                 {
                     int index = 0;
@@ -399,7 +399,7 @@ namespace euphoria::core::dump2d
             for(auto y = -gridy; px(y) > 0;                          y -= gridy) { hline(y, grid_color); }
         }
 
-        if(add_axis)
+        if(add_axis_when_writing)
         {
             const auto axis_color = color::black;
             hline(0, axis_color);
@@ -419,7 +419,7 @@ namespace euphoria::core::dump2d
 namespace euphoria::core::dump3d
 {
 
-    Dumper::Dumper(const std::string& path)
+    dumper::dumper(const std::string& path)
         : file(path.c_str())
     {
         file <<
@@ -490,7 +490,7 @@ namespace euphoria::core::dump3d
         constexpr auto s = "        ";
     }
 
-    Dumper::~Dumper()
+    dumper::~dumper()
     {
         file <<
         R"html(
@@ -523,7 +523,7 @@ namespace euphoria::core::dump3d
 
 
     void
-    Dumper::AddSphere(const vec3f& p, float radius, const rgbi& color)
+    dumper::add_sphere(const vec3f& p, float radius, const rgbi& color)
     {
         file << s << "add_geom(new THREE.SphereGeometry(" << radius << "), " << ToHex(color) << ")\n"
              << s << "  .position.set("<<p.x<<", "<<p.y<<", "<<p.z<<");\n";
@@ -531,7 +531,7 @@ namespace euphoria::core::dump3d
 
 
     void
-    Dumper::AddLines(const std::vector<vec3f>& points, const rgbi& color)
+    dumper::add_lines(const std::vector<vec3f>& points, const rgbi& color)
     {
         file
         << s << "(function() {\n"
@@ -563,7 +563,7 @@ namespace euphoria::core::dump3d
 
 
     void
-    Dumper::AddPlane(const plane& plane, const rgbi& color)
+    dumper::add_plane(const plane& plane, const rgbi& color)
     {
         constexpr auto size = 5;
         file
@@ -575,7 +575,7 @@ namespace euphoria::core::dump3d
 
 
     void
-    Dumper::AddArrow(const ray3f& ray, const rgbi& color)
+    dumper::add_arrow(const ray3f& ray, const rgbi& color)
     {
         file
         << s << "scene.add(new THREE.ArrowHelper("
@@ -587,7 +587,7 @@ namespace euphoria::core::dump3d
 
 
     void
-    Dumper::AddAxis()
+    dumper::add_axis()
     {
         constexpr auto size = 2;
         file
@@ -596,7 +596,7 @@ namespace euphoria::core::dump3d
 
 
     void
-    Dumper::AddGrid()
+    dumper::add_grid()
     {
         constexpr auto size = 10;
         constexpr auto divisions = 10;

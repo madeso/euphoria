@@ -1,5 +1,4 @@
-#ifndef CORE_DUMP_H
-#define CORE_DUMP_H
+#pragma once
 
 #include <vector>
 #include <string>
@@ -25,129 +24,127 @@ namespace euphoria::core::dump2d
         std::vector<int> Dash(int size);
     }
 
-    struct Poly
+    struct poly
     {
         rgbi stroke_color = color::black;
         std::optional<rgbi> fill_color;
         bool is_closed = false;
         std::vector<int> stroke;
 
-        Poly& Stroke(const std::vector<int>& new_stroke);
+        poly& set_stroke(const std::vector<int>& new_stroke);
 
-        Poly& Close();
-        Poly& Fill(const rgbi& fill_color);
+        poly& close();
+        poly& fill(const rgbi& fill_color);
 
         std::vector<vec2f> points;
     };
 
-    struct Text
+    struct text
     {
         vec2f point;
-        std::string text;
+        std::string label;
         rgbi color;
 
-        Text(const vec2f& p, const std::string& t, const rgbi& c = color::black);
+        text(const vec2f& p, const std::string& t, const rgbi& c = color::black);
     };
 
-    struct Circle
+    struct circle
     {
         vec2f point;
         float radius;
         std::optional<rgbi> line_color;
         std::optional<rgbi> fill_color;
 
-        Circle& Line(const rgbi& lc);
+        circle& set_line_color(const rgbi& lc);
 
-        Circle(const vec2f& p, float r, std::optional<rgbi> c = std::nullopt);
+        circle(const vec2f& p, float r, std::optional<rgbi> fill = std::nullopt);
     };
 
-    struct Group;
+    struct group;
 
     // todo(Gustav): replace with std::variant
-    struct Item
+    struct item
     {
-        explicit Item(const Poly& p);
-        explicit Item(const Text& p);
-        explicit Item(const Group& g);
-        explicit Item(const Circle& c);
+        explicit item(const dump2d::poly& p);
+        explicit item(const dump2d::text& p);
+        explicit item(const dump2d::group& g);
+        explicit item(const dump2d::circle& c);
 
-        std::shared_ptr<Poly>  poly;
-        std::shared_ptr<Text>  text;
-        std::shared_ptr<Group> group;
-        std::shared_ptr<Circle> circle;
+        std::shared_ptr<poly>  poly;
+        std::shared_ptr<text>  text;
+        std::shared_ptr<group> group;
+        std::shared_ptr<circle> circle;
     };
-    const Poly*  AsPoly(const Item* item);
-    const Text*  AsText(const Item* item);
-    const Group* AsGroup(const Item* item);
-    const Circle* AsCircle(const Item* item);
+    const poly*  as_poly(const item* item);
+    const text*  as_text(const item* item);
+    const group* as_group(const item* item);
+    const circle* as_circle(const item* item);
 
     template<typename TBase>
-    struct AddWrapper
+    struct add_wrapper
     {
         template<typename TItem>
-        TBase& operator<<(const TItem& item)
+        TBase& operator<<(const TItem& sub_item)
         {
-            return static_cast<TBase*>(this)->Add(Item{item});
+            return static_cast<TBase*>(this)->add(item{sub_item});
         }
     };
 
-    struct Group : public AddWrapper<Group>
+    struct group : public add_wrapper<group>
     {
-        std::vector<Item> items;
+        std::vector<item> items;
 
-        Group& Add(const Item& item);
+        group& add(const item& item);
     };
 
-    struct Dumper : AddWrapper<Dumper>
+    struct dumper : add_wrapper<dumper>
     {
         rgbi canvas_color = color::white;
-        std::vector<Item> items;
+        std::vector<item> items;
 
-        bool add_axis = false;
+        bool add_axis_when_writing = false;
         int point_size = -1;
         bool point_text = false;
 
         float gridx =-1;
         float gridy =-1;
 
-        Dumper& AddAxis();
+        dumper& add_axis();
 
-        Dumper& Grid(float xy);
+        dumper& add_grid(float xy);
 
-        Dumper& DrawPoints(int size=3);
+        dumper& enable_points_rendering(int size=3);
 
-        Dumper& Add(const Item& item);
+        dumper& add(const item& item);
 
         // calculate total area size and offset so that x+offset will never be lower than 0
-        [[nodiscard]] std::pair<vec2f,vec2f> CalculateSizeAndOffset() const;
+        [[nodiscard]] std::pair<vec2f,vec2f> calculate_size_and_offset() const;
 
-        void Write(const std::string& path, int width=1280, int height=1024, int space = 6) const;
+        void write(const std::string& path, int width=1280, int height=1024, int space = 6) const;
     };
 }
 
 namespace euphoria::core::dump3d
 {
-    struct Dumper
+    struct dumper
     {
-        explicit Dumper(const std::string& path);
-        ~Dumper();
+        explicit dumper(const std::string& path);
+        ~dumper();
 
-        Dumper(const Dumper&) = delete;
-        Dumper(Dumper&&) = delete;
-        void operator=(const Dumper&) = delete;
-        void operator=(Dumper&&) = delete;
+        dumper(const dumper&) = delete;
+        dumper(dumper&&) = delete;
+        void operator=(const dumper&) = delete;
+        void operator=(dumper&&) = delete;
 
-        void AddSphere(const vec3f& p, float radius, const rgbi& color);
-        void AddLines(const std::vector<vec3f>& lines, const rgbi& color);
-        void AddPlane(const plane& plane, const rgbi& color);
-        void AddArrow(const ray3f& ray, const rgbi& color);
+        void add_sphere(const vec3f& p, float radius, const rgbi& color);
+        auto add_lines(const std::vector<vec3f>& lines, const rgbi& color) -> void;
+        void add_plane(const plane& plane, const rgbi& color);
+        void add_arrow(const ray3f& ray, const rgbi& color);
 
-        void AddAxis();
-        void AddGrid();
+        void add_axis();
+        void add_grid();
 
 
         std::ofstream file;
     };
 }
-
-#endif  // CORE_DUMP_H

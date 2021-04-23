@@ -94,7 +94,7 @@ namespace euphoria::core
 
         static
         std::string
-        ToString(const Size<T>& s)
+        to_string(const Size<T>& s)
         {
             std::ostringstream ss;
             ss << s.width << "x" << s.height;
@@ -103,7 +103,7 @@ namespace euphoria::core
 
         static
         Result<Size<T>>
-        Parse(const std::string& value)
+        parse(const std::string& value)
         {
             using R = Result<Size<T>>;
             const auto values = Split(value, 'x');

@@ -13,22 +13,24 @@ namespace euphoria::core
     {
         enum { value = 0 };
 
-        // std::string ToString(const T&)
-        // Result<T> Parse(const std::string& value)
+        // add a template specialization for the custom type with value=1
+
+        // static std::string to_string(const T&)
+        // static Result<T> parse(const std::string& value)
     };
 
     template<typename T>
     std::string
-    CustomArgparser_ToString(const T& t)
+    custom_argparser_to_string(const T& t)
     {
-        return custom_argparser<T>::ToString(t);
+        return custom_argparser<T>::to_string(t);
     }
 
     template<typename T>
     Result<T>
-    CustomArgparser_Parse(const std::string& value)
+    custom_argparser_parse(const std::string& value)
     {
-        return custom_argparser<T>::Parse(value);
+        return custom_argparser<T>::parse(value);
     }
 }
 

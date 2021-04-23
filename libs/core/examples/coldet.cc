@@ -34,31 +34,31 @@ struct plane_demo
     void
     distance_to_plane() const
     {
-        auto d = Dumper{ "coldet-distance-to-plane.html" };
+        auto d = dumper{ "coldet-distance-to-plane.html" };
 
-        d.AddPlane(plane, color::white);
-        d.AddArrow(ray3f(vec3f::zero(), plane.normal), color::green);
+        d.add_plane(plane, color::white);
+        d.add_arrow(ray3f(vec3f::zero(), plane.normal), color::green);
         for (const auto& p : points)
         {
             const auto dist = DistanceBetween(plane, p);
-            d.AddSphere(p, 0.1f, Abs(dist) < 0.01f ? color::yellow : (dist < 0 ? color::black : color::white));
+            d.add_sphere(p, 0.1f, Abs(dist) < 0.01f ? color::yellow : (dist < 0 ? color::black : color::white));
         }
     }
 
     void
     point_to_plane() const
     {
-        auto d = Dumper{ "coldet-point-to-plane.html" };
+        auto d = dumper{ "coldet-point-to-plane.html" };
 
-        d.AddPlane(plane, color::white);
-        d.AddArrow(ray3f(vec3f::zero(), plane.normal), color::green);
+        d.add_plane(plane, color::white);
+        d.add_arrow(ray3f(vec3f::zero(), plane.normal), color::green);
         for (const auto& p : points)
         {
             const auto dist = DistanceBetween(plane, p);
             if (Abs(dist) < 0.01f) { continue; }
 
             const auto pp = ClosestPoint(plane, p);
-            d.AddArrow(ray3f::from_to(p, pp), color::black);
+            d.add_arrow(ray3f::from_to(p, pp), color::black);
         }
     }
 };
@@ -84,25 +84,25 @@ struct ray_demo
     void
     point_on_ray() const
     {
-        auto d = Dumper{ "coldet-point-on-ray.html" };
+        auto d = dumper{ "coldet-point-on-ray.html" };
 
-        d.AddGrid();
-        d.AddArrow(ray, color::black);
+        d.add_grid();
+        d.add_arrow(ray, color::black);
 
         for (const auto p : points)
         {
             const auto dist = DistanceBetween(ray.get_normalized(), p);
-            d.AddSphere(p, 0.1f, dist < 0.001f ? color::white : color::black);
+            d.add_sphere(p, 0.1f, dist < 0.001f ? color::white : color::black);
         }
     }
 
     void
     closest_point_on_ray() const
     {
-        auto d = Dumper{ "coldet-closest-point-on-ray.html" };
+        auto d = dumper{ "coldet-closest-point-on-ray.html" };
 
-        d.AddGrid();
-        d.AddArrow(ray, color::black);
+        d.add_grid();
+        d.add_arrow(ray, color::black);
 
         for (const auto p : points)
         {
@@ -110,7 +110,7 @@ struct ray_demo
             if (dist < 0.001f) { continue; }
 
             const auto pp = ClosestPoint(ray.get_normalized(), p);
-            d.AddArrow(ray3f::from_to(p, pp), color::red);
+            d.add_arrow(ray3f::from_to(p, pp), color::red);
         }
     }
 

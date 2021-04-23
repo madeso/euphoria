@@ -120,21 +120,21 @@ namespace euphoria::core
 
         static
         std::string
-        ToString(const fourway<T>& fw)
+        to_string(const fourway<T>& fw)
         {
             std::ostringstream ss;
             ss
-                << argparse::DefaultValueToString(fw.up) << SPLIT
-                << argparse::DefaultValueToString(fw.right) << SPLIT
-                << argparse::DefaultValueToString(fw.down) << SPLIT
-                << argparse::DefaultValueToString(fw.left)
+                << argparse::default_value_to_string(fw.up) << SPLIT
+                << argparse::default_value_to_string(fw.right) << SPLIT
+                << argparse::default_value_to_string(fw.down) << SPLIT
+                << argparse::default_value_to_string(fw.left)
                 ;
             return ss.str();
         }
 
         static
         Result<fourway<T>>
-        Parse(const std::string& value)
+        parse(const std::string& value)
         {
             using R = Result<fourway<T>>;
             auto parse = [](const std::string& v)

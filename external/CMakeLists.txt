@@ -36,6 +36,14 @@ target_include_directories(aheasing
     PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/aheasing
 )
 
+add_library(crc32 STATIC
+    crc32/crc32/crc32.c
+    crc32/crc32/crc32.h
+)
+target_include_directories(crc32
+    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/crc32
+)
+
 add_library(glad STATIC
     glad/src/glad.c
     glad/include/glad/glad.h

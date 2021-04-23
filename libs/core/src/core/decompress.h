@@ -17,19 +17,18 @@ namespace euphoria::core
     // Decompression from stb.h (public domain) by Sean Barrett https://github.com/nothings/stb/blob/master/stb.h
     //-----------------------------------------------------------------------------
 
-    struct Decompress
+    struct decompressor
     {
         static unsigned int stb_decompress_length(const unsigned char *input);
 
         unsigned int stb_decompress(unsigned char *output, const unsigned char *i, unsigned int /*length*/);
+        
+        unsigned char *stb_barrier_out_e = nullptr, *stb_barrier_out_b = nullptr;
+        const unsigned char *stb_barrier_in_b = nullptr;
+        unsigned char *stb_dout = nullptr;
 
-    private:
-        unsigned char *stb__barrier_out_e, *stb__barrier_out_b;
-        const unsigned char *stb__barrier_in_b;
-        unsigned char *stb__dout;
-
-        void stb__match(const unsigned char *data, unsigned int length);
-        void stb__lit(const unsigned char *data, unsigned int length);
+        void stb_match(const unsigned char *data, unsigned int length);
+        void stb_lit(const unsigned char *data, unsigned int length);
 
         const unsigned char *stb_decompress_token(const unsigned char *i);
 

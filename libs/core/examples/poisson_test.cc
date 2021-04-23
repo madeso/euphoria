@@ -20,14 +20,14 @@ svg_dump()
 
     const auto points = poisson_sample(area, &random, radius*2, radius);
 
-    auto svg = Dumper{};
+    auto svg = dumper{};
 
     for(auto p: points)
     {
-        svg << Circle{p, radius}.Line(color::black);
+        svg << circle{p, radius}.set_line_color(color::black);
     }
-    svg.AddAxis();
-    svg.Write("poisson.html", 800, 600);
+    svg.add_axis();
+    svg.write("poisson.html", 800, 600);
 }
 
 

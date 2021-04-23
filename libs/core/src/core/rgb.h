@@ -291,7 +291,7 @@ namespace euphoria::core
 
         static
         std::string
-        ToString(const rgbi& c)
+        to_string(const rgbi& c)
         {
             std::ostringstream ss;
             ss << c;
@@ -300,7 +300,7 @@ namespace euphoria::core
 
         static
         Result<rgbi>
-        Parse(const std::string& value)
+        parse(const std::string& value)
         {
             return crgbi(value);
         }

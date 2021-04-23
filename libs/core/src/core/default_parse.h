@@ -12,7 +12,7 @@
 namespace euphoria::core::argparse
 {
     std::string
-    QuoteAndCombineEnglishOr(const std::vector<std::string>& matches);
+    quote_and_combine_english_or(const std::vector<std::string>& matches);
 
 
     template
@@ -26,7 +26,7 @@ namespace euphoria::core::argparse
         const std::string& value
     )
     {
-        auto r = CustomArgparser_Parse<T>(value);
+        auto r = custom_argparser_parse<T>(value);
         return r;
     }
 
@@ -83,7 +83,7 @@ namespace euphoria::core::argparse
         else
         {
             return Result<T>::False(Str() << "did you mean " <<
-                QuoteAndCombineEnglishOr(matches.names)
+                quote_and_combine_english_or(matches.names)
                 << '?'
             );
         }
@@ -96,7 +96,7 @@ namespace euphoria::core::argparse
         std::enable_if_t<std::is_enum<T>::value == false, int> = 0
     >
     std::optional<std::string>
-    DefaultDescribe()
+    default_describe()
     {
         return std::nullopt;
     }
@@ -108,10 +108,10 @@ namespace euphoria::core::argparse
         std::enable_if_t<std::is_enum<T>::value == true, int> = 0
     >
     std::optional<std::string>
-    DefaultDescribe()
+    default_describe()
     {
         const std::string r = Str() << "can be either " <<
-            QuoteAndCombineEnglishOr
+            quote_and_combine_english_or
             (
                 EnumToString<T>()
             );
@@ -125,9 +125,9 @@ namespace euphoria::core::argparse
         std::enable_if_t<custom_argparser<T>::value != 0, int> = 0
     >
     std::string
-    DefaultValueToString(const T& t)
+    default_value_to_string(const T& t)
     {
-        return CustomArgparser_ToString(t);
+        return custom_argparser_to_string(t);
     }
 
 
@@ -142,7 +142,7 @@ namespace euphoria::core::argparse
         > = 0
     >
     std::string
-    DefaultValueToString(const T& t)
+    default_value_to_string(const T& t)
     {
         std::ostringstream ss;
         ss << t;
@@ -160,7 +160,7 @@ namespace euphoria::core::argparse
         > = 0
     >
     std::string
-    DefaultValueToString(const T& t)
+    default_value_to_string(const T& t)
     {
         return core::EnumToString(t);
     }

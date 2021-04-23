@@ -5,29 +5,29 @@
 
 namespace euphoria::core
 {
-    Console::Console()
+    console::console()
     {
-        Register("help", [this](PrintFunction print, const Args& arg) {
-            this->PrintHelp(print, arg);
+        register_command("help", [this](print_function print, const args& arg) {
+            this->print_help(print, arg);
         });
     }
 
 
     void
-    Console::Register(const std::string& name, Callback callback)
+    console::register_command(const std::string& name, callback callback)
     {
         callbacks[ToLower(name)] = callback;
     }
 
 
     void
-    Console::Run(PrintFunction print, const std::string& cmd)
+    console::run(print_function print, const std::string& cmd)
     {
         if(cmd.empty())
         {
             return;
         }
-        const auto line = ParseCommandLine(cmd);
+        const auto line = parse_commandline(cmd);
         if(line.empty())
         {
             return;
@@ -42,14 +42,14 @@ namespace euphoria::core
             return;
         }
 
-        Callback callback = found->second;
+        callback callback = found->second;
         callback(
                 print, std::vector<std::string> {line.begin() + 1, line.end()});
     }
 
 
     void
-    Console::PrintHelp(Console::PrintFunction print, const Args&)
+    console::print_help(console::print_function print, const args&)
     {
         print("Available commands:");
         for(const auto& c: callbacks)
@@ -98,7 +98,7 @@ namespace euphoria::core
 
 
     std::vector<std::string>
-    ParseCommandLine(const std::string& str)
+    parse_commandline(const std::string& str)
     {
         std::vector<std::string> ret;
 

@@ -26,15 +26,15 @@ main()
     }
 
     std::string input;
-    Console cmdline;
-    cmdline.Register(
+    console cmdline;
+    cmdline.register_command(
             "debug",
-            [&chatbot](Console::PrintFunction, const Console::Args& args) {
+            [&chatbot](console::print_function, const console::args& args) {
                 std::cout << chatbot.debug_last_response(args);
                 std::cout << "\n\n";
             });
-    cmdline.Register(
-            "kill", [&chatbot](Console::PrintFunction, const Console::Args&) {
+    cmdline.register_command(
+            "kill", [&chatbot](console::print_function, const console::args&) {
                 chatbot.is_in_conversation = false;
                 std::cout << "Killing chatbot.\n\n";
             });
@@ -49,7 +49,7 @@ main()
             if(!input.empty() && input[0] == '@')
             {
                 const std::string in {input.begin() + 1, input.end()};
-                cmdline.Run(
+                cmdline.run(
                         [](const std::string& s) { std::cout << s << "\n"; },
                         in);
             }

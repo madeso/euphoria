@@ -14,7 +14,7 @@ void RunRot13FromStream(std::istream& stream)
     std::string line;
     while(std::getline(stream, line))
     {
-        const auto transformed = Rot13(line);
+        const auto transformed = rot13(line);
         std::cout << transformed;
     }
 

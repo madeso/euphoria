@@ -429,8 +429,8 @@ namespace euphoria::core
         alpha_load alpha
     )
     {
-        auto dec = Decompress{};
-        const unsigned int decompressed_size = Decompress::stb_decompress_length(static_cast<const unsigned char*>(compressed_data));
+        auto dec = decompressor{};
+        const unsigned int decompressed_size = decompressor::stb_decompress_length(static_cast<const unsigned char*>(compressed_data));
         auto decompressed = MemoryChunk::Alloc(Cunsigned_int_to_int(decompressed_size));
         const auto len = dec.stb_decompress
         (

@@ -1,7 +1,4 @@
-// Copyright (2015) Gustav
-
-#ifndef CORE_DATETIME_H
-#define CORE_DATETIME_H
+#pragma once
 
 #include <ctime>
 #include <string>
@@ -9,124 +6,120 @@
 
 namespace euphoria::core
 {
+    struct time_t_wrapper;
+    struct struct_tm_wrapper;
 
-struct TimetWrapper;
-struct StructTmWrapper;
+    enum class month {
+        JANUARY, FEBRUARY, MARCH, APRIL, MAY, JUNE, JULY, AUGUST, SEPTEMBER, OCTOBER, NOVEMBER, DECEMBER
+    };
 
-enum class Month {
-    JANUARY, FEBRUARY, MARCH, APRIL, MAY, JUNE, JULY, AUGUST, SEPTEMBER, OCTOBER, NOVEMBER, DECEMBER
-};
+    struct time_t_wrapper
+    {
+        friend struct struct_tm_wrapper;
+        explicit time_t_wrapper(time_t time);
 
-struct TimetWrapper
-{
-protected:
-    friend struct StructTmWrapper;
-    explicit TimetWrapper(time_t time);
-public:
-    static TimetWrapper FromLocalTime(const StructTmWrapper& dt);
-    static TimetWrapper FromGmt(const StructTmWrapper& dt);
-    static TimetWrapper CurrentTime();
+        static time_t_wrapper from_local_time(const struct_tm_wrapper& dt);
+        static time_t_wrapper from_gmt(const struct_tm_wrapper& dt);
+        static time_t_wrapper from_current_time();
 
-    static double Difference(const TimetWrapper& start, const TimetWrapper& end);
+        static double get_difference(const time_t_wrapper& start, const time_t_wrapper& end);
 
-    [[nodiscard]] StructTmWrapper ToLocalTime() const;
-    [[nodiscard]] StructTmWrapper ToGmt() const;
-private:
-    time_t time_;
-};
+        [[nodiscard]] struct_tm_wrapper to_local_time() const;
+        [[nodiscard]] struct_tm_wrapper to_gmt() const;
 
-enum class DstInfo {
-    IN_EFFECT, NOT_IN_EFFECT, INFO_UNAVAILABLE
-};
+        time_t time;
+    };
 
-struct StructTmWrapper
-{
-protected:
-    friend struct TimetWrapper;
-    explicit StructTmWrapper(struct tm time);
-    [[nodiscard]] struct tm time() const;
+    enum class dst_info {
+        in_effect, not_in_effect, info_unavailable
+    };
 
-public:
-    StructTmWrapper(int year, Month month, int day);
-    StructTmWrapper(int year, Month month, int day, int hour, int minute, int second, bool dst=false);
+    struct struct_tm_wrapper
+    {
+    protected:
+        friend struct time_t_wrapper;
+        explicit struct_tm_wrapper(struct tm time);
+        [[nodiscard]] struct tm time() const;
 
-    void set_seconds(int seconds);
-    void set_minutes(int minutes);
-    void set_hour(int hour);
-    void set_day_of_moth(int day_of_moth);
-    void set_month(Month month);
-    void set_year(int year);
-    void set_dst(DstInfo dst);
+    public:
+        struct_tm_wrapper(int year, core::month month, int day);
+        struct_tm_wrapper(int year, core::month month, int day, int hour, int minute, int second, bool dst=false);
 
-    [[nodiscard]] int seconds() const;
-    [[nodiscard]] int minutes() const;
-    [[nodiscard]] int hour() const;
-    [[nodiscard]] int day_of_moth() const;
-    [[nodiscard]] Month month() const;
-    [[nodiscard]] int year() const;
-    [[nodiscard]] DstInfo dst() const;
+        void set_seconds(int seconds);
+        void set_minutes(int minutes);
+        void set_hour(int hour);
+        void set_day_of_moth(int day_of_moth);
+        void set_month(core::month month);
+        void set_year(int year);
+        void set_dst(dst_info dst);
 
-    // format: http://www.cplusplus.com/reference/ctime/strftime/
-    [[nodiscard]] std::string ToString(const std::string& format) const;
-    [[nodiscard]] std::string DebugString() const;
+        [[nodiscard]] int get_seconds() const;
+        [[nodiscard]] int get_minutes() const;
+        [[nodiscard]] int get_hour() const;
+        [[nodiscard]] int get_day_of_moth() const;
+        [[nodiscard]] month get_month() const;
+        [[nodiscard]] int get_year() const;
+        [[nodiscard]] dst_info get_dst() const;
 
-private:
-    struct tm time_;
-};
+        // format: http://www.cplusplus.com/reference/ctime/strftime/
+        [[nodiscard]] std::string to_string(const std::string& format) const;
+        [[nodiscard]] std::string to_debug_string() const;
 
-// unix date time format, 64 bit
-// todo(Gustav): test 2038 problem
-uint64_t DateTimeToInt64(const TimetWrapper& dt);
-TimetWrapper Int64ToDateTime(uint64_t i);
+    private:
+        struct tm time_;
+    };
 
-enum class TimeZone
-{
-    GMT, LOCAL
-};
+    // unix date time format, 64 bit
+    // todo(Gustav): test 2038 problem
+    uint64_t date_time_to_int64(const time_t_wrapper& dt);
+    time_t_wrapper int64_to_date_time(uint64_t i);
 
-// public interface
-// util class to make stuff nice to use
-struct DateTime
-{
-public:
-    static DateTime FromDate(int year, Month month, int day, TimeZone timezone = TimeZone::LOCAL);
-    static DateTime FromDateTime(int year, Month month, int day, int hour, int minute, int second, TimeZone timezone = TimeZone::LOCAL);
-    static DateTime CurrentTime(TimeZone timezone = TimeZone::LOCAL);
+    enum class time_zone
+    {
+        gmt, local
+    };
 
-    [[nodiscard]] std::string ToString(const std::string& format) const;
-    [[nodiscard]] std::string DebugString() const;
+    // public interface
+    // util class to make stuff nice to use
+    struct date_time
+    {
+    public:
+        static date_time FromDate(int year, core::month month, int day, time_zone timezone = time_zone::local);
+        static date_time FromDateTime(int year, core::month month, int day, int hour, int minute, int second, time_zone timezone = time_zone::local);
+        static date_time CurrentTime(time_zone timezone = time_zone::local);
 
-    void set_seconds(int seconds);
-    void set_minutes(int minutes);
-    void set_hour(int hour);
-    void set_day_of_moth(int day_of_moth);
-    void set_month(Month month);
-    void set_year(int year);
-    void set_dst(DstInfo dst);
+        [[nodiscard]] std::string ToString(const std::string& format) const;
+        [[nodiscard]] std::string DebugString() const;
 
-    [[nodiscard]] int seconds() const;
-    [[nodiscard]] int minutes() const;
-    [[nodiscard]] int hour() const;
-    [[nodiscard]] int day_of_moth() const;
-    [[nodiscard]] Month month() const;
-    [[nodiscard]] int year() const;
-    [[nodiscard]] DstInfo dst() const;
+        void set_seconds(int seconds);
+        void set_minutes(int minutes);
+        void set_hour(int hour);
+        void set_day_of_moth(int day_of_moth);
+        void set_month(core::month month);
+        void set_year(int year);
+        void set_dst(dst_info dst);
 
-    [[nodiscard]] TimeZone timezone() const;
-    [[nodiscard]] TimetWrapper time() const;
+        [[nodiscard]] int get_seconds() const;
+        [[nodiscard]] int get_minutes() const;
+        [[nodiscard]] int get_hour() const;
+        [[nodiscard]] int get_day_of_month() const;
+        [[nodiscard]] month get_month() const;
+        [[nodiscard]] int get_year() const;
+        [[nodiscard]] dst_info get_dst() const;
 
-private:
-    DateTime();
-    DateTime(TimeZone timezone, const StructTmWrapper& time);
-    DateTime(TimeZone timezone, const TimetWrapper& time);
+        [[nodiscard]] time_zone get_timezone() const;
+        [[nodiscard]] time_t_wrapper get_time() const;
 
-    [[nodiscard]] StructTmWrapper AsStruct() const;
-    void UpdateTime(const StructTmWrapper& s);
+    private:
+        date_time();
+        date_time(time_zone timezone, const struct_tm_wrapper& time);
+        date_time(time_zone timezone, const time_t_wrapper& time);
 
-    TimeZone timezone_;
-    TimetWrapper time_;
-};
+        [[nodiscard]] struct_tm_wrapper as_struct() const;
+        void update_time(const struct_tm_wrapper& s);
+
+        time_zone timezone_;
+        time_t_wrapper time_;
+    };
 
 }
-
-#endif    // CORE_DATETIME_H

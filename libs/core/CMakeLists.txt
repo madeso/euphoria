@@ -89,7 +89,6 @@ set(app_src
     src/core/closestpoint.h
     src/core/console.cc src/core/console.h
     src/core/cypher.cc src/core/cypher.h
-    src/core/cpp.h
     src/core/crc32.cc src/core/crc32.h
     src/core/decompress.cc src/core/decompress.h
     src/core/datetime.cc src/core/datetime.h
@@ -188,7 +187,7 @@ target_link_libraries(core
     spdlog
     rapidjson
     PRIVATE
-    stb_image stb_image_write stb_rect_pack
+    stb_image stb_image_write stb_rect_pack crc32
     font8x8 font8x13 aheasing file_types range
     assimp freetype
 )

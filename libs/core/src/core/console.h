@@ -1,5 +1,4 @@
-#ifndef CORE_CMDLINE_H
-#define CORE_CMDLINE_H
+#pragma once
 
 #include <functional>
 #include <iostream>
@@ -12,30 +11,28 @@ namespace euphoria::core
     /** Provides a terminal like experience.
      * Case of the name is not important
      */
-    struct Console
+    struct console
     {
-        using Args = std::vector<std::string>;
-        using PrintFunction = std::function<void(const std::string&)>;
-        using Callback = std::function<void(PrintFunction, const Args&)>;
+        using args = std::vector<std::string>;
+        using print_function = std::function<void(const std::string&)>;
+        using callback = std::function<void(print_function, const args&)>;
 
-        Console();
-
-        void
-        Register(const std::string& name, Callback callback);
+        console();
 
         void
-        Run(PrintFunction print, const std::string& cmd);
+        register_command(const std::string& name, callback callback);
 
         void
-        PrintHelp(Console::PrintFunction print, const Args&);
+        run(print_function print, const std::string& cmd);
+
+        void
+        print_help(console::print_function print, const args&);
 
     private:
         // private to make sure the case of the name is consistent
-        std::map<std::string, Callback> callbacks;
+        std::map<std::string, callback> callbacks;
     };
 
     std::vector<std::string>
-    ParseCommandLine(const std::string& str);
-}  // namespace euphoria::core
-
-#endif  // CORE_CMDLINE_H
+    parse_commandline(const std::string& str);
+}

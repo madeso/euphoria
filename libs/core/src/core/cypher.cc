@@ -12,13 +12,13 @@ namespace euphoria::core
 
 
 std::string
-CeasarCypher
+ceasar_cypher
 (
     const std::string& input,
     int steps,
     const std::string& alphabet,
     bool case_sensitive,
-    MissingInAlphabet missing_in_alphabet,
+    missing_in_alphabet missing_in_alphabet,
     char invalid
 )
 {
@@ -43,12 +43,12 @@ CeasarCypher
         {
             switch(missing_in_alphabet)
             {
-            case MissingInAlphabet::Ignore:
+            case missing_in_alphabet::ignore:
                 continue;
-            case MissingInAlphabet::PassThrough:
+            case missing_in_alphabet::pass_through:
                 ret << c;
                 break;
-            case MissingInAlphabet::Replace:
+            case missing_in_alphabet::replace:
                 ret << invalid;
                 break;
             default:
@@ -61,9 +61,9 @@ CeasarCypher
 }
 
 
-std::string Rot13(const std::string& input)
+std::string rot13(const std::string& input)
 {
-    return CeasarCypher(input, 13, "abcdefghijklmnopqrstuvwxyz", false, MissingInAlphabet::PassThrough, '?');
+    return ceasar_cypher(input, 13, "abcdefghijklmnopqrstuvwxyz", false, missing_in_alphabet::pass_through, '?');
 }
 
 

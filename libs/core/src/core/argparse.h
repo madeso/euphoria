@@ -536,10 +536,10 @@ namespace euphoria::core::argparse
                     return argparse::error;
                 }
             }, [](){
-                const std::optional<std::string> str = DefaultDescribe<T>();
+                const std::optional<std::string> str = default_describe<T>();
                 return str;
             });
-            arg->default_value = DefaultValueToString(*target);
+            arg->default_value = default_value_to_string(*target);
             return add_argument(name, arg);
         }
 
@@ -584,13 +584,13 @@ namespace euphoria::core::argparse
                     return argparse::error;
                 }
             }, [](){
-                const std::optional<std::string> str = DefaultDescribe<T>();
+                const std::optional<std::string> str = default_describe<T>();
                 return str;
             });
             std::vector<std::string> values;
             for(const auto& t: *target)
             {
-                values.emplace_back(DefaultValueToString(t));
+                values.emplace_back(default_value_to_string(t));
             }
             arg->default_value = StringMerger::Array().Generate(values);
             return add_argument(name, arg);
