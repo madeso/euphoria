@@ -66,7 +66,7 @@ namespace euphoria::core::generator
 
     struct recursive_backtracker : public algorithm
     {
-        maze*   maze   = nullptr;
+        generator::maze*   maze   = nullptr;
         Random* random = nullptr;
 
         std::stack<vec2i> stack;
@@ -106,7 +106,7 @@ namespace euphoria::core::generator
 
     struct drawer
     {
-        maze* maze = nullptr;
+        generator::maze* maze = nullptr;
 
         int cell_size = 3;
         int wall_size = 1;

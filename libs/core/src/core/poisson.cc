@@ -56,7 +56,7 @@ namespace euphoria::core
 
     vec2i
     poisson_worker::point_to_index(const vec2f& p) const
-    { return vec2i{ Floori(p.x/w), Floori(p.y/w) }; };
+    { return vec2i{ Floori(p.x/w), Floori(p.y/w) }; }
 
 
     bool

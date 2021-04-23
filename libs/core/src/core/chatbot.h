@@ -87,7 +87,7 @@ namespace euphoria::core
 
         struct response_builder
         {
-            response* response;
+            detail::response* response;
             explicit response_builder(detail::response* r) : response(r) {}
 
             response_builder&
