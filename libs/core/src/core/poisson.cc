@@ -9,7 +9,7 @@ namespace euphoria::core
     // todo(Gustav): verify samples is inside rect and considers the offset of the rect
 
     bool
-    AllInside(const Rectf& a, const vec2f& p, float r)
+    AllInside(const rectf& a, const vec2f& p, float r)
     {
         return
             a.left   < p.x - r &&
@@ -18,14 +18,14 @@ namespace euphoria::core
             a.bottom < p.y - r;
     }
 
-    poisson_worker::poisson_worker(const Rectf& aarea, Random* arandom, float ar, float bs, int ak)
+    poisson_worker::poisson_worker(const rectf& aarea, Random* arandom, float ar, float bs, int ak)
         : area(aarea)
         , random(arandom)
         , r(ar)
         , bounds_check(bs)
         , k(ak)
         , w(r / Sqrt(2))
-        , grid(table<int>::from_width_height(Floori(area.GetWidth()/w), Floori(area.GetHeight()/w), -1))
+        , grid(table<int>::from_width_height(Floori(area.get_width()/w), Floori(area.get_height()/w), -1))
     {
         auto p = random_point();
         if(bounds_check > 0)
@@ -51,7 +51,7 @@ namespace euphoria::core
 
     vec2f
     poisson_worker::random_point() const
-    { return area.RandomPoint(random); }
+    { return area.get_random_point(random); }
 
 
     vec2i
@@ -153,7 +153,7 @@ namespace euphoria::core
 
 
     std::vector<vec2f>
-    poisson_sample(const Rectf& area, Random* random, float r, float bs, int k)
+    poisson_sample(const rectf& area, Random* random, float r, float bs, int k)
     {
         auto worker = poisson_worker{area, random, r, bs, k};
         while(!worker.is_done())

@@ -164,10 +164,10 @@ namespace euphoria::core
     }
 
 
-    Recti
+    recti
     image::get_indices() const
     {
-        return Recti::FromWidthHeight
+        return recti::from_width_height
         (
             width - 1,
             height - 1

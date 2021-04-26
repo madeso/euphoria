@@ -19,7 +19,7 @@ namespace euphoria::engine
 
     ObjectCreationArgs::ObjectCreationArgs
     (
-        core::ecs::World* aworld,
+        core::ecs::world* aworld,
         DukRegistry*      areg,
         Sol*     actx,
         Sol*         aduk
@@ -52,12 +52,12 @@ namespace euphoria::engine
         }
 
         void
-        CreateComponent(const ObjectCreationArgs& args, core::ecs::EntityId ent)
+        CreateComponent(const ObjectCreationArgs& args, core::ecs::entity_id ent)
                 override
         {
             auto c = std::make_shared<CPosition2>();
             c->pos = p;
-            args.world->reg.AddComponent(ent, components->position2, c);
+            args.world->reg.add_component_to_entity(ent, components->position2, c);
         }
     };
 
@@ -88,12 +88,12 @@ namespace euphoria::engine
         }
 
         void
-        CreateComponent(const ObjectCreationArgs& args, core::ecs::EntityId ent)
+        CreateComponent(const ObjectCreationArgs& args, core::ecs::entity_id ent)
                 override
         {
             auto c     = std::make_shared<CSprite>();
             c->texture = texture;
-            args.world->reg.AddComponent(ent, components->sprite, c);
+            args.world->reg.add_component_to_entity(ent, components->sprite, c);
         }
     };
 
@@ -101,7 +101,7 @@ namespace euphoria::engine
     struct CustomComponentCreator : public ComponentCreator
     {
     public:
-        core::ecs::ComponentId comp;
+        core::ecs::component_id comp;
         CustomArguments arguments;
 
         [[nodiscard]]
@@ -110,7 +110,7 @@ namespace euphoria::engine
         Create
         (
             const std::string&            name,
-            core::ecs::ComponentId        id,
+            core::ecs::component_id        id,
             const std::vector<game::Var>& arguments
         )
         {
@@ -136,7 +136,7 @@ namespace euphoria::engine
         }
 
         void
-        CreateComponent(const ObjectCreationArgs& args, core::ecs::EntityId ent)
+        CreateComponent(const ObjectCreationArgs& args, core::ecs::entity_id ent)
                 override
         {
             auto val = args.reg->CreateComponent(comp, args.ctx, arguments);
@@ -173,7 +173,7 @@ namespace euphoria::engine
         else if(comp.custom)
         {
             const auto& s = *comp.custom;
-            core::ecs::ComponentId id;
+            core::ecs::component_id id;
             if(reg->GetCustomComponentByName(s.name, &id))
             {
                 return CustomComponentCreator::Create(s.name, id, s.arguments);
@@ -215,17 +215,17 @@ namespace euphoria::engine
     }
 
 
-    core::ecs::EntityId
+    core::ecs::entity_id
     ObjectTemplate::CreateObject(const ObjectCreationArgs& args)
     {
-        auto ent = args.world->reg.Create();
+        auto ent = args.world->reg.create_new_entity();
         for(const auto& c: components)
         {
             c->CreateComponent(args, ent);
         }
 
         // todo(Gustav): run init function here
-        args.world->reg.PostCreate(ent);
+        args.world->reg.post_create(ent);
 
         return ent;
     }

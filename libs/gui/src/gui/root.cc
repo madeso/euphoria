@@ -32,7 +32,7 @@ namespace euphoria::gui
 
         if(result)
         {
-            container.DoLayout(core::Rectf::FromWidthHeight(size));
+            container.DoLayout(core::rectf::from_width_height(size));
         }
 
         return result;
@@ -60,7 +60,7 @@ namespace euphoria::gui
     Root::Resize(const core::Sizef& new_size)
     {
         size = new_size;
-        container.DoLayout(core::Rectf::FromWidthHeight(size));
+        container.DoLayout(core::rectf::from_width_height(size));
     }
 
 
@@ -76,7 +76,7 @@ namespace euphoria::gui
             sp->DrawSprite
             (
                 *image,
-                core::Rectf::FromPositionAnchorWidthAndHeight
+                core::rectf::from_position_anchor_width_and_height
                 (
                     state.mouse,
                     core::scale2f{0, 1},

@@ -341,7 +341,7 @@ namespace euphoria::render
     }
 
     void
-    Shader::SetUniform(const ShaderUniform& attribute, const core::Rectf& val)
+    Shader::SetUniform(const ShaderUniform& attribute, const core::rectf& val)
     {
         ASSERT(IsCurrentlyBound());
         ASSERT(HasBoundUniform(attribute));

@@ -139,8 +139,8 @@ TEST_CASE("image draw", "[img]")
         const auto size = euco::whole_image(img);
         CHECK(size.bottom == 0);
         CHECK(size.left == 0);
-        CHECK(size.GetWidth() == width);
-        CHECK(size.GetHeight() == height);
+        CHECK(size.get_width() == width);
+        CHECK(size.get_height() == height);
     }
 
     euco::rgbi  color {255, 255, 0};

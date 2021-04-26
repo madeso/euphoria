@@ -84,7 +84,7 @@ enum class Tool
 void
 FloodFill(image* image, int x, int y, const rgbai& target_color, const rgbai& replacement_color)
 {
-    if(IsWithin(image->get_indices(), vec2i(x, y)) == false) { return; }
+    if(is_within(image->get_indices(), vec2i(x, y)) == false) { return; }
     if(target_color == replacement_color) { return; }
     if(image->get_pixel(x, y) != target_color) { return; }
     image->set_pixel(x, y, replacement_color);

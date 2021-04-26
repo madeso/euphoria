@@ -36,7 +36,7 @@ namespace euphoria::gui
         DoLayout
         (
             std::vector<std::shared_ptr<Widget>>* widgets,
-            const core::Rectf& area
+            const core::rectf& area
         ) const = 0;
     };
 
@@ -63,7 +63,7 @@ namespace euphoria::gui
         DoLayout
         (
             std::vector<std::shared_ptr<Widget>>* widgets,
-            const core::Rectf& area
+            const core::rectf& area
         ) const override;
 
         std::vector<bool> expandable_rows_;
@@ -89,7 +89,7 @@ namespace euphoria::gui
         DoLayout
         (
             std::vector<std::shared_ptr<Widget>>* widgets,
-            const core::Rectf& area
+            const core::rectf& area
         ) const override;
 
         float padding_;

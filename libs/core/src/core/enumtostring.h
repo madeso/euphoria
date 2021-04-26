@@ -101,7 +101,7 @@ namespace euphoria::core
             {
                 const auto t = entry.first;
                 const auto str = entry.second;
-                const auto changes = EditDistance(str, input);
+                const auto changes = edit_distance(str, input);
                 matches.push({str, t, changes});
                 if(matches.size() > max_size)
                 {

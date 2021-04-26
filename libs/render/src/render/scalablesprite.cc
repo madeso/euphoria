@@ -100,11 +100,11 @@ namespace euphoria::render
 
 
     void
-    ScalableSprite::Render(SpriteRenderer* sr, const core::Rectf& rect, const core::rgba& tint
+    ScalableSprite::Render(SpriteRenderer* sr, const core::rectf& rect, const core::rgba& tint
     ) const
     {
-        const auto size_ = rect.GetSize();
-        const auto pos = rect.GetBottomLeft();
+        const auto size_ = rect.get_size();
+        const auto pos = rect.get_bottom_left();
         const auto position_cols = core::PerformTableLayout(cols_, size_.width);
         const auto position_rows = core::PerformTableLayout
         (
@@ -145,14 +145,14 @@ namespace euphoria::render
                     uv_current_row,
                     uv_next_row
                 );
-                const auto position_rect = core::Rectf::FromLeftRightTopBottom
+                const auto position_rect = core::rectf::from_left_right_top_bottom
                 (
                     position_current_col,
                     position_next_col,
                     position_current_row,
                     position_next_row
                 );
-                const auto uv_rect = core::Rectf::FromLeftRightTopBottom
+                const auto uv_rect = core::rectf::from_left_right_top_bottom
                 (
                     uv_current_col,
                     uv_next_col,
@@ -163,7 +163,7 @@ namespace euphoria::render
                 sr->DrawRect
                 (
                     *texture_,
-                    position_rect.OffsetCopy(pos),
+                    position_rect.offset_copy(pos),
                     uv_rect,
                     0.0_rad,
                     core::scale2f {0, 0},

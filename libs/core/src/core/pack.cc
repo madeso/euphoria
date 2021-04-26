@@ -5,7 +5,7 @@
 
 namespace euphoria::core
 {
-    std::vector<std::optional<Recti>>
+    std::vector<std::optional<recti>>
     pack
     (
         const Sizei& container,
@@ -46,7 +46,7 @@ namespace euphoria::core
         stbrp_pack_rects(&context, &packed_rects[0], num_rects);
 
         // get and return data
-        auto ret = std::vector<std::optional<Recti>>(to_pack.size());
+        auto ret = std::vector<std::optional<recti>>(to_pack.size());
         for(int i = 0; i < num_rects; ++i)
         {
             const stbrp_rect& rect = packed_rects[i];
@@ -54,7 +54,7 @@ namespace euphoria::core
             {
                 continue;
             }
-            ret[i] = Recti::FromTopLeftWidthHeight
+            ret[i] = recti::from_top_left_width_height
             (
                 core::vec2i{rect.x, container.height - rect.y - 1},
                 rect.w,

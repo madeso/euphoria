@@ -51,8 +51,8 @@ namespace euphoria::engine
 
 
     struct DukUpdateSystem
-        : public core::ecs::ComponentSystem
-        , public core::ecs::ComponentSystemUpdate
+        : public core::ecs::component_system
+        , public core::ecs::component_system_updater
     {
         // using UpdateFunction = std::function<void(float)>;
         using UpdateFunction = sol::protected_function;
@@ -61,7 +61,7 @@ namespace euphoria::engine
         UpdateFunction func;
 
         DukUpdateSystem(const std::string& name, Sol* d, UpdateFunction f)
-            : ComponentSystem(name)
+            : component_system(name)
             , duk(d)
             , func(f)
         {
@@ -69,30 +69,30 @@ namespace euphoria::engine
         }
 
         void
-        Update(core::ecs::Registry*, float dt) const override
+        update(core::ecs::registry*, float dt) const override
         {
             auto result = func(dt);
             ReportFirstError(result, duk, "update", name);
         }
 
         void
-        RegisterCallbacks(core::ecs::Systems* systems) override
+        register_callbacks(core::ecs::systems* systems) override
         {
-            systems->update.Add(this);
+            systems->updater.add(this);
         }
     };
 
 
     struct DukInitSystem
-        : public core::ecs::ComponentSystem
-        , public core::ecs::ComponentSystemInit
+        : public core::ecs::component_system
+        , public core::ecs::component_system_initializer
     {
     	// using InitFunction = std::function<void(core::ecs::EntityId)>;
     	using InitFunction = sol::protected_function;
     	
-        core::ecs::Registry* reg;
+        core::ecs::registry* reg;
         Sol* duk;
-        std::vector<core::ecs::ComponentId> types;
+        std::vector<core::ecs::component_id> types;
         InitFunction func;
 
 
@@ -100,11 +100,11 @@ namespace euphoria::engine
         (
             const std::string& name,
             Sol* d,
-            core::ecs::Registry* r,
-            const std::vector<core::ecs::ComponentId>& t,
+            core::ecs::registry* r,
+            const std::vector<core::ecs::component_id>& t,
             InitFunction f
         )
-            : ComponentSystem(name)
+            : component_system(name)
             , reg(r)
             , duk(d)
             , types(t)
@@ -113,14 +113,14 @@ namespace euphoria::engine
         }
 
         void
-        OnAdd(core::ecs::EntityId entity) const override
+        on_add(core::ecs::entity_id entity) const override
         {
             ASSERT(reg);
             ASSERT(!types.empty());
 
             for(const auto& type: types)
             {
-                const auto component = reg->GetComponent(entity, type);
+                const auto component = reg->get_component(entity, type);
                 const bool has_component = component != nullptr;
 
                 if(!has_component)
@@ -133,19 +133,19 @@ namespace euphoria::engine
         }
 
         void
-        RegisterCallbacks(core::ecs::Systems* systems) override
+        register_callbacks(core::ecs::systems* systems) override
         {
-            systems->init.Add(this);
+            systems->initializer.add(this);
         }
     };
 
 
     struct DukSystems
     {
-        core::ecs::Systems* systems;
+        core::ecs::systems* systems;
         Sol* duk;
 
-        explicit DukSystems(core::ecs::Systems* s, Sol* d)
+        explicit DukSystems(core::ecs::systems* s, Sol* d)
             : systems(s)
             , duk(d)
         {
@@ -154,19 +154,19 @@ namespace euphoria::engine
         void
         AddUpdate(const std::string& name, DukUpdateSystem::UpdateFunction func)
         {
-            systems->AddAndRegister(std::make_shared<DukUpdateSystem>(name, duk, func));
+            systems->add_and_register(std::make_shared<DukUpdateSystem>(name, duk, func));
         }
 
         void
         AddInit
         (
             const std::string& name,
-            core::ecs::Registry* reg,
-            const std::vector<core::ecs::ComponentId>& types,
+            core::ecs::registry* reg,
+            const std::vector<core::ecs::component_id>& types,
             DukInitSystem::InitFunction func
         )
         {
-            systems->AddAndRegister(std::make_shared<DukInitSystem>(name, duk, reg, types, func));
+            systems->add_and_register(std::make_shared<DukInitSystem>(name, duk, reg, types, func));
         }
     };
 
@@ -174,8 +174,8 @@ namespace euphoria::engine
     {
         DukIntegrationPimpl
         (
-            core::ecs::Systems* sys,
-            core::ecs::World* world,
+            core::ecs::systems* sys,
+            core::ecs::world* world,
             Sol* duk,
             ObjectCreator* creator,
             Components* components,
@@ -206,7 +206,7 @@ namespace euphoria::engine
                 sol::function                   func
             )
             {
-              auto vtypes = GetVector<core::ecs::ComponentId>(types);
+              auto vtypes = GetVector<core::ecs::component_id>(types);
               systems.AddInit(name, &world->reg, vtypes, func);
             };
 
@@ -248,13 +248,13 @@ namespace euphoria::engine
             auto registry_table        = duk->lua["Registry"].get_or_create<sol::table>();
             registry_table["Entities"] = [&](sol::table types)
             {
-                return registry.EntityView(GetVector<core::ecs::ComponentId>(types));
+                return registry.EntityView(GetVector<core::ecs::component_id>(types));
             };
             registry_table["GetSpriteId"] = [&]()
             {
                 return registry.components->sprite;
             };
-            registry_table["DestroyEntity"] = [&](core::ecs::EntityId entity)
+            registry_table["DestroyEntity"] = [&](core::ecs::entity_id entity)
             {
                 registry.DestroyEntity(entity);
             };
@@ -278,23 +278,23 @@ namespace euphoria::engine
                     return registry.CreateNewId(name);
                 }
             );
-            registry_table["Get"] = [&](core::ecs::EntityId ent, core::ecs::ComponentId comp)
+            registry_table["Get"] = [&](core::ecs::entity_id ent, core::ecs::component_id comp)
             {
                 return registry.GetProperty(ent, comp);
             };
-            registry_table["Set"] = [&](core::ecs::EntityId ent, core::ecs::ComponentId comp, sol::table val)
+            registry_table["Set"] = [&](core::ecs::entity_id ent, core::ecs::component_id comp, sol::table val)
             {
                 registry.SetProperty(ent, comp, val);
             };
-            registry_table["GetSprite"] = [&](core::ecs::ComponentId ent)
+            registry_table["GetSprite"] = [&](core::ecs::component_id ent)
             {
                 return registry.GetComponentOrNull<CSprite>(ent, components->sprite);
             };
-            registry_table["GetPosition2"] = [&](core::ecs::ComponentId ent)
+            registry_table["GetPosition2"] = [&](core::ecs::component_id ent)
             {
                 return registry.GetComponentOrNull<CPosition2>(ent, components->position2);
             };
-            registry_table["GetPosition2vec"] = [&](core::ecs::ComponentId ent)
+            registry_table["GetPosition2vec"] = [&](core::ecs::component_id ent)
             {
                 auto c = registry.GetComponentOrNull<CPosition2>(ent, components->position2);
                 return c == nullptr ? nullptr : &c->pos;
@@ -311,24 +311,24 @@ namespace euphoria::engine
                 }
             );
 
-            auto rect_type = duk->lua.new_usertype<core::Rectf>("Rectf", sol::no_constructor);
+            auto rect_type = duk->lua.new_usertype<core::rectf>("Rectf", sol::no_constructor);
             rect_type["Contains"] = sol::overload
             (
-                [](const core::Rectf& r, const core::Rectf& rr) -> bool
+                [](const core::rectf& r, const core::rectf& rr) -> bool
                 {
-                    return r.ContainsExclusive(rr);
+                    return r.contains_exclusive(rr);
                 },
-                [](const core::Rectf& r, const core::vec2f& p) -> bool
+                [](const core::rectf& r, const core::vec2f& p) -> bool
                 {
-                    return r.ContainsExclusive(p);
+                    return r.contains_exclusive(p);
                 },
-                [](const core::Rectf& r, float x, float y) -> bool
+                [](const core::rectf& r, float x, float y) -> bool
                 {
-                    return r.ContainsExclusive(x, y);
+                    return r.contains_exclusive(x, y);
                 }
             );
-            rect_type["GetHeight"] = &core::Rectf::GetHeight;
-            rect_type["GetWidth"] = &core::Rectf::GetWidth;
+            rect_type["GetHeight"] = &core::rectf::get_height;
+            rect_type["GetWidth"] = &core::rectf::get_width;
 
             auto random_type = duk->lua.new_usertype<core::Random>("Random");
             random_type["NextFloat01"] = &core::Random::NextFloat01;
@@ -337,16 +337,16 @@ namespace euphoria::engine
                 return r.NextRange(f);
             };
             random_type["NextBool"] = &core::Random::NextBool;
-            random_type["NextPoint2"] = [](core::Random& r, core::Rectf& rect) -> core::vec2f
+            random_type["NextPoint2"] = [](core::Random& r, core::rectf& rect) -> core::vec2f
             {
-                return rect.RandomPoint(&r);
+                return rect.get_random_point(&r);
             };
         }
 
         DukSystems systems;
         DukRegistry registry;
         sol::table     input;
-        core::ecs::World* world;
+        core::ecs::world* world;
         ObjectCreator* creator;
         Components* components;
         CameraData* camera;
@@ -355,8 +355,8 @@ namespace euphoria::engine
 
     DukIntegration::DukIntegration
     (
-        core::ecs::Systems* systems,
-        core::ecs::World* reg,
+        core::ecs::systems* systems,
+        core::ecs::world* reg,
         Sol* duk,
         ObjectCreator* creator,
         Components* components,
@@ -409,4 +409,4 @@ namespace euphoria::engine
 
 TYPEID_SETUP_TYPE(euphoria::core::Random);
 TYPEID_SETUP_TYPE(euphoria::engine::ObjectTemplate);
-TYPEID_SETUP_TYPE(euphoria::core::Rect<float>);
+TYPEID_SETUP_TYPE(euphoria::core::rect<float>);

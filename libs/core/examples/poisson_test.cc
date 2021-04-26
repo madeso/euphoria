@@ -15,7 +15,7 @@ svg_dump()
 {
     Random random;
 
-    const auto area = Rectf::FromWidthHeight(100, 100);
+    const auto area = rectf::from_width_height(100, 100);
     const auto radius = 5.0f;
 
     const auto points = poisson_sample(area, &random, radius*2, radius);
@@ -47,7 +47,7 @@ png_dump(int extra_images)
 
     auto worker = poisson_worker
     {
-        Rectf::FromWidthHeight(world_size, world_size),
+        rectf::from_width_height(world_size, world_size),
         &random,
         radius*2,
         radius,

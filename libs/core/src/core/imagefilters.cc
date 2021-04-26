@@ -133,7 +133,7 @@ namespace euphoria::core
                 auto nx = static_cast<int>(x) + fs.first.x;
                 auto ny = static_cast<int>(y) + fs.first.y;
                 auto factor = fs.second;
-                if(errors_range.ContainsInclusive(nx, ny))
+                if(errors_range.contains_inclusive(nx, ny))
                 {
                     auto& e = errors(nx, ny);
                     e.r += factor * error.r;

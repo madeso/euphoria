@@ -7,7 +7,7 @@ namespace euphoria::core
 {
     struct ViewportDef
     {
-        Recti screen_rect;
+        recti screen_rect;
 
         float virtual_width;
         float virtual_height;
@@ -41,7 +41,7 @@ namespace euphoria::core
         ViewportDef
         ScreenPixel(int window_width, int window_height);
 
-        ViewportDef(const Recti& screen, float w, float h);
+        ViewportDef(const recti& screen, float w, float h);
     };
 
 }

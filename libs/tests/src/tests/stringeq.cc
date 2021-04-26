@@ -41,7 +41,7 @@ namespace euphoria::tests
                 << core::CharToString(lhs[s])
                 << "/"
                 << core::CharToString(rhs[s]);
-            ss << ", edit-distance is " << core::EditDistance(lhs, rhs);
+            ss << ", edit-distance is " << core::edit_distance(lhs, rhs);
 
             return FalseString::False(ss.str());
         }

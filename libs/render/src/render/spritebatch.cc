@@ -35,7 +35,7 @@ namespace euphoria::render
     (
         const core::vec2f& pos,
         const core::Sizef& quad,
-        const core::Rectf& uv,
+        const core::rectf& uv,
         const core::scale2f& center,
         const core::angle& rotation,
         const core::rgba& color

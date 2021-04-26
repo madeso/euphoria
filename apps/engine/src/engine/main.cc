@@ -265,8 +265,8 @@ main(int argc, char* argv[])
     BindMath(&duk);
     Input::Bind(&duk);
 
-    Systems    systems;
-    World      world {&systems};
+    systems    systems;
+    world      world {&systems};
     Components components {&world.reg};
     AddSystems(&systems, &duk, &components);
     ObjectCreator templates;
@@ -359,7 +359,7 @@ main(int argc, char* argv[])
         {
             try
             {
-                world.Update(dt);
+                world.update(dt);
             }
             catch(const std::exception& ex)
             {
@@ -451,13 +451,13 @@ main(int argc, char* argv[])
         else
         {
             engine.init->ClearScreen(clear_color);
-            world.Draw(&renderer);
+            world.draw(&renderer);
         }
 
         engine.imgui->Render();
         SDL_GL_SwapWindow(engine.window->window);
 
-        world.reg.RemoveRemoved();
+        world.reg.remove_entities_tagged_for_removal();
     }
 
     return 0;

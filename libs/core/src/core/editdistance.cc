@@ -10,7 +10,7 @@
 namespace euphoria::core
 {
     unsigned long
-    EditDistance(const std::string& source, const std::string& target)
+    edit_distance(const std::string& source, const std::string& target)
     {
         const unsigned long n = source.length();
         const unsigned long m = target.length();
@@ -82,7 +82,7 @@ namespace euphoria::core
     }
 
     unsigned long
-    FastEditDistance(const std::string& the_row, const std::string& the_col)
+    fast_edit_distance(const std::string& the_row, const std::string& the_col)
     {
         const unsigned long row_length = the_row.length();
         const unsigned long col_length = the_col.length();

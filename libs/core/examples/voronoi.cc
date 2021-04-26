@@ -21,12 +21,12 @@ i2f(int i)
     return static_cast<float>(i);
 }
 
-std::vector<vec2f> GenerateRandomPoints(int count, const Rectf& size, Random* random)
+std::vector<vec2f> GenerateRandomPoints(int count, const rectf& size, Random* random)
 {
     std::vector<vec2f> r;
     for(int i=0; i<count; i+=1)
     {
-        r.emplace_back( size.RandomPoint(random) );
+        r.emplace_back( size.get_random_point(random) );
     }
     return r;
 }
@@ -119,7 +119,7 @@ main(int argc, char* argv[])
 
     Random rand;
 
-    const auto area = Rectf::FromWidthHeight(size, size);
+    const auto area = rectf::from_width_height(size, size);
     const auto random_points =
         point_generation == PointGeneration::Random
         ? GenerateRandomPoints(number_of_points, area, &rand)

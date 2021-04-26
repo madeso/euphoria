@@ -23,50 +23,50 @@ namespace euphoria::engine
     struct DukRegistry
     {
     public:
-        DukRegistry(core::ecs::Registry* r, Components* components);
+        DukRegistry(core::ecs::registry* r, Components* components);
 
         using CreationCallback = sol::protected_function;
 
-        core::ecs::ComponentId
+        core::ecs::component_id
         CreateNewId(const std::string& name, const CreationCallback& fv);
 
-        core::ecs::ComponentId
+        core::ecs::component_id
         CreateNewId(const std::string& name);
 
         bool
-        GetCustomComponentByName(const std::string& name, core::ecs::ComponentId* id);
+        GetCustomComponentByName(const std::string& name, core::ecs::component_id* id);
 
-        std::vector<core::ecs::EntityId>
-        EntityView(const std::vector<core::ecs::ComponentId>& types);
+        std::vector<core::ecs::entity_id>
+        EntityView(const std::vector<core::ecs::component_id>& types);
 
         sol::table
-        GetProperty(core::ecs::EntityId ent, core::ecs::ComponentId comp);
+        GetProperty(core::ecs::entity_id ent, core::ecs::component_id comp);
 
         void
         SetProperty(
-                core::ecs::EntityId    ent,
-                core::ecs::ComponentId comp,
+                core::ecs::entity_id    ent,
+                core::ecs::component_id comp,
                 sol::table   value);
 
         sol::table
         CreateComponent(
-                core::ecs::ComponentId comp,
+                core::ecs::component_id comp,
                 Sol*          ctx,
                 const CustomArguments& arguments);
 
         void
-        DestroyEntity(core::ecs::EntityId id);
+        DestroyEntity(core::ecs::entity_id id);
 
         template <typename T>
         T*
-        GetComponentOrNull(core::ecs::EntityId ent, core::ecs::ComponentId comp)
+        GetComponentOrNull(core::ecs::entity_id ent, core::ecs::component_id comp)
         {
-            return reg->GetComponentOrNull<T>(ent, comp);
+            return reg->get_component_or_null<T>(ent, comp);
         }
 
-        using ScriptComponentMap = std::map<core::ecs::ComponentId, CreationCallback>;
+        using ScriptComponentMap = std::map<core::ecs::component_id, CreationCallback>;
 
-        core::ecs::Registry* reg;
+        core::ecs::registry* reg;
         Components*        components;
         ScriptComponentMap scriptComponents;
     };

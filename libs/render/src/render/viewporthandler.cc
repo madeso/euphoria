@@ -76,7 +76,7 @@ namespace
 
         if(handler->virtual_screen != nullptr)
         {
-            *handler->virtual_screen = core::Rectf::FromWidthHeight
+            *handler->virtual_screen = core::rectf::from_width_height
             (
                 vp.virtual_width,
                 vp.virtual_height
@@ -91,7 +91,7 @@ namespace
 
 namespace euphoria::render
 {
-    ViewportHandler::ViewportHandler(Init* i, core::Rectf* s)
+    ViewportHandler::ViewportHandler(Init* i, core::rectf* s)
         : init(i)
         , virtual_screen(s)
     {
@@ -146,8 +146,8 @@ namespace euphoria::render
     {
         const auto viewport = Viewport
         {
-            core::Recti::FromWidthHeight(window_width, window_height)
-                .SetBottomLeftToCopy
+            core::recti::from_width_height(window_width, window_height)
+                .set_bottom_left_to_copy
                 (
                     0,
                     0

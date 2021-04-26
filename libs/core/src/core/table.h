@@ -65,16 +65,16 @@ namespace euphoria::core
             }
         }
 
-        [[nodiscard]] Recti
+        [[nodiscard]] recti
         get_indices() const
         {
-            return Recti::FromWidthHeight(width - 1, height - 1);
+            return recti::from_width_height(width - 1, height - 1);
         }
 
         [[nodiscard]] bool
         is_inside(I x, I y) const
         {
-            return get_indices().ContainsInclusive(x, y);
+            return get_indices().contains_inclusive(x, y);
         }
 
         /** Add a new row to the table.

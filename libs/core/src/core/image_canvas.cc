@@ -38,7 +38,7 @@ namespace euphoria::core
         draw_rect(
                 target_image,
                 fill_style,
-                Recti::FromTopLeftWidthHeight(vec2i{x, target_image->height - y}, w, h));
+                recti::from_top_left_width_height(vec2i{x, target_image->height - y}, w, h));
     }
 
     void

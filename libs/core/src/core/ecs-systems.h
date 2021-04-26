@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_COMPONENTSYSTEM_H
-#define EUPHORIA_COMPONENTSYSTEM_H
+#pragma once
 
 #include <memory>
 
@@ -15,88 +14,89 @@ namespace euphoria::render
     // but for now we only need a pointer to pass around
     // todo(Gustav): fix this by merging in more of the renderer into core?
     struct SpriteRenderer;
-}  // namespace euphoria::render
+}
+
 
 namespace euphoria::core::ecs
 {
-    struct Systems;
+    struct systems;
 
     // only a base class container
-    struct ComponentSystem
+    struct component_system
     {
-        explicit ComponentSystem(const std::string& the_name);
-        virtual ~ComponentSystem() = default;
+        explicit component_system(const std::string& the_name);
+        virtual ~component_system() = default;
 
-        ComponentSystem(const ComponentSystem&) = delete;
-        ComponentSystem(ComponentSystem&&) = delete;
-        void operator=(const ComponentSystem&) = delete;
-        void operator=(ComponentSystem&&) = delete;
+        component_system(const component_system&) = delete;
+        component_system(component_system&&) = delete;
+        void operator=(const component_system&) = delete;
+        void operator=(component_system&&) = delete;
 
         virtual void
-        RegisterCallbacks(Systems* systems) = 0;
+        register_callbacks(systems* systems) = 0;
 
         // for debug purposes
         const std::string name;
     };
 
-    struct ComponentSystemStore
+    struct component_system_store
     {
-        ComponentSystemStore() = default;
+        component_system_store() = default;
 
         void
-        Add(std::shared_ptr<ComponentSystem> system);
+        add(std::shared_ptr<component_system> system);
 
     private:
-        std::vector<std::shared_ptr<ComponentSystem>> systems;
+        std::vector<std::shared_ptr<component_system>> systems;
     };
 
-    struct ComponentSystemUpdate
+    struct component_system_updater
     {
-        ComponentSystemUpdate() = default;
-        virtual ~ComponentSystemUpdate() = default;
+        component_system_updater() = default;
+        virtual ~component_system_updater() = default;
 
-        ComponentSystemUpdate(const ComponentSystemUpdate&) = delete;
-        ComponentSystemUpdate(ComponentSystemUpdate&&) = delete;
-        void operator=(const ComponentSystemUpdate&) = delete;
-        void operator=(ComponentSystemUpdate&&) = delete;
+        component_system_updater(const component_system_updater&) = delete;
+        component_system_updater(component_system_updater&&) = delete;
+        void operator=(const component_system_updater&) = delete;
+        void operator=(component_system_updater&&) = delete;
 
         virtual void
-        Update(Registry* reg, float dt) const = 0;
+        update(registry* reg, float dt) const = 0;
     };
 
-    struct ComponentSystemInit
+    struct component_system_initializer
     {
-        ComponentSystemInit() = default;
-        virtual ~ComponentSystemInit() = default;
+        component_system_initializer() = default;
+        virtual ~component_system_initializer() = default;
 
-        ComponentSystemInit(const ComponentSystemInit&) = delete;
-        ComponentSystemInit(ComponentSystemInit&&) = delete;
-        void operator=(const ComponentSystemInit&) = delete;
-        void operator=(ComponentSystemInit&&) = delete;
+        component_system_initializer(const component_system_initializer&) = delete;
+        component_system_initializer(component_system_initializer&&) = delete;
+        void operator=(const component_system_initializer&) = delete;
+        void operator=(component_system_initializer&&) = delete;
 
         virtual void
-        OnAdd(EntityId entity) const = 0;
+        on_add(entity_id entity) const = 0;
     };
 
-    struct ComponentSystemSpriteDraw
+    struct component_system_sprite_drawer
     {
-        ComponentSystemSpriteDraw() = default;
-        virtual ~ComponentSystemSpriteDraw() = default;
+        component_system_sprite_drawer() = default;
+        virtual ~component_system_sprite_drawer() = default;
 
-        ComponentSystemSpriteDraw(const ComponentSystemSpriteDraw&) = delete;
-        ComponentSystemSpriteDraw(ComponentSystemSpriteDraw&&) = delete;
-        void operator=(const ComponentSystemSpriteDraw&) = delete;
-        void operator=(ComponentSystemSpriteDraw&&) = delete;
+        component_system_sprite_drawer(const component_system_sprite_drawer&) = delete;
+        component_system_sprite_drawer(component_system_sprite_drawer&&) = delete;
+        void operator=(const component_system_sprite_drawer&) = delete;
+        void operator=(component_system_sprite_drawer&&) = delete;
 
         virtual void
-        Draw(Registry* reg, render::SpriteRenderer* renderer) const = 0;
+        draw(registry* reg, render::SpriteRenderer* renderer) const = 0;
     };
 
     template <typename TSystem>
-    struct SystemStore
+    struct system_store
     {
         void
-        Add(TSystem* system)
+        add(TSystem* system)
         {
             systems.emplace_back(system);
         }
@@ -104,52 +104,50 @@ namespace euphoria::core::ecs
         std::vector<TSystem*> systems;
     };
 
-    struct ComponentSystemUpdateStore : public SystemStore<ComponentSystemUpdate>
+    struct component_system_updater_store : public system_store<component_system_updater>
     {
         void
-        Update(Registry* reg, float dt) const;
+        update(registry* reg, float dt) const;
     };
 
-    struct ComponentSystemInitStore : public SystemStore<ComponentSystemInit>
+    struct component_system_initializer_store : public system_store<component_system_initializer>
     {
         void
-        OnAdd(EntityId ent) const;
+        on_add(entity_id ent) const;
     };
 
-    struct ComponentSystemSpriteDrawStore : public SystemStore<ComponentSystemSpriteDraw>
+    struct component_system_sprite_drawer_store : public system_store<component_system_sprite_drawer>
     {
         void
-        Draw(Registry* reg, render::SpriteRenderer* renderer) const;
+        draw(registry* reg, render::SpriteRenderer* renderer) const;
     };
 
-    struct Systems
+    struct systems
     {
         void
-        AddAndRegister(std::shared_ptr<ComponentSystem> system);
+        add_and_register(std::shared_ptr<component_system> system);
 
         // stores the system
-        ComponentSystemStore store;
+        component_system_store store;
 
         // system references for various global callbacks
-        ComponentSystemUpdateStore     update;
-        ComponentSystemInitStore       init;
-        ComponentSystemSpriteDrawStore spriteDraw;
+        component_system_updater_store updater;
+        component_system_initializer_store  initializer;
+        component_system_sprite_drawer_store sprite_drawer;
     };
 
-    struct World
+    struct world
     {
-        Registry   reg;
-        Systems* systems;
+        registry   reg;
+        ecs::systems* systems;
 
-        explicit World(Systems* sys);
-
-        void
-        Update(float dt);
+        explicit world(ecs::systems* sys);
 
         void
-        Draw(render::SpriteRenderer* renderer);
+        update(float dt);
+
+        void
+        draw(render::SpriteRenderer* renderer);
     };
 
-}  // namespace euphoria::core::ecs
-
-#endif  // EUPHORIA_COMPONENTSYSTEM_H
+}

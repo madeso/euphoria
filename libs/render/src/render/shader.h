@@ -98,7 +98,7 @@ namespace euphoria::render
         SetUniform(const ShaderUniform& attribute, const core::mat4f& val);
 
         void
-        SetUniform(const ShaderUniform& attribute, const core::Rectf& val);
+        SetUniform(const ShaderUniform& attribute, const core::rectf& val);
 
         // debug
         [[nodiscard]] static const Shader*

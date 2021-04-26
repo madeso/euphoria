@@ -17,10 +17,10 @@
 
 namespace euphoria::core
 {
-    Recti
+    recti
     whole_image(const image& image)
     {
-        return Recti::FromTopLeftWidthHeight
+        return recti::from_top_left_width_height
         (
             vec2i{0, image.height},
             image.width,
@@ -36,13 +36,13 @@ namespace euphoria::core
     }
 
     void
-    draw_rect(image* image, const rgbai& color, const Recti& rect)
+    draw_rect(image* image, const rgbai& color, const recti& rect)
     {
         ASSERT(image);
-        const int left = rect.TopLeft().x;
-        const int right = rect.TopRight().x;
-        const int top = rect.TopLeft().y;
-        const int bottom = rect.BottomLeft().y;
+        const int left = rect.get_top_left().x;
+        const int right = rect.get_top_right().x;
+        const int top = rect.get_top_left().y;
+        const int bottom = rect.get_bottom_left().y;
         // ASSERTX(left >= 0, left);
         // ASSERTX(bottom >= 0, bottom);
         for(int y = bottom; y < top; ++y)
@@ -72,14 +72,14 @@ namespace euphoria::core
             image,
             color,
             // is the +1 right?
-            Recti::FromTopLeftWidthHeight(vec2i{x, y + 1}, size, size)
+            recti::from_top_left_width_height(vec2i{x, y + 1}, size, size)
         );
     }
 
 
     namespace
     {
-        Rectf
+        rectf
         BoundingRect(const std::vector<vec2f>& poly)
         {
             const auto [min, max] = FindMinMax<vec2f>
@@ -103,7 +103,7 @@ namespace euphoria::core
                 }
             );
 
-            return Rectf::FromLeftRightBottomTop(min.x, max.x, min.y, max.y);
+            return rectf::from_left_right_bottom_top(min.x, max.x, min.y, max.y);
         }
 
         bool
@@ -148,10 +148,10 @@ namespace euphoria::core
         ASSERT(image);
 
         const auto rect = BoundingRect(poly);
-        const int left = rect.TopLeft().x;
-        const int right = rect.TopRight().x;
-        const int top = rect.TopLeft().y;
-        const int bottom = rect.BottomLeft().y;
+        const int left = rect.get_top_left().x;
+        const int right = rect.get_top_right().x;
+        const int top = rect.get_top_left().y;
+        const int bottom = rect.get_bottom_left().y;
 
         // ASSERTX(left >= 0, left);
         // ASSERTX(bottom >= 0, bottom);
@@ -214,17 +214,17 @@ namespace euphoria::core
                 const auto a = MakeRange(inner - softness, inner);
                 const auto b = MakeRange(radius, radius + softness);
 
-                if(IsWithin(a, sq))
+                if(is_within(a, sq))
                 {
-                    blend_factor = To01(a, sq);
+                    blend_factor = to01(a, sq);
                     blend = true;
                 }
-                else if(IsWithin(b, sq))
+                else if(is_within(b, sq))
                 {
-                    blend_factor = 1.0f - To01(b, sq);
+                    blend_factor = 1.0f - to01(b, sq);
                     blend = true;
                 }
-                else if(IsWithin(MakeRange(inner, radius), sq))
+                else if(is_within(MakeRange(inner, radius), sq))
                 {
                     // full color
                 }
@@ -569,7 +569,7 @@ namespace euphoria::core
                 if
                 (
                     clip == pixels_outside::Discard &&
-                    IsWithin(dest_image->get_indices(), vec2i(dest_x, dest_y)) == false
+                    is_within(dest_image->get_indices(), vec2i(dest_x, dest_y)) == false
                 )
                 {
                     // nop

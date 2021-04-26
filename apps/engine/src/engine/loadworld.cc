@@ -19,7 +19,7 @@ namespace euphoria::engine
     LoadWorld
     (
         core::vfs::FileSystem* fs,
-        core::ecs::World* world,
+        core::ecs::world* world,
         DukRegistry* reg,
         const core::vfs::FilePath& path,
         ObjectCreator* creator,

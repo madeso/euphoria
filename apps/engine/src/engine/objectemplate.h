@@ -16,7 +16,7 @@ namespace game
 
 namespace euphoria::core::ecs
 {
-    struct World;
+    struct world;
 }
 
 // struct FileSystem; // ?
@@ -33,13 +33,13 @@ namespace euphoria::engine
 
     struct ObjectCreationArgs
     {
-        core::ecs::World* world;
+        core::ecs::world* world;
         DukRegistry*      reg;
         Sol*  ctx;
         Sol*  duk;
 
         ObjectCreationArgs(
-            core::ecs::World* aworld, DukRegistry* areg, Sol* actx, Sol* aduk);
+            core::ecs::world* aworld, DukRegistry* areg, Sol* actx, Sol* aduk);
 };
 
     struct ComponentCreator
@@ -47,14 +47,14 @@ namespace euphoria::engine
     public:
         virtual ~ComponentCreator() = default;
         virtual void
-        CreateComponent(const ObjectCreationArgs& args, core::ecs::EntityId id)
+        CreateComponent(const ObjectCreationArgs& args, core::ecs::entity_id id)
                 = 0;
     };
 
     struct ObjectTemplate
     {
     public:
-        core::ecs::EntityId
+        core::ecs::entity_id
         CreateObject(const ObjectCreationArgs& args);
 
         std::vector<std::shared_ptr<ComponentCreator>> components;

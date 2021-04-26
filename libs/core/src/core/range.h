@@ -60,7 +60,7 @@ namespace euphoria::core
 
     template <typename T>
     T
-    From01(const Range<T>& range, float value)
+    from01(const Range<T>& range, float value)
     {
         return value * (range.upper_bound - range.lower_bound)
                + range.lower_bound;
@@ -68,7 +68,7 @@ namespace euphoria::core
 
     template <typename T>
     float
-    To01(const Range<T>& range, T value)
+    to01(const Range<T>& range, T value)
     {
         return (value - range.lower_bound)
                / (range.upper_bound - range.lower_bound);
@@ -89,13 +89,13 @@ namespace euphoria::core
     T
     RemapTo(const Range<F>& from, const Range<T>& to, F value)
     {
-        return From01(to, To01(from, value));
+        return from01(to, to01(from, value));
     }
 
     // includsive, both min and max are included
     template <typename T>
     bool
-    IsWithin(const Range<T>& range, T value)
+    is_within(const Range<T>& range, T value)
     {
         return value >= range.lower_bound && value <= range.upper_bound;
     }

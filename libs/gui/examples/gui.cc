@@ -122,7 +122,7 @@ ImWidget(const char* title, euphoria::gui::Lrtb* p)
 }
 
 bool
-ImWidget(const char* title, Rectf* r)
+ImWidget(const char* title, rectf* r)
 {
     const auto spacing = ImGui::GetStyle().ItemInnerSpacing.x;
     ImGui::PushID(title);

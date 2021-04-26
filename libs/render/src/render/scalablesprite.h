@@ -42,7 +42,7 @@ namespace euphoria::render
         GetMinimumSize() const;
 
         void
-        Render(SpriteRenderer* sr, const core::Rectf& pos, const core::rgba& tint ) const;
+        Render(SpriteRenderer* sr, const core::rectf& pos, const core::rgba& tint ) const;
 
         std::shared_ptr<texture2d> texture_;
 

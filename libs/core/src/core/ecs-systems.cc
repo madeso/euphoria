@@ -3,68 +3,68 @@
 
 namespace euphoria::core::ecs
 {
-    ComponentSystem::ComponentSystem(const std::string& the_name)
+    component_system::component_system(const std::string& the_name)
         : name(the_name)
     {}
 
     void
-    ComponentSystemStore::Add(std::shared_ptr<ComponentSystem> system)
+    component_system_store::add(std::shared_ptr<component_system> system)
     {
         systems.emplace_back(system);
     }
 
     void
-    ComponentSystemUpdateStore::Update(Registry* reg, float dt) const
+    component_system_updater_store::update(registry* reg, float dt) const
     {
         for(const auto* s: systems)
         {
-            s->Update(reg, dt);
+            s->update(reg, dt);
         }
     }
 
     void
-    ComponentSystemInitStore::OnAdd(EntityId ent) const
+    component_system_initializer_store::on_add(entity_id ent) const
     {
         for(const auto* s: systems)
         {
-            s->OnAdd(ent);
+            s->on_add(ent);
         }
     }
 
     void
-    ComponentSystemSpriteDrawStore::Draw(
-            Registry*                 reg,
+    component_system_sprite_drawer_store::draw(
+            registry*                 reg,
             render::SpriteRenderer* renderer) const
     {
         for(const auto* s: systems)
         {
-            s->Draw(reg, renderer);
+            s->draw(reg, renderer);
         }
     }
 
     void
-    Systems::AddAndRegister(std::shared_ptr<ComponentSystem> system)
+    systems::add_and_register(std::shared_ptr<component_system> system)
     {
-        store.Add(system);
-        system->RegisterCallbacks(this);
+        store.add(system);
+        system->register_callbacks(this);
     }
 
-    World::World(Systems* sys) : systems(sys)
+    world::world(ecs::systems* sys) : systems(sys)
     {
-        reg.AddCallback(MakeRegistryEntityCallback(
-                [this](EntityId id) { systems->init.OnAdd(id); }));
-    }
-
-    void
-    World::Update(float dt)
-    {
-        systems->update.Update(&reg, dt);
+        reg.add_callback(make_registry_entity_callback(
+                [this](entity_id id) { this->systems->initializer.on_add(id); }));
     }
 
     void
-    World::Draw(render::SpriteRenderer* renderer)
+    world::update(float dt)
     {
-        systems->spriteDraw.Draw(&reg, renderer);
+        systems->updater.update(&reg, dt);
+    }
+
+    void
+    world::draw(render::SpriteRenderer* renderer)
+    {
+        systems->sprite_drawer.draw(&reg, renderer);
     }
 
 }  // namespace euphoria::core::ecs

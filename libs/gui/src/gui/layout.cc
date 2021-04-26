@@ -90,7 +90,7 @@ namespace euphoria::gui
     TableLayout::DoLayout
     (
         std::vector<std::shared_ptr<Widget>>* widgets,
-        const core::Rectf& area
+        const core::rectf& area
     ) const
     {
         LOG_INFO("Doing table layout in {0}", area);
@@ -115,8 +115,8 @@ namespace euphoria::gui
 
         LOG_INFO("Width {0} height: {1}", total_width, total_height);
 
-        const float leftover_width = area.GetWidth() - total_width;
-        const float leftover_height = area.GetHeight() - total_height;
+        const float leftover_width = area.get_width() - total_width;
+        const float leftover_height = area.get_height() - total_height;
 
         const int expandable_rows_count = core::Csizet_to_int
         (
@@ -154,7 +154,7 @@ namespace euphoria::gui
         for(const auto& w: *widgets)
         {
             const LayoutData& d = w->layout;
-            const auto topleft = area.TopLeft();
+            const auto topleft = area.get_top_left();
             float x = topleft.x;
             float y = topleft.y;
 
@@ -177,7 +177,7 @@ namespace euphoria::gui
 
             w->SetRect
             (
-                core::Rectf::FromTopLeftWidthHeight
+                core::rectf::from_top_left_width_height
                 (
                     core::vec2f{x, y},
                     width[d.GetColumn()],
@@ -226,18 +226,18 @@ namespace euphoria::gui
     SingleRowLayout::DoLayout
     (
         std::vector<std::shared_ptr<Widget>>* widgets,
-        const core::Rectf& area
+        const core::rectf& area
     ) const
     {
         LOG_INFO("Doing single row layout in {0}", area);
-        const auto tl = area.TopLeft();
+        const auto tl = area.get_top_left();
         float x = tl.x;
         for(const auto& w: *widgets)
         {
             const auto& s = w->GetPreferredSize();
             w->SetRect
             (
-                core::Rectf::FromTopLeftWidthHeight
+                core::rectf::from_top_left_width_height
                 (
                     core::vec2f{x, tl.y},
                     s.width,

@@ -11,26 +11,26 @@
 namespace euphoria::engine
 {
     struct SystemSpriteDraw
-        : public core::ecs::ComponentSystem
-        , public core::ecs::ComponentSystemSpriteDraw
+        : public core::ecs::component_system
+        , public core::ecs::component_system_sprite_drawer
     {
         Components* components;
 
         explicit SystemSpriteDraw(Components* c)
-            : ComponentSystem("sprite draw"), components(c)
+            : component_system("sprite draw"), components(c)
         {}
 
         void
-        Draw(core::ecs::Registry*      reg,
+        draw(core::ecs::registry*      reg,
              render::SpriteRenderer* renderer) const override
         {
-            const auto items = reg->View(std::vector<core::ecs::ComponentId> {
+            const auto items = reg->get_entities_with_components(std::vector<core::ecs::component_id> {
                     components->position2, components->sprite});
             for(auto ent: items)
             {
-                auto* sprite = reg->GetComponentOrNull<CSprite>(
+                auto* sprite = reg->get_component_or_null<CSprite>(
                         ent, components->sprite);
-                auto* pos = reg->GetComponentOrNull<CPosition2>(
+                auto* pos = reg->get_component_or_null<CPosition2>(
                         ent, components->position2);
                 renderer->DrawSprite(
                         *sprite->texture,
@@ -39,16 +39,16 @@ namespace euphoria::engine
         }
 
         void
-        RegisterCallbacks(core::ecs::Systems* systems) override
+        register_callbacks(core::ecs::systems* systems) override
         {
-            systems->spriteDraw.Add(this);
+            systems->sprite_drawer.add(this);
         }
     };
 
 
     void
-    AddSystems(core::ecs::Systems* systems, Sol* duk, Components* components)
+    AddSystems(core::ecs::systems* systems, Sol* duk, Components* components)
     {
-        systems->AddAndRegister(std::make_shared<SystemSpriteDraw>(components));
+        systems->add_and_register(std::make_shared<SystemSpriteDraw>(components));
     }
 }  // namespace euphoria::engine

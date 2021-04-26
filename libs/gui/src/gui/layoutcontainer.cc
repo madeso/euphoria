@@ -55,7 +55,7 @@ namespace euphoria::gui
 
 
     void
-    LayoutContainer::DoLayout(core::Rectf area)
+    LayoutContainer::DoLayout(core::rectf area)
     {
         ASSERT(layout_);
         layout_->DoLayout(&widgets_, area);

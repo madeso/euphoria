@@ -74,26 +74,26 @@ namespace euphoria::core
         int padding
     )
     {
-        std::optional<Recti> bb = std::nullopt;
+        std::optional<recti> bb = std::nullopt;
 
         for(const auto& [position, img]: ranges::views::zip(*positions, images))
         {
             const auto image_width = img.width;
             const auto image_height = img.height;
-            const auto& rect = Recti::FromBottomLeftWidthHeight
+            const auto& rect = recti::from_bottom_left_width_height
             (
                 vec2i(position.x, position.y),
                 image_width + padding,
                 image_height + padding
             );
             if(bb.has_value())
-            { bb->Include(rect); }
+            { bb->include(rect); }
             else
             { bb = rect; }
         }
         if(!bb) { return default_size; }
 
-        const auto size = bb->GetSize();
+        const auto size = bb->get_size();
         const auto dx = -bb->left;
         const auto dy = -bb->bottom;
 
@@ -134,7 +134,7 @@ namespace euphoria::core
             }
             else
             {
-                ret.emplace_back(rect->BottomLeft());
+                ret.emplace_back(rect->get_bottom_left());
             }
         }
 

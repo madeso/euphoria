@@ -86,9 +86,9 @@ namespace euphoria::core::generator
     bool
     can_visit_without_making_loop(maze* maze, const vec2i& np)
     {
-        const auto world_size = Recti::FromWidthHeight(
+        const auto world_size = recti::from_width_height(
                 maze->get_width() - 1, maze->get_height() - 1);
-        return world_size.ContainsInclusive(np) && !has_visited(maze, np);
+        return world_size.contains_inclusive(np) && !has_visited(maze, np);
     }
 
 
@@ -287,7 +287,7 @@ namespace euphoria::core::generator
                         cell_size);
 
                 const auto xywh = [](int x, int y, int w, int h) {
-                    return Recti::FromTopLeftWidthHeight(vec2i{x, y + 1}, w, h);
+                    return recti::from_top_left_width_height(vec2i{x, y + 1}, w, h);
                 };
 
                 const auto cell_value = (*maze)(x, y);

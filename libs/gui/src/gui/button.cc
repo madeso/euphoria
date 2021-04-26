@@ -29,7 +29,7 @@ namespace euphoria::gui
     void
     Button::Step(float dt)
     {
-        if(GetBackgroundRect().ContainsExclusive(GetState().mouse))
+        if(GetBackgroundRect().contains_exclusive(GetState().mouse))
         {
             GetStatePtr()->SetHot(this);
             if(GetState().IsMouseDown())
@@ -108,8 +108,8 @@ namespace euphoria::gui
             const auto extents = text_.GetText().GetExtents();
             const auto ms = core::Sizef::FromWidthHeight
             (
-                extents.GetWidth(),
-                extents.GetHeight()
+                extents.get_width(),
+                extents.get_height()
             );
             size.width = size.width + ms.width;
             size.height = size.height + ms.height;
@@ -129,16 +129,16 @@ namespace euphoria::gui
                 const auto rect = GetBackgroundRect();
 
                 ASSERTX(scale_.GetValue() > 0, scale_.GetValue());
-                const auto scaled = rect.GetScaledAroundCenterCopy
+                const auto scaled = rect.get_scaled_around_center_copy
                 (
                     scale_.GetValue()
                 );
-                ASSERTX(scaled.GetWidth() > 0, scaled.GetWidth());
-                ASSERTX(scaled.GetHeight() > 0, scaled.GetHeight());
+                ASSERTX(scaled.get_width() > 0, scaled.get_width());
+                ASSERTX(scaled.get_height() > 0, scaled.get_height());
                 renderer->DrawNinepatch
                 (
                     *sprite_,
-                    scaled.OffsetCopy(position_displacement_.GetValue()),
+                    scaled.offset_copy(position_displacement_.GetValue()),
                     image_color_.GetValue()
                 );
             }
@@ -148,8 +148,8 @@ namespace euphoria::gui
                 const auto ex = text_.GetText().GetExtents();
                 // todo(Gustav): render text at client rect center
 
-                const auto base = ex.CenterInsideOther(GetClientRect());
-                const auto base_pos = base.GetBottomLeft();
+                const auto base = ex.center_inside_other(GetClientRect());
+                const auto base_pos = base.get_bottom_left();
                 const auto p = base_pos + position_displacement_.GetValue();
                 text_.GetText().Draw(renderer, p, text_color_.GetValue());
             }

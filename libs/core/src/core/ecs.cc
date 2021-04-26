@@ -12,8 +12,8 @@ namespace euphoria::core::ecs
     ////////////////////////////////////////////////////////////////////////////////
 
     static constexpr auto     Shift       = 24;
-    static constexpr EntityId EntityMask  = 0x00FFFFFF;
-    static constexpr EntityId VersionMask = 0xFF000000;
+    static constexpr entity_id EntityMask  = 0x00FFFFFF;
+    static constexpr entity_id VersionMask = 0xFF000000;
 
     ////////////////////////////////////////////////////////////////////////////////
 
@@ -23,23 +23,23 @@ namespace euphoria::core::ecs
 
     ////////////////////////////////////////////////////////////////////////////////
 
-    EntityId
-    GetValue(EntityId id)
+    entity_id
+    get_value(entity_id id)
     {
         return id & EntityMask;
     }
 
-    EntityVersion
-    GetVersion(EntityVersion id)
+    entity_version
+    get_version(entity_version id)
     {
-        return static_cast<EntityVersion>(id & VersionMask) >> Shift;
+        return static_cast<entity_version>(id & VersionMask) >> Shift;
     }
 
-    EntityId
-    GetId(EntityId id, EntityVersion version)
+    entity_id
+    get_id(entity_id id, entity_version version)
     {
-        const EntityId masked_id      = id & EntityMask;
-        const EntityId masked_version = (version << Shift) & VersionMask;
+        const entity_id masked_id      = id & EntityMask;
+        const entity_id masked_version = (version << Shift) & VersionMask;
         return masked_id | masked_version;
     }
 
@@ -48,12 +48,12 @@ namespace euphoria::core::ecs
     struct ComponentList
     {
         std::string                                    name;
-        std::map<EntityId, std::shared_ptr<Component>> components;
+        std::map<entity_id, std::shared_ptr<component>> components;
 
         explicit ComponentList(const std::string& n) : name(n) {}
 
-        std::shared_ptr<Component>
-        GetComponent(EntityId entity)
+        std::shared_ptr<component>
+        GetComponent(entity_id entity)
         {
             auto found = components.find(entity);
             if(found != components.end())
@@ -67,18 +67,18 @@ namespace euphoria::core::ecs
         }
 
         void
-        AddComponent(EntityId entity, std::shared_ptr<Component> data)
+        AddComponent(entity_id entity, std::shared_ptr<component> data)
         {
             components[entity] = data;
         }
 
         void
-        RemoveComponent(EntityId entity)
+        RemoveComponent(entity_id entity)
         {
             components.erase(entity);
         }
 
-        [[nodiscard]] std::vector<EntityId>
+        [[nodiscard]] std::vector<entity_id>
         View() const
         {
             const auto keys = Keys(components);
@@ -89,72 +89,72 @@ namespace euphoria::core::ecs
 
     ////////////////////////////////////////////////////////////////////////////////
 
-    struct RegistryImpl
+    struct registry_impl
     {
-        EntityId              current = 0;
-        std::vector<EntityId> free_entities;
-        std::vector<EntityId> alive;
+        entity_id              current = 0;
+        std::vector<entity_id> free_entities;
+        std::vector<entity_id> alive;
 
-        EntityId
-        Create()
+        entity_id
+        create_new_entity()
         {
             if(free_entities.empty())
             {
                 current += 1;
-                SetAlive(current);
+                set_alive(current);
                 return current;
             }
             else
             {
-                EntityId last = *free_entities.rbegin();
+                entity_id last = *free_entities.rbegin();
                 free_entities.pop_back();
-                const auto n = GetId(GetValue(last), GetVersion(last) + 1);
-                SetAlive(n);
+                const auto n = get_id(get_value(last), get_version(last) + 1);
+                set_alive(n);
                 return n;
             }
         }
 
-        std::vector<std::shared_ptr<RegistryEntityCallback>> callbacks;
+        std::vector<std::shared_ptr<registry_entity_callback>> callbacks;
 
         void
-        PostCreate(EntityId id)
+        post_create(entity_id id)
         {
             for(auto& c: callbacks)
             {
-                c->OnCreated(id);
+                c->on_created(id);
             }
         }
 
         void
-        AddCallback(std::shared_ptr<RegistryEntityCallback> callback)
+        add_callback(std::shared_ptr<registry_entity_callback> callback)
         {
             callbacks.emplace_back(callback);
         }
 
         void
-        SetAlive(EntityId id)
+        set_alive(entity_id id)
         {
-            LOG_DEBUG("Alive {0}/{1}", GetValue(id), GetVersion(id));
+            LOG_DEBUG("Alive {0}/{1}", get_value(id), get_version(id));
             alive.emplace_back(id);
         }
 
         [[nodiscard]] bool
-        IsAlive(EntityId id) const
+        is_alive(entity_id id) const
         {
             return std::find(alive.begin(), alive.end(), id) != alive.end();
         }
 
-        std::vector<EntityId> destroyed_entities;
+        std::vector<entity_id> destroyed_entities;
 
         void
-        DestroyEntity(EntityId id)
+        destroy_entity(entity_id id)
         {
-            LOG_DEBUG("Destroy {0}/{1}", GetValue(id), GetVersion(id));
+            LOG_DEBUG("Destroy {0}/{1}", get_value(id), get_version(id));
             destroyed_entities.emplace_back(id);
         }
 
         void
-        RemovePostponedEntities()
+        remove_entities_tagged_for_removal()
         {
             for(const auto id: destroyed_entities)
             {
@@ -171,12 +171,12 @@ namespace euphoria::core::ecs
             destroyed_entities.resize(0);
         }
 
-        ComponentId next_component_id = 0;
-        std::map<ComponentId, std::shared_ptr<ComponentList>> components;
-        std::map<std::string, ComponentId>                    name_to_component;
+        component_id next_component_id = 0;
+        std::map<component_id, std::shared_ptr<ComponentList>> components;
+        std::map<std::string, component_id>                    name_to_component;
 
-        ComponentId
-        NewComponentType(const std::string& name)
+        component_id
+        register_new_component_type(const std::string& name)
         {
             const auto ret = next_component_id;
             next_component_id += 1;
@@ -187,7 +187,7 @@ namespace euphoria::core::ecs
         }
 
         std::string
-        GetComponentName(ComponentId id) const
+        get_component_name(component_id id) const
         {
             auto found = components.find(id);
             if(found == components.end())
@@ -200,28 +200,28 @@ namespace euphoria::core::ecs
             }
         }
 
-        std::shared_ptr<Component>
-        GetComponent(EntityId entity, ComponentId id)
+        std::shared_ptr<component>
+        get_component(entity_id entity, component_id id)
         {
             return components[id]->GetComponent(entity);
         }
 
         void
-        AddComponent(
-                EntityId                   entity,
-                ComponentId                id,
-                std::shared_ptr<Component> data)
+        add_component_to_entity(
+                entity_id                   entity,
+                component_id                id,
+                std::shared_ptr<component> data)
         {
             components[id]->AddComponent(entity, data);
         }
 
 
-        std::vector<EntityId>
-        View(const std::vector<ComponentId>& component_list)
+        std::vector<entity_id>
+        get_entities_with_components(const std::vector<component_id>& component_list)
         {
             ASSERT(!component_list.empty());
             bool                  first = true;
-            std::vector<EntityId> r;
+            std::vector<entity_id> r;
             for(const auto c: component_list)
             {
                 const auto v = components[c]->View();
@@ -232,7 +232,7 @@ namespace euphoria::core::ecs
                 }
                 else
                 {
-                    std::vector<EntityId> rr;
+                    std::vector<entity_id> rr;
                     std::set_intersection(
                             v.begin(),
                             v.end(),
@@ -247,7 +247,7 @@ namespace euphoria::core::ecs
         }
 
         bool
-        GetCustomComponentByName(const std::string& name, ComponentId* id)
+        get_custom_component_by_name(const std::string& name, component_id* id)
         {
             ASSERT(id);
             const auto found_component = name_to_component.find(name);
@@ -261,107 +261,88 @@ namespace euphoria::core::ecs
                 return true;
             }
         }
-
-
-        void
-        AddAdded()
-        {
-            // todo(Gustav): implement
-        }
-
-        void
-        RemoveRemoved()
-        {
-            RemovePostponedEntities();
-        }
     };
 
     ////////////////////////////////////////////////////////////////////////////////
 
-    Registry::Registry() : impl(new RegistryImpl {}) {}
+    registry::registry() : impl(new registry_impl {}) {}
 
-    Registry::~Registry() = default;
+    registry::~registry() = default;
 
-    EntityId
-    Registry::Create()
+    entity_id
+    registry::create_new_entity()
     {
-        return impl->Create();
+        return impl->create_new_entity();
     }
 
     void
-    Registry::PostCreate(EntityId id)
+    registry::post_create(entity_id id)
     {
-        impl->PostCreate(id);
+        impl->post_create(id);
     }
 
     void
-    Registry::AddCallback(std::shared_ptr<RegistryEntityCallback> callback)
+    registry::add_callback(std::shared_ptr<registry_entity_callback> callback)
     {
-        impl->AddCallback(callback);
+        impl->add_callback(callback);
     }
 
     bool
-    Registry::IsAlive(EntityId id) const
+    registry::is_alive(entity_id id) const
     {
-        return impl->IsAlive(id);
+        return impl->is_alive(id);
     }
 
     void
-    Registry::DestroyEntity(EntityId id)
+    registry::destroy_entity(entity_id id)
     {
-        impl->DestroyEntity(id);
+        impl->destroy_entity(id);
     }
 
 
-    ComponentId
-    Registry::NewComponentType(const std::string& name)
+    component_id
+    registry::register_new_component_type(const std::string& name)
     {
-        return impl->NewComponentType(name);
+        return impl->register_new_component_type(name);
     }
 
     std::string
-    Registry::GetComponentName(ComponentId id) const
+    registry::get_component_name(component_id id) const
     {
-        return impl->GetComponentName(id);
+        return impl->get_component_name(id);
     }
 
     bool
-    Registry::GetCustomComponentByName(const std::string& name, ComponentId* id)
+    registry::get_custom_component_by_name(const std::string& name, component_id* id)
     {
-        return impl->GetCustomComponentByName(name, id);
+        return impl->get_custom_component_by_name(name, id);
     }
 
-    std::shared_ptr<Component>
-    Registry::GetComponent(EntityId entity, ComponentId component)
+    std::shared_ptr<component>
+    registry::get_component(entity_id entity, component_id component)
     {
-        return impl->GetComponent(entity, component);
-    }
-
-    void
-    Registry::AddComponent(
-            EntityId                   entity,
-            ComponentId                component,
-            std::shared_ptr<Component> data)
-    {
-        impl->AddComponent(entity, component, data);
-    }
-
-    std::vector<EntityId>
-    Registry::View(const std::vector<ComponentId>& components)
-    {
-        return impl->View(components);
+        return impl->get_component(entity, component);
     }
 
     void
-    Registry::AddAdded()
+    registry::add_component_to_entity(
+            entity_id                   entity,
+            component_id                component,
+            std::shared_ptr<ecs::component> data)
     {
-        impl->AddAdded();
+        impl->add_component_to_entity(entity, component, data);
+    }
+
+    std::vector<entity_id>
+    registry::get_entities_with_components(const std::vector<component_id>& components)
+    {
+        return impl->get_entities_with_components(components);
     }
 
     void
-    Registry::RemoveRemoved()
+    registry::remove_entities_tagged_for_removal()
     {
-        impl->RemoveRemoved();
+        impl->remove_entities_tagged_for_removal();
     }
 
 

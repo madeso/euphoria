@@ -11,13 +11,13 @@
 
 namespace euphoria::engine
 {
-    struct CPosition2 : public core::ecs::Component
+    struct CPosition2 : public core::ecs::component
     {
         CPosition2();
         core::vec2f pos;
     };
 
-    struct CSprite : public core::ecs::Component
+    struct CSprite : public core::ecs::component
     {
         COMPONENT_CONSTRUCTOR_DEFINITION(CSprite)
 
@@ -26,13 +26,13 @@ namespace euphoria::engine
 
     struct Components
     {
-        Components(core::ecs::Registry* reg);
+        Components(core::ecs::registry* reg);
 
-        core::ecs::ComponentId position2;
-        core::ecs::ComponentId sprite;
+        core::ecs::component_id position2;
+        core::ecs::component_id sprite;
     };
 
-    core::Rectf
+    core::rectf
     GetSpriteRect(
             const core::vec2f&       position,
             const render::texture2d& texture);

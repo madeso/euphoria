@@ -77,11 +77,11 @@ namespace euphoria::core
         if(is_anchor_point(i))
         {
             // anchor point, move control points too
-            if(is_closed_ || IsWithin(r, i + 1))
+            if(is_closed_ || is_within(r, i + 1))
             {
                 points[loop_index(i + 1)] += delta;
             }
-            if(is_closed_ || IsWithin(r, i - 1))
+            if(is_closed_ || is_within(r, i - 1))
             {
                 points[loop_index(i - 1)] += delta;
             }
@@ -92,7 +92,7 @@ namespace euphoria::core
             const int corresponding_control_index
                     = is_anchor_point(i + 1) ? i + 2 : i - 2;
             const int anchor_index = is_anchor_point(i + 1) ? i + 1 : i - 1;
-            if(is_closed_ || IsWithin(r, corresponding_control_index))
+            if(is_closed_ || is_within(r, corresponding_control_index))
             {
                 const auto cci = loop_index(corresponding_control_index);
                 const auto ai = loop_index(anchor_index);
@@ -203,7 +203,7 @@ namespace euphoria::core
         for(int i = updated_anchor_index - 3; i <= updated_anchor_index + 3;
             i += 3)
         {
-            if(is_closed_ || IsWithin(r, i))
+            if(is_closed_ || is_within(r, i))
             {
                 auto_set_anchor_control_points(loop_index(i));
             }
@@ -249,7 +249,7 @@ namespace euphoria::core
         auto f = [&](int scale, int dist_index)
         {
             const auto index = anchor_index - 3 * scale;
-            if(is_closed_ || IsWithin(r, index))
+            if(is_closed_ || is_within(r, index))
             {
                 auto offset = (vec2f::from_to(anchor_pos, points[loop_index(index)])).get_normalized_and_length();
                 dir += offset.second.vec() * scale;
@@ -264,7 +264,7 @@ namespace euphoria::core
         {
             const auto control_index
                     = anchor_index + std::array<int, 2> {-1, 1}[i];
-            if(is_closed_ || IsWithin(r, control_index))
+            if(is_closed_ || is_within(r, control_index))
             {
                 points[loop_index(control_index)]
                         = anchor_pos + dir * distances[i] * 0.5f;

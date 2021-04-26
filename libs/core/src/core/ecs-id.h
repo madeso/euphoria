@@ -1,15 +1,11 @@
-#ifndef EUPHORIA_ENTITYID_H
-#define EUPHORIA_ENTITYID_H
+#pragma once
 
 #include <cstdint>
 
 namespace euphoria::core::ecs
 {
-    using EntityId      = std::uint32_t;
-    using EntityVersion = std::uint16_t;
-
-    using ComponentId = std::uint32_t;
-
-}  // namespace euphoria::core::ecs
-
-#endif  // EUPHORIA_ENTITYID_H
+    // todo(Gustav): change to enums
+    using entity_id      = std::uint32_t;
+    using entity_version = std::uint16_t;
+    using component_id = std::uint32_t;
+}

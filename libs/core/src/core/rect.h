@@ -1,5 +1,4 @@
-#ifndef CORE_RECT_H
-#define CORE_RECT_H
+#pragma once
 
 #include "core/assert.h"
 #include "core/vec2.h"
@@ -15,7 +14,7 @@
 namespace euphoria::core
 {
     template <typename T>
-    struct Rect
+    struct rect
     {
         T left;
         T right;
@@ -23,20 +22,20 @@ namespace euphoria::core
         T bottom;
         // typedef vec2<T>  vec;
 
-        Rect() : left(0), right(0), top(0), bottom(0) {}
+        rect() : left(0), right(0), top(0), bottom(0) {}
 
     private:
-        Rect(T aleft, T aright, T atop, T abottom)
+        rect(T aleft, T aright, T atop, T abottom)
             : left(aleft), right(aright), top(atop), bottom(abottom)
         {}
 
     public:
         template<typename Y>
-        Rect<Y>
+        rect<Y>
         StaticCast() const
         {
             return
-            Rect<Y>::FromLeftRightTopBottom(
+            rect<Y>::from_left_right_top_bottom(
                 static_cast<Y>(left),
                 static_cast<Y>(right),
                 static_cast<Y>(top),
@@ -44,24 +43,24 @@ namespace euphoria::core
             );
         }
 
-        [[nodiscard]] static Rect
-        FromLeftRightBottomTop(T aleft, T aright, T abottom, T atop)
+        [[nodiscard]] static rect
+        from_left_right_bottom_top(T aleft, T aright, T abottom, T atop)
         {
             ASSERTX(aleft <= aright, aleft, aright);
             ASSERTX(atop >= abottom, atop, abottom);
-            return Rect(aleft, aright, atop, abottom);
+            return rect(aleft, aright, atop, abottom);
         }
 
-        [[nodiscard]] static Rect
-        FromLeftRightTopBottom(T aleft, T aright, T atop, T abottom)
+        [[nodiscard]] static rect
+        from_left_right_top_bottom(T aleft, T aright, T atop, T abottom)
         {
             ASSERTX(aleft <= aright, aleft, aright);
             ASSERTX(atop >= abottom, atop, abottom);
-            return Rect(aleft, aright, atop, abottom);
+            return rect(aleft, aright, atop, abottom);
         }
 
-        [[nodiscard]] static Rect
-        FromPositionAnchorWidthAndHeight(
+        [[nodiscard]] static rect
+        from_position_anchor_width_and_height(
                 const vec2<T>&   pos,
                 const scale2<T>& anchor,
                 float            width,
@@ -70,127 +69,121 @@ namespace euphoria::core
             // todo(Gustav): change anchor type to some anchor type instead
             const T left   = pos.x - width * anchor.x;
             const T bottom = pos.y - height * anchor.y;
-            return FromLeftRightBottomTop(
+            return from_left_right_bottom_top(
                     left, left + width, bottom, bottom + height);
         }
 
         [[nodiscard]]
         static
-        Rect
-        FromBottomLeftWidthHeight(const vec2<T>& bl, T width, T height)
+        rect
+        from_bottom_left_width_height(const vec2<T>& bl, T width, T height)
         {
             ASSERT(width >= 0);
             ASSERT(height >= 0);
-            return FromLeftRightTopBottom
+            return from_left_right_top_bottom
             (
                 bl.x, bl.x + width, bl.y + height, bl.y
             );
         }
 
-        [[nodiscard]] static Rect
-        FromTopLeftWidthHeight(const vec2<T>& topleft, T width, T height)
+        [[nodiscard]] static rect
+        from_top_left_width_height(const vec2<T>& topleft, T width, T height)
         {
             ASSERT(width >= 0);
             ASSERT(height >= 0);
-            return FromLeftRightTopBottom(
+            return from_left_right_top_bottom(
                     topleft.x, topleft.x + width, topleft.y, topleft.y - height);
         }
 
-        [[nodiscard]] static Rect
-        FromWidthHeight(T width, T height)
+        [[nodiscard]] static rect
+        from_width_height(T width, T height)
         {
             ASSERTX(width >= 0, width);
             ASSERTX(height >= 0, height);
-            return FromLeftRightBottomTop(0, width, 0, height);
+            return from_left_right_bottom_top(0, width, 0, height);
         }
 
-        [[nodiscard]] static Rect
-        FromWidthHeight(const Size<T>& s)
+        [[nodiscard]] static rect
+        from_width_height(const Size<T>& s)
         {
-            return FromWidthHeight(s.width, s.height);
+            return from_width_height(s.width, s.height);
         }
 
-        [[nodiscard]] static Rect
-        FromPoint(const vec2<T>& point)
+        [[nodiscard]] static rect
+        from_point(const vec2<T>& point)
         {
-            return FromTopLeftWidthHeight(point.y, point.x, 0, 0);
+            return from_top_left_width_height(point.y, point.x, 0, 0);
         }
 
         vec2<T>
-        GetBottomLeft() const
-        {
-            return vec2<T>(left, bottom);
-        }
-
-        vec2<T>
-        GetBottomLeftOffset() const
+        get_bottom_left() const
         {
             return vec2<T>(left, bottom);
         }
 
         // centers this rectangle inside the other rectangle and returns it without
         // modifying this
-        Rect
-        CenterInsideOther(const Rect& other) const
+        rect
+        center_inside_other(const rect& other) const
         {
-            const auto lower_left = other.GetAbsoluteCenterPos()
-                                    - GetRelativeCenterPosFromBottomLeft();
-            return Rect::FromTopLeftWidthHeight(
-                    vec2<T> {lower_left.x, lower_left.y + GetHeight()},
-                    GetWidth(),
-                    GetHeight());
+            const auto lower_left = other.get_absolute_center_pos()
+                                    - get_relative_center_pos_from_bottom_left();
+            return rect::from_top_left_width_height(
+                    vec2<T> {lower_left.x, lower_left.y + get_height()},
+                    get_width(),
+                    get_height());
         }
 
         vec2<T>
-        GetPositionFromBottomLeft(const vec2<T> v) const
+        get_position_from_bottom_left(const vec2<T> v) const
         {
-            return GetBottomLeftOffset() + v;
+            return get_bottom_left() + v;
         }
 
         T
-        GetRelativeCenterXFromBottomLeft() const
+        get_relative_center_x_from_bottom_left() const
         {
-            return GetWidth() / 2;
+            return get_width() / 2;
         }
 
         T
-        GetRelativeCenterYFromBottomLeft() const
+        get_relative_center_y_from_bottom_left() const
         {
-            return GetHeight() / 2;
+            return get_height() / 2;
         }
 
         vec2<T>
-        GetRelativeCenterPosFromBottomLeft() const
+        get_relative_center_pos_from_bottom_left() const
         {
             return vec2<T>(
-                    GetRelativeCenterXFromBottomLeft(),
-                    GetRelativeCenterYFromBottomLeft());
+                    get_relative_center_x_from_bottom_left(),
+                    get_relative_center_y_from_bottom_left());
         }
 
         T
-        GetAbsoluteCenterX() const
+        get_absolute_center_x() const
         {
-            return left + GetRelativeCenterXFromBottomLeft();
+            return left + get_relative_center_x_from_bottom_left();
         }
 
         T
-        GetAbsoluteCenterY() const
+        get_absolute_center_y() const
         {
-            return bottom + GetRelativeCenterYFromBottomLeft();
+            return bottom + get_relative_center_y_from_bottom_left();
         }
 
         vec2<T>
-        GetAbsoluteCenterPos() const
+        get_absolute_center_pos() const
         {
-            return vec2<T>(GetAbsoluteCenterX(), GetAbsoluteCenterY());
+            return vec2<T>(get_absolute_center_x(), get_absolute_center_y());
         }
 
         // does this contains the argument?
         bool
-        ContainsExclusive(const Rect<T>& r) const
+        contains_exclusive(const rect<T>& r) const
         {
-            ASSERT(IsValid());
-            ASSERT(r.IsValid());
+            ASSERT(is_valid());
+            ASSERT(r.is_valid());
 
             return left < r.left && right > r.right && top > r.top
                    && bottom < r.bottom;
@@ -198,44 +191,44 @@ namespace euphoria::core
 
         // on the border is NOT considered included
         bool
-        ContainsExclusive(const vec2<T>& p) const
+        contains_exclusive(const vec2<T>& p) const
         {
-            ASSERT(IsValid());
-            return ContainsExclusive(p.x, p.y);
+            ASSERT(is_valid());
+            return contains_exclusive(p.x, p.y);
         }
 
         bool
-        ContainsExclusive(T x, T y) const
+        contains_exclusive(T x, T y) const
         {
-            ASSERT(IsValid());
+            ASSERT(is_valid());
             return left < x && x < right && bottom < y && y < top;
         }
 
         // on the border is considered included
         bool
-        ContainsInclusive(const vec2<T>& p) const
+        contains_inclusive(const vec2<T>& p) const
         {
-            return ContainsInclusive(p.x, p.y);
+            return contains_inclusive(p.x, p.y);
         }
 
         bool
-        ContainsInclusive(T x, T y) const
+        contains_inclusive(T x, T y) const
         {
-            ASSERT(IsValid());
+            ASSERT(is_valid());
             return left <= x && x <= right && bottom <= y && y <= top;
         }
 
-        Rect
-        GetScaledAroundCenterCopy(T scale) const
+        rect
+        get_scaled_around_center_copy(T scale) const
         {
-            const auto s  = GetSize();
+            const auto s  = get_size();
             const auto ns = s * scale;
-            return InsetCopy(
+            return inset_copy(
                     (s.width - ns.width) / 2, (s.height - ns.height) / 2);
         }
 
         void
-        Scale(T dx, T dy)
+        scale(T dx, T dy)
         {
             left *= dx;
             right *= dx;
@@ -243,16 +236,16 @@ namespace euphoria::core
             bottom *= dy;
         }
 
-        Rect
-        ScaleCopy(T dx, T dy) const
+        rect
+        scale_copy(T dx, T dy) const
         {
-            Rect r = *this;
-            r.Scale(dx, dy);
+            rect r = *this;
+            r.scale(dx, dy);
             return r;
         }
 
         void
-        Inset(T dx, T dy)
+        inset(T dx, T dy)
         {
             left += dx;
             right -= dx;
@@ -261,7 +254,7 @@ namespace euphoria::core
         }
 
         void
-        Inset(T l, T r, T t, T b)
+        inset(T l, T r, T t, T b)
         {
             left += l;
             right -= r;
@@ -269,44 +262,44 @@ namespace euphoria::core
             bottom += b;
         }
 
-        Rect<T>
-        InsetCopy(T dx, T dy) const
+        rect<T>
+        inset_copy(T dx, T dy) const
         {
-            Rect<T> ret = *this;
-            ret.Inset(dx, dy);
+            rect<T> ret = *this;
+            ret.inset(dx, dy);
             return ret;
         }
 
-        Rect<T>
-        InsetCopy(T l, T r, T t, T b) const
+        rect<T>
+        inset_copy(T l, T r, T t, T b) const
         {
-            Rect<T> ret = *this;
-            ret.Inset(l, r, t, b);
+            rect<T> ret = *this;
+            ret.inset(l, r, t, b);
             return ret;
         }
 
         void
-        Extend(T dx, T dy)
+        extend(T dx, T dy)
         {
-            Inset(-dx, -dy);
+            inset(-dx, -dy);
         }
 
-        Rect<T>
-        ExtendCopy(T dx, T dy) const
+        rect<T>
+        extend_copy(T dx, T dy) const
         {
-            Rect<T> ret = *this;
-            ret.Extend(dx, dy);
+            rect<T> ret = *this;
+            ret.extend(dx, dy);
             return ret;
         }
 
-        Rect<T>
-        ExtendCopy(T d) const
+        rect<T>
+        extend_copy(T d) const
         {
-            return ExtendCopy(d, d);
+            return extend_copy(d, d);
         }
 
         void
-        Include(const Rect& o)
+        include(const rect& o)
         {
             left   = Min(left, o.left);
             right  = Max(right, o.right);
@@ -316,21 +309,21 @@ namespace euphoria::core
 
         // Returns true if the rectangle is empty (left >= right or top <= bottom)
         [[nodiscard]] bool
-        IsEmpty() const
+        is_empty() const
         {
             return left >= right || top <= bottom;
         }
 
         // does this represent a rectangle? A 0 width/height is also considered valid
         [[nodiscard]] bool
-        IsValid() const
+        is_valid() const
         {
-            return GetWidth() >= 0 && GetHeight() >= 0;
+            return get_width() >= 0 && get_height() >= 0;
         }
 
         // Translate
         void
-        Offset(T dx, T dy)
+        offset(T dx, T dy)
         {
             left += dx;
             right += dx;
@@ -339,7 +332,7 @@ namespace euphoria::core
         }
 
         void
-        Expand(T expand)
+        expand(T expand)
         {
             left -= expand;
             right += expand;
@@ -347,62 +340,59 @@ namespace euphoria::core
             bottom += expand;
         }
 
-        Rect<T>
-        ExpandCopy(T expand)
+        rect<T>
+        expand_copy(T expand)
         {
-            Rect<T> r = *this;
-            r.Expand(expand);
+            rect<T> r = *this;
+            r.expand(expand);
             return r;
         }
 
-        Rect<T>
-        OffsetCopy(T dx, T dy) const
+        rect<T>
+        offset_copy(T dx, T dy) const
         {
-            Rect<T> ret = *this;
-            ret.Offset(dx, dy);
+            rect<T> ret = *this;
+            ret.offset(dx, dy);
             return ret;
         }
 
-        Rect<T>
-        OffsetCopy(const vec2<T>& d) const
+        rect<T>
+        offset_copy(const vec2<T>& d) const
         {
-            return OffsetCopy(d.x, d.y);
+            return offset_copy(d.x, d.y);
         }
 
         void
-        OffsetTo(T newLeft, T newTop)
+        offset_to(T newLeft, T newTop)
         {
-            *this = SetTopLeftToCopy(newTop, newLeft);
+            *this = set_top_left_to_copy(newTop, newLeft);
         }
 
-        Rect<T>
-        SetTopLeftToCopy(T newLeft, T newTop) const
+        rect<T>
+        set_top_left_to_copy(T newLeft, T newTop) const
         {
-            return FromTopLeftWidthHeight(
-                    vec2<T>{newLeft, newTop}, GetWidth(), GetHeight());
+            return from_top_left_width_height(
+                    vec2<T>{newLeft, newTop}, get_width(), get_height());
         }
 
-        Rect<T>
-        SetTopLeftToCopy(const vec2<T>& v) const
+        rect<T>
+        set_top_left_to_copy(const vec2<T>& v) const;
+
+        rect<T>
+        set_bottom_left_to_copy(T newLeft, T newBottom) const
         {
-            return SetTopLeftToCopy(v.x, v.y);
+            return from_top_left_width_height(
+                    vec2<T>{newLeft, newBottom + get_height()}, get_width(), get_height());
         }
 
-        Rect<T>
-        SetBottomLeftToCopy(T newLeft, T newBottom) const
+        rect<T>
+        set_bottom_left_to_copy(const vec2<T>& v) const
         {
-            return FromTopLeftWidthHeight(
-                    vec2<T>{newLeft, newBottom + GetHeight()}, GetWidth(), GetHeight());
-        }
-
-        Rect<T>
-        SetBottomLeftToCopy(const vec2<T>& v) const
-        {
-            return SetBottomLeftToCopy(v.x, v.y);
+            return set_bottom_left_to_copy(v.x, v.y);
         }
 
         void
-        SetEmpty()
+        set_empty()
         {
             left = right = top = bottom = 0;
         }
@@ -410,101 +400,101 @@ namespace euphoria::core
         // todo(Gustav): add union and intersection functions
 
         T
-        GetHeight() const
+        get_height() const
         {
             return top - bottom;
         }
 
         T
-        GetWidth() const
+        get_width() const
         {
             return right - left;
         }
 
         // todo(Gustav): provide a KeepWithin, WrapWithin functions
-        // like IsWithin below
+        // like is_within below
 
         Range<T>
-        GetYRange() const
+        get_range_y() const
         {
             return Range<T>{bottom, top};
         }
 
         Range<T>
-        GetXRange() const
+        get_range_x() const
         {
             return Range<T>{left, right};
         }
 
         Size<T>
-        GetSize() const
+        get_size() const
         {
-            return Size<T>::FromWidthHeight(GetWidth(), GetHeight());
+            return Size<T>::FromWidthHeight(get_width(), get_height());
         }
 
         [[nodiscard]] vec2<T>
-        TopLeft() const
+        get_top_left() const
         {
             return vec2<T>(left, top);
         }
 
         [[nodiscard]] vec2<T>
-        TopRight() const
+        get_top_right() const
         {
             return vec2<T>(right, top);
         }
 
         [[nodiscard]] vec2<T>
-        BottomLeft() const
-        {
-            return vec2<T>(left, bottom);
-        }
-
-        [[nodiscard]] vec2<T>
-        BottomRight() const
+        get_bottom_right() const
         {
             return vec2<T>(right, bottom);
         }
 
         [[nodiscard]] vec2<T>
-        RandomPoint(Random* random) const
+        get_random_point(Random* random) const
         {
-            const T x = random->NextRange(GetWidth());
-            const T y = random->NextRange(GetHeight());
-            return GetPositionFromBottomLeft(vec2<T> {x, y});
+            const T x = random->NextRange(get_width());
+            const T y = random->NextRange(get_height());
+            return get_position_from_bottom_left(vec2<T> {x, y});
         }
     };
 
+    template <typename T>
+    rect<T> rect<T>::set_top_left_to_copy(const vec2<T>& v) const
+    {
+        return set_top_left_to_copy(v.x, v.y);
+    }
+
     template <typename T, typename R>
     [[nodiscard]] vec2<R>
-    To01(const Rect<T>& r, const vec2<R>& from)
+    to01(const rect<T>& r, const vec2<R>& from)
     {
-        const auto x = To01(MakeRange(r.left, r.right), from.x);
-        const auto y = To01(MakeRange(r.bottom, r.top), from.y);
+        const auto x = to01(MakeRange(r.left, r.right), from.x);
+        const auto y = to01(MakeRange(r.bottom, r.top), from.y);
         return vec2<R> {x, y};
     }
 
     template <typename T, typename R>
     [[nodiscard]] vec2<R>
-    From01(const Rect<T>& r, const vec2<R>& from)
+    from01(const rect<T>& r, const vec2<R>& from)
     {
-        const auto x = From01(MakeRange(r.left, r.right), from.x);
-        const auto y = From01(MakeRange(r.bottom, r.top), from.y);
+        const auto x = from01(MakeRange(r.left, r.right), from.x);
+        const auto y = from01(MakeRange(r.bottom, r.top), from.y);
         return vec2<R> {x, y};
     }
 
     template<typename T>
     bool
-    IsWithin(const Rect<T>& r, const vec2<T>& p)
+    is_within(const rect<T>& r, const vec2<T>& p)
     {
         return
-            IsWithin(r.GetXRange(), p.x) &&
-            IsWithin(r.GetYRange(), p.y) ;
+            is_within(r.get_range_x(), p.x) &&
+            is_within(r.get_range_y(), p.y) ;
     }
 
     template <typename T>
     bool
-    operator==(const Rect<T>& lhs, const Rect<T>& rhs)
+    operator==(const rect<T>& lhs, const rect<T>& rhs)
     {
         return
             lhs.left == rhs.left &&
@@ -515,16 +505,14 @@ namespace euphoria::core
 
     template <typename S, typename T>
     S&
-    operator<<(S& s, const Rect<T>& r)
+    operator<<(S& s, const rect<T>& r)
     {
-        s << "(" << r.left << ", " << r.bottom << " / " << r.GetWidth() << " x "
-          << r.GetHeight() << ")";
+        s << "(" << r.left << ", " << r.bottom << " / " << r.get_width() << " x "
+          << r.get_height() << ")";
         return s;
     }
 
-    using Recti = Rect<int>;
-    using Rectf = Rect<float>;
+    using recti = rect<int>;
+    using rectf = rect<float>;
 
-}  // namespace euphoria::core
-
-#endif  // CORE_RECT_H
+}

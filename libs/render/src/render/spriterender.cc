@@ -71,8 +71,8 @@ namespace euphoria::render
     SpriteRenderer::DrawRect
     (
         const texture2d& texture,
-        const core::Rectf& sprite_area,
-        const core::Rectf& texture_region,
+        const core::rectf& sprite_area,
+        const core::rectf& texture_region,
         const core::angle& rotation_angle,
         const core::scale2f& rotation_anchor,
         const core::rgba& tint_color
@@ -82,13 +82,13 @@ namespace euphoria::render
 
         core::vec3f rotation_anchor_displacement
         {
-            -rotation_anchor.x * sprite_area.GetWidth(),
-            (rotation_anchor.y - 1) * sprite_area.GetHeight(),
+            -rotation_anchor.x * sprite_area.get_width(),
+            (rotation_anchor.y - 1) * sprite_area.get_height(),
             0.0f
         };
 
         const core::mat4f model = core::mat4f::identity()
-            .translate(core::vec3f(sprite_area.BottomLeft(), 0.0f))
+            .translate(core::vec3f(sprite_area.get_bottom_left(), 0.0f))
             .translate(-rotation_anchor_displacement)
             // rotate around center
             .rotate
@@ -104,8 +104,8 @@ namespace euphoria::render
             (
                 core::scale3f
                 {
-                    sprite_area.GetWidth(),
-                    sprite_area.GetHeight(),
+                    sprite_area.get_width(),
+                    sprite_area.get_height(),
                     1.0f
                 }
             );
@@ -124,7 +124,7 @@ namespace euphoria::render
     SpriteRenderer::DrawSprite
     (
         const texture2d& texture,
-        const core::Rectf& position,
+        const core::rectf& position,
         const DrawData& data
     )
     {
@@ -132,7 +132,7 @@ namespace euphoria::render
         (
             texture,
             position,
-            core::Rectf::FromTopLeftWidthHeight(core::vec2f{0, 1}, 1, 1),
+            core::rectf::from_top_left_width_height(core::vec2f{0, 1}, 1, 1),
             data.rotation,
             core::scale2f {0.5f, 0.5f},
             data.tint
@@ -144,7 +144,7 @@ namespace euphoria::render
     SpriteRenderer::DrawNinepatch
     (
         const ScalableSprite& ninepatch,
-        const core::Rectf& rect,
+        const core::rectf& rect,
         const core::rgba& tint
     )
     {

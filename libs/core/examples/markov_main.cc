@@ -160,7 +160,7 @@ struct SimilarEditDistance : public Similar
             [&](const auto& line)
             {
                 const auto shortened = core::FirstChars(line, count);
-                const int edits = core::FastEditDistance(shortened, generated);
+                const int edits = core::fast_edit_distance(shortened, generated);
                 if(edits < 10)
                 {
                     rejected.emplace(generated);

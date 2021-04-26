@@ -17,7 +17,7 @@ TEST_CASE("pack-sane", "[pack]")
     REQUIRE(ret[0].has_value());
 
     // 19 = 1 below top
-    CHECK(ret[0].value() == Recti::FromTopLeftWidthHeight(vec2i(0,19), 10, 20));
+    CHECK(ret[0].value() == recti::from_top_left_width_height(vec2i(0,19), 10, 20));
 }
 
 TEST_CASE("pack-with-too-much", "[pack]")
@@ -30,6 +30,6 @@ TEST_CASE("pack-with-too-much", "[pack]")
     REQUIRE(ret[0].has_value());
 
     // 39 = 1 below top
-    CHECK(ret[0].value() == Recti::FromTopLeftWidthHeight(vec2i(0,39), 10, 20));
+    CHECK(ret[0].value() == recti::from_top_left_width_height(vec2i(0,39), 10, 20));
 }
 

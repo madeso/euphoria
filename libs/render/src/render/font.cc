@@ -37,8 +37,8 @@ namespace euphoria::render
 
     Glyph::Glyph
     (
-        const core::Rectf& sprite,
-        const core::Rectf& texture,
+        const core::rectf& sprite,
+        const core::rectf& texture,
         int ch,
         float ad
     )
@@ -78,7 +78,7 @@ namespace euphoria::render
     }
 
 
-    std::pair<core::Rectf, core::Rectf>
+    std::pair<core::rectf, core::rectf>
     ConstructCharacterRects
     (
         const stbrp_rect& src_rect,
@@ -104,14 +104,14 @@ namespace euphoria::render
         const auto iw = static_cast<float>(image_width);
         const auto ih = static_cast<float>(image_height);
 
-        const auto sprite = core::Rectf::FromLeftRightTopBottom
+        const auto sprite = core::rectf::from_left_right_top_bottom
         (
             static_cast<float>(vert_left),
             static_cast<float>(vert_right),
             static_cast<float>(vert_top),
             static_cast<float>(vert_bottom)
         );
-        const auto texture = core::Rectf::FromLeftRightTopBottom
+        const auto texture = core::rectf::from_left_right_top_bottom
         (
             static_cast<float>(uv_left) / iw,
             static_cast<float>(uv_right) / iw,
@@ -120,7 +120,7 @@ namespace euphoria::render
         );
 
         const float scale = 1.0f / src_char.size;
-        return std::make_pair(sprite.ScaleCopy(scale, scale), texture);
+        return std::make_pair(sprite.scale_copy(scale, scale), texture);
     }
 
 
@@ -285,14 +285,14 @@ namespace euphoria::render
     (
         SpriteRenderer* renderer,
         float alpha,
-        const core::Rectf& where
+        const core::rectf& where
     ) const
     {
         renderer->DrawRect
         (
             *background,
             where,
-            core::Rectf::FromWidthHeight(1, 1),
+            core::rectf::from_width_height(1, 1),
             0.0_rad,
             core::scale2f {0, 0},
             core::rgba{core::color::black, alpha}
@@ -303,8 +303,8 @@ namespace euphoria::render
     TextDrawCommand::TextDrawCommand
     (
         const texture2d* texture,
-        const core::Rectf& sprite_rect,
-        const core::Rectf& texture_rect,
+        const core::rectf& sprite_rect,
+        const core::rectf& texture_rect,
         bool hi
     )
         : texture(texture)
@@ -319,8 +319,8 @@ namespace euphoria::render
     TextDrawCommandList::Add
     (
         const texture2d* texture,
-        const core::Rectf& sprite_rect,
-        const core::Rectf& texture_rect,
+        const core::rectf& sprite_rect,
+        const core::rectf& texture_rect,
         bool hi
     )
     {
@@ -343,7 +343,7 @@ namespace euphoria::render
             renderer->DrawRect
             (
                 *cmd.texture,
-                cmd.sprite_rect.OffsetCopy(start_position),
+                cmd.sprite_rect.offset_copy(start_position),
                 cmd.texture_rect,
                 0.0_rad,
                 core::scale2f {0.5f, 0.5f},
@@ -444,7 +444,7 @@ namespace euphoria::render
                 list->Add
                 (
                     font.texture_.get(),
-                    ch->sprite_rect.ScaleCopy(size, size).OffsetCopy(position),
+                    ch->sprite_rect.scale_copy(size, size).offset_copy(position),
                     ch->texture_rect,
                     apply_highlight
                 );
@@ -480,13 +480,13 @@ namespace euphoria::render
     }
 
 
-    core::Rectf
+    core::rectf
     TextDrawCommandList::GetExtents() const
     {
-        core::Rectf ret;
+        core::rectf ret;
         for(const auto& cmd: commands)
         {
-            ret.Include(cmd.sprite_rect);
+            ret.include(cmd.sprite_rect);
         }
         return ret;
     }
@@ -541,7 +541,7 @@ namespace euphoria::render
 
 
     core::vec2f
-    GetOffset(Align alignment, const core::Rectf& extent)
+    GetOffset(Align alignment, const core::rectf& extent)
     {
         // todo(Gustav): test this more
         const auto middle = -(extent.left + extent.right) / 2;
@@ -601,7 +601,7 @@ namespace euphoria::render
             (
                 renderer,
                 background_alpha_,
-                e.ExtendCopy(5.0f).OffsetCopy(p + off)
+                e.extend_copy(5.0f).offset_copy(p + off)
             );
         }
 
@@ -620,7 +620,7 @@ namespace euphoria::render
     }
 
 
-    core::Rectf
+    core::rectf
     Text::GetExtents() const
     {
         Compile();

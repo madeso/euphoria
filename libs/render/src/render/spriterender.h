@@ -47,8 +47,8 @@ namespace euphoria::render
         DrawRect
         (
             const texture2d& texture,
-            const core::Rectf& sprite_area,
-            const core::Rectf& texture_region,
+            const core::rectf& sprite_area,
+            const core::rectf& texture_region,
             const core::angle& rotation_angle,
             const core::scale2f& rotation_anchor,
             const core::rgba& tint_color
@@ -59,7 +59,7 @@ namespace euphoria::render
         DrawSprite
         (
             const texture2d& texture,
-            const core::Rectf& position,
+            const core::rectf& position,
             const DrawData& data = DrawData {}
         );
 
@@ -68,7 +68,7 @@ namespace euphoria::render
         DrawNinepatch
         (
             const ScalableSprite& ninepatch,
-            const core::Rectf& rect,
+            const core::rectf& rect,
             const core::rgba& tint
         );
 

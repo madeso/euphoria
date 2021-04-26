@@ -61,7 +61,7 @@ namespace euphoria::core
 
             auto contains = [&world](int x, int y)
             {
-                return world.get_indices().ContainsInclusive(x, y);
+                return world.get_indices().contains_inclusive(x, y);
             };
 
             if (contains(x, y))
@@ -91,11 +91,11 @@ namespace euphoria::core
                     return 0;
                 case outside_rule::mirror:
                     // todo(Gustav): implement this!
-                    nx = KeepWithin(world.get_indices().GetXRange(), x);
+                    nx = KeepWithin(world.get_indices().get_range_x(), x);
                     DIE("Implement this");
                     break;
                 case outside_rule::wrap:
-                    nx = Wrap(world.get_indices().GetXRange(), x);
+                    nx = Wrap(world.get_indices().get_range_x(), x);
                     break;
                 default:
                     DIE("Unhandled case");
@@ -117,11 +117,11 @@ namespace euphoria::core
                     return 0;
                 case outside_rule::mirror:
                     // todo(Gustav): implement this!
-                    ny = KeepWithin(world.get_indices().GetYRange(), y);
+                    ny = KeepWithin(world.get_indices().get_range_y(), y);
                     DIE("Implement this");
                     break;
                 case outside_rule::wrap:
-                    ny = Wrap(world.get_indices().GetYRange(), y);
+                    ny = Wrap(world.get_indices().get_range_y(), y);
                     break;
                 default:
                     DIE("Unhandled case");

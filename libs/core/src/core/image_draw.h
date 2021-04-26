@@ -14,14 +14,14 @@ namespace euphoria::core
     struct LoadedFont;
 
     // get a rect encompassing the whole image
-    Recti
+    recti
     whole_image(const image& image);
 
     void
     clear(image* image, const rgbai& color);
 
     void
-    draw_rect(image* image, const rgbai& color, const Recti& rect);
+    draw_rect(image* image, const rgbai& color, const recti& rect);
 
     void
     draw_square(image* image, const rgbai& color, int x, int y, int size);

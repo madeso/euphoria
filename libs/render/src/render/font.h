@@ -33,14 +33,14 @@ namespace euphoria::render
     {
         Glyph
         (
-            const core::Rectf& sprite,
-            const core::Rectf& texture,
+            const core::rectf& sprite,
+            const core::rectf& texture,
             int ch,
             float ad
         );
 
-        core::Rectf sprite_rect; // relative to 0,0
-        core::Rectf texture_rect; // image texture uvs
+        core::rectf sprite_rect; // relative to 0,0
+        core::rectf texture_rect; // image texture uvs
         int code_point; // the character or string id
         float advance;
     };
@@ -66,15 +66,15 @@ namespace euphoria::render
     struct TextDrawCommand
     {
         const texture2d* texture;
-        core::Rectf sprite_rect;
-        core::Rectf texture_rect;
+        core::rectf sprite_rect;
+        core::rectf texture_rect;
         bool hi;
 
         TextDrawCommand
         (
             const texture2d* texture,
-            const core::Rectf& sprite_rect,
-            const core::Rectf& texture_rect,
+            const core::rectf& sprite_rect,
+            const core::rectf& texture_rect,
             bool hi
         );
     };
@@ -88,8 +88,8 @@ namespace euphoria::render
         Add
         (
             const texture2d* texture,
-            const core::Rectf& sprite_rect,
-            const core::Rectf& texture_rect,
+            const core::rectf& sprite_rect,
+            const core::rectf& texture_rect,
             bool hi
         );
 
@@ -102,7 +102,7 @@ namespace euphoria::render
             const core::rgb& hi_color
         );
 
-        [[nodiscard]] core::Rectf
+        [[nodiscard]] core::rectf
         GetExtents() const;
     };
 
@@ -144,7 +144,7 @@ namespace euphoria::render
             const core::rgb& hi_color
         ) const;
 
-        core::Rectf
+        core::rectf
         GetExtents() const;
 
         void
@@ -184,7 +184,7 @@ namespace euphoria::render
         (
             SpriteRenderer* renderer,
             float alpha,
-            const core::Rectf& where
+            const core::rectf& where
         ) const;
 
         [[nodiscard]] TextDrawCommandList

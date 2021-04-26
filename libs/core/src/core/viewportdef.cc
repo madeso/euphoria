@@ -24,7 +24,7 @@ namespace euphoria::core
         const float new_height = height * s;
         return ViewportDef
         {
-            Recti::FromWidthHeight(new_width, new_height).SetBottomLeftToCopy
+            recti::from_width_height(new_width, new_height).set_bottom_left_to_copy
             (
                 (static_cast<float>(window_width) - new_width) / 2.0f,
                 (static_cast<float>(window_height) - new_height) / 2.0f
@@ -59,8 +59,8 @@ namespace euphoria::core
         ASSERTX(window_height >= 0, window_height);
         const auto w = static_cast<float>(window_width) / width;
         const auto h = static_cast<float>(window_height) / height;
-        const auto r = Recti::FromWidthHeight(window_width, window_height)
-                               .SetBottomLeftToCopy(0, 0);
+        const auto r = recti::from_width_height(window_width, window_height)
+                               .set_bottom_left_to_copy(0, 0);
         if(w < h)
         {
             const auto s = DetermineExtendScale(w, height, window_height);
@@ -82,15 +82,15 @@ namespace euphoria::core
 
         return ViewportDef
         {
-            Recti::FromWidthHeight(window_width, window_height)
-                    .SetBottomLeftToCopy(0, 0),
+            recti::from_width_height(window_width, window_height)
+                    .set_bottom_left_to_copy(0, 0),
             static_cast<float>(window_width),
             static_cast<float>(window_height)
         };
     }
 
 
-    ViewportDef::ViewportDef(const Recti& screen, float w, float h)
+    ViewportDef::ViewportDef(const recti& screen, float w, float h)
         : screen_rect(screen)
         , virtual_width(w)
         , virtual_height(h)

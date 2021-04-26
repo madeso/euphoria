@@ -11,8 +11,8 @@ namespace euphoria::core
         : azimuthal(angle::from_percent_of_360(azimuthal01))
         , polar(angle::from_percent_of_180(polar01))
     {
-        ASSERT(IsWithin(R01(), azimuthal01));
-        ASSERT(IsWithin(Range<float> {0, 2}, polar01));
+        ASSERT(is_within(R01(), azimuthal01));
+        ASSERT(is_within(Range<float> {0, 2}, polar01));
     }
 
     unit3f

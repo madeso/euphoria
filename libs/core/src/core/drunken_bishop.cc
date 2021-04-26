@@ -138,8 +138,8 @@ namespace euphoria::core
             const auto dy = (vertical_mask & code) != 0 ? 1 : -1;
             const auto dx = (horizontal_mask & code) != 0 ? 1 : -1;
 
-            x = KeepWithin(table.get_indices().GetXRange(), x + dx);
-            y = KeepWithin(table.get_indices().GetYRange(), y + dy);
+            x = KeepWithin(table.get_indices().get_range_x(), x + dx);
+            y = KeepWithin(table.get_indices().get_range_y(), y + dy);
 
             table(x, y) += 1;
         }

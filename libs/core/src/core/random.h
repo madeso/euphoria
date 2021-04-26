@@ -37,7 +37,7 @@ namespace euphoria::core
         T
         Next(const Range<T>& range)
         {
-            return From01(range, NextFloat01());
+            return from01(range, NextFloat01());
         }
 
         float

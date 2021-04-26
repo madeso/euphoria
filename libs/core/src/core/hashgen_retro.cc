@@ -43,7 +43,7 @@ namespace
             (
                 image,
                 {foreground_color},
-                Recti::FromTopLeftWidthHeight
+                recti::from_top_left_width_height
                 (
                     top_left,
                     dx+1, dy

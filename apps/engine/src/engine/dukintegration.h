@@ -7,8 +7,8 @@
 
 namespace euphoria::core::ecs
 {
-    struct Systems;
-    struct World;
+    struct systems;
+    struct world;
 }  // namespace euphoria::core::ecs
 
 namespace euphoria::engine
@@ -25,8 +25,8 @@ namespace euphoria::engine
     {
     public:
         DukIntegration(
-                core::ecs::Systems* systems,
-                core::ecs::World*   reg,
+                core::ecs::systems* systems,
+                core::ecs::world*   reg,
                 Sol*           duk,
                 ObjectCreator*      creator,
                 Components*         components,

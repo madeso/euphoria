@@ -45,7 +45,7 @@ namespace euphoria::gui
         GetLayout() const;
 
         void
-        DoLayout(core::Rectf area);
+        DoLayout(core::rectf area);
 
         [[nodiscard]] core::Sizef
         CalculateMinimumArea() const;

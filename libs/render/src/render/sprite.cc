@@ -42,7 +42,7 @@ namespace euphoria::render
         render->DrawSprite
         (
             *texture,
-            core::Rectf::FromPositionAnchorWidthAndHeight
+            core::rectf::from_position_anchor_width_and_height
             (
                 position,
                 core::scale2f {0, 0},

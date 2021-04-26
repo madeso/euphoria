@@ -1137,8 +1137,8 @@ namespace euphoria::core::argparse
                             )
                             {
                                 // return true if lhs < rhs
-                                return EditDistance(arg, lhs.first) <
-                                       EditDistance(arg, rhs.first) ;
+                                return edit_distance(arg, lhs.first) <
+                                       edit_distance(arg, rhs.first) ;
                             }
                         );
 

@@ -4,7 +4,7 @@
 
 namespace euphoria::render
 {
-    Viewport::Viewport(const core::Recti& viewport)
+    Viewport::Viewport(const core::recti& viewport)
         : viewport(viewport)
     {
     }
@@ -13,13 +13,13 @@ namespace euphoria::render
     void
     Viewport::Activate() const
     {
-        const auto bottom_left = viewport.BottomLeft();
+        const auto bottom_left = viewport.get_bottom_left();
         glViewport
         (
             bottom_left.x,
             bottom_left.y,
-            viewport.GetWidth(),
-            viewport.GetHeight()
+            viewport.get_width(),
+            viewport.get_height()
         );
 
         // some gl funcs doesnt respect viewport, so we need to enable
@@ -28,8 +28,8 @@ namespace euphoria::render
         (
             bottom_left.x,
             bottom_left.y,
-            viewport.GetWidth(),
-            viewport.GetHeight()
+            viewport.get_width(),
+            viewport.get_height()
         );
     }
 
@@ -37,15 +37,15 @@ namespace euphoria::render
     float
     Viewport::GetAspectRatio() const
     {
-        return viewport.GetWidth() / static_cast<float>(viewport.GetHeight());
+        return viewport.get_width() / static_cast<float>(viewport.get_height());
     }
 
 
     core::vec2f
     Viewport::ToClipCoord(const core::vec2i& p) const
     {
-        const auto p01 = core::To01(viewport.StaticCast<float>(), p.StaticCast<float>());
-        const auto clip = core::From01(core::Rectf::FromLeftRightTopBottom(-1, 1, 1, -1), p01);
+        const auto p01 = core::to01(viewport.StaticCast<float>(), p.StaticCast<float>());
+        const auto clip = core::from01(core::rectf::from_left_right_top_bottom(-1, 1, 1, -1), p01);
         return clip;
     }
 }

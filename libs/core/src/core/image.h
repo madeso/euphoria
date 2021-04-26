@@ -123,7 +123,7 @@ namespace euphoria::core
             }
         }
 
-        [[nodiscard]] Recti
+        [[nodiscard]] recti
         get_indices() const;
 
         [[nodiscard]] const unsigned char*

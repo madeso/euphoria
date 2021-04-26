@@ -115,7 +115,7 @@ better numbers than Mersenne. How can you go wrong? :)
         do
         {
             x = NextGaussian(mean, std_dev);
-        } while(!IsWithin(r, x));
+        } while(!is_within(r, x));
         return x;
     }
 

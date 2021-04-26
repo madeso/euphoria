@@ -65,7 +65,7 @@ GenerateImage(const table<int>& table, int scale, const palette& pal)
         (
             &image,
             color,
-            Recti::FromTopLeftWidthHeight
+            recti::from_top_left_width_height
             (
                 top_left,
                 scale+1, scale

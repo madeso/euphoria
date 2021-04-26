@@ -7,7 +7,7 @@ namespace euphoria::render
 {
     struct Viewport
     {
-        Viewport(const core::Recti& viewport);
+        Viewport(const core::recti& viewport);
 
         /** Sets the gl viewport.
          */
@@ -20,6 +20,6 @@ namespace euphoria::render
         [[nodiscard]] core::vec2f
         ToClipCoord(const core::vec2i& p) const;
 
-        core::Recti viewport;
+        core::recti viewport;
     };
 }

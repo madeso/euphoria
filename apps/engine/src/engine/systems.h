@@ -6,7 +6,7 @@
 
 namespace euphoria::core::ecs
 {
-    struct Systems;
+    struct systems;
 }
 
 namespace euphoria::engine
@@ -14,7 +14,7 @@ namespace euphoria::engine
     struct Components;
 
 	void
-	AddSystems(core::ecs::Systems* systems, Sol* duk, Components* components);
+	AddSystems(core::ecs::systems* systems, Sol* duk, Components* components);
 }  // namespace euphoria::engine
 
 #endif  // EUPHORIA_SYSTEMS_H

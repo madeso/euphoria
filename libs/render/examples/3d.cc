@@ -102,19 +102,19 @@ main(int argc, char** argv)
     for(int i = 0; i < 20; i += 1)
     {
         const rgb  color = crgb(palettes::dawnbringer().get_random_color(&random));
-        const auto pos = wi.RandomPoint(&random);
+        const auto pos = wi.get_random_point(&random);
         const auto outer = random.NextRange(55.0f, 100.0f);
         const auto inner = random.Next(MakeRange(50.0f));
         draw_circle(&image, color, pos, outer, 10, inner);
     }
-    draw_line_antialiased(&image, color::black, wi.TopLeft(), wi.BottomRight());
+    draw_line_antialiased(&image, color::black, wi.get_top_left(), wi.get_bottom_right());
     draw_rect
     (
         &image,
         {color::blue},
-        Recti::FromTopLeftWidthHeight(vec2i{0, 256}, 100, 25)
+        recti::from_top_left_width_height(vec2i{0, 256}, 100, 25)
     );
-    draw_line_antialiased(&image, color::black, wi.BottomLeft(), wi.TopRight());
+    draw_line_antialiased(&image, color::black, wi.get_bottom_left(), wi.get_top_right());
     // todo(Gustav): fix text drawing...
     // DrawText(&image, vec2i(0, 0), "Hello world", Color::Black, 2);
     engine.catalog->RegisterFileData

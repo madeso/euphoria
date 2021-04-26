@@ -56,7 +56,7 @@ namespace euphoria::core::raytracer
                 sphere,
                 position
             );
-            if(IsWithin(range, hit_index))
+            if(is_within(range, hit_index))
             {
                 const auto hit_position = ray.get_point(hit_index);
                 const auto hit_normal = vec3f::from_to(position, hit_position).get_normalized();

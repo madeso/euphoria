@@ -204,7 +204,7 @@ main(int argc, char* argv[])
         }
 
         engine.init->ClearScreen(clear_color);
-        const auto r = Rectf::FromPositionAnchorWidthAndHeight
+        const auto r = rectf::from_position_anchor_width_and_height
         (
             vec2f{sprite_x, sprite_y},
             scale2f{0.5f, 0.5f},
