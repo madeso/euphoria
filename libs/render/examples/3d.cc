@@ -84,8 +84,7 @@ main(int argc, char** argv)
     }
 
     MaterialShaderCache material_shader_cache {engine.file_system.get()};
-
-    // SET_ENUM_VALUES(TextureType, SetupTextureNames);
+    
     SET_ENUM_FROM_FILE
     (
         engine.file_system.get(),
@@ -238,7 +237,7 @@ main(int argc, char** argv)
     camera3 camera;
     camera.position = vec3f::zero();
 
-    FpsController fps;
+    fps_controller fps;
     fps.position = vec3f(0, 0, 3);
 
     auto viewport_handler = ViewportHandler
@@ -328,7 +327,7 @@ main(int argc, char** argv)
             break;
         case 2:
             world.light.position = fps.position;
-            world.light.direction = fps.GetRotation().in().get_normalized();
+            world.light.direction = fps.get_rotation().in().get_normalized();
             break;
         }
 
@@ -381,14 +380,14 @@ main(int argc, char** argv)
             case SDL_MOUSEMOTION:
                 if(capturing_mouse_movement)
                 {
-                    fps.Look(e.motion.xrel, e.motion.yrel);
+                    fps.look(e.motion.xrel, e.motion.yrel);
                 }
                 break;
             case SDL_KEYDOWN:
             case SDL_KEYUP: {
                 const bool down = e.type == SDL_KEYDOWN;
 
-                fps.HandleKey(ToKey(e.key.keysym), down);
+                fps.on_key(ToKey(e.key.keysym), down);
 
                 switch(e.key.keysym.sym)
                 {
@@ -423,9 +422,9 @@ main(int argc, char** argv)
             }
         }
 
-        fps.Update(delta);
+        fps.update(delta);
         camera.position = fps.position;
-        camera.rotation = fps.GetRotation();
+        camera.rotation = fps.get_rotation();
 
         engine.init->ClearScreen(color::black);
         // todo(Gustav): GetFullViewport or somthing different?

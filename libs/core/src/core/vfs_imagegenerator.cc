@@ -33,7 +33,7 @@ namespace euphoria::core::vfs
 
         const auto color_name = ToLower(command);
 
-        const auto found_color = StringToEnum<color>(color_name);
+        const auto found_color = string_to_enum<color>(color_name);
 
         if(!found_color.single_match)
         {
@@ -42,7 +42,7 @@ namespace euphoria::core::vfs
                 "Invalid color name: {0} for path {1} closest matches are {2}",
                 color_name,
                 path,
-                StringMerger::EnglishOr().Generate(EnumToString(found_color.values))
+                StringMerger::EnglishOr().Generate(enum_to_string(found_color.values))
             );
             return MemoryChunk::Null();
         }
@@ -87,7 +87,7 @@ namespace euphoria::core::vfs
 
         if(path == base_)
         {
-            const auto names = EnumToString<color>();
+            const auto names = enum_to_string<color>();
             for(const auto& n: names)
             {
                 ret.Add(n, true, true);

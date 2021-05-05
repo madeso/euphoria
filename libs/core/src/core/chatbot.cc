@@ -820,7 +820,7 @@ namespace euphoria::core
                 if(!searches.empty())
                 {
                     const auto titles = ToLower(l.titles);
-                    display = Find(titles, searches);
+                    display = find(titles, searches);
                 }
                 if(display)
                 {

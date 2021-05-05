@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_FPSCONTROLLER_H
-#define EUPHORIA_FPSCONTROLLER_H
+#pragma once
 
 #include "core/vec3.h"
 #include "core/angle.h"
@@ -8,51 +7,49 @@
 
 namespace euphoria::core
 {
-    struct FpsController
+    struct fps_controller
     {
-        FpsController();
+        fps_controller();
 
         void
-        Look(float delta_rot, float delta_look);
+        look(float delta_rot, float delta_look);
 
         void
-        MoveLeft(bool down);
+        move_left(bool down);
         void
-        MoveRight(bool down);
+        move_right(bool down);
         void
-        MoveForward(bool down);
+        move_forward(bool down);
         void
-        MoveBackward(bool down);
+        move_backward(bool down);
         void
-        MoveUp(bool down);
+        move_up(bool down);
         void
-        MoveDown(bool down);
+        move_down(bool down);
 
         void
-        HandleKey(Key key, bool down);
+        on_key(Key key, bool down);
 
         void
-        Update(float delta);
+        update(float delta);
 
         [[nodiscard]] quatf
-        GetRotation() const;
+        get_rotation() const;
 
-        angle rotation_;
-        angle look_;
+        angle rotation_angle;
+        angle look_angle;
 
-        bool left_down_     = false;
-        bool right_down_    = false;
-        bool forward_down_  = false;
-        bool backward_down_ = false;
-        bool up_down_       = false;
-        bool down_down_     = false;
+        bool is_left_down     = false;
+        bool is_right_down    = false;
+        bool is_forward_down  = false;
+        bool is_backward_down = false;
+        bool is_up_down       = false;
+        bool is_down_down     = false;
 
-    public:
         vec3f position;
-        float speed       = 3.0f;
-        float sensitivity = 0.10f;
+        float move_speed       = 3.0f;
+        float look_sensitivity = 0.10f;
     };
 
 }
 
-#endif  // EUPHORIA_FPSCONTROLLER_H

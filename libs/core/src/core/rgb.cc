@@ -577,7 +577,7 @@ namespace euphoria::core
         }
         else
         {
-            const auto match = StringToEnum<color>(value);
+            const auto match = string_to_enum<color>(value);
             if(match.single_match) { return R::True(crgbi(match.values[0])); }
             return R::False
             (

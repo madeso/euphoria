@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_ENUM_H
-#define EUPHORIA_ENUM_H
+#pragma once
 
 #include <string>
 #include <map>
@@ -13,7 +12,7 @@ namespace euphoria::core
         struct FilePath;
     }
 
-    struct EnumValue;
+    struct enum_value;
 
     // todo(Gustav): as a compile option, use a hash instead of the string enum
     // todo(Gustav): rename to something like DynEnum to not be confused with regular enums
@@ -24,105 +23,96 @@ namespace euphoria::core
      * Advantages over hashes: type safety, catches bad spelling, no collisions and
      * perhaps faster to generate?
      */
-    struct EnumType
+    struct enum_type
     {
-        EnumType(std::string name);
-        ~EnumType();
+        enum_type(std::string name);
+        ~enum_type();
 
-        EnumType(const EnumType&) = delete;
-        EnumType(EnumType&&) = delete;
-        void operator=(const EnumType&) = delete;
-        void operator=(EnumType&&) = delete;
+        enum_type(const enum_type&) = delete;
+        enum_type(enum_type&&) = delete;
+        void operator=(const enum_type&) = delete;
+        void operator=(enum_type&&) = delete;
 
         [[nodiscard]] std::string
-        ToString(size_t v) const;
+        to_string(size_t v) const;
 
-        [[nodiscard]] EnumValue
-        ToEnum(const std::string& name);
-
-        void
-        AddEnums(const std::vector<std::string>& names);
-
-    private:
-        using ValueToName = std::map<size_t, std::string>;
-        using NameToValue = std::map<std::string, size_t>;
+        [[nodiscard]] enum_value
+        to_enum(const std::string& name);
 
         void
-        AddEnum(const std::string& name);
+        add_enums(const std::vector<std::string>& names);
 
-        std::string name_;
 
-        ValueToName valueToName_;
-        NameToValue nameToValue_;
+        using value_to_name_map = std::map<size_t, std::string>;
+        using name_to_value_map = std::map<std::string, size_t>;
 
-        bool   isAdding_;
-        size_t nextIndex_;
+        void
+        add_enum(const std::string& name);
+
+        std::string type_name;
+
+        value_to_name_map value_to_name;
+        name_to_value_map name_to_value;
+
+        bool   is_adding;
+        size_t next_index;
     };
 
-    struct EnumValue
+    struct enum_value
     {
-        EnumValue(EnumType* t, size_t v);
+        enum_value(enum_type* t, size_t v);
 
-        // todo(Gustav): add EnumType to the parameter to verify against stored member
+        // todo(Gustav): add enum_type to the parameter to verify against stored member
         // so
         [[nodiscard]] std::string
-        ToString() const;
+        to_string() const;
 
         [[nodiscard]] size_t
-        ToValue() const;
+        to_value() const;
 
         bool
-        operator==(const EnumValue& other) const;
+        operator==(const enum_value& other) const;
 
         bool
-        operator!=(const EnumValue& other) const;
+        operator!=(const enum_value& other) const;
 
         bool
-        operator<(const EnumValue& other) const;
-
-    private:
-        // todo(Gustav): only have type_ in debug/test builds
-        EnumType* type_;
-        size_t    value_;
+        operator<(const enum_value& other) const;
+        
+        // todo(Gustav): only have the type in debug/test builds
+        enum_type* type;
+        size_t    value;
     };
 
 
     std::ostream&
-    operator<<(std::ostream& s, const EnumValue& v);
+    operator<<(std::ostream& s, const enum_value& v);
 
 
     void
-    LoadEnumType
+    load_enum_type
     (
-        EnumType* type,
+        enum_type* type,
         vfs::FileSystem* fs,
         const vfs::FilePath& path
     );
 
 
-#define DECLARE_ENUM_TYPE(NAME) EnumType& NAME##_EnumType();
+#define DECLARE_ENUM_TYPE(NAME) enum_type& NAME##_EnumType();
 #define IMPLEMENT_ENUM_TYPE(NAME)                                              \
-    EnumType& NAME##_EnumType()                                                \
+    enum_type& NAME##_EnumType()                                                \
     {                                                                          \
-        static EnumType type {#NAME};                                          \
+        static enum_type type {#NAME};                                          \
         return type;                                                           \
     }
-#define SET_ENUM_VALUES(NAME, FUNC)                                            \
-    do                                                                         \
-    {                                                                          \
-        FUNC(NAME##_EnumType());                                               \
-        NAME##_EnumType().StopAdding();                                        \
-    } while(false)
 
 
 // std::string constructor may throw
 // todo(Gustav): provide compile time option to use hashes instead
 // http://aras-p.info/blog/2016/08/09/More-Hash-Function-Tests/
 #define DEFINE_ENUM_VALUE(TYPE, NAME, STRING)                                  \
-    const ::euphoria::core::EnumValue NAME = TYPE##_EnumType().ToEnum(STRING)
+    const ::euphoria::core::enum_value NAME = TYPE##_EnumType().to_enum(STRING)
 #define SET_ENUM_FROM_FILE(FS, PATH, TYPE)                                     \
-    LoadEnumType(&TYPE##_EnumType(), FS, PATH)
+    load_enum_type(&TYPE##_EnumType(), FS, PATH)
 
 }  // namespace euphoria::core
-
-#endif  // EUPHORIA_ENUM_H

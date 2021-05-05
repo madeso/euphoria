@@ -24,23 +24,23 @@ namespace euphoria::core
     LOG_SPECIFY_DEFAULT_LOGGER("core.enum")
 
 
-    EnumType::EnumType(std::string name)
-        : name_(std::move(name)), isAdding_(true), nextIndex_(1)
+    enum_type::enum_type(std::string name)
+        : type_name(std::move(name)), is_adding(true), next_index(1)
     {}
 
 
-    EnumType::~EnumType()
+    enum_type::~enum_type()
     {
-        ASSERT(!isAdding_);
+        ASSERT(!is_adding);
     }
 
 
     std::string
-    EnumType::ToString(size_t v) const
+    enum_type::to_string(size_t v) const
     {
-        ASSERT(v < nextIndex_);
-        auto f = valueToName_.find(v);
-        if(f != valueToName_.end())
+        ASSERT(v < next_index);
+        auto f = value_to_name.find(v);
+        if(f != value_to_name.end())
         {
             return f->second;
         }
@@ -48,7 +48,7 @@ namespace euphoria::core
         // ASSERT(false && "Invalid index");
         const auto values = StringMerger::EnglishOr().Generate
         (
-            MapToStringVector(nameToValue_)
+            MapToStringVector(name_to_value)
         );
         const std::string invalid = Str() << "<invalid value " << v << " of "
                                           << values << ">";
@@ -56,39 +56,39 @@ namespace euphoria::core
     }
 
 
-    EnumValue
-    EnumType::ToEnum(const std::string& name)
+    enum_value
+    enum_type::to_enum(const std::string& name)
     {
-        auto r = nameToValue_.find(name);
-        if(r != nameToValue_.end())
+        auto r = name_to_value.find(name);
+        if(r != name_to_value.end())
         {
-            return EnumValue(this, r->second);
+            return enum_value(this, r->second);
         }
 
-        if(!isAdding_)
+        if(!is_adding)
         {
             LOG_ERROR("Enum value doesnt exist, {0}", name);
-            return EnumValue(this, 0);
+            return enum_value(this, 0);
         }
-        const size_t id = nextIndex_;
-        AddEnum(name);
-        return EnumValue(this, id);
+        const size_t id = next_index;
+        add_enum(name);
+        return enum_value(this, id);
     }
 
 
     void
-    EnumType::AddEnums(const std::vector<std::string>& names)
+    enum_type::add_enums(const std::vector<std::string>& names)
     {
-        ASSERT(isAdding_);
+        ASSERT(is_adding);
         std::set<std::string> valid_names;
         for(const auto& name: names)
         {
-            AddEnum(name);
+            add_enum(name);
             valid_names.insert(name);
         }
 
         // validate all names against true names
-        for(const auto& name: nameToValue_)
+        for(const auto& name: name_to_value)
         {
             const bool missing
                     = valid_names.find(name.first) == valid_names.end();
@@ -97,86 +97,86 @@ namespace euphoria::core
                 LOG_ERROR
                 (
                     "Enum {0} was registered with name {1} but that is invalid.",
-                    name_,
+                    type_name,
                     name.first
                 );
             }
         }
 
-        isAdding_ = false;
+        is_adding = false;
     }
 
 
     void
-    EnumType::AddEnum(const std::string& name)
+    enum_type::add_enum(const std::string& name)
     {
-        ASSERT(isAdding_);
-        auto r = nameToValue_.find(name);
-        if(r != nameToValue_.end())
+        ASSERT(is_adding);
+        auto r = name_to_value.find(name);
+        if(r != name_to_value.end())
         {
             return;
         }
-        const size_t id = nextIndex_;
-        ++nextIndex_;
-        valueToName_.insert(ValueToName::value_type(id, name));
-        nameToValue_.insert(NameToValue::value_type(name, id));
+        const size_t id = next_index;
+        ++next_index;
+        value_to_name.insert(value_to_name_map::value_type(id, name));
+        name_to_value.insert(name_to_value_map::value_type(name, id));
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Enum Value
 
-    EnumValue::EnumValue(EnumType* t, size_t v) : type_(t), value_(v) {}
+    enum_value::enum_value(enum_type* t, size_t v) : type(t), value(v) {}
 
 
     std::string
-    EnumValue::ToString() const
+    enum_value::to_string() const
     {
-        return type_->ToString(value_);
+        return type->to_string(value);
     }
 
 
     size_t
-    EnumValue::ToValue() const
+    enum_value::to_value() const
     {
-        return value_;
+        return value;
     }
 
 
     bool
-    EnumValue::operator==(const EnumValue& other) const
+    enum_value::operator==(const enum_value& other) const
     {
-        ASSERT(type_ == other.type_);
-        return value_ == other.value_;
+        ASSERT(type == other.type);
+        return value == other.value;
     }
 
 
     bool
-    EnumValue::operator!=(const EnumValue& other) const
+    enum_value::operator!=(const enum_value& other) const
     {
         return !(*this == other);
     }
 
 
     bool
-    EnumValue::operator<(const EnumValue& other) const
+    enum_value::operator<(const enum_value& other) const
     {
-        ASSERT(type_ == other.type_);
-        return value_ < other.value_;
+        ASSERT(type == other.type);
+        return value < other.value;
     }
 
 
     std::ostream&
-    operator<<(std::ostream& s, const EnumValue& v)
+    operator<<(std::ostream& s, const enum_value& v)
     {
-        s << v.ToString();
+        s << v.to_string();
         return s;
     }
 
 
     void
-    LoadEnumType
+    load_enum_type
     (
-        EnumType* type,
+        enum_type* type,
         vfs::FileSystem* fs,
         const vfs::FilePath& path
     )
@@ -200,7 +200,7 @@ namespace euphoria::core
             }
         }
 
-        type->AddEnums(names);
+        type->add_enums(names);
     }
 
 }  // namespace euphoria::core

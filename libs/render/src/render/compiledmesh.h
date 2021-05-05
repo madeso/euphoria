@@ -46,7 +46,7 @@ namespace euphoria::render
         void
         SetTexture
         (
-            const core::EnumValue& name,
+            const core::enum_value& name,
             std::shared_ptr<texture2d> texture
         );
 
@@ -80,7 +80,7 @@ namespace euphoria::render
         core::rgb specular;
         float shininess;
         std::shared_ptr<MaterialShader> shader;
-        std::map<core::EnumValue, std::shared_ptr<texture2d>> textures;
+        std::map<core::enum_value, std::shared_ptr<texture2d>> textures;
     };
 
 

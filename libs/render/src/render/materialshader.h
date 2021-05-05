@@ -17,11 +17,11 @@ namespace euphoria::render
     public:
         MaterialShaderDefaultTexture
         (
-            const core::EnumValue& a_name,
+            const core::enum_value& a_name,
             const core::vfs::FilePath& a_path
         );
 
-        core::EnumValue name;
+        core::enum_value name;
         core::vfs::FilePath path;
     };
 
@@ -30,11 +30,11 @@ namespace euphoria::render
         MaterialShaderBinding
         (
             ShaderUniform a_uniform,
-            const core::EnumValue& a_name
+            const core::enum_value& a_name
         );
 
         ShaderUniform   uniform;
-        core::EnumValue name;
+        core::enum_value name;
     };
 
     /** Extends a regular Shader with uniform bindings for 3d rendering

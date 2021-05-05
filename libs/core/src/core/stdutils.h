@@ -12,7 +12,7 @@ namespace euphoria::core
 {
     template <typename K, typename V>
     std::vector<K>
-    Keys(const std::map<K, V>& m)
+    get_keys(const std::map<K, V>& m)
     {
         std::vector<K> r;
         for(const auto& x: m)

@@ -67,9 +67,9 @@ namespace euphoria::core
 
     struct MaterialTexture
     {
-        MaterialTexture(const vfs::FilePath& p, EnumValue t);
+        MaterialTexture(const vfs::FilePath& p, enum_value t);
         vfs::FilePath path;
-        EnumValue type;
+        enum_value type;
     };
 
 

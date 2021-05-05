@@ -443,7 +443,7 @@ namespace euphoria::core::argparse
         std::map<std::string, std::shared_ptr<argument>> optional_arguments;
         std::vector<argument_and_name> optional_argument_list;
 
-        EnumToStringImpl<std::shared_ptr<sub_parser_container>> subparsers;
+        enum_to_string_implementation<std::shared_ptr<sub_parser_container>> subparsers;
         std::vector<std::shared_ptr<sub_parser_group>> subparser_groups;
 
         std::optional<complete_function> on_complete_function;

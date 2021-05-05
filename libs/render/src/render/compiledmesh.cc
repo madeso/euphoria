@@ -38,13 +38,13 @@ namespace euphoria::render
     void
     CompiledMeshMaterial::SetTexture
     (
-        const core::EnumValue& name,
+        const core::enum_value& name,
         std::shared_ptr<texture2d> texture
     )
     {
         if(textures.find(name) != textures.end())
         {
-            LOG_WARN("{0} is already assigned, overwriting...", name.ToString());
+            LOG_WARN("{0} is already assigned, overwriting...", name.to_string());
         }
         textures[name] = std::move(texture);
     }
@@ -112,7 +112,7 @@ namespace euphoria::render
     bool
     CompiledMeshMaterial::Validate() const
     {
-        std::set<core::EnumValue> shader_values;
+        std::set<core::enum_value> shader_values;
 
         ASSERT(shader);
 
@@ -127,7 +127,7 @@ namespace euphoria::render
                 LOG_ERROR
                 (
                     "Material is missing shader-required texture: {0}",
-                    binding.name.ToString()
+                    binding.name.to_string()
                 );
                 ok = false;
             }
@@ -143,7 +143,7 @@ namespace euphoria::render
                 LOG_ERROR
                 (
                     "Texture {0} is specified but is missing in shader",
-                    name.ToString()
+                    name.to_string()
                 );
                 ok = false;
             }

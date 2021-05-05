@@ -4,98 +4,98 @@ namespace euphoria::core
 {
     using namespace euphoria::convert;
 
-    FpsController::FpsController()
-        : rotation_(0.0_rad), look_(0.0_rad), position(vec3f::zero())
+    fps_controller::fps_controller()
+        : rotation_angle(0.0_rad), look_angle(0.0_rad), position(vec3f::zero())
     {}
 
     void
-    FpsController::Look(float x, float y)
+    fps_controller::look(float x, float y)
     {
-        rotation_ += angle::from_degrees(-x * sensitivity);
-        look_ += angle::from_degrees(-y * sensitivity);
+        rotation_angle += angle::from_degrees(-x * look_sensitivity);
+        look_angle += angle::from_degrees(-y * look_sensitivity);
     }
 
     void
-    FpsController::MoveLeft(bool down)
+    fps_controller::move_left(bool down)
     {
-        left_down_ = down;
+        is_left_down = down;
     }
     void
-    FpsController::MoveRight(bool down)
+    fps_controller::move_right(bool down)
     {
-        right_down_ = down;
+        is_right_down = down;
     }
     void
-    FpsController::MoveForward(bool down)
+    fps_controller::move_forward(bool down)
     {
-        forward_down_ = down;
+        is_forward_down = down;
     }
     void
-    FpsController::MoveBackward(bool down)
+    fps_controller::move_backward(bool down)
     {
-        backward_down_ = down;
+        is_backward_down = down;
     }
     void
-    FpsController::MoveUp(bool down)
+    fps_controller::move_up(bool down)
     {
-        up_down_ = down;
+        is_up_down = down;
     }
     void
-    FpsController::MoveDown(bool down)
+    fps_controller::move_down(bool down)
     {
-        down_down_ = down;
+        is_down_down = down;
     }
 
     void
-    FpsController::HandleKey(Key key, bool down)
+    fps_controller::on_key(Key key, bool down)
     {
         switch(key)
         {
         case Key::W:
-        case Key::UP: MoveForward(down); return;
+        case Key::UP: move_forward(down); return;
         case Key::S:
-        case Key::DOWN: MoveBackward(down); return;
+        case Key::DOWN: move_backward(down); return;
         case Key::A:
-        case Key::LEFT: MoveLeft(down); return;
+        case Key::LEFT: move_left(down); return;
         case Key::D:
-        case Key::RIGHT: MoveRight(down); return;
+        case Key::RIGHT: move_right(down); return;
 
-        case Key::SPACE: MoveUp(down); return;
-        case Key::CTRL_LEFT: MoveDown(down); return;
+        case Key::SPACE: move_up(down); return;
+        case Key::CTRL_LEFT: move_down(down); return;
         default: return;
         }
     }
 
     void
-    FpsController::Update(float delta)
+    fps_controller::update(float delta)
     {
         int forward = 0;
         int right   = 0;
         int up      = 0;
 
-        if(forward_down_)
+        if(is_forward_down)
         {
             forward += 1;
         }
-        if(backward_down_)
+        if(is_backward_down)
         {
             forward -= 1;
         }
 
-        if(right_down_)
+        if(is_right_down)
         {
             right += 1;
         }
-        if(left_down_)
+        if(is_left_down)
         {
             right -= 1;
         }
 
-        if(up_down_)
+        if(is_up_down)
         {
             up += 1;
         }
-        if(down_down_)
+        if(is_down_down)
         {
             up -= 1;
         }
@@ -106,23 +106,23 @@ namespace euphoria::core
         }
 
         const auto input
-                = GetRotation()
+                = get_rotation()
                           .create_from_right_up_in(vec3f {static_cast<float>(right),
                                             static_cast<float>(up),
                                             static_cast<float>(forward)})
                           .get_normalized();
-        const auto movement = input * speed * delta;
+        const auto movement = input * move_speed * delta;
 
         position += movement;
     }
 
     quatf
-    FpsController::GetRotation() const
+    fps_controller::get_rotation() const
     {
         const auto rotation = quatf::from_axis_angle(
-                axis_angle::right_hand_around(unit3f::y_axis(), rotation_));
+                axis_angle::right_hand_around(unit3f::y_axis(), rotation_angle));
         const auto look = quatf::from_axis_angle(
-                axis_angle::right_hand_around(unit3f::x_axis(), look_));
+                axis_angle::right_hand_around(unit3f::x_axis(), look_angle));
         return rotation * look;
     }
 

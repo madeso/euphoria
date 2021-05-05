@@ -21,7 +21,7 @@ namespace euphoria::core::dump2d
 {
     namespace strokes
     {
-        std::vector<int> Dash(int size);
+        std::vector<int> dash(int size);
     }
 
     struct poly
@@ -106,8 +106,8 @@ namespace euphoria::core::dump2d
         int point_size = -1;
         bool point_text = false;
 
-        float gridx =-1;
-        float gridy =-1;
+        float grid_x =-1;
+        float grid_y =-1;
 
         dumper& add_axis();
 

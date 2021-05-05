@@ -156,7 +156,7 @@ namespace
     std::ostream&
     operator<<(std::ostream& o, const Animal& m)
     {
-        o << euphoria::core::EnumToString(m);
+        o << euphoria::core::enum_to_string(m);
         return o;
     }
 }

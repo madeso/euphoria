@@ -19,7 +19,7 @@ namespace euphoria::render
 
     MaterialShaderDefaultTexture::MaterialShaderDefaultTexture
     (
-        const core::EnumValue& a_name,
+        const core::enum_value& a_name,
         const core::vfs::FilePath& a_path
     )
         : name(a_name)
@@ -31,7 +31,7 @@ namespace euphoria::render
     MaterialShaderBinding::MaterialShaderBinding
     (
         ShaderUniform a_uniform,
-        const core::EnumValue& a_name
+        const core::enum_value& a_name
     )
         : uniform(std::move(a_uniform))
         , name(a_name)

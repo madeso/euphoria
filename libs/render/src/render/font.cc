@@ -401,7 +401,7 @@ namespace euphoria::render
                     "Unable to find image {0}, could be {1}",
                     image,
                     core::StringMerger::EnglishOr()
-                        .Generate(core::Keys(font.private_use_aliases))
+                        .Generate(core::get_keys(font.private_use_aliases))
                 );
                 return;
             }

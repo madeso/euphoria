@@ -81,7 +81,7 @@ namespace euphoria::core::ecs
         [[nodiscard]] std::vector<entity_id>
         View() const
         {
-            const auto keys = Keys(components);
+            const auto keys = get_keys(components);
             ASSERT(Sorted(keys) == keys);
             return keys;
         }

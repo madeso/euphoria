@@ -21,9 +21,9 @@ TEST_CASE("enum2string", "[enum2string]")
 {
     SECTION("single arg ToString")
     {
-        CHECK(euco::EnumToString(MyEnum::X) == "X");
-        CHECK(euco::EnumToString(MyEnum::Cat) == "Cat");
-        CHECK(euco::EnumToString(MyEnum::ReallyLongValue) == "ReallyLongValue");
+        CHECK(euco::enum_to_string(MyEnum::X) == "X");
+        CHECK(euco::enum_to_string(MyEnum::Cat) == "Cat");
+        CHECK(euco::enum_to_string(MyEnum::ReallyLongValue) == "ReallyLongValue");
     }
 
     SECTION("operator<<")
@@ -39,7 +39,7 @@ TEST_CASE("enum2string", "[enum2string]")
     SECTION("no arg ToString")
     {
         CHECK(StringEq(
-                euco::EnumToString<MyEnum>(),
+                euco::enum_to_string<MyEnum>(),
             {"X", "Cat", "ReallyLongValue"}));
     }
 
@@ -48,21 +48,21 @@ TEST_CASE("enum2string", "[enum2string]")
         const auto vec
                 = std::vector<MyEnum> {MyEnum::Cat, MyEnum::X, MyEnum::Cat};
         CHECK(StringEq(
-                euco::EnumToString<MyEnum>(vec),
+                euco::enum_to_string<MyEnum>(vec),
                 {"Cat", "X", "Cat"}));
     }
 
     SECTION("match different cases")
     {
         auto       name  = GENERATE_AS(std::string, "cat", "CAT", "Cat", "cAt");
-        const auto match = euco::StringToEnum<MyEnum>(name);
+        const auto match = euco::string_to_enum<MyEnum>(name);
         CHECK(match.single_match);
         CHECK_THAT(match.values, CATCH_IS_VECTOR(MyEnum, MyEnum::Cat));
     }
 
     SECTION("match suggestions")
     {
-        const auto match = euco::StringToEnum<MyEnum>("y", 2);
+        const auto match = euco::string_to_enum<MyEnum>("y", 2);
         CHECK_FALSE(match.single_match);
         CHECK_THAT(
                 match.values, CATCH_IS_VECTOR(MyEnum, MyEnum::X, MyEnum::Cat));

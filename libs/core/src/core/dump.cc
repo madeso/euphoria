@@ -35,7 +35,7 @@ namespace euphoria::core::dump2d
 
     namespace strokes
     {
-        std::vector<int> Dash(int size)
+        std::vector<int> dash(int size)
         {
             return {size, size};
         }
@@ -263,8 +263,8 @@ namespace euphoria::core::dump2d
 
     dumper& dumper::add_grid(float xy)
     {
-        gridx = xy;
-        gridy = xy;
+        grid_x = xy;
+        grid_y = xy;
         return *this;
     }
 
@@ -387,16 +387,16 @@ namespace euphoria::core::dump2d
 
         const auto grid_color = color::light_gray;
 
-        if(gridx > 0 )
+        if(grid_x > 0 )
         {
-            for(auto x =  gridx; px(x) < static_cast<float>(width); x += gridx) { vline(x, grid_color); }
-            for(auto x = -gridx; px(x) > 0;                         x -= gridx) { vline(x, grid_color); }
+            for(auto x =  grid_x; px(x) < static_cast<float>(width); x += grid_x) { vline(x, grid_color); }
+            for(auto x = -grid_x; px(x) > 0;                         x -= grid_x) { vline(x, grid_color); }
         }
 
-        if(gridy > 0 )
+        if(grid_y > 0 )
         {
-            for(auto y =  gridy; px(y) < static_cast<float>(height); y += gridy) { hline(y, grid_color); }
-            for(auto y = -gridy; px(y) > 0;                          y -= gridy) { hline(y, grid_color); }
+            for(auto y =  grid_y; px(y) < static_cast<float>(height); y += grid_y) { hline(y, grid_color); }
+            for(auto y = -grid_y; px(y) > 0;                          y -= grid_y) { hline(y, grid_color); }
         }
 
         if(add_axis_when_writing)

@@ -107,7 +107,7 @@ namespace euphoria::core::argparse
     std::ostream&
     operator<<(std::ostream& o, const parse_result& pr)
     {
-        o << EnumToString(pr.internal_type) << "(" << pr.return_value << ")";
+        o << enum_to_string(pr.internal_type) << "(" << pr.return_value << ")";
         return o;
     }
 
@@ -522,7 +522,7 @@ namespace euphoria::core::argparse
         parsers.emplace_back(container);
         for(const auto& name : names.names)
         {
-            owner->subparsers.Add(name, container);
+            owner->subparsers.add(name, container);
         }
     }
 
@@ -679,7 +679,7 @@ namespace euphoria::core::argparse
                         return s.size() <= MAX_HELP_LENGTH;
                     }
                 );
-                const auto rows = ZipLongest(names, helps);
+                const auto rows = zip_longest(names, helps);
                 for(auto [name,help]: rows)
                 {
                     t.new_row({name, help});
@@ -1043,7 +1043,7 @@ namespace euphoria::core::argparse
         std::optional<parse_result>
         ArgumentParser::ParseSubCommand(const std::string& arg)
         {
-            auto match = base->subparsers.Match(arg, 3);
+            auto match = base->subparsers.match(arg, 3);
             if(match.single_match == false)
             {
                 // todo(Gustav): check if this accepts invalid and

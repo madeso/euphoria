@@ -1,5 +1,4 @@
-#ifndef CORE_FUNCTIONAL_H
-#define CORE_FUNCTIONAL_H
+#pragma once
 
 #include <vector>
 #include <utility>
@@ -17,7 +16,7 @@ namespace euphoria::core
     // combine 2 list into a list of pair
     template <typename A, typename B>
     std::vector<std::pair<A, B>>
-    Zip(const std::vector<A>& as, const std::vector<B>& bs)
+    zip(const std::vector<A>& as, const std::vector<B>& bs)
     {
         std::vector<std::pair<A, B>> ret;
         const auto s = std::min(as.size(), bs.size());
@@ -31,7 +30,7 @@ namespace euphoria::core
 
     template <typename A, typename B>
     std::vector<std::pair<A, B>>
-    ZipLongest
+    zip_longest
     (
         const std::vector<A>& as,
         const std::vector<B>& bs,
@@ -54,7 +53,7 @@ namespace euphoria::core
     // map: A->B for a list, Select in c#
     template <typename F, typename T = F, typename C>
     std::vector<T>
-    Map(const std::vector<F>& fs, C convert)
+    map(const std::vector<F>& fs, C convert)
     {
         std::vector<T> r;
         r.reserve(fs.size());
@@ -68,7 +67,7 @@ namespace euphoria::core
 
     template <typename T, typename K, typename V, typename C>
     std::vector<T>
-    Map(const std::map<K, V>& fs, C convert)
+    map(const std::map<K, V>& fs, C convert)
     {
         std::vector<T> r;
         r.reserve(fs.size());
@@ -84,7 +83,7 @@ namespace euphoria::core
     // filter - all values that satisfies a condition
     template <typename T, typename C>
     std::vector<T>
-    Filter(const std::vector<T>& ts, C check)
+    filter(const std::vector<T>& ts, C check)
     {
         std::vector<T> r;
         r.reserve(ts.size());
@@ -103,7 +102,7 @@ namespace euphoria::core
     // return true if all matches
     template <typename T, typename C>
     bool
-    All(const std::vector<T>& ts, C check)
+    all(const std::vector<T>& ts, C check)
     {
         std::vector<T> r;
         r.reserve(ts.size());
@@ -120,7 +119,7 @@ namespace euphoria::core
     // return true if any mathes
     template <typename T, typename C>
     bool
-    Any(const std::vector<T>& ts, C check)
+    any(const std::vector<T>& ts, C check)
     {
         std::vector<T> r;
         r.reserve(ts.size());
@@ -145,7 +144,7 @@ namespace euphoria::core
     // combine list into single value
     template <typename T, typename R = T, typename C>
     R
-    Fold(const std::vector<T>& ts, C concat, R zero)
+    fold(const std::vector<T>& ts, C concat, R zero)
     {
         R r = zero;
         for(const auto& t: ts)
@@ -157,7 +156,7 @@ namespace euphoria::core
 
     template<typename K, typename V>
     std::vector<K>
-    Keys(const std::map<K, V>& m)
+    get_keys(const std::map<K, V>& m)
     {
         auto v = std::vector<K>{};
         for(const auto& p: m)
@@ -168,4 +167,3 @@ namespace euphoria::core
     }
 }
 
-#endif

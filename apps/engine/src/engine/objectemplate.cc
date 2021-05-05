@@ -283,7 +283,7 @@ namespace euphoria::engine
                 "Failed to find template named {0}, could be {1}.",
                 name,
                 core::StringMerger::EnglishOr().
-                    Generate(core::Keys(templates))
+                    Generate(core::get_keys(templates))
             );
             return nullptr;
         }

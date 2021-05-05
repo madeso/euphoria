@@ -66,8 +66,7 @@ namespace euphoria::t3d
         }
 
         material_shader_cache = std::make_shared<render::MaterialShaderCache>(engine->file_system.get());
-
-        // SET_ENUM_VALUES(TextureType, SetupTextureNames);
+        
         SET_ENUM_FROM_FILE
         (
             engine->file_system.get(),

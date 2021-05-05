@@ -75,7 +75,7 @@ namespace euphoria::core::argparse
         const std::string& value
     )
     {
-        auto matches = core::StringToEnum<T>(value);
+        auto matches = core::string_to_enum<T>(value);
         if (matches.single_match)
         {
             return Result<T>::True(matches.values[0]);
@@ -113,7 +113,7 @@ namespace euphoria::core::argparse
         const std::string r = Str() << "can be either " <<
             quote_and_combine_english_or
             (
-                EnumToString<T>()
+                enum_to_string<T>()
             );
 
         return r;
@@ -162,7 +162,7 @@ namespace euphoria::core::argparse
     std::string
     default_value_to_string(const T& t)
     {
-        return core::EnumToString(t);
+        return core::enum_to_string(t);
     }
 }
 
