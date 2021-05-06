@@ -19,7 +19,7 @@ namespace
 
 TEST_CASE("enum2string", "[enum2string]")
 {
-    SECTION("single arg ToString")
+    SECTION("single arg to_string")
     {
         CHECK(euco::enum_to_string(MyEnum::X) == "X");
         CHECK(euco::enum_to_string(MyEnum::Cat) == "Cat");
@@ -36,14 +36,14 @@ TEST_CASE("enum2string", "[enum2string]")
         CHECK(ss.str() == "Cat");
     }
 
-    SECTION("no arg ToString")
+    SECTION("no arg to_string")
     {
         CHECK(StringEq(
                 euco::enum_to_string<MyEnum>(),
             {"X", "Cat", "ReallyLongValue"}));
     }
 
-    SECTION("vector arg ToString")
+    SECTION("vector arg to_string")
     {
         const auto vec
                 = std::vector<MyEnum> {MyEnum::Cat, MyEnum::X, MyEnum::Cat};

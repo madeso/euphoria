@@ -126,7 +126,7 @@ namespace euphoria::core
         // is a stable sort is requested, use insertion sort, otherwise use the faster quick sort
         if(builder.stable_sort)
         {
-            InsertionSort(&r, sort_function);
+            insertion_sort(&r, sort_function);
         }
         else
         {

@@ -196,7 +196,7 @@ namespace euphoria::render
         std::unique_ptr<texture2d> texture_;
         std::shared_ptr<texture2d> background;
         CharDataMap chars_;
-        core::KerningMap kerning_;
+        core::kerning_map kerning_;
         std::map<std::string, int> private_use_aliases;
     };
 }

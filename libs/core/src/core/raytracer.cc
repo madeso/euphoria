@@ -50,7 +50,7 @@ namespace euphoria::core::raytracer
         [[nodiscard]] std::optional<HitResult>
         Hit(const unit_ray3f& ray, const Range<float>& range) const override
         {
-            const auto hit_index = GetIntersection
+            const auto hit_index = get_intersection
             (
                 ray,
                 sphere,

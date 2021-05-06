@@ -69,7 +69,7 @@ namespace euphoria::t3d
         render::TextureCache* texture_cache
     )
     {
-        const auto loaded_mesh = core::meshes::LoadMesh(file_system, path);
+        const auto loaded_mesh = core::meshes::load_mesh(file_system, path);
         if(!loaded_mesh.error.empty())
         {
             LOG_WARN("Failed to open {0}: {1}", path, loaded_mesh.error);
@@ -79,7 +79,7 @@ namespace euphoria::t3d
         auto tile  = std::make_shared<Tile>();
         tile->path = path;
         tile->name = path.GetFilenameWithoutExtension();
-        tile->aabb = loaded_mesh.mesh.CalculateAabb();
+        tile->aabb = loaded_mesh.mesh.calculate_aabb();
         tile->mesh = CompileMesh
         (
             loaded_mesh.mesh,

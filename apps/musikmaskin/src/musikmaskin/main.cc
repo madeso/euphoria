@@ -50,7 +50,7 @@
 #define IMGUI_DEFINE_MATH_OPERATORS
 #include "imgui/imgui_internal.h"
 
-#include "core/history.h"
+#include "core/last_n.h"
 
 #include "window/imgui_extra.h"
 #include "window/timgui.h"
@@ -290,7 +290,7 @@ DrawKeys(
             const auto tt = ImGui::ColorConvertFloat4ToU32(
                     style.Colors[ImGuiCol_Text]);
 
-            const auto key_text = ToString(key);
+            const auto key_text = to_string(key);
 
             draw_list->AddRectFilled(pos, pos + ImVec2(width, height), c);
             draw_list->AddText(pos, t, key_text.c_str());
@@ -399,7 +399,7 @@ public:
         // musik maskin main window
         if(ImGui::Begin("Main"))
         {
-            static History<float> time_history(100);
+            static last_n<float> time_history(100);
             static float max_diff = 0;
             ImGui::Text(
                     "Tones: %d, %d alive and %d dead",
@@ -410,7 +410,7 @@ public:
             ImGui::Text("Sample time: %.1f", max_sample_time);
             ImGui::Text("Max diff: %.1f", max_diff);
             const auto f = current_time - audio_callback_time;
-            time_history.Push(f);
+            time_history.push(f);
             if(f > max_diff)
             {
                 max_diff = f;
@@ -426,7 +426,7 @@ public:
             imgui::Knob("Master", &master.volume, 0.0f, 1.0f);
 
             CustomDropdown("Tuning", &ttf.tuning, Tuning::Max, [](auto t) {
-                return ToString(t);
+                return to_string(t);
             });
 
             ImGui::DragFloat(
@@ -446,19 +446,19 @@ public:
                     "Oscilator",
                     &oscilator.oscilator,
                     OscilatorType::Max,
-                    [](auto t) { return ToString(t); });
+                    [](auto t) { return to_string(t); });
 
             CustomDropdown(
                     "Chord emulation",
                     &piano.chords_emulation,
                     ChordEmulation::Max,
-                    [](auto t) { return ToString(t); });
+                    [](auto t) { return to_string(t); });
 
             ImGui::InputInt("Times", &scaler.times, 1, 5);
 
             ImGui::InputInt("Arp octaves", &arp.octaves);
             CustomDropdown("Arp mode", &arp.mode, ArpMode::MAX, [](auto t) {
-                return ToString(t);
+                return to_string(t);
             });
             imgui::Knob("Update time", &arp.update_time, 0, 1);
             ImGui::SameLine();
@@ -495,7 +495,7 @@ public:
     }
 
     void
-    OnKey(Key key, bool down)
+    OnKey(key key, bool down)
     {
         piano.OnInput(key, down, current_time);
     }

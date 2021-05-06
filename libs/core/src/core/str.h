@@ -21,7 +21,7 @@ namespace euphoria::core
             @return the generated string.
             */
         std::string
-        ToString() const;
+        to_string() const;
 
         /** Add stuff to the stream.
             @param t object to add to the stream.

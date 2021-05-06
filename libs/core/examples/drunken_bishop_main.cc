@@ -131,7 +131,7 @@ main(int argc, char* argv[])
                         ? std::string("bishop.png")
                         : (Str() << "bishop_" << (c+1) << ".png")
                         ;
-                    io::ChunkToFile(image.write(image_write_format::png), file_name);
+                    io::chunk_to_file(image.write(image_write_format::png), file_name);
                 }
 
                 return argparse::ok;

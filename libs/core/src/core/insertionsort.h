@@ -1,5 +1,4 @@
-#ifndef CORE_INSERTIONSORT_H
-#define CORE_INSERTIONSORT_H
+#pragma once
 
 #include <vector>
 #include <cstddef>
@@ -8,7 +7,7 @@ namespace euphoria::core
 {
     template <typename T, typename SortFunc>
     void
-    InsertionSort(std::vector<T>* arr, SortFunc sort_func)
+    insertion_sort(std::vector<T>* arr, SortFunc sort_func)
     {
         auto&      A      = *arr;
         const auto length = A.size();
@@ -28,16 +27,16 @@ namespace euphoria::core
 
     template <typename T, typename SortFunc>
     std::vector<T>
-    InsertionSort(const std::vector<T>& arr, SortFunc sort_func)
+    insertion_sort(const std::vector<T>& arr, SortFunc sort_func)
     {
         auto copy = arr;
-        InsertionSort(&copy, sort_func);
+        insertion_sort(&copy, sort_func);
         return copy;
     }
 
     template <typename T>
     int
-    DefaultInsertionSort(const T& lhs, const T& rhs)
+    default_insertion_sort(const T& lhs, const T& rhs)
     {
         if(lhs == rhs)
         {
@@ -48,11 +47,10 @@ namespace euphoria::core
 
     template <typename T>
     std::vector<T>
-    InsertionSort(const std::vector<T>& arr)
+    insertion_sort(const std::vector<T>& arr)
     {
-        return InsertionSort(arr, DefaultInsertionSort<T>);
+        return insertion_sort(arr, default_insertion_sort<T>);
     }
 
-}  // namespace euphoria::core
+}
 
-#endif  // CORE_INSERTIONSORT_H

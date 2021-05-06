@@ -18,9 +18,9 @@ namespace euphoria::engine
         std::string name;
         float       state;
         float       last_state;
-        core::Key   key;
+        core::key   key;
 
-        BoundVar(const std::string& n, const core::Key& k);
+        BoundVar(const std::string& n, const core::key& k);
 
         // todo(Gustav): figure out how to bind keys to this property
         // todo(Gustav): figure out how to handle just pressed
@@ -40,7 +40,7 @@ namespace euphoria::engine
         Add(std::shared_ptr<BoundVar> bind);
 
         void
-        SetKeyState(core::Key key, float state);
+        SetKeyState(core::key key, float state);
 
         void
         Set(sol::table* container) const;

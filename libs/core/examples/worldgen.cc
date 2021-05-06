@@ -133,7 +133,7 @@ HandleMazeCommand
         if(!output.single)
         {
             drawer.draw();
-            io::ChunkToFile
+            io::chunk_to_file
             (
                 drawer.image.write(image_write_format::png),
                 output.get_next_file()
@@ -159,7 +159,7 @@ HandleMazeCommand
     {
         if(output.single)
         {
-            io::ChunkToFile
+            io::chunk_to_file
             (
                 drawer.image.write(image_write_format::png),
                 output.file
@@ -169,7 +169,7 @@ HandleMazeCommand
         {
             for(int i = 0; i < 5; i += 1)
             {
-                io::ChunkToFile
+                io::chunk_to_file
                 (
                     drawer.image.write(image_write_format::png),
                     output.get_next_file()
@@ -224,7 +224,7 @@ struct Cellwriter
         if(!output.single)
         {
             auto img = GenerateWorldImage(*world);
-            io::ChunkToFile(img.write(image_write_format::png), output.get_next_file());
+            io::chunk_to_file(img.write(image_write_format::png), output.get_next_file());
         }
 
         world_copy = *world;
@@ -237,7 +237,7 @@ struct Cellwriter
         if(output.single)
         {
             auto img = GenerateWorldImage(*world);
-            io::ChunkToFile(img.write(image_write_format::png), output.file);
+            io::chunk_to_file(img.write(image_write_format::png), output.file);
         }
         else
         {
@@ -252,7 +252,7 @@ struct Cellwriter
         if (debug)
         {
             const auto img = GenerateWorldImage(*world);
-            io::ChunkToFile
+            io::chunk_to_file
             (
                 img.write(image_write_format::png),
                 output.get_next_file()
@@ -268,7 +268,7 @@ struct Cellwriter
     ShuffleDraw()
     {
         auto diffs = FindDifferences(*world, world_copy);
-        KnuthShuffle(&diffs, &shuffle_random);
+        knuth_shuffle(&diffs, &shuffle_random);
         const auto diffs_per_write = std::max<decltype(diffs.size())>
         (
             2,
@@ -281,7 +281,7 @@ struct Cellwriter
             if ((write_index % diffs_per_write) == 0)
             {
                 const auto img = GenerateWorldImage(world_copy);
-                io::ChunkToFile
+                io::chunk_to_file
                 (
                     img.write(image_write_format::png),
                     output.get_next_file()
@@ -293,7 +293,7 @@ struct Cellwriter
         for (int i = 0; i < 5; i += 1)
         {
             const auto img = GenerateWorldImage(world_copy);
-            io::ChunkToFile
+            io::chunk_to_file
             (
                 img.write(image_write_format::png),
                 output.get_next_file()

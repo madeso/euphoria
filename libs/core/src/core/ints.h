@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_INTS_H
-#define EUPHORIA_INTS_H
+#pragma once
 
 #include <cstdint>
 
@@ -14,6 +13,5 @@ namespace euphoria::core
     using s8  = std::int8_t;
     using u8  = std::uint8_t;
 
-}  // namespace euphoria::core
+}
 
-#endif  // EUPHORIA_INTS_H

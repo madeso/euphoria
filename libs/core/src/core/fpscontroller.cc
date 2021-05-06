@@ -47,21 +47,21 @@ namespace euphoria::core
     }
 
     void
-    fps_controller::on_key(Key key, bool down)
+    fps_controller::on_key(key key, bool down)
     {
         switch(key)
         {
-        case Key::W:
-        case Key::UP: move_forward(down); return;
-        case Key::S:
-        case Key::DOWN: move_backward(down); return;
-        case Key::A:
-        case Key::LEFT: move_left(down); return;
-        case Key::D:
-        case Key::RIGHT: move_right(down); return;
+        case key::w:
+        case key::up: move_forward(down); return;
+        case key::s:
+        case key::down: move_backward(down); return;
+        case key::a:
+        case key::left: move_left(down); return;
+        case key::d:
+        case key::right: move_right(down); return;
 
-        case Key::SPACE: move_up(down); return;
-        case Key::CTRL_LEFT: move_down(down); return;
+        case key::space: move_up(down); return;
+        case key::ctrl_left: move_down(down); return;
         default: return;
         }
     }

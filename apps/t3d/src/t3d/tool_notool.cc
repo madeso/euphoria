@@ -24,7 +24,7 @@ namespace euphoria::t3d
     NoTool::OnMouse(Editor* editor, core::MouseButton button, bool down)
     {
         if(down) { return; }
-        if(button != core::MouseButton::LEFT) { return; }
+        if(button != core::MouseButton::left) { return; }
         auto ray = editor->camera
                         .clip_to_world_ray(
                                 editor->viewport.ToClipCoord(editor->mouse))
@@ -41,7 +41,7 @@ namespace euphoria::t3d
 
 
     void
-    NoTool::OnKey(Editor*, core::Key, bool)
+    NoTool::OnKey(Editor*, core::key, bool)
     {}
 
 

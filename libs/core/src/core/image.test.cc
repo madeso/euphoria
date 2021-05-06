@@ -228,7 +228,7 @@ TEST_CASE("image text")
             euco::vec2i(0,height-8),
             text,
             {euco::color::black},
-            euco::LoadCharactersFromBuiltin8()
+            euco::load_characters_from_builtin8()
         );
         const auto table = euco::image_to_string_table_exact
         (

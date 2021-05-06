@@ -131,7 +131,7 @@ main(int argc, char* argv[])
     image image;
     image.setup_no_alpha_support(size, size);
 
-    auto points = closest_point<vec2f, int, std::function<float (const vec2f&, const vec2f&)>, float>
+    auto points = get_closest_point<vec2f, int, std::function<float (const vec2f&, const vec2f&)>, float>
         {
             [&](const vec2f& lhs, const vec2f& rhs)
             {
@@ -162,7 +162,7 @@ main(int argc, char* argv[])
     });
 
 
-    io::ChunkToFile(image.write(image_write_format::png), output_path);
+    io::chunk_to_file(image.write(image_write_format::png), output_path);
 
     return 0;
 }

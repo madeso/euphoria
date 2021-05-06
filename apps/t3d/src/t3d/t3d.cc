@@ -263,19 +263,19 @@ namespace euphoria::t3d
 
 
     void
-    T3d::OnKey(core::Key key, bool down, bool forward_keyboard)
+    T3d::OnKey(core::key key, bool down, bool forward_keyboard)
     {
         if(forward_keyboard)
         {
             switch(key)
             {
-            case core::Key::ESCAPE:
+            case core::key::escape:
                 if(down)
                 {
                     running = false;
                 }
                 break;
-            case core::Key::TAB:
+            case core::key::tab:
                 if(!down)
                 {
                     immersive_mode = !immersive_mode;
@@ -294,8 +294,8 @@ namespace euphoria::t3d
         
         switch(key)
         {
-            case core::Key::SHIFT_LEFT:
-            case core::Key::SHIFT_RIGHT:
+            case core::key::shift_left:
+            case core::key::shift_right:
                 shift_down = down;
                 break;
             default:
@@ -314,7 +314,7 @@ namespace euphoria::t3d
         
         switch(button)
         {
-        case core::MouseButton::MIDDLE:
+        case core::MouseButton::middle:
             mmb_down = down;
             break;
         default:

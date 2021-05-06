@@ -14,11 +14,11 @@ namespace euco = euphoria::core;
 struct AlwaysExist : public FileSystemReadRoot
 {
 public:
-    std::shared_ptr<euco::MemoryChunk>
+    std::shared_ptr<euco::memory_chunk>
     ReadFile(const FilePath&) override
     {
         // alloc some garbage
-        return euco::MemoryChunk::Alloc(32);
+        return euco::memory_chunk::allocate(32);
     }
 
     void
@@ -37,10 +37,10 @@ public:
 struct NeverExist : public FileSystemReadRoot
 {
 public:
-    std::shared_ptr<euco::MemoryChunk>
+    std::shared_ptr<euco::memory_chunk>
     ReadFile(const FilePath&) override
     {
-        return euco::MemoryChunk::Null();
+        return euco::memory_chunk::null();
     }
 
     void

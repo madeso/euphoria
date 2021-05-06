@@ -10,7 +10,7 @@ namespace euphoria::core::vfs
         static void
         AddRoot(FileSystem* fs, const DirPath& base);
 
-        std::shared_ptr<MemoryChunk>
+        std::shared_ptr<memory_chunk>
         ReadFile(const FilePath& path) override;
 
         void

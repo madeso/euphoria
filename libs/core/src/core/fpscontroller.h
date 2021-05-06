@@ -28,7 +28,7 @@ namespace euphoria::core
         move_down(bool down);
 
         void
-        on_key(Key key, bool down);
+        on_key(key key, bool down);
 
         void
         update(float delta);

@@ -1,19 +1,20 @@
-#ifndef EUPHORIA_CORE_HISTORY_H
-#define EUPHORIA_CORE_HISTORY_H
+#pragma once
 
 #include <vector>
 
 #include "core/assert.h"
+#include "core/cint.h"
 
 namespace euphoria::core
 {
+    // stores the "last N" values of some type, where N is configurable
     template <typename T>
-    struct History
+    struct last_n
     {
-        explicit History(std::size_t s) : max(s) {}
+        explicit last_n(std::size_t s) : max(s) {}
 
         void
-        Push(const T& t)
+        push(const T& t)
         {
             if(d.size() == max)
             {
@@ -32,12 +33,11 @@ namespace euphoria::core
         [[nodiscard]] int
         size() const
         {
-            return d.size();
+            return Csizet_to_int(d.size());
         }
 
         std::vector<T> d;
-        std::size_t    max;
+        std::size_t max;
     };
 }
 
-#endif  // EUPHORIA_CORE_HISTORY_H

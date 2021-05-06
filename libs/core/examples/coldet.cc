@@ -40,7 +40,7 @@ struct plane_demo
         d.add_arrow(ray3f(vec3f::zero(), plane.normal), color::green);
         for (const auto& p : points)
         {
-            const auto dist = DistanceBetween(plane, p);
+            const auto dist = get_distance_between(plane, p);
             d.add_sphere(p, 0.1f, Abs(dist) < 0.01f ? color::yellow : (dist < 0 ? color::black : color::white));
         }
     }
@@ -54,10 +54,10 @@ struct plane_demo
         d.add_arrow(ray3f(vec3f::zero(), plane.normal), color::green);
         for (const auto& p : points)
         {
-            const auto dist = DistanceBetween(plane, p);
+            const auto dist = get_distance_between(plane, p);
             if (Abs(dist) < 0.01f) { continue; }
 
-            const auto pp = ClosestPoint(plane, p);
+            const auto pp = get_closest_point(plane, p);
             d.add_arrow(ray3f::from_to(p, pp), color::black);
         }
     }
@@ -91,7 +91,7 @@ struct ray_demo
 
         for (const auto p : points)
         {
-            const auto dist = DistanceBetween(ray.get_normalized(), p);
+            const auto dist = get_distance_between(ray.get_normalized(), p);
             d.add_sphere(p, 0.1f, dist < 0.001f ? color::white : color::black);
         }
     }
@@ -106,10 +106,10 @@ struct ray_demo
 
         for (const auto p : points)
         {
-            const auto dist = DistanceBetween(ray.get_normalized(), p);
+            const auto dist = get_distance_between(ray.get_normalized(), p);
             if (dist < 0.001f) { continue; }
 
-            const auto pp = ClosestPoint(ray.get_normalized(), p);
+            const auto pp = get_closest_point(ray.get_normalized(), p);
             d.add_arrow(ray3f::from_to(p, pp), color::red);
         }
     }
@@ -132,7 +132,7 @@ ray_sphere()
         const auto ray = ray3f(vec3f(rayX, rayY, rayZ), vec3f(normX, normY, normZ).get_normalized());
         const auto sphere = ::sphere{rad};
         const auto sphere_center = vec3f(sphereX, sphereY, sphereZ);
-        const auto collision = GetIntersection(ray.get_normalized(), sphere, sphere_center);
+        const auto collision = get_intersection(ray.get_normalized(), sphere, sphere_center);
         const auto collided = collision >= 0.0f;
         if(collided != res)
         {

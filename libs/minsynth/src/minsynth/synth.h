@@ -90,21 +90,21 @@ namespace euphoria::minsynth
     }
 
     std::string
-    ToString(Tuning t);
+    to_string(Tuning t);
 
     std::string
-    ToString(ChordEmulation em);
+    to_string(ChordEmulation em);
 
 
     std::string
     MidiEventToString(MidiEvent e);
 
     std::string
-    ToString(ArpMode mode);
+    to_string(ArpMode mode);
 
 
     std::string
-    ToString(OscilatorType osc);
+    to_string(OscilatorType osc);
 
     float
     TuningToBaseFrequency(Tuning t);
@@ -188,10 +188,10 @@ namespace euphoria::minsynth
 
     struct PianoKey
     {
-        PianoKey(int st, core::Key kc, const std::string& n, int octave);
+        PianoKey(int st, core::key kc, const std::string& n, int octave);
 
         int semitone;
-        core::Key keycode;
+        core::key keycode;
         std::string name;
 
         bool octave_shift;
@@ -245,7 +245,7 @@ namespace euphoria::minsynth
         ) const;
 
         void
-        OnInput(core::Key input, bool was_pressed, float time);
+        OnInput(core::key input, bool was_pressed, float time);
     };
 
 
@@ -394,7 +394,7 @@ namespace euphoria::minsynth
     };
 
 
-    using KeyboardLayout = std::vector<std::vector<core::Key>>;
+    using KeyboardLayout = std::vector<std::vector<core::key>>;
 
 
     const KeyboardLayout&

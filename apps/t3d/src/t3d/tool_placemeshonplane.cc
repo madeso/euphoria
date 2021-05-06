@@ -41,7 +41,7 @@ namespace euphoria::t3d
                                 editor->viewport.ToClipCoord(editor->mouse))
                         .get_normalized();
 
-        const auto t = core::GetIntersection(ray, plane);
+        const auto t = core::get_intersection(ray, plane);
 
         // LOG_INFO("Step " << editor->mouse << ", " << t);
 
@@ -69,20 +69,20 @@ namespace euphoria::t3d
             return;
         switch(button)
         {
-        case core::MouseButton::LEFT: editor->tools.PopTool(); break;
+        case core::MouseButton::left: editor->tools.PopTool(); break;
         default: break;
         }
     }
 
 
     void
-    PlaceMeshOnPlane::OnKey(Editor* editor, core::Key key, bool down)
+    PlaceMeshOnPlane::OnKey(Editor* editor, core::key key, bool down)
     {
         if(down)
             return;
         switch(key)
         {
-        case core::Key::RETURN: editor->tools.PopTool(); break;
+        case core::key::return_key: editor->tools.PopTool(); break;
         default: break;
         }
     }

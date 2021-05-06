@@ -25,7 +25,7 @@ LoadImages(const std::vector<std::string>& files)
 
     for(const auto& f: files)
     {
-        auto chunk = io::FileToChunk(f);
+        auto chunk = io::file_to_chunk(f);
         if(chunk == nullptr)
         {
             std::cerr << "failed to read " << f << "\n";
@@ -91,7 +91,7 @@ HandleGrid
 
     // save image to out
     auto saved_chunk = composed_image.write(image_write_format::png);
-    io::ChunkToFile(saved_chunk, output_file);
+    io::chunk_to_file(saved_chunk, output_file);
 
     return true;
 }
@@ -149,7 +149,7 @@ HandlePack
 
     // save image to out
     auto saved_chunk = composed_image.write(image_write_format::png);
-    io::ChunkToFile(saved_chunk, output_file);
+    io::chunk_to_file(saved_chunk, output_file);
 
     return true;
 }

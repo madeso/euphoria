@@ -4,81 +4,81 @@
 
 namespace euphoria::core
 {
-    IdGenerator::IdGenerator() : current_(1) {}
+    id_generator::id_generator() : current_(1) {}
 
-    IdGenerator::ID
-    IdGenerator::Generate()
+    id_generator::id
+    id_generator::generate()
     {
         if(released_.empty())
         {
-            const ID value = current_;
+            const id value = current_;
             ++current_;
             return value;
         }
         else
         {
-            const ID value = *released_.rbegin();
+            const id value = *released_.rbegin();
             released_.pop_back();
             return value;
         }
     }
 
     void
-    IdGenerator::Release(IdGenerator::ID id)
+    id_generator::release(id_generator::id id)
     {
         released_.push_back(id);
     }
 
     ////////////////////////////////////////////////////////////////////////////////
 
-    Id::Id() : value_(0), generator_(nullptr) {}
+    id::id() : value_(0), generator_(nullptr) {}
 
     namespace
     {
-        IdGenerator::ID
-        GenerateId(IdGenerator* generator)
+        id_generator::id
+        generate_id(id_generator* generator)
         {
             ASSERT(generator);
-            return generator->Generate();
+            return generator->generate();
         }
     }  // namespace
 
-    Id::Id(IdGenerator* generator)
-        : value_(GenerateId(generator)), generator_(generator)
+    id::id(id_generator* generator)
+        : value_(generate_id(generator)), generator_(generator)
     {}
 
-    const Id&
-    Id::Invalid()
+    const id&
+    id::Invalid()
     {
-        static Id InvalidValue;
-        ASSERT(!InvalidValue.IsValid());
+        static id InvalidValue;
+        ASSERT(!InvalidValue.is_valid());
         return InvalidValue;
     }
 
-    Id::~Id()
+    id::~id()
     {
-        generator_->Release(value_);
+        generator_->release(value_);
     }
 
     bool
-    Id::IsValid() const
+    id::is_valid() const
     {
         return value_ > 0 && generator_ != nullptr;
     }
 
     void
-    Id::Generate(IdGenerator* generator)
+    id::generate(id_generator* generator)
     {
-        ASSERT(!IsValid());
+        ASSERT(!is_valid());
         ASSERT(generator);
-        value_     = generator->Generate();
+        value_     = generator->generate();
         generator_ = generator;
     }
 
-    IdGenerator::ID
-    Id::GetValue() const
+    id_generator::id
+    id::get_value() const
     {
-        ASSERT(IsValid());
+        ASSERT(is_valid());
         return value_;
     }
 

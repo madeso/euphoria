@@ -164,7 +164,7 @@ namespace euphoria::render
     void
     ConvertPointsToVertexBuffer
     (
-        const std::vector<core::MeshPoint>& points,
+        const std::vector<core::mesh_point>& points,
         const std::vector<ShaderAttribute>& attributes,
         VertexBuffer* vb
     )
@@ -217,7 +217,7 @@ namespace euphoria::render
 
 
     void
-    ConvertTrisToIndexBuffer(const std::vector<core::MeshFace>& faces, IndexBuffer* b)
+    ConvertTrisToIndexBuffer(const std::vector<core::mesh_face>& faces, IndexBuffer* b)
     {
         std::vector<unsigned int> data;
         data.reserve(faces.size() * 3);
@@ -233,7 +233,7 @@ namespace euphoria::render
     std::shared_ptr<CompiledMesh>
     CompileMesh
     (
-        const core::Mesh& mesh,
+        const core::mesh& mesh,
         MaterialShaderCache* shader_cache,
         TextureCache* texture_cache,
         const core::vfs::DirPath& texture_folder,

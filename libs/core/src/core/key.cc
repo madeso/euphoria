@@ -12,28 +12,32 @@ namespace euphoria::core
     namespace
     {
         template <typename T>
-        struct Keyname
+        struct keynamer
         {
-        public:
-            Keyname(T unbound, T invalid) : invalid_(invalid), unbound_(unbound)
+            keynamer(T unbound, T invalid)
+                : invalid_key(invalid)
+                , unbound_key(unbound)
             {
-                (*this)(invalid_, "<invalid>")(unbound_, "<unbound>");
+                (*this)
+                    (invalid_key, "<invalid>")
+                    (unbound_key, "<unbound>")
+                    ;
             }
 
-            Keyname&
+            keynamer&
             operator()(T key, const std::string& name)
             {
-                strtokey.insert(std::make_pair(ToLower(name), key));
-                keytostr.insert(std::make_pair(key, name));
+                string_to_key.insert(std::make_pair(ToLower(name), key));
+                key_to_string.insert(std::make_pair(key, name));
 
                 return *this;
             }
 
             [[nodiscard]] std::string
-            FromKey(T key) const
+            from_key_to_string(T key) const
             {
-                auto r = keytostr.find(key);
-                if(r == keytostr.end())
+                auto r = key_to_string.find(key);
+                if(r == key_to_string.end())
                 {
                     return "Unknown";
                 }
@@ -44,16 +48,16 @@ namespace euphoria::core
             }
 
             [[nodiscard]] T
-            FromString(const std::string& keyname) const
+            from_string_to_key(const std::string& name) const
             {
-                if(keyname.empty())
+                if(name.empty())
                 {
-                    return unbound_;
+                    return unbound_key;
                 }
-                auto r = strtokey.find(ToLower(keyname));
-                if(r == strtokey.end())
+                auto r = string_to_key.find(ToLower(name));
+                if(r == string_to_key.end())
                 {
-                    return invalid_;
+                    return invalid_key;
                 }
                 else
                 {
@@ -61,181 +65,294 @@ namespace euphoria::core
                 }
             }
 
-            std::map<std::string, T> strtokey;
-            std::map<T, std::string> keytostr;
-            const T                  invalid_;
-            const T                  unbound_;
+            std::map<std::string, T> string_to_key;
+            std::map<T, std::string> key_to_string;
+            const T                  invalid_key;
+            const T                  unbound_key;
         };
 
-        const Keyname<Key>&
-        AllKeys()
+        const keynamer<key>&
+        all_keys()
         {
-            static Keyname<Key> Names = Keyname<Key>(
-                    Key::UNBOUND, Key::INVALID)(Key::RETURN, "Return")(
-                    Key::ESCAPE, "Escape")(Key::BACKSPACE, "Backspace")(
-                    Key::TAB, "Tab")(Key::SPACE, "Space")(
-                    Key::EXCLAIM, "Exclaim")(Key::QUOTEDBL, "Quotedbl")(
-                    Key::HASH, "Hash")(Key::PERCENT, "Percent")(
-                    Key::DOLLAR, "Dollar")(Key::AMPERSAND, "Ampersand")(
-                    Key::QUOTE, "Quote")(Key::LEFT_PAREN, "Leftparen")(
-                    Key::RIGHT_PAREN, "Rightparen")(Key::ASTERIX, "Asterisk")(
-                    Key::PLUS, "Plus")(Key::COMMA, "Comma")(
-                    Key::MINUS, "Minus")(Key::PERIOD, "Period")(
-                    Key::SLASH, "Slash")(Key::NUM_0, "Num0")(
-                    Key::NUM_1, "Num1")(Key::NUM_2, "Num2")(Key::NUM_3, "Num3")(
-                    Key::NUM_4, "Num4")(Key::NUM_5, "Num5")(Key::NUM_6, "Num6")(
-                    Key::NUM_7, "Num7")(Key::NUM_8, "Num8")(Key::NUM_9, "Num9")(
-                    Key::COLON, "Colon")(Key::SEMICOLON, "Semicolon")(
-                    Key::LESS, "Less")(Key::EQUALS, "Equals")(
-                    Key::GREATER, "Greater")(Key::QUESTION, "Question")(
-                    Key::AT, "At")(Key::LEFT_BRACKET, "Leftbracket")(
-                    Key::BACKSLASH, "Backslash")(
-                    Key::RIGHT_BRACKET, "Rightbracket")(Key::CARET, "Caret")(
-                    Key::UNDERSCORE, "Underscore")(Key::BACKQUOTE, "Backquote")(
-                    Key::A, "A")(Key::B, "B")(Key::C, "C")(Key::D, "D")(
-                    Key::E, "E")(Key::F, "F")(Key::G, "G")(Key::H, "H")(
-                    Key::I, "I")(Key::J, "J")(Key::K, "K")(Key::L, "L")(
-                    Key::M, "M")(Key::N, "N")(Key::O, "O")(Key::P, "P")(
-                    Key::Q, "Q")(Key::R, "R")(Key::S, "S")(Key::T, "T")(
-                    Key::U, "U")(Key::V, "V")(Key::W, "W")(Key::X, "X")(
-                    Key::Y, "Y")(Key::Z, "Z")(Key::CAPSLOCK, "Capslock")(
-                    Key::F1, "F1")(Key::F2, "F2")(Key::F3, "F3")(Key::F4, "F4")(
-                    Key::F5, "F5")(Key::F6, "F6")(Key::F7, "F7")(Key::F8, "F8")(
-                    Key::F9, "F9")(Key::F10, "F10")(Key::F11, "F11")(
-                    Key::F12, "F12")(Key::PRINTSCREEN, "Printscreen")(
-                    Key::SCROLLLOCK, "Scrolllock")(Key::PAUSE, "Pause")(
-                    Key::INSERT, "Insert")(Key::HOME, "Home")(
-                    Key::PAGEUP, "Pageup")(Key::DELETE, "Delete")(
-                    Key::END, "End")(Key::PAGEDOWN, "Pagedown")(
-                    Key::RIGHT, "Right")(Key::LEFT, "Left")(Key::DOWN, "Down")(
-                    Key::UP, "Up")(Key::NUMLOCK_CLEAR, "Numlockclear")(
-                    Key::KEYPAD_DIVIDE, "Kp_Divide")(
-                    Key::KEYPAD_MULTIPLY, "Kp_Multiply")(
-                    Key::KEYPAD_MINUS, "Kp_Minus")(Key::KEYPAD_PLUS, "Kp_Plus")(
-                    Key::KEYPAD_ENTER, "Kp_Enter")(Key::KEYPAD_1, "Kp_1")(
-                    Key::KEYPAD_2, "Kp_2")(Key::KEYPAD_3, "Kp_3")(
-                    Key::KEYPAD_4, "Kp_4")(Key::KEYPAD_5, "Kp_5")(
-                    Key::KEYPAD_6, "Kp_6")(Key::KEYPAD_7, "Kp_7")(
-                    Key::KEYPAD_8, "Kp_8")(Key::KEYPAD_9, "Kp_9")(
-                    Key::KEYPAD_0, "Kp_0")(Key::KEYPAD_PERIOD, "Kp_Period")(
-                    Key::APPLICATION, "Application")(Key::POWER, "Power")(
-                    Key::KEYPAD_EQUALS, "Kp_Equals")(Key::F13, "F13")(
-                    Key::F14, "F14")(Key::F15, "F15")(Key::F16, "F16")(
-                    Key::F17, "F17")(Key::F18, "F18")(Key::F19, "F19")(
-                    Key::F20, "F20")(Key::F21, "F21")(Key::F22, "F22")(
-                    Key::F23, "F23")(Key::F24, "F24")(Key::EXECUTE, "Execute")(
-                    Key::HELP, "Help")(Key::MENU, "Menu")(
-                    Key::SELECT, "Select")(Key::STOP, "Stop")(
-                    Key::AGAIN, "Again")(Key::UNDO, "Undo")(Key::CUT, "Cut")(
-                    Key::COPY, "Copy")(Key::PASTE, "Paste")(Key::FIND, "Find")(
-                    Key::MUTE, "Mute")(Key::VOLUME_UP, "Volumeup")(
-                    Key::VOLUME_DOWN, "Volumedown")(
-                    Key::KEYPAD_COMMA, "Kp_Comma")(
-                    Key::KEYPAD_EQUALS_AS_400, "Kp_Equalsas400")(
-                    Key::ALT_ERASE, "Alterase")(Key::SYSREQ, "Sysreq")(
-                    Key::CANCEL, "Cancel")(Key::CLEAR, "Clear")(
-                    Key::PRIOR, "Prior")(Key::SECOND_RETURN, "Return2")(
-                    Key::SEPARATOR, "Separator")(Key::OUT, "Out")(
-                    Key::OPER, "Oper")(Key::CLEAR_AGAIN, "Clearagain")(
-                    Key::CRSEL, "Crsel")(Key::EXSEL, "Exsel")(
-                    Key::KEYPAD_00, "Kp_00")(Key::KEYPAD_000, "Kp_000")(
-                    Key::THOUSANDSEPARATOR, "Thousandsseparator")(
-                    Key::DECIMALSEPARATOR, "Decimalseparator")(
-                    Key::CURRENCY_UNIT, "Currencyunit")(
-                    Key::CURRENCY_SUBUNIT, "Currencysubunit")(
-                    Key::KEYPAD_LEFTPAREN, "Kp_Leftparen")(
-                    Key::KEYPAD_RIGHTPAREN, "Kp_Rightparen")(
-                    Key::KEYPAD_LEFTBRACE, "Kp_Leftbrace")(
-                    Key::KEYPAD_RIGHTBRACE, "Kp_Rightbrace")(
-                    Key::KEYPAD_TAB, "Kp_Tab")(
-                    Key::KEYPAD_BACKSPACE, "Kp_Backspace")(
-                    Key::KEYPAD_A, "Kp_A")(Key::KEYPAD_B, "Kp_B")(
-                    Key::KEYPAD_C, "Kp_C")(Key::KEYPAD_D, "Kp_D")(
-                    Key::KEYPAD_E, "Kp_E")(Key::KEYPAD_F, "Kp_F")(
-                    Key::KEYPAD_XOR, "Kp_Xor")(Key::KEYPAD_POWER, "Kp_Power")(
-                    Key::KEYPAD_PERCENT, "Kp_Percent")(
-                    Key::KEYPAD_LESS, "Kp_Less")(
-                    Key::KEYPAD_GREATER, "Kp_Greater")(
-                    Key::KEYPAD_AMPERSAND, "Kp_Ampersand")(
-                    Key::KEYPAD_DOUBLE_AMPERSAND, "Kp_Dblampersand")(
-                    Key::KEYPAD_VERTICAL_BAR, "Kp_Verticalbar")(
-                    Key::KEYPAD_DOUBLE_VERTICLE_BAR, "Kp_Dblverticalbar")(
-                    Key::KEYPAD_COLON, "Kp_Colon")(Key::KEYPAD_HASH, "Kp_Hash")(
-                    Key::KEYPAD_SPACE, "Kp_Space")(Key::KEYPAD_AT, "Kp_At")(
-                    Key::KEYPAD_EXCLAM, "Kp_Exclam")(
-                    Key::KEYPAD_MEM_STORE, "Kp_Memstore")(
-                    Key::KEYPAD_MEM_RECALL, "Kp_Memrecall")(
-                    Key::KEYPAD_MEM_CLEAR, "Kp_Memclear")(
-                    Key::KEYPAD_MEM_ADD, "Kp_Memadd")(
-                    Key::KEYPAD_MEM_SUBTRACT, "Kp_Memsubtract")(
-                    Key::KEYPAD_MEM_MULTIPLY, "Kp_Memmultiply")(
-                    Key::KEYPAD_MEM_DIVIDE, "Kp_Memdivide")(
-                    Key::KEYPAD_PLUS_MINUS, "Kp_Plusminus")(
-                    Key::KEYPAD_CLEAR, "Kp_Clear")(
-                    Key::KEYPAD_CLEAR_ENTRY, "Kp_Clearentry")(
-                    Key::KEYPAD_BINARY, "Kp_Binary")(
-                    Key::KEYPAD_OCTAL, "Kp_Octal")(
-                    Key::KEYPAD_DECIMAL, "Kp_Decimal")(
-                    Key::KEYPAD_HEXADECIMAL, "Kp_Hexadecimal")(
-                    Key::CTRL_LEFT, "Lctrl")(Key::SHIFT_LEFT, "Lshift")(
-                    Key::ALT_LEFT, "Lalt")(Key::GUI_LEFT, "Lgui")(
-                    Key::CTRL_RIGHT, "Rctrl")(Key::SHIFT_RIGHT, "Rshift")(
-                    Key::ALT_RIGHT, "Ralt")(Key::GUI_RIGHT, "Rgui")(
-                    Key::MODE, "Mode")(Key::AUDIO_NEXT, "Audionext")(
-                    Key::AUDIO_PREV, "Audioprev")(Key::AUDIO_STOP, "Audiostop")(
-                    Key::AUDIO_PLAY, "Audioplay")(Key::AUDIO_MUTE, "Audiomute")(
-                    Key::MEDIASELECT, "Mediaselect")(Key::WWW, "Www")(
-                    Key::MAIL, "Mail")(Key::CALCULATOR, "Calculator")(
-                    Key::COMPUTER, "Computer")(Key::AC_SEARCH, "Ac_Search")(
-                    Key::AC_HOME, "Ac_Home")(Key::AC_BACK, "Ac_Back")(
-                    Key::AC_FORWARD, "Ac_Forward")(Key::AC_STOP, "Ac_Stop")(
-                    Key::AC_REFRESH, "Ac_Refresh")(
-                    Key::AC_BOOKMARKS, "Ac_Bookmarks")(
-                    Key::BRIGHTNESS_DOWN, "Brightnessdown")(
-                    Key::BRIGHTNESS_UP, "Brightnessup")(
-                    Key::DISPLAYSWITCH, "Displayswitch")(
-                    Key::KEYBOARD_ILLUM_TOGGLE, "Kbdillumtoggle")(
-                    Key::KEYBOARD_ILLUM_DOWN, "Kbdillumdown")(
-                    Key::KEYBOARD_ILLUM_UP, "Kbdillumup")(Key::EJECT, "Eject")(
-                    Key::SLEEP, "Sleep");
-            return Names;
+            static keynamer<key> keys = keynamer<key>
+                (key::unbound, key::invalid)
+                (key::return_key, "Return")
+                (key::escape, "Escape")
+                (key::backspace, "Backspace")
+                (key::tab, "Tab")
+                (key::space, "Space")
+                (key::exclaim, "Exclaim")
+                (key::quotedbl, "Quotedbl")
+                (key::hash, "Hash")
+                (key::percent, "Percent")
+                (key::dollar, "Dollar")
+                (key::ampersand, "Ampersand")
+                (key::quote, "Quote")
+                (key::left_paren, "Leftparen")
+                (key::right_paren, "Rightparen")
+                (key::asterix, "Asterisk")
+                (key::plus, "Plus")
+                (key::comma, "Comma")
+                (key::minus, "Minus")
+                (key::period, "Period")
+                (key::slash, "Slash")
+                (key::num_0, "Num0")
+                (key::num_1, "Num1")
+                (key::num_2, "Num2")
+                (key::num_3, "Num3")
+                (key::num_4, "Num4")
+                (key::num_5, "Num5")
+                (key::num_6, "Num6")
+                (key::num_7, "Num7")
+                (key::num_8, "Num8")
+                (key::num_9, "Num9")
+                (key::colon, "Colon")
+                (key::semicolon, "Semicolon")
+                (key::less, "Less")
+                (key::equals, "Equals")
+                (key::greater, "Greater")
+                (key::question, "Question")
+                (key::at, "At")
+                (key::left_bracket, "Leftbracket")
+                (key::backslash, "Backslash")
+                (key::right_bracket, "Rightbracket")
+                (key::caret, "Caret")
+                (key::underscore, "Underscore")
+                (key::backquote, "Backquote")
+                (key::a, "A")
+                (key::b, "B")
+                (key::c, "C")
+                (key::d, "D")
+                (key::e, "E")
+                (key::f, "F")
+                (key::g, "G")
+                (key::h, "H")
+                (key::i, "I")
+                (key::j, "J")
+                (key::k, "K")
+                (key::l, "L")
+                (key::m, "M")
+                (key::n, "N")
+                (key::o, "O")
+                (key::p, "P")
+                (key::q, "Q")
+                (key::r, "R")
+                (key::s, "S")
+                (key::t, "T")
+                (key::u, "U")
+                (key::v, "V")
+                (key::w, "W")
+                (key::x, "X")
+                (key::y, "Y")
+                (key::z, "Z")
+                (key::capslock, "Capslock")
+                (key::f1, "F1")
+                (key::f2, "F2")
+                (key::f3, "F3")
+                (key::f4, "F4")
+                (key::f5, "F5")
+                (key::f6, "F6")
+                (key::f7, "F7")
+                (key::f8, "F8")
+                (key::f9, "F9")
+                (key::f10, "F10")
+                (key::f11, "F11")
+                (key::f12, "F12")
+                (key::print_screen, "Printscreen")
+                (key::scroll_lock, "Scrolllock")
+                (key::pause, "Pause")
+                (key::insert, "Insert")
+                (key::home, "Home")
+                (key::page_up, "Pageup")
+                (key::delete_key, "Delete")
+                (key::end, "End")
+                (key::page_down, "Pagedown")
+                (key::right, "Right")
+                (key::left, "Left")
+                (key::down, "Down")
+                (key::up, "Up")
+                (key::numlock_clear, "Numlockclear")
+                (key::keypad_divide, "Kp_Divide")
+                (key::keypad_multiply, "Kp_Multiply")
+                (key::keypad_minus, "Kp_Minus")
+                (key::keypad_plus, "Kp_Plus")
+                (key::keypad_enter, "Kp_Enter")
+                (key::keypad_1, "Kp_1")
+                (key::keypad_2, "Kp_2")
+                (key::keypad_3, "Kp_3")
+                (key::keypad_4, "Kp_4")
+                (key::keypad_5, "Kp_5")
+                (key::keypad_6, "Kp_6")
+                (key::keypad_7, "Kp_7")
+                (key::keypad_8, "Kp_8")
+                (key::keypad_9, "Kp_9")
+                (key::keypad_0, "Kp_0")
+                (key::keypad_period, "Kp_Period")
+                (key::application, "Application")
+                (key::power, "Power")
+                (key::keypad_equals, "Kp_Equals")
+                (key::f13, "F13")
+                (key::f14, "F14")
+                (key::f15, "F15")
+                (key::f16, "F16")
+                (key::f17, "F17")
+                (key::f18, "F18")
+                (key::f19, "F19")
+                (key::f20, "F20")
+                (key::f21, "F21")
+                (key::f22, "F22")
+                (key::f23, "F23")
+                (key::f24, "F24")
+                (key::execute, "Execute")
+                (key::help, "Help")
+                (key::menu, "Menu")
+                (key::select, "Select")
+                (key::stop, "Stop")
+                (key::again, "Again")
+                (key::undo, "Undo")
+                (key::cut, "Cut")
+                (key::copy, "Copy")
+                (key::paste, "Paste")
+                (key::find, "Find")
+                (key::mute, "Mute")
+                (key::volume_up, "Volumeup")
+                (key::volume_down, "Volumedown")
+                (key::keypad_comma, "Kp_Comma")
+                (key::keypad_equals_as_400, "Kp_Equalsas400")
+                (key::alt_erase, "Alterase")
+                (key::sysreq, "Sysreq")
+                (key::cancel, "Cancel")
+                (key::clear, "Clear")
+                (key::prior, "Prior")
+                (key::second_return, "Return2")
+                (key::separator, "Separator")
+                (key::out, "Out")
+                (key::oper, "Oper")
+                (key::clear_again, "Clearagain")
+                (key::crsel, "Crsel")
+                (key::exsel, "Exsel")
+                (key::keypad_00, "Kp_00")
+                (key::keypad_000, "Kp_000")
+                (key::thousandseparator, "Thousandsseparator")
+                (key::decimalseparator, "Decimalseparator")
+                (key::currency_unit, "Currencyunit")
+                (key::currency_subunit, "Currencysubunit")
+                (key::keypad_leftparen, "Kp_Leftparen")
+                (key::keypad_rightparen, "Kp_Rightparen")
+                (key::keypad_leftbrace, "Kp_Leftbrace")
+                (key::keypad_rightbrace, "Kp_Rightbrace")
+                (key::keypad_tab, "Kp_Tab")
+                (key::keypad_backspace, "Kp_Backspace")
+                (key::keypad_a, "Kp_A")
+                (key::keypad_b, "Kp_B")
+                (key::keypad_c, "Kp_C")
+                (key::keypad_d, "Kp_D")
+                (key::keypad_e, "Kp_E")
+                (key::keypad_f, "Kp_F")
+                (key::keypad_xor, "Kp_Xor")
+                (key::keypad_power, "Kp_Power")
+                (key::keypad_percent, "Kp_Percent")
+                (key::keypad_less, "Kp_Less")
+                (key::keypad_greater, "Kp_Greater")
+                (key::keypad_ampersand, "Kp_Ampersand")
+                (key::keypad_double_ampersand, "Kp_Dblampersand")
+                (key::keypad_vertical_bar, "Kp_Verticalbar")
+                (key::keypad_double_verticle_bar, "Kp_Dblverticalbar")
+                (key::keypad_colon, "Kp_Colon")
+                (key::keypad_hash, "Kp_Hash")
+                (key::keypad_space, "Kp_Space")
+                (key::keypad_at, "Kp_At")
+                (key::keypad_exclam, "Kp_Exclam")
+                (key::keypad_mem_store, "Kp_Memstore")
+                (key::keypad_mem_recall, "Kp_Memrecall")
+                (key::keypad_mem_clear, "Kp_Memclear")
+                (key::keypad_mem_add, "Kp_Memadd")
+                (key::keypad_mem_subtract, "Kp_Memsubtract")
+                (key::keypad_mem_multiply, "Kp_Memmultiply")
+                (key::keypad_mem_divide, "Kp_Memdivide")
+                (key::keypad_plus_minus, "Kp_Plusminus")
+                (key::keypad_clear, "Kp_Clear")
+                (key::keypad_clear_entry, "Kp_Clearentry")
+                (key::keypad_binary, "Kp_Binary")
+                (key::keypad_octal, "Kp_Octal")
+                (key::keypad_decimal, "Kp_Decimal")
+                (key::keypad_hexadecimal, "Kp_Hexadecimal")
+                (key::ctrl_left, "Lctrl")
+                (key::shift_left, "Lshift")
+                (key::alt_left, "Lalt")
+                (key::gui_left, "Lgui")
+                (key::ctrl_right, "Rctrl")
+                (key::shift_right, "Rshift")
+                (key::alt_right, "Ralt")
+                (key::gui_right, "Rgui")
+                (key::mode, "Mode")
+                (key::audio_next, "Audionext")
+                (key::audio_prev, "Audioprev")
+                (key::audio_stop, "Audiostop")
+                (key::audio_play, "Audioplay")
+                (key::audio_mute, "Audiomute")
+                (key::media_select, "Mediaselect")
+                (key::www, "Www")
+                (key::mail, "Mail")
+                (key::calculator, "Calculator")
+                (key::computer, "Computer")
+                (key::ac_search, "Ac_Search")
+                (key::ac_home, "Ac_Home")
+                (key::ac_back, "Ac_Back")
+                (key::ac_forward, "Ac_Forward")
+                (key::ac_stop, "Ac_Stop")
+                (key::ac_refresh, "Ac_Refresh")
+                (key::ac_bookmarks, "Ac_Bookmarks")
+                (key::brightness_down, "Brightnessdown")
+                (key::brightness_up, "Brightnessup")
+                (key::displayswitch, "Displayswitch")
+                (key::keyboard_illum_toggle, "Kbdillumtoggle")
+                (key::keyboard_illum_down, "Kbdillumdown")
+                (key::keyboard_illum_up, "Kbdillumup")
+                (key::eject, "Eject")
+                (key::sleep, "Sleep")
+                ;
+            return keys;
         }
 
-        const Keyname<MouseButton>&
-        AllMouseButtons()
+        const keynamer<MouseButton>&
+        all_mouse_buttons()
         {
-            static Keyname<MouseButton> Buttons = Keyname<MouseButton>(
-                    MouseButton::UNBOUND, MouseButton::INVALID)(
-                    MouseButton::LEFT, "left")(MouseButton::MIDDLE, "middle")(
-                    MouseButton::RIGHT, "right")(MouseButton::X1, "x1")(
-                    MouseButton::X2, "x2");
-            return Buttons;
+            static keynamer<MouseButton> buttons = keynamer<MouseButton>
+                (MouseButton::unbound, MouseButton::invalid)
+                (MouseButton::left, "left")
+                (MouseButton::middle, "middle")
+                (MouseButton::right, "right")
+                (MouseButton::x1, "x1")
+                (MouseButton::x2, "x2")
+                ;
+            return buttons;
         }
 
     }  // namespace
 
     std::string
-    ToString(Key k)
+    to_string(key k)
     {
-        return AllKeys().FromKey(k);
+        return all_keys().from_key_to_string(k);
     }
 
-    Key
-    ToKey(const std::string& keyname)
+    key
+    to_key(const std::string& name)
     {
-        return AllKeys().FromString(keyname);
+        return all_keys().from_string_to_key(name);
     }
 
     std::string
-    ToString(MouseButton k)
+    to_string(MouseButton button)
     {
-        return AllMouseButtons().FromKey(k);
+        return all_mouse_buttons().from_key_to_string(button);
     }
 
     MouseButton
-    ToMouseButton(const std::string& keyname)
+    to_mouse_button(const std::string& button)
     {
-        return AllMouseButtons().FromString(keyname);
+        return all_mouse_buttons().from_string_to_key(button);
     }
 
-}  // namespace euphoria::core
+}

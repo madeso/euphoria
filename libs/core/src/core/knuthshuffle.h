@@ -1,9 +1,9 @@
-#ifndef CORE_KNUTH_SHUFFLE_H
-#define CORE_KNUTH_SHUFFLE_H
+#pragma once
 
 #include <vector>
 
 #include "core/random.h"
+#include "core/cint.h"
 
 namespace euphoria::core
 {
@@ -15,9 +15,9 @@ namespace euphoria::core
 
     template <typename T>
     void
-    KnuthShuffle(std::vector<T>* v, Random* r)
+    knuth_shuffle(std::vector<T>* v, Random* r)
     {
-        for(int i = v->size() - 1; i > 0; --i)
+        for(int i = Csizet_to_int(v->size()) - 1; i > 0; --i)
         {
             const auto j = r->NextRange(i + 1);  // 0 ≤ j ≤ i
             if(j != i)
@@ -27,6 +27,4 @@ namespace euphoria::core
         }
     }
 
-}  // namespace euphoria::core
-
-#endif  // CORE_KNUTH_SHUFFLE_H
+}

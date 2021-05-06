@@ -12,6 +12,7 @@
 #include "core/cint.h"
 #include "core/str.h"
 #include "core/texturetypes.h"
+#include "core/functional.h"
 #include "core/proto.h"
 #include "core/log.h"
 #include "core/stringmerger.h"
@@ -24,10 +25,7 @@
 
 namespace euphoria::core
 {
-    LOG_SPECIFY_DEFAULT_LOGGER("core.mesh")
-
-
-    MeshPoint::MeshPoint
+    mesh_point::mesh_point
     (
         const vec3f& a_vertex,
         const vec3f& a_normal,
@@ -39,29 +37,17 @@ namespace euphoria::core
     {}
 
 
-    MeshFace::MeshFace(int a_a, int a_b, int a_c)
+    mesh_face::mesh_face(int a_a, int a_b, int a_c)
         : a(a_a)
         , b(a_b)
         , c(a_c)
-    {}
-
-
-    template <typename K, typename V>
-    std::vector<K>
-    KeysOf(const std::map<K, V>& m)
     {
-        std::vector<K> r;
-        for(const auto& p: m)
-        {
-            r.emplace_back(p.first);
-        }
-        return r;
     }
 
-    MeshPart::MeshPart() : material(0) {}
+    mesh_part::mesh_part() : material(0) {}
 
     aabb
-    MeshPart::CalculateAabb() const
+    mesh_part::calculate_aabb() const
     {
         aabb aabb = aabb::Empty();
 
@@ -74,13 +60,13 @@ namespace euphoria::core
     }
 
 
-    MaterialTexture::MaterialTexture(const vfs::FilePath& p, enum_value t)
+    material_texture::material_texture(const vfs::FilePath& p, enum_value t)
         : path(p)
         , type(t)
     {}
 
 
-    Material::Material()
+    material::material()
         : name("unknown_material")
         , shader(std::nullopt)
         , ambient(color::white)
@@ -88,13 +74,13 @@ namespace euphoria::core
         , specular(color::white)
         , shininess(42.0f)
         , alpha(1.0f)
-        , wraps(WrapMode::REPEAT)
-        , wrapt(WrapMode::REPEAT)
+        , wrap_s(wrap_mode::repeat)
+        , wrap_t(wrap_mode::repeat)
     {}
 
 
     void
-    Material::SetTexture
+    material::set_texture
     (
         const std::string& texture_name,
         const vfs::FilePath& texture_path
@@ -106,13 +92,13 @@ namespace euphoria::core
 
 
     aabb
-    Mesh::CalculateAabb() const
+    mesh::calculate_aabb() const
     {
         aabb aabb = aabb::Empty();
 
         for(const auto& part: parts)
         {
-            aabb.extend(part.CalculateAabb());
+            aabb.extend(part.calculate_aabb());
         }
 
         return aabb;
@@ -127,7 +113,7 @@ namespace euphoria::core
 
     namespace
     {
-        const unsigned int AssimpFlags
+        constexpr unsigned int assimp_flags
                 = aiProcess_CalcTangentSpace
                 | aiProcess_Triangulate
                 | aiProcess_SortByPType
@@ -144,16 +130,16 @@ namespace euphoria::core
                 | aiProcess_GenSmoothNormals
                 | aiProcess_FindInvalidData;
 
-        WrapMode
-        GetTextureWrappingMode(const int mode)
+        wrap_mode
+        get_texture_wrapping_mode(const int mode)
         {
             switch(mode)
             {
-            case aiTextureMapMode_Wrap: return WrapMode::REPEAT;
-            case aiTextureMapMode_Clamp: return WrapMode::CLAMP_TO_EDGE;
+            case aiTextureMapMode_Wrap: return wrap_mode::repeat;
+            case aiTextureMapMode_Clamp: return wrap_mode::clamp_to_edge;
             case aiTextureMapMode_Decal:
                 throw "Unsupported texture wrapping mode: decal";
-            case aiTextureMapMode_Mirror: return WrapMode::MIRROR_REPEAT;
+            case aiTextureMapMode_Mirror: return wrap_mode::mirror_repeat;
             default: throw "Unhandled texture wrapping mode";
             }
         }
@@ -167,7 +153,7 @@ namespace euphoria::core
 
 
         void
-        AddMaterials(Mesh* ret, const aiScene* scene)
+        add_materials(mesh* ret, const aiScene* scene)
         {
             for(unsigned int material_id = 0;
                 material_id < scene->mNumMaterials;
@@ -175,7 +161,7 @@ namespace euphoria::core
             {
                 const aiMaterial* mat = scene->mMaterials[material_id];
 
-                Material material;
+                material material;
 
                 if(mat->GetTextureCount(aiTextureType_DIFFUSE) <= 0)
                 {
@@ -238,8 +224,8 @@ namespace euphoria::core
                 int v = 0;
                 mat->Get(AI_MATKEY_MAPPINGMODE_U(aiTextureType_DIFFUSE, 0), u);
                 mat->Get(AI_MATKEY_MAPPINGMODE_V(aiTextureType_DIFFUSE, 0), v);
-                material.wraps = GetTextureWrappingMode(u);
-                material.wrapt = GetTextureWrappingMode(v);
+                material.wrap_s = get_texture_wrapping_mode(u);
+                material.wrap_t = get_texture_wrapping_mode(v);
 
                 // todo(Gustav): improve texture detection?
                 material.shader = std::nullopt;
@@ -249,7 +235,7 @@ namespace euphoria::core
 
 
         void
-        AddFaces(MeshPart* part, const aiMesh* mesh)
+        add_faces(mesh_part* part, const aiMesh* mesh)
         {
             for(unsigned int face_id = 0; face_id < mesh->mNumFaces; ++face_id)
             {
@@ -270,7 +256,7 @@ namespace euphoria::core
 
 
         void
-        AddPoints(MeshPart* part, const aiMesh* mesh)
+        add_points(mesh_part* part, const aiMesh* mesh)
         {
             for(unsigned int index = 0; index < mesh->mNumVertices; ++index)
             {
@@ -286,7 +272,7 @@ namespace euphoria::core
                 }
                 part->points.push_back
                 (
-                    MeshPoint
+                    mesh_point
                     {
                         vec3f {vertex.x, vertex.y, vertex.z},
                         vec3f {normal.x, normal.y, normal.z},
@@ -296,23 +282,23 @@ namespace euphoria::core
         }
 
 
-        MeshPart
-        ConvertMesh(const aiMesh* mesh)
+        mesh_part
+        convert_mesh(const aiMesh* mesh)
         {
-            MeshPart part;
+            mesh_part part;
 
             part.material = mesh->mMaterialIndex;
-            AddPoints(&part, mesh);
-            AddFaces(&part, mesh);
+            add_points(&part, mesh);
+            add_faces(&part, mesh);
 
             return part;
         }
 
 
-        Mesh
-        ConvertScene(const aiScene* scene, const std::string& file_name)
+        mesh
+        convert_scene(const aiScene* scene, const std::string& file_name)
         {
-            Mesh ret;
+            mesh ret;
 
             /** @todo add parsing of nodes to the mesh so we could
                 dynamically animate some rotors, wings etc. for example
@@ -320,13 +306,13 @@ namespace euphoria::core
 
             if(scene->HasMeshes())
             {
-                AddMaterials(&ret, scene);
+                add_materials(&ret, scene);
 
                 for(unsigned int meshid = 0; meshid < scene->mNumMeshes;
                     ++meshid)
                 {
                     const aiMesh*  mesh = scene->mMeshes[meshid];
-                    const MeshPart part = ConvertMesh(mesh);
+                    const mesh_part part = convert_mesh(mesh);
                     if(part.faces.empty())
                     {
                         const auto& name = mesh->mName;
@@ -348,18 +334,18 @@ namespace euphoria::core
 
 
         // http://assimp.sourceforge.net/howtoBasicShapes.html
-        Mesh
-        LoadFromString(const std::string& nff, const std::string& format)
+        mesh
+        load_from_string(const std::string& nff, const std::string& format)
         {
             Assimp::Importer importer;
 
             const aiScene* scene = importer.ReadFileFromMemory(
-                    nff.c_str(), nff.length() + 1, AssimpFlags, format.c_str());
+                    nff.c_str(), nff.length() + 1, assimp_flags, format.c_str());
             if(scene == nullptr)
             {
                 throw std::string {importer.GetErrorString()};
             }
-            return ConvertScene(scene, "<nff_source>");
+            return convert_scene(scene, "<nff_source>");
         }
 
 
@@ -368,14 +354,14 @@ namespace euphoria::core
 
 
         void
-        DecorateMeshMaterials
+        decorate_mesh_materials
         (
-            Mesh* mesh,
+            mesh* mesh,
             const vfs::FilePath& json_path,
-            const mesh::Mesh& json
+            const ::mesh::Mesh& json
         )
         {
-            std::map<std::string, Material*> mesh_materials;
+            std::map<std::string, material*> mesh_materials;
             for(auto& material: mesh->materials)
             {
                 mesh_materials[material.name] = &material;
@@ -391,7 +377,7 @@ namespace euphoria::core
                         "Unable to find {0} in mesh {1} valid names are: {2}",
                         material.name,
                         json_path,
-                        StringMerger::EnglishOr().Generate(KeysOf(mesh_materials))
+                        StringMerger::EnglishOr().Generate(get_keys(mesh_materials))
                     );
                     continue;
                 }
@@ -413,7 +399,7 @@ namespace euphoria::core
                         );
                         continue;
                     }
-                    other->SetTexture
+                    other->set_texture
                     (
                         src_texture.type,
                         path.value()
@@ -424,7 +410,7 @@ namespace euphoria::core
 
 
         void
-        DecorateMeshMaterialsIgnoreAmbient(Mesh* mesh)
+        decorate_mesh_materials_ignore_ambient(mesh* mesh)
         {
             for(auto& material: mesh->materials)
             {
@@ -434,7 +420,7 @@ namespace euphoria::core
 
 
         void
-        FixExtension(vfs::FilePath* path, const mesh::Folder& folder)
+        fix_extension(vfs::FilePath* path, const ::mesh::Folder& folder)
         {
             const auto ext = path->GetExtension();
             for(auto c: folder.change_extensions)
@@ -450,7 +436,7 @@ namespace euphoria::core
 
 
         void
-        FixFilename(vfs::FilePath* path, const mesh::Folder& folder)
+        fix_filename(vfs::FilePath* path, const ::mesh::Folder& folder)
         {
             const auto [dir, file] = path->SplitDirectoriesAndFile();
             for(auto c: folder.change_filenames)
@@ -466,14 +452,14 @@ namespace euphoria::core
 
 
         void
-        DecorateMesh
+        decorate_mesh
         (
             vfs::FileSystem* fs,
-            Mesh* mesh,
+            mesh* mesh,
             const vfs::FilePath& json_path
         )
         {
-            mesh::Mesh json;
+            ::mesh::Mesh json;
             const auto error = LoadProtoJson(fs, &json, json_path);
             if(!error.empty())
             {
@@ -482,17 +468,17 @@ namespace euphoria::core
 
             if(json.diffuse_and_ambient_are_same)
             {
-                DecorateMeshMaterialsIgnoreAmbient(mesh);
+                decorate_mesh_materials_ignore_ambient(mesh);
             }
 
             if(!json.materials.empty())
             {
-                DecorateMeshMaterials(mesh, json_path, json);
+                decorate_mesh_materials(mesh, json_path, json);
             }
 
             const auto json_dir = json_path.GetDirectory();
             const auto folder_path = json_dir.GetFile("folder.json");
-            mesh::Folder folder;
+            ::mesh::Folder folder;
             const auto folder_error = LoadProtoJson(fs, &folder, folder_path);
             if(!folder_error.empty())
             {
@@ -520,8 +506,8 @@ namespace euphoria::core
                     const auto new_file = dir.GetFile(t.path.GetFileWithExtension());
                     // LOG_INFO("Replacing {0} with {1}", t.path, new_file);
                     t.path = new_file;
-                    FixExtension(&t.path, folder);
-                    FixFilename(&t.path, folder);
+                    fix_extension(&t.path, folder);
+                    fix_filename(&t.path, folder);
                 }
             }
 
@@ -531,10 +517,10 @@ namespace euphoria::core
 
     namespace meshes
     {
-        struct FileForAssimp : public Assimp::IOStream
+        struct file_for_assimp : public Assimp::IOStream
         {
             size_t index = 0;
-            std::shared_ptr<MemoryChunk> content;
+            std::shared_ptr<memory_chunk> content;
 
             size_t Read(void* target_buffer, size_t size, size_t count) override
             {
@@ -542,11 +528,11 @@ namespace euphoria::core
                 size_t objects_read = 0;
                 for(size_t i =0; i<count; i+=1)
                 {
-                    if(Csizet_to_int(index + size) > content->GetSize())
+                    if(Csizet_to_int(index + size) > content->get_size())
                     {
                         return objects_read;
                     }
-                    memcpy(target, content->GetData() + index, size);
+                    memcpy(target, content->get_data() + index, size);
                     index += size;
                     target += size;
                     objects_read += 1;
@@ -577,7 +563,7 @@ namespace euphoria::core
 
             [[nodiscard]] size_t FileSize() const override
             {
-                return content->GetSize();
+                return content->get_size();
             }
 
             void Flush() override
@@ -586,11 +572,11 @@ namespace euphoria::core
         };
 
 
-        struct FilesystemForAssimp : public Assimp::IOSystem
+        struct filesystem_for_assimp : public Assimp::IOSystem
         {
             vfs::FileSystem* file_system;
 
-            FilesystemForAssimp(vfs::FileSystem* fs) : file_system(fs) {}
+            filesystem_for_assimp(vfs::FileSystem* fs) : file_system(fs) {}
 
             bool Exists(const char* pFile) const override
             {
@@ -613,7 +599,7 @@ namespace euphoria::core
                 {
                     return nullptr;
                 }
-                auto* data = new FileForAssimp(); // NOLINT
+                auto* data = new file_for_assimp(); // NOLINT
                 data->content = content;
                 return data;
             }
@@ -630,23 +616,23 @@ namespace euphoria::core
         };
 
 
-        MeshLoadResult
-        LoadMesh(vfs::FileSystem* fs, const vfs::FilePath& path)
+        loaded_mesh_or_error
+        load_mesh(vfs::FileSystem* fs, const vfs::FilePath& path)
         {
             Assimp::Importer importer;
-            importer.SetIOHandler(new FilesystemForAssimp{fs}); // NOLINT
+            importer.SetIOHandler(new filesystem_for_assimp{fs}); // NOLINT
 
-            MeshLoadResult   res;
+            loaded_mesh_or_error   res;
 
-            const aiScene* scene = importer.ReadFile(path.path, AssimpFlags);
+            const aiScene* scene = importer.ReadFile(path.path, assimp_flags);
             if(scene == nullptr)
             {
                 res.error = importer.GetErrorString();
             }
             else
             {
-                res.mesh = ConvertScene(scene, path.path);
-                DecorateMesh
+                res.mesh = convert_scene(scene, path.path);
+                decorate_mesh
                 (
                     fs,
                     &res.mesh,
@@ -662,24 +648,24 @@ namespace euphoria::core
         }
 
 
-        Mesh
-        CreateCube(float size)
+        mesh
+        create_cube(float size)
         {
-            return CreateBox(size, size, size);
+            return create_box(size, size, size);
         }
 
 
-        Mesh
-        CreateSphere(float size, const std::string& texture)
+        mesh
+        create_sphere(float size, const std::string& texture)
         {
             std::ostringstream ss;
             ss << "shader " << texture << std::endl << "s 0 0 0 " << size;
-            return LoadFromString(ss.str(), FileFormatNff);
+            return load_from_string(ss.str(), FileFormatNff);
         }
 
 
-        Mesh
-        CreateBox(float width, float height, float depth)
+        mesh
+        create_box(float width, float height, float depth)
         {
             const float x = width / 2;
             const float y = height / 2;
@@ -706,9 +692,8 @@ namespace euphoria::core
                << "f 4/1 8/2 7/3 3/4" << std::endl
                << "f 5/1 6/2 2/3 1/4" << std::endl;
 
-            auto box = LoadFromString(ss.str(), FileFormatObj);
+            auto box = load_from_string(ss.str(), FileFormatObj);
             return box;
         }
-    }  // namespace meshes
-
-}  // namespace euphoria::core
+    }
+}

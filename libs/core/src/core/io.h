@@ -1,5 +1,5 @@
-#ifndef CORE_IO_H
-#define CORE_IO_H
+#pragma once
+
 
 #include <memory>
 #include <string>
@@ -9,14 +9,12 @@
 namespace euphoria::core::io
 {
     void
-    ChunkToFile
+    chunk_to_file
     (
-        std::shared_ptr<MemoryChunk> chunk,
+        std::shared_ptr<memory_chunk> chunk,
         const std::string& full_path
     );
 
-    std::shared_ptr<MemoryChunk>
-    FileToChunk(const std::string& full_path);
+    std::shared_ptr<memory_chunk>
+    file_to_chunk(const std::string& full_path);
 }
-
-#endif  // CORE_IO_H

@@ -9,50 +9,51 @@ namespace euphoria::core
 {
     // todo(Gustav): refactor into a better design
 
-    struct IdGenerator
+    struct id_generator
     {
-        using ID = int;
+        using id = int;
 
-        IdGenerator();
+        id_generator();
 
-        [[nodiscard]] ID
-        Generate();
+        [[nodiscard]] id
+        generate();
 
         void
-        Release(ID id);
+        release(id id);
 
     private:
-        ID              current_;
-        std::vector<ID> released_;
+        id current_;
+        std::vector<id> released_;
     };
 
-    struct Id
+
+    struct id
     {
     private:
-        Id();
+        id();
 
     public:
-        explicit Id(IdGenerator* generator);
+        explicit id(id_generator* generator);
 
-        NONCOPYABLE(Id);
+        NONCOPYABLE(id);
 
-        [[nodiscard]] static const Id&
+        [[nodiscard]] static const id&
         Invalid();
 
-        ~Id();
+        ~id();
 
         [[nodiscard]] bool
-        IsValid() const;
+        is_valid() const;
 
         void
-        Generate(IdGenerator* generator);
+        generate(id_generator* generator);
 
-        [[nodiscard]] IdGenerator::ID
-        GetValue() const;
+        [[nodiscard]] id_generator::id
+        get_value() const;
 
     private:
-        IdGenerator::ID value_;
-        IdGenerator*    generator_;
+        id_generator::id value_;
+        id_generator* generator_;
     };
 
 }

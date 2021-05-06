@@ -102,7 +102,7 @@ set(app_src
     src/core/findstring.cc src/core/findstring.h
     src/core/fpscontroller.cc src/core/fpscontroller.h
     src/core/functional.h
-    src/core/history.h
+    src/core/last_n.h
     src/core/id.cc src/core/id.h
     src/core/insertionsort.h
     src/core/interpolate.cc src/core/interpolate.h

@@ -36,7 +36,7 @@ main(int argc, char* argv[])
             (
                 [&]
                 {
-                    auto file = io::FileToChunk(input);
+                    auto file = io::file_to_chunk(input);
                     if(file == nullptr)
                     {
                         std::cerr
@@ -75,7 +75,7 @@ main(int argc, char* argv[])
             (
                 [&]
                 {
-                    io::ChunkToFile
+                    io::chunk_to_file
                     (
                         image.write(image_write_format::png),
                         output

@@ -108,7 +108,7 @@ namespace euphoria::render
     std::shared_ptr<CompiledMesh>
     CompileMesh
     (
-        const core::Mesh& mesh,
+        const core::mesh& mesh,
         MaterialShaderCache* shader_cache,
         TextureCache* texture_cache,
         const core::vfs::DirPath& texture_folder,

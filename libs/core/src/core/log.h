@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_LOG_H
-#define EUPHORIA_LOG_H
+#pragma once
 
 #include "spdlog/spdlog.h"
 #include "spdlog/fmt/ostr.h"
@@ -19,6 +18,5 @@ namespace euphoria::core
 #define LOG_ERROR(...) spdlog::error(__VA_ARGS__)
 #define LOG_FATAL(...) spdlog::critical(__VA_ARGS__)
 
-}  // namespace euphoria::core
+}
 
-#endif  // EUPHORIA_LOG_H

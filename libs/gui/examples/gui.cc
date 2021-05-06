@@ -441,7 +441,7 @@ main(int argc, char* argv[])
             {
                 const bool down = e.type == SDL_KEYDOWN;
                 const auto key = ToKey(e.key.keysym);
-                if(down && key == Key::ESCAPE)
+                if(down && key == key::escape)
                 {
                     running = false;
                 }

@@ -117,7 +117,7 @@ namespace euphoria::t3d
 
 
         void
-        OnKey(core::Key key, bool down, bool forward_keyboard);
+        OnKey(core::key key, bool down, bool forward_keyboard);
 
 
         void

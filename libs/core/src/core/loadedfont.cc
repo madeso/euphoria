@@ -25,7 +25,7 @@ namespace euphoria::core
 
     namespace
     {
-        std::string_view ErrorToString(FT_Error err)
+        std::string_view error_to_string(FT_Error err)
         {
             #undef __FTERRORS_H__
             #define FT_ERRORDEF( e, v, s )  case e: return s;
@@ -38,44 +38,44 @@ namespace euphoria::core
 
         [[nodiscard]]
         bool
-        Error(FT_Error err)
+        is_error(FT_Error err)
         {
             if(err == 0)
             {
                 return false;
             }
 
-            LOG_ERROR("FONT Error: {1} ({0})", err, ErrorToString(err));
+            LOG_ERROR("FONT Error: {1} ({0})", err, error_to_string(err));
             return true;
         }
 
 
         void
-        ErrorNoThrow(FT_Error err)
+        log_error(FT_Error err)
         {
             if(err == 0)
             {
                 return;
             }
-            LOG_ERROR("FONT Error: {1} ({0})", err, ErrorToString(err));
+            LOG_ERROR("FONT Error: {1} ({0})", err, error_to_string(err));
         }
     }
 
 
-    struct FreetypeLibrary
+    struct freetype_library
     {
-        NONCOPYABLE_CONSTRUCTOR(FreetypeLibrary);
-        NONCOPYABLE_ASSIGNMENT(FreetypeLibrary);
+        NONCOPYABLE_CONSTRUCTOR(freetype_library);
+        NONCOPYABLE_ASSIGNMENT(freetype_library);
 
-        FreetypeLibrary(FreetypeLibrary&& other) : library(other.library) {other.library = nullptr;};
-        FreetypeLibrary&
-        operator=(FreetypeLibrary&& other) {library = other.library; other.library = nullptr; return *this;};
+        freetype_library(freetype_library&& other) : library(other.library) {other.library = nullptr;};
+        freetype_library&
+        operator=(freetype_library&& other) {library = other.library; other.library = nullptr; return *this;};
 
         FT_Library library;
 
 
         explicit
-        FreetypeLibrary(FT_Library lib)
+        freetype_library(FT_Library lib)
             : library(lib)
         {
         }
@@ -83,49 +83,49 @@ namespace euphoria::core
 
         [[nodiscard]]
         static
-        std::optional<FreetypeLibrary>
-        Create()
+        std::optional<freetype_library>
+        create()
         {
             FT_Library library = nullptr;
-            if(Error(FT_Init_FreeType(&library)))
+            if(is_error(FT_Init_FreeType(&library)))
             {
                 return std::nullopt;
             }
             else
             {
-                return FreetypeLibrary{library};
+                return freetype_library{library};
             }
         }
 
 
-        ~FreetypeLibrary()
+        ~freetype_library()
         {
             if(library == nullptr )
             {
                 return;
             }
-            ErrorNoThrow(FT_Done_FreeType(library));
+            log_error(FT_Done_FreeType(library));
         }
     };
 
 
-    struct FreetypeFace
+    struct freetype_face
     {
         FT_Face face;
         float size;
 
-        NONCOPYABLE_CONSTRUCTOR(FreetypeFace);
-        NONCOPYABLE_ASSIGNMENT(FreetypeFace);
+        NONCOPYABLE_CONSTRUCTOR(freetype_face);
+        NONCOPYABLE_ASSIGNMENT(freetype_face);
 
-        FreetypeFace(FreetypeFace&& other)
+        freetype_face(freetype_face&& other)
             : face(other.face)
             , size(other.size)
         {
             other.face = nullptr;
         }
 
-        FreetypeFace&
-        operator=(FreetypeFace&& other)
+        freetype_face&
+        operator=(freetype_face&& other)
         {
             face = other.face;
             size = other.size;
@@ -134,7 +134,7 @@ namespace euphoria::core
         }
 
 
-        FreetypeFace(FT_Face f, int s)
+        freetype_face(FT_Face f, int s)
             : face(f)
             , size(static_cast<float>(s))
         {
@@ -143,11 +143,11 @@ namespace euphoria::core
 
         [[nodiscard]]
         static
-        std::optional<FreetypeFace>
-        Create
+        std::optional<freetype_face>
+        create
         (
-            FreetypeLibrary* lib,
-            std::shared_ptr<MemoryChunk> memory,
+            freetype_library* lib,
+            std::shared_ptr<memory_chunk> memory,
             int size
         )
         {
@@ -156,13 +156,13 @@ namespace euphoria::core
             int face_index = 0;
             if
             (
-                Error
+                is_error
                 (
                     FT_New_Memory_Face
                     (
                         lib->library,
-                        reinterpret_cast<FT_Byte*>(memory->GetData()), // NOLINT
-                        memory->GetSize(),
+                        reinterpret_cast<FT_Byte*>(memory->get_data()), // NOLINT
+                        memory->get_size(),
                         face_index,
                         &face
                     )
@@ -173,29 +173,29 @@ namespace euphoria::core
                 return std::nullopt;
             }
 
-            if(Error(FT_Set_Pixel_Sizes(face, 0, size)))
+            if(is_error(FT_Set_Pixel_Sizes(face, 0, size)))
             {
                 FT_Done_Face(face);
                 return std::nullopt;
             }
 
-            return FreetypeFace{face, size};
+            return freetype_face{face, size};
         }
 
 
-        [[nodiscard]] LoadedGlyph
-        LoadGlyph(int code_point) const
+        [[nodiscard]] loaded_glyph
+        load_glyph(int code_point) const
         {
             const auto error = FT_Load_Char(face, code_point, FT_LOAD_RENDER);
             if(error != 0)
             {
                 LOG_ERROR("Failed to get char {0}", code_point);
-                return LoadedGlyph();
+                return loaded_glyph();
             }
 
             FT_GlyphSlot slot = face->glyph;
 
-            LoadedGlyph ch;
+            loaded_glyph ch;
             ch.code_point= code_point;
             ch.size = size;
             ch.bearing_x = slot->bitmap_left;
@@ -244,7 +244,7 @@ namespace euphoria::core
         }
 
 
-        ~FreetypeFace()
+        ~freetype_face()
         {
             if(face == nullptr) { return; }
             FT_Done_Face(face);
@@ -253,7 +253,7 @@ namespace euphoria::core
 
 
     int
-    LoadedFont::NewPrivateUse(const std::string& alias)
+    loaded_font::generate_new_index_from_private_use(const std::string& alias)
     {
         // detect existing private use alias!
         const auto pu = next_private_use;
@@ -264,12 +264,12 @@ namespace euphoria::core
 
 
     void
-    LoadedFont::CombineWith(const LoadedFont& fc)
+    loaded_font::combine_with(const loaded_font& fc)
     {
         std::map<int, int> pus;
         for(const auto& [alias, id]: fc.private_use_aliases)
         {
-            pus[id] = NewPrivateUse(alias);
+            pus[id] = generate_new_index_from_private_use(alias);
         }
 
         for(const auto& glyph_iterator: fc.codepoint_to_glyph)
@@ -311,8 +311,8 @@ namespace euphoria::core
 
 
     template<typename Glyphs>
-    LoadedFont
-    GetCharacterFromBuiltin8
+    loaded_font
+    get_character_from_builtin8
     (
         const int start_codepoint,
         int end_codepoint,
@@ -321,7 +321,7 @@ namespace euphoria::core
     {
         ASSERTX(start_codepoint < end_codepoint, start_codepoint, end_codepoint);
         const auto number_of_glyphs = (end_codepoint+1) - start_codepoint;
-        LoadedFont font;
+        loaded_font font;
         font.line_height = 8;
 
         for
@@ -332,7 +332,7 @@ namespace euphoria::core
         )
         {
             const auto code_point = glyph_index + start_codepoint;
-            LoadedGlyph glyph;
+            loaded_glyph glyph;
             glyph.image.setup_with_alpha_support(8, 8, 0);
 
             for(int y = 0; y < 8; y += 1)
@@ -363,15 +363,15 @@ namespace euphoria::core
     }
 
 
-    LoadedFont
-    LoadCharactersFromBuiltin13()
+    loaded_font
+    load_characters_from_builtin13()
     {
-        LoadedFont font;
+        loaded_font font;
         font.line_height = 13;
 
         for(int codepoint=32; codepoint < 127; codepoint+=1)
         {
-            LoadedGlyph glyph;
+            loaded_glyph glyph;
             glyph.image.setup_with_alpha_support(8, 13, 0);
 
             const auto glyph_index = codepoint - 32;
@@ -404,21 +404,21 @@ namespace euphoria::core
     }
 
 
-    LoadedFont
-    LoadCharactersFromBuiltin8()
+    loaded_font
+    load_characters_from_builtin8()
     {
-        LoadedFont font;
+        loaded_font font;
         // todo(Gustav): Add more characters
-        font.CombineWith
+        font.combine_with
         (
-            GetCharacterFromBuiltin8(0x0000, 0x007F, font8x8_basic)
+            get_character_from_builtin8(0x0000, 0x007F, font8x8_basic)
         );
         return font;
     }
 
 
-    LoadedFont
-    GetCharactersFromFont
+    loaded_font
+    get_characters_from_font
     (
         vfs::FileSystem* file_system,
         const vfs::FilePath& font_file,
@@ -431,10 +431,10 @@ namespace euphoria::core
         if(file_memory == nullptr)
         {
             LOG_ERROR("Unable to open {0}", font_file);
-            return LoadedFont{};
+            return loaded_font{};
         }
 
-        return GetCharactersFromFont
+        return get_characters_from_font
         (
             file_memory,
             font_size,
@@ -443,25 +443,25 @@ namespace euphoria::core
     }
 
 
-    LoadedFont
-    GetCharactersFromFont
+    loaded_font
+    get_characters_from_font
     (
-        std::shared_ptr<MemoryChunk> file_memory,
+        std::shared_ptr<memory_chunk> file_memory,
         int font_size,
         const std::string& chars
     )
     {
-        auto created_lib = FreetypeLibrary::Create();
-        if(created_lib.has_value() == false) { return LoadedFont{}; }
+        auto created_lib = freetype_library::create();
+        if(created_lib.has_value() == false) { return loaded_font{}; }
         auto lib = std::move(*created_lib);
 
-        auto loaded_face = FreetypeFace::Create
+        auto loaded_face = freetype_face::create
         (
             &lib,
             file_memory,
             font_size
         );
-        if(loaded_face.has_value() == false) { return LoadedFont{}; }
+        if(loaded_face.has_value() == false) { return loaded_font{}; }
         auto f = std::move(*loaded_face);
 
         std::vector<int> code_points;
@@ -471,10 +471,10 @@ namespace euphoria::core
             [&](int cp){code_points.emplace_back(cp);}
         );
 
-        LoadedFont fontchars {};
+        loaded_font fontchars {};
         for(char code_point: code_points)
         {
-            LoadedGlyph cc = f.LoadGlyph(code_point);
+            loaded_glyph cc = f.load_glyph(code_point);
             if(!cc.valid)
             {
                 LOG_INFO("Invalid codepoint {0}", code_point);
@@ -532,9 +532,9 @@ namespace euphoria::core
                 {
                     fontchars.kerning.insert
                     (
-                        KerningMap::value_type
+                        kerning_map::value_type
                         (
-                            KerningMap::key_type(previous, current),
+                            kerning_map::key_type(previous, current),
                             static_cast<float>(dx) * scale
                         )
                     );
@@ -546,8 +546,8 @@ namespace euphoria::core
     }
 
 
-    LoadedFont
-    GetCharactersFromSingleImage
+    loaded_font
+    get_characters_from_single_image
     (
         vfs::FileSystem* fs,
         const vfs::FilePath& image_file,
@@ -568,10 +568,10 @@ namespace euphoria::core
         if(loaded.error.empty() == false)
         {
             LOG_ERROR("Failed to load font image {}", image_file);
-            return LoadedFont{};
+            return loaded_font{};
         }
 
-        return GetCharactersFromSingleImage
+        return get_characters_from_single_image
         (
             loaded.image,
             image_alias,
@@ -583,8 +583,8 @@ namespace euphoria::core
     }
 
 
-    LoadedFont
-    GetCharactersFromSingleImage
+    loaded_font
+    get_characters_from_single_image
     (
         const image& image,
         const std::string& image_alias,
@@ -594,15 +594,15 @@ namespace euphoria::core
         float image_advance
     )
     {
-        LoadedFont font;
+        loaded_font font;
 
         const auto s = 1 / image_scale;
-        LoadedGlyph glyph;
+        loaded_glyph glyph;
         glyph.size = s * static_cast<float>(image.height);
         glyph.bearing_y = Cfloat_to_int(s * static_cast<float>(image.height) + image_bearing_y);
         glyph.bearing_x = Cfloat_to_int(image_bearing_x);
         glyph.advance = Cfloat_to_int(s * static_cast<float>(image.width) + image_advance);
-        glyph.code_point= font.NewPrivateUse(image_alias);
+        glyph.code_point= font.generate_new_index_from_private_use(image_alias);
         // todo(Gustav): add ability to clip image
         glyph.image = image;
         font.codepoint_to_glyph[glyph.code_point] = glyph;

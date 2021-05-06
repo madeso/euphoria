@@ -521,7 +521,7 @@ namespace euphoria::core
         const vec2i& start_pos,
         const std::string& text,
         const rgbai& color,
-        const LoadedFont& font
+        const loaded_font& font
     )
     {
         ASSERT(image);
@@ -626,7 +626,7 @@ namespace euphoria::core
                 );
                 if(valid_x && valid_y)
                 {
-                    const auto inside_triangle = IsPointInTriangle
+                    const auto inside_triangle = is_point_in_triangle
                     (
                         a,
                         b,

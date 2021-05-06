@@ -1,5 +1,5 @@
-#ifndef CORE_MESH_H
-#define CORE_MESH_H
+#pragma once
+
 
 #include <vector>
 #include <string>
@@ -21,17 +21,17 @@ namespace euphoria::core
     }
 
 
-    enum class WrapMode
+    enum class wrap_mode
     {
-        REPEAT,
-        CLAMP_TO_EDGE,
-        MIRROR_REPEAT
+        repeat,
+        clamp_to_edge,
+        mirror_repeat
     };
 
 
-    struct MeshPoint
+    struct mesh_point
     {
-        MeshPoint
+        mesh_point
         (
             const vec3f& a_vertex,
             const vec3f& a_normal,
@@ -43,42 +43,42 @@ namespace euphoria::core
     };
 
 
-    struct MeshFace
+    struct mesh_face
     {
-        MeshFace(int a_a, int a_b, int a_c);
+        mesh_face(int a_a, int a_b, int a_c);
         int a;
         int b;
         int c;
     };
 
 
-    struct MeshPart
+    struct mesh_part
     {
-        MeshPart();
+        mesh_part();
 
         unsigned int material;
-        std::vector<MeshPoint> points;
-        std::vector<MeshFace>  faces;
+        std::vector<mesh_point> points;
+        std::vector<mesh_face> faces;
 
         [[nodiscard]] aabb
-        CalculateAabb() const;
+        calculate_aabb() const;
     };
 
 
-    struct MaterialTexture
+    struct material_texture
     {
-        MaterialTexture(const vfs::FilePath& p, enum_value t);
+        material_texture(const vfs::FilePath& p, enum_value t);
         vfs::FilePath path;
         enum_value type;
     };
 
 
-    struct Material
+    struct material
     {
-        Material();
+        material();
 
         void
-        SetTexture
+        set_texture
         (
             const std::string& texture_name,
             const vfs::FilePath& texture_path
@@ -96,44 +96,43 @@ namespace euphoria::core
         float shininess;
 
         float alpha;
-        std::vector<MaterialTexture> textures;
-        WrapMode wraps;
-        WrapMode wrapt;
+        std::vector<material_texture> textures;
+        wrap_mode wrap_s;
+        wrap_mode wrap_t;
     };
 
 
-    struct Mesh
+    struct mesh
     {
-        std::vector<Material> materials;
-        std::vector<MeshPart> parts;
+        std::vector<material> materials;
+        std::vector<mesh_part> parts;
 
         [[nodiscard]] aabb
-        CalculateAabb() const;
+        calculate_aabb() const;
     };
 
 
-    struct MeshLoadResult
+    struct loaded_mesh_or_error
     {
-        Mesh mesh;
+        mesh mesh;
         std::string error;
     };
 
 
     namespace meshes
     {
-        MeshLoadResult
-        LoadMesh(vfs::FileSystem* fs, const vfs::FilePath& path);
+        loaded_mesh_or_error
+        load_mesh(vfs::FileSystem* fs, const vfs::FilePath& path);
 
-        Mesh
-        CreateCube(float size);
+        mesh
+        create_cube(float size);
 
-        Mesh
-        CreateSphere(float size, const std::string& texture);
+        mesh
+        create_sphere(float size, const std::string& texture);
 
-        Mesh
-        CreateBox(float width, float height, float depth);
+        mesh
+        create_box(float width, float height, float depth);
     }  // namespace meshes
 
 }  // namespace euphoria::core
 
-#endif  // CORE_MESH_H

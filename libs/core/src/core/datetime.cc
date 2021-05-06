@@ -337,7 +337,7 @@ namespace euphoria::core
 
 
     std::string
-    date_time::ToString(const std::string& format) const
+    date_time::to_string(const std::string& format) const
     {
         return as_struct().to_string(format);
     }

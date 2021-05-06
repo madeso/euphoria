@@ -8,7 +8,7 @@
 
 namespace euphoria::window
 {
-    core::Key
+    core::key
     ToKey(SDL_Keysym key);
 
     core::MouseButton

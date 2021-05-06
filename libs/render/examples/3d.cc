@@ -130,9 +130,9 @@ main(int argc, char** argv)
 
     auto world = World {};
 
-    auto box_mesh1 = meshes::CreateCube(0.5f);
-    box_mesh1.materials[0].SetTexture("Diffuse", vfs::FilePath{"./container2.png"});
-    box_mesh1.materials[0].SetTexture("Specular", vfs::FilePath{"./container2_specular.png"});
+    auto box_mesh1 = meshes::create_cube(0.5f);
+    box_mesh1.materials[0].set_texture("Diffuse", vfs::FilePath{"./container2.png"});
+    box_mesh1.materials[0].set_texture("Specular", vfs::FilePath{"./container2_specular.png"});
     box_mesh1.materials[0].ambient = color::white;  // fix ambient color on material
     box_mesh1.materials[0].specular = color::white;
     box_mesh1.materials[0].shininess = 120.0f;
@@ -145,8 +145,8 @@ main(int argc, char** argv)
         "box1"
     );
 
-    auto box_mesh2 = meshes::CreateSphere(0.5f, "image");
-    box_mesh2.materials[0].SetTexture("Specular", vfs::FilePath{"./img-plain/white"});
+    auto box_mesh2 = meshes::create_sphere(0.5f, "image");
+    box_mesh2.materials[0].set_texture("Specular", vfs::FilePath{"./img-plain/white"});
     box_mesh2.materials[0].ambient = color::white;  // fix ambient color on material
     box_mesh2.materials[0].specular  = color::white;
     box_mesh2.materials[0].shininess = 10.0f;
@@ -161,7 +161,7 @@ main(int argc, char** argv)
 
     auto debug_texture = texture_cache.GetTexture(vfs::FilePath{"~/image"});
 
-    auto light_mesh = meshes::CreateCube(0.2f);
+    auto light_mesh = meshes::create_cube(0.2f);
     light_mesh.materials[0].shader = vfs::FilePath{"~/basic_shader"};
     auto light = CompileMesh
     (

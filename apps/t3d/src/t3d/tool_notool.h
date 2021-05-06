@@ -20,7 +20,7 @@ namespace euphoria::t3d
 
 
         void
-        OnKey(Editor*, core::Key, bool) override;
+        OnKey(Editor*, core::key, bool) override;
 
 
         void

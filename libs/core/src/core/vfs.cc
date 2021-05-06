@@ -66,7 +66,7 @@ namespace euphoria::core::vfs
         write_ = root;
     }
 
-    std::shared_ptr<MemoryChunk>
+    std::shared_ptr<memory_chunk>
     FileSystem::ReadFile(const FilePath& a_path)
     {
         FilePath path = a_path;
@@ -77,28 +77,28 @@ namespace euphoria::core::vfs
             if(resolved_path.has_value() == false)
             {
                 LOG_ERROR("Unable to resolve path to a valid path {0}", a_path);
-                return MemoryChunk::Null();
+                return memory_chunk::null();
             }
             path = resolved_path.value();
         }
 
         for(auto& root: roots_)
         {
-            std::shared_ptr<MemoryChunk> file = root->ReadFile(path);
+            std::shared_ptr<memory_chunk> file = root->ReadFile(path);
             if(file != nullptr)
             {
                 return file;
             }
         }
 
-        return MemoryChunk::Null();
+        return memory_chunk::null();
     }
 
     void
     FileSystem::WriteFile
     (
         const FilePath& path,
-        std::shared_ptr<MemoryChunk> data
+        std::shared_ptr<memory_chunk> data
     )
     {
         ASSERT(write_);
@@ -155,14 +155,14 @@ namespace euphoria::core::vfs
     {
         ASSERT(source);
 
-        std::shared_ptr<MemoryChunk> file = ReadFile(path);
+        std::shared_ptr<memory_chunk> file = ReadFile(path);
         if(file == nullptr)
         {
             return false;
         }
 
         // data is unsigned char, cast it to char and assume it is a string
-        *source = std::string(file->GetData(), file->GetSize() - 1);
+        *source = std::string(file->get_data(), file->get_size() - 1);
         return true;
     }
 
@@ -177,7 +177,7 @@ namespace euphoria::core::vfs
         const std::string& content
     )
     {
-        std::shared_ptr<MemoryChunk> file = MemoryChunkFromText(content);
+        std::shared_ptr<memory_chunk> file = create_memory_chunk_from_string(content);
         RegisterFileData(path, file);
     }
 
@@ -185,7 +185,7 @@ namespace euphoria::core::vfs
     FileSystemRootCatalog::RegisterFileData
     (
         const FilePath& path,
-        const std::shared_ptr<MemoryChunk>& content
+        const std::shared_ptr<memory_chunk>& content
     )
     {
         catalog_.insert(std::make_pair(path, content));
@@ -200,14 +200,14 @@ namespace euphoria::core::vfs
         return catalog;
     }
 
-    std::shared_ptr<MemoryChunk>
+    std::shared_ptr<memory_chunk>
     FileSystemRootCatalog::ReadFile(const FilePath& path)
     {
         const auto found = catalog_.find(path);
 
         if(found == catalog_.end())
         {
-            return MemoryChunk::Null();
+            return memory_chunk::null();
         }
 
         return found->second;
@@ -267,11 +267,11 @@ namespace euphoria::core::vfs
         : folder_(std::move(folder))
     {}
 
-    std::shared_ptr<MemoryChunk>
+    std::shared_ptr<memory_chunk>
     FileSystemRootFolder::ReadFile(const FilePath& path)
     {
         const std::string& full_path = CombineFolderAndPath(folder_, path);
-        return io::FileToChunk(full_path);
+        return io::file_to_chunk(full_path);
     }
 
     void
@@ -337,11 +337,11 @@ namespace euphoria::core::vfs
     FileSystemWriteFolder::WriteFile
     (
         const FilePath& path,
-        std::shared_ptr<MemoryChunk> data
+        std::shared_ptr<memory_chunk> data
     )
     {
         const auto full_path = CombineFolderAndPath(folder, path);
-        io::ChunkToFile(data, full_path);
+        io::chunk_to_file(data, full_path);
     }
 
 }

@@ -12,11 +12,11 @@ using namespace euphoria::core;
 
 TEST_CASE("fonts-", "[fonts]")
 {
-    auto font = LoadedFont{};
+    auto font = loaded_font{};
 
     SECTION("private use")
     {
-        const auto acp = font.NewPrivateUse("a");
+        const auto acp = font.generate_new_index_from_private_use("a");
         const auto it = font.private_use_aliases.find("a");
         const auto found = it != font.private_use_aliases.end();
         REQUIRE(found);
@@ -28,23 +28,23 @@ TEST_CASE("fonts-", "[fonts]")
         constexpr int a_advance = 10;
         constexpr int b_advance = 20;
 
-        auto a = LoadedGlyph{};
+        auto a = loaded_glyph{};
         a.valid = true;
         a.advance = a_advance;
 
-        auto b = LoadedGlyph{};
+        auto b = loaded_glyph{};
         b.valid = true;
         b.advance = b_advance;
 
-        auto load = [](const std::string& name, const LoadedGlyph& g) -> LoadedFont
+        auto load = [](const std::string& name, const loaded_glyph& g) -> loaded_font
         {
-            auto f = LoadedFont{};
-            const auto cp = f.NewPrivateUse(name);
+            auto f = loaded_font{};
+            const auto cp = f.generate_new_index_from_private_use(name);
             f.codepoint_to_glyph[cp] = g;
             return f;
         };
-        font.CombineWith(load("a", a));
-        font.CombineWith(load("b", b));
+        font.combine_with(load("a", a));
+        font.combine_with(load("b", b));
 
         {
             const auto codepoint_iterator = font.private_use_aliases.find("a");

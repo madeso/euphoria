@@ -27,7 +27,7 @@ namespace euphoria::minsynth
     LOG_SPECIFY_DEFAULT_LOGGER("minsynth.synth")
 
     std::string
-    ToString(Tuning t)
+    to_string(Tuning t)
     {
         switch(t)
         {
@@ -44,7 +44,7 @@ namespace euphoria::minsynth
     }
 
     std::string
-    ToString(ChordEmulation em)
+    to_string(ChordEmulation em)
     {
         switch(em)
         {
@@ -98,7 +98,7 @@ namespace euphoria::minsynth
 
 
     std::string
-    ToString(ArpMode mode)
+    to_string(ArpMode mode)
     {
         switch(mode)
         {
@@ -114,7 +114,7 @@ namespace euphoria::minsynth
 
 
     std::string
-    ToString(OscilatorType osc)
+    to_string(OscilatorType osc)
     {
         switch(osc)
         {
@@ -244,7 +244,7 @@ namespace euphoria::minsynth
         }
     } // namespace
 
-    PianoKey::PianoKey(int st, core::Key kc, const std::string& n, int octave)
+    PianoKey::PianoKey(int st, core::key kc, const std::string& n, int octave)
         : semitone(st)
         , keycode(kc)
         , name(NameAndOctave(n, octave))
@@ -391,7 +391,7 @@ namespace euphoria::minsynth
     }
 
     void
-    KeyboardInputNode::OnInput(core::Key input, bool was_pressed, float time)
+    KeyboardInputNode::OnInput(core::key input, bool was_pressed, float time)
     {
         if(tones == nullptr)
         {
@@ -400,7 +400,7 @@ namespace euphoria::minsynth
 
         for(auto& key: keys)
         {
-            if(key.keycode != core::Key::UNBOUND && input == key.keycode)
+            if(key.keycode != core::key::unbound && input == key.keycode)
             {
                 if(was_pressed)
                 {
@@ -448,7 +448,7 @@ namespace euphoria::minsynth
             }
         }
 
-        if(input == core::Key::SHIFT_LEFT || input == core::Key::SHIFT_RIGHT)
+        if(input == core::key::shift_left || input == core::key::shift_right)
         {
             octave_shift = was_pressed;
         }
@@ -818,18 +818,18 @@ namespace euphoria::minsynth
     (
         int octave,
         int semitone_offset,
-        core::Key c,
-        core::Key d,
-        core::Key e,
-        core::Key f,
-        core::Key g,
-        core::Key a,
-        core::Key b,
-        core::Key c_sharp,
-        core::Key d_sharp,
-        core::Key f_sharp,
-        core::Key g_sharp,
-        core::Key a_sharp
+        core::key c,
+        core::key d,
+        core::key e,
+        core::key f,
+        core::key g,
+        core::key a,
+        core::key b,
+        core::key c_sharp,
+        core::key d_sharp,
+        core::key f_sharp,
+        core::key g_sharp,
+        core::key a_sharp
     )
     {
         return
@@ -854,14 +854,14 @@ namespace euphoria::minsynth
     const KeyboardLayout&
     KeyboardLayoutQwerty()
     {
-        using K = euphoria::core::Key;
+        using K = euphoria::core::key;
 
         static const KeyboardLayout k =
         {
-            {K::NUM_1, K::NUM_2, K::NUM_3, K::NUM_4, K::NUM_5, K::NUM_6, K::NUM_7, K::NUM_8, K::NUM_9, K::NUM_0},
-            {K::Q, K::W, K::E, K::R, K::T, K::Y, K::U, K::I, K::O, K::P},
-            {K::A, K::S, K::D, K::F, K::G, K::H, K::J, K::K, K::L},
-            {K::Z, K::X, K::C, K::V, K::B, K::N, K::M},
+            {K::num_1, K::num_2, K::num_3, K::num_4, K::num_5, K::num_6, K::num_7, K::num_8, K::num_9, K::num_0},
+            {K::q, K::w, K::e, K::r, K::t, K::y, K::u, K::i, K::o, K::p},
+            {K::a, K::s, K::d, K::f, K::g, K::h, K::j, K::k, K::l},
+            {K::z, K::x, K::c, K::v, K::b, K::n, K::m},
         };
 
         return k;
@@ -879,18 +879,18 @@ namespace euphoria::minsynth
         int start_col
     )
     {
-        const auto K = [&](int x, int y) -> core::Key
+        const auto K = [&](int x, int y) -> core::key
         {
             const auto wy = start_row - y + 1;
             if(wy < 0 || wy > core::Csizet_to_int(k.size()))
             {
-                return core::Key::UNBOUND;
+                return core::key::unbound;
             }
             const auto& r = k[wy];
             const auto wx = start_col + x;
             if(wx < 0 || wx > core::Csizet_to_int(r.size()))
             {
-                return core::Key::UNBOUND;
+                return core::key::unbound;
             }
             return r[wx];
         };

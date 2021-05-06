@@ -17,22 +17,22 @@ namespace euphoria::core::base64
     }
 
     std::string
-    encode(std::shared_ptr<MemoryChunk> memory)
+    encode(std::shared_ptr<memory_chunk> memory)
     {
-        MemoryChunk& in = *memory;
+        memory_chunk& in = *memory;
         std::ostringstream out;
 
-        for(int i = 0; i < in.GetSize(); i += 3)
+        for(int i = 0; i < in.get_size(); i += 3)
         {
             int b = (in[i] & 0xFC) >> 2;
             out << CODES[b];
             b = (in[i] & 0x03) << 4;
-            if(i + 1 < in.GetSize())
+            if(i + 1 < in.get_size())
             {
                 b |= (in[i + 1] & 0xF0) >> 4;
                 out << CODES[b];
                 b = (in[i + 1] & 0x0F) << 2;
-                if(i + 2 < in.GetSize())
+                if(i + 2 < in.get_size())
                 {
                     b |= (in[i + 2] & 0xC0) >> 6;
                     out << CODES[b];
@@ -55,7 +55,7 @@ namespace euphoria::core::base64
         return out.str();
     }
 
-    std::shared_ptr<MemoryChunk>
+    std::shared_ptr<memory_chunk>
     decode(const std::string& input)
     {
         if(input.length() % 4 == 0)
@@ -68,8 +68,8 @@ namespace euphoria::core::base64
 
             ASSERT(size > 0);
 
-            auto ret = MemoryChunk::Alloc(size);
-            MemoryChunk& decoded = *ret;
+            auto ret = memory_chunk::allocate(size);
+            memory_chunk& decoded = *ret;
             int j = 0;
             for(int i = 0; i < Csizet_to_int(input.size()); i += 4)
             {
@@ -95,7 +95,7 @@ namespace euphoria::core::base64
         }
         else
         {
-            return MemoryChunk::Null();
+            return memory_chunk::null();
         }
     }
 }

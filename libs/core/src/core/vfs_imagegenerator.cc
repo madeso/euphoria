@@ -22,13 +22,13 @@ namespace euphoria::core::vfs
     }
 
 
-    std::shared_ptr<MemoryChunk>
+    std::shared_ptr<memory_chunk>
     FileSystemImageGenerator::ReadFile(const FilePath& path)
     {
         const auto [dir, command] = path.SplitDirectoriesAndFile();
         if(dir != base_)
         {
-            return MemoryChunk::Null();
+            return memory_chunk::null();
         }
 
         const auto color_name = ToLower(command);
@@ -44,7 +44,7 @@ namespace euphoria::core::vfs
                 path,
                 StringMerger::EnglishOr().Generate(enum_to_string(found_color.values))
             );
-            return MemoryChunk::Null();
+            return memory_chunk::null();
         }
 
         const auto color = found_color.values[0];

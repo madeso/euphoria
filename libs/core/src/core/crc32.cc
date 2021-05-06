@@ -7,8 +7,8 @@
 namespace euphoria::core
 {
     unsigned long
-    calculate_crc32(const MemoryChunk& chunk)
+    calculate_crc32(const memory_chunk& chunk)
     {
-        return Crc32_ComputeBuf(0, chunk.GetData(), chunk.GetSize());
+        return Crc32_ComputeBuf(0, chunk.get_data(), chunk.get_size());
     }
 }

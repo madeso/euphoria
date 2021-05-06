@@ -50,7 +50,7 @@ namespace euphoria::render
     }
 
 
-    core::LoadedFont
+    core::loaded_font
     GetCharactersFromSingleImage
     (
         core::vfs::FileSystem* fs,
@@ -62,10 +62,10 @@ namespace euphoria::render
         if(image_file.has_value() == false)
         {
             LOG_WARN("Invalid path {0}", img.file);
-            return core::LoadedFont{};
+            return core::loaded_font{};
         }
 
-        return core::GetCharactersFromSingleImage
+        return core::get_characters_from_single_image
         (
             fs,
             image_file.value(),
@@ -82,7 +82,7 @@ namespace euphoria::render
     ConstructCharacterRects
     (
         const stbrp_rect& src_rect,
-        const core::LoadedGlyph& src_char,
+        const core::loaded_glyph& src_char,
         int image_width,
         int image_height
     )
@@ -143,7 +143,7 @@ namespace euphoria::render
             core::vfs::FilePath{"~/img-plain/white"}
         );
 
-        core::LoadedFont fontchars;
+        core::loaded_font fontchars;
         font::Root font_root;
 
         std::string error = core::LoadProtoJson(fs, &font_root, font_file);
@@ -164,9 +164,9 @@ namespace euphoria::render
                     return;
                 }
 
-                fontchars.CombineWith
+                fontchars.combine_with
                 (
-                    core::GetCharactersFromFont
+                    core::get_characters_from_font
                     (
                         fs,
                         *p,
@@ -179,15 +179,15 @@ namespace euphoria::render
             {
                 const font::SingleImage& image = *source.image;
                 const auto image_font = GetCharactersFromSingleImage(fs, image);
-                fontchars.CombineWith(image_font);
+                fontchars.combine_with(image_font);
             }
             if(source.builtin8)
             {
-                fontchars.CombineWith(core::LoadCharactersFromBuiltin8());
+                fontchars.combine_with(core::load_characters_from_builtin8());
             }
             if(source.builtin13)
             {
-                fontchars.CombineWith(core::LoadCharactersFromBuiltin13());
+                fontchars.combine_with(core::load_characters_from_builtin13());
             }
             // todo(Gustav): add more sources, built in image font or images
         }

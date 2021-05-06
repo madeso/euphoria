@@ -129,7 +129,7 @@ namespace euphoria::core
         [[nodiscard]] const unsigned char*
         get_pixel_data() const;
 
-        [[nodiscard]] std::shared_ptr<MemoryChunk>
+        [[nodiscard]] std::shared_ptr<memory_chunk>
         write(image_write_format format, int jpeg_quality = 100) const;
 
         void
@@ -171,7 +171,7 @@ namespace euphoria::core
     image_load_result
     load_image
     (
-        std::shared_ptr<MemoryChunk> memory,
+        std::shared_ptr<memory_chunk> memory,
         const std::string& path,
         alpha_load alpha
     );

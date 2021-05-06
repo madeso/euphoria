@@ -194,8 +194,8 @@ namespace euphoria::core
         WriteToMemoryChunkFile(void* context, void* data, int size)
         {
             ASSERT(size >= 0);
-            auto* file = static_cast<MemoryChunkFile*>(context);
-            file->Write(data, size);
+            auto* file = static_cast<memory_chunk_file*>(context);
+            file->write(data, size);
         }
     }
 
@@ -229,7 +229,7 @@ namespace euphoria::core
         }
     }
 
-    std::shared_ptr<MemoryChunk>
+    std::shared_ptr<memory_chunk>
     image::write(image_write_format format, int jpeg_quality) const
     {
         const int number_of_components = has_alpha ? 4 : 3;
@@ -265,11 +265,11 @@ namespace euphoria::core
         );
         if(size_result == 0)
         {
-            return MemoryChunk::Null();
+            return memory_chunk::null();
         }
 
         ASSERT(size > 0);
-        MemoryChunkFile file {MemoryChunk::Alloc(size)};
+        memory_chunk_file file {memory_chunk::allocate(size)};
         int write_result = WriteImageData
         (
             WriteToMemoryChunkFile,
@@ -283,7 +283,7 @@ namespace euphoria::core
         );
         if(write_result == 0)
         {
-            return MemoryChunk::Null();
+            return memory_chunk::null();
         }
 
         return file.data;
@@ -334,7 +334,7 @@ namespace euphoria::core
     image_load_result
     load_image
     (
-        std::shared_ptr<MemoryChunk> file_memory,
+        std::shared_ptr<memory_chunk> file_memory,
         const std::string& path,
         alpha_load alpha
     )
@@ -347,8 +347,8 @@ namespace euphoria::core
         // https://stackoverflow.com/questions/310451/should-i-use-static-cast-or-reinterpret-cast-when-casting-a-void-to-whatever
         unsigned char* data = stbi_load_from_memory
         (
-            reinterpret_cast<unsigned char*>(file_memory->GetData()),  // NOLINT
-            file_memory->GetSize(),
+            reinterpret_cast<unsigned char*>(file_memory->get_data()),  // NOLINT
+            file_memory->get_size(),
             &image_width,
             &image_height,
             &channels,
@@ -431,10 +431,10 @@ namespace euphoria::core
     {
         auto dec = decompressor{};
         const unsigned int decompressed_size = decompressor::stb_decompress_length(static_cast<const unsigned char*>(compressed_data));
-        auto decompressed = MemoryChunk::Alloc(Cunsigned_int_to_int(decompressed_size));
+        auto decompressed = memory_chunk::allocate(Cunsigned_int_to_int(decompressed_size));
         const auto len = dec.stb_decompress
         (
-            reinterpret_cast<unsigned char*>(decompressed->GetData()), // NOLINT
+            reinterpret_cast<unsigned char*>(decompressed->get_data()), // NOLINT
             reinterpret_cast<const unsigned char*>(compressed_data), // NOLINT
             static_cast<unsigned int>(compressed_size)
         );

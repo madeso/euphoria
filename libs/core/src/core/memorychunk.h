@@ -6,46 +6,46 @@
 
 namespace euphoria::core
 {
-    struct MemoryChunk
+    struct memory_chunk
     {
         [[nodiscard]] char*
-        GetData();
+        get_data();
 
         [[nodiscard]] const char*
-        GetData() const;
+        get_data() const;
 
         [[nodiscard]] int
-        GetSize() const;
+        get_size() const;
 
         char  operator[](int index) const;
         char& operator[](int index);
 
-        [[nodiscard]] static std::shared_ptr<MemoryChunk>
-        Alloc(int size);
+        [[nodiscard]] static std::shared_ptr<memory_chunk>
+        allocate(int size);
 
-        [[nodiscard]] static std::shared_ptr<MemoryChunk>
-        Null();
+        [[nodiscard]] static std::shared_ptr<memory_chunk>
+        null();
 
     private:
-        explicit MemoryChunk(int size);
+        explicit memory_chunk(int size);
         std::unique_ptr<char[]> data_;
         int size_;
     };
 
     void
-    CopyToMemory(MemoryChunk* memory, const void* src);
+    copy_to_memory(memory_chunk* memory, const void* src);
 
-    [[nodiscard]] std::shared_ptr<MemoryChunk>
-    MemoryChunkFromText(const std::string& content);
+    [[nodiscard]] std::shared_ptr<memory_chunk>
+    create_memory_chunk_from_string(const std::string& content);
 
-    struct MemoryChunkFile
+    struct memory_chunk_file
     {
-        explicit MemoryChunkFile(std::shared_ptr<MemoryChunk> d);
+        explicit memory_chunk_file(std::shared_ptr<memory_chunk> d);
 
         void
-        Write(const void* src, int size);
+        write(const void* src, int size);
 
-        std::shared_ptr<MemoryChunk> data;
+        std::shared_ptr<memory_chunk> data;
         int position;
     };
 

@@ -86,7 +86,7 @@ namespace euphoria::t3d
 
 
         void
-        OnKey(core::Key key, bool down);
+        OnKey(core::key key, bool down);
 
 
         void

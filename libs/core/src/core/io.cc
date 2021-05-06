@@ -8,9 +8,9 @@
 namespace euphoria::core::io
 {
     void
-    ChunkToFile
+    chunk_to_file
     (
-        std::shared_ptr<MemoryChunk> chunk,
+        std::shared_ptr<memory_chunk> chunk,
         const std::string& full_path
     )
     {
@@ -20,11 +20,11 @@ namespace euphoria::core::io
             LOG_ERROR("Failed to open file for writing: {0}", full_path);
             return;
         }
-        file_handle.write(chunk->GetData(), chunk->GetSize());
+        file_handle.write(chunk->get_data(), chunk->get_size());
     }
 
-    std::shared_ptr<MemoryChunk>
-    FileToChunk(const std::string& full_path)
+    std::shared_ptr<memory_chunk>
+    file_to_chunk(const std::string& full_path)
     {
         std::ifstream is(full_path, std::ifstream::binary);
         if(!is)
@@ -32,7 +32,7 @@ namespace euphoria::core::io
             // this is actually not a error since other files might be later on in the vfs
             // test running test3d for a example where it tries to load real files over virtual ones
             // LOG_ERROR("Failed to read real file " << full_path);
-            return MemoryChunk::Null();
+            return memory_chunk::null();
         }
 
         is.seekg(0, std::ifstream::end);
@@ -41,14 +41,14 @@ namespace euphoria::core::io
 
         if(length <= 0)
         {
-            return MemoryChunk::Null();
+            return memory_chunk::null();
         }
 
-        auto memory = MemoryChunk::Alloc(length);
+        auto memory = memory_chunk::allocate(length);
         is.read
         (
-            static_cast<char*>(static_cast<void*>(memory->GetData())),
-            memory->GetSize()
+            static_cast<char*>(static_cast<void*>(memory->get_data())),
+            memory->get_size()
         );
 
         return memory;

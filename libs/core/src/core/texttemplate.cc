@@ -344,7 +344,7 @@ namespace euphoria::core
         {}
 
         [[nodiscard]] std::string
-        ToString() const
+        to_string() const
         {
             return Str() << LexTypeToString(type) << "(" << FirstChars(value)
                          << ")";
@@ -640,7 +640,7 @@ namespace euphoria::core
             file,
             reader->GetLine(),
             reader->GetColumn(),
-            Str() << "Reading EVAL, expected IDENT but found " << lex.ToString()
+            Str() << "Reading EVAL, expected IDENT but found " << lex.to_string()
         );
         std::shared_ptr<TemplateNodeEval> ret{new TemplateNodeEval{"parse_error"}};
         return ret;
@@ -666,7 +666,7 @@ namespace euphoria::core
                 file,
                 reader->GetLine(),
                 reader->GetColumn(),
-                Str() << "Reading SET, expected IDENT but found " << name.ToString()
+                Str() << "Reading SET, expected IDENT but found " << name.to_string()
             );
             std::shared_ptr<TemplateNodeSet> ret{new TemplateNodeSet{"parse_error", "parse_error"}};
             return ret;
@@ -681,7 +681,7 @@ namespace euphoria::core
                 file,
                 reader->GetLine(),
                 reader->GetColumn(),
-                Str() << "Reading SET, expected STRING but found " << val.ToString()
+                Str() << "Reading SET, expected STRING but found " << val.to_string()
             );
             std::shared_ptr<TemplateNodeSet> ret{new TemplateNodeSet{name.value, "parse_error"}};
             return ret;
@@ -717,7 +717,7 @@ namespace euphoria::core
             file,
             reader->GetLine(),
             reader->GetColumn(),
-            Str() << "Reading IFDEF, expected IDENT but found " << lex.ToString()
+            Str() << "Reading IFDEF, expected IDENT but found " << lex.to_string()
         );
         std::shared_ptr<TemplateNodeString> dummy {
                 new TemplateNodeString {"parse_error"}};
@@ -790,7 +790,7 @@ namespace euphoria::core
             file,
             reader->GetLine(),
             reader->GetColumn(),
-            Str() << "Reading INCLUDE, expected STRING but found " << lex.ToString()
+            Str() << "Reading INCLUDE, expected STRING but found " << lex.to_string()
         );
         std::shared_ptr<TemplateNodeList> ret {new TemplateNodeList {}};
         return ret;
@@ -841,7 +841,7 @@ namespace euphoria::core
                     file,
                     reader->GetLine(),
                     reader->GetColumn(),
-                    Str() << "Reading LIST " << expect_end << ", Found " << reader->Peek().ToString()
+                    Str() << "Reading LIST " << expect_end << ", Found " << reader->Peek().to_string()
                 );
                 return;
             }
@@ -862,7 +862,7 @@ namespace euphoria::core
                     file,
                     reader->GetLine(),
                     reader->GetColumn(),
-                    Str() << "Reading LIST, expected END but found " << end.ToString()
+                    Str() << "Reading LIST, expected END but found " << end.to_string()
                 );
             }
         }

@@ -39,7 +39,7 @@ LoadImages(const std::vector<std::string>& files)
 
     for(const auto& f: files)
     {
-        auto chunk = io::FileToChunk(f);
+        auto chunk = io::file_to_chunk(f);
         if(chunk == nullptr)
         {
             std::cerr << "failed to read image file " << f << "\n";
@@ -190,7 +190,7 @@ HandleImage
         );
     }
 
-    io::ChunkToFile(image.write(image_write_format::png), file);
+    io::chunk_to_file(image.write(image_write_format::png), file);
     return true;
 }
 

@@ -11,7 +11,7 @@
 
 namespace euphoria::core
 {
-    struct LoadedFont;
+    struct loaded_font;
 
     // get a rect encompassing the whole image
     recti
@@ -75,7 +75,7 @@ namespace euphoria::core
         const vec2i& start_pos,
         const std::string& text,
         const rgbai& color,
-        const LoadedFont& font
+        const loaded_font& font
     );
 
     enum class pixels_outside

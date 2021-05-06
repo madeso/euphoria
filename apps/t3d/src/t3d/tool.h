@@ -27,7 +27,7 @@ namespace euphoria::t3d
         
         
         virtual void
-        OnKey(Editor* editor, core::Key key, bool down) = 0;
+        OnKey(Editor* editor, core::key key, bool down) = 0;
         
         
         virtual void

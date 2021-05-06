@@ -51,7 +51,7 @@ namespace euphoria::core::vfs
         Describe(std::vector<std::string>* strings)
                 = 0;
 
-        virtual std::shared_ptr<MemoryChunk>
+        virtual std::shared_ptr<memory_chunk>
         ReadFile(const FilePath& path) = 0;
 
         virtual FileList
@@ -70,7 +70,7 @@ namespace euphoria::core::vfs
         void operator=(FileSystemWriteRoot&&) = delete;
 
         virtual void
-        WriteFile(const FilePath& path, std::shared_ptr<MemoryChunk> data) = 0;
+        WriteFile(const FilePath& path, std::shared_ptr<memory_chunk> data) = 0;
     };
 
     struct FileSystem
@@ -89,11 +89,11 @@ namespace euphoria::core::vfs
         void
         SetWrite(const std::shared_ptr<FileSystemWriteRoot>& root);
 
-        std::shared_ptr<MemoryChunk>
+        std::shared_ptr<memory_chunk>
         ReadFile(const FilePath& path);
 
         void
-        WriteFile(const FilePath& path, std::shared_ptr<MemoryChunk> data);
+        WriteFile(const FilePath& path, std::shared_ptr<memory_chunk> data);
 
         std::vector<ListedFile>
         ListFiles(const DirPath& path);
@@ -127,12 +127,12 @@ namespace euphoria::core::vfs
         void
         RegisterFileData(
                 const FilePath&                  path,
-                const std::shared_ptr<MemoryChunk>& content);
+                const std::shared_ptr<memory_chunk>& content);
 
         static std::shared_ptr<FileSystemRootCatalog>
         AddRoot(FileSystem* fs);
 
-        std::shared_ptr<MemoryChunk>
+        std::shared_ptr<memory_chunk>
         ReadFile(const FilePath& path) override;
 
         void
@@ -142,14 +142,14 @@ namespace euphoria::core::vfs
         ListFiles(const DirPath& path) override;
 
     private:
-        std::map<FilePath, std::shared_ptr<MemoryChunk>> catalog_;
+        std::map<FilePath, std::shared_ptr<memory_chunk>> catalog_;
     };
 
     struct FileSystemRootFolder : public FileSystemReadRoot
     {
         explicit FileSystemRootFolder(std::string folder);
 
-        std::shared_ptr<MemoryChunk>
+        std::shared_ptr<memory_chunk>
         ReadFile(const FilePath& path) override;
 
         static void
@@ -176,7 +176,7 @@ namespace euphoria::core::vfs
         WriteFile
         (
             const FilePath& path,
-            std::shared_ptr<MemoryChunk> data
+            std::shared_ptr<memory_chunk> data
         ) override;
 
         std::string folder;

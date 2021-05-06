@@ -6,7 +6,7 @@
 
 namespace euphoria::engine
 {
-    BoundVar::BoundVar(const std::string& n, const core::Key& k)
+    BoundVar::BoundVar(const std::string& n, const core::key& k)
         : name(n), state(0), last_state(0), key(k)
     {}
 
@@ -34,7 +34,7 @@ Input::Bind(Sol* duk)
     }
 
     void
-    Input::SetKeyState(core::Key key, float state)
+    Input::SetKeyState(core::key key, float state)
     {
         // todo(Gustav): move state to another class, and fix this loop
         for(const auto& bind: binds)

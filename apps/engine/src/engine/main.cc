@@ -227,11 +227,11 @@ main(int argc, char* argv[])
 
     for(const auto& bind: gamedata.binds)
     {
-        auto key = ToKey(bind.key);
-        if(key == Key::INVALID)
+        auto key = to_key(bind.key);
+        if(key == key::invalid)
         {
             LOG_ERROR("Invalid key: {0}", bind.key);
-            key = Key::UNBOUND;
+            key = key::unbound;
         }
 
         input.Add(std::make_shared<BoundVar>(bind.name, key));
@@ -386,7 +386,7 @@ main(int argc, char* argv[])
                 if(e.type == SDL_KEYUP)
                 {
                     const auto key = ToKey(e.key.keysym);
-                    if(key == Key::ESCAPE)
+                    if(key == key::escape)
                     {
                         running = false;
                     }

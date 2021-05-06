@@ -14,7 +14,7 @@ using namespace euphoria::core;
 bool PrintChar
 (
     text_box* dst,
-    const LoadedFont& font,
+    const loaded_font& font,
     int* sx,
     int sy,
     unsigned int codepoint
@@ -68,7 +68,7 @@ bool PrintChar
 bool PrintString
 (
     text_box* dst,
-    const LoadedFont& font,
+    const loaded_font& font,
     int sx,
     int sy,
     const std::string& str
@@ -103,7 +103,7 @@ enum class FontName
 };
 
 
-euphoria::core::LoadedFont
+euphoria::core::loaded_font
 GetFont
 (
     FontName font_name,
@@ -115,26 +115,26 @@ GetFont
     if(font_name == FontName::FontFile && font_file.empty())
     {
         std::cerr << "warning: Font file requested, but no file specified!";
-        return LoadCharactersFromBuiltin8();
+        return load_characters_from_builtin8();
     }
 
     // todo(gustav): check file name
     if(font_file.empty() == false)
     {
-        auto file = io::FileToChunk(font_file);
+        auto file = io::file_to_chunk(font_file);
         if(file == nullptr)
         {
             std::cerr << "Failed to open file: '" << font_file << "'\n";
         }
         else
         {
-            return GetCharactersFromFont(file, font_size, chars);
+            return get_characters_from_font(file, font_size, chars);
         }
     }
 
     return font_name == FontName::Builtin13
-        ? LoadCharactersFromBuiltin13()
-        : LoadCharactersFromBuiltin8()
+        ? load_characters_from_builtin13()
+        : load_characters_from_builtin8()
         ;
 }
 
